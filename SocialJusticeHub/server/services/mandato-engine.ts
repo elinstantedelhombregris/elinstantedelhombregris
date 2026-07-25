@@ -8,8 +8,10 @@
  *   1. A weekly digest with proposals, patterns, and action templates
  *   2. Per-territory mandates with convergence analysis and gap detection
  *
- * Uses Claude API for deep convergence analysis.
- * No voting. No debates. The data writes the mandate.
+ * LEGACY / FAIL-CLOSED: uses row-level testimony and an external model. It is
+ * retained only for migration compatibility and must be explicitly enabled.
+ * Its output is a non-binding draft that requires protected evidence review,
+ * deliberation by affected people, named responsibility, and an appeal path.
  */
 
 import Anthropic from '@anthropic-ai/sdk';

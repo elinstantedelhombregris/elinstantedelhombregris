@@ -13,6 +13,7 @@ import {
   excerptSignalText,
   isVoiceType,
 } from './lib/radar';
+import { requireLegacyRawPublicDataAccess } from './production-safety-policy';
 
 /**
  * Radar ¡BASTA! — API del colector móvil de señales.
@@ -82,7 +83,7 @@ export function registerRadarRoutes(app: Express): void {
     }
   });
 
-  app.get('/api/radar/resumen', async (_req, res: Response) => {
+  app.get('/api/radar/resumen', requireLegacyRawPublicDataAccess, async (_req, res: Response) => {
     try {
       if (resumenCache && Date.now() - resumenCache.generatedAt < RESUMEN_TTL_MS) {
         return res.json(resumenCache.data);

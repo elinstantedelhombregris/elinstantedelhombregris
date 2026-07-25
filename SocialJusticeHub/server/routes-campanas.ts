@@ -19,6 +19,7 @@ import {
 import type { CampaignFormSchema } from '@shared/campaign-forms';
 import * as campanas from './services/campanas-service';
 import { getCircleById, getMembership } from './services/circulos-service';
+import { requireLegacyRawPublicDataAccess } from './production-safety-policy';
 
 const entrySubmitRateLimit = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -296,7 +297,7 @@ export function registerCampanasRoutes(app: Express): void {
   });
 
   // ── Entradas (paginado; anonimizado para no-miembros) ──
-  app.get('/api/campanas/:id/entradas', publicReadRateLimit, optionalAuth, async (req: AuthRequest, res: Response) => {
+  app.get('/api/campanas/:id/entradas', requireLegacyRawPublicDataAccess, publicReadRateLimit, optionalAuth, async (req: AuthRequest, res: Response) => {
     try {
       const id = parseId(req.params.id);
       if (!id) return res.status(400).json({ message: 'Campaña inválida' });

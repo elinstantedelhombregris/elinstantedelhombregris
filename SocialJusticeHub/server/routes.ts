@@ -19,6 +19,13 @@ import { registerCirculosRoutes } from './routes-circulos';
 import { registerCampanasRoutes } from './routes-campanas';
 import { registerMapCampaignsRoutes } from './routes-map-campaigns';
 import { registerDashboardsRoutes } from './routes-dashboards';
+import { registerCivicEventRoutes } from './routes-civic-events';
+import { registerCivicAggregateRoutes } from './routes-civic-aggregates';
+import { registerCivicListeningRoutes } from './routes-civic-listening';
+import { registerCivicIntelligenceRoutes } from './routes-civic-intelligence';
+import { registerCivicCustodyRoutes } from './routes-civic-custody';
+import { registerCivicCustodyCoordinationRoutes } from './routes-civic-custody-coordination';
+import { registerCivicCustodyExecutionRoutes } from './routes-civic-custody-execution';
 import { startMandatoCron } from './services/mandato-engine';
 import { 
   insertUserSchema, 
@@ -56,6 +63,7 @@ import {
   TokenManager,
   PasswordManager,
   AuthError,
+  requireAdmin,
   type AuthRequest 
 } from './auth';
 import { 
@@ -95,6 +103,13 @@ import {
   calculateCosineSimilarity,
   batchGenerateEmbeddings,
 } from './services/embedding-service';
+import {
+  AUTOMATIC_AI_MANDATE_CRON_OPT_IN,
+  LEGACY_AI_MANDATE_ENGINE_OPT_IN,
+  evaluateProductionSafetyPolicy,
+  requireLegacyAiMandateEngineAccess,
+  requireLegacyRawPublicDataAccess,
+} from './production-safety-policy';
 
 // Helper: check if a user is a member (or creator) of an initiative
 async function requireMembership(postId: number, userId: number): Promise<boolean> {
@@ -190,12 +205,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
   registerCampanasRoutes(app);
   registerMapCampaignsRoutes(app);
   registerDashboardsRoutes(app);
+  registerCivicEventRoutes(app);
+  registerCivicAggregateRoutes(app);
+  registerCivicListeningRoutes(app);
+  registerCivicIntelligenceRoutes(app);
+  registerCivicCustodyRoutes(app);
+  registerCivicCustodyCoordinationRoutes(app);
+  registerCivicCustodyExecutionRoutes(app);
 
-  // Start weekly pulse cron (Fridays at 17:05 ART)
-  startMandatoCron();
+  // Raw-testimony AI synthesis is never implicit, including on localhost.
+  // Both loud gates are required before the legacy autonomous cron can run.
+  const productionSafety = evaluateProductionSafetyPolicy(process.env);
+  if (productionSafety.automaticAiMandateCronAllowed) {
+    startMandatoCron();
+  } else {
+    console.warn(
+      `[production-safety] Automatic AI Mandato cron is disabled. ` +
+      `The legacy path requires ${LEGACY_AI_MANDATE_ENGINE_OPT_IN}=true and ` +
+      `${AUTOMATIC_AI_MANDATE_CRON_OPT_IN}=true after an explicit governance review.`,
+    );
+  }
 
   // Get all dreams
-  app.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req: AuthRequest, res) => {
+  app.get("/api/dreams", requireLegacyRawPublicDataAccess, publicReadRateLimit, optionalAuth, async (req: AuthRequest, res) => {
     try {
       const { limit, offset } = parsePagination(req);
       const dreams = await storage.getDreams({ limit, offset });
@@ -244,7 +276,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // ==================== MANDATO VIVO: RESOURCES ====================
 
   // Get all active resources
-  app.get("/api/resources-map", optionalAuth, async (req: AuthRequest, res) => {
+  app.get("/api/resources-map", requireLegacyRawPublicDataAccess, optionalAuth, async (req: AuthRequest, res) => {
     try {
       const resources = await storage.getUserResources();
       res.json(resources);
@@ -290,20 +322,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // ==================== MANDATO VIVO: MANDATES & MATCHMAKER ====================
 
   // Generate mandate for a territory
-  app.post("/api/mandates/generate", authenticateToken, async (req: AuthRequest, res) => {
-    try {
-      const { territoryLevel, territoryName, province, city } = req.body;
-      if (!territoryLevel || !territoryName) {
-        return res.status(400).json({ message: "territoryLevel and territoryName are required" });
+  app.post(
+    "/api/mandates/generate",
+    authenticateToken,
+    requireAdmin,
+    requireLegacyAiMandateEngineAccess,
+    async (req: AuthRequest, res) => {
+      try {
+        const { territoryLevel, territoryName, province, city } = req.body;
+        if (!territoryLevel || !territoryName) {
+          return res.status(400).json({ message: "territoryLevel and territoryName are required" });
+        }
+        const { generateAndSaveMandate } = await import('./services/mandato-engine');
+        const result = await generateAndSaveMandate(territoryLevel, territoryName, province, city);
+        res.json(result);
+      } catch (error) {
+        console.error('Mandate generation error:', error);
+        res.status(500).json({ message: "Failed to generate mandate" });
       }
-      const { generateAndSaveMandate } = await import('./services/mandato-engine');
-      const result = await generateAndSaveMandate(territoryLevel, territoryName, province, city);
-      res.json(result);
-    } catch (error) {
-      console.error('Mandate generation error:', error);
-      res.status(500).json({ message: "Failed to generate mandate" });
-    }
-  });
+    },
+  );
 
   // Get all mandates (optionally by level)
   app.get("/api/mandates", optionalAuth, async (req: AuthRequest, res) => {
@@ -344,7 +382,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Publish a mandate
-  app.post("/api/mandates/:id/publish", authenticateToken, async (req: AuthRequest, res) => {
+  app.post("/api/mandates/:id/publish", authenticateToken, requireAdmin, async (req: AuthRequest, res) => {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) return res.status(400).json({ message: "Invalid mandate ID" });
@@ -360,7 +398,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Run matchmaker scan
-  app.post("/api/matchmaker/scan", authenticateToken, async (req: AuthRequest, res) => {
+  app.post("/api/matchmaker/scan", authenticateToken, requireAdmin, async (req: AuthRequest, res) => {
     try {
       const { scanAndSaveSuggestions } = await import('./matchmaker-service');
       const saved = await scanAndSaveSuggestions();
@@ -521,7 +559,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   }
 
   // Neural Network Graph API - People-Centered Structure
-  app.get("/api/neural-network/graph", optionalAuth, async (req: AuthRequest, res) => {
+  app.get("/api/neural-network/graph", requireLegacyRawPublicDataAccess, optionalAuth, async (req: AuthRequest, res) => {
     try {
       const minSimilarity = parseFloat((req.query.minSimilarity as string) || '0.3');
       const maxConnections = parseInt((req.query.maxConnections as string) || '10');
@@ -2139,7 +2177,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Invalid notification ID" });
       }
 
-      await storage.markNotificationAsRead(id);
+      await storage.markNotificationAsRead(id, req.user!.userId);
       res.json({ message: "Notification marked as read" });
     } catch (error) {
       res.status(500).json({ message: "Failed to mark notification as read" });
@@ -4025,7 +4063,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/missions/:slug/signals", async (req, res) => {
+  app.get("/api/missions/:slug/signals", requireLegacyRawPublicDataAccess, async (req, res) => {
     try {
       const { slug } = req.params;
       const mission = MISSIONS.find(m => m.slug === slug);
@@ -4979,7 +5017,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // ==================== GAMIFICATION ENDPOINTS ====================
 
   // Get recent commitments + semillero stats
-  app.get("/api/commitments", optionalAuth, async (req: AuthRequest, res) => {
+  app.get("/api/commitments", requireLegacyRawPublicDataAccess, optionalAuth, async (req: AuthRequest, res) => {
     try {
       const rawLimit = Number(req.query.limit);
       const limit = Number.isFinite(rawLimit) ? Math.max(1, Math.min(rawLimit, 100)) : 20;

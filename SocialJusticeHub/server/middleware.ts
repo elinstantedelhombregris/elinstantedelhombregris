@@ -83,7 +83,7 @@ export function corsConfig() {
       : originFunction,
     credentials: config.cors.credentials,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Idempotency-Key', 'X-Civic-Device-Token', 'X-Requested-With', 'Accept', 'Origin'],
     exposedHeaders: ['X-Total-Count', 'X-Page-Count'],
     preflightContinue: false,
     optionsSuccessStatus: 204,

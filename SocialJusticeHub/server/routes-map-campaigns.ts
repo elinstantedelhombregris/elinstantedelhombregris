@@ -6,12 +6,13 @@ import type { Express } from 'express';
 import { publicReadRateLimit } from './middleware';
 import type { CampaignLayersResponse } from '@shared/campaign-layers';
 import { computeCampaignLayers } from './services/campanas-service';
+import { requireLegacyRawPublicDataAccess } from './production-safety-policy';
 
 let layersCache: { data: CampaignLayersResponse; generatedAt: number } | null = null;
 const LAYERS_TTL_MS = 60 * 1000;
 
 export function registerMapCampaignsRoutes(app: Express): void {
-  app.get('/api/map/campaign-layers', publicReadRateLimit, async (_req, res) => {
+  app.get('/api/map/campaign-layers', requireLegacyRawPublicDataAccess, publicReadRateLimit, async (_req, res) => {
     try {
       if (layersCache && Date.now() - layersCache.generatedAt < LAYERS_TTL_MS) {
         return res.json(layersCache.data);

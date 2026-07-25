@@ -30,14 +30,27 @@ __export(schema_exports, {
   circleMembers: () => circleMembers,
   circleReports: () => circleReports,
   circles: () => circles,
+  civicActionLinks: () => civicActionLinks,
   civicAssessmentResponses: () => civicAssessmentResponses,
   civicAssessmentResponsesRelations: () => civicAssessmentResponsesRelations,
   civicAssessments: () => civicAssessments,
   civicAssessmentsRelations: () => civicAssessmentsRelations,
+  civicCustodyCoordinationDecisions: () => civicCustodyCoordinationDecisions,
+  civicCustodyCoordinationProposals: () => civicCustodyCoordinationProposals,
+  civicCustodyExecutionCommands: () => civicCustodyExecutionCommands,
+  civicCustodyExecutions: () => civicCustodyExecutions,
+  civicCustodyGrantResponses: () => civicCustodyGrantResponses,
+  civicCustodyGrantRevocations: () => civicCustodyGrantRevocations,
+  civicCustodyGrants: () => civicCustodyGrants,
+  civicDevices: () => civicDevices,
+  civicEntityOwners: () => civicEntityOwners,
+  civicEvents: () => civicEvents,
   civicGoals: () => civicGoals,
   civicGoalsRelations: () => civicGoalsRelations,
+  civicMatchParticipants: () => civicMatchParticipants,
   civicProfiles: () => civicProfiles,
   civicProfilesRelations: () => civicProfilesRelations,
+  civicVerificationClaims: () => civicVerificationClaims,
   coachingPrompts: () => coachingPrompts,
   coachingPromptsRelations: () => coachingPromptsRelations,
   coachingSessions: () => coachingSessions,
@@ -315,11 +328,11 @@ __export(schema_exports, {
   weeklyRankings: () => weeklyRankings,
   weeklyRankingsRelations: () => weeklyRankingsRelations
 });
-import { pgTable, serial, integer, text, real, boolean, unique, index } from "drizzle-orm/pg-core";
+import { pgTable, serial, integer, text, real, numeric, boolean, jsonb, timestamp, unique, uniqueIndex, index, check } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
-var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, ensayoLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, courseDefinitions, courseRevisions, courseLessonIdentities, courseRevisionLessons, courseRevisionQuizzes, courseRevisionQuizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, missionEvidence, missionChronicles, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, courseDefinitionsRelations, courseRevisionsRelations, courseLessonIdentitiesRelations, courseRevisionLessonsRelations, courseRevisionQuizzesRelations, courseRevisionQuizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, missionEvidenceRelations, missionChroniclesRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertCourseDefinitionSchema, insertCourseRevisionSchema, insertCourseLessonIdentitySchema, insertCourseRevisionLessonSchema, insertCourseRevisionQuizSchema, insertCourseRevisionQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMissionEvidenceSchema, insertMissionChronicleSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema, circles, circleMembers, circleInvites, circleReports, campaignTemplates, campaigns, campaignEntries, insertCircleSchema, insertCircleMemberSchema, insertCircleInviteSchema, insertCircleReportSchema, insertCampaignTemplateSchema, insertCampaignSchema, insertCampaignEntrySchema;
+var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, ensayoLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, courseDefinitions, courseRevisions, courseLessonIdentities, courseRevisionLessons, courseRevisionQuizzes, courseRevisionQuizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, missionEvidence, missionChronicles, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, courseDefinitionsRelations, courseRevisionsRelations, courseLessonIdentitiesRelations, courseRevisionLessonsRelations, courseRevisionQuizzesRelations, courseRevisionQuizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, missionEvidenceRelations, missionChroniclesRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertCourseDefinitionSchema, insertCourseRevisionSchema, insertCourseLessonIdentitySchema, insertCourseRevisionLessonSchema, insertCourseRevisionQuizSchema, insertCourseRevisionQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMissionEvidenceSchema, insertMissionChronicleSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema, circles, circleMembers, circleInvites, circleReports, campaignTemplates, campaigns, campaignEntries, civicDevices, civicEvents, civicEntityOwners, civicCustodyGrants, civicCustodyGrantRevocations, civicCustodyGrantResponses, civicCustodyCoordinationProposals, civicCustodyCoordinationDecisions, civicCustodyExecutions, civicCustodyExecutionCommands, civicVerificationClaims, civicMatchParticipants, civicActionLinks, insertCircleSchema, insertCircleMemberSchema, insertCircleInviteSchema, insertCircleReportSchema, insertCampaignTemplateSchema, insertCampaignSchema, insertCampaignEntrySchema;
 var init_schema = __esm({
   "shared/schema.ts"() {
     "use strict";
@@ -3210,6 +3223,590 @@ var init_schema = __esm({
       statusIdx: index("ce_status_idx").on(table.status),
       submittedByIdx: index("ce_submitted_by_idx").on(table.submittedBy)
     }));
+    civicDevices = pgTable("civic_devices", {
+      id: serial("id").primaryKey(),
+      actorKey: text("actor_key").notNull().unique(),
+      secretHash: text("secret_hash").notNull(),
+      role: text("role").notNull().default("contributor").$type(),
+      linkedUserId: integer("linked_user_id").references(() => users.id),
+      revokedAt: text("revoked_at"),
+      lastSeenAt: text("last_seen_at").default(sql`now()`),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    }, (table) => ({
+      linkedUserIdx: index("civic_devices_linked_user_idx").on(table.linkedUserId),
+      roleIdx: index("civic_devices_role_idx").on(table.role),
+      actorKeyShape: check(
+        "civic_devices_actor_key_check",
+        sql`${table.actorKey} ~ '^actor_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      )
+    }));
+    civicEvents = pgTable("civic_events", {
+      id: serial("id").primaryKey(),
+      eventId: text("event_id").notNull().unique(),
+      idempotencyKey: text("idempotency_key").notNull().unique(),
+      actorKey: text("actor_key").notNull().references(() => civicDevices.actorKey),
+      entityType: text("entity_type").notNull().$type(),
+      entityId: text("entity_id").notNull(),
+      operation: text("operation").notNull().$type(),
+      payloadJson: text("payload_json").notNull(),
+      /** Hash canónico del sobre completo para detectar reuso conflictivo de claves. */
+      eventHash: text("event_hash").notNull(),
+      occurredAt: text("occurred_at").notNull(),
+      receivedAt: text("received_at").default(sql`now()`)
+    }, (table) => ({
+      actorIdx: index("civic_events_actor_idx").on(table.actorKey),
+      entityIdx: index("civic_events_entity_idx").on(table.entityType, table.entityId),
+      occurredIdx: index("civic_events_occurred_idx").on(table.occurredAt),
+      eventIdShape: check(
+        "civic_events_event_id_check",
+        sql`${table.eventId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      entityIdShape: check(
+        "civic_events_entity_id_check",
+        sql`${table.entityId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      )
+    }));
+    civicEntityOwners = pgTable("civic_entity_owners", {
+      id: serial("id").primaryKey(),
+      entityType: text("entity_type").notNull(),
+      entityId: text("entity_id").notNull(),
+      ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueEntity: unique("civic_entity_owners_entity_unique").on(table.entityType, table.entityId),
+      /**
+       * Un id no puede representar a la vez una necesidad pública y una necesidad
+       * bajo custodia. El namespace privado evita que match/action descubran por
+       * accidente un caso que nunca fue publicado.
+       */
+      needNamespaceExclusive: uniqueIndex("civic_entity_owners_need_namespace_unique").on(table.entityId).where(sql`${table.entityType} IN ('need', 'custody_need')`),
+      ownerIdx: index("civic_entity_owners_actor_idx").on(table.ownerActorKey),
+      entityIdShape: check(
+        "civic_entity_owners_entity_id_check",
+        sql`${table.entityId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      )
+    }));
+    civicCustodyGrants = pgTable("civic_custody_grants", {
+      id: serial("id").primaryKey(),
+      grantId: text("grant_id").notNull().unique(),
+      idempotencyKey: text("idempotency_key").notNull(),
+      requestHash: text("request_hash").notNull(),
+      needId: text("need_id").notNull(),
+      ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+      grantorUserId: integer("grantor_user_id").notNull().references(() => users.id),
+      /** v1 sólo admite `circle`; organización falla cerrada en el servicio. */
+      recipientType: text("recipient_type").notNull().$type(),
+      recipientCircleId: integer("recipient_circle_id").notNull().references(() => circles.id),
+      payloadJson: jsonb("payload_json").notNull().$type(),
+      expiresAt: timestamp("expires_at", { withTimezone: true, mode: "string" }).notNull(),
+      revokedAt: timestamp("revoked_at", { withTimezone: true, mode: "string" }),
+      revokedByUserId: integer("revoked_by_user_id").references(() => users.id),
+      /** Libera de forma auditable el único slot abierto de la necesidad. */
+      closedAt: timestamp("closed_at", { withTimezone: true, mode: "string" }),
+      closedReason: text("closed_reason").$type(),
+      createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).notNull().defaultNow(),
+      updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" }).notNull().defaultNow()
+    }, (table) => ({
+      grantorIdempotencyUnique: unique("civic_custody_grants_grantor_idem_unique").on(table.grantorUserId, table.idempotencyKey),
+      recipientActiveIdx: index("civic_custody_grants_recipient_active_idx").on(table.recipientCircleId, table.revokedAt, table.expiresAt),
+      ownerNeedIdx: index("civic_custody_grants_owner_need_idx").on(table.ownerActorKey, table.needId),
+      oneOpenNeed: uniqueIndex("civic_custody_grants_one_open_need_idx").on(table.needId).where(sql`${table.closedAt} IS NULL`),
+      grantIdShape: check(
+        "civic_custody_grants_grant_id_check",
+        sql`${table.grantId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      needIdShape: check(
+        "civic_custody_grants_need_id_check",
+        sql`${table.needId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      idempotencyShape: check(
+        "civic_custody_grants_idempotency_check",
+        sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`
+      ),
+      requestHashShape: check(
+        "civic_custody_grants_hash_check",
+        sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`
+      ),
+      recipientCircleOnly: check(
+        "civic_custody_grants_circle_only_check",
+        sql`${table.recipientType} = 'circle' AND ${table.recipientCircleId} IS NOT NULL`
+      ),
+      payloadSize: check(
+        "civic_custody_grants_payload_size_check",
+        sql`pg_column_size(${table.payloadJson}) <= 4096`
+      ),
+      expiryWindow: check(
+        "civic_custody_grants_expiry_check",
+        sql`${table.expiresAt} >= ${table.createdAt} + interval '5 minutes'
+      AND ${table.expiresAt} <= ${table.createdAt} + interval '90 days'`
+      ),
+      revocationPair: check(
+        "civic_custody_grants_revocation_check",
+        sql`(${table.revokedAt} IS NULL AND ${table.revokedByUserId} IS NULL)
+      OR (${table.revokedAt} IS NOT NULL AND ${table.revokedByUserId} IS NOT NULL)`
+      ),
+      closurePair: check(
+        "civic_custody_grants_closure_check",
+        sql`(
+        ${table.closedAt} IS NULL
+        AND ${table.closedReason} IS NULL
+        AND ${table.revokedAt} IS NULL
+        AND ${table.revokedByUserId} IS NULL
+      )
+      OR (
+        ${table.closedAt} IS NOT NULL
+        AND ${table.closedReason} IN ('revoked', 'expired', 'superseded')
+        AND (
+          (${table.closedReason} = 'revoked' AND ${table.revokedAt} = ${table.closedAt})
+          OR (${table.closedReason} IN ('expired', 'superseded') AND ${table.revokedAt} IS NULL)
+        )
+      )`
+      ),
+      payloadAllowlist: check(
+        "civic_custody_grants_payload_allowlist_check",
+        sql`(
+      jsonb_typeof(${table.payloadJson}) = 'object'
+      AND ${table.payloadJson} ?& ARRAY['category','quantity','unit','urgency','location']::text[]
+      AND (${table.payloadJson} - ARRAY['category','quantity','unit','urgency','location']::text[]) = '{}'::jsonb
+      AND jsonb_typeof(${table.payloadJson} -> 'category') = 'string'
+      AND (${table.payloadJson} ->> 'category') IN (
+        'food','housing','work','care','health','education',
+        'environment','mobility','safety','culture','democracy'
+      )
+      AND jsonb_typeof(${table.payloadJson} -> 'urgency') = 'number'
+      AND ((${table.payloadJson} ->> 'urgency')::numeric % 1) = 0
+      AND (${table.payloadJson} ->> 'urgency')::numeric BETWEEN 1 AND 5
+      AND (
+        ${table.payloadJson} -> 'quantity' = 'null'::jsonb
+        OR (
+          jsonb_typeof(${table.payloadJson} -> 'quantity') = 'number'
+          AND (${table.payloadJson} ->> 'quantity')::numeric > 0
+          AND (${table.payloadJson} ->> 'quantity')::numeric <= 1000000000
+        )
+      )
+      AND (
+        ${table.payloadJson} -> 'unit' = 'null'::jsonb
+        OR (
+          jsonb_typeof(${table.payloadJson} -> 'unit') = 'string'
+          AND ${table.payloadJson} -> 'quantity' <> 'null'::jsonb
+          AND (${table.payloadJson} ->> 'unit') IN (
+            'people','meals','units','hours','kilograms','liters',
+            'trips','days','beds','kits','other'
+          )
+        )
+      )
+      AND (
+        ${table.payloadJson} -> 'location' = 'null'::jsonb
+        OR (
+          jsonb_typeof(${table.payloadJson} -> 'location') = 'object'
+          AND (${table.payloadJson} -> 'location' ?& ARRAY['lat','lng','precision']::text[])
+          AND ((${table.payloadJson} -> 'location') - ARRAY['lat','lng','precision']::text[]) = '{}'::jsonb
+          AND jsonb_typeof(${table.payloadJson} -> 'location' -> 'lat') = 'number'
+          AND jsonb_typeof(${table.payloadJson} -> 'location' -> 'lng') = 'number'
+          AND jsonb_typeof(${table.payloadJson} -> 'location' -> 'precision') = 'string'
+          AND (${table.payloadJson} -> 'location' ->> 'lat')::numeric BETWEEN -90 AND 90
+          AND (${table.payloadJson} -> 'location' ->> 'lng')::numeric BETWEEN -180 AND 180
+          AND (${table.payloadJson} -> 'location' ->> 'precision') IN ('500m','neighborhood','city')
+        )
+      )
+    ) IS TRUE`
+      )
+    }));
+    civicCustodyGrantRevocations = pgTable("civic_custody_grant_revocations", {
+      id: serial("id").primaryKey(),
+      grantId: text("grant_id").notNull().references(() => civicCustodyGrants.grantId),
+      idempotencyKey: text("idempotency_key").notNull(),
+      requestHash: text("request_hash").notNull(),
+      revokedByUserId: integer("revoked_by_user_id").notNull().references(() => users.id),
+      revokedAt: timestamp("revoked_at", { withTimezone: true, mode: "string" }).notNull(),
+      createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).notNull().defaultNow()
+    }, (table) => ({
+      userIdempotencyUnique: unique("civic_custody_revocations_user_idem_unique").on(table.revokedByUserId, table.idempotencyKey),
+      grantIdx: index("civic_custody_revocations_grant_idx").on(table.grantId),
+      idempotencyShape: check(
+        "civic_custody_revocations_idempotency_check",
+        sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`
+      ),
+      requestHashShape: check(
+        "civic_custody_revocations_hash_check",
+        sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`
+      )
+    }));
+    civicCustodyGrantResponses = pgTable("civic_custody_grant_responses", {
+      id: serial("id").primaryKey(),
+      responseId: text("response_id").notNull().unique(),
+      idempotencyKey: text("idempotency_key").notNull(),
+      requestHash: text("request_hash").notNull(),
+      grantId: text("grant_id").notNull().references(() => civicCustodyGrants.grantId),
+      responderUserId: integer("responder_user_id").notNull().references(() => users.id),
+      disposition: text("disposition").notNull().$type(),
+      quantity: numeric("quantity", { mode: "number" }),
+      unit: text("unit").$type(),
+      applied: boolean("applied").notNull().default(true),
+      createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).notNull().defaultNow()
+    }, (table) => ({
+      responderIdempotencyUnique: unique("civic_custody_responses_user_idem_unique").on(table.responderUserId, table.idempotencyKey),
+      grantAppliedIdx: index("civic_custody_responses_grant_applied_idx").on(table.grantId, table.applied, table.id.desc()),
+      responseIdShape: check(
+        "civic_custody_responses_response_id_check",
+        sql`${table.responseId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      idempotencyShape: check(
+        "civic_custody_responses_idempotency_check",
+        sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`
+      ),
+      requestHashShape: check(
+        "civic_custody_responses_hash_check",
+        sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`
+      ),
+      dispositionShape: check(
+        "civic_custody_responses_disposition_check",
+        sql`${table.disposition} IN ('assessing', 'support_available')`
+      ),
+      appliedOutcome: check(
+        "civic_custody_responses_applied_check",
+        sql`${table.disposition} = 'assessing' OR ${table.applied} = TRUE`
+      ),
+      quantityUnitShape: check(
+        "civic_custody_responses_quantity_unit_check",
+        sql`(
+      ${table.disposition} = 'assessing'
+      AND ${table.quantity} IS NULL
+      AND ${table.unit} IS NULL
+    ) OR (
+      ${table.disposition} = 'support_available'
+      AND (
+        (${table.quantity} IS NULL AND ${table.unit} IS NULL)
+        OR (
+          ${table.quantity} IS NOT NULL
+          AND ${table.unit} IS NOT NULL
+          AND
+          ${table.quantity} > 0
+          AND ${table.quantity} <= 1000000000
+          AND ${table.unit} IN (
+            'people','meals','units','hours','kilograms','liters',
+            'trips','days','beds','kits','other'
+          )
+        )
+      )
+    )`
+      )
+    }));
+    civicCustodyCoordinationProposals = pgTable("civic_custody_coordination_proposals", {
+      id: serial("id").primaryKey(),
+      proposalId: text("proposal_id").notNull().unique(),
+      grantId: text("grant_id").notNull().unique().references(() => civicCustodyGrants.grantId),
+      sourceResponseId: text("source_response_id").notNull().unique().references(() => civicCustodyGrantResponses.responseId),
+      idempotencyKey: text("idempotency_key").notNull(),
+      requestHash: text("request_hash").notNull(),
+      proposerUserId: integer("proposer_user_id").notNull().references(() => users.id),
+      quantity: numeric("quantity", { mode: "number" }),
+      unit: text("unit").$type(),
+      /** Copia inmutable del vencimiento del grant al crear la propuesta. */
+      expiresAt: timestamp("expires_at", { withTimezone: true, mode: "string" }).notNull(),
+      createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).notNull().default(sql`clock_timestamp()`)
+    }, (table) => ({
+      proposerIdempotencyUnique: unique("civic_custody_coordination_proposer_idem_unique").on(table.proposerUserId, table.idempotencyKey),
+      proposalIdShape: check(
+        "civic_custody_coordination_proposal_id_check",
+        sql`${table.proposalId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      deterministicProposalId: check(
+        "civic_custody_coordination_proposal_id_deterministic",
+        sql`${table.proposalId} = derive_civic_custody_coordination_uuid(${table.grantId}, 'proposal')`
+      ),
+      idempotencyShape: check(
+        "civic_custody_coordination_idempotency_check",
+        sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`
+      ),
+      requestHashShape: check(
+        "civic_custody_coordination_hash_check",
+        sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`
+      ),
+      quantityUnitShape: check(
+        "civic_custody_coordination_quantity_unit_check",
+        sql`(${table.quantity} IS NULL AND ${table.unit} IS NULL)
+      OR (
+        ${table.quantity} IS NOT NULL
+        AND ${table.unit} IS NOT NULL
+        AND ${table.quantity} > 0
+        AND ${table.quantity} <= 1000000000
+        AND ${table.unit} IN (
+          'people','meals','units','hours','kilograms','liters',
+          'trips','days','beds','kits','other'
+        )
+      )`
+      ),
+      temporalShape: check(
+        "civic_custody_coordination_temporal_check",
+        sql`${table.expiresAt} > ${table.createdAt}`
+      )
+    }));
+    civicCustodyCoordinationDecisions = pgTable("civic_custody_coordination_decisions", {
+      id: serial("id").primaryKey(),
+      decisionId: text("decision_id").notNull().unique(),
+      proposalId: text("proposal_id").notNull().unique().references(() => civicCustodyCoordinationProposals.proposalId),
+      idempotencyKey: text("idempotency_key").notNull(),
+      requestHash: text("request_hash").notNull(),
+      deciderUserId: integer("decider_user_id").notNull().references(() => users.id),
+      ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+      decision: text("decision").notNull().$type(),
+      createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).notNull().default(sql`clock_timestamp()`)
+    }, (table) => ({
+      deciderIdempotencyUnique: unique("civic_custody_coordination_decider_idem_unique").on(table.deciderUserId, table.idempotencyKey),
+      decisionIdShape: check(
+        "civic_custody_coordination_decision_id_check",
+        sql`${table.decisionId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      deterministicDecisionId: check(
+        "civic_custody_coordination_decision_id_deterministic",
+        sql`${table.decisionId} = derive_civic_custody_coordination_uuid(${table.proposalId}, 'decision')`
+      ),
+      idempotencyShape: check(
+        "civic_custody_coordination_decision_idempotency_check",
+        sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`
+      ),
+      requestHashShape: check(
+        "civic_custody_coordination_decision_hash_check",
+        sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`
+      ),
+      decisionShape: check(
+        "civic_custody_coordination_decision_check",
+        sql`${table.decision} IN ('accept', 'decline')`
+      )
+    }));
+    civicCustodyExecutions = pgTable("civic_custody_executions", {
+      id: serial("id").primaryKey(),
+      proposalId: text("proposal_id").notNull().unique().references(() => civicCustodyCoordinationProposals.proposalId),
+      acceptedDecisionId: text("accepted_decision_id").notNull().unique().references(() => civicCustodyCoordinationDecisions.decisionId),
+      grantId: text("grant_id").notNull().unique().references(() => civicCustodyGrants.grantId),
+      proposerUserId: integer("proposer_user_id").notNull().references(() => users.id),
+      grantorUserId: integer("grantor_user_id").notNull().references(() => users.id),
+      ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+      quantity: numeric("quantity", { mode: "number" }),
+      unit: text("unit").$type(),
+      expiresAt: timestamp("expires_at", { withTimezone: true, mode: "string" }).notNull(),
+      acceptedAt: timestamp("accepted_at", { withTimezone: true, mode: "string" }).notNull(),
+      createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).notNull().default(sql`clock_timestamp()`)
+    }, (table) => ({
+      proposalLookupIdx: index("civic_custody_executions_proposal_idx").on(table.proposalId),
+      partiesDistinct: check(
+        "civic_custody_executions_parties_distinct_check",
+        sql`${table.proposerUserId} <> ${table.grantorUserId}`
+      ),
+      capacityShape: check(
+        "civic_custody_executions_capacity_check",
+        sql`(${table.quantity} IS NULL AND ${table.unit} IS NULL)
+      OR (
+        ${table.quantity} IS NOT NULL
+        AND ${table.unit} IS NOT NULL
+        AND ${table.quantity} > 0
+        AND ${table.quantity} <= 1000000000
+        AND ${table.unit} IN (
+          'people','meals','units','hours','kilograms','liters',
+          'trips','days','beds','kits','other'
+        )
+      )`
+      ),
+      temporalShape: check(
+        "civic_custody_executions_temporal_check",
+        sql`${table.acceptedAt} < ${table.expiresAt} AND ${table.createdAt} >= ${table.acceptedAt}`
+      )
+    }));
+    civicCustodyExecutionCommands = pgTable("civic_custody_execution_commands", {
+      id: serial("id").primaryKey(),
+      eventId: text("event_id").notNull().unique(),
+      proposalId: text("proposal_id").notNull().references(() => civicCustodyExecutions.proposalId),
+      idempotencyKey: text("idempotency_key").notNull(),
+      requestHash: text("request_hash").notNull(),
+      actorRole: text("actor_role").notNull().$type(),
+      actorUserId: integer("actor_user_id").notNull().references(() => users.id),
+      ownerActorKey: text("owner_actor_key").references(() => civicDevices.actorKey),
+      eventType: text("event_type").notNull().$type(),
+      expectedVersion: text("expected_version").notNull(),
+      quantity: numeric("quantity", { mode: "number" }),
+      unit: text("unit").$type(),
+      receiptOutcome: text("receipt_outcome").$type(),
+      followUpOutcome: text("follow_up_outcome").$type(),
+      applied: boolean("applied").notNull(),
+      rejectionReason: text("rejection_reason").$type(),
+      sequence: integer("sequence"),
+      eventVersion: text("event_version"),
+      createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).notNull().default(sql`clock_timestamp()`)
+    }, (table) => ({
+      actorIdempotencyUnique: unique("civic_custody_execution_actor_idem_unique").on(table.actorUserId, table.idempotencyKey),
+      proposalLedgerIdx: index("civic_custody_execution_proposal_ledger_idx").on(table.proposalId, table.id),
+      appliedMilestoneUnique: uniqueIndex("civic_custody_execution_applied_milestone_unique").on(table.proposalId, table.eventType).where(sql`${table.applied} = TRUE`),
+      appliedSequenceUnique: uniqueIndex("civic_custody_execution_applied_sequence_unique").on(table.proposalId, table.sequence).where(sql`${table.applied} = TRUE`),
+      eventIdShape: check(
+        "civic_custody_execution_event_id_check",
+        sql`${table.eventId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      exactIdempotencyKey: check(
+        "civic_custody_execution_idempotency_check",
+        sql`${table.idempotencyKey} = 'custody:' || ${table.proposalId} || ':execution:event:' || ${table.eventId}`
+      ),
+      requestHashShape: check(
+        "civic_custody_execution_request_hash_check",
+        sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`
+      ),
+      expectedVersionShape: check(
+        "civic_custody_execution_expected_version_check",
+        sql`${table.expectedVersion} ~ '^[0-9a-f]{64}$'`
+      ),
+      eventVersionShape: check(
+        "civic_custody_execution_event_version_check",
+        sql`${table.eventVersion} IS NULL OR ${table.eventVersion} ~ '^[0-9a-f]{64}$'`
+      ),
+      actorShape: check(
+        "civic_custody_execution_actor_check",
+        sql`(${table.actorRole} = 'coordinator' AND ${table.ownerActorKey} IS NULL)
+      OR (${table.actorRole} = 'grantor' AND ${table.ownerActorKey} IS NOT NULL)`
+      ),
+      eventTypeShape: check(
+        "civic_custody_execution_event_type_check",
+        sql`${table.eventType} IN (
+      'reserve','grantor_ready','coordinator_ready','start_delivery',
+      'report_delivery','confirm_receipt','record_follow_up','withdraw'
+    )`
+      ),
+      resultShape: check(
+        "civic_custody_execution_result_check",
+        sql`(
+      ${table.applied} = TRUE
+      AND ${table.rejectionReason} IS NULL
+      AND ${table.sequence} IS NOT NULL
+      AND ${table.sequence} > 0
+      AND ${table.eventVersion} IS NOT NULL
+    ) OR (
+      ${table.applied} = FALSE
+      AND ${table.rejectionReason} IN ('version_changed','transition_not_allowed')
+      AND ${table.sequence} IS NULL
+      AND ${table.eventVersion} IS NULL
+    )`
+      ),
+      payloadShape: check(
+        "civic_custody_execution_payload_check",
+        sql`(
+      ${table.eventType} IN ('reserve','grantor_ready','coordinator_ready','start_delivery','withdraw')
+      AND ${table.quantity} IS NULL
+      AND ${table.unit} IS NULL
+      AND ${table.receiptOutcome} IS NULL
+      AND ${table.followUpOutcome} IS NULL
+    ) OR (
+      ${table.eventType} = 'report_delivery'
+      AND ${table.receiptOutcome} IS NULL
+      AND ${table.followUpOutcome} IS NULL
+      AND (
+        (${table.quantity} IS NULL AND ${table.unit} IS NULL)
+        OR (
+          ${table.quantity} > 0
+          AND ${table.quantity} <= 1000000000
+          AND (
+            ${table.unit} IS NULL
+            OR ${table.unit} IN (
+              'people','meals','units','hours','kilograms','liters',
+              'trips','days','beds','kits','other'
+            )
+          )
+        )
+      )
+    ) OR (
+      ${table.eventType} = 'confirm_receipt'
+      AND ${table.receiptOutcome} IN ('full','partial','not_received')
+      AND ${table.followUpOutcome} IS NULL
+      AND (
+        (${table.receiptOutcome} = 'not_received' AND ${table.quantity} IS NULL AND ${table.unit} IS NULL)
+        OR (
+          ${table.receiptOutcome} IN ('full','partial')
+          AND (
+            (${table.quantity} IS NULL AND ${table.unit} IS NULL)
+            OR (
+              ${table.quantity} > 0
+              AND ${table.quantity} <= 1000000000
+              AND (
+                ${table.unit} IS NULL
+                OR ${table.unit} IN (
+                  'people','meals','units','hours','kilograms','liters',
+                  'trips','days','beds','kits','other'
+                )
+              )
+            )
+          )
+        )
+      )
+    ) OR (
+      ${table.eventType} = 'record_follow_up'
+      AND ${table.quantity} IS NULL
+      AND ${table.unit} IS NULL
+      AND ${table.receiptOutcome} IS NULL
+      AND ${table.followUpOutcome} IN ('need_met','still_open')
+    )`
+      )
+    }));
+    civicVerificationClaims = pgTable("civic_verification_claims", {
+      id: serial("id").primaryKey(),
+      observationId: text("observation_id").notNull(),
+      verifierActorKey: text("verifier_actor_key").notNull().references(() => civicDevices.actorKey),
+      verificationId: text("verification_id").notNull().unique(),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      actorOnce: unique("civic_verification_claims_actor_once").on(table.observationId, table.verifierActorKey),
+      observationIdx: index("civic_verification_claims_observation_idx").on(table.observationId),
+      observationIdShape: check(
+        "civic_verification_claims_observation_id_check",
+        sql`${table.observationId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      verificationIdShape: check(
+        "civic_verification_claims_verification_id_check",
+        sql`${table.verificationId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      )
+    }));
+    civicMatchParticipants = pgTable("civic_match_participants", {
+      id: serial("id").primaryKey(),
+      matchId: text("match_id").notNull().unique(),
+      needActorKey: text("need_actor_key").notNull().references(() => civicDevices.actorKey),
+      resourceActorKey: text("resource_actor_key").notNull().references(() => civicDevices.actorKey),
+      createdByActorKey: text("created_by_actor_key").notNull().references(() => civicDevices.actorKey),
+      needAcceptedAt: text("need_accepted_at"),
+      resourceAcceptedAt: text("resource_accepted_at"),
+      fulfilledAt: text("fulfilled_at"),
+      confirmedAt: text("confirmed_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      needActorIdx: index("civic_match_participants_need_idx").on(table.needActorKey),
+      resourceActorIdx: index("civic_match_participants_resource_idx").on(table.resourceActorKey),
+      distinctSides: check("civic_match_participants_distinct_sides", sql`${table.needActorKey} <> ${table.resourceActorKey}`),
+      matchIdShape: check(
+        "civic_match_participants_match_id_check",
+        sql`${table.matchId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      )
+    }));
+    civicActionLinks = pgTable("civic_action_links", {
+      id: serial("id").primaryKey(),
+      actionId: text("action_id").notNull().unique(),
+      matchId: text("match_id").notNull(),
+      createdByActorKey: text("created_by_actor_key").notNull().references(() => civicDevices.actorKey),
+      completedAt: text("completed_at"),
+      confirmedAt: text("confirmed_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      matchIdx: index("civic_action_links_match_idx").on(table.matchId),
+      actionIdShape: check(
+        "civic_action_links_action_id_check",
+        sql`${table.actionId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      ),
+      matchIdShape: check(
+        "civic_action_links_match_id_check",
+        sql`${table.matchId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`
+      )
+    }));
     insertCircleSchema = createInsertSchema(circles).omit({ id: true, createdAt: true, updatedAt: true });
     insertCircleMemberSchema = createInsertSchema(circleMembers).omit({ id: true, joinedAt: true });
     insertCircleInviteSchema = createInsertSchema(circleInvites).omit({ id: true, createdAt: true });
@@ -3311,8 +3908,10 @@ var init_config = __esm({
 
 // server/db.ts
 import { neon } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
-var databaseUrl, sql2, db;
+import ws from "ws";
+import { drizzle as drizzleHttp } from "drizzle-orm/neon-http";
+import { drizzle as drizzleServerless } from "drizzle-orm/neon-serverless";
+var databaseUrl, db, civicTransactionDb;
 var init_db = __esm({
   "server/db.ts"() {
     "use strict";
@@ -3322,8 +3921,8 @@ var init_db = __esm({
     if (!databaseUrl) {
       throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
     }
-    sql2 = neon(databaseUrl);
-    db = drizzle(sql2, { schema: schema_exports });
+    db = drizzleHttp(neon(databaseUrl), { schema: schema_exports });
+    civicTransactionDb = drizzleServerless({ connection: databaseUrl, ws, schema: schema_exports });
   }
 });
 
@@ -8291,7 +8890,7 @@ var init_course_content = __esm({
 });
 
 // server/course-content-store.ts
-import { and, asc, desc, eq, ilike, or, sql as sql3 } from "drizzle-orm";
+import { and, asc, desc, eq, ilike, or, sql as sql2 } from "drizzle-orm";
 function isPublicCourseRevision(revision) {
   return revision.isPublished === true;
 }
@@ -8464,7 +9063,7 @@ async function getPublishedCourseById(courseId) {
 }
 async function incrementPublishedCourseView(courseId) {
   await db.update(courseDefinitions).set({
-    viewCount: sql3`${courseDefinitions.viewCount} + 1`,
+    viewCount: sql2`${courseDefinitions.viewCount} + 1`,
     updatedAt: (/* @__PURE__ */ new Date()).toISOString()
   }).where(eq(courseDefinitions.id, courseId));
 }
@@ -8473,7 +9072,7 @@ async function getPublishedCourses(filters) {
   const limit = filters?.limit || 12;
   const offset = (page - 1) * limit;
   const conditions = [
-    sql3`${courseDefinitions.currentPublishedRevisionId} is not null`,
+    sql2`${courseDefinitions.currentPublishedRevisionId} is not null`,
     eq(courseRevisions.isPublished, true)
   ];
   if (filters?.category) {
@@ -8494,7 +9093,7 @@ async function getPublishedCourses(filters) {
     ));
   }
   const whereCondition = and(...conditions);
-  const totalRows = await db.select({ count: sql3`count(*)` }).from(courseDefinitions).innerJoin(courseRevisions, eq(courseRevisions.id, courseDefinitions.currentPublishedRevisionId)).where(whereCondition);
+  const totalRows = await db.select({ count: sql2`count(*)` }).from(courseDefinitions).innerJoin(courseRevisions, eq(courseRevisions.id, courseDefinitions.currentPublishedRevisionId)).where(whereCondition);
   const total = Number(totalRows[0]?.count || 0);
   let orderByClause;
   if (filters?.sortBy === "popular") {
@@ -8509,12 +9108,12 @@ async function getPublishedCourses(filters) {
   const rows = await db.select({
     definition: courseDefinitions,
     revision: courseRevisions,
-    lessonCount: sql3`(
+    lessonCount: sql2`(
         select count(*)
         from ${courseRevisionLessons}
         where ${courseRevisionLessons.courseRevisionId} = ${courseRevisions.id}
       )`,
-    hasQuiz: sql3`exists(
+    hasQuiz: sql2`exists(
         select 1
         from ${courseRevisionQuizzes}
         where ${courseRevisionQuizzes.courseRevisionId} = ${courseRevisions.id}
@@ -8699,7 +9298,7 @@ var init_geo_service = __esm({
 });
 
 // server/storage.ts
-import { eq as eq2, desc as desc2, and as and2, sql as sql4, asc as asc2, gte, or as or2, like, inArray as inArray2, ilike as ilike2 } from "drizzle-orm";
+import { eq as eq2, desc as desc2, and as and2, sql as sql3, asc as asc2, gte, or as or2, like, inArray as inArray2, ilike as ilike2 } from "drizzle-orm";
 import path2 from "path";
 import { fileURLToPath as fileURLToPath2 } from "url";
 var ACTION_POINTS, parseNumericJsonArray, stringifyNumericArray, resolveCourseProgressCourseId, resolveCurrentLessonIdentityId, resolveCompletedLessonIdentityIds, resolveCompletedLessonExternalIds, adaptUserCourseProgress, adaptUserLessonProgress, compareCourseOrder, __filename, __dirname, DatabaseStorage, storage;
@@ -8885,8 +9484,8 @@ var init_storage = __esm({
       }
       async incrementLoginAttempts(username) {
         await db.update(users).set({
-          loginAttempts: sql4`login_attempts + 1`,
-          lockedUntil: sql4`CASE
+          loginAttempts: sql3`login_attempts + 1`,
+          lockedUntil: sql3`CASE
           WHEN login_attempts + 1 >= 5 THEN (NOW() + INTERVAL '15 minutes')::text
           ELSE locked_until
         END`,
@@ -9105,13 +9704,13 @@ var init_storage = __esm({
         if (post.userId) {
           const [user] = await db.select().from(users).where(eq2(users.id, post.userId));
           if (user) {
-            const userInitiativesResult = await db.select({ count: sql4`count(*)` }).from(communityPosts).where(eq2(communityPosts.userId, post.userId));
+            const userInitiativesResult = await db.select({ count: sql3`count(*)` }).from(communityPosts).where(eq2(communityPosts.userId, post.userId));
             const initiativesCount = Number(userInitiativesResult[0]?.count || 0);
             const userPosts = await db.select({ id: communityPosts.id }).from(communityPosts).where(eq2(communityPosts.userId, post.userId));
             const postIds = userPosts.map((p) => p.id);
             let totalMembers = 0;
             if (postIds.length > 0) {
-              const membersResult = await db.select({ count: sql4`count(*)` }).from(initiativeMembers).where(inArray2(initiativeMembers.postId, postIds));
+              const membersResult = await db.select({ count: sql3`count(*)` }).from(initiativeMembers).where(inArray2(initiativeMembers.postId, postIds));
               totalMembers = Number(membersResult[0]?.count || 0);
             }
             userInfo = {
@@ -9170,7 +9769,7 @@ var init_storage = __esm({
         return result.changes > 0;
       }
       async getUnreadMessageCount(userId) {
-        const result = await db.select({ count: sql4`count(*)` }).from(communityMessages).where(and2(eq2(communityMessages.receiverId, userId), eq2(communityMessages.read, false)));
+        const result = await db.select({ count: sql3`count(*)` }).from(communityMessages).where(and2(eq2(communityMessages.receiverId, userId), eq2(communityMessages.read, false)));
         return Number(result[0]?.count ?? 0);
       }
       // Community Activity
@@ -9750,7 +10349,7 @@ var init_storage = __esm({
         try {
           const counts = await db.select({
             type: blogPosts.type,
-            count: sql4`COUNT(*)`.as("count")
+            count: sql3`COUNT(*)`.as("count")
           }).from(blogPosts).groupBy(blogPosts.type);
           let blog = 0;
           let vlog = 0;
@@ -9919,7 +10518,7 @@ var init_storage = __esm({
             sessionId: viewer.userId != null ? void 0 : viewer.sessionId
           }).onConflictDoNothing();
         }
-        const [{ count: count3 }] = await db.select({ count: sql4`count(*)::int` }).from(postLikes).where(eq2(postLikes.postId, postId));
+        const [{ count: count3 }] = await db.select({ count: sql3`count(*)::int` }).from(postLikes).where(eq2(postLikes.postId, postId));
         return { liked: !existingLike, count: Number(count3) };
       }
       async getPostLikes(postId) {
@@ -10009,7 +10608,7 @@ var init_storage = __esm({
       async recordPostView(postId, userId, sessionId) {
         await db.batch([
           db.insert(postViews).values({ postId, userId, sessionId }),
-          db.update(blogPosts).set({ viewCount: sql4`${blogPosts.viewCount} + 1` }).where(eq2(blogPosts.id, postId))
+          db.update(blogPosts).set({ viewCount: sql3`${blogPosts.viewCount} + 1` }).where(eq2(blogPosts.id, postId))
         ]);
       }
       // Search & Recommendations
@@ -10017,12 +10616,12 @@ var init_storage = __esm({
         const page = filters?.page || 1;
         const limit = filters?.limit || 10;
         const offset = (page - 1) * limit;
-        let whereClause = sql4`(${blogPosts.title} LIKE '%${query}%' OR ${blogPosts.excerpt} LIKE '%${query}%' OR ${blogPosts.content} LIKE '%${query}%')`;
+        let whereClause = sql3`(${blogPosts.title} LIKE '%${query}%' OR ${blogPosts.excerpt} LIKE '%${query}%' OR ${blogPosts.content} LIKE '%${query}%')`;
         if (filters?.type) {
-          whereClause = sql4`${whereClause} AND ${blogPosts.type} = ${filters.type}`;
+          whereClause = sql3`${whereClause} AND ${blogPosts.type} = ${filters.type}`;
         }
         if (filters?.category) {
-          whereClause = sql4`${whereClause} AND ${blogPosts.category} = ${filters.category}`;
+          whereClause = sql3`${whereClause} AND ${blogPosts.category} = ${filters.category}`;
         }
         const rawPosts = await db.select().from(blogPosts).where(whereClause).orderBy(desc2(blogPosts.publishedAt)).limit(limit).offset(offset);
         return applyEnhancementsToList(rawPosts);
@@ -10043,15 +10642,15 @@ var init_storage = __esm({
         }
         const related = await db.select().from(blogPosts).where(and2(
           eq2(blogPosts.category, post.category),
-          sql4`${blogPosts.id} != ${postId}`
+          sql3`${blogPosts.id} != ${postId}`
         )).orderBy(desc2(blogPosts.viewCount)).limit(limit);
         return applyEnhancementsToList(related);
       }
       async getPopularTags(limit = 20) {
         const result = await db.select({
           tag: postTags.tag,
-          count: sql4`count(*)`
-        }).from(postTags).groupBy(postTags.tag).orderBy(desc2(sql4`count(*)`)).limit(limit);
+          count: sql3`count(*)`
+        }).from(postTags).groupBy(postTags.tag).orderBy(desc2(sql3`count(*)`)).limit(limit);
         return result;
       }
       // ==================== GEOGRAPHIC LOCATIONS METHODS ====================
@@ -10104,7 +10703,7 @@ var init_storage = __esm({
         return await db.select().from(communityPostLikes).where(eq2(communityPostLikes.postId, postId));
       }
       async getCommunityPostLikesCount(postId) {
-        const result = await db.select({ count: sql4`count(*)` }).from(communityPostLikes).where(eq2(communityPostLikes.postId, postId));
+        const result = await db.select({ count: sql3`count(*)` }).from(communityPostLikes).where(eq2(communityPostLikes.postId, postId));
         return Number(result[0]?.count ?? 0);
       }
       async recordCommunityPostView(postId, userId, ipAddress, userAgent) {
@@ -10120,7 +10719,7 @@ var init_storage = __esm({
         return await db.select().from(communityPostViews).where(eq2(communityPostViews.postId, postId));
       }
       async getCommunityPostViewsCount(postId) {
-        const result = await db.select({ count: sql4`count(*)` }).from(communityPostViews).where(eq2(communityPostViews.postId, postId));
+        const result = await db.select({ count: sql3`count(*)` }).from(communityPostViews).where(eq2(communityPostViews.postId, postId));
         return Number(result[0]?.count ?? 0);
       }
       // ==================== GEOGRAPHIC SEARCH METHODS ====================
@@ -10209,19 +10808,19 @@ var init_storage = __esm({
       }
       async incrementStoryViews(id) {
         await db.update(inspiringStories).set({
-          views: sql4`views + 1`,
+          views: sql3`views + 1`,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
         }).where(eq2(inspiringStories.id, id));
       }
       async incrementStoryLikes(id) {
         await db.update(inspiringStories).set({
-          likes: sql4`likes + 1`,
+          likes: sql3`likes + 1`,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
         }).where(eq2(inspiringStories.id, id));
       }
       async incrementStoryShares(id) {
         await db.update(inspiringStories).set({
-          shares: sql4`shares + 1`,
+          shares: sql3`shares + 1`,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
         }).where(eq2(inspiringStories.id, id));
       }
@@ -10291,13 +10890,13 @@ var init_storage = __esm({
       async getCommitmentStats() {
         await this.ensureUserCommitmentsLocationColumns();
         const [summary] = await db.select({
-          total: sql4`count(*)`,
-          last24h: sql4`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
+          total: sql3`count(*)`,
+          last24h: sql3`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
         }).from(userCommitments).where(eq2(userCommitments.status, "active"));
         const byTypeRows = await db.select({
           type: userCommitments.commitmentType,
-          total: sql4`count(*)`
-        }).from(userCommitments).where(eq2(userCommitments.status, "active")).groupBy(userCommitments.commitmentType).orderBy(desc2(sql4`count(*)`));
+          total: sql3`count(*)`
+        }).from(userCommitments).where(eq2(userCommitments.status, "active")).groupBy(userCommitments.commitmentType).orderBy(desc2(sql3`count(*)`));
         return {
           total: Number(summary?.total ?? 0),
           last24h: Number(summary?.last24h ?? 0),
@@ -10374,7 +10973,7 @@ var init_storage = __esm({
         const userIds = rows.map((r) => r.userId);
         const badgeCounts = await db.select({
           userId: userBadges.userId,
-          count: sql4`cast(count(*) as int)`
+          count: sql3`cast(count(*) as int)`
         }).from(userBadges).where(inArray2(userBadges.userId, userIds)).groupBy(userBadges.userId);
         const badgeCountMap = new Map(badgeCounts.map((bc) => [bc.userId, bc.count]));
         const topBadgeRows = await db.select({
@@ -10567,7 +11166,7 @@ var init_storage = __esm({
             canManageRoles: role === "creator"
           })
         }).returning();
-        await db.update(communityPosts).set({ memberCount: sql4`${communityPosts.memberCount} + 1` }).where(eq2(communityPosts.id, postId));
+        await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} + 1` }).where(eq2(communityPosts.id, postId));
         return member;
       }
       async updateMemberRole(memberId, role, permissions) {
@@ -10583,7 +11182,7 @@ var init_storage = __esm({
             status: "left",
             leftAt: (/* @__PURE__ */ new Date()).toISOString()
           }).where(eq2(initiativeMembers.id, memberId));
-          await db.update(communityPosts).set({ memberCount: sql4`${communityPosts.memberCount} - 1` }).where(eq2(communityPosts.id, member.postId));
+          await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} - 1` }).where(eq2(communityPosts.id, member.postId));
         }
       }
       // Membership Requests
@@ -10799,13 +11398,13 @@ var init_storage = __esm({
         return updated;
       }
       async getEvidenceCount(postId) {
-        const result = await db.select({ count: sql4`count(*)` }).from(missionEvidence).where(eq2(missionEvidence.postId, postId));
+        const result = await db.select({ count: sql3`count(*)` }).from(missionEvidence).where(eq2(missionEvidence.postId, postId));
         return Number(result[0]?.count ?? 0);
       }
       async getEvidenceCountByFlag(postId) {
         const result = await db.select({
           flagCategory: missionEvidence.flagCategory,
-          count: sql4`count(*)`
+          count: sql3`count(*)`
         }).from(missionEvidence).where(and2(
           eq2(missionEvidence.postId, postId),
           eq2(missionEvidence.status, "flagged")
@@ -10838,8 +11437,8 @@ var init_storage = __esm({
         }
         return await query.orderBy(desc2(notifications.createdAt));
       }
-      async markNotificationAsRead(notificationId) {
-        await db.update(notifications).set({ read: true }).where(eq2(notifications.id, notificationId));
+      async markNotificationAsRead(notificationId, userId) {
+        await db.update(notifications).set({ read: true }).where(and2(eq2(notifications.id, notificationId), eq2(notifications.userId, userId)));
       }
       async markAllNotificationsAsRead(userId) {
         await db.update(notifications).set({ read: true }).where(eq2(notifications.userId, userId));
@@ -10887,12 +11486,12 @@ var init_storage = __esm({
           const whereCondition = and2(...conditions);
           const legacyRows = await db.select({
             course: courses,
-            lessonCount: sql4`(
+            lessonCount: sql3`(
             select count(*)
             from ${courseLessons}
             where ${courseLessons.courseId} = ${courses.id}
           )`,
-            hasQuiz: sql4`exists(
+            hasQuiz: sql3`exists(
             select 1
             from ${courseQuizzes}
             where ${courseQuizzes.courseId} = ${courses.id}
@@ -11001,7 +11600,7 @@ var init_storage = __esm({
         if (await hasCurrentRevisionForCourseId(courseId)) {
           return;
         }
-        await db.update(courses).set({ viewCount: sql4`${courses.viewCount} + 1` }).where(eq2(courses.id, courseId));
+        await db.update(courses).set({ viewCount: sql3`${courses.viewCount} + 1` }).where(eq2(courses.id, courseId));
       }
       // Course Progress
       async getUserCourseProgress(userId, courseId) {
@@ -11571,9 +12170,9 @@ var init_storage = __esm({
               created: false
             };
           }
-          const timestamp2 = Date.now();
+          const timestamp3 = Date.now();
           const random2 = Math.random().toString(36).substring(2, 9);
-          const certificateCode2 = `${courseId}-${userId}-${timestamp2}-${random2}`;
+          const certificateCode2 = `${courseId}-${userId}-${timestamp3}-${random2}`;
           const [certificate2] = await db.insert(courseCertificates).values({
             userId,
             courseId: revision?.legacyCourseId ?? courseId,
@@ -11607,9 +12206,9 @@ var init_storage = __esm({
         if (existing) {
           return { certificate: existing, created: false };
         }
-        const timestamp = Date.now();
+        const timestamp2 = Date.now();
         const random = Math.random().toString(36).substring(2, 9);
-        const certificateCode = `${courseId}-${userId}-${timestamp}-${random}`;
+        const certificateCode = `${courseId}-${userId}-${timestamp2}-${random}`;
         const [certificate] = await db.insert(courseCertificates).values({
           userId,
           courseId,
@@ -11691,7 +12290,7 @@ __export(mandato_engine_exports, {
   stopMandatoCron: () => stopMandatoCron
 });
 import Anthropic from "@anthropic-ai/sdk";
-import { desc as desc9, gte as gte3, sql as sql8, and as and9, eq as eq10 } from "drizzle-orm";
+import { desc as desc9, gte as gte3, sql as sql7, and as and9, eq as eq10 } from "drizzle-orm";
 function getWeekBounds() {
   const now = /* @__PURE__ */ new Date();
   const dayOfWeek = now.getDay();
@@ -11738,7 +12337,7 @@ async function gatherPulseData() {
   const recurringProposals = await db.select().from(digestProposals).where(
     and9(
       gte3(digestProposals.weeksActive, 3),
-      sql8`${digestProposals.status} NOT IN ('completada', 'archivada')`
+      sql7`${digestProposals.status} NOT IN ('completada', 'archivada')`
     )
   );
   return {
@@ -13844,7 +14443,7 @@ function registerCourseRoutes(app2) {
 init_auth();
 init_db();
 init_schema();
-import { eq as eq3, and as and3, desc as desc3, sql as sql5, gte as gte2 } from "drizzle-orm";
+import { eq as eq3, and as and3, desc as desc3, sql as sql4, gte as gte2 } from "drizzle-orm";
 import { randomUUID } from "crypto";
 var SCORE_MAPPING = {
   0: 0,
@@ -13890,7 +14489,7 @@ function registerLifeAreasRoutes(app2) {
       const scores = await db.select().from(lifeAreaScores).where(
         and3(
           eq3(lifeAreaScores.userId, userId),
-          sql5`${lifeAreaScores.subcategoryId} IS NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NULL`
         )
       );
       const scoresMap = new Map(scores.map((s) => [s.lifeAreaId, s]));
@@ -13940,7 +14539,7 @@ function registerLifeAreasRoutes(app2) {
       const scores = await db.select().from(lifeAreaScores).where(
         and3(
           eq3(lifeAreaScores.userId, userId),
-          sql5`${lifeAreaScores.subcategoryId} IS NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NULL`
         )
       );
       const scoresMap = new Map(scores.map((s) => [s.lifeAreaId, s]));
@@ -14095,14 +14694,14 @@ function registerLifeAreasRoutes(app2) {
         and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql5`${lifeAreaScores.subcategoryId} IS NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).limit(1);
       const subcategoryScores = await db.select().from(lifeAreaScores).where(
         and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql5`${lifeAreaScores.subcategoryId} IS NOT NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NOT NULL`
         )
       );
       res.json({
@@ -14189,7 +14788,7 @@ function registerLifeAreasRoutes(app2) {
       and3(
         eq3(lifeAreaScores.userId, userId),
         eq3(lifeAreaScores.lifeAreaId, areaId),
-        sql5`${lifeAreaScores.subcategoryId} IS NULL`
+        sql4`${lifeAreaScores.subcategoryId} IS NULL`
       )
     ).limit(1);
     if (existingScore.length > 0 && existingScore[0]) {
@@ -14260,7 +14859,7 @@ function registerLifeAreasRoutes(app2) {
   }
   async function updateLevel(userId, areaId) {
     const xpResult = await db.select({
-      total: sql5`SUM(${lifeAreaXpLog.xpAmount})`
+      total: sql4`SUM(${lifeAreaXpLog.xpAmount})`
     }).from(lifeAreaXpLog).where(
       and3(
         eq3(lifeAreaXpLog.userId, userId),
@@ -14351,10 +14950,10 @@ function registerLifeAreasRoutes(app2) {
       } else if (requirementType === "score_reach") {
         const threshold = reqData.threshold || 70;
         if (reqData.allAreas) {
-          const qualifyingAreas = await db.select({ cnt: sql5`COUNT(*)` }).from(lifeAreaScores).where(
+          const qualifyingAreas = await db.select({ cnt: sql4`COUNT(*)` }).from(lifeAreaScores).where(
             and3(
               eq3(lifeAreaScores.userId, userId),
-              sql5`${lifeAreaScores.subcategoryId} IS NULL`,
+              sql4`${lifeAreaScores.subcategoryId} IS NULL`,
               gte2(lifeAreaScores.currentScore, threshold)
             )
           );
@@ -14364,14 +14963,14 @@ function registerLifeAreasRoutes(app2) {
             and3(
               eq3(lifeAreaScores.userId, userId),
               eq3(lifeAreaScores.lifeAreaId, areaId),
-              sql5`${lifeAreaScores.subcategoryId} IS NULL`
+              sql4`${lifeAreaScores.subcategoryId} IS NULL`
             )
           ).limit(1);
           shouldAward = score.length > 0 && score[0].currentScore >= threshold;
         }
       } else if (requirementType === "actions_complete") {
         const required = reqData.count || 1;
-        const completedCount = await db.select({ cnt: sql5`COUNT(*)` }).from(userLifeAreaProgress).where(
+        const completedCount = await db.select({ cnt: sql4`COUNT(*)` }).from(userLifeAreaProgress).where(
           and3(
             eq3(userLifeAreaProgress.userId, userId),
             eq3(userLifeAreaProgress.status, "completed")
@@ -14460,7 +15059,7 @@ function registerLifeAreasRoutes(app2) {
         and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql5`${lifeAreaScores.subcategoryId} IS NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).limit(1);
       const actions = await db.select().from(lifeAreaActions).where(eq3(lifeAreaActions.lifeAreaId, areaId)).orderBy(desc3(lifeAreaActions.priority));
@@ -14607,7 +15206,7 @@ function registerLifeAreasRoutes(app2) {
       const scores = await db.select().from(lifeAreaScores).where(
         and3(
           eq3(lifeAreaScores.userId, userId),
-          sql5`${lifeAreaScores.subcategoryId} IS NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).orderBy(lifeAreaScores.lifeAreaId);
       const actionsProgress = await db.select({
@@ -14839,7 +15438,7 @@ function registerLifeAreasRoutes(app2) {
   }
   async function updateMastery(userId, areaId) {
     const completedActions = await db.select({
-      count: sql5`COUNT(*)`
+      count: sql4`COUNT(*)`
     }).from(userLifeAreaProgress).innerJoin(lifeAreaActions, eq3(userLifeAreaProgress.actionId, lifeAreaActions.id)).where(
       and3(
         eq3(userLifeAreaProgress.userId, userId),
@@ -14848,7 +15447,7 @@ function registerLifeAreasRoutes(app2) {
       )
     );
     const totalActions = await db.select({
-      count: sql5`COUNT(*)`
+      count: sql4`COUNT(*)`
     }).from(lifeAreaActions).where(eq3(lifeAreaActions.lifeAreaId, areaId));
     const completed = completedActions[0]?.count || 0;
     const total = totalActions[0]?.count || 1;
@@ -14888,7 +15487,7 @@ function registerLifeAreasRoutes(app2) {
       const userId = req.user.userId;
       const xpByArea = await db.select({
         lifeAreaId: lifeAreaXpLog.lifeAreaId,
-        total: sql5`SUM(${lifeAreaXpLog.xpAmount})`
+        total: sql4`SUM(${lifeAreaXpLog.xpAmount})`
       }).from(lifeAreaXpLog).where(eq3(lifeAreaXpLog.userId, userId)).groupBy(lifeAreaXpLog.lifeAreaId);
       const totalXP = xpByArea.reduce((sum, area) => sum + (area.total || 0), 0);
       res.json({
@@ -15048,7 +15647,7 @@ function registerLifeAreasRoutes(app2) {
         and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql5`${lifeAreaScores.subcategoryId} IS NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).limit(1);
       if (userScore.length === 0) {
@@ -15057,7 +15656,7 @@ function registerLifeAreasRoutes(app2) {
       const allScores = await db.select().from(lifeAreaScores).where(
         and3(
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql5`${lifeAreaScores.subcategoryId} IS NULL`
+          sql4`${lifeAreaScores.subcategoryId} IS NULL`
         )
       );
       const scores = allScores.map((s) => s.currentScore).filter((s) => s !== null && s !== void 0).sort((a, b) => a - b);
@@ -15097,12 +15696,12 @@ function registerLifeAreasRoutes(app2) {
       thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
       const whereConditions = areaId ? and3(
         eq3(lifeAreaScores.userId, userId),
-        sql5`${lifeAreaScores.subcategoryId} IS NULL`,
+        sql4`${lifeAreaScores.subcategoryId} IS NULL`,
         gte2(lifeAreaScores.lastUpdated, thirtyDaysAgo.toISOString()),
         eq3(lifeAreaScores.lifeAreaId, areaId)
       ) : and3(
         eq3(lifeAreaScores.userId, userId),
-        sql5`${lifeAreaScores.subcategoryId} IS NULL`,
+        sql4`${lifeAreaScores.subcategoryId} IS NULL`,
         gte2(lifeAreaScores.lastUpdated, thirtyDaysAgo.toISOString())
       );
       const scores = await db.select().from(lifeAreaScores).where(whereConditions).orderBy(lifeAreaScores.lastUpdated);
@@ -15219,7 +15818,7 @@ function registerLifeAreasRoutes(app2) {
           eq3(userLifeAreaChallenges.challengeId, challengeId)
         )
       ).limit(1);
-      const participants = await db.select({ cnt: sql5`COUNT(*)` }).from(userLifeAreaChallenges).where(eq3(userLifeAreaChallenges.challengeId, challengeId));
+      const participants = await db.select({ cnt: sql4`COUNT(*)` }).from(userLifeAreaChallenges).where(eq3(userLifeAreaChallenges.challengeId, challengeId));
       res.json({
         ...challenge[0],
         requirements: challenge[0].requirements ? JSON.parse(challenge[0].requirements) : null,
@@ -15258,7 +15857,7 @@ function registerLifeAreasRoutes(app2) {
         status: "joined",
         progress: JSON.stringify({ current: 0, target: 1 })
       });
-      await db.update(lifeAreaChallenges).set({ participantCount: sql5`${lifeAreaChallenges.participantCount} + 1` }).where(eq3(lifeAreaChallenges.id, challengeId));
+      await db.update(lifeAreaChallenges).set({ participantCount: sql4`${lifeAreaChallenges.participantCount} + 1` }).where(eq3(lifeAreaChallenges.id, challengeId));
       res.json({ message: "Joined challenge successfully" });
     } catch (error) {
       console.error("Error joining challenge:", error);
@@ -15348,7 +15947,7 @@ function registerLifeAreasRoutes(app2) {
       const chests = await db.select().from(lifeAreaRewardChests).where(
         and3(
           eq3(lifeAreaRewardChests.userId, userId),
-          sql5`${lifeAreaRewardChests.openedAt} IS NULL`
+          sql4`${lifeAreaRewardChests.openedAt} IS NULL`
         )
       ).orderBy(desc3(lifeAreaRewardChests.createdAt));
       const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
@@ -15356,7 +15955,7 @@ function registerLifeAreasRoutes(app2) {
         and3(
           eq3(lifeAreaRewardChests.userId, userId),
           eq3(lifeAreaRewardChests.chestType, "daily"),
-          sql5`${lifeAreaRewardChests.createdAt}::date = ${today}::date`
+          sql4`${lifeAreaRewardChests.createdAt}::date = ${today}::date`
         )
       ).limit(1);
       if (todayChest.length === 0) {
@@ -15371,7 +15970,7 @@ function registerLifeAreasRoutes(app2) {
       const openedChests = await db.select().from(lifeAreaRewardChests).where(
         and3(
           eq3(lifeAreaRewardChests.userId, userId),
-          sql5`${lifeAreaRewardChests.openedAt} IS NOT NULL`
+          sql4`${lifeAreaRewardChests.openedAt} IS NOT NULL`
         )
       ).orderBy(desc3(lifeAreaRewardChests.openedAt)).limit(10);
       res.json({
@@ -15400,7 +15999,7 @@ function registerLifeAreasRoutes(app2) {
         and3(
           eq3(lifeAreaRewardChests.id, chestId),
           eq3(lifeAreaRewardChests.userId, userId),
-          sql5`${lifeAreaRewardChests.openedAt} IS NULL`
+          sql4`${lifeAreaRewardChests.openedAt} IS NULL`
         )
       ).limit(1);
       if (chest.length === 0) {
@@ -15439,10 +16038,10 @@ function registerLifeAreasRoutes(app2) {
         lifeAreaId: lifeAreaMilestones.lifeAreaId,
         username: users.username,
         name: users.name
-      }).from(lifeAreaMilestones).innerJoin(users, eq3(lifeAreaMilestones.userId, users.id)).where(sql5`${lifeAreaMilestones.sharedAt} IS NOT NULL`).orderBy(desc3(lifeAreaMilestones.createdAt)).limit(20);
+      }).from(lifeAreaMilestones).innerJoin(users, eq3(lifeAreaMilestones.userId, users.id)).where(sql4`${lifeAreaMilestones.sharedAt} IS NOT NULL`).orderBy(desc3(lifeAreaMilestones.createdAt)).limit(20);
       const feedItems = await Promise.all(
         recentMilestones.map(async (m) => {
-          const likes = await db.select({ cnt: sql5`COUNT(*)` }).from(lifeAreaSocialInteractions).where(
+          const likes = await db.select({ cnt: sql4`COUNT(*)` }).from(lifeAreaSocialInteractions).where(
             and3(
               eq3(lifeAreaSocialInteractions.targetType, "milestone"),
               eq3(lifeAreaSocialInteractions.targetId, m.id),
@@ -17232,7 +17831,7 @@ function registerCoachingRoutes(app2) {
 // server/routes-open-data.ts
 init_db();
 init_schema();
-import { eq as eq9, and as and8, isNull as isNull2, or as or3, sql as sql7 } from "drizzle-orm";
+import { eq as eq9, and as and8, isNull as isNull2, or as or3, sql as sql6 } from "drizzle-orm";
 import rateLimit2 from "express-rate-limit";
 import { stringify } from "csv-stringify/sync";
 import initSqlJs from "sql.js";
@@ -17302,7 +17901,7 @@ function corsConfig() {
     origin: allowedOrigins.length === 1 && allowedOrigins[0] !== "*" ? allowedOrigins[0] : originFunction,
     credentials: config.cors.credentials,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
+    allowedHeaders: ["Content-Type", "Authorization", "Idempotency-Key", "X-Civic-Device-Token", "X-Requested-With", "Accept", "Origin"],
     exposedHeaders: ["X-Total-Count", "X-Page-Count"],
     preflightContinue: false,
     optionsSuccessStatus: 204
@@ -17480,6 +18079,73 @@ function sanitizeInput(req, res, next) {
     console.error("[SanitizeInput] Error:", error);
     next();
   }
+}
+
+// server/production-safety-policy.ts
+var LEGACY_RAW_PUBLIC_DATA_PRODUCTION_OPT_IN = "DANGEROUSLY_ALLOW_LEGACY_RAW_PUBLIC_DATA_IN_PRODUCTION";
+var LEGACY_AI_MANDATE_ENGINE_OPT_IN = "DANGEROUSLY_ENABLE_LEGACY_AI_MANDATE_ENGINE";
+var AUTOMATIC_AI_MANDATE_CRON_OPT_IN = "DANGEROUSLY_ENABLE_AUTOMATIC_AI_MANDATE_CRON";
+var PRIVACY_PRESERVING_AGGREGATES_PATH = "/api/v1/civic/aggregates";
+var LEGACY_RAW_PUBLIC_DATA_CLOSED_STATUS = 503;
+function isProductionRuntime(environment) {
+  return environment.NODE_ENV === "production" || environment.VERCEL_ENV === "production";
+}
+var explicitlyEnabled = (value) => value === "true";
+function evaluateProductionSafetyPolicy(environment) {
+  const production = isProductionRuntime(environment);
+  const legacyAiMandateEngineAllowed = explicitlyEnabled(
+    environment[LEGACY_AI_MANDATE_ENGINE_OPT_IN]
+  );
+  return {
+    production,
+    legacyRawPublicDataAllowed: !production || explicitlyEnabled(environment[LEGACY_RAW_PUBLIC_DATA_PRODUCTION_OPT_IN]),
+    // The legacy engine reads row-level testimonies and can persist AI-authored
+    // proposals. It is closed in every environment unless a human operator
+    // explicitly enables it; localhost must not silently normalize unsafe
+    // governance behavior.
+    legacyAiMandateEngineAllowed,
+    automaticAiMandateCronAllowed: legacyAiMandateEngineAllowed && explicitlyEnabled(environment[AUTOMATIC_AI_MANDATE_CRON_OPT_IN])
+  };
+}
+var LEGACY_AI_MANDATE_CLOSED_STATUS = 503;
+var CIVIC_INTELLIGENCE_PATH = "/api/v1/civic/intelligence";
+function legacyAiMandateClosedBody() {
+  return {
+    code: "LEGACY_AI_MANDATE_ENGINE_DISABLED",
+    message: "La s\xEDntesis legada con IA est\xE1 deshabilitada: ning\xFAn modelo debe convertir testimonios crudos en mandatos vinculantes o propuestas publicables sin revisi\xF3n humana.",
+    retryable: false,
+    alternative: {
+      rel: "privacy-preserving-decision-support",
+      href: CIVIC_INTELLIGENCE_PATH
+    }
+  };
+}
+function requireLegacyAiMandateEngineAccess(_req, res, next) {
+  if (evaluateProductionSafetyPolicy(process.env).legacyAiMandateEngineAllowed) {
+    next();
+    return;
+  }
+  res.setHeader("Cache-Control", "no-store");
+  res.status(LEGACY_AI_MANDATE_CLOSED_STATUS).json(legacyAiMandateClosedBody());
+}
+function legacyRawPublicDataClosedBody() {
+  return {
+    code: "LEGACY_RAW_PUBLIC_DATA_DISABLED",
+    message: "El acceso p\xFAblico a datos legados fila por fila est\xE1 deshabilitado por seguridad en producci\xF3n. Us\xE1 los agregados con protecci\xF3n de privacidad.",
+    retryable: false,
+    alternative: {
+      rel: "privacy-preserving-aggregates",
+      href: PRIVACY_PRESERVING_AGGREGATES_PATH
+    }
+  };
+}
+function requireLegacyRawPublicDataAccess(_req, res, next) {
+  if (evaluateProductionSafetyPolicy(process.env).legacyRawPublicDataAllowed) {
+    next();
+    return;
+  }
+  res.setHeader("Cache-Control", "no-store");
+  res.status(LEGACY_RAW_PUBLIC_DATA_CLOSED_STATUS).json(legacyRawPublicDataClosedBody());
 }
 
 // server/routes-open-data.ts
@@ -17700,9 +18366,9 @@ async function generateSQLite(data) {
 function registerOpenDataRoutes(app2) {
   app2.get("/api/open-data/stats", publicReadRateLimit, async (_req, res) => {
     try {
-      const [dreamsCount] = await db.select({ count: sql7`count(*)` }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(or3(isNull2(dreams.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
-      const [commitmentsCount] = await db.select({ count: sql7`count(*)` }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(or3(isNull2(userCommitments.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
-      const [resourcesCount] = await db.select({ count: sql7`count(*)` }).from(userResources).leftJoin(users, eq9(userResources.userId, users.id)).where(
+      const [dreamsCount] = await db.select({ count: sql6`count(*)` }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(or3(isNull2(dreams.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
+      const [commitmentsCount] = await db.select({ count: sql6`count(*)` }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(or3(isNull2(userCommitments.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
+      const [resourcesCount] = await db.select({ count: sql6`count(*)` }).from(userResources).leftJoin(users, eq9(userResources.userId, users.id)).where(
         and8(
           eq9(userResources.isActive, true),
           or3(isNull2(userResources.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false))
@@ -17720,7 +18386,7 @@ function registerOpenDataRoutes(app2) {
       res.status(500).json({ error: "Error al obtener estad\xEDsticas" });
     }
   });
-  app2.get("/api/open-data/download", openDataRateLimit, async (req, res) => {
+  app2.get("/api/open-data/download", requireLegacyRawPublicDataAccess, openDataRateLimit, async (req, res) => {
     try {
       const format = req.query.format?.toLowerCase();
       if (!format || !["json", "csv", "sqlite"].includes(format)) {
@@ -17829,15 +18495,15 @@ function sendFile(res, format, buffer) {
 init_db();
 init_schema();
 init_auth();
+import { eq as eq11, desc as desc10, and as and10, sql as sql8 } from "drizzle-orm";
 init_mandato_engine();
-import { eq as eq11, desc as desc10, and as and10, sql as sql9 } from "drizzle-orm";
 function registerPulseRoutes(app2) {
   app2.get("/api/pulsos/stats", optionalAuth, async (_req, res) => {
     try {
-      const [totalPulses] = await db.select({ count: sql9`count(*)` }).from(weeklyDigests).where(eq11(weeklyDigests.status, "completed"));
-      const [totalProposals] = await db.select({ count: sql9`count(*)` }).from(digestProposals);
-      const [activeProposals] = await db.select({ count: sql9`count(*)` }).from(digestProposals).where(sql9`${digestProposals.status} NOT IN ('completada', 'archivada')`);
-      const [completedProposals] = await db.select({ count: sql9`count(*)` }).from(digestProposals).where(eq11(digestProposals.status, "completada"));
+      const [totalPulses] = await db.select({ count: sql8`count(*)` }).from(weeklyDigests).where(eq11(weeklyDigests.status, "completed"));
+      const [totalProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals);
+      const [activeProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals).where(sql8`${digestProposals.status} NOT IN ('completada', 'archivada')`);
+      const [completedProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals).where(eq11(digestProposals.status, "completada"));
       const [latestPulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc10(weeklyDigests.createdAt)).limit(1);
       res.json({
         success: true,
@@ -17882,15 +18548,21 @@ function registerPulseRoutes(app2) {
       res.status(500).json({ error: "Error fetching latest pulse" });
     }
   });
-  app2.post("/api/pulsos/generate", authenticateToken, async (_req, res) => {
-    try {
-      const result = await generateWeeklyMandate();
-      res.json({ success: true, data: result });
-    } catch (error) {
-      console.error("Error generating pulse:", error);
-      res.status(500).json({ error: error.message || "Error generating pulse" });
+  app2.post(
+    "/api/pulsos/generate",
+    authenticateToken,
+    requireAdmin,
+    requireLegacyAiMandateEngineAccess,
+    async (_req, res) => {
+      try {
+        const result = await generateWeeklyMandate();
+        res.json({ success: true, data: result });
+      } catch (error) {
+        console.error("Error generating pulse:", error);
+        res.status(500).json({ error: error.message || "Error generating pulse" });
+      }
     }
-  });
+  );
   app2.get("/api/pulsos", optionalAuth, async (_req, res) => {
     try {
       const pulses = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc10(weeklyDigests.createdAt)).limit(52);
@@ -17981,7 +18653,7 @@ function registerPulseRoutes(app2) {
       res.status(500).json({ error: "Error fetching proposal" });
     }
   });
-  app2.post("/api/propuestas/:id/status", authenticateToken, async (req, res) => {
+  app2.post("/api/propuestas/:id/status", authenticateToken, requireAdmin, async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       const { status, notes } = req.body;
@@ -18030,7 +18702,7 @@ var parseCoord = (v) => {
 var dreamText = (d) => d.dream || d.value || d.need || d.basta || "";
 var dreamType = (raw) => raw === "value" || raw === "need" || raw === "basta" ? raw : "dream";
 function registerMapSignalsRoutes(app2) {
-  app2.get("/api/map/signals", publicReadRateLimit, async (_req, res) => {
+  app2.get("/api/map/signals", requireLegacyRawPublicDataAccess, publicReadRateLimit, async (_req, res) => {
     try {
       const [dreamRows, commitmentRows, resourceRows] = await Promise.all([
         db.select({
@@ -18118,10 +18790,10 @@ function registerMapSignalsRoutes(app2) {
 init_db();
 init_schema();
 init_auth();
-import { and as and11, eq as eq13, sql as sql10 } from "drizzle-orm";
+import { and as and11, eq as eq13, sql as sql9 } from "drizzle-orm";
 var SLUG_RE = /^[a-z0-9-]{1,80}$/;
 async function countLikes(slug) {
-  const [{ count: count3 }] = await db.select({ count: sql10`count(*)::int` }).from(ensayoLikes).where(eq13(ensayoLikes.slug, slug));
+  const [{ count: count3 }] = await db.select({ count: sql9`count(*)::int` }).from(ensayoLikes).where(eq13(ensayoLikes.slug, slug));
   return count3;
 }
 function registerEnsayoRoutes(app2) {
@@ -18635,7 +19307,7 @@ init_storage();
 init_auth();
 import { z as z6 } from "zod";
 import rateLimit3 from "express-rate-limit";
-import { desc as desc12, eq as eq15, sql as sql11 } from "drizzle-orm";
+import { desc as desc12, eq as eq15, sql as sql10 } from "drizzle-orm";
 
 // server/lib/radar.ts
 import { z as z5 } from "zod";
@@ -18744,15 +19416,15 @@ function registerRadarRoutes(app2) {
       return res.status(500).json({ message: "No pudimos guardar tu se\xF1al. Prob\xE1 de nuevo." });
     }
   });
-  app2.get("/api/radar/resumen", async (_req, res) => {
+  app2.get("/api/radar/resumen", requireLegacyRawPublicDataAccess, async (_req, res) => {
     try {
       if (resumenCache && Date.now() - resumenCache.generatedAt < RESUMEN_TTL_MS) {
         return res.json(resumenCache.data);
       }
       const [dreamTypeCounts, [commitmentCount], [resourceCount], recentRows] = await Promise.all([
-        db.select({ type: dreams.type, count: sql11`count(*)::int` }).from(dreams).groupBy(dreams.type),
-        db.select({ count: sql11`count(*)::int` }).from(userCommitments).where(eq15(userCommitments.status, "active")),
-        db.select({ count: sql11`count(*)::int` }).from(userResources).where(eq15(userResources.isActive, true)),
+        db.select({ type: dreams.type, count: sql10`count(*)::int` }).from(dreams).groupBy(dreams.type),
+        db.select({ count: sql10`count(*)::int` }).from(userCommitments).where(eq15(userCommitments.status, "active")),
+        db.select({ count: sql10`count(*)::int` }).from(userResources).where(eq15(userResources.isActive, true)),
         db.select({
           id: dreams.id,
           type: dreams.type,
@@ -18851,7 +19523,7 @@ init_db();
 init_schema();
 init_geo_resolver();
 import crypto3 from "crypto";
-import { and as and13, desc as desc13, eq as eq16, ilike as ilike3, ne as ne2, or as or5, sql as sql12 } from "drizzle-orm";
+import { and as and13, desc as desc13, eq as eq16, ilike as ilike3, ne as ne2, or as or5, sql as sql11 } from "drizzle-orm";
 var DEFAULT_RADIUS_KM = 50;
 var MAX_DISCOVERY_RESULTS = 200;
 var normalize2 = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
@@ -18874,7 +19546,7 @@ async function listCircles(filters, userId) {
   const [rows, myCircles] = await Promise.all([
     db.select({
       circle: circles,
-      memberCount: sql12`(select count(*)::int from circle_members cm where cm.circle_id = ${circles.id})`
+      memberCount: sql11`(select count(*)::int from circle_members cm where cm.circle_id = ${circles.id})`
     }).from(circles).where(conds.length ? and13(...conds) : void 0).orderBy(desc13(circles.isOfficial), desc13(circles.id)).limit(MAX_DISCOVERY_RESULTS),
     memberCircleIds(userId)
   ]);
@@ -18925,7 +19597,7 @@ async function getMembership(circleId, userId) {
   return member;
 }
 async function countMembers(circleId) {
-  const [row] = await db.select({ count: sql12`count(*)::int` }).from(circleMembers).where(eq16(circleMembers.circleId, circleId));
+  const [row] = await db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(eq16(circleMembers.circleId, circleId));
   return row?.count ?? 0;
 }
 async function createCircle(input, userId) {
@@ -18977,12 +19649,12 @@ async function leaveCircle(circleId, userId) {
   }
   if (membership.role === "coordinador") {
     const [[otherCoordinators], [otherMembers]] = await Promise.all([
-      db.select({ count: sql12`count(*)::int` }).from(circleMembers).where(and13(
+      db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(and13(
         eq16(circleMembers.circleId, circleId),
         eq16(circleMembers.role, "coordinador"),
         ne2(circleMembers.userId, userId)
       )),
-      db.select({ count: sql12`count(*)::int` }).from(circleMembers).where(and13(eq16(circleMembers.circleId, circleId), ne2(circleMembers.userId, userId)))
+      db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(and13(eq16(circleMembers.circleId, circleId), ne2(circleMembers.userId, userId)))
     ]);
     if ((otherMembers?.count ?? 0) > 0 && (otherCoordinators?.count ?? 0) === 0) {
       return {
@@ -19043,7 +19715,7 @@ function isInviteUsable(invite) {
   return { usable: true };
 }
 async function incrementInviteUses(inviteId) {
-  await db.update(circleInvites).set({ uses: sql12`${circleInvites.uses} + 1` }).where(eq16(circleInvites.id, inviteId));
+  await db.update(circleInvites).set({ uses: sql11`${circleInvites.uses} + 1` }).where(eq16(circleInvites.id, inviteId));
 }
 async function createReport(circleId, userId, reason) {
   const [report] = await db.insert(circleReports).values({ circleId, reportedBy: userId, reason }).returning();
@@ -19548,7 +20220,7 @@ function firstTextAnswer(formSchema, data) {
 // server/services/campanas-service.ts
 init_db();
 init_schema();
-import { and as and14, desc as desc14, eq as eq17, inArray as inArray5, sql as sql13 } from "drizzle-orm";
+import { and as and14, desc as desc14, eq as eq17, inArray as inArray5, sql as sql12 } from "drizzle-orm";
 var MAX_CAMPAIGN_RESULTS = 200;
 var MAX_LAYER_POINTS = 5e3;
 async function listTemplates() {
@@ -19587,15 +20259,15 @@ async function listCampaigns(filters) {
   if (status !== "todas") conds.push(eq17(campaigns.status, status));
   if (filters.type) conds.push(eq17(campaigns.type, filters.type));
   if (filters.province) {
-    conds.push(sql13`coalesce(${campaigns.targetProvince}, ${circles.province}) = ${filters.province}`);
+    conds.push(sql12`coalesce(${campaigns.targetProvince}, ${circles.province}) = ${filters.province}`);
   }
   if (filters.city) {
-    conds.push(sql13`coalesce(${campaigns.targetCity}, ${circles.city}) = ${filters.city}`);
+    conds.push(sql12`coalesce(${campaigns.targetCity}, ${circles.city}) = ${filters.city}`);
   }
   const rows = await db.select({
     campaign: campaigns,
     circleName: circles.name,
-    entryCount: sql13`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
+    entryCount: sql12`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
   }).from(campaigns).innerJoin(circles, eq17(campaigns.circleId, circles.id)).where(conds.length ? and14(...conds) : void 0).orderBy(desc14(campaigns.id)).limit(MAX_CAMPAIGN_RESULTS);
   return rows.map((r) => ({ ...r.campaign, circleName: r.circleName, entryCount: r.entryCount }));
 }
@@ -19608,7 +20280,7 @@ async function getCampaignWithCircle(id) {
     campaign: campaigns,
     circleName: circles.name,
     circleKind: circles.kind,
-    entryCount: sql13`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
+    entryCount: sql12`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
   }).from(campaigns).innerJoin(circles, eq17(campaigns.circleId, circles.id)).where(eq17(campaigns.id, id)).limit(1);
   if (!row) return void 0;
   return { ...row.campaign, circleName: row.circleName, circleKind: row.circleKind, entryCount: row.entryCount };
@@ -19647,7 +20319,7 @@ async function listEntries(campaignId, circleId, viewerIsMember, pagination) {
       circleMembers,
       and14(eq17(circleMembers.userId, campaignEntries.submittedBy), eq17(circleMembers.circleId, circleId))
     ).where(eq17(campaignEntries.campaignId, campaignId)).orderBy(desc14(campaignEntries.id)).limit(pagination.limit).offset(pagination.offset),
-    db.select({ count: sql13`count(*)::int` }).from(campaignEntries).where(eq17(campaignEntries.campaignId, campaignId))
+    db.select({ count: sql12`count(*)::int` }).from(campaignEntries).where(eq17(campaignEntries.campaignId, campaignId))
   ]);
   const entradas = rows.map((row) => {
     let submittedByName = null;
@@ -19682,11 +20354,11 @@ async function verifyEntry(entryId, verifierId) {
 async function computeProgress(campaign) {
   const [[totals], byProvince, byCity] = await Promise.all([
     db.select({
-      entries: sql13`count(*)::int`,
-      verified: sql13`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
+      entries: sql12`count(*)::int`,
+      verified: sql12`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
     }).from(campaignEntries).where(eq17(campaignEntries.campaignId, campaign.id)),
-    db.select({ province: campaignEntries.province, count: sql13`count(*)::int` }).from(campaignEntries).where(and14(eq17(campaignEntries.campaignId, campaign.id), sql13`${campaignEntries.province} is not null`)).groupBy(campaignEntries.province).orderBy(desc14(sql13`count(*)`)).limit(30),
-    db.select({ city: campaignEntries.city, count: sql13`count(*)::int` }).from(campaignEntries).where(and14(eq17(campaignEntries.campaignId, campaign.id), sql13`${campaignEntries.city} is not null`)).groupBy(campaignEntries.city).orderBy(desc14(sql13`count(*)`)).limit(30)
+    db.select({ province: campaignEntries.province, count: sql12`count(*)::int` }).from(campaignEntries).where(and14(eq17(campaignEntries.campaignId, campaign.id), sql12`${campaignEntries.province} is not null`)).groupBy(campaignEntries.province).orderBy(desc14(sql12`count(*)`)).limit(30),
+    db.select({ city: campaignEntries.city, count: sql12`count(*)::int` }).from(campaignEntries).where(and14(eq17(campaignEntries.campaignId, campaign.id), sql12`${campaignEntries.city} is not null`)).groupBy(campaignEntries.city).orderBy(desc14(sql12`count(*)`)).limit(30)
   ]);
   const entries = totals?.entries ?? 0;
   const verified = totals?.verified ?? 0;
@@ -19720,9 +20392,9 @@ async function computeCampaignLayers() {
   }).from(campaignEntries).where(
     and14(
       inArray5(campaignEntries.campaignId, visibleCampaigns.map((c) => c.id)),
-      sql13`${campaignEntries.status} != 'rechazada'`,
-      sql13`${campaignEntries.latitude} is not null`,
-      sql13`${campaignEntries.longitude} is not null`
+      sql12`${campaignEntries.status} != 'rechazada'`,
+      sql12`${campaignEntries.latitude} is not null`,
+      sql12`${campaignEntries.longitude} is not null`
     )
   ).orderBy(desc14(campaignEntries.id)).limit(MAX_LAYER_POINTS);
   const formSchemas = /* @__PURE__ */ new Map();
@@ -19991,7 +20663,7 @@ function registerCampanasRoutes(app2) {
       return res.status(500).json({ message: "No pudimos guardar tu entrada. Prob\xE1 de nuevo." });
     }
   });
-  app2.get("/api/campanas/:id/entradas", publicReadRateLimit, optionalAuth, async (req, res) => {
+  app2.get("/api/campanas/:id/entradas", requireLegacyRawPublicDataAccess, publicReadRateLimit, optionalAuth, async (req, res) => {
     try {
       const id = parseId3(req.params.id);
       if (!id) return res.status(400).json({ message: "Campa\xF1a inv\xE1lida" });
@@ -20064,7 +20736,7 @@ function registerCampanasRoutes(app2) {
 var layersCache = null;
 var LAYERS_TTL_MS = 60 * 1e3;
 function registerMapCampaignsRoutes(app2) {
-  app2.get("/api/map/campaign-layers", publicReadRateLimit, async (_req, res) => {
+  app2.get("/api/map/campaign-layers", requireLegacyRawPublicDataAccess, publicReadRateLimit, async (_req, res) => {
     try {
       if (layersCache && Date.now() - layersCache.generatedAt < LAYERS_TTL_MS) {
         return res.json(layersCache.data);
@@ -20085,19 +20757,19 @@ init_auth();
 // server/services/dashboards-service.ts
 init_db();
 init_schema();
-import { and as and15, desc as desc15, eq as eq18, sql as sql14 } from "drizzle-orm";
+import { and as and15, desc as desc15, eq as eq18, sql as sql13 } from "drizzle-orm";
 var WEEKS_BACK = 12;
 async function computeNacional() {
   const since = new Date(Date.now() - WEEKS_BACK * 7 * 24 * 60 * 60 * 1e3).toISOString();
-  const weekExpr = (col) => sql14`to_char(date_trunc('week', ${col}::timestamptz), 'YYYY-MM-DD')`;
+  const weekExpr = (col) => sql13`to_char(date_trunc('week', ${col}::timestamptz), 'YYYY-MM-DD')`;
   const [dreamWeeks, commitmentWeeks, resourceWeeks, dreamProvinces, commitmentProvinces, resourceProvinces, [activeCount]] = await Promise.all([
-    db.select({ week: weekExpr(dreams.createdAt), type: dreams.type, count: sql14`count(*)::int` }).from(dreams).where(sql14`${dreams.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(dreams.createdAt), dreams.type),
-    db.select({ week: weekExpr(userCommitments.createdAt), count: sql14`count(*)::int` }).from(userCommitments).where(sql14`${userCommitments.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userCommitments.createdAt)),
-    db.select({ week: weekExpr(userResources.createdAt), count: sql14`count(*)::int` }).from(userResources).where(sql14`${userResources.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userResources.createdAt)),
-    db.select({ province: dreams.province, count: sql14`count(*)::int` }).from(dreams).where(sql14`${dreams.province} is not null`).groupBy(dreams.province),
-    db.select({ province: userCommitments.province, count: sql14`count(*)::int` }).from(userCommitments).where(sql14`${userCommitments.province} is not null`).groupBy(userCommitments.province),
-    db.select({ province: userResources.province, count: sql14`count(*)::int` }).from(userResources).where(sql14`${userResources.province} is not null`).groupBy(userResources.province),
-    db.select({ count: sql14`count(*)::int` }).from(campaigns).where(eq18(campaigns.status, "activa"))
+    db.select({ week: weekExpr(dreams.createdAt), type: dreams.type, count: sql13`count(*)::int` }).from(dreams).where(sql13`${dreams.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(dreams.createdAt), dreams.type),
+    db.select({ week: weekExpr(userCommitments.createdAt), count: sql13`count(*)::int` }).from(userCommitments).where(sql13`${userCommitments.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userCommitments.createdAt)),
+    db.select({ week: weekExpr(userResources.createdAt), count: sql13`count(*)::int` }).from(userResources).where(sql13`${userResources.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userResources.createdAt)),
+    db.select({ province: dreams.province, count: sql13`count(*)::int` }).from(dreams).where(sql13`${dreams.province} is not null`).groupBy(dreams.province),
+    db.select({ province: userCommitments.province, count: sql13`count(*)::int` }).from(userCommitments).where(sql13`${userCommitments.province} is not null`).groupBy(userCommitments.province),
+    db.select({ province: userResources.province, count: sql13`count(*)::int` }).from(userResources).where(sql13`${userResources.province} is not null`).groupBy(userResources.province),
+    db.select({ count: sql13`count(*)::int` }).from(campaigns).where(eq18(campaigns.status, "activa"))
   ]);
   const totalsByTypeWeek = [
     ...dreamWeeks.map((r) => ({ week: r.week, type: r.type, count: r.count })),
@@ -20120,10 +20792,10 @@ async function computeNacional() {
   };
 }
 async function computeCampaignDashboard(campaign) {
-  const dayExpr = sql14`to_char(${campaignEntries.createdAt}::timestamptz, 'YYYY-MM-DD')`;
+  const dayExpr = sql13`to_char(${campaignEntries.createdAt}::timestamptz, 'YYYY-MM-DD')`;
   const [progress, perDayRows] = await Promise.all([
     computeProgress(campaign),
-    db.select({ day: dayExpr, count: sql14`count(*)::int` }).from(campaignEntries).where(eq18(campaignEntries.campaignId, campaign.id)).groupBy(dayExpr).orderBy(dayExpr)
+    db.select({ day: dayExpr, count: sql13`count(*)::int` }).from(campaignEntries).where(eq18(campaignEntries.campaignId, campaign.id)).groupBy(dayExpr).orderBy(dayExpr)
   ]);
   return {
     ...progress,
@@ -20137,11 +20809,11 @@ async function computeCampaignDashboard(campaign) {
 async function computeCircleDashboard(circleId) {
   const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1e3).toISOString();
   const [[memberCount], campaignsByStatus, [entryTotals]] = await Promise.all([
-    db.select({ count: sql14`count(*)::int` }).from(circleMembers).where(eq18(circleMembers.circleId, circleId)),
-    db.select({ status: campaigns.status, count: sql14`count(*)::int` }).from(campaigns).where(eq18(campaigns.circleId, circleId)).groupBy(campaigns.status),
+    db.select({ count: sql13`count(*)::int` }).from(circleMembers).where(eq18(circleMembers.circleId, circleId)),
+    db.select({ status: campaigns.status, count: sql13`count(*)::int` }).from(campaigns).where(eq18(campaigns.circleId, circleId)).groupBy(campaigns.status),
     db.select({
-      total: sql14`count(*)::int`,
-      lastWeek: sql14`count(*) filter (where ${campaignEntries.createdAt}::timestamptz >= ${since}::timestamptz)::int`
+      total: sql13`count(*)::int`,
+      lastWeek: sql13`count(*) filter (where ${campaignEntries.createdAt}::timestamptz >= ${since}::timestamptz)::int`
     }).from(campaignEntries).innerJoin(campaigns, eq18(campaignEntries.campaignId, campaigns.id)).where(eq18(campaigns.circleId, circleId))
   ]);
   return {
@@ -20169,15 +20841,15 @@ async function computeNecesidades(province, city) {
   const campaignIds = Array.from(selectFields.keys());
   let topRespuestas = [];
   if (campaignIds.length > 0) {
-    const geoFilter = sql14.join(
+    const geoFilter = sql13.join(
       [
-        sql14`ce.campaign_id in (${sql14.join(campaignIds.map((id) => sql14`${id}`), sql14`, `)})`,
-        ...province ? [sql14`ce.province = ${province}`] : [],
-        ...city ? [sql14`ce.city = ${city}`] : []
+        sql13`ce.campaign_id in (${sql13.join(campaignIds.map((id) => sql13`${id}`), sql13`, `)})`,
+        ...province ? [sql13`ce.province = ${province}`] : [],
+        ...city ? [sql13`ce.city = ${city}`] : []
       ],
-      sql14` and `
+      sql13` and `
     );
-    const result = await db.execute(sql14`
+    const result = await db.execute(sql13`
       select ce.campaign_id as campaign_id, kv.key as key, kv.value as value, count(*)::int as count
       from campaign_entries ce
       cross join lateral jsonb_each_text(ce.data::jsonb) kv
@@ -20205,7 +20877,7 @@ async function computeNecesidades(province, city) {
     ...province ? [eq18(dreams.province, province)] : [],
     ...city ? [eq18(dreams.city, city)] : []
   ];
-  const [needCount] = await db.select({ count: sql14`count(*)::int` }).from(dreams).where(and15(...needConds));
+  const [needCount] = await db.select({ count: sql13`count(*)::int` }).from(dreams).where(and15(...needConds));
   return {
     province: province ?? null,
     city: city ?? null,
@@ -20216,15 +20888,15 @@ async function computeNecesidades(province, city) {
 }
 async function computeMiAporte(userId) {
   const [[senales], [compromisos], [recursos], [entradas], [campanasCreadas], [circulosCount]] = await Promise.all([
-    db.select({ count: sql14`count(*)::int` }).from(dreams).where(eq18(dreams.userId, userId)),
-    db.select({ count: sql14`count(*)::int` }).from(userCommitments).where(eq18(userCommitments.userId, userId)),
-    db.select({ count: sql14`count(*)::int` }).from(userResources).where(eq18(userResources.userId, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(dreams).where(eq18(dreams.userId, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(userCommitments).where(eq18(userCommitments.userId, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(userResources).where(eq18(userResources.userId, userId)),
     db.select({
-      count: sql14`count(*)::int`,
-      verified: sql14`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
+      count: sql13`count(*)::int`,
+      verified: sql13`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
     }).from(campaignEntries).where(eq18(campaignEntries.submittedBy, userId)),
-    db.select({ count: sql14`count(*)::int` }).from(campaigns).where(eq18(campaigns.createdBy, userId)),
-    db.select({ count: sql14`count(*)::int` }).from(circleMembers).where(eq18(circleMembers.userId, userId))
+    db.select({ count: sql13`count(*)::int` }).from(campaigns).where(eq18(campaigns.createdBy, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(circleMembers).where(eq18(circleMembers.userId, userId))
   ]);
   return {
     senales: senales?.count ?? 0,
@@ -20348,100 +21020,5768 @@ function registerDashboardsRoutes(app2) {
   });
 }
 
+// server/routes-civic-events.ts
+init_auth();
+import rateLimit6 from "express-rate-limit";
+import { z as z13 } from "zod";
+
+// server/civic/contracts.ts
+import { z as z11 } from "zod";
+var UUID_V4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+var civicUuidV4Schema = z11.string().regex(UUID_V4, "UUID v4 inv\xE1lido").transform((value) => value.toLowerCase());
+var civicActorKeySchema = z11.string().regex(
+  /^actor_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
+  "actorKey inv\xE1lido"
+).transform((value) => value.toLowerCase());
+var civicDeviceEnrollmentSchema = z11.object({
+  actorKey: civicActorKeySchema,
+  /** 32 bytes aleatorios codificados como hexadecimal. */
+  deviceSecret: z11.string().regex(/^[0-9a-f]{64}$/i, "deviceSecret inv\xE1lido").transform((value) => value.toLowerCase()),
+  platform: z11.enum(["ios", "android", "web"]).optional(),
+  clientVersion: z11.string().trim().min(1).max(40).optional()
+}).strict();
+var civicEntitySchema = z11.enum([
+  "observation",
+  "need",
+  "resource",
+  "verification",
+  "match",
+  "action",
+  "territory",
+  "consent"
+]);
+var civicOperationSchema = z11.enum(["create", "update", "transition", "delete"]);
+var civicEventSchema = z11.object({
+  eventId: civicUuidV4Schema,
+  entityType: civicEntitySchema,
+  entityId: civicUuidV4Schema,
+  operation: civicOperationSchema,
+  payload: z11.record(z11.unknown()),
+  createdAt: z11.string().datetime()
+}).strict();
+var civicIdempotencyKeySchema = z11.string().trim().min(8).max(180).regex(/^[a-zA-Z0-9:._-]+$/, "Idempotency-Key inv\xE1lida");
+var FORBIDDEN_KEYS = /* @__PURE__ */ new Set([
+  "exactlat",
+  "exactlng",
+  "exactlocation",
+  "photouri",
+  "localuri",
+  "filepath",
+  "exif",
+  "gpslatitude",
+  "gpslongitude",
+  "phone",
+  "phonenumber",
+  "telefono",
+  "email",
+  "correo",
+  "address",
+  "direccion",
+  "contact",
+  "contactinfo"
+]);
+var LOCAL_MEDIA_PATTERN = /(file|content|ph|assets-library):\/\//i;
+var INLINE_MEDIA_PATTERN = /data:(image|video|audio)\//i;
+var EMAIL_PATTERN = /[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+/i;
+var PHONE_CANDIDATE_PATTERN = /(?<![\w-])\+?\d[\d\s().-]{7,}\d(?![\w-])/g;
+var MAX_PUBLIC_COORDINATE_DECIMALS = 6;
+var METERS_PER_DEGREE_LAT = 111320;
+var PUBLIC_PRECISION_METERS = {
+  "100m": 100,
+  "500m": 500,
+  neighborhood: 1500,
+  city: 5e3
+};
+var normalizedKey = (key) => key.replace(/[_-]/g, "").toLowerCase();
+var containsPersonalContact = (value) => {
+  if (EMAIL_PATTERN.test(value)) return true;
+  for (const match of value.matchAll(PHONE_CANDIDATE_PATTERN)) {
+    const candidate = match[0].trim();
+    const digits = candidate.replace(/\D/g, "");
+    if (digits.length < 9 || digits.length > 15) continue;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(candidate)) continue;
+    return true;
+  }
+  return false;
+};
+var fractionalDigits = (value) => {
+  const [coefficient, rawExponent] = value.toString().toLowerCase().split("e");
+  const exponent = Number(rawExponent ?? 0);
+  const decimals = coefficient.split(".")[1]?.length ?? 0;
+  return Math.max(0, decimals - exponent);
+};
+var coordinateIssue = (value, axis, path3) => {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return { code: "INVALID_PUBLIC_LOCATION", path: path3 };
+  }
+  const [minimum, maximum] = axis === "lat" ? [-90, 90] : [-180, 180];
+  if (value < minimum || value > maximum) {
+    return { code: "INVALID_PUBLIC_LOCATION", path: path3 };
+  }
+  if (fractionalDigits(value) > MAX_PUBLIC_COORDINATE_DECIMALS) {
+    return { code: "PUBLIC_LOCATION_TOO_PRECISE", path: path3 };
+  }
+  return null;
+};
+var ownEntry = (value, wanted) => Object.entries(value).find(([key]) => normalizedKey(key) === wanted) ?? null;
+var canonicalizeEntry = (target, entry, canonicalKey, value) => {
+  const wanted = entry ? normalizedKey(entry[0]) : normalizedKey(canonicalKey);
+  for (const key of Object.keys(target)) {
+    if (normalizedKey(key) === wanted) delete target[key];
+  }
+  target[canonicalKey] = value;
+};
+var publicPrecision = (value, path3) => {
+  if (typeof value !== "string") {
+    return { precision: null, issue: { code: "INVALID_PUBLIC_PRECISION", path: path3 } };
+  }
+  const normalized = value.trim().toLowerCase();
+  if (normalized === "exact") {
+    return { precision: null, issue: { code: "EXACT_LOCATION_FORBIDDEN", path: path3 } };
+  }
+  if (!Object.prototype.hasOwnProperty.call(PUBLIC_PRECISION_METERS, normalized)) {
+    return { precision: null, issue: { code: "INVALID_PUBLIC_PRECISION", path: path3 } };
+  }
+  return { precision: normalized, issue: null };
+};
+var validCoordinate = (value, axis) => {
+  if (typeof value !== "number" || !Number.isFinite(value)) return false;
+  return axis === "lat" ? value >= -90 && value <= 90 : value >= -180 && value <= 180;
+};
+var snapPublicPoint = (lat, lng, precision) => {
+  const meters = PUBLIC_PRECISION_METERS[precision];
+  const latStep = meters / METERS_PER_DEGREE_LAT;
+  const latitudeIndex = Math.round(lat / latStep);
+  const latitudeCenter = latitudeIndex * latStep;
+  const longitudeScale = Math.max(0.2, Math.cos(latitudeCenter * Math.PI / 180));
+  const lngStep = meters / (METERS_PER_DEGREE_LAT * longitudeScale);
+  const longitudeIndex = Math.round(lng / lngStep);
+  return {
+    lat: Number(Math.max(-90, Math.min(90, latitudeCenter)).toFixed(MAX_PUBLIC_COORDINATE_DECIMALS)),
+    lng: Number(Math.max(-180, Math.min(180, longitudeIndex * lngStep)).toFixed(MAX_PUBLIC_COORDINATE_DECIMALS))
+  };
+};
+var nonCanonicalLocationIssue = (payload, entityType) => {
+  const visit = (value, path3, allowLatLng, allowPublicLatLng) => {
+    if (Array.isArray(value)) {
+      for (let index2 = 0; index2 < value.length; index2 += 1) {
+        const issue = visit(value[index2], `${path3}[${index2}]`, false, false);
+        if (issue) return issue;
+      }
+      return null;
+    }
+    if (!value || typeof value !== "object") return null;
+    const record = value;
+    const hasLatLng = ownEntry(record, "lat") != null || ownEntry(record, "lng") != null;
+    const hasLongForm = ownEntry(record, "latitude") != null || ownEntry(record, "longitude") != null;
+    const hasPublicLatLng = ownEntry(record, "publiclat") != null || ownEntry(record, "publiclng") != null;
+    if (hasLatLng && !allowLatLng || hasLongForm || hasPublicLatLng && !allowPublicLatLng) {
+      return { code: "NON_CANONICAL_LOCATION_FORBIDDEN", path: path3 };
+    }
+    for (const [key, child] of Object.entries(record)) {
+      const canonicalObservationLocation = entityType === "observation" && path3 === "$" && normalizedKey(key) === "location";
+      const issue = visit(child, `${path3}.${key}`, canonicalObservationLocation, false);
+      if (issue) return issue;
+    }
+    return null;
+  };
+  return visit(payload, "$", false, entityType !== "observation");
+};
+function normalizePublicEventPayload(entityType, payload) {
+  if (!["observation", "need", "resource"].includes(entityType)) {
+    return { payload: { ...payload }, issue: null };
+  }
+  const envelopeIssue = nonCanonicalLocationIssue(
+    payload,
+    entityType
+  );
+  if (envelopeIssue) return { payload: null, issue: envelopeIssue };
+  const normalized = { ...payload };
+  const audienceEntry = ownEntry(normalized, "audience");
+  if (audienceEntry && audienceEntry[1] != null) {
+    if (typeof audienceEntry[1] !== "string" || audienceEntry[1].trim().toLowerCase() !== "collective") {
+      return { payload: null, issue: { code: "UNSUPPORTED_AUDIENCE", path: `$.${audienceEntry[0]}` } };
+    }
+    canonicalizeEntry(normalized, audienceEntry, "audience", "collective");
+  }
+  if (entityType === "observation") {
+    const locationEntry = ownEntry(normalized, "location");
+    const precisionEntry2 = ownEntry(normalized, "locationprecision");
+    if (!locationEntry) {
+      if (!precisionEntry2) return { payload: normalized, issue: null };
+      const parsed3 = publicPrecision(precisionEntry2[1], `$.${precisionEntry2[0]}`);
+      if (parsed3.issue) return { payload: null, issue: parsed3.issue };
+      canonicalizeEntry(normalized, precisionEntry2, "locationPrecision", parsed3.precision);
+      return { payload: normalized, issue: null };
+    }
+    if (locationEntry[1] == null) {
+      canonicalizeEntry(normalized, locationEntry, "location", null);
+      if (precisionEntry2) {
+        const parsed3 = publicPrecision(precisionEntry2[1], `$.${precisionEntry2[0]}`);
+        if (parsed3.issue) return { payload: null, issue: parsed3.issue };
+        canonicalizeEntry(normalized, precisionEntry2, "locationPrecision", parsed3.precision);
+      }
+      return { payload: normalized, issue: null };
+    }
+    if (typeof locationEntry[1] !== "object" || Array.isArray(locationEntry[1])) {
+      return { payload: null, issue: { code: "INVALID_PUBLIC_LOCATION", path: `$.${locationEntry[0]}` } };
+    }
+    const location = locationEntry[1];
+    const latEntry2 = ownEntry(location, "lat");
+    const lngEntry2 = ownEntry(location, "lng");
+    if (!latEntry2 || !lngEntry2 || !validCoordinate(latEntry2[1], "lat") || !validCoordinate(lngEntry2[1], "lng")) {
+      return { payload: null, issue: { code: "INVALID_PUBLIC_LOCATION", path: `$.${locationEntry[0]}` } };
+    }
+    if (!precisionEntry2) {
+      return { payload: null, issue: { code: "INVALID_PUBLIC_PRECISION", path: "$.locationPrecision" } };
+    }
+    const parsed2 = publicPrecision(precisionEntry2[1], `$.${precisionEntry2[0]}`);
+    if (parsed2.issue) return { payload: null, issue: parsed2.issue };
+    const point2 = snapPublicPoint(latEntry2[1], lngEntry2[1], parsed2.precision);
+    const canonicalLocation = { ...location };
+    canonicalizeEntry(canonicalLocation, latEntry2, "lat", point2.lat);
+    canonicalizeEntry(canonicalLocation, lngEntry2, "lng", point2.lng);
+    canonicalizeEntry(normalized, locationEntry, "location", canonicalLocation);
+    canonicalizeEntry(normalized, precisionEntry2, "locationPrecision", parsed2.precision);
+    return { payload: normalized, issue: null };
+  }
+  const latEntry = ownEntry(normalized, "publiclat");
+  const lngEntry = ownEntry(normalized, "publiclng");
+  const precisionEntry = ownEntry(normalized, "publicprecision");
+  if (!latEntry && !lngEntry) {
+    if (!precisionEntry) return { payload: normalized, issue: null };
+    const parsed2 = publicPrecision(precisionEntry[1], `$.${precisionEntry[0]}`);
+    if (parsed2.issue) return { payload: null, issue: parsed2.issue };
+    canonicalizeEntry(normalized, precisionEntry, "publicPrecision", parsed2.precision);
+    return { payload: normalized, issue: null };
+  }
+  if (!latEntry || !lngEntry) {
+    return { payload: null, issue: { code: "INVALID_PUBLIC_LOCATION", path: "$" } };
+  }
+  if (latEntry[1] == null && lngEntry[1] == null) {
+    canonicalizeEntry(normalized, latEntry, "publicLat", null);
+    canonicalizeEntry(normalized, lngEntry, "publicLng", null);
+    if (precisionEntry) {
+      const parsed2 = publicPrecision(precisionEntry[1], `$.${precisionEntry[0]}`);
+      if (parsed2.issue) return { payload: null, issue: parsed2.issue };
+      canonicalizeEntry(normalized, precisionEntry, "publicPrecision", parsed2.precision);
+    }
+    return { payload: normalized, issue: null };
+  }
+  if (!validCoordinate(latEntry[1], "lat") || !validCoordinate(lngEntry[1], "lng")) {
+    return { payload: null, issue: { code: "INVALID_PUBLIC_LOCATION", path: "$" } };
+  }
+  if (!precisionEntry) {
+    return { payload: null, issue: { code: "INVALID_PUBLIC_PRECISION", path: "$.publicPrecision" } };
+  }
+  const parsed = publicPrecision(precisionEntry[1], `$.${precisionEntry[0]}`);
+  if (parsed.issue) return { payload: null, issue: parsed.issue };
+  const point = snapPublicPoint(latEntry[1], lngEntry[1], parsed.precision);
+  canonicalizeEntry(normalized, latEntry, "publicLat", point.lat);
+  canonicalizeEntry(normalized, lngEntry, "publicLng", point.lng);
+  canonicalizeEntry(normalized, precisionEntry, "publicPrecision", parsed.precision);
+  return { payload: normalized, issue: null };
+}
+var publicPointIssue = (value, path3) => {
+  const lat = ownEntry(value, "lat");
+  const lng = ownEntry(value, "lng");
+  if (Boolean(lat) !== Boolean(lng)) {
+    return { code: "INVALID_PUBLIC_LOCATION", path: path3 };
+  }
+  if (lat && lng) {
+    const issue = coordinateIssue(lat[1], "lat", `${path3}.${lat[0]}`) ?? coordinateIssue(lng[1], "lng", `${path3}.${lng[0]}`);
+    if (issue) return issue;
+  }
+  const publicLat = ownEntry(value, "publiclat");
+  const publicLng = ownEntry(value, "publiclng");
+  if (Boolean(publicLat) !== Boolean(publicLng)) {
+    return { code: "INVALID_PUBLIC_LOCATION", path: path3 };
+  }
+  if (!publicLat || !publicLng) return null;
+  if (publicLat[1] == null && publicLng[1] == null) return null;
+  if (publicLat[1] == null || publicLng[1] == null) {
+    return { code: "INVALID_PUBLIC_LOCATION", path: path3 };
+  }
+  return coordinateIssue(publicLat[1], "lat", `${path3}.${publicLat[0]}`) ?? coordinateIssue(publicLng[1], "lng", `${path3}.${publicLng[0]}`);
+};
+function inspectPublicPayload(payload) {
+  if (Buffer.byteLength(JSON.stringify(payload), "utf8") > 64 * 1024) {
+    return { code: "PAYLOAD_TOO_LARGE", path: "$" };
+  }
+  const visit = (value, path3, key) => {
+    const normalized = key ? normalizedKey(key) : void 0;
+    if (normalized && FORBIDDEN_KEYS.has(normalized)) {
+      return { code: "FORBIDDEN_FIELD", path: path3 };
+    }
+    if (normalized?.endsWith("precision") && typeof value === "string" && value.trim().toLowerCase() === "exact") {
+      return { code: "EXACT_LOCATION_FORBIDDEN", path: path3 };
+    }
+    if (typeof value === "string") {
+      if (containsPersonalContact(value)) {
+        return { code: "PERSONAL_CONTACT_FORBIDDEN", path: path3 };
+      }
+      if (LOCAL_MEDIA_PATTERN.test(value) || INLINE_MEDIA_PATTERN.test(value)) {
+        return { code: "LOCAL_MEDIA_FORBIDDEN", path: path3 };
+      }
+    }
+    if (Array.isArray(value)) {
+      for (let index2 = 0; index2 < value.length; index2 += 1) {
+        const issue = visit(value[index2], `${path3}[${index2}]`);
+        if (issue) return issue;
+      }
+      return null;
+    }
+    if (value && typeof value === "object") {
+      const record = value;
+      const locationIssue = publicPointIssue(record, path3);
+      if (locationIssue) return locationIssue;
+      for (const [childKey, childValue] of Object.entries(record)) {
+        const issue = visit(childValue, `${path3}.${childKey}`, childKey);
+        if (issue) return issue;
+      }
+    }
+    return null;
+  };
+  return visit(payload, "$");
+}
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.entries(value).sort(([left], [right]) => left.localeCompare(right)).map(([key, child]) => `${JSON.stringify(key)}:${canonicalJson(child)}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+// server/civic/device-auth.ts
+init_config();
+import { createHmac, timingSafeEqual } from "node:crypto";
+import jwt2 from "jsonwebtoken";
+var DEFAULT_TTL_SECONDS = 7 * 24 * 60 * 60;
+function tokenTtlSeconds() {
+  const configured = Number(process.env.CIVIC_DEVICE_TOKEN_TTL_SECONDS ?? DEFAULT_TTL_SECONDS);
+  if (!Number.isFinite(configured)) return DEFAULT_TTL_SECONDS;
+  return Math.max(5 * 60, Math.min(30 * 24 * 60 * 60, Math.floor(configured)));
+}
+function devicePepper() {
+  return process.env.CIVIC_DEVICE_PEPPER || config.jwt.secret;
+}
+function hashDeviceSecret(secret) {
+  return createHmac("sha256", devicePepper()).update(secret, "utf8").digest("hex");
+}
+function verifyDeviceSecret(secret, expectedHash) {
+  const actual = Buffer.from(hashDeviceSecret(secret), "hex");
+  const expected = Buffer.from(expectedHash, "hex");
+  return actual.length === expected.length && timingSafeEqual(actual, expected);
+}
+var CivicDeviceTokenManager = class {
+  issue(actorKey, _role) {
+    const ttl = tokenTtlSeconds();
+    const claims = { sub: actorKey, type: "civic-device", scope: "civic:write" };
+    const accessToken = jwt2.sign(claims, config.jwt.secret, {
+      expiresIn: ttl,
+      issuer: "basta-civic",
+      audience: "basta-civic-api"
+    });
+    return { accessToken, expiresAt: new Date(Date.now() + ttl * 1e3).toISOString() };
+  }
+  verify(token) {
+    try {
+      const payload = jwt2.verify(token, config.jwt.secret, {
+        issuer: "basta-civic",
+        audience: "basta-civic-api"
+      });
+      if (payload.type !== "civic-device" || payload.scope !== "civic:write" || !civicActorKeySchema.safeParse(payload.sub).success) return null;
+      return payload;
+    } catch {
+      return null;
+    }
+  }
+  extract(authorization) {
+    if (!authorization) return null;
+    const [scheme, token, extra] = authorization.split(" ");
+    return scheme === "Bearer" && token && !extra ? token : null;
+  }
+};
+
+// server/civic/postgres-store.ts
+init_schema();
+init_db();
+import { and as and16, asc as asc3, eq as eq19, gt, inArray as inArray7, isNotNull as isNotNull2, isNull as isNull4, or as or6 } from "drizzle-orm";
+var PostgresCivicEventStore = class _PostgresCivicEventStore {
+  constructor(database = db) {
+    this.database = database;
+  }
+  async runInTransaction(operation) {
+    return civicTransactionDb.transaction(async (tx) => operation(new _PostgresCivicEventStore(
+      // Ambos drivers exponen los mismos builders; sólo cambia el tipo de
+      // resultado del transporte (HTTP vs WebSocket).
+      tx
+    )));
+  }
+  async getDevice(actorKey) {
+    const [row] = await this.database.select({
+      actorKey: civicDevices.actorKey,
+      secretHash: civicDevices.secretHash,
+      role: civicDevices.role,
+      linkedUserId: civicDevices.linkedUserId,
+      revokedAt: civicDevices.revokedAt
+    }).from(civicDevices).where(eq19(civicDevices.actorKey, actorKey)).limit(1);
+    return row ?? null;
+  }
+  async createDevice(actorKey, secretHash) {
+    await this.database.insert(civicDevices).values({ actorKey, secretHash, role: "contributor" }).onConflictDoNothing();
+    const device = await this.getDevice(actorKey);
+    if (!device) throw new Error("civic_device_insert_failed");
+    return device;
+  }
+  async linkDevice(actorKey, userId) {
+    const current = await this.getDevice(actorKey);
+    if (!current) return "missing";
+    if (current.linkedUserId === userId) return "same";
+    if (current.linkedUserId != null) return "conflict";
+    const now = (/* @__PURE__ */ new Date()).toISOString();
+    const linked = await this.database.update(civicDevices).set({ linkedUserId: userId, updatedAt: now, lastSeenAt: now }).where(and16(eq19(civicDevices.actorKey, actorKey), isNull4(civicDevices.linkedUserId))).returning({ id: civicDevices.id });
+    if (linked.length === 1) return "linked";
+    const raced = await this.getDevice(actorKey);
+    if (!raced) return "missing";
+    return raced.linkedUserId === userId ? "same" : "conflict";
+  }
+  async unlinkDevice(actorKey, userId) {
+    const now = (/* @__PURE__ */ new Date()).toISOString();
+    const rows = await this.database.update(civicDevices).set({ linkedUserId: null, role: "contributor", updatedAt: now }).where(and16(eq19(civicDevices.actorKey, actorKey), eq19(civicDevices.linkedUserId, userId))).returning({ id: civicDevices.id });
+    return rows.length === 1;
+  }
+  async touchDevice(actorKey) {
+    const now = (/* @__PURE__ */ new Date()).toISOString();
+    await this.database.update(civicDevices).set({ lastSeenAt: now, updatedAt: now }).where(eq19(civicDevices.actorKey, actorKey));
+  }
+  async findEvents(eventId, idempotencyKey) {
+    return this.database.select({
+      eventId: civicEvents.eventId,
+      idempotencyKey: civicEvents.idempotencyKey,
+      actorKey: civicEvents.actorKey,
+      eventHash: civicEvents.eventHash
+    }).from(civicEvents).where(or6(
+      eq19(civicEvents.eventId, eventId),
+      eq19(civicEvents.idempotencyKey, idempotencyKey)
+    ));
+  }
+  async appendEvent(input) {
+    const inserted = await this.database.insert(civicEvents).values({
+      eventId: input.event.eventId,
+      idempotencyKey: input.idempotencyKey,
+      actorKey: input.actorKey,
+      entityType: input.event.entityType,
+      entityId: input.event.entityId,
+      operation: input.event.operation,
+      payloadJson: JSON.stringify(input.event.payload),
+      eventHash: input.eventHash,
+      occurredAt: input.event.createdAt
+    }).onConflictDoNothing().returning({ id: civicEvents.id });
+    return inserted.length === 1;
+  }
+  async getOwner(entityType, entityId) {
+    const [row] = await this.database.select({ ownerActorKey: civicEntityOwners.ownerActorKey }).from(civicEntityOwners).where(and16(eq19(civicEntityOwners.entityType, entityType), eq19(civicEntityOwners.entityId, entityId))).limit(1);
+    return row?.ownerActorKey ?? null;
+  }
+  async claimOwner(entityType, entityId, actorKey) {
+    const inserted = await this.database.insert(civicEntityOwners).values({
+      entityType,
+      entityId,
+      ownerActorKey: actorKey
+    }).onConflictDoNothing().returning({ id: civicEntityOwners.id });
+    if (inserted.length === 1) return "claimed";
+    return await this.getOwner(entityType, entityId) === actorKey ? "same" : "conflict";
+  }
+  async claimVerification(input) {
+    const inserted = await this.database.insert(civicVerificationClaims).values(input).onConflictDoNothing().returning({ id: civicVerificationClaims.id });
+    if (inserted.length === 1) return "claimed";
+    const [existing] = await this.database.select().from(civicVerificationClaims).where(or6(
+      eq19(civicVerificationClaims.verificationId, input.verificationId),
+      and16(
+        eq19(civicVerificationClaims.observationId, input.observationId),
+        eq19(civicVerificationClaims.verifierActorKey, input.verifierActorKey)
+      )
+    )).limit(1);
+    return existing?.verificationId === input.verificationId && existing.observationId === input.observationId && existing.verifierActorKey === input.verifierActorKey ? "same" : "conflict";
+  }
+  async getMatchParties(matchId) {
+    const [row] = await this.database.select({
+      matchId: civicMatchParticipants.matchId,
+      needActorKey: civicMatchParticipants.needActorKey,
+      resourceActorKey: civicMatchParticipants.resourceActorKey,
+      createdByActorKey: civicMatchParticipants.createdByActorKey,
+      needAcceptedAt: civicMatchParticipants.needAcceptedAt,
+      resourceAcceptedAt: civicMatchParticipants.resourceAcceptedAt,
+      fulfilledAt: civicMatchParticipants.fulfilledAt,
+      confirmedAt: civicMatchParticipants.confirmedAt
+    }).from(civicMatchParticipants).where(eq19(civicMatchParticipants.matchId, matchId)).limit(1);
+    return row ?? null;
+  }
+  async claimMatchParties(parties) {
+    const inserted = await this.database.insert(civicMatchParticipants).values(parties).onConflictDoNothing().returning({ id: civicMatchParticipants.id });
+    if (inserted.length === 1) return "claimed";
+    const existing = await this.getMatchParties(parties.matchId);
+    return existing && existing.needActorKey === parties.needActorKey && existing.resourceActorKey === parties.resourceActorKey && existing.createdByActorKey === parties.createdByActorKey ? "same" : "conflict";
+  }
+  async recordMatchAcceptance(matchId, side) {
+    const field = side === "need" ? civicMatchParticipants.needAcceptedAt : civicMatchParticipants.resourceAcceptedAt;
+    const update = side === "need" ? { needAcceptedAt: (/* @__PURE__ */ new Date()).toISOString() } : { resourceAcceptedAt: (/* @__PURE__ */ new Date()).toISOString() };
+    const rows = await this.database.update(civicMatchParticipants).set(update).where(and16(eq19(civicMatchParticipants.matchId, matchId), isNull4(field))).returning({ id: civicMatchParticipants.id });
+    if (rows.length === 1) return "recorded";
+    return await this.getMatchParties(matchId) ? "already_recorded" : "prerequisite_missing";
+  }
+  async recordMatchFulfillment(matchId) {
+    const rows = await this.database.update(civicMatchParticipants).set({ fulfilledAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and16(
+      eq19(civicMatchParticipants.matchId, matchId),
+      isNotNull2(civicMatchParticipants.needAcceptedAt),
+      isNotNull2(civicMatchParticipants.resourceAcceptedAt),
+      isNull4(civicMatchParticipants.fulfilledAt)
+    )).returning({ id: civicMatchParticipants.id });
+    if (rows.length === 1) return "recorded";
+    const current = await this.getMatchParties(matchId);
+    if (current?.fulfilledAt) return "already_recorded";
+    return "prerequisite_missing";
+  }
+  async recordMatchConfirmation(matchId) {
+    const rows = await this.database.update(civicMatchParticipants).set({ confirmedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and16(
+      eq19(civicMatchParticipants.matchId, matchId),
+      isNotNull2(civicMatchParticipants.fulfilledAt),
+      isNull4(civicMatchParticipants.confirmedAt)
+    )).returning({ id: civicMatchParticipants.id });
+    if (rows.length === 1) return "recorded";
+    const current = await this.getMatchParties(matchId);
+    if (current?.confirmedAt) return "already_recorded";
+    return "prerequisite_missing";
+  }
+  async getActionLink(actionId) {
+    const [row] = await this.database.select({
+      actionId: civicActionLinks.actionId,
+      matchId: civicActionLinks.matchId,
+      createdByActorKey: civicActionLinks.createdByActorKey,
+      completedAt: civicActionLinks.completedAt,
+      confirmedAt: civicActionLinks.confirmedAt
+    }).from(civicActionLinks).where(eq19(civicActionLinks.actionId, actionId)).limit(1);
+    return row ?? null;
+  }
+  async claimActionLink(link) {
+    const inserted = await this.database.insert(civicActionLinks).values(link).onConflictDoNothing().returning({ id: civicActionLinks.id });
+    if (inserted.length === 1) return "claimed";
+    const existing = await this.getActionLink(link.actionId);
+    return existing && existing.matchId === link.matchId && existing.createdByActorKey === link.createdByActorKey ? "same" : "conflict";
+  }
+  async recordActionCompletion(actionId) {
+    const rows = await this.database.update(civicActionLinks).set({ completedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and16(eq19(civicActionLinks.actionId, actionId), isNull4(civicActionLinks.completedAt))).returning({ id: civicActionLinks.id });
+    if (rows.length === 1) return "recorded";
+    return (await this.getActionLink(actionId))?.completedAt ? "already_recorded" : "prerequisite_missing";
+  }
+  async recordActionConfirmation(actionId) {
+    const rows = await this.database.update(civicActionLinks).set({ confirmedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and16(
+      eq19(civicActionLinks.actionId, actionId),
+      isNotNull2(civicActionLinks.completedAt),
+      isNull4(civicActionLinks.confirmedAt)
+    )).returning({ id: civicActionLinks.id });
+    if (rows.length === 1) return "recorded";
+    const current = await this.getActionLink(actionId);
+    if (current?.confirmedAt) return "already_recorded";
+    return "prerequisite_missing";
+  }
+  async listFeedEventsAfter(after, limit) {
+    return this.database.select({
+      id: civicEvents.id,
+      eventId: civicEvents.eventId,
+      actorKey: civicEvents.actorKey,
+      entityType: civicEvents.entityType,
+      entityId: civicEvents.entityId,
+      operation: civicEvents.operation,
+      payloadJson: civicEvents.payloadJson,
+      occurredAt: civicEvents.occurredAt
+    }).from(civicEvents).where(gt(civicEvents.id, after)).orderBy(asc3(civicEvents.id)).limit(limit);
+  }
+  async listMatchesForActor(actorKey) {
+    return this.database.select({
+      matchId: civicMatchParticipants.matchId,
+      needActorKey: civicMatchParticipants.needActorKey,
+      resourceActorKey: civicMatchParticipants.resourceActorKey,
+      createdByActorKey: civicMatchParticipants.createdByActorKey,
+      needAcceptedAt: civicMatchParticipants.needAcceptedAt,
+      resourceAcceptedAt: civicMatchParticipants.resourceAcceptedAt,
+      fulfilledAt: civicMatchParticipants.fulfilledAt,
+      confirmedAt: civicMatchParticipants.confirmedAt
+    }).from(civicMatchParticipants).where(or6(
+      eq19(civicMatchParticipants.needActorKey, actorKey),
+      eq19(civicMatchParticipants.resourceActorKey, actorKey)
+    ));
+  }
+  async listActionLinksForMatches(matchIds) {
+    if (matchIds.length === 0) return [];
+    return this.database.select({
+      actionId: civicActionLinks.actionId,
+      matchId: civicActionLinks.matchId,
+      createdByActorKey: civicActionLinks.createdByActorKey,
+      completedAt: civicActionLinks.completedAt,
+      confirmedAt: civicActionLinks.confirmedAt
+    }).from(civicActionLinks).where(inArray7(civicActionLinks.matchId, matchIds));
+  }
+};
+
+// server/civic/service.ts
+import { createHash } from "node:crypto";
+import { z as z12 } from "zod";
+var CivicApiError = class extends Error {
+  constructor(status, code, message, path3) {
+    super(message);
+    this.status = status;
+    this.code = code;
+    this.path = path3;
+    this.name = "CivicApiError";
+  }
+};
+function requiredUuid(payload, key) {
+  const parsed = civicUuidV4Schema.safeParse(payload[key]);
+  if (!parsed.success) {
+    throw new CivicApiError(422, "INVALID_REFERENCE", `${key} debe ser un UUID v\xE1lido.`, `$.${key}`);
+  }
+  return parsed.data;
+}
+var UUID_REFERENCE_FIELDS = /* @__PURE__ */ new Set([
+  "id",
+  "observationId",
+  "needId",
+  "resourceId",
+  "matchId",
+  "actionId",
+  "territoryId"
+]);
+var ACTOR_REFERENCE_FIELDS = /* @__PURE__ */ new Set([
+  "creatorKey",
+  "verifierKey",
+  "acceptedNeedBy",
+  "acceptedResourceBy"
+]);
+var canonicalizePayloadReferences = (payload) => {
+  const canonical = { ...payload };
+  for (const [key, value] of Object.entries(canonical)) {
+    const schema = UUID_REFERENCE_FIELDS.has(key) ? civicUuidV4Schema : ACTOR_REFERENCE_FIELDS.has(key) ? civicActorKeySchema : null;
+    if (!schema) continue;
+    const parsed = schema.safeParse(value);
+    if (parsed.success) canonical[key] = parsed.data;
+  }
+  return canonical;
+};
+function requiredString(payload, key) {
+  const value = payload[key];
+  if (typeof value !== "string" || value.length === 0) {
+    throw new CivicApiError(422, "INVALID_FIELD", `${key} es obligatorio.`, `$.${key}`);
+  }
+  return value;
+}
+function forbidden(message, code = "AUTHORIZATION_FAILED") {
+  throw new CivicApiError(403, code, message);
+}
+function validateRevocationEnvelope(event) {
+  if (!Object.prototype.hasOwnProperty.call(event.payload, "revokedAt")) return;
+  if (!["observation", "need", "resource"].includes(event.entityType) || event.operation !== "update") {
+    throw new CivicApiError(
+      422,
+      "INVALID_REVOCATION_OPERATION",
+      "La revocaci\xF3n debe ser una actualizaci\xF3n auditable de una entidad publicable.",
+      "$.payload.revokedAt"
+    );
+  }
+  const parsed = z12.string().datetime().safeParse(event.payload.revokedAt);
+  if (!parsed.success) {
+    throw new CivicApiError(422, "INVALID_REVOCATION_TIMESTAMP", "revokedAt debe ser una fecha ISO v\xE1lida.", "$.payload.revokedAt");
+  }
+  if (Date.parse(parsed.data) > Date.now() + 10 * 6e4) {
+    throw new CivicApiError(422, "FUTURE_REVOCATION", "La revocaci\xF3n est\xE1 demasiado adelantada.", "$.payload.revokedAt");
+  }
+  if (event.payload.audience !== "collective") {
+    throw new CivicApiError(
+      422,
+      "INVALID_REVOCATION_AUDIENCE",
+      "La revocaci\xF3n debe circular por la misma audiencia colectiva para retirar su proyecci\xF3n.",
+      "$.payload.audience"
+    );
+  }
+  if (event.entityType === "observation" && (typeof event.payload.campaignKey !== "string" || event.payload.campaignKey.length === 0)) {
+    throw new CivicApiError(
+      422,
+      "MISSING_REVOCATION_CAMPAIGN",
+      "La revocaci\xF3n de una observaci\xF3n debe conservar su campa\xF1a para respetar el canal de privacidad.",
+      "$.payload.campaignKey"
+    );
+  }
+  const allowed2 = /* @__PURE__ */ new Set(["id", "audience", "revokedAt", "updatedAt", "campaignKey"]);
+  const unexpected = Object.keys(event.payload).find((key) => !allowed2.has(key));
+  if (unexpected) {
+    throw new CivicApiError(
+      422,
+      "INVALID_REVOCATION_FIELDS",
+      "La revocaci\xF3n s\xF3lo puede contener el sobre m\xEDnimo auditable.",
+      `$.payload.${unexpected}`
+    );
+  }
+}
+function withoutServerDerivedUpdateFields(event) {
+  if (event.operation !== "update") return event;
+  const forbidden2 = event.entityType === "observation" ? ["status", "confidence"] : event.entityType === "need" ? ["status"] : event.entityType === "resource" ? ["status", "confidence"] : [];
+  if (forbidden2.length === 0 || forbidden2.every((key) => !(key in event.payload))) return event;
+  const payload = { ...event.payload };
+  for (const key of forbidden2) delete payload[key];
+  return { ...event, payload };
+}
+var CivicEventService = class _CivicEventService {
+  constructor(store) {
+    this.store = store;
+  }
+  async ingest(actor, event, idempotencyKey) {
+    const eventId = civicUuidV4Schema.safeParse(event.eventId);
+    const entityId = civicUuidV4Schema.safeParse(event.entityId);
+    if (!eventId.success || !entityId.success) {
+      throw new CivicApiError(422, "INVALID_REFERENCE", "eventId y entityId deben ser UUID v4 v\xE1lidos.");
+    }
+    const canonicalEvent = {
+      ...event,
+      eventId: eventId.data,
+      entityId: entityId.data,
+      payload: canonicalizePayloadReferences(event.payload)
+    };
+    const occurredAt = Date.parse(canonicalEvent.createdAt);
+    if (occurredAt > Date.now() + 10 * 6e4) {
+      throw new CivicApiError(422, "FUTURE_EVENT", "La fecha del evento est\xE1 demasiado adelantada.", "$.createdAt");
+    }
+    validateRevocationEnvelope(canonicalEvent);
+    const normalized = normalizePublicEventPayload(canonicalEvent.entityType, canonicalEvent.payload);
+    if (normalized.issue) {
+      throw new CivicApiError(
+        422,
+        normalized.issue.code,
+        "El evento no tiene una proyecci\xF3n p\xFAblica segura.",
+        normalized.issue.path
+      );
+    }
+    const publicEvent = withoutServerDerivedUpdateFields({ ...canonicalEvent, payload: normalized.payload });
+    const eventHash = createHash("sha256").update(canonicalJson({ ...publicEvent, idempotencyKey })).digest("hex");
+    const existing = await this.store.findEvents(canonicalEvent.eventId, idempotencyKey);
+    if (existing.length > 0) {
+      if (existing.every((row) => row.eventHash === eventHash && row.actorKey === actor.actorKey)) {
+        return { status: "duplicate", eventId: canonicalEvent.eventId };
+      }
+      throw new CivicApiError(
+        409,
+        "IDEMPOTENCY_CONFLICT",
+        "La identidad del evento ya fue usada con otro contenido."
+      );
+    }
+    const safetyIssue = inspectPublicPayload(publicEvent.payload);
+    if (safetyIssue) {
+      throw new CivicApiError(
+        safetyIssue.code === "PAYLOAD_TOO_LARGE" ? 413 : 422,
+        safetyIssue.code,
+        "El evento contiene datos que no pueden entrar al registro p\xFAblico.",
+        safetyIssue.path
+      );
+    }
+    if (typeof publicEvent.payload.id === "string" && publicEvent.payload.id !== publicEvent.entityId) {
+      throw new CivicApiError(422, "ENTITY_ID_MISMATCH", "payload.id no coincide con entityId.", "$.payload.id");
+    }
+    const commit = async (store) => {
+      const racedBeforeClaim = await store.findEvents(canonicalEvent.eventId, idempotencyKey);
+      if (racedBeforeClaim.length > 0) {
+        if (racedBeforeClaim.every((row) => row.eventHash === eventHash && row.actorKey === actor.actorKey)) {
+          return { status: "duplicate", eventId: canonicalEvent.eventId };
+        }
+        throw new CivicApiError(409, "IDEMPOTENCY_CONFLICT", "La identidad del evento ya fue usada con otro contenido.");
+      }
+      const transactionalService = store === this.store ? this : new _CivicEventService(store);
+      await transactionalService.authorizeAndClaim(actor, publicEvent);
+      const inserted = await store.appendEvent({
+        event: publicEvent,
+        idempotencyKey,
+        actorKey: actor.actorKey,
+        eventHash
+      });
+      if (!inserted) {
+        const raced = await store.findEvents(canonicalEvent.eventId, idempotencyKey);
+        if (raced.length > 0 && raced.every((row) => row.eventHash === eventHash && row.actorKey === actor.actorKey)) {
+          return { status: "duplicate", eventId: canonicalEvent.eventId };
+        }
+        throw new CivicApiError(409, "IDEMPOTENCY_CONFLICT", "El evento entr\xF3 en conflicto con otra escritura.");
+      }
+      await store.touchDevice(actor.actorKey);
+      return { status: "accepted", eventId: canonicalEvent.eventId };
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(commit) : commit(this.store);
+  }
+  async claimNewOwner(entityType, entityId, actorKey) {
+    const current = await this.store.getOwner(entityType, entityId);
+    if (current) {
+      if (current !== actorKey) forbidden("La entidad pertenece a otro actor.");
+      throw new CivicApiError(409, "ENTITY_ALREADY_EXISTS", "La entidad ya fue creada.");
+    }
+    const result = await this.store.claimOwner(entityType, entityId, actorKey);
+    if (result === "conflict") forbidden("La entidad pertenece a otro actor.");
+    if (result === "same") throw new CivicApiError(409, "ENTITY_ALREADY_EXISTS", "La entidad ya fue creada.");
+  }
+  async requireOwner(entityType, entityId, actorKey, allowFirstClaim = false) {
+    const current = await this.store.getOwner(entityType, entityId);
+    if (!current && allowFirstClaim) {
+      const result = await this.store.claimOwner(entityType, entityId, actorKey);
+      if (result === "conflict") forbidden("La entidad pertenece a otro actor.");
+      return;
+    }
+    if (!current) throw new CivicApiError(409, "ENTITY_NOT_FOUND", "La entidad todav\xEDa no existe en el servidor.");
+    if (current !== actorKey) forbidden("S\xF3lo el actor de origen puede modificar esta entidad.");
+  }
+  async authorizeAndClaim(actor, event) {
+    if (event.operation === "delete") {
+      forbidden("El borrado remoto requiere un flujo de revocaci\xF3n auditable.", "AUDITED_REVOCATION_REQUIRED");
+    }
+    const payload = event.payload;
+    switch (event.entityType) {
+      case "observation": {
+        if (event.operation === "create") {
+          if (requiredString(payload, "creatorKey") !== actor.actorKey) {
+            forbidden("creatorKey debe coincidir con el dispositivo autenticado.", "ACTOR_MISMATCH");
+          }
+          await this.claimNewOwner("observation", event.entityId, actor.actorKey);
+          return;
+        }
+        if (event.operation === "transition") {
+          forbidden("La confianza de una observaci\xF3n se deriva de verificaciones en el servidor.", "SERVER_DERIVED_STATE");
+        }
+        await this.requireOwner("observation", event.entityId, actor.actorKey);
+        return;
+      }
+      case "need": {
+        if (event.operation === "create") {
+          if (payload.observationId != null) {
+            const observationId = requiredUuid(payload, "observationId");
+            const observationOwner = await this.store.getOwner("observation", observationId);
+            if (!observationOwner) throw new CivicApiError(409, "RELATED_ENTITY_NOT_FOUND", "La observaci\xF3n vinculada todav\xEDa no existe.");
+            if (observationOwner !== actor.actorKey) forbidden("No pod\xE9s crear una necesidad derivada de otra persona.");
+          }
+          await this.claimNewOwner("need", event.entityId, actor.actorKey);
+          return;
+        }
+        await this.requireOwner("need", event.entityId, actor.actorKey);
+        if (["matched", "in_progress", "resolved"].includes(String(payload.status))) {
+          forbidden("Ese estado de necesidad se deriva de una conexi\xF3n confirmada.", "SERVER_DERIVED_STATE");
+        }
+        return;
+      }
+      case "resource": {
+        if (event.operation === "create") {
+          await this.claimNewOwner("resource", event.entityId, actor.actorKey);
+          return;
+        }
+        await this.requireOwner("resource", event.entityId, actor.actorKey);
+        if (["reserved", "depleted"].includes(String(payload.status))) {
+          forbidden("Ese estado de recurso se deriva de una conexi\xF3n confirmada.", "SERVER_DERIVED_STATE");
+        }
+        return;
+      }
+      case "territory": {
+        if (event.operation === "create") {
+          await this.claimNewOwner("territory", event.entityId, actor.actorKey);
+        } else {
+          await this.requireOwner("territory", event.entityId, actor.actorKey);
+        }
+        return;
+      }
+      case "consent": {
+        if (event.operation !== "update") {
+          throw new CivicApiError(422, "INVALID_OPERATION", "El consentimiento se registra como una actualizaci\xF3n versionada.");
+        }
+        await this.requireOwner("consent", event.entityId, actor.actorKey, true);
+        return;
+      }
+      case "verification": {
+        if (event.operation !== "create") {
+          throw new CivicApiError(422, "INVALID_OPERATION", "Una verificaci\xF3n es un evento append-only.");
+        }
+        const observationId = requiredUuid(payload, "observationId");
+        if (requiredString(payload, "verifierKey") !== actor.actorKey) {
+          forbidden("verifierKey debe coincidir con el dispositivo autenticado.", "ACTOR_MISMATCH");
+        }
+        const observationOwner = await this.store.getOwner("observation", observationId);
+        if (!observationOwner) throw new CivicApiError(409, "RELATED_ENTITY_NOT_FOUND", "La observaci\xF3n todav\xEDa no existe.");
+        if (observationOwner === actor.actorKey) {
+          forbidden("Nadie puede verificar su propia observaci\xF3n.", "SELF_VERIFICATION_FORBIDDEN");
+        }
+        const ownerDevice = await this.store.getDevice(observationOwner);
+        if (actor.linkedUserId != null && ownerDevice?.linkedUserId != null && actor.linkedUserId === ownerDevice.linkedUserId) {
+          forbidden("La verificaci\xF3n debe provenir de otra cuenta.", "SELF_VERIFICATION_FORBIDDEN");
+        }
+        const claim = await this.store.claimVerification({
+          observationId,
+          verifierActorKey: actor.actorKey,
+          verificationId: event.entityId
+        });
+        if (claim === "conflict") {
+          throw new CivicApiError(409, "ALREADY_VERIFIED", "Este actor ya verific\xF3 la observaci\xF3n.");
+        }
+        return;
+      }
+      case "match":
+        await this.authorizeMatch(actor.actorKey, event);
+        return;
+      case "action":
+        await this.authorizeAction(actor.actorKey, event);
+        return;
+    }
+  }
+  async authorizeMatch(actorKey, event) {
+    const payload = event.payload;
+    if (event.operation === "create") {
+      const needId = requiredUuid(payload, "needId");
+      const resourceId = requiredUuid(payload, "resourceId");
+      const [needActorKey, resourceActorKey] = await Promise.all([
+        this.store.getOwner("need", needId),
+        this.store.getOwner("resource", resourceId)
+      ]);
+      if (!needActorKey || !resourceActorKey) {
+        throw new CivicApiError(409, "RELATED_ENTITY_NOT_FOUND", "La necesidad o el recurso todav\xEDa no existe.");
+      }
+      if (needActorKey === resourceActorKey) {
+        forbidden("Una misma identidad no puede ocupar los dos lados de una conexi\xF3n.", "DISTINCT_PARTIES_REQUIRED");
+      }
+      const [needDevice, resourceDevice] = await Promise.all([
+        this.store.getDevice(needActorKey),
+        this.store.getDevice(resourceActorKey)
+      ]);
+      if (needDevice?.linkedUserId != null && resourceDevice?.linkedUserId != null && needDevice.linkedUserId === resourceDevice.linkedUserId) {
+        forbidden("Las dos partes deben pertenecer a cuentas distintas.", "DISTINCT_PARTIES_REQUIRED");
+      }
+      if (actorKey !== needActorKey && actorKey !== resourceActorKey) {
+        forbidden("S\xF3lo una de las partes puede proponer la conexi\xF3n.");
+      }
+      const claim = await this.store.claimMatchParties({
+        matchId: event.entityId,
+        needActorKey,
+        resourceActorKey,
+        createdByActorKey: actorKey,
+        needAcceptedAt: null,
+        resourceAcceptedAt: null,
+        fulfilledAt: null,
+        confirmedAt: null
+      });
+      if (claim === "conflict") forbidden("La conexi\xF3n ya est\xE1 vinculada a otras partes.");
+      if (claim === "same") throw new CivicApiError(409, "ENTITY_ALREADY_EXISTS", "La conexi\xF3n ya fue creada.");
+      return;
+    }
+    if (event.operation !== "transition") {
+      throw new CivicApiError(422, "INVALID_OPERATION", "La conexi\xF3n s\xF3lo admite creaci\xF3n o transici\xF3n.");
+    }
+    const parties = await this.store.getMatchParties(event.entityId);
+    if (!parties) throw new CivicApiError(409, "ENTITY_NOT_FOUND", "La conexi\xF3n todav\xEDa no existe.");
+    if (actorKey !== parties.needActorKey && actorKey !== parties.resourceActorKey) {
+      forbidden("S\xF3lo las dos partes pueden operar esta conexi\xF3n.");
+    }
+    const acceptsNeed = typeof event.payload.acceptedNeedBy === "string";
+    const acceptsResource = typeof event.payload.acceptedResourceBy === "string";
+    if (acceptsNeed && acceptsResource) {
+      forbidden("Cada evento s\xF3lo puede aceptar un lado.", "DISTINCT_ACCEPTANCE_REQUIRED");
+    }
+    if (acceptsNeed && (event.payload.acceptedNeedBy !== actorKey || actorKey !== parties.needActorKey)) {
+      forbidden("S\xF3lo quien expres\xF3 la necesidad puede aceptar ese lado.");
+    }
+    if (acceptsResource && (event.payload.acceptedResourceBy !== actorKey || actorKey !== parties.resourceActorKey)) {
+      forbidden("S\xF3lo quien ofrece el recurso puede aceptar ese lado.");
+    }
+    const status = typeof event.payload.status === "string" ? event.payload.status : null;
+    if (status && !["accepted", "in_progress", "fulfilled", "confirmed", "declined", "cancelled"].includes(status)) {
+      throw new CivicApiError(422, "INVALID_STATE", "La transici\xF3n de conexi\xF3n no es v\xE1lida.", "$.status");
+    }
+    if ((acceptsNeed || acceptsResource) && status && status !== "accepted") {
+      throw new CivicApiError(422, "ONE_TRANSITION_PER_EVENT", "La aceptaci\xF3n y el cambio de etapa deben registrarse por separado.");
+    }
+    if (status === "accepted") {
+      if (!acceptsNeed && !acceptsResource) {
+        forbidden("El estado aceptado requiere una aceptaci\xF3n de parte verificable.", "DISTINCT_ACCEPTANCE_REQUIRED");
+      }
+      const oppositeAccepted = acceptsNeed ? parties.resourceAcceptedAt : parties.needAcceptedAt;
+      if (!oppositeAccepted) {
+        throw new CivicApiError(409, "BOTH_ACCEPTANCES_REQUIRED", "La conexi\xF3n requiere la aceptaci\xF3n previa de la otra parte.");
+      }
+    }
+    if (acceptsNeed || acceptsResource) {
+      const result = await this.store.recordMatchAcceptance(event.entityId, acceptsNeed ? "need" : "resource");
+      if (result === "already_recorded") {
+        throw new CivicApiError(409, "SIDE_ALREADY_ACCEPTED", "Ese lado ya hab\xEDa aceptado la conexi\xF3n.");
+      }
+    }
+    if (status === "in_progress") {
+      if (!parties.needAcceptedAt || !parties.resourceAcceptedAt) {
+        throw new CivicApiError(409, "BOTH_ACCEPTANCES_REQUIRED", "La conexi\xF3n requiere la aceptaci\xF3n previa de ambas partes.");
+      }
+    }
+    if (status === "fulfilled" && actorKey !== parties.resourceActorKey) {
+      forbidden("S\xF3lo quien aporta puede marcar la entrega.");
+    }
+    if (status === "fulfilled") {
+      const result = await this.store.recordMatchFulfillment(event.entityId);
+      if (result === "prerequisite_missing") {
+        throw new CivicApiError(409, "BOTH_ACCEPTANCES_REQUIRED", "La entrega requiere la aceptaci\xF3n previa de ambas partes.");
+      }
+      if (result === "already_recorded") {
+        throw new CivicApiError(409, "MATCH_ALREADY_FULFILLED", "La entrega ya hab\xEDa sido registrada.");
+      }
+    }
+    if (status === "confirmed" && actorKey !== parties.needActorKey) {
+      forbidden("S\xF3lo quien recibe puede confirmar la resoluci\xF3n.");
+    }
+    if (status === "confirmed") {
+      const result = await this.store.recordMatchConfirmation(event.entityId);
+      if (result === "prerequisite_missing") {
+        throw new CivicApiError(409, "FULFILLMENT_REQUIRED", "La recepci\xF3n s\xF3lo puede confirmarse despu\xE9s de la entrega.");
+      }
+      if (result === "already_recorded") {
+        throw new CivicApiError(409, "MATCH_ALREADY_CONFIRMED", "La resoluci\xF3n ya hab\xEDa sido confirmada.");
+      }
+    }
+  }
+  async authorizeAction(actorKey, event) {
+    const payload = event.payload;
+    if (event.operation === "create") {
+      const matchId = requiredUuid(payload, "matchId");
+      const parties2 = await this.store.getMatchParties(matchId);
+      if (!parties2) throw new CivicApiError(409, "RELATED_ENTITY_NOT_FOUND", "La conexi\xF3n todav\xEDa no existe.");
+      if (actorKey !== parties2.needActorKey && actorKey !== parties2.resourceActorKey) {
+        forbidden("S\xF3lo una de las partes puede crear una acci\xF3n.");
+      }
+      if (!parties2.needAcceptedAt || !parties2.resourceAcceptedAt) {
+        throw new CivicApiError(409, "BOTH_ACCEPTANCES_REQUIRED", "La acci\xF3n requiere la aceptaci\xF3n previa de ambas partes.");
+      }
+      const claim = await this.store.claimActionLink({
+        actionId: event.entityId,
+        matchId,
+        createdByActorKey: actorKey,
+        completedAt: null,
+        confirmedAt: null
+      });
+      if (claim === "conflict") forbidden("La acci\xF3n ya est\xE1 vinculada a otra conexi\xF3n.");
+      if (claim === "same") throw new CivicApiError(409, "ENTITY_ALREADY_EXISTS", "La acci\xF3n ya fue creada.");
+      return;
+    }
+    if (event.operation !== "transition") {
+      throw new CivicApiError(422, "INVALID_OPERATION", "La acci\xF3n s\xF3lo admite creaci\xF3n o transici\xF3n.");
+    }
+    const link = await this.store.getActionLink(event.entityId);
+    if (!link) throw new CivicApiError(409, "ENTITY_NOT_FOUND", "La acci\xF3n todav\xEDa no existe.");
+    const parties = await this.store.getMatchParties(link.matchId);
+    if (!parties) throw new CivicApiError(409, "RELATED_ENTITY_NOT_FOUND", "La conexi\xF3n de la acci\xF3n no existe.");
+    if (actorKey !== parties.needActorKey && actorKey !== parties.resourceActorKey) {
+      forbidden("S\xF3lo las partes pueden operar esta acci\xF3n.");
+    }
+    const status = typeof payload.status === "string" ? payload.status : null;
+    if (status && !["in_progress", "completed", "confirmed", "cancelled"].includes(status)) {
+      throw new CivicApiError(422, "INVALID_STATE", "La transici\xF3n de acci\xF3n no es v\xE1lida.", "$.status");
+    }
+    if (status === "completed" && actorKey !== parties.resourceActorKey) {
+      forbidden("S\xF3lo quien aporta puede marcar la entrega.");
+    }
+    if (status === "completed") {
+      const result = await this.store.recordActionCompletion(event.entityId);
+      if (result === "already_recorded") {
+        throw new CivicApiError(409, "ACTION_ALREADY_COMPLETED", "La entrega ya hab\xEDa sido registrada.");
+      }
+    }
+    if (status === "confirmed" && actorKey !== parties.needActorKey) {
+      forbidden("S\xF3lo quien recibe puede confirmar el resultado.");
+    }
+    if (status === "confirmed") {
+      const result = await this.store.recordActionConfirmation(event.entityId);
+      if (result === "prerequisite_missing") {
+        throw new CivicApiError(409, "ACTION_COMPLETION_REQUIRED", "El resultado s\xF3lo puede confirmarse despu\xE9s de la entrega.");
+      }
+      if (result === "already_recorded") {
+        throw new CivicApiError(409, "ACTION_ALREADY_CONFIRMED", "El resultado ya hab\xEDa sido confirmado.");
+      }
+    }
+  }
+};
+
+// server/civic/listening-insights.ts
+var LISTENING_CAMPAIGN_KEY = "escucha-v1";
+var LISTENING_THEMES = [
+  "food",
+  "housing",
+  "work",
+  "care",
+  "health",
+  "education",
+  "environment",
+  "mobility",
+  "safety",
+  "culture",
+  "democracy"
+];
+var LISTENING_KINDS = ["need", "dream", "proposal", "capacity"];
+var LISTENING_HORIZONS = ["now", "year", "generation"];
+var LISTENING_SCOPES = ["personal", "block", "neighborhood", "city", "country"];
+var LISTENING_PUBLIC_PRECISIONS = ["100m", "500m", "neighborhood", "city"];
+var THEME_SET = new Set(LISTENING_THEMES);
+var KIND_SET = new Set(LISTENING_KINDS);
+var HORIZON_SET = new Set(LISTENING_HORIZONS);
+var SCOPE_SET = new Set(LISTENING_SCOPES);
+var PRECISION_SET = new Set(LISTENING_PUBLIC_PRECISIONS);
+var METERS_PER_DEGREE_LAT2 = 111320;
+var PRECISION_METERS = {
+  "100m": 100,
+  "500m": 500,
+  neighborhood: 1500,
+  city: 5e3
+};
+var PRECISION_ORDER = new Map(
+  LISTENING_PUBLIC_PRECISIONS.map((precision, index2) => [precision, index2])
+);
+var parseObject = (value) => value != null && typeof value === "object" && !Array.isArray(value) ? value : null;
+var parsePayload = (raw) => {
+  try {
+    return parseObject(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+};
+var allowed = (value, values) => typeof value === "string" && values.has(value) ? value : null;
+var publicPoint = (value) => {
+  const location = parseObject(value);
+  if (!location) return null;
+  const { lat, lng } = location;
+  if (typeof lat !== "number" || typeof lng !== "number") return null;
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+  if (lat < -90 || lat > 90 || lng < -180 || lng > 180) return null;
+  return { lat, lng };
+};
+var spatialKeyFor = (point, precision) => {
+  const meters = PRECISION_METERS[precision];
+  const latStep = meters / METERS_PER_DEGREE_LAT2;
+  const latitudeIndex = Math.round(point.lat / latStep);
+  const latitudeCenter = latitudeIndex * latStep;
+  const longitudeScale = Math.max(0.2, Math.cos(latitudeCenter * Math.PI / 180));
+  const lngStep = meters / (METERS_PER_DEGREE_LAT2 * longitudeScale);
+  const longitudeIndex = Math.round(point.lng / lngStep);
+  return `grid:${precision}:${latitudeIndex}:${longitudeIndex}`;
+};
+var contributorBand = (count3) => {
+  if (count3 < 10) return "5\u20139";
+  if (count3 < 25) return "10\u201324";
+  if (count3 < 50) return "25\u201349";
+  if (count3 < 100) return "50\u201399";
+  return "100+";
+};
+var minimumThreshold = (minimumCreators) => {
+  if (!Number.isFinite(minimumCreators)) return 5;
+  return Math.max(5, Math.floor(minimumCreators));
+};
+var emptyFacets = () => ({
+  theme: /* @__PURE__ */ new Map(),
+  kind: /* @__PURE__ */ new Map(),
+  horizon: /* @__PURE__ */ new Map(),
+  scope: /* @__PURE__ */ new Map()
+});
+var addBucket = (buckets, value, creatorKey) => {
+  const bucket = buckets.get(value) ?? { value, observations: 0, creators: /* @__PURE__ */ new Set() };
+  bucket.observations += 1;
+  bucket.creators.add(creatorKey);
+  buckets.set(value, bucket);
+};
+var addObservationToFacets = (facets, observation) => {
+  addBucket(facets.theme, observation.theme, observation.creatorKey);
+  addBucket(facets.kind, observation.kind, observation.creatorKey);
+  addBucket(facets.horizon, observation.horizon, observation.creatorKey);
+  addBucket(facets.scope, observation.scope, observation.creatorKey);
+};
+var publicBuckets = (buckets, minimumCreators) => {
+  const rows = [];
+  let suppressed = 0;
+  for (const bucket of buckets.values()) {
+    if (bucket.creators.size < minimumCreators) {
+      suppressed += 1;
+      continue;
+    }
+    rows.push({
+      value: bucket.value,
+      observations: bucket.observations,
+      contributors: {
+        band: contributorBand(bucket.creators.size),
+        minimumApplied: minimumCreators
+      }
+    });
+  }
+  rows.sort((left, right) => right.observations - left.observations || left.value.localeCompare(right.value));
+  return { rows, suppressed };
+};
+var publicFacets = (facets, minimumCreators) => {
+  const theme = publicBuckets(facets.theme, minimumCreators);
+  const kind = publicBuckets(facets.kind, minimumCreators);
+  const horizon = publicBuckets(facets.horizon, minimumCreators);
+  const scope = publicBuckets(facets.scope, minimumCreators);
+  return {
+    facets: { theme: theme.rows, kind: kind.rows, horizon: horizon.rows, scope: scope.rows },
+    suppressed: {
+      theme: theme.suppressed,
+      kind: kind.suppressed,
+      horizon: horizon.suppressed,
+      scope: scope.suppressed
+    }
+  };
+};
+function buildPublicListeningInsights(events, minimumCreators = 5) {
+  const threshold = minimumThreshold(minimumCreators);
+  const observations = /* @__PURE__ */ new Map();
+  const orderedEvents = events.map((event, sourceIndex) => ({ event, sourceIndex })).sort((left, right) => {
+    const byOccurredAt = left.event.occurredAt.localeCompare(right.event.occurredAt);
+    if (byOccurredAt !== 0) return byOccurredAt;
+    return (left.event.sequence ?? left.sourceIndex) - (right.event.sequence ?? right.sourceIndex);
+  }).map(({ event }) => event);
+  for (const event of orderedEvents) {
+    if (event.entityType !== "observation" || !["create", "update"].includes(event.operation)) continue;
+    const payload = parsePayload(event.payloadJson);
+    if (!payload) continue;
+    const revoked = event.operation === "update" && typeof payload.revokedAt === "string" && Number.isFinite(Date.parse(payload.revokedAt));
+    if (event.operation === "update" && (revoked || payload.audience !== "collective")) {
+      observations.delete(event.entityId);
+      continue;
+    }
+    if (payload.campaignKey !== LISTENING_CAMPAIGN_KEY || payload.audience !== "collective") continue;
+    const data = parseObject(payload.data);
+    const point = publicPoint(payload.location);
+    const precision = allowed(payload.locationPrecision, PRECISION_SET);
+    if (!data || !point || !precision) continue;
+    const theme = allowed(data.theme, THEME_SET);
+    const kind = allowed(data.kind, KIND_SET);
+    const horizon = allowed(data.horizon, HORIZON_SET);
+    const scope = allowed(data.scope, SCOPE_SET);
+    if (!theme || !kind || !horizon || !scope) continue;
+    observations.set(event.entityId, {
+      creatorKey: event.actorKey,
+      theme,
+      kind,
+      horizon,
+      scope,
+      precision,
+      spatialKey: spatialKeyFor(point, precision)
+    });
+  }
+  const globalFacets = emptyFacets();
+  const territories = /* @__PURE__ */ new Map();
+  for (const observation of observations.values()) {
+    addObservationToFacets(globalFacets, observation);
+    const territory = territories.get(observation.spatialKey) ?? {
+      precision: observation.precision,
+      observations: 0,
+      creators: /* @__PURE__ */ new Set(),
+      facets: emptyFacets()
+    };
+    territory.observations += 1;
+    territory.creators.add(observation.creatorKey);
+    addObservationToFacets(territory.facets, observation);
+    territories.set(observation.spatialKey, territory);
+  }
+  const global = publicFacets(globalFacets, threshold);
+  const publicTerritories = [];
+  let suppressedTerritories = 0;
+  for (const territory of territories.values()) {
+    if (territory.creators.size < threshold) {
+      suppressedTerritories += 1;
+      continue;
+    }
+    const projected = publicFacets(territory.facets, threshold);
+    publicTerritories.push({
+      precision: territory.precision,
+      observations: territory.observations,
+      contributors: {
+        band: contributorBand(territory.creators.size),
+        minimumApplied: threshold
+      },
+      // Suppressed facet counts are intentionally not exposed per territory:
+      // for small allowlists they could reveal a rare value by elimination.
+      facets: projected.facets
+    });
+  }
+  publicTerritories.sort(
+    (left, right) => (PRECISION_ORDER.get(left.precision) ?? Number.MAX_SAFE_INTEGER) - (PRECISION_ORDER.get(right.precision) ?? Number.MAX_SAFE_INTEGER) || right.observations - left.observations || JSON.stringify(left.facets).localeCompare(JSON.stringify(right.facets))
+  );
+  return {
+    facets: global.facets,
+    territories: publicTerritories,
+    suppressedBuckets: global.suppressed,
+    suppressedTerritories
+  };
+}
+
+// server/civic/operational-feed.ts
+var VISIBLE_TYPES = /* @__PURE__ */ new Set([
+  "observation",
+  "need",
+  "resource",
+  "verification",
+  "match",
+  "action"
+]);
+var COLLECTIVE_ENTITY_TYPES = /* @__PURE__ */ new Set([
+  "observation",
+  "need",
+  "resource"
+]);
+var SAFE_KEYS = {
+  observation: /* @__PURE__ */ new Set([
+    "campaignKey",
+    "campaignVersion",
+    "territoryId",
+    "category",
+    "title",
+    "summary",
+    "data",
+    "evidence",
+    "location",
+    "locationPrecision",
+    "locationLabel",
+    "observedAt",
+    "expiresAt",
+    "createdAt",
+    "updatedAt",
+    "locationRole",
+    "locationSource",
+    "horizontalAccuracyM",
+    "audience",
+    "attributionMode",
+    "attributionName",
+    "revokedAt"
+  ]),
+  need: /* @__PURE__ */ new Set([
+    "observationId",
+    "territoryId",
+    "category",
+    "title",
+    "description",
+    "quantity",
+    "unit",
+    "urgency",
+    "status",
+    "publicLat",
+    "publicLng",
+    "publicPrecision",
+    "locationLabel",
+    "expiresAt",
+    "createdAt",
+    "updatedAt",
+    "locationRole",
+    "locationSource",
+    "horizontalAccuracyM",
+    "audience",
+    "attributionMode",
+    "attributionName",
+    "revokedAt"
+  ]),
+  resource: /* @__PURE__ */ new Set([
+    "territoryId",
+    "category",
+    "title",
+    "description",
+    "quantity",
+    "unit",
+    "availabilityJson",
+    "radiusKm",
+    "confidence",
+    "status",
+    "publicLat",
+    "publicLng",
+    "publicPrecision",
+    "locationLabel",
+    "expiresAt",
+    "createdAt",
+    "updatedAt",
+    "locationRole",
+    "locationSource",
+    "horizontalAccuracyM",
+    "audience",
+    "attributionMode",
+    "attributionName",
+    "revokedAt"
+  ]),
+  verification: /* @__PURE__ */ new Set(["observationId", "verdict", "createdAt"]),
+  match: /* @__PURE__ */ new Set(["needId", "resourceId", "score", "reasonsJson", "createdAt", "updatedAt"]),
+  action: /* @__PURE__ */ new Set(["matchId", "title", "description", "scheduledAt", "createdAt", "updatedAt"])
+};
+var parseObject2 = (raw) => {
+  try {
+    const value = JSON.parse(raw);
+    return value && typeof value === "object" && !Array.isArray(value) ? value : null;
+  } catch {
+    return null;
+  }
+};
+var pick = (payload, keys) => Object.fromEntries(Object.entries(payload).filter(([key]) => keys.has(key)));
+var matchStatus = (parties, eventStatus) => {
+  if (parties.confirmedAt) return "confirmed";
+  if (parties.fulfilledAt) return "fulfilled";
+  if (typeof eventStatus === "string" && ["accepted", "in_progress", "declined", "cancelled"].includes(eventStatus)) {
+    return eventStatus;
+  }
+  if (parties.needAcceptedAt && parties.resourceAcceptedAt) return "accepted";
+  return "proposed";
+};
+var actionStatus = (link, eventStatus) => {
+  if (link.confirmedAt) return "confirmed";
+  if (link.completedAt) return "completed";
+  if (eventStatus === "in_progress" || eventStatus === "cancelled") return eventStatus;
+  return "planned";
+};
+function buildOperationalFeed(source, requesterActorKey, matches, actions) {
+  const matchById = new Map(matches.map((item) => [item.matchId, item]));
+  const actionById = new Map(actions.map((item) => [item.actionId, item]));
+  const result = [];
+  for (const event of source) {
+    if (!VISIBLE_TYPES.has(event.entityType)) continue;
+    const entityType = event.entityType;
+    const raw = parseObject2(event.payloadJson);
+    if (!raw) continue;
+    if (COLLECTIVE_ENTITY_TYPES.has(entityType) && raw.audience !== "collective") continue;
+    if (entityType === "observation" && raw.campaignKey === LISTENING_CAMPAIGN_KEY) continue;
+    let parties;
+    let ownedByMe = event.actorKey === requesterActorKey;
+    const payload = pick(raw, SAFE_KEYS[entityType]);
+    if (entityType === "match") {
+      const match = matchById.get(event.entityId);
+      if (!match) continue;
+      parties = {
+        needOwnedByMe: match.needActorKey === requesterActorKey,
+        resourceOwnedByMe: match.resourceActorKey === requesterActorKey,
+        needAccepted: match.needAcceptedAt != null,
+        resourceAccepted: match.resourceAcceptedAt != null
+      };
+      payload.status = matchStatus(match, raw.status);
+      ownedByMe = parties.needOwnedByMe || parties.resourceOwnedByMe;
+    }
+    if (entityType === "action") {
+      const link = actionById.get(event.entityId);
+      if (!link || !matchById.has(link.matchId)) continue;
+      payload.matchId = link.matchId;
+      payload.status = actionStatus(link, raw.status);
+      ownedByMe = true;
+    }
+    result.push({
+      cursor: event.id,
+      eventId: event.eventId,
+      entityType,
+      entityId: event.entityId,
+      operation: event.operation,
+      occurredAt: event.occurredAt,
+      ownedByMe,
+      payload,
+      ...parties ? { parties } : {}
+    });
+  }
+  return result;
+}
+
+// server/routes-civic-events.ts
+var enrollmentRateLimit = rateLimit6({
+  windowMs: 60 * 6e4,
+  max: 12,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { code: "ENROLLMENT_RATE_LIMITED", message: "Demasiados intentos de enrolamiento." }
+});
+var eventRateLimit = rateLimit6({
+  windowMs: 15 * 6e4,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { code: "EVENT_RATE_LIMITED", message: "Demasiados eventos; reintent\xE1 en unos minutos." }
+});
+var feedRateLimit = rateLimit6({
+  windowMs: 6e4,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { code: "FEED_RATE_LIMITED", message: "Demasiadas actualizaciones de red; esper\xE1 un momento." }
+});
+var feedQuerySchema = z13.object({
+  after: z13.coerce.number().int().min(0).default(0),
+  limit: z13.coerce.number().int().min(1).max(200).default(200)
+}).strict();
+var validationDetails = (issues) => issues.map((issue) => ({ path: `$.${issue.path.join(".")}`, code: issue.code }));
+function apiError(res, error) {
+  if (error instanceof CivicApiError) {
+    res.status(error.status).json({ code: error.code, message: error.message, path: error.path });
+    return;
+  }
+  console.error("[civic-events] request failed:", error instanceof Error ? error.message : "unknown_error");
+  res.status(500).json({ code: "CIVIC_EVENT_ERROR", message: "No se pudo procesar el evento c\xEDvico." });
+}
+function registerCivicEventRoutes(app2) {
+  const store = new PostgresCivicEventStore();
+  const service = new CivicEventService(store);
+  const tokens = new CivicDeviceTokenManager();
+  app2.post("/api/v1/civic/devices/enroll", enrollmentRateLimit, async (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    const parsed = civicDeviceEnrollmentSchema.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(422).json({
+        code: "INVALID_ENROLLMENT",
+        message: "Los datos de enrolamiento no son v\xE1lidos.",
+        details: validationDetails(parsed.error.issues)
+      });
+      return;
+    }
+    try {
+      let device = await store.getDevice(parsed.data.actorKey);
+      if (!device) {
+        device = await store.createDevice(parsed.data.actorKey, hashDeviceSecret(parsed.data.deviceSecret));
+      }
+      if (device.revokedAt) {
+        res.status(403).json({ code: "DEVICE_REVOKED", message: "Este dispositivo fue revocado." });
+        return;
+      }
+      if (!verifyDeviceSecret(parsed.data.deviceSecret, device.secretHash)) {
+        res.status(401).json({ code: "DEVICE_SECRET_MISMATCH", message: "La credencial del dispositivo no coincide." });
+        return;
+      }
+      await store.touchDevice(device.actorKey);
+      const issued = tokens.issue(device.actorKey, device.role);
+      res.status(200).json({
+        actorKey: device.actorKey,
+        role: device.role,
+        linked: device.linkedUserId != null,
+        ...issued
+      });
+    } catch (error) {
+      apiError(res, error);
+    }
+  });
+  app2.post("/api/v1/civic/devices/link", authenticateToken, async (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    const civicToken = req.header("X-Civic-Device-Token");
+    const claims = civicToken ? tokens.verify(civicToken) : null;
+    if (!claims) {
+      res.status(401).json({ code: "MISSING_CIVIC_PROOF", message: "Falta demostrar la identidad de este dispositivo." });
+      return;
+    }
+    try {
+      const device = await store.getDevice(claims.sub);
+      if (!device || device.revokedAt) {
+        res.status(403).json({ code: "DEVICE_REVOKED", message: "El dispositivo no est\xE1 habilitado." });
+        return;
+      }
+      const result = await store.linkDevice(device.actorKey, req.user.userId);
+      if (result === "conflict") {
+        res.status(409).json({ code: "DEVICE_ALREADY_LINKED", message: "Este dispositivo ya est\xE1 vinculado a otra cuenta." });
+        return;
+      }
+      if (result === "missing") {
+        res.status(404).json({ code: "DEVICE_NOT_FOUND", message: "El dispositivo todav\xEDa no est\xE1 enrolado." });
+        return;
+      }
+      res.status(result === "linked" ? 201 : 200).json({
+        status: result,
+        actorKey: device.actorKey,
+        userId: req.user.userId
+      });
+    } catch (error) {
+      apiError(res, error);
+    }
+  });
+  app2.post("/api/v1/civic/devices/unlink", authenticateToken, async (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    const civicToken = req.header("X-Civic-Device-Token");
+    const claims = civicToken ? tokens.verify(civicToken) : null;
+    if (!claims) {
+      res.status(401).json({ code: "MISSING_CIVIC_PROOF", message: "Falta demostrar la identidad de este dispositivo." });
+      return;
+    }
+    try {
+      const unlinked = await store.unlinkDevice(claims.sub, req.user.userId);
+      if (!unlinked) {
+        res.status(409).json({ code: "LINK_NOT_FOUND", message: "La cuenta no estaba vinculada a este dispositivo." });
+        return;
+      }
+      res.status(200).json({ status: "unlinked", actorKey: claims.sub });
+    } catch (error) {
+      apiError(res, error);
+    }
+  });
+  app2.post("/api/v1/civic/events", eventRateLimit, async (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    const bearer = tokens.extract(req.headers.authorization);
+    if (!bearer) {
+      res.status(401).json({ code: "MISSING_DEVICE_TOKEN", message: "Falta la credencial del dispositivo." });
+      return;
+    }
+    const claims = tokens.verify(bearer);
+    if (!claims) {
+      res.status(403).json({ code: "INVALID_DEVICE_TOKEN", message: "La credencial del dispositivo no es v\xE1lida." });
+      return;
+    }
+    const [eventResult, idempotencyResult] = [
+      civicEventSchema.safeParse(req.body),
+      civicIdempotencyKeySchema.safeParse(req.header("Idempotency-Key"))
+    ];
+    if (!eventResult.success || !idempotencyResult.success) {
+      const issues = [
+        ...eventResult.success ? [] : eventResult.error.issues,
+        ...idempotencyResult.success ? [] : idempotencyResult.error.issues.map((issue) => ({ ...issue, path: ["headers", "idempotency-key"] }))
+      ];
+      res.status(422).json({
+        code: "INVALID_CIVIC_EVENT",
+        message: "El contrato del evento no es v\xE1lido.",
+        details: validationDetails(issues)
+      });
+      return;
+    }
+    try {
+      const device = await store.getDevice(claims.sub);
+      if (!device || device.revokedAt) {
+        res.status(403).json({ code: "DEVICE_REVOKED", message: "El dispositivo no est\xE1 habilitado." });
+        return;
+      }
+      const result = await service.ingest({
+        actorKey: device.actorKey,
+        role: device.role,
+        linkedUserId: device.linkedUserId
+      }, eventResult.data, idempotencyResult.data);
+      res.status(result.status === "accepted" ? 201 : 200).json(result);
+    } catch (error) {
+      apiError(res, error);
+    }
+  });
+  app2.get("/api/v1/civic/feed", feedRateLimit, async (req, res) => {
+    res.setHeader("Cache-Control", "private, no-store");
+    const bearer = tokens.extract(req.headers.authorization);
+    if (!bearer) {
+      res.status(401).json({ code: "MISSING_DEVICE_TOKEN", message: "Falta la credencial del dispositivo." });
+      return;
+    }
+    const claims = tokens.verify(bearer);
+    if (!claims) {
+      res.status(403).json({ code: "INVALID_DEVICE_TOKEN", message: "La credencial del dispositivo no es v\xE1lida." });
+      return;
+    }
+    const query = feedQuerySchema.safeParse(req.query);
+    if (!query.success) {
+      res.status(422).json({ code: "INVALID_FEED_CURSOR", message: "El cursor de actualizaci\xF3n no es v\xE1lido." });
+      return;
+    }
+    try {
+      const device = await store.getDevice(claims.sub);
+      if (!device || device.revokedAt) {
+        res.status(403).json({ code: "DEVICE_REVOKED", message: "El dispositivo no est\xE1 habilitado." });
+        return;
+      }
+      if (device.linkedUserId == null) {
+        res.status(403).json({
+          code: "ACCOUNT_LINK_REQUIRED",
+          message: "Vincul\xE1 una cuenta para recibir se\xF1ales operativas de otras personas."
+        });
+        return;
+      }
+      const [source, matches] = await Promise.all([
+        store.listFeedEventsAfter(query.data.after, query.data.limit),
+        store.listMatchesForActor(device.actorKey)
+      ]);
+      const actions = await store.listActionLinksForMatches(matches.map((item) => item.matchId));
+      const events = buildOperationalFeed(source, device.actorKey, matches, actions);
+      const nextCursor = source.at(-1)?.id ?? query.data.after;
+      res.status(200).json({
+        contract: "basta-civic-feed/v1",
+        scope: "linked-participant-network",
+        events,
+        nextCursor,
+        hasMore: source.length === query.data.limit
+      });
+    } catch (error) {
+      apiError(res, error);
+    }
+  });
+}
+
+// server/routes-civic-aggregates.ts
+init_schema();
+import { desc as desc16, gte as gte4 } from "drizzle-orm";
+
+// server/civic/aggregates.ts
+import { createHash as createHash2 } from "node:crypto";
+var PRECISIONS = /* @__PURE__ */ new Set(["100m", "500m", "neighborhood", "city"]);
+var safeText = (value, fallback, max = 120) => typeof value === "string" && value.trim() ? value.trim().slice(0, max) : fallback;
+var safeOptionalText = (value, max = 120) => typeof value === "string" && value.trim() ? value.trim().slice(0, max) : null;
+var safePrecision = (value) => PRECISIONS.has(String(value)) ? String(value) : "city";
+var isExpiredPayload = (payload, at = Date.now()) => {
+  if (payload.expiresAt == null) return false;
+  if (typeof payload.expiresAt !== "string") return true;
+  const expiresAt = Date.parse(payload.expiresAt);
+  return !Number.isFinite(expiresAt) || expiresAt <= at;
+};
+var asObject = (raw) => {
+  try {
+    const value = JSON.parse(raw);
+    return value && typeof value === "object" && !Array.isArray(value) ? value : null;
+  } catch {
+    return null;
+  }
+};
+var hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
+var validatedPoint = (lat, lng) => {
+  const latMissing = lat == null;
+  const lngMissing = lng == null;
+  if (latMissing && lngMissing) return { status: "absent", point: null };
+  if (latMissing || lngMissing) return { status: "invalid", point: null };
+  if (typeof lat !== "number" || typeof lng !== "number") return { status: "invalid", point: null };
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return { status: "invalid", point: null };
+  if (lat < -90 || lat > 90 || lng < -180 || lng > 180) return { status: "invalid", point: null };
+  return { status: "valid", point: { lat, lng } };
+};
+var publicPointFrom = (payload) => {
+  if (hasOwn(payload, "location")) {
+    if (payload.location == null) return { status: "absent", point: null };
+    if (typeof payload.location !== "object" || Array.isArray(payload.location)) {
+      return { status: "invalid", point: null };
+    }
+    const location = payload.location;
+    if (!hasOwn(location, "lat") && !hasOwn(location, "lng")) return { status: "invalid", point: null };
+    return validatedPoint(location.lat, location.lng);
+  }
+  if (hasOwn(payload, "publicLat") || hasOwn(payload, "publicLng")) {
+    return validatedPoint(payload.publicLat, payload.publicLng);
+  }
+  return { status: "absent", point: null };
+};
+var METERS_PER_DEGREE_LAT3 = 111320;
+var PRECISION_METERS2 = {
+  "100m": 100,
+  "500m": 500,
+  neighborhood: 1500,
+  city: 5e3
+};
+var spatialKeyFor2 = (point, precision) => {
+  if (!point) return "no-public-point";
+  const meters = PRECISION_METERS2[precision] ?? PRECISION_METERS2.city;
+  const latStep = meters / METERS_PER_DEGREE_LAT3;
+  const latitudeIndex = Math.round(point.lat / latStep);
+  const latitudeCenter = latitudeIndex * latStep;
+  const longitudeScale = Math.max(0.2, Math.cos(latitudeCenter * Math.PI / 180));
+  const lngStep = meters / (METERS_PER_DEGREE_LAT3 * longitudeScale);
+  const longitudeIndex = Math.round(point.lng / lngStep);
+  return `grid:${precision}:${latitudeIndex}:${longitudeIndex}`;
+};
+var keyFor = (campaignKey, version, category, spatialKey, precision) => JSON.stringify([campaignKey, version, category, spatialKey, precision]);
+var addLocationLabel = (group, label, actorKey) => {
+  if (!label) return;
+  const contributors = group.locationLabels.get(label) ?? /* @__PURE__ */ new Set();
+  contributors.add(actorKey);
+  group.locationLabels.set(label, contributors);
+};
+var preferredLocationLabel = (group, minimumSourceContributors) => {
+  const labels = [...group.locationLabels.entries()].filter(([, contributors]) => contributors.size >= minimumSourceContributors);
+  labels.sort(
+    ([leftLabel, leftContributors], [rightLabel, rightContributors]) => rightContributors.size - leftContributors.size || leftLabel.localeCompare(rightLabel, "es")
+  );
+  return labels[0]?.[0] ?? null;
+};
+var band = (count3) => {
+  if (count3 < 10) return "5\u20139";
+  if (count3 < 25) return "10\u201324";
+  if (count3 < 50) return "25\u201349";
+  if (count3 < 100) return "50\u201399";
+  return "100+";
+};
+function buildPublicCivicAggregates(events, configuredMinimumSourceContributors = 5) {
+  const minimumSourceContributors = Number.isFinite(configuredMinimumSourceContributors) ? Math.max(5, Math.floor(configuredMinimumSourceContributors)) : 5;
+  const observations = /* @__PURE__ */ new Map();
+  const needs = /* @__PURE__ */ new Map();
+  const resources2 = /* @__PURE__ */ new Map();
+  const verifications = /* @__PURE__ */ new Map();
+  const matchNeeds = /* @__PURE__ */ new Map();
+  const matchResources = /* @__PURE__ */ new Map();
+  const matchStatuses = /* @__PURE__ */ new Map();
+  const confirmedMatches = /* @__PURE__ */ new Set();
+  const actionMatches = /* @__PURE__ */ new Map();
+  const confirmedActions = /* @__PURE__ */ new Set();
+  const orderedEvents = events.map((event, sourceIndex) => ({ event, sourceIndex })).sort((left, right) => {
+    const byOccurredAt = left.event.occurredAt.localeCompare(right.event.occurredAt);
+    if (byOccurredAt !== 0) return byOccurredAt;
+    const leftSequence = left.event.sequence ?? left.sourceIndex;
+    const rightSequence = right.event.sequence ?? right.sourceIndex;
+    return leftSequence - rightSequence;
+  }).map(({ event }) => event);
+  for (const event of orderedEvents) {
+    const payload = asObject(event.payloadJson);
+    if (!payload) continue;
+    const isPublicEntity = ["observation", "need", "resource"].includes(event.entityType);
+    const isRevocation = event.operation === "update" && typeof payload.revokedAt === "string" && Number.isFinite(Date.parse(payload.revokedAt));
+    if (isPublicEntity && event.operation === "update" && (isRevocation || payload.audience !== "collective")) {
+      if (event.entityType === "observation") observations.delete(event.entityId);
+      if (event.entityType === "need") needs.delete(event.entityId);
+      if (event.entityType === "resource") resources2.delete(event.entityId);
+      continue;
+    }
+    if (isPublicEntity && payload.audience !== "collective") continue;
+    if (event.entityType === "observation" && ["create", "update"].includes(event.operation)) {
+      if (isExpiredPayload(payload) || ["stale", "withdrawn"].includes(String(payload.status))) {
+        observations.delete(event.entityId);
+        continue;
+      }
+      const campaignKey = safeText(payload.campaignKey, "senal-libre-v1", 64);
+      if (campaignKey === LISTENING_CAMPAIGN_KEY) continue;
+      const campaignVersion = Number.isInteger(payload.campaignVersion) ? Number(payload.campaignVersion) : 1;
+      const category = safeText(payload.category, "sin-categoria", 80);
+      const locationLabel = safeOptionalText(payload.locationLabel);
+      const precision = safePrecision(payload.locationPrecision ?? payload.publicPrecision);
+      const location = publicPointFrom(payload);
+      if (location.status !== "valid") continue;
+      const spatialKey = spatialKeyFor2(location.point, precision);
+      observations.set(event.entityId, {
+        id: event.entityId,
+        actorKey: event.actorKey,
+        campaignKey,
+        campaignVersion,
+        category,
+        locationLabel,
+        precision,
+        spatialKey,
+        groupKey: keyFor(campaignKey, campaignVersion, category, spatialKey, precision)
+      });
+    }
+    if (event.entityType === "need" && ["create", "update"].includes(event.operation)) {
+      if (isExpiredPayload(payload) || ["draft", "withdrawn"].includes(String(payload.status))) {
+        needs.delete(event.entityId);
+        continue;
+      }
+      const precision = safePrecision(payload.publicPrecision ?? payload.locationPrecision);
+      const location = publicPointFrom(payload);
+      if (location.status !== "valid") continue;
+      needs.set(event.entityId, {
+        id: event.entityId,
+        actorKey: event.actorKey,
+        observationId: typeof payload.observationId === "string" ? payload.observationId : null,
+        category: safeText(payload.category, "sin-categoria", 80),
+        locationLabel: safeOptionalText(payload.locationLabel),
+        precision,
+        spatialKey: spatialKeyFor2(location.point, precision)
+      });
+    }
+    if (event.entityType === "resource" && ["create", "update"].includes(event.operation)) {
+      const quantity = payload.quantity;
+      if (isExpiredPayload(payload) || payload.status != null && payload.status !== "available" || typeof quantity === "number" && quantity <= 0) {
+        resources2.delete(event.entityId);
+        continue;
+      }
+      const precision = safePrecision(payload.publicPrecision ?? payload.locationPrecision);
+      const location = publicPointFrom(payload);
+      if (location.status !== "valid") continue;
+      resources2.set(event.entityId, {
+        id: event.entityId,
+        actorKey: event.actorKey,
+        category: safeText(payload.category, "sin-categoria", 80),
+        locationLabel: safeOptionalText(payload.locationLabel),
+        precision,
+        spatialKey: spatialKeyFor2(location.point, precision)
+      });
+    }
+    if (event.entityType === "verification" && event.operation === "create" && typeof payload.observationId === "string") {
+      const rows = verifications.get(payload.observationId) ?? [];
+      rows.push({ actorKey: event.actorKey, verdict: safeText(payload.verdict, "cannot_verify", 32) });
+      verifications.set(payload.observationId, rows);
+    }
+    if (event.entityType === "match" && event.operation === "create" && typeof payload.needId === "string") {
+      matchNeeds.set(event.entityId, payload.needId);
+      if (typeof payload.resourceId === "string") matchResources.set(event.entityId, payload.resourceId);
+      matchStatuses.set(event.entityId, safeText(payload.status, "proposed", 32));
+    }
+    if (event.entityType === "match" && event.operation === "transition" && typeof payload.status === "string") {
+      matchStatuses.set(event.entityId, payload.status);
+      if (payload.status === "confirmed") confirmedMatches.add(event.entityId);
+    }
+    if (event.entityType === "action" && event.operation === "create" && typeof payload.matchId === "string") {
+      actionMatches.set(event.entityId, payload.matchId);
+    }
+    if (event.entityType === "action" && event.operation === "transition" && payload.status === "confirmed") {
+      confirmedActions.add(event.entityId);
+    }
+  }
+  const groups = /* @__PURE__ */ new Map();
+  const ensure = (campaignKey, campaignVersion, category, locationLabel, precision, spatialKey, sourceActorKey, updatedAt) => {
+    const key = keyFor(campaignKey, campaignVersion, category, spatialKey, precision);
+    let group = groups.get(key);
+    if (!group) {
+      group = {
+        campaignKey,
+        campaignVersion,
+        category,
+        locationLabels: /* @__PURE__ */ new Map(),
+        precision,
+        spatialKey,
+        observations: /* @__PURE__ */ new Set(),
+        corroborated: /* @__PURE__ */ new Set(),
+        unsafe: /* @__PURE__ */ new Set(),
+        needs: /* @__PURE__ */ new Set(),
+        resources: /* @__PURE__ */ new Set(),
+        resolvedNeeds: /* @__PURE__ */ new Set(),
+        sourceContributors: /* @__PURE__ */ new Set(),
+        updatedAt
+      };
+      groups.set(key, group);
+    }
+    addLocationLabel(group, locationLabel, sourceActorKey);
+    if (updatedAt > group.updatedAt) group.updatedAt = updatedAt;
+    return group;
+  };
+  const occurredByEntity = new Map(orderedEvents.map((event) => [`${event.entityType}:${event.entityId}`, event.occurredAt]));
+  for (const observation of observations.values()) {
+    const group = ensure(
+      observation.campaignKey,
+      observation.campaignVersion,
+      observation.category,
+      observation.locationLabel,
+      observation.precision,
+      observation.spatialKey,
+      observation.actorKey,
+      occurredByEntity.get(`observation:${observation.id}`) ?? ""
+    );
+    group.observations.add(observation.id);
+    group.sourceContributors.add(observation.actorKey);
+    const verdictRows = verifications.get(observation.id) ?? [];
+    const confirmationActors = new Set(verdictRows.filter((row) => row.verdict === "confirm").map((row) => row.actorKey));
+    if (verdictRows.some((row) => row.verdict === "unsafe")) group.unsafe.add(observation.id);
+    else if (confirmationActors.size >= 2 && !verdictRows.some((row) => row.verdict === "correct")) group.corroborated.add(observation.id);
+  }
+  const groupForNeed = /* @__PURE__ */ new Map();
+  for (const need of needs.values()) {
+    const observation = need.observationId ? observations.get(need.observationId) : null;
+    const sharesObservationGroup = observation != null && observation.spatialKey === need.spatialKey && observation.precision === need.precision;
+    const group = sharesObservationGroup ? groups.get(observation.groupKey) : ensure(
+      observation?.campaignKey ?? "red-operativa-v1",
+      observation?.campaignVersion ?? 1,
+      need.category,
+      need.locationLabel,
+      need.precision,
+      need.spatialKey,
+      need.actorKey,
+      occurredByEntity.get(`need:${need.id}`) ?? ""
+    );
+    if (sharesObservationGroup) addLocationLabel(group, need.locationLabel, need.actorKey);
+    group.needs.add(need.id);
+    group.sourceContributors.add(need.actorKey);
+    groupForNeed.set(need.id, group);
+  }
+  const unavailableResourceIds = new Set(
+    [...matchStatuses.entries()].filter(([, status]) => ["accepted", "in_progress", "fulfilled", "confirmed"].includes(status)).map(([matchId]) => matchResources.get(matchId)).filter((resourceId) => resourceId != null)
+  );
+  for (const resource of resources2.values()) {
+    if (unavailableResourceIds.has(resource.id)) continue;
+    const group = ensure("red-recursos-v1", 1, resource.category, resource.locationLabel, resource.precision, resource.spatialKey, resource.actorKey, occurredByEntity.get(`resource:${resource.id}`) ?? "");
+    group.resources.add(resource.id);
+    group.sourceContributors.add(resource.actorKey);
+  }
+  const resolvedMatchIds = new Set(confirmedMatches);
+  for (const actionId of confirmedActions) {
+    const matchId = actionMatches.get(actionId);
+    if (matchId) resolvedMatchIds.add(matchId);
+  }
+  for (const matchId of resolvedMatchIds) {
+    const needId = matchNeeds.get(matchId);
+    const group = needId ? groupForNeed.get(needId) : null;
+    if (needId && group) group.resolvedNeeds.add(needId);
+  }
+  let suppressedGroups = 0;
+  const publicGroups = [];
+  for (const [rawKey, group] of groups) {
+    if (group.sourceContributors.size < minimumSourceContributors) {
+      suppressedGroups += 1;
+      continue;
+    }
+    const observationCount = group.observations.size;
+    const unsafeCount = group.unsafe.size;
+    const corroboratedCount = group.corroborated.size;
+    const needsReview = Math.max(0, observationCount - unsafeCount - corroboratedCount);
+    const confidencePct = observationCount > 0 ? Math.round((corroboratedCount + needsReview * 0.35) / observationCount * 100) : 0;
+    publicGroups.push({
+      id: createHash2("sha256").update(rawKey).digest("hex").slice(0, 16),
+      campaignKey: group.campaignKey,
+      campaignVersion: group.campaignVersion,
+      category: group.category,
+      territory: { label: preferredLocationLabel(group, minimumSourceContributors), precision: group.precision },
+      coverage: { observed: observationCount, target: null, pct: null },
+      quality: {
+        corroborated: corroboratedCount,
+        needsReview,
+        unsafe: unsafeCount,
+        confidencePct,
+        method: "two-independent-confirmations"
+      },
+      needs: { open: Math.max(0, group.needs.size - group.resolvedNeeds.size), resolved: group.resolvedNeeds.size },
+      resources: { available: group.resources.size },
+      contributors: { band: band(group.sourceContributors.size), minimumApplied: minimumSourceContributors },
+      updatedAt: group.updatedAt
+    });
+  }
+  publicGroups.sort((left, right) => right.updatedAt.localeCompare(left.updatedAt));
+  return { groups: publicGroups, suppressedGroups, processedEvents: events.length };
+}
+
+// server/civic/public-projection.ts
+var CIVIC_PUBLIC_PERIOD_DAYS = {
+  "7d": 7,
+  "30d": 30,
+  "90d": 90
+};
+var CIVIC_PUBLIC_MAX_EVENTS = 5e4;
+var CIVIC_PUBLIC_CACHE_TTL_MS = 6e4;
+function parseCivicPublicPeriod(value) {
+  return typeof value === "string" && value in CIVIC_PUBLIC_PERIOD_DAYS ? value : "30d";
+}
+function civicPublicSince(period, now = Date.now()) {
+  return new Date(now - CIVIC_PUBLIC_PERIOD_DAYS[period] * 24 * 60 * 6e4).toISOString();
+}
+function civicMinimumSourceContributors(configured = process.env.CIVIC_AGGREGATE_MIN_ACTORS) {
+  const value = Number(configured ?? 5);
+  if (!Number.isFinite(value)) return 5;
+  return Math.max(5, Math.min(20, Math.floor(value)));
+}
+
+// server/routes-civic-aggregates.ts
+init_db();
+var cache3 = /* @__PURE__ */ new Map();
+function registerCivicAggregateRoutes(app2) {
+  app2.get("/api/v1/civic/aggregates", publicReadRateLimit, async (req, res) => {
+    const period = parseCivicPublicPeriod(req.query.period);
+    const cached = cache3.get(period);
+    if (cached && Date.now() - cached.generatedAt < CIVIC_PUBLIC_CACHE_TTL_MS) {
+      res.setHeader("Cache-Control", "public, max-age=60");
+      return res.json(cached.body);
+    }
+    const since = civicPublicSince(period);
+    try {
+      const rows = await db.select({
+        sequence: civicEvents.id,
+        eventId: civicEvents.eventId,
+        actorKey: civicEvents.actorKey,
+        entityType: civicEvents.entityType,
+        entityId: civicEvents.entityId,
+        operation: civicEvents.operation,
+        payloadJson: civicEvents.payloadJson,
+        occurredAt: civicEvents.occurredAt
+      }).from(civicEvents).where(gte4(civicEvents.occurredAt, since)).orderBy(desc16(civicEvents.occurredAt)).limit(CIVIC_PUBLIC_MAX_EVENTS + 1);
+      const truncated = rows.length > CIVIC_PUBLIC_MAX_EVENTS;
+      const source = truncated ? rows.slice(0, CIVIC_PUBLIC_MAX_EVENTS) : rows;
+      const threshold = civicMinimumSourceContributors();
+      const aggregate = buildPublicCivicAggregates(source, threshold);
+      const body = {
+        meta: {
+          contract: "basta-civic-aggregate/v1",
+          period,
+          since,
+          generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          privacy: {
+            minimumDistinctSourceContributors: threshold,
+            smallGroupsSuppressed: aggregate.suppressedGroups,
+            contributorCountsBucketed: true,
+            verifierActorsExcludedFromThreshold: true,
+            rawRowsExposed: false
+          },
+          qualityMethod: "two-independent-confirmations",
+          truncated
+        },
+        groups: aggregate.groups
+      };
+      cache3.set(period, { generatedAt: Date.now(), body });
+      res.setHeader("Cache-Control", "public, max-age=60");
+      return res.json(body);
+    } catch (error) {
+      console.error("[civic-aggregates] build failed:", error instanceof Error ? error.message : "unknown_error");
+      return res.status(500).json({ code: "AGGREGATE_UNAVAILABLE", message: "La Radiograf\xEDa todav\xEDa no pudo actualizarse." });
+    }
+  });
+}
+
+// server/routes-civic-listening.ts
+init_schema();
+import { and as and17, desc as desc17, eq as eq20, gte as gte5, inArray as inArray8, or as or7, sql as sql14 } from "drizzle-orm";
+init_db();
+var cache4 = /* @__PURE__ */ new Map();
+function registerCivicListeningRoutes(app2) {
+  app2.get("/api/v1/civic/listening-insights", publicReadRateLimit, async (req, res) => {
+    const period = parseCivicPublicPeriod(req.query.period);
+    const cached = cache4.get(period);
+    if (cached && Date.now() - cached.generatedAt < CIVIC_PUBLIC_CACHE_TTL_MS) {
+      res.setHeader("Cache-Control", "public, max-age=60");
+      return res.json(cached.body);
+    }
+    const since = civicPublicSince(period);
+    try {
+      const rows = await db.select({
+        sequence: civicEvents.id,
+        eventId: civicEvents.eventId,
+        actorKey: civicEvents.actorKey,
+        entityType: civicEvents.entityType,
+        entityId: civicEvents.entityId,
+        operation: civicEvents.operation,
+        payloadJson: civicEvents.payloadJson,
+        occurredAt: civicEvents.occurredAt
+      }).from(civicEvents).where(and17(
+        gte5(civicEvents.occurredAt, since),
+        eq20(civicEvents.entityType, "observation"),
+        inArray8(civicEvents.operation, ["create", "update"]),
+        or7(
+          sql14`${civicEvents.payloadJson}::jsonb ->> 'campaignKey' = ${LISTENING_CAMPAIGN_KEY}`,
+          sql14`${civicEvents.payloadJson}::jsonb ? 'revokedAt'`
+        )
+      )).orderBy(desc17(civicEvents.occurredAt)).limit(CIVIC_PUBLIC_MAX_EVENTS + 1);
+      const truncated = rows.length > CIVIC_PUBLIC_MAX_EVENTS;
+      const source = truncated ? rows.slice(0, CIVIC_PUBLIC_MAX_EVENTS) : rows;
+      const threshold = civicMinimumSourceContributors();
+      const insights = buildPublicListeningInsights(source, threshold);
+      const body = {
+        meta: {
+          contract: "basta-civic-listening-insights/v2",
+          campaign: LISTENING_CAMPAIGN_KEY,
+          period,
+          since,
+          generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          privacy: {
+            minimumDistinctSourceContributors: threshold,
+            smallBucketsSuppressed: insights.suppressedBuckets,
+            smallTerritoriesSuppressed: insights.suppressedTerritories,
+            contributorCountsBucketed: true,
+            allowlistedFacetsOnly: true,
+            collectiveAudienceRequired: true,
+            publicPointRequired: true,
+            territorialGrouping: "server-public-grid-by-declared-precision",
+            rawTextExposed: false,
+            rawRowsExposed: false,
+            identifiersExposed: false,
+            locationsExposed: false,
+            locationLabelsExposed: false,
+            cellKeysExposed: false
+          },
+          truncated
+        },
+        facets: insights.facets,
+        territories: insights.territories
+      };
+      cache4.set(period, { generatedAt: Date.now(), body });
+      res.setHeader("Cache-Control", "public, max-age=60");
+      return res.json(body);
+    } catch (error) {
+      console.error("[civic-listening-insights] build failed:", error instanceof Error ? error.message : "unknown_error");
+      return res.status(500).json({
+        code: "LISTENING_INSIGHTS_UNAVAILABLE",
+        message: "La escucha p\xFAblica todav\xEDa no pudo actualizarse."
+      });
+    }
+  });
+}
+
+// server/routes-civic-intelligence.ts
+init_schema();
+import { desc as desc18, gte as gte6 } from "drizzle-orm";
+
+// server/civic/intelligence.ts
+import { createHash as createHash3 } from "node:crypto";
+var stableId = (namespace, value) => `${namespace}_${createHash3("sha256").update(value).digest("hex").slice(0, 16)}`;
+var pct = (numerator, denominator) => denominator > 0 ? Math.round(numerator / denominator * 100) : null;
+var territoryLabel = (group) => group.territory.label ?? `territorio con precisi\xF3n ${group.territory.precision}`;
+var decisionRecipientFor = (campaignKey) => {
+  if (campaignKey.includes("luminaria")) return "\xC1rea p\xFAblica responsable de alumbrado y mantenimiento urbano";
+  if (campaignKey.includes("olla") || campaignKey.includes("comedor")) {
+    return "Red de comedores, organizaciones de apoyo y \xE1rea p\xFAblica de asistencia alimentaria";
+  }
+  if (campaignKey === "red-recursos-v1") return "Mesa territorial de coordinaci\xF3n de recursos";
+  if (campaignKey === "red-operativa-v1") return "Custodia territorial responsable de la necesidad";
+  return "Instituci\xF3n responsable a identificar durante la deliberaci\xF3n";
+};
+var priorityKind = (group) => {
+  if (group.quality.unsafe > 0) return "protect";
+  if (group.quality.needsReview > group.quality.corroborated) return "verify";
+  if (group.needs.open > 0 && group.resources.available > 0) return "coordinate";
+  if (group.needs.open > 0) return "mobilize";
+  if (group.resources.available > 0) return "map_demand";
+  return "monitor";
+};
+var priorityScore = (group) => {
+  const unresolved = group.needs.open * 14;
+  const bridge = Math.min(group.needs.open, group.resources.available) * 18;
+  const uncertainty = group.quality.needsReview * 5;
+  const unsafe = group.quality.unsafe * 20;
+  const evidence = group.quality.corroborated * 3;
+  const agePenalty = group.needs.resolved * 2;
+  return Math.max(0, unresolved + bridge + uncertainty + unsafe + evidence - agePenalty);
+};
+var priorityCopy = (group, kind) => {
+  const category = group.category;
+  const territory = territoryLabel(group);
+  switch (kind) {
+    case "protect":
+      return {
+        title: `Proteger antes de actuar sobre ${category}`,
+        explanation: `Hay se\xF1ales marcadas como inseguras en ${territory}; no deben convertirse en exposici\xF3n ni mandato autom\xE1tico.`,
+        nextActions: ["Revisar la evidencia con custodia responsable", "Retirar cualquier detalle que pueda causar da\xF1o", "Documentar la decisi\xF3n de continuar o cerrar"]
+      };
+    case "verify":
+      return {
+        title: `Reducir incertidumbre sobre ${category}`,
+        explanation: `La mayor\xEDa de las se\xF1ales de ${territory} todav\xEDa necesita una segunda mirada independiente.`,
+        nextActions: ["Planificar verificaciones independientes", "Priorizar celdas y voces todav\xEDa no observadas", "Publicar qu\xE9 cambi\xF3 despu\xE9s de verificar"]
+      };
+    case "coordinate":
+      return {
+        title: `Conectar capacidades con ${category}`,
+        explanation: `En ${territory} existen necesidades abiertas y recursos registrados en el mismo grupo protegido.`,
+        nextActions: ["Invitar a ambas partes sin revelar contacto", "Confirmar cantidad, vigencia y distancia", "Registrar aceptaci\xF3n, entrega y resultado por separado"]
+      };
+    case "mobilize":
+      return {
+        title: `Movilizar respuesta para ${category}`,
+        explanation: `Hay necesidades abiertas en ${territory} y todav\xEDa no aparece capacidad disponible dentro de este grupo.`,
+        nextActions: ["Validar vigencia y cantidad", "Convocar recursos compatibles", "Asignar responsable y fecha de revisi\xF3n"]
+      };
+    case "map_demand":
+      return {
+        title: `Hacer visible d\xF3nde sirve ${category}`,
+        explanation: `Hay recursos disponibles en ${territory}, pero no una necesidad abierta compatible dentro de este grupo.`,
+        nextActions: ["Confirmar disponibilidad actual", "Buscar necesidades por categor\xEDa sin asumir cercan\xEDa", "Evitar prometer el mismo recurso dos veces"]
+      };
+    default:
+      return {
+        title: `Seguir aprendiendo sobre ${category}`,
+        explanation: `El grupo de ${territory} no exige una intervenci\xF3n inmediata con la evidencia publicada.`,
+        nextActions: ["Revisar vigencia", "Observar cambios de calidad", "Cerrar datos que ya no deban conservarse"]
+      };
+  }
+};
+var groupCaveats = (group) => {
+  const caveats = [
+    "La participaci\xF3n registrada no demuestra representatividad social.",
+    "La ubicaci\xF3n p\xFAblica fue reducida y no debe usarse como domicilio exacto."
+  ];
+  if (group.coverage.target == null || group.coverage.pct == null) {
+    caveats.push("No hay denominador de cobertura; no puede estimarse prevalencia territorial.");
+  }
+  if (group.quality.needsReview > 0) caveats.push("Parte de la evidencia todav\xEDa necesita verificaci\xF3n independiente.");
+  return caveats;
+};
+var mandateKind = (kind) => {
+  if (kind === "protect") return "safeguard";
+  if (kind === "verify" || kind === "monitor") return "investigate";
+  if (kind === "coordinate" || kind === "map_demand") return "coordinate";
+  return "respond";
+};
+var mandateFor = (priority, group) => {
+  const hasMeasuredCoverage = group.coverage.target != null && group.coverage.pct != null;
+  const evidenceReady = group.quality.unsafe === 0 && group.quality.corroborated > 0 && group.quality.confidencePct >= 60;
+  const readiness = evidenceReady && hasMeasuredCoverage ? "ready_for_deliberation" : "requires_more_evidence";
+  const kind = mandateKind(priority.kind);
+  const proposedText = kind === "safeguard" ? `Suspender la difusi\xF3n operativa sobre ${group.category} hasta completar una revisi\xF3n de da\xF1o, custodia y seguridad.` : kind === "investigate" ? `Realizar una nueva ronda independiente sobre ${group.category}, declarar su cobertura y publicar qu\xE9 evidencia confirma, corrige o contradice el diagn\xF3stico.` : kind === "coordinate" ? `Convocar una coordinaci\xF3n protegida sobre ${group.category}, confirmar disponibilidad y necesidad, y publicar \xFAnicamente resultados agregados y consentidos.` : `Presentar una respuesta verificable para las necesidades abiertas de ${group.category}, con responsable, plazo, recursos comprometidos y confirmaci\xF3n posterior de resultado.`;
+  return {
+    id: stableId("mandate", `${priority.id}:${kind}`),
+    status: "draft_for_deliberation",
+    kind,
+    readiness,
+    title: priority.title,
+    proposedText,
+    decisionRecipient: decisionRecipientFor(group.campaignKey),
+    evidenceGroupIds: [group.id],
+    evidenceSummary: `${group.quality.corroborated} se\xF1ales corroboradas, ${group.quality.needsReview} por revisar, ${group.needs.open} necesidades abiertas y ${group.resources.available} recursos disponibles.`,
+    reviewRequirements: [
+      "Confirmar que la evidencia sigue vigente.",
+      "Incluir a las personas afectadas y registrar disenso.",
+      hasMeasuredCoverage ? "Revisar el denominador y los l\xEDmites de cobertura declarados." : "Definir un denominador de cobertura antes de generalizar al territorio.",
+      "Asignar responsable, plazo, mecanismo de apelaci\xF3n y evaluaci\xF3n posterior."
+    ],
+    safeguards: [
+      "No revelar identidad, contacto ni ubicaci\xF3n exacta.",
+      "No interpretar participaci\xF3n como voto ni representatividad.",
+      "Permitir correcci\xF3n, retiro y oposici\xF3n al borrador."
+    ],
+    nonBinding: true
+  };
+};
+var buildCategories = (groups) => {
+  const categories = /* @__PURE__ */ new Map();
+  for (const group of groups) {
+    const row = categories.get(group.category) ?? {
+      category: group.category,
+      openNeeds: 0,
+      resolvedNeeds: 0,
+      availableResources: 0,
+      observedSignals: 0,
+      corroboratedSignals: 0,
+      groups: 0
+    };
+    row.openNeeds += group.needs.open;
+    row.resolvedNeeds += group.needs.resolved;
+    row.availableResources += group.resources.available;
+    row.observedSignals += group.coverage.observed;
+    row.corroboratedSignals += group.quality.corroborated;
+    row.groups += 1;
+    categories.set(group.category, row);
+  }
+  return [...categories.values()].sort(
+    (left, right) => right.openNeeds - left.openNeeds || right.availableResources - left.availableResources || left.category.localeCompare(right.category, "es")
+  );
+};
+var buildMatchLeads = (groups) => {
+  const buckets = /* @__PURE__ */ new Map();
+  for (const group of groups) {
+    if (!group.territory.label) continue;
+    const key = JSON.stringify([group.category, group.territory.label, group.territory.precision]);
+    const bucket = buckets.get(key) ?? {
+      category: group.category,
+      territory: { label: group.territory.label, precision: group.territory.precision },
+      openNeeds: 0,
+      availableResources: 0,
+      needGroupIds: [],
+      resourceGroupIds: []
+    };
+    bucket.openNeeds += group.needs.open;
+    bucket.availableResources += group.resources.available;
+    if (group.needs.open > 0) bucket.needGroupIds.push(group.id);
+    if (group.resources.available > 0) bucket.resourceGroupIds.push(group.id);
+    buckets.set(key, bucket);
+  }
+  return [...buckets.values()].filter((bucket) => bucket.openNeeds > 0 && bucket.availableResources > 0).map((bucket) => {
+    return {
+      id: stableId("lead", `${bucket.category}:${bucket.territory.label}:${bucket.territory.precision}`),
+      category: bucket.category,
+      territory: bucket.territory,
+      openNeeds: bucket.openNeeds,
+      availableResources: bucket.availableResources,
+      potentialBridges: Math.min(bucket.openNeeds, bucket.availableResources),
+      needGroupIds: bucket.needGroupIds,
+      resourceGroupIds: bucket.resourceGroupIds,
+      explanation: "La categor\xEDa y el territorio p\xFAblico coinciden a nivel agregado. La distancia, vigencia, cantidad y consentimiento deben comprobarse entre las partes antes de proponer un puente.",
+      safeguards: [
+        "No identifica ni asigna personas autom\xE1ticamente.",
+        "La etiqueta territorial agregada no reemplaza la comprobaci\xF3n privada de distancia.",
+        "Cada lado conserva el derecho de aceptar, rechazar o retirarse."
+      ],
+      humanConfirmationRequired: true
+    };
+  }).sort((left, right) => right.potentialBridges - left.potentialBridges || left.category.localeCompare(right.category, "es") || left.territory.label.localeCompare(right.territory.label, "es"));
+};
+function buildCivicIntelligence(groups, options = {}) {
+  const priorityLimit = Math.max(1, Math.min(50, Math.floor(options.priorityLimit ?? 20)));
+  const mandateLimit = Math.max(1, Math.min(20, Math.floor(options.mandateLimit ?? 10)));
+  const totals = groups.reduce((sum, group) => ({
+    observed: sum.observed + group.coverage.observed,
+    corroborated: sum.corroborated + group.quality.corroborated,
+    needsReview: sum.needsReview + group.quality.needsReview,
+    unsafe: sum.unsafe + group.quality.unsafe,
+    openNeeds: sum.openNeeds + group.needs.open,
+    resolvedNeeds: sum.resolvedNeeds + group.needs.resolved,
+    resources: sum.resources + group.resources.available
+  }), { observed: 0, corroborated: 0, needsReview: 0, unsafe: 0, openNeeds: 0, resolvedNeeds: 0, resources: 0 });
+  const categories = buildCategories(groups);
+  const ranked = groups.map((group) => ({ group, kind: priorityKind(group), score: priorityScore(group) })).filter(({ kind, score }) => score > 0 || kind !== "monitor").sort((left, right) => Number(right.kind === "protect") - Number(left.kind === "protect") || right.score - left.score || right.group.updatedAt.localeCompare(left.group.updatedAt)).slice(0, priorityLimit);
+  const priorities = ranked.map(({ group, kind, score }, index2) => {
+    const copy = priorityCopy(group, kind);
+    return {
+      id: stableId("priority", `${group.id}:${kind}`),
+      rank: index2 + 1,
+      score,
+      kind,
+      title: copy.title,
+      explanation: copy.explanation,
+      groupId: group.id,
+      category: group.category,
+      territory: group.territory,
+      evidence: {
+        observed: group.coverage.observed,
+        corroborated: group.quality.corroborated,
+        needsReview: group.quality.needsReview,
+        unsafe: group.quality.unsafe,
+        openNeeds: group.needs.open,
+        resolvedNeeds: group.needs.resolved,
+        availableResources: group.resources.available,
+        confidencePct: group.quality.confidencePct
+      },
+      nextActions: copy.nextActions,
+      caveats: groupCaveats(group)
+    };
+  });
+  const groupsById = new Map(groups.map((group) => [group.id, group]));
+  const mandateDrafts = priorities.filter((priority) => priority.kind !== "monitor").slice(0, mandateLimit).flatMap((priority) => {
+    const group = groupsById.get(priority.groupId);
+    return group ? [mandateFor(priority, group)] : [];
+  });
+  const groupsWithMeasuredCoverage = groups.filter((group) => group.coverage.target != null && group.coverage.pct != null).length;
+  return {
+    contract: "basta-civic-intelligence/v1",
+    principles: {
+      purpose: "decision-support",
+      determinesTruth: false,
+      createsBindingMandates: false,
+      individualRanking: false,
+      humanDeliberationRequired: true
+    },
+    overview: {
+      publishedGroups: groups.length,
+      observedSignals: totals.observed,
+      corroboratedSignals: totals.corroborated,
+      signalsNeedingReview: totals.needsReview,
+      unsafeSignals: totals.unsafe,
+      openNeeds: totals.openNeeds,
+      resolvedNeeds: totals.resolvedNeeds,
+      availableResources: totals.resources,
+      verificationRatePct: pct(totals.corroborated, totals.observed),
+      resolutionRatePct: pct(totals.resolvedNeeds, totals.openNeeds + totals.resolvedNeeds)
+    },
+    evaluation: {
+      groupsWithMeasuredCoverage,
+      groupsWithoutMeasuredCoverage: groups.length - groupsWithMeasuredCoverage,
+      qualityStatement: groups.length === 0 ? "Todav\xEDa no hay grupos p\xFAblicos por encima del umbral de privacidad." : groupsWithMeasuredCoverage === groups.length ? "Todos los grupos publicados declaran un denominador de cobertura." : "La evidencia describe participaci\xF3n registrada; faltan denominadores para estimar prevalencia territorial.",
+      interpretationLimits: [
+        "Los grupos peque\xF1os fueron suprimidos y no aparecen como cero.",
+        "Los conteos describen registros y resultados, no personas \xFAnicas ni votos.",
+        "La participaci\xF3n puede concentrarse en zonas o redes m\xE1s conectadas.",
+        "Las prioridades ordenan trabajo pendiente; no asignan derechos ni presupuesto."
+      ]
+    },
+    categories,
+    matchLeads: buildMatchLeads(groups),
+    priorities,
+    mandateDrafts
+  };
+}
+
+// server/routes-civic-intelligence.ts
+init_db();
+var cache5 = /* @__PURE__ */ new Map();
+function registerCivicIntelligenceRoutes(app2) {
+  app2.get("/api/v1/civic/intelligence", publicReadRateLimit, async (req, res) => {
+    const period = parseCivicPublicPeriod(req.query.period);
+    const cached = cache5.get(period);
+    if (cached && Date.now() - cached.generatedAt < CIVIC_PUBLIC_CACHE_TTL_MS) {
+      res.setHeader("Cache-Control", "public, max-age=60");
+      return res.json(cached.body);
+    }
+    const since = civicPublicSince(period);
+    try {
+      const rows = await db.select({
+        sequence: civicEvents.id,
+        eventId: civicEvents.eventId,
+        actorKey: civicEvents.actorKey,
+        entityType: civicEvents.entityType,
+        entityId: civicEvents.entityId,
+        operation: civicEvents.operation,
+        payloadJson: civicEvents.payloadJson,
+        occurredAt: civicEvents.occurredAt
+      }).from(civicEvents).where(gte6(civicEvents.occurredAt, since)).orderBy(desc18(civicEvents.occurredAt)).limit(CIVIC_PUBLIC_MAX_EVENTS + 1);
+      const truncated = rows.length > CIVIC_PUBLIC_MAX_EVENTS;
+      const source = truncated ? rows.slice(0, CIVIC_PUBLIC_MAX_EVENTS) : rows;
+      const minimumContributors = civicMinimumSourceContributors();
+      const aggregate = buildPublicCivicAggregates(source, minimumContributors);
+      const report = buildCivicIntelligence(aggregate.groups);
+      const body = {
+        meta: {
+          contract: report.contract,
+          period,
+          since,
+          generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          sourceContract: "basta-civic-aggregate/v1",
+          minimumDistinctSourceContributors: minimumContributors,
+          smallGroupsSuppressed: aggregate.suppressedGroups,
+          truncated,
+          authority: {
+            decisionSupportOnly: true,
+            humanDeliberationRequired: true,
+            bindingMandatesCreated: false
+          }
+        },
+        report
+      };
+      cache5.set(period, { generatedAt: Date.now(), body });
+      res.setHeader("Cache-Control", "public, max-age=60");
+      return res.json(body);
+    } catch (error) {
+      console.error("[civic-intelligence] build failed:", error instanceof Error ? error.message : "unknown_error");
+      return res.status(500).json({
+        code: "CIVIC_INTELLIGENCE_UNAVAILABLE",
+        message: "La lectura para decisiones todav\xEDa no pudo actualizarse."
+      });
+    }
+  });
+}
+
+// server/routes-civic-custody.ts
+init_auth();
+import rateLimit7 from "express-rate-limit";
+import { z as z16 } from "zod";
+
+// server/civic/custody-grants.ts
+import { createHash as createHash4 } from "node:crypto";
+import { z as z15 } from "zod";
+
+// server/civic/custody-timestamps.ts
+var custodyTimestampToIsoUtc = (value, path3) => {
+  if (typeof value !== "string") {
+    throw new CivicApiError(
+      500,
+      "CUSTODY_TIMESTAMP_INVALID",
+      "Una fecha interna de custodia no es v\xE1lida.",
+      path3
+    );
+  }
+  const timestamp2 = Date.parse(value);
+  if (!Number.isFinite(timestamp2)) {
+    throw new CivicApiError(
+      500,
+      "CUSTODY_TIMESTAMP_INVALID",
+      "Una fecha interna de custodia no es v\xE1lida.",
+      path3
+    );
+  }
+  return new Date(timestamp2).toISOString();
+};
+
+// server/civic/custody-pagination.ts
+import { Buffer as Buffer2 } from "node:buffer";
+import { z as z14 } from "zod";
+var custodyPageCursorStringSchema = z14.string().min(8).max(768).regex(/^[A-Za-z0-9_-]+$/);
+var canonicalUtcTimestampSchema = z14.string().datetime().refine((value) => {
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) && new Date(parsed).toISOString() === value;
+});
+var custodyPageCursorSchema = z14.object({
+  v: z14.literal(1),
+  kind: z14.enum(["grant-inbox", "coordination-inbox", "execution-inbox"]),
+  asOf: canonicalUtcTimestampSchema,
+  after: z14.object({
+    rowId: z14.number().int().positive().max(Number.MAX_SAFE_INTEGER)
+  }).strict()
+}).strict();
+var invalidCursor = () => {
+  throw new CivicApiError(
+    422,
+    "INVALID_CUSTODY_CURSOR",
+    "El cursor de la bandeja privada no es v\xE1lido."
+  );
+};
+var encodeCustodyPageCursor = (kind, request) => {
+  const parsed = custodyPageCursorSchema.safeParse({ v: 1, kind, ...request });
+  if (!parsed.success) return invalidCursor();
+  return Buffer2.from(JSON.stringify(parsed.data), "utf8").toString("base64url");
+};
+var decodeCustodyPageCursor = (value, expectedKind) => {
+  if (value == null) return null;
+  if (!custodyPageCursorStringSchema.safeParse(value).success) return invalidCursor();
+  try {
+    const decoded = Buffer2.from(value, "base64url");
+    if (decoded.toString("base64url") !== value) return invalidCursor();
+    const parsed = custodyPageCursorSchema.safeParse(JSON.parse(decoded.toString("utf8")));
+    if (!parsed.success || parsed.data.kind !== expectedKind) return invalidCursor();
+    return { asOf: parsed.data.asOf, after: parsed.data.after };
+  } catch {
+    return invalidCursor();
+  }
+};
+
+// server/civic/custody-grants.ts
+var MIN_GRANT_TTL_MS = 5 * 6e4;
+var MAX_GRANT_TTL_MS = 90 * 24 * 60 * 6e4;
+var custodyUuidV4Schema = civicUuidV4Schema;
+var custodyNeedCategorySchema = z15.enum([
+  "food",
+  "housing",
+  "work",
+  "care",
+  "health",
+  "education",
+  "environment",
+  "mobility",
+  "safety",
+  "culture",
+  "democracy"
+]);
+var custodyNeedUnitSchema = z15.enum([
+  "people",
+  "meals",
+  "units",
+  "hours",
+  "kilograms",
+  "liters",
+  "trips",
+  "days",
+  "beds",
+  "kits",
+  "other"
+]);
+var custodyLocationSchema = z15.object({
+  lat: z15.number().finite().min(-90).max(90),
+  lng: z15.number().finite().min(-180).max(180),
+  /** Un pedido sensible nunca sale de este canal con precisión de domicilio. */
+  precision: z15.enum(["500m", "neighborhood", "city"])
+}).strict();
+var custodyNeedInputSchema = z15.object({
+  category: custodyNeedCategorySchema,
+  quantity: z15.number().finite().positive().max(1e9).nullable().optional(),
+  unit: custodyNeedUnitSchema.nullable().optional(),
+  urgency: z15.number().int().min(1).max(5),
+  location: custodyLocationSchema.nullable().optional()
+}).strict().superRefine((value, ctx) => {
+  if (value.unit != null && value.quantity == null) {
+    ctx.addIssue({
+      code: z15.ZodIssueCode.custom,
+      path: ["unit"],
+      message: "unit requiere quantity."
+    });
+  }
+});
+var custodyRecipientSchema = z15.discriminatedUnion("type", [
+  z15.object({ type: z15.literal("circle"), id: z15.number().int().positive() }).strict(),
+  // Se reconoce para poder fallar con una explicación honesta. No habilita
+  // organizaciones hasta contar con identidad y representación verificables.
+  z15.object({ type: z15.literal("organization"), id: custodyUuidV4Schema }).strict()
+]);
+var createCustodyGrantSchema = z15.object({
+  grantId: custodyUuidV4Schema,
+  needId: custodyUuidV4Schema,
+  recipient: custodyRecipientSchema,
+  expiresAt: z15.string().datetime(),
+  need: custodyNeedInputSchema
+}).strict();
+var custodyGrantListQuerySchema = z15.object({
+  limit: z15.coerce.number().int().min(1).max(100).default(50),
+  cursor: custodyPageCursorStringSchema.optional()
+}).strict();
+var custodyGrantResponseDispositionSchema = z15.enum([
+  "assessing",
+  "support_available"
+]);
+var createCustodyGrantResponseSchema = z15.object({
+  grantId: custodyUuidV4Schema,
+  responseId: custodyUuidV4Schema,
+  disposition: custodyGrantResponseDispositionSchema,
+  quantity: z15.number().finite().positive().max(1e9).nullable().optional()
+}).strict().superRefine((value, ctx) => {
+  if (value.disposition === "assessing" && value.quantity != null) {
+    ctx.addIssue({
+      code: z15.ZodIssueCode.custom,
+      path: ["quantity"],
+      message: "assessing no admite quantity."
+    });
+  }
+});
+var custodyGrantIdSchema = custodyUuidV4Schema;
+var custodyGrantPayloadSchema = z15.object({
+  category: custodyNeedCategorySchema,
+  quantity: z15.number().finite().positive().max(1e9).nullable(),
+  unit: custodyNeedUnitSchema.nullable(),
+  urgency: z15.number().int().min(1).max(5),
+  location: custodyLocationSchema.nullable()
+}).strict();
+var hash = (value) => createHash4("sha256").update(canonicalJson(value)).digest("hex");
+var custodyResponseVersion = (responseId) => createHash4("sha256").update("basta-civic-custody-response-version/v1\0", "utf8").update(responseId, "utf8").digest("hex");
+var safePayload = (need) => {
+  let location = null;
+  if (need.location) {
+    const normalized = normalizePublicEventPayload("need", {
+      publicLat: need.location.lat,
+      publicLng: need.location.lng,
+      publicPrecision: need.location.precision
+    });
+    if (normalized.issue) {
+      throw new CivicApiError(422, normalized.issue.code, "El punto seguro no es v\xE1lido.", normalized.issue.path);
+    }
+    const normalizedLat = normalized.payload.publicLat;
+    const normalizedLng = normalized.payload.publicLng;
+    if (normalizedLat !== need.location.lat || normalizedLng !== need.location.lng) {
+      throw new CivicApiError(
+        422,
+        "CUSTODY_LOCATION_NOT_REDUCED",
+        "El cliente debe enviar \xFAnicamente el centro de una zona segura ya reducida.",
+        "$.need.location"
+      );
+    }
+    location = {
+      lat: normalizedLat,
+      lng: normalizedLng,
+      precision: normalized.payload.publicPrecision
+    };
+  }
+  return custodyGrantPayloadSchema.parse({
+    category: need.category,
+    quantity: need.quantity ?? null,
+    unit: need.unit ?? null,
+    urgency: need.urgency,
+    location
+  });
+};
+var payloadFromRow = (row) => {
+  const parsed = custodyGrantPayloadSchema.safeParse(row.payloadJson);
+  if (!parsed.success) {
+    throw new CivicApiError(500, "CUSTODY_PAYLOAD_INVALID", "El grant almacenado no cumple el contrato seguro.");
+  }
+  return parsed.data;
+};
+var grantState = (row, nowMs) => {
+  if (row.revokedAt || row.closedReason === "revoked") return "revoked";
+  if (row.closedReason === "expired") return "expired";
+  if (row.closedAt || row.closedReason === "superseded") return "closed";
+  return Date.parse(row.expiresAt) <= nowMs ? "expired" : "active";
+};
+var responseViewFromRow = (row, recordedAtPath = "$.grant.response.recordedAt") => ({
+  disposition: row.disposition,
+  quantity: row.quantity,
+  unit: row.unit,
+  responseVersion: custodyResponseVersion(row.responseId),
+  recordedAt: custodyTimestampToIsoUtc(row.createdAt, recordedAtPath)
+});
+var recordedResponseViewFromRow = (row) => ({
+  responseId: row.responseId,
+  ...responseViewFromRow(row, "$.recordedResponse.recordedAt")
+});
+var viewFromRow = (row, nowMs, response) => ({
+  grantId: row.grantId,
+  recipient: { type: "circle", id: row.recipientCircleId },
+  payload: payloadFromRow(row),
+  expiresAt: custodyTimestampToIsoUtc(row.expiresAt, "$.grant.expiresAt"),
+  createdAt: custodyTimestampToIsoUtc(row.createdAt, "$.grant.createdAt"),
+  state: grantState(row, nowMs),
+  response: response ? responseViewFromRow(response) : null
+});
+function idempotentGrant(rows, userId, requestHash) {
+  if (rows.length === 0) return null;
+  if (rows.length === 1 && rows[0].grantorUserId === userId && rows[0].requestHash === requestHash) return rows[0];
+  throw new CivicApiError(409, "CUSTODY_IDEMPOTENCY_CONFLICT", "La identidad del grant ya fue usada con otro contenido.");
+}
+function idempotentResponse(rows, userId, responseId, idempotencyKey, requestHash) {
+  if (rows.length === 0) return null;
+  if (rows.length === 1 && rows[0].responderUserId === userId && rows[0].responseId === responseId && rows[0].idempotencyKey === idempotencyKey && rows[0].requestHash === requestHash) return rows[0];
+  throw new CivicApiError(
+    409,
+    "CUSTODY_RESPONSE_IDEMPOTENCY_CONFLICT",
+    "La identidad de la respuesta ya fue usada con otro contenido."
+  );
+}
+function idempotentRevocation(row, grantId, requestHash) {
+  if (!row) return null;
+  if (row.grantId === grantId && row.requestHash === requestHash) return row;
+  throw new CivicApiError(409, "CUSTODY_IDEMPOTENCY_CONFLICT", "La clave de revocaci\xF3n ya fue usada para otro grant.");
+}
+var CustodyGrantService = class {
+  constructor(store, clock = () => /* @__PURE__ */ new Date()) {
+    this.store = store;
+    this.clock = clock;
+  }
+  async assertActiveUser(userId) {
+    if (!await this.store.isActiveUser(userId)) {
+      throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para operar grants.");
+    }
+  }
+  async currentGrantView(store, grant, nowMs) {
+    return viewFromRow(grant, nowMs, await store.getLatestAppliedResponse(grant.grantId));
+  }
+  assertLinkedDevice(actor, userId) {
+    if (actor.revokedAt) {
+      throw new CivicApiError(403, "DEVICE_REVOKED", "El dispositivo no est\xE1 habilitado.");
+    }
+    if (actor.linkedUserId !== userId) {
+      throw new CivicApiError(
+        403,
+        "LINKED_DEVICE_REQUIRED",
+        "La cuenta y el dispositivo deben estar vinculados para entregar una necesidad."
+      );
+    }
+  }
+  async resolveNeedOwner(store, needId, actor, userId) {
+    const current = await store.getNeedOwner(needId);
+    if (current) {
+      if (current.linkedUserId !== userId) {
+        throw new CivicApiError(403, "NEED_OWNERSHIP_UNPROVEN", "La cuenta no puede demostrar control de esta necesidad.");
+      }
+      return current.actorKey;
+    }
+    const claimed = await store.claimNeedOwner(needId, actor.actorKey);
+    if (claimed === "claimed" || claimed === "same") return actor.actorKey;
+    const raced = await store.getNeedOwner(needId);
+    if (!raced || raced.linkedUserId !== userId) {
+      throw new CivicApiError(403, "NEED_OWNERSHIP_UNPROVEN", "La cuenta no puede demostrar control de esta necesidad.");
+    }
+    return raced.actorKey;
+  }
+  async create(actor, userId, input, idempotencyKey) {
+    await this.assertActiveUser(userId);
+    this.assertLinkedDevice(actor, userId);
+    if (input.recipient.type === "organization") {
+      throw new CivicApiError(
+        422,
+        "ORGANIZATION_IDENTITY_UNAVAILABLE",
+        "Todav\xEDa no existe una identidad organizacional con representantes verificables; el grant falla cerrado.",
+        "$.recipient"
+      );
+    }
+    const recipientCircleId = input.recipient.id;
+    const now = this.clock();
+    const nowMs = now.getTime();
+    const expiresAtMs = Date.parse(input.expiresAt);
+    const expiresAt = new Date(expiresAtMs).toISOString();
+    const payload = safePayload(input.need);
+    const canonicalRequest = {
+      grantId: input.grantId,
+      needId: input.needId,
+      recipient: input.recipient,
+      expiresAt,
+      payload
+    };
+    const requestHash = hash(canonicalRequest);
+    const commit = async (store) => {
+      if (!await store.isActiveUser(userId)) {
+        throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para operar grants.");
+      }
+      const currentDevice = await store.getDevice(actor.actorKey);
+      if (!currentDevice) {
+        throw new CivicApiError(403, "DEVICE_NOT_AVAILABLE", "El dispositivo no est\xE1 habilitado.");
+      }
+      this.assertLinkedDevice(currentDevice, userId);
+      const raced = idempotentGrant(
+        await store.findGrantConflicts(input.grantId, userId, idempotencyKey),
+        userId,
+        requestHash
+      );
+      if (raced) {
+        return {
+          status: "duplicate",
+          grant: await this.currentGrantView(store, raced, nowMs)
+        };
+      }
+      if (expiresAtMs < nowMs + MIN_GRANT_TTL_MS || expiresAtMs > nowMs + MAX_GRANT_TTL_MS) {
+        throw new CivicApiError(
+          422,
+          "INVALID_CUSTODY_EXPIRY",
+          "El grant debe vencer entre cinco minutos y noventa d\xEDas.",
+          "$.expiresAt"
+        );
+      }
+      const access = await store.getCircleAccess(recipientCircleId, userId);
+      const custodialCircle = access && (access.kind === "celula" || access.isPrivate);
+      if (!custodialCircle || !access.membershipRole || !access.hasCoordinator) {
+        throw new CivicApiError(
+          403,
+          "CUSTODY_RECIPIENT_NOT_AVAILABLE",
+          "El destinatario no es un c\xEDrculo custodial verificable para esta cuenta."
+        );
+      }
+      const ownerActorKey = await this.resolveNeedOwner(store, input.needId, currentDevice, userId);
+      const createdAt = now.toISOString();
+      const previousOpen = await store.getOpenGrantForNeed(input.needId);
+      if (previousOpen) {
+        if (Date.parse(previousOpen.expiresAt) > nowMs) {
+          throw new CivicApiError(
+            409,
+            "CUSTODY_ACTIVE_GRANT_EXISTS",
+            "La necesidad ya tiene un grant vigente; debe revocarse o vencer antes de crear otro."
+          );
+        }
+        const closed = await store.markGrantExpired(previousOpen.grantId, createdAt);
+        if (!closed) {
+          const racedOpen = await store.getOpenGrantForNeed(input.needId);
+          if (racedOpen) {
+            throw new CivicApiError(409, "CUSTODY_ACTIVE_GRANT_EXISTS", "La necesidad ya tiene otro grant abierto.");
+          }
+        }
+      }
+      const inserted = await store.insertGrant({
+        grantId: input.grantId,
+        idempotencyKey,
+        requestHash,
+        needId: input.needId,
+        ownerActorKey,
+        grantorUserId: userId,
+        recipientType: "circle",
+        recipientCircleId,
+        payloadJson: payload,
+        expiresAt,
+        createdAt
+      });
+      if (!inserted) {
+        const afterRace = idempotentGrant(
+          await store.findGrantConflicts(input.grantId, userId, idempotencyKey),
+          userId,
+          requestHash
+        );
+        if (afterRace) {
+          return {
+            status: "duplicate",
+            grant: await this.currentGrantView(store, afterRace, nowMs)
+          };
+        }
+        if (await store.getOpenGrantForNeed(input.needId)) {
+          throw new CivicApiError(
+            409,
+            "CUSTODY_ACTIVE_GRANT_EXISTS",
+            "La necesidad ya tiene un grant vigente; debe revocarse o vencer antes de crear otro."
+          );
+        }
+        throw new CivicApiError(409, "CUSTODY_IDEMPOTENCY_CONFLICT", "El grant entr\xF3 en conflicto con otra escritura.");
+      }
+      return {
+        status: "accepted",
+        grant: {
+          grantId: input.grantId,
+          recipient: { type: "circle", id: recipientCircleId },
+          payload,
+          expiresAt: custodyTimestampToIsoUtc(expiresAt, "$.grant.expiresAt"),
+          createdAt: custodyTimestampToIsoUtc(createdAt, "$.grant.createdAt"),
+          state: "active",
+          response: null
+        }
+      };
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(commit) : commit(this.store);
+  }
+  async listInbox(userId, limit, cursor) {
+    const page = decodeCustodyPageCursor(cursor, "grant-inbox");
+    const snapshot = await this.store.listActiveInbox(
+      userId,
+      limit + 1,
+      this.clock().toISOString(),
+      page
+    );
+    if (!snapshot.authorized) {
+      throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para operar grants.");
+    }
+    if (!snapshot.refreshedAt) {
+      throw new CivicApiError(500, "CUSTODY_INBOX_SNAPSHOT_INVALID", "No se pudo fijar el reloj de la bandeja.");
+    }
+    const refreshedAt = custodyTimestampToIsoUtc(snapshot.refreshedAt, "$.refreshedAt");
+    if (page && refreshedAt !== page.asOf) {
+      throw new CivicApiError(
+        422,
+        "INVALID_CUSTODY_CURSOR",
+        "El cursor no pertenece a un corte temporal v\xE1lido."
+      );
+    }
+    const refreshedAtMs = Date.parse(refreshedAt);
+    const visibleRows = snapshot.rows.slice(0, limit);
+    const hasMore = snapshot.rows.length > limit;
+    const last = visibleRows.at(-1);
+    const nextCursor = hasMore && last ? encodeCustodyPageCursor("grant-inbox", {
+      asOf: refreshedAt,
+      after: {
+        rowId: last.grant.rowId
+      }
+    }) : null;
+    return {
+      contract: "basta-civic-custody-grants/v1",
+      scope: "private-circle-coordinator-inbox",
+      grants: visibleRows.map(({ grant, response }) => viewFromRow(
+        grant,
+        refreshedAtMs,
+        response
+      )),
+      refreshedAt,
+      truncated: hasMore,
+      nextCursor
+    };
+  }
+  async respond(userId, input, idempotencyKey) {
+    await this.assertActiveUser(userId);
+    const normalizedQuantity = input.quantity ?? null;
+    const requestHash = hash({
+      grantId: input.grantId,
+      responseId: input.responseId,
+      disposition: input.disposition,
+      quantity: normalizedQuantity,
+      responderUserId: userId
+    });
+    const commit = async (store) => {
+      if (!await store.isActiveUser(userId)) {
+        throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para responder grants.");
+      }
+      const locatedGrant = await store.getGrantForUpdate(input.grantId);
+      if (!locatedGrant || !await store.isCircleCoordinator(locatedGrant.recipientCircleId, userId)) {
+        throw new CivicApiError(404, "CUSTODY_GRANT_NOT_FOUND", "El grant no existe o no est\xE1 disponible.");
+      }
+      const replay = idempotentResponse(
+        await store.findResponseConflicts(input.responseId, userId, idempotencyKey),
+        userId,
+        input.responseId,
+        idempotencyKey,
+        requestHash
+      );
+      if (replay) {
+        const observedAt = this.clock();
+        return {
+          contract: "basta-civic-custody-grants/v1",
+          status: "duplicate",
+          grant: await this.currentGrantView(store, locatedGrant, observedAt.getTime()),
+          recordedResponse: recordedResponseViewFromRow(replay)
+        };
+      }
+      const now = this.clock();
+      const grant = await store.getRespondableGrant(input.grantId, userId, now.toISOString());
+      if (!grant) {
+        throw new CivicApiError(404, "CUSTODY_GRANT_NOT_FOUND", "El grant no existe o no est\xE1 disponible.");
+      }
+      const latest = await store.getLatestAppliedResponse(grant.grantId);
+      let applied = true;
+      let status = "accepted";
+      if (!latest && input.disposition !== "assessing") {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_RESPONSE_ASSESSING_REQUIRED",
+          "La coordinaci\xF3n debe registrar assessing antes de ofrecer apoyo."
+        );
+      }
+      if (latest?.disposition === "support_available" && input.disposition === "assessing") {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_RESPONSE_REGRESSION",
+          "La respuesta no puede regresar de support_available a assessing."
+        );
+      }
+      if (latest?.disposition === "assessing" && input.disposition === "assessing") {
+        applied = false;
+        status = "already_recorded";
+      }
+      if (input.disposition === "support_available" && await store.hasCoordinationProposal(grant.grantId)) {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_COORDINATION_PROPOSAL_EXISTS",
+          "La capacidad qued\xF3 congelada por una propuesta de coordinaci\xF3n existente."
+        );
+      }
+      const payload = payloadFromRow(grant);
+      let quantity = null;
+      let unit = null;
+      if (input.disposition === "support_available") {
+        const requestedQuantity = payload.quantity;
+        const requestedUnit = payload.unit;
+        if (requestedQuantity != null && requestedUnit != null) {
+          if (normalizedQuantity != null && normalizedQuantity > requestedQuantity) {
+            throw new CivicApiError(
+              422,
+              "INVALID_CUSTODY_RESPONSE_QUANTITY",
+              "La cantidad ofrecida debe ser positiva y no superar la solicitada.",
+              "$.quantity"
+            );
+          }
+          if (normalizedQuantity != null) {
+            quantity = normalizedQuantity;
+            unit = requestedUnit;
+          }
+        } else if (normalizedQuantity != null) {
+          throw new CivicApiError(
+            422,
+            "INVALID_CUSTODY_RESPONSE_QUANTITY",
+            "Este grant no admite una cantidad de respuesta.",
+            "$.quantity"
+          );
+        }
+      }
+      const inserted = await store.insertResponse({
+        responseId: input.responseId,
+        idempotencyKey,
+        requestHash,
+        grantId: grant.grantId,
+        responderUserId: userId,
+        disposition: input.disposition,
+        quantity,
+        unit,
+        applied
+      });
+      if (!inserted) {
+        const afterRace = idempotentResponse(
+          await store.findResponseConflicts(input.responseId, userId, idempotencyKey),
+          userId,
+          input.responseId,
+          idempotencyKey,
+          requestHash
+        );
+        if (afterRace) {
+          return {
+            contract: "basta-civic-custody-grants/v1",
+            status: "duplicate",
+            grant: await this.currentGrantView(store, grant, now.getTime()),
+            recordedResponse: recordedResponseViewFromRow(afterRace)
+          };
+        }
+        throw new CivicApiError(
+          409,
+          "CUSTODY_RESPONSE_IDEMPOTENCY_CONFLICT",
+          "La respuesta entr\xF3 en conflicto con otra escritura."
+        );
+      }
+      const effectiveResponse = inserted.applied ? inserted : latest;
+      if (!effectiveResponse) {
+        throw new CivicApiError(
+          500,
+          "CUSTODY_RESPONSE_STATE_INVALID",
+          "No se pudo resolver la respuesta vigente del grant."
+        );
+      }
+      return {
+        contract: "basta-civic-custody-grants/v1",
+        status,
+        grant: viewFromRow(grant, now.getTime(), effectiveResponse),
+        recordedResponse: recordedResponseViewFromRow(inserted)
+      };
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(commit) : commit(this.store);
+  }
+  async revoke(userId, grantId, idempotencyKey) {
+    await this.assertActiveUser(userId);
+    const requestHash = hash({ grantId, userId });
+    const commit = async (store) => {
+      const result = (status, revokedAt2) => ({
+        status,
+        grantId,
+        revokedAt: custodyTimestampToIsoUtc(revokedAt2, "$.revokedAt")
+      });
+      const rememberAlreadyRevoked = async (revokedAt2) => {
+        const appended2 = await store.appendRevocation({
+          grantId,
+          idempotencyKey,
+          requestHash,
+          revokedByUserId: userId,
+          revokedAt: revokedAt2
+        });
+        if (appended2) {
+          return result("already_revoked", revokedAt2);
+        }
+        const replay = idempotentRevocation(
+          await store.findRevocation(userId, idempotencyKey),
+          grantId,
+          requestHash
+        );
+        if (replay) return result("duplicate", replay.revokedAt);
+        throw new CivicApiError(409, "CUSTODY_IDEMPOTENCY_CONFLICT", "La revocaci\xF3n entr\xF3 en conflicto con otra escritura.");
+      };
+      if (!await store.isActiveUser(userId)) {
+        throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para operar grants.");
+      }
+      const raced = idempotentRevocation(
+        await store.findRevocation(userId, idempotencyKey),
+        grantId,
+        requestHash
+      );
+      if (raced) return result("duplicate", raced.revokedAt);
+      const grant = await store.getGrant(grantId);
+      if (!grant) {
+        throw new CivicApiError(404, "CUSTODY_GRANT_NOT_FOUND", "El grant no existe o no est\xE1 disponible.");
+      }
+      const grantorCanRevoke = grant.grantorUserId === userId;
+      const stillOpenForRecipient = grant.closedAt == null && Date.parse(grant.expiresAt) > this.clock().getTime();
+      const recipientCanRevoke = stillOpenForRecipient && await store.isCircleCoordinator(grant.recipientCircleId, userId);
+      if (!grantorCanRevoke && !recipientCanRevoke) {
+        throw new CivicApiError(404, "CUSTODY_GRANT_NOT_FOUND", "El grant no existe o no est\xE1 disponible.");
+      }
+      if (grant.closedReason === "expired" || !grant.revokedAt && Date.parse(grant.expiresAt) <= this.clock().getTime()) {
+        throw new CivicApiError(409, "CUSTODY_GRANT_EXPIRED", "El grant ya venci\xF3 y no puede revocarse.");
+      }
+      if (grant.revokedAt) {
+        return rememberAlreadyRevoked(grant.revokedAt);
+      }
+      const revokedAt = this.clock().toISOString();
+      const authoritativeRevokedAt = await store.markGrantRevoked(grantId, userId, revokedAt);
+      if (!authoritativeRevokedAt) {
+        const afterRace = await store.getGrant(grantId);
+        if (afterRace?.revokedAt) {
+          return rememberAlreadyRevoked(afterRace.revokedAt);
+        }
+        if (afterRace?.closedReason === "expired" || await store.isGrantExpired(grantId, revokedAt)) {
+          throw new CivicApiError(409, "CUSTODY_GRANT_EXPIRED", "El grant ya venci\xF3 y no puede revocarse.");
+        }
+        throw new CivicApiError(409, "CUSTODY_REVOCATION_CONFLICT", "No se pudo asentar la revocaci\xF3n.");
+      }
+      const appended = await store.appendRevocation({
+        grantId,
+        idempotencyKey,
+        requestHash,
+        revokedByUserId: userId,
+        revokedAt: authoritativeRevokedAt
+      });
+      if (!appended) {
+        const replay = idempotentRevocation(
+          await store.findRevocation(userId, idempotencyKey),
+          grantId,
+          requestHash
+        );
+        if (replay) return result("duplicate", replay.revokedAt);
+        throw new CivicApiError(409, "CUSTODY_IDEMPOTENCY_CONFLICT", "La revocaci\xF3n entr\xF3 en conflicto con otra escritura.");
+      }
+      return result("revoked", authoritativeRevokedAt);
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(commit) : commit(this.store);
+  }
+};
+
+// server/civic/postgres-custody-grant-store.ts
+init_schema();
+init_db();
+import { and as and18, desc as desc19, eq as eq21, gt as gt2, inArray as inArray9, isNull as isNull5, lte as lte2, or as or8, sql as sql15 } from "drizzle-orm";
+var grantColumns = {
+  rowId: civicCustodyGrants.id,
+  grantId: civicCustodyGrants.grantId,
+  idempotencyKey: civicCustodyGrants.idempotencyKey,
+  requestHash: civicCustodyGrants.requestHash,
+  needId: civicCustodyGrants.needId,
+  ownerActorKey: civicCustodyGrants.ownerActorKey,
+  grantorUserId: civicCustodyGrants.grantorUserId,
+  recipientType: civicCustodyGrants.recipientType,
+  recipientCircleId: civicCustodyGrants.recipientCircleId,
+  payloadJson: civicCustodyGrants.payloadJson,
+  expiresAt: civicCustodyGrants.expiresAt,
+  revokedAt: civicCustodyGrants.revokedAt,
+  closedAt: civicCustodyGrants.closedAt,
+  closedReason: civicCustodyGrants.closedReason,
+  createdAt: civicCustodyGrants.createdAt
+};
+var responseColumns = {
+  rowId: civicCustodyGrantResponses.id,
+  responseId: civicCustodyGrantResponses.responseId,
+  idempotencyKey: civicCustodyGrantResponses.idempotencyKey,
+  requestHash: civicCustodyGrantResponses.requestHash,
+  grantId: civicCustodyGrantResponses.grantId,
+  responderUserId: civicCustodyGrantResponses.responderUserId,
+  disposition: civicCustodyGrantResponses.disposition,
+  quantity: civicCustodyGrantResponses.quantity,
+  unit: civicCustodyGrantResponses.unit,
+  applied: civicCustodyGrantResponses.applied,
+  createdAt: civicCustodyGrantResponses.createdAt
+};
+var inboxGrantColumns = {
+  rowId: sql15`${civicCustodyGrants.id}`.mapWith(civicCustodyGrants.id).as("inbox_grant_row_id"),
+  grantId: sql15`${civicCustodyGrants.grantId}`.mapWith(civicCustodyGrants.grantId).as("inbox_grant_id"),
+  idempotencyKey: sql15`${civicCustodyGrants.idempotencyKey}`.mapWith(civicCustodyGrants.idempotencyKey).as("inbox_grant_idempotency_key"),
+  requestHash: sql15`${civicCustodyGrants.requestHash}`.mapWith(civicCustodyGrants.requestHash).as("inbox_grant_request_hash"),
+  needId: sql15`${civicCustodyGrants.needId}`.mapWith(civicCustodyGrants.needId).as("inbox_grant_need_id"),
+  ownerActorKey: sql15`${civicCustodyGrants.ownerActorKey}`.mapWith(civicCustodyGrants.ownerActorKey).as("inbox_grant_owner_actor_key"),
+  grantorUserId: sql15`${civicCustodyGrants.grantorUserId}`.mapWith(civicCustodyGrants.grantorUserId).as("inbox_grant_grantor_user_id"),
+  recipientType: sql15`${civicCustodyGrants.recipientType}`.mapWith(civicCustodyGrants.recipientType).as("inbox_grant_recipient_type"),
+  recipientCircleId: sql15`${civicCustodyGrants.recipientCircleId}`.mapWith(civicCustodyGrants.recipientCircleId).as("inbox_grant_recipient_circle_id"),
+  payloadJson: sql15`${civicCustodyGrants.payloadJson}`.mapWith(civicCustodyGrants.payloadJson).as("inbox_grant_payload_json"),
+  expiresAt: sql15`${civicCustodyGrants.expiresAt}`.mapWith(civicCustodyGrants.expiresAt).as("inbox_grant_expires_at"),
+  revokedAt: sql15`${civicCustodyGrants.revokedAt}`.mapWith(civicCustodyGrants.revokedAt).as("inbox_grant_revoked_at"),
+  closedAt: sql15`${civicCustodyGrants.closedAt}`.mapWith(civicCustodyGrants.closedAt).as("inbox_grant_closed_at"),
+  closedReason: sql15`${civicCustodyGrants.closedReason}`.mapWith(civicCustodyGrants.closedReason).as("inbox_grant_closed_reason"),
+  createdAt: sql15`${civicCustodyGrants.createdAt}`.mapWith(civicCustodyGrants.createdAt).as("inbox_grant_created_at")
+};
+var inboxResponseColumns = {
+  rowId: sql15`${civicCustodyGrantResponses.id}`.mapWith(civicCustodyGrantResponses.id).as("inbox_response_row_id"),
+  responseId: sql15`${civicCustodyGrantResponses.responseId}`.mapWith(civicCustodyGrantResponses.responseId).as("inbox_response_id"),
+  idempotencyKey: sql15`${civicCustodyGrantResponses.idempotencyKey}`.mapWith(civicCustodyGrantResponses.idempotencyKey).as("inbox_response_idempotency_key"),
+  requestHash: sql15`${civicCustodyGrantResponses.requestHash}`.mapWith(civicCustodyGrantResponses.requestHash).as("inbox_response_request_hash"),
+  grantId: sql15`${civicCustodyGrantResponses.grantId}`.mapWith(civicCustodyGrantResponses.grantId).as("inbox_response_grant_id"),
+  responderUserId: sql15`${civicCustodyGrantResponses.responderUserId}`.mapWith(civicCustodyGrantResponses.responderUserId).as("inbox_response_responder_user_id"),
+  disposition: sql15`${civicCustodyGrantResponses.disposition}`.mapWith(civicCustodyGrantResponses.disposition).as("inbox_response_disposition"),
+  quantity: sql15`${civicCustodyGrantResponses.quantity}`.mapWith(civicCustodyGrantResponses.quantity).as("inbox_response_quantity"),
+  unit: sql15`${civicCustodyGrantResponses.unit}`.mapWith(civicCustodyGrantResponses.unit).as("inbox_response_unit"),
+  applied: sql15`${civicCustodyGrantResponses.applied}`.mapWith(civicCustodyGrantResponses.applied).as("inbox_response_applied"),
+  createdAt: sql15`${civicCustodyGrantResponses.createdAt}`.mapWith(civicCustodyGrantResponses.createdAt).as("inbox_response_created_at")
+};
+var PostgresCustodyGrantStore = class _PostgresCustodyGrantStore {
+  constructor(database = db) {
+    this.database = database;
+  }
+  async runInTransaction(operation) {
+    return civicTransactionDb.transaction(async (tx) => operation(new _PostgresCustodyGrantStore(
+      tx
+    )));
+  }
+  async getDevice(actorKey) {
+    const [row] = await this.database.select({
+      actorKey: civicDevices.actorKey,
+      linkedUserId: civicDevices.linkedUserId,
+      revokedAt: civicDevices.revokedAt
+    }).from(civicDevices).where(eq21(civicDevices.actorKey, actorKey)).limit(1);
+    return row ?? null;
+  }
+  async isActiveUser(userId) {
+    const [row] = await this.database.select({ id: users.id }).from(users).where(and18(eq21(users.id, userId), eq21(users.isActive, true))).limit(1);
+    return Boolean(row);
+  }
+  async getCircleAccess(circleId, userId) {
+    const [access] = await this.database.select({
+      circleId: circles.id,
+      kind: circles.kind,
+      isPrivate: circles.isPrivate,
+      membershipRole: circleMembers.role,
+      hasCoordinator: sql15`EXISTS (
+        SELECT 1
+        FROM circle_members AS coordinator_membership
+        INNER JOIN users AS coordinator_user
+          ON coordinator_user.id = coordinator_membership.user_id
+        WHERE coordinator_membership.circle_id = ${circles.id}
+          AND coordinator_membership.role = 'coordinador'
+          AND coordinator_user.is_active = TRUE
+      )`
+    }).from(circles).leftJoin(circleMembers, and18(
+      eq21(circleMembers.circleId, circles.id),
+      eq21(circleMembers.userId, userId)
+    )).where(eq21(circles.id, circleId)).limit(1);
+    if (!access) return null;
+    return {
+      circleId: access.circleId,
+      kind: access.kind,
+      isPrivate: access.isPrivate === true,
+      membershipRole: access.membershipRole ?? null,
+      hasCoordinator: access.hasCoordinator === true
+    };
+  }
+  async isCircleCoordinator(circleId, userId) {
+    const custodialCircle = or8(eq21(circles.kind, "celula"), eq21(circles.isPrivate, true));
+    const [row] = await this.database.select({ id: circleMembers.id }).from(circleMembers).innerJoin(circles, eq21(circles.id, circleMembers.circleId)).innerJoin(users, eq21(users.id, circleMembers.userId)).where(and18(
+      eq21(circleMembers.circleId, circleId),
+      eq21(circleMembers.userId, userId),
+      eq21(circleMembers.role, "coordinador"),
+      eq21(users.isActive, true),
+      custodialCircle
+    )).limit(1);
+    return Boolean(row);
+  }
+  async getNeedOwner(needId) {
+    const [row] = await this.database.select({
+      actorKey: civicEntityOwners.ownerActorKey,
+      linkedUserId: civicDevices.linkedUserId
+    }).from(civicEntityOwners).innerJoin(civicDevices, eq21(civicDevices.actorKey, civicEntityOwners.ownerActorKey)).where(and18(
+      eq21(civicEntityOwners.entityType, "custody_need"),
+      eq21(civicEntityOwners.entityId, needId)
+    )).limit(1);
+    return row ?? null;
+  }
+  async claimNeedOwner(needId, actorKey) {
+    const inserted = await this.database.insert(civicEntityOwners).values({
+      entityType: "custody_need",
+      entityId: needId,
+      ownerActorKey: actorKey
+    }).onConflictDoNothing().returning({ id: civicEntityOwners.id });
+    if (inserted.length === 1) return "claimed";
+    const owner = await this.getNeedOwner(needId);
+    return owner?.actorKey === actorKey ? "same" : "conflict";
+  }
+  async findGrantConflicts(grantId, grantorUserId, idempotencyKey) {
+    return this.database.select(grantColumns).from(civicCustodyGrants).where(or8(
+      eq21(civicCustodyGrants.grantId, grantId),
+      and18(
+        eq21(civicCustodyGrants.grantorUserId, grantorUserId),
+        eq21(civicCustodyGrants.idempotencyKey, idempotencyKey)
+      )
+    ));
+  }
+  async insertGrant(input) {
+    const rows = await this.database.insert(civicCustodyGrants).values({
+      grantId: input.grantId,
+      idempotencyKey: input.idempotencyKey,
+      requestHash: input.requestHash,
+      needId: input.needId,
+      ownerActorKey: input.ownerActorKey,
+      grantorUserId: input.grantorUserId,
+      recipientType: input.recipientType,
+      recipientCircleId: input.recipientCircleId,
+      payloadJson: input.payloadJson,
+      expiresAt: input.expiresAt,
+      createdAt: input.createdAt,
+      updatedAt: input.createdAt
+    }).onConflictDoNothing().returning({ id: civicCustodyGrants.id });
+    return rows.length === 1;
+  }
+  async getGrant(grantId) {
+    const [row] = await this.database.select(grantColumns).from(civicCustodyGrants).where(eq21(civicCustodyGrants.grantId, grantId)).limit(1);
+    return row ?? null;
+  }
+  async getGrantForUpdate(grantId) {
+    const [row] = await this.database.select(grantColumns).from(civicCustodyGrants).where(eq21(civicCustodyGrants.grantId, grantId)).limit(1).for("update", { of: civicCustodyGrants });
+    return row ?? null;
+  }
+  async getRespondableGrant(grantId, userId, now) {
+    const custodialCircle = or8(eq21(circles.kind, "celula"), eq21(circles.isPrivate, true));
+    const effectiveNow = sql15`GREATEST(${now}::timestamptz, clock_timestamp())`;
+    const [row] = await this.database.select(grantColumns).from(civicCustodyGrants).innerJoin(circleMembers, and18(
+      eq21(circleMembers.circleId, civicCustodyGrants.recipientCircleId),
+      eq21(circleMembers.userId, userId),
+      eq21(circleMembers.role, "coordinador")
+    )).innerJoin(circles, eq21(circles.id, civicCustodyGrants.recipientCircleId)).innerJoin(users, and18(
+      eq21(users.id, circleMembers.userId),
+      eq21(users.isActive, true)
+    )).where(and18(
+      eq21(civicCustodyGrants.grantId, grantId),
+      eq21(civicCustodyGrants.recipientType, "circle"),
+      isNull5(civicCustodyGrants.revokedAt),
+      isNull5(civicCustodyGrants.closedAt),
+      gt2(civicCustodyGrants.expiresAt, effectiveNow),
+      custodialCircle
+    )).limit(1).for("update", { of: civicCustodyGrants });
+    return row ?? null;
+  }
+  async getOpenGrantForNeed(needId) {
+    const [row] = await this.database.select(grantColumns).from(civicCustodyGrants).where(and18(
+      eq21(civicCustodyGrants.needId, needId),
+      isNull5(civicCustodyGrants.closedAt)
+    )).limit(1);
+    return row ?? null;
+  }
+  async listActiveInbox(userId, limit, _nowHint, page) {
+    const custodialCircle = or8(eq21(circles.kind, "celula"), eq21(circles.isPrivate, true));
+    const currentNow = sql15`statement_timestamp()`.mapWith(civicCustodyGrants.createdAt);
+    const statementNow = sql15`date_trunc('milliseconds', statement_timestamp())`.mapWith(civicCustodyGrants.createdAt);
+    const snapshotAt = page ? sql15`LEAST(${page.asOf}::timestamptz, date_trunc('milliseconds', statement_timestamp()))`.mapWith(civicCustodyGrants.createdAt) : statementNow;
+    const after = page ? sql15`${civicCustodyGrants.id} < ${page.after.rowId}` : void 0;
+    const latestResponses = this.database.selectDistinctOn(
+      [civicCustodyGrantResponses.grantId],
+      inboxResponseColumns
+    ).from(civicCustodyGrantResponses).where(and18(
+      eq21(civicCustodyGrantResponses.applied, true),
+      lte2(civicCustodyGrantResponses.createdAt, snapshotAt)
+    )).orderBy(civicCustodyGrantResponses.grantId, desc19(civicCustodyGrantResponses.id)).as("latest_custody_inbox_response");
+    const visibleRows = this.database.select({
+      grant: inboxGrantColumns,
+      response: {
+        rowId: latestResponses.rowId,
+        responseId: latestResponses.responseId,
+        idempotencyKey: latestResponses.idempotencyKey,
+        requestHash: latestResponses.requestHash,
+        grantId: latestResponses.grantId,
+        responderUserId: latestResponses.responderUserId,
+        disposition: latestResponses.disposition,
+        quantity: latestResponses.quantity,
+        unit: latestResponses.unit,
+        applied: latestResponses.applied,
+        createdAt: latestResponses.createdAt
+      }
+    }).from(civicCustodyGrants).leftJoin(latestResponses, eq21(latestResponses.grantId, civicCustodyGrants.grantId)).innerJoin(circleMembers, and18(
+      eq21(circleMembers.circleId, civicCustodyGrants.recipientCircleId),
+      eq21(circleMembers.userId, userId),
+      eq21(circleMembers.role, "coordinador")
+    )).innerJoin(circles, eq21(circles.id, civicCustodyGrants.recipientCircleId)).where(and18(
+      eq21(civicCustodyGrants.recipientType, "circle"),
+      isNull5(civicCustodyGrants.revokedAt),
+      isNull5(civicCustodyGrants.closedAt),
+      lte2(civicCustodyGrants.createdAt, snapshotAt),
+      // `asOf` no está firmado. Un cliente puede retrocederlo, pero nunca
+      // resucitar un grant que ya venció al momento real de esta página.
+      gt2(civicCustodyGrants.expiresAt, currentNow),
+      custodialCircle,
+      after
+    )).orderBy(
+      desc19(civicCustodyGrants.id)
+    ).limit(limit).as("visible_custody_grant_rows");
+    const rows = await this.database.select({
+      grant: visibleRows.grant,
+      response: visibleRows.response,
+      refreshedAt: snapshotAt
+    }).from(users).leftJoin(visibleRows, sql15`TRUE`).where(and18(eq21(users.id, userId), eq21(users.isActive, true))).orderBy(desc19(visibleRows.grant.rowId));
+    if (rows.length === 0) {
+      return { authorized: false, rows: [], refreshedAt: null };
+    }
+    return {
+      authorized: true,
+      rows: rows.flatMap((row) => row.grant?.rowId == null ? [] : [{
+        grant: row.grant,
+        response: row.response?.rowId == null ? null : row.response
+      }]),
+      refreshedAt: rows[0].refreshedAt
+    };
+  }
+  async markGrantExpired(grantId, closedAt) {
+    const authoritativeClosedAt = sql15`statement_timestamp()`;
+    const rows = await this.database.update(civicCustodyGrants).set({
+      closedAt: authoritativeClosedAt,
+      closedReason: "expired",
+      updatedAt: authoritativeClosedAt
+    }).where(and18(
+      eq21(civicCustodyGrants.grantId, grantId),
+      isNull5(civicCustodyGrants.closedAt),
+      lte2(civicCustodyGrants.expiresAt, closedAt),
+      lte2(civicCustodyGrants.expiresAt, authoritativeClosedAt)
+    )).returning({ id: civicCustodyGrants.id });
+    return rows.length === 1;
+  }
+  async markGrantRevoked(grantId, userId, revokedAt) {
+    const effectiveNow = sql15`GREATEST(${revokedAt}::timestamptz, clock_timestamp())`;
+    const authoritativeRevokedAt = sql15`statement_timestamp()`;
+    const rows = await this.database.update(civicCustodyGrants).set({
+      revokedAt: authoritativeRevokedAt,
+      revokedByUserId: userId,
+      closedAt: authoritativeRevokedAt,
+      closedReason: "revoked",
+      updatedAt: authoritativeRevokedAt
+    }).where(and18(
+      eq21(civicCustodyGrants.grantId, grantId),
+      isNull5(civicCustodyGrants.closedAt),
+      isNull5(civicCustodyGrants.revokedAt),
+      gt2(civicCustodyGrants.expiresAt, effectiveNow)
+    )).returning({ revokedAt: civicCustodyGrants.revokedAt });
+    return rows[0]?.revokedAt ?? null;
+  }
+  async isGrantExpired(grantId, now) {
+    const effectiveNow = sql15`GREATEST(${now}::timestamptz, clock_timestamp())`;
+    const [row] = await this.database.select({
+      expired: sql15`${civicCustodyGrants.expiresAt} <= ${effectiveNow}`
+    }).from(civicCustodyGrants).where(eq21(civicCustodyGrants.grantId, grantId)).limit(1);
+    return row?.expired === true;
+  }
+  async findRevocation(userId, idempotencyKey) {
+    const [row] = await this.database.select({
+      grantId: civicCustodyGrantRevocations.grantId,
+      idempotencyKey: civicCustodyGrantRevocations.idempotencyKey,
+      requestHash: civicCustodyGrantRevocations.requestHash,
+      revokedByUserId: civicCustodyGrantRevocations.revokedByUserId,
+      revokedAt: civicCustodyGrantRevocations.revokedAt
+    }).from(civicCustodyGrantRevocations).where(and18(
+      eq21(civicCustodyGrantRevocations.revokedByUserId, userId),
+      eq21(civicCustodyGrantRevocations.idempotencyKey, idempotencyKey)
+    )).limit(1);
+    return row ?? null;
+  }
+  async appendRevocation(input) {
+    const rows = await this.database.insert(civicCustodyGrantRevocations).values(input).onConflictDoNothing().returning({ id: civicCustodyGrantRevocations.id });
+    return rows.length === 1;
+  }
+  async findResponseConflicts(responseId, responderUserId, idempotencyKey) {
+    return this.database.select(responseColumns).from(civicCustodyGrantResponses).where(or8(
+      eq21(civicCustodyGrantResponses.responseId, responseId),
+      and18(
+        eq21(civicCustodyGrantResponses.responderUserId, responderUserId),
+        eq21(civicCustodyGrantResponses.idempotencyKey, idempotencyKey)
+      )
+    ));
+  }
+  async getLatestAppliedResponse(grantId) {
+    const [row] = await this.database.select(responseColumns).from(civicCustodyGrantResponses).where(and18(
+      eq21(civicCustodyGrantResponses.grantId, grantId),
+      eq21(civicCustodyGrantResponses.applied, true)
+    )).orderBy(desc19(civicCustodyGrantResponses.id)).limit(1);
+    return row ?? null;
+  }
+  async listLatestAppliedResponses(grantIds) {
+    if (grantIds.length === 0) return [];
+    return this.database.selectDistinctOn([civicCustodyGrantResponses.grantId], responseColumns).from(civicCustodyGrantResponses).where(and18(
+      inArray9(civicCustodyGrantResponses.grantId, grantIds),
+      eq21(civicCustodyGrantResponses.applied, true)
+    )).orderBy(civicCustodyGrantResponses.grantId, desc19(civicCustodyGrantResponses.id));
+  }
+  async insertResponse(input) {
+    const [row] = await this.database.insert(civicCustodyGrantResponses).values(input).onConflictDoNothing().returning(responseColumns);
+    return row ?? null;
+  }
+  async hasCoordinationProposal(grantId) {
+    const [row] = await this.database.select({ id: civicCustodyCoordinationProposals.id }).from(civicCustodyCoordinationProposals).where(eq21(civicCustodyCoordinationProposals.grantId, grantId)).limit(1);
+    return Boolean(row);
+  }
+};
+
+// server/routes-civic-custody.ts
+var custodyMutationRateLimit = rateLimit7({
+  windowMs: 15 * 6e4,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { code: "CUSTODY_RATE_LIMITED", message: "Demasiadas operaciones de custodia; reintent\xE1 m\xE1s tarde." }
+});
+var custodyInboxRateLimit = rateLimit7({
+  windowMs: 6e4,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { code: "CUSTODY_RATE_LIMITED", message: "Demasiadas lecturas de custodia; esper\xE1 un momento." }
+});
+var revokeBodySchema = z16.object({ grantId: custodyGrantIdSchema }).strict();
+var validationDetails2 = (issues) => issues.map((issue) => ({ path: `$.${issue.path.join(".")}`, code: issue.code }));
+function privateResponse(res) {
+  res.setHeader("Cache-Control", "private, no-store, max-age=0");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Vary", "Authorization, X-Civic-Device-Token");
+}
+function apiError2(res, error) {
+  if (error instanceof CivicApiError) {
+    res.status(error.status).json({ code: error.code, message: error.message, path: error.path });
+    return;
+  }
+  console.error("[civic-custody] request failed:", error instanceof Error ? error.name : "unknown_error");
+  res.status(500).json({ code: "CUSTODY_GRANT_ERROR", message: "No se pudo procesar el grant privado." });
+}
+function registerCivicCustodyRoutes(app2) {
+  const store = new PostgresCustodyGrantStore();
+  const service = new CustodyGrantService(store);
+  const deviceTokens = new CivicDeviceTokenManager();
+  app2.post(
+    "/api/v1/civic/custody/grants",
+    custodyMutationRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse(res);
+      const body = createCustodyGrantSchema.safeParse(req.body);
+      const idempotency = civicIdempotencyKeySchema.safeParse(req.header("Idempotency-Key"));
+      if (!body.success || !idempotency.success) {
+        const issues = [
+          ...body.success ? [] : body.error.issues,
+          ...idempotency.success ? [] : idempotency.error.issues.map((issue) => ({ ...issue, path: ["headers", "idempotency-key"] }))
+        ];
+        res.status(422).json({
+          code: "INVALID_CUSTODY_GRANT",
+          message: "El contrato del grant no es v\xE1lido.",
+          details: validationDetails2(issues)
+        });
+        return;
+      }
+      const proof = req.header("X-Civic-Device-Token");
+      if (!proof) {
+        res.status(401).json({
+          code: "MISSING_CIVIC_PROOF",
+          message: "Falta demostrar la identidad del dispositivo due\xF1o de la necesidad."
+        });
+        return;
+      }
+      const claims = deviceTokens.verify(proof);
+      if (!claims) {
+        res.status(403).json({ code: "INVALID_CIVIC_PROOF", message: "La credencial del dispositivo no es v\xE1lida." });
+        return;
+      }
+      try {
+        const device = await store.getDevice(claims.sub);
+        if (!device) {
+          res.status(403).json({ code: "DEVICE_NOT_AVAILABLE", message: "El dispositivo no est\xE1 habilitado." });
+          return;
+        }
+        const result = await service.create(
+          device,
+          req.user.userId,
+          body.data,
+          idempotency.data
+        );
+        res.status(result.status === "accepted" ? 201 : 200).json({
+          contract: "basta-civic-custody-grants/v1",
+          ...result
+        });
+      } catch (error) {
+        apiError2(res, error);
+      }
+    }
+  );
+  app2.get(
+    "/api/v1/civic/custody/grants",
+    custodyInboxRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse(res);
+      const query = custodyGrantListQuerySchema.safeParse(req.query);
+      if (!query.success) {
+        res.status(422).json({ code: "INVALID_CUSTODY_QUERY", message: "La consulta de custodia no es v\xE1lida." });
+        return;
+      }
+      try {
+        res.status(200).json(await service.listInbox(
+          req.user.userId,
+          query.data.limit,
+          query.data.cursor
+        ));
+      } catch (error) {
+        apiError2(res, error);
+      }
+    }
+  );
+  app2.post(
+    "/api/v1/civic/custody/grants/respond",
+    custodyMutationRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse(res);
+      const idempotency = civicIdempotencyKeySchema.safeParse(req.header("Idempotency-Key"));
+      const body = createCustodyGrantResponseSchema.safeParse(req.body);
+      if (!idempotency.success || !body.success) {
+        const issues = [
+          ...body.success ? [] : body.error.issues,
+          ...idempotency.success ? [] : idempotency.error.issues.map((issue) => ({ ...issue, path: ["headers", "idempotency-key"] }))
+        ];
+        res.status(422).json({
+          code: "INVALID_CUSTODY_RESPONSE",
+          message: "El contrato de respuesta no es v\xE1lido.",
+          details: validationDetails2(issues)
+        });
+        return;
+      }
+      try {
+        const result = await service.respond(req.user.userId, body.data, idempotency.data);
+        res.status(result.status === "accepted" ? 201 : 200).json(result);
+      } catch (error) {
+        apiError2(res, error);
+      }
+    }
+  );
+  app2.post(
+    "/api/v1/civic/custody/grants/revoke",
+    custodyMutationRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse(res);
+      const idempotency = civicIdempotencyKeySchema.safeParse(req.header("Idempotency-Key"));
+      const body = revokeBodySchema.safeParse(req.body);
+      if (!idempotency.success || !body.success) {
+        res.status(422).json({
+          code: "INVALID_CUSTODY_REVOCATION",
+          message: "El contrato de revocaci\xF3n no es v\xE1lido."
+        });
+        return;
+      }
+      try {
+        res.status(200).json(await service.revoke(
+          req.user.userId,
+          body.data.grantId,
+          idempotency.data
+        ));
+      } catch (error) {
+        apiError2(res, error);
+      }
+    }
+  );
+}
+
+// server/routes-civic-custody-coordination.ts
+init_auth();
+import rateLimit8 from "express-rate-limit";
+
+// server/civic/custody-coordination.ts
+import { createHash as createHash5 } from "node:crypto";
+import { z as z17 } from "zod";
+var CUSTODY_COORDINATION_CONTRACT = "basta-civic-custody-coordination/v1";
+var COORDINATION_UUID_MASKS = {
+  proposal: [99, 111, 111, 114, 100, 45, 112, 114, 111, 112, 111, 115, 97, 108, 45, 49],
+  decision: [99, 111, 111, 114, 100, 45, 100, 101, 99, 105, 115, 105, 111, 110, 45, 49]
+};
+var derivedCoordinationUuid = (source, domain) => {
+  const hex = source.replaceAll("-", "");
+  const pairs = hex.match(/.{2}/g);
+  if (!pairs || pairs.length !== 16) return "";
+  const bytes = new Uint8Array(pairs.map((byte) => Number.parseInt(byte, 16)));
+  const mask = COORDINATION_UUID_MASKS[domain];
+  for (let index2 = 0; index2 < bytes.length; index2 += 1) bytes[index2] ^= mask[index2];
+  bytes[6] = bytes[6] & 15 | 64;
+  bytes[8] = bytes[8] & 63 | 128;
+  const output = [...bytes].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+  return `${output.slice(0, 8)}-${output.slice(8, 12)}-${output.slice(12, 16)}-${output.slice(16, 20)}-${output.slice(20)}`;
+};
+var custodyCoordinationProposalId = (grantId) => derivedCoordinationUuid(grantId, "proposal");
+var custodyCoordinationDecisionId = (proposalId) => derivedCoordinationUuid(proposalId, "decision");
+var custodyResponseVersionSchema = z17.string().regex(/^[0-9a-f]{64}$/);
+var createCustodyCoordinationProposalSchema = z17.object({
+  proposalId: custodyUuidV4Schema,
+  grantId: custodyUuidV4Schema,
+  expectedResponseVersion: custodyResponseVersionSchema
+}).strict().superRefine((value, ctx) => {
+  if (value.proposalId !== custodyCoordinationProposalId(value.grantId)) {
+    ctx.addIssue({
+      code: z17.ZodIssueCode.custom,
+      path: ["proposalId"],
+      message: "proposalId no corresponde al grantId."
+    });
+  }
+});
+var decideCustodyCoordinationProposalSchema = z17.object({
+  proposalId: custodyUuidV4Schema,
+  decisionId: custodyUuidV4Schema,
+  decision: z17.enum(["accept", "decline"])
+}).strict().superRefine((value, ctx) => {
+  if (value.decisionId !== custodyCoordinationDecisionId(value.proposalId)) {
+    ctx.addIssue({
+      code: z17.ZodIssueCode.custom,
+      path: ["decisionId"],
+      message: "decisionId no corresponde al proposalId."
+    });
+  }
+});
+var custodyCoordinationStatusSchema = z17.object({
+  grantId: custodyUuidV4Schema
+}).strict();
+var custodyCoordinationListQuerySchema = z17.object({
+  limit: z17.coerce.number().int().min(1).max(100).default(50),
+  cursor: custodyPageCursorStringSchema.optional()
+}).strict();
+var hash2 = (value) => createHash5("sha256").update(canonicalJson(value)).digest("hex");
+var grantIsActive = (grant, nowMs) => grant.revokedAt == null && grant.closedAt == null && Date.parse(grant.expiresAt) > nowMs;
+var effectiveState = (record, nowMs, coordinatorAvailable = true) => {
+  const { grant, proposal, decision } = record;
+  if (grant.revokedAt || grant.closedReason === "revoked" || grant.closedReason === "superseded") {
+    return "closed";
+  }
+  if (grant.closedAt && grant.closedReason !== "expired") return "closed";
+  if (grant.closedReason === "expired" || Date.parse(grant.expiresAt) <= nowMs || Date.parse(proposal.expiresAt) <= nowMs) return "expired";
+  if (!coordinatorAvailable) return "closed";
+  if (decision?.decision === "accept") return "accepted";
+  if (decision?.decision === "decline") return "declined";
+  return "proposed";
+};
+var viewFromRecord = (record, nowMs, coordinatorAvailable = true) => ({
+  proposalId: record.proposal.proposalId,
+  grantId: record.proposal.grantId,
+  state: effectiveState(record, nowMs, coordinatorAvailable),
+  terminalDecision: record.decision?.decision ?? null,
+  capacity: {
+    quantity: record.proposal.quantity,
+    unit: record.proposal.unit
+  },
+  createdAt: custodyTimestampToIsoUtc(record.proposal.createdAt, "$.proposal.createdAt"),
+  expiresAt: custodyTimestampToIsoUtc(record.proposal.expiresAt, "$.proposal.expiresAt"),
+  decidedAt: record.decision ? custodyTimestampToIsoUtc(record.decision.createdAt, "$.proposal.decidedAt") : null
+});
+var idempotentProposal = (rows, proposalId, proposerUserId, idempotencyKey, requestHash) => {
+  if (rows.length === 0) return null;
+  if (rows.length === 1 && rows[0].proposalId === proposalId && rows[0].proposerUserId === proposerUserId && rows[0].idempotencyKey === idempotencyKey && rows[0].requestHash === requestHash) return rows[0];
+  throw new CivicApiError(
+    409,
+    "CUSTODY_COORDINATION_IDEMPOTENCY_CONFLICT",
+    "La identidad de la propuesta ya fue usada con otro contenido."
+  );
+};
+var idempotentDecision = (rows, input, userId, actorKey, idempotencyKey, requestHash) => {
+  if (rows.length === 0) return null;
+  if (rows.length === 1 && rows[0].decisionId === input.decisionId && rows[0].proposalId === input.proposalId && rows[0].deciderUserId === userId && rows[0].ownerActorKey === actorKey && rows[0].decision === input.decision && rows[0].idempotencyKey === idempotencyKey && rows[0].requestHash === requestHash) return rows[0];
+  throw new CivicApiError(
+    409,
+    "CUSTODY_COORDINATION_DECISION_IDEMPOTENCY_CONFLICT",
+    "La identidad de la decisi\xF3n ya fue usada con otro contenido."
+  );
+};
+var assertDeterministicProposalId = (input) => {
+  if (input.proposalId !== custodyCoordinationProposalId(input.grantId)) {
+    throw new CivicApiError(
+      422,
+      "INVALID_CUSTODY_COORDINATION_PROPOSAL_ID",
+      "La identidad de propuesta no corresponde al grant.",
+      "$.proposalId"
+    );
+  }
+};
+var assertDeterministicDecisionId = (input) => {
+  if (input.decisionId !== custodyCoordinationDecisionId(input.proposalId)) {
+    throw new CivicApiError(
+      422,
+      "INVALID_CUSTODY_COORDINATION_DECISION_ID",
+      "La identidad de decisi\xF3n no corresponde a la propuesta.",
+      "$.decisionId"
+    );
+  }
+};
+var CustodyCoordinationService = class {
+  constructor(store) {
+    this.store = store;
+  }
+  async authoritativeNow(store) {
+    const iso = custodyTimestampToIsoUtc(
+      await store.currentTimestamp(),
+      "$.coordination.currentTimestamp"
+    );
+    return { iso, ms: Date.parse(iso) };
+  }
+  async assertActiveUser(store, userId) {
+    if (!await store.isActiveUser(userId)) {
+      throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para coordinar.");
+    }
+  }
+  assertExactOwnerDevice(actor, userId, grant) {
+    if (actor.revokedAt) {
+      throw new CivicApiError(403, "DEVICE_REVOKED", "El dispositivo due\xF1o de la necesidad fue revocado.");
+    }
+    if (actor.actorKey !== grant.ownerActorKey || actor.linkedUserId !== userId || grant.grantorUserId !== userId) {
+      throw new CivicApiError(
+        404,
+        "CUSTODY_COORDINATION_NOT_FOUND",
+        "La coordinaci\xF3n no existe o no est\xE1 disponible."
+      );
+    }
+  }
+  async recordForProposal(store, proposal, grant) {
+    const resolvedGrant = grant ?? await store.getGrant(proposal.grantId);
+    if (!resolvedGrant) {
+      throw new CivicApiError(500, "CUSTODY_COORDINATION_STATE_INVALID", "La propuesta perdi\xF3 su grant de origen.");
+    }
+    return {
+      proposal,
+      grant: resolvedGrant,
+      decision: await store.getDecision(proposal.proposalId)
+    };
+  }
+  async create(userId, input, idempotencyKey) {
+    assertDeterministicProposalId(input);
+    const requestHash = hash2({
+      proposalId: input.proposalId,
+      grantId: input.grantId,
+      expectedResponseVersion: input.expectedResponseVersion,
+      proposerUserId: userId
+    });
+    const commit = async (store) => {
+      await this.assertActiveUser(store, userId);
+      const grant = await store.getGrantForUpdate(input.grantId);
+      if (!grant) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "El grant no existe o no est\xE1 disponible.");
+      }
+      const now = await this.authoritativeNow(store);
+      if (!await store.isCircleCoordinator(grant.recipientCircleId, userId)) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "El grant no existe o no est\xE1 disponible.");
+      }
+      if (grant.grantorUserId === userId) {
+        throw new CivicApiError(
+          403,
+          "CUSTODY_COORDINATION_DISTINCT_PARTY_REQUIRED",
+          "La propuesta debe provenir de otra cuenta coordinadora, distinta de la cuenta grantora."
+        );
+      }
+      const replay = idempotentProposal(
+        await store.findProposalConflicts(input.proposalId, userId, idempotencyKey),
+        input.proposalId,
+        userId,
+        idempotencyKey,
+        requestHash
+      );
+      if (replay) {
+        return {
+          contract: CUSTODY_COORDINATION_CONTRACT,
+          status: "duplicate",
+          proposal: viewFromRecord(await this.recordForProposal(store, replay, grant), now.ms)
+        };
+      }
+      if (!grantIsActive(grant, now.ms)) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "El grant no existe o no est\xE1 disponible.");
+      }
+      if (await store.getProposalForGrant(grant.grantId)) {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_COORDINATION_PROPOSAL_EXISTS",
+          "Este grant ya tiene una propuesta de coordinaci\xF3n."
+        );
+      }
+      const response = await store.getLatestAppliedResponse(grant.grantId);
+      if (!response || response.disposition !== "support_available") {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_COORDINATION_SUPPORT_REQUIRED",
+          "La propuesta requiere una declaraci\xF3n vigente de capacidad disponible."
+        );
+      }
+      if (custodyResponseVersion(response.responseId) !== input.expectedResponseVersion) {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_COORDINATION_RESPONSE_CHANGED",
+          "La capacidad cambi\xF3 desde que fue mostrada; debe revisarse antes de proponer."
+        );
+      }
+      const inserted = await store.insertProposal({
+        proposalId: input.proposalId,
+        grantId: grant.grantId,
+        sourceResponseId: response.responseId,
+        idempotencyKey,
+        requestHash,
+        proposerUserId: userId,
+        quantity: response.quantity,
+        unit: response.unit,
+        expiresAt: grant.expiresAt
+      });
+      if (!inserted) {
+        const afterRace = idempotentProposal(
+          await store.findProposalConflicts(input.proposalId, userId, idempotencyKey),
+          input.proposalId,
+          userId,
+          idempotencyKey,
+          requestHash
+        );
+        if (afterRace) {
+          return {
+            contract: CUSTODY_COORDINATION_CONTRACT,
+            status: "duplicate",
+            proposal: viewFromRecord(
+              await this.recordForProposal(store, afterRace, grant),
+              now.ms
+            )
+          };
+        }
+        if (await store.getProposalForGrant(grant.grantId)) {
+          throw new CivicApiError(
+            409,
+            "CUSTODY_COORDINATION_PROPOSAL_EXISTS",
+            "Este grant ya tiene una propuesta de coordinaci\xF3n."
+          );
+        }
+        throw new CivicApiError(
+          409,
+          "CUSTODY_COORDINATION_IDEMPOTENCY_CONFLICT",
+          "La propuesta entr\xF3 en conflicto con otra escritura."
+        );
+      }
+      return {
+        contract: CUSTODY_COORDINATION_CONTRACT,
+        status: "accepted",
+        proposal: viewFromRecord({ proposal: inserted, grant, decision: null }, now.ms)
+      };
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(commit) : commit(this.store);
+  }
+  async decide(actor, userId, input, idempotencyKey) {
+    assertDeterministicDecisionId(input);
+    const requestHash = hash2({
+      proposalId: input.proposalId,
+      decisionId: input.decisionId,
+      decision: input.decision,
+      deciderUserId: userId,
+      ownerActorKey: actor.actorKey
+    });
+    const commit = async (store) => {
+      await this.assertActiveUser(store, userId);
+      const currentDevice = await store.getDevice(actor.actorKey);
+      if (!currentDevice) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "La coordinaci\xF3n no existe o no est\xE1 disponible.");
+      }
+      const located = await store.getProposal(input.proposalId);
+      if (!located) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "La coordinaci\xF3n no existe o no est\xE1 disponible.");
+      }
+      const grant = await store.getGrantForUpdate(located.grantId);
+      const proposal = await store.getProposalForUpdate(input.proposalId);
+      if (!grant || !proposal || proposal.grantId !== grant.grantId) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "La coordinaci\xF3n no existe o no est\xE1 disponible.");
+      }
+      this.assertExactOwnerDevice(currentDevice, userId, grant);
+      const now = await this.authoritativeNow(store);
+      const replay = idempotentDecision(
+        await store.findDecisionConflicts(input.decisionId, userId, idempotencyKey),
+        input,
+        userId,
+        currentDevice.actorKey,
+        idempotencyKey,
+        requestHash
+      );
+      const coordinatorAvailable = await store.hasAvailableCircleCoordinator(
+        grant.recipientCircleId,
+        grant.grantorUserId
+      );
+      if (replay) {
+        return {
+          contract: CUSTODY_COORDINATION_CONTRACT,
+          status: "duplicate",
+          proposal: viewFromRecord(
+            { proposal, grant, decision: replay },
+            now.ms,
+            coordinatorAvailable
+          )
+        };
+      }
+      if (!grantIsActive(grant, now.ms) || !coordinatorAvailable) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "La coordinaci\xF3n no existe o no est\xE1 disponible.");
+      }
+      if (await store.getDecision(proposal.proposalId)) {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_COORDINATION_ALREADY_DECIDED",
+          "La propuesta ya tiene una decisi\xF3n terminal."
+        );
+      }
+      const inserted = await store.insertDecision({
+        decisionId: input.decisionId,
+        proposalId: proposal.proposalId,
+        idempotencyKey,
+        requestHash,
+        deciderUserId: userId,
+        ownerActorKey: currentDevice.actorKey,
+        decision: input.decision
+      });
+      if (!inserted) {
+        const afterRace = idempotentDecision(
+          await store.findDecisionConflicts(input.decisionId, userId, idempotencyKey),
+          input,
+          userId,
+          currentDevice.actorKey,
+          idempotencyKey,
+          requestHash
+        );
+        if (afterRace) {
+          return {
+            contract: CUSTODY_COORDINATION_CONTRACT,
+            status: "duplicate",
+            proposal: viewFromRecord(
+              { proposal, grant, decision: afterRace },
+              now.ms,
+              coordinatorAvailable
+            )
+          };
+        }
+        if (await store.getDecision(proposal.proposalId)) {
+          throw new CivicApiError(
+            409,
+            "CUSTODY_COORDINATION_ALREADY_DECIDED",
+            "La propuesta ya tiene una decisi\xF3n terminal."
+          );
+        }
+        throw new CivicApiError(
+          409,
+          "CUSTODY_COORDINATION_DECISION_IDEMPOTENCY_CONFLICT",
+          "La decisi\xF3n entr\xF3 en conflicto con otra escritura."
+        );
+      }
+      return {
+        contract: CUSTODY_COORDINATION_CONTRACT,
+        status: "accepted",
+        proposal: viewFromRecord({ proposal, grant, decision: inserted }, now.ms)
+      };
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(commit) : commit(this.store);
+  }
+  async listCoordinator(userId, limit, cursor) {
+    const page = decodeCustodyPageCursor(cursor, "coordination-inbox");
+    const snapshot = await this.store.listCoordinatorRecords(userId, limit + 1, page);
+    if (!snapshot.authorized) {
+      throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para coordinar.");
+    }
+    if (!snapshot.refreshedAt) {
+      throw new CivicApiError(
+        500,
+        "CUSTODY_COORDINATION_SNAPSHOT_INVALID",
+        "No se pudo fijar el reloj de la bandeja de coordinaci\xF3n."
+      );
+    }
+    const refreshedAt = custodyTimestampToIsoUtc(snapshot.refreshedAt, "$.refreshedAt");
+    if (page && refreshedAt !== page.asOf) {
+      throw new CivicApiError(
+        422,
+        "INVALID_CUSTODY_CURSOR",
+        "El cursor no pertenece a un corte temporal v\xE1lido."
+      );
+    }
+    const refreshedAtMs = Date.parse(refreshedAt);
+    const records = snapshot.records.slice(0, limit);
+    const hasMore = snapshot.records.length > limit;
+    const last = records.at(-1)?.proposal;
+    const nextCursor = hasMore && last ? encodeCustodyPageCursor("coordination-inbox", {
+      asOf: refreshedAt,
+      after: {
+        rowId: last.rowId
+      }
+    }) : null;
+    return {
+      contract: CUSTODY_COORDINATION_CONTRACT,
+      scope: "private-circle-coordinator-coordination",
+      proposals: records.map((record) => viewFromRecord(record, refreshedAtMs)),
+      refreshedAt,
+      truncated: hasMore,
+      nextCursor
+    };
+  }
+  async ownerStatus(actor, userId, grantId) {
+    const readSnapshot = async (store) => {
+      await this.assertActiveUser(store, userId);
+      const currentDevice = await store.getDevice(actor.actorKey);
+      const grant = await store.getGrantForUpdate(grantId);
+      if (!currentDevice || !grant) {
+        throw new CivicApiError(404, "CUSTODY_COORDINATION_NOT_FOUND", "La coordinaci\xF3n no existe o no est\xE1 disponible.");
+      }
+      this.assertExactOwnerDevice(currentDevice, userId, grant);
+      const locatedProposal = await store.getProposalForGrant(grant.grantId);
+      const proposal = locatedProposal ? await store.getProposalForUpdate(locatedProposal.proposalId) : null;
+      if (locatedProposal && (!proposal || proposal.grantId !== grant.grantId)) {
+        throw new CivicApiError(500, "CUSTODY_COORDINATION_STATE_INVALID", "La propuesta perdi\xF3 su grant de origen.");
+      }
+      const decision = proposal ? await store.getDecision(proposal.proposalId) : null;
+      const coordinatorAvailable = await store.hasAvailableCircleCoordinator(
+        grant.recipientCircleId,
+        grant.grantorUserId
+      );
+      const now = await this.authoritativeNow(store);
+      return {
+        contract: CUSTODY_COORDINATION_CONTRACT,
+        scope: "private-grantor-coordination-status",
+        grantId: grant.grantId,
+        proposal: proposal ? viewFromRecord({ proposal, grant, decision }, now.ms, coordinatorAvailable) : null,
+        refreshedAt: now.iso
+      };
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(readSnapshot) : readSnapshot(this.store);
+  }
+};
+
+// server/civic/postgres-custody-coordination-store.ts
+init_schema();
+init_db();
+import { and as and19, desc as desc20, eq as eq22, gt as gt3, isNull as isNull6, lte as lte3, ne as ne3, or as or9, sql as sql16 } from "drizzle-orm";
+var grantColumns2 = {
+  rowId: civicCustodyGrants.id,
+  grantId: civicCustodyGrants.grantId,
+  idempotencyKey: civicCustodyGrants.idempotencyKey,
+  requestHash: civicCustodyGrants.requestHash,
+  needId: civicCustodyGrants.needId,
+  ownerActorKey: civicCustodyGrants.ownerActorKey,
+  grantorUserId: civicCustodyGrants.grantorUserId,
+  recipientType: civicCustodyGrants.recipientType,
+  recipientCircleId: civicCustodyGrants.recipientCircleId,
+  payloadJson: civicCustodyGrants.payloadJson,
+  expiresAt: civicCustodyGrants.expiresAt,
+  revokedAt: civicCustodyGrants.revokedAt,
+  closedAt: civicCustodyGrants.closedAt,
+  closedReason: civicCustodyGrants.closedReason,
+  createdAt: civicCustodyGrants.createdAt
+};
+var responseColumns2 = {
+  rowId: civicCustodyGrantResponses.id,
+  responseId: civicCustodyGrantResponses.responseId,
+  idempotencyKey: civicCustodyGrantResponses.idempotencyKey,
+  requestHash: civicCustodyGrantResponses.requestHash,
+  grantId: civicCustodyGrantResponses.grantId,
+  responderUserId: civicCustodyGrantResponses.responderUserId,
+  disposition: civicCustodyGrantResponses.disposition,
+  quantity: civicCustodyGrantResponses.quantity,
+  unit: civicCustodyGrantResponses.unit,
+  applied: civicCustodyGrantResponses.applied,
+  createdAt: civicCustodyGrantResponses.createdAt
+};
+var proposalColumns = {
+  rowId: civicCustodyCoordinationProposals.id,
+  proposalId: civicCustodyCoordinationProposals.proposalId,
+  grantId: civicCustodyCoordinationProposals.grantId,
+  sourceResponseId: civicCustodyCoordinationProposals.sourceResponseId,
+  idempotencyKey: civicCustodyCoordinationProposals.idempotencyKey,
+  requestHash: civicCustodyCoordinationProposals.requestHash,
+  proposerUserId: civicCustodyCoordinationProposals.proposerUserId,
+  quantity: civicCustodyCoordinationProposals.quantity,
+  unit: civicCustodyCoordinationProposals.unit,
+  expiresAt: civicCustodyCoordinationProposals.expiresAt,
+  createdAt: civicCustodyCoordinationProposals.createdAt
+};
+var decisionColumns = {
+  rowId: civicCustodyCoordinationDecisions.id,
+  decisionId: civicCustodyCoordinationDecisions.decisionId,
+  proposalId: civicCustodyCoordinationDecisions.proposalId,
+  idempotencyKey: civicCustodyCoordinationDecisions.idempotencyKey,
+  requestHash: civicCustodyCoordinationDecisions.requestHash,
+  deciderUserId: civicCustodyCoordinationDecisions.deciderUserId,
+  ownerActorKey: civicCustodyCoordinationDecisions.ownerActorKey,
+  decision: civicCustodyCoordinationDecisions.decision,
+  createdAt: civicCustodyCoordinationDecisions.createdAt
+};
+var snapshotProposalColumns = {
+  rowId: sql16`${civicCustodyCoordinationProposals.id}`.mapWith(civicCustodyCoordinationProposals.id).as("snapshot_proposal_row_id"),
+  proposalId: sql16`${civicCustodyCoordinationProposals.proposalId}`.mapWith(civicCustodyCoordinationProposals.proposalId).as("snapshot_proposal_id"),
+  grantId: sql16`${civicCustodyCoordinationProposals.grantId}`.mapWith(civicCustodyCoordinationProposals.grantId).as("snapshot_proposal_grant_id"),
+  sourceResponseId: sql16`${civicCustodyCoordinationProposals.sourceResponseId}`.mapWith(civicCustodyCoordinationProposals.sourceResponseId).as("snapshot_proposal_source_response_id"),
+  idempotencyKey: sql16`${civicCustodyCoordinationProposals.idempotencyKey}`.mapWith(civicCustodyCoordinationProposals.idempotencyKey).as("snapshot_proposal_idempotency_key"),
+  requestHash: sql16`${civicCustodyCoordinationProposals.requestHash}`.mapWith(civicCustodyCoordinationProposals.requestHash).as("snapshot_proposal_request_hash"),
+  proposerUserId: sql16`${civicCustodyCoordinationProposals.proposerUserId}`.mapWith(civicCustodyCoordinationProposals.proposerUserId).as("snapshot_proposal_proposer_user_id"),
+  quantity: sql16`${civicCustodyCoordinationProposals.quantity}`.mapWith(civicCustodyCoordinationProposals.quantity).as("snapshot_proposal_quantity"),
+  unit: sql16`${civicCustodyCoordinationProposals.unit}`.mapWith(civicCustodyCoordinationProposals.unit).as("snapshot_proposal_unit"),
+  expiresAt: sql16`${civicCustodyCoordinationProposals.expiresAt}`.mapWith(civicCustodyCoordinationProposals.expiresAt).as("snapshot_proposal_expires_at"),
+  createdAt: sql16`${civicCustodyCoordinationProposals.createdAt}`.mapWith(civicCustodyCoordinationProposals.createdAt).as("snapshot_proposal_created_at")
+};
+var snapshotGrantColumns = {
+  rowId: sql16`${civicCustodyGrants.id}`.mapWith(civicCustodyGrants.id).as("snapshot_grant_row_id"),
+  grantId: sql16`${civicCustodyGrants.grantId}`.mapWith(civicCustodyGrants.grantId).as("snapshot_grant_id"),
+  idempotencyKey: sql16`${civicCustodyGrants.idempotencyKey}`.mapWith(civicCustodyGrants.idempotencyKey).as("snapshot_grant_idempotency_key"),
+  requestHash: sql16`${civicCustodyGrants.requestHash}`.mapWith(civicCustodyGrants.requestHash).as("snapshot_grant_request_hash"),
+  needId: sql16`${civicCustodyGrants.needId}`.mapWith(civicCustodyGrants.needId).as("snapshot_grant_need_id"),
+  ownerActorKey: sql16`${civicCustodyGrants.ownerActorKey}`.mapWith(civicCustodyGrants.ownerActorKey).as("snapshot_grant_owner_actor_key"),
+  grantorUserId: sql16`${civicCustodyGrants.grantorUserId}`.mapWith(civicCustodyGrants.grantorUserId).as("snapshot_grant_grantor_user_id"),
+  recipientType: sql16`${civicCustodyGrants.recipientType}`.mapWith(civicCustodyGrants.recipientType).as("snapshot_grant_recipient_type"),
+  recipientCircleId: sql16`${civicCustodyGrants.recipientCircleId}`.mapWith(civicCustodyGrants.recipientCircleId).as("snapshot_grant_recipient_circle_id"),
+  payloadJson: sql16`${civicCustodyGrants.payloadJson}`.mapWith(civicCustodyGrants.payloadJson).as("snapshot_grant_payload_json"),
+  expiresAt: sql16`${civicCustodyGrants.expiresAt}`.mapWith(civicCustodyGrants.expiresAt).as("snapshot_grant_expires_at"),
+  revokedAt: sql16`${civicCustodyGrants.revokedAt}`.mapWith(civicCustodyGrants.revokedAt).as("snapshot_grant_revoked_at"),
+  closedAt: sql16`${civicCustodyGrants.closedAt}`.mapWith(civicCustodyGrants.closedAt).as("snapshot_grant_closed_at"),
+  closedReason: sql16`${civicCustodyGrants.closedReason}`.mapWith(civicCustodyGrants.closedReason).as("snapshot_grant_closed_reason"),
+  createdAt: sql16`${civicCustodyGrants.createdAt}`.mapWith(civicCustodyGrants.createdAt).as("snapshot_grant_created_at")
+};
+var snapshotDecisionColumns = {
+  rowId: sql16`${civicCustodyCoordinationDecisions.id}`.mapWith(civicCustodyCoordinationDecisions.id).as("snapshot_decision_row_id"),
+  decisionId: sql16`${civicCustodyCoordinationDecisions.decisionId}`.mapWith(civicCustodyCoordinationDecisions.decisionId).as("snapshot_decision_id"),
+  proposalId: sql16`${civicCustodyCoordinationDecisions.proposalId}`.mapWith(civicCustodyCoordinationDecisions.proposalId).as("snapshot_decision_proposal_id"),
+  idempotencyKey: sql16`${civicCustodyCoordinationDecisions.idempotencyKey}`.mapWith(civicCustodyCoordinationDecisions.idempotencyKey).as("snapshot_decision_idempotency_key"),
+  requestHash: sql16`${civicCustodyCoordinationDecisions.requestHash}`.mapWith(civicCustodyCoordinationDecisions.requestHash).as("snapshot_decision_request_hash"),
+  deciderUserId: sql16`${civicCustodyCoordinationDecisions.deciderUserId}`.mapWith(civicCustodyCoordinationDecisions.deciderUserId).as("snapshot_decision_decider_user_id"),
+  ownerActorKey: sql16`${civicCustodyCoordinationDecisions.ownerActorKey}`.mapWith(civicCustodyCoordinationDecisions.ownerActorKey).as("snapshot_decision_owner_actor_key"),
+  decision: sql16`${civicCustodyCoordinationDecisions.decision}`.mapWith(civicCustodyCoordinationDecisions.decision).as("snapshot_decision_value"),
+  createdAt: sql16`${civicCustodyCoordinationDecisions.createdAt}`.mapWith(civicCustodyCoordinationDecisions.createdAt).as("snapshot_decision_created_at")
+};
+var PostgresCustodyCoordinationStore = class _PostgresCustodyCoordinationStore {
+  constructor(database = db) {
+    this.database = database;
+  }
+  async runInTransaction(operation) {
+    return civicTransactionDb.transaction(async (tx) => operation(new _PostgresCustodyCoordinationStore(
+      tx
+    )));
+  }
+  async currentTimestamp() {
+    const [row] = await this.database.select({
+      value: sql16`clock_timestamp()`.mapWith(civicCustodyGrants.createdAt)
+    }).from(users).limit(1);
+    if (!row) throw new Error("civic custody coordination database clock unavailable");
+    return row.value;
+  }
+  async isActiveUser(userId) {
+    const [row] = await this.database.select({ id: users.id }).from(users).where(and19(eq22(users.id, userId), eq22(users.isActive, true))).limit(1);
+    return Boolean(row);
+  }
+  async getDevice(actorKey) {
+    const [row] = await this.database.select({
+      actorKey: civicDevices.actorKey,
+      linkedUserId: civicDevices.linkedUserId,
+      revokedAt: civicDevices.revokedAt
+    }).from(civicDevices).where(eq22(civicDevices.actorKey, actorKey)).limit(1);
+    return row ?? null;
+  }
+  async isCircleCoordinator(circleId, userId) {
+    const [row] = await this.database.select({ id: circleMembers.id }).from(circleMembers).innerJoin(circles, eq22(circles.id, circleMembers.circleId)).innerJoin(users, eq22(users.id, circleMembers.userId)).where(and19(
+      eq22(circleMembers.circleId, circleId),
+      eq22(circleMembers.userId, userId),
+      eq22(circleMembers.role, "coordinador"),
+      eq22(users.isActive, true),
+      or9(eq22(circles.kind, "celula"), eq22(circles.isPrivate, true))
+    )).limit(1);
+    return Boolean(row);
+  }
+  async hasAvailableCircleCoordinator(circleId, excludedUserId) {
+    const [row] = await this.database.select({ id: circleMembers.id }).from(circleMembers).innerJoin(circles, eq22(circles.id, circleMembers.circleId)).innerJoin(users, eq22(users.id, circleMembers.userId)).where(and19(
+      eq22(circleMembers.circleId, circleId),
+      ne3(circleMembers.userId, excludedUserId),
+      eq22(circleMembers.role, "coordinador"),
+      eq22(users.isActive, true),
+      or9(eq22(circles.kind, "celula"), eq22(circles.isPrivate, true))
+    )).limit(1);
+    return Boolean(row);
+  }
+  async getGrant(grantId) {
+    const [row] = await this.database.select(grantColumns2).from(civicCustodyGrants).where(eq22(civicCustodyGrants.grantId, grantId)).limit(1);
+    return row ?? null;
+  }
+  async getGrantForUpdate(grantId) {
+    const [row] = await this.database.select(grantColumns2).from(civicCustodyGrants).where(eq22(civicCustodyGrants.grantId, grantId)).limit(1).for("update", { of: civicCustodyGrants });
+    return row ?? null;
+  }
+  async getLatestAppliedResponse(grantId) {
+    const [row] = await this.database.select(responseColumns2).from(civicCustodyGrantResponses).where(and19(
+      eq22(civicCustodyGrantResponses.grantId, grantId),
+      eq22(civicCustodyGrantResponses.applied, true)
+    )).orderBy(desc20(civicCustodyGrantResponses.id)).limit(1);
+    return row ?? null;
+  }
+  async findProposalConflicts(proposalId, proposerUserId, idempotencyKey) {
+    return this.database.select(proposalColumns).from(civicCustodyCoordinationProposals).where(or9(
+      eq22(civicCustodyCoordinationProposals.proposalId, proposalId),
+      and19(
+        eq22(civicCustodyCoordinationProposals.proposerUserId, proposerUserId),
+        eq22(civicCustodyCoordinationProposals.idempotencyKey, idempotencyKey)
+      )
+    ));
+  }
+  async getProposal(proposalId) {
+    const [row] = await this.database.select(proposalColumns).from(civicCustodyCoordinationProposals).where(eq22(civicCustodyCoordinationProposals.proposalId, proposalId)).limit(1);
+    return row ?? null;
+  }
+  async getProposalForGrant(grantId) {
+    const [row] = await this.database.select(proposalColumns).from(civicCustodyCoordinationProposals).where(eq22(civicCustodyCoordinationProposals.grantId, grantId)).limit(1);
+    return row ?? null;
+  }
+  async getProposalForUpdate(proposalId) {
+    const [row] = await this.database.select(proposalColumns).from(civicCustodyCoordinationProposals).where(eq22(civicCustodyCoordinationProposals.proposalId, proposalId)).limit(1).for("update", { of: civicCustodyCoordinationProposals });
+    return row ?? null;
+  }
+  async insertProposal(input) {
+    const [row] = await this.database.insert(civicCustodyCoordinationProposals).values(input).onConflictDoNothing().returning(proposalColumns);
+    return row ?? null;
+  }
+  async findDecisionConflicts(decisionId, deciderUserId, idempotencyKey) {
+    return this.database.select(decisionColumns).from(civicCustodyCoordinationDecisions).where(or9(
+      eq22(civicCustodyCoordinationDecisions.decisionId, decisionId),
+      and19(
+        eq22(civicCustodyCoordinationDecisions.deciderUserId, deciderUserId),
+        eq22(civicCustodyCoordinationDecisions.idempotencyKey, idempotencyKey)
+      )
+    ));
+  }
+  async getDecision(proposalId) {
+    const [row] = await this.database.select(decisionColumns).from(civicCustodyCoordinationDecisions).where(eq22(civicCustodyCoordinationDecisions.proposalId, proposalId)).limit(1);
+    return row ?? null;
+  }
+  async insertDecision(input) {
+    const [row] = await this.database.insert(civicCustodyCoordinationDecisions).values(input).onConflictDoNothing().returning(decisionColumns);
+    return row ?? null;
+  }
+  async listCoordinatorRecords(userId, limit, page) {
+    const currentNow = sql16`statement_timestamp()`.mapWith(civicCustodyCoordinationProposals.createdAt);
+    const statementNow = sql16`date_trunc('milliseconds', statement_timestamp())`.mapWith(civicCustodyCoordinationProposals.createdAt);
+    const snapshotAt = page ? sql16`LEAST(${page.asOf}::timestamptz, date_trunc('milliseconds', statement_timestamp()))`.mapWith(civicCustodyCoordinationProposals.createdAt) : statementNow;
+    const after = page ? sql16`${civicCustodyCoordinationProposals.id} < ${page.after.rowId}` : void 0;
+    const visibleRecords = this.database.select({
+      proposal: snapshotProposalColumns,
+      grant: snapshotGrantColumns,
+      decision: snapshotDecisionColumns
+    }).from(civicCustodyCoordinationProposals).innerJoin(civicCustodyGrants, eq22(civicCustodyGrants.grantId, civicCustodyCoordinationProposals.grantId)).innerJoin(circleMembers, and19(
+      eq22(circleMembers.circleId, civicCustodyGrants.recipientCircleId),
+      eq22(circleMembers.userId, userId),
+      eq22(circleMembers.role, "coordinador")
+    )).innerJoin(circles, eq22(circles.id, civicCustodyGrants.recipientCircleId)).leftJoin(
+      civicCustodyCoordinationDecisions,
+      and19(
+        eq22(civicCustodyCoordinationDecisions.proposalId, civicCustodyCoordinationProposals.proposalId),
+        lte3(civicCustodyCoordinationDecisions.createdAt, snapshotAt)
+      )
+    ).where(and19(
+      isNull6(civicCustodyGrants.revokedAt),
+      isNull6(civicCustodyGrants.closedAt),
+      ne3(civicCustodyGrants.grantorUserId, userId),
+      lte3(civicCustodyGrants.createdAt, snapshotAt),
+      lte3(civicCustodyCoordinationProposals.createdAt, snapshotAt),
+      // El cursor es estricto pero no está firmado: un `asOf` histórico no
+      // puede volver operable una propuesta que ya venció.
+      gt3(civicCustodyGrants.expiresAt, currentNow),
+      gt3(civicCustodyCoordinationProposals.expiresAt, currentNow),
+      or9(eq22(circles.kind, "celula"), eq22(circles.isPrivate, true)),
+      after
+    )).orderBy(desc20(civicCustodyCoordinationProposals.id)).limit(limit).as("visible_custody_coordination_records");
+    const rows = await this.database.select({
+      proposal: visibleRecords.proposal,
+      grant: visibleRecords.grant,
+      decision: visibleRecords.decision,
+      refreshedAt: snapshotAt
+    }).from(users).leftJoin(visibleRecords, sql16`TRUE`).where(and19(eq22(users.id, userId), eq22(users.isActive, true))).orderBy(desc20(visibleRecords.proposal.rowId));
+    if (rows.length === 0) {
+      return { authorized: false, records: [], refreshedAt: null };
+    }
+    return {
+      authorized: true,
+      records: rows.flatMap((row) => row.proposal?.rowId == null || row.grant?.rowId == null ? [] : [{
+        proposal: row.proposal,
+        grant: row.grant,
+        decision: row.decision?.rowId == null ? null : row.decision
+      }]),
+      refreshedAt: rows[0].refreshedAt
+    };
+  }
+};
+
+// server/routes-civic-custody-coordination.ts
+var coordinationMutationRateLimit = rateLimit8({
+  windowMs: 15 * 6e4,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    code: "CUSTODY_COORDINATION_RATE_LIMITED",
+    message: "Demasiadas operaciones de coordinaci\xF3n; reintent\xE1 m\xE1s tarde."
+  }
+});
+var coordinationReadRateLimit = rateLimit8({
+  windowMs: 6e4,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    code: "CUSTODY_COORDINATION_RATE_LIMITED",
+    message: "Demasiadas lecturas de coordinaci\xF3n; esper\xE1 un momento."
+  }
+});
+var validationDetails3 = (issues) => issues.map((issue) => ({ path: `$.${issue.path.join(".")}`, code: issue.code }));
+function privateResponse2(res) {
+  res.setHeader("Cache-Control", "private, no-store, max-age=0");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Vary", "Authorization, X-Civic-Device-Token");
+}
+function privateRoute(_req, res, next) {
+  privateResponse2(res);
+  next();
+}
+function apiError3(res, error) {
+  if (error instanceof CivicApiError) {
+    res.status(error.status).json({ code: error.code, message: error.message, path: error.path });
+    return;
+  }
+  console.error("[civic-custody-coordination] request failed:", error instanceof Error ? error.name : "unknown_error");
+  res.status(500).json({
+    code: "CUSTODY_COORDINATION_ERROR",
+    message: "No se pudo procesar la coordinaci\xF3n privada."
+  });
+}
+function registerCivicCustodyCoordinationRoutes(app2) {
+  const store = new PostgresCustodyCoordinationStore();
+  const service = new CustodyCoordinationService(store);
+  const deviceTokens = new CivicDeviceTokenManager();
+  app2.post(
+    "/api/v1/civic/custody/coordination/proposals",
+    privateRoute,
+    coordinationMutationRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse2(res);
+      const body = createCustodyCoordinationProposalSchema.safeParse(req.body);
+      const idempotency = civicIdempotencyKeySchema.safeParse(req.header("Idempotency-Key"));
+      if (!body.success || !idempotency.success) {
+        const issues = [
+          ...body.success ? [] : body.error.issues,
+          ...idempotency.success ? [] : idempotency.error.issues.map((issue) => ({ ...issue, path: ["headers", "idempotency-key"] }))
+        ];
+        res.status(422).json({
+          code: "INVALID_CUSTODY_COORDINATION_PROPOSAL",
+          message: "El contrato de la propuesta no es v\xE1lido.",
+          details: validationDetails3(issues)
+        });
+        return;
+      }
+      try {
+        const result = await service.create(req.user.userId, body.data, idempotency.data);
+        res.status(result.status === "accepted" ? 201 : 200).json(result);
+      } catch (error) {
+        apiError3(res, error);
+      }
+    }
+  );
+  app2.get(
+    "/api/v1/civic/custody/coordination/proposals",
+    privateRoute,
+    coordinationReadRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse2(res);
+      const query = custodyCoordinationListQuerySchema.safeParse(req.query);
+      if (!query.success) {
+        res.status(422).json({
+          code: "INVALID_CUSTODY_COORDINATION_QUERY",
+          message: "La consulta de coordinaci\xF3n no es v\xE1lida."
+        });
+        return;
+      }
+      try {
+        res.status(200).json(await service.listCoordinator(
+          req.user.userId,
+          query.data.limit,
+          query.data.cursor
+        ));
+      } catch (error) {
+        apiError3(res, error);
+      }
+    }
+  );
+  app2.post(
+    "/api/v1/civic/custody/coordination/status",
+    privateRoute,
+    coordinationReadRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse2(res);
+      const body = custodyCoordinationStatusSchema.safeParse(req.body);
+      if (!body.success) {
+        res.status(422).json({
+          code: "INVALID_CUSTODY_COORDINATION_STATUS",
+          message: "La consulta puntual de coordinaci\xF3n no es v\xE1lida."
+        });
+        return;
+      }
+      const proof = req.header("X-Civic-Device-Token");
+      if (!proof) {
+        res.status(401).json({
+          code: "MISSING_CIVIC_PROOF",
+          message: "Falta demostrar el dispositivo due\xF1o de la necesidad."
+        });
+        return;
+      }
+      const claims = deviceTokens.verify(proof);
+      if (!claims) {
+        res.status(403).json({ code: "INVALID_CIVIC_PROOF", message: "La credencial del dispositivo no es v\xE1lida." });
+        return;
+      }
+      try {
+        res.status(200).json(await service.ownerStatus({
+          actorKey: claims.sub,
+          linkedUserId: null,
+          revokedAt: null
+        }, req.user.userId, body.data.grantId));
+      } catch (error) {
+        apiError3(res, error);
+      }
+    }
+  );
+  app2.post(
+    "/api/v1/civic/custody/coordination/proposals/decide",
+    privateRoute,
+    coordinationMutationRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse2(res);
+      const body = decideCustodyCoordinationProposalSchema.safeParse(req.body);
+      const idempotency = civicIdempotencyKeySchema.safeParse(req.header("Idempotency-Key"));
+      if (!body.success || !idempotency.success) {
+        const issues = [
+          ...body.success ? [] : body.error.issues,
+          ...idempotency.success ? [] : idempotency.error.issues.map((issue) => ({ ...issue, path: ["headers", "idempotency-key"] }))
+        ];
+        res.status(422).json({
+          code: "INVALID_CUSTODY_COORDINATION_DECISION",
+          message: "El contrato de decisi\xF3n no es v\xE1lido.",
+          details: validationDetails3(issues)
+        });
+        return;
+      }
+      const proof = req.header("X-Civic-Device-Token");
+      if (!proof) {
+        res.status(401).json({
+          code: "MISSING_CIVIC_PROOF",
+          message: "Falta demostrar el dispositivo due\xF1o de la necesidad."
+        });
+        return;
+      }
+      const claims = deviceTokens.verify(proof);
+      if (!claims) {
+        res.status(403).json({ code: "INVALID_CIVIC_PROOF", message: "La credencial del dispositivo no es v\xE1lida." });
+        return;
+      }
+      try {
+        const result = await service.decide({
+          actorKey: claims.sub,
+          linkedUserId: null,
+          revokedAt: null
+        }, req.user.userId, body.data, idempotency.data);
+        res.status(result.status === "accepted" ? 201 : 200).json(result);
+      } catch (error) {
+        apiError3(res, error);
+      }
+    }
+  );
+}
+
+// server/routes-civic-custody-execution.ts
+init_auth();
+import rateLimit9 from "express-rate-limit";
+
+// server/civic/custody-execution.ts
+import { createHash as createHash6 } from "node:crypto";
+import { z as z18 } from "zod";
+var CUSTODY_EXECUTION_CONTRACT = "basta-civic-custody-execution/v1";
+var CUSTODY_EXECUTION_DELIVERY_DEADLINE_MS = 24 * 60 * 6e4;
+var versionSchema = z18.string().regex(/^[0-9a-f]{64}$/);
+var quantitySchema = z18.number().finite().positive().max(1e9);
+var commonEventFields = {
+  eventId: custodyUuidV4Schema,
+  proposalId: custodyUuidV4Schema,
+  expectedVersion: versionSchema
+};
+var noPayloadEvent = (type) => z18.object({ ...commonEventFields, type: z18.literal(type) }).strict();
+var createCustodyExecutionEventSchema = z18.discriminatedUnion("type", [
+  noPayloadEvent("reserve"),
+  noPayloadEvent("grantor_ready"),
+  noPayloadEvent("coordinator_ready"),
+  noPayloadEvent("start_delivery"),
+  z18.object({
+    ...commonEventFields,
+    type: z18.literal("report_delivery"),
+    quantity: quantitySchema.optional()
+  }).strict(),
+  z18.object({
+    ...commonEventFields,
+    type: z18.literal("confirm_receipt"),
+    receipt: z18.enum(["full", "partial", "not_received"]),
+    quantity: quantitySchema.optional()
+  }).strict(),
+  z18.object({
+    ...commonEventFields,
+    type: z18.literal("record_follow_up"),
+    followUp: z18.enum(["need_met", "still_open"])
+  }).strict(),
+  noPayloadEvent("withdraw")
+]);
+var custodyExecutionStatusQuerySchema = z18.object({
+  proposalId: custodyUuidV4Schema
+}).strict();
+var custodyExecutionInboxQuerySchema = z18.object({
+  limit: z18.coerce.number().int().min(1).max(100).default(50),
+  cursor: custodyPageCursorStringSchema.optional()
+}).strict();
+var hash3 = (value) => createHash6("sha256").update(canonicalJson(value)).digest("hex");
+var CUSTODY_EXECUTION_EMPTY_VERSION = hash3([]);
+var commandRecordedAt = (command) => custodyTimestampToIsoUtc(command.createdAt, "$.recordedEvent.recordedAt");
+var commandEventVersion = (command) => hash3({
+  previousVersion: command.expectedVersion,
+  eventId: command.eventId,
+  proposalId: command.proposalId,
+  type: command.eventType,
+  actorRole: command.actorRole,
+  quantity: command.quantity,
+  unit: command.unit,
+  receipt: command.receiptOutcome,
+  followUp: command.followUpOutcome,
+  recordedAt: commandRecordedAt(command)
+});
+var eventView = (command) => {
+  if (!command.applied || !command.eventVersion || command.sequence == null) {
+    throw new CivicApiError(500, "CUSTODY_EXECUTION_STATE_INVALID", "El ledger de ejecuci\xF3n no es v\xE1lido.");
+  }
+  const version = commandEventVersion(command);
+  if (version !== command.eventVersion) {
+    throw new CivicApiError(500, "CUSTODY_EXECUTION_STATE_INVALID", "La cadena de ejecuci\xF3n no es v\xE1lida.");
+  }
+  return {
+    eventId: command.eventId,
+    proposalId: command.proposalId,
+    type: command.eventType,
+    actorRole: command.actorRole,
+    expectedVersion: command.expectedVersion,
+    quantity: command.quantity,
+    unit: command.unit,
+    receipt: command.receiptOutcome,
+    followUp: command.followUpOutcome,
+    recordedAt: commandRecordedAt(command),
+    version
+  };
+};
+var appliedCommands = (commands) => commands.filter((command) => command.applied).sort((left, right) => (left.sequence ?? 0) - (right.sequence ?? 0));
+var assertRootSnapshot = (record) => {
+  const { root, proposal, decision, grant } = record;
+  if (decision.decision !== "accept" || root.proposalId !== proposal.proposalId || root.acceptedDecisionId !== decision.decisionId || root.grantId !== grant.grantId || proposal.grantId !== grant.grantId || decision.proposalId !== proposal.proposalId || root.proposerUserId !== proposal.proposerUserId || root.grantorUserId !== grant.grantorUserId || root.ownerActorKey !== grant.ownerActorKey || root.quantity !== proposal.quantity || root.unit !== proposal.unit || root.expiresAt !== proposal.expiresAt || root.acceptedAt !== decision.createdAt) {
+    throw new CivicApiError(500, "CUSTODY_EXECUTION_STATE_INVALID", "La ra\xEDz de ejecuci\xF3n no coincide con la coordinaci\xF3n aceptada.");
+  }
+};
+var commandByType = (commands, type) => commands.find((command) => command.eventType === type) ?? null;
+var executionIsExternallyClosed = (record) => record.grant.revokedAt != null || record.grant.closedAt != null && record.grant.closedReason !== "expired" || !record.coordinatorAvailable;
+var executionIsExpired = (record, nowMs) => record.grant.closedReason === "expired" || Date.parse(record.grant.expiresAt) <= nowMs || Date.parse(record.root.expiresAt) <= nowMs;
+var custodyExecutionView = (record, nowMs) => {
+  assertRootSnapshot(record);
+  const commands = appliedCommands(record.commands);
+  let expectedVersion = CUSTODY_EXECUTION_EMPTY_VERSION;
+  const seen = /* @__PURE__ */ new Set();
+  for (let index2 = 0; index2 < commands.length; index2 += 1) {
+    const command = commands[index2];
+    if (command.sequence !== index2 + 1 || command.expectedVersion !== expectedVersion || seen.has(command.eventType)) {
+      throw new CivicApiError(500, "CUSTODY_EXECUTION_STATE_INVALID", "La secuencia de ejecuci\xF3n no es v\xE1lida.");
+    }
+    const view = eventView(command);
+    expectedVersion = view.version;
+    seen.add(command.eventType);
+  }
+  const reserve = commandByType(commands, "reserve");
+  const grantorReady = commandByType(commands, "grantor_ready");
+  const coordinatorReady = commandByType(commands, "coordinator_ready");
+  const start = commandByType(commands, "start_delivery");
+  const report = commandByType(commands, "report_delivery");
+  const receipt = commandByType(commands, "confirm_receipt");
+  const followUp = commandByType(commands, "record_follow_up");
+  const withdraw = commandByType(commands, "withdraw");
+  const deliveryDeadlineAt = start ? new Date(Date.parse(commandRecordedAt(start)) + CUSTODY_EXECUTION_DELIVERY_DEADLINE_MS).toISOString() : null;
+  let state;
+  if (followUp?.followUpOutcome === "need_met") state = "completed";
+  else if (followUp?.followUpOutcome === "still_open") state = "needs_follow_up";
+  else if (receipt?.receiptOutcome === "not_received") state = "disputed";
+  else if (receipt) state = "received";
+  else if (withdraw) state = "cancelled";
+  else if (executionIsExternallyClosed(record)) state = "closed";
+  else if (executionIsExpired(record, nowMs)) state = "expired";
+  else if (report) state = "delivery_reported";
+  else if (start) state = "in_transit";
+  else if (reserve && grantorReady && coordinatorReady) state = "ready";
+  else if (reserve) state = "reserved";
+  else state = "awaiting_reservation";
+  const recordedAt = (command) => command ? commandRecordedAt(command) : null;
+  return {
+    proposalId: record.root.proposalId,
+    state,
+    version: expectedVersion,
+    capacity: { quantity: record.root.quantity, unit: record.root.unit },
+    delivery: report ? { quantity: report.quantity, unit: report.unit } : null,
+    receipt: receipt ? {
+      outcome: receipt.receiptOutcome,
+      quantity: receipt.quantity,
+      unit: receipt.unit
+    } : null,
+    followUp: followUp?.followUpOutcome ?? null,
+    readiness: { grantor: Boolean(grantorReady), coordinator: Boolean(coordinatorReady) },
+    reconciliation: {
+      receiptAvailableAt: deliveryDeadlineAt,
+      receiptWindowOpen: Boolean(
+        start && (report || withdraw?.actorRole === "coordinator" || deliveryDeadlineAt && nowMs >= Date.parse(deliveryDeadlineAt))
+      ),
+      withdrawnBy: withdraw?.actorRole ?? null
+    },
+    milestones: {
+      reservedAt: recordedAt(reserve),
+      grantorReadyAt: recordedAt(grantorReady),
+      coordinatorReadyAt: recordedAt(coordinatorReady),
+      deliveryStartedAt: recordedAt(start),
+      deliveryReportedAt: recordedAt(report),
+      receiptRecordedAt: recordedAt(receipt),
+      followUpRecordedAt: recordedAt(followUp),
+      withdrawnAt: recordedAt(withdraw)
+    },
+    createdAt: custodyTimestampToIsoUtc(record.root.acceptedAt, "$.execution.createdAt"),
+    expiresAt: custodyTimestampToIsoUtc(record.root.expiresAt, "$.execution.expiresAt"),
+    updatedAt: commands.length > 0 ? commandRecordedAt(commands.at(-1)) : custodyTimestampToIsoUtc(record.root.acceptedAt, "$.execution.updatedAt")
+  };
+};
+var custodyExecutionRootFromAcceptedCoordination = (proposal, decision, grant) => ({
+  proposalId: proposal.proposalId,
+  acceptedDecisionId: decision.decisionId,
+  grantId: grant.grantId,
+  proposerUserId: proposal.proposerUserId,
+  grantorUserId: grant.grantorUserId,
+  ownerActorKey: grant.ownerActorKey,
+  quantity: proposal.quantity,
+  unit: proposal.unit,
+  expiresAt: proposal.expiresAt,
+  acceptedAt: decision.createdAt
+});
+var virtualCustodyExecutionRoot = (proposal, decision, grant) => ({
+  rowId: 0,
+  ...custodyExecutionRootFromAcceptedCoordination(proposal, decision, grant),
+  createdAt: decision.createdAt
+});
+var requiredRole = (type, userId, root) => {
+  if (["reserve", "coordinator_ready", "start_delivery", "report_delivery"].includes(type)) {
+    return userId === root.proposerUserId ? "coordinator" : null;
+  }
+  if (["grantor_ready", "confirm_receipt", "record_follow_up"].includes(type)) {
+    return userId === root.grantorUserId ? "grantor" : null;
+  }
+  if (type === "withdraw") {
+    if (userId === root.proposerUserId) return "coordinator";
+    if (userId === root.grantorUserId) return "grantor";
+  }
+  return null;
+};
+var normalizedPayload = (input, root, commands) => {
+  if (input.type === "report_delivery") return {
+    quantity: input.quantity ?? null,
+    unit: input.quantity == null ? null : root.unit,
+    receiptOutcome: null,
+    followUpOutcome: null
+  };
+  if (input.type === "confirm_receipt") {
+    const report = commandByType(appliedCommands(commands), "report_delivery");
+    const referenceQuantity = report?.quantity ?? root.quantity;
+    const quantity = input.receipt === "not_received" ? null : input.receipt === "full" ? input.quantity ?? referenceQuantity : input.quantity ?? null;
+    return {
+      quantity,
+      unit: quantity == null ? null : report?.unit ?? root.unit,
+      receiptOutcome: input.receipt,
+      followUpOutcome: null
+    };
+  }
+  if (input.type === "record_follow_up") return {
+    quantity: null,
+    unit: null,
+    receiptOutcome: null,
+    followUpOutcome: input.followUp
+  };
+  return { quantity: null, unit: null, receiptOutcome: null, followUpOutcome: null };
+};
+var exactIdempotencyKey = (input) => `custody:${input.proposalId}:execution:event:${input.eventId}`;
+var transitionAllowed = (input, actorRole, record, nowMs) => {
+  const commands = appliedCommands(record.commands);
+  if (commandByType(commands, input.type)) return false;
+  const reserve = commandByType(commands, "reserve");
+  const grantorReady = commandByType(commands, "grantor_ready");
+  const coordinatorReady = commandByType(commands, "coordinator_ready");
+  const start = commandByType(commands, "start_delivery");
+  const report = commandByType(commands, "report_delivery");
+  const receipt = commandByType(commands, "confirm_receipt");
+  const followUp = commandByType(commands, "record_follow_up");
+  const withdraw = commandByType(commands, "withdraw");
+  if (followUp || receipt?.receiptOutcome === "not_received") return false;
+  const operational = !executionIsExternallyClosed(record) && !executionIsExpired(record, nowMs);
+  if (input.type === "reserve") {
+    return actorRole === "coordinator" && operational && !start && !withdraw;
+  }
+  if (input.type === "grantor_ready" || input.type === "coordinator_ready") {
+    return operational && !start && !withdraw;
+  }
+  if (input.type === "start_delivery") {
+    return actorRole === "coordinator" && operational && Boolean(reserve && grantorReady && coordinatorReady) && !withdraw;
+  }
+  if (input.type === "report_delivery") {
+    if (actorRole !== "coordinator" || !operational || !start || withdraw || receipt) return false;
+    if (record.root.quantity == null || record.root.unit == null) return input.quantity == null;
+    return input.quantity != null && input.quantity <= record.root.quantity;
+  }
+  if (input.type === "withdraw") {
+    return !receipt;
+  }
+  if (input.type === "confirm_receipt") {
+    if (actorRole !== "grantor" || !start || receipt) return false;
+    const coordinatorWithdrew = withdraw?.actorRole === "coordinator";
+    const deadlinePassed = nowMs >= Date.parse(commandRecordedAt(start)) + CUSTODY_EXECUTION_DELIVERY_DEADLINE_MS;
+    if (!report && !coordinatorWithdrew && !deadlinePassed) return false;
+    const referenceQuantity = report?.quantity ?? record.root.quantity;
+    if (input.receipt === "not_received") return input.quantity == null;
+    if (referenceQuantity == null) return input.quantity == null;
+    if (input.receipt === "full") {
+      return input.quantity == null || input.quantity === referenceQuantity;
+    }
+    return input.quantity != null && input.quantity < referenceQuantity;
+  }
+  if (input.type === "record_follow_up") {
+    return actorRole === "grantor" && Boolean(receipt);
+  }
+  return false;
+};
+var currentRequestHash = (input, actorRole, userId, ownerActorKey) => hash3({
+  input,
+  actorRole,
+  actorUserId: userId,
+  ownerActorKey
+});
+var exactCommand = (rows, input, actorRole, userId, ownerActorKey, idempotencyKey, requestHash) => {
+  if (rows.length === 0) return null;
+  if (rows.length === 1 && rows[0].eventId === input.eventId && rows[0].proposalId === input.proposalId && rows[0].idempotencyKey === idempotencyKey && rows[0].requestHash === requestHash && rows[0].actorRole === actorRole && rows[0].actorUserId === userId && rows[0].ownerActorKey === ownerActorKey && rows[0].eventType === input.type && rows[0].expectedVersion === input.expectedVersion) return rows[0];
+  throw new CivicApiError(
+    409,
+    "CUSTODY_EXECUTION_IDEMPOTENCY_CONFLICT",
+    "La identidad del comando ya fue usada con otro contenido."
+  );
+};
+var mutationFromStored = (command, execution, refreshedAt, replay) => command.applied ? {
+  contract: CUSTODY_EXECUTION_CONTRACT,
+  status: replay ? "duplicate" : "accepted",
+  recordedEvent: eventView(command),
+  execution,
+  refreshedAt
+} : {
+  contract: CUSTODY_EXECUTION_CONTRACT,
+  status: "rejected",
+  reason: command.rejectionReason,
+  eventId: command.eventId,
+  recordedEvent: null,
+  execution,
+  refreshedAt
+};
+var CustodyExecutionService = class {
+  constructor(store) {
+    this.store = store;
+  }
+  async now(store) {
+    const iso = custodyTimestampToIsoUtc(
+      await store.currentTimestamp(),
+      "$.execution.currentTimestamp"
+    );
+    return { iso, ms: Date.parse(iso) };
+  }
+  notFound() {
+    throw new CivicApiError(
+      404,
+      "CUSTODY_EXECUTION_NOT_FOUND",
+      "La ejecuci\xF3n no existe o no est\xE1 disponible."
+    );
+  }
+  async lockedRecord(store, proposalId) {
+    const located = await store.getProposal(proposalId);
+    if (!located) return this.notFound();
+    const grant = await store.getGrantForUpdate(located.grantId);
+    if (!grant) return this.notFound();
+    const storedRoot = await store.getExecutionRootForUpdate(proposalId);
+    const proposal = await store.getProposalForUpdate(proposalId);
+    const decision = await store.getDecisionForUpdate(proposalId);
+    if (!proposal || proposal.grantId !== grant.grantId || !decision || decision.proposalId !== proposal.proposalId || decision.decision !== "accept") return this.notFound();
+    const activeUsers = /* @__PURE__ */ new Map();
+    for (const participantId of [proposal.proposerUserId, grant.grantorUserId].sort((a, b) => a - b)) {
+      activeUsers.set(participantId, await store.lockActiveUser(participantId));
+    }
+    const coordinatorActive = activeUsers.get(proposal.proposerUserId) ?? false;
+    const grantorActive = activeUsers.get(grant.grantorUserId) ?? false;
+    const ownerDevice = await store.lockDevice(grant.ownerActorKey);
+    const coordinatorMember = await store.lockCircleCoordinator(
+      grant.recipientCircleId,
+      proposal.proposerUserId
+    );
+    const circleAvailable = await store.lockCircle(grant.recipientCircleId);
+    const coordinatorAvailable = coordinatorActive && coordinatorMember && circleAvailable;
+    const root = storedRoot ?? virtualCustodyExecutionRoot(proposal, decision, grant);
+    const record = {
+      root,
+      proposal,
+      decision,
+      grant,
+      commands: await store.getCommands(proposalId),
+      coordinatorAvailable
+    };
+    assertRootSnapshot(record);
+    return { record, ownerDevice, grantorActive, rootMissing: storedRoot == null };
+  }
+  authorizeActor(actor, userId, type, record, ownerDevice, grantorActive) {
+    const role = requiredRole(type, userId, record.root);
+    if (!role) return this.notFound();
+    if (role === "coordinator") {
+      if (!record.coordinatorAvailable) return this.notFound();
+      return { role, ownerActorKey: null };
+    }
+    if (!actor.actorKey) {
+      throw new CivicApiError(401, "MISSING_CIVIC_PROOF", "Falta demostrar el dispositivo due\xF1o de la necesidad.");
+    }
+    if (!grantorActive || !ownerDevice || ownerDevice.revokedAt != null || ownerDevice.actorKey !== record.root.ownerActorKey || actor.actorKey !== ownerDevice.actorKey || ownerDevice.linkedUserId !== userId || record.root.grantorUserId !== userId) return this.notFound();
+    return { role, ownerActorKey: ownerDevice.actorKey };
+  }
+  async recordEvent(actor, userId, input, idempotencyKey) {
+    if (idempotencyKey !== exactIdempotencyKey(input)) {
+      throw new CivicApiError(
+        422,
+        "INVALID_CUSTODY_EXECUTION_IDEMPOTENCY_KEY",
+        "La clave idempotente no corresponde al evento.",
+        "$.headers.idempotency-key"
+      );
+    }
+    const commit = async (store) => {
+      const locked = await this.lockedRecord(store, input.proposalId);
+      const authorization = this.authorizeActor(
+        actor,
+        userId,
+        input.type,
+        locked.record,
+        locked.ownerDevice,
+        locked.grantorActive
+      );
+      if (locked.rootMissing) {
+        let root = await store.insertExecutionRoot(custodyExecutionRootFromAcceptedCoordination(
+          locked.record.proposal,
+          locked.record.decision,
+          locked.record.grant
+        ));
+        if (!root) root = await store.getExecutionRootForUpdate(input.proposalId);
+        if (!root) {
+          throw new CivicApiError(
+            409,
+            "CUSTODY_EXECUTION_ROOT_CONFLICT",
+            "No se pudo fijar la ra\xEDz de ejecuci\xF3n."
+          );
+        }
+        locked.record.root = root;
+        assertRootSnapshot(locked.record);
+      }
+      const requestHash = currentRequestHash(
+        input,
+        authorization.role,
+        userId,
+        authorization.ownerActorKey
+      );
+      const replay = exactCommand(
+        await store.findCommandConflicts(input.eventId, userId, idempotencyKey),
+        input,
+        authorization.role,
+        userId,
+        authorization.ownerActorKey,
+        idempotencyKey,
+        requestHash
+      );
+      const now = await this.now(store);
+      if (replay) {
+        locked.record.commands = await store.getCommands(input.proposalId);
+        return mutationFromStored(
+          replay,
+          custodyExecutionView(locked.record, now.ms),
+          now.iso,
+          true
+        );
+      }
+      const currentExecution = custodyExecutionView(locked.record, now.ms);
+      const rejectionReason = input.expectedVersion !== currentExecution.version ? "version_changed" : transitionAllowed(input, authorization.role, locked.record, now.ms) ? null : "transition_not_allowed";
+      const payload = normalizedPayload(input, locked.record.root, locked.record.commands);
+      const applied = rejectionReason == null;
+      const sequence = applied ? appliedCommands(locked.record.commands).length + 1 : null;
+      const draft = {
+        rowId: 0,
+        eventId: input.eventId,
+        proposalId: input.proposalId,
+        idempotencyKey,
+        requestHash,
+        actorRole: authorization.role,
+        actorUserId: userId,
+        ownerActorKey: authorization.ownerActorKey,
+        eventType: input.type,
+        expectedVersion: input.expectedVersion,
+        ...payload,
+        applied,
+        rejectionReason,
+        sequence,
+        eventVersion: null,
+        createdAt: now.iso
+      };
+      if (applied) draft.eventVersion = commandEventVersion(draft);
+      let duplicate = false;
+      let inserted = await store.insertCommand({
+        eventId: draft.eventId,
+        proposalId: draft.proposalId,
+        idempotencyKey: draft.idempotencyKey,
+        requestHash: draft.requestHash,
+        actorRole: draft.actorRole,
+        actorUserId: draft.actorUserId,
+        ownerActorKey: draft.ownerActorKey,
+        eventType: draft.eventType,
+        expectedVersion: draft.expectedVersion,
+        quantity: draft.quantity,
+        unit: draft.unit,
+        receiptOutcome: draft.receiptOutcome,
+        followUpOutcome: draft.followUpOutcome,
+        applied: draft.applied,
+        rejectionReason: draft.rejectionReason,
+        sequence: draft.sequence,
+        eventVersion: draft.eventVersion,
+        createdAt: draft.createdAt
+      });
+      if (!inserted) {
+        duplicate = true;
+        inserted = exactCommand(
+          await store.findCommandConflicts(input.eventId, userId, idempotencyKey),
+          input,
+          authorization.role,
+          userId,
+          authorization.ownerActorKey,
+          idempotencyKey,
+          requestHash
+        );
+      }
+      if (!inserted) {
+        throw new CivicApiError(
+          409,
+          "CUSTODY_EXECUTION_COMMAND_CONFLICT",
+          "El comando entr\xF3 en conflicto con otra escritura."
+        );
+      }
+      locked.record.commands = await store.getCommands(input.proposalId);
+      return mutationFromStored(
+        inserted,
+        custodyExecutionView(locked.record, now.ms),
+        now.iso,
+        duplicate
+      );
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(commit) : commit(this.store);
+  }
+  async status(actor, userId, proposalId) {
+    const read = async (store) => {
+      const locked = await this.lockedRecord(store, proposalId);
+      const { record } = locked;
+      if (userId === record.root.proposerUserId) {
+        if (!record.coordinatorAvailable) return this.notFound();
+      } else if (userId === record.root.grantorUserId) {
+        if (!actor.actorKey) {
+          throw new CivicApiError(401, "MISSING_CIVIC_PROOF", "Falta demostrar el dispositivo due\xF1o de la necesidad.");
+        }
+        if (!locked.grantorActive || !locked.ownerDevice || locked.ownerDevice.revokedAt != null || actor.actorKey !== record.root.ownerActorKey || locked.ownerDevice.actorKey !== record.root.ownerActorKey || locked.ownerDevice.linkedUserId !== userId) return this.notFound();
+      } else return this.notFound();
+      const now = await this.now(store);
+      return {
+        contract: CUSTODY_EXECUTION_CONTRACT,
+        scope: "private-custody-execution-status",
+        execution: custodyExecutionView(record, now.ms),
+        refreshedAt: now.iso
+      };
+    };
+    return this.store.runInTransaction ? this.store.runInTransaction(read) : read(this.store);
+  }
+  async inbox(userId, limit, cursor) {
+    const page = decodeCustodyPageCursor(cursor, "execution-inbox");
+    const snapshot = await this.store.listCoordinatorRecords(userId, limit + 1, page);
+    if (!snapshot.authorized) {
+      throw new CivicApiError(403, "ACCOUNT_NOT_ACTIVE", "La cuenta no est\xE1 habilitada para coordinar.");
+    }
+    if (!snapshot.refreshedAt) {
+      throw new CivicApiError(500, "CUSTODY_EXECUTION_SNAPSHOT_INVALID", "No se pudo fijar el corte de ejecuci\xF3n.");
+    }
+    const refreshedAt = custodyTimestampToIsoUtc(snapshot.refreshedAt, "$.refreshedAt");
+    if (page && page.asOf !== refreshedAt) {
+      throw new CivicApiError(422, "INVALID_CUSTODY_CURSOR", "El cursor no pertenece a este corte privado.");
+    }
+    const records = snapshot.records.slice(0, limit);
+    const hasMore = snapshot.records.length > limit;
+    const last = records.at(-1);
+    return {
+      contract: CUSTODY_EXECUTION_CONTRACT,
+      scope: "private-custody-execution-coordinator-inbox",
+      executions: records.map((record) => custodyExecutionView(record, Date.parse(refreshedAt))),
+      refreshedAt,
+      nextCursor: hasMore && last ? encodeCustodyPageCursor("execution-inbox", {
+        asOf: refreshedAt,
+        after: { rowId: last.proposal.rowId }
+      }) : null
+    };
+  }
+};
+
+// server/civic/postgres-custody-execution-store.ts
+init_schema();
+init_db();
+import { and as and20, desc as desc21, eq as eq23, lte as lte4, or as or10, sql as sql17 } from "drizzle-orm";
+var grantColumns3 = {
+  rowId: civicCustodyGrants.id,
+  grantId: civicCustodyGrants.grantId,
+  idempotencyKey: civicCustodyGrants.idempotencyKey,
+  requestHash: civicCustodyGrants.requestHash,
+  needId: civicCustodyGrants.needId,
+  ownerActorKey: civicCustodyGrants.ownerActorKey,
+  grantorUserId: civicCustodyGrants.grantorUserId,
+  recipientType: civicCustodyGrants.recipientType,
+  recipientCircleId: civicCustodyGrants.recipientCircleId,
+  payloadJson: civicCustodyGrants.payloadJson,
+  expiresAt: civicCustodyGrants.expiresAt,
+  revokedAt: civicCustodyGrants.revokedAt,
+  closedAt: civicCustodyGrants.closedAt,
+  closedReason: civicCustodyGrants.closedReason,
+  createdAt: civicCustodyGrants.createdAt
+};
+var proposalColumns2 = {
+  rowId: civicCustodyCoordinationProposals.id,
+  proposalId: civicCustodyCoordinationProposals.proposalId,
+  grantId: civicCustodyCoordinationProposals.grantId,
+  sourceResponseId: civicCustodyCoordinationProposals.sourceResponseId,
+  idempotencyKey: civicCustodyCoordinationProposals.idempotencyKey,
+  requestHash: civicCustodyCoordinationProposals.requestHash,
+  proposerUserId: civicCustodyCoordinationProposals.proposerUserId,
+  quantity: civicCustodyCoordinationProposals.quantity,
+  unit: civicCustodyCoordinationProposals.unit,
+  expiresAt: civicCustodyCoordinationProposals.expiresAt,
+  createdAt: civicCustodyCoordinationProposals.createdAt
+};
+var decisionColumns2 = {
+  rowId: civicCustodyCoordinationDecisions.id,
+  decisionId: civicCustodyCoordinationDecisions.decisionId,
+  proposalId: civicCustodyCoordinationDecisions.proposalId,
+  idempotencyKey: civicCustodyCoordinationDecisions.idempotencyKey,
+  requestHash: civicCustodyCoordinationDecisions.requestHash,
+  deciderUserId: civicCustodyCoordinationDecisions.deciderUserId,
+  ownerActorKey: civicCustodyCoordinationDecisions.ownerActorKey,
+  decision: civicCustodyCoordinationDecisions.decision,
+  createdAt: civicCustodyCoordinationDecisions.createdAt
+};
+var rootColumns = {
+  rowId: civicCustodyExecutions.id,
+  proposalId: civicCustodyExecutions.proposalId,
+  acceptedDecisionId: civicCustodyExecutions.acceptedDecisionId,
+  grantId: civicCustodyExecutions.grantId,
+  proposerUserId: civicCustodyExecutions.proposerUserId,
+  grantorUserId: civicCustodyExecutions.grantorUserId,
+  ownerActorKey: civicCustodyExecutions.ownerActorKey,
+  quantity: civicCustodyExecutions.quantity,
+  unit: civicCustodyExecutions.unit,
+  expiresAt: civicCustodyExecutions.expiresAt,
+  acceptedAt: civicCustodyExecutions.acceptedAt,
+  createdAt: civicCustodyExecutions.createdAt
+};
+var commandColumns = {
+  rowId: civicCustodyExecutionCommands.id,
+  eventId: civicCustodyExecutionCommands.eventId,
+  proposalId: civicCustodyExecutionCommands.proposalId,
+  idempotencyKey: civicCustodyExecutionCommands.idempotencyKey,
+  requestHash: civicCustodyExecutionCommands.requestHash,
+  actorRole: civicCustodyExecutionCommands.actorRole,
+  actorUserId: civicCustodyExecutionCommands.actorUserId,
+  ownerActorKey: civicCustodyExecutionCommands.ownerActorKey,
+  eventType: civicCustodyExecutionCommands.eventType,
+  expectedVersion: civicCustodyExecutionCommands.expectedVersion,
+  quantity: civicCustodyExecutionCommands.quantity,
+  unit: civicCustodyExecutionCommands.unit,
+  receiptOutcome: civicCustodyExecutionCommands.receiptOutcome,
+  followUpOutcome: civicCustodyExecutionCommands.followUpOutcome,
+  applied: civicCustodyExecutionCommands.applied,
+  rejectionReason: civicCustodyExecutionCommands.rejectionReason,
+  sequence: civicCustodyExecutionCommands.sequence,
+  eventVersion: civicCustodyExecutionCommands.eventVersion,
+  createdAt: civicCustodyExecutionCommands.createdAt
+};
+var snapshotProposalJson = sql17`jsonb_build_object(
+  'rowId', ${civicCustodyCoordinationProposals.id},
+  'proposalId', ${civicCustodyCoordinationProposals.proposalId},
+  'grantId', ${civicCustodyCoordinationProposals.grantId},
+  'sourceResponseId', ${civicCustodyCoordinationProposals.sourceResponseId},
+  'idempotencyKey', ${civicCustodyCoordinationProposals.idempotencyKey},
+  'requestHash', ${civicCustodyCoordinationProposals.requestHash},
+  'proposerUserId', ${civicCustodyCoordinationProposals.proposerUserId},
+  'quantity', ${civicCustodyCoordinationProposals.quantity},
+  'unit', ${civicCustodyCoordinationProposals.unit},
+  'expiresAt', ${civicCustodyCoordinationProposals.expiresAt},
+  'createdAt', ${civicCustodyCoordinationProposals.createdAt}
+)`.as("snapshot_execution_proposal");
+var snapshotDecisionJson = sql17`jsonb_build_object(
+  'rowId', ${civicCustodyCoordinationDecisions.id},
+  'decisionId', ${civicCustodyCoordinationDecisions.decisionId},
+  'proposalId', ${civicCustodyCoordinationDecisions.proposalId},
+  'idempotencyKey', ${civicCustodyCoordinationDecisions.idempotencyKey},
+  'requestHash', ${civicCustodyCoordinationDecisions.requestHash},
+  'deciderUserId', ${civicCustodyCoordinationDecisions.deciderUserId},
+  'ownerActorKey', ${civicCustodyCoordinationDecisions.ownerActorKey},
+  'decision', ${civicCustodyCoordinationDecisions.decision},
+  'createdAt', ${civicCustodyCoordinationDecisions.createdAt}
+)`.as("snapshot_execution_decision");
+var snapshotGrantJson = sql17`jsonb_build_object(
+  'rowId', ${civicCustodyGrants.id},
+  'grantId', ${civicCustodyGrants.grantId},
+  'idempotencyKey', ${civicCustodyGrants.idempotencyKey},
+  'requestHash', ${civicCustodyGrants.requestHash},
+  'needId', ${civicCustodyGrants.needId},
+  'ownerActorKey', ${civicCustodyGrants.ownerActorKey},
+  'grantorUserId', ${civicCustodyGrants.grantorUserId},
+  'recipientType', ${civicCustodyGrants.recipientType},
+  'recipientCircleId', ${civicCustodyGrants.recipientCircleId},
+  'payloadJson', ${civicCustodyGrants.payloadJson},
+  'expiresAt', ${civicCustodyGrants.expiresAt},
+  'revokedAt', ${civicCustodyGrants.revokedAt},
+  'closedAt', ${civicCustodyGrants.closedAt},
+  'closedReason', ${civicCustodyGrants.closedReason},
+  'createdAt', ${civicCustodyGrants.createdAt}
+)`.as("snapshot_execution_grant");
+var snapshotRootJson = sql17`jsonb_build_object(
+  'rowId', ${civicCustodyExecutions.id},
+  'proposalId', ${civicCustodyExecutions.proposalId},
+  'acceptedDecisionId', ${civicCustodyExecutions.acceptedDecisionId},
+  'grantId', ${civicCustodyExecutions.grantId},
+  'proposerUserId', ${civicCustodyExecutions.proposerUserId},
+  'grantorUserId', ${civicCustodyExecutions.grantorUserId},
+  'ownerActorKey', ${civicCustodyExecutions.ownerActorKey},
+  'quantity', ${civicCustodyExecutions.quantity},
+  'unit', ${civicCustodyExecutions.unit},
+  'expiresAt', ${civicCustodyExecutions.expiresAt},
+  'acceptedAt', ${civicCustodyExecutions.acceptedAt},
+  'createdAt', ${civicCustodyExecutions.createdAt}
+)`.as("snapshot_execution_root");
+var asRecord = (row, commands, coordinatorAvailable) => ({
+  proposal: row.proposal,
+  decision: row.decision,
+  grant: row.grant,
+  root: row.root ?? virtualCustodyExecutionRoot(row.proposal, row.decision, row.grant),
+  commands,
+  coordinatorAvailable
+});
+var PostgresCustodyExecutionStore = class _PostgresCustodyExecutionStore {
+  constructor(database = db) {
+    this.database = database;
+  }
+  async runInTransaction(operation) {
+    return civicTransactionDb.transaction(async (tx) => operation(new _PostgresCustodyExecutionStore(
+      tx
+    )));
+  }
+  async currentTimestamp() {
+    const [row] = await this.database.select({
+      value: sql17`date_trunc('milliseconds', clock_timestamp())`.mapWith(civicCustodyExecutionCommands.createdAt)
+    }).from(users).limit(1);
+    if (!row) throw new Error("civic custody execution database clock unavailable");
+    return row.value;
+  }
+  async lockActiveUser(userId) {
+    const [row] = await this.database.select({ active: users.isActive }).from(users).where(eq23(users.id, userId)).limit(1).for("update", { of: users });
+    return row?.active === true;
+  }
+  async lockDevice(actorKey) {
+    const [row] = await this.database.select({
+      actorKey: civicDevices.actorKey,
+      linkedUserId: civicDevices.linkedUserId,
+      revokedAt: civicDevices.revokedAt
+    }).from(civicDevices).where(eq23(civicDevices.actorKey, actorKey)).limit(1).for("update", { of: civicDevices });
+    return row ?? null;
+  }
+  async lockCircleCoordinator(circleId, userId) {
+    const [row] = await this.database.select({ role: circleMembers.role }).from(circleMembers).where(and20(
+      eq23(circleMembers.circleId, circleId),
+      eq23(circleMembers.userId, userId)
+    )).limit(1).for("update", { of: circleMembers });
+    return row?.role === "coordinador";
+  }
+  async lockCircle(circleId) {
+    const [row] = await this.database.select({
+      kind: circles.kind,
+      isPrivate: circles.isPrivate
+    }).from(circles).where(eq23(circles.id, circleId)).limit(1).for("update", { of: circles });
+    return row?.kind === "celula" || row?.isPrivate === true;
+  }
+  async getGrantForUpdate(grantId) {
+    const [row] = await this.database.select(grantColumns3).from(civicCustodyGrants).where(eq23(civicCustodyGrants.grantId, grantId)).limit(1).for("update", { of: civicCustodyGrants });
+    return row ?? null;
+  }
+  async getProposal(proposalId) {
+    const [row] = await this.database.select(proposalColumns2).from(civicCustodyCoordinationProposals).where(eq23(civicCustodyCoordinationProposals.proposalId, proposalId)).limit(1);
+    return row ?? null;
+  }
+  async getProposalForUpdate(proposalId) {
+    const [row] = await this.database.select(proposalColumns2).from(civicCustodyCoordinationProposals).where(eq23(civicCustodyCoordinationProposals.proposalId, proposalId)).limit(1).for("update", { of: civicCustodyCoordinationProposals });
+    return row ?? null;
+  }
+  async getDecisionForUpdate(proposalId) {
+    const [row] = await this.database.select(decisionColumns2).from(civicCustodyCoordinationDecisions).where(eq23(civicCustodyCoordinationDecisions.proposalId, proposalId)).limit(1).for("update", { of: civicCustodyCoordinationDecisions });
+    return row ?? null;
+  }
+  async getExecutionRootForUpdate(proposalId) {
+    const [row] = await this.database.select(rootColumns).from(civicCustodyExecutions).where(eq23(civicCustodyExecutions.proposalId, proposalId)).limit(1).for("update", { of: civicCustodyExecutions });
+    return row ?? null;
+  }
+  async insertExecutionRoot(input) {
+    const [row] = await this.database.insert(civicCustodyExecutions).values(input).onConflictDoNothing().returning(rootColumns);
+    return row ?? null;
+  }
+  async getCommands(proposalId) {
+    return this.database.select(commandColumns).from(civicCustodyExecutionCommands).where(eq23(civicCustodyExecutionCommands.proposalId, proposalId)).orderBy(civicCustodyExecutionCommands.id);
+  }
+  async findCommandConflicts(eventId, actorUserId, idempotencyKey) {
+    return this.database.select(commandColumns).from(civicCustodyExecutionCommands).where(or10(
+      eq23(civicCustodyExecutionCommands.eventId, eventId),
+      and20(
+        eq23(civicCustodyExecutionCommands.actorUserId, actorUserId),
+        eq23(civicCustodyExecutionCommands.idempotencyKey, idempotencyKey)
+      )
+    ));
+  }
+  async insertCommand(input) {
+    const [row] = await this.database.insert(civicCustodyExecutionCommands).values(input).onConflictDoNothing().returning(commandColumns);
+    return row ?? null;
+  }
+  async coordinatorAvailable(circleId, userId) {
+    const [row] = await this.database.select({ memberId: circleMembers.id }).from(circleMembers).innerJoin(users, eq23(users.id, circleMembers.userId)).innerJoin(circles, eq23(circles.id, circleMembers.circleId)).where(and20(
+      eq23(circleMembers.circleId, circleId),
+      eq23(circleMembers.userId, userId),
+      eq23(circleMembers.role, "coordinador"),
+      eq23(users.isActive, true),
+      or10(eq23(circles.kind, "celula"), eq23(circles.isPrivate, true))
+    )).limit(1);
+    return Boolean(row);
+  }
+  async getRecord(proposalId) {
+    const [row] = await this.database.select({
+      proposal: proposalColumns2,
+      decision: decisionColumns2,
+      grant: grantColumns3,
+      root: rootColumns
+    }).from(civicCustodyCoordinationProposals).innerJoin(
+      civicCustodyCoordinationDecisions,
+      eq23(civicCustodyCoordinationDecisions.proposalId, civicCustodyCoordinationProposals.proposalId)
+    ).innerJoin(civicCustodyGrants, eq23(civicCustodyGrants.grantId, civicCustodyCoordinationProposals.grantId)).leftJoin(civicCustodyExecutions, eq23(civicCustodyExecutions.proposalId, civicCustodyCoordinationProposals.proposalId)).where(and20(
+      eq23(civicCustodyCoordinationProposals.proposalId, proposalId),
+      eq23(civicCustodyCoordinationDecisions.decision, "accept")
+    )).limit(1);
+    if (!row) return null;
+    const commands = await this.getCommands(proposalId);
+    return asRecord(
+      {
+        proposal: row.proposal,
+        decision: row.decision,
+        grant: row.grant,
+        root: row.root?.rowId == null ? null : row.root
+      },
+      commands,
+      await this.coordinatorAvailable(row.grant.recipientCircleId, row.proposal.proposerUserId)
+    );
+  }
+  async listCoordinatorRecords(userId, limit, page) {
+    const snapshotAt = page ? sql17`LEAST(${page.asOf}::timestamptz, date_trunc('milliseconds', statement_timestamp()))`.mapWith(civicCustodyExecutionCommands.createdAt) : sql17`date_trunc('milliseconds', statement_timestamp())`.mapWith(civicCustodyExecutionCommands.createdAt);
+    const after = page ? sql17`${civicCustodyCoordinationProposals.id} < ${page.after.rowId}` : void 0;
+    const visibleRecords = this.database.select({
+      rowId: sql17`${civicCustodyCoordinationProposals.id}`.mapWith(civicCustodyCoordinationProposals.id).as("snapshot_execution_row_id"),
+      proposal: snapshotProposalJson,
+      decision: snapshotDecisionJson,
+      grant: snapshotGrantJson,
+      root: snapshotRootJson,
+      commands: sql17`COALESCE((
+        SELECT jsonb_agg(jsonb_build_object(
+          'rowId', execution_command.id,
+          'eventId', execution_command.event_id,
+          'proposalId', execution_command.proposal_id,
+          'idempotencyKey', execution_command.idempotency_key,
+          'requestHash', execution_command.request_hash,
+          'actorRole', execution_command.actor_role,
+          'actorUserId', execution_command.actor_user_id,
+          'ownerActorKey', execution_command.owner_actor_key,
+          'eventType', execution_command.event_type,
+          'expectedVersion', execution_command.expected_version,
+          'quantity', execution_command.quantity,
+          'unit', execution_command.unit,
+          'receiptOutcome', execution_command.receipt_outcome,
+          'followUpOutcome', execution_command.follow_up_outcome,
+          'applied', execution_command.applied,
+          'rejectionReason', execution_command.rejection_reason,
+          'sequence', execution_command.sequence,
+          'eventVersion', execution_command.event_version,
+          'createdAt', execution_command.created_at
+        ) ORDER BY execution_command.sequence)
+        FROM civic_custody_execution_commands AS execution_command
+        WHERE execution_command.proposal_id = ${civicCustodyCoordinationProposals.proposalId}
+          AND execution_command.applied = TRUE
+          AND execution_command.created_at <= ${snapshotAt}
+      ), '[]'::jsonb)`.as("snapshot_execution_commands")
+    }).from(civicCustodyCoordinationProposals).innerJoin(
+      civicCustodyCoordinationDecisions,
+      and20(
+        eq23(civicCustodyCoordinationDecisions.proposalId, civicCustodyCoordinationProposals.proposalId),
+        eq23(civicCustodyCoordinationDecisions.decision, "accept")
+      )
+    ).innerJoin(civicCustodyGrants, eq23(civicCustodyGrants.grantId, civicCustodyCoordinationProposals.grantId)).innerJoin(circleMembers, and20(
+      eq23(circleMembers.circleId, civicCustodyGrants.recipientCircleId),
+      eq23(circleMembers.userId, userId),
+      eq23(circleMembers.role, "coordinador")
+    )).innerJoin(circles, eq23(circles.id, circleMembers.circleId)).leftJoin(civicCustodyExecutions, eq23(civicCustodyExecutions.proposalId, civicCustodyCoordinationProposals.proposalId)).where(and20(
+      eq23(civicCustodyCoordinationProposals.proposerUserId, userId),
+      lte4(civicCustodyCoordinationProposals.createdAt, snapshotAt),
+      lte4(civicCustodyCoordinationDecisions.createdAt, snapshotAt),
+      or10(eq23(circles.kind, "celula"), eq23(circles.isPrivate, true)),
+      after
+    )).orderBy(desc21(civicCustodyCoordinationProposals.id)).limit(limit).as("visible_custody_execution_records");
+    const rows = await this.database.select({
+      rowId: visibleRecords.rowId,
+      proposal: visibleRecords.proposal,
+      decision: visibleRecords.decision,
+      grant: visibleRecords.grant,
+      root: visibleRecords.root,
+      commands: visibleRecords.commands,
+      refreshedAt: snapshotAt
+    }).from(users).leftJoin(visibleRecords, sql17`TRUE`).where(and20(eq23(users.id, userId), eq23(users.isActive, true))).orderBy(desc21(visibleRecords.rowId));
+    if (rows.length === 0) {
+      return { authorized: false, records: [], refreshedAt: null };
+    }
+    const refreshedAt = custodyTimestampToIsoUtc(
+      rows[0].refreshedAt,
+      "$.custodyExecutionInbox.refreshedAt"
+    );
+    const visibleRows = rows.filter((row) => row.rowId != null && row.proposal != null);
+    if (visibleRows.length === 0) {
+      return { authorized: true, records: [], refreshedAt };
+    }
+    return {
+      authorized: true,
+      records: visibleRows.map((row) => asRecord(
+        {
+          proposal: row.proposal,
+          decision: row.decision,
+          grant: row.grant,
+          root: row.root?.rowId == null ? null : row.root
+        },
+        row.commands ?? [],
+        true
+      )),
+      refreshedAt
+    };
+  }
+};
+
+// server/routes-civic-custody-execution.ts
+var mutationRateLimit = rateLimit9({
+  windowMs: 15 * 6e4,
+  max: 90,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    code: "CUSTODY_EXECUTION_RATE_LIMITED",
+    message: "Demasiados eventos de ejecuci\xF3n; reintent\xE1 m\xE1s tarde."
+  }
+});
+var readRateLimit = rateLimit9({
+  windowMs: 6e4,
+  max: 90,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    code: "CUSTODY_EXECUTION_RATE_LIMITED",
+    message: "Demasiadas lecturas de ejecuci\xF3n; esper\xE1 un momento."
+  }
+});
+var privateResponse3 = (res) => {
+  res.setHeader("Cache-Control", "private, no-store, max-age=0");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Vary", "Authorization, X-Civic-Device-Token");
+};
+var privateRoute2 = (_req, res, next) => {
+  privateResponse3(res);
+  next();
+};
+var validationDetails4 = (issues) => issues.map((issue) => ({ path: `$.${issue.path.join(".")}`, code: issue.code }));
+var apiError4 = (res, error) => {
+  if (error instanceof CivicApiError) {
+    res.status(error.status).json({ code: error.code, message: error.message, path: error.path });
+    return;
+  }
+  console.error("[civic-custody-execution] request failed:", error instanceof Error ? error.name : "unknown_error");
+  res.status(500).json({
+    code: "CUSTODY_EXECUTION_ERROR",
+    message: "No se pudo procesar la ejecuci\xF3n privada."
+  });
+};
+function registerCivicCustodyExecutionRoutes(app2) {
+  const service = new CustodyExecutionService(new PostgresCustodyExecutionStore());
+  const deviceTokens = new CivicDeviceTokenManager();
+  const actorKey = (req, res) => {
+    const proof = req.header("X-Civic-Device-Token");
+    if (!proof) return null;
+    const claims = deviceTokens.verify(proof);
+    if (!claims) {
+      res.status(403).json({
+        code: "INVALID_CIVIC_PROOF",
+        message: "La credencial del dispositivo no es v\xE1lida."
+      });
+      return void 0;
+    }
+    return claims.sub;
+  };
+  app2.post(
+    "/api/v1/civic/custody/execution/events",
+    privateRoute2,
+    mutationRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse3(res);
+      const body = createCustodyExecutionEventSchema.safeParse(req.body);
+      const idempotency = civicIdempotencyKeySchema.safeParse(req.header("Idempotency-Key"));
+      if (!body.success || !idempotency.success) {
+        const issues = [
+          ...body.success ? [] : body.error.issues,
+          ...idempotency.success ? [] : idempotency.error.issues.map((issue) => ({ ...issue, path: ["headers", "idempotency-key"] }))
+        ];
+        res.status(422).json({
+          code: "INVALID_CUSTODY_EXECUTION_EVENT",
+          message: "El contrato del evento de ejecuci\xF3n no es v\xE1lido.",
+          details: validationDetails4(issues)
+        });
+        return;
+      }
+      const ownerActorKey = actorKey(req, res);
+      if (ownerActorKey === void 0) return;
+      try {
+        const result = await service.recordEvent(
+          { actorKey: ownerActorKey },
+          req.user.userId,
+          body.data,
+          idempotency.data
+        );
+        res.status(result.status === "rejected" ? 409 : result.status === "accepted" ? 201 : 200).json(result);
+      } catch (error) {
+        apiError4(res, error);
+      }
+    }
+  );
+  app2.get(
+    "/api/v1/civic/custody/execution/status",
+    privateRoute2,
+    readRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse3(res);
+      const query = custodyExecutionStatusQuerySchema.safeParse(req.query);
+      if (!query.success) {
+        res.status(422).json({
+          code: "INVALID_CUSTODY_EXECUTION_STATUS_QUERY",
+          message: "La consulta puntual de ejecuci\xF3n no es v\xE1lida."
+        });
+        return;
+      }
+      const ownerActorKey = actorKey(req, res);
+      if (ownerActorKey === void 0) return;
+      try {
+        res.status(200).json(await service.status(
+          { actorKey: ownerActorKey },
+          req.user.userId,
+          query.data.proposalId
+        ));
+      } catch (error) {
+        apiError4(res, error);
+      }
+    }
+  );
+  app2.get(
+    "/api/v1/civic/custody/execution/inbox",
+    privateRoute2,
+    readRateLimit,
+    authenticateToken,
+    async (req, res) => {
+      privateResponse3(res);
+      const query = custodyExecutionInboxQuerySchema.safeParse(req.query);
+      if (!query.success) {
+        res.status(422).json({
+          code: "INVALID_CUSTODY_EXECUTION_INBOX_QUERY",
+          message: "La consulta de la bandeja de ejecuci\xF3n no es v\xE1lida."
+        });
+        return;
+      }
+      try {
+        res.status(200).json(await service.inbox(
+          req.user.userId,
+          query.data.limit,
+          query.data.cursor
+        ));
+      } catch (error) {
+        apiError4(res, error);
+      }
+    }
+  );
+}
+
 // server/routes.ts
 init_mandato_engine();
 init_schema();
 init_auth();
-import { z as z12 } from "zod";
+import { z as z20 } from "zod";
 
 // server/validation.ts
-import { z as z11 } from "zod";
-var registerUserSchema = z11.object({
-  name: z11.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
-  email: z11.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
-  username: z11.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
-  password: z11.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
+import { z as z19 } from "zod";
+var registerUserSchema = z19.object({
+  name: z19.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
+  email: z19.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
+  username: z19.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
+  password: z19.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmPassword: z11.string(),
-  location: z11.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
+  confirmPassword: z19.string(),
+  location: z19.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmPassword"]
 });
-var loginSchema = z11.object({
-  username: z11.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
-  password: z11.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
+var loginSchema = z19.object({
+  username: z19.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
+  password: z19.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
 });
-var changePasswordSchema = z11.object({
-  currentPassword: z11.string().min(1, "La contrase\xF1a actual es requerida"),
-  newPassword: z11.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
+var changePasswordSchema = z19.object({
+  currentPassword: z19.string().min(1, "La contrase\xF1a actual es requerida"),
+  newPassword: z19.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La nueva contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmNewPassword: z11.string()
+  confirmNewPassword: z19.string()
 }).refine((data) => data.newPassword === data.confirmNewPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmNewPassword"]
 });
-var updateProfileSchema = z11.object({
-  name: z11.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
-  email: z11.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
-  location: z11.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  bio: z11.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
-  dataShareOptOut: z11.boolean().optional()
+var updateProfileSchema = z19.object({
+  name: z19.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
+  email: z19.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
+  location: z19.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  bio: z19.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
+  dataShareOptOut: z19.boolean().optional()
 });
-var createDreamSchema = z11.object({
-  dream: z11.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
-  value: z11.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
-  need: z11.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
-  basta: z11.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
-  location: z11.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  latitude: z11.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
-  longitude: z11.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
-  type: z11.enum(["dream", "value", "need", "basta"]).default("dream")
+var createDreamSchema = z19.object({
+  dream: z19.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
+  value: z19.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
+  need: z19.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
+  basta: z19.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
+  location: z19.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  latitude: z19.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
+  longitude: z19.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
+  type: z19.enum(["dream", "value", "need", "basta"]).default("dream")
 }).refine((data) => {
   return data.dream || data.value || data.need || data.basta;
 }, {
   message: "Debe proporcionar al menos un contenido (sue\xF1o, valor, necesidad o basta)",
   path: ["dream"]
 });
-var createCommunityPostSchema = z11.object({
-  title: z11.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z11.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
-  type: z11.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
-  location: z11.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  participants: z11.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
+var createCommunityPostSchema = z19.object({
+  title: z19.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z19.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
+  type: z19.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
+  location: z19.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  participants: z19.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
 });
-var createStorySchema = z11.object({
-  name: z11.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
-  location: z11.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  story: z11.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
-  imageUrl: z11.string().url("URL de imagen inv\xE1lida").optional()
+var createStorySchema = z19.object({
+  name: z19.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
+  location: z19.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  story: z19.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
+  imageUrl: z19.string().url("URL de imagen inv\xE1lida").optional()
 });
-var createInspiringStorySchema = z11.object({
-  title: z11.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  excerpt: z11.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
-  content: z11.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
-  category: z11.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
-  location: z11.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  province: z11.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
-  city: z11.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
-  impactType: z11.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
-  impactCount: z11.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
-  impactDescription: z11.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
-  imageUrl: z11.string().url("URL de imagen inv\xE1lida").optional(),
-  videoUrl: z11.string().url("URL de video inv\xE1lida").optional(),
-  tags: z11.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
-  authorName: z11.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
-  authorEmail: z11.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
+var createInspiringStorySchema = z19.object({
+  title: z19.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  excerpt: z19.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
+  content: z19.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
+  category: z19.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
+  location: z19.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  province: z19.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
+  city: z19.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
+  impactType: z19.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
+  impactCount: z19.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
+  impactDescription: z19.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
+  imageUrl: z19.string().url("URL de imagen inv\xE1lida").optional(),
+  videoUrl: z19.string().url("URL de video inv\xE1lida").optional(),
+  tags: z19.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
+  authorName: z19.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
+  authorEmail: z19.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
 });
-var createResourceSchema = z11.object({
-  title: z11.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z11.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
-  category: z11.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
-  url: z11.string().url("URL inv\xE1lida").optional()
+var createResourceSchema = z19.object({
+  title: z19.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z19.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
+  category: z19.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
+  url: z19.string().url("URL inv\xE1lida").optional()
 });
 
 // server/nlp-service.ts
@@ -21017,13 +27357,13 @@ var BlockchainService = class {
       impactMetrics: certificate.impactMetrics,
       certifier: certificate.certifier
     });
-    let hash = 0;
+    let hash4 = 0;
     for (let i = 0; i < dataString.length; i++) {
       const char = dataString.charCodeAt(i);
-      hash = (hash << 5) - hash + char;
-      hash = hash & hash;
+      hash4 = (hash4 << 5) - hash4 + char;
+      hash4 = hash4 & hash4;
     }
-    return `vh_${Math.abs(hash).toString(16)}`;
+    return `vh_${Math.abs(hash4).toString(16)}`;
   }
   // Obtener balance de una dirección
   async getBalance(address) {
@@ -22005,7 +28345,7 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
 // server/services/embedding-service.ts
 init_db();
 init_schema();
-import { eq as eq19, and as and16 } from "drizzle-orm";
+import { eq as eq24, and as and21 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -22045,9 +28385,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   }
   try {
     const existing = await db.select().from(textEmbeddings).where(
-      and16(
-        eq19(textEmbeddings.contentId, contentId),
-        eq19(textEmbeddings.contentType, contentType)
+      and21(
+        eq24(textEmbeddings.contentId, contentId),
+        eq24(textEmbeddings.contentType, contentType)
       )
     ).limit(1);
     if (existing.length > 0 && existing[0].embedding) {
@@ -22067,9 +28407,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         embedding: embeddingJson,
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
-        and16(
-          eq19(textEmbeddings.contentId, contentId),
-          eq19(textEmbeddings.contentType, contentType)
+        and21(
+          eq24(textEmbeddings.contentId, contentId),
+          eq24(textEmbeddings.contentType, contentType)
         )
       );
     } else {
@@ -22203,8 +28543,22 @@ async function registerRoutes(app2) {
   registerCampanasRoutes(app2);
   registerMapCampaignsRoutes(app2);
   registerDashboardsRoutes(app2);
-  startMandatoCron();
-  app2.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req, res) => {
+  registerCivicEventRoutes(app2);
+  registerCivicAggregateRoutes(app2);
+  registerCivicListeningRoutes(app2);
+  registerCivicIntelligenceRoutes(app2);
+  registerCivicCustodyRoutes(app2);
+  registerCivicCustodyCoordinationRoutes(app2);
+  registerCivicCustodyExecutionRoutes(app2);
+  const productionSafety = evaluateProductionSafetyPolicy(process.env);
+  if (productionSafety.automaticAiMandateCronAllowed) {
+    startMandatoCron();
+  } else {
+    console.warn(
+      `[production-safety] Automatic AI Mandato cron is disabled. The legacy path requires ${LEGACY_AI_MANDATE_ENGINE_OPT_IN}=true and ${AUTOMATIC_AI_MANDATE_CRON_OPT_IN}=true after an explicit governance review.`
+    );
+  }
+  app2.get("/api/dreams", requireLegacyRawPublicDataAccess, publicReadRateLimit, optionalAuth, async (req, res) => {
     try {
       const { limit, offset } = parsePagination(req);
       const dreams3 = await storage.getDreams({ limit, offset });
@@ -22238,14 +28592,14 @@ async function registerRoutes(app2) {
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Invalid dream data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create dream" });
       }
     }
   });
-  app2.get("/api/resources-map", optionalAuth, async (req, res) => {
+  app2.get("/api/resources-map", requireLegacyRawPublicDataAccess, optionalAuth, async (req, res) => {
     try {
       const resources2 = await storage.getUserResources();
       res.json(resources2);
@@ -22278,27 +28632,33 @@ async function registerRoutes(app2) {
       const resource = await storage.createUserResource(validatedData);
       res.status(201).json(resource);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Invalid resource data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create resource" });
       }
     }
   });
-  app2.post("/api/mandates/generate", authenticateToken, async (req, res) => {
-    try {
-      const { territoryLevel, territoryName, province, city } = req.body;
-      if (!territoryLevel || !territoryName) {
-        return res.status(400).json({ message: "territoryLevel and territoryName are required" });
+  app2.post(
+    "/api/mandates/generate",
+    authenticateToken,
+    requireAdmin,
+    requireLegacyAiMandateEngineAccess,
+    async (req, res) => {
+      try {
+        const { territoryLevel, territoryName, province, city } = req.body;
+        if (!territoryLevel || !territoryName) {
+          return res.status(400).json({ message: "territoryLevel and territoryName are required" });
+        }
+        const { generateAndSaveMandate: generateAndSaveMandate2 } = await Promise.resolve().then(() => (init_mandato_engine(), mandato_engine_exports));
+        const result = await generateAndSaveMandate2(territoryLevel, territoryName, province, city);
+        res.json(result);
+      } catch (error) {
+        console.error("Mandate generation error:", error);
+        res.status(500).json({ message: "Failed to generate mandate" });
       }
-      const { generateAndSaveMandate: generateAndSaveMandate2 } = await Promise.resolve().then(() => (init_mandato_engine(), mandato_engine_exports));
-      const result = await generateAndSaveMandate2(territoryLevel, territoryName, province, city);
-      res.json(result);
-    } catch (error) {
-      console.error("Mandate generation error:", error);
-      res.status(500).json({ message: "Failed to generate mandate" });
     }
-  });
+  );
   app2.get("/api/mandates", optionalAuth, async (req, res) => {
     try {
       const level = req.query.level;
@@ -22336,7 +28696,7 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Failed to fetch mandate" });
     }
   });
-  app2.post("/api/mandates/:id/publish", authenticateToken, async (req, res) => {
+  app2.post("/api/mandates/:id/publish", authenticateToken, requireAdmin, async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) return res.status(400).json({ message: "Invalid mandate ID" });
@@ -22350,7 +28710,7 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Failed to publish mandate" });
     }
   });
-  app2.post("/api/matchmaker/scan", authenticateToken, async (req, res) => {
+  app2.post("/api/matchmaker/scan", authenticateToken, requireAdmin, async (req, res) => {
     try {
       const { scanAndSaveSuggestions: scanAndSaveSuggestions2 } = await Promise.resolve().then(() => (init_matchmaker_service(), matchmaker_service_exports));
       const saved = await scanAndSaveSuggestions2();
@@ -22446,7 +28806,7 @@ async function registerRoutes(app2) {
     });
     return userMap;
   }
-  app2.get("/api/neural-network/graph", optionalAuth, async (req, res) => {
+  app2.get("/api/neural-network/graph", requireLegacyRawPublicDataAccess, optionalAuth, async (req, res) => {
     try {
       const minSimilarity = parseFloat(req.query.minSimilarity || "0.3");
       const maxConnections = parseInt(req.query.maxConnections || "10");
@@ -22756,7 +29116,7 @@ async function registerRoutes(app2) {
       }
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create community post" });
@@ -22865,7 +29225,7 @@ async function registerRoutes(app2) {
       }
       res.json(updatedPost);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to update post" });
@@ -22929,7 +29289,7 @@ async function registerRoutes(app2) {
       const interaction = await storage.createPostInteraction(validatedData);
       res.status(201).json(interaction);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Invalid interaction data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create interaction" });
@@ -22990,7 +29350,7 @@ async function registerRoutes(app2) {
       const message = await storage.createCommunityMessage(validatedData);
       res.status(201).json(message);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Invalid message data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to send message" });
@@ -23352,7 +29712,7 @@ async function registerRoutes(app2) {
       const milestone = await storage.createMilestone(id, validatedData);
       res.status(201).json(milestone);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -23377,7 +29737,7 @@ async function registerRoutes(app2) {
       await storage.updateMilestone(id, updates);
       res.json({ message: "Milestone updated" });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -23463,7 +29823,7 @@ async function registerRoutes(app2) {
       const task = await storage.createTask(id, validatedData);
       res.status(201).json(task);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -23488,7 +29848,7 @@ async function registerRoutes(app2) {
       await storage.updateTask(id, updates);
       res.json({ message: "Task updated" });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -23710,7 +30070,7 @@ async function registerRoutes(app2) {
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid notification ID" });
       }
-      await storage.markNotificationAsRead(id);
+      await storage.markNotificationAsRead(id, req.user.userId);
       res.json({ message: "Notification marked as read" });
     } catch (error) {
       res.status(500).json({ message: "Failed to mark notification as read" });
@@ -23801,7 +30161,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -23866,7 +30226,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -23947,7 +30307,7 @@ async function registerRoutes(app2) {
         }
       });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -24118,7 +30478,7 @@ async function registerRoutes(app2) {
         message: "Contrase\xF1a actualizada exitosamente"
       });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -25273,7 +31633,7 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Failed to fetch mission stats" });
     }
   });
-  app2.get("/api/missions/:slug/signals", async (req, res) => {
+  app2.get("/api/missions/:slug/signals", requireLegacyRawPublicDataAccess, async (req, res) => {
     try {
       const { slug } = req.params;
       const mission = MISSIONS.find((m) => m.slug === slug);
@@ -25519,7 +31879,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Create blog post error:", error);
@@ -25537,7 +31897,7 @@ async function registerRoutes(app2) {
       }
       res.json(post);
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Update blog post error:", error);
@@ -25825,7 +32185,7 @@ async function registerRoutes(app2) {
         message: "Story created successfully and submitted for moderation"
       });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
@@ -25871,7 +32231,7 @@ async function registerRoutes(app2) {
         message: "Story updated successfully"
       });
     } catch (error) {
-      if (error instanceof z12.ZodError) {
+      if (error instanceof z20.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
@@ -26027,7 +32387,7 @@ async function registerRoutes(app2) {
       });
     }
   });
-  app2.get("/api/commitments", optionalAuth, async (req, res) => {
+  app2.get("/api/commitments", requireLegacyRawPublicDataAccess, optionalAuth, async (req, res) => {
     try {
       const rawLimit = Number(req.query.limit);
       const limit = Number.isFinite(rawLimit) ? Math.max(1, Math.min(rawLimit, 100)) : 20;

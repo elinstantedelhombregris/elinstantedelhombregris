@@ -8,6 +8,7 @@ import { db } from './db';
 import { dreams, userCommitments, userResources } from '@shared/schema';
 import { publicReadRateLimit } from './middleware';
 import type { MapSignal, SignalType } from '@shared/map-signals';
+import { requireLegacyRawPublicDataAccess } from './production-safety-policy';
 
 const MAX_SIGNALS = 5000;
 
@@ -24,7 +25,7 @@ const dreamType = (raw: string | null): SignalType =>
   raw === 'value' || raw === 'need' || raw === 'basta' ? raw : 'dream';
 
 export function registerMapSignalsRoutes(app: Express): void {
-  app.get('/api/map/signals', publicReadRateLimit, async (_req, res) => {
+  app.get('/api/map/signals', requireLegacyRawPublicDataAccess, publicReadRateLimit, async (_req, res) => {
     try {
       const [dreamRows, commitmentRows, resourceRows] = await Promise.all([
         db.select({

@@ -12,7 +12,8 @@ import {
   proposalStatusHistory,
 } from '../shared/schema';
 import { eq, desc, and, sql } from 'drizzle-orm';
-import { authenticateToken, optionalAuth, type AuthRequest } from './auth';
+import { authenticateToken, optionalAuth, requireAdmin, type AuthRequest } from './auth';
+import { requireLegacyAiMandateEngineAccess } from './production-safety-policy';
 import { generateWeeklyMandate } from './services/mandato-engine';
 
 export function registerPulseRoutes(app: Express) {
@@ -103,15 +104,21 @@ export function registerPulseRoutes(app: Express) {
 
   // ── Trigger manual pulse generation (authenticated) ──────
 
-  app.post('/api/pulsos/generate', authenticateToken, async (_req: AuthRequest, res) => {
-    try {
-      const result = await generateWeeklyMandate();
-      res.json({ success: true, data: result });
-    } catch (error: any) {
-      console.error('Error generating pulse:', error);
-      res.status(500).json({ error: error.message || 'Error generating pulse' });
-    }
-  });
+  app.post(
+    '/api/pulsos/generate',
+    authenticateToken,
+    requireAdmin,
+    requireLegacyAiMandateEngineAccess,
+    async (_req: AuthRequest, res) => {
+      try {
+        const result = await generateWeeklyMandate();
+        res.json({ success: true, data: result });
+      } catch (error: any) {
+        console.error('Error generating pulse:', error);
+        res.status(500).json({ error: error.message || 'Error generating pulse' });
+      }
+    },
+  );
 
   // ── List all pulses (paginated) ──────────────────────────
 
@@ -248,7 +255,7 @@ export function registerPulseRoutes(app: Express) {
 
   // ── Update proposal status ───────────────────────────────
 
-  app.post('/api/propuestas/:id/status', authenticateToken, async (req: AuthRequest, res) => {
+  app.post('/api/propuestas/:id/status', authenticateToken, requireAdmin, async (req: AuthRequest, res) => {
     try {
       const id = parseInt(req.params.id);
       const { status, notes } = req.body;

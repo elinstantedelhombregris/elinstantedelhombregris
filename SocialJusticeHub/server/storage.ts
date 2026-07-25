@@ -495,7 +495,7 @@ export interface IStorage {
 
   // Notifications
   getUserNotifications(userId: number, unreadOnly?: boolean): Promise<Notification[]>;
-  markNotificationAsRead(notificationId: number): Promise<void>;
+  markNotificationAsRead(notificationId: number, userId: number): Promise<void>;
   markAllNotificationsAsRead(userId: number): Promise<void>;
   createNotification(userId: number, data: InsertNotification): Promise<Notification>;
   createNotificationsBatch(items: Array<InsertNotification & { userId: number }>): Promise<Notification[]>;
@@ -4234,11 +4234,11 @@ export class DatabaseStorage implements IStorage {
     return await query.orderBy(desc(notifications.createdAt));
   }
 
-  async markNotificationAsRead(notificationId: number): Promise<void> {
+  async markNotificationAsRead(notificationId: number, userId: number): Promise<void> {
     await db
       .update(notifications)
       .set({ read: true })
-      .where(eq(notifications.id, notificationId));
+      .where(and(eq(notifications.id, notificationId), eq(notifications.userId, userId)));
   }
 
   async markAllNotificationsAsRead(userId: number): Promise<void> {

@@ -10,6 +10,7 @@ import { PassThrough } from 'stream';
 import { readFileSync } from 'fs';
 import { createRequire } from 'module';
 import { publicReadRateLimit } from './middleware';
+import { requireLegacyRawPublicDataAccess } from './production-safety-policy';
 
 // In-memory cache for generated exports
 const cache = new Map<string, { buffer: Buffer; generatedAt: Date; counts: { dreams: number; commitments: number; resources: number } }>();
@@ -312,7 +313,7 @@ export function registerOpenDataRoutes(app: Express) {
   });
 
   // GET /api/open-data/download — generate and serve export
-  app.get('/api/open-data/download', openDataRateLimit, async (req, res) => {
+  app.get('/api/open-data/download', requireLegacyRawPublicDataAccess, openDataRateLimit, async (req, res) => {
     try {
       const format = (req.query.format as string)?.toLowerCase();
       if (!format || !['json', 'csv', 'sqlite'].includes(format)) {

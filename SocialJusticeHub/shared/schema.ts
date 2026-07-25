@@ -1,4 +1,4 @@
-import { pgTable, serial, integer, text, real, boolean, unique, index, type AnyPgColumn } from "drizzle-orm/pg-core";
+import { pgTable, serial, integer, text, real, numeric, boolean, jsonb, timestamp, unique, uniqueIndex, index, check, type AnyPgColumn } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
@@ -19,15 +19,15 @@ export const users = pgTable("users", {
   lockedUntil: text("locked_until"),
   isActive: boolean("is_active").default(true),
   emailVerified: boolean("email_verified").default(false),
-  
+
   // Email verification
   emailVerificationToken: text("email_verification_token"),
   emailVerificationExpires: text("email_verification_expires"),
-  
+
   // Password reset
   passwordResetToken: text("password_reset_token"),
   passwordResetExpires: text("password_reset_expires"),
-  
+
   // Profile image (base64 data URI)
   avatarUrl: text("avatar_url"),
 
@@ -3484,6 +3484,684 @@ export const campaignEntries = pgTable("campaign_entries", {
   submittedByIdx: index("ce_submitted_by_idx").on(table.submittedBy),
 }));
 
+// ==================== NÚCLEO CÍVICO OFFLINE-FIRST v1 ====================
+
+/**
+ * Una identidad de dispositivo demuestra continuidad seudónima, no identidad
+ * civil. Los roles elevados sólo se asignan después de vincular una cuenta o
+ * un círculo; el auto-enrolamiento siempre nace como `contributor`.
+ */
+export const civicDevices = pgTable("civic_devices", {
+  id: serial("id").primaryKey(),
+  actorKey: text("actor_key").notNull().unique(),
+  secretHash: text("secret_hash").notNull(),
+  role: text("role").notNull().default('contributor').$type<'contributor' | 'verifier' | 'coordinator'>(),
+  linkedUserId: integer("linked_user_id").references(() => users.id),
+  revokedAt: text("revoked_at"),
+  lastSeenAt: text("last_seen_at").default(sql`now()`),
+  createdAt: text("created_at").default(sql`now()`),
+  updatedAt: text("updated_at").default(sql`now()`),
+}, (table) => ({
+  linkedUserIdx: index("civic_devices_linked_user_idx").on(table.linkedUserId),
+  roleIdx: index("civic_devices_role_idx").on(table.role),
+  actorKeyShape: check(
+    "civic_devices_actor_key_check",
+    sql`${table.actorKey} ~ '^actor_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+}));
+
+/** Registro append-only de mutaciones públicas autorizadas desde el outbox. */
+export const civicEvents = pgTable("civic_events", {
+  id: serial("id").primaryKey(),
+  eventId: text("event_id").notNull().unique(),
+  idempotencyKey: text("idempotency_key").notNull().unique(),
+  actorKey: text("actor_key").notNull().references(() => civicDevices.actorKey),
+  entityType: text("entity_type").notNull().$type<
+    'observation' | 'need' | 'resource' | 'verification' |
+    'match' | 'action' | 'territory' | 'consent'
+  >(),
+  entityId: text("entity_id").notNull(),
+  operation: text("operation").notNull().$type<'create' | 'update' | 'transition' | 'delete'>(),
+  payloadJson: text("payload_json").notNull(),
+  /** Hash canónico del sobre completo para detectar reuso conflictivo de claves. */
+  eventHash: text("event_hash").notNull(),
+  occurredAt: text("occurred_at").notNull(),
+  receivedAt: text("received_at").default(sql`now()`),
+}, (table) => ({
+  actorIdx: index("civic_events_actor_idx").on(table.actorKey),
+  entityIdx: index("civic_events_entity_idx").on(table.entityType, table.entityId),
+  occurredIdx: index("civic_events_occurred_idx").on(table.occurredAt),
+  eventIdShape: check(
+    "civic_events_event_id_check",
+    sql`${table.eventId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  entityIdShape: check(
+    "civic_events_entity_id_check",
+    sql`${table.entityId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+}));
+
+/** Dueño seudónimo inmutable de cada entidad operativa. */
+export const civicEntityOwners = pgTable("civic_entity_owners", {
+  id: serial("id").primaryKey(),
+  entityType: text("entity_type").notNull(),
+  entityId: text("entity_id").notNull(),
+  ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  uniqueEntity: unique("civic_entity_owners_entity_unique").on(table.entityType, table.entityId),
+  /**
+   * Un id no puede representar a la vez una necesidad pública y una necesidad
+   * bajo custodia. El namespace privado evita que match/action descubran por
+   * accidente un caso que nunca fue publicado.
+   */
+  needNamespaceExclusive: uniqueIndex("civic_entity_owners_need_namespace_unique")
+    .on(table.entityId)
+    .where(sql`${table.entityType} IN ('need', 'custody_need')`),
+  ownerIdx: index("civic_entity_owners_actor_idx").on(table.ownerActorKey),
+  entityIdShape: check(
+    "civic_entity_owners_entity_id_check",
+    sql`${table.entityId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+}));
+
+/**
+ * Capability privada y temporal: entrega una proyección estructurada de una
+ * necesidad a la coordinación de un círculo custodial. No alimenta el ledger
+ * público ni guarda relato, contacto o la etiqueta local del custodio.
+ */
+export const civicCustodyGrants = pgTable("civic_custody_grants", {
+  id: serial("id").primaryKey(),
+  grantId: text("grant_id").notNull().unique(),
+  idempotencyKey: text("idempotency_key").notNull(),
+  requestHash: text("request_hash").notNull(),
+  needId: text("need_id").notNull(),
+  ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+  grantorUserId: integer("grantor_user_id").notNull().references(() => users.id),
+  /** v1 sólo admite `circle`; organización falla cerrada en el servicio. */
+  recipientType: text("recipient_type").notNull().$type<'circle'>(),
+  recipientCircleId: integer("recipient_circle_id").notNull().references(() => circles.id),
+  payloadJson: jsonb("payload_json").notNull().$type<Record<string, unknown>>(),
+  expiresAt: timestamp("expires_at", { withTimezone: true, mode: 'string' }).notNull(),
+  revokedAt: timestamp("revoked_at", { withTimezone: true, mode: 'string' }),
+  revokedByUserId: integer("revoked_by_user_id").references(() => users.id),
+  /** Libera de forma auditable el único slot abierto de la necesidad. */
+  closedAt: timestamp("closed_at", { withTimezone: true, mode: 'string' }),
+  closedReason: text("closed_reason").$type<'revoked' | 'expired' | 'superseded'>(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true, mode: 'string' }).notNull().defaultNow(),
+}, (table) => ({
+  grantorIdempotencyUnique: unique("civic_custody_grants_grantor_idem_unique")
+    .on(table.grantorUserId, table.idempotencyKey),
+  recipientActiveIdx: index("civic_custody_grants_recipient_active_idx")
+    .on(table.recipientCircleId, table.revokedAt, table.expiresAt),
+  ownerNeedIdx: index("civic_custody_grants_owner_need_idx").on(table.ownerActorKey, table.needId),
+  oneOpenNeed: uniqueIndex("civic_custody_grants_one_open_need_idx")
+    .on(table.needId)
+    .where(sql`${table.closedAt} IS NULL`),
+  grantIdShape: check(
+    "civic_custody_grants_grant_id_check",
+    sql`${table.grantId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  needIdShape: check(
+    "civic_custody_grants_need_id_check",
+    sql`${table.needId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  idempotencyShape: check(
+    "civic_custody_grants_idempotency_check",
+    sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`,
+  ),
+  requestHashShape: check(
+    "civic_custody_grants_hash_check",
+    sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`,
+  ),
+  recipientCircleOnly: check(
+    "civic_custody_grants_circle_only_check",
+    sql`${table.recipientType} = 'circle' AND ${table.recipientCircleId} IS NOT NULL`,
+  ),
+  payloadSize: check(
+    "civic_custody_grants_payload_size_check",
+    sql`pg_column_size(${table.payloadJson}) <= 4096`,
+  ),
+  expiryWindow: check(
+    "civic_custody_grants_expiry_check",
+    sql`${table.expiresAt} >= ${table.createdAt} + interval '5 minutes'
+      AND ${table.expiresAt} <= ${table.createdAt} + interval '90 days'`,
+  ),
+  revocationPair: check(
+    "civic_custody_grants_revocation_check",
+    sql`(${table.revokedAt} IS NULL AND ${table.revokedByUserId} IS NULL)
+      OR (${table.revokedAt} IS NOT NULL AND ${table.revokedByUserId} IS NOT NULL)`,
+  ),
+  closurePair: check(
+    "civic_custody_grants_closure_check",
+    sql`(
+        ${table.closedAt} IS NULL
+        AND ${table.closedReason} IS NULL
+        AND ${table.revokedAt} IS NULL
+        AND ${table.revokedByUserId} IS NULL
+      )
+      OR (
+        ${table.closedAt} IS NOT NULL
+        AND ${table.closedReason} IN ('revoked', 'expired', 'superseded')
+        AND (
+          (${table.closedReason} = 'revoked' AND ${table.revokedAt} = ${table.closedAt})
+          OR (${table.closedReason} IN ('expired', 'superseded') AND ${table.revokedAt} IS NULL)
+        )
+      )`,
+  ),
+  payloadAllowlist: check(
+    "civic_custody_grants_payload_allowlist_check",
+    sql`(
+      jsonb_typeof(${table.payloadJson}) = 'object'
+      AND ${table.payloadJson} ?& ARRAY['category','quantity','unit','urgency','location']::text[]
+      AND (${table.payloadJson} - ARRAY['category','quantity','unit','urgency','location']::text[]) = '{}'::jsonb
+      AND jsonb_typeof(${table.payloadJson} -> 'category') = 'string'
+      AND (${table.payloadJson} ->> 'category') IN (
+        'food','housing','work','care','health','education',
+        'environment','mobility','safety','culture','democracy'
+      )
+      AND jsonb_typeof(${table.payloadJson} -> 'urgency') = 'number'
+      AND ((${table.payloadJson} ->> 'urgency')::numeric % 1) = 0
+      AND (${table.payloadJson} ->> 'urgency')::numeric BETWEEN 1 AND 5
+      AND (
+        ${table.payloadJson} -> 'quantity' = 'null'::jsonb
+        OR (
+          jsonb_typeof(${table.payloadJson} -> 'quantity') = 'number'
+          AND (${table.payloadJson} ->> 'quantity')::numeric > 0
+          AND (${table.payloadJson} ->> 'quantity')::numeric <= 1000000000
+        )
+      )
+      AND (
+        ${table.payloadJson} -> 'unit' = 'null'::jsonb
+        OR (
+          jsonb_typeof(${table.payloadJson} -> 'unit') = 'string'
+          AND ${table.payloadJson} -> 'quantity' <> 'null'::jsonb
+          AND (${table.payloadJson} ->> 'unit') IN (
+            'people','meals','units','hours','kilograms','liters',
+            'trips','days','beds','kits','other'
+          )
+        )
+      )
+      AND (
+        ${table.payloadJson} -> 'location' = 'null'::jsonb
+        OR (
+          jsonb_typeof(${table.payloadJson} -> 'location') = 'object'
+          AND (${table.payloadJson} -> 'location' ?& ARRAY['lat','lng','precision']::text[])
+          AND ((${table.payloadJson} -> 'location') - ARRAY['lat','lng','precision']::text[]) = '{}'::jsonb
+          AND jsonb_typeof(${table.payloadJson} -> 'location' -> 'lat') = 'number'
+          AND jsonb_typeof(${table.payloadJson} -> 'location' -> 'lng') = 'number'
+          AND jsonb_typeof(${table.payloadJson} -> 'location' -> 'precision') = 'string'
+          AND (${table.payloadJson} -> 'location' ->> 'lat')::numeric BETWEEN -90 AND 90
+          AND (${table.payloadJson} -> 'location' ->> 'lng')::numeric BETWEEN -180 AND 180
+          AND (${table.payloadJson} -> 'location' ->> 'precision') IN ('500m','neighborhood','city')
+        )
+      )
+    ) IS TRUE`,
+  ),
+}));
+
+/** Ledger mínimo para que una revocación también tenga replay idempotente. */
+export const civicCustodyGrantRevocations = pgTable("civic_custody_grant_revocations", {
+  id: serial("id").primaryKey(),
+  grantId: text("grant_id").notNull().references(() => civicCustodyGrants.grantId),
+  idempotencyKey: text("idempotency_key").notNull(),
+  requestHash: text("request_hash").notNull(),
+  revokedByUserId: integer("revoked_by_user_id").notNull().references(() => users.id),
+  revokedAt: timestamp("revoked_at", { withTimezone: true, mode: 'string' }).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).notNull().defaultNow(),
+}, (table) => ({
+  userIdempotencyUnique: unique("civic_custody_revocations_user_idem_unique")
+    .on(table.revokedByUserId, table.idempotencyKey),
+  grantIdx: index("civic_custody_revocations_grant_idx").on(table.grantId),
+  idempotencyShape: check(
+    "civic_custody_revocations_idempotency_check",
+    sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`,
+  ),
+  requestHashShape: check(
+    "civic_custody_revocations_hash_check",
+    sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`,
+  ),
+}));
+
+/**
+ * Respuestas mínimas y append-only de la coordinación destinataria. `applied`
+ * separa una transición real del recibo durable de un assessing ya registrado.
+ */
+export const civicCustodyGrantResponses = pgTable("civic_custody_grant_responses", {
+  id: serial("id").primaryKey(),
+  responseId: text("response_id").notNull().unique(),
+  idempotencyKey: text("idempotency_key").notNull(),
+  requestHash: text("request_hash").notNull(),
+  grantId: text("grant_id").notNull().references(() => civicCustodyGrants.grantId),
+  responderUserId: integer("responder_user_id").notNull().references(() => users.id),
+  disposition: text("disposition").notNull().$type<'assessing' | 'support_available'>(),
+  quantity: numeric("quantity", { mode: 'number' }),
+  unit: text("unit").$type<
+    'people' | 'meals' | 'units' | 'hours' | 'kilograms' | 'liters' |
+    'trips' | 'days' | 'beds' | 'kits' | 'other'
+  >(),
+  applied: boolean("applied").notNull().default(true),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).notNull().defaultNow(),
+}, (table) => ({
+  responderIdempotencyUnique: unique("civic_custody_responses_user_idem_unique")
+    .on(table.responderUserId, table.idempotencyKey),
+  grantAppliedIdx: index("civic_custody_responses_grant_applied_idx")
+    .on(table.grantId, table.applied, table.id.desc()),
+  responseIdShape: check(
+    "civic_custody_responses_response_id_check",
+    sql`${table.responseId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  idempotencyShape: check(
+    "civic_custody_responses_idempotency_check",
+    sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`,
+  ),
+  requestHashShape: check(
+    "civic_custody_responses_hash_check",
+    sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`,
+  ),
+  dispositionShape: check(
+    "civic_custody_responses_disposition_check",
+    sql`${table.disposition} IN ('assessing', 'support_available')`,
+  ),
+  appliedOutcome: check(
+    "civic_custody_responses_applied_check",
+    sql`${table.disposition} = 'assessing' OR ${table.applied} = TRUE`,
+  ),
+  quantityUnitShape: check(
+    "civic_custody_responses_quantity_unit_check",
+    sql`(
+      ${table.disposition} = 'assessing'
+      AND ${table.quantity} IS NULL
+      AND ${table.unit} IS NULL
+    ) OR (
+      ${table.disposition} = 'support_available'
+      AND (
+        (${table.quantity} IS NULL AND ${table.unit} IS NULL)
+        OR (
+          ${table.quantity} IS NOT NULL
+          AND ${table.unit} IS NOT NULL
+          AND
+          ${table.quantity} > 0
+          AND ${table.quantity} <= 1000000000
+          AND ${table.unit} IN (
+            'people','meals','units','hours','kilograms','liters',
+            'trips','days','beds','kits','other'
+          )
+        )
+      )
+    )`,
+  ),
+}));
+
+/**
+ * Propuesta privada e inmutable para abrir una coordinación posterior. La
+ * capacidad se congela desde la última respuesta support_available; no es una
+ * reserva, una entrega ni una vía de contacto.
+ */
+export const civicCustodyCoordinationProposals = pgTable("civic_custody_coordination_proposals", {
+  id: serial("id").primaryKey(),
+  proposalId: text("proposal_id").notNull().unique(),
+  grantId: text("grant_id").notNull().unique().references(() => civicCustodyGrants.grantId),
+  sourceResponseId: text("source_response_id").notNull().unique()
+    .references(() => civicCustodyGrantResponses.responseId),
+  idempotencyKey: text("idempotency_key").notNull(),
+  requestHash: text("request_hash").notNull(),
+  proposerUserId: integer("proposer_user_id").notNull().references(() => users.id),
+  quantity: numeric("quantity", { mode: 'number' }),
+  unit: text("unit").$type<
+    'people' | 'meals' | 'units' | 'hours' | 'kilograms' | 'liters' |
+    'trips' | 'days' | 'beds' | 'kits' | 'other'
+  >(),
+  /** Copia inmutable del vencimiento del grant al crear la propuesta. */
+  expiresAt: timestamp("expires_at", { withTimezone: true, mode: 'string' }).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' })
+    .notNull().default(sql`clock_timestamp()`),
+}, (table) => ({
+  proposerIdempotencyUnique: unique("civic_custody_coordination_proposer_idem_unique")
+    .on(table.proposerUserId, table.idempotencyKey),
+  proposalIdShape: check(
+    "civic_custody_coordination_proposal_id_check",
+    sql`${table.proposalId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  deterministicProposalId: check(
+    "civic_custody_coordination_proposal_id_deterministic",
+    sql`${table.proposalId} = derive_civic_custody_coordination_uuid(${table.grantId}, 'proposal')`,
+  ),
+  idempotencyShape: check(
+    "civic_custody_coordination_idempotency_check",
+    sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`,
+  ),
+  requestHashShape: check(
+    "civic_custody_coordination_hash_check",
+    sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`,
+  ),
+  quantityUnitShape: check(
+    "civic_custody_coordination_quantity_unit_check",
+    sql`(${table.quantity} IS NULL AND ${table.unit} IS NULL)
+      OR (
+        ${table.quantity} IS NOT NULL
+        AND ${table.unit} IS NOT NULL
+        AND ${table.quantity} > 0
+        AND ${table.quantity} <= 1000000000
+        AND ${table.unit} IN (
+          'people','meals','units','hours','kilograms','liters',
+          'trips','days','beds','kits','other'
+        )
+      )`,
+  ),
+  temporalShape: check(
+    "civic_custody_coordination_temporal_check",
+    sql`${table.expiresAt} > ${table.createdAt}`,
+  ),
+}));
+
+/** Decisión terminal, privada y append-only de la persona dueña del grant. */
+export const civicCustodyCoordinationDecisions = pgTable("civic_custody_coordination_decisions", {
+  id: serial("id").primaryKey(),
+  decisionId: text("decision_id").notNull().unique(),
+  proposalId: text("proposal_id").notNull().unique()
+    .references(() => civicCustodyCoordinationProposals.proposalId),
+  idempotencyKey: text("idempotency_key").notNull(),
+  requestHash: text("request_hash").notNull(),
+  deciderUserId: integer("decider_user_id").notNull().references(() => users.id),
+  ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+  decision: text("decision").notNull().$type<'accept' | 'decline'>(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' })
+    .notNull().default(sql`clock_timestamp()`),
+}, (table) => ({
+  deciderIdempotencyUnique: unique("civic_custody_coordination_decider_idem_unique")
+    .on(table.deciderUserId, table.idempotencyKey),
+  decisionIdShape: check(
+    "civic_custody_coordination_decision_id_check",
+    sql`${table.decisionId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  deterministicDecisionId: check(
+    "civic_custody_coordination_decision_id_deterministic",
+    sql`${table.decisionId} = derive_civic_custody_coordination_uuid(${table.proposalId}, 'decision')`,
+  ),
+  idempotencyShape: check(
+    "civic_custody_coordination_decision_idempotency_check",
+    sql`char_length(${table.idempotencyKey}) BETWEEN 8 AND 180
+      AND ${table.idempotencyKey} ~ '^[a-zA-Z0-9:._-]+$'`,
+  ),
+  requestHashShape: check(
+    "civic_custody_coordination_decision_hash_check",
+    sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`,
+  ),
+  decisionShape: check(
+    "civic_custody_coordination_decision_check",
+    sql`${table.decision} IN ('accept', 'decline')`,
+  ),
+}));
+
+/**
+ * Raíz privada e inmutable de una ejecución. Congela las partes, capacidad y
+ * vencimiento de la coordinación aceptada; ninguna proyección pública la usa.
+ */
+export const civicCustodyExecutions = pgTable("civic_custody_executions", {
+  id: serial("id").primaryKey(),
+  proposalId: text("proposal_id").notNull().unique()
+    .references(() => civicCustodyCoordinationProposals.proposalId),
+  acceptedDecisionId: text("accepted_decision_id").notNull().unique()
+    .references(() => civicCustodyCoordinationDecisions.decisionId),
+  grantId: text("grant_id").notNull().unique()
+    .references(() => civicCustodyGrants.grantId),
+  proposerUserId: integer("proposer_user_id").notNull().references(() => users.id),
+  grantorUserId: integer("grantor_user_id").notNull().references(() => users.id),
+  ownerActorKey: text("owner_actor_key").notNull().references(() => civicDevices.actorKey),
+  quantity: numeric("quantity", { mode: 'number' }),
+  unit: text("unit").$type<
+    'people' | 'meals' | 'units' | 'hours' | 'kilograms' | 'liters' |
+    'trips' | 'days' | 'beds' | 'kits' | 'other'
+  >(),
+  expiresAt: timestamp("expires_at", { withTimezone: true, mode: 'string' }).notNull(),
+  acceptedAt: timestamp("accepted_at", { withTimezone: true, mode: 'string' }).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' })
+    .notNull().default(sql`clock_timestamp()`),
+}, (table) => ({
+  proposalLookupIdx: index("civic_custody_executions_proposal_idx").on(table.proposalId),
+  partiesDistinct: check(
+    "civic_custody_executions_parties_distinct_check",
+    sql`${table.proposerUserId} <> ${table.grantorUserId}`,
+  ),
+  capacityShape: check(
+    "civic_custody_executions_capacity_check",
+    sql`(${table.quantity} IS NULL AND ${table.unit} IS NULL)
+      OR (
+        ${table.quantity} IS NOT NULL
+        AND ${table.unit} IS NOT NULL
+        AND ${table.quantity} > 0
+        AND ${table.quantity} <= 1000000000
+        AND ${table.unit} IN (
+          'people','meals','units','hours','kilograms','liters',
+          'trips','days','beds','kits','other'
+        )
+      )`,
+  ),
+  temporalShape: check(
+    "civic_custody_executions_temporal_check",
+    sql`${table.acceptedAt} < ${table.expiresAt} AND ${table.createdAt} >= ${table.acceptedAt}`,
+  ),
+}));
+
+/**
+ * Ledger append-only de comandos de ejecución. Los rechazos también se
+ * conservan, pero sólo `applied=true` participa de la cadena operacional.
+ */
+export const civicCustodyExecutionCommands = pgTable("civic_custody_execution_commands", {
+  id: serial("id").primaryKey(),
+  eventId: text("event_id").notNull().unique(),
+  proposalId: text("proposal_id").notNull()
+    .references(() => civicCustodyExecutions.proposalId),
+  idempotencyKey: text("idempotency_key").notNull(),
+  requestHash: text("request_hash").notNull(),
+  actorRole: text("actor_role").notNull().$type<'coordinator' | 'grantor'>(),
+  actorUserId: integer("actor_user_id").notNull().references(() => users.id),
+  ownerActorKey: text("owner_actor_key").references(() => civicDevices.actorKey),
+  eventType: text("event_type").notNull().$type<
+    'reserve' | 'grantor_ready' | 'coordinator_ready' | 'start_delivery' |
+    'report_delivery' | 'confirm_receipt' | 'record_follow_up' | 'withdraw'
+  >(),
+  expectedVersion: text("expected_version").notNull(),
+  quantity: numeric("quantity", { mode: 'number' }),
+  unit: text("unit").$type<
+    'people' | 'meals' | 'units' | 'hours' | 'kilograms' | 'liters' |
+    'trips' | 'days' | 'beds' | 'kits' | 'other'
+  >(),
+  receiptOutcome: text("receipt_outcome").$type<'full' | 'partial' | 'not_received'>(),
+  followUpOutcome: text("follow_up_outcome").$type<'need_met' | 'still_open'>(),
+  applied: boolean("applied").notNull(),
+  rejectionReason: text("rejection_reason").$type<'version_changed' | 'transition_not_allowed'>(),
+  sequence: integer("sequence"),
+  eventVersion: text("event_version"),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' })
+    .notNull().default(sql`clock_timestamp()`),
+}, (table) => ({
+  actorIdempotencyUnique: unique("civic_custody_execution_actor_idem_unique")
+    .on(table.actorUserId, table.idempotencyKey),
+  proposalLedgerIdx: index("civic_custody_execution_proposal_ledger_idx")
+    .on(table.proposalId, table.id),
+  appliedMilestoneUnique: uniqueIndex("civic_custody_execution_applied_milestone_unique")
+    .on(table.proposalId, table.eventType)
+    .where(sql`${table.applied} = TRUE`),
+  appliedSequenceUnique: uniqueIndex("civic_custody_execution_applied_sequence_unique")
+    .on(table.proposalId, table.sequence)
+    .where(sql`${table.applied} = TRUE`),
+  eventIdShape: check(
+    "civic_custody_execution_event_id_check",
+    sql`${table.eventId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  exactIdempotencyKey: check(
+    "civic_custody_execution_idempotency_check",
+    sql`${table.idempotencyKey} = 'custody:' || ${table.proposalId} || ':execution:event:' || ${table.eventId}`,
+  ),
+  requestHashShape: check(
+    "civic_custody_execution_request_hash_check",
+    sql`${table.requestHash} ~ '^[0-9a-f]{64}$'`,
+  ),
+  expectedVersionShape: check(
+    "civic_custody_execution_expected_version_check",
+    sql`${table.expectedVersion} ~ '^[0-9a-f]{64}$'`,
+  ),
+  eventVersionShape: check(
+    "civic_custody_execution_event_version_check",
+    sql`${table.eventVersion} IS NULL OR ${table.eventVersion} ~ '^[0-9a-f]{64}$'`,
+  ),
+  actorShape: check(
+    "civic_custody_execution_actor_check",
+    sql`(${table.actorRole} = 'coordinator' AND ${table.ownerActorKey} IS NULL)
+      OR (${table.actorRole} = 'grantor' AND ${table.ownerActorKey} IS NOT NULL)`,
+  ),
+  eventTypeShape: check(
+    "civic_custody_execution_event_type_check",
+    sql`${table.eventType} IN (
+      'reserve','grantor_ready','coordinator_ready','start_delivery',
+      'report_delivery','confirm_receipt','record_follow_up','withdraw'
+    )`,
+  ),
+  resultShape: check(
+    "civic_custody_execution_result_check",
+    sql`(
+      ${table.applied} = TRUE
+      AND ${table.rejectionReason} IS NULL
+      AND ${table.sequence} IS NOT NULL
+      AND ${table.sequence} > 0
+      AND ${table.eventVersion} IS NOT NULL
+    ) OR (
+      ${table.applied} = FALSE
+      AND ${table.rejectionReason} IN ('version_changed','transition_not_allowed')
+      AND ${table.sequence} IS NULL
+      AND ${table.eventVersion} IS NULL
+    )`,
+  ),
+  payloadShape: check(
+    "civic_custody_execution_payload_check",
+    sql`(
+      ${table.eventType} IN ('reserve','grantor_ready','coordinator_ready','start_delivery','withdraw')
+      AND ${table.quantity} IS NULL
+      AND ${table.unit} IS NULL
+      AND ${table.receiptOutcome} IS NULL
+      AND ${table.followUpOutcome} IS NULL
+    ) OR (
+      ${table.eventType} = 'report_delivery'
+      AND ${table.receiptOutcome} IS NULL
+      AND ${table.followUpOutcome} IS NULL
+      AND (
+        (${table.quantity} IS NULL AND ${table.unit} IS NULL)
+        OR (
+          ${table.quantity} > 0
+          AND ${table.quantity} <= 1000000000
+          AND (
+            ${table.unit} IS NULL
+            OR ${table.unit} IN (
+              'people','meals','units','hours','kilograms','liters',
+              'trips','days','beds','kits','other'
+            )
+          )
+        )
+      )
+    ) OR (
+      ${table.eventType} = 'confirm_receipt'
+      AND ${table.receiptOutcome} IN ('full','partial','not_received')
+      AND ${table.followUpOutcome} IS NULL
+      AND (
+        (${table.receiptOutcome} = 'not_received' AND ${table.quantity} IS NULL AND ${table.unit} IS NULL)
+        OR (
+          ${table.receiptOutcome} IN ('full','partial')
+          AND (
+            (${table.quantity} IS NULL AND ${table.unit} IS NULL)
+            OR (
+              ${table.quantity} > 0
+              AND ${table.quantity} <= 1000000000
+              AND (
+                ${table.unit} IS NULL
+                OR ${table.unit} IN (
+                  'people','meals','units','hours','kilograms','liters',
+                  'trips','days','beds','kits','other'
+                )
+              )
+            )
+          )
+        )
+      )
+    ) OR (
+      ${table.eventType} = 'record_follow_up'
+      AND ${table.quantity} IS NULL
+      AND ${table.unit} IS NULL
+      AND ${table.receiptOutcome} IS NULL
+      AND ${table.followUpOutcome} IN ('need_met','still_open')
+    )`,
+  ),
+}));
+
+/** Una sola verificación independiente por actor y observación. */
+export const civicVerificationClaims = pgTable("civic_verification_claims", {
+  id: serial("id").primaryKey(),
+  observationId: text("observation_id").notNull(),
+  verifierActorKey: text("verifier_actor_key").notNull().references(() => civicDevices.actorKey),
+  verificationId: text("verification_id").notNull().unique(),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  actorOnce: unique("civic_verification_claims_actor_once").on(table.observationId, table.verifierActorKey),
+  observationIdx: index("civic_verification_claims_observation_idx").on(table.observationId),
+  observationIdShape: check(
+    "civic_verification_claims_observation_id_check",
+    sql`${table.observationId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  verificationIdShape: check(
+    "civic_verification_claims_verification_id_check",
+    sql`${table.verificationId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+}));
+
+/** Participantes fijos de una conexión; nunca pueden ser el mismo actor. */
+export const civicMatchParticipants = pgTable("civic_match_participants", {
+  id: serial("id").primaryKey(),
+  matchId: text("match_id").notNull().unique(),
+  needActorKey: text("need_actor_key").notNull().references(() => civicDevices.actorKey),
+  resourceActorKey: text("resource_actor_key").notNull().references(() => civicDevices.actorKey),
+  createdByActorKey: text("created_by_actor_key").notNull().references(() => civicDevices.actorKey),
+  needAcceptedAt: text("need_accepted_at"),
+  resourceAcceptedAt: text("resource_accepted_at"),
+  fulfilledAt: text("fulfilled_at"),
+  confirmedAt: text("confirmed_at"),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  needActorIdx: index("civic_match_participants_need_idx").on(table.needActorKey),
+  resourceActorIdx: index("civic_match_participants_resource_idx").on(table.resourceActorKey),
+  distinctSides: check("civic_match_participants_distinct_sides", sql`${table.needActorKey} <> ${table.resourceActorKey}`),
+  matchIdShape: check(
+    "civic_match_participants_match_id_check",
+    sql`${table.matchId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+}));
+
+/** Vincula cada acción con la conexión cuyas dos partes pueden operarla. */
+export const civicActionLinks = pgTable("civic_action_links", {
+  id: serial("id").primaryKey(),
+  actionId: text("action_id").notNull().unique(),
+  matchId: text("match_id").notNull(),
+  createdByActorKey: text("created_by_actor_key").notNull().references(() => civicDevices.actorKey),
+  completedAt: text("completed_at"),
+  confirmedAt: text("confirmed_at"),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  matchIdx: index("civic_action_links_match_idx").on(table.matchId),
+  actionIdShape: check(
+    "civic_action_links_action_id_check",
+    sql`${table.actionId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+  matchIdShape: check(
+    "civic_action_links_match_id_check",
+    sql`${table.matchId} ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'`,
+  ),
+}));
+
 // Insert schemas + types — Círculos & Campañas
 export const insertCircleSchema = createInsertSchema(circles).omit({ id: true, createdAt: true, updatedAt: true });
 export const insertCircleMemberSchema = createInsertSchema(circleMembers).omit({ id: true, joinedAt: true });
@@ -3507,3 +4185,16 @@ export type Campaign = typeof campaigns.$inferSelect;
 export type InsertCampaign = z.infer<typeof insertCampaignSchema>;
 export type CampaignEntry = typeof campaignEntries.$inferSelect;
 export type InsertCampaignEntry = z.infer<typeof insertCampaignEntrySchema>;
+export type CivicDevice = typeof civicDevices.$inferSelect;
+export type CivicEvent = typeof civicEvents.$inferSelect;
+export type CivicEntityOwner = typeof civicEntityOwners.$inferSelect;
+export type CivicCustodyGrant = typeof civicCustodyGrants.$inferSelect;
+export type CivicCustodyGrantRevocation = typeof civicCustodyGrantRevocations.$inferSelect;
+export type CivicCustodyGrantResponse = typeof civicCustodyGrantResponses.$inferSelect;
+export type CivicCustodyCoordinationProposal = typeof civicCustodyCoordinationProposals.$inferSelect;
+export type CivicCustodyCoordinationDecision = typeof civicCustodyCoordinationDecisions.$inferSelect;
+export type CivicCustodyExecution = typeof civicCustodyExecutions.$inferSelect;
+export type CivicCustodyExecutionCommand = typeof civicCustodyExecutionCommands.$inferSelect;
+export type CivicVerificationClaim = typeof civicVerificationClaims.$inferSelect;
+export type CivicMatchParticipant = typeof civicMatchParticipants.$inferSelect;
+export type CivicActionLink = typeof civicActionLinks.$inferSelect;
