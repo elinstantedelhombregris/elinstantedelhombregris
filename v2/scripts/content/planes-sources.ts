@@ -1,0 +1,258 @@
+/**
+ * Frontmatter de los 23 planes del canon.
+ *
+ * Borrador emitido por scripts/content/extraer-fuentes-planes.ts y DESPUÉS
+ * CORREGIDO A MANO. Esta tabla es la autoridad: el extractor no se vuelve a
+ * correr sin revisar el diff línea por línea.
+ *
+ * Procedencia — title y nombreInstitucional: portada del documento del corpus.
+ * summary: SocialJusticeHub/shared/strategic-initiatives.ts (PLANRUTA: stub v2).
+ * orderIndex: ordinal de SocialJusticeHub/shared/arquitecto-data.ts.
+ */
+
+export interface FuentePlan {
+  code: string;
+  slug: string;
+  /** Título evocativo de la portada — el que ve el índice cerrado. */
+  title: string;
+  /** «Plan Nacional de…» — el que aparece en el pliegue. */
+  nombreInstitucional: string;
+  summary: string;
+  orderIndex: number;
+  isMeta: boolean;
+  /** Nombre del archivo en «Iniciativas Estratégicas/». */
+  archivoFuente: string;
+}
+
+export const PLANES_SOURCES: readonly FuentePlan[] = [
+  {
+    code: 'PLANRUTA',
+    slug: 'planruta',
+    title: "Cuando el sistema caiga alguien tiene que saber reconstruir",
+    nombreInstitucional: "Plan Nacional de Ruta de Arranque y Preparación para la Crisis Sistémica",
+    summary: "PLANRUTA es el meta-plan: cómo se arranca la ejecución de los otros 22, cómo se activa la red sin esperar permiso, cómo se sostiene el cambio en momentos de crisis. No es un plan más; es el manual de cómo arrancar todo.",
+    orderIndex: 0,
+    isMeta: true,
+    archivoFuente: 'PLANRUTA_Argentina_ES.md',
+  },
+  {
+    code: 'PLANJUS',
+    slug: 'planjus',
+    title: "La justicia que tenemos no es la justicia que merecemos",
+    nombreInstitucional: "Plan Nacional de Justicia Popular y Resolución de Conflictos",
+    summary: "El sistema judicial argentino tarda entre 3 y 11 años en resolver un caso, cuesta miles de dólares, y tiene menos del 20% de confianza ciudadana. PLANJUS propone un sistema de justicia popular con paneles ciudadanos seleccionados por sorteo democrático que resuelven conflictos en 15, 45 o 90 días — gratuito, transparente, e incorruptible por diseño arquitectónico.",
+    orderIndex: 1,
+    isMeta: false,
+    archivoFuente: 'PLANJUS_Argentina_ES.md',
+  },
+  {
+    code: 'PLANREP',
+    slug: 'planrep',
+    title: "El estado que tenemos no es el estado que merecemos",
+    nombreInstitucional: "Plan Nacional de Reconversión del Empleo Público hacia la Economía Privada Productiva",
+    summary: "La Argentina tiene entre 1,2 y 1,8 millones de empleados públicos en puestos que no generan valor. PLANREP propone no echar gente sino liberarla: un programa masivo, voluntario y financiado de reconversión hacia la Economía de la Vida (8 oficios irreemplazables) y la Economía de la Inteligencia (servicios IA para el mundo), con potencial de USD 15-47 mil millones anuales.",
+    orderIndex: 2,
+    isMeta: false,
+    archivoFuente: 'PLANREP_Argentina_ES.md',
+  },
+  {
+    code: 'PLANEB',
+    slug: 'planeb',
+    title: "El mercado que tenemos no es el mercado que merecemos",
+    nombreInstitucional: "Plan Nacional de Empresas Bastardas y Soberanía Económica Popular",
+    summary: "Los argentinos pierden entre USD 10.600 y 21.950 millones al año en extracción sobre costos reales en servicios esenciales. PLANEB propone Empresas Bastardas — entidades sin dueño, sin accionistas, gobernadas como DAOs, que proveen servicios al costo real con transparencia radical — como referencia de precio que discipline al mercado entero.",
+    orderIndex: 3,
+    isMeta: false,
+    archivoFuente: 'PLANEB_Argentina_ES.md',
+  },
+  {
+    code: 'PLANMON',
+    slug: 'planmon',
+    title: "La plata que tenemos no es la plata que merecemos",
+    nombreInstitucional: "Plan Nacional de Soberanía Monetaria y Arquitectura Financiera",
+    summary: "Argentina destruyó 5 monedas en 50 años, eliminó 13 ceros, y sus ciudadanos guardan entre USD 250.000 y 400.000 millones fuera del sistema — un PBI entero bajo el colchón. PLANMON propone El Pulso: una moneda de red ciudadana emitida por protocolo (no por el Banco Central), respaldada por una canasta verificable de commodities argentinas, con anti-confiscación por diseño y desdolarización por obsolescencia.",
+    orderIndex: 4,
+    isMeta: false,
+    archivoFuente: 'PLANMON_Argentina_ES.md',
+  },
+  {
+    code: 'PLANDIG',
+    slug: 'plandig',
+    title: "Tenemos los datos pero no nos pertenecen tenemos la atención pero nos la están modelando",
+    nombreInstitucional: "Plan Nacional de Soberanía Digital, Cognitiva y Ecología de la Atención",
+    summary: "La Argentina es una colonia digital: sus datos residen en servidores extranjeros, su capacidad de cómputo se alquila a corporaciones extranjeras, y la inteligencia artificial entrenada con datos argentinos pertenece a otros. PLANDIG propone construir un sistema nervioso soberano — infraestructura, datos e IA propios — con un ROI estimado de 2:1 a 7:1 a 10 años.",
+    orderIndex: 5,
+    isMeta: false,
+    archivoFuente: 'PLANDIG_Argentina_ES.md',
+  },
+  {
+    code: 'PLANSUS',
+    slug: 'plansus',
+    title: "La soberanía que nos falta es la que llevamos dentro",
+    nombreInstitucional: "Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido",
+    summary: "La prohibición le regaló al narcotráfico un mercado de USD 3.000-8.000M anuales que no paga impuestos, no controla calidad y mata gente. PLANSUS propone la ruptura soberana con las convenciones de la ONU y una regulación integral en cascada: cannabis en el Año 1, psicodélicos terapéuticos en el Año 3, regulación completa en el Año 5. ROI estimado 5:1 a 15:1.",
+    orderIndex: 6,
+    isMeta: false,
+    archivoFuente: 'PLANSUS_Argentina_ES.md',
+  },
+  {
+    code: 'PLANEDU',
+    slug: 'planedu',
+    title: "La educación que tenemos no es la educación que merecemos",
+    nombreInstitucional: "Plan Nacional de Refundación Educativa para la Soberanía del Conocimiento Humano",
+    summary: "Argentina ocupa el puesto 63 de 81 en PISA gastando más del 5% de su PBI en educación. El 46% de los alumnos no alcanza el nivel mínimo de comprensión lectora — y en el quintil más pobre, el analfabetismo funcional llega al 70%. PLANEDU propone una refundación basada en Siete Capacidades, Maestros Creadores, el Modelo 3+5 (3 horas de dominio adaptativo + 5 horas de talleres, proyectos y emprendimientos), \"Leer para Encender\" como Pilar Cero de alfabetización, y la PAA 2.0 (Socrática + Adaptativa) — adaptando las innovaciones de Alpha School para educación pública a escala, con el objetivo de ubicar a Argentina en el top 20 mundial en 15 años.",
+    orderIndex: 7,
+    isMeta: false,
+    archivoFuente: 'PLANEDU_Argentina_ES.md',
+  },
+  {
+    code: 'PLANSAL',
+    slug: 'plansal',
+    title: "La fábrica de enfermos",
+    nombreInstitucional: "Plan Nacional de Salud Integral y Vitalidad Popular",
+    summary: "La Argentina gasta ~10% del PBI en salud con resultados de país en desarrollo: 28% de obesidad adulta, 12.7% de diabetes tipo 2, y menos del 30% de satisfacción ciudadana. PLANSAL propone la primera arquitectura que cultiva vitalidad en vez de administrar enfermedad, con 3.000 Centros de Vitalidad barriales, 25.000 Familias Mentoras, y un retorno estimado de 12:1 a 20:1 en 10 años.",
+    orderIndex: 8,
+    isMeta: false,
+    archivoFuente: 'PLANSAL_Argentina_ES.md',
+  },
+  {
+    code: 'PLANISV',
+    slug: 'planisv',
+    title: "La deuda con el suelo es la deuda real",
+    nombreInstitucional: "Plan Nacional para la Reconstrucción de la Infraestructura de Suelo Vivo de la Argentina",
+    summary: "El suelo que genera el 60–70% de los ingresos por exportaciones de Argentina se degrada aceleradamente. PLANISV propone tratar al suelo como infraestructura estratégica nacional — medible, gestionable y reconstruible — mediante ingeniería biológica y física del agua, con un retorno de inversión estimado de 8:1 a 15:1 en 10 años.",
+    orderIndex: 9,
+    isMeta: false,
+    archivoFuente: 'PLANISV_Argentina_ES.md',
+  },
+  {
+    code: 'PLANAGUA',
+    slug: 'planagua',
+    title: "El agua que perdemos es la vida que nos falta",
+    nombreInstitucional: "Plan Nacional de Soberanía Hídrica y Resiliencia Climática",
+    summary: "7 millones de argentinos no tienen acceso a agua segura. El 40% del agua tratada se pierde en fugas. 4+ millones están expuestos a arsénico sobre el límite de la OMS. PLANAGUA propone una arquitectura de soberanía hídrica con Censo Nacional del Agua, 50.000 sensores IoT, personería jurídica para ríos, y Bastardas Hídricas al costo. ROI estimado 4:1 a 8:1.",
+    orderIndex: 10,
+    isMeta: false,
+    archivoFuente: 'PLANAGUA_Argentina_ES.md',
+  },
+  {
+    code: 'PLAN24CN',
+    slug: 'plan24cn',
+    title: "Las ciudades que tenemos no son las ciudades que merecemos",
+    nombreInstitucional: "Plan Nacional de Fundación de 24 Ciudades Nuevas para la Argentina",
+    summary: "La Argentina pierde entre USD 25.000 y 40.000 millones por año en costos del mal diseño urbano. PLAN24CN propone fundar 24 ciudades nuevas — una por provincia — diseñadas integralmente con los mejores conocimientos disponibles en bienestar humano, ecología, energía y gobernanza, con un retorno estimado de 5:1 a 12:1.",
+    orderIndex: 11,
+    isMeta: false,
+    archivoFuente: 'PLAN24CN_Argentina_ES.md',
+  },
+  {
+    code: 'PLANGEO',
+    slug: 'plangeo',
+    title: "El mundo que tenemos no es el mundo que merecemos",
+    nombreInstitucional: "Plan Nacional de Posicionamiento Geopolítico y Plataforma de Soberanía Exportable",
+    summary: "Argentina con ¡BASTA! no es una anomalía aislada — son 22 PLANes simultáneos (al 23 de abril de 2026). PLANGEO es el plan que hace que los demás PLANes lleguen al mundo sin que el mundo los destruya. Propone una estrategia de doble capa (diplomacia convencional + infraestructura paralela) y una Plataforma de Soberanía Exportable: siete Stacks open-source que empaquetan cada herramienta ¡BASTA! como infraestructura adoptable por cualquier país. La Red Soberana — una comunidad de países y ciudades que comparten estos Stacks — convierte a Argentina en un nodo demasiado útil para sancionar, demasiado interconectado para aislar y demasiado transparente para difamar.",
+    orderIndex: 12,
+    isMeta: false,
+    archivoFuente: 'PLANGEO_Argentina_ES.md',
+  },
+  {
+    code: 'PLANEN',
+    slug: 'planen',
+    title: "La energía que producimos es la que no nos alcanza",
+    nombreInstitucional: "Plan Nacional de Soberanía Energética y Transición de la Matriz Productiva",
+    summary: "La Argentina tiene el segundo yacimiento de shale gas del mundo, el tercer recurso de litio del planeta, vientos de clase mundial y sol de primer nivel — y sin embargo subsidia la energía USD 10.000–15.000 millones por año, tiene siete millones de personas en pobreza energética, y exporta litio como polvo. PLANEN propone una transición de 15 años que se paga a sí misma en menos de 5.",
+    orderIndex: 13,
+    isMeta: false,
+    archivoFuente: 'PLANEN_Argentina_ES.md',
+  },
+  {
+    code: 'PLANSEG',
+    slug: 'planseg',
+    title: "La seguridad que nos falta no se compra con más policías",
+    nombreInstitucional: "Plan Nacional de Seguridad Ciudadana y Transición del Orden Público",
+    summary: "La Argentina gasta USD 8.000–12.000 millones anuales en un sistema de seguridad que no protege a la gente: 340.000 efectivos, una tasa de homicidios de 5,3/100K, cárceles al 150% de capacidad con 70% de presos sin sentencia, y una reincidencia superior al 60%. PLANSEG propone cuatro pilares — policía comunitaria modelo koban, protocolo de transición narco sincronizado con PLANSUS, reforma carcelaria restaurativa, e infraestructura de prevención por diseño — para construir seguridad desde la comunidad, no desde la represión.",
+    orderIndex: 14,
+    isMeta: false,
+    archivoFuente: 'PLANSEG_Argentina_ES.md',
+  },
+  {
+    code: 'PLANVIV',
+    slug: 'planviv',
+    title: "Donde vas a vivir esta noche no debería ser una pregunta",
+    nombreInstitucional: "Plan Nacional de Vivienda Digna y Hábitat para las Ciudades Existentes",
+    summary: "La Argentina tiene un déficit habitacional de 3,5 millones de viviendas, 1.800 asentamientos informales con más de 4 millones de residentes sin cloacas ni títulos, 2 millones de viviendas vacías, y un crédito hipotecario que representa apenas el 1% del PBI. PLANVIV propone seis pilares simultáneos — Bastarda Inmobiliaria, Crédito Hipotecario Bastardo en peso-canasta, urbanización de villas, retrofit térmico, facilitación del mercado y la Plataforma Tecnológica Housing OS — para reducir el déficit a menos de 500.000 unidades en 15 años.",
+    orderIndex: 15,
+    isMeta: false,
+    archivoFuente: 'PLANVIV_Argentina_ES.md',
+  },
+  {
+    code: 'PLANCUL',
+    slug: 'plancul',
+    title: "Una mesa. Una calle cortada. Comida de todos. Eso es todo. Todo lo demás crece de ahí.",
+    nombreInstitucional: "Plan Nacional de Cultura Viva y Red de Dendritas",
+    summary: "La Argentina no tiene una crisis de información — tiene una crisis de sentido. PLANCUL es único entre los mandatos de ¡BASTA!: no tiene presupuesto dedicado, no tiene agencia, no tiene líder. Opera por parasitismo estratégico, habitando la infraestructura que los demás PLANes construyen. Su unidad mínima es la Mesa Larga — vecinos que comen juntos — y de ahí crece una Red de Dendritas que reconecta el tejido cultural desde las Siete Raíces y las Tres Corrientes.",
+    orderIndex: 16,
+    isMeta: false,
+    archivoFuente: 'PLANCUL_Argentina_ES.md',
+  },
+  {
+    code: 'PLANMESA',
+    slug: 'planmesa',
+    title: "La república no se decide en urna se decide en mesa",
+    nombreInstitucional: "Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende",
+    summary: "La república no se decide solo en urna — se decide en mesa. PLANMESA crea Mesas Civiles donde la silla se gana por track record ciudadano auditable (Credencial de Materia) y toda intervención pasa por ciclo LDEA (Aprender, Diseñar, Experimentar, Analizar). Rompe la trampa entre elección política profesional y credencialismo académico: la decisión se gana practicando.",
+    orderIndex: 17,
+    isMeta: false,
+    archivoFuente: 'PLANMESA_Argentina_ES.md',
+  },
+  {
+    code: 'PLANTALLER',
+    slug: 'plantaller',
+    title: "Nadie está desempleado simplemente no encontró todavía su taller",
+    nombreInstitucional: "Plan Nacional de Talleres Federales y Pertenencia Productiva Universal",
+    summary: "Nadie está desempleado — simplemente no encontró todavía su Taller. PLANTALLER convierte a la Argentina en el primer país donde el Estado no da plata ni cursos sino infraestructura productiva compartida: 4.000 galpones federales con herramental, insumos al costo, mentoría, canal Bastarda y método LDEA. 4,5 millones de argentinos con oficio y sin galpón recuperan pertenencia productiva.",
+    orderIndex: 18,
+    isMeta: false,
+    archivoFuente: 'PLANTALLER_Argentina_ES.md',
+  },
+  {
+    code: 'PLANCUIDADO',
+    slug: 'plancuidado',
+    title: "Nadie vive ni muere solo en esta república el cuidado es la capa cero",
+    nombreInstitucional: "Plan Nacional de Vínculo, Parentesco Plural y Obligación de Sostén",
+    summary: "Nadie vive ni muere solo en esta república. PLANCUIDADO es la capa cero del pacto republicano — Pacto de Cuidado Registrado, Libro de Cuidado redimible en jubilación, Jornada 6+2, Registro Nacional de Vínculos y Alerta de Soledad Total. Convierte al cuidado de deuda invisible de mujeres en infraestructura cívica con protocolo, Referente y derechos legales.",
+    orderIndex: 19,
+    isMeta: false,
+    archivoFuente: 'PLANCUIDADO_Argentina_ES.md',
+  },
+  {
+    code: 'PLANMEMORIA',
+    slug: 'planmemoria',
+    title: "Lo que no se graba se repite lo que se graba con protocolo se vuelve inapelable",
+    nombreInstitucional: "Plan Nacional de Memoria Operativa, Vínculo Ancestral y No-Reversibilidad",
+    summary: "Lo que no se graba se repite. PLANMEMORIA construye la infraestructura memorial operativa que a Argentina le falta — Archivo de Depósito Ciudadano, Bastón Memorial de los 12, Consulta Ancestral Obligatoria, Inscripción de Captura en tiempo real, Síndico de Archivo y red federada criptográfica de 7 nodos. Convierte al país que olvida mejor que recuerda en uno que, por fin, puede aprender.",
+    orderIndex: 20,
+    isMeta: false,
+    archivoFuente: 'PLANMEMORIA_Argentina_ES.md',
+  },
+  {
+    code: 'PLANTER',
+    slug: 'planter',
+    title: "La tierra se posee a sí misma los humanos somos síndicos no dueños",
+    nombreInstitucional: "Plan Nacional de Tierra, Subsuelo, Pueblos Originarios y Soberanía Territorial",
+    summary: "La tierra se posee a sí misma. Los humanos somos síndicos, no dueños. PLANTER reemplaza al RIGI por Licencia Territorial de 12 años, declara Commons del Subsuelo, crea Fondo Soberano Ciudadano con Dividendo Ciudadano Mensual, reconoce Personalidad Jurídica de ríos/acuíferos/bosques/mar, da co-soberanía operativa a 35 pueblos originarios y termina con la deforestación impune. Le devuelve a Argentina la palabra \"no\".",
+    orderIndex: 21,
+    isMeta: false,
+    archivoFuente: 'PLANTER_Argentina_ES.md',
+  },
+  {
+    code: 'PLANMOV',
+    slug: 'planmov',
+    title: "No se delibera si no se puede llegar no hay república sin poder circular",
+    nombreInstitucional: "Plan Nacional de Movilidad, Logística y Conectividad Territorial",
+    summary: "No se delibera si no se puede llegar, y no hay soberanía si la ola AV atropella sin plan. PLANMOV v2.0 refunda movilidad y logística en tres capas con once dispositivos más una doctrina transversal: Capa I (Derecho a Moverse — MKC, Red Metropolitana Federal, Movilidad Rural Mínima, Accesibilidad Universal), Capa II (Infraestructura Común — Bastarda Logística Federal, Reactivación Ferroviaria 25.000 km + Columna Múltiple, Red Federal de Puertos, Hidrovía Soberana), Capa III (Soberanía Cognitiva y Activos Disponibles — Bastarda de Activos Móviles Disponibles BAMD, Laboratorio Nacional de Movilidad Autónoma LNMA, Fondo de Reconversión Móvil FRM + Canon de Automatización Logística), y Doctrina del Doble Desplazamiento que obliga al Estado a hacerse cargo del transportista antes de dejar circular un camión autónomo. Inversión USD 80.000–104.000M en 20 años según escenario (austero | pleno), horizonte Visión 2046, agencias ANMov + BAMD + LNMA + FRM + AMBA-T + PCAV.",
+    orderIndex: 22,
+    isMeta: false,
+    archivoFuente: 'PLANMOV_Argentina_ES.md',
+  },
+];
