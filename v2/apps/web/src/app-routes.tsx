@@ -1,207 +1,56 @@
-import { lazy } from 'react';
 import { Redirect, Route, Switch } from 'wouter';
 
-// Lazy-load every page so each route ships its own chunk.
-const Home = lazy(async () => {
-  const m = await import('~/pages/Home');
-  return { default: m.Home };
-});
-const NotFound = lazy(async () => {
-  const m = await import('~/pages/NotFound');
-  return { default: m.NotFound };
-});
-const Login = lazy(async () => {
-  const m = await import('~/pages/Login');
-  return { default: m.Login };
-});
-const Register = lazy(async () => {
-  const m = await import('~/pages/Register');
-  return { default: m.Register };
-});
-const ForgotPassword = lazy(async () => {
-  const m = await import('~/pages/ForgotPassword');
-  return { default: m.ForgotPassword };
-});
-const ResetPassword = lazy(async () => {
-  const m = await import('~/pages/ResetPassword');
-  return { default: m.ResetPassword };
-});
-const VerifyEmail = lazy(async () => {
-  const m = await import('~/pages/VerifyEmail');
-  return { default: m.VerifyEmail };
-});
-const TwoFactorChallenge = lazy(async () => {
-  const m = await import('~/pages/TwoFactorChallenge');
-  return { default: m.TwoFactorChallenge };
-});
-const Manifiesto = lazy(async () => {
-  const m = await import('~/pages/Manifiesto');
-  return { default: m.Manifiesto };
-});
-const LaIdea = lazy(async () => {
-  const m = await import('~/pages/LaIdea');
-  return { default: m.LaIdea };
-});
-const Sembrar = lazy(async () => {
-  const m = await import('~/pages/Sembrar');
-  return { default: m.Sembrar };
-});
-const UnaRutaParaArgentina = lazy(async () => {
-  const m = await import('~/pages/UnaRutaParaArgentina');
-  return { default: m.UnaRutaParaArgentina };
-});
-const ElMapa = lazy(async () => {
-  const m = await import('~/pages/ElMapa');
-  return { default: m.ElMapa };
-});
-const DetallesCalculoCostoHumano = lazy(async () => {
-  const m = await import('~/pages/DetallesCalculoCostoHumano');
-  return { default: m.DetallesCalculoCostoHumano };
-});
-const KitDePrensa = lazy(async () => {
-  const m = await import('~/pages/KitDePrensa');
-  return { default: m.KitDePrensa };
-});
-const Planes = lazy(async () => {
-  const m = await import('~/pages/Planes');
-  return { default: m.Planes };
-});
-const PlanDetail = lazy(async () => {
-  const m = await import('~/pages/PlanDetail');
-  return { default: m.PlanDetail };
-});
-const LifeAreasDashboard = lazy(async () => {
-  const m = await import('~/pages/LifeAreasDashboard');
-  return { default: m.LifeAreasDashboard };
-});
-const LifeAreaDetail = lazy(async () => {
-  const m = await import('~/pages/LifeAreaDetail');
-  return { default: m.LifeAreaDetail };
-});
-const CivicAssessment = lazy(async () => {
-  const m = await import('~/pages/CivicAssessment');
-  return { default: m.CivicAssessment };
-});
-const Goals = lazy(async () => {
-  const m = await import('~/pages/Goals');
-  return { default: m.Goals };
-});
-const CoachingChat = lazy(async () => {
-  const m = await import('~/pages/CoachingChat');
-  return { default: m.CoachingChat };
-});
-const Biblioteca = lazy(async () => {
-  const m = await import('~/pages/Biblioteca');
-  return { default: m.Biblioteca };
-});
-const EnsayoDetail = lazy(async () => {
-  const m = await import('~/pages/EnsayoDetail');
-  return { default: m.EnsayoDetail };
-});
-const Bitacora = lazy(async () => {
-  const m = await import('~/pages/Bitacora');
-  return { default: m.Bitacora };
-});
-const BitacoraDetail = lazy(async () => {
-  const m = await import('~/pages/BitacoraDetail');
-  return { default: m.BitacoraDetail };
-});
-const Entrenamientos = lazy(async () => {
-  const m = await import('~/pages/Entrenamientos');
-  return { default: m.Entrenamientos };
-});
-const EntrenamientoDetail = lazy(async () => {
-  const m = await import('~/pages/EntrenamientoDetail');
-  return { default: m.EntrenamientoDetail };
-});
-const LeccionDetail = lazy(async () => {
-  const m = await import('~/pages/LeccionDetail');
-  return { default: m.LeccionDetail };
-});
-const PracticaDetail = lazy(async () => {
-  const m = await import('~/pages/PracticaDetail');
-  return { default: m.PracticaDetail };
-});
-const Community = lazy(async () => {
-  const m = await import('~/pages/Community');
-  return { default: m.Community };
-});
-const Notifications = lazy(async () => {
-  const m = await import('~/pages/Notifications');
-  return { default: m.Notifications };
-});
-const WeeklyCheckin = lazy(async () => {
-  const m = await import('~/pages/WeeklyCheckin');
-  return { default: m.WeeklyCheckin };
-});
-const ElMandatoVivo = lazy(async () => {
-  const m = await import('~/pages/ElMandatoVivo');
-  return { default: m.ElMandatoVivo };
-});
-const BlogAuthor = lazy(async () => {
-  const m = await import('~/pages/BlogAuthor');
-  return { default: m.BlogAuthor };
-});
-const ExplorarDatos = lazy(async () => {
-  const m = await import('~/pages/ExplorarDatos');
-  return { default: m.ExplorarDatos };
-});
-const DatosAbiertos = lazy(async () => {
-  const m = await import('~/pages/DatosAbiertos');
-  return { default: m.DatosAbiertos };
-});
-const InsightDashboard = lazy(async () => {
-  const m = await import('~/pages/InsightDashboard');
-  return { default: m.InsightDashboard };
-});
-const MiPerfil = lazy(async () => {
-  const m = await import('~/pages/MiPerfil');
-  return { default: m.MiPerfil };
-});
-const Leaderboard = lazy(async () => {
-  const m = await import('~/pages/Leaderboard');
-  return { default: m.Leaderboard };
-});
-const Desafios = lazy(async () => {
-  const m = await import('~/pages/Desafios');
-  return { default: m.Desafios };
-});
-const IniciativaDetail = lazy(async () => {
-  const m = await import('~/pages/IniciativaDetail');
-  return { default: m.IniciativaDetail };
-});
-const IniciativaDocumento = lazy(async () => {
-  const m = await import('~/pages/IniciativaDocumento');
-  return { default: m.IniciativaDocumento };
-});
-const PulsoDetail = lazy(async () => {
-  const m = await import('~/pages/PulsoDetail');
-  return { default: m.PulsoDetail };
-});
-const PropuestaDetail = lazy(async () => {
-  const m = await import('~/pages/PropuestaDetail');
-  return { default: m.PropuestaDetail };
-});
-const Bienvenida = lazy(async () => {
-  const m = await import('~/pages/Bienvenida');
-  return { default: m.Bienvenida };
-});
-const ApoyaAlMovimiento = lazy(async () => {
-  const m = await import('~/pages/ApoyaAlMovimiento');
-  return { default: m.ApoyaAlMovimiento };
-});
-const PoliticaPrivacidad = lazy(async () => {
-  const m = await import('~/pages/PoliticaPrivacidad');
-  return { default: m.PoliticaPrivacidad };
-});
+import {
+  ApoyaAlMovimiento,
+  Biblioteca,
+  Bienvenida,
+  Bitacora,
+  BitacoraDetail,
+  BlogAuthor,
+  CivicAssessment,
+  CoachingChat,
+  Community,
+  DatosAbiertos,
+  Desafios,
+  DetallesCalculoCostoHumano,
+  ElMandatoVivo,
+  ElMapa,
+  EnsayoDetail,
+  EntrenamientoDetail,
+  Entrenamientos,
+  ExplorarDatos,
+  ForgotPassword,
+  Goals,
+  Home,
+  IniciativaDetail,
+  IniciativaDocumento,
+  InsightDashboard,
+  KitDePrensa,
+  LaIdea,
+  Leaderboard,
+  LeccionDetail,
+  LifeAreaDetail,
+  LifeAreasDashboard,
+  Login,
+  Manifiesto,
+  MiPerfil,
+  NotFound,
+  Notifications,
+  PlanDetail,
+  Planes,
+  PoliticaPrivacidad,
+  PracticaDetail,
+  PropuestaDetail,
+  PulsoDetail,
+  Register,
+  ResetPassword,
+  Sembrar,
+  TwoFactorChallenge,
+  UnaRutaParaArgentina,
+  VerifyEmail,
+  WeeklyCheckin,
+} from '~/app-pages';
 
-/**
- * La tabla de rutas — extraída de `App.tsx` (fix de revisión sobre T8: el
- * archivo compuesto pasaba las 300 LOC del límite de `v2/CLAUDE.md`). Cero
- * cambio de comportamiento: los mismos lazy, las mismas rutas, el mismo
- * orden — solo movidos a su propio módulo para que `App.tsx` vuelva a
- * quedar bajo el límite.
- */
 export function AppRoutes() {
   return (
     <Switch>
