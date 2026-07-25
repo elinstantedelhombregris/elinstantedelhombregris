@@ -285,4 +285,12 @@
   .edicion-impresa {
     box-shadow: none !important;
   }
+
+  /* La ficha del expediente se pliega en pantalla pero se imprime entera. */
+  .edicion-impresa details > div {
+    display: block !important;
+  }
+  .edicion-impresa details > summary {
+    list-style: none;
+  }
 }

@@ -1,78 +1,30 @@
 /**
- * Build-time registry of all PLAN MDX files.
+ * Registry de los planes, partido en dos por peso.
  *
- * Vite's `import.meta.glob` eagerly loads every plan as raw text.
- * Each file's frontmatter is parsed once at module load; the result is
- * memoized for the lifetime of the bundle.
+ * El índice (frontmatter de los 23) es eager: lo consumen la landing, La idea y
+ * La prueba, y son pocos KB. Los cuerpos suman 5,1 MB, así que se cargan con un
+ * `import()` por plan — solo el documento que el visitante abrió.
  */
 import { stripFrontmatter } from './markdown';
+import { PLANES_INDEX } from './planes-index.generated';
 
 export interface PlanRegistryEntry {
-  /** Lowercase slug used in URLs (e.g. "plansus"). */
+  /** Slug en minúscula usado en la URL (ej. «planjus»). */
   slug: string;
-  /** Uppercase code as authored in frontmatter ("PLANSUS"). */
+  /** Código en mayúscula como está en el frontmatter («PLANJUS»). */
   code: string;
+  /** Título evocativo de la portada del documento. */
   title: string;
+  /** Nombre institucional («Plan Nacional de…»). */
+  nombreInstitucional: string;
   summary: string;
   orderIndex: number;
   isMeta: boolean;
-  /** Raw mdx body (no frontmatter). */
-  body: string;
 }
 
-const planFiles = import.meta.glob<string>('../../../../content/planes/*.mdx', {
-  query: '?raw',
-  import: 'default',
-  eager: true,
-});
-
-function parseFrontmatter(raw: string): Record<string, unknown> {
-  const match = /^---\n([\s\S]*?)\n---\n/.exec(raw);
-  if (!match) return {};
-  const fm: Record<string, unknown> = {};
-  const yaml = match[1] ?? '';
-  for (const line of yaml.split('\n')) {
-    const m = /^([a-zA-Z0-9_]+)\s*:\s*(.*?)\s*$/.exec(line);
-    if (!m) continue;
-    const key = m[1];
-    let value: string = m[2] ?? '';
-    if (!key) continue;
-    // Strip surrounding quotes (single or double).
-    if (
-      (value.startsWith("'") && value.endsWith("'")) ||
-      (value.startsWith('"') && value.endsWith('"'))
-    ) {
-      value = value.slice(1, -1);
-    }
-    if (value === 'true') fm[key] = true;
-    else if (value === 'false') fm[key] = false;
-    else if (/^-?\d+(\.\d+)?$/.test(value)) fm[key] = Number(value);
-    else fm[key] = value;
-  }
-  return fm;
-}
-
-function buildRegistry(): PlanRegistryEntry[] {
-  const entries: PlanRegistryEntry[] = [];
-  for (const [path, raw] of Object.entries(planFiles)) {
-    const fm = parseFrontmatter(raw);
-    const fallbackSlug = path.split('/').pop()?.replace('.mdx', '').toLowerCase() ?? '';
-    const slug = typeof fm.slug === 'string' ? fm.slug : fallbackSlug;
-    const code = typeof fm.code === 'string' ? fm.code : slug.toUpperCase();
-    entries.push({
-      slug,
-      code,
-      title: typeof fm.title === 'string' ? fm.title : '(sin título)',
-      summary: typeof fm.summary === 'string' ? fm.summary : '',
-      orderIndex: typeof fm.orderIndex === 'number' ? fm.orderIndex : 99,
-      isMeta: fm.isMeta === true,
-      body: stripFrontmatter(raw),
-    });
-  }
-  return entries.sort((a, b) => a.orderIndex - b.orderIndex);
-}
-
-export const PLAN_REGISTRY: readonly PlanRegistryEntry[] = buildRegistry();
+export const PLAN_REGISTRY: readonly PlanRegistryEntry[] = [...PLANES_INDEX].sort(
+  (a, b) => a.orderIndex - b.orderIndex,
+);
 
 export function findPlanByCode(code: string): PlanRegistryEntry | undefined {
   const upper = code.toUpperCase();
@@ -82,4 +34,33 @@ export function findPlanByCode(code: string): PlanRegistryEntry | undefined {
 export function findPlanBySlug(slug: string): PlanRegistryEntry | undefined {
   const lower = slug.toLowerCase();
   return PLAN_REGISTRY.find((p) => p.slug === lower);
+}
+
+/** El H2 literal que separa el documento de su aparato de producción. */
+const MARCADOR_FICHA = '## Ficha del expediente';
+
+const cuerpos = import.meta.glob<string>('../../../../content/planes/*.mdx', {
+  query: '?raw',
+  import: 'default',
+});
+
+export interface PlanCuerpo {
+  /** El documento como se lee. */
+  cuerpo: string;
+  /** Cabecera de auditoría + parches, para el pliegue. '' si no hay. */
+  ficha: string;
+}
+
+export async function cargarCuerpoPlan(code: string): Promise<PlanCuerpo> {
+  const cargar = cuerpos[`../../../../content/planes/${code.toUpperCase()}.mdx`];
+  if (!cargar) throw new Error(`No hay documento para ${code}`);
+
+  const raw = stripFrontmatter(await cargar());
+  const corte = raw.indexOf(MARCADOR_FICHA);
+  if (corte === -1) return { cuerpo: raw, ficha: '' };
+
+  return {
+    cuerpo: raw.slice(0, corte).trim(),
+    ficha: raw.slice(corte + MARCADOR_FICHA.length).trim(),
+  };
 }

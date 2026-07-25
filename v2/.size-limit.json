@@ -20,5 +20,11 @@
     "path": "apps/web/dist/assets/NotFound-*.js",
     "limit": "10 KB",
     "gzip": true
+  },
+  {
+    "name": "plans registry (gzipped)",
+    "path": "apps/web/dist/assets/plans-registry-*.js",
+    "limit": "20 KB",
+    "gzip": true
   }
 ]
