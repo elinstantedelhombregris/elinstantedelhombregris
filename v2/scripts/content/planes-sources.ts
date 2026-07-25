@@ -78,7 +78,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANDIG',
     slug: 'plandig',
-    title: "Tenemos los datos pero no nos pertenecen tenemos la atención pero nos la están modelando",
+    title: "Tenemos los datos pero no nos pertenecen. Tenemos la atención pero nos la están modelando",
     nombreInstitucional: "Plan Nacional de Soberanía Digital, Cognitiva y Ecología de la Atención",
     summary: "La Argentina es una colonia digital: sus datos residen en servidores extranjeros, su capacidad de cómputo se alquila a corporaciones extranjeras, y la inteligencia artificial entrenada con datos argentinos pertenece a otros. PLANDIG propone construir un sistema nervioso soberano — infraestructura, datos e IA propios — con un ROI estimado de 2:1 a 7:1 a 10 años.",
     orderIndex: 5,
@@ -188,7 +188,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANCUL',
     slug: 'plancul',
-    title: "Una mesa. Una calle cortada. Comida de todos. Eso es todo. Todo lo demás crece de ahí.",
+    title: "Una mesa. Una calle cortada. Comida de todos. Eso es todo. Todo lo demás crece de ahí",
     nombreInstitucional: "Plan Nacional de Cultura Viva y Red de Dendritas",
     summary: "La Argentina no tiene una crisis de información — tiene una crisis de sentido. PLANCUL es único entre los mandatos de ¡BASTA!: no tiene presupuesto dedicado, no tiene agencia, no tiene líder. Opera por parasitismo estratégico, habitando la infraestructura que los demás PLANes construyen. Su unidad mínima es la Mesa Larga — vecinos que comen juntos — y de ahí crece una Red de Dendritas que reconecta el tejido cultural desde las Siete Raíces y las Tres Corrientes.",
     orderIndex: 16,
@@ -198,7 +198,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANMESA',
     slug: 'planmesa',
-    title: "La república no se decide en urna se decide en mesa",
+    title: "La república no se decide en urna. Se decide en mesa",
     nombreInstitucional: "Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende",
     summary: "La república no se decide solo en urna — se decide en mesa. PLANMESA crea Mesas Civiles donde la silla se gana por track record ciudadano auditable (Credencial de Materia) y toda intervención pasa por ciclo LDEA (Aprender, Diseñar, Experimentar, Analizar). Rompe la trampa entre elección política profesional y credencialismo académico: la decisión se gana practicando.",
     orderIndex: 17,
@@ -208,7 +208,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANTALLER',
     slug: 'plantaller',
-    title: "Nadie está desempleado simplemente no encontró todavía su taller",
+    title: "Nadie está desempleado. Simplemente no encontró todavía su taller",
     nombreInstitucional: "Plan Nacional de Talleres Federales y Pertenencia Productiva Universal",
     summary: "Nadie está desempleado — simplemente no encontró todavía su Taller. PLANTALLER convierte a la Argentina en el primer país donde el Estado no da plata ni cursos sino infraestructura productiva compartida: 4.000 galpones federales con herramental, insumos al costo, mentoría, canal Bastarda y método LDEA. 4,5 millones de argentinos con oficio y sin galpón recuperan pertenencia productiva.",
     orderIndex: 18,
@@ -218,7 +218,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANCUIDADO',
     slug: 'plancuidado',
-    title: "Nadie vive ni muere solo en esta república el cuidado es la capa cero",
+    title: "Nadie vive ni muere solo en esta república. El cuidado es la capa cero",
     nombreInstitucional: "Plan Nacional de Vínculo, Parentesco Plural y Obligación de Sostén",
     summary: "Nadie vive ni muere solo en esta república. PLANCUIDADO es la capa cero del pacto republicano — Pacto de Cuidado Registrado, Libro de Cuidado redimible en jubilación, Jornada 6+2, Registro Nacional de Vínculos y Alerta de Soledad Total. Convierte al cuidado de deuda invisible de mujeres en infraestructura cívica con protocolo, Referente y derechos legales.",
     orderIndex: 19,
@@ -228,7 +228,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANMEMORIA',
     slug: 'planmemoria',
-    title: "Lo que no se graba se repite lo que se graba con protocolo se vuelve inapelable",
+    title: "Lo que no se graba se repite. Lo que se graba con protocolo se vuelve inapelable",
     nombreInstitucional: "Plan Nacional de Memoria Operativa, Vínculo Ancestral y No-Reversibilidad",
     summary: "Lo que no se graba se repite. PLANMEMORIA construye la infraestructura memorial operativa que a Argentina le falta — Archivo de Depósito Ciudadano, Bastón Memorial de los 12, Consulta Ancestral Obligatoria, Inscripción de Captura en tiempo real, Síndico de Archivo y red federada criptográfica de 7 nodos. Convierte al país que olvida mejor que recuerda en uno que, por fin, puede aprender.",
     orderIndex: 20,
@@ -238,7 +238,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANTER',
     slug: 'planter',
-    title: "La tierra se posee a sí misma los humanos somos síndicos no dueños",
+    title: "La tierra se posee a sí misma. Los humanos somos síndicos no dueños",
     nombreInstitucional: "Plan Nacional de Tierra, Subsuelo, Pueblos Originarios y Soberanía Territorial",
     summary: "La tierra se posee a sí misma. Los humanos somos síndicos, no dueños. PLANTER reemplaza al RIGI por Licencia Territorial de 12 años, declara Commons del Subsuelo, crea Fondo Soberano Ciudadano con Dividendo Ciudadano Mensual, reconoce Personalidad Jurídica de ríos/acuíferos/bosques/mar, da co-soberanía operativa a 35 pueblos originarios y termina con la deforestación impune. Le devuelve a Argentina la palabra \"no\".",
     orderIndex: 21,
@@ -248,7 +248,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
   {
     code: 'PLANMOV',
     slug: 'planmov',
-    title: "No se delibera si no se puede llegar no hay república sin poder circular",
+    title: "No se delibera si no se puede llegar. No hay república sin poder circular",
     nombreInstitucional: "Plan Nacional de Movilidad, Logística y Conectividad Territorial",
     summary: "No se delibera si no se puede llegar, y no hay soberanía si la ola AV atropella sin plan. PLANMOV v2.0 refunda movilidad y logística en tres capas con once dispositivos más una doctrina transversal: Capa I (Derecho a Moverse — MKC, Red Metropolitana Federal, Movilidad Rural Mínima, Accesibilidad Universal), Capa II (Infraestructura Común — Bastarda Logística Federal, Reactivación Ferroviaria 25.000 km + Columna Múltiple, Red Federal de Puertos, Hidrovía Soberana), Capa III (Soberanía Cognitiva y Activos Disponibles — Bastarda de Activos Móviles Disponibles BAMD, Laboratorio Nacional de Movilidad Autónoma LNMA, Fondo de Reconversión Móvil FRM + Canon de Automatización Logística), y Doctrina del Doble Desplazamiento que obliga al Estado a hacerse cargo del transportista antes de dejar circular un camión autónomo. Inversión USD 80.000–104.000M en 20 años según escenario (austero | pleno), horizonte Visión 2046, agencias ANMov + BAMD + LNMA + FRM + AMBA-T + PCAV.",
     orderIndex: 22,
