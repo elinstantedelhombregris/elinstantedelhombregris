@@ -10,5 +10,6 @@ export { FilaIndice, type FilaIndiceProps } from './FilaIndice';
 export { FilaIndiceExpandible, type FilaIndiceExpandibleProps } from './FilaIndiceExpandible';
 export { Kicker, type KickerColor, type KickerProps } from './Kicker';
 export { NotaDemo } from './NotaDemo';
+export { Palitos, type PalitosProps } from './Palitos';
 export { RitoTinta, type RitoTintaProps } from './RitoTinta';
 export { Sello, type SelloColor, type SelloProps } from './Sello';

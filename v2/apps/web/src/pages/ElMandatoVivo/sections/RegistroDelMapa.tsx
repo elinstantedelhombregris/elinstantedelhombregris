@@ -1,8 +1,7 @@
 import { RELLENO_TIPO_OSCURO } from '../el-mandato-data';
 import { formatoPorcentaje, plegarTipos, regimenDe } from '../mandato-regimen';
 
-import { Palitos } from './Palitos';
-
+import { Palitos } from '~/components/papel/primitives';
 import { useMandatoDocumento } from '~/lib/queries/mandato';
 import { cn } from '~/lib/utils';
 

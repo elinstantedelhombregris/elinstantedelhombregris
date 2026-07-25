@@ -3,11 +3,10 @@ import { Link } from 'wouter';
 import { CLASE_URGENCIA, ESTADO_PROPUESTA } from '../el-mandato-data';
 import { formatoPorcentaje, humanizarTema, regimenDe, topeBrechas, urgenciaDeBrecha } from '../mandato-regimen';
 
-import { Palitos } from './Palitos';
-
 import type { RefObject } from 'react';
 import type { DocumentoMandato } from '~/lib/queries/mandato';
 
+import { Palitos } from '~/components/papel/primitives';
 import { cn } from '~/lib/utils';
 
 const LABEL = 'font-space text-violeta mb-4 text-[11px] font-bold uppercase tracking-[0.12em]';
