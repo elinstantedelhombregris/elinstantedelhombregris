@@ -36,7 +36,17 @@ export const blogFrontmatterSchema = z.object({
   title: z.string().min(1).max(200),
   summary: z.string().min(1).max(500),
   publishedAt: isoDateSchema,
-  authorUsername: z.string().min(1),
+  /** Discriminator carried over by the v1→v2 migration ('blog' for every post). */
+  type: z.string().min(1).max(40).optional(),
+  /** Single-word theme from v1 ('ingenieria-social', 'poder'…). Shown raw by the bitácora. */
+  category: z.string().min(1).max(60).optional(),
+  /** Estimated reading time in minutes. */
+  readingMinutes: z.number().int().positive().optional(),
+  /**
+   * The site has one author (el hombre gris) and no post carries this in
+   * frontmatter, so it stays optional — requiring it failed all 22 files.
+   */
+  authorUsername: z.string().min(1).optional(),
   tags: z.array(z.string().min(1)).max(20).default([]),
   coverImageUrl: z.string().url().optional(),
   /** When set, hides the post from public listings (still reachable by URL). */
