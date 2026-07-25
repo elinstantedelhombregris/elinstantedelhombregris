@@ -16,6 +16,7 @@ const PAPEL_ROUTES = new Set([
   '/bitacora',
   // El frame del redirect de /blog a /bitacora no debe mostrar el chrome v1.
   '/blog',
+  '/entrenamientos',
 ]);
 
 /**
@@ -23,12 +24,21 @@ const PAPEL_ROUTES = new Set([
  * `/mandato-vivo/pulso/:id` y `/mandato-vivo/propuesta/:id`; los
  * expedientes del catálogo: `/planes/:slug`; el lector de ensayo:
  * `/ensayos/:slug`; el lector de crónica: `/bitacora/:slug`; las
- * direcciones viejas: `/blog/:slug`). El Set de arriba matchea por
- * igualdad exacta — las dinámicas necesitan además un match por prefijo.
- * Excepción sancionada (spec 2.3, Decisión 10: «`PAPEL_ROUTES` aprende
- * prefijos»).
+ * direcciones viejas: `/blog/:slug`); los entrenamientos: `/entrenamientos/:slug`,
+ * `/entrenamientos/:slug/leccion/:n` y `/entrenamientos/:slug/practica`
+ * (spec 3.5 — la ruta nace papel con la primera página, T5). El Set de
+ * arriba matchea por igualdad exacta — las dinámicas necesitan además un
+ * match por prefijo. Excepción sancionada (spec 2.3, Decisión 10:
+ * «`PAPEL_ROUTES` aprende prefijos»).
  */
-const PAPEL_PREFIXES = ['/mandato-vivo/', '/planes/', '/ensayos/', '/bitacora/', '/blog/'];
+const PAPEL_PREFIXES = [
+  '/mandato-vivo/',
+  '/planes/',
+  '/ensayos/',
+  '/bitacora/',
+  '/blog/',
+  '/entrenamientos/',
+];
 
 /**
  * Rutas que matchean un prefijo de arriba pero NO reciben chrome papel:

@@ -69,4 +69,13 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/ingresar')).toBe(false);
     expect(esRutaPapel('/cuaderno')).toBe(false);
   });
+
+  it('matchea el catálogo de entrenamientos y sus rutas dinámicas por prefijo (spec 3.5, T5)', () => {
+    expect(esRutaPapel('/entrenamientos')).toBe(true);
+    expect(esRutaPapel('/entrenamientos/la-metamorfosis')).toBe(true);
+  });
+
+  it('NO matchea una ruta que solo comparte el prefijo de texto de /entrenamientos sin la barra', () => {
+    expect(esRutaPapel('/entrenamientosque')).toBe(false);
+  });
 });
