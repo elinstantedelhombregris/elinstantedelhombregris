@@ -118,10 +118,9 @@ En `../.github/workflows/v2-ci.yml`, en el job `build-and-test`, después del pa
 ```yaml
       - name: Script tests
         run: pnpm test:scripts
-
-      - name: Guardia del índice de planes
-        run: pnpm planes:check
 ```
+
+**Solo ese paso.** El de `pnpm planes:check` se cablea en la Task 5, que es donde nace `verify-planes-index.ts`: wirearlo acá dejaría CI en rojo durante cuatro tareas.
 
 - [ ] **Step 7: Commit**
 
@@ -825,7 +824,7 @@ Si alguien edita `planes-index.generated.ts` a mano, o edita el frontmatter de u
 
 **Interfaces:**
 - Consumes: `PLANES_INDEX` (Task 4), los `.mdx` de `content/planes/`.
-- Produces: exit code 0 / 1. Lo usa el paso de CI de Task 1.
+- Produces: exit code 0 / 1, más el paso de CI que esta misma tarea cablea.
 
 - [ ] **Step 1: Escribir la guardia**
 
@@ -945,10 +944,19 @@ Expected: imprime `· PLANJUS.title: el .mdx dice … y el índice …` y `exit=
 Run: `cd v2 && pnpm planes:check && git status --porcelain content/planes`
 Expected: `Índice de planes OK: 23 entradas…` y salida vacía de `git status`.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 5: Cablear la guardia en CI**
+
+Recién ahora que el script existe. En `../.github/workflows/v2-ci.yml`, en el job `build-and-test`, después del paso `Script tests`, insertar:
+
+```yaml
+      - name: Guardia del índice de planes
+        run: pnpm planes:check
+```
+
+- [ ] **Step 6: Commit**
 
 ```bash
-git add v2/scripts/content/verify-planes-index.ts
+git add v2/scripts/content/verify-planes-index.ts ../.github/workflows/v2-ci.yml
 git commit -m "feat(scripts): guardia de CI para el índice de planes"
 ```
 
