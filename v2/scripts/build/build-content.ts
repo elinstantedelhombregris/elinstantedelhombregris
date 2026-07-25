@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   blogFrontmatterSchema,
+  cronicaFrontmatterSchema,
   ensayoFrontmatterSchema,
   planFrontmatterSchema,
 } from '@v2/shared/content';
@@ -39,6 +40,9 @@ async function run(): Promise<PipelineSummary[]> {
 
   const planes = await loadContentDir(`${ROOT}content/planes`, planFrontmatterSchema);
   summaries.push({ domain: 'planes', ok: planes.ok.length, errors: planes.errors });
+
+  const cronica = await loadContentDir(`${ROOT}content/cronica`, cronicaFrontmatterSchema);
+  summaries.push({ domain: 'cronica', ok: cronica.ok.length, errors: cronica.errors });
 
   // Course lessons live one directory deeper. We list course-slug dirs.
   // For now: just stub — proper recursive walk lands when courses get

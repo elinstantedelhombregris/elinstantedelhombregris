@@ -105,6 +105,28 @@ export const planFrontmatterSchema = z.object({
 export type PlanFrontmatter = z.infer<typeof planFrontmatterSchema>;
 
 /**
+ * Crónica chapter frontmatter — used by content/cronica/*.mdx.
+ *
+ * «La crónica del país que viene» is v1's five-chapter novela (formerly
+ * embedded inline in the `UnaRutaParaArgentina` page). Each file is one
+ * chapter; `orderIndex` is the explicit, source-derived reading order
+ * (it mirrors the `number` prop each chapter carried in the v1 JSX) —
+ * never inferred from the filename.
+ */
+export const cronicaFrontmatterSchema = z.object({
+  slug: slugSchema,
+  title: z.string().min(1).max(200),
+  /** Year or year-range the chapter is set in, as authored (e.g. "2026", "2029 — 2034"). */
+  subtitle: z.string().min(1).max(60),
+  /** The chapter's opening epigraph line, verbatim from the source. */
+  epigraph: z.string().min(1).max(300),
+  /** 1-based position in the five-chapter novela. Drives reading order + prev/next nav. */
+  orderIndex: z.number().int().positive(),
+  draft: z.boolean().default(false),
+});
+export type CronicaFrontmatter = z.infer<typeof cronicaFrontmatterSchema>;
+
+/**
  * Course lesson frontmatter — used by content/courses/<course-slug>/<lesson>.mdx.
  */
 export const lessonFrontmatterSchema = z.object({
