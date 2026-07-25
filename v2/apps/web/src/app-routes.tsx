@@ -118,6 +118,10 @@ const LeccionDetail = lazy(async () => {
   const m = await import('~/pages/LeccionDetail');
   return { default: m.LeccionDetail };
 });
+const PracticaDetail = lazy(async () => {
+  const m = await import('~/pages/PracticaDetail');
+  return { default: m.PracticaDetail };
+});
 const Community = lazy(async () => {
   const m = await import('~/pages/Community');
   return { default: m.Community };
@@ -275,9 +279,9 @@ export function AppRoutes() {
       </Route>
       {/* Entrenamientos (3.5). Orden exigido por la spec: las rutas dinámicas
           más específicas van ANTES que el catálogo exacto. El lector de
-          lección (T7) va ARRIBA de la portada (:slug, T6); :slug/practica
-          va ARRIBA de esta cuando T8 la agregue. */}
+          lección y la práctica van ARRIBA de la portada (:slug). */}
       <Route path="/entrenamientos/:slug/leccion/:n" component={LeccionDetail} />
+      <Route path="/entrenamientos/:slug/practica" component={PracticaDetail} />
       <Route path="/entrenamientos/:slug" component={EntrenamientoDetail} />
       <Route path="/entrenamientos" component={Entrenamientos} />
       <Route path="/comunidad" component={Community} />
