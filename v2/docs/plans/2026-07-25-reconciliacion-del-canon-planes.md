@@ -247,6 +247,24 @@ describe('partirDocumentoPlan', () => {
     expect(cuerpo).toContain('# PLANX');
   });
 
+  it('no pierde ni duplica contenido: los 23 documentos conservan todas sus líneas no vacías', () => {
+    const noVacias = (s: string) =>
+      s
+        .split('\n')
+        .map((l) => l.trim())
+        .filter((l) => l !== '');
+
+    for (const archivo of archivosCorpus) {
+      const raw = readFileSync(resolve(CORPUS, archivo), 'utf8');
+      const { cabecera, cuerpo, parches } = partirDocumentoPlan(raw);
+
+      const original = [...noVacias(raw)].sort();
+      const partido = [...noVacias(cabecera), ...noVacias(cuerpo), ...noVacias(parches)].sort();
+
+      expect(partido, `${archivo}: el split perdió o duplicó líneas`).toEqual(original);
+    }
+  });
+
   it('los 23 documentos reales del corpus se parten con cuerpo no vacío', () => {
     expect(archivosCorpus).toHaveLength(23);
 
@@ -354,16 +372,24 @@ export function partirDocumentoPlan(raw: string): DocumentoPartido {
       ? lineas.slice(0, inicioParches)
       : lineas.slice(finCabecera + 1, inicioParches);
 
-  const cuerpo = [...antes, ...despues]
-    .join('\n')
-    // El separador que quedaba pegado a la cabecera no debe dejar dos `---` juntos.
-    .replace(/\n{3,}/g, '\n\n')
-    .replace(/(^|\n)---\n+---(\n|$)/g, '$1---$2')
-    .trim();
+  // Cerramos solo la costura donde se sacó la cabecera: recortamos líneas en
+  // blanco sobrantes en cada punta y unimos con un único blanco de por medio.
+  // Nunca tocamos el resto del cuerpo — un regex global sobre todo el texto
+  // borra separadores `---` que son estructura real del documento, no
+  // artefactos del corte.
+  while (antes.length > 0 && (antes[antes.length - 1] ?? '').trim() === '') antes.pop();
+  while (despues.length > 0 && (despues[0] ?? '').trim() === '') despues.shift();
+
+  const cuerpo =
+    antes.length > 0 && despues.length > 0
+      ? [...antes, '', ...despues].join('\n').trim()
+      : [...antes, ...despues].join('\n').trim();
 
   return { cabecera, cuerpo, parches };
 }
 ```
+
+**Nada de regexes sobre el cuerpo entero.** La primera versión de esta función colapsaba `\n{3,}` y `---`/`---` adyacentes en todo el texto, y eso borra contenido: PLANRUTA usa `---` · blanco · `---` como divisor real de sección en 10 lugares, y los perdía los 10. La limpieza toca la costura y nada más.
 
 - [ ] **Step 4: Correr el test para verificar que pasa**
 
