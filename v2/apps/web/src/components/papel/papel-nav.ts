@@ -17,7 +17,7 @@ export const PAPEL_NAV: readonly PapelNavItem[] = [
   { href: '/el-mapa', label: 'El mapa', num: '02' },
   { href: '/mandato-vivo', label: 'El mandato', num: '03' },
   { href: '/planes', label: 'La prueba', num: '04' },
-  { href: '/ensayos', label: 'La biblioteca', num: '05' },
+  { href: '/biblioteca', label: 'La biblioteca', num: '05' },
 ];
 
 export const SEMBRAR_HREF = '/sembrar';

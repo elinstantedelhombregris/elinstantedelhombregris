@@ -96,9 +96,9 @@ const CoachingChat = lazy(async () => {
   const m = await import('~/pages/CoachingChat');
   return { default: m.CoachingChat };
 });
-const Ensayos = lazy(async () => {
-  const m = await import('~/pages/Ensayos');
-  return { default: m.Ensayos };
+const Biblioteca = lazy(async () => {
+  const m = await import('~/pages/Biblioteca');
+  return { default: m.Biblioteca };
 });
 const EnsayoDetail = lazy(async () => {
   const m = await import('~/pages/EnsayoDetail');
@@ -267,7 +267,10 @@ export function App() {
               <Route path="/desafios" component={Desafios} />
 
               {/* Content + community */}
-              <Route path="/ensayos" component={Ensayos} />
+              <Route path="/biblioteca" component={Biblioteca} />
+              <Route path="/ensayos">
+                <Redirect to="/biblioteca" replace />
+              </Route>
               <Route path="/ensayos/:slug" component={EnsayoDetail} />
               <Route path="/blog" component={Blog} />
               <Route path="/blog/escribir" component={BlogAuthor} />

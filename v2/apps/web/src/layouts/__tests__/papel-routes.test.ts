@@ -10,6 +10,17 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/mandato-vivo')).toBe(true);
     expect(esRutaPapel('/planes')).toBe(true);
     expect(esRutaPapel('/sembrar')).toBe(true);
+    expect(esRutaPapel('/biblioteca')).toBe(true);
+    // El frame del redirect de /ensayos no debe mostrar el chrome v1.
+    expect(esRutaPapel('/ensayos')).toBe(true);
+  });
+
+  it('matchea el lector de ensayo por prefijo (T5, spec «Ruta y navegación»)', () => {
+    expect(esRutaPapel('/ensayos/presidencia')).toBe(true);
+  });
+
+  it('NO matchea una ruta que solo comparte el prefijo de texto de /ensayos sin la barra', () => {
+    expect(esRutaPapel('/ensayosque')).toBe(false);
   });
 
   it('NO matchea una ruta que solo comparte el prefijo de texto de /sembrar sin la barra (no hay sub-rutas)', () => {
