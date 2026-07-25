@@ -110,6 +110,10 @@ const Entrenamientos = lazy(async () => {
   const m = await import('~/pages/Entrenamientos');
   return { default: m.Entrenamientos };
 });
+const EntrenamientoDetail = lazy(async () => {
+  const m = await import('~/pages/EntrenamientoDetail');
+  return { default: m.EntrenamientoDetail };
+});
 const Community = lazy(async () => {
   const m = await import('~/pages/Community');
   return { default: m.Community };
@@ -265,9 +269,11 @@ export function AppRoutes() {
       <Route path="/blog/:slug">
         {(params) => <Redirect to={`/bitacora/${params.slug}`} replace />}
       </Route>
-      {/* Entrenamientos — el catálogo (3.5, T5). Las rutas dinámicas
-          (:slug/leccion/:n, :slug/practica, :slug) van ARRIBA de esta
-          cuando T6–T8 las agreguen — el orden del Switch lo exige la spec. */}
+      {/* Entrenamientos (3.5). Orden exigido por la spec: las rutas dinámicas
+          más específicas van ANTES que el catálogo exacto. La portada
+          (:slug) llegó en T6; :slug/leccion/:n y :slug/practica van ARRIBA
+          de esta cuando T7/T8 las agreguen. */}
+      <Route path="/entrenamientos/:slug" component={EntrenamientoDetail} />
       <Route path="/entrenamientos" component={Entrenamientos} />
       <Route path="/comunidad" component={Community} />
       <Route path="/notificaciones" component={Notifications} />
