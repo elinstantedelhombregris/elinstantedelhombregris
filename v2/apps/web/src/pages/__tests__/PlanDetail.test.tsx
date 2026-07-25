@@ -1,11 +1,24 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { Router } from 'wouter';
 import { memoryLocation } from 'wouter/memory-location';
 
 import { PlanDetail } from '../PlanDetail';
 
+import * as plansRegistry from '~/lib/plans-registry';
 import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
+
+// El registro (índice + `findPlanBySlug`, etc.) queda real: la página lo
+// necesita para resolver el slug y pintar la cabecera. Solo `cargarCuerpoPlan`
+// se reemplaza por un mock que, por default, delega a la implementación real
+// — los tests de fallo lo pisan puntualmente con `mockRejectedValueOnce`.
+vi.mock('~/lib/plans-registry', async (importOriginal) => {
+  const actual = await importOriginal<typeof plansRegistry>();
+  return {
+    ...actual,
+    cargarCuerpoPlan: vi.fn(actual.cargarCuerpoPlan),
+  };
+});
 
 /** Monta `PlanDetail` con la ubicación de wouter fijada al path dado. */
 function renderAt(path: string) {
@@ -133,5 +146,68 @@ describe('PlanDetail (página papel 2.4 — La prueba, el lector)', () => {
 
     expect(screen.getByText('Ese plan no está.')).toBeInTheDocument();
     expect(screen.queryByText('Abriendo el expediente…')).not.toBeInTheDocument();
+  });
+
+  it('si cargarCuerpoPlan rechaza, se ve el aviso de fallo y no queda el de carga', async () => {
+    vi.mocked(plansRegistry.cargarCuerpoPlan).mockRejectedValueOnce(
+      new Error('chunk load error'),
+    );
+    renderAt('/planes/planjus');
+
+    expect(await screen.findByText(/Este expediente no abrió\./)).toBeInTheDocument();
+    expect(screen.queryByText('Abriendo el expediente…')).not.toBeInTheDocument();
+  });
+
+  it('el aviso de fallo trae un botón para recargar la página entera', async () => {
+    vi.mocked(plansRegistry.cargarCuerpoPlan).mockRejectedValueOnce(
+      new Error('network blip'),
+    );
+    renderAt('/planes/planjus');
+
+    const boton = await screen.findByRole('button', { name: 'Recargar la página' });
+    expect(boton).toBeInTheDocument();
+
+    // Se puede espiar `reload` sin reemplazar `window.location` entero: en
+    // happy-dom es un método real de instancia, no una navegación nativa que
+    // haya que shimmear. Confirma que el botón está cableado al reload real.
+    const reloadSpy = vi.spyOn(window.location, 'reload').mockImplementation(() => undefined);
+    fireEvent.click(boton);
+    expect(reloadSpy).toHaveBeenCalledTimes(1);
+    reloadSpy.mockRestore();
+  });
+
+  it('al cambiar de código, el cuerpo del plan anterior se saca de pantalla', async () => {
+    const { hook: hookJus } = memoryLocation({ path: '/planes/planjus', static: true });
+    const { rerender } = render(
+      <Router hook={hookJus}>
+        <PlanDetail />
+      </Router>,
+    );
+
+    expect(
+      await screen.findByRole('heading', {
+        name: 'PREÁMBULO — EL DERECHO A UNA JUSTICIA QUE FUNCIONE',
+      }),
+    ).toBeInTheDocument();
+
+    const { hook: hookRuta } = memoryLocation({ path: '/planes/planruta', static: true });
+    rerender(
+      <Router hook={hookRuta}>
+        <PlanDetail />
+      </Router>,
+    );
+
+    // El body del plan viejo ya no está, aunque el nuevo todavía esté en camino.
+    expect(
+      screen.queryByRole('heading', {
+        name: 'PREÁMBULO — EL DERECHO A UNA JUSTICIA QUE FUNCIONE',
+      }),
+    ).not.toBeInTheDocument();
+
+    expect(
+      await screen.findByRole('heading', {
+        name: 'PLANRUTA — Protocolo Nacional de Ruta de Arranque y Disciplina de Portfolio',
+      }),
+    ).toBeInTheDocument();
   });
 });

@@ -31,16 +31,46 @@ function ExpedienteExtraviado() {
  */
 function CuerpoDelPlan({ code }: { code: string }) {
   const [contenido, setContenido] = useState<PlanCuerpo | null>(null);
+  const [fallo, setFallo] = useState(false);
 
   useEffect(() => {
     let vigente = true;
-    void cargarCuerpoPlan(code).then((c) => {
-      if (vigente) setContenido(c);
-    });
+    // Cambió el código: reseteá al estado de carga antes de pedir el cuerpo
+    // nuevo, así el documento anterior no queda pegado bajo la cabecera nueva.
+    setContenido(null);
+    setFallo(false);
+    void cargarCuerpoPlan(code)
+      .then((c) => {
+        if (vigente) setContenido(c);
+      })
+      .catch(() => {
+        if (vigente) setFallo(true);
+      });
     return () => {
       vigente = false;
     };
   }, [code]);
+
+  if (fallo) {
+    return (
+      <div className="py-16 text-center">
+        <p className="font-space text-tinta-50 mb-6 text-[13px] tracking-[0.04em]">
+          Este expediente no abrió. Puede ser la conexión, o que tengas cargada una edición
+          vieja de esta página.
+        </p>
+        <BotonPapel
+          variant="tinta"
+          onClick={() => {
+            // Recarga entera, no un reintento del mismo import(): si el chunk
+            // quedó podado por un deploy nuevo, pedirlo de vuelta falla igual.
+            window.location.reload();
+          }}
+        >
+          Recargar la página
+        </BotonPapel>
+      </div>
+    );
+  }
 
   if (!contenido) {
     return (
