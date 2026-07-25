@@ -1,4 +1,5 @@
 // Schemas + types are isomorphic and safe in the browser.
+export * from './courses.js';
 export * from './frontmatter.js';
 export * from './slug.js';
 
