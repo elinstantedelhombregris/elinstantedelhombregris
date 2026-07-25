@@ -58,6 +58,7 @@ Hoy `tsx` y `vitest` no resuelven desde la raíz de `v2` (`pnpm exec tsx --versi
 
 **Files:**
 - Modify: `package.json` (raíz de `v2`)
+- Modify: `scripts/vitest.config.ts`
 - Modify: `../.github/workflows/v2-ci.yml`
 
 **Interfaces:**
@@ -99,10 +100,16 @@ Expected: instala `tsx` y `vitest` en la raíz; `pnpm-lock.yaml` se actualiza.
 Run: `pnpm exec tsx --version && pnpm exec vitest --version`
 Expected: dos números de versión, sin `Command not found`.
 
-- [ ] **Step 5: Verificar que el runner de scripts arranca**
+- [ ] **Step 5: Anclar el `root` del config de scripts**
+
+`scripts/vitest.config.ts` no declara `root`, y Vitest lo hace default a `process.cwd()` — no al directorio del config. Como `pnpm test:scripts` corre siempre con `cwd = v2/`, su `include: ['content/__tests__/**/*.test.ts']` se resuelve contra `v2/content/__tests__/**`, que no existe, y no encuentra ningún test.
+
+En `scripts/vitest.config.ts`, agregar la resolución de `root` con el mismo idioma que ya usa el repo (`fileURLToPath(new URL(...))`), más un comentario de una línea explicando por qué es explícito. El string del script `test:scripts` no cambia: el arreglo va en el config.
+
+- [ ] **Step 5b: Verificar que el runner de scripts encuentra los tests**
 
 Run: `pnpm test:scripts`
-Expected: vitest arranca y reporta `No test files found` (todavía no hay tests en `scripts/content/__tests__/*.test.ts` fuera de `html-to-md.test.ts`, que sí debe correr y pasar).
+Expected: corre `scripts/content/__tests__/html-to-md.test.ts` (16 tests) y pasa. **No** debe decir `No test files found` — si lo dice, el `root` quedó mal.
 
 - [ ] **Step 6: Cablear CI**
 
@@ -119,7 +126,7 @@ En `../.github/workflows/v2-ci.yml`, en el job `build-and-test`, después del pa
 - [ ] **Step 7: Commit**
 
 ```bash
-git add v2/package.json v2/pnpm-lock.yaml .github/workflows/v2-ci.yml
+git add v2/package.json v2/pnpm-lock.yaml v2/scripts/vitest.config.ts .github/workflows/v2-ci.yml
 git commit -m "chore(v2): tsx y vitest en la raíz + runner de tests de scripts"
 ```
 
