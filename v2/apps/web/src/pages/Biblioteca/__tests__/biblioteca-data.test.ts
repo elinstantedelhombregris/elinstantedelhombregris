@@ -232,14 +232,14 @@ describe('bitácora', () => {
     expect(ULTIMAS_CRONICAS.length).toBeLessThanOrEqual(4);
   });
 
-  it('hrefCronica arma la ruta de blog actual', () => {
-    expect(hrefCronica('x')).toBe('/blog/x');
+  it('hrefCronica arma la ruta de la bitácora (spec 3.4)', () => {
+    expect(hrefCronica('x')).toBe('/bitacora/x');
   });
 });
 
 describe('hrefs de fase', () => {
   it('HREF_MANIFIESTO y HREF_BITACORA apuntan a las superficies vivas de hoy', () => {
     expect(HREF_MANIFIESTO).toBe('/manifiesto');
-    expect(HREF_BITACORA).toBe('/blog');
+    expect(HREF_BITACORA).toBe('/bitacora');
   });
 });

@@ -12,23 +12,38 @@ const PAPEL_ROUTES = new Set([
   '/biblioteca',
   // El frame del redirect a /biblioteca no debe mostrar el chrome v1.
   '/ensayos',
+  '/manifiesto',
+  '/bitacora',
+  // El frame del redirect de /blog a /bitacora no debe mostrar el chrome v1.
+  '/blog',
 ]);
 
 /**
  * Prefijos papel para rutas dinámicas (los anexos del mandato:
  * `/mandato-vivo/pulso/:id` y `/mandato-vivo/propuesta/:id`; los
  * expedientes del catálogo: `/planes/:slug`; el lector de ensayo:
- * `/ensayos/:slug`). El Set de arriba matchea por igualdad exacta — las
- * dinámicas necesitan además un match por prefijo. Excepción sancionada
- * (spec 2.3, Decisión 10: «`PAPEL_ROUTES` aprende prefijos»).
+ * `/ensayos/:slug`; el lector de crónica: `/bitacora/:slug`; las
+ * direcciones viejas: `/blog/:slug`). El Set de arriba matchea por
+ * igualdad exacta — las dinámicas necesitan además un match por prefijo.
+ * Excepción sancionada (spec 2.3, Decisión 10: «`PAPEL_ROUTES` aprende
+ * prefijos»).
  */
-const PAPEL_PREFIXES = ['/mandato-vivo/', '/planes/', '/ensayos/'];
+const PAPEL_PREFIXES = ['/mandato-vivo/', '/planes/', '/ensayos/', '/bitacora/', '/blog/'];
 
 /**
- * ¿La ruta recibe el chrome papel? Igualdad exacta o prefijo dinámico —
- * pura y testeada (separada de `RootLayout.tsx` para no romper la regla
- * de fast-refresh de solo-exportar-componentes).
+ * Rutas que matchean un prefijo de arriba pero NO reciben chrome papel:
+ * `/blog/escribir` es una herramienta de plataforma (Fase 5), no una
+ * crónica — spec 3.4, Decisión 11. Se consulta ANTES que los prefijos.
+ */
+const SIN_PAPEL = new Set(['/blog/escribir']);
+
+/**
+ * ¿La ruta recibe el chrome papel? Igualdad exacta o prefijo dinámico,
+ * salvo excepción explícita — pura y testeada (separada de
+ * `RootLayout.tsx` para no romper la regla de fast-refresh de
+ * solo-exportar-componentes).
  */
 export function esRutaPapel(location: string): boolean {
+  if (SIN_PAPEL.has(location)) return false;
   return PAPEL_ROUTES.has(location) || PAPEL_PREFIXES.some((prefijo) => location.startsWith(prefijo));
 }

@@ -141,9 +141,9 @@ export function numeroDeFila(indice: number): string {
 
 /** Destinos que cambian cuando su fase ship. Hoy apuntan a la superficie que EXISTE. */
 export const HREF_MANIFIESTO = '/manifiesto'; // 3.3 lo rediseña; la ruta NO cambia.
-export const HREF_BITACORA = '/blog'; //         3.4 → '/bitacora'
+export const HREF_BITACORA = '/bitacora';
 export function hrefCronica(slug: string): string {
-  return `/blog/${slug}`; //                      3.4 → `/bitacora/${slug}`
+  return `/bitacora/${slug}`;
 }
 
 export const CRONICA_COUNT = BLOG_POSTS.length;

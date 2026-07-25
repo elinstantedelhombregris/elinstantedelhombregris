@@ -104,13 +104,13 @@ const EnsayoDetail = lazy(async () => {
   const m = await import('~/pages/EnsayoDetail');
   return { default: m.EnsayoDetail };
 });
-const Blog = lazy(async () => {
-  const m = await import('~/pages/Blog');
-  return { default: m.Blog };
+const Bitacora = lazy(async () => {
+  const m = await import('~/pages/Bitacora');
+  return { default: m.Bitacora };
 });
-const BlogPostDetail = lazy(async () => {
-  const m = await import('~/pages/BlogPostDetail');
-  return { default: m.BlogPostDetail };
+const BitacoraDetail = lazy(async () => {
+  const m = await import('~/pages/BitacoraDetail');
+  return { default: m.BitacoraDetail };
 });
 const Community = lazy(async () => {
   const m = await import('~/pages/Community');
@@ -272,9 +272,16 @@ export function App() {
                 <Redirect to="/biblioteca" replace />
               </Route>
               <Route path="/ensayos/:slug" component={EnsayoDetail} />
-              <Route path="/blog" component={Blog} />
+              <Route path="/bitacora" component={Bitacora} />
+              <Route path="/bitacora/:slug" component={BitacoraDetail} />
+              {/* Direcciones v1: el camino cambia acá, el slug lo resuelve el lector. */}
+              <Route path="/blog">
+                <Redirect to="/bitacora" replace />
+              </Route>
               <Route path="/blog/escribir" component={BlogAuthor} />
-              <Route path="/blog/:slug" component={BlogPostDetail} />
+              <Route path="/blog/:slug">
+                {(params) => <Redirect to={`/bitacora/${params.slug}`} replace />}
+              </Route>
               <Route path="/comunidad" component={Community} />
               <Route path="/notificaciones" component={Notifications} />
 

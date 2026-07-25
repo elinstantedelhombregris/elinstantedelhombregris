@@ -19,6 +19,25 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/ensayos/presidencia')).toBe(true);
   });
 
+  it('matchea el manifiesto y la bitácora (spec 3.3/3.4, T8)', () => {
+    expect(esRutaPapel('/manifiesto')).toBe(true);
+    expect(esRutaPapel('/bitacora')).toBe(true);
+    expect(esRutaPapel('/bitacora/quien-tiene-el-timon')).toBe(true);
+  });
+
+  it('NO matchea una ruta que solo comparte el prefijo de texto de /bitacora sin la barra', () => {
+    expect(esRutaPapel('/bitacoraque')).toBe(false);
+  });
+
+  it('matchea /blog y sus crónicas — es el frame del redirect a /bitacora (spec 3.4)', () => {
+    expect(esRutaPapel('/blog')).toBe(true);
+    expect(esRutaPapel('/blog/lo-que-sea')).toBe(true);
+  });
+
+  it('NO matchea /blog/escribir — herramienta de plataforma, no crónica (spec 3.4, Decisión 11)', () => {
+    expect(esRutaPapel('/blog/escribir')).toBe(false);
+  });
+
   it('NO matchea una ruta que solo comparte el prefijo de texto de /ensayos sin la barra', () => {
     expect(esRutaPapel('/ensayosque')).toBe(false);
   });
@@ -47,7 +66,6 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
   });
 
   it('NO matchea rutas v1 sin migrar', () => {
-    expect(esRutaPapel('/blog')).toBe(false);
     expect(esRutaPapel('/ingresar')).toBe(false);
     expect(esRutaPapel('/cuaderno')).toBe(false);
   });

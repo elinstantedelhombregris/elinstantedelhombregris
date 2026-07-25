@@ -7,6 +7,8 @@ import {
   CICLO_COUNT,
   CRONICA_COUNT,
   ENSAYO_COUNT,
+  HREF_BITACORA,
+  hrefCronica,
   ULTIMAS_CRONICAS,
 } from '~/pages/Biblioteca/biblioteca-data';
 
@@ -55,12 +57,12 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     const verEntera = screen.getByRole('link', {
       name: `Ver la bitácora entera · ${String(CRONICA_COUNT)} crónicas →`,
     });
-    expect(verEntera).toHaveAttribute('href', '/blog');
+    expect(verEntera).toHaveAttribute('href', HREF_BITACORA);
 
     for (const post of ULTIMAS_CRONICAS) {
       const titulo = screen.getByText(post.title);
       const enlace = titulo.closest('a');
-      expect(enlace).toHaveAttribute('href', `/blog/${post.slug}`);
+      expect(enlace).toHaveAttribute('href', hrefCronica(post.slug));
       if (enlace && post.category !== '') {
         expect(within(enlace).getByText(post.category)).toBeInTheDocument();
       }
