@@ -2,7 +2,13 @@ import { CRONICA_COUNT, DESDE } from '../bitacora-data';
 
 import { Kicker, RitoTinta } from '~/components/papel/primitives';
 
-/** El índice (spec 3.4) — portada del índice, rito de la tinta en el H1. */
+/**
+ * El índice (spec 3.4) — portada del índice, rito de la tinta en el H1.
+ *
+ * El lead NO lleva conteo: «N crónicas enteras» se leía como colección
+ * cerrada y la bitácora se sigue escribiendo. El número vivo queda donde
+ * es dato de índice y no promesa: el kicker de acá arriba.
+ */
 export function PortadaBitacora() {
   return (
     <section className="mx-auto max-w-[1100px] px-10 pb-12 pt-16 max-[560px]:px-5">
@@ -19,8 +25,8 @@ export function PortadaBitacora() {
         className="anim-fadeup text-tinta-75 max-w-[620px] text-pretty text-[17px] leading-[1.6]"
         style={{ animationDelay: '0.9s' }}
       >
-        Lo que se piensa, lo que se prueba y lo que todavía no cierra. {CRONICA_COUNT} crónicas
-        enteras, sin registro y sin recorte. Están en orden, pero se leen en cualquiera.
+        Lo que se piensa, lo que se prueba y lo que todavía no cierra. Crónicas enteras, sin
+        registro y sin recorte. Están en orden, pero se leen en cualquiera.
       </p>
     </section>
   );

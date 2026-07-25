@@ -26,13 +26,14 @@ describe('Bitacora (página papel 3.4 — el índice, composer)', () => {
     expect(backlink).toHaveAttribute('href', '/biblioteca');
   });
 
-  it('el lead trae el conteo real y cierra con la línea de la spec', () => {
+  it('el lead cierra con la línea de la spec y NO cuenta las crónicas', () => {
     render(<Bitacora />);
 
-    expect(
-      screen.getByText(new RegExp(`${String(CRONICA_COUNT)} crónicas enteras`)),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/Están en orden, pero se leen en cualquiera\.$/)).toBeInTheDocument();
+    const lead = screen.getByText(/Están en orden, pero se leen en cualquiera\.$/);
+    expect(lead).toBeInTheDocument();
+    // La bitácora se sigue escribiendo: el lead no puede afirmar un total.
+    expect(lead.textContent).toMatch(/Crónicas enteras, sin registro y sin recorte\./);
+    expect(lead.textContent).not.toMatch(/\d/);
   });
 
   it('un h2 por año con el conteo real, singular cuando corresponde', () => {
