@@ -7,6 +7,8 @@ export interface BlogSource {
 
 // Synthetic publishedAt: staggered weekly, newest first. Tune by hand.
 export const BLOG_SOURCES: readonly BlogSource[] = [
+  { slug: 'cules-deberan-ser-nuestros-parmetros', publishedAt: '2026-05-14T00:00:00Z', category: 'autogobierno', tags: ['parametros', 'gobernarse', 'autoconocimiento', 'atencion'] },
+  { slug: 'contra-quin-ests-peleando-en-serio', publishedAt: '2026-05-07T00:00:00Z', category: 'polaridad', tags: ['polaridad', 'grieta', 'atencion', 'accion'] },
   { slug: 'el-cansancio-sagrado-por-qu-ya-no-podemos-esperar', publishedAt: '2026-04-30T00:00:00Z', category: 'diagnostico', tags: ['lucidez', 'agotamiento', 'diseno-social'] },
   { slug: 'la-amabilidad-como-ingeniera-social', publishedAt: '2026-04-23T00:00:00Z', category: 'ingenieria-social', tags: ['amabilidad', 'confianza', 'cultura-civica'] },
   { slug: 'diseo-idealizado-la-argentina-posible', publishedAt: '2026-04-16T00:00:00Z', category: 'diseno', tags: ['argentina', 'diseno-idealizado', 'metodo'] },

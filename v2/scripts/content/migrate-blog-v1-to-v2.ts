@@ -1,6 +1,10 @@
 /**
- * One-shot: migrate the 19 v1 blog posts (SocialJusticeHub/shared/blogContent.ts
- * `blogContentUpdates`) into v2 MDX under v2/content/blog/.
+ * One-shot: migrate the v1 blog posts listed in BLOG_SOURCES (21 of v1's 22 —
+ * SocialJusticeHub/shared/blogContent.ts `blogContentUpdates`) into v2 MDX
+ * under v2/content/blog/. The 22nd v1 post, "¿Quién tiene el timón?", is
+ * intentionally excluded: v2/content/blog/quien-tiene-el-timon.mdx already
+ * covers that title as a hand-authored v2-native rewrite (see commit
+ * bc804a5), not a verbatim migration, so it isn't tracked here.
  *
  * For each BlogSource (in array order):
  *   - Looks up the v1 entry by slug; collects misses into missing[].

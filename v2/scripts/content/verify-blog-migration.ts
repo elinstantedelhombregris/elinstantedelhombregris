@@ -3,7 +3,8 @@
  * its frontmatter survives the unquoting logic the downstream registry uses.
  *
  * For each v2/content/blog/<slug>.mdx:
- *   - exactly BLOG_SOURCES.length files, one per source slug
+ *   - exactly BLOG_SOURCES.length + NATIVE_BLOG_SLUGS.length files: one per
+ *     source slug, plus any declared v2-native (non-migrated) posts
  *   - filename basename === frontmatter slug
  *   - required frontmatter keys present, typed/shaped correctly
  *   - tags is a non-empty YAML block list
@@ -24,6 +25,17 @@ import { BLOG_SOURCES } from './blog-sources';
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const V2_ROOT = resolve(SCRIPT_DIR, '../..');
 const BLOG_DIR = resolve(V2_ROOT, 'content/blog');
+
+/**
+ * v1 had 22 blog posts total (SocialJusticeHub/shared/blogContent.ts).
+ * BLOG_SOURCES tracks 21 of them, migrated verbatim by migrate-blog-v1-to-v2.ts.
+ * The 22nd, "¿Quién tiene el timón?", was superseded by a hand-authored
+ * v2-native post under this slug (see commit bc804a5) — same title, rewritten
+ * text — so it was never a verbatim migration and isn't a BlogSource. It's
+ * still a real, published post, so the directory legitimately has one more
+ * file than BLOG_SOURCES tracks.
+ */
+const NATIVE_BLOG_SLUGS = ['quien-tiene-el-timon'] as const;
 
 const REQUIRED_KEYS = [
   'slug',
@@ -202,10 +214,12 @@ function main(): void {
     .filter((f) => f.endsWith('.mdx'))
     .sort();
 
-  // Check 1: file count === BLOG_SOURCES.length.
-  if (files.length !== BLOG_SOURCES.length) {
+  // Check 1: file count === BLOG_SOURCES.length + known native (non-migrated) posts.
+  const expectedCount = BLOG_SOURCES.length + NATIVE_BLOG_SLUGS.length;
+  if (files.length !== expectedCount) {
     failures.push(
-      `FAIL file count mismatch: found ${String(files.length)} .mdx, expected ${String(BLOG_SOURCES.length)}`,
+      `FAIL file count mismatch: found ${String(files.length)} .mdx, expected ${String(expectedCount)} ` +
+        `(${String(BLOG_SOURCES.length)} BLOG_SOURCES + ${String(NATIVE_BLOG_SLUGS.length)} native)`,
     );
   }
 
@@ -214,6 +228,13 @@ function main(): void {
   for (const src of BLOG_SOURCES) {
     if (!fileSlugs.has(src.slug)) {
       failures.push(`FAIL source slug has no MDX file: ${src.slug}`);
+    }
+  }
+
+  // Check 2b: every declared native slug also has a corresponding file.
+  for (const slug of NATIVE_BLOG_SLUGS) {
+    if (!fileSlugs.has(slug)) {
+      failures.push(`FAIL declared native slug has no MDX file: ${slug}`);
     }
   }
 
