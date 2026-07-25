@@ -78,12 +78,18 @@ export function partirDocumentoPlan(raw: string): DocumentoPartido {
       ? lineas.slice(0, inicioParches)
       : lineas.slice(finCabecera + 1, inicioParches);
 
-  const cuerpo = [...antes, ...despues]
-    .join('\n')
-    // El separador que quedaba pegado a la cabecera no debe dejar dos `---` juntos.
-    .replace(/\n{3,}/g, '\n\n')
-    .replace(/(^|\n)---\n+---(\n|$)/g, '$1---$2')
-    .trim();
+  // Cerramos solo la costura donde se sacó la cabecera: recortamos líneas en
+  // blanco sobrantes en cada punta y unimos con un único blanco de por medio.
+  // Nunca tocamos el resto del cuerpo — un regex global sobre todo el texto
+  // (como hacía antes) borra separadores `---` que son estructura real del
+  // documento, no artefactos del corte.
+  while (antes.length > 0 && (antes[antes.length - 1] ?? '').trim() === '') antes.pop();
+  while (despues.length > 0 && (despues[0] ?? '').trim() === '') despues.shift();
+
+  const cuerpo =
+    antes.length > 0 && despues.length > 0
+      ? [...antes, '', ...despues].join('\n').trim()
+      : [...antes, ...despues].join('\n').trim();
 
   return { cabecera, cuerpo, parches };
 }

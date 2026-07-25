@@ -111,4 +111,22 @@ describe('partirDocumentoPlan', () => {
       );
     }
   });
+
+  it('no pierde ni duplica contenido: los 23 documentos conservan todas sus líneas no vacías', () => {
+    const noVacias = (s: string) =>
+      s
+        .split('\n')
+        .map((l) => l.trim())
+        .filter((l) => l !== '');
+
+    for (const archivo of archivosCorpus) {
+      const raw = readFileSync(resolve(CORPUS, archivo), 'utf8');
+      const { cabecera, cuerpo, parches } = partirDocumentoPlan(raw);
+
+      const original = [...noVacias(raw)].sort();
+      const partido = [...noVacias(cabecera), ...noVacias(cuerpo), ...noVacias(parches)].sort();
+
+      expect(partido, `${archivo}: el split perdió o duplicó líneas`).toEqual(original);
+    }
+  });
 });
