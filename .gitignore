@@ -66,3 +66,10 @@ backend.log
 # Superpowers scratch data
 .superpowers/
 
+
+# Python caches (scripts/media render tooling)
+__pycache__/
+*.pyc
+
+# Local Obsidian vault accidentally created inside the repo
+/ElInstantedelHombreGris/

@@ -79,3 +79,6 @@ Thumbs.db
 # Bundle stats
 stats.html
 .size-limit/
+
+# Design handoff archives dropped at the workspace root
+/*.zip
