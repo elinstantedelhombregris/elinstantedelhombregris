@@ -177,7 +177,7 @@ Presupuesto: **una interacción firma por página**; el resto entra con `fadeup`
 
 ## 8. Anatomía del sitio (mapa de páginas)
 
-`Inicio → La idea (3 capítulos, despertar gris→color) → El mapa (soltar voz) → El mandato (oscura + documento papel) → La prueba (22 planes, filtros) → La biblioteca (manifiesto + 21 ensayos en 3 ciclos + 6 entrenamientos curados (catálogo completo de 30 detrás de «ver todos») + bitácora) → lectores (ensayo/curso/crónica/manifiesto) → Sembrar (3 pasos → certificado semilla)`
+`Inicio → La idea (3 capítulos, despertar gris→color) → El mapa (soltar voz) → El mandato (oscura + documento papel) → La prueba (22 planes, filtros) → La biblioteca (manifiesto + 21 ensayos en 3 ciclos + 6 entrenamientos curados (catálogo completo detrás de «ver todos» — el número lo dice el registry, nunca el texto) + bitácora) → lectores (ensayo/curso/crónica/manifiesto) → Sembrar (3 pasos → certificado semilla)`
 Header fijo: wordmark + contador FOMO + nav mono + CTA «Sembrar tu voz». Footer: wordmark outline + recorrido + principios + CTA. Conversión primaria: **dejar la voz en el mapa**; secundaria: plantar la semilla.
 
 ## 9. Reglas de implementación
