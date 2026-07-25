@@ -3,14 +3,17 @@ import { describe, expect, it } from 'vitest';
 
 import { Biblioteca } from '../Biblioteca';
 
+import { CURSO_COUNT } from '~/lib/courses-registry';
 import {
   CICLO_COUNT,
   CRONICA_COUNT,
+  CURSOS_DESTACADOS,
   ENSAYO_COUNT,
   HREF_BITACORA,
   hrefCronica,
   ULTIMAS_CRONICAS,
 } from '~/pages/Biblioteca/biblioteca-data';
+import { rotuloNivel } from '~/pages/Entrenamientos/entrenamientos-data';
 
 /**
  * Biblioteca.test.tsx — composer del hub papel 3.1. Ningún literal de
@@ -79,11 +82,33 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     expect(cta).toHaveAttribute('href', '/el-mapa');
   });
 
-  it('la deferral de entrenamientos queda pineada: la sección no se monta hasta 3.5', () => {
+  it('monta la vidriera de entrenamientos: curados reales, catálogo completo detrás', () => {
     render(<Biblioteca />);
 
-    expect(screen.queryByText(/entrenamiento/i)).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /entrenamientos/i })).not.toBeInTheDocument();
+    expect(screen.getByText('Entrenamiento · el ojo se educa')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Para diseñar un país, primero entrená la mirada.' }),
+    ).toBeInTheDocument();
+
+    for (const curso of CURSOS_DESTACADOS) {
+      const titulo = screen.getByText(curso.title);
+      const celda = titulo.closest('a');
+      expect(celda).toHaveAttribute('href', `/entrenamientos/${curso.slug}`);
+      if (!celda) continue;
+      expect(within(celda).getByText(rotuloNivel(curso.level))).toBeInTheDocument();
+      expect(within(celda).getByText(`${String(curso.duration)} min`)).toBeInTheDocument();
+      expect(within(celda).getByText(curso.excerpt)).toBeInTheDocument();
+      expect(
+        within(celda).getByText(`${String(curso.lecciones.length)} lecciones · Empezar →`),
+      ).toBeInTheDocument();
+    }
+
+    const verTodos = screen.getByRole('link', {
+      name: `Ver los ${String(CURSO_COUNT)} entrenamientos →`,
+    });
+    expect(verTodos).toHaveAttribute('href', '/entrenamientos');
+
+    expect(screen.getByText(/los entrenamientos/)).toBeInTheDocument();
   });
 
   it('mata el chrome v1-port: sin header serif viejo, sin glass/gradient-text/iris-violet/font-serif', () => {

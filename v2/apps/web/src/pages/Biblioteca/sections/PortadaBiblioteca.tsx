@@ -18,8 +18,8 @@ export function PortadaBiblioteca() {
         style={{ animationDelay: '0.9s' }}
       >
         Todo lo que el movimiento piensa está publicado entero: el manifiesto, {ENSAYO_COUNT}{' '}
-        ensayos en {CICLO_COUNT} ciclos y la bitácora de lo que va pasando. Sin paywall, sin
-        registro. Robate todo.
+        ensayos en {CICLO_COUNT} ciclos, los entrenamientos y la bitácora de lo que va pasando.
+        Sin paywall, sin registro. Robate todo.
       </p>
     </section>
   );

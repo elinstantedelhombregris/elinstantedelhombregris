@@ -1,4 +1,5 @@
 import { BLOG_POSTS } from '~/lib/blog-registry';
+import { CURSOS } from '~/lib/courses-registry';
 import { ENSAYOS, type EnsayoEntry } from '~/lib/ensayos-registry';
 
 /**
@@ -150,3 +151,8 @@ export const CRONICA_COUNT = BLOG_POSTS.length;
 /** Tope de display del hub (especimen): las últimas 4. No afirma nada del total. */
 const CRONICAS_EN_EL_HUB = 4;
 export const ULTIMAS_CRONICAS = BLOG_POSTS.slice(0, CRONICAS_EN_EL_HUB);
+
+/** Tope de display de la vidriera (§8/D4): 6 curados. El catálogo tiene todos. */
+const DESTACADOS_EN_EL_HUB = 6;
+/** Curación real del contenido: `isFeatured` + el recorrido del autor (`orderIndex`). */
+export const CURSOS_DESTACADOS = CURSOS.filter((c) => c.isFeatured).slice(0, DESTACADOS_EN_EL_HUB);

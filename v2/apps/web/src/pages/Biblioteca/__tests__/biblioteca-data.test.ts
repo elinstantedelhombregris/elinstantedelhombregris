@@ -4,6 +4,7 @@ import {
   CICLO_COUNT,
   CICLOS,
   CRONICA_COUNT,
+  CURSOS_DESTACADOS,
   ENSAYO_COUNT,
   HREF_BITACORA,
   HREF_MANIFIESTO,
@@ -17,6 +18,7 @@ import {
 } from '../biblioteca-data';
 
 import { BLOG_POSTS } from '~/lib/blog-registry';
+import { CURSOS } from '~/lib/courses-registry';
 import { ENSAYOS, type EnsayoEntry } from '~/lib/ensayos-registry';
 
 /**
@@ -241,5 +243,22 @@ describe('hrefs de fase', () => {
   it('HREF_MANIFIESTO y HREF_BITACORA apuntan a las superficies vivas de hoy', () => {
     expect(HREF_MANIFIESTO).toBe('/manifiesto');
     expect(HREF_BITACORA).toBe('/bitacora');
+  });
+});
+
+describe('vidriera de entrenamientos (curación 3.5 → 3.1)', () => {
+  it('CURSOS_DESTACADOS son los primeros 6 isFeatured por orderIndex', () => {
+    const esperado = CURSOS.filter((c) => c.isFeatured)
+      .slice()
+      .sort((a, b) => a.orderIndex - b.orderIndex)
+      .slice(0, 6);
+    expect(CURSOS_DESTACADOS).toEqual(esperado);
+  });
+
+  it('tiene a lo sumo 6 elementos y ninguno con isFeatured === false', () => {
+    expect(CURSOS_DESTACADOS.length).toBeLessThanOrEqual(6);
+    for (const curso of CURSOS_DESTACADOS) {
+      expect(curso.isFeatured).toBe(true);
+    }
   });
 });
