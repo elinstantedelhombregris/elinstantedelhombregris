@@ -10,6 +10,7 @@ import {
   CURSOS_DESTACADOS,
   ENSAYO_COUNT,
   HREF_BITACORA,
+  HREF_CRONICA_PAIS_QUE_VIENE,
   hrefCronica,
   ULTIMAS_CRONICAS,
 } from '~/pages/Biblioteca/biblioteca-data';
@@ -109,6 +110,27 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     expect(verTodos).toHaveAttribute('href', '/entrenamientos');
 
     expect(screen.getByText(/los entrenamientos/)).toBeInTheDocument();
+  });
+
+  it('abre la puerta a la crónica del país que viene, entre entrenamientos y bitácora (D9)', () => {
+    const { container } = render(<Biblioteca />);
+
+    const link = screen.getByText('La crónica del país que viene').closest('a');
+    expect(link).toHaveAttribute('href', HREF_CRONICA_PAIS_QUE_VIENE);
+    expect(link).toHaveTextContent('Ficción especulativa');
+    expect(link).toHaveTextContent(
+      'No es una predicción. Es un ejercicio para ver que otro camino es posible.',
+    );
+    expect(link).toHaveTextContent('Leer la crónica →');
+
+    const encabezados = [...container.querySelectorAll('h2')].map((h) => h.textContent);
+    const indiceEntrenamientos = encabezados.findIndex((t) => t.includes('Para diseñar un país,'));
+    const indiceCronica = encabezados.findIndex((t) => t.includes('La crónica del país que viene'));
+    const indiceBitacora = encabezados.findIndex((t) => t.includes('Bitácora · lo que va pasando'));
+
+    expect(indiceEntrenamientos).toBeGreaterThanOrEqual(0);
+    expect(indiceCronica).toBeGreaterThan(indiceEntrenamientos);
+    expect(indiceCronica).toBeLessThan(indiceBitacora);
   });
 
   it('mata el chrome v1-port: sin header serif viejo, sin glass/gradient-text/iris-violet/font-serif', () => {

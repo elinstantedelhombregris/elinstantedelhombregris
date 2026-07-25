@@ -143,6 +143,11 @@ export function numeroDeFila(indice: number): string {
 /** Destinos que cambian cuando su fase ship. Hoy apuntan a la superficie que EXISTE. */
 export const HREF_MANIFIESTO = '/manifiesto'; // 3.3 lo rediseña; la ruta NO cambia.
 export const HREF_BITACORA = '/bitacora';
+/** /cronica (la novela, no las crónicas de la bitácora — ver CRONICA_COUNT/
+ *  hrefCronica más abajo) es una ruta estática nueva: no cambia de fase, pero
+ *  centralizarla acá mantiene un solo lugar para todos los destinos salientes
+ *  del hub. */
+export const HREF_CRONICA_PAIS_QUE_VIENE = '/cronica';
 export function hrefCronica(slug: string): string {
   return `/bitacora/${slug}`;
 }
