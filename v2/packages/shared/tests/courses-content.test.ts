@@ -59,6 +59,24 @@ const preguntaMcEtiqueta: QuizQuestionJson = {
   orderIndex: 1,
 };
 
+// Forma real hallada en content/courses/liderazgo-distribuido/quiz.json,
+// orderIndex 4: las 4 opciones vienen envueltas en comillas literales pero
+// `correctAnswer` repite el mismo texto sin ellas.
+const preguntaMcEtiquetaConComillasEnvolventes: QuizQuestionJson = {
+  question: 'Usando el método SBI, ¿cuál sería el feedback más efectivo?',
+  type: 'multiple_choice',
+  options: [
+    '"Siempre llegás tarde, sos un irresponsable"',
+    '"En las últimas tres reuniones llegaste 30 minutos tarde"',
+    '"No pasa nada, cada uno tiene sus tiempos"',
+    '"Si no podés llegar a horario, mejor no vengas"',
+  ],
+  correctAnswer: 'En las últimas tres reuniones llegaste 30 minutos tarde',
+  explanation: 'El método SBI describe Situación, Comportamiento e Impacto sin atacar a la persona.',
+  points: 1,
+  orderIndex: 4,
+};
+
 const preguntaTfSinOpciones: QuizQuestionJson = {
   question: 'El "activismo de sofá" genera cambios reales equivalentes a la acción comunitaria.',
   type: 'true_false',
@@ -159,6 +177,14 @@ describe('normalizarPregunta', () => {
     const r = normalizarPregunta(preguntaTfConOpciones);
     expect(r?.opciones).toEqual(['Verdadero', 'Falso']);
     expect(r?.correcta).toBe(1);
+  });
+
+  it('multiple_choice + etiqueta envuelta en comillas literales en las opciones → resuelve igual (opciones intactas)', () => {
+    const r = normalizarPregunta(preguntaMcEtiquetaConComillasEnvolventes);
+    expect(r).not.toBeNull();
+    expect(r?.correcta).toBe(1);
+    // `opciones` es verbatim: las comillas del archivo no se tocan.
+    expect(r?.opciones[1]).toBe(preguntaMcEtiquetaConComillasEnvolventes.options?.[1]);
   });
 
   it('multiple_choice + etiqueta que no está entre las opciones → null', () => {

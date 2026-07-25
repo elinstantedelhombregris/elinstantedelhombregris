@@ -75,6 +75,21 @@ export interface PreguntaNormalizada {
 const VERDADERO = 'Verdadero';
 const FALSO = 'Falso';
 
+/** Comillas envolventes — rectas o tipográficas — al inicio/fin de un string. */
+const COMILLAS_INICIO = /^["“”]+/;
+const COMILLAS_FIN = /["“”]+$/;
+
+/**
+ * Quita comillas que envuelven el string entero. Algunas opciones v1 quedaron
+ * escritas como «"texto"» (comilla literal adentro del JSON) mientras
+ * `correctAnswer` repite el mismo texto sin ellas — un solo caso real hoy
+ * (`content/courses/liderazgo-distribuido/quiz.json`, orderIndex 4), pero es
+ * una forma del contenido, no algo que se cure editando el archivo.
+ */
+function sinComillasEnvolventes(s: string): string {
+  return s.replace(COMILLAS_INICIO, '').replace(COMILLAS_FIN, '');
+}
+
 /**
  * Traduce las cuatro formas de `correctAnswer` a una sola. Devuelve `null`
  * cuando no resuelve — y `null` es un error de build (build-content), nunca
@@ -97,8 +112,13 @@ export function normalizarPregunta(q: QuizQuestionJson): PreguntaNormalizada | n
     return q.correctAnswer < opciones.length ? { ...base, opciones, correcta: q.correctAnswer } : null;
   }
   if (typeof q.correctAnswer === 'string') {
-    const i = opciones.indexOf(q.correctAnswer);
-    return i === -1 ? null : { ...base, opciones, correcta: i };
+    const iExacto = opciones.indexOf(q.correctAnswer);
+    if (iExacto !== -1) return { ...base, opciones, correcta: iExacto };
+    // Fallback tolerante: compara ignorando comillas envolventes en cualquiera
+    // de los dos lados. `opciones` nunca se reescribe — el contenido es verbatim.
+    const correctaSinComillas = sinComillasEnvolventes(q.correctAnswer);
+    const iTolerante = opciones.findIndex((o) => sinComillasEnvolventes(o) === correctaSinComillas);
+    return iTolerante === -1 ? null : { ...base, opciones, correcta: iTolerante };
   }
   return null;
 }
