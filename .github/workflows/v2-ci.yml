@@ -56,6 +56,9 @@ jobs:
       - name: Script tests
         run: pnpm test:scripts
 
+      - name: Guardia del índice de planes
+        run: pnpm planes:check
+
       - name: Build all workspaces
         env:
           DATABASE_URL: postgres://placeholder:placeholder@localhost:5432/placeholder
