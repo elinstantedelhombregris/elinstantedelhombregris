@@ -1,0 +1,161 @@
+{
+  "title": "Quiz: Fundamentos de Pensamiento, Comprensión y Aprendizaje",
+  "description": "Evaluá tu comprensión de los conceptos fundamentales del curso.",
+  "passingScore": 70,
+  "timeLimit": 20,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 8,
+  "questions": [
+    {
+      "question": "¿Cuál es la diferencia principal entre eficiencia y efectividad?",
+      "type": "multiple_choice",
+      "options": [
+        "No hay diferencia, son sinónimos",
+        "Eficiencia es hacer las cosas bien, efectividad es hacer las cosas correctas",
+        "Eficiencia es hacer las cosas correctas, efectividad es hacerlas rápido",
+        "Eficiencia requiere más recursos que efectividad"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La eficiencia se enfoca en hacer las cosas bien (los primeros cuatro niveles de la jerarquía mental), mientras que la efectividad requiere sabiduría para evaluar si vale la pena hacer algo en primer lugar.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 73
+    },
+    {
+      "question": "Un sistema se diferencia de una colección porque tiene elementos interconectados que trabajan juntos para un propósito.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Exacto. Un sistema tiene elementos, interconexiones y un propósito. Cambiar un elemento afecta a todo el sistema, a diferencia de una colección donde podés agregar o quitar elementos sin mucho cambio.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 74
+    },
+    {
+      "question": "¿Cuál es la diferencia clave entre crecimiento y desarrollo?",
+      "type": "multiple_choice",
+      "options": [
+        "El crecimiento es cualitativo y el desarrollo es cuantitativo",
+        "El crecimiento es sobre ganar (earning), el desarrollo es sobre aprender (learning)",
+        "El crecimiento requiere más tiempo que el desarrollo",
+        "No hay diferencia significativa"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El crecimiento es un aumento cuantitativo (más tamaño, más cantidad), mientras que el desarrollo es un aumento cualitativo en la capacidad de usar efectivamente los recursos disponibles.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 75
+    },
+    {
+      "question": "Un \"mess\" es simplemente un problema grande.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Un mess no es un problema grande, sino un sistema de problemas interconectados. Los problemas individuales son abstracciones que extraemos de la realidad, pero la realidad misma son sistemas de problemas interactuando.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 76
+    },
+    {
+      "question": "¿Por qué aprendemos más de los errores que de los aciertos?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque los errores son más memorables",
+        "Porque cuando hacemos algo bien solo confirmamos lo que ya sabíamos, cuando hacemos algo mal tenemos oportunidad de aprender algo nuevo",
+        "Porque los errores generan más emociones",
+        "Porque es más fácil recordar lo negativo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cuando hacemos algo bien, solo confirmamos conocimiento existente. Cuando hacemos algo mal, tenemos la oportunidad de identificar qué salió mal, entender por qué, corregirlo y aprender algo nuevo en el proceso.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 77
+    },
+    {
+      "question": "La planificación interactiva se diferencia de la reactiva porque planifica desde el futuro deseado hacia el presente.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Correcto. La planificación reactiva mira el pasado, la preactiva intenta predecir el futuro, pero la interactiva diseña el futuro deseado y trabaja hacia atrás desde ahí.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 78
+    },
+    {
+      "question": "¿Qué es el diseño idealizado?",
+      "type": "multiple_choice",
+      "options": [
+        "Diseñar con todas las restricciones actuales en mente",
+        "Diseñar un sistema ideal sin restricciones, y luego trabajar hacia atrás para hacerlo realidad",
+        "Diseñar solo lo que es fácil de implementar",
+        "Copiar diseños exitosos de otros lugares"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El diseño idealizado te permite liberar tu creatividad diseñando primero lo ideal sin preocuparte por restricciones, y luego trabajar hacia atrás para ver cómo hacerlo realidad.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 79
+    },
+    {
+      "question": "La autoridad circular significa que la autoridad fluye solo hacia abajo, del jefe a los empleados.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La autoridad circular significa que cada persona con autoridad sobre otros está sujeta a la autoridad colectiva de esos otros. La autoridad fluye hacia arriba colectivamente y hacia abajo individualmente.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 80
+    },
+    {
+      "question": "¿Cuál debería ser el rol principal de la tecnología en el trabajo humano?",
+      "type": "multiple_choice",
+      "options": [
+        "Reemplazar completamente a los humanos",
+        "Amplificar las capacidades humanas y liberar tiempo para trabajo de mayor valor",
+        "Reducir los costos laborales",
+        "Eliminar la necesidad de creatividad humana"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La tecnología debería ser una herramienta que amplifica capacidades humanas, automatiza lo repetitivo para liberar tiempo para trabajo creativo y estratégico, y facilita el aprendizaje y la colaboración.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 81
+    },
+    {
+      "question": "En la jerarquía del contenido mental, la sabiduría se encuentra en el nivel más alto porque evalúa el valor y la efectividad de los resultados.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Correcto. La jerarquía va desde datos (más básico) hasta sabiduría (más valioso). La sabiduría implica juicio sobre si vale la pena hacer algo, no solo cómo hacerlo bien.",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": 82
+    },
+    {
+      "question": "¿Qué caracteriza a un punto de apalancamiento en un sistema?",
+      "type": "multiple_choice",
+      "options": [
+        "Requiere muchos recursos para implementar",
+        "Un cambio pequeño en un lugar estratégico puede generar cambios grandes en todo el sistema",
+        "Solo afecta una parte del sistema",
+        "Es fácil de identificar sin análisis"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los puntos de apalancamiento son lugares estratégicos donde una intervención pequeña puede generar cambios desproporcionadamente grandes en todo el sistema.",
+      "points": 2,
+      "orderIndex": 11,
+      "legacyQuestionId": 83
+    },
+    {
+      "question": "Los errores de omisión son más fáciles de reconocer que los errores de comisión porque hay evidencia visible de lo que perdimos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Al revés. Los errores de omisión son más difíciles de reconocer porque no hay evidencia visible de lo que perdimos al no hacer algo. Los errores de comisión tienen evidencia clara de lo que salió mal.",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": 84
+    }
+  ]
+}

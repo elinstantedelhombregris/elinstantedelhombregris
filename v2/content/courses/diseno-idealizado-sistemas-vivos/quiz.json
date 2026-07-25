@@ -1,0 +1,141 @@
+{
+  "title": "Quiz: Diseño Idealizado de Sistemas Vivos",
+  "description": "Evalúa tu comprensión de los principios de diseño idealizado y pensamiento sistémico.",
+  "passingScore": 75,
+  "timeLimit": 30,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 5,
+  "questions": [
+    {
+      "question": "¿Qué revela el flujo energético de un sistema?",
+      "type": "multiple_choice",
+      "options": [
+        "Solo la cantidad de recursos disponibles",
+        "La salud y eficiencia del sistema",
+        "El número de personas en el sistema",
+        "La antigüedad del sistema"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El flujo energético revela la salud y eficiencia del sistema. Un sistema saludable tiene energía que fluye libremente, mientras que uno enfermo la bloquea o fuga.",
+      "points": 3,
+      "orderIndex": 1,
+      "legacyQuestionId": 41
+    },
+    {
+      "question": "La entropía es siempre negativa y debe evitarse completamente.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La entropía es una señal de oportunidad de rediseño. Los sistemas ideales la usan como información para renovarse.",
+      "points": 2,
+      "orderIndex": 2,
+      "legacyQuestionId": 42
+    },
+    {
+      "question": "¿Cuál es el primer paso en el diseño idealizado?",
+      "type": "multiple_choice",
+      "options": [
+        "Analizar el sistema actual en detalle",
+        "Suspender temporalmente las limitaciones del pasado",
+        "Buscar soluciones incrementales",
+        "Copiar sistemas exitosos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Primero se imagina el futuro ideal sin restricciones; luego se ajusta al contexto real.",
+      "points": 3,
+      "orderIndex": 3,
+      "legacyQuestionId": 43
+    },
+    {
+      "question": "La pregunta \"¿qué tendría que ser verdad?\" se utiliza para construir escenarios puente.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Este tipo de preguntas ayuda a identificar supuestos críticos y diseñar rutas desde el presente hacia el ideal.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 44
+    },
+    {
+      "question": "Selecciona la definición correcta de blueprint vivo.",
+      "type": "multiple_choice",
+      "options": [
+        "Un documento estático de referencia",
+        "Un plan flexible que se actualiza con datos y aprendizaje",
+        "Un organigrama jerárquico",
+        "Un listado de tareas diarias"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El blueprint vivo es un mapa dinámico que se ajusta con feedback y datos en tiempo real.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 45
+    },
+    {
+      "question": "¿Qué rol cumple el pulso energético semanal?",
+      "type": "multiple_choice",
+      "options": [
+        "Medir motivación individual",
+        "Monitorear entradas, transformaciones y salidas del sistema",
+        "Registrar asistencia",
+        "Calcular presupuestos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El pulso energético permite monitorear dónde entra, se transforma y sale la energía para ajustar rápidamente.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 46
+    },
+    {
+      "question": "Los principios de eliminación, simplificación, automatización y delegación se aplican en cascada.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Primero se elimina lo innecesario, luego se simplifica, después se automatiza y por último se delega.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 47
+    },
+    {
+      "question": "¿Qué indicador muestra que un sistema ideal se está sosteniendo?",
+      "type": "multiple_choice",
+      "options": [
+        "Dependencia continua del mismo líder",
+        "Auto-organización, aprendizaje y ajustes sin esperar órdenes",
+        "Mayor cantidad de reglas",
+        "Ausencia de retroalimentación"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los sistemas ideales se mantienen porque aprenden y se corrigen solos, no por control centralizado.",
+      "points": 3,
+      "orderIndex": 8,
+      "legacyQuestionId": 48
+    },
+    {
+      "question": "El diseño idealizado se limita al plano conceptual y no llega a prototipos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El curso propone sueños concretos que se aterrizan en prototipos, pilotos y hojas de ruta.",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": 49
+    },
+    {
+      "question": "¿Qué práctica diaria recomienda el curso para sostener el estado de diseño ideal?",
+      "type": "multiple_choice",
+      "options": [
+        "Revisar la visión solo en grandes crisis",
+        "Micro-reflexiones y ajustes diarios de energía, foco y sentido",
+        "Delegar todo en terceros",
+        "Repetir lo que funciona sin medir"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El diseño idealizado se sostiene con micro-reflexiones y ajustes diarios que mantienen vivo el ideal.",
+      "points": 2,
+      "orderIndex": 10,
+      "legacyQuestionId": 50
+    }
+  ]
+}

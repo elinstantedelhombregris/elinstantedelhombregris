@@ -1,0 +1,146 @@
+{
+  "title": "Quiz: Niveles Superiores de Pensamiento y Conciencia",
+  "description": "Evalúa tu comprensión de los 6 niveles de pensamiento y conciencia, y las prácticas para desarrollarlos.",
+  "passingScore": 75,
+  "timeLimit": 20,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 6,
+  "questions": [
+    {
+      "question": "¿Cuál es la característica principal del pensamiento de primera persona?",
+      "type": "multiple_choice",
+      "options": [
+        "Reconocer que otros tienen pensamientos propios",
+        "Ver a otros como objetos sin interioridad",
+        "Pensar sobre los pensamientos del otro",
+        "Observar tus propios pensamientos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "En primera persona, ves a otros como objetos en el mundo, sin reconocer que tienen pensamientos, emociones o razones internas para sus acciones.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 51
+    },
+    {
+      "question": "¿En qué nivel nace la verdadera empatía?",
+      "type": "multiple_choice",
+      "options": [
+        "Segunda persona",
+        "Tercera persona",
+        "Cuarta persona",
+        "Quinta persona"
+      ],
+      "correctAnswer": 1,
+      "explanation": "En tercera persona, puedes pensar sobre los pensamientos del otro, lo que permite verdadera empatía y comprensión mutua.",
+      "points": 2,
+      "orderIndex": 2,
+      "legacyQuestionId": 52
+    },
+    {
+      "question": "Cuarta persona es la puerta de entrada a la metacognición.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Cuarta persona te permite pensar sobre tu propio pensamiento, lo que es la puerta de entrada a la metacognición y los niveles superiores de conciencia.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 53
+    },
+    {
+      "question": "¿Cuál es la realización clave en quinta persona?",
+      "type": "multiple_choice",
+      "options": [
+        "Puedes pensar sobre los pensamientos del otro",
+        "\"No soy mi mente\" - Puedes observar sin identificarte",
+        "Puedes elegir conscientemente quién quieres ser",
+        "Eres la conciencia pura misma"
+      ],
+      "correctAnswer": 1,
+      "explanation": "En quinta persona, realizas que \"no eres tu mente\". Puedes observar tus pensamientos, emociones y sensaciones sin identificarte con ellos.",
+      "points": 3,
+      "orderIndex": 4,
+      "legacyQuestionId": 54
+    },
+    {
+      "question": "En sexta persona, el pensamiento es completamente innecesario.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "En sexta persona, el pensamiento se vuelve innecesario la mayor parte del tiempo (90%), pero sigue siendo una herramienta útil cuando lo necesitas para resolver problemas o planificar.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 55
+    },
+    {
+      "question": "¿Qué metáfora se usa para describir cómo funciona la conciencia?",
+      "type": "multiple_choice",
+      "options": [
+        "Una escalera",
+        "Una linterna (flashlight)",
+        "Un espejo",
+        "Una puerta"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La metáfora del flashlight (linterna) describe cómo puedes dirigir tu conciencia/atención hacia diferentes objetos (pensamientos, emociones), pero la conciencia misma siempre está presente.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 56
+    },
+    {
+      "question": "¿Cuál es el peligro principal de cuarta persona?",
+      "type": "multiple_choice",
+      "options": [
+        "Falta de empatía",
+        "Análisis paralizante y sobrepensamiento",
+        "Desidentificación completa",
+        "Falta de acción"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cuarta persona puede llevar a sobrepensamiento y parálisis por análisis, donde pasas horas pensando sobre qué tipo de persona quieres ser sin actuar.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 57
+    },
+    {
+      "question": "¿Qué práctica es esencial para desarrollar quinta persona?",
+      "type": "multiple_choice",
+      "options": [
+        "Diálogo empático",
+        "Meditación de observación",
+        "Mapeo de posibles \"yoes\"",
+        "Reflexión sobre conflictos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La meditación de observación, donde observas tus pensamientos y emociones sin identificarte con ellos, es esencial para desarrollar quinta persona.",
+      "points": 3,
+      "orderIndex": 8,
+      "legacyQuestionId": 58
+    },
+    {
+      "question": "En los niveles superiores (5-6), la realidad se experimenta como un sueño lúcido.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Cuando alcanzas quinta y sexta persona, te das cuenta de que la realidad es como un sueño lúcido: sabes que es un sueño (formas surgiendo de lo informe), pero eliges participar conscientemente.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 59
+    },
+    {
+      "question": "¿Cuál es el compromiso recomendado para desarrollar niveles superiores?",
+      "type": "multiple_choice",
+      "options": [
+        "Práctica ocasional cuando te sientes estresado",
+        "Práctica constante y diaria",
+        "Solo meditación los fines de semana",
+        "Leer sobre los niveles una vez al mes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Desarrollar niveles superiores requiere práctica constante y diaria. La meditación regular, la observación consciente y el mindfulness diario son esenciales.",
+      "points": 2,
+      "orderIndex": 10,
+      "legacyQuestionId": 60
+    }
+  ]
+}

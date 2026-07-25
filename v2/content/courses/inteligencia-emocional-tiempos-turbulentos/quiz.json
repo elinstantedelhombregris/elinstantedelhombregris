@@ -1,0 +1,151 @@
+{
+  "title": "Quiz: Inteligencia Emocional para Tiempos Turbulentos",
+  "description": "Evalúa tu comprensión de las herramientas de inteligencia emocional aprendidas en este curso.",
+  "passingScore": 70,
+  "timeLimit": 20,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 56,
+  "questions": [
+    {
+      "question": "¿Cuánto tiempo tarda una emoción en recorrer tu cuerpo como reacción química según Jill Bolte Taylor?",
+      "type": "multiple_choice",
+      "options": [
+        "30 segundos",
+        "90 segundos",
+        "5 minutos",
+        "15 minutos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Según la neurocientífica Jill Bolte Taylor, una emoción tarda 90 segundos en recorrer el cuerpo como reacción química. Después de eso, si persiste es por realimentación cognitiva.",
+      "points": 1,
+      "orderIndex": 1,
+      "legacyQuestionId": 527
+    },
+    {
+      "question": "¿Cuáles son los tres modos del sistema nervioso autónomo según la teoría polivagal?",
+      "type": "multiple_choice",
+      "options": [
+        "Activo, pasivo y neutral",
+        "Seguro (ventral vagal), lucha/huida (simpático) y colapso (dorsal vagal)",
+        "Consciente, inconsciente y subconsciente",
+        "Emocional, racional y instintivo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La teoría polivagal de Stephen Porges identifica tres estados: ventral vagal (seguridad), simpático (lucha/huida) y dorsal vagal (colapso/shutdown).",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 528
+    },
+    {
+      "question": "¿Cuáles son los tres componentes de la autocompasión según Kristin Neff?",
+      "type": "multiple_choice",
+      "options": [
+        "Autoestima, confianza y optimismo",
+        "Amabilidad hacia uno mismo, humanidad compartida y atención plena",
+        "Perdón, aceptación y gratitud",
+        "Fortaleza, disciplina y perseverancia"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Kristin Neff define la autocompasión con tres componentes: amabilidad hacia uno mismo (vs autocrítica), humanidad compartida (vs aislamiento) y atención plena (vs sobreidentificación).",
+      "points": 1,
+      "orderIndex": 3,
+      "legacyQuestionId": 529
+    },
+    {
+      "question": "La autocompasión te vuelve pasivo y reduce tu motivación para actuar.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Falso. La investigación demuestra que las personas autocompasivas son más resilientes, persisten más en tareas difíciles y sufren menos burnout.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 530
+    },
+    {
+      "question": "¿Cuál es el orden correcto de los pasos de la Comunicación No Violenta?",
+      "type": "multiple_choice",
+      "options": [
+        "Sentimiento, pedido, observación, necesidad",
+        "Observación, sentimiento, necesidad, pedido",
+        "Necesidad, observación, sentimiento, pedido",
+        "Pedido, necesidad, sentimiento, observación"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El modelo CNV de Marshall Rosenberg sigue el orden: Observación (sin juicio), Sentimiento, Necesidad y Pedido concreto.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 531
+    },
+    {
+      "question": "¿Qué técnica de regulación emocional usa los cinco sentidos para traerte al presente?",
+      "type": "multiple_choice",
+      "options": [
+        "Respiración 4-7-8",
+        "Reetiquetado cognitivo",
+        "Anclaje sensorial (Grounding) 5-4-3-2-1",
+        "Pausa de 90 segundos"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El grounding 5-4-3-2-1 usa los cinco sentidos: 5 cosas que ves, 4 que tocas, 3 que escuchas, 2 que oles, 1 que saboreas.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 532
+    },
+    {
+      "question": "¿Qué característica del estrés económico argentino lo hace especialmente dañino?",
+      "type": "multiple_choice",
+      "options": [
+        "Es muy intenso",
+        "Es impredecible, sistémico, transgeneracional y normalizado",
+        "Solo afecta a los más pobres",
+        "Es exclusivamente financiero"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El estrés argentino combina cuatro factores que lo hacen particularmente dañino: impredecibilidad, naturaleza sistémica, transmisión transgeneracional y normalización cultural.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 533
+    },
+    {
+      "question": "En la filosofía del Hombre Gris, ¿qué metamorfosis se relaciona con la presencia y observación sin juicio?",
+      "type": "multiple_choice",
+      "options": [
+        "El Camello",
+        "El León",
+        "El Niño",
+        "El Águila"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Niño es la tercera metamorfosis y representa la presencia pura, la observación sin juicio y la capacidad de crear desde la inocencia recuperada.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 534
+    },
+    {
+      "question": "La \"ventana de tolerancia\" se refiere al rango de activación emocional dentro del cual puedes funcionar bien.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Correcto. Dan Siegel desarrolló este concepto: dentro de la ventana puedes pensar, escuchar y decidir con claridad. Fuera de ella estás en hiper o hipoactivación.",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": 535
+    },
+    {
+      "question": "¿Cuál es la proporción de interacciones positivas vs negativas en parejas exitosas según Gottman?",
+      "type": "multiple_choice",
+      "options": [
+        "1 a 1",
+        "3 a 1",
+        "5 a 1",
+        "10 a 1"
+      ],
+      "correctAnswer": 2,
+      "explanation": "John Gottman descubrió que las parejas exitosas mantienen una proporción de 5 interacciones positivas por cada 1 negativa.",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": 536
+    }
+  ]
+}

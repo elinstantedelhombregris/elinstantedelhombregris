@@ -1,0 +1,176 @@
+{
+  "title": "Quiz: La Partida del Hombre Gris",
+  "description": "Evalúa tu comprensión de estrategias cooperativas, tit for tat y rediseño de incentivos.",
+  "passingScore": 75,
+  "timeLimit": 25,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 7,
+  "questions": [
+    {
+      "question": "¿Cuál es la intención central de la masterclass?",
+      "type": "multiple_choice",
+      "options": [
+        "Centralizar decisiones en un actor único",
+        "Rediseñar Argentina como juego iterado donde cooperar sea la mejor jugada",
+        "Aplicar castigos indefinidos para disciplinar",
+        "Eliminar la competencia del mercado"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Toda la masterclass gira en torno a mover el equilibrio hacia juegos de suma positiva diseñando incentivos cooperativos.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 61
+    },
+    {
+      "question": "En el curso se considera que Argentina es un juego de suma variable e iterado.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La narrativa base es que los actores se encuentran repetidamente y el payoff puede expandirse.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 62
+    },
+    {
+      "question": "¿Qué elemento vuelve más atractivo el payoff cooperativo?",
+      "type": "multiple_choice",
+      "options": [
+        "Acuerdos verbales sin registro",
+        "Recompensas tangibles y métricas públicas",
+        "Castigos eternos",
+        "Reducir la cantidad de jugadores"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las lecciones muestran que subir beneficios reales y transparentes hace que (C,C) domine.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 63
+    },
+    {
+      "question": "Tit for Tat versión Hombre Gris siempre:",
+      "type": "multiple_choice",
+      "options": [
+        "Inicia defectando para probar al otro",
+        "Perdona sin condiciones",
+        "Envía una señal cooperativa inicial y replica la jugada previa",
+        "Se mantiene neutral hasta la tercera ronda"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El protocolo arranca cooperando, responde proporcionalmente y vuelve a cooperar tras reparación.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 64
+    },
+    {
+      "question": "La memoria corta implica olvidar lo sucedido.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Memoria corta = castigo proporcional y perdón rápido, no amnesia.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 65
+    },
+    {
+      "question": "¿Qué estrategia genera espirales de venganza interminables?",
+      "type": "multiple_choice",
+      "options": [
+        "Tit for Tat + reputación",
+        "Rencor perpetuo",
+        "Cooperación radical con métricas",
+        "Microacuerdos territoriales"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El rencor perpetuo impide reingresar a la cooperación y congela políticas.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 66
+    },
+    {
+      "question": "¿Por qué el perdón ingenuo es riesgoso?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque requiere demasiada burocracia",
+        "Porque no exige reparación y habilita oportunismo",
+        "Porque demora los castigos",
+        "Porque necesita memoria larga"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Perdonar sin condiciones incentiva defectos sucesivos.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 67
+    },
+    {
+      "question": "Selecciona la característica esencial de un laboratorio territorial Hombre Gris.",
+      "type": "multiple_choice",
+      "options": [
+        "Duración limitada, métricas claras y recompensas tempranas",
+        "Ejecución secreta sin reportes",
+        "Depender de una sola autoridad nacional",
+        "Castigos permanentes sin revisión"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Los laboratorios son pilotos medibles que permiten iterar antes de escalar.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 68
+    },
+    {
+      "question": "El heatmap territorial presentado en la masterclass sirve para…",
+      "type": "multiple_choice",
+      "options": [
+        "Mostrar niveles de cooperación entre actores en pilotos reales",
+        "Reemplazar todas las mediciones económicas",
+        "Definir presupuestos nacionales",
+        "Seleccionar autoridades locales"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Visualiza cómo Estado, ciudadanía, empresas y territorio cooperan en cada piloto.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 69
+    },
+    {
+      "question": "Los microacuerdos deben incluir recompensas inmediatas.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "El curso insiste en beneficios tangibles tempranos para sostener motivación.",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": 70
+    },
+    {
+      "question": "¿Qué entrega final se solicita en la lección de cierre?",
+      "type": "multiple_choice",
+      "options": [
+        "Acta Tit for Tat publicada + tablero compartido + aliados firmantes",
+        "Un resumen de prensa",
+        "Un examen escrito individual",
+        "Un informe sobre teoría clásica"
+      ],
+      "correctAnswer": 0,
+      "explanation": "El cierre exige un compromiso público con tablero y cofirmantes.",
+      "points": 2,
+      "orderIndex": 11,
+      "legacyQuestionId": 71
+    },
+    {
+      "question": "Para que cooperar sea el negocio dominante se debe…",
+      "type": "multiple_choice",
+      "options": [
+        "Reducir la transparencia y castigar en secreto",
+        "Subir los costos del oportunismo y premiar las jugadas cooperativas con métricas visibles",
+        "Suspender las iteraciones del juego",
+        "Limitar la participación ciudadana"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La arquitectura de payoffs rediseña incentivos: cooperar debe pagar más y defraudar debe costar caro.",
+      "points": 2,
+      "orderIndex": 12,
+      "legacyQuestionId": 72
+    }
+  ]
+}

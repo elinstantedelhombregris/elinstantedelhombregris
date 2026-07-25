@@ -1,0 +1,161 @@
+{
+  "title": "Quiz: Economía Familiar y Comunitaria",
+  "description": "Evaluá tu comprensión de la economía familiar, barrial y solidaria.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 55,
+  "questions": [
+    {
+      "question": "¿Qué porcentaje del PBI argentino representaría el trabajo doméstico no remunerado si se pagara?",
+      "type": "multiple_choice",
+      "options": [
+        "2%",
+        "8%",
+        "16%",
+        "30%"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El trabajo doméstico y de cuidado equivale al 16% del PBI argentino, más que la industria manufacturera.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 515
+    },
+    {
+      "question": "Para ahorrar en Argentina, es necesario tener ingresos altos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Lo importante es la diferencia entre ingreso y gasto, no el monto absoluto. Se puede empezar ahorrando el 2%.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 516
+    },
+    {
+      "question": "¿Cuál es la diferencia entre deuda inteligente y deuda tóxica?",
+      "type": "multiple_choice",
+      "options": [
+        "El monto de la deuda",
+        "Si la deuda genera ingresos que superen su costo",
+        "El banco que presta",
+        "Si es en pesos o dólares"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La deuda inteligente genera retorno (herramientas, capacitación), mientras la tóxica financia consumo sin retorno.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 517
+    },
+    {
+      "question": "Un círculo de ahorro comunitario cobra intereses a sus miembros.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Los círculos de ahorro funcionan sin intereses ni comisiones. Son mecanismos de ahorro forzado colectivo.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 518
+    },
+    {
+      "question": "¿Qué principio cooperativo establece \"un socio = un voto\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Membresía abierta",
+        "Control democrático",
+        "Participación económica",
+        "Autonomía"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El control democrático (un socio, un voto) es el segundo principio cooperativo, sin importar el capital aportado.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 519
+    },
+    {
+      "question": "Los clubes de trueque del 2001 fracasaron porque la idea era inviable.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Fracasaron por problemas de diseño (falsificación de créditos, falta de regulación), no porque el concepto fuera malo.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 520
+    },
+    {
+      "question": "¿Qué es un banco de tiempo?",
+      "type": "multiple_choice",
+      "options": [
+        "Un banco que abre solo en ciertos horarios",
+        "Un sistema donde una hora de trabajo de cualquier persona vale lo mismo",
+        "Un ahorro a plazo fijo",
+        "Una app de productividad"
+      ],
+      "correctAnswer": 1,
+      "explanation": "En un banco de tiempo, una hora de plomería = una hora de inglés = una hora de diseño. Elimina la desigualdad en la valoración del trabajo.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 521
+    },
+    {
+      "question": "La verdadera medida de riqueza es cuántos meses podés mantener tu nivel de vida sin ingresos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La resiliencia financiera se mide por la capacidad de sostenerte sin ingresos, no por el monto de tu sueldo.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 522
+    },
+    {
+      "question": "¿Cuál es la regla más importante para la logística de una cooperativa de consumo?",
+      "type": "multiple_choice",
+      "options": [
+        "Tener un local propio",
+        "Cobrar siempre por adelantado antes de comprar",
+        "Usar una app profesional de gestión",
+        "Que un solo líder coordine todo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cobrar por adelantado evita deudas acumuladas y protege las finanzas del grupo. Es la regla que más cooperativas salva.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 523
+    },
+    {
+      "question": "Las cooperativas de consumo solo funcionan en barrios de bajos recursos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Las cooperativas de consumo funcionan en cualquier contexto socioeconómico. El principio de compra colectiva beneficia a cualquier familia que quiera ahorrar comprando en volumen.",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": 524
+    },
+    {
+      "question": "¿Qué es lo primero que hay que hacer en las primeras 6 horas de una crisis económica?",
+      "type": "multiple_choice",
+      "options": [
+        "Comprar dólares",
+        "Hacer un diagnóstico rápido de cuánto tenés, cuánto debés y cuánto necesitás",
+        "Llamar al banco para cancelar cuentas",
+        "Buscar un segundo trabajo inmediatamente"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El diagnóstico rápido (posición financiera, deudas, número de supervivencia) es el primer paso porque todas las decisiones posteriores dependen de ese dato.",
+      "points": 2,
+      "orderIndex": 11,
+      "legacyQuestionId": 525
+    },
+    {
+      "question": "En una crisis económica, aislarse y resolver todo solo es más efectivo que pedir ayuda a la comunidad.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El aislamiento es uno de los mayores peligros en una crisis. Compartir recursos, información y apoyo emocional con la comunidad multiplica las chances de supervivencia.",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": 526
+    }
+  ]
+}
