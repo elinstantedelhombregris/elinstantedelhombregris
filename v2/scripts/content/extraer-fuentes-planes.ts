@@ -14,6 +14,8 @@ import { fileURLToPath } from 'node:url';
 import { PLAN_NODES } from '../../../SocialJusticeHub/shared/arquitecto-data';
 import { STRATEGIC_INITIATIVES } from '../../../SocialJusticeHub/shared/strategic-initiatives';
 
+import { leerPortada } from './leer-portada';
+
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const V2_ROOT = resolve(SCRIPT_DIR, '../..');
 const REPO_ROOT = resolve(V2_ROOT, '..');
@@ -23,48 +25,6 @@ const SALIDA = resolve(SCRIPT_DIR, 'planes-sources.ts');
 /** PLANRUTA es meta: no está en PLAN_NODES ni en STRATEGIC_INITIATIVES. */
 const SUMMARY_PLANRUTA =
   'PLANRUTA es el meta-plan: cómo se arranca la ejecución de los otros 22, cómo se activa la red sin esperar permiso, cómo se sostiene el cambio en momentos de crisis. No es un plan más; es el manual de cómo arrancar todo.';
-
-interface Portada {
-  title: string;
-  nombreInstitucional: string;
-}
-
-/**
- * La portada vive en el primer code fence. Sus primeras líneas son el título
- * evocativo (una o más, hasta la primera línea en blanco); la primera línea
- * posterior que arranca con «Plan Nacional» es el nombre institucional, que
- * puede continuar en la línea siguiente.
- */
-function leerPortada(raw: string): Portada {
-  const lineas = raw.split('\n');
-  const apertura = lineas.findIndex((l) => l.startsWith('```'));
-  if (apertura === -1) return { title: '', nombreInstitucional: '' };
-
-  const cierre = lineas.findIndex((l, i) => i > apertura && l.startsWith('```'));
-  const portada = lineas.slice(apertura + 1, cierre === -1 ? undefined : cierre);
-
-  const evocativo: string[] = [];
-  for (const linea of portada) {
-    if (linea.trim() === '') break;
-    evocativo.push(linea.trim());
-  }
-
-  const iInstitucional = portada.findIndex((l) => l.trim().startsWith('Plan Nacional'));
-  let institucional = '';
-  if (iInstitucional !== -1) {
-    institucional = portada[iInstitucional]?.trim() ?? '';
-    const siguiente = portada[iInstitucional + 1]?.trim() ?? '';
-    // Nombres largos que siguen en la línea de abajo (caso PLANGEO: «y Plataforma…»).
-    if (siguiente !== '' && !/^PLAN[A-Z0-9]*$/.test(siguiente) && siguiente.startsWith('y ')) {
-      institucional = `${institucional} ${siguiente}`;
-    }
-  }
-
-  return {
-    title: evocativo.join(' ').replace(/\s+/g, ' ').trim(),
-    nombreInstitucional: institucional,
-  };
-}
 
 function main(): void {
   const archivos = readdirSync(CORPUS)
