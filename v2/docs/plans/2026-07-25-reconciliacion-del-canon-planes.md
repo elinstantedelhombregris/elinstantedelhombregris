@@ -14,7 +14,7 @@
 - **Cero prosa nueva del implementador.** `title` y `nombreInstitucional` se transcriben de la portada del documento; `summary` se copia verbatim de `SocialJusticeHub/shared/strategic-initiatives.ts`; `orderIndex` sale del `ordinal` de `SocialJusticeHub/shared/arquitecto-data.ts`.
 - **Ningún literal `22` en JSX.** Todo conteo visible se interpola desde `PLAN_COUNT`, que se deriva del registry.
 - **Español rioplatense** en todo texto visible y en los comentarios de código nuevo (el repo v2 comenta en español).
-- **`Iniciativas Estratégicas/` no se toca.** Es el taller; `v2/content/planes/` es la edición derivada.
+- **`Iniciativas Estratégicas/` es el taller y `v2/content/planes/` la edición derivada.** Ninguna tarea escribe en el taller como efecto de la migración: la derivación va siempre taller → edición, nunca al revés. La única excepción es la Task 9, que corrige acentuación *en el taller* y después re-deriva — y va en su propio commit por eso mismo.
 - **Marcador literal de la ficha:** `## Ficha del expediente` — string exacto, único por documento.
 - **Presupuesto de bundle:** `pnpm size` impone 250 KB gzip a la home. `PLAN_REGISTRY` entra en ese chunk vía `landing-data.ts`, así que los cuerpos NO pueden ser eager.
 - **Commits:** conventional commits (commitlint activo). Alcance `content`, `web` o `scripts`.
