@@ -998,6 +998,7 @@ Hoy `plans-registry.ts` hace `import.meta.glob(..., { eager: true })` sobre `con
 - Modify: `apps/web/src/lib/plans-registry.ts`
 - Modify: `apps/web/src/pages/PlanDetail.tsx`
 - Modify: `apps/web/src/index.css`
+- Modify: `.size-limit.json`
 - Test: `apps/web/src/lib/__tests__/plans-registry.test.ts` (crear)
 - Test: `apps/web/src/pages/__tests__/PlanDetail.test.tsx`
 
@@ -1307,7 +1308,25 @@ Expected: PASS — incluidos los 7 tests de `plans-registry` y los del lector.
 - [ ] **Step 12: Type-check, build y presupuesto de bundle**
 
 Run: `pnpm type-check && pnpm build && pnpm size`
-Expected: los tres verdes. **`pnpm size` es la verificación clave de este plan**: el chunk de la home tiene que seguir bajo 250 KB gzip pese a los 5,1 MB de corpus. Si excede, los cuerpos se están cargando eager — revisá que ningún módulo importe `content/planes` fuera de `plans-registry.ts`.
+Expected: los tres verdes.
+
+**Ojo: `pnpm size` solo no alcanza.** Medido antes de esta tarea, con el corpus entero eager, el build emite `dist/assets/plans-registry-*.js` de **5.220 kB (1.844 kB gzip)** y `pnpm size` **pasa igual**, reportando 166,91 kB — sus globs son `index-*`, `react-*` y `Home-*`, y ese chunk no cae en ninguno. El presupuesto es ciego justo donde importa.
+
+Así que la verificación real de esta tarea es el tamaño del chunk del registry en la salida del build:
+
+- Antes: `plans-registry-*.js` ≈ 5.220 kB.
+- Después: unos pocos KB, y los cuerpos aparecen como chunks propios, uno por plan, que solo se piden al abrir el documento.
+
+Y para que la regresión no pueda volver en silencio, agregar a `.size-limit.json` una entrada nueva:
+
+```json
+  {
+    "name": "plans registry (gzipped)",
+    "path": "apps/web/dist/assets/plans-registry-*.js",
+    "limit": "20 KB",
+    "gzip": true
+  }
+```
 
 - [ ] **Step 13: Commit**
 
