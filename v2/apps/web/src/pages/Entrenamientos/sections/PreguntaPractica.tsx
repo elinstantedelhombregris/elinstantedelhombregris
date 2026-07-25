@@ -22,16 +22,27 @@ export interface PreguntaPracticaProps {
  * resalta en verde junto a la explicación real del `quiz.json`. Ninguna
  * pregunta se puede volver a contestar (Decisión 13).
  */
-export function PreguntaPractica({ pregunta, indice, total, elegida, onElegir }: PreguntaPracticaProps) {
+export function PreguntaPractica({
+  pregunta,
+  indice,
+  total,
+  elegida,
+  onElegir,
+}: PreguntaPracticaProps) {
   const contestada = elegida !== null;
   const acerto = contestada && elegida === pregunta.correcta;
 
   return (
-    <fieldset disabled={contestada} className="border-papel-borde border-t px-0 py-7 first:border-t-0 first:pt-0">
+    <fieldset
+      disabled={contestada}
+      className="border-papel-borde border-t px-0 py-7 first:border-t-0 first:pt-0"
+    >
       <legend className="font-space text-tinta-50 mb-4 text-[11px] uppercase tracking-[0.12em]">
         Pregunta {indice + 1} de {total}
       </legend>
-      <p className="text-tinta-90 mb-6 max-w-[660px] text-pretty text-[17px] leading-[1.6]">{pregunta.enunciado}</p>
+      <p className="text-tinta-90 mb-6 max-w-[660px] text-pretty text-[17px] leading-[1.6]">
+        {pregunta.enunciado}
+      </p>
       <div className="flex flex-col gap-3">
         {pregunta.opciones.map((opcion, i) => {
           const esElegida = elegida === i;
@@ -56,11 +67,7 @@ export function PreguntaPractica({ pregunta, indice, total, elegida, onElegir }:
                   marcarCorrecta && 'border-verde bg-verde',
                   contestada && !esElegida && !marcarCorrecta && 'border-tinta-30',
                 )}
-              >
-                {esElegida || marcarCorrecta ? (
-                  <span className="text-papel text-[10px] leading-none">✓</span>
-                ) : null}
-              </span>
+              />
               <input
                 type="radio"
                 name={`pregunta-${String(indice)}`}
@@ -72,6 +79,22 @@ export function PreguntaPractica({ pregunta, indice, total, elegida, onElegir }:
                 className="sr-only"
               />
               {opcion}
+              {/*
+                Qué es cada opción se dice con palabras, no con color: un
+                daltónico ve dos círculos llenos idénticos. Además §12 cierra
+                el catálogo de glifos de las páginas públicas (→ ↗ ↺ ▌ ▾ ¡ !)
+                y el ✓ no está —el círculo lleno ya es la marca (§5).
+              */}
+              {contestada && esElegida && !acerto ? (
+                <span className="font-space text-sello text-[11px] uppercase tracking-[0.1em]">
+                  tu respuesta
+                </span>
+              ) : null}
+              {marcarCorrecta ? (
+                <span className="font-space text-verde text-[11px] uppercase tracking-[0.1em]">
+                  la correcta
+                </span>
+              ) : null}
             </label>
           );
         })}

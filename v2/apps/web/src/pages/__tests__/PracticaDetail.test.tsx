@@ -170,6 +170,13 @@ describe('PracticaDetail (página papel 3.5 — la práctica)', () => {
     fireEvent.click(radioCorrecto);
     expect(radioIncorrecto).toBeChecked();
     expect(radioCorrecto).not.toBeChecked();
+
+    // Cuál es cuál se dice con PALABRAS, no solo con color: en escala de
+    // grises tenían que distinguirse igual, y el ✓ no está en el catálogo
+    // cerrado de glifos de §12.
+    expect(within(fieldset).getByText('tu respuesta')).toBeInTheDocument();
+    expect(within(fieldset).getByText('la correcta')).toBeInTheDocument();
+    expect(fieldset.textContent).not.toContain('✓');
   });
 
   it('resultado: ausente hasta contestar todas; luego "Resultado", el conteo real y los palitos aria-hidden', async () => {
