@@ -17,6 +17,7 @@ const PAPEL_ROUTES = new Set([
   // El frame del redirect de /blog a /bitacora no debe mostrar el chrome v1.
   '/blog',
   '/entrenamientos',
+  '/cronica',
 ]);
 
 /**

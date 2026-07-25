@@ -78,4 +78,16 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
   it('NO matchea una ruta que solo comparte el prefijo de texto de /entrenamientos sin la barra', () => {
     expect(esRutaPapel('/entrenamientosque')).toBe(false);
   });
+
+  it('matchea la crónica del país que viene por igualdad exacta (spec 3.6, sin hijos dinámicos)', () => {
+    expect(esRutaPapel('/cronica')).toBe(true);
+  });
+
+  it('NO matchea una ruta que solo comparte el prefijo de texto de /cronica sin la barra', () => {
+    expect(esRutaPapel('/cronicas')).toBe(false);
+  });
+
+  it('NO matchea /cronica/algo — no hay hijos dinámicos (spec 3.6, D1/D6)', () => {
+    expect(esRutaPapel('/cronica/algo')).toBe(false);
+  });
 });

@@ -10,6 +10,7 @@ import {
   CivicAssessment,
   CoachingChat,
   Community,
+  Cronica,
   DatosAbiertos,
   Desafios,
   DetallesCalculoCostoHumano,
@@ -46,7 +47,6 @@ import {
   ResetPassword,
   Sembrar,
   TwoFactorChallenge,
-  UnaRutaParaArgentina,
   VerifyEmail,
   WeeklyCheckin,
 } from '~/app-pages';
@@ -81,7 +81,11 @@ export function AppRoutes() {
         <Redirect to="/sembrar" replace />
       </Route>
       <Route path="/sembrar" component={Sembrar} />
-      <Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
+      {/* La ruta se desarma (spec 3.6, D3): su framing lo absorbe /la-idea
+          (Capítulo II); la novela tiene lector propio en /cronica. */}
+      <Route path="/una-ruta-para-argentina">
+        <Redirect to="/la-idea" replace />
+      </Route>
       <Route path="/el-mapa" component={ElMapa} />
       <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
       <Route path="/kit-de-prensa" component={KitDePrensa} />
@@ -112,6 +116,7 @@ export function AppRoutes() {
 
       {/* Content + community */}
       <Route path="/biblioteca" component={Biblioteca} />
+      <Route path="/cronica" component={Cronica} />
       <Route path="/ensayos">
         <Redirect to="/biblioteca" replace />
       </Route>

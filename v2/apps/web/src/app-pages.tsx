@@ -131,6 +131,10 @@ export const Community = lazy(async () => {
   const m = await import('~/pages/Community');
   return { default: m.Community };
 });
+export const Cronica = lazy(async () => {
+  const m = await import('~/pages/Cronica');
+  return { default: m.Cronica };
+});
 export const Notifications = lazy(async () => {
   const m = await import('~/pages/Notifications');
   return { default: m.Notifications };
