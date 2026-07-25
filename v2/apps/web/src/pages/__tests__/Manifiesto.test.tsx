@@ -1,5 +1,5 @@
-import { render, screen, within } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { act, render, screen, within } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Manifiesto } from '../Manifiesto';
 
@@ -14,7 +14,47 @@ function escapeRegExp(valor: string): string {
   return valor.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+/**
+ * happy-dom trae un `IntersectionObserver` propio pero nunca dispara
+ * callbacks reales (no hay layout/paint) — lo reemplazamos por uno de
+ * juguete que guarda el callback para que el test lo dispare a mano.
+ * Copiado literal de `ElMandatoVivo/sections/__tests__/DocumentoMandato.test.tsx:19-47`.
+ */
+class FakeIntersectionObserver implements IntersectionObserver {
+  static instances: FakeIntersectionObserver[] = [];
+
+  readonly root: Element | Document | null = null;
+  readonly rootMargin = '';
+  readonly thresholds: readonly number[] = [];
+  private readonly callback: IntersectionObserverCallback;
+
+  constructor(callback: IntersectionObserverCallback) {
+    this.callback = callback;
+    FakeIntersectionObserver.instances.push(this);
+  }
+
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
+
+  /** Dispara el callback como si el bloque de firma hubiera entrado (o no) al viewport. */
+  trigger(isIntersecting: boolean): void {
+    const entry = { isIntersecting } as unknown as IntersectionObserverEntry;
+    this.callback([entry], this);
+  }
+}
+
+vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver);
+
 describe('Manifiesto (página papel 3.3 — el lector, composer)', () => {
+  beforeEach(() => {
+    FakeIntersectionObserver.instances = [];
+  });
+
   it('abre con el kicker, el H1 con rito de la tinta sobre el título del cuerpo y el backlink a la biblioteca', () => {
     render(<Manifiesto />);
 
@@ -113,5 +153,62 @@ describe('Manifiesto (página papel 3.3 — el lector, composer)', () => {
   it('sin cifras inventadas: ni minutos ni "min de lectura"', () => {
     render(<Manifiesto />);
     expect(screen.queryByText(/minutos|min de lectura/i)).not.toBeInTheDocument();
+  });
+
+  it('el sello LEÍDO ENTERO no aparece antes de que la firma entre en viewport', () => {
+    render(<Manifiesto />);
+    expect(screen.queryByText(/leído entero/i)).not.toBeInTheDocument();
+  });
+
+  it('el sello LEÍDO ENTERO cae una sola vez cuando la firma intersecta al 60%, y el observer se desconecta', () => {
+    render(<Manifiesto />);
+
+    const [observer] = FakeIntersectionObserver.instances;
+    expect(observer).toBeDefined();
+    expect(observer?.disconnect).not.toHaveBeenCalled();
+
+    act(() => {
+      observer?.trigger(true);
+    });
+
+    const estado = screen.getByRole('status');
+    expect(within(estado).getByText('Leído entero')).toBeInTheDocument();
+    expect(within(estado).getByText('Llegaste al final. Ahora empieza la parte tuya.')).toBeInTheDocument();
+    expect(observer?.disconnect).toHaveBeenCalledTimes(1);
+
+    // Una sola vez: disparar false después de haber disparado true no lo borra.
+    act(() => {
+      observer?.trigger(false);
+    });
+    expect(screen.getAllByText('Leído entero')).toHaveLength(1);
+  });
+
+  it('el sello LEÍDO ENTERO no se imprime', () => {
+    render(<Manifiesto />);
+
+    const [observer] = FakeIntersectionObserver.instances;
+    act(() => {
+      observer?.trigger(true);
+    });
+
+    const estado = screen.getByRole('status');
+    expect(estado).toHaveClass('print:hidden');
+  });
+
+  it('el sello LEÍDO ENTERO no persiste: desmontar y volver a montar no lo mantiene, y no toca localStorage', () => {
+    const clavesAntes = localStorage.length;
+    const { unmount } = render(<Manifiesto />);
+
+    const [observer] = FakeIntersectionObserver.instances;
+    act(() => {
+      observer?.trigger(true);
+    });
+    expect(screen.getByRole('status')).toBeInTheDocument();
+
+    unmount();
+
+    render(<Manifiesto />);
+    expect(screen.queryByText(/leído entero/i)).not.toBeInTheDocument();
+    expect(localStorage.length).toBe(clavesAntes);
   });
 });
