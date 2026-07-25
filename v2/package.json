@@ -17,10 +17,13 @@
     "type-check": "pnpm -r --parallel type-check",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,mdx,css,yml,yaml}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,mdx,css,yml,yaml}\"",
-    "test": "pnpm test:unit && pnpm test:integration",
+    "test": "pnpm test:unit && pnpm test:scripts && pnpm test:integration",
     "test:unit": "pnpm -r --parallel test:unit",
     "test:integration": "pnpm -r --parallel test:integration",
     "test:e2e": "playwright test",
+    "test:scripts": "vitest run --config scripts/vitest.config.ts",
+    "planes:migrar": "tsx scripts/content/migrate-planes-v1-to-v2.ts",
+    "planes:check": "tsx scripts/content/verify-planes-index.ts",
     "size": "size-limit",
     "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build"
   },
@@ -34,7 +37,9 @@
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "size-limit": "^11.1.6",
-    "typescript": "^5.6.3"
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
   },
   "pnpm": {
     "overrides": {
