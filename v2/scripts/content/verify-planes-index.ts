@@ -36,10 +36,31 @@ function main(): void {
   const errores: string[] = [];
 
   const archivos = readdirSync(MDX_DIR).filter((f) => f.endsWith('.mdx'));
-  if (archivos.length !== PLANES_INDEX.length) {
-    errores.push(
-      `El índice tiene ${String(PLANES_INDEX.length)} entradas y content/planes tiene ${String(archivos.length)} archivos.`,
-    );
+  const nombresArchivo = new Set(archivos.map((f) => f.replace(/\.mdx$/, '')));
+
+  // El probe de existencia de cada entrada (más abajo) asume que `code` es
+  // único en el índice. Si hay un duplicado, un archivo puede taparle el
+  // faltante al otro sin que nadie se entere — lo chequeamos primero.
+  const codigosVistos = new Set<string>();
+  const codigosDuplicados = new Set<string>();
+  for (const entrada of PLANES_INDEX) {
+    if (codigosVistos.has(entrada.code)) codigosDuplicados.add(entrada.code);
+    codigosVistos.add(entrada.code);
+  }
+  for (const code of [...codigosDuplicados].sort()) {
+    errores.push(`code duplicado en el índice: ${code} aparece más de una vez en PLANES_INDEX.`);
+  }
+
+  // Reconciliación por nombre entre el directorio y el índice: en vez de
+  // comparar cantidades, cruzamos los dos conjuntos y nombramos a cada
+  // ofensor. Los archivos sin entrada salen acá; las entradas sin archivo
+  // ya las reporta el probe de existencia del loop principal (evitamos
+  // duplicar el mismo caso desde los dos lados).
+  const codigosIndice = new Set(PLANES_INDEX.map((p) => p.code));
+  for (const nombre of [...nombresArchivo].sort()) {
+    if (!codigosIndice.has(nombre)) {
+      errores.push(`sobra content/planes/${nombre}.mdx: no está en el índice.`);
+    }
   }
 
   const meta = PLANES_INDEX.filter((p) => p.isMeta);
