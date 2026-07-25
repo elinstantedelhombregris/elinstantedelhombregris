@@ -681,8 +681,10 @@ git commit -m "feat(web): la crónica del país que viene en /cronica — ruta, 
   (Task 2). El catálogo de sellos §10.5 **no** se enmienda: la crónica no estampa nada
   al terminar de leerse (spec, Decisión 2).
 - **Deuda observada, fuera de alcance:** (a) el *contenido* de `/una-ruta-para-argentina`
-  que la ruta ya no sirve — las 5 fases (`Phases.tsx`) y la grilla de planes/roles que
-  duplica `/planes`/`/la-idea` — no tiene todavía destino en ninguna página papel; queda
+  que la ruta ya no sirve — las 5 fases (`Phases.tsx`), la grilla de planes/roles que
+  duplica `/planes`/`/la-idea` (`PlanesGrid.tsx`/`Roles.tsx`) y la card de compromiso
+  final («¿Y vos?», `Compromiso.tsx`, CTA a `/registrarse` y `/manifiesto`) — no tiene
+  todavía destino en ninguna página papel; queda
   para la Fase 7 (spec, «D3: el redirect... esta página lo ejecuta»). La ruta en sí ya no
   es deuda: redirige a `/la-idea` desde este mismo plan (Task 4), decisión que ya venía
   tomada en la spec 2.1; (b) la receta de tag §5 se repite inline una tercera vez en

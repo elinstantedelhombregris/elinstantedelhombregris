@@ -54,9 +54,10 @@ diferencia real con el manifiesto: cada capítulo trae **su propio** `title` +
 sumario y cada sección muestran un poco más que sus equivalentes de 3.3.
 
 Consecuencia directa: **no hay ruta dinámica, no hay `:slug`, no hay 404.**
-`/cronica` es una dirección estática — la única entre los cuatro lectores de la Fase 3
-que no la tiene. `PAPEL_ROUTES` la suma por igualdad exacta, sin entrar a
-`PAPEL_PREFIXES`.
+`/cronica` es una dirección estática — una de las dos entre los cuatro lectores de la
+Fase 3 sin ruta dinámica, junto al manifiesto (Decisión 6 más abajo compara solo contra
+Ensayo/Bitácora/Planes, que sí la tienen). `PAPEL_ROUTES` la suma por igualdad exacta,
+sin entrar a `PAPEL_PREFIXES`.
 
 ### El hallazgo: «crónica» ya es una palabra ocupada
 
@@ -98,9 +99,13 @@ más.
 **Lo que sigue siendo deuda de Fase 7 — más angosto que antes:** no la ruta (ya
 decidida y ejecutada), sino el destino del *contenido* que ese componente todavía
 apila sin absorber en ninguna página papel — las 5 fases (Despertar/Diseñar/Conectar/
-Multiplicar/Estrenar, `UnaRutaParaArgentina/sections/Phases.tsx`) y la grilla de
-planes/roles que duplica `/planes`/`/la-idea`. ¿Las absorbe `/la-idea` (cap. II)?
-¿`/planes`? ¿mueren con el borrado del chrome v1? Esa es una decisión de contenido,
+Multiplicar/Estrenar, `UnaRutaParaArgentina/sections/Phases.tsx`), la grilla de
+planes/roles que duplica `/planes`/`/la-idea` (`PlanesGrid.tsx`/`Roles.tsx`) y la card
+de compromiso final («¿Y vos?», `UnaRutaParaArgentina/sections/Compromiso.tsx`, con su
+propio copy y dos CTAs — «Empezar ahora» a `/registrarse`, «Leer el manifiesto» a
+`/manifiesto`). ¿Las absorbe `/la-idea` (cap. II)? ¿`/planes`? ¿el registro o el
+manifiesto, para la card de compromiso? ¿mueren con el borrado del chrome v1? Esa es
+una decisión de contenido,
 distinta de la decisión de ruta — esta spec no la resuelve porque no le corresponde
 (una conversación = una página), pero ya no dice nada que contradiga 2.1 al dejarla
 pendiente.
@@ -412,9 +417,11 @@ de glifos §12 no necesita nada nuevo — Decisión 5. `PAPEL_NAV` no se toca �
    quien edite el copy después.
 8. **`/una-ruta-para-argentina` redirige a `/la-idea`** (D3, decisión ya tomada en la
    spec 2.1 para la card 3.6 — nada que relitigar acá, solo ejecutarla). El componente
-   v1 no se borra, solo pierde su ruta. Las 5 fases que contiene, y la grilla de
-   planes/roles que duplica, no tienen todavía destino de *contenido* decidido — eso,
-   más angosto que la deuda original, sigue siendo Fase 7. Esta página tampoco linkea
+   v1 no se borra, solo pierde su ruta. Las 5 fases que contiene (`Phases.tsx`), la
+   grilla de planes/roles que duplica (`PlanesGrid.tsx`/`Roles.tsx`) y la card de
+   compromiso final (`Compromiso.tsx`, CTA a `/registrarse` y `/manifiesto`) no tienen
+   todavía destino de *contenido* decidido — eso, más angosto que la deuda original,
+   sigue siendo Fase 7. Esta página tampoco linkea
    hacia `/una-ruta-para-argentina` en ningún punto — el destino correcto es `/la-idea`
    directo, sin puente intermedio.
 9. **La card del hub reusa el recipe de `ManifiestoDestacado` sin cambios de forma**,
