@@ -31,6 +31,9 @@ export function IndicePlanes() {
         </span>
       }
     >
+      <p className="font-space text-tinta-50 mb-2 text-[11px] uppercase tracking-[0.12em]">
+        {plan.nombreInstitucional}
+      </p>
       {plan.summary ? (
         <p className="text-tinta-90 mb-3 max-w-[720px] text-base leading-relaxed [text-wrap:pretty]">
           {plan.summary}

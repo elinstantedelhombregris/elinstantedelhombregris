@@ -6,11 +6,11 @@ import { IndicePlanes } from '../sections/IndicePlanes';
 import { PLAN_REGISTRY } from '~/lib/plans-registry';
 import { PLAN_COUNT, PLAN_META, PLANES } from '~/pages/Planes/la-prueba-data';
 
-const plansal = PLANES.find((p) => p.code === 'PLANSAL');
-const planedu = PLANES.find((p) => p.code === 'PLANEDU');
+const planjus = PLANES.find((p) => p.code === 'PLANJUS');
+const planrep = PLANES.find((p) => p.code === 'PLANREP');
 
-if (!plansal || !planedu) {
-  throw new Error('Fixture inválida: PLANSAL/PLANEDU deben existir en el registry para este test.');
+if (!planjus || !planrep) {
+  throw new Error('Fixture inválida: PLANJUS/PLANREP deben existir en el registry para este test.');
 }
 
 describe('IndicePlanes (§2–§3 — el índice de los N + el plan meta)', () => {
@@ -19,14 +19,14 @@ describe('IndicePlanes (§2–§3 — el índice de los N + el plan meta)', () =
     expect(PLAN_REGISTRY.filter((p) => !p.isMeta)).toHaveLength(22);
   });
 
-  it('renderiza 23 filas cerradas; la primera es 01 + PLANSAL; el meta es 00 + PLANRUTA bajo su encabezado', () => {
+  it('renderiza 23 filas cerradas; la primera es 01 + PLANJUS; el meta es 00 + PLANRUTA bajo su encabezado', () => {
     render(<IndicePlanes />);
 
     const filas = screen.getAllByRole('button', { expanded: false });
     expect(filas).toHaveLength(23);
 
     expect(filas[0]).toHaveTextContent('01');
-    expect(filas[0]).toHaveTextContent('PLANSAL');
+    expect(filas[0]).toHaveTextContent('PLANJUS');
 
     expect(
       screen.getByRole('heading', { name: 'El plan meta · fuera de la cuenta' }),
@@ -36,36 +36,36 @@ describe('IndicePlanes (§2–§3 — el índice de los N + el plan meta)', () =
     expect(filaMeta).toHaveTextContent('00');
   });
 
-  it('apertura única: abrir PLANSAL muestra su summary y el link; abrir PLANEDU cierra PLANSAL y abre el suyo', () => {
+  it('apertura única: abrir PLANJUS muestra su summary y el link; abrir PLANREP cierra PLANJUS y abre el suyo', () => {
     render(<IndicePlanes />);
 
-    const filaPlansalAbrir = screen.getByText('PLANSAL').closest('button');
-    if (!filaPlansalAbrir) throw new Error('fila PLANSAL no encontrada');
-    fireEvent.click(filaPlansalAbrir);
-    expect(screen.getByText(plansal.summary)).toBeInTheDocument();
+    const filaPlanjusAbrir = screen.getByText('PLANJUS').closest('button');
+    if (!filaPlanjusAbrir) throw new Error('fila PLANJUS no encontrada');
+    fireEvent.click(filaPlanjusAbrir);
+    expect(screen.getByText(planjus.summary)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Leer el documento →' })).toHaveAttribute(
       'href',
-      '/planes/plansal',
+      '/planes/planjus',
     );
     expect(screen.getAllByRole('button', { expanded: true })).toHaveLength(1);
 
-    const filaPlaneduAbrir = screen.getByText('PLANEDU').closest('button');
-    if (!filaPlaneduAbrir) throw new Error('fila PLANEDU no encontrada');
-    fireEvent.click(filaPlaneduAbrir);
-    expect(screen.queryByText(plansal.summary)).not.toBeInTheDocument();
-    expect(screen.getByText(planedu.summary)).toBeInTheDocument();
+    const filaPlanrepAbrir = screen.getByText('PLANREP').closest('button');
+    if (!filaPlanrepAbrir) throw new Error('fila PLANREP no encontrada');
+    fireEvent.click(filaPlanrepAbrir);
+    expect(screen.queryByText(planjus.summary)).not.toBeInTheDocument();
+    expect(screen.getByText(planrep.summary)).toBeInTheDocument();
     expect(screen.getAllByRole('button', { expanded: true })).toHaveLength(1);
   });
 
   it('click en una fila abierta la cierra (cero aria-expanded true)', () => {
     render(<IndicePlanes />);
 
-    const filaPlansal = screen.getByText('PLANSAL').closest('button');
-    if (!filaPlansal) throw new Error('fila PLANSAL no encontrada');
-    fireEvent.click(filaPlansal);
+    const filaPlanjus = screen.getByText('PLANJUS').closest('button');
+    if (!filaPlanjus) throw new Error('fila PLANJUS no encontrada');
+    fireEvent.click(filaPlanjus);
     expect(screen.getAllByRole('button', { expanded: true })).toHaveLength(1);
 
-    fireEvent.click(filaPlansal);
+    fireEvent.click(filaPlanjus);
     expect(screen.queryAllByRole('button', { expanded: true })).toHaveLength(0);
   });
 
@@ -84,5 +84,22 @@ describe('IndicePlanes (§2–§3 — el índice de los N + el plan meta)', () =
         `PLANRUTA no es un plan más: es el manual de cómo arrancar los otros ${PLAN_COUNT}.`,
       ),
     ).toBeInTheDocument();
+  });
+
+  it('el pliegue muestra el nombre institucional además del título evocativo', () => {
+    render(<IndicePlanes />);
+
+    const fila = screen.getByText('PLANJUS').closest('button');
+    if (!fila) throw new Error('fila PLANJUS no encontrada');
+
+    // Cerrada: solo el evocativo.
+    expect(screen.getByText(planjus.title)).toBeInTheDocument();
+    expect(screen.queryByText(planjus.nombreInstitucional)).not.toBeInTheDocument();
+
+    fireEvent.click(fila);
+
+    // Abierta: los dos registros.
+    expect(screen.getByText(planjus.title)).toBeInTheDocument();
+    expect(screen.getByText(planjus.nombreInstitucional)).toBeInTheDocument();
   });
 });
