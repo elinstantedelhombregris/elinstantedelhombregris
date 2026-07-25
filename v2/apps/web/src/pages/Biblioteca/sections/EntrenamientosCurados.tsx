@@ -15,7 +15,7 @@ import { rotuloNivel } from '~/pages/Entrenamientos/entrenamientos-data';
  */
 export function EntrenamientosCurados() {
   return (
-    <section className="border-tinta bg-papel-crudo border-y">
+    <section id="entrenamientos" className="scroll-mt-20 border-tinta bg-papel-crudo border-y">
       <div className="mx-auto max-w-[1100px] px-10 py-14 max-[560px]:px-5">
         <Kicker className="mb-4">Entrenamiento · el ojo se educa</Kicker>
         <h2 className="font-anton mb-5 text-[clamp(30px,3.6vw,48px)] leading-[1.05]">

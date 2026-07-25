@@ -11,7 +11,7 @@ import { CRONICA_COUNT, HREF_BITACORA, ULTIMAS_CRONICAS, fechaLarga, hrefCronica
  */
 export function BitacoraReciente() {
   return (
-    <section className="mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5">
+    <section id="bitacora" className="scroll-mt-20 mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5">
       <div className="border-tinta flex flex-wrap items-baseline justify-between gap-3 border-t-2 pb-2 pt-[22px]">
         <h2 className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.16em]">
           Bitácora · lo que va pasando

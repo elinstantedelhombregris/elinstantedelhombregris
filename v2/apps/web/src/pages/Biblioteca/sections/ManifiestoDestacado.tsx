@@ -11,7 +11,7 @@ import { HREF_MANIFIESTO } from '../biblioteca-data';
  */
 export function ManifiestoDestacado() {
   return (
-    <section className="mx-auto max-w-[1100px] px-10 pb-14 max-[560px]:px-5">
+    <section id="manifiesto" className="scroll-mt-20 mx-auto max-w-[1100px] px-10 pb-14 max-[560px]:px-5">
       <Link
         href={HREF_MANIFIESTO}
         className="bg-tinta text-papel flex flex-wrap items-center gap-8 px-10 py-9 transition-transform duration-150 hover:-translate-y-0.5 max-[560px]:px-6 max-[560px]:py-7"

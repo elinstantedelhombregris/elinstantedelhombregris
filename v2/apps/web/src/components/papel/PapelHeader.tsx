@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 
-import { DEMO_VOCES_COUNT, PAPEL_NAV, PAPEL_NAV_ALL, SEMBRAR_HREF } from './papel-nav';
+import { MenuBiblioteca } from './MenuBiblioteca';
+import {
+  BIBLIOTECA_HREF,
+  DEMO_VOCES_COUNT,
+  PAPEL_NAV,
+  PAPEL_NAV_ALL,
+  SECCIONES_BIBLIOTECA,
+  SEMBRAR_HREF,
+} from './papel-nav';
 
 import { despertar } from '~/lib/despertar';
+import { saltarSiEsLaMismaPagina } from '~/lib/ir-al-principio';
 import { useVocesCount } from '~/lib/queries/analytics';
 import { cn } from '~/lib/utils';
 
@@ -49,20 +58,30 @@ export function PapelHeader() {
           </Link>
 
           <nav className="hidden items-center gap-1.5 min-[1141px]:flex" aria-label="Recorrido">
-            {PAPEL_NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  'font-space hover:text-tinta border-b-2 px-3.5 py-2 text-xs uppercase tracking-[0.06em] transition-colors',
-                  esActiva(location, item.href)
-                    ? 'border-violeta text-tinta'
-                    : 'text-tinta-50 border-transparent',
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {PAPEL_NAV.map((item) =>
+              // La biblioteca es la única entrada con estantes propios: se
+              // despliegan en vez de obligar a pasar por el hub.
+              item.href === BIBLIOTECA_HREF ? (
+                <MenuBiblioteca
+                  key={item.href}
+                  item={item}
+                  activa={esActiva(location, item.href)}
+                />
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    'font-space hover:text-tinta border-b-2 px-3.5 py-2 text-xs uppercase tracking-[0.06em] transition-colors',
+                    esActiva(location, item.href)
+                      ? 'border-violeta text-tinta'
+                      : 'text-tinta-50 border-transparent',
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <Link
               href={SEMBRAR_HREF}
               className="bg-tinta font-space text-papel hover:bg-violeta ml-3.5 px-5 py-[11px] text-xs font-bold uppercase tracking-[0.08em] transition-colors"
@@ -92,19 +111,38 @@ export function PapelHeader() {
           className="bg-papel fixed inset-x-0 bottom-0 top-16 z-40 flex flex-col gap-1 overflow-y-auto px-6 py-8"
         >
           {PAPEL_NAV_ALL.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
-              onClick={() => {
-                // En móvil, «Sembrar» es el mismo trigger canónico del despertar §10.7.
-                if (item.href === SEMBRAR_HREF) despertar();
-                setMenuOpen(false);
-              }}
-            >
-              {item.label}
-              <span className="font-space text-violeta text-xs">{item.num}</span>
-            </Link>
+            <Fragment key={item.href}>
+              <Link
+                href={item.href}
+                className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
+                onClick={() => {
+                  // En móvil, «Sembrar» es el mismo trigger canónico del despertar §10.7.
+                  if (item.href === SEMBRAR_HREF) despertar();
+                  setMenuOpen(false);
+                }}
+              >
+                {item.label}
+                <span className="font-space text-violeta text-xs">{item.num}</span>
+              </Link>
+              {/* Los estantes de la biblioteca también se abren acá: el menú
+                  chico no puede ofrecer menos caminos que el grande. */}
+              {item.href === BIBLIOTECA_HREF
+                ? SECCIONES_BIBLIOTECA.map((seccion) => (
+                    <Link
+                      key={seccion.href}
+                      href={seccion.href}
+                      className="border-papel-borde font-space text-tinta-75 flex min-h-11 items-center justify-between border-b pl-5 text-xs uppercase tracking-[0.06em]"
+                      onClick={(evento) => {
+                        if (saltarSiEsLaMismaPagina(seccion.href, location)) evento.preventDefault();
+                        setMenuOpen(false);
+                      }}
+                    >
+                      {seccion.label}
+                      <span className="font-space text-tinta-30 text-[10px]">{seccion.num}</span>
+                    </Link>
+                  ))
+                : null}
+            </Fragment>
           ))}
         </nav>
       ) : null}

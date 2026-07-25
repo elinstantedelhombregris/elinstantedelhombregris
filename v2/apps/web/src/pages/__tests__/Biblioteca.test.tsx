@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Biblioteca } from '../Biblioteca';
 
+import { SECCIONES_BIBLIOTECA } from '~/components/papel/papel-nav';
 import { CURSO_COUNT } from '~/lib/courses-registry';
 import {
   CICLO_COUNT,
@@ -131,6 +132,39 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     expect(indiceEntrenamientos).toBeGreaterThanOrEqual(0);
     expect(indiceCronica).toBeGreaterThan(indiceEntrenamientos);
     expect(indiceCronica).toBeLessThan(indiceBitacora);
+  });
+
+  it('cada estante tiene su ancla: el menú del header promete anclas y el hub tiene que cumplirlas', () => {
+    const { container } = render(<Biblioteca />);
+
+    const anclasQuePrometeElMenu = SECCIONES_BIBLIOTECA.flatMap((seccion) => {
+      const [, ancla] = seccion.href.split('#');
+      return ancla === undefined ? [] : [ancla];
+    });
+    expect(anclasQuePrometeElMenu.length).toBeGreaterThan(0);
+    for (const ancla of anclasQuePrometeElMenu) {
+      expect(container.querySelector(`#${ancla}`)).not.toBeNull();
+    }
+
+    // Los cinco estantes son direccionables aunque el menú de hoy linkee a la
+    // página propia de cuatro de ellos: mañana puede querer el ancla.
+    for (const ancla of ['manifiesto', 'ensayos', 'entrenamientos', 'cronica', 'bitacora']) {
+      const seccion = container.querySelector(`#${ancla}`);
+      expect(seccion).not.toBeNull();
+      // Sin esto el header sticky tapa el título del estante al saltar.
+      expect(seccion?.className).toMatch(/scroll-mt-20/);
+    }
+  });
+
+  it('la portada nombra los cinco estantes — incluida la crónica', () => {
+    render(<Biblioteca />);
+
+    const lead = screen.getByText(/Todo lo que el movimiento piensa está publicado entero/);
+    expect(lead).toHaveTextContent('el manifiesto');
+    expect(lead).toHaveTextContent(`${String(ENSAYO_COUNT)} ensayos en ${String(CICLO_COUNT)} ciclos`);
+    expect(lead).toHaveTextContent('los entrenamientos');
+    expect(lead).toHaveTextContent('la crónica del país que viene');
+    expect(lead).toHaveTextContent('la bitácora');
   });
 
   it('mata el chrome v1-port: sin header serif viejo, sin glass/gradient-text/iris-violet/font-serif', () => {
