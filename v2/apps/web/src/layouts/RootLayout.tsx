@@ -10,6 +10,7 @@ import { DespertarVeil } from '~/components/papel/DespertarVeil';
 import { PapelFooter } from '~/components/papel/PapelFooter';
 import { PapelHeader } from '~/components/papel/PapelHeader';
 import { PaperGrain } from '~/components/papel/PaperGrain';
+import { useIrAlPrincipio } from '~/lib/ir-al-principio';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -19,9 +20,13 @@ interface RootLayoutProps {
  * Layout por defecto de toda página pública. Las rutas papel reciben el
  * chrome nuevo (grano + velo del despertar + header/footer papel); el
  * resto conserva el chrome v1 hasta que le toque el rediseño.
+ *
+ * Acá vive el scroll de toda navegación (`useIrAlPrincipio`): es el único
+ * componente que envuelve a las dos superficies, papel y v1.
  */
 export function RootLayout({ children }: RootLayoutProps) {
   const [location] = useLocation();
+  useIrAlPrincipio();
 
   if (esRutaPapel(location)) {
     return (
