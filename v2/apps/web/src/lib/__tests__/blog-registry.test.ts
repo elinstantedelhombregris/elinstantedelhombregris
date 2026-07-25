@@ -1,6 +1,7 @@
+import { slugCanonico } from '@v2/shared/content';
 import { describe, expect, it } from 'vitest';
 
-import { BLOG_POSTS, findBlogPost } from '../blog-registry';
+import { BLOG_POSTS, findBlogPost, findBlogPostByLegacySlug } from '../blog-registry';
 
 describe('BLOG_POSTS registry', () => {
   it('loads 22 posts', () => {
@@ -44,6 +45,43 @@ describe('BLOG_POSTS registry', () => {
       expect(p.summary).not.toMatch(/^['"]|['"]$/);
       expect(p.title).not.toContain("''");
       expect(p.summary).not.toContain("''");
+    }
+  });
+
+  it('every slug is the canonical slug of its own title (the repair, T4)', () => {
+    for (const p of BLOG_POSTS) {
+      expect(p.slug).toBe(slugCanonico(p.title));
+    }
+  });
+
+  it('slugs are unique', () => {
+    const slugs = BLOG_POSTS.map((p) => p.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it('legacySlugs are kebab-case, distinct from their own slug, and disjoint from the canonical set', () => {
+    const canonicos = new Set(BLOG_POSTS.map((p) => p.slug));
+    for (const p of BLOG_POSTS) {
+      for (const legacy of p.legacySlugs) {
+        expect(legacy).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+        expect(legacy).not.toBe(p.slug);
+        expect(canonicos.has(legacy)).toBe(false);
+      }
+    }
+  });
+
+  it('findBlogPostByLegacySlug resolves to the owning post, undefined otherwise', () => {
+    const owner = BLOG_POSTS.find((p) => p.legacySlugs.length > 0);
+    expect(owner).toBeDefined();
+    const legacy = owner?.legacySlugs[0] ?? '';
+    expect(findBlogPostByLegacySlug(legacy)?.slug).toBe(owner?.slug);
+    expect(findBlogPostByLegacySlug('no-existe')).toBeUndefined();
+  });
+
+  it('still has 22 posts, all with non-empty bodies', () => {
+    expect(BLOG_POSTS).toHaveLength(22);
+    for (const p of BLOG_POSTS) {
+      expect(p.body.length).toBeGreaterThan(0);
     }
   });
 });

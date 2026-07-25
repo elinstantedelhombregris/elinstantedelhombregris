@@ -49,6 +49,12 @@ export const blogFrontmatterSchema = z.object({
   authorUsername: z.string().min(1).optional(),
   tags: z.array(z.string().min(1)).max(20).default([]),
   coverImageUrl: z.string().url().optional(),
+  /**
+   * Direcciones viejas del post (el slug que produjo el slugify de v1, que
+   * borraba los acentos). El lector redirige de estas al slug canónico: una
+   * URL publicada nunca 404ea. Ver spec 3.4, decisiones 9 y 10.
+   */
+  legacySlugs: z.array(slugSchema).max(10).default([]),
   /** When set, hides the post from public listings (still reachable by URL). */
   draft: z.boolean().default(false),
 });

@@ -13,6 +13,8 @@ export interface BlogPost {
   publishedAt: string;
   readingMinutes: number;
   tags: readonly string[];
+  /** Direcciones viejas del post (slug de v1, con los acentos borrados). */
+  legacySlugs: readonly string[];
   body: string;
 }
 
@@ -24,8 +26,12 @@ const files = import.meta.glob<string>('../../../../content/blog/*.mdx', {
 
 interface ParsedFrontmatter {
   scalars: Record<string, unknown>;
-  tags: string[];
+  /** Every `key:\n  - value` block list found, keyed by its field name. */
+  lists: Record<string, string[]>;
 }
+
+/** Frontmatter keys that introduce a YAML block list (`key:\n  - value`). */
+const LIST_KEYS = ['tags', 'legacySlugs'];
 
 function unquote(value: string): string {
   if (
@@ -40,23 +46,25 @@ function unquote(value: string): string {
 
 function parseFrontmatter(raw: string): ParsedFrontmatter {
   const match = /^---\n([\s\S]*?)\n---\n/.exec(raw);
-  if (!match) return { scalars: {}, tags: [] };
+  if (!match) return { scalars: {}, lists: {} };
   const scalars: Record<string, unknown> = {};
-  const tags: string[] = [];
+  const lists: Record<string, string[]> = {};
   const yaml = match[1] ?? '';
   const lines = yaml.split('\n');
-  let inTags = false;
+  let currentListKey: string | null = null;
   for (const line of lines) {
-    if (inTags) {
-      const tagMatch = /^ {2}- (.+)$/.exec(line);
-      if (tagMatch?.[1] !== undefined) {
-        tags.push(unquote(tagMatch[1].trim()));
+    if (currentListKey !== null) {
+      const itemMatch = /^ {2}- (.+)$/.exec(line);
+      if (itemMatch?.[1] !== undefined) {
+        (lists[currentListKey] ??= []).push(unquote(itemMatch[1].trim()));
         continue;
       }
-      inTags = false;
+      currentListKey = null;
     }
-    if (/^tags\s*:\s*$/.test(line)) {
-      inTags = true;
+    const listKeyMatch = /^([a-zA-Z0-9_]+)\s*:\s*$/.exec(line);
+    if (listKeyMatch?.[1] !== undefined && LIST_KEYS.includes(listKeyMatch[1])) {
+      currentListKey = listKeyMatch[1];
+      lists[currentListKey] ??= [];
       continue;
     }
     const m = /^([a-zA-Z0-9_]+)\s*:\s*(.*?)\s*$/.exec(line);
@@ -69,7 +77,7 @@ function parseFrontmatter(raw: string): ParsedFrontmatter {
     else if (/^-?\d+(\.\d+)?$/.test(value)) scalars[key] = Number(value);
     else scalars[key] = value;
   }
-  return { scalars, tags };
+  return { scalars, lists };
 }
 
 function readString(fm: Record<string, unknown>, key: string, fallback: string): string {
@@ -88,7 +96,7 @@ function readBoolean(fm: Record<string, unknown>, key: string, fallback: boolean
 function buildRegistry(): BlogPost[] {
   const entries: BlogPost[] = [];
   for (const [path, raw] of Object.entries(files)) {
-    const { scalars, tags } = parseFrontmatter(raw);
+    const { scalars, lists } = parseFrontmatter(raw);
     if (readBoolean(scalars, 'draft', false)) continue;
     const fallbackSlug = path.split('/').pop()?.replace('.mdx', '').toLowerCase() ?? '';
     const type = readString(scalars, 'type', 'blog') === 'vlog' ? 'vlog' : 'blog';
@@ -100,7 +108,8 @@ function buildRegistry(): BlogPost[] {
       category: readString(scalars, 'category', ''),
       publishedAt: readString(scalars, 'publishedAt', ''),
       readingMinutes: readNumber(scalars, 'readingMinutes', 0),
-      tags,
+      tags: lists.tags ?? [],
+      legacySlugs: lists.legacySlugs ?? [],
       body: stripFrontmatter(raw),
     });
   }
@@ -121,4 +130,9 @@ export const BLOG_POSTS: readonly BlogPost[] = buildRegistry();
 
 export function findBlogPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+/** Resuelve una dirección vieja (spec 3.4, decisión 10) al post que la declara. */
+export function findBlogPostByLegacySlug(slug: string): BlogPost | undefined {
+  return BLOG_POSTS.find((p) => p.legacySlugs.includes(slug));
 }

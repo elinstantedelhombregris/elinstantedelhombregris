@@ -1,4 +1,12 @@
 /**
+ * CERRADO: los slugs se repararon en 3.4 (ver spec
+ * docs/specs/2026-07-24-manifiesto-y-bitacora-papel-y-tinta.md, decisiones 9
+ * y 10, y scripts/content/repair-blog-slugs.ts); volver a correr este script
+ * resucitaría los nombres viejos — es idempotente por nombre de archivo, así
+ * que un slug de BLOG_SOURCES que ya no coincide con ningún archivo (porque
+ * el repair lo renombró) se re-migraría con el slug corrupto de v1. No
+ * correrlo de nuevo sobre contenido ya reparado.
+ *
  * One-shot: migrate the v1 blog posts listed in BLOG_SOURCES (21 of v1's 22 —
  * SocialJusticeHub/shared/blogContent.ts `blogContentUpdates`) into v2 MDX
  * under v2/content/blog/. The 22nd v1 post, "¿Quién tiene el timón?", is

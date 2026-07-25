@@ -3,8 +3,12 @@
  * its frontmatter survives the unquoting logic the downstream registry uses.
  *
  * For each v2/content/blog/<slug>.mdx:
- *   - exactly BLOG_SOURCES.length + NATIVE_BLOG_SLUGS.length files: one per
- *     source slug, plus any declared v2-native (non-migrated) posts
+ *   - every BLOG_SOURCES / NATIVE_BLOG_SLUGS slug resolves to exactly one
+ *     file, either as that file's own (canonical) slug or as one of its
+ *     declared `legacySlugs` — the slug repair (spec 3.4, Task 4 del plan)
+ *     renamed 17 files, so the v1 slug is no longer the filename for those;
+ *     it's the historical key, and `legacySlugs` is where the trace lives
+ *   - exactly BLOG_SOURCES.length + NATIVE_BLOG_SLUGS.length files total
  *   - filename basename === frontmatter slug
  *   - required frontmatter keys present, typed/shaped correctly
  *   - tags is a non-empty YAML block list
@@ -57,8 +61,13 @@ const SENTINEL = 'BRHARDBREAK';
 interface ParsedMdx {
   fields: Record<string, string>;
   tags: string[];
+  /** The `legacySlugs:` block list — old (pre-repair) directions, if any. */
+  legacySlugs: string[];
   body: string;
 }
+
+/** Frontmatter keys that introduce a YAML block list (`key:\n  - value`). */
+const LIST_KEYS = ['tags', 'legacySlugs'];
 
 const failures: string[] = [];
 
@@ -67,11 +76,12 @@ function fail(file: string, detail: string): void {
 }
 
 /**
- * Parse the exact frontmatter shape the migration emits: a leading
- * `---\n … \n---\n` block. Scalar `key: value` lines land in `fields` with
- * their raw (still-quoted) value. The `tags:` key introduces a YAML block
- * list of `  - <tag>` lines, collected into `tags`. Everything after the
- * closing delimiter is `body`. Returns null when no frontmatter block.
+ * Parse the exact frontmatter shape the migration + repair scripts emit: a
+ * leading `---\n … \n---\n` block. Scalar `key: value` lines land in
+ * `fields` with their raw (still-quoted) value. `tags:` and `legacySlugs:`
+ * each introduce a YAML block list of `  - <item>` lines, collected into
+ * their own array. Everything after the closing delimiter is `body`.
+ * Returns null when no frontmatter block.
  */
 function parseFrontmatter(raw: string): ParsedMdx | null {
   if (!raw.startsWith('---\n')) return null;
@@ -82,30 +92,30 @@ function parseFrontmatter(raw: string): ParsedMdx | null {
   const body = rest.slice(endIdx + '\n---\n'.length);
 
   const fields: Record<string, string> = {};
-  const tags: string[] = [];
-  let inTags = false;
+  const lists: Record<string, string[]> = {};
+  let currentListKey: string | null = null;
   for (const line of yaml.split('\n')) {
-    const listItem = /^ {2}- (.*)$/.exec(line);
-    if (inTags && listItem) {
-      tags.push(listItem[1]!.trim());
-      continue;
+    if (currentListKey !== null) {
+      const listItem = /^ {2}- (.*)$/.exec(line);
+      if (listItem) {
+        (lists[currentListKey] ??= []).push(listItem[1]!.trim());
+        continue;
+      }
+      currentListKey = null;
     }
     const kv = /^([A-Za-z_][A-Za-z0-9_]*):[ \t]?(.*)$/.exec(line);
-    if (!kv) {
-      inTags = false;
-      continue;
-    }
+    if (!kv) continue;
     const key = kv[1]!;
     const value = kv[2]!;
-    if (key === 'tags') {
-      inTags = true;
+    if (LIST_KEYS.includes(key)) {
+      currentListKey = key;
+      lists[key] ??= [];
       fields[key] = value;
       continue;
     }
-    inTags = false;
     fields[key] = value;
   }
-  return { fields, tags, body };
+  return { fields, tags: lists.tags ?? [], legacySlugs: lists.legacySlugs ?? [], body };
 }
 
 /**
@@ -223,18 +233,32 @@ function main(): void {
     );
   }
 
-  // Check 2 (sources half): every source slug has a corresponding file.
-  const fileSlugs = new Set(files.map((f) => basename(f, '.mdx')));
+  // Check 2 (sources half): every source slug resolves to exactly one file,
+  // either as that file's own (canonical) slug or via a declared
+  // `legacySlugs` entry — the slug repair (spec 3.4) renamed 17 files, so
+  // the v1 slug is no longer necessarily the filename. Reading `legacySlugs`
+  // straight out of frontmatter (rather than trusting the filename alone)
+  // is the part that verifies the trace actually exists, not just that some
+  // file happens to exist.
+  const reachable = new Map<string, string>(); // slug (canonical or legacy) -> filename
+  for (const f of files) {
+    const raw = readFileSync(resolve(BLOG_DIR, f), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    const canonical = parsed?.fields.slug ?? basename(f, '.mdx');
+    reachable.set(canonical, f);
+    for (const legacy of parsed?.legacySlugs ?? []) reachable.set(legacy, f);
+  }
+
   for (const src of BLOG_SOURCES) {
-    if (!fileSlugs.has(src.slug)) {
-      failures.push(`FAIL source slug has no MDX file: ${src.slug}`);
+    if (!reachable.has(src.slug)) {
+      failures.push(`FAIL source slug has no reachable MDX file (canonical or legacySlugs): ${src.slug}`);
     }
   }
 
-  // Check 2b: every declared native slug also has a corresponding file.
+  // Check 2b: every declared native slug also resolves to a file.
   for (const slug of NATIVE_BLOG_SLUGS) {
-    if (!fileSlugs.has(slug)) {
-      failures.push(`FAIL declared native slug has no MDX file: ${slug}`);
+    if (!reachable.has(slug)) {
+      failures.push(`FAIL declared native slug has no reachable MDX file: ${slug}`);
     }
   }
 
