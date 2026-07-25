@@ -56,7 +56,7 @@ export const ensayoFrontmatterSchema = z.object({
   title: z.string().min(1).max(200),
   subtitle: z.string().max(300).optional(),
   summary: z.string().min(1).max(800),
-  /** 'primer-ciclo' | 'indagaciones' | 'sueltos' */
+  /** 'primer-ciclo' | 'indagaciones' | 'interdependencia' | 'sueltos' */
   series: z.string().min(1).max(60),
   /** Position within the series (1-based). Drives next/prev nav. */
   orderIndex: z.number().int().positive(),
@@ -64,6 +64,11 @@ export const ensayoFrontmatterSchema = z.object({
   /** Estimated reading time in minutes. */
   readingMinutes: z.number().int().positive().optional(),
   tags: z.array(z.string().min(1)).max(20).default([]),
+  /**
+   * Literary form. Almost everything is a regular 'ensayo'; 'acta' marks a
+   * sworn-declaration piece (currently just the interdependencia closer).
+   */
+  form: z.enum(['ensayo', 'acta']).default('ensayo'),
   draft: z.boolean().default(false),
 });
 export type EnsayoFrontmatter = z.infer<typeof ensayoFrontmatterSchema>;

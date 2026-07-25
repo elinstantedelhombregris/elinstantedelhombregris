@@ -17,12 +17,14 @@ const ENSAYOS_SRC = resolve(REPO_ROOT, 'Ensayos');
 const ENSAYOS_OUT = resolve(V2_ROOT, 'content/ensayos');
 
 interface SourceFile {
-  series: 'primer-ciclo' | 'indagaciones';
+  series: 'primer-ciclo' | 'indagaciones' | 'interdependencia';
   orderIndex: number;
   srcRelative: string;
   slug: string;
   summary: string;
   tags: string[];
+  /** Literary form. Omit for a regular ensayo; set for the closing 'acta' piece. */
+  form?: 'acta';
 }
 
 const SOURCES: SourceFile[] = [
@@ -145,10 +147,76 @@ const SOURCES: SourceFile[] = [
       'Sobre la naturaleza, la belleza y el silencio como tecnologías cívicas — tan reales como una ruta o un tribunal.',
     tags: ['sensibilidad', 'belleza', 'silencio'],
   },
+  // Interdependencia — tercer ciclo, escrito para el 9 de julio de 2026.
+  {
+    series: 'interdependencia',
+    orderIndex: 1,
+    srcRelative: 'interdependencia/01-que-es-una-nacion.md',
+    slug: 'que-es-una-nacion',
+    summary:
+      'Una nación no es el territorio ni el Estado ni la bandera: es un acuerdo sostenido por millones de mentes, transmitido de los que mueren a los que nacen — el hallazgo que abre este ciclo.',
+    tags: ['nacion', 'interdependencia', 'sistemas'],
+  },
+  {
+    series: 'interdependencia',
+    orderIndex: 2,
+    srcRelative: 'interdependencia/02-el-bisturi-de-1816.md',
+    slug: 'el-bisturi-de-1816',
+    summary:
+      'Mirada con los ojos de la teoría de sistemas, la independencia de 1816 fue una cirugía: cortar un flujo no alcanza si del otro lado del corte no se construye un metabolismo propio.',
+    tags: ['independencia', 'sistemas', 'historia'],
+  },
+  {
+    series: 'interdependencia',
+    orderIndex: 3,
+    srcRelative: 'interdependencia/03-la-independencia-ficticia.md',
+    slug: 'la-independencia-ficticia',
+    summary:
+      'Un censo de los reyes sin retrato que hoy ocupan la casilla que en 1810 ocupaba la corona — el acreedor, la plataforma, la doctrina importada, el salvador interno — porque lo que no se ve no se puede cortar.',
+    tags: ['dependencia', 'soberania', 'argentina'],
+  },
+  {
+    series: 'interdependencia',
+    orderIndex: 4,
+    srcRelative: 'interdependencia/04-interdependencia-la-palabra.md',
+    slug: 'interdependencia-la-palabra',
+    summary:
+      'Desarmar la palabra "independencia" hasta encontrar la que faltaba — colgar entre, no colgar de — y la demostración paso a paso de por qué el tejido mirado es la única autonomía posible.',
+    tags: ['interdependencia', 'lenguaje', 'autonomia'],
+  },
+  {
+    series: 'interdependencia',
+    orderIndex: 5,
+    srcRelative: 'interdependencia/05-lo-que-perdemos.md',
+    slug: 'lo-que-perdemos',
+    summary:
+      'El inventario de lo que se pierde cuando no se ve el tejido — el vecino, la trama entre distintos — mientras del otro lado del vidrio esas mismas hebras se conocen, se poseen y se alquilan al mejor postor.',
+    tags: ['individualismo', 'grieta', 'redes'],
+  },
+  {
+    series: 'interdependencia',
+    orderIndex: 6,
+    srcRelative: 'interdependencia/06-la-practica-del-tejido.md',
+    slug: 'la-practica-del-tejido',
+    summary:
+      'Gestos al alcance de una persona sola, empezando mañana: ver el mapa de los propios hilos, nombrar las hebras, tejer las que faltan y renegociar las que drenan — sin esperar a ningún Congreso.',
+    tags: ['practica', 'comunidad', 'ciudadania'],
+  },
+  {
+    series: 'interdependencia',
+    orderIndex: 7,
+    srcRelative: 'interdependencia/07-acta-de-la-interdependencia.md',
+    slug: 'acta-de-la-interdependencia',
+    summary:
+      'El cierre del ciclo: una declaración que no necesita papel ni sello, porque el libro original de las actas de 1816 se perdió y la nación siguió existiendo — la fe, al final, como lealtad a una realidad invisible.',
+    tags: ['acta', 'interdependencia', 'fe'],
+    form: 'acta',
+  },
 ];
 
 const PUBLISHED_AT_PRIMER = '2026-04-15T00:00:00Z';
 const PUBLISHED_AT_INDAG = '2026-04-29T00:00:00Z';
+const PUBLISHED_AT_INTERDEP = '2026-07-09T00:00:00Z';
 
 function readSource(srcRelative: string): { title: string; subtitle: string; body: string } {
   const raw = readFileSync(resolve(ENSAYOS_SRC, srcRelative), 'utf-8');
@@ -190,11 +258,18 @@ function yamlEscape(s: string): string {
   return s;
 }
 
+function publishedAtFor(series: SourceFile['series']): string {
+  if (series === 'primer-ciclo') return PUBLISHED_AT_PRIMER;
+  if (series === 'indagaciones') return PUBLISHED_AT_INDAG;
+  return PUBLISHED_AT_INTERDEP;
+}
+
 function buildMdx(src: SourceFile): string {
   const { title, subtitle, body } = readSource(src.srcRelative);
   const readingMinutes = estimateReadingMinutes(body);
-  const publishedAt = src.series === 'primer-ciclo' ? PUBLISHED_AT_PRIMER : PUBLISHED_AT_INDAG;
+  const publishedAt = publishedAtFor(src.series);
   const tagsBlock = src.tags.map((t) => `  - ${t}`).join('\n');
+  const formLine = src.form ? `\nform: ${src.form}` : '';
 
   return `---
 slug: ${src.slug}
@@ -206,7 +281,7 @@ orderIndex: ${src.orderIndex}
 publishedAt: ${publishedAt}
 readingMinutes: ${readingMinutes}
 tags:
-${tagsBlock}
+${tagsBlock}${formLine}
 draft: false
 ---
 

@@ -5,6 +5,7 @@ import { ENSAYOS } from '~/lib/ensayos-registry';
 const SERIES_LABELS: Record<string, string> = {
   'primer-ciclo': 'Primer ciclo',
   indagaciones: 'Indagaciones',
+  interdependencia: 'Interdependencia',
   sueltos: 'Sueltos',
 };
 
@@ -48,11 +49,18 @@ export function Ensayos() {
                   >
                     <div className="flex items-baseline justify-between gap-4">
                       <h3 className="font-serif text-xl font-semibold">{e.title}</h3>
-                      {e.readingMinutes > 0 ? (
-                        <p className="font-mono text-xs text-muted-foreground">
-                          {e.readingMinutes} min
-                        </p>
-                      ) : null}
+                      <div className="flex shrink-0 items-center gap-2">
+                        {e.form === 'acta' ? (
+                          <span className="rounded-full border border-iris-violet/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-iris-violet">
+                            Acta
+                          </span>
+                        ) : null}
+                        {e.readingMinutes > 0 ? (
+                          <p className="font-mono text-xs text-muted-foreground">
+                            {e.readingMinutes} min
+                          </p>
+                        ) : null}
+                      </div>
                     </div>
                     {e.subtitle ? <p className="mt-1 italic text-muted-foreground">{e.subtitle}</p> : null}
                     <p className="mt-2 line-clamp-2 text-sm text-foreground/80">{e.summary}</p>

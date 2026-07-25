@@ -13,6 +13,8 @@ export interface EnsayoEntry {
   orderIndex: number;
   publishedAt: string;
   readingMinutes: number;
+  /** 'ensayo' (default) or 'acta' — a sworn-declaration piece. */
+  form: 'ensayo' | 'acta';
   body: string;
 }
 
@@ -55,6 +57,9 @@ function readNumber(fm: Record<string, unknown>, key: string, fallback: number):
   const v = fm[key];
   return typeof v === 'number' ? v : fallback;
 }
+function readForm(fm: Record<string, unknown>): 'ensayo' | 'acta' {
+  return fm.form === 'acta' ? 'acta' : 'ensayo';
+}
 
 function buildRegistry(): EnsayoEntry[] {
   const entries: EnsayoEntry[] = [];
@@ -70,6 +75,7 @@ function buildRegistry(): EnsayoEntry[] {
       orderIndex: readNumber(fm, 'orderIndex', 99),
       publishedAt: readString(fm, 'publishedAt', ''),
       readingMinutes: readNumber(fm, 'readingMinutes', 0),
+      form: readForm(fm),
       body: stripFrontmatter(raw),
     });
   }
