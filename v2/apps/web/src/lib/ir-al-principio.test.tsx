@@ -48,18 +48,37 @@ describe('useIrAlPrincipio — toda navegación empieza donde empieza la página
     expect(window.history.scrollRestoration).toBe('manual');
   });
 
-  it('con ancla en la dirección va a la sección, no arriba', async () => {
+  it('con ancla en la dirección va a la sección, no arriba, y sin deslizarse', () => {
     window.history.replaceState(null, '', '/biblioteca#ensayos');
     render(<Pagina />);
 
-    // El ancla se busca en el frame siguiente: la página es lazy y puede no
-    // estar montada cuando corre el efecto.
+    expect(alElemento).toHaveBeenCalledTimes(1);
+    // Llegando NO se desliza: la sección tiene que estar puesta cuando
+    // aparece la página, no viajar hasta ahí desde un documento en blanco.
+    expect(alElemento).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' });
+    expect(arriba).not.toHaveBeenCalled();
+  });
+
+  it('espera a la sección que todavía no montó — la página es lazy', async () => {
+    window.history.replaceState(null, '', '/biblioteca#tardia');
+    render(<SinSecciones />);
+
+    // Cuando corre el efecto la sección no existe: se ve el fallback de
+    // Suspense. No hay salto todavía, y tampoco un salto a lo bruto arriba.
+    expect(alElemento).not.toHaveBeenCalled();
+    expect(arriba).not.toHaveBeenCalled();
+
+    // La página termina de cargar y el DOM cambia.
+    const tardia = document.createElement('section');
+    tardia.id = 'tardia';
     await act(async () => {
-      await new Promise((listo) => requestAnimationFrame(() => { listo(null); }));
+      document.body.append(tardia);
+      // El observador de mutaciones entrega en cola aparte, no en el mismo tick.
+      await new Promise((listo) => setTimeout(listo, 0));
     });
 
     expect(alElemento).toHaveBeenCalledTimes(1);
-    expect(arriba).not.toHaveBeenCalled();
+    tardia.remove();
   });
 });
 
@@ -69,6 +88,8 @@ describe('saltarASeccion — el salto dentro de la misma página', () => {
 
     expect(saltarASeccion('ensayos')).toBe(true);
     expect(alElemento).toHaveBeenCalledTimes(1);
+    // Adentro de la página sí se desliza: el lector ve hacia dónde va.
+    expect(alElemento).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' });
   });
 
   it('devuelve false cuando la sección no existe, para que el link siga su curso', () => {
