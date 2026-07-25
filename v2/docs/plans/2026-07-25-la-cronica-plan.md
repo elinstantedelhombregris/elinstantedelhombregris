@@ -409,16 +409,17 @@ git commit -m "feat(web): la crónica del país que viene — lector de 5 capít
 
 ---
 
-### Task 3: El bloque en la biblioteca (D9) — card + wiring + `HREF_CRONICA`
+### Task 3: El bloque en la biblioteca (D9) — card + wiring + `HREF_CRONICA_PAIS_QUE_VIENE`
 
 **Files:**
 - Create: `apps/web/src/pages/Biblioteca/sections/CronicaDestacada.tsx`
 - Modify: `apps/web/src/pages/Biblioteca.tsx` (una línea de import + una línea de JSX)
-- Modify: `apps/web/src/pages/Biblioteca/biblioteca-data.ts` (agregar `HREF_CRONICA`)
+- Modify: `apps/web/src/pages/Biblioteca/biblioteca-data.ts` (agregar
+  `HREF_CRONICA_PAIS_QUE_VIENE`)
 - Modify: `apps/web/src/pages/__tests__/Biblioteca.test.tsx`
 
 **Interfaces:**
-- Consumes: `HREF_CRONICA` (`../biblioteca-data`).
+- Consumes: `HREF_CRONICA_PAIS_QUE_VIENE` (`../biblioteca-data`).
 - Produces: la sección nueva del hub, entre `<EntrenamientosCurados />` y
   `<BitacoraReciente />`.
 
@@ -436,13 +437,20 @@ git commit -m "feat(web): la crónica del país que viene — lector de 5 capít
 Run: `pnpm -C apps/web exec vitest run src/pages/__tests__/Biblioteca.test.tsx`
 Esperado: FAIL.
 
-- [ ] **Step 2: `HREF_CRONICA` en `biblioteca-data.ts`.** Junto a `HREF_MANIFIESTO`/
-  `HREF_BITACORA`:
+- [ ] **Step 2: `HREF_CRONICA_PAIS_QUE_VIENE` en `biblioteca-data.ts`.** Junto a
+  `HREF_MANIFIESTO`/`HREF_BITACORA` — **nombre completo a propósito, no `HREF_CRONICA`**:
+  este archivo ya exporta `CRONICA_COUNT`, `hrefCronica(slug)` y `ULTIMAS_CRONICAS` para
+  las crónicas de la bitácora (posts de blog); un `HREF_CRONICA` a secas sería un cuarto
+  identificador con «Cronica» significando una cosa completamente distinta en el mismo
+  archivo — la colisión de nombres que la spec dedica un hallazgo entero a advertir, ahora
+  a nivel de código:
 
 ```ts
-/** /cronica es una ruta estática nueva: no cambia de fase, pero centralizarla acá
- *  mantiene un solo lugar para todos los destinos salientes del hub. */
-export const HREF_CRONICA = '/cronica';
+/** /cronica (la novela, no las crónicas de la bitácora — ver CRONICA_COUNT/
+ *  hrefCronica más abajo) es una ruta estática nueva: no cambia de fase, pero
+ *  centralizarla acá mantiene un solo lugar para todos los destinos salientes
+ *  del hub. */
+export const HREF_CRONICA_PAIS_QUE_VIENE = '/cronica';
 ```
 
 - [ ] **Step 3: Implementar `CronicaDestacada.tsx`** (recipe de `ManifiestoDestacado`,
@@ -451,7 +459,7 @@ export const HREF_CRONICA = '/cronica';
 ```tsx
 import { Link } from 'wouter';
 
-import { HREF_CRONICA } from '../biblioteca-data';
+import { HREF_CRONICA_PAIS_QUE_VIENE } from '../biblioteca-data';
 
 /**
  * § adenda de la spec de la biblioteca (docs/specs/2026-07-25-la-cronica-papel-y-tinta.md)
@@ -465,7 +473,7 @@ export function CronicaDestacada() {
   return (
     <section className="mx-auto max-w-[1100px] px-10 pb-14 max-[560px]:px-5">
       <Link
-        href={HREF_CRONICA}
+        href={HREF_CRONICA_PAIS_QUE_VIENE}
         className="bg-tinta text-papel flex flex-wrap items-center gap-8 px-10 py-9 transition-transform duration-150 hover:-translate-y-0.5 max-[560px]:px-6 max-[560px]:py-7"
       >
         <span className="font-space border-violeta-claro text-violeta-claro whitespace-nowrap border px-3 py-2 text-[11px] font-bold uppercase tracking-[0.16em]">
@@ -514,15 +522,18 @@ git commit -m "feat(web): la biblioteca — bloque de la crónica del país que 
 
 ---
 
-### Task 4: Flip — ruta, `PAPEL_ROUTES` y prueba en navegador
+### Task 4: Flip — ruta, `PAPEL_ROUTES`, redirect de `/una-ruta-para-argentina` y prueba en navegador
 
 **Files:**
 - Modify: `apps/web/src/app-pages.tsx` (lazy `Cronica`)
-- Modify: `apps/web/src/app-routes.tsx` (`<Route path="/cronica" component={Cronica} />`)
+- Modify: `apps/web/src/app-routes.tsx` (`<Route path="/cronica" component={Cronica} />`
+  **y** el swap de `/una-ruta-para-argentina` a `<Redirect>`, D3)
 - Modify: `apps/web/src/layouts/papel-routes.ts` + `apps/web/src/layouts/__tests__/papel-routes.test.ts`
 
 **Interfaces:**
-- Produces: `/cronica` navegable con chrome papel, enlazada desde `/biblioteca`.
+- Produces: `/cronica` navegable con chrome papel, enlazada desde `/biblioteca`;
+  `/una-ruta-para-argentina` redirige a `/la-idea` (decisión ya tomada en la spec 2.1
+  para esta card — ver spec, «Por qué» / Decisión 8).
 
 - [ ] **Step 1: Tests primero.** En `papel-routes.test.ts`: `esRutaPapel('/cronica')` →
   true · `esRutaPapel('/cronicas')` → false (no hay prefijo, es igualdad exacta) ·
@@ -546,13 +557,36 @@ export const Cronica = lazy(async () => {
 <Route path="/cronica" component={Cronica} />
 ```
 
-- [ ] **Step 3: Suite completa + verificación.**
+- [ ] **Step 3: Redirect de `/una-ruta-para-argentina` a `/la-idea` (D3).** Decisión ya
+  tomada en la spec 2.1 para esta card («Decisión para la card 3.6») — acá se ejecuta,
+  no se relitiga. En `app-routes.tsx`, reemplazar
+
+```tsx
+<Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
+```
+
+  por, mismo patrón exacto que `/la-vision`/`/el-instante-del-hombre-gris` (2.1):
+
+```tsx
+<Route path="/una-ruta-para-argentina">
+  <Redirect to="/la-idea" replace />
+</Route>
+```
+
+  Sacar `UnaRutaParaArgentina` del import de `~/app-pages` en `app-routes.tsx` (queda sin
+  uso ahí). **No tocar `app-pages.tsx`:** el `lazy(...)` de `UnaRutaParaArgentina` sigue
+  exportado — el componente no se borra, solo pierde la ruta que lo sirve (spec, D3: sus
+  otras tres secciones —`Phases`/`PlanesGrid`/`Roles`— no tienen destino de contenido
+  decidido, eso sigue siendo Fase 7). No hace falta test nuevo para el redirect en sí —
+  mismo criterio que 2.1, que tampoco escribió uno: se verifica a mano en el Step 6.
+
+- [ ] **Step 4: Suite completa + verificación.**
 
 Run: `pnpm -C apps/web exec vitest run` → PASS (nada de Home/LaIdea/ElMapa/
 ElMandatoVivo/Planes/Sembrar/Manifiesto/Bitacora/Entrenamientos roto). `pnpm verify`
 verde.
 
-- [ ] **Step 4: Greps de control.**
+- [ ] **Step 5: Greps de control.**
 
 ```bash
 # Chrome muerto en las páginas nuevas (debe dar cero):
@@ -567,7 +601,7 @@ grep -n "\b5\b\|\b2026\b\|\b2027\b\|\b2029\b\|\b2034\b\|\b2040\b" \
   apps/web/src/pages/Cronica/sections/*.tsx
 ```
 
-- [ ] **Step 5: Prueba en navegador (desktop + mobile, con capturas).**
+- [ ] **Step 6: Prueba en navegador (desktop + mobile, con capturas).**
   - (a) `/biblioteca`: el bloque nuevo aparece entre la vidriera de entrenamientos y la
     bitácora, con la etiqueta «Ficción especulativa» y el link a `/cronica`; hover
     levanta la card (`-translate-y-0.5`).
@@ -594,14 +628,17 @@ grep -n "\b5\b\|\b2026\b\|\b2027\b\|\b2029\b\|\b2034\b\|\b2040\b" \
     apilada, targets ≥ 44px.
   - (j) `prefers-reduced-motion`: página completa y quieta, título del lector
     entintado de entrada, salto de sumario sin scroll suave (instantáneo).
-- [ ] **Step 6: Commit.**
+  - (k) **Redirect (D3):** navegar a `/una-ruta-para-argentina` — la URL termina en
+    `/la-idea` (`replace`, sin entrada nueva en el historial: back no vuelve a
+    `/una-ruta-para-argentina`), con chrome papel de `/la-idea` completo.
+- [ ] **Step 7: Commit.**
 
 ```bash
 git add apps/web/src/app-pages.tsx \
         apps/web/src/app-routes.tsx \
         apps/web/src/layouts/papel-routes.ts \
         apps/web/src/layouts/__tests__/papel-routes.test.ts
-git commit -m "feat(web): la crónica del país que viene en /cronica — ruta, PAPEL_ROUTES y verificación"
+git commit -m "feat(web): la crónica del país que viene en /cronica — ruta, PAPEL_ROUTES, redirect de /una-ruta-para-argentina y verificación"
 ```
 
 ---
@@ -612,8 +649,9 @@ git commit -m "feat(web): la crónica del país que viene en /cronica — ruta, 
   sumario + documento verbatim + cierre, con el ramal defensivo de `CAPITULO_COUNT === 0`
   y la única enmienda de ley (Task 2) · el bloque del hub reusando el recipe de
   `ManifiestoDestacado` con la frase keystone repetida (Task 3) · ruta estática,
-  `PAPEL_ROUTES` por igualdad exacta, greps y navegador con deep-link y print preview
-  (Task 4).
+  `PAPEL_ROUTES` por igualdad exacta, el redirect de `/una-ruta-para-argentina` a
+  `/la-idea` (D3 — decisión de la spec 2.1, ejecutada acá, no relitigada), greps y
+  navegador con deep-link, print preview y el redirect (Task 4).
 - **Cero datos inventados:** ningún literal de conteo o de año en JSX; los tests
   comparan contra `CRONICA_CHAPTERS`/`CAPITULO_COUNT`, nunca contra strings de
   contenido. La única prosa fija y sin interpolación es la frase keystone de D2 — y está
@@ -642,9 +680,12 @@ git commit -m "feat(web): la crónica del país que viene en /cronica — ruta, 
   colisión con «crónica» de bitácora) en el mismo commit que la página que la necesita
   (Task 2). El catálogo de sellos §10.5 **no** se enmienda: la crónica no estampa nada
   al terminar de leerse (spec, Decisión 2).
-- **Deuda observada, fuera de alcance:** (a) `/una-ruta-para-argentina` sigue viva con
-  sus 5 fases sin página papel — queda para la Fase 7 (spec, «La deuda que esta página
-  no paga»); (b) la receta de tag §5 se repite inline una tercera vez en
+- **Deuda observada, fuera de alcance:** (a) el *contenido* de `/una-ruta-para-argentina`
+  que la ruta ya no sirve — las 5 fases (`Phases.tsx`) y la grilla de planes/roles que
+  duplica `/planes`/`/la-idea` — no tiene todavía destino en ninguna página papel; queda
+  para la Fase 7 (spec, «D3: el redirect... esta página lo ejecuta»). La ruta en sí ya no
+  es deuda: redirige a `/la-idea` desde este mismo plan (Task 4), decisión que ya venía
+  tomada en la spec 2.1; (b) la receta de tag §5 se repite inline una tercera vez en
   `CronicaDestacada` (después de `ManifiestoDestacado` y `BitacoraReciente`) — si algún
   bloque futuro la necesita una cuarta vez, ahí se extrae `Etiqueta` con prop de
   superficie (deuda ya anotada en el self-review de la biblioteca, no se repite la

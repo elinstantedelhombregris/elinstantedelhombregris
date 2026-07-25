@@ -70,16 +70,40 @@ que viene», con el artículo y el título completo siempre juntos, nunca solo �
 secas en ningún copy de esta página) pero **sí** la deja escrita, para que nadie la
 descubra leyendo el código: ver «Enmiendas a la ley» abajo.
 
-### La deuda que esta página no paga
+### D3: el redirect de `/una-ruta-para-argentina` ya estaba decidido — esta página lo ejecuta
 
-D3: `/una-ruta-para-argentina` (v1-port, `gradient-text`/`font-serif`) sigue viva y
-sigue teniendo sus 5 fases (Despertar/Diseñar/Conectar/Multiplicar/Estrenar en
-`UnaRutaParaArgentina/sections/Phases.tsx`) — contenido que **no vive en ninguna página
-papel todavía**. Esta página **no** absorbe esas fases y **no** redirige
-`/una-ruta-para-argentina`. Queda anotado para la Fase 7 (cutover): cuando se borre el
-chrome v1, alguien tiene que decidir qué pasa con las 5 fases — ¿las absorbe `/la-idea`
-(cap. II, «el método»)? ¿`/planes`? ¿mueren? Esta spec no lo resuelve porque no le
-corresponde (una conversación = una página) — lo deja como ítem explícito de la Fase 7.
+La spec de 2.1 (`docs/specs/2026-07-22-la-idea-papel-y-tinta.md`, «Ruta, redirects y
+navegación») ya resolvió este punto y lo asignó explícitamente a esta card: *"Decisión
+para la card 3.6 (asignada a esta spec): cuando `UnaRutaParaArgentina` se desarme,
+`/una-ruta-para-argentina` redirige a **`/la-idea`** — su framing («la ruta», el método)
+lo absorbe el Capítulo II; la novela tendrá su propio lector en `/cronica`."* El master
+plan (card 3.6) deja el target ambiguo entre dos opciones — *"`UnaRutaParaArgentina`
+route redirects to `/la-idea` (or `/planes`, decided in the 2.1 spec)"* — pero la propia
+celda dice que la ambigüedad **ya la resolvió 2.1**, y 2.1 (arriba) la resolvió a favor
+de `/la-idea`, sin condicionarla a ninguna fase — a diferencia de «el Arquitecto...
+(Phase 5)» en la misma celda, que sí lleva fase explícita. Sin anotación de fase
+significa que el redirect corresponde a esta card, no a un diferimiento. Una versión
+anterior de esta spec decía
+lo contrario («no redirige», anotado como deuda de Fase 7) sin citar ni anular la
+decisión de 2.1 — no hay ninguna decisión nueva que la reemplace, así que era una
+contradicción, no una reasignación válida. Se corrige acá.
+
+**Lo que esta página SÍ hace (Task 4 del plan):** `/una-ruta-para-argentina` deja de
+servir `UnaRutaParaArgentina.tsx` y pasa a `<Route path="/una-ruta-para-argentina">
+<Redirect to="/la-idea" replace /></Route>` — el mismo patrón, carácter por carácter,
+que `app-routes.tsx` ya usa hoy para `/la-vision` y `/el-instante-del-hombre-gris`
+(2.1). El componente `UnaRutaParaArgentina.tsx` **no se borra**: pierde su ruta, nada
+más.
+
+**Lo que sigue siendo deuda de Fase 7 — más angosto que antes:** no la ruta (ya
+decidida y ejecutada), sino el destino del *contenido* que ese componente todavía
+apila sin absorber en ninguna página papel — las 5 fases (Despertar/Diseñar/Conectar/
+Multiplicar/Estrenar, `UnaRutaParaArgentina/sections/Phases.tsx`) y la grilla de
+planes/roles que duplica `/planes`/`/la-idea`. ¿Las absorbe `/la-idea` (cap. II)?
+¿`/planes`? ¿mueren con el borrado del chrome v1? Esa es una decisión de contenido,
+distinta de la decisión de ruta — esta spec no la resuelve porque no le corresponde
+(una conversación = una página), pero ya no dice nada que contradiga 2.1 al dejarla
+pendiente.
 
 ## Los datos: todo sale del registry
 
@@ -227,10 +251,16 @@ que pide §9b antes de inventar otro):
   D2; ver Decisión 1.)
 - **Glifo de acción**: `Leer la crónica →`
 
-`href` completo a `/cronica`. `biblioteca-data.ts` suma `HREF_CRONICA = '/cronica'`
-junto a `HREF_MANIFIESTO`/`HREF_BITACORA` (misma sección de constantes, aunque esta no
-cambie de fase — centralizar todos los destinos salientes del hub en un solo lugar es
-la razón de ser de ese bloque).
+`href` completo a `/cronica`. `biblioteca-data.ts` suma
+`HREF_CRONICA_PAIS_QUE_VIENE = '/cronica'` junto a `HREF_MANIFIESTO`/`HREF_BITACORA`
+(misma sección de constantes, aunque esta no cambie de fase — centralizar todos los
+destinos salientes del hub en un solo lugar es la razón de ser de ese bloque). **No se
+llama `HREF_CRONICA` a secas:** ese mismo archivo ya exporta `CRONICA_COUNT`,
+`hrefCronica(slug)` y `ULTIMAS_CRONICAS`, los tres referidos a las crónicas de la
+bitácora (§8, «no confundir con las crónicas de la bitácora») — un cuarto identificador
+con «Cronica» a secas recrearía en código exactamente la colisión de nombres que este
+mismo hallazgo advierte en el copy. El nombre completo de la página, no la palabra sola,
+es también la disciplina del identificador.
 
 ## La edición impresa (§10.8 — reusada tal cual, cero re-derivación)
 
@@ -255,6 +285,13 @@ Idéntico al patrón de 2.4/3.2/3.3/3.4, **nada nuevo**:
   (ruta estática sin prefijo dinámico que pueda chocar con otra).
 - **`PAPEL_ROUTES`:** `/cronica` al Set, por igualdad exacta. **No** entra a
   `PAPEL_PREFIXES` (no hay hijos dinámicos).
+- **`/una-ruta-para-argentina` pasa a redirect (D3, decisión de la spec 2.1, ejecutada
+  acá):** en `app-routes.tsx`, el `<Route path="/una-ruta-para-argentina"
+  component={UnaRutaParaArgentina} />` actual se reemplaza por `<Route
+  path="/una-ruta-para-argentina"><Redirect to="/la-idea" replace /></Route>` — mismo
+  patrón que ya usan `/la-vision` y `/el-instante-del-hombre-gris`. `UnaRutaParaArgentina`
+  sale del import de páginas activas en la ruta pero **su archivo no se borra** (ver
+  «D3: el redirect de `/una-ruta-para-argentina`...» en «Por qué» / Decisión 8).
 - **`papel-nav.ts`: sin cambios.** `/cronica` no es un ítem del recorrido de primer
   nivel (`PAPEL_NAV`) — es un destino de segundo nivel colgado de la biblioteca, igual
   que `/manifiesto`, `/bitacora` y `/entrenamientos`, ninguno de los cuales está en el
@@ -373,10 +410,13 @@ de glifos §12 no necesita nada nuevo — Decisión 5. `PAPEL_NAV` no se toca �
    `CRONICA_CHAPTERS.at(-1).subtitle` — nunca transcriptos. En esta versión del copy no
    se necesitan (el lead usa solo `CAPITULO_COUNT`), pero la regla queda escrita para
    quien edite el copy después.
-8. **`/una-ruta-para-argentina` no se toca ni se redirige** (D3). Las 5 fases que
-   contiene no tienen todavía página papel; el ítem queda anotado para la Fase 7. Esta
-   página tampoco linkea hacia allá en ningún punto — cero puente a construir y
-   después borrar.
+8. **`/una-ruta-para-argentina` redirige a `/la-idea`** (D3, decisión ya tomada en la
+   spec 2.1 para la card 3.6 — nada que relitigar acá, solo ejecutarla). El componente
+   v1 no se borra, solo pierde su ruta. Las 5 fases que contiene, y la grilla de
+   planes/roles que duplica, no tienen todavía destino de *contenido* decidido — eso,
+   más angosto que la deuda original, sigue siendo Fase 7. Esta página tampoco linkea
+   hacia `/una-ruta-para-argentina` en ningún punto — el destino correcto es `/la-idea`
+   directo, sin puente intermedio.
 9. **La card del hub reusa el recipe de `ManifiestoDestacado` sin cambios de forma**,
    solo de copy: etiqueta, título, línea, glifo — mismo layout, mismo hover
    `-translate-y-0.5`, mismo lugar en `biblioteca-data.ts` para su `href`. Cero
@@ -401,6 +441,9 @@ de glifos §12 no necesita nada nuevo — Decisión 5. `PAPEL_NAV` no se toca �
 - [ ] Enmienda §8 en el mismo commit que la página que la necesita.
 - [ ] Rutas: `/cronica` en `App.tsx`/`app-routes.tsx` y en `PAPEL_ROUTES` (igualdad
       exacta, sin prefijo); `papel-nav.ts` sin cambios.
+- [ ] `/una-ruta-para-argentina` redirige a `/la-idea` (`<Redirect replace />`, mismo
+      patrón que `/la-vision`/`/el-instante-del-hombre-gris`); `UnaRutaParaArgentina.tsx`
+      no se borra.
 - [ ] Responsive: 1 columna, padding 20, targets ≥ 44px, sumario legible en 375px.
 - [ ] Voseo consistente; «comillas angulares» donde corresponda; sin «registrate/
       únete».
