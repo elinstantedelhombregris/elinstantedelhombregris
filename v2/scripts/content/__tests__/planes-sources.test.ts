@@ -21,7 +21,7 @@ const CORPUS = resolve(SCRIPT_DIR, '../../../../Iniciativas Estratégicas');
 function soloLetras(s: string): string {
   return s
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/[\u0300-\u036f]/g, '') // marcas diacríticas combinantes (tildes, etc.)
     .toUpperCase()
     .replace(/[^A-Z0-9]/g, '');
 }
@@ -109,16 +109,24 @@ describe('PLANES_SOURCES (canon de la tabla de fuentes)', () => {
 
       const tituloTabla = soloLetras(p.title);
       const tituloPortada = soloLetras(portada.title);
+
+      // Cinturón y tirantes: ningún title puede degenerar a vacío (ni acá ni
+      // en ninguna otra fila), lo que además volvería trivial cualquier
+      // chequeo de prefijo o igualdad hecho sobre soloLetras().
+      expect(tituloTabla.length, `${p.code}: title vacío tras soloLetras`).toBeGreaterThan(0);
+
       // PLANSAL es la única excepción documentada: su portada trae, además del
       // título evocativo, una línea de subtítulo parentético que se excluyó a
-      // propósito. Para todos los demás la igualdad es exacta; para PLANSAL
-      // alcanza con que el título de la tabla sea prefijo del de la portada —
-      // esa regla sigue detectando cualquier palabra inventada.
+      // propósito. Comparamos contra la primera línea del título de portada
+      // en vez de contra el bloque entero — un startsWith() sobre el bloque
+      // no acota por abajo (una versión truncada, o directamente vacía, del
+      // title también sería "prefijo" del bloque completo). Para todos los
+      // demás la igualdad es exacta contra el título ya unido.
       if (p.code === 'PLANSAL') {
-        expect(
-          tituloPortada.startsWith(tituloTabla),
-          `${p.code}: title de la tabla no es prefijo del título de la portada`,
-        ).toBe(true);
+        const primeraLinea = soloLetras(portada.lineasTitulo[0] ?? '');
+        expect(tituloTabla, `${p.code}: title no coincide con la primera línea de la portada`).toBe(
+          primeraLinea,
+        );
       } else {
         expect(tituloTabla, `${p.code}: title no coincide con la portada`).toBe(tituloPortada);
       }

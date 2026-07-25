@@ -7,6 +7,9 @@
 
 export interface Portada {
   title: string;
+  /** Las líneas del título evocativo sin unir, en orden — existe porque en
+   * PLANSAL el título de la tabla es solo la primera línea, no el bloque entero. */
+  lineasTitulo: string[];
   nombreInstitucional: string;
 }
 
@@ -19,7 +22,7 @@ export interface Portada {
 export function leerPortada(raw: string): Portada {
   const lineas = raw.split('\n');
   const apertura = lineas.findIndex((l) => l.startsWith('```'));
-  if (apertura === -1) return { title: '', nombreInstitucional: '' };
+  if (apertura === -1) return { title: '', lineasTitulo: [], nombreInstitucional: '' };
 
   const cierre = lineas.findIndex((l, i) => i > apertura && l.startsWith('```'));
   const portada = lineas.slice(apertura + 1, cierre === -1 ? undefined : cierre);
@@ -43,6 +46,7 @@ export function leerPortada(raw: string): Portada {
 
   return {
     title: evocativo.join(' ').replace(/\s+/g, ' ').trim(),
+    lineasTitulo: evocativo,
     nombreInstitucional: institucional,
   };
 }
