@@ -11,49 +11,18 @@
  * Destructivo por diseño: borra todo .mdx de content/planes/ que no esté en
  * PLANES_SOURCES (los 23 stubs de arranque). El diff se revisa antes de commitear.
  */
-import { readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { componerMdx } from './componer-mdx';
 import { PLANES_SOURCES } from './planes-sources';
-import { partirDocumentoPlan } from './split-documento-plan';
 import { validarCamposPlanos } from './validar-campos-planos';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const V2_ROOT = resolve(SCRIPT_DIR, '../..');
-const REPO_ROOT = resolve(V2_ROOT, '..');
-const CORPUS = resolve(REPO_ROOT, 'Iniciativas Estratégicas');
 const SALIDA_MDX = resolve(V2_ROOT, 'content/planes');
 const SALIDA_INDICE = resolve(V2_ROOT, 'apps/web/src/lib/planes-index.generated.ts');
-
-export const MARCADOR_FICHA = '## Ficha del expediente';
-
-/** Escapa comillas simples para el frontmatter YAML entre comillas simples. */
-function yamlSingle(valor: string): string {
-  return `'${valor.replace(/'/g, "''")}'`;
-}
-
-function componerMdx(fuente: (typeof PLANES_SOURCES)[number]): string {
-  const raw = readFileSync(resolve(CORPUS, fuente.archivoFuente), 'utf8');
-  const { cabecera, cuerpo, parches } = partirDocumentoPlan(raw);
-
-  const ficha = [cabecera, parches].filter((s) => s !== '').join('\n\n');
-
-  const frontmatter = [
-    '---',
-    `slug: ${fuente.slug}`,
-    `code: ${fuente.code}`,
-    `title: ${yamlSingle(fuente.title)}`,
-    `nombreInstitucional: ${yamlSingle(fuente.nombreInstitucional)}`,
-    `summary: ${yamlSingle(fuente.summary)}`,
-    `orderIndex: ${String(fuente.orderIndex)}`,
-    `isMeta: ${String(fuente.isMeta)}`,
-    'draft: false',
-    '---',
-  ].join('\n');
-
-  return `${frontmatter}\n\n${cuerpo}\n\n${MARCADOR_FICHA}\n\n${ficha}\n`;
-}
 
 function main(): void {
   // 0) Guardia: ningún campo de frontmatter puede llevar algo que el parser

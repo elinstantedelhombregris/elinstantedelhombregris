@@ -1,6 +1,12 @@
 /**
  * Guardia de CI: el índice generado tiene que coincidir con el frontmatter de
- * los .mdx. Corre en v2-ci.yml como `pnpm planes:check`.
+ * los .mdx, y los .mdx tienen que coincidir con lo que el taller produciría
+ * ahora mismo. Corre en v2-ci.yml como `pnpm planes:check`.
+ *
+ * La segunda mitad es la que cierra el agujero: sin ella, esta guardia solo
+ * comparaba el índice generado contra los .mdx commiteados — nunca volvía a
+ * leer «Iniciativas Estratégicas/». Editar el taller y olvidarse de correr
+ * `pnpm planes:migrar` quedaba verde acá y servía texto viejo en el sitio.
  *
  * Run: pnpm planes:check
  */
@@ -9,6 +15,9 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { PLANES_INDEX } from '../../apps/web/src/lib/planes-index.generated';
+
+import { componerMdx, MARCADOR_FICHA } from './componer-mdx';
+import { PLANES_SOURCES } from './planes-sources';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const V2_ROOT = resolve(SCRIPT_DIR, '../..');
@@ -95,9 +104,40 @@ function main(): void {
       errores.push(`${entrada.code}.isMeta: .mdx=${fm.isMeta ?? '—'} índice=${String(entrada.isMeta)}`);
     }
 
-    const marcadores = raw.split('\n').filter((l) => l === '## Ficha del expediente').length;
+    const marcadores = raw.split('\n').filter((l) => l === MARCADOR_FICHA).length;
     if (marcadores !== 1) {
-      errores.push(`${entrada.code}: ${String(marcadores)} marcadores «## Ficha del expediente», se esperaba 1`);
+      errores.push(`${entrada.code}: ${String(marcadores)} marcadores «${MARCADOR_FICHA}», se esperaba 1`);
+    }
+  }
+
+  // El taller, re-derivado. Componemos cada .mdx en memoria desde
+  // «Iniciativas Estratégicas/» con la misma función que usa la migración
+  // (componerMdx) y lo comparamos byte a byte contra lo commiteado. Esto es
+  // lo único de esta guardia que vuelve a tocar el taller: todo lo de
+  // arriba compara el índice contra el .mdx, nunca contra la fuente.
+  for (const fuente of PLANES_SOURCES) {
+    const ruta = resolve(MDX_DIR, `${fuente.code}.mdx`);
+    let comprometido: string;
+    try {
+      comprometido = readFileSync(ruta, 'utf8');
+    } catch {
+      // Ya lo reportamos como "falta content/planes/…" en el loop de arriba.
+      continue;
+    }
+
+    let recompuesto: string;
+    try {
+      recompuesto = componerMdx(fuente);
+    } catch (err) {
+      const motivo = err instanceof Error ? err.message : String(err);
+      errores.push(`${fuente.code}: no se pudo re-derivar desde el taller (${motivo}).`);
+      continue;
+    }
+
+    if (recompuesto !== comprometido) {
+      errores.push(
+        `${fuente.code}: el taller no coincide con lo commiteado en content/planes/${fuente.code}.mdx — ¿se editó uno de los dos sin re-derivar?`,
+      );
     }
   }
 
