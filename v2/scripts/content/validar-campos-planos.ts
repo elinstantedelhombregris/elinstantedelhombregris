@@ -9,15 +9,15 @@ import type { FuentePlan } from './planes-sources';
 
 /**
  * yamlSingle() escapa `'` como `''` (la convención YAML), pero el parser de
- * frontmatter que lee estos archivos en runtime —
- * `apps/web/src/lib/plans-registry.ts` — solo saca las comillas de los
- * bordes de la línea; no des-escapa `''`. Si algún día un title,
- * nombreInstitucional o summary trajera una comilla simple, el YAML emitido
- * sería válido pero el front leería el valor cortado en el medio: corrupción
- * silenciosa, no un error visible. Un salto de línea es peor todavía — parte
+ * frontmatter que lee estos archivos — `leerFrontmatter()` en
+ * `scripts/content/verify-planes-index.ts`, el mismo que usa la guardia de
+ * CI — es línea por línea: si algún día un title, nombreInstitucional o
+ * summary trajera una comilla simple, el YAML emitido sería válido pero esa
+ * guardia des-escaparía `''` de vuelta a `'` y compararía contra un valor
+ * que no es el que se commiteó. Un salto de línea es peor todavía — parte
  * la línea `clave: valor` en dos y el resto del frontmatter deja de parsear.
  * Frenamos acá, antes de escribir un solo archivo, en vez de dejar que este
- * desacople data-fix ↔ parser se cuele al bundle sin que nadie lo note.
+ * desacople data-fix ↔ parser rompa la guardia sin que nadie lo note.
  */
 export function validarCamposPlanos(fuente: FuentePlan): void {
   const campos: ReadonlyArray<readonly [string, string]> = [
@@ -29,8 +29,8 @@ export function validarCamposPlanos(fuente: FuentePlan): void {
     if (valor.includes("'")) {
       throw new Error(
         `${fuente.code}.${campo} contiene una comilla simple ('): ` +
-          'el parser de frontmatter en apps/web/src/lib/plans-registry.ts no des-escapa `\'\'`, ' +
-          'así que el valor quedaría cortado en runtime. Corregí PLANES_SOURCES antes de migrar.',
+          'leerFrontmatter() en scripts/content/verify-planes-index.ts des-escapa `\'\'` de vuelta a `\'`, ' +
+          'así que la guardia de CI compararía contra un valor distinto del commiteado. Corregí PLANES_SOURCES antes de migrar.',
       );
     }
     if (valor.includes('\n')) {

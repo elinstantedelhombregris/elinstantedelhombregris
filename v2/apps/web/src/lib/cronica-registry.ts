@@ -2,8 +2,10 @@
  * Build-time registry of «La crónica del país que viene» chapters.
  *
  * v1's five-chapter novela (formerly embedded inline in the
- * `UnaRutaParaArgentina` page). Same shape as ensayos-registry /
- * plans-registry — eager-loaded via Vite import.meta.glob.
+ * `UnaRutaParaArgentina` page). Same shape as ensayos-registry — eager-loaded
+ * via Vite import.meta.glob. plans-registry used to match this shape too,
+ * but it now splits index (eager) from bodies (lazy `import()` per plan);
+ * cronica stays eager because its five chapters are small.
  * `orderIndex` is the explicit chapter number carried over from the
  * source; reading order is derived from it, never from file name.
  */
