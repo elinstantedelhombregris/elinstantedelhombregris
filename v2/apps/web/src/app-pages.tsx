@@ -51,10 +51,6 @@ export const Sembrar = lazy(async () => {
   const m = await import('~/pages/Sembrar');
   return { default: m.Sembrar };
 });
-export const UnaRutaParaArgentina = lazy(async () => {
-  const m = await import('~/pages/UnaRutaParaArgentina');
-  return { default: m.UnaRutaParaArgentina };
-});
 export const ElMapa = lazy(async () => {
   const m = await import('~/pages/ElMapa');
   return { default: m.ElMapa };
