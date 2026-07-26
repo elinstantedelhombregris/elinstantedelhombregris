@@ -36,7 +36,7 @@ export function DetallesCalculoCostoHumano() {
           <h2 className="font-serif text-xl font-semibold">Qué no medimos (todavía)</h2>
           <p className="mt-3 leading-relaxed">
             Bienestar subjetivo, redes de apoyo informales, cuidado no remunerado, capital simbólico. Son
-            cruciales pero metodológicamente costosos. Cuando tengamos la encuesta nacional propia (PLANINS),
+            cruciales pero metodológicamente costosos. Cuando tengamos la encuesta nacional propia (PLANMESA),
             esos indicadores entran al tablero.
           </p>
         </section>
