@@ -198,7 +198,9 @@ patrón que `asciiVideoRegistry.generated.ts`, que ya existe en el repo.
 **Cuerpos — glob sin `eager`.** Un `import()` por plan; `PlanDetail` carga solo el
 documento que el visitante abrió, con el fallback de carga del papel.
 
-**Guardia.** `npm run check:planes` re-deriva el índice y lo compara con el commiteado.
+**Guardia.** `pnpm planes:check` compara el índice generado contra el frontmatter
+commiteado de cada `.mdx`, y además recompone cada uno de los 23 `.mdx` en memoria
+desde su documento del taller y lo compara byte a byte contra lo commiteado.
 Si alguien edita el generado a mano, o edita el taller sin re-derivar, CI falla.
 
 La superficie pública del registry para los consumidores del índice no cambia:
@@ -235,7 +237,8 @@ conteo se alimentan de `PLAN_COUNT`, que sigue dando 22. Ningún literal cambia 
 - **Campos:** `title`, `nombreInstitucional`, `summary` y `slug` no vacíos en los 23.
 - **Procedencia:** cada `code` del índice tiene un `.mdx` y viceversa.
 - **Ficha:** los 23 cuerpos contienen exactamente un `## Ficha del expediente`.
-- **Guardia:** el índice generado coincide con el frontmatter de los archivos.
+- **Guardia:** el índice generado coincide con el frontmatter de los archivos, y cada
+  `.mdx` coincide con lo que el taller produce ahora mismo (re-derivado en memoria).
 - **Índice (UI):** la fila cerrada muestra el evocativo; abierta, el institucional.
 - **Lector:** la ficha se renderiza plegada y su contenido no aparece en el cuerpo principal.
 
