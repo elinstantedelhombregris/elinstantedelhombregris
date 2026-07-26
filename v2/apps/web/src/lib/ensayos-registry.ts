@@ -1,6 +1,9 @@
 /**
  * Build-time registry of ensayos (essays) MDX files.
- * Same shape as plans-registry — eager-loaded via Vite import.meta.glob.
+ * Eager-loaded via Vite import.meta.glob: the ensayos are short enough to
+ * ship whole. plans-registry used to match this shape, but it now splits
+ * index (eager) from bodies (lazy `import()` per plan) — see
+ * `docs/specs/2026-07-25-reconciliacion-del-canon-planes.md`.
  */
 import { stripFrontmatter } from './markdown';
 
