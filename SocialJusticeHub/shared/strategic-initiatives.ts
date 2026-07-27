@@ -3376,7 +3376,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         {
           id: 4,
           title: 'Fase 0 — Ley ANCV + Registro piloto',
-          description: 'Ley del Pacto de Cuidado al Congreso. ANCV constituida con presupuesto protegido 0,75-1,1% PBI. Protocolo de Pacto v1 publicado. Primeros 500 Referentes Territoriales en formación. Fondo Federal de Cuidado capitalizado. Registro Nacional de Vínculos en versión piloto con 3.000 Pactos iniciales. Cuentas Satélite de Cuidado integradas al INDEC.',
+          description: 'Ley del Pacto de Cuidado al Congreso. ANCV constituida con presupuesto protegido 0,45% PBI. Protocolo de Pacto v1 publicado. Primeros 500 Referentes Territoriales en formación. Fondo Federal de Cuidado capitalizado. Registro Nacional de Vínculos en versión piloto con 3.000 Pactos iniciales. Cuentas Satélite de Cuidado integradas al INDEC.',
           timeline: 'Año 0 Q3-Q4',
           dependencies: ['Expansión de Pactos + Registro Nacional'],
           orderIndex: 4,
