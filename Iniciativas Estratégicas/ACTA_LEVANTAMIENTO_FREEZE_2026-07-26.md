@@ -39,8 +39,9 @@ un sub-criterio: la regla exige además cierre de tranche y auditoría externa f
 **PLANARCO lo pasa contra cada huésped por separado y falla contra la suma, por tres
 centésimas.** 1,8-2,1x contra PLANCUIDADO y 8,8-16,0x contra PLANSAL; contra los dos
 sumados, 1,47-1,88x — y el umbral es 1,5. No redondeamos hacia arriba. La medición
-correcta es contra la suma porque la fila 18 de este documento asigna «Discapacidad y
-vejez» a **PLANCUIDADO + PLANSAL**, dos huéspedes: medir a un sub-mandato contra uno
+correcta es contra la suma porque la fila «Discapacidad y vejez» de
+`COVERAGE_GAPS_ASSIGNMENTS.md` asigna ese hueco a **PLANCUIDADO + PLANSAL**, dos
+huéspedes: medir a un sub-mandato contra uno
 solo de los suyos, elegido después de conocer el resultado, es elegir el denominador
 que conviene.
 
