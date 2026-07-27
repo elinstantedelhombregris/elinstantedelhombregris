@@ -20,6 +20,7 @@
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "@tanstack/react-query": "^5.62.7",
+    "@v2/civic-core": "workspace:*",
     "@v2/shared": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

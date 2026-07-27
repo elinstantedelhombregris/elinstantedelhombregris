@@ -12,6 +12,14 @@ export interface PopoverVozProps {
   idx: number;
   onCiclar: () => void;
   onCerrar: () => void;
+  /**
+   * Entra a la provincia — el zoom por altitud de la spec 1 §4.
+   *
+   * Vive acá y no en un gesto porque el zoom tiene que ser operable con
+   * teclado (§4.2): el popover ya está en el camino de foco de la provincia,
+   * así que quien llegó tabulando puede entrar sin tocar la pantalla.
+   */
+  onVerDeCerca?: () => void;
 }
 
 /**
@@ -19,7 +27,14 @@ export interface PopoverVozProps {
  * borde izquierdo del color del tipo. Foco al «✕» al abrir; Escape cierra;
  * el llamador devuelve el foco a la provincia al cerrar.
  */
-export function PopoverVoz({ provincia, voces, idx, onCiclar, onCerrar }: PopoverVozProps) {
+export function PopoverVoz({
+  provincia,
+  voces,
+  idx,
+  onCiclar,
+  onCerrar,
+  onVerDeCerca,
+}: PopoverVozProps) {
   const cerrarRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -69,6 +84,15 @@ export function PopoverVoz({ provincia, voces, idx, onCiclar, onCerrar }: Popove
           </button>
         ) : null}
       </div>
+      {onVerDeCerca ? (
+        <button
+          type="button"
+          onClick={onVerDeCerca}
+          className="font-space text-oscuro-meta hover:text-papel mt-3 border-t border-white/10 pt-3 text-[11px] uppercase tracking-[0.08em]"
+        >
+          ver {provincia} de cerca ↗
+        </button>
+      ) : null}
     </div>
   );
 }

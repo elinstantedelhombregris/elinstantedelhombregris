@@ -26,6 +26,11 @@ export interface VozAbierta {
   provinceId: number | null;
   submittedAs: string | null;
   createdAt: string;
+  /** El punto publicado, o null cuando la voz solo sabe su provincia. */
+  lat: number | null;
+  lng: number | null;
+  /** `LocationPrecision` — con qué precisión se publicó. Ver spec 1 §5. */
+  precision: string;
 }
 
 export const VOCES_MAPA_LIMIT = 500;

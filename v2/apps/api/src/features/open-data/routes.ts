@@ -56,6 +56,14 @@ router.get('/dreams', async (req, res, next) => {
         provinceId: d.provinceId,
         submittedAs: d.submittedAs,
         createdAt: d.createdAt,
+        // El mapa de conversión también dibuja con honestidad (spec 1 §5):
+        // sin la precisión no puede distinguir un punto clavado de una voz que
+        // solo sabe su provincia, y volvería al jitter que miente. Son tres
+        // columnas más sobre una consulta que ya se hace — el instrumento
+        // sigue siendo lo único que se paga aparte.
+        lat: d.lat === null ? null : Number(d.lat),
+        lng: d.lng === null ? null : Number(d.lng),
+        precision: d.precision,
       })),
     });
   } catch (err) {

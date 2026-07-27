@@ -33,6 +33,8 @@ export interface ProvinciaSvg {
   path: string;
   cx: number;
   cy: number;
+  /** [minX, minY, maxX, maxY] en unidades del viewBox — el encuadre del zoom. */
+  bbox: [number, number, number, number];
 }
 
 /** Nombres del GeoJSON → nombre canónico del seed de geographic_locations. */
@@ -57,6 +59,29 @@ function pathDe(feature: FeatureProvincia, proyeccion: Proyeccion): string {
     .join(' ');
 }
 
+/** Encuadre de la provincia entera, incluidas sus islas y anillos sueltos. */
+function bboxDe(feature: FeatureProvincia, proyeccion: Proyeccion): [number, number, number, number] {
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  for (const anillo of feature.geometry.coordinates) {
+    for (const coord of anillo) {
+      const p = proyeccion.proyectar(coord[0] ?? 0, coord[1] ?? 0);
+      if (p.x < minX) minX = p.x;
+      if (p.x > maxX) maxX = p.x;
+      if (p.y < minY) minY = p.y;
+      if (p.y > maxY) maxY = p.y;
+    }
+  }
+  return [
+    redondearUnidad(minX),
+    redondearUnidad(minY),
+    redondearUnidad(maxX),
+    redondearUnidad(maxY),
+  ];
+}
+
 export function construirProvincias(
   coleccion: ColeccionProvincias,
   proyeccion: Proyeccion,
@@ -69,6 +94,7 @@ export function construirProvincias(
         nombre,
         path: pathDe(feature, proyeccion),
         ...centroideSvg(anilloExterior, proyeccion),
+        bbox: bboxDe(feature, proyeccion),
       };
     })
     .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
@@ -78,7 +104,7 @@ export function moduloPais(provincias: readonly ProvinciaSvg[]): string {
   const lineas = provincias
     .map(
       (p) =>
-        `  { nombre: ${JSON.stringify(p.nombre)}, cx: ${String(p.cx)}, cy: ${String(p.cy)}, path: ${JSON.stringify(p.path)} },`,
+        `  { nombre: ${JSON.stringify(p.nombre)}, cx: ${String(p.cx)}, cy: ${String(p.cy)}, bbox: [${p.bbox.map(String).join(', ')}], path: ${JSON.stringify(p.path)} },`,
     )
     .join('\n');
 
@@ -102,6 +128,8 @@ export interface ProvinciaSvg {
   /** Centroide en unidades del viewBox — ancla del lavado y de la etiqueta. */
   cx: number;
   cy: number;
+  /** [minX, minY, maxX, maxY] — el encuadre al que vuela el zoom de altitud. */
+  bbox: readonly [number, number, number, number];
 }
 
 export const PROVINCIAS_SVG: readonly ProvinciaSvg[] = [
