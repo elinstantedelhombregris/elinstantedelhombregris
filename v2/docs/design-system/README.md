@@ -1,5 +1,6 @@
 # ¡BASTA! — Sistema de diseño «Papel y Tinta»
-Versión 1.1 · julio 2026 · fuente de verdad para todas las páginas del sitio.
+Versión 1.2 · julio 2026 · fuente de verdad para todas las páginas del sitio.
+Enmendado por `docs/specs/2026-07-26-el-sustrato.md` (①): §1, §3, §5, §7, §11.3 y §12.
 
 Identidad en una frase: **un manifiesto impreso que cobró vida** — papel crudo, tinta negra, un violeta eléctrico que marca lo que importa y un sello rojo que interrumpe. Cero decoración: todo lo que se ve significa algo.
 
@@ -8,10 +9,10 @@ Identidad en una frase: **un manifiesto impreso que cobró vida** — papel crud
 ## 1. Marca
 
 - Wordmark: `¡BASTA!` en Anton. Los signos `¡` `!` SIEMPRE en violeta (#5227CC); las letras en tinta.
-- Tagline del header: contador social vivo — `{N} voces · falta la tuya` (Space Mono 10px, uppercase, #7A756A). Nunca "movimiento ciudadano" ni slogans pasivos: el tagline debe dejar afuera al que no participó.
+- Tagline del header: contador social vivo — `{N} voces · falta la tuya` (Space Mono 10px, uppercase). El número aparece **sólo cuando hay algo que contar**: con cero, cargando o error el slot dice «Falta la tuya.» a secas. Nunca una constante escrita a mano. Nunca "movimiento ciudadano" ni slogans pasivos: el tagline debe dejar afuera al que no participó.
 - Firma de autor en textos largos: `— El hombre gris`.
 - Footer: wordmark gigante en outline (`color:transparent; -webkit-text-stroke:1px #3A362D`).
-- Sin logo gráfico, sin íconos decorativos, sin emojis. Los únicos "gráficos" permitidos: el mapa de Argentina, tally marks, la semilla SVG del certificado, flechas tipográficas (→ ↗ ↺ ▌).
+- Sin logo gráfico, sin íconos decorativos, sin emojis. Los únicos "gráficos" permitidos: el mapa de Argentina, tally marks, la semilla SVG del certificado, y las flechas tipográficas del catálogo de §12. `↺ ▌ ▾ ☰ ✓ ▲ ▼` **no** son glifos: ninguna de las seis familias los trae y hoy los dibuja la fuente de símbolos del sistema operativo. Son SVG inline de `components/papel/primitives/Glifos.tsx`.
 
 ## 2. Color (hex literales, siempre inline)
 
@@ -40,11 +41,17 @@ Acentos (con significado fijo — no mezclar)
 - `#0F6B8A` cian = "recurso"
 - Máximo 1–2 fondos de color por página. El violeta nunca es fondo de página entera, solo bandas CTA.
 
-## 3. Tipografía (Google Fonts)
+## 3. Tipografía (auto-hospedada)
 
 ```
 Anton (display) · Archivo (texto, 300–800 + itálica) · Space Mono (400/700)
 ```
+Las seis familias se sirven desde el propio origen: `.woff2` subseteados en
+`/fonts/`, con la versión en el nombre, declarados con `@font-face` y
+`font-display: swap` en `apps/web/src/index.css`. Cero requests a terceros.
+El catálogo vive en `scripts/build/fuentes.ts` y el subseteo en
+`scripts/build/subset-fonts.ts`; los TTF fuente no se commitean.
+
 - **Anton**: títulos y cifras. H1 `clamp(44px,6vw,88px)`, hero `clamp(120px,17.5vw,300px)`, H2 `clamp(36px,4.6vw,64px)`, títulos de card 22–34px. `line-height` 0.94–1.1. Nunca en cuerpo de texto.
 - **Archivo**: todo el cuerpo. Lectura 17px/1.75; UI 14–16px/1.5–1.6; leads 18–19px.
 - **Space Mono**: kickers, metadatos, botones, tags, números de expediente. Kicker canónico: `font-size:11px; letter-spacing:0.16em; text-transform:uppercase` + color de acento o tinta 50.
@@ -104,19 +111,19 @@ signos `¡ !` al final con `anim-vpop` en violeta. El llamador pone el heading y
 `animation:inkfill` y delays literales. `tono='claro'` para páginas oscuras (El
 mandato): letras a `inkfill-claro`, signos en violeta-claro.
 
-Nota de datos demo (obligatoria junto a toda métrica inventada)
-`<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* datos de demostración</span>`
+Cifra sin dato (obligatoria en lugar de toda métrica que no exista todavía)
+No hay métricas inventadas ni notas al pie que las disculpen: cuando una cifra no está —cargando, error, o cero real— el slot dice lo que pasa y nunca un número. El régimen vive en `components/papel/voces-regimen.ts` (B10 de ①), que también retira la primitiva `NotaDemo`.
 
 Formularios: inputs/textarea `border:1px solid #16130E;background:#FBFAF4;padding:14–16px;` sin radius; focus `outline:2px solid #5227CC`.
 
 Estados
 - Deshabilitado: color tinta-30, borde tinta-30, cursor not-allowed. Nunca opacity.
-- Cargando (botón): texto reemplazado por «— ▌» con blink-cursor; ancho fijo.
+- Cargando (botón): texto reemplazado por «— » + `<GlifoCursor />` con blink-cursor; ancho fijo.
 - Error de campo: borde 2px rojo-sello + mensaje mono 11px rojo-sello debajo.
 - Éxito: sello verde o mensaje mono verde. Nada de toasts flotantes verdes.
 
 Formularios (kit completo)
-- Select: nativo estilizado — borde 1px tinta, fondo papel-crudo, flecha ▾ tipográfica.
+- Select: nativo estilizado — borde 1px tinta, fondo papel-crudo, `<GlifoDespliegue />` a la derecha.
 - Checkbox/radio: cuadrado/círculo 18px borde tinta; marcado = fondo violeta, tilde papel.
 - Toggle: pastilla rectangular sin radius; OFF papel-presionado / ON violeta; etiqueta mono.
 - Requerido: asterisco violeta en la etiqueta mono. Ayuda: mono 10px tinta-50.
@@ -136,23 +143,23 @@ Stepper (asistente de pasos)
   de progreso (§14): los tramos no miden, ubican.
 
 Búsqueda, filtros y paginación
-- Búsqueda: input mono con prefijo «buscar:» y cursor ▌; resultados en filas de índice.
+- Búsqueda: input mono con prefijo «buscar:» y `<GlifoCursor />`; resultados en filas de índice.
 - Filtros: chips §5; activo = fondo semántico. Línea de conteo mono: «{n} resultados».
 - Paginación: botón «cargar más ↓» (nunca scroll infinito ni numeritos).
 - Filtro sin resultados: «Nada con ese filtro. Probá con menos.»
 
 Tablas
-- Extensión de la fila de índice: encabezados mono 11px uppercase tinta-50, orden con ▲▼ tipográficos, borde inferior 1px tinta en el header, hover papel-presionado. Header sticky permitido. Sin zebra.
+- Extensión de la fila de índice: encabezados mono 11px uppercase tinta-50, orden con `<GlifoOrdenAsc />`/`<GlifoOrdenDesc />`, borde inferior 1px tinta en el header, hover papel-presionado. Header sticky permitido. Sin zebra.
 
 Modales, toasts, tooltips
-- Modal = documento papel-sobre-oscuro (§5) centrado sobre velo rgba(22,19,14,.7); cierre «✕» tipográfico arriba a la derecha. Un modal por vez.
+- Modal = documento papel-sobre-oscuro (§5) centrado sobre velo rgba(22,19,14,.7); cierre «×» (U+00D7) arriba a la derecha. Un modal por vez.
 - Toast = sello que cae (stampin) en la esquina inferior derecha + línea mono; se va solo a los 4s. Catálogo de sellos cerrado (§10.5) — el toast usa esos textos.
 - Tooltip: mono 10px, fondo papel-presionado, borde 1px tinta, sin flecha, sin delay artificial.
 
 Popover de mapa
 Card absoluta dentro del marco del mapa (max-width 300): fondo #16130E, texto
 #F2EFE7, sin radius, borde izquierdo 2px del color semántico de la voz, padding 20,
-entra con fadeup. Cierre «✕» tipográfico + Escape; uno por vez; el foco entra al «✕»
+entra con fadeup. Cierre «×» (U+00D7) + Escape; uno por vez; el foco entra al «×»
 y vuelve al disparador al cerrar. En la app: `PopoverVoz`
 (`pages/ElMapa/sections/PopoverVoz.tsx`).
 
@@ -171,7 +178,7 @@ Presupuesto: **una interacción firma por página**; el resto entra con `fadeup`
 
 - Español rioplatense, voseo («soltá», «leelo»), frases cortas, segunda persona.
 - Tono: manifiesto en portadas (directo, sin pedir permiso), sobrio y verificable en herramientas. Humor seco permitido («Suerte.»).
-- Ideas fijas que no se negocian: *la ciudadanía diseña, el Estado administra, la política ejecuta* · *sin líder, sin partido, sin excusas* · los 22 planes son **prueba, no doctrina** («esto lo escribió uno solo») · el mandato lo escriben las voces · todo dato inventado lleva asterisco.
+- Ideas fijas que no se negocian: *la ciudadanía diseña, el Estado administra, la política ejecuta* · *sin líder, sin partido, sin excusas* · los 22 planes son **prueba, no doctrina** («esto lo escribió uno solo») · el mandato lo escriben las voces · ningún número visible sale de una constante escrita a mano: las métricas de participación salen de la base, los conteos de contenido salen del contenido en disco, y cuando no hay dato se dice con palabras.
 - 6 tipos de voz y su color: basta=rojo, sueño=violeta, necesidad=ámbar, compromiso=verde, recurso=cian, valor=tinta.
 - Prohibido: tecnicismos de marketing, "únete/regístrate" (se dice «sembrá», «soltá tu voz»), promesas, emojis, mayúsculas de grito fuera de sellos.
 
@@ -214,12 +221,12 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 
 1. Una conversación = una página. Pedir: «Rehacé [página] siguiendo el sistema Papel y Tinta; no toques header, footer ni las demás páginas».
 2. Congelados entre convos: paleta, fuentes, header/footer, nombres de páginas, las 3 frases del método, contador FOMO.
-3. Definición de terminado: kicker+título+CTA presentes · una sola interacción firma · asteriscos en datos demo · responsive a 1 columna · voseo consistente.
+3. Definición de terminado: kicker+título+CTA presentes · una sola interacción firma · cero números fabricados (toda cifra sale de la base o del contenido en disco; sin dato, se dice con palabras) · responsive a 1 columna · voseo consistente.
 4. Al terminar una página, actualizar la fecha de este documento si algo del sistema cambió (y solo si cambió).
 
 ## 12. Iconos
 
-- Páginas editoriales/públicas: CERO íconos. Solo glifos tipográficos → ↗ ↺ ▌ ▾ ¡ !
+- Páginas editoriales/públicas: CERO íconos. Sólo el catálogo tipográfico → ← ↑ ↓ – — × − + · « » ¡ ! (lo que las seis familias traen, verificado con fontTools). Todo lo demás — ↺ ▌ ▾ ☰ ✓ ▲ ▼ — es SVG inline en `components/papel/primitives/Glifos.tsx`. `↗` sobrevive **sólo** dentro de `font-space`: Space Mono es la única familia que lo tiene.
 - La plataforma (páginas con sesión): lucide permitido SOLO funcional (cerrar, menú,
   link externo, campana), 16px, stroke tinta o tinta-50, nunca decorativo ni de color.
 - Logros y gamificación NO usan íconos: usan sellos y palitos (§10.5, §10.6).

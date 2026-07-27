@@ -93,5 +93,10 @@ A pnpm monorepo with two deployable apps (`apps/web` React + Vite, `apps/api` Ex
 
 - Production deployment (Vercel project, DNS) — Phase 10
 - httpOnly→localStorage data migration — fresh user base, no migration needed
-- Server-side rendering — SSG only at build time for blog/ensayos/courses
+- Server-side rendering en runtime — el sitio se genera en build: `<head>` sellado
+  para toda URL pública (planes, ensayos, bitácora, blog, entrenamientos, secciones)
+  y HTML congelado para planes y ensayos. Ver `docs/specs/2026-07-26-el-sustrato.md`
+  §3 y §4. Lo que sigue prohibido es SSR por request o inyección desde Express.
+  Decisiones D1–D4 (origen canónico, host, indexación, contraste, pie): ver
+  `docs/adr/0007-sustrato-indexacion-y-host.md`.
 - Real-time collaboration — there is no MVP requirement for it

@@ -259,7 +259,7 @@ dentro de documentos; cero íconos de trofeo.
 
 **Files:**
 - Modify: `apps/api/src/features/analytics/routes.ts` (add `GET /voces-count`), `packages/db/src/repositories/dreams.ts` (add `countAll()`)
-- Modify: `apps/web/src/components/papel/papel-nav.ts` + `PapelHeader.tsx` (react-query fetch, fallback to demo constant + asterisk while loading/error)
+- Modify: `apps/web/src/components/papel/papel-nav.ts` + `PapelHeader.tsx` (react-query fetch; sin constante de respaldo: con cero, cargando o error el slot dice «Falta la tuya.» — régimen en `components/papel/voces-regimen.ts`, B10 de ①)
 - Test: `apps/api/src/features/analytics/analytics.test.ts` (integration, real Postgres branch)
 
 **Interfaces:**
@@ -335,7 +335,7 @@ One spec first (5.0) applying §14 to the whole app surface: gamificación con s
 
 ## Phase 8 — Ship hardening
 
-- [ ] **8.1 SEO/OG:** per-page titles/descriptions per §14, OG template card, favicon «¡», sitemap.xml, prerender of public routes.
+- [ ] **8.1 SEO/OG:** lo entrega ① (`docs/specs/2026-07-26-el-sustrato.md`): títulos y descripciones por página según §14, card OG, favicon «¡», sitemap.xml y prerender de planes y ensayos. Acá queda sólo la verificación de que cada página nueva de ② sume su entrada al registro de rutas y pase `meta:check`.
 - [ ] **8.2 Print:** `@media print` in all four lectores (D1 serif, folio, no chrome); manual print-preview verification of each.
 - [ ] **8.3 A11y:** AA contrast sweep (automated + manual), visible violet focus everywhere, `prefers-reduced-motion` leaves end-states, keyboard path through mapa + sembrar + quiz.
 - [ ] **8.4 Perf:** LCP < 2 s on `/`, `/el-mapa`, `/planes` (fonts `display=swap`, zero heavy images, `size-limit` budgets in CI).
