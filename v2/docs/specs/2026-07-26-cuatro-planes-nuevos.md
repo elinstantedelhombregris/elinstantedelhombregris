@@ -83,24 +83,30 @@ Esto no invalida PLANPACTO: lo funda. Que el proyecto no supiera cuánto estaba 
 
 ### 2.4 La Escalera de Garantías
 
-Hay que quitar **6,22 puntos del PBI**: de 8,62% a 2,40%. (El 2,40% es la decisión; el total de recortes es lo que se deriva de ella.) Este es el orden y estos son los cortes.
+**La Escalera se define por lo que conserva, no por lo que recorta.** Los ocho escalones suman **2,40% del PBI exacto** — ese es el piso único, y es la decisión. Todo lo demás de esta sección se deriva de ahí.
 
-| Escalón | Contenido | Se saca | Acumulado |
+Este es el orden y esto es lo que queda en pie en cada escalón.
+
+| Escalón | Contenido | Conserva | Acumulado |
 |---|---|---|---|
-| 1 | Agua y alimento — AGUA 0,15 + ISV 0,10 | — | 0,25 |
-| 2 | Salud de base — SAL: piso inicial 0,50, no la meta del 15% | 0,50 | 0,75 |
-| 3 | Educación obligatoria — EDU 0,50 → 0,45 | 0,05 | 1,20 |
-| 4 | Techo — VIV 2,00 → 0,50 | **1,50** | 1,70 |
-| 5 | Cuidado y arco — CUIDADO 0,45 → 0,25 | 0,20 | 1,95 |
-| 6 | Justicia — JUS 0,275 → 0,20 | 0,075 | 2,15 |
-| 7 | Deliberación y memoria — MESA + MEMORIA 0,19 → 0,15 | 0,04 | 2,30 |
-| 8 | Seguridad — SEG 1,50 → 0,10 | **1,40** | **2,40** |
+| 1 | Agua y alimento — AGUA + ISV | 0,25 | 0,25 |
+| 2 | Salud de base — SAL: piso inicial, no la meta del 15% | 0,50 | 0,75 |
+| 3 | Educación obligatoria — EDU | 0,45 | 1,20 |
+| 4 | Techo — VIV | 0,50 | 1,70 |
+| 5 | Cuidado y arco — CUIDADO | 0,25 | 1,95 |
+| 6 | Justicia — JUS | 0,20 | 2,15 |
+| 7 | Deliberación y memoria — MESA + MEMORIA | 0,15 | 2,30 |
+| 8 | Seguridad — SEG | 0,10 | **2,40** |
 
 **=== LÍNEA DEL TECHO: 2,40% ===**
 
 Debajo de la línea, sin piso, con afectación temporal de hasta 8 años renovable por ley: DIG (−0,75), EN (−0,70), MOV (−0,54), TER + TALLER + EB + SUS (−0,50).
 
-Control: 1,40 + 1,50 + 0,75 + 0,70 + 0,54 + 0,50 + 0,50 + 0,20 + 0,075 + 0,05 = 6,22. Cierra. (El sumando de PLANMEMORIA sale de la cuenta: la reconciliación anterior la contaba en 0,14 flat; su rango real es 0,10–0,14, y con el bajo el escalón 7 no recorta.)
+**Cuánto se recorta, y por qué no se itemiza.** El recorte total es el residuo contra lo que hoy se reclama, y ese reclamo es un rango, no un número: **5,42 puntos** contra el extremo bajo (7,82), **6,22** contra el punto medio (8,62), **7,01** contra el alto (9,41).
+
+No hay tabla de recortes por PLAN, y la ausencia es deliberada. Nueve de los diecisiete pisos están declarados como rango en su propio documento —SAL 0,50–1,50, DIG 0,50–1,00, JUS 0,25–0,30, MEMORIA 0,10–0,14, entre otros—, así que un recorte por PLAN sólo existe una vez que se elige de qué extremo se parte, y esa elección no la hizo nadie. Itemizar contra el punto medio con un valor único por PLAN mezcla bases y produce una suma que cierra por construcción, no por cuenta. **Este documento existe porque el proyecto arrastró durante meses una cifra que nadie había verificado; no va a estrenar otra.**
+
+Lo que sí está fijo y verificado es lo que la Escalera conserva: 2,40% exacto, y el orden en que lo conserva.
 
 Los dos cortes grandes los defiende el propio corpus: de PLANSEG, `PRESUPUESTO_CONSOLIDADO_BASTA.md:162` declara que 1,40–1,45 de ese 1,50 es reasignación de gasto que **ya se ejecuta** — blindar plata que ya se gasta no protege nada, sólo consume Techo. De PLANVIV, el propio documento dice que los repagos de la Bastarda Inmobiliaria y los fees del Housing OS cubren el resto.
 

@@ -752,36 +752,21 @@ El 9,49 salió de una reconciliación a mano que sumó PLANSEG dos veces; el 9,4
 
 En la tabla de la Escalera de Garantías, la **LÍNEA DEL TECHO en 2,40% no se toca**: es una decisión del fundador, no un derivado. Lo que cambia es el total de recortes, porque el punto de partida bajó de 8,66 a 8,62.
 
-Reemplazar `Hay que quitar **6,26 puntos del PBI**: de 8,66% a 2,40%.` por:
+La sección declaraba `Hay que quitar **6,26 puntos del PBI**: de 8,66% a 2,40%` y cerraba con un
+control itemizado que sumaba los recortes por PLAN. **Ese control era falsa precisión y se saca, no se
+recalcula.** Nueve de los diecisiete pisos están declarados como rango en su propio documento (SAL
+0,50–1,50, DIG 0,50–1,00, JUS 0,25–0,30, MEMORIA 0,10–0,14, entre otros), así que un recorte por PLAN
+sólo existe una vez que se elige de qué extremo se parte — y esa elección no la hizo nadie. Itemizar
+contra el punto medio con un valor único por PLAN mezcla bases y da una suma que cierra por
+construcción.
 
-```markdown
-Hay que quitar **6,22 puntos del PBI**: de 8,62% a 2,40%. (El 2,40% es la decisión;
-el total de recortes es lo que se deriva de ella.)
-```
+La Escalera se redefine por **lo que conserva**, que sí es exacto y verificable: la columna «Se saca»
+pasa a «Conserva», con los ocho valores 0,25 · 0,50 · 0,45 · 0,50 · 0,25 · 0,20 · 0,15 · 0,10, que suman
+**2,40 exacto**. Sumalos vos antes de escribirlos.
 
-Y en el párrafo de control, reemplazar `= 6,26. Cierra.` por `= 6,22. Cierra.`, ajustando el sumando de PLANMEMORIA: la reconciliación a mano lo había contado como 0,14 flat y su rango real es 0,10–0,14.
-
-Recalculá el control a mano antes de escribirlo y verificá que `8,62 − 6,22 = 2,40` exacto.
-
-- [ ] **Step 4: §9.9 — el gate no lo pasa PLANARCO**
-
-La spec afirma: **«PLANARCO sobre PLANCUIDADO da 1,46–1,88×: pasa.»** Está mal dos veces.
-Primero, 1,46 es **menor** que el umbral de 1,5: la propia oración imprime un número que
-no pasa y concluye que pasa. Segundo, el 1,46–1,88 no sale de PLANCUIDADO solo (que da
-1,77–2,13) sino de PLANCUIDADO + PLANSAL, que es lo que la fila 18 de
-`COVERAGE_GAPS_ASSIGNMENTS.md` asigna — así que la etiqueta tampoco era la correcta.
-
-Reemplazar esa oración por:
-
-```markdown
-la **regla 3**, gate de spin-off cuando un sub-mandato supera 1,5× el presupuesto del
-huésped. Corrido sobre los cuatro (`SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`),
-**sólo PLANPACTO lo pasa**: 5,2–5,6× contra PLANREP. PLANARCO da 1,47–1,88× contra sus
-dos huéspedes sumados y queda tres centésimas por debajo del umbral; PLANPREGUNTA da
-0,19–0,24× contra los suyos; PLANFOCO nunca tuvo huésped asignado. El acta
-`Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md` publica el resultado
-entero y funda el levantamiento en el argumento independiente, no en el gate.
-```
+El párrafo de control se reemplaza por el residuo contra los tres extremos del rango de pisos —
+**5,42** contra 7,82, **6,22** contra 8,62, **7,01** contra 9,41 — y por la explicación de por qué no
+hay tabla de recortes por PLAN. La **LÍNEA DEL TECHO en 2,40% no se toca**: es la decisión del fundador.
 
 - [ ] **Step 5: Verificar que la spec no se contradice**
 
