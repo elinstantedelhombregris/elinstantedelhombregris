@@ -266,6 +266,27 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@25.6.2)(happy-dom@15.11.7)
 
+  packages/civic-core:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.19.18
+      '@v2/config-eslint':
+        specifier: workspace:*
+        version: link:../config/eslint
+      '@v2/config-typescript':
+        specifier: workspace:*
+        version: link:../config/typescript
+      eslint:
+        specifier: ^9.17.0
+        version: 9.39.4(jiti@2.6.1)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.19.18)(happy-dom@15.11.7)
+
   packages/config/eslint:
     dependencies:
       '@typescript-eslint/eslint-plugin':
