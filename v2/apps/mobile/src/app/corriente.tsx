@@ -12,7 +12,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { Image } from 'expo-image';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -61,7 +61,23 @@ export default function Corriente() {
 
   const [items, setItems] = useState<ItemCorriente[]>([]);
   const [pulsosHoy, setPulsosHoy] = useState(0);
-  const [dividerIndex, setDividerIndex] = useState<number | null>(null);
+  /**
+   * "Estás al corriente": la posición se calcula UNA vez, contra la última
+   * visita guardada, ANTES de que el efecto de abajo la pise con la de ahora.
+   *
+   * Va en el inicializador perezoso y no en un efecto: calcularlo en un efecto
+   * significaba pintar la lista sin divisor y volver a pintarla con él —
+   * un render en cascada que se ve como un salto. Acá se resuelve antes del
+   * primer pintado, y `useState` garantiza que corra una sola vez.
+   */
+  const [dividerIndex] = useState<number | null>(() => {
+    const anterior = getSetting(CLAVES.corrienteUltimaVisita);
+    if (anterior === null) return null;
+    const actuales = corrienteLocal();
+    if (actuales.length === 0) return null;
+    const idx = actuales.findIndex((i) => fechaDe(i) <= anterior);
+    return idx === -1 ? actuales.length : idx;
+  });
   const [notas, setNotas] = useState<Record<string, string>>({});
   // Pulsos dados en esta sesión: el chip flipea a fondo tinta apenas lo das
   // (spec §8). No hay forma de saber si un pulso de una sesión anterior es
@@ -76,17 +92,8 @@ export default function Corriente() {
 
   useFocusEffect(useCallback(() => cargar(), [cargar]));
 
-  // "Estás al corriente": la posición se calcula UNA vez, contra la última
-  // visita guardada, antes de pisarla con la de ahora.
+  // Pisar la última visita SÍ es un efecto: escribe afuera de React.
   useEffect(() => {
-    const anterior = getSetting(CLAVES.corrienteUltimaVisita);
-    if (anterior !== null) {
-      const actuales = corrienteLocal();
-      if (actuales.length > 0) {
-        const idx = actuales.findIndex((i) => fechaDe(i) <= anterior);
-        setDividerIndex(idx === -1 ? actuales.length : idx);
-      }
-    }
     setSetting(CLAVES.corrienteUltimaVisita, ahoraISO());
   }, []);
 
@@ -118,19 +125,25 @@ export default function Corriente() {
 
   const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
 
-  // La numeración del cuaderno cuenta solo las obras — las misiones son
-  // líneas mono sin índice, así que no dejan huecos en la serie (001, 002…).
-  let contadorObra = 0;
-  const renderables: Renderable[] = items.map((data) => {
-    if (data.clase === 'obra') {
-      contadorObra += 1;
-      return { kind: 'item' as const, data, numero: contadorObra };
+  /**
+   * La numeración del cuaderno cuenta solo las obras — las misiones son
+   * líneas mono sin índice, así que no dejan huecos en la serie (001, 002…).
+   *
+   * Recorrido con `for` y no con `.map`: el contador se mutaba desde adentro
+   * del callback, y el compilador de React no puede garantizar cuántas veces
+   * corre un callback. El cuerpo de un `for` no captura nada, así que la
+   * cuenta es local y verificable.
+   */
+  const renderables = useMemo<Renderable[]>(() => {
+    const lista: Renderable[] = [];
+    let contadorObra = 0;
+    for (const data of items) {
+      if (data.clase === 'obra') contadorObra += 1;
+      lista.push({ kind: 'item', data, numero: data.clase === 'obra' ? contadorObra : 0 });
     }
-    return { kind: 'item' as const, data, numero: 0 };
-  });
-  if (dividerIndex !== null) {
-    renderables.splice(dividerIndex, 0, { kind: 'divider' });
-  }
+    if (dividerIndex !== null) lista.splice(dividerIndex, 0, { kind: 'divider' });
+    return lista;
+  }, [items, dividerIndex]);
 
   const keyExtractor = (r: Renderable): string => {
     if (r.kind === 'divider') return 'divider';

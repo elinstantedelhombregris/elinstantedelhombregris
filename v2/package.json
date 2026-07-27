@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "description": "El Instante del Hombre Gris — Argentine civic engagement platform built around the ¡BASTA! popular governance framework. v2 rebuild.",
+  "description": "El Instante del Hombre Gris \u2014 Argentine civic engagement platform built around the \u00a1BASTA! popular governance framework. v2 rebuild.",
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
@@ -50,6 +50,32 @@
   "pnpm": {
     "overrides": {
       "eslint": "^9.17.0"
+    },
+    "patchedDependencies": {
+      "expo-sqlite@57.0.0": "patches/expo-sqlite@57.0.0.patch",
+      "@shopify/react-native-skia@2.6.2": "patches/@shopify__react-native-skia@2.6.2.patch"
+    },
+    "onlyBuiltDependencies": [
+      "@shopify/react-native-skia",
+      "esbuild",
+      "unrs-resolver"
+    ],
+    "packageExtensions": {
+      "wouter": {
+        "peerDependencies": {
+          "@types/react": "*"
+        }
+      },
+      "lucide-react": {
+        "peerDependencies": {
+          "@types/react": "*"
+        }
+      },
+      "recharts": {
+        "peerDependencies": {
+          "@types/react": "*"
+        }
+      }
     }
   },
   "lint-staged": {
