@@ -173,14 +173,22 @@ PLANCUL no tiene piso constitucional ni presupuesto dedicado por diseño filosó
 | ANDIG (PLANDIG) | 0,50% (inicial) — 1,00% (meta) |
 | ANEB (PLANEB) | 0,10% |
 | ANSUS (PLANSUS) | 0,10% |
+| ANJUS (PLANJUS) | 0,25% — 0,30% |
+| ANVIP (PLANSAL) | 0,50% (inicial) — 1,50% (meta) |
 | ANAGUA (PLANAGUA) | 0,15% |
 | ENSV (PLANISV) | 0,10% |
-| ANEN (PLANEN) | 0,50% |
+| ANEN (PLANEN) | 0,70% (ANEN 0,50% + LANEF 0,20%, ambos pisos del propio documento PLANEN) |
 | ANSEG (PLANSEG) | 1,50% (bruto; mayormente reasignación de gasto existente) |
 | ANVIV (PLANVIV) | 2,00% (bruto; autofinanciamiento creciente) |
-| **SUBTOTAL pisos directos (% PBI)** | **5,45% (inicial bruto) — 5,95% (meta bruto)** |
-| ANJUS (equiv. ~0,30% PBI) | ~0,30% |
-| **TOTAL con ANJUS** | **~5,75% (inicial bruto) — ~6,25% (meta bruto)** |
+| AMCC (PLANMESA) | 0,07% |
+| ANT (PLANTALLER) | 0,10% |
+| ANCV (PLANCUIDADO) | 0,45% |
+| ANM (PLANMEMORIA) | 0,10% — 0,14% |
+| ANTSPO (PLANTER) | 0,20% |
+| ANMov (PLANMOV) | 0,50% |
+| **TOTAL — 17 pisos constitucionales directos (% PBI)** | **7,82% (inicial bruto) — 9,41% (meta bruto)** |
+
+**Sin piso constitucional (no suman a este total):** PLANREP, PLANMON, PLAN24CN, PLANGEO y PLANCUL — ninguno de los cinco tiene piso presupuestario protegido (ver Sección 3 arriba para el detalle de cada uno).
 
 **NOTA SOBRE ANSEG:** El piso de 1,50% del PBI de ANSEG es el segundo más alto del ecosistema, pero es el que menos carga fiscal nueva genera: se financia casi íntegramente con reasignación del gasto de seguridad existente (~2% del PBI entre Nación, provincias y municipios). El costo fiscal neto nuevo se estima en apenas ~0,05-0,10% del PBI, dado que PLANSUS elimina el gasto de enforcement de drogas y la reforma carcelaria reduce costos del sistema penitenciario. ANSEG no pide plata nueva — pide gastar la misma plata de forma radicalmente distinta.
 
@@ -190,11 +198,22 @@ PLANCUL no tiene piso constitucional ni presupuesto dedicado por diseño filosó
 
 ### ALERTA FISCAL
 
-**La suma de pisos constitucionales directos (brutos) alcanza el 5,45% del PBI en la fase inicial y trepa al 5,95-6,25% si se incluyen ANDIG a meta (1%) y ANJUS.** Esto no incluye el piso de ANVIP/PLANSAL que opera como reasignación dentro del gasto de salud existente (10% PBI). Sin embargo, el piso bruto sobreestima dramáticamente el costo fiscal real: ANSEG (1,50%) se financia mayormente con reasignación de gasto de seguridad existente (costo neto ~0,05-0,10%), ANVIV (2,00%) se autofinancia progresivamente, y varios otros pisos tienen componentes de autofinanciamiento.
+**La suma de pisos constitucionales directos (brutos) alcanza el 7,82-9,41% del PBI.**
+La cifra de 5,45-6,25% que este documento declaró hasta el 2026-07-26 cubría 12
+agencias y se escribió antes de que existieran los PLANes 17 a 22: le faltaban
+PLANMESA, PLANTALLER, PLANCUIDADO, PLANMEMORIA, PLANTER y PLANMOV, además del
+0,20% del LANEF y del piso de ANVIP. El número correcto lo calcula en vivo
+`SocialJusticeHub/shared/arquitecto-data.ts` (`ECOSYSTEM_METRICS.constitutionalFloorGross`)
+y lo fija el test `tests/unit/pisos-constitucionales.test.ts`.
+
+El piso bruto sigue sobreestimando el costo fiscal real por las razones de las
+notas (2) a (4) — ANSEG y ANVIV se financian en gran parte con reasignación y
+autofinanciamiento. Pero **el bruto es lo que consume rigidez presupuestaria**, y
+por eso es el número contra el que se mide el Techo.
 
 Para contexto:
 - El presupuesto nacional argentino total es ~30% del PBI (~USD 150.000M).
-- Los pisos constitucionales brutos consumirían el 18,2-20,8% del presupuesto nacional — pero el costo fiscal neto es sustancialmente menor porque ANSEG (1,50% bruto) y ANVIV (2,00% bruto) se financian en gran parte con reasignación de gasto existente y autofinanciamiento (ver tabla de costo neto más abajo).
+- Los pisos constitucionales brutos consumirían el 26,1-31,4% del presupuesto nacional (7,82-9,41% del PBI sobre un presupuesto nacional de ~30% del PBI) — pero el costo fiscal neto es sustancialmente menor porque ANSEG (1,50% bruto) y ANVIV (2,00% bruto) se financian en gran parte con reasignación de gasto existente y autofinanciamiento (ver tabla de costo neto más abajo).
 - El gasto educativo actual (5% PBI) ya incluye su propio mandato constitucional. Los 0,50% de ANCE son **adicionales** al sistema educativo existente.
 - Varios pisos se financian parcialmente con recursos propios (ANSUS con recaudación, ANEB con Bastardas, ANMON con comisiones, ANVIV con repagos hipotecarios, ANSEG con reasignación de gasto de seguridad). El costo fiscal neto es significativamente menor al bruto.
 
@@ -289,11 +308,11 @@ Año 5+ (REGIMEN CRECIENTE: +USD 12.200M → +USD 26.150M):
 
 | Test | Resultado (bruto) | Resultado (neto estimado) |
 |------|-----------|-----------|
-| Suma de pisos directos (% PBI, fase inicial) | **5,45%** | **~3,17-3,42%** |
-| Suma incluyendo equivalente ANJUS | **~5,75%** | **~3,27-3,57%** |
-| Meta a 10 años (ANDIG sube al 1%, ANVIV y ANSEG autofinanciadas) | **~6,25%** | **~2,17-2,92%** |
+| Suma de 10 pisos originales (% PBI, fase inicial) — cifra vigente hasta el 2026-07-26 | **5,45%** | **~3,17-3,42%** |
+| Suma de 10 pisos originales incluyendo equivalente ANJUS — cifra vigente hasta el 2026-07-26 | **~5,75%** | **~3,27-3,57%** |
+| Meta a 10 años de los 10 pisos originales (ANDIG sube al 1%, ANVIV y ANSEG autofinanciadas) — cifra vigente hasta el 2026-07-26 | **~6,25%** | **~2,17-2,92%** |
 
-**ALERTA:** La suma bruta de pisos es alta (5,45-6,25%), pero el costo fiscal neto es sustancialmente menor porque ANSEG (1,50% bruto) se financia mayormente con reasignación del gasto de seguridad existente y ANVIV (2,00% bruto) se autofinancia progresivamente. A régimen, el costo neto converge al rango de 2,2-2,9% del PBI.
+**ALERTA:** La suma bruta de los 17 pisos constitucionales del ecosistema completo es **7,82-9,41% del PBI** (ver «Suma de pisos constitucionales directos», Sección 3, y ALERTA FISCAL). Para el subconjunto de 10 pisos originales que modela la tabla de arriba, la suma bruta (5,45-6,25%) sigue sobreestimando el costo fiscal real: ANSEG (1,50% bruto) se financia mayormente con reasignación del gasto de seguridad existente y ANVIV (2,00% bruto) se autofinancia progresivamente. A régimen, el costo neto de ese subconjunto converge al rango de 2,2-2,9% del PBI.
 
 **Factores mitigantes:**
 1. **ANVIP/PLANSAL** no suma al cálculo de PBI porque su piso es reasignación dentro del gasto de salud existente (no gasto nuevo).
@@ -319,7 +338,9 @@ Año 5+ (REGIMEN CRECIENTE: +USD 12.200M → +USD 26.150M):
 | **TOTAL neto estimado (inicial)** | | | **~3,17-3,42%** |
 | **TOTAL neto estimado (régimen, Año 10+)** | | | **~2,17-2,92%** |
 
-**Conclusion:** Los pisos constitucionales brutos suman ~5,45-6,25% del PBI, pero el costo fiscal neto se sitúa en el rango de **3,2-3,4% del PBI** en fase inicial, impulsado principalmente por ANVIV (vivienda). La brecha entre bruto y neto se explica por dos pisos grandes con bajo costo fiscal real: ANSEG (1,50% bruto → ~0,05-0,10% neto, porque reasigna gasto de seguridad existente) y ANVIV (2,00% bruto → ~1,50% neto inicial, decreciente). A régimen (Año 10+), el autofinanciamiento de ANVIV y la estabilización de la reasignación de ANSEG reducen el costo neto al rango de **2,2-2,9% del PBI**. ANVIV es el piso más grande pero también el que más rápido se autofinancia — la Bastarda Inmobiliaria genera ingresos recurrentes (cuotas hipotecarias, alquileres) que cubren una fracción creciente del presupuesto. El escalamiento de ANDIG al 1% en Año 10 y la dependencia presupuestaria inicial de ANVIV son los principales riesgos de tensión fiscal. PLANCUL no tiene costo fiscal — opera sin presupuesto estatal por diseño.
+**Nota (2026-07-26):** esta tabla de costo neto modela los 10 pisos vigentes hasta esa fecha (ANCE, ANDIG, ANEB, ANSUS, ANJUS, ANAGUA, ENSV, ANEN, ANSEG, ANVIV). No incluye los 7 pisos que explican la diferencia entre el bruto de acá (~5,75-6,25%) y el bruto correcto de los 17 pisos del ecosistema completo (7,82-9,41%, ver ALERTA FISCAL): PLANSAL/ANVIP, PLANMESA, PLANTALLER, PLANCUIDADO, PLANMEMORIA, PLANTER, PLANMOV, y el 0,20% del LANEF dentro de PLANEN. El costo fiscal neto de esos 7 pisos todavía no está modelado en este documento.
+
+**Conclusion:** Los 17 pisos constitucionales del ecosistema suman 7,82-9,41% del PBI en bruto (ver Sección 3). Para el subconjunto de 10 pisos originales modelado arriba, esa suma bruta era ~5,45-6,25%, pero el costo fiscal neto se sitúa en el rango de **3,2-3,4% del PBI** en fase inicial, impulsado principalmente por ANVIV (vivienda). La brecha entre bruto y neto se explica por dos pisos grandes con bajo costo fiscal real: ANSEG (1,50% bruto → ~0,05-0,10% neto, porque reasigna gasto de seguridad existente) y ANVIV (2,00% bruto → ~1,50% neto inicial, decreciente). A régimen (Año 10+), el autofinanciamiento de ANVIV y la estabilización de la reasignación de ANSEG reducen el costo neto de ese subconjunto al rango de **2,2-2,9% del PBI**. ANVIV es el piso más grande pero también el que más rápido se autofinancia — la Bastarda Inmobiliaria genera ingresos recurrentes (cuotas hipotecarias, alquileres) que cubren una fracción creciente del presupuesto. El escalamiento de ANDIG al 1% en Año 10 y la dependencia presupuestaria inicial de ANVIV son los principales riesgos de tensión fiscal. PLANCUL no tiene costo fiscal — opera sin presupuesto estatal por diseño. El costo fiscal neto de los 7 pisos agregados en la actualización de PLANes 17-22 + PLANSAL/LANEF todavía no está modelado.
 
 ### 5.4 Regla: Secuenciamiento temporal evita picos de demanda fiscal simultanea
 
@@ -348,7 +369,7 @@ La secuencia es coherente: los planes que generan ahorro (PLANREP, PLANSUS) arra
 |------------------------|-----------|
 | Hay alguna fuente asignada a mas del 100%? | **No.** Ahorro PLANREP = 100%. Recaudación PLANSUS = 100%. Regalías = flujo unidireccional al Fondo. |
 | Hay planes que asumen ingresos de entidades con margen cero? | **No.** Ningún plan presupuesta "excedentes Bastardas" como fuente fiscal. |
-| Los pisos constitucionales superan el 2% del PBI en neto? | **Sí en fase inicial** (~3,2-3,4% neto), impulsado por ANVIV (vivienda). Pero a régimen (Año 10+) el costo neto converge a ~2,2-2,9% del PBI gracias al autofinanciamiento de ANVIV y la reasignación de gasto de ANSEG. En bruto con ANJUS incluido: ~5,75% inicial, ~6,25% a meta — pero la brecha entre bruto y neto es muy grande porque ANSEG (1,50%) y ANVIV (2,00%) suman 3,50% bruto con un costo neto combinado de ~0,55-1,10% inicial. |
+| Los pisos constitucionales superan el 2% del PBI en neto? | **Sí en fase inicial** (~3,2-3,4% neto, subconjunto de 10 pisos originales), impulsado por ANVIV (vivienda). Pero a régimen (Año 10+) el costo neto de ese subconjunto converge a ~2,2-2,9% del PBI gracias al autofinanciamiento de ANVIV y la reasignación de gasto de ANSEG. En bruto, los 17 pisos constitucionales del ecosistema completo suman 7,82% inicial — 9,41% a meta (ver ALERTA FISCAL); del subconjunto de 10 pisos originales, la brecha entre bruto y neto es muy grande porque ANSEG (1,50%) y ANVIV (2,00%) suman 3,50% bruto con un costo neto combinado de ~0,55-1,10% inicial. |
 | Hay doble conteo de créditos de carbono? | **No.** PLANISV retiene sus créditos para autofinanciamiento. El Fondo Soberano recibe créditos de carbono del sector energético (separados). |
 | La secuencia temporal es viable? | **Sí, con tensión.** Los Años 1-3 son los mas exigentes: PLANREP en déficit + PLANAGUA/PLANJUS arrancando. La disponibilidad de BIS y financiamiento multilateral es crítica en esta ventana. |
 | El ecosistema se autofinancia a largo plazo? | **Parcialmente.** A Año 10+, PLANREP (USD 26.000M+ neto), PLANSUS (USD 4.000-8.000M recaudación), PLANISV (carbono), PLANEN (exportaciones), y el Fondo Soberano (USD 100.000M+) generan flujos suficientes para sostener el sistema. La dependencia del presupuesto discrecional se reduce progresivamente. |
