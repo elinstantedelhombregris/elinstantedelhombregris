@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import {
   TOPE_DEPS_PRODUCCION,
   TOPE_DURO_CLAUDE_MD,
+  buscarManifiestos,
   cuentaEsteDirectorio,
   depsUnicasDeProduccion,
   leerPaquetes,
@@ -42,16 +43,39 @@ describe('el catálogo real de v2', () => {
   });
 
   it('no cuenta las deps de las configuraciones compartidas', () => {
-    // Se prueba el PREDICADO, no el resultado sobre el repo real: `packages/config/`
-    // no tiene `package.json` hoy (sus configs viven en `eslint/`, `prettier/` y
-    // `typescript/`, un nivel más abajo), así que `leerManifiesto` devolvería
-    // `undefined` y el directorio se saltearía igual con el filtro y sin él. Un
-    // assert contra `leerPaquetes(raizV2)` pasaría con la línea borrada: no
-    // protegería nada. El día que `packages/config/package.json` exista, esta
-    // línea es lo único que impide que sus plugins de ESLint entren al cupo de
-    // producción.
+    // El predicado en sí. `packages/config/` no tiene `package.json` propio (sus
+    // configs viven un nivel más abajo: `eslint/`, `prettier/`, `typescript/`),
+    // pero eso YA NO significa que el filtro esté de adorno — ver los dos tests
+    // siguientes, que prueban que `leerPaquetes` primero DESCUBRE esos manifiestos
+    // anidados y recién después el filtro los excluye.
     expect(cuentaEsteDirectorio('packages', 'config')).toBe(false);
     expect(cuentaEsteDirectorio('packages', 'db')).toBe(true);
     expect(cuentaEsteDirectorio('apps', 'web')).toBe(true);
+  });
+
+  it('el descubrimiento encuentra manifiestos anidados un nivel más abajo (packages/config/*)', () => {
+    // `buscarManifiestos` no aplica `cuentaEsteDirectorio` — es el paso de
+    // descubrimiento puro. Llamado directo sobre `packages/config` (bypaseando el
+    // filtro de `leerPaquetes`, que ni siquiera llegaría a recorrerlo) prueba que
+    // el recorrido SÍ baja a `packages/config/eslint/package.json` y lee sus
+    // `dependencies` reales — nueve paquetes de ESLint, no cero.
+    const encontrados = buscarManifiestos(join(raizV2, 'packages', 'config'));
+    const configEslint = encontrados.find((paquete) => paquete.nombre === '@v2/config-eslint');
+
+    expect(configEslint).toBeDefined();
+    expect(configEslint?.deps).toContain('@typescript-eslint/eslint-plugin');
+    expect(configEslint?.deps.length).toBeGreaterThan(0);
+  });
+
+  it('el filtro excluye lo que el descubrimiento encontró', () => {
+    // Complemento del test anterior: contra el camino real (`leerPaquetes`, que sí
+    // aplica `cuentaEsteDirectorio`), ni el paquete ni sus deps aparecen. Si se
+    // borra el filtro (o el `if` que lo usa en `leerPaquetes`), este test se pone
+    // en rojo porque el descubrimiento recursivo SÍ encuentra `packages/config/*`.
+    const paquetes = leerPaquetes(raizV2);
+    expect(paquetes.some((paquete) => paquete.nombre === '@v2/config-eslint')).toBe(false);
+
+    const unicas = depsUnicasDeProduccion(paquetes);
+    expect(unicas).not.toContain('@typescript-eslint/eslint-plugin');
   });
 });
