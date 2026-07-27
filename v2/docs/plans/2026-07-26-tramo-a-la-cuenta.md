@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- **Spec de referencia:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`. Toda decisión ambigua se resuelve ahí — **salvo las tres correcciones que este plan le hace a la spec** (Task 7), que mandan sobre ella.
+- **Spec de referencia:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`. Toda decisión ambigua se resuelve ahí — **salvo las tres correcciones que este plan le hace a la spec** (Task 6), que mandan sobre ella.
 - **Manda el taller, no el grafo.** `Iniciativas Estratégicas/PLAN*_Argentina_ES.md` es la fuente autoritativa de todo piso constitucional. El grafo se corrige contra el documento, nunca al revés.
 - **Este tramo no agrega ningún PLAN.** No se toca `PLAN_NODES` para sumar nodos, ni `EXPECTED_PLAN_COUNT`, ni ningún conteo de 22. Eso es tramo B en adelante.
 - **Español rioplatense** en todo texto visible y en los comentarios de código nuevo.
@@ -61,20 +61,21 @@ Esto no es contexto de color: es la razón por la que las tareas están donde es
 | Corregido (3 bugs + SEG a bruto) | **7,82** | **9,41** |
 | La spec dice | 7,82 | ~~9,49~~ |
 
-El extremo bajo coincide exacto. El alto no: **9,41, no 9,49.** El 9,49 salió de una reconciliación a mano que sumó PLANSEG dos veces. Task 7 corrige la spec.
+El extremo bajo coincide exacto. El alto no: **9,41, no 9,49.** El 9,49 salió de una reconciliación a mano que sumó PLANSEG dos veces. Task 6 corrige la spec.
 
 ---
 
-### Task 1: El test de canon de los pisos
+### Task 1: El canon de los pisos — el test y los tres nodos mal cargados
 
-Fija la tabla verificada como autoridad ejecutable. Falla contra el grafo actual en tres nodos — que es el punto.
+Fija la tabla verificada como autoridad ejecutable y corrige los tres nodos que discrepan. El test y los arreglos van en el mismo commit: la Global Constraint exige `npm run check` verde antes de cada commit, y un test rojo commiteado solo la viola.
 
 **Files:**
 - Create: `SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts`
+- Modify: `SocialJusticeHub/shared/arquitecto-data.ts:207` (PLANEN), `:257` (PLANTALLER), `:267` (PLANCUIDADO)
 
 **Interfaces:**
-- Consumes: `PLAN_NODES` y `ECOSYSTEM_METRICS` de `../../shared/arquitecto-data`.
-- Produces: nada que consuman otras tareas. Es la guardia.
+- Consumes: `PLAN_NODES` de `../../shared/arquitecto-data`.
+- Produces: la guardia, y los tres pisos corregidos que Task 2 suma.
 
 - [ ] **Step 1: Escribir el test que falla**
 
@@ -82,7 +83,7 @@ Crear `SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts`:
 
 ```ts
 import { describe, it, expect } from 'vitest';
-import { PLAN_NODES, ECOSYSTEM_METRICS } from '../../shared/arquitecto-data';
+import { PLAN_NODES } from '../../shared/arquitecto-data';
 
 /**
  * Canon de los pisos constitucionales.
@@ -168,10 +169,6 @@ describe('pisos constitucionales (canon contra el taller)', () => {
       }
     }
   });
-
-  it('la suma de pisos es 7.82-9.41% del PBI', () => {
-    expect(ECOSYSTEM_METRICS.constitutionalFloorGross).toBe('7.82-9.41% PBI');
-  });
 });
 ```
 
@@ -179,42 +176,16 @@ describe('pisos constitucionales (canon contra el taller)', () => {
 
 Run: `cd SocialJusticeHub && npm run test:unit -- pisos-constitucionales`
 
-Expected: FAIL. Los fallos esperados, exactamente:
+Expected: FAIL. Los fallos esperados, exactamente cinco:
 - `PLANEN: el grafo discrepa del taller` — dice `0.50% PBI`, se espera `0.70% PBI`
 - `PLANSEG: el grafo discrepa del taller` — dice `0.05-0.10% PBI neto`, se espera `1.50% PBI`
 - `PLANTALLER: el grafo discrepa del taller` — dice `0.08% PBI`, se espera `0.10% PBI`
 - `PLANCUIDADO: el grafo discrepa del taller` — dice `0.75-1.1% PBI`, se espera `0.45% PBI`
 - `PLANSEG: el campo dice «neto»`
-- El de la suma falla con `undefined` (todavía se llama `constitutionalFloorNet`)
-
-Además, TypeScript va a marcar `ECOSYSTEM_METRICS.constitutionalFloorGross` como inexistente. Es esperado: Task 3 crea esa propiedad.
 
 Si falla algo **más** que esto, pará: significa que el grafo cambió desde la verificación del 2026-07-26 y hay que re-verificar contra los documentos antes de seguir.
 
-- [ ] **Step 3: Commit del test rojo**
-
-```bash
-git add SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts
-git commit -m "Add pisos-constitucionales test — el canon de pisos contra el taller
-
-Falla a proposito: el grafo discrepa del taller en tres nodos y mezcla
-bruto con neto en un cuarto.
-
-Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
-```
-
----
-
-### Task 2: Corregir los tres pisos mal cargados
-
-**Files:**
-- Modify: `SocialJusticeHub/shared/arquitecto-data.ts:207` (PLANEN), `:257` (PLANTALLER), `:267` (PLANCUIDADO)
-
-**Interfaces:**
-- Consumes: nada.
-- Produces: los valores que Task 3 suma.
-
-- [ ] **Step 1: PLANEN — consolidar ANEN + LANEF**
+- [ ] **Step 3: PLANEN — consolidar ANEN + LANEF**
 
 En la línea 207, reemplazar:
 
@@ -230,7 +201,7 @@ por:
     legalInstruments: 1, constitutionalFloor: '0.70% PBI',
 ```
 
-- [ ] **Step 2: PLANTALLER — el documento dice 0.10, no 0.08**
+- [ ] **Step 4: PLANTALLER — el documento dice 0.10, no 0.08**
 
 En la línea 257, reemplazar `constitutionalFloor: '0.08% PBI',` por:
 
@@ -238,7 +209,7 @@ En la línea 257, reemplazar `constitutionalFloor: '0.08% PBI',` por:
     legalInstruments: 2, constitutionalFloor: '0.10% PBI', // PLANTALLER:607
 ```
 
-- [ ] **Step 3: PLANCUIDADO — el piso, no la inversión**
+- [ ] **Step 5: PLANCUIDADO — el piso, no la inversión**
 
 En la línea 267, reemplazar `constitutionalFloor: '0.75-1.1% PBI',` por:
 
@@ -248,27 +219,33 @@ En la línea 267, reemplazar `constitutionalFloor: '0.75-1.1% PBI',` por:
     legalInstruments: 5, constitutionalFloor: '0.45% PBI',
 ```
 
-- [ ] **Step 4: Verificar que bajaron tres fallos**
+- [ ] **Step 6: Verificar que bajaron tres fallos**
 
 Run: `cd SocialJusticeHub && npm run test:unit -- pisos-constitucionales`
 Expected: siguen fallando sólo los de PLANSEG (dos: la discrepancia y el «neto») y el de la suma. Los de PLANEN, PLANTALLER y PLANCUIDADO pasaron.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 7: Type check**
+
+Run: `cd SocialJusticeHub && npm run check`
+Expected: sin errores.
+
+- [ ] **Step 8: Commit**
 
 ```bash
-git add SocialJusticeHub/shared/arquitecto-data.ts
+git add SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts SocialJusticeHub/shared/arquitecto-data.ts
 git commit -m "Fix tres pisos constitucionales mal cargados en el grafo
 
 PLANEN le faltaba el 0,20% del LANEF; PLANTALLER decia 0,08 y su documento
 dice 0,10; PLANCUIDADO tenia cargada la inversion de regimen pleno
-(0,75-1,1%) en el campo del piso, que es 0,45%.
+(0,75-1,1%) en el campo del piso, que es 0,45%. Con el test de canon que
+transcribe los 17 pisos del taller y los fija contra el grafo.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 ```
 
 ---
 
-### Task 3: PLANSEG a bruto y la métrica que deja de mentir
+### Task 2: PLANSEG a bruto y la métrica que deja de mentir
 
 El campo guarda neto sólo para PLANSEG, mientras PLANVIV guarda bruto aunque también se autofinancie. Y `constitutionalFloorNet` suma casi todo bruto. **La decisión: el campo es siempre bruto —es la obligación legal— y el neto vive en el comentario y en `PRESUPUESTO_CONSOLIDADO_BASTA.md`, que es donde se discute costo fiscal.**
 
@@ -279,7 +256,7 @@ Esto es lo que sostiene la Escalera de Garantías de la spec: sus ocho escalones
 - Modify: `SocialJusticeHub/client/src/components/arquitecto/BudgetFlow.tsx:84`
 
 **Interfaces:**
-- Consumes: los pisos corregidos de Task 2.
+- Consumes: los pisos corregidos de Task 1.
 - Produces: `ECOSYSTEM_METRICS.constitutionalFloorGross: string` — reemplaza a `constitutionalFloorNet`, que **deja de existir**.
 
 - [ ] **Step 1: PLANSEG al bruto**
@@ -334,22 +311,33 @@ En `SocialJusticeHub/client/src/components/arquitecto/BudgetFlow.tsx:84`, reempl
 
 Mirá la etiqueta (`label` o equivalente) que acompaña a ese `value` en las líneas de alrededor: si el texto visible dice «neto», cambialo a «bruto». Es texto rioplatense visible en `/arquitecto`.
 
-- [ ] **Step 5: Verificar que el test pasa entero**
+- [ ] **Step 5: Agregar la aserción de la suma al test de canon**
+
+Recién ahora existe la propiedad. En `SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts`,
+agregar `ECOSYSTEM_METRICS` al import y este caso al final del `describe`:
+
+```ts
+  it('la suma de pisos es 7.82-9.41% del PBI', () => {
+    expect(ECOSYSTEM_METRICS.constitutionalFloorGross).toBe('7.82-9.41% PBI');
+  });
+```
+
+- [ ] **Step 6: Verificar que el test pasa entero**
 
 Run: `cd SocialJusticeHub && npm run test:unit -- pisos-constitucionales`
 Expected: PASS, los 6 tests. La suma da `7.82-9.41% PBI`.
 
 Si la suma da otro número, **no ajustes el test**: recontá los pisos contra la tabla de Task 1 y encontrá cuál nodo quedó mal.
 
-- [ ] **Step 6: Type check y suite completa**
+- [ ] **Step 7: Type check y suite completa**
 
 Run: `cd SocialJusticeHub && npm run check && npm run test:unit`
 Expected: tsc sin errores, y ningún test previamente verde en rojo. Si algún otro test rompió por el renombre, arreglalo acá — no en otro commit.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
-git add SocialJusticeHub/shared/arquitecto-data.ts SocialJusticeHub/client/src/components/arquitecto/BudgetFlow.tsx
+git add SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts SocialJusticeHub/shared/arquitecto-data.ts SocialJusticeHub/client/src/components/arquitecto/BudgetFlow.tsx
 git commit -m "Fix el campo de piso mezclaba bruto y neto — ahora es siempre bruto
 
 PLANSEG guardaba el neto (0,05-0,10%) mientras PLANVIV guardaba el bruto,
@@ -362,7 +350,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 ---
 
-### Task 4: La ALERTA FISCAL pasa de 12 agencias a 22
+### Task 3: La ALERTA FISCAL pasa de 12 agencias a 22
 
 `PRESUPUESTO_CONSOLIDADO_BASTA.md` declara 5,45–6,25% del PBI. Esa tabla cubre 12 agencias y se escribió antes de que existieran los PLANes 17 a 22. Es la cifra que la spec y medio corpus citan.
 
@@ -370,8 +358,8 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 - Modify: `Iniciativas Estratégicas/PRESUPUESTO_CONSOLIDADO_BASTA.md` (sección «Suma de pisos constitucionales directos» y «ALERTA FISCAL», alrededor de las líneas 188–210)
 
 **Interfaces:**
-- Consumes: la suma que produce Task 3.
-- Produces: la cifra canónica de papel que Task 6 y Task 7 citan.
+- Consumes: la suma que produce Task 2.
+- Produces: la cifra canónica de papel que Task 5 y Task 6 citan.
 
 - [ ] **Step 1: Leer la sección entera antes de tocarla**
 
@@ -428,7 +416,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 ---
 
-### Task 5: El gate de spin-off de la regla 3
+### Task 4: El gate de spin-off de la regla 3
 
 `COVERAGE_GAPS_ASSIGNMENTS.md` regla 3 habilita convertir un sub-mandato en PLAN cuando supera **1,5× el presupuesto del PLAN huésped**. Es la vía legítima para levantar el freeze. Hay que correrla para los cuatro y **reportar honestamente**, incluso donde no pase.
 
@@ -437,7 +425,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 **Interfaces:**
 - Consumes: `PLAN_NODES` de `../shared/arquitecto-data`.
-- Produces: la tabla en stdout que Task 6 pega en el acta.
+- Produces: la tabla en stdout que Task 5 pega en el acta.
 
 - [ ] **Step 1: Escribir el script**
 
@@ -522,7 +510,7 @@ Expected — copiá la salida literal, la vas a pegar en el acta. Los resultados
 - `PLANPREGUNTA vs los 3 huespedes sumados: 0.19x-0.24x` → **NO PASA**
 - `PLANFOCO: SIN HUESPED`
 
-**No maquilles esto.** Dos de los cuatro pasan el gate limpio, PLANPREGUNTA lo pasa contra dos de sus tres huéspedes y falla contra PLANEDU y contra la suma, y PLANFOCO nunca fue sub-mandato de nadie. El acta de Task 6 argumenta sobre estos resultados, no sobre los que nos gustaría.
+**No maquilles esto.** Dos de los cuatro pasan el gate limpio, PLANPREGUNTA lo pasa contra dos de sus tres huéspedes y falla contra PLANEDU y contra la suma, y PLANFOCO nunca fue sub-mandato de nadie. El acta de Task 5 argumenta sobre estos resultados, no sobre los que nos gustaría.
 
 - [ ] **Step 3: Commit**
 
@@ -535,14 +523,14 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 ---
 
-### Task 6: El acta que levanta el freeze
+### Task 5: El acta que levanta el freeze
 
 **Files:**
 - Create: `Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`
 - Modify: `Iniciativas Estratégicas/COVERAGE_GAPS_ASSIGNMENTS.md`
 
 **Interfaces:**
-- Consumes: la salida de Task 5 y la cifra de Task 4.
+- Consumes: la salida de Task 4 y la cifra de Task 3.
 - Produces: la autoridad de papel que el tramo B cita para escribir el primer PLAN nuevo.
 
 - [ ] **Step 1: Escribir el acta**
@@ -569,7 +557,7 @@ propuesta abierta y firma.
 
 Salida de `SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`:
 
-<!-- PEGAR ACA LA SALIDA LITERAL DEL SCRIPT (Task 5, Step 2) -->
+<!-- PEGAR ACA LA SALIDA LITERAL DEL SCRIPT (Task 4, Step 2) -->
 
 ## Lectura honesta del resultado
 
@@ -625,7 +613,7 @@ funcionando como fue disenado, y este acta lo confirma como precedente.
 
 - [ ] **Step 2: Pegar la salida literal del script**
 
-Reemplazar el comentario `<!-- PEGAR ACA ... -->` por la salida de Task 5 Step 2, dentro de un bloque de código.
+Reemplazar el comentario `<!-- PEGAR ACA ... -->` por la salida de Task 4 Step 2, dentro de un bloque de código.
 
 Si algún ratio de la salida real difiere de los que cita la sección «Lectura honesta», **corregí la prosa para que coincida con la salida**, no al revés.
 
@@ -668,7 +656,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 ---
 
-### Task 7: Corregir la spec con lo que este tramo encontró
+### Task 6: Corregir la spec con lo que este tramo encontró
 
 La spec se escribió antes de verificar el grafo línea por línea. Tres afirmaciones suyas quedaron mal.
 
@@ -700,7 +688,7 @@ Reemplazar **todas** las apariciones de `9,49` por `9,41`, y el punto medio `8,6
 Run: `grep -n "9,49\|8,66" v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`
 Expected: sin resultados.
 
-El 9,49 salió de una reconciliación a mano que sumó PLANSEG dos veces; el 9,41 lo calcula `ECOSYSTEM_METRICS.constitutionalFloorGross` y lo fija el test de Task 1.
+El 9,49 salió de una reconciliación a mano que sumó PLANSEG dos veces; el 9,41 lo calcula `ECOSYSTEM_METRICS.constitutionalFloorGross` y lo fija el test de canon (Task 2, Step 5).
 
 - [ ] **Step 3: §2.4 — la línea del Techo se sostiene, el total de recortes baja**
 
@@ -746,7 +734,7 @@ Expected: los tres verdes.
 
 - [ ] **Confirmar que el tramo no tocó ningún conteo de 22**
 
-Run: `git diff --stat HEAD~7`
+Run: `git diff --stat HEAD~6`
 Expected: **no** aparecen `validation-engine.ts`, `verify-planes-index.ts`, `planes-sources.ts`, ni ningún test de conteo de PLANes. Si aparecen, algo se coló de un tramo posterior.
 
 Al terminar: el grafo y los documentos dicen lo mismo, la suma real está calculada y fijada por un test, el acta está firmada, y la spec corregida. **El tramo B (PLANPACTO) puede empezar.**
