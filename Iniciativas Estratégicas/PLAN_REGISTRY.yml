@@ -12,6 +12,10 @@ architecture:
   total_documents: 23
   freeze_status: ACTIVE
   freeze_motivo: "Cierre del primer tranche (24m) o auditoría adicional"
+  # El freeze sigue activo para todo lo demás. Estos cuatro se exceptuaron por acta
+  # el 2026-07-26: ningún otro sub-mandato puede ser PLAN nuevo sin otro acta igual.
+  freeze_excepciones: [PLANPACTO, PLANARCO, PLANPREGUNTA, PLANFOCO]
+  freeze_excepciones_acta: ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md
   source_of_truth_audit: FULL_STRATEGIC_AUDIT_2026-04-26.md
   last_updated: 2026-04-28
 
