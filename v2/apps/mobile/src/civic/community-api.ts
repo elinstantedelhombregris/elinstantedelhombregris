@@ -1,3 +1,4 @@
+import type { LocationPrecision } from './types';
 import {
   CommunityApiError,
   communityErrorFromResponse,
@@ -98,7 +99,7 @@ export type CustodyNeedUnit =
 export interface CustodyGrantLocation {
   lat: number;
   lng: number;
-  precision: '500m' | 'neighborhood' | 'city';
+  precision: LocationPrecision;
 }
 
 export type CustodyGrantResponseDisposition = 'assessing' | 'support_available';

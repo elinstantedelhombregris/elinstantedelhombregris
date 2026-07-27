@@ -35,7 +35,7 @@ export const sharedPrecisionLabel = (precision: LocationPrecision): string => {
 
 export const defaultRecordContextDraft = (input: {
   sensitivity?: CivicSensitivity;
-  precision?: Exclude<LocationPrecision, 'exact'>;
+  precision?: LocationPrecision;
   audience?: CivicRecordContextDraft['audience'];
 } = {}): CivicRecordContextDraft => {
   return {
@@ -89,11 +89,16 @@ export const saveRecordContext = (
   const audience = input.audience ?? 'private';
   const prepared = prepareRecordLocation({
     point: input.point,
-    precision: input.sharedPrecision,
+    requestedPrecision: input.sharedPrecision ?? 'neighborhood',
+    // El contexto es genérico: el rol lo declara quien crea el registro. Sin
+    // uno explícito se asume `subject`, que es el más protegido de los cuatro
+    // — si acá se equivoca, se equivoca hacia el lado seguro.
+    role: input.locationRole ?? 'subject',
+    sensitivity: input.sensitivity ?? 'low',
     audience,
     locationLabel: input.locationLabel,
   });
-  const { exact, sharedPrecision: precision, locationLabel } = prepared;
+  const { exact, publishedPrecision: precision, locationLabel } = prepared;
   const projected = input.publicPointOverride === undefined
     ? prepared.publicPoint
     : validGeoPoint(input.publicPointOverride);

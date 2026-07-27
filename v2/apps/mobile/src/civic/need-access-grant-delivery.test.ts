@@ -194,13 +194,30 @@ describe('entrega autenticada de permisos bajo custodia', () => {
     }))).toThrow('NEED_GRANT_PROJECTION_INVALID');
   });
 
-  it('rechaza coordenadas demasiado precisas o una identidad local inconsistente', () => {
-    const exact = JSON.parse(grant().projectionJson) as {
+  /**
+   * Este test antes rechazaba el punto exacto en el payload de entrega. Cambió
+   * con D7: la precisión que llega acá ya pasó por `publishedPrecision`, así
+   * que volver a recortarla engrosaba dos veces lo mismo. Lo que sigue siendo
+   * inválido es una precisión que no existe — la lista se ensanchó, no se abrió.
+   */
+  it('transporta el punto exacto cuando la política lo autorizó', () => {
+    const exacto = JSON.parse(grant().projectionJson) as {
       need: { safeArea: { precision: string } };
     };
-    exact.need.safeArea.precision = 'exact';
+    exacto.need.safeArea.precision = 'exact';
+    const request = buildCustodyGrantDeliveryRequest(grant({
+      projectionJson: JSON.stringify(exacto),
+    }));
+    expect(request.need.location?.precision).toBe('exact');
+  });
+
+  it('rechaza una precisión inventada o una identidad local inconsistente', () => {
+    const inventada = JSON.parse(grant().projectionJson) as {
+      need: { safeArea: { precision: string } };
+    };
+    inventada.need.safeArea.precision = 'a-ojo';
     expect(() => buildCustodyGrantDeliveryRequest(grant({
-      projectionJson: JSON.stringify(exact),
+      projectionJson: JSON.stringify(inventada),
     }))).toThrow('NEED_GRANT_PROJECTION_INVALID');
 
     const mismatched = JSON.parse(grant().projectionJson) as { grantId: string };

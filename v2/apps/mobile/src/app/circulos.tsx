@@ -105,10 +105,19 @@ const CUSTODY_UNIT_LABEL: Record<CustodyNeedUnit, string> = {
   other: 'otra unidad',
 };
 
+/**
+ * Desde D7 un grant puede transportar el punto exacto, cuando la persona lo
+ * autorizó: quien se ofreció a ayudar tiene que poder llegar a la puerta.
+ * El mapa de etiquetas cubre los seis niveles para que ninguno se muestre en
+ * blanco — decirle a alguien «Lugar: » sin nada atrás es peor que no decirlo.
+ */
 const CUSTODY_PRECISION_LABEL: Record<CustodyGrantLocation['precision'], string> = {
+  exact: 'punto exacto',
+  '100m': 'radio de 100 m',
   '500m': 'radio de 500 m',
   neighborhood: 'escala de barrio',
   city: 'escala de ciudad',
+  province: 'escala de provincia',
 };
 
 const custodyExpiryLabel = (value: string): string => new Intl.DateTimeFormat('es-AR', {

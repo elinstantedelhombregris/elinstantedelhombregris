@@ -127,8 +127,30 @@ const SAFE_UNITS = new Map<string, NeedGrantUnitCode>([
   ['traslados', 'trips'],
 ]);
 
-// El canal destinatario nunca recibe granularidad inferior a 500 m.
-const SAFE_PRECISIONS = new Set<LocationPrecision>(['500m', 'neighborhood', 'city']);
+/**
+ * Las precisiones que un grant puede transportar.
+ *
+ * Antes era una lista blanca que excluía `exact` y `100m`: el canal
+ * destinatario «nunca recibía granularidad inferior a 500 m», sin importar qué
+ * hubiera autorizado la persona. Bajo D7 lo que se gobierna es el ROL de la
+ * ubicación, no la precisión, y esa decisión ya se tomó río arriba —
+ * `publishedPrecision` corrió al crear la necesidad y `publicPrecision` es su
+ * resultado, no un pedido del cliente.
+ *
+ * Volver a recortarlo acá no protegería a nadie: engrosaría por segunda vez un
+ * punto que la política ya evaluó, y dejaría a quien se ofreció a ayudar sin
+ * poder llegar a la puerta cuando la persona explícitamente quiso que pudiera.
+ * Lo que sí se sigue exigiendo es que sea una precisión conocida y que las
+ * coordenadas existan y sean válidas.
+ */
+const SAFE_PRECISIONS = new Set<LocationPrecision>([
+  'exact',
+  '100m',
+  '500m',
+  'neighborhood',
+  'city',
+  'province',
+]);
 const RECIPIENT_REFERENCE = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,63}$/;
 
 const validTimestamp = (value: string | null | undefined): number | null => {
@@ -201,7 +223,7 @@ export interface NeedGrantProjectionV1 {
     safeArea?: {
       lat: number;
       lng: number;
-      precision: Exclude<LocationPrecision, 'exact'>;
+      precision: LocationPrecision;
     };
   };
 }
@@ -274,7 +296,7 @@ export const buildNeedGrantProjection = (input: {
     need.safeArea = {
       lat: input.need.publicLat,
       lng: input.need.publicLng,
-      precision: precision as Exclude<LocationPrecision, 'exact'>,
+      precision,
     };
     authorizedFields.push('safeArea.lat', 'safeArea.lng', 'safeArea.precision');
   }

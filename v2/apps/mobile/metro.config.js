@@ -20,6 +20,28 @@ const workerChannelCorregido = path.resolve(__dirname, 'src/db/web/WorkerChannel
 const resolveRequestAnterior = config.resolver.resolveRequest;
 config.resolver.resolveRequest = (context, moduleName, platform) => {
   const resolver = resolveRequestAnterior ?? context.resolveRequest;
+
+  // `@v2/civic-core` es TypeScript fuente y, como todo el workspace, escribe
+  // sus imports relativos con extensión `.js` — la convención que pide ESM en
+  // Node y que `tsc` mapea a `.ts` solo. Metro no hace ese mapeo y falla con
+  // «Unable to resolve module ./types.js».
+  //
+  // Se reintenta sin la extensión, y ÚNICAMENTE para imports relativos que
+  // salen de un paquete del workspace: un `.js` real de node_modules tiene que
+  // seguir resolviendo como siempre, así que si el reintento no encuentra
+  // nada, se deja pasar el error original.
+  if (
+    moduleName.startsWith('.') &&
+    moduleName.endsWith('.js') &&
+    /[\\/]packages[\\/][^\\/]+[\\/]src[\\/]/.test(context.originModulePath ?? '')
+  ) {
+    try {
+      return resolver(context, moduleName.slice(0, -3), platform);
+    } catch {
+      // Sigue el camino normal y que falle con su mensaje, no con el nuestro.
+    }
+  }
+
   const resuelto = resolver(context, moduleName, platform);
   if (
     platform === 'web' &&

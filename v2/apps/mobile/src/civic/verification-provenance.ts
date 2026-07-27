@@ -180,6 +180,9 @@ export const publicPrecisionLabel = (precision: LocationPrecision): string => ({
   '500m': 'Ubicación aproximada · radio de 500 m',
   neighborhood: 'Ubicación aproximada · escala barrial',
   city: 'Ubicación aproximada · escala ciudad',
+  // El nivel más grueso, el de las voces cargadas desde la web sin elegir
+  // un lugar: no hay un punto, hay una provincia.
+  province: 'Ubicación aproximada · escala provincia',
 }[precision]);
 
 export const verdictsForMethod = (method: VerificationMethod): VerificationVerdictOption[] =>

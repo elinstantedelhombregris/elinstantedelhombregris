@@ -49,11 +49,35 @@ export type CivicRecordStatus =
   | 'withdrawn'
   | 'unsafe';
 
-export type LocationPrecision = 'exact' | '100m' | '500m' | 'neighborhood' | 'city';
+/**
+ * El vocabulario de la ubicación ya no se define acá: vive en
+ * `@v2/civic-core`, que comparten esta app y la web.
+ *
+ * Se re-exporta con los mismos nombres para que ningún call site cambie. Lo
+ * que cambia es que ahora hay UNA sola definición de qué es una ubicación y
+ * qué se puede publicar de ella — antes había dos, y nada impedía que
+ * derivaran.
+ */
+import type {
+  CivicAudience,
+  CivicSensitivity,
+  GeoPoint,
+  LocationPrecision,
+  LocationRole,
+  PublicLocation,
+} from '@v2/civic-core';
+
+export type {
+  CivicAudience,
+  CivicSensitivity,
+  GeoPoint,
+  LocationPrecision,
+  LocationRole,
+  PublicLocation,
+};
 
 /** Lo que sabemos del lugar y lo que autorizamos compartir son ejes distintos. */
 export type CivicContextEntity = 'listening' | 'observation' | 'need' | 'resource';
-export type LocationRole = 'subject' | 'capture' | 'service_area' | 'meeting_point';
 export type LocationSource =
   | 'gps_current'
   | 'map_pin'
@@ -61,9 +85,7 @@ export type LocationSource =
   | 'inherited'
   | 'imported_public'
   | 'none';
-export type CivicAudience = 'private' | 'collective' | 'circle' | 'counterpart';
 export type AttributionMode = 'anonymous' | 'alias' | 'named';
-export type CivicSensitivity = 'low' | 'moderate' | 'high';
 export type CivicDisclosureEntity = 'observation' | 'need' | 'resource';
 export type CivicDisclosureReceiptKind = 'disclosure' | 'revocation';
 
@@ -162,17 +184,6 @@ export type SyncOperation = 'create' | 'update' | 'transition' | 'delete';
 
 export type SyncStatus = 'pending' | 'sending' | 'failed' | 'dead_letter';
 
-export interface GeoPoint {
-  lat: number;
-  lng: number;
-}
-
-export interface PublicLocation {
-  point: GeoPoint | null;
-  precision: LocationPrecision;
-  label: string | null;
-}
-
 /**
  * Recibo por registro. `point` y `horizontalAccuracyM` describen el dato
  * conocido; `sharedPrecision`, `audience` y `attributionMode` describen el
@@ -201,7 +212,13 @@ export interface CivicRecordContextDraft {
   locationSource: LocationSource;
   horizontalAccuracyM: number | null;
   capturedAt: string | null;
-  sharedPrecision: Exclude<LocationPrecision, 'exact'>;
+  /**
+   * Bajo D7 (`@v2/civic-core`) `exact` SÍ es publicable: se gobierna el rol de
+   * la ubicación, no la precisión. El `Exclude<…, 'exact'>` que había acá
+   * codificaba la regla vieja en el tipo, así que ningún pozo ni punto de
+   * reparto podía guardarse donde realmente está.
+   */
+  sharedPrecision: LocationPrecision;
   locationLabel: string;
   audience: CivicAudience;
   attributionMode: AttributionMode;

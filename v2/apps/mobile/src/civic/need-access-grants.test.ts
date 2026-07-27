@@ -192,20 +192,54 @@ describe('permisos destinatarios para necesidades bajo custodia', () => {
     expect(serialized).not.toContain('contact');
   });
 
-  it('nunca acepta un punto exacto dentro del alcance geográfico', () => {
+  /**
+   * Este test antes afirmaba lo contrario: que un punto exacto NUNCA entraba en
+   * el alcance geográfico de un grant. Cambió con D7.
+   *
+   * La razón: `publicPrecision` no es un pedido del cliente, es el RESULTADO de
+   * `publishedPrecision` al crear la necesidad. Recortarlo otra vez acá
+   * engrosaba por segunda vez algo ya evaluado, y dejaba a quien se ofreció a
+   * ayudar sin poder llegar a la puerta cuando la persona quiso justamente eso.
+   */
+  it('transporta la precisión que la política ya autorizó, incluido el punto exacto', () => {
+    for (const publicPrecision of ['exact', '100m', '500m', 'neighborhood', 'city'] as const) {
+      const { projection } = buildNeedGrantProjection({
+        grantId: `grant-${publicPrecision}`,
+        recipient: { kind: 'circle', key: 'circle:1' },
+        purpose: 'assess_support',
+        scope: 'essentials_and_safe_area',
+        need: { ...need, publicPrecision },
+      });
+      expect(projection.need.safeArea?.precision, publicPrecision).toBe(publicPrecision);
+    }
+  });
+
+  it('sigue rechazando una precisión que no existe', () => {
+    // La lista sigue cerrada: se ensanchó, no se abrió. Un payload arbitrario
+    // no puede inventar un nivel de precisión.
     expect(() => buildNeedGrantProjection({
-      grantId: 'grant-exact',
+      grantId: 'grant-inventada',
       recipient: { kind: 'circle', key: 'circle:1' },
       purpose: 'assess_support',
       scope: 'essentials_and_safe_area',
-      need: { ...need, publicPrecision: 'exact' },
+      need: { ...need, publicPrecision: 'a-ojo' as never },
+    })).toThrow('need_grant_safe_area_unavailable');
+  });
+
+  it('sigue rechazando coordenadas ausentes o fuera de rango', () => {
+    expect(() => buildNeedGrantProjection({
+      grantId: 'grant-sin-coords',
+      recipient: { kind: 'circle', key: 'circle:1' },
+      purpose: 'assess_support',
+      scope: 'essentials_and_safe_area',
+      need: { ...need, publicPrecision: 'exact', publicLat: null, publicLng: null },
     })).toThrow('need_grant_safe_area_unavailable');
     expect(() => buildNeedGrantProjection({
-      grantId: 'grant-too-precise',
+      grantId: 'grant-fuera-de-rango',
       recipient: { kind: 'circle', key: 'circle:1' },
       purpose: 'assess_support',
       scope: 'essentials_and_safe_area',
-      need: { ...need, publicPrecision: '100m' },
+      need: { ...need, publicPrecision: 'exact', publicLat: 91 },
     })).toThrow('need_grant_safe_area_unavailable');
   });
 

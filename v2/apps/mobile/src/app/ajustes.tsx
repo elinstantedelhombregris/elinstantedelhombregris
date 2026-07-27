@@ -88,6 +88,9 @@ const PRECISION_LABEL = {
   '500m': 'radio de 500 m',
   neighborhood: 'escala barrial',
   city: 'escala ciudad',
+  // `province` entró con @v2/civic-core: es el nivel más grueso, el que usan
+  // las voces cargadas desde la web sin elegir un lugar más preciso.
+  province: 'escala provincia',
 } as const;
 
 const receiptDate = (value: string): string => {

@@ -1,3 +1,4 @@
+import type { LocationPrecision } from './types';
 import { and, eq, isNull } from 'drizzle-orm';
 
 import {
@@ -59,7 +60,26 @@ const UNIT_CODES = new Set<NeedGrantUnitCode>([
   'beds',
   'kits',
 ]);
-const LOCATION_PRECISIONS = new Set(['500m', 'neighborhood', 'city']);
+/**
+ * Las precisiones que el payload de entrega acepta.
+ *
+ * Se ensancha con `exact`, `100m` y `province` por D7: la decisión sobre
+ * cuánto se expone ya la tomó `publishedPrecision` al crear la necesidad, y
+ * `publicPrecision` es su RESULTADO. Recortar de nuevo acá volvería a engrosar
+ * un punto ya evaluado y dejaría a quien se ofreció a ayudar sin poder llegar
+ * a la puerta cuando la persona quiso justamente eso.
+ *
+ * Sigue siendo una lista cerrada y no un `string`: lo que se valida es que sea
+ * una precisión CONOCIDA, para que un payload arbitrario no invente niveles.
+ */
+const LOCATION_PRECISIONS = new Set([
+  'exact',
+  '100m',
+  '500m',
+  'neighborhood',
+  'city',
+  'province',
+]);
 const NEED_GRANT_REMOTE_OPERATION_LOCK = 'basta-need-grant-remote-operation-v1';
 
 const withNeedGrantRemoteOperationLock = async <T>(
@@ -142,7 +162,7 @@ export interface CustodyGrantDeliveryRequest {
     location?: {
       lat: number;
       lng: number;
-      precision: '500m' | 'neighborhood' | 'city';
+      precision: LocationPrecision;
     };
   };
 }
@@ -248,7 +268,7 @@ export const buildCustodyGrantDeliveryRequest = (
     need.location = {
       lat: area.lat,
       lng: area.lng,
-      precision: area.precision as '500m' | 'neighborhood' | 'city',
+      precision: area.precision as LocationPrecision,
     };
   }
 

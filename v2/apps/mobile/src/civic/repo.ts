@@ -379,14 +379,17 @@ export const createObservation = (input: CreateObservationInput): CivicObservati
   const audience = input.context?.audience ?? (input.publish ? 'collective' : 'private');
   const preparedLocation = prepareRecordLocation({
     point: input.context?.point ?? input.exactLocation ?? null,
-    precision: input.context?.sharedPrecision ?? input.publicPrecision ?? '500m',
+    requestedPrecision: input.context?.sharedPrecision ?? input.publicPrecision ?? '500m',
+    // Dónde estaba parado quien observó: la esquina del pozo, no la casa de nadie.
+    role: 'capture',
+    sensitivity: input.context?.sensitivity ?? 'low',
     audience,
     locationLabel: input.context?.locationLabel ?? input.locationLabel ?? null,
   });
   const {
     exact,
     publicPoint,
-    sharedPrecision: precision,
+    publishedPrecision: precision,
     locationLabel,
   } = preparedLocation;
   const evidence = input.evidence ?? [];
@@ -736,14 +739,17 @@ export const createNeed = (input: CreateNeedInput): CivicNeedRow => {
   const audience = input.context?.audience ?? (input.publish ? 'collective' : 'private');
   const preparedLocation = prepareRecordLocation({
     point: input.context?.point ?? input.publicLocation ?? null,
-    precision: input.context?.sharedPrecision ?? input.publicPrecision ?? 'neighborhood',
+    requestedPrecision: input.context?.sharedPrecision ?? input.publicPrecision ?? 'neighborhood',
+    // El lugar del que trata el pedido — el único rol que la protección puede engrosar.
+    role: 'subject',
+    sensitivity: input.context?.sensitivity ?? 'low',
     audience,
     locationLabel: input.context?.locationLabel ?? input.locationLabel ?? null,
   });
   const {
     exact,
     publicPoint,
-    sharedPrecision: precision,
+    publishedPrecision: precision,
     locationLabel,
   } = preparedLocation;
   const row: CivicNeedRow = {
@@ -816,14 +822,17 @@ export const createResource = (input: CreateResourceInput): CivicResourceRow => 
   const audience = input.context?.audience ?? (input.publish ? 'collective' : 'private');
   const preparedLocation = prepareRecordLocation({
     point: input.context?.point ?? input.publicLocation ?? null,
-    precision: input.context?.sharedPrecision ?? input.publicPrecision ?? 'neighborhood',
+    requestedPrecision: input.context?.sharedPrecision ?? input.publicPrecision ?? 'neighborhood',
+    // Dónde se entrega o se retira: sin exactitud el recurso no se puede usar.
+    role: 'meeting_point',
+    sensitivity: input.context?.sensitivity ?? 'low',
     audience,
     locationLabel: input.context?.locationLabel ?? input.locationLabel ?? null,
   });
   const {
     exact,
     publicPoint,
-    sharedPrecision: precision,
+    publishedPrecision: precision,
     locationLabel,
   } = preparedLocation;
   const row: CivicResourceRow = {
