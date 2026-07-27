@@ -412,7 +412,7 @@ El alcance completo son cuatro documentos de escala de corpus (~8.000 líneas), 
 
 | Tramo | Alcance | Depende de | Se puede empezar |
 |---|---|---|---|
-| **A — La cuenta** | Corregir los 4 `constitutionalFloor` mal cargados, reconciliar la cifra de `PRESUPUESTO_CONSOLIDADO:193` a 22 agencias, correr el gate de spin-off de la regla 3 para los cuatro, levantar el freeze con acta | nada | ya |
+| **A — La cuenta** ✅ | Corregir los `constitutionalFloor` mal cargados (resultaron **tres**, no cuatro), reconciliar la cifra de `PRESUPUESTO_CONSOLIDADO:193` a 22 agencias, correr el gate de spin-off de la regla 3 para los cuatro, levantar el freeze con acta | nada | **hecho** — ver `docs/plans/2026-07-26-tramo-a-la-cuenta.md` |
 | **B — PLANPACTO** | El documento (ordinal 23) con sus 11 arreglos, incluida la Escalera que los otros tres necesitan | A | tras A |
 | **C — PLANARCO** | El documento (ordinal 24) con sus 13 arreglos, más la verificación adversarial pendiente de los dispositivos 9 y 10 | B (la Escalera) | tras B |
 | **D — PLANPREGUNTA y PLANFOCO** | Los dos documentos (25 y 26); el nuevo split del FSC se escribe también en PLANTER | B (el split y la regla de fuentes) | tras B, en paralelo con C |
@@ -426,6 +426,8 @@ El tramo A es independiente de la decisión de escribir los PLANes: arregla erro
 
 **Incertidumbre legítima de diseño — se escribe declarándola, no se espera:** las 24 ratificaciones de la ley-convenio (por eso PLANPACTO tiene que valer aunque la Fase 2 no llegue), la refundación del PAMI, el riesgo ISDS del RIGI, la sustitución de Ingresos Brutos, y si la fecundidad se mueve o no (PLANARCO ya declara que no se lo propone).
 
-**Tarea pendiente con dueño y fecha, no incertidumbre:** correr V-REF-01 sobre las 69 aristas; cargar los 4 nodos en `arquitecto-data.ts` y corregir los 4 mal cargados; escribir la fila de `READINESS_GATES_ADVERSARIAL.md` de PLANPACTO; correr el gate de spin-off de la regla 3 para los otros tres; levantar el freeze con acta; clasificar los cuatro presupuestos según las clases de `SOURCE_OF_FUNDS_LEDGER.md`; verificar adversarialmente los dispositivos 9 y 10 de PLANARCO, que nunca los leyó nadie.
+**Ya hecho, en el tramo A:** los pisos mal cargados corregidos y fijados por test (`SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts`); la cifra del consolidado reconciliada a 22 agencias; el gate de la regla 3 corrido sobre los cuatro y publicado entero; el freeze levantado por acta.
+
+**Tarea pendiente con dueño y fecha, no incertidumbre:** correr V-REF-01 sobre las 69 aristas; cargar los 4 nodos nuevos en `arquitecto-data.ts`; escribir la fila de `READINESS_GATES_ADVERSARIAL.md` de PLANPACTO; clasificar los cuatro presupuestos según las clases de `SOURCE_OF_FUNDS_LEDGER.md`; verificar adversarialmente los dispositivos 9 y 10 de PLANARCO, que nunca los leyó nadie; y actualizar `PLAN_REGISTRY.yml` y `DEPENDENCY_GRAPH.yml`, que son registro mecánico y siguen sin tocarse (§9.7 paso 1).
 
 **Y lo honesto:** los cuatro diseños se verificaron **contra el canon, no contra la realidad**. Ningún economista fiscal, ningún previsionalista, ningún gerontólogo y ningún constitucionalista leyó nada de esto. Todos los agregados fiscales de esta spec son reconstrucción propia sobre ejecución de Hacienda, OPC e IARAF/ASAP al cierre de 2025. **El orden de magnitud aguanta; los decimales no**, y los documentos tienen que decirlo en su ficha.
