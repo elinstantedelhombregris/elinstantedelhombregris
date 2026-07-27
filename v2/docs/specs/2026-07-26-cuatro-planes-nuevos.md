@@ -100,7 +100,7 @@ Este es el orden y esto es lo que queda en pie en cada escalón.
 
 **=== LÍNEA DEL TECHO: 2,40% ===**
 
-Debajo de la línea, sin piso, con afectación temporal de hasta 8 años renovable por ley: DIG (−0,75), EN (−0,70), MOV (−0,54), TER + TALLER + EB + SUS (−0,50).
+Debajo de la línea no queda piso: DIG, EN, MOV, TER, TALLER, EB y SUS **pierden el suyo entero**, con afectación temporal de hasta 8 años renovable por ley. No es un recorte parcial itemizado por PLAN —más abajo se explica por qué eso no se hace— sino el piso completo de cada uno: DIG 0,75, EN 0,70, MOV 0,50, y 0,50 entre TER, TALLER, EB y SUS.
 
 **Cuánto se recorta, y por qué no se itemiza.** El recorte total es el residuo contra lo que hoy se reclama, y ese reclamo es un rango, no un número: **5,42 puntos** contra el extremo bajo (7,82), **6,22** contra el punto medio (8,62), **7,01** contra el alto (9,41).
 
