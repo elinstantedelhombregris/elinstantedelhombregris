@@ -56,6 +56,16 @@ IMPORTANTE en la auditoría de marzo y `COVERAGE_GAPS_ASSIGNMENTS.md` **no le as
 ninguno**. La regla 3 no aplica porque nunca fue sub-mandato de nadie. No es un
 spin-off: es un hueco que el freeze dejó abierto.
 
+Hay un registro posterior que dice lo contrario, y corresponde citarlo:
+`MASTER_COHERENCE_REPORT.md:399` (2026-04-26) marca ese mismo hueco como **«RESUELTO:
+PLANCUL»**. No alcanza, y lo explica el propio PLANCUL. PLANCUL no tiene agencia, no
+tiene presupuesto y no tiene piso constitucional — *«el plan no tiene presupuesto
+dedicado, ni agencia, ni líder»* (PLANCUL:106), con compromiso de no-intervención
+explícito (:389). Y la concentración mediática, que es el hueco, la trata como acción
+*«deseable, no esencial»*, aplicada por la CNDC como antimonopolio y no como cultura,
+y declara que no depende de que tenga éxito (:383). PLANCUL cubre la cultura viva, y
+la cubre bien. El poder de los medios sigue sin dueño.
+
 ## Lo que el gate mide en realidad
 
 Tres de los cuatro no pasan, y las tres razones son distintas. Conviene separarlas
