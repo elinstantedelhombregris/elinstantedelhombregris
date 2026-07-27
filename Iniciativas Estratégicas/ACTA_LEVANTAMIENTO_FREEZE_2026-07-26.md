@@ -32,7 +32,9 @@ PLANFOCO: SIN HUÉSPED. COVERAGE_GAPS_ASSIGNMENTS.md nunca le asignó uno, así 
 ## Lectura honesta del resultado
 
 **Uno solo pasa el gate.** PLANPACTO da 5,2-5,6x contra PLANREP, su único huésped.
-Es el único de los cuatro que cumple la regla 3 tal como está escrita.
+Es el único de los cuatro que supera el umbral de tamaño de la regla 3. El umbral es
+un sub-criterio: la regla exige además cierre de tranche y auditoría externa firmada
+— ver «Bajo qué autoridad se levanta esto».
 
 **PLANARCO lo pasa contra cada huésped por separado y falla contra la suma, por tres
 centésimas.** 1,8-2,1x contra PLANCUIDADO y 8,8-16,0x contra PLANSAL; contra los dos
@@ -85,16 +87,29 @@ no tiene dueño.
 
 Hay que ser exacto, porque el documento que se está modificando es explícito.
 
-**La regla 3 autoriza a PLANPACTO y a nadie más.** 5,2-5,6x contra PLANREP, su único
-huésped. Ese caso está cubierto por el mecanismo que el propio freeze define.
+**La regla 3 no habilita a ninguno de los cuatro — tampoco a PLANPACTO.** La regla,
+completa, dice: *«Si un sub-mandato crece más allá de cierto tamaño (≥ 1.5x del PLAN
+huésped en presupuesto), gateo de spin-off al cierre de tranche — pero nunca antes y
+nunca sin auditoría externa firmada.»* Son tres condiciones y hay que leerlas juntas:
+el umbral de tamaño, el cierre de tranche y la auditoría externa firmada. El primer
+tranche corre de **2026-05 a 2028-05** (`PRIMER_TRANCHE_24M.md`). Este acta está
+fechada 2026-07-26: mes 3 de 24. **La puerta procedimental de la regla 3 no se abre
+hasta 2028-05, y este acta no espera a esa fecha, y lo dice.**
 
-**Para los otros tres, esto no es una salida por la regla 3: es el autor levantando
-una regla que se puso a sí mismo.** La regla 5 dice, sin matices, que mientras el
-freeze esté activo ningún sub-mandato puede ser PLAN nuevo, y la regla 3 es la única
-puerta que el documento habilita. Estirarla para que entren tres casos que no pasan
+**PLANPACTO supera el umbral de tamaño, y es el único de los cuatro que lo supera.**
+5,2-5,6x contra PLANREP, su único huésped. Eso es un sub-criterio cumplido, no la
+regla satisfecha. Presentarlo como la regla entera —mudando el cierre de tranche y la
+auditoría externa a la regla 4, de la que este acta se exime dos párrafos más abajo—
 sería exactamente el tipo de interpretación acomodaticia que ¡BASTA! le reprocha al
-sistema que quiere reemplazar. **No se estira: se deroga en su parte, con nombre,
-fecha y motivo, y queda escrito que se derogó.**
+sistema que quiere reemplazar.
+
+**Los cuatro se habilitan por lo mismo, entonces: derogación expresa.** De la regla 5,
+que dice sin matices que mientras el freeze esté activo ningún sub-mandato puede ser
+PLAN nuevo. Y de la condición temporal de la regla 3, que difiere cualquier spin-off
+al cierre de tranche. Ninguna de las dos se estira: **se derogan en su parte, con
+nombre, fecha y motivo, y queda escrito que se derogaron.** Es el autor levantando
+reglas que se puso a sí mismo, a la vista, y no un mecanismo que se habría disparado
+solo.
 
 El motivo es el hallazgo que produjo este mismo tramo:
 **`PRESUPUESTO_CONSOLIDADO_BASTA.md` declaraba 5,45-6,25% del PBI en pisos
@@ -102,8 +117,8 @@ constitucionales sobre una tabla de 12 agencias. La suma real de los 22 es
 7,82-9,41%.** El propósito declarado del freeze era la disciplina de alcance. Un
 freeze que mantiene 22 PLANes fijos mientras el número que los sostiene está mal en
 más de dos puntos del PBI no disciplina el alcance: sólo impide que alguien lleve la
-cuenta. PLANPACTO es el PLAN que lleva la cuenta, y es el único que la regla 3
-autoriza — lo cual es una coincidencia afortunada y no un argumento.
+cuenta. PLANPACTO es el PLAN que lleva la cuenta, y es el único que supera el umbral
+de tamaño de la regla 3 — lo cual es una coincidencia afortunada y no un argumento.
 
 **Lo que este acta no puede hacer, y no finge hacer.** La regla 4 exige cierre de
 tranche, propuesta abierta, firma del Director PEO y de un auditor externo, y
@@ -115,8 +130,10 @@ evidencia a la vista, y de que **queda sujeta a revisión cuando esos órganos e
 ## Lo que se levanta y lo que no
 
 **Se levanta:** la prohibición de PLANes nuevos, para los cuatro nombrados en la
-spec del 2026-07-26 y sólo para ellos. Para PLANPACTO, por la regla 3. Para los otros
-tres, por derogación expresa de la regla 5 en su aplicación a esos casos.
+spec del 2026-07-26 y sólo para ellos. Para los cuatro por igual, por derogación
+expresa de la regla 5 y de la condición temporal de la regla 3, en su aplicación a
+esos casos. PLANPACTO además supera el umbral de tamaño de la regla 3; los otros tres
+no, y ninguno de los cuatro cumple el resto de esa regla.
 
 **Sigue vigente:** todo lo demás de `COVERAGE_GAPS_ASSIGNMENTS.md`. Los huecos
 asignados a huéspedes que no son estos cuatro siguen siendo sub-mandatos, con sus

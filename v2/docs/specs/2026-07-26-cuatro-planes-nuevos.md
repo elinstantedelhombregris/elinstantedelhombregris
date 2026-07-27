@@ -381,7 +381,9 @@ Está en `SocialJusticeHub/shared/strategic-initiatives.ts`: ~170 líneas de fic
 
 ### 9.9 El freeze
 
-`COVERAGE_GAPS_ASSIGNMENTS.md` (26 de abril de 2026) declara *«Freeze sigue activo. Sin PLANes nuevos»*. Se levanta por la vía que el propio documento habilita: la **regla 3**, gate de spin-off cuando un sub-mandato supera 1,5× el presupuesto del huésped. Corrido sobre los cuatro (`SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`), **sólo PLANPACTO lo pasa**: 5,2–5,6× contra PLANREP. PLANARCO da 1,47–1,88× contra sus dos huéspedes sumados y queda tres centésimas por debajo del umbral; PLANPREGUNTA da 0,19–0,24× contra los suyos; PLANFOCO nunca tuvo huésped asignado. El acta `Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md` publica el resultado entero y funda el levantamiento en el argumento independiente, no en el gate.
+`COVERAGE_GAPS_ASSIGNMENTS.md` (26 de abril de 2026) declara *«Freeze sigue activo. Sin PLANes nuevos»*. Se levanta por **derogación expresa** —de la regla 5, y de la condición temporal de la regla 3— y no por una vía que el documento ya habilitara. La regla 3 pide tres cosas juntas: umbral de tamaño (≥ 1,5× el presupuesto del huésped), **cierre de tranche** y **auditoría externa firmada**. El primer tranche corre de 2026-05 a 2028-05 (`PRIMER_TRANCHE_24M.md`), así que en julio de 2026 la puerta procedimental de esa regla todavía no se abrió para nadie.
+
+Lo que sí se midió es el umbral de tamaño. Corrido sobre los cuatro (`SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`), **sólo PLANPACTO lo supera**: 5,2–5,6× contra PLANREP. PLANARCO da 1,47–1,88× contra sus dos huéspedes sumados y queda tres centésimas por debajo; PLANPREGUNTA da 0,19–0,24× contra los suyos; PLANFOCO nunca tuvo huésped asignado. El acta `Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md` publica el resultado entero, deja constancia de que no espera al cierre de tranche y funda el levantamiento en el argumento independiente, no en el gate.
 
 ---
 

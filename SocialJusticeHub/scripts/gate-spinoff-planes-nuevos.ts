@@ -4,9 +4,18 @@
  *
  * Run: npx tsx scripts/gate-spinoff-planes-nuevos.ts
  *
- * La regla: un sub-mandato habilita gate de spin-off cuando supera 1,5x el
- * presupuesto del PLAN huésped. Se calcula bajo/bajo y alto/alto: comparar
- * bajo contra alto mezcla escenarios distintos y da ratios sin sentido.
+ * ATENCIÓN — este script mide UN sub-criterio, no la regla entera. La regla 3
+ * completa (`COVERAGE_GAPS_ASSIGNMENTS.md:39`) dice: «Si un sub-mandato crece más
+ * allá de cierto tamaño (≥ 1.5x del PLAN huésped en presupuesto), gateo de spin-off
+ * al cierre de tranche — pero nunca antes y nunca sin auditoría externa firmada.»
+ * Son tres condiciones: umbral de tamaño, cierre de tranche y auditoría externa
+ * firmada. Acá se calcula sólo la primera, así que un `PASA` de esta salida
+ * significa «supera el umbral de tamaño», NO «cumple la regla 3». El primer tranche
+ * corre de 2026-05 a 2028-05 (`PRIMER_TRANCHE_24M.md`): a la fecha del acta que
+ * publica esta salida, la puerta procedimental no estaba abierta para nadie.
+ *
+ * El umbral se calcula bajo/bajo y alto/alto: comparar bajo contra alto mezcla
+ * escenarios distintos y da ratios sin sentido.
  */
 import { PLAN_NODES } from '../shared/arquitecto-data';
 
