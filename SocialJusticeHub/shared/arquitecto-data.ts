@@ -205,7 +205,7 @@ export const PLAN_NODES: PlanNode[] = [
     organMetaphor: 'energía', organLabel: 'Energy',
     status: 'PUBLISHED', budgetLow: 45000, budgetHigh: 76000, timelineYears: 15,
     // 0,70% = ANEN 0,50% (PLANEN:1471) + LANEF 0,20% de I+D (PLANEN:791, :1489).
-    // Van sumados en un solo valor: el parser lee dos numeros como rango bajo-alto.
+    // Van sumados en un solo valor: el parser lee dos números como rango bajo-alto.
     legalInstruments: 1, constitutionalFloor: '0.70% PBI',
     mainSource: 'Inversión privada condicionada (35%) + multilaterales + reasignación subsidios',
     color: '#64748b', slug: 'planen-soberania-energetica',
@@ -217,9 +217,9 @@ export const PLAN_NODES: PlanNode[] = [
     organMetaphor: 'guardián', organLabel: 'Guardian',
     status: 'PUBLISHED', budgetLow: 3000, budgetHigh: 6000, timelineYears: 15,
     // 1,50% es el piso que declara PLANSEG:1052. El costo fiscal NUEVO neto es
-    // 0,05-0,10% porque el resto es reasignacion de gasto que ya se ejecuta
+    // 0,05-0,10% porque el resto es reasignación de gasto que ya se ejecuta
     // (PRESUPUESTO_CONSOLIDADO_BASTA.md nota 3). El campo guarda el bruto: es la
-    // obligacion legal. El neto se discute en el consolidado, no aca.
+    // obligación legal. El neto se discute en el consolidado, no acá.
     legalInstruments: 1, constitutionalFloor: '1.50% PBI',
     mainSource: 'Reasignación gasto seguridad (60%) + presupuesto nacional + multilaterales',
     color: '#6366f1', slug: 'planseg-seguridad-ciudadana',
@@ -270,8 +270,8 @@ export const PLAN_NODES: PlanNode[] = [
     category: 'salud', agency: 'ANCV', agencyFull: 'Agencia Nacional de Cuidado y Vínculo',
     organMetaphor: 'capa cero', organLabel: 'Zero Layer',
     status: 'PUBLISHED', budgetLow: 30000, budgetHigh: 45000, timelineYears: 15,
-    // 0,45% es el piso (PLANCUIDADO:515, :591). El 0,75-1,1% que estaba aca es la
-    // inversion estimada de regimen pleno de la tesis: otro numero, otro campo.
+    // 0,45% es el piso (PLANCUIDADO:515, :591). El 0,75-1,1% que estaba acá es la
+    // inversión estimada de régimen pleno de la tesis: otro número, otro campo.
     legalInstruments: 5, constitutionalFloor: '0.45% PBI',
     mainSource: 'Piso constitucional + Fondo Federal de Cuidado + jornada 6+2 a empleadores',
     color: '#ec4899', slug: 'plancuidado-cuidado-vinculo',
@@ -745,9 +745,9 @@ export const REQUIRES_DEPENDENCIES = DEPENDENCIES.filter(d => d.kind !== 'provid
  * Suma los pisos constitucionales BRUTOS declarados por los documentos.
  *
  * Bruto, no neto: varios PLANes se autofinancian en parte (PLANSEG con
- * reasignacion de gasto de seguridad, PLANVIV con repagos de la Bastarda
+ * reasignación de gasto de seguridad, PLANVIV con repagos de la Bastarda
  * Inmobiliaria), y ese descuento se discute en PRESUPUESTO_CONSOLIDADO_BASTA.md.
- * Aca se suma la obligacion legal, que es lo que consume Techo.
+ * Acá se suma la obligación legal, que es lo que consume Techo.
  */
 function sumConstitutionalFloorsGross(): string {
   let low = 0;
