@@ -71,8 +71,10 @@ contra PLANEDU solo.** 0,21-0,26x contra PLANEDU, 0,19-0,24x contra los tres sum
 prácticamente el mismo número. Sumar huéspedes no explica nada acá. Lo que explica es
 que **la regla 3 mide tamaño relativo, no si algo merece documento propio.** PLANEDU
 son USD 80-100 mil millones: la refundación entera del sistema educativo. Un
-sub-mandato alojado ahí adentro tendría que costar 120 mil millones para pasar el
-gate. Ningún hueco de conocimiento científico va a superar jamás ese umbral, por
+sub-mandato alojado ahí adentro tendría que costar **120 mil millones contra el
+extremo bajo y 150 mil contra el alto** —el gate exige los dos, porque compara
+bajo/bajo y alto/alto— para superar el umbral. Ningún hueco de conocimiento
+científico va a superar jamás ese umbral, por
 importante que sea. **El resultado no dice nada sobre PLANPREGUNTA: dice que la
 regla 3 no puede evaluar un sub-mandato cuyo huésped lo supera en un orden de
 magnitud.**
