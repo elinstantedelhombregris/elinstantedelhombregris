@@ -47,9 +47,9 @@ Esta sección es la autoridad numérica de la spec. Todo piso, todo presupuesto 
 
 ### 2.1 El hallazgo
 
-**Los pisos constitucionales que los 22 PLANes reclaman por escrito suman 7,82–9,49% del PBI** (punto medio 8,66%). El corpus repite 5,45–6,25%: esa cifra sale de `PRESUPUESTO_CONSOLIDADO_BASTA.md:193`, cubre 12 agencias, se escribió antes de que existieran los PLANes 17 a 22, y excluye a PLANSAL y al LANEF.
+**Los pisos constitucionales que los 22 PLANes reclaman por escrito suman 7,82–9,41% del PBI** (punto medio 8,62%). El corpus repite 5,45–6,25%: esa cifra sale de `PRESUPUESTO_CONSOLIDADO_BASTA.md:193`, cubre 12 agencias, se escribió antes de que existieran los PLANes 17 a 22, y excluye a PLANSAL y al LANEF.
 
-Hay **tres cifras canónicas en conflicto adentro del propio corpus y ninguna es la verdadera**: 2,45% (`BLINDAJE_INSTITUCIONAL_BASTA.md:28`), 5,45–6,25% bruto / 3,2–3,4% neto (`PRESUPUESTO_CONSOLIDADO`), 6,45–8,44% (`arquitecto-data.ts`, que además está mal cargado en cuatro nodos: PLANSEG carga el neto 0,05–0,10 en vez del bruto 1,50 —divergencia de 1,42 puntos—, PLANCUIDADO 0,75–1,1 en vez de 0,45, PLANEN pierde el 0,20 del LANEF, PLANTALLER dice 0,08 y el documento 0,10).
+Hay **tres cifras canónicas en conflicto adentro del propio corpus y ninguna es la verdadera**: 2,45% (`BLINDAJE_INSTITUCIONAL_BASTA.md:28`), 5,45–6,25% bruto / 3,2–3,4% neto (`PRESUPUESTO_CONSOLIDADO`), 6,45–8,44% (`arquitecto-data.ts`, y además estaba mal cargado en **tres** nodos: PLANCUIDADO tenía 0,75–1,1 —que es la inversión de régimen pleno, no el piso— en vez de 0,45; PLANEN perdía el 0,20 del LANEF; y PLANTALLER decía 0,08 contra el 0,10 de su documento. El cuarto caso, PLANSEG con 0,05–0,10 «neto», **no era un bug**: `PRESUPUESTO_CONSOLIDADO_BASTA.md` nota (3) declara ese neto a propósito. El problema ahí era que el campo mezclaba bruto y neto entre PLANes, y que la métrica se llamaba `constitutionalFloorNet` sumando casi todo bruto. Corregido en el tramo A: el campo es siempre bruto.).
 
 **Manda el taller, no el grafo.** La corrección de `arquitecto-data.ts` es tarea aparte de esta spec.
 
@@ -83,7 +83,7 @@ Esto no invalida PLANPACTO: lo funda. Que el proyecto no supiera cuánto estaba 
 
 ### 2.4 La Escalera de Garantías
 
-Hay que quitar **6,26 puntos del PBI**: de 8,66% a 2,40%. Este es el orden y estos son los cortes.
+Hay que quitar **6,22 puntos del PBI**: de 8,62% a 2,40%. (El 2,40% es la decisión; el total de recortes es lo que se deriva de ella.) Este es el orden y estos son los cortes.
 
 | Escalón | Contenido | Se saca | Acumulado |
 |---|---|---|---|
@@ -100,7 +100,7 @@ Hay que quitar **6,26 puntos del PBI**: de 8,66% a 2,40%. Este es el orden y est
 
 Debajo de la línea, sin piso, con afectación temporal de hasta 8 años renovable por ley: DIG (−0,75), EN (−0,70), MOV (−0,54), TER + TALLER + EB + SUS (−0,50).
 
-Control: 1,40 + 1,50 + 0,75 + 0,70 + 0,54 + 0,50 + 0,50 + 0,20 + 0,075 + 0,05 + 0,04 = 6,26. Cierra.
+Control: 1,40 + 1,50 + 0,75 + 0,70 + 0,54 + 0,50 + 0,50 + 0,20 + 0,075 + 0,05 = 6,22. Cierra. (El sumando de PLANMEMORIA sale de la cuenta: la reconciliación anterior la contaba en 0,14 flat; su rango real es 0,10–0,14, y con el bajo el escalón 7 no recorta.)
 
 Los dos cortes grandes los defiende el propio corpus: de PLANSEG, `PRESUPUESTO_CONSOLIDADO_BASTA.md:162` declara que 1,40–1,45 de ese 1,50 es reasignación de gasto que **ya se ejecuta** — blindar plata que ya se gasta no protege nada, sólo consume Techo. De PLANVIV, el propio documento dice que los repagos de la Bastarda Inmobiliaria y los fees del Housing OS cubren el resto.
 
@@ -375,7 +375,7 @@ Está en `SocialJusticeHub/shared/strategic-initiatives.ts`: ~170 líneas de fic
 
 ### 9.9 El freeze
 
-`COVERAGE_GAPS_ASSIGNMENTS.md` (26 de abril de 2026) declara *«Freeze sigue activo. Sin PLANes nuevos»*. Se levanta por la vía que el propio documento habilita: la **regla 3**, gate de spin-off cuando un sub-mandato supera 1,5× el presupuesto del huésped. **PLANARCO sobre PLANCUIDADO da 1,46–1,88×: pasa.** Hay que correr el mismo test para los otros tres antes de escribir el acta de levantamiento.
+`COVERAGE_GAPS_ASSIGNMENTS.md` (26 de abril de 2026) declara *«Freeze sigue activo. Sin PLANes nuevos»*. Se levanta por la vía que el propio documento habilita: la **regla 3**, gate de spin-off cuando un sub-mandato supera 1,5× el presupuesto del huésped. Corrido sobre los cuatro (`SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`), **sólo PLANPACTO lo pasa**: 5,2–5,6× contra PLANREP. PLANARCO da 1,47–1,88× contra sus dos huéspedes sumados y queda tres centésimas por debajo del umbral; PLANPREGUNTA da 0,19–0,24× contra los suyos; PLANFOCO nunca tuvo huésped asignado. El acta `Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md` publica el resultado entero y funda el levantamiento en el argumento independiente, no en el gate.
 
 ---
 
