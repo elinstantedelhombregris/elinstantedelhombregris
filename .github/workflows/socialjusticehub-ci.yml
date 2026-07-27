@@ -37,5 +37,8 @@ jobs:
       - name: Route duplication guard
         run: npm run check:routes
 
+      - name: Unit tests
+        run: npm run test:unit
+
       - name: Production build
         run: npm run build
