@@ -61,6 +61,22 @@ export interface SoltarVozInput {
   body: string;
   category: TipoVoz;
   provinceId?: number;
+  /** Opcional (D2): la precisión la elige quien habla. Sin esto, provincia. */
+  punto?: { lat: number; lng: number };
+  precisionPedida?: string;
+}
+
+export interface VozSoltada {
+  id: number;
+  /**
+   * Opcionales a propósito. La confirmación de la voz soltada es la conversión
+   * primaria del sitio: no puede romperse porque una respuesta venga sin un
+   * campo accesorio — de un servidor viejo, de un proxy que recorta, de lo que
+   * sea. El sello RECIBIDA tiene que salir igual.
+   */
+  precisionPublicada?: string;
+  /** Por qué el servidor engrosó la precisión, cuando la engrosó. */
+  engrosado?: string | null;
 }
 
 /**
@@ -72,7 +88,7 @@ export interface SoltarVozInput {
 export function useSoltarVoz() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (input: SoltarVozInput) => api.post<{ id: number }>('/api/open-data/dreams', input),
+    mutationFn: (input: SoltarVozInput) => api.post<VozSoltada>('/api/open-data/dreams', input),
     onSuccess: async () => {
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: ['open-data'] }),

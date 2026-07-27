@@ -6,6 +6,7 @@
  *   POST /api/open-data/dreams               — submit a dream (anon ok)
  *   GET  /api/open-data/dreams/by-province   — count + top categories per province
  */
+import { prepareRecordLocation } from '@v2/civic-core';
 import { dreams as dreamsTable, DreamsRepository, eq, GeographicRepository, getDb, normalizeProvinceName, sql } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
@@ -22,6 +23,17 @@ const submitSchema = z.object({
   provinceId: z.number().int().positive().optional(),
   provinceName: z.string().trim().max(120).optional(),
   submittedAs: z.string().trim().max(80).optional(),
+  /**
+   * La ubicación precisa, cuando quien habla la eligió (D2 — la precisión la
+   * elige quien habla, spec 2 §6). Todo opcional: sin esto el envío se comporta
+   * exactamente como antes, a nivel provincia, y los 30 segundos no cambian.
+   */
+  punto: z
+    .object({ lat: z.number().min(-90).max(90), lng: z.number().min(-180).max(180) })
+    .optional(),
+  precisionPedida: z.enum(['exact', '100m', '500m', 'neighborhood', 'city', 'province']).optional(),
+  locationRole: z.enum(['subject', 'capture', 'service_area', 'meeting_point']).optional(),
+  sensitivity: z.enum(['low', 'moderate', 'high']).optional(),
 });
 
 const listQuery = z.object({
@@ -93,8 +105,36 @@ router.post('/dreams', anonSubmitRateLimit(), optionalAuthenticate, async (req, 
     if (input.category !== undefined) insertArgs.category = input.category;
     if (provinceId !== undefined) insertArgs.provinceId = provinceId;
 
+    /**
+     * La precisión la decide el servidor, no el cliente (D7 y spec 4 §4). Sin
+     * punto, `prepareRecordLocation` devuelve `province` y nada cambia respecto
+     * del comportamiento anterior.
+     */
+    const ubicacion = prepareRecordLocation({
+      point: input.punto ?? null,
+      requestedPrecision: input.precisionPedida ?? 'province',
+      role: input.locationRole ?? 'subject',
+      sensitivity: input.sensitivity ?? 'low',
+      audience: 'collective',
+    });
+    if (ubicacion.publicPoint) {
+      insertArgs.lat = String(ubicacion.publicPoint.lat);
+      insertArgs.lng = String(ubicacion.publicPoint.lng);
+    }
+    insertArgs.precision = ubicacion.publishedPrecision;
+    if (input.locationRole !== undefined) insertArgs.locationRole = input.locationRole;
+    if (input.sensitivity !== undefined) insertArgs.sensitivity = input.sensitivity;
+
     const dream = await dreamsRepo.create(insertArgs);
-    res.status(201).json({ data: { id: dream.id } });
+    res.status(201).json({
+      data: {
+        id: dream.id,
+        precisionPublicada: ubicacion.publishedPrecision,
+        // Cuando el servidor engrosa, quien habló se entera en la misma
+        // respuesta — nunca después.
+        engrosado: ubicacion.coarsenedBecause,
+      },
+    });
   } catch (err) {
     next(err);
   }

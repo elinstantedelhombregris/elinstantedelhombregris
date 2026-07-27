@@ -2,6 +2,8 @@ import { useState, type FormEvent } from 'react';
 
 import { PLACEHOLDER_NEUTRO, PLACEHOLDER_TIPO, TIPOS_VOZ } from '../el-mapa-data';
 
+import { SelectorPrecision, type PrecisionElegida } from './SelectorPrecision';
+
 import { BotonPapel, ChipTipo, Sello, type TipoVoz } from '~/components/papel/primitives';
 import { ApiError } from '~/lib/api';
 import { despertar } from '~/lib/despertar';
@@ -17,8 +19,15 @@ export function PanelSoltarVoz() {
   const [tipo, setTipo] = useState<TipoVoz | null>(null);
   const [texto, setTexto] = useState('');
   const [provinciaId, setProvinciaId] = useState('');
+  /** Paso opcional (D2): sin tocarlo, el envío es igual que siempre. */
+  const [ubicacion, setUbicacion] = useState<PrecisionElegida>({
+    punto: null,
+    precision: 'province',
+  });
   /** null = sin enviar · '' = recibida sin provincia · nombre = recibida con provincia. */
   const [recibida, setRecibida] = useState<string | null>(null);
+  /** Lo que el servidor contestó si engrosó la precisión. */
+  const [engrosado, setEngrosado] = useState<string | null>(null);
   const provincias = useProvincias();
   const soltar = useSoltarVoz();
 
@@ -29,12 +38,18 @@ export function PanelSoltarVoz() {
     if (tipo === null || !valido || soltar.isPending) return;
     const input: SoltarVozInput = { body: texto.trim(), category: tipo };
     if (provinciaId !== '') input.provinceId = Number(provinciaId);
+    if (ubicacion.punto) {
+      input.punto = ubicacion.punto;
+      input.precisionPedida = ubicacion.precision;
+    }
     soltar.mutate(input, {
-      onSuccess: () => {
+      onSuccess: (respuesta) => {
         despertar();
         const nombre = (provincias.data ?? []).find((p) => String(p.id) === provinciaId)?.name ?? '';
         setRecibida(nombre);
+        setEngrosado(respuesta.engrosado ?? null);
         setTexto('');
+        setUbicacion({ punto: null, precision: 'province' });
       },
     });
   };
@@ -120,6 +135,8 @@ export function PanelSoltarVoz() {
           Sin provincia tu voz cuenta igual, pero no cae en el mapa.
         </p>
 
+        <SelectorPrecision valor={ubicacion} onCambio={setUbicacion} />
+
         <BotonPapel type="submit" variant="violeta" loading={soltar.isPending} disabled={!valido} className="mt-3.5 w-full">
           Soltar la voz →
         </BotonPapel>
@@ -140,6 +157,14 @@ export function PanelSoltarVoz() {
                 ? 'Tu voz quedó registrada. Ya cuenta con todas las demás.'
                 : `Tu voz cayó en ${recibida}. Ya está en el mapa, a la vista de todos.`}
             </span>
+            {/* Si el servidor engrosó la precisión, se dice acá y no después:
+                nadie se entera más tarde de que su punto se publicó distinto
+                de lo que creía (spec 2 §3.2). */}
+            {engrosado !== null ? (
+              <p className="font-space text-tinta-75 w-full text-[11px] leading-relaxed">
+                {engrosado}
+              </p>
+            ) : null}
           </div>
         ) : null}
       </form>
