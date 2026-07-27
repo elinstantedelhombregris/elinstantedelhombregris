@@ -39,7 +39,7 @@ describe('pisos constitucionales (canon contra el taller)', () => {
   it('cada piso del grafo coincide con el documento de su PLAN', () => {
     for (const [id, esperado] of Object.entries(PISOS_SEGUN_EL_TALLER)) {
       const nodo = PLAN_NODES.find((p) => p.id === id);
-      expect(nodo, `${id}: no esta en PLAN_NODES`).toBeDefined();
+      expect(nodo, `${id}: no está en PLAN_NODES`).toBeDefined();
       expect(nodo?.constitutionalFloor, `${id}: el grafo discrepa del taller (${esperado.fuente})`).toBe(
         esperado.floor,
       );
@@ -49,7 +49,7 @@ describe('pisos constitucionales (canon contra el taller)', () => {
   it('los PLANes sin piso siguen sin piso', () => {
     for (const id of SIN_PISO) {
       const nodo = PLAN_NODES.find((p) => p.id === id);
-      expect(nodo?.constitutionalFloor, `${id}: le aparecio un piso`).toBeNull();
+      expect(nodo?.constitutionalFloor, `${id}: le apareció un piso`).toBeNull();
     }
   });
 
@@ -57,27 +57,27 @@ describe('pisos constitucionales (canon contra el taller)', () => {
     const cubiertos = new Set([...Object.keys(PISOS_SEGUN_EL_TALLER), ...SIN_PISO]);
     expect(cubiertos.size).toBe(PLAN_NODES.length);
     for (const p of PLAN_NODES) {
-      expect(cubiertos.has(p.id), `${p.id}: no esta ni en la tabla ni en SIN_PISO`).toBe(true);
+      expect(cubiertos.has(p.id), `${p.id}: no está ni en la tabla ni en SIN_PISO`).toBe(true);
     }
   });
 
-  it('ningun piso mezcla bruto con neto: el campo es siempre bruto', () => {
+  it('ningún piso mezcla bruto con neto: el campo es siempre bruto', () => {
     for (const p of PLAN_NODES) {
       if (!p.constitutionalFloor) continue;
       expect(
         p.constitutionalFloor.toLowerCase(),
-        `${p.id}: el campo dice «neto». El piso es la obligacion legal bruta.`,
+        `${p.id}: el campo dice «neto». El piso es la obligación legal bruta.`,
       ).not.toContain('neto');
     }
   });
 
-  it('el formato es «bajo-alto% PBI» o «unico% PBI»: nunca dos pisos sueltos', () => {
+  it('el formato es «bajo-alto% PBI» o «único% PBI»: nunca dos pisos sueltos', () => {
     // sumConstitutionalFloorsGross lee nums[0] como bajo y nums[1] como alto. Un piso
-    // compuesto («0.50% + 0.20%») se leeria como rango 0,50-0,20 y daria alto < bajo.
+    // compuesto («0.50% + 0.20%») se leería como rango 0,50-0,20 y daria alto < bajo.
     for (const p of PLAN_NODES) {
       if (!p.constitutionalFloor) continue;
       const nums = p.constitutionalFloor.match(/\d+(?:\.\d+)?/g) ?? [];
-      expect(nums.length, `${p.id}: se esperaban 1 o 2 numeros`).toBeLessThanOrEqual(2);
+      expect(nums.length, `${p.id}: se esperaban 1 o 2 números`).toBeLessThanOrEqual(2);
       if (nums.length === 2) {
         expect(Number(nums[1]), `${p.id}: el alto es menor que el bajo`).toBeGreaterThanOrEqual(
           Number(nums[0]),
