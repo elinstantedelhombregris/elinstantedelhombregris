@@ -10,6 +10,7 @@ import { authRouter } from './features/auth/routes.js';
 import { twoFactorRouter } from './features/auth/two-factor-routes.js';
 import { blogRouter } from './features/blog/routes.js';
 import { civicAssessmentRouter } from './features/civic-assessment/routes.js';
+import { civicRouter } from './features/civic-map/routes.js';
 import { coachingRouter } from './features/coaching/routes.js';
 import { communityRouter } from './features/community/routes.js';
 import { gamificationRouter } from './features/gamification/routes.js';
@@ -74,6 +75,8 @@ export function createApp(): Express {
   app.use('/api', pulsoRouter);
   app.use('/api/life-areas', lifeAreasRouter);
   app.use('/api/civic-assessment', civicAssessmentRouter);
+  // Todo lo cívico cuelga del prefijo versionado que el móvil ya habla.
+  app.use('/api/v1/civic', civicRouter);
   app.use('/api', goalsRouter);
   app.use('/api/coaching', coachingRouter);
   app.use('/api/blog', blogRouter);
