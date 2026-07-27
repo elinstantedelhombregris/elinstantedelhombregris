@@ -3,7 +3,9 @@
 **Fecha:** 2026-07-26
 **Deroga:** el freeze declarado en `COVERAGE_GAPS_ASSIGNMENTS.md` el 2026-04-26
 **Spec que lo motiva:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`
-**Resultado:** el canon pasa de 22 PLANes temáticos a 26, más PLANRUTA
+**Habilita:** el pasaje del canon de 22 PLANes temáticos a 26, más PLANRUTA. El
+corpus todavía cuenta 22 y este acta no lo cambia: los cuatro documentos se escriben
+en los tramos B, C y D de la spec, y el conteo se mueve recién ahí.
 
 ## Qué decía el freeze
 
