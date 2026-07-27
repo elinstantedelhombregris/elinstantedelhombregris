@@ -216,7 +216,11 @@ export const PLAN_NODES: PlanNode[] = [
     category: 'instituciones', agency: 'ANSEG', agencyFull: 'Agencia Nacional de Seguridad Ciudadana',
     organMetaphor: 'guardián', organLabel: 'Guardian',
     status: 'PUBLISHED', budgetLow: 3000, budgetHigh: 6000, timelineYears: 15,
-    legalInstruments: 1, constitutionalFloor: '0.05-0.10% PBI neto',
+    // 1,50% es el piso que declara PLANSEG:1052. El costo fiscal NUEVO neto es
+    // 0,05-0,10% porque el resto es reasignacion de gasto que ya se ejecuta
+    // (PRESUPUESTO_CONSOLIDADO_BASTA.md nota 3). El campo guarda el bruto: es la
+    // obligacion legal. El neto se discute en el consolidado, no aca.
+    legalInstruments: 1, constitutionalFloor: '1.50% PBI',
     mainSource: 'Reasignación gasto seguridad (60%) + presupuesto nacional + multilaterales',
     color: '#6366f1', slug: 'planseg-seguridad-ciudadana',
     missionSlug: 'la-base-esta', secondaryMissionSlug: 'instituciones-y-futuro', temporalOrder: 'emergencia', priority: 'alta', state: 'ambar',
@@ -737,7 +741,15 @@ export const CRITICAL_CHAINS: CriticalChain[] = [
 /** Aristas de dependencia real (excluye anotaciones espejo 'provides'). */
 export const REQUIRES_DEPENDENCIES = DEPENDENCIES.filter(d => d.kind !== 'provides');
 
-function sumConstitutionalFloors(): string {
+/**
+ * Suma los pisos constitucionales BRUTOS declarados por los documentos.
+ *
+ * Bruto, no neto: varios PLANes se autofinancian en parte (PLANSEG con
+ * reasignacion de gasto de seguridad, PLANVIV con repagos de la Bastarda
+ * Inmobiliaria), y ese descuento se discute en PRESUPUESTO_CONSOLIDADO_BASTA.md.
+ * Aca se suma la obligacion legal, que es lo que consume Techo.
+ */
+function sumConstitutionalFloorsGross(): string {
   let low = 0;
   let high = 0;
   for (const plan of PLAN_NODES) {
@@ -756,7 +768,7 @@ export const ECOSYSTEM_METRICS = {
   totalBudgetLow: PLAN_NODES.reduce((sum, p) => sum + p.budgetLow, 0),   // USD millions
   totalBudgetHigh: PLAN_NODES.reduce((sum, p) => sum + p.budgetHigh, 0), // USD millions
   totalLegalInstruments: PLAN_NODES.reduce((sum, p) => sum + p.legalInstruments, 0),
-  constitutionalFloorNet: sumConstitutionalFloors(),
+  constitutionalFloorGross: sumConstitutionalFloorsGross(),
   timelineHorizon: Math.max(...TIMELINE_PHASES.map(p => p.endYear)),
   totalDependencies: REQUIRES_DEPENDENCIES.length,
   criticalDependencies: REQUIRES_DEPENDENCIES.filter(d => d.nature === 'CRITICAL').length,

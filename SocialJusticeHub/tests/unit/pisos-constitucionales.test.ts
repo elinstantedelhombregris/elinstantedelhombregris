@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { PLAN_NODES } from '../../shared/arquitecto-data';
+import { PLAN_NODES, ECOSYSTEM_METRICS } from '../../shared/arquitecto-data';
 
 /**
  * Canon de los pisos constitucionales.
@@ -84,5 +84,9 @@ describe('pisos constitucionales (canon contra el taller)', () => {
         );
       }
     }
+  });
+
+  it('la suma de pisos es 7.82-9.41% del PBI', () => {
+    expect(ECOSYSTEM_METRICS.constitutionalFloorGross).toBe('7.82-9.41% PBI');
   });
 });

@@ -80,8 +80,8 @@ export default function BudgetFlow() {
     },
     {
       icon: Landmark,
-      label: 'Piso Constitucional Neto',
-      value: ECOSYSTEM_METRICS.constitutionalFloorNet,
+      label: 'Piso Constitucional Bruto',
+      value: ECOSYSTEM_METRICS.constitutionalFloorGross,
       sub: 'del PBI garantizado',
     },
     {
