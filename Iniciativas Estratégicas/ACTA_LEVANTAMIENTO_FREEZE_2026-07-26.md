@@ -43,9 +43,8 @@ centésimas.** 1,8-2,1x contra PLANCUIDADO y 8,8-16,0x contra PLANSAL; contra lo
 sumados, 1,47-1,88x — y el umbral es 1,5. No redondeamos hacia arriba. La medición
 correcta es contra la suma porque la fila «Discapacidad y vejez» de
 `COVERAGE_GAPS_ASSIGNMENTS.md` asigna ese hueco a **PLANCUIDADO + PLANSAL**, dos
-huéspedes: medir a un sub-mandato contra uno
-solo de los suyos, elegido después de conocer el resultado, es elegir el denominador
-que conviene.
+huéspedes: medir a un sub-mandato contra uno solo de los suyos, elegido después de
+conocer el resultado, es elegir el denominador que conviene.
 
 **PLANPREGUNTA lo pasa contra dos huéspedes de tres y falla contra el tercero y contra
 la suma.** 33x contra PLANEB y 2,6-3,5x contra PLANDIG; 0,2x contra PLANEDU, que es el
@@ -119,9 +118,9 @@ hasta 2028-05, y este acta no espera a esa fecha, y lo dice.**
 **PLANPACTO supera el umbral de tamaño, y es el único de los cuatro que lo supera.**
 5,2-5,6x contra PLANREP, su único huésped. Eso es un sub-criterio cumplido, no la
 regla satisfecha. Presentarlo como la regla entera —mudando el cierre de tranche y la
-auditoría externa a la regla 4, de la que este acta se exime dos párrafos más abajo—
-sería exactamente el tipo de interpretación acomodaticia que ¡BASTA! le reprocha al
-sistema que quiere reemplazar.
+auditoría externa a la regla 4, de la que este acta se exime al cierre de esta misma
+sección— sería exactamente el tipo de interpretación acomodaticia que ¡BASTA! le
+reprocha al sistema que quiere reemplazar.
 
 **Los cuatro se habilitan por lo mismo, entonces: derogación expresa.** De la regla 5,
 que dice sin matices que mientras el freeze esté activo ningún sub-mandato puede ser
