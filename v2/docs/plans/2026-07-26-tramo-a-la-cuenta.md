@@ -549,7 +549,7 @@ Crear `Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`:
 **Spec que lo motiva:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`
 **Resultado:** el canon pasa de 22 PLANes temáticos a 26, más PLANRUTA
 
-## Que decía el freeze
+## Qué decía el freeze
 
 `COVERAGE_GAPS_ASSIGNMENTS.md` (2026-04-26) declaró *«Freeze sigue activo. Sin
 PLANes nuevos»* y repartio cada hueco de cobertura como sub-mandato interno de un
