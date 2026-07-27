@@ -37,7 +37,7 @@ function main(): void {
   for (const archivo of readdirSync(SALIDA_MDX)) {
     if (archivo.endsWith('.mdx') && !esperados.has(archivo)) {
       rmSync(resolve(SALIDA_MDX, archivo));
-      console.log(`borrado (fuera del canon): ${archivo}`);
+      process.stdout.write(`borrado (fuera del canon): ${archivo}\n`);
     }
   }
 
@@ -85,7 +85,7 @@ ${filas}
     'utf8',
   );
 
-  console.log(`${String(PLANES_SOURCES.length)} planes emitidos + índice generado.`);
+  process.stdout.write(`${String(PLANES_SOURCES.length)} planes emitidos + índice generado.\n`);
 }
 
 main();

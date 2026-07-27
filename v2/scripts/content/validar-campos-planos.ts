@@ -20,7 +20,7 @@ import type { FuentePlan } from './planes-sources';
  * desacople data-fix ↔ parser rompa la guardia sin que nadie lo note.
  */
 export function validarCamposPlanos(fuente: FuentePlan): void {
-  const campos: ReadonlyArray<readonly [string, string]> = [
+  const campos: readonly (readonly [string, string])[] = [
     ['title', fuente.title],
     ['nombreInstitucional', fuente.nombreInstitucional],
     ['summary', fuente.summary],

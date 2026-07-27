@@ -20,7 +20,7 @@ const bounds = boundsDeAnillos(anillosDe(coleccion));
 const proyeccion = crearProyeccion(bounds);
 
 /** Capitales provinciales — el conjunto de control del ida y vuelta. */
-const CAPITALES: Array<{ nombre: string; lng: number; lat: number }> = [
+const CAPITALES: { nombre: string; lng: number; lat: number }[] = [
   { nombre: 'Ciudad Autónoma de Buenos Aires', lng: -58.3816, lat: -34.6037 },
   { nombre: 'La Plata', lng: -57.9545, lat: -34.9215 },
   { nombre: 'Córdoba', lng: -64.1888, lat: -31.4201 },

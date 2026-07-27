@@ -12,8 +12,9 @@ import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { FuentePlan } from './planes-sources';
 import { partirDocumentoPlan } from './split-documento-plan';
+
+import type { FuentePlan } from './planes-sources';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const V2_ROOT = resolve(SCRIPT_DIR, '../..');

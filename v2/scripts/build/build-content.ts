@@ -25,6 +25,7 @@ import {
   quizJsonSchema,
 } from '@v2/shared/content';
 import { loadContentDir } from '@v2/shared/content/loader';
+
 import type { LoaderError } from '@v2/shared/content/loader';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
@@ -121,7 +122,13 @@ async function loadCourses(root: string): Promise<PipelineSummary & { lessons: n
     // Cuerpos .mdx del directorio (loadContentDir ya filtra .mdx/.md).
     const cuerpos = await loadContentDir(cursoDir, lessonFrontmatterSchema);
     for (const err of cuerpos.errors) {
-      errors.push({ file: `${entry.name}/${err.file}`, message: err.message, issues: err.issues });
+      // `LoaderError.issues` es opcional y `exactOptionalPropertyTypes` está en on:
+      // pasarlo como `undefined` explícito no compila. Spread condicional.
+      errors.push({
+        file: `${entry.name}/${err.file}`,
+        message: err.message,
+        ...(err.issues !== undefined ? { issues: err.issues } : {}),
+      });
     }
     const archivosPresentes = new Set(cuerpos.ok.map((p) => p.file.replace(/\.mdx?$/, '')));
 
@@ -161,7 +168,7 @@ async function loadCourses(root: string): Promise<PipelineSummary & { lessons: n
         });
       }
       for (const ruta of extraerRutasLocales(pieza.body)) {
-        // eslint-disable-next-line no-await-in-loop -- validación secuencial, volumen chico (329 cuerpos).
+         
         if (!(await existeAsset(root, ruta))) {
           errors.push({ file: `${entry.name}/${pieza.file}`, message: `referencia rota: "${ruta}" no existe en apps/web/public/` });
         }
@@ -257,7 +264,7 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((err) => {
+main().catch((err: unknown) => {
   process.stderr.write(`build-content failed: ${err instanceof Error ? err.message : String(err)}\n`);
   process.exit(1);
 });

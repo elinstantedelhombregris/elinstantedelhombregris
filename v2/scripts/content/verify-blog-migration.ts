@@ -151,27 +151,27 @@ function verifyFile(file: string, raw: string): void {
 
   // Check 2 (per-file half): filename basename === frontmatter slug.
   if ('slug' in fields && fields.slug !== fileSlug) {
-    fail(file, `frontmatter slug=${String(fields.slug)} doesn't match filename basename ${fileSlug}`);
+    fail(file, `frontmatter slug=${fields.slug} doesn't match filename basename ${fileSlug}`);
   }
 
   // Check 4: typed/shaped scalar invariants.
   if ('type' in fields && fields.type !== 'blog') {
-    fail(file, `type must be 'blog', got: ${String(fields.type)}`);
+    fail(file, `type must be 'blog', got: ${fields.type}`);
   }
   if ('draft' in fields) {
-    if (fields.draft !== 'false') fail(file, `draft must parse to boolean false, got: ${String(fields.draft)}`);
+    if (fields.draft !== 'false') fail(file, `draft must parse to boolean false, got: ${fields.draft}`);
   }
   if ('readingMinutes' in fields) {
     const rm = fields.readingMinutes;
     if (!/^\d+$/.test(rm) || Number(rm) < 1) {
-      fail(file, `readingMinutes must be an integer >= 1, got: ${String(rm)}`);
+      fail(file, `readingMinutes must be an integer >= 1, got: ${rm}`);
     }
   }
-  if ('publishedAt' in fields && !PUBLISHED_AT_RE.test(fields.publishedAt!)) {
-    fail(file, `publishedAt must match YYYY-MM-DDThh:mm:ssZ, got: ${String(fields.publishedAt)}`);
+  if ('publishedAt' in fields && !PUBLISHED_AT_RE.test(fields.publishedAt)) {
+    fail(file, `publishedAt must match YYYY-MM-DDThh:mm:ssZ, got: ${fields.publishedAt}`);
   }
-  if ('slug' in fields && !SLUG_RE.test(fields.slug!)) {
-    fail(file, `slug must match ^[a-z0-9-]+$, got: ${String(fields.slug)}`);
+  if ('slug' in fields && !SLUG_RE.test(fields.slug)) {
+    fail(file, `slug must match ^[a-z0-9-]+$, got: ${fields.slug}`);
   }
 
   // Check 6: tags is a non-empty block list, each tag non-empty.

@@ -122,7 +122,7 @@ function migrateCourse(courseDir: string, stats: Stats): void {
   }
 
   // 2) Write each lesson as MDX.
-  for (const lesson of course.lessons || []) {
+  for (const lesson of course.lessons) {
     const bodyPath = resolve(srcDir, lesson.contentFile);
     if (!existsSync(bodyPath)) {
       stats.errors.push(`${courseSlug}/${lesson.key}: contentFile missing (${lesson.contentFile})`);

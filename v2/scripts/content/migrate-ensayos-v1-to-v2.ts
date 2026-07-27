@@ -294,16 +294,16 @@ function main(): void {
   for (const src of SOURCES) {
     const outPath = resolve(ENSAYOS_OUT, `${src.slug}.mdx`);
     if (existsSync(outPath)) {
-      console.log(`skip   ${src.slug} (already exists)`);
+      process.stdout.write(`skip   ${src.slug} (already exists)\n`);
       skipped++;
       continue;
     }
     const mdx = buildMdx(src);
     writeFileSync(outPath, mdx, 'utf-8');
-    console.log(`wrote  ${src.slug}.mdx`);
+    process.stdout.write(`wrote  ${src.slug}.mdx\n`);
     written++;
   }
-  console.log(`\nDone: ${written} written, ${skipped} skipped.`);
+  process.stdout.write(`\nDone: ${String(written)} written, ${String(skipped)} skipped.\n`);
 }
 
 main();

@@ -142,13 +142,15 @@ function main(): void {
   }
 
   if (errores.length > 0) {
-    console.error('El índice de planes no coincide con el contenido:\n');
-    for (const e of errores) console.error(`  · ${e}`);
-    console.error('\nCorré `pnpm planes:migrar` y revisá el diff.');
+    process.stderr.write('El índice de planes no coincide con el contenido:\n\n');
+    for (const e of errores) process.stderr.write(`  · ${e}\n`);
+    process.stderr.write('\nCorré `pnpm planes:migrar` y revisá el diff.\n');
     process.exit(1);
   }
 
-  console.log(`Índice de planes OK: ${String(PLANES_INDEX.length)} entradas coinciden con content/planes/.`);
+  process.stdout.write(
+    `Índice de planes OK: ${String(PLANES_INDEX.length)} entradas coinciden con content/planes/.\n`,
+  );
 }
 
 main();

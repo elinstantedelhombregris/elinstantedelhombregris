@@ -27,6 +27,7 @@
 import { existsSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+
 import { BLOG_SOURCES, type BlogSource } from './blog-sources.js';
 import { htmlToMarkdown } from './html-to-md.js';
 
@@ -41,9 +42,9 @@ interface V1BlogEntry {
   content: string;
 }
 
-type V1BlogModule = {
+interface V1BlogModule {
   blogContentUpdates: Record<string, V1BlogEntry>;
-};
+}
 
 async function loadV1Entries(): Promise<Record<string, V1BlogEntry>> {
   const mod = (await import(pathToFileURL(V1_BLOG_CONTENT).href)) as V1BlogModule;
@@ -117,7 +118,7 @@ async function main(): Promise<void> {
 
     const outPath = resolve(BLOG_OUT, `${src.slug}.mdx`);
     if (existsSync(outPath)) {
-      console.log(`skip   ${src.slug} (already exists)`);
+      process.stdout.write(`skip   ${src.slug} (already exists)\n`);
       skipped++;
       continue;
     }
@@ -126,11 +127,11 @@ async function main(): Promise<void> {
     const body = htmlToMarkdown(entry.content);
     const mdx = buildMdx(src, title, entry.excerpt.trim(), body);
     writeFileSync(outPath, mdx, 'utf-8');
-    console.log(`wrote  ${src.slug}.mdx`);
+    process.stdout.write(`wrote  ${src.slug}.mdx\n`);
     written++;
   }
 
-  console.log(`\nDone: ${written} written, ${skipped} skipped.`);
+  process.stdout.write(`\nDone: ${String(written)} written, ${String(skipped)} skipped.\n`);
 
   if (missing.length > 0) {
     process.stderr.write(`MISSING in v1 blogContentUpdates: ${missing.join(', ')}\n`);
