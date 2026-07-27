@@ -14,6 +14,7 @@ import { sql } from 'drizzle-orm';
 import { index, integer, json, pgTable, real, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
  
+import { cityColumn, geoColumns } from './_geo-columns';
 import { geographicLocations } from './geographic';
 import { users } from './users';
 
@@ -23,6 +24,8 @@ export const pulseSignals = pgTable(
     id: serial('id').primaryKey(),
     userId: integer('user_id').references(() => users.id, { onDelete: 'set null' }),
     provinceId: integer('province_id').references(() => geographicLocations.id, { onDelete: 'set null' }),
+    ...cityColumn,
+    ...geoColumns,
     /** Free-form citizen statement. */
     body: text('body').notNull(),
     /** Detected sentiment -1..+1. Set by NLP pipeline. */
@@ -41,6 +44,7 @@ export const pulseSignals = pgTable(
     index('pulse_signals_province_idx').on(t.provinceId, t.createdAt.desc()),
     index('pulse_signals_theme_idx').on(t.theme),
     index('pulse_signals_source_idx').on(t.source, t.sourceId),
+    index('pulse_signals_geo_idx').on(t.lat, t.lng).where(sql`lat is not null`),
   ],
 );
 
@@ -59,6 +63,8 @@ export const proposals = pgTable(
     summary: text('summary').notNull(),
     bodyMarkdown: text('body_markdown'),
     provinceId: integer('province_id').references(() => geographicLocations.id, { onDelete: 'set null' }),
+    ...cityColumn,
+    ...geoColumns,
     theme: text('theme'),
     /** User who authored this proposal (null = system-derived from NLP pipeline). */
     authorId: integer('author_id').references(() => users.id, { onDelete: 'set null' }),
@@ -77,6 +83,7 @@ export const proposals = pgTable(
     index('proposals_province_status_idx').on(t.provinceId, t.status),
     index('proposals_theme_idx').on(t.theme),
     index('proposals_author_idx').on(t.authorId),
+    index('proposals_geo_idx').on(t.lat, t.lng).where(sql`lat is not null`),
   ],
 );
 

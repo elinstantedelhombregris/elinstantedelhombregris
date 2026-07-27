@@ -17,6 +17,8 @@ export { GoalsRepository } from './goals.js';
 export { CoachingRepository } from './coaching.js';
 export { ResourcesRepository } from './resources.js';
 export { DreamsRepository } from './dreams.js';
+export { CivicMapRepository, CAPAS_MAPA } from './civic-map.js';
+export type { CapaMapa, SenalMapa, BBox, ConsultaSenales } from './civic-map.js';
 export { FeedbackRepository } from './feedback.js';
 export { CoursesRepository } from './courses.js';
 export { IniciativasRepository } from './iniciativas.js';

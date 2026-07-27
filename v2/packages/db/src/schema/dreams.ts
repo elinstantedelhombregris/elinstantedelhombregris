@@ -2,14 +2,18 @@
  * Dreams domain.
  *
  * Map-friendly user submissions: each dream is a free-form aspiration
- * + categorical tags + (in v1) a province. Cities currently lack
- * coordinates per the v1 db state, so the `geographic_locations`
- * table only supplies province-level pinning today.
+ * + categorical tags + a location.
+ *
+ * Desde la spec 2 (`docs/specs/2026-07-26-mapa-2-la-verdad-de-la-ubicacion.md`)
+ * la ubicación ya no es solo la provincia: cada voz lleva su punto publicado,
+ * su precisión, su rol y su sensibilidad. `province` sigue siendo el default,
+ * así que toda fila anterior queda exactamente donde estaba.
  */
 import { sql } from 'drizzle-orm';
 import { index, integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
- 
+
+import { geoColumns } from './_geo-columns';
 import { geographicLocations } from './geographic';
 import { users } from './users';
 
@@ -23,9 +27,10 @@ export const dreams = pgTable(
     body: text('body').notNull(),
     /** Free-form taxonomic tag (one per dream — favours faceted browse). */
     category: text('category'),
-    /** Province scope. Cities aren't pinned (lat/lng all null in v1). */
+    /** Ancla administrativa. Sigue existiendo aunque haya punto. */
     provinceId: integer('province_id').references(() => geographicLocations.id, { onDelete: 'set null' }),
     cityId: integer('city_id').references(() => geographicLocations.id, { onDelete: 'set null' }),
+    ...geoColumns,
     /** 'pending' | 'approved' | 'rejected' */
     status: text('status').notNull().default('approved'),
     createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
@@ -37,6 +42,8 @@ export const dreams = pgTable(
     index('dreams_province_idx').on(t.provinceId),
     index('dreams_category_idx').on(t.category),
     index('dreams_status_idx').on(t.status),
+    /** Recorte por bbox del endpoint del mapa. Parcial: la mayoría no tiene punto. */
+    index('dreams_geo_idx').on(t.lat, t.lng).where(sql`lat is not null`),
   ],
 );
 
