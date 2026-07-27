@@ -204,7 +204,9 @@ export const PLAN_NODES: PlanNode[] = [
     category: 'infraestructura', agency: 'ANEN', agencyFull: 'Agencia Nacional de Energía y Transición de Matriz',
     organMetaphor: 'energía', organLabel: 'Energy',
     status: 'PUBLISHED', budgetLow: 45000, budgetHigh: 76000, timelineYears: 15,
-    legalInstruments: 1, constitutionalFloor: '0.50% PBI',
+    // 0,70% = ANEN 0,50% (PLANEN:1471) + LANEF 0,20% de I+D (PLANEN:791, :1489).
+    // Van sumados en un solo valor: el parser lee dos numeros como rango bajo-alto.
+    legalInstruments: 1, constitutionalFloor: '0.70% PBI',
     mainSource: 'Inversión privada condicionada (35%) + multilaterales + reasignación subsidios',
     color: '#64748b', slug: 'planen-soberania-energetica',
     missionSlug: 'la-base-esta', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
@@ -254,7 +256,7 @@ export const PLAN_NODES: PlanNode[] = [
     category: 'economia', agency: 'ANT', agencyFull: 'Agencia Nacional de Talleres',
     organMetaphor: 'manos', organLabel: 'Hands',
     status: 'PUBLISHED', budgetLow: 3600, budgetHigh: 6000, timelineYears: 15,
-    legalInstruments: 2, constitutionalFloor: '0.08% PBI',
+    legalInstruments: 2, constitutionalFloor: '0.10% PBI', // PLANTALLER:607
     mainSource: 'Reasignación programas empleo + convenio galpones públicos + Red Bastarda',
     color: '#f97316', slug: 'plantaller-talleres-federales',
     missionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
@@ -264,7 +266,9 @@ export const PLAN_NODES: PlanNode[] = [
     category: 'salud', agency: 'ANCV', agencyFull: 'Agencia Nacional de Cuidado y Vínculo',
     organMetaphor: 'capa cero', organLabel: 'Zero Layer',
     status: 'PUBLISHED', budgetLow: 30000, budgetHigh: 45000, timelineYears: 15,
-    legalInstruments: 5, constitutionalFloor: '0.75-1.1% PBI',
+    // 0,45% es el piso (PLANCUIDADO:515, :591). El 0,75-1,1% que estaba aca es la
+    // inversion estimada de regimen pleno de la tesis: otro numero, otro campo.
+    legalInstruments: 5, constitutionalFloor: '0.45% PBI',
     mainSource: 'Piso constitucional + Fondo Federal de Cuidado + jornada 6+2 a empleadores',
     color: '#ec4899', slug: 'plancuidado-cuidado-vinculo',
     missionSlug: 'la-base-esta', secondaryMissionSlug: 'infancia-escuela-cultura', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
