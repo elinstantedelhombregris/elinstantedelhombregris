@@ -19,7 +19,6 @@ import {
   EnsayoDetail,
   EntrenamientoDetail,
   Entrenamientos,
-  ExplorarDatos,
   ForgotPassword,
   Goals,
   Home,
@@ -146,7 +145,13 @@ export function AppRoutes() {
       <Route path="/iniciativas/:slug" component={IniciativaDetail} />
 
       {/* Open data + analytics */}
-      <Route path="/explorar-datos" component={ExplorarDatos} />
+      {/* /explorar-datos era un scaffold sin convertir a Papel y Tinta, con un
+          maplibre de marcadores en centroides y un formulario de carga
+          duplicado. El análisis vive ahora en la misma página que convierte
+          (D1 de la spec paraguas del mapa territorial). */}
+      <Route path="/explorar-datos">
+        <Redirect to="/el-mapa#instrumento" replace />
+      </Route>
       <Route path="/datos-abiertos" component={DatosAbiertos} />
       <Route path="/tablero" component={InsightDashboard} />
 

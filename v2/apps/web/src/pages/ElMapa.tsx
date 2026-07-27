@@ -2,6 +2,7 @@ import { FeedVoces } from './ElMapa/sections/FeedVoces';
 import { MapaArgentina } from './ElMapa/sections/MapaArgentina';
 import { PanelSoltarVoz } from './ElMapa/sections/PanelSoltarVoz';
 import { PortadaMapa } from './ElMapa/sections/PortadaMapa';
+import { SeccionInstrumento } from './ElMapa/sections/SeccionInstrumento';
 
 /**
  * El mapa — página 2.2 «Papel y Tinta»
@@ -34,6 +35,9 @@ export function ElMapa() {
           <FeedVoces />
         </div>
       </section>
+      {/* El instrumento (D1): la misma página crece hacia abajo en vez de
+          mandar el análisis a otra URL que nadie visita. Se monta perezoso. */}
+      <SeccionInstrumento />
     </main>
   );
 }

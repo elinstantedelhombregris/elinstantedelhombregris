@@ -147,10 +147,6 @@ export const BlogAuthor = lazy(async () => {
   const m = await import('~/pages/BlogAuthor');
   return { default: m.BlogAuthor };
 });
-export const ExplorarDatos = lazy(async () => {
-  const m = await import('~/pages/ExplorarDatos');
-  return { default: m.ExplorarDatos };
-});
 export const DatosAbiertos = lazy(async () => {
   const m = await import('~/pages/DatosAbiertos');
   return { default: m.DatosAbiertos };
