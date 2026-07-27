@@ -145,23 +145,23 @@ describe('pisos constitucionales (canon contra el taller)', () => {
     }
   });
 
-  it('ningun piso mezcla bruto con neto: el campo es siempre bruto', () => {
+  it('ningún piso mezcla bruto con neto: el campo es siempre bruto', () => {
     for (const p of PLAN_NODES) {
       if (!p.constitutionalFloor) continue;
       expect(
         p.constitutionalFloor.toLowerCase(),
-        `${p.id}: el campo dice «neto». El piso es la obligacion legal bruta.`,
+        `${p.id}: el campo dice «neto». El piso es la obligación legal bruta.`,
       ).not.toContain('neto');
     }
   });
 
-  it('el formato es «bajo-alto% PBI» o «unico% PBI»: nunca dos pisos sueltos', () => {
+  it('el formato es «bajo-alto% PBI» o «único% PBI»: nunca dos pisos sueltos', () => {
     // sumConstitutionalFloorsGross lee nums[0] como bajo y nums[1] como alto. Un piso
     // compuesto («0.50% + 0.20%») se leeria como rango 0,50-0,20 y daria alto < bajo.
     for (const p of PLAN_NODES) {
       if (!p.constitutionalFloor) continue;
       const nums = p.constitutionalFloor.match(/\d+(?:\.\d+)?/g) ?? [];
-      expect(nums.length, `${p.id}: se esperaban 1 o 2 numeros`).toBeLessThanOrEqual(2);
+      expect(nums.length, `${p.id}: se esperaban 1 o 2 números`).toBeLessThanOrEqual(2);
       if (nums.length === 2) {
         expect(Number(nums[1]), `${p.id}: el alto es menor que el bajo`).toBeGreaterThanOrEqual(
           Number(nums[0]),
@@ -197,7 +197,7 @@ por:
 
 ```ts
     // 0,70% = ANEN 0,50% (PLANEN:1471) + LANEF 0,20% de I+D (PLANEN:791, :1489).
-    // Van sumados en un solo valor: el parser lee dos numeros como rango bajo-alto.
+    // Van sumados en un solo valor: el parser lee dos números como rango bajo-alto.
     legalInstruments: 1, constitutionalFloor: '0.70% PBI',
 ```
 
@@ -214,8 +214,8 @@ En la línea 257, reemplazar `constitutionalFloor: '0.08% PBI',` por:
 En la línea 267, reemplazar `constitutionalFloor: '0.75-1.1% PBI',` por:
 
 ```ts
-    // 0,45% es el piso (PLANCUIDADO:515, :591). El 0,75-1,1% que estaba aca es la
-    // inversion estimada de regimen pleno de la tesis: otro numero, otro campo.
+    // 0,45% es el piso (PLANCUIDADO:515, :591). El 0,75-1,1% que estaba acá es la
+    // inversion estimada de régimen pleno de la tesis: otro número, otro campo.
     legalInstruments: 5, constitutionalFloor: '0.45% PBI',
 ```
 
@@ -235,8 +235,8 @@ Expected: sin errores.
 git add SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts SocialJusticeHub/shared/arquitecto-data.ts
 git commit -m "Fix tres pisos constitucionales mal cargados en el grafo
 
-PLANEN le faltaba el 0,20% del LANEF; PLANTALLER decia 0,08 y su documento
-dice 0,10; PLANCUIDADO tenia cargada la inversion de regimen pleno
+PLANEN le faltaba el 0,20% del LANEF; PLANTALLER decía 0,08 y su documento
+dice 0,10; PLANCUIDADO tenia cargada la inversion de régimen pleno
 (0,75-1,1%) en el campo del piso, que es 0,45%. Con el test de canon que
 transcribe los 17 pisos del taller y los fija contra el grafo.
 
@@ -265,9 +265,9 @@ En la línea 217, reemplazar `constitutionalFloor: '0.05-0.10% PBI neto',` por:
 
 ```ts
     // 1,50% es el piso que declara PLANSEG:1052. El costo fiscal NUEVO neto es
-    // 0,05-0,10% porque el resto es reasignacion de gasto que ya se ejecuta
+    // 0,05-0,10% porque el resto es reasignación de gasto que ya se ejecuta
     // (PRESUPUESTO_CONSOLIDADO_BASTA.md nota 3). El campo guarda el bruto: es la
-    // obligacion legal. El neto se discute en el consolidado, no aca.
+    // obligación legal. El neto se discute en el consolidado, no acá.
     legalInstruments: 1, constitutionalFloor: '1.50% PBI',
 ```
 
@@ -280,9 +280,9 @@ En la línea 736, reemplazar la firma de `sumConstitutionalFloors` y anteponerle
  * Suma los pisos constitucionales BRUTOS declarados por los documentos.
  *
  * Bruto, no neto: varios PLANes se autofinancian en parte (PLANSEG con
- * reasignacion de gasto de seguridad, PLANVIV con repagos de la Bastarda
+ * reasignación de gasto de seguridad, PLANVIV con repagos de la Bastarda
  * Inmobiliaria), y ese descuento se discute en PRESUPUESTO_CONSOLIDADO_BASTA.md.
- * Aca se suma la obligacion legal, que es lo que consume Techo.
+ * Acá se suma la obligación legal, que es lo que consume Techo.
  */
 function sumConstitutionalFloorsGross(): string {
 ```
@@ -381,17 +381,17 @@ Reemplazar el párrafo que arranca con `**La suma de pisos constitucionales dire
 
 ```markdown
 **La suma de pisos constitucionales directos (brutos) alcanza el 7,82-9,41% del PBI.**
-La cifra de 5,45-6,25% que este documento declaro hasta el 2026-07-26 cubria 12
-agencias y se escribio antes de que existieran los PLANes 17 a 22: le faltaban
+La cifra de 5,45-6,25% que este documento declaró hasta el 2026-07-26 cubría 12
+agencias y se escribió antes de que existieran los PLANes 17 a 22: le faltaban
 PLANMESA, PLANTALLER, PLANCUIDADO, PLANMEMORIA, PLANTER y PLANMOV, ademas del
-0,20% del LANEF y del piso de ANVIP. El numero correcto lo calcula en vivo
+0,20% del LANEF y del piso de ANVIP. El número correcto lo calcula en vivo
 `SocialJusticeHub/shared/arquitecto-data.ts` (`ECOSYSTEM_METRICS.constitutionalFloorGross`)
 y lo fija el test `tests/unit/pisos-constitucionales.test.ts`.
 
 El piso bruto sigue sobreestimando el costo fiscal real por las razones de las
-notas (2) a (4) — ANSEG y ANVIV se financian en gran parte con reasignacion y
+notas (2) a (4) — ANSEG y ANVIV se financian en gran parte con reasignación y
 autofinanciamiento. Pero **el bruto es lo que consume rigidez presupuestaria**, y
-por eso es el numero contra el que se mide el Techo.
+por eso es el número contra el que se mide el Techo.
 ```
 
 - [ ] **Step 4: Barrer las otras apariciones de la cifra vieja en este archivo**
@@ -444,7 +444,7 @@ Crear `SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`:
  */
 import { PLAN_NODES } from '../shared/arquitecto-data';
 
-/** Presupuestos de los cuatro nuevos, en USD millones a 15 anos (spec seccion 1). */
+/** Presupuestos de los cuatro nuevos, en USD millones a 15 años (spec sección 1). */
 const NUEVOS = [
   { code: 'PLANPACTO', low: 12_400, high: 22_000, huespedes: ['PLANREP'] },
   { code: 'PLANARCO', low: 53_000, high: 96_000, huespedes: ['PLANCUIDADO'] },
@@ -458,25 +458,25 @@ function main(): void {
   for (const nuevo of NUEVOS) {
     if (nuevo.huespedes.length === 0) {
       console.log(
-        `${nuevo.code}: SIN HUESPED. COVERAGE_GAPS_ASSIGNMENTS.md nunca le asigno uno, ` +
-          `asi que la regla 3 no aplica: no fue sub-mandato de nadie.`,
+        `${nuevo.code}: SIN HUÉSPED. COVERAGE_GAPS_ASSIGNMENTS.md nunca le asignó uno, ` +
+          `así que la regla 3 no aplica: no fue sub-mandato de nadie.`,
       );
       continue;
     }
 
     for (const id of nuevo.huespedes) {
       const h = PLAN_NODES.find((p) => p.id === id);
-      if (!h) throw new Error(`${nuevo.code}: huesped ${id} no esta en PLAN_NODES`);
+      if (!h) throw new Error(`${nuevo.code}: huésped ${id} no está en PLAN_NODES`);
       const rBajo = h.budgetLow === 0 ? Infinity : nuevo.low / h.budgetLow;
       const rAlto = h.budgetHigh === 0 ? Infinity : nuevo.high / h.budgetHigh;
       const pasa = rBajo >= UMBRAL && rAlto >= UMBRAL;
       console.log(
         `${nuevo.code} vs ${id}: ${rBajo.toFixed(2)}x-${rAlto.toFixed(2)}x ` +
-          `(huesped ${h.budgetLow}-${h.budgetHigh} USD MM) -> ${pasa ? 'PASA' : 'NO PASA'}`,
+          `(huésped ${h.budgetLow}-${h.budgetHigh} USD MM) -> ${pasa ? 'PASA' : 'NO PASA'}`,
       );
     }
 
-    // Con varios huespedes, la lectura conservadora es contra la suma.
+    // Con varios huéspedes, la lectura conservadora es contra la suma.
     if (nuevo.huespedes.length > 1) {
       const sumLow = nuevo.huespedes.reduce(
         (s, id) => s + (PLAN_NODES.find((p) => p.id === id)?.budgetLow ?? 0), 0);
@@ -485,7 +485,7 @@ function main(): void {
       const rBajo = nuevo.low / sumLow;
       const rAlto = nuevo.high / sumHigh;
       console.log(
-        `${nuevo.code} vs los ${nuevo.huespedes.length} huespedes sumados: ` +
+        `${nuevo.code} vs los ${nuevo.huespedes.length} huéspedes sumados: ` +
           `${rBajo.toFixed(2)}x-${rAlto.toFixed(2)}x -> ` +
           `${rBajo >= UMBRAL && rAlto >= UMBRAL ? 'PASA' : 'NO PASA'}`,
       );
@@ -502,13 +502,13 @@ Run: `cd SocialJusticeHub && npx tsx scripts/gate-spinoff-planes-nuevos.ts`
 
 Expected — copiá la salida literal, la vas a pegar en el acta. Los resultados que ya se calcularon a mano y tienen que coincidir:
 
-- `PLANPACTO vs PLANREP: 5.64x-5.24x (huesped 2200-4200)` → **PASA**
-- `PLANARCO vs PLANCUIDADO: 1.77x-2.13x (huesped 30000-45000)` → **PASA**
-- `PLANPREGUNTA vs PLANEDU: 0.21x-0.26x (huesped 80000-100000)` → **NO PASA**
-- `PLANPREGUNTA vs PLANEB: 33.00x-43.33x (huesped 500-600)` → **PASA**
-- `PLANPREGUNTA vs PLANDIG: 3.51x-2.63x (huesped 4700-9900)` → **PASA**
-- `PLANPREGUNTA vs los 3 huespedes sumados: 0.19x-0.24x` → **NO PASA**
-- `PLANFOCO: SIN HUESPED`
+- `PLANPACTO vs PLANREP: 5.64x-5.24x (huésped 2200-4200)` → **PASA**
+- `PLANARCO vs PLANCUIDADO: 1.77x-2.13x (huésped 30000-45000)` → **PASA**
+- `PLANPREGUNTA vs PLANEDU: 0.21x-0.26x (huésped 80000-100000)` → **NO PASA**
+- `PLANPREGUNTA vs PLANEB: 33.00x-43.33x (huésped 500-600)` → **PASA**
+- `PLANPREGUNTA vs PLANDIG: 3.51x-2.63x (huésped 4700-9900)` → **PASA**
+- `PLANPREGUNTA vs los 3 huéspedes sumados: 0.19x-0.24x` → **NO PASA**
+- `PLANFOCO: SIN HUÉSPED`
 
 **No maquilles esto.** Dos de los cuatro pasan el gate limpio, PLANPREGUNTA lo pasa contra dos de sus tres huéspedes y falla contra PLANEDU y contra la suma, y PLANFOCO nunca fue sub-mandato de nadie. El acta de Task 5 argumenta sobre estos resultados, no sobre los que nos gustaría.
 
@@ -543,50 +543,50 @@ Crear `Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`:
 **Fecha:** 2026-07-26
 **Deroga:** el freeze declarado en `COVERAGE_GAPS_ASSIGNMENTS.md` el 2026-04-26
 **Spec que lo motiva:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`
-**Resultado:** el canon pasa de 22 PLANes tematicos a 26, mas PLANRUTA
+**Resultado:** el canon pasa de 22 PLANes temáticos a 26, más PLANRUTA
 
-## Que decia el freeze
+## Que decía el freeze
 
-`COVERAGE_GAPS_ASSIGNMENTS.md` (2026-04-26) declaro *«Freeze sigue activo. Sin
+`COVERAGE_GAPS_ASSIGNMENTS.md` (2026-04-26) declaró *«Freeze sigue activo. Sin
 PLANes nuevos»* y repartio cada hueco de cobertura como sub-mandato interno de un
-PLAN huesped. Su regla 3 dejo abierta una sola puerta: **gate de spin-off cuando
-un sub-mandato supera 1,5x el presupuesto del huesped**, con cierre de tranche,
+PLAN huésped. Su regla 3 dejó abierta una sola puerta: **gate de spin-off cuando
+un sub-mandato supera 1,5x el presupuesto del huésped**, con cierre de tranche,
 propuesta abierta y firma.
 
 ## El gate, corrido
 
 Salida de `SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`:
 
-<!-- PEGAR ACA LA SALIDA LITERAL DEL SCRIPT (Task 4, Step 2) -->
+<!-- PEGAR Acá LA SALIDA LITERAL DEL SCRIPT (Task 4, Step 2) -->
 
 ## Lectura honesta del resultado
 
 **Dos pasan el gate limpio.** PLANPACTO da 5,2-5,6x contra PLANREP y PLANARCO da
 1,8-2,1x contra PLANCUIDADO. Para estos dos, la regla 3 se cumple como esta escrita.
 
-**PLANPREGUNTA lo pasa contra dos huespedes de tres y falla contra el tercero.**
+**PLANPREGUNTA lo pasa contra dos huéspedes de tres y falla contra el tercero.**
 33x contra PLANEB y 2,6-3,5x contra PLANDIG; 0,2x contra PLANEDU, que es el PLAN
-mas caro del corpus (USD 80-100 mil millones). Contra la suma de los tres, no pasa.
-Que un sub-mandato repartido entre tres huespedes no supere a la suma de los tres
-no dice que sea chico: dice que **la asignacion original era mala**. Un hueco
-repartido entre tres duenos no tiene dueno, y eso es exactamente lo que paso: el
-renglon «Ciencia y tecnologia (PLANCYT) → PLANEDU + PLANEB + PLANDIG — CyT
-distribuido» no produjo una sola seccion en tres meses.
+más caro del corpus (USD 80-100 mil millones). Contra la suma de los tres, no pasa.
+Que un sub-mandato repartido entre tres huéspedes no supere a la suma de los tres
+no dice que sea chico: dice que **la asignación original era mala**. Un hueco
+repartido entre tres dueños no tiene dueño, y eso es exactamente lo que pasó: el
+renglon «Ciencia y tecnología (PLANCYT) → PLANEDU + PLANEB + PLANDIG — CyT
+distribuido» no produjo una sola sección en tres meses.
 
-**PLANFOCO nunca tuvo huesped.** El hueco «Cultura/Medios/Artes» quedo calificado
-IMPORTANTE en la auditoria de marzo y `COVERAGE_GAPS_ASSIGNMENTS.md` **no le asigno
+**PLANFOCO nunca tuvo huésped.** El hueco «Cultura/Medios/Artes» quedó calificado
+IMPORTANTE en la auditoría de marzo y `COVERAGE_GAPS_ASSIGNMENTS.md` **no le asignó
 ninguno**. La regla 3 no aplica porque nunca fue sub-mandato de nadie. No es un
-spin-off: es un hueco que el freeze dejo abierto.
+spin-off: es un hueco que el freeze dejó abierto.
 
 ## El argumento independiente del gate
 
 La regla 3 alcanza para dos de los cuatro. Los otros dos se fundan en el hallazgo
 que produjo este mismo tramo: **`PRESUPUESTO_CONSOLIDADO_BASTA.md` declaraba
 5,45-6,25% del PBI en pisos constitucionales sobre una tabla de 12 agencias. La
-suma real de los 22 es 7,82-9,41%.** El proyecto no sabia cuanto estaba pidiendo.
+suma real de los 22 es 7,82-9,41%.** El proyecto no sabía cuanto estaba pidiendo.
 
-El proposito declarado del freeze era la disciplina de alcance. Un freeze que
-mantiene 22 PLANes fijos mientras el numero que los sostiene esta mal en mas de
+El propósito declarado del freeze era la disciplina de alcance. Un freeze que
+mantiene 22 PLANes fijos mientras el número que los sostiene esta mal en más de
 dos puntos del PBI no disciplina nada: solo impide que alguien lleve la cuenta.
 PLANPACTO es el PLAN que lleva la cuenta.
 
@@ -596,24 +596,24 @@ PLANPACTO es el PLAN que lleva la cuenta.
 spec del 2026-07-26 y solo para ellos.
 
 **Sigue vigente:** todo lo demas de `COVERAGE_GAPS_ASSIGNMENTS.md`. Los huecos
-asignados a huespedes que no son estos cuatro siguen siendo sub-mandatos, con sus
-owners y tranches. La regla 4 sigue en pie: ningun sub-mandato se convierte en PLAN
-automaticamente.
+asignados a huéspedes que no son estos cuatro siguen siendo sub-mandatos, con sus
+owners y tranches. La regla 4 sigue en pie: ningún sub-mandato se convierte en PLAN
+automáticamente.
 
-**Se retiran de la tabla de asignacion**, porque pasan a tener documento propio:
-- «Federalismo fiscal y coparticipacion → PLANREP» → **PLANPACTO**
-- «Ciencia y tecnologia (PLANCYT) → PLANEDU + PLANEB + PLANDIG» → **PLANPREGUNTA**
+**Se retiran de la tabla de asignación**, porque pasan a tener documento propio:
+- «Federalismo fiscal y coparticipación → PLANREP» → **PLANPACTO**
+- «Ciencia y tecnología (PLANCYT) → PLANEDU + PLANEB + PLANDIG» → **PLANPREGUNTA**
 - «Discapacidad y vejez → PLANCUIDADO + PLANSAL» → la parte de vejez pasa a
   **PLANARCO**; la de discapacidad **queda** en PLANCUIDADO + PLANSAL
 
-**Lo no humano NO genera PLAN.** Se reparte entre diez huespedes existentes bajo la
-Doctrina de la Sindicatura Viva (spec seccion 7). Es `COVERAGE_GAPS_ASSIGNMENTS.md`
-funcionando como fue disenado, y este acta lo confirma como precedente.
+**Lo no humano NO genera PLAN.** Se reparte entre diez huéspedes existentes bajo la
+Doctrina de la Sindicatura Viva (spec sección 7). Es `COVERAGE_GAPS_ASSIGNMENTS.md`
+funcionando como fue diseñado, y este acta lo confirma como precedente.
 ```
 
 - [ ] **Step 2: Pegar la salida literal del script**
 
-Reemplazar el comentario `<!-- PEGAR ACA ... -->` por la salida de Task 4 Step 2, dentro de un bloque de código.
+Reemplazar el comentario `<!-- PEGAR Acá ... -->` por la salida de Task 4 Step 2, dentro de un bloque de código.
 
 Si algún ratio de la salida real difiere de los que cita la sección «Lectura honesta», **corregí la prosa para que coincida con la salida**, no al revés.
 
@@ -647,7 +647,7 @@ git add "Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md" "Ini
 git commit -m "Add acta de levantamiento del freeze — cuatro PLANes nuevos habilitados
 
 Gate de la regla 3 corrido: PLANPACTO y PLANARCO pasan limpio, PLANPREGUNTA
-pasa contra dos huespedes de tres, PLANFOCO nunca tuvo huesped asignado.
+pasa contra dos huéspedes de tres, PLANFOCO nunca tuvo huésped asignado.
 El argumento independiente: el proyecto declaraba 5,45-6,25% del PBI en
 pisos y la suma real es 7,82-9,41%.
 
@@ -714,10 +714,10 @@ Expected: toda aparición es consistente entre sí.
 
 ```bash
 git add v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md
-git commit -m "docs(v2): la spec se corrige con lo que verifico el tramo A
+git commit -m "docs(v2): la spec se corrige con lo que verificó el tramo A
 
 Eran tres nodos mal cargados, no cuatro: PLANSEG guardaba el neto a
-proposito. Y el alto de la suma de pisos es 9,41%, no 9,49% — el 9,49
+propósito. Y el alto de la suma de pisos es 9,41%, no 9,49% — el 9,49
 sumaba PLANSEG dos veces.
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
