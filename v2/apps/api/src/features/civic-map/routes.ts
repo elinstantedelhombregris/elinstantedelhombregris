@@ -14,9 +14,13 @@
 import { CivicMapRepository, getDb } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 
-import { consultaSenalesSchema } from './validation.js';
+import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
+
+import { ingerirCaptura } from './capturas.js';
+import { capturaSchema, consultaSenalesSchema } from './validation.js';
 
 import type { ConsultaSenales } from '@v2/db';
+
 
 const router: RouterType = Router();
 
@@ -43,6 +47,26 @@ router.get('/map/layers', async (_req, res, next) => {
   try {
     const repo = new CivicMapRepository(getDb());
     res.json({ data: { layers: await repo.countByLayer() } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * La ingesta de campo. Va detrás del mismo límite de tasa que el resto de lo
+ * anónimo: sin eso es una vía de spam sin cuenta.
+ *
+ * La autenticación por dispositivo que `juego/src/civic/device-auth.ts` ya
+ * emite del lado del móvil NO está implementada acá todavía — es parte del
+ * contrato de sync completo, que es del blueprint y no de esta spec (§2). Hasta
+ * entonces esta ruta acepta lo mismo que acepta la carga anónima de la web, y
+ * eso está declarado en la spec, no escondido.
+ */
+router.post('/capturas', anonSubmitRateLimit(), async (req, res, next) => {
+  try {
+    const entrada = capturaSchema.parse(req.body);
+    const recibo = await ingerirCaptura(entrada);
+    res.status(recibo.yaExistia ? 200 : 201).json({ data: { recibo } });
   } catch (err) {
     next(err);
   }

@@ -41,6 +41,14 @@ const ANON_ALLOWED: { method: string; path: string }[] = [
   { method: 'POST', path: '/api/pulso' },
   { method: 'POST', path: '/api/open-data/dreams' },
   { method: 'POST', path: '/api/semillas' },
+  /**
+   * Ingesta de campo del móvil (spec 4 §4). No hay cookie de sesión ni origen
+   * de navegador del otro lado: es el outbox de `juego/` posteando desde una
+   * app nativa, así que el doble envío de cookie no aplica. El techo es el
+   * límite de tasa, y la autenticación por dispositivo llega con el contrato
+   * de sync completo.
+   */
+  { method: 'POST', path: '/api/v1/civic/capturas' },
 ];
 
 function isAnonAllowed(method: string, path: string): boolean {

@@ -53,6 +53,9 @@ importers:
       '@anthropic-ai/sdk':
         specifier: ^0.78.0
         version: 0.78.0(zod@3.25.76)
+      '@v2/civic-core':
+        specifier: workspace:*
+        version: link:../../packages/civic-core
       '@v2/db':
         specifier: workspace:*
         version: link:../../packages/db
