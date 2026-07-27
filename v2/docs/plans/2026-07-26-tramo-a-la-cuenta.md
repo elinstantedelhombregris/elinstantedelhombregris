@@ -439,7 +439,7 @@ Crear `SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`:
  * Run: npx tsx scripts/gate-spinoff-planes-nuevos.ts
  *
  * La regla: un sub-mandato habilita gate de spin-off cuando supera 1,5x el
- * presupuesto del PLAN huesped. Se calcula bajo/bajo y alto/alto: comparar
+ * presupuesto del PLAN huésped. Se calcula bajo/bajo y alto/alto: comparar
  * bajo contra alto mezcla escenarios distintos y da ratios sin sentido.
  */
 import { PLAN_NODES } from '../shared/arquitecto-data';
@@ -447,7 +447,7 @@ import { PLAN_NODES } from '../shared/arquitecto-data';
 /** Presupuestos de los cuatro nuevos, en USD millones a 15 años (spec sección 1). */
 const NUEVOS = [
   { code: 'PLANPACTO', low: 12_400, high: 22_000, huespedes: ['PLANREP'] },
-  { code: 'PLANARCO', low: 53_000, high: 96_000, huespedes: ['PLANCUIDADO'] },
+  { code: 'PLANARCO', low: 53_000, high: 96_000, huespedes: ['PLANCUIDADO', 'PLANSAL'] },
   { code: 'PLANPREGUNTA', low: 16_500, high: 26_000, huespedes: ['PLANEDU', 'PLANEB', 'PLANDIG'] },
   { code: 'PLANFOCO', low: 3_000, high: 5_000, huespedes: [] },
 ];
@@ -482,8 +482,8 @@ function main(): void {
         (s, id) => s + (PLAN_NODES.find((p) => p.id === id)?.budgetLow ?? 0), 0);
       const sumHigh = nuevo.huespedes.reduce(
         (s, id) => s + (PLAN_NODES.find((p) => p.id === id)?.budgetHigh ?? 0), 0);
-      const rBajo = nuevo.low / sumLow;
-      const rAlto = nuevo.high / sumHigh;
+      const rBajo = sumLow === 0 ? Infinity : nuevo.low / sumLow;
+      const rAlto = sumHigh === 0 ? Infinity : nuevo.high / sumHigh;
       console.log(
         `${nuevo.code} vs los ${nuevo.huespedes.length} huéspedes sumados: ` +
           `${rBajo.toFixed(2)}x-${rAlto.toFixed(2)}x -> ` +
@@ -504,13 +504,17 @@ Expected — copiá la salida literal, la vas a pegar en el acta. Los resultados
 
 - `PLANPACTO vs PLANREP: 5.64x-5.24x (huésped 2200-4200)` → **PASA**
 - `PLANARCO vs PLANCUIDADO: 1.77x-2.13x (huésped 30000-45000)` → **PASA**
+- `PLANARCO vs PLANSAL: 8.83x-16.00x (huésped 6000-6000)` → **PASA**
+- `PLANARCO vs los 2 huéspedes sumados: 1.47x-1.88x` → **NO PASA**
 - `PLANPREGUNTA vs PLANEDU: 0.21x-0.26x (huésped 80000-100000)` → **NO PASA**
 - `PLANPREGUNTA vs PLANEB: 33.00x-43.33x (huésped 500-600)` → **PASA**
 - `PLANPREGUNTA vs PLANDIG: 3.51x-2.63x (huésped 4700-9900)` → **PASA**
 - `PLANPREGUNTA vs los 3 huéspedes sumados: 0.19x-0.24x` → **NO PASA**
 - `PLANFOCO: SIN HUÉSPED`
 
-**No maquilles esto.** Dos de los cuatro pasan el gate limpio, PLANPREGUNTA lo pasa contra dos de sus tres huéspedes y falla contra PLANEDU y contra la suma, y PLANFOCO nunca fue sub-mandato de nadie. El acta de Task 5 argumenta sobre estos resultados, no sobre los que nos gustaría.
+**No maquilles esto.** De los cuatro, **sólo PLANPACTO pasa el gate contra la suma de sus huéspedes**. PLANARCO y PLANPREGUNTA lo pasan contra cada huésped por separado y fallan contra la suma. PLANFOCO nunca fue sub-mandato de nadie. El acta de Task 5 argumenta sobre estos resultados, no sobre los que nos gustaría.
+
+Ojo con el caso de PLANARCO: `1.47x` está por debajo del umbral **por tres centésimas**. Es tentador redondear o mirar sólo el extremo alto. No lo hagas: la regla dice que ambos extremos tienen que superar el umbral, y un acta que se gana el permiso por redondeo no se lo ganó.
 
 - [ ] **Step 3: Commit**
 
@@ -561,34 +565,61 @@ Salida de `SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`:
 
 ## Lectura honesta del resultado
 
-**Dos pasan el gate limpio.** PLANPACTO da 5,2-5,6x contra PLANREP y PLANARCO da
-1,8-2,1x contra PLANCUIDADO. Para estos dos, la regla 3 se cumple como esta escrita.
+**Uno solo pasa el gate.** PLANPACTO da 5,2-5,6x contra PLANREP, su único huésped.
+Es el único de los cuatro que cumple la regla 3 tal como está escrita.
 
-**PLANPREGUNTA lo pasa contra dos huéspedes de tres y falla contra el tercero.**
-33x contra PLANEB y 2,6-3,5x contra PLANDIG; 0,2x contra PLANEDU, que es el PLAN
-más caro del corpus (USD 80-100 mil millones). Contra la suma de los tres, no pasa.
-Que un sub-mandato repartido entre tres huéspedes no supere a la suma de los tres
-no dice que sea chico: dice que **la asignación original era mala**. Un hueco
-repartido entre tres dueños no tiene dueño, y eso es exactamente lo que pasó: el
-renglon «Ciencia y tecnología (PLANCYT) → PLANEDU + PLANEB + PLANDIG — CyT
-distribuido» no produjo una sola sección en tres meses.
+**PLANARCO lo pasa contra cada huésped por separado y falla contra la suma, por tres
+centésimas.** 1,8-2,1x contra PLANCUIDADO y 8,8-16,0x contra PLANSAL; contra los dos
+sumados, 1,47-1,88x — y el umbral es 1,5. No redondeamos hacia arriba. La medición
+correcta es contra la suma, por la misma razón por la que lo es para PLANPREGUNTA:
+la fila 18 de este documento asigna «Discapacidad y vejez» a **PLANCUIDADO + PLANSAL**,
+dos huéspedes, y medir a un sub-mandato contra uno solo de los suyos mientras se mide
+a otro contra los tres suyos es un doble estándar que no se sostiene leído en voz alta.
+
+**PLANPREGUNTA lo pasa contra dos huéspedes de tres y falla contra el tercero y contra
+la suma.** 33x contra PLANEB y 2,6-3,5x contra PLANDIG; 0,2x contra PLANEDU, que es el
+PLAN más caro del corpus (USD 80-100 mil millones).
 
 **PLANFOCO nunca tuvo huésped.** El hueco «Cultura/Medios/Artes» quedó calificado
 IMPORTANTE en la auditoría de marzo y `COVERAGE_GAPS_ASSIGNMENTS.md` **no le asignó
 ninguno**. La regla 3 no aplica porque nunca fue sub-mandato de nadie. No es un
 spin-off: es un hueco que el freeze dejó abierto.
 
+## Lo que el gate mide en realidad
+
+Tres de los cuatro no pasan, y conviene mirar por qué antes de tratarlo como un
+rechazo. La regla 3 compara el tamaño de un sub-mandato contra el de su huésped. Eso
+funciona cuando el huésped es uno. Cuando el hueco se repartió entre dos o tres, el
+denominador se infla con presupuesto que no tiene nada que ver con el hueco, y el
+cociente deja de medir lo que dice medir: PLANPREGUNTA cae a 0,19x no porque sea chico
+—son USD 16.500-26.000 millones— sino porque a PLANEDU le sumaron los 80-100 mil
+millones de todo el sistema educativo.
+
+**Que el gate falle contra la suma es evidencia de que la asignación repartida era el
+instrumento equivocado, no de que el sub-mandato fuera menor.** Un hueco repartido
+entre tres dueños no tiene dueño, y eso es exactamente lo que pasó: el renglón
+«Ciencia y tecnología (PLANCYT) → PLANEDU + PLANEB + PLANDIG — CyT distribuido» no
+produjo una sola sección en tres meses. Lo mismo vale para «Discapacidad y vejez»:
+tres meses después, ni la vejez ni la discapacidad tienen sección propia en ninguno
+de sus dos huéspedes.
+
 ## El argumento independiente del gate
 
-La regla 3 alcanza para dos de los cuatro. Los otros dos se fundan en el hallazgo
+La regla 3 alcanza para uno de los cuatro. Los otros tres se fundan en el hallazgo
 que produjo este mismo tramo: **`PRESUPUESTO_CONSOLIDADO_BASTA.md` declaraba
 5,45-6,25% del PBI en pisos constitucionales sobre una tabla de 12 agencias. La
-suma real de los 22 es 7,82-9,41%.** El proyecto no sabía cuanto estaba pidiendo.
+suma real de los 22 es 7,82-9,41%.** El proyecto no sabía cuánto estaba pidiendo.
 
 El propósito declarado del freeze era la disciplina de alcance. Un freeze que
-mantiene 22 PLANes fijos mientras el número que los sostiene esta mal en más de
-dos puntos del PBI no disciplina nada: solo impide que alguien lleve la cuenta.
+mantiene 22 PLANes fijos mientras el número que los sostiene está mal en más de
+dos puntos del PBI no disciplina nada: sólo impide que alguien lleve la cuenta.
 PLANPACTO es el PLAN que lleva la cuenta.
+
+**Este acta no se apoya en el gate.** Se apoya en que el instrumento que el freeze
+dejó como única salida está roto para tres de los cuatro casos que tenía que evaluar,
+y en que el número que el freeze protegía era falso. El gate se corrió igual, y su
+resultado se publica entero, porque un permiso que se otorga escondiendo la evidencia
+en contra no vale nada.
 
 ## Lo que se levanta y lo que no
 
@@ -705,12 +736,32 @@ Y en el párrafo de control, reemplazar `= 6,26. Cierra.` por `= 6,22. Cierra.`,
 
 Recalculá el control a mano antes de escribirlo y verificá que `8,62 − 6,22 = 2,40` exacto.
 
-- [ ] **Step 4: Verificar que la spec no se contradice**
+- [ ] **Step 4: §9.9 — el gate no lo pasa PLANARCO**
+
+La spec afirma: **«PLANARCO sobre PLANCUIDADO da 1,46–1,88×: pasa.»** Está mal dos veces.
+Primero, 1,46 es **menor** que el umbral de 1,5: la propia oración imprime un número que
+no pasa y concluye que pasa. Segundo, el 1,46–1,88 no sale de PLANCUIDADO solo (que da
+1,77–2,13) sino de PLANCUIDADO + PLANSAL, que es lo que la fila 18 de
+`COVERAGE_GAPS_ASSIGNMENTS.md` asigna — así que la etiqueta tampoco era la correcta.
+
+Reemplazar esa oración por:
+
+```markdown
+la **regla 3**, gate de spin-off cuando un sub-mandato supera 1,5× el presupuesto del
+huésped. Corrido sobre los cuatro (`SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts`),
+**sólo PLANPACTO lo pasa**: 5,2–5,6× contra PLANREP. PLANARCO da 1,47–1,88× contra sus
+dos huéspedes sumados y queda tres centésimas por debajo del umbral; PLANPREGUNTA da
+0,19–0,24× contra los suyos; PLANFOCO nunca tuvo huésped asignado. El acta
+`Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md` publica el resultado
+entero y funda el levantamiento en el argumento independiente, no en el gate.
+```
+
+- [ ] **Step 5: Verificar que la spec no se contradice**
 
 Run: `grep -n "7,82\|9,41\|8,62\|6,22\|2,40" v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`
 Expected: toda aparición es consistente entre sí.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 6: Commit**
 
 ```bash
 git add v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md
