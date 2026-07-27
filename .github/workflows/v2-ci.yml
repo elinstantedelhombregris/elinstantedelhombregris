@@ -61,6 +61,9 @@ jobs:
       - name: Guardia del índice de planes
         run: pnpm planes:check
 
+      - name: Guardia de dependencias de producción
+        run: pnpm deps:check
+
       - name: Build all workspaces
         env:
           DATABASE_URL: postgres://placeholder:placeholder@localhost:5432/placeholder
