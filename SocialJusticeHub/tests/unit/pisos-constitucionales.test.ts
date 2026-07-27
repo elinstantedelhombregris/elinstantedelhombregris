@@ -4,6 +4,12 @@ import { PLAN_NODES, ECOSYSTEM_METRICS } from '../../shared/arquitecto-data';
 /**
  * Canon de los pisos constitucionales.
  *
+ * ALCANCE — este test fija el grafo contra una **transcripción humana** del taller,
+ * no contra el taller mismo. Las tablas de acá abajo son esa transcripción. Si
+ * alguien edita un piso en un documento de `Iniciativas Estratégicas/`, este test
+ * sigue verde: lo que detecta es el drift del grafo respecto de la transcripción,
+ * y para eso la transcripción tiene que re-verificarse a mano contra el taller.
+ *
  * Cada valor de esta tabla se transcribió del documento del PLAN en el taller
  * (`Iniciativas Estratégicas/PLAN*_Argentina_ES.md`), verificado línea por línea
  * el 2026-07-26. **Manda el documento, no el grafo**: si esta tabla y
@@ -34,6 +40,30 @@ const PISOS_SEGUN_EL_TALLER: Record<string, { floor: string; fuente: string }> =
 
 /** Los PLANes que por diseño no tienen piso. PLANCUL no lo tiene por filosofía. */
 const SIN_PISO = ['PLANREP', 'PLANMON', 'PLAN24CN', 'PLANGEO', 'PLANCUL'];
+
+/**
+ * Presupuestos de los seis PLANes huésped que consume el gate de spin-off
+ * (`scripts/gate-spinoff-planes-nuevos.ts`), en USD millones.
+ *
+ * **El acta del 2026-07-26 depende de estos números.**
+ * `Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md` publica la
+ * salida del gate como evidencia y razona sobre ella — en particular que PLANARCO
+ * queda a tres centésimas del umbral (1,47x contra 1,5) midiendo contra
+ * PLANCUIDADO + PLANSAL sumados. Bajar `PLANCUIDADO.budgetLow` de 30.000 a 29.333
+ * da vuelta ese resultado y vuelve falsa la sección más honesta del acta. Sin esta
+ * tabla, eso pasaba sin que fallara un solo test.
+ *
+ * Si un presupuesto cambia con fundamento, hay que actualizar acá, volver a correr
+ * el gate y revisar el acta — en ese orden.
+ */
+const PRESUPUESTOS_QUE_EL_GATE_CONSUME: Record<string, { low: number; high: number }> = {
+  PLANREP: { low: 2_200, high: 4_200 },
+  PLANCUIDADO: { low: 30_000, high: 45_000 },
+  PLANSAL: { low: 6_000, high: 6_000 },
+  PLANEDU: { low: 80_000, high: 100_000 },
+  PLANEB: { low: 500, high: 600 },
+  PLANDIG: { low: 4_700, high: 9_900 },
+};
 
 describe('pisos constitucionales (canon contra el taller)', () => {
   it('cada piso del grafo coincide con el documento de su PLAN', () => {
@@ -88,5 +118,20 @@ describe('pisos constitucionales (canon contra el taller)', () => {
 
   it('la suma de pisos es 7.82-9.41% del PBI', () => {
     expect(ECOSYSTEM_METRICS.constitutionalFloorGross).toBe('7.82-9.41% PBI');
+  });
+
+  it('los presupuestos que el gate de spin-off consume no se movieron', () => {
+    for (const [id, esperado] of Object.entries(PRESUPUESTOS_QUE_EL_GATE_CONSUME)) {
+      const nodo = PLAN_NODES.find((p) => p.id === id);
+      expect(nodo, `${id}: no está en PLAN_NODES`).toBeDefined();
+      expect(
+        nodo?.budgetLow,
+        `${id}: cambió budgetLow. El acta del 2026-07-26 razona sobre este número: re-corré el gate y revisá el acta.`,
+      ).toBe(esperado.low);
+      expect(
+        nodo?.budgetHigh,
+        `${id}: cambió budgetHigh. El acta del 2026-07-26 razona sobre este número: re-corré el gate y revisá el acta.`,
+      ).toBe(esperado.high);
+    }
   });
 });
