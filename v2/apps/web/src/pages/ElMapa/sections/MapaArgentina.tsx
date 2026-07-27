@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 
-import { MAPA_VIEWBOX, PROVINCIAS_SVG } from '../argentina-mapa.generated';
 import { FILL_TIPO, tipoDeCategoria } from '../el-mapa-data';
 import { MAX_PUNTOS_PROVINCIA, puntosJitter } from '../el-mapa-geo';
 
@@ -8,6 +7,8 @@ import { PopoverVoz } from './PopoverVoz';
 
 import type { VozAbierta } from '~/lib/queries/open-data';
 
+import { PROVINCIAS_SVG } from '~/geo/pais.generated';
+import { MAPA_VIEWBOX } from '~/geo/proyeccion.generated';
 import { useProvincias, useVocesAbiertas, useVocesPorProvincia } from '~/lib/queries/open-data';
 import { cn } from '~/lib/utils';
 

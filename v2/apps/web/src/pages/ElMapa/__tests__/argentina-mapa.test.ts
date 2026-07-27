@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { MAPA_VIEWBOX, PROVINCIAS_SVG } from '../argentina-mapa.generated';
+import { PROVINCIAS_SVG } from '~/geo/pais.generated';
+import { MAPA_VIEWBOX } from '~/geo/proyeccion.generated';
 
 /** Nombres canónicos del seed de geographic_locations (packages/db/scripts/seed-provinces.ts). */
 const NOMBRES_CANONICOS = [
