@@ -77,11 +77,16 @@ magnitud.**
 **PLANFOCO no falla: no se puede medir.** Nunca tuvo huésped asignado, así que no hay
 denominador. La regla 3 no lo rechaza — no lo alcanza.
 
-Lo que sí muestra el gate, mirado entero, es que la asignación de abril no funcionó
-como mecanismo. Tres meses después, ni «Ciencia y tecnología (PLANCYT) → PLANEDU +
-PLANEB + PLANDIG» ni «Discapacidad y vejez → PLANCUIDADO + PLANSAL» produjeron una
-sola sección en ninguno de sus cinco huéspedes. Un hueco repartido entre varios dueños
-no tiene dueño.
+Queda una objeción a la asignación de abril, y hay que decir de qué tipo es: **es una
+objeción de diseño, no un reproche por incumplimiento.** Los dos huecos que este acta
+retira —«Ciencia y tecnología (PLANCYT) → PLANEDU + PLANEB + PLANDIG» y «Discapacidad
+y vejez → PLANCUIDADO + PLANSAL»— están repartidos entre cinco huéspedes en total.
+Los dos tienen owner nominal y tranche asignado en `COVERAGE_GAPS_ASSIGNMENTS.md`, y
+los dos son **tranche-2**: no venció ningún plazo, y no se los está acusando de no
+haber producido. La objeción es anterior al calendario. **Un hueco repartido entre
+varios dueños no tiene dueño:** cada huésped puede escribir su parte suponiendo que
+otro escribe el resto, y ninguno responde por el conjunto. Eso no se corrige
+esperando al mes 24.
 
 ## Bajo qué autoridad se levanta esto
 
