@@ -146,7 +146,7 @@ Cada agencia ¡BASTA! tiene un piso presupuestario protegido constitucionalmente
 | ANVIP | PLANSAL | 5-15% del gasto en salud (no % del PBI directo) | ~0,50-1,50% (2) | USD 3.000-9.000M (a régimen) |
 | ANAGUA | PLANAGUA | 0,15% del PBI | 0,15% | USD 825M |
 | ENSV | PLANISV | 0,10% del PBI | 0,10% | USD 550M |
-| ANEN | PLANEN | 0,50% del PBI | 0,50% | USD 2.750M |
+| ANEN | PLANEN | 0,70% del PBI (ANEN 0,50% + LANEF 0,20%) (5) | 0,70% | USD 3.850M |
 | ANMON | PLANMON | % fijo de comisiones de la Red del Pulso (no PBI) | Variable | Variable (autofinanciado) |
 | Corporación | PLAN24CN | No especificado como % PBI | — | Financiamiento diversificado |
 | CNEG | PLANGEO | No especificado como piso constitucional | — | Presupuesto nacional + defensa |
@@ -162,6 +162,8 @@ Cada agencia ¡BASTA! tiene un piso presupuestario protegido constitucionalmente
 **(3)** ANSEG define su piso como 1,5% del PBI en el documento PLANSEG. Este piso incluye la reasignación masiva del gasto de seguridad existente (~2% del PBI entre Nación, provincias y municipios). El costo fiscal *nuevo* neto se estima en 0,05-0,10% del PBI (ver tabla de costo neto más abajo), dado que la mayor parte proviene de reasignación de gasto de enforcement de drogas y de seguridad ineficiente que ya se ejecuta. El piso bruto es alto (1,50%), pero al igual que ANVIV, el costo real sobre el presupuesto es una fracción del piso constitucional.
 
 **(4)** ANVIV define su piso como 2% del PBI / 8% del presupuesto nacional. Sin embargo, PLANVIV se autofinancia progresivamente a través de los repagos hipotecarios de la Bastarda Inmobiliaria y los fees del ecosistema Housing OS. El costo fiscal neto decrece significativamente a partir del Año 5.
+
+**(5)** ANEN define dos pisos en el documento PLANEN: el piso operativo de ANEN (0,50% del PBI) y el piso de I+D de LANEF (0,20% del PBI). Juntos suman 0,70% del PBI que financia la agencia.
 
 PLANCUL no tiene piso constitucional ni presupuesto dedicado por diseño filosófico — la cultura se financia desde la comunidad, no desde el Estado.
 
@@ -340,7 +342,7 @@ Año 5+ (REGIMEN CRECIENTE: +USD 12.200M → +USD 26.150M):
 
 **Nota (2026-07-26):** esta tabla de costo neto modela los 10 pisos vigentes hasta esa fecha (ANCE, ANDIG, ANEB, ANSUS, ANJUS, ANAGUA, ENSV, ANEN, ANSEG, ANVIV). No incluye los 7 pisos que explican la diferencia entre el bruto de acá (~5,75-6,25%) y el bruto correcto de los 17 pisos del ecosistema completo (7,82-9,41%, ver ALERTA FISCAL): PLANSAL/ANVIP, PLANMESA, PLANTALLER, PLANCUIDADO, PLANMEMORIA, PLANTER, PLANMOV, y el 0,20% del LANEF dentro de PLANEN. El costo fiscal neto de esos 7 pisos todavía no está modelado en este documento.
 
-**Conclusion:** Los 17 pisos constitucionales del ecosistema suman 7,82-9,41% del PBI en bruto (ver Sección 3). Para el subconjunto de 10 pisos originales modelado arriba, esa suma bruta era ~5,45-6,25%, pero el costo fiscal neto se sitúa en el rango de **3,2-3,4% del PBI** en fase inicial, impulsado principalmente por ANVIV (vivienda). La brecha entre bruto y neto se explica por dos pisos grandes con bajo costo fiscal real: ANSEG (1,50% bruto → ~0,05-0,10% neto, porque reasigna gasto de seguridad existente) y ANVIV (2,00% bruto → ~1,50% neto inicial, decreciente). A régimen (Año 10+), el autofinanciamiento de ANVIV y la estabilización de la reasignación de ANSEG reducen el costo neto de ese subconjunto al rango de **2,2-2,9% del PBI**. ANVIV es el piso más grande pero también el que más rápido se autofinancia — la Bastarda Inmobiliaria genera ingresos recurrentes (cuotas hipotecarias, alquileres) que cubren una fracción creciente del presupuesto. El escalamiento de ANDIG al 1% en Año 10 y la dependencia presupuestaria inicial de ANVIV son los principales riesgos de tensión fiscal. PLANCUL no tiene costo fiscal — opera sin presupuesto estatal por diseño. El costo fiscal neto de los 7 pisos agregados en la actualización de PLANes 17-22 + PLANSAL/LANEF todavía no está modelado.
+**Conclusión:** Los 17 pisos constitucionales del ecosistema suman 7,82-9,41% del PBI en bruto (ver Sección 3). Para el subconjunto de 10 pisos originales modelado arriba, esa suma bruta era ~5,45-6,25%, pero el costo fiscal neto se sitúa en el rango de **3,2-3,4% del PBI** en fase inicial, impulsado principalmente por ANVIV (vivienda). La brecha entre bruto y neto se explica por dos pisos grandes con bajo costo fiscal real: ANSEG (1,50% bruto → ~0,05-0,10% neto, porque reasigna gasto de seguridad existente) y ANVIV (2,00% bruto → ~1,50% neto inicial, decreciente). A régimen (Año 10+), el autofinanciamiento de ANVIV y la estabilización de la reasignación de ANSEG reducen el costo neto de ese subconjunto al rango de **2,2-2,9% del PBI**. ANVIV es el piso más grande pero también el que más rápido se autofinancia — la Bastarda Inmobiliaria genera ingresos recurrentes (cuotas hipotecarias, alquileres) que cubren una fracción creciente del presupuesto. El escalamiento de ANDIG al 1% en Año 10 y la dependencia presupuestaria inicial de ANVIV son los principales riesgos de tensión fiscal. PLANCUL no tiene costo fiscal — opera sin presupuesto estatal por diseño. El costo fiscal neto de los 7 pisos agregados en la actualización de PLANes 17-22 + PLANSAL/LANEF todavía no está modelado.
 
 ### 5.4 Regla: Secuenciamiento temporal evita picos de demanda fiscal simultanea
 
