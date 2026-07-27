@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { PanelSoltarVoz } from '../PanelSoltarVoz';
 
@@ -27,6 +27,15 @@ beforeEach(() => {
   } as unknown as ReturnType<typeof useSoltarVoz>);
 });
 
+/**
+ * En afterEach y no al final de cada test: si una aserción falla antes de la
+ * línea de limpieza, el stub de `navigator` se filtra al archivo siguiente y
+ * rompe tests que no tienen nada que ver. Pasó — por eso está acá.
+ */
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
 /** El camino de 30 segundos, sin tocar el paso de precisión. */
 function soltarVozRapido() {
   fireEvent.click(screen.getByRole('button', { name: /basta/i }));
@@ -50,9 +59,14 @@ describe('el paso de precisión es opcional (spec 2 §6, D2)', () => {
     expect(input.body).toBe('Basta de laburar para el alquiler.');
   });
 
-  it('el selector aparece pero no bloquea el envío', () => {
+  it('el selector aparece pero no es requisito para poder enviar', () => {
     render(<PanelSoltarVoz />);
     expect(screen.getByText('¿Dónde exactamente? (opcional)')).toBeInTheDocument();
+
+    // Con tipo y texto alcanza: la ubicación no entra en la validación. El
+    // botón sigue deshabilitado sin tipo o sin texto, como siempre.
+    fireEvent.click(screen.getByRole('button', { name: /basta/i }));
+    fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Basta.' } });
     expect(screen.getByRole('button', { name: 'Soltar la voz →' })).not.toBeDisabled();
   });
 
@@ -71,7 +85,6 @@ describe('el paso de precisión es opcional (spec 2 §6, D2)', () => {
     fireEvent.click(screen.getByRole('button', { name: 'usar mi ubicación' }));
 
     expect(screen.getByText(/No nos diste permiso, y está perfecto/)).toBeInTheDocument();
-    vi.unstubAllGlobals();
   });
 
   it('con ubicación, el envío lleva el punto y la precisión elegida', () => {
@@ -94,7 +107,6 @@ describe('el paso de precisión es opcional (spec 2 §6, D2)', () => {
     const [input] = mutate.mock.calls[0] as [SoltarVozInput];
     expect(input.punto).toEqual({ lat: -34.6037, lng: -58.3816 });
     expect(input.precisionPedida).toBe('exact');
-    vi.unstubAllGlobals();
   });
 
   it('se puede elegir publicar menos preciso, y se puede quitar la ubicación', () => {
@@ -110,6 +122,5 @@ describe('el paso de precisión es opcional (spec 2 §6, D2)', () => {
     soltarVozRapido();
     const [input] = mutate.mock.calls[0] as [SoltarVozInput];
     expect(input.precisionPedida).toBe('neighborhood');
-    vi.unstubAllGlobals();
   });
 });

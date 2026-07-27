@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { PanelSoltarVoz } from '../PanelSoltarVoz';
 
 import { ApiError } from '~/lib/api';
-import { useProvincias, useSoltarVoz, type SoltarVozInput } from '~/lib/queries/open-data';
+import { useProvincias, useSoltarVoz, type SoltarVozInput, type VozSoltada } from '~/lib/queries/open-data';
 
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: vi.fn(),
@@ -15,16 +15,19 @@ const mockProvincias = vi.mocked(useProvincias);
 const mockSoltar = vi.mocked(useSoltarVoz);
 
 /**
- * El componente solo invoca `mutate(input, { onSuccess })` — nunca lee
- * `data`/`variables`/`context` que TanStack Query le pasaría a `onSuccess`.
- * Retipamos el mock a la forma real en que se lo llama acá, así los tests
- * no necesitan castear argumentos que el componente ignora (`undefined as
- * never`).
+ * El componente invoca `mutate(input, { onSuccess })` y SÍ lee el `data` que
+ * TanStack Query le pasa: desde el paso de precisión (spec 2 §6), la respuesta
+ * trae la precisión publicada y el motivo del engrosado, y la confirmación los
+ * muestra. El mock tiene que pasarle una respuesta como se la pasaría Query —
+ * si no, prueba un contrato que no existe.
  */
 type MutateComoLoLlamaElComponente = (
   input: SoltarVozInput,
-  opciones?: { onSuccess?: () => void },
+  opciones?: { onSuccess?: (data: VozSoltada) => void },
 ) => void;
+
+/** Lo que devuelve el 201 cuando no hubo nada que engrosar. */
+const RESPUESTA_OK: VozSoltada = { id: 1, precisionPublicada: 'province', engrosado: null };
 const mutate = vi.fn<MutateComoLoLlamaElComponente>();
 
 function armarMutacion(extra: Partial<ReturnType<typeof useSoltarVoz>> = {}) {
@@ -95,7 +98,7 @@ describe('PanelSoltarVoz', () => {
 
   it('al 201: sello RECIBIDA + despertar + textarea limpio', () => {
     mutate.mockImplementation((_input, opts) => {
-      opts?.onSuccess?.();
+      opts?.onSuccess?.(RESPUESTA_OK);
     });
     render(<PanelSoltarVoz />);
 
@@ -114,7 +117,7 @@ describe('PanelSoltarVoz', () => {
 
   it('sin provincia, la confirmación es honesta: cuenta pero no cae en el mapa', () => {
     mutate.mockImplementation((_input, opts) => {
-      opts?.onSuccess?.();
+      opts?.onSuccess?.(RESPUESTA_OK);
     });
     render(<PanelSoltarVoz />);
 
