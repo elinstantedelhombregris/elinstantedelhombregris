@@ -223,7 +223,7 @@ Los defaults dejan a toda fila existente exactamente donde está hoy: precisión
 
 ### 8.3 Endpoint
 
-`GET /api/civic/map/signals?capas=&bbox=&desde=` — forma unificada de señal con su precisión y su rol, para las cuatro capas de D5.
+`GET /api/v1/civic/map/signals?capas=&bbox=&desde=` — forma unificada de señal con su precisión y su rol, para las cuatro capas de D5. **El prefijo va versionado:** la app móvil ya habla `/api/v1/civic/*` y el blueprint pide una API cívica versionada como único puente entre las dos aplicaciones.
 
 **El panel de conversión no lo usa.** Sigue con sus llamadas livianas de hoy (`/api/open-data/dreams`, `/by-province`, `/provinces`): el instrumento no se paga en el camino crítico de los 30 segundos.
 
@@ -243,7 +243,14 @@ Los defaults dejan a toda fila existente exactamente donde está hoy: precisión
 
 ## 10. Los cuatro sub-proyectos
 
-Cada uno recibe su propia spec hija y su propio plan. Cada uno es entregable y visible por sí solo.
+Cada uno recibe su propia spec hija y su propio plan. Cada uno es entregable y visible por sí solo. **Las cuatro specs hijas están escritas** (2026-07-26):
+
+| # | Spec hija |
+|---|---|
+| 10.1 | `docs/specs/2026-07-26-mapa-1-el-lienzo.md` |
+| 10.2 | `docs/specs/2026-07-26-mapa-2-la-verdad-de-la-ubicacion.md` |
+| 10.3 | `docs/specs/2026-07-26-mapa-3-el-instrumento.md` |
+| 10.4 | `docs/specs/2026-07-26-mapa-4-el-campo.md` |
 
 ### 10.1 El lienzo
 Geografía profunda precomputada y zoom por altitud (§4), más el render honesto de precisión sobre los datos que ya existen (§5, nivel `province`). **Depende de:** nada. **Entrega:** la página se ve y se navega distinto sin tocar la base de datos.
@@ -311,6 +318,13 @@ Cada spec hija define sus casos, pero el paraguas fija los mínimos:
 
 ## 15. Preguntas abiertas
 
-1. **ADR de distribución de `civic-core`** hacia `juego/` (§3.1) — la decide la spec hija de 10.2.
-2. **Fuente de las localidades.** Backfill desde v1 (§8.2) o dataset público nuevo. Se resuelve al verificar la cobertura real.
-3. **Nombre de la ruta.** `/el-mapa` absorbe `/explorar-datos` (D1, §9); queda por definir si el instrumento tiene su propio ancla profunda para poder linkearlo directo.
+*(Estado al 2026-07-26, después de escribir las cuatro specs hijas.)*
+
+1. **ADR de distribución de `civic-core`** hacia `juego/` (§3.1) — **sigue abierta.** La spec 2 §2.2 plantea los tres caminos y recomienda el tarball versionado, pero el ADR hay que escribirlo.
+2. **Fuente de las localidades** (§8.2) — **sigue abierta**, y se resuelve contando: cuántas filas `level: 'city'` hay en v2 y cuántas coordenadas hay del lado de v1. Se verifica antes de escribir, no se asume.
+3. ~~**Ancla del instrumento.**~~ **Resuelta** en la spec 3 §2: `/el-mapa#instrumento`, con montaje perezoso, y `/explorar-datos` redirige ahí.
+4. **Prefijo de la API cívica** — **resuelta** escribiendo la spec 4: todo cuelga de `/api/v1/civic/`, porque la app móvil ya habla ese prefijo (`community-api.ts`) y el blueprint pide una API versionada como único puente. Corregido en §8.3 y en la spec 2 §5.
+
+### Lo que apareció escribiendo las hijas
+
+**El contrato de sync del móvil no tiene servidor.** `juego/src/civic/sync.ts` tiene un outbox completo — batching, arriendos de envío, barrido de reintentos, cursor de feed, autenticación por dispositivo — que postea a `/api/v1/civic/custody/grants/*` y `/api/circulos`. Ninguno de esos endpoints existe en `v2/apps/api`: el único router `civic` que hay es `civic-assessment`, que es otra cosa. La spec 4 construye **solo la ruta de la captura al mapa**; el resto del contrato es del blueprint y necesita sus propias specs.
