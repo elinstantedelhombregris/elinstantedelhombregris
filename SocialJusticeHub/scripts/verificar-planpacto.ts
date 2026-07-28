@@ -75,9 +75,9 @@ function main(): void {
   for (const seccion of SECCIONES_ESPERADAS) {
     const i = lineas.findIndex((l, j) => j > cursor && l.trim() === seccion);
     if (i === -1) {
-      const existeFuraDeOrden = lineas.some((l) => l.trim() === seccion);
+      const existeFueraDeOrden = lineas.some((l) => l.trim() === seccion);
       errores.push(
-        existeFuraDeOrden
+        existeFueraDeOrden
           ? `«${seccion}» está, pero fuera de orden (se esperaba después de la anterior)`
           : `falta la sección «${seccion}»`,
       );
