@@ -140,7 +140,7 @@ De ese hallazgo sale la arquitectura. El vigésimo cuarto mandato del Proyecto �
 
 **Por qué persiste:** un piso se escribe en el documento que lo pide y se paga en un presupuesto que los suma todos, y esos dos papeles no se leen juntos nunca. Cada reclamo es razonable; la pila no lo es. Y nadie tiene el trabajo de mirar la pila.
 
-**El dato:** 7,82–9,41% del PBI reclamado contra 5,45–6,25% declarado. Y nueve de esos diecisiete pisos están declarados como rango en su propio documento: no hay un número que sumar, hay un intervalo de intervalos, y el resultado cambia según de qué extremo se parta. Dicho sin atenuante: el proyecto no sabía cuánto estaba pidiendo. Esta falla es propia y no ajena, y es la que funda la Escalera.
+**El dato:** 7,82–9,41% del PBI reclamado contra 5,45–6,25% declarado. Y cuatro de esos diecisiete pisos están declarados como rango en su propio documento: no hay un número que sumar, hay un intervalo de intervalos, y el resultado cambia según de qué extremo se parta. Dicho sin atenuante: el proyecto no sabía cuánto estaba pidiendo. Esta falla es propia y no ajena, y es la que funda la Escalera.
 
 ### 0.7 El instrumento que convierte una transferencia en un favor
 

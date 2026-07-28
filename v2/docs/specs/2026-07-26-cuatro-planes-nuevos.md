@@ -104,7 +104,7 @@ Debajo de la línea no queda piso: DIG, EN, MOV, TER, TALLER, EB y SUS **pierden
 
 **Cuánto se recorta, y por qué no se itemiza.** El recorte total es el residuo contra lo que hoy se reclama, y ese reclamo es un rango, no un número: **5,42 puntos** contra el extremo bajo (7,82), **6,22** contra el punto medio (8,62), **7,01** contra el alto (9,41).
 
-No hay tabla de recortes por PLAN, y la ausencia es deliberada. Nueve de los diecisiete pisos están declarados como rango en su propio documento —SAL 0,50–1,50, DIG 0,50–1,00, JUS 0,25–0,30, MEMORIA 0,10–0,14, entre otros—, así que un recorte por PLAN sólo existe una vez que se elige de qué extremo se parte, y esa elección no la hizo nadie. Itemizar contra el punto medio con un valor único por PLAN mezcla bases y produce una suma que cierra por construcción, no por cuenta. **Este documento existe porque el proyecto arrastró durante meses una cifra que nadie había verificado; no va a estrenar otra.**
+No hay tabla de recortes por PLAN, y la ausencia es deliberada. Cuatro de los diecisiete pisos están declarados como rango en su propio documento —SAL 0,50–1,50, DIG 0,50–1,00, JUS 0,25–0,30, MEMORIA 0,10–0,14—, así que un recorte por PLAN sólo existe una vez que se elige de qué extremo se parte, y esa elección no la hizo nadie. Itemizar contra el punto medio con un valor único por PLAN mezcla bases y produce una suma que cierra por construcción, no por cuenta. **Este documento existe porque el proyecto arrastró durante meses una cifra que nadie había verificado; no va a estrenar otra.**
 
 Lo que sí está fijo y verificado es lo que la Escalera conserva: 2,40% exacto, y el orden en que lo conserva.
 
