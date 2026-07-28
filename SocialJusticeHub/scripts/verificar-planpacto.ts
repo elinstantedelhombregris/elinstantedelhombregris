@@ -24,6 +24,8 @@ const DOC = resolve(REPO_ROOT, 'Iniciativas Estratégicas/PLANPACTO_Argentina_ES
 /** Los H2 que el documento tiene que tener, en este orden. Las tareas lo extienden. */
 const SECCIONES_ESPERADAS: string[] = [
   '## Vigésimo Cuarto Mandato del Proyecto ¡BASTA!',
+  '## PREÁMBULO — EL RECIBO QUE NUNCA LLEGÓ',
+  '## TESIS CENTRAL',
 ];
 
 /**
@@ -31,7 +33,11 @@ const SECCIONES_ESPERADAS: string[] = [
  * Fuente: v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md sección 2, y
  * SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts.
  */
-const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [];
+const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
+  { valor: '7,82', porQue: 'extremo bajo de los pisos que los 22 reclaman, % del PBI' },
+  { valor: '9,41', porQue: 'extremo alto de los pisos que los 22 reclaman, % del PBI' },
+  { valor: '2,40', porQue: 'el piso único que PLANPACTO propone, % del gasto primario consolidado' },
+];
 
 /** Strings que no pueden aparecer, con el motivo de cada uno. */
 const PROHIBIDOS: { patron: RegExp; porQue: string }[] = [
