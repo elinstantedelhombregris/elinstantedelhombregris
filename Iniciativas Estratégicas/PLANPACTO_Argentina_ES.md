@@ -5,11 +5,17 @@
 >
 > **Tranche assignment:** tranche-1 tardío para la Fase 0; tranche-2 y tranche-3 para las Fases 1 y 2.
 >
+> **Alcance entregable:** escalera de garantías fiscales ejecutable por decreto y convenios de adhesión desde la Fase 0 (no ley-convenio ni reforma constitucional; la ley-convenio del art. 75 inc. 2 CN llega recién en la Fase 2).
+>
 > **Presupuesto canónico:** USD 500-700M/año en régimen; 1.400-1.500M/año en transición; 12.400-22.000M a quince años.
 >
 > **Instrumento legal:** ley-convenio del art. 75 inc. 2 CN para la Fase 2; decreto y convenio de adhesión para la Fase 0.
 >
 > **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo; la Fase 0 no requiere ley-convenio ni reforma constitucional; el PLAN vale aunque la Fase 2 no llegue nunca.
+>
+> **PIA gate:** ver `PIA/PLANPACTO.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANPACTO.md` si existe.
 
 ---
 
