@@ -1,0 +1,115 @@
+/**
+ * Guardia del documento de PLANPACTO.
+ *
+ * Run: npx tsx scripts/verificar-planpacto.ts
+ *
+ * Verifica lo MECÁNICO y nada más: que estén las secciones esperadas y en
+ * orden, que las cifras canónicas del tramo A aparezcan, que los strings
+ * prohibidos no aparezcan, y que no queden marcadores de pendiente.
+ *
+ * La voz, el argumento y la prosa NO se verifican acá: eso lo mira la
+ * revisión. Una guardia que pretende juzgar prosa da falsa tranquilidad.
+ *
+ * Cada tarea del plan agrega sus secciones a SECCIONES_ESPERADAS antes de
+ * escribirlas: primero la guardia falla, después el documento la hace pasar.
+ */
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = resolve(SCRIPT_DIR, '../..');
+const DOC = resolve(REPO_ROOT, 'Iniciativas Estratégicas/PLANPACTO_Argentina_ES.md');
+
+/** Los H2 que el documento tiene que tener, en este orden. Las tareas lo extienden. */
+const SECCIONES_ESPERADAS: string[] = [
+  '## Vigésimo Cuarto Mandato del Proyecto ¡BASTA!',
+];
+
+/**
+ * Cifras verificadas en el tramo A que el documento no puede contradecir.
+ * Fuente: v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md sección 2, y
+ * SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts.
+ */
+const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [];
+
+/** Strings que no pueden aparecer, con el motivo de cada uno. */
+const PROHIBIDOS: { patron: RegExp; porQue: string }[] = [
+  {
+    patron: /Procurement OS/i,
+    porQue:
+      'cero ocurrencias en PLANDIG_Argentina_ES.md; existe sólo en SOURCE_OF_FUNDS_LEDGER.md como F12, clase future_return',
+  },
+  {
+    patron: /vot(a|ada|ado)s? por (la )?Mesa Civil/i,
+    porQue: 'PLANMESA:16 dice consulta no vinculante, y el art. 75 inc. 8 CN le da el presupuesto al Congreso',
+  },
+  { patron: /6,0% del PBI/, porQue: 'versión descartada del piso único; el piso es 2,40%' },
+  { patron: /3,5% del PBI/, porQue: 'versión descartada del piso único; el piso es 2,40%' },
+  {
+    patron: /«PENDIENTE»|\{PENDIENTE\}|TODO:/,
+    porQue: 'marcador de borrador: el documento se commitea sin secciones a medio escribir',
+  },
+];
+
+function main(): void {
+  let raw: string;
+  try {
+    raw = readFileSync(DOC, 'utf8');
+  } catch {
+    console.error(`No existe el documento: ${DOC}`);
+    process.exit(1);
+  }
+
+  const errores: string[] = [];
+  const lineas = raw.split('\n');
+
+  // 1) Las secciones esperadas, presentes y en orden.
+  let cursor = -1;
+  for (const seccion of SECCIONES_ESPERADAS) {
+    const i = lineas.findIndex((l, j) => j > cursor && l.trim() === seccion);
+    if (i === -1) {
+      const existeFuraDeOrden = lineas.some((l) => l.trim() === seccion);
+      errores.push(
+        existeFuraDeOrden
+          ? `«${seccion}» está, pero fuera de orden (se esperaba después de la anterior)`
+          : `falta la sección «${seccion}»`,
+      );
+      continue;
+    }
+    cursor = i;
+  }
+
+  // 2) Las cifras canónicas.
+  for (const { valor, porQue } of CIFRAS_CANONICAS) {
+    if (!raw.includes(valor)) errores.push(`falta la cifra canónica «${valor}» — ${porQue}`);
+  }
+
+  // 3) Los prohibidos.
+  for (const { patron, porQue } of PROHIBIDOS) {
+    const m = patron.exec(raw);
+    if (m) {
+      const nLinea = raw.slice(0, m.index).split('\n').length;
+      errores.push(`línea ${String(nLinea)}: «${m[0]}» está prohibido — ${porQue}`);
+    }
+  }
+
+  // 4) La cabecera de auditoría, una sola vez y al principio.
+  const cabeceras = lineas.filter((l) => l.startsWith('> **CANONICAL_ARCHITECTURE:**')).length;
+  if (cabeceras !== 1) {
+    errores.push(`se esperaba 1 línea CANONICAL_ARCHITECTURE en la cabecera, hay ${String(cabeceras)}`);
+  }
+
+  if (errores.length > 0) {
+    console.error(`La guardia de PLANPACTO encontró ${String(errores.length)} problema(s):\n`);
+    for (const e of errores) console.error(`  · ${e}`);
+    process.exit(1);
+  }
+
+  console.log(
+    `PLANPACTO OK: ${String(SECCIONES_ESPERADAS.length)} secciones, ` +
+      `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(lineas.length)} líneas.`,
+  );
+}
+
+main();
