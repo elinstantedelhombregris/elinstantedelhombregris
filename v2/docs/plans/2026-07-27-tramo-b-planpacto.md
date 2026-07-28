@@ -757,6 +757,14 @@ Colgá acá el costeo del IVA que Vuelve (USD 2.800–4.700M/año) con su fuente
 370–690 palabras. Los riesgos con su respuesta, en tabla o en subsecciones. Los que no pueden faltar:
 
 - **Las 24 ratificaciones que el país no juntó en treinta años.** La respuesta es estructural, no retórica: **el PLAN vale aunque la Fase 2 no llegue.**
+- **«Este es el cuarto pacto fiscal y los tres anteriores fracasaron.»** Es la objeción más fuerte que
+  existe contra este PLAN. La Sección 2 la planteó al escribir el fracaso de 1992, 1993 y el Consenso
+  2017–2021, y **ninguna otra sección la contesta**. Contestala acá, y contestala por diferencia
+  mecánica, no por optimismo: qué tiene este diseño que aquellos tres no tenían. Los candidatos
+  honestos ya están en el documento — la Fórmula corriendo veinticuatro meses en modo sombra antes de
+  tener efecto legal, el Giro Diario que saca al Ejecutivo del medio, la adhesión con caja desde el
+  día uno, y una Fase 0 que no depende de que nadie ratifique nada. **Si alguno de esos tres pactos
+  ya tenía la característica que invocás, no la invoques.**
 - **La licuación del piso.** Un piso que se puede licuar sin derogar una ley está muerto y no lo sabe.
 - **La captura del padrón.**
 - **La reversión por decreto de la Fase 0.**
