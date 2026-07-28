@@ -789,12 +789,23 @@ Para cada uno: qué pierde, en qué plazo, y qué se le ofrece a cambio. Un mapa
 
 Abrí `Iniciativas Estratégicas/READINESS_GATES_ADVERSARIAL.md`, mirá el formato de las filas existentes, y agregá la de PLANPACTO con sus **tres attack paths, cada uno con mitigación, owner, fallback budget e indicador**. Los tres candidatos, en orden de probabilidad: la no-ratificación de la ley-convenio, la reversión por decreto de la Fase 0, y la captura del padrón.
 
-- [ ] **Step 8: Correr la guardia**
+- [ ] **Step 8: Agregar la clave de attack paths a la cabecera del documento**
+
+Recién ahora existe la sección de PLANPACTO en `READINESS_GATES_ADVERSARIAL.md`, así que la cabecera
+del documento puede referenciarla sin mentir. En el blockquote de `PLANPACTO_Argentina_ES.md`, agregar
+la clave con la misma redacción que usa PLANMEMORIA:
+
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANPACTO. Vinculante para promoción de tranche.
+
+La Task 1 la omitió a propósito porque la sección no existía todavía: esa clave afirma «vinculante
+para promoción de tranche», y afirmarlo sin sección detrás sería falso.
+
+- [ ] **Step 9: Correr la guardia**
 
 Run: `cd SocialJusticeHub && npx tsx scripts/verificar-planpacto.ts`
 Expected: `PLANPACTO OK: 16 secciones, 7 cifras canónicas, N líneas.`
 
-- [ ] **Step 9: Commit**
+- [ ] **Step 10: Commit**
 
 ```bash
 git status --porcelain
