@@ -29,6 +29,8 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 0: LAS OCHO FALLAS DEL RÉGIMEN FISCAL ARGENTINO',
   '## SECCIÓN 1: LA CRISIS — LA PLATA SE REPARTE CON UNA LEY QUE VENCIÓ EN 1990',
   '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
+  '## SECCIÓN 3: LA SOLUCIÓN — ARQUITECTURA DE LOS ONCE DISPOSITIVOS',
+  '## SECCIÓN 4: LA ESCALERA Y EL TECHO',
 ];
 
 /**
@@ -40,6 +42,8 @@ const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
   { valor: '7,82', porQue: 'extremo bajo de los pisos que los 22 reclaman, % del PBI' },
   { valor: '9,41', porQue: 'extremo alto de los pisos que los 22 reclaman, % del PBI' },
   { valor: '2,40', porQue: 'el piso único que PLANPACTO propone, % del gasto primario consolidado' },
+  { valor: '8,62', porQue: 'punto medio de los pisos reclamados, % del PBI' },
+  { valor: 'sustituye', porQue: 'el piso único es sustitutivo: sin esa palabra la lectura aditiva es legítima' },
 ];
 
 /** Strings que no pueden aparecer, con el motivo de cada uno. */

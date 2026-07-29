@@ -233,3 +233,187 @@ Escrita en su forma más fuerte: en treinta y cuatro años Argentina firmó tres
 El diagnóstico se detiene acá, con la objeción escrita y sin contestar. Contestarla es tarea de lo que sigue, y ya se sabe qué forma no puede tener la respuesta: no una promesa más firme, sino un mecanismo que funcione sin la buena voluntad que a los tres intentos anteriores no les faltó al firmar — les faltó al segundo año.
 
 ---
+
+## SECCIÓN 3: LA SOLUCIÓN — ARQUITECTURA DE LOS ONCE DISPOSITIVOS
+
+> *"Once dispositivos no son once reformas. Son una sola escrita once veces, porque a cada una por separado se la lleva puesta el primer año malo."*
+
+### 3.1 Por qué hay un eje y no una lista
+
+Un plan fiscal se puede escribir de dos maneras. Una es enumerar mejoras: cobrar mejor, repartir mejor, mostrar mejor, endeudarse menos. Esa manera ya se probó tres veces en este país y las tres tienen su fecha de firma y su fecha de degradación en la sección anterior. La otra manera es preguntarse cuál de todas esas mejoras contesta la pregunta que las demás producen, y construir alrededor de esa.
+
+Los once dispositivos de este PLAN contestan preguntas de *cuánto*, *de quién*, *cuándo* y *adónde*. Ninguno de los once contesta *primero qué*. Y esa es la única pregunta que un sistema fiscal necesita tener contestada por escrito **antes** de necesitarla, porque el día que se necesita ya no hay tiempo de deliberarla: hay un ejercicio en ejecución, una partida corta y una decisión que alguien va a tomar igual. Cuando la regla no está escrita, la toma el que tiene mejor acceso al que firma. No hace falta suponer corrupción: es lo que pasa siempre que una prioridad se define en el mismo acto en que se aplica.
+
+Por eso el eje de PLANPACTO es **la Escalera y el Techo**, y por eso este documento tiene un solo número uno. El Techo dice cuánto gasto puede quedar atado. La Escalera dice, antes de que falte, en qué orden se conserva lo atado. Los once cuelgan de ahí: dos producen la información con la que la Escalera se verifica, cuatro tocan lo que se cobra, cuatro mueven lo que se reparte y uno frena lo que se hipoteca. Ninguno de los once decide prioridades. El eje sí.
+
+Hay una tentación que conviene desactivar acá antes de que crezca. **El Recibo del Estado** es la puerta: es lo primero que una persona ve, es el dispositivo que le devuelve a Fabiana la posición de acreedora y es, con enorme diferencia, el que mejor se explica en una sobremesa. Nada de eso lo convierte en el eje. Una puerta es por donde se entra a un edificio; no es lo que lo sostiene. Y un plan que promueve dos dispositivos a número uno no tiene dos ejes: tiene cero, porque el día del conflicto entre los dos no hay a quién preguntarle.
+
+### 3.2 Los que muestran: el Libro Mayor Abierto y el Recibo del Estado
+
+Estos dos son los únicos del PLAN que no cobran un peso ni mueven un peso. Producen un hecho, y el hecho es insumo de todos los demás. La Poda necesita saber cuánto recauda cada tributo y cuánto cuesta cobrarlo, dos números que hoy no existen juntos en ninguna parte. La devolución del IVA necesita saber qué hogar está debajo del umbral. La Fórmula necesita un padrón que alguien audite. Y la Escalera necesita ejecución, no declaración: un escalón que se revisa contra lo que el presupuesto *dice* asignar es un escalón que se cumple con una planilla.
+
+La relación es recíproca, y ahí está el punto. La información sola no cambia nada. El Estado argentino publica datos presupuestarios desde hace años y ninguna de las ocho fallas se movió un milímetro por eso. Un dato muerde solo cuando existe una regla contra la cual contrastarlo. El Libro Mayor no es transparencia: es el instrumento de verificación de la Escalera, y sin la Escalera vuelve a ser lo que ya hay — un archivo abierto que nadie consulta porque no hay nada que probar con él.
+
+Los dos miran en direcciones opuestas: uno hacia adentro del Estado, el otro hacia la relación de una persona con él. Esa asimetría es deliberada, y la Sección 5 la escribe entera y explica por qué los dos dispositivos no se fusionan.
+
+### 3.3 Los que cobran: la Poda, el IVA que Vuelve, LA MASA y la sustitución de Ingresos Brutos
+
+Los cuatro tocan la misma base y por eso ninguno se sostiene suelto.
+
+La Poda resta especies. La sustitución de Ingresos Brutos reemplaza la más dañina de todas, que además es la que sostiene la autonomía de veinticuatro jurisdicciones, de modo que restarla sin escribir el sustituto no sería una reforma sino una amputación. LA MASA impide que lo podado vuelva a nacer por afuera del reparto: sin esa regla, cada tributo que cae libera un espacio que la próxima urgencia de caja va a llenar con una especie nueva, y en veinte años la maraña se reconstruye sola con otros nombres y otra letra chica. Podar sin LA MASA no limpia el depósito: lo deja ordenado un rato.
+
+El IVA que Vuelve es el que menos parece pertenecer a este grupo y el que más lo sostiene. Una base ancha sin exenciones por producto es regresiva por construcción: el que gasta todo lo que gana paga sobre todo lo que gana. La respuesta histórica argentina fue perforar la base con exenciones, que terminan subsidiando más al que más consume y son, además, la puerta por donde entra buena parte de la maraña que la Poda tiene que sacar. La otra respuesta conocida es no tocar la base y devolverle la plata al hogar. Eso convierte a la devolución en algo que no es una compensación pegada al costado: **es lo que hace posible la base ancha**, y por lo tanto lo que hace posibles a los otros tres.
+
+### 3.4 Los que reparten: la Fórmula Abierta, el Giro Diario, el Auxilio Ciego y el Tercer Piso
+
+Estos cuatro son cuatro momentos del mismo peso. La Fórmula dice cuánto. El Giro Diario dice cuándo. El Auxilio Ciego dice qué pasa cuando la Fórmula no alcanza. El Tercer Piso dice hasta dónde baja.
+
+Sacando cualquiera de los cuatro, los otros tres degradan al régimen que este PLAN viene a reemplazar, y degradan de maneras distintas y precisas. Una fórmula sin giro automático es una fórmula cuya ejecución sigue siendo discrecional en el tiempo, y demorar es la forma barata de negar: el coeficiente se cumple igual, tres meses después, y en tres meses una provincia toma deuda de corto plazo para pagar sueldos. Un giro automático sin fórmula es la tabla de 1988 ejecutada más rápido. Una fórmula sin válvula para lo imprevisto no elimina la discrecionalidad, la deja sin instrumento: las catástrofes van a seguir ocurriendo, y un sistema que no tiene respuesta escrita para ellas va a improvisar una que se va a parecer mucho a la que se acaba de derogar. Y una fórmula que se detiene en la provincia reproduce un piso más abajo el problema que resolvió arriba — el municipio sin base propia sigue cobrando donde puede, que es la boleta de la luz de Fabiana.
+
+### 3.5 El que ata las manos hacia adelante: la Deuda con Nombre
+
+Es el único de su familia, y esa soledad es descriptiva. Los otros diez actúan sobre el presente: sobre lo que se cobra este año, sobre lo que se reparte este mes, sobre lo que se muestra hoy. La deuda es el instrumento por el cual un gobierno del presente gasta plata del futuro, y ninguno de los otros diez la alcanza.
+
+Sin este dispositivo la Escalera tiene una salida de emergencia demasiado obvia. Un piso que no se puede bajar se puede honrar con plata prestada: el escalón queda cumplido, el Libro Mayor lo registra cumplido, y la restricción fiscal que el Techo declaraba no existió — se corrió diez años para adelante y le cambiaron el nombre. La Deuda con Nombre cierra esa puerta obligando a que cada emisión declare el activo que financia, el plazo, y quién la va a pagar.
+
+Es también el único dispositivo del PLAN cuyo beneficiario todavía no nació, y por lo tanto el único que no va a tener a nadie que lo defienda el día que estorbe. Por eso se escribe con nombres propios y no con principios: un principio se reinterpreta, una firma no.
+
+### 3.6 Por qué el conjunto se sostiene
+
+La prueba de si algo es un sistema o una lista es simple: se saca una pieza y se mira si las demás siguen funcionando. En una lista, sí. Acá, no, y conviene decir exactamente cómo falla cada resta.
+
+Sin el Libro Mayor, la Escalera no se puede auditar y sus escalones se cumplen en el papel. Sin LA MASA, la Fórmula reparte con precisión decimal una masa que se vacía por arriba inventando especies que no entran a ella. Sin el Giro Diario, la Fórmula existe pero su ejecución vuelve a ser una decisión. Sin la Deuda con Nombre, el Techo se cumple con plazo en vez de con plata. Sin el IVA que Vuelve, la base ancha no sobrevive a su primera elección. Y sin la Escalera, los otros diez funcionan uno por uno y compiten entre ellos sin orden declarado, que es la situación actual con mejor tecnología.
+
+El **Consejo Federal Fiscal** no es un doceavo dispositivo: es la mano que opera los once. Administra la cuenta única, el padrón y su auditoría, la Fórmula, el Libro Mayor y la Escalera. Su legitimidad no la construye este PLAN — se la da un incumplimiento que la Sección 0 ya fechó, y la Sección 7 lo desarrolla entero.
+
+Queda una distinción que este documento necesita hacer explícita, porque su ausencia es lo que hace que un plan suene a lista. Hay tres «primeros» y no son el mismo. El primero que se construye es el Libro Mayor, porque se levanta por decreto sobre sistemas que ya existen. El primero que una persona ve es el Recibo. Y el primero en importancia es la Escalera, que ni se construye antes ni se ve primero, pero es lo único que decide. Confundir el orden de obra con el orden de importancia es cómo se termina con once reformas que se sancionan sueltas y se degradan sueltas.
+
+El número uno es la Escalera. Lo que sigue es la Escalera.
+
+---
+
+## SECCIÓN 4: LA ESCALERA Y EL TECHO
+
+> *"Un piso que no se puede bajar no protege a nadie mientras no esté escrito cuál baja primero. La Escalera es esa frase: se escribe el año en que sobra y se usa el año en que falta."*
+
+### 4.1 Los veintidós pisos, fila por fila
+
+> *«Ninguno de los tres números que circulan en nuestros propios papeles es correcto. Que el proyecto no supiera cuánto pedía es el mejor argumento a favor de este PLAN.»*
+
+Los tres números tienen domicilio y conviene darlo, porque un número sin domicilio no se puede corregir. El primero es **2,45% del PBI**, en `BLINDAJE_INSTITUCIONAL_BASTA.md:28`. El segundo es el que la falla 0.6 ya citó como la cifra que el corpus venía declarando en voz alta, y vive en `PRESUPUESTO_CONSOLIDADO_BASTA.md:193`: sale de una tabla de doce agencias, escrita antes de que existieran los PLANes 17 a 22, que además dejaba afuera a PLANSAL y al LANEF. El tercero es **6,45–8,44%**, y no estaba escrito en ningún papel: era lo que devolvía el grafo de `arquitecto-data.ts` cuando se le pedía la suma, con tres nodos mal cargados.
+
+Esta es la cuenta, fila por fila, transcripta de lo que cada documento declara en su propio texto. No hay estimación en esta tabla: cada valor es el que su PLAN escribió.
+
+| PLAN | Materia | Piso declarado (% del PBI) | Dónde lo declara |
+|---|---|---|---|
+| PLANJUS | Justicia popular | 0,25 – 0,30 | 1% del presupuesto nacional; `PRESUPUESTO_CONSOLIDADO` nota (1) |
+| PLANEB | Empresas bastardas | 0,10 | `PLANEB` |
+| PLANDIG | Soberanía digital | 0,50 – 1,00 | 0,50 inicial, 1,00 meta |
+| PLANSUS | Soberanía sobre sustancias | 0,10 | `PLANSUS` |
+| PLANEDU | Refundación educativa | 0,50 | adicional al sistema existente |
+| PLANSAL | Salud integral y vitalidad | 0,50 – 1,50 | 5% inicial a 15% del gasto en salud; nota (2) |
+| PLANISV | Infraestructura de suelo vivo | 0,10 | `PLANISV` |
+| PLANAGUA | Soberanía hídrica | 0,15 | `PLANAGUA` |
+| PLANEN | Soberanía energética | 0,70 | ANEN 0,50 + LANEF 0,20; `PLANEN:1471`, `:791`, `:1489` |
+| PLANSEG | Seguridad ciudadana | 1,50 | `PLANSEG:1052`, `:1200`, `:1308` |
+| PLANVIV | Vivienda digna | 2,00 | 2% del PBI / 8% del presupuesto nacional |
+| PLANMESA | Mesa Civil | 0,07 | `PLANMESA` |
+| PLANTALLER | Talleres federales | 0,10 | `PLANTALLER:607` |
+| PLANCUIDADO | Cuidado y vínculo | 0,45 | `PLANCUIDADO:515`, `:591` |
+| PLANMEMORIA | Memoria operativa | 0,10 – 0,14 | `PLANMEMORIA` |
+| PLANTER | Tierra, subsuelo y pueblos originarios | 0,20 | `PLANTER` |
+| PLANMOV | Movilidad, logística y conectividad | 0,50 | `PLANMOV` |
+| **Total — los diecisiete pisos declarados** | | **7,82 – 9,41** | punto medio **8,62** |
+
+Los otros cinco de los veintidós no reclaman piso: **PLANREP**, **PLANMON**, **PLAN24CN**, **PLANGEO** y **PLANCUL**. Los cuatro primeros por arquitectura — se financian con presupuesto directo, con recursos propios o con instrumentos que no requieren afectación. PLANCUL, por filosofía declarada: la cultura se financia desde la comunidad y no desde el Estado, y su documento lo dice sin que nadie se lo pidiera. Vale registrarlo porque es el único de los veintidós que resolvió por decisión propia el problema que esta sección resuelve por regla.
+
+Y una advertencia sobre la columna del medio, porque el resto de la sección va a apoyarse en ella: **cuatro de los diecisiete pisos —PLANSAL, PLANDIG, PLANJUS y PLANMEMORIA— están escritos como rango y no como número.** Eso significa que la pila no admite un valor único sin que alguien elija primero de qué extremo se parte, y esa elección no la hizo nadie. Este documento tampoco la va a hacer de contrabando: cada vez que necesite un valor único va a decir cuál usa y por qué.
+
+### 4.2 El Techo, partido en dos
+
+El corpus arrastraba un solo techo, y ese fue el error de origen: mezclaba en un mismo número la rigidez que el país ya tiene con la que este proyecto quiere agregar. Un techo así mide algo que el proyecto no controla, y por lo tanto no puede prometer nada sobre él. El Techo se parte en dos, y cada mitad tiene un régimen distinto.
+
+**Techo A — la rigidez total.** 80% del gasto consolidado *con intereses*, bajando un punto por año hasta 70% en el año diez. Incluye todo: previsional, salarios, intereses, transferencias automáticas, afectaciones viejas y nuevas. Es un **objetivo de convergencia, no un disparador**. Nada se suspende por tocar el Techo A, porque casi todo lo que lo compone es anterior a este PLAN y buena parte no es suspendible por ley ordinaria. Un techo que dispara sobre lo que no puede tocar no es una regla: es una promesa incumplible con formato de norma, y el corpus ya tiene una de esas.
+
+**Techo B — la afectación nueva.** 7–8% del gasto primario consolidado. **Es lo único que este PLAN controla de verdad**, y por eso es el único lugar donde se aplica el orden inverso de sanción, el LIFO: cuando la afectación total supera el Techo B, la primera que se suspende es la última que se sancionó, y así hacia atrás hasta volver debajo del límite. La regla no es elegante ni justa por sí misma. Es la única que no se puede negociar el día que se aplica, porque su criterio es una fecha, y las fechas no se argumentan. **El LIFO nunca se aplica sobre el Techo A.**
+
+**Los servicios de deuda salen del numerador del Techo B.** Los intereses no son gasto primario, y no se puede poner en el numerador algo que el denominador excluye por definición. Ese error, cometido a escala, es lo que produce ratios que empeoran cuando la situación mejora.
+
+**El agregado se fija por ley, y es el término indefinido más caro de este PLAN.** Decir «rigidez del 66%» sin decir sobre qué, es no decir nada: la misma Argentina, el mismo día, mide **66,3%** sobre gasto consolidado con intereses, **63,3%** sobre gasto primario consolidado sin intereses y **81,6%** sobre el presupuesto nacional solo. Tres números legítimos, tres conclusiones opuestas, y ningún papel del corpus aclaraba cuál estaba usando. La ley que sancione el Techo tiene que fijar el agregado en su artículo primero, antes de fijar el porcentaje.
+
+### 4.3 La cuenta que muestra por qué el 65% no servía
+
+El corpus proponía un techo de rigidez del 65% y lo trataba como holgado. La cuenta que lo desarma es de una línea.
+
+Sea `R = (P + F) / (G + F)`, con **P** la rigidez preexistente, **G** el gasto público consolidado y **F** los pisos y afectaciones nuevas que ¡BASTA! agregue. F suma en el numerador *y* en el denominador, porque un piso es gasto atado y el gasto atado también es gasto. Como **G > P** siempre —ningún país tiene más gasto rígido que gasto—, agregar F acerca el cociente a uno: **R crece con F, sin excepción**. Cada piso nuevo empeora el ratio. Incluso un piso chico. Incluso un piso que se financie enteramente con reasignación.
+
+Y el punto de partida ya estaba del otro lado de la raya:
+
+| Escenario | P — rigidez previa | G — gasto consolidado | R con F = 0 |
+|---|---|---|---|
+| Favorable | 20,8 | 33,3 | 62,5% |
+| **Central** | **23,15** | **34,9** | **66,3%** |
+| Adverso | 25,5 | 36,5 | 69,9% |
+
+En el escenario central, la Argentina está hoy en **66,3% de rigidez con cero pisos ¡BASTA! sancionados**. El techo del 65% no se supera cuando el proyecto avanza: está superado antes de que el proyecto empiece, y lo estaba mientras el corpus lo citaba como margen disponible.
+
+La prueba por el absurdo termina de cerrarlo. Para que un piso de 3,5 puntos del producto —la versión anterior de este mismo número— más las afectaciones que el corpus ya tenía escritas entraran debajo del 65%, haría falta un gasto público consolidado de **42,8% del PBI**. Ese no es un nivel hipotético ni un ejercicio de laboratorio: es el nivel argentino de 2015–2023. Dicho con todas las letras, **el Techo del 65% estaba calibrado contra un país que ya no existe**, y estaba calibrado así sin que nadie lo supiera, porque la cuenta no se había hecho nunca.
+
+### 4.4 El piso único: 2,40, y por qué se mide en gasto y no en producto
+
+PLANPACTO propone un piso constitucional único de **2,40**, expresado como **7–8% del gasto primario consolidado**. En el escenario central de la cuenta anterior eso equivale a 2,40% del producto, y ese es el número comparable contra la pila de la tabla de más arriba.
+
+**La unidad no es un detalle de redacción: es la mitad del dispositivo.** En recesión el producto cae rápido y el gasto es pegajoso — cae después, cae menos y cae con conflicto. Un piso escrito en porcentaje del PBI baja automáticamente en pesos el año en que el PBI baja, que es exactamente el año en que hay más chicos sin comer y más gente sin cobertura. El corpus repite en varios documentos que un piso en porcentaje del PBI «se ajusta solo», y lo declara un mitigante del riesgo fiscal. **Es al revés**: se ajusta solo en contra del que el piso protege, y este documento tiene que decirlo porque el error está escrito con la firma del proyecto. Un piso atado al gasto primario, en cambio, se defiende adentro de la misma torta que se está achicando: si el gasto cae, el escalón cae en proporción y no más; y si el gasto se sostiene con endeudamiento, el escalón no se beneficia de eso, porque los intereses ya salieron del agregado.
+
+El 2,40 tampoco es un número elegido para que la cuenta cierre. Coincide con el costo neto de régimen que el propio corpus había estimado por otro camino —2,17–2,92%, en `PRESUPUESTO_CONSOLIDADO_BASTA.md:296`— y con el 2,45% de `BLINDAJE_INSTITUCIONAL_BASTA.md:28`. Tres caminos independientes llegan al mismo lugar. La versión anterior de 3,5 puntos no la tocaba ninguno de los tres.
+
+**El piso es bruto y es sustitutivo, y esto tiene que quedar escrito sin eufemismo: el piso único de 2,40 sustituye a los diecisiete pisos declarados. No se agrega a ellos.** Sin esa palabra escrita, la lectura aditiva es perfectamente legítima —los diecisiete siguen en sus documentos y nadie los derogó— y entonces el piso único deja de ser el techo de la pila para volverse un piso más de la pila: 9,41 arriba, 2,40 encima, casi doce puntos del producto atados, y la cuenta que este PLAN vino a cerrar reabierta más arriba de donde estaba.
+
+Y **las afectaciones específicas van adentro del piso, no arriba.** Cualquier asignación con destino atado que un PLAN quiera crear consume escalón: entra a la Escalera, ocupa lugar y desplaza a lo que está debajo. Si se permitiera que una afectación viviera afuera del piso con el argumento de que «no es un piso constitucional sino una afectación», la Escalera se llenaría por la puerta de atrás, el Techo B se cumpliría en el papel mientras la rigidez real crece, y el LIFO quedaría decorativo: suspendería lo único que entró por la puerta de adelante.
+
+### 4.5 La Escalera, definida por lo que conserva
+
+Casi todas las reglas fiscales del mundo se escriben como recortes, y por eso casi todas se discuten como pérdidas y se derogan cuando la pérdida duele. La Escalera está escrita al revés: **define lo que se conserva, en qué orden, y hasta dónde.** Lo que queda debajo de la línea no está prohibido — está sin blindaje, que es una cosa distinta y bastante más honesta.
+
+Este es el orden, y esto es lo que queda en pie en cada escalón. Las cifras son puntos del piso único, y su suma es el piso único.
+
+| Escalón | Materia | Conserva | Acumulado |
+|---|---|---|---|
+| 1 | Agua y alimento — AGUA + ISV | 0,25 | 0,25 |
+| 2 | Salud de base — SAL, el piso inicial y no la meta del 15% | 0,50 | 0,75 |
+| 3 | Educación obligatoria — EDU | 0,45 | 1,20 |
+| 4 | Techo — VIV | 0,50 | 1,70 |
+| 5 | Cuidado y arco — CUIDADO | 0,25 | 1,95 |
+| 6 | Justicia — JUS | 0,20 | 2,15 |
+| 7 | Deliberación y memoria — MESA + MEMORIA | 0,15 | 2,30 |
+| 8 | Seguridad — SEG | 0,10 | **2,40** |
+
+**═══ LÍNEA DEL TECHO: 2,40 ═══**
+
+Debajo de la línea no queda piso. **PLANDIG, PLANEN, PLANMOV, PLANTER, PLANTALLER, PLANEB y PLANSUS pierden el suyo entero**, y pasan a financiarse por afectación temporal de hasta ocho años, renovable por ley. No es una degradación silenciosa ni un recorte disimulado: es la diferencia entre un derecho blindado y una política pública que hay que volver a defender cada ocho años ante quienes la pagan. Siete PLANes del proyecto quedan de ese lado, y el proyecto lo escribe él mismo, en su propio documento, antes de que se lo escriba un adversario.
+
+Sobre el orden hay tres cosas que la tabla no dice sola. El **escalón 1 no recorta nada**: PLANAGUA declara 0,15, PLANISV declara 0,10, y el escalón conserva los 0,25 completos. Es el más barato de los ocho y el primero de los ocho, y las dos cosas juntas no son casualidad — un país que no puede garantizar agua y comida no tiene ninguna otra discusión pendiente.
+
+Los dos recortes grandes no hay que defenderlos acá: los defiende el propio corpus, por escrito, en el mismo documento que fijó los pisos. De **PLANSEG**, `PRESUPUESTO_CONSOLIDADO_BASTA.md:162` declara que de su piso de 1,50 el costo fiscal nuevo neto es de apenas 0,05–0,10, porque entre 1,40 y 1,45 son reasignación de gasto de seguridad **que ya se ejecuta**. Blindar plata que ya se gasta no protege nada: consume Techo sin agregar garantía. El escalón 8 conserva 0,10, que es exactamente el extremo alto de lo que el propio corpus declaró como costo nuevo. De **PLANVIV**, la nota (4) del mismo documento dice que los repagos hipotecarios de la Bastarda Inmobiliaria y los fees del ecosistema Housing OS hacen decrecer el costo fiscal neto a partir del año cinco. Un piso de 2,00 blindaría contra un riesgo que el propio diseño del PLAN se ocupó de disolver.
+
+**Cuánto se recorta, y por qué no hay una tabla que lo itemice por PLAN.** El recorte total es el residuo contra lo que hoy se reclama, y lo que hoy se reclama no es un número: **5,42 puntos** contra el extremo bajo de 7,82, **6,22** contra el punto medio de 8,62, **7,01** contra el extremo alto de 9,41. Ese es el orden de magnitud, y no se puede dar con más precisión que esa sin mentir. Una tabla de recortes por PLAN exigiría un valor único para cada uno de los diecisiete, y cuatro de los diecisiete no lo tienen: elegir un extremo para esos cuatro y el valor declarado para los otros trece mezcla dos bases distintas en la misma columna y produce un total que cierra por construcción y no por cuenta. **Este documento existe porque el proyecto arrastró durante meses una cifra que nadie había verificado. No va a estrenar otra, y menos en la sección que denuncia esa práctica.** Lo que sí está fijo, verificado y sumado es lo que la Escalera conserva: 2,40 exacto, y el orden en que lo conserva.
+
+### 4.6 Quién fija el orden de la Escalera
+
+El orden de la Escalera no lo fija la Mesa Civil. Decir lo contrario sería falso además de inconstitucional: `PLANMESA:16` define a la Mesa Civil como **consulta no vinculante**, y el artículo 75 inciso 8 de la Constitución le da al Congreso la fijación del presupuesto. Un PLAN que se atribuyera esa competencia estaría prometiendo algo que no puede entregar — y prometer de más es, literalmente, la causa de muerte de los tres acuerdos fiscales anteriores.
+
+El mecanismo real tiene cuatro pasos y ninguno inventa una atribución nueva. La **Mesa Civil de materia fiscal delibera sobre el orden de los escalones y publica dictamen**, con sus fundamentos y con el detalle de las posiciones minoritarias. El **Consejo Federal Fiscal lo eleva** al Congreso junto con su propio informe técnico y con la ejecución del período. El **Congreso sanciona la Ley de Escalera de Garantías**, que es donde el orden se vuelve derecho exigible. Y la Escalera es **revisable cada ocho años**: plazo elegido para que ningún período de gobierno la abra dos veces, y para que ninguna generación quede atada al orden que eligió la anterior.
+
+Falta la pieza que hace que una consulta no vinculante muerda, y es una sola línea: **el dictamen que el Congreso resuelva no seguir se publica junto con el voto nominal de cada legislador**, en el mismo acto y en el mismo lugar. No obliga a nadie a votar de una manera. No convierte la consulta en referéndum. No le saca al Congreso nada de lo que el artículo 75 le dio. Lo único que hace es que apartarse del dictamen tenga un costo del tamaño exacto de lo que cada legislador esté dispuesto a defender con su nombre. Una consulta no vinculante que nadie publica es un formulario; una que se publica al lado del voto es una restricción real que no usurpa ninguna competencia.
+
+### 4.7 La Regla de Arco: el eje intergeneracional va adentro
+
+La última pieza de la Escalera no es una materia sino un eje, y entra **adentro**, no al costado.
+
+El problema, escrito antes de que ocurra: la Escalera comprime por materia, y una regla de reparto intergeneracional comprime por edad. Son dos criterios de prioridad distintos aplicados al mismo peso. En el papel no se contradicen; se contradicen en la primera recesión, cuando conservar el escalón 2 completo obliga a sacrificar el tramo del arco que ese mismo escalón atiende en uno de los dos extremos de la vida. Dos reglas de reparto sin árbitro no producen dos decisiones: producen una decisión discrecional con dos fundamentos disponibles para justificarla, que es peor que no tener ninguna regla, porque además queda documentada como principista.
+
+El árbitro es de nivel, y por eso funciona. **La Escalera ordena entre escalones; la Regla de Arco ordena adentro de cada escalón.** Ningún escalón puede conservarse concentrando lo que le queda en un solo tramo de la vida: cada uno declara, en la Ley de Escalera de Garantías, cómo reparte lo que conserva entre el inicio, el medio y el final del arco, y esa declaración se verifica en el Libro Mayor con la misma frecuencia que el resto. Cuando materia y edad entran en conflicto, la materia decide el escalón y el arco decide adentro del escalón. Nunca al revés, y nunca en paralelo.
+
+De acá se sigue una consecuencia para el PLAN que viene. **PLANARCO remite a esta sección y no escribe su propia regla de reparto**: su eje intergeneracional es el que está definido acá, y el escalón 5 —cuidado y arco— es donde se ve primero. Un PLAN del arco de la vida que trajera su propia escalera obligaría al país a elegir entre dos garantías escritas por el mismo proyecto, que es exactamente la falla que esta sección entera existe para no cometer.
+
+---
