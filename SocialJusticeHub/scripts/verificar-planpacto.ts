@@ -20,6 +20,8 @@ import { fileURLToPath } from 'node:url';
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '../..');
 const DOC = resolve(REPO_ROOT, 'Iniciativas Estratégicas/PLANPACTO_Argentina_ES.md');
+/** Única fuente canónica de los pisos declarados. La guardia cruza la tabla del documento contra ella. */
+const CANON_PISOS = resolve(SCRIPT_DIR, '../tests/unit/pisos-constitucionales.test.ts');
 
 /** Los H2 que el documento tiene que tener, en este orden. Las tareas lo extienden. */
 const SECCIONES_ESPERADAS: string[] = [
@@ -50,12 +52,14 @@ const SECCIONES_ESPERADAS: string[] = [
  * Cifras verificadas en el tramo A que el documento no puede contradecir.
  * Fuente: v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md sección 2, y
  * SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts.
+ *
+ * OJO — 7,82, 9,41, 2,40 y 8,62 **no** viven acá. Un `includes()` sobre el archivo
+ * entero los encuentra en la tesis y en los residuos aunque las tablas ya no los
+ * produzcan: se puede romper el escalón 4, el piso de PLANVIV y el total de la
+ * tabla de pisos, los tres a la vez, y la guardia seguir en verde. Esos cuatro
+ * números se verifican sumando las tablas — ver verificarTablas().
  */
 const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
-  { valor: '7,82', porQue: 'extremo bajo de los pisos que los 22 reclaman, % del PBI' },
-  { valor: '9,41', porQue: 'extremo alto de los pisos que los 22 reclaman, % del PBI' },
-  { valor: '2,40', porQue: 'el piso único que PLANPACTO propone, % del gasto primario consolidado' },
-  { valor: '8,62', porQue: 'punto medio de los pisos reclamados, % del PBI' },
   { valor: 'sustituye', porQue: 'el piso único es sustitutivo: sin esa palabra la lectura aditiva es legítima' },
   {
     valor: 'El Estado es de vidrio y el ciudadano es opaco',
@@ -87,6 +91,173 @@ const PROHIBIDOS: { patron: RegExp; porQue: string }[] = [
     porQue: 'marcador de borrador: el documento se commitea sin secciones a medio escribir',
   },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Las dos tablas que el documento existe para fijar: se parsean y se suman.
+// Buscar los totales como string no sirve — siguen apareciendo en la prosa.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Centésimas enteras: la aritmética en punto flotante sobre 0,07 no cierra. */
+const c = (n: number): number => Math.round(n * 100);
+const fmt = (cent: number): string => (cent / 100).toFixed(2).replace('.', ',');
+
+/** Celdas de una fila markdown, sin negritas ni bordes. */
+function celdas(linea: string): string[] {
+  return linea
+    .replace(/\*\*/g, '')
+    .split('|')
+    .slice(1, -1)
+    .map((s) => s.trim());
+}
+
+/** «0,25 – 0,30» → [25, 30]; «0,10» → [10, 10]; «0.25-0.30% PBI» → [25, 30]. */
+function rango(celda: string): [number, number] | null {
+  const nums = celda.replace(',', '.').replace(/(\d)\s*[–—-]\s*(\d)/g, '$1|$2').split('|');
+  const vals = nums.map((s) => {
+    const m = /-?\d+(?:[.,]\d+)?/.exec(s.replace(',', '.'));
+    return m ? Number(m[0]) : NaN;
+  });
+  if (vals.length === 0 || vals.some(Number.isNaN)) return null;
+  const bajo = c(vals[0]);
+  const alto = c(vals.length > 1 ? vals[vals.length - 1] : vals[0]);
+  return [bajo, alto];
+}
+
+/** Las filas de la primera tabla cuya cabecera contiene todas las columnas pedidas. */
+function filasDeTabla(lineas: string[], columnas: string[]): string[][] | null {
+  const i = lineas.findIndex(
+    (l) => l.trim().startsWith('|') && columnas.every((col) => l.includes(col)),
+  );
+  if (i === -1) return null;
+  const filas: string[][] = [];
+  for (let j = i + 1; j < lineas.length; j++) {
+    const l = lineas[j].trim();
+    if (!l.startsWith('|')) break;
+    if (/^\|[\s:|-]+\|$/.test(l)) continue; // separador
+    filas.push(celdas(l));
+  }
+  return filas;
+}
+
+/** `PISOS_SEGUN_EL_TALLER` del test canónico: PLAN → [bajo, alto] en centésimas. */
+function pisosDelCanon(): Map<string, [number, number]> {
+  const src = readFileSync(CANON_PISOS, 'utf8');
+  const bloque = /const PISOS_SEGUN_EL_TALLER[^{]*\{([\s\S]*?)\n\};/.exec(src);
+  const out = new Map<string, [number, number]>();
+  if (!bloque) return out;
+  const re = /(PLAN[A-Z0-9]+):\s*\{\s*floor:\s*'([^']+)'/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(bloque[1])) !== null) {
+    const r = rango(m[2]);
+    if (r) out.set(m[1], r);
+  }
+  return out;
+}
+
+/** (a) Escalera, (b) pisos, (c) cruce contra el canon. Devuelve los errores. */
+function verificarTablas(lineas: string[]): string[] {
+  const errores: string[] = [];
+
+  // (a) La Escalera: ocho escalones, «Conserva» suma 2,40 y «Acumulado» es la corrida.
+  const esc = filasDeTabla(lineas, ['Escalón', 'Conserva', 'Acumulado']);
+  if (!esc) {
+    errores.push('no se encontró la tabla de la Escalera (columnas Escalón/Conserva/Acumulado)');
+  } else if (esc.length !== 8) {
+    errores.push(`la Escalera tiene ${String(esc.length)} escalones y se esperaban 8`);
+  } else {
+    let corrida = 0;
+    esc.forEach((fila, i) => {
+      const conserva = rango(fila[2]);
+      const acumulado = rango(fila[3]);
+      if (!conserva || !acumulado) {
+        errores.push(`escalón ${String(i + 1)}: no se pudo leer «${fila[2]}» / «${fila[3]}»`);
+        return;
+      }
+      corrida += conserva[0];
+      if (acumulado[0] !== corrida) {
+        errores.push(
+          `escalón ${String(i + 1)}: Acumulado dice ${fmt(acumulado[0])} y la suma corrida da ${fmt(corrida)}`,
+        );
+      }
+    });
+    if (corrida !== c(2.4)) {
+      errores.push(`la columna Conserva suma ${fmt(corrida)} y el piso único es 2,40`);
+    }
+  }
+
+  // (b) Los diecisiete pisos: suman 7,82 – 9,41, punto medio 8,62.
+  const pisos = filasDeTabla(lineas, ['PLAN', 'Piso declarado', 'Dónde lo declara']);
+  const delDoc = new Map<string, [number, number]>();
+  let totalDeclarado: [number, number] | null = null;
+  let medioDeclarado: number | null = null;
+
+  if (!pisos) {
+    errores.push('no se encontró la tabla de los pisos (columnas PLAN/Piso declarado)');
+  } else {
+    for (const fila of pisos) {
+      if (/^Total/i.test(fila[0])) {
+        totalDeclarado = rango(fila[2]);
+        const pm = /punto medio\s*([\d,]+)/i.exec(fila[3] ?? '');
+        medioDeclarado = pm ? c(Number(pm[1].replace(',', '.'))) : null;
+        continue;
+      }
+      const r = rango(fila[2]);
+      if (!r) {
+        errores.push(`${fila[0]}: no se pudo leer el piso «${fila[2]}»`);
+        continue;
+      }
+      delDoc.set(fila[0], r);
+    }
+
+    if (delDoc.size !== 17) {
+      errores.push(`la tabla de pisos tiene ${String(delDoc.size)} filas y se esperaban 17`);
+    }
+    const bajos = [...delDoc.values()].reduce((a, [b]) => a + b, 0);
+    const altos = [...delDoc.values()].reduce((a, [, x]) => a + x, 0);
+    const medio = Math.round((bajos + altos) / 2);
+
+    if (bajos !== c(7.82)) errores.push(`los pisos suman ${fmt(bajos)} en el extremo bajo, y el canon es 7,82`);
+    if (altos !== c(9.41)) errores.push(`los pisos suman ${fmt(altos)} en el extremo alto, y el canon es 9,41`);
+    if (medio !== c(8.62)) errores.push(`el punto medio calculado da ${fmt(medio)} y el canon es 8,62`);
+
+    if (!totalDeclarado) {
+      errores.push('la tabla de pisos no tiene fila de total legible');
+    } else if (totalDeclarado[0] !== bajos || totalDeclarado[1] !== altos) {
+      errores.push(
+        `la fila de total dice ${fmt(totalDeclarado[0])} – ${fmt(totalDeclarado[1])} y las filas suman ${fmt(bajos)} – ${fmt(altos)}`,
+      );
+    }
+    if (medioDeclarado === null) {
+      errores.push('la fila de total no declara punto medio');
+    } else if (medioDeclarado !== medio) {
+      errores.push(`la fila de total declara punto medio ${fmt(medioDeclarado)} y el cálculo da ${fmt(medio)}`);
+    }
+  }
+
+  // (c) El cruce con la única fuente canónica: tests/unit/pisos-constitucionales.test.ts.
+  const canon = pisosDelCanon();
+  if (canon.size === 0) {
+    errores.push(`no se pudo leer PISOS_SEGUN_EL_TALLER de ${CANON_PISOS}`);
+  } else if (delDoc.size > 0) {
+    for (const [plan, [bajo, alto]] of canon) {
+      const doc = delDoc.get(plan);
+      if (!doc) {
+        errores.push(`${plan}: está en el canon del taller y no en la tabla del documento`);
+        continue;
+      }
+      if (doc[0] !== bajo || doc[1] !== alto) {
+        errores.push(
+          `${plan}: el documento declara ${fmt(doc[0])}–${fmt(doc[1])} y el canon ${fmt(bajo)}–${fmt(alto)}`,
+        );
+      }
+    }
+    for (const plan of delDoc.keys()) {
+      if (!canon.has(plan)) errores.push(`${plan}: está en la tabla del documento y no en el canon del taller`);
+    }
+  }
+
+  return errores;
+}
 
 function main(): void {
   let raw: string;
@@ -130,7 +301,10 @@ function main(): void {
     }
   }
 
-  // 4) La cabecera de auditoría, una sola vez y al principio.
+  // 4) Las dos tablas: parseadas y sumadas, no buscadas como string.
+  errores.push(...verificarTablas(lineas));
+
+  // 5) La cabecera de auditoría, una sola vez y al principio.
   const cabeceras = lineas.filter((l) => l.startsWith('> **CANONICAL_ARCHITECTURE:**')).length;
   if (cabeceras !== 1) {
     errores.push(`se esperaba 1 línea CANONICAL_ARCHITECTURE en la cabecera, hay ${String(cabeceras)}`);
@@ -144,7 +318,9 @@ function main(): void {
 
   console.log(
     `PLANPACTO OK: ${String(SECCIONES_ESPERADAS.length)} secciones, ` +
-      `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(lineas.length)} líneas.`,
+      `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(lineas.length)} líneas. ` +
+      'Escalera: 8 escalones que suman 2,40. Pisos: 17 filas que suman 7,82–9,41 (medio 8,62), ' +
+      'cruzados contra PISOS_SEGUN_EL_TALLER.',
   );
 }
 
