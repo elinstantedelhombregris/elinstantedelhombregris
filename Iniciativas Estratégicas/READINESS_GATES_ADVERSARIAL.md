@@ -200,6 +200,14 @@
 | 2 | Conflicto AMBA-provincias en línea L3 | Acuerdo interjurisdiccional documentado pre-launch + mediación neutral | Cabeza PLANMOV + Director PEO | USD 30M | Disputa formal entre CABA y Provincia BA |
 | 3 | Escándalo AV (línea L4 research) | Mantener research-only; sin operación pública; auditoría externa de research | Cabeza PLANMOV + Oficial Seguridad | USD 5M | Filtración de operación AV no autorizada |
 
+### PLANPACTO
+
+| # | Attack path | Mitigación | Owner | Fallback budget | Indicador de activación |
+|---|-------------|------------|-------|-----------------|-------------------------|
+| 1 | No ratificación de la ley-convenio (Fase 2 nunca llega) | Fase 0 partida: núcleo unilateral por decreto (Libro Mayor + mitad nacional del Recibo) que no requiere ratificación; Fórmula en modo sombra publicada igual; corte Fase 0 / Fase 2 declarado en la Sección 11 | Oficial Legal PEO + Cabeza PLANPACTO | Núcleo unilateral, dentro de la banda de régimen (USD 500-700M/año); sin partida adicional | 12 legislaturas sin tratamiento a 24 meses de elevada la ley-convenio |
+| 2 | Reversión por decreto de la Fase 0 | Adhesión con caja desde el día uno (adherir paga, desadherir cuesta); convenio que subsiste sin la Nación; feed de datos por ley con obligación de espejo; el Libro Mayor sobre reforma de la Ley 24.156, que sólo cae con otra ley | Director PEO + Oficial Legal PEO | Dentro de la banda de régimen; el litigio por incumplimiento del convenio no está costeado aparte | 1 decreto que derogue la publicación de datos fiscales abiertos, o 2 provincias que desadhieran en 12m |
+| 3 | Captura del padrón poblacional | INDEC produce con registro civil y ARCA como contraste; auditoría anual por muestreo en terreno con equipos sorteados entre jurisdicciones distintas de la auditada; doble mayoría del CFF para certificar; microdatos y metodología publicados; impugnación abierta que no congela el giro | Oficial Evaluación PEO + sala del Padrón y la Fórmula del CFF | Dentro de la banda de régimen; un recuento extraordinario excede la banda y no está costeado | 1 impugnación de padrón con diferencia >5% confirmada, o intervención del organismo que produce el padrón |
+
 ---
 
 ## Cierre

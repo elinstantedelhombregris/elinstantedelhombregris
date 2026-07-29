@@ -34,6 +34,10 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 5: LO QUE SE COBRA',
   '## SECCIÓN 6: LO QUE SE REPARTE',
   '## SECCIÓN 7: EL CONSEJO FEDERAL FISCAL (CFF)',
+  '## SECCIÓN 8: MODELO ECONÓMICO Y FISCAL',
+  '## SECCIÓN 9: RIESGOS Y RESPUESTAS',
+  '## SECCIÓN 10: EL MAPA DE PERDEDORES',
+  '## SECCIÓN 11: HOJA DE RUTA',
   '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
 ];
 
@@ -51,6 +55,12 @@ const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
   {
     valor: 'El Estado es de vidrio y el ciudadano es opaco',
     porQue: 'la frase que separa el Libro Mayor del Recibo (arreglo 6)',
+  },
+  {
+    valor: 'RIGI',
+    porQue:
+      'el régimen que congela por 30 años la estructura que el PLAN reescribe; PLANPACTO no lo nombraba ni una vez. ' +
+      'Ojo: sí está en el corpus — PLANTER 0.2, CASCADA_LEGAL L.N-10, READINESS_GATES fila PLANTER',
   },
 ];
 

@@ -14,6 +14,8 @@
 >
 > **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo; la Fase 0 no requiere ley-convenio ni reforma constitucional; el PLAN vale aunque la Fase 2 no llegue nunca.
 >
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANPACTO. Vinculante para promoción de tranche.
+>
 > **PIA gate:** ver `PIA/PLANPACTO.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
 >
 > **Opinión legal:** ver `LEGAL_OPINIONS/PLANPACTO.md` si existe.
@@ -634,6 +636,74 @@ El Consejo Federal Fiscal **es el organismo fiscal federal que el artículo 75 i
 **Cuánto cuesta.** **USD 500–700 millones por año en régimen, que sobre el producto de referencia de USD 500.000 millones que la falla 0.3 usa da 0,10–0,14% del PBI.** La banda la fija la cabecera de este documento y no se elige acá; el porcentaje sale de esa división. Y hay algo que conviene decir para que nadie lo cuente dos veces: **ese es el presupuesto de régimen del PLAN entero, no un renglón adicional.** La banda de transición que la cabecera fija aparte —del orden del doble contra el extremo alto— es en su mayor parte el Fondo de Compensación de la Sección 5.6, que es otro número, otro destino y otro período.
 
 **Y si la Fase 2 no llega.** El CFF se constituye en la Fase 0 por decreto y convenios de adhesión, sin ley-convenio, y hace todo lo que no requiere ratificación de veinticuatro legislaturas: aloja el Libro Mayor, publica el inventario de detracciones, produce y audita el padrón, y corre la Fórmula en modo sombra publicando cada mes cuánto le habría tocado a cada jurisdicción contra cuánto recibió. Lo que no puede sin la ley-convenio es ser la cuenta por la que pasa la recaudación y que sus decisiones obliguen. Dicho sin consuelo: **un CFF sin Fase 2 no reparte un solo peso.** Publica, todos los meses y con nombre de jurisdicción, la diferencia entre lo que la regla habría dado y lo que la discreción dio. Eso no es el PLAN. Pero no es poco.
+
+---
+
+## SECCIÓN 8: MODELO ECONÓMICO Y FISCAL
+
+> *"El presupuesto de un plan fiscal no es lo que ese plan gasta. Es lo que queda a la vista del que pone la plata."*
+
+Hay dos números y no son del mismo orden. **Lo que PLANPACTO cuesta** es de **USD 500 a 700 millones por año en régimen** —banda que fija la cabecera y que no se elige acá—, y sobre el producto de referencia de **USD 500.000 millones** que usa la falla 0.3 da **0,10 a 0,14% del PBI**, la división que la Sección 7 ya hizo. **Lo que PLANPACTO administra** es otra cosa: la presión fiscal consolidada de los tres niveles, **USD 145.000 a 160.000 millones por año**, la misma banda de la falla 0.3. Dividir una por otra —presión baja sobre presupuesto alto, presión alta sobre presupuesto bajo— da entre **207 y 320**. Este PLAN pone la mano sobre dos órdenes de magnitud más plata de la que gasta, y es la partida más grande que toca cualquier PLAN del proyecto. Dejarlo implícito sería esconder el único dato con el que corresponde juzgarlo.
+
+**En transición** la cabecera fija **USD 1.400 a 1.500 millones por año**, y la diferencia contra el régimen no es administración: es en su mayor parte el Fondo de Compensación de la Sección 5.6, otro destino y otro período. **A quince años la cabecera fija USD 12.400 a 22.000 millones**, y ese total se hereda y no se recompone acá: la senda decreciente del Fondo no está fijada en ninguna parte de este documento, de modo que cualquier suma que llegara a esos dos extremos estaría eligiendo la senda de contrabando.
+
+**Las clases son las de `SOURCE_OF_FUNDS_LEDGER.md` y no una taxonomía propia.** El presupuesto del CFF —régimen y transición— y el Fondo de Compensación son `public_net_cost`. El equipamiento y la capacitación de los municipios de la Sección 6.4 son `gross_investment` y viajan adentro de esa banda, sin monto propio, porque la cabecera no la parte. Ninguna partida es `debt_financing`, `private_cooperative_capital` ni `future_return`, y la última importa: la regla 4 de ese libro mayor deja los retornos futuros afuera de las fuentes del primer tranche, que es palabra por palabra la segunda prohibición de la Sección 5.1.
+
+**El IVA que Vuelve se cuelga acá con su costo y su fuente.** Cuesta **USD 2.800 a 4.700 millones por año** —Sección 5.4, calculado a alícuota nacional sola y por lo tanto piso del costeo y no costeo—, y es `public_net_cost`. Su fuente es la recaudación adicional de la base sin exenciones, cargada con **monto pendiente y confianza media**, que no sube de ahí sin ley sancionada: la regla 5 de ese libro mayor, escrita adentro de este PLAN. Y hay un hueco que conviene declarar en vez de forzar: **esa fuente no encaja en ninguna de las seis clases.** No es reasignación, no es deuda, no es capital privado, y la Sección 5.4 descartó que sea retorno futuro. Es recaudación tributaria del mismo ejercicio, del mismo impuesto y del mismo acto que la genera, y el libro mayor no tiene clase para eso.
+
+---
+
+## SECCIÓN 9: RIESGOS Y RESPUESTAS
+
+> *"Un riesgo que el documento no escribe no desaparece: cambia de dueño. Pasa del que lo escribe al que lo sufre."*
+
+**Las veinticuatro ratificaciones.** El país no las juntó en treinta años. La respuesta no es que las va a juntar: el PLAN no cuelga de ese acto. Cuatro dispositivos entran en producción sin una sola ratificación —el Libro Mayor, la mitad nacional del Recibo, la Poda sobre las especies nacionales y el IVA que Vuelve—, y ninguno de sus instrumentos es ley-convenio.
+
+**«Este es el cuarto pacto fiscal y los tres anteriores fracasaron.»** La Sección 2.4 la dejó sin contestar, y se contesta solo con lo que los tres no tenían. La 2.3 les imputa cuatro carencias: ratificación desigual, sin medición independiente, sin costo por salirse, sin consecuencia para el incumplidor. Tres diferencias mecánicas atacan tres. **La medición existe antes que el acuerdo:** la Fórmula corre veinticuatro meses en sombra sobre un Libro Mayor abierto antes de que la negociación empiece. **Salirse cuesta:** la adhesión trae caja desde el día uno, y los tres pidieron antes de dar —1992 se llevó el quince por ciento de la masa, 1993 pidió resignar exenciones, 2017 pidió desistir de juicios—. **Y nada cuelga de un acto único:** ninguno de los tres existía antes de la firma; acá la Fase 0 ya corre, y el fracaso de la ratificación deja un PLAN más chico, no un PLAN muerto. No se invoca el Giro Diario, que vive entero en la Fase 2: una diferencia que solo existe si el acuerdo se firma no puede ser su razón. La cuarta carencia sigue sin cubrirse.
+
+**La licuación del piso.** Un piso que se puede licuar sin derogar una ley está muerto y no lo sabe. Escrito en porcentaje del gasto primario consolidado, el escalón no se licua con la inflación ni cae con la recesión más de lo que cae el agregado — el defecto que la Sección 4.4 le imputó al piso atado al producto. Queda una vía abierta y ningún dispositivo la cierra: comprimir el gasto primario entero baja el escalón en pesos sin tocar el porcentaje ni la ley. Contra eso solo hay esto: el Libro Mayor publica el escalón en pesos ejecutados al lado del porcentaje.
+
+**La captura del padrón.** El padrón decide cuánto cobra cada jurisdicción, y el antecedente está escrito: el INDEC intervenido entre 2007 y 2015 que PLANMON documenta. La Sección 6.1 puso cuatro trabas —producción contrastada, auditoría anual por muestreo con equipos sorteados entre jurisdicciones, las dos separaciones, e impugnación abierta sin congelar el giro— y la Sección 7 agrega la doble mayoría para certificar. El residuo hay que escribirlo: un muestreo anual no ve una captura que dure menos de un ejercicio ni una más chica que el poder de la muestra. Lo único que lo cubre es que el padrón publica microdatos y metodología.
+
+**La reversión por decreto de la Fase 0.** Se levanta sobre tres patas desiguales. La reforma de la Ley 24.156 necesita otra ley para caer. El decreto de datos abiertos cae con otro decreto, en una tarde. Los convenios caen si la Nación se retira, salvo que se escriban para no necesitarla. De ahí los tres blindajes de la Sección 11: no la vuelven invulnerable, la vuelven cara.
+
+**El RIGI y los regímenes de estabilidad fiscal.** El Régimen de Incentivo para Grandes Inversiones concede estabilidad tributaria por treinta años a los proyectos adheridos, y este PLAN reescribe lo que esa estabilidad congela: la Poda, la base ancha del IVA, la sustitución de Ingresos Brutos y LA MASA. El conflicto es directo y PLANPACTO no lo nombraba. La posición tiene tres líneas. **No estrena ninguna:** derogar el RIGI ya es política escrita del proyecto —`PLANTER` le dedica su falla 0.2 y `CASCADA_LEGAL_BASTA.md` la inscribe como ley L.N-10—. **Agrega el inventario:** cada proyecto adherido entra al Libro Mayor con la estabilidad concedida, su alcance y su vencimiento, lista que hoy ningún organismo consolida. **Y el riesgo ISDS tiene dueño, que no es este PLAN:** el arbitraje internacional ya está inventariado como primer attack path de `PLANTER` en `READINESS_GATES_ADVERSARIAL.md`, con reserva legal propia.
+
+---
+
+## SECCIÓN 10: EL MAPA DE PERDEDORES
+
+> *"Un mapa de perdedores sin oferta al lado no es un mapa: es una lista de enemigos. Y una lista de enemigos se escribe sola."*
+
+Cinco grupos. Para cada uno: qué pierde, en qué plazo, y qué se le ofrece. Donde no hay nada, va escrito.
+
+**Los gremios de las veinticinco administraciones tributarias.** *Pierden* con la administración única de la sustitución de Ingresos Brutos: veinticinco padrones pasan a ser uno. Es el perdedor más grande de este PLAN y no tiene fila en el `COALITION_MAP.md`, que sí la tiene para docentes, médicos y transporte. *Plazo:* con la Fase 2, no antes. *Se les ofrece* la puerta que la 2.2 trajo de Quebec y la 5.6 dejó abierta —base unificada sin unificar la agencia—, escrita justamente para donde los fiscos tienen gremio. Y trabajo que hoy no existe: el padrón de especies que la Poda debe construir antes de podar, la auditoría del padrón poblacional en terreno y la capacitación de 2.300 gobiernos locales. No promete que nadie pierda el empleo; es la primera vez que el proyecto escribe qué hay del otro lado.
+
+**Los consejos profesionales de ciencias económicas.** *Pierden* la facturación que depende de la complejidad: las ciento cincuenta y cinco especies estimadas, las veinticinco administraciones y el monotributo producen honorarios; la Poda, la administración única y el Recibo los reducen. Tampoco tienen fila en el `COALITION_MAP.md`. *Plazo:* gradual y tarde — el primer año la Poda no poda, cuenta, y la caducidad diferida agrega un año más por especie. *Se les ofrece poco, y transitorio:* el padrón de especies, el costeo administrativo por tributo y el KPI de trazabilidad son trabajo que hoy no está hecho, y son los tres de una transición que termina. Compensación permanente no hay: lo que pierden es lo que este PLAN existe para eliminar.
+
+**Las provincias que hoy reciben por encima de lo que la Fórmula les daría.** *El mecanismo, no el listado:* la Fórmula se aplica al incremento y no al stock. Lo que cada jurisdicción recibe hoy —el promedio real de sus tres últimos ejercicios— es un piso que se sigue girando; la regla nueva reparte lo que crece por encima. Ninguna pierde en términos reales y ninguna vota su propia pérdida: la que está por encima *pierde* posición relativa, y despacio. *Plazo:* la 6.1 hace depender la convergencia del crecimiento nominal de la masa; acá tampoco hay fecha. *Se les ofrece* ese piso, y la garantía de la 5.6 —piso real, no monto fijo— cubierta por el Fondo de Compensación ocho años decrecientes.
+
+**Los intermediarios políticos de los ATN.** *Pierden* todo su producto. La falla 0.7 ya lo describió: el instrumento no fabrica la transferencia, fabrica el crédito de haberla conseguido. El Auxilio Ciego destruye ese crédito sin tocar el fondo: el uno por ciento de la masa sigue siendo el uno por ciento. La provincia no pierde caja; el que gestionaba pierde el mérito. *Plazo:* cuatro ejercicios desde la Fase 1, con cada giro discrecional publicado en setenta y dos horas. *Se les ofrece nada, y no por dureza:* lo que se le diera a cambio a quien pierde una posición de intermediación sería otra intermediación.
+
+**Los municipios que viven de tasas sin servicio detrás.** *Pierden* la tasa de seguridad e higiene sobre la facturación —la que le llega a Fabiana en la boleta de la luz—, Ingresos Brutos municipal con otro nombre, que falla por eso el tercer test de la Poda. *Plazo:* el 1 de enero siguiente al año en que reprueba, salvo ratificación expresa de la legislatura que la creó. *Se les ofrece* el Tercer Piso entero: la Fórmula bajando al municipio con los mismos coeficientes y el mismo Giro Diario, las dos tasas propias, la contribución por mejoras, la plusvalía de origen y el equipamiento del CFF por ocho años. Y una advertencia de secuencia: **la pérdida vive del lado unilateral y la compensación vive en la Fase 2.** Lo único que impide que quede en el medio es que la Poda municipal viaja por convenio y ordenanza propia: nadie poda hasta que le convenga. El costo hay que escribirlo: la tasa de la boleta de Fabiana no cae en la Fase 0.
+
+---
+
+## SECCIÓN 11: HOJA DE RUTA
+
+> *"Una hoja de ruta que no dice qué queda en pie si el tramo del medio no llega es un itinerario, no un plan."*
+
+Las cuatro ventanas son calendario de diseño, no una proyección.
+
+**Fase 0 — El espejo (2027–2028).** Va partida en dos. El **núcleo unilateral** no le pide permiso a nadie: Libro Mayor por decreto sobre el sistema que la Nación opera, y mitad nacional del Recibo con lo que ARCA liquida. La **fase cooperativa** —adhesiones provinciales y municipales, Recibo completo— **se declara falible**. Va blindada contra su reversibilidad: **adhesión con caja desde el día uno**, para que adherir pague y desadherir cueste; **convenio que subsiste sin la Nación**; y **feed de datos por ley con obligación de espejo**.
+
+**Fase 1 — El acuerdo (2029–2031).** La Fórmula corre **veinticuatro meses en modo sombra**: cada mes se publica cuánto recibiría cada jurisdicción, sin efecto legal. Convierte la negociación en una verificación. El IVA que Vuelve arranca el primer viernes de 2029.
+
+**Fase 2 — El giro (2032–2035).** Ley-convenio ratificada, Giro Diario en producción, sustitución de Ingresos Brutos.
+
+**Fase 3 — La convergencia (2036–2042).** La Fórmula al incremento cierra la brecha y el Fondo de Compensación se apaga solo. Cuándo termina no se fija acá: la 6.1 lo ata al crecimiento nominal de la masa.
+
+**El corte, con nombre y apellido.** Sin ley-convenio quedan enteros cuatro: **el Libro Mayor, la mitad nacional del Recibo, la Poda nacional y el IVA que Vuelve.** De **LA MASA** sobrevive el inventario de detracciones, no el default invertido; la **sustitución de Ingresos Brutos** cuelga de la adhesión, no de la ley-convenio. De los cinco del reparto no queda ninguno entero. **El Giro Diario no sobrevive, y hay que decirlo porque la 6.2 lo escribió sin declararlo:** la cuenta única del CFF es Fase 2 completa. El **Tercer Piso** tampoco: obliga a las provincias. De la **Fórmula** queda la corrida en sombra; del **Auxilio Ciego**, la publicación de cada giro discrecional, no el panel. La **Deuda con Nombre** alcanza a las emisiones nacionales por la ley que la crea; sobre los otros, por adhesión.
 
 ---
 
