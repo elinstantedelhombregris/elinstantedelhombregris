@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "SocialJusticeHub/**"
+      - "Iniciativas Estratégicas/**"
       - ".github/workflows/socialjusticehub-ci.yml"
   pull_request:
     paths:
       - "SocialJusticeHub/**"
+      - "Iniciativas Estratégicas/**"
       - ".github/workflows/socialjusticehub-ci.yml"
 
 jobs:
@@ -39,6 +41,9 @@ jobs:
 
       - name: Unit tests
         run: npm run test:unit
+
+      - name: Guardia de PLANPACTO
+        run: npx tsx scripts/verificar-planpacto.ts
 
       - name: Production build
         run: npm run build
