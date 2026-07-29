@@ -31,6 +31,7 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
   '## SECCIÓN 3: LA SOLUCIÓN — ARQUITECTURA DE LOS ONCE DISPOSITIVOS',
   '## SECCIÓN 4: LA ESCALERA Y EL TECHO',
+  '## SECCIÓN 5: LO QUE SE COBRA',
 ];
 
 /**
@@ -44,6 +45,10 @@ const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
   { valor: '2,40', porQue: 'el piso único que PLANPACTO propone, % del gasto primario consolidado' },
   { valor: '8,62', porQue: 'punto medio de los pisos reclamados, % del PBI' },
   { valor: 'sustituye', porQue: 'el piso único es sustitutivo: sin esa palabra la lectura aditiva es legítima' },
+  {
+    valor: 'El Estado es de vidrio y el ciudadano es opaco',
+    porQue: 'la frase que separa el Libro Mayor del Recibo (arreglo 6)',
+  },
 ];
 
 /** Strings que no pueden aparecer, con el motivo de cada uno. */
