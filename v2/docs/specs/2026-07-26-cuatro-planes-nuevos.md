@@ -47,7 +47,7 @@ Esta sección es la autoridad numérica de la spec. Todo piso, todo presupuesto 
 
 ### 2.1 El hallazgo
 
-**Los pisos constitucionales que los 22 PLANes reclaman por escrito suman 7,82–9,41% del PBI** (punto medio 8,62%). El corpus repite 5,45–6,25%: esa cifra sale de `PRESUPUESTO_CONSOLIDADO_BASTA.md:193`, cubre 12 agencias, se escribió antes de que existieran los PLANes 17 a 22, y excluye a PLANSAL y al LANEF.
+**Los pisos constitucionales que los 22 PLANes reclaman por escrito suman 7,82–9,41% del PBI** (punto medio 8,62%). El corpus repite 5,45–6,25%: esa cifra sale de `PRESUPUESTO_CONSOLIDADO_BASTA.md:204`, cubre 12 agencias, se escribió antes de que existieran los PLANes 17 a 22, y excluye a PLANSAL y al LANEF.
 
 Hay **tres cifras canónicas en conflicto adentro del propio corpus y ninguna es la verdadera**: 2,45% (`BLINDAJE_INSTITUCIONAL_BASTA.md:28`), 5,45–6,25% bruto / 3,2–3,4% neto (`PRESUPUESTO_CONSOLIDADO`), 6,45–8,44% (`arquitecto-data.ts`, y además estaba mal cargado en **tres** nodos: PLANCUIDADO tenía 0,75–1,1 —que es la inversión de régimen pleno, no el piso— en vez de 0,45; PLANEN perdía el 0,20 del LANEF; y PLANTALLER decía 0,08 contra el 0,10 de su documento. El cuarto caso, PLANSEG con 0,05–0,10 «neto», **no era un bug**: `PRESUPUESTO_CONSOLIDADO_BASTA.md` nota (3) declara ese neto a propósito. El problema ahí era que el campo mezclaba bruto y neto entre PLANes, y que la métrica se llamaba `constitutionalFloorNet` sumando casi todo bruto. Corregido en el tramo A: el campo es siempre bruto.).
 
@@ -77,7 +77,8 @@ Esto no invalida PLANPACTO: lo funda. Que el proyecto no supiera cuánto estaba 
 
 **El piso constitucional único: 2,40%, expresado como 7–8% del gasto primario consolidado.**
 - No en % del PBI. En recesión el PBI cae rápido y el gasto es pegajoso: un piso en % del PBI baja en pesos justo cuando más se lo necesita. El corpus repite que el piso en % del PBI "se ajusta solo" y lo declara mitigante; **es al revés**, y el documento tiene que decirlo.
-- El 2,40% no es arbitrario: coincide con el neto de régimen del propio corpus (2,17–2,92%, `PRESUPUESTO_CONSOLIDADO:296`) y con el 2,45% de `BLINDAJE_INSTITUCIONAL:28`. Tres caminos independientes llegan al mismo lugar; el 3,5% no lo toca ninguno.
+- **El piso es 7,5% del gasto primario consolidado, dentro de una banda admisible de 7 a 8%.** En el escenario central —gasto primario de 32,0% del PBI, que son los 34,9 de gasto total menos los 2,9 de intereses— eso equivale a **2,40% del producto**; los extremos de la banda dan 2,24 y 2,56. **El 2,40 es el punto medio y hay que declararlo cada vez que se use**, igual que se le exige a los cuatro pisos ajenos declarados como rango.
+- El 2,40 cae dentro del costo neto de régimen que el corpus estimó por otro camino (2,17–2,92%, `PRESUPUESTO_CONSOLIDADO_BASTA.md:341`), **con dos advertencias que van escritas y no escondidas**: esa estimación cubre diez de los diecisiete pisos, y su propio documento aclara que el costo de los siete restantes todavía no está modelado. **No es una confirmación independiente: es el único otro cálculo que existe, y coincide en orden de magnitud.** El 2,45% de `BLINDAJE_INSTITUCIONAL_BASTA.md:28` no cuenta como tercero — es una de las tres cifras que §2.1 declara incorrectas.
 - **Es bruto y sustitutivo, y el documento tiene que decir la palabra «sustituye».** Sin eso, la lectura aditiva es legítima y la pila pasa a **10,22–11,81% del PBI** (los pisos existentes más el piso nuevo, contra cada extremo del rango). *El 12,16% que esta spec declaró hasta el 2026-07-27 era el punto medio viejo (8,66) más el piso viejo (3,5): las dos cifras se corrigieron y el total derivado no.*
 - Las afectaciones específicas van **adentro** del piso, no arriba. Si no, la Escalera se llena por la puerta de atrás y el LIFO se vuelve decorativo.
 
@@ -397,7 +398,7 @@ Lo que sí se midió es el umbral de tamaño. Corrido sobre los cuatro (`SocialJ
 | 4 | Títulos evocativos | Los tres cambios de la verificación; ARCO queda | Los tres nuevos acusan al lector, como los mejores del corpus |
 | 5 | Orden de escritura y ordinales | PACTO 23 → ARCO 24 → PREGUNTA 25 → FOCO 26 | La Fase 0 de PACTO no pide permiso; ARCO no se costea sin la Escalera |
 | 6 | Segunda vuelta adversarial | Sí, sobre los cuatro | Encontró que el Techo desbordaba y que las correcciones habían roto 12 cosas |
-| 7 | Piso constitucional único | **2,40% del gasto primario consolidado** | Tres caminos independientes llegan ahí; el %PBI es procíclico |
+| 7 | Piso constitucional único | **7,5% del gasto primario consolidado** (≈2,40% del PBI en el escenario central) | El único otro cálculo del corpus coincide en orden de magnitud; el %PBI es procíclico |
 | 8 | La Escalera | 8 escalones con los dos cortes grandes | PLANSEG blindaba gasto que ya se ejecuta; PLANVIV se autofinancia por Housing OS |
 | 9 | Fuente de PLANPREGUNTA | **Reabrir el split del FSC de PLANTER** | Las regalías están comprometidas al 100%, dos veces |
 | 10 | Regla de Arco | Un solo instrumento, eje dentro de la Escalera | Dos reglas de reparto se contradicen en la primera recesión |
