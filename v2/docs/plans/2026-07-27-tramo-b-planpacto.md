@@ -478,7 +478,7 @@ Mencioná las tres cifras en conflicto que el corpus arrastraba —2,45%, 5,45�
 
 **(d) El piso único (arreglo 2): 2,40%,** expresado como **7–8% del gasto primario consolidado**, no en % del PBI. Explicá por qué la unidad importa: en recesión el PBI cae rápido y el gasto es pegajoso, así que un piso en % del PBI baja en pesos justo cuando más se lo necesita. El corpus repite que el piso en % del PBI «se ajusta solo» y lo declara mitigante; **es al revés**, y el documento tiene que decirlo.
 
-**El piso es bruto y sustitutivo, y la palabra «sustituye» tiene que estar escrita.** Sin eso la lectura aditiva es legítima y la pila salta a 12,16%. Y las afectaciones específicas van *adentro* del piso, no arriba: si no, la Escalera se llena por la puerta de atrás y el LIFO se vuelve decorativo.
+**El piso es bruto y sustitutivo, y la palabra «sustituye» tiene que estar escrita.** Sin eso la lectura aditiva es legítima y la pila pasa a **10,22–11,81% del PBI** — los pisos existentes más el piso nuevo, contra cada extremo del rango. (No escribas 12,16%: era el punto medio viejo más el piso viejo, y las dos cifras se corrigieron.) Y las afectaciones específicas van *adentro* del piso, no arriba: si no, la Escalera se llena por la puerta de atrás y el LIFO se vuelve decorativo.
 
 **(e) La Escalera, definida por lo que conserva.** Los ocho escalones y lo que queda en pie en cada uno — **estos ocho valores suman 2,40 exacto, sumalos antes de escribirlos**:
 

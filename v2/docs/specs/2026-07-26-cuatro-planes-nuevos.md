@@ -78,7 +78,7 @@ Esto no invalida PLANPACTO: lo funda. Que el proyecto no supiera cuánto estaba 
 **El piso constitucional único: 2,40%, expresado como 7–8% del gasto primario consolidado.**
 - No en % del PBI. En recesión el PBI cae rápido y el gasto es pegajoso: un piso en % del PBI baja en pesos justo cuando más se lo necesita. El corpus repite que el piso en % del PBI "se ajusta solo" y lo declara mitigante; **es al revés**, y el documento tiene que decirlo.
 - El 2,40% no es arbitrario: coincide con el neto de régimen del propio corpus (2,17–2,92%, `PRESUPUESTO_CONSOLIDADO:296`) y con el 2,45% de `BLINDAJE_INSTITUCIONAL:28`. Tres caminos independientes llegan al mismo lugar; el 3,5% no lo toca ninguno.
-- **Es bruto y sustitutivo, y el documento tiene que decir la palabra «sustituye».** Sin eso, la lectura aditiva es legítima y la pila salta a 12,16%.
+- **Es bruto y sustitutivo, y el documento tiene que decir la palabra «sustituye».** Sin eso, la lectura aditiva es legítima y la pila pasa a **10,22–11,81% del PBI** (los pisos existentes más el piso nuevo, contra cada extremo del rango). *El 12,16% que esta spec declaró hasta el 2026-07-27 era el punto medio viejo (8,66) más el piso viejo (3,5): las dos cifras se corrigieron y el total derivado no.*
 - Las afectaciones específicas van **adentro** del piso, no arriba. Si no, la Escalera se llena por la puerta de atrás y el LIFO se vuelve decorativo.
 
 ### 2.4 La Escalera de Garantías
