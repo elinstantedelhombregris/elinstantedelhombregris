@@ -10,6 +10,8 @@
 
 ## Global Constraints
 
+> **Presupuesto de palabras — leelo antes de escribir.** El documento va en 539 líneas con 9 de 21 secciones y proyecta ~1.270 contra un objetivo de 900–1.200. La Sección 5 se pasó porque su brief no declaraba rango. **Cada sección que falta tiene el suyo declarado en su step, y las adiciones de revisión entran adentro del rango, no encima.** Si un arreglo obliga a sumar, se comprime en la misma sección.
+
 - **Spec de referencia:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md`, sección 3 (PLANPACTO) y sección 2 (la aritmética del Techo, que es la autoridad numérica). Toda decisión ambigua se resuelve ahí.
 - **El taller es el destino.** El documento se escribe en `Iniciativas Estratégicas/PLANPACTO_Argentina_ES.md`. **La ruta tiene espacio y acento: entrecomillala siempre en bash.** La edición derivada de `v2/content/planes/` NO se toca en este tramo: se deriva por script en el tramo E.
 - **Este tramo no carga el PLAN en ningún registro.** No se toca `arquitecto-data.ts`, ni `strategic-initiatives.ts`, ni `PLAN_REGISTRY.yml`, ni `EXPECTED_PLAN_COUNT`, ni ningún conteo de 22. El documento existe en el taller y nada más lo conoce todavía. Eso es el tramo E.
@@ -640,7 +642,7 @@ En `SECCIONES_ESPERADAS`, agregar al final:
 Run: `cd SocialJusticeHub && npx tsx scripts/verificar-planpacto.ts`
 Expected: FAIL con tres secciones faltantes.
 
-- [ ] **Step 3: Escribir la SECCIÓN 6 — lo que se reparte**
+- [ ] **Step 3: Escribir la SECCIÓN 6 — lo que se reparte** *(2.500–3.500 palabras — cinco dispositivos)*
 
 Una subsección `###` por dispositivo. Cinco dispositivos:
 
@@ -673,7 +675,7 @@ Escribí también lo que esto desarma: retener coparticipación deja de ser una 
 
 **Verificá que no quede más laxa que los principios 4 y 5 de PLANMON.** Abrí `PLANMON_Argentina_ES.md`, leelos, y si este dispositivo es más permisivo, alinealo.
 
-- [ ] **Step 4: Escribir la SECCIÓN 7 — el CFF**
+- [ ] **Step 4: Escribir la SECCIÓN 7 — el CFF** *(600–900 palabras)*
 
 `## SECCIÓN 7: EL CONSEJO FEDERAL FISCAL (CFF)`. Es el organismo fiscal federal que el art. 75 inc. 2 CN ordenó crear en 1994 y que nunca se creó — decilo así, porque es su mejor argumento de legitimidad.
 
