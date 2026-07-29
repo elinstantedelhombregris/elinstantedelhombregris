@@ -15,6 +15,9 @@
 - **Este tramo no carga el PLAN en ningún registro.** No se toca `arquitecto-data.ts`, ni `strategic-initiatives.ts`, ni `PLAN_REGISTRY.yml`, ni `EXPECTED_PLAN_COUNT`, ni ningún conteo de 22. El documento existe en el taller y nada más lo conoce todavía. Eso es el tramo E.
 - **Ordinal 23, y el H2 del cuerpo dice «Vigésimo Cuarto Mandato».** El orden de creación y el estratégico están desfasados en uno desde PLANRUTA: PLANMOV ya es «Vigésimo Tercer Mandato» con ordinal 22. Escribir «Vigésimo Tercero» sería un choque directo.
 - **Español rioplatense (voseo) con acentuación correcta.**
+- **Cuando «usá la cifra verbatim» choca con «no repitas la tesis», gana no repetir.** Si una cifra ya
+  vive intacta en el preámbulo o en la tesis, la sección posterior la referencia o la nombra de otro
+  modo, en vez de reponerla. Lo que no se puede es **cambiarla**.
 - **Ninguna sección repite más de una cláusula de la tesis.** Donde la tesis afirmó, la sección **muestra**. El diagnóstico es la evidencia debajo del resumen, no el resumen otra vez: un lector que llega leyendo en orden tiene que sentir que avanza, no que le cobran dos veces. El registro del corpus: tercera persona para diagnóstico y diseño; el «vos» se reserva para la Promesa pública. Preferencia fuerte por futuro perifrástico («va a morir») sobre futuro simple («morirá») — preferencia, no prohibición: los documentos del corpus usan futuro simple entre 5 y 12 veces cada uno. Números biográficos en letras, números de política pública en cifras.
 - **Cifras canónicas que el documento NO puede contradecir** (verificadas cuatro veces en el tramo A, fijadas por `SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts`):
   - Pisos constitucionales reclamados por los 22: **7,82–9,41% del PBI**, punto medio 8,62%.
