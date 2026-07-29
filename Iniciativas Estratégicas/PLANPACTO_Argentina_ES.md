@@ -727,7 +727,7 @@ El tablero es la cara pública del Libro Mayor y no produce un dato propio. Publ
 
 | Indicador | Frecuencia | Cómo se lo falsea sin mentir |
 |---|---|---|
-| Masa recaudada y repartida | del día, como el Giro Diario | corriendo la hora de corte: lo de hoy se imputa mañana y ningún número queda falso. Al lado, el acumulado y la hora de cierre |
+| Masa recaudada y repartida | del día, cuando el Giro Diario corre | corriendo la hora de corte: lo de hoy se imputa mañana y ningún número queda falso. Al lado, el acumulado y la hora de cierre |
 | Coeficiente de cada jurisdicción | mensual, la de la Fórmula | cumpliéndolo al decimal sobre una masa vaciada arriba, como en la 1.2. Al lado, el monto en pesos y las detracciones |
 | Techo A y Techo B | por ejercicio y en proyección | eligiendo el agregado: 66,3, 63,3 y 81,6 son el mismo día y tres conclusiones opuestas. Se publican los tres, primero el de la ley |
 | Estado de cada escalón | mensual, con la ejecución | cumpliendo el porcentaje mientras el agregado se comprime. Van los pesos ejecutados al lado del porcentaje, y ejecución, nunca presupuesto |
@@ -741,7 +741,7 @@ Ninguna contramedida cierra su falla: la achica hasta el tamaño de una firma. E
 
 > *"Federal no quiere decir que a todos les toque lo mismo, sino que ninguno tenga que preguntar por qué."*
 
-**Una provincia chica.** Su coeficiente es el de 1988 y lo que consigue por encima lo consigue gestionando. El Costo de Llegada y la Brecha le pagan por regla lo que hoy pide; el piso de sus tres últimos ejercicios la sostiene mientras converge. Pierde el ATN: no queda a quién visitar.
+**Una provincia chica.** Su coeficiente es el de 1988 y lo que consigue por encima lo consigue gestionando. El Costo de Llegada y la Brecha le pagan por regla lo que hoy pide; el piso de sus tres últimos ejercicios la sostiene mientras converge. Del ATN no pierde la caja: pierde a quién visitar.
 
 **Una provincia grande.** La de producción grande y mercado interno chico pierde el primer día: el destino le mueve recaudación a la que consume, y enfrente solo tiene el Fondo de Compensación, ocho años decrecientes. Y ya no puede subir Ingresos Brutos sin que se vea.
 
@@ -773,14 +773,14 @@ Lo que no se ve pero está: nadie agradece un giro, y la pregunta de 2026 —*¿
 
 | Falla de la Sección 9 | Respuesta |
 |---|---|
-| Las ratificaciones no llegan | se ejecuta el corte de la Sección 11; la Fórmula pasa a contraste permanente |
+| Las ratificaciones no llegan | se ejecuta el corte de la Sección 11 |
 | El acuerdo se degrada al segundo año | no hay sanción, y no se estrena: se publica —dictamen junto al voto nominal, giro discrecional en setenta y dos horas—. La cuarta carencia de la 2.3 sigue abierta |
 | El piso se licúa comprimiendo el agregado | pesos ejecutados al lado del porcentaje; la Escalera se reabre a los ocho años |
 | El padrón se captura | impugnación que no congela el giro, liquidada retroactiva, con microdatos publicados; activación en `READINESS_GATES_ADVERSARIAL.md`, fila 3 |
 | La Fase 0 se revierte por decreto | cae el decreto de datos abiertos; no caen la Ley 24.156 reformada ni los convenios que subsisten sin la Nación |
 | El RIGI bloquea la Poda o la base ancha | el inventario del Libro Mayor dice alcance y vencimiento; el plazo original corre sin prórroga |
 
-**El día que se confirma que la ley-convenio no sale** —doce legislaturas sin tratamiento a veinticuatro meses, fila 1 de ese archivo— no se deroga nada: los cuatro nunca dependieron de ella. La Fórmula en sombra deja de ser un ensayo: pasa a ser el registro permanente de lo que la regla habría dado contra lo que la discreción dio. La Poda nacional deja de ser un primer tramo: es el programa entero. Y el costeo del IVA que Vuelve deja de ser un piso: la 5.4 lo llamó así porque la sobretasa provincial iba a recalcularlo, y ya no entra.
+**El día que se confirma que la ley-convenio no sale** —doce legislaturas sin tratamiento a veinticuatro meses, fila 1 de ese archivo— no se deroga nada: los cuatro nunca dependieron de ella. La Fórmula en sombra deja de ser un ensayo: pasa a ser el registro permanente de lo que la regla habría dado contra lo que la discreción dio. La Poda nacional deja de ser un primer tramo: es el programa entero. El Recibo se queda en su mitad nacional; la provincial pasa a faltante declarado. Y el costeo del IVA que Vuelve deja de ser un piso: la sobretasa provincial que iba a recalcularlo ya no entra.
 
 ---
 
@@ -790,7 +790,7 @@ Lo que no se ve pero está: nadie agradece un giro, y la pregunta de 2026 —*¿
 
 Fabiana Ojeda va a seguir levantando la persiana a las siete y media. En 2042, cuando la hoja de ruta cierra la Fase 3, el almacén de la avenida Belgrano va a seguir abierto y el cuaderno Gloria va a seguir siendo el único registro contable que Fabiana lleva por decisión propia. Este PLAN no le cambia el negocio. Le cambia una cosa sola.
 
-Va a poder abrir el Recibo del Estado y ver la mitad nacional: la cuota del monotributo partida en tributo, jubilación y obra social —la pregunta que en 2026 no tenía destinatario— y el IVA que viene adentro de cada bolsa de harina del mayorista de Sáenz Peña. Si su hogar queda debajo del umbral del quinto al sexto decil, la devolución le entra a la wallet todos los viernes, sin trámite y sin nadie a quien agradecerle. Y va a poder seguir la ruta 95 en el Libro Mayor hasta el número de partida, el nombre del que la ejecutó y la fecha en que dejó de ejecutarla.
+Va a poder abrir el Recibo del Estado y ver la mitad nacional: la cuota del monotributo partida en tributo, jubilación y obra social —la pregunta que en 2026 no tenía destinatario— y el IVA que viene adentro de cada bolsa de harina del mayorista de Sáenz Peña. Si su hogar queda debajo del umbral del quinto al sexto decil, la devolución le entra a la wallet todos los viernes, sin trámite y sin nadie a quien agradecerle. Y va a poder seguir la ruta nacional 95 en el Libro Mayor hasta el número de partida, el nombre del que la ejecutó y la fecha en que dejó de ejecutarla.
 
 La ruta puede seguir rota: eso es lo que la tesis prometió y nada más. La diferencia es que ahora hay a quién reclamarle.
 
