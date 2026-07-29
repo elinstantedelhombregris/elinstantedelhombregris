@@ -716,3 +716,90 @@ Las cuatro ventanas son calendario de diseño, no una proyección.
 **PLANMESA** delibera sobre la Escalera y publica dictamen no vinculante; el que el Congreso no siga se publica junto al voto nominal de cada legislador. **PLANJUS** aporta la forma canónica de su sorteo a los dos paneles. **PLANARCO** es el par recíproco más importante y todavía tiene una sola mitad escrita: la Regla de Arco es el eje intergeneracional de la Escalera, vive en la Sección 4.7, y PLANARCO —que aún no existe— remite a ella en vez de escribir su propia regla.
 
 Y una relación que **no se declara como arista del grafo**, porque `PLANRUTA` no es un nodo y declararla rompería la validación: el Giro Diario le desarma el vector de ataque que su modelo adversarial pone primero, el gobierno nacional que retiene coparticipación. Queda escrita acá, en prosa.
+
+---
+
+## SECCIÓN 12: TABLERO NACIONAL FISCAL
+
+> *"Un indicador que no publica cómo se lo falsea no informa: entrena al que lo va a maquillar."*
+
+El tablero es la cara pública del Libro Mayor y no produce un dato propio. Publica cinco, cada uno con su frecuencia —decisión de diseño de este documento— y con la manera conocida de falsearlo sin mentir.
+
+| Indicador | Frecuencia | Cómo se lo falsea sin mentir |
+|---|---|---|
+| Masa recaudada y repartida | del día, como el Giro Diario | corriendo la hora de corte: lo de hoy se imputa mañana y ningún número queda falso. Al lado, el acumulado y la hora de cierre |
+| Coeficiente de cada jurisdicción | mensual, la de la Fórmula | cumpliéndolo al decimal sobre una masa vaciada arriba, como en la 1.2. Al lado, el monto en pesos y las detracciones |
+| Techo A y Techo B | por ejercicio y en proyección | eligiendo el agregado: 66,3, 63,3 y 81,6 son el mismo día y tres conclusiones opuestas. Se publican los tres, primero el de la ley |
+| Estado de cada escalón | mensual, con la ejecución | cumpliendo el porcentaje mientras el agregado se comprime. Van los pesos ejecutados al lado del porcentaje, y ejecución, nunca presupuesto |
+| Tributos que caen en la próxima Poda | anual, con el test | imputando a otra especie el costo compartido: el fisco declara su propio costo. Va publicado el criterio de imputación |
+
+Ninguna contramedida cierra su falla: la achica hasta el tamaño de una firma. Es lo que la Poda le hace a un tributo, y por el mismo motivo.
+
+---
+
+## SECCIÓN 14: DIMENSIÓN FEDERAL
+
+> *"Federal no quiere decir que a todos les toque lo mismo, sino que ninguno tenga que preguntar por qué."*
+
+**Una provincia chica.** Su coeficiente es el de 1988 y lo que consigue por encima lo consigue gestionando. El Costo de Llegada y la Brecha le pagan por regla lo que hoy pide; el piso de sus tres últimos ejercicios la sostiene mientras converge. Pierde el ATN: no queda a quién visitar.
+
+**Una provincia grande.** La de producción grande y mercado interno chico pierde el primer día: el destino le mueve recaudación a la que consume, y enfrente solo tiene el Fondo de Compensación, ocho años decrecientes. Y ya no puede subir Ingresos Brutos sin que se vea.
+
+**CABA.** Es la única jurisdicción donde el Tercer Piso no cambia nada: no tiene municipios debajo. Y la 5.6 la alcanza de lleno — la base que retiene por alojar sedes administrativas de empresas que venden en todo el país se le va, bajo destino, a donde venden.
+
+**Un municipio del interior profundo.** Hoy cobra escondido en la boleta de la luz. Pasa a recibir la Fórmula con los mismos coeficientes y el mismo Giro Diario, dos tasas propias, la plusvalía de lo que financió y equipamiento del CFF por ocho años. Y la Sección 10 vale acá entera: la pérdida y la compensación no caen en la misma fase.
+
+---
+
+## SECCIÓN 15: VISIÓN 2040
+
+> *"Quince años no alcanzan para terminar esto. Alcanzan para que no se pueda volver atrás sin que se note."*
+
+2040 no es el final: cae adentro de la Fase 3, que la hoja de ruta cierra en 2042.
+
+El Techo A tocó su piso de 70% en el año diez y ahí quedó: lo único que se sigue discutiendo es el Techo B. La Escalera se revisó una vez, y los siete PLANes de abajo de la línea renovaron su afectación o no la renovaron — en los dos casos hubo una votación con nombres.
+
+Queda una deuda: el KPI de trazabilidad tiene dos metas declaradas —90% del gasto nacional al tercer año, 70% del consolidado al octavo— y ninguna después. En 2040 se publica contra nada, y fijarle meta es tarea de la primera revisión.
+
+**En 2040 el CFF es autárquico y tiene piso propio:** se financia con un porcentaje fijo de su propia cuenta única, y su presupuesto deja de ser una decisión anual de los que tiene que controlar. Es visión y no compromiso operativo: la Sección 7 dejó dicho que ese porcentaje no se elige acá, y una autarquía sin porcentaje es una intención.
+
+Lo que no se ve pero está: nadie agradece un giro, y la pregunta de 2026 —*¿cuánto pagué?*— tiene una hoja que la contesta.
+
+---
+
+## SECCIÓN 16: PROTOCOLO DE FALLA
+
+> *"Un plan que no escribe qué hace el día que pierde ya decidió: va a improvisar."*
+
+| Falla de la Sección 9 | Respuesta |
+|---|---|
+| Las ratificaciones no llegan | se ejecuta el corte de la Sección 11; la Fórmula pasa a contraste permanente |
+| El acuerdo se degrada al segundo año | no hay sanción, y no se estrena: se publica —dictamen junto al voto nominal, giro discrecional en setenta y dos horas—. La cuarta carencia de la 2.3 sigue abierta |
+| El piso se licúa comprimiendo el agregado | pesos ejecutados al lado del porcentaje; la Escalera se reabre a los ocho años |
+| El padrón se captura | impugnación que no congela el giro, liquidada retroactiva, con microdatos publicados; activación en `READINESS_GATES_ADVERSARIAL.md`, fila 3 |
+| La Fase 0 se revierte por decreto | cae el decreto de datos abiertos; no caen la Ley 24.156 reformada ni los convenios que subsisten sin la Nación |
+| El RIGI bloquea la Poda o la base ancha | el inventario del Libro Mayor dice alcance y vencimiento; el plazo original corre sin prórroga |
+
+**El día que se confirma que la ley-convenio no sale** —doce legislaturas sin tratamiento a veinticuatro meses, fila 1 de ese archivo— no se deroga nada: los cuatro nunca dependieron de ella. La Fórmula en sombra deja de ser un ensayo: pasa a ser el registro permanente de lo que la regla habría dado contra lo que la discreción dio. La Poda nacional deja de ser un primer tramo: es el programa entero. Y el costeo del IVA que Vuelve deja de ser un piso: la 5.4 lo llamó así porque la sobretasa provincial iba a recalcularlo, y ya no entra.
+
+---
+
+## CIERRE
+
+> *"No le devolvimos la ruta. Le devolvimos el número de la partida. Es menos de lo que necesita y más de lo que tuvo nunca."*
+
+Fabiana Ojeda va a seguir levantando la persiana a las siete y media. En 2042, cuando la hoja de ruta cierra la Fase 3, el almacén de la avenida Belgrano va a seguir abierto y el cuaderno Gloria va a seguir siendo el único registro contable que Fabiana lleva por decisión propia. Este PLAN no le cambia el negocio. Le cambia una cosa sola.
+
+Va a poder abrir el Recibo del Estado y ver la mitad nacional: la cuota del monotributo partida en tributo, jubilación y obra social —la pregunta que en 2026 no tenía destinatario— y el IVA que viene adentro de cada bolsa de harina del mayorista de Sáenz Peña. Si su hogar queda debajo del umbral del quinto al sexto decil, la devolución le entra a la wallet todos los viernes, sin trámite y sin nadie a quien agradecerle. Y va a poder seguir la ruta 95 en el Libro Mayor hasta el número de partida, el nombre del que la ejecutó y la fecha en que dejó de ejecutarla.
+
+La ruta puede seguir rota: eso es lo que la tesis prometió y nada más. La diferencia es que ahora hay a quién reclamarle.
+
+Lo que falta se escribe con la misma letra. La retención que el banco le saca de cada acreditación va a seguir sin el nombre del régimen al lado si el Chaco no adhiere: esa mitad del Recibo se declaró falible. La tasa municipal va a seguir viajando adentro de la boleta de la luz, como la Sección 10 lo dejó dicho. Y la sala de primeros auxilios va a seguir abriendo de ocho a doce, porque PLANPACTO no abre salas: lo que hay es el escalón 2, escrito antes de que falte. El hijo se va a recibir de enfermero o no, y eso tampoco lo decide este PLAN.
+
+Nada de esto le arregla la ruta 95. Todo esto le devuelve lo que había perdido sin haberlo entregado: la posición de acreedora.
+
+---
+
+**FIN DEL DOCUMENTO**
+
+*Documento técnico del vigésimo cuarto mandato del Proyecto ¡BASTA! — Julio 2026*
