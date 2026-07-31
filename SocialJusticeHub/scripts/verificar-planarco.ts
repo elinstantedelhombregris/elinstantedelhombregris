@@ -166,19 +166,24 @@ const CALIFICADORES_EN_PORTADA: string[] = [
 ];
 
 /**
- * La región de conjunto exacto de la portada: desde la PRIMERA línea del bloque
- * cercado hasta la que abre `Preparado para`. Todo lo que aparezca ahí y no esté
- * en el léxico permitido es un nombre anunciado de más — el modo de falla exacto
- * del tramo B, donde la portada anunció cuatro nombres que no estaban en ninguna
- * sección del plan.
+ * La región de conjunto exacto de la portada es el BLOQUE CERCADO ENTERO. Todo
+ * lo que aparezca ahí y no esté en el léxico permitido es un nombre anunciado de
+ * más — el modo de falla exacto del tramo B, donde la portada anunció cuatro
+ * nombres que no estaban en ninguna sección del plan.
  *
- * Arrancaba en la línea `PLANARCO`, y eso dejaba el eslogan y el subtítulo
- * AFUERA del conjunto exacto: verificado, un `Servicio Cívico` plantado en el
- * subtítulo salía verde. El arreglo no es un mojón nuevo sino ninguno — la
- * región empieza donde empieza la portada— y el encabezado legítimo pasa a ser
- * léxico permitido como cualquier otro nombre.
+ * La región tuvo dos mojones y los dos fallaron abierto. El de inicio
+ * (`PLANARCO`) dejaba el eslogan y el subtítulo afuera: un `Servicio Cívico`
+ * plantado en el subtítulo salía verde. El de cierre (`Preparado para`) dejaba
+ * afuera el pie —un `Servicio Cívico` pegado a `Registros Civiles` salía
+ * verde— y, peor, no estaba anclado: una línea `Preparado para nada` plantada
+ * ARRIBA ponía el fin en el índice 0, el bucle no iteraba ninguna línea y la
+ * guardia informaba «conjunto exacto: ni falta ni sobra» sin haber mirado nada.
+ * Un chequeo truncable que reporta éxito es peor que no tenerlo.
+ *
+ * El arreglo no es un mojón mejor sino NINGUNO: la región es el bloque entero, y
+ * el encabezado y el pie legítimos pasan a ser léxico permitido como cualquier
+ * otro nombre. Sin mojones no hay región que colapsar.
  */
-const PORTADA_FIN_REGION = 'Preparado para';
 
 /** El encabezado legítimo de la portada: los dos renglones del eslogan, el subtítulo y la sigla. */
 const PORTADA_ENCABEZADO: string[] = [
@@ -186,6 +191,20 @@ const PORTADA_ENCABEZADO: string[] = [
   'MORIR NO ES UN TRÁMITE',
   'Plan Nacional del Arco de la Vida, Calendario de Umbrales y Renta de Arco',
   'PLANARCO',
+];
+
+/**
+ * El pie legítimo de la portada: destinatarios, organismos, fecha y leyenda de
+ * circulación. Antes quedaba afuera del conjunto exacto porque `Preparado para`
+ * era el mojón de cierre; ahora entra al léxico y el tramo posterior se verifica
+ * como el resto.
+ */
+const PORTADA_PIE: string[] = [
+  'Preparado para la República Argentina',
+  'Congreso de la Nación · Ministerio de Capital Humano · ANSES · PAMI',
+  'Provincias · Municipios · Registros Civiles',
+  'Julio 2026 | Versión 1.0',
+  'DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA',
 ];
 
 /**
@@ -221,6 +240,16 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
     // el gate», «no cierra cuando supera el gate», «no cierra si supera el
     // umbral». Lo que sí atrapa: «PLANARCO supera el gate» y «PLANARCO no es el
     // primero y supera el gate».
+    //
+    // SEGUNDO EJE, del mismo tamaño y más fácil de olvidar porque este comentario
+    // no lo nombraba: el patrón conoce SOLO seis flexiones (`pasó`, `paso`,
+    // `superó`, `supero`, `supera`, `pasa`) y exige el artículo PEGADO al verbo.
+    // Verificado, salen VERDES «PLANARCO logró superar el gate», «PLANARCO habría
+    // superado el gate», «los cocientes superan el umbral de 1,5», «PLANARCO
+    // supera holgadamente el gate» —un solo adverbio entre el verbo y el artículo
+    // alcanza— y «PLANARCO supera un gate exigente». Las dos últimas son
+    // formulación DIRECTA, así que ni siquiera la promesa acotada del párrafo de
+    // abajo se cumple entera: la red tiene el agujero de este lado también.
     //
     // No se cierran esos casos ampliando la lista de nexos, porque la lista de
     // nexos del castellano no tiene fondo y cada agregado vuelve a poner en rojo
@@ -479,13 +508,19 @@ function verificarCabecera(raw: string, lineas: string[]): string[] {
  * dos de ellos cosas que el propio PLAN prohíbe.
  *
  * No hace falta el cuerpo para cerrarlo: el conjunto legítimo de nombres de la
- * portada es cerrado y conocido hoy —los trece dispositivos, sus calificadores y
- * la ANAV—, así que esto es un chequeo de CONJUNTO EXACTO. Se le resta a cada
- * línea de la región cada fragmento permitido, del más largo al más corto, y si
- * queda alguna letra, la portada anuncia algo que nadie mandó.
+ * portada es cerrado y conocido hoy —los trece dispositivos, sus calificadores,
+ * la ANAV, el encabezado y el pie—, así que esto es un chequeo de CONJUNTO
+ * EXACTO sobre el bloque cercado ENTERO. Se le resta a cada línea cada fragmento
+ * permitido, del más largo al más corto, y si queda alguna letra, la portada
+ * anuncia algo que nadie mandó. Sin mojones de región no hay región truncable.
  *
  * Itera la PORTADA, no la constante. Si iterara la constante, un nombre
  * inventado que se cuele en el ASCII seguiría sin verlo nadie.
+ *
+ * El encabezado y el pie se verifican además en la dirección barata —«¿está lo
+ * que esperaba?»—, porque el mojón que se borró era lo único que exigía que
+ * `Preparado para …` existiera: sin esa línea, sacarlo del documento no
+ * levantaba ningún error.
  *
  * La otra dirección todavía —«el dispositivo anunciado, ¿aparece en el cuerpo?»—
  * sí necesita el cuerpo, y es de la Task 10.
@@ -493,23 +528,24 @@ function verificarCabecera(raw: string, lineas: string[]): string[] {
 function verificarPortadaNoAnunciaDeMas(portada: string[]): string[] {
   const errores: string[] = [];
 
-  const iFin = portada.findIndex((l) => l.trim().startsWith(PORTADA_FIN_REGION));
-  if (iFin === -1) {
-    errores.push(
-      `no se pudo delimitar la región de conjunto exacto de la portada: falta la línea «${PORTADA_FIN_REGION}», ` +
-        'que es su mojón de cierre. Sin ese mojón no se puede verificar que no anuncie de más',
-    );
-    return errores;
+  for (const renglon of [...PORTADA_ENCABEZADO, ...PORTADA_PIE]) {
+    if (!portada.some((l) => l.trim() === renglon)) {
+      errores.push(
+        `la portada no trae el renglón «${renglon}»: el encabezado y el pie son parte del conjunto ` +
+          'exacto y se verifican en las dos direcciones, ni falta ni sobra',
+      );
+    }
   }
 
   const lexico = [
     ...PORTADA_ENCABEZADO,
+    ...PORTADA_PIE,
     ...DISPOSITIVOS_EN_PORTADA.flatMap((d) => d.enPortada),
     ...CALIFICADORES_EN_PORTADA,
     INSTITUCION_EN_PORTADA,
   ].sort((a, b) => b.length - a.length);
 
-  for (const linea of portada.slice(0, iFin)) {
+  for (const linea of portada) {
     if (linea.trim() === '') continue;
     let resto = linea;
     for (const permitido of lexico) resto = resto.split(permitido).join('');
