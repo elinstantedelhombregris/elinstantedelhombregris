@@ -39,7 +39,8 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 1: LA CRISIS — EL PAÍS SE ESTÁ HACIENDO VIEJO SIN HABER DECIDIDO CÓMO SE ENVEJECE',
   '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
   '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES',
-  // Task 5: SECCIÓN 4 · Task 6: SECCIÓN 5 y 6 · …
+  '## SECCIÓN 4: LA RENTA DE ARCO',
+  // Task 6: SECCIÓN 5 y 6 · Task 7: SECCIÓN 7 y 8 · …
 ];
 
 /**
@@ -92,14 +93,27 @@ type ValorConDomicilio = { valor: string; en: string[]; veces?: number; porQue: 
 
 /** Los encabezados que se usan como domicilio, escritos una sola vez. */
 const H3_FALLA_CUIDADO = '### 0.4 El trabajo que sostiene el sistema no tiene renglón donde anotarse';
-const H3_FALLA_TRANSMISION =
-  '### 0.6 Al que se retira se le apaga la transmisión, y los tres que fueron a encenderla no se conocen entre sí';
+/**
+ * **Domicilio por número, no por título.** Este era el título entero del H3, y
+ * el H3 más largo y más editorial del documento — el que la Task 5 tenía que
+ * volver a tocar. Un domicilio que es el título completo pone la guardia en rojo
+ * ante cualquier retitulación futura, por una razón que no tiene nada que ver
+ * con lo que el domicilio protege: acá adentro vive el blindaje anti-reversión
+ * de §0.6 (la caja de PLANMEMORIA y la aserción «organismo, caja y registro»),
+ * y eso sobrevive al título.
+ *
+ * El espacio final NO es decorativo: marca el domicilio como PREFIJO — ver
+ * `textoDeDomicilio()`. `### 0.6 ` no puede colisionar con `### 0.61` porque el
+ * espacio corta, y la unicidad se sigue exigiendo igual que antes.
+ */
+const H3_FALLA_TRANSMISION = '### 0.6 ';
 const H3_FALLA_VACIAMIENTO = '### 0.8 Lo que no se financia no se deroga: se deja de ejecutar';
 const H3_CURVA = '### 1.1 La curva ya está andando, y el único número que la describe es una cuenta';
 const H3_CUIDADORES = '### 1.2 La crisis no es que haya más viejos: es que no hay quién los acompañe';
 const H2_TESIS = '## TESIS CENTRAL';
 const H2_PRECEDENTES = '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES';
 const H2_CALENDARIO = '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES';
+const H2_RENTA = '## SECCIÓN 4: LA RENTA DE ARCO';
 
 const CIFRAS_CANONICAS: ValorConDomicilio[] = [
   {
@@ -177,6 +191,30 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
     porQue:
       'la Convertibilidad «se derogó en una noche de enero de 2002» — BLINDAJE:50. El contracaso del ' +
       'INTA: derogar tampoco cuesta tanto cuando la presión alcanza',
+  },
+  // ── Task 5 · SECCIÓN 4 ────────────────────────────────────────────────────
+  {
+    valor: 'USD 2.400M',
+    en: [H2_RENTA],
+    porQue:
+      'el pasivo de la redención previsional del cuidado, YA comprometido — PLANCUIDADO:94 y :564, ' +
+      'donde es una línea del régimen pleno de ese PLAN. La SECCIÓN 4 declara que el Tramo Ganado no ' +
+      'lo vuelve a gastar; sin la cifra escrita, la declaración no tiene contra qué medirse',
+  },
+  {
+    valor: '15–20% del rendimiento',
+    en: [H2_RENTA],
+    porQue:
+      'el Fondo Previsional Bastardo es eso y nada más: una porción del rendimiento anual del fondo ' +
+      'soberano, sin monto propio declarado, sobre un capital que todavía no existe — PLANMON:1561',
+  },
+  {
+    valor: 'USD 2.475–4.650M',
+    en: [H2_RENTA],
+    porQue:
+      'el flujo del Fondo Intergeneracional, 15% del FSC — PLANTER:674. Es la única línea del fondo ' +
+      'que acumula capital, y sus dos mandatos previos son «no distribuir»: el Fondo Previsional ' +
+      'Bastardo choca contra ella y la sección lo tiene que decir con el número puesto',
   },
 ];
 
@@ -271,6 +309,59 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'el análogo de BLINDAJE:63 son cinco millones con AHORROS en El Pulso —propiedad—, y el Piso ' +
       'Vital es una transferencia: no se confisca, se licúa o se deja de pagar. Decirlo explícito es ' +
       'lo que impide que la sección se apoye en una analogía que no la sostiene',
+  },
+  // ── Task 5 · SECCIÓN 4 ────────────────────────────────────────────────────
+  {
+    valor: 'un solo fondo con dos nombres',
+    en: [H2_RENTA],
+    porQue:
+      'la respuesta a C-7, que el corpus nunca escribió. PLANTER crea el Fondo Soberano Ciudadano ' +
+      '(:349) y PLANMON el Fondo Soberano Bastardo (:1557) con los mismos afluentes, y las propias ' +
+      'tablas de interconexión de PLANMON le mandan esos afluentes al «Ciudadano» (:2224, :2225, ' +
+      ':2235, :2239). Sin este veredicto escrito, financiar el Tramo Común «por el FSC y el Fondo ' +
+      'Previsional Bastardo» es contar dos veces la misma regalía',
+  },
+  {
+    valor: 'decisión de diseño de este documento',
+    en: [H2_RENTA],
+    veces: 2,
+    porQue:
+      'las dos decisiones que esta sección toma y que el corpus no traía —la reconciliación de los ' +
+      'dos fondos y la regla de absorción del Piso Vital— van declaradas con la fórmula del corpus. ' +
+      'Una decisión de diseño sin declarar se lee, tres documentos después, como una medición',
+  },
+  {
+    valor: 'ni duplica ni sustituye',
+    en: [H2_RENTA],
+    porQue:
+      'el veredicto sobre el Tramo Ganado, que §3.3 difiere acá por escrito. `PLANCUIDADO:340` ya ' +
+      'fijó la moneda de cuidado con fórmula, techo y validación por Mesa Civil: duplicarla sería ' +
+      'gastar dos veces el mismo pasivo y sustituirla sería enmendar el PLAN ajeno de prepo',
+  },
+  {
+    valor: 'dos monedas y no tres',
+    en: [H2_RENTA],
+    porQue:
+      'el Servicio Cívico no existe como institución del corpus (C-8) y los tres canales que sí pagan ' +
+      'servicio cívico ya pagan: el panelista de PLANJUS:1659, las dietas de PLANMESA:481 y el ' +
+      'Referente pago por la AMCC de PLANCUIDADO:94. Una tercera moneda previsional pagaría dos veces',
+  },
+  {
+    valor: 'future_return',
+    en: [H2_RENTA],
+    porQue:
+      'la clase que le cuesta la fuente al Tramo Común, nombrada en la prosa y no solo excluida de la ' +
+      'tabla. El libro mayor ya clasifica las rentas extractivas así —F08, especulativa, 2030+— y ' +
+      'PLANPACTO lo prohíbe dos veces (:444, :657)',
+  },
+  {
+    valor: 'se absorbe',
+    en: [H2_RENTA],
+    porQue:
+      'el entregable que §3.3 y §3.5 difieren a esta sección: tres pisos universales sobre la misma ' +
+      'persona de sesenta y cinco —el DNP de PLANREP §15.3, el DCM de PLANTER:366-367 y el Piso ' +
+      'Vital— y el documento tiene que decir cuál se suma, cuál absorbe y cuál es absorbido. El ' +
+      'diferimiento estaba declarado desde los dos lados en la prosa y en ninguna parte de la guardia',
   },
 ];
 
@@ -558,9 +649,19 @@ const esEncabezado = (l: string): boolean => /^#{1,6}\s/.test(l.trim());
  *    intercalado NO corta: cortan los encabezados y la cabecera de otra tabla,
  *    que se reconoce por el separador `|---|` que la sigue.
  */
+/**
+ * `exigirContigua` es de la Task 5 y cierra la mitad que faltaba del punto 2.
+ * Que el párrafo intercalado no CORTE el parseo es lo correcto para la tabla del
+ * Calendario —el corpus parte tablas y las filas de abajo se tienen que
+ * verificar igual—, pero deja de serlo cuando la tabla es un registro contable:
+ * una tabla de fuentes con un párrafo en el medio ya no se lee como una tabla, y
+ * el renglón que quede del otro lado del corte es exactamente donde se esconde
+ * la fuente incómoda. Con la bandera puesta, el corte se parsea Y se reporta.
+ */
 function filasDeTabla(
   lineas: string[],
   columnas: string[],
+  exigirContigua = false,
 ): { filas: string[][] | null; errores: string[] } {
   const errores: string[] = [];
   const cabeceras: number[] = [];
@@ -580,15 +681,38 @@ function filasDeTabla(
 
   const i = cabeceras[0];
   const filas: string[][] = [];
+  /** Líneas que no son fila y quedaron ENTRE dos filas: el corte de la tabla. */
+  const cortes: number[] = [];
+  let candidatas: number[] = [];
   for (let j = i + 1; j < lineas.length; j++) {
     const l = lineas[j];
     if (esEncabezado(l)) break; // la tabla no cruza un título
-    if (!esFilaDeTabla(l)) continue; // párrafo intercalado: NO corta
+    if (!esFilaDeTabla(l)) {
+      // Párrafo intercalado: NO corta el parseo. Queda anotado y solo cuenta
+      // como corte si después vuelve a haber filas — lo de abajo del último
+      // renglón es prosa que sigue, no una tabla partida.
+      if (filas.length > 0) candidatas.push(j);
+      continue;
+    }
     if (esSeparadorDeTabla(l)) continue;
     // La cabecera de OTRA tabla se reconoce por el separador que la sigue.
     if (filas.length > 0 && esSeparadorDeTabla(lineas[j + 1] ?? '')) break;
+    if (candidatas.length > 0) {
+      cortes.push(...candidatas);
+      candidatas = [];
+    }
     filas.push(celdas(l));
   }
+
+  if (exigirContigua && cortes.length > 0) {
+    errores.push(
+      `la tabla con las columnas [${columnas.join(' · ')}] está partida: entre sus filas hay ` +
+        `${String(cortes.length)} línea(s) que no son fila (línea ${cortes.map((k) => String(k + 1)).join(', ')}). ` +
+        'Una tabla contable no se parte: el renglón que queda del otro lado del corte es donde se ' +
+        'esconde la fuente que nadie quiere sumar',
+    );
+  }
+
   return { filas, errores };
 }
 
@@ -643,6 +767,200 @@ function verificarTablas(lineas: string[]): string[] {
 
   // (c) Task 4: el Calendario de Umbrales. Task 5: fuentes de la Renta de Arco.
   errores.push(...verificarCalendarioDeUmbrales(lineas));
+  errores.push(...verificarTablaDeFuentes(lineas));
+
+  return errores;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// La tabla de fuentes de la Renta de Arco: la SECCIÓN 4.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const COLUMNAS_FUENTES = ['Fuente', 'Dueño', 'Disponibilidad', 'Confianza', 'Clase'];
+
+/** Las cuatro calificaciones de `PLANPACTO §5.1` y de la regla 3 del libro mayor. */
+const CONFIANZAS = ['alta', 'media', 'baja', 'especulativa'];
+
+/**
+ * La clase que ninguna fila puede llevar. `PLANPACTO:444` la prohíbe —«ningún
+ * retorno futuro puede computarse como fuente disponible para gasto presente»—
+ * y `PLANPACTO:657` la vuelve a prohibir sobre su propio presupuesto. Es la
+ * prohibición que le cuesta al Tramo Común su fuente, y por eso se verifica acá
+ * y no se deja a la disciplina de quien escriba la próxima fila.
+ */
+const CLASE_PROHIBIDA = 'future_return';
+
+/** Sin backticks ni negritas: las celdas escriben los identificadores en `código`. */
+const pelada = (celda: string): string => celda.replace(/[`*]/g, '').trim();
+
+/**
+ * Las seis clases, **leídas del propio libro mayor** y no copiadas acá. Copiarlas
+ * sería estrenar una taxonomía paralela, que es exactamente lo que `PLANPACTO:657`
+ * declina hacer: «las clases son las de `SOURCE_OF_FUNDS_LEDGER.md` y no una
+ * taxonomía propia». Si el libro mayor agrega una clase, esta guardia la acepta
+ * sola; si le cambian el formato a la regla 2, el chequeo **no corre y lo dice**.
+ */
+function clasesDelLibroMayor(): string[] {
+  const rel = DOCUMENTOS_CITABLES['SOURCE_OF_FUNDS_LEDGER.md'];
+  if (rel === undefined) return [];
+  const f = resolve(REPO_ROOT, rel);
+  if (!existsSync(f)) return [];
+  const m = /Cada fuente tiene clasificaci[óo]n:\s*`([^`]+)`/.exec(readFileSync(f, 'utf8'));
+  if (!m) return [];
+  return m[1]
+    .split('|')
+    .map((s) => s.trim())
+    .filter((s) => s !== '');
+}
+
+/**
+ * Los conteos que la prosa de la SECCIÓN 4 tiene que decir, **derivados de la
+ * tabla y no escritos a mano.** Misma doctrina que
+ * `frasesDerivadasDelCalendario()`: se exige el par número-sustantivo y no la
+ * oración entera, para que la prosa se pueda reescribir sin que la guardia se
+ * ponga roja sobre prosa honesta.
+ *
+ * El cuarto es el que más trabajo hace. Que ninguna fuente llegue a confianza
+ * `alta` no es un descuido: la regla 5 del libro mayor dice que una reasignación
+ * no sube de media a alta sin ley sancionada o decreto firmado, y la ley de este
+ * PLAN no existe. Si mañana alguien escribe una fila `alta` sin la ley, la
+ * guardia obliga a que la prosa lo diga en vez de dejarlo pasar en una celda.
+ */
+function frasesDerivadasDeFuentes(
+  total: number,
+  duenos: number,
+  clases: number,
+  altas: number,
+): { frase: string; porQue: string }[] {
+  const letra = (n: number): string => EN_LETRAS[n] ?? String(n);
+  return [
+    {
+      frase: `${letra(total)} fuentes`,
+      porQue: 'la cantidad de fuentes sale de contar la tabla, no de la memoria de quien la escribió',
+    },
+    {
+      frase: `${letra(duenos)} dueños`,
+      porQue:
+        'los dueños DISTINTOS salen de `new Set()` sobre la segunda columna. La regla de ' +
+        '`PLANPACTO §5.1` es «una fuente, un dueño»: si dos filas comparten dueño, el número lo dice',
+    },
+    {
+      frase: `${letra(clases)} clases`,
+      porQue:
+        'las clases DISTINTAS usadas, contra las seis de `SOURCE_OF_FUNDS_LEDGER.md`. Es el número ' +
+        'que delata si la tabla se apoya toda en un solo tipo de fuente',
+    },
+    {
+      frase: altas === 0 ? 'ninguna de confianza alta' : `${letra(altas)} de confianza alta`,
+      porQue:
+        'la regla 5 del libro mayor: una reasignación no sube a `alta` sin ley sancionada o decreto ' +
+        'firmado. Escribir una fila `alta` sin la ley y no decirlo es la manera prolija de estrenar ' +
+        'una fuente que no existe',
+    },
+  ];
+}
+
+/**
+ * La tabla de la plata. Lo que se verifica, y por qué cada cosa:
+ *
+ * - **Una sola tabla y CONTIGUA.** Lo cierra `filasDeTabla()` con la bandera.
+ * - **Cinco celdas llenas por fila.** La celda que se puede dejar en blanco sin
+ *   que el renglón se note es la del dueño, y es la que hace verificable la fila.
+ * - **La confianza es una de las cuatro** de `PLANPACTO §5.1`, y **la clase es
+ *   una de las seis** del libro mayor, leídas del libro mayor.
+ * - **Ninguna fila es `future_return`.**
+ * - **Los conteos de la prosa salen de la tabla.**
+ *
+ * Las anclas de las celdas —`PLANCUIDADO:340` y las demás— no se resuelven acá:
+ * las resuelve `verificarAnclasDeProsa()`, que barre TODAS las líneas del
+ * archivo, filas de tabla incluidas. Verificado rompiendo una: sale roja.
+ */
+function verificarTablaDeFuentes(lineas: string[]): string[] {
+  const { filas, errores } = filasDeTabla(lineas, COLUMNAS_FUENTES, true);
+  if (filas === null) {
+    if (errores.length === 0) {
+      errores.push(
+        `falta la tabla de fuentes de la Renta de Arco, con las columnas [${COLUMNAS_FUENTES.join(' · ')}]: ` +
+          'sin ella la SECCIÓN 4 promete plata y no dice de dónde sale, que es la práctica que ' +
+          'PLANPACTO §5.1 existe para terminar',
+      );
+    }
+    return errores;
+  }
+
+  const clasesValidas = clasesDelLibroMayor();
+  if (clasesValidas.length === 0) {
+    errores.push(
+      'no se pudieron leer las seis clases de la regla 2 de `SOURCE_OF_FUNDS_LEDGER.md`: el chequeo ' +
+        'de clases NO corre, y una tabla de fuentes sin clase verificada es una taxonomía propia',
+    );
+  }
+
+  const duenos = new Set<string>();
+  const clases = new Set<string>();
+  let altas = 0;
+  filas.forEach((fila, k) => {
+    const donde = `la fuente ${String(k + 1)} de la Renta de Arco («${pelada(fila[0] ?? '').slice(0, 44)}»)`;
+    if (fila.length !== COLUMNAS_FUENTES.length) {
+      errores.push(
+        `${donde} tiene ${String(fila.length)} celda(s) y la tabla tiene ` +
+          `${String(COLUMNAS_FUENTES.length)} columnas`,
+      );
+      return;
+    }
+    if (fila.some((c) => pelada(c) === '')) {
+      errores.push(
+        `${donde} tiene una celda vacía: «${fila.join(' | ')}». La regla de PLANPACTO §5.1 es «una ` +
+          'fuente, un dueño, una fecha de disponibilidad, una calificación de confianza», y las cuatro ' +
+          'van escritas o la fila no es una fuente',
+      );
+      return;
+    }
+
+    duenos.add(pelada(fila[1]));
+
+    const confianza = pelada(fila[3]).toLowerCase();
+    if (!CONFIANZAS.includes(confianza)) {
+      errores.push(
+        `${donde} declara confianza «${pelada(fila[3])}», que no es una de las cuatro de ` +
+          `PLANPACTO §5.1 [${CONFIANZAS.join(' · ')}]`,
+      );
+    } else if (confianza === 'alta') {
+      altas += 1;
+    }
+
+    const clase = pelada(fila[4]);
+    clases.add(clase);
+    if (clase === CLASE_PROHIBIDA) {
+      errores.push(
+        `${donde} está clasificada \`${CLASE_PROHIBIDA}\`, y ninguna fila puede estarlo: ` +
+          'PLANPACTO lo prohíbe dos veces (`:444` y `:657`) y la regla 4 del libro mayor lo repite. ' +
+          'Un retorno futuro no financia gasto presente, por bien fundado que esté el retorno',
+      );
+    } else if (clasesValidas.length > 0 && !clasesValidas.includes(clase)) {
+      errores.push(
+        `${donde} declara la clase «${clase}», que no está en la regla 2 de ` +
+          `\`SOURCE_OF_FUNDS_LEDGER.md\` [${clasesValidas.join(' · ')}]: las clases son las del libro ` +
+          'mayor y no una taxonomía propia (PLANPACTO:657)',
+      );
+    }
+  });
+
+  const { tramo, errores: errTramo } = tramoDeSeccion(lineas, H2_RENTA);
+  errores.push(...errTramo);
+  if (tramo !== null) {
+    const texto = tramo.join('\n');
+    for (const { frase, porQue } of frasesDerivadasDeFuentes(
+      filas.length,
+      duenos.size,
+      clases.size,
+      altas,
+    )) {
+      if (!dice(texto, frase)) {
+        errores.push(`la SECCIÓN 4 no dice «${frase}»: ${porQue}`);
+      }
+    }
+  }
 
   return errores;
 }
@@ -689,6 +1007,10 @@ const DOCUMENTOS_CITABLES: Record<string, string> = {
   'TABLA_AGENCIAS_BASTA.md': 'Iniciativas Estratégicas/TABLA_AGENCIAS_BASTA.md',
   ACTA: 'Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md',
   spec: 'v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md',
+  // Task 5: el libro mayor de fuentes y sus dos vecinos, que la SECCIÓN 4 cita.
+  'SOURCE_OF_FUNDS_LEDGER.md': 'Iniciativas Estratégicas/SOURCE_OF_FUNDS_LEDGER.md',
+  'PRESUPUESTO_CONSOLIDADO_BASTA.md': 'Iniciativas Estratégicas/PRESUPUESTO_CONSOLIDADO_BASTA.md',
+  'CASCADA_LEGAL_BASTA.md': 'Iniciativas Estratégicas/CASCADA_LEGAL_BASTA.md',
 };
 
 /** Las líneas de un documento citable, cacheadas: la resolución de anclas relee. */
@@ -829,15 +1151,58 @@ const ANCLA_PROSA_LINEA = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?):(\d+)(?:-(\d+))?$/;
 const ANCLA_PROSA_CORTA = /^:(\d+)(?:-(\d+))?$/;
 const NOMBRE_DE_DOCUMENTO = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?)$/;
 
+/**
+ * **La octava forma del arquetipo, y la que le faltaba justo a este chequeo: la
+ * guardia contaba lo que ENTENDIÓ, no lo que VIO.**
+ *
+ * Las cuatro formas de arriba reconocen las anclas que el corpus escribe hoy, y
+ * todo lo demás se descartaba **en silencio**: un token en backticks que no
+ * matcheara era indistinguible de prosa entre comillas invertidas. O sea que la
+ * manera más barata de sacarle una cita a la verificación no era romperla — era
+ * escribirla en un formato que la guardia no conociera.
+ *
+ * No es hipotético, y el propio documento trae el caso: `ANCLA_PROSA_LINEA`
+ * exige `[A-Za-z][A-Za-z0-9_]*` **sin guiones**, y
+ * `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md` ya está en la cabecera como nombre
+ * suelto. Reproducido antes de escribir esto, los tres salían **exit 0** y el
+ * titular seguía imprimiendo el mismo número de anclas:
+ *
+ * | Token plantado | Antes |
+ * |---|---|
+ * | `` `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:99999` `` | exit 0 |
+ * | `` `PLANPACTO §4.6-4.7` `` | exit 0 |
+ * | `` `PLANMON §6.2:99999` `` | exit 0 |
+ *
+ * El arreglo no es reconocer más formatos —eso sería perseguir la sintaxis— sino
+ * **declarar lo que no se pudo leer**: todo token en backticks con forma de
+ * ancla (un `§`, o un `:` seguido de dígito) que ninguna de las cuatro formas
+ * capture se reporta. Registrar un formato nuevo es una línea de esta guardia;
+ * una cita que nadie puede abrir es lo que este tramo existe para impedir.
+ *
+ * **Falsos positivos: cero sobre el documento entero**, verificado token por
+ * token antes de dar el chequeo por bueno. Los backticks que NO son anclas
+ * —`superseded`, `[est.]`, `future_return`, `PLAN_REGISTRY.yml`,
+ * `LEGAL_OPINIONS/PLANARCO.md`— no llevan `§` ni `:` seguido de dígito y no
+ * entran nunca a este brazo.
+ */
+const CON_FORMA_DE_ANCLA = /§|:\d/u;
+
 function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resueltas: number } {
   const errores: string[] = [];
   let antecedente: string | null = null;
   /**
-   * Cuántas anclas se abrieron de verdad. Va al titular a propósito: cero
-   * anclas escaneadas también da cero errores, y un chequeo que informa éxito
-   * sin haber mirado nada es el arquetipo que esta guardia lleva siete veces.
+   * Cuántas anclas se abrieron de verdad **y resolvieron**. Va al titular a
+   * propósito: cero anclas escaneadas también da cero errores, y un chequeo que
+   * informa éxito sin haber mirado nada es el arquetipo que esta guardia lleva
+   * ocho veces. Se incrementa DESPUÉS de resolver y solo si resolvió: antes se
+   * contaba al entrar al brazo, así que una cita a un documento no registrado
+   * sumaba al titular «abiertas contra su documento» sin haberse abierto nunca.
    */
   let resueltas = 0;
+  const anotar = (err: string | null, donde: string): void => {
+    if (err === null) resueltas += 1;
+    else errores.push(`${donde}: ${err}`);
+  };
 
   lineas.forEach((linea, k) => {
     for (const m of linea.matchAll(/`([^`\n]+)`/g)) {
@@ -847,26 +1212,18 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
       const s = ANCLA_PROSA_SECCION.exec(bruto);
       if (s) {
         if (lineasDelPlan(s[1]) !== null) antecedente = s[1];
-        resueltas += 1;
-        const err = resolverContra(bruto, s[1], s[2], 0, 0, 'reportar');
-        if (err !== null) errores.push(`${donde}: ${err}`);
+        anotar(resolverContra(bruto, s[1], s[2], 0, 0, 'reportar'), donde);
         continue;
       }
 
       const l = ANCLA_PROSA_LINEA.exec(bruto);
       if (l) {
         if (lineasDelPlan(l[1]) !== null) antecedente = l[1];
-        resueltas += 1;
         const desde = Number(l[2]);
-        const err = resolverContra(
-          bruto,
-          l[1],
-          null,
-          desde,
-          l[3] === undefined ? desde : Number(l[3]),
-          'reportar',
+        anotar(
+          resolverContra(bruto, l[1], null, desde, l[3] === undefined ? desde : Number(l[3]), 'reportar'),
+          donde,
         );
-        if (err !== null) errores.push(`${donde}: ${err}`);
         continue;
       }
 
@@ -879,22 +1236,36 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
           );
           continue;
         }
-        resueltas += 1;
         const desde = Number(c[1]);
-        const err = resolverContra(
-          `${antecedente}${bruto}`,
-          antecedente,
-          null,
-          desde,
-          c[2] === undefined ? desde : Number(c[2]),
-          'reportar',
+        anotar(
+          resolverContra(
+            `${antecedente}${bruto}`,
+            antecedente,
+            null,
+            desde,
+            c[2] === undefined ? desde : Number(c[2]),
+            'reportar',
+          ),
+          donde,
         );
-        if (err !== null) errores.push(`${donde}: ${err}`);
         continue;
       }
 
       const n = NOMBRE_DE_DOCUMENTO.exec(bruto);
-      if (n && lineasDelPlan(n[1]) !== null) antecedente = n[1];
+      if (n) {
+        if (lineasDelPlan(n[1]) !== null) antecedente = n[1];
+        continue;
+      }
+
+      // Octava forma: tiene pinta de ancla y ninguna de las cuatro la leyó.
+      if (CON_FORMA_DE_ANCLA.test(bruto)) {
+        errores.push(
+          `${donde}: «${bruto}» tiene forma de ancla y la guardia no sabe leerla, así que hasta hoy ` +
+            'se descartaba en silencio y contaba como prosa. Las formas que se resuelven son ' +
+            '`PLANXXX §N.N`, `PLANXXX:NNN`, `PLANXXX:NNN-NNN` y la remisión corta `:NNN`. Si el ' +
+            'formato es legítimo, se registra acá; si no, la cita no se puede abrir y no va escrita',
+        );
+      }
     }
   });
 
@@ -1052,7 +1423,7 @@ function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
       documentosOcupantes.size,
       maxOcupantesEnUnaFila,
     )) {
-      if (!texto.includes(frase)) {
+      if (!dice(texto, frase)) {
         errores.push(`la SECCIÓN 3 no dice «${frase}»: ${porQue}`);
       }
     }
@@ -1194,9 +1565,18 @@ function textoDeDomicilio(
   if (nivel === 0) {
     return { texto: null, errores: [`domicilio mal escrito en la guardia: «${etiqueta}»`] };
   }
+  /**
+   * Un domicilio que termina en espacio es un PREFIJO: `### 0.6 ` domicilia por
+   * el número del H3 y no por su título. El resto se compara exacto, como antes.
+   * La unicidad se exige igual en los dos casos, así que el prefijo no reabre la
+   * puerta del chequeo truncable: si dos H3 empiezan igual, el chequeo no corre
+   * y lo dice.
+   */
+  const porPrefijo = etiqueta.endsWith(' ');
   const indices: number[] = [];
   lineas.forEach((l, k) => {
-    if (l.trim() === etiqueta) indices.push(k);
+    const t = l.trim();
+    if (porPrefijo ? t.startsWith(etiqueta) : t === etiqueta) indices.push(k);
   });
   if (indices.length === 0) {
     return { texto: null, errores: [`falta el domicilio «${etiqueta}», donde viven cifras canónicas`] };
@@ -1220,6 +1600,26 @@ function textoDeDomicilio(
 /** Cuenta ocurrencias literales, sin regex: los valores traen `.`, `%` y `–`. */
 function contar(texto: string, valor: string): number {
   return texto.split(valor).length - 1;
+}
+
+/**
+ * **Una frase derivada de una tabla se busca con bordes de palabra, no con
+ * `includes()`.** Encontrado rompiendo, y es la novena forma del arquetipo:
+ * cambiar la confianza de una fila de `media` a `alta` hacía que la frase
+ * derivada pasara de «ninguna de confianza alta» a «una de confianza alta»…
+ * que es **subcadena de la anterior** —«ning*una de confianza alta*»—, así que
+ * el documento sin tocar seguía satisfaciendo la frase nueva y la mutación
+ * salía **exit 0**. El chequeo que existe para atrapar una fila estrenada se
+ * cubría a sí mismo por accidente ortográfico.
+ *
+ * El mismo riesgo lo tienen las frases del Calendario —«un ocupante» adentro de
+ * «algun ocupante», «dos documentos» adentro de «ciendos documentos»— así que
+ * los dos juegos pasan por acá. Los bordes son de LETRA, no `\b`: `\b` no
+ * entiende que la `ñ` de «años» o la `é` de «régimen» son letras.
+ */
+function dice(texto: string, frase: string): boolean {
+  const escapada = frase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?<!\\p{L})${escapada}(?!\\p{L})`, 'u').test(texto);
 }
 
 /**
@@ -1645,7 +2045,10 @@ function main(): void {
       `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas, sus dispositivos ` +
       'cruzados contra los trece de la portada y sus ocupantes resueltos ancla por ancla contra el ' +
       'archivo destino, ' +
-      `${String(prosa.resueltas)} anclas de la prosa abiertas contra su documento, ` +
+      'tabla de fuentes contigua con sus clases cruzadas contra SOURCE_OF_FUNDS_LEDGER.md y sin una ' +
+      `sola fila \`${CLASE_PROHIBIDA}\`, ` +
+      `${String(prosa.resueltas)} anclas de la prosa abiertas y resueltas contra su documento ` +
+      '(y todo token con forma de ancla que la guardia no sepa leer se reporta, no se descarta), ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
