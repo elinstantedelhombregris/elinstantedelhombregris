@@ -35,8 +35,25 @@ const SECCIONES_ESPERADAS: string[] = [
   H2_MANDATO,
   '## PREÁMBULO — LA VIDA QUE NADIE MIRÓ ENTERA',
   '## TESIS CENTRAL',
-  // Task 3: SECCIÓN 0, 1 y 2 · Task 4: SECCIÓN 3 · Task 5: SECCIÓN 4 · …
+  '## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO',
+  '## SECCIÓN 1: LA CRISIS — EL PAÍS SE ESTÁ HACIENDO VIEJO SIN HABER DECIDIDO CÓMO SE ENVEJECE',
+  '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
+  // Task 4: SECCIÓN 3 · Task 5: SECCIÓN 4 · …
 ];
+
+/**
+ * Las ocho fallas de la SECCIÓN 0 llevan la forma de PLANPACTO:96-130 y son
+ * OCHO, ni siete ni nueve: el H2 de la sección lo promete en el título. Sin
+ * esto, borrar una falla entera salía verde — el mismo modo de falla que la
+ * portada tenía antes de que la anatomía se declarara acá.
+ *
+ * Se verifica la numeración `### 0.N` correlativa de 1 a 8 y, adentro de cada
+ * una, los tres leads en negrita que el brief manda. Los leads se buscan sobre
+ * el texto CON negritas a propósito: la forma es el lead en negrita, no la
+ * palabra suelta, y sobre `rawPlano` un párrafo sin negrita pasaría igual.
+ */
+const FALLAS_ESPERADAS = 8;
+const LEADS_DE_FALLA: string[] = ['**La falla:**', '**Por qué persiste:**', '**El dato:**'];
 
 /**
  * Cifras y fórmulas verificadas que el documento no puede contradecir ni perder.
@@ -73,6 +90,36 @@ const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
       'el presupuesto a quince años sobre el que se corrió el gate — scripts/gate-spinoff-planes-nuevos.ts:25. ' +
       'El rango ANUAL no se escribe hasta la Task 8 (hallazgo C-5)',
   },
+  {
+    valor: 'más de 10 millones',
+    porQue:
+      'la proyección 2040 de 60+, ÚNICA del corpus — PLANREP:367. Se cita atribuida y declarando ' +
+      'que es cuenta del propio PLANREP, no medición: no hay INDEC, CELADE ni ONU detrás',
+  },
+  {
+    valor: '150.000 cuidadores',
+    porQue:
+      'el déficit de cuidadores formales — PLANREP:335, :367. Es la mitad de la crisis que la curva ' +
+      'demográfica sola no muestra: el que va a cuidar tampoco está',
+  },
+  {
+    valor: '18% del PBI',
+    porQue:
+      'el volumen del cuidado no remunerado — PLANCUIDADO:94, que lo escribe en letras. Sin este ' +
+      'número la falla 0.4 es una opinión',
+  },
+  {
+    valor: '60% del presupuesto',
+    porQue:
+      'el recorte al INTA en los años 90 — BLINDAJE:44. Aserción del corpus SIN fuente externa, y la ' +
+      'evidencia del modo de falla más probable de este PLAN: no se deroga, se deja de ejecutar',
+  },
+  {
+    valor: 'enero de 2002',
+    porQue:
+      'la Convertibilidad «se derogó en una noche de enero de 2002» — BLINDAJE:50. El contracaso del ' +
+      'INTA: derogar tampoco cuesta tanto cuando la presión alcanza',
+  },
 ];
 
 /**
@@ -97,6 +144,19 @@ const ASERCIONES_OBLIGATORIAS: { valor: string; porQue: string }[] = [
     porQue:
       'el acta retira solo la vejez del hueco «Discapacidad y vejez»; la discapacidad queda en ' +
       'PLANCUIDADO + PLANSAL y PLANARCO tiene que decirlo — ACTA:169-173',
+  },
+  {
+    valor: 'extrapolación aritmética',
+    porQue:
+      'la proyección 2040 es una cuenta del propio PLANREP (7,3M × 1,03^14) y no una medición. ' +
+      'Escribir el número sin esta declaración es estrenar una cifra demográfica que nadie midió',
+  },
+  {
+    valor: 'aserción propia sin fuente',
+    porQue:
+      'la disciplina que costó el hallazgo Crítico del tramo B: la sección que DEFIENDE al PLAN es la ' +
+      'que menos se revisa. Un precedente sin cita en el corpus se declara como tal, no se escribe ' +
+      'como si fuera sabido (PLANPACTO:232 usa esta misma fórmula)',
   },
 ];
 
@@ -430,6 +490,110 @@ function verificarTablas(lineas: string[]): string[] {
   return errores;
 }
 
+/** El tramo de líneas de una sección: de su H2 al siguiente H2, o al fin del archivo. */
+function tramoDeSeccion(lineas: string[], h2: string): string[] | null {
+  const i = lineas.findIndex((l) => l.trim() === h2);
+  if (i === -1) return null;
+  const j = lineas.findIndex((l, k) => k > i && l.startsWith('## '));
+  return lineas.slice(i + 1, j === -1 ? lineas.length : j);
+}
+
+/**
+ * La SECCIÓN 0 promete OCHO fallas en su propio H2 y cada una lleva la forma de
+ * PLANPACTO:96-130: `### 0.N {título}` con tres párrafos de lead en negrita.
+ * Sin este chequeo se podía borrar una falla entera —o dejarla sin «El dato:»,
+ * que es el párrafo que la sostiene contra el corpus— y la guardia salía verde.
+ *
+ * Se verifica la numeración CORRELATIVA, no la cantidad: ocho H3 numerados
+ * 0.1, 0.3, 0.3, … también dan ocho.
+ */
+function verificarOchoFallas(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const tramo = tramoDeSeccion(lineas, '## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO');
+  if (tramo === null) return errores; // la ausencia del H2 ya la reporta el chequeo de secciones
+
+  const iH3: number[] = [];
+  const numeros: string[] = [];
+  tramo.forEach((l, k) => {
+    const m = /^### 0\.(\d+) \S/.exec(l.trim());
+    if (m) {
+      iH3.push(k);
+      numeros.push(m[1]);
+    }
+  });
+
+  if (iH3.length !== FALLAS_ESPERADAS) {
+    errores.push(
+      `la SECCIÓN 0 tiene ${String(iH3.length)} falla(s) con forma «### 0.N {título}» y su propio H2 ` +
+        `promete ${String(FALLAS_ESPERADAS)}: el título de la sección y su contenido no pueden discrepar`,
+    );
+  }
+  numeros.forEach((n, k) => {
+    if (n !== String(k + 1)) {
+      errores.push(
+        `la falla número ${String(k + 1)} de la SECCIÓN 0 está numerada «0.${n}»: la numeración es ` +
+          'correlativa desde 0.1, y ocho H3 mal numerados también suman ocho',
+      );
+    }
+  });
+
+  // Los tres leads, adentro de cada falla y no en cualquier lado de la sección.
+  iH3.forEach((inicio, k) => {
+    const fin = k + 1 < iH3.length ? iH3[k + 1] : tramo.length;
+    const cuerpo = tramo.slice(inicio + 1, fin).join('\n');
+    for (const lead of LEADS_DE_FALLA) {
+      if (!cuerpo.includes(lead)) {
+        errores.push(
+          `la falla «${tramo[inicio].trim()}» no trae el lead «${lead}»: la forma de PLANPACTO:96-130 ` +
+            'son tres párrafos, y «El dato:» es el que ata la falla al corpus',
+        );
+      }
+    }
+  });
+
+  return errores;
+}
+
+/**
+ * La SECCIÓN 2 es la que DEFIENDE al PLAN, y por eso es la que menos se revisa:
+ * fue el hallazgo Crítico del tramo B, donde los precedentes se enumeraron por
+ * lo que PIDIERON y nadie escribió lo que DIERON — y dos de ellos sí traían la
+ * característica que el documento invocaba como diferencia propia.
+ *
+ * El arreglo editorial de PLANPACTO:226-232 fue marcar las dos columnas con
+ * `*Pidió:*` y `*Dio:*` en el propio texto. Acá se verifica que estén, que sean
+ * al menos tres pares —un precedente solo no es una sección— y que estén
+ * BALANCEADAS: la falla real es escribir la primera columna y olvidar la
+ * segunda, y eso se detecta contando, no buscando.
+ */
+const PARES_MINIMOS_DE_PRECEDENTE = 3;
+
+function verificarPrecedentesEnDosColumnas(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const tramo = tramoDeSeccion(lineas, '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES');
+  if (tramo === null) return errores;
+
+  const texto = tramo.join('\n');
+  const pidio = (texto.match(/\*Pidió:\*/g) ?? []).length;
+  const dio = (texto.match(/\*Dio:\*/g) ?? []).length;
+
+  if (pidio < PARES_MINIMOS_DE_PRECEDENTE) {
+    errores.push(
+      `la SECCIÓN 2 marca ${String(pidio)} «*Pidió:*» y se esperaban al menos ` +
+        `${String(PARES_MINIMOS_DE_PRECEDENTE)}: cada precedente se lee en dos columnas declaradas`,
+    );
+  }
+  if (dio !== pidio) {
+    errores.push(
+      `la SECCIÓN 2 marca ${String(pidio)} «*Pidió:*» y ${String(dio)} «*Dio:*»: la falla del tramo B ` +
+        'fue enumerar lo que cada antecedente pidió sin escribir lo que dio. Si un «Dio» no se pudo ' +
+        'verificar, se escribe declarándolo —el patrón de PLANPACTO:230— y la columna igual existe',
+    );
+  }
+
+  return errores;
+}
+
 /**
  * La anatomía de la cabecera: H1, H3 de versión y portada ASCII con los trece
  * dispositivos adentro. Sin esto se podía borrar la portada entera y salir 0.
@@ -657,6 +821,11 @@ function main(): void {
   // 7) La anatomía de la cabecera: H1, H3 de versión y portada.
   errores.push(...verificarCabecera(raw, lineas));
 
+  // 8) La anatomía del diagnóstico: ocho fallas con sus tres leads, y los
+  //    precedentes leídos en dos columnas.
+  errores.push(...verificarOchoFallas(lineas));
+  errores.push(...verificarPrecedentesEnDosColumnas(lineas));
+
   if (errores.length > 0) {
     console.error(`La guardia de PLANARCO encontró ${String(errores.length)} problema(s):\n`);
     for (const e of errores) console.error(`  · ${e}`);
@@ -668,6 +837,8 @@ function main(): void {
       `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(ASERCIONES_OBLIGATORIAS.length)} aserciones obligatorias, ` +
       `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
       '(conjunto exacto: ni falta ni sobra), ' +
+      `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
+      'precedentes en dos columnas balanceadas, ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
