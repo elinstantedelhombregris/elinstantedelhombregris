@@ -61,6 +61,8 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 
 ## Global Constraints
 
+> **La unidad de conteo es `wc -w` crudo, y no es una elección de gusto.** `wc -w "Iniciativas Estratégicas/PLANPACTO_Argentina_ES.md"` da **26.541** exacto y `wc -l` da **810** — los dos números que este mismo bloque ya citaba. La unidad estaba declarada de hecho desde el principio; las normalizaciones privadas de cada agente eran la anomalía, y produjeron tres conteos distintos de la misma cabecera contra un mismo techo. **Nadie inventa su propia normalización.**
+
 > **Presupuesto de palabras — leelo antes de escribir.** El tramo B se pasó en la Sección 5 porque su brief no declaraba rango, y su objetivo de líneas resultó mal calibrado por un factor de tres: **un rango de líneas mide formato, no largo.** Acá se mide en **palabras**, cada sección tiene el suyo declarado en su step, y **las adiciones de revisión entran adentro del rango, no encima.** Objetivo total: **27.000–31.000 palabras** — la densidad de PLANPACTO (26.541 palabras en 810 líneas), no la de PLANMEMORIA (10.111 en 900).
 >
 > **Método de conteo — el comando exacto, y vale para todo el tramo.** Un rango fijado con la normalización privada de un agente no lo puede auditar el siguiente: la Task 1 contó 576 palabras de cabecera y su revisor contó 583 sobre el mismo texto, con dos normalizaciones distintas y ninguna declarada. Así que **se cuenta con `wc -w` crudo, sin normalizar markdown** — sin sacar `>`, ni `**`, ni `·`, ni backticks. Es la unidad en la que ya está expresado todo lo de arriba: `wc -w PLANPACTO_Argentina_ES.md` da **26.541** exacto, que es el número que este bloque cita.
@@ -285,6 +287,8 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 ### Task 4: La arquitectura — el Calendario de Umbrales
 
 **Files:** Modify: la guardia (**y acá empieza a parsear la primera tabla**) · Modify: el documento.
+
+**Antes de la tabla, cerrá el hueco que la revisión de la Task 1 dejó anotado.** `filasDeTabla()` devuelve la **primera** tabla cuya cabecera contiene las columnas pedidas y no verifica que haya exactamente una — es la portada otra vez: el chequeo barato es «¿encontré lo que esperaba?» y el que salva es «¿hay algo que no esperaba?». Con dos tablas de columnas compartidas, una ensombrece a la otra y nadie se entera. **Y hay un segundo modo que la portada no tiene:** el bucle corta en la primera línea que no empieza con `|`, así que una tabla partida por un párrafo intercalado —cosa que este corpus hace— deja la mitad de las filas sin verificar, y si el chequeo es «cada fila tiene columna X», eso **falla abierto**. Las dos cosas se cierran acá, con la primera tabla, no con la segunda: la dirección defensiva es la que se posterga y no se escribe nunca.
 
 **El Calendario de Umbrales no es un dispositivo: es la arquitectura** (spec `:179`). La sección lo presenta como tal y da la tabla de estaciones — que la guardia va a **parsear y verificar**: cada fila con su edad o hito, el dispositivo que la atiende, y el PLAN que ya la ocupa si hay uno. **La columna «quién la ocupa hoy» es obligatoria** y es lo que hace honesta la arquitectura: nueve de las estaciones tienen ocupante previo (**C-9**).
 
