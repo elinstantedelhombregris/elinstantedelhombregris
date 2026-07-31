@@ -47,8 +47,14 @@ huéspedes: medir a un sub-mandato contra uno solo de los suyos, elegido despué
 conocer el resultado, es elegir el denominador que conviene.
 
 **PLANPREGUNTA lo pasa contra dos huéspedes de tres y falla contra el tercero y contra
-la suma.** 33x contra PLANEB y 2,6-3,5x contra PLANDIG; 0,2x contra PLANEDU, que es el
-PLAN más caro del corpus (USD 80-100 mil millones).
+la suma.** 33x contra PLANEB y 2,6-3,5x contra PLANDIG; 0,2x contra PLANEDU, que son
+USD 80-100 mil millones a veinte años. **Corrección del 2026-07-31: este acta decía
+«el PLAN más caro del corpus» y no lo es por ninguna de las dos medidas.** Por
+inversión total del período `PRESUPUESTO_CONSOLIDADO_BASTA.md:37` da PLANVIV en
+80.000-120.000M, que lo iguala abajo y lo supera arriba; por gasto anual en régimen
+`:398` da PLANMOV en 21.080M/año contra los 4.000-8.000M/año de PLANEDU. Lo que el
+argumento de abajo necesita no es el superlativo sino el orden de magnitud, y ese se
+sostiene solo.
 
 **PLANFOCO nunca tuvo huésped.** El hueco «Cultura/Medios/Artes» quedó calificado
 IMPORTANTE en la auditoría de marzo y `COVERAGE_GAPS_ASSIGNMENTS.md` **no le asignó
