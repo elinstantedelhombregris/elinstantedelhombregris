@@ -17,7 +17,7 @@
  * mandato— porque la guardia tiene que salir 0 al cierre de cada tarea; la
  * Task 2 le agrega el PREÁMBULO y la TESIS CENTRAL cuando las escriba.
  */
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -653,6 +653,97 @@ function planesDelTaller(): Set<string> {
   return out;
 }
 
+/** Las líneas de un PLAN del taller, cacheadas: la resolución de anclas relee. */
+const CACHE_TALLER = new Map<string, string[]>();
+function lineasDelPlan(plan: string): string[] | null {
+  const hit = CACHE_TALLER.get(plan);
+  if (hit) return hit;
+  const f = resolve(REPO_ROOT, 'Iniciativas Estratégicas', `${plan}_Argentina_ES.md`);
+  if (!existsSync(f)) return null;
+  const ls = readFileSync(f, 'utf8').split('\n');
+  CACHE_TALLER.set(plan, ls);
+  return ls;
+}
+
+/**
+ * Una celda de ocupante se trocea por `·` y cada pedazo tiene que traer PLAN y
+ * ancla. Formas aceptadas, que son las que el corpus escribe:
+ *
+ *   `PLANSAL §4.4`   `PLANCUIDADO:340`   `PLANMON:1543-1576`
+ *
+ * El `§` remite a un encabezado; el `:` a una línea (o a un rango).
+ */
+const ANCLA_SECCION = /^(PLAN[A-Z0-9]+)\s+§(\d+(?:\.\d+)*)$/;
+const ANCLA_LINEA = /^(PLAN[A-Z0-9]+):(\d+)(?:-(\d+))?$/;
+
+/**
+ * **La sexta forma del arquetipo, y la peor de las seis.** Antes de esta
+ * función la guardia se publicitaba como «ocupantes cruzados contra el taller»
+ * y lo único que cruzaba era que el TOKEN `PLANXXX` tuviera archivo. El ancla
+ * —`§4.4`, `:340`— no se miraba nunca: reproducido, un ocupante
+ * `PLANAGUA §999.9` en la celda de «El piso» —un PLAN que no dice una palabra
+ * de jubilaciones, en una sección que no existe— salía **exit 0**. El chequeo
+ * que se anuncia como lo que hace confiable la cuarta columna informaba éxito
+ * sobre una remisión inventada.
+ *
+ * Esto no verifica semántica —`PLANAGUA §1.1` existe y sigue sin hablar de
+ * jubilaciones— pero cierra la dirección barata, que es la que se usa: inventar
+ * el número de sección o de línea porque nadie lo va a abrir.
+ *
+ * Se resuelve contra el archivo destino: `§N.N` exige un encabezado
+ * `^#{1,6} N.N` (y `9.1` NO matchea `9.10`); `:NNN` exige que la línea exista y
+ * no esté vacía —una remisión a una línea en blanco es una remisión a nada—.
+ */
+function resolverAncla(fragmento: string): string | null {
+  const bruto = fragmento.replace(/`/g, '').trim();
+  if (bruto === '') return null;
+
+  const s = ANCLA_SECCION.exec(bruto);
+  if (s) {
+    const ls = lineasDelPlan(s[1]);
+    if (ls === null) return null; // el PLAN inexistente ya lo reporta el cruce de arriba
+    const re = new RegExp(`^#{1,6}\\s+${s[2].replace(/\./g, '\\.')}(?![\\d.])`);
+    if (!ls.some((l) => re.test(l))) {
+      return `«${bruto}» apunta a una sección que ${s[1]} no tiene: no hay encabezado «${s[2]}»`;
+    }
+    return null;
+  }
+
+  const l = ANCLA_LINEA.exec(bruto);
+  if (l) {
+    const ls = lineasDelPlan(l[1]);
+    if (ls === null) return null;
+    const desde = Number(l[2]);
+    const hasta = l[3] === undefined ? desde : Number(l[3]);
+    if (desde < 1 || hasta > ls.length || hasta < desde) {
+      return `«${bruto}» apunta fuera de ${l[1]}, que tiene ${String(ls.length)} líneas`;
+    }
+    if ((ls[desde - 1] ?? '').trim() === '') {
+      return `«${bruto}» apunta a una línea vacía de ${l[1]}: una remisión a nada`;
+    }
+    return null;
+  }
+
+  return (
+    `«${bruto}» no trae PLAN con ancla resoluble: la cuarta columna se escribe ` +
+    '`PLANXXX §N.N` o `PLANXXX:NNN` (o `PLANXXX:NNN-NNN`), y sin ancla el ocupante no se puede abrir'
+  );
+}
+
+/**
+ * **M13.** El titular decía «conjunto exacto: ni falta ni sobra» sobre la
+ * portada mientras la columna «Dispositivo del arco» podía nombrar cualquier
+ * cosa: verificado, renombrar «Dote de Origen» → «Bono Fundacional Vitalicio»
+ * en la tabla salía exit 0. Las Tasks 5–7 escriben esos dispositivos, así que
+ * el cruce vale: cada celda tiene que nombrar por lo menos uno de los trece de
+ * la portada, salvo la única fila que declara no tener dispositivo propio.
+ *
+ * Es la dirección barata a propósito: no exige que los trece estén en la tabla
+ * —`Calendario de Umbrales` es la tabla, no una fila— sino que lo que la tabla
+ * nombra pertenezca al conjunto cerrado que la portada anuncia.
+ */
+const DISPOSITIVO_POR_REMISION = 'remisión, sin dispositivo propio';
+
 /** 0–20 en letras: la prosa del corpus escribe los conteos estructurales así. */
 const EN_LETRAS = [
   'cero', 'una', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez',
@@ -720,8 +811,29 @@ function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
       return;
     }
 
+    // M13: el dispositivo del arco sale del conjunto cerrado de la portada.
+    const dispositivo = fila[2];
+    if (dispositivo !== DISPOSITIVO_POR_REMISION) {
+      const conocido = DISPOSITIVOS_EN_PORTADA.some((d) =>
+        d.enPortada.some((frag) => dispositivo.includes(frag)),
+      );
+      if (!conocido) {
+        errores.push(
+          `${donde} nombra el dispositivo «${dispositivo}», que no está entre los trece de la portada: ` +
+            'la portada se declara conjunto exacto, así que un dispositivo que solo vive en la tabla ' +
+            `es un catorceavo por la puerta de atrás (o «${DISPOSITIVO_POR_REMISION}» si no tiene uno propio)`,
+        );
+      }
+    }
+
     const ocupante = fila[3];
     if (ocupante === SIN_OCUPANTE) return;
+
+    // Crítico 2: cada ocupante trae ancla, y el ancla se resuelve contra el destino.
+    for (const frag of ocupante.split('·')) {
+      const err = resolverAncla(frag);
+      if (err !== null) errores.push(`${donde} ${err}`);
+    }
 
     const nombrados = [...ocupante.matchAll(/PLAN[A-Z0-9]+/g)].map((m) => m[0]);
     if (nombrados.length === 0) {
@@ -1272,8 +1384,9 @@ function main(): void {
       '(conjunto exacto: ni falta ni sobra), ' +
       `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
       'precedentes en dos columnas balanceadas adentro de cada PÁRRAFO, ' +
-      `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas y sus ocupantes ` +
-      'cruzados contra el taller, ' +
+      `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas, sus dispositivos ` +
+      'cruzados contra los trece de la portada y sus ocupantes resueltos ancla por ancla contra el ' +
+      'archivo destino, ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
