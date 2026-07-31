@@ -490,12 +490,45 @@ function verificarTablas(lineas: string[]): string[] {
   return errores;
 }
 
-/** El tramo de líneas de una sección: de su H2 al siguiente H2, o al fin del archivo. */
-function tramoDeSeccion(lineas: string[], h2: string): string[] | null {
-  const i = lineas.findIndex((l) => l.trim() === h2);
-  if (i === -1) return null;
+/**
+ * El tramo de líneas de una sección: de su H2 al siguiente H2, o al fin del archivo.
+ *
+ * Toma EL H2, no UNO de los H2 que coincidan. Con `findIndex` tomaba el primero,
+ * y eso lo volvía truncable exactamente como la portada: un H2 señuelo plantado
+ * antes del real —tres pares triviales de `*Pidió:*`/`*Dio:*`, u ocho `### 0.N`
+ * mínimos— hacía que la anatomía se verificara sobre el señuelo, que la sección
+ * real quedara sin mirar y que la línea de éxito informara «precedentes en dos
+ * columnas balanceadas» y «8 fallas correlativas» sin haber verificado nada.
+ *
+ * Es la tercera instancia del mismo arquetipo en esta guardia; las dos primeras
+ * fueron de la portada (`iAbre` tomando UNA portada, y los mojones de región que
+ * colapsaban en un tramo vacío). La doctrina ya la fijó `verificarCabecera()`
+ * con las cercas: **si el ancla no es única, el chequeo no corre y lo dice**.
+ * Un chequeo truncable que reporta éxito es peor que no tenerlo.
+ */
+function tramoDeSeccion(
+  lineas: string[],
+  h2: string,
+): { tramo: string[] | null; errores: string[] } {
+  const indices: number[] = [];
+  lineas.forEach((l, k) => {
+    if (l.trim() === h2) indices.push(k);
+  });
+  // La ausencia ya la reporta el chequeo de SECCIONES_ESPERADAS: acá no se duplica.
+  if (indices.length === 0) return { tramo: null, errores: [] };
+  if (indices.length > 1) {
+    return {
+      tramo: null,
+      errores: [
+        `«${h2}» aparece ${String(indices.length)} veces (líneas ${indices.map((k) => String(k + 1)).join(', ')}) ` +
+          'y el H2 de una sección es UNO: con un señuelo plantado antes, la anatomía se verifica sobre ' +
+          'el señuelo y la sección real no la mira nadie',
+      ],
+    };
+  }
+  const i = indices[0];
   const j = lineas.findIndex((l, k) => k > i && l.startsWith('## '));
-  return lineas.slice(i + 1, j === -1 ? lineas.length : j);
+  return { tramo: lineas.slice(i + 1, j === -1 ? lineas.length : j), errores: [] };
 }
 
 /**
@@ -508,9 +541,11 @@ function tramoDeSeccion(lineas: string[], h2: string): string[] | null {
  * 0.1, 0.3, 0.3, … también dan ocho.
  */
 function verificarOchoFallas(lineas: string[]): string[] {
-  const errores: string[] = [];
-  const tramo = tramoDeSeccion(lineas, '## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO');
-  if (tramo === null) return errores; // la ausencia del H2 ya la reporta el chequeo de secciones
+  const { tramo, errores } = tramoDeSeccion(
+    lineas,
+    '## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO',
+  );
+  if (tramo === null) return errores; // H2 ausente (lo reporta el chequeo de secciones) o duplicado
 
   const iH3: number[] = [];
   const numeros: string[] = [];
@@ -565,29 +600,55 @@ function verificarOchoFallas(lineas: string[]): string[] {
  * al menos tres pares —un precedente solo no es una sección— y que estén
  * BALANCEADAS: la falla real es escribir la primera columna y olvidar la
  * segunda, y eso se detecta contando, no buscando.
+ *
+ * El balance se exige ADENTRO DE CADA H3 y no sobre el total de la sección, con
+ * el mismo troceo que usa `verificarOchoFallas()`. Un total balanceado no dice
+ * nada: verificado, sacarle el `*Dio:*` a §2.1 y ponerle uno de más a §2.2 deja
+ * 5 y 5 globales y salía **exit 0** con el mensaje «precedentes en dos columnas
+ * balanceadas» — o sea, la falla exacta del tramo B (un precedente enumerado
+ * por lo que pidió, sin lo que dio) pasando en verde. §2.4 lleva dos pares
+ * —la AUH y el PAMI— y cierra igual adentro de su propio H3.
+ *
+ * El tramo anterior al primer H3 también se trocea: un `*Pidió:*` huérfano en
+ * el encabezado de la sección no puede quedar fuera del conteo.
  */
 const PARES_MINIMOS_DE_PRECEDENTE = 3;
 
 function verificarPrecedentesEnDosColumnas(lineas: string[]): string[] {
-  const errores: string[] = [];
-  const tramo = tramoDeSeccion(lineas, '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES');
+  const { tramo, errores } = tramoDeSeccion(
+    lineas,
+    '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
+  );
   if (tramo === null) return errores;
 
-  const texto = tramo.join('\n');
-  const pidio = (texto.match(/\*Pidió:\*/g) ?? []).length;
-  const dio = (texto.match(/\*Dio:\*/g) ?? []).length;
+  const iH3: number[] = [];
+  tramo.forEach((l, k) => {
+    if (/^### \S/.test(l.trim())) iH3.push(k);
+  });
 
-  if (pidio < PARES_MINIMOS_DE_PRECEDENTE) {
-    errores.push(
-      `la SECCIÓN 2 marca ${String(pidio)} «*Pidió:*» y se esperaban al menos ` +
-        `${String(PARES_MINIMOS_DE_PRECEDENTE)}: cada precedente se lee en dos columnas declaradas`,
-    );
+  // Trozos: el encabezado (antes del primer H3) y después uno por precedente.
+  const cortes = [0, ...iH3.map((k) => k + 1), tramo.length];
+  let pidioTotal = 0;
+  for (let t = 0; t + 1 < cortes.length; t++) {
+    const cuerpo = tramo.slice(cortes[t], cortes[t + 1]).join('\n');
+    const pidio = (cuerpo.match(/\*Pidió:\*/g) ?? []).length;
+    const dio = (cuerpo.match(/\*Dio:\*/g) ?? []).length;
+    pidioTotal += pidio;
+    if (dio !== pidio) {
+      const donde = t === 0 ? 'el encabezado de la SECCIÓN 2' : `«${tramo[iH3[t - 1]].trim()}»`;
+      errores.push(
+        `${donde} marca ${String(pidio)} «*Pidió:*» y ${String(dio)} «*Dio:*»: la falla del tramo B fue ` +
+          'enumerar lo que un antecedente pidió sin escribir lo que dio, y el balance se exige adentro ' +
+          'de cada precedente porque el total de la sección lo compensa solo. Si un «Dio» no se pudo ' +
+          'verificar, se escribe declarándolo —el patrón de PLANPACTO:230— y la columna igual existe',
+      );
+    }
   }
-  if (dio !== pidio) {
+
+  if (pidioTotal < PARES_MINIMOS_DE_PRECEDENTE) {
     errores.push(
-      `la SECCIÓN 2 marca ${String(pidio)} «*Pidió:*» y ${String(dio)} «*Dio:*»: la falla del tramo B ` +
-        'fue enumerar lo que cada antecedente pidió sin escribir lo que dio. Si un «Dio» no se pudo ' +
-        'verificar, se escribe declarándolo —el patrón de PLANPACTO:230— y la columna igual existe',
+      `la SECCIÓN 2 marca ${String(pidioTotal)} «*Pidió:*» y se esperaban al menos ` +
+        `${String(PARES_MINIMOS_DE_PRECEDENTE)}: cada precedente se lee en dos columnas declaradas`,
     );
   }
 
@@ -838,7 +899,7 @@ function main(): void {
       `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
       '(conjunto exacto: ni falta ni sobra), ' +
       `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
-      'precedentes en dos columnas balanceadas, ' +
+      'precedentes en dos columnas balanceadas adentro de cada H3, ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
