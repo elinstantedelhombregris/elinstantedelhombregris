@@ -89,7 +89,7 @@ describe('Home (landing Papel y Tinta)', () => {
     }
     expect(
       screen.getByRole('heading', {
-        name: `Un tipo común ya escribió ${PLAN_COUNT} planes de país.`,
+        name: `Si uno solo pudo escribir ${PLAN_COUNT} planes de país, imaginate entre millones.`,
       }),
     ).toBeInTheDocument();
   });

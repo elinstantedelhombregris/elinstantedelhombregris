@@ -28,13 +28,39 @@ interface PuntoPixel {
 export interface LazoOverlayProps {
   /** viewBox actual del lienzo, para convertir píxeles de pantalla a unidades. */
   viewBox: { x: number; y: number; ancho: number; alto: number };
+  /**
+   * Cómo se pasa de un píxel del recuadro a un punto geográfico.
+   *
+   * Se inyecta en vez de importarse porque el lazo no tiene por qué saber qué
+   * está dibujando abajo: con el lienzo SVG desproyecta con la inversa
+   * precomputada, con maplibre lo hace `map.unproject()`. El trazo, el umbral,
+   * el Escape y el polígono que sale son los mismos — y el polígono va al mismo
+   * `selectTerritoryPoints` del núcleo en los dos casos.
+   *
+   * Por defecto, la del lienzo.
+   */
+  desproyectarPixel?: (xPixel: number, yPixel: number, rect: DOMRect) => GeoPoint;
   onCompletar: (poligono: GeoPoint[] | null) => void;
   onCancelar: () => void;
 }
 
 const UMBRAL_PX = 3;
 
-export function LazoOverlay({ viewBox, onCompletar, onCancelar }: LazoOverlayProps) {
+/** La del lienzo SVG: píxel → unidad del viewBox → grados. */
+const desproyectarLienzo =
+  (viewBox: LazoOverlayProps['viewBox']) =>
+  (xPixel: number, yPixel: number, rect: DOMRect): GeoPoint =>
+    desproyectar(
+      viewBox.x + xPixel * (viewBox.ancho / rect.width),
+      viewBox.y + yPixel * (viewBox.alto / rect.height),
+    );
+
+export function LazoOverlay({
+  viewBox,
+  desproyectarPixel,
+  onCompletar,
+  onCancelar,
+}: LazoOverlayProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [dibujando, setDibujando] = useState(false);
   const [trazo, setTrazo] = useState<PuntoPixel[]>([]);
@@ -97,19 +123,17 @@ export function LazoOverlay({ viewBox, onCompletar, onCancelar }: LazoOverlayPro
         return;
       }
 
-      // Píxeles de pantalla → unidades del viewBox → grados.
-      const escalaX = viewBox.ancho / rect.width;
-      const escalaY = viewBox.alto / rect.height;
+      const aGeo = desproyectarPixel ?? desproyectarLienzo(viewBox);
       const poligono: GeoPoint[] = [];
       for (const punto of trazo) {
-        const geo = desproyectar(viewBox.x + punto.x * escalaX, viewBox.y + punto.y * escalaY);
+        const geo = aGeo(punto.x, punto.y, rect);
         if (Number.isFinite(geo.lat) && Number.isFinite(geo.lng)) poligono.push(geo);
       }
 
       setTrazo([]);
       onCompletar(poligono.length >= 3 ? poligono : null);
     },
-    [dibujando, trazo, viewBox, onCompletar],
+    [dibujando, trazo, viewBox, desproyectarPixel, onCompletar],
   );
 
   const d = trazo.length > 0 ? `M ${trazo.map((p) => `${String(p.x)} ${String(p.y)}`).join(' L ')}` : '';

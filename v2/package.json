@@ -75,6 +75,11 @@
         "peerDependencies": {
           "@types/react": "*"
         }
+      },
+      "react-map-gl": {
+        "peerDependencies": {
+          "@types/react": "*"
+        }
       }
     }
   },

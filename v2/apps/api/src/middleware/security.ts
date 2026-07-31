@@ -17,21 +17,34 @@ import type { RequestHandler } from 'express';
  *   - The style.json itself is self-hosted under `/maps/`. Map tiles,
  *     fonts, and sprites still come from carto's CDN — full vector
  *     tile self-hosting is impractical at this size — so we explicitly
- *     allow `tiles.basemaps.cartocdn.com` in connect-src + img-src.
- *     The origin is pinned (not a wildcard) and used only inside the
- *     mapStyle JSON we control.
+ *     allow carto's origins in connect-src + img-src. They are pinned
+ *     one by one (not a wildcard) and used only inside the mapStyle
+ *     JSON we control.
+ *
+ *     OJO — allowing only `tiles.basemaps.cartocdn.com` is NOT enough,
+ *     y es el error que había acá. Ese host sirve el `tiles.json`, los
+ *     glyphs y el sprite, pero el `tiles.json` apunta las teselas a
+ *     CUATRO hosts distintos (`tiles-a` … `tiles-d`). Verificado contra
+ *     el endpoint real: el estilo cargaba y las teselas se bloqueaban,
+ *     que es la peor forma de fallar — un mapa vacío sin error visible.
  */
 export function securityHeaders(): RequestHandler {
-  const cartoTiles = 'https://tiles.basemaps.cartocdn.com';
+  const cartoTiles = [
+    'https://tiles.basemaps.cartocdn.com',
+    'https://tiles-a.basemaps.cartocdn.com',
+    'https://tiles-b.basemaps.cartocdn.com',
+    'https://tiles-c.basemaps.cartocdn.com',
+    'https://tiles-d.basemaps.cartocdn.com',
+  ];
   return helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", 'data:', 'blob:', cartoTiles],
-        connectSrc: ["'self'", cartoTiles],
-        fontSrc: ["'self'", 'data:', cartoTiles],
+        imgSrc: ["'self'", 'data:', 'blob:', ...cartoTiles],
+        connectSrc: ["'self'", ...cartoTiles],
+        fontSrc: ["'self'", 'data:', ...cartoTiles],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],
         workerSrc: ["'self'", 'blob:'],

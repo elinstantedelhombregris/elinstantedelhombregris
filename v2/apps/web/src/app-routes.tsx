@@ -38,6 +38,7 @@ import {
   Notifications,
   PlanDetail,
   Planes,
+  PrototipoMapa,
   PoliticaPrivacidad,
   PracticaDetail,
   PropuestaDetail,
@@ -86,6 +87,9 @@ export function AppRoutes() {
         <Redirect to="/la-idea" replace />
       </Route>
       <Route path="/el-mapa" component={ElMapa} />
+      {/* Prototipo para comparar motores de mapa. Fuera de la navegación a
+          propósito; se borra cuando se decida. */}
+      <Route path="/el-mapa/prototipo" component={PrototipoMapa} />
       <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
       <Route path="/kit-de-prensa" component={KitDePrensa} />
 

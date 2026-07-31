@@ -18,6 +18,8 @@ const PAPEL_ROUTES = new Set([
   '/blog',
   '/entrenamientos',
   '/cronica',
+  // PROTOTIPO del mapa sobre teselas — se borra junto con la página.
+  '/el-mapa/prototipo',
 ]);
 
 /**

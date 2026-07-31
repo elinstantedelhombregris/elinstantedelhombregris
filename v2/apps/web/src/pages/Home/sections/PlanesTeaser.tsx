@@ -15,13 +15,14 @@ export function PlanesTeaser() {
         <div>
           <Kicker className="mb-4">§ 03 — La prueba de que se puede</Kicker>
           <h2 className="font-anton text-[clamp(40px,5vw,72px)] leading-none max-[960px]:text-[44px]">
-            Un tipo común ya escribió
+            Si uno solo pudo escribir {PLAN_COUNT} planes de país,
             <br />
-            <span className="text-violeta">{PLAN_COUNT} planes de país.</span>
+            <span className="text-violeta">imaginate entre millones.</span>
           </h2>
           <p className="text-tinta-50 mt-4 max-w-[520px] text-pretty text-base leading-relaxed">
-            Sin cargo, sin equipo, sin permiso. No para que los sigas: para que la excusa de «no se
-            puede» se quede sin trabajo.
+            Sin cargo, sin equipo, sin permiso. No son promesas: son un ejercicio de diseño
+            idealizado — adónde podría apuntar el país — con presupuesto, métricas y rendición de
+            cuentas. No para que los sigas: para que la excusa de «no se puede» se quede sin trabajo.
           </p>
         </div>
         <Link
