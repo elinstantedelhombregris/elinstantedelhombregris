@@ -92,6 +92,8 @@ type ValorConDomicilio = { valor: string; en: string[]; veces?: number; porQue: 
 
 /** Los encabezados que se usan como domicilio, escritos una sola vez. */
 const H3_FALLA_CUIDADO = '### 0.4 El trabajo que sostiene el sistema no tiene renglón donde anotarse';
+const H3_FALLA_TRANSMISION =
+  '### 0.6 Al que se retira se le apaga la transmisión, y los tres que fueron a encenderla no se conocen entre sí';
 const H3_FALLA_VACIAMIENTO = '### 0.8 Lo que no se financia no se deroga: se deja de ejecutar';
 const H3_CURVA = '### 1.1 La curva ya está andando, y el único número que la describe es una cuenta';
 const H3_CUIDADORES = '### 1.2 La crisis no es que haya más viejos: es que no hay quién los acompañe';
@@ -154,6 +156,15 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
       'la crisis en §1.2. Con un solo domicilio, borrarlo de uno de los dos salía verde',
   },
   {
+    valor: 'USD 680–920M',
+    en: [H3_FALLA_TRANSMISION],
+    porQue:
+      'la caja de la Agencia Nacional de Memoria a régimen pleno, 0,10–0,14% del PBI — PLANMEMORIA:486. ' +
+      'Es el número que falsifica la versión anterior de §0.6, que apoyaba tres de sus cuatro ' +
+      'afirmaciones en que la transmisión no tenía organismo ni caja. La Task 5 financia contra este ' +
+      'diagnóstico: si alguien lo revierte a «no hay caja», la guardia se pone roja antes que la Sección 4',
+  },
+  {
     valor: '60% del presupuesto',
     en: [H3_FALLA_VACIAMIENTO],
     porQue:
@@ -201,6 +212,16 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
     porQue:
       'la proyección 2040 es una cuenta del propio PLANREP (7,3M × 1,03^14) y no una medición. ' +
       'Escribir el número sin esta declaración es estrenar una cifra demográfica que nadie midió',
+  },
+  {
+    valor: 'organismo, caja y registro',
+    en: [H3_FALLA_TRANSMISION],
+    porQue:
+      'el hallazgo trece del tramo, y el mismo modo de falla que ya costó seis: «esto no existe» dicho ' +
+      'sin buscar bajo otro nombre. §0.6 decía que la transmisión no tenía dueño institucional, que ' +
+      'nadie la sostenía y que nadie llevaba registro; PLANMEMORIA tiene las tres — ANM autárquica ' +
+      '(:484), Síndicos a salario CONICET adjunto (:405) y el Archivo de siete nodos con hash (:283, ' +
+      ':297). La afirmación positiva se exige escrita para que la negativa no pueda volver',
   },
   {
     valor: 'aserción propia sin fuente',
@@ -653,15 +674,34 @@ function planesDelTaller(): Set<string> {
   return out;
 }
 
-/** Las líneas de un PLAN del taller, cacheadas: la resolución de anclas relee. */
+/**
+ * Los documentos que la prosa cita por un nombre que no es `PLANXXX`. Sin este
+ * mapa, `BLINDAJE:194` y `spec:190` no se pueden abrir, y son exactamente las
+ * citas que este tramo viene errando: **dos números de línea de BLINDAJE
+ * estaban mal en el propio plan.**
+ *
+ * Un nombre que no esté acá ni sea un PLAN del taller se reporta: registrar un
+ * documento citable nuevo es una línea, y es más barato que una remisión que
+ * nadie puede abrir.
+ */
+const DOCUMENTOS_CITABLES: Record<string, string> = {
+  BLINDAJE: 'Iniciativas Estratégicas/BLINDAJE_INSTITUCIONAL_BASTA.md',
+  'TABLA_AGENCIAS_BASTA.md': 'Iniciativas Estratégicas/TABLA_AGENCIAS_BASTA.md',
+  ACTA: 'Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md',
+  spec: 'v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md',
+};
+
+/** Las líneas de un documento citable, cacheadas: la resolución de anclas relee. */
 const CACHE_TALLER = new Map<string, string[]>();
-function lineasDelPlan(plan: string): string[] | null {
-  const hit = CACHE_TALLER.get(plan);
+function lineasDelPlan(doc: string): string[] | null {
+  const hit = CACHE_TALLER.get(doc);
   if (hit) return hit;
-  const f = resolve(REPO_ROOT, 'Iniciativas Estratégicas', `${plan}_Argentina_ES.md`);
+  const rel =
+    DOCUMENTOS_CITABLES[doc] ?? `Iniciativas Estratégicas/${doc}_Argentina_ES.md`;
+  const f = resolve(REPO_ROOT, rel);
   if (!existsSync(f)) return null;
   const ls = readFileSync(f, 'utf8').split('\n');
-  CACHE_TALLER.set(plan, ls);
+  CACHE_TALLER.set(doc, ls);
   return ls;
 }
 
@@ -694,40 +734,171 @@ const ANCLA_LINEA = /^(PLAN[A-Z0-9]+):(\d+)(?:-(\d+))?$/;
  * `^#{1,6} N.N` (y `9.1` NO matchea `9.10`); `:NNN` exige que la línea exista y
  * no esté vacía —una remisión a una línea en blanco es una remisión a nada—.
  */
+/**
+ * El núcleo compartido por la cuarta columna del Calendario y por las anclas de
+ * la prosa: abre el documento y comprueba que el ancla exista.
+ *
+ * `faltaDocumento` decide qué pasa cuando el documento no está. En la tabla se
+ * devuelve `null` porque el cruce contra `planesDelTaller()` ya lo reporta con
+ * mejor mensaje; en la prosa NO hay tal cruce, así que un `PLANJUB:100` en un
+ * paréntesis pasaría en silencio, que es la falla que este tramo persigue.
+ */
+function resolverContra(
+  bruto: string,
+  doc: string,
+  seccion: string | null,
+  desde: number,
+  hasta: number,
+  faltaDocumento: 'reportar' | 'callar',
+): string | null {
+  const ls = lineasDelPlan(doc);
+  if (ls === null) {
+    return faltaDocumento === 'callar'
+      ? null
+      : `«${bruto}» cita a «${doc}», que no es un PLAN del taller ni un documento citable registrado: ` +
+          'o el nombre está mal, o hay que registrarlo en DOCUMENTOS_CITABLES';
+  }
+
+  if (seccion !== null) {
+    const re = new RegExp(`^#{1,6}\\s+${seccion.replace(/\./g, '\\.')}(?![\\d.])`);
+    if (!ls.some((l) => re.test(l))) {
+      return `«${bruto}» apunta a una sección que ${doc} no tiene: no hay encabezado «${seccion}»`;
+    }
+    return null;
+  }
+
+  if (desde < 1 || hasta > ls.length || hasta < desde) {
+    return `«${bruto}» apunta fuera de ${doc}, que tiene ${String(ls.length)} líneas`;
+  }
+  if ((ls[desde - 1] ?? '').trim() === '') {
+    return `«${bruto}» apunta a una línea vacía de ${doc}: una remisión a nada`;
+  }
+  return null;
+}
+
 function resolverAncla(fragmento: string): string | null {
   const bruto = fragmento.replace(/`/g, '').trim();
   if (bruto === '') return null;
 
   const s = ANCLA_SECCION.exec(bruto);
-  if (s) {
-    const ls = lineasDelPlan(s[1]);
-    if (ls === null) return null; // el PLAN inexistente ya lo reporta el cruce de arriba
-    const re = new RegExp(`^#{1,6}\\s+${s[2].replace(/\./g, '\\.')}(?![\\d.])`);
-    if (!ls.some((l) => re.test(l))) {
-      return `«${bruto}» apunta a una sección que ${s[1]} no tiene: no hay encabezado «${s[2]}»`;
-    }
-    return null;
-  }
+  if (s) return resolverContra(bruto, s[1], s[2], 0, 0, 'callar');
 
   const l = ANCLA_LINEA.exec(bruto);
   if (l) {
-    const ls = lineasDelPlan(l[1]);
-    if (ls === null) return null;
     const desde = Number(l[2]);
-    const hasta = l[3] === undefined ? desde : Number(l[3]);
-    if (desde < 1 || hasta > ls.length || hasta < desde) {
-      return `«${bruto}» apunta fuera de ${l[1]}, que tiene ${String(ls.length)} líneas`;
-    }
-    if ((ls[desde - 1] ?? '').trim() === '') {
-      return `«${bruto}» apunta a una línea vacía de ${l[1]}: una remisión a nada`;
-    }
-    return null;
+    return resolverContra(bruto, l[1], null, desde, l[3] === undefined ? desde : Number(l[3]), 'callar');
   }
 
   return (
     `«${bruto}» no trae PLAN con ancla resoluble: la cuarta columna se escribe ` +
     '`PLANXXX §N.N` o `PLANXXX:NNN` (o `PLANXXX:NNN-NNN`), y sin ancla el ocupante no se puede abrir'
   );
+}
+
+/**
+ * Las anclas de la PROSA, resueltas con la misma máquina que las de la tabla.
+ *
+ * Hasta acá `resolverAncla()` se aplicaba a las dieciséis celdas de la cuarta
+ * columna del Calendario y a nada más, mientras el cuerpo del documento llevaba
+ * unas veinticinco citas ancladas —`PLANPACTO:428`, `BLINDAJE:194`,
+ * `PLANMON:1547`, `TABLA_AGENCIAS_BASTA.md:54`— que no se abrían nunca.
+ * Reproducido antes de escribir esto: `BLINDAJE:194` → `BLINDAJE:19400` salía
+ * **exit 0**, y `PLANPACTO §4.7` → `§4.77` también.
+ *
+ * No es hipotético: **dos números de línea de BLINDAJE estaban mal en el propio
+ * plan del tramo** (`:53` dado como «protección media», que está en `:194`; y
+ * `:88-96` dado como masa de beneficiarios, que está en `:186-188`). La cita
+ * anclada es la unidad de evidencia de este documento; una que no resuelve es
+ * una remisión falsa con aspecto de rigor.
+ *
+ * **Las tres formas, y por qué la tercera.** El corpus escribe
+ * `PLANXXX:NNN` / `PLANXXX §N.N` cuando nombra el documento, y `:NNN` a secas
+ * cuando sigue hablando del mismo — «`PLANCUIDADO:94` … con mecanismo propio
+ * (`:340`)». La forma corta se resuelve contra el ÚLTIMO documento citado, que
+ * es como la lee un lector. Es aproximada por construcción: si el antecedente
+ * real quedó dos citas atrás, la corta se resuelve contra el documento
+ * equivocado y —salvo que el número caiga fuera de rango— pasa. Atrapa el error
+ * grosero, no demuestra la corrección de la cita.
+ *
+ * **Falsos positivos: cero, y se verificó antes de dar el chequeo por bueno.**
+ * Una guardia roja sobre prosa honesta empuja al que sigue a reescribir la
+ * frase en vez de arreglar la regex, y en este tramo ya pasó dos veces.
+ */
+const ANCLA_PROSA_SECCION = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?)\s+§(\d+(?:\.\d+)*)$/;
+const ANCLA_PROSA_LINEA = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?):(\d+)(?:-(\d+))?$/;
+const ANCLA_PROSA_CORTA = /^:(\d+)(?:-(\d+))?$/;
+const NOMBRE_DE_DOCUMENTO = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?)$/;
+
+function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resueltas: number } {
+  const errores: string[] = [];
+  let antecedente: string | null = null;
+  /**
+   * Cuántas anclas se abrieron de verdad. Va al titular a propósito: cero
+   * anclas escaneadas también da cero errores, y un chequeo que informa éxito
+   * sin haber mirado nada es el arquetipo que esta guardia lleva siete veces.
+   */
+  let resueltas = 0;
+
+  lineas.forEach((linea, k) => {
+    for (const m of linea.matchAll(/`([^`\n]+)`/g)) {
+      const bruto = m[1].trim();
+      const donde = `línea ${String(k + 1)}`;
+
+      const s = ANCLA_PROSA_SECCION.exec(bruto);
+      if (s) {
+        if (lineasDelPlan(s[1]) !== null) antecedente = s[1];
+        resueltas += 1;
+        const err = resolverContra(bruto, s[1], s[2], 0, 0, 'reportar');
+        if (err !== null) errores.push(`${donde}: ${err}`);
+        continue;
+      }
+
+      const l = ANCLA_PROSA_LINEA.exec(bruto);
+      if (l) {
+        if (lineasDelPlan(l[1]) !== null) antecedente = l[1];
+        resueltas += 1;
+        const desde = Number(l[2]);
+        const err = resolverContra(
+          bruto,
+          l[1],
+          null,
+          desde,
+          l[3] === undefined ? desde : Number(l[3]),
+          'reportar',
+        );
+        if (err !== null) errores.push(`${donde}: ${err}`);
+        continue;
+      }
+
+      const c = ANCLA_PROSA_CORTA.exec(bruto);
+      if (c) {
+        if (antecedente === null) {
+          errores.push(
+            `${donde}: «${bruto}» es una remisión corta y no hay documento citado antes contra el ` +
+              'cual abrirla: la primera cita de un documento se escribe con su nombre',
+          );
+          continue;
+        }
+        resueltas += 1;
+        const desde = Number(c[1]);
+        const err = resolverContra(
+          `${antecedente}${bruto}`,
+          antecedente,
+          null,
+          desde,
+          c[2] === undefined ? desde : Number(c[2]),
+          'reportar',
+        );
+        if (err !== null) errores.push(`${donde}: ${err}`);
+        continue;
+      }
+
+      const n = NOMBRE_DE_DOCUMENTO.exec(bruto);
+      if (n && lineasDelPlan(n[1]) !== null) antecedente = n[1];
+    }
+  });
+
+  return { errores, resueltas };
 }
 
 /**
@@ -741,6 +912,13 @@ function resolverAncla(fragmento: string): string | null {
  * Es la dirección barata a propósito: no exige que los trece estén en la tabla
  * —`Calendario de Umbrales` es la tabla, no una fila— sino que lo que la tabla
  * nombra pertenezca al conjunto cerrado que la portada anuncia.
+ */
+/**
+ * **M-G.** Se compara con `startsWith` y no con `===`. Era un string mágico
+ * exacto: la celda «remisión, sin dispositivo propio (ver §4.2)» —la forma que
+ * las Tasks 5–7 van a querer escribir cuando la Sección 4 exista— se ponía roja
+ * como si nombrara un catorceavo dispositivo. El prefijo es la declaración; lo
+ * que venga detrás es el puntero, y un puntero no es un dispositivo nuevo.
  */
 const DISPOSITIVO_POR_REMISION = 'remisión, sin dispositivo propio';
 
@@ -794,6 +972,10 @@ function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
 
   const existentes = planesDelTaller();
   let ocupadas = 0;
+  /** Los PLANes DISTINTOS que ocupan alguna estación: la prosa dice cuántos son. */
+  const documentosOcupantes = new Set<string>();
+  /** Fragmentos de ocupante de la fila más poblada: la prosa dice cuántos son. */
+  let maxOcupantesEnUnaFila = 0;
   filas.forEach((fila, k) => {
     const donde = `la estación ${String(k + 1)} del Calendario («${(fila[0] ?? '').slice(0, 40)}»)`;
     if (fila.length !== COLUMNAS_CALENDARIO.length) {
@@ -813,7 +995,7 @@ function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
 
     // M13: el dispositivo del arco sale del conjunto cerrado de la portada.
     const dispositivo = fila[2];
-    if (dispositivo !== DISPOSITIVO_POR_REMISION) {
+    if (!dispositivo.startsWith(DISPOSITIVO_POR_REMISION)) {
       const conocido = DISPOSITIVOS_EN_PORTADA.some((d) =>
         d.enPortada.some((frag) => dispositivo.includes(frag)),
       );
@@ -830,7 +1012,9 @@ function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
     if (ocupante === SIN_OCUPANTE) return;
 
     // Crítico 2: cada ocupante trae ancla, y el ancla se resuelve contra el destino.
-    for (const frag of ocupante.split('·')) {
+    const fragmentos = ocupante.split('·');
+    maxOcupantesEnUnaFila = Math.max(maxOcupantesEnUnaFila, fragmentos.length);
+    for (const frag of fragmentos) {
       const err = resolverAncla(frag);
       if (err !== null) errores.push(`${donde} ${err}`);
     }
@@ -851,6 +1035,8 @@ function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
           `${donde} nombra a «${p}» como ocupante y no hay documento suyo en el taller: ` +
             'un ocupante inventado es una remisión falsa',
         );
+      } else {
+        documentosOcupantes.add(p);
       }
     }
     ocupadas += 1;
@@ -859,17 +1045,85 @@ function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
   const { tramo, errores: errTramo } = tramoDeSeccion(lineas, H2_CALENDARIO);
   errores.push(...errTramo);
   if (tramo !== null) {
-    const frase = `${EN_LETRAS[ocupadas] ?? String(ocupadas)} de las ${EN_LETRAS[filas.length] ?? String(filas.length)} estaciones`;
-    if (!tramo.join('\n').includes(frase)) {
-      errores.push(
-        `la SECCIÓN 3 no dice «${frase}»: el conteo de estaciones con ocupante previo se deriva de la ` +
-          'tabla y no se hereda. El plan del tramo dice «nueve» y su propio hallazgo C-9 enumera cuatro ' +
-          'territorios: un número que no sale de ninguna cuenta es una cifra estrenada',
-      );
+    const texto = tramo.join('\n');
+    for (const { frase, porQue } of frasesDerivadasDelCalendario(
+      ocupadas,
+      filas.length,
+      documentosOcupantes.size,
+      maxOcupantesEnUnaFila,
+    )) {
+      if (!texto.includes(frase)) {
+        errores.push(`la SECCIÓN 3 no dice «${frase}»: ${porQue}`);
+      }
     }
   }
 
   return errores;
+}
+
+/**
+ * **La séptima forma del arquetipo de esta guardia**, y la más fina de las
+ * siete: *el arreglo se aplicó al número que estaba mal y no a los que nacieron
+ * del arreglo.*
+ *
+ * La Task 4 le enseñó a la guardia a derivar UN número de la tabla —las
+ * estaciones con ocupante— y a exigirlo en la prosa. Después §3.3 creció **tres
+ * números más de la misma tabla** y ninguno se derivó. Reproducido antes de
+ * escribir esto, los tres salían **exit 0**:
+ *
+ * | Mutación | Resultado |
+ * |---|---|
+ * | `Son diez documentos` → `Son cuatro documentos` | exit 0 |
+ * | `Solo dos filas llevan guion` → `Solo siete filas llevan guion` | exit 0 |
+ * | `cuatro ocupantes, tres de plata` → `nueve ocupantes, ocho de plata` | exit 0 |
+ *
+ * El titular seguía diciendo «16 estaciones parseadas… y sus ocupantes resueltos
+ * ancla por ancla» mientras tres cuartas partes de la aritmética que la sección
+ * saca de esa tabla no las miraba nadie.
+ *
+ * Se exige el par número-sustantivo y no la oración entera, a propósito: la
+ * prosa se puede reescribir sin que la guardia se ponga roja sobre prosa
+ * honesta, y el número sigue teniendo que salir de la tabla.
+ *
+ * Lo que NO deriva, y va dicho para que nadie lo suponga derivado: «tres de
+ * plata» de la misma frase es una clasificación semántica —qué ocupante paga y
+ * cuál es un rol— y ninguna columna la trae. Eso lo mira la revisión.
+ */
+function frasesDerivadasDelCalendario(
+  ocupadas: number,
+  total: number,
+  documentos: number,
+  maxEnUnaFila: number,
+): { frase: string; porQue: string }[] {
+  const letra = (n: number): string => EN_LETRAS[n] ?? String(n);
+  return [
+    {
+      frase: `${letra(ocupadas)} de las ${letra(total)} estaciones`,
+      porQue:
+        'el conteo de estaciones con ocupante previo se deriva de la tabla y no se hereda. El plan ' +
+        'del tramo dice «nueve» y su propio hallazgo C-9 enumera cuatro territorios: un número que ' +
+        'no sale de ninguna cuenta es una cifra estrenada',
+    },
+    {
+      frase: `${letra(documentos)} documentos`,
+      porQue:
+        'los PLANes DISTINTOS que ocupan alguna estación salen de `new Set()` sobre la cuarta ' +
+        'columna. El censo ya pasó de cinco a diez una vez: el número que resume la tabla no puede ' +
+        'quedar escrito a mano mientras la tabla se mueve',
+    },
+    {
+      frase: ocupadas === total - 1 ? 'una fila lleva guion' : `${letra(total - ocupadas)} filas llevan guion`,
+      porQue:
+        'las vacantes son `filas.length - ocupadas` y la prosa las nombra una por una. Sumar un ' +
+        'ocupante sin tocar esta frase deja la sección afirmando una vacante que la tabla ya llenó',
+    },
+    {
+      frase: maxEnUnaFila === 1 ? 'un ocupante' : `${letra(maxEnUnaFila)} ocupantes`,
+      porQue:
+        'la estación más poblada del Calendario es la que obliga a §3.3 a escribir la excepción a la ' +
+        'regla de remisión, y su población es el conteo de fragmentos de esa celda',
+    },
+  ];
 }
 
 /**
@@ -1371,6 +1625,10 @@ function main(): void {
   errores.push(...verificarOchoFallas(lineas));
   errores.push(...verificarPrecedentesEnDosColumnas(lineas));
 
+  // 9) Las anclas de la PROSA, abiertas una por una contra su documento.
+  const prosa = verificarAnclasDeProsa(lineas);
+  errores.push(...prosa.errores);
+
   if (errores.length > 0) {
     console.error(`La guardia de PLANARCO encontró ${String(errores.length)} problema(s):\n`);
     for (const e of errores) console.error(`  · ${e}`);
@@ -1387,6 +1645,7 @@ function main(): void {
       `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas, sus dispositivos ` +
       'cruzados contra los trece de la portada y sus ocupantes resueltos ancla por ancla contra el ' +
       'archivo destino, ' +
+      `${String(prosa.resueltas)} anclas de la prosa abiertas contra su documento, ` +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
