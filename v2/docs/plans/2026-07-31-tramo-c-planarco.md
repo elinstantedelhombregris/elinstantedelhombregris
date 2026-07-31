@@ -62,6 +62,17 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 ## Global Constraints
 
 > **Presupuesto de palabras — leelo antes de escribir.** El tramo B se pasó en la Sección 5 porque su brief no declaraba rango, y su objetivo de líneas resultó mal calibrado por un factor de tres: **un rango de líneas mide formato, no largo.** Acá se mide en **palabras**, cada sección tiene el suyo declarado en su step, y **las adiciones de revisión entran adentro del rango, no encima.** Objetivo total: **27.000–31.000 palabras** — la densidad de PLANPACTO (26.541 palabras en 810 líneas), no la de PLANMEMORIA (10.111 en 900).
+>
+> **Método de conteo — el comando exacto, y vale para todo el tramo.** Un rango fijado con la normalización privada de un agente no lo puede auditar el siguiente: la Task 1 contó 576 palabras de cabecera y su revisor contó 583 sobre el mismo texto, con dos normalizaciones distintas y ninguna declarada. Así que **se cuenta con `wc -w` crudo, sin normalizar markdown** — sin sacar `>`, ni `**`, ni `·`, ni backticks. Es la unidad en la que ya está expresado todo lo de arriba: `wc -w PLANPACTO_Argentina_ES.md` da **26.541** exacto, que es el número que este bloque cita.
+>
+> ```bash
+> # una sección, por rango de líneas
+> sed -n 'INICIO,FINp' "Iniciativas Estratégicas/PLANARCO_Argentina_ES.md" | wc -w
+> # el documento entero
+> wc -w "Iniciativas Estratégicas/PLANARCO_Argentina_ES.md"
+> ```
+>
+> **Los rangos de la tabla de abajo están en esa unidad.** Si contás de otra forma, el número no es comparable con el de la tarea anterior ni con el de la siguiente.
 
 - **Spec de referencia:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md` §4 (PLANARCO) y §2 (la aritmética del Techo). **Donde la spec choque con C-1…C-9, ganan los hallazgos.**
 - **El taller es el destino.** El documento se escribe en `Iniciativas Estratégicas/PLANARCO_Argentina_ES.md`. **La ruta tiene espacio y acento: entrecomillala siempre en bash.** La edición derivada de `v2/content/planes/` NO se toca en este tramo.
@@ -143,7 +154,7 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 
 | # | Sección | Tarea | Palabras |
 |---|---|---|---|
-| — | Cabecera + H1 + «Vigésimo Quinto Mandato» + versión + portada ASCII | 1 | 520–580 |
+| — | Cabecera + H1 + «Vigésimo Quinto Mandato» + versión + portada ASCII (líneas 1–52) | 1 | 560–620 |
 | 1 | `## PREÁMBULO — {título}` | 2 | 1.100–1.400 |
 | 2 | `## TESIS CENTRAL` | 2 | 700–900 |
 | 3 | `## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO` | 3 | 3.400–3.800 |
@@ -215,6 +226,8 @@ Contenido específico:
 - La portada ASCII lleva **sólo dispositivos que el cuerpo va a tener**. En el tramo B la portada anunció cuatro dispositivos con cero ocurrencias en el cuerpo, se escribió en la Task 1 y nadie la volvió a mirar mientras todo lo demás se revisaba nueve veces. **La Task 10 la vuelve a abrir obligatoriamente.**
 
 **Corrección del 2026-07-31, tras la revisión de la Task 1:** el rango original decía 350–450 y era **aritméticamente inalcanzable**. La revisión contó campo por campo contra `PLANPACTO:1-53` (417 palabras) y encontró que el `ACTA DE HABILITACIÓN` de PLANARCO pesa 116 palabras contra las 20 de PLANPACTO, porque este plan lo obliga a llevar los tres cocientes, el umbral, el fallo por tres centésimas, la derogación de dos reglas y la frontera con PLANCUIDADO/PLANSAL. Una cabecera máximamente magra que obedezca todos los mandatos aterriza en ~546 palabras. Se corrige el rango en vez de borrar contenido que las Global Constraints declaran vinculante.
+
+**Segunda corrección del 2026-07-31 — reexpresión de unidad, no de contenido.** Aquel 520–580 estaba en palabras *normalizadas* con un método que el plan nunca declaró, y por eso no era auditable. Reexpresado en `wc -w` crudo —la unidad que ahora declaran las Global Constraints, y la misma del total 27.000–31.000 y de las 26.541 de PLANPACTO— el rango es **560–620** sobre las líneas 1–52 (`sed -n '1,52p' … | wc -w`). Los mismos límites de contenido: el factor entre las dos unidades sobre esta cabecera es 612/576 = 1,0625, y 546 normalizadas ≈ 580 crudas siguen siendo el piso de la cabecera máximamente magra. **El valor actual es 612**, adentro del rango. No se movió una palabra del documento para conseguirlo.
 
 **Verify:** `npx tsx scripts/verificar-planarco.ts` sale 0. Después **rompé algo a propósito** (renombrá un H2) y confirmá que sale 1. Restaurá.
 

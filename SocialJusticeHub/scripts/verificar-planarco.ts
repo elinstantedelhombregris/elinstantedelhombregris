@@ -27,9 +27,12 @@ const DOC = resolve(REPO_ROOT, 'Iniciativas Estratégicas/PLANARCO_Argentina_ES.
 /** Única fuente canónica de los pisos declarados. PLANARCO no puede aparecer ahí. */
 const CANON_PISOS = resolve(SCRIPT_DIR, '../tests/unit/pisos-constitucionales.test.ts');
 
+/** El H2 del mandato. Vive aparte porque la anatomía lo necesita para verificar POSICIÓN. */
+const H2_MANDATO = '## Vigésimo Quinto Mandato del Proyecto ¡BASTA!';
+
 /** Los H2 que el documento tiene que tener, en este orden. Las tareas lo extienden. */
 const SECCIONES_ESPERADAS: string[] = [
-  '## Vigésimo Quinto Mandato del Proyecto ¡BASTA!',
+  H2_MANDATO,
   // Task 2: '## PREÁMBULO — {título}', '## TESIS CENTRAL'
   // Task 3: SECCIÓN 0, 1 y 2 · Task 4: SECCIÓN 3 · Task 5: SECCIÓN 4 · …
 ];
@@ -104,7 +107,12 @@ const ASERCIONES_OBLIGATORIAS: { valor: string; porQue: string }[] = [
  * que su contenido se declara acá y no se deja a la disciplina.
  */
 const H1_ESPERADO = /^# PLANARCO — .+$/m;
-const H3_VERSION_ESPERADO = /^### Versión \d+\.\d+ — \w+ \d{4}$/m;
+/**
+ * `\p{L}+` y no `\w+` para el mes: `\w` es `[A-Za-z0-9_]` y no cubre las tildes.
+ * Hoy ningún mes castellano lleva tilde, pero es la misma clase de bug latente
+ * que hacía que `/\bést[aeo]s?\b/` no marcara nunca nada.
+ */
+const H3_VERSION_ESPERADO = /^### Versión \d+\.\d+ — \p{L}+ \d{4}$/mu;
 
 /**
  * Los trece dispositivos de la tabla «Los trece dispositivos» del plan del
@@ -113,9 +121,13 @@ const H3_VERSION_ESPERADO = /^### Versión \d+\.\d+ — \w+ \d{4}$/m;
  * la portada. Uno solo tiene dos fragmentos porque el plan lo cuenta como un
  * dispositivo con dos nombres.
  *
- * La Task 10 le agrega el cruce contra el cuerpo —«cada dispositivo anunciado
- * en el ASCII tiene ocurrencias en el cuerpo»—, que hoy no se puede hacer
- * porque el cuerpo todavía no existe.
+ * Esta constante cubre la dirección «¿están los trece?». La contraria —«¿hay un
+ * catorceavo?»— la cierra verificarPortadaNoAnunciaDeMas(), abajo, con el mismo
+ * léxico: no hace falta el cuerpo porque el conjunto legítimo de nombres de la
+ * portada es cerrado y conocido hoy.
+ *
+ * Lo que sí necesita el cuerpo, y es de la Task 10, es la tercera dirección:
+ * «cada dispositivo anunciado en el ASCII tiene ocurrencias en el cuerpo».
  */
 const DISPOSITIVOS_EN_PORTADA: { nombre: string; enPortada: string[] }[] = [
   { nombre: 'Calendario de Umbrales', enPortada: ['Calendario de Umbrales'] },
@@ -140,6 +152,29 @@ const DISPOSITIVOS_EN_PORTADA: { nombre: string; enPortada: string[] }[] = [
 const INSTITUCION_EN_PORTADA = 'Agencia Nacional del Arco de la Vida (ANAV)';
 
 /**
+ * Calificadores que la portada tiene derecho a llevar además de los nombres de
+ * los trece dispositivos: los tres tramos de la Renta de Arco y las edades del
+ * Pasaje. Con esto el conjunto de lo que la portada puede nombrar queda CERRADO
+ * y conocido hoy, sin una palabra del cuerpo.
+ */
+const CALIFICADORES_EN_PORTADA: string[] = [
+  ': Piso Vital Universal',
+  'Tramo Ganado',
+  'Tramo Común',
+  ': cuatro viajes a los 12, 18, 45 y 60',
+];
+
+/**
+ * La región de dispositivos de la portada: entre la línea que dice `PLANARCO` y
+ * la que abre `Preparado para`. Todo lo que aparezca ahí y no esté en el léxico
+ * permitido es un dispositivo anunciado de más — el modo de falla exacto del
+ * tramo B, donde la portada anunció cuatro nombres que no estaban en ninguna
+ * sección del plan.
+ */
+const PORTADA_INICIO_REGION = 'PLANARCO';
+const PORTADA_FIN_REGION = 'Preparado para';
+
+/**
  * Strings que no pueden aparecer, con el motivo de cada uno.
  * Case-insensitive salvo donde el corpus distingue mayúsculas: las siglas
  * (PUAM, PNC) y los marcadores de pendiente.
@@ -155,7 +190,17 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
     porQue: 'cero ocurrencias en el corpus: no se estrenan siglas de partidas cuyo monto nadie tiene (C-6)',
   },
   {
-    patron: /(?<!\bno\s)(?<!\btampoco\s)(pas[óo]|super[óo]|supera|pasa)\s+(el|ese|este|dicho)\s+(gate|umbral)/i,
+    // El lookbehind es de ancho variable (V8 lo soporta) porque la negación
+    // castellana no siempre está pegada al verbo: «no lo supera el umbral»,
+    // «Ninguno de los cuatro superó el gate» —paráfrasis del ACTA:115, :36— son
+    // las dos frases verdaderas que un lookbehind de ancho fijo marcaba en rojo.
+    // Una guardia que se pone roja sobre una frase honesta empuja a reescribir
+    // la frase, no la regex, y eso degrada el documento que la guardia protege.
+    // El hueco entre la negación y el verbo NO puede cruzar un límite de cláusula
+    // (`.`, `;`, `:`) ni una coordinante (`y`, `pero`, `aunque`, `sino`, `mas`):
+    // sin eso, «PLANARCO no es el primero y supera el gate» salía verde.
+    patron:
+      /(?<!\b(?:no|nunca|jamás|tampoco|ninguno|ninguna|ni)\b(?:(?!\b(?:y|pero|aunque|sino|mas)\b)[^.;:\n]){0,30})(pas[óo]|super[óo]|supera|pasa)\s+(el|ese|este|dicho)\s+(gate|umbral)/iu,
     porQue:
       'falso: PLANARCO falla contra la suma de sus dos huéspedes por tres centésimas. ' +
       'Se habilita por derogación expresa, no por el gate (ACTA:41-47, :131-137)',
@@ -176,6 +221,11 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
   },
   {
     patron: /PLANJUB\s+(es|son|tiene|tienen|establece|crea|garantiza|paga|administra|financia|dispone|declara|rige|sigue|vige)\b|\b(el|del)\s+PLANJUB\s+vigente/i,
+    // La frase que el plan MANDA escribir —«el PLAN que nunca existió y del que
+    // PLANARCO es sucesor»— es literalmente «PLANJUB es …», y con la
+    // normalización sin negritas «**PLANJUB** es» también cae. La exención mira
+    // la línea: si nombra la inexistencia o la sucesión, la cópula es honesta.
+    salvoSi: /nunca existió|no existe|nunca lleg[óo]|inexistente|fantasma|sucesor|sucede/i,
     porQue:
       'PLANJUB es el fantasma que este PLAN sucede: puede nombrarse como inexistente, nunca afirmarse ' +
       'en presente como PLAN vigente',
@@ -198,8 +248,16 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
       '45% × 150.000M da ~65.000–72.000M. O se escribe la derivación o se declara hueco',
   },
   {
-    patron: /\bTODO:|\[TODO\]|<!--\s*TODO|\bTKTK\b|\bXXX\b|\[pendiente\]|«PENDIENTE»|\{PENDIENTE\}/,
+    patron: /\bTODO:|\[TODO\]|<!--\s*TODO|\bTKTK\b|\bXXX\b/,
     porQue: 'marcador de borrador: el documento se commitea sin secciones a medio escribir',
+  },
+  {
+    // Aparte de los de arriba porque va case-insensitive: el juego anterior
+    // (`\[pendiente\]|«PENDIENTE»|\{PENDIENTE\}`) era asimétrico y dejaba pasar
+    // `[PENDIENTE]`, `«pendiente»` y `{pendiente}`. Los delimitadores se cruzan a
+    // propósito: `[pendiente»` también es un marcador.
+    patron: /[[«{]pendiente[\]»}]/i,
+    porQue: 'marcador de borrador entre delimitadores: el documento se commitea sin huecos anotados',
   },
   {
     patron: /(?<!\p{L})(sólo|ést[aeo]s?|és[aeo]s?|aquél(?:la|los|las)?)(?!\p{L})/iu,
@@ -320,17 +378,35 @@ function verificarTablas(lineas: string[]): string[] {
 function verificarCabecera(raw: string, lineas: string[]): string[] {
   const errores: string[] = [];
 
-  if (!H1_ESPERADO.test(raw)) {
+  const iH1 = lineas.findIndex((l) => H1_ESPERADO.test(l.trim()));
+  if (iH1 === -1) {
     errores.push(
       'falta el H1 del documento («# PLANARCO — {título}»): la anatomía de PLANPACTO lo pone ' +
         'entre el `---` de la cabecera y el H2 del mandato',
     );
   }
 
+  const iMandato = lineas.findIndex((l) => l.trim() === H2_MANDATO);
   const iVersion = lineas.findIndex((l) => H3_VERSION_ESPERADO.test(l.trim()));
   if (iVersion === -1) {
     errores.push(
       'falta el H3 de versión («### Versión 1.0 — Julio 2026»), que va entre el H2 del mandato y la portada',
+    );
+  }
+
+  // El brief manda el ORDEN, no solo la existencia: con el chequeo anterior se
+  // podía mover el H1 al final del archivo y salir 0. La portada ya se busca
+  // desde el H3 en adelante; esto cierra la mitad que faltaba.
+  if (iH1 !== -1 && iMandato !== -1 && iH1 > iMandato) {
+    errores.push(
+      `el H1 está en la línea ${String(iH1 + 1)}, después del H2 del mandato (línea ${String(iMandato + 1)}): ` +
+        'el orden de la anatomía es H1 → H2 del mandato → H3 de versión → portada',
+    );
+  }
+  if (iMandato !== -1 && iVersion !== -1 && iMandato > iVersion) {
+    errores.push(
+      `el H2 del mandato está en la línea ${String(iMandato + 1)}, después del H3 de versión ` +
+        `(línea ${String(iVersion + 1)}): el orden de la anatomía es H1 → H2 del mandato → H3 de versión → portada`,
     );
   }
 
@@ -360,6 +436,61 @@ function verificarCabecera(raw: string, lineas: string[]): string[] {
   }
   if (!portada.includes(INSTITUCION_EN_PORTADA)) {
     errores.push(`la portada no anuncia «${INSTITUCION_EN_PORTADA}», la institución de la Sección 8`);
+  }
+
+  errores.push(...verificarPortadaNoAnunciaDeMas(lineas.slice(iAbre + 1, iCierra)));
+
+  return errores;
+}
+
+/**
+ * La dirección contraria, y la que reventó en el tramo B: la portada anunciando
+ * de MÁS. Ahí anunció cuatro nombres que no estaban en ninguna sección del plan,
+ * dos de ellos cosas que el propio PLAN prohíbe.
+ *
+ * No hace falta el cuerpo para cerrarlo: el conjunto legítimo de nombres de la
+ * portada es cerrado y conocido hoy —los trece dispositivos, sus calificadores y
+ * la ANAV—, así que esto es un chequeo de CONJUNTO EXACTO. Se le resta a cada
+ * línea de la región cada fragmento permitido, del más largo al más corto, y si
+ * queda alguna letra, la portada anuncia algo que nadie mandó.
+ *
+ * Itera la PORTADA, no la constante. Si iterara la constante, un nombre
+ * inventado que se cuele en el ASCII seguiría sin verlo nadie.
+ *
+ * La otra dirección todavía —«el dispositivo anunciado, ¿aparece en el cuerpo?»—
+ * sí necesita el cuerpo, y es de la Task 10.
+ */
+function verificarPortadaNoAnunciaDeMas(portada: string[]): string[] {
+  const errores: string[] = [];
+
+  const iNombre = portada.findIndex((l) => l.trim() === PORTADA_INICIO_REGION);
+  const iFin = portada.findIndex((l, j) => j > iNombre && l.trim().startsWith(PORTADA_FIN_REGION));
+  if (iNombre === -1 || iFin === -1) {
+    errores.push(
+      `no se pudo delimitar la región de dispositivos de la portada (entre la línea «${PORTADA_INICIO_REGION}» ` +
+        `y «${PORTADA_FIN_REGION}»). Sin esos dos mojones no se puede verificar que no anuncie de más`,
+    );
+    return errores;
+  }
+
+  const lexico = [
+    ...DISPOSITIVOS_EN_PORTADA.flatMap((d) => d.enPortada),
+    ...CALIFICADORES_EN_PORTADA,
+    INSTITUCION_EN_PORTADA,
+  ].sort((a, b) => b.length - a.length);
+
+  for (const linea of portada.slice(iNombre + 1, iFin)) {
+    if (linea.trim() === '') continue;
+    let resto = linea;
+    for (const permitido of lexico) resto = resto.split(permitido).join('');
+    const sobra = resto.replace(/[·\s]/gu, '');
+    if (sobra !== '') {
+      errores.push(
+        `la portada anuncia algo que no está en los trece dispositivos del plan: «${linea.trim()}» ` +
+          `→ sobra «${sobra}». En el tramo B la portada anunció cuatro nombres que no existían en ` +
+          'ninguna sección: el conjunto es cerrado, ni falta ni sobra',
+      );
+    }
   }
 
   return errores;
@@ -449,7 +580,8 @@ function main(): void {
   console.log(
     `PLANARCO OK: ${String(SECCIONES_ESPERADAS.length)} sección(es) esperada(s), ` +
       `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(ASERCIONES_OBLIGATORIAS.length)} aserciones obligatorias, ` +
-      `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada, ` +
+      `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
+      '(conjunto exacto: ni falta ni sobra), ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
