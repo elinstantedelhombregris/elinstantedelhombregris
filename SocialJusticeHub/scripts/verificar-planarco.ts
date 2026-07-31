@@ -38,10 +38,11 @@ const SECCIONES_ESPERADAS: string[] = [
  * Cifras y fórmulas verificadas que el documento no puede contradecir ni perder.
  * Cada una tiene domicilio abierto y leído antes de escribirla.
  *
- * OJO — acá van sólo los valores que un `includes()` sobre el archivo entero
- * verifica de verdad. Los totales de tabla NO viven acá: se buscan como string
- * y siguen apareciendo en la prosa aunque la tabla que los produce esté rota.
- * Esos se suman — ver verificarTablas().
+ * OJO — acá van solo NÚMEROS, y solo los que un `includes()` sobre el archivo
+ * entero verifica de verdad. Las afirmaciones sin cifra van en
+ * ASERCIONES_OBLIGATORIAS, abajo. Los totales de tabla NO viven en ninguna de
+ * las dos: se buscan como string y siguen apareciendo en la prosa aunque la
+ * tabla que los produce esté rota. Esos se suman — ver verificarTablas().
  */
 const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
   {
@@ -68,6 +69,15 @@ const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
       'el presupuesto a quince años sobre el que se corrió el gate — scripts/gate-spinoff-planes-nuevos.ts:25. ' +
       'El rango ANUAL no se escribe hasta la Task 8 (hallazgo C-5)',
   },
+];
+
+/**
+ * Afirmaciones sin cifra que el documento está obligado a hacer, con el mismo
+ * `includes()` que las cifras. Viven aparte porque no son números: mezclarlas
+ * con CIFRAS_CANONICAS hacía que la constante mintiera sobre su contenido, y
+ * son nueve las tareas que la extienden.
+ */
+const ASERCIONES_OBLIGATORIAS: { valor: string; porQue: string }[] = [
   {
     valor: 'derogación expresa',
     porQue:
@@ -81,16 +91,63 @@ const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
   {
     valor: 'la porción de vejez',
     porQue:
-      'el acta retira sólo la vejez del hueco «Discapacidad y vejez»; la discapacidad queda en ' +
+      'el acta retira solo la vejez del hueco «Discapacidad y vejez»; la discapacidad queda en ' +
       'PLANCUIDADO + PLANSAL y PLANARCO tiene que decirlo — ACTA:169-173',
   },
 ];
 
 /**
+ * Anatomía de la cabecera. El brief manda seis elementos y sin esto la guardia
+ * verificaba uno y medio: borrar el H1, el H3 de versión y la portada entera
+ * salía verde. La portada es el artefacto que nadie vuelve a mirar —en el tramo
+ * anterior anunció cuatro dispositivos con cero ocurrencias en el cuerpo—, así
+ * que su contenido se declara acá y no se deja a la disciplina.
+ */
+const H1_ESPERADO = /^# PLANARCO — .+$/m;
+const H3_VERSION_ESPERADO = /^### Versión \d+\.\d+ — \w+ \d{4}$/m;
+
+/**
+ * Los trece dispositivos de la tabla «Los trece dispositivos» del plan del
+ * tramo (v2/docs/plans/2026-07-31-tramo-c-planarco.md:171-187). Cada entrada
+ * lista los fragmentos literales que tienen que estar en el bloque cercado de
+ * la portada. Uno solo tiene dos fragmentos porque el plan lo cuenta como un
+ * dispositivo con dos nombres.
+ *
+ * La Task 10 le agrega el cruce contra el cuerpo —«cada dispositivo anunciado
+ * en el ASCII tiene ocurrencias en el cuerpo»—, que hoy no se puede hacer
+ * porque el cuerpo todavía no existe.
+ */
+const DISPOSITIVOS_EN_PORTADA: { nombre: string; enPortada: string[] }[] = [
+  { nombre: 'Calendario de Umbrales', enPortada: ['Calendario de Umbrales'] },
+  { nombre: 'Renta de Arco (tres tramos)', enPortada: ['Renta de Arco'] },
+  { nombre: 'Dote de Origen', enPortada: ['Dote de Origen'] },
+  { nombre: 'Umbral de la Llegada', enPortada: ['Umbral de la Llegada'] },
+  { nombre: 'Acta de Bienvenida', enPortada: ['Acta de Bienvenida'] },
+  { nombre: 'El Pasaje (cuatro viajes)', enPortada: ['El Pasaje'] },
+  { nombre: 'El Alto de los Cuarenta y Cinco', enPortada: ['El Alto de los Cuarenta y Cinco'] },
+  { nombre: 'La Rampa de Salida 60–72', enPortada: ['Rampa de Salida 60–72'] },
+  { nombre: 'Casa de Dos Edades', enPortada: ['Casa de Dos Edades'] },
+  { nombre: 'Casa de Arco', enPortada: ['Casa de Arco'] },
+  { nombre: 'La Última Palabra', enPortada: ['La Última Palabra'] },
+  {
+    nombre: 'El Año del Duelo + Acompañante de Umbral',
+    enPortada: ['El Año del Duelo', 'Acompañante de Umbral'],
+  },
+  { nombre: 'El Umbral del Legado', enPortada: ['Umbral del Legado'] },
+];
+
+/** La ANAV no es dispositivo —es la institución de la Sección 8— pero la portada la anuncia. */
+const INSTITUCION_EN_PORTADA = 'Agencia Nacional del Arco de la Vida (ANAV)';
+
+/**
  * Strings que no pueden aparecer, con el motivo de cada uno.
  * Case-insensitive salvo donde el corpus distingue mayúsculas: las siglas
- * (PUAM, PNC) y los marcadores de pendiente (TODO ≠ «todo»).
+ * (PUAM, PNC) y los marcadores de pendiente.
  * `salvoSi` exime la ocurrencia cuando la línea que la contiene la atribuye.
+ *
+ * OJO — estos patrones se corren sobre el texto SIN negritas (ver `rawPlano` en
+ * main()). El corpus escribe en negrita permanentemente, y un `**` en el medio
+ * de la frase hacía fallar abierto al prohibido más importante de todos.
  */
 const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
   {
@@ -98,7 +155,7 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
     porQue: 'cero ocurrencias en el corpus: no se estrenan siglas de partidas cuyo monto nadie tiene (C-6)',
   },
   {
-    patron: /(?<!\bno\s)(?<!\bno lo\s)(?<!\btampoco\s)(pas[óo]|super[óo]|supera|pasa)\s+el\s+(gate|umbral)/i,
+    patron: /(?<!\bno\s)(?<!\btampoco\s)(pas[óo]|super[óo]|supera|pasa)\s+(el|ese|este|dicho)\s+(gate|umbral)/i,
     porQue:
       'falso: PLANARCO falla contra la suma de sus dos huéspedes por tres centésimas. ' +
       'Se habilita por derogación expresa, no por el gate (ACTA:41-47, :131-137)',
@@ -141,8 +198,14 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
       '45% × 150.000M da ~65.000–72.000M. O se escribe la derivación o se declara hueco',
   },
   {
-    patron: /\bTODO\b|\bTKTK\b|\bXXX\b|\[pendiente\]|«PENDIENTE»|\{PENDIENTE\}/,
+    patron: /\bTODO:|\[TODO\]|<!--\s*TODO|\bTKTK\b|\bXXX\b|\[pendiente\]|«PENDIENTE»|\{PENDIENTE\}/,
     porQue: 'marcador de borrador: el documento se commitea sin secciones a medio escribir',
+  },
+  {
+    patron: /(?<!\p{L})(sólo|ést[aeo]s?|és[aeo]s?|aquél(?:la|los|las)?)(?!\p{L})/iu,
+    porQue:
+      'Global Constraint del corpus: «solo» y los demostrativos van sin tilde. ' +
+      'PLANPACTO, el modelo declarado, tiene 0 ocurrencias de «sólo» y 32 de «solo»',
   },
 ];
 
@@ -250,6 +313,58 @@ function verificarTablas(lineas: string[]): string[] {
   return errores;
 }
 
+/**
+ * La anatomía de la cabecera: H1, H3 de versión y portada ASCII con los trece
+ * dispositivos adentro. Sin esto se podía borrar la portada entera y salir 0.
+ */
+function verificarCabecera(raw: string, lineas: string[]): string[] {
+  const errores: string[] = [];
+
+  if (!H1_ESPERADO.test(raw)) {
+    errores.push(
+      'falta el H1 del documento («# PLANARCO — {título}»): la anatomía de PLANPACTO lo pone ' +
+        'entre el `---` de la cabecera y el H2 del mandato',
+    );
+  }
+
+  const iVersion = lineas.findIndex((l) => H3_VERSION_ESPERADO.test(l.trim()));
+  if (iVersion === -1) {
+    errores.push(
+      'falta el H3 de versión («### Versión 1.0 — Julio 2026»), que va entre el H2 del mandato y la portada',
+    );
+  }
+
+  // La portada es el primer bloque cercado después del H3 de versión: buscarla
+  // desde ahí verifica presencia y orden de una sola vez.
+  const desde = iVersion === -1 ? 0 : iVersion + 1;
+  const iAbre = lineas.findIndex((l, j) => j >= desde && l.trim() === '```');
+  const iCierra = iAbre === -1 ? -1 : lineas.findIndex((l, j) => j > iAbre && l.trim() === '```');
+  if (iAbre === -1 || iCierra === -1) {
+    errores.push(
+      'falta la portada ASCII en bloque cercado después del H3 de versión. Es la página que nadie ' +
+        'vuelve a mirar: si no la verifica la guardia, no la verifica nadie',
+    );
+    return errores;
+  }
+
+  const portada = lineas.slice(iAbre + 1, iCierra).join('\n');
+  for (const { nombre, enPortada } of DISPOSITIVOS_EN_PORTADA) {
+    for (const fragmento of enPortada) {
+      if (!portada.includes(fragmento)) {
+        errores.push(
+          `la portada no anuncia «${fragmento}» (dispositivo «${nombre}»): los trece dispositivos ` +
+            'del plan del tramo se anuncian todos, y no se anuncia ninguno de más',
+        );
+      }
+    }
+  }
+  if (!portada.includes(INSTITUCION_EN_PORTADA)) {
+    errores.push(`la portada no anuncia «${INSTITUCION_EN_PORTADA}», la institución de la Sección 8`);
+  }
+
+  return errores;
+}
+
 function main(): void {
   let raw: string;
   try {
@@ -261,6 +376,14 @@ function main(): void {
 
   const errores: string[] = [];
   const lineas = raw.split('\n');
+
+  /**
+   * El mismo texto sin negritas, para los prohibidos. Sacar los `**` no cambia
+   * el conteo de líneas —no hay saltos adentro—, así que los números de línea
+   * que se reportan abajo siguen siendo los del archivo real.
+   */
+  const rawPlano = raw.replace(/\*\*/g, '');
+  const lineasPlano = rawPlano.split('\n');
 
   // 1) Las secciones esperadas, presentes y en orden.
   let cursor = -1;
@@ -278,18 +401,21 @@ function main(): void {
     cursor = i;
   }
 
-  // 2) Las cifras canónicas.
+  // 2) Las cifras canónicas y las aserciones obligatorias.
   for (const { valor, porQue } of CIFRAS_CANONICAS) {
     if (!raw.includes(valor)) errores.push(`falta la cifra canónica «${valor}» — ${porQue}`);
   }
+  for (const { valor, porQue } of ASERCIONES_OBLIGATORIAS) {
+    if (!raw.includes(valor)) errores.push(`falta la aserción obligatoria «${valor}» — ${porQue}`);
+  }
 
-  // 3) Los prohibidos.
+  // 3) Los prohibidos, sobre el texto sin negritas.
   for (const { patron, porQue, salvoSi } of PROHIBIDOS) {
     const global = new RegExp(patron.source, patron.flags.includes('g') ? patron.flags : `${patron.flags}g`);
     let m: RegExpExecArray | null;
-    while ((m = global.exec(raw)) !== null) {
-      const nLinea = raw.slice(0, m.index).split('\n').length;
-      const linea = lineas[nLinea - 1] ?? '';
+    while ((m = global.exec(rawPlano)) !== null) {
+      const nLinea = rawPlano.slice(0, m.index).split('\n').length;
+      const linea = lineasPlano[nLinea - 1] ?? '';
       if (salvoSi && salvoSi.test(linea)) continue;
       errores.push(`línea ${String(nLinea)}: «${m[0]}» está prohibido — ${porQue}`);
     }
@@ -311,6 +437,9 @@ function main(): void {
     );
   }
 
+  // 7) La anatomía de la cabecera: H1, H3 de versión y portada.
+  errores.push(...verificarCabecera(raw, lineas));
+
   if (errores.length > 0) {
     console.error(`La guardia de PLANARCO encontró ${String(errores.length)} problema(s):\n`);
     for (const e of errores) console.error(`  · ${e}`);
@@ -319,7 +448,8 @@ function main(): void {
 
   console.log(
     `PLANARCO OK: ${String(SECCIONES_ESPERADAS.length)} sección(es) esperada(s), ` +
-      `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(PROHIBIDOS.length)} patrones prohibidos, ` +
+      `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(ASERCIONES_OBLIGATORIAS.length)} aserciones obligatorias, ` +
+      `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada, ` +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
