@@ -55,7 +55,7 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 - **PLANSAL tiene los primeros mil días en exclusiva** (§4.4 entera) y licencia parental extendida **con números** (`:1595-1605`: seis meses gestante, tres co-progenitor). «Licencia de crianza» no existe como término: **se remite, no se reescribe.**
 - **La Rampa de Salida sería la tercera versión del mismo dispositivo**: `PLANSAL §9.3` «Ancianos de Sabiduría» y PLANCUL «Granaderos» ya existen.
 
-**Territorio genuinamente vacío, donde PLANARCO no pisa a nadie:** la herencia y la sucesión como institución, el acto de morir (funerales, disposición del cuerpo, voluntad anticipada — **«funeral» tiene cero ocurrencias en el corpus**), la mediana edad (el Alto de los Cuarenta y Cinco es virgen), y la natalidad. **Ahí es donde el PLAN es más original y donde tiene menos con qué apoyarse.**
+**Territorio genuinamente vacío, donde PLANARCO no pisa a nadie:** la herencia y la sucesión como institución, el acto de morir (funerales, disposición del cuerpo, voluntad anticipada — **«funeral» tiene cero ocurrencias en los PLANes**; la revisión de la Task 2 encontró que el proyecto sí escribió la palabra fuera de ellos, en `kumu-elinstantedelhombregris-basta.json` y en `Ensayos/06-belleza.md`, así que la afirmación se acota a los PLANes y no al proyecto), la mediana edad (el Alto de los Cuarenta y Cinco es virgen), y la natalidad. **Ahí es donde el PLAN es más original y donde tiene menos con qué apoyarse.**
 
 ---
 
@@ -264,7 +264,7 @@ El arco de la vida no se puede contar con un solo rostro sin volverse un caso. *
 Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas verificadas, con su domicilio:
 
 1. **La vida se administra por trámite y nadie mira la trayectoria.** Ningún organismo del Estado argentino tiene el deber de saber en qué etapa de su vida está una persona.
-2. **Los dos extremos del arco no tienen dueño.** El nacimiento se reparte entre salud y registro civil; la muerte no tiene ninguno — **«funeral» tiene cero ocurrencias en el corpus** y el acto de morir no aparece como institución en ningún PLAN.
+2. **Los dos extremos del arco no tienen dueño.** El nacimiento se reparte entre salud y registro civil; la muerte no tiene ninguno — **«funeral» tiene cero ocurrencias en los PLANes** y el acto de morir no aparece como institución en ninguno.
 3. **El haber se licúa, no se recorta.** `PLANMON:1547` critica todas las fórmulas de movilidad que Argentina inventó. **El modo de falla real del Piso Vital es la licuación, no el ajuste frontal** (spec `:190`).
 4. **El cuidado no pago sostiene el sistema y recién ahora se cuenta.** `PLANCUIDADO:94`: doce millones de años-persona.
 5. **La mediana edad no existe como categoría de política pública.** Verificado: no aparece en ningún PLAN del corpus.
@@ -353,7 +353,7 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 
 - **La Rampa sería la tercera versión del mismo dispositivo.** `PLANSAL §9.3` («Ancianos de Sabiduría», `:1171-1190`) y los Granaderos de PLANCUL ya existen. **No los ignores y no los dupliques:** declará cuál es la relación. Lo que PLANARCO aporta que ninguno de los dos tiene es **la caja**.
 - **La Última Palabra y el Año del Duelo son los dispositivos 9 y 10 del arreglo 3, y nunca los leyó nadie** — el diseño llegó cortado a los verificadores de la primera vuelta, y dos veredictos sobre ellos son falsos negativos. **Antes de escribirlos, verificalos adversarialmente vos**: buscá el modo de falla, la superficie de captura y el conflicto con lo existente. El Año del Duelo **choca con `PLANCUIDADO:677`**, que ya tiene protocolo de acompañamiento en duelo, y con las Rondas de Duelo de `PLANCUL:156`.
-- **El acto de morir es territorio genuinamente vacío** — «funeral» tiene cero ocurrencias en el corpus. Es donde el PLAN es más original **y donde más fácil se estrena una cifra.** Cuidado.
+- **El acto de morir es territorio genuinamente vacío** — «funeral» tiene cero ocurrencias en los PLANes. **Y el preámbulo ya declaró el hueco del costo funerario con la fórmula canónica, lo que es vinculante hacia adelante:** esta sección **no puede** introducir un unitario sin contradecirlo. Las dos salidas legítimas son repetir el hueco, o traer fuente externa nueva marcándola como externa. Es donde el PLAN es más original **y donde más fácil se estrena una cifra.** Cuidado.
 - **La Casa de Dos Edades** lleva control cada 60 días el primer año y **prohibición absoluta de que el conviviente sea apoderado o beneficiario** (arreglo 8). **La Casa de Arco** son catorce personas, en el barrio, no en la ruta.
 - **El Umbral del Legado no existe en el corpus** (**C-8**): se inventa entero, y **lo ejecuta la ANAV** porque PLANCUL no tiene agencia por diseño — declarado cuatro veces (`PLANCUL:46`, `:106`, `:389`, `:471`) y confirmado en `TABLA_AGENCIAS_BASTA.md:54`.
 
