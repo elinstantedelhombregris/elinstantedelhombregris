@@ -185,7 +185,7 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 | 20 | `## SECCIÓN 17: PROTOCOLO DE FALLA` | 10 | 260–300 |
 | 21 | `## CIERRE` | 10 | 350–420 |
 
-> **Los dos techos subidos el 2026-07-31, con la razón.** La SECCIÓN 3 pasó de 3.000 a **3.300** y la SECCIÓN 0 de 3.800 a **4.000**. No es indulgencia: las dos crecieron por corrección de contenido verificado, no por prosa. En la SECCIÓN 3 el censo de ocupantes pasó de siete estaciones a catorce de dieciséis —la columna que el propio documento llama «lo que hace honesta la arquitectura» estaba mal por la mitad— y la tabla es lo que engordó. En la SECCIÓN 0, §0.6 apoya su «Por qué persiste» y su «El dato» en la ausencia de tres cosas —organismo, caja y registro— que `PLANMEMORIA` provee: Agencia Nacional de Memoria con 0,10–0,14% del PBI protegido (§5, `:480`), Síndicos de Archivo a salario de investigador CONICET adjunto (`:405`), y el Archivo de Depósito Ciudadano de siete nodos con hash (`:283`, `:297`). **Corregir cuatro afirmaciones falsas cuesta palabras, y comprimir para no pagarlas es la peor economía posible.** Las dos secciones ya absorbieron una ronda de arreglos a saldo cero cada una; esta es la segunda y no entra.
+> **Los dos techos subidos el 2026-07-31, con la razón.** La SECCIÓN 3 pasó de 3.000 a **3.300** y la SECCIÓN 0 de 3.800 a **4.000**. No es indulgencia: las dos crecieron por corrección de contenido verificado, no por prosa. En la SECCIÓN 3 el censo de ocupantes pasó de siete estaciones a catorce de dieciséis —la columna que el propio documento llama «lo que hace honesta la arquitectura» estaba mal por la mitad— y la tabla es lo que engordó. En la SECCIÓN 0, §0.6 apoya su «Por qué persiste» y su «El dato» en la ausencia de tres cosas —organismo, caja y registro— que `PLANMEMORIA` provee: Agencia Nacional de Memoria con 0,10–0,14% del PBI protegido (`PLANMEMORIA:484` y `:486` — `:480` es el H2 de la sección, y esta nota arrastraba la misma cita mal que corrigió el documento), Síndicos de Archivo a salario de investigador CONICET adjunto (`:405`), y el Archivo de Depósito Ciudadano de siete nodos con hash (`:283`, `:297`). **Corregir cuatro afirmaciones falsas cuesta palabras, y comprimir para no pagarlas es la peor economía posible.** Las dos secciones ya absorbieron una ronda de arreglos a saldo cero cada una; esta es la segunda y no entra.
 
 Los saltos de numeración (no hay SECCIÓN 14) imitan al corpus, que los tiene: PLANMEMORIA salta de la 12 a la 14, PLANPACTO también.
 
@@ -286,7 +286,7 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 
 **SECCIÓN 2 — precedentes.** Internacionales y locales, con la disciplina que el tramo B pagó caro: **la sección que defiende al PLAN es la que menos se revisa, y fue el hallazgo Crítico de la revisión final.** Si un precedente no tiene cita en el corpus, se declara como aserción propia sin fuente. **Y cada precedente se lee en dos columnas: qué pidió y qué dio.** Enumerar sólo lo que un antecedente pidió, sin lo que dio, fue exactamente el error de `PLANPACTO §2.3`.
 
-**Palabras:** fallas 3.400–3.800 · crisis 1.100–1.400 · precedentes 1.400–1.700.
+**Palabras:** fallas **3.400–4.000** · crisis 1.100–1.400 · precedentes 1.400–1.700.
 
 - [ ] Task 3 completa
 
@@ -306,7 +306,7 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 - **La tipología de rigidez** (arreglo 2 + **C-4**). **La movilidad automática mensual es Techo A por materia previsional**, apoyándose en `PLANPACTO:343`. **No estrenes «precompromiso indexado»** — la guardia lo prohíbe. Y resolvé el choque con `PLANMON:1547`, que indexa el mismo haber al peso-canasta: son dos mecanismos para lo mismo y hay que decir cuál manda o cómo conviven.
 - **El blindaje de la Capa de Forma** (arreglo 12 + **C-9**). El modo de falla es el más probable del PLAN: *«Nadie tiene que derogar PLANARCO para matar el arco: alcanza con no ejecutar la Fase 3.»* **Pero la fórmula de la spec está mal:** «ley» es capa 1 y **`BLINDAJE:194`** la llama «protección media» (`:53` es la moraleja, «no hay protección legal absoluta» — corregido el 2026-07-31 por la Task 4, que abrió las dos líneas); la capa 4 se funda en **propiedad**, no en cobro, y el análogo del corralito (`BLINDAJE:63`) **no cubre una transferencia**. Justificá capa 4 por **masa de beneficiarios (`BLINDAJE:186-188`) y visibilidad de tablero (`:88-96`)** — son dos fundamentos distintos y este plan los tenía fundidos en una sola cita equivocada—, **decí explícitamente que el corralito no aplica**, y traé el mecanismo concreto que impide el vaciamiento por no ejecución.
 
-**Palabras:** 2.600–3.000.
+**Palabras:** **2.600–3.300**.
 
 - [ ] Task 4 completa
 
@@ -315,6 +315,8 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 ### Task 5: La Renta de Arco
 
 **Files:** Modify: la guardia (**parsea la tabla de fuentes**) · Modify: el documento.
+
+**Entregable explícito, heredado de la Task 4 y NO cubierto por la guardia:** §3.3 y §3.5 difieren a esta sección el choque del **Piso Vital Universal con el DNP de `PLANREP §15.3` y el DCM de `PLANTER:366-367`** — tres pisos universales que pagan a la misma persona de sesenta y cinco. `PLANREP:2261` dice que el DNP «complementa las jubilaciones mínimas con convergencia plena en Horizonte 3»; el DCM abre a los 18 y no cierra. **El documento tiene que decir si el Piso Vital se suma, se absorbe o es absorbido.** Si la Sección 4 se escribe sin resolverlo, **nada se pone rojo** — el diferimiento está declarado desde los dos lados en la prosa y no en la guardia.
 
 **Antes de escribir una palabra: resolvé C-7.** ¿FSC y FSB son el mismo fondo o son dos? El corpus nunca lo reconcilió y `strategic-initiatives.ts:2045` los fusiona. **Abrí `PLANTER:349-374` y `PLANMON:1557-1563` y leelos enteros.** La respuesta que escribas es una **decisión de diseño de este documento** y se declara como tal. Si son dos, la tabla de fuentes los separa y no puede sumar la misma regalía dos veces. Si son el mismo, hay que decir cuál nombre gana y que el otro documento arrastra un alias.
 
