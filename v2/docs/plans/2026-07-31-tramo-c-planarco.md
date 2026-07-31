@@ -143,7 +143,7 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 
 | # | Sección | Tarea | Palabras |
 |---|---|---|---|
-| — | Cabecera + H1 + «Vigésimo Quinto Mandato» + versión + portada ASCII | 1 | 350–450 |
+| — | Cabecera + H1 + «Vigésimo Quinto Mandato» + versión + portada ASCII | 1 | 520–580 |
 | 1 | `## PREÁMBULO — {título}` | 2 | 1.100–1.400 |
 | 2 | `## TESIS CENTRAL` | 2 | 700–900 |
 | 3 | `## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO` | 3 | 3.400–3.800 |
@@ -213,6 +213,8 @@ Contenido específico:
 - `Presupuesto canónico`: **el rango de quince años del gate (53.000–96.000M)** y una remisión a la Sección 9. **No escribas un rango anual acá** — la Task 8 lo deriva y recién ahí se puede afirmar (**C-5**).
 - `Principios aplicados`: los del corpus, más **«sin piso constitucional propio: PLANARCO no agrega escalón a la Escalera de PLANPACTO»**.
 - La portada ASCII lleva **sólo dispositivos que el cuerpo va a tener**. En el tramo B la portada anunció cuatro dispositivos con cero ocurrencias en el cuerpo, se escribió en la Task 1 y nadie la volvió a mirar mientras todo lo demás se revisaba nueve veces. **La Task 10 la vuelve a abrir obligatoriamente.**
+
+**Corrección del 2026-07-31, tras la revisión de la Task 1:** el rango original decía 350–450 y era **aritméticamente inalcanzable**. La revisión contó campo por campo contra `PLANPACTO:1-53` (417 palabras) y encontró que el `ACTA DE HABILITACIÓN` de PLANARCO pesa 116 palabras contra las 20 de PLANPACTO, porque este plan lo obliga a llevar los tres cocientes, el umbral, el fallo por tres centésimas, la derogación de dos reglas y la frontera con PLANCUIDADO/PLANSAL. Una cabecera máximamente magra que obedezca todos los mandatos aterriza en ~546 palabras. Se corrige el rango en vez de borrar contenido que las Global Constraints declaran vinculante.
 
 **Verify:** `npx tsx scripts/verificar-planarco.ts` sale 0. Después **rompé algo a propósito** (renombrá un H2) y confirmá que sale 1. Restaurá.
 
