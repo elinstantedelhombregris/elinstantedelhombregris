@@ -29,6 +29,12 @@ import type { RequestHandler } from 'express';
  *     que es la peor forma de fallar — un mapa vacío sin error visible.
  */
 export function securityHeaders(): RequestHandler {
+  /**
+   * Los glyphs NO pueden salir de Carto: ese host sirve las teselas pero no
+   * manda CORS en /fonts/, así que el navegador bloquea cada rango y el mapa
+   * queda sin una sola etiqueta. Verificado contra los dos endpoints.
+   */
+  const glyphs = 'https://fonts.openmaptiles.org';
   const cartoTiles = [
     'https://tiles.basemaps.cartocdn.com',
     'https://tiles-a.basemaps.cartocdn.com',
@@ -43,8 +49,8 @@ export function securityHeaders(): RequestHandler {
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", 'data:', 'blob:', ...cartoTiles],
-        connectSrc: ["'self'", ...cartoTiles],
-        fontSrc: ["'self'", 'data:', ...cartoTiles],
+        connectSrc: ["'self'", ...cartoTiles, glyphs],
+        fontSrc: ["'self'", 'data:', ...cartoTiles, glyphs],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],
         workerSrc: ["'self'", 'blob:'],

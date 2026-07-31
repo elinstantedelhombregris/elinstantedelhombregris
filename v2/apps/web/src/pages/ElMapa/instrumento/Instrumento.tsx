@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 
 import { BarraModos, ContadorEnVista, PanelLateral } from './Chrome';
 import { MapaBase } from './MapaBase';
@@ -77,7 +77,15 @@ export function Instrumento() {
             {...(activo.capasInteractivas ? { capasInteractivas: activo.capasInteractivas } : {})}
             {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
           >
-            {activo.capas}
+            {/*
+              La `key` por modo es obligatoria, no cosmética: sin ella React
+              reconcilia las capas del modo saliente con las del entrante en la
+              misma posición del árbol, y `<Source>` de react-map-gl explota con
+              «source id changed» porque su id no puede cambiar en caliente.
+              Con la key se desmonta un modo y se monta el otro, que es lo que
+              corresponde — el mapa NO se remonta, solo sus capas.
+            */}
+            <Fragment key={modo}>{activo.capas}</Fragment>
           </MapaBase>
 
           {/* El contador flota arriba a la derecha y responde al encuadre:

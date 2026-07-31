@@ -1,69 +1,97 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
-import { Control, LeyendaRampa, Segmentado } from '../Chrome';
-import { RAMPAS } from '../paleta';
+import { Control, FiltroTipos, LeyendaRampa, Segmentado } from '../Chrome';
+import { COLOR_TIPO, RAMPAS } from '../paleta';
+import { AVISO_TEMAS, temasDe } from '../temas';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
+import type { SenalConTipo } from '../useVistaMapa';
+import type { TipoVoz } from '~/components/papel/primitives';
 
 import { useProvincias } from '~/lib/queries/open-data';
+import { cn } from '~/lib/utils';
 
 /**
- * Modo Análisis — el coroplético: qué provincia habla y cuánto.
+ * Modo Análisis — qué provincia habla, cuánto, y QUÉ DICE.
  *
- * Es la respuesta a «dónde habla el país» a escala, que los puntos sueltos no
- * dan: mil puntos en el conurbano y diez en Santa Cruz se ven parecidos si uno
- * mira densidad de tinta, y son cosas completamente distintas por habitante.
+ * El coroplético solo contesta la primera mitad. Tocar una provincia contesta
+ * la segunda: de qué está hecho ese color. Un mapa que pinta intensidades sin
+ * dejar leer el contenido convierte a la gente en una métrica, que es
+ * exactamente lo contrario de lo que esta plataforma existe para hacer.
  *
- * DEPARTAMENTOS: falta la geometría. La capa del IGN (~530 unidades) es la que
- * habilitaría el nivel de abajo, y es la misma que quedó pendiente para el
- * pipeline. Mientras tanto el selector muestra el nivel deshabilitado con su
- * razón, en vez de esconderlo: que exista es parte de lo que el mapa promete.
+ * DEPARTAMENTOS: falta la capa del IGN (~530 unidades). El nivel se muestra
+ * deshabilitado con su razón en vez de esconderse.
  */
 
-type Metrica = 'total' | 'porHabitante';
+type Metrica = 'total' | 'porHabitante' | 'densidad';
 type NivelGeo = 'provincia' | 'departamento';
+type Rango = '7d' | '30d' | 'todo';
 
-/**
- * Población por provincia (censo 2022, INDEC), en miles.
- *
- * Va acá y no en la base porque es un dato de referencia estable, no una
- * señal: cambia cada diez años, no cada minuto. Si algún día entra al esquema,
- * este objeto muere.
- */
-const POBLACION_MILES: Record<string, number> = {
-  'Buenos Aires': 17569,
-  'Ciudad Autónoma de Buenos Aires': 3121,
-  Córdoba: 3978,
-  'Santa Fe': 3556,
-  Mendoza: 2014,
-  Tucumán: 1703,
-  Salta: 1440,
-  'Entre Ríos': 1426,
-  Misiones: 1281,
-  Chaco: 1129,
-  Corrientes: 1120,
-  Santiago: 978,
-  'Santiago del Estero': 978,
-  'San Juan': 818,
-  Jujuy: 797,
-  'Río Negro': 747,
-  Neuquén: 726,
-  Formosa: 606,
-  Chubut: 604,
-  'San Luis': 540,
-  Catamarca: 429,
-  'La Rioja': 384,
-  'La Pampa': 366,
-  'Santa Cruz': 337,
-  'Tierra del Fuego': 191,
+const DIAS: Record<'7d' | '30d', number> = { '7d': 7, '30d': 30 };
+
+/** Población (censo 2022, INDEC) en miles y superficie en miles de km². */
+const PROVINCIAS_REF: Record<string, { pob: number; km2: number }> = {
+  'Buenos Aires': { pob: 17569, km2: 307.6 },
+  'Ciudad Autónoma de Buenos Aires': { pob: 3121, km2: 0.2 },
+  Córdoba: { pob: 3978, km2: 165.3 },
+  'Santa Fe': { pob: 3556, km2: 133.0 },
+  Mendoza: { pob: 2014, km2: 148.8 },
+  Tucumán: { pob: 1703, km2: 22.5 },
+  Salta: { pob: 1440, km2: 155.5 },
+  'Entre Ríos': { pob: 1426, km2: 78.8 },
+  Misiones: { pob: 1281, km2: 29.8 },
+  Chaco: { pob: 1129, km2: 99.6 },
+  Corrientes: { pob: 1120, km2: 88.2 },
+  'Santiago del Estero': { pob: 978, km2: 136.4 },
+  'San Juan': { pob: 818, km2: 89.7 },
+  Jujuy: { pob: 797, km2: 53.2 },
+  'Río Negro': { pob: 747, km2: 203.0 },
+  Neuquén: { pob: 726, km2: 94.1 },
+  Formosa: { pob: 606, km2: 72.1 },
+  Chubut: { pob: 604, km2: 224.7 },
+  'San Luis': { pob: 540, km2: 76.7 },
+  Catamarca: { pob: 429, km2: 102.6 },
+  'La Rioja': { pob: 384, km2: 89.7 },
+  'La Pampa': { pob: 366, km2: 143.4 },
+  'Santa Cruz': { pob: 337, km2: 243.9 },
+  'Tierra del Fuego': { pob: 191, km2: 21.6 },
 };
+
+const METRICAS: { id: Metrica; etiqueta: string; explica: string; unidad: string }[] = [
+  {
+    id: 'total',
+    etiqueta: 'Total',
+    explica:
+      'El total crudo. Buenos Aires siempre gana porque tiene 17 millones de personas — sirve para saber dónde hay volumen, no dónde hay intensidad.',
+    unidad: 'voces',
+  },
+  {
+    id: 'porHabitante',
+    etiqueta: 'Por habitante',
+    explica:
+      'Voces cada 100.000 habitantes. Acá una provincia chica que habla mucho deja de desaparecer detrás del conurbano.',
+    unidad: 'cada 100 mil hab.',
+  },
+  {
+    id: 'densidad',
+    etiqueta: 'Por territorio',
+    explica:
+      'Voces cada 1.000 km². Muestra concentración geográfica: Santa Cruz y CABA dicen cosas muy distintas con el mismo total.',
+    unidad: 'cada 1.000 km²',
+  },
+];
 
 export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
   const [nivel, setNivel] = useState<NivelGeo>('provincia');
   const [metrica, setMetrica] = useState<Metrica>('total');
+  const [rango, setRango] = useState<Rango>('todo');
+  const [tipos, setTipos] = useState<Set<TipoVoz>>(
+    () => new Set(Object.keys(COLOR_TIPO) as TipoVoz[]),
+  );
   const [rampa, setRampa] = useState<keyof typeof RAMPAS>('violeta');
   const [opacidad, setOpacidad] = useState(0.8);
+  const [seleccionada, setSeleccionada] = useState<string | null>(null);
   const [geometria, setGeometria] = useState<unknown>(null);
   const provincias = useProvincias();
 
@@ -75,72 +103,101 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         if (vivo) setGeometria(g);
       })
       .catch(() => {
-        /* sin geometría el modo muestra su aviso; no rompe la página */
+        /* sin geometría el modo lo dice; no rompe la página */
       });
     return () => {
       vivo = false;
     };
   }, []);
 
-  /**
-   * Cuántas voces por provincia, POR NOMBRE.
-   *
-   * Se cuenta sobre TODAS y no sobre el encuadre: un coroplético que cambia al
-   * arrastrar el mapa no compara nada — la provincia que sale del cuadro no
-   * pierde sus voces, solo deja de verse.
-   *
-   * El puente id→nombre lo da `useProvincias()`: el GeoJSON de Natural Earth
-   * no conoce los ids de nuestra base, y los nombres ya están normalizados por
-   * el pipeline (CABA incluida).
-   */
+  /** Las señales que pasan los filtros del panel. */
+  const filtradas = useMemo(() => {
+    const desde = rango === 'todo' ? 0 : Date.now() - DIAS[rango] * 86_400_000;
+    return ctx.todas.filter(
+      (s) => tipos.has(s.tipoVoz) && (rango === 'todo' || Date.parse(s.createdAt) >= desde),
+    );
+  }, [ctx.todas, tipos, rango]);
+
+  /** Las voces agrupadas por nombre de provincia — el GeoJSON no sabe de ids. */
   const porNombre = useMemo(() => {
     const nombrePorId = new Map((provincias.data ?? []).map((p) => [p.id, p.name]));
-    const cuenta = new Map<string, number>();
-    for (const s of ctx.todas) {
+    const cuenta = new Map<string, SenalConTipo[]>();
+    for (const s of filtradas) {
       if (s.provinceId === null) continue;
       const nombre = nombrePorId.get(s.provinceId);
       if (nombre === undefined) continue;
-      cuenta.set(nombre, (cuenta.get(nombre) ?? 0) + 1);
+      const lista = cuenta.get(nombre) ?? [];
+      lista.push(s);
+      cuenta.set(nombre, lista);
     }
     return cuenta;
-  }, [ctx.todas, provincias.data]);
+  }, [filtradas, provincias.data]);
 
   const conValores = useMemo(() => {
     if (!geometria || typeof geometria !== 'object') return null;
     const col = geometria as { features: { properties: { name: string } }[] };
-
-    const features = col.features.map((f) => {
-      const nombre = f.properties.name;
-      const total = porNombre.get(nombre) ?? 0;
-      const pob = POBLACION_MILES[nombre] ?? 0;
-      return {
+    const calcular = (nombre: string): number => {
+      const total = porNombre.get(nombre)?.length ?? 0;
+      const ref = PROVINCIAS_REF[nombre];
+      if (metrica === 'total' || !ref) return total;
+      if (metrica === 'porHabitante') return ref.pob > 0 ? (total / ref.pob) * 100 : 0;
+      return ref.km2 > 0 ? total / ref.km2 : 0;
+    };
+    return {
+      type: 'FeatureCollection' as const,
+      features: col.features.map((f) => ({
         ...f,
         properties: {
           ...f.properties,
-          total,
-          porHabitante: pob > 0 ? (total / pob) * 100 : 0,
+          valor: calcular(f.properties.name),
+          elegida: f.properties.name === seleccionada ? 1 : 0,
         },
-      };
-    });
-    return { type: 'FeatureCollection' as const, features };
-  }, [geometria, porNombre]);
+      })),
+    };
+  }, [geometria, porNombre, metrica, seleccionada]);
 
   const maximo = useMemo(() => {
     if (!conValores) return 1;
-    const vals = conValores.features.map((f) =>
-      metrica === 'total' ? f.properties.total : f.properties.porHabitante,
-    );
-    return Math.max(1, ...vals);
-  }, [conValores, metrica]);
+    return Math.max(1, ...conValores.features.map((f) => f.properties.valor));
+  }, [conValores]);
 
-  // Rampa de respaldo explícita: `noUncheckedIndexedAccess` no confía en
-  // que la clave exista, y tiene razón — el estado podría venir de una URL.
   const colores = RAMPAS[rampa]?.colores ?? ['#241F17', '#3B2A66', '#5227CC', '#9D85E8'];
+  const metricaActiva = METRICAS.find((m) => m.id === metrica) ?? METRICAS[0];
+
+  /** Lo que dice la provincia elegida. */
+  const detalle = useMemo(() => {
+    if (seleccionada === null) return null;
+    const lista = porNombre.get(seleccionada) ?? [];
+    const porTipo = new Map<TipoVoz, number>();
+    for (const s of lista) porTipo.set(s.tipoVoz, (porTipo.get(s.tipoVoz) ?? 0) + 1);
+    const valor =
+      conValores?.features.find((f) => f.properties.name === seleccionada)?.properties.valor ?? 0;
+    return {
+      nombre: seleccionada,
+      lista,
+      valor,
+      porTipo: [...porTipo.entries()].sort((a, b) => b[1] - a[1]),
+      temas: temasDe(lista.map((s) => s.texto)),
+    };
+  }, [seleccionada, porNombre, conValores]);
+
+  const alternarTipo = (tipo: TipoVoz) => {
+    setTipos((previo) => {
+      const siguiente = new Set(previo);
+      if (siguiente.has(tipo)) siguiente.delete(tipo);
+      else siguiente.add(tipo);
+      return siguiente;
+    });
+  };
 
   return {
     titulo: 'Análisis',
-    descripcion:
-      'Qué provincia habla y cuánto. Elegí si mirar el total o el peso por habitante — no dicen lo mismo.',
+    descripcion: 'Qué provincia habla, cuánto, y qué dice. Tocá una para leerla.',
+    capasInteractivas: ['provincias-relleno'],
+    onClickCapa: (_id, props) => {
+      const nombre = typeof props.name === 'string' ? props.name : null;
+      setSeleccionada((previo) => (previo === nombre ? null : nombre));
+    },
 
     panel: (
       <>
@@ -156,24 +213,53 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
           {nivel === 'departamento' ? (
             <p className="text-oscuro-meta mt-2 text-[11px] leading-relaxed">
               Todavía no está: falta la capa de departamentos del IGN. Se muestra igual porque el
-              nivel existe y va a llegar — esconderlo sería fingir que el mapa no lo tiene pensado.
+              nivel existe y va a llegar.
             </p>
           ) : null}
         </Control>
 
         <Control etiqueta="Métrica">
+          <div className="border-oscuro-borde grid grid-cols-3 border">
+            {METRICAS.map((m) => (
+              <button
+                key={m.id}
+                type="button"
+                aria-pressed={metrica === m.id}
+                onClick={() => {
+                  setMetrica(m.id);
+                }}
+                className={cn(
+                  'font-space px-2 py-2 text-[10px] uppercase tracking-[0.06em]',
+                  metrica === m.id
+                    ? 'bg-oscuro-borde text-oscuro-texto'
+                    : 'text-oscuro-meta hover:text-oscuro-secundario',
+                )}
+              >
+                {m.etiqueta}
+              </button>
+            ))}
+          </div>
+          <p className="text-oscuro-meta mt-2 text-[11px] leading-relaxed">
+            {metricaActiva?.explica}
+          </p>
+        </Control>
+
+        <Control etiqueta="Cuándo se dijo">
           <Segmentado
-            valor={metrica}
-            onCambiar={setMetrica}
+            valor={rango}
+            onCambiar={setRango}
             opciones={[
-              { id: 'total', etiqueta: 'Total' },
-              { id: 'porHabitante', etiqueta: 'Por habitante' },
+              { id: '7d', etiqueta: '7 días' },
+              { id: '30d', etiqueta: '30 días' },
+              { id: 'todo', etiqueta: 'Todo' },
             ]}
           />
-          <p className="text-oscuro-meta mt-2 text-[11px] leading-relaxed">
-            {metrica === 'total'
-              ? 'El total crudo. Buenos Aires siempre gana porque tiene 17 millones de personas.'
-              : 'Voces cada 100.000 habitantes. Acá una provincia chica que habla mucho se ve.'}
+        </Control>
+
+        <Control etiqueta="Tipos de voz">
+          <FiltroTipos activos={tipos} onAlternar={alternarTipo} />
+          <p className="text-oscuro-meta mt-2 text-[11px]">
+            {filtradas.length.toLocaleString('es-AR')} voces pasan los filtros.
           </p>
         </Control>
 
@@ -187,7 +273,10 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
                 onClick={() => {
                   setRampa(id);
                 }}
-                className={`border p-1.5 ${rampa === id ? 'border-oscuro-texto' : 'border-oscuro-borde'}`}
+                className={cn(
+                  'border p-1.5',
+                  rampa === id ? 'border-oscuro-texto' : 'border-oscuro-borde',
+                )}
               >
                 <span
                   className="block h-3 w-full"
@@ -214,6 +303,106 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
             className="accent-violeta-claro w-full"
           />
         </Control>
+
+        {/* Qué dice la provincia elegida — la mitad que el color no contesta. */}
+        {detalle ? (
+          <section className="border-oscuro-borde bg-tinta border p-4">
+            <div className="flex items-baseline justify-between gap-2">
+              <h4 className="font-anton text-oscuro-texto text-[18px] leading-tight">
+                {detalle.nombre}
+              </h4>
+              <button
+                type="button"
+                onClick={() => {
+                  setSeleccionada(null);
+                }}
+                aria-label="Cerrar el detalle"
+                className="font-space text-oscuro-meta hover:text-oscuro-texto text-[13px]"
+              >
+                ✕
+              </button>
+            </div>
+
+            <p className="font-space text-violeta-claro mt-2 text-[22px] leading-none tabular-nums">
+              {detalle.valor.toLocaleString('es-AR', {
+                maximumFractionDigits: metrica === 'total' ? 0 : 1,
+              })}
+              <span className="font-space text-oscuro-meta ml-1.5 text-[10px] uppercase">
+                {metricaActiva?.unidad}
+              </span>
+            </p>
+
+            {detalle.lista.length === 0 ? (
+              <p className="text-oscuro-secundario mt-3 text-[13px] leading-relaxed">
+                Nadie dijo nada acá todavía, al menos con estos filtros. Que una provincia esté en
+                silencio también es información.
+              </p>
+            ) : (
+              <>
+                <ul className="mt-3 space-y-1">
+                  {detalle.porTipo.map(([tipo, n]) => (
+                    <li key={tipo} className="flex items-center gap-2">
+                      <span
+                        aria-hidden
+                        className="h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: COLOR_TIPO[tipo] }}
+                      />
+                      <span className="font-space text-oscuro-secundario text-[11px] uppercase">
+                        {tipo}
+                      </span>
+                      <span className="font-space text-oscuro-meta ml-auto text-[11px] tabular-nums">
+                        {n}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {detalle.temas.length > 0 ? (
+                  <>
+                    <h5 className="font-space text-oscuro-meta mt-4 text-[10px] uppercase tracking-[0.14em]">
+                      De qué habla
+                    </h5>
+                    <ul className="mt-1.5 flex flex-wrap gap-1.5">
+                      {detalle.temas.map(({ tema, cantidad }) => (
+                        <li
+                          key={tema}
+                          className="border-oscuro-borde text-oscuro-secundario font-space border px-2 py-0.5 text-[10px]"
+                        >
+                          {tema} · {cantidad}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="font-space text-oscuro-tenue mt-1.5 text-[9px]">{AVISO_TEMAS}</p>
+                  </>
+                ) : null}
+
+                <h5 className="font-space text-oscuro-meta mt-4 text-[10px] uppercase tracking-[0.14em]">
+                  Lo que se dijo
+                </h5>
+                <ul className="mt-1.5 max-h-[220px] space-y-2 overflow-y-auto">
+                  {detalle.lista.slice(0, 40).map((s) => (
+                    <li
+                      key={s.id}
+                      className="border-l-2 pl-2.5"
+                      style={{ borderColor: COLOR_TIPO[s.tipoVoz] }}
+                    >
+                      <p className="text-oscuro-secundario text-[12px] leading-snug">«{s.texto}»</p>
+                    </li>
+                  ))}
+                </ul>
+                {detalle.lista.length > 40 ? (
+                  <p className="font-space text-oscuro-tenue mt-2 text-[9px]">
+                    Se listan las primeras 40 de {detalle.lista.length}.
+                  </p>
+                ) : null}
+              </>
+            )}
+          </section>
+        ) : (
+          <p className="text-oscuro-meta text-[12px] leading-relaxed">
+            Tocá una provincia en el mapa para leer qué dice.
+          </p>
+        )}
       </>
     ),
 
@@ -226,7 +415,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
             'fill-color': [
               'interpolate',
               ['linear'],
-              ['get', metrica],
+              ['get', 'valor'],
               0,
               colores[0] ?? '#241F17',
               maximo * 0.33,
@@ -242,7 +431,12 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         <Layer
           id="provincias-borde"
           type="line"
-          paint={{ 'line-color': '#5C594F', 'line-width': 0.8 }}
+          paint={{
+            // La elegida se resalta con el BORDE, no con el relleno: cambiarle
+            // el color rompería la lectura de la rampa justo donde se mira.
+            'line-color': ['case', ['==', ['get', 'elegida'], 1], '#F2EFE7', '#5C594F'],
+            'line-width': ['case', ['==', ['get', 'elegida'], 1], 2.4, 0.8],
+          }}
         />
       </Source>
     ) : null,
@@ -252,7 +446,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         colores={colores}
         bajo="Menos"
         alto="Más"
-        titulo={metrica === 'total' ? 'Voces (total)' : 'Voces por 100.000 hab.'}
+        titulo={`Voces · ${metricaActiva?.unidad ?? ''}`}
       />
     ),
   };
