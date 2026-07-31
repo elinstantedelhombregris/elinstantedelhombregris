@@ -316,7 +316,7 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
     en: [H2_RENTA],
     porQue:
       'la respuesta a C-7, que el corpus nunca escribió. PLANTER crea el Fondo Soberano Ciudadano ' +
-      '(:349) y PLANMON el Fondo Soberano Bastardo (:1557) con los mismos afluentes, y las propias ' +
+      '(:349) y PLANMON el Fondo Soberano Bastardo (:1561) con los mismos afluentes, y las propias ' +
       'tablas de interconexión de PLANMON le mandan esos afluentes al «Ciudadano» (:2224, :2225, ' +
       ':2235, :2239). Sin este veredicto escrito, financiar el Tramo Común «por el FSC y el Fondo ' +
       'Previsional Bastardo» es contar dos veces la misma regalía',
@@ -352,7 +352,7 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
     porQue:
       'la clase que le cuesta la fuente al Tramo Común, nombrada en la prosa y no solo excluida de la ' +
       'tabla. El libro mayor ya clasifica las rentas extractivas así —F08, especulativa, 2030+— y ' +
-      'PLANPACTO lo prohíbe dos veces (:444, :657)',
+      'PLANPACTO lo prohíbe dos veces (:444, :655)',
   },
   {
     valor: 'se absorbe',
@@ -658,6 +658,25 @@ const esEncabezado = (l: string): boolean => /^#{1,6}\s/.test(l.trim());
  * el renglón que quede del otro lado del corte es exactamente donde se esconde
  * la fuente incómoda. Con la bandera puesta, el corte se parsea Y se reporta.
  */
+/**
+ * UNDÉCIMA FORMA DEL ARQUETIPO (encontrada rompiendo, arreglada acá). La cabecera
+ * se reconocía con `columnas.every((col) => l.includes(col))`: un test de
+ * CONJUNTO, no de ORDEN. `| Dueño | Fuente | Disponibilidad | Confianza | Clase |`
+ * matcheaba igual y salía **exit 0**, mientras todo lo que se lee por índice
+ * —`fila[1]` como dueño, que es el que entra al `Set`, y `fila[0]` como fuente,
+ * que es el que se cita en todos los mensajes de error— quedaba corrido una
+ * columna. Una tabla contable con las columnas permutadas se verifica entera
+ * contra la columna equivocada y no se entera nadie.
+ *
+ * Ahora la comparación es POSICIONAL: la celda k de la cabecera tiene que
+ * contener la columna k. Se compara por `includes` y no por igualdad a propósito,
+ * porque el Calendario declara `Dispositivo del arco` donde la constante dice
+ * `Dispositivo`; exigir igualdad exacta pondría roja una cabecera honesta, que es
+ * la falla que este tramo ya cometió dos veces. Permutar sigue saliendo rojo: la
+ * cabecera deja de reconocerse y el chequeo reporta que falta la tabla, que es la
+ * respuesta correcta —«si el ancla no es única, el chequeo no corre y lo dice»
+ * aplicado al orden de las columnas.
+ */
 function filasDeTabla(
   lineas: string[],
   columnas: string[],
@@ -666,7 +685,10 @@ function filasDeTabla(
   const errores: string[] = [];
   const cabeceras: number[] = [];
   lineas.forEach((l, k) => {
-    if (esFilaDeTabla(l) && columnas.every((col) => l.includes(col))) cabeceras.push(k);
+    if (!esFilaDeTabla(l)) return;
+    const cel = celdas(l);
+    if (cel.length < columnas.length) return;
+    if (columnas.every((col, i) => (cel[i] ?? '').includes(col))) cabeceras.push(k);
   });
 
   if (cabeceras.length === 0) return { filas: null, errores };
@@ -784,7 +806,7 @@ const CONFIANZAS = ['alta', 'media', 'baja', 'especulativa'];
 /**
  * La clase que ninguna fila puede llevar. `PLANPACTO:444` la prohíbe —«ningún
  * retorno futuro puede computarse como fuente disponible para gasto presente»—
- * y `PLANPACTO:657` la vuelve a prohibir sobre su propio presupuesto. Es la
+ * y `PLANPACTO:655` la vuelve a prohibir sobre su propio presupuesto. Es la
  * prohibición que le cuesta al Tramo Común su fuente, y por eso se verifica acá
  * y no se deja a la disciplina de quien escriba la próxima fila.
  */
@@ -794,8 +816,30 @@ const CLASE_PROHIBIDA = 'future_return';
 const pelada = (celda: string): string => celda.replace(/[`*]/g, '').trim();
 
 /**
+ * DÉCIMA FORMA DEL ARQUETIPO (encontrada rompiendo, arreglada acá). El chequeo de
+ * celda llena era `pelada(c) === ''`, y eso solo atrapa la cadena vacía: poner
+ * `—` en la fecha de disponibilidad, o `—` en el dueño, salía **exit 0** en los
+ * dos casos. El comentario de esta misma guardia dice que la celda del dueño «es
+ * la que hace verificable la fila», y una fuente sin dueño y sin fecha pasaba en
+ * verde con un guion puesto.
+ *
+ * Una celda es hueca si no queda nada, si es solo puntuación de relleno
+ * (`-`, `–`, `—`, `·`, `.`) o si es uno de los placeholders que el corpus usa
+ * para decir «esto no lo sé todavía». **El alcance es la tabla de fuentes y
+ * ninguna otra**: el Calendario declara `—` como valor legítimo —`SIN_OCUPANTE`,
+ * la estación que no tiene ocupante previo—, y aplicar esta regla allá pondría
+ * roja una celda honesta. En un registro contable no hay estación vacía: hay
+ * fuente sin dueño, que es otra cosa.
+ */
+const HUECOS_DE_CELDA = /^(?:[-–—·.]+|n\/?d|s\/?d|tbd|tba|pendiente|por definir|\?+)$/i;
+const celdaHueca = (celda: string): boolean => {
+  const p = pelada(celda);
+  return p === '' || HUECOS_DE_CELDA.test(p);
+};
+
+/**
  * Las seis clases, **leídas del propio libro mayor** y no copiadas acá. Copiarlas
- * sería estrenar una taxonomía paralela, que es exactamente lo que `PLANPACTO:657`
+ * sería estrenar una taxonomía paralela, que es exactamente lo que `PLANPACTO:655`
  * declina hacer: «las clases son las de `SOURCE_OF_FUNDS_LEDGER.md` y no una
  * taxonomía propia». Si el libro mayor agrega una clase, esta guardia la acepta
  * sola; si le cambian el formato a la regla 2, el chequeo **no corre y lo dice**.
@@ -908,11 +952,13 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
       );
       return;
     }
-    if (fila.some((c) => pelada(c) === '')) {
+    if (fila.some(celdaHueca)) {
       errores.push(
-        `${donde} tiene una celda vacía: «${fila.join(' | ')}». La regla de PLANPACTO §5.1 es «una ` +
-          'fuente, un dueño, una fecha de disponibilidad, una calificación de confianza», y las cuatro ' +
-          'van escritas o la fila no es una fuente',
+        `${donde} tiene una celda hueca —vacía, un guion o un placeholder—: «${fila.join(' | ')}». ` +
+          'La regla de PLANPACTO §5.1 es «una fuente, un dueño, una fecha de disponibilidad, una ' +
+          'calificación de confianza», y las cuatro van escritas o la fila no es una fuente. Un guion ' +
+          'en la celda del dueño es una fuente por la que no responde nadie, escrita de manera que no ' +
+          'se note',
       );
       return;
     }
@@ -934,14 +980,14 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
     if (clase === CLASE_PROHIBIDA) {
       errores.push(
         `${donde} está clasificada \`${CLASE_PROHIBIDA}\`, y ninguna fila puede estarlo: ` +
-          'PLANPACTO lo prohíbe dos veces (`:444` y `:657`) y la regla 4 del libro mayor lo repite. ' +
+          'PLANPACTO lo prohíbe dos veces (`:444` y `:655`) y la regla 4 del libro mayor lo repite. ' +
           'Un retorno futuro no financia gasto presente, por bien fundado que esté el retorno',
       );
     } else if (clasesValidas.length > 0 && !clasesValidas.includes(clase)) {
       errores.push(
         `${donde} declara la clase «${clase}», que no está en la regla 2 de ` +
           `\`SOURCE_OF_FUNDS_LEDGER.md\` [${clasesValidas.join(' · ')}]: las clases son las del libro ` +
-          'mayor y no una taxonomía propia (PLANPACTO:657)',
+          'mayor y no una taxonomía propia (PLANPACTO:655)',
       );
     }
   });
