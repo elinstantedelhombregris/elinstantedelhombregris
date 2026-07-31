@@ -165,10 +165,10 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 | — | Cabecera + H1 + «Vigésimo Quinto Mandato» + versión + portada ASCII (líneas 1–52) | 1 | 560–620 |
 | 1 | `## PREÁMBULO — {título}` | 2 | 1.100–1.400 |
 | 2 | `## TESIS CENTRAL` | 2 | 700–900 |
-| 3 | `## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO` | 3 | 3.400–3.800 |
+| 3 | `## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO` | 3 | 3.400–4.000 |
 | 4 | `## SECCIÓN 1: LA CRISIS — {frase}` | 3 | 1.100–1.400 |
 | 5 | `## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES` | 3 | 1.400–1.700 |
-| 6 | `## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES` | 4 | 2.600–3.000 |
+| 6 | `## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES` | 4 | 2.600–3.300 |
 | 7 | `## SECCIÓN 4: LA RENTA DE ARCO` | 5 | 3.200–3.600 |
 | 8 | `## SECCIÓN 5: EL COMIENZO` | 6 | 2.200–2.600 |
 | 9 | `## SECCIÓN 6: EL MEDIO` | 6 | 1.600–1.900 |
@@ -184,6 +184,8 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 | 19 | `## SECCIÓN 16: VISIÓN 2040` | 10 | 220–270 |
 | 20 | `## SECCIÓN 17: PROTOCOLO DE FALLA` | 10 | 260–300 |
 | 21 | `## CIERRE` | 10 | 350–420 |
+
+> **Los dos techos subidos el 2026-07-31, con la razón.** La SECCIÓN 3 pasó de 3.000 a **3.300** y la SECCIÓN 0 de 3.800 a **4.000**. No es indulgencia: las dos crecieron por corrección de contenido verificado, no por prosa. En la SECCIÓN 3 el censo de ocupantes pasó de siete estaciones a catorce de dieciséis —la columna que el propio documento llama «lo que hace honesta la arquitectura» estaba mal por la mitad— y la tabla es lo que engordó. En la SECCIÓN 0, §0.6 apoya su «Por qué persiste» y su «El dato» en la ausencia de tres cosas —organismo, caja y registro— que `PLANMEMORIA` provee: Agencia Nacional de Memoria con 0,10–0,14% del PBI protegido (§5, `:480`), Síndicos de Archivo a salario de investigador CONICET adjunto (`:405`), y el Archivo de Depósito Ciudadano de siete nodos con hash (`:283`, `:297`). **Corregir cuatro afirmaciones falsas cuesta palabras, y comprimir para no pagarlas es la peor economía posible.** Las dos secciones ya absorbieron una ronda de arreglos a saldo cero cada una; esta es la segunda y no entra.
 
 Los saltos de numeración (no hay SECCIÓN 14) imitan al corpus, que los tiene: PLANMEMORIA salta de la 12 a la 14, PLANPACTO también.
 
