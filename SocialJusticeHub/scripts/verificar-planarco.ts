@@ -17,7 +17,7 @@
  * mandato— porque la guardia tiene que salir 0 al cierre de cada tarea; la
  * Task 2 le agrega el PREÁMBULO y la TESIS CENTRAL cuando las escriba.
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -38,8 +38,16 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 0: LAS OCHO FALLAS DEL ARCO DE LA VIDA ARGENTINO',
   '## SECCIÓN 1: LA CRISIS — EL PAÍS SE ESTÁ HACIENDO VIEJO SIN HABER DECIDIDO CÓMO SE ENVEJECE',
   '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
-  // Task 4: SECCIÓN 3 · Task 5: SECCIÓN 4 · …
+  '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES',
+  // Task 5: SECCIÓN 4 · Task 6: SECCIÓN 5 y 6 · …
 ];
+
+/**
+ * Domicilio de la cabecera: el tramo ANTERIOR al primer H2. Ahí viven los
+ * metadatos —el ACTA DE HABILITACIÓN, el presupuesto, los principios— y no
+ * cuelgan de ningún encabezado, así que necesitan una etiqueta propia.
+ */
+const CABECERA = '(cabecera)';
 
 /**
  * Las ocho fallas de la SECCIÓN 0 llevan la forma de PLANPACTO:96-130 y son
@@ -59,63 +67,102 @@ const LEADS_DE_FALLA: string[] = ['**La falla:**', '**Por qué persiste:**', '**
  * Cifras y fórmulas verificadas que el documento no puede contradecir ni perder.
  * Cada una tiene domicilio abierto y leído antes de escribirla.
  *
- * OJO — acá van solo NÚMEROS, y solo los que un `includes()` sobre el archivo
- * entero verifica de verdad. Las afirmaciones sin cifra van en
+ * OJO — acá van solo NÚMEROS. Las afirmaciones sin cifra van en
  * ASERCIONES_OBLIGATORIAS, abajo. Los totales de tabla NO viven en ninguna de
  * las dos: se buscan como string y siguen apareciendo en la prosa aunque la
  * tabla que los produce esté rota. Esos se suman — ver verificarTablas().
+ *
+ * DOMICILIO — el campo `en`, agregado en la Task 4, y es el arreglo de la
+ * QUINTA forma del mismo defecto que esta guardia viene arrastrando: un chequeo
+ * que informa éxito sin haber verificado nada. Hasta acá los dos bucles corrían
+ * `raw.includes()` sobre el archivo ENTERO, y hoy hay cinco valores que
+ * aparecen en más de un lugar. Verificado antes del arreglo: borrar
+ * «18% del PBI» de §1.2 salía **exit 0**, porque el mismo número sobrevive en
+ * §0.4 — o sea, la falla que la cifra existe para impedir, pasando en verde.
+ * `en` lista los encabezados —H2 o H3, o `(cabecera)` para el tramo anterior al
+ * primer H2— donde el valor tiene que estar, y se exige en CADA uno.
+ *
+ * `veces` es el mínimo de ocurrencias adentro del domicilio, y va solo donde un
+ * valor legítimamente aparece dos veces en el mismo encabezado —la cita y su
+ * declaración— y perder una de las dos es perder la mitad del sentido. Sin él,
+ * la granularidad del chequeo vuelve a ser más gruesa que la unidad verificada,
+ * que es exactamente el defecto que este arreglo cierra.
  */
-const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
+type ValorConDomicilio = { valor: string; en: string[]; veces?: number; porQue: string };
+
+/** Los encabezados que se usan como domicilio, escritos una sola vez. */
+const H3_FALLA_CUIDADO = '### 0.4 El trabajo que sostiene el sistema no tiene renglón donde anotarse';
+const H3_FALLA_VACIAMIENTO = '### 0.8 Lo que no se financia no se deroga: se deja de ejecutar';
+const H3_CURVA = '### 1.1 La curva ya está andando, y el único número que la describe es una cuenta';
+const H3_CUIDADORES = '### 1.2 La crisis no es que haya más viejos: es que no hay quién los acompañe';
+const H2_TESIS = '## TESIS CENTRAL';
+const H2_PRECEDENTES = '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES';
+const H2_CALENDARIO = '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES';
+
+const CIFRAS_CANONICAS: ValorConDomicilio[] = [
   {
     valor: '1,77–2,13x',
+    en: [CABECERA],
     porQue: 'gate de spin-off contra PLANCUIDADO — ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:24',
   },
   {
     valor: '8,83–16,00x',
+    en: [CABECERA],
     porQue: 'gate de spin-off contra PLANSAL — ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:25',
   },
   {
     valor: '1,47–1,88x',
+    en: [CABECERA],
     porQue:
       'gate contra los dos huéspedes sumados: NO PASA contra un umbral de 1,5 — ACTA:26, :41-47. ' +
       'Sin este cociente escrito, la cabecera cuenta media verdad',
   },
   {
     valor: 'umbral de 1,5',
+    en: [CABECERA],
     porQue: 'el cociente que falla no significa nada sin el umbral contra el que falla — ACTA:42-43',
   },
   {
     valor: '53.000–96.000M',
+    en: [CABECERA],
     porQue:
       'el presupuesto a quince años sobre el que se corrió el gate — scripts/gate-spinoff-planes-nuevos.ts:25. ' +
       'El rango ANUAL no se escribe hasta la Task 8 (hallazgo C-5)',
   },
   {
     valor: 'más de 10 millones',
+    en: [H3_CURVA],
+    veces: 2,
     porQue:
-      'la proyección 2040 de 60+, ÚNICA del corpus — PLANREP:367. Se cita atribuida y declarando ' +
-      'que es cuenta del propio PLANREP, no medición: no hay INDEC, CELADE ni ONU detrás',
+      'la proyección 2040 de 60+, ÚNICA del corpus — PLANREP:367. Va DOS veces en §1.1 y las dos ' +
+      'hacen falta: la cita textual de PLANREP y la declaración de que es cuenta del propio PLANREP ' +
+      'y no medición. Sin la segunda, el número queda escrito como si detrás hubiera INDEC, CELADE u ONU',
   },
   {
     valor: '150.000 cuidadores',
+    en: [H3_CUIDADORES],
     porQue:
       'el déficit de cuidadores formales — PLANREP:335, :367. Es la mitad de la crisis que la curva ' +
       'demográfica sola no muestra: el que va a cuidar tampoco está',
   },
   {
     valor: '18% del PBI',
+    en: [H3_FALLA_CUIDADO, H3_CUIDADORES],
     porQue:
-      'el volumen del cuidado no remunerado — PLANCUIDADO:94, que lo escribe en letras. Sin este ' +
-      'número la falla 0.4 es una opinión',
+      'el volumen del cuidado no remunerado — PLANCUIDADO:94, que lo escribe en letras. Sostiene dos ' +
+      'cosas distintas en dos lugares distintos: la falla 0.4 (sin él es una opinión) y la escala de ' +
+      'la crisis en §1.2. Con un solo domicilio, borrarlo de uno de los dos salía verde',
   },
   {
     valor: '60% del presupuesto',
+    en: [H3_FALLA_VACIAMIENTO],
     porQue:
       'el recorte al INTA en los años 90 — BLINDAJE:44. Aserción del corpus SIN fuente externa, y la ' +
       'evidencia del modo de falla más probable de este PLAN: no se deroga, se deja de ejecutar',
   },
   {
     valor: 'enero de 2002',
+    en: [H3_FALLA_VACIAMIENTO],
     porQue:
       'la Convertibilidad «se derogó en una noche de enero de 2002» — BLINDAJE:50. El contracaso del ' +
       'INTA: derogar tampoco cuesta tanto cuando la presión alcanza',
@@ -124,39 +171,85 @@ const CIFRAS_CANONICAS: { valor: string; porQue: string }[] = [
 
 /**
  * Afirmaciones sin cifra que el documento está obligado a hacer, con el mismo
- * `includes()` que las cifras. Viven aparte porque no son números: mezclarlas
+ * domicilio que las cifras. Viven aparte porque no son números: mezclarlas
  * con CIFRAS_CANONICAS hacía que la constante mintiera sobre su contenido, y
  * son nueve las tareas que la extienden.
  */
-const ASERCIONES_OBLIGATORIAS: { valor: string; porQue: string }[] = [
+const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
   {
     valor: 'derogación expresa',
+    en: [CABECERA],
     porQue:
       'la autoridad real por la que este PLAN existe: regla 5 y condición temporal de la regla 3, ' +
       'derogadas con nombre y fecha — ACTA:131-137',
   },
   {
     valor: 'sin piso constitucional propio',
+    en: [CABECERA, H2_TESIS],
     porQue: 'el arco es eje transversal adentro de los ocho escalones, no un escalón nuevo (C-2)',
   },
   {
     valor: 'la porción de vejez',
+    en: [CABECERA, H2_TESIS],
     porQue:
       'el acta retira solo la vejez del hueco «Discapacidad y vejez»; la discapacidad queda en ' +
       'PLANCUIDADO + PLANSAL y PLANARCO tiene que decirlo — ACTA:169-173',
   },
   {
     valor: 'extrapolación aritmética',
+    en: [H3_CURVA],
     porQue:
       'la proyección 2040 es una cuenta del propio PLANREP (7,3M × 1,03^14) y no una medición. ' +
       'Escribir el número sin esta declaración es estrenar una cifra demográfica que nadie midió',
   },
   {
     valor: 'aserción propia sin fuente',
+    en: [H2_PRECEDENTES],
     porQue:
       'la disciplina que costó el hallazgo Crítico del tramo B: la sección que DEFIENDE al PLAN es la ' +
       'que menos se revisa. Un precedente sin cita en el corpus se declara como tal, no se escribe ' +
       'como si fuera sabido (PLANPACTO:232 usa esta misma fórmula)',
+  },
+  // ── Task 4 · SECCIÓN 3 ────────────────────────────────────────────────────
+  {
+    valor: 'Cuando materia y edad entran en conflicto',
+    en: [H2_CALENDARIO],
+    porQue:
+      'el ANTECEDENTE CONDICIONAL de la Regla de Arco (PLANPACTO:428), y va pegado a la cláusula que ' +
+      'lo sigue. Sin él, «la materia decide el escalón y el arco decide adentro del escalón» se lee ' +
+      'como jerarquía permanente y no como regla de desempate. Es la operación que PLANPACTO:416 ' +
+      'condena por escrito sobre sí mismo: «el calificador va escrito porque la cláusula lo tiene y ' +
+      'sin él la cita parece más fuerte de lo que es»',
+  },
+  {
+    valor: 'no escribe regla de reparto propia',
+    en: [H2_CALENDARIO],
+    porQue:
+      'la mitad de ARCO del par recíproco. PLANPACTO:430 ya escribió la suya —«PLANARCO remite a esta ' +
+      'sección y no escribe su propia regla de reparto»— y esta es la aceptación explícita (C-1)',
+  },
+  {
+    valor: 'Techo A',
+    en: [H2_CALENDARIO],
+    porQue:
+      'la movilidad de la Renta de Arco es Techo A POR MATERIA PREVISIONAL (PLANPACTO:343, que ya ' +
+      'ubica lo previsional adentro del Techo A), no una categoría nueva. «Precompromiso» está ' +
+      'prohibido justamente porque estrenar categoría es lo que PLANPACTO:381 cierra por anticipado (C-4)',
+  },
+  {
+    valor: 'capa 4',
+    en: [H2_CALENDARIO],
+    porQue:
+      'el blindaje del arco es la capa SOCIAL de BLINDAJE:197, no la legal: «ley» es la capa 1 y ' +
+      'BLINDAJE:194 la llama «Protección media». La fórmula de la spec estaba mal y la sección la corrige (arreglo 12)',
+  },
+  {
+    valor: 'el corralito no aplica',
+    en: [H2_CALENDARIO],
+    porQue:
+      'el análogo de BLINDAJE:63 son cinco millones con AHORROS en El Pulso —propiedad—, y el Piso ' +
+      'Vital es una transferencia: no se confisca, se licúa o se deja de pagar. Decirlo explícito es ' +
+      'lo que impide que la sección se apoye en una analogía que no la sostiene',
   },
 ];
 
@@ -421,20 +514,61 @@ function rango(celda: string): [number, number] | null {
   return [bajo, alto];
 }
 
-/** Las filas de la primera tabla cuya cabecera contiene todas las columnas pedidas. */
-function filasDeTabla(lineas: string[], columnas: string[]): string[][] | null {
-  const i = lineas.findIndex(
-    (l) => l.trim().startsWith('|') && columnas.every((col) => l.includes(col)),
-  );
-  if (i === -1) return null;
+const esFilaDeTabla = (l: string): boolean => l.trim().startsWith('|');
+const esSeparadorDeTabla = (l: string): boolean => /^\|[\s:|-]+\|$/.test(l.trim());
+const esEncabezado = (l: string): boolean => /^#{1,6}\s/.test(l.trim());
+
+/**
+ * Las filas de LA tabla cuya cabecera contiene todas las columnas pedidas.
+ *
+ * Antes de la Task 4 esta función tenía los dos modos de falla del arquetipo de
+ * esta guardia, y el segundo fallaba ABIERTO:
+ *
+ * 1. `findIndex` devolvía la PRIMERA tabla que coincidiera y no verificaba que
+ *    hubiera una sola. Con dos tablas de columnas compartidas, una ensombrece a
+ *    la otra: se verifica la de arriba y la de abajo no la mira nadie. Es
+ *    exactamente el modo de falla de la portada (`iAbre` tomando UNA portada) y
+ *    el de `tramoDeSeccion` (un H2 señuelo). La doctrina ya está fijada: **si el
+ *    ancla no es única, el chequeo no corre y lo dice.**
+ * 2. El bucle cortaba en la primera línea que no empezara con `|`. Este corpus
+ *    parte tablas con párrafos intercalados —lo hace PLANPACTO—, así que la
+ *    mitad de abajo quedaba sin parsear y un chequeo del tipo «cada fila tiene
+ *    columna X» pasaba en verde sobre las filas que nunca vio. Ahora el párrafo
+ *    intercalado NO corta: cortan los encabezados y la cabecera de otra tabla,
+ *    que se reconoce por el separador `|---|` que la sigue.
+ */
+function filasDeTabla(
+  lineas: string[],
+  columnas: string[],
+): { filas: string[][] | null; errores: string[] } {
+  const errores: string[] = [];
+  const cabeceras: number[] = [];
+  lineas.forEach((l, k) => {
+    if (esFilaDeTabla(l) && columnas.every((col) => l.includes(col))) cabeceras.push(k);
+  });
+
+  if (cabeceras.length === 0) return { filas: null, errores };
+  if (cabeceras.length > 1) {
+    errores.push(
+      `hay ${String(cabeceras.length)} tablas con las columnas [${columnas.join(' · ')}] ` +
+        `(líneas ${cabeceras.map((k) => String(k + 1)).join(', ')}) y tiene que haber UNA: ` +
+        'con dos, se verifica la primera y la segunda no la mira nadie',
+    );
+    return { filas: null, errores };
+  }
+
+  const i = cabeceras[0];
   const filas: string[][] = [];
   for (let j = i + 1; j < lineas.length; j++) {
-    const l = lineas[j].trim();
-    if (!l.startsWith('|')) break;
-    if (/^\|[\s:|-]+\|$/.test(l)) continue; // separador
+    const l = lineas[j];
+    if (esEncabezado(l)) break; // la tabla no cruza un título
+    if (!esFilaDeTabla(l)) continue; // párrafo intercalado: NO corta
+    if (esSeparadorDeTabla(l)) continue;
+    // La cabecera de OTRA tabla se reconoce por el separador que la sigue.
+    if (filas.length > 0 && esSeparadorDeTabla(lineas[j + 1] ?? '')) break;
     filas.push(celdas(l));
   }
-  return filas;
+  return { filas, errores };
 }
 
 /** `PISOS_SEGUN_EL_TALLER` del test canónico: PLAN → [bajo, alto] en centésimas. */
@@ -477,15 +611,151 @@ function verificarTablas(lineas: string[]): string[] {
 
   // (b) Si el documento trae una tabla de pisos, PLANARCO no puede tener fila.
   const pisos = filasDeTabla(lineas, ['PLAN', 'Piso declarado']);
-  if (pisos) {
-    for (const fila of pisos) {
+  errores.push(...pisos.errores);
+  if (pisos.filas) {
+    for (const fila of pisos.filas) {
       if (/PLANARCO/.test(fila[0] ?? '')) {
         errores.push(`el documento se declara un piso constitucional propio: «${fila.join(' | ')}»`);
       }
     }
   }
 
-  // (c) Task 4: Calendario de Umbrales. Task 5: fuentes de la Renta de Arco.
+  // (c) Task 4: el Calendario de Umbrales. Task 5: fuentes de la Renta de Arco.
+  errores.push(...verificarCalendarioDeUmbrales(lineas));
+
+  return errores;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// El Calendario de Umbrales: la tabla de estaciones de la SECCIÓN 3.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const COLUMNAS_CALENDARIO = ['Estación', 'Edad o hito', 'Dispositivo', 'Quién la ocupa hoy'];
+
+/** Las estaciones del arco. El número va acá porque la prosa lo tiene que decir. */
+const ESTACIONES_ESPERADAS = 16;
+
+/** La celda que declara que una estación no tiene ocupante previo. */
+const SIN_OCUPANTE = '—';
+
+/**
+ * Los PLANes que existen como documento en el taller. La columna «quién la
+ * ocupa hoy» solo puede nombrar PLANes reales: un ocupante inventado sería una
+ * remisión falsa, que es la falla que este tramo lleva nueve veces detectadas.
+ */
+function planesDelTaller(): Set<string> {
+  const dir = resolve(REPO_ROOT, 'Iniciativas Estratégicas');
+  const out = new Set<string>();
+  for (const f of readdirSync(dir)) {
+    const m = /^(PLAN[A-Z0-9]+)_Argentina_ES\.md$/.exec(f);
+    if (m) out.add(m[1]);
+  }
+  return out;
+}
+
+/** 0–20 en letras: la prosa del corpus escribe los conteos estructurales así. */
+const EN_LETRAS = [
+  'cero', 'una', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez',
+  'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho',
+  'diecinueve', 'veinte',
+];
+
+/**
+ * La tabla que hace honesta la arquitectura. La columna «quién la ocupa hoy» es
+ * obligatoria y es lo que impide que PLANARCO se presente como si el territorio
+ * del arco estuviera vacío: no lo está.
+ *
+ * Lo que se verifica, y por qué cada cosa:
+ *
+ * - **Una sola tabla, y todas sus filas.** Lo cierra `filasDeTabla()`, arriba.
+ * - **Cantidad de estaciones**, contra la constante. Borrar una fila entera es
+ *   la manera más barata de hacer desaparecer un ocupante incómodo.
+ * - **Cuatro celdas llenas por fila.** La columna del ocupante es la única que
+ *   se puede dejar en blanco sin que el renglón se note, y es la importante.
+ * - **Los ocupantes existen.** Cada `PLANXXX` de la columna tiene que tener
+ *   documento en el taller. Y PLANARCO no puede ocuparse a sí mismo.
+ * - **El conteo de la prosa sale de la tabla.** Es el chequeo que importa: el
+ *   plan del tramo dice «nueve estaciones tienen ocupante previo» y su propio
+ *   hallazgo C-9 enumera cuatro territorios, así que el número heredado no lo
+ *   deriva nada. Acá la guardia cuenta las filas con ocupante y exige que la
+ *   sección escriba ESE número, en letras. Si mañana se agrega una estación
+ *   ocupada y nadie toca la prosa, la guardia se pone roja.
+ */
+function verificarCalendarioDeUmbrales(lineas: string[]): string[] {
+  const { filas, errores } = filasDeTabla(lineas, COLUMNAS_CALENDARIO);
+  if (filas === null) {
+    if (errores.length === 0) {
+      errores.push(
+        `falta la tabla del Calendario de Umbrales, con las columnas [${COLUMNAS_CALENDARIO.join(' · ')}]: ` +
+          'el Calendario no es un dispositivo, es la arquitectura, y sin la tabla la SECCIÓN 3 es un ensayo',
+      );
+    }
+    return errores;
+  }
+
+  if (filas.length !== ESTACIONES_ESPERADAS) {
+    errores.push(
+      `el Calendario de Umbrales tiene ${String(filas.length)} estación(es) y se esperaban ` +
+        `${String(ESTACIONES_ESPERADAS)}: borrar una fila es la manera más barata de hacer desaparecer ` +
+        'un ocupante previo, y la cuenta de la prosa se deriva de esta tabla',
+    );
+  }
+
+  const existentes = planesDelTaller();
+  let ocupadas = 0;
+  filas.forEach((fila, k) => {
+    const donde = `la estación ${String(k + 1)} del Calendario («${(fila[0] ?? '').slice(0, 40)}»)`;
+    if (fila.length !== COLUMNAS_CALENDARIO.length) {
+      errores.push(
+        `${donde} tiene ${String(fila.length)} celda(s) y la tabla tiene ` +
+          `${String(COLUMNAS_CALENDARIO.length)} columnas`,
+      );
+      return;
+    }
+    if (fila.some((c) => c === '')) {
+      errores.push(
+        `${donde} tiene una celda vacía: «${fila.join(' | ')}». La columna del ocupante es la única ` +
+          'que se puede dejar en blanco sin que el renglón se note, y es la que hace honesta la tabla',
+      );
+      return;
+    }
+
+    const ocupante = fila[3];
+    if (ocupante === SIN_OCUPANTE) return;
+
+    const nombrados = [...ocupante.matchAll(/PLAN[A-Z0-9]+/g)].map((m) => m[0]);
+    if (nombrados.length === 0) {
+      errores.push(
+        `${donde} declara ocupante «${ocupante}» y no nombra ningún PLAN: o la estación tiene ` +
+          `ocupante con nombre de PLAN, o lleva «${SIN_OCUPANTE}»`,
+      );
+      return;
+    }
+    for (const p of nombrados) {
+      if (p === 'PLANARCO') {
+        errores.push(`${donde} se declara ocupada por PLANARCO: la columna dice quién la ocupa HOY`);
+      } else if (!existentes.has(p)) {
+        errores.push(
+          `${donde} nombra a «${p}» como ocupante y no hay documento suyo en el taller: ` +
+            'un ocupante inventado es una remisión falsa',
+        );
+      }
+    }
+    ocupadas += 1;
+  });
+
+  const { tramo, errores: errTramo } = tramoDeSeccion(lineas, H2_CALENDARIO);
+  errores.push(...errTramo);
+  if (tramo !== null) {
+    const frase = `${EN_LETRAS[ocupadas] ?? String(ocupadas)} de las ${EN_LETRAS[filas.length] ?? String(filas.length)} estaciones`;
+    if (!tramo.join('\n').includes(frase)) {
+      errores.push(
+        `la SECCIÓN 3 no dice «${frase}»: el conteo de estaciones con ocupante previo se deriva de la ` +
+          'tabla y no se hereda. El plan del tramo dice «nueve» y su propio hallazgo C-9 enumera cuatro ' +
+          'territorios: un número que no sale de ninguna cuenta es una cifra estrenada',
+      );
+    }
+  }
 
   return errores;
 }
@@ -509,16 +779,17 @@ function verificarTablas(lineas: string[]): string[] {
 function tramoDeSeccion(
   lineas: string[],
   h2: string,
-): { tramo: string[] | null; errores: string[] } {
+): { tramo: string[] | null; desde: number; errores: string[] } {
   const indices: number[] = [];
   lineas.forEach((l, k) => {
     if (l.trim() === h2) indices.push(k);
   });
   // La ausencia ya la reporta el chequeo de SECCIONES_ESPERADAS: acá no se duplica.
-  if (indices.length === 0) return { tramo: null, errores: [] };
+  if (indices.length === 0) return { tramo: null, desde: -1, errores: [] };
   if (indices.length > 1) {
     return {
       tramo: null,
+      desde: -1,
       errores: [
         `«${h2}» aparece ${String(indices.length)} veces (líneas ${indices.map((k) => String(k + 1)).join(', ')}) ` +
           'y el H2 de una sección es UNO: con un señuelo plantado antes, la anatomía se verifica sobre ' +
@@ -528,7 +799,96 @@ function tramoDeSeccion(
   }
   const i = indices[0];
   const j = lineas.findIndex((l, k) => k > i && l.startsWith('## '));
-  return { tramo: lineas.slice(i + 1, j === -1 ? lineas.length : j), errores: [] };
+  return {
+    tramo: lineas.slice(i + 1, j === -1 ? lineas.length : j),
+    desde: i + 1,
+    errores: [],
+  };
+}
+
+/**
+ * El texto que vive bajo un domicilio: `(cabecera)` es el tramo anterior al
+ * primer H2; cualquier otra etiqueta es un encabezado —H2 o H3— y su tramo va
+ * hasta el siguiente encabezado del MISMO nivel o de uno superior.
+ *
+ * Si el encabezado no existe o aparece más de una vez, el chequeo **no corre y
+ * lo dice**: la misma doctrina que `tramoDeSeccion()`. Un domicilio ambiguo que
+ * devuelve el primer tramo es un chequeo truncable, y la guardia ya tuvo cinco.
+ */
+function textoDeDomicilio(
+  lineas: string[],
+  etiqueta: string,
+): { texto: string | null; errores: string[] } {
+  if (etiqueta === CABECERA) {
+    const iH2 = lineas.findIndex((l) => l.startsWith('## '));
+    return { texto: lineas.slice(0, iH2 === -1 ? lineas.length : iH2).join('\n'), errores: [] };
+  }
+
+  const nivel = /^#+/.exec(etiqueta)?.[0].length ?? 0;
+  if (nivel === 0) {
+    return { texto: null, errores: [`domicilio mal escrito en la guardia: «${etiqueta}»`] };
+  }
+  const indices: number[] = [];
+  lineas.forEach((l, k) => {
+    if (l.trim() === etiqueta) indices.push(k);
+  });
+  if (indices.length === 0) {
+    return { texto: null, errores: [`falta el domicilio «${etiqueta}», donde viven cifras canónicas`] };
+  }
+  if (indices.length > 1) {
+    return {
+      texto: null,
+      errores: [
+        `el domicilio «${etiqueta}» aparece ${String(indices.length)} veces ` +
+          `(líneas ${indices.map((k) => String(k + 1)).join(', ')}): con un señuelo plantado antes, ` +
+          'la cifra se busca en el señuelo y el tramo real no lo mira nadie',
+      ],
+    };
+  }
+  const i = indices[0];
+  const corte = new RegExp(`^#{1,${String(nivel)}} `);
+  const j = lineas.findIndex((l, k) => k > i && corte.test(l));
+  return { texto: lineas.slice(i + 1, j === -1 ? lineas.length : j).join('\n'), errores: [] };
+}
+
+/** Cuenta ocurrencias literales, sin regex: los valores traen `.`, `%` y `–`. */
+function contar(texto: string, valor: string): number {
+  return texto.split(valor).length - 1;
+}
+
+/**
+ * Cifras y aserciones, cada una buscada EN SU DOMICILIO y no en el archivo
+ * entero. Ver el comentario largo de CIFRAS_CANONICAS: hasta la Task 4 los dos
+ * bucles corrían `raw.includes()` sobre todo el documento y cinco valores
+ * duplicados se cubrían entre sí.
+ *
+ * Lo que este arreglo NO cierra, y va escrito para que nadie lo suponga
+ * cerrado: un valor que aparezca dos veces adentro del MISMO domicilio sigue
+ * cubriéndose a sí mismo salvo que su entrada declare `veces`. La granularidad
+ * es el encabezado, no el párrafo.
+ */
+function verificarValoresConDomicilio(
+  lineas: string[],
+  lista: ValorConDomicilio[],
+  clase: string,
+): string[] {
+  const errores: string[] = [];
+  for (const { valor, en, veces, porQue } of lista) {
+    const minimo = veces ?? 1;
+    for (const etiqueta of en) {
+      const { texto, errores: errDom } = textoDeDomicilio(lineas, etiqueta);
+      errores.push(...errDom);
+      if (texto === null) continue;
+      const hay = contar(texto, valor);
+      if (hay < minimo) {
+        errores.push(
+          `${clase} «${valor}»: se esperaba${minimo > 1 ? `n ${String(minimo)} ocurrencias` : ''} en ` +
+            `«${etiqueta}» y hay ${String(hay)} — ${porQue}`,
+        );
+      }
+    }
+  }
+  return errores;
 }
 
 /**
@@ -601,46 +961,60 @@ function verificarOchoFallas(lineas: string[]): string[] {
  * BALANCEADAS: la falla real es escribir la primera columna y olvidar la
  * segunda, y eso se detecta contando, no buscando.
  *
- * El balance se exige ADENTRO DE CADA H3 y no sobre el total de la sección, con
- * el mismo troceo que usa `verificarOchoFallas()`. Un total balanceado no dice
- * nada: verificado, sacarle el `*Dio:*` a §2.1 y ponerle uno de más a §2.2 deja
- * 5 y 5 globales y salía **exit 0** con el mensaje «precedentes en dos columnas
- * balanceadas» — o sea, la falla exacta del tramo B (un precedente enumerado
- * por lo que pidió, sin lo que dio) pasando en verde. §2.4 lleva dos pares
- * —la AUH y el PAMI— y cierra igual adentro de su propio H3.
+ * El balance se exige ADENTRO DE CADA PÁRRAFO, y esa granularidad es el arreglo
+ * de la Task 4. Antes se exigía adentro de cada H3, y esa era la CUARTA forma
+ * del defecto de esta guardia: **la unidad del chequeo no coincidía con la
+ * unidad verificada.** §2.4 lleva DOS precedentes bajo un solo H3 —la AUH y el
+ * PAMI—, así que el H3 los compensa entre sí igual que el total de la sección
+ * compensaba a los H3. Verificado: sacándole el `*Dio:*` a la AUH y poniéndole
+ * uno de más al PAMI, el H3 cierra 2 y 2 y salía **exit 0** — con la AUH
+ * enumerada por lo que pidió sin lo que dio, que es el Crítico exacto del tramo
+ * anterior, pasando en verde.
  *
- * El tramo anterior al primer H3 también se trocea: un `*Pidió:*` huérfano en
- * el encabezado de la sección no puede quedar fuera del conteo.
+ * El párrafo es la unidad real: un precedente se escribe en un párrafo, y los
+ * cinco pares del documento viven uno por línea. La sección entera se trocea,
+ * incluidos el encabezado y las líneas sueltas: un `*Pidió:*` huérfano en
+ * cualquier lado no puede quedar fuera del conteo.
  */
 const PARES_MINIMOS_DE_PRECEDENTE = 3;
 
 function verificarPrecedentesEnDosColumnas(lineas: string[]): string[] {
-  const { tramo, errores } = tramoDeSeccion(
+  const { tramo, desde, errores } = tramoDeSeccion(
     lineas,
     '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
   );
   if (tramo === null) return errores;
 
-  const iH3: number[] = [];
+  // Párrafos: bloques de líneas no vacías separados por líneas en blanco.
+  const parrafos: { texto: string; linea: number }[] = [];
+  let actual: string[] = [];
+  let inicio = 0;
+  const cerrar = (): void => {
+    if (actual.length > 0) parrafos.push({ texto: actual.join('\n'), linea: desde + inicio + 1 });
+    actual = [];
+  };
   tramo.forEach((l, k) => {
-    if (/^### \S/.test(l.trim())) iH3.push(k);
+    if (l.trim() === '') {
+      cerrar();
+      return;
+    }
+    if (actual.length === 0) inicio = k;
+    actual.push(l);
   });
+  cerrar();
 
-  // Trozos: el encabezado (antes del primer H3) y después uno por precedente.
-  const cortes = [0, ...iH3.map((k) => k + 1), tramo.length];
   let pidioTotal = 0;
-  for (let t = 0; t + 1 < cortes.length; t++) {
-    const cuerpo = tramo.slice(cortes[t], cortes[t + 1]).join('\n');
-    const pidio = (cuerpo.match(/\*Pidió:\*/g) ?? []).length;
-    const dio = (cuerpo.match(/\*Dio:\*/g) ?? []).length;
+  for (const { texto, linea } of parrafos) {
+    const pidio = (texto.match(/\*Pidió:\*/g) ?? []).length;
+    const dio = (texto.match(/\*Dio:\*/g) ?? []).length;
     pidioTotal += pidio;
     if (dio !== pidio) {
-      const donde = t === 0 ? 'el encabezado de la SECCIÓN 2' : `«${tramo[iH3[t - 1]].trim()}»`;
       errores.push(
-        `${donde} marca ${String(pidio)} «*Pidió:*» y ${String(dio)} «*Dio:*»: la falla del tramo B fue ` +
-          'enumerar lo que un antecedente pidió sin escribir lo que dio, y el balance se exige adentro ' +
-          'de cada precedente porque el total de la sección lo compensa solo. Si un «Dio» no se pudo ' +
-          'verificar, se escribe declarándolo —el patrón de PLANPACTO:230— y la columna igual existe',
+        `el párrafo de la línea ${String(linea)} marca ${String(pidio)} «*Pidió:*» y ${String(dio)} ` +
+          '«*Dio:*»: la falla del tramo B fue enumerar lo que un antecedente pidió sin escribir lo que ' +
+          'dio, y el balance se exige por PÁRRAFO porque §2.4 lleva dos precedentes bajo un solo H3 y ' +
+          'el H3 los compensa entre sí. Si un «Dio» no se pudo verificar, se escribe declarándolo ' +
+          '—el patrón de PLANPACTO:230— y la columna igual existe',
       );
     }
   }
@@ -843,13 +1217,11 @@ function main(): void {
     cursor = i;
   }
 
-  // 2) Las cifras canónicas y las aserciones obligatorias.
-  for (const { valor, porQue } of CIFRAS_CANONICAS) {
-    if (!raw.includes(valor)) errores.push(`falta la cifra canónica «${valor}» — ${porQue}`);
-  }
-  for (const { valor, porQue } of ASERCIONES_OBLIGATORIAS) {
-    if (!raw.includes(valor)) errores.push(`falta la aserción obligatoria «${valor}» — ${porQue}`);
-  }
+  // 2) Las cifras canónicas y las aserciones obligatorias, EN SU DOMICILIO.
+  errores.push(...verificarValoresConDomicilio(lineas, CIFRAS_CANONICAS, 'cifra canónica'));
+  errores.push(
+    ...verificarValoresConDomicilio(lineas, ASERCIONES_OBLIGATORIAS, 'aserción obligatoria'),
+  );
 
   // 3) Los prohibidos, sobre el texto sin negritas.
   for (const { patron, porQue, salvoSi } of PROHIBIDOS) {
@@ -899,7 +1271,9 @@ function main(): void {
       `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
       '(conjunto exacto: ni falta ni sobra), ' +
       `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
-      'precedentes en dos columnas balanceadas adentro de cada H3, ' +
+      'precedentes en dos columnas balanceadas adentro de cada PÁRRAFO, ' +
+      `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas y sus ocupantes ` +
+      'cruzados contra el taller, ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }

@@ -270,3 +270,106 @@ La respuesta no puede ser negarlo, porque es cierto. Lo que se puede afirmar es 
 El diagnóstico termina acá, con la objeción escrita y sin contestar del todo, porque contestarla es tarea de lo que sigue. Lo que sí se sabe es la forma que la respuesta no puede tener: no puede ser una pieza más agregada a las que ya están. Tiene que ser el calendario que las ordena — y tiene que traer, escrito en el mismo documento, el mecanismo que impide que la parte cara del calendario sea la que nunca se ejecute.
 
 ---
+
+## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES
+
+> *"Publicar de antemano el día en que una obligación se vuelve exigible no la vuelve más generosa. La vuelve más difícil de posponer sin que se note quién la pospuso."*
+
+### 3.1 Qué es una estación, y qué no
+
+Una estación del arco no es una etapa de la vida ni una franja de edad. Es un punto donde se cumplen cuatro condiciones, y las cuatro se verifican desde afuera del Estado.
+
+La primera: **está enumerada antes de que nadie llegue a ella**, en una lista pública, con la edad o el hecho que la abre escrito de antemano. La segunda: la atiende **un dispositivo nominado, y uno solo** — dos dispositivos sobre el mismo punto del arco es el error que este corpus ya cometió con la transmisión y con el duelo, en documentos que no se leyeron entre sí. La tercera: tiene **financiamiento con nombre**, en la Sección 4 y en la Sección 9. La cuarta: **hay un organismo obligado a presentarse sin que nadie lo llame.**
+
+La cuarta es la que hace todo el trabajo. Un derecho que hay que ir a buscar reparte la carga de la iniciativa en contra de quien menos puede sostenerla: el que sabe que existe, el que tiene el día libre, el que soporta la cola. Uno que sale a buscar a la persona pone esa carga sobre el organismo, que es quien puede pagarla. Las tres primeras condiciones describen un programa prolijo; la cuarta lo convierte en estación.
+
+Qué no es. **No es una prestación nueva por cada renglón**: la mayoría no son plata, son presencia y procedimiento. **No es un requisito**: ninguna condiciona a otra, y un arco donde faltar a los cuarenta y cinco descontara a los sesenta y cinco sería un régimen disciplinario con nombre amable. **Y no es una lista abierta**: agregar una estación exige el mismo instrumento legal que crea la primera, porque un calendario que crece por reglamentación se llena en dos gobiernos de estaciones que nadie financió.
+
+### 3.2 El Calendario
+
+Estas son las estaciones. La cuarta columna es la que hace honesta la tabla:
+
+| Estación | Edad o hito | Dispositivo del arco | Quién la ocupa hoy |
+|---|---|---|---|
+| La llegada | gestación y primeros mil días | Umbral de la Llegada | `PLANSAL §4.4` · `PLANSAL §15.5` |
+| El nombre | inscripción, primeros treinta días | Acta de Bienvenida | — |
+| El origen | nacimiento | Dote de Origen | — |
+| La crianza | 0 a 5 años | remisión, sin dispositivo propio | `PLANCUIDADO §3.1` |
+| El primer viaje | 12 años | El Pasaje, primer viaje | — |
+| La mayoría | 18 años | El Pasaje, segundo viaje · liberación de la Dote | — |
+| El trabajo que no se ve | cualquier edad, al registrarse | Renta de Arco: Tramo Ganado | `PLANCUIDADO:340` |
+| El alto | 45 años | El Alto de los Cuarenta y Cinco · El Pasaje, tercer viaje | — |
+| El aviso | 60 años | El Pasaje, cuarto viaje | — |
+| La rampa | 60 a 72 años | Rampa de Salida 60–72 | `PLANSAL §9.3` · `PLANCUL` |
+| El piso | 65 años | Renta de Arco: Piso Vital Universal · Tramo Común | `PLANMON:1543-1576` |
+| La casa | al quedar solo, o al no poder solo | Casa de Dos Edades · Casa de Arco | — |
+| La voluntad | acto declarado, a cualquier edad | La Última Palabra | — |
+| El adiós | la muerte | Umbral del Legado, tramo del cuerpo | `PLANEB §9.10` |
+| El año siguiente | doce meses desde la muerte | El Año del Duelo · Acompañante de Umbral | `PLANCUIDADO §11.3` · `PLANCUL` |
+| Lo que queda | apertura de la sucesión | Umbral del Legado, tramo del patrimonio | — |
+
+Dos aclaraciones, porque la tabla es la arquitectura y no un resumen. Las edades en años son **de apertura, no de vencimiento**: ninguna estación caduca por no haberse presentado a tiempo. Y los hitos que no son edades —quedar solo, la muerte, la apertura de una sucesión— **los abre el hecho registrado, no la solicitud**: es la cuarta condición de 3.1 aplicada al lugar donde la persona no está en condiciones de pedir nada.
+
+### 3.3 Quién ocupa el arco hoy
+
+Hay **siete de las dieciséis estaciones** con ocupante previo: un PLAN que ya escribió un dispositivo sobre ese punto del arco. El número sale de contar esta tabla y de ningún otro lado: un ocupante es una fila cuya cuarta columna nombra un PLAN existente. Son cinco documentos: `PLANSAL`, `PLANCUIDADO`, `PLANMON`, `PLANCUL` y `PLANEB`. La lista es más larga de lo que este documento suponía antes de contarla renglón por renglón: `PLANEB` apareció recién al enumerar el final del arco, porque su dispositivo del adiós no lleva ninguna de las palabras con las que se lo había buscado.
+
+Las nueve filas con guion son territorio donde PLANARCO no pisa a nadie, y sostienen la parte original del documento: el nombre, el origen, los cuatro viajes, la mediana edad, la vivienda del último tramo, la voluntad anticipada y la sucesión.
+
+**De la columna se sigue una regla que vale para todo el resto: donde hay ocupante, PLANARCO remite y no reescribe.** El Umbral de la Llegada no vuelve a diseñar los primeros mil días, que son de `PLANSAL §4.4` en exclusiva, ni la licencia parental extendida de `PLANSAL §15.5`. El Tramo Ganado no inventa fórmula: `PLANCUIDADO:340` la fijó en un año de cuidado por un año aportado, con techo anual, y la Sección 4 declara si eso se duplica o se sustituye. La Rampa de Salida convive con dos dispositivos previos de distinta suerte de caja. El Año del Duelo llega a una estación con dos ritos ya escritos, `PLANCUIDADO §11.3` y las Rondas de Duelo de `PLANCUL:156`. Y el tramo del cuerpo del Umbral del Legado entra donde `PLANEB §9.10` ya construyó un fondo prepago, prestadores con tarifas publicadas y acompañamiento entre pares.
+
+Una fila muestra la clase de error que esta columna existe para evitar. La estación de la casa figura sin ocupante, y sin embargo el corpus tiene la palabra escrita: `PLANCUIDADO:94` enumera, entre sus integraciones, que con `PLANVIV` «el hábitat se diseña con cuidado como capa — viviendas intergeneracionales, adaptaciones de accesibilidad». `PLANVIV` no la tiene: no aparece ni una vez en ese documento. Es una atribución cruzada que en una columna de ocupantes se habría copiado como remisión sin que nadie la abriera. La estación queda vacante.
+
+### 3.4 La Regla de Arco: PLANARCO no escribe la suya
+
+La regla que reparte el gasto entre las edades **no se inventa acá: es la Regla de Arco de `PLANPACTO §4.7` (`:422-430`), y se usa entera.** El documento anterior escribió su mitad por adelantado, con una consecuencia dirigida a este PLAN por su nombre (`:430`); esta es la otra mitad.
+
+La cláusula que ordena, ya nombrada en la tesis, dice así entera (`:428`): *«Cuando materia y edad entran en conflicto, la materia decide el escalón y el arco decide adentro del escalón. Nunca al revés, y nunca en paralelo.»*
+
+**El antecedente va escrito y no es adorno.** Sin las primeras siete palabras, la frase se lee como jerarquía permanente de la materia sobre la edad, y no lo es: es una regla de desempate que corre solo cuando los dos criterios chocan sobre el mismo peso, cosa que pasa en la primera recesión y no antes. El propio `PLANPACTO:416` condena esa mutilación sobre sí mismo, a propósito de otra cita: *«el calificador va escrito porque la cláusula lo tiene y sin él la cita parece más fuerte de lo que es»*.
+
+Lo que PLANARCO toma, íntegro: el **árbitro de nivel** —la Escalera ordena entre escalones y la Regla de Arco adentro de cada uno—; la **obligación de cada escalón** de declarar en la Ley de Escalera de Garantías cómo reparte lo que conserva entre el inicio, el medio y el final del arco; la **prohibición de concentrar** lo conservado en un solo tramo de la vida; y la **verificación en el Libro Mayor**.
+
+Lo que **no se fija acá**: los porcentajes del reparto inicio/medio/final, que los fija la ley escalón por escalón y no un PLAN temático; el orden de los escalones, que sigue el circuito de `PLANPACTO §4.6` —dictamen de la Mesa Civil, elevación del Consejo Federal Fiscal, sanción del Congreso—; y el plazo de revisión de la Escalera.
+
+**Variaciones: ninguna**, y se declara expreso, porque el silencio sobre las variaciones es la forma más barata de introducir una. PLANARCO **no escribe regla de reparto propia**, no pide excepciones para sus dispositivos y no reclama precedencia del eje del arco sobre la materia en ningún caso. Lo único que agrega, declarado como agregado y no como interpretación, es **el instrumento contra el cual se lee esa declaración**: el Calendario es la lista que cada escalón tiene que poder señalar cuando dice a qué tramo de la vida destinó lo que conservó. Sin lista común, «inicio, medio y final» son tres palabras que cada ministerio interpreta como le conviene.
+
+### 3.5 Qué clase de rigidez es cada pieza
+
+El documento anterior partió el Techo en dos y esa partición manda acá. **Techo A** es la rigidez que el país ya tiene: incluye lo previsional, los salarios, los intereses y las transferencias automáticas, y el orden inverso de sanción nunca se aplica sobre él (`PLANPACTO:343`). **Techo B** es la afectación nueva, y ahí el orden inverso muerde. En el medio está el piso único de 2,40 sobre ocho escalones, donde este PLAN no tiene renglón.
+
+**El haber del último tramo y su movilidad son Techo A por materia previsional.** No porque PLANARCO estrene una categoría de rigidez —estrenarla es lo que `PLANPACTO:381` cierra por anticipado, al advertir que una afectación que viva afuera del piso con el argumento de que no es un piso sino otra cosa deja el orden inverso «decorativo»—, sino porque la materia previsional ya está adentro del Techo A y este PLAN no la muda de lugar. Lo que cambia es la regla de acceso y la regla de ajuste de un gasto que la República ya ejecuta, y del que `PLANPACTO:343` dice, con el calificador puesto, que **buena parte** «no es suspendible por ley ordinaria». La materia no cambia de clase porque cambie su regla.
+
+De ahí sale la consecuencia incómoda: **la movilidad automática mensual no admite fijación discrecional, y esa es toda su fuerza.** Un haber cuyo ajuste depende de un acto de gobierno se negocia cada vez, y el resultado histórico de esa negociación está en el diagnóstico. Uno automático solo se baja por un acto visible que alguien firma.
+
+**Todo lo que le da forma al arco se paga sin afectación específica, y por lo tanto no entra a la Escalera.** El Calendario, los umbrales, los acompañamientos, los viajes del Pasaje y las casas se financian con partida común, y eso los deja sin blindaje. Pedir destino atado para ellos no sería mejor: entraría a la Escalera, ocuparía lugar, desplazaría a lo que está debajo y quedaría sujeto al orden inverso por ser lo último sancionado. La sección 3.6 dice con qué se los defiende.
+
+**El choque que el diagnóstico dejó abierto se cierra acá.** `PLANMON:1547` dispone que, «cuando el Pulso se consolide como moneda dominante, las jubilaciones se pagan en Pulso, indexadas al peso-canasta», y la movilidad de la Renta de Arco corre contra la canasta del adulto mayor, en pesos. Dos índices simultáneos no producen dos ajustes: producen uno discrecional con dos fundamentos para justificarlo.
+
+La regla de convivencia sale de la propia condicional de PLANMON y no de una preferencia de este documento: **manda el índice de la moneda en la que el haber efectivamente se paga.** Mientras se pague en pesos, corre la movilidad de PLANARCO. Cuando se pague en Pulso, corre el peso-canasta y la regla de este PLAN deja de ser un índice para volverse un piso de resultado, reclamable si el poder adquisitivo cae. Nunca los dos a la vez sobre el mismo haber.
+
+Y una advertencia de lectura sobre esa línea, porque se va a citar mucho. `PLANMON:1547` compara al peso-canasta con dos cosas distintas en la misma oración: primero con «cualquier fórmula de movilidad jubilatoria que Argentina haya inventado», y enseguida explica por qué, y la explicación es sobre **la fórmula actual**, a la que describe como una negociación política donde los jubilados siempre pierden. La segunda sostiene el argumento; la primera es la formulación amplia, y usarla para concluir que PLANMON ya descartó la movilidad que este PLAN propone sería estirarla hasta una fórmula que nadie inventó todavía.
+
+### 3.6 El blindaje de la Capa de Forma
+
+La partición del punto anterior parte también el riesgo. La **Capa de Renta** —el haber del último tramo— se defiende sola por el tamaño de su padrón. La **Capa de Forma** —el Calendario y todo lo que lo habita— no tiene padrón el día del recorte. La advertencia ya está hecha en la tesis; lo que faltaba era el domicilio, y es la fase donde el arco se construye como forma, que la Sección 12 ubica.
+
+Blindar esa capa con ley, que es lo que el diseño original proponía, está mal por dos razones. La primera: **la ley es la capa 1**, y el documento que clasifica las capas la llama «Protección media — el Congreso puede cambiar lo que el Congreso creó» (`BLINDAJE:194`), después de escribir que «no hay protección legal absoluta» (`:53`). La segunda es peor: no ejecutar una partida **no viola la ley de manera visible**, y una defensa pensada contra la derogación no protege contra el modo de falla real.
+
+La **capa 4** es la que blinda de verdad —«Protección máxima», `BLINDAJE:197`— y tiene dos fundamentos que el corpus escribió juntos y conviene separar, porque **a PLANARCO lo cubre uno solo.**
+
+El primero es la **propiedad**: cinco millones de personas con ahorros en El Pulso convierten cualquier reversión en una confiscación con nombre propio en la memoria argentina (`BLINDAJE:63`). **Para PLANARCO, el corralito no aplica**, y decirlo explícito es obligatorio. La Renta de Arco es una transferencia, no un patrimonio: no hay saldo que congelar ni depositante que reclame lo suyo. Se la licúa sin tocarla y se la deja de pagar sin decretarlo. Tomar prestada esa analogía sería adjudicarse un blindaje que este PLAN no tiene.
+
+El segundo sí cubre, y es el que se invoca. Es la **masa de beneficiarios**: «cuando millones de personas dependen de algo, ese algo se vuelve intocable… no porque sea ilegal tocarlo, sino porque el político que lo toque pierde la próxima elección» (`BLINDAJE:186-188`). Y con él viene la **visibilidad**, que el mismo documento desarrolla aparte: «el costo político de recortar algo visible es mucho mayor que recortar algo invisible» (`:94`), y los datos del tablero «son abiertos y replicables», de modo que intervenir el oficial no borra la serie (`:96`).
+
+De ahí sale el mecanismo, en tres piezas que no crean agencia, no piden afectación y no requieren reforma.
+
+**Uno. La razón de ejecución, en la misma ley que crea la renta.** El gasto ejecutado de la Capa de Forma no puede caer por debajo de una proporción del de la Capa de Renta en el mismo ejercicio. No es un piso del producto ni un destino atado: es una relación entre dos partidas del mismo PLAN, y su efecto es que la capa que se blinda sola arrastre a la que no. Su virtud no es jurídica sino aritmética: incumplirla no produce una demora explicable, produce un cociente publicado. **Y se declara la objeción antes de que la haga otro:** si alguien sostiene que esa razón es una afectación encubierta, entra a la Escalera y queda sujeta al orden inverso como cualquier otra, y este documento lo acepta por escrito. La tercera vía, no: es la que `PLANPACTO:381` prohíbe.
+
+**Dos. El tablero por estación, con la brecha a la vista.** El Tablero Nacional del Arco publica, mes a mes y estación por estación, cuánta gente llegó a ese punto del arco y a cuánta se la atendió. La distancia entre las dos columnas es el indicador de vaciamiento y no depende de que nadie denuncie nada: se lee. Una estación desfinanciada no aparece como un recorte —los recortes se explican— sino como dos series que se separan durante meses.
+
+**Tres. La masa prestada, donde la haya.** Las estaciones que coinciden con un pago se ejecutan en el mismo acto que el pago: quien cobra el haber recibe, en esa liquidación, la citación de la estación que le corresponde. No se puede dejar de ejecutar esa parte de la forma sin tocar el acto que le llega a millones de personas todos los meses. **La pieza es honesta solo si se declara su límite:** cubre el último tramo y no cubre las estaciones de los 12, los 18 ni los 45, que no tienen pago detrás y quedan defendidas por las dos primeras piezas. Ahí el arco es más frágil, y va escrito acá y no en la letra chica.
+
+Falta decir qué no alcanza. Los dos mecanismos que `PLANRUTA:279` ofrece contra el vaciamiento —estar listo cuando la ventana se abre, y acumular hechos difíciles de destruir— están pensados para **instalar** un ecosistema, y ninguno dice cómo se sostiene una partida discrecional durante quince años y cuatro gobiernos. Las tres piezas tampoco lo garantizan: ninguna impide que un gobierno decidido deje de ejecutar la Capa de Forma un período entero. Lo que hacen es que hacerlo cueste una relación numérica incumplida, una brecha publicada por estación y un acto administrativo que hay que ir a modificar. Es la única defensa que `BLINDAJE:53` reconoce como real.
+
+---
