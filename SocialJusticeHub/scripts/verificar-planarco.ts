@@ -33,7 +33,8 @@ const H2_MANDATO = '## Vigésimo Quinto Mandato del Proyecto ¡BASTA!';
 /** Los H2 que el documento tiene que tener, en este orden. Las tareas lo extienden. */
 const SECCIONES_ESPERADAS: string[] = [
   H2_MANDATO,
-  // Task 2: '## PREÁMBULO — {título}', '## TESIS CENTRAL'
+  '## PREÁMBULO — LA VIDA QUE NADIE MIRÓ ENTERA',
+  '## TESIS CENTRAL',
   // Task 3: SECCIÓN 0, 1 y 2 · Task 4: SECCIÓN 3 · Task 5: SECCIÓN 4 · …
 ];
 
@@ -165,14 +166,27 @@ const CALIFICADORES_EN_PORTADA: string[] = [
 ];
 
 /**
- * La región de dispositivos de la portada: entre la línea que dice `PLANARCO` y
- * la que abre `Preparado para`. Todo lo que aparezca ahí y no esté en el léxico
- * permitido es un dispositivo anunciado de más — el modo de falla exacto del
- * tramo B, donde la portada anunció cuatro nombres que no estaban en ninguna
+ * La región de conjunto exacto de la portada: desde la PRIMERA línea del bloque
+ * cercado hasta la que abre `Preparado para`. Todo lo que aparezca ahí y no esté
+ * en el léxico permitido es un nombre anunciado de más — el modo de falla exacto
+ * del tramo B, donde la portada anunció cuatro nombres que no estaban en ninguna
  * sección del plan.
+ *
+ * Arrancaba en la línea `PLANARCO`, y eso dejaba el eslogan y el subtítulo
+ * AFUERA del conjunto exacto: verificado, un `Servicio Cívico` plantado en el
+ * subtítulo salía verde. El arreglo no es un mojón nuevo sino ninguno — la
+ * región empieza donde empieza la portada— y el encabezado legítimo pasa a ser
+ * léxico permitido como cualquier otro nombre.
  */
-const PORTADA_INICIO_REGION = 'PLANARCO';
 const PORTADA_FIN_REGION = 'Preparado para';
+
+/** El encabezado legítimo de la portada: los dos renglones del eslogan, el subtítulo y la sigla. */
+const PORTADA_ENCABEZADO: string[] = [
+  'NACER NO ES UNA LOTERÍA',
+  'MORIR NO ES UN TRÁMITE',
+  'Plan Nacional del Arco de la Vida, Calendario de Umbrales y Renta de Arco',
+  'PLANARCO',
+];
 
 /**
  * Strings que no pueden aparecer, con el motivo de cada uno.
@@ -196,9 +210,25 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
     // las dos frases verdaderas que un lookbehind de ancho fijo marcaba en rojo.
     // Una guardia que se pone roja sobre una frase honesta empuja a reescribir
     // la frase, no la regex, y eso degrada el documento que la guardia protege.
-    // El hueco entre la negación y el verbo NO puede cruzar un límite de cláusula
-    // (`.`, `;`, `:`) ni una coordinante (`y`, `pero`, `aunque`, `sino`, `mas`):
-    // sin eso, «PLANARCO no es el primero y supera el gate» salía verde.
+    //
+    // ALCANCE REAL, y no es el que este comentario prometía hasta el 2026-07-31:
+    // el hueco entre la negación y el verbo corta SOLO contra un límite de
+    // cláusula (`.`, `;`, `:`, salto de línea) y contra cinco nexos literales
+    // —`y`, `pero`, `aunque`, `sino`, `mas`—. Cualquier otro nexo devuelve la
+    // afirmación al alcance de una negación lejana y la deja pasar. Verificado,
+    // las cuatro salen VERDES: «no cierra, ya que supera el gate» (la coma sola
+    // no corta), «no cierra porque supera el gate», «no cierra mientras supera
+    // el gate», «no cierra cuando supera el gate», «no cierra si supera el
+    // umbral». Lo que sí atrapa: «PLANARCO supera el gate» y «PLANARCO no es el
+    // primero y supera el gate».
+    //
+    // No se cierran esos casos ampliando la lista de nexos, porque la lista de
+    // nexos del castellano no tiene fondo y cada agregado vuelve a poner en rojo
+    // frases honestas. **Este prohibido es una red, no una prueba**: atrapa la
+    // formulación directa —la que un documento apurado escribe— y no demuestra
+    // que el documento no afirme lo contrario por un camino oblicuo. Eso lo
+    // tiene que mirar la revisión, y las Tasks 8 y 9 —que son las que escriben
+    // sobre el gate— no pueden delegar en esta regex la verdad de lo que digan.
     patron:
       /(?<!\b(?:no|nunca|jamás|tampoco|ninguno|ninguna|ni)\b(?:(?!\b(?:y|pero|aunque|sino|mas)\b)[^.;:\n]){0,30})(pas[óo]|super[óo]|supera|pasa)\s+(el|ese|este|dicho)\s+(gate|umbral)/iu,
     porQue:
@@ -463,23 +493,23 @@ function verificarCabecera(raw: string, lineas: string[]): string[] {
 function verificarPortadaNoAnunciaDeMas(portada: string[]): string[] {
   const errores: string[] = [];
 
-  const iNombre = portada.findIndex((l) => l.trim() === PORTADA_INICIO_REGION);
-  const iFin = portada.findIndex((l, j) => j > iNombre && l.trim().startsWith(PORTADA_FIN_REGION));
-  if (iNombre === -1 || iFin === -1) {
+  const iFin = portada.findIndex((l) => l.trim().startsWith(PORTADA_FIN_REGION));
+  if (iFin === -1) {
     errores.push(
-      `no se pudo delimitar la región de dispositivos de la portada (entre la línea «${PORTADA_INICIO_REGION}» ` +
-        `y «${PORTADA_FIN_REGION}»). Sin esos dos mojones no se puede verificar que no anuncie de más`,
+      `no se pudo delimitar la región de conjunto exacto de la portada: falta la línea «${PORTADA_FIN_REGION}», ` +
+        'que es su mojón de cierre. Sin ese mojón no se puede verificar que no anuncie de más',
     );
     return errores;
   }
 
   const lexico = [
+    ...PORTADA_ENCABEZADO,
     ...DISPOSITIVOS_EN_PORTADA.flatMap((d) => d.enPortada),
     ...CALIFICADORES_EN_PORTADA,
     INSTITUCION_EN_PORTADA,
   ].sort((a, b) => b.length - a.length);
 
-  for (const linea of portada.slice(iNombre + 1, iFin)) {
+  for (const linea of portada.slice(0, iFin)) {
     if (linea.trim() === '') continue;
     let resto = linea;
     for (const permitido of lexico) resto = resto.split(permitido).join('');
