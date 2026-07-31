@@ -472,6 +472,26 @@ function verificarCabecera(raw: string, lineas: string[]): string[] {
   // La portada es el primer bloque cercado después del H3 de versión: buscarla
   // desde ahí verifica presencia y orden de una sola vez.
   const desde = iVersion === -1 ? 0 : iVersion + 1;
+
+  // `iAbre` toma UNA portada, no LA portada: con una copia legítima plantada
+  // arriba, el conjunto exacto se verificaba sobre la copia y la portada real
+  // —contaminada con los dispositivos que se quisiera— no la miraba nadie. Es
+  // el mismo modo de falla que la Task 4 tiene anotado para `filasDeTabla()`.
+  // El tramo de la portada va del H3 de versión al primer H2 del cuerpo y ahí
+  // adentro tiene que haber EXACTAMENTE dos cercas; acotado a propósito, porque
+  // las Secciones 3 y siguientes traen bloques cercados propios que no son
+  // asunto de este chequeo.
+  const iCuerpo = lineas.findIndex((l, j) => j >= desde && l.startsWith('## '));
+  const finTramo = iCuerpo === -1 ? lineas.length : iCuerpo;
+  const cercas = lineas.slice(desde, finTramo).filter((l) => l.trim() === '```').length;
+  if (cercas !== 2) {
+    errores.push(
+      `entre el H3 de versión y el primer H2 del cuerpo hay ${String(cercas)} cerca(s) de bloque, ` +
+        'y tienen que ser exactamente dos: la portada es UNA. Con más de un bloque cercado, el ' +
+        'conjunto exacto se verifica sobre el primero y la portada real queda sin mirar',
+    );
+  }
+
   const iAbre = lineas.findIndex((l, j) => j >= desde && l.trim() === '```');
   const iCierra = iAbre === -1 ? -1 : lineas.findIndex((l, j) => j > iAbre && l.trim() === '```');
   if (iAbre === -1 || iCierra === -1) {
