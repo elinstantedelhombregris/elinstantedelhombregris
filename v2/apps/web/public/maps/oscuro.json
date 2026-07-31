@@ -1,0 +1,140 @@
+{
+  "version": 8,
+  "name": "¡BASTA! oscuro",
+  "metadata": {
+    "criterio": "El basemap se corre del camino. Fondo tinta, geografía en grises tenues, cero saturación: los únicos colores del mapa son los de las señales que van encima. Todos los valores salen de los tokens `oscuro-*` y `tinta` de tailwind.config.ts — no hay ningún color inventado acá.",
+    "apagado": "POIs, comercios, numeración de casas y edificios sueltos. Son ruido de mapa de navegación; este es un mapa cívico.",
+    "atribucion": "© OpenStreetMap contributors, © CARTO"
+  },
+  "glyphs": "https://tiles.basemaps.cartocdn.com/fonts/{fontstack}/{range}.pbf",
+  "sources": {
+    "carto": {
+      "type": "vector",
+      "url": "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json",
+      "attribution": "© <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> · © <a href=\"https://carto.com/attributions\">CARTO</a>"
+    }
+  },
+  "layers": [
+    { "id": "fondo", "type": "background", "paint": { "background-color": "#16130E" } },
+    {
+      "id": "verde",
+      "type": "fill",
+      "source": "carto",
+      "source-layer": "park",
+      "paint": { "fill-color": "#1D1A14", "fill-opacity": 0.9 }
+    },
+    {
+      "id": "urbano",
+      "type": "fill",
+      "source": "carto",
+      "source-layer": "landuse",
+      "filter": ["match", ["get", "class"], ["residential", "suburb", "neighbourhood"], true, false],
+      "paint": { "fill-color": "#1F1C15", "fill-opacity": 0.85 }
+    },
+    {
+      "id": "agua",
+      "type": "fill",
+      "source": "carto",
+      "source-layer": "water",
+      "paint": { "fill-color": "#0E0C08" }
+    },
+    {
+      "id": "rio",
+      "type": "line",
+      "source": "carto",
+      "source-layer": "waterway",
+      "paint": {
+        "line-color": "#0E0C08",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 14, 2]
+      }
+    },
+    {
+      "id": "manzanas",
+      "type": "fill",
+      "source": "carto",
+      "source-layer": "building",
+      "minzoom": 14,
+      "paint": {
+        "fill-color": "#241F17",
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0, 16, 0.6]
+      }
+    },
+    {
+      "id": "calles-menores",
+      "type": "line",
+      "source": "carto",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "filter": ["match", ["get", "class"], ["minor", "service", "path", "track"], true, false],
+      "paint": {
+        "line-color": "#3A362D",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 12, 0.3, 17, 2]
+      }
+    },
+    {
+      "id": "calles",
+      "type": "line",
+      "source": "carto",
+      "source-layer": "transportation",
+      "minzoom": 9,
+      "filter": ["match", ["get", "class"], ["secondary", "tertiary"], true, false],
+      "paint": {
+        "line-color": "#3A362D",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 0.4, 17, 3]
+      }
+    },
+    {
+      "id": "rutas",
+      "type": "line",
+      "source": "carto",
+      "source-layer": "transportation",
+      "filter": ["match", ["get", "class"], ["motorway", "trunk", "primary"], true, false],
+      "paint": {
+        "line-color": "#5C594F",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.4, 10, 1.4, 17, 4]
+      }
+    },
+    {
+      "id": "limites",
+      "type": "line",
+      "source": "carto",
+      "source-layer": "boundary",
+      "filter": ["<=", ["get", "admin_level"], 4],
+      "paint": {
+        "line-color": "#5C594F",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.5, 10, 1.2],
+        "line-opacity": 0.7
+      }
+    },
+    {
+      "id": "localidades",
+      "type": "symbol",
+      "source": "carto",
+      "source-layer": "place",
+      "filter": ["match", ["get", "class"], ["city", "town"], true, false],
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Inter Regular"],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 5, 10, 12, 13],
+        "text-max-width": 8,
+        "text-transform": "uppercase",
+        "text-letter-spacing": 0.1
+      },
+      "paint": { "text-color": "#8E8A82", "text-halo-color": "#16130E", "text-halo-width": 1.4 }
+    },
+    {
+      "id": "calles-nombres",
+      "type": "symbol",
+      "source": "carto",
+      "source-layer": "transportation_name",
+      "minzoom": 14,
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Inter Regular"],
+        "text-size": 10,
+        "symbol-placement": "line"
+      },
+      "paint": { "text-color": "#5C594F", "text-halo-color": "#16130E", "text-halo-width": 1.2 }
+    }
+  ]
+}

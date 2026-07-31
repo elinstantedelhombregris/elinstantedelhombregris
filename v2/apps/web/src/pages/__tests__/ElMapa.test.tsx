@@ -62,11 +62,24 @@ describe('ElMapa (página papel 2.2)', () => {
     expect(screen.queryByText('voces en el mapa')).not.toBeInTheDocument();
   });
 
-  it('compone mapa + panel + feed', () => {
+  /**
+   * El orden cambió con el rediseño: el panel para soltar la voz y el feed van
+   * ARRIBA, y el instrumento ocupa el ancho completo debajo. Antes el mapa
+   * estaba encajonado al costado del panel — este test afirmaba esa estructura
+   * y por eso se reescribió, no porque se hubiera roto.
+   */
+  it('compone panel + feed arriba, e instrumento debajo', () => {
     render(<ElMapa />);
 
-    expect(screen.getByRole('group', { name: 'Mapa de la Argentina: las voces por provincia' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: 'Soltá tu voz' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: 'Últimas voces' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'El país, cuadra por cuadra.' }),
+    ).toBeInTheDocument();
+  });
+
+  it('el instrumento tiene su ancla profunda', () => {
+    const { container } = render(<ElMapa />);
+    expect(container.querySelector('#instrumento')).not.toBeNull();
   });
 });
