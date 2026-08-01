@@ -5,7 +5,7 @@
   "license": "MIT",
   "description": "El Instante del Hombre Gris \u2014 Argentine civic engagement platform built around the \u00a1BASTA! popular governance framework. v2 rebuild.",
   "engines": {
-    "node": ">=20.0.0",
+    "node": ">=22.0.0",
     "pnpm": ">=9.0.0"
   },
   "packageManager": "pnpm@10.16.1",
