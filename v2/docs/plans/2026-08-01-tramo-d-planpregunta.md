@@ -142,7 +142,7 @@ Verificado línea por línea, y es la mejor noticia del tramo:
 
 > **Presupuesto de palabras — objetivo total: 29.000–34.000.** Cada sección tiene el suyo declarado en su step, y **las adiciones de revisión entran adentro del rango, no encima.**
 >
-> **Verificación de que cierra por construcción, hecha antes de escribir una palabra** —que es exactamente lo que el tramo B no hizo y el tramo C tuvo que arreglar dos veces sobre la marcha: la suma de los **pisos** de las veintiséis entradas de la tabla de abajo da **29.010** —corregido el 2026-08-01, tras subir la cabecera de 560 a 700; ver la nota de la Task 1—, que entra bajo el techo de 34.000 con 4.990 de margen. La suma de los **techos** da 36.310, por encima del total: eso es deliberado y significa que **no todas las secciones pueden ir a su tope a la vez**. Si una sección se come su techo, otra baja. Lo que no puede pasar —y es lo que pasó en el tramo C— es que los pisos obligatorios ya violen el total.
+> **Verificación de que cierra por construcción, hecha antes de escribir una palabra** —que es exactamente lo que el tramo B no hizo y el tramo C tuvo que arreglar dos veces sobre la marcha: la suma de los **pisos** de las veintiséis entradas de la tabla de abajo da **27.810** —corregido dos veces el 2026-08-01: la cabecera subió de 560 a 700 (Task 1) y las ocho fallas bajaron de 3.200 a 2.000 (Task 3), las dos con la medición escrita—, que entra bajo el techo de 34.000 con 6.190 de margen. La suma de los **techos** da 35.210, por encima del total: eso es deliberado y significa que **no todas las secciones pueden ir a su tope a la vez**. Si una sección se come su techo, otra baja. Lo que no puede pasar —y es lo que pasó en el tramo C— es que los pisos obligatorios ya violen el total.
 
 - **Spec de referencia:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md` §5 (PLANPREGUNTA) y §2 (la aritmética del Techo). **Donde la spec choque con D-1…D-10, ganan los hallazgos.**
 - **El taller es el destino.** El documento se escribe en `Iniciativas Estratégicas/PLANPREGUNTA_Argentina_ES.md`. **La ruta tiene espacio y acento: entrecomillala siempre en bash.** La edición derivada de `v2/content/planes/` NO se toca en este tramo.
@@ -252,7 +252,7 @@ Verificado línea por línea, y es la mejor noticia del tramo:
 | — | Cabecera + H1 + «Vigésimo Sexto Mandato» + versión + portada ASCII | 1 | 700–760 |
 | 1 | `## PREÁMBULO — {título}` | 2 | 1.100–1.400 |
 | 2 | `## TESIS CENTRAL` | 2 | 700–900 |
-| 3 | `## SECCIÓN 0: LAS OCHO FALLAS DEL APARATO DE CONOCIMIENTO ARGENTINO` | 3 | 3.200–3.700 |
+| 3 | `## SECCIÓN 0: LAS OCHO FALLAS DEL APARATO DE CONOCIMIENTO ARGENTINO` | 3 | 2.000–2.600 |
 | 4 | `## SECCIÓN 1: LA CRISIS — {frase}` | 3 | 1.000–1.300 |
 | 5 | `## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES` | 3 | 1.300–1.600 |
 | 6 | `## SECCIÓN 3: LA SOLUCIÓN — LA PREGUNTA NACIONAL` | 4 | 2.400–2.900 |
@@ -389,9 +389,11 @@ Dos advertencias específicas de esta sección:
 - **Corea ya está usada.** `PLANDIG:355-357` la usó como precedente de inversión. Repetirla sin atribuir es plagiarse al vecino; usarla atribuida y **con la columna de lo que costó** es lo correcto.
 - **El precedente interno más fuerte es argentino y es del propio corpus:** el LANEF (`PLANEN:782-792`). Un precedente interno que el documento no puede omitir sin que la Sección 6 quede en el aire.
 
-**Palabras:** fallas **3.200–3.700** · crisis 1.000–1.300 · precedentes 1.300–1.600.
+**Palabras:** fallas **2.000–2.600** · crisis 1.000–1.300 · precedentes 1.300–1.600.
 
-- [ ] Task 3 completa
+**Corrección del 2026-08-01, medida y no negociada.** El rango de las fallas decía 3.200–3.700 y estaba calibrado contra PLANARCO, que es el outlier. Medido: **la SECCIÓN 0 de PLANPACTO son 1.954 palabras para ocho fallas** —244 por falla— y la de PLANARCO **3.987** —498—, y el propio brief de esta tarea manda seguir *«la forma de `PLANPACTO:96-130`»*. La de PLANARCO creció por corrección de contenido verificado sobre un territorio densamente ocupado, que no es el caso de acá: el territorio del conocimiento está casi vacío (**D-8**) y las ocho fallas de este PLAN se apoyan en menos remisiones porque hay menos a qué remitir. **El valor escrito es 2.116**, entre las dos y del lado de PLANPACTO, con las tres partes de cada falla presentes y verificadas por la guardia. Se corrige el rango en vez de agregar mil palabras de prosa para llegar a un número copiado del PLAN equivocado.
+
+- [x] Task 3 completa
 
 ---
 

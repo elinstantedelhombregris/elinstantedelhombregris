@@ -45,6 +45,9 @@ const SECCIONES_ESPERADAS: string[] = [
   H2_MANDATO,
   '## PREÁMBULO — LA PREGUNTA QUE NADIE ANOTÓ',
   '## TESIS CENTRAL',
+  '## SECCIÓN 0: LAS OCHO FALLAS DEL APARATO DE CONOCIMIENTO ARGENTINO',
+  '## SECCIÓN 1: LA CRISIS — EL PAÍS DISCUTE CUÁNTO PONE Y NUNCA DISCUTIÓ PARA QUÉ',
+  '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
 ];
 
 /**
@@ -74,8 +77,55 @@ const LARGO_MINIMO_DE_EPIGRAFE = 20;
  * dispositivo entero deja el H2 en su lugar, el orden intacto y la guardia
  * verde. Las tareas lo extienden.
  */
-const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; porQue: string }[] =
-  [];
+const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; porQue: string }[] = [
+  {
+    h2: '## SECCIÓN 0: LAS OCHO FALLAS DEL APARATO DE CONOCIMIENTO ARGENTINO',
+    prefijo: '0',
+    cuantas: 8,
+    porQue:
+      'el H2 promete ocho y borrar una entera deja el H2 en su lugar, el orden intacto y la ' +
+      'guardia verde. Se verifica la cantidad Y la numeración correlativa, porque 0.1, 0.3, 0.3, … ' +
+      'también da ocho',
+  },
+  {
+    h2: '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
+    prefijo: '2',
+    cuantas: 5,
+    porQue:
+      'la sección que defiende al PLAN es la que menos se revisa, y fue el hallazgo Crítico de la ' +
+      'revisión final del tramo B. Cinco precedentes, cada uno con lo que pidió y lo que dio',
+  },
+];
+
+/**
+ * La anatomía de cada falla: `### 0.N {título}` y debajo los tres leads de
+ * PLANPACTO:96-130. Sin este chequeo se podía borrar «El dato:» —que es el
+ * párrafo que sostiene la falla contra el corpus, y por lo tanto el único que
+ * se puede falsear— y la guardia salía verde con el H3 en su lugar.
+ */
+const LEADS_DE_FALLA = ['**La falla:**', '**Por qué persiste:**', '**El dato:**'];
+
+function verificarAnatomiaDeFallas(lineas: string[]): string[] {
+  const h2 = '## SECCIÓN 0: LAS OCHO FALLAS DEL APARATO DE CONOCIMIENTO ARGENTINO';
+  const { tramo, errores } = tramoDeSeccion(lineas, h2);
+  if (tramo === null) return errores;
+
+  const inicios: number[] = [];
+  tramo.forEach((l, k) => {
+    if (/^### 0\.\d+ \S/.test(l.trim())) inicios.push(k);
+  });
+  inicios.forEach((ini, k) => {
+    const fin = inicios[k + 1] ?? tramo.length;
+    const cuerpo = tramo.slice(ini, fin).join('\n');
+    const titulo = (tramo[ini] ?? '').trim();
+    for (const lead of LEADS_DE_FALLA) {
+      if (!cuerpo.includes(lead)) {
+        errores.push(`«${titulo}» no tiene el párrafo «${lead}» — es la forma de PLANPACTO:96-130`);
+      }
+    }
+  });
+  return errores;
+}
 
 /**
  * **Cifra canónica = número + domicilio, en la misma oración.**
@@ -135,6 +185,36 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
     porQue:
       'la segunda renuncia: la pata industrial que la sigla PLANCYT también nombraba sigue repartida ' +
       'entre cinco PLANes y este diseño no la cubre (ANALISIS_CONEXIONES_22_PLANES.md §9.4)',
+  },
+  /**
+   * Task 3. Las cifras del diagnóstico son TODAS ajenas, y ése es el punto: un
+   * PLAN que se estrena diciendo que el país no sabe lo que no sabe no puede
+   * estrenar como propio el diagnóstico que otro documento del corpus ya escribió
+   * con tabla. El ancla es el domicilio, no el número.
+   */
+  {
+    valor: /0,16%/u,
+    ancla: /PLANDIG/u,
+    porQue: 'la ejecución de ciencia y técnica la midió PLANDIG:269 y :284, no este documento (D-4)',
+  },
+  {
+    valor: /0,39%/u,
+    ancla: /PLANDIG|ley|legal/iu,
+    porQue: 'la meta legal vigente es de PLANDIG:285 y su incremento ya tiene dueño: PLANDIG:1112 (D-3)',
+  },
+  {
+    valor: /INTA/u,
+    ancla: /BLINDAJE|años 90|noventa|aserci[óo]n|sin fuente/iu,
+    porQue:
+      'el vaciamiento del INTA es BLINDAJE:41 y :44, sin fuente externa: se cita como aserción del ' +
+      'corpus y con su década, porque el −60% es de los años 90 y no de ahora',
+  },
+  {
+    valor: /investigar para publicar|obligaci[óo]n de transferencia/iu,
+    ancla: /LANEF|PLANEN/u,
+    porQue:
+      'la regla que la Prueba de Barro endurece ya está escrita en PLANEN:786. Reclamarla entera ' +
+      'sería estrenar una originalidad que el corpus desmiente (D-5)',
   },
 ];
 
@@ -729,6 +809,7 @@ function main(): void {
     ...verificarSecciones(lineas),
     ...verificarEpigrafes(lineas),
     ...verificarSubsecciones(lineas),
+    ...verificarAnatomiaDeFallas(lineas),
     ...verificarCifras(raw),
     ...verificarProhibidos(raw, lineas),
     ...verificarEstrenoDeclarado(raw),
