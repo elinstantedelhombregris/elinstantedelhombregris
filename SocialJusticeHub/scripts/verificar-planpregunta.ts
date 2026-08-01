@@ -51,6 +51,8 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 3: LA SOLUCIÓN — LA PREGUNTA NACIONAL',
   '## SECCIÓN 4: EL CENSO DE IGNORANCIA',
   '## SECCIÓN 5: LAS NUEVE VERTICALES',
+  '## SECCIÓN 6: LA PRUEBA DE BARRO',
+  '## SECCIÓN 7: LA INFRAESTRUCTURA DE LO COMÚN',
 ];
 
 /**
@@ -121,6 +123,24 @@ const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; po
     prefijo: '5',
     cuantas: 4,
     porQue: 'el reparto y la tabla · las siete naturales · República · Evaluación de mandatos',
+  },
+  {
+    h2: '## SECCIÓN 6: LA PRUEBA DE BARRO',
+    prefijo: '6',
+    cuantas: 4,
+    porQue:
+      'qué es y qué hereda de PLANEN:786 · el choque con el ciclo LDEA de PLANMESA · cuándo no ' +
+      'aplica · el registro de las que fallan. La segunda es la que enmienda o no enmienda el ' +
+      'protocolo de otro PLAN, y borrarla deja la contradicción viva y sin declarar',
+  },
+  {
+    h2: '## SECCIÓN 7: LA INFRAESTRUCTURA DE LO COMÚN',
+    prefijo: '7',
+    cuantas: 4,
+    porQue:
+      'Banco de Materia Viva · Turno de Máquina · Sello Abierto · Modelos de Órgano. Cuatro ' +
+      'dispositivos y cuatro declaraciones de propiedad ajena: germoplasma de PLANISV, cómputo de ' +
+      'PLANDIG, custodia de PLANMEMORIA',
   },
 ];
 
@@ -281,6 +301,25 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
     porQue:
       'el sorteo estratificado por Credencial en la materia es de PLANMESA:297 y la AMCC de ' +
       'PLANMESA:88 se gobierna así. PLANJUS:400 es sorteo puro (D-1)',
+  },
+  /**
+   * Task 6. El choque del Barro con el ciclo LDEA es literal y en las dos
+   * variables: PLANMESA:88 exige 60-180 días CON el autor adentro, y el Barro
+   * exige doce meses con el autor afuera. Un documento que escriba el Barro sin
+   * nombrar el choque le está enmendando el protocolo a otro PLAN en silencio,
+   * que es exactamente lo que la Sección 5.4 de este mismo documento se prohíbe.
+   */
+  {
+    valor: /60\s*[–—-]\s*180|sesenta a ciento ochenta/u,
+    ancla: /LDEA|PLANMESA|EXPERIMENTAR/u,
+    porQue: 'el plazo de la fase EXPERIMENTAR de PLANMESA:88, contra el que el Barro tiene que declararse (D-7)',
+  },
+  {
+    valor: /estadio B/u,
+    ancla: /PLANDIG|tranche-3|condicional|degradado/iu,
+    porQue:
+      'LANIA y ArgenCloud a escala están en el estadio B de PLANDIG:2111, diferido a tranche-3+ y ' +
+      'condicional. El Turno de Máquina no puede suponerlos disponibles (arreglo 6)',
   },
 ];
 

@@ -444,3 +444,111 @@ El motivo de la renuncia es de simetría y no de modestia. La Sección 3 acaba d
 **La segunda:** un PLAN que se niegue a ser evaluado **no tiene ninguna sanción**. Ni presupuestaria, ni reputacional, ni de tranche. Lo único que existe es el registro: **el estado de cada uno de los veintiséis PLANes respecto de esta vertical —pedido, no pedido, en curso, cerrado— se publica en el tablero de la Sección 17 y se actualiza solo.** No obliga a nadie. Deja ver quién pidió y quién no, que es lo máximo que un PLAN puede hacer sin arrogarse una facultad que nadie le dio.
 
 Es la renuncia más cara del documento. Se hace igual, y por la misma razón por la que este PLAN no reclama piso: **la única autoridad que un aparato de conocimiento tiene sobre los demás es la de haber contestado bien, y esa no se legisla.**
+
+## SECCIÓN 6: LA PRUEBA DE BARRO
+
+> *"Nada está descubierto hasta que funciona doce meses en manos de alguien que no lo inventó."*
+
+### 6.1 Qué es, y qué parte de esto no es de este PLAN
+
+Una Pregunta Nacional se cierra cuando lo que se produjo para contestarla **funcionó durante doce meses seguidos, en condiciones reales, operado por personas que no participaron de producirlo**. Antes de eso la Pregunta sigue abierta, por más resultados publicados que tenga. No es un requisito adicional al cierre: es el cierre.
+
+**Y la primera obligación de esta sección es declarar cuánto de esto es propio, porque el corpus ya escribió la mitad.** `PLANEN:786` funda el LANEF sobre una regla que dice, textual, *«El LANEF no investiga para publicar papers — investiga para producir tecnología exportable»*, con **obligación de transferencia** y socio industrial asignado a cada programa desde el día uno. Alguien adentro de este proyecto llegó antes a la conclusión de que investigar sin destinatario es el problema, y lo escribió para su materia.
+
+**Lo que este PLAN agrega es una sola cosa, y hay que decirla sin inflarla: el probador no puede ser el inventor.** La obligación de transferencia del LANEF exige que haya un destinatario industrial y que el resultado le llegue; no exige que el destinatario lo opere solo, ni durante un plazo mínimo, ni que la falta de eso impida dar el programa por concluido. Esa es la diferencia y es toda la diferencia. Un socio industrial que acompaña el desarrollo desde el día uno termina sabiendo tanto del artefacto como quien lo diseñó, y en ese punto **ya no puede probar la cosa que hay que probar**, que es si el artefacto sobrevive al encuentro con alguien que no estuvo ahí.
+
+Los dos parámetros —doce meses y ajeno— son **decisiones de diseño de este documento y no mediciones**. El plazo se eligió contra el único caso del corpus donde se puede seguir la cadena entera: la variedad de `PLANISV:2588` tardó seis años entre el registro y la exportación, con dos años solo entre registrar y medir. Doce meses no es el tiempo de la adopción completa; es el mínimo por debajo del cual no se puede distinguir un artefacto que funciona de uno que todavía tiene al inventor cerca.
+
+**Y hay un agujero de diseño que conviene cerrar acá y no dejar para la sección económica: quién le paga a quien prueba.** Doce meses operando un artefacto ajeno es trabajo, y pedirlo gratis garantiza dos cosas malas — que solo prueben los que pueden permitírselo, y que prueben sin ganas. **El costo del período de Barro se presupuesta adentro de la Pregunta, no afuera**, y se le paga a quien opera, no a quien produjo. Es una fracción chica de lo que cuesta una Pregunta y es la fracción que decide si el criterio de cierre es real o es una formalidad que se firma con un conocido. Si al llegar al Barro no hay con qué pagarlo, **la Pregunta no se cierra: se declara sin cerrar por falta de prueba**, con esas palabras.
+
+### 6.2 El choque con el ciclo LDEA, que es literal y hay que resolverlo
+
+`PLANMESA:88` define la fase EXPERIMENTAR de todo ciclo LDEA así: cada propuesta va a un Taller para un piloto acotado de **60-180 días**, *«con los autores de la propuesta **obligatoriamente participando** del piloto (piel en el juego real, no diseño desde escritorio)»*.
+
+**Las dos reglas son opuestas en las dos variables.** El plazo: sesenta a ciento ochenta días contra doce meses. Y el probador: el autor obligatoriamente adentro contra el autor obligatoriamente afuera. No es un matiz de implementación y no se arregla con una nota al pie: si una Pregunta Nacional pasa por Mesa, una de las dos reglas se incumple.
+
+**La resolución de este documento: son dos pruebas distintas, en serie, y ninguna reemplaza a la otra.**
+
+El piloto LDEA prueba **el diseño**, y para eso el autor tiene que estar adentro: lo que se está averiguando es si la propuesta es ejecutable, y quien la escribió es el único que puede decir en el momento si lo que falla es la idea o la ejecución. La Prueba de Barro prueba **la adopción**, y para eso el autor tiene que estar afuera: lo que se está averiguando es si la cosa sobrevive sin él. **Preguntas distintas, condiciones distintas, y por eso plazos distintos.**
+
+En la práctica, cuando una Pregunta Nacional produce algo que va a pasar por Mesa, el orden es: piloto LDEA de sesenta a ciento ochenta días con el autor adentro, y recién después Prueba de Barro de doce meses con el autor afuera. **La Pregunta no se cierra con el piloto LDEA aunque la Resolución de Mesa sea favorable**, y eso hay que decirlo porque es la tentación obvia: una Resolución firmada es un cierre que ya viene con acta y con legitimidad, y usarla como cierre de la Pregunta ahorraría un año. Ahorraría un año y perdería la única cosa que este PLAN aporta.
+
+**Lo que este documento explícitamente NO hace es enmendarle el protocolo a PLANMESA.** No pide que la fase EXPERIMENTAR cambie de plazo, no pide que los autores salgan del piloto, y no pide una excepción de ciclo. La Sección 5.4 acaba de renunciar a evaluar mandatos ajenos de oficio; enmendar el ciclo de otro PLAN dos secciones después sería la misma arrogación por otra puerta.
+
+### 6.3 Cuándo el Barro no aplica, y qué lo reemplaza
+
+Hay Preguntas que no producen un artefacto operable y para las que la regla, aplicada literalmente, no significa nada. Son tres clases y las tres se declaran en el campo siete de la Pregunta, con fundamento escrito, y no por decisión del equipo que la contesta.
+
+**La primera: las Preguntas de la Serie Centenaria** (Sección 10), que no se cierran nunca por construcción. Su criterio de cierre es de otra naturaleza: la medición se hizo, en la fecha, con el método declarado, y el dato quedó publicado.
+
+**La segunda: las Preguntas cuya respuesta es un «no».** Si lo que se averigua es que un fenómeno no ocurre, que una intervención no sirve o que una hipótesis es falsa, no hay artefacto que poner en manos de nadie. **El sustituto es la replicación por un equipo ajeno**, que es la misma exigencia trasladada: alguien que no participó tiene que llegar al mismo «no» con los datos y el método publicados. Y estos cierres se publican con el mismo rango que los otros, porque un aparato que solo registra los sí produce, en veinte años, un registro que miente por selección.
+
+**La tercera: las Preguntas de la vertical República**, donde lo producido suele ser una explicación y no una herramienta. El sustituto acá es más débil y hay que admitirlo: **el uso documentado por un tercero** — que la explicación haya sido usada, con cita, para fundar una decisión, un diseño o una crítica por alguien ajeno al equipo. Es más débil porque es más fácil de conseguir y de simular, y este documento no tiene un criterio mejor.
+
+### 6.4 El registro de las Pruebas que fallan
+
+**Una Prueba de Barro fallida no cierra la Pregunta y no se borra: se publica.** Con qué se probó, quién lo operó, cuánto duró, y en qué momento y por qué dejó de usarse.
+
+Ese registro es, con enorme diferencia, **el material más valioso que este PLAN va a producir en sus primeros diez años**, y conviene decir por qué. Es el único lugar del sistema argentino donde va a quedar escrito, de manera sistemática y comparable, qué cosas funcionan cuando las hace quien las inventó y dejan de funcionar cuando las hace otro. Eso es exactamente el objeto de la Pregunta de Adopción de 4.4, y sin este registro esa Pregunta no tiene con qué alimentarse.
+
+Hay una consecuencia de incentivos que hay que mirar de frente. Publicar las fallas hace que fallar sea caro para quien falla, y eso empuja a no arriesgar y a elegir Preguntas fáciles. **La única contención que este documento tiene es de forma y es modesta:** el acta de una Prueba fallida registra el artefacto y las condiciones, **no emite juicio sobre el equipo**, y el jurado tiene prohibido usar la cantidad de Pruebas fallidas como criterio para asignar Preguntas nuevas. Es una prohibición fácil de evadir y se declara como tal.
+
+## SECCIÓN 7: LA INFRAESTRUCTURA DE LO COMÚN
+
+> *"Un aparato de conocimiento se mide por lo que le presta a quien no puede comprarlo."*
+
+Cuatro dispositivos, y ninguno se puede escribir sin declarar de quién es lo que usa. Es la sección donde este PLAN más depende de otros, y las dependencias van con nombre en lugar de disolverse en la palabra «articulación».
+
+### 7.1 El Banco de Materia Viva
+
+Ocho nodos federados que conservan, catalogan y **prestan** material biológico: semillas y variedades, cepas y aislamientos, tejidos, colecciones de referencia. Presta contra Pregunta abierta y devuelve al catálogo lo que la Pregunta produzca.
+
+**No empieza de cero y no absorbe a nadie.** `PLANISV:2588` deja constancia de que existe un **banco de germoplasma nacional** y de que funciona: ahí se registró en 2029 la colección de la que salió, dos años después, la variedad con 40% más de rendimiento bajo estrés hídrico. **El Banco de Materia Viva lo federa: le agrega nodos, catálogo común y régimen de préstamo, y no le cambia el dueño.** Un PLAN que se estrena absorbiendo la única colección que el corpus documenta funcionando estaría empezando por romper lo que anda.
+
+Uno de los ocho nodos es el **ANLIS Malbrán**, y hay que decir algo antes de nombrarlo: **buscado en los veinticuatro documentos del taller, el ANLIS Malbrán no aparece ni una sola vez.** El corpus rediseñó la salud, el agua, el suelo y la vigilancia epidemiológica sin nombrar nunca al laboratorio nacional de referencia en enfermedades infecciosas. No es una crítica a ningún documento en particular: es la clase de ausencia que solo se ve cuando alguien va a buscar específicamente. Entra acá como nodo del Banco y **con la advertencia de que es el nodo donde el riesgo es real**, que la Sección 11 desarrolla entera.
+
+**Y la frontera con `PLANMEMORIA` se declara acá porque es la primera vez que aparece:** el Banco custodia materia viva; PLANMEMORIA custodia registro. El catálogo del Banco —qué hay, quién lo depositó, quién lo pidió, para qué Pregunta— se inscribe en el Archivo con la forma de `PLANMEMORIA:283`, en sus siete nodos y con su hash. **El material está en el Banco; la memoria de qué se hizo con el material está en el Archivo.** Son dos custodias distintas y ninguna sirve para lo que hace la otra.
+
+**El régimen de préstamo, en cuatro reglas.** Se presta contra Pregunta abierta y contra Pregunta nada más: no hay préstamo para exploración sin enunciado, porque un catálogo que presta sin destino declarado es un proveedor gratuito. Se presta a quien tenga capacidad demostrada de conservar lo prestado, y esa capacidad la certifica el nodo, no el solicitante. Se devuelve al catálogo **todo lo que la Pregunta produzca** sobre el material: caracterización, secuencia, comportamiento, fallas — el préstamo es un intercambio, no una entrega. Y **lo prestado no se puede patentar**, ni por quien lo pidió ni por el Banco, con la sola excepción de procesos industriales derivados, que siguen el régimen del Sello Abierto de 7.3.
+
+**Y el reconocimiento a quien deposita, porque el corpus tiene el precedente y sería absurdo perderlo.** El caso de `PLANISV:2588` termina con **regalías para la comunidad** que había conservado la variedad durante generaciones. Ese principio se hereda entero: quien deposita material en el Banco conserva derecho sobre lo que ese material genere, aunque no tenga credencial, aunque no haya escrito nada y aunque no entienda el mecanismo que después se descubra. **No es un gesto: es la única manera de que la próxima Doña Rosa entregue.**
+
+### 7.2 El Turno de Máquina
+
+Cómputo asignado por Pregunta, con turno público y cola visible. **No compra máquinas: protocoliza el acceso a máquinas ajenas**, y las máquinas son de `PLANDIG`.
+
+La cosa que hay que escribir con exactitud es cuántas máquinas hay y cuándo. `PLANDIG:505-506` fija la adquisición en tres etapas: **256 GPUs en 2027**, **1.024 a 2.048 en 2029**, y **4.096 o más desde 2031**. Y `PLANDIG:512` ya reserva parte de esa capacidad para *«universidades y CONICET para investigación»*. **El Turno de Máquina no crea ese derecho: le pone protocolo de asignación, cola pública y prioridad por Pregunta abierta.** Sin protocolo, una capacidad escasa se asigna por cercanía al que la administra, que es lo que pasa siempre.
+
+**Y acá va la declaración que el arreglo 6 exige, entera.** ArgenCloud a escala y el LANIA con cómputo de frontera **no son tranche-1**: son **estadio B** de PLANDIG, diferido a tranche-3 o más y **condicional**, con seis condiciones duras de activación (`PLANDIG:2111`). Suponerlos disponibles en la Fase 0 de este PLAN sería escribir sobre infraestructura que su propio dueño declaró condicional.
+
+**El modo degradado, en tres escalones y sin eufemismos.** Si el estadio B llega, el Turno corre sobre cómputo soberano y la dirección del fundador se cumple entera. Si no llega, el Turno corre sobre lo que el estadio A tenga y sobre nube convencional con cifrado de extremo a extremo — que es el principio que `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md:131` ya escribió para todo el ecosistema: *«la soberanía se degrada; la funcionalidad se mantiene»*. Y si no hay ni eso, las Preguntas que necesitan cómputo intensivo **se declaran no contestables por falta de máquina, con esas palabras, en el tablero**. La tercera opción es la importante: **un aparato que en vez de declarar la falta la disimula repartiendo migajas de cómputo entre todos produce diez años de trabajos que no concluyen nada.**
+
+La soberanía de cómputo es criterio de arquitectura de este PLAN y no consigna, y la prueba de que es criterio y no consigna es exactamente esta: **está escrito qué se hace cuando no se puede cumplir.**
+
+### 7.3 El Sello Abierto
+
+Todo lo producido para contestar una Pregunta Nacional se publica: el resultado, el método, los datos, el código y el acta de cierre con sus firmas y sus disidencias. Sin muro de pago, sin embargo y sin excepción por conveniencia comercial. Es el estándar que `PLANEN:792` ya aplica adentro del LANEF —*«todo código, todo dato, todo paper: abierto»*, con licenciamiento solo para procesos industriales— y este PLAN lo hereda en vez de inventar uno distinto.
+
+**Publicar no es custodiar, y ésta es la frontera con `PLANMEMORIA` que la Sección 4 anticipó.** El Sello es un acto de salida: pone algo a disposición del mundo, en el momento, y su virtud es la velocidad. El Archivo es un acto de conservación: garantiza que dentro de treinta años el registro siga ahí y sea el mismo, y su virtud es la resistencia al borrado, con siete nodos y hash. **Son incentivos opuestos y conviene que estén en dos agencias**: quien tiene que publicar rápido tiende a no conservar bien, y quien tiene que conservar tiende a no publicar. El Sello publica y el Archivo custodia, y el acta de cierre existe por duplicado a propósito.
+
+**En qué lengua se publica, que no es una pregunta menor sino la mitad del dispositivo.** El Sello exige, además del material técnico, **una carilla en lengua llana** por cada Pregunta cerrada: qué se preguntó, qué se encontró, qué cambia y qué sigue sin saberse. No es un resumen de divulgación agregado al final por alguien de comunicación: es requisito de cierre, la firma el dueño de sistema, y **sin ella el acta no se puede firmar**. Es la misma exigencia que 4.2 le impone a la devolución del Censo, y por la misma razón: un resultado que solo se puede leer con formación previa está publicado para el par y no para el país. La regla se puede enunciar corta — **si el que preguntó no puede leer la respuesta, la Pregunta no está contestada.**
+
+**Y lo que el Sello no publica abierto, que es una lista corta y cerrada.** Los procesos industriales derivados se licencian, como en `PLANEN:792`, y el ingreso vuelve al Fondo de la Sección 13. Los datos personales identificables no salen nunca: son de la capa ciudadana de `PLANDIG` y se publican agregados o no se publican. Y hay una tercera clase, la del material de doble uso, **que este documento se niega a definir acá** — definirla al pasar, en la sección que celebra la apertura, es exactamente cómo se cuelan las excepciones que después se estiran. La define la Sección 11, entera y con su procedimiento.
+
+**Y queda planteado acá el conflicto que la Sección 11 resuelve, porque plantearlo donde nace es más honesto que descubrirlo después:** un Sello que publica datos crudos el mismo día y un Banco que presta cepas son, juntos, un problema de bioseguridad que ninguno de los dos tiene por separado. **Este documento no resuelve el conflicto en esta sección y declara que no lo resuelve acá.** La Sección 11 escribe qué no se publica el mismo día, qué no se presta, y quién decide las dos cosas.
+
+### 7.4 Los Modelos de Órgano
+
+Modelos computacionales públicos de los sistemas que las verticales estudian: un modelo de cuenca, uno de suelo bajo manejo, uno de padrón epidemiológico, uno de red energética. Se llaman así porque cumplen para el país la función que un modelo de órgano cumple en biología: dejan probar una intervención sin practicarla sobre el cuerpo entero.
+
+Tres reglas y las tres son de gobernanza, no de técnica.
+
+**Uno: el modelo es del país y se publica bajo el Sello**, incluidos los datos de entrada y las suposiciones. Un modelo cerrado que informa decisiones públicas es la forma más eficiente de convertir un supuesto en un hecho sin que nadie lo discuta.
+
+**Dos: cada modelo declara su rango de validez y su error**, y **está prohibido usarlo afuera de ese rango en un acta de cierre**. Es la prohibición que va a costar más sostener, porque un modelo que corre igual afuera de su rango no avisa.
+
+**Tres: los Modelos de Órgano no reemplazan la Prueba de Barro y no pueden cerrar una Pregunta.** Sirven para descartar caminos antes de gastar, que es mucho, y no sirven para probar que algo funciona en el mundo. **La distancia entre un modelo que anda y una cosa que anda es, precisamente, el objeto de la Sección 6.**
+
+**Cuáles primero.** Los cuatro que las verticales más ocupadas ya necesitarían mañana, y los cuatro tienen dueño natural adentro del proyecto: un modelo de cuenca para Agua, con `PLANAGUA`; uno de suelo bajo manejo para Tierra, con `PLANISV`; uno de padrón epidemiológico para Cuerpo, con `PLANSAL`; y uno de red para Energía y materia, con `PLANEN` y el LANEF. **Ninguno se construye desde cero desde acá**: cada uno se arma con el PLAN dueño de la materia, que ya tiene los datos, y lo que la vertical aporta es la exigencia de que el modelo se publique con sus supuestos y su rango de validez, que es lo que un organismo sectorial rara vez hace por su cuenta.
+
+**Y la frontera con el LANIA, que es la que se va a confundir.** Los Modelos de Órgano no son modelos de lenguaje ni sistemas de inteligencia artificial de propósito general: **eso es `PLANDIG` y su laboratorio, y este PLAN no lo duplica.** Son modelos de sistemas físicos, con ecuaciones, parámetros y error declarado. Si un Modelo de Órgano necesitara componentes entrenados, se entrenan en la infraestructura de PLANDIG y bajo su gobernanza —incluida la auditoría trimestral de sesgos de `PLANDIG:522`—, y no se abre una capacidad paralela acá. **Este PLAN pregunta; el cómputo y los modelos generales son de quien los tiene.**

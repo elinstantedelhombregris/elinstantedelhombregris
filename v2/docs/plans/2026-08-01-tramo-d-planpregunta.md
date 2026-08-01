@@ -470,7 +470,7 @@ El precedente interno para el Barro es `PLANISV:2588` y es exacto: registrada en
 
 **Palabras:** Barro 1.400–1.800 · infraestructura 1.900–2.400.
 
-- [ ] Task 6 completa
+- [x] Task 6 completa
 
 ---
 
