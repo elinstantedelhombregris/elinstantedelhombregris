@@ -131,12 +131,14 @@ const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; po
   {
     h2: '## SECCIÓN 9: MODELO ECONÓMICO Y FISCAL',
     prefijo: '9',
-    cuantas: 4,
+    cuantas: 5,
     porQue:
-      'la rampa · el eje intergeneracional · las tres columnas · el financiamiento sin piso. Las ' +
-      'cuatro pagan una deuda declarada en otra parte del documento —la cabecera difiere el gasto ' +
-      'anual, §3.6 difiere la razón de ejecución, §4.2 y §4.6 difieren el monto y la diferencia—, ' +
-      'así que borrar una deja al remitente apuntando a nada y el H2 quieto',
+      'la rampa · el eje intergeneracional · las tres columnas · el financiamiento sin piso · los ' +
+      'unitarios que la sección NO deriva. Las cinco pagan una deuda declarada en otra parte del ' +
+      'documento —la cabecera difiere el gasto anual, §3.6 difiere la razón de ejecución, y §4.2, ' +
+      '§4.6, §5.1, §5.3, §6.3 y §7.3 difieren seis unitarios que esta sección no tiene—, así que ' +
+      'borrar una deja al remitente apuntando a nada y el H2 quieto. La quinta es la que más fácil ' +
+      'se cae en una compresión, porque no agrega ningún número: es la que declara los que faltan',
   },
 ];
 
@@ -298,10 +300,16 @@ const H3_TRAMO_GANADO = '### 4.4 ';
 const H3_LIBERACION = '### 5.4 ';
 /** Task 8. La INTEGRACIÓN no tiene H3: el domicilio es su propio H2, como en PLANPACTO:715. */
 const H2_INTEGRACION = '## INTEGRACIÓN CON EL MARCO ¡BASTA!';
+const H2_MODELO_ECONOMICO = '## SECCIÓN 9: MODELO ECONÓMICO Y FISCAL';
 const H3_LA_RAMPA_DEL_GASTO = '### 9.1 ';
 const H3_EJE_INTERGENERACIONAL = '### 9.2 ';
 const H3_TRES_COLUMNAS = '### 9.3 ';
 const H3_SIN_PISO = '### 9.4 ';
+/** Task tramo C: la subsección que declara los unitarios que §9 NO deriva. */
+const H3_UNITARIOS_NO_DERIVADOS = '### 9.5 ';
+/** §3.6, que difiere la razón de ejecución, y §4.5, que ejecuta la fusión de los dos fondos. */
+const H3_BLINDAJE = '### 3.6 ';
+const H3_TRAMO_COMUN = '### 4.5 ';
 /** Task 9. Las tres secciones nuevas no tienen H3: el domicilio es su propio H2. */
 const H2_RIESGOS = '## SECCIÓN 10: RIESGOS Y RESPUESTAS';
 const H2_PERDEDORES = '## SECCIÓN 11: EL MAPA DE PERDEDORES';
@@ -2521,6 +2529,56 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'las frecuencias del tablero y el disparador de la falla terminal son valores propios sin ' +
       'anclaje externo: o llevan la fórmula, o se leen como medidos',
   },
+  /**
+   * ── LAS CINCO AFIRMACIONES FALSAS DE LA REVISIÓN FINAL, DOMICILIADAS ────────
+   *
+   * Las cinco son de la misma clase: una sección repite en una frase lo que otra
+   * resolvió en un párrafo, y la frase dice lo contrario. Ninguna mueve un
+   * encabezado ni un número, así que ninguna de las doce revisiones por tarea
+   * las podía ver y ninguna cae bajo un chequeo estructural. Van como aserciones
+   * porque es lo que son: frases que el documento debe.
+   */
+  {
+    valor: 'sin padrón que lo defienda',
+    en: [H2_HOJA_DE_RUTA],
+    porQue:
+      'la lista de supervivencia defendía los tres tramos «por su padrón» y el Tramo Común liquida ' +
+      'en cero (4.5): un tramo que no liquida no tiene padrón. Sin la salvedad, §12 promete que la ' +
+      'pieza que no se paga se defiende sola (I-6)',
+  },
+  {
+    valor: 'el Tramo Común declarado y en cero',
+    en: [H2_VISION],
+    porQue:
+      'la visión ponía en pie «la Renta de Arco liquidando en sus tres tramos», que era la única ' +
+      'sobrepromesa del documento: 4.5 lo deja declarado y sin financiar, 9.3 le pone erogación ' +
+      'ninguna y 17 lo repite. La sección de visión es donde una promesa de más no la contradice ' +
+      'ninguna otra (I-1)',
+  },
+  {
+    valor: 'la Dote no cuelga de acá',
+    en: [H2_INTEGRACION],
+    porQue:
+      'la INTEGRACIÓN decía que de PLANTER cuelgan el Tramo Común Y la Dote, y 5.2 renunció al ' +
+      'Fondo Intergeneracional y 5.3 puso la Dote en la partida común. Esa renuncia es una de las ' +
+      'cuatro con las que §11 arma su cuenta: atribuírsela a PLANTER la borra de las dos partes (I-2)',
+  },
+  {
+    valor: 'el sector sí está escrito',
+    en: ['## PREÁMBULO — LA VIDA QUE NADIE MIRÓ ENTERA'],
+    porQue:
+      'el preámbulo afirma que el corpus no escribió la palabra «funeral», que es literalmente ' +
+      'cierto y materialmente engañoso: §0.2 desarma la impresión cincuenta líneas después citando ' +
+      'PLANEB:983-991. La acotación va en el párrafo que más gente lee y no en el que menos (M-3)',
+  },
+  {
+    valor: 'afuera de la tercera',
+    en: [H2_CIERRE],
+    porQue:
+      'el epígrafe resumía los tres hilos como llegadas tarde, y al hilo de los cincuenta y dos ' +
+      'años no se llega tarde: por edad el Alto alcanza a Teresa y por régimen no. El fallo es de ' +
+      'universo y no de tiempo, y el epígrafe es la línea que se cita (M-1)',
+  },
 ];
 
 /**
@@ -3260,6 +3318,22 @@ const PROHIBIDOS: Prohibido[] = [
     // propósito: `[pendiente»` también es un marcador.
     patron: /[[«{]pendiente[\]»}]/i,
     porQue: 'marcador de borrador entre delimitadores: el documento se commitea sin huecos anotados',
+  },
+  {
+    /**
+     * **LA ÚNICA SOBREPROMESA QUE ESTE DOCUMENTO TUVO, COMO TRIPWIRE** (I-1).
+     * §4.5 deja el Tramo Común declarado y liquidando en cero hasta que el fondo
+     * publique rendimiento realizado y su administrador acepte la afectación,
+     * §9.3 le pone erogación «ninguna» y §17 lo repite en su tabla; §16 escribía
+     * «la Renta de Arco liquidando en sus tres tramos» y no lo cruzaba nadie.
+     * Verificado sobre el texto: la frase no aparece en ninguna otra parte, así
+     * que **falsos positivos: cero**. Es la mitad negativa de un par — la
+     * aserción de §16 exige la salvedad y esto prohíbe la promesa.
+     */
+    patron: /liquidando (?:en )?(?:sus |los )?tres tramos/iu,
+    porQue:
+      'el Tramo Común liquida en cero hasta que su fuente exista (4.5), y la sección de visión es ' +
+      'donde una promesa de más no la contradice ninguna otra sección',
   },
   {
     patron: /(?<!\p{L})(sólo|ést[aeo]s?|és[aeo]s?|aquél(?:la|los|las)?)(?!\p{L})/iu,
@@ -8186,6 +8260,299 @@ function verificarCierreDelDocumento(raw: string, lineas: string[]): string[] {
  */
 const ARISTAS_CRITICAS = ['PLANCUIDADO', 'PLANMON', 'PLANTER', 'PLANDIG', 'PLANSAL', 'PLANREP'];
 
+/**
+ * ── EL DIFERIMIENTO CONTRA SU DESTINATARIO (C-1 de la revisión final) ─────────
+ *
+ * **Seis valores se difirieron a la SECCIÓN 9 con destinatario nombrado y la
+ * SECCIÓN 9 no tenía ninguno de los seis** —cuatro en silencio y dos refutados,
+ * porque §9.3 demuestra que el padrón que harían falta no existe—. Ninguna de
+ * las doce revisiones por tarea podía verlo: cada subsección, leída sola contra
+ * su brief, está bien. Lo que falla es el par, y el par no tenía guardia.
+ *
+ * Es la clase de defecto que esta guardia ya cierra en otros seis lugares —una
+ * cifra sin domicilio, un restatement sin origen, una cita sin línea— aplicada
+ * al último par que quedaba suelto: **una remisión es una promesa, y una promesa
+ * se verifica contra quien la tiene que pagar.**
+ *
+ * Se verifica en las DOS direcciones y las dos importan:
+ *
+ * 1. **De §9.5 hacia afuera.** Cada entrada nombra una subsección; esa
+ *    subsección tiene que existir y tiene que seguir nombrando a la SECCIÓN 9.
+ *    Una entrada que responde a un diferimiento que ya no está es una respuesta
+ *    a nadie, y el numeral escrito se cruza contra los renglones que enumera —el
+ *    mismo cruce que la lista de supervivencia de §12— porque borrar un renglón
+ *    y dejar el número es la manera más barata de achicar la deuda declarada.
+ * 2. **De afuera hacia §9.5, que es la dirección del hallazgo.** Toda línea de
+ *    fuera de la SECCIÓN 9 que nombre «la Sección 9» se clasifica: o su
+ *    subsección está enumerada en §9.5, o está en la lista de exentas de abajo
+ *    con su razón escrita. **Lo que no entre en ninguna de las dos se REPORTA**,
+ *    porque un diferimiento nuevo sin entrada es exactamente el defecto que esto
+ *    vino a cerrar, y la guardia no puede saber sola si el destinatario lo paga.
+ *
+ * La lista de exentas se verifica también al revés: una exenta que dejó de
+ * nombrar a la SECCIÓN 9 es una exención vieja, y una exención vieja es una
+ * lista opt-in con otro nombre.
+ */
+const DIFERIMIENTOS_EXENTOS: { en: string; porQue: string }[] = [
+  {
+    en: CABECERA,
+    porQue: 'el gasto anual en régimen, y §9.1 lo deriva: es el diferimiento que la sección SÍ paga',
+  },
+  {
+    en: H2_TESIS,
+    porQue: 'no difiere ningún valor: dice qué pregunta ordena la SECCIÓN 9, que es otra cosa',
+  },
+  {
+    en: '### 3.1 ',
+    porQue:
+      'no difiere ningún valor: la tercera condición de una estación es tener financiamiento con ' +
+      'nombre, y nombra a §4 y a §9 como los dos lugares donde está',
+  },
+  {
+    en: H3_BLINDAJE,
+    porQue: 'la razón de ejecución, y §9.4 la fija en uno a veinte: el otro diferimiento que sí se paga',
+  },
+  {
+    en: '### 6.1 ',
+    porQue:
+      'el costo del pasaje donde el Mandato Kilométrico no rige no es un unitario diferido: cae ' +
+      'adentro de la fila «Capa de Forma» de la tabla de §9.3, que lo carga sin itemizarlo',
+  },
+  {
+    en: H2_PERDEDORES,
+    porQue:
+      'no difiere ningún valor: dice que las cuatro renuncias del mapa son las que encarecieron la ' +
+      'cuenta de §9.1, y esa es una lectura hacia atrás y no una promesa hacia adelante',
+  },
+];
+
+/** El H3 o H2 dueño de cada línea, para clasificar una remisión por su domicilio. */
+function duenoDeLaLinea(lineas: string[], k: number): string {
+  for (let i = k; i >= 0; i--) {
+    const t = lineas[i].trim();
+    if (t.startsWith('### ')) return `${t.split(/\s+/).slice(0, 2).join(' ')} `;
+    if (t.startsWith('## ')) return t;
+  }
+  return CABECERA;
+}
+
+/** El domicilio con el que la lista de exentas nombra a un dueño, normalizado. */
+const mismoDomicilio = (dueno: string, etiqueta: string): boolean =>
+  etiqueta.endsWith(' ') ? dueno.startsWith(etiqueta) : dueno === etiqueta;
+
+function verificarDiferimientosALaNueve(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const { texto, errores: errDom } = textoDeDomicilio(lineas, H3_UNITARIOS_NO_DERIVADOS);
+  errores.push(...errDom);
+  if (texto === null) return errores;
+
+  // ── (1) Los renglones de §9.5, contra su numeral y contra sus remitentes.
+  const renglones = texto.split('\n').filter((l) => l.trimStart().startsWith('- **'));
+  const domiciliosEnumerados = new Set<string>();
+  for (const r of renglones) {
+    const m = /\((\d{1,2}\.\d{1,2})\)/u.exec(r);
+    if (m === null) {
+      errores.push(
+        `§9.5 lleva un renglón que no nombra la subsección que difirió el valor («${r.slice(0, 70)}»). ` +
+          'Una entrada sin remitente no cierra ningún par: es un hueco más, escrito en la sección que ' +
+          'existe para decir de quién es cada hueco',
+      );
+      continue;
+    }
+    const dom = `### ${m[1]} `;
+    domiciliosEnumerados.add(dom);
+    const { texto: remitente } = textoDeDomicilio(lineas, dom);
+    if (remitente === null) {
+      errores.push(`§9.5 contesta un diferimiento de «${dom.trim()}» y esa subsección no existe`);
+      continue;
+    }
+    if (!/Secci[óo]n 9/u.test(remitente)) {
+      errores.push(
+        `§9.5 contesta un diferimiento de «${dom.trim()}» y esa subsección ya no nombra a la SECCIÓN 9. ` +
+          'O la remisión se borró —y entonces la entrada contesta a nadie— o se reescribió apuntando a ' +
+          'otro lado, y el par que esta subsección existe para cerrar quedó abierto del otro extremo',
+      );
+    }
+  }
+
+  const plano95 = texto.replace(/\*\*/g, '');
+  const total = /(\p{L}+) valores se difieren/u.exec(plano95);
+  const pagados = /y (\p{L}+) se pagan/u.exec(plano95);
+  const resto = /Los otros (\p{L}+) no se derivan/u.exec(plano95);
+  const enLetrasReal = EN_LETRAS[renglones.length] ?? String(renglones.length);
+  if (resto === null) {
+    errores.push(
+      '§9.5 no dice cuántos valores difiere sin derivar, y sus renglones son ' +
+        `${String(renglones.length)}. El numeral y la lista son el mismo dato escrito dos veces`,
+    );
+  } else if (resto[1].toLowerCase() !== enLetrasReal) {
+    errores.push(
+      `§9.5 dice que quedan «${resto[1]}» sin derivar y enumera ${String(renglones.length)} ` +
+        `(«${enLetrasReal}»). Borrar un renglón y dejar el número es la manera más barata de achicar ` +
+        'la deuda que esta subsección existe para declarar',
+    );
+  }
+  /**
+   * El total y los pagados se LEEN del texto, no se fijan acá: lo que la guardia
+   * cruza es que las dos partes sumen el todo. Si falta cualquiera de los dos
+   * numerales el chequeo no se saltea, se REPORTA — un `exec` que devuelve
+   * `null` y sigue de largo es la clase de no-op que este archivo lleva ocho
+   * veces encontrada.
+   */
+  if (total === null || pagados === null) {
+    errores.push(
+      '§9.5 no declara cuántos valores se le difirieron ni cuántos paga, y sin esas dos mitades el ' +
+        'renglón enumerado no se cruza contra nada: la subsección se vuelve una lista sin balance',
+    );
+  } else {
+    const nPagados = EN_LETRAS.indexOf(pagados[1].toLowerCase());
+    const esperadoTotal = nPagados === -1 ? '' : EN_LETRAS[renglones.length + nPagados] ?? '';
+    if (total[1].toLowerCase() !== esperadoTotal) {
+      errores.push(
+        `§9.5 declara «${total[1]}» valores diferidos y sus dos partes dan «${esperadoTotal}»: ` +
+          `«${pagados[1]}» pagados (§9.1 y §9.4) más los ${String(renglones.length)} que enumera. ` +
+          'El total es lo único que dice cuánto de lo prometido a esta sección se cumplió',
+      );
+    }
+  }
+
+  // ── (2) La dirección del hallazgo: toda remisión de afuera, clasificada.
+  const { desde: iNueve, tramo: tramoNueve } = tramoDeSeccion(lineas, H2_MODELO_ECONOMICO);
+  const finNueve = tramoNueve === null ? -1 : iNueve + tramoNueve.length;
+  const exentasVistas = new Set<string>();
+  lineas.forEach((linea, k) => {
+    if (!/Secci[óo]n 9/u.test(linea)) return;
+    if (iNueve !== -1 && k >= iNueve && k < finNueve) return; // adentro de §9 no es remisión
+    const dueno = duenoDeLaLinea(lineas, k);
+    if (domiciliosEnumerados.has(dueno)) return;
+    const exenta = DIFERIMIENTOS_EXENTOS.find((e) => mismoDomicilio(dueno, e.en));
+    if (exenta !== undefined) {
+      exentasVistas.add(exenta.en);
+      return;
+    }
+    errores.push(
+      `línea ${String(k + 1)}: «${dueno.trim()}» nombra a la SECCIÓN 9 y ni §9.5 la enumera ni está ` +
+        'declarada exenta. Una remisión a una sección que no paga es peor que un hueco: el hueco ' +
+        'avisa y el diferimiento manda a caminar. O §9.5 la contesta, o la exención va escrita con su ' +
+        'razón — la guardia no puede decidirlo sola y por eso lo reporta',
+    );
+  });
+  for (const { en, porQue } of DIFERIMIENTOS_EXENTOS) {
+    if (exentasVistas.has(en)) continue;
+    errores.push(
+      `«${en}» está declarado exento de §9.5 («${porQue}») y ya no nombra a la SECCIÓN 9. Una ` +
+        'exención vieja es una lista opt-in con otro nombre: se borra o se corrige',
+    );
+  }
+
+  return errores;
+}
+
+/**
+ * ── EL MAPA DE PERDEDORES CONTRA LO QUE EL DOCUMENTO EJECUTÓ (C-2) ───────────
+ *
+ * §11 enumeraba dos perdedores y declaraba expresamente que no perdían nada
+ * cuatro PLANes, y **§4.5 le había sacado algo a tres de esos cuatro en la misma
+ * página**: fusiona el Fondo Soberano Bastardo con el Ciudadano, retira el
+ * nombre que `PLANMON`, `PLANEN` y `PLANEB` usan, y con la arquitectura de
+ * reparto que elige deja inalcanzable el objetivo de capital de PLANMON. El
+ * documento declina cuatro enmiendas unilaterales ajenas y **ejecuta una**, y la
+ * ejecutada era la única que no estaba en el inventario.
+ *
+ * Tres cruces, y ninguno es una lista a mano:
+ *
+ * 1. **El conjunto tocado por la fusión se DESCUBRE de §4.5.** Todo PLAN que
+ *    §4.5 ancle por línea en una línea que nombre el alias que este documento
+ *    retira tiene que estar nombrado en §11. No se exige de qué lado: PLANTER
+ *    gana el nombre y por eso figura como ausencia, no como pérdida. Lo que no
+ *    se admite es el silencio.
+ * 2. **Ausencia y pérdida son excluyentes**, y el numeral de las ausencias se
+ *    cruza contra los PLANes que enumera. La versión anterior tenía a PLANMON de
+ *    los dos lados sin que nada lo notara.
+ * 3. **Si §9.2 declara que este PLAN le achicó el margen a PLANPACTO**, PLANPACTO
+ *    tiene que estar entre los que pierden. El disparador sale del texto de §9.2
+ *    y no de una constante: es el documento el que se acusa, y el mapa el que
+ *    tiene que recogerlo.
+ */
+const CODIGO_DE_PLAN = /\bPLAN[A-Z0-9]{2,}\b/gu;
+/** El alias que §4.5 retira. Es lo que identifica a las líneas de la fusión. */
+const ALIAS_RETIRADO = 'Bastardo';
+
+function verificarMapaDePerdedores(lineas: string[]): string[] {
+  const { tramo, errores } = tramoDeSeccion(lineas, H2_PERDEDORES);
+  if (tramo === null) return errores;
+  const plano = tramo.map((l) => l.replace(/\*\*/g, ''));
+
+  // ── Los que pierden: el párrafo que abre con el código y el verbo.
+  const pierden = new Set<string>();
+  for (const l of plano) {
+    const m = /^(PLAN[A-Z0-9]{2,}) pierde\b/u.exec(l.trimStart());
+    if (m !== null) pierden.add(m[1]);
+  }
+
+  // ── Las ausencias declaradas, con su numeral cruzado contra lo que enumera.
+  const ausencias = new Set<string>();
+  const m = /las otras (\p{L}+) ausencias:((?:[^.]|\.(?=\S))*)/u.exec(plano.join('\n'));
+  if (m === null) {
+    errores.push(
+      '§11 no declara las ausencias —los PLANes que NO pierden nada— y son la mitad del mapa: sobre ' +
+        'un PLAN que reasigna la partida más grande del Estado, la presunción por omisión es que le ' +
+        'sacó a todos',
+    );
+  } else {
+    for (const c of m[2].match(CODIGO_DE_PLAN) ?? []) ausencias.add(c);
+    const enLetrasReal = EN_LETRAS[ausencias.size] ?? String(ausencias.size);
+    if (m[1].toLowerCase() !== enLetrasReal) {
+      errores.push(
+        `§11 dice «las otras ${m[1]} ausencias» y enumera ${String(ausencias.size)} ` +
+          `(«${enLetrasReal}») [${[...ausencias].join(' · ')}]. El numeral y la lista son el mismo ` +
+          'dato: sacar un nombre y dejar el número deja a un PLAN sin declaración de ningún lado',
+      );
+    }
+    for (const c of ausencias) {
+      if (!pierden.has(c)) continue;
+      errores.push(
+        `§11 declara que «${c}» no pierde nada Y le escribe un párrafo de pérdida. Las dos mitades ` +
+          'del mapa se contradicen, y la que un adversario cita es la que conviene',
+      );
+    }
+  }
+
+  // ── (1) El conjunto que la fusión de §4.5 toca, descubierto de §4.5.
+  const { texto: fusion } = textoDeDomicilio(lineas, H3_TRAMO_COMUN);
+  if (fusion !== null) {
+    const tocados = new Set<string>();
+    for (const l of fusion.split('\n')) {
+      if (!l.includes(ALIAS_RETIRADO)) continue;
+      for (const a of l.matchAll(/`(PLAN[A-Z0-9]{2,}):\d/gu)) tocados.add(a[1]);
+    }
+    for (const c of tocados) {
+      if (pierden.has(c) || ausencias.has(c)) continue;
+      errores.push(
+        `§4.5 le toca el fondo a «${c}» —lo ancla por línea sobre el alias que este documento ` +
+          'retira— y §11 no lo declara ni de un lado ni del otro: ni pierde ni figura entre las ' +
+          'ausencias. Nombrarlo al pasar no alcanza; el mapa existe para que cada PLAN tocado tenga ' +
+          'un lado escrito, y una fusión de dos PLANes ajenos ejecutada en §4.5 y ausente del ' +
+          'inventario es el titular servido',
+      );
+    }
+  }
+
+  // ── (3) Lo que §9.2 se acusa a sí mismo, recogido por el mapa.
+  const { texto: eje } = textoDeDomicilio(lineas, H3_EJE_INTERGENERACIONAL);
+  if (eje !== null && /el PLAN que se lo achic[óo] es este/iu.test(eje.replace(/\*\*/g, ''))) {
+    if (!pierden.has('PLANPACTO')) {
+      errores.push(
+        '§9.2 declara que este PLAN le achicó el margen a PLANPACTO y §11 no lo lleva entre los que ' +
+          'pierden. El compromiso está escrito donde el autor lo puso y no donde el lector lo va a ' +
+          'buscar, que es el modo de falla entero de esta sección',
+      );
+    }
+  }
+
+  return errores;
+}
+
 function verificarAristasCriticas(lineas: string[]): string[] {
   const { tramo, errores } = tramoDeSeccion(lineas, H2_INTEGRACION);
   if (tramo === null) return errores;
@@ -9350,6 +9717,10 @@ function main(): void {
   //        los cinco conteos de la INTEGRACIÓN cruzados contra sus archivos.
   errores.push(...verificarAristasCriticas(lineas));
   errores.push(...verificarConteosDeLaIntegracion(lineas));
+  // 8 bis 7) Revisión final del tramo C: los seis valores diferidos a §9 contra §9.5
+  //          —en las dos direcciones— y el mapa de perdedores contra lo que §4.5 ejecutó.
+  errores.push(...verificarDiferimientosALaNueve(lineas));
+  errores.push(...verificarMapaDePerdedores(lineas));
   // 8 bis 6) Task 11: las correcciones que este PLAN prometió hacer en documentos
   //          AJENOS —PLANCUL, PLANCUIDADO y PLAN24CN—, con sus premisas rehechas.
   errores.push(...verificarNotasAjenas());
@@ -9453,6 +9824,14 @@ function main(): void {
       'habilitación corrida contra el prohibido del gate, los cuatro cocientes del acta, la banda ' +
       'derivada y el umbral del indicador que §10 escribe, los cinco conteos de la ' +
       'INTEGRACIÓN cruzados contra §3.2, contra el archivo de PLANCUL y contra su propia lista, ' +
+      '§9.5 con sus renglones contados contra los dos numerales que escribe y cada uno abierto ' +
+      'contra la subsección que le difirió el valor —que tiene que seguir nombrando a la SECCIÓN 9—, ' +
+      'y TODA remisión a la SECCIÓN 9 de fuera de ella clasificada: enumerada, o exenta con su razón ' +
+      `entre las ${String(DIFERIMIENTOS_EXENTOS.length)} declaradas —verificadas en las dos ` +
+      'direcciones—, o REPORTADA, mapa de perdedores con el conjunto tocado por la fusión de §4.5 ' +
+      'DESCUBIERTO de §4.5 y exigido con un lado escrito en §11, ausencia y pérdida excluyentes, el ' +
+      'numeral de las ausencias cruzado contra los PLANes que enumera, y PLANPACTO entre los que ' +
+      'pierden mientras §9.2 siga declarando que este PLAN le achicó el margen, ' +
       `las ${String(NOTAS_AJENAS.length)} notas prometidas en documentos ajenos presentes, con toda ` +
       'línea que las motiva DESCUBIERTA y marcada por encima de la nota y con la premisa de cada una ' +
       'rehecha contra su archivo (PLANVIV sin la palabra, PLAN24CN todavía research-only), ' +
