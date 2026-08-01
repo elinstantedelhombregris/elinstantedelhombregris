@@ -632,3 +632,95 @@ Por eso el dispositivo se llama por su justificación y no por su mecánica. No 
 **Lo que sí conviene dejar escrito es la trampa que la audiencia va a tener**, para que quien la conduzca dentro de una década la tenga a la vista: tres años es poco para juzgar un aparato cuya premisa es que el resultado importante aparece cuando nadie lo esperaba. Una audiencia rigurosa a los tres años va a decir que no salió nada, y va a tener razón con la evidencia disponible. **La audiencia no está para decidir si el Seguro sirve: está para que nadie pueda decir que no se sabía qué se hizo con la plata.** Confundir las dos cosas es la forma más probable de que este dispositivo se cierre antes de poder mostrar para qué existía.
 
 **Un último punto, sobre el diez por ciento y no sobre el sorteo.** Ese número tampoco es una medición: es la proporción que este documento eligió, y el criterio con el que la eligió queda escrito para que se pueda discutir. Tenía que ser **suficientemente chico** como para que el noventa por ciento dirigido siga siendo el PLAN y no un accesorio, y **suficientemente grande** como para financiar algo que no sea simbólico — sobre el régimen de la Sección 13 son varias decenas de millones de dólares por año, que es plata real para trabajo sin objetivo. Si en la primera audiencia el problema resulta ser que las presentaciones sobran y la plata falta, el número es chico; si resulta que la plata sobra y las presentaciones faltan, el problema no es el número sino que nadie cree que el sorteo sea de verdad, y eso se arregla mostrando quiénes cobraron y no subiendo el porcentaje.
+
+## SECCIÓN 10: LA SERIE CENTENARIA
+
+> *"Una serie con un corte no es una serie: son dos series cortas que no se pueden comparar, y la comparación era todo el valor."*
+
+**Entre siete y doce mediciones, elegidas una sola vez, sostenidas cien años, y legalmente irreductibles.** Es la parte de este PLAN que no le habla a esta generación, y es la que lo vuelve un aparato civilizatorio en vez de un aparato presupuestario.
+
+Qué se mide sale de las verticales y de lo que el país ya sabe que le importa: el carbono y la biología del suelo bajo manejos distintos, la composición del agua en un conjunto fijo de puntos, la calidad del aire en un conjunto fijo de ciudades, el retroceso de los glaciares, la extensión del bosque nativo, la abundancia de un puñado de poblaciones indicadoras, la carga de enfermedad en cohortes fijas, la natalidad y la migración interna, y el estado de las lenguas que se hablan en el territorio. **La lista definitiva no la fija este documento**: la fija la primera Mesa Federal de materia CyT cuando exista, o el interinato de 3.3 con audiencia pública si a 2036 esa Mesa no está. Lo que este documento fija es el número —**entre siete y doce**, y es decisión de diseño, no una medición— y el criterio: menos de siete no cubre los sistemas que las verticales nombran, y más de doce produce un compromiso que ningún presupuesto sostiene un siglo.
+
+Las cuatro propiedades que una medición tiene que cumplir para entrar, y las cuatro son excluyentes:
+
+**Que el método se pueda repetir dentro de cien años.** Un método que depende de un instrumento propietario, de un servicio que se contrata o de un modelo que se actualiza no produce una serie: produce tramos incomparables con el mismo nombre. Se prefiere el método más tosco que dé una medida estable.
+
+**Que el punto de medición sea físico y esté declarado.** Coordenadas, no criterios. «Cinco puntos representativos de la cuenca» es una definición que en veinte años se reinterpreta; cinco coordenadas, no.
+
+**Que el dato crudo se publique el mismo día**, bajo el Sello Abierto, y se inscriba en el Archivo de `PLANMEMORIA` con su hash, en los siete nodos. La serie tiene que sobrevivir al organismo que la mide.
+
+**Que la interrupción tenga un responsable con nombre.** No un procedimiento: una persona que firma cada año que la medición se hizo, y cuyo nombre queda en el registro el año en que no se hizo.
+
+**Y ahora la parte incómoda, que es la que este documento no puede resolver y no va a fingir que resuelve.** La falla 0.2 de este mismo PLAN dice que la Argentina legisla números y no los ejecuta sin que le cueste nada, y `BLINDAJE:53` remata que *«no hay protección legal absoluta»*. **Una serie protegida por ley es exactamente el instrumento que este documento declaró insuficiente doce mil palabras atrás.** Escribir «se protege por ley» y seguir sería la contradicción más grande del PLAN.
+
+Lo que hay, entonces, y es menos de lo que haría falta. **La ley sirve para una cosa**: obliga a que interrumpir sea un acto, con firma y fecha, en vez de una omisión presupuestaria que no deja rastro. Eso no impide la interrupción; impide que sea anónima. **El hash en siete nodos protege el registro, no la medición** — es una distinción exacta y hay que hacerla, porque `PLANMEMORIA` garantiza que lo medido no se borre y no puede garantizar que se siga midiendo. **Y el costo bajo es lo único que se parece a una defensa real**: siete a doce mediciones anuales son, en la escala de la Sección 13, una fracción menor del presupuesto, y una partida chica es más difícil de encontrar cuando alguien busca dónde recortar. Es una defensa por irrelevancia contable y no es honroso, y es la mejor que este documento tiene.
+
+**El único blindaje que la experiencia argentina avala está en `BLINDAJE:53` y no es jurídico: que revertir salga más caro que sostener.** Para una serie de medición, eso significa una sola cosa — que alguien la use. Una serie que nadie consulta se corta sin costo. Una que fundamenta decisiones, litigios y comparaciones internacionales tiene, cada año, a alguien a quien le sirve. **Por eso la Serie Centenaria se publica en crudo desde el primer día en vez de esperar a tener tramo suficiente para decir algo: no por transparencia, sino porque el uso es su única protección real.**
+
+**Y una advertencia sobre el propio dispositivo, para que quien lo herede la tenga escrita:** la Serie es lo primero que este documento va a proponer y lo último que va a poder mostrar. Durante los primeros veinte años no va a producir ningún hallazgo, va a costar todos los años, y va a ser sistemáticamente la línea más fácil de recortar del presupuesto. **Empezar igual es la única manera de que exista**, porque una serie que se posterga hasta que haya condiciones empieza siempre veinte años después de cuando hubiera servido.
+
+## SECCIÓN 11: DOBLE USO Y BIOSEGURIDAD
+
+> *"Un banco que presta cepas y un sello que publica todo el mismo día son, juntos, un problema que ninguno de los dos tiene por separado."*
+
+Ésta es la sección donde el documento admite que sus propios dispositivos pueden hacer daño, y hay que escribirla sin dramatizar y sin trámite.
+
+**El corpus no tiene doctrina sobre esto y este PLAN la estrena, y corresponde declararlo antes de escribir una sola regla.** Buscado en los veinticuatro documentos del taller: **«doble uso» y «biobanco» tienen cero ocurrencias**, y **«bioseguridad» tiene una sola, en `PLANISV:1614`, referida a SENASA y al control de calidad de insumos biológicos**. El proyecto rediseñó la salud, el agua, el suelo, la vigilancia y la soberanía digital sin escribir nunca qué pasa cuando el conocimiento que se produce sirve para las dos cosas. **No se remite acá porque no hay a qué remitir.**
+
+El conflicto es concreto y nació en la Sección 7: un **Banco de Materia Viva** que presta material biológico —con el ANLIS Malbrán entre sus nodos— más un **Sello Abierto** que publica resultado, método, datos y código el mismo día. Cada dispositivo, solo, es correcto. Juntos, construyen la ruta más corta entre un catálogo de material peligroso y un manual público para usarlo.
+
+### 11.1 Qué no se publica el mismo día
+
+**La regla general no cambia y hay que decirlo primero: todo se publica.** Lo que esta sección introduce no es una categoría de secreto sino **una demora acotada, con fecha, con motivo escrito y con contador público.**
+
+Se difiere, y solamente se difiere, lo que cumpla las tres condiciones a la vez: que describa cómo producir o potenciar un agente capaz de daño masivo; que la descripción sea suficiente para reproducirlo por alguien con capacidad técnica media; y que el daño previsible de publicarla supere el beneficio previsible. **Las tres, no una.** El primer criterio solo alcanzaría para diferir media biología.
+
+**La demora máxima es de trescientos sesenta días y no es renovable por la misma vía que la produjo.** Vencido el plazo, se publica o se lleva a ley — no hay tercera opción y no hay prórroga administrativa. Y **el tablero de la Sección 17 muestra cuántas publicaciones están diferidas y desde cuándo**, aunque no muestre cuáles. Un contador público de secretos es lo único que impide que la excepción crezca en silencio: no revela nada y hace visible el volumen.
+
+### 11.2 Qué no se presta
+
+El Banco de Materia Viva presta contra Pregunta abierta, y hay material que no presta contra nada.
+
+**La lista de lo que no circula la mantiene un cuerpo que no es la ANCON**, por la misma razón por la que los jurados se habilitan afuera: quien administra el Banco tiene interés en que el Banco sea útil, y ese interés es el equivocado para decidir qué no sale. La lista la mantiene un comité con mayoría de miembros externos a la agencia, con representación sanitaria, agropecuaria y de seguridad, y **sus decisiones se publican como decisiones, con fundamento, aunque el objeto quede sin nombrar.**
+
+Tres reglas operativas. **Se presta a instituciones, no a personas**, y la institución responde. **Todo préstamo de material sensible queda inscripto en el Archivo de `PLANMEMORIA` con hash**, de modo que la trazabilidad no dependa del registro del propio Banco — que es el registro que un mal uso interno alteraría primero. Y **el material que salga del país sigue el régimen del PLAN dueño de la materia y de `PLANGEO`**, no un régimen propio de este documento.
+
+### 11.3 El régimen del nodo de referencia
+
+El **ANLIS Malbrán** entra como nodo del Banco y es el nodo donde el riesgo es real, no hipotético: es donde están los aislamientos que importan.
+
+Su régimen es distinto del de los otros siete y se escribe distinto. **No presta bajo el protocolo general del Banco**: presta bajo el suyo, que es más estricto y que este documento no reescribe, porque un laboratorio de referencia en enfermedades infecciosas tiene protocolos que preceden a este PLAN y que este PLAN no está en condiciones de mejorar. **Lo que la incorporación al Banco agrega es catálogo y trazabilidad, no apertura.** Se sabe qué hay y quién lo pidió; no se afloja quién puede pedirlo.
+
+**Y una consecuencia que corre en la dirección contraria a todo el resto del documento:** las Preguntas Nacionales que involucren ese nodo pueden tener actas de cierre con partes reservadas. Es la única excepción al Sello Abierto que este PLAN admite, está acotada a un nodo, y **cada acta con parte reservada se cuenta en el mismo contador público de 11.1.**
+
+### 11.4 Quién responde cuando falla
+
+Sin esto, todo lo anterior es una declaración de buenas intenciones. **Una doctrina de bioseguridad sin responsable nominado no es una doctrina: es una descripción de lo que estaría bien que pasara.**
+
+**Hay una persona con nombre por nodo del Banco y una por el conjunto**, y su función es responder, no supervisar: el año en que un material prestado por ese nodo aparezca donde no debía, esa persona explica públicamente qué pasó, con el registro del Archivo a la vista, que no es suyo y no puede editar.
+
+**Y el procedimiento de suspensión, que es lo que un incidente vuelve necesario en cuestión de horas y por eso se escribe antes de que ocurra.** El comité de 11.2 puede suspender la circulación de una clase de material o el Sello de una Pregunta, de inmediato y sin consulta previa; la suspensión **caduca a los noventa días si no la ratifica el jurado** de la Sección 3; y **la suspensión y su caducidad se publican las dos**, porque una medida de emergencia que se toma en público y se levanta en privado es una medida permanente con otro nombre.
+
+**Lo que este documento no tiene, y lo declara:** no hay acá una evaluación de riesgo cuantitativa, no hay lista de agentes, y no hay clasificación por niveles de contención. Las tres cosas existen afuera, en estándares internacionales que este documento no verificó contra fuente, y **escribirlas de memoria en la sección que trata de material peligroso sería la peor manera posible de estrenar una cifra.** Van como deuda de la primera revisión profunda, con dueño: el comité de 11.2, antes de que el primer nodo preste. **Y con orden de precedencia escrito, que es lo que evita que la deuda se use como excusa: hasta que esa evaluación exista, el Banco no presta material de ningún nodo que el comité no haya revisado uno por uno.** Empezar cerrado y abrir con criterio es reversible; empezar abierto y cerrar después de un incidente, no.
+
+## SECCIÓN 12: LA AGENCIA NACIONAL DEL CONOCIMIENTO (ANCON)
+
+> *"Una agencia se define por lo que tiene prohibido tanto como por lo que le encargan, y la lista de lo prohibido es la que nadie escribe."*
+
+La **Agencia Nacional del Conocimiento (ANCON)** es un ente autárquico creado por ley, con presupuesto propio proveniente del Fondo de la Sección 13, y con la función de administrar el circuito de las Preguntas Nacionales. La sigla sigue el patrón AN+sufijo que usan quince de las veintidós agencias del corpus.
+
+**Qué hace.** Administra el Censo y garantiza que las devoluciones salgan en plazo. Convoca y sortea los jurados. Mantiene el registro público de Preguntas. Administra el Fondo y publica su ejecución. Sostiene el Banco de Materia Viva, el Turno de Máquina, el Sello Abierto y los Modelos de Órgano. Convoca las Cátedras. Sortea el Seguro. Sostiene la Serie Centenaria. Y arma equipo, con Cátedras e infraestructura, **solamente para las Preguntas que caen en territorio sin organismo con mandato**.
+
+**Qué tiene prohibido, y va en la misma sección y con el mismo rango.** No administra el sistema científico existente. No dirige institutos, no evalúa carreras de investigador, no otorga ni administra becas y no absorbe organismos. **No abre Preguntas de la vertical Evaluación de mandatos sin pedido del PLAN evaluado** (5.4). **No habilita a sus propios jurados** (3.5). **No decide qué material no circula** (11.2). **No puede pedir que la materia CyT de `PLANMESA` se atrase** (3.3). Y **ninguna persona de la agencia puede dirigir el equipo de una Pregunta que la agencia haya redactado**, que es la incompatibilidad de 3.4 aplicada adentro.
+
+**La conducción**, con el patrón del corpus y sin invención propia: directorio colegiado, mandatos escalonados y no renovables, mezcla de concurso técnico, sorteo estratificado sobre padrones ajenos y representación territorial. Ningún miembro del Poder Ejecutivo. La composición exacta la fija la ley, y este documento fija dos condiciones que la ley no puede bajar: **ninguna institución puede tener más de un miembro**, y **la mayoría del directorio no puede provenir del sistema científico**, porque el modo de falla número uno de este PLAN es la captura por ese sistema y un directorio con mayoría de pares es la forma más rápida de consumarla.
+
+**El tamaño, y por qué se declara chico.** La ANCON administra un circuito, no una red de institutos: su plantilla propia es de cientos de personas y no de miles, y la mayor parte del presupuesto de la Sección 13 **no pasa por su nómina** sino que va a las Preguntas, a las Cátedras y a los nodos. Es una decisión de diseño y también una defensa: una agencia cuya estructura interna consume la mayoría de su presupuesto pierde, en cinco años, la capacidad de declarar que algo no se puede hacer por falta de plata.
+
+**Y el modo de falla de la agencia, escrito acá aunque la Sección 14 lo trate como riesgo, porque es el que la historia argentina hace más probable.** `BLINDAJE:44` describe cómo se mata una institución de conocimiento en este país: no se la deroga, se la asfixia. **El riesgo principal de la ANCON no es que la cierren: es que la dejen existir vacía**, con su ley intacta, su sigla en el organigrama, su directorio nombrado y ninguna Pregunta abierta. Desde afuera, una agencia vaciada se ve idéntica a una en funcionamiento. **Por eso el indicador de la Sección 17 que importa no es el presupuesto ejecutado ni la dotación, sino uno solo: cuántas Preguntas se cerraron con Prueba de Barro en los últimos doce meses.** Ese número no se puede simular con actividad.
+
+**Cómo se construye, y por qué no empieza siendo una agencia.** La Fase 0 de este PLAN es de 2029 a 2030 y en esa ventana la ANCON **no existe todavía como ente autárquico**: el corpus tiene el precedente de cómo se hace y conviene copiarlo en vez de pedir agencia el primer día. `PLANMESA` arranca con una *execution cell* —marco por decreto, sin agencia autárquica— y difiere la conversión al cierre de su tranche, y `PLANMEMORIA:110` hace lo mismo con una comisión interministerial cuya conversión a agencia con presupuesto protegido se evalúa recién si los pilotos cumplen métricas. **La ANCON sigue ese camino:** célula de ejecución en la Fase 0, con lo mínimo para abrir el Censo y devolver en plazo; ley y autarquía cuando haya Preguntas cerradas que mostrar, no antes. Es coherente con el principio de la cabecera —sin nuevas agencias autónomas en tranche-1— y con algo más incómodo: **una agencia creada antes de tener con qué llenarla es exactamente el organismo vaciado de `BLINDAJE:44`, construido vacío de fábrica.**
+
+**La rendición de cuentas, en tres piezas y ninguna es un informe anual.** La primera es el **tablero** de la Sección 17, que se actualiza solo y que muestra lo que la agencia preferiría no mostrar: Preguntas vencidas sin cierre, devoluciones fuera de plazo, cupos declarados desiertos, Cátedras precarias, publicaciones diferidas y Preguntas declaradas no contestables por falta de máquina. **La segunda es la evaluación externa**, que la agencia no elige y no contrata, y que se hace contra el mismo indicador único. **Y la tercera es la vertical novena aplicada a sí misma:** la ANCON **sí** puede pedir una Pregunta que evalúe su propio mandato, y este documento deja escrito que lo pida en la primera oportunidad — no porque obligue a nada, sino porque un PLAN que le pide a los otros veinticinco que se ofrezcan a ser evaluados y no se ofrece él tiene una sola lectura posible.
+
+**Y lo que la agencia le debe a quien la puso en marcha.** Aurelia Toledo depositó dos preguntas en dos mil once y en dos mil dieciocho y no recibió nada. La única obligación de la ANCON que este documento considera irrenunciable —antes que el Banco, antes que las Cátedras, antes que la Serie— es **la devolución en ciento veinte días, firmada por una persona.** Si la agencia tuviera que elegir entre sostener todo lo demás y sostener eso, sostiene eso: **un aparato que junta ignorancias y no contesta ya existe, y no hace falta una ley para tenerlo.**

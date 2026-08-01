@@ -518,7 +518,7 @@ El conflicto es concreto y ya quedó planteado en la Sección 7: **un Banco de M
 
 **Palabras:** serie 800–1.100 · doble uso 1.100–1.400 · ANCON 1.100–1.400.
 
-- [ ] Task 8 completa
+- [x] Task 8 completa
 
 ---
 

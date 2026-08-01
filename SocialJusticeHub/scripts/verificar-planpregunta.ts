@@ -55,6 +55,9 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 7: LA INFRAESTRUCTURA DE LO COMÚN',
   '## SECCIÓN 8: QUIÉN PREGUNTA Y QUIÉN CONTESTA',
   '## SECCIÓN 9: EL SEGURO CONTRA LO IMPREVISTO',
+  '## SECCIÓN 10: LA SERIE CENTENARIA',
+  '## SECCIÓN 11: DOBLE USO Y BIOSEGURIDAD',
+  '## SECCIÓN 12: LA AGENCIA NACIONAL DEL CONOCIMIENTO (ANCON)',
 ];
 
 /**
@@ -144,7 +147,58 @@ const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; po
       'dispositivos y cuatro declaraciones de propiedad ajena: germoplasma de PLANISV, cómputo de ' +
       'PLANDIG, custodia de PLANMEMORIA',
   },
+  {
+    h2: '## SECCIÓN 8: QUIÉN PREGUNTA Y QUIÉN CONTESTA',
+    prefijo: '8',
+    cuantas: 3,
+    porQue:
+      'Cátedra Portátil · Cátedra de Regreso · el cupo del 5–8%. El cupo es el arreglo 8 y es lo ' +
+      'primero que un recorte se lleva, porque es el único de los tres que le saca lugar a alguien',
+  },
+  {
+    h2: '## SECCIÓN 11: DOBLE USO Y BIOSEGURIDAD',
+    prefijo: '11',
+    cuantas: 4,
+    porQue:
+      'qué no se publica el mismo día · qué no se presta · el régimen del nodo de referencia · quién ' +
+      'responde cuando falla. La cuarta es la que convierte la doctrina en algo distinto de una ' +
+      'declaración de buenas intenciones, y es la que no tiene ningún precedente en el corpus',
+  },
 ];
+
+/**
+ * **LA LISTA DE SUBSECCIONES SE DESCUBRE SOLA, Y NO ES UN LUJO: ES EL ARREGLO DE
+ * UN DEFECTO QUE ESTA GUARDIA YA TUVO.**
+ *
+ * Las entradas de la SECCIÓN 8 y de la SECCIÓN 11 se agregaron dos veces cada
+ * una, porque la primera vez la edición no aplicó y **nadie se enteró**: una
+ * lista opt-in a la que le falta una entrada no se pone roja, se pone verde. Es
+ * literalmente el defecto que el encabezado de este archivo dice haber heredado
+ * arreglado del tramo C, cometido sobre la lista que lo arregla.
+ *
+ * El chequeo es el del punto 2 de la doctrina, aplicado a la guardia misma: si
+ * una sección esperada tiene dos o más `### N.M` adentro y no está declarada en
+ * `SUBSECCIONES_ESPERADAS`, es error. El umbral es dos porque una sola
+ * subsección no forma serie y contarla no protege de nada.
+ */
+function verificarCoberturaDeSubsecciones(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const declaradas = new Set(SUBSECCIONES_ESPERADAS.map((x) => x.h2));
+  for (const h2 of SECCIONES_ESPERADAS) {
+    if (declaradas.has(h2)) continue;
+    const { tramo } = tramoDeSeccion(lineas, h2);
+    if (tramo === null) continue;
+    const numeradas = tramo.filter((l) => /^### \d+\.\d+ \S/.test(l.trim())).length;
+    if (numeradas >= 2) {
+      errores.push(
+        `«${h2}» tiene ${String(numeradas)} subsecciones numeradas y no está en ` +
+          'SUBSECCIONES_ESPERADAS: la lista opt-in se llena donde cayeron las últimas ediciones, no ' +
+          'donde corresponde, y una entrada que falta sale verde',
+      );
+    }
+  }
+  return errores;
+}
 
 /**
  * La tabla de las nueve verticales. Se parsea y se cuenta, y la columna de
@@ -344,6 +398,25 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
     porQue:
       'la Credencial Consolidada es de PLANMESA —:601, :657, :1138— y se remite, no se inventa. ' +
       'Un padrón nuevo al lado de uno que ya existe es un padrón que este PLAN podría llenar solo',
+  },
+  /**
+   * Task 8. El censo de ausencia de la Sección 11 es lo que justifica que ese
+   * capítulo se escriba entero en vez de remitir, y es verificable: «doble uso»
+   * y «biobanco» tienen cero ocurrencias en el taller y «bioseguridad» tiene
+   * una, de SENASA sobre insumos biológicos (PLANISV:1614).
+   */
+  {
+    valor: /bioseguridad/iu,
+    ancla: /PLANISV|SENASA|una sola vez|una única|cero|no tiene doctrina|estrena/iu,
+    porQue:
+      'la única ocurrencia de «bioseguridad» en los 24 documentos del taller es PLANISV:1614, de ' +
+      'SENASA y sobre insumos biológicos. El corpus no tiene doctrina y este PLAN la estrena: eso se ' +
+      'declara, o el lector supone que había una (arreglo 9)',
+  },
+  {
+    valor: /siete y (?:las )?doce|entre siete y doce/iu,
+    ancla: /medicion|Serie|Centenaria|cien años/iu,
+    porQue: 'las mediciones de la Serie Centenaria: entre siete y doce, irreductibles a cien años',
   },
 ];
 
@@ -965,6 +1038,7 @@ function main(): void {
     ...verificarSecciones(lineas),
     ...verificarEpigrafes(lineas),
     ...verificarSubsecciones(lineas),
+    ...verificarCoberturaDeSubsecciones(lineas),
     ...verificarAnatomiaDeFallas(lineas),
     ...verificarCifras(raw),
     ...verificarProhibidos(raw, lineas),
