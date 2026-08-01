@@ -904,8 +904,96 @@ El calendario sale de 9.1: su partición contable nombra cada tramo por su fase.
 
 **El orden es declarado, no estético.** Un país que no le paga bien a sus viejos no tiene autoridad moral para regalarle capital a sus chicos: por eso el piso y el final van en la Fase 1 y la Dote de Origen en la Fase 3. Invertirlo sería empezar por el único extremo del arco que no puede reclamar.
 
-**«El Instituto» no existe acá, y la fase no se llama así.** El diseño original la llamaba «la rampa y el Instituto»; este PLAN no creó ningún instituto y su única institución es la ANAV.
+**«El Instituto» no existe acá, y la fase no se llama así.** El diseño original la llamaba «la rampa y el Instituto»; este PLAN no creó ningún instituto y su única institución es la ANAV. Fundar un organismo en una tabla es la manera más barata de fundarlo.
 
 **Y qué sobrevive si la Fase 3 no se ejecuta**, la deuda del riesgo uno. El Calendario de Umbrales no entra: es el continente. **Sobreviven:** el Piso Vital Universal, el Tramo Ganado y el Tramo Común —la Renta de Arco—, que se defienden por su padrón; la Rampa de Salida 60–72, que se ejecuta contra el haber; el Año del Duelo con el Acompañante de Umbral y La Última Palabra, que se abren por hecho registrado sobre quien ya cobra; y la Casa de Dos Edades y la Casa de Arco, que dejan obra ocupada. **No sobreviven:** la Dote de Origen, el Acta de Bienvenida, el Umbral de la Llegada, El Pasaje, el Umbral del Legado y el Alto de los Cuarenta y Cinco, de la Fase 2 pero sin pago detrás (3.6) — seis de los trece dispositivos, y la Capa de Forma entera del comienzo y del medio. **Lo que queda es un buen régimen previsional con acompañamiento del final**, no el arco de la vida.
 
 ---
+
+## SECCIÓN 13: TABLERO NACIONAL DEL ARCO
+
+> *"Un tablero no defiende una partida. Hace que dejar de ejecutarla haya que explicarlo el mes que viene y no cuatro años después."*
+
+El tablero es la pieza dos del blindaje de 3.6 y no produce dato propio: publica lo que la liquidación y el padrón generan. Lo publica la ANAV y, mientras sea célula de ejecución (8.1), bajo el **Ministerio de Capital Humano**, donde ya se liquida el haber. Cinco indicadores, con su frecuencia —decisión de diseño de este documento— y su modo de falseo.
+
+| Indicador | Frecuencia | Cómo se lo falsea sin mentir |
+|---|---|---|
+| Brecha por estación: llegados contra atendidos | mensual, por estación | contando llegados solo a los que se presentaron: la brecha cierra sola. Al lado, el denominador: padrón por edad, no demanda |
+| Razón de ejecución de 9.4: Forma sobre Renta | por ejercicio | imputándole a la Forma el costo de liquidar la Renta. Al lado, la apertura por dispositivo, y ejecución, no presupuesto |
+| Piso Vital contra su canasta | mensual, con la liquidación | cambiándole la composición a la canasta. Al lado, las dos series y ambas composiciones |
+| Horas validadas contra horas liquidadas | mensual | validando rápido y liquidando lento: los dos números son ciertos y el reconocimiento no llega. Al lado, la mediana de días |
+| Estaciones con responsable, caja y organismo | anual, contra las dieciséis de 3.2 | dando por cubierta la que remite y no ejecuta. Al lado, quién se presentó, no quién figura |
+
+Ninguna contramedida cierra su falla; la vuelve un acto con firma. Y el tablero declara su límite: mide lo que la agencia liquida y convoca, no si a la persona le fue mejor.
+
+---
+
+## SECCIÓN 15: DIMENSIÓN FEDERAL
+
+> *"Un derecho que llega a veinticuatro velocidades distintas no es federal: es un mapa de suerte."*
+
+**La Renta de Arco no necesita adhesión, y ese es el pedazo firme.** Lo previsional es competencia nacional y la ANAV liquida contra un padrón nacional. Sus tres tramos llegan a las **Provincias** el mismo mes, adhieran o no.
+
+**El Calendario sí, y ahí está el borde.** Las estaciones que abren por hecho registrado —el nombre, el adiós, lo que queda— dependen de los **Registros Civiles**, que son provinciales, y una ley nacional de previsión no puede obligarlos. Por eso 4.6 la lleva con confianza **baja**: convenios de adhesión, uno por uno. La vía técnica es de otro PLAN: `PLANDIG:621` ubica a los registros civiles en la capa intergubernamental, con «Protocolo tipo X-Road: cada acceso se registra, se audita, y se publica en el Tablero».
+
+**Los Municipios entran por las dos casas y no por la caja.** Las dos casas de 7.3 son de barrio por diseño, y quién sabe cuál está vacía a nueve cuadras es el municipio. Lo que se les pide es padrón y suelo, no financiamiento: un dispositivo atado a la coparticipación municipal se caería donde más falta hace.
+
+**Y qué le pasa a la provincia que no adhiere.** El último tramo le llega igual: es plata nacional sobre padrón nacional. Lo que no le llega es el comienzo: sus recién nacidos no tienen Acta de Bienvenida y sus sucesiones se abren cuando la familia junta el abogado. **La desigualdad que este PLAN puede producir no es de haber: es de arco**, y cae entera del lado de los que todavía no cobran.
+
+---
+
+## SECCIÓN 16: VISIÓN 2040
+
+> *"Quince años no alcanzan para que una vida entera pase por el arco. Alcanzan para que la primera cohorte cruce el tramo final."*
+
+2040 no es el final del horizonte. La hoja de ruta corre quince años y el régimen empieza en el año once (9.1); tomando 2026 como año cero —supuesto de trabajo de este documento, no una fecha comprometida—, cae adentro de la Fase 4, con cuatro ejercicios de régimen cumplidos.
+
+**Lo que está en pie.** Las dieciséis estaciones con responsable, caja y organismo obligado, el gate de la Fase 3. La Renta de Arco liquidando en sus tres tramos. Dos cohortes con una pausa paga a los cuarenta y cinco. Y la primera camada de la Rampa del otro lado: gente que salió del trabajo en doce años y no en una tarde.
+
+**Lo que sigue faltando.** El incremental neto no se puede escribir mientras nadie cuente el padrón de la vía de excepción (9.3). Es la deuda más vieja del documento: en 2040, si ese censo no se hizo, el PLAN sigue sabiendo cuánto sale y sin saber cuánto cuesta.
+
+**Y una que es visión y no compromiso operativo.** En 2040 la ANAV es autárquica, porque el piloto de la Fase 1 probó demanda durable, financiamiento estable y necesidad legal. Si no las probó sigue siendo célula de ejecución, y 8.1 dejó las dos salidas como legítimas: declararse autárquica de antemano sería pedir la excepción que este PLAN no pidió.
+
+Lo que no se ve pero está: la pregunta de las siete de la mañana del preámbulo ya tiene destinatario.
+
+---
+
+## SECCIÓN 17: PROTOCOLO DE FALLA
+
+> *"Lo que no se decide antes de la falla lo decide, el día de la falla, el que tenga la lapicera más cerca."*
+
+Los cuatro riesgos de 10 traen su respuesta. Acá van cinco fallas que no son riesgo sino incumplimiento: una regla propia y cuatro dependencias ajenas.
+
+| Falla | Respuesta |
+|---|---|
+| El **Congreso de la Nación** no sanciona la ley | la Fase 0 sigue: padrón y tablero son administrativos. Cae lo que se liquida, y con eso la pieza tres de 3.6 |
+| La razón de 9.4 se incumple un ejercicio | no se estrena sanción: se publica el cociente al lado del que la ley pide, con la brecha por estación adelante |
+| La ANCV no valida horas | el Tramo Ganado liquida en cero y el Piso Vital no se toca. La fórmula sigue siendo de `PLANCUIDADO:340` |
+| El fondo del Tramo Común no existe en su fase | liquida en cero, como 4.5 lo escribió. Cubrirlo con partida común sería estrenar la fuente que la tabla declaró faltante |
+| `PLANDIG` no llega y el hecho registrado no viaja | el Calendario corre por convenio y archivo contra los padrones que existen, más lento y más caro. No cierra ninguna estación |
+
+**El día que se confirma que la Fase 3 quedó sin ejecutar** —dos ejercicios con la razón de 9.4 incumplida y la brecha abierta en más de la mitad de las estaciones, decisión de diseño de este documento y no una medición— no hay nada que derogar ni a quién convocar. Corresponde lo que 12 escribió de antemano: se publica con nombre la lista de los seis dispositivos que caen, y esto deja de llamarse el arco de la vida.
+
+---
+
+## CIERRE
+
+> *"A Elvira no llegamos. A Teresa llegamos tarde a una de las tres y a tiempo a las otras dos. A la hija, enteros."*
+
+Teresa Bordón va a seguir abriendo a las nueve y cerrando a las siete. Este PLAN no le cambia el oficio: le contesta tres de las cuatro cosas que el preámbulo dejó abiertas, y la cuarta no.
+
+**Los nueve años.** El asiento existe: el Tramo Ganado entra en la Fase 1 y la redención del cuidado pasa a ser un renglón del comprobante, que la ANCV valida y la ANAV liquida (4.4). Los nueve que ya pasaron siguen sin anotar: la moneda es de `PLANCUIDADO` y su fórmula la fija ese PLAN. Lo que cambia no es que se le paguen a Teresa; es que la próxima mujer de Nogoyá que mude a su madre a la pieza del fondo los anota desde el primer día.
+
+**Los cincuenta y dos años.** El Alto se abre a los cuarenta y cinco y no vence (6.2), así que a Teresa no se le pasó: la Fase 2 la alcanza antes de los sesenta. Y a la hija de veintitrés que estudia en Paraná le va a llegar a tiempo, que es distinto y más: el tramo sobre el que este país no tenía una línea escrita va a estar escrito para las dos.
+
+**La casa.** Acá la respuesta es la peor: el Umbral del Legado es de la Fase 3, y la casa de Sarmiento se resuelve —o no— mucho antes. A esta sucesión no la abre este PLAN. Lo que hace es que la siguiente no espere a que la familia junte el abogado: la muerte inscripta convoca al panel (7.6).
+
+**Y Elvira.** A Elvira no se le devuelve nada. Murió en marzo, a las cinco de la mañana de un martes, y a esa mañana no llega ninguna de las dieciséis estaciones. El Año del Duelo no existía, el Acompañante de Umbral tampoco, y a las siete Teresa no tuvo a quién llamar. No es un límite que una fase repare: es el precio de haber llegado tarde, y va escrito para que el documento no termine sonando a que llegó a tiempo.
+
+Nada de esto le devuelve a la madre. Todo esto le devuelve lo que perdió sin haberlo entregado: la certeza de que su vida, mirada entera, le importa a alguien además de a ella.
+
+---
+
+**FIN DEL DOCUMENTO**
+
+*Documento técnico del vigésimo quinto mandato del Proyecto ¡BASTA! — Julio 2026*

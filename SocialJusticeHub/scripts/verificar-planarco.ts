@@ -49,8 +49,38 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 10: RIESGOS Y RESPUESTAS',
   '## SECCIÓN 11: EL MAPA DE PERDEDORES',
   '## SECCIÓN 12: HOJA DE RUTA',
-  // Task 10: SECCIONES 13, 15, 16, 17 y CIERRE · …
+  '## SECCIÓN 13: TABLERO NACIONAL DEL ARCO',
+  '## SECCIÓN 15: DIMENSIÓN FEDERAL',
+  '## SECCIÓN 16: VISIÓN 2040',
+  '## SECCIÓN 17: PROTOCOLO DE FALLA',
+  '## CIERRE',
 ];
+
+/**
+ * **EL EPÍGRAFE: LA CLASE QUE NINGUNA DE LAS DOCE SECCIONES ANTERIORES
+ * CUSTODIABA** (Task 10). Doce secciones lo tienen y ninguna lo tenía
+ * verificado: borrar la línea entera de cualquiera de ellas salía **exit 0**. Es
+ * forma del corpus —`PLANPACTO` la lleva sección por sección— y forma sin
+ * guardia es forma que dura hasta el primer recorte.
+ *
+ * **El default es «lleva epígrafe»** y el opt-out es la lista de abajo, que se
+ * verifica EN LAS DOS DIRECCIONES: si una sección exenta aparece con epígrafe,
+ * la guardia lo reporta, porque entonces la exención está vieja y una lista
+ * opt-out vieja es una lista opt-in con otro nombre. Las cuatro exentas son las
+ * que el corpus escribe sin epígrafe: el H2 del mandato, que no es sección; el
+ * preámbulo y la tesis, que abren con el rostro y con la primitiva; y la
+ * INTEGRACIÓN, que abre con el par recíproco.
+ */
+const SIN_EPIGRAFE: string[] = [
+  H2_MANDATO,
+  '## PREÁMBULO — LA VIDA QUE NADIE MIRÓ ENTERA',
+  '## TESIS CENTRAL',
+  '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
+];
+
+/** Un epígrafe del corpus: blockquote, itálica, entrecomillado y con texto adentro. */
+const EPIGRAFE = /^>\s*\*"(.+)"\*$/u;
+const LARGO_MINIMO_DE_EPIGRAFE = 20;
 
 /**
  * **La anatomía de las dos secciones de la Task 7, por la misma razón que la de
@@ -274,6 +304,11 @@ const H3_SIN_PISO = '### 9.4 ';
 const H2_RIESGOS = '## SECCIÓN 10: RIESGOS Y RESPUESTAS';
 const H2_PERDEDORES = '## SECCIÓN 11: EL MAPA DE PERDEDORES';
 const H2_HOJA_DE_RUTA = '## SECCIÓN 12: HOJA DE RUTA';
+const H2_TABLERO = '## SECCIÓN 13: TABLERO NACIONAL DEL ARCO';
+const H2_FEDERAL = '## SECCIÓN 15: DIMENSIÓN FEDERAL';
+const H2_VISION = '## SECCIÓN 16: VISIÓN 2040';
+const H2_PROTOCOLO = '## SECCIÓN 17: PROTOCOLO DE FALLA';
+const H2_CIERRE = '## CIERRE';
 
 /**
  * Los cuatro números del acta que la cabecera del PLAN está obligada a escribir,
@@ -2300,6 +2335,126 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'duraciones coinciden y la contención pasa, pero el cambio de unidad no estaba declarado y se ' +
       'leía como desfasaje entre las dos tablas (M-5)',
   },
+  /**
+   * ── LAS CINCO DE LA TASK 10 ───────────────────────────────────────────────
+   *
+   * La primera es **la razón que la Task 9 borró para pagar cuatro cierres**, y
+   * la borró porque era lo único de §12 que no era ni dato ni cruce: nada la
+   * custodiaba. Auditada antes de reponerla — la razón no está en ninguna otra
+   * parte del documento, y §12 afirma cuatro veces que el Instituto no existe
+   * sin decir una sola vez por qué importa que no exista.
+   *
+   * La segunda es una declaración de valor: **un valor único sin domicilio
+   * pierde su declaración sin que se mueva nada.** Medido: sacarle a §16
+   * «supuesto de trabajo de este documento» al año base salía **exit 0**, y con
+   * eso 2040 pasaba a caer en una fase por una fecha que nadie eligió.
+   *
+   * Las dos últimas son **la mitad sobria del CIERRE**. Su mandato tiene dos
+   * mitades —devolver lo que la tesis prometió y declarar lo que no— y la
+   * segunda no la custodiaba nada, que es la que se pierde sola porque un
+   * cierre sin límites se lee mejor. Medido: cambiar «los nueve que ya pasaron
+   * siguen sin anotar» por «se anotan retroactivos» salía **exit 0**, y con eso
+   * la última página le concedía a Teresa un derecho que 4.4 declaró de otro
+   * PLAN — la enmienda unilateral que el propio documento denuncia.
+   */
+  {
+    valor: 'manera más barata de fundarlo',
+    en: [H2_HOJA_DE_RUTA],
+    porQue:
+      'la razón por la que §12 declara inexistente al Instituto en vez de escribirlo. Sin ella, la ' +
+      'sección afirma cuatro veces el hecho y ninguna vez por qué importa, y la próxima compresión se ' +
+      'lleva la declaración entera sin resistencia',
+  },
+  {
+    valor: 'supuesto de trabajo de este documento',
+    en: [H2_VISION],
+    porQue:
+      '2040 no cae en una fase por sí solo: cae por el año que se toma como cero, y ese año lo elige ' +
+      'este documento. Sin la fórmula, la sección presenta como fecha comprometida lo que es un ' +
+      'supuesto, que es la clase de cosa que este corpus existe para no hacer',
+  },
+  /**
+   * Las dos últimas de la Task 10, y las dos salen de mutaciones que quedaron
+   * verdes tres rondas seguidas. `dos ejercicios` es un valor propio sin
+   * anclaje externo —lo único que se le puede exigir es que exista y lleve su
+   * fórmula—, y aflojarlo a uno halvea el disparador de la falla terminal sin
+   * tocar nada más. `la ANCV valida` es el reparto de roles que 4.4 fijó: el
+   * CIERRE lo repite, y despersonalizarlo («la agencia valida y la otra
+   * liquida») deja el prohibido de roles invertidos sin nada que morder.
+   */
+  {
+    valor: 'declara su límite',
+    en: [H2_TABLERO],
+    porQue:
+      'lo que el tablero NO mide, escrito por el tablero. Es la misma disciplina que la mitad sobria ' +
+      'del cierre y se pierde igual de fácil: sin la frase, cinco indicadores se leen como si midieran ' +
+      'si a la persona le fue mejor, que es lo único que un tablero no sabe',
+  },
+  {
+    valor: 'dos ejercicios',
+    en: [H2_PROTOCOLO],
+    porQue:
+      'el disparador de la falla terminal. Un solo ejercicio lo vuelve reversible por un mal año, y ' +
+      'la lista de los seis dispositivos que caen se publicaría contra un umbral que este documento ' +
+      'no eligió',
+  },
+  {
+    valor: 'la ANCV valida',
+    en: [H3_TRAMO_GANADO, H2_CIERRE],
+    porQue:
+      'el reparto de roles de 4.4, escrito en los dos lugares que lo afirman. Sin las siglas, la ' +
+      'frase se vuelve «la agencia valida y la otra liquida» y el prohibido de roles invertidos no ' +
+      'tiene qué mirar',
+  },
+  {
+    valor: 'no se le devuelve nada',
+    en: [H2_CIERRE],
+    porQue:
+      'la persona a la que este PLAN no le devuelve nada, declarada con nombre. Es la mitad del ' +
+      'mandato del cierre que ninguna otra sección puede pagar, y la primera que una relectura ' +
+      '«optimizadora» se lleva',
+  },
+  {
+    valor: 'siguen sin anotar',
+    en: [H2_CIERRE],
+    porQue:
+      'el límite del Tramo Ganado sobre el hilo de los nueve años: la moneda es de PLANCUIDADO y su ' +
+      'fórmula la fija ese PLAN. Sin esta frase el cierre concede retroactividad, que es la enmienda ' +
+      'unilateral que 4.4 denuncia',
+  },
+  /**
+   * **La autarquía de la ANAV es CONDICIONAL, y la visión es donde más barato
+   * sale volverla incondicional.** 8.1 la sujeta al piloto de la Fase 1
+   * —«PLANARCO no pide excepción… se vuelve autárquica cuando el piloto pruebe
+   * las tres cosas, o no se vuelve»— y §16 la proyecta a 2040. Medido: escribir
+   * «en 2040 la ANAV es autárquica desde la sanción de la ley» salía **exit 0**,
+   * o sea, la visión pidiendo por la ventana la excepción que el cuerpo declinó
+   * por la puerta. Las dos entradas son el condicionante y el estado previo.
+   */
+  {
+    valor: 'el piloto de la Fase 1',
+    en: [H2_VISION],
+    porQue:
+      'la autarquía de 2040 cuelga del piloto y de nada más (8.1). Sin el condicionante escrito, la ' +
+      'visión se lee como compromiso operativo y le concede a la agencia la excepción que el PLAN ' +
+      'declinó pedir',
+  },
+  {
+    valor: 'célula de ejecución',
+    en: [H2_TABLERO],
+    porQue:
+      'el estado de la ANAV antes del piloto, que es el que decide bajo qué ministerio publica el ' +
+      'tablero. §16 queda afuera del domicilio a propósito: ahí la frase vive adentro de una ' +
+      'condicional negada («si no las probó, sigue siendo…») y el chequeo de negación la marcaría ' +
+      'bien; lo que §16 tiene que conservar es el condicionante, y ese es la entrada de arriba',
+  },
+  {
+    valor: 'decisión de diseño de este documento',
+    en: [H2_TABLERO, H2_PROTOCOLO],
+    porQue:
+      'las frecuencias del tablero y el disparador de la falla terminal son valores propios sin ' +
+      'anclaje externo: o llevan la fórmula, o se leen como medidos',
+  },
 ];
 
 /**
@@ -2332,23 +2487,47 @@ const H3_VERSION_ESPERADO = /^### Versión \d+\.\d+ — \p{L}+ \d{4}$/mu;
  * Lo que sí necesita el cuerpo, y es de la Task 10, es la tercera dirección:
  * «cada dispositivo anunciado en el ASCII tiene ocurrencias en el cuerpo».
  */
-const DISPOSITIVOS_EN_PORTADA: { nombre: string; enPortada: string[] }[] = [
+/**
+ * **`alias`: los nombres cortos con los que el CUERPO nombra al mismo
+ * dispositivo** (Task 10). La tabla de fases de §12 escribe «el Alto», «las dos
+ * Casas» y «Piso Vital, Tramo Ganado», y con el léxico de la portada sola esas
+ * cuatro celdas no se podían cruzar contra los trece — la Task 9 dejó el cruce
+ * diferido por eso.
+ *
+ * **Es un alias sobre un conjunto ya cerrado, no una lista opt-in nueva.**
+ * `DISPOSITIVOS_EN_PORTADA` está auditado en las dos direcciones —«ni falta ni
+ * sobra», `verificarPortadaNoAnunciaDeMas()`—, así que agregarle formas de
+ * superficie extiende un conjunto cerrado en vez de abrir uno nuevo: un alias de
+ * un dispositivo que no existiera no tendría dónde colgarse.
+ */
+const DISPOSITIVOS_EN_PORTADA: { nombre: string; enPortada: string[]; alias?: string[] }[] = [
   { nombre: 'Calendario de Umbrales', enPortada: ['Calendario de Umbrales'] },
-  { nombre: 'Renta de Arco (tres tramos)', enPortada: ['Renta de Arco'] },
+  { nombre: 'Renta de Arco (tres tramos)', enPortada: ['Renta de Arco'], alias: ['Piso Vital'] },
   { nombre: 'Dote de Origen', enPortada: ['Dote de Origen'] },
   { nombre: 'Umbral de la Llegada', enPortada: ['Umbral de la Llegada'] },
   { nombre: 'Acta de Bienvenida', enPortada: ['Acta de Bienvenida'] },
   { nombre: 'El Pasaje (cuatro viajes)', enPortada: ['El Pasaje'] },
-  { nombre: 'El Alto de los Cuarenta y Cinco', enPortada: ['El Alto de los Cuarenta y Cinco'] },
+  {
+    nombre: 'El Alto de los Cuarenta y Cinco',
+    enPortada: ['El Alto de los Cuarenta y Cinco'],
+    alias: ['el Alto'],
+  },
   { nombre: 'La Rampa de Salida 60–72', enPortada: ['Rampa de Salida 60–72'] },
-  { nombre: 'Casa de Dos Edades', enPortada: ['Casa de Dos Edades'] },
-  { nombre: 'Casa de Arco', enPortada: ['Casa de Arco'] },
+  { nombre: 'Casa de Dos Edades', enPortada: ['Casa de Dos Edades'], alias: ['las dos Casas'] },
+  { nombre: 'Casa de Arco', enPortada: ['Casa de Arco'], alias: ['las dos Casas'] },
   { nombre: 'La Última Palabra', enPortada: ['La Última Palabra'] },
   {
     nombre: 'El Año del Duelo + Acompañante de Umbral',
     enPortada: ['El Año del Duelo', 'Acompañante de Umbral'],
+    alias: ['Año del Duelo'],
   },
   { nombre: 'El Umbral del Legado', enPortada: ['Umbral del Legado'] },
+];
+
+/** Toda forma de superficie con la que el cuerpo puede nombrar un dispositivo. */
+const formasDe = (d: { enPortada: string[]; alias?: string[] }): string[] => [
+  ...d.enPortada,
+  ...(d.alias ?? []),
 ];
 
 /** La ANAV no es dispositivo —es la institución de la Sección 8— pero la portada la anuncia. */
@@ -2610,6 +2789,24 @@ function oracionDe(texto: string, desde: number, hasta: number): string {
  * la guardia lo prohíbe»— se había mudado de archivo y se había quedado sin
  * guardia en el camino.
  */
+/**
+ * **LOS DOS ROLES, INVERTIDOS** (Task 10, mutación M14). §4.4 fija el reparto:
+ * *«la ANCV valida las horas y la ANAV las liquida»* — la agencia de cuidado
+ * valida, la del arco liquida, y 8.1 se lo prohíbe expresamente a la ANAV
+ * («no valida horas —eso es la ANCV»). El CIERRE y §17 lo repiten, y cambiarlos
+ * de lugar salía **exit 0**: es la enmienda unilateral que 4.4 denuncia,
+ * escrita en dos palabras.
+ *
+ * Va como prohibido de documento entero y no como aserción de una sección
+ * porque la inversión está mal EN CUALQUIER PARTE, incluidas las que todavía no
+ * se escribieron. Verificado sobre el texto: las seis colocaciones existentes de
+ * las dos siglas con estos verbos son todas correctas, así que falsos positivos
+ * cero. La forma negada —«la ANAV no valida», que es la que 8.1 usa a
+ * propósito— queda exenta sola: entre la sigla y el verbo solo se admiten
+ * artículos y pronombres átonos, y un «no» rompe la adyacencia.
+ */
+const ROLES_INVERTIDOS = /\bANAV\s+(?:las?\s+|los?\s+)?valid|\bANCV\s+(?:las?\s+|los?\s+)?liquid/iu;
+
 const AFIRMA_QUE_PASO_EL_GATE =
   /(?<!\b(?:no|nunca|jamás|tampoco|ninguno|ninguna|ni)\b(?:(?!\b(?:y|pero|aunque|sino|mas)\b)[^.;:\n]){0,30})(pas[óo]|super[óo]|supera|pasa)\s+(el|ese|este|dicho)\s+(gate|umbral)/iu;
 
@@ -2967,6 +3164,28 @@ const PROHIBIDOS: Prohibido[] = [
   {
     patron: /\bTODO:|\[TODO\]|<!--\s*TODO|\bTKTK\b|\bXXX\b/,
     porQue: 'marcador de borrador: el documento se commitea sin secciones a medio escribir',
+  },
+  {
+    /**
+     * **La respuesta del protocolo para el Tramo Común es la de 4.5 y no otra**
+     * (M42). Cambiar «liquida en cero» por «se cubre con partida común» salía
+     * **exit 0**, y era estrenar por la puerta de atrás la fuente que la tabla
+     * de 4.6 declaró faltante: el Tramo Común no tiene caja, y una respuesta de
+     * contingencia que se la inventa vale más que la fila que la niega.
+     * Verificado: ninguna línea del documento pone hoy las dos cosas juntas.
+     */
+    patron: /Tramo Com[úu]n[^.\n]{0,80}se (?:cubre|financia|paga) con partida com[úu]n/iu,
+    porQue:
+      'el Tramo Común liquida en cero hasta que su fuente exista (4.5). Cubrirlo con partida común ' +
+      'es estrenar la fuente que la tabla de 4.6 declaró faltante, y hacerlo en el protocolo de falla ' +
+      'es hacerlo donde nadie lo va a releer',
+  },
+  {
+    patron: ROLES_INVERTIDOS,
+    porQue:
+      'los roles están al revés: §4.4 fija que la ANCV valida las horas y la ANAV las liquida, y 8.1 ' +
+      'le prohíbe a la ANAV validar. Invertirlos es la enmienda unilateral que 4.4 denuncia, escrita ' +
+      'en dos palabras, y una agencia de trayectoria que valida materia deja de ser lo que hacía falta',
   },
   {
     // Aparte de los de arriba porque va case-insensitive: el juego anterior
@@ -5648,7 +5867,24 @@ function verificarSupervivencia(lineas: string[]): string[] {
  * tiene que estar abierto contra una línea anclada en su misma oración; si no
  * hay ancla, tampoco hay monto que escribir.
  */
-const SECCIONES_CON_MAGNITUD_ANCLADA = [H2_RIESGOS, H2_PERDEDORES, H2_HOJA_DE_RUTA];
+/**
+ * **Y las cinco de la Task 10 entran a la misma regla** (Task 10). Son las
+ * últimas del documento, o sea las que menos veces se van a releer, y el CIERRE
+ * es la sección que más fácil agranda la promesa: un monto suelto ahí se lee
+ * como el resumen de todo lo anterior. Si el número no se puede abrir contra la
+ * línea que lo dice, no se escribe — y para lo que este documento derivó
+ * adentro, el remitente es la subsección, no una cifra repetida.
+ */
+const SECCIONES_CON_MAGNITUD_ANCLADA = [
+  H2_RIESGOS,
+  H2_PERDEDORES,
+  H2_HOJA_DE_RUTA,
+  H2_TABLERO,
+  H2_FEDERAL,
+  H2_VISION,
+  H2_PROTOCOLO,
+  H2_CIERRE,
+];
 
 function verificarMagnitudesAncladas(lineas: string[]): string[] {
   const errores: string[] = [];
@@ -5694,12 +5930,8 @@ function verificarMagnitudesAncladas(lineas: string[]): string[] {
         }
         const ls = lineasDelPlan(ancla.doc);
         const tramo = ls === null ? '' : tramoDelAncla(ls, ancla.desde, ancla.hasta);
-        if (grupos.every((g) => tramo.includes(g))) continue;
         errores.push(
-          `«${h2}» le atribuye «${m[0]}» a «${ancla.etiqueta}», que es el ancla que lo precede, y esa ` +
-            'línea no dice esos dos números. Dos porcentajes distintos sobre el mismo fondo son dos ' +
-            'DENOMINADORES distintos o son una incoherencia: cuál de las dos cosas es depende de que ' +
-            'cada uno esté abierto contra SU línea',
+          ...rangoAtribuido(tramo, grupos[0], grupos[1], ambito, `«${h2}» / «${ancla.etiqueta}»`),
         );
       }
     }
@@ -6712,6 +6944,7 @@ function verificarCabecera(raw: string, lineas: string[]): string[] {
   }
 
   errores.push(...verificarPortadaNoAnunciaDeMas(lineas.slice(iAbre + 1, iCierra)));
+  errores.push(...verificarPortadaContraElCuerpo(lineas, iCierra));
 
   return errores;
 }
@@ -6741,6 +6974,22 @@ function verificarCabecera(raw: string, lineas: string[]): string[] {
  */
 function verificarPortadaNoAnunciaDeMas(portada: string[]): string[] {
   const errores: string[] = [];
+
+  /**
+   * Los calificadores también en las dos direcciones (Task 10). Estaban solo del
+   * lado permisivo —«la portada TIENE DERECHO a llevarlos»— y con eso borrar
+   * `Tramo Común` del ASCII salía **exit 0**: un tramo de la Renta de Arco
+   * dejaba de anunciarse y el conjunto exacto seguía cerrando, porque sacar algo
+   * permitido nunca deja resto.
+   */
+  for (const fragmento of CALIFICADORES_EN_PORTADA) {
+    if (portada.some((l) => l.includes(fragmento))) continue;
+    errores.push(
+      `la portada no anuncia «${fragmento}»: los calificadores estaban solo del lado permisivo, y ` +
+        'sacar algo permitido nunca deja resto, así que el conjunto exacto cerraba igual con un ' +
+        'tramo de la Renta de Arco menos anunciado',
+    );
+  }
 
   for (const renglon of [...PORTADA_ENCABEZADO, ...PORTADA_PIE]) {
     if (!portada.some((l) => l.trim() === renglon)) {
@@ -6773,6 +7022,565 @@ function verificarPortadaNoAnunciaDeMas(portada: string[]): string[] {
     }
   }
 
+  return errores;
+}
+
+/**
+ * **EL EPÍGRAFE DE CADA SECCIÓN, CON DEFAULT SEGURO Y OPT-OUT AUDITADO EN LAS
+ * DOS DIRECCIONES** (Task 10). Ver `SIN_EPIGRAFE`.
+ */
+function verificarEpigrafes(lineas: string[]): string[] {
+  const errores: string[] = [];
+  for (const h2 of SECCIONES_ESPERADAS) {
+    const { tramo, errores: errTramo } = tramoDeSeccion(lineas, h2);
+    errores.push(...errTramo);
+    if (tramo === null) continue;
+    const primera = (tramo.find((l) => l.trim() !== '') ?? '').trim();
+    const m = EPIGRAFE.exec(primera);
+    const exenta = SIN_EPIGRAFE.includes(h2);
+
+    if (exenta) {
+      if (m !== null) {
+        errores.push(
+          `«${h2}» está en la lista de secciones SIN epígrafe y trae uno. La exención quedó vieja: ` +
+            'una lista opt-out que no se verifica al revés es una lista opt-in con otro nombre, y ' +
+            'esta guardia ya tuvo tres de esas',
+        );
+      }
+      continue;
+    }
+
+    if (m === null) {
+      errores.push(
+        `«${h2}» no abre con epígrafe. La forma del corpus es blockquote, itálica y comillas ` +
+          '(`> *"…"*`) inmediatamente debajo del H2, y hasta la Task 10 ninguna de las doce ' +
+          'secciones que lo llevan lo tenía verificado: borrar la línea salía exit 0',
+      );
+      continue;
+    }
+    if (m[1].trim().length < LARGO_MINIMO_DE_EPIGRAFE) {
+      errores.push(
+        `el epígrafe de «${h2}» tiene ${String(m[1].trim().length)} caracteres y el mínimo es ` +
+          `${String(LARGO_MINIMO_DE_EPIGRAFE)}: un epígrafe vacío o de dos palabras cumple la forma ` +
+          'y no dice nada, que es la manera barata de conservar la anatomía sin conservar el contenido',
+      );
+    }
+  }
+  return errores;
+}
+
+/**
+ * ── LA PORTADA, CONTRA EL CUERPO — LA TERCERA DIRECCIÓN (Task 10) ─────────────
+ *
+ * Las dos primeras las cerró la Task 1: los trece están, y no hay un catorceavo.
+ * Faltaba la que necesita el cuerpo, y es la que reventó en el tramo B: **un
+ * dispositivo anunciado en el ASCII y con cero ocurrencias abajo.** Con las dos
+ * direcciones anteriores puestas, borrar la SECCIÓN entera de un dispositivo
+ * dejaba la portada intacta, el conjunto exacto verde y el nombre anunciado
+ * apuntando a nada.
+ *
+ * Tres cosas se cruzan acá, y son las tres que el requisito de la Task 10 pide:
+ *
+ * 1. **Cada nombre del ASCII tiene ocurrencias en el cuerpo** — el cuerpo es
+ *    todo lo que va DESPUÉS de la cerca de cierre de la portada, así que la
+ *    portada no se cuenta a sí misma.
+ * 2. **Cada destinatario institucional está contestado en alguna sección.** La
+ *    portada le dice a siete organismos que este documento es para ellos, y en
+ *    el estado en que llegó a la Task 10 **cuatro de los siete no aparecían una
+ *    sola vez en el cuerpo**. Los destinatarios salen del pie de la portada
+ *    partido por `·`: no hay lista aparte que mantener.
+ * 3. **La arquitectura anunciada coincide con la que la SECCIÓN 3 escribió.**
+ *    La portada anuncia las cuatro edades del Pasaje y el tramo de la Rampa; el
+ *    Calendario de §3.2 es el que las fija. Anunciarlas en la tapa y moverlas
+ *    adentro es la falla de portada en su forma más cara, porque el número de la
+ *    tapa es el que se cita afuera del documento.
+ */
+const DESTINATARIOS_EXENTOS: string[] = ['Preparado para la República Argentina'];
+
+function verificarPortadaContraElCuerpo(lineas: string[], iCierra: number): string[] {
+  const errores: string[] = [];
+  const cuerpo = lineas.slice(iCierra + 1).join('\n');
+
+  // 1) Cada nombre anunciado, con ocurrencias abajo.
+  const anunciados: [string, string][] = [
+    ...DISPOSITIVOS_EN_PORTADA.flatMap(({ nombre, enPortada }) =>
+      enPortada.map((f): [string, string] => [f, `dispositivo «${nombre}»`]),
+    ),
+    [INSTITUCION_EN_PORTADA, 'la institución de la Sección 8'],
+    ['Piso Vital Universal', 'tramo de la Renta de Arco'],
+    ['Tramo Ganado', 'tramo de la Renta de Arco'],
+    ['Tramo Común', 'tramo de la Renta de Arco'],
+  ];
+  for (const [fragmento, que] of anunciados) {
+    if (!cuerpo.includes(fragmento)) {
+      errores.push(
+        `la portada anuncia «${fragmento}» (${que}) y el cuerpo no lo nombra una sola vez. En el ` +
+          'tramo B la portada anunció cuatro nombres inexistentes y fue la única página que nadie ' +
+          'volvió a mirar: un nombre en la tapa sin sección abajo es una promesa sin domicilio',
+      );
+    }
+  }
+
+  // 2) Cada destinatario del pie, contestado abajo.
+  const destinatarios = PORTADA_PIE.filter((l) => l.includes('·'))
+    .flatMap((l) => l.split('·'))
+    .map((d) => d.trim())
+    .filter((d) => d !== '' && !DESTINATARIOS_EXENTOS.includes(d));
+  for (const quien of destinatarios) {
+    if (!cuerpo.toLowerCase().includes(quien.toLowerCase())) {
+      errores.push(
+        `la portada le dirige el documento a «${quien}» y ninguna sección lo nombra. Un destinatario ` +
+          'institucional que el cuerpo no contesta es una tapa escrita para otro documento',
+      );
+    }
+  }
+
+  // 3) La arquitectura anunciada, contra el Calendario de §3.2.
+  const calendario = filasDeTabla(lineas, COLUMNAS_CALENDARIO);
+  errores.push(...calendario.errores);
+  if (calendario.filas !== null) {
+    const edades = calendario.filas.map((f) => f[1] ?? '').join(' | ');
+    const pasaje = CALIFICADORES_EN_PORTADA.find((c) => c.includes('viajes a los'));
+    for (const edad of [...(pasaje ?? '').matchAll(/\d+/gu)].map((m) => m[0])) {
+      if (!new RegExp(String.raw`(?<!\d)${edad}\s*(?:años|a\s)`, 'u').test(edades)) {
+        errores.push(
+          `la portada anuncia un viaje del Pasaje a los ${edad} y el Calendario de §3.2 no tiene ` +
+            'ninguna estación en esa edad. La tapa y la arquitectura son el mismo dato escrito dos ' +
+            'veces, y el de la tapa es el que se cita afuera del documento',
+        );
+      }
+    }
+    const rampa = DISPOSITIVOS_EN_PORTADA.find((d) => d.nombre.includes('Rampa'));
+    const tramo = /(\d+)\s*[–—-]\s*(\d+)/u.exec(rampa?.enPortada[0] ?? '');
+    if (tramo !== null && !new RegExp(`${tramo[1]}\\s*a\\s*${tramo[2]}\\s*años`, 'u').test(edades)) {
+      errores.push(
+        `la portada anuncia la Rampa de Salida ${tramo[1]}–${tramo[2]} y el Calendario de §3.2 no ` +
+          'abre esa estación en ese tramo de edad',
+      );
+    }
+  }
+
+  return errores;
+}
+
+/**
+ * **LAS CUATRO CELDAS QUE LA TASK 9 DEJÓ DIFERIDAS** — la columna «Qué se pone
+ * en pie» de la tabla de fases de §12, cruzada contra los trece dispositivos.
+ * Sin esto, un dispositivo se cae del calendario de implementación sin que se
+ * mueva ni el H2, ni el numeral de la lista de supervivencia —que mide otra
+ * cosa: qué sobrevive si la Fase 3 no se ejecuta, no en qué fase se pone en pie—,
+ * ni la portada.
+ *
+ * **La exención no es una lista: se descubre.** El Calendario de Umbrales no está
+ * en la tabla porque no es una pieza que se ponga en pie sino el continente, y
+ * eso el propio §12 lo declara antes de las dos listas —`verificarSupervivencia()`
+ * ya exige esa declaración—. Acá se lee de ahí: un dispositivo puede faltar de la
+ * tabla **si y solo si** §12 lo puso del lado de «fuera de la cuenta». Si mañana
+ * el documento saca esa declaración, el dispositivo pasa a ser exigido en la
+ * tabla y la guardia lo pide, en vez de arrastrar una exención escrita a mano.
+ */
+function verificarFasesContraLosDispositivos(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const { tramo, errores: errTramo } = tramoDeSeccion(lineas, H2_HOJA_DE_RUTA);
+  errores.push(...errTramo);
+  if (tramo === null) return errores;
+
+  const tabla = filasDeTabla(tramo, COLUMNAS_HOJA_DE_RUTA, true);
+  errores.push(...tabla.errores);
+  if (tabla.filas === null) return errores;
+
+  const parrafo = (
+    tramo.map((l) => l.replace(/\*\*/g, '')).find((l) => l.includes('es el continente')) ?? ''
+  );
+  const iA = parrafo.indexOf('Sobreviven:');
+  const fueraDeLaCuenta = iA === -1 ? '' : parrafo.slice(0, iA);
+
+  for (const d of DISPOSITIVOS_EN_PORTADA) {
+    const formas = formasDe(d);
+    const filas = tabla.filas.filter((f) =>
+      formas.some((frag) => (f[2] ?? '').toLowerCase().includes(frag.toLowerCase())),
+    );
+    if (filas.length === 1) continue;
+
+    const declaradoContinente = formas.some((frag) =>
+      fueraDeLaCuenta.toLowerCase().includes(frag.toLowerCase()),
+    );
+    if (filas.length === 0 && declaradoContinente) continue;
+
+    errores.push(
+      `«${d.nombre}» aparece en ${String(filas.length)} fila(s) de la columna «Qué se pone en pie» ` +
+        `de §12 [${filas.map((f) => f[0] ?? '').join(' · ') || '—'}]. Cada uno de los trece se pone ` +
+        'en pie en exactamente una fase, salvo el que §12 declara continente antes de las dos listas ' +
+        `de supervivencia, y este ${declaradoContinente ? 'sí' : 'no'} está declarado así`,
+    );
+  }
+  return errores;
+}
+
+/**
+ * ── LO QUE LAS CINCO SECCIONES FINALES REPITEN DE ADENTRO DEL DOCUMENTO ───────
+ *
+ * **Las secciones de cierre no traen datos: traen restatements**, y un
+ * restatement es la copia de un número que otra sección ya derivó. La copia no
+ * tiene domicilio propio, así que todos los chequeos de cifra —que verifican que
+ * el valor esté donde tiene que estar— la dejan pasar: **cambiarle el numeral a
+ * la copia salía verde en cinco lugares distintos**, medido.
+ *
+ * Ninguno de los cuatro cruces de acá trae un valor escrito a mano: cada uno lee
+ * el valor del lugar del documento que lo produce —el Calendario, la tabla de
+ * supervivencia, la rampa del gasto, §6.2— y exige que la copia diga lo mismo.
+ * Si el original cambia, la copia se pone roja sola.
+ */
+function verificarRestatementsFinales(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const tramoDe = (h2: string): string =>
+    (textoDeDomicilio(lineas, h2).texto ?? '').replace(/\*\*/g, '');
+
+  // (1) Las estaciones del Calendario, restadas en tres secciones finales.
+  const cuantas = EN_LETRAS[ESTACIONES_ESPERADAS] ?? String(ESTACIONES_ESPERADAS);
+  for (const h2 of [H2_TABLERO, H2_VISION, H2_CIERRE]) {
+    if (tramoDe(h2).includes(cuantas)) continue;
+    errores.push(
+      `«${h2}» no escribe «${cuantas}», que es el número de estaciones que el Calendario de §3.2 ` +
+        'produce. Las tres secciones finales lo repiten, y un numeral repetido sin cruzar es el ' +
+        'lugar más barato para achicar la arquitectura',
+    );
+  }
+
+  // (2) Los dispositivos que caen: §17 contra el numeral que §12 ya cruzó contra sus nombres.
+  const enDoce = /(\p{L}+) de los trece dispositivos/u.exec(tramoDe(H2_HOJA_DE_RUTA));
+  const enDiecisiete = /lista de los (\p{L}+) dispositivos que caen/u.exec(tramoDe(H2_PROTOCOLO));
+  if (enDoce !== null && enDiecisiete !== null && enDoce[1] !== enDiecisiete[1]) {
+    errores.push(
+      `§17 dice que caen «${enDiecisiete[1]}» dispositivos y §12 dice «${enDoce[1]}». El de §12 está ` +
+        'cruzado contra los nombres que la propia lista enumera; el de §17 es una copia, y una copia ' +
+        'que no coincide achica la pérdida declarada en la sección que la tiene que ejecutar',
+    );
+  } else if (enDoce !== null && enDiecisiete === null) {
+    errores.push(
+      '§17 no nombra cuántos dispositivos caen el día que se confirma que la Fase 3 no se ejecuta. ' +
+        'Es lo único que el protocolo tiene para ofrecer ahí: la lista escrita de antemano',
+    );
+  }
+
+  // (3) El año del régimen: §16 contra el que la rampa de §9.1 produce.
+  const enNueveUno = /r[ée]gimen se alcanza en el año (\p{L}+)/iu.exec(tramoDe(H3_LA_RAMPA_DEL_GASTO));
+  const enDieciseis = /r[ée]gimen empieza en el año (\p{L}+)/iu.exec(tramoDe(H2_VISION));
+  if (enNueveUno !== null && enDieciseis !== null && enNueveUno[1] !== enDieciseis[1]) {
+    errores.push(
+      `§16 dice que el régimen empieza en el año «${enDieciseis[1]}» y §9.1 lo alcanza en el año ` +
+        `«${enNueveUno[1]}», que es el que su tabla produce. La visión 2040 se ubica contra ese año: ` +
+        'moverlo cambia en qué fase cae 2040 sin tocar una sola fila de la rampa',
+    );
+  } else if (enNueveUno !== null && enDieciseis === null) {
+    errores.push(
+      '§16 no dice en qué año empieza el régimen, y sin eso no puede ubicar 2040 adentro de ninguna fase',
+    );
+  }
+
+  // (4) La edad del Alto: el CIERRE contra §6.2, que es donde el dispositivo se define.
+  const enSeisDos = /se abre a los ([\p{L} ]+?) años y no vence/u.exec(tramoDe(H2_MEDIO));
+  const enCierre = /se abre a los ([\p{L} ]+?) y no vence/u.exec(tramoDe(H2_CIERRE));
+  if (enSeisDos !== null && enCierre !== null && enSeisDos[1].trim() !== enCierre[1].trim()) {
+    errores.push(
+      `el CIERRE abre el Alto a los «${enCierre[1].trim()}» y §6.2 lo abre a los ` +
+        `«${enSeisDos[1].trim()}». El CIERRE devuelve el hilo de los cincuenta y dos años apoyado en ` +
+        'esa edad: si no es la misma, la devolución del hilo no se sostiene',
+    );
+  } else if (enSeisDos !== null && enCierre === null) {
+    errores.push(
+      'el CIERRE no dice a qué edad se abre el Alto, que es lo único que sostiene la devolución del ' +
+        'tercer hilo del preámbulo: sin esa edad, a Teresa el Alto ya se le pasó',
+    );
+  }
+
+  // (5) La confianza de la fuente provincial: §15 contra la celda de §4.6.
+  const fuentes = filasDeTabla(lineas, COLUMNAS_FUENTES);
+  const filaProvincial = (fuentes.filas ?? []).find((f) => /provincial/i.test(f[0] ?? ''));
+  const enQuince = /confianza \*\*(\p{L}+)\*\*/u.exec(textoDeDomicilio(lineas, H2_FEDERAL).texto ?? '');
+  if (filaProvincial !== undefined && enQuince !== null) {
+    const enTabla = pelada(filaProvincial[3] ?? '').toLowerCase();
+    if (enTabla !== enQuince[1].toLowerCase()) {
+      errores.push(
+        `§15 le atribuye confianza «${enQuince[1]}» a la fuente provincial y la tabla de §4.6 le ` +
+          `declara «${enTabla}». La confianza de una fila es lo que decide si el Calendario tiene ` +
+          'fuente o tiene expectativa, y §15 existe para decir que ahí está el borde de este PLAN',
+      );
+    }
+  }
+
+  // (6) La frecuencia de la brecha: §13 contra el compromiso de §3.6.
+  const enTresSeis = tramoDe('### 3.6 El blindaje de la Capa de Forma');
+  const tablero = filasDeTabla(lineas, ['Indicador', 'Frecuencia', 'Cómo se lo falsea']);
+  const filaBrecha = (tablero.filas ?? []).find((f) => /brecha/i.test(f[0] ?? ''));
+  if (enTresSeis.includes('mes a mes') && filaBrecha !== undefined) {
+    if (!/mensual/i.test(filaBrecha[1] ?? '')) {
+      errores.push(
+        `§3.6 promete que el tablero publica la brecha «mes a mes» y §13 la publica «${filaBrecha[1]}». ` +
+          'La pieza dos del blindaje es la que atrapa el vaciamiento gradual: con frecuencia anual, ' +
+          'la brecha se abre y se cierra adentro del mismo dato publicado',
+      );
+    }
+  }
+
+  // (7) Los datos biográficos del CIERRE, contra los que el PREÁMBULO escribió.
+  errores.push(...verificarBiografiaDelCierre(lineas));
+
+  return errores;
+}
+
+/**
+ * **EL CIERRE NO PUEDE CAMBIARLE LOS DATOS AL ROSTRO DEL PREÁMBULO.** Cambiarle
+ * la edad a la hija de Teresa salía **exit 0**, y con eso el cierre le devuelve
+ * el Alto «a tiempo» a una persona a la que, con la edad nueva, ya se le pasó.
+ *
+ * No hay lista: se extraen de los dos tramos los pares `sustantivo de <numeral
+ * escrito>` —«hija de veintitrés», «señora de ochenta y siete»— y se comparan
+ * los que comparten sustantivo. Si el CIERRE nombra un sustantivo que el
+ * PREÁMBULO no usa así, no hay con qué cruzar y no se dice nada; si lo comparte,
+ * el numeral tiene que ser el mismo.
+ */
+const NUMERAL_ESCRITO =
+  '(?:(?:vein|trein|cuaren|cincuen|sesen|seten|ochen|noven)t[aiei]\\p{L}*|un[oa]?|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce|trece|catorce|quince|die[cz]i\\p{L}+|cien\\p{L}*|mil)';
+const PAR_BIOGRAFICO = new RegExp(
+  String.raw`(\p{L}+)\s+de\s+(${NUMERAL_ESCRITO}(?:\s+y\s+${NUMERAL_ESCRITO})?)\b`,
+  'giu',
+);
+
+function paresBiograficos(texto: string): Map<string, string> {
+  const m = new Map<string, string>();
+  for (const p of texto.replace(/\*\*/g, '').matchAll(PAR_BIOGRAFICO)) {
+    if (!m.has(p[1].toLowerCase())) m.set(p[1].toLowerCase(), p[2].toLowerCase());
+  }
+  return m;
+}
+
+function verificarBiografiaDelCierre(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const { texto: preambulo } = textoDeDomicilio(lineas, H2_PREAMBULO);
+  const { texto: cierre } = textoDeDomicilio(lineas, H2_CIERRE);
+  if (preambulo === null || cierre === null) return errores;
+
+  const enPreambulo = paresBiograficos(preambulo);
+  for (const [sustantivo, numeral] of paresBiograficos(cierre)) {
+    const original = enPreambulo.get(sustantivo);
+    if (original === undefined || original === numeral) continue;
+    errores.push(
+      `el CIERRE escribe «${sustantivo} de ${numeral}» y el PREÁMBULO escribe ` +
+        `«${sustantivo} de ${original}». El anillo se cierra sobre las mismas personas: cambiarle un ` +
+        'dato al rostro en la última página le cambia a quién le llega el arco y a quién no',
+    );
+  }
+  return errores;
+}
+
+/**
+ * ── EL ANILLO: LOS HILOS DEL PREÁMBULO, DESCUBIERTOS Y EXIGIDOS EN EL CIERRE ──
+ *
+ * El CIERRE tiene un mandato que ninguna otra sección tiene —devolver los hilos
+ * que el preámbulo dejó plantados, o declarar cuál no se devuelve— y era
+ * exactamente el que nadie podía verificar: borrar el párrafo entero de un hilo
+ * salía **exit 0**, y el documento cerraba prometiendo menos de lo que había
+ * abierto sin que se moviera un H2.
+ *
+ * **Los hilos no se enumeran acá: se descubren en el preámbulo.** Son la serie
+ * anafórica —«Y está la casa», «Y están los nueve años», «Y están los cincuenta
+ * y dos años»—, que es una forma, no una lista. Si mañana el preámbulo planta un
+ * cuarto hilo, la guardia lo va a exigir en el CIERRE sola, que es lo contrario
+ * de lo que hace una lista opt-in mantenida a mano.
+ *
+ * `HILOS_ESPERADOS` es la otra dirección, y por eso son tres y no «los que
+ * haya»: sin el conteo, borrar un hilo del PREÁMBULO borra la obligación de
+ * devolverlo y las dos mitades quedan consistentes en el silencio. Verificado
+ * dos veces contra el texto: la serie tiene tres miembros y el párrafo del
+ * cuerpo de Elvira queda afuera de ella.
+ *
+ * **Y las personas del preámbulo, en las dos direcciones.** Esta sí es una lista
+ * corta y se declara como tal —descubrir «persona» adentro de una prosa
+ * biográfica no lo hace un regex sin inventar heurísticas frágiles—, pero se
+ * verifica contra los dos tramos: cada nombre tiene que estar en el PREÁMBULO
+ * (si no, la lista quedó vieja) y en el CIERRE (si no, el anillo no cierra).
+ * Elvira es el caso que importa: es la persona a la que este PLAN no le devuelve
+ * nada, y un cierre que la omite se lee más generoso de lo que el documento es.
+ */
+const SERIE_DE_HILOS = /^Y est(?:á|án)\s+(l[ao]s?\s+[^.]+?)\./u;
+const HILOS_ESPERADOS = 3;
+const PERSONAS_DEL_PREAMBULO = ['Teresa', 'Elvira'];
+const H2_PREAMBULO = '## PREÁMBULO — LA VIDA QUE NADIE MIRÓ ENTERA';
+
+function verificarHilosDelPreambulo(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const { texto: preambulo } = textoDeDomicilio(lineas, H2_PREAMBULO);
+  const { texto: cierre } = textoDeDomicilio(lineas, H2_CIERRE);
+  if (preambulo === null || cierre === null) return errores;
+
+  const hilos = preambulo
+    .split('\n')
+    .map((l) => SERIE_DE_HILOS.exec(l.replace(/\*\*/g, '').trim()))
+    .filter((m): m is RegExpExecArray => m !== null)
+    // «los cincuenta y dos años de Teresa» se devuelve como «los cincuenta y dos años»
+    .map((m) => m[1].replace(/\s+de\s+\p{Lu}\p{L}+$/u, '').trim());
+
+  if (hilos.length !== HILOS_ESPERADOS) {
+    errores.push(
+      `el PREÁMBULO planta ${String(hilos.length)} hilos de la serie «Y está/Y están …» y son ` +
+        `${String(HILOS_ESPERADOS)} [${hilos.join(' · ')}]. El conteo va acá porque, sin él, borrar ` +
+        'un hilo del preámbulo borra en el mismo acto la obligación de devolverlo en el CIERRE, y ' +
+        'las dos mitades quedan consistentes en el silencio',
+    );
+  }
+
+  const cierrePlano = cierre.replace(/\*\*/g, '').toLowerCase();
+  for (const hilo of hilos) {
+    if (cierrePlano.includes(hilo.toLowerCase())) continue;
+    errores.push(
+      `el CIERRE no devuelve el hilo «${hilo}» que el PREÁMBULO plantó. El anillo es el mandato ` +
+        'propio de esta sección: cada hilo se devuelve o se declara que no se devuelve, y borrar el ' +
+        'párrafo entero de uno no mueve ningún H2',
+    );
+  }
+
+  for (const quien of PERSONAS_DEL_PREAMBULO) {
+    if (!preambulo.includes(quien)) {
+      errores.push(
+        `«${quien}» está en la lista de personas del preámbulo y el PREÁMBULO no la nombra: la lista ` +
+          'quedó vieja, y una lista vieja exige en el CIERRE a alguien que ya no existe',
+      );
+    }
+    if (!cierre.includes(quien)) {
+      errores.push(
+        `el CIERRE no nombra a «${quien}», que el PREÁMBULO sí nombra. Un cierre que omite a la ` +
+          'persona a la que el PLAN no le devuelve nada se lee más generoso de lo que el documento es',
+      );
+    }
+  }
+
+  return errores;
+}
+
+/**
+ * **UNA SECCIÓN QUE DECLARA CUÁNTAS PARTES TIENE, CONTADA — generalizado**
+ * (Task 10). `verificarRiesgosContados()` hacía esto para §10 y nada más; las
+ * dos secciones nuevas que abren declarando un número —«Cinco indicadores» en
+ * §13, «cinco dependencias incumplidas» en §17— tenían el mismo agujero:
+ * borrarle una fila a la tabla salía **exit 0** con el numeral escrito intacto.
+ * Acá el numeral se cruza contra las filas realmente parseadas.
+ */
+const CONTEOS_DECLARADOS: { h2: string; declara: RegExp; columnas: string[]; porQue: string }[] = [
+  {
+    h2: H2_TABLERO,
+    declara: /(\p{L}+) indicadores/u,
+    columnas: ['Indicador', 'Frecuencia', 'Cómo se lo falsea'],
+    porQue: 'el tablero es la pieza dos del blindaje de 3.6: un indicador menos es una brecha que deja de publicarse',
+  },
+  {
+    h2: H2_PROTOCOLO,
+    declara: /(\p{L}+) fallas que no son riesgo/u,
+    columnas: ['Falla', 'Respuesta'],
+    porQue: 'una dependencia sin respuesta escrita es la que se improvisa el día que falla',
+  },
+];
+
+function verificarConteosDeclarados(lineas: string[]): string[] {
+  const errores: string[] = [];
+  for (const { h2, declara, columnas, porQue } of CONTEOS_DECLARADOS) {
+    const { tramo, errores: errTramo } = tramoDeSeccion(lineas, h2);
+    errores.push(...errTramo);
+    if (tramo === null) continue;
+
+    const tabla = filasDeTabla(tramo, columnas, true);
+    errores.push(...tabla.errores);
+    if (tabla.filas === null) {
+      errores.push(`«${h2}» no trae su tabla [${columnas.join(' · ')}], que es donde vive su contenido`);
+      continue;
+    }
+    const m = declara.exec(tramo.join('\n').replace(/\*\*/g, ''));
+    const enLetrasReal = EN_LETRAS[tabla.filas.length] ?? String(tabla.filas.length);
+    if (m === null) {
+      errores.push(
+        `«${h2}» no declara cuántas partes tiene y su tabla trae ${String(tabla.filas.length)}. ` +
+          'Una sección que no dice cuántas son no tiene contra qué contarse',
+      );
+      continue;
+    }
+    if (m[1].toLowerCase() !== enLetrasReal) {
+      errores.push(
+        `«${h2}» declara «${m[1]}» y su tabla trae ${String(tabla.filas.length)} fila(s) ` +
+          `(«${enLetrasReal}»). ${porQue}`,
+      );
+    }
+  }
+  return errores;
+}
+
+/**
+ * ── EL CIERRE DEL DOCUMENTO, COMO CHEQUEO (Task 10) ──────────────────────────
+ *
+ * Un documento terminado se distingue de uno truncado en tres cosas, y las tres
+ * se verifican acá porque esta es la última tarea que lo toca:
+ *
+ * 1. **Termina donde el corpus termina.** `PLANPACTO` cierra con `**FIN DEL
+ *    DOCUMENTO**` y el renglón del mandato debajo. Sin eso, un archivo cortado
+ *    a la mitad de la última sección sale idéntico a uno completo para todos
+ *    los demás chequeos, que miran secciones y no finales.
+ * 2. **No queda un marcador de pendiente.** Los cuatro del plan ya están en
+ *    `PROHIBIDOS`; se agregan acá los que un borrador deja de verdad y que
+ *    aquellos no cubren —`TBD`, `WIP`, `FIXME`, el comentario HTML abierto y el
+ *    corchete vacío—. **Ninguno toca la palabra «pendiente» suelta**, que este
+ *    documento usa a propósito en §9.3 y en la cabecera y es lo contrario de un
+ *    marcador: es un hueco declarado.
+ * 3. **Ninguna celda de tabla quedó vacía.** El guion largo es una respuesta
+ *    —«esta estación no tiene ocupante», «este tramo no tiene ejecución»— y
+ *    sigue permitido; el vacío no es una respuesta, es una celda sin escribir.
+ *    Se corre sobre TODAS las tablas del documento, que es lo que ningún
+ *    verificador de tabla individual hace.
+ */
+const MARCADORES_DE_BORRADOR = /\bTBD\b|\bWIP\b|\bFIXME\b|<!--|\[\s*\]|\[\.\.\.\]/u;
+const FIN_DEL_DOCUMENTO = '**FIN DEL DOCUMENTO**';
+
+function verificarCierreDelDocumento(raw: string, lineas: string[]): string[] {
+  const errores: string[] = [];
+
+  const cola = lineas
+    .map((l) => l.trim())
+    .filter((l) => l !== '')
+    .slice(-3);
+  if (!cola.includes(FIN_DEL_DOCUMENTO)) {
+    errores.push(
+      `el documento no termina con «${FIN_DEL_DOCUMENTO}» en sus últimos renglones, que es como ` +
+        'cierra el corpus. Todos los demás chequeos miran secciones: un archivo cortado a la mitad ' +
+        'de la última sección les sale idéntico a uno terminado',
+    );
+  }
+  if (!/vig[ée]simo quinto mandato/iu.test(cola.join('\n'))) {
+    errores.push(
+      'el pie del documento no nombra el mandato («vigésimo quinto»). La cabecera declara el ' +
+        'desfasaje ordinal 24 / mandato 25 y el pie es el otro lugar donde el corpus lo escribe: ' +
+        'con uno solo de los dos, el desfasaje se «corrige» en la próxima lectura',
+    );
+  }
+
+  for (const [i, linea] of lineas.entries()) {
+    const m = MARCADORES_DE_BORRADOR.exec(linea);
+    if (m !== null) {
+      errores.push(
+        `línea ${String(i + 1)}: «${m[0]}» es un marcador de borrador y al cierre no puede quedar ` +
+          'ninguno',
+      );
+    }
+    if (!esFilaDeTabla(linea) || esSeparadorDeTabla(linea)) continue;
+    const cel = celdas(linea);
+    const vacias = cel.filter((c) => c.trim() === '').length;
+    if (vacias > 0) {
+      errores.push(
+        `línea ${String(i + 1)}: la fila de tabla tiene ${String(vacias)} celda(s) vacía(s) ` +
+          `(«${linea.trim().slice(0, 90)}»). El guion largo es una respuesta y sigue valiendo; el ` +
+          'vacío no lo es: es una celda sin escribir que se lee como una que no aplica',
+      );
+    }
+  }
+
+  if (raw.trim() === '') errores.push('el documento está vacío');
   return errores;
 }
 
@@ -7369,6 +8177,116 @@ function tramoDelAncla(ls: string[], desde: number, hasta: number): string {
   return ls.slice(ini - 1, hasta).join('\n');
 }
 
+/**
+ * ── EL CRUCE DE PORCENTAJES COMPARABA DÍGITOS SUELTOS, NO RANGOS (P-1) ────────
+ *
+ * El chequeo anterior tomaba el ancla que precede al rango y exigía
+ * `grupos.every(g => tramo.includes(g))` — un `includes()` de dígitos sobre el
+ * texto entero de la línea destino. **Medido, con las cuatro mutaciones puestas
+ * y corridas:**
+ *
+ *   `entre el 10 y el 20%` → `entre el 5 y el 20%`   sobre `:1958`  → VERDE
+ *       («USD 50.000 millones» contiene un «5»)
+ *   `entre el 15 y el 20%` → `entre el 30 y el 35%`  sobre `:2676`  → VERDE
+ *       (`:2676` trae «(30-35%)», que es la porción del PRESUPUESTO NACIONAL)
+ *   `10` → `15`                                      sobre `:1958`  → rojo
+ *   `15` → `10`                                      sobre `:2676`  → VERDE
+ *       (`:2676` trae «10-15%», el cofinanciamiento provincial)
+ *
+ * O sea: el swap estaba cerrado en una dirección y abierto en la otra, y el
+ * cruce licenciaba atribuirle al FGS la banda de OTRO ACTOR escrita en la misma
+ * línea — que es exactamente la clase de error que este cruce vino a corregir.
+ *
+ * **Dos condiciones, y las dos miden lo mismo que el documento afirma.**
+ *
+ * 1. **El rango como rango.** `10–20%` es un rango; un «5» suelto adentro de
+ *    «USD 50.000» no lo es. Eso mata la primera mutación y la cuarta.
+ *
+ * 2. **El rango que la sigla GOBIERNA.** La segunda no la mata ninguna forma del
+ *    rango, porque el rango existe en la línea destino: es de otro dueño. Lo
+ *    único que distingue «FGS (15-20%)» de «presupuesto nacional (30-35%)»
+ *    adentro de la misma línea es a quién sigue cada uno. La regla es entonces:
+ *    **el primer rango que aparece después de la sigla que la oración atribuyente
+ *    nombra tiene que ser el rango reclamado.**
+ *
+ * **La propuesta que llegó con el requisito era «≤30 caracteres de la sigla», y
+ * se descarta porque no sobrevive a la medición.** En `:2676` la distancia de
+ * `30-35%` a un `FGS` es de tres caracteres —la línea dice «presupuesto nacional
+ * (30-35%), FGS (15-20%)»—, así que una ventana de proximidad deja pasar
+ * justamente la mutación que tenía que atrapar; y en `:1958` la distancia
+ * legítima es de unos sesenta y ocho, así que cualquier ventana lo bastante
+ * angosta para el primer caso rompe el segundo. La adyacencia no es de
+ * distancia: es de ORDEN, y por eso se verifica el primer rango que sigue a la
+ * sigla y no el más cercano.
+ *
+ * Las siglas candidatas salen de la oración atribuyente y no de una lista: se
+ * descartan las que son nombre de documento (`PLAN…`, que es la etiqueta del
+ * ancla) y la unidad monetaria. **Si ninguna de las candidatas aparece en la
+ * línea destino, la guardia lo REPORTA en vez de descartarlo en silencio** — no
+ * puede leer la atribución, y eso es un resultado, no un permiso.
+ */
+const SIGLA_EN_LA_ORACION = /\b[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ0-9]{1,}\b/gu;
+const SIGLAS_QUE_NO_SON_SUJETO = /^(?:PLAN|USD|US|AR|ANEXO)/u;
+
+function rangoComoRango(a: string, b: string): RegExp {
+  return new RegExp(String.raw`(?<!\d)${a}\s*(?:[–—-]|\s+a\s+|\s+y\s+el\s+)\s*${b}\s*%`, 'u');
+}
+
+/** Todo rango porcentual de un texto, con la posición en la que arranca. */
+function rangosDe(texto: string): { desde: number; a: string; b: string }[] {
+  const salida: { desde: number; a: string; b: string }[] = [];
+  for (const m of texto.matchAll(
+    /(?<!\d)(\d+)\s*(?:[–—-]|\s+a\s+|\s+y\s+el\s+)\s*(\d+)\s*%/gu,
+  )) {
+    salida.push({ desde: m.index, a: m[1], b: m[2] });
+  }
+  return salida;
+}
+
+function rangoAtribuido(
+  tramo: string,
+  a: string,
+  b: string,
+  ambito: string,
+  donde: string,
+): string[] {
+  if (!rangoComoRango(a, b).test(tramo)) {
+    return [
+      `${donde} le atribuye el rango «${a}–${b}%» a una línea que no escribe ESE RANGO. Que los dos ` +
+        'dígitos aparezcan sueltos en el texto destino no es la afirmación que el documento hace: ' +
+        'un dígito adentro de un monto, de un año o de otra banda no es el extremo de esta',
+    ];
+  }
+
+  const siglas = [...new Set([...ambito.matchAll(SIGLA_EN_LA_ORACION)].map((m) => m[0]))].filter(
+    (s) => !SIGLAS_QUE_NO_SON_SUJETO.test(s),
+  );
+  const presentes = siglas.filter((s) => tramo.includes(s));
+  if (presentes.length === 0) {
+    return [
+      `${donde} escribe el rango «${a}–${b}%» y la guardia no puede leer a quién se lo atribuye: la ` +
+        'oración no nombra ninguna sigla que aparezca en la línea destino. Con dos o más rangos en la ' +
+        'misma línea, el rango solo se puede verificar contra el actor que lo gobierna, y acá no hay ' +
+        'actor que buscar. Se reporta en vez de darse por bueno',
+    ];
+  }
+
+  const rangos = rangosDe(tramo);
+  for (const sigla of presentes) {
+    for (const m of tramo.matchAll(new RegExp(sigla.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gu'))) {
+      const primero = rangos.find((r) => r.desde > m.index);
+      if (primero !== undefined && primero.a === a && primero.b === b) return [];
+    }
+  }
+
+  return [
+    `${donde} le atribuye «${a}–${b}%» a «${presentes.join('/')}», y en la línea destino ese rango no ` +
+      `es el que esa sigla gobierna: el primer rango que sigue a la sigla es otro. Dos porcentajes ` +
+      'distintos en la misma línea son dos DUEÑOS distintos, y darle a uno la banda del otro es la ' +
+      'falla que este cruce existe para atrapar',
+  ];
+}
+
 function verificarCitasDescubiertas(lineas: string[]): {
   errores: string[];
   cruzadas: number;
@@ -7729,6 +8647,14 @@ function main(): void {
   errores.push(...verificarSupervivencia(lineas));
   errores.push(...verificarRiesgosContados(lineas));
   errores.push(...verificarMagnitudesAncladas(lineas));
+  // 8 bis 4) Task 10: el epígrafe de cada sección, la tabla de fases cruzada
+  //          contra los trece dispositivos, y el documento efectivamente cerrado.
+  errores.push(...verificarEpigrafes(lineas));
+  errores.push(...verificarFasesContraLosDispositivos(lineas));
+  errores.push(...verificarRestatementsFinales(lineas));
+  errores.push(...verificarHilosDelPreambulo(lineas));
+  errores.push(...verificarConteosDeclarados(lineas));
+  errores.push(...verificarCierreDelDocumento(raw, lineas));
   // 8 ter) Task 8: lo que el documento afirma SOBRE el corpus, rehecho contra él.
   errores.push(...verificarLosSeisLexicos(lineas));
   errores.push(...verificarCitasTextuales(lineas));
@@ -7783,8 +8709,15 @@ function main(): void {
       'año del régimen escrito en las dos, la unidad de cada una declarada y el gate de la Fase 3 ' +
       'contado contra las estaciones del Calendario), lista de supervivencia con los trece ' +
       'dispositivos repartidos en exactamente un lado y el numeral cruzado contra los nombres, ' +
-      '§10 con sus riesgos contados y correlativos, ninguna magnitud de plata de §10–§12 sin una ' +
-      'línea anclada que la abra, la fila de PLANARCO en READINESS_GATES_ADVERSARIAL.md ' +
+      '§10 con sus riesgos contados y correlativos, la columna «Qué se pone en pie» de §12 con los ' +
+      'trece dispositivos en exactamente una fase cada uno —salvo el que §12 declara continente—, ' +
+      `ninguna magnitud de plata de las ${String(SECCIONES_CON_MAGNITUD_ANCLADA.length)} secciones ` +
+      'finales sin una línea anclada que la abra y ningún rango porcentual ajeno que no sea el que ' +
+      'su sigla gobierna en la línea destino, ' +
+      `epígrafe presente y con texto en cada sección salvo las ${String(SIN_EPIGRAFE.length)} exentas ` +
+      '—y ninguna exenta con epígrafe—, documento cerrado (FIN DEL DOCUMENTO, mandato en el pie, ' +
+      'cero marcadores de borrador y cero celdas de tabla vacías), la fila de PLANARCO en ' +
+      'READINESS_GATES_ADVERSARIAL.md ' +
       `con sus ${String(ATTACK_PATHS_ESPERADOS)} attack paths completos, sus fallbacks escritos ` +
       'contra el extremo alto de la banda de régimen y no como cifra suelta, y su NOTA de ' +
       'habilitación corrida contra el prohibido del gate, los cuatro cocientes del acta, la banda ' +
