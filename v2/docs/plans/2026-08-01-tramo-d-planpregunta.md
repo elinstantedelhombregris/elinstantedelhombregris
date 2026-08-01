@@ -142,7 +142,7 @@ Verificado línea por línea, y es la mejor noticia del tramo:
 
 > **Presupuesto de palabras — objetivo total: 29.000–34.000.** Cada sección tiene el suyo declarado en su step, y **las adiciones de revisión entran adentro del rango, no encima.**
 >
-> **Verificación de que cierra por construcción, hecha antes de escribir una palabra** —que es exactamente lo que el tramo B no hizo y el tramo C tuvo que arreglar dos veces sobre la marcha: la suma de los **pisos** de las veintiséis entradas de la tabla de abajo da **28.870**, que entra bajo el techo de 34.000 con 5.130 de margen. La suma de los **techos** da 36.170, por encima del total: eso es deliberado y significa que **no todas las secciones pueden ir a su tope a la vez**. Si una sección se come su techo, otra baja. Lo que no puede pasar —y es lo que pasó en el tramo C— es que los pisos obligatorios ya violen el total.
+> **Verificación de que cierra por construcción, hecha antes de escribir una palabra** —que es exactamente lo que el tramo B no hizo y el tramo C tuvo que arreglar dos veces sobre la marcha: la suma de los **pisos** de las veintiséis entradas de la tabla de abajo da **29.010** —corregido el 2026-08-01, tras subir la cabecera de 560 a 700; ver la nota de la Task 1—, que entra bajo el techo de 34.000 con 4.990 de margen. La suma de los **techos** da 36.310, por encima del total: eso es deliberado y significa que **no todas las secciones pueden ir a su tope a la vez**. Si una sección se come su techo, otra baja. Lo que no puede pasar —y es lo que pasó en el tramo C— es que los pisos obligatorios ya violen el total.
 
 - **Spec de referencia:** `v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md` §5 (PLANPREGUNTA) y §2 (la aritmética del Techo). **Donde la spec choque con D-1…D-10, ganan los hallazgos.**
 - **El taller es el destino.** El documento se escribe en `Iniciativas Estratégicas/PLANPREGUNTA_Argentina_ES.md`. **La ruta tiene espacio y acento: entrecomillala siempre en bash.** La edición derivada de `v2/content/planes/` NO se toca en este tramo.
@@ -249,7 +249,7 @@ Verificado línea por línea, y es la mejor noticia del tramo:
 
 | # | Sección | Tarea | Palabras |
 |---|---|---|---|
-| — | Cabecera + H1 + «Vigésimo Sexto Mandato» + versión + portada ASCII | 1 | 560–620 |
+| — | Cabecera + H1 + «Vigésimo Sexto Mandato» + versión + portada ASCII | 1 | 700–760 |
 | 1 | `## PREÁMBULO — {título}` | 2 | 1.100–1.400 |
 | 2 | `## TESIS CENTRAL` | 2 | 700–900 |
 | 3 | `## SECCIÓN 0: LAS OCHO FALLAS DEL APARATO DE CONOCIMIENTO ARGENTINO` | 3 | 3.200–3.700 |
@@ -327,11 +327,13 @@ Contenido específico:
 - **El código, una vez y bien:** por qué PLANPREGUNTA y no PLANCYT, incluida la pata industrial que no se cubre.
 - La portada ASCII lleva **sólo dispositivos que el cuerpo va a tener**. En el tramo B la portada anunció cuatro dispositivos con cero ocurrencias en el cuerpo. **La Task 10 la vuelve a abrir obligatoriamente.**
 
-**Palabras:** 560–620, medidas con `sed -n '1,NNp' … | wc -w` sobre las líneas de la cabecera.
+**Palabras:** **700–760**, medidas con `sed -n '1,NNp' … | wc -w` sobre las líneas de la cabecera.
+
+**Corrección del 2026-08-01, tras escribir la Task 1.** El rango original decía 560–620 y estaba copiado de la cabecera de PLANARCO sin mirar qué le pide este plan a la de acá. Medido bloque por bloque: la portada ASCII de PLANPREGUNTA pesa **136 palabras contra las 143 de PLANARCO** —es más magra, no más gorda—, y toda la diferencia está en el blockquote de metadatos: **575 contra 435**. Los +140 son dos bloques que la cabecera de PLANARCO no lleva y que las Global Constraints declaran vinculantes: el `ACTA DE HABILITACIÓN` tiene que traer **cuatro** cocientes en vez de tres **más la lectura del acta con sus dos cifras** (120.000 y 150.000M), y el bloque `Sobre el código` no existe en ningún otro PLAN porque ningún otro PLAN cambió de sigla. **Comprimir para llegar a un número elegido antes de saber qué había que escribir es la peor economía posible**, y es la misma doctrina con la que el tramo C subió §0, §3, §6 y el CIERRE. El valor actual es **744**, adentro del rango corregido.
 
 **Verify:** `npx tsx scripts/verificar-planpregunta.ts` sale 0. Después **rompé algo a propósito** (renombrá el H2 del mandato) y confirmá que sale 1. Restaurá.
 
-- [ ] Task 1 completa
+- [x] Task 1 completa
 
 ---
 
