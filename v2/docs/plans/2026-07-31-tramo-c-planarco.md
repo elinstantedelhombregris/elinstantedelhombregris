@@ -177,7 +177,7 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 | 6 | `## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES` | 4 | 2.600–3.300 |
 | 7 | `## SECCIÓN 4: LA RENTA DE ARCO` | 5 | 3.200–3.600 |
 | 8 | `## SECCIÓN 5: EL COMIENZO` | 6 | 2.200–2.600 |
-| 9 | `## SECCIÓN 6: EL MEDIO` | 6 | 1.600–1.900 |
+| 9 | `## SECCIÓN 6: EL MEDIO` | 6 | 1.600–2.100 |
 | 10 | `## SECCIÓN 7: EL FINAL` | 7 | 2.800–3.200 |
 | 11 | `## SECCIÓN 8: LA AGENCIA NACIONAL DEL ARCO DE LA VIDA (ANAV)` | 7 | 1.100–1.400 |
 | 12 | `## INTEGRACIÓN CON EL MARCO ¡BASTA!` | 8 | 900–1.100 |
@@ -185,13 +185,15 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 | 14 | `## SECCIÓN 10: RIESGOS Y RESPUESTAS` | 9 | 700–900 |
 | 15 | `## SECCIÓN 11: EL MAPA DE PERDEDORES` | 9 | 700–900 |
 | 16 | `## SECCIÓN 12: HOJA DE RUTA` | 9 | 400–500 |
-| 17 | `## SECCIÓN 13: TABLERO NACIONAL DEL ARCO` | 10 | 250–300 |
+| 17 | `## SECCIÓN 13: TABLERO NACIONAL DEL ARCO` | 10 | 250–320 |
 | 18 | `## SECCIÓN 15: DIMENSIÓN FEDERAL` | 10 | 230–280 |
 | 19 | `## SECCIÓN 16: VISIÓN 2040` | 10 | 220–270 |
 | 20 | `## SECCIÓN 17: PROTOCOLO DE FALLA` | 10 | 260–300 |
-| 21 | `## CIERRE` | 10 | 350–420 |
+| 21 | `## CIERRE` | 10 | 350–480 |
 
 > **Los dos techos subidos el 2026-07-31, con la razón.** La SECCIÓN 3 pasó de 3.000 a **3.300** y la SECCIÓN 0 de 3.800 a **4.000**. No es indulgencia: las dos crecieron por corrección de contenido verificado, no por prosa. En la SECCIÓN 3 el censo de ocupantes pasó de siete estaciones a catorce de dieciséis —la columna que el propio documento llama «lo que hace honesta la arquitectura» estaba mal por la mitad— y la tabla es lo que engordó. En la SECCIÓN 0, §0.6 apoya su «Por qué persiste» y su «El dato» en la ausencia de tres cosas —organismo, caja y registro— que `PLANMEMORIA` provee: Agencia Nacional de Memoria con 0,10–0,14% del PBI protegido (`PLANMEMORIA:484` y `:486` — `:480` es el H2 de la sección, y esta nota arrastraba la misma cita mal que corrigió el documento), Síndicos de Archivo a salario de investigador CONICET adjunto (`:405`), y el Archivo de Depósito Ciudadano de siete nodos con hash (`:283`, `:297`). **Corregir cuatro afirmaciones falsas cuesta palabras, y comprimir para no pagarlas es la peor economía posible.** Las dos secciones ya absorbieron una ronda de arreglos a saldo cero cada una; esta es la segunda y no entra.
+
+> **Tres techos subidos el 2026-08-01, y la razón es un hallazgo, no una holgura.** §6 de 1.900 a **2.100**, §13 de 300 a **320**, el CIERRE de 420 a **480**. La revisión final de la Task 10 encontró que **el Alto de los Cuarenta y Cinco no le corresponde a Teresa** —§6.2 dice «la persona conserva el puesto, el salario y los aportes» y §6.3 pone el reintegro contra las contribuciones del empleador, y Teresa es monotributista sin empleador— **y que el dispositivo nunca declaraba su universo en 33.000 palabras**, mientras §1 del mismo documento dice que entre el 40 y el 45% de los trabajadores argentinos están afuera de los dos regímenes. Declarar ese universo en §6.2 arregla el dispositivo y no sólo la frase del cierre. **§6 tenía cinco palabras de margen**, así que se paga con techo y no con compresión — la misma doctrina con la que ya se subieron §0 y §3: comprimir para no pagar una corrección verificada es la peor economía posible.
 
 Los saltos de numeración (no hay SECCIÓN 14) imitan al corpus, que los tiene: PLANMEMORIA salta de la 12 a la 14, PLANPACTO también.
 
@@ -355,7 +357,7 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 - **La mediana edad es territorio virgen** — verificado, no aparece en ningún PLAN. Es la sección con más libertad y menos con qué apoyarse: **cada afirmación se declara como propia.**
 - **El reintegro del Alto se diseña desde cero** (arreglo 7). `PLANCUIDADO:345-364` **carga** la Jornada 6+2 al empleador —dos horas al 75% de la hora de trabajo, ≈ +15% de costo laboral— y **no reintegra nada**: la única compensación declarada es no-monetaria. Y el acantilado del empleado número 50 es **doblemente** grave, porque PLANCUIDADO ya tiene **dos** umbrales propios (500 empleados en tranche-3, PYMES en 2040) que un umbral de 50 vendría a reemplazar. **Resolvelo o declará que no lo resolvés.**
 
-**Palabras:** comienzo 2.200–2.600 · medio 1.600–1.900.
+**Palabras:** comienzo 2.200–2.600 · medio **1.600–2.100**.
 
 - [ ] Task 6 completa
 
@@ -444,7 +446,7 @@ Los tres hilos del preámbulo (Task 2) se devuelven acá, uno por uno, o se decl
 
 **Y la portada se vuelve a abrir.** Verificá que **cada dispositivo anunciado en el ASCII tenga ocurrencias en el cuerpo**, que el destinatario institucional esté contestado en alguna sección, y que la descripción de la arquitectura coincida con lo que la Sección 3 terminó escribiendo. En el tramo B la portada fue la peor página del documento por ser la única que nadie volvió a mirar.
 
-**Palabras:** tablero 250–300 · federal 230–280 · visión 220–270 · protocolo 260–300 · cierre 350–420.
+**Palabras:** tablero **250–320** · federal 230–280 · visión 220–270 · protocolo 260–300 · cierre **350–480**.
 
 - [ ] Task 10 completa
 
