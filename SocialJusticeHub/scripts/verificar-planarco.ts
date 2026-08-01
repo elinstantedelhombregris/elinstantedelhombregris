@@ -120,6 +120,8 @@ const H2_COMIENZO = '## SECCIÓN 5: EL COMIENZO';
 const H2_MEDIO = '## SECCIÓN 6: EL MEDIO';
 /** Prefijo, como `### 0.6 `: el domicilio de la tabla de fuentes es su número. */
 const H3_TABLA_DE_FUENTES = '### 4.6 ';
+/** Prefijo, ídem: la declaración de la liberación vive en 5.4 y en ningún otro lado. */
+const H3_LIBERACION = '### 5.4 ';
 
 const CIFRAS_CANONICAS: ValorConDomicilio[] = [
   {
@@ -506,15 +508,24 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
   },
   {
     valor: 'evidencia verificable por sistema',
-    en: [H2_COMIENZO],
     /**
-     * Encontrado rompiendo al verificar los arreglos de esta revisión, y es la
-     * limitación que CIFRAS_CANONICAS documenta desde la Task 4: la frase vive
-     * en el título del H3 y en la declaración, y borrar la DECLARACIÓN salía
-     * **exit 0** porque el título la cubría. El título nombra el criterio; la
-     * declaración es la que dice que no hay cuerpo que delibere.
+     * **R-5, y el domicilio es la mitad del arreglo.** La frase vive en el
+     * título del H3 5.4 y en la declaración, y borrar la DECLARACIÓN salía
+     * **exit 0** porque el título la cubría. El primer cierre fue `veces: 2`, y
+     * `veces: N` cuenta OCURRENCIAS y no LA ocurrencia: con la §5 entera de
+     * domicilio, borrar la declaración y repetir la frase cinco palabras más
+     * allá —en 5.6, en cualquier lado— volvía a dar dos y salía verde; y al
+     * revés, retitular el H3 —operación normal— tiraba el conteo a uno y ponía
+     * la guardia roja con la declaración intacta.
+     *
+     * Las dos se cierran juntas bajando el domicilio al H3 **por prefijo**
+     * (`### 5.4 `, la forma que `H3_FALLA_TRANSMISION` estrenó): el título
+     * queda afuera del tramo por construcción, el número sobrevive a cualquier
+     * retitulación, y una repetición en otro H3 ya no cubre nada. Vuelve a
+     * `veces: 1`, que es lo que se quería decir: la prosa de 5.4 declara el
+     * criterio, una vez.
      */
-    veces: 2,
+    en: [H3_LIBERACION],
     porQue:
       'el arreglo 6: la liberación de la Dote NO se decide en una mesa. Un panel territorial que ' +
       'decide quién cobra un capital de dieciocho años es la mejor máquina de punteros que este ' +
@@ -1169,6 +1180,24 @@ function siglasDeAgencias(): string[] {
   return out;
 }
 
+/**
+ * **M-4.** El barrido de dueños contra la prosa se acota a las SIGLAS —el censo
+ * de agencias más los dos explícitos— y deja afuera la columna «Dueño» del libro
+ * mayor, que trae nombres corrientes: `Hacienda`, `MinSalud`, `MinHabitat`,
+ * `PLANTER L2`. Barridos contra la prosa de §4.6, cualquiera de esos mencionado
+ * al pasar por una sección futura pone la guardia roja sin motivo — un falso
+ * positivo latente, y esta guardia ya documentó que un chequeo que se pone rojo
+ * sobre prosa honesta se termina borrando entero.
+ *
+ * Acotar no pierde el chequeo: la mutación que lo estrenó —`ANSES` → `ANTSPO`
+ * en la fila 1— sigue roja, porque `ANSES` es uno de los dos explícitos y
+ * `ANTSPO` es sigla del censo.
+ */
+function registroAcotadoALasSiglas(): string[] {
+  const todos = [...siglasDeAgencias(), ...DUENOS_EXPLICITOS.map((d) => d.id)];
+  return [...new Set(todos)].sort((a, b) => b.length - a.length);
+}
+
 function registroDeDuenos(): string[] {
   const todos = [
     ...duenosDelLibroMayor(),
@@ -1218,8 +1247,15 @@ function resolverDueno(celda: string, registro: string[]): { id: string } | { er
 }
 
 /**
- * **DECIMOCUARTA FORMA DEL LADO DE LA TABLA: la columna del dueño resolvía
- * contra el REGISTRO GLOBAL y no contra la autoridad que la propia fila cita.**
+ * **DECIMOQUINTA FORMA DEL ARQUETIPO, del lado de la tabla: la columna del
+ * dueño resolvía contra el REGISTRO GLOBAL y no contra la autoridad que la
+ * propia fila cita.**
+ *
+ * (M-5: este bloque venía rotulado `DECIMOCUARTA` igual que el de las anclas,
+ * tres pantallas más abajo. En un archivo cuyo valor documental es llevar la
+ * cuenta de las formas del arquetipo, dos bloques con el mismo número son una
+ * forma que nadie puede citar. La serie va: 14 = el ancla completa que secuestra
+ * al antecedente, 15 = esta, 16 = el cruce condicionado a su propio ancla.)
  *
  * El arreglo anterior le puso autoridad a la columna: hoy una celda tiene que
  * nombrar exactamente un dueño del registro. Lo que no cerró es que el registro
@@ -1273,22 +1309,26 @@ function filaDelLibroMayor(n: number): Record<string, string> | null {
 
 /**
  * Cruza una fila de la tabla de fuentes contra la línea del libro mayor que
- * ella misma cita. Devuelve los errores, o `[]` si la fila no cita ninguna.
+ * ella misma cita. Devuelve los errores y el `ID` de la línea anclada, o `null`
+ * si la fila no ancla ninguna.
  */
 function cruzarContraLibroMayor(
   fila: string[],
   donde: string,
   registro: string[],
-): string[] {
+): { errores: string[]; id: string | null } {
   const m = ANCLA_LIBRO_MAYOR.exec(fila[0] ?? '');
-  if (!m) return [];
+  if (!m) return { errores: [], id: null };
   const n = Number(m[1]);
   const ref = filaDelLibroMayor(n);
   if (ref === null) {
-    return [
-      `${donde} ancla \`SOURCE_OF_FUNDS_LEDGER.md:${String(n)}\` y esa línea no es una fila de la ` +
-        'tabla del libro mayor: la fila dice apoyarse en una autoridad que no se puede leer',
-    ];
+    return {
+      errores: [
+        `${donde} ancla \`SOURCE_OF_FUNDS_LEDGER.md:${String(n)}\` y esa línea no es una fila de la ` +
+          'tabla del libro mayor: la fila dice apoyarse en una autoridad que no se puede leer',
+      ],
+      id: null,
+    };
   }
 
   const errores: string[] = [];
@@ -1334,6 +1374,96 @@ function cruzarContraLibroMayor(
     );
   }
 
+  return { errores, id: (ref['ID'] ?? '') === '' ? null : ref['ID'] };
+}
+
+/**
+ * **DECIMOSEXTA FORMA DEL ARQUETIPO: el cruce contra el libro mayor estaba
+ * condicionado al token cuya desaparición tenía que reportar.**
+ *
+ * `cruzarContraLibroMayor()` arranca con `if (!m) return []` sobre el ancla que
+ * la propia fila trae, y una fila sin ancla es indistinguible de una verificada
+ * y correcta. Reproducido sobre el árbol de `8559818`: **borrar el ancla de la
+ * fila 4 y mutar sus cuatro columnas a la vez** —`PEO` → `ANMov`,
+ * disponibilidad → `2031 en adelante`, `baja` → `media`, `reassignment` →
+ * `public_net_cost`— sale **exit 0**, mientras `:488` sigue diciendo «La cuarta
+ * sí es trazable: la lleva F10 con esa confianza y esa disponibilidad» y `:492`
+ * sigue diciendo «el dueño es la oficina de ejecución del proyecto».
+ *
+ * Detalle que confirma el diagnóstico: la variante con dueño `ANCV` salía roja
+ * **de rebote** —colisiona con el dueño de la fila 3 y rompe el conteo de
+ * dueños— y con cualquier otra sigla real seguía verde. De rebote no es un
+ * chequeo, y está escrito así tres pantallas más abajo, en `CORTA_ORACION`.
+ *
+ * **El arreglo es simétrico con `verificarDuenosContraLaProsa()`, que ya cerró
+ * la mitad de arriba:** todo identificador del libro mayor que la prosa de §4.6
+ * nombre —hoy `F10`— tiene que ser el `ID` de una línea que alguna fila de la
+ * tabla ancle. La prosa se apoya en la trazabilidad de esa línea; si ninguna
+ * fila la cita, la prosa afirma una autoridad que la tabla ya no invoca.
+ *
+ * El domicilio es §4.6 y no la SECCIÓN 4 entera, por la misma razón que el
+ * chequeo de dueños: §4.5 nombra a `F08` —las regalías extractivas— y eso es
+ * verdad y no es una fila de esta tabla.
+ */
+function idsDelLibroMayor(): string[] {
+  const rel = DOCUMENTOS_CITABLES['SOURCE_OF_FUNDS_LEDGER.md'];
+  if (rel === undefined) return [];
+  const f = resolve(REPO_ROOT, rel);
+  if (!existsSync(f)) return [];
+  const lineas = readFileSync(f, 'utf8').split('\n');
+  const out: string[] = [];
+  let col = -1;
+  for (const l of lineas) {
+    if (!esFilaDeTabla(l)) {
+      col = -1;
+      continue;
+    }
+    const cs = celdas(l);
+    if (col === -1) {
+      col = cs.findIndex((c) => pelada(c) === 'ID');
+      continue;
+    }
+    if (esSeparadorDeTabla(l)) continue;
+    const celda = pelada(cs[col] ?? '');
+    if (celda !== '') out.push(celda);
+  }
+  return [...new Set(out)];
+}
+
+function verificarIdsDelLibroMayorEnLaProsa(
+  lineas: string[],
+  idsAnclados: Set<string>,
+): string[] {
+  const { texto, errores } = textoDeDomicilio(lineas, H3_TABLA_DE_FUENTES);
+  if (texto === null) return errores;
+  const ids = idsDelLibroMayor();
+  if (ids.length === 0) {
+    errores.push(
+      'no se pudo leer la columna «ID» de `SOURCE_OF_FUNDS_LEDGER.md`: el cruce entre los ' +
+        'identificadores que la prosa de §4.6 nombra y las líneas que la tabla ancla **NO corre**, y ' +
+        'una prosa que se apoya en una línea que nadie cita es exactamente lo que ese cruce existe ' +
+        'para atrapar',
+    );
+    return errores;
+  }
+  // Las filas se descuentan: si no, el ancla de la propia fila cubriría a la prosa.
+  const prosa = texto
+    .split('\n')
+    .filter((l) => !esFilaDeTabla(l))
+    .join('\n');
+  for (const id of ids) {
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'u');
+    if (!re.test(prosa)) continue;
+    if (idsAnclados.has(id)) continue;
+    errores.push(
+      `la prosa de §4.6 se apoya en «${id}» del libro mayor —«la lleva ${id} con esa confianza»— y ` +
+        'ninguna fila de la tabla ancla esa línea ' +
+        `(las ancladas son ${idsAnclados.size === 0 ? '**ninguna**' : `«${[...idsAnclados].join('», «')}»`}). ` +
+        'Sin el ancla, las cuatro columnas de la fila dejan de cruzarse contra su línea y se pueden ' +
+        'mutar de a cuatro sin que nada se ponga rojo: el chequeo quedaría condicionado al token ' +
+        'cuya desaparición tiene que reportar',
+    );
+  }
   return errores;
 }
 
@@ -1346,10 +1476,12 @@ function cruzarContraLibroMayor(
  * haberes que ANSES ya liquida».
  *
  * La autoridad de esas filas es la prosa que las glosa. La regla es simétrica y
- * barata: **todo dueño del registro que §4.6 nombre en su prosa tiene que ser
+ * barata: **toda SIGLA del registro que §4.6 nombre en su prosa tiene que ser
  * dueño de alguna fila de la tabla.** No exige que la prosa nombre a los cuatro
  * —dos se glosan por su función y no por su sigla— sino que no pueda nombrar
- * uno que la tabla ya no tiene.
+ * uno que la tabla ya no tiene. Que sea sobre siglas y no sobre el registro
+ * entero lo explica `registroAcotadoALasSiglas()`: barrer `Hacienda` o
+ * `MinSalud` contra la prosa es un falso positivo esperando una sección futura.
  *
  * El domicilio es §4.6 y no la SECCIÓN 4 entera a propósito: §4.5 nombra a la
  * ANTSPO como administradora del Fondo Soberano Ciudadano, que es verdad y no
@@ -1474,6 +1606,8 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
 
   const duenos = new Set<string>();
   const clases = new Set<string>();
+  /** Los `ID` del libro mayor que ALGUNA fila de la tabla ancla. Ver R-4. */
+  const idsAnclados = new Set<string>();
   let altas = 0;
   filas.forEach((fila, k) => {
     const donde = `la fuente ${String(k + 1)} de la Renta de Arco («${pelada(fila[0] ?? '').slice(0, 44)}»)`;
@@ -1504,7 +1638,9 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
     }
 
     // La autoridad de la fila anclada es su línea del libro mayor, no el conjunto.
-    errores.push(...cruzarContraLibroMayor(fila, donde, registro));
+    const cruce = cruzarContraLibroMayor(fila, donde, registro);
+    errores.push(...cruce.errores);
+    if (cruce.id !== null) idsAnclados.add(cruce.id);
 
     const confianza = pelada(fila[3]).toLowerCase();
     if (!CONFIANZAS.includes(confianza)) {
@@ -1534,8 +1670,9 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
   });
 
   if (registro.length > 0) {
-    errores.push(...verificarDuenosContraLaProsa(lineas, duenos, registro));
+    errores.push(...verificarDuenosContraLaProsa(lineas, duenos, registroAcotadoALasSiglas()));
   }
+  errores.push(...verificarIdsDelLibroMayorEnLaProsa(lineas, idsAnclados));
 
   const { tramo, errores: errTramo } = tramoDeSeccion(lineas, H2_RENTA);
   errores.push(...errTramo);
@@ -1833,14 +1970,44 @@ const CON_FORMA_DE_ANCLA = /§|:\d/u;
  * nombre uno solo. Cuando la MISMA oración ancla dos documentos distintos antes
  * de la remisión corta, el lector tampoco puede desambiguar: ahí el chequeo no
  * corre y lo dice, igual que con el nombre pelado. La oración se corta contra
- * `.`, `;` o `:` —los mismos límites de cláusula que usa el prohibido del
- * gate— y contra el principio de línea, porque el corpus escribe un párrafo por
- * línea.
+ * `.` o `;` —no contra `:`, y la razón está abajo, en `CORTA_ORACION`— y contra
+ * el principio de línea, porque el corpus escribe un párrafo por línea.
  *
- * **Falsos positivos: cero sobre el documento entero**, medido antes y después
- * de las secciones nuevas. Lo que queda abierto va dicho: dos anclas en
- * oraciones distintas siguen resolviendo por la última, que es como lo lee
- * cualquiera.
+ * ── EL DEFAULT INVERTIDO: el corte por oración cerraba UNA de tres variantes ──
+ *
+ * El arreglo de arriba cerró la variante que comparte oración con el ancla
+ * secuestradora —separador coma, **rojo**— y dejó pasar las otras dos, las dos
+ * medidas sobre el árbol de `8559818` y las dos **exit 0**:
+ *
+ * | Variante | Separador | Antes |
+ * |---|---|---|
+ * | misma oración | coma | rojo |
+ * | misma línea, oración distinta | **un punto** | **exit 0**: `` `:1556` `` resolvía contra `PLANSAL:1556` |
+ * | líneas distintas | **un párrafo insertado** | **exit 0**: `` `:428` `` resolvía contra `PLANSAL:428` |
+ *
+ * La tercera es la peligrosa. `ancladosEnLaOracion` se reinicializa en cada
+ * línea, así que un ancla de una línea anterior es invisible para el chequeo de
+ * ambigüedad mientras `antecedente` —global al archivo— la sigue usando. El
+ * documento tenía dos remisiones cortas que cruzaban línea (`:331`→`:329` y
+ * `:528`→`:526`), y **insertar un párrafo entre dos párrafos es la operación de
+ * edición más común que hay**: con un párrafo nuevo entre `:329` y `:331`, la
+ * Regla de Arco citada literal —la cláusula más portante de §3.4— pasaba a
+ * resolver contra otro PLAN y se contaba entre las anclas «resueltas».
+ *
+ * **El arreglo es invertir el default, no agregar una excepción más.** La
+ * remisión corta corre **solo si su ancla completa está en la misma oración**;
+ * si no, el chequeo no corre y lo dice. Es la doctrina que esta guardia ya
+ * proclamaba —el lector resuelve contra lo que tiene a la vista— escrita como
+ * requisito positivo en vez de como excepción negativa, que es la forma que se
+ * puede escapar por los bordes que nadie enumeró.
+ *
+ * **El presupuesto del cambio, medido y no supuesto:** 21 de las 62 remisiones
+ * cortas del documento pedían el nombre escrito, y `` `:428` `` → ``
+ * `PLANPACTO:428` `` es **un token en los dos casos** (`wc -w`), o sea **cero
+ * palabras de costo** sobre secciones con margen de tres a seis.
+ *
+ * **Falsos positivos: cero sobre el documento entero**, medido después de
+ * invertir el default: 253 anclas abiertas y resueltas, las mismas 253.
  */
 /**
  * Límite de ORACIÓN entre dos tokens. Los dos puntos NO cortan, y la diferencia
@@ -1855,14 +2022,6 @@ const CORTA_ORACION = /[.;]\s|[.;]$/;
 
 function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resueltas: number } {
   const errores: string[] = [];
-  /** Fijado SOLO por un ancla completa. Un nombre pelado no lo toca. */
-  let antecedente: string | null = null;
-  /** Nombres pelados de OTROS documentos vistos desde el último ancla completa. */
-  let peladosDesdeElAncla = new Set<string>();
-  const fijarAntecedente = (doc: string): void => {
-    antecedente = doc;
-    peladosDesdeElAncla = new Set<string>();
-  };
   /**
    * Cuántas anclas se abrieron de verdad **y resolvieron**. Va al titular a
    * propósito: cero anclas escaneadas también da cero errores, y un chequeo que
@@ -1878,8 +2037,14 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
   };
 
   lineas.forEach((linea, k) => {
-    /** Documentos ANCLADOS en la oración en curso. Se vacía en cada `.`, `;`, `:`. */
+    /**
+     * Documentos ANCLADOS en la oración en curso, y nombres PELADOS de la misma
+     * oración. Los dos se vacían en cada `.` y `;`. **No hay estado que cruce la
+     * oración:** el antecedente global que había acá es exactamente lo que
+     * dejaba pasar las variantes B y C.
+     */
     let ancladosEnLaOracion = new Set<string>();
+    let peladosEnLaOracion = new Set<string>();
     let finDelTokenAnterior = 0;
 
     for (const m of linea.matchAll(/`([^`\n]+)`/g)) {
@@ -1887,25 +2052,20 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
       const donde = `línea ${String(k + 1)}`;
       if (CORTA_ORACION.test(linea.slice(finDelTokenAnterior, m.index))) {
         ancladosEnLaOracion = new Set<string>();
+        peladosEnLaOracion = new Set<string>();
       }
       finDelTokenAnterior = m.index + m[0].length;
 
       const s = ANCLA_PROSA_SECCION.exec(bruto);
       if (s) {
-        if (lineasDelPlan(s[1]) !== null) {
-          fijarAntecedente(s[1]);
-          ancladosEnLaOracion.add(s[1]);
-        }
+        if (lineasDelPlan(s[1]) !== null) ancladosEnLaOracion.add(s[1]);
         anotar(resolverContra(bruto, s[1], s[2], 0, 0, 'reportar'), donde);
         continue;
       }
 
       const l = ANCLA_PROSA_LINEA.exec(bruto);
       if (l) {
-        if (lineasDelPlan(l[1]) !== null) {
-          fijarAntecedente(l[1]);
-          ancladosEnLaOracion.add(l[1]);
-        }
+        if (lineasDelPlan(l[1]) !== null) ancladosEnLaOracion.add(l[1]);
         const desde = Number(l[2]);
         anotar(
           resolverContra(bruto, l[1], null, desde, l[3] === undefined ? desde : Number(l[3]), 'reportar'),
@@ -1916,30 +2076,36 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
 
       const c = ANCLA_PROSA_CORTA.exec(bruto);
       if (c) {
+        if (ancladosEnLaOracion.size === 0) {
+          errores.push(
+            `${donde}: «${bruto}» es una remisión corta y su ORACIÓN no ancla ningún documento. La ` +
+              'remisión corta corre solo contra un ancla completa de la misma oración: un antecedente ' +
+              'que viene de otra oración o de otro párrafo se lo lleva cualquier edición intermedia ' +
+              '—un párrafo insertado entre dos párrafos— sin que nadie se entere, y la guardia ' +
+              'contaría la cita secuestrada entre las resueltas. Escribí la cita con su nombre ' +
+              '(`DOC:NNN`) o traé el ancla completa a esta misma oración',
+          );
+          continue;
+        }
         if (ancladosEnLaOracion.size > 1) {
           errores.push(
             `${donde}: «${bruto}» es una remisión corta y su oración ancla más de un documento ` +
-              `(«${[...ancladosEnLaOracion].join('», «')}»): la última gana por regla, pero el lector ` +
-              'no tiene cómo saber cuál quiso decir el que escribió. La guardia no adivina — escribí ' +
-              'la cita con su nombre (`DOC:NNN`) o partí la oración. Un antecedente secuestrado por un ' +
-              'ancla legítima no rompe el chequeo: lo vuelve una afirmación de que la cita es correcta',
+              `(«${[...ancladosEnLaOracion].join('», «')}»): el lector no tiene cómo saber cuál quiso ` +
+              'decir el que escribió. La guardia no adivina — escribí la cita con su nombre ' +
+              '(`DOC:NNN`) o partí la oración. Un antecedente secuestrado por un ancla legítima no ' +
+              'rompe el chequeo: lo vuelve una afirmación de que la cita es correcta',
           );
           continue;
         }
-        if (antecedente === null) {
+        const antecedente = [...ancladosEnLaOracion][0];
+        const pelados = [...peladosEnLaOracion].filter((d) => d !== antecedente);
+        if (pelados.length > 0) {
           errores.push(
-            `${donde}: «${bruto}» es una remisión corta y no hay documento citado antes contra el ` +
-              'cual abrirla: la primera cita de un documento se escribe con su nombre',
-          );
-          continue;
-        }
-        if (peladosDesdeElAncla.size > 0) {
-          errores.push(
-            `${donde}: «${bruto}» es una remisión corta y el antecedente NO es único — la última ` +
-              `ancla completa es de «${antecedente}» y entre medio se nombró a ` +
-              `«${[...peladosDesdeElAncla].join('», «')}». La guardia no adivina cuál de los dos: ` +
-              'escribí la cita con su nombre (`DOC:NNN`) o mové el nombre pelado. Un antecedente ' +
-              'secuestrado no rompe el chequeo, lo vuelve una afirmación de que la cita es correcta',
+            `${donde}: «${bruto}» es una remisión corta y el antecedente NO es único — el ancla ` +
+              `completa de su oración es de «${antecedente}» y la misma oración nombra a ` +
+              `«${pelados.join('», «')}». La guardia no adivina cuál de los dos: escribí la cita con ` +
+              'su nombre (`DOC:NNN`) o mové el nombre pelado. Un antecedente secuestrado no rompe el ' +
+              'chequeo, lo vuelve una afirmación de que la cita es correcta',
           );
           continue;
         }
@@ -1960,8 +2126,8 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
 
       const n = NOMBRE_DE_DOCUMENTO.exec(bruto);
       if (n) {
-        // Un nombre PELADO no fija antecedente: lo anota como ambigüedad pendiente.
-        if (lineasDelPlan(n[1]) !== null && n[1] !== antecedente) peladosDesdeElAncla.add(n[1]);
+        // Un nombre PELADO no ancla: se anota como ambigüedad pendiente de la oración.
+        if (lineasDelPlan(n[1]) !== null) peladosEnLaOracion.add(n[1]);
         continue;
       }
 
@@ -2311,6 +2477,18 @@ function contar(texto: string, valor: string): number {
 }
 
 /**
+ * El texto de un domicilio SIN sus encabezados ni sus filas de tabla. Ver R-5
+ * en `verificarValoresConDomicilio()`: un valor que vive en un título se cubre
+ * a sí mismo, y retitular un H3 —operación normal— rompería el conteo.
+ */
+function soloProsa(texto: string): string {
+  return texto
+    .split('\n')
+    .filter((l) => !l.trimStart().startsWith('#') && !esFilaDeTabla(l))
+    .join('\n');
+}
+
+/**
  * **Una frase derivada de una tabla se busca con bordes de palabra, no con
  * `includes()`.** Encontrado rompiendo, y es la novena forma del arquetipo:
  * cambiar la confianza de una fila de `media` a `alta` hacía que la frase
@@ -2340,6 +2518,27 @@ function dice(texto: string, frase: string): boolean {
  * cerrado: un valor que aparezca dos veces adentro del MISMO domicilio sigue
  * cubriéndose a sí mismo salvo que su entrada declare `veces`. La granularidad
  * es el encabezado, no el párrafo.
+ *
+ * ── R-5: `veces: N` cuenta OCURRENCIAS, y lo que hacía falta era LA ocurrencia ─
+ *
+ * El cierre por `veces: 2` de la declaración de `:548` tapaba el caso y dejaba
+ * la clase abierta en las dos direcciones, y las dos se midieron:
+ *
+ * - **Falso negativo:** borrar la declaración y escribir la frase una vez más
+ *   en cualquier lugar de §5 sale **exit 0**. Con una de las dos ocurrencias
+ *   viviendo en el TÍTULO del H3 5.4, alcanza una repetición casual de cinco
+ *   palabras para tapar el borrado.
+ * - **Falso positivo esperando:** si una tarea futura retitula el H3 5.4
+ *   —operación normal— el conteo cae a 1 y la guardia se pone roja con la
+ *   declaración intacta.
+ *
+ * **El arreglo es estructural y no por entrada: se descuentan del domicilio las
+ * líneas de encabezado y las de tabla antes de contar.** Un título nombra el
+ * criterio; la prosa es la que lo declara, y es la prosa la que este juego
+ * existe para custodiar. Medido sobre los 43 valores domiciliados: con la
+ * exclusión puesta, los 43 siguen pasando sobre prosa sola —salvo el que la
+ * exclusión existe para destapar, que vuelve a `veces: 1`—, así que el cambio
+ * elimina la clase entera en vez del caso.
  */
 function verificarValoresConDomicilio(
   lineas: string[],
@@ -2353,7 +2552,7 @@ function verificarValoresConDomicilio(
       const { texto, errores: errDom } = textoDeDomicilio(lineas, etiqueta);
       errores.push(...errDom);
       if (texto === null) continue;
-      const hay = contar(texto, valor);
+      const hay = contar(soloProsa(texto), valor);
       if (hay < minimo) {
         errores.push(
           `${clase} «${valor}»: se esperaba${minimo > 1 ? `n ${String(minimo)} ocurrencias` : ''} en ` +
@@ -2762,7 +2961,7 @@ function main(): void {
       `sin una sola fila \`${CLASE_PROHIBIDA}\`, ` +
       `${String(prosa.resueltas)} anclas de la prosa abiertas y resueltas contra su documento ` +
       '(todo token con forma de ancla que la guardia no sepa leer se reporta, no se descarta, y la ' +
-      'remisión corta no corre cuando su oración ancla más de un documento), ' +
+      'remisión corta corre SOLO contra un ancla completa de su misma oración), ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
