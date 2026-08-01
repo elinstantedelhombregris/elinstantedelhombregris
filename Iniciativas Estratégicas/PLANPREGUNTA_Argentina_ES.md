@@ -724,3 +724,112 @@ La **Agencia Nacional del Conocimiento (ANCON)** es un ente autárquico creado p
 **La rendición de cuentas, en tres piezas y ninguna es un informe anual.** La primera es el **tablero** de la Sección 17, que se actualiza solo y que muestra lo que la agencia preferiría no mostrar: Preguntas vencidas sin cierre, devoluciones fuera de plazo, cupos declarados desiertos, Cátedras precarias, publicaciones diferidas y Preguntas declaradas no contestables por falta de máquina. **La segunda es la evaluación externa**, que la agencia no elige y no contrata, y que se hace contra el mismo indicador único. **Y la tercera es la vertical novena aplicada a sí misma:** la ANCON **sí** puede pedir una Pregunta que evalúe su propio mandato, y este documento deja escrito que lo pida en la primera oportunidad — no porque obligue a nada, sino porque un PLAN que le pide a los otros veinticinco que se ofrezcan a ser evaluados y no se ofrece él tiene una sola lectura posible.
 
 **Y lo que la agencia le debe a quien la puso en marcha.** Aurelia Toledo depositó dos preguntas en dos mil once y en dos mil dieciocho y no recibió nada. La única obligación de la ANCON que este documento considera irrenunciable —antes que el Banco, antes que las Cátedras, antes que la Serie— es **la devolución en ciento veinte días, firmada por una persona.** Si la agencia tuviera que elegir entre sostener todo lo demás y sostener eso, sostiene eso: **un aparato que junta ignorancias y no contesta ya existe, y no hace falta una ley para tenerlo.**
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+El par recíproco de este PLAN es **PLANFOCO**, y hay que empezar por ahí porque tiene una sola mitad escrita.
+
+El **Desmontaje** de PLANFOCO —la capacidad de leer una pieza de comunicación y ver cómo está hecha— y el **Censo de Ignorancia** de este documento son la misma capacidad cívica a dos escalas: la de una persona frente a un mensaje y la de un país frente a lo que no sabe. Y el **Sello Abierto** publica adentro del **Acervo** de aquel PLAN, en vez de construir un repositorio propio. Los dos vínculos se escriben acá, del lado de PLANPREGUNTA, y **la mitad de PLANFOCO no se puede escribir porque ese documento todavía no existe** — es el ordinal 26 y el tramo que lo escribe viene después de éste. Queda con la fórmula que `PLANPACTO:721` usó para PLANARCO cuando estaba en la misma situación: **PLANFOCO es el par recíproco de este PLAN y todavía tiene una sola mitad escrita.** Ninguna afirmación de este documento sobre PLANFOCO cita línea, porque no hay líneas que citar.
+
+**Las tres dependencias críticas, cada una con su modo degradado declarado**, que es lo que distingue una dependencia escrita de una suposición:
+
+**`PLANDIG`** provee la plataforma del Censo, el cómputo del Turno de Máquina y el sustrato de los Modelos de Órgano. Es el punto único de falla de este PLAN y de los otros tres nuevos. **Degradado:** el Censo funciona en papel (4.5), el Turno declara las Preguntas no contestables por falta de máquina en vez de repartir migajas (7.2), y los Modelos esperan. Ninguna capacidad de estadio B es requisito de la Fase 0.
+
+**`PLANMESA`** provee la mecánica de sorteo, la Credencial de Materia sobre la que se estratifica, el cupo de 8.3 y —cuando exista— la Mesa Federal que decide qué Preguntas se abren. **Degradado:** el interinato de 3.3, con tope 2036, traspaso automático y declaración en cada acta de con qué padrón se sorteó.
+
+**`PLANTER`** es dueño del Fondo Soberano Ciudadano, de donde sale la plata de este PLAN. Es la dependencia más dura porque no tiene sustituto: sin FSC no hay Fondo de la Pregunta. **Degradado:** la Fase 0 no necesita el nuevo split —cuesta lo que cuesta una célula de ejecución y un formulario— y las fases siguientes se escalan contra lo que el Fondo efectivamente gire, con las Preguntas abiertas priorizadas por costo declarado de no saber. **No hay modo degradado para el régimen pleno, y decirlo es más honesto que inventar una fuente de reemplazo.**
+
+**Lo que este PLAN le provee al resto.** A los veinticinco: el registro público de lo que no se sabe en su materia, y la posibilidad de pedir una Pregunta que evalúe su propio mandato (5.4). A `PLANISV`: nodos, catálogo y régimen de préstamo sobre el banco de germoplasma que ya tiene, sin cambiarle el dueño (7.1). A `PLANMEMORIA`: el flujo de actas de cierre, catálogos y préstamos que se inscriben en su Archivo. A `PLANEN`: el enunciado público de lo que el LANEF no está averiguando, y ninguna interferencia con lo que sí. A `PLANGEO`: el método como módulo del Stack de Soberanía a partir de 2040 — *open-source*, forkeable y con cero *lock-in*, como `PLANGEO:207` exige de todo módulo.
+
+**Las dependencias que no son críticas, en una línea cada una, porque una lista de aristas sin jerarquía se lee como si todas pesaran igual.** `PLANEDU` forma a quienes van a poder contestar, y este PLAN no le toca la formación. `PLANJUS` aporta la forma canónica de su sorteo puro al Seguro de la Sección 9, y solamente ahí. `PLANSAL`, `PLANAGUA`, `PLANISV` y `PLANEN` son los ocupantes de cuatro de las siete verticales naturales y los interlocutores obligados de sus Preguntas, con la regla de frontera de 3.6: donde coincidan, manda el PLAN dueño de la materia. `PLANTALLER` y `PLANJUS` prestan la infraestructura territorial donde se instalan las Cátedras (8.1). `PLANCUL` conserva la cultura viva y la vertical República la estudia, sin superponerse. `PLANREP` y `PLANEB` heredaban parte del hueco de ciencia y tecnología y lo entregan entero, como el acta lo dispuso.
+
+**Y una arista que corre en la dirección incómoda:** este PLAN le pide a los otros veinticinco que se ofrezcan voluntariamente a ser evaluados (5.4), y no puede obligar a ninguno. Es la única cosa que este documento le pide al resto del proyecto, y es la única que el resto del proyecto puede negarle sin consecuencia.
+
+**Y dos cosas que no son aristas del grafo y van en prosa.** `PLANRUTA` no es nodo del grafo de PLANes y este documento no le tiende arista: lo que el protocolo de arranque necesita de acá —el Censo abierto temprano, barato y en papel— se dice en la hoja de ruta y no en el grafo. Y `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`, `PRESUPUESTO_CONSOLIDADO_BASTA.md` y `SOURCE_OF_FUNDS_LEDGER.md` son alimentadores documentales, no PLANes: se citan como fuente y no como extremo de dependencia.
+
+## SECCIÓN 13: MODELO ECONÓMICO Y FISCAL
+
+> *"Un PLAN que no dice de dónde sale su plata está pidiendo que otro lo averigüe después, y el que lo averigua después siempre encuentra que sale de alguien."*
+
+### 13.1 La rampa, y la banda anual que hay que corregir
+
+Este PLAN llega con dos números que no cierran entre sí, y la sección empieza por ahí porque disimularlo sería la peor manera de estrenar la sección que denuncia las cifras sin verificar.
+
+El primero es **USD 16.500–26.000M a quince años**, y no es negociable: es el insumo sobre el que se corrió el gate de spin-off de la regla 3, cuyo resultado el acta que habilita a este PLAN publicó entero. El segundo era un gasto anual en régimen de 1.400 a 2.400 millones. **Los dos juntos no pueden ser verdad:** 1.400 × 15 = 21.000 y 2.400 × 15 = 36.000, y ninguno de los dos extremos cae adentro de la banda de quince años.
+
+Lo que faltaba escribir es la rampa. Este PLAN no gasta lo mismo todos los años: la Fase 0 es un formulario y una célula de ejecución, y el régimen pleno recién empieza en el año siete. Escrita la rampa, **la banda anual que sobrevive es la que se deriva de ella y no la que se había declarado**, y la corrección va en la anual porque el total ya está publicado en un acta.
+
+| Fase | Años | Anual bajo | Anual alto | Subtotal bajo | Subtotal alto |
+|---|---|---|---|---|---|
+| 0 — el registro antes que la plata (2029-2030) | 2 | 150 | 200 | 300 | 400 |
+| 1 — las primeras cien Preguntas (2031-2032) | 2 | 450 | 700 | 900 | 1.400 |
+| 2 — la Cátedra y el Regreso (2033-2034) | 2 | 900 | 1.500 | 1.800 | 3.000 |
+| 3 — régimen pleno (2035-2040) | 6 | 1.500 | 2.300 | 9.000 | 13.800 |
+| 4 — régimen sostenido (2041-2043) | 3 | 1.500 | 2.300 | 4.500 | 6.900 |
+| **Total** | **15** | — | — | **16.500** | **25.500** |
+
+Cifras en USD millones. **El extremo bajo da 16.500 exacto y el alto 25.500, los dos adentro de la banda del gate**, y el margen del extremo alto —quinientos millones contra el techo de 26.000— es deliberado y no sobra: es lo que absorbe una Fase 2 más larga si `PLANMESA` se atrasa.
+
+**La banda anual de régimen queda entonces en USD 1.500–2.300M/año**, y no en 1.400–2.400. Es una corrección de aritmética y no de ambición: el piso sube cien millones porque una rampa de siete años obliga a que el régimen sea más alto para llegar al mismo total, y el techo baja cien porque con 2.400 el total se pasa de la banda sobre la que se midió el gate.
+
+### 13.2 De dónde sale: el nuevo split del Fondo Soberano Ciudadano
+
+Este PLAN se financia reabriendo un protocolo cerrado, y reabrirlo tiene que costar. Ése es el precio y está escrito.
+
+**La fuente es el Fondo Soberano Ciudadano de `PLANTER`.** Captura el 100% de las regalías extractivas, cánones y multas (`PLANTER:358`), y reparte ese flujo en cinco líneas que suman cien: 40% Dividendo Ciudadano Mensual, 20% compensación a territorios afectados, 15% Fondo Intergeneracional, 15% restauración ecológica y 10% operación de la ANTSPO (`PLANTER:163`, `:359-364`). **El flujo total en régimen es de USD 16.500–31.000M por año**, derivado de los montos que el propio PLANTER publica en `:670-676`, donde el 40% del dividendo son 6.600 a 12.400 millones.
+
+Antes de tocar nada hay que declarar dos cosas heredadas.
+
+**La primera es de `PLANARCO`, y este documento la hereda sin volver a decidirla.** `PLANARCO:449` dictaminó que el Fondo Soberano Ciudadano de PLANTER y el Fondo Soberano Bastardo de PLANMON **son un solo fondo con dos nombres**, y que el nombre que gana es Ciudadano. Fue decisión de diseño de aquel documento, tomada por el que iba a cobrar de ese fondo, y con un costo que aquel documento ya declaró: `PLANMON` perdió por esa vía el objetivo de capital que `PLANMON:941` escribía. **Este PLAN cobra del mismo fondo bajo esa reconciliación y no la reabre.**
+
+**La segunda es que el protocolo está intacto y este PLAN es el primero que lo abre.** PLANARCO consideró financiar su Dote con el Fondo Intergeneracional y **renunció expresamente** (`PLANARCO:532`), dejando escrito en su mapa de perdedores que *«PLANTER conserva el Fondo Intergeneracional y el Dividendo Ciudadano Mensual intactos»* (`:898`). No hay reclamos previos acumulados sobre estas líneas: hay un protocolo cerrado, y este documento lo abre.
+
+**El nuevo reparto, con un solo donante:**
+
+| Línea | Antes | Después | Δ |
+|---|---|---|---|
+| Dividendo Ciudadano Mensual | 40 | 40 | — |
+| Compensación a Territorios Afectados | 20 | 20 | — |
+| Restauración Ecológica | 15 | 15 | — |
+| Operación ANTSPO | 10 | 10 | — |
+| Fondo Intergeneracional | 15 | 7 | −8 |
+| Fondo de la Pregunta | 0 | 8 | +8 |
+| **Total** | **100** | **100** | **0** |
+
+**Ocho puntos, todos de la misma línea.** Repartir el recorte entre las cinco habría sido más fácil de aceptar y menos honesto: un recorte proporcional no tiene a quién explicarle nada, y por eso nadie se opone y por eso vuelve a pasar. **Un donante único tiene un damnificado que puede negarse, y esa negociación es el costo que hace real la reapertura.**
+
+### 13.3 Por qué el Fondo Intergeneracional, y qué se le rompe
+
+El argumento tiene tres patas verificables y una concesión que no se disimula.
+
+**Primera: aquel fondo, como fuente, ya fue examinado y encontrado insuficiente por otro PLAN.** `PLANARCO:526` lo dice en una frase que este documento cita y hereda: *«Un capital sin monto conocido y sin regla de retiro no es una fuente: es un nombre.»* El Fondo Intergeneracional es el 15% de un flujo anual, no un stock; cuánto lleva acumulado no está declarado en ninguna parte del corpus, y con qué regla se retira, tampoco. **Este PLAN es el primero que le pone regla de retiro a esos puntos**, y la regla es de ocho, anual, publicada.
+
+**Segunda: la objeción por la que PLANARCO renunció no se traslada.** Aquel documento declinó porque su Dote es un piso por persona que hay que pagar igual en el año malo, y el fondo se drena justo cuando caen los commodities: la natalidad no baja con el precio del litio. **Un programa de investigación sí se puede desacelerar un año; un nacimiento no.** La asimetría es real y es el permiso que este PLAN tiene y aquél no tenía.
+
+**Tercera: el mandato de la línea sigue cumpliéndose, y con el único activo intergeneracional que no depende del ciclo.** Un fondo acumulado en dólares hereda a la generación siguiente el precio de los commodities del período en que se acumuló. Una serie de mediciones de cien años, un catálogo de material vivo y un registro de lo que el país averiguó le heredan otra cosa. **No es un argumento de que sea mejor: es un argumento de que es distinto**, y de que un mandato intergeneracional cumplido por un solo camino es un mandato con un solo modo de falla.
+
+**Y ahora la concesión, que va escrita y no escondida.** Los dos mandatos previos de esa línea son ambos de no distribuir: preservación de capital (`PLANTER:163`) y reserva contra el derrumbe del dividendo si caen los commodities (`:710`, `:839`). **Bajarla de 15 a 7 deja esa reserva anti-colapso en menos de la mitad.** No hay manera de escribir eso como si no fuera una pérdida: es la principal, es de `PLANTER`, y golpea justamente su capacidad de sostener el Dividendo Ciudadano Mensual en el peor año del ciclo, que es cuando el Dividendo más importa.
+
+**La contrapartida, que hace que reabrir el protocolo cueste de los dos lados y no solo del ajeno: la cláusula de subordinación.** En un año de derrumbe declarado del Dividendo —según el criterio que la ley del Fondo fije, no éste—, el **Fondo de la Pregunta se subordina**: no abre Preguntas nuevas, y su flujo entero repone la reserva del Fondo Intergeneracional hasta devolverla al 15% original antes de volver a gastar en nada. **Y en el año bueno la cláusula corre al revés**: el excedente del extremo alto —2.480 contra un régimen de 2.300— también va a reponer esa reserva en lugar de ampliar el gasto.
+
+Dos cosas quedan afuera de la subordinación y se declaran: **la Serie Centenaria y las Pruebas de Barro en curso**. Una serie interrumpida deja de ser una serie, y un Barro interrumpido a los ocho meses no prueba nada y hay que volver a empezarlo. Suspender esas dos no ahorra: destruye lo ya gastado.
+
+### 13.4 La cuenta, con el hueco adentro
+
+**Ocho puntos de un flujo de 16.500 a 31.000 millones dan USD 1.320 a 2.480M por año.** Contra la banda de régimen de 13.1 —1.500 a 2.300—, el ajuste no cierra parejo y las dos puntas hay que decirlas:
+
+**En el año malo del ciclo faltan 180 millones.** 1.320 contra 1.500. No se redondea y no se disimula. Las salidas son tres y este documento elige la tercera: pedir una afectación adicional, que agrandaría la rigidez que la Sección 13 está tratando de no agrandar; usar el excedente acumulado de los años buenos, que es lo razonable si hubo años buenos antes; o **atrasar Preguntas, con el criterio ya escrito —las de menor costo declarado de no saber— y publicando cuáles se atrasaron.** La tercera es la única que no le pide nada a nadie, y es la que corresponde a un PLAN cuyo presupuesto depende del precio de los minerales.
+
+**En el año bueno sobran 180 millones.** 2.480 contra 2.300. Van a reponer la reserva del Fondo Intergeneracional, por la cláusula de 13.3. **No se gastan y no se acumulan acá**: un excedente que se queda en el Fondo de la Pregunta se convierte, en tres ejercicios, en la línea de base del año siguiente.
+
+**Y la afectación sobre el Techo, que es el arreglo que este PLAN debía y que no se contesta con un cero.** Sacarle el piso constitucional al PLAN no ahorró nada: **mudó la rigidez de la columna que el Techo mide a la que nadie suma.** El número va escrito. Ocho puntos del flujo del FSC son USD 1.320 a 2.480 millones por año, que sobre el producto de referencia de 500.000 millones que usa `PLANPACTO:122` dan **0,26 a 0,50% del PBI**. Ésa es la magnitud, y con ella al lado hay que decir la precisión que la vuelve honesta: **ese flujo ya estaba afectado al 100% por `PLANTER`**, así que la afectación **nueva** sobre el Techo B de `PLANPACTO` es **cero, salvo el hueco de 180 millones del año malo si alguna vez se cubriera con partida en vez de con atraso.** Lo que cambió no es cuánta rigidez hay: es quién cobra. **Las dos mitades van juntas o el número miente en una dirección o en la otra.**
+
+### 13.5 Las dos fuentes que este PLAN no reclama
+
+Se escriben porque una fuente descartada en silencio reaparece en la versión siguiente, que es la disciplina que `PLANARCO:532` ejerció sobre el fondo que este documento sí toma.
+
+**No reclama el incremento del presupuesto de ciencia y técnica hasta el 0,39% legal.** Esa línea ya tiene dueño escrito en el corpus: `PLANDIG:1112` la registra como fuente propia —*«restaurar el presupuesto de CyT al 0,39% legal y dirigir el incremento a PLANDIG»*— por USD 500 a 1.000 millones. Por la regla de fuentes de `PLANPACTO §5.1`, toda fuente tiene un solo dueño y el dueño es el PLAN que la recauda. **Este documento no la disputa**, y no la disputa por dos motivos: porque abrir un segundo protocolo cerrado en el mismo documento habría convertido la reapertura del primero en una costumbre, y porque un PLAN que empieza reclamando el presupuesto del sistema científico existente está declarando, en su primera decisión presupuestaria, que es la cartera que dice no ser.
+
+**No reclama ni duplica el 0,2% del PBI de investigación y desarrollo del LANEF.** Es piso de `PLANEN:1489`, está adentro del 0,70% de aquel PLAN, y financia los siete programas de frontera energética. Este documento lo cita cuatro veces y no lo pide ninguna.
+
+**Y una tercera ausencia, que no es una fuente sino un instrumento: este PLAN no pide un porcentaje del producto para ciencia.** Es la decisión que más lo distingue de todo lo que se propuso antes en la Argentina sobre esta materia, y su fundamento está en la falla 0.2: el país ya legisló un porcentaje, ejecuta menos de la mitad, y no le costó nada. **Pedir otra vez el instrumento que el propio diagnóstico declara incumplido sería empezar contradiciéndose**, y un porcentaje del producto es además procíclico — baja en pesos justo el año en que un sistema de conocimiento no puede parar sin perder la serie, la gente y el equipo.

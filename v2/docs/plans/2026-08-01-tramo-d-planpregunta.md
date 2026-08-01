@@ -106,7 +106,7 @@ Verificado línea por línea, y es la mejor noticia del tramo:
 - `PLANTER:163` y `:359-364` reparten el 100% del flujo en cinco líneas: **40% DCM · 20% Territorios Afectados · 15% Fondo Intergeneracional · 15% Restauración · 10% Operación ANTSPO**. `PLANTER:670-676` da los montos: el flujo total del FSC es **USD 16.500–31.000M/año** en régimen.
 - **PLANARCO no tocó nada.** `PLANARCO:532` renuncia expresamente al Fondo Intergeneracional y `:898` deja escrito que *«PLANTER conserva el Fondo Intergeneracional y el Dividendo Ciudadano Mensual intactos»*. PLANPREGUNTA es **el primero y el único que reabre el protocolo**.
 - Pero hereda una decisión ajena que cambia el mapa: `PLANARCO:449` dictamina que **el Fondo Soberano Ciudadano y el Fondo Soberano Bastardo son un solo fondo con dos nombres, y el que gana es Ciudadano**. Es decisión de diseño de PLANARCO, no una medición, y PLANPREGUNTA **la hereda y la cita, no la vuelve a decidir**. Con ella viene el costo que `PLANARCO:900` ya declaró: PLANMON perdió por esa vía el objetivo de *«USD 100B+ en año 10»* de `PLANMON:941`.
-- **La aritmética del pedido cierra, y hay que escribir dónde no cierra.** El régimen de PLANPREGUNTA son 1.400–2.400M/año contra un flujo de 16.500–31.000M/año: eso es **7,7% en el extremo alto y 8,5% en el bajo**. Con **ocho puntos** del flujo el fondo aporta **USD 1.320–2.480M/año** — cubre el techo del régimen y **queda 80 millones corto contra el piso en el año malo del ciclo**. Ese hueco se declara; no se redondea.
+- **La aritmética del pedido cierra, y hay que escribir dónde no cierra.** El régimen de PLANPREGUNTA son 1.400–2.400M/año contra un flujo de 16.500–31.000M/año: eso es **7,7% en el extremo alto y 8,5% en el bajo**. Con **ocho puntos** del flujo el fondo aporta **USD 1.320–2.480M/año** — cubre el techo del régimen y **queda corto contra el piso en el año malo del ciclo**. Ese hueco se declara; no se redondea. *(Corregido el 2026-08-01 por la Task 9: el faltante es de **180 millones**, no de 80, porque la rampa obligó a mover la banda anual de régimen a 1.500–2.300 — ver abajo. Y del otro lado hay un sobrante simétrico de 180 en el año bueno, que este plan no había visto.)*
 
 **El nuevo split que este plan fija, y que la guardia suma:**
 
@@ -184,7 +184,8 @@ Verificado línea por línea, y es la mejor noticia del tramo:
 | Flujo anual del FSC | **USD 16.500–31.000M/año** en régimen | `PLANTER:670-676` | Derivado publicado: el 40% del DCM son 6.600–12.400M |
 | Split vigente del FSC | 40 / 20 / 15 / 15 / 10 | `PLANTER:163`, `:359-364` | **Intacto.** PLANARCO no lo tocó (`PLANARCO:898`) |
 | Split nuevo | 40 / 20 / 15 / 10 / **7** / **8** = 100 | este plan, **D-10** | **Restricción heredada**: la fijan estos ocho puntos, no el documento. La guardia lo suma |
-| Aporte del Fondo de la Pregunta | **USD 1.320–2.480M/año** (8% del flujo) | derivado de `PLANTER:670-676` | **Queda 80M corto contra el piso del régimen en el año malo.** Se declara |
+| Aporte del Fondo de la Pregunta | **USD 1.320–2.480M/año** (8% del flujo) | derivado de `PLANTER:670-676` | **Queda 180M corto en el año malo y sobran 180M en el bueno**, contra la banda de régimen corregida. Las dos puntas se declaran |
+| Banda anual de régimen | **USD 1.500–2.300M/año** | derivada de la rampa, Task 9 | **Corrige el 1.400–2.400 de la spec**, que no cae adentro de la banda de quince años por ningún reparto. La guardia suma la rampa contra 16.500–26.000 |
 | FSC = FSB, un solo fondo, gana «Ciudadano» | — | `PLANARCO:449` | **Decisión de diseño de PLANARCO.** Se hereda y se cita; no se vuelve a decidir |
 | Costo ya declarado de esa reconciliación | PLANMON pierde el objetivo «USD 100B+ en año 10» | `PLANMON:941`, vía `PLANARCO:900` | Ya está escrito. **No se vuelve a cobrar** en el mapa de perdedores de este PLAN |
 | Presupuesto propio | ver **D-2** — no se escribe rango anual hasta la Task 9 | — | La Task 1 deja la cabecera con **16.500–26.000M a quince años** y **remite** |
@@ -533,6 +534,7 @@ El resto de la sección: los `requires` y `provides` en prosa, con **modo degrad
 **SECCIÓN 13 — MODELO ECONÓMICO Y FISCAL.** Es la sección más cargada del documento y tiene cuatro entregables, todos verificados en **D-2**, **D-3** y **D-10**:
 
 1. **La rampa que hace cerrar el presupuesto** (**D-2**). 16.500–26.000M a quince años contra 1.400–2.400M/año de régimen. El régimen empieza en 2035: **escribí el perfil año por fase y mostrá que la suma cae adentro de la banda del gate.** Si no cae, **la que se corrige es la banda anual, no el total** — el total es el insumo del gate y el gate ya se corrió y se publicó.
+   - **Resuelto en la Task 9, y no cerraba: la banda anual queda en 1.500–2.300.** Cinco fases sobre quince años (2029-2043) que suman **16.500 exacto en el extremo bajo y 25.500 en el alto**. El techo de 2.400 de la spec **no sobrevive por ningún reparto**: verificado rompiendo la tabla a propósito, con 2.400 en el régimen el total alto da 26.100 y se pasa de la banda del gate. La guardia parsea la tabla, **recalcula cada subtotal como anual × años** —una tabla con subtotales a mano cierra siempre— y suma contra 16.500–26.000.
 2. **El nuevo split del FSC**, con la tabla que la guardia suma a 100, el donante único, las tres patas del argumento, **la concesión de la reserva anti-colapso a la mitad**, y **la cláusula de subordinación en año de derrumbe** — con la Serie Centenaria y el Barro en curso exceptuados. Todo eso está en **D-10** y hay que escribirlo entero, no resumirlo.
 3. **El hueco de 80 millones** en el extremo bajo del ciclo. `1.320 < 1.400`. **No se redondea y no se disimula:** se declara, se dice de dónde saldría si hiciera falta, y se acepta que la respuesta puede ser «se atrasa una Pregunta».
 4. **La afectación, y por qué no es cero** (arreglo 2). Sacarle el piso al PLAN **no ahorró nada: mudó la rigidez de la columna que el Techo mide a la que nadie suma.** El número va escrito: ocho puntos del flujo del FSC son **USD 1.320–2.480M/año**, que sobre el producto de referencia de `PLANPACTO:122` son **0,26–0,50% del PBI**. Y la precisión que lo hace honesto: **ese flujo ya estaba afectado al 100% por PLANTER**, así que la afectación **nueva** sobre el Techo B es **cero salvo el hueco del punto 3**, y lo que cambió es el destinatario. **Las dos mitades van juntas o el número miente.**
@@ -543,7 +545,7 @@ El resto de la sección: los `requires` y `provides` en prosa, con **modo degrad
 
 **Palabras:** integración 900–1.100 · modelo económico 2.200–2.700.
 
-- [ ] Task 9 completa
+- [x] Task 9 completa
 
 ---
 

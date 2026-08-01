@@ -58,6 +58,8 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 10: LA SERIE CENTENARIA',
   '## SECCIÓN 11: DOBLE USO Y BIOSEGURIDAD',
   '## SECCIÓN 12: LA AGENCIA NACIONAL DEL CONOCIMIENTO (ANCON)',
+  '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
+  '## SECCIÓN 13: MODELO ECONÓMICO Y FISCAL',
 ];
 
 /**
@@ -163,6 +165,15 @@ const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; po
       'qué no se publica el mismo día · qué no se presta · el régimen del nodo de referencia · quién ' +
       'responde cuando falla. La cuarta es la que convierte la doctrina en algo distinto de una ' +
       'declaración de buenas intenciones, y es la que no tiene ningún precedente en el corpus',
+  },
+  {
+    h2: '## SECCIÓN 13: MODELO ECONÓMICO Y FISCAL',
+    prefijo: '13',
+    cuantas: 5,
+    porQue:
+      'la rampa · el nuevo split · por qué esa línea y qué se le rompe · la cuenta con el hueco ' +
+      'adentro · las dos fuentes que no se reclaman. La última es la que desaparece primero cuando ' +
+      'alguien comprime, y una fuente descartada en silencio reaparece en la versión que sigue',
   },
 ];
 
@@ -412,6 +423,21 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
       'la única ocurrencia de «bioseguridad» en los 24 documentos del taller es PLANISV:1614, de ' +
       'SENASA y sobre insumos biológicos. El corpus no tiene doctrina y este PLAN la estrena: eso se ' +
       'declara, o el lector supone que había una (arreglo 9)',
+  },
+  {
+    valor: /16\.500\s*[–—-]\s*31\.000|16\.500 a 31\.000/u,
+    ancla: /PLANTER|FSC|Fondo Soberano Ciudadano|flujo/iu,
+    porQue:
+      'el flujo anual del FSC sale de PLANTER:670-676, donde el 40% del dividendo son 6.600-12.400M. ' +
+      'Es el denominador del que salen los ocho puntos, y sin él el 8% no significa nada',
+  },
+  {
+    valor: /un solo fondo con dos nombres|son el mismo fondo/iu,
+    ancla: /PLANARCO/u,
+    porQue:
+      'la reconciliación FSC = FSB es decisión de diseño de PLANARCO:449, no de este documento. ' +
+      'Escribirla sin atribuir sería atribuirse una autoría ajena, que es la cuarta rama de la ' +
+      'declaración de valores',
   },
   {
     valor: /siete y (?:las )?doce|entre siete y doce/iu,
@@ -928,6 +954,96 @@ function verificarQueNoTienePiso(): string[] {
 }
 
 /**
+ * **LA RAMPA, QUE ES EL HALLAZGO D-2 CONVERTIDO EN CHEQUEO.** La spec declaraba
+ * 1.400-2.400M/año en régimen *y* 16.500-26.000M a quince años, y las dos cosas
+ * no cierran: 1.400 x 15 = 21.000 y 2.400 x 15 = 36.000. El total es el insumo
+ * sobre el que se corrió el gate de spin-off y está publicado en el acta, así que
+ * **la banda que se corrige es la anual**. Esta tabla es la corrección, y se
+ * verifica sumándola: los subtotales tienen que dar adentro de 16.500-26.000, y
+ * cada subtotal tiene que ser el producto de su anual por sus años — porque una
+ * tabla que declara subtotales a mano cierra siempre.
+ */
+const COLUMNAS_RAMPA = ['Fase', 'Años', 'Anual bajo', 'Anual alto', 'Subtotal bajo', 'Subtotal alto'];
+/** La banda del gate, en USD millones a quince años. No es negociable acá. */
+const GATE_BAJO = 16_500;
+const GATE_ALTO = 26_000;
+
+/** «1.500» -> 1500; «16.500» -> 16500. Sin centésimas: son millones enteros. */
+function entero(celda: string): number | null {
+  const m = /-?[\d.]+/.exec(celda.replace(/\s/g, ''));
+  if (!m) return null;
+  const n = Number(m[0].replace(/\./g, ''));
+  return Number.isFinite(n) ? n : null;
+}
+
+function verificarRampa(lineas: string[]): string[] {
+  const { filas, errores } = filasDeTabla(lineas, COLUMNAS_RAMPA, true);
+  if (filas === null) {
+    if (errores.length === 0) {
+      errores.push('no se encontró la tabla de la rampa (columnas Fase/Años/Anual/Subtotal)');
+    }
+    return errores;
+  }
+
+  let bajo = 0;
+  let alto = 0;
+  let anios = 0;
+  let totalDeclarado: [number, number] | null = null;
+
+  for (const fila of filas) {
+    if (/^\**\s*total/i.test((fila[0] ?? '').trim())) {
+      const b = entero(fila[4] ?? '');
+      const a = entero(fila[5] ?? '');
+      if (b !== null && a !== null) totalDeclarado = [b, a];
+      const n = entero(fila[1] ?? '');
+      if (n !== null && n !== 15) {
+        errores.push(`la fila de total declara ${String(n)} años y la ventana del gate son 15`);
+      }
+      continue;
+    }
+    const n = entero(fila[1] ?? '');
+    const ab = entero(fila[2] ?? '');
+    const aa = entero(fila[3] ?? '');
+    const sb = entero(fila[4] ?? '');
+    const sa = entero(fila[5] ?? '');
+    if (n === null || ab === null || aa === null || sb === null || sa === null) {
+      errores.push(`rampa: no se pudo leer la fila «${fila[0] ?? ''}»`);
+      continue;
+    }
+    // Los subtotales no se creen: se recalculan. Una tabla con subtotales a mano cierra siempre.
+    if (ab * n !== sb) {
+      errores.push(`rampa, «${fila[0] ?? ''}»: ${String(ab)} x ${String(n)} = ${String(ab * n)} y declara ${String(sb)}`);
+    }
+    if (aa * n !== sa) {
+      errores.push(`rampa, «${fila[0] ?? ''}»: ${String(aa)} x ${String(n)} = ${String(aa * n)} y declara ${String(sa)}`);
+    }
+    bajo += sb;
+    alto += sa;
+    anios += n;
+  }
+
+  if (anios !== 15) errores.push(`las fases de la rampa suman ${String(anios)} años y la ventana del gate son 15`);
+  if (bajo < GATE_BAJO || bajo > GATE_ALTO) {
+    errores.push(
+      `la rampa suma ${String(bajo)} en el extremo bajo, fuera de la banda del gate ${String(GATE_BAJO)}-${String(GATE_ALTO)}`,
+    );
+  }
+  if (alto < GATE_BAJO || alto > GATE_ALTO) {
+    errores.push(
+      `la rampa suma ${String(alto)} en el extremo alto, fuera de la banda del gate ${String(GATE_BAJO)}-${String(GATE_ALTO)}`,
+    );
+  }
+  if (totalDeclarado === null) {
+    errores.push('la tabla de la rampa no tiene fila de total legible');
+  } else if (totalDeclarado[0] !== bajo || totalDeclarado[1] !== alto) {
+    errores.push(
+      `la fila de total dice ${String(totalDeclarado[0])}-${String(totalDeclarado[1])} y las fases suman ${String(bajo)}-${String(alto)}`,
+    );
+  }
+  return errores;
+}
+
+/**
  * El split del FSC, en los DOS documentos. Es la única tabla que existe por
  * duplicado a propósito, y por eso es la que más fácil se desincroniza: dos
  * documentos con dos versiones del mismo protocolo es exactamente el defecto que
@@ -1045,6 +1161,7 @@ function main(): void {
     ...verificarEstrenoDeclarado(raw),
     ...verificarQueNoTienePiso(),
     ...verificarVerticales(lineas),
+    ...verificarRampa(lineas),
     ...verificarSplit(lineas),
     ...verificarSplitEnPlanter(),
     ...verificarCabecera(lineas),
