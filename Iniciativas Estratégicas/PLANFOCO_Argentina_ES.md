@@ -859,3 +859,165 @@ Un PLAN que se financia solo con lo que apaga tiene que decir explícitamente qu
 **Lo único que reclama, y no es plata:** que el umbral de qué cuenta como medio esté en la ley, que PLANEDU dicte el Desmontaje, que PLANJUS cree el Panel de Legalidad de Publicación, y que PLANMEMORIA acepte los manifiestos del Acervo en sus siete nodos. Cuatro pedidos, tres de ellos a documentos ajenos, todos escritos también del otro lado.
 
 ---
+
+## SECCIÓN 14: RIESGOS Y RESPUESTAS
+
+> *"El riesgo terminal de un PLAN sin piso es que lo apaguen sin que nadie se entere."*
+
+| Riesgo | Probabilidad | Qué pasa si ocurre | Respuesta escrita |
+|---|---|---|---|
+| **La pauta vuelve por decreto en el gobierno siguiente** | alta | La correa se reconstruye y este PLAN se queda sin fuente | No hay blindaje: hay costo explícito. Recrear la partida exige firma y monto en el Boletín Oficial mientras la plata paga sedes abiertas (`3.2`) |
+| **La Biblioteca se captura políticamente en el territorio** | alta | Mil quinientos cargos militantes y ninguna biblioteca | Concurso ciego, sorteo entre aprobados, mandato a término, renovación por sorteo y actas públicas (`4.3`, `12`) |
+| **La aritmética de la pauta resulta más chica que 450** | media | La rampa no cierra | Regla de ajuste escrita por adelantado: se postergan aperturas, **no se recorta la operación de las sedes abiertas** (`13.4`) |
+| **PLANMESA llega tarde y las sedes compran sin Mesa** | **certera** | Cuatro a seis años de compras sin el órgano previsto | Modo degradado escrito: asamblea de usuarios con acta pública y traspaso automático sin acto administrativo (`4.4`) |
+| **PLANJUS no acepta el Panel de Legalidad** | media | La Cartelera queda sin recurso | Publica igual y no tiene mecanismo propio de retiro. Peor para la víctima de una publicación ilegal, mejor que la alternativa (`6`) |
+| **PLANEDU no incorpora el Desmontaje** | media | El nervio del PLAN queda sin escuela | El material y los mediadores existen igual y trabajan con adultos en las sedes. `PLANDIG:803` sigue roto y se dice (`9.2`) |
+| **El Acervo resulta jurídicamente impublicable** | media | Se digitaliza y no se publica | Preservar no requiere poder publicar. El porcentaje publicable es indicador del tablero (`7.1`) |
+| **La Antena se usa para hostigar** | **certera** | Escándalo público y presión para dar de baja | Respuesta institucional: ninguna. Si hay delito, justicia ordinaria. La dotación no crea jurisdicción especial (`5`) |
+| **Las provincias no adhieren** | media | La correa provincial sobrevive a la nacional | Límite declarado, no pendiente. Adhesión voluntaria con prioridad de sedes y sin condicionamiento cruzado (`3.2`, `12`) |
+| **ANBAC crece y empieza a curar contenido** | baja mientras el presupuesto sea 15-20M | Deja de ser esta agencia | La lista de la Sección 11 más el límite físico de personal. Un aumento de la línea de ANBAC por encima del 8% del total es la señal de alarma |
+
+**El riesgo que no tiene respuesta, y va escrito como tal:** que las sedes abran, funcionen y **nadie vaya**. Este PLAN apuesta a que la ausencia de destino explica una parte grande de las cinco horas y doce minutos de `PLANCUL:304`, y esa apuesta puede ser falsa: puede ser que el teléfono gane igual con la biblioteca abierta al lado. No hay mitigación posible para eso, sólo medición — la Sección 17 la pone en el tablero como indicador principal y la Sección 21 fija el umbral por debajo del cual este PLAN se declara fallido y se reformula.
+
+---
+
+## SECCIÓN 15: EL MAPA DE PERDEDORES
+
+> *"El que pierde tiene nombre de mecanismo, no de empresa."*
+
+Este PLAN le saca algo concreto a gente concreta, y la disciplina del corpus es escribir quién y cuánto **antes** de que lo escriban ellos.
+
+**Los medios que hoy cobran pauta.** Pierden USD 450M por año, repartidos de manera muy desigual. Los grandes pierden una fuente cómoda y no vital. **Los chicos pierden, en muchos casos, la mayor parte de su ingreso**, y algunos cierran — dicho en `3.1` y no matizado acá. Lo que reciben a cambio no es equivalente en plata: es una dotación de La Antena que nadie les puede sacar, distribución territorial gratuita por la Cartelera, y un público con un lugar físico donde leer. Puede no alcanzar.
+
+**Los funcionarios que administran la pauta.** Pierden la única herramienta blanda que tiene un gobierno para negociar tono con un medio sin pedirle nada por escrito. Es la pérdida más grande del PLAN medida en poder y la que menos se va a declarar en público, porque declararla sería admitir para qué servía.
+
+**Las agencias de medios y las centrales de compra** que intermedian la colocación oficial. Pierden comisión sobre 450 millones anuales. No tienen defensa pública posible —nadie va a militar por el derecho de un intermediario a cobrar comisión sobre publicidad estatal— y por eso van a militar por otra cosa: por la libertad de expresión, que es el argumento que va a aparecer y que hay que anticipar.
+
+**El que hoy decide qué se compra para una biblioteca pública.** Pierde una decisión chica y muy útil, multiplicada por mil doscientos barrios.
+
+**Los que aspiraban a mil quinientos cargos designables.** Pierden un aparato territorial que todavía no existe y que ya está prometido en algún cálculo. Éste es el perdedor más silencioso y el más peligroso, porque su resistencia no va a aparecer como oposición al PLAN sino como propuesta de mejora: «que la designación contemple el arraigo», «que se pondere la trayectoria», «que haya una instancia de evaluación final». **Cada una de esas mejoras es la puerta**, y por eso el sorteo entre aprobados está escrito como está.
+
+**Y una pérdida de este propio proyecto, que corresponde anotar:** el ecosistema ¡BASTA! deja de contar con 180 a 270 millones anuales de ahorro genérico y pasa a contar con 0 a 150 (`13.2`). El primer perdedor de este PLAN es el corpus que lo contiene.
+
+**Quién no pierde nada, contra lo que se va a decir:** ningún medio pierde una licencia, porque este PLAN no da ni quita licencias. Ningún periodista pierde el derecho a publicar nada. Ninguna empresa queda sujeta a una obligación nueva. **La única entidad que pierde facultades en todo este documento es el Estado**, y las pierde sobre sí mismo.
+
+---
+
+## SECCIÓN 16: HOJA DE RUTA
+
+> *"Lo irreversible primero, y lo caro después."*
+
+**Fase 0 — la pauta se vuelve ciega (2027–2028).** Decreto de sorteo y cronograma de extinción, publicados juntos el mismo día. Inventario del Acervo (`7.1`). Relevamiento de horarios y de bibliotecas populares dispuestas a firmar convenio. Proyecto de ley de ANBAC y del umbral de medio, enviado al Congreso. **Nada de esto necesita ley, ni agencia, ni plataforma**, y por eso va primero: es el único tramo que no depende de que nadie apruebe nada. USD 60–90M/año.
+
+**Fase 1 — las primeras seiscientas sedes (2029–2031).** Convenios con bibliotecas populares bajo la regla de precedencia (`4.2`). Primeros concursos ciegos y sorteos. Formación abierta de mediadores. Arranque de la digitalización del Acervo por criterio de deterioro, no de importancia. Primeras dotaciones de La Antena. Ley de ANBAC sancionada o el PLAN se queda en Fase 1. USD 170–260M/año.
+
+**Fase 2 — la red completa (2032–2034).** De seiscientas a mil doscientas o mil quinientas sedes. La pauta ya es cero desde 2031. Traspaso de las compras a las Mesas Territoriales a medida que se constituyen. Cartelera en todas las sedes. Estándar de Procedencia publicado y en integración con los organismos. USD 270–430M/año.
+
+**Fase 3 — régimen y evaluación (2035–2041).** Operación plena y **la evaluación que decide si esto siguió existiendo**: el indicador principal de la Sección 17 medido contra la línea de base de 2027. USD 300–450M/año.
+
+**Los tres hitos que no se pueden mover de lugar**, porque de ellos depende que el resto tenga sentido: el cronograma de extinción publicado **el mismo día** que el mecanismo de sorteo —si se publica después, el sorteo se lee como la reforma y la extinción se negocia—; el primer concurso ciego **antes** de la primera sede abierta, para que no haya ni una designación provisoria que después se convierta en definitiva; y el inventario del Acervo **antes** de comprar un solo escáner.
+
+---
+
+## SECCIÓN 17: TABLERO NACIONAL DE LA MIRADA
+
+> *"Un tablero que solo muestra lo que salió bien es publicidad con tipografía de datos."*
+
+Actualización mensual, publicación abierta, y **la misma prominencia para lo que falla que para lo que funciona.** Los indicadores de abajo se publican los doce meses del año, hayan mejorado o no.
+
+| Indicador | Qué mide | Es bueno si |
+|---|---|---|
+| **Horas de uso de sede por habitante del radio** | el indicador principal: si la gente va | sube contra la línea de base de 2027 |
+| Sedes abiertas y horas semanales de apertura | cobertura real, no inaugurada | sube |
+| **Horas de apertura fuera de la franja 9–19** | si el horario se corrigió de verdad | sube |
+| Pauta oficial nacional colocada | que el cronograma se cumple | baja a cero en 2031 |
+| Commons Atencionales certificados | cobertura del derecho de `PLANDIG:788` | sube hacia 3.000 |
+| Dotaciones de La Antena activas, y **cola pendiente** | acceso real al canal | sube la primera, baja la segunda |
+| Horas de Acervo digitalizadas, y **porcentaje publicable** | rescate y su límite jurídico | sube la primera; la segunda se informa aunque sea baja |
+| **Material público publicado sin firma, por organismo** | adopción de la Procedencia | baja |
+| Balance por origen del corpus de ejemplos del Desmontaje | que la materia no es propaganda con método | se mantiene equilibrado |
+| **Sillones vacantes del directorio, con motivo** | captura por omisión | cero |
+| Vecinos que pidieron explicación de un gasto, y **cuántas se contestaron** | que la transparencia de `PLANSAL:1515` es real | sube la segunda sobre la primera |
+
+**Cuatro indicadores están en negrita porque son los que un tablero complaciente no publicaría**: las horas fuera de la franja tradicional delatan si el cartel se cambió de verdad; la cola de La Antena delata que la escala no alcanza; el porcentaje publicable del Acervo delata el problema de derechos; y las vacantes del directorio delatan una captura que no necesita ninguna maniobra, sólo que nadie llene un sillón.
+
+---
+
+## SECCIÓN 19: DIMENSIÓN FEDERAL
+
+> *"La Nación puede apagar su correa. Las otras veinticuatro no."*
+
+*(La numeración salta el 18, siguiendo la convención del corpus.)*
+
+**El límite primero, porque es el que ordena todo lo demás.** La cifra de `PRESUPUESTO_CONSOLIDADO:419` es de publicidad oficial **consolidada**, de los tres niveles del Estado. La Nación extingue la suya por decreto propio; la provincial y la municipal **no las puede tocar**, y en varias provincias la pauta local pesa más sobre el sistema de medios de esa provincia que la nacional. Este PLAN no tiene manera de resolverlo sin pedir una facultad que tiene prohibido pedir.
+
+**La adhesión es voluntaria y la contrapartida es una sola:** las jurisdicciones que adhieren —extinguiendo su propia pauta con su propio cronograma— reciben asignación prioritaria de sedes de la Biblioteca Viva. No hay ninguna otra consecuencia. **No hay retención de fondos coparticipables, no hay condicionamiento cruzado con otros PLANes y no hay penalidad**: usar la plata de otro para comprar una política propia es la lógica de la correa aplicada al federalismo, y sería incoherente hasta el ridículo en este documento.
+
+**Lo que sí es nacional sin adhesión** es la mitad de este PLAN, y por eso funciona igual en una provincia que no adhiere: las sedes que la Nación financia, La Antena, el Acervo, la Procedencia y el Desmontaje —vía PLANEDU y el consejo federal correspondiente— no dependen de que la provincia apague nada.
+
+**Las asimetrías reales, declaradas.** La red de bibliotecas populares está muy desigualmente distribuida: hay provincias con decenas y provincias con cientos, y la regla de precedencia de `4.2` —donde hay una, la sede es esa— **le da más sedes baratas a las provincias que ya estaban mejor**. Corregirlo con una fórmula de reparto por necesidad reintroduce un criterio discrecional; corregirlo con obra nueva es más caro. La decisión de este documento es la segunda: **en las provincias con menos bibliotecas populares se construyen sedes nuevas**, se declara que salen más caras por sede, y ese sobrecosto se anota en el tablero en vez de esconderse en el promedio nacional.
+
+**Y la Sala Común es el caso más desigual de todos**, porque la planta técnica del Estado está concentrada en el AMBA. El cupo reservado para pedidos de fuera del AMBA (`7.4`) es una corrección chica de un problema grande, y este documento no pretende que lo resuelva.
+
+---
+
+## SECCIÓN 20: VISIÓN 2040
+
+> *"En 2040 nadie va a recordar cuánto se gastaba en pauta oficial, y ese es todo el objetivo."*
+
+**Lo que este PLAN espera que sea cierto en 2040**, escrito como visión y no como compromiso operativo, con la misma convención que el resto del corpus:
+
+Que la publicidad oficial sea una cosa que existió, como el servicio militar obligatorio, y que la generación que entra a la vida adulta no entienda del todo cómo funcionaba. Que las tres mil sedes de `PLANDIG:788` estén cubiertas y que la cobertura sea aburrida, que es el estado en que se encuentran las políticas públicas que funcionaron. Que el Acervo esté entero, digitalizado, publicado en lo que se pudo publicar, y que su parte impublicable esté preservada esperando que los derechos venzan. Que el Desmontaje sea una materia común, tan poco polémica como el análisis sintáctico. Y que Marisol —que en 2040 tiene cuarenta y ocho años— haya podado la quinta.
+
+**El piso constitucional, que este PLAN difiere y que acá corresponde discutir.** La Escalera de `PLANPACTO` cierra en ocho escalones y en 2,40% del PBI exacto, y este documento no pide el noveno. La razón no es modestia: es que un piso se justifica cuando lo que protege es irreversible si se interrumpe, y **casi nada de este PLAN lo es.** Una biblioteca que cierra dos años puede reabrir; un bibliotecario que se va puede volver a concursar; una dotación de canal que se corta se restablece.
+
+**La excepción es el Acervo**, y por eso es lo único de este PLAN que tendría sentido blindar: el material que se degrada mientras nadie lo copia no vuelve. Si en algún momento este PLAN pide un escalón de la Escalera, **tiene que ser por la línea del Acervo y por la ventana de quince años, no por el conjunto** — y tendría que pedirlo antes de 2035, porque después de esa fecha el argumento ya no aplica: lo que se salvó está salvado y lo que se perdió está perdido.
+
+---
+
+## SECCIÓN 21: PROTOCOLO DE FALLA
+
+> *"Un PLAN que no define cómo se declara fallido se declara exitoso para siempre."*
+
+**El umbral, escrito por adelantado y con la fecha.** En 2038 —tres años después del inicio del régimen pleno— se mide el indicador principal del tablero: horas de uso de sede por habitante del radio, contra la línea de base de 2027. **Si no subió, este PLAN falló en su apuesta central** y se reformula. No se recorta ni se defiende: se reformula, con una revisión que empieza por preguntar si la ausencia de destino era realmente lo que explicaba las cinco horas y doce minutos.
+
+Escribir el umbral antes es lo único que impide que la evaluación se convierta, en 2038, en una discusión sobre cuál era el indicador correcto.
+
+**Fallas parciales, y qué se hace con cada una:**
+
+**Si la ley de ANBAC no sale**, el PLAN se queda en Fase 1 y opera lo que se puede operar por convenio y decreto: la extinción de la pauta —que ya está corriendo—, los convenios con bibliotecas populares y el Acervo. **La extinción no se detiene esperando la ley.**
+
+**Si el Congreso deroga el cronograma de extinción**, este PLAN pierde su fuente y no tiene otra. Lo que queda operando es lo ya construido, con presupuesto ordinario y sin expansión, y **el documento no propone una fuente de reemplazo**, porque proponerla —canon, impuesto a plataformas, tasa sobre publicidad privada— sería recrear la bolsa que este PLAN existe para apagar.
+
+**Si un gobierno intenta usar ANBAC para curar contenido**, la señal temprana no es un escándalo: es presupuestaria. **La línea de ANBAC pasando del 5% al 8% del total del PLAN es la alarma**, aparece en el tablero antes que cualquier acto, y no requiere que nadie denuncie nada.
+
+**El orden de preservación si el PLAN se descontinúa**, que es lo único que este protocolo ordena de manera terminante:
+
+1. **El Acervo digitalizado y sus manifiestos**, que se transfieren a PLANMEMORIA y a PLANDIG. Es lo único irreversible.
+2. **Los convenios con bibliotecas populares**, que se rescinden con los noventa días del convenio tipo y devuelven las sedes a instituciones que existían antes y van a seguir existiendo después.
+3. **El registro de dotaciones de La Antena**, que se preserva aunque el servicio se corte, porque un registro borrado es la manera de que después nadie pueda probar quién tenía canal.
+4. Todo lo demás.
+
+El personal no tiene garantía de continuidad y este documento no la promete. Prometerla sería prometer un derecho adquirido sobre un presupuesto que puede no existir, y este PLAN eligió no prometer nada que no pueda pagar con la plata que apaga.
+
+---
+
+## CIERRE
+
+> *"Un lugar abierto y alguien adentro."*
+
+Nadie le robó a Marisol Quiroga las cinco horas y doce minutos. No hubo un delito, no hubo una plataforma que le forzara la mano, y no hace falta ninguna teoría de la manipulación para explicar por qué su teléfono se lleva más de una jornada laboral por semana. Se las está dando, todas las tardes, con las dos manos, porque a las tres de la tarde de un martes en Chajarí no hay ningún otro lugar donde ponerlas.
+
+Este PLAN no le prohíbe nada a nadie. No le saca la licencia a ningún medio, no le pone una regla a ningún periodista, no decide qué es verdad y no le dice a Marisol qué tiene que mirar. Hace dos cosas y ninguna es sobre lo que alguien dice.
+
+La primera: **el Estado argentino deja de elegir a quién le da un peso**, primero por sorteo y después porque no queda un peso que dar. Cuarenta años de discusión sobre la palabra pública se ocuparon del que habla; esta es la única disciplina que se aplica sobre el que paga, y es la única que un gobierno puede imponerse a sí mismo sin fabricarle un arma al que viene.
+
+La segunda: **con esa plata, que ya existe, abre el lugar.** Mil doscientas a mil quinientas sedes con alguien adentro que sabe, un acervo que eligen los vecinos, un canal para cualquiera que lo pida, setenta años de archivo rescatados antes de que la cinta termine de morirse, y una materia que enseña a mirar un mensaje y ver cómo está hecho.
+
+Nada de eso garantiza que Marisol vaya. Este documento lo escribió en la Sección 14 y lo puso en el tablero con fecha de evaluación: puede ser que el teléfono gane igual con la biblioteca abierta al lado, y si en 2038 el número no subió, este PLAN falló y hay que decirlo.
+
+Pero hay una cosa que sí está garantizada, y es la única que hoy no lo está. El último domingo de cada mes le va a seguir llegando a Marisol el informe de `PLANDIG:886` con sus horas de pantalla. Hoy ese informe le dice el número y no le dice a dónde ir.
+
+**El día que la biblioteca de Chajarí abra de dos de la tarde a diez de la noche, el informe va a seguir diciendo el número. Y va a haber otro lado.**
+
+Eso es todo lo que este PLAN promete. Lo demás lo hace ella.
