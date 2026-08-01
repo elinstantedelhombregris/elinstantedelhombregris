@@ -153,7 +153,31 @@ const LEADS_DE_FALLA: string[] = ['**La falla:**', '**Por qué persiste:**', '**
  * la granularidad del chequeo vuelve a ser más gruesa que la unidad verificada,
  * que es exactamente el defecto que este arreglo cierra.
  */
-type ValorConDomicilio = { valor: string; en: string[]; veces?: number; porQue: string };
+/**
+ * **`sinNegacion`, y es un agujero de la clase ENTERA, no de una entrada.**
+ * Encontrado en la quinta vuelta de mutación propia: **quince de quince VERDES**
+ * poniéndole una negación adelante a la aserción, sin tocarla. «PLANDIG **no**
+ * es el punto único de falla», «el redondeo **no** empuja a la baja», «este PLAN
+ * **no** sabe cuánto sale» — el literal sigue adentro de su propia negación y
+ * `contar()` lo encuentra igual. Es la novena forma del arquetipo que este
+ * archivo ya lleva anotada tres veces (una frase que se cubre a sí misma por
+ * accidente ortográfico), acá aplicada al mecanismo que sostiene ciento trece
+ * aserciones: **la inversión más barata de todas, y la que ninguna de las cuatro
+ * vueltas anteriores había probado.**
+ *
+ * No se arregla globalmente porque muchas aserciones SON frases negativas
+ * legítimas —«no reclama escalón ni piso», «no hay damnificado con expediente»,
+ * «menor a un veinteavo», que vive adentro de «no puede ser… menor a un
+ * veinteavo»— y una detección global las pondría rojas a todas. Va por entrada,
+ * y se marca donde una negación delante INVIERTE el sentido.
+ */
+type ValorConDomicilio = {
+  valor: string;
+  en: string[];
+  veces?: number;
+  sinNegacion?: boolean;
+  porQue: string;
+};
 
 /** Los encabezados que se usan como domicilio, escritos una sola vez. */
 const H3_FALLA_CUIDADO = '### 0.4 El trabajo que sostiene el sistema no tiene renglón donde anotarse';
@@ -482,8 +506,12 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
     valor: 'USD 53.000–96.000M',
     en: [CABECERA, H3_LA_RAMPA_DEL_GASTO],
     porQue:
-      'la banda de quince años sobre la que se corrió el gate de spin-off, publicada en el acta. Es ' +
-      'el único número de plata que este documento no puede tocar: sostiene la legitimidad del PLAN',
+      'la banda de quince años sobre la que se corrió el gate de spin-off: es su INSUMO y vive en ' +
+      '`gate-spinoff-planes-nuevos.ts:25`, y lo que el acta publica son los tres cocientes que salen ' +
+      'de ella (`ACTA:24-26`). Escribir «publicada en el acta» sería falso —verificado, el acta no ' +
+      'trae ninguno de los dos números— y este `porQue` lo decía quince líneas debajo del JSDoc que ' +
+      'lo declara falso. Es el único número de plata que este documento no puede tocar: sostiene la ' +
+      'legitimidad del PLAN',
   },
   {
     valor: '8,80',
@@ -513,8 +541,11 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
     valor: 'USD 95.920M',
     en: [H3_LA_RAMPA_DEL_GASTO],
     porQue:
-      'la integral de vuelta en el extremo alto (10.900 × 8,80). Los dos productos caen ADENTRO de ' +
-      'la banda del gate: el redondeo empuja para adentro, no para afuera',
+      'la integral de vuelta en el extremo alto (10.900 × 8,80). El redondeo empuja a la BAJA en los ' +
+      'dos extremos y los dos productos quedan por debajo de su extremo del gate. «Los dos caen ' +
+      'adentro de la banda» era falso y el documento lo repetía: 95.920 cae adentro, pero 52.800 ' +
+      'queda por debajo de 53.000, o sea AFUERA. Se corrigieron los dos textos; el cociente del acta ' +
+      'se mueve de 1,77x a 1,76x contra PLANCUIDADO y ningún veredicto cambia',
   },
   /**
    * **El 0,60% del eje intergeneracional y la división que su reemplazo obliga a
@@ -633,6 +664,26 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
 type FamiliaDeCifra = { cerca: string; unidad: RegExp; valores: string[]; porQue: string };
 
 const FAMILIAS_DE_CIFRA: FamiliaDeCifra[] = [
+  {
+    /**
+     * **El segundo caso de la clase, y lo destapó I-7.** La banda del Tramo
+     * Ganado vive en dos secciones —§4.4 la deriva de `PLANCUIDADO:564` y §9.3 la
+     * usa como su única erogación propia— y §9.3 la lleva en una FILA DE TABLA,
+     * que `soloProsa()` descuenta: CIFRAS_CANONICAS no la puede domiciliar. Mutada
+     * a `USD 18.000–24.000M` —un orden de magnitud— la guardia salía verde.
+     *
+     * `USD 2.400M` está en los valores porque `:435` cita el extremo alto solo,
+     * atribuido a `PLANCUIDADO:94`, y es legítimo: la familia declara el juego
+     * cerrado de valores que la cosa puede tener, no uno solo.
+     */
+    cerca: 'Tramo Ganado',
+    unidad: /USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
+    valores: ['USD 1.800–2.400M', 'USD 2.400M'],
+    porQue:
+      'la línea que PLANCUIDADO:564 ya contabiliza como costo propio, y el único monto de la tabla ' +
+      'de tres columnas. Es también el número que sostiene el «cero — pass-through» de esa fila: si ' +
+      'las dos secciones declaran magnitudes distintas, no hay pass-through que verificar',
+  },
   {
     cerca: 'Fondo Intergeneracional',
     unidad: /USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
@@ -1418,12 +1469,44 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'hubiera medido alguien',
   },
   {
+    valor: 'empuja a la baja en los dos extremos',
+    sinNegacion: true,
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'la dirección REAL del redondeo, y el recíproco de la prohibición de «hacia adentro» (I-2). ' +
+      'Prohibir la frase falsa no obliga a escribir la verdadera: sin esta aserción, borrarla deja ' +
+      'la reconciliación sin decir para qué lado se movió, y para qué lado se movió es la única ' +
+      'razón por la que los dos productos quedan por debajo de su extremo del gate',
+  },
+  {
+    valor: 'reingeniería declarada',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      '**la calibración, que es la libertad que vive un nivel más arriba** (I-3). «El gate divide, no ' +
+      'el anual multiplica» es cierto como mecánica y falso como relato: la banda anual de referencia ' +
+      'ya estaba escrita antes que ninguna tabla, lo que encierra al coeficiente en una ventana de ' +
+      'una décima, y la rampa se movió hasta caer adentro. Negarse a cerrar al centavo es honesto; ' +
+      'presentar la forma como descubierta no lo sería',
+  },
+  {
     valor: 'monto pendiente',
     en: [H3_TRES_COLUMNAS],
     porQue:
       'la salida honesta de C-6, y es la que PLANPACTO:498 ya usó con la base ancha del IVA: la ' +
       'columna del medio se carga con monto pendiente y confianza media, no con una cifra. La otra ' +
       'salida era declarar el hueco entero, y el documento eligió esta porque el unitario existe',
+  },
+  {
+    valor: 'no cuenta en ninguna parte',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      '**el hueco entero, en una frase** (mutación propia). Invertida a «y cuenta que un millón ' +
+      'largo llegó por la vía de excepción», §9.3 pasa a decir que el corpus tiene el sustraendo, ' +
+      'con la celda de la tabla todavía cargada como «monto pendiente» y el párrafo siguiente ' +
+      'todavía explicando por qué no se puede multiplicar. La prohibición de magnitudes cerca de la ' +
+      'vía de excepción no la atrapa: «un millón largo» no lleva dígito, y meterle las formas en ' +
+      'letras pondría en rojo la oración honesta, que también cuenta gente. La afirmación positiva ' +
+      'es la que hay que custodiar',
   },
   {
     valor: 'estrenar el padrón',
@@ -1453,11 +1536,20 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
   {
     valor: 'modo degradado',
     en: [H2_INTEGRACION],
-    veces: 7,
+    /**
+     * **Ocho y no siete, y el siete estaba mal contado.** Las ocurrencias son las
+     * seis aristas, el par recíproco y el anuncio del párrafo que las presenta
+     * («van con su modo degradado»). Con el mínimo en 7, borrarle el suyo al par
+     * recíproco dejaba 7 y salía **exit 0** — encontrado por mutación propia, y es
+     * la misma forma que el conteo grueso ya había dejado pasar con PLANREP: un
+     * mínimo por debajo del real convierte al chequeo en decoración.
+     */
+    veces: 8,
     porQue:
-      'las seis dependencias críticas más el par recíproco. La spec obliga a que cada PLAN nuevo lo ' +
-      'declare, y el conteo es lo que impide que se declare para dos y se olvide para cuatro: seis ' +
-      'aristas sin modo degradado son seis puntos de falla que el documento anuncia y no contesta',
+      'las seis dependencias críticas, el par recíproco y el anuncio que las presenta. La spec ' +
+      'obliga a que cada PLAN nuevo lo declare, y el conteo es lo que impide que se declare para dos ' +
+      'y se olvide para cuatro: seis aristas sin modo degradado son seis puntos de falla que el ' +
+      'documento anuncia y no contesta',
   },
   {
     valor: 'no se declara como arista',
@@ -1466,6 +1558,394 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'el patrón de PLANPACTO:723: lo que no es arista va en prosa CON LA RAZÓN. PLANRUTA no es nodo ' +
       'del grafo y declararlo rompería la validación. Sin esta frase, la relación se pierde o se ' +
       'escribe como arista y rompe el registro en el tramo E',
+  },
+  /**
+   * **Las declaraciones AUTOCRÍTICAS eran las menos protegidas del documento, y
+   * son su núcleo ético** (I-6). Cinco mutaciones, cinco verdes: invertir «vuelve
+   * la hipótesis un punto menos absurda» por «más absurda», invertir «la habría
+   * expuesto más» por «protegido más», borrar entero el párrafo del costo que se
+   * le traslada a PLANPACTO, borrar entero el párrafo de los seis léxicos —que es
+   * la evidencia de C-6— y aflojar «menor a un veinteavo» a «un décimo».
+   *
+   * Las cinco tienen la misma forma: **son las frases que solo perjudican al que
+   * las escribe**, así que nada adentro del documento las reclama y su ausencia no
+   * rompe ninguna otra cosa. Una frase que nadie extraña es una frase que se cae
+   * en la primera compresión, y estas cinco son las que el documento tiene que
+   * pagar para que el resto se lea como algo más que un folleto.
+   *
+   * Se domicilian como literal y no como regla: lo que hay que custodiar no es un
+   * número sino una dirección, y la dirección se escribe en palabras.
+   */
+  {
+    valor: 'vuelve la hipótesis un punto menos absurda',
+    sinNegacion: true,
+    en: [H3_EJE_INTERGENERACIONAL],
+    porQue:
+      'la dirección en que se movió el reemplazo del 0,60, y va CONTRA el interés propio: un ' +
+      'denominador más chico afloja el argumento de PLANPACTO. Invertida a «más absurda» el ' +
+      'documento se declara benefactor del PLAN al que le achicó el margen, con los cuatro números ' +
+      'de la división intactos',
+  },
+  {
+    valor: 'la habría expuesto más',
+    sinNegacion: true,
+    en: [H3_SIN_PISO],
+    porQue:
+      'la mitad incómoda del argumento de la ausencia de piso: no es que el piso no haga falta, es ' +
+      'que el piso que este proyecto escribe habría expuesto MÁS a la Renta de Arco en recesión. ' +
+      'Invertida a «protegido más», §9.4 pasa a defender lo contrario de lo que el PLAN hizo',
+  },
+  {
+    valor: 'menor a un veinteavo',
+    en: [H3_SIN_PISO],
+    porQue:
+      'la razón de ejecución escrita como obligación y no como descripción. Aflojarla a «un décimo» ' +
+      'duplica el piso sin tocar «uno a veinte», que sigue escrito dos renglones antes: el número en ' +
+      'letras y la fracción que lo ejecuta son dos afirmaciones y las dos tienen que estar',
+  },
+  {
+    valor: 'el PLAN que más empuja contra el objetivo de convergencia',
+    en: [H2_INTEGRACION],
+    porQue:
+      'el costo que PLANARCO le traslada a PLANPACTO, escrito en ESTE documento y no en el del otro. ' +
+      'Es lo único de la INTEGRACIÓN que no le conviene al PLAN, y borrar el párrafo entero dejaba ' +
+      'el par recíproco declarado con la mitad simpática nada más',
+  },
+  {
+    valor: 'se buscó bajo seis léxicos',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'la evidencia de C-6, y la regla de las dieciséis víctimas la hace obligatoria: «esto no ' +
+      'existe» dicho sin buscar bajo otro nombre es el modo de falla propio de este tramo. Sin el ' +
+      'párrafo, el hueco de la columna del medio queda declarado sin nada detrás',
+  },
+  /**
+   * **La cosecha propia: veintinueve mutaciones VERDES buscadas después de tener
+   * los hallazgos arreglados.** Todas comparten forma con las cinco de I-6 y con
+   * las cinco de I-7 —son afirmaciones en palabras, no cifras— pero ninguna
+   * estaba en la lista de la revisión, que es el punto: la guardia que uno
+   * escribe cubre lo que uno miró. Las que siguen son las que se cierran como
+   * literal porque lo que custodian es una DIRECCIÓN, y una dirección no tiene
+   * aritmética que rehacer: el degradado que liquida en cero y no completo, el
+   * punto único de falla que es de PLANDIG, la estación que queda vacía, el
+   * fantasma que sigue vivo en la web, el calificador `superseded`, el
+   * emparejamiento bajo con bajo, la columna que se titula «Monto Aproximado» y
+   * el sentido en que corre la razón de ejecución.
+   */
+  /**
+   * **Tercera vuelta de mutación propia, y quince de dieciséis salieron VERDES
+   * otra vez.** Se buscaron apuntando a lo que las dos vueltas anteriores NO
+   * habían mirado: las premisas en palabras de las que cuelgan las cuatro
+   * decisiones grandes de la sección. Todas tienen la misma anatomía —invertir
+   * una cláusula subordinada deja el argumento en pie y le cambia el suelo— y
+   * ninguna mueve una cifra, así que ningún chequeo aritmético las ve.
+   *
+   * La lección, que es la del tramo entero: **la guardia cubre lo que uno miró.**
+   * No hay forma de cerrar la clase con reglas; hay que ir a buscarlas, y cada
+   * vuelta encuentra las de la vuelta anterior. Lo que queda abierto va dicho en
+   * el reporte, no supuesto cerrado.
+   */
+  /**
+   * **Cuarta vuelta: diez de diez VERDES, y por eso la clase se declara ABIERTA.**
+   * La curva de las cuatro vueltas propias es 29/30, 15/16, 10/10 — no satura, y
+   * no va a saturar: cada vuelta encuentra las que la anterior no miró, porque lo
+   * que se busca son cláusulas subordinadas invertidas y el castellano tiene
+   * infinitas. **Estas doce entradas cierran las diez de la cuarta vuelta y NO
+   * cierran la clase**, y quien lea este archivo tiene que saberlo: una quinta
+   * vuelta encuentra más. Lo que sí queda cerrado es cada premisa que las cuatro
+   * decisiones grandes de la SECCIÓN 9 usan como suelo.
+   */
+  {
+    valor: 'el orden inverso de sanción no agarra',
+    en: [H3_SIN_PISO],
+    porQue:
+      'la propiedad del Techo A de la que cuelga la protección de la Capa de Renta. Invertida, lo ' +
+      'previsional queda expuesto al orden inverso y §9.4 contesta la ausencia de piso con una ' +
+      'protección que su propia oración acaba de negar',
+  },
+  {
+    valor: 'no cabe en ese horizonte',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'el motivo por el que la rampa existe: un régimen constante no entra en quince años contra la ' +
+      'banda del gate. Invertido, la tabla entera queda sin razón de ser y la sección abre diciendo ' +
+      'que la cuenta que no cerraba cerraba',
+  },
+  {
+    valor: 'tres mil quinientos a seis mil cuatrocientos millones',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'el anual plano —53.000/15 y 96.000/15— que se escribe para mostrar que NO es la magnitud de ' +
+      'un régimen. Es la mitad del dilema que la rampa resuelve, y va en letras: cambiada, el ' +
+      'argumento sigue en pie sobre un número que ya no sale de dividir por quince',
+  },
+  {
+    valor: 'adentro del piso y no arriba',
+    en: [H3_EJE_INTERGENERACIONAL],
+    porQue:
+      'la contestación por el otro camino: si alguien lee la razón de ejecución como afectación ' +
+      'encubierta, PLANPACTO:381 la manda adentro del piso —consume escalón, no agrega línea— y ' +
+      'este PLAN no tiene escalón donde consumir. Invertida, el cero pierde su segundo fundamento',
+  },
+  {
+    valor: 'el degradado es hoy y el pleno es lo que hay que esperar',
+    sinNegacion: true,
+    en: [H2_INTEGRACION],
+    porQue:
+      'la lectura incómoda del modo degradado de PLANMON, y es la única de las seis que se declara ' +
+      'ya corriendo. Invertida, la sección afirma que el PLAN cuenta hoy con una capa que todavía ' +
+      'no existe',
+  },
+  {
+    valor: 'no hay damnificado con expediente',
+    en: [H3_SIN_PISO],
+    porQue:
+      'la razón por la que la presión fiscal aterriza en la forma y no en la renta. Invertida, §9.4 ' +
+      'declara que la Capa de Forma está tan defendida como la de Renta, y la tesis del documento ' +
+      '—se conserva como renta y se suspende como forma— se queda sin mecanismo',
+  },
+  {
+    valor: 'que 4.2 declaró como hueco',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'el tercer motivo por el que multiplicar cinco millones por el mínimo no da el sustraendo: el ' +
+      'haber del Piso Vital no está fijado. Declarado resuelto, la columna del medio pasa a ser ' +
+      'calculable y la tabla se contradice consigo misma',
+  },
+  {
+    /**
+     * Con el sujeto adentro, y es la novena forma del arquetipo otra vez: con
+     * `es su sucesor declarado` a secas, la negación —«PLANARCO NO es su sucesor
+     * declarado»— contiene la aserción y salía **exit 0**. Una frase que se cubre
+     * a sí misma por accidente ortográfico. Todo literal que declare una relación
+     * afirmativa tiene que llevar su sujeto pegado.
+     */
+    valor: 'PLANARCO es su sucesor declarado',
+    sinNegacion: true,
+    en: [H2_INTEGRACION],
+    porQue:
+      'la razón por la que las seis citas de PLANCUL se corrigen con nota de sucesión y no ' +
+      'borrándolas. Sin la sucesión, el fantasma queda nombrado y sin heredero, que es peor que no ' +
+      'nombrarlo',
+  },
+  {
+    valor: 'no decide ninguno de sus montos',
+    en: [H3_SIN_PISO],
+    porQue:
+      'el cierre de la SECCIÓN 9 y la lectura adversarial que el documento se hace a sí mismo: el ' +
+      'proyecto le confió su PLAN más grande a una agencia que administra y no decide. Invertido, ' +
+      'la sección termina elogiando lo que vino a declarar',
+  },
+  {
+    valor: 'alcanza con un mal año',
+    sinNegacion: true,
+    en: [H3_SIN_PISO],
+    porQue:
+      'el disparador real de la suspensión de la forma, y la razón por la que el riesgo no es ' +
+      'político sino contable. Movido a «un cambio de gobierno», el PLAN se protege del adversario ' +
+      'equivocado',
+  },
+  {
+    valor: 'sin destino atado',
+    sinNegacion: true,
+    en: [H3_SIN_PISO],
+    porQue:
+      '**el fundamento del cero de §9.2, escrito en §9.4** (mutación propia, tercera vuelta). Si la ' +
+      'Capa de Forma pasa a tener destino atado, crea una afectación específica, el reemplazo del ' +
+      '0,60 por cero deja de estar fundado y la división rehecha entera queda sin razón — con los ' +
+      'cinco números de §9.2 intactos y la guardia verde',
+  },
+  {
+    valor: 'no crea ninguna',
+    en: [H3_EJE_INTERGENERACIONAL],
+    porQue:
+      'la misma premisa donde se usa: PLANARCO no crea afectaciones específicas, que es lo que la ' +
+      'letra F suma. Es la única razón por la que el reemplazo puede ser cero y no otro número',
+  },
+  {
+    valor: 'Techo A por materia',
+    sinNegacion: true,
+    en: [H3_SIN_PISO],
+    porQue:
+      'la protección que reemplaza al piso constitucional que este PLAN no pide. Movido a Techo B, ' +
+      'lo previsional pasa a ser afectación nueva, el orden inverso de sanción lo agarra y §9.4 ' +
+      'contesta la ausencia de piso con una protección que el corpus no le da',
+  },
+  {
+    valor: 'en un ejercicio',
+    en: [H3_SIN_PISO],
+    porQue:
+      'el PERÍODO de la razón de ejecución, y sin él la obligación es otra: un promedio de quince ' +
+      'años se cumple ceroneando la forma diez y compensando cinco, que es exactamente el ' +
+      'vaciamiento que la pieza uno existe para atrapar',
+  },
+  {
+    valor: 'confianza media',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      '**el ascenso de calificador, que es el modo de falla propio de este tramo** (mutación propia). ' +
+      'Media y no alta: hay dueño y acto previsible, y lo que no hay es la desagregación. Con ' +
+      '«confianza alta», el monto pendiente se lee como un dato que existe y todavía no se buscó',
+  },
+  {
+    valor: 'sabe cuánto sale y no sabe cuánto cuesta',
+    sinNegacion: true,
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'la tesis de §9.3 en una línea, y la que el documento paga por haber declarado el hueco. ' +
+      'Invertida, el PLAN afirma saber lo único que declaró no saber',
+  },
+  {
+    valor: 'el Tramo Ganado sustituye lo mismo que eroga',
+    sinNegacion: true,
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'la razón por la que tres de las cuatro filas cierran, y la que sostiene el «cero — ' +
+      'pass-through» de la tabla. Permutada entre los tres renglones, las cuatro filas siguen ' +
+      'escritas y ninguna dice lo que su celda declara',
+  },
+  {
+    valor: 'veces más caro de lo que eroga',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'el SENTIDO de la confusión que §9.1 previene: confundir el monto bajo administración con la ' +
+      'erogación lee al PLAN más caro, no más barato. Dado vuelta, «entre seis y once veces» sigue ' +
+      'escrito y el aviso pasa a advertir contra lo contrario de lo que pasa',
+  },
+  {
+    valor: 'la partición es contable y no calendario',
+    sinNegacion: true,
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'lo que hace legítima la tabla: las fases del PLAN se solapan y una integral necesita tramos ' +
+      'que no se pisen. Invertido, la rampa se declara calendario y contradice la hoja de ruta, que ' +
+      'escribe las fases con bordes solapados — y §12 hereda la contradicción',
+  },
+  {
+    valor: 'no reclama escalón ni piso',
+    en: [H2_INTEGRACION],
+    porQue:
+      'la mitad que PLANARCO le da a PLANPACTO, y la decisión más incómoda del documento entero. ' +
+      'Invertida, el par recíproco pasa a reclamar lo que §0 y §3.4 declaran que no reclama, y la ' +
+      'Escalera de ocho escalones se rompe desde la sección que existe para no romperla',
+  },
+  {
+    valor: 'este PLAN le declinó el Fondo de Garantía de Sustentabilidad',
+    en: [H2_INTEGRACION],
+    porQue:
+      'la razón por la que PLAN24CN no es arista: una fuente que no se reclama no crea dependencia. ' +
+      'Invertida a «le reclamó», el grafo pierde una arista que sí existiría y §4.4 —donde el PLAN ' +
+      'declina el FGS incluso donde le convendría— queda contradicho',
+  },
+  {
+    valor: 'sin documento, sin ordinal y sin presupuesto',
+    en: [H2_INTEGRACION],
+    porQue:
+      'qué le falta exactamente al primer fantasma. El prohibido de PLANJUB exime la línea que dice ' +
+      '«nunca existió», así que dejando esa frase y dándole documento propio a la de al lado la ' +
+      'guardia salía verde: la exención es de línea y la afirmación es de cláusula',
+  },
+  {
+    valor: 'liquida en cero',
+    sinNegacion: true,
+    en: [H2_INTEGRACION],
+    porQue:
+      'el modo degradado de PLANCUIDADO. Invertido a «liquida completo», la ausencia de la agencia ' +
+      'que valida las horas deja de tener consecuencia y la dependencia declarada deja de ser una',
+  },
+  {
+    valor: 'punto único de falla',
+    sinNegacion: true,
+    en: [H2_INTEGRACION],
+    porQue:
+      'PLANDIG, y es la única de las seis que se declara así. Borrarlo no rompe ningún conteo —el ' +
+      'párrafo sigue ahí con su modo degradado— y la sección pierde su advertencia más fuerte: una ' +
+      'estación que se abre sola necesita que el hecho registrado llegue sin que nadie lo tipee',
+  },
+  {
+    valor: 'deja una estación vacía',
+    sinNegacion: true,
+    en: [H2_INTEGRACION],
+    porQue:
+      'PLANSAL, la única cuyo modo degradado deja un lugar del Calendario anunciado y sin nada ' +
+      'adentro. Es la diferencia entre una dependencia que enlentece y una que agujerea, y el ' +
+      'documento la declara por su nombre',
+  },
+  {
+    valor: 'sigue publicando',
+    sinNegacion: true,
+    en: [H2_INTEGRACION],
+    porQue:
+      'el segundo fantasma sigue VIVO: PLANVEJ es un código retirado del canon que la aplicación ' +
+      'pública todavía muestra con título propio. Invertido a «ya dejó de publicar», el párrafo ' +
+      'entero pierde su razón de estar —«uno en un glosario se corrige leyendo; uno en código se ' +
+      'corrige desplegando»— y la deuda que declara desaparece sin haberse pagado',
+  },
+  {
+    valor: 'el nodo más dependiente del corpus',
+    sinNegacion: true,
+    en: [H2_INTEGRACION],
+    porQue:
+      'la lectura honesta de las seis aristas: el número no lo elige la sección, llega con el diseño ' +
+      'del PLAN. Sin la frase, seis dependencias críticas se leen como un dato administrativo',
+  },
+  {
+    valor: 'superseded',
+    en: [H3_SIN_PISO],
+    porQue:
+      'el calificador del papel del que sale 51.260–65.430M, y su denominador ni siquiera incluye a ' +
+      'este PLAN ni a los otros tres nuevos. Borrarlo asciende una estimación vencida a término de ' +
+      'comparación vigente, que es el ascenso de calificador que este tramo ya cometió',
+  },
+  {
+    valor: 'bajo con bajo y alto con alto',
+    sinNegacion: true,
+    en: [H3_SIN_PISO],
+    porQue:
+      'la regla de emparejamiento que hace válidos 11,7% y 16,7%. Invertida, los dos porcentajes ' +
+      'siguen escritos y dejan de salir de la cuenta que la frase declara: cruzarlos mezcla ' +
+      'escenarios y da cocientes sin sentido, y lo dice el propio párrafo',
+  },
+  {
+    valor: 'Monto Aproximado',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'el calificador puesto sobre el unitario de PLANREP:2261 para que nadie lo ascienda: la ' +
+      'columna de la que sale se titula así y su objeto es la absorción por otro programa, no medir ' +
+      'una partida. Sin él, ~USD 250/mes se lee como una medición',
+  },
+  {
+    valor: 'de la Capa de Forma no puede ser',
+    en: [H3_SIN_PISO],
+    porQue:
+      'el SENTIDO de la razón de ejecución, que es todo el dispositivo: el piso protege a la forma ' +
+      'contra la renta, no al revés. Dado vuelta, «uno a veinte» y «un veinteavo» siguen escritos y ' +
+      'la pieza uno del blindaje pasa a garantizar lo que ya está garantizado por materia',
+  },
+  {
+    valor: 'no se descubrió',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'la mitad activa de la confesión de calibración (I-3). Con «reingeniería declarada» sola, la ' +
+      'frase se puede reescribir para decir que el coeficiente salió de la tabla sin mirar el ' +
+      'resultado, que es justamente lo que no pasó',
+  },
+  {
+    valor: 'doscientos millones abajo, ochenta arriba',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'las dos diferencias que el redondeo deja sin usar: 53.000 − 52.800 = 200 y 96.000 − 95.920 = ' +
+      '80. Van escritas en vez de absorbidas moviéndole un punto a la tabla, y son la prueba de que ' +
+      'no se absorbieron: sin ellas, la afirmación de que no se cerró al centavo no tiene evidencia',
+  },
+  {
+    valor: 'conserva 0,25',
+    sinNegacion: true,
+    en: [H3_SIN_PISO],
+    porQue:
+      'lo que el quinto escalón —«Cuidado y arco»— conserva, y es de PLANCUIDADO (PLANPACTO:391-402). ' +
+      'Es el dato que sostiene «ninguno de los ocho es del arco»: si el escalón que lleva el nombre ' +
+      'del arco tuviera otra magnitud, la renuncia de este PLAN mediría otra cosa',
   },
   {
     valor: 'PLANVEJ',
@@ -1644,6 +2124,18 @@ const MAGNITUD_DE_PADRON = String.raw`(?:${MAGNITUD_MONETARIA}|\d[\d.,]*\s*(?:mi
  * camino oblicuo. Eso lo mira la revisión.
  */
 const EL_PAMI = String.raw`(?:PAMI|INSSJP|Instituto Nacional de Servicios Sociales para Jubilados y Pensionados)`;
+/**
+ * **Una magnitud escrita SIN sigla, que es la mitad que `MAGNITUD_MONETARIA` no
+ * cubre.** Ese patrón exige `USD`/`$` o la palabra «pesos»/«dólares», así que
+ * «entre 2.500 y 5.000 millones por año» no es magnitud para él. Acá entran las
+ * dos formas que quedan: la escala en palabras y el separador de miles solo.
+ * `\d{1,3}(\.\d{3})+` a propósito: `9.3` es una remisión de sección y `9.300` un
+ * monto, y el corpus escribe remisiones en todos los párrafos.
+ */
+const MAGNITUD_SIN_SIGLA = String.raw`(?:\d[\d.,]*\s*(?:M\b|MM\b|mil millones|mill[óo]n(?:es)?)|\d{1,3}(?:\.\d{3})+)`;
+const MAGNITUD_ANCHA = `(?:${MAGNITUD_MONETARIA}|${MAGNITUD_SIN_SIGLA})`;
+/** El nombre de la resta que no se puede hacer, en los dos órdenes en que se escribe. */
+const EL_NETO_INCREMENTAL = String.raw`(?:incremental neto|neto incremental)`;
 
 const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
   {
@@ -1691,6 +2183,29 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
     porQue:
       'falso: PLANARCO falla contra la suma de sus dos huéspedes por tres centésimas. ' +
       'Se habilita por derogación expresa, no por el gate (ACTA:41-47, :131-137)',
+  },
+  {
+    /**
+     * **La formulación que la Task 8 escribió y que es aritméticamente falsa**
+     * (I-2). «El redondeo va hacia adentro en los dos extremos» describe mal la
+     * única operación de la reconciliación: 6.023 → 6.000 baja, y bajar en el
+     * extremo BAJO es ir hacia AFUERA —52.800 queda por debajo de 53.000, o sea
+     * fuera de la banda del gate—. La justificación escrita («no se reserva un
+     * peso más») solo aplica al extremo alto.
+     *
+     * Se prohíbe la frase porque corregirla en el documento no impide que vuelva:
+     * es la formulación intuitiva, la que cualquiera reescribe sin rehacer la
+     * cuenta. Verificado: «hacia adentro» y «para adentro» tienen **cero
+     * ocurrencias** en el documento, así que falsos positivos cero, y la
+     * prohibición pide «redondeo» en la misma oración para no atrapar un «hacia
+     * adentro» de otra materia en una sección futura.
+     */
+    patron: /redondeo[^.\n]{0,80}(?:hacia|para) adentro|(?:hacia|para) adentro en los dos extremos/iu,
+    porQue:
+      'falso: el redondeo empuja a la BAJA en los dos extremos. En el alto eso es hacia adentro ' +
+      '(95.920 < 96.000, adentro de la banda) y en el bajo es hacia AFUERA (52.800 < 53.000, fuera ' +
+      'de la banda). Lo que la regla exige es que ningún producto se pase del gate, no que los dos ' +
+      'caigan adentro (I-2)',
   },
   {
     patron: /precompromiso/i,
@@ -1768,6 +2283,111 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
       'del PAMI no hay número de afiliados, de presupuesto ni de cobertura en todo el corpus, y el ' +
       'brief lo declaró vinculante: si el documento lo necesita, es un hueco declarado. Un número ' +
       'del PAMI escrito acá es una cifra estrenada en la sección que crea la agencia que lo mira',
+  },
+  {
+    /**
+     * **El agujero que la SECCIÓN 9.3 entera existe para tapar, y que hasta acá
+     * estaba abierto por los dos costados** (C-1). La única guardia sobre el
+     * neto incremental miraba CELDAS de la tabla, con un patrón que exigía una
+     * sigla pegada a un dígito; la PROSA no la miraba nadie. Reproducido: «El
+     * neto incremental es del orden de 2.500–5.000 millones de dólares por año»
+     * —el número exacto de `spec:34`, derivado de la columna que la sección
+     * declara imposible de llenar— salía **exit 0**.
+     *
+     * El alcance es de ORACIÓN y no de línea, porque el párrafo de §9.3 que
+     * declara el hueco trae remisiones de sección legítimas y el de §9.1 trae la
+     * banda bruta: acusarlos sería poner la guardia roja sobre el texto honesto,
+     * que es el error que este tramo ya cometió dos veces. **Falsos positivos:
+     * cero**, verificado oración por oración sobre las tres ocurrencias del
+     * documento —`:808`, `:826` (encabezado de la tabla) y `:837`—: ninguna
+     * comparte oración con una magnitud, y las tres remisiones que las rodean
+     * (`8.2`, `9.1`, `9.3`, `4.6`) no tienen tres dígitos después del punto.
+     *
+     * `salvoSi` mira la línea y exime las dos salidas honestas que el documento
+     * usa: declarar el neto pendiente y declarar que no se puede escribir.
+     *
+     * **Es una red, no una prueba**, con la misma doctrina que el prohibido del
+     * gate: cubre el término de arte en sus dos órdenes. Un neto escrito sin
+     * nombrarlo —«la plata nueva del PLAN son USD 3.000M»— pasa, y eso lo mira
+     * la revisión. No se amplía a `\bneto\b` a secas porque `:540` explica la
+     * clase `public_net_cost` como «costo neto» en un párrafo lleno de montos
+     * legítimos, y esa línea es honesta.
+     */
+    patron: new RegExp(
+      `(?:${EL_NETO_INCREMENTAL}${HUECO_DE_ORACION}${MAGNITUD_ANCHA}|${MAGNITUD_ANCHA}${HUECO_DE_ORACION}${EL_NETO_INCREMENTAL})`,
+      'iu',
+    ),
+    salvoSi: /pendiente|no se puede escribir|no puede escribir/i,
+    porQue:
+      'el incremental neto es la resta a la que le falta el sustraendo: el corpus no tiene el padrón ' +
+      'de la vía de excepción, así que cualquier número puesto ahí es el de la columna del medio ' +
+      'lavado a través de una sustracción, sin que aparezca ninguna sigla prohibida en el camino. ' +
+      'La spec traía 2.500–5.000M neto y sale de esa misma columna: escribirlo es estrenarlo',
+  },
+  {
+    /**
+     * El otro costado de la misma resta: el SUSTRAENDO. «Gasto sustituido» tiene
+     * una sola ocurrencia en el documento —el encabezado de la tabla de §9.3— y
+     * ninguna magnitud cerca, así que la prohibición es exacta y **falsos
+     * positivos: cero** por construcción.
+     */
+    patron: new RegExp(
+      `(?:[Gg]asto sustituido${HUECO_DE_ORACION}${MAGNITUD_ANCHA}|${MAGNITUD_ANCHA}${HUECO_DE_ORACION}[Gg]asto sustituido)`,
+      'u',
+    ),
+    salvoSi: /pendiente|no se puede/i,
+    porQue:
+      'el gasto que el Piso Vital sustituye no se puede cifrar: el unitario existe (PLANREP:2261) y ' +
+      'el padrón de la vía de excepción no está en ninguna parte del corpus. Multiplicar los cinco ' +
+      'millones de 65+ por el mínimo no estrena el precio: estrena el padrón (C-6)',
+  },
+  {
+    /**
+     * **El PADRÓN, que es el número que no existe** (C-6, y una mutación propia
+     * lo destapó). «…y cuenta que un millón largo llegó por la vía de excepción»
+     * salía **VERDE**: invierte el hueco entero de §9.3 sin nombrar ninguna
+     * columna de la tabla, y con eso la fila del Piso Vital pasa a tener
+     * sustraendo mientras la celda sigue diciendo «monto pendiente».
+     *
+     * **Falsos positivos: cero**, verificado oración por oración sobre las cinco
+     * líneas que nombran la vía de excepción —`:250`, `:490`, `:828`, `:833`,
+     * `:835`—: ninguna trae magnitud en la misma oración, y las anclas que las
+     * acompañan (`PLANMON:238`, `§2.3`, `4.2`) no tienen forma de monto. La
+     * exención cubre la salida honesta, que es la que el documento usa: decir
+     * cuántas personas hay y que no se sabe cuántas llegaron por ahí.
+     */
+    patron: new RegExp(
+      `(?:vía de excepción${HUECO_DE_ORACION}${MAGNITUD_ANCHA}|${MAGNITUD_ANCHA}${HUECO_DE_ORACION}vía de excepción)`,
+      'iu',
+    ),
+    /**
+     * **La exención es de LÍNEA y por eso tiene que ser angosta.** La primera
+     * versión eximía cualquier línea que dijera «pendiente» o «estrenar el
+     * padrón», y `:835` dice las dos: con eso, la línea donde el padrón se podía
+     * escribir quedaba exenta entera —el mismo error que este archivo ya cometió
+     * con el PAMI y anotó—. Quedan solo las tres fórmulas con las que el
+     * documento declara el hueco, y no las que lo explican.
+     */
+    salvoSi: /no cuenta|no se sabe|falta el padrón/i,
+    porQue:
+      'el padrón de los que llegaron por la vía de excepción no existe en ninguna parte del corpus, ' +
+      'y es el sustraendo de la única resta que este PLAN no puede hacer. Un número al lado de esa ' +
+      'frase estrena el padrón, y de paso estrena que todas cobran el mínimo —falso— y que el haber ' +
+      'del Piso Vital es el mínimo actual, que §4.2 declaró como hueco (C-6)',
+  },
+  {
+    /**
+     * El tripwire literal sobre el par exacto de `spec:34`. Redundante con el
+     * prohibido semántico de arriba a propósito: aquel es una red sobre el
+     * término de arte y este es una prueba sobre el número, y el número entra
+     * aunque alguien lo escriba sin nombrar la resta. Verificado: el documento
+     * no trae `2.500` en ninguna parte.
+     */
+    patron: /2\.500\s*(?:[–—-]|\sa\s|\sy\s)\s*5\.000|5\.000\s*(?:[–—-]|\sa\s|\sy\s)\s*2\.500/,
+    porQue:
+      'es el neto incremental de spec:34, derivado por la propia spec «neto de la absorción de ' +
+      'moratoria, PUAM y PNC por vejez» (spec:171) — o sea, de la columna que C-6 declara imposible ' +
+      'de llenar. Es el número que este PLAN no puede escribir por ningún camino',
   },
   {
     patron: /\bTODO:|\[TODO\]|<!--\s*TODO|\bTKTK\b|\bXXX\b/,
@@ -2042,6 +2662,9 @@ function verificarTablas(lineas: string[]): string[] {
   // (d) Task 8: la rampa del gasto y la tabla de tres columnas.
   errores.push(...verificarRampaDelGasto(lineas));
   errores.push(...verificarTresColumnas(lineas));
+  // (e) Task 8 · arreglo de C-2 e I-4: la aritmética de la PROSA de la SECCIÓN 9.
+  errores.push(...verificarCocientesDerivados(lineas));
+  errores.push(...verificarDivisionDePacto(lineas));
 
   return errores;
 }
@@ -2058,6 +2681,14 @@ const HORIZONTE_DEL_GATE = 15;
 const GATE_QUINCE_ANOS: [number, number] = [53_000, 96_000];
 /** La banda anual derivada que el documento declara, en USD millones. */
 const BANDA_ANUAL_REGIMEN: [number, number] = [6_000, 10_900];
+/**
+ * El coeficiente de la rampa: años-régimen equivalentes adentro de quince años
+ * calendario. **No se copia de la prosa: la tabla lo tiene que producir**, y
+ * `verificarRampaDelGasto()` cruza la suma de la columna contra este número. De
+ * ahí lo toman los cocientes derivados de abajo, así que si alguien mueve un
+ * porcentaje de la tabla, la cuenta entera se cae de una vez y no de a pedazos.
+ */
+const COEFICIENTE_DE_LA_RAMPA = 8.8;
 
 /**
  * **La tabla que cierra C-5, y es el problema más grave del tramo.** La cabecera
@@ -2077,9 +2708,12 @@ const BANDA_ANUAL_REGIMEN: [number, number] = [6_000, 10_900];
  * 2. **Cada fila es consistente consigo misma:** años × ejecución = años-régimen.
  *    Sin esto, mover un porcentaje deja el sub-total viejo y el total sigue dando.
  * 3. **El total es la suma de la columna**, no un número escrito al pie.
- * 4. **El producto contra la banda anual cae adentro de la banda del gate**, y
- *    cae POR DEBAJO en los dos extremos: el redondeo empuja para adentro. Un
- *    PLAN no se puede reservar un peso más de aquello contra lo que se lo midió.
+ * 4. **El producto contra la banda anual cae POR DEBAJO de su extremo del
+ *    gate**, en los dos extremos: el redondeo empuja a la baja. Ojo con la
+ *    formulación vieja —«los dos caen adentro de la banda»—: es falsa en el
+ *    extremo bajo, donde 52.800 queda por debajo de 53.000 y por lo tanto
+ *    AFUERA. Lo que la regla exige es lo que importa: un PLAN no se puede
+ *    reservar un peso más de aquello contra lo que se lo midió.
  *
  * La cuarta es la que vuelve verificable la reconciliación entera: con ella, la
  * banda anual deja de ser una cifra que alguien eligió y pasa a ser un cociente
@@ -2174,6 +2808,79 @@ function verificarRampaDelGasto(lineas: string[]): string[] {
     sumaCent += ar[0];
   });
 
+  /**
+   * **Cuántos tramos son, y de qué fase es cada uno.** Dos mutaciones propias,
+   * las dos verdes: «se parten en cinco tramos» → «cuatro», con la tabla de
+   * cinco al lado; y la última fila retitulada «Fase 6», que contradice el
+   * calendario de fases que §9.1 fija y que la Task 9 tiene que respetar en §12.
+   * El conteo escrito y la tabla que lo sostiene son dos afirmaciones distintas,
+   * y el ordinal de la fase es la única forma que tiene el documento de decir
+   * dónde arranca el régimen sin repetir el año.
+   */
+  {
+    const { texto } = textoDeDomicilio(lineas, H3_LA_RAMPA_DEL_GASTO);
+    const cuantos = /se parten en (\p{L}+) tramos/iu.exec(texto ?? '');
+    const escrito = enLetras(tramos.length);
+    if (cuantos === null) {
+      errores.push(
+        `la prosa de §9.1 no dice en cuántos tramos se parten los quince años, y la tabla trae ` +
+          `${String(tramos.length)}. El conteo escrito es lo que un lector cuenta sin sumar la tabla`,
+      );
+    } else if (cuantos[1].toLowerCase() !== escrito) {
+      errores.push(
+        `la prosa de §9.1 dice «${cuantos[1]} tramos» y la tabla tiene ${String(tramos.length)} ` +
+          `(«${escrito}»). Un tramo que se cae de la tabla con el conteo intacto es un pedazo del ` +
+          'horizonte que deja de tener ejecución declarada',
+      );
+    }
+  }
+  /**
+   * **Los nombres de los tramos son el calendario de fases que §12 hereda.** La
+   * Task 8 dejó anotado que «el Instituto» de la hoja de ruta no existe en el
+   * documento y que §12 tiene que usar el nombre de esta tabla; mutando la fila
+   * de las Fases 2 y 3 a «El Instituto del Arco» la guardia salía verde, o sea
+   * que la deuda se podía pagar inventando el dispositivo en vez de citando la
+   * tabla. El conjunto va cerrado, como el de renglones y el de dispositivos de
+   * la portada: agregar o renombrar un tramo pasa por acá, con la razón escrita.
+   */
+  const TRAMOS_DE_LA_RAMPA = [
+    'Contar el arco',
+    'El piso y el final, entrando',
+    'La salida gradual del trabajo y las casas',
+    'El Calendario completo, sin régimen',
+    'Régimen pleno',
+  ];
+  TRAMOS_DE_LA_RAMPA.forEach((nombre, k) => {
+    if (!(tramos[k]?.[0] ?? '').includes(nombre)) {
+      errores.push(
+        `la fila ${String(k + 1)} de la rampa no se llama «${nombre}» («${(tramos[k]?.[0] ?? '').slice(0, 50)}»). ` +
+          'Los nombres de los tramos son el calendario de fases que §12 tiene que respetar, y son ' +
+          'el único lugar del documento donde ese calendario está escrito: renombrar uno acá deja a ' +
+          'la hoja de ruta citando un dispositivo que no existe',
+      );
+    }
+  });
+  const FASES_DE_LA_RAMPA = /Fase(?:s)? (\d)(?: y (\d))?/u;
+  tramos.forEach((fila, k) => {
+    const f = FASES_DE_LA_RAMPA.exec(fila[0] ?? '');
+    if (f === null) {
+      errores.push(
+        `fila ${String(k + 1)} de la rampa («${(fila[0] ?? '').slice(0, 40)}») no nombra su fase. ` +
+          'La partición contable de §9.1 es la que fija el calendario de fases del PLAN, y §12 tiene ' +
+          'que ser compatible con ella: sin la fase escrita, las dos secciones no se pueden cruzar',
+      );
+      return;
+    }
+    for (const n of [f[1], f[2]]) {
+      if (n !== undefined && Number(n) > 4) {
+        errores.push(
+          `la rampa nombra una «Fase ${n}» y el PLAN tiene cinco fases, de la 0 a la 4. Una fase ` +
+            'estrenada acá contradice la hoja de ruta sin que ninguna cifra se mueva',
+        );
+      }
+    }
+  });
+
   if (sumaAnios !== HORIZONTE_DEL_GATE) {
     errores.push(
       `los tramos de la rampa suman ${String(sumaAnios)} años y el gate se corrió sobre ` +
@@ -2181,11 +2888,50 @@ function verificarRampaDelGasto(lineas: string[]): string[] {
         'integral que hay que cerrar',
     );
   }
+  /**
+   * **El año del régimen se calculaba y no se usaba para nada** (I-5). El único
+   * chequeo era `=== null`, así que poniendo el tramo 4 al 100% y el 5 al 90% el
+   * total seguía dando 8,80, la integral quedaba idéntica, `anioDelRegimen`
+   * pasaba de 11 a 9 —y la prosa seguía diciendo «el régimen se alcanza en el año
+   * once»— con **exit 0**. Borrar la frase entera también salía verde.
+   *
+   * Dos arreglos, porque son dos agujeros distintos: (1) el ÚLTIMO tramo tiene
+   * que ejecutar al 100%, o la rampa vuelve a bajar después de llegar y deja de
+   * ser una rampa; (2) el ordinal escrito en la prosa se cruza contra el año que
+   * la tabla produce, en letras, porque el documento lo escribe en letras.
+   */
   if (anioDelRegimen === null) {
     errores.push(
       'ningún tramo de la rampa ejecuta al 100%: el brief pide la rampa «con el año en que el ' +
         'régimen se alcanza», y una rampa que nunca llega al régimen no tiene régimen que declarar',
     );
+  }
+  const ultimo = tramos[tramos.length - 1];
+  const pctUltimo = /(\d+(?:[.,]\d+)?)\s*%/.exec(ultimo?.[3] ?? '');
+  if (pctUltimo !== null && Number(pctUltimo[1].replace(',', '.')) !== 100) {
+    errores.push(
+      `el último tramo de la rampa ejecuta al ${pctUltimo[1]}% y tiene que ejecutar al 100%: una ` +
+        'rampa que llega al régimen y después baja no es una rampa, y con el total intacto la ' +
+        'integral sigue cerrando mientras el año del régimen se corre para atrás',
+    );
+  }
+  if (anioDelRegimen !== null) {
+    const { texto } = textoDeDomicilio(lineas, H3_LA_RAMPA_DEL_GASTO);
+    const enLetras = EN_LETRAS[anioDelRegimen] ?? String(anioDelRegimen);
+    const escrito = /r[ée]gimen se alcanza en el año ([\p{L}]+)/iu.exec(texto ?? '');
+    if (escrito === null) {
+      errores.push(
+        `la prosa de §9.1 no dice en qué año se alcanza el régimen. La tabla lo produce —año ` +
+          `${String(anioDelRegimen)}, «${enLetras}»— y borrar la frase dejaba la rampa sin su única ` +
+          'lectura en palabras: el brief pide la rampa CON el año en que el régimen se alcanza',
+      );
+    } else if (escrito[1].toLowerCase() !== enLetras) {
+      errores.push(
+        `la prosa de §9.1 dice que el régimen se alcanza en el año «${escrito[1]}» y la tabla lo ` +
+          `pone en el ${String(anioDelRegimen)} («${enLetras}»). El ordinal escrito se cruza contra ` +
+          'la tabla o es una afirmación que nadie rehizo',
+      );
+    }
   }
 
   const totalAnios = Number((total[2] ?? '').trim());
@@ -2205,6 +2951,14 @@ function verificarRampaDelGasto(lineas: string[]): string[] {
 
   // La reconciliación: banda anual × coeficiente contra la banda del gate.
   const coef = sumaCent / 100;
+  if (sumaCent !== c(COEFICIENTE_DE_LA_RAMPA)) {
+    errores.push(
+      `la columna «Años-régimen» suma ${fmt(sumaCent)} y el coeficiente declarado de la rampa es ` +
+        `${fmt(c(COEFICIENTE_DE_LA_RAMPA))}. De ese coeficiente cuelgan todos los cocientes de la ` +
+        'SECCIÓN 9: si la tabla deja de producirlo, la banda anual y todo lo que se divide por ella ' +
+        'quedan afirmados y no derivados',
+    );
+  }
   ([0, 1] as const).forEach((i) => {
     const producto = Math.round(BANDA_ANUAL_REGIMEN[i] * coef);
     const tope = GATE_QUINCE_ANOS[i];
@@ -2228,12 +2982,365 @@ function verificarRampaDelGasto(lineas: string[]): string[] {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Los cocientes que la PROSA de la SECCIÓN 9 deriva: el arreglo de C-2.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * **Ningún cociente derivado de la prosa estaba domiciliado, y el reporte de la
+ * Task 8 confesó uno por escrito sin cerrarlo** (C-2). La confesión decía que
+ * «veinte veces más caro» había estado a punto de entrar y que «ninguna guardia
+ * lo habría atrapado». Seguía siendo cierto: la revisión metió ese mismo número
+ * y salió **exit 0**, junto con `6.523` en lugar de `6.023`, `1,7%` en lugar de
+ * `11,7%`, `3,40` en lugar de `2,40` y `800.000` en lugar de `500.000`.
+ *
+ * **Domiciliar el literal no alcanza, y por eso esto no es una lista de cifras
+ * canónicas.** Una cifra canónica exige que el número esté; no dice que sea el
+ * que sale de la cuenta, así que la guardia se vuelve un archivo de números que
+ * alguien tecleó dos veces. Acá el número lo **calcula la guardia** a partir de
+ * operandos que ya viven domiciliados en el documento, y después exige el
+ * resultado en su subsección. Consecuencia buscada: si alguien cambia el
+ * esperado sin que la aritmética lo respalde, no puede — no hay esperado que
+ * cambiar, hay una cuenta.
+ *
+ * Los operandos son todos cifras que el documento ya trae y la guardia ya
+ * custodia por separado: la banda del gate, el coeficiente de la rampa (que la
+ * tabla produce), el monto bajo administración de §8.2, el régimen del
+ * ecosistema, el producto de referencia y el presupuesto de PLANPACTO.
+ */
+const MONTO_BAJO_ADMINISTRACION = 67_500;
+const ECOSISTEMA_EN_REGIMEN: [number, number] = [51_260, 65_430];
+const PRODUCTO_DE_REFERENCIA = 500_000;
+const PLANPACTO_EN_REGIMEN: [number, number] = [500, 700];
+/** La Escalera entera de PLANPACTO, en puntos del producto sobre ocho escalones. */
+const ESCALERA_ENTERA = 2.4;
+const ESCALONES_DE_LA_ESCALERA = 8;
+
+/** `6023` → `6.023`. El corpus escribe el separador de miles con punto. */
+const conMiles = (n: number): string => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+/** `11.705` → `11,7`. Decimal con coma, como todo el corpus. */
+const conComa = (n: number, dec: number): string => n.toFixed(dec).replace('.', ',');
+/** El número en letras, que es como el documento escribe los cocientes redondos. */
+const enLetras = (n: number): string => EN_LETRAS[n] ?? String(n);
+
+/**
+ * Un literal buscado con bordes que **no son de letra sino de letra O dígito**.
+ * `dice()` usa `\p{L}` y con eso `1,7%` se encuentra adentro de `11,7%` —el «1»
+ * de la izquierda no es letra— que es justamente la mutación que hay que
+ * atrapar. Acá el borde izquierdo rechaza también el dígito.
+ */
+function traeCifra(texto: string, literal: string): boolean {
+  const escapado = literal.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?<![\\p{L}\\d])${escapado}(?![\\p{L}\\d])`, 'u').test(texto);
+}
+
+type CocienteDerivado = { esperado: string; cuenta: string; en: string; porQue: string };
+
+function cocientesDerivados(): CocienteDerivado[] {
+  const [gBajo, gAlto] = GATE_QUINCE_ANOS;
+  const [aBajo, aAlto] = BANDA_ANUAL_REGIMEN;
+  const [eBajo, eAlto] = ECOSISTEMA_EN_REGIMEN;
+  const [pBajo, pAlto] = PLANPACTO_EN_REGIMEN;
+  const k = COEFICIENTE_DE_LA_RAMPA;
+  return [
+    {
+      esperado: conMiles(gBajo / k),
+      cuenta: `${conMiles(gBajo)} / ${conComa(k, 2)}`,
+      en: H3_LA_RAMPA_DEL_GASTO,
+      porQue:
+        'el cociente sin redondear del extremo bajo. Es el paso que vuelve DERIVADA a la banda ' +
+        'anual: sin él escrito, USD 6.000M es una cifra que alguien eligió',
+    },
+    {
+      esperado: conMiles(gAlto / k),
+      cuenta: `${conMiles(gAlto)} / ${conComa(k, 2)}`,
+      en: H3_LA_RAMPA_DEL_GASTO,
+      porQue: 'el cociente sin redondear del extremo alto, por la misma razón que el bajo',
+    },
+    {
+      esperado: `entre ${enLetras(Math.floor(MONTO_BAJO_ADMINISTRACION / aAlto))} y ${enLetras(Math.floor(MONTO_BAJO_ADMINISTRACION / aBajo))} veces`,
+      cuenta: `${conMiles(MONTO_BAJO_ADMINISTRACION)} / {${conMiles(aAlto)} ; ${conMiles(aBajo)}}`,
+      en: H3_LA_RAMPA_DEL_GASTO,
+      porQue:
+        'la distancia entre el monto bajo administración de §8.2 y la erogación bruta. **Es el ' +
+        'número que la Task 8 confesó haber estado a punto de inventar** —escribió «veinte veces ' +
+        'más caro, cuatro más barato», los dos multiplicadores propios— y lo corrigió a mano sin ' +
+        'dejar guardia detrás. Los pisos van en letras porque el documento los escribe en letras',
+    },
+    {
+      esperado: `${conComa((aBajo / eBajo) * 100, 1)}%`,
+      cuenta: `${conMiles(aBajo)} / ${conMiles(eBajo)}`,
+      en: H3_SIN_PISO,
+      porQue:
+        'la erogación propia contra el régimen pleno del ecosistema, bajo con bajo. El párrafo ' +
+        'estipula que cruzarlos mezcla escenarios, así que el emparejamiento también es la cuenta',
+    },
+    {
+      esperado: `${conComa((aAlto / eAlto) * 100, 1)}%`,
+      cuenta: `${conMiles(aAlto)} / ${conMiles(eAlto)}`,
+      en: H3_SIN_PISO,
+      porQue: 'la misma comparación, alto con alto',
+    },
+    {
+      esperado: `de ${enLetras(Math.floor(aBajo / pBajo))} a más de ${enLetras(Math.floor(aAlto / pAlto))} veces`,
+      cuenta: `{${conMiles(aBajo)} / ${String(pBajo)} = ${conComa(aBajo / pBajo, 2)} ; ${conMiles(aAlto)} / ${String(pAlto)} = ${conComa(aAlto / pAlto, 2)}}`,
+      en: H3_SIN_PISO,
+      porQue:
+        'la erogación propia contra el presupuesto de régimen de PLANPACTO. El extremo alto da ' +
+        '15,57 y la Task 8 lo había escrito «dieciséis», que es la única dirección en la que este ' +
+        'documento no redondea: el piso en letras se reproduce con una calculadora y «dieciséis» no',
+    },
+    {
+      esperado: conComa((aBajo / PRODUCTO_DE_REFERENCIA) * 100, 2),
+      cuenta: `${conMiles(aBajo)} / ${conMiles(PRODUCTO_DE_REFERENCIA)}`,
+      en: H3_EJE_INTERGENERACIONAL,
+      porQue:
+        'la banda anual sobre el producto de referencia de PLANPACTO:641, extremo bajo. Es la mitad ' +
+        'de la comparación que vuelve incómoda la ausencia de piso',
+    },
+    {
+      esperado: conComa((aAlto / PRODUCTO_DE_REFERENCIA) * 100, 2),
+      cuenta: `${conMiles(aAlto)} / ${conMiles(PRODUCTO_DE_REFERENCIA)}`,
+      en: H3_EJE_INTERGENERACIONAL,
+      porQue: 'la misma cuenta en el extremo alto',
+    },
+    {
+      esperado: `de la mitad a ${enLetras(Math.round(((aAlto / PRODUCTO_DE_REFERENCIA) * 100 * 10) / ESCALERA_ENTERA))} décimas`,
+      cuenta: `{${conComa((aBajo / PRODUCTO_DE_REFERENCIA) * 100, 2)} ; ${conComa((aAlto / PRODUCTO_DE_REFERENCIA) * 100, 2)}} / ${conComa(ESCALERA_ENTERA, 2)}`,
+      en: H3_EJE_INTERGENERACIONAL,
+      porQue:
+        'la frase que hace legible la comparación con la Escalera entera, y es la conclusión de §9.2: ' +
+        'la erogación bruta de un solo PLAN medida contra todo lo que el proyecto blinda. Escrita en ' +
+        'palabras, era la más fácil de aflojar sin tocar un número —«de un décimo a un cuarto» salía ' +
+        'verde con 1,20, 2,18 y 2,40 los tres intactos—, y sale de dividirlos',
+    },
+  ];
+}
+
+/**
+ * Los operandos que el documento tiene que traer ESCRITOS para que los cocientes
+ * de arriba se puedan rehacer. Sin esto, la guardia verifica una cuenta que el
+ * lector no puede repetir porque le falta un término.
+ */
+function operandosDeLosCocientes(): { literal: string; en: string; porQue: string }[] {
+  return [
+  {
+    literal: `USD ${conMiles(PRODUCTO_DE_REFERENCIA)} millones`,
+    en: H3_EJE_INTERGENERACIONAL,
+    porQue:
+      'el producto de referencia de PLANPACTO:641, denominador de 1,20–2,18%. Mutado a 800.000 la ' +
+      'guardia salía verde y el porcentaje seguía escrito, o sea afirmado y no derivado',
+  },
+  {
+    literal: '2,40',
+    en: H3_EJE_INTERGENERACIONAL,
+    porQue:
+      'la Escalera entera de PLANPACTO, contra la que se lee la banda anual. Es el término de ' +
+      'comparación de «de la mitad a nueve décimas»: sin él, la frase no se puede rehacer',
+  },
+  {
+    literal: '2,40',
+    en: H3_SIN_PISO,
+    porQue: 'el mismo valor abriendo §9.4, que es donde la pregunta de la ausencia de piso se contesta',
+  },
+  {
+    literal: `${enLetras(ESCALONES_DE_LA_ESCALERA)} escalones`,
+    en: H3_EJE_INTERGENERACIONAL,
+    porQue:
+      'sobre cuántos escalones vale 2,40. Sin el denominador escrito, «la Escalera entera» es una ' +
+      'cifra sin objeto y «de la mitad a nueve décimas» no se puede rehacer',
+  },
+  {
+    literal: `${enLetras(ESCALONES_DE_LA_ESCALERA)} escalones`,
+    en: H3_SIN_PISO,
+    porQue:
+      'el mismo denominador en §9.4, donde además se declara que ninguno de los ocho es del arco. ' +
+      'Mutado a «diez escalones» la guardia salía verde y el PLAN quedaba sin escalón adentro de una ' +
+      'Escalera que no existe',
+  },
+  ];
+}
+
+function verificarCocientesDerivados(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const mirar = (literal: string, en: string, queEs: string, porQue: string): void => {
+    const { texto, errores: errDom } = textoDeDomicilio(lineas, en);
+    errores.push(...errDom);
+    if (texto === null) return;
+    if (!traeCifra(soloProsa(texto), literal)) {
+      errores.push(`${queEs} «${literal}» no está en «${en.trim()}» — ${porQue}`);
+    }
+  };
+  for (const { esperado, cuenta, en, porQue } of cocientesDerivados()) {
+    mirar(esperado, en, `cociente derivado (${cuenta})`, porQue);
+  }
+  for (const { literal, en, porQue } of operandosDeLosCocientes()) {
+    mirar(literal, en, 'operando de un cociente', porQue);
+  }
+  return errores;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// La división de PLANPACTO rehecha: la SECCIÓN 9.2, y el arreglo de I-4.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * **La división de §9.2 no la verificaba nadie: solo la presencia de los cuatro
+ * números** (I-4). Es el mismo defecto que la rampa sí cerró, y las tres
+ * mutaciones salían verdes: `más 0,55` → `más 1,15` con F todavía en 4,05; la
+ * rigidez del 65% al 70% con el denominador todavía en 41,8; y el reemplazo del
+ * 0,60 por `0,30` con la división intacta. Los cuatro números seguían escritos y
+ * ninguno salía de los otros.
+ *
+ * Acá se rehace la cuenta entera, en las dos versiones que el documento escribe:
+ * la de PLANPACTO —`(P + 4,65) / 0,65 = 42,8`— y la corregida —`(P + F) / 0,65 =
+ * 41,8`—, con F cruzado contra sus tres sumandos. **La corrección solo se lee
+ * como corrección si las dos cierran**: si la vieja no da 42,8, lo que el
+ * documento dice haber corregido no es lo que había.
+ *
+ * El parseo es literal sobre la prosa de §9.2 y **si no puede leer una pieza no
+ * corre y lo dice**, con el nombre de la pieza que le faltó. Es la doctrina que
+ * este archivo ya fijó para los domicilios ambiguos: un chequeo que se saltea en
+ * silencio cuando cambia una palabra es un chequeo que no existe.
+ */
+function verificarDivisionDePacto(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const { texto, errores: errDom } = textoDeDomicilio(lineas, H3_EJE_INTERGENERACIONAL);
+  errores.push(...errDom);
+  if (texto === null) return errores;
+  const plano = soloProsa(texto).replace(/\*\*/g, '');
+
+  const num = (s: string): number => Number(s.replace(',', '.'));
+  const leer = (patron: RegExp, pieza: string): RegExpExecArray | null => {
+    const m = patron.exec(plano);
+    if (m === null) {
+      errores.push(
+        `§9.2: la guardia no encuentra ${pieza} y por lo tanto NO rehace la división de ` +
+          'PLANPACTO:369. La cuenta es el compromiso que el permiso del 0,60 traía adentro; si la ' +
+          'redacción cambió, se ajusta el patrón acá y no se deja el chequeo apagado en silencio',
+      );
+    }
+    return m;
+  };
+
+  const mCero = leer(
+    /declara (\d+,\d+) puntos del producto para el eje intergeneracional/u,
+    'el supuesto de PLANPACTO que se reemplaza («declara … puntos del producto para el eje intergeneracional»)',
+  );
+  const mReemplazo = leer(/lo reemplaza por (cero|\d+,\d+)/u, 'el valor del reemplazo («lo reemplaza por …»)');
+  const mP = leer(/\bP queda en (\d+,\d+)/u, 'la P del escenario central («P queda en …»)');
+  const mF = leer(/\bF pasa de (\d+,\d+) a (\d+,\d+)/u, 'la F vieja y la nueva («F pasa de … a …»)');
+  const mSum = leer(
+    /(\d+(?:,\d+)?) del piso viejo, más (\d+,\d+) de afectaciones[^,]*, más (cero|\d+,\d+) del eje intergeneracional/u,
+    'los tres sumandos de F',
+  );
+  const mR = leer(/una rigidez del (\d+)%/u, 'la rigidez de la prueba por el absurdo («una rigidez del …%»)');
+  const mD = leer(/baja de (\d+,\d+) a (\d+,\d+)/u, 'los dos denominadores («baja de … a …»)');
+  if (
+    mCero === null || mReemplazo === null ||
+    mP === null || mF === null || mSum === null || mR === null || mD === null
+  ) {
+    return errores;
+  }
+
+  const P = num(mP[1]);
+  const [fVieja, fNueva] = [num(mF[1]), num(mF[2])];
+  const sumandos = [num(mSum[1]), num(mSum[2]), mSum[3] === 'cero' ? 0 : num(mSum[3])];
+  const rigidez = Number(mR[1]) / 100;
+  const [dViejo, dNuevo] = [num(mD[1]), num(mD[2])];
+  const supuestoAjeno = num(mCero[1]);
+  const reemplazo = mReemplazo[1] === 'cero' ? 0 : num(mReemplazo[1]);
+
+  /**
+   * **El valor del reemplazo se declara en un párrafo y se usa en otro, y hasta
+   * acá los dos no se hablaban.** Mutación: «lo reemplaza por 0,30» con 4,05 y
+   * 41,8 intactos salía **exit 0** — la subsección anunciaba un reemplazo y hacía
+   * otro. Se cruza en las dos direcciones: contra el tercer sumando de F, que es
+   * donde el reemplazo aterriza, y contra la resta que lo produce.
+   */
+  if (c(reemplazo) !== c(sumandos[2])) {
+    errores.push(
+      `§9.2 anuncia que reemplaza el supuesto por ${fmt(c(reemplazo))} y en la división lo suma como ` +
+        `${fmt(c(sumandos[2]))}. El valor anunciado y el usado son el mismo o la subsección declara ` +
+        'un reemplazo y hace otro, que es la mitad barata del compromiso que el permiso traía',
+    );
+  }
+  if (c(fVieja) - c(supuestoAjeno) + c(reemplazo) !== c(fNueva)) {
+    errores.push(
+      `§9.2: F vieja ${fmt(c(fVieja))} menos el supuesto ajeno ${fmt(c(supuestoAjeno))} más el ` +
+        `reemplazo ${fmt(c(reemplazo))} da ${fmt(c(fVieja) - c(supuestoAjeno) + c(reemplazo))}, y la ` +
+        `prosa declara F en ${fmt(c(fNueva))}. El permiso de PLANPACTO:369 era «rehace la división ` +
+        'sin tocar nada más»: si la resta no cierra, se tocó algo más y no está dicho',
+    );
+  }
+
+  const suma = sumandos.reduce((a, b) => a + b, 0);
+  if (c(suma) !== c(fNueva)) {
+    errores.push(
+      `§9.2: los sumandos de F dan ${fmt(c(suma))} (${sumandos.map((s) => fmt(c(s))).join(' + ')}) y ` +
+        `la prosa declara F en ${fmt(c(fNueva))}. F es la letra de las afectaciones específicas: si ` +
+        'sus términos no la suman, el reemplazo del eje intergeneracional cambia un número que no ' +
+        'es el que el documento dice haber cambiado',
+    );
+  }
+
+  ([
+    ['corregida', fNueva, dNuevo],
+    ['original de PLANPACTO', fVieja, dViejo],
+  ] as const).forEach(([cual, F, esperado]) => {
+    const calculado = Math.round(((P + F) / rigidez) * 10) / 10;
+    if (c(calculado) !== c(esperado)) {
+      errores.push(
+        `§9.2: la división ${cual} da (${fmt(c(P))} + ${fmt(c(F))}) / ${String(rigidez)} = ` +
+          `${fmt(c(calculado))} y la prosa escribe ${fmt(c(esperado))}. La corrección solo se lee ` +
+          'como corrección si las DOS divisiones cierran: la vieja fija qué había y la nueva qué ' +
+          'quedó, y con una sola escrita el documento afirma una diferencia que nadie rehizo',
+      );
+    }
+  });
+
+  /**
+   * **Y la dirección declarada tiene que ser la que la cuenta produce.** §9.2
+   * escribe que el reemplazo AFLOJA el argumento ajeno; si un día el denominador
+   * subiera, esa frase pasaría a ser falsa sin que ninguna cifra se moviera.
+   */
+  if (dNuevo >= dViejo) {
+    errores.push(
+      `§9.2: el denominador corregido (${fmt(c(dNuevo))}) no es menor que el original ` +
+        `(${fmt(c(dViejo))}), y la subsección declara que el reemplazo AFLOJA un punto al argumento ` +
+        'de PLANPACTO. La declaración contra el interés propio es el compromiso de esta subsección: ' +
+        'con la desigualdad dada vuelta, es una declaración de conveniencia',
+    );
+  }
+
+  return errores;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Las tres columnas: la SECCIÓN 9.3, y el arreglo de C-6.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const COLUMNAS_TRES = ['Renglón', 'Erogación bruta', 'Gasto sustituido', 'Incremental neto'];
-/** Una celda con plata escrita: `USD 250`, `$1.200`, `US$ 4`. */
-const CELDA_CON_PLATA = /(?:USD|US\$|AR\$|\$)\s?\d/u;
+/**
+ * **Una celda con plata escrita, y la primera versión atrapaba una sola forma de
+ * escribirla.** `/(?:USD|US\$|AR\$|\$)\s?\d/` exige una SIGLA PEGADA A UN
+ * DÍGITO, así que la celda «entre 2.500 y 5.000 millones por año» —el neto de
+ * `spec:34`, el número exacto que esta sección entera existe para no escribir—
+ * salía **exit 0**. La sigla es la forma que un documento prolijo usa; la que un
+ * documento apurado escribe es justamente la otra.
+ *
+ * Las tres formas que se agregan son las tres que quedan cuando no hay sigla:
+ * la escala en palabras (`5.000 millones`, `1.800M`, `mil millones`), el número
+ * con separador de miles solo (`2.500`, `53.000`) y el porcentaje (`1,2% del
+ * PBI`, que es la otra unidad en la que un neto se lava).
+ *
+ * **Falsos positivos: cero**, verificado celda por celda sobre las dos columnas
+ * que esto vigila. Los únicos dígitos que hoy viven ahí son remisiones de
+ * sección —`4.6`, `9.1`, `2.3`—: ninguna trae escala pegada, ninguna tiene tres
+ * dígitos después del punto y ninguna lleva `%`. El separador de miles pide
+ * `\d{1,3}(\.\d{3})+` a propósito: `4.6` no es un monto y `4.600` sí.
+ */
+const MAGNITUD_EN_CELDA =
+  /(?:USD|US\$|AR\$|\$)\s?\d|\d[\d.,]*\s*(?:M\b|MM\b|mil millones|mill[óo]n(?:es)?)|\d{1,3}(?:\.\d{3})+|\d[\d.,]*\s*%/u;
 
 /**
  * **La tabla que este corpus entero existe para no inventar** (C-6). La spec la
@@ -2297,7 +3404,7 @@ function verificarTresColumnas(lineas: string[]): string[] {
   filas.forEach((fila, k) => {
     ([2, 3] as const).forEach((i) => {
       const celda = fila[i] ?? '';
-      if (CELDA_CON_PLATA.test(celda)) {
+      if (MAGNITUD_EN_CELDA.test(celda)) {
         errores.push(
           `fila ${String(k + 1)} de la tabla de tres columnas («${(fila[0] ?? '').slice(0, 40)}»): la ` +
             `columna «${COLUMNAS_TRES[i]}» trae plata escrita («${celda.slice(0, 60)}»). El gasto ` +
@@ -2309,6 +3416,121 @@ function verificarTresColumnas(lineas: string[]): string[] {
       }
     });
   });
+
+  /**
+   * **La columna de la izquierda tampoco se verificaba, y es la que sí lleva
+   * plata** (I-7). Vaciar la celda «Erogación bruta» de cualquier renglón a `—`
+   * salía **exit 0**: el modelo económico declaraba un renglón sin decir cuánto
+   * sale, que es exactamente el agujero que la tabla existe para tapar. La
+   * asimetría de esta tabla es que las dos columnas de la derecha NO pueden
+   * traer magnitud y la de la izquierda TIENE que decir algo; lo que no puede
+   * es no decir nada.
+   */
+  filas.forEach((fila, k) => {
+    if (celdaHueca(fila[1] ?? '')) {
+      errores.push(
+        `fila ${String(k + 1)} de la tabla de tres columnas («${(fila[0] ?? '').slice(0, 40)}»): la ` +
+          'columna «Erogación bruta» está vacía. Un renglón sin erogación declarada es un gasto que ' +
+          'el PLAN no dice, y la celda hueca se lee como olvido: si no eroga, lo que va escrito es ' +
+          'que no eroga y por qué',
+      );
+    }
+  });
+  /**
+   * **Y el único monto de la tabla se cruza contra su fuente** (I-7). Mutando la
+   * celda del Tramo Ganado de `USD 1.800–2.400M` a `USD 18.000–24.000M` —un
+   * orden de magnitud sobre la única línea con precio— la guardia salía verde:
+   * el valor vive en una fila de tabla y `soloProsa()` descuenta las filas de
+   * tabla, así que CIFRAS_CANONICAS no lo puede domiciliar y hacía falta acá.
+   * Verificado contra `PLANCUIDADO:564`, «Redenciones previsionales
+   * (reconocimiento por horas de cuidado) | 1.800-2.400».
+   */
+  const TRAMO_GANADO = 'USD 1.800–2.400M';
+  const ganado = filas.find((f) => (f[0] ?? '').includes('Tramo Ganado'));
+  if (ganado && !(ganado[1] ?? '').includes(TRAMO_GANADO)) {
+    errores.push(
+      `la fila del Tramo Ganado no trae «${TRAMO_GANADO}» en «Erogación bruta» («${(ganado[1] ?? '').slice(0, 60)}»): ` +
+        'es el único monto propio de la tabla y sale de PLANCUIDADO:564, que ya lo contabiliza como ' +
+        'costo suyo. Sin cruzarlo, un orden de magnitud entra sin que nadie levante la mano',
+    );
+  }
+
+  /**
+   * **Las celdas se verificaban por lo que NO podían traer y no por lo que
+   * dicen.** Cuatro mutaciones propias, cuatro verdes: intercambiar «ninguno» y
+   * «cero» entre las dos columnas de la derecha del Tramo Común; cambiar el
+   * «igual a la bruta» de la Capa de Forma por «menor a la bruta» —que la
+   * convierte en un renglón que sustituye algo, contra su propia celda del
+   * medio—; sacarle el «pass-through» al Tramo Ganado; y hacer que el Piso Vital
+   * erogue la banda entera, contra la reasignación que §4.6 declara.
+   *
+   * Las cuatro son la misma clase: **la tabla es el argumento y sus celdas son
+   * las premisas**, y una premisa dada vuelta deja el argumento en pie con los
+   * datos cambiados debajo. La regla mínima es que cada renglón traiga escrito
+   * lo que la prosa de la subsección afirma de él, así que va por nombre y con
+   * la razón, como el conjunto exacto de renglones.
+   */
+  const CELDAS_OBLIGATORIAS: { renglon: string; columna: number; trae: string; porQue: string }[] = [
+    {
+      renglon: 'Piso Vital',
+      columna: 1,
+      trae: '4.6 reasigna',
+      porQue:
+        'el renglón más grande no eroga su banda entera: §4.6 reasigna haberes que ANSES ya liquida ' +
+        'y solo la diferencia eroga. Es la razón por la que la rampa arranca plana, y sin ella la ' +
+        'forma de la tabla de §9.1 se queda sin fundamento',
+    },
+    {
+      renglon: 'Tramo Ganado',
+      columna: 3,
+      /**
+       * `cero — pass-through` entero y no `pass-through` solo: con la subcadena
+       * sola, mutar la celda a «positivo — NO es pass-through» salía verde,
+       * porque la palabra prohibida seguía adentro de su propia negación. Es la
+       * novena forma del arquetipo que este archivo ya lleva anotada —una frase
+       * que se cubre a sí misma por accidente ortográfico— y acá reaparece con
+       * `includes()` en vez de con bordes de palabra.
+       */
+      trae: 'cero — pass-through',
+      porQue:
+        'el Tramo Ganado sustituye exactamente lo mismo que eroga, y por eso su incremental es cero. ' +
+        'Sin la palabra, la fila declara un cero que no se puede rehacer',
+    },
+    {
+      renglon: 'Tramo Común',
+      columna: 2,
+      trae: 'ninguno',
+      porQue: 'el Tramo Común no sustituye nada porque todavía no eroga nada (§4.5)',
+    },
+    {
+      renglon: 'Tramo Común',
+      columna: 1,
+      trae: 'liquida en cero hasta que su fuente exista',
+      porQue:
+        'el Tramo Común está declarado y NO financiado —§4.5 lo dejó así por escrito— y esa es la ' +
+        'razón de que su erogación sea ninguna. Mutado a «ya financiado por su fuente desde el año ' +
+        'uno», la fila sigue declarando cero erogación con la razón dada vuelta, y el PLAN promete ' +
+        'una plata que no tiene',
+    },
+    {
+      renglon: 'Capa de Forma',
+      columna: 3,
+      trae: 'igual a la bruta',
+      porQue:
+        'la Capa de Forma no sustituye nada, así que su incremental ES su erogación. Es la única ' +
+        'fila del modelo cuyo neto se conoce, y la que sostiene «este PLAN sabe cuánto sale»',
+    },
+  ];
+  for (const { renglon, columna, trae, porQue } of CELDAS_OBLIGATORIAS) {
+    const fila = filas.find((f) => (f[0] ?? '').includes(renglon));
+    if (fila === undefined) continue;
+    if (!(fila[columna] ?? '').includes(trae)) {
+      errores.push(
+        `la fila «${renglon}» no dice «${trae}» en «${COLUMNAS_TRES[columna]}» ` +
+          `(«${(fila[columna] ?? '').slice(0, 60)}») — ${porQue}`,
+      );
+    }
+  }
 
   if (!filas.some((f) => /monto pendiente/i.test(f[2] ?? ''))) {
     errores.push(
@@ -3783,6 +5005,28 @@ function contar(texto: string, valor: string): number {
 }
 
 /**
+ * Una negación castellana pegada a lo que sigue: el adverbio y después, como
+ * mucho, cuarenta caracteres sin cruzar un límite de cláusula. El corte contra
+ * `.;:` es lo que impide que la negación de la oración anterior alcance a esta
+ * —«el disparador **no** es un cambio de gobierno**:** alcanza con un mal año»
+ * es afirmativa del lado derecho de los dos puntos, y tiene que seguir contando.
+ */
+const NEGACION_PEGADA =
+  /(?:^|[^\p{L}])(?:no|nunca|jamás|tampoco|ni|deja de|dejó de)(?![\p{L}])(?:[^.;:\n]{0,40})$/iu;
+
+/** Ocurrencias del literal que NO vienen precedidas por una negación. */
+function contarSinNegacion(texto: string, valor: string): number {
+  let cuantas = 0;
+  let desde = 0;
+  for (;;) {
+    const i = texto.indexOf(valor, desde);
+    if (i === -1) return cuantas;
+    if (!NEGACION_PEGADA.test(texto.slice(Math.max(0, i - 60), i))) cuantas++;
+    desde = i + valor.length;
+  }
+}
+
+/**
  * El texto de un domicilio SIN sus encabezados ni sus filas de tabla. Ver R-5
  * en `verificarValoresConDomicilio()`: un valor que vive en un título se cubre
  * a sí mismo, y retitular un H3 —operación normal— rompería el conteo.
@@ -3852,17 +5096,18 @@ function verificarValoresConDomicilio(
   clase: string,
 ): string[] {
   const errores: string[] = [];
-  for (const { valor, en, veces, porQue } of lista) {
+  for (const { valor, en, veces, sinNegacion, porQue } of lista) {
     const minimo = veces ?? 1;
     for (const etiqueta of en) {
       const { texto, errores: errDom } = textoDeDomicilio(lineas, etiqueta);
       errores.push(...errDom);
       if (texto === null) continue;
-      const hay = contar(soloProsa(texto), valor);
+      const prosa = soloProsa(texto);
+      const hay = sinNegacion === true ? contarSinNegacion(prosa, valor) : contar(prosa, valor);
       if (hay < minimo) {
         errores.push(
           `${clase} «${valor}»: se esperaba${minimo > 1 ? `n ${String(minimo)} ocurrencias` : ''} en ` +
-            `«${etiqueta}» y hay ${String(hay)} — ${porQue}`,
+            `«${etiqueta}» y hay ${String(hay)}${sinNegacion === true ? ' sin una negación adelante' : ''} — ${porQue}`,
         );
       }
     }
@@ -4246,6 +5491,385 @@ function verificarAristasCriticas(lineas: string[]): string[] {
   return errores;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Los seis léxicos de §9.3 y las citas textuales: lo que el documento afirma
+// SOBRE EL CORPUS, verificado abriendo el corpus.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * **La búsqueda bajo seis léxicos es la evidencia de C-6, y el documento la
+ * reportaba sin que nadie la repitiera.** Encontrado por mutación propia: «cero
+ * ocurrencias cada una en el taller» → «dos ocurrencias», y «es por invalidez,
+ * no por vejez» → «es por vejez, no por invalidez», las dos **VERDES**. Son
+ * afirmaciones sobre archivos que están en el repositorio: el documento cuenta
+ * lo que buscó, y contarlo mal es exactamente el modo de falla que la regla de
+ * las dieciséis víctimas existe para cerrar.
+ *
+ * Se rehace la búsqueda acá y se cruza contra lo que el párrafo declara. Lo que
+ * NO se automatiza va dicho: el conteo de «moratoria» —cinco pasajes— no es
+ * mecánico, porque el corpus usa la palabra en tres sentidos (previsional en
+ * PLANCUIDADO y PLANMON, loteo en `PLANVIV:1277`, vehículos autónomos en
+ * PLANMOV) y separarlos pide una taxonomía que la guardia tendría que inventar.
+ * Los cinco pasajes previsionales están verificados a mano —`PLANCUIDADO:158`,
+ * `PLANMON:238`, `:248`, `:1541`, `:1573`— y acá solo se custodia que el número
+ * escrito no derive.
+ */
+const LEXICOS_SIN_OCURRENCIA = /\b(?:PUAM|PNC)\b/u;
+const LEXICO_NO_CONTRIBUTIVO = /no contributiv/iu;
+
+function verificarLosSeisLexicos(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const { texto, errores: errDom } = textoDeDomicilio(lineas, H3_TRES_COLUMNAS);
+  errores.push(...errDom);
+  if (texto === null) return errores;
+  const prosa = soloProsa(texto).replace(/\*\*/g, '');
+
+  const taller = archivosDelTaller();
+  if (taller === null) {
+    errores.push(
+      '§9.3 declara qué encontró bajo seis léxicos y la guardia no puede abrir el taller para ' +
+        'repetir la búsqueda. Sin eso, la evidencia de C-6 es un reporte que nadie rehizo',
+    );
+    return errores;
+  }
+
+  // (1) Las dos siglas: cero ocurrencias, y el documento tiene que decir cero.
+  let conSigla = 0;
+  for (const [, cuerpo] of taller) {
+    for (const l of cuerpo) if (LEXICOS_SIN_OCURRENCIA.test(l)) conSigla++;
+  }
+  const cero = `${enLetras(conSigla)} ocurrencias`;
+  if (!traeCifra(prosa, cero)) {
+    errores.push(
+      `§9.3 no dice «${cero}» para las dos siglas de partida y el taller tiene ${String(conSigla)} ` +
+        'línea(s) que las nombran. Es la mitad negativa de C-6: si el número deja de ser cero, lo ' +
+        'que hay que cambiar no es el adjetivo sino la decisión de no escribirlas',
+    );
+  }
+
+  // (2) La pensión no contributiva: una sola aparición y es por invalidez.
+  /**
+   * El contexto se recorta a ±90 caracteres alrededor de la ocurrencia y no a la
+   * línea: en este corpus la línea es el PÁRRAFO —`PLANCUIDADO:94` tiene miles de
+   * caracteres— y buscar «vejez» en el párrafo entero lo encuentra siempre, con
+   * lo que el chequeo se ponía rojo sobre el documento correcto. Es la misma
+   * lección que este archivo lleva anotada cinco veces: la unidad del chequeo
+   * tiene que coincidir con la unidad verificada, y acá la unidad es el sintagma.
+   */
+  const noContributivas: string[] = [];
+  for (const [doc, cuerpo] of taller) {
+    for (const l of cuerpo) {
+      const m = LEXICO_NO_CONTRIBUTIVO.exec(l);
+      if (m === null) continue;
+      noContributivas.push(`${doc}: ${l.slice(Math.max(0, m.index - 90), m.index + 90)}`);
+    }
+  }
+  if (noContributivas.length !== 1) {
+    errores.push(
+      `§9.3 declara UNA sola aparición de la pensión no contributiva en el taller y hay ` +
+        `${String(noContributivas.length)}. El diagnóstico de la columna del medio cuelga de ese ` +
+        'conteo: con dos apariciones, «una sola» es falso y puede que la segunda sí sea por vejez',
+    );
+  } else if (!/invalidez/iu.test(noContributivas[0]) || /vejez/iu.test(noContributivas[0])) {
+    errores.push(
+      'la única pensión no contributiva del taller ya no es la de invalidez, y §9.3 afirma que lo ' +
+        'es. Si aparece una por vejez, la columna del medio deja de estar vacía por falta de dato y ' +
+        'pasa a estar vacía por omisión',
+    );
+  }
+  if (!dice(prosa, 'por invalidez, no por vejez')) {
+    errores.push(
+      '§9.3 no declara que la única pensión no contributiva del corpus es por INVALIDEZ y no por ' +
+        'vejez. Invertido, el párrafo dice que el corpus tiene el dato de vejez que la tabla ' +
+        'declara faltante, y la tabla y su justificación se contradicen sin que ningún número cambie',
+    );
+  }
+
+  /**
+   * (3) **El universo de 65+, cruzado contra la línea de la que sale.** Mutado a
+   * «más de quince millones» la guardia salía verde: es el único número de gente
+   * del párrafo, y es el que multiplicado por el mínimo «estrenaría el padrón».
+   * El ancla ya se resolvía —la línea existe— pero resolver un ancla no verifica
+   * la magnitud que se le atribuye, que es la misma lección que las citas
+   * textuales. Se compara la frase contra `PLANSAL:1173`, que dice «Hay más de
+   * cinco millones de personas mayores de 65 años en este país».
+   */
+  const universo = /El corpus cuenta (más de \p{L}+ millones)/u.exec(prosa);
+  const planSal = lineasDelPlan('PLANSAL');
+  if (universo === null) {
+    errores.push(
+      '§9.3 no declara cuántas personas de sesenta y cinco o más cuenta el corpus, y es el número ' +
+        'que sostiene «multiplicar por el mínimo no estrena el precio: estrena el padrón»',
+    );
+  } else if (planSal === null) {
+    errores.push('la guardia no puede abrir PLANSAL para cruzar el universo de sesenta y cinco o más');
+  } else if (!(planSal[1172] ?? '').includes(universo[1])) {
+    errores.push(
+      `§9.3 dice «${universo[1]}» de personas de sesenta y cinco o más y PLANSAL:1173, que es su ` +
+        'fuente, no dice eso. El ancla resuelve porque la línea existe; la magnitud que se le ' +
+        'atribuye es otra afirmación y hasta acá no la cruzaba nadie',
+    );
+  }
+
+  // (4) El unitario y el padrón: los dos conteos que el párrafo siguiente usa.
+  if (!dice(prosa, 'cinco pasajes')) {
+    errores.push(
+      '§9.3 no declara cuántos pasajes de «moratoria» trae el corpus. Verificados a mano: cinco, ' +
+        'previsionales, todos diagnóstico y ninguno con monto (PLANCUIDADO:158, PLANMON:238, :248, ' +
+        ':1541, :1573). El conteo no es mecánico —el corpus usa la palabra en tres sentidos— y por ' +
+        'eso al menos no puede derivar en silencio',
+    );
+  }
+
+  return errores;
+}
+
+/**
+ * **El TALLER, que es lo que el documento dice haber buscado: los `.md` de
+ * primer nivel de `Iniciativas Estratégicas/`.** Se excluye PLANARCO —un
+ * documento no puede ser evidencia de sí mismo— y se excluye el subdirectorio
+ * `diagnostico/`, que reproduce líneas enteras de los PLANes y duplicaría cada
+ * conteo. **La spec queda afuera a propósito y es importante:** `spec:171` sí
+ * nombra PUAM y PNC, y es justamente el papel que este documento se negó a
+ * copiar. Contarla como taller volvería falso el «cero ocurrencias» que la
+ * SECCIÓN 9 declara con razón.
+ */
+function archivosDelTaller(): [string, string[]][] | null {
+  const dir = resolve(REPO_ROOT, 'Iniciativas Estratégicas');
+  const salida: [string, string[]][] = [];
+  try {
+    for (const f of readdirSync(dir)) {
+      if (!f.endsWith('.md') || f.startsWith('PLANARCO')) continue;
+      salida.push([f, readFileSync(resolve(dir, f), 'utf8').split('\n')]);
+    }
+  } catch {
+    return null;
+  }
+  return salida.length === 0 ? null : salida;
+}
+
+/**
+ * **Las citas textuales de otro documento, abiertas contra su línea.** Las
+ * anclas de la prosa ya se resuelven una por una, pero resolver un ancla prueba
+ * que la LÍNEA existe, no que diga lo que el documento pone entre comillas.
+ * Encontrado por mutación propia: alterar la cita de `PLANPACTO:375` de «se
+ * ajusta solo EN CONTRA del que el piso protege» a «A FAVOR» —que da vuelta el
+ * argumento entero de §9.4— salía **VERDE**, igual que dar vuelta el permiso de
+ * `PLANPACTO:369` del que cuelga toda la §9.2.
+ *
+ * Son las dos citas de las que la SECCIÓN 9 hace depender un argumento ajeno, y
+ * las dos son la clase más barata de falsificar: comillas alrededor de una
+ * paráfrasis conveniente. Se comparan contra el archivo destino, normalizando
+ * comillas y espacios, y si el archivo cambia la guardia **no corre y lo dice**.
+ */
+const CITAS_TEXTUALES: { cita: string; doc: string; linea: number; porQue: string }[] = [
+  {
+    cita: 'quien las reemplace rehace la división sin tocar nada más',
+    doc: 'PLANPACTO',
+    linea: 369,
+    porQue:
+      'el permiso del que cuelga §9.2 entera. Sin la obligación de rehacer la división, el reemplazo ' +
+      'del 0,60 por cero pasa a ser gratis y la subsección se queda con la mitad barata',
+  },
+  {
+    cita: 'se ajusta solo en contra del que el piso protege',
+    doc: 'PLANPACTO',
+    linea: 375,
+    porQue:
+      'el argumento ajeno con el que §9.4 contesta la ausencia de piso. Dado vuelta —«a favor»— la ' +
+      'subsección pasa a decir que un piso en porcentaje del PBI protege en recesión, que es lo ' +
+      'contrario de lo que el documento anterior escribió contra su propio corpus',
+  },
+];
+
+function verificarCitasTextuales(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const normalizar = (s: string): string =>
+    s.replace(/[«»""'']/gu, '"').replace(/\*/gu, '').replace(/\s+/gu, ' ').trim();
+  const documento = normalizar(lineas.join('\n'));
+
+  for (const { cita, doc, linea, porQue } of CITAS_TEXTUALES) {
+    const destino = lineasDelPlan(doc);
+    if (destino === null) {
+      errores.push(`la guardia no puede abrir ${doc} para verificar la cita «${cita.slice(0, 50)}…»`);
+      continue;
+    }
+    const enElOtro = normalizar(destino[linea - 1] ?? '');
+    if (!enElOtro.includes(normalizar(cita))) {
+      errores.push(
+        `la cita «${cita}» NO está en ${doc}:${String(linea)}. O el otro documento cambió —y entonces ` +
+          'se actualiza acá, a mano y mirando qué dice ahora— o esta cita es una paráfrasis ' +
+          `conveniente entre comillas. ${porQue}`,
+      );
+      continue;
+    }
+    if (!documento.includes(normalizar(cita))) {
+      errores.push(
+        `PLANARCO dejó de citar textualmente «${cita}» (${doc}:${String(linea)}) — ${porQue}`,
+      );
+    }
+  }
+  return errores;
+}
+
+/**
+ * **Los cinco conteos de la INTEGRACIÓN son verificables contra archivos y
+ * ninguno se cruzaba** (I-7). Las cinco mutaciones salían verdes: «Seis
+ * dependencias críticas» → «Cuatro», «nombra diez documentos» → «doce», «lo cita
+ * seis veces» → «veinte», «cinco alimentadores» → «nueve», y con las aristas
+ * intactas en los seis párrafos de al lado.
+ *
+ * Es la clase de número que nadie vuelve a contar porque parece obvio, y es la
+ * que la sección usa para su argumento central —seis contra diez, ocupar no es
+ * sostener—: si los dos conteos dejan de ser los reales, el argumento sigue en
+ * pie con los datos cambiados debajo.
+ *
+ * Los cuatro se cuentan de su fuente y no de una constante: las aristas de
+ * `ARISTAS_CRITICAS`, los documentos de la cuarta columna del Calendario de §3.2,
+ * las citas a PLANJUB del archivo de PLANCUL, y los alimentadores de la propia
+ * enumeración entre rayas del párrafo que los declara.
+ */
+function verificarConteosDeLaIntegracion(lineas: string[]): string[] {
+  const { tramo, errores } = tramoDeSeccion(lineas, H2_INTEGRACION);
+  if (tramo === null) return errores;
+  const prosa = tramo.join('\n').replace(/\*\*/g, '');
+
+  const cruzar = (frase: (n: string) => string, real: number, queEs: string, porQue: string): void => {
+    const bien = frase(enLetras(real));
+    if (new RegExp(`(?<!\\p{L})${bien.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!\\p{L})`, 'iu').test(prosa)) return;
+    errores.push(
+      `la INTEGRACIÓN no dice «${bien}» y ${queEs} son ${String(real)} — ${porQue}`,
+    );
+  };
+
+  cruzar(
+    (n) => `${n} dependencias críticas`,
+    ARISTAS_CRITICAS.length,
+    'las aristas críticas declaradas',
+    'el conteo escrito y los párrafos que lo sostienen son dos cosas, y la sección construye su ' +
+      'argumento sobre la diferencia entre este número y el del Calendario',
+  );
+  /**
+   * **El par recíproco también declara su modo degradado, y también estaba sin
+   * cruzar.** El conteo grueso lo tapaba —hay ocho ocurrencias en la sección y el
+   * mínimo estaba en siete—, así que borrarle el suyo a PLANPACTO salía verde con
+   * las seis aristas intactas. Es la séptima dependencia de la sección y la única
+   * que no está en `ARISTAS_CRITICAS`, porque no es arista: es el par.
+   */
+  const parRecíproco = tramo.filter((l) => l.replace(/\*\*/g, '').trimStart().startsWith('PLANPACTO es el par recíproco'));
+  if (parRecíproco.length !== 1) {
+    errores.push(
+      `la INTEGRACIÓN tiene ${String(parRecíproco.length)} párrafo(s) que abran declarando el par ` +
+        'recíproco con PLANPACTO y tiene que haber uno: es la mitad que PLANPACTO:721 declaraba ' +
+        'faltante y lo único que este PLAN le debe',
+    );
+  } else if (!parRecíproco[0].includes('modo degradado')) {
+    errores.push(
+      'el par recíproco con PLANPACTO no declara su modo degradado en su propio párrafo. Sin ' +
+        'PLANPACTO sancionado este PLAN queda sin árbitro de nivel, y una dependencia declarada sin ' +
+        'su degradado es un punto de falla anunciado y no contestado',
+    );
+  }
+
+  // Los documentos que la cuarta columna de §3.2 nombra, contados de la tabla.
+  const { filas } = filasDeTabla(lineas, COLUMNAS_CALENDARIO, true);
+  if (filas === null) {
+    errores.push(
+      'la INTEGRACIÓN dice cuántos documentos nombra el Calendario de §3.2 y la guardia no puede ' +
+        'leer esa tabla para cruzarlo',
+    );
+  } else {
+    const codigos = new Set<string>();
+    for (const fila of filas) {
+      for (const m of (fila[3] ?? '').matchAll(/PLAN[A-Z0-9]+/gu)) codigos.add(m[0]);
+    }
+    cruzar(
+      (n) => `nombra ${n} documentos`,
+      codigos.size,
+      'los documentos con dispositivo escrito sobre alguna estación del arco (cuarta columna de §3.2)',
+      'es el otro término de «seis contra diez». Contado contra §3.2 y no contra la spec, como el ' +
+        'brief pedía: ocupar y sostener son preguntas distintas y los conteos dan distinto porque ' +
+        'miden cosas distintas',
+    );
+    /**
+     * La resta que cierra el argumento, y el tercer número de la oración. Mutada
+     * a «tres no son arista» con la lista de cuatro nombres intacta al lado, la
+     * guardia salía verde: el conteo y su enumeración viven en la misma frase.
+     */
+    cruzar(
+      (n) => `${n} no son arista`,
+      codigos.size - ARISTAS_CRITICAS.length,
+      'los documentos del Calendario que no son dependencia crítica',
+      'diez menos seis. Es la resta que sostiene «ocupar y sostener son dos preguntas distintas», y ' +
+        'los cuatro nombres van enumerados en la misma oración: el número que no coincide con su ' +
+        'propia lista es el que nadie recuenta',
+    );
+  }
+
+  // Las veces que PLANCUL cita al fantasma, contadas en el archivo de PLANCUL.
+  const planCul = lineasDelPlan('PLANCUL');
+  if (planCul === null) {
+    errores.push('la INTEGRACIÓN cuenta las citas a PLANJUB en PLANCUL y la guardia no puede abrir ese archivo');
+  } else {
+    const citas = planCul.filter((l) => l.includes('PLANJUB')).length;
+    cruzar(
+      (n) => `lo cita ${n} veces`,
+      citas,
+      'las líneas de PLANCUL que citan a PLANJUB',
+      'el fantasma se corrige en el documento del otro y con nota de sucesión, así que el número es ' +
+        'la tarea que queda pendiente: escrito de más o de menos, la corrección se hace mal',
+    );
+    cruzar(
+      (n) => `las ${n} referencias`,
+      citas,
+      'las líneas de PLANCUL que citan a PLANJUB',
+      'la segunda mención del mismo conteo, en la oración que declara cómo se corrige',
+    );
+  }
+
+  // Los alimentadores documentales, contados de su propia enumeración.
+  const parrafo = tramo.find((l) => l.includes('alimentadores documentales'));
+  if (parrafo === undefined) {
+    errores.push(
+      'la INTEGRACIÓN no declara los alimentadores documentales, que es la mitad de «lo que no es ' +
+        'arista» que el patrón de PLANPACTO:723 obliga a escribir con la razón',
+    );
+  } else {
+    const lista = /alimentadores documentales[^—]*—([^—]+)—/u.exec(parrafo.replace(/\*\*/g, ''));
+    if (lista === null) {
+      errores.push(
+        'los alimentadores documentales se declaran sin enumerarlos entre rayas, así que la guardia ' +
+          'no puede cruzar el número escrito contra la lista. Un conteo sin lista al lado es un ' +
+          'número que nadie rehizo',
+      );
+    } else {
+      const cuantos = lista[1].split(/,| y /u).filter((s) => s.trim() !== '').length;
+      cruzar(
+        (n) => `${n} alimentadores documentales`,
+        cuantos,
+        'los ítems que la propia enumeración del párrafo lista',
+        'el número y la lista viven en la misma oración y hasta acá no se miraban: nueve escrito ' +
+          'sobre cinco enumerados salía verde',
+      );
+    }
+    /**
+     * Cuántos de los alimentadores están `superseded`. Mutado a «cuatro están
+     * superseded» sobre cinco alimentadores, la guardia salía verde: es el
+     * calificador del que §9.4 hereda el peso de 51.260–65.430M, y un conteo que
+     * sube sin que nadie lo cuente convierte un papel vencido en cuatro.
+     */
+    if (!/\bdos est[áa]n `superseded`/u.test(parrafo)) {
+      errores.push(
+        'la INTEGRACIÓN no declara que DOS de los alimentadores documentales están `superseded`. Es ' +
+          'el calificador que §9.4 hereda para leer 51.260–65.430M, y sin conteo fijo el ascenso o ' +
+          'la baja del calificador pasan sin que nadie levante la mano',
+      );
+    }
+  }
+
+  return errores;
+}
+
 function main(): void {
   let raw: string;
   try {
@@ -4330,8 +5954,13 @@ function main(): void {
   //    precedentes leídos en dos columnas.
   errores.push(...verificarOchoFallas(lineas));
   errores.push(...verificarPrecedentesEnDosColumnas(lineas));
-  // 8 bis) Task 8: cada arista crítica con su modo degradado, EN SU PÁRRAFO.
+  // 8 bis) Task 8: cada arista crítica con su modo degradado, EN SU PÁRRAFO, y
+  //        los cinco conteos de la INTEGRACIÓN cruzados contra sus archivos.
   errores.push(...verificarAristasCriticas(lineas));
+  errores.push(...verificarConteosDeLaIntegracion(lineas));
+  // 8 ter) Task 8: lo que el documento afirma SOBRE el corpus, rehecho contra él.
+  errores.push(...verificarLosSeisLexicos(lineas));
+  errores.push(...verificarCitasTextuales(lineas));
 
   // 9) Las anclas de la PROSA, abiertas una por una contra su documento.
   const prosa = verificarAnclasDeProsa(lineas);
@@ -4366,8 +5995,15 @@ function main(): void {
       'solapamiento, cada fila consistente (años × ejecución = años-régimen), el total cruzado contra ' +
       `la suma de la columna y el producto contra la banda anual declarado por DEBAJO de USD ` +
       `${String(GATE_QUINCE_ANOS[0])}–${String(GATE_QUINCE_ANOS[1])}M del gate, ` +
-      'tabla de tres columnas contigua sin una sola magnitud monetaria en «Gasto sustituido» ni en ' +
-      '«Incremental neto» y con la del medio cargada como monto pendiente, ' +
+      'tabla de tres columnas contigua sin una sola magnitud monetaria —con sigla o sin ella— en ' +
+      '«Gasto sustituido» ni en «Incremental neto», con la del medio cargada como monto pendiente, ' +
+      'ninguna celda de «Erogación bruta» vacía y el Tramo Ganado cruzado contra PLANCUIDADO:564, ' +
+      `${String(cocientesDerivados().length)} cocientes de la prosa CALCULADOS por la guardia y ` +
+      `exigidos en su subsección más ${String(operandosDeLosCocientes().length)} operandos suyos, ` +
+      'la división de PLANPACTO:369 rehecha en sus dos versiones (F contra sus tres sumandos, ' +
+      '(P+F)/rigidez contra los dos denominadores y la dirección declarada contra la desigualdad), ' +
+      'el año del régimen cruzado entre la tabla y el ordinal escrito, los cinco conteos de la ' +
+      'INTEGRACIÓN cruzados contra §3.2, contra el archivo de PLANCUL y contra su propia lista, ' +
       `${String(prosa.resueltas)} anclas de la prosa abiertas y resueltas contra su documento ` +
       '(todo token con forma de ancla que la guardia no sepa leer se reporta, no se descarta, y la ' +
       'remisión corta corre SOLO contra un ancla completa de su misma oración), ' +
