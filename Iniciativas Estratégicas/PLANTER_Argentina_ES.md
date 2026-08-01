@@ -160,7 +160,7 @@ Mitigación: etapa pre-constitucional vía ley nacional que implementa Licencia 
 
 **Por qué persiste:** el modelo fiscal vigente distribuye por jurisdicciones formales, no por proximidad o afectación real.
 
-**Cómo PLANTER lo resuelve:** Fondo Soberano Ciudadano que captura totalidad de regalías en primera instancia, con distribución protocolizada: 40% Dividendo Ciudadano Universal, 20% Fondo de Territorio Afectado (compensación directa a comunidades), 15% Fondo Intergeneracional (preservación de capital para generaciones futuras), 15% Restauración Ecológica Obligatoria, 10% Operación ANTSPO y sistemas de control. La distribución por afectación real, no por jurisdicción formal.
+**Cómo PLANTER lo resuelve:** Fondo Soberano Ciudadano que captura totalidad de regalías en primera instancia, con distribución protocolizada: 40% Dividendo Ciudadano Universal, 20% Fondo de Territorio Afectado (compensación directa a comunidades), 7% Fondo Intergeneracional (preservación de capital para generaciones futuras), 8% Fondo de la Pregunta (PLANPREGUNTA), 15% Restauración Ecológica Obligatoria, 10% Operación ANTSPO y sistemas de control. La distribución por afectación real, no por jurisdicción formal.
 
 **Riesgo residual:** conflictos jurídicos con provincias por reasignación de regalías. Mitigación: etapa transitoria con coexistencia de ambos sistemas y convergencia escalonada.
 
@@ -359,9 +359,18 @@ Declaración legal: los recursos del subsuelo argentino (hidrocarburos, litio, m
 - Egresos:
   - 40% DCM universal.
   - 20% Compensación a Territorios Afectados.
-  - 15% Fondo Intergeneracional (preservación de capital).
+  - 7% Fondo Intergeneracional (preservación de capital).
+  - 8% Fondo de la Pregunta — PLANPREGUNTA, con subordinación en año de derrumbe declarado del DCM.
   - 15% Restauración Ecológica.
   - 10% Operación ANTSPO + monitoreo + Guardacostas.
+
+**Reapertura del protocolo (2026-08-01).** El reparto de arriba tenía cinco líneas y el Fondo Intergeneracional llevaba 15 puntos. `PLANPREGUNTA` —vigésimo quinto PLAN, el conocimiento nuevo— pidió por escrito la reapertura y se llevó **ocho puntos, todos de esa línea**, que baja de 15 a 7. Se reparte de una sola línea y no proporcionalmente entre las cinco: un recorte proporcional no tiene a quién explicarle nada, y por eso nadie se opone y por eso vuelve a pasar.
+
+**Lo que PLANTER pierde, escrito de este lado.** Los dos mandatos de esa línea son de no distribuir —preservación de capital (§0.6) y reserva contra el derrumbe del DCM si caen los commodities (R7 y F2)—, y con ocho puntos menos **la reserva anti-colapso del Dividendo queda en menos de la mitad**, justo en el año del ciclo en que el Dividendo más importa.
+
+**Lo que PLANTER recibe a cambio, y es una cláusula y no una promesa.** En un año de derrumbe declarado del DCM, según el criterio que fije la ley del Fondo y no `PLANPREGUNTA`, **el Fondo de la Pregunta se subordina**: no abre Preguntas nuevas y su flujo entero repone la reserva del Fondo Intergeneracional hasta devolverla a 15 puntos antes de volver a gastar en nada. En el año bueno la cláusula corre en el mismo sentido: el excedente por encima de la banda de régimen de `PLANPREGUNTA` también repone esa reserva en lugar de ampliar gasto. Quedan afuera de la subordinación, por acuerdo escrito en los dos documentos, la Serie Centenaria y las Pruebas de Barro en curso — suspenderlas no ahorra, destruye lo ya gastado.
+
+Los ocho puntos del Fondo de la Pregunta **no son una fuente nueva ni afectación nueva sobre el Techo B de `PLANPACTO`**: este flujo ya estaba afectado al 100% por este PLAN, y lo que cambia es quién cobra. La reconciliación entre este fondo y el Fondo Soberano Bastardo de `PLANMON` es la que `PLANARCO §4.5` dictaminó, y ninguno de los dos documentos la reabre.
 
 **Dividendo Ciudadano Mensual:**
 - A cada argentino mayor de 18 años.
@@ -671,9 +680,12 @@ Esta sección documenta cómo PLANTER se acopla al resto del ecosistema de manda
 
 - **40% DCM:** USD 6.600-12.400M.
 - **20% Compensación Territorial:** USD 3.300-6.200M.
-- **15% Fondo Intergeneracional:** USD 2.475-4.650M.
+- **7% Fondo Intergeneracional:** USD 1.155-2.170M.
+- **8% Fondo de la Pregunta:** USD 1.320-2.480M.
 - **15% Restauración:** USD 2.475-4.650M.
 - **10% Operación ANTSPO:** USD 1.650-3.100M.
+
+Las seis líneas suman 100 y **USD 16.500-31.000M**, que es el total de 11.1. El Fondo Intergeneracional bajó de 15 a 7 puntos —de 2.475-4.650M a 1.155-2.170M— por la reapertura de §3.3.
 
 ### 11.3 Costo Operativo ANTSPO
 

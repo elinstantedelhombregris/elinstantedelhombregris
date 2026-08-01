@@ -1110,6 +1110,8 @@ ANDIG está diseñada para resistir la captura por tres vectores: (1) el poder p
 | Reasignación presupuestaria por ahorro en cloud extranjera (Estado + empresas públicas) | 500–1.500 | A medida que el Estado migra al núcleo soberano, deja de pagar AWS/Azure/Google Cloud. El gasto estatal en cloud se estima en USD 500–1.000M/año (10–20% del mercado cloud total de USD 4.600M) |
 | Reasignación por ahorro en comisiones de pago | 500–1.500 | SAPI reemplaza a Visa/MC; la diferencia de comisiones se reinvierte |
 | Reasignación presupuesto de ciencia y tecnología | 500–1.000 | Restaurar el presupuesto de CyT al 0,39% legal y dirigir el incremento a PLANDIG |
+
+> **Nota de frontera con PLANPREGUNTA (2026-08-01).** La fila de reasignación del presupuesto de ciencia y tecnología es de PLANDIG y sigue siéndolo. `PLANPREGUNTA` —vigésimo quinto PLAN— **no reclama el incremento hasta el 0,39% legal** y lo declara por escrito en su Sección 13.5: se financia por otra vía, ocho puntos del Fondo Soberano Ciudadano de `PLANTER`. Por la regla de fuentes de `PLANPACTO §5.1`, toda fuente tiene un solo dueño y el dueño es el PLAN que la recauda; esta fuente no se reabre.
 | Créditos de organismos multilaterales (BID, CAF, Banco Mundial) | 1.000–2.000 | Líneas de crédito para infraestructura digital — el BID ya financia REFEFO |
 | Capitalización ciudadana (modelo PLANEB) | 200–500 | Ciudadanos que inviertan en nodos de la malla o en la Bastarda Digital |
 | Ingresos propios del ecosistema soberano | 500–2.000 | Venta de servicios cloud a gobierno, empresas y mercado regional; cómputo IA como servicio |

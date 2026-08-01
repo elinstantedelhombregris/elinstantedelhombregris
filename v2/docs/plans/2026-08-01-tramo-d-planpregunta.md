@@ -592,7 +592,7 @@ El resto de la sección: los `requires` y `provides` en prosa, con **modo degrad
 
 **Verificación específica:** la guardia tiene que **leer PLANTER** y fallar si el split de allá no suma 100 o si no coincide con el de acá. Dos documentos con dos versiones del mismo protocolo es exactamente el defecto que la regla de fuentes existe para evitar.
 
-- [ ] Task 11 completa
+- [x] Task 11 completa
 
 ---
 
