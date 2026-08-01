@@ -350,3 +350,86 @@ La respuesta tiene tres partes y ninguna es una excepción a la extinción.
 **Tercero, y es el punto que hay que decir sin adornarlo:** llega *distinto*. Llega a menos gente al principio, con menos velocidad, y sin el alcance de un aviso central en horario central. **Ese costo es real, este documento no lo esconde, y lo acepta**, por dos razones. Una: los cinco años de extinción son exactamente la ventana en la que se construyen los canales propios, así que la capacidad no se apaga antes de que exista el reemplazo. Dos: un país que sólo puede hablarle a su población alquilándole espacio a cuatro empresas privadas no tiene un problema de comunicación de emergencia, tiene un problema de soberanía, y resolverlo comprando más espacio lo agrava todos los años.
 
 ---
+
+## SECCIÓN 4: LA BIBLIOTECA VIVA
+
+> *"Un lugar abierto y alguien adentro. Todo lo demás es decoración."*
+
+Este es el destino. Es donde va la plata que la Pauta Ciega libera, es el dispositivo que le da a Marisol un lugar donde poner las cinco horas y doce minutos, y es —hay que decirlo temprano y con todas las letras— **la parte de este PLAN que menos inventa.**
+
+### 4.1 Esto no es una invención de este PLAN: es una deuda del corpus
+
+La Biblioteca Viva ya existe como derecho. `PLANDIG:788` lo consagró con nombre propio, con definición y con métrica: el **Derecho al Commons Atencional**, *«espacios atencionales públicos de alta calidad — infraestructura cívica del pensamiento humano»*, definidos como *«la biblioteca popular del siglo XXI — no librería, no café, no coworking»*, con una cobertura de *«3.000+ Commons Atencionales en régimen (uno cada 15.000 habitantes)»*. `PLANDIG:799` lo repite en la tabla de derechos cognitivos y nombra hasta el mecanismo: *«Presupuesto constitucional, convenio con bibliotecas populares, municipios, universidades»*.
+
+Lo que no tiene es plata. La **TABLA 20** de `PLANDIG:1086` —inversión acumulada a diez años del propio PLANDIG, **USD 4.700–9.900M**, un promedio de unos **700M por año**— tiene doce filas: datacenters, GPUs, malla comunitaria, LANIA, plataformas, sensores IoT, CONAE, ARSAT, ANDIG, ciberseguridad, becas de reversión de brain drain y contingencia. Ninguna es el Commons Atencional.
+
+**PLANFOCO le pone la plata, el acervo y el bibliotecario.** No le pone el derecho, que ya estaba, ni la agencia rectora de la política de atención, que sigue siendo ANDIG. Y conviene dimensionar el favor en vez de dejarlo elegante: los 300 a 450 millones por año de este PLAN son **entre el 43 y el 64 por ciento del presupuesto anual entero de PLANDIG**. Un PLAN nuevo está absorbiendo, por sí solo, una fracción mayoritaria del presupuesto de otro para pagar un derecho que aquel consagró y no presupuestó. Eso no es una cortesía entre vecinos y no se escribe en una nota al pie.
+
+**Ahora la aritmética, que es donde el diseño se juega.** El brief que ordenó este documento mandaba «corregir 3.000 → 1.200–1.500 en todo el texto». No se hace, y por una razón de método que vale para todo el corpus: **no se corrige la cifra de otro PLAN escribiendo una más chica en el propio.** El 3.000 de `PLANDIG:788` no es un error: es la cobertura de un derecho, derivada de una regla explícita —uno cada quince mil habitantes— sobre una población de cuarenta y cinco millones. Está bien calculado.
+
+Las dos cifras miden cosas distintas y las dos quedan en pie:
+
+| Cifra | De quién | Qué mide |
+|---|---|---|
+| 3.000+, uno cada 15.000 habitantes | PLANDIG (`:788`, `:799`) | **cobertura del derecho** — espacios certificados como atencionalmente limpios |
+| 1.200–1.500 | PLANFOCO (este documento) | **sedes que este PLAN construye, dota y paga**, con bibliotecario, acervo y horario |
+
+Y la cuenta cierra sin forzar nada, porque el propio corpus tiene el resto: `PLANCUL:259` cuenta **más de dos mil bibliotecas populares** ya existentes, además de miles de clubes de barrio y centenares de centros culturales — que son exactamente el *«convenio con bibliotecas populares, municipios, universidades»* que `PLANDIG:799` nombró y nunca instrumentó. Mil quinientas sedes propias más dos mil espacios certificados dan tres mil quinientos, contra los tres mil que el derecho pide.
+
+**PLANFOCO no achica la promesa de PLANDIG: la financia por la mitad cara y certifica el resto.** La certificación no cuesta casi nada y no da potestad sobre nada: verifica que en ese espacio no haya perfilado, recomendación algorítmica ni publicidad comportamental, que es la definición operativa del `modo algorítmicamente off` de `PLANDIG:786`. Un espacio que no quiere certificarse no se certifica y no pasa nada; simplemente no cuenta para la cobertura del derecho.
+
+### 4.2 Qué es una sede
+
+Una sede de la Biblioteca Viva es un local con puerta a la calle, entre ciento veinte y cuatrocientos metros cuadrados, con cuatro cosas adentro y ninguna más:
+
+**Un acervo físico.** Libros, y también lo que en un pueblo hace falta y no hay: manuales de oficio, normativa local, planos, mapas catastrales, colecciones de diarios de la zona. El criterio de qué entra no lo fija esta agencia — ver `4.4`.
+
+**Conectividad y máquinas de uso libre**, sin perfilado y sin cuenta. Es la única parte donde este PLAN depende del estadio A de PLANDIG, y **el modo degradado está declarado**: una sede sin conectividad abre igual, con el acervo físico y el bibliotecario, y se conecta cuando la malla llegue. Ninguna sede se posterga esperando la fibra.
+
+**Una sala que se presta.** Sin curaduría, sin evaluación de mérito del que la pide y sin criterio de contenido: se pide por planilla, se otorga por orden de llegada, y el que la usó vuelve a la cola. Es el mismo principio de la Sala Común de la Sección 7 a escala de barrio.
+
+**Alguien adentro que sabe.** Este es el rubro caro y es el único irrenunciable.
+
+**La regla de precedencia, que es la que evita el peor resultado posible de este PLAN.** Donde ya hay una biblioteca popular en funcionamiento, **la sede es esa biblioteca popular** — no se abre una al lado. Se firma convenio, se le paga el bibliotecario rentado, se le compra el acervo, se le arregla el horario y se le repara el edificio; y **no se le toca ni la comisión directiva, ni la personería, ni el nombre, ni el acervo que ya tiene, ni el derecho a decir que no.** Una institución que sobrevivió noventa años de país argentino no necesita que la refunden: necesita que le paguen a alguien para abrir a la tarde.
+
+Sedes nuevas se abren en dos casos y en ninguno más: donde no hay ninguna, y donde la que hay decide no firmar. Es una decisión de diseño de este documento, y su razón es aritmética antes que sentimental: `PLANCUL:259` cuenta más de dos mil bibliotecas populares en pie, así que fundar mil quinientas nuevas al lado significaría gastar la plata de la sede en el edificio en vez de en el bibliotecario, y dejar a la vieja compitiendo por el mismo público con voluntarios de setenta y ocho años contra un empleado rentado. Eso no es construir una red: es desfinanciar una que existe y cobrarse el mérito.
+
+Lo que una sede **no** es: no es un centro cultural con programación —eso es PLANCUL y no necesita presupuesto—, no es un aula —eso es PLANEDU—, no es un taller de producción —eso es PLANTALLER, que ya tiene cuatro mil— y no es una oficina de trámites. Cada una de esas cuatro tentaciones existe, cada una viene con su presupuesto y su clientela, y cada una convierte la biblioteca en otra cosa que ya existe en el corpus.
+
+**El costo por sede, contrastado contra la única referencia comparable que hay.** `PRESUPUESTO_CONSOLIDADO:394` da la inversión inicial de PLANTALLER en *«USD 720M inicial (4.000 Tallers × 180K)»* y `PLANTALLER:655` da la operación anual de la red en **USD 640-1.000M**, o sea entre 160 y 250 mil dólares por Taller por año. La Biblioteca Viva opera entre 127 y 229 mil dólares por sede por año (Sección 13). **Mismo orden de magnitud, calculado por caminos independientes**, y eso es lo que hace creíble la cuenta: si diera diez veces menos, el número estaría mal.
+
+### 4.3 El bibliotecario: concurso ciego más sorteo
+
+Mil quinientos empleos estables, calificados, con salario del Estado, distribuidos uno por barrio en todo el país y designados por una agencia nacional. Dicho así, es la superficie clientelar más grande de todo el corpus ¡BASTA!, y en el diseño crudo de este PLAN estaba designada a dedo por la agencia.
+
+Se resuelve aplicando adentro la misma disciplina que la Pauta Ciega aplica afuera: **el Estado pierde la capacidad de elegir.**
+
+**Concurso ciego.** Los antecedentes se evalúan anonimizados: sin nombre, sin foto, sin institución de origen, sin domicilio, sin nombre del director que firma la recomendación. Lo que se evalúa es una prueba de trabajo —cómo armaría el acervo inicial de un pueblo descrito en la consigna, cómo atendería tres pedidos concretos— corregida por un jurado que no sabe de quién es la prueba.
+
+**Y después sorteo entre los que aprobaron.** Ésta es la parte que incomoda y es la parte que funciona. Entre los que superan el umbral no se elige al mejor: se sortea, con la mecánica de `PLANMESA:297` —**sorteo estratificado** por Credencial en la materia, *«no puramente aleatorio»*—, estratificando por residencia en el territorio y por acreditación previa. Elegir al mejor entre veinte candidatos aprobados exige un criterio de desempate, y todo criterio de desempate es una puerta. Sortear entre aprobados no tiene puerta.
+
+**Y el mandato es a término, con renovación por sorteo y no por evaluación de la agencia.** Un cargo vitalicio designado por sorteo se captura igual, un año después, por la vía del que decide las renovaciones.
+
+La objeción es evidente y se contesta de frente: **así no queda siempre el mejor bibliotecario posible en cada sede.** Es cierto. Queda uno bueno, verificado por prueba de trabajo, en un cargo que nadie le debe a nadie. Un sistema que optimiza la calidad de cada designación y deja abierto quién designa termina, en dos gobiernos, con mil quinientos empleos militantes y ninguna biblioteca. El corpus ya eligió este intercambio en otra parte: `PLANJUS:400` sortea a los panelistas de la justicia popular, y no porque un ciudadano sorteado juzgue mejor que un juez de carrera.
+
+### 4.4 Quién decide qué se compra
+
+**Una agencia nacional eligiendo qué se lee en mil doscientos barrios es el ministerio de la verdad que este PLAN existe para no ser.** No hace falta mala fe: alcanza con un criterio de calidad, un comité de expertos y una lista de sugeridos, y en tres años el acervo de todo el país lo eligieron once personas en Buenos Aires.
+
+**Las compras las deciden las Mesas de Materia locales.** `PLANMESA:466` define la **Capa 1 — Mesa Territorial Base**, de nueve a quince miembros *«según escala barrial o municipal»*, que ejecuta ciclos LDEA sobre materias territorialmente delimitadas. Es exactamente la escala del problema: los vecinos de Chajarí saben que hace falta un manual de poda de cítricos y ninguna agencia nacional lo va a saber nunca. ANBAC pone el presupuesto, la logística de compra y la auditoría del gasto; **no pone el criterio.**
+
+**El modo degradado, que es obligatorio declarar y acá muerde de verdad.** `PLANMESA:925-956` fija que PLANMESA es **tranche-2, con ventana de entrada 2028-2030**, que la primera Mesa Federal piloto es de 2030-2032, y que la cobertura completa de las materias de primera ola llega en 2032-2034. Las primeras sedes de la Biblioteca Viva abren en 2029. **Durante los primeros años no va a haber Mesa que compre**, y este documento no puede pedirle a PLANMESA que se apure.
+
+Entonces, con la fecha escrita y sin adornos: entre 2029 y la constitución de la Mesa Territorial correspondiente, el acervo lo decide una **asamblea abierta de usuarios de la sede**, convocada por el bibliotecario, con acta publicada y con el mismo régimen de transparencia de gasto de `PLANSAL:1515` —ingresos, gastos detallados y saldo publicados todos los meses, y cualquier vecino puede pedir explicación de cualquier gasto—. No es un órgano nuevo ni pretende serlo: es el mecanismo más tosco que garantiza que la decisión sea local. **El traspaso a la Mesa Territorial es automático el día que la Mesa de esa jurisdicción se constituye**, sin acto administrativo de ANBAC que lo habilite, porque una habilitación discrecional del traspaso sería la puerta de vuelta.
+
+### 4.5 El horario, que es el dispositivo
+
+Todo lo anterior no sirve de nada si la puerta está cerrada cuando la gente está despierta.
+
+**La franja de apertura de cada sede la determina un relevamiento de la jornada real del territorio, se publica, y se revisa cada dos años.** El relevamiento es barato —pregunta a qué hora entra y sale a trabajar la gente del radio de la sede— y es la única obligación que ANBAC le impone al bibliotecario que no es de gasto.
+
+Dos reglas duras salen de ahí. **Ninguna sede cierra durante toda la franja de la tarde**, que es la que el horario heredado de las bibliotecas populares parte al medio. Y **al menos una sede por localidad de más de veinte mil habitantes abre después de las veinte**, porque el turno noche existe y hoy no tiene ningún lugar.
+
+Ésta es la parte más barata del PLAN y probablemente la que más cambia. Cambiar el cartel de Chajarí no cuesta una ley ni un presupuesto: cuesta que alguien tenga el trabajo de averiguar a qué hora está despierto el pueblo, y que ese alguien cobre por hacerlo. En treinta y dos años nadie tuvo ese trabajo. **Este PLAN, antes que cualquier otra cosa, inventa ese trabajo.**
+
+---
