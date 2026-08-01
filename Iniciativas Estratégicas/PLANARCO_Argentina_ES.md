@@ -749,3 +749,107 @@ La portada nombra al PAMI entre los destinatarios, así que la sección le debe 
 **Y la refundación del PAMI queda fuera de este PLAN, declarada y no supuesta.** PLANARCO administra el ingreso del último tramo y la forma del arco; la cobertura de salud de los mayores es una materia, y la Regla de Arco que 3.4 aceptó entera manda que sea la materia la que decida el escalón. Rediseñar la obra social más grande del país desde un PLAN de edades sería la inversión precisa que esa regla prohíbe, y hacerlo en la sección que crea la propia agencia sería el peor momento posible para pedir una excepción. Va como hueco de gobierno, con dueño identificable —la materia salud— y sin fecha que este documento pueda ponerle.
 
 ---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+**PLANPACTO es el par recíproco, y esta es la mitad que faltaba.** El documento anterior escribió la suya con nombre: la Regla de Arco es el eje intergeneracional de la Escalera, vive en su Sección 4.7 y le dejó dicho al PLAN que venía que remitiera en vez de escribir la propia (`PLANPACTO:430`). Cerrarla es lo único que PLANARCO le debe, y se cierra con lo que 3.4 declaró: no escribe regla de reparto propia, no reclama escalón ni piso, acepta que la materia decida el escalón y el arco adentro del escalón, y entrega el Calendario como la lista pública contra la cual cada escalón declara cómo repartió lo que conserva. Toma cuatro cosas a cambio: el árbitro de nivel, la ubicación de lo previsional en el Techo A (3.5), las clases del libro mayor (4.6) y el permiso escrito para reemplazar el supuesto del eje intergeneracional, que 9.2 usó y devolvió en cero. **El modo degradado:** sin PLANPACTO sancionado, la Regla de Arco no existe como norma y este PLAN queda sin árbitro de nivel — el Calendario y la Renta siguen, y lo que se pierde es la obligación de cada escalón de declarar su reparto. Sin PLANPACTO, PLANARCO no gana un escalón: no reclamaba ninguno.
+
+**Y le traslada un costo, escrito acá y no en el documento del otro.** La Renta de Arco se ajusta contra una canasta y no contra el producto: en recesión sostiene su valor real mientras el producto cae, y crece como proporción del gasto justo el año en que el Techo A tendría que estar bajando su punto. PLANARCO es el PLAN que más empuja contra el objetivo de convergencia del documento anterior, y no por un defecto sino por lo que el diseño hace bien. La 9.4 lo desarrolla.
+
+**Seis dependencias críticas, y ninguna capacidad crítica que devolver.** PLANARCO es el nodo más dependiente del corpus, y el número no lo elige esta sección: llega fijado con el diseño del PLAN. Van con su modo degradado, porque una dependencia declarada sin él es un punto de falla anunciado y no contestado.
+
+**PLANCUIDADO** aporta la fórmula del Tramo Ganado y su validador: un año de cuidado por un año aportado, con techo anual (`PLANCUIDADO:340`). **El modo degradado:** sin la agencia que valida las horas, el Tramo Ganado liquida en cero y el Piso Vital no se toca.
+
+**PLANMON** aporta la capa previsional y el índice que reemplaza al de este PLAN cuando el haber se pague en Pulso (`PLANMON:1543-1576`). **El modo degradado:** mientras se pague en pesos corre la movilidad de la Renta de Arco, así que acá el degradado es hoy y el pleno es lo que hay que esperar.
+
+**PLANTER** aporta el fondo del que cuelgan el Tramo Común y la Dote (`PLANTER:349`, `:674`). **El modo degradado:** ya está corriendo — 4.5 dejó el Tramo Común declarado y no financiado, y 5.2 le puso a la Dote un piso en canastas.
+
+**PLANDIG** es el punto único de falla del ecosistema y también el de este PLAN: una estación que se abre sola necesita que el hecho registrado llegue sin que nadie lo tipee. **El modo degradado:** el Calendario corre contra los padrones que ya existen, por convenio y por archivo, más lento y más caro, y con la demora se corre la integración que `PLANDIG:759` fecha.
+
+**PLANSAL** aporta los primeros mil días, la licencia parental con números y los Centros de Vitalidad que la agencia cita (`PLANSAL §4.4`, `PLANSAL §15.5`). **El modo degradado:** es la única de las seis que deja una estación vacía — el Umbral de la Llegada es remisión pura, y sin el documento al que remite queda anunciado y sin nada adentro.
+
+**PLANREP** aporta el Dividendo Nacional de Productividad, contra el cual corre la regla de absorción de 4.3, y el Banco de Tiempo (`PLANREP §15.3`, `:842`). **El modo degradado:** también corriendo — la regla no computa nada hasta que el dividendo exista.
+
+**El grafo declara seis y el Calendario contó diez.** La cuarta columna de 3.2 nombra diez documentos con dispositivo escrito sobre alguna estación del arco, y cuatro no son arista: PLANMEMORIA, al que el Pasaje convoca; PLANCUL, cuyo Granadero ocupa la rampa; PLANEB, que escribió el final del arco antes que nadie; y PLANJUS, que tiene la sucesión. No son arista porque una dependencia crítica afirma que sin el otro este PLAN no funciona, y con los cuatro la relación va al revés: PLANARCO los convoca, les remite o les declara la frontera, y ejecuta igual si tardan. Ocupar y sostener son dos preguntas distintas, y los conteos dan distinto porque miden cosas distintas.
+
+**La sucesión, y son dos fantasmas de clases distintas.** El primero es **PLANJUB**, que nunca existió: sin documento, sin ordinal y sin presupuesto, y PLANCUL lo cita seis veces como si los tuviera — su glosario define «Granadero/a» como adulto mayor de PLANJUB (`PLANCUL:682`), definición apoyada en un papel en blanco. PLANARCO es su sucesor declarado, y las seis referencias se corrigen en el documento de PLANCUL con nota de sucesión: no acá y no en silencio. El segundo es **PLANVEJ**, y no es lo mismo: no es un PLAN prometido que no se escribió, es un código que la reconciliación del canon retiró y que la aplicación pública sigue publicando con título propio en su grilla, mientras una prueba automatizada del mismo repositorio exige que su cuerpo no cargue. Un fantasma en un glosario se corrige leyendo; uno en código se corrige desplegando, y por eso el segundo dura más.
+
+**Y lo que no es arista, con la razón, que es el patrón de `PLANPACTO:723`.** La relación con `PLANRUTA` **no se declara como arista**, porque PLANRUTA no es nodo del grafo y declararla rompería la validación; queda en prosa, y es esta: sus dos mecanismos contra el vaciamiento sirven para instalar un ecosistema y ninguno cubre a una partida discrecional de quince años, como 3.6 dejó escrito. Los cinco alimentadores documentales tampoco pueden ser extremo de arista —el libro mayor, el presupuesto consolidado, el documento de capas, la tabla de agencias y la cascada legal—, y dos están `superseded`. **PLAN24CN** no es arista porque este PLAN le declinó el Fondo de Garantía de Sustentabilidad (4.4): una fuente que no se reclama no crea dependencia. Y `PLANVIV` y `PLANMOV` aportan diagnóstico y no capacidad —las viviendas trabadas en sucesión, los mayores de cincuenta desplazados—, así que quedan en el cuerpo y afuera del grafo.
+
+---
+
+## SECCIÓN 9: MODELO ECONÓMICO Y FISCAL
+
+> *"Un presupuesto que no se puede rehacer con una calculadora no es un presupuesto: es una cifra con testigos."*
+
+### 9.1 La rampa, y la cuenta que el gate obliga a cerrar
+
+La cabecera declara **USD 53.000–96.000M** a quince años y remite acá para el gasto anual, y el cuerpo llegó hasta la SECCIÓN 8 sin escribir un peso por año, porque la cuenta no cerraba. Un régimen constante no cabe en ese horizonte. Dividido por quince, el anual queda del orden de tres mil quinientos a seis mil cuatrocientos millones, que no es la magnitud de un régimen que paga el haber de más de cinco millones de personas y sostiene dieciséis estaciones; y cualquier anual que sí lo sea, multiplicado por quince, se va por arriba del techo contra el que se midió a este PLAN. **La rampa es lo que falta entre las dos cuentas, y no estaba escrita en ninguna parte del proyecto.**
+
+Está escrita acá, y es una tabla porque una tabla se suma.
+
+| Tramo | Años | Cuántos | Ejecución sobre el régimen | Años-régimen |
+|---|---|---|---|---|
+| Contar el arco — Fase 0, sin ley | 1 | 1 | 5% | 0,05 |
+| El piso y el final, entrando — Fase 1 | 2 a 4 | 3 | 15% | 0,45 |
+| La salida gradual del trabajo y las casas — Fases 2 y 3 | 5 a 8 | 4 | 45% | 1,80 |
+| El Calendario completo, sin régimen — cierre de la Fase 3 | 9 a 10 | 2 | 75% | 1,50 |
+| Régimen pleno — Fase 4 | 11 a 15 | 5 | 100% | 5,00 |
+| **Total** | **1 a 15** | **15** | — | **8,80** |
+
+**Cómo se lee.** Los quince años se parten en cinco tramos sin hueco y sin solapamiento, y la partición es contable y no calendario: las fases se solapan —los umbrales arrancan adentro de la ventana anterior— y una integral necesita tramos que no se pisen. La última columna es el producto de las dos anteriores, y su suma da **8,80**: en quince años calendario, el PLAN eroga el equivalente a 8,80 años de régimen pleno. El régimen se alcanza en el año once, y no antes.
+
+**La forma de la rampa es decisión de diseño de este documento y no una medición**, y la razón de que arranque plana está en 4.6. La primera fila de esa tabla —la única con caja presente— reasigna haberes que ANSES ya liquida, y una reasignación no agrega erogación: lo que la Fase 1 agrega es la diferencia donde el haber actual queda por debajo del piso, y entra por cohortes. Lo caro no es abrir el piso: es sostenerlo con el Calendario entero encima, y eso es la Fase 3.
+
+**De ahí sale el gasto anual, dividiendo.** 53.000 sobre 8,80 da 6.023 y 96.000 da 10.909; redondeados a la centena, **USD 6.000–10.900M** por año en régimen. El redondeo va hacia adentro en los dos extremos, y eso no es prolijidad: multiplicados de vuelta dan **USD 52.800M** y **USD 95.920M**, los dos por debajo de la banda del gate. Un PLAN habilitado por derogación expresa de dos reglas no se reserva un peso más de aquello contra lo que se lo midió. Las diferencias —doscientos millones abajo, ochenta arriba— van escritas en vez de absorbidas moviéndole un punto a la tabla: eso cerraría al centavo y volvería la rampa una función del resultado.
+
+**La banda de quince años no la elige este documento.** Llega como restricción: es el insumo con el que se corrió el gate cuyos tres cocientes publica `ACTA:24-26`, y es lo único de plata que este PLAN no puede tocar sin tocar su propia legitimidad. Por eso la derivación va en esta dirección: se divide la banda heredada por un coeficiente declarado, en vez de elegir un anual cómodo y buscarle después una rampa que lo justifique. Escribir sobre ella la fórmula de la decisión de diseño sería atribuirse una autoría que no se tiene, y en un corpus cuya disciplina consiste en decir de dónde viene cada cosa, inventar autoría cuesta lo que inventar un número.
+
+**Qué es esa banda y qué no es.** Es la **erogación bruta** del PLAN. No es el monto bajo administración de la agencia, que 8.2 derivó por otro camino y en otro orden, y no es el incremental neto, que 9.3 no puede escribir. Confundirlas lee este PLAN entre seis y once veces más caro de lo que eroga, o más barato en una proporción que nadie calculó.
+
+### 9.2 El eje intergeneracional, y el supuesto que este PLAN devuelve en cero
+
+`PLANPACTO:369` declara **0,60** puntos del producto para el eje intergeneracional, adentro de la prueba por el absurdo de su Sección 4.3, y lo declara como lo que es: un supuesto de trabajo de ese documento que ningún PLAN del corpus había escrito. Y deja el permiso en la misma oración — *«quien las reemplace rehace la división sin tocar nada más»*. PLANARCO es el PLAN del arco, así que es el que lo reemplaza, y lo reemplaza por **cero**.
+
+**Por qué cero, y no otro número.** El 0,60 ocupa un renglón de afectaciones específicas, que es lo que la letra F suma, y PLANARCO no crea ninguna: 3.5 declaró que todo lo que le da forma al arco se paga sin destino atado y no entra a la Escalera, y 4.6 lo confirma fila por fila — sus dos clases no incluyen ninguna afectación. La objeción está prevista: si alguien lee la razón de ejecución de 3.6 como afectación encubierta, `PLANPACTO:381` la manda adentro del piso y no arriba —consume escalón, no agrega línea— y este PLAN no tiene escalón donde consumir. Por los dos caminos el aporte a F es ninguno. El cero es **decisión de diseño de este documento** y no una medición: sale de lo que 3.5 y 4.6 decidieron, no de haber contado afectaciones.
+
+**La división rehecha, entera, porque el permiso venía con esa obligación.** P queda en **23,15**, sin tocar. F pasa de 4,65 a **4,05**: 3,5 del piso viejo, más 0,55 de afectaciones ya escritas, más cero del eje intergeneracional. Y el denominador de la prueba por el absurdo —el gasto consolidado con el que una rigidez del 65% se alcanzaría— baja de **42,8** a **41,8** puntos del producto.
+
+**Y hay que decir en qué dirección se movió, porque no se movió a favor.** Un denominador más chico vuelve la hipótesis un punto menos absurda: el piso viejo de 3,5 puntos entra debajo del 65% con un país un punto menos gastador del que el documento anterior necesitaba imaginar. Su conclusión sobrevive —41,8 sigue siendo un nivel que la Argentina tuvo y no tiene— pero el margen es un punto más chico, y el PLAN que se lo achicó es este. Un reemplazo que solo se declara cuando favorece al que lo hace no es una declaración: es una corrección de conveniencia con vocabulario de auditoría.
+
+**El número que sí queda escrito es el que incomoda.** La banda anual de 9.1, sobre el producto de referencia de USD 500.000 millones (`PLANPACTO:641`), da **1,20–2,18%** del PBI, y la Escalera entera de los ocho escalones vale 2,40. Dicho sin rodeo: la erogación bruta anual de un solo PLAN va de la mitad a nueve décimas de todo lo que el proyecto se propone blindar, y este PLAN no tiene un renglón adentro de esa cifra. Esa es la pregunta de 9.4, y la primera que hace un lector adversarial.
+
+### 9.3 Las tres columnas, y la que no se puede llenar
+
+Un PLAN que reasigna la partida más grande del Estado tiene que decir cuánto de lo que gasta es plata nueva, y la forma son tres columnas: lo que sale de la caja, lo que deja de salir por otro lado, y la resta.
+
+| Renglón | Erogación bruta | Gasto sustituido | Incremental neto |
+|---|---|---|---|
+| Piso Vital Universal | parte de la banda de 9.1; 4.6 reasigna y solo la diferencia eroga | monto pendiente, confianza media: falta el padrón de la vía de excepción | pendiente, por la columna anterior |
+| Tramo Ganado | USD 1.800–2.400M por año, ya contabilizados como costo propio por `PLANCUIDADO:564` | la misma línea: no hay dos partidas, hay una que cambia de comprobante | cero — pass-through, y 4.6 lo declaró |
+| Tramo Común | ninguna: liquida en cero hasta que su fuente exista (4.5) | ninguno | cero |
+| Capa de Forma — el Calendario y lo que lo habita | el resto de la banda de 9.1, partida común sin afectación | ninguno: hoy no hay programa que ejecute estas estaciones | igual a la bruta |
+
+**Qué se buscó antes de declarar el hueco, porque «esto no existe» dicho sin buscar bajo otro nombre ya salió caro acá.** Lo que el Piso Vital sustituye son los haberes que hoy paga la vía de excepción de 2.3, y se buscó bajo seis léxicos. La sigla de la prestación universal para el adulto mayor y la de la pensión no contributiva: **cero ocurrencias cada una en el taller**, y por eso no se escriben acá. «Moratoria»: cinco pasajes, todos como diagnóstico y ninguno con monto. «Pensión no contributiva»: una sola aparición, y es por invalidez, no por vejez (`PLANCUIDADO:94`). Quedaban «haber mínimo» y «jubilación mínima».
+
+**El último léxico es el que cambia el diagnóstico.** «Jubilación mínima» sí devuelve un número: `PLANREP:2261` la ubica en **~USD 250/mes**, adentro de una tabla cuya columna se titula «Monto Aproximado» y cuyo objeto es la absorción por otro programa, no medir una partida. **Así que el unitario existe, y lo que falta es el padrón.** El corpus cuenta más de cinco millones de personas de sesenta y cinco o más (`PLANSAL:1173`) y no cuenta en ninguna parte cuántas llegaron por la vía de excepción. Multiplicar los cinco millones por el mínimo no sería estrenar el precio: sería **estrenar el padrón**, y estrenaría de paso que todas cobran el mínimo, que es falso, y que el haber del Piso Vital es el mínimo actual, que 4.2 declaró como hueco.
+
+**Entonces la columna del medio se carga como `PLANPACTO:498` cargó la suya:** con **monto pendiente** y confianza media, no con una cifra. Media y no baja por la misma razón que las tres primeras filas de 4.6: hay dueño y acto previsible; lo que no hay es la desagregación. Y mientras ese monto esté pendiente, **el incremental neto de este PLAN no se puede escribir**, porque es una resta a la que le falta el sustraendo: cualquier número puesto ahí sería el de la columna del medio, lavado a través de una sustracción y sin una sola sigla prohibida en el camino. La banda de 9.1 es bruta, y no hay versión neta hasta que alguien cuente ese padrón.
+
+**Las otras tres filas sí cierran:** el Tramo Ganado sustituye lo mismo que eroga, el Tramo Común no eroga nada y la Capa de Forma no sustituye nada. La única incógnita está en el renglón más grande, que es peor que un hueco chico en otro lado. Dicho sin envolver: **este PLAN sabe cuánto sale y no sabe cuánto cuesta**, y la distancia entre las dos preguntas es todo lo que la república ya paga por una ficción contable.
+
+### 9.4 Cómo se financia sin piso, y qué le pasa en la primera recesión
+
+La Escalera cierra en 2,40 sobre ocho escalones y ninguno es del arco: el quinto, que lleva su nombre, es de PLANCUIDADO y conserva 0,25. Este PLAN no pide otro y no reclama piso. Falta contestar cómo se sostiene sin blindaje el que administra el gasto más grande de la república.
+
+**La Capa de Renta no está desprotegida: está protegida por otra cosa.** Lo previsional es Techo A por materia (3.5), rigidez que el país ya tiene y que el orden inverso de sanción no agarra, y su ajuste corre contra la canasta del adulto mayor y no contra el producto. La diferencia se ve en la recesión, y el documento anterior la escribió contra su propio corpus: un piso en porcentaje del PBI *«se ajusta solo en contra del que el piso protege»* (`PLANPACTO:375`), porque baja en pesos el año en que el producto baja. Un haber atado a una canasta hace lo contrario. **La ausencia de piso constitucional no es lo que expone a la Renta de Arco: un piso del tipo que este proyecto escribe la habría expuesto más.**
+
+**Lo que sí queda expuesto es la forma, y la recesión es su disparador más probable.** El Calendario y lo que lo habita se pagan con partida común y sin destino atado, así que la presión fiscal aterriza ahí antes que en ningún otro lado del PLAN: no hay que derogar nada, no hay damnificado con expediente y no hay índice que corra solo. En la primera recesión seria, este PLAN se conserva como renta y se suspende como forma. La tesis lo nombró; el disparador no es un cambio de gobierno: alcanza con un mal año.
+
+**Y acá se paga la deuda que 3.6 dejó anotada: la razón de ejecución.** La pieza uno del blindaje era una relación entre las dos capas y su proporción quedó diferida acá, con la advertencia de que callarla es no fijarla. Es **uno a veinte**: el gasto ejecutado de la Capa de Forma no puede ser, en un ejercicio, menor a un veinteavo del de la Capa de Renta. Es **decisión de diseño de este documento** y no una medición, y el instrumento ya estaba escrito — `PLANPACTO:498` llama prueba de encuadre a esta misma relación y dice que el año en que se invierta es el año en que el PLAN dejó de hacer lo que dijo. Lo que agrega este documento es que deje de describir y pase a obligar.
+
+**El número se elige bajo a propósito, y eso tiene un costo que va escrito.** Un veinteavo está debajo de cualquier proporción real que las dos capas vayan a tener, y esa es su virtud: nunca se vuelve un argumento para recortar la renta, y no necesita un costeo previo que este documento no tiene. Y es su defecto: **un piso puesto debajo de la relación real se cumple mientras se recorta la forma a la mitad.** La pieza uno atrapa el ceroneo, no el vaciamiento gradual; el gradual lo atrapa la pieza dos, la brecha por estación del tablero.
+
+**Y la escala, escrita por nosotros antes que por un adversario.** La erogación bruta de este PLAN se lee al lado de dos números. El régimen pleno del ecosistema ¡BASTA! entero está estimado en **51.260–65.430M** anuales (`PRESUPUESTO_CONSOLIDADO_BASTA.md:447`), en un papel `superseded` cuyo denominador ni siquiera incluye a este PLAN ni a los otros tres nuevos; comparando bajo con bajo y alto con alto —cruzarlos mezcla escenarios y da cocientes sin sentido—, un solo PLAN vale entre el 11,7% y el 16,7% de todo lo demás junto. Y PLANPACTO cuesta **USD 500–700 millones** por año en régimen (`PLANPACTO:641`): este cuesta entre doce y dieciséis veces eso. Con lo que la agencia mueve por administración (8.2), las tres cifras dicen lo mismo desde tres lugares: **el arco de la vida no es un PLAN más del proyecto por tamaño, y el proyecto se lo confió a una agencia que no decide ninguno de sus montos.**
+
+---

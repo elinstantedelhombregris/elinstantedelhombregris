@@ -44,7 +44,9 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 6: EL MEDIO',
   '## SECCIÓN 7: EL FINAL',
   '## SECCIÓN 8: LA AGENCIA NACIONAL DEL ARCO DE LA VIDA (ANAV)',
-  // Task 8: INTEGRACIÓN y SECCIÓN 9 · …
+  '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
+  '## SECCIÓN 9: MODELO ECONÓMICO Y FISCAL',
+  // Task 9: SECCIONES 10, 11 y 12 · …
 ];
 
 /**
@@ -92,6 +94,16 @@ const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; po
     porQue:
       'qué clase de ente es · qué administra · el PAMI. La tercera es la que un recorte se lleva ' +
       'primero, porque es la única que no describe a la agencia sino lo que la agencia NO hace',
+  },
+  {
+    h2: '## SECCIÓN 9: MODELO ECONÓMICO Y FISCAL',
+    prefijo: '9',
+    cuantas: 4,
+    porQue:
+      'la rampa · el eje intergeneracional · las tres columnas · el financiamiento sin piso. Las ' +
+      'cuatro pagan una deuda declarada en otra parte del documento —la cabecera difiere el gasto ' +
+      'anual, §3.6 difiere la razón de ejecución, §4.2 y §4.6 difieren el monto y la diferencia—, ' +
+      'así que borrar una deja al remitente apuntando a nada y el H2 quieto',
   },
 ];
 
@@ -186,6 +198,12 @@ const H3_PAMI = '### 8.3 ';
 const H3_TABLA_DE_FUENTES = '### 4.6 ';
 /** Prefijo, ídem: la declaración de la liberación vive en 5.4 y en ningún otro lado. */
 const H3_LIBERACION = '### 5.4 ';
+/** Task 8. La INTEGRACIÓN no tiene H3: el domicilio es su propio H2, como en PLANPACTO:715. */
+const H2_INTEGRACION = '## INTEGRACIÓN CON EL MARCO ¡BASTA!';
+const H3_LA_RAMPA_DEL_GASTO = '### 9.1 ';
+const H3_EJE_INTERGENERACIONAL = '### 9.2 ';
+const H3_TRES_COLUMNAS = '### 9.3 ';
+const H3_SIN_PISO = '### 9.4 ';
 
 const CIFRAS_CANONICAS: ValorConDomicilio[] = [
   {
@@ -442,6 +460,150 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
       'el régimen pleno del ecosistema entero — PRESUPUESTO_CONSOLIDADO_BASTA.md:447. Es la ' +
       'comparación incómoda: la ANAV mueve sola del mismo orden que los veintidós PLANes juntos. Si ' +
       'no está escrita acá, la hace un adversario y con peor redacción',
+  },
+  /**
+   * **Task 8 — la reconciliación del presupuesto, que es el hallazgo C-5 y el
+   * problema más grave del tramo.** El gate se corrió sobre USD 53.000–96.000M a
+   * QUINCE AÑOS. **La banda es el INSUMO del gate, no su salida**, y eso importa
+   * para citarla bien: vive en `scripts/gate-spinoff-planes-nuevos.ts:25`, y lo
+   * que el acta publica son los tres cocientes que salen de ella (`ACTA:24-26`).
+   * Escribir «publicada en el acta» sería falso — verificado, el acta no trae
+   * ninguno de los dos números. La cabecera la lleva desde la Task 1 con una
+   * remisión a esta sección. La banda
+   * ANUAL no se afirma: sale de dividir esa banda por el coeficiente de la rampa,
+   * y la rampa es una tabla que la guardia suma — ver `verificarRampaDelGasto()`.
+   *
+   * Los cinco valores van juntos porque son una sola cuenta y perder cualquiera
+   * la deja sin poder rehacerse: la banda de origen, el coeficiente, el cociente
+   * y los dos productos de vuelta. Con cuatro de los cinco, el quinto queda
+   * afirmado y no derivado — el defecto exacto que I-4 encontró en §8.2.
+   */
+  {
+    valor: 'USD 53.000–96.000M',
+    en: [CABECERA, H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'la banda de quince años sobre la que se corrió el gate de spin-off, publicada en el acta. Es ' +
+      'el único número de plata que este documento no puede tocar: sostiene la legitimidad del PLAN',
+  },
+  {
+    valor: '8,80',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    veces: 2,
+    porQue:
+      'el coeficiente de la rampa —años-régimen equivalentes adentro de quince años calendario—, en ' +
+      'el total de la tabla y en la prosa que lo usa. Es el divisor de la derivación: sin él la ' +
+      'banda anual vuelve a ser una cifra afirmada',
+  },
+  {
+    valor: 'USD 6.000–10.900M',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'la banda anual en régimen, DERIVADA: 53.000/8,80 = 6.023 y 96.000/8,80 = 10.909, redondeados ' +
+      'a la centena hacia adentro. La cabecera prometió que esta sección la derivaba y hasta acá ' +
+      'cualquier número anual habría sido una cifra estrenada',
+  },
+  {
+    valor: 'USD 52.800M',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'la integral de vuelta en el extremo bajo (6.000 × 8,80). Cierra 200 por debajo de 53.000, y ' +
+      'la diferencia va escrita en vez de absorbida ajustando los porcentajes de la rampa',
+  },
+  {
+    valor: 'USD 95.920M',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'la integral de vuelta en el extremo alto (10.900 × 8,80). Los dos productos caen ADENTRO de ' +
+      'la banda del gate: el redondeo empuja para adentro, no para afuera',
+  },
+  /**
+   * **El 0,60% del eje intergeneracional y la división que su reemplazo obliga a
+   * rehacer** (C-3). `PLANPACTO:369` lo declara supuesto de trabajo propio y deja
+   * el permiso escrito: «quien las reemplace rehace la división sin tocar nada
+   * más». PLANARCO lo reemplaza por cero —no crea ninguna afectación específica—
+   * y por lo tanto le debe la división entera, con el denominador corregido. Los
+   * cuatro números van domiciliados porque un reemplazo declarado sin la
+   * división rehecha es la mitad del compromiso, y es la mitad barata.
+   */
+  {
+    valor: '0,60',
+    en: [H3_EJE_INTERGENERACIONAL],
+    veces: 2,
+    porQue:
+      'el supuesto de trabajo de PLANPACTO:369 para el eje intergeneracional, en la cita y en el ' +
+      'reemplazo. Sin las dos, el documento reemplaza un número que no nombró',
+  },
+  {
+    valor: '23,15',
+    en: [H3_EJE_INTERGENERACIONAL],
+    porQue: 'P del escenario central de PLANPACTO:369, que el reemplazo NO toca. Va escrito para que se vea que no se tocó',
+  },
+  {
+    valor: '4,05',
+    en: [H3_EJE_INTERGENERACIONAL],
+    porQue: 'F rehecho: 3,5 del piso viejo + 0,55 de afectaciones ya escritas + 0,00 del eje intergeneracional',
+  },
+  {
+    valor: '41,8',
+    en: [H3_EJE_INTERGENERACIONAL],
+    /**
+     * **Arreglo de la mutación M13.** Con `veces: 1`, cambiar «baja de 42,8 a
+     * 41,8» por «se mantiene en 42,8» salía **exit 0**, porque el 41,8
+     * sobrevivía en el párrafo siguiente —«41,8 sigue siendo un nivel que la
+     * Argentina tuvo»— y el chequeo se daba por satisfecho con la consecuencia
+     * mientras la corrección desaparecía. Las dos ocurrencias son cosas
+     * distintas: una es la división rehecha y la otra es la declaración de que
+     * la conclusión ajena sobrevive, y el documento debe las dos.
+     */
+    veces: 2,
+    porQue:
+      'el denominador corregido de la prueba por el absurdo de PLANPACTO:369: (23,15 + 4,05) / 0,65. ' +
+      'Baja de 42,8 a 41,8, y eso AFLOJA un punto al argumento del documento anterior. Se escribe ' +
+      'igual: un reemplazo que solo se declara cuando favorece al que lo hace no es una declaración',
+  },
+  {
+    valor: '42,8',
+    en: [H3_EJE_INTERGENERACIONAL],
+    porQue: 'el denominador original, que hay que escribir para que el corregido se lea como corrección',
+  },
+  {
+    valor: '1,20–2,18%',
+    en: [H3_EJE_INTERGENERACIONAL],
+    porQue:
+      'la banda anual sobre el producto de referencia de USD 500.000 millones (PLANPACTO:641). Es la ' +
+      'magnitud que vuelve incómoda la ausencia de piso: del orden de la Escalera entera (2,40) sin ' +
+      'escalón propio, y es lo que 9.4 tiene que contestar',
+  },
+  /**
+   * **La columna del medio, y el arreglo de C-6.** «PUAM» y «PNC» tienen cero
+   * ocurrencias en el corpus y ya están prohibidas. Lo que este valor protege es
+   * la mitad positiva: el unitario SÍ existe y está citado, y lo que falta es el
+   * PADRÓN. Sin el unitario escrito, «no hay datos» es más fuerte de lo que el
+   * corpus sostiene —el error que este tramo cometió dieciséis veces— y con él,
+   * el hueco queda diagnosticado en el lugar exacto.
+   */
+  {
+    valor: '~USD 250/mes',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'la jubilación mínima según PLANREP:2261, adentro de una tabla cuya columna se titula «Monto ' +
+      'Aproximado». Es el único unitario de vejez del corpus: lo que falta para la columna del medio ' +
+      'no es el precio sino el padrón, y decirlo así es más preciso que declarar el hueco entero',
+  },
+  {
+    valor: 'USD 500–700 millones',
+    en: [H3_SIN_PISO],
+    porQue:
+      'el presupuesto de régimen de PLANPACTO (PLANPACTO:641), el término de comparación más cercano ' +
+      'y el único no `superseded` que existe. Sin él la escala de este PLAN queda sin contra qué leerse',
+  },
+  {
+    valor: '51.260–65.430M',
+    en: [H3_SIN_PISO],
+    porQue:
+      'el régimen pleno del ecosistema entero (PRESUPUESTO_CONSOLIDADO_BASTA.md:447), citado en otra ' +
+      'forma que en §8.2 a propósito: allá el término era el monto bajo administración y acá es la ' +
+      'erogación propia. Son dos comparaciones distintas y las dos tienen que estar',
   },
 ];
 
@@ -1229,6 +1391,91 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'Regla de Arco de §3.4 manda que la materia decida el escalón. Sin ella, la SECCIÓN 8 crea una ' +
       'agencia de edades que se lee como dueña de una materia ajena',
   },
+  // ── Task 8 ────────────────────────────────────────────────────────────────
+  /**
+   * **La CUARTA rama de declaración de valores, que la Task 7 agregó a las
+   * Global Constraints: la restricción heredada.** «Decisión de diseño de este
+   * documento» hace DOS afirmaciones —que no es una medición, y que este
+   * documento la eligió—, y para la banda de quince años la segunda es falsa:
+   * llega del gate. La fórmula acá sería inventar autoría, que es la misma clase
+   * de error que inventar un número. La nota de procedencia es lo que va, y se
+   * exige escrita porque es lo primero que una compresión se lleva.
+   */
+  {
+    valor: 'no la elige este documento',
+    en: [H3_LA_RAMPA_DEL_GASTO],
+    porQue:
+      'la nota de procedencia de la banda de quince años: llega como restricción del gate y no como ' +
+      'decisión de esta sección. La forma de la rampa SÍ es decisión de diseño; la banda no, y ' +
+      'escribir la fórmula sobre ella sería atribuirse una autoría que no se tiene',
+  },
+  {
+    valor: 'decisión de diseño de este documento',
+    en: [H3_LA_RAMPA_DEL_GASTO, H3_EJE_INTERGENERACIONAL, H3_SIN_PISO],
+    porQue:
+      'los tres valores únicos que esta sección SÍ elige —la forma de la rampa, el cero que reemplaza ' +
+      'al 0,60 y la razón de ejecución— llevan la fórmula canónica. Sin ella quedan como si los ' +
+      'hubiera medido alguien',
+  },
+  {
+    valor: 'monto pendiente',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'la salida honesta de C-6, y es la que PLANPACTO:498 ya usó con la base ancha del IVA: la ' +
+      'columna del medio se carga con monto pendiente y confianza media, no con una cifra. La otra ' +
+      'salida era declarar el hueco entero, y el documento eligió esta porque el unitario existe',
+  },
+  {
+    valor: 'estrenar el padrón',
+    en: [H3_TRES_COLUMNAS],
+    porQue:
+      'el diagnóstico exacto del hueco, que es más preciso que «no hay datos»: el unitario está ' +
+      '(PLANREP:2261) y lo que falta es cuántas personas llegaron por la vía de excepción. ' +
+      'Multiplicar los cinco millones por el mínimo no estrena el precio: estrena el padrón, y ' +
+      'ese es el número que nadie tiene',
+  },
+  {
+    valor: 'uno a veinte',
+    en: [H3_SIN_PISO],
+    porQue:
+      'la razón de ejecución que §3.6 difirió A ESTA SECCIÓN por escrito —«la proporción no se fija ' +
+      'acá: la deriva la Sección 9»—. Sin este valor la pieza uno del blindaje queda anunciada y sin ' +
+      'número, que es la forma más barata de no fijarla, y §3.6 declaró que callarla es no fijarla',
+  },
+  {
+    valor: 'par recíproco',
+    en: [H2_INTEGRACION],
+    porQue:
+      'la mitad que PLANARCO le debe a PLANPACTO, y es lo único que le debe. PLANPACTO:721 escribió ' +
+      'la suya y dejó dicho que este PLAN «todavía tiene una sola mitad escrita»: si esta sección no ' +
+      'la emite, esa frase sigue siendo verdadera con el documento entero escrito',
+  },
+  {
+    valor: 'modo degradado',
+    en: [H2_INTEGRACION],
+    veces: 7,
+    porQue:
+      'las seis dependencias críticas más el par recíproco. La spec obliga a que cada PLAN nuevo lo ' +
+      'declare, y el conteo es lo que impide que se declare para dos y se olvide para cuatro: seis ' +
+      'aristas sin modo degradado son seis puntos de falla que el documento anuncia y no contesta',
+  },
+  {
+    valor: 'no se declara como arista',
+    en: [H2_INTEGRACION],
+    porQue:
+      'el patrón de PLANPACTO:723: lo que no es arista va en prosa CON LA RAZÓN. PLANRUTA no es nodo ' +
+      'del grafo y declararlo rompería la validación. Sin esta frase, la relación se pierde o se ' +
+      'escribe como arista y rompe el registro en el tramo E',
+  },
+  {
+    valor: 'PLANVEJ',
+    en: [H2_INTEGRACION],
+    porQue:
+      'el segundo fantasma (C-9), y no es de la misma clase que el primero: PLANJUB es un PLAN ' +
+      'prometido que nunca se escribió, y PLANVEJ es un código que la reconciliación del canon retiró ' +
+      'y que la aplicación sigue publicando con título propio, con un test que exige que su cuerpo no ' +
+      'cargue. Verificado en los dos archivos antes de escribirlo',
+  },
 ];
 
 /**
@@ -1792,6 +2039,284 @@ function verificarTablas(lineas: string[]): string[] {
   // (c) Task 4: el Calendario de Umbrales. Task 5: fuentes de la Renta de Arco.
   errores.push(...verificarCalendarioDeUmbrales(lineas));
   errores.push(...verificarTablaDeFuentes(lineas));
+  // (d) Task 8: la rampa del gasto y la tabla de tres columnas.
+  errores.push(...verificarRampaDelGasto(lineas));
+  errores.push(...verificarTresColumnas(lineas));
+
+  return errores;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// La rampa del gasto: la SECCIÓN 9.1, y la reconciliación con el gate.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const COLUMNAS_RAMPA = ['Tramo', 'Años', 'Cuántos', 'Ejecución sobre el régimen', 'Años-régimen'];
+
+/** El horizonte del gate, en años. No es negociable: es sobre lo que se corrió. */
+const HORIZONTE_DEL_GATE = 15;
+/** La banda de quince años, en USD millones. Insumo del gate, no salida del acta. */
+const GATE_QUINCE_ANOS: [number, number] = [53_000, 96_000];
+/** La banda anual derivada que el documento declara, en USD millones. */
+const BANDA_ANUAL_REGIMEN: [number, number] = [6_000, 10_900];
+
+/**
+ * **La tabla que cierra C-5, y es el problema más grave del tramo.** La cabecera
+ * declara USD 53.000–96.000M a quince años y el cuerpo, hasta la SECCIÓN 8, no
+ * escribió un peso por año: un régimen constante no cabe en ese horizonte —
+ * 6.000 × 15 = 90.000 y 11.000 × 15 = 165.000— y la rampa que explicaría el
+ * cociente no estaba escrita en ninguna parte del proyecto.
+ *
+ * Escrita, es una tabla, y una tabla se suma. Lo que se verifica no es que los
+ * números estén: es que la CUENTA cierre en las cuatro direcciones que un editor
+ * puede romper una por una sin que se note ninguna:
+ *
+ * 1. **Los tramos parten los quince años sin hueco y sin solapamiento.** El
+ *    calendario de fases del PLAN sí se solapa —los umbrales arrancan adentro de
+ *    la ventana de la rampa—, así que la partición contable es una decisión
+ *    aparte, y si deja de cubrir 1 a 15 la integral deja de ser la integral.
+ * 2. **Cada fila es consistente consigo misma:** años × ejecución = años-régimen.
+ *    Sin esto, mover un porcentaje deja el sub-total viejo y el total sigue dando.
+ * 3. **El total es la suma de la columna**, no un número escrito al pie.
+ * 4. **El producto contra la banda anual cae adentro de la banda del gate**, y
+ *    cae POR DEBAJO en los dos extremos: el redondeo empuja para adentro. Un
+ *    PLAN no se puede reservar un peso más de aquello contra lo que se lo midió.
+ *
+ * La cuarta es la que vuelve verificable la reconciliación entera: con ella, la
+ * banda anual deja de ser una cifra que alguien eligió y pasa a ser un cociente
+ * que cualquiera rehace.
+ */
+function verificarRampaDelGasto(lineas: string[]): string[] {
+  const { filas, errores } = filasDeTabla(lineas, COLUMNAS_RAMPA, true);
+  if (filas === null) {
+    if (errores.length === 0) {
+      errores.push(
+        `falta la tabla de la rampa del gasto, con las columnas [${COLUMNAS_RAMPA.join(' · ')}]. ` +
+          'Es la que reconcilia la banda de quince años del gate con el gasto anual en régimen, y ' +
+          'sin ella la cabecera queda remitiendo a una sección que no cierra la cuenta',
+      );
+    }
+    return errores;
+  }
+  if (filas.length < 3) {
+    errores.push(
+      `la tabla de la rampa tiene ${String(filas.length)} fila(s): son los tramos del horizonte más ` +
+        'la fila de total, y con menos de tres no hay rampa que verificar',
+    );
+    return errores;
+  }
+
+  const total = filas[filas.length - 1];
+  const tramos = filas.slice(0, -1);
+  if (!/total/i.test(total[0] ?? '')) {
+    errores.push(
+      `la última fila de la tabla de la rampa no es el total («${(total[0] ?? '').slice(0, 60)}»): el ` +
+        'total va EN la tabla para que la suma se pueda cruzar contra él, no en la prosa de al lado',
+    );
+    return errores;
+  }
+
+  let anioAnterior = 0;
+  let sumaAnios = 0;
+  let sumaCent = 0;
+  let anioDelRegimen: number | null = null;
+
+  tramos.forEach((fila, k) => {
+    const donde = `fila ${String(k + 1)} de la rampa («${(fila[0] ?? '').slice(0, 40)}»)`;
+
+    const m = /^(\d+)(?:\s*a\s*(\d+))?$/.exec((fila[1] ?? '').trim());
+    if (!m) {
+      errores.push(`${donde}: la columna «Años» no se lee como «N» ni como «N a M»: «${fila[1] ?? ''}»`);
+      return;
+    }
+    const desde = Number(m[1]);
+    const hasta = m[2] === undefined ? desde : Number(m[2]);
+    if (desde !== anioAnterior + 1 || hasta < desde) {
+      errores.push(
+        `${donde}: el tramo va de ${String(desde)} a ${String(hasta)} y el anterior cerró en ` +
+          `${String(anioAnterior)}. Los tramos parten los quince años sin hueco y sin solapamiento: ` +
+          'las FASES del PLAN sí se solapan, y por eso la partición contable es una decisión aparte',
+      );
+    }
+    anioAnterior = hasta;
+
+    const cuantos = Number((fila[2] ?? '').trim());
+    const anios = hasta - desde + 1;
+    if (!Number.isInteger(cuantos) || cuantos !== anios) {
+      errores.push(
+        `${donde}: la columna «Cuántos» dice «${fila[2] ?? ''}» y el tramo ${String(desde)} a ` +
+          `${String(hasta)} son ${String(anios)} año(s)`,
+      );
+      return;
+    }
+    sumaAnios += cuantos;
+
+    const p = /(\d+(?:[.,]\d+)?)\s*%/.exec(fila[3] ?? '');
+    if (!p) {
+      errores.push(`${donde}: la columna «Ejecución sobre el régimen» no trae porcentaje: «${fila[3] ?? ''}»`);
+      return;
+    }
+    const pct = Number(p[1].replace(',', '.'));
+    if (pct === 100 && anioDelRegimen === null) anioDelRegimen = desde;
+
+    const ar = rango(fila[4] ?? '');
+    if (ar === null) {
+      errores.push(`${donde}: la columna «Años-régimen» no trae número: «${fila[4] ?? ''}»`);
+      return;
+    }
+    const esperado = c((cuantos * pct) / 100);
+    if (ar[0] !== esperado) {
+      errores.push(
+        `${donde}: ${String(cuantos)} año(s) al ${String(pct)}% dan ${fmt(esperado)} años-régimen y la ` +
+          `columna dice ${fmt(ar[0])}. Mover un porcentaje sin mover el sub-total deja el total dando ` +
+          'y la rampa describiendo otra cosa',
+      );
+    }
+    sumaCent += ar[0];
+  });
+
+  if (sumaAnios !== HORIZONTE_DEL_GATE) {
+    errores.push(
+      `los tramos de la rampa suman ${String(sumaAnios)} años y el gate se corrió sobre ` +
+        `${String(HORIZONTE_DEL_GATE)}. La integral se calcula sobre el horizonte del gate o no es la ` +
+        'integral que hay que cerrar',
+    );
+  }
+  if (anioDelRegimen === null) {
+    errores.push(
+      'ningún tramo de la rampa ejecuta al 100%: el brief pide la rampa «con el año en que el ' +
+        'régimen se alcanza», y una rampa que nunca llega al régimen no tiene régimen que declarar',
+    );
+  }
+
+  const totalAnios = Number((total[2] ?? '').trim());
+  if (totalAnios !== sumaAnios) {
+    errores.push(
+      `la fila de total dice ${String(totalAnios)} años y los tramos suman ${String(sumaAnios)}`,
+    );
+  }
+  const totalCent = rango(total[4] ?? '');
+  if (totalCent === null || totalCent[0] !== sumaCent) {
+    errores.push(
+      `la fila de total dice «${total[4] ?? ''}» años-régimen y la columna suma ${fmt(sumaCent)}. ` +
+        'El total se cruza contra la suma: escrito al pie y no verificado, es un número que nadie ' +
+        'rehizo',
+    );
+  }
+
+  // La reconciliación: banda anual × coeficiente contra la banda del gate.
+  const coef = sumaCent / 100;
+  ([0, 1] as const).forEach((i) => {
+    const producto = Math.round(BANDA_ANUAL_REGIMEN[i] * coef);
+    const tope = GATE_QUINCE_ANOS[i];
+    if (producto > tope) {
+      errores.push(
+        `la integral en el extremo ${i === 0 ? 'bajo' : 'alto'} da USD ${String(producto)}M y el gate ` +
+          `se corrió sobre USD ${String(tope)}M: el PLAN no puede reservarse un peso más de aquello ` +
+          'contra lo que se lo midió, así que el redondeo empuja para adentro y nunca para afuera',
+      );
+    }
+    if (tope - producto > tope * 0.02) {
+      errores.push(
+        `la integral en el extremo ${i === 0 ? 'bajo' : 'alto'} da USD ${String(producto)}M contra USD ` +
+          `${String(tope)}M del gate: más de dos puntos por debajo ya no es redondeo, es otra banda. ` +
+          'O la rampa está mal, o la banda anual declarada no es la que sale de dividir',
+      );
+    }
+  });
+
+  return errores;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Las tres columnas: la SECCIÓN 9.3, y el arreglo de C-6.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const COLUMNAS_TRES = ['Renglón', 'Erogación bruta', 'Gasto sustituido', 'Incremental neto'];
+/** Una celda con plata escrita: `USD 250`, `$1.200`, `US$ 4`. */
+const CELDA_CON_PLATA = /(?:USD|US\$|AR\$|\$)\s?\d/u;
+
+/**
+ * **La tabla que este corpus entero existe para no inventar** (C-6). La spec la
+ * pedía con la columna del medio llena a partir de «moratoria, PUAM y PNC por
+ * vejez», y de esas tres cosas dos tienen CERO ocurrencias en el corpus —ya
+ * están prohibidas como cadena— y la tercera aparece cinco veces, siempre como
+ * diagnóstico y nunca con monto. La única pensión no contributiva citada en todo
+ * el taller es por invalidez (`PLANCUIDADO:94`), no por vejez.
+ *
+ * De ahí sale la regla, y es de una línea: **ninguna celda de «Gasto sustituido»
+ * ni de «Incremental neto» puede traer plata escrita.** La del medio, porque el
+ * número no existe; la tercera, porque es la primera menos la segunda y una
+ * resta con un término pendiente no da un número: lo lava. Ese lavado es la
+ * forma sofisticada del error, y es la que la prohibición de cadenas no atrapa,
+ * porque un incremental neto escrito en dólares no nombra ninguna sigla.
+ *
+ * La columna de erogación bruta SÍ lleva plata: es la banda derivada en 9.1 y la
+ * línea que `PLANCUIDADO:564` ya contabiliza. La asimetría es el dispositivo.
+ *
+ * Si algún día el padrón existe y la columna se puede llenar con una cifra
+ * citada, esto se cambia acá, a mano y con la razón escrita. Que cueste un
+ * commit es exactamente lo que se quiere.
+ */
+function verificarTresColumnas(lineas: string[]): string[] {
+  const { filas, errores } = filasDeTabla(lineas, COLUMNAS_TRES, true);
+  if (filas === null) {
+    if (errores.length === 0) {
+      errores.push(
+        `falta la tabla de tres columnas, con [${COLUMNAS_TRES.join(' · ')}]. Es la que el brief ` +
+          'exige y la que obliga a declarar que la del medio no se puede llenar con datos del corpus',
+      );
+    }
+    return errores;
+  }
+  /**
+   * **Conjunto EXACTO, no mínimo, y es el arreglo de la mutación M10.** Con
+   * `filas.length < 3` como única guarda, borrar la fila del Tramo Común dejaba
+   * tres filas y salía **exit 0**: un renglón del PLAN desaparecía del modelo
+   * económico sin que nadie levantara la mano. El conjunto de renglones que este
+   * PLAN eroga está cerrado —los tres tramos de la Renta de Arco y la Capa de
+   * Forma— y se verifica por nombre en las dos direcciones, como la portada.
+   */
+  const RENGLONES = ['Piso Vital', 'Tramo Ganado', 'Tramo Común', 'Capa de Forma'];
+  if (filas.length !== RENGLONES.length) {
+    errores.push(
+      `la tabla de tres columnas tiene ${String(filas.length)} fila(s) y tiene que tener ` +
+        `${String(RENGLONES.length)}: los tres tramos de la Renta de Arco y la Capa de Forma. Ni una ` +
+        'menos —un renglón que se cae del modelo económico es un gasto que el PLAN deja de declarar— ' +
+        'ni una más sin pasar por acá',
+    );
+  }
+  for (const renglon of RENGLONES) {
+    if (!filas.some((f) => (f[0] ?? '').includes(renglon))) {
+      errores.push(
+        `la tabla de tres columnas no trae el renglón «${renglon}»: el conjunto es cerrado y se ` +
+          'verifica por nombre, porque contar filas no distingue una fila borrada de una duplicada',
+      );
+    }
+  }
+
+  filas.forEach((fila, k) => {
+    ([2, 3] as const).forEach((i) => {
+      const celda = fila[i] ?? '';
+      if (CELDA_CON_PLATA.test(celda)) {
+        errores.push(
+          `fila ${String(k + 1)} de la tabla de tres columnas («${(fila[0] ?? '').slice(0, 40)}»): la ` +
+            `columna «${COLUMNAS_TRES[i]}» trae plata escrita («${celda.slice(0, 60)}»). El gasto ` +
+            'sustituido no se puede cifrar —el corpus no tiene el padrón de los que llegaron por la ' +
+            'vía de excepción— y el incremental neto es la resta que lo contiene: escribirlo en ' +
+            'dólares lava un número inventado a través de una sustracción, y ninguna sigla prohibida ' +
+            'aparece en el camino',
+        );
+      }
+    });
+  });
+
+  if (!filas.some((f) => /monto pendiente/i.test(f[2] ?? ''))) {
+    errores.push(
+      'ninguna fila carga la columna «Gasto sustituido» con «monto pendiente»: es la salida que ' +
+        'PLANPACTO:498 ya usó con la base ancha del IVA, y sin ella la columna queda vacía sin decir ' +
+        'por qué, que se lee como olvido y no como declaración',
+    );
+  }
 
   return errores;
 }
@@ -3678,6 +4203,49 @@ function verificarPortadaNoAnunciaDeMas(portada: string[]): string[] {
   return errores;
 }
 
+/**
+ * Las seis dependencias `requires` de naturaleza CRITICAL que la INTEGRACIÓN
+ * tiene que emitir, cada una con su modo degradado **en su propio párrafo**.
+ *
+ * **Arreglo de la mutación M16, y es la misma lección que este archivo lleva
+ * anotada cuatro veces: la unidad del chequeo tiene que coincidir con la unidad
+ * verificada.** La aserción `modo degradado` con `veces: 7` cuenta ocurrencias
+ * en la sección entera, así que las siete se compensan entre sí: borrarle el
+ * modo degradado a PLANREP dejaba siete en el resto del texto y salía **exit
+ * 0**, con una dependencia crítica anunciada y sin contestar. El párrafo es la
+ * unidad real —una arista, un párrafo— y acá se verifica ahí.
+ *
+ * El conteo grueso se deja igual: atrapa el caso de que alguien borre dos y
+ * reescriba uno, y el fino atrapa el de que borre el que le molesta.
+ */
+const ARISTAS_CRITICAS = ['PLANCUIDADO', 'PLANMON', 'PLANTER', 'PLANDIG', 'PLANSAL', 'PLANREP'];
+
+function verificarAristasCriticas(lineas: string[]): string[] {
+  const { tramo, errores } = tramoDeSeccion(lineas, H2_INTEGRACION);
+  if (tramo === null) return errores;
+
+  for (const code of ARISTAS_CRITICAS) {
+    const parrafos = tramo.filter((l) => l.trimStart().startsWith(`**${code}**`));
+    if (parrafos.length !== 1) {
+      errores.push(
+        `la INTEGRACIÓN tiene ${String(parrafos.length)} párrafo(s) que abran con «**${code}**» y ` +
+          'tiene que haber uno: PLANARCO declara seis dependencias críticas y cada una lleva su ' +
+          'párrafo. Sin ancla única, el modo degradado no se puede verificar contra la arista',
+      );
+      continue;
+    }
+    if (!parrafos[0].includes('modo degradado')) {
+      errores.push(
+        `la arista crítica con ${code} no declara su modo degradado en su propio párrafo. La spec ` +
+          'obliga a que cada PLAN nuevo lo escriba, y una dependencia crítica sin él es un punto de ' +
+          'falla que el documento anuncia y no contesta',
+      );
+    }
+  }
+
+  return errores;
+}
+
 function main(): void {
   let raw: string;
   try {
@@ -3762,6 +4330,8 @@ function main(): void {
   //    precedentes leídos en dos columnas.
   errores.push(...verificarOchoFallas(lineas));
   errores.push(...verificarPrecedentesEnDosColumnas(lineas));
+  // 8 bis) Task 8: cada arista crítica con su modo degradado, EN SU PÁRRAFO.
+  errores.push(...verificarAristasCriticas(lineas));
 
   // 9) Las anclas de la PROSA, abiertas una por una contra su documento.
   const prosa = verificarAnclasDeProsa(lineas);
@@ -3784,6 +4354,7 @@ function main(): void {
       '(conjunto exacto: ni falta ni sobra), ' +
       `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
       `${String(SUBSECCIONES_ESPERADAS.length)} secciones con su anatomía interna contada y correlativa, ` +
+      `${String(ARISTAS_CRITICAS.length)} aristas críticas con su modo degradado en su propio párrafo, ` +
       'precedentes en dos columnas balanceadas adentro de cada PÁRRAFO, ' +
       `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas, sus dispositivos ` +
       'cruzados contra los trece de la portada y sus ocupantes resueltos ancla por ancla contra el ' +
@@ -3791,6 +4362,12 @@ function main(): void {
       'tabla de fuentes contigua con sus clases cruzadas contra SOURCE_OF_FUNDS_LEDGER.md, cada fila ' +
       'anclada cruzada contra SU línea del libro mayor (dueño, confianza, disponibilidad y clase) y ' +
       `sin una sola fila \`${CLASE_PROHIBIDA}\`, ` +
+      `rampa del gasto con sus tramos partiendo ${String(HORIZONTE_DEL_GATE)} años sin hueco ni ` +
+      'solapamiento, cada fila consistente (años × ejecución = años-régimen), el total cruzado contra ' +
+      `la suma de la columna y el producto contra la banda anual declarado por DEBAJO de USD ` +
+      `${String(GATE_QUINCE_ANOS[0])}–${String(GATE_QUINCE_ANOS[1])}M del gate, ` +
+      'tabla de tres columnas contigua sin una sola magnitud monetaria en «Gasto sustituido» ni en ' +
+      '«Incremental neto» y con la del medio cargada como monto pendiente, ' +
       `${String(prosa.resueltas)} anclas de la prosa abiertas y resueltas contra su documento ` +
       '(todo token con forma de ancla que la guardia no sepa leer se reporta, no se descarta, y la ' +
       'remisión corta corre SOLO contra un ancla completa de su misma oración), ' +
