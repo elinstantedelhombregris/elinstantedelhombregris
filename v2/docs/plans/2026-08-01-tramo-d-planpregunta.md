@@ -617,3 +617,30 @@ Al terminar las doce tareas:
 3. El split del FSC dice lo mismo en PLANPREGUNTA y en PLANTER, y los dos suman 100.
 4. No queda ninguna cita a `PLANFOCO:` con número de línea, ni ningún marcador de pendiente.
 5. **Queda anotado lo que este tramo no hizo, con nombre:** PLANFOCO (la otra mitad del tramo D y la otra mitad del par recíproco), la pata industrial de PLANCYT que sigue repartida entre cinco PLANes, y todo el tramo E — el canon, los conteos, el grafo y lo no humano.
+
+---
+
+## Registro de cierre — 2026-08-01
+
+**Las doce tareas están hechas y las cinco condiciones de arriba se verificaron una por una.**
+
+| Qué | Resultado |
+|---|---|
+| Largo del documento | **29.242 palabras** (`wc -w`), adentro de 29.000–34.000 |
+| Secciones | 26 H2 en orden, cada una con su epígrafe salvo las cuatro exentas |
+| Guardia | `npx tsx scripts/verificar-planpregunta.ts` sale 0; **18 mutaciones probadas en rojo** |
+| Split del FSC | dice lo mismo en PLANPREGUNTA §13.2 y en PLANTER §0.6, §3.3 y §11.2, y suma 100 de los dos lados |
+| Rampa | cinco fases, quince años, **16.500 exacto abajo y 25.500 arriba**, adentro de la banda del gate |
+| Otras guardias | `verificar-planpacto.ts` y `verificar-planarco.ts` en verde; `npm run check` y `npm run test:unit` en verde |
+
+**Los cuatro rangos que se corrigieron sobre la marcha, todos con la medición escrita:** la cabecera (560–620 → **700–760**, por dos bloques que ningún otro PLAN lleva), las ocho fallas (3.200–3.700 → **2.000–2.600**, calibradas contra PLANARCO cuando el brief manda seguir a PLANPACTO), la banda anual de régimen (1.400–2.400 → **1.500–2.300**, porque la de la spec no cae adentro de la banda de quince años por ningún reparto) y el faltante del año malo (80 → **180 millones**, con un sobrante simétrico en el año bueno que este plan no había visto).
+
+### Lo que este tramo aprendió y el tramo E tiene que llevar puesto
+
+**1. Editar un documento ajeno corre las líneas, y las remisiones ajenas no se mueven solas.** Escribir el nuevo split del lado de PLANTER corrió sus líneas +9 desde §3.3 y +12 desde §11.2, y eso rompió **ocho remisiones de PLANARCO**, varias de PLANPREGUNTA y las de la guardia de PLANARCO. Lo encontró esa guardia, no el implementador. **El tramo E toca diez documentos ajenos**: cada inserción tiene que ir seguida de un barrido de `ARCHIVO:línea` sobre el corpus entero, y de correr **todas** las guardias, no la propia.
+
+**2. Y hay un daño que no es de líneas sino de contenido.** PLANARCO afirmaba en presente que el flujo del FSC se reparte en cinco líneas y que el Fondo Intergeneracional es el 15%. Las dos cosas eran verdad y dejaron de serlo. Se arreglaron con **notas de actualización fechadas y no con reescritura** —el argumento de PLANARCO no cambia—, y su guardia pasó a admitir los dos valores con la razón escrita. **Cambiar un número del corpus obliga a barrer quién lo afirmaba.**
+
+**3. Una lista opt-in incompleta no sale roja: sale verde.** `SUBSECCIONES_ESPERADAS` perdió dos entradas porque dos ediciones no aplicaron y nadie se enteró. El arreglo —descubrimiento automático de secciones con dos o más `### N.M` no declaradas— encontró después, sola, la entrada que faltaba para la SECCIÓN 13. **Toda lista opt-in de una guardia necesita su chequeo de cobertura desde el primer commit.**
+
+**4. Y una de método: las ediciones por script tienen que fallar cuando no aplican.** Las dos entradas perdidas se perdieron en `str.replace()` sin verificación. Desde la Task 9 todas las ediciones van con `assert` de presencia y de unicidad, y desde entonces no se perdió ninguna.
