@@ -25,6 +25,14 @@ const MDX_DIR = resolve(V2_ROOT, 'content/planes');
 
 const CAMPOS_TEXTO = ['slug', 'code', 'title', 'nombreInstitucional', 'summary'] as const;
 
+/**
+ * El canon pasó de 22 a 26 temáticos el 2026-08-01, con la entrada de PLANPACTO
+ * (23), PLANARCO (24), PLANPREGUNTA (25) y PLANFOCO (26). La autoridad de papel
+ * es `Iniciativas Estratégicas/PLAN_REGISTRY.yml` (`thematic_count`), y este
+ * número tiene que seguirla — no al revés.
+ */
+const TEMATICOS_ESPERADOS = 26;
+
 function leerFrontmatter(raw: string): Record<string, string> {
   const match = /^---\n([\s\S]*?)\n---\n/.exec(raw);
   if (!match) return {};
@@ -75,8 +83,10 @@ function main(): void {
   const meta = PLANES_INDEX.filter((p) => p.isMeta);
   const tematicos = PLANES_INDEX.filter((p) => !p.isMeta);
   if (meta.length !== 1) errores.push(`Se esperaba 1 plan meta, hay ${String(meta.length)}.`);
-  if (tematicos.length !== 22) {
-    errores.push(`Se esperaban 22 planes temáticos, hay ${String(tematicos.length)}.`);
+  if (tematicos.length !== TEMATICOS_ESPERADOS) {
+    errores.push(
+      `Se esperaban ${String(TEMATICOS_ESPERADOS)} planes temáticos, hay ${String(tematicos.length)}.`,
+    );
   }
 
   for (const entrada of PLANES_INDEX) {

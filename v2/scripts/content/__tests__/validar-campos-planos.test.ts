@@ -51,7 +51,7 @@ describe('validarCamposPlanos (guardia de comillas simples y saltos de línea)',
   });
 
   it('la tabla real PLANES_SOURCES pasa la guardia — las 23 filas actuales', () => {
-    expect(PLANES_SOURCES).toHaveLength(23);
+    expect(PLANES_SOURCES).toHaveLength(27);
     for (const fuente of PLANES_SOURCES) {
       expect(() => validarCamposPlanos(fuente), `${fuente.code} no pasó la guardia`).not.toThrow();
     }

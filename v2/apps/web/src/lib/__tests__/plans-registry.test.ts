@@ -9,7 +9,7 @@ import {
 
 describe('plans-registry (canon + carga diferida)', () => {
   it('canon: 22 temáticos + 1 meta', () => {
-    expect(PLAN_REGISTRY.filter((p) => !p.isMeta)).toHaveLength(22);
+    expect(PLAN_REGISTRY.filter((p) => !p.isMeta)).toHaveLength(26);
     expect(PLAN_REGISTRY.filter((p) => p.isMeta)).toHaveLength(1);
   });
 

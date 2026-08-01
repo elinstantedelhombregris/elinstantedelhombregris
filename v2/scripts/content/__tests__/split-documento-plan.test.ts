@@ -97,8 +97,8 @@ describe('partirDocumentoPlan', () => {
     expect(cuerpo).toContain('# PLANX');
   });
 
-  it('los 23 documentos reales del corpus se parten con cuerpo no vacío', () => {
-    expect(archivosCorpus).toHaveLength(23);
+  it('los 27 documentos reales del corpus se parten con cuerpo no vacío', () => {
+    expect(archivosCorpus).toHaveLength(27);
 
     for (const archivo of archivosCorpus) {
       const raw = readFileSync(resolve(CORPUS, archivo), 'utf8');

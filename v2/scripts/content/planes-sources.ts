@@ -1,5 +1,5 @@
 /**
- * Frontmatter de los 23 planes del canon.
+ * Frontmatter de los 27 documentos del canon: 26 planes temáticos + PLANRUTA.
  *
  * Borrador emitido por scripts/content/extraer-fuentes-planes.ts y DESPUÉS
  * CORREGIDO A MANO. Esta tabla es la autoridad: el extractor no se vuelve a
@@ -254,5 +254,45 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
     orderIndex: 22,
     isMeta: false,
     archivoFuente: 'PLANMOV_Argentina_ES.md',
+  },
+  {
+    code: 'PLANPACTO',
+    slug: 'planpacto',
+    title: "Pagás toda tu vida y nunca te dieron el recibo",
+    nombreInstitucional: "Plan Nacional de Pacto Fiscal, Reparto Federal y Escalera de Garantías",
+    summary: "Argentina discutió cuarenta años cuánto gastar y no discutió nunca quién paga ni cómo se reparte. La Ley 23.548 se sancionó con vigencia declarada de dos años y lleva treinta y ocho; el artículo 75 inciso 2 es el mandato constitucional incumplido más largo de la república. PLANPACTO no es una reforma tributaria: es el acuerdo previo a cualquier reforma tributaria. Parte el Techo en dos —Techo A de rigidez total, Techo B de afectación nueva, que es donde se aplica el LIFO—, reemplaza los diecisiete pisos constitucionales que los otros PLANes reclamaban por un piso ÚNICO y sustitutivo del 2,40% del PBI expresado como 7,5% del gasto primario consolidado, y ordena qué se conserva en la Escalera de Garantías: ocho escalones que suman ese 2,40% exacto. Administra el Consejo Federal Fiscal (CFF). USD 500–700M/año en régimen, 1.400–1.500M en transición.",
+    orderIndex: 23,
+    isMeta: false,
+    archivoFuente: 'PLANPACTO_Argentina_ES.md',
+  },
+  {
+    code: 'PLANARCO',
+    slug: 'planarco',
+    title: "Nacer no es una lotería. Morir no es un trámite",
+    nombreInstitucional: "Plan Nacional del Arco de la Vida, Calendario de Umbrales y Renta de Arco",
+    summary: "Los otros PLANes están escritos para un adulto, productivo, urbano, en tiempo presente: nadie nace, nadie envejece, nadie muere. PLANARCO es el sistema endocrino que le avisa al resto del cuerpo en qué etapa de la vida está la persona que tiene enfrente. Organiza el arco entero —gestación, infancia, adolescencia, adultez, vejez, final— con un Calendario de Umbrales que fija qué le debe el Estado a cada persona en cada estación y con qué institución la atiende, más la Renta de Arco y la Dote. Agarra los dos flujos que el corpus nunca había tocado: el previsional, que es alrededor del 45% del presupuesto nacional, y el FGS. Lo administra la Agencia Nacional del Arco de la Vida (ANAV). USD 6.000–11.000M/año bruto, 2.500–5.000M netos incrementales.",
+    orderIndex: 24,
+    isMeta: false,
+    archivoFuente: 'PLANARCO_Argentina_ES.md',
+  },
+  {
+    code: 'PLANPREGUNTA',
+    slug: 'planpregunta',
+    title: "No nos falta talento. Nos falta decir para qué",
+    nombreInstitucional: "Plan Nacional de la Pregunta, el Censo de Ignorancia y la Prueba de Barro",
+    summary: "La Argentina no tiene un problema de talento: tiene un problema de puntería. Discute cuánto pone en ciencia y no discutió nunca para qué. PLANPREGUNTA hace de la Pregunta la unidad de organización del conocimiento público: la Pregunta Nacional con jurado sorteado, el Censo de Ignorancia bidireccional que registra lo que el país no sabe que no sabe, nueve verticales con dueño declarado, la Prueba de Barro —doce meses en manos de alguien que no lo inventó—, el Sello Abierto, el Banco de Materia Viva, el Turno de Máquina, la Cátedra Portátil y de Regreso, un cupo de Credencial Consolidada sin trayectoria académica, y un capítulo entero de doble uso y bioseguridad. No reclama piso constitucional ni el 0,39% legal: se financia con ocho puntos del Fondo Soberano Ciudadano de PLANTER. Lo administra la Agencia Nacional del Conocimiento (ANCON). USD 16.500–26.000M a quince años.",
+    orderIndex: 25,
+    isMeta: false,
+    archivoFuente: 'PLANPREGUNTA_Argentina_ES.md',
+  },
+  {
+    code: 'PLANFOCO',
+    slug: 'planfoco',
+    title: "Nadie te robó las cinco horas. Se las estás dando",
+    nombreInstitucional: "Plan Nacional de la Palabra Pública, la Biblioteca Viva y el Acervo Común",
+    summary: "La palabra pública no se arregla poniéndole reglas al que habla: se arregla cambiando adónde mira el país y construyendo el lugar donde esa mirada aterriza. El Estado no regula, no licencia, no censura y no le toca un pelo a ningún medio — se aplica una sola disciplina a sí mismo, sobre su propia billetera. La Pauta Ciega le quita al Estado la capacidad de elegir a qué medio le da un peso y después extingue la publicidad oficial en cinco años, hasta cero. Con esa plata, que ya existe, financia la Biblioteca Viva (1.200–1.500 sedes con bibliotecario, acervo y horario), La Antena (dotación de canal para cualquiera que la pida), La Cartelera, El Acervo Abierto, La Sala Común, La Procedencia y el Desmontaje, que dicta PLANEDU. Sin piso constitucional: su techo lo fija la fuente que apaga. Lo administra la ANBAC. USD 300–450M/año.",
+    orderIndex: 26,
+    isMeta: false,
+    archivoFuente: 'PLANFOCO_Argentina_ES.md',
   },
 ];

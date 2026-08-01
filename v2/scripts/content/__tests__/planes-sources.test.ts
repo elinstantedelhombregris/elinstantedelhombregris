@@ -28,9 +28,9 @@ function soloLetras(s: string): string {
 
 describe('PLANES_SOURCES (canon de la tabla de fuentes)', () => {
   it('tiene 23 entradas: 22 temáticas + 1 meta', () => {
-    expect(PLANES_SOURCES).toHaveLength(23);
+    expect(PLANES_SOURCES).toHaveLength(27);
     expect(PLANES_SOURCES.filter((p) => p.isMeta)).toHaveLength(1);
-    expect(PLANES_SOURCES.filter((p) => !p.isMeta)).toHaveLength(22);
+    expect(PLANES_SOURCES.filter((p) => !p.isMeta)).toHaveLength(26);
   });
 
   it('el meta es PLANRUTA y va en orderIndex 0', () => {
@@ -39,16 +39,16 @@ describe('PLANES_SOURCES (canon de la tabla de fuentes)', () => {
     expect(meta?.orderIndex).toBe(0);
   });
 
-  it('los ordinales temáticos son 1..22 sin huecos ni repetidos', () => {
+  it('los ordinales temáticos son 1..26 sin huecos ni repetidos', () => {
     const ordinales = PLANES_SOURCES.filter((p) => !p.isMeta)
       .map((p) => p.orderIndex)
       .sort((a, b) => a - b);
-    expect(ordinales).toEqual(Array.from({ length: 22 }, (_, i) => i + 1));
+    expect(ordinales).toEqual(Array.from({ length: 26 }, (_, i) => i + 1));
   });
 
   it('códigos y slugs únicos, y el slug es el código en minúscula', () => {
-    expect(new Set(PLANES_SOURCES.map((p) => p.code)).size).toBe(23);
-    expect(new Set(PLANES_SOURCES.map((p) => p.slug)).size).toBe(23);
+    expect(new Set(PLANES_SOURCES.map((p) => p.code)).size).toBe(27);
+    expect(new Set(PLANES_SOURCES.map((p) => p.slug)).size).toBe(27);
     for (const p of PLANES_SOURCES) {
       expect(p.slug).toBe(p.code.toLowerCase());
     }
