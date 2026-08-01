@@ -273,3 +273,80 @@ Este documento **no cita cifras de sistemas extranjeros**. Los modelos que la li
 Se declara además por qué uno de ellos no se adopta aunque parezca el más obvio: **el canon de radiodifusión pública queda descartado por decisión de diseño de este documento**, porque un canon es una bolsa nueva de plata atada a medios, y la tesis entera de este PLAN es que la existencia de la bolsa es el problema y no su forma de reparto.
 
 ---
+
+## SECCIÓN 3: LA PAUTA CIEGA
+
+> *"No se reparte mejor. Se apaga."*
+
+Este es el primer dispositivo, es el único que no le pide permiso a nadie, y es el que paga todo lo demás. Se ejecuta por decreto sobre la billetera del propio Estado, no necesita ley, no necesita agencia, no necesita plataforma y funciona con una planilla si nada más llega a tiempo.
+
+### 3.1 El mecanismo: primero ciega, después nada
+
+La Pauta Ciega tiene dos actos y el orden importa, porque el primero es reversible y el segundo no.
+
+**Acto uno: el Estado pierde la capacidad de elegir.** Toda decisión de colocación —qué medio, qué programa, qué portal, qué monto— sale de las manos del funcionario y pasa a un procedimiento que nadie puede orientar. No es una fórmula: es un sorteo con estratos declarados por anticipado, publicado antes de conocer los resultados, con el padrón cerrado y la semilla firmada. Ninguna autoridad, ni política ni técnica, puede intervenir un caso. Si un medio quedó fuera del sorteo, quedó fuera; si un medio incómodo salió sorteado tres meses seguidos, salió sorteado tres meses seguidos.
+
+**Acto dos: la bolsa se apaga.** El sorteo no es el destino: es la anestesia mientras se corta. La bolsa se reduce en quintos, por cronograma publicado el primer día, hasta cero.
+
+**Por qué el acto dos y no solamente el uno**, que es la pregunta obvia y la respuesta es la tesis entera de la sección. Un sorteo bien hecho elimina la discrecionalidad y no elimina la dependencia: el medio sigue viviendo de una transferencia estatal, sigue sabiendo que la bolsa existe, y sigue teniendo un incentivo permanente en que el gobierno la agrande. La correa deja de tener dueño y sigue siendo correa. Y una bolsa sin dueño es el objeto más fácil de recapturar que existe, porque el gobierno siguiente sólo tiene que cambiar el procedimiento, no crearlo.
+
+**Y por qué no una fórmula, que es la reforma que todos proponen.** Acá este documento tiene que ser incómodo con su propio corpus. `PLANCUL:387`, Acción 3, propone *«Redistribuir pauta publicitaria: Fórmula transparente (50% audiencia, 30% geografía, 20% diversidad)»*. La mitad del reparto va por audiencia. En un mercado concentrado, ponderar por audiencia es un mecanismo de concentración: le da más plata al que ya tiene más público, con la firma de la transparencia encima y sin que nadie pueda objetar el procedimiento, porque el procedimiento es impecable. **Una correa transparente sigue siendo una correa, y una correa auditada es una correa que ya no se puede discutir.**
+
+Lo mismo, y peor, con la variante técnica más de moda: repartir por **alcance verificado**. La medición independiente resuelve el fraude y agrava el problema de fondo, porque premia exactamente el resultado del proceso de concentración que se quería revertir. Es la reforma que le paga al ganador de la guerra que se perdió.
+
+**Hay una consecuencia que este documento tiene que escribir antes de seguir, porque es la única que le duele a alguien concreto.** Hay medios en la Argentina que viven de la pauta oficial y que sin ella cierran. No son, en general, los grandes: los grandes tienen otras fuentes y la pauta les es cómoda, no vital. Los que cierran son radios de pueblo, portales provinciales de tres personas, revistas de nicho — muchos de los cuales hacen el único periodismo que se hace en su territorio.
+
+Este PLAN **no los rescata, y no finge que sí.** Rescatarlos con una línea de subsidio sería recrear la bolsa con otro nombre y con la misma consecuencia, porque el que otorga el subsidio elige. Lo que este PLAN les da es otra cosa y hay que juzgarla por lo que es: la dotación de canal de La Antena, que no discrimina y no se solicita a nadie que decida; la Cartelera, que les da distribución territorial gratuita; y un público que, por primera vez en veinte años, tiene un lugar físico donde ir a leer. Puede no alcanzar. **Si no alcanza, algunos cierran**, y este documento prefiere decirlo acá antes que descubrirlo en el año tres.
+
+Lo que no se hace, en ningún caso, es dejar la puerta entreabierta «para los medios chicos». Un régimen de excepción para los chicos es un régimen de excepción, y el criterio de quién es chico lo fija alguien.
+
+**Este PLAN deroga expresamente la Acción 3 de `PLANCUL:387`**, y lo hace en los dos documentos: acá y allá, con nota fechada, porque una derogación escrita de un solo lado deja al otro afirmando en presente algo que dejó de ser verdad. La derogación **no toca nada más de PLANCUL**: aquel PLAN conserva íntegros su parasitismo estratégico, su presupuesto cero, su ausencia de agencia y su compromiso de no-intervención de `PLANCUL:389`. Le saca una tarea de gobierno; no le agrega una sola obligación ni un solo peso. Un PLAN que declara que *«cada punto de contacto entre gobierno y cultura es un punto de vulnerabilidad»* sale de esta derogación con un punto de contacto menos, que es exactamente lo que pidió.
+
+### 3.2 El cronograma de extinción
+
+La publicidad oficial consolidada son **USD 450M por año** (`PRESUPUESTO_CONSOLIDADO_BASTA.md:419`, confirmado por `PLANMESA:788`). Se apaga en cinco años, en quintos iguales de 90 millones, con el cronograma completo publicado en el decreto fundacional y no negociable después:
+
+| Año | Pauta remanente | Liberado |
+|---|---|---|
+| 2027 | 360 | 90 |
+| 2028 | 270 | 180 |
+| 2029 | 180 | 270 |
+| 2030 | 90 | 360 |
+| 2031 | 0 | 450 |
+| 2032 en adelante | 0 | 450 |
+
+Tres decisiones de diseño en esa tabla, y las tres son decisiones de este documento:
+
+**Quintos iguales y no una curva.** Una curva agresiva al principio dejaría sin ingresos a medios chicos que dependen de la pauta antes de que exista un solo lugar donde su público pueda ir a buscarlos; una curva agresiva al final le daría al gobierno siguiente cuatro años de correa intacta y un cronograma fácil de derogar antes de que muerda. El quinto parejo hace que la extinción sea irreversible por acumulación: al tercer año ya se liberaron 270 millones que están comprometidos en sedes abiertas con gente adentro, y volver atrás significa cerrar bibliotecas para pagar publicidad.
+
+**Cinco años y no diez.** El plazo tiene que ser más corto que dos períodos de gobierno para que ninguna gestión pueda simplemente esperar a que se vaya la que lo firmó.
+
+**Cero y no un piso mínimo.** No queda una pauta residual «para casos excepcionales». La excepción es la puerta, y la puerta siempre se agranda.
+
+**Qué pasa si un gobierno simplemente no cumple.** La respuesta honesta es que un decreto se deroga con otro decreto, y que este dispositivo no tiene blindaje constitucional porque este PLAN no reclama piso. Lo que sí tiene es una asimetría de costo que se construye a propósito: derogar el cronograma no basta para que vuelva la correa — hay que **volver a crear la partida**, con firma, en el Boletín Oficial, con nombre y monto, en un país donde para entonces esos 450 millones van a estar visiblemente pagando mil quinientas bibliotecas abiertas. No es una garantía. Es hacer que el retroceso tenga que ser explícito, que es la única protección que este PLAN puede ofrecer sin darle a nadie una potestad nueva.
+
+**Y hay un límite federal que conviene declarar acá y no esconderlo en la Sección 19.** La cifra de `PRESUPUESTO_CONSOLIDADO:419` es de publicidad oficial **consolidada**, es decir de los tres niveles del Estado. La Nación puede extinguir la suya por decreto propio; **no puede extinguir la provincial ni la municipal**, que en varias provincias es proporcionalmente más determinante sobre el sistema local de medios que la nacional. La adhesión provincial es voluntaria, se ofrece con contrapartida —las sedes de la Biblioteca Viva se asignan con prioridad a las jurisdicciones que adhieren— y **puede no pasar nunca en algunas provincias**. Eso significa que en esas provincias la correa local sigue existiendo aunque la nacional se apague. Este documento no tiene manera de resolverlo sin pedir una facultad que tiene prohibido pedir, y lo deja escrito como lo que es: un límite, no un pendiente.
+
+### 3.3 El umbral de quién cuenta como medio va en la ley
+
+Durante los cinco años del acto uno hay que decidir quién entra al sorteo, y ahí está escondida la única facultad peligrosa de todo este PLAN: **decidir qué cuenta como medio es decidir quién existe.** Un umbral bajo mete a cualquiera que abra un blog; un umbral alto reconstruye el registro de habilitados con otro nombre. Y quien fije el umbral, fija el padrón.
+
+**Por eso el umbral va en la ley y no en una resolución de ANBAC.** No es una preferencia de técnica legislativa: es la diferencia entre una regla que cambia con un debate parlamentario público y una regla que cambia con la firma de un director designado. En el diseño crudo de este PLAN el umbral estaba en una resolución de la agencia, y ahí adentro estaba, sin que nadie lo hubiera querido, **la facultad de licenciar**: alcanzaba con mover un parámetro para dejar afuera a quien molestara.
+
+La ley fija tres cosas y ninguna más: los criterios objetivos y verificables sin juicio editorial (antigüedad de publicación, periodicidad, domicilio fiscal, nómina declarada); el procedimiento de inscripción, que es automático y por declaración jurada; y el recurso, que **no** lo resuelve ANBAC sino el fuero que la Sección 6 le pide a PLANJUS. La agencia administra el padrón y no lo define. Un padrón que administra quien no puede cambiar sus reglas es un registro; un padrón que administra quien puede cambiarlas es una licencia.
+
+Y hay un dato que hace que todo esto dure menos de lo que parece: **en 2032 el padrón deja de importar**, porque no hay plata que repartir. El umbral es un problema de cinco años, y esa es otra razón para que la extinción sea corta.
+
+### 3.4 Qué pasa con la comunicación que el Estado sí necesita hacer
+
+La objeción seria a este dispositivo no es la de los medios: es la sanitaria. Cuando hay un brote, cuando hay que censar, cuando hay elecciones, cuando hay una alerta meteorológica, el Estado necesita que un mensaje llegue rápido a mucha gente. Si se apaga la pauta, ¿con qué se hace?
+
+La respuesta tiene tres partes y ninguna es una excepción a la extinción.
+
+**Primero: la obligación de emisión gratuita ya existe y no es pauta.** El espectro radioeléctrico es un bien público concesionado, y la contraprestación por usarlo incluye la difusión de mensajes de emergencia y de interés electoral. Eso no se paga: se debe. Confundir la obligación con la compra es precisamente lo que permitió que la compra creciera hasta 450 millones.
+
+**Segundo: los canales propios.** La Antena de la Sección 5, la Cartelera de la Sección 6 y la red de mil doscientas a mil quinientas sedes de la Sección 4 son infraestructura de difusión del Estado que no le compra espacio a nadie. Una campaña de vacunación que llega por la Biblioteca del barrio, por la Cartelera del municipio y por el canal propio llega igual y no deja correa.
+
+**Tercero, y es el punto que hay que decir sin adornarlo:** llega *distinto*. Llega a menos gente al principio, con menos velocidad, y sin el alcance de un aviso central en horario central. **Ese costo es real, este documento no lo esconde, y lo acepta**, por dos razones. Una: los cinco años de extinción son exactamente la ventana en la que se construyen los canales propios, así que la capacidad no se apaga antes de que exista el reemplazo. Dos: un país que sólo puede hablarle a su población alquilándole espacio a cuatro empresas privadas no tiene un problema de comunicación de emergencia, tiene un problema de soberanía, y resolverlo comprando más espacio lo agrava todos los años.
+
+---
