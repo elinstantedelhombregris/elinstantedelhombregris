@@ -254,9 +254,9 @@ Objetivo total: **26.000–28.500 palabras**. Calibrado contra el corpus: PLANCU
 | Cabecera + portada | 700–780 |
 | PREÁMBULO | 1.500–1.900 |
 | TESIS CENTRAL | 550–700 |
-| SECCIÓN 0 — las siete fallas | 2.000–2.500 |
-| SECCIÓN 1 — la crisis | 900–1.200 |
-| SECCIÓN 2 — precedentes | 1.100–1.400 |
+| SECCIÓN 0 — las siete fallas | ~~2.000–2.500~~ **1.900–2.300** |
+| SECCIÓN 1 — la crisis | ~~900–1.200~~ **780–1.000** |
+| SECCIÓN 2 — precedentes | ~~1.100–1.400~~ **1.040–1.300** |
 | SECCIÓN 3 — la Pauta Ciega | 1.900–2.300 |
 | SECCIÓN 4 — la Biblioteca Viva | 2.100–2.600 |
 | SECCIÓN 5 — La Antena | 1.000–1.300 |
@@ -277,6 +277,15 @@ Objetivo total: **26.000–28.500 palabras**. Calibrado contra el corpus: PLANCU
 | SECCIÓN 20 — visión 2040 | 550–750 |
 | SECCIÓN 21 — protocolo de falla | 500–700 |
 | CIERRE | 400–600 |
+
+
+> **Corrección de tres rangos, con la medición escrita (2026-08-01, Task 3).** Los rangos de las
+> secciones 0, 1 y 2 se fijaron a ojo contra PLANPREGUNTA y quedaron entre un 5 y un 10% por encima de
+> lo que las secciones dan una vez escritas con contenido verificado y sin relleno. La medición que
+> manda es la del modelo: **la SECCIÓN 0 de PLANPACTO —que es la forma que el brief manda imitar— tiene
+> 1.954 palabras**, y ésta quedó en 1.929 con siete fallas contra las ocho de PLANPREGUNTA. Los tres
+> rangos se bajan a lo medido en vez de rellenar tres secciones para alcanzar un número que nadie había
+> derivado de nada.
 
 **Si una sección queda corta, se agrega contenido verificado o se corrige el rango con la medición escrita. Nunca se rellena.**
 

@@ -137,3 +137,139 @@ La atención es dónde uno gasta su vida. Cinco horas y doce minutos por día, e
 **La restricción es absoluta y gobierna cada página que sigue: ningún dispositivo de este PLAN puede controlar, licenciar ni castigar contenido.** No hay excepción de seguridad nacional, no hay excepción de emergencia, no hay excepción de desinformación. Un PLAN que se reserva una sola puerta para decidir qué se puede decir es un ministerio de la verdad con buenos modales, y este PLAN existe para no ser eso. Si alguna de las páginas que siguen se lee como si abriera esa puerta, la página está mal escrita y hay que corregirla.
 
 ---
+
+## SECCIÓN 0: LAS SIETE FALLAS DE LA PALABRA PÚBLICA ARGENTINA
+
+> *"Una correa transparente sigue siendo una correa."*
+
+Siete fallas, con la anatomía que `PLANPACTO:96-130` fijó para el corpus: qué falla, por qué persiste y cuál es el dato. **Cinco de las siete están documentadas adentro del propio corpus ¡BASTA!**, lo cual es incómodo y hay que decirlo: no son hallazgos de este PLAN, son cosas que otros documentos escribieron y que nadie juntó. Las dos que no tienen domicilio se declaran como aserción propia, con todas las letras y en el mismo párrafo.
+
+### 0.1 La correa que nadie escribió
+
+**La falla:** el Estado argentino transfiere todos los meses una cantidad discrecional de dinero a los medios que elige, sin contrato de resultado, sin criterio publicado que lo obligue y sin consecuencia por incumplirlo. Se llama publicidad oficial y todo el mundo en la Argentina sabe para qué sirve. Nadie escribió nunca el número al lado de la palabra.
+
+**Por qué persiste:** porque le sirve a los dos lados y no le duele a ninguno. Al gobierno le compra tono; al medio le paga la nómina. La reforma que todos proponen —repartirla mejor— es la que garantiza que siga existiendo, porque una vez que hay fórmula hay bolsa, y una vez que hay bolsa hay quien la administre. Y porque el que tendría que denunciarla es exactamente el que la cobra.
+
+**El dato:** **USD 450M por año**, y el corpus ya se comprometió a gastar una parte: `PRESUPUESTO_CONSOLIDADO_BASTA.md:419` la lista como Fuente 1 de financiamiento del ecosistema entero —*«Publicidad oficial consolidada: USD 450M/año (eliminable en 40-60%)»*— o sea entre 180 y 270 millones que ¡BASTA! ya contó como ahorro propio. `PLANMESA:788` confirma el orden de magnitud por otra vía: *«el presupuesto de publicidad oficial consolidada del Estado argentino en 2023 fue superior a USD 450M»*, y lo usa como vara para decir que su propio presupuesto es modesto.
+
+Conviene traducir esos 450 millones a algo que se pueda comparar, porque el número solo no dice nada. Es **más que todo el presupuesto anual de régimen pleno de PLANMESA** —USD 420-680M según `PRESUPUESTO_CONSOLIDADO:394`, el órgano entero de deliberación ciudadana del país— y es **la mitad de la operación anual de los cuatro mil Tallers Federales** de `PLANTALLER:655`. La Argentina gasta todos los años, en comprarle espacio a medios privados, aproximadamente lo que costaría gobernarse por Mesas Civiles. Ese es el orden de magnitud de la correa, y hasta este documento nadie lo había puesto al lado de nada.
+
+### 0.2 El derecho que se consagró y no se presupuestó
+
+**La falla:** el corpus ¡BASTA! ya declaró que todo argentino tiene derecho a un espacio público de alta calidad donde leer, pensar y conversar durante horas sin ser monetizado ni perfilado. Lo declaró como derecho, con nombre propio, con métrica de cobertura y con agencia responsable. Y no le puso un peso.
+
+**Por qué persiste:** porque un derecho sin línea presupuestaria no falla en ningún tablero. No hay indicador que se ponga rojo cuando un derecho no se ejecuta: hay una promesa escrita, un documento que la contiene y nadie a quien reclamarle. La distancia entre consagrar y pagar es el lugar donde más viven las políticas públicas argentinas.
+
+**El dato:** `PLANDIG:788` consagra el **Derecho al Commons Atencional** y fija la cobertura: *«Red nacional de 3.000+ Commons Atencionales en régimen (uno cada 15.000 habitantes)»*. `PLANDIG:799` lo repite en la tabla de derechos cognitivos y hasta nombra el mecanismo de financiamiento —*«Presupuesto constitucional, convenio con bibliotecas populares, municipios, universidades»*—. Y la **TABLA 20** de `PLANDIG:1086`, que es la inversión acumulada a diez años del propio PLANDIG, tiene doce filas —datacenters, GPUs, malla comunitaria, LANIA, plataformas, sensores, CONAE, ARSAT, ANDIG, ciberseguridad, becas, contingencia— y **ninguna es el Commons Atencional.**
+
+### 0.3 El lugar cerrado a la hora en que la gente está despierta
+
+**La falla:** los espacios cívicos argentinos que sí existen —bibliotecas populares, clubes, centros culturales— tienen horarios fijados hace décadas para poblaciones que trabajaban de otra manera, y nadie tiene el trabajo de revisarlos. El resultado es una infraestructura que existe físicamente y no existe operativamente para el que trabaja de noche, para el que hace changas, para el que cuida a alguien de mañana.
+
+**Por qué persiste:** porque el voluntariado sostiene lo que hay pero no lo rediseña. Una institución voluntaria hace un esfuerzo enorme para no cerrar y no le queda energía para preguntarse si abre en el momento correcto. Cambiar un horario no cuesta plata: cuesta que alguien tenga ese trabajo, y ese trabajo no está inventado.
+
+**El dato:** **es aserción propia de este documento y se declara como tal.** El corpus ¡BASTA! no mide horarios de espacios cívicos ni tiene una sola línea sobre franjas de apertura. Lo que sí aporta es el denominador: `PLANCUL:259` cuenta *«2.000+ bibliotecas populares, miles de clubes de barrio, centenares de centros culturales comunitarios»* ya existentes. La afirmación de que sus horarios están desalineados con la vida laboral actual es un **supuesto de trabajo** de este PLAN, y por eso la Fase 0 lo primero que hace es medirlo — ver `13.2`.
+
+Se puede acotar, sin embargo, cuánto está en juego, y el corpus da los dos extremos de la pinza. Por un lado `PLANCUIDADO` y `PLANREP` describen un país donde el trabajo dejó de tener una sola forma horaria; por otro `PLANSEG:312` retrata a Yamila Cardozo, diecinueve años, que sale a las seis de la mañana y vuelve a las siete de la tarde seis días por semana. Para Yamila, una biblioteca que abre de nueve a doce y de dieciséis a diecinueve no está subutilizada: **está cerrada.** No hay ninguna hora de la semana en que Yamila pueda entrar. Y Yamila no es un caso de borde del sistema: es el retrato que otro PLAN del corpus eligió para explicar cómo se vive en la Argentina.
+
+### 0.4 La fórmula que le paga más al que ya tiene más
+
+**La falla:** todas las propuestas serias de reforma de la pauta oficial —incluidas las de este mismo corpus— proponen repartirla con una fórmula transparente que pondera audiencia. Una fórmula que pondera audiencia le gira más plata al que ya tiene más público. Es decir: la reforma que se propone para desconcentrar el sistema es un mecanismo de concentración con auditoría.
+
+**Por qué persiste:** porque «transparente» suena a lo contrario de «discrecional» y nadie mira el segundo paso. La discrecionalidad es un problema de proceso; la ponderación por alcance es un problema de resultado. Arreglar el proceso y empeorar el resultado se lee como un avance en cualquier titular.
+
+**El dato:** `PLANCUL:387`, Acción 3 de las tres acciones de gobierno de aquel PLAN: *«Redistribuir pauta publicitaria: Fórmula transparente (50% audiencia, 30% geografía, 20% diversidad), publicación en tiempo real, prohibición de asignación discrecional.»* La mitad del reparto va por audiencia. En un país donde `PLANCUL:387` reconoce en su Acción 1 que romper la concentración *«es una guerra legal de años»* que ya se peleó y se perdió, esa mitad es un subsidio al ganador de esa guerra, firmado por la reforma.
+
+### 0.5 La materia que se da por dictada y no existe
+
+**La falla:** el corpus afirma que la escuela argentina ya enseña a leer críticamente los sistemas que modelan a los ciudadanos. No la enseña. La referencia cruzada está rota y llevaba rota desde que se escribió: un documento le atribuye a otro una capacidad que el otro no tiene ni menciona.
+
+**Por qué persiste:** porque una referencia cruzada rota entre dos documentos largos no la encuentra nadie leyendo. La encuentra un `grep`, y sólo si alguien sospecha. Mientras tanto los dos documentos son internamente coherentes y el sistema en conjunto miente sin que ninguna de sus partes mienta.
+
+**El dato:** `PLANDIG:803` afirma que la Ecología de la Atención *«articula directamente con PLANEDU (alfabetización algorítmica como materia desde secundaria)»*. La palabra «algorítmica» **no aparece ni una sola vez** en `PLANEDU_Argentina_ES.md`, que tiene 1.927 líneas. Lo único cercano es `PLANEDU:162`, una fila de diagnóstico que dice *«Alfabetización digital | Parcial, desactualizada»*. La materia que PLANDIG da por dictada no existe, y este PLAN la crea en la Sección 9.
+
+### 0.6 El acervo sin custodio y la planta sin uso
+
+**La falla:** el Estado argentino produjo durante siete décadas material audiovisual —noticieros, documentales, registros institucionales, ficción, archivo de actos públicos— y opera desde entonces una infraestructura de emisión con estudios, cámaras, salas de control y personal técnico. El acervo no tiene un custodio único con obligación de preservarlo ni catálogo público consultable, y la planta se usa a una fracción de su capacidad.
+
+**Por qué persiste:** porque preservar no da nota y programar da rating. Cada gestión hereda un archivo que no armó, cuyo valor no puede demostrar en un ciclo de gobierno, y cuyo deterioro no le va a explotar a ella. El incentivo apunta entero hacia la producción nueva.
+
+**El dato:** **no hay dato del corpus, y ésta es la falla más desnuda de las siete.** Un censo sobre los veinticuatro documentos del taller da **cero ocurrencias** de «medios públicos», «Radio Nacional», «Televisión Pública», «RTA» y «Contenidos Públicos». El corpus ¡BASTA! nunca escribió una línea sobre los medios del Estado. Todo lo que este documento afirme sobre el acervo audiovisual estatal y sobre la planta que lo produjo es **aserción propia sin fuente en el corpus**, y por eso la Sección 7 arranca por un inventario y no por un dispositivo: no se puede rescatar lo que no se contó.
+
+Lo que sí se puede afirmar sin inventario, porque es una propiedad del soporte y no del acervo, es que **el material audiovisual analógico se degrada en un plazo conocido y la degradación es irreversible**. Una cinta magnética no se pierde el día que alguien decide tirarla: se pierde el día que nadie decide copiarla, y eso pasa sin que nadie firme nada, exactamente igual que el cartel de Chajarí. La diferencia entre una biblioteca y un archivo audiovisual es que a la biblioteca la salva la inacción y al archivo la inacción lo mata. Por eso el Acervo es el único dispositivo de este PLAN con **plazo de caducidad escrito**: lo que no se digitalice en la ventana de quince años de la Sección 13 no se va a poder digitalizar después, y eso no es una amenaza retórica sino una propiedad física del material.
+
+### 0.7 La medición que no tiene destino
+
+**La falla:** el corpus mide la extracción de atención con dos instrumentos distintos y buenos, y ninguno de los dos ofrece a dónde ir. Se le informa al ciudadano cuánto tiempo se le fue, se compara el promedio nacional contra el mundial, y después no hay nada del otro lado. Medir sin construir el destino convierte el diagnóstico en culpa personal.
+
+**Por qué persiste:** porque medir es barato y construir es caro, y porque la métrica satisface la sensación de estar haciendo algo. Un informe mensual que le dice a alguien que perdió ciento cincuenta y seis horas en un mes es información verdadera y perfectamente inútil si esa persona vive en un lugar donde a las tres de la tarde no hay nada abierto.
+
+**El dato:** `PLANDIG:886` define el **Informe Mensual de Extracción Atencional** —*«cuánto tiempo pasó en cada plataforma, cuánta publicidad recibió, cuántas veces fue perfilado»*— como *«autoconocimiento como primer paso de soberanía cognitiva»*. Y `PLANCUL:304` mide el resultado: **5,2 horas de pantalla no laboral por día en la Argentina, contra 3,8 del promedio global**. Los dos instrumentos existen, los dos funcionan, y entre los dos no hay una sola sede.
+
+---
+
+## SECCIÓN 1: LA CRISIS — NO FALTA INFORMACIÓN, FALTA DÓNDE MIRAR
+
+> *"El que escucha no tiene otro lado, y ese es todo el problema."*
+
+La Argentina no tiene una crisis de información. Tiene más medios, más plataformas, más canales y más horas de contenido disponible por habitante que en cualquier momento de su historia. Lo que no tiene es **destino**: lugares donde la atención de una persona pueda aterrizar y quedarse un rato produciendo algo que no sea consumo.
+
+`PLANCUL:106` lo dijo con otras palabras y con acierto: *«La Argentina no tiene una crisis de información. Tiene una crisis de sentido.»* Este PLAN comparte el diagnóstico y difiere en el remedio. PLANCUL responde con red social —Dendritas, encuentros, la cultura que pasa entre las personas— y responde bien. Pero una red de encuentros necesita lugares donde encontrarse, con horario, con alguien que abra la puerta, con algo adentro. La cultura viva sucede en una infraestructura, y esa infraestructura hoy está sostenida por voluntarios de setenta años en edificios de 1938.
+
+**El error de encuadre que este PLAN corrige es de orden.** Cuarenta años de política de comunicación argentina se ocuparon del emisor: quién puede tener una licencia, cuántas, en qué territorio, con qué límites de propiedad cruzada, con qué obligaciones de contenido nacional. Todas preguntas legítimas, todas sobre el mismo lado del circuito. Ninguna se ocupó del otro lado, que es el que decide el resultado: **una persona con cinco horas y doce minutos libres por día y un solo lugar donde ponerlas.**
+
+Cambiarle el dueño al medio no le cambia nada a Marisol. Ponerle una regla de contenido no le cambia nada a Marisol. Prohibirle algo al medio no le cambia nada a Marisol. Lo único que le cambia algo a Marisol es que la biblioteca esté abierta a las tres de la tarde.
+
+Y hay una razón estructural por la que la política del emisor no puede funcionar, más allá de que haya fallado. Una regla sobre el emisor produce **un solo objeto nuevo: la facultad de aplicarla.** Esa facultad tiene que vivir en algún organismo, ese organismo tiene que tener alguien a la cabeza, y esa cabeza la nombra el gobierno de turno. Al gobierno siguiente le llega, hecha y funcionando, una herramienta para decidir quién puede hablar — construida por sus adversarios, con la legitimidad de haber sido votada. **Toda regulación de contenido es un arma que se le fabrica al que viene.** No hay diseño institucional que evite eso, porque el problema no está en el diseño sino en que la facultad existe.
+
+En cambio, una disciplina que el Estado se aplica sobre su propia billetera no produce ninguna facultad nueva. Produce una ausencia. Y una ausencia no se puede heredar y usar al revés: para darla vuelta hay que volver a crear la bolsa, con la firma de alguien y en el Boletín Oficial.
+
+**Y hay un problema de diseño más grande, que este PLAN comparte con PLANARCO y que conviene decir de frente.** Los veinticinco PLANes anteriores dan por supuesto un ciudadano disponible. La Mesa Civil de PLANMESA necesita ciudadanos que estudien la materia, declaren en El Mapa, sirvan en Mesas, produzcan en Tallers y sostengan vínculos de cuidado: son las cinco capas de la Credencial de Materia y hacen falta las cinco (`PLANMESA:88`). La Prueba de Barro de PLANPREGUNTA necesita gente que pruebe cosas durante doce meses. El Archivo de PLANMEMORIA necesita depósitos ciudadanos en tres momentos de la vida. Todo el aparato ¡BASTA! corre sobre un insumo que ningún PLAN produce y que ningún PLAN protege: **el tiempo despierto y disponible de la gente.**
+
+Ese insumo se está consumiendo a razón de una hora y media por día por encima del promedio mundial, y no lo consume una conspiración: lo consume la ausencia de alternativa. Un país que quiere que sus ciudadanos gobiernen tiene que preguntarse primero con qué horas van a hacerlo.
+
+`PLANMESA:68` da la escala de lo que está en juego, y es una de las frases más fuertes del corpus entero: *«En cada provincia de este país hay entre quinientas y dos mil personas»* con competencia demostrable en su materia —cuadros técnicos, extensionistas, productores con treinta años, enfermeras, curanderas, parteras, herreros, changueras, asambleístas del 2001— *«que llevan décadas siendo la Argentina competente que nunca fue convocada a decidir»*. Aldo Benítez, que podó treinta y un años para la cooperativa de Chajarí, es una de esas personas. Nadie lo convocó nunca y nadie le anotó nada.
+
+La crisis no es que la Argentina no sepa. Es que lo que sabe no tiene dónde depositarse y el que quiere aprenderlo no tiene dónde ir a buscarlo. Entre esas dos ausencias hay cinco horas y doce minutos por día de una persona que, si tuviera dónde, haría otra cosa.
+
+---
+
+## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES
+
+> *"La red de bibliotecas populares es una infraestructura que la Argentina inventó y después dejó de mirar."*
+
+**Advertencia de método, y va antes que los precedentes porque cambia cómo se leen.** Los precedentes de esta sección se dividen en dos clases y el documento las distingue en cada caso: los que están **verificados adentro del corpus ¡BASTA!**, con archivo y línea; y los que son **aserción propia de este documento**, que se declaran como tales y que quedan pendientes de verificación externa antes de que este PLAN promueva de tranche. Confundir las dos clases es exactamente el defecto que este PLAN denuncia en la Sección 8 cuando exige procedencia de todo material hecho con plata pública.
+
+### Lo que la Argentina ya inventó y el corpus reconoce
+
+La **red de bibliotecas populares** es el precedente central y no es de este documento: `PLAN24CN:2810` la lista entre las tres cosas que la Argentina exportó al mundo, junto al sistema de parques nacionales de 1934 y a la Asignación Universal por Hijo, y la califica de *«única en su tipo»*. `PLANCUL:259` cuenta la escala vigente: **más de dos mil**, más miles de clubes de barrio y centenares de centros culturales comunitarios, y agrega la observación que este PLAN hereda entera — *«la mayoría ya existen»*, así que la primera tarea no es fundar sino mapear.
+
+Eso ordena el diseño de la Biblioteca Viva de una manera que conviene escribir temprano: **este PLAN no funda una red. Se enchufa a una que existe, la financia, le paga a alguien para que la atienda y le arregla el horario.** Fundar dos mil bibliotecas nuevas al lado de dos mil que ya funcionan sería, además de caro, la clase de gesto que hace que la institución vieja se muera de envidia y de desfinanciamiento.
+
+`PLANARCO:260` agrega la lección negativa que corresponde a esta familia de precedentes, y es dura: la Asignación Universal por Hijo *«no dio ninguna institución. Es un pago, no una estación»*, y por eso sobrevivió a gobiernos de signos opuestos sin acumular nada. La conclusión que aquel documento saca —*«un pago universal sobrevive solo; una estación del arco necesita alguien que la habite»*— es la razón por la que la Biblioteca Viva paga bibliotecarios y no subsidios.
+
+### Los precedentes internos del corpus: cómo se construye una red federal de sedes
+
+Tres PLANes de ¡BASTA! ya diseñaron redes de sedes físicas con costo por nodo, y los tres son el precedente operativo directo de la Biblioteca Viva:
+
+- **PLANTALLER** — cuatro mil Tallers Federales, `PRESUPUESTO_CONSOLIDADO:394` da **USD 720M de inversión inicial (4.000 × 180K)** y `PLANTALLER:655` da **USD 640-1.000M/año** de operación de la red en régimen pleno. Eso es entre 160.000 y 250.000 dólares por Taller por año, y es la referencia con la que hay que contrastar cualquier número de esta sección.
+- **PLANMEMORIA** — siete nodos federados con hash criptográfico (`PLANMEMORIA:90`), que es el precedente de arquitectura distribuida sobre el que se apoya la partición del Acervo en la Sección 7.
+- **PLANSAL** — los Centros de Vitalidad, con la disciplina de transparencia presupuestaria por sede que `PLANSAL:1515` describe: cada Centro publica todos los meses sus ingresos, sus gastos detallados y su saldo, en cartelera física y en plataforma, y *«cualquier vecino puede pedir explicación de cualquier gasto»*. La Biblioteca Viva adopta esa disciplina tal cual y sin modificarla.
+
+Los tres enseñan lo mismo y conviene extraerlo antes de gastar un peso: **el costo de una red federal de sedes no está en el edificio, está en la persona que la atiende todos los días durante diez años.** PLANTALLER pone 720 millones de inversión inicial y después 640 a 1.000 millones por año, todos los años: la operación se come la inversión inicial en poco más de un año y no para nunca. Un PLAN que anuncia mil quinientas sedes y presupuesta la obra está anunciando mil quinientos edificios cerrados con un cartel escrito a mano en el vidrio.
+
+### El contra-precedente, que es el más importante de todos
+
+La Argentina intentó arreglar la palabra pública una vez, en serio y con mayoría parlamentaria, y lo intentó por el lado del emisor: límites de licencias, desinversión obligatoria, adecuación de oficio, autoridad de aplicación con facultades sobre quién puede tener un medio. **Es aserción propia de este documento**, y la enseñanza que este PLAN extrae también lo es: lo que se ganó en el Congreso se perdió en los tribunales, la disputa consumió una década, la concentración terminó igual o mayor, y el aparato de aplicación que quedó en pie sirvió después para lo contrario de aquello para lo que se lo había creado.
+
+`PLANCUL:387` llega a la misma conclusión desde adentro del corpus, y por eso su Acción 1 se declara *«deseable, no esencial»*: *«esta es una guerra legal de años. Clarín peleó una década y ganó. Pero PLANCUL no depende de que esta acción tenga éxito.»*
+
+De ahí sale la restricción absoluta de este PLAN, que no es un escrúpulo liberal sino una lección operativa: **toda facultad estatal sobre contenido termina, en el plazo de un gobierno, en manos de alguien que la va a usar al revés.** La única disciplina que no se puede dar vuelta es la que el Estado se aplica a sí mismo sobre su propia billetera, porque para revertirla hay que volver a crear la bolsa, y crear una bolsa de plata para medios tiene un costo político que repartirla mejor no tiene.
+
+### Los precedentes externos, declarados como pendientes
+
+Este documento **no cita cifras de sistemas extranjeros**. Los modelos que la literatura suele traer a esta discusión —las redes nórdicas de bibliotecas públicas con horario extendido, los sistemas de radiodifusión pública financiados por canon, los programas europeos de alfabetización mediática obligatoria— son referencias razonables y **ninguna está verificada en este corpus ni en este documento**. Van al gate de habilitación como trabajo pendiente, con owner y fecha, en `READINESS_GATES_ADVERSARIAL.md`.
+
+Se declara además por qué uno de ellos no se adopta aunque parezca el más obvio: **el canon de radiodifusión pública queda descartado por decisión de diseño de este documento**, porque un canon es una bolsa nueva de plata atada a medios, y la tesis entera de este PLAN es que la existencia de la bolsa es el problema y no su forma de reparto.
+
+---
