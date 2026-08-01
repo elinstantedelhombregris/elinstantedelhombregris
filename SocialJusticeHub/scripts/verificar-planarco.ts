@@ -42,7 +42,37 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 4: LA RENTA DE ARCO',
   '## SECCIÓN 5: EL COMIENZO',
   '## SECCIÓN 6: EL MEDIO',
-  // Task 7: SECCIÓN 7 y 8 · …
+  '## SECCIÓN 7: EL FINAL',
+  '## SECCIÓN 8: LA AGENCIA NACIONAL DEL ARCO DE LA VIDA (ANAV)',
+  // Task 8: INTEGRACIÓN y SECCIÓN 9 · …
+];
+
+/**
+ * **La anatomía de las dos secciones de la Task 7, por la misma razón que la de
+ * las ocho fallas.** Un H2 presente no dice nada sobre lo que hay debajo: borrar
+ * la Casa de Arco entera, o la subsección del PAMI, deja el H2 en su lugar, el
+ * orden intacto y la guardia verde. Se verifica la CANTIDAD y la NUMERACIÓN
+ * CORRELATIVA de los `### N.M` de cada una, que es lo que un borrado rompe y una
+ * retitulación no.
+ */
+const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; porQue: string }[] = [
+  {
+    h2: '## SECCIÓN 7: EL FINAL',
+    prefijo: '7',
+    cuantas: 6,
+    porQue:
+      'seis dispositivos del final —Rampa, Casa de Dos Edades, Casa de Arco, Última Palabra, Año del ' +
+      'Duelo y Umbral del Legado— y seis estaciones del Calendario en este tramo. Uno menos es un ' +
+      'dispositivo anunciado en la portada que el cuerpo dejó de tener',
+  },
+  {
+    h2: '## SECCIÓN 8: LA AGENCIA NACIONAL DEL ARCO DE LA VIDA (ANAV)',
+    prefijo: '8',
+    cuantas: 3,
+    porQue:
+      'qué clase de ente es · qué administra · el PAMI. La tercera es la que un recorte se lleva ' +
+      'primero, porque es la única que no describe a la agencia sino lo que la agencia NO hace',
+  },
 ];
 
 /**
@@ -119,6 +149,20 @@ const H2_RENTA = '## SECCIÓN 4: LA RENTA DE ARCO';
 const H2_COMIENZO = '## SECCIÓN 5: EL COMIENZO';
 const H2_MEDIO = '## SECCIÓN 6: EL MEDIO';
 /** Prefijo, como `### 0.6 `: el domicilio de la tabla de fuentes es su número. */
+/**
+ * Domicilios por prefijo de H3, la forma que estrenó `H3_FALLA_TRANSMISION` y
+ * que la R-5 de la Task 6 dejó como estándar: el número sobrevive a cualquier
+ * retitulación y una repetición de la frase en otro H3 no cubre a este.
+ */
+const H3_RAMPA = '### 7.1 ';
+const H3_DOS_EDADES = '### 7.2 ';
+const H3_CASA_DE_ARCO = '### 7.3 ';
+const H3_ULTIMA_PALABRA = '### 7.4 ';
+const H3_ANO_DEL_DUELO = '### 7.5 ';
+const H3_UMBRAL_DEL_LEGADO = '### 7.6 ';
+const H3_ENTE = '### 8.1 ';
+const H3_BAJO_ADMINISTRACION = '### 8.2 ';
+const H3_PAMI = '### 8.3 ';
 const H3_TABLA_DE_FUENTES = '### 4.6 ';
 /** Prefijo, ídem: la declaración de la liberación vive en 5.4 y en ningún otro lado. */
 const H3_LIBERACION = '### 5.4 ';
@@ -250,6 +294,48 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
       'reintegro del Alto y la única política del corpus anclada a una edad de la mediana vida: sin ' +
       'el número, el precedente es una anécdota',
   },
+  // ── Task 7 · SECCIONES 7 y 8 ──────────────────────────────────────────────
+  {
+    valor: '~USD 200M [est.]',
+    en: [H3_RAMPA],
+    porQue:
+      'la mitad financiada de la asimetría que §0.6 dejó anotada: PLANSAL:1370 le pone caja al ' +
+      'Programa Ancianos de Sabiduría y PLANCUL:421 se la promete a los Granaderos desde un PLAN que ' +
+      'no existe. El plan del tramo afirmaba que «ninguno de los dos tiene la caja» y era falso para ' +
+      'uno. Sin la cifra en §7.1, la Rampa se vuelve a leer como el tercer dispositivo sin financiar',
+  },
+  {
+    valor: 'USD 3.200M',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'la institucionalización evitable de PLANCUIDADO:219, atribuida a la Cámara Argentina de ' +
+      'Geriátricos, y PLANCUIDADO:575 ya lleva USD 1.200M/año de ella como ahorro fiscal PROPIO. La ' +
+      'Casa de Arco no lo puede volver a anotar, y la disciplina solo se ve si el número está escrito',
+  },
+  {
+    valor: 'USD 400M/año',
+    en: [H3_UMBRAL_DEL_LEGADO],
+    porQue:
+      'PLANCUIDADO:576 ya contabiliza la reducción de litigios de herencia y cuidado como ahorro ' +
+      'propio. Es el segundo ahorro ajeno que la SECCIÓN 7 se niega a contar, y sin la cifra la ' +
+      'negativa no tiene magnitud',
+  },
+  {
+    valor: '~USD 67.500M',
+    en: [H3_BAJO_ADMINISTRACION],
+    porQue:
+      'el monto bajo administración de la ANAV, DERIVADO y no afirmado: 45% del presupuesto nacional ' +
+      '(PLANMON:238, :248) sobre ~USD 150.000M (PRESUPUESTO_CONSOLIDADO_BASTA.md:217). La spec decía ' +
+      '50–60.000M y no sale por ningún camino: el prohibido lo bloquea y esta cifra lo reemplaza',
+  },
+  {
+    valor: 'USD 51.260M y USD 65.430M',
+    en: [H3_BAJO_ADMINISTRACION],
+    porQue:
+      'el régimen pleno del ecosistema entero — PRESUPUESTO_CONSOLIDADO_BASTA.md:447. Es la ' +
+      'comparación incómoda: la ANAV mueve sola del mismo orden que los veintidós PLANes juntos. Si ' +
+      'no está escrita acá, la hace un adversario y con peor redacción',
+  },
 ];
 
 /**
@@ -300,6 +386,36 @@ const FAMILIAS_DE_CIFRA: FamiliaDeCifra[] = [
     unidad: /USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
     valores: ['USD 780M'],
     porQue: 'la caja del precedente etario, PLANMOV:1339, no admite segunda versión',
+  },
+  /**
+   * **La cosa se declara con el ANCLA y la unidad lleva la tilde, y las dos
+   * decisiones son por un falso positivo real.** El primer intento fue
+   * `cerca: 'Ancianos de Sabiduría'` con la unidad `USD …M` de las familias
+   * anteriores, y disparó sobre §0.6: la línea 166 es un párrafo entero que
+   * nombra a los Ancianos **y** trae la caja de PLANMEMORIA —`USD 680–920M`—,
+   * así que la familia acusaba de contradicción a dos magnitudes de programas
+   * distintos que comparten renglón por ser el mismo párrafo. Una familia que
+   * marca líneas correctas es peor que no tenerla.
+   *
+   * Se cierra por los dos lados: la cosa pasa a ser el ancla `PLANSAL:1370`,
+   * que hoy está en las dos líneas que traen esta caja y en ninguna otra, y la
+   * unidad exige la tilde de aproximación, que la cifra de PLANMEMORIA de esa
+   * misma línea no lleva. **Falsos positivos: cero**, verificado línea por
+   * línea — `~USD` aparece una sola vez en todo el documento antes de §7.1.
+   *
+   * Lo que NO cubre, dicho para que nadie lo suponga: borrar la tilde junto con
+   * el número deja la familia muda. Contra eso corre el otro chequeo, la cifra
+   * canónica `~USD 200M [est.]` domiciliada en §7.1.
+   */
+  {
+    cerca: 'PLANSAL:1370',
+    unidad: /~USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
+    valores: ['~USD 200M'],
+    porQue:
+      'la caja del Programa Ancianos de Sabiduría es una sola —PLANSAL:1370— y el documento la ' +
+      'escribe DOS veces, en §0.6 y en §7.1, que son las dos mitades de la misma asimetría. Dos ' +
+      'magnitudes para el mismo renglón es el modo de falla que el domicilio no ve, y acá el número ' +
+      'es el que sostiene que la Rampa no duplica a un dispositivo que ya está financiado',
   },
 ];
 
@@ -583,6 +699,133 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'recibe la comunidad y en parte la empresa, y el Alto no le devuelve nada a la empresa. Bajar ' +
       'el reintegro al 75% deja la pausa paga parcialmente a cargo de quien emplea a alguien de ' +
       'cuarenta y cinco años, que es el descarte por edad que el dispositivo existe para impedir',
+  },
+  // ── Task 7 · SECCIONES 7 y 8 ──────────────────────────────────────────────
+  /**
+   * **Los HALLAZGOS: seis afirmaciones sobre otros PLANes que el final del arco
+   * tiene que llevar escritas.** La SECCIÓN 7 es la que más «territorio vacío»
+   * quiere declarar, y el tramo lleva quince afirmaciones falsas de la misma
+   * familia: «esto no existe» dicho sin buscar bajo otro nombre. Cada una de
+   * estas seis es la palabra bajo la que el dispositivo SÍ existía.
+   */
+  {
+    valor: 'Red de acompañamiento',
+    en: [H3_ANO_DEL_DUELO],
+    porQue:
+      'PLANEB:991 tiene un bullet con ese título — grupos de apoyo entre pares financiados por el ' +
+      'pool. «El corpus no acompaña al final del arco» es FALSO y la corrección del 2026-07-31 lo ' +
+      'declara vinculante. Lo que falta es el deber, el dueño y el horario, y el Año del Duelo solo ' +
+      'se puede fundar contra el bullet nombrado',
+  },
+  {
+    valor: 'cláusula de disolución',
+    en: [H3_ULTIMA_PALABRA],
+    porQue:
+      '«muerte digna» NO da cero en el corpus: da nueve, y nombra otra cosa — la disolución de una ' +
+      'organización que no puede seguir operando (PLANAGUA:3942, PLANEB:1810, PLANMESA:1169). Sin ' +
+      'esta declaración, «la voluntad anticipada es territorio vacío» queda apoyada en un grep que ' +
+      'no distingue el homónimo, que es exactamente cómo se produjeron las quince anteriores',
+  },
+  {
+    valor: 'acompañante obligatorio',
+    en: [H3_ANO_DEL_DUELO],
+    porQue:
+      'PLANSAL:1592 exige acompañante durante todo el parto, cesáreas incluidas. Es la simetría que ' +
+      'funda el Año del Duelo: el proyecto escribió el deber de estar en un extremo del arco y no en ' +
+      'el otro. Sin ella, el dispositivo es una preferencia y no un argumento',
+  },
+  {
+    valor: 'Cofre Digital Ciudadano',
+    en: [H3_ULTIMA_PALABRA],
+    porQue:
+      'PLANDIG:656 se lo da a cada argentino al nacer y dice que «nadie más que él puede abrir». Es ' +
+      'el archivo obvio para la Última Palabra y el contenedor equivocado, porque la declaración ' +
+      'tiene que leerla un tercero cuando el titular no puede abrir nada. La objeción va escrita o ' +
+      'la primera revisión la plantea como hallazgo',
+  },
+  {
+    valor: 'Mayor Acompañante',
+    en: [H3_ANO_DEL_DUELO],
+    porQue:
+      'PLANMEMORIA:419 ya tiene ese rol acompañando el Bastón Memorial a los doce. El «Acompañante ' +
+      'de Umbral» choca de nombre con un rol existente y la colisión se declara, no se ignora',
+  },
+  {
+    valor: 'Villages to Care For Elders',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'PLANCUIDADO:275, red vecinal con protocolos formales. Junto con las Butterfly Homes (:271) y ' +
+      'el cohousing intergeneracional (:273), el corpus YA trae los precedentes de las dos casas: ' +
+      'escribirlas como invención sería la decimosexta forma del mismo error',
+  },
+  /**
+   * **Las DECISIONES PROPIAS, que es donde la Task 6 falló.** Sus cinco primeras
+   * aserciones cubrían los cinco hallazgos y ninguna cubría lo que la sección
+   * DECIDE, y las dos decisiones de §6.3 salían **exit 0** borradas. Estas seis
+   * son las que, borradas, dejan el documento coherente y peor.
+   */
+  {
+    valor: 'la Rampa no mueve ninguna edad',
+    en: [H3_RAMPA],
+    porQue:
+      'la Rampa corre de 60 a 72 y el Piso Vital abre a los sesenta y cinco: por fuera el ' +
+      'dispositivo se parece a una reforma que corre la edad jubilatoria, y esta cláusula es la ' +
+      'única diferencia. Borrarla no rompe ninguna otra frase y convierte al PLAN en lo contrario',
+  },
+  {
+    valor: 'la abre quien la usa',
+    en: [H3_RAMPA],
+    porQue:
+      'una salida gradual que el empleador pueda proponer es un despido blando a los sesenta. El ' +
+      'modo de falla principal del dispositivo se cierra con esta regla y con ninguna otra',
+  },
+  {
+    valor: 'no es un Pacto de Cuidado',
+    en: [H3_DOS_EDADES],
+    porQue:
+      'la decisión más disputable de §7.2, y verificada adversarialmente: inscribir la Casa de Dos ' +
+      'Edades como Pacto arrastraría el reconocimiento previsional por horas (PLANCUIDADO:316) —la ' +
+      'moneda que §4.4 se negó a duplicar— y el derecho a heredar sin testamento a los cinco años ' +
+      '(PLANCUIDADO:319). Convivir no es cuidar, y sin esta frase el alquiler barato se vuelve ' +
+      'aporte jubilatorio y título hereditario sin que nadie lo decida',
+  },
+  {
+    valor: 'no puede ser apoderado',
+    en: [H3_DOS_EDADES, H3_ANO_DEL_DUELO],
+    porQue:
+      'la prohibición absoluta del arreglo 8, y vale en los DOS domicilios: el conviviente de la ' +
+      'Casa de Dos Edades y el Acompañante de Umbral, que entra a una casa donde acaba de morir ' +
+      'alguien y está por abrirse una sucesión. Son las dos superficies de captura más grandes del ' +
+      'documento y una sola de las dos escrita deja la otra abierta',
+  },
+  {
+    valor: 'execution cells',
+    en: [H3_ENTE],
+    porQue:
+      'la ANAV NO nace autárquica, y es una decisión y no un descuido. La tabla canónica está ' +
+      '`superseded` y su default nuevo son execution cells adentro de ministerios existentes, con ' +
+      'autonomía solo después de que un piloto pruebe demanda durable, financiamiento estable y ' +
+      'necesidad legal (TABLA_AGENCIAS_BASTA.md:11). Un PLAN habilitado por derogación expresa de ' +
+      'dos reglas no puede pedir la tercera, y sin esta frase la SECCIÓN 8 crea por decreto la ' +
+      'agencia más grande del ecosistema',
+  },
+  {
+    valor: 'no fija montos',
+    en: [H3_BAJO_ADMINISTRACION],
+    porQue:
+      'la gobernanza de la ANAV es por sustracción: no fija montos (§4.2), no elige beneficiarios ' +
+      '(§5.4) y no acumula fondo. Un organismo que gira el 45% del presupuesto y además decide sus ' +
+      'montos es el objeto más capturable del proyecto, y la comparación con el ecosistema entero ' +
+      'no es tolerable sin este párrafo al lado',
+  },
+  {
+    valor: 'queda fuera de este PLAN',
+    en: [H3_PAMI],
+    porQue:
+      'el «contrato de continuidad de 36 meses» no existe y la guardia lo prohíbe; lo que la sección ' +
+      'debe a cambio es la declaración de que la refundación del PAMI no es de este PLAN, porque la ' +
+      'Regla de Arco de §3.4 manda que la materia decida el escalón. Sin ella, la SECCIÓN 8 crea una ' +
+      'agencia de edades que se lee como dueña de una materia ajena',
   },
 ];
 
@@ -2565,6 +2808,49 @@ function verificarValoresConDomicilio(
 }
 
 /**
+ * **La anatomía de una sección cualquiera: cuántos H3 numerados tiene y si van
+ * correlativos.** Generaliza a las secciones de la Task 7 el chequeo que la
+ * SECCIÓN 0 tenía sola. Sin esto, borrar la Casa de Arco entera —o la
+ * subsección del PAMI, que es la única de la SECCIÓN 8 que dice lo que la
+ * agencia NO hace— deja el H2 en su lugar, el orden intacto y la guardia verde:
+ * el conteo de líneas baja y nadie mira el conteo de líneas.
+ *
+ * Se verifica sobre el TRAMO de la sección y no sobre el documento entero, así
+ * que un `### 7.1` plantado en otra sección no cubre el que falta acá.
+ */
+function verificarSubsecciones(lineas: string[]): string[] {
+  const errores: string[] = [];
+  for (const { h2, prefijo, cuantas, porQue } of SUBSECCIONES_ESPERADAS) {
+    const { tramo, errores: errTramo } = tramoDeSeccion(lineas, h2);
+    errores.push(...errTramo);
+    if (tramo === null) continue;
+
+    const numeros: string[] = [];
+    const re = new RegExp(`^### ${prefijo}\\.(\\d+) \\S`);
+    for (const l of tramo) {
+      const m = re.exec(l.trim());
+      if (m?.[1] !== undefined) numeros.push(m[1]);
+    }
+
+    if (numeros.length !== cuantas) {
+      errores.push(
+        `«${h2}» tiene ${String(numeros.length)} subsección(es) con forma «### ${prefijo}.N {título}» ` +
+          `y se esperaban ${String(cuantas)} — ${porQue}`,
+      );
+    }
+    numeros.forEach((n, k) => {
+      if (n !== String(k + 1)) {
+        errores.push(
+          `«${h2}»: la subsección número ${String(k + 1)} está numerada «${prefijo}.${n}» — la ` +
+            'numeración tiene que ser correlativa, o dos H3 con el mismo número dan el conteo justo',
+        );
+      }
+    });
+  }
+  return errores;
+}
+
+/**
  * La SECCIÓN 0 promete OCHO fallas en su propio H2 y cada una lleva la forma de
  * PLANPACTO:96-130: `### 0.N {título}` con tres párrafos de lead en negrita.
  * Sin este chequeo se podía borrar una falla entera —o dejarla sin «El dato:»,
@@ -2897,6 +3183,8 @@ function main(): void {
   );
   // 2 bis) El recíproco del domicilio: una cifra canónica contradicha AFUERA.
   errores.push(...verificarFamiliasDeCifra(lineas));
+  // 2 ter) La anatomía interna de las secciones que declaran cuántas partes tienen.
+  errores.push(...verificarSubsecciones(lineas));
 
   // 3) Los prohibidos, sobre el texto sin negritas.
   for (const { patron, porQue, salvoSi } of PROHIBIDOS) {
@@ -2952,6 +3240,7 @@ function main(): void {
       `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
       '(conjunto exacto: ni falta ni sobra), ' +
       `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
+      `${String(SUBSECCIONES_ESPERADAS.length)} secciones con su anatomía interna contada y correlativa, ` +
       'precedentes en dos columnas balanceadas adentro de cada PÁRRAFO, ' +
       `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas, sus dispositivos ` +
       'cruzados contra los trece de la portada y sus ocupantes resueltos ancla por ancla contra el ' +
