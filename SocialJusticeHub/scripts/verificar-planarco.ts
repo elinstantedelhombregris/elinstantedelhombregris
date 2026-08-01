@@ -40,7 +40,9 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
   '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES',
   '## SECCIÓN 4: LA RENTA DE ARCO',
-  // Task 6: SECCIÓN 5 y 6 · Task 7: SECCIÓN 7 y 8 · …
+  '## SECCIÓN 5: EL COMIENZO',
+  '## SECCIÓN 6: EL MEDIO',
+  // Task 7: SECCIÓN 7 y 8 · …
 ];
 
 /**
@@ -114,6 +116,8 @@ const H2_TESIS = '## TESIS CENTRAL';
 const H2_PRECEDENTES = '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES';
 const H2_CALENDARIO = '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES';
 const H2_RENTA = '## SECCIÓN 4: LA RENTA DE ARCO';
+const H2_COMIENZO = '## SECCIÓN 5: EL COMIENZO';
+const H2_MEDIO = '## SECCIÓN 6: EL MEDIO';
 
 const CIFRAS_CANONICAS: ValorConDomicilio[] = [
   {
@@ -362,6 +366,75 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'persona de sesenta y cinco —el DNP de PLANREP §15.3, el DCM de PLANTER:366-367 y el Piso ' +
       'Vital— y el documento tiene que decir cuál se suma, cuál absorbe y cuál es absorbido. El ' +
       'diferimiento estaba declarado desde los dos lados en la prosa y en ninguna parte de la guardia',
+  },
+  /**
+   * **Las dos declaraciones de la SECCIÓN 4 que no protegía nada.** Verificado
+   * rompiendo al abrir la Task 6: borrar el párrafo de la fila 1 de la tabla de
+   * fuentes salía **exit 0**, y borrar el de confianzas y regla 6 también. Con
+   * tres compresiones grandes ya hechas en el tramo y seis secciones por
+   * delante, una sección se comprime por donde no hay guardia — que es
+   * exactamente donde estaban las dos frases que sostienen la única fila con
+   * caja presente y la única regla del libro mayor que la tabla incumple.
+   */
+  {
+    valor: 'regla 6',
+    en: [H2_RENTA],
+    porQue:
+      'la regla del libro mayor que la tabla de fuentes INCUMPLE —disponibilidad mayor a doce meses ' +
+      'exige respaldo, y tres de las cuatro filas no lo tienen—. Es la clase de párrafo que la ' +
+      'compresión se lleva primero porque no defiende al PLAN, y sin él la tabla se lee cubierta',
+  },
+  {
+    valor: 'Ningún haber en curso se reduce',
+    en: [H2_RENTA],
+    porQue:
+      'la promesa que sostiene la única fila con caja presente: la reasignación de haberes de ANSES ' +
+      'cambia el título y no el monto. Sin esa frase escrita, la fila que financia el Piso Vital se ' +
+      'lee como un recorte a jubilados, que es lo contrario de lo que la fila hace',
+  },
+  // ── Task 6 · SECCIONES 5 y 6 ──────────────────────────────────────────────
+  {
+    valor: 'no reclama el Fondo Intergeneracional',
+    en: [H2_COMIENZO],
+    porQue:
+      'la resolución de C-7 del lado de la Dote. El Fondo Intergeneracional es 15% del FLUJO del FSC ' +
+      '(PLANTER:674), sin stock declarado ni regla de retiro, y sus dos mandatos escritos son ambos ' +
+      'de no distribuir (PLANTER:163 y :710/:839). Financiar la Dote de ahí sería la misma cadena que ' +
+      'a la SECCIÓN 4 le costó el Tramo Común: la renuncia va escrita, no supuesta',
+  },
+  {
+    valor: 'evidencia verificable por sistema',
+    en: [H2_COMIENZO],
+    porQue:
+      'el arreglo 6: la liberación de la Dote NO se decide en una mesa. Un panel territorial que ' +
+      'decide quién cobra un capital de dieciocho años es la mejor máquina de punteros que este ' +
+      'corpus podría estrenar, y el criterio se escribe como regla o vuelve solo',
+  },
+  {
+    valor: 'Identidad Digital Soberana',
+    en: [H2_COMIENZO],
+    porQue:
+      'la estación 2 del Calendario ya tiene ocupante: PLANDIG §8.2 emite la IDS al nacer (:677). El ' +
+      'Acta de Bienvenida es el dispositivo más nuevo de esta sección y el que más fácil pisa a otro ' +
+      'PLAN sin enterarse. La relación va declarada',
+  },
+  {
+    valor: 'Mandato Kilométrico Ciudadano',
+    en: [H2_MEDIO],
+    porQue:
+      'el hallazgo de la Task 6, que ni la spec ni el plan traían: el Pasaje son cuatro viajes PAGOS ' +
+      'y el derecho a moverse ya está escrito y es universal — PLANMOV §3.1, 2.400 km/año por adulto, ' +
+      'multimodal, activable desde la Cédula Civil. Escribir cuatro viajes pagos sin nombrarlo sería ' +
+      'la decimoquinta forma de «esto no existe» dicho sin buscar bajo otro nombre',
+  },
+  {
+    valor: 'Cinco Años Dignos',
+    en: [H2_MEDIO],
+    porQue:
+      'lo más cerca que el corpus está de anclar una política a una edad de la mediana vida: ' +
+      'PLANMOV §14.3, mayores de 50 desplazados, con aportes previsionales y cobertura a cargo del ' +
+      'FRM. No es la mediana edad como categoría —es un sector y un desplazamiento— pero decir ' +
+      '«territorio virgen» sin acotarlo contra esto sería falso',
   },
 ];
 
@@ -858,6 +931,156 @@ function clasesDelLibroMayor(): string[] {
 }
 
 /**
+ * **DUODÉCIMA FORMA DEL ARQUETIPO: la columna del dueño no tenía autoridad
+ * detrás.** Encontrada rompiendo, en dos mitades y las dos verdes:
+ *
+ * | Mutación | Antes |
+ * |---|---|
+ * | `Ministerio de Economía` → `ANSES (Ministerio de Economía)` | **exit 0** — dos filas comparten organismo, `duenos.size` sigue en 4, y «cuatro dueños» sigue siendo cierto para la guardia y falso para el lector |
+ * | `ANCV` → `Agencia Inventada del Arco` | **exit 0** — el dueño podía ser cualquier cadena |
+ *
+ * Lo filoso es la asimetría: la **clase** se cruza contra
+ * `SOURCE_OF_FUNDS_LEDGER.md`, la **confianza** contra las cuatro de
+ * `PLANPACTO §5.1`, y el **dueño** —que es lo primero que nombra la regla de
+ * `PLANPACTO:442` y lo único que contesta quién responde el día que haya que
+ * pagar— contra nada. `new Set()` sobre una columna libre es un chequeo de
+ * ortografía con nombre de chequeo de propiedad.
+ *
+ * **La autoridad existe y son tres registros, en orden de vigencia:**
+ *
+ * 1. La columna «Dueño» del propio `SOURCE_OF_FUNDS_LEDGER.md`, que está
+ *    `current` y es la autoridad primaria: ahí viven `Ministerio de Economía`
+ *    y `PEO`, que no son agencias del ecosistema.
+ * 2. La columna «Sigla» de `TABLA_AGENCIAS_BASTA.md`, **con su `superseded`
+ *    declarado**, exactamente como §0.3 y §4.5 ya lo declaran en la prosa: el
+ *    papel dejó de ser vinculante para la arquitectura de agencias y sigue
+ *    siendo el único censo de siglas que el corpus escribió.
+ * 3. Los dos que ninguno de los dos provee, listados acá con su razón.
+ *
+ * Y el conteo de dueños distintos se hace sobre el **identificador resuelto**,
+ * no sobre la celda: es lo que cierra la primera mutación.
+ */
+const DUENOS_EXPLICITOS: { id: string; porQue: string }[] = [
+  {
+    id: 'ANSES',
+    porQue:
+      'organismo existente de la República, no una agencia del ecosistema: no está en la tabla de ' +
+      'agencias porque ninguna la crea, y es el dueño de la única fila con caja presente',
+  },
+  {
+    id: 'ANAV',
+    porQue: 'la agencia que este PLAN crea en la SECCIÓN 8, con el patrón AN+sufijo del corpus',
+  },
+];
+
+/** Una celda de registro que no nombra a nadie: no se registra como dueño. */
+const DUENO_NO_ES_DUENO = /^(?:—|-|n\/?a|reflujo\b)/i;
+
+function duenosDelLibroMayor(): string[] {
+  const rel = DOCUMENTOS_CITABLES['SOURCE_OF_FUNDS_LEDGER.md'];
+  if (rel === undefined) return [];
+  const f = resolve(REPO_ROOT, rel);
+  if (!existsSync(f)) return [];
+  const lineas = readFileSync(f, 'utf8').split('\n');
+  const out: string[] = [];
+  let col = -1;
+  for (const l of lineas) {
+    if (!esFilaDeTabla(l)) {
+      col = -1;
+      continue;
+    }
+    const cs = celdas(l);
+    if (col === -1) {
+      col = cs.findIndex((c) => pelada(c) === 'Dueño');
+      continue;
+    }
+    if (esSeparadorDeTabla(l)) continue;
+    const celda = pelada(cs[col] ?? '');
+    if (celda === '' || DUENO_NO_ES_DUENO.test(celda)) continue;
+    // «Hacienda + BID» son dos dueños de la misma fuente: valen los dos y el entero.
+    out.push(celda, ...celda.split('+').map((s) => s.trim()));
+  }
+  return out.filter((s) => s !== '');
+}
+
+/** Las siglas del censo de agencias. `superseded`, y por eso se declara en la prosa. */
+function siglasDeAgencias(): string[] {
+  const rel = DOCUMENTOS_CITABLES['TABLA_AGENCIAS_BASTA.md'];
+  if (rel === undefined) return [];
+  const f = resolve(REPO_ROOT, rel);
+  if (!existsSync(f)) return [];
+  const lineas = readFileSync(f, 'utf8').split('\n');
+  const out: string[] = [];
+  let col = -1;
+  for (const l of lineas) {
+    if (!esFilaDeTabla(l)) {
+      col = -1;
+      continue;
+    }
+    const cs = celdas(l);
+    if (col === -1) {
+      col = cs.findIndex((c) => pelada(c) === 'Sigla');
+      continue;
+    }
+    if (esSeparadorDeTabla(l)) continue;
+    const celda = pelada(cs[col] ?? '');
+    if (celda === '' || DUENO_NO_ES_DUENO.test(celda)) continue;
+    // «AMCO, AMRO, … (placeholders)» — se descartan: no son dueños de nada todavía.
+    if (celda.includes('placeholder')) continue;
+    out.push(celda);
+  }
+  return out;
+}
+
+function registroDeDuenos(): string[] {
+  const todos = [
+    ...duenosDelLibroMayor(),
+    ...siglasDeAgencias(),
+    ...DUENOS_EXPLICITOS.map((d) => d.id),
+  ];
+  // Del más largo al más corto: una celda que nombre «ANEB execution cell» tiene
+  // que resolver por el identificador largo y no quedar partida en dos.
+  return [...new Set(todos)].sort((a, b) => b.length - a.length);
+}
+
+/**
+ * Resuelve la celda del dueño contra el registro. Devuelve el identificador
+ * canónico, o el error de por qué la celda no nombra exactamente a uno.
+ *
+ * Los bordes son de LETRA y no `\b`, por la misma razón que en `dice()`: `\b`
+ * no entiende la `ñ` ni la `í`. Y una coincidencia contenida dentro de otra más
+ * larga no cuenta como segundo dueño — `ANEB` adentro de `ANEB execution cell`
+ * es el mismo organismo nombrado con más o menos precisión, no dos.
+ */
+function resolverDueno(celda: string, registro: string[]): { id: string } | { error: string } {
+  const p = pelada(celda);
+  const hallados: string[] = [];
+  for (const id of registro) {
+    const re = new RegExp(`(?<!\\p{L})${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!\\p{L})`, 'u');
+    if (!re.test(p)) continue;
+    if (hallados.some((y) => y.includes(id))) continue;
+    hallados.push(id);
+  }
+  if (hallados.length === 0) {
+    return {
+      error:
+        `nombra como dueño a «${p}», que no resuelve contra ningún registro: ni la columna «Dueño» ` +
+        'de `SOURCE_OF_FUNDS_LEDGER.md`, ni las siglas de `TABLA_AGENCIAS_BASTA.md`, ni la lista ' +
+        'explícita de la guardia. Un dueño que no existe es una fuente por la que no responde nadie',
+    };
+  }
+  if (hallados.length > 1) {
+    return {
+      error:
+        `nombra a más de un dueño en la misma celda («${hallados.join('», «')}»), y la primera regla ` +
+        'de `PLANPACTO §5.1` es «una fuente, un dueño». Dos organismos en una celda hacen que el ' +
+        'conteo de dueños distintos siga cerrando mientras nadie sabe a cuál de los dos llamar',
+    };
+  }
+  return { id: hallados[0] };
+}
+
+/**
  * Los conteos que la prosa de la SECCIÓN 4 tiene que decir, **derivados de la
  * tabla y no escritos a mano.** Misma doctrina que
  * `frasesDerivadasDelCalendario()`: se exige el par número-sustantivo y no la
@@ -940,6 +1163,15 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
     );
   }
 
+  const registro = registroDeDuenos();
+  if (registro.length === 0) {
+    errores.push(
+      'no se pudo armar el registro de dueños (`SOURCE_OF_FUNDS_LEDGER.md` + ' +
+        '`TABLA_AGENCIAS_BASTA.md`): el chequeo de la columna «Dueño» NO corre, y una columna de ' +
+        'dueños sin autoridad detrás es un `new Set()` sobre texto libre',
+    );
+  }
+
   const duenos = new Set<string>();
   const clases = new Set<string>();
   let altas = 0;
@@ -963,7 +1195,13 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
       return;
     }
 
-    duenos.add(pelada(fila[1]));
+    if (registro.length > 0) {
+      const dueno = resolverDueno(fila[1], registro);
+      if ('error' in dueno) errores.push(`${donde} ${dueno.error}`);
+      else duenos.add(dueno.id);
+    } else {
+      duenos.add(pelada(fila[1]));
+    }
 
     const confianza = pelada(fila[3]).toLowerCase();
     if (!CONFIANZAS.includes(confianza)) {
@@ -1233,9 +1471,45 @@ const NOMBRE_DE_DOCUMENTO = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?)$/;
  */
 const CON_FORMA_DE_ANCLA = /§|:\d/u;
 
+/**
+ * **DECIMOTERCERA FORMA, y la única de las trece que produce un FALSO POSITIVO
+ * de verificación: un chequeo que AFIRMA una cita equivocada.**
+ *
+ * `antecedente` era una sola variable global al archivo y **cualquier** nombre
+ * de PLAN entre backticks la pisaba, incluido un nombre pelado sin ancla.
+ * Reproducido dos veces sobre el árbol de la Task 5: inyectando `` `PLANTER` ``
+ * entre `` `PRESUPUESTO_CONSOLIDADO_BASTA.md:100` `` y su remisión corta
+ * `` `:430` ``, la guardia salía **exit 0** y contaba esa ancla entre las
+ * doscientas «abiertas y resueltas», mientras `:430` resolvía contra
+ * `PLANTER:430` —el H2 de otra sección de otro PLAN— en vez de contra el
+ * documento del que la oración hablaba.
+ *
+ * No es un chequeo que falla abierto: es uno que da por verificada una remisión
+ * falsa, y la cuenta en el número que el tramo usa para darse por verificado.
+ *
+ * **El arreglo son dos reglas, y la segunda es la que importa.** Primera: el
+ * antecedente de una remisión corta lo fija **solo un ancla completa**
+ * (`DOC:NNN` o `DOC §N.N`); un nombre pelado no lo pisa nunca. Segunda: si
+ * entre el ancla completa y la remisión corta apareció el nombre pelado de
+ * **otro** documento, el chequeo **no corre y lo dice** — no adivina cuál de
+ * los dos quiso decir el que escribió. Es la doctrina que esta guardia ya tiene
+ * escrita para los domicilios ambiguos, aplicada donde faltaba.
+ *
+ * **Falsos positivos: cero sobre el documento entero**, verificado antes de dar
+ * el chequeo por bueno. El corpus escribe la remisión corta pegada a su ancla
+ * —«`PLANTER:674` … (`:163`)»— y el caso ambiguo, cuando aparece, es prosa que
+ * el lector tampoco puede desambiguar.
+ */
 function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resueltas: number } {
   const errores: string[] = [];
+  /** Fijado SOLO por un ancla completa. Un nombre pelado no lo toca. */
   let antecedente: string | null = null;
+  /** Nombres pelados de OTROS documentos vistos desde el último ancla completa. */
+  let peladosDesdeElAncla = new Set<string>();
+  const fijarAntecedente = (doc: string): void => {
+    antecedente = doc;
+    peladosDesdeElAncla = new Set<string>();
+  };
   /**
    * Cuántas anclas se abrieron de verdad **y resolvieron**. Va al titular a
    * propósito: cero anclas escaneadas también da cero errores, y un chequeo que
@@ -1257,14 +1531,14 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
 
       const s = ANCLA_PROSA_SECCION.exec(bruto);
       if (s) {
-        if (lineasDelPlan(s[1]) !== null) antecedente = s[1];
+        if (lineasDelPlan(s[1]) !== null) fijarAntecedente(s[1]);
         anotar(resolverContra(bruto, s[1], s[2], 0, 0, 'reportar'), donde);
         continue;
       }
 
       const l = ANCLA_PROSA_LINEA.exec(bruto);
       if (l) {
-        if (lineasDelPlan(l[1]) !== null) antecedente = l[1];
+        if (lineasDelPlan(l[1]) !== null) fijarAntecedente(l[1]);
         const desde = Number(l[2]);
         anotar(
           resolverContra(bruto, l[1], null, desde, l[3] === undefined ? desde : Number(l[3]), 'reportar'),
@@ -1279,6 +1553,16 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
           errores.push(
             `${donde}: «${bruto}» es una remisión corta y no hay documento citado antes contra el ` +
               'cual abrirla: la primera cita de un documento se escribe con su nombre',
+          );
+          continue;
+        }
+        if (peladosDesdeElAncla.size > 0) {
+          errores.push(
+            `${donde}: «${bruto}» es una remisión corta y el antecedente NO es único — la última ` +
+              `ancla completa es de «${antecedente}» y entre medio se nombró a ` +
+              `«${[...peladosDesdeElAncla].join('», «')}». La guardia no adivina cuál de los dos: ` +
+              'escribí la cita con su nombre (`DOC:NNN`) o mové el nombre pelado. Un antecedente ' +
+              'secuestrado no rompe el chequeo, lo vuelve una afirmación de que la cita es correcta',
           );
           continue;
         }
@@ -1299,7 +1583,8 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
 
       const n = NOMBRE_DE_DOCUMENTO.exec(bruto);
       if (n) {
-        if (lineasDelPlan(n[1]) !== null) antecedente = n[1];
+        // Un nombre PELADO no fija antecedente: lo anota como ambigüedad pendiente.
+        if (lineasDelPlan(n[1]) !== null && n[1] !== antecedente) peladosDesdeElAncla.add(n[1]);
         continue;
       }
 
