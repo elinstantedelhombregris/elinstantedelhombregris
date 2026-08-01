@@ -34,7 +34,7 @@ La tipología real es **Techo A** (rigidez preexistente, *incluye lo previsional
 
 ### C-5 · El presupuesto de la spec no cierra con el gate que habilita al PLAN — **el problema más grave del tramo**
 
-La spec declara **USD 6.000–11.000M/año** en régimen *y* **53.000–96.000M a quince años**. 6.000 × 15 = 90.000; 11.000 × 15 = 165.000. **El gate de spin-off que legitima la existencia de PLANARCO se corrió sobre 53.000–96.000** (`SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts:25`, publicado en el acta). Anualizar 53.000–96.000 sobre quince da 3.533–6.400M/año, que no es el rango de la portada. La rampa que explicaría el cociente (~8,7 años de régimen dentro de quince) **no está escrita en ninguna parte**. Se resuelve en la Task 8 y condiciona la cabecera de la Task 1.
+La spec declara **USD 6.000–11.000M/año** en régimen *y* **53.000–96.000M a quince años**. 6.000 × 15 = 90.000; 11.000 × 15 = 165.000. **El gate de spin-off que legitima la existencia de PLANARCO se corrió sobre 53.000–96.000** (`SocialJusticeHub/scripts/gate-spinoff-planes-nuevos.ts:25` — **corregido el 2026-08-01: el acta NO publica esa banda**, publica los tres cocientes en `ACTA:24-26`; la banda es el insumo del gate y vive en el script y en `spec:171`). Anualizar 53.000–96.000 sobre quince da 3.533–6.400M/año, que no es el rango de la portada. La rampa que explicaría el cociente (~8,7 años de régimen dentro de quince) **no está escrita en ninguna parte**. Se resuelve en la Task 8 y condiciona la cabecera de la Task 1.
 
 ### C-6 · «PUAM» y «PNC» no existen en el corpus — cero ocurrencias cada uno
 
