@@ -614,6 +614,8 @@ El Alto es una pausa paga, una vez en la vida, que se abre a los cuarenta y cinc
 
 Por qué a los cuarenta y cinco y no a otra edad lo fundamenta 0.5 y no se repite. Lo que corresponde agregar es que **el Alto no condiciona nada**: no descuenta del Piso Vital, no suma para la Rampa de Salida y —como todas las edades del Calendario— es de apertura y no vence.
 
+**Y a quién alcanza, que es el hueco más grande de esta sección.** El Alto es un dispositivo de la relación de dependencia: conserva el puesto y el salario porque hay un empleador que los sostiene, y el reintegro de 6.3 es un crédito contra contribuciones patronales. Fuera de ahí no está ninguna de las dos piezas —**la monotributista que no abre el local no cobra el día que no abre**— y 1.2 contó que entre el 40 y el 45% de los trabajadores argentinos está afuera de los dos regímenes. **El universo del Alto es poco más de la mitad del trabajo argentino, y va dicho acá y no en la última página.** El instrumento para la otra mitad no está en este documento: una transferencia por fuera del empleador es fuente nueva, y 4.6 fijó que este PLAN no estrena fuentes. **El arco llega primero a quien ya está adentro**, que es el reproche que 1.2 le hace al sistema entero.
+
 ### 6.3 El reintegro, y el acantilado que este documento no abre
 
 Acá el diseño no tenía de dónde copiar, y el precedente más cercano es una advertencia antes que un modelo. `PLANCUIDADO §3.3` redefine la jornada como 6 horas de trabajo más 2 de cuidado acreditable y **le carga las dos al empleador**, remuneradas al 75% de la hora de trabajo (`PLANCUIDADO:347`), con un aumento aproximado del 15% en el costo laboral (`:364`). Reintegro no hay: la única compensación que ese PLAN declara es no monetaria —menos ausentismo, mejor salud mental, menor rotación— y está escrita en la misma línea que el costo.
@@ -724,7 +726,7 @@ El Umbral del Legado junta las dos puntas de lo que una persona deja —el cuerp
 
 La ANAV es un ente autárquico, y el nombre sigue el patrón del ecosistema: de las veintiuna agencias que la tabla canónica nombra, diecisiete llevan sigla que empieza con AN (`TABLA_AGENCIAS_BASTA.md:39-60`), y las cuatro excepciones están justificadas fila por fila en la propia tabla. Acá no hay razón para una quinta.
 
-**Lo que no sigue es la autonomía de entrada, y eso va escrito.** La tabla quedó `superseded` en la auditoría del 2026-04-26 —0.3 ya lo declaró— y su default nuevo dice que las funciones nuevas se cumplen mediante execution cells adentro de ministerios existentes, y que las agencias autónomas se crean solo después de que un piloto pruebe demanda durable, financiamiento estable y necesidad legal (`TABLA_AGENCIAS_BASTA.md:11`). PLANARCO no pide excepción. La ANAV nace como célula de ejecución y se vuelve autárquica cuando el piloto de la Fase 1 pruebe las tres cosas, o no se vuelve. Un PLAN que se habilitó por derogación expresa de dos reglas no está en posición de pedir la tercera.
+**Lo que no sigue es la autonomía de entrada, y eso va escrito.** La tabla quedó `superseded` en la auditoría del 2026-04-26 —0.3 ya lo declaró— y su default nuevo dice que las funciones nuevas se cumplen mediante execution cells adentro de ministerios existentes, y que las agencias autónomas se crean solo después de que un piloto pruebe demanda durable, financiamiento estable y necesidad legal (`TABLA_AGENCIAS_BASTA.md:11`). PLANARCO no pide excepción. La ANAV nace como célula de ejecución y se vuelve autárquica cuando el piloto de la Fase 1 pruebe las tres cosas, o no se vuelve. Un PLAN que se habilitó por derogación expresa de dos reglas no está en posición de pedir la tercera. **Adentro de cuál de los ministerios existentes, que es la pregunta que sigue, lo contesta 13** con la razón puesta y con la advertencia de que la razón es de este documento.
 
 **Lo que hace es corto.** Liquida la Renta de Arco, lleva el Calendario, publica el Tablero de la Sección 13, convoca a los organismos de cada estación en la fecha que les toca y registra: el padrón de la Casa de Dos Edades, las declaraciones de la Última Palabra, la apertura de los Umbrales del Legado.
 
@@ -914,7 +916,7 @@ El calendario sale de 9.1: su partición contable nombra cada tramo por su fase.
 
 > *"Un tablero no defiende una partida. Hace que dejar de ejecutarla haya que explicarlo el mes que viene y no cuatro años después."*
 
-El tablero es la pieza dos del blindaje de 3.6 y no produce dato propio: publica lo que la liquidación y el padrón generan. Lo publica la ANAV y, mientras sea célula de ejecución (8.1), bajo el **Ministerio de Capital Humano**, donde ya se liquida el haber. Cinco indicadores, con su frecuencia —decisión de diseño de este documento— y su modo de falseo.
+El tablero es la pieza dos del blindaje de 3.6 y no produce dato propio: publica lo que la liquidación y el padrón generan. Lo publica la ANAV y, mientras sea célula de ejecución (8.1), bajo el **Ministerio de Capital Humano**, donde ya se liquida el haber — **aserción de este documento y sin fuente**. Cinco indicadores, con su frecuencia —decisión de diseño de este documento— y su modo de falseo.
 
 | Indicador | Frecuencia | Cómo se lo falsea sin mentir |
 |---|---|---|
@@ -978,13 +980,13 @@ Los cuatro riesgos de 10 traen su respuesta. Acá van cinco fallas que no son ri
 
 ## CIERRE
 
-> *"A Elvira no llegamos. A Teresa llegamos tarde a una de las tres y a tiempo a las otras dos. A la hija, enteros."*
+> *"A Elvira no llegamos. A Teresa llegamos tarde a las tres. A la hija llegamos a tiempo, y eso es todo lo que un plan puede prometer."*
 
-Teresa Bordón va a seguir abriendo a las nueve y cerrando a las siete. Este PLAN no le cambia el oficio: le contesta tres de las cuatro cosas que el preámbulo dejó abiertas, y la cuarta no.
+Teresa Bordón va a seguir abriendo a las nueve y cerrando a las siete. Este PLAN no le cambia el oficio: le contesta las tres cosas que el preámbulo dejó abiertas y a ninguna de las tres le llega a tiempo.
 
 **Los nueve años.** El asiento existe: el Tramo Ganado entra en la Fase 1 y la redención del cuidado pasa a ser un renglón del comprobante, que la ANCV valida y la ANAV liquida (4.4). Los nueve que ya pasaron siguen sin anotar: la moneda es de `PLANCUIDADO` y su fórmula la fija ese PLAN. Lo que cambia no es que se le paguen a Teresa; es que la próxima mujer de Nogoyá que mude a su madre a la pieza del fondo los anota desde el primer día.
 
-**Los cincuenta y dos años.** El Alto se abre a los cuarenta y cinco y no vence (6.2), así que a Teresa no se le pasó: la Fase 2 la alcanza antes de los sesenta. Y a la hija de veintitrés que estudia en Paraná le va a llegar a tiempo, que es distinto y más: el tramo sobre el que este país no tenía una línea escrita va a estar escrito para las dos.
+**Los cincuenta y dos años.** El Alto se abre a los cuarenta y cinco y no vence (6.2), así que por edad a Teresa no se le pasó: la Fase 2 la alcanza. Por régimen sí, y 6.2 lo declara donde vive el dispositivo: el Alto es de la relación de dependencia y Teresa está en el monotributo. **A ella el arco le escribe el tramo y no le paga la pausa.** A la hija de veintitrés que estudia en Paraná le va a llegar a tiempo, y entero si trabaja en relación de dependencia: el tramo sobre el que este país no tenía una línea escrita va a estar escrito para las dos, y pago para una.
 
 **La casa.** Acá la respuesta es la peor: el Umbral del Legado es de la Fase 3, y la casa de Sarmiento se resuelve —o no— mucho antes. A esta sucesión no la abre este PLAN. Lo que hace es que la siguiente no espere a que la familia junte el abogado: la muerte inscripta convoca al panel (7.6).
 

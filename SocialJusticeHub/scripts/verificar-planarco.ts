@@ -274,6 +274,8 @@ const H2_CALENDARIO = '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES
 const H2_RENTA = '## SECCIÓN 4: LA RENTA DE ARCO';
 const H2_COMIENZO = '## SECCIÓN 5: EL COMIENZO';
 const H2_MEDIO = '## SECCIÓN 6: EL MEDIO';
+/** §6.2, por número: es donde vive la definición del Alto y ahora también su universo. */
+const H3_EL_ALTO = '### 6.2 ';
 /** Prefijo, como `### 0.6 `: el domicilio de la tabla de fuentes es su número. */
 /**
  * Domicilios por prefijo de H3, la forma que estrenó `H3_FALLA_TRANSMISION` y
@@ -2421,6 +2423,70 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'el límite del Tramo Ganado sobre el hilo de los nueve años: la moneda es de PLANCUIDADO y su ' +
       'fórmula la fija ese PLAN. Sin esta frase el cierre concede retroactividad, que es la enmienda ' +
       'unilateral que 4.4 denuncia',
+  },
+  /**
+   * **EL UNIVERSO DEL ALTO, Y EL HILO QUE SE APOYABA EN ÉL** (C-3 de la revisión
+   * de la Task 10, y el hallazgo más caro del tramo). §6.2 definía una pausa que
+   * «conserva el puesto, el salario y los aportes» y 6.3 la reintegraba con un
+   * crédito «contra sus propias contribuciones» del empleador, y en 33.213
+   * palabras **el dispositivo no declaraba nunca a quién alcanza** — mientras 1.2
+   * escribía que entre el 40 y el 45% de los trabajadores argentinos está afuera
+   * de los dos regímenes. El CIERRE devolvía sobre esa pieza el único de los tres
+   * hilos que devolvía **entero**, y se lo devolvía a una monotributista sin
+   * empleador: no hay puesto que conservar ni contribución contra la cual
+   * descontar.
+   *
+   * Las dos entradas son las dos mitades del arreglo, y van juntas a propósito:
+   * la primera es el límite escrito **donde vive el dispositivo**, que es lo que
+   * lo arregla para todos los lectores y no solo para Teresa; la segunda es la
+   * consecuencia en el anillo, que es lo que impide que el cierre vuelva a leerse
+   * más generoso de lo que el documento es. Borrar cualquiera de las dos deja la
+   * otra sosteniendo sola una promesa que el PLAN no puede pagar.
+   */
+  {
+    valor: 'poco más de la mitad del trabajo argentino',
+    en: [H3_EL_ALTO],
+    porQue:
+      'el universo real del Alto, declarado donde el dispositivo se define. El reintegro de 6.3 es un ' +
+      'crédito contra contribuciones patronales, así que fuera de la relación de dependencia no hay ' +
+      'instrumento: sin esta línea, la sección promete una pausa paga a un país del que 1.2 dice que ' +
+      'entre el 40 y el 45% está afuera de los dos regímenes',
+  },
+  {
+    valor: 'este PLAN no estrena fuentes',
+    en: [H3_EL_ALTO],
+    porQue:
+      'la otra mitad de la declaración del universo, y la que impide que declarar el hueco se ' +
+      'convierta en taparlo. Escribirle al Alto una transferencia directa por fuera del empleador es ' +
+      'estrenar la fuente que la tabla de 4.6 no tiene, y es la salida barata que la sección tiene ' +
+      'justo al lado del hueco que acaba de reconocer',
+  },
+  {
+    valor: 'le escribe el tramo y no le paga la pausa',
+    en: [H2_CIERRE],
+    porQue:
+      'el límite del Alto sobre el hilo de los cincuenta y dos años, que era el único de los tres que ' +
+      'el cierre devolvía entero y el único sin su límite escrito. Teresa es monotributista: sin esta ' +
+      'frase, la última página le devuelve completo el hilo más cargado apoyándose en un dispositivo ' +
+      'que no la alcanza',
+  },
+  {
+    valor: 'A esta sucesión no la abre este PLAN',
+    en: [H2_CIERRE],
+    porQue:
+      'el límite del Umbral del Legado sobre el hilo de la casa, y la tercera de las tres. Las tres ' +
+      'van exigidas porque son las que sostienen la regla del epígrafe: mientras cada hilo lleve su ' +
+      'límite escrito, el epígrafe no puede repartir llegadas a tiempo sobre la dueña de los hilos',
+  },
+  {
+    valor: 'aserción de este documento y sin fuente',
+    en: [H2_TABLERO],
+    porQue:
+      'dónde vive la agencia nueva es la respuesta que 8.1 dejó abierta, y se contesta con un dato ' +
+      'que el corpus no tiene: «Capital Humano» aparece en tres portadas y en ningún cuerpo, y ' +
+      'PLANREP:44 lo lista al lado del Ministerio de Trabajo. Este documento marca «aserción propia ' +
+      'sin fuente» para la AUH, para el PAMI y para los cinco millones de mayores: no marcarlo acá ' +
+      'sería no marcarlo justo donde decide el domicilio de la ANAV',
   },
   /**
    * **La autarquía de la ANAV es CONDICIONAL, y la visión es donde más barato
@@ -7326,6 +7392,60 @@ function verificarRestatementsFinales(lineas: string[]): string[] {
   // (7) Los datos biográficos del CIERRE, contra los que el PREÁMBULO escribió.
   errores.push(...verificarBiografiaDelCierre(lineas));
 
+  /**
+   * (8) **El porcentaje de trabajadores afuera de los dos regímenes: §6.2 contra
+   * §1.2, que es donde el número entra al documento con su ancla** (`PLANMON:1551`).
+   *
+   * Va acá aunque §6.2 no sea una sección final, porque **es la misma clase**: una
+   * copia de un número que otra sección derivó, sin domicilio propio donde chocar.
+   * Y es el operando del hueco que C-3 obligó a declarar —el universo del Alto se
+   * mide contra él—, así que aflojarlo del 40-45% al 4-5% achica el hueco a una
+   * décima parte sin tocar una palabra de la declaración que lo nombra.
+   */
+  const FUERA_DE_LOS_REGIMENES = /entre el (\d+) y el (\d+)% de los trabajadores argentinos/iu;
+  const enUnoDos = FUERA_DE_LOS_REGIMENES.exec(tramoDe(H3_CUIDADORES));
+  const enSeisDosPct = FUERA_DE_LOS_REGIMENES.exec(tramoDe(H3_EL_ALTO));
+  if (enUnoDos !== null && enSeisDosPct !== null) {
+    if (enUnoDos[1] !== enSeisDosPct[1] || enUnoDos[2] !== enSeisDosPct[2]) {
+      errores.push(
+        `§6.2 dice que está afuera de los dos regímenes entre el ${enSeisDosPct[1]} y el ` +
+          `${enSeisDosPct[2]}% de los trabajadores y §1.2 escribe ${enUnoDos[1]}–${enUnoDos[2]}%, que ` +
+          'es donde el número entra al documento con su ancla. El universo del Alto se declara contra ' +
+          'ese porcentaje: moverlo en la copia achica el hueco declarado sin tocar la declaración',
+      );
+    }
+  } else if (enUnoDos !== null && enSeisDosPct === null) {
+    errores.push(
+      '§6.2 declara el universo del Alto sin el porcentaje que lo mide. El dispositivo es de la ' +
+        'relación de dependencia y el hueco es el resto: sin el número de §1.2 al lado, «poco más de ' +
+        'la mitad» es una impresión y no una cuenta',
+    );
+  }
+
+  /**
+   * (9) **De quién depende el hecho registrado: §17 contra el PLAN que §15
+   * ancla** (M-4 de la revisión). Cambiarle el dueño a la dependencia en la fila
+   * del protocolo —`PLANDIG` por `PLANMON`— salía **exit 0**, y una dependencia
+   * mal atribuida es una respuesta de contingencia escrita contra la puerta
+   * equivocada. El dueño no se escribe acá: sale de la oración de §15 que ubica a
+   * los registros civiles, que es la que trae el ancla.
+   */
+  const oracionDeRegistros = (textoDeDomicilio(lineas, H2_FEDERAL).texto ?? '')
+    .split(CORTA_ORACION_DE_PROSA)
+    .find((o) => /registros civiles/iu.test(o) && /`PLAN\p{Lu}+:/u.test(o));
+  const filaDelHecho = lineas.find((l) => /hecho registrado no viaja/iu.test(l));
+  if (oracionDeRegistros !== undefined && filaDelHecho !== undefined) {
+    const dueno = /`(PLAN\p{Lu}+):/u.exec(oracionDeRegistros);
+    if (dueno !== null && !filaDelHecho.includes(dueno[1])) {
+      errores.push(
+        `§17 le pone la falla del hecho registrado a otro PLAN y §15 la ancla en \`${dueno[1]}\` ` +
+          `(«${filaDelHecho.split('|')[1]?.trim() ?? filaDelHecho.trim()}»). El protocolo de falla ` +
+          'existe para tener escrita de antemano la respuesta a una dependencia ajena: con el dueño ' +
+          'cambiado, la respuesta está escrita contra una puerta que no es la que se cierra',
+      );
+    }
+  }
+
   return errores;
 }
 
@@ -7355,6 +7475,28 @@ function paresBiograficos(texto: string): Map<string, string> {
   return m;
 }
 
+/**
+ * **LOS TRES DATOS DE LA MUERTE DE ELVIRA, QUE NO TIENEN LA FORMA `sustantivo de
+ * ‹numeral›`** (M-2 de la revisión de la Task 10). `PAR_BIOGRAFICO` sale del
+ * patrón «hija de veintitrés» y por eso atrapaba la edad y nada más: **«a las
+ * cinco de la mañana» → «a las seis» salía verde**, y la hora y el mes son los
+ * dos datos más cargados del CIERRE — son la mañana entera sobre la que se apoya
+ * «a Elvira no se le devuelve nada».
+ *
+ * Siguen sin ser una lista de valores: cada dato se **extrae por su forma** de
+ * los dos tramos y se comparan los que aparecen en los dos. Las tres formas se
+ * eligieron midiendo, no suponiendo: `de un ‹día›` y no `‹día›` suelto porque el
+ * preámbulo escribe «los viernes se queda hasta que termine la última cabeza»
+ * seis líneas antes que «de un martes», y un barrido de días cruzaría el viernes
+ * de la peluquería contra el martes de la muerte; y `murió en ‹mes›` y no `en
+ * ‹mes›` porque el mismo tramo escribe «murió el once», que es el día del haber.
+ */
+const DATOS_DEL_ROSTRO: { que: string; patron: RegExp }[] = [
+  { que: 'la hora', patron: /a las (\p{L}+(?:\s+y\s+\p{L}+)?) de la (?:mañana|tarde|noche)/iu },
+  { que: 'el mes', patron: /muri[óo] en (\p{L}+)/iu },
+  { que: 'el día', patron: /de un (lunes|martes|miércoles|jueves|viernes|sábado|domingo)/iu },
+];
+
 function verificarBiografiaDelCierre(lineas: string[]): string[] {
   const errores: string[] = [];
   const { texto: preambulo } = textoDeDomicilio(lineas, H2_PREAMBULO);
@@ -7369,6 +7511,333 @@ function verificarBiografiaDelCierre(lineas: string[]): string[] {
       `el CIERRE escribe «${sustantivo} de ${numeral}» y el PREÁMBULO escribe ` +
         `«${sustantivo} de ${original}». El anillo se cierra sobre las mismas personas: cambiarle un ` +
         'dato al rostro en la última página le cambia a quién le llega el arco y a quién no',
+    );
+  }
+
+  for (const { que, patron } of DATOS_DEL_ROSTRO) {
+    const alla = patron.exec(preambulo.replace(/\*\*/g, ''));
+    const aca = patron.exec(cierre.replace(/\*\*/g, ''));
+    if (alla === null || aca === null) continue;
+    if (alla[1].toLowerCase() === aca[1].toLowerCase()) continue;
+    errores.push(
+      `el CIERRE pone la muerte de Elvira en «${aca[1]}» y el PREÁMBULO en «${alla[1]}» (${que}). ` +
+        'Es la mañana sobre la que se apoya la única frase del documento que declara que a alguien no ' +
+        'se le devuelve nada: si la hora, el mes o el día se mueven, la escena que el cierre invoca ' +
+        'ya no es la que el preámbulo escribió',
+    );
+  }
+  return errores;
+}
+
+/**
+ * ── LA ARITMÉTICA DE §16, QUE NO ES UN VALOR DE DISEÑO SINO UNA CUENTA ────────
+ * (I-1 de la revisión de la Task 10.)
+ *
+ * §16 escribe sus dos operandos —«tomando 2026 como año cero» y el año del
+ * régimen que 9.1 produce— y escribe también los dos **productos**: en qué fase
+ * cae 2040 y cuántos ejercicios de régimen lleva cumplidos. La guardia cruzaba
+ * cada operando por separado y **nunca el resultado**: `2026` → `2028` salía
+ * verde y «cuatro ejercicios» → «seis» salía verde, con la sección declarando en
+ * qué fase cae un año que, con el operando nuevo, cae en otra.
+ *
+ * **Un supuesto de trabajo declarado no exime de la aritmética que se hace con
+ * él.** El año cero lo elige este documento —y por eso lleva su fórmula, que es
+ * una aserción obligatoria aparte—; lo que se deriva de él, no.
+ *
+ * La ventana de la fase se lee de la tabla de §12 y no de acá. Las ventanas de
+ * §12 se solapan a propósito (la Fase 3 va de 6 a 10 y la Fase 4 de 10 a 15), así
+ * que lo que se exige es **pertenencia y no exclusividad**: la fase declarada
+ * tiene que ser una de las que contienen al año, o la visión se ubica sola.
+ */
+function verificarAritmeticaDeVision(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const plano = (h: string): string => (textoDeDomicilio(lineas, h).texto ?? '').replace(/\*\*/g, '');
+  const vision = plano(H2_VISION);
+  if (vision === '') return errores;
+
+  const anioDelTitulo = /(\d{4})/.exec(H2_VISION);
+  const anioCero = /tomando (\d{4}) como año cero/u.exec(vision);
+  const regimen = /r[ée]gimen se alcanza en el año (\p{L}+)/iu.exec(plano(H3_LA_RAMPA_DEL_GASTO));
+  if (anioDelTitulo === null || anioCero === null || regimen === null) return errores;
+
+  const nRegimen = EN_LETRAS.indexOf(regimen[1].toLowerCase());
+  if (nRegimen === -1) return errores; // el ordinal ilegible ya lo reporta el restatement (3)
+  const indice = Number(anioDelTitulo[1]) - Number(anioCero[1]);
+  const cumplidos = indice - nRegimen + 1;
+
+  const declarados = /con (\p{L}+) ejercicios? de r[ée]gimen cumplidos/iu.exec(vision);
+  if (declarados === null) {
+    errores.push(
+      '§16 no dice cuántos ejercicios de régimen lleva cumplidos su año objetivo, que es lo único ' +
+        'que distingue «cae adentro de la Fase 4» de «cae en el primer día de la Fase 4»',
+    );
+  } else if (cumplidos < 1 || cumplidos >= EN_LETRAS.length) {
+    errores.push(
+      `§16 declara «${declarados[1]} ejercicios de régimen cumplidos» y la cuenta que sus propios ` +
+        `operandos producen da ${String(cumplidos)}: con ${anioCero[1]} como año cero y el régimen ` +
+        `en el año ${String(nRegimen)}, ${anioDelTitulo[1]} ni siquiera está en régimen`,
+    );
+  } else if (declarados[1].toLowerCase() !== EN_LETRAS[cumplidos]) {
+    errores.push(
+      `§16 declara «${declarados[1]} ejercicios de régimen cumplidos» y sus dos operandos escritos ` +
+        `dan «${EN_LETRAS[cumplidos]}»: ${anioDelTitulo[1]} es el año ${String(indice)} contado desde ` +
+        `${anioCero[1]}, y el régimen empieza en el año ${String(nRegimen)}. No es un valor de diseño: ` +
+        'es una cuenta, y los dos operandos están escritos en el documento',
+    );
+  }
+
+  const fase = /cae adentro de la Fase (\d)/u.exec(vision);
+  const tabla = filasDeTabla(lineas, COLUMNAS_HOJA_DE_RUTA, true);
+  if (fase === null || tabla.filas === null) return errores;
+
+  const contienen: number[] = [];
+  for (const f of tabla.filas) {
+    const n = /^Fase (\d+)/u.exec((f[0] ?? '').trim());
+    const v = /^(\d+)\s*a\s*(\d+)$/u.exec((f[1] ?? '').trim());
+    if (n === null || v === null) continue; // la forma de la tabla la reporta verificarHojaDeRuta()
+    if (indice >= Number(v[1]) && indice <= Number(v[2])) contienen.push(Number(n[1]));
+  }
+  if (contienen.length > 0 && !contienen.includes(Number(fase[1]))) {
+    errores.push(
+      `§16 dice que ${anioDelTitulo[1]} cae adentro de la Fase ${fase[1]} y, con ${anioCero[1]} como ` +
+        `año cero, es el año ${String(indice)} — que la tabla de §12 pone en la Fase ` +
+        `${contienen.join(' o la ')}. Mover el año cero cambia de fase a la visión entera sin tocar ` +
+        'una fila de la hoja de ruta',
+    );
+  }
+  return errores;
+}
+
+/**
+ * ── LOS RESTATEMENTS DE FASE DE LAS SECCIONES FINALES ─────────────────────────
+ * (I-2 de la revisión de la Task 10.)
+ *
+ * Seis restatements de las cinco secciones finales ya se cruzaban contra el lugar
+ * que los produce; **tres de la misma clase quedaron afuera** y los tres salían
+ * verdes mutados: «el Tramo Ganado entra en la Fase 1» → Fase 2, «el Umbral del
+ * Legado es de la Fase 3» → Fase 2, y «Los cuatro riesgos de 10» → tres.
+ *
+ * **No hay lista de restatements.** Se descubren: en cada sección final se parte
+ * el texto en oraciones, y toda oración que nombre «la Fase N» y algún nombre del
+ * léxico cerrado de la portada —los trece dispositivos con sus alias, más los tres
+ * tramos de la Renta de Arco— se cruza contra la celda «Qué se pone en pie» de esa
+ * fase en §12. Si mañana una sección nueva escribe un dispositivo al lado de una
+ * fase, queda cubierto sin tocar esto.
+ *
+ * El cruce compara **en las dos direcciones** porque las dos tablas no escriben
+ * la misma forma de superficie: §12 pone «Piso Vital» y la portada «Piso Vital
+ * Universal», y un `includes` en un solo sentido acusaría a la fase correcta.
+ */
+const SECCIONES_QUE_RESTATAN_FASE = [H2_TABLERO, H2_FEDERAL, H2_VISION, H2_PROTOCOLO, H2_CIERRE];
+
+/**
+ * El corte de oración de este archivo: **punto seguido de espacio**, que es el
+ * mismo que `oracionDe()` usa y por la misma razón —un punto pegado a lo que
+ * sigue es separador de miles, ancla (`4.4`, `§9.10`) o abreviatura—. La primera
+ * versión de acá agregaba un `(?<!\d)` para «no partir un ancla» y el resultado
+ * fue el contrario: «el gate de la Fase 3. La Renta de Arco liquidando…» no
+ * partía, y §16 quedaba acusada de poner la Renta de Arco en la Fase 3. El dígito
+ * de adelante no distingue un ancla de un final de oración; el espacio de atrás
+ * ya lo hace solo.
+ */
+const CORTA_ORACION_DE_PROSA = /\.\s+/u;
+
+function verificarFasesRestatadas(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const tabla = filasDeTabla(lineas, COLUMNAS_HOJA_DE_RUTA, true);
+  if (tabla.filas === null) return errores; // lo reporta verificarHojaDeRuta()
+
+  /** Fase → los nombres que §12 pone en «Qué se pone en pie», uno por uno. */
+  const enPie = new Map<number, string[]>();
+  for (const f of tabla.filas) {
+    const n = /^Fase (\d+)/u.exec((f[0] ?? '').trim());
+    if (n === null) continue;
+    enPie.set(
+      Number(n[1]),
+      (f[2] ?? '')
+        .replace(/\*\*/g, '')
+        .split(',')
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => s !== ''),
+    );
+  }
+
+  /**
+   * El léxico cerrado: los trece con sus alias, más los calificadores que son
+   * NOMBRES (los tres tramos). El cuarto calificador —«cuatro viajes a los 12,
+   * 18, 45 y 60»— no lo es y se descarta por su inicial minúscula, que es la
+   * misma marca por la que la portada lo lleva como calificador y no como nombre.
+   */
+  const lexico = [
+    ...DISPOSITIVOS_EN_PORTADA.flatMap(formasDe),
+    ...CALIFICADORES_EN_PORTADA.map((c) => c.replace(/^:\s*/, '')).filter((c) => /^\p{Lu}/u.test(c)),
+  ].map((s) => s.toLowerCase());
+
+  for (const h2 of SECCIONES_QUE_RESTATAN_FASE) {
+    const { texto } = textoDeDomicilio(lineas, h2);
+    if (texto === null) continue;
+    for (const linea of texto.split('\n')) {
+      for (const oracion of linea.split(CORTA_ORACION_DE_PROSA)) {
+        const o = oracion.replace(/\*\*/g, '').toLowerCase();
+        const fase = /\bla fase (\d)\b/u.exec(o);
+        if (fase === null) continue;
+        const celda = enPie.get(Number(fase[1]));
+        if (celda === undefined) continue;
+        for (const nombre of lexico) {
+          if (!o.includes(nombre)) continue;
+          if (celda.some((c) => c.includes(nombre) || nombre.includes(c))) continue;
+          errores.push(
+            `«${h2}» pone «${nombre}» en la Fase ${fase[1]} y §12 no lo pone en pie ahí ` +
+              `[${celda.join(' · ')}]. La hoja de ruta es el lugar que produce el reparto: un ` +
+              'dispositivo adelantado de fase en una sección final promete antes de lo que el ' +
+              'documento se comprometió, y la copia no tiene domicilio propio donde chocar',
+          );
+        }
+      }
+    }
+  }
+
+  // Y el conteo de riesgos que §17 repite: el numeral de §10 lo derivan sus leads.
+  const { tramo: diez } = tramoDeSeccion(lineas, H2_RIESGOS);
+  const { texto: diecisiete } = textoDeDomicilio(lineas, H2_PROTOCOLO);
+  if (diez !== null && diecisiete !== null) {
+    const leads = diez.filter((l) => {
+      const m = /^\*\*(\p{L}+)\./u.exec(l.trim());
+      return m !== null && ORDINALES.includes(m[1]);
+    }).length;
+    const enProtocolo = /Los (\p{L}+) riesgos de 10/u.exec(diecisiete.replace(/\*\*/g, ''));
+    if (enProtocolo !== null && enProtocolo[1].toLowerCase() !== EN_LETRAS[leads]) {
+      errores.push(
+        `§17 dice «Los ${enProtocolo[1]} riesgos de 10» y §10 trae ${String(leads)} riesgo(s) con ` +
+          'lead ordinal. §17 arranca declarando que sus cinco fallas son las que 10 NO cubre: si el ' +
+          'conteo de la remisión no es el de la sección remitida, la frontera entre las dos secciones ' +
+          'deja de estar donde dice',
+      );
+    }
+  }
+  return errores;
+}
+
+/**
+ * ── QUIÉN VALIDA LAS HORAS, DERIVADO DE §4.4 ─────────────────────────────────
+ * (I-3 de la revisión de la Task 10.)
+ *
+ * `ROLES_INVERTIDOS` atrapa la forma positiva —«la ANAV valida»— y **deja pasar
+ * la negada a propósito**: 8.1 escribe «no valida horas de cuidado —eso es la
+ * ANCV» y una guardia que se pusiera roja sobre esa frase empujaría a reescribir
+ * el documento en vez de la regex. El costo estaba medido mal: la fila de §17 es
+ * **negativa** —«La ANCV no valida horas»— y mutada a «La ANAV no valida horas»
+ * salía **verde**, o sea que el prohibido no cubría la única línea de §17 para la
+ * que se lo invocaba. Y la mutación no es inocua: convierte una dependencia ajena
+ * que puede fallar en la prohibición propia que 8.1 ya declara cumplida, con lo
+ * que §17 pierde una de sus cuatro dependencias sin perder una fila.
+ *
+ * **El arreglo no es prohibir la forma negada, que es legítima**, sino cruzar la
+ * atribución: se lee de §4.4 quién valida y quién liquida —la oración que ese
+ * domicilio ya está obligado a tener— y se exige que **toda** atribución de
+ * validar horas, negada o no, nombre a la sigla que 4.4 puso ahí. La lista de
+ * siglas no existe: sale del documento.
+ *
+ * La ventana es de caracteres y no de oración porque la enumeración de 8.1 —«no
+ * atiende salud, no construye vivienda, no forma cuidadoras, no valida horas»—
+ * pone la sigla a más de sesenta caracteres del verbo y no es una atribución
+ * adyacente: es una lista de prohibiciones. Medido sobre el documento: las cuatro
+ * atribuciones adyacentes que existen nombran las dos a la ANCV, falsos
+ * positivos cero.
+ */
+const REPARTO_DE_ROLES = /la (AN\p{Lu}V) valida las horas y la (AN\p{Lu}V) las liquida/u;
+const ATRIBUYE_VALIDAR_HORAS = new RegExp(
+  String.raw`\b(AN\p{Lu}V)\b(?:(?!\bAN\p{Lu}V\b)[^.\n]){0,20}?\bvalid\p{L}*\b(?:(?!\bAN\p{Lu}V\b)[^.\n]){0,25}?\bhoras\b`,
+  'gu',
+);
+
+function verificarQuienValidaLasHoras(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const plano = lineas.join('\n').replace(/\*\*/g, '');
+  const reparto = REPARTO_DE_ROLES.exec(plano);
+  if (reparto === null) {
+    errores.push(
+      'no está en el documento la oración de 4.4 que reparte los roles («la ANCV valida las horas y ' +
+        'la ANAV las liquida»). Es de donde sale quién puede aparecer validando: sin ella, el reparto ' +
+        'lo fija cada sección por su cuenta, que es la enmienda unilateral que 4.4 denuncia',
+    );
+    return errores;
+  }
+  const validador = reparto[1];
+  for (const m of plano.matchAll(ATRIBUYE_VALIDAR_HORAS)) {
+    if (m[1] === validador) continue;
+    /**
+     * **La exención descubierta, no lexical: la línea que además nombra al
+     * validador ya se desambigua sola.** 8.1 escribe la prohibición propia de la
+     * ANAV con la respuesta al lado —«no valida horas de cuidado —eso es la
+     * ANCV»— y una reescritura legítima de esa frase que pusiera la sigla pegada
+     * al verbo caería acá en rojo sobre una oración verdadera, que es
+     * exactamente lo que este archivo se prohíbe hacer. La fila de §17 no tiene
+     * la salida: nombra una sola sigla, y por eso sigue roja.
+     */
+    const linea = plano.slice(
+      plano.lastIndexOf('\n', m.index) + 1,
+      plano.indexOf('\n', m.index) === -1 ? plano.length : plano.indexOf('\n', m.index),
+    );
+    if (new RegExp(String.raw`\b${validador}\b`, 'u').test(linea)) continue;
+    errores.push(
+      `«${m[0].trim()}» le atribuye la validación de horas a la ${m[1]} y 4.4 se la da a la ` +
+        `${validador}. La forma negada también cuenta: en el protocolo de falla convierte una ` +
+        'dependencia ajena que puede fallar en la prohibición propia que 8.1 ya declara cumplida, y ' +
+        'el protocolo pierde una dependencia sin perder una fila',
+    );
+  }
+  return errores;
+}
+
+/**
+ * ── LAS REMISIONES INTERNAS, RESUELTAS CONTRA LOS ENCABEZADOS DEL DOCUMENTO ───
+ * (M-3 de la revisión de la Task 10, y la clase que la revisión declaró
+ * preexistente: `(7.6)`→`(7.5)` y `(4.4)`→`(4.5)` salían **verdes**.)
+ *
+ * Las anclas a otros PLANes se resuelven una por una contra su archivo desde la
+ * Task 8; **las remisiones a este mismo documento no las resolvía nadie**, y son
+ * la mitad más frecuente: la prosa dice «lo fundamenta 0.5», «como 4.5 lo
+ * escribió», «el reintegro de 6.3». Una remisión rota manda al lector a una
+ * subsección que no existe, y en un documento de veintidós secciones nadie la
+ * verifica leyendo.
+ *
+ * **Lo que distingue una remisión propia de una ajena es la forma, y se midió
+ * antes de escribir la regla.** Barridos todos los tokens `N.M` del documento
+ * contra los encabezados: los únicos que no resuelven son los ajenos, y los
+ * ajenos vienen los tres marcados —`§` (`PLANMOV §14.3`), `Sección N.M` (que
+ * este documento usa solo para secciones de otros PLANes; a las propias las
+ * nombra con entero, «la Sección 10»), y `Versión 1.0`, que es el H3 de la
+ * cabecera—. Con esas tres exclusiones más el separador de miles (`1.8
+ * millones`), **falsos positivos: cero, medido sobre el documento entero.**
+ */
+const REMISION_INTERNA = /(?<![0-9A-Za-zÁ-úñ:.§])(\d{1,2}\.\d{1,2})(?![0-9])/gu;
+const REMISION_AJENA = /(?:Sección|Versión|§)\s?$/u;
+
+function verificarRemisionesInternas(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const texto = lineas.join('\n');
+  const encabezados = new Set(
+    lineas
+      .map((l) => /^#+\s+(\d+\.\d+)/u.exec(l.trim())?.[1])
+      .filter((n): n is string => n !== undefined),
+  );
+  if (encabezados.size === 0) return errores;
+
+  const vistas = new Set<string>();
+  for (const m of texto.matchAll(REMISION_INTERNA)) {
+    if (encabezados.has(m[1]) || vistas.has(m[1])) continue;
+    const antes = texto.slice(Math.max(0, m.index - 12), m.index);
+    // El ancla ajena entre backticks: `PLANMOV §14.3`, `PLANSAL §15.5`.
+    if (REMISION_AJENA.test(antes)) continue;
+    if ((texto.slice(0, m.index).split('`').length - 1) % 2 === 1) continue;
+    if (/^\s*mill/u.test(texto.slice(m.index + m[1].length))) continue;
+    vistas.add(m[1]);
+    errores.push(
+      `la prosa remite a «${m[1]}» y este documento no tiene ese encabezado ` +
+        `(…${texto.slice(Math.max(0, m.index - 55), m.index + 20).replace(/\n/g, ' ').trim()}…). ` +
+        'Las anclas a otros PLANes se abren y se leen desde la Task 8; las remisiones a este mismo ' +
+        'documento no las resolvía nadie, y mandan al lector a una subsección que no existe',
     );
   }
   return errores;
@@ -7402,11 +7871,37 @@ function verificarBiografiaDelCierre(lineas: string[]): string[] {
  * (si no, la lista quedó vieja) y en el CIERRE (si no, el anillo no cierra).
  * Elvira es el caso que importa: es la persona a la que este PLAN no le devuelve
  * nada, y un cierre que la omite se lee más generoso de lo que el documento es.
+ *
+ * ── Y EL EPÍGRAFE, que era la mitad que faltaba (C-1 y C-2 de la revisión) ────
+ *
+ * El conteo vivía en un solo lado. `HILOS_ESPERADOS` cruzaba la serie del
+ * preámbulo y **la prosa del CIERRE contaba por su cuenta**: «le contesta tres de
+ * las cuatro cosas que el preámbulo dejó abiertas» salía **exit 0** contra un
+ * script que, en el mismo commit, afirmaba que son tres. El script y la prosa se
+ * contradecían adentro del mismo archivo y nadie los ponía a hablar.
+ *
+ * **Y la línea más citable del documento decía lo contrario que su propia
+ * sección cuatro renglones más abajo:** el epígrafe repartía «tarde a una de las
+ * tres y a tiempo a las otras dos» sobre un cuerpo que devuelve los tres con su
+ * límite escrito. La regla de acá es esa, y la dueña de los hilos **se descubre**
+ * —es el nombre propio que la serie anafórica le cuelga a un hilo, «los cincuenta
+ * y dos años de Teresa»—, no se escribe.
+ *
+ * **La regla está acoplada a las tres aserciones de límite del CIERRE, y el
+ * acoplamiento va dicho:** vale mientras cada hilo lleve su límite declarado
+ * —«siguen sin anotar», «le escribe el tramo y no le paga la pausa», «A esta
+ * sucesión no la abre este PLAN»—, que son aserciones obligatorias de esta misma
+ * guardia. El día que un hilo se devuelva de verdad a tiempo habrá que borrar la
+ * aserción de su límite, y ese borrado es el que obliga a volver acá.
  */
 const SERIE_DE_HILOS = /^Y est(?:á|án)\s+(l[ao]s?\s+[^.]+?)\./u;
+/** El nombre propio que la serie le cuelga a un hilo: «los cincuenta y dos años **de Teresa**». */
+const DUENA_DEL_HILO = /\s+de\s+(\p{Lu}\p{L}+)$/u;
 const HILOS_ESPERADOS = 3;
 const PERSONAS_DEL_PREAMBULO = ['Teresa', 'Elvira'];
 const H2_PREAMBULO = '## PREÁMBULO — LA VIDA QUE NADIE MIRÓ ENTERA';
+/** Cómo el CIERRE nombra el conjunto de hilos cuando lo cuenta, y de dónde sale el numeral. */
+const CONTEO_EN_EL_CIERRE = /(\p{L}+)\s+\p{L}+\s+que el preámbulo dej[óo] abiertas/u;
 
 function verificarHilosDelPreambulo(lineas: string[]): string[] {
   const errores: string[] = [];
@@ -7414,12 +7909,16 @@ function verificarHilosDelPreambulo(lineas: string[]): string[] {
   const { texto: cierre } = textoDeDomicilio(lineas, H2_CIERRE);
   if (preambulo === null || cierre === null) return errores;
 
-  const hilos = preambulo
+  const crudos = preambulo
     .split('\n')
     .map((l) => SERIE_DE_HILOS.exec(l.replace(/\*\*/g, '').trim()))
     .filter((m): m is RegExpExecArray => m !== null)
-    // «los cincuenta y dos años de Teresa» se devuelve como «los cincuenta y dos años»
-    .map((m) => m[1].replace(/\s+de\s+\p{Lu}\p{L}+$/u, '').trim());
+    .map((m) => m[1].trim());
+  // «los cincuenta y dos años de Teresa» se devuelve como «los cincuenta y dos años»
+  const hilos = crudos.map((h) => h.replace(DUENA_DEL_HILO, '').trim());
+  const duenas = new Set(
+    crudos.map((h) => DUENA_DEL_HILO.exec(h)?.[1]).filter((n): n is string => n !== undefined),
+  );
 
   if (hilos.length !== HILOS_ESPERADOS) {
     errores.push(
@@ -7451,6 +7950,92 @@ function verificarHilosDelPreambulo(lineas: string[]): string[] {
       errores.push(
         `el CIERRE no nombra a «${quien}», que el PREÁMBULO sí nombra. Un cierre que omite a la ` +
           'persona a la que el PLAN no le devuelve nada se lee más generoso de lo que el documento es',
+      );
+    }
+  }
+
+  // ── El conteo que la prosa del CIERRE escribe, contra el que la serie produce.
+  const cuenta = CONTEO_EN_EL_CIERRE.exec(cierre.replace(/\*\*/g, ''));
+  if (cuenta === null) {
+    errores.push(
+      'el CIERRE no dice cuántas de las cosas que el preámbulo dejó abiertas contesta. Es la primera ' +
+        'línea de la sección y la que fija el tamaño de lo que se devuelve: sin ella, el anillo se ' +
+        'cierra sobre una cantidad que cada lector cuenta por su cuenta',
+    );
+  } else if (cuenta[1].toLowerCase() !== (EN_LETRAS[hilos.length] ?? '')) {
+    errores.push(
+      `el CIERRE dice «${cuenta[1]}» cosas dejadas abiertas por el preámbulo y la serie anafórica del ` +
+        `preámbulo planta ${String(hilos.length)} [${hilos.join(' · ')}]. El conteo estaba en un solo ` +
+        'lado: el script afirmaba tres y la prosa del mismo commit escribía cuatro, y la cuarta ' +
+        'obligaba a leer como contestado un hilo que la propia sección declara tarde',
+    );
+  }
+
+  /**
+   * ── Y la llegada a tiempo, que el CIERRE no le puede atribuir a la dueña ────
+   *
+   * **Alcance: el CIERRE entero, y el epígrafe además con la forma partitiva.**
+   * La regla vale en las dos partes por la misma razón —los tres hilos llevan su
+   * límite escrito— pero el epígrafe es donde apareció y donde más caro sale, así
+   * que ahí se cierra también la forma que implica la llegada sin escribirla:
+   * «tarde a **una de las tres**» dice que a dos se llegó a tiempo sin decir «a
+   * tiempo», y con la regla de «a tiempo» sola salía verde, medido.
+   *
+   * **La unidad es la oración y no la línea, y eso es una restricción real sobre
+   * la prosa que va dicha:** el cuerpo escribe hoy «a ninguna de las tres le
+   * llega a tiempo» y «a la hija … le va a llegar a tiempo» en oraciones que no
+   * nombran a la dueña, y así tiene que seguir. No se exime la negación: la
+   * ventana de caracteres que haría falta para leerla bien es la misma que dejaría
+   * pasar el «no vence» de la oración de al lado, y una exención que se equivoca
+   * de negación apaga la regla justo donde importa. Si mañana hace falta negar la
+   * llegada en la misma oración que la dueña, se parte la oración.
+   */
+  const epigrafe = cierre.split('\n').find((l) => l.trim().startsWith('> '));
+  for (const linea of cierre.split('\n')) {
+    const esEpigrafe = linea === epigrafe;
+    for (const oracion of linea.split(CORTA_ORACION_DE_PROSA)) {
+      const comoAgranda = /\ba tiempo\b/iu.test(oracion)
+        ? 'una llegada «a tiempo»'
+        : esEpigrafe && /\b\p{L}+\s+de\s+l[ao]s\s+\p{L}+/u.test(oracion)
+          ? 'una llegada tarde a solo una parte de sus hilos'
+          : null;
+      if (comoAgranda === null) continue;
+      for (const duena of duenas) {
+        if (!oracion.includes(duena)) continue;
+        errores.push(
+          `${esEpigrafe ? 'el epígrafe del' : 'el'} CIERRE le atribuye a ${duena} ${comoAgranda} ` +
+            `(«${oracion.replace(/\*\*/g, '').trim()}») y el cuerpo devuelve sus ` +
+            `${String(hilos.length)} hilos con el límite escrito, cada uno exigido acá como aserción ` +
+            'obligatoria. Convertir un límite declarado en una llegada a tiempo es exactamente ' +
+            'agrandar la promesa en la última página, y en el epígrafe es además la línea que se cita',
+        );
+      }
+    }
+  }
+
+  /**
+   * **Y a quién le cuelga los hilos el preámbulo.** La dueña sale de la serie
+   * anafórica, así que mover el nombre ahí mueve la regla del epígrafe con él:
+   * «los cincuenta y dos años de Elvira» salía verde y dejaba al epígrafe
+   * midiéndose contra la persona equivocada. El cruce no necesita una lista: la
+   * persona a la que este PLAN no le devuelve nada la nombra el propio CIERRE, en
+   * la oración de una de sus aserciones obligatorias, y no puede ser la misma a
+   * la que el preámbulo le cuelga un hilo que el cierre devuelve.
+   */
+  const sinDevolucion = /\bA (\p{Lu}\p{L}+) no se le devuelve nada/u.exec(cierre.replace(/\*\*/g, ''));
+  for (const duena of duenas) {
+    if (!PERSONAS_DEL_PREAMBULO.includes(duena)) {
+      errores.push(
+        `el PREÁMBULO le cuelga un hilo a «${duena}», que no está entre las personas que el anillo ` +
+          'verifica en los dos tramos. O la lista quedó vieja o el hilo cambió de dueña, y en los dos ' +
+          'casos el CIERRE está devolviéndoselo a alguien distinto del que lo abrió',
+      );
+    }
+    if (sinDevolucion !== null && sinDevolucion[1] === duena) {
+      errores.push(
+        `el PREÁMBULO le cuelga un hilo a «${duena}» y el CIERRE declara que a «${duena}» no se le ` +
+          'devuelve nada. Las dos mitades del anillo se contradicen: o el hilo es de otra persona, o ' +
+          'la declaración de que no se le devuelve nada es falsa',
       );
     }
   }
@@ -8652,6 +9237,13 @@ function main(): void {
   errores.push(...verificarEpigrafes(lineas));
   errores.push(...verificarFasesContraLosDispositivos(lineas));
   errores.push(...verificarRestatementsFinales(lineas));
+  // 8 bis 5) Revisión de la Task 10: los productos de §16 (y no solo sus
+  //          operandos), los restatements de fase descubiertos por oración, y la
+  //          atribución de validar horas leída de 4.4 —negada incluida—.
+  errores.push(...verificarAritmeticaDeVision(lineas));
+  errores.push(...verificarFasesRestatadas(lineas));
+  errores.push(...verificarQuienValidaLasHoras(lineas));
+  errores.push(...verificarRemisionesInternas(lineas));
   errores.push(...verificarHilosDelPreambulo(lineas));
   errores.push(...verificarConteosDeclarados(lineas));
   errores.push(...verificarCierreDelDocumento(raw, lineas));
@@ -8711,6 +9303,16 @@ function main(): void {
       'dispositivos repartidos en exactamente un lado y el numeral cruzado contra los nombres, ' +
       '§10 con sus riesgos contados y correlativos, la columna «Qué se pone en pie» de §12 con los ' +
       'trece dispositivos en exactamente una fase cada uno —salvo el que §12 declara continente—, ' +
+      'los dos PRODUCTOS de §16 rehechos con sus operandos escritos (en qué fase cae su año y ' +
+      'cuántos ejercicios de régimen lleva cumplidos), toda oración de las ' +
+      `${String(SECCIONES_QUE_RESTATAN_FASE.length)} secciones finales que nombre una fase y un ` +
+      'dispositivo cruzada contra la celda de §12 que lo pone en pie, el conteo de riesgos que §17 ' +
+      'le copia a §10, la hora, el mes y el día de la muerte de Elvira cruzados entre el PREÁMBULO y ' +
+      'el CIERRE, toda atribución de validar horas —negada incluida— leída contra el reparto de ' +
+      `roles de 4.4, los ${String(HILOS_ESPERADOS)} hilos contados TAMBIÉN del lado de la prosa del ` +
+      'CIERRE y su epígrafe sin llegadas «a tiempo» sobre la dueña de los hilos, toda remisión interna ' +
+      'resuelta contra los encabezados de este mismo documento, el dueño de la falla del hecho ' +
+      'registrado que §17 le copia a §15, ' +
       `ninguna magnitud de plata de las ${String(SECCIONES_CON_MAGNITUD_ANCLADA.length)} secciones ` +
       'finales sin una línea anclada que la abra y ningún rango porcentual ajeno que no sea el que ' +
       'su sigla gobierna en la línea destino, ' +
