@@ -49,6 +49,23 @@ describe('plans-registry (canon + carga diferida)', () => {
     expect(ficha).toContain('REVISION_PROFUNDA');
   });
 
+  /**
+   * **TODOS los del registro tienen cuerpo cargable, no sólo PLANJUS.**
+   *
+   * Este test existe por un fallo real: al entrar los cuatro PLANes nuevos
+   * (23-26) el índice ya los listaba y la página de detalle mostraba «Este
+   * expediente no abrió». El código estaba bien —era un bundle viejo— pero la
+   * suite no tenía forma de distinguir una cosa de la otra, porque verificaba el
+   * cuerpo de UN plan elegido a mano. Un plan agregado al índice sin su .mdx
+   * pasaba en verde y sólo se veía en la web.
+   */
+  it('todos los planes del registro tienen cuerpo cargable', async () => {
+    for (const plan of PLAN_REGISTRY) {
+      const { cuerpo } = await cargarCuerpoPlan(plan.code);
+      expect(cuerpo.length, `${plan.code}: cuerpo vacío o ausente`).toBeGreaterThan(1000);
+    }
+  });
+
   it('cargarCuerpoPlan rechaza un código que no existe', async () => {
     await expect(cargarCuerpoPlan('PLANVEJ')).rejects.toThrow(/PLANVEJ/);
   });
