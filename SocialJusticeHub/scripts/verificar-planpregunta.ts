@@ -41,7 +41,11 @@ const CANON_PISOS = resolve(SCRIPT_DIR, '../tests/unit/pisos-constitucionales.te
 const H2_MANDATO = '## Vigésimo Sexto Mandato del Proyecto ¡BASTA!';
 
 /** Los H2 que el documento tiene que tener, en este orden. Las tareas lo extienden. */
-const SECCIONES_ESPERADAS: string[] = [H2_MANDATO];
+const SECCIONES_ESPERADAS: string[] = [
+  H2_MANDATO,
+  '## PREÁMBULO — LA PREGUNTA QUE NADIE ANOTÓ',
+  '## TESIS CENTRAL',
+];
 
 /**
  * **El default es «lleva epígrafe»** y el opt-out es esta lista, que se verifica
@@ -113,6 +117,24 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
     porQue:
       'la autoridad real por la que este PLAN existe. Sin la palabra, la habilitación se lee como ' +
       'si el gate la hubiera producido',
+  },
+  /**
+   * Task 2. Las cuatro renuncias de la tesis van con ancla porque son lo que
+   * separa a este documento de un pliego de reclamos del sector: un PLAN que se
+   * estrena diciendo que el país no sabe lo que no sabe tiene que decir en la
+   * misma página qué es lo que él no hace.
+   */
+  {
+    valor: /no es el ministerio|no administra el sistema científico/iu,
+    ancla: /PLANPREGUNTA|este PLAN|no (?:es|administra)/iu,
+    porQue: 'la primera renuncia de la tesis: PLANPREGUNTA no es la cartera y no administra el sistema existente',
+  },
+  {
+    valor: /pata industrial/iu,
+    ancla: /PLANCYT|PLANEB|PLANDIG|PLANISV|PLANMOV|PLANTER|repartida|hueco/iu,
+    porQue:
+      'la segunda renuncia: la pata industrial que la sigla PLANCYT también nombraba sigue repartida ' +
+      'entre cinco PLANes y este diseño no la cubre (ANALISIS_CONEXIONES_22_PLANES.md §9.4)',
   },
 ];
 
@@ -198,8 +220,10 @@ const PROHIBIDOS: Prohibido[] = [
   },
   {
     patron:
-      /(?<!\b(?:sin|no|ni|nunca|tampoco)\b(?:(?!\b(?:y|pero|aunque|sino|mas)\b)[^.;:\n]){0,25})\b(reclama|reclamamos|pide|exige|adopta|duplica|se queda con)\b(?:[^.;:\n]){0,60}0,20%|0,20%\s+(?:propio|de PLANPREGUNTA|de este PLAN)/iu,
-    porQue: 'el 0,20% del PBI es el piso de I+D del LANEF y es de PLANEN:1489 (D-5)',
+      /(?<!\b(?:sin|no|ni|nunca|tampoco)\b(?:(?!\b(?:y|pero|aunque|sino|mas)\b)[^.;:\n]){0,25})\b(reclama|reclamamos|pide|exige|adopta|duplica|se queda con)\b(?:[^.;:\n]){0,60}0,20?%|0,20?%\s+(?:propio|de PLANPREGUNTA|de este PLAN)/iu,
+    porQue: 'el 0,2% del PBI es el piso de I+D del LANEF y es de PLANEN:1489 (D-5). El patrón admite las ' +
+      'dos grafías —«0,2%» es la del corpus y «0,20%» la que sale de normalizar— porque un prohibido ' +
+      'que solo mira una de las dos deja pasar la que el documento va a escribir de verdad',
   },
   {
     patron: /1\.400\s*[–—-]\s*2\.400/u,

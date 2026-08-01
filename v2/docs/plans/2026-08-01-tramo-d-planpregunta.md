@@ -358,7 +358,7 @@ Y dice la dirección del fundador con sus dos mitades: **cada línea de investig
 
 **Palabras:** preámbulo 1.100–1.400 · tesis 700–900.
 
-- [ ] Task 2 completa
+- [x] Task 2 completa
 
 ---
 
