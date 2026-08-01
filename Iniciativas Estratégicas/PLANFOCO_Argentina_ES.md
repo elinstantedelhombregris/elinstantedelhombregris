@@ -489,3 +489,84 @@ Eso la vuelve deliberadamente **peor** que cualquier plataforma comercial en la 
 La deuda con PLANJUS se escribe de los dos lados: acá y en aquel documento, con nota fechada. **PLANFOCO no puede crear un fuero adentro de otro PLAN por su cuenta**, y el día que PLANJUS no lo acepte, este dispositivo queda sin recurso y hay que decirlo: la Cartelera sin Panel de Legalidad publica igual y no tiene mecanismo propio para retirar nada, que es preferible a que lo tenga la agencia.
 
 ---
+
+## SECCIÓN 7: EL ACERVO ABIERTO Y LA SALA COMÚN
+
+> *"A la biblioteca la salva la inacción. Al archivo audiovisual la inacción lo mata."*
+
+### 7.1 El inventario primero, porque no se puede rescatar lo que no se contó
+
+**Declaración de procedencia, y va antes que el dispositivo.** Todo lo que esta sección afirma sobre los medios públicos argentinos es **aserción propia de este documento sin fuente en el corpus**. El censo sobre los veinticuatro documentos del taller da **cero ocurrencias** de «medios públicos», «Radio Nacional», «Televisión Pública», «RTA» y «Contenidos Públicos»: ¡BASTA! nunca escribió una línea sobre los medios del Estado, ni para reformarlos, ni para cerrarlos, ni para nombrarlos. Ésta es la sección con menos piso verificado de todo el documento y se escribe con esa advertencia adelante.
+
+Por eso la Fase 0 de este dispositivo **no es un dispositivo: es un inventario.** Antes de digitalizar nada hay que saber cuánto material hay, en qué soportes, en qué estado de deterioro, en qué depósitos, bajo qué titularidad de derechos y con qué catalogación previa. Ese relevamiento se publica entero, incluidas las partes vergonzosas, y es la línea de base contra la cual se mide todo lo demás. Un PLAN que anuncia el rescate de setenta años de audiovisual sin saber cuántas horas son está anunciando una cifra que inventó.
+
+**El inventario mide cinco cosas y ninguna es opinable.** Cuántas horas hay, por soporte y por década. En qué estado están, con muestreo destructivo declarado sobre el porcentaje que haga falta. Dónde están físicamente, incluidos los depósitos que no figuran en ningún registro. **Quién tiene los derechos**, que es la parte que va a doler: setenta años de coproducciones, cesiones parciales, material de terceros incrustado y contratos perdidos significan que una fracción del acervo no se va a poder publicar aunque se digitalice, y esa fracción hay que medirla antes de prometer nada. Y qué está catalogado, porque una hora de video sin catalogar es una hora que no existe para nadie que la busque.
+
+De las cinco, **la de derechos es la que puede hacer fracasar el dispositivo**, y este documento lo declara en vez de descubrirlo en el año seis: si el relevamiento encuentra que la mayoría del acervo tiene titularidad enredada, el Acervo Abierto va a ser mucho más chico que su nombre. Se digitaliza igual —preservar no requiere poder publicar— y se publica lo que se pueda, con el porcentaje publicado como indicador del tablero de la Sección 17.
+
+**Lo único que se puede afirmar sin inventario es una propiedad del soporte**, y alcanza para justificar la urgencia: el material analógico se degrada en plazos conocidos y la degradación es irreversible. Un archivo no se pierde el día que alguien decide tirarlo; se pierde el día que nadie decide copiarlo. Por eso el Acervo es el único dispositivo de este PLAN con **plazo de caducidad escrito**: lo que no se digitalice dentro de la ventana de quince años de la Sección 13 no se va a poder digitalizar nunca, y eso no es una amenaza retórica sino una propiedad física del material.
+
+### 7.2 El Acervo se parte en dos, y no por prolijidad
+
+**El manifiesto va a PLANMEMORIA. El bitstream va a la nube soberana de PLANDIG.**
+
+`PLANMEMORIA:90` describe la arquitectura que este PLAN adopta sin modificarla: *«cada inscripción memorial se replica simultáneamente en siete nodos distribuidos»* —uno por región, uno en el Archivo General de la Nación, uno en universidad nacional rotativa, uno en cooperativa ciudadana de preservación digital— *«con hash que hace detectable cualquier alteración»*. A esos **siete nodos** va, por cada pieza del Acervo, el manifiesto: qué es, cuándo se produjo, quién la produjo, con qué plata, en qué soporte estaba, cuándo se digitalizó, quién la digitalizó, y **el hash del archivo resultante**. No va el archivo: va la huella.
+
+El archivo —el bitstream, que son petabytes— vive en la infraestructura soberana de PLANDIG, que es donde tiene que vivir un volumen así.
+
+**La razón de la partición es una sola y hay que decirla sin diplomacia: el que guarda el archivo no puede ser el mismo que certifica que no lo tocaron.** Si el manifiesto y el bitstream viven en la misma custodia, borrar una pieza incómoda y borrar su registro es la misma operación, hecha por la misma gente, con la misma clave. Partidos, borrar la pieza deja el hash huérfano en siete nodos distribuidos, uno de los cuales está en una cooperativa ciudadana que no depende del Poder Ejecutivo. **El hash huérfano es la denuncia.** Nadie tiene que auditar nada: la ausencia se ve sola.
+
+`PLANMEMORIA` custodia la prueba. `PLANDIG` custodia el material. **ANBAC no custodia nada** — cataloga, publica y paga la digitalización. Son tres funciones en tres agencias, y la que produce el acervo no guarda ninguna de las dos copias que lo prueban.
+
+### 7.3 El Sello Abierto publica adentro del Acervo
+
+Esto no lo decide este documento: **lo decidió PLANPREGUNTA y este PLAN lo hereda.** `PLANPREGUNTA:734` estableció que su **Sello Abierto** —la publicación de resultados de las Preguntas Nacionales— publica adentro del Acervo de PLANFOCO *«en vez de construir un repositorio propio»*, y lo escribió cuando este documento todavía no existía y no podía objetar nada. Es una **restricción heredada**, no una decisión de diseño de acá, y se cumple.
+
+Cumplirla tiene tres consecuencias operativas que se escriben con la cuenta hecha:
+
+**El Acervo deja de ser sólo audiovisual.** Tiene que aceptar datos crudos, series, código y documentos, con metadatos de procedencia científica que un archivo de cintas no necesita. Eso es trabajo de esquema, no de infraestructura, y está presupuestado en la línea del Acervo de la Sección 13.
+
+**El Acervo hereda el problema de doble uso de PLANPREGUNTA.** Aquel documento tiene un capítulo entero de bioseguridad porque publica resultados que pueden servir para hacer daño. Un repositorio que publica todo el mismo día no puede ser el destino de material bajo restricción de doble uso sin un régimen de excepción, y **el régimen lo fija PLANPREGUNTA, no ANBAC**: acá se aloja y se publica lo que aquel PLAN autoriza a publicar, con la fecha que aquel PLAN fija. ANBAC no evalúa contenido científico y no decide qué se retiene.
+
+**Y el Acervo no puede caerse sin que se caiga aquello.** Un PLAN que se volvió dependencia de otro asume el costo de la dependencia: el Acervo entra en el protocolo de falla de la Sección 21 con nivel de servicio declarado, y si este PLAN se descontinúa, el material del Sello Abierto se transfiere a PLANMEMORIA y no queda huérfano.
+
+### 7.4 La Sala Común
+
+La planta técnica de los medios estatales —estudios, cámaras, salas de control, personal— opera a una fracción de su capacidad, y ésa es de nuevo **aserción propia**, sujeta al mismo inventario de `7.1`.
+
+**La Sala Común es esa planta dejando de programar y empezando a prestarse.** No se cierra, no se privatiza y no se achica: cambia de función. Deja de producir contenido propio bajo dirección editorial estatal —que es la función que ningún gobierno resistió nunca la tentación de usar— y pasa a ser infraestructura de producción que se presta por sorteo, con la misma disciplina que todo lo demás en este PLAN: se pide por planilla, se sortea entre los que pidieron para esa franja, y el que la usó vuelve a la cola.
+
+Sin evaluación de proyecto. Sin comité de contenidos. Sin línea editorial. Sin coproducción del Estado, que es la forma elegante de la injerencia.
+
+**Cómo se reparte una capacidad que no alcanza.** Una planta de estudios tiene una cantidad finita de horas por semana y va a haber más pedidos que horas desde el primer mes. El reparto es por sorteo entre los que pidieron esa franja, con dos correcciones que no son de mérito: **el que ya usó la sala este trimestre entra al sorteo con menos peso**, para que no la ocupen siempre los mismos seis; y **hay un cupo reservado para pedidos de fuera del AMBA**, porque un sorteo puro sobre una planta que está toda en Buenos Aires reparte capacidad porteña entre porteños. Las dos correcciones son mecánicas, se publican, y ninguna evalúa qué se va a grabar.
+
+**Qué pasa con la gente que hoy programa, que es la pregunta que este dispositivo tiene que contestar y no esquivar.** El personal técnico —cámara, sonido, iluminación, edición, control— no sobra: es exactamente lo que hace falta para que la sala se pueda prestar a alguien que no sabe usarla, y su trabajo se vuelve más necesario, no menos. El personal de programación y contenidos es el que pierde función, y este PLAN **no lo despide**: lo reasigna a la digitalización del Acervo, que es un trabajo de catalogación audiovisual que requiere exactamente el criterio que esa gente tiene y que hoy no hay quien haga. Es una reconversión, tiene una ventana de quince años, y la doctrina de reconversión ya está escrita en el corpus: `PLANMOV` la llama Doble Desplazamiento y establece que el Estado se hace cargo del trabajo que desplaza antes de desplazarlo.
+
+---
+
+## SECCIÓN 8: LA PROCEDENCIA
+
+> *"El Estado no dictamina qué es verdad. Garantiza que se pueda saber de dónde salió."*
+
+Hay una diferencia entre dos frases que se parecen mucho y que separan a este PLAN de todo lo que este PLAN tiene prohibido ser:
+
+- «esto es verdad» — un dictamen sobre el contenido, emitido por alguien con autoridad para emitirlo;
+- «esto lo produjo tal organismo, en tal fecha, con tal plata, y no fue alterado desde entonces» — un hecho verificable sobre el origen, que cualquiera puede comprobar por su cuenta.
+
+**La Procedencia hace exclusivamente la segunda, y no tiene ningún mecanismo para hacer la primera.** No es una promesa de conducta: es una propiedad del diseño. Un sistema que firma origen no tiene dónde alojar un juicio de veracidad aunque alguien quisiera meterlo.
+
+**Qué hace, concretamente.** Todo material producido con plata pública —un video oficial, un informe, una estadística, una foto de prensa, un audio, un dataset— se publica con una firma criptográfica del organismo que lo produjo y un registro de procedencia que dice qué es, quién lo hizo, cuándo, con qué partida presupuestaria, y qué modificaciones tuvo desde la publicación original. Cualquiera puede verificar la firma sin pedirle permiso a nadie y sin conexión con ANBAC.
+
+**Y el estándar se publica abierto**, con implementación de referencia libre, para que lo adopte quien quiera: un medio privado, una universidad, una ONG, una persona con una Antena. **ANBAC no certifica adoptantes, no lleva un registro de quién lo usa bien y no audita a nadie.** Publica una especificación. Si un medio privado firma sus notas con el mismo estándar, no le pide permiso a nadie y no obtiene ningún sello de aprobación estatal por hacerlo — obtiene que sus lectores puedan verificar el origen, que es todo lo que el estándar ofrece.
+
+**El costo, que en el diseño crudo no estaba.** La Procedencia entró a este PLAN sin plata, como si un estándar fuera gratis. No lo es: son **USD 12 a 20M por año** en la Sección 13, y compran cuatro cosas concretas. La infraestructura de firma y de sellado de tiempo, que es la parte técnica y la más barata. La integración con los sistemas de publicación de cada organismo del Estado, que es la parte cara y la que se subestima siempre. El mantenimiento de la especificación abierta y de su implementación de referencia. Y el soporte para quien la adopte de afuera, que es lo único que hace que un estándar publicado se use de verdad en lugar de quedar en un PDF.
+
+**Por qué hace falta acá y no en cualquier país.** La Argentina tiene un antecedente que vuelve a esta primitiva mucho menos abstracta de lo que parece: **series estadísticas oficiales alteradas durante años, publicadas por el organismo que correspondía, sin que existiera manera técnica de probar cuándo se había cambiado qué.** Es **aserción propia de este documento** —el corpus no lo trata— y no hace falta discutir el caso para extraer la lección de diseño: cuando la única prueba de lo que decía un dato es la copia que guarda el mismo organismo que lo publicó, no hay prueba. La Procedencia no impide que un organismo publique mal; hace que la versión de ayer no se pueda borrar.
+
+**La frontera con PLANMEMORIA, porque las dos cosas usan hash y no son lo mismo.** `PLANMEMORIA:90` sella la memoria **operativa** de la república —resoluciones, capturas documentadas, depósitos ciudadanos— y su unidad es la decisión. La Procedencia sella el material **publicado** con plata pública y su unidad es el archivo. Comparten la primitiva criptográfica y el corpus las tiene que distinguir, porque si no la primera vez que alguien quiera saber quién guarda qué va a encontrar dos respuestas. La regla es simple: **si un ciudadano lo puede descargar, lo sella la Procedencia; si es un acto de gobierno, lo sella PLANMEMORIA.** Un material que es las dos cosas lleva los dos sellos, que no se estorban.
+
+**Y qué pasa con el organismo que no firma.** Nada coercitivo, porque ANBAC no tiene potestad sobre otros organismos y este PLAN no se la da. Lo que hay es una regla contable que no requiere autoridad ninguna: **el material producido con plata pública y publicado sin firma se anota como tal en el tablero de la Sección 17**, por organismo y por porcentaje. Es la misma disciplina de `PLANSAL:1515` aplicada a la publicación en vez de al gasto: no hay sanción, hay un número al lado del nombre, actualizado todos los meses y consultable por cualquiera. Un organismo que no firma no está en falta: está en la lista de los que no firman.
+
+**Los dos límites, escritos por adelantado.** Primero: **la Procedencia no detecta contenido falso.** Un organismo público puede publicar una estadística mal hecha y firmarla perfectamente. Lo que la firma prueba es que la publicó ese organismo y que no la tocaron después — lo cual, en un país donde las series estadísticas se alteraron y nadie pudo probar cuándo, es bastante más de lo que suena, y es mucho menos que la verdad. Segundo: **la firma no obliga a nadie de afuera del Estado.** Un material sin firma no es sospechoso, no está degradado y no tiene ninguna consecuencia: la enorme mayoría de lo que circula en la Argentina no se produce con plata pública y no tiene por qué llevar nada. Un sistema donde «sin firma» significara «dudoso» sería un registro de habilitados con criptografía, y eso es exactamente lo que este PLAN tiene prohibido construir.
+
+---
