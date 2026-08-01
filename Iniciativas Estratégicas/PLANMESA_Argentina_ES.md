@@ -785,7 +785,7 @@ El sistema PLANMESA tiene cuatro componentes de costo:
 | Reserva de contingencia | 15% del total | USD 60-90M |
 | **TOTAL ANUAL RÉGIMEN** | | **USD 420-630M** |
 
-Esto es aproximadamente 0.07% del PBI argentino (~USD 640.000M). Comparación: el presupuesto de publicidad oficial consolidada del Estado argentino en 2023 fue superior a USD 450M.
+Esto es aproximadamente 0.07% del PBI argentino (~USD 640.000M). Comparación: el presupuesto de publicidad oficial consolidada del Estado argentino en 2023 fue superior a USD 450M. **Nota del 2026-08-01: esa comparación pasa a ser histórica.** `PLANFOCO` (ordinal 26) extingue la publicidad oficial nacional en quintos entre 2027 y 2031, así que a partir de ese año la vara es cero y el dato de 2023 queda como referencia de época. El argumento de esta sección no cambia —el presupuesto de PLANMESA es modesto— pero se sostiene contra el gasto que había, no contra el que va a haber.
 
 ### 8.3 Fuente de Financiamiento
 

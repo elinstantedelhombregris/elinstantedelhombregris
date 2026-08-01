@@ -384,7 +384,7 @@ Las prácticas que generan sentido son inherentemente baratas: un Círculo de Me
 
 **Acción 2 — Remover obstáculos:** Radio comunitaria (licencia automática <50W, 30 días). Uso cultural del espacio público (notificación, no permiso). Cooperativas culturales (inscripción en 48 horas).
 
-**Acción 3 — Redistribuir pauta publicitaria:** Fórmula transparente (50% audiencia, 30% geografía, 20% diversidad), publicación en tiempo real, prohibición de asignación discrecional.
+**Acción 3 — Redistribuir pauta publicitaria: DEROGADA el 2026-08-01 por `PLANFOCO` (ordinal 26).** Decía: *«Fórmula transparente (50% audiencia, 30% geografía, 20% diversidad), publicación en tiempo real, prohibición de asignación discrecional»*. El problema no era el procedimiento sino el resultado: **una fórmula que pondera audiencia al 50% le gira más plata al que ya tiene más público**, o sea que la reforma propuesta para desconcentrar el sistema era un mecanismo de concentración con auditoría. PLANFOCO no la reemplaza por otra fórmula — **extingue la pauta oficial nacional en cinco años, hasta cero** — y con eso este PLAN queda con un punto de contacto menos entre gobierno y cultura, que es exactamente lo que pide su propio compromiso de no-intervención de más abajo. **PLANCUL conserva íntegros su parasitismo estratégico, su presupuesto cero, su ausencia de agencia y sus otras dos acciones.** Ver la nota de procedencia al final de este documento.
 
 **Compromiso de no-intervención:** El gobierno NO crea agencia, NO asigna presupuesto, NO certifica Dendritas, NO define qué es cultura, NO organiza festivales. Cada punto de contacto entre gobierno y cultura es un punto de vulnerabilidad.
 
@@ -788,3 +788,9 @@ No requiere PIA específico (este PLAN no toca datos personales sensibles direct
 ### 8. Opinión legal
 No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
 
+
+---
+
+**Procedencia y reversión (2026-08-01).** Corrección aplicada desde el tramo D de `PLANFOCO`, que deroga expresamente la Acción 3 de la sección 4.2 de este documento y lo escribe de los dos lados para que ninguno de los dos quede afirmando en presente algo que dejó de ser verdad. **No modifica ninguna otra cosa de PLANCUL:** ni el parasitismo estratégico, ni el presupuesto cero, ni la ausencia de agencia y de líder, ni el compromiso de no-intervención, ni las Acciones 1 y 2, ni una sola cifra. Reversible sin residuo: alcanza con restituir el texto original de la Acción 3 y borrar esta nota.
+
+Dos datos de este documento quedan citados por PLANFOCO y conviene que se sepa acá: la medición de **5,2 horas de pantalla no laboral por día** contra 3,8 del promedio global es de este PLAN, y es el dato que da título al de PLANFOCO; y el conteo de **más de dos mil bibliotecas populares** existentes es el que cierra la aritmética de cobertura del Commons Atencional de `PLANDIG`.

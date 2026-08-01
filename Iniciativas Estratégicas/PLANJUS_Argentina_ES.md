@@ -2484,3 +2484,23 @@ Ver `PIA/PLANJUS.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA a
 ### 8. Opinión legal
 Ver `LEGAL_OPINIONS/PLANJUS.md`. Stub identifica riesgos; opinión externa firmada requerida antes de promoción a piloto.
 
+
+---
+
+## ANEXO — PANEL DE LEGALIDAD DE PUBLICACIÓN (incorporado el 2026-08-01 desde PLANFOCO)
+
+> **Procedencia.** Este anexo se agrega desde el tramo D de `PLANFOCO` (ordinal 26) y **no modifica ninguna sección anterior de PLANJUS**: ni los tres niveles JUS, ni el sorteo, ni el triple candado, ni el Piso de Derechos, ni una sola cifra. Se anexa al final, sin insertar nada en el medio, para no correr ninguna línea de este documento. Reversible sin residuo.
+
+**Qué se pide, y por qué se pide acá.** PLANFOCO opera **la Cartelera**: una superficie donde cualquiera publica que algo va a pasar en un territorio, con dos campos obligatorios —territorio y fecha— y sin ranking, sin recomendación y sin curaduría. Una superficie así va a recibir, tarde o temprano, publicaciones ilegales: convocatorias a un delito, difamación, material que no puede circular.
+
+Alguien tiene que poder decidir eso. **Ese alguien no puede ser la agencia que opera la Cartelera**, porque un organismo que puede bajar una publicación puede bajar cualquiera que le moleste, y toda la arquitectura de PLANFOCO está construida para que el Estado no tenga esa potestad sobre contenido. Por eso el pedido viene acá: **la potestad de retirar una publicación tiene que vivir en la justicia y no en la administración.**
+
+**No es un procedimiento nuevo: es una materia nueva de uno que ya existe.** El Panel de Legalidad de Publicación es un **JUS-1 por materia y por plazo** —conflicto simple, quince días, panel de tres ciudadanos sorteados con exclusión automática de conflicto de interés— y usa el algoritmo de sorteo verificable, la plataforma digital y el Piso de Derechos que este PLAN ya tiene. No pide un fuero especializado, ni panelistas de dedicación exclusiva, ni presupuesto adicional más allá del volumen de casos.
+
+**Las tres reglas que van en la ley y no en el reglamento de ninguna agencia:**
+
+1. **Sin baja previa.** La publicación **no se retira mientras se decide**. El estándar contrario —bajar primero y discutir después— convierte a cualquier denunciante en editor, porque el costo de denunciar es cero y el de defenderse no lo es. Si el daño es tan grave que no tolera el plazo de quince días, existen las medidas cautelares de la justicia ordinaria, con juez, con contraparte y con responsabilidad del que las pide.
+2. **El que publicó es parte.** No se resuelve sobre una publicación sin notificar a quien la hizo. Si no comparece, el panel resuelve igual, pero el acta registra que se lo notificó.
+3. **La decisión es sobre esa publicación y nada más.** El panel puede ordenar el retiro de una pieza; **no puede inhabilitar a una persona para publicar**, no puede ordenar el retiro preventivo de publicaciones futuras y no puede fijar criterios generales. Un panel que sienta doctrina sobre lo publicable es una autoridad de contenido con otro nombre.
+
+**Este PLAN puede negarse**, y PLANFOCO lo escribió así de su lado: si PLANJUS no acepta la materia, la Cartelera publica igual y no tiene mecanismo propio para retirar nada. Eso es peor para la víctima de una publicación ilegal y mejor que la alternativa, porque la alternativa es que el mecanismo lo tenga la agencia. La decisión es de este PLAN y no de aquél.

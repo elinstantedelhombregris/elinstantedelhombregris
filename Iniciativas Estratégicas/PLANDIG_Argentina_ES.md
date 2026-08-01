@@ -785,7 +785,7 @@ La **Ecología de la Atención** reconoce la atención humana como un **recurso 
 
 1. **Derecho a la Atención No Algorítmica.** Todo ciudadano tiene derecho a acceder a espacios públicos — físicos y digitales — donde ningún sistema algorítmico esté modelando su comportamiento. Esto implica que los espacios cívicos financiados o certificados por el Estado (bibliotecas populares, plazas públicas, salas de Mesa Civil, Casas JUS, Centros de Cuidado, Tallers Federales) operan bajo **modo algorítmicamente off**: sin recomendación personalizada, sin perfilado, sin publicidad comportamental, sin tracking.
 
-2. **Derecho al Commons Atencional.** El Estado garantiza la existencia y mantenimiento de **espacios atencionales públicos de alta calidad** — infraestructura cívica del pensamiento humano. La biblioteca popular del siglo XXI — no librería, no café, no coworking — es el espacio donde un ciudadano puede leer, pensar, escribir, conversar con otros, durante horas, sin ser monetizado ni perfilado. Red nacional de 3.000+ Commons Atencionales en régimen (uno cada 15.000 habitantes).
+2. **Derecho al Commons Atencional.** El Estado garantiza la existencia y mantenimiento de **espacios atencionales públicos de alta calidad** — infraestructura cívica del pensamiento humano. La biblioteca popular del siglo XXI — no librería, no café, no coworking — es el espacio donde un ciudadano puede leer, pensar, escribir, conversar con otros, durante horas, sin ser monetizado ni perfilado. Red nacional de 3.000+ Commons Atencionales en régimen (uno cada 15.000 habitantes). **Financiamiento asignado el 2026-08-01:** este derecho estaba consagrado acá y no tenía una sola línea en la TABLA 20 de este documento. `PLANFOCO` (ordinal 26) lo paga — construye y dota entre 1.200 y 1.500 sedes propias con bibliotecario, acervo y horario, y certifica el resto sobre las bibliotecas populares, municipios y universidades que el convenio de la tabla de abajo ya preveía. Ver la nota de frontera al final de este documento.
 
 3. **Derecho a la Desconexión.** Ninguna relación laboral, cívica, educativa o de cuidado puede exigir conectividad digital permanente. Articulación con la Jornada 6+2 del PLANCUIDADO: las dos horas de cuidado comunitario son, por definición, offline. El empleador, el Estado, la institución educativa que viole el derecho a la desconexión enfrenta sanción proporcional.
 
@@ -796,11 +796,11 @@ La **Ecología de la Atención** reconoce la atención humana como un **recurso 
 | Derecho | Qué garantiza | Mecanismo de ejecución | Responsable |
 |---|---|---|---|
 | Atención No Algorítmica | Espacios públicos sin modelado | Certificación de Commons Atencional; sanción a espacio que viole | ANDIG + inspección cívica |
-| Commons Atencional | Red de 3.000+ espacios de pensamiento público | Presupuesto constitucional, convenio con bibliotecas populares, municipios, universidades | ANDIG + Secretaría de Cultura |
+| Commons Atencional | Red de 3.000+ espacios de pensamiento público | Convenio con bibliotecas populares, municipios, universidades — **financiado por `PLANFOCO` desde 2027 (nota al final)**, no por presupuesto constitucional de este PLAN | ANDIG (rectoría) + ANBAC (paga y opera las sedes) |
 | Desconexión | Offline garantizado fuera de jornada | Ley Integral de Derecho a la Desconexión, articulada con Jornada 6+2 | Ministerio de Trabajo + ANCV |
 | No Predecibilidad | Consentimiento real sobre modelado | Ley de Consentimiento Algorítmico, opt-in activo, revocación con borrado | ANDIG + Defensoría del Pueblo |
 
-**Integración con ecosistema:** la Ecología de la Atención articula directamente con PLANEDU (alfabetización algorítmica como materia desde secundaria), PLANCUIDADO (Jornada 6+2, espacios de cuidado algorítmicamente off), PLANMESA (las Salas de Deliberación de Mesa operan sin perfilado), PLANCUL (Dendritas Culturales son Commons Atencionales por diseño), PLANMEMORIA (el Archivo de Depósito Ciudadano no tiene publicidad ni recomendación).
+**Integración con ecosistema:** la Ecología de la Atención articula directamente con PLANEDU (el **Desmontaje**, que `PLANFOCO` incorpora al currículum — **corrección del 2026-08-01: hasta esa fecha esta línea daba por dictada una materia que PLANEDU no tenía, y la palabra «algorítmica» no aparecía ni una vez en aquel documento**), PLANCUIDADO (Jornada 6+2, espacios de cuidado algorítmicamente off), PLANMESA (las Salas de Deliberación de Mesa operan sin perfilado), PLANCUL (Dendritas Culturales son Commons Atencionales por diseño), PLANMEMORIA (el Archivo de Depósito Ciudadano no tiene publicidad ni recomendación).
 
 ### 9.5 Auditoría Pública de Sistemas Algorítmicos
 
@@ -2189,3 +2189,9 @@ PLANDIG es **tranche-1 (estadio A)** con entrada operativa en 2026-Q2. El estadi
 **Owner estadio B:** se evalúa al cierre del estadio A. Hasta entonces no se asigna recurso.
 
 > **PIA gate:** este PLAN no avanza a piloto sin PIA aprobado. Ver `PIA/PLANDIG.md`.
+
+---
+
+> **Nota de frontera con PLANFOCO (2026-08-01).** El **Derecho al Commons Atencional** de la sección 9.4 y su meta de 3.000+ espacios siguen siendo de PLANDIG: la rectoría de la política de atención es de ANDIG y no se traslada. Lo que cambia es quién lo paga. La **TABLA 20** de este documento —inversión acumulada a diez años, USD 4.700–9.900M, doce filas— nunca tuvo una fila para el Commons, y `PLANFOCO` la asume entera con USD 300–450M/año extinguiendo la publicidad oficial. Las dos cifras miden cosas distintas y las dos quedan en pie: **3.000+ es la cobertura del derecho**, incluidos los espacios certificados sobre bibliotecas populares que ya existen; **1.200–1.500 son las sedes que PLANFOCO construye, dota y paga**. Este documento no reclama esa plata ni la administra.
+>
+> Se corrige además, con la misma fecha, la afirmación de la sección 9.4 sobre PLANEDU: **decía que la alfabetización algorítmica ya se dictaba como materia desde secundaria y no existía**. La materia la crea el Desmontaje de PLANFOCO y la dicta PLANEDU; hasta que eso ocurra, la articulación es un compromiso y no un hecho.

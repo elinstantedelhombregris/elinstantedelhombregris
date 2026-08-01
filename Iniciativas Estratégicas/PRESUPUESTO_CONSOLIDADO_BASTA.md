@@ -416,7 +416,7 @@ PLANTER genera más ingresos que gastos operativos:
 ### Fuentes de Financiamiento Ampliadas
 
 **Fuente 1 — Reasignación de gastos actuales de baja productividad.**
-- Publicidad oficial consolidada: USD 450M/año (eliminable en 40-60%).
+- Publicidad oficial consolidada: USD 450M/año. **Actualización del 2026-08-01: esta línea pasa a tener dueño.** `PLANFOCO` (ordinal 26) la recauda para **extinguirla en cinco años, hasta cero**, y financia con ella su régimen de USD 300–450M/año. El remanente para esta Fuente 1 baja de los 180–270M que implicaba el «eliminable en 40-60%» a **USD 0–150M/año**, y en 2027, escenario alto, a cero. Por la regla de fuentes de `PLANPACTO` §5.1 —toda fuente tiene un solo dueño y el dueño es el PLAN que la recauda— nadie más reclama sobre esta línea sin reabrir el protocolo por escrito en el documento de PLANFOCO.
 - Consultorías externas federales: USD 320M/año (eliminables en 50%).
 - Subsidios al flete privado vía rutas: reasignables a ferroviario con ahorro neto.
 - Gasto en extractivismo desincentivado: ~USD 600M/año revertidos.

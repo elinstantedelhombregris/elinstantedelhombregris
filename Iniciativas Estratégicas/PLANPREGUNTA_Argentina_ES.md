@@ -965,3 +965,9 @@ Este documento empezó con una libreta de tapa dura en un bolso de lona, sobre c
 Lo que sí cambia, y es todo lo que este PLAN puede ofrecer: **a partir de la Fase 0, una pregunta hecha en el renglón de observaciones de una planilla deja de subir sola.** Vuelve. Con nombre abajo. Aunque diga que no.
 
 Argentina no tiene un problema de talento. Tiene un problema de puntería, y la puntería empieza por escribir a qué se le apunta. Este documento es una lista de lo que no sabemos, con un dueño para cada renglón y un plazo para contestar. **Es menos de lo que el país necesita y es más de lo que el país tuvo nunca.**
+
+---
+
+> **La deuda del par recíproco queda saldada (2026-08-01).** La Sección de INTEGRACIÓN de este documento dice que *«la mitad de PLANFOCO no se puede escribir porque ese documento todavía no existe»*, y deja la deuda anotada con la fórmula que `PLANPACTO` usó para PLANARCO cuando estaba en la misma situación. **Ese documento ya existe:** `PLANFOCO_Argentina_ES.md`, ordinal 26, escrito en el tramo siguiente a éste. Su Sección 9.3 escribe la otra mitad del par —el Desmontaje y el Censo de Ignorancia como la misma capacidad cívica a dos escalas— y su Sección 7.3 acepta expresamente la dependencia entrante que este documento le impuso: **el Sello Abierto publica adentro del Acervo Abierto**, con el régimen de doble uso fijado por este PLAN y no por la agencia de aquél. Es la primera vez en el corpus que una deuda de par recíproco se cobra en el tramo inmediatamente siguiente al que la declaró.
+>
+> La frase del cuerpo **no se corrige y no se reescribe**: era verdadera cuando se escribió y describe correctamente el estado del corpus en ese momento. Esta nota es lo que la fecha. Y a partir de ahora las remisiones `PLANFOCO:línea` sí son posibles: hay líneas que citar.

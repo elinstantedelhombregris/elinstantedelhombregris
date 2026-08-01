@@ -1925,3 +1925,23 @@ No requiere PIA específico (este PLAN no toca datos personales sensibles direct
 ### 8. Opinión legal
 No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
 
+
+---
+
+## ANEXO — EL DESMONTAJE (incorporado el 2026-08-01 desde PLANFOCO)
+
+> **Procedencia.** Este anexo se agrega desde el tramo D de `PLANFOCO` (ordinal 26) y **no modifica ninguna sección anterior de PLANEDU**: ni las Siete Capacidades, ni el Aprendizaje por Dominio, ni el Pacto de la Dignidad, ni una sola cifra. Se anexa al final, sin insertar nada en el medio, para no correr ninguna línea de este documento. Reversible sin residuo: alcanza con borrar este anexo.
+
+**Por qué existe, y es una reparación antes que una incorporación.** `PLANDIG` afirmaba en su sección 9.4 que la Ecología de la Atención *«articula directamente con PLANEDU (alfabetización algorítmica como materia desde secundaria)»*. **La palabra «algorítmica» no aparecía ni una sola vez en este documento.** Lo más cercano era la fila de diagnóstico que dice *«Alfabetización digital | Parcial, desactualizada»*, que describe un problema y no una materia. La referencia cruzada estaba rota desde que se escribió, PLANDIG no mintió —escribió lo que suponía que su vecino tenía— y ninguna de las dos partes era internamente incoherente. **Este anexo la vuelve verdadera.**
+
+**Qué es el Desmontaje.** Una capacidad técnica, no una actitud moral. No es «pensamiento crítico» en el sentido de desconfiar más: un ciudadano que no le cree a nada es tan manejable como uno que le cree a todo, y sale más barato de producir. Es la operación de agarrar una pieza de comunicación —un aviso, una nota, un video, un discurso, un gráfico, un posteo— y responder cinco preguntas con respuesta verificable: **quién la hizo** (quién la produjo y quién la pagó, no quién la firma), **con qué materiales** (qué es dato, qué es cita, qué es inferencia y qué es adjetivo), **con qué técnica** (qué recurso formal se usó y qué efecto produce), **qué falta** (cuál es la pregunta que la pieza no responde), y **qué haría falta para saber si es cierto** — que no es un juicio de veracidad sino la identificación del dato que habría que ir a buscar y del lugar concreto donde está.
+
+**Dónde entra en la arquitectura de este PLAN.** El Desmontaje no es una materia nueva del currículum enciclopédico que este PLAN vino a reemplazar: es una práctica que atraviesa las capacidades de **Pensar**, **Comunicar** y **Conocer**, y se evalúa por portfolio como todo lo demás acá. La disciplina de Aprendizaje por Dominio aplica sin excepción: se avanza por demostración de competencia y no por calendario.
+
+**Las tres reglas que impiden que esto se convierta en adoctrinamiento**, y son innegociables porque la objeción es legítima:
+
+1. **El corpus de ejemplos es abierto y contable.** Todas las piezas que se usan se publican con su procedencia en el Acervo de PLANFOCO, y el **balance por origen es un indicador público**. No hay comité que juzgue equilibrio: hay un número que cualquiera puede mirar.
+2. **Al menos una de cada tres piezas es material del propio Estado**, incluido el del gobierno en ejercicio. Una materia de desmontaje que nunca desmonta un aviso oficial enseña lo contrario de lo que dice enseñar.
+3. **La evaluación no juzga conclusiones.** Se evalúa si el alumno identificó el origen, separó dato de inferencia, nombró la técnica y formuló qué dato habría que buscar. **Nunca a qué conclusión llegó.** Dos alumnos que desmontan la misma pieza con el mismo rigor y sacan conclusiones opuestas tienen los dos la nota completa, y el manual del docente lo dice en la primera página.
+
+**Qué aporta PLANFOCO y qué no.** Aporta el material —producido con trazabilidad de procedencia y publicado abierto para que lo use cualquier docente sin pedir permiso— y la formación de los mediadores de la Biblioteca Viva, que trabajan con adultos y no dan clase. **No aporta currículum, no evalúa alumnos y no forma docentes**: eso es de este PLAN y de la ANCE, y la separación es deliberada. Una agencia de comunicación que forma docentes en interpretación de mensajes es exactamente el organismo que PLANFOCO tiene prohibido crear.

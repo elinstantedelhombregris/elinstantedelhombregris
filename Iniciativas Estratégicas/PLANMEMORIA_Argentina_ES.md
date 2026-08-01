@@ -898,3 +898,21 @@ Ver `PIA/PLANMEMORIA.md`. **Gate:** este PLAN no avanza a piloto operativo sin P
 ### 8. Opinión legal
 No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
 
+
+---
+
+## ANEXO — LOS MANIFIESTOS DEL ACERVO ABIERTO (incorporado el 2026-08-01 desde PLANFOCO)
+
+> **Procedencia.** Este anexo se agrega desde el tramo D de `PLANFOCO` (ordinal 26) y **no modifica ninguna sección anterior de PLANMEMORIA**: ni el Archivo de Depósito Ciudadano, ni la Consulta Ancestral, ni la Inscripción de Captura, ni el Bastón Memorial, ni el rol de Síndico de Archivo, ni una sola cifra. Se anexa al final, sin insertar nada en el medio, para no correr ninguna línea de este documento. Reversible sin residuo.
+
+**Qué se aloja.** PLANFOCO rescata el acervo audiovisual del Estado argentino —setenta años de material que hoy no tiene custodio único ni catálogo público— y lo parte en dos. **A los siete nodos federados de este PLAN va el manifiesto de cada pieza**: qué es, cuándo se produjo, quién la produjo, con qué plata, en qué soporte estaba, cuándo se digitalizó, quién la digitalizó, y **el hash del archivo resultante**. El archivo en sí —el bitstream, que son petabytes— vive en la infraestructura soberana de PLANDIG. Acá va la huella, no el material.
+
+**Por qué se parte, y la razón es la misma que funda a este PLAN.** El que guarda el archivo no puede ser el mismo que certifica que no lo tocaron. Si el manifiesto y el bitstream viven en la misma custodia, borrar una pieza incómoda y borrar su registro son la misma operación, hecha por la misma gente, con la misma clave. Partidos, **borrar la pieza deja el hash huérfano en siete nodos distribuidos**, uno de los cuales está en una cooperativa ciudadana de preservación que no depende del Poder Ejecutivo. **El hash huérfano es la denuncia**, y no requiere que nadie audite nada: la ausencia se ve sola.
+
+Es la misma propiedad que este PLAN ya construyó para la memoria operativa de la república —*«cada inscripción es testigo contra su propio borrado futuro»*— aplicada al acervo audiovisual, que es el material que más fácil desaparece porque su pérdida no la firma nadie.
+
+**Qué le toca a cada uno.** **PLANMEMORIA custodia la prueba** y replica los manifiestos con la arquitectura federada, el hash y el rol de Síndico de Archivo que ya tiene. **PLANDIG custodia el material.** **ANBAC cataloga, publica y paga la digitalización, y no custodia ninguna de las dos copias que lo prueban.** Tres funciones en tres agencias.
+
+**La frontera con la Procedencia**, porque las dos cosas usan hash y no son lo mismo: PLANMEMORIA sella la memoria **operativa** —resoluciones, capturas documentadas, depósitos ciudadanos— y su unidad es la decisión; la Procedencia de PLANFOCO sella el material **publicado** con plata pública y su unidad es el archivo. La regla es simple: **si un ciudadano lo puede descargar, lo sella la Procedencia; si es un acto de gobierno, lo sella PLANMEMORIA.** Un material que es las dos cosas lleva los dos sellos, que no se estorban.
+
+**El compromiso de continuidad.** Si PLANFOCO se descontinúa, el material del Acervo se transfiere a este PLAN y a PLANDIG antes que ninguna otra cosa, porque es lo único irreversible de aquel documento: una biblioteca que cierra dos años reabre, y una cinta que se degradó no vuelve.
