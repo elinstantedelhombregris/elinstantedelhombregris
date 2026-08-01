@@ -53,6 +53,8 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 5: LAS NUEVE VERTICALES',
   '## SECCIÓN 6: LA PRUEBA DE BARRO',
   '## SECCIÓN 7: LA INFRAESTRUCTURA DE LO COMÚN',
+  '## SECCIÓN 8: QUIÉN PREGUNTA Y QUIÉN CONTESTA',
+  '## SECCIÓN 9: EL SEGURO CONTRA LO IMPREVISTO',
 ];
 
 /**
@@ -320,6 +322,28 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
     porQue:
       'LANIA y ArgenCloud a escala están en el estadio B de PLANDIG:2111, diferido a tranche-3+ y ' +
       'condicional. El Turno de Máquina no puede suponerlos disponibles (arreglo 6)',
+  },
+  /**
+   * Task 7. El cupo del arreglo 8 va con ancla en la Credencial Consolidada
+   * porque la figura ya existe y es de PLANMESA: escribir el cupo sin remitir
+   * sería inventar un padrón nuevo al lado de uno que ya tiene 80-120 mil
+   * personas proyectadas (PLANMESA:1138).
+   */
+  {
+    // Admite «5–8%», «5 al 8%» y «5 y el 8%». La primera versión solo miraba el
+    // guion y ponía roja la redacción natural: hacer que la guardia elija la
+    // prosa es la manera más rápida de que el documento empiece a escribirse
+    // para el script en vez de para el lector.
+    valor: /5\s*(?:[–—-]|al|y el|a)\s*8\s*%|cinco a ocho por ciento/u,
+    ancla: /C[áa]tedra|cupo|Credencial/iu,
+    porQue: 'el cupo de Cátedras para Credencial Consolidada sin trayectoria académica (arreglo 8)',
+  },
+  {
+    valor: /Credencial Consolidada/u,
+    ancla: /PLANMESA/u,
+    porQue:
+      'la Credencial Consolidada es de PLANMESA —:601, :657, :1138— y se remite, no se inventa. ' +
+      'Un padrón nuevo al lado de uno que ya existe es un padrón que este PLAN podría llenar solo',
   },
 ];
 

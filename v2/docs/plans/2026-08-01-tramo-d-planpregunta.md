@@ -492,7 +492,7 @@ El sorteo del Seguro es **puro** —acá sí, y acá `PLANJUS:400` es el domicil
 
 **Palabras:** cátedras 1.700–2.100 · seguro 900–1.200.
 
-- [ ] Task 7 completa
+- [x] Task 7 completa
 
 ---
 
