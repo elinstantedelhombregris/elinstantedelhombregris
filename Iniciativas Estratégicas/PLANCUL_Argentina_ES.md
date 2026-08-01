@@ -413,12 +413,12 @@ Las prácticas que generan sentido son inherentemente baratas: un Círculo de Me
 | **PLANEN** | Transición energética requiere cambio cultural; energía como bien común, no mercancía |
 | **PLANSEG** | Causa profunda de inseguridad = ruptura del tejido social; PLANCUL lo reconstruye |
 | **PLANVIV** | Vivienda sin comunidad = depósito de personas; cada proyecto habitacional se conecta a la Red |
-| **PLANJUB** | **La integración más profunda.** Ver 5.2. |
+| **PLANJUB** | **La integración más profunda.** Ver 5.2. **[PLANJUB → PLANARCO: ver NOTA DE SUCESIÓN]** |
 | **PLANTRA** | Estaciones como Nodos: bibliotecas en andenes, Granaderos acompañantes, Cultura Ambiente en tránsito |
 
 ## 5.2 Los Granaderos Como Dendritas Naturales
 
-La sinapsis más poderosa de ¡BASTA!. Los Granaderos tienen todo: tiempo, saberes, paciencia, credibilidad, libertad, necesidad de propósito, presencia. Un Granadero-Dendrita enseña a amasar (Creación+Vínculo), cuenta historias (Memoria), cuida el bosque (Tierra), cocina en la Mesa Larga (Vínculo), enseña tango (Cuerpo+Memoria), juega al truco (Juego), recibe visitantes (Tierra+Identidad). PLANJUB les da dignidad económica. PLANCUL les da propósito existencial. Juntos, transforman la vejez de carga fiscal en el recurso más valioso de la nación.
+La sinapsis más poderosa de ¡BASTA!. Los Granaderos tienen todo: tiempo, saberes, paciencia, credibilidad, libertad, necesidad de propósito, presencia. Un Granadero-Dendrita enseña a amasar (Creación+Vínculo), cuenta historias (Memoria), cuida el bosque (Tierra), cocina en la Mesa Larga (Vínculo), enseña tango (Cuerpo+Memoria), juega al truco (Juego), recibe visitantes (Tierra+Identidad). PLANJUB les da dignidad económica. PLANCUL les da propósito existencial. Juntos, transforman la vejez de carga fiscal en el recurso más valioso de la nación. **[PLANJUB → PLANARCO: ver NOTA DE SUCESIÓN]**
 
 ## 5.3 Del Sentido al Poder Cívico
 
@@ -481,7 +481,7 @@ Principio: resolver lo más local posible. Cuando no se puede, permitir escisió
 
 Si ¡BASTA! pierde todas las elecciones. Si el proyecto político colapsa. ¿Qué sobrevive?
 
-**Lo que se pierde:** bosques comestibles como espacios de encuentro (PLANISV defunded), Centros de la Vida (PLANREP cerrados), ArgenCloud (PLANDIG privatizado), programa institucional de Granaderos (PLANJUB cancelado), tres acciones gubernamentales (nunca ejecutadas o revertidas).
+**Lo que se pierde:** bosques comestibles como espacios de encuentro (PLANISV defunded), Centros de la Vida (PLANREP cerrados), ArgenCloud (PLANDIG privatizado), programa institucional de Granaderos (PLANJUB cancelado), tres acciones gubernamentales (nunca ejecutadas o revertidas). **[PLANJUB → PLANARCO: ver NOTA DE SUCESIÓN]**
 
 **Lo que sobrevive:**
 - **Mesas Largas** — calles existen con o sin ¡BASTA!. Mesas y sillas existen. Comida existe. Vecinos existen.
@@ -531,9 +531,9 @@ Cada efecto de PLANCUL tiene un retardo. El sistema político quiere resultados 
 
 **Pre-Año 0 (ahora):** PLANCUL puede empezar HOY. 50 Mesas Largas en 15 provincias — **deliberadamente distribuidas, no concentradas en Buenos Aires.** Si nace porteño, muere porteño. 100 Dendritas auto-identificadas. 30 Nodos existentes conectados en Plataforma mínima.
 
-**Año 0:** Tres acciones gubernamentales. 200 Radio Dendrita. 500 Dendritas. 100 Nodos. Primeros Círculos con jubilados (PLANJUB lanza Año 1 pero los jubilados ya existen).
+**Año 0:** Tres acciones gubernamentales. 200 Radio Dendrita. 500 Dendritas. 100 Nodos. Primeros Círculos con jubilados (PLANJUB lanza Año 1 pero los jubilados ya existen). **[PLANJUB → PLANARCO: ver NOTA DE SUCESIÓN]**
 
-**Años 1-3 (Enraizamiento + Valle de la Apatía):** PLANJUB, PLANEDU, PLANISV activos. 5.000+ Dendritas, 500+ Nodos. 10.000+ grabaciones en Archivos Vivos. 200 publicaciones de Argentina Escribe. 1.000 Radio Dendrita. **ALERTA Año 2-3:** la novedad pasó, fundadores cansados. Diseño anti-apatía: hibernación permitida, rotación inyecta energía, Granaderos llegan como refuerzo fresco, Nodos Compañeros revitalizan con visitas cruzadas.
+**Años 1-3 (Enraizamiento + Valle de la Apatía):** PLANJUB, PLANEDU, PLANISV activos. 5.000+ Dendritas, 500+ Nodos. 10.000+ grabaciones en Archivos Vivos. 200 publicaciones de Argentina Escribe. 1.000 Radio Dendrita. **ALERTA Año 2-3:** la novedad pasó, fundadores cansados. Diseño anti-apatía: hibernación permitida, rotación inyecta energía, Granaderos llegan como refuerzo fresco, Nodos Compañeros revitalizan con visitas cruzadas. **[PLANJUB → PLANARCO: ver NOTA DE SUCESIÓN]**
 
 **Años 4-7 (Masa Crítica):** 20.000+ Dendritas. 2.000+ Nodos en todas las provincias. 100.000+ grabaciones. 2.000+ publicaciones. Mesas Largas como institución nacional. Audiencia tóxica declina por irrelevancia. Primera generación de niños Dendrita tiene 10-12 años.
 
@@ -679,7 +679,19 @@ Regla: no saltear peldaños. Peso abajo: muchas Mesas, bastante hacer/crear/move
 | **Parasitismo Estratégico** | PLANCUL habita infraestructura de otros PLANes. Invisible e inextirpable. |
 | **Bucles de Balance** | Fuerzas sistémicas que limitan el crecimiento: saturación, rutinización, gentrificación, éxito paradójico, dilución. |
 | **Núcleo Mínimo Superviviente** | Lo que sobrevive si ¡BASTA! colapsa: todo lo que vive en personas, no en instituciones. |
-| **Granadero/a** | Adulto mayor de PLANJUB. Dendrita natural. |
+| **Granadero/a** | Adulto mayor de PLANJUB. Dendrita natural. **[PLANJUB → PLANARCO: ver NOTA DE SUCESIÓN]** |
+
+---
+
+## NOTA DE SUCESIÓN — DE DÓNDE SALE LA CAJA DE LOS GRANADEROS
+
+**Qué está marcado y por qué.** Seis líneas de este documento —la tabla de integraciones de 5.1, el párrafo de 5.2, la lista de 6.5, dos pasajes de la cascada de 7.2 y la entrada «Granadero/a» del glosario— apoyan a los Granaderos sobre un PLAN previsional que **nunca se escribió**: no tiene documento, ni ordinal, ni presupuesto. Una de ellas lo declara «la integración más profunda» de todas, y la del glosario define al Granadero por pertenencia a él. Las seis quedan donde estaban, con la marca al lado y sin borrarles una palabra: el sucesor es **`PLANARCO_Argentina_ES.md`**, el PLAN del arco de la vida, ordinal 24.
+
+**Qué cambia en concreto.** La dignidad económica que 5.2 le atribuía a un papel en blanco la pagan dos dispositivos escritos de PLANARCO: el **Piso Vital Universal**, que se abre a los sesenta y cinco por edad registrada y no pregunta qué hace la persona con su tiempo, y la **Rampa de Salida 60–72**. El propósito existencial no se mueve: sigue siendo de PLANCUL. La sucesión le cambia el domicilio a la caja, no el dispositivo cultural — los Granaderos siguen siendo Dendritas de este documento.
+
+**Qué no cambia, para que nadie lo suponga.** Esta nota no le crea presupuesto ni agencia a PLANCUL, que por decisión propia y declarada opera sin organismo estatal y sin partida dedicada. No modifica ningún dispositivo, ninguna meta ni ninguna fase de este documento. Y no corrige la fila **PLANTRA** de esa misma tabla de 5.1, que es otro código sin documento, sin ordinal y sin entrada en `PLAN_REGISTRY.yml`, y que **queda anotado acá sin resolver**: no es materia del arco de la vida, y arreglarlo de paso desde una nota de sucesión ajena sería estrenar una decisión que ningún documento tomó.
+
+**Procedencia y reversión.** Corrección aplicada el 2026-08-01 desde el tramo C de PLANARCO, que declara esta sucesión en su INTEGRACIÓN y se compromete a corregir las seis referencias acá y no en silencio. Es reversible sin residuo: alcanza con borrar las seis marcas `[… → PLANARCO …]` y esta nota.
 
 ---
 

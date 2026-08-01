@@ -9131,6 +9131,131 @@ function verificarConteosDeLaIntegracion(lineas: string[]): string[] {
   return errores;
 }
 
+/**
+ * ── LAS NOTAS DE SUCESIÓN EN DOCUMENTOS AJENOS (Task 11) ─────────────────────
+ *
+ * PLANARCO se compromete **por escrito** a corregir cosas que no viven en su
+ * propio archivo: las seis referencias al fantasma en PLANCUL (`:777`, «se
+ * corrigen en el documento de PLANCUL con nota de sucesión: no acá y no en
+ * silencio»), la atribución de vivienda intergeneracional que PLANCUIDADO le
+ * hace a PLANVIV (`:325`, «queda anotado»), y la negociación del FGS que el
+ * hueco I-8 pedía documentar desde abril de 2026.
+ *
+ * **Las tres correcciones viven afuera de este documento, así que ningún
+ * chequeo las miraba.** Borrada una nota, o agregada una séptima referencia al
+ * fantasma sin marcar, PLANARCO sigue prometiendo una corrección que ya no
+ * está y la guardia sale verde. Es exactamente el modo de falla de §4.4: una
+ * afirmación sobre el corpus que nadie rehace.
+ *
+ * **La doctrina es la de las anclas, no la de las listas opt-in.** No se
+ * enumeran las líneas a mano: se **descubren** —toda línea que nombre al
+ * fantasma, toda línea que le atribuya la palabra a PLANVIV, toda línea que le
+ * pida al FGS un porcentaje de sus activos— y se exige que cada una traiga su
+ * marca. Una referencia nueva sin marcar cae sola, que es justo el caso que una
+ * lista escrita a mano no puede cubrir. Se barre **sólo por encima de la nota**,
+ * porque la nota misma habla de lo que corrige y se acusaría a sí misma.
+ *
+ * **Y se verifica la premisa, no sólo la presencia de la nota.** La de PLAN24CN
+ * se apoya en que ese PLAN sigue *research-only* y **sin presupuesto
+ * operativo**: el día que deje de serlo, lo que la nota llama «reserva no
+ * ejecutada» pasa a ser un compromiso vigente y el párrafo cambia de sentido.
+ * La de PLANCUIDADO se apoya en que PLANVIV no tiene la palabra ni una vez: si
+ * PLANVIV la escribe, la nota queda vieja. Las dos premisas se rehacen acá
+ * contra el archivo, que es lo único que las mantiene ciertas.
+ */
+const NOTAS_AJENAS: {
+  doc: string;
+  titulo: string;
+  marca: RegExp;
+  referencia: (l: string) => boolean;
+  queEs: string;
+  premisa?: { vale: (ls: string[]) => boolean; siFalla: string };
+}[] = [
+  {
+    doc: 'PLANCUL',
+    titulo: '## NOTA DE SUCESIÓN',
+    marca: /\[PLANJUB → PLANARCO/u,
+    referencia: (l) => l.includes('PLANJUB'),
+    queEs: 'una referencia al PLAN que nunca existió',
+  },
+  {
+    doc: 'PLANCUIDADO',
+    titulo: '## NOTA DE ATRIBUCIÓN',
+    marca: /\[atribución no sostenida/u,
+    referencia: (l) => /intergeneracional/iu.test(l) && l.includes('PLANVIV'),
+    queEs: 'una atribución de vivienda intergeneracional a PLANVIV',
+    premisa: {
+      vale: () => {
+        const viv = lineasDelPlan('PLANVIV');
+        return viv !== null && !viv.some((l) => /intergeneracional/iu.test(l));
+      },
+      siFalla:
+        'PLANVIV ya escribe «intergeneracional», así que la nota de PLANCUIDADO —que declara que no ' +
+        'tiene la palabra ni una vez— quedó vieja, y con ella el hueco que PLANARCO:325 anotó. ' +
+        'Releerla: puede que la atribución ahora sí se sostenga y la marca sobre',
+    },
+  },
+  {
+    doc: 'PLAN24CN',
+    titulo: '## NOTA DE COORDINACIÓN',
+    marca: /\[FGS → ver NOTA DE COORDINACIÓN\]/u,
+    referencia: (l) => l.includes('FGS') && /10\s*[–—-]\s*20\s*%/u.test(l),
+    queEs: 'un reclamo del 10–20% de los activos del FGS',
+    premisa: {
+      /**
+       * **Contra el CAMPO, no contra la palabra suelta.** Primera versión: «hay
+       * alguna línea con `research-only` en las primeras veinte». Mutar el
+       * campo real —`Tranche assignment`, la línea 8— salía **verde**, porque
+       * la línea 16 arrastra la palabra adentro de la prosa de una corrección
+       * vieja («Estado research-only / diferido completo»). El estado del PLAN
+       * lo declara su campo, no cualquier mención; y es el campo el que cambia
+       * el día que este PLAN pase a ejecutar.
+       */
+      vale: (ls) =>
+        ls.slice(0, 20).some((l) => /Tranche assignment:\**\s*research-only/iu.test(l)) &&
+        ls.slice(0, 20).some((l) => /Presupuesto canónico:[^\n]*sin presupuesto operativo/iu.test(l)),
+      siFalla:
+        'PLAN24CN dejó de declararse research-only / sin presupuesto operativo en su cabecera, y esa ' +
+        'era la premisa entera de la nota: lo que ahí se llama «reserva no ejecutada» pasa a ser un ' +
+        'compromiso vigente, y acotarlo deja de ser una discusión de prioridades',
+    },
+  },
+];
+
+function verificarNotasAjenas(): string[] {
+  const errores: string[] = [];
+  for (const { doc, titulo, marca, referencia, queEs, premisa } of NOTAS_AJENAS) {
+    const ls = lineasDelPlan(doc);
+    if (ls === null) {
+      errores.push(`la guardia no puede abrir ${doc} para verificar su «${titulo}»`);
+      continue;
+    }
+    const iNota = ls.findIndex((l) => l.trimStart().startsWith(titulo));
+    if (iNota === -1) {
+      errores.push(
+        `${doc} no tiene «${titulo}». PLANARCO se compromete por escrito a corregir ahí, y a hacerlo ` +
+          'declarado y no en silencio: sin la nota, la promesa queda escrita de un solo lado',
+      );
+      continue;
+    }
+    const sinMarca = ls
+      .slice(0, iNota)
+      .map((l, i) => [l, i + 1] as const)
+      .filter(([l]) => referencia(l) && !marca.test(l));
+    if (sinMarca.length > 0) {
+      errores.push(
+        `${doc} tiene ${String(sinMarca.length)} línea(s) con ${queEs} y SIN la marca que remite a ` +
+          `«${titulo}» (línea(s) ${sinMarca.map(([, n]) => String(n)).join(', ')}). La lista no se ` +
+          'mantiene a mano: se descubre, para que una referencia nueva caiga acá y no dentro de un año',
+      );
+    }
+    if (premisa !== undefined && !premisa.vale(ls)) {
+      errores.push(`la premisa de la nota de ${doc} dejó de valer — ${premisa.siFalla}`);
+    }
+  }
+  return errores;
+}
+
 function main(): void {
   let raw: string;
   try {
@@ -9225,6 +9350,9 @@ function main(): void {
   //        los cinco conteos de la INTEGRACIÓN cruzados contra sus archivos.
   errores.push(...verificarAristasCriticas(lineas));
   errores.push(...verificarConteosDeLaIntegracion(lineas));
+  // 8 bis 6) Task 11: las correcciones que este PLAN prometió hacer en documentos
+  //          AJENOS —PLANCUL, PLANCUIDADO y PLAN24CN—, con sus premisas rehechas.
+  errores.push(...verificarNotasAjenas());
   // 8 bis 3) Task 9: la fila de PLANARCO en READINESS_GATES_ADVERSARIAL.md.
   errores.push(...verificarReadinessGates(lineas));
   // 8 bis 2) Task 9: §12 cruzada contra la partición contable de §9.1.
@@ -9325,6 +9453,9 @@ function main(): void {
       'habilitación corrida contra el prohibido del gate, los cuatro cocientes del acta, la banda ' +
       'derivada y el umbral del indicador que §10 escribe, los cinco conteos de la ' +
       'INTEGRACIÓN cruzados contra §3.2, contra el archivo de PLANCUL y contra su propia lista, ' +
+      `las ${String(NOTAS_AJENAS.length)} notas prometidas en documentos ajenos presentes, con toda ` +
+      'línea que las motiva DESCUBIERTA y marcada por encima de la nota y con la premisa de cada una ' +
+      'rehecha contra su archivo (PLANVIV sin la palabra, PLAN24CN todavía research-only), ' +
       `${String(prosa.resueltas)} anclas de la prosa abiertas y resueltas contra su documento ` +
       '(todo token con forma de ancla que la guardia no sepa leer se reporta, no se descarta, y la ' +
       'remisión corta corre SOLO contra un ancla completa de su misma oración), ' +
