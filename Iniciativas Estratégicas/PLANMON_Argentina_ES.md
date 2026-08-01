@@ -1,5 +1,5 @@
 > **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **LAST_AUDIT:** 2026-04-26
 >
@@ -2244,7 +2244,7 @@ Esta sección documenta cómo PLANMON se acopla al resto del ecosistema de manda
 ## Parche post-auditoría 2026-04-26
 
 > **STATUS LOCAL:** alineado con auditoría 2026-04-26.
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
 
 ### 1. Tranche assignment
 - **Tranche:** research-only / diferido

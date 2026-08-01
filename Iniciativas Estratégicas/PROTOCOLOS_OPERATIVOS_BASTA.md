@@ -1,7 +1,7 @@
 # PROTOCOLOS OPERATIVOS INTER-PLAN ¡BASTA!
 
 > **STATUS:** current (recomputado en Fase 15 con flujos para 22 PLANes + PLANRUTA y fallbacks manuales obligatorios)
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **LAST_AUDIT:** 2026-04-26
 

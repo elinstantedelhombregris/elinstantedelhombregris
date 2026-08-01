@@ -1,7 +1,7 @@
 # SIMULACION ADVERSARIAL ¡BASTA!
 
 > **STATUS:** current (análisis de actores válido; traducción operativa pendiente)
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **TRANSFORMATION_PENDING:** convertirse en gates de readiness operativos en Fase 7 (`READINESS_GATES_ADVERSARIAL.md`)
 > **NOTA POST-AUDITORÍA 2026-04-26:** este documento aporta análisis de actores y escenarios. Su **traducción operativa** vive en `READINESS_GATES_ADVERSARIAL.md`, que es **vinculante** para promoción de PLANes entre fases.

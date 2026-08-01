@@ -1,7 +1,7 @@
 # Cierre de Remediación de Auditoría 2026-04-26
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **FECHA CIERRE ESTRUCTURAL:** 2026-04-28
 > **FECHA CIERRE COMPLETO ESPERADO (con revisión editorial profunda residual):** según dispatch de subagents en follow-up

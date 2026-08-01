@@ -1,7 +1,7 @@
 # Libro Mayor de Fuentes de Fondos — ¡BASTA!
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **REPLACES:** `PRESUPUESTO_CONSOLIDADO_BASTA.md` (mantener como histórico)
 > **PRINCIPIO:** una fuente, un dueño, una fecha de disponibilidad, una calificación de confianza.

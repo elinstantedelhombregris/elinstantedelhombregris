@@ -1,7 +1,7 @@
 # Compuertas de Readiness Adversarial — Top-3 Attack Paths por PLAN
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** un PLAN no avanza de diseño a piloto sin que sus 3 attack paths principales tengan **mitigación nombrada, owner accountable, presupuesto de respaldo, e indicador de activación documentado**.
 > **FUENTE:** `SIMULACION_ADVERSARIAL_BASTA.md` + auditoría 2026-04-26.

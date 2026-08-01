@@ -1,7 +1,7 @@
 # Plataforma Pública — 5 Misiones de Reconstrucción
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol (interno; público ve 5 misiones)
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol (interno; público ve 5 misiones)
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** la calle no necesita 22 PLANes. Necesita 5 promesas comprobables.
 > **REEMPLAZA:** `ARQUITECTURA_PLATAFORMA_CIVICA_Y_NARRATIVA_ES.md` (mantener como histórico).

@@ -2078,7 +2078,7 @@ El instante del Hombre Gris digital es ahora. Y la Argentina eligió despertar.
 ## Parche post-auditoría 2026-04-26
 
 > **STATUS LOCAL:** alineado con auditoría 2026-04-26.
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
 
 ### 1. Tranche assignment
 - **Tranche:** tranche-1 (estadio A)

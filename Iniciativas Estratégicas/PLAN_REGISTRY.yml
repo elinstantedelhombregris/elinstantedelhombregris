@@ -1,23 +1,32 @@
 # PLAN_REGISTRY.yml — Fuente única de verdad de la arquitectura ¡BASTA!
 # Generado: 2026-04-28 a partir de FULL_STRATEGIC_AUDIT_2026-04-26.md
-# Conteo canónico: 22 thematic + PLANRUTA protocol
+# Conteo canónico: 26 thematic + PLANRUTA protocol (actualizado 2026-08-01)
 #
 # REGLA: este archivo es la única fuente de verdad sobre el conteo, estado y secuencia.
 # Cualquier prosa en otro documento que contradiga esto cede ante este registro.
 # Ningún PLAN se crea, divide ni elimina sin actualizar este archivo primero.
 
 architecture:
-  thematic_count: 22
+  thematic_count: 26
   protocol: PLANRUTA
-  total_documents: 23
+  total_documents: 27
   freeze_status: ACTIVE
   freeze_motivo: "Cierre del primer tranche (24m) o auditoría adicional"
   # El freeze sigue activo para todo lo demás. Estos cuatro se exceptuaron por acta
   # el 2026-07-26: ningún otro sub-mandato puede ser PLAN nuevo sin otro acta igual.
   freeze_excepciones: [PLANPACTO, PLANARCO, PLANPREGUNTA, PLANFOCO]
   freeze_excepciones_acta: ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md
+  # Las cuatro excepciones quedaron EJECUTADAS: los cuatro documentos existen en el
+  # taller. El freeze sigue ACTIVE para todo lo demás y no se levanta acá — quien
+  # quiera un PLAN nuevo necesita otra acta, con la misma derogación expresa de la
+  # regla 5 y de la condición temporal de la regla 3.
+  freeze_excepciones_ejecutadas:
+    - { code: PLANPACTO, ordinal: 23, escrito: 2026-07-27 }
+    - { code: PLANARCO, ordinal: 24, escrito: 2026-07-31 }
+    - { code: PLANPREGUNTA, ordinal: 25, escrito: 2026-08-01 }
+    - { code: PLANFOCO, ordinal: 26, escrito: 2026-08-01 }
   source_of_truth_audit: FULL_STRATEGIC_AUDIT_2026-04-26.md
-  last_updated: 2026-04-28
+  last_updated: 2026-08-01
 
 plans:
   - code: PLANAGUA
@@ -376,6 +385,80 @@ plans:
       - id: L4
         name: Investigación AV (research-only, sin implementación operativa)
         phase: research-only-indefinida
+
+  # ── Los cuatro PLANes nuevos, habilitados por acta el 2026-07-26 y escritos
+  #    entre el 2026-07-27 y el 2026-08-01. Se ANEXAN al final: los ordinales
+  #    01..22 no se mueven, las URLs son estables porque el matcheo es por código,
+  #    y reordenar en el medio rompería el invariante de contigüidad.
+  - code: PLANPACTO
+    title: Pacto Fiscal, Reparto Federal y Escalera de Garantías
+    version: 2026-08
+    status: current
+    phase: tranche-1
+    mission_matrix: Verde
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANREP, PLANDIG, PLANMON]
+    ordinal: 23
+    agency: CFF
+    category: economia
+    constitutional_floor: "2,40% del PBI (7,5% del gasto primario consolidado) — piso ÚNICO y sustitutivo de los 17 anteriores"
+    legal_instruments:
+      - Ley convenio de coparticipación (art. 75 inc. 2) — requiere 24 ratificaciones
+    last_updated: 2026-07-27
+  - code: PLANARCO
+    title: Arco de la Vida, Calendario de Umbrales y Renta de Arco
+    version: 2026-08
+    status: current
+    phase: tranche-2
+    mission_matrix: Verde
+    budget_class: XL
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANPACTO, PLANCUIDADO, PLANSAL, PLANMON, PLANTER, PLANDIG, PLANREP]
+    ordinal: 24
+    agency: ANAV
+    category: instituciones
+    constitutional_floor: "sin piso propio — entra como eje intergeneracional dentro de la Escalera de PLANPACTO"
+    legal_instruments:
+      - Ley de la Agencia Nacional del Arco de la Vida (ANAV) y del Calendario de Umbrales
+    last_updated: 2026-07-31
+  - code: PLANPREGUNTA
+    title: La Pregunta, el Censo de Ignorancia y la Prueba de Barro
+    version: 2026-08
+    status: current
+    phase: tranche-2
+    mission_matrix: Verde
+    budget_class: L
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANEDU, PLANEB, PLANTER, PLANMESA, PLANMEMORIA, PLANEN]
+    ordinal: 25
+    agency: ANCON
+    category: tecnologia
+    constitutional_floor: "sin piso propio — se financia con 8 puntos del FSC de PLANTER"
+    legal_instruments:
+      - Ley de la ANCON, del Fondo de la Pregunta y de la reapertura del protocolo del FSC
+    last_updated: 2026-08-01
+  - code: PLANFOCO
+    title: La Palabra Pública, la Biblioteca Viva y el Acervo Común
+    version: 2026-08
+    status: current
+    phase: tranche-2
+    mission_matrix: Verde
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANMESA, PLANMEMORIA, PLANEDU, PLANJUS, PLANCUL, PLANREP]
+    ordinal: 26
+    agency: ANBAC
+    category: cultura
+    constitutional_floor: "sin piso propio — diferido a Visión 2040+; se financia extinguiendo la publicidad oficial"
+    legal_instruments:
+      - Decreto de Pauta Ciega y cronograma de extinción (Fase 0, no requiere ley)
+      - Ley de la ANBAC, del Acervo Abierto y del umbral de qué cuenta como medio
+    last_updated: 2026-08-01
 
 protocol:
   - code: PLANRUTA

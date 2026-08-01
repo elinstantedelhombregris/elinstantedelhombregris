@@ -1,7 +1,7 @@
 # Análisis de Conexiones — Los 22 PLANes del Proyecto ¡BASTA!
 
 > **STATUS:** superseded (mezcla de conteos 20/21/22 obsoleta post-auditoría 2026-04-26)
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **NOTA RENOMBRE:** archivo se renombra a `ANALISIS_CONEXIONES_22_PLANES.md` en Fase 1.3.
 > **SUCCESSOR:** `DEPENDENCY_GRAPH.yml` (estructurado, autoridad sobre la prosa)

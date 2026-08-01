@@ -1,7 +1,7 @@
 # PRESUPUESTO CONSOLIDADO DEL ECOSISTEMA ¡BASTA!
 
 > **STATUS:** superseded (estimación de régimen completo, mezcla de tablas de % PBI; obsoleto para gobernar tranche-1 post-auditoría 2026-04-26)
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **SUCCESSOR:** `SOURCE_OF_FUNDS_LEDGER.md` (libro mayor único con clase, confianza, dueño y disponibilidad por fuente)
 > **LAST_AUDIT:** 2026-04-26

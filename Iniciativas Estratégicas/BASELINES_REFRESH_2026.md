@@ -1,7 +1,7 @@
 # Refresh de Baselines — Pre-publicación
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** ningún número ni cita legal se publica externamente sin baseline verificada en los últimos 90 días.
 > **LAST_AUDIT:** 2026-04-26

@@ -1,7 +1,7 @@
 # Portfolio Execution Office (PEO)
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **NATURALEZA:** célula temporal de ejecución, no agencia autónoma.
 > **PRINCIPIO:** el PEO NO hace política sectorial. Solo controla registro, secuencia, dependencias, presupuesto, riesgo y publicación.

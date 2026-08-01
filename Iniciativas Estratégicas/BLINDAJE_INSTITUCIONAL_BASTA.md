@@ -1,7 +1,7 @@
 # Blindaje Institucional: Cómo ¡BASTA! Sobrevive a los Ciclos Políticos
 
 > **STATUS:** supporting
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **NOTA AUDITORÍA 2026-04-26:** alineamiento con `RACI_MATRIX.md` + `PORTFOLIO_EXECUTION_OFFICE.md` (Fase 5).
 > **LAST_AUDIT:** 2026-04-26

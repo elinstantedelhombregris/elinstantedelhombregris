@@ -1,7 +1,7 @@
 # Compuertas Kill / Scale por PLAN
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** cada PLAN tiene 3 gates con 5 criterios binarios cada uno + 1 condición de kill automática.
 > **VINCULANTE:** sí. El PEO no firma promoción de un PLAN sin gate cerrado y validado.

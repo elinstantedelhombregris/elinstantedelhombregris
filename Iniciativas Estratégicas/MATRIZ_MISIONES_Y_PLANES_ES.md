@@ -1,7 +1,7 @@
 # MATRIZ DE MISIONES Y PLANES
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **ROL:** binding_prioritization (vinculante para sequenciación post-auditoría 2026-04-26)
 > **LAST_AUDIT:** 2026-04-26

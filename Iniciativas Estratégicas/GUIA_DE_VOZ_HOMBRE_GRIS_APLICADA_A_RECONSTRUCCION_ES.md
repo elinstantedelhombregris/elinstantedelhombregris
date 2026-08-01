@@ -1,7 +1,7 @@
 # GUÍA DE VOZ DEL HOMBRE GRIS APLICADA A LA RECONSTRUCCIÓN
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **APLICACIÓN VINCULANTE:** doctrina interna en docs internos; voz pública civil en `PLATAFORMA_PUBLICA_5_MISIONES.md`.
 > **LAST_AUDIT:** 2026-04-26

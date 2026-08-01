@@ -1,7 +1,7 @@
 # Reporte Final R2 — Refinamiento Editorial Profundo
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **FECHA:** 2026-04-28
 > **LAST_AUDIT:** 2026-04-26

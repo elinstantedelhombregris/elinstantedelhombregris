@@ -1,7 +1,7 @@
 # ARQUITECTURA DE PLATAFORMA CÍVICA Y NARRATIVA
 
 > **STATUS:** superseded (narrativa de 22 PLANes para el público; obsoleto post-auditoría)
-> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **SUCCESSOR:** `PLATAFORMA_PUBLICA_5_MISIONES.md` (cinco misiones para el público; los 22 PLANes quedan en doctrina interna)
 > **LAST_AUDIT:** 2026-04-26
