@@ -56,6 +56,26 @@ const SECCIONES_ESPERADAS: string[] = [
  * retitulación no.
  */
 const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; porQue: string }[] = [
+  /**
+   * **La SECCIÓN 2 entra acá por el hallazgo C-2 de la revisión de la Task 7, y
+   * la ironía es exacta: `verificarSubsecciones()` se estrenó como arreglo de
+   * este modo de falla y se aplicó a §7 y §8 y no a §2, que es la sección de la
+   * que §8.3 acababa de volverse dependiente en esa misma tarea.** §8.3 comprimió
+   * las tres relaciones del PAMI en una remisión —«2.4 lo leyó como precedente en
+   * dos columnas … y dejó declarado el hueco de sus números»— y quedó apuntando a
+   * un párrafo sin guardia. Reproducido: borrar el párrafo «El PAMI.» entero de
+   * §2.4 salía **exit 0**, con el H3 todavía titulado «La AUH y el PAMI» y el
+   * chequeo de dos columnas verde porque la AUH sola queda balanceada.
+   */
+  {
+    h2: '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
+    prefijo: '2',
+    cuantas: 5,
+    porQue:
+      'Japón y Corea · Costa Rica · la moratoria · la AUH y el PAMI · la objeción heredada. La cuarta ' +
+      'es la que sostiene a §8.3 entera por remisión, y la quinta es la única sección del documento ' +
+      'que escribe la objeción del adversario sin contestarla: las dos se borran sin que el H2 se mueva',
+  },
   {
     h2: '## SECCIÓN 7: EL FINAL',
     prefijo: '7',
@@ -298,6 +318,25 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
   {
     valor: '~USD 200M [est.]',
     en: [H3_RAMPA],
+    /**
+     * **`veces: 2`, y es el arreglo de I-8: el backstop documentado de la
+     * familia `PLANSAL:1370` no corría.** El comentario de esa familia prometía
+     * que borrar la tilde junto con el número quedaba cubierto por esta cifra
+     * canónica, y era falso: §7.1 escribe `~USD 200M [est.]` DOS veces —la cita
+     * de PLANSAL y la conclusión de que ese renglón se queda donde está— y con
+     * el mínimo en uno, mutar la segunda dejaba la primera cubriendo el chequeo.
+     * Reproducido: `los ~USD 200M [est.] de PLANSAL:1370` → `los USD 300M [est.]
+     * de PLANSAL:1370` salía **exit 0**, con el párrafo de la asimetría
+     * afirmando dos magnitudes distintas para la misma caja.
+     *
+     * **La otra salida que la revisión ofrecía —extender la unidad de la familia
+     * a `~?USD`— es peor y no se toma:** reabre el falso positivo que la familia
+     * existe para esquivar. La línea 166 de §0.6 nombra `PLANSAL:1370` y trae en
+     * el mismo párrafo la caja de PLANMEMORIA, `USD 680–920M`, sin tilde: con la
+     * unidad relajada, la familia vuelve a acusar de contradicción a dos
+     * programas distintos que comparten renglón.
+     */
+    veces: 2,
     porQue:
       'la mitad financiada de la asimetría que §0.6 dejó anotada: PLANSAL:1370 le pone caja al ' +
       'Programa Ancianos de Sabiduría y PLANCUL:421 se la promete a los Granaderos desde un PLAN que ' +
@@ -311,6 +350,47 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
       'la institucionalización evitable de PLANCUIDADO:219, atribuida a la Cámara Argentina de ' +
       'Geriátricos, y PLANCUIDADO:575 ya lleva USD 1.200M/año de ella como ahorro fiscal PROPIO. La ' +
       'Casa de Arco no lo puede volver a anotar, y la disciplina solo se ve si el número está escrito',
+  },
+  /**
+   * **Las cuatro cifras AJENAS de §7.3, y el arreglo de I-7.** La guardia abre
+   * cada ancla de la prosa y verifica que RESUELVA; no cotejaba el número contra
+   * la línea anclada. Reproducido, las cuatro salían **exit 0** falsificadas
+   * contra su propio origen: `más de 300 villages` → `3.000` (PLANCUIDADO:275
+   * dice «300+»), `más de 230 Centros de Día` → `800` (:230 dice «230+»),
+   * `hospitalización un 38%` → `68%` (:230 dice 38%) y `USD 1.200M/año` →
+   * `2.200M` (:575). La capacidad de cotejar existe —es lo que la tabla de
+   * fuentes hace fila por fila contra el libro mayor— y no está generalizada a
+   * la prosa; hasta que lo esté, las cifras ajenas que un párrafo usa como
+   * evidencia se domicilian una por una.
+   */
+  {
+    valor: 'más de 300 villages',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'PLANCUIDADO:275 escribe «300+ villages activas». Es el precedente de escala de la Casa de ' +
+      'Arco: inflado a 3.000 el modelo pasa de red vecinal a política nacional y el argumento cambia',
+  },
+  {
+    valor: 'más de 230 Centros de Día',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'PLANCUIDADO:230 escribe «230+ centros en AMBA y conurbano». Es el precedente ARGENTINO, y el ' +
+      'que muestra el hueco que la Casa de Arco ocupa: entre el cierre del centro de día y el geriátrico',
+  },
+  {
+    valor: 'la hospitalización un 38%',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'PLANCUIDADO:230, «reducen hospitalización el 38%». Es el único dato de EFECTO del precedente ' +
+      'argentino: sin él el Centro de Día es una cifra de cobertura y no una evidencia',
+  },
+  {
+    valor: 'USD 1.200M/año',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'PLANCUIDADO:575 ya contabiliza esa institucionalización evitada como ahorro fiscal PROPIO. Es ' +
+      'la mitad operativa de la disciplina de §4.4: la Casa de Arco declara el ahorro para NO ' +
+      'anotarlo, y el número inflado convierte la renuncia en un reclamo de otro tamaño',
   },
   {
     valor: 'USD 400M/año',
@@ -327,6 +407,33 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
       'el monto bajo administración de la ANAV, DERIVADO y no afirmado: 45% del presupuesto nacional ' +
       '(PLANMON:238, :248) sobre ~USD 150.000M (PRESUPUESTO_CONSOLIDADO_BASTA.md:217). La spec decía ' +
       '50–60.000M y no sale por ningún camino: el prohibido lo bloquea y esta cifra lo reemplaza',
+  },
+  /**
+   * **Los DOS FACTORES de la derivación, y el arreglo de I-4: el producto estaba
+   * protegido y la derivación no.** `~USD 67.500M` era cifra canónica y ninguno
+   * de los dos números que lo producen lo era. Reproducido, los tres **exit 0**:
+   * `~45%` → `~55%`, `USD 150.000M` → `USD 250.000M`, y borrar el `~45%` dejando
+   * «el mayor rubro del presupuesto nacional». En los tres el documento seguía
+   * afirmando ~USD 67.500M con una derivación que ya no da ese número, o sin
+   * derivación — la condición exacta que el brief prohibió, alcanzable en una
+   * edición. `veces: 2` porque §8.2 escribe el porcentaje dos veces y las dos
+   * hacen falta: el factor de la cuenta y el «organismo que gira el 45% del
+   * presupuesto» del que sale la gobernanza por sustracción.
+   */
+  {
+    valor: '45% del presupuesto',
+    en: [H3_BAJO_ADMINISTRACION],
+    veces: 2,
+    porQue:
+      'el primer factor de la derivación del monto bajo administración — PLANMON:238, :248. Sin él, ' +
+      '~USD 67.500M queda afirmado y no derivado, que es lo que el brief prohibió por escrito',
+  },
+  {
+    valor: 'USD 150.000M',
+    en: [H3_BAJO_ADMINISTRACION],
+    porQue:
+      'el segundo factor — PRESUPUESTO_CONSOLIDADO_BASTA.md:217, ~30% del PBI. Los dos factores van ' +
+      'domiciliados porque el producto solo es honesto mientras los dos estén escritos',
   },
   {
     valor: 'USD 51.260M y USD 65.430M',
@@ -417,6 +524,55 @@ const FAMILIAS_DE_CIFRA: FamiliaDeCifra[] = [
       'magnitudes para el mismo renglón es el modo de falla que el domicilio no ve, y acá el número ' +
       'es el que sostiene que la Rampa no duplica a un dispositivo que ya está financiado',
   },
+  /**
+   * **Las dos familias de la derivación de §8.2 (I-4), declaradas por el ANCLA
+   * de cada factor y no por la cosa.** El domicilio exige que los dos números
+   * estén; la familia exige que, en cualquier línea que cite la fuente, el
+   * número que se le atribuye sea el suyo. Las dos juntas son lo que impide que
+   * el producto quede afirmado sobre una cuenta que ya no lo da.
+   *
+   * **Falsos positivos: cero**, verificado línea por línea. `PLANMON:238`
+   * aparece en cuatro líneas —`:76`, `:138`, `:206`, `:735`—: las tres que traen
+   * porcentaje del presupuesto traen el mismo, con tilde o sin ella, y `:138` no
+   * trae ninguno. El `~30% del PBI` de la misma línea `:735` no dispara porque
+   * la unidad exige «del presupuesto» y ese es del PBI.
+   */
+  {
+    cerca: 'PLANMON:238',
+    unidad: /~?\d+%\s+del presupuesto/gu,
+    valores: ['45% del presupuesto', '~45% del presupuesto'],
+    porQue:
+      'el peso previsional en el presupuesto nacional es uno solo —PLANMON:238 y :248— y el ' +
+      'documento lo escribe en la cabecera, en §1.4 y en §8.2. Es el primer factor de ~USD 67.500M: ' +
+      'movido en una sola copia, el producto deja de salir de su propia cuenta',
+  },
+  {
+    cerca: 'PRESUPUESTO_CONSOLIDADO_BASTA.md:217',
+    unidad: /USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
+    valores: ['USD 150.000M', 'USD 67.500M'],
+    porQue:
+      'el segundo factor y el producto viven en la misma línea de §8.2, y los dos valores admitidos ' +
+      'son esos: el presupuesto nacional de PRESUPUESTO_CONSOLIDADO_BASTA.md:217 y el resultado de ' +
+      'multiplicarlo por 45%. Cualquier tercer monto en esa línea es una derivación que no cierra',
+  },
+  /**
+   * **La ventana de la Rampa (I-6).** `60–72` es el nombre del dispositivo en la
+   * portada, la fila del Calendario y el H3 de §7.1, y las tres tienen que decir
+   * lo mismo: una ventana movida en la portada y no en el Calendario es el
+   * dispositivo anunciado con una edad y tabulado con otra.
+   *
+   * **Falsos positivos: cero.** «Rampa de Salida» está en cinco líneas —`:40`,
+   * `:303`, `:615`, `:639`, `:641`—; las tres que traen un rango de dos cifras
+   * traen `60–72`, y `:615` y `:641` no traen ninguno.
+   */
+  {
+    cerca: 'Rampa de Salida',
+    unidad: /\b\d{2}[–-]\d{2}\b/gu,
+    valores: ['60–72'],
+    porQue:
+      'la ventana de la Rampa es una sola y aparece tres veces con el nombre pegado. El texto que ' +
+      'la escribe en letras («entre los sesenta y los setenta y dos») va aparte, como aserción de §7.1',
+  },
 ];
 
 /**
@@ -484,6 +640,15 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'nadie la sostenía y que nadie llevaba registro; PLANMEMORIA tiene las tres — ANM autárquica ' +
       '(:484), Síndicos a salario CONICET adjunto (:405) y el Archivo de siete nodos con hash (:283, ' +
       ':297). La afirmación positiva se exige escrita para que la negativa no pueda volver',
+  },
+  {
+    valor: 'del PAMI no hay número de afiliados, de presupuesto ni de cobertura',
+    en: [H2_PRECEDENTES],
+    porQue:
+      'el hueco declarado del PAMI, y el arreglo de C-2. §8.3 comprimió las tres relaciones en una ' +
+      'remisión a §2.4 y quedó dependiendo de un párrafo sin guardia: borrarlo entero salía exit 0. ' +
+      'Esta frase es la que impide que la sección que crea la agencia estrene un número que el ' +
+      'corpus no tiene, y vive en un solo lugar del documento',
   },
   {
     valor: 'aserción propia sin fuente',
@@ -818,6 +983,243 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'montos es el objeto más capturable del proyecto, y la comparación con el ecosistema entero ' +
       'no es tolerable sin este párrafo al lado',
   },
+  /**
+   * **La decimosexta forma de «esto no existe», y la más elocuente del tramo
+   * (C-1): §7.4 declaraba vacío lo que §7.6 citaba como ocupado, con dieciocho
+   * líneas de distancia.** «Del cuerpo tampoco hay nada» era falso —`PLANEB:989`
+   * trae funerarias, crematorios y cementerios con tarifa publicada, y `:990`
+   * entierros verdes y compostaje humano— y el propio documento lo sabía: §7.6
+   * escribe «entierro verde» citando esa misma sección. Las tres palabras que el
+   * grep buscó sí dan cero; la frase que las encabezaba, no. Lo genuinamente
+   * vacío es EL ACTO DECLARADO, y eso es lo que la sección aporta.
+   */
+  {
+    valor: 'crematorios',
+    en: [H3_ULTIMA_PALABRA],
+    porQue:
+      'el corpus escribe el CATÁLOGO de qué se hace con un cuerpo (PLANEB:989, :990) y no la ' +
+      'elección. Con esta palabra escrita, «del cuerpo no hay nada» no puede volver: la afirmación ' +
+      'que la sección puede hacer es la acotada, y sin la evidencia al lado la acotación se pierde',
+  },
+  {
+    valor: 'el corpus escribe el catálogo y no la elección',
+    en: [H3_ULTIMA_PALABRA],
+    porQue:
+      'la ACOTACIÓN, que es la otra mitad del arreglo de C-1 y la que la evidencia sola no sostiene: ' +
+      'probado, revertir este encabezado a «del cuerpo tampoco hay nada» DEJANDO los crematorios y ' +
+      'los entierros verdes escritos dos renglones después salía verde, y dejaba el párrafo ' +
+      'afirmando y negando lo mismo en la misma oración',
+  },
+  // ── Task 7 · las decisiones y los conteos que la revisión encontró sin guardia ──
+  /**
+   * **I-6: «todo valor único se declara» estaba a medias, y ninguno de los cinco
+   * valores tenía guardia.** Los cuatro que siguen salían **exit 0** mutados:
+   * `catorce personas` → `veinticuatro` (que además deja «los otros trece» dos
+   * líneas abajo: contradicción interna literal), `cada 60 días` → `cada 180
+   * días` (el control es mandato del arreglo 8), `Tres veces en el año` → `Una
+   * vez` y la ventana de la Rampa invertida a «entre los sesenta y dos y los
+   * setenta», que contradice a la vez el H3 del dispositivo y la fila del
+   * Calendario de §3.2.
+   */
+  {
+    valor: 'catorce personas mayores',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'el tamaño de la Casa de Arco es mandato del brief y decisión de diseño declarada: pocas para ' +
+      'que cada quien sepa el nombre de los otros trece, suficientes para pagar una guardia nocturna. ' +
+      'Movido, el párrafo siguiente sigue diciendo «los otros trece» y el dispositivo se contradice solo',
+  },
+  {
+    valor: 'cada 60 días',
+    en: [H3_DOS_EDADES],
+    porQue:
+      'el control del primer año es mandato del arreglo 8, junto con la prohibición absoluta. Es la ' +
+      'única cosa que convierte al arreglo en supervisado: estirado a 180 días queda una convivencia ' +
+      'registrada y visitada dos veces por año en la casa de alguien que vive solo',
+  },
+  {
+    valor: 'Tres veces en el año',
+    en: [H3_ANO_DEL_DUELO],
+    porQue:
+      'el ritmo del Año del Duelo, declarado en el texto como decisión de diseño de este documento. ' +
+      'Bajado a una visita, el dispositivo deja de ser un año acompañado y pasa a ser un trámite, y ' +
+      'la declaración de diseño queda cubriendo un número que ya no es el que se decidió',
+  },
+  {
+    valor: 'Entre los sesenta y los setenta y dos',
+    en: [H3_RAMPA],
+    porQue:
+      'la ventana escrita en letras, que es donde vive el dispositivo: la familia de cifra protege ' +
+      '«60–72» y no protege la prosa. Invertida a «sesenta y dos / setenta» contradice el H3 de la ' +
+      'propia subsección y la fila «La rampa» del Calendario, y las dos siguen verdes',
+  },
+  /**
+   * **I-5: la única refutación del brief que exigió contar a mano se podía
+   * revertir al número equivocado en verde.** El brief decía «el patrón AN+sufijo
+   * que siguen 15 de 22» y es falso: las filas 39–60 de TABLA_AGENCIAS_BASTA.md
+   * son 22 planes, PLANCUL no tiene agencia → 21 agencias, y las no-AN son ENSV,
+   * CNDU, CNEG y AMCC → 17. Mutadas a `quince` y a `veintidós agencias`, las dos
+   * salían **exit 0**: un editor futuro que «corrigiera» hacia el brief no
+   * encontraba resistencia. `veces: 2` en §8.1 porque el conteo sostiene dos
+   * párrafos distintos —el patrón del nombre y la prohibición de acumular
+   * materias— y perder uno es perder la mitad del argumento.
+   */
+  {
+    valor: 'diecisiete llevan sigla',
+    en: [H3_ENTE],
+    porQue:
+      'el conteo verificado a mano sobre TABLA_AGENCIAS_BASTA.md:39-60, contra el «15 de 22» del ' +
+      'brief. Es la justificación entera de que la ANAV no estrene una quinta excepción al patrón',
+  },
+  {
+    valor: 'veintiuna agencias',
+    en: [H3_ENTE],
+    veces: 2,
+    porQue:
+      '21 y no 22: la tabla tiene 22 filas y PLANCUL no tiene agencia. El número corre dos veces en ' +
+      '§8.1 —el patrón del nombre y «las veintiuna agencias del ecosistema están cortadas por ' +
+      'materia»— y es el denominador de las dos afirmaciones',
+  },
+  {
+    valor: 'las veintiuna agencias, los veintidós PLANes',
+    en: [H3_BAJO_ADMINISTRACION],
+    porQue:
+      'la comparación incómoda mide a la ANAV contra el ecosistema ENTERO, y «entero» son esos dos ' +
+      'números. Con el denominador movido, «la ANAV mueve sola del mismo orden que todo lo demás ' +
+      'junto» deja de ser el hecho que la sección escribió para que no lo escriba un adversario',
+  },
+  /**
+   * **I-9: dos fundamentos más que salían en verde borrados.** `no acumula fondo`
+   * es una de las tres patas de la gobernanza por sustracción y la aserción
+   * existente solo cubría la primera (`no fija montos`); `por decisión propia no
+   * tiene agencia` es el fundamento ENTERO de por qué el Umbral del Legado lo
+   * ejecuta la ANAV y no PLANCUL, y revertido a «tiene agencia propia» el
+   * documento queda coherente y falso.
+   */
+  {
+    valor: 'no elige beneficiarios',
+    en: [H3_BAJO_ADMINISTRACION],
+    porQue:
+      'la segunda pata de la sustracción, que corre contra §5.4: el acceso se resuelve por evidencia ' +
+      'verificable por sistema y por edad registrada, no por una mesa que elige. Sin ella, la agencia ' +
+      'que gira el 45% del presupuesto vuelve a poder decidir a quién',
+  },
+  {
+    valor: 'no acumula fondo',
+    en: [H3_BAJO_ADMINISTRACION],
+    porQue:
+      'la tercera pata: la ANAV liquida contra un índice publicado y un padrón inscripto. Un fondo ' +
+      'propio en el organismo más grande del ecosistema es exactamente el objeto capturable que la ' +
+      'sección declara no haber diseñado',
+  },
+  {
+    valor: 'por decisión propia no tiene agencia',
+    en: [H3_UMBRAL_DEL_LEGADO],
+    porQue:
+      'PLANCUL declara cuatro veces que no tiene organismo (PLANCUL:46, :106, :389, :471) y la tabla ' +
+      'canónica lo registra igual. Es el fundamento completo de por qué el Umbral del Legado lo ' +
+      'ejecuta la ANAV: revertido, la sección sigue leyéndose bien y le adjudica el deber al PLAN ' +
+      'que eligió no poder recibirlo',
+  },
+  /**
+   * **Nueve fundamentos más, encontrados rompiendo con un juego que NO salió de
+   * la lista de hallazgos.** La lección que la revisión de la Task 7 dejó es que
+   * el autor del chequeo no puede ser el único que lo rompe: escritas las doce
+   * aserciones de la tarea y las diecisiete de la revisión, veinticuatro
+   * mutaciones nuevas —elegidas contra lo que NADIE había escrito pensando en la
+   * guardia— dejaron quince supervivientes. Estas nueve son las que, borradas o
+   * invertidas, dejan el documento coherente y falso; las seis restantes van
+   * declaradas como huecos abiertos en el reporte, con su motivo.
+   */
+  {
+    valor: 'PLANMOV §3.11',
+    en: [H3_RAMPA],
+    porQue:
+      'el arreglo de M-10, y no se sostiene solo: el FRM se DEFINE en PLANMOV §3.11 y §14.3 apenas ' +
+      'lo nombra como pagador de «Cinco Años Dignos». La guardia abre las anclas y verifica que ' +
+      'resuelvan, y §14.3 resuelve: devolver la atribución al ancla equivocada salía verde. Es el ' +
+      'instrumento del que la Rampa se cuelga en vez de rediseñarlo, así que va anclado donde vive',
+  },
+  {
+    valor: 'nada se condiciona a haberla tomado',
+    en: [H3_RAMPA],
+    porQue:
+      'la segunda de las tres cláusulas que cierran el modo de falla de la Rampa. La aserción «la ' +
+      'abre quien la usa» cubre quién la abre y no qué cuelga de haberla abierto: condicionado el ' +
+      'Piso Vital a haber tomado la Rampa, el dispositivo pasa de opción a requisito y «no mueve ' +
+      'ninguna edad» queda escrito al lado de una regla que sí la mueve',
+  },
+  {
+    valor: 'no toca el Registro Nacional de Vínculos',
+    en: [H3_DOS_EDADES],
+    porQue:
+      'la consecuencia OPERATIVA de que la Casa de Dos Edades no sea un Pacto de Cuidado. La ' +
+      'aserción del veredicto no impide la inscripción: probado, «y se inscribe además en el ' +
+      'Registro Nacional de Vínculos» salía verde con el veredicto intacto, que es la contradicción ' +
+      'exacta que el veredicto existe para evitar',
+  },
+  {
+    valor: 'en una casa del barrio',
+    en: [H3_CASA_DE_ARCO],
+    porQue:
+      'mandato del brief —catorce personas, en el barrio, no en la ruta— y la mitad del dispositivo ' +
+      'que el párrafo siguiente funda: a una casa donde los nietos llegan caminando se va. Mudada ' +
+      'sobre una ruta, la Casa de Arco es el geriátrico que vino a evitar y el fundamento queda ' +
+      'intacto contradiciéndola',
+  },
+  {
+    valor: 'no nombra prestadores',
+    en: [H3_ULTIMA_PALABRA],
+    porQue:
+      'la primera de las tres reglas contra la superficie de captura comercial, que es la única del ' +
+      'documento donde el riesgo es que un dato valga un cliente. Invertidas las reglas, el párrafo ' +
+      'sigue anunciando que las escribe y el registro de voluntades queda abierto al sector que ' +
+      'PLANEB:985 describe',
+  },
+  {
+    valor: 'Se registra donde se registra la muerte',
+    en: [H3_ULTIMA_PALABRA],
+    porQue:
+      'la RESPUESTA a la objeción del Cofre Digital Ciudadano. La aserción del Cofre obliga a ' +
+      'plantear el problema y no a resolverlo: borrada esta frase, §7.4 explica por qué el ' +
+      'contenedor obvio no sirve y no dice dónde vive la declaración, que es lo único que la vuelve ' +
+      'legible por un tercero el día que hace falta',
+  },
+  {
+    valor: 'ni intermediario de ningún prestador',
+    en: [H3_ANO_DEL_DUELO],
+    porQue:
+      'la mitad COMERCIAL de la prohibición extendida al Acompañante de Umbral. «No puede ser ' +
+      'apoderado» cubre lo patrimonial; esto cubre al que entra a la casa a las cuarenta y ocho ' +
+      'horas con la tarjeta de una funeraria, que es la superficie que §7.4 acaba de declarar la ' +
+      'peor del documento',
+  },
+  {
+    valor: 'sin que nadie vaya a pedirlo',
+    en: [H3_UMBRAL_DEL_LEGADO],
+    porQue:
+      'EL dispositivo entero: el tramo del patrimonio no inventa procedimiento, inventa el ' +
+      'disparador. Invertido a «cuando la familia vaya a pedirlo y pague la entrada», el Umbral del ' +
+      'Legado es la sucesión que ya existe y §0.7 midió, con el nombre nuevo puesto encima',
+  },
+  {
+    valor: 'nace como célula de ejecución',
+    en: [H3_ENTE],
+    porQue:
+      'la DECISIÓN, que la aserción «execution cells» no cubre: esa cita el default de la tabla ' +
+      'canónica, y probado, «la ANAV nace autárquica de entrada» salía verde con la cita intacta ' +
+      'dos renglones más arriba. Un PLAN habilitado por derogación expresa de dos reglas no pide la ' +
+      'tercera, y esa frase es donde eso se cumple o no',
+  },
+  {
+    valor: 'la ANAV cita, no contrata',
+    en: [H3_PAMI],
+    porQue:
+      'la resolución entera del arreglo 9. El contrato de continuidad está prohibido como cadena ' +
+      'literal y lo que lo reemplaza —la citación— no tenía guardia: «la ANAV contrata y no solo ' +
+      'cita» salía verde, con los Centros de Vitalidad definidos cuatro veces por la negativa y ' +
+      'autogobernados por asamblea tres renglones antes',
+  },
   {
     valor: 'queda fuera de este PLAN',
     en: [H3_PAMI],
@@ -946,6 +1348,56 @@ const PORTADA_PIE: string[] = [
  * main()). El corpus escribe en negrita permanentemente, y un `**` en el medio
  * de la frase hacía fallar abierto al prohibido más importante de todos.
  */
+/**
+ * **EL HALLAZGO ESTRUCTURAL DE LA REVISIÓN DE LA TASK 7 (C-3), y vale para todo
+ * lo que queda del tramo: la guardia prohibía lo que el brief escribió como
+ * TEXTO y no lo que escribió como REGLA.** Estaban bloqueadas las cadenas
+ * literales `50.000–60.000` y `contrato de continuidad de 36 meses` —las dos
+ * frases que el brief traía escritas— y ninguna de las dos restricciones que el
+ * brief declaró **vinculantes**: que la sección del final no puede estrenar un
+ * unitario funerario sin contradecir el hueco del preámbulo, y que del PAMI no
+ * hay un solo número en el corpus. Cinco inyecciones, cinco `exit 0`.
+ *
+ * **Dos alcances, y la diferencia no es de estilo.** Las dos prohibiciones de
+ * abajo son huecos declarados del DOCUMENTO ENTERO, así que corren sobre la
+ * LÍNEA —que en este corpus es el párrafo—: verificado línea por línea, ninguna
+ * de las seis que nombran algo funerario ni ninguna de las siete que nombran al
+ * PAMI trae una magnitud, así que **falsos positivos: cero** y el alcance ancho
+ * no cuesta nada. El alcance de ORACIÓN existe para el otro caso —la regla que
+ * es de UNA subsección, más abajo—, donde el párrafo sí trae magnitudes ajenas
+ * legítimas y la línea entera acusaría de contradicción a un párrafo correcto.
+ * El corte de oración es `\n` o un punto SEGUIDO DE ESPACIO: un punto pegado a
+ * lo que sigue es separador de miles, ancla (`§9.10`, `0.2`) o abreviatura.
+ */
+const HUECO_DE_LINEA = String.raw`[^\n]{0,600}`;
+const HUECO_DE_ORACION = String.raw`(?:[^.\n]|\.(?=\S)){0,300}`;
+/**
+ * Una magnitud monetaria escrita como el corpus las escribe, con cifra o con
+ * letras: «USD 1.500», «900.000 pesos» y «mil quinientos dólares» son la misma
+ * cosa y la segunda forma se agregó porque la primera versión la dejaba pasar.
+ */
+const MAGNITUD_MONETARIA = String.raw`(?:(?:USD|US\$|AR\$|\$)\s?\d[\d.,]*(?:\s?[–—-]\s?\d[\d.,]*)?\s?(?:mil|millones|mill[óo]n|M\b)?|(?:\d[\d.,]*\s+|(?:\p{L}+\s+){1,4})(?:pesos|d[óo]lares))`;
+/**
+ * Lo que se hace con un cuerpo, en todos los nombres que el corpus usa —más las
+ * dos fórmulas con las que la Bastarda del Adiós se enumera sin nombrar nada
+ * funerario (`§0.2` la lista como «fondo prepago, red de prestadores, tarifas
+ * publicadas»), que era por donde un precio entraba sin tocar el vocabulario.
+ */
+const COSA_FUNERARIA = String.raw`(?:sepelios?|velatorios?|funeral(?:es)?|funerari[oa]s?|entierros?|enterrar|cremaci[óo]n(?:es)?|crematorios?|inhumaci[óo]n|cementerios?|Bastarda del Adi[óo]s|tarifas? publicadas?|fondo prepago)`;
+/**
+ * Magnitud de cualquiera de las tres clases que el brief declaró inexistentes
+ * para el PAMI —plata, gente, porcentaje—, con cifra o con letras.
+ */
+const CUENTA_DE_GENTE = String.raw`(?:afiliad[oa]s|beneficiari[oa]s|jubilad[oa]s|personas|argentinos|mayores)`;
+const MAGNITUD_DE_PADRON = String.raw`(?:${MAGNITUD_MONETARIA}|\d[\d.,]*\s*(?:mil(?:lones)?|mill[óo]n)?\s*(?:de\s+)?${CUENTA_DE_GENTE}|\p{L}+\s+(?:mil(?:lones)?|mill[óo]n)\s+de\s+${CUENTA_DE_GENTE}|\d[\d.,]*\s?%|\d[\d.,]*\s+por ciento)`;
+/**
+ * El PAMI por sus tres nombres. **Es una red, no una prueba** —la doctrina que
+ * este archivo ya fijó para el prohibido del gate—: cierra las formas que un
+ * documento apurado escribe, no demuestra que no haya un número del PAMI por un
+ * camino oblicuo. Eso lo mira la revisión.
+ */
+const EL_PAMI = String.raw`(?:PAMI|INSSJP|Instituto Nacional de Servicios Sociales para Jubilados y Pensionados)`;
+
 const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
   {
     patron: /\b(PUAM|PNC)\b/,
@@ -1036,6 +1488,41 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
       '45% × 150.000M da ~65.000–72.000M. O se escribe la derivación o se declara hueco',
   },
   {
+    // Verificado, las seis líneas del documento que nombran algo funerario
+    // —`:66`, `:132`, `:307`, `:637`, `:679`, `:709`— no traen una sola magnitud
+    // monetaria, así que **falsos positivos: cero**. Y las dos salidas legítimas
+    // que el brief dejó abiertas siguen abiertas: repetir el hueco no escribe
+    // ningún número, y una fuente externa nueva se marca en la línea.
+    patron: new RegExp(
+      `(?:${COSA_FUNERARIA}${HUECO_DE_LINEA}${MAGNITUD_MONETARIA}|${MAGNITUD_MONETARIA}${HUECO_DE_LINEA}${COSA_FUNERARIA})`,
+      'iu',
+    ),
+    salvoSi: /fuente externa|\[externa\]/i,
+    porQue:
+      'el preámbulo declaró el hueco del costo funerario con la fórmula canónica y el brief lo hizo ' +
+      'VINCULANTE hacia adelante: PLANEB:988 promete el costo real publicado y no publica ninguno, ' +
+      'así que este PLAN no puede estrenar un unitario sin contradecirse. Las dos salidas legítimas ' +
+      'son repetir el hueco o traer fuente externa nueva marcándola como externa',
+  },
+  {
+    // Sin `salvoSi` a propósito, y es más fuerte que la exención que la revisión
+    // proponía: eximir la LÍNEA que dice «no hay número» dejaba abierto el único
+    // lugar donde un número del PAMI cabe sin llamar la atención —el párrafo de
+    // §2.4 que declara el hueco—. Probado: con esa exención, meter «serían 5,1
+    // millones» ADENTRO de la oración que declara el hueco salía verde. Sin ella
+    // no hace falta: ninguna de las siete líneas que nombran al PAMI —`:47`,
+    // `:256`, `:262`, `:741`, `:743`, `:747`, `:749`— trae magnitud de ninguna de
+    // las tres clases. **Falsos positivos: cero**, verificado línea por línea.
+    patron: new RegExp(
+      `(?:${EL_PAMI}${HUECO_DE_LINEA}${MAGNITUD_DE_PADRON}|${MAGNITUD_DE_PADRON}${HUECO_DE_LINEA}${EL_PAMI})`,
+      'u',
+    ),
+    porQue:
+      'del PAMI no hay número de afiliados, de presupuesto ni de cobertura en todo el corpus, y el ' +
+      'brief lo declaró vinculante: si el documento lo necesita, es un hueco declarado. Un número ' +
+      'del PAMI escrito acá es una cifra estrenada en la sección que crea la agencia que lo mira',
+  },
+  {
     patron: /\bTODO:|\[TODO\]|<!--\s*TODO|\bTKTK\b|\bXXX\b/,
     porQue: 'marcador de borrador: el documento se commitea sin secciones a medio escribir',
   },
@@ -1054,6 +1541,57 @@ const PROHIBIDOS: { patron: RegExp; porQue: string; salvoSi?: RegExp }[] = [
       'PLANPACTO, el modelo declarado, tiene 0 ocurrencias de «sólo» y 32 de «solo»',
   },
 ];
+
+/**
+ * **Prohibidos CON DOMICILIO, y la tercera inyección de C-3 es la que los hace
+ * falta.** `la Casa de Arco cuesta USD 9.000 por persona y por año` salía **exit
+ * 0**, contra un §7.3 que escribe, tres renglones después, «no se escribe el
+ * unitario». Es la misma clase de defecto que las otras dos —una regla que el
+ * documento declara y la guardia no mira— con una diferencia que impide
+ * arreglarla como a las otras: **la regla es de esta subsección y no del
+ * documento.** §7.3 remite el costeo a la Sección 9 por escrito, así que un
+ * prohibido global sobre «Casa de Arco + monto» pondría en rojo, dentro de dos
+ * tareas, exactamente el párrafo que ese renglón manda escribir.
+ *
+ * De ahí el domicilio: el patrón corre SOLO adentro del tramo declarado, con la
+ * misma resolución que las cifras y las aserciones —`textoDeDomicilio()`, con la
+ * misma doctrina de que un domicilio ambiguo no corre y lo dice—.
+ */
+const PROHIBIDOS_CON_DOMICILIO: { patron: RegExp; en: string; porQue: string }[] = [
+  {
+    patron: new RegExp(
+      `(?:Casa de Arco${HUECO_DE_ORACION}${MAGNITUD_MONETARIA}|${MAGNITUD_MONETARIA}${HUECO_DE_ORACION}Casa de Arco)`,
+      'u',
+    ),
+    en: H3_CASA_DE_ARCO,
+    porQue:
+      '§7.3 declara que no escribe el unitario de la Casa de Arco —no hay costeo contra ningún ' +
+      'padrón— y escribe solo la posición relativa. Las dos magnitudes que la subsección sí trae ' +
+      'son AJENAS (PLANCUIDADO:219 y :575) y ninguna comparte oración con el nombre del ' +
+      'dispositivo: falsos positivos cero, verificado oración por oración. El costeo propio lo ' +
+      'deriva la Sección 9, que queda afuera de este domicilio a propósito',
+  },
+];
+
+/** El chequeo: el patrón corre sobre el texto sin negritas del tramo domiciliado. */
+function verificarProhibidosConDomicilio(lineas: string[]): string[] {
+  const errores: string[] = [];
+  for (const { patron, en, porQue } of PROHIBIDOS_CON_DOMICILIO) {
+    const { texto, errores: errDom } = textoDeDomicilio(lineas, en);
+    errores.push(...errDom);
+    if (texto === null) continue;
+    const plano = texto.replace(/\*\*/g, '');
+    const global = new RegExp(
+      patron.source,
+      patron.flags.includes('g') ? patron.flags : `${patron.flags}g`,
+    );
+    let m: RegExpExecArray | null;
+    while ((m = global.exec(plano)) !== null) {
+      errores.push(`en «${en.trim()}»: «${m[0].slice(0, 120)}» está prohibido acá — ${porQue}`);
+    }
+  }
+  return errores;
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Tablas: se parsean y se suman. Buscar los totales como string no sirve —
@@ -3194,9 +3732,12 @@ function main(): void {
       const nLinea = rawPlano.slice(0, m.index).split('\n').length;
       const linea = lineasPlano[nLinea - 1] ?? '';
       if (salvoSi && salvoSi.test(linea)) continue;
-      errores.push(`línea ${String(nLinea)}: «${m[0]}» está prohibido — ${porQue}`);
+      errores.push(`línea ${String(nLinea)}: «${m[0].slice(0, 120)}» está prohibido — ${porQue}`);
     }
   }
+
+  // 3 bis) Los prohibidos que son regla de UNA subsección y no del documento.
+  errores.push(...verificarProhibidosConDomicilio(lineas));
 
   // 4) Las tablas: parseadas y cruzadas contra el canon, no buscadas como string.
   errores.push(...verificarTablas(lineas));
@@ -3237,7 +3778,9 @@ function main(): void {
       `${String(CIFRAS_CANONICAS.length)} cifras canónicas en su domicilio y ` +
       `${String(FAMILIAS_DE_CIFRA.length)} familias barridas afuera de él, ` +
       `${String(ASERCIONES_OBLIGATORIAS.length)} aserciones obligatorias, ` +
-      `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
+      `${String(PROHIBIDOS.length)} patrones prohibidos en todo el documento y ` +
+      `${String(PROHIBIDOS_CON_DOMICILIO.length)} prohibido(s) de subsección, ` +
+      `${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
       '(conjunto exacto: ni falta ni sobra), ' +
       `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
       `${String(SUBSECCIONES_ESPERADAS.length)} secciones con su anatomía interna contada y correlativa, ` +
