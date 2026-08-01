@@ -604,7 +604,7 @@ Agregá `npx tsx scripts/verificar-planpregunta.ts` al job, al lado del de PLANA
 
 **Verify:** `act` no hace falta; alcanza con que el YAML parsee y con que el comando corra en verde localmente desde `SocialJusticeHub/`.
 
-- [ ] Task 12 completa
+- [x] Task 12 completa
 
 ---
 

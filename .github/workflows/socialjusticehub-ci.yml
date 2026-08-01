@@ -54,5 +54,12 @@ jobs:
       - name: Guardia de PLANARCO
         run: npx tsx scripts/verificar-planarco.ts
 
+      # Lee tres archivos y los tres ya disparan este workflow: el documento y
+      # PLANTER_Argentina_ES.md (`Iniciativas Estratégicas/**`) y el canon de pisos
+      # (`SocialJusticeHub/**`). No necesita línea propia en `paths`, y esto queda
+      # anotado porque el hueco de la guardia de PLANARCO se descubrió tarde.
+      - name: Guardia de PLANPREGUNTA
+        run: npx tsx scripts/verificar-planpregunta.ts
+
       - name: Production build
         run: npm run build
