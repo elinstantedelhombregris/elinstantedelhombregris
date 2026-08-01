@@ -420,7 +420,7 @@ Dos advertencias específicas de esta sección:
 
 **Palabras:** 2.400–2.900.
 
-- [ ] Task 4 completa
+- [x] Task 4 completa
 
 ---
 

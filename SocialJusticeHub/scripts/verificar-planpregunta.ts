@@ -48,6 +48,7 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 0: LAS OCHO FALLAS DEL APARATO DE CONOCIMIENTO ARGENTINO',
   '## SECCIÓN 1: LA CRISIS — EL PAÍS DISCUTE CUÁNTO PONE Y NUNCA DISCUTIÓ PARA QUÉ',
   '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
+  '## SECCIÓN 3: LA SOLUCIÓN — LA PREGUNTA NACIONAL',
 ];
 
 /**
@@ -94,6 +95,15 @@ const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; po
     porQue:
       'la sección que defiende al PLAN es la que menos se revisa, y fue el hallazgo Crítico de la ' +
       'revisión final del tramo B. Cinco precedentes, cada uno con lo que pidió y lo que dio',
+  },
+  {
+    h2: '## SECCIÓN 3: LA SOLUCIÓN — LA PREGUNTA NACIONAL',
+    prefijo: '3',
+    cuantas: 6,
+    porQue:
+      'anatomía · quién abre · el interinato del órgano · incompatibilidad de autoría · jurados de ' +
+      'afuera · frontera con el LANEF. Las dos del medio son las que cierran el modo de falla número ' +
+      'uno del PLAN, y son las que un recorte de prosa se lleva primero porque no tienen número',
   },
 ];
 
@@ -216,6 +226,19 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
       'la regla que la Prueba de Barro endurece ya está escrita en PLANEN:786. Reclamarla entera ' +
       'sería estrenar una originalidad que el corpus desmiente (D-5)',
   },
+  /**
+   * Task 4. El sorteo estratificado es el hallazgo D-1: existe, y es de
+   * PLANMESA. El prohibido de PLANJUS impide atribuirlo mal; esta cifra obliga a
+   * atribuirlo bien, que no es lo mismo — se puede escribir un sorteo sin decir
+   * de dónde sale y salir verde por los dos lados.
+   */
+  {
+    valor: /sorteo estratificado|estratificado por Credencial/iu,
+    ancla: /PLANMESA/u,
+    porQue:
+      'el sorteo estratificado por Credencial en la materia es de PLANMESA:297 y la AMCC de ' +
+      'PLANMESA:88 se gobierna así. PLANJUS:400 es sorteo puro (D-1)',
+  },
 ];
 
 /**
@@ -231,6 +254,17 @@ interface Prohibido {
   patron: RegExp;
   porQue: string;
   ambito?: 'documento' | 'cabecera';
+  /**
+   * Excepción, medida sobre **la oración que contiene al match** — la misma
+   * unidad en la que están escritos los patrones, que no cruzan `.` ni `\n`.
+   * El tramo C perdió una vuelta entera por tener el patrón por oración y el
+   * `salvoSi` por línea: el prohibido quedaba apagado justo en el único párrafo
+   * donde el error se escribiría con naturalidad.
+   *
+   * Lleva razón escrita. Una excepción sin razón es una excepción que nadie va a
+   * poder auditar cuando el documento cambie.
+   */
+  salvoSi?: { patron: RegExp; porQue: string };
 }
 
 const PROHIBIDOS: Prohibido[] = [
@@ -271,6 +305,14 @@ const PROHIBIDOS: Prohibido[] = [
     porQue:
       'el sorteo estratificado por Credencial es de PLANMESA:297 y de PLANMESA:88. PLANJUS:400 es ' +
       'sorteo PURO con exclusión de conflicto de interés, y §6.5 corrige el padrón, no el sorteo (D-1)',
+    salvoSi: {
+      patron: /\bpuro\b|puramente aleatorio|no (?:lo )?tiene|no es de PLANJUS|a diferencia de PLANJUS|PLANJUS no/iu,
+      porQue:
+        'la oración que CONTRASTA los dos sorteos es la que hay que escribir, no la que hay que ' +
+        'prohibir: el error de la spec fue atribuirle a PLANJUS una estratificación que no tiene, y ' +
+        'decir eso mismo requiere nombrar a los dos juntos. La excepción exige la marca del ' +
+        'contraste —«puro», «no lo tiene», «a diferencia de»— y no una negación cualquiera',
+    },
   },
   /**
    * Los tres de abajo son **afirmativos con lookbehind de negación**, y la forma
@@ -629,14 +671,22 @@ function verificarProhibidos(raw: string, lineas: string[]): string[] {
   const errores: string[] = [];
   const plano = raw.replace(/\*\*/g, '');
   const cabecera = lineas.slice(0, 60).join('\n').replace(/\*\*/g, '');
-  for (const { patron, porQue, ambito } of PROHIBIDOS) {
+  for (const { patron, porQue, ambito, salvoSi } of PROHIBIDOS) {
     const texto = ambito === 'cabecera' ? cabecera : plano;
-    const m = patron.exec(texto);
-    if (m) {
+    const re = new RegExp(patron.source, patron.flags.includes('g') ? patron.flags : `${patron.flags}g`);
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(texto)) !== null) {
+      if (m[0].length === 0) {
+        re.lastIndex += 1;
+        continue;
+      }
+      // La excepción se mide sobre la ORACIÓN del match: misma unidad que el patrón.
+      if (salvoSi && salvoSi.patron.test(oracionDe(texto, m.index, m.index + m[0].length))) continue;
       const nLinea = texto.slice(0, m.index).split('\n').length;
       errores.push(
         `${ambito === 'cabecera' ? 'cabecera, ' : ''}línea ${String(nLinea)}: «${m[0]}» está prohibido — ${porQue}`,
       );
+      break;
     }
   }
   return errores;

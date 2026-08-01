@@ -232,3 +232,89 @@ El corpus contiene una objeción explícita a que este documento exista, y corre
 Este documento se escribe antes de ese plazo y con menos consolidación de la que esa recomendación pedía. El acta que levantó el freeze da la razón formal —derogación expresa de dos reglas, con nombre, fecha y motivo— y no da la razón de fondo. **La objeción sigue en pie y esta sección no la contesta.** Queda escrita para que quien evalúe este PLAN dentro de cinco años tenga a mano el argumento en contra, formulado por el propio proyecto y no por un adversario, y pueda medir si la prisa valió la pena.
 
 Lo único que corresponde agregar no es una respuesta sino **el criterio por el cual la objeción se va a poder juzgar**, para que no quede como una discusión de opiniones. La recomendación de §9.4 decía que la prioridad estaba en ejecutar con rigor lo ya diseñado y no en multiplicar documentos. Entonces: si dentro de cinco años este PLAN tiene documento, agencia y presupuesto asignado, y **cero Preguntas cerradas con Prueba de Barro**, la objeción tenía razón y este documento fue exactamente lo que ella decía que iba a ser. Si tiene Preguntas cerradas y las cerró con evidencia de campo, no la tenía. **La vara la puso ella, no este PLAN**, y este PLAN la acepta escrita acá.
+
+## SECCIÓN 3: LA SOLUCIÓN — LA PREGUNTA NACIONAL
+
+> *"Una pregunta que no tiene número, dueño ni fecha no es una pregunta: es un comentario."*
+
+La Pregunta Nacional no es un dispositivo de este PLAN. Es su forma. Todo lo que viene después —el Censo que las junta, las verticales que las reparten, el Barro que las cierra, el Banco y el Turno que las abastecen, las Cátedras que las mueven, el Fondo que las paga— existe para producir, sostener y cerrar Preguntas, y no tiene sentido separado de eso. Un aparato de conocimiento organizado por Preguntas se parece poco a uno organizado por disciplinas: no reparte plata por campo sino por ignorancia declarada, no evalúa producción sino cierre, y no le rinde cuentas al par sino a quien preguntó.
+
+Esta sección define qué es una Pregunta, quién la abre, quién la juzga y qué le está prohibido a quien la escribió. Las dos últimas cosas son las que impiden que el aparato se convierta, en menos de una década, en una manera nueva de repartir lo mismo entre los mismos.
+
+### 3.1 La anatomía de una Pregunta Nacional
+
+Una Pregunta Nacional es un documento público de una página con ocho campos obligatorios. Ninguno es decorativo: cada uno cierra una puerta por la que el sistema anterior se escapaba.
+
+**Uno, el número.** Correlativo, permanente, irrepetible. Una Pregunta cerrada conserva su número para siempre, y la número siete no se recicla cuando se cierra. Es lo que permite que alguien diga «la 412» y que eso signifique una sola cosa en todo el país.
+
+**Dos, la ignorancia, escrita como falta.** No un tema, no un área, no una línea: la formulación de lo que no se sabe, en la lengua en la que la preguntó quien la preguntó. «Por qué en esas seis casas y no en las otras» es una ignorancia. «Salud ambiental en el noroeste» es un rubro.
+
+**Tres, el dueño de sistema.** Una persona con nombre y apellido, no un organismo. La diferencia no es de estilo: un organismo no se puede presentar a explicar, y una persona sí. El dueño no investiga necesariamente; responde por que la Pregunta avance, se conteste o se declare imposible.
+
+**Cuatro, el costo declarado de no saberla.** Con su método y su margen a la vista. Puede ser una cifra, puede ser un orden de magnitud, y puede ser la declaración de que no se pudo estimar y por qué. **Lo que no puede es faltar**, porque sin ella todas las Preguntas valen lo mismo y la priorización vuelve a ser una discusión de prestigio.
+
+**Cinco, la vertical.** Una de las nueve de la Sección 5, y una sola. Una Pregunta que necesita dos verticales se parte en dos Preguntas o se reescribe.
+
+**Seis, el plazo.** Con su fecha de revisión intermedia. Vencido el plazo sin cierre, la Pregunta no muere: pasa a estado de revisión pública, con informe del dueño sobre por qué no se cerró.
+
+**Siete, el criterio de cierre.** Siempre la Prueba de Barro de la Sección 6, y si por la naturaleza de la Pregunta el Barro no aplica —la Serie Centenaria es el caso claro—, la excepción se escribe en el campo, con su fundamento, y no se deja implícita.
+
+**Ocho, el padrón de Testigos.** Las personas que firman el acta de cierre. Quien depositó la ignorancia es Testigo por derecho; los demás se sortean. La Sección 4 desarrolla el padrón, y la razón por la que existe es simple: un cierre que solo firman los que trabajaron en él es un cierre que se firma solo.
+
+Y una definición negativa que ahorra discusiones. Una Pregunta Nacional **no es** un llamado a proyectos, ni un programa, ni una línea de financiamiento, ni un instituto. Es el enunciado de una falta. El financiamiento, el equipo y la institución que la contesten son consecuencias de la Pregunta y pueden cambiar mientras la Pregunta sigue abierta. Lo que no cambia es el enunciado, y si el enunciado hay que cambiarlo, se cierra la Pregunta declarándola mal formulada y se abre otra con número nuevo. **Reformular en silencio es la manera más limpia de que un sistema conteste siempre lo que ya sabía.**
+
+### 3.2 Quién abre una Pregunta, y con qué sorteo se la juzga
+
+Hay tres puertas de entrada y ninguna es privilegiada. La primera es el **Censo de Ignorancia**: cualquier persona deposita una ignorancia y el circuito de la Sección 4 la procesa. La segunda es un **PLAN del proyecto**, que puede pedir una Pregunta sobre su propia materia, incluida la evaluación de su mandato, y en ese caso el pedido es del PLAN y la Pregunta no se le impone. La tercera es el **dueño de vertical**, que puede abrir de oficio dentro de la suya.
+
+Lo que decide cuáles se abren no es ninguna de las tres puertas: es un jurado, y la mecánica de ese jurado importa más que la de las puertas.
+
+**El jurado se sortea con la mecánica de `PLANMESA`, y eso hay que decirlo con precisión porque el corpus tiene dos sorteos distintos y no son intercambiables.** `PLANMESA:297` establece un **sorteo estratificado por Credencial en la materia**, explícitamente *«no puramente aleatorio»*, y la propia agencia de ese PLAN —la AMCC— se gobierna así, por **sorteo estratificado** entre Síndicos de Archivo y paneles técnicos (`PLANMESA:88`). El otro sorteo del corpus, el de los paneles ciudadanos de `PLANJUS:400`, es deliberadamente **puro**: al azar entre todo el padrón, con exclusión automática de conflicto de interés, y es lo correcto para lo que hace, porque juzgar un conflicto entre vecinos no requiere competencia previa en la materia del conflicto. **Juzgar si una ignorancia es real, si ya está contestada en otra parte y si vale lo que va a costar, sí la requiere.** Por eso este PLAN usa el primero y no el segundo, y por eso lo dice en vez de dejarlo librado a que alguien elija el que tenga más a mano.
+
+La composición del jurado se equilibra por roles, como las Mesas: practicantes, afectados, estudiosos y ejecutores. Un jurado de puros estudiosos abre las Preguntas que la disciplina considera interesantes, que es el punto de partida del que este documento salió. Un jurado de puros afectados abre las urgentes, que no siempre son las que más rinden. La mezcla no garantiza acertar; garantiza que ninguno de los dos sesgos gobierne solo.
+
+### 3.3 El órgano que todavía no existe, y la fecha en que se le entrega
+
+Acá hay un problema de calendario y este documento no lo puede disimular, porque el calendario ajeno está escrito.
+
+`PLANMESA:470` incluye **«CyT nacional»** entre las materias de la Mesa Federal, que es su capa de escala nacional. Es decir: **el órgano natural para decidir qué preguntas nacionales se abren ya está previsto en el corpus, y no es la ANCON.** Pero el cronograma de ese PLAN lo pone lejos. `PLANMESA:925-956` lo fija así: PLANMESA es tranche-2 con entrada **2028-2030**; la primera Mesa Federal piloto es de **2030-2032** y su materia es Infancia y Niñez Crítica; la cobertura completa de las materias de primera ola llega en **2032-2034**; la segunda ola en **2034-2036**; y la tercera queda en Horizonte 2040, que el propio documento marca como visión y no como compromiso operativo.
+
+La Fase 0 de este PLAN corre en **2029-2030**. En esa ventana, PLANMESA está fundándose y no tiene todavía ninguna Mesa Federal. **No es que la Mesa de CyT llegue tarde: es que en 2029 no puede existir**, y cualquier diseño que la suponga disponible está escribiendo sobre un órgano que no está.
+
+**La decisión de este documento, y es decisión de diseño y no una medición:** durante el interinato, el jurado lo convoca y lo administra la ANCON, con la mecánica de sorteo de PLANMESA y sin ninguna variación propia. Tres condiciones lo acotan, y las tres van escritas porque un interinato sin fecha es una competencia con otro nombre:
+
+- **El traspaso es automático y no requiere acuerdo.** El día en que se constituya la Mesa Federal de materia CyT, la facultad de decidir qué Preguntas se abren pasa a esa Mesa, sin acto administrativo intermedio y sin que la ANCON pueda oponerse.
+- **El interinato tiene tope: 2036**, que es el cierre de la segunda ola de materias de PLANMESA. Si a esa fecha la Mesa Federal de CyT no existe, el interinato solo se puede prorrogar por ley, una sola vez, con informe público de por qué.
+- **La ANCON no puede pedir que la materia CyT se atrase.** Es la clase de gestión que un órgano interino hace naturalmente para conservar su facultad, y por eso se prohíbe por escrito antes de que a nadie se le ocurra.
+
+**Y el modo degradado del otro lado, que es el que nadie escribe:** si PLANMESA se atrasa entero, este PLAN no se detiene — el jurado interino sigue funcionando con el sorteo de PLANMESA aunque la Credencial de Materia todavía no esté poblada en la materia, sorteando sobre el padrón más cercano disponible y **declarando en cada acta con qué padrón se sorteó**. Un jurado con padrón flaco y declarado es auditable. Un jurado con padrón flaco y no declarado es una designación.
+
+### 3.4 La incompatibilidad de autoría
+
+**Quien escribe una Pregunta no puede dirigir el equipo que la contesta.** Es la regla más incómoda del PLAN y es la que cierra su modo de falla número uno.
+
+El modo de falla es este, y conviene describirlo sin eufemismos porque es el que va a pasar si no se lo impide: un aparato que reparte financiamiento por Preguntas, en un sistema donde la capacidad de formular Preguntas está concentrada en quienes ya tienen posición, termina siendo un mecanismo por el cual quienes ya tienen posición escriben las Preguntas que ellos mismos están en condiciones de contestar. Nadie tiene que actuar de mala fe para que eso ocurra. Alcanza con que cada uno proponga lo que mejor sabe hacer. **El resultado es idéntico al de la captura deliberada y llega más rápido.**
+
+La regla es verificable porque los dos extremos están registrados: el Censo registra quién depositó la ignorancia y quién la redactó como Pregunta, y el acta de apertura registra quién dirige el equipo. Que las dos listas no se toquen lo puede chequear cualquiera, incluido un script.
+
+**Lo que la regla cuesta, y va escrito porque es real:** con frecuencia la persona que mejor entiende una ignorancia es la que está mejor equipada para levantarla, y esta regla la aparta de la dirección. La atenuación es acotada y no la disuelve: quien escribió la Pregunta **puede integrar el equipo, no puede dirigirlo**, y es **Testigo por derecho** en el acta de cierre, con obligación de firmar en disidencia si considera que la Pregunta se cerró sin contestarse. Se pierde algo de eficiencia y se compra que el aparato no se cierre sobre sí mismo. Es un intercambio y se declara como intercambio.
+
+### 3.5 Los jurados se habilitan afuera de la ANCON
+
+La segunda mitad del mismo cierre. Si la agencia que administra las Preguntas también decide quién puede juzgarlas, la incompatibilidad de autoría se evade en un paso: alcanza con habilitar a los jurados que van a decidir lo que uno quiere que se decida.
+
+**La habilitación de jurados no la hace la ANCON**, y la salida no es crear un registro nuevo sino usar los que el corpus ya tiene, que están poblados por otros PLANes y con otros incentivos. Son tres y sirven para cosas distintas: la **Credencial de Materia** de `PLANMESA`, que acredita competencia demostrada en un dominio y es la base natural del sorteo; el **Registro Nacional de Peritos** de `PLANJUS:639`, que acredita pericia técnica acreditada con reglas de rotación propias; y los **Síndicos de Archivo** de `PLANMEMORIA:315`, que acreditan capacidad de leer precedente, que es exactamente lo que hace falta para detectar que una Pregunta ya fue contestada.
+
+Usar padrones ajenos tiene un costo declarado y una ventaja. El costo: este PLAN depende, para su salvaguarda principal, de que otros tres PLANes existan y tengan sus registros poblados, y ninguno de los tres está completo en la Fase 0. La ventaja: **un padrón que administra otro no se puede llenar a medida**, y ésa es la única propiedad que le importa a esta salvaguarda. Entre depender de otros y poder llenar el propio, este documento elige depender.
+
+### 3.6 La frontera con el LANEF y con los institutos que ya existen
+
+Última pieza de la arquitectura, y es la que impide que este PLAN se vuelva lo que dice no ser.
+
+**Donde ya hay un organismo con mandato sobre una materia, la Pregunta no crea un equipo paralelo.** Nombra a ese organismo como quien contesta y agrega lo único que la Pregunta aporta: la ignorancia escrita como falta, el dueño de sistema, el costo de no saberla, el criterio de cierre y los Testigos. La Pregunta no le dice al instituto cómo trabajar, no le audita la carrera a nadie y no le administra el presupuesto.
+
+El caso más claro es el energético. El **LANEF** de `PLANEN:782-792` tiene la materia, tiene su red de nodos, tiene financiamiento de investigación blindado por su propio PLAN y tiene una obligación de transferencia escrita. Una Pregunta Nacional sobre energía **se contesta con el LANEF adentro y con su dirección científica intacta**, y lo que la Pregunta agrega es el enunciado público de la falta y el acta con Testigos. Si alguna vez hubiera contradicción entre lo que la Pregunta pide y lo que el programa del LANEF prioriza, **manda el PLAN dueño de la materia**, y la Pregunta se declara no contestable por esa vía en vez de forzar el conflicto. La regla vale igual para los demás: agricultura y suelo con PLANISV, agua con PLANAGUA, salud con PLANSAL, infraestructura digital y modelos con PLANDIG.
+
+El caso interesante es el contrario, y es el que justifica que la agencia exista. **Cuando una Pregunta cae en un territorio donde ningún organismo tiene mandato, no hay a quién nombrar.** Ahí la ANCON arma equipo, y lo arma con lo que las Secciones 7 y 8 le dan: infraestructura común y Cátedras que se mueven. Ese es su rol propio y es acotado a propósito — el aparato se hace cargo de lo que no es de nadie, que es exactamente el hueco que le dio origen, y no de lo que ya tiene dueño. Un organismo que además de escribir las preguntas huérfanas empieza a contestar las que otros ya podían contestar es un organismo que en diez años compite por presupuesto con los institutos a los que debería estar apuntando.
+
+Es una renuncia grande y conviene mirarla de frente: **este PLAN puede terminar siendo, en varias verticales, el que escribe la pregunta y no el que la contesta.** Está bien que así sea. La falla 0.1 no era que faltara quien contestara.
