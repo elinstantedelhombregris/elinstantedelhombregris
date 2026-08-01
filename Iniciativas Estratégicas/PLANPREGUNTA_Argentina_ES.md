@@ -833,3 +833,133 @@ Se escriben porque una fuente descartada en silencio reaparece en la versión si
 **No reclama ni duplica el 0,2% del PBI de investigación y desarrollo del LANEF.** Es piso de `PLANEN:1489`, está adentro del 0,70% de aquel PLAN, y financia los siete programas de frontera energética. Este documento lo cita cuatro veces y no lo pide ninguna.
 
 **Y una tercera ausencia, que no es una fuente sino un instrumento: este PLAN no pide un porcentaje del producto para ciencia.** Es la decisión que más lo distingue de todo lo que se propuso antes en la Argentina sobre esta materia, y su fundamento está en la falla 0.2: el país ya legisló un porcentaje, ejecuta menos de la mitad, y no le costó nada. **Pedir otra vez el instrumento que el propio diagnóstico declara incumplido sería empezar contradiciéndose**, y un porcentaje del producto es además procíclico — baja en pesos justo el año en que un sistema de conocimiento no puede parar sin perder la serie, la gente y el equipo.
+
+## SECCIÓN 14: RIESGOS Y RESPUESTAS
+
+> *"El riesgo de un aparato de conocimiento no es equivocarse: es funcionar de manera indistinguible de no funcionar."*
+
+**Uno — la captura por el sistema científico. Es el modo de falla número uno y no necesita mala fe.** Un aparato que reparte plata por Preguntas, en un país donde la capacidad de formular Preguntas está concentrada, termina financiando las preguntas que quienes las escriben están en condiciones de contestar. **Respuesta:** las dos reglas de la Sección 3 —incompatibilidad de autoría y habilitación de jurados afuera de la agencia—, más el tope de mayoría del directorio de 12. **Indicador:** proporción de Preguntas abiertas cuyo enunciado provino del Censo y no de dueños de vertical. Si baja de la mitad tres años seguidos, la captura está ocurriendo.
+
+**Dos — la agencia vaciada.** `BLINDAJE:44` describe el método argentino: no derogar, asfixiar. Una ANCON con ley, sigla y directorio, y sin Preguntas abiertas, se ve desde afuera igual que una en funcionamiento. **Respuesta:** que el indicador público principal no sea presupuesto ni dotación sino Preguntas cerradas con Prueba de Barro en los últimos doce meses. **Indicador:** ese mismo. En cero durante dos años, el PLAN está vaciado aunque ejecute el presupuesto entero.
+
+**Tres — el Censo que se llena y no devuelve.** Es el riesgo más probable de los primeros tres años: los depósitos entran más rápido de lo que el circuito contesta, el plazo de ciento veinte días se incumple, y el circuito muere de descrédito antes de tener una sola Pregunta cerrada. **Respuesta:** las cuatro respuestas de 4.2 están diseñadas para que devolver sea barato —tres de las cuatro no requieren investigar nada— y la devolución tiene prioridad presupuestaria sobre cualquier otro dispositivo (12). **Indicador:** porcentaje de devoluciones fuera de plazo, publicado mensualmente.
+
+**Cuatro — el Turno de Máquina sin máquina.** Las capacidades de cómputo que este PLAN usa son estadio B de `PLANDIG`, diferido y condicional. **Respuesta:** los tres escalones de 7.2, y la obligación de declarar Preguntas no contestables por falta de máquina en vez de repartir migajas. **Indicador:** cantidad de Preguntas en ese estado. Es un indicador que le conviene ocultar a la agencia y por eso está en el tablero y no en un informe.
+
+**Cinco — el cupo que se llena con el candidato equivocado.** El 5–8% de Cátedras reservado puede terminar ocupado por quien acumuló participación en vez de oficio. **Respuesta:** exigir Credencial en la materia de la Pregunta, no en cualquiera, y no dejar el cupo vacante en silencio. **Indicador:** cuántas de esas Cátedras terminaron en Prueba de Barro superada, comparado con el resto.
+
+**Seis — la Pregunta de Adopción que nadie quiere contestar.** Es la única Pregunta permanente y su objeto es por qué el sistema no usa lo que sabe: contestarla produce evidencia incómoda para todos los actores del circuito, incluido este PLAN. **Respuesta:** dueño de sistema con nombre, presupuesto propio no reasignable, e informe anual obligatorio. **Indicador:** que el informe salga. Es un indicador pobre y es el único que hay.
+
+**Siete — la Serie Centenaria recortada en el primer ajuste.** Es la línea más fácil de cortar de todo el presupuesto: no produce nada por veinte años, cuesta todos los años, y nadie la reclama. La Sección 10 ya declaró que su protección legal es la misma que la falla 0.2 declara insuficiente. **Respuesta:** costo bajo, publicación en crudo desde el primer día para que alguien la use, y firma nominada cada año. **Indicador:** que la medición del año figure en el tablero con la fecha y el nombre de quien la firmó. La ausencia de esa línea es el aviso, y llega un año antes que el daño.
+
+**Y un riesgo que este documento no puede mitigar y declara:** que las Preguntas que el país más necesita sean justamente las que ningún jurado quiere abrir, porque contestarlas incomodaría a quien financia el circuito. La vertical República es donde eso va a pasar primero. **No hay respuesta de diseño para eso.** Lo único que hay es que el Censo es público, que las Preguntas no abiertas se devuelven con motivo firmado, y que un motivo firmado repetido sobre la misma materia queda a la vista de cualquiera que mire.
+
+## SECCIÓN 15: EL MAPA DE PERDEDORES
+
+> *"La lista que no arma el que pierde la arma el que gana con que se sepa."*
+
+**`PLANTER` pierde ocho puntos de su protocolo y la mitad de la reserva de su propio dividendo.** Es el perdedor grande de este PLAN, es un PLAN aliado, y no se maquilla. El Fondo Intergeneracional baja de 15 a 7 puntos del flujo del Fondo Soberano Ciudadano — de USD 2.475–4.650M por año a **1.155–2.170M**—, y con eso queda en menos de la mitad la reserva que `PLANTER:710` y `:839` reservaron contra el derrumbe del Dividendo Ciudadano Mensual en el peor año del ciclo. Este documento sostiene que el intercambio vale la pena y no sostiene que sea gratis. La contrapartida es la subordinación de 13.3, que es real y le cuesta a este PLAN: en el año malo no abre Preguntas y devuelve su flujo entero a reponer esa reserva.
+
+**El sistema científico pierde el monopolio de dos cosas.** De la autoría: quien escribe una Pregunta no dirige el equipo que la contesta (3.4). Y de los jurados: la habilitación se hace sobre padrones que administran otros PLANes (3.5). Además cede entre cinco y ocho de cada cien Cátedras a personas sin trayectoria académica (8.3). Es una pérdida real de posiciones en un sistema que perdió 4.148 hace poco, y por eso 8.3 la escribe con esas palabras en vez de presentarla como una ampliación.
+
+**`PLANEDU`, `PLANEB` y `PLANDIG` pierden un sub-mandato que tenían asignado.** El hueco de ciencia y tecnología era de los tres y se retira entero. Corresponde citar cómo el acta califica eso: *«es una objeción de diseño, no un reproche por incumplimiento»* — los tres tenían el hueco como tranche-2, no venció ningún plazo, y no se los está acusando de nada. Lo que se les objeta es anterior al calendario: **un hueco repartido entre varios dueños no tiene dueño.**
+
+**Los `PLANes` que no pidan evaluación pierden algo chico y visible.** Nada de presupuesto y nada de tranche: aparecen en el tablero de la Sección 17 en la columna «no pidió», al lado de los que sí. Es la única presión que este documento se permite ejercer, y es deliberadamente débil (5.4). **Y hay que anotar quién no pierde nada ahí: los veinticinco pueden no pedir, sin costo, para siempre.** La vertical existe y puede quedarse vacía toda la vida de este PLAN sin que nada se rompa formalmente. Es la consecuencia aceptada de no arrogarse una facultad, y el mapa de perdedores no estaría completo sin decir que el principal perdedor de esa renuncia es este mismo documento.
+
+**Quien tenía la ventaja de que no hubiera lista pierde esa ventaja, y no tiene nombre propio.** Mientras no exista un registro de lo que el país necesita saber, cualquier asignación de esfuerzo es defendible y ninguna es comparable. Una lista pública con costos declarados convierte cada decisión de no abrir una Pregunta en un motivo firmado que queda escrito. **No hay un actor concreto a quien atribuirle esta pérdida** —por eso va sin nombre y no en la lista de arriba—, y es probablemente la resistencia más fuerte que este PLAN va a encontrar, precisamente porque nadie va a poder oponerse en voz alta a que exista una lista.
+
+**Y dos ausencias que se escriben, porque una pérdida que nadie declara se asume.**
+
+**`PLANMON` no está en esta lista y podría parecer que sí.** Perdió el nombre de su fondo y el objetivo de capital de `PLANMON:941`, pero eso lo cobró `PLANARCO:900` cuando reconcilió los dos fondos en uno, y este documento hereda esa reconciliación sin volver a decidirla. **Cobrarlo dos veces inflaría el mapa, y un mapa inflado se lee como un mapa falso.**
+
+**`PLANEN` no pierde nada y conviene decirlo.** El LANEF conserva su piso de investigación y desarrollo entero, su dirección científica, su gobernanza y sus siete programas. Este PLAN lo cita cuatro veces, no le pide plata ninguna, y en la vertical Energía y materia se declara el que escribe la pregunta y no el que la contesta (3.6). Lo mismo vale para `PLANISV` con el banco de germoplasma, que se federa y no se absorbe, y para `PLANMEMORIA`, que gana flujo de actas y no pierde custodia.
+
+## SECCIÓN 16: HOJA DE RUTA
+
+> *"El registro antes que la plata: es lo único de este PLAN que se puede empezar sin pedirle permiso a nadie."*
+
+**Fase 0 — el registro antes que la plata (2029-2030).** Célula de ejecución por decreto, sin agencia autárquica. El Censo abre, en plataforma si el estadio A de `PLANDIG` llegó y **en papel si no**. La devolución de ciento veinte días corre desde el primer depósito. Se redactan las primeras Preguntas y se sortea el primer jurado con el padrón que haya, declarado. No requiere ley, no requiere el nuevo split y no requiere que ningún otro PLAN esté listo. **Es la fase que el protocolo de arranque del proyecto puede usar tal cual, porque es barata, es visible y no pide permiso.**
+
+**Fase 1 — las primeras cien Preguntas (2031-2032).** Ley de la ANCON, del Fondo de la Pregunta y de la reapertura del protocolo del Fondo Soberano Ciudadano. Se abren las nueve verticales con sus dueños. Se elige la lista de la Serie Centenaria y **empieza a medirse**, aunque no haya nada que mostrar por veinte años. Primeros nodos del Banco de Materia Viva, con el comité de 11.2 constituido antes del primer préstamo.
+
+**Fase 2 — la Cátedra y el Regreso (2033-2034).** Primeras Cátedras Portátiles con contraparte local. Primer registro voluntario de argentinos formados acá que trabajan afuera. Se estrena el cupo del 5–8%. Turno de Máquina operativo sobre lo que el cómputo soberano tenga. **Primeras Pruebas de Barro en curso: las primeras Preguntas cerradas no llegan antes de 2034.**
+
+**Fase 3 — régimen pleno (2035-2040).** El Fondo de la Pregunta gira sus ocho puntos. Circuito completo funcionando: Censo, verticales, Barro, Banco, Turno, Sello, Cátedras y Seguro. Primera audiencia pública del Seguro contra lo Imprevisto. Primera evaluación externa, contra el indicador único.
+
+**Fase 4 — el método sale del país (2041 en adelante).** El circuito entero se empaqueta como módulo del Stack de Soberanía de `PLANGEO` — *open-source*, forkeable, sin *lock-in* (`PLANGEO:207`). No se exporta el conocimiento: se exporta **la manera de administrar la ignorancia propia**, que es lo que un país periférico puede darle a otro sin volverlo dependiente.
+
+**Y el gate entre fases, que es uno solo y es el mismo del tablero.** Ninguna fase promueve a la siguiente sin que la anterior haya cumplido lo suyo: la Fase 0 no promueve sin devoluciones en plazo, la Fase 1 no promueve sin las primeras Preguntas abiertas con jurado sorteado y padrón declarado, la Fase 2 no promueve sin Cátedras instaladas con contraparte local, y la Fase 3 no promueve sin Preguntas cerradas con Prueba de Barro. **Ninguno de los cuatro gates es de presupuesto ejecutado**, por la razón que la Sección 12 ya dio: eso es lo único que una agencia vaciada sigue cumpliendo.
+
+## SECCIÓN 17: TABLERO NACIONAL DE LA PREGUNTA
+
+> *"Un tablero que solo muestra lo que salió bien es publicidad con tipografía de datos."*
+
+Público, actualizado solo, y con los indicadores elegidos para que sean incómodos.
+
+**El indicador principal, y es uno solo: Preguntas cerradas con Prueba de Barro en los últimos doce meses.** No presupuesto ejecutado, no dotación, no depósitos recibidos, no publicaciones. Es el único número que una agencia vaciada no puede simular con actividad.
+
+**Y los seis que la agencia preferiría no mostrar:** devoluciones del Censo fuera del plazo de ciento veinte días; Preguntas vencidas sin cierre y sin informe; Preguntas declaradas no contestables por falta de máquina; cupos de Cátedra declarados desiertos, con su materia; publicaciones diferidas por la Sección 11 y desde cuándo, sin decir cuáles; y el estado de los veintiséis PLANes respecto de la vertical de evaluación — pedido, no pedido, en curso, cerrado.
+
+**Cada indicador se publica con su serie y no solo con su último valor.** Un porcentaje suelto se puede mejorar cambiando la definición; una serie de siete años con la definición al lado, no. Y **el tablero declara qué no muestra**: no muestra qué publicaciones están diferidas, no muestra la identidad de quien pidió reserva en el Censo, y no muestra nada de la vertical Evaluación que el PLAN evaluado no haya pedido.
+
+**El registro de Preguntas es el tablero.** Cada una con sus ocho campos, su estado, sus Testigos y, si se cerró, su acta con las disidencias adheridas. Es consultable por cualquiera, en lengua llana, y **cada Pregunta cerrada lleva su carilla legible**, que es requisito de cierre y no material de prensa.
+
+## SECCIÓN 19: DIMENSIÓN FEDERAL
+
+> *"Las preguntas están repartidas por el territorio y las respuestas están concentradas en cuatro ciudades."*
+
+Este PLAN es federal por construcción y no por declaración, y hay tres mecanismos que lo hacen así.
+
+**El Censo entra por cualquier puerta.** Cualquier oficina de la red recibe depósitos, en papel si hace falta, y el trámite y el plazo son los mismos. No hay ventanilla central.
+
+**Las Cátedras se mudan al lugar de la Pregunta**, con contraparte local financiada y sin construir sede propia: se instalan en la infraestructura de `PLANTALLER`, de `PLANJUS` o de `PLANSAL` (8.1). Donde ninguna de las tres llegó, la Cátedra se instala igual y de manera precaria, **y el tablero muestra dónde** — un mapa de Cátedras precarias es un mapa de dónde falta todo lo demás.
+
+**El jurado se sortea sobre padrones territoriales**, no sobre listas nacionales de expertos, porque la Credencial de Materia de `PLANMESA` es específica por dominio **y por territorio**.
+
+Y la advertencia que corresponde: las provincias tienen sus propios sistemas de ciencia y este PLAN **no los coordina ni los absorbe**. Una Pregunta puede ser provincial, y su dueño de sistema puede ser provincial. Lo nacional acá es el registro y el criterio de cierre, no la ejecución. **Lo que este PLAN le ofrece a una provincia es entrar su pregunta al mismo registro y cerrarla con el mismo criterio que las demás**, que es lo que hace comparable un hallazgo de Formosa con uno de Santa Fe. Nada más, y eso es todo lo que hace falta.
+
+## SECCIÓN 20: VISIÓN 2040
+
+> *"Que en cualquier pueblo del país alguien pueda ir a preguntar y le contesten por escrito."*
+
+Para 2041, con este PLAN en régimen, la Argentina tendría cuatro cosas que hoy no tiene.
+
+**Una lista pública de lo que no sabe**, con dueño, costo y plazo por cada renglón, consultable por cualquiera en lengua llana. Es lo más simple y es lo que hoy no existe en ninguna forma.
+
+**Un circuito que devuelve.** Nadie deposita una ignorancia sin recibir respuesta escrita y firmada en ciento veinte días, aunque la respuesta sea que todavía no se sabe.
+
+**Un criterio de cierre que no se argumenta.** Doce meses funcionando en manos de quien no lo inventó: un país donde eso es el estándar es un país donde la distancia entre lo que se sabe y lo que se usa se mide, y donde medirla es la tarea de alguien.
+
+**Y siete a doce series de medición con doce años corridos**, sin nada que mostrar todavía y con la promesa de que van a seguir. Es la parte de esta visión que no le habla a quien la lea en 2041.
+
+Lo que **no** habría en 2041: la pata industrial que este PLAN no cubre, un sistema científico refundado —que no es su función—, ni ninguna garantía de que las Preguntas que más importan se hayan abierto.
+
+## SECCIÓN 21: PROTOCOLO DE FALLA
+
+> *"Un PLAN que no escribe cómo se lo apaga se apaga igual, y sin registro."*
+
+**Cómo se detecta que este PLAN falló.** Dos años consecutivos con cero Preguntas cerradas con Prueba de Barro, o tres años consecutivos con más de la mitad de las devoluciones del Censo fuera de plazo. Cualquiera de las dos cosas se lee del tablero sin pedirle nada a nadie.
+
+**Qué se hace primero.** Se suspende todo lo demás y se sostiene la devolución. Un Censo que contesta sin Banco, sin Cátedras y sin Turno de Máquina sigue siendo el dispositivo que este PLAN vino a traer; los otros sin él son infraestructura sin destinatario.
+
+**Cómo se suspende una vertical entera.** Por captura demostrada, con dictamen del jurado y publicación del fundamento. La vertical República es la candidata declarada (5.3). La suspensión caduca a los noventa días si no se ratifica, y **la suspensión y su caducidad se publican las dos.**
+
+**Cómo se apaga el PLAN sin borrar lo hecho.** El registro de Preguntas, el catálogo del Banco y la Serie Centenaria **se transfieren, no se cierran**: el registro y las actas al Archivo de `PLANMEMORIA`, que ya los tiene inscriptos con hash; el catálogo del Banco al PLAN dueño de cada materia; la Serie a quien la ley designe, y **la interrupción de la Serie es un acto firmado, no una omisión presupuestaria** (10). Es la diferencia entre apagar un aparato y vaciarlo.
+
+**Y lo que no se apaga por decisión administrativa:** las Pruebas de Barro en curso terminan sus doce meses. Interrumpir una a los ocho meses no ahorra: destruye lo que ya se gastó y deja una Pregunta que nadie va a poder cerrar nunca.
+
+## CIERRE
+
+> *"Hay diecinueve años de datos de Aurelia adentro del Estado argentino, y cero preguntas de Aurelia adentro del Estado argentino."*
+
+Este documento empezó con una libreta de tapa dura en un bolso de lona, sobre catorce kilómetros de camino de tierra en el departamento Taboada. Corresponde volver ahí, y corresponde decir qué de eso este PLAN devuelve y qué no.
+
+**El relevamiento de 2023 se devuelve, y es la devolución más limpia.** Si ese trabajo existe, la respuesta del tipo uno del Censo lo encuentra, lo traduce a una carilla y se lo manda a Aurelia con firma. Si no se pudo determinar si existe, la respuesta del tipo cuatro lo dice, y esa respuesta acumulada sobre una materia abre la Pregunta de Adopción. **La falla no era que no se supiera: era que no hubiera forma de averiguar si se sabía.** Eso este PLAN lo arregla, y es lo más barato que hace.
+
+**La libreta se devuelve a medias, y la mitad que no se devuelve es a propósito.** Lo que ella anotó entra al Censo si ella quiere, con sus cuatro campos, y si de ahí sale una Pregunta, Aurelia es Testigo por derecho y firma —o se niega a firmar, y su disidencia queda pegada al acta para siempre. **Lo que no pasa es que la libreta se vuelva del Estado.** Es de ella. Sigue siendo de ella. Un aparato que para escuchar necesita quedarse con el cuaderno no aprendió por qué el cuaderno existía.
+
+**Y la pregunta de dos mil once no se devuelve, y hay que decirlo con el número.** Este PLAN no promete contestarla. Promete que va a tener número, dueño con nombre, costo declarado de no saberla, plazo, criterio de cierre y una respuesta escrita en ciento veinte días — y esa respuesta puede perfectamente ser que no se sabe y que no se va a saber pronto. Y si se abre, el cierre son doce meses en manos de alguien que no lo inventó. **Aurelia preguntó en dos mil once. La Fase 0 abre en dos mil veintinueve.** Son dieciocho años hasta el formulario, y varios más hasta el acta. Ningún dispositivo de este documento acorta eso, y escribir lo contrario sería la primera cifra estrenada de este PLAN.
+
+Lo que sí cambia, y es todo lo que este PLAN puede ofrecer: **a partir de la Fase 0, una pregunta hecha en el renglón de observaciones de una planilla deja de subir sola.** Vuelve. Con nombre abajo. Aunque diga que no.
+
+Argentina no tiene un problema de talento. Tiene un problema de puntería, y la puntería empieza por escribir a qué se le apunta. Este documento es una lista de lo que no sabemos, con un dueño para cada renglón y un plazo para contestar. **Es menos de lo que el país necesita y es más de lo que el país tuvo nunca.**

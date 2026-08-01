@@ -60,7 +60,115 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 12: LA AGENCIA NACIONAL DEL CONOCIMIENTO (ANCON)',
   '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
   '## SECCIÓN 13: MODELO ECONÓMICO Y FISCAL',
+  '## SECCIÓN 14: RIESGOS Y RESPUESTAS',
+  '## SECCIÓN 15: EL MAPA DE PERDEDORES',
+  '## SECCIÓN 16: HOJA DE RUTA',
+  '## SECCIÓN 17: TABLERO NACIONAL DE LA PREGUNTA',
+  '## SECCIÓN 19: DIMENSIÓN FEDERAL',
+  '## SECCIÓN 20: VISIÓN 2040',
+  '## SECCIÓN 21: PROTOCOLO DE FALLA',
+  '## CIERRE',
 ];
+
+/**
+ * **LA PORTADA, QUE ES LA SUPERFICIE QUE NADIE VUELVE A MIRAR.** En el tramo B la
+ * portada ASCII anunció cuatro dispositivos con cero ocurrencias en el cuerpo, se
+ * escribió en la primera tarea y nadie la volvió a abrir mientras todo lo demás se
+ * revisaba nueve veces. Acá cada renglón de dispositivos de la portada se
+ * verifica contra el cuerpo: si la portada lo anuncia, el cuerpo lo tiene que
+ * nombrar afuera de la portada, y más de una vez.
+ *
+ * El default es «todo lo que la portada nombra se verifica». La lista de abajo es
+ * el mapa de formas, no un opt-in: un dispositivo que el cuerpo escribe con otra
+ * palabra necesita su alias declarado, y un dispositivo nuevo que nadie agregue
+ * acá lo va a encontrar `verificarPortadaCompleta()`, que recorre la portada y
+ * reporta lo que no sabe leer en vez de descartarlo en silencio.
+ */
+const DISPOSITIVOS_DE_PORTADA: { enPortada: string; alias?: string[] }[] = [
+  { enPortada: 'La Pregunta Nacional', alias: ['Pregunta Nacional'] },
+  { enPortada: 'Nueve Verticales', alias: ['nueve verticales', 'vertical'] },
+  { enPortada: 'La Pregunta de Adopción', alias: ['Pregunta de Adopción'] },
+  { enPortada: 'Censo de Ignorancia bidireccional', alias: ['Censo de Ignorancia', 'Censo'] },
+  { enPortada: 'Padrón de Testigos', alias: ['padrón de Testigos', 'Testigos'] },
+  { enPortada: 'La Prueba de Barro', alias: ['Prueba de Barro', 'Barro'] },
+  { enPortada: 'Banco de Materia Viva' },
+  { enPortada: 'Turno de Máquina' },
+  { enPortada: 'Sello Abierto' },
+  { enPortada: 'Modelos de Órgano', alias: ['Modelo de Órgano'] },
+  { enPortada: 'Cátedra Portátil' },
+  { enPortada: 'Cátedra de Regreso' },
+  { enPortada: 'Cupo de Credencial Consolidada', alias: ['Credencial Consolidada', 'cupo'] },
+  { enPortada: 'El Seguro contra lo Imprevisto', alias: ['Seguro contra lo Imprevisto', 'Seguro'] },
+  { enPortada: 'La Serie Centenaria', alias: ['Serie Centenaria'] },
+  { enPortada: 'Fondo de la Pregunta' },
+  { enPortada: 'Agencia Nacional del Conocimiento (ANCON)', alias: ['ANCON'] },
+];
+
+/** Mínimo de menciones en el cuerpo. Una sola puede ser la que la portada dejó suelta. */
+const MENCIONES_MINIMAS = 2;
+
+function verificarPortada(lineas: string[]): string[] {
+  const errores: string[] = [];
+  const iAbre = lineas.findIndex((l) => l.trim() === '```');
+  if (iAbre === -1) return ['no se encontró la portada ASCII (bloque cercado)'];
+  const iCierra = lineas.findIndex((l, k) => k > iAbre && l.trim() === '```');
+  if (iCierra === -1) return ['la portada ASCII no cierra'];
+  const portada = lineas.slice(iAbre + 1, iCierra).join('\n');
+  const cuerpo = lineas.slice(iCierra + 1).join('\n');
+
+  for (const { enPortada, alias } of DISPOSITIVOS_DE_PORTADA) {
+    if (!portada.includes(enPortada)) {
+      errores.push(
+        `«${enPortada}» está declarado como dispositivo de portada y la portada no lo nombra: la ` +
+          'lista quedó vieja, y una lista vieja en las dos direcciones es una lista que no verifica nada',
+      );
+      continue;
+    }
+    const formas = [enPortada, ...(alias ?? [])];
+    const veces = formas.reduce((n, f) => n + cuerpo.split(f).length - 1, 0);
+    if (veces < MENCIONES_MINIMAS) {
+      errores.push(
+        `la portada anuncia «${enPortada}» y el cuerpo lo nombra ${String(veces)} vez/veces ` +
+          `(mínimo ${String(MENCIONES_MINIMAS)}): en el tramo B la portada anunció cuatro dispositivos ` +
+          'que el cuerpo no tenía, y nadie la volvió a mirar',
+      );
+    }
+  }
+
+  /**
+   * El chequeo que descubre solo lo que falta: los renglones de dispositivos de la
+   * portada se parten por «·» y cada pedazo tiene que estar cubierto por alguna
+   * entrada de la lista. Lo que no matchee se reporta — no se descarta.
+   */
+  const cubiertos = DISPOSITIVOS_DE_PORTADA.map((d) => d.enPortada);
+  /**
+   * El bloque de destinatarios usa el mismo separador «·» y no son dispositivos.
+   * El corte es la línea «Preparado para…», que el corpus escribe siempre igual
+   * (PLANPACTO, PLANARCO). Si esa línea faltara, el chequeo NO corre en silencio:
+   * lo dice, porque un ancla que no está deja el descubrimiento apagado.
+   */
+  const iPreparado = portada.split('\n').findIndex((l) => l.trim().startsWith('Preparado para'));
+  if (iPreparado === -1) {
+    errores.push(
+      'la portada no tiene la línea «Preparado para…» que separa dispositivos de destinatarios: ' +
+        'sin ese corte, el descubrimiento de la portada no puede correr',
+    );
+  }
+  const renglones = portada.split('\n').slice(0, iPreparado === -1 ? 0 : iPreparado);
+  for (const linea of renglones) {
+    if (!linea.includes('·')) continue;
+    for (const trozo of linea.split('·').map((t) => t.trim())) {
+      if (trozo.length === 0) continue;
+      if (!cubiertos.some((c) => trozo.includes(c) || c.includes(trozo))) {
+        errores.push(
+          `la portada anuncia «${trozo}» y DISPOSITIVOS_DE_PORTADA no lo cubre: la guardia no lo ` +
+            'sabe leer, y lo que la guardia no sabe leer se reporta en vez de descartarse',
+        );
+      }
+    }
+  }
+  return errores;
+}
 
 /**
  * **El default es «lleva epígrafe»** y el opt-out es esta lista, que se verifica
@@ -1165,6 +1273,7 @@ function main(): void {
     ...verificarSplit(lineas),
     ...verificarSplitEnPlanter(),
     ...verificarCabecera(lineas),
+    ...verificarPortada(lineas),
   ];
 
   if (errores.length > 0) {

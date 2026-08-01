@@ -574,7 +574,7 @@ El resto de la sección: los `requires` y `provides` en prosa, con **modo degrad
 
 **Palabras:** riesgos 700–900 · perdedores 700–1.100 · ruta 400–500 · tablero 250–320 · federal 230–280 · visión 220–270 · falla 260–300 · cierre 350–480.
 
-- [ ] Task 10 completa
+- [x] Task 10 completa
 
 ---
 
