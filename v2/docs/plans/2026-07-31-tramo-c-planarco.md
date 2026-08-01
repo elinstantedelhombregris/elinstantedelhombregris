@@ -181,9 +181,9 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 | 10 | `## SECCIÓN 7: EL FINAL` | 7 | 2.800–3.200 |
 | 11 | `## SECCIÓN 8: LA AGENCIA NACIONAL DEL ARCO DE LA VIDA (ANAV)` | 7 | 1.100–1.400 |
 | 12 | `## INTEGRACIÓN CON EL MARCO ¡BASTA!` | 8 | 900–1.100 |
-| 13 | `## SECCIÓN 9: MODELO ECONÓMICO Y FISCAL` | 8 | 2.200–2.600 |
+| 13 | `## SECCIÓN 9: MODELO ECONÓMICO Y FISCAL` | 8 | 2.200–2.900 |
 | 14 | `## SECCIÓN 10: RIESGOS Y RESPUESTAS` | 9 | 700–900 |
-| 15 | `## SECCIÓN 11: EL MAPA DE PERDEDORES` | 9 | 700–900 |
+| 15 | `## SECCIÓN 11: EL MAPA DE PERDEDORES` | 9 | 700–1.200 |
 | 16 | `## SECCIÓN 12: HOJA DE RUTA` | 9 | 400–500 |
 | 17 | `## SECCIÓN 13: TABLERO NACIONAL DEL ARCO` | 10 | 250–320 |
 | 18 | `## SECCIÓN 15: DIMENSIÓN FEDERAL` | 10 | 230–280 |
@@ -408,7 +408,7 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 - **La sucesión de PLANJUB declarada** (arreglo 10). Nombralo como el PLAN que nunca existió y del que PLANARCO es sucesor. **Y decí que son dos fantasmas, no uno:** PLANVEJ también sigue colgado (**C-9**). Las seis referencias de PLANCUL se arreglan en la Task 11.
 - Lo que **no** es arista y va en prosa, con la razón — el patrón de `PLANPACTO:723`.
 
-**Palabras:** integración 900–1.100 · modelo económico 2.200–2.600.
+**Palabras:** integración 900–1.100 · modelo económico **2.200–2.900**.
 
 - [ ] Task 8 completa
 
@@ -428,7 +428,7 @@ Las ocho tienen que ser **fallas del arco**, no fallas previsionales. Candidatas
 
 **READINESS_GATES_ADVERSARIAL.md**: la fila de PLANARCO con **tres attack paths** con mitigación, owner, fallback e indicador. Seguí exactamente la forma de la fila de PLANPACTO. Los fallbacks se escriben como *«hasta USD N/año — extremo alto de la banda de régimen»*, no como cifras sueltas.
 
-**Palabras:** riesgos 700–900 · perdedores 700–900 · hoja de ruta 400–500.
+**Palabras:** riesgos 700–900 · perdedores **700–1.200** · hoja de ruta 400–500.
 
 - [ ] Task 9 completa
 
