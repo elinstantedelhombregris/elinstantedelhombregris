@@ -53,3 +53,87 @@ y para cualquier argentino que quiera un canal y hoy no lo tiene
 ```
 
 ---
+
+## PREÁMBULO — EL CARTEL QUE NADIE CAMBIÓ
+
+Marisol Quiroga tiene treinta y cuatro años y trabaja en la caja de una estación de servicio sobre la ruta 14, a la salida de Chajarí, Entre Ríos. Entra a las once de la noche y sale a las siete de la mañana. Vuelve a su casa en una moto que anda, duerme hasta las dos de la tarde, y después tiene ocho horas despierta en un pueblo donde, a esa hora, no hay nada abierto que no sea un negocio.
+
+No es una queja: es una descripción. El club está cerrado hasta las seis. La escuela es de los chicos. La parroquia abre para misa. Y la biblioteca popular —que existe, que tiene ocho mil volúmenes, que la fundaron en el treinta y ocho— abre lunes, miércoles y viernes de nueve a doce y de dieciséis a diecinueve, atendida por una señora de setenta y ocho años que va cuando puede.
+
+El horario está escrito a mano en una cartulina pegada con cinta de embalar del lado de adentro del vidrio. La letra es de imprenta, prolija, hecha con fibra negra y regla. Abajo, en letra más chica, dice «desde 1994».
+
+Nadie lo cambió nunca. No hubo mala fe. El horario se fijó cuando Chajarí trabajaba de mañana, y desde entonces el pueblo cambió tres veces de forma —el packing, la ruta, el turno noche de la estación— y el cartel siguió describiendo un pueblo que ya no existe. La biblioteca no está cerrada para Marisol por una decisión: está cerrada para Marisol por inercia, que es una forma de decisión que no deja firma.
+
+Cambiar ese cartel costaba una cartulina y una decisión. No costaba una ley, ni un presupuesto, ni un convenio con la provincia. Costaba que alguien tuviera el trabajo de preguntarse a qué hora está despierta la gente de Chajarí, y que ese alguien cobrara por hacerlo. En treinta y dos años nadie tuvo ese trabajo, porque nadie lo inventó, porque la biblioteca popular argentina —que es una institución magnífica y sobrevivió a todo— sobrevive por voluntariado, y el voluntariado sostiene lo que hay pero no lo rediseña.
+
+Entonces Marisol tiene el teléfono.
+
+---
+
+Hay una cosa que Marisol quiso aprender toda su vida adulta y no aprendió.
+
+El padre tenía dos hectáreas de mandarina en el lote de atrás, sobre el camino vecinal. Cuando murió, en 2019, la quinta quedó sin podar. Una quinta de cítricos sin podar no se muere: se arruina despacio, se llena de chupones, la fruta se achica y se agria, y a los cinco años lo que era una plantación es un monte cerrado del que no se saca nada. Marisol sabe que la quinta se está arruinando. Pasa al lado todos los días.
+
+Podar cítricos no es difícil. Es una técnica. Se aprende mirando a alguien que sabe, dos temporadas, con la tijera en la mano. El problema es que en Chajarí la saben tres tipos, los tres pasan los setenta, ninguno da clase, y lo que saben no está escrito en ningún lado. No hay curso. No hay video que sirva —los que hay son de California, con otra variedad, otro clima y otro marco de plantación—. No hay nadie que le diga a Marisol dónde se aprende.
+
+Uno de los tres es Aldo Benítez, que podó para la cooperativa treinta y un años y ahora poda en su casa porque no llega a subirse a la escalera. Aldo sabe cuándo se corta un chupón y cuándo se lo deja porque el árbol lo va a necesitar, sabe qué rama tapa y qué rama alimenta, y sabe por la corteza si un pie está peleando con la gomosis dos temporadas antes de que se vea. Nada de eso está escrito. Cuando se mueran los tres, en Chajarí se va a poder comprar mandarina y no se va a poder aprender a producirla, y nadie va a firmar esa pérdida tampoco.
+
+Marisol tiene veinte años de vida útil por delante, dos hectáreas y ocho horas libres por día. Y no tiene dónde poner ninguna de las tres cosas.
+
+---
+
+El último domingo de cada mes le llega al teléfono un informe.
+
+Es el **Informe Mensual de Extracción Atencional**, y no lo inventó este PLAN: es el quinto dispositivo de la Declaración de Atención de `PLANDIG:886`, que ya está escrito, ya está costeado y ya funciona. El informe le dice a cada ciudadano cuánto tiempo pasó en cada plataforma, cuánta publicidad recibió, cuántas veces fue perfilado y qué decisiones automatizadas lo afectaron. Es un instrumento honesto y es una buena idea.
+
+El de Marisol dice cinco horas y doce minutos por día.
+
+No es un número raro. Es exactamente el promedio argentino: `PLANCUL:304` mide **5,2 horas de pantalla no laboral por día**, contra 3,8 del promedio global. La Argentina mira una hora y media más que el mundo, todos los días, y esa hora y media es el equivalente de una jornada laboral semanal.
+
+Y acá está lo que este PLAN vino a decir.
+
+**Nadie le robó a Marisol las cinco horas.** No hubo un delito. No hubo una plataforma que le forzara la mano. Marisol se las está dando, todas las noches, con las dos manos, porque a las tres de la tarde de un martes en Chajarí no hay ningún otro lugar donde ponerlas. La atención no se le extrajo: se le fue al único lado que estaba abierto.
+
+El informe de PLANDIG le dice el número. No le dice a dónde ir.
+
+Ese es el hueco, y es todo el hueco: **el corpus ¡BASTA! le midió a Marisol la herida y no le construyó el lugar.** `PLANDIG:788` consagró el derecho al Commons Atencional —«la biblioteca popular del siglo XXI», el espacio donde se puede leer, pensar y conversar durante horas sin ser monetizado ni perfilado— y su TABLA 20 de inversión a diez años, que tiene doce filas, no tiene ninguna que lo pague. `PLANCUL:304` midió las cinco horas y dos páginas después, en `PLANCUL:387`, propuso repartir la pauta oficial con una fórmula donde el 50% va por audiencia: o sea, más plata para el que ya tiene más gente mirando. Y `PLANMESA:788` usa el presupuesto de publicidad oficial —superior a USD 450M en 2023— como vara para decir que su propio presupuesto es modesto, sin preguntarse nunca qué compra esa plata.
+
+Tres documentos distintos rodearon el problema. Ninguno lo agarró.
+
+---
+
+Este PLAN empieza por lo único que el Estado argentino puede hacer sin tocarle un pelo a nadie: **dejar de elegir a quién le da un peso.**
+
+La publicidad oficial consolidada son USD 450M por año (`PRESUPUESTO_CONSOLIDADO_BASTA.md:419`). Es la correa. No es una correa metafórica: es una transferencia discrecional, mensual, sin contrato de resultado, de un gobierno a los medios que decide, y todo el mundo en la Argentina sabe exactamente cómo funciona y nadie escribió nunca el número al lado de la palabra. Este PLAN lo escribe, y después hace la única cosa que no se puede deshacer con un decreto del gobierno siguiente si se hace bien: **la extingue.**
+
+No la reparte mejor. No la audita. No la condiciona a criterios de calidad. La extingue, en quintos, en cinco años, hasta cero. Porque cualquier fórmula de reparto —incluida la más transparente, incluida la de `PLANCUL:387`, incluida la que paga por alcance verificado— le da más al que ya tiene más, y una correa transparente sigue siendo una correa.
+
+Y con esa plata, que ya existe y ya se gasta, construye el otro lado: mil doscientas a mil quinientas sedes de la **Biblioteca Viva**, abiertas cuando la gente está despierta, con alguien adentro que sabe, con un acervo que eligen los vecinos y no una agencia nacional. Un canal para cualquiera que lo pida —**La Antena**—, porque hoy todos pueden ser un canal y el que no puede es porque nadie le dio la dotación. Un lugar donde los setenta años de audiovisual estatal dejen de pudrirse en cintas que nadie custodia —**El Acervo Abierto**—. Y una materia, **el Desmontaje**, que enseña a leer una pieza de comunicación y ver cómo está hecha, del mismo modo que la escuela enseña a leer un texto y ver cómo está escrito.
+
+Nada de eso le prohíbe nada a nadie. Ningún medio pierde una licencia, porque este PLAN no da ni quita licencias. Ningún periodista pierde el derecho a decir lo que quiera. Lo único que pierde alguien es el cheque, y lo pierde porque el cheque deja de existir para todos al mismo tiempo, incluido el medio que al gobierno de turno le gusta.
+
+---
+
+El día que la biblioteca de Chajarí abra de dos de la tarde a diez de la noche, va a haber alguien adentro cuando Marisol pase con la moto. Eso es todo lo que este PLAN promete: que haya un lugar abierto, alguien adentro que sepa, y un horario escrito por alguien que se haya tomado el trabajo de averiguar a qué hora está despierto el pueblo.
+
+Lo demás lo hace ella.
+
+## TESIS CENTRAL
+
+**La palabra pública no se arregla poniéndole reglas al que habla. Se arregla cambiando adónde mira el país y construyendo el lugar donde esa mirada aterriza.**
+
+La Argentina lleva cuarenta años discutiendo qué pueden decir los medios y no discutió nunca dónde va a parar la atención de la gente cuando termina el día. Discutió leyes de medios, licencias, límites de concentración, derecho a réplica, adecuación de oficio. Todas esas discusiones comparten un supuesto que nunca se examinó: que el problema está en la boca del que emite. Y el problema no está ahí. Está en que el que escucha no tiene otro lado.
+
+Este PLAN parte de una premisa idealizada, que es la disciplina de diseño de todo ¡BASTA!: **qué construiríamos si tuviéramos prohibido regular lo que alguien puede decir y prohibido decidir lo que alguien debe mirar.** No «qué construiríamos si fuéramos prudentes» — prohibido. La respuesta es un destino, un canal y un espejo. Un destino: la Biblioteca Viva, el Acervo, la Sala Común, lugares abiertos con alguien adentro. Un canal: La Antena y la Cartelera, porque una mirada sin dónde depositar lo que ve se apaga sola. Un espejo: el Desmontaje y la Procedencia, que no dicen qué es verdad sino que enseñan a ver cómo está hecho lo que uno mira y garantizan que lo que se hizo con plata pública se pueda rastrear.
+
+Y una sola disciplina, que el Estado se aplica a sí mismo y a nadie más: **deja de elegir a quién le da un peso.**
+
+Los dueños de los medios argentinos no van a cambiar. No hay ley que los cambie, no hay gobierno que los convenza y no hay reforma que los mejore; el propio corpus lo dice sin eufemismo cuando `PLANCUL:387` reconoce que romper la concentración *«es una guerra legal de años»* que Clarín ya peleó una década y ganó. La única forma de detenerlos es quitarles su línea vital, que no es la pauta ni la licencia: **es la atención.** Y la atención no se les quita prohibiéndoles nada. Se les quita construyendo otro lugar donde la gente pueda ponerla.
+
+La atención es dónde uno gasta su vida. Cinco horas y doce minutos por día, en la Argentina, según `PLANCUL:304`. Un país que no discute eso está discutiendo todo lo demás con la cabeza de otro.
+
+**Este PLAN no es una política cultural, y la distinción importa porque el corpus ya tiene una.** PLANCUL cubre la cultura viva —lo que pasa entre las personas cuando están vivas de verdad— y la cubre bien, sin agencia, sin presupuesto y sin líder, por parasitismo estratégico. PLANFOCO no le disputa nada de eso ni se lo administra: cubre otra cosa, que es la infraestructura de la palabra pública y el lugar físico donde la mirada aterriza. Un club de barrio es PLANCUL. Una biblioteca con horario, bibliotecario y presupuesto es PLANFOCO. Los dos hacen falta y ninguno reemplaza al otro.
+
+**La restricción es absoluta y gobierna cada página que sigue: ningún dispositivo de este PLAN puede controlar, licenciar ni castigar contenido.** No hay excepción de seguridad nacional, no hay excepción de emergencia, no hay excepción de desinformación. Un PLAN que se reserva una sola puerta para decidir qué se puede decir es un ministerio de la verdad con buenos modales, y este PLAN existe para no ser eso. Si alguna de las páginas que siguen se lee como si abriera esa puerta, la página está mal escrita y hay que corregirla.
+
+---
