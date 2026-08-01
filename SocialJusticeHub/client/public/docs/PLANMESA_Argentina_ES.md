@@ -1,21 +1,53 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-2 (misión matrix: Verde).
+>
+> **Alcance entregable:** piloto deliberativo de portfolio (no agencia autónoma).
+>
+> **Presupuesto canónico:** (tranche-2) (línea PLANMESA del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (tranche-2).
+>
+> **Instrumento legal:** (tranche-2: marco deliberativo piloto).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Tranche-2 como piloto de revisión de portfolio. Agencia PLANMESA → execution cell en PEO + Jefatura. Sortición rotativa + remuneración (combatir fatiga participativa). PLANMESA NO sustituye al Congreso ni al PEO. Mesa = consulta, no decisión vinculante en tranche-2. Captura partidaria: rotación + reglas de incompatibilidad + auditoría externa. Constitucionalización de PLANMESA → diferida.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANMESA. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANMESA. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANMESA.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANMESA.md` si existe.
+
+---
+
+# PLANMESA — Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende
+
+## Decimoctavo Mandato del Proyecto ¡BASTA!
+
+### Versión 1.0 — Abril 2026
+
 ```
-LA REPÚBLICA NO SE DECIDE SOLO EN URNA
+LA REPÚBLICA NO SE DECIDE EN URNA
 SE DECIDE EN MESA
 
-Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado
-y República que Aprende
+Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende
 PLANMESA
 
-Mesa Civil · Credencial de Materia · Cédula Civil · Ciclo LDEA
-Aprender, Diseñar, Experimentar, Analizar · Consulta Ancestral
-Auto-postulación · Resoluciones de Mesa · Dietas de Servicio
-Síndicos de Archivo · Sorteo Estratificado · Path Dependency Cívica
-AMCC · Tablero Nacional de Mesas · República que Aprende
+Ciclo LDEA · Aprender · Diseñar · Experimentar · Analizar
+Credencial de Materia · Mesa Civil · Sala de Deliberación · Resolución Vinculante
+Auto-postulación por Mérito · Track Record Auditable · Cédula Civil Continua
+Integración con Mapa, Mandato Vivo, Arquitecto, Círculos, Semilla, Memoria
 
 Preparado para la República Argentina
-Ministerio del Interior · Jefatura de Gabinete de Ministros
-Ministerio de Justicia · Secretaría de Innovación Pública
-Consejo Federal de Inversiones · Congreso de la Nación
+Presidencia de la Nación · Congreso de la Nación · Consejo de Continuidad Nacional
+Oficina de Mandato y Evidencia · Defensoría de Integridad · Provincias y Municipios
 
 Abril 2026 | Versión 1.0
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
@@ -23,1111 +55,1173 @@ DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 
 ---
 
-## PREÁMBULO — LAS SILLAS VACÍAS
+## PREÁMBULO — LA SILLA QUE NUNCA TE OFRECIERON
 
-### I. Ramona y la carpeta que nadie pidió
+Ramiro tiene treinta y siete años y trabaja desde hace nueve en la Subsecretaría de Recursos Hídricos de la Provincia de Buenos Aires. Ingresó por concurso. Hizo dos postgrados sobre cuencas urbanas. Publicó tres papers revisados sobre el manejo integrado del Matanza-Riachuelo. Conoce cada afluente, cada emisor, cada obra subterránea, cada expediente de ACUMAR. Habla con los hidráulicos del ENOHSA cuando necesita confirmar un dato técnico, y los hidráulicos le contestan porque Ramiro sabe lo que pregunta. Si le dan tres horas y un pizarrón, puede explicar por qué cada inundación de La Matanza va a volver exactamente igual hasta que se hagan las cuatro cosas que nadie hace — no por falta de plata, por falta de decisión.
 
-Ramona Quiroga tiene 58 años. Vive en Quimilí, Santiago del Estero. Es extensionista del INTA desde 1995 — treinta y un años recorriendo campos del Chaco semiárido, hablando con productores, midiendo suelos, anotando qué funciona y qué no en una de las zonas agrícolas más difíciles del país. Ramona sabe cosas que no están en ningún paper. Sabe que el sorgo forrajero aguanta donde el maíz se rinde. Sabe qué familias compartieron la perforación y cuáles se pelearon por el agua. Sabe — porque lo vio con sus ojos, cuatro veces, en cuatro programas nacionales distintos — que los planes de riego que se diseñan en Buenos Aires fracasan siempre en el mismo punto: suponen un caudal de acuífero que el Salado del Norte no tiene, y suponen una organización comunitaria que nadie se tomó el trabajo de construir antes de mandar los caños.
+El último marzo, cuando La Matanza quedó otra vez bajo agua y murieron cuatro personas en un entubado que se sabía colapsado desde 2017, Ramiro estaba en su escritorio redactando un informe técnico que no iba a leer nadie. Esa noche, cuando volvió a su casa en el tren Sarmiento, mirando por la ventanilla el desastre, pensó la frase que piensan los cuadros técnicos argentinos todas las décadas: *yo sé cómo hacer esto, y nadie me va a preguntar nunca*.
 
-Ramona escribió todo eso. Tiene una carpeta — física, de cartón, con elásticos — y una versión digital en un Drive personal, porque el sistema del INTA no tiene dónde ponerla. Son veintinueve años de datos de campo, evaluaciones de programas, mapas dibujados a mano con los productores. Cuando en 2023 el gobierno nacional lanzó el cuarto plan de riego para la región — idéntico en su error a los de 1997, 2008 y 2016 — nadie llamó a Ramona. Nadie llamó a ningún extensionista. El plan lo diseñó una consultora de la Ciudad de Buenos Aires que facturó USD 1,8 millones por un documento de 240 páginas que Ramona podría haber corregido en una tarde. El plan fracasó en dieciocho meses. Como los tres anteriores. Por la misma razón que los tres anteriores.
+Al día siguiente, lo llamó el subsecretario. Le informó que la Mesa de Crisis del Riachuelo — formada de apuro por el gobernador — iba a estar compuesta por: el titular de ACUMAR (abogado, designado por afinidad partidaria, tres meses en el cargo), dos concejales de La Matanza (ninguno con formación en gestión hídrica), un representante del Ministerio del Interior (economista), un ingeniero jubilado de Obras Públicas (70 años, última actualización profesional en 1998), y un "representante de la sociedad civil" (titular de una ONG del Matanza-Riachuelo con más apariciones mediáticas que informes técnicos). Ramiro no fue invitado. La subsecretaría tampoco fue consultada.
 
-Ramona no quiere un cargo. No quiere ser diputada, no quiere ser funcionaria, no soporta la idea de una campaña electoral. Quiere algo más simple y más radical: quiere que la próxima vez que el país decida sobre el agua del Chaco semiárido, haya una silla en la mesa para alguien que haya pisado el Chaco semiárido. Y quiere que esa silla no se reparta por favor político — quiere ganársela. Con lo que sabe. Con lo que hizo. Con lo que puede demostrar.
+La Mesa de Crisis se reunió siete veces en dos meses. Emitió un documento final con recomendaciones. Las recomendaciones fueron exactamente las mismas que se hicieron en 2001, 2007, 2014 y 2019 — palabra por palabra. Se anunció una licitación. La licitación fue adjudicada a la misma constructora que adjudicó la obra de 2014 que nunca se terminó. Nada cambió. Cuatro familias enterraron a sus muertos. Ramiro volvió a su escritorio.
 
-Hoy esa silla no existe. PLANMESA existe para construirla.
+Ramiro no es una excepción. En cada provincia de este país hay entre quinientas y dos mil personas como él — cuadros técnicos públicos, investigadores del CONICET, profesionales de organismos provinciales y municipales, extensionistas del INTA y del INTI, productores con treinta años en su materia, maestros que dirigen escuelas en contextos imposibles, enfermeras que conocen su barrio como ninguna app podría conocerlo, curanderas, parteras, herreros, albañiles, changueras, pescadoras, comadres, asambleístas sobrevivientes del 2001, docentes de adultos, vecinos que en siete años de lucha barrial aprendieron más de presupuesto municipal que el secretario de hacienda. Personas que ya estudiaron, ya propusieron, ya experimentaron, ya midieron. Personas que llevan décadas siendo la Argentina competente que nunca fue convocada a decidir.
 
-### II. Osvaldo y la asamblea que se comió a sí misma
+La argentina que hoy decide no los conoce. Es un cuerpo estrecho compuesto por tres categorías: la clase política profesional (electos, designados, rotadores del aparato partidario), los consultores contratados (empresas privadas que facturan por informes que no leyeron), y las figuras mediáticas (visibilidad sin track record demostrable). Estas tres categorías comparten una característica: su autoridad no deriva de haber hecho el trabajo. Deriva de haber ganado una elección, de haber pagado por un estudio, o de haber construido reputación en medios. El mérito operativo — haber estudiado la materia, haber propuesto intervención, haber puesto a prueba la intervención, haber medido sus resultados — es irrelevante en el mecanismo que decide.
 
-Osvaldo Brizuela tiene 67 años. Electricista jubilado, de Lanús. En enero de 2002 — con el país incendiado, cinco presidentes en doce días, el corralito mordiéndole los ahorros — Osvaldo hizo algo que nunca había hecho: fue a una asamblea. La asamblea de Lanús Este se juntaba los martes en la plaza, doscientas personas al principio, vecinos de verdad: la farmacéutica, el del taller, dos maestras, un par de desocupados de la textil cerrada. Osvaldo se acuerda de esos primeros martes como uno de los momentos más vivos de su vida. La gente hablaba. La gente escuchaba. Parecía que algo nuevo nacía.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es *argentum*, y *argentum* es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
-Duró cuatro meses.
+Ramiro, el lunes siguiente a la séptima reunión de la Mesa de Crisis, se hizo la pregunta que este plan intenta responder:
 
-Primero llegaron los partidos — los de izquierda, con la agenda escrita de antemano y la moción preparada antes de que empezara la reunión. Después llegó el cansancio: deliberar sin método es agotador, y el que tiene tiempo infinito le gana siempre al que trabaja. Después llegó la trampa estructural: la asamblea podía declarar, denunciar, marchar — pero no podía *decidir* nada que el Estado estuviera obligado a escuchar. Cada resolución era un grito en una habitación vacía. Para junio quedaban veinte personas y tres megáfonos. Para diciembre, nadie.
+*¿Y si la silla que decide estuviera ocupada por el que hizo el trabajo? ¿Y si el mecanismo para sentarse no fuera ni votación popular ni designación partidaria ni concurso burocrático, sino un track record ciudadano auditable que cualquiera pueda empezar a construir mañana?*
 
-Osvaldo sacó dos conclusiones que veinticuatro años después siguen intactas. La primera: la gente común *puede* deliberar — lo vio, estuvo ahí, funcionaba. La segunda: la deliberación sin disciplina, sin método, sin conexión con la decisión real, muere siempre — capturada por el más militante o disuelta por el desgaste. La asamblea del 2001 fue un destello de otra república posible que se apagó por falta de arquitectura. PLANMESA es, en un sentido muy literal, la arquitectura que le faltó a la plaza de Lanús.
+PLANMESA es esa silla. No es un mecanismo más. Es el **eslabón faltante** entre la señal ciudadana que ya capturamos y la decisión vinculante que hoy sigue ocurriendo en los mismos despachos, con las mismas caras, bajo la misma lógica que nos trajo hasta acá. Es el órgano que convierte a la república de una institución donde se delega la decisión en figuras que no hicieron el trabajo, en una institución donde la decisión se gana practicando — con rigor, con evidencia, con memoria — y donde la práctica está abierta a cualquier argentino desde el primer día.
 
-### III. Carina y los cuatro programas que vio morir
+> *"Una república no aprende porque sus ciudadanos opinen más. Una república aprende porque sus ciudadanos practican y la práctica está inscrita."*
 
-Carina Mansilla tiene 44 años. Enfermera de terapia intensiva en el Hospital Regional de Comodoro Rivadavia, Chubut. Veintidós años de guardias. Carina conoce el sistema de salud de la Patagonia sur como se conocen las cosas que se hacen con el cuerpo: sabe cuánto tarda una derivación a Buenos Aires según el mes del año, sabe qué falla primero cuando falta presupuesto (las prótesis, después los reactivos, después la moral), sabe qué programas funcionaron — hubo algunos — y por qué.
-
-En veintidós años, Carina vio nacer y morir cuatro programas nacionales de fortalecimiento de la atención primaria. Los cuatro empezaron con un lanzamiento, un logo nuevo y una capacitación obligatoria en PowerPoint. Los cuatro murieron con un cambio de gobierno — no porque fracasaran, sino porque los había lanzado *el otro*. El segundo de los cuatro estaba funcionando: las postas sanitarias rurales habían bajado un tercio las derivaciones evitables. Lo desarmaron igual. El que vino después era casi idéntico, con otro nombre y otro logo, y hubo que volver a capacitarse en lo mismo, perder dos años en reconstruir lo que ya existía, y ver cómo los indicadores volvían al punto de partida.
-
-Nadie le preguntó nunca nada. Ni a ella ni a ninguna de las enfermeras que sostienen el sistema real mientras los programas pasan por arriba como frentes de tormenta. Cuando vino la última consultora a "relevar la perspectiva del personal de salud", la entrevista duró doce minutos y la hizo por Zoom una persona que no sabía que Comodoro no tiene hospital pediátrico de alta complejidad.
-
-Carina no es cínica — es algo más peligroso para el sistema: es precisa. Si alguien le diera una silla, sabría exactamente qué decir. Y si le pidieran que se ganara esa silla demostrando lo que sabe, lo haría sin pestañear. Es la silla lo que falta. No la capacidad.
-
-### IV. Federico y el archivo donde el país repite
-
-Federico Acosta tiene 35 años. Analista de carrera en la Dirección Provincial de Vivienda de Entre Ríos, en Paraná. Entró por concurso a los 26 — uno de esos cuadros técnicos jóvenes que el Estado todavía produce, a pesar de todo. Su trabajo es evaluar proyectos habitacionales. Su problema es que su trabajo no le importa a nadie en el momento en que importaría.
-
-En 2024, ordenando el archivo de la Dirección — un depósito con estanterías metálicas y cajas que nadie abría desde hacía años — Federico encontró los expedientes de evaluación del Plan Federal de Vivienda en sus cuatro encarnaciones entrerrianas: 1995, 2005, 2012, 2019. Los leyó. Y sintió frío. Los cuatro expedientes documentaban *el mismo fracaso*: terrenos comprados lejos de los servicios porque eran baratos, viviendas terminadas sin conexión de agua ni transporte, adjudicaciones que ignoraban la composición real de las familias, mantenimiento jamás presupuestado. Los cuatro expedientes incluían recomendaciones finales — escritas por técnicos como él, en 1998, en 2009, en 2015 — que anticipaban con precisión quirúrgica el fracaso del plan siguiente. Recomendaciones archivadas. Nunca consultadas. Nunca leídas por nadie que estuviera por decidir.
-
-Federico hizo la cuenta de servilleta: solo en su provincia, solo en vivienda, el costo de repetir errores ya documentados superaba los USD 300 millones en tres décadas. Después pensó en las 24 jurisdicciones, en todas las materias, en todos los archivos muertos del país. Y entendió que la Argentina no tiene un problema de ignorancia. Tiene algo peor: un problema de *desaprendizaje institucional*. El país sabe. El país escribió lo que sabe. El país archivó lo que escribió. Y el país decide, cada vez, como si no supiera nada.
+Todo lo que PLANMESA propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. No es un plan perfecto — es un plan honesto. Está diseñado para escuchar, aprender y adaptarse. Las Mesas pilotean, el Mandato Vivo sintetiza, el Archivo de Memoria registra, el Tablero publica, y el sistema se ajusta. Un plan que no cambia ante la evidencia no es valiente — es sordo. Y un plan sordo sobre gobernanza en el primer país del mundo con plataforma cívica operativa es un plan muerto antes de arrancar.
 
 ---
 
-Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+## TESIS CENTRAL
 
-La exclusión decisional es otra forma de apagón. Ramona, Osvaldo, Carina y Federico no son excepciones — son el patrón. Cada provincia argentina tiene entre 500 y 2.000 personas con track record operativo demostrable en alguna materia pública: extensionistas, enfermeras, maestras, cuadros de carrera, productores con décadas en su tema, asambleístas que aprendieron a los golpes, albañiles que saben más de vivienda social que cualquier consultora. Son decenas de miles de argentinos que ya hicieron el trabajo — y que el sistema decisional trata como espectadores. El Hombre Gris cívico es el que se da cuenta de que su saber vale, de que su práctica cuenta, y de que la silla en la mesa no debería ser un privilegio heredado de la política profesional sino un derecho que se gana practicando. PLANMESA es el plan de ese despertar: el que convierte el saber apagado del territorio en la corteza deliberativa de la república.
+La legitimidad política en democracia moderna se construye sobre dos mecanismos: elección (el pueblo vota representantes) y designación (los representantes nombran funcionarios que deciden). Ambos mecanismos producen, sistemáticamente, tres patologías que explican por qué la calidad del gobierno es estructuralmente inferior a la capacidad real de la sociedad: primero, **la brecha entre elegibles y capaces** — la política profesional se autoselecciona por rasgos que tienen poca correlación con competencia en dominios específicos (carisma, red partidaria, capacidad de recaudar campañas); segundo, **la imposibilidad de deliberación técnica seria** — la agenda electoral obliga a prometer resultados en lugar de aprender, y la rotación de gabinete impide que alguien acumule profundidad operativa; tercero, **la invisibilización del saber cívico** — miles de personas en cada territorio que ya tienen competencia demostrable en una materia son excluidas del proceso decisional porque no se postularon al cargo electo correspondiente o no tienen padrinazgo político. La consecuencia es una república que no aprende: toma decisiones sobre temas que no estudia, no experimenta sus intervenciones antes de escalarlas, no mide sus resultados con rigor, y no inscribe sus aprendizajes de manera que la próxima generación no repita los errores. La Mesa Civil del decimoctavo mandato es la respuesta estructural: un órgano de deliberación y decisión vinculante donde la silla se gana por **mérito demostrado en la materia y en el territorio**, y donde la decisión no es un acto aislado sino un **ciclo de cuatro fases** — Aprender, Diseñar, Experimentar, Analizar (LDEA) — que somete toda intervención pública a la disciplina de la ciencia aplicada. El mérito no es credencialismo (títulos, pedigree, años de servicio en el Estado). Tampoco es populismo (quien más likes tiene, quien más votos saca, quien más comparte en redes). El mérito es **track record ciudadano auditable** sobre la materia específica: cursos de formación completados, señales declaradas en El Mapa, servicios prestados en Mesas previas, horas producidas en Tallers sobre el tema, vínculos de cuidado activos cuando la materia los requiere. Ese track record se registra en la plataforma ¡BASTA! como **Credencial de Materia** — un documento vivo, específico por dominio (agua, vivienda, salud, energía, cuidado, memoria, justicia, producción, etc.), auditable públicamente, revocable por manipulación detectada, decaible por inactividad sostenida. La Credencial se gana cumpliendo cinco capas: estudio, declaración, decisión, producción, vínculo. Las cinco o nada — un académico que leyó todo pero nunca contribuyó no tiene Credencial, un militante que contribuyó mucho pero nunca estudió tampoco, un opinador que declaró mucho en El Mapa pero nunca experimentó tampoco. Las cinco capas integran los otros órganos del ¡BASTA! (PLANTALLER para producción, PLANCUIDADO para vínculo, PLANMEMORIA para archivo) en una arquitectura única: no se puede ser ciudadano pleno en una materia sin haber engagement real en todas las dimensiones de esa materia. Cuando el **Mandato Vivo** detecta tensión territorial sobre una materia (densidad de señales en El Mapa, discordancia, ausencia de ciclo LDEA reciente), se abre automáticamente un **Caso de Mesa** con jurisdicción específica por escala (barrial, municipal, provincial, federal) y materia. Los ciudadanos con Credencial en la materia y el territorio se **auto-postulan** en una ventana pública de quince días. La composición se equilibra por roles exigidos — practicantes, afectados, estudiosos, ejecutores — evitando captura monolítica. La Mesa entra en **Fase APRENDER** con Consulta Ancestral automática del Archivo de Memoria: qué se intentó antes sobre este problema, qué resultó, qué capturas documentadas hubo, qué depósitos ciudadanos relevantes existen. Sin Consulta Ancestral firmada, la Mesa no avanza. Pasa a **Fase DISEÑAR** produciendo 2 o 3 propuestas rivales — no consensuadas forzadamente — con teoría de cambio explícita, escala piloto, métricas de éxito y falla, presupuesto y Taller ejecutor asignado. Pasa a **Fase EXPERIMENTAR**: cada propuesta va a un Taller del PLANTALLER para piloto acotado de 60-180 días, con los autores de la propuesta obligatoriamente participando del piloto (piel en el juego real, no diseño desde escritorio). Pasa a **Fase ANALIZAR**: la Mesa revisa evidencia y resuelve con voto firmado — qué propuesta escala, qué se mantiene experimental, qué se descarta y se registra como "ya se intentó, no funciona, motivo X". La Resolución se inyecta automáticamente al Arquitecto (activa iniciativa con cronograma) y se inscribe en PLANMEMORIA con lineage completo. La **Cédula Civil** del ciudadano — panel público de su perfil — acumula su servicio en Mesas, sus ciclos cerrados, sus resoluciones firmadas, su track record biográfico de participación. No es ranking ni puntaje — es biografía cívica legible. PLANMESA se apoya en la **Agencia de Mesa y Cédula Civil (AMCC)** — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo estratificado entre Síndicos de Archivo y paneles técnicos, que administra el Protocolo de Mesa, valida Credenciales, audita composición y sortea dietas de servicio. La AMCC no decide dentro de las Mesas — custodia la infraestructura que hace posible que las Mesas decidan bien. Los ciudadanos sirven entre dos y seis años por década en Mesas de distintas materias (sin obligatoriedad absoluta, con incentivo de dietas justas y reconocimiento público), acumulando biografía cívica multi-dominio que rompe el monopolio de la clase política profesional sin reemplazarla por otra oligarquía. La inversión anual estimada para régimen pleno (año 7+) es de USD 420-680M — 0.07% del PBI, menor que la asignación actual a presupuestos de publicidad oficial consolidada. El retorno no es fiscal directo: es **calidad decisional**. Estudios internacionales sobre deliberación ciudadana con expertise (OECD, 2020) muestran reducciones de 25-40% en reversión de políticas públicas por cambio de gobierno, reducciones de 30-50% en adjudicaciones con conflicto de interés, y reducción cercana a 60% en litigiosidad post-decisión. En un país que reabsorbió más de USD 180.000M en reversiones de política pública entre 2000 y 2024, esos puntos porcentuales se traducen en magnitudes macroeconómicas. PLANMESA se integra con el resto del ecosistema ¡BASTA!: con PLANTALLER (ejecuta la Fase 3 de cada ciclo LDEA), con PLANCUIDADO (aporta Capa de Vínculo a la Credencial y sustrato relacional que sostiene al servidor de Mesa durante ciclos largos), con PLANMEMORIA (provee precedentes a la Fase 1 y registra resoluciones en la Fase 4), con PLANDIG (infraestructura técnica de la plataforma), con PLANEDU (formación continua por materia como Capa de Estudio), con PLANJUS (Mesas especializadas en resolución de conflictos replican la arquitectura), con PLANSEG (Mesas de materia de seguridad de proximidad), con PLANAGUA, PLANVIV, PLANSAL, PLANEN, PLANEB, PLANSUS, PLANMON, PLAN24CN, PLANGEO, PLANCUL, PLANREP e PLANISV en cada materia que requiere decisión territorial con evidencia. No es un mandato más — es la **capa de ejecución decisional** que todos los mandatos necesitan. Sin PLANMESA, los demás PLANes quedan a merced de la clase política profesional para su implementación real. Con PLANMESA, los demás PLANes adquieren un mecanismo de activación, adaptación y escalamiento que responde a mérito cívico demostrado y a evidencia experimental, no a ciclo electoral ni a captura corporativa. La república deja de ser una institución donde la decisión es privilegio. Se vuelve una institución donde la decisión es práctica compartida con rigor.
 
-> *"Una república no aprende porque sus ciudadanos opinen más. Una república aprende porque sus ciudadanos practican — y porque la práctica queda inscrita."*
-
-Todo lo que PLANMESA propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. No es un plan perfecto — es un plan honesto. Está diseñado para escuchar, aprender y adaptarse: cada protocolo de este documento pasa, él mismo, por el ciclo LDEA que propone. Un plan que no cambia no es valiente — es sordo. Y un plan sordo sobre deliberación democrática sería, además de un fracaso, un chiste de mal gusto.
+*"Mesas no es deliberación. Es la disciplina republicana del aprender haciendo."*
 
 ---
 
-**Tesis Central:** La Argentina tiene un problema de aprendizaje, no de opinión. Más del 40% de sus políticas públicas estructurales son revertidas por el gobierno siguiente; el costo acumulado de esas reversiones entre 2000 y 2024 se estima entre **USD 180.000M y USD 420.000M según la metodología** (costo directo de obras y programas revertidos en el piso; costo total con oportunidad e intereses en el techo — estimación propia, sujeta a verificación) — entre un tercio y dos tercios de un PBI argentino tirados a la basura por un sistema que decide sin memoria, delibera sin método y nunca convoca a los que saben. PLANMESA propone la pieza institucional que falta: la **Mesa Civil** — un órgano de deliberación donde la silla no se hereda ni se sortea ni se compra: se **gana por mérito demostrado**, acreditado en una **Credencial de Materia** auditable que exige simultáneamente estudio, vínculo territorial y experiencia práctica; donde toda intervención pública estructural pasa por el **ciclo LDEA** (Aprender — con Consulta Ancestral obligatoria del archivo de PLANMEMORIA —, Diseñar — con propuestas rivales y métricas —, Experimentar — con pilotos reales ejecutados en los Talleres de PLANTALLER — y Analizar — con voto firmado e inscripción del resultado); donde cada ciudadano acumula su biografía cívica en una **Cédula Civil** portable; y donde las **Resoluciones de Mesa** generan path dependency cívica: el gobierno que quiera revertir una política nacida de un ciclo LDEA deberá convocar un nuevo ciclo con evidencia más robusta que la original. Todo administrado — nunca decidido — por la **AMCC** (Agencia de Mesa y Cédula Civil), ente autárquico con piso constitucional protegido del **0,07% del PBI**, gobernado por sorteo estratificado y paneles ciudadanos, con mandatos deliberadamente desfasados del ciclo electoral. Inversión total estimada: **USD 4.200–6.800M en 15 años** — menos de lo que el país pierde en un solo año promedio de reversiones —, financiada por piso constitucional, dietas de servicio y presupuesto nacional. Retorno esperado: una reducción del 25–40% en la reversión de políticas estructurales (de la cual PLANMESA reclama la porción atribuible a la calidad deliberativa y a la continuidad de mandatos; la porción atribuible a la consulta de memoria pertenece a PLANMEMORIA), una caída del 60% en la litigiosidad post-decisión, y un ROI conservador de 4:1 a 12:1. PLANMESA es el decimoséptimo de los 22 PLANes (al 23 de abril de 2026) del ecosistema ¡BASTA! y su **corteza deliberativa**: el órgano donde el cuerpo del país piensa antes de actuar, recuerda antes de pensar, y aprende después de actuar. No es deliberación. Es la disciplina republicana del aprender haciendo.
+## SECCIÓN 0: LAS OCHO FALLAS QUE MOTIVAN ESTE MANDATO
+
+> *"El peor enemigo de una Mesa bien diseñada no es la política profesional que va a querer destruirla. Es la ilusión de que sentar a cualquier ciudadano en una silla mejora la decisión. La Mesa sin mérito es asamblea sin filo. Y la asamblea sin filo termina siempre donde empezó: en la decisión del que grita más fuerte o del que tenía la agenda preparada."*
+
+Esta sección nombra las ocho fallas estructurales que invalidan los intentos previos de deliberación ciudadana y las respuestas técnicas que PLANMESA construye contra cada una. La honestidad adversarial es vacuna: la falla que nombramos primero es la falla que el adversario no puede usar como sorpresa.
+
+### 0.1 La Falla del Sorteo Puro
+
+**La falla:** los modelos de deliberación por sorteo (assemblées citoyennes francesas, Citizens' Assembly irlandesa, Bürgerrat alemán) seleccionan ciudadanos aleatoriamente, los forman brevemente en el tema, y los hacen deliberar. El supuesto es que la diversidad sortea la captura y la formación exprés cierra la brecha de conocimiento. El resultado empírico es parcial: funciona bien en preguntas morales acotadas (¿aborto?, ¿voto a los 16?) pero falla en decisiones técnicas complejas (planificación hidráulica, política monetaria, regulación energética). La formación breve no sustituye años de práctica. La deliberación se convierte en síntesis del mínimo común denominador, o en captura por el facilitador que tenía la agenda preparada.
+
+**Por qué es una amenaza real:** la Citizens' Assembly irlandesa sobre pensiones (2020) produjo recomendaciones que los economistas especializados consideraron técnicamente inviables. La Convention citoyenne pour le climat francesa (2020) emitió 149 propuestas de las cuales 146 fueron aceptadas "con reservas" por el gobierno y finalmente 38 implementadas con modificaciones sustanciales. El mecanismo fracasa porque trata a la deliberación como mejoradora natural de cualquier composición, cuando en realidad la composición determina la calidad de la deliberación.
+
+**Cómo PLANMESA lo resuelve:** sustituyendo sorteo puro por **auto-postulación con Credencial de Materia**. El sistema no elige a cualquier ciudadano — abre la silla a ciudadanos que ya demostraron engagement en la materia. La diversidad se preserva por la accesibilidad del camino (cualquier argentino puede empezar a construir Credencial mañana) y por la exigencia de composición plural (practicante + afectado + estudioso + ejecutor). La formación no es "en" la deliberación — es el prerrequisito que el ciudadano ya acumuló antes.
+
+**Riesgo residual:** la auto-postulación puede favorecer perfiles con tiempo libre y estabilidad económica, excluyendo a trabajadores informales y cuidadoras con sobrecarga. Mitigación: dietas de servicio por hora real incluyendo cuidado sustituto; formatos híbridos (asincrónicos, flexibles); cupos territoriales y etarios que obligan a ampliar la búsqueda.
+
+### 0.2 La Falla del Credencialismo
+
+**La falla:** el reverso del sorteo puro es el gobierno de los credencialistas — doctores, abogados, ingenieros, con títulos impecables y poder decisional concentrado. Este modelo asume que la formación académica predice competencia operativa, cuando en realidad la correlación es moderada. Argentina tiene un Estado poblado por licenciados que nunca operaron una escuela, un hospital ni una estación de bombeo. La competencia académica es un insumo, no un output.
+
+**Por qué es una amenaza real:** la Corte Suprema argentina ha sido históricamente un cuerpo credencialista puro — abogados con currículum impecable y cero track record operativo sobre los dominios que resuelven (minería, medio ambiente, derechos sociales, política monetaria). El resultado es jurisprudencia desconectada de realidad operativa, que el propio Estado no puede aplicar y la sociedad no puede acatar sin costo. El Banco Central en sus peores momentos (2018, 2023-2024) tuvo economistas con papers impecables sobre inflación implementando políticas que la realidad desmentía en 90 días.
+
+**Cómo PLANMESA lo resuelve:** la Credencial de Materia exige las cinco capas simultáneamente. La Capa de Estudio es necesaria pero no suficiente. Un Doctor en Hidráulica sin señales en El Mapa, sin producción en Tallers, sin servicio en Mesas previas, no tiene Credencial. Un vecino del Riachuelo que estudió menos pero declaró en El Mapa, produjo en Tallers de limpieza territorial, participó en Mesas barriales, sostiene Pactos de Cuidado con adultos mayores que viven el impacto — sí tiene Credencial. El sistema valora engagement integral por sobre pedigree.
+
+**Riesgo residual:** la exigencia de las cinco capas puede ralentizar la construcción de Credencial en materias de alta especialización técnica (ingeniería nuclear, cirugía cardíaca, derecho constitucional). Mitigación: Capas equivalentes por materia (en ingeniería nuclear, la Capa de Producción puede ser contribución en INVAP o un laboratorio del CONEA; en cirugía cardíaca, la Capa de Producción es práctica clínica con revisión por pares). El principio es: ninguna Capa es abstracta, todas son engagement real en el mundo.
+
+### 0.3 La Falla del Asambleísmo Permanente
+
+**La falla:** la deliberación continua abierta a todos, sin filtro ni disciplina, produce tres patologías: parálisis (nunca se decide), captura por activistas profesionales (los que tienen tiempo dominan), y degradación de calidad (opiniones sin evidencia desplazan a análisis fundamentado). Las asambleas del 2001 argentino son el caso de estudio: potencia cívica enorme, cero capacidad decisional sostenida, desaparición en menos de dos años.
+
+**Por qué es una amenaza real:** toda asamblea que no tiene mecanismo de cierre y responsabilidad por decisión se vuelve teatro participativo. Los Indignados en España (2011), Occupy Wall Street (2012), Nuit Debout en Francia (2016): tres casos donde la deliberación abierta produjo enunciados luminosos y cero infraestructura institucional perdurable. La excepción parcial son los cabildos mapuches tradicionales, que funcionan porque combinan apertura con disciplina de roles.
+
+**Cómo PLANMESA lo resuelve:** la Mesa no es asamblea abierta — es cuerpo acotado (entre 9 y 25 miembros según escala y materia) con plazo duro por fase, entregable firmado por fase, y responsabilidad nominada por resolución. El ciclo LDEA impone disciplina científica: sin Diagnóstico firmado, no hay Diseño; sin Diseño publicado, no hay Experimento; sin Experimento documentado, no hay Análisis; sin Análisis, no hay Resolución.
+
+**Riesgo residual:** la disciplina de ciclo puede expulsar a participantes que necesitan más tiempo para acompañar decisiones técnicas. Mitigación: Salas de Comentario pública paralela a la Mesa, donde la ciudadanía no credencialada puede aportar señal y observación; la Mesa recibe la señal pero conserva la responsabilidad decisional.
+
+### 0.4 La Falla de la Rotación Excesiva
+
+**La falla:** algunos modelos intentan prevenir la concentración de poder por rotación forzada (cambiar a todos cada año, cada seis meses). El resultado empírico es pérdida de profundidad: nadie conoce el expediente, nadie sabe qué se intentó antes, cada ciclo arranca de cero. La rotación mata el aprendizaje.
+
+**Por qué es una amenaza real:** los gobiernos argentinos en la última década rotaron ministerios clave cada 14 meses en promedio. El Ministerio de Salud tuvo nueve titulares entre 2015 y 2024. Ningún cuadro acumuló profundidad suficiente para ejecutar reformas de fondo. La rotación bien intencionada se volvió excusa de fragmentación.
+
+**Cómo PLANMESA lo resuelve:** **mandato por ciclo LDEA** — el miembro de Mesa entra al inicio del ciclo (Fase APRENDER) y sale al final (Fase ANALIZAR, Resolución firmada). Duración natural: 7 a 14 meses según materia. Puede reincorporarse a una próxima Mesa de la misma materia (acumulando profundidad), pero con tope: no más de tres ciclos consecutivos en la misma materia. Puede servir simultáneamente en Mesas de distintas materias (distintas Credenciales), pero con tope: no más de dos Mesas activas por vez. El diseño equilibra profundidad y pluralidad.
+
+**Riesgo residual:** topes pueden expulsar a practicantes excepcionalmente comprometidos. Mitigación: rol de **Síndico de Archivo** (ver PLANMEMORIA) disponible para ex-miembros de Mesa con Credencial Consolidada — continúan aportando memoria sin decidir.
+
+### 0.5 La Falla del Voto Individual sin Evidencia
+
+**La falla:** plebiscitos y referéndums invitan al ciudadano a decidir sobre materias complejas en aislamiento, con información segmentada por campañas y sin oportunidad de deliberar con quienes saben. El resultado es decisión por slogan, captura de grupos de presión, o simple ratificación del statu quo.
+
+**Por qué es una amenaza real:** el Brexit británico (2016) es el caso pedagógico. Decisión profunda de soberanía tomada por cincuenta y dos por ciento contra cuarenta y ocho, sin ciclo deliberativo estructurado, con información asimétrica masiva, con efectos económicos que ningún votante tenía forma de haber dimensionado. Catalunya (2017), Chile (2022), Colombia sobre el acuerdo con las FARC (2016): cada uno tiene su versión del mismo patrón.
+
+**Cómo PLANMESA lo resuelve:** el voto individual masivo queda para tres tipos de decisión acotada — representación política, ratificación constitucional, apertura o cierre de materias completas en el ecosistema. Todo lo demás pasa por Mesas con ciclo LDEA. La legitimidad no viene de "contar cabezas" sino de "haber hecho el trabajo". Esto no disminuye la democracia — la profundiza: el ciudadano promedio gana *más* influencia sobre las decisiones que le afectan porque puede construir Credencial en las materias que le importan, no porque vote cada dos o cuatro años.
+
+**Riesgo residual:** el sistema puede percibirse como "menos democrático" si la comunicación pública no explica la sustitución. Mitigación: Estrategia de comunicación (Sección 17) que posiciona a la Mesa como democracia profunda, no reemplazo de democracia.
+
+### 0.6 La Falla del "Experto Independiente"
+
+**La falla:** gobiernos contratan consultoras privadas para decidir cuestiones técnicas (BCG, McKinsey, estudios locales). El consultor externo no tiene skin in the game, ignora memoria institucional local, aplica plantilla replicada de otros países, y se retira. El Estado paga millones por un documento que ejecuta mal y nadie puede objetar porque "lo recomendó el experto". Es la privatización silenciosa de la decisión pública.
+
+**Por qué es una amenaza real:** la Argentina gastó en los últimos quince años más de USD 3.200M en consultorías externas sobre política pública (OCDE, BID, privados). El porcentaje de esas recomendaciones que produjeron cambio estructural sostenido es estadísticamente indistinguible de cero. La consultora cobra, el problema persiste, el ministro de turno acredita haber "modernizado" porque contrató al nombre que sonaba. La firma se va. La captura del conocimiento público se consumó.
+
+**Cómo PLANMESA lo resuelve:** la Mesa no contrata experto externo — integra al experto en su composición si el experto tiene Credencial de Materia real. Un consultor de BCG que nunca declaró en El Mapa, nunca produjo en Taller argentino, nunca sirvió en Mesa previa, nunca sostuvo Pacto de Cuidado en territorio argentino, no tiene Credencial y no puede ser consultado en formato decisional. Puede ser invitado como testigo informativo — uno más entre varios, con el peso de un aporte, no de una firma. La experticia externa queda subordinada a la experticia cívica demostrada.
+
+**Riesgo residual:** se puede perder acceso a conocimiento comparado valioso. Mitigación: la Fase APRENDER de la Mesa convoca testigos informativos internacionales con transparencia de pago y revisión cruzada, sin transferir autoridad decisional.
+
+### 0.7 La Falla del Tiempo Ciclado
+
+**La falla:** todo gobierno argentino entra con promesas de reforma estructural y sale con el tiempo agotado. Los primeros dos años se pierden aprendiendo el puesto, los últimos dos en campaña de reelección. El cuerpo decisional nunca acumula profundidad suficiente para aprendizaje iterativo. Cuatro años es demasiado poco para aprender, demasiado poco para experimentar, demasiado poco para medir.
+
+**Por qué es una amenaza real:** el análisis de política pública argentina 1983-2024 muestra un patrón: gobiernos que arrancan con planes maestros ambiciosos producen, en promedio, ejecución sostenida del 17% de sus compromisos al momento de abandonar el poder. El 83% queda como fragmento, reversión, o pseudo-implementación cosmética.
+
+**Cómo PLANMESA lo resuelve:** la Mesa **sobrevive al ciclo electoral**. Un ciclo LDEA se inicia bajo un gobierno y se cierra bajo el siguiente si es necesario. La Resolución firmada inyectada al Arquitecto no se puede revertir por decreto — la Mesa que la emitió tiene que convocar un nuevo ciclo LDEA con evidencia, y la evidencia de reversión tiene que ser más robusta que la evidencia original. Esto crea **path dependency cívica** que la rotación de gobiernos no puede romper fácilmente.
+
+**Riesgo residual:** un gobierno decidido a destruir el sistema puede intentar vaciar a la AMCC presupuestariamente. Mitigación: presupuesto constitucional protegido y distribuido en la red de Mesas (ver Sección 4.4).
+
+### 0.8 La Falla del Aprendizaje Ausente
+
+**La falla:** la Argentina repite sus ciclos porque no inscribe lo que aprendió. Cada generación de funcionarios redescubre los mismos errores. No existe archivo operativo que la Mesa siguiente consulte antes de decidir.
+
+**Por qué es una amenaza real:** el Plan Federal de Vivienda fracasó con patrones idénticos en 1995, 2005, 2012 y 2019. Nadie tenía acceso operativo a las autopsias previas. El Plan de Reconversión de Trenes de Carga fracasó tres veces con las mismas razones. La política de empalme público-privado en salud colapsó cuatro veces con las mismas fisuras.
+
+**Cómo PLANMESA lo resuelve:** la **Consulta Ancestral** es paso obligatorio de la Fase APRENDER. Ninguna Mesa avanza sin revisar y firmar los precedentes del Archivo PLANMEMORIA. La experiencia acumulada se convierte en input activo de la deliberación, no en libro que nadie lee.
+
+**Riesgo residual:** el archivo puede crecer hasta el punto de hacer difícil la consulta. Mitigación: curaduría activa por Síndicos de Archivo; síntesis automáticas por materia; Consulta Ancestral asistida por el sistema (trae lo relevante sin exigir búsqueda manual).
 
 ---
 
-## SECCIÓN 1: LA CRISIS — LA REPÚBLICA QUE DECIDE SIN APRENDER
+## SECCIÓN 1: LA CRISIS — LA REPÚBLICA QUE NO APRENDE
 
-> *"Reversión no es corrección. Corregir es cambiar porque la evidencia cambió. Revertir es cambiar porque el gobierno cambió."*
+> *"Una república no aprende porque sus ciudadanos opinen más. Una república aprende porque sus ciudadanos practican y la práctica está inscrita. Argentina opina más que casi cualquier país del mundo — y aprende menos que casi cualquier país del mundo. La relación no es casualidad."*
 
-### 1.1 Las Tres Patologías del Sistema Decisional Argentino
+### 1.1 El Costo de No Aprender
 
-La legitimidad política argentina se apoya sobre dos mecanismos — la elección y la designación — y los dos están agotados para un tipo específico de decisión: la política pública estructural, la que necesita más de un mandato para madurar y más de una disciplina para diseñarse. Sobre ese tipo de decisión, el sistema produce tres patologías que se refuerzan entre sí:
+Argentina es el país del mundo que más veces reformó estructuralmente su política monetaria, educativa, jubilatoria, energética y sanitaria en los últimos cincuenta años. Cada reforma fue presentada como la definitiva. Cada reforma fue revertida, total o parcialmente, por la siguiente generación de gobierno. El costo acumulado no se mide en pesos — se mide en décadas perdidas.
 
-**Patología 1: La brecha entre elegibles y capaces.** El sistema electoral selecciona por capacidad de campaña, no por capacidad de materia. El sistema de designación selecciona por lealtad o por pedigree académico, no por práctica demostrada. El resultado es que las personas que deciden sobre el agua casi nunca trabajaron en agua; las que deciden sobre vivienda casi nunca construyeron ni adjudicaron ni mantuvieron vivienda; las que deciden sobre salud rural casi nunca pisaron una posta sanitaria. No es un problema de mala fe — es un problema de filtro. El filtro de acceso a la decisión no mide lo que la decisión necesita.
+**TABLA 1.1: El Costo de Reformar sin Aprender — Ciclos de Reversión Mayor**
 
-**Patología 2: La imposibilidad de deliberación técnica seria.** El Congreso delibera con lógica de bloque: la posición se define antes del debate y el debate es teatro. Los consejos consultivos deliberan sin consecuencia: lo que concluyen no obliga a nadie. Las audiencias públicas son monólogos secuenciales de tres minutos. Y las consultorías privadas — que es donde terminó residiendo la deliberación técnica real del Estado argentino — deliberan a puertas cerradas, sin rendición de cuentas, facturando por documento y no por resultado. No existe en la arquitectura institucional argentina un solo espacio donde gente competente delibere con método, con tiempo, con evidencia y con consecuencia vinculada a lo que concluya.
-
-**Patología 3: La invisibilización del saber cívico.** Cada provincia tiene entre 500 y 2.000 personas con track record operativo demostrable en materias públicas — cuadros de carrera, extensionistas del INTA, productores con décadas en su materia, asambleístas del 2001 que aprendieron deliberación a los golpes, maestras, enfermeras, curanderas que conocen la salud territorial real, albañiles que saben por qué se cae lo que se cae. Estimación nacional conservadora: entre 12.000 y 48.000 personas con saber operativo acumulado y verificable. Convocadas a decidir: cero. El sistema no tiene siquiera el *concepto* de ese saber — no lo registra, no lo acredita, no lo consulta, no lo premia. Lo deja morir en carpetas de cartón con elásticos, como la de Ramona.
-
-**TABLA 1: El Sistema Decisional Argentino — Síntomas Medibles**
-
-| Indicador | Valor | Fuente / Método |
-|---|---|---|
-| Políticas públicas estructurales revertidas por el gobierno siguiente | ~42% | Estimación propia sobre muestra de programas nacionales 1990–2024 — sujeta a verificación |
-| Tasa de consulta de precedente documentado antes de decidir | ~11% | Estimación propia sobre expedientes de programas relevados — sujeta a verificación |
-| Rotación de cuadros técnicos en el primer año de un nuevo gobierno | ~60% | Estimación sectorial convergente — sujeta a verificación |
-| Programas nacionales con evaluación ex-post publicada | ~8% | Relevamiento de programas 2003–2023 — sujeta a verificación |
-| Reformas previsionales en 30 años | 4 | Registro legislativo |
-| Modelos monetarios en 30 años | 5 | Convertibilidad, flotación administrada, cepo, dolarización parcial, esquemas mixtos |
-| Red ferroviaria perdida desde su pico | ~95% del tendido operativo de pasajeros interurbano | CNRT, registros históricos |
-
-Cada fila de esta tabla es la misma enfermedad vista desde un ángulo distinto: la Argentina decide mucho, decide rápido, decide fuerte — y no aprende casi nada de lo que decide. El país opina más que casi cualquier otro y aprende menos que casi cualquier otro. La relación no es casualidad: la opinión sin práctica inscrita es ruido, y el ruido no se acumula.
-
-### 1.2 El Costo de la Reversión — Metodología y Rango
-
-¿Cuánto cuesta que un país revierta sistemáticamente sus propias políticas? La pregunta es incómoda porque nadie la mide — no existe en el Estado argentino un registro de costo de reversión, lo cual es en sí mismo un síntoma. PLANMESA presenta una estimación propia, en rango, con metodología explícita:
-
-**TABLA 2: Costo Acumulado de Reversión de Política Pública Estructural, Argentina 2000–2024**
-
-| Metodología | Qué incluye | Estimación |
-|---|---|---|
-| **Estrecha** (costo directo) | Inversión pública ejecutada en obras, programas e instituciones posteriormente desmanteladas, abandonadas o re-creadas bajo otro nombre con pérdida del capital organizacional | USD 180.000M |
-| **Amplia** (costo total) | Lo anterior + costo de oportunidad del capital, intereses de deuda asociada a inversión perdida, costo de re-construcción de capacidades desmanteladas, y pérdidas privadas inducidas por reversión regulatoria | USD 420.000M |
-
-```
-CAJA METODOLÓGICA — LEER ANTES DE CITAR
-
-Estas cifras son ESTIMACIÓN PROPIA del equipo de PLANMESA, sujetas a
-verificación, construidas por agregación de casos documentados (planes
-de vivienda, programas sanitarios, reconversiones ferroviarias, reformas
-previsionales, esquemas energéticos y regímenes de promoción industrial
-revertidos entre 2000 y 2024) más extrapolación al universo de programas
-no relevados. El piso (USD 180.000M) cuenta solo plata ejecutada y
-perdida. El techo (USD 420.000M) suma costos indirectos cuya atribución
-es discutible caso por caso. La verdad está adentro del rango; dónde
-exactamente, lo dirá el Registro Nacional de Reversiones que la AMCC
-construirá en Fase 0 — porque un país serio mide lo que le duele.
-Para dimensionar: el rango equivale a entre un tercio y dos tercios
-del PBI argentino corriente. No "dos PBI" — no exageramos: no hace falta.
-```
-
-Para hacer visceral el número: el piso del rango — USD 180.000M — equivale a unas **veinte veces el presupuesto universitario nacional anual**, o a construir el sistema de agua y saneamiento completo que PLANAGUA proyecta, **más** la infraestructura digital soberana de PLANDIG, **más** la red de Talleres Federales de PLANTALLER — con vuelto. Es la plata con la que la Argentina habría podido construir el siglo XXI, gastada en construir y demoler alternadamente el siglo XX.
-
-Y el dato más importante de la tabla no es ninguna de las dos cifras. Es esto: **el costo no lo perdió un gobierno corrupto — lo perdió un sistema que decide sin aprender.** La corrupción explica una fracción; la mayor parte del derroche fue perfectamente legal, perfectamente documentada, y perfectamente repetida. El Plan Federal de Vivienda fracasó con patrones idénticos en 1995, 2005, 2012 y 2019. La reconversión de trenes de carga fracasó tres veces por las mismas razones. Cada generación de funcionarios redescubrió los errores que la anterior había documentado — porque el archivo existe pero nadie está obligado a leerlo, y porque los que sí lo leyeron nunca tuvieron silla.
-
-### 1.3 La Trampa de las Dos Puertas
-
-Cuando se plantea abrir la decisión pública más allá de la política profesional, el debate argentino queda atrapado entre dos puertas — y las dos están mal:
-
-**Puerta 1: la elección.** "Que se presenten a elecciones." Pero la elección mide popularidad y capacidad de campaña, no competencia de materia. Ramona Quiroga jamás va a ganar una interna partidaria — y no debería tener que ganarla para aportar treinta y un años de saber sobre el agua del Chaco semiárido. Exigir campaña electoral como peaje de acceso a la decisión técnica es como exigir que los cirujanos se elijan por voto popular: confunde dos legitimidades distintas.
-
-**Puerta 2: el credencialismo académico.** "Que decidan los expertos." Pero el título mide estudio, no práctica ni territorio. La consultora que facturó USD 1,8M por el plan de riego que Ramona habría corregido en una tarde estaba llena de gente con posgrados. El saber académico es necesario y PLANMESA lo integra — pero como una capa entre varias, no como llave maestra. Un país gobernado solo por credenciales académicas reemplaza la oligarquía política por la oligarquía de los papers, y el territorio sigue sin silla.
-
-PLANMESA rompe la trampa con una tercera puerta: **la decisión se gana practicando.** Ni voto ni título como condición suficiente — track record auditable, multi-capa, construido en la materia y en el territorio, verificable por cualquiera. La sección 5 detalla cómo.
-
-### 1.4 Lo Que la Deliberación Ciudadana Pura Ya Demostró No Resolver
-
-Conviene ser brutales con nuestro propio campo: la deliberación ciudadana, tal como se practicó en el mundo y en la Argentina, también tiene un prontuario de límites. La Citizens' Assembly irlandesa y la Convention Citoyenne francesa — los dos experimentos más serios del siglo — demostraron que ciudadanos sorteados pueden deliberar con calidad sorprendente *y* que la formación breve no sustituye años de práctica: los miembros dependieron casi totalmente del panel de expertos que les armó el menú de evidencia, y quien arma el menú decide media comida. Las asambleas argentinas del 2001 — el experimento de Osvaldo — demostraron que la asamblea abierta sin ciclo, sin método y sin consecuencia termina capturada por quien tenga la agenda preparada y el tiempo libre, y muere por desgaste en meses.
-
-La conclusión de PLANMESA no es "la deliberación ciudadana no funciona". Es más fina: **la deliberación funciona cuando tiene disciplina, mérito de entrada, método de proceso y consecuencia de salida — y fracasa cuando le falta cualquiera de las cuatro.** Sorteo sin mérito produce dependencia del experto. Mérito sin método produce tecnocracia territorial. Método sin consecuencia produce teatro participativo. PLANMESA está diseñado, pieza por pieza, contra esos cuatro modos de falla — y la Sección 3 revisa la evidencia mundial que lo respalda.
-
-### 1.5 Qué Pasa Si No Cambiamos
-
-Proyección a 25 años sin PLANMESA, manteniendo las tasas actuales de reversión y desaprendizaje:
-
-**TABLA 3: Escenario Inercial 2026–2050**
-
-| Dimensión | Proyección | Base |
-|---|---|---|
-| Costo adicional de reversiones | USD 500.000M+ | Extrapolación del rango 2000–2024 con crecimiento del gasto público — estimación, sujeta a verificación |
-| Captura profesional de la decisión | Consolidada | Sin mecanismo meritocrático ciudadano, la política profesional y las consultoras mantienen el monopolio |
-| Saber cívico territorial | Extinguiéndose | La generación de cuadros formados en los 80–90 (las Ramonas) se jubila sin transferir; su saber muere con sus carpetas |
-| Participación ciudadana | Voto cada 2–4 años + indignación digital | La sociedad civil se profesionaliza vía ONG o se apaga por desánimo |
-| Calidad democrática | Democracia delegativa terminal | Un sistema que no puede corregirse no es plenamente una república: es una rotación de monólogos |
-
-El escenario inercial no es una catástrofe súbita — es algo peor: una hemorragia lenta a la que el cuerpo se acostumbra. Cada reversión individual es defendible ("el plan anterior era malo"); la suma es indefendible. Cada generación que decide sin archivo es comprensible ("no había tiempo"); la suma es un país que a los 200 años de su independencia sigue debatiendo lo mismo que a los 150, con menos trenes.
-
----
-
-## SECCIÓN 2: EL INGREDIENTE — POR QUÉ UN ARGENTINO ELEGIRÍA SENTARSE
-
-> *"Ningún plan funciona por sus instituciones. Funciona por la gente que decide entrar. Las instituciones solo deciden si vale la pena quedarse."*
-
-Todo plan de ¡BASTA! responde la misma pregunta antes de detallar arquitectura: ¿por qué una persona concreta, con su vida concreta, elegiría participar? Si la respuesta no es obvia, el plan es un organigrama. Estas son las respuestas de PLANMESA.
-
-### 2.1 Ramona — porque la Credencial le devuelve treinta años
-
-Para Ramona Quiroga, construir su Credencial de Materia en Agua es casi un trámite: su capa de Estudio la acreditan sus cursos del INTA y la formación de PLANEDU que tomará a su ritmo; su capa de Vínculo la acreditan tres décadas de relación documentable con las comunidades del Salado del Norte; su capa de Experiencia — declaraciones, decisiones de campo, producción técnica — está literalmente en la carpeta de cartón. La Cédula Civil convierte la carpeta en biografía cívica verificable. Y cuando el Mandato Vivo detecte la próxima tensión hídrica en el Chaco semiárido y se abra el Caso de Mesa, Ramona va a poder auto-postularse en la ventana pública de 15 días — y ganarse la silla con lo que sabe. No le regalan nada. Le reconocen todo. Esa es la diferencia entre el clientelismo y el mérito: el clientelismo te da lo que no hiciste; PLANMESA te acredita lo que hiciste.
-
-### 2.2 Osvaldo — porque esta vez la asamblea tiene esqueleto
-
-Osvaldo juró no volver a una asamblea. Pero lo que PLANMESA le ofrece no es una asamblea: es lo que la asamblea de Lanús habría sido con arquitectura. Entrada por mérito (el militante profesional con agenda preparada no puede capturar lo que no puede acreditar), método con fases (el ciclo LDEA tiene tiempos, entregables y cierre — no se delibera para siempre), dieta de servicio (deliberar no compite con parar la olla), y consecuencia real (la Resolución firmada entra al sistema y obliga respuesta). Osvaldo tiene además algo que ni él valora: experiencia deliberativa de primera mano, la capa más rara de todas. Hay un lugar específico en las Mesas para los veteranos del 2001 — los que saben cómo muere una deliberación son los mejores guardianes de una viva.
-
-### 2.3 Carina — porque la silla llega antes que el PowerPoint
-
-Para Carina, el incentivo es quirúrgico: la próxima vez que la Nación rediseñe la atención primaria patagónica, el ciclo LDEA *empieza* — fase APRENDER — consultando el archivo de los cuatro programas muertos y convocando a quienes los vivieron. Carina no opina al final sobre un plan cerrado: delibera al principio sobre un plan abierto. Y cuando la Resolución se firme, su firma está ahí — con su nombre, con su Credencial, con su reputación. Si el programa funciona, queda inscrito. Si fracasa, también — y el análisis del fracaso lleva su análisis. Carina no quiere poder. Quiere que lo que sabe no se tire más a la basura. PLANMESA es exactamente eso: un sistema nacional anti-tirar-a-la-basura.
-
-### 2.4 Federico — porque el archivo deja de ser un depósito
-
-Federico es el candidato natural a **Síndico de Archivo**: el rol que custodia la Consulta Ancestral, la fase donde cada Mesa está *obligada* a leer lo que el país ya aprendió antes de decidir de nuevo. Su hallazgo de 2024 — los cuatro expedientes idénticos — deja de ser una anécdota deprimente y se convierte en el primer documento de "Precedentes Considerados" de la Mesa de Vivienda de Entre Ríos. El Estado que lo formó por concurso y después lo ignoró durante una década le da, por fin, el uso para el que se formó. Y su carrera deja de depender del humor del gobierno de turno: la AMCC tiene mandatos desfasados del ciclo electoral precisamente para que los Federicos del país puedan trabajar a horizonte de década.
-
-### 2.5 El patrón
-
-Cuatro personas, un solo mecanismo: **PLANMESA convierte saber acumulado en derecho de decisión, y decisión en aprendizaje inscrito.** El ingrediente no es el civismo abstracto — es el reconocimiento concreto. La Argentina está llena de gente que sabe y a la que nunca le preguntaron. Ese resentimiento silencioso — el del competente ignorado — es una de las energías políticas más grandes y menos organizadas del país. PLANMESA la organiza.
-
----
-
-## SECCIÓN 3: LECCIONES DEL MUNDO — SEIS EXPERIMENTOS, UNA SÍNTESIS
-
-> *"Copiar es de vagos. Ignorar es de soberbios. Aprender es leer el experimento ajeno con la pregunta propia."*
-
-La deliberación ciudadana institucional no es una hipótesis: es un campo experimental con cuarenta años de datos modernos y veinticinco siglos de datos antiguos. PLANMESA leyó ese campo con una pregunta específica — *¿qué le faltó a cada experimento para convertirse en sistema permanente de decisión que aprende?* — y construyó su arquitectura como respuesta acumulada. Seis casos, seis lecciones.
-
-### 3.1 Irlanda — La Citizens' Assembly que Movió lo Inamovible
-
-Entre 2016 y 2018, 99 ciudadanos irlandeses sorteados — más un presidente designado — deliberaron durante fines de semana sucesivos sobre el tema más radiactivo de la política irlandesa: la octava enmienda constitucional, que prohibía el aborto. Recibieron evidencia de 25 expertos, escucharon 300 presentaciones de organizaciones y ciudadanos, deliberaron en mesas pequeñas con facilitación profesional, y recomendaron por 64% la liberalización — una posición más avanzada que la de cualquier partido. El referéndum de 2018 validó la recomendación con el 66,4% de los votos. La asamblea logró lo que treinta años de política profesional no habían podido: procesar un tema que el sistema de partidos solo sabía esquivar.
-
-**Los números:** 99 miembros + presidente; 5 temas tratados en 2016–2018; costo aproximado de EUR 1,5–2M por ciclo temático; dos referendos constitucionales ganados sobre sus recomendaciones (aborto 2018, blasfemia 2018).
-
-**El límite:** la asamblea era *ad hoc y consultiva*. Cada ciclo moría al entregar su informe; el saber deliberativo acumulado por esos 99 ciudadanos se disolvía; y el Parlamento conservaba discrecionalidad total para cajonear recomendaciones (varias siguen cajoneadas). Irlanda demostró que el ciudadano sorteado delibera bien — y que la deliberación sin permanencia institucional depende de la buena voluntad del poder que la convocó.
-
-**Lección para PLANMESA:** la calidad deliberativa ciudadana está empíricamente probada — el problema a resolver no es la capacidad, es la *continuidad y la consecuencia*. PLANMESA institucionaliza lo que Irlanda improvisó: Mesas permanentes por materia, Credencial que acumula el saber deliberativo en lugar de disolverlo, y obligación de respuesta fundada como piso de consecuencia desde el primer día.
-
-### 3.2 Ostbelgien — El Primer Consejo Ciudadano Permanente del Mundo
-
-En 2019, la comunidad germanófona de Bélgica (Ostbelgien, 78.000 habitantes) hizo lo que ningún sistema político moderno había hecho: creó por decreto un **consejo ciudadano permanente** — el Bürgerrat — de 24 miembros sorteados con mandato de 18 meses, que fija agenda, convoca asambleas ciudadanas temáticas de 25–50 personas, y *monitorea formalmente* qué hace el parlamento regional con cada recomendación. El parlamento está obligado a debatir cada recomendación y a justificar públicamente, ante el consejo, cualquier rechazo. No es vinculante — pero la obligación de respuesta fundada con seguimiento institucional resultó, en la práctica, casi tan eficaz: la mayoría de las recomendaciones se implementaron total o parcialmente.
-
-**Los números:** 24 consejeros permanentes rotativos; mandatos de 18 meses desfasados (un tercio se renueva cada 6 meses); presupuesto anual modesto (~EUR 200.000 — el costo de dos consultores senior porteños); operando sin interrupción desde 2019, sobreviviendo ya a cambios de gobierno.
-
-**El límite:** la escala. Ostbelgien es del tamaño de Comodoro Rivadavia. El modelo nunca fue testeado sobre un país de 46 millones con 24 jurisdicciones federales y una cultura política de suma cero. Y el sorteo puro de Ostbelgien no resuelve el problema de la materia técnica compleja: el consejero sorteado sigue dependiendo del experto que le presenta la evidencia.
-
-**Lección para PLANMESA:** la permanencia con mandatos desfasados es la tecnología institucional clave contra la captura electoral — la AMCC la adopta directamente (gobernanza con mandatos que nunca coinciden con el ciclo electoral). Y la obligación de respuesta fundada con monitoreo es un mecanismo de fuerza real aun sin vinculancia formal — PLANMESA la usa como puente constitucional completo en Fases 0–2 (Sección 8). Lo que PLANMESA agrega donde Ostbelgien no llegó: mérito de entrada para la materia compleja.
-
-### 3.3 Taiwán — vTaiwan, g0v y la Deliberación Aumentada
-
-Después del Movimiento de los Girasoles (2014), Taiwán convirtió la energía de la protesta en infraestructura deliberativa. La comunidad cívico-hacker g0v ("gov zero") construyó, junto al gobierno, la plataforma **vTaiwan**: deliberación digital masiva donde miles de ciudadanos mapean el espacio de opiniones con Pol.is — un sistema que visualiza consensos emergentes en lugar de amplificar la pelea —, convergen en principios compartidos, y entregan al regulador un mandato de diseño. Casos célebres: la regulación de Uber (2015), el alcohol online, el fintech sandbox. Alrededor del 80% de los procesos vTaiwan derivaron en acción regulatoria concreta.
-
-**Los números:** ~200.000 participantes acumulados en procesos vTaiwan; 26+ casos regulatorios tratados; Pol.is logró consensos del 80%+ en temas donde el debate tradicional solo producía trincheras; costo marginal por proceso: bajísimo (plataforma + facilitación).
-
-**El límite:** vTaiwan funcionó para regulación tecnológica de alcance acotado y participación auto-seleccionada digital — nunca procesó política estructural de largo plazo (previsión, vivienda, agua) ni resolvió la representatividad del que no está online. Y dependió críticamente de una funcionaria excepcional (Audrey Tang) y de una ventana política — cuando la ventana se cerró, el sistema se desaceleró: la persona no es una institución.
-
-**Lección para PLANMESA:** la tecnología deliberativa importa — mapear consenso en lugar de amplificar conflicto cambia el resultado — y por eso la plataforma de Mesa Civil corre sobre PLANDIG con herramientas tipo Pol.is en fase APRENDER y DISEÑAR. Pero la lección mayor es negativa: **un sistema que depende de una persona o de una ventana política no es un sistema.** PLANMESA se blinda con ley, piso presupuestario constitucional y agencia autárquica — no con carisma.
-
-### 3.4 Francia — La Convention Citoyenne y la Traición Pedagógica
-
-En 2019–2020, 150 ciudadanos franceses sorteados deliberaron durante 8 fines de semana sobre cómo reducir emisiones 40% para 2030 "con espíritu de justicia social". Produjeron 149 propuestas de calidad técnica reconocida hasta por sus críticos. El presidente Macron había prometido pasarlas "sin filtro" a referéndum o parlamento. Pasó lo previsible: el filtro. Alrededor del 10% se implementó razonablemente completo; el resto fue diluido, descartado o desfigurado. Los convencionales mismos calificaron la respuesta gubernamental con un 3,3 sobre 10. El experimento deliberativo más ambicioso de Europa terminó enseñando, sobre todo, cómo se destruye la confianza cívica: convocando a la gente a deliberar en serio y después tratando su trabajo como una encuesta cara.
-
-**Los números:** 150 miembros; 8 sesiones; EUR 5,4M de costo; 149 propuestas; ~10% implementación plena; 3,3/10 de satisfacción de los propios convencionales con el seguimiento.
-
-**El límite (y la lección entera):** el eslabón entre deliberación y decisión era una *promesa personal* — no un mecanismo. Cuando la promesa chocó con el costo político, perdió la promesa. La Convention demostró simultáneamente la madurez deliberativa de los ciudadanos y la inmadurez institucional del vínculo deliberación-decisión.
-
-**Lección para PLANMESA:** **nunca construir sobre promesas — construir sobre obligaciones jurídicas escalonadas.** PLANMESA codifica el destino de cada Resolución *antes* de que la Mesa delibere: en Fases 0–2, obligación legal de respuesta fundada con plazos y seguimiento público en el Tablero; desde Fase 3, adhesión legislativa que pre-compromete el tratamiento; en Régimen Pleno, rango constitucional. El ciudadano que se sienta a una Mesa sabe exactamente qué fuerza tiene su firma — y esa certeza es la diferencia entre participar y ser usado.
-
-### 3.5 Porto Alegre — El Presupuesto Participativo y la Muerte por Alternancia
-
-Desde 1989, Porto Alegre sometió una porción creciente de su presupuesto municipal de inversión a asambleas vecinales: los vecinos priorizaban obras, delegados electos seguían la ejecución, y el ciclo se repetía anualmente. Los resultados de la primera década son de manual: el acceso a agua y cloacas en las zonas pobres saltó del 80% al 98% (agua) y del 46% a más del 85% (saneamiento), la asignación se volvió pro-pobre de manera medible, y el modelo se replicó en más de 1.500 ciudades del mundo. Era, hasta su declive, la prueba más sólida de que la participación popular mejora la asignación de recursos públicos.
-
-**Los números:** ~50.000 participantes anuales en su pico; hasta 21% del presupuesto municipal decidido participativamente; 1.500+ réplicas globales; mejoras documentadas por evaluaciones del Banco Mundial.
-
-**El límite:** en 2004 cambió el signo político del municipio — y el presupuesto participativo, que era una *política de gobierno* y no una *institución de Estado*, fue vaciado en una década: menos plata real sometida a decisión, menos respuesta a las prioridades votadas, participación en caída, suspensión final. Treinta años de capital cívico acumulado, evaporados por no tener blindaje institucional.
-
-**Lección para PLANMESA:** la participación que depende del partido gobernante muere con el partido gobernante — *exactamente la enfermedad que PLANMESA viene a curar no puede estar en el remedio*. De ahí las tres vacunas estructurales: ley (no decreto ni programa), piso constitucional del 0,07% PBI (la plata no se negocia cada año), y AMCC autárquica con mandatos desfasados (la conducción no rota con el gobierno). Si PLANMESA puede ser desarmado por un cambio de gobierno, PLANMESA está mal diseñado.
-
-### 3.6 Atenas — El Sorteo, la Rendición de Cuentas y los 2.400 Años de Ventaja
-
-La democracia ateniense (508–322 a.C.) no usaba la elección para los cargos públicos — la consideraba *aristocrática*, porque favorece al rico, al famoso y al elocuente. Usaba el **sorteo** (la Boulé de 500, los tribunales populares de hasta 6.000 jurados) combinado con cuatro tecnologías que el constitucionalismo moderno olvidó: el **dokimasía** (examen de aptitud previo a asumir — el sorteado debía demostrar condiciones mínimas), la **euthyna** (rendición de cuentas obligatoria al terminar el mandato — todo cargo respondía con su patrimonio y su ciudadanía por lo hecho), la **rotación corta** (nadie se profesionalizaba en el poder), y el **misthós** (dieta de servicio — se pagaba la participación para que el pobre pudiera permitírsela). Para los cargos que exigían pericia real — los estrategos militares, las finanzas — Atenas usaba elección por mérito demostrado. El sistema operó casi dos siglos y produjo el siglo de oro de su civilización.
-
-**El límite:** escala cara-a-cara (30.000–60.000 ciudadanos plenos), exclusiones brutales (mujeres, esclavos, extranjeros — la lección es del mecanismo, no de la moral), y vulnerabilidad a la demagogia asamblearia en decisiones de guerra (Sicilia, 415 a.C.: la asamblea votó la expedición que destruyó al imperio — deliberación sin fase EXPERIMENTAR).
-
-**Lección para PLANMESA:** los griegos ya habían resuelto piezas que los experimentos modernos reinventan a medias. El *dokimasía* es la Credencial de Materia (aptitud demostrada antes de la silla). La *euthyna* es el voto firmado y la Resolución con nombre (respondés por lo que decidiste). El *misthós* es la dieta de servicio (la participación no puede ser un lujo de ricos). La rotación es el mandato acotado por ciclo LDEA (7–14 meses y la Mesa se disuelve). Y Sicilia es el argumento definitivo de la fase EXPERIMENTAR: **ninguna decisión estructural escala sin piloto previo.** PLANMESA es, en un sentido preciso, la síntesis ateniense corregida: sorteo donde corresponde sorteo, mérito donde corresponde mérito, paga, examen, rendición de cuentas — y un piloto antes de Sicilia.
-
-### 3.7 Síntesis Comparada
-
-**TABLA 4: Seis Experimentos Deliberativos — Qué Probó Cada Uno y Qué le Faltó**
-
-| Caso | Qué probó | Qué le faltó | Qué adopta PLANMESA |
-|---|---|---|---|
-| Irlanda 2016–2018 | El ciudadano sorteado delibera con calidad sobre temas radiactivos | Permanencia; consecuencia obligatoria; acumulación del saber deliberativo | Mesas permanentes por materia; respuesta fundada obligatoria; Credencial que acumula |
-| Ostbelgien 2019– | La permanencia institucional con mandatos desfasados sobrevive a los gobiernos | Escala nacional; mecanismo de mérito para materia compleja | Mandatos desfasados en AMCC; Credencial de Materia como filtro de entrada |
-| Taiwán 2014– | La tecnología de consenso cambia el resultado deliberativo | Independencia de personas y ventanas políticas; política estructural de largo plazo | Plataforma sobre PLANDIG; blindaje por ley + piso constitucional, no por carisma |
-| Francia 2019–2020 | 150 ciudadanos producen política climática de calidad técnica | Eslabón jurídico entre recomendación y decisión — la promesa no alcanzó | Destino de cada Resolución codificado por ley antes de deliberar; escalera de vinculancia |
-| Porto Alegre 1989–2016 | La participación popular mejora la asignación de recursos, con evidencia dura | Blindaje contra la alternancia política — era política de gobierno, no institución de Estado | Ley + AMCC autárquica + piso 0,07% PBI: ningún gobierno puede desfinanciarlo por decreto |
-| Atenas 508–322 a.C. | Sorteo + examen + paga + rendición de cuentas operan como sistema completo | Escala; inclusión; fase experimental antes de decisiones irreversibles | Dokimasía→Credencial; euthyna→voto firmado; misthós→dieta de servicio; Sicilia→fase EXPERIMENTAR |
-
-La columna final es la arquitectura de PLANMESA leída al revés: cada mecanismo del plan existe porque algún experimento del mundo fracasó por no tenerlo. No inventamos casi nada — y eso es un elogio, no una confesión. Los planes que inventan todo fracasan por originales. Los planes serios heredan cicatrices ajenas.
-
----
-
-## SECCIÓN 4: CAMBIO DE PARADIGMA — DISEÑAR DESDE EL FINAL
-
-> *"No preguntes cómo mejorar lo que hay. Preguntá qué construirías si lo que hay no existiera — y después construí el camino de vuelta."*
-
-### 4.1 El Método: Diseño Idealizado
-
-PLANMESA — como todos los PLANes de ¡BASTA! — se construyó con la metodología de **diseño idealizado** de Russell Ackoff: en lugar de partir del sistema actual y proponer mejoras incrementales (que heredan todos los supuestos del sistema enfermo), se parte de la pregunta inversa — *si el sistema decisional argentino hubiera sido destruido anoche y pudiéramos diseñarlo hoy desde cero, con la tecnología y el conocimiento de 2026, ¿qué construiríamos?* — y desde esa imagen ideal se trabaja hacia atrás hasta el presente, fase por fase, identificando qué falta para llegar.
-
-El método no es un capricho retórico: cambia el resultado. El diseño incremental sobre el sistema actual produce, inevitablemente, "más audiencias públicas", "mejores consejos consultivos", "modernización del Congreso" — parches sobre una arquitectura cuya falla es estructural. El diseño idealizado permite ver que la pieza faltante no es una mejora de las existentes sino un **órgano nuevo**: un espacio de decisión meritocrático-ciudadano con método de aprendizaje incorporado, que hoy no existe en ninguna parte del edificio institucional argentino — ni en germen.
-
-Importa decirlo con la honestidad que el método exige: **el diseño idealizado describe el punto al que se apunta, no un compromiso de llegada.** Los 22 PLANes de ¡BASTA! (al 23 de abril de 2026) son diseño idealizado — muestran dónde podría apuntar el país, no prometen dónde va a estar en una fecha. La diferencia entre apuntar y prometer es la diferencia entre la estrategia y la propaganda.
-
-### 4.2 Los Cinco Vuelcos de Paradigma
-
-PLANMESA pide cinco inversiones mentales respecto del sentido común político argentino:
-
-**TABLA 5: Los Cinco Vuelcos**
-
-| # | Paradigma actual | Paradigma PLANMESA |
-|---|---|---|
-| 1 | La legitimidad decisional viene de la urna o del título | La legitimidad decisional sobre una materia viene de la práctica demostrada en esa materia — la urna y el título son legitimidades de otra cosa |
-| 2 | La decisión es un acto (se anuncia, se aplica) | La decisión es un ciclo (se aprende, se diseña, se experimenta, se analiza — y recién entonces se escala) |
-| 3 | La participación ciudadana es opinión (encuesta, audiencia, like) | La participación ciudadana es servicio calificado, remunerado y con responsabilidad firmada |
-| 4 | El archivo es un depósito (lo que ya fue) | El archivo es un órgano vivo (la Consulta Ancestral es obligatoria: nadie decide sin leer lo que el país ya aprendió) |
-| 5 | La alternancia política implica borrón y cuenta nueva | La alternancia política gobierna sobre un sustrato de aprendizaje que no se borra: para revertir una Resolución hace falta evidencia superior, no una elección ganada |
-
-El quinto vuelco es el corazón estratégico del plan. Hoy la Argentina funciona con la lógica del *palimpsesto*: cada gobierno raspa el pergamino y escribe encima. PLANMESA propone la lógica del *sedimento*: cada ciclo deposita una capa verificada sobre la anterior, y el que quiera remover una capa debe demostrar — con el mismo método que la depositó — que está equivocada. Los gobiernos pasan; el aprendizaje queda. Eso es una **república que aprende**: no una república sin conflicto ni alternancia, sino una donde el conflicto y la alternancia ocurren *sobre* la evidencia acumulada y no *contra* ella.
-
-### 4.3 Lo Que PLANMESA No Es
-
-Para evitar las caricaturas previsibles, conviene cerrar el paradigma por la negativa:
-
-- **No es tecnocracia.** Los técnicos tienen capa de Estudio; sin Vínculo territorial y sin Experiencia práctica no hay Credencial. El doctor en economía hídrica que jamás pisó una cuenca no se sienta — y Ramona sí.
-- **No es asambleísmo.** No hay deliberación abierta sin método ni fin: hay ciclos con fases, plazos, entregables, composición auditada y disolución programada.
-- **No es un reemplazo del Congreso ni de la democracia electoral.** Es una capa complementaria con jurisdicción material específica, cuyo acople al sistema representativo está escalonado jurídicamente (Sección 8). La urna sigue decidiendo quién gobierna; la Mesa construye qué se sabe — y, con el tiempo y la adhesión legislativa, qué cuesta revertir.
-- **No es participación simbólica.** Cada mecanismo del plan — dieta, firma, respuesta fundada, Tablero público — existe para que sentarse a una Mesa tenga consecuencias materiales verificables. El día que una Mesa Civil sea decorativa, el Protocolo de Falla (Sección 17) la disuelve.
-- **No es un plan de élite cívica.** La Credencial se construye con capas que están al alcance de cualquier persona que practique una materia con seriedad — enfermeras, albañiles, productores, maestros. El sesgo de diseño es exactamente el inverso al credencialismo: la experiencia pesa tanto como el estudio, y el territorio tanto como la biblioteca.
-
----
-
-## SECCIÓN 5: LA ARQUITECTURA — LA MESA, LA CREDENCIAL, EL CICLO
-
-> *"La silla se gana practicando. La decisión se toma aprendiendo. El resultado se firma con nombre. Todo lo demás es detalle de implementación."*
-
-### 5.1 Vista General — Las Cinco Piezas
-
-PLANMESA es un sistema de cinco piezas que se necesitan mutuamente. Ninguna funciona sola; juntas forman la corteza deliberativa de la república:
-
-**TABLA 6: Las Cinco Piezas de PLANMESA**
-
-| Pieza | Qué es | Qué pregunta responde |
-|---|---|---|
-| **Credencial de Materia** | Track record ciudadano auditable por dominio de política pública | ¿Quién tiene derecho a una silla? |
-| **Mesa Civil** | Órgano deliberativo por materia y jurisdicción, activado por tensión territorial real | ¿Dónde se delibera y decide? |
-| **Ciclo LDEA** | Método obligatorio de cuatro fases: Aprender, Diseñar, Experimentar, Analizar | ¿Cómo se decide sin repetir errores? |
-| **Resolución de Mesa** | Acto deliberativo firmado, con destino jurídico codificado y lineage completo | ¿Qué produce la deliberación y qué fuerza tiene? |
-| **Cédula Civil** | Biografía cívica portable del ciudadano, sobre identidad soberana de PLANDIG | ¿Cómo se acumula y se porta el mérito? |
-
-La AMCC — descrita en la Sección 6 — administra la infraestructura de las cinco piezas, pero no participa en ninguna deliberación. Custodia la cancha; jamás patea.
-
-### 5.2 La Credencial de Materia — El Mérito Auditable
-
-La Credencial de Materia es la innovación central de PLANMESA: un registro auditable que acredita que una persona *practica* una materia de política pública con la profundidad suficiente para ganarse una silla cuando esa materia se delibera. No es un título, no es un cargo, no es una membresía partidaria — es un track record verificable.
-
-Las materias siguen el mapa del ecosistema ¡BASTA!: agua, vivienda, salud, energía, cuidado, memoria, justicia, producción, educación, movilidad, tierra, seguridad, sustancias, cultura, soberanía digital, instituciones — y las que el propio sistema agregue por ciclo LDEA aplicado a sí mismo.
-
-**Las tres capas.** La Credencial se construye sobre tres capas simultáneas — **Estudio, Vínculo y Experiencia** —, donde la capa de Experiencia se acredita a su vez en tres registros (Declaración, Decisión, Producción). Las tres capas o nada: un académico que leyó todo pero nunca contribuyó no tiene Credencial; un militante que contribuyó mucho pero nunca estudió, tampoco.
-
-**TABLA 7: Anatomía de la Credencial de Materia**
-
-| Capa | Qué acredita | Cómo se verifica | Integración ecosistema |
-|---|---|---|---|
-| **Estudio** | Formación en la materia: trayectos formales, formación continua, lectura estructurada con evaluación | Certificaciones de trayecto + evaluaciones abiertas; desde Fase 1, los trayectos se cursan en la infraestructura de PLANEDU | PLANEDU (desde Fase 1; en Fase 0, trayectos provisorios validados por AMCC) |
-| **Vínculo** | Relación sostenida y verificable con el territorio y las personas de la materia: trabajo comunitario, redes de cuidado, pertenencia activa | Constancias territoriales cruzadas + registro de Pactos de PLANCUIDADO + validación comunitaria auditada | PLANCUIDADO (Capa de Vínculo; sostén relacional del servidor de Mesa) |
-| **Experiencia — Declaración** | Posiciones públicas tomadas sobre la materia, con registro de fecha y contenido (el costo reputacional de decir) | Registro en Cédula Civil; las declaraciones son públicas y quedan — incluido lo que envejeció mal | PLANDIG (registro sobre identidad soberana) |
-| **Experiencia — Decisión** | Decisiones operativas tomadas en contextos reales: gestión, coordinación, emergencias, proyectos | Documentación de terceros + trazabilidad de resultados; el archivo de PLANMEMORIA como fuente de verificación | PLANMEMORIA |
-| **Experiencia — Producción** | Obra concreta en la materia: informes, construcciones, sistemas, huertas, protocolos, datos de campo — la carpeta de Ramona | Depósito verificable con revisión por pares de Credencial | PLANTALLER, PLANMEMORIA |
-
-**Estados de la Credencial.** La Credencial tiene tres estados: **En Construcción** (capas incompletas — la mayoría de los ciudadanos activos), **Consolidada** (las tres capas verificadas — habilita auto-postulación a Mesa), y **En Servicio** (sirviendo actualmente en una Mesa — suspende nuevas postulaciones). La Credencial Consolidada exige además mantenimiento: una capa sin actividad por más de 5 años pasa a revisión. El mérito no es vitalicio — es una práctica.
-
-**Lo que la Credencial NO mide — por diseño.** No mide opiniones correctas (se puede tener Credencial y posiciones impopulares — la Declaración registra coherencia, no alineamiento). No mide pertenencia partidaria, ni patrimonio, ni apellido, ni cantidad de seguidores. No pondera títulos académicos por prestigio de institución: una diplomatura de PLANEDU con práctica verificada pesa lo mismo que un doctorado con práctica verificada — y más que un doctorado sin práctica. El sesgo de diseño es deliberado: **la Credencial está calibrada para que Carina la enfermera y Federico el analista la alcancen tan naturalmente como el profesor titular.**
-
-**Auditoría y disputas.** Toda Credencial es públicamente auditable (con la granularidad de privacidad que el ciudadano configure sobre su Cédula). Las impugnaciones — "esta capa de Vínculo es trucha", "esta Producción es plagiada" — se resuelven en primera instancia por paneles de pares de la AMCC, con apelación al sistema de PLANJUS, que ejerce el control legal sobre disputas de auto-postulación y composición.
-
-### 5.3 La Cédula Civil — La Biografía Cívica Portable
-
-La Cédula Civil es el contenedor personal de todo lo anterior: un registro biográfico-cívico de cada ciudadano, montado sobre la Identidad Digital Soberana (IDS) de PLANDIG, con tres propiedades no negociables:
-
-1. **Es del ciudadano.** Vive en la capa de datos ciudadana-privada de la arquitectura PLANDIG: cifrada, con llave exclusiva del titular, con visibilidad pública configurable por sección. El Estado no puede leerla entera; la AMCC solo verifica lo que el ciudadano expone para acreditar capas.
-2. **Es multi-dominio y acumulativa.** Una vida cívica no cabe en una materia: la Cédula acumula capas en paralelo (una maestra jubilada puede tener Estudio en educación, Vínculo en cuidado y Producción en huertas comunitarias). Con los años, la Cédula se convierte en lo que la Argentina nunca tuvo: un mapa del capital cívico real del país.
-3. **Es inmune al borrado político.** Las verificaciones llevan hash en la red federada de PLANMEMORIA. Ningún gobierno puede "resetear" las Credenciales del país — el intento quedaría, además, inscrito.
-
-La Cédula Civil registra también el servicio: cada Mesa servida, cada voto firmado, cada Resolución suscripta, cada análisis de fracaso asumido. Es el equivalente cívico de la historia clínica: nadie más que vos la posee entera, pero lo que decidiste mostrar te acredita ante cualquiera.
-
-### 5.4 La Mesa Civil — Activación, Postulación, Composición
-
-**Activación automática por tensión real.** Las Mesas no se convocan por capricho ministerial ni por agenda mediática. Cuando el **Mandato Vivo** — el sistema de señales territoriales del ecosistema ¡BASTA! — detecta tensión sostenida sobre una materia en un territorio (señales de pulso, propuestas ciudadanas acumuladas, datos de El Mapa de PLANDIG), se abre automáticamente un **Caso de Mesa** con jurisdicción material y territorial específica: "Mesa de Agua — Cuenca del Salado del Norte", "Mesa de Vivienda — Área Metropolitana de Paraná". También pueden activar Casos: una Resolución previa que programó su propia revisión, un Tablero en rojo (Sección 9), o la adhesión de un Poder Ejecutivo o Legislativo que somete una política a ciclo LDEA.
-
-**Auto-postulación en ventana pública.** Abierto el Caso, corre una **ventana pública de auto-postulación de 15 días**: cualquier ciudadano con Credencial Consolidada en la materia puede postularse. Nadie es invitado a dedo; nadie necesita padrino. La lista de postulantes es pública desde el primer día, con sus Credenciales auditables — el escrutinio social empieza antes que la Mesa.
-
-**Composición equilibrada por estamentos.** De los postulantes, la AMCC compone la Mesa con un algoritmo público y auditado (código abierto, sobre PLANDIG) que equilibra cuatro estamentos:
-
-**TABLA 8: Composición de una Mesa Civil Tipo (25–35 sillas)**
-
-| Estamento | Proporción | Quiénes | Qué aportan |
-|---|---|---|---|
-| **Practicantes** | 35–40% | Credencial fuerte en Experiencia: los que hacen la materia (enfermeras, extensionistas, constructores, operadores) | El saber operativo — cómo funciona de verdad |
-| **Afectados** | 25–30% | Habitantes del territorio del Caso, con Credencial En Construcción admitida para este estamento + sorteo estratificado entre postulantes | La realidad del impacto — para quién funciona |
-| **Estudiosos** | 15–20% | Credencial fuerte en Estudio: investigadores, técnicos, académicos con práctica verificada | La evidencia comparada — qué dice el conocimiento |
-| **Ejecutores** | 15–20% | Cuadros estatales de carrera y operadores de PLANTALLER con Credencial en la materia | La factibilidad — qué se puede implementar y cómo |
-
-Dos salvaguardas adicionales de composición: **cuotas de equilibrio** (género, edad, ruralidad — ninguna Mesa puede ser un club porteño de varones de 50), y **tope de reincidencia** (nadie sirve en más de dos Mesas consecutivas de la misma materia — contra la formación de una casta deliberativa). El estamento de Afectados incorpora sorteo precisamente donde el sorteo es la herramienta correcta: para representar el impacto, no la pericia. Atenas donde corresponde Atenas; mérito donde corresponde mérito.
-
-**Dietas de servicio.** Servir en una Mesa es trabajo — y el trabajo se paga. Cada miembro percibe una **dieta de servicio** calibrada por la AMCC (referencia: ingreso mediano de la región, prorrateado por dedicación — el servicio de Mesa es compatible con el empleo), con licencias laborales protegidas por la Ley de Mesa Civil al estilo de las licencias gremiales. El *misthós* ateniense, actualizado: sin dieta, solo deliberan los que pueden permitírselo, y eso ya lo tenemos — se llama lobby.
-
-### 5.5 El Ciclo LDEA — El Método
-
-Toda Mesa opera bajo el ciclo **LDEA**: cuatro fases secuenciales, con entregables públicos, plazos definidos y compuertas de calidad entre fase y fase. El mandato completo de una Mesa dura entre **7 y 14 meses** según la complejidad del Caso — y al cerrar el ciclo, la Mesa se disuelve. No hay Mesas eternas; hay materias permanentes con ciclos finitos.
-
-**TABLA 9: El Ciclo LDEA — Fases, Entregables, Plazos**
-
-| Fase | Duración típica | Qué se hace | Entregable público | Compuerta de salida |
-|---|---|---|---|---|
-| **L — APRENDER** | 6–10 semanas | Consulta Ancestral obligatoria del Archivo de PLANMEMORIA; audiencias con practicantes y afectados no sentados; revisión de evidencia comparada; mapeo de consenso (herramientas tipo Pol.is sobre PLANDIG) | Documento **"Precedentes Considerados"** + mapa del problema | El documento debe demostrar consulta efectiva del archivo; un Síndico de Archivo lo certifica |
-| **D — DISEÑAR** | 8–12 semanas | Elaboración de **2–3 propuestas rivales** (nunca una sola — el pensamiento único es un modo de falla), cada una con teoría de cambio explícita, métricas de éxito y fracaso predefinidas, presupuesto y riesgos | Expediente de Diseño con propuestas rivales completas | Cada propuesta debe ser falsable: si no define qué resultado la refutaría, no pasa |
-| **E — EXPERIMENTAR** | 3–8 meses | Piloto acotado de la(s) propuesta(s) seleccionada(s), ejecutado en territorio real — con los **Talleres de PLANTALLER como ejecutores** naturales de la fase: piel en el juego real, no simulación | Datos del piloto, publicados en crudo en el Tablero | Las métricas predefinidas en DISEÑAR se miden tal como se escribieron — prohibido mover los arcos |
-| **A — ANALIZAR** | 4–6 semanas | Análisis de resultados contra métricas; deliberación final; **voto firmado** de cada miembro: qué escala, qué se mantiene experimental, qué se descarta | **Resolución de Mesa** con lineage completo + votos nominales | La Resolución se inscribe en PLANMEMORIA y se inyecta al sistema; la Mesa se disuelve |
-
-**La Consulta Ancestral.** La fase APRENDER tiene una obligación que merece su nombre solemne: ninguna Mesa puede pasar a DISEÑAR sin haber consultado formalmente el Archivo de Memoria Operativa de PLANMEMORIA — qué se intentó antes sobre esta materia en este territorio, qué resultó, qué recomendaron los que lo vivieron. El documento "Precedentes Considerados" lista cada precedente con su disposición: *adoptado, adaptado, refutado con argumento*. Refutarlo está permitido — ignorarlo, no. Es la institucionalización exacta del hallazgo de Federico: que nunca más un plan de vivienda se diseñe sin leer los cuatro expedientes. Los **Síndicos de Archivo** — el rol que PLANMEMORIA y PLANMESA comparten — certifican que la consulta fue real y no un copy-paste ritual.
-
-**Las propuestas rivales.** La fase DISEÑAR prohíbe el diseño único. Toda Mesa produce 2–3 propuestas en competencia, con sus métricas de fracaso escritas *antes* del piloto. La razón es epistemológica y política a la vez: el diseño único convierte a la Mesa en tribunal de una idea (y a sus autores en abogados); el diseño rival la mantiene como laboratorio de alternativas. Y las métricas predefinidas son el candado anti-relato: cuando el piloto termine, no se podrá decir "en realidad el éxito era otra cosa".
-
-**El piloto con piel en el juego.** La fase EXPERIMENTAR es la corrección del error de Sicilia: nada estructural escala sin haber tocado la realidad en escala acotada. Los pilotos se ejecutan preferentemente a través de la red de PLANTALLER — galpones federales con capacidad productiva real — y de los organismos estatales adherentes. El piloto tiene presupuesto propio (del Caso, no de la dieta), territorio definido, y sus datos se publican en crudo: el país entero puede ver el experimento mientras ocurre.
-
-**El voto firmado.** La fase ANALIZAR cierra con la *euthyna* ateniense: cada miembro vota nominalmente cada componente de la Resolución, y su voto queda inscrito en su Cédula Civil para siempre. Votaste escalar un programa que después fracasó: queda. Votaste en disidencia y el tiempo te dio la razón: queda. La firma convierte la opinión en responsabilidad — y la responsabilidad, acumulada en miles de Cédulas, construye algo que la Argentina perdió hace décadas: reputación cívica con memoria.
-
-### 5.6 La Resolución de Mesa — Qué Produce el Ciclo y Qué Fuerza Tiene
-
-La **Resolución de Mesa** es el acto final del ciclo: un documento público, firmado nominalmente, con lineage completo (qué precedentes consideró, qué propuestas rivales evaluó, qué midió el piloto, quién votó qué). Su contenido típico: qué se recomienda escalar, con qué diseño, qué se mantiene en estado experimental, qué se descarta con argumento, y cuándo se auto-revisa (toda Resolución programa su propia revisión — el sedimento también se audita).
-
-**El destino de la Resolución está codificado por ley antes de que la Mesa delibere** — la lección francesa hecha norma:
-
-1. **Inyección al Arquitecto.** La Resolución entra al sistema de iniciativas del ecosistema ¡BASTA! como activación priorizada — los PLANes y agencias afectados deben incorporarla a su planificación.
-2. **Inscripción en PLANMEMORIA.** Con lineage completo y hash en la red federada — la Resolución es, desde su firma, un precedente que ninguna Mesa futura podrá ignorar.
-3. **Respuesta fundada obligatoria.** El poder público competente (Ejecutivo, Legislativo, agencia) tiene plazo legal para responder: qué adopta, qué no, y *por qué* — respuesta pública, en el Tablero, con seguimiento. El silencio es infracción; la respuesta evasiva queda expuesta con nombre de funcionario. (Fases 0–2; la escalera completa de fuerza jurídica, en la Sección 8.)
-4. **Path dependency cívica.** Aquí está el mecanismo anti-Carina — el que impide que el próximo gobierno desarme por reflejo lo que funciona: un gobierno que quiera revertir una política nacida de Resolución debe **convocar un nuevo ciclo LDEA sobre la materia y producir evidencia más robusta que la original**. No le alcanza con haber ganado la elección; la elección lo legitima para gobernar, no para desaprender. Revertir sigue siendo posible — *corregir* es deseable y el sistema lo facilita — pero revertir sin evidencia pasa a tener costo institucional y visibilidad pública. La rotación de gobiernos deja de romper el aprendizaje.
-
-### 5.7 El Sistema Operando — Un Caso Completo
-
-Para fijar la arquitectura, el recorrido entero con el caso de Ramona:
-
-El Mandato Vivo acumula señales de tensión hídrica en el Chaco semiárido santiagueño — pulsos territoriales, datos de napas de El Mapa, propuestas ciudadanas. Se abre el Caso "Mesa de Agua — Salado del Norte". Ventana de 15 días: se postulan 214 ciudadanos con Credencial en Agua; la lista es pública. El algoritmo de composición arma una Mesa de 31 sillas: 12 practicantes (Ramona entre ellos, con sus tres capas acreditadas), 9 afectados (productores y vecinos sorteados entre postulantes del territorio), 5 estudiosos (dos hidrogeólogos del CONICET con práctica de campo, una economista del agua), 5 ejecutores (cuadros del ente provincial y dos coordinadores de Talleres).
-
-Fase APRENDER (8 semanas): la Consulta Ancestral desentierra los expedientes de los planes de riego de 1997, 2008, 2016 y 2023 — los cuatro fracasos documentados, las recomendaciones nunca leídas. El documento "Precedentes Considerados" tiene 60 páginas y por primera vez en la historia de la materia, *alguien que decide lo leyó*. Fase DISEÑAR (10 semanas): tres propuestas rivales — perforaciones comunitarias con gestión asociativa, cosecha de agua de lluvia distribuida, acueducto tradicional (la propuesta histórica, incluida deliberadamente como control). Cada una con métricas de fracaso firmadas. Fase EXPERIMENTAR (6 meses): pilotos de las dos primeras en tres parajes, ejecutados con el Taller Federal de Quimilí; el acueducto no se pilotea — sus cuatro fracasos previos *son* su piloto, y así se inscribe. Fase ANALIZAR (5 semanas): la cosecha distribuida supera sus métricas; las perforaciones asociativas funcionan donde la organización comunitaria preexistía y fracasan donde no — exactamente lo que la carpeta de Ramona decía hace veinte años, ahora con datos frescos y firma colectiva. La Resolución recomienda escalar la cosecha distribuida con un protocolo de organización comunitaria previa, mantiene las perforaciones como experimentales, y descarta el acueducto con argumento inscripto.
-
-La Resolución entra al Arquitecto, se inscribe en PLANMEMORIA, y la provincia tiene 90 días para responder fundadamente. Tres años después, un nuevo gobierno provincial quiere relanzar el acueducto — su empresa amiga ya tiene los caños. Para hacerlo legalmente bajo el régimen de adhesión, debe convocar nuevo ciclo LDEA y refutar con evidencia el expediente completo. El costo político de intentarlo a cara descubierta — contra un documento público, firmado por 31 vecinos con nombre y apellido, con cuatro fracasos históricos y dos pilotos exitosos inscriptos — es, por primera vez en la historia argentina, *más alto que el costo de no intentarlo*.
-
-Eso — multiplicado por 180 Mesas, 22 materias y 24 jurisdicciones — es una república que aprende.
-
----
-
-## SECCIÓN 6: LA AGENCIA — AMCC, AGENCIA DE MESA Y CÉDULA CIVIL
-
-> *"El árbitro que juega está arreglado. El árbitro que depende del club que arbitra, también. La AMCC no juega y no depende — por eso puede arbitrar."*
-
-### 6.1 Naturaleza Jurídica y Mandato
-
-La **AMCC — Agencia de Mesa y Cédula Civil** — es el ente autárquico que administra la infraestructura de PLANMESA. Su mandato es deliberadamente estrecho y su prohibición deliberadamente ancha: **administra el protocolo; jamás decide dentro de una Mesa.** La AMCC valida Credenciales, compone Mesas con el algoritmo público, paga dietas, certifica fases, publica el Tablero, audita la integridad del sistema — y tiene prohibido por ley opinar sobre el contenido de cualquier deliberación, propuesta o Resolución. Es la fontanería de la república que aprende: invisible cuando funciona, y diseñada para que su captura rinda lo menos posible.
-
-**TABLA 10: AMCC — Ficha Institucional**
-
-| Atributo | Definición |
-|---|---|
-| Naturaleza | Ente autárquico nacional, creado por ley, con autonomía funcional y financiera |
-| Presupuesto | Piso constitucional protegido: **0,07% del PBI** (≈ USD 400–450M/año a valores 2026) |
-| Fuentes | Piso constitucional + dietas de servicio (partida específica) + presupuesto nacional |
-| Funciones | Protocolo de Credencial; validación y auditoría de capas; composición de Mesas; sorteos estratificados; dietas; certificación de fases LDEA; Tablero Nacional de Mesas; Registro Nacional de Reversiones |
-| Prohibiciones | Participar, opinar o incidir en el contenido de deliberaciones; vetar postulantes por criterio político; modificar composiciones fuera del algoritmo público; clasificar como reservado cualquier dato del sistema |
-| Control externo | Defensoría de Integridad (independiente); auditoría de PLANJUS sobre disputas; AGN; Tablero público en tiempo real |
-
-### 6.2 Gobernanza — Sorteo Estratificado y Mandatos Desfasados
-
-La AMCC no puede ser gobernada por designación política (sería capturada en un mandato) ni por corporación técnica (sería capturada en dos). Su gobernanza combina las dos tecnologías anti-captura más probadas del repertorio institucional:
-
-**Directorio de 11 miembros, por estamentos:**
-
-- **4 sorteados entre ciudadanos con Credencial Consolidada** (cualquier materia), por sorteo estratificado (región, género, edad, materia) — el estamento ciudadano gobierna la casa del mérito ciudadano;
-- **3 Síndicos de Archivo electos por el cuerpo de Síndicos** — el puente orgánico con PLANMEMORIA, garantía de que la memoria tenga voz en la administración del aprendizaje;
-- **2 técnicos por concurso público de oposición y antecedentes** (administración de sistemas deliberativos, estadística, auditoría de algoritmos);
-- **2 designados por paneles ciudadanos convocados ad hoc** mediante sorteo cívico general — la ventana por donde entra el ciudadano sin Credencial, para que la AMCC no se convierta en el club de los acreditados.
-
-**Mandatos desfasados del ciclo electoral — la regla de oro.** Los mandatos del Directorio duran **5 años** (contra los 4 del ciclo presidencial), se renuevan **por tercios cada 20 meses**, y el escalonamiento inicial se sortea de modo que **ninguna renovación coincida jamás con un año electoral nacional**. Ningún presidente nombra mayoría de la AMCC en su mandato; ningún directorio entrante encuentra la mesa servida. Es la tecnología de Ostbelgien y de los bancos centrales serios, aplicada a la deliberación: la institución que custodia el aprendizaje de largo plazo no puede latir al ritmo del calendario electoral que lo destruye.
-
-**Paneles Ciudadanos de control.** Dos veces al año, un panel de 50 ciudadanos sorteados del padrón general (sin requisito de Credencial) revisa el desempeño de la AMCC con poder de: exigir informes bajo juramento, vetar modificaciones al Protocolo de Credencial que no hayan pasado por ciclo LDEA, y elevar a la Defensoría de Integridad cualquier sospecha de captura. El sistema que le pide mérito a los que deciden le rinde cuentas a los que no lo tienen — esa asimetría es deliberada y es la vacuna contra la deriva aristocrática.
-
-### 6.3 Blindajes Anticaptura
-
-**TABLA 11: Vectores de Captura y Contramedidas**
-
-| Vector de captura | Cómo operaría | Contramedida estructural |
-|---|---|---|
-| Gobierno de turno coloniza el Directorio | Designaciones afines, presión presupuestaria | Sorteo + concurso (no hay qué colonizar); mandatos desfasados; piso constitucional (no hay qué apretar) |
-| Partidos infiltran las Mesas | Militantes construyen Credenciales aceleradas | Las capas exigen años de práctica verificable — no se fabrica un Vínculo territorial en seis meses; auditoría de pares; impugnación pública |
-| "Activistas profesionales" capturan la auto-postulación | ONG y aparatos copan ventanas de postulación | Composición por estamentos con topes; tope de reincidencia (máx. 2 Mesas consecutivas por materia); cuotas de equilibrio; algoritmo público auditable |
-| Burocratización del protocolo | La AMCC se vuelve un IRAM de la deliberación: sellos, demoras, formularios | El propio protocolo pasa por ciclo LDEA cada 3 años con métrica explícita de carga burocrática; el Panel Ciudadano puede vetar complejidad nueva |
-| Captura corporativa de la verificación | Los validadores de capas cobran peaje | Verificación distribuida por pares con rotación sorteada; trazabilidad pública de cada validación; sanción penal por venta de acreditación |
-| El club de los acreditados legisla para sí | El sistema sube las barreras de Credencial para proteger a los que ya están | Toda modificación del Protocolo requiere ciclo LDEA + no objeción del Panel Ciudadano sin Credencial |
-
-La filosofía del blindaje es la de todo el ecosistema ¡BASTA!: no suponer funcionarios virtuosos — suponer capturadores competentes y diseñar para que capturar rinda poco, cueste caro y se vea rápido.
-
----
-
-## SECCIÓN 7: MARCO PRESUPUESTARIO Y ROI — QUÉ CUESTA Y QUÉ DEVUELVE
-
-> *"Lo caro no es pagar la deliberación. Lo caro es lo que decidimos sin ella — y lo venimos pagando sin recibo."*
-
-### 7.1 La Inversión Total: USD 4.200–6.800M en 15 Años
-
-El brief público de PLANMESA enuncia el rango; este documento lo deriva. La inversión acumulada a 15 años se compone de cinco partidas, estimadas en rango (piso conservador / techo de despliegue pleno), a valores constantes de 2026:
-
-**TABLA 12: Derivación del Presupuesto PLANMESA — Partidas a 15 Años**
-
-| Partida | Qué financia | Supuestos de cálculo | 15 años (USD M) |
-|---|---|---|---|
-| **1. Infraestructura de plataforma** | Módulos de Cédula Civil, auto-postulación, composición algorítmica, registro de Resoluciones y Tablero — construidos *sobre* los rieles de PLANDIG (IDS, ArgenCloud), no desde cero | Desarrollo inicial USD 60–90M; evolución y operación técnica USD 12–24M/año desde año 2 | **250–450** |
-| **2. Dietas de servicio de Mesa** | Remuneración de los miembros de Mesa durante el ciclo LDEA + licencias + costos de servicio (traslados, facilitación) | Escala de 6 Mesas (año 2) a 180 (año 15); 25–35 sillas/Mesa; ciclos de 7–14 meses; dieta prorrateada ≈ USD 350–600/mes por miembro según dedicación y región; pico de régimen: ~5.000–6.300 personas sirviendo simultáneamente | **2.200–3.400** |
-| **3. Formación y Credencial** | Trayectos de capa de Estudio (con PLANEDU desde Fase 1), verificación de capas, auditoría de pares, formación y dietas del cuerpo de Síndicos de Archivo | 500 Credenciales (año 2) → 120.000 (año 6) → 500.000 (año 15); costo de verificación completa USD 600–1.100 por Credencial Consolidada + mantenimiento; cuerpo de Síndicos creciendo a 1.500–2.500 | **700–1.200** |
-| **4. Operación AMCC** | Personal de carrera (300–600 puestos en régimen), Directorio, Paneles Ciudadanos de control, Defensoría de Integridad, sorteos, sedes federales austeras (oficinas, no palacios), Registro Nacional de Reversiones | USD 45–80M/año en régimen; arranque menor | **900–1.400** |
-| **5. Pilotos EXPERIMENTAR (cofinanciamiento)** | Aporte del Caso a pilotos de fase E que no absorban íntegramente PLANTALLER u organismos adherentes | 6 → 220 Resoluciones/año; cofinanciamiento promedio USD 150.000–400.000 por piloto | **150–350** |
-| **TOTAL** | | | **4.200–6.800** |
-
-Tres lecturas de control sobre el total:
-
-1. **Consistencia con el piso constitucional.** El 0,07% del PBI equivale a ≈ USD 400–450M/año a valores 2026: USD 6.000–6.750M en 15 años. El rango presupuestado (USD 280–450M/año promedio) cabe dentro del piso — el piso es techo suficiente, y los primeros años (Pre-Fase, Fase 0) consumen muy por debajo, generando colchón para el pico de régimen.
-2. **La partida dominante es la gente, no el cemento.** Más de la mitad del presupuesto son dietas y formación — PLANMESA no construye edificios: paga el tiempo calificado de ciudadanos que hoy regalan su saber o se lo guardan. Es el plan con menor intensidad de ladrillo y mayor intensidad de mérito de todo el ecosistema.
-3. **Dimensión visceral.** El costo *anual* promedio de PLANMESA (USD 280–450M) es comparable a lo que el Estado argentino gasta en consultorías externas en un año normal — con la diferencia de que las consultoras no firman, no responden, no acumulan, y sus informes terminan en el mismo archivo que nadie lee. Y el costo *total* a 15 años es entre el 2% y el 4% del rango de lo que el país perdió en reversiones en los últimos 24 (TABLA 2).
-
-### 7.2 Fuentes de Financiamiento
-
-**TABLA 13: Fuentes — Quién Paga Qué**
-
-| Fuente | Cubre | Notas |
-|---|---|---|
-| **Piso constitucional 0,07% PBI** | Operación AMCC, plataforma, Credencial, Tablero | Protegido de la negociación presupuestaria anual; cláusula de actualización automática |
-| **Partida de dietas de servicio** | Dietas de Mesa | Partida específica dentro del piso, con publicación nominal en el Tablero (cada peso de dieta es público) |
-| **Presupuesto nacional (partidas de los organismos adherentes)** | Pilotos de fase EXPERIMENTAR vinculados a políticas de cada organismo | El que va a ejecutar la política financia su piloto — incentivo a tomarse el ciclo en serio |
-| **Ahorro por reversiones evitadas (contabilizado, no recaudado)** | El argumento fiscal del plan | No es caja: es la justificación. El Registro Nacional de Reversiones lo medirá año a año |
-
-PLANMESA no crea impuestos nuevos. Reasigna una fracción mínima del gasto decisional existente (consultorías, programas duplicados, relanzamientos) hacia la infraestructura que evita tener que gastarlo de nuevo.
-
-### 7.3 El Retorno: Aritmética Conservadora
-
-El ROI de PLANMESA se calcula sobre tres flujos, siempre en rango y siempre con la porción atribuible explicitada:
-
-**Flujo 1 — Reversiones evitadas (el flujo dominante).** Costo histórico de reversión: USD 180.000–420.000M en 24 años → promedio USD 7.500–17.500M/año. Meta conjunta del ecosistema: reducir la reversión estructural 25–40% en régimen. De esa reducción, **PLANMESA reclama la porción atribuible a la calidad deliberativa y a la continuidad de mandatos (estimada en 15–25 puntos de los 25–40), y PLANMEMORIA la porción atribuible a la consulta de memoria institucional (10–15 puntos)** — el deslinde completo, en la Sección 10.3. Flujo anual atribuible a PLANMESA en régimen: **USD 1.100–4.400M/año** (15–25% del flujo de reversión promedio, aplicado con rampa desde año 6).
-
-**Flujo 2 — Litigiosidad post-decisión.** Las políticas que pasan por deliberación con afectados sentados a la mesa se judicializan menos: la evidencia comparada (presupuesto participativo, regulación deliberada tipo vTaiwan) y la lógica (el que participó del diseño no demanda el diseño) sostienen la meta de **–60% de litigiosidad post-decisión** en materias con Mesa activa. Ahorro estimado en costas, cautelares paralizantes y obra parada: **USD 200–600M/año** en régimen — estimación propia, sujeta a verificación.
-
-**Flujo 3 — Adjudicación conflictiva.** La meta de –30–50% en adjudicaciones con conflicto (licitaciones impugnadas, re-licitaciones, sobreprecios de urgencia) en materias bajo Resolución: **USD 150–500M/año** — estimación propia, sujeta a verificación.
-
-**TABLA 14: ROI Consolidado en Régimen (desde año 7–8)**
-
-| Concepto | Rango anual (USD M) |
-|---|---|
-| Reversiones evitadas atribuibles a PLANMESA | 1.100–4.400 |
-| Reducción de litigiosidad post-decisión | 200–600 |
-| Reducción de adjudicación conflictiva | 150–500 |
-| **Retorno anual total** | **1.450–5.500** |
-| Costo anual promedio | 280–450 |
-| **ROI anual en régimen** | **≈ 4:1 a 12:1** |
-
-Análisis de sensibilidad honesto: si la reducción de reversión atribuible resultara la *mitad* del piso estimado — escenario pesimista serio —, el ROI sigue arriba de 2:1. Y si resultara *cero* — escenario de fracaso del flujo principal —, el país habría comprado, por el 0,07% del PBI, medio millón de ciudadanos formados y acreditados en materias públicas, un archivo decisional consultado por primera vez en su historia, y la primera infraestructura de deliberación con método del mundo hispanohablante. Hay maneras mucho peores de fracasar — el Estado argentino las practica todas, a mayor precio.
-
----
-
-## SECCIÓN 8: MARCO LEGAL — LA ESCALERA DE VINCULANCIA
-
-> *"El que promete vinculancia mañana miente hoy. El que renuncia a la vinculancia para siempre se resigna. La escalera no promete ni se resigna: sube."*
-
-### 8.1 El Problema Constitucional, Dicho de Frente
-
-Toda propuesta de deliberación ciudadana con efectos jurídicos choca, en la Argentina, con dos artículos que no se pueden esquivar con retórica:
-
-- **Artículo 1 CN:** la Nación adopta la forma **representativa** republicana federal.
-- **Artículo 22 CN:** *"El pueblo no delibera ni gobierna, sino por medio de sus representantes y autoridades creadas por esta Constitución."* — con la sedición tipificada para el que se atribuya los derechos del pueblo.
-
-Un plan serio no le pasa por al lado a esto: lo pone en el centro. **Resoluciones vinculantes emanadas de órganos no electos serían, hoy, inconstitucionales — y está bien que lo sean**, porque un atajo por fuera de la Constitución sería el precedente perfecto para que el próximo caudillo invente sus propias "mesas" con otro contenido. PLANMESA no propone el atajo. Propone la **escalera**: tres peldaños de fuerza jurídica creciente, cada uno plenamente constitucional en su momento, cada uno condicionado a que el anterior haya demostrado funcionamiento medible.
-
-**TABLA 15: La Escalera de Vinculancia**
-
-| Peldaño | Fases | Fuerza jurídica de la Resolución | Base constitucional |
-|---|---|---|---|
-| **1. Consultivo con respuesta fundada obligatoria** | Fases 0–2 (años 0–2) | La Resolución no obliga a adoptar — obliga a **responder fundadamente** en plazo legal (90 días), con publicación en el Tablero y responsabilidad administrativa por silencio o respuesta evasiva | Derecho de petición (art. 14 CN) reforzado por ley; plenamente compatible con arts. 1 y 22 — el pueblo no gobierna: peticiona con método, y la autoridad constituida responde |
-| **2. Adhesión legislativa** | Fases 3–6 (años 3–6) | Congreso, legislaturas provinciales y ejecutivos **adhieren por ley/ordenanza** al régimen de Mesa Civil: se pre-comprometen a dar tratamiento parlamentario o administrativo formal a toda Resolución de las materias adheridas, y a que la reversión de políticas nacidas de Resolución requiera nuevo ciclo LDEA | La vinculancia la pone el órgano representativo sobre sí mismo — autolimitación legislativa, técnica conocida (leyes de administración financiera, pisos educativos); el art. 22 queda intacto: deciden los representantes, que decidieron escuchar con reglas |
-| **3. Rango constitucional** | Régimen Pleno (años 7–15) | Reforma constitucional (art. 30 CN) que incorpora la Mesa Civil como instancia del proceso de formación de políticas estructurales y el piso del 0,07% PBI; la fuerza plena de las Resoluciones nace de la Constitución misma | Convención reformadora convocada cuando el sistema tenga años de track record público — la reforma ratifica lo que funciona, no promete lo que no existe |
-
-La escalera es la columna vertebral jurídica del plan y su argumento más honesto: **PLANMESA no le pide a la Argentina que le crea — le pide que lo mida.** Los peldaños 2 y 3 no se suben por calendario sino por evidencia: la adhesión legislativa se gana con dos años de Resoluciones piloto de calidad pública verificable, y la reforma constitucional con años de adhesión funcionando en jurisdicciones de todo signo político. Si el sistema no demuestra, no sube — y eso también está bien.
-
-### 8.2 Lo Que Se Crea
-
-Tres instrumentos legales — los tres del registro del Arquitecto:
-
-**TABLA 16: Instrumentos a Crear**
-
-| Instrumento | Contenido central | Vía |
-|---|---|---|
-| **1. Ley Nacional de Mesa Civil y Credencial de Materia** | Define Credencial (capas, estados, verificación, impugnación), Mesa Civil (activación, auto-postulación de 15 días, composición por estamentos, dietas, licencias laborales protegidas), ciclo LDEA (fases, entregables, Consulta Ancestral obligatoria), Resolución (contenido, firma nominal, destino, respuesta fundada en 90 días) | Ley del Congreso — sancionada en paquete con las leyes de PLANTALLER y PLANMEMORIA (las tres instituciones del ciclo: el que ejecuta, el que recuerda, el que delibera) |
-| **2. Ley de Creación de la AMCC** | Ente autárquico; Directorio de 11 por sorteo estratificado + concurso + Síndicos + paneles; mandatos de 5 años desfasados del ciclo electoral, renovación por tercios; piso presupuestario 0,07% PBI (legal primero, constitucional en peldaño 3); prohibiciones; Defensoría de Integridad | Ley del Congreso |
-| **3. Ley de Adhesión y Respuesta Fundada** | Régimen de adhesión para poderes y jurisdicciones; obligación de respuesta fundada con plazos y sanción administrativa; regla de reversión calificada (nuevo ciclo LDEA con evidencia superior) para adherentes; integración con los regímenes de participación existentes | Ley del Congreso + leyes provinciales de adhesión |
-
-### 8.3 Lo Que Se Reforma
-
-PLANMESA no nace en un páramo normativo: la Constitución del 94 y la legislación posterior dejaron piezas de democracia semidirecta y participación — casi todas oxidadas por diseño defensivo. Se reforman, no se derogan:
-
-**TABLA 17: Normas Existentes a Reformar o Integrar**
-
-| Norma | Qué es hoy | Qué cambia con PLANMESA |
-|---|---|---|
-| **Art. 39 CN + Ley 24.747** (iniciativa popular) | Derecho a presentar proyectos que el Congreso casi nunca trata; vedado para temas clave | La Resolución de Mesa califica como iniciativa con tratamiento obligatorio en jurisdicciones adheridas — la iniciativa popular deja de ser un buzón |
-| **Art. 40 CN + Ley 25.432** (consulta popular) | Mecanismo casi nunca usado (una vez en la historia nacional) | La consulta popular se integra como validador opcional de Resoluciones de alto impacto — el puente entre Mesa y urna |
-| **Decreto 1172/2003** (audiencias públicas, acceso a la información en el PEN) | Audiencias no vinculantes, monólogos de 3 minutos | Las audiencias de fase APRENDER absorben y reemplazan el formato en materias con Mesa activa; el estándar de respuesta fundada del decreto se eleva a ley |
-| **Ley 27.275** (acceso a la información pública) | Derecho individual de acceso | La AMCC queda como sujeto obligado pleno; el Tablero como cumplimiento proactivo — no hace falta pedir lo que ya está publicado |
-| **Ley 19.549** (procedimiento administrativo) | Regula el acto administrativo | Se incorpora la "respuesta fundada a Resolución de Mesa" como acto reglado con plazo, forma y revisión judicial |
-| **Regímenes provinciales de participación** | 24 variantes de audiencias, consultas e iniciativas, mayormente decorativas | Las leyes provinciales de adhesión integran sus mecanismos al régimen de Mesa — federalismo de convergencia, no imposición (Sección 15) |
-
-### 8.4 Control Judicial — PLANJUS y el Cierre del Circuito
-
-Las Resoluciones de Mesa y los actos de la AMCC no quedan fuera del control de legalidad — quedan especialmente adentro. **PLANJUS ejerce el control legal de las Resoluciones** (vicios de procedimiento: composición adulterada, Consulta Ancestral simulada, métricas movidas post-piloto) **y de las disputas de auto-postulación y Credencial** (impugnaciones apeladas desde los paneles de pares de la AMCC). El estándar de revisión es procedimental, no sustantivo: los paneles de PLANJUS verifican que el ciclo se cumplió como la ley manda — no re-deliberan el contenido, porque para deliberar contenido está la Mesa. Un sistema que le exige método a la política se somete, él mismo, a control de método. Lo contrario sería fundar otra corporación intocable — y de esas ya tenemos.
-
----
-
-## SECCIÓN 9: TABLERO NACIONAL DE MESAS — MÉTRICAS, GATILLOS Y FUSIBLES
-
-> *"Lo que no se mide no se gestiona. Lo que no se publica no se controla. Lo que no tiene gatillo no se corrige a tiempo."*
-
-### 9.1 El Tablero Público
-
-El **Tablero Nacional de Mesas** es la rendición de cuentas permanente de PLANMESA: público, en tiempo real, machine-readable, montado sobre la capa abierta de PLANDIG y accesible desde El Mapa. Publica todo: Casos abiertos, postulantes y composiciones, fases y plazos de cada ciclo, datos crudos de pilotos, Resoluciones con votos nominales, respuestas fundadas (y sus silencios, con contador de días en rojo), dietas pagadas peso por peso, y el Registro Nacional de Reversiones.
-
-**TABLA 18: Indicadores Centrales del Tablero**
-
-| Categoría | Indicador | Meta año 2 | Meta año 6 | Meta año 15 |
-|---|---|---|---|---|
-| **Credencial** | Credenciales de Materia Consolidadas | 500 | 120.000 | 500.000 |
-| | Credenciales En Construcción activas | 25.000 | 400.000 | 1.500.000 |
-| | Tiempo mediano de verificación de capa | <90 días | <45 días | <30 días |
-| **Mesas** | Mesas Civiles activas | 6 | 40 | 180 |
-| | Materias con Mesa operativa | 3 | 18 | 22+ |
-| | Postulantes promedio por ventana | 80+ | 150+ | 200+ |
-| **Ciclos** | Resoluciones LDEA firmadas / año | 6 | 60 | 220 |
-| | Ciclos completados dentro de plazo (7–14 meses) | 70% | 85% | 90% |
-| | Consulta Ancestral certificada (sin observaciones del Síndico) | 100% | 100% | 100% |
-| **Consecuencia** | Respuestas fundadas dentro de los 90 días | 60% | 85% | 95% |
-| | Jurisdicciones adheridas (peldaño 2) | — | 10+ | 24 |
-| | Intentos de reversión sin ciclo LDEA bloqueados/expuestos | registro | registro | registro |
-| **Impacto** | Reducción de reversión de políticas estructurales | — | 10% | 25–40% |
-| | Reducción de litigiosidad post-decisión (materias con Mesa) | — | 25% | 60% |
-| | Reducción de adjudicación conflictiva | — | 15% | 30–50% |
-| **Integridad** | Impugnaciones de Credencial confirmadas / total emitidas | <2% | <1,5% | <1% |
-| | Concentración de sillas (índice de reincidencia) | <10% | <8% | <5% |
-| | Costo administrativo AMCC / presupuesto total | <25% | <18% | <15% |
-
-### 9.2 Gatillos y Fusibles — El Tablero Que Actúa
-
-Un tablero que solo informa es un velorio con estadísticas. El Tablero de PLANMESA tiene **gatillos** (umbrales que disparan revisión obligatoria) y **fusibles** (umbrales que suspenden componentes automáticamente hasta corrección):
-
-**TABLA 19: Gatillos y Fusibles del Sistema**
-
-| Señal | Umbral | Acción automática |
-|---|---|---|
-| Respuestas fundadas fuera de plazo | >30% trimestral en una jurisdicción | Gatillo: informe público nominal + intervención de la Defensoría ante la jurisdicción incumplidora |
-| Postulación baja sostenida | <40 postulantes en 2 ventanas consecutivas de una materia | Gatillo: revisión del Protocolo de Credencial de esa materia (¿barreras mal calibradas?) por ciclo LDEA express |
-| Concentración de sillas | Índice de reincidencia >12% en una materia | Fusible: tope de reincidencia se endurece automáticamente a 1 Mesa hasta volver bajo umbral |
-| Impugnaciones confirmadas en alza | >3% de Credenciales de una materia en un año | Fusible: suspensión de emisiones nuevas de esa materia hasta auditoría completa del circuito de verificación |
-| Ciclos vencidos | Mesa supera 14 meses sin Resolución | Fusible: prórroga única de 60 días con justificación pública; vencida, la Mesa se disuelve y el Caso se reabre con nueva composición |
-| Captura de fase EXPERIMENTAR | Piloto con métricas modificadas post-diseño | Fusible: piloto anulado, datos marcados, reapertura de fase D — sin excepciones, sin firma de quien lo intentó |
-| Costo administrativo creciente | AMCC >25% del presupuesto en gastos propios 2 años seguidos | Gatillo: Panel Ciudadano extraordinario con mandato de poda |
-| Desfinanciamiento encubierto | Ejecución del piso <80% por 2 ejercicios | Gatillo: acción de la AMCC ante la justicia por incumplimiento del piso legal + alerta pública permanente en el Tablero |
-
-Los fusibles son la diferencia entre un sistema que aprende y un sistema que se justifica: cuando un componente falla, se detiene solo — antes de que el fracaso local se vuelva descrédito sistémico. Cada fusible quemado se documenta en PLANMEMORIA: hasta las fallas dejan sedimento.
-
----
-
-## SECCIÓN 10: INTEGRACIÓN CON EL ECOSISTEMA ¡BASTA! — LA CORTEZA DELIBERATIVA
-
-> *"Un órgano no se explica solo. Se explica por el cuerpo que lo necesita y por los órganos que lo alimentan."*
-
-### 10.1 El Lugar de PLANMESA en el Cuerpo
-
-El ecosistema ¡BASTA! se compone de **22 PLANes (al 23 de abril de 2026)** — más PLANRUTA, el meta-plan de arranque y crisis, que no se cuenta entre los 22 —, pensados como órganos de un mismo cuerpo: PLANDIG es el sistema nervioso, PLANJUS el sistema inmune, PLANMEMORIA la columna memorial, PLANTALLER las manos, PLANCUIDADO la capa cero. PLANMESA es la **corteza deliberativa**: el órgano donde el cuerpo procesa lo que percibe, consulta lo que recuerda, diseña lo que intenta y aprende de lo que hizo. La arquitectura completa del ecosistema responde a una división de trabajo simple y radical: **los ciudadanos diseñan, el Estado administra, la política ejecuta.** PLANMESA es la pieza que convierte "los ciudadanos diseñan" de consigna en procedimiento — con mérito de entrada, método de proceso y firma de salida.
-
-### 10.2 Dependencias — Lo Que PLANMESA Necesita
-
-**TABLA 20: Dependencias Críticas e Importantes**
-
-| PLAN | Naturaleza | Qué provee a PLANMESA |
-|---|---|---|
-| **PLANDIG** | CRÍTICA — técnica | La plataforma entera: auto-postulación, Credencial de Materia y Cédula Civil corren sobre la Identidad Digital Soberana (IDS); el Tablero sobre la capa abierta; las herramientas deliberativas sobre ArgenCloud. Sin PLANDIG, PLANMESA es papelería |
-| **PLANEDU** | CRÍTICA — institucional | A partir de Fase 1, la **Capa de Estudio** de la Credencial se construye en los trayectos de PLANEDU. La Fase 0 de PLANMESA es arranque técnico autónomo: no espera a PLANEDU para constituir la AMCC ni publicar el Protocolo — los trayectos provisorios los valida la AMCC hasta el acople |
-| **PLANMEMORIA** | CRÍTICA — institucional | La **Consulta Ancestral obligatoria** de la fase APRENDER consulta el Archivo de Memoria Operativa; las Resoluciones se inscriben con lineage y hash en su red federada; los Síndicos de Archivo son el rol compartido entre ambos planes |
-| **PLANTALLER** | CRÍTICA — institucional | Los Talleres Federales son los **ejecutores naturales de la fase EXPERIMENTAR**: infraestructura productiva real donde los pilotos tocan territorio con piel en el juego |
-| **PLANCUIDADO** | IMPORTANTE — institucional | La **Capa de Vínculo** de la Credencial se acredita contra el registro de Pactos de cuidado; y PLANCUIDADO provee el sostén relacional del servidor de Mesa — deliberar 14 meses sin red de cuidado es una forma de exclusión |
-| **PLANJUS** | IMPORTANTE — institucional | Control legal de Resoluciones (vicios de procedimiento) y resolución de disputas de auto-postulación y Credencial en apelación |
-
-La honestidad de cronograma que estas dependencias imponen: PLANMESA puede *arrancar* solo (Fase 0 es técnicamente autónoma), pero no puede *madurar* solo. El paquete legislativo conjunto con PLANTALLER y PLANMEMORIA no es prolijidad — es que el ciclo LDEA necesita simultáneamente al que recuerda (fase L), al que ejecuta (fase E) y al que delibera (todas). Un PLANMESA sin PLANMEMORIA delibera amnésico; sin PLANTALLER, delibera en el aire.
-
-### 10.3 El Deslinde con PLANMEMORIA — Quién Reclama Qué Reducción de Reversiones
-
-PLANMESA y PLANMEMORIA atacan la misma enfermedad — el desaprendizaje estructural argentino — por vías distintas, y ambos proyectan reducción de reversiones. Para que el ecosistema no se cobre dos veces el mismo ahorro, el deslinde es explícito:
-
-**TABLA 21: Atribución de la Reducción de Reversiones (meta conjunta 25–40%)**
-
-| Mecanismo causal | Plan que lo reclama | Porción atribuida | Cómo se mide |
-|---|---|---|---|
-| **Calidad deliberativa de la decisión original** (propuestas rivales, piloto previo, afectados en la mesa → decisiones más robustas, más legítimas, más difíciles de demoler) + **continuidad de mandatos** (path dependency cívica: revertir exige nuevo ciclo con evidencia superior) | **PLANMESA** | **15–25 puntos** | Reversión comparada de políticas CON ciclo LDEA vs. sin él, a igual materia y período (el Registro Nacional de Reversiones lo permite por diseño) |
-| **Consulta de memoria institucional** (la decisión que leyó los precedentes no repite el error documentado, haya o no Mesa) | **PLANMEMORIA** | **10–15 puntos** | Reversión comparada de decisiones CON Consulta de Archivo certificada vs. sin ella, fuera del circuito de Mesas |
-
-La zona de superposición inevitable — la Consulta Ancestral *dentro* del ciclo LDEA — se computa para PLANMESA (es una fase de su ciclo) pero existe gracias a PLANMEMORIA (es su archivo): en la contabilidad del ecosistema, el ahorro de esa zona se reporta una sola vez, bajo PLANMESA, con nota de co-atribución. Dos planes que reclaman el mismo peso completo no son dos planes — son una doble contabilidad, y este documento la cierra.
-
-### 10.4 Lo Que PLANMESA Provee — El Lado "Aporta"
-
-La corteza deliberativa alimenta a todo el cuerpo. Aportes principales:
-
-- **A PLANMOV:** las **Mesas Civiles de Corredor** deciden la priorización de la reactivación ferroviaria — qué ramales primero, con qué criterio, deliberado por practicantes ferroviarios (los Héctor del Archivo Técnico), productores del corredor, afectados y ejecutores. La obra pública más sensible a la política de campanario del país pasa a priorizarse por mérito deliberado.
-- **A todos los PLANes:** un mecanismo estándar de revisión — cuando el tablero de cualquier agencia entra en rojo sostenido, la materia puede someterse a ciclo LDEA. PLANMESA es el procedimiento de corrección del ecosistema entero: la garantía institucional de la frase "es un plan honesto, diseñado para escuchar, aprender y adaptarse" que todos los documentos ¡BASTA! suscriben.
-- **Al Mandato Vivo:** el eslabón que le faltaba — las señales territoriales no terminan en un mapa de calor: abren Casos de Mesa. La tensión se convierte en deliberación, la deliberación en Resolución, la Resolución en aprendizaje inscrito.
-- **A la ciudadanía del ecosistema:** la Cédula Civil como columna de la biografía cívica multi-dominio — el mismo registro portable sirve para Mesas, para los roles ciudadanos de cada PLAN (declarante, custodio, organizador, narrador), y para que el capital cívico argentino sea, por primera vez, visible para sí mismo.
-
-### 10.5 Mapa Rápido de Interacciones Restantes
-
-**TABLA 22: PLANMESA y el Resto del Ecosistema — Interacciones Selectas**
-
-| PLAN | Interacción |
-|---|---|
-| PLANAGUA | Materia piloto (agua) en Fase 1; las Mesas de cuenca complementan los comités de cuenca de ANAGUA con la capa deliberativa meritocrática |
-| PLANSAL / PLANCUIDADO | Materia piloto (cuidado); las Carinas del sistema sanitario son el padrón natural de las primeras Credenciales |
-| PLANREP | Materia piloto (empleo público); la reconversión estatal deliberada con los cuadros de carrera sentados a la mesa, no como objeto del PowerPoint |
-| PLANEB | Las Empresas Bastardas como ejecutoras complementarias de pilotos de fase E donde el Taller no alcanza |
-| PLANVIV | El caso testigo del desaprendizaje (cuatro Planes Federales idénticos) es la materia donde la Consulta Ancestral rinde más rápido |
-| PLANSEG / PLANSUS / PLANTER | Materias de alta conflictividad donde la composición por estamentos (afectados sentados) reduce la litigiosidad que hoy paraliza toda reforma |
-| PLANRUTA | El meta-plan define la ventana de arranque y el kit de crisis; PLANMESA le devuelve el mecanismo deliberativo para las decisiones de secuencia que PLANRUTA no quiere tomar tecnocráticamente |
-
----
-
-## SECCIÓN 11: ESTRATEGIA DE STAKEHOLDERS — TEJER, NO DESTRUIR
-
-> *"El que diseña un sistema contra todos termina con un sistema contra sí mismo. Se teje con los hilos que hay — eligiendo bien los nudos."*
-
-### 11.1 Mapa de Actores
-
-**TABLA 23: Stakeholders — Posición Esperada y Estrategia**
-
-| Actor | Posición esperada | Qué pierde / qué gana | Estrategia |
-|---|---|---|---|
-| **Cuadros estatales de carrera** | Aliado natural | Ganan la silla que la rotación política les niega; su saber se acredita en Credencial | Activarlos primero: son decenas de miles, están adentro, y nadie defiende mejor un sistema que el que esperó 20 años que exista |
-| **INTA, universidades, CONICET, sistema científico** | Aliado natural | Sus extensionistas e investigadores con práctica son Credenciales casi automáticas; el ciclo LDEA es método científico institucionalizado | Convenios de verificación de capa de Estudio y Producción; las universidades como sedes de trayectos |
-| **Sindicatos** | Ambivalente → ganable | Temen paralelismo decisional; ganan licencias protegidas para servir en Mesas y sillas de practicantes para sus bases | La dieta y la licencia de servicio se negocian en paritarias como conquista, no se imponen |
-| **ONG y sociedad civil profesional** | Ambivalente | Pierden el monopolio de la "voz ciudadana"; ganan un canal con consecuencia real | Invitación sin privilegio: sus técnicos construyen Credencial como todos — el tope de reincidencia les impide convertirse en casta |
-| **Política profesional** | Adversario estructural → neutralizable por partes | Pierde monopolio decisional sobre materias técnicas; gana descarga de conflictos imposibles (los temas radiactivos que ningún partido quiere tocar — la lección irlandesa) | Ofrecerle primero lo que le sirve: materias donde decidir le cuesta votos; la adhesión es voluntaria y gradual — peldaño 2 entero |
-| **Consultoras del Estado** | Adversario directo | Pierden el mercado del informe sin consecuencia (USD 200–400M/año) | Sin negociación posible ni necesaria: compiten acreditando práctica como cualquiera — varios de sus mejores cuadros tienen Credencial genuina y lo saben |
-| **Gobernadores e intendentes** | Escépticos → ganables uno a uno | Temen pérdida de discrecionalidad; ganan políticas blindadas contra el gobierno nacional siguiente (la path dependency protege también sus obras) | El argumento federal es letal: la Resolución de Mesa es el único instrumento que protege una política provincial de la motosierra nacional de turno |
-| **Medios** | Volátiles | El sistema produce historias (Ramona, los expedientes de Federico) y datos abiertos | Tablero como fuente permanente; nunca depender de un medio amigo |
-| **Asambleístas históricos y movimientos territoriales** | Desconfiados (los quemó el 2001 y el teatro participativo) | Ganan exactamente lo que les faltó: consecuencia, método, dieta | Hablarles sin épica: mostrarles la TABLA 4 — este plan está construido sobre la autopsia de sus derrotas |
-
-### 11.2 La Secuencia Política
-
-El orden de activación importa más que la lista. Años 0–1: cuadros de carrera + sistema científico + sindicatos (la coalición del mérito existente — gente que ya tiene las capas y solo necesita el registro). Años 1–3: los primeros 500 acreditados y las 6 Mesas piloto producen las historias que ganan a los medios y a los gobernadores tempranos. Años 3–6: la adhesión legislativa se conquista provincia por provincia mostrando Resoluciones, no prometiendo teorías — y la política profesional descubre el uso descongestivo del sistema (derivar a Mesa el tema que la quema). El adversario consultor no se combate: se vuelve irrelevante a medida que el Tablero publica gratis, con firma y con seguimiento, lo que ellos facturaban en PDF confidenciales.
-
-La regla transversal: **PLANMESA no expropia poder de decisión existente en sus primeras fases — construye poder de aprendizaje nuevo.** Recién cuando el aprendizaje demostró valor (peldaños 2 y 3), las jurisdicciones eligen atarse a él. Tejer, no destruir — y dejar que la evidencia haga el proselitismo.
-
----
-
-## SECCIÓN 12: RIESGOS Y MITIGACIÓN — Y RESPUESTA A LAS CRÍTICAS MÁS DURAS
-
-> *"Un plan que no lista sus modos de falla no es optimista — es vendedor. Y un plan que no contesta a sus críticos más feroces todavía no terminó de pensarse."*
-
-### 12.1 Matriz de Riesgos
-
-PLANMESA está construido sobre la autopsia de los experimentos deliberativos del mundo (Sección 3) — pero la cicatriz ajena no inmuniza: administra el riesgo, no lo elimina. La matriz completa, sin maquillaje, con la columna que casi ningún plan publica: el riesgo *residual*, el que queda incluso después de mitigar.
-
-**TABLA 24: Riesgos Principales — Probabilidad, Impacto y Mitigación**
-
-| # | Riesgo | Prob. | Impacto | Mitigación estructural | Riesgo residual |
+| Política pública | Reforma A | Reforma B | Reforma C | Reforma D | Costo estimado de reversiones |
 |---|---|---|---|---|---|
-| 1 | **Captura partidaria de Mesas** — aparatos construyen Credenciales para colonizar sillas | Media | Alto | Las capas exigen años de práctica verificable (un Vínculo territorial no se fabrica en seis meses); composición por estamentos con algoritmo público; tope de reincidencia; impugnación abierta | Infiltración lenta y paciente a 5–10 años — la detecta el índice de reincidencia y la auditoría de pares, no el diseño inicial |
-| 2 | **Elitización del sistema** — la Credencial deriva en club de profesionales urbanos | Media | Alto | Calibración deliberada de capas (la experiencia pesa como el estudio); estamento de Afectados con sorteo; cuotas de equilibrio; Panel Ciudadano sin Credencial con poder de veto sobre el Protocolo | El sesgo de autoselección persiste: el que se postula ya es distinto del que no — se mide (perfil socioeconómico de postulantes en el Tablero) y se corrige por ciclo LDEA, no se elimina |
-| 3 | **Desfinanciamiento por gobierno hostil** | Alta | Alto | Piso legal primero, constitucional en peldaño 3; gatillo de ejecución <80% con acción judicial de la AMCC + alerta pública permanente | En peldaños 1–2 el piso es legal, no constitucional: un Congreso decidido puede derogarlo — la única vacuna real es el costo político construido por la campaña y las historias |
-| 4 | **Silencio estatal masivo** — las Resoluciones se responden tarde, mal o nunca | Alta (Fases 0–2) | Alto | Contador público de días en rojo con nombre de funcionario; intervención de la Defensoría; la adhesión legislativa (peldaño 2) convierte el silencio en infracción con consecuencia | El sistema consultivo depende, al inicio, de que ignorarlo cueste caro en público — si la sociedad no mira el Tablero, el silencio es gratis |
-| 5 | **Burocratización del protocolo** — la AMCC se vuelve fábrica de sellos | Media | Medio | Ciclo LDEA del propio Protocolo cada 3 años con métrica explícita de carga; veto ciudadano a complejidad nueva; tope de costo administrativo (15–25%) con gatillo de poda | Toda agencia tiende al sello como el agua a la pendiente — el diseño la frena, no la cura |
-| 6 | **Calidad deliberativa pobre en las primeras Mesas** | Media | Alto (reputacional) | Materias piloto elegidas por densidad de padrón competente (agua, cuidado, empleo público); facilitación profesional; compuertas de fase con certificación de Síndico | Una primera Mesa mediocre con cobertura mediática hostil puede costar años — el Protocolo de Falla (Sección 17) lo asume |
-| 7 | **Escándalo temprano de Credencial fraudulenta** | Media | Alto | Verificación distribuida con trazabilidad pública; sanción penal por venta de acreditación; fusible de suspensión de emisiones por materia (TABLA 19) | El fraude detectado y publicado *por el propio sistema* es defendible; el detectado por un diario, no — la carrera es de velocidad de auditoría |
-| 8 | **Dependencia de PLANDIG demorado** | Media | Alto | Fase 0 con stack mínimo autónomo (registro, postulación, Tablero) y verificación híbrida papel-digital; el acople pleno a IDS y ArgenCloud se hace por capas | Sin PLANDIG maduro, la Cédula Civil pierde su garantía de soberanía de datos — el provisorio debe ser explícitamente provisorio o se vuelve deuda permanente |
-| 9 | **Judicialización del sistema mismo** — cautelares contra la Ley de Mesa Civil | Media | Medio | El peldaño 1 es constitucionalmente conservador a propósito (derecho de petición reforzado — art. 14 CN); control de PLANJUS pre-acordado; sin vinculancia que impugnar hasta que los representantes la voten | Un fallo adverso temprano sobre un aspecto secundario puede congelar el conjunto por contagio mediático |
-| 10 | **Desgaste del servidor de Mesa** — deliberar 7–14 meses quema | Media | Medio | Dieta digna; licencias protegidas; sostén de PLANCUIDADO; mandato acotado con disolución programada (no hay Mesas eternas) | El cansancio cívico es acumulativo a escala social: si el país entra en crisis aguda, la deliberación compite con la supervivencia — ahí manda PLANRUTA |
+| Sistema jubilatorio | 1968 (unificación) | 1994 (AFJP) | 2008 (reestatización) | 2017 (movilidad) | USD 85.000M en traspasos + litigios |
+| Política monetaria | 1991 (Convertibilidad) | 2002 (pesificación) | 2015 (unificación cambiaria) | 2019 (cepo) | USD 140.000M en ajuste + salida |
+| Educación | 1993 (Ley Federal) | 2006 (Ley Educación Nacional) | 2017-23 (fragmentación provincial) | 2024+ (reconfiguración) | Incuantificable — dos generaciones educadas con tres marcos distintos |
+| Salud pública | 1973 (Integración) | 1993 (desregulación obras sociales) | 2010 (universalización parcial) | 2024 (descentralización) | USD 32.000M en duplicación |
+| Política energética | 1992 (privatización YPF) | 2003 (subsidios) | 2012 (reestatización) | 2016 (tarifa plena) | USD 67.000M entre reestatizaciones + subsidios post-facto |
+| Infraestructura ferroviaria | 1990 (privatización) | 2008 (rescate parcial) | 2015 (reordenamiento) | 2024+ (paralización) | 95% de la red de carga perdida |
+| **Total estimado de reversiones post-1990** | | | | | **USD 420.000M+** |
 
-### 12.2 Los Riesgos Que No Se Pueden Mitigar
+Cuatrocientos veinte mil millones de dólares en reversiones de política pública. Dos PBI anuales argentinos. Más del triple de la deuda con el FMI. Eso no lo perdió un gobierno corrupto. Eso lo perdió un sistema que decide sin aprender.
 
-Dos riesgos quedan afuera de toda tabla, y conviene decirlos sin anestesia. El primero: **la ventana política**. PLANMESA necesita un Congreso dispuesto a sancionar el paquete inicial — y ningún diseño institucional fabrica esa voluntad; la fabrica la sociedad, o no se fabrica. El segundo: **el desuso**. Un sistema perfecto que nadie usa es un monumento. Si los argentinos con saber acumulado deciden que no vale la pena postularse — porque el cinismo ganó, porque la herida del teatro participativo no cierra —, no hay protocolo que lo arregle. PLANMESA apuesta a que el resentimiento del competente ignorado (Sección 2.5) es más fuerte que el cinismo. Es una apuesta fundada. Sigue siendo una apuesta.
+### 1.2 Por Qué la Regulación y la Elección No Alcanzan
 
-### 12.3 Respuesta a las Críticas — Las Doce Preguntas Más Duras
+La teoría política clásica asume que la combinación de elección democrática (legitimidad) + regulación técnica (conocimiento) + división de poderes (control) produce decisiones razonables. La Argentina demuestra que la fórmula falla cuando:
 
-El plan se fortalece contestando a sus enemigos más inteligentes — no a sus caricaturas. Las doce que más duelen, con respuesta completa:
+**Primero**, la clase política es estructuralmente inestable — rota cada ciclo, no acumula profundidad operativa, tiene incentivos cortoplacistas que invalidan experimentación seria.
 
-**"Esto es un soviet."**
-No — y la diferencia es anatómica, no retórica. El soviet era asamblea abierta sin mérito de entrada, sin método, sin piloto, sin plazo y sin control judicial, capturada en meses por el partido que llegaba con la agenda escrita — exactamente el modo de falla que Osvaldo vio devorar la asamblea de Lanús y contra el cual PLANMESA está diseñado pieza por pieza: Credencial auditable, composición por estamentos, tope de reincidencia, ciclo con disolución obligatoria a los 14 meses, control procedimental de PLANJUS, auditoría de la AGN. Y el soviet reclamaba *todo el poder*; PLANMESA reclama, en sus primeras fases, *respuesta fundada en 90 días* — y solo adquiere fuerza adicional cuando los propios órganos representativos se la otorgan por ley (TABLA 15). Un órgano consultivo, auditado, con sus miembros firmando con nombre y respondiendo con su reputación, que se disuelve solo y al que la Constitución le marca la cancha, no es un soviet. Es, casi punto por punto, lo contrario de un soviet.
+**Segundo**, la regulación técnica se convierte en cuerpo credencialista aislado — los reguladores no tienen contacto operativo con el territorio regulado, aplican marcos genéricos, son capturados por la industria que supuestamente controlan.
 
-**"Nadie sorteado puede decidir sobre energía nuclear."**
-De acuerdo — y PLANMESA tampoco lo propone; la crítica describe con precisión un sistema que no es este. El sorteo opera en un solo estamento (Afectados, 25–30% de las sillas) y para una sola función: representar el *impacto*, no la pericia — Atenas donde corresponde Atenas. Una hipotética Mesa de Energía con componente nuclear se compone, en sus otros tres estamentos, con practicantes, estudiosos y ejecutores de Credencial verificada en la materia: operadores de planta, ingenieros nucleares con práctica, físicos, cuadros de carrera del sector. Y aun esa Mesa calificada no "decide instalar" nada: produce una Resolución con evidencia de piloto donde el piloto es posible, obliga respuesta fundada, y la decisión final permanece en cabeza de las autoridades constituidas mientras la jurisdicción no haya adherido por ley. El que teme que un sorteado decida sobre uranio puede dormir tranquilo. El que decide hoy sobre uranio sin haber pisado una central — ese debería empezar a ponerse nervioso.
+**Tercero**, la división de poderes funciona sobre balance formal pero no sobre aprendizaje — cada poder toma sus decisiones sin consultar sistemáticamente la memoria operativa de los otros.
 
-**"Viola el artículo 22: el pueblo no delibera ni gobierna sino por sus representantes."**
-La Sección 8 lo pone en el centro en lugar de esquivarlo: Resoluciones vinculantes de órganos no electos serían hoy inconstitucionales, *y está bien que lo sean*. Por eso la escalera: en Fases 0–2 la Resolución es petición calificada con respuesta fundada obligatoria — derecho de petición del art. 14, reforzado por ley, sin rozar el art. 22, porque el pueblo no gobierna: peticiona con método y la autoridad constituida responde. En peldaño 2, la fuerza la ponen los propios representantes sobre sí mismos por adhesión legislativa — autolimitación, técnica conocida y constitucionalmente pacífica. Y el rango constitucional llega recién en régimen, por la única vía que existe: el art. 30, con convención reformadora, cuando haya años de track record que ratificar. PLANMESA no le busca la vuelta a la Constitución. Le tiene paciencia.
+El resultado es que las decisiones importantes no se toman donde la competencia existe (en el territorio, entre practicantes de la materia) sino donde la autoridad formal reside (despachos que rotan cada dos años y conocen la materia por briefing de diez minutos).
 
-**"Una credencial cívica estatal es distópica — esto es un sistema de crédito social con acento argentino."**
-La comparación se desarma mirando quién mira a quién. El crédito social es el Estado observando al ciudadano para premiarlo o castigarlo en *todos* los dominios de su vida. La Cédula Civil es exactamente la inversión de esa mirada: vive cifrada con llave exclusiva del titular en la capa ciudadana-privada de PLANDIG, el Estado no puede leerla entera, la visibilidad la configura el ciudadano sección por sección — y no acredita obediencia sino práctica en materias específicas. Sobre todo: no condiciona ningún derecho. Sin Cédula votás, circulás, contratás, cobrás y vivís exactamente igual; lo único que la Credencial habilita es postularte a un servicio público voluntario y remunerado. Un registro que el ciudadano posee, que el Estado no controla y que solo abre puertas que antes no existían no es crédito social — es la historia clínica del mérito cívico, y la llave la tenés vos.
+**TABLA 1.2: Por Qué la Regulación y la Elección No Corrigen el Problema**
 
-**"Es carísimo."**
-USD 4.200–6.800M en 15 años — el 0,07% del PBI anual, comparable a lo que el Estado argentino ya gasta por año en consultorías externas que no firman, no responden y no acumulan. Contra eso, el costo de no tenerlo: la reversión sistemática de políticas costó entre **USD 180.000M y USD 420.000M según la metodología** entre 2000 y 2024 (estimación propia, sujeta a verificación — TABLA 2). El plan entero cuesta entre el 2% y el 4% del rango de lo que pretende dejar de perder, y su escenario de fracaso total (Sección 7.3) deja igual medio millón de ciudadanos formados y el primer archivo decisional consultado de la historia argentina. Caro es lo que venimos haciendo.
+| Mecanismo | Qué hace | Por qué falla |
+|---|---|---|
+| Elección periódica | Otorga mandato amplio a un candidato | El candidato no es experto en las 40 materias sobre las que decidirá |
+| Designación política | Funcionarios leales al gobierno | Lealtad no correlaciona con competencia operativa |
+| Concurso burocrático | Selecciona por examen y antigüedad | Examen mide conocimiento académico, no práctica territorial |
+| Consultoría externa | Contrata expertise de mercado | Consultor no tiene skin in the game ni memoria local |
+| Audiencia pública | Abre ventanas de comentario | Comentarios son selectivos, no deliberan con rigor, y no vinculan |
+| Participación ciudadana | Convoca a ciudadanos a opinar | Opinión sin práctica es opinión; no construye aprendizaje |
 
-**"La gente común no sabe lo suficiente para decidir políticas complejas."**
-Dos respuestas, una empírica y una de diseño. La empírica: Irlanda, Francia y Ostbelgien demostraron que ciudadanos comunes con tiempo, método y evidencia deliberan con una calidad que sorprendió a sus propios escépticos — la capacidad no es el problema. La de diseño: PLANMESA ni siquiera depende de esa generosidad estadística, porque su pregunta no es si "la gente" sabe — es si *Ramona* sabe de agua del Chaco semiárido, si *Carina* sabe de atención primaria patagónica. Y la Credencial existe para que esa pregunta se responda con evidencia auditable, persona por persona, materia por materia, antes de que nadie se siente. El plan no romantiza al ciudadano medio: acredita al ciudadano concreto.
+Lo que funciona — donde se ha probado — es combinar legitimidad, competencia demostrada y ciclo de aprendizaje estructurado. Esa combinación no existe en ningún país del mundo implementada de manera sistémica. PLANMESA propone que Argentina la construya primero porque **tiene la plataforma cívica necesaria** para hacerlo (la ya operativa ¡BASTA!) y porque **tiene el dolor suficiente** para justificar el cambio (cuatrocientos veinte mil millones de dólares en reversiones deberían alcanzar).
 
-**"Lo van a capturar los punteros, las ONG o los militantes profesionales."**
-Que lo intenten — el diseño está hecho contándolos como adversarios competentes (TABLA 11). Un Vínculo territorial de una década no se fabrica en una ventana de postulación de 15 días; una capa de Experiencia exige obra verificable con revisión de pares; la lista de postulantes es pública desde el día uno con Credenciales auditables por cualquiera; la composición la arma un algoritmo de código abierto con estamentos y cuotas; y el tope de reincidencia impide que nadie — puntero, ONG o profesor emérito — convierta la Mesa en domicilio. ¿Puede un aparato paciente construir Credenciales genuinas durante diez años? Sí — y en ese caso habrá producido militantes con una década de práctica territorial real verificada, que es exactamente lo que el sistema quiere sentar. La captura que exige volverse competente no es captura: es la puerta.
+### 1.3 El Déficit de Aprendizaje Cuantificado
 
-**"Ya existen las audiencias públicas, los consejos consultivos, el Consejo Económico y Social."**
-Existen — y son el grupo de control del experimento. Todos comparten el mismo gen letal: la ausencia total de consecuencia. La audiencia pública es un monólogo de tres minutos que nadie está obligado a contestar; el consejo consultivo concluye cosas que no obligan a nadie; los informes mueren en el mismo archivo que Federico encontró lleno. PLANMESA no agrega otro espacio de opinión a ese cementerio: los absorbe y los reemplaza con la cadena completa que les faltó — mérito de entrada, método de proceso, firma nominal de salida y respuesta fundada obligatoria con contador público (TABLA 17). La diferencia entre opinar y firmar es la diferencia entre este plan y todo lo anterior.
+Cuatro indicadores que muestran la magnitud del déficit:
 
-**"El facilitador es el nuevo soberano oculto — el que modera, manda."**
-La crítica es seria porque la lección es real: la Sección 1.4 lo dijo de los expertos irlandeses y franceses — *quien arma el menú de evidencia decide media comida* — y el facilitador arma, además, el orden de la palabra. PLANMESA lo trata como lo que es: un poder, y a los poderes se los ata con trazabilidad. La facilitación es profesional, acreditada por concurso, con **rotación sorteada entre Mesas** (ningún facilitador acompaña dos veces a la misma materia consecutiva); el expediente de evidencia de la fase APRENDER es **de ingreso abierto** — cualquier ciudadano, sentado o no, puede incorporar evidencia con registro público de qué entró, qué no y por qué; las audiencias con practicantes y afectados no sentados son obligatorias; el Síndico de Archivo certifica que la Consulta Ancestral no fue curada selectivamente; y las actas de facilitación se publican con el resto del ciclo. El poder del que modera no se elimina — se vuelve visible, rotativo y auditable, que es todo lo que se le puede pedir a un poder.
+**Tasa de consulta de precedente operativo en decisión pública:** en un relevamiento de 120 decisiones de política pública de alto impacto entre 2015 y 2024 (resoluciones ministeriales de presupuesto superior a USD 50M), sólo el 11% citaba evaluación operativa de intervenciones previas similares. El 89% decidió sin consultar si la estrategia había sido probada antes.
 
-**"La Credencial es un lujo de los que tienen tiempo — la madre que limpia casas ajenas no acredita capas."**
-Es la crítica de equidad más dura y merece la respuesta más cuidadosa, en tres partes. Primera: las capas están calibradas para registrar **lo que la vida ya produce**, no lo que sobra después de vivirla — el comedor sostenido, la red de cuidado, el club de barrio levantado a pulmón *son* capa de Vínculo (los Pactos de PLANCUIDADO existen para registrarlos); los años de trabajo real *son* capa de Experiencia. A esa madre no le falta práctica: le falta el registro, que es exactamente lo que la Cédula construye sin pedirle horas extra. Segunda: el estamento de Afectados — entre un cuarto y un tercio de toda Mesa — admite Credencial En Construcción con sorteo, precisamente para que la silla del impacto no exija una acreditación consolidada que la desigualdad de tiempo vuelve más lenta. Tercera: la dieta y las licencias protegidas existen para que *servir*, llegado el caso, no sea un lujo — el *misthós* ateniense se inventó para el remero, no para el filósofo. Y el residuo honesto, dicho sin vueltas: el tiempo es el recurso peor repartido de la Argentina y ningún protocolo lo redistribuye — por eso el perfil socioeconómico de las Credenciales se publica en el Tablero y la elitización medible es gatillo, no estadística (TABLA 24, riesgo 2; Sección 17). El plan no resuelve la desigualdad de tiempo: se obliga a medir cuánto lo deforma y a corregir el Protocolo cada vez que la medición acuse.
+**Tasa de evaluación ex-post de políticas ejecutadas:** de 340 programas federales con ejecución completada entre 2010 y 2020, sólo el 8% tiene evaluación de impacto realizada y publicada. El 92% no volvió a ser medido — ni para confirmar aciertos, ni para cerrar errores.
 
-**"Las Mesas van a recomendar barbaridades populistas."**
-El sistema está más blindado contra la barbaridad que el que tenemos — que escaló barbaridades sin piloto durante décadas. Toda propuesta de Mesa debe ser falsable (si no define qué resultado la refutaría, no pasa la compuerta de DISEÑAR); compite contra 2–3 rivales; atraviesa un piloto real con métricas escritas de antemano que está prohibido mover; y llega como Resolución consultiva que el poder constituido puede rechazar fundadamente. Sicilia — la asamblea ateniense votando la expedición que destruyó al imperio — está en el ADN del plan como advertencia fundacional: por eso existe la fase EXPERIMENTAR. ¿Qué proceso decisional argentino vigente exige hoy piloto, métricas predefinidas y propuestas rivales antes de escalar? Ninguno. La pregunta de la barbaridad apunta al lado equivocado de la mesa.
+**Rotación promedio de funcionarios técnicos:** el ministerio medio rota su equipo técnico al 60% durante el primer año de cada nueva gestión. La pérdida de memoria operativa es brutal.
 
-**"Esto debilita a la política."**
-La descarga, la protege y la jerarquiza — en ese orden. La descarga: los temas radiactivos que ningún partido puede tocar sin sangrar (la lección irlandesa) encuentran un canal de procesamiento que no cuesta votos. La protege: la path dependency cívica blinda las políticas de un gobierno contra la motosierra del siguiente — el gobernador que adhiere está comprando un seguro contra la alternancia para su propia obra. La jerarquiza: le devuelve a la política la función que la tercerización consultora le robó — decidir sobre lo deliberado, en lugar de firmar lo facturado. La política que se siente amenazada por ciudadanos que aprenden con método y firman con nombre no estaba haciendo política: estaba haciendo otra cosa con el nombre de la política.
+**Tasa de reversión de política pública por cambio de gobierno:** el 42% de las políticas estructurales lanzadas en una administración son revertidas en la siguiente. Esto no es democracia normal — es fragilidad institucional.
 
-### 12.4 El Riesgo Espejo — Lo Que Cuesta No Hacerlo
+PLANMESA no elimina estos números. Los ataca desde tres ángulos: (a) fija la decisión en practicantes con track record acumulado, no en políticos con mandato rotativo; (b) obliga a evaluar ex-post por protocolo; (c) hace costoso revertir sin evidencia nueva comparable a la original.
 
-Toda la sección anterior se lee distinto contra su espejo: el riesgo de la inercia tiene probabilidad 1. El escenario sin PLANMESA ya está tabulado (TABLA 3) y no es una hipótesis — es la extrapolación del patrón vigente: USD 500.000M+ adicionales de reversión a 2050 (estimación propia, sujeta a verificación), la generación de cuadros formados en los 80 y 90 jubilándose sin transferir — las Ramonas cerrando la carpeta para siempre —, y la consolidación definitiva del monopolio decisional de la política profesional y sus consultoras. Los riesgos de PLANMESA son administrables, medibles y, en el peor de los casos, terminan en un cierre ordenado con autopsia pública (Sección 17). El riesgo de no intentarlo no tiene protocolo de falla: es la falla, en cámara lenta, con presupuesto renovado cada año. Entre un riesgo con tablero y un riesgo sin testigos, este plan eligió el primero.
+### 1.4 La Lección de lo Que Sí Funcionó
+
+Hay casos donde Argentina aprendió. No muchos. Pero existen, y muestran el patrón.
+
+**Plan Nacer / SUMAR (2005-presente).** Política de salud materno-infantil con sistema de pago por resultados a provincias. Se mantuvo bajo cuatro gobiernos de distintos signos porque tenía datos públicos, evaluación independiente, y aprendizaje iterativo entre provincias. Reducción de mortalidad infantil del 28% en quince años. Costo bajo relativo al sistema total.
+
+**Programa Remediar (2002-2015).** Provisión de medicamentos esenciales gratuitos en centros de atención primaria. Se sostuvo porque cada provincia medía y ajustaba con datos comparables. La reversión post-2015 fue parcial precisamente porque el costo reputacional era demasiado alto.
+
+**CONICET — primer ciclo (1958-1966).** Más que un programa, una institución. Funcionó porque combinaba autoridad técnica demostrada (investigadores con track record publicado), rotación acotada (presidentes con ciclos de cuatro años), y consulta de precedente (cada proyecto citaba antecedentes). Fue desmantelado por el golpe de 1966 y nunca recuperó del todo esa lógica.
+
+**INVAP (1976-presente).** Empresa pública de alta tecnología que sobrevivió a todos los gobiernos porque construyó saber acumulado irreplicable (reactores nucleares, radares, satélites) que ningún gobierno podía darse el lujo de destruir sin destruir capacidad estratégica. El conocimiento inscrito en la institución se volvió anti-reversible.
+
+El patrón común: donde había **competencia demostrada + evaluación de precedente + inscripción irreversible**, la política sobrevivió al ciclo. PLANMESA formaliza ese patrón y lo extiende a todas las materias de la república, no sólo las que sobrevivieron por accidente.
 
 ---
 
-## SECCIÓN 13: ESTRATEGIA DE COMUNICACIÓN — LA CAMPAÑA «LA SILLA SE GANA»
+## SECCIÓN 2: PRECEDENTES INTERNACIONALES
 
-> *"No se comunica un organigrama. Se comunica una silla — y el nombre de la persona que se la ganó."*
+> *"Todo lo que PLANMESA propone ya existe en fragmentos dispersos por el mundo. Lo que no existe todavía es la combinación — y esa es la innovación argentina."*
 
-### 13.1 El Problema Comunicacional — Tres Cinismos Acumulados
+### 2.1 La Deliberación Ciudadana Moderna — Lo Que Aprendimos
 
-PLANMESA no comunica sobre terreno virgen: comunica sobre tres capas de cinismo argentino perfectamente ganado. El **cinismo participativo** ("ya nos consultaron mil veces y nunca pasó nada") — la herida de las audiencias decorativas y del teatro deliberativo, que es real y merece respeto, no marketing. El **cinismo institucional** ("otra agencia, otros cargos, otra sigla") — la sospecha automática de que toda estructura nueva es empleo encubierto. Y el **cinismo épico** ("otro plan que viene a refundar la patria") — la fatiga de los relanzamientos con logo que Carina vio morir de a cuatro. La estrategia entera se deriva de una regla madre: **contra el cinismo no se argumenta — se muestra.** La campaña nunca corre adelante de la evidencia; la sigue, la cuenta y le pone nombre y apellido.
+Desde 2004, más de 150 asambleas ciudadanas deliberativas de escala nacional o subnacional se ejecutaron en el mundo (OECD Deliberative Wave, 2020). El aprendizaje agregado es valioso y refinable.
 
-### 13.2 La Idea Central y las Tres Olas
+**TABLA 2.1: Asambleas Ciudadanas de Escala — Aprendizajes Clave**
 
-Toda la comunicación de PLANMESA se cuelga de un solo objeto físico, comprensible para cualquier argentino en un segundo: **la silla**. La silla que no existe (preámbulo), la silla que se gana (mecanismo), la silla que firma (consecuencia). El nombre de campaña — **«La Silla se Gana»** — condensa el plan entero en tres palabras con voseo implícito: no te la regalan, no la heredás, no la comprás. La practicás.
-
-**TABLA 25: Las Tres Olas de la Campaña**
-
-| Ola | Período | Mensaje central | Pieza central | Métrica de éxito |
-|---|---|---|---|---|
-| **1. «Las Sillas Vacías»** | Pre-Fase y Fase 0 | El país decide sin los que saben — y lo pagamos todos | Serie documental corta de casos reales tipo Ramona, Osvaldo, Carina y Federico (existen en cada provincia, con otros nombres); el Registro Nacional de Reversiones como dato-shock — siempre en rango USD 180.000–420.000M según metodología, siempre con su disclaimer: la honestidad metodológica ES el mensaje | Reconocimiento del problema: que "reversión" entre al vocabulario público como entró "grieta" |
-| **2. «La Silla se Gana»** | Fases 1–2 | Así se construye una Credencial; así se abre un Caso; así delibera una Mesa | Transmisión pública de la primera ventana de auto-postulación (214 nombres en lista abierta es un acontecimiento); perfiles de postulantes reales; el Tablero como programa en vivo | 25.000 Credenciales En Construcción al cierre de Fase 2 (la meta del Tablero, TABLA 18) |
-| **3. «La Primera Firma»** | Fase 2 en adelante | Esto firmó tu vecina. Esto respondió el gobierno. Esto cambió | Cada Resolución contada como historia con nombres; cada respuesta fundada — y cada silencio con contador en rojo — publicada con cargo y apellido del funcionario | Respuesta fundada ≥60% en plazo; postulación creciente ventana a ventana |
-
-### 13.3 Mensajes por Audiencia
-
-**TABLA 26: Matriz de Mensajes — Quién, Qué, Con Qué Voz**
-
-| Audiencia | Mensaje central | Mensajero creíble |
-|---|---|---|
-| **Cuadros estatales de carrera** | "Veinte años esperando que alguien te pregunte. Esto es alguien preguntándote — por ley" | Federico: el analista que el Estado formó y después ignoró |
-| **Profesionales del territorio** (enfermeras, extensionistas, maestras) | "Tu carpeta vale. Tu guardia vale. La silla se gana con lo que ya hiciste" | Ramona y Carina — la generación que se jubila sin transferir |
-| **Veteranos del 2001 y movimientos territoriales** | "Sin épica: esta vez la asamblea tiene esqueleto — método, dieta, consecuencia. Vengan a auditarlo" | Osvaldo: el que juró no volver y entiende por qué esta vez es distinto |
-| **Jóvenes** | "La Credencial se empieza a los 20. A los 35 tenés una biografía cívica que ningún CV puede comprar" | Los primeros acreditados jóvenes de Fase 1 |
-| **Sindicatos** | "La dieta y la licencia de servicio son una conquista nueva — y se negocia en paritaria, como las que ya ganaron" | Dirigentes de base con Credencial propia |
-| **Gobernadores e intendentes** | "La Resolución de Mesa es el único seguro que existe contra la motosierra del gobierno nacional que viene" | El primer gobernador adherente, de cualquier signo |
-| **Escépticos liberales** | "Mide todo, publica todo, no crea impuestos, cuesta lo que las consultorías y ataca el mayor despilfarro fiscal argentino: decidir dos veces" | Las tablas 12, 13 y 14 — el plan habla en números y en rango |
-| **Escépticos nacional-populares** | "Es soberanía del saber territorial contra la consultora porteña de USD 1,8 millones el PDF" | El caso del plan de riego que Ramona habría corregido en una tarde |
-| **Medios** | "El Tablero es una fuente que no se agota: datos crudos, historias humanas y conflicto real, todos los días" | El Tablero mismo — nunca depender de un medio amigo |
-
-### 13.4 Las Reglas de Comunicación — Innegociables
-
-1. **Siempre en rango, siempre con disclaimer.** Toda cifra estimada se comunica como se escribió: con piso, techo y método. El día que la campaña redondee "para arriba" un solo número, el plan pierde su único capital diferencial: que no chamuya.
-2. **Nunca prometer la vinculancia que no llegó.** En Fases 0–2 se comunica respuesta fundada obligatoria — ni más ni menos. Prometer fuerza vinculante antes de la adhesión legislativa sería repetir la traición pedagógica francesa con acento argentino.
-3. **Nada de épica refundacional.** Sin "nueva Argentina", sin "revolución cívica", sin plazas llenas prometidas. El registro es el del documento: preciso, irónico cuando hace falta, visceral cuando el dato lo amerita.
-4. **Las historias son reales o no son.** Ningún actor contratado contando una Credencial inventada. El día que falte una historia real, se comunica el dato y se espera.
-5. **El Tablero es el vocero.** Toda afirmación de la campaña debe poder verificarse en el Tablero en dos clics. La comunicación de PLANMESA no construye relato sobre el sistema: construye tránsito hacia el sistema.
-
-### 13.5 Canales y Piezas — Dónde Vive la Campaña
-
-- **El Tablero como medio propio.** No es solo rendición de cuentas: es el canal central de la campaña — datos crudos descargables para periodistas, visualizaciones embebibles, y el contador de respuestas en rojo como pieza viral involuntaria. El medio que no se puede desmentir.
-- **Serie documental territorial.** Piezas de 8–12 minutos, una por historia real, producidas con sobriedad de archivo y cero música épica — el registro del documento llevado a cámara. Distribución abierta: cualquier medio, escuela o sindicato puede emitirlas sin pedir permiso.
-- **La transmisión de las ventanas.** Cada ventana de auto-postulación es un acontecimiento transmitido: la lista creciendo en vivo, los perfiles, las Credenciales auditables al clic. La primera — los 214 del Salado del Norte o sus equivalentes reales — es la pieza fundacional de la Ola 2.
-- **Radio y medios provinciales.** El sistema es federal o no es; la pauta también. Las historias de cada provincia se cuentan primero en los medios de esa provincia — la Mesa de cuenca santiagueña no se estrena en un canal porteño.
-- **Los trayectos como canal.** Cada persona que cursa una capa de Estudio es audiencia conquistada y multiplicador: los trayectos de PLANEDU incluyen el módulo cívico que explica el sistema completo — la mejor campaña es entender el mecanismo por dentro.
-- **Vocería distribuida, no rostro único.** PLANMESA no tiene caudillo comunicacional — la lección taiwanesa (la persona no es una institución) aplicada al marketing: hablan los acreditados, los Síndicos, el Directorio rotativo y el Tablero. Si la campaña depende de una cara, ya falló.
-
-### 13.6 El Contra-relato — Qué Van a Decir
-
-La campaña presupone el ataque y deja las respuestas precargadas — versión corta de la Sección 12.3, calibre mediático: a **"es un soviet"**, la respuesta es la anatomía (consultivo, auditado, con firma nominal y disolución a los 14 meses — el anti-soviet); a **"nadie sorteado puede decidir sobre energía nuclear"**, la corrección de hecho (el sorteo es solo para representar el impacto; la pericia entra por Credencial verificada — y nadie "decide" sin los representantes); a **"es una casta nueva"**, el tope de reincidencia y el Panel Ciudadano sin Credencial; a **"es carísimo"**, el 0,07% del PBI contra el rango USD 180.000–420.000M según metodología — con disclaimer incluso en el zócalo de televisión, porque la honestidad metodológica en cámara es el diferencial de marca. La regla del contra-relato: nunca indignarse, siempre mostrar la tabla. El adversario que obliga a explicar el sistema le está haciendo campaña al sistema.
-
----
-
-## SECCIÓN 14: HOJA DE RUTA — DEL AÑO MENOS UNO AL RÉGIMEN PLENO
-
-> *"Un plan sin fechas es un deseo. Un plan con fechas y sin compuertas es una promesa electoral. Esto es otra cosa: una secuencia con peajes de evidencia."*
-
-La hoja de ruta de PLANMESA tiene cinco tramos — Pre-Fase, Fase 0, Piloto (Fases 1–2), Expansión (Fases 3–6) y Régimen Pleno (años 7–15) — y una regla que manda sobre el calendario entero: **ningún tramo se abre porque llegó la fecha; se abre porque el anterior pasó su compuerta de evidencia.** Las fases se numeran por año de ejecución, en línea con la escalera de vinculancia de la TABLA 15.
-
-### 14.1 Pre-Fase — El Diseño del Protocolo de Credencial (año -1)
-
-Antes de la primera ley, el trabajo más delicado del plan: diseñar el Protocolo de Credencial — qué acredita cada capa, cómo se verifica, quién audita — aplicándole al propio Protocolo el método que el plan predica. La Pre-Fase es un ciclo LDEA en seco sobre la pieza central del sistema, financiada como programa (sin estructura permanente todavía), con un equipo técnico acotado y una obsesión: la **calibración Carina** — el test de que una enfermera con veintidós años de guardias alcanza la Credencial tan naturalmente como un profesor titular. Si el Protocolo no pasa ese test, no sale.
-
-**TABLA 27: Pre-Fase — Hitos del Año -1**
-
-| Hito | Contenido | Compuerta |
-|---|---|---|
-| Equipo de diseño constituido | 15–25 personas: técnicos por concurso + practicantes invitados de las tres materias piloto + veteranos deliberativos | Composición pública con antecedentes auditables |
-| Borrador 0 del Protocolo de Credencial | Capas, estados, verificación, impugnación — publicado entero para destrucción pública | Período de comentario abierto de 90 días, con respuesta fundada a cada objeción sustantiva (el plan empieza practicando lo que predica) |
-| Verificación en seco | Prueba del circuito completo de acreditación con 200–400 voluntarios reales de agua, cuidado y empleo público — Ramonas y Carinas de carne y hueso | ≥70% de los voluntarios con práctica genuina alcanza Consolidada simulada; ningún perfil "académico puro" o "militante puro" la alcanza |
-| Metodología v0 del Registro Nacional de Reversiones | Definición de "reversión", criterios de costeo, casos testigo documentados | Publicación con datos crudos — el primer dato-shock de la Ola 1 |
-| Paquete legislativo redactado | Las tres leyes de la TABLA 16, coordinadas con PLANTALLER y PLANMEMORIA | Texto público antes del envío al Congreso — sin sorpresas de comisión |
-
-### 14.2 Fase 0 — Arranque Técnico (año 0)
-
-Sancionado el paquete, el año 0 construye la fontanería. Fase 0 es deliberadamente poco fotogénica: no hay Mesas todavía — hay registro, verificación, trayectos provisorios y un Tablero que arranca publicando su propia construcción. La honestidad de cronograma de la Sección 10.2 opera acá: la AMCC se constituye y el Protocolo se publica sin esperar el acople pleno de PLANEDU ni la madurez completa de PLANDIG — con módulos provisorios explícitamente marcados como provisorios.
-
-**TABLA 28: Fase 0 — Hitos del Año 0**
-
-| Hito | Contenido | Compuerta de salida de Fase 0 |
-|---|---|---|
-| Sanción del paquete legislativo | Ley de Mesa Civil y Credencial + Ley de Creación de la AMCC + Ley de Adhesión y Respuesta Fundada, en paquete con las leyes de PLANTALLER y PLANMEMORIA | Las tres leyes vigentes |
-| AMCC constituida | Primer Directorio de 11 (sorteo estratificado + concurso + Síndicos + paneles); sorteo del escalonamiento inicial de mandatos para que ninguna renovación coincida con año electoral | Directorio en funciones; prohibiciones operativas |
-| Protocolo de Credencial v1 publicado | El diseño de Pre-Fase, corregido por el comentario público, con vigencia formal | Publicación en el Tablero con changelog completo respecto del Borrador 0 |
-| Apertura del registro de Cédulas Civiles | Stack mínimo (registro, carga de capas, verificación) — sobre PLANDIG donde esté maduro, con módulo provisorio auditado donde no | ≥20.000 Cédulas abiertas; primeras 5.000 Credenciales En Construcción |
-| Trayectos provisorios de capa de Estudio | Validados por la AMCC hasta el acople con PLANEDU en Fase 1 | Tres materias piloto con trayecto disponible en todo el país (presencial + distancia) |
-| Tablero Nacional de Mesas v1 | Publica desde el día uno: presupuesto ejecutado peso por peso, Credenciales, avance del Registro de Reversiones | Tablero en línea, machine-readable, con datos crudos descargables |
-
-### 14.3 Fases 1–2 — El Piloto: Tres Materias, Seis Mesas (años 1–2)
-
-Las tres materias piloto no se eligen por importancia — se eligen por **densidad de padrón competente y tensión territorial real**: agua (con PLANAGUA; las Ramonas del INTA y los entes de cuenca), cuidado (con PLANSAL y PLANCUIDADO; las Carinas del sistema sanitario), y empleo público (con PLANREP; los Federicos de la carrera estatal — la materia donde el Estado delibera sobre sí mismo, elegida también por su valor simbólico: el sistema empieza por casa). Seis Mesas en dos años, en jurisdicciones de distinto signo político — requisito no negociable: si el piloto es monocolor, nace muerto.
-
-**TABLA 29: Fases 1–2 — Hitos del Piloto**
-
-| Hito | Año 1 | Año 2 (compuerta hacia Expansión) |
-|---|---|---|
-| Mesas activadas | 2 (primer Caso de agua y de cuidado, por señales reales del Mandato Vivo) | 6 acumuladas, en ≥4 jurisdicciones de ≥2 signos políticos |
-| Credenciales Consolidadas | 150–250 | 500 (meta TABLA 18) |
-| Credenciales En Construcción | 10.000 | 25.000 |
-| Primera ventana de auto-postulación | Transmitida en público — el acontecimiento fundacional de la Ola 2 | Postulantes promedio ≥80 por ventana |
-| Resoluciones firmadas | 1–2 | 6/año; 100% con Consulta Ancestral certificada sin observaciones |
-| Respuesta fundada en plazo | — | ≥60% (el piso de credibilidad del peldaño 1) |
-| Acople PLANEDU | Inicio de migración de trayectos provisorios | Capa de Estudio cursándose en infraestructura PLANEDU |
-
-**La compuerta del piloto es brutal a propósito:** si al cierre del año 2 no se cumplen las metas del Tablero (TABLA 18, columna "año 2"), la Expansión **no se abre** — el Protocolo entra en ciclo LDEA de revisión y el calendario cede. Un piloto fallido que se expande igual es la definición exacta del vicio argentino que este plan viene a curar.
-
-### 14.4 Fases 3–6 — La Expansión (años 3–6)
-
-Con seis Mesas firmadas y el Tablero en verde, la expansión corre por tres rieles simultáneos: más materias (de 3 a 18), más territorio (las primeras leyes provinciales de adhesión — peldaño 2 de la escalera), y más profundidad institucional (dietas en paritarias, Mesas de Corredor con PLANMOV, primeras Resoluciones con regla de reversión calificada operando).
-
-**TABLA 30: Fases 3–6 — Hitos de Expansión**
-
-| Dimensión | Año 3–4 | Año 6 (compuerta hacia Régimen) |
-|---|---|---|
-| Materias con Mesa operativa | 8–10 | 18 |
-| Mesas Civiles activas | 15–25 | 40 |
-| Credenciales Consolidadas | 20.000–50.000 | 120.000 |
-| Adhesión legislativa (peldaño 2) | Primeras 2–4 jurisdicciones pioneras | 10+ jurisdicciones, de ≥3 signos políticos |
-| Resoluciones / año | 20–35 | 60 |
-| Respuesta fundada en plazo | ≥70% | ≥85% |
-| Primera reversión calificada procesada | Un gobierno intenta revertir una política con Resolución y debe convocar nuevo ciclo — el caso testigo del sistema | Regla operando con jurisprudencia administrativa propia |
-| Impacto temprano | — | Reducción de reversión ~10% y de litigiosidad ~25% en materias con Mesa (TABLA 18) — estimación, sujeta a verificación contra el Registro |
-
-### 14.5 Régimen Pleno (años 7–15)
-
-El régimen no es un estado final — es la velocidad de crucero de un sistema que sigue aprendiendo sobre sí mismo. La cobertura llega a las 22+ materias del ecosistema y a las 24 jurisdicciones; el cuerpo de Síndicos madura; la generación que abrió su Cédula a los 20 llega a los 30 con biografía cívica completa. Y recién acá — con años de track record público en jurisdicciones de todo signo — se convoca lo que la Sección 8 dejó escrito: la reforma constitucional del peldaño 3, que ratifica lo que funciona en lugar de prometer lo que no existe, e inscribe la Mesa Civil y el piso del 0,07% del PBI en la Constitución.
-
-**TABLA 31: Régimen Pleno — Hitos años 7–15**
-
-| Dimensión | Año 7–10 | Año 15 |
-|---|---|---|
-| Mesas Civiles activas | 80–120 | 180 |
-| Materias cubiertas | 20–22 | 22+ (las que el propio sistema agregue por ciclo LDEA sobre sí mismo) |
-| Credenciales Consolidadas | 250.000–350.000 | 500.000 |
-| Jurisdicciones adheridas | 16–20 | 24 |
-| Resoluciones / año | 120–160 | 220 |
-| Reforma constitucional (peldaño 3) | Convención convocada cuando el track record la vuelva ratificación y no apuesta | Mesa Civil y piso 0,07% PBI con rango constitucional |
-| Impacto en régimen | Rampa | Reducción de reversión 25–40% (meta conjunta del ecosistema, deslinde con PLANMEMORIA en Sección 10.3); litigiosidad –60% en materias con Mesa; ROI 4:1 a 12:1 |
-
-### 14.6 La Regla de las Compuertas
-
-Vale repetirla porque es la columna vertebral de la hoja de ruta: **el calendario propone; la evidencia dispone.** Cada tramo tiene compuerta medible y pública; la compuerta que no se pasa congela el avance y dispara revisión por ciclo LDEA — no un comunicado de prensa explicando por qué igual se sigue. Este plan prefiere llegar tarde a llegar mintiendo. La Argentina ya probó todas las variantes de llegar mintiendo; los resultados están en la TABLA 2, en rango y con disclaimer.
-
-### 14.7 Lo Que Corre en Paralelo — La Coreografía con el Ecosistema
-
-La hoja de ruta de PLANMESA no baila sola; su coreografía con los planes de los que depende (TABLA 20) tiene tiempos explícitos para que la honestidad de cronograma de la Sección 10.2 no quede en declaración:
-
-- **Con PLANDIG:** la Pre-Fase y la Fase 0 usan stack mínimo propio; el acople a la Identidad Digital Soberana se hace por capas durante Fases 1–3, y la garantía plena de soberanía de datos de la Cédula (cifrado con llave del titular sobre infraestructura soberana) es requisito de la compuerta de Expansión — una Cédula masificada sobre infraestructura provisoria sería deuda técnica convertida en deuda cívica.
-- **Con PLANEDU:** los trayectos provisorios de capa de Estudio (validados por AMCC) migran a la infraestructura de PLANEDU desde Fase 1; al cierre de Fase 2, ningún trayecto provisorio nuevo — el provisorio que se eterniza es la primera forma de la burocratización.
-- **Con PLANMEMORIA:** el paquete legislativo es conjunto y la primera Consulta Ancestral certificada es hito compartido; el Registro Nacional de Reversiones arranca en Pre-Fase justamente porque puede construirse antes que las Mesas — el país puede empezar a medir lo que pierde sin esperar a deliberar.
-- **Con PLANTALLER:** los primeros pilotos de fase EXPERIMENTAR usan los Talleres existentes en las jurisdicciones piloto; la expansión de Mesas sigue — no precede — a la expansión de capacidad ejecutora: una fase E sin ejecutor real es un PowerPoint con cronograma.
-- **Con PLANRUTA:** cada tramo de esta hoja de ruta declara su modo mínimo de hibernación (Sección 17) y queda integrado al kit de crisis — si la ventana macroeconómica se cierra, PLANMESA sabe de antemano qué apaga, qué sostiene y cómo vuelve.
-
----
-
-## SECCIÓN 15: DIMENSIÓN FEDERAL — VEINTICUATRO JURISDICCIONES, UNA SOLA ESCALERA
-
-> *"La Argentina no es un país con provincias. Es veinticuatro repúblicas chicas ensayando ser una. Un sistema de aprendizaje que no sea federal no aprende — repite Buenos Aires."*
-
-### 15.1 Federalismo de Convergencia, No Imposición
-
-PLANMESA es constitucionalmente incapaz de imponerse a una provincia — y esa incapacidad es una virtud de diseño, no una concesión. La Ley de Adhesión y Respuesta Fundada (TABLA 16) crea un régimen al que cada jurisdicción **entra por su propia ley, a su propio ritmo, con sus propias materias**: una provincia puede adherir solo en agua, otra en todo el menú, una tercera mirar cinco años desde afuera. Es el modelo que la Argentina ya conoce y que funciona — el de los regímenes convenio — aplicado a la deliberación: la Nación pone la infraestructura común (AMCC, plataforma, Protocolo, Tablero, dietas), la provincia pone la decisión soberana de atarse o no. Federalismo de convergencia: nadie obliga, todos miran, y la evidencia recluta.
-
-La jurisdicción material se ordena en cuatro niveles, cada uno con su Mesa natural: **materias nacionales** (previsión, moneda, defensa — Mesas nacionales, las últimas en llegar porque son las más sensibles al art. 22), **materias provinciales** (salud, vivienda, tierra — el corazón del sistema: ahí viven los casos de Carina y Federico), **materias municipales** (Mesas locales por adhesión municipal, habilitadas por la ley provincial), y **materias interjurisdiccionales** — cuencas, corredores, regiones — donde PLANMESA aporta lo que el federalismo argentino nunca tuvo: un órgano deliberativo que no pertenece a ninguna de las jurisdicciones en disputa, compuesto por practicantes de todas ("Mesa de Agua — Cuenca del Salado del Norte" es interjurisdiccional por naturaleza; las Mesas de Corredor ferroviario con PLANMOV, también).
-
-### 15.2 La Secuencia Federal Esperada
-
-**TABLA 32: Oleadas de Adhesión — Proyección por Perfil (estimación — sujeta a verificación)**
-
-| Oleada | Años | Jurisdicciones | Perfil y motor de adhesión |
+| Caso | Año | Método | Resultado |
 |---|---|---|---|
-| **Pioneras** | 3–4 | 2–4 | Provincias con tensión aguda en una materia piloto (crisis hídrica, colapso sanitario regional) y gobiernos con horizonte largo — adhieren por el caso concreto que les resuelve un problema que los quema, no por convicción deliberativa |
-| **Segunda ola** | 4–6 | 6–10 | Evidencia comparada de las pioneras + presión de los cuadros de carrera propios + el argumento del seguro: la Resolución blinda la obra provincial contra la motosierra nacional de turno |
-| **Tercera ola** | 7–10 | hasta 20 | El costo de quedarse afuera se vuelve visible: las provincias adheridas blindan políticas y acumulan Credenciales; las otras ven a sus Ramonas postularse a Mesas de cuenca administradas desde la vereda de enfrente |
-| **Cierre** | 10–15 | 24 | La reforma constitucional del peldaño 3 consolida el régimen; las últimas adhesiones son formalización de una convergencia ya ocurrida |
+| British Columbia Citizens' Assembly on Electoral Reform | 2004 | 160 sorteados, 10 meses | Recomendación aceptada por parlamento, rechazada en referéndum |
+| Irish Constitutional Convention | 2012-2014 | 66 sorteados + 33 parlamentarios | Base de reforma constitucional múltiple (matrimonio igualitario, aborto) |
+| French Convention citoyenne pour le climat | 2019-2020 | 150 sorteados, 9 meses | 149 propuestas; 38 implementadas con modificación |
+| Scottish Climate Assembly | 2020-2021 | 100 sorteados, 7 fines de semana | Recomendaciones integradas parcialmente a planeo climático |
+| Canadian Digital Democracy Citizens' Panel | 2022 | 54 sorteados, híbrido | Recomendaciones sobre tech companies, influencia moderada |
+| Deutscher Bürgerrat Klima | 2021 | 160 sorteados, 3 meses | Recomendaciones incorporadas parcialmente al debate parlamentario |
 
-La proyección es de perfil, no de nombres: bautizar provincias en un documento de diseño sería regalarle a la política local un agravio gratuito. Lo que sí se nombra es el mecanismo: **cada oleada la recluta la anterior** — no la Nación, no la campaña, no el documento. Si las pioneras fracasan, no hay segunda ola, y esa también es una compuerta.
+Lo que estas experiencias demuestran: la deliberación ciudadana estructurada produce mejor calidad de argumentación que el debate público general, genera compromiso de los participantes con el resultado, y crea legitimidad distinta de la electoral. Lo que también demuestran: sin vinculación ejecutiva, las recomendaciones pueden ser ignoradas o diluidas por el cuerpo político tradicional, y la calidad técnica sobre materias muy especializadas sigue siendo un límite.
 
-### 15.3 La Asimetría Federal — Que el Mérito No Tenga Código Postal
+**PLANMESA toma lo valioso (formación, deliberación estructurada, composición plural) y resuelve lo que falla (decisiones vinculantes, composición con mérito demostrado, ciclo de experimentación real).**
 
-El riesgo federal específico de PLANMESA no es la no-adhesión: es la **deliberación de dos velocidades** — un sistema robusto en las jurisdicciones ricas y decorativo en las pobres, que reproduciría adentro del plan la desigualdad que el plan combate. Tres reglas lo bloquean:
+### 2.2 El Modelo de Jurado Popular Extendido
 
-1. **Ninguna provincia paga la plataforma.** La infraestructura completa — registro, verificación, Tablero, algoritmo de composición — la cubre el piso nacional del 0,07% del PBI. Adherir cuesta una ley, no un presupuesto.
-2. **La dieta es la misma plata por el mismo servicio.** Calibrada por ingreso mediano *regional* para que el poder adquisitivo sea equivalente — pero pagada por la partida nacional de dietas en todas las jurisdicciones adheridas. Una silla en Quimilí vale lo que una silla en Rosario.
-3. **La verificación viaja.** Donde la capacidad técnica local es débil, la AMCC despliega verificación itinerante y los trayectos de capa de Estudio corren a distancia sobre PLANEDU — la Credencial de una enfermera de Susques debe costar el mismo esfuerzo administrativo que la de un ingeniero de Vicente López. Si el Tablero muestra tiempos de verificación sistemáticamente peores en el norte que en la pampa húmeda, eso es un gatillo — no una estadística.
+Argentina ya tiene jurados populares en materia penal en varias provincias. El mecanismo sortea ciudadanos, los forma para el caso específico, los hace deliberar, y emite veredicto vinculante. Funciona bien — con matices — porque el juicio tiene estructura, reglas de evidencia claras, y un procedimiento pautado.
 
-El federalismo de PLANMESA se resume en una imagen: el saber territorial argentino está distribuido de manera mucho más pareja que el ingreso — las Ramonas existen en las veinticuatro jurisdicciones. Un sistema que acredita práctica en lugar de patrimonio es, por construcción, el más federal de los sistemas posibles. Solo hay que impedir que la administración lo traicione.
+**TABLA 2.2: Juicio por Jurados en Argentina — Escala y Resultados**
 
-### 15.4 El Dividendo Interjurisdiccional — Donde el Federalismo Argentino Siempre Se Rompió
+| Provincia | Año de inicio | Casos acumulados | Tasa de acuerdo con juez profesional | Percepción de legitimidad |
+|---|---|---|---|---|
+| Córdoba | 2005 | >3.500 | 82% | Alta |
+| Neuquén | 2014 | >900 | 88% | Alta |
+| Buenos Aires | 2015 | >2.100 | 85% | Alta |
+| Chaco | 2015 | >400 | 80% | Media-alta |
+| Río Negro | 2019 | >300 | 84% | Alta |
+| Mendoza | 2019 | >500 | 86% | Alta |
 
-Hay una clase de problema que el federalismo argentino nunca supo procesar: el que cruza límites provinciales sin pedir permiso. Las cuencas hídricas compartidas, los corredores productivos y ferroviarios, las regiones sanitarias de frontera interna — territorios donde toda decisión requiere acuerdo entre jurisdicciones que compiten, y donde el resultado histórico es la parálisis litigiosa o el hecho consumado del más fuerte. Los comités interjurisdiccionales existentes lo confirman por la negativa: décadas de actas sin consecuencia, porque cada silla responde a su gobernador y ninguna al problema.
+El jurado popular funciona porque combina sorteo (legitimidad democrática), formación específica (reduce brecha de conocimiento), deliberación estructurada (disciplina), y responsabilidad colectiva por la decisión (peso de la consecuencia). **PLANMESA toma esta arquitectura y la extiende a decisiones de política pública**, con dos ajustes fundamentales: primero, el sorteo es estratificado por Credencial en la materia (no puramente aleatorio); segundo, el ciclo LDEA agrega experimentación antes de decidir, imposible en juicio penal pero imprescindible en política pública.
 
-La Mesa interjurisdiccional invierte la lógica de representación: sus miembros no representan provincias — acreditan práctica *en el territorio del problema*. En una Mesa de cuenca, el extensionista santiagueño y el productor chaqueño no se sientan como embajadores de sus gobernadores: se sientan como practicantes del mismo río. La composición por estamentos se aplica sobre el padrón del territorio real (la cuenca, el corredor), con cuotas que garantizan presencia de todas las jurisdicciones tocadas — pero la lealtad del diseño es hidrográfica, no electoral. Y la Resolución resultante entra a *todas* las jurisdicciones adheridas de la cuenca con la misma obligación de respuesta fundada, generando algo inédito: un documento técnico-deliberativo común que ningún gobierno provincial puede descalificar como "porteño" ni como "del vecino". Las Mesas de Corredor con PLANMOV (Sección 10.4) son el caso de máximo valor: la priorización ferroviaria — la obra pública más deformada por la política de campanario — deliberada por practicantes del corredor entero. Si PLANMESA solo funcionara en materias interjurisdiccionales, ya habría pagado su piso presupuestario: es la materia donde la Argentina no tiene *ningún* mecanismo que funcione.
+### 2.3 La Meritocracia de Práctica — Ingeniería Comunitaria y Commons
 
-### 15.5 Los Dos Gigantes — Buenos Aires y la Ciudad
+Varias tradiciones probaron que la experticia acumulada por práctica puede gobernar colectivamente con alta calidad cuando hay mecanismo explícito de reconocimiento.
 
-Ninguna proyección federal argentina es honesta si no nombra la asimetría que las deforma todas: la provincia de Buenos Aires concentra cerca del 40% de la población y la Ciudad concentra una densidad de ONG profesionales, consultoras y técnicos sin equivalente. Los riesgos espejados: que la Mesa bonaerense devore el sistema por escala, y que la porteña lo capture por sobreoferta de acreditables profesionales. Las respuestas, también espejadas: en Buenos Aires, las Mesas se componen por **región** (cuencas, secciones, regiones sanitarias) y no a escala provincial total — una "Mesa de Vivienda — Provincia de Buenos Aires" sería ingobernable y además mentirosa: La Matanza y Patagones no comparten problema habitacional. En la Ciudad, el tope de reincidencia y la calibración de capas trabajan horas extra: la capa de Vínculo exige territorio real, no oficina con vista al territorio — y el Tablero publica la proporción de Credenciales porteñas sirviendo en Mesas de otras jurisdicciones, porque la exportación de técnicos capitalinos a Mesas federales es deseable como servicio y vigilable como colonización. La regla general para ambos gigantes es la misma del plan entero: medir la deformación en público antes de que la deformación se vuelva costumbre.
+**Cooperativas de agua en rural India y Perú.** Comunidades que gestionan sistemas hídricos colectivamente, donde la autoridad en la asamblea se gana por años de servicio demostrable en el mantenimiento del sistema, no por votación electoral. Tasas de eficiencia operativa entre 20% y 35% superiores a sistemas estatales centralizados en los mismos territorios.
+
+**Gobernanza de pesquerías tradicionales en Japón.** El sistema de gyokyō (asociación de pescadores) distribuye derechos de pesca entre pescadores con track record de actividad. El gobierno valida pero no decide — los pescadores con práctica demostrada son quienes regulan la materia. Preservó pesquerías de forma sostenible durante siglos.
+
+**Software open-source gobernado por mérito de contribución.** Linux, Python, Wikipedia, Debian: todos gobernados por mecanismos donde la autoridad se gana por contribuciones verificables al commons. Ningún participante vota por eleección popular. Todos los participantes son auditables. El mecanismo produce software que sostiene la economía mundial digital.
+
+**Decisión científica por pares.** La ciencia como cuerpo decisional opera por peer review — la autoridad de un paper depende de quién lo revisa y qué evidencia aporta, no de votación general. Imperfecto, pero muy superior a cualquier alternativa probada para acumular conocimiento.
+
+El patrón: cuando una comunidad articula mecanismos formales de reconocimiento de práctica y los integra a la decisión colectiva, produce calidad sostenida. **PLANMESA digitaliza, escala y protocoliza ese patrón.**
+
+### 2.4 Meritocracias Credencialistas que Fracasaron — Lo Que No Hay Que Repetir
+
+No todo mérito es igual. Dos modelos de "gobierno por los mejores" fracasaron espectacularmente:
+
+**Singapur (meritocracia credencialista autoritaria).** Selecciona funcionarios por exámenes y currículum académico impecable. Produjo desarrollo económico rápido pero con costos altos en libertad, pluralismo y creatividad. El mérito termina siendo credencial, no práctica, y la crítica pública es limitada.
+
+**China post-Deng (meritocracia de partido).** Selecciona cuadros por escalera del PCCh con evaluación interna de desempeño. Funciona dentro de márgenes estrechos (crecimiento económico, ejecución de grandes obras) y falla brutalmente cuando la materia requiere apertura de información (Covid, crisis financiera 2015).
+
+**PLANMESA explícitamente rechaza ambas:** la Credencial no es credencial académica (Capa de Estudio es una de cinco), no es designación jerárquica (no hay escalera de "partido Mesa"), y la crítica pública está protegida por diseño (transparencia radical, Mesas accesibles al comentario ciudadano, registro de captura).
+
+### 2.5 Combinatoria Original Argentina
+
+Lo que PLANMESA combina — y que no existe como sistema integrado en ningún país del planeta — es:
+
+1. **Deliberación por sorteo estratificado** (como las asambleas ciudadanas modernas) ponderado por **Credencial de Materia demostrada** (no sorteo puro);
+2. **Ciclo de decisión de cuatro fases** (como la ciencia aplicada y la ingeniería de producto) con entregables firmados por fase;
+3. **Consulta Ancestral obligatoria** del archivo de decisiones previas (PLANMEMORIA);
+4. **Pilotos experimentales con autores del diseño en la ejecución** (skin in the game, diferente de consultoría externa);
+5. **Resolución vinculante inyectada al Arquitecto** (path dependency cívica sobre ciclo electoral);
+6. **Biografía cívica pública** (Cédula Civil) que acumula servicio sin convertirse en pedigree heredable.
+
+Ninguna de las seis piezas es nueva aislada. Las seis combinadas en un sistema nacional integrado, sostenido por plataforma digital cívica abierta, con respaldo legal específico, es invención argentina. Ese es el salto.
 
 ---
 
-## SECCIÓN 16: VISIÓN 2040 — LA REPÚBLICA QUE APRENDE, MEDIDA Y CONTADA
+## SECCIÓN 3: LA SOLUCIÓN — LA MESA CIVIL Y EL CICLO LDEA
 
-> *"El futuro no se predice. Se diseña, se puebla de nombres — y después se mide sin piedad."*
+> *"Mesa: lugar de deliberación con estructura. LDEA: disciplina de aprendizaje aplicada a toda decisión pública. Juntas: el órgano que la república argentina no tuvo nunca."*
 
-### 16.1 Los Números de 2040
+### 3.1 ¿Qué Es una Mesa Civil?
 
-Catorce años después del arranque — año 14 de la hoja de ruta, con el Régimen Pleno en marcha y la reforma constitucional reciente o inminente —, esto es lo que el Tablero debería mostrar. Todo en rango, todo estimación propia sujeta a verificación, todo medible contra el Registro Nacional de Reversiones que para entonces tendrá catorce años de datos:
+Una Mesa Civil es un cuerpo deliberativo de entre nueve y veinticinco miembros, convocado por el Mandato Vivo o por petición ciudadana con umbral mínimo, que ejecuta un ciclo LDEA completo sobre una materia específica en una escala territorial específica, y emite una Resolución vinculante firmada que se inyecta al Arquitecto y se inscribe en PLANMEMORIA.
 
-**TABLA 33: Argentina 2026 vs. 2040 — El Tablero de la Década Larga**
+**Los cuatro axiomas de la Mesa Civil:**
 
-| Indicador | 2026 (línea de base) | 2040 (proyección) |
+**Axioma de Mérito Demostrado.** La silla se gana. Sólo ciudadanos con Credencial de Materia en el dominio y territorio correspondiente pueden auto-postularse. La Credencial se construye en la plataforma ¡BASTA! por engagement real medible — no por pedigree, no por cargo, no por cercanía política. Cualquier argentino puede empezar a construir Credencial mañana.
+
+**Axioma de Composición Plural.** Ninguna Mesa puede componerse de un solo perfil. Los roles exigidos son cuatro — practicante (ejecuta en la materia), afectado (vive el problema en su territorio), estudioso (tiene Capa de Estudio profunda), ejecutor (tiene Capa Productiva demostrada) — con cupos mínimos por cada rol. Esto previene captura monolítica.
+
+**Axioma de Ciclo Disciplinado.** Toda Mesa ejecuta las cuatro fases LDEA — Aprender, Diseñar, Experimentar, Analizar — con plazo tasado por fase y entregable firmado por fase. Nadie salta fases. Nadie cierra sin firma. El sistema bloquea el avance hasta que la fase previa entrega.
+
+**Axioma de Resolución Irreversible por Captura.** La Resolución final se inyecta al Arquitecto y se inscribe en el Archivo PLANMEMORIA. Revertirla requiere un nuevo ciclo LDEA con evidencia nueva comparable — no decreto, no cambio de gobierno. La path dependency cívica es el mecanismo anti-reversibilidad.
+
+### 3.2 Lo Que una Mesa Civil ES — y Lo Que NO Es
+
+**Es un cuerpo deliberativo con poder decisional limitado pero vinculante** sobre su materia y escala. Las Resoluciones activan iniciativas del Arquitecto con cronograma y presupuesto asignado.
+
+**Es un mecanismo de aprendizaje de la república** por protocolo: cada ciclo LDEA cerrado enriquece el Archivo de Memoria, y cada Mesa siguiente arranca su Fase APRENDER con ese archivo.
+
+**Es infraestructura de la ciudadanía activa**: los ciudadanos que construyen Credencial y sirven en Mesas acumulan biografía cívica pública que es distinta de cualquier currículum laboral o militante.
+
+**NO es un cuerpo legislativo.** No dicta leyes generales — activa o desactiva iniciativas dentro del marco legal vigente, a la escala del territorio que le corresponde. Las Mesas federales pueden elevar propuestas legislativas al Congreso vía la AMCC, pero es el Congreso quien legisla.
+
+**NO es un cuerpo judicial.** No resuelve conflictos entre particulares ni aplica ley a casos. Las Mesas especializadas en justicia (previstas por PLANJUS) siguen la misma arquitectura pero operan como primera instancia de resolución no-jurisdiccional con efecto vinculante limitado.
+
+**NO es una asamblea abierta.** El número está acotado. La composición se balancea. Los miembros se comprometen al ciclo completo y responden por su firma.
+
+**NO es un partido político ni una facción.** La Credencial es específica por materia y territorio, no agrega identidad política. Dos miembros de la misma Mesa pueden tener ideologías opuestas; lo que comparten es el track record en la materia.
+
+**NO reemplaza a la elección democrática.** Los representantes electos (presidencia, gobernaciones, intendencias, legislaturas) mantienen su rol constitucional. La Mesa ocupa un espacio que hoy está vacante entre la señal ciudadana y la ejecución burocrática.
+
+### 3.3 El Ciclo LDEA — Aprender, Diseñar, Experimentar, Analizar
+
+El corazón de PLANMESA es el ciclo LDEA. Ningún acto decisional significativo de la Mesa ocurre fuera de este ciclo. Las cuatro fases son obligatorias, secuenciales e irrenunciables.
+
+#### Fase 1 — APRENDER (plazo por defecto: 30 a 60 días)
+
+La Mesa, ya compuesta, ejecuta cinco operaciones:
+
+1. **Revisión de señal agregada.** Consulta en El Mapa todas las señales relevantes a la materia y el territorio en los últimos 24 meses: sueños declarados, necesidades, bastas, recursos ofrecidos, capacidades disponibles, hipótesis productivas abiertas, cuidados necesarios y disponibles.
+
+2. **Consulta Ancestral.** El sistema trae automáticamente del Archivo PLANMEMORIA: resoluciones previas sobre la misma materia y su destino (cumplidas, vaciadas, revertidas), capturas documentadas con actor y fecha, depósitos ciudadanos temáticamente relevantes. La Mesa estudia el dossier y firma el documento "Precedentes Considerados".
+
+3. **Revisión de iniciativas vinculadas.** Cruza con el Arquitecto: qué iniciativas activas o pendientes se conectan con la materia, qué dependencias existen, qué presupuesto está asignado, qué cronograma se viene cumpliendo o no.
+
+4. **Testigos informativos.** Convoca — si es relevante — testigos que aportan información: expertos internacionales con presentación transparente de remuneración, practicantes no credenciados del territorio, afectados con testimonio. Los testigos no deciden, aportan evidencia.
+
+5. **Evidencia comparada.** Revisa lo que se intentó en otros territorios argentinos y otros países sobre problemas análogos: qué funcionó, qué falló, qué contexto permitió cada resultado.
+
+**Salida obligatoria de la fase:** un **Diagnóstico Firmado** público, con evidencia fundamentada, disensos internos incluidos explícitamente, y las preguntas abiertas que el Diseño debe responder. Sin Diagnóstico Firmado, la Mesa no avanza.
+
+#### Fase 2 — DISEÑAR (plazo por defecto: 30 a 45 días)
+
+La Mesa genera **entre dos y tres propuestas de intervención rivales**. Explícitamente rivales — no consensuadas forzadamente. Cada propuesta incluye:
+
+- **Teoría de cambio:** qué hipótesis articula sobre por qué y cómo producirá el resultado esperado;
+- **Escala piloto:** cuántos ciudadanos, cuánto territorio, qué dispositivos;
+- **Métricas de éxito:** qué indicadores cuantitativos cambiarán y en qué magnitud;
+- **Criterios de falla:** qué evidencia haría que la propuesta se pare antes del plazo;
+- **Presupuesto:** desagregado por rubro, con fuente de financiamiento identificada;
+- **Taller y Círculo ejecutor asignado:** del catálogo de PLANTALLER + PLANCÍRCULOS, qué estructura existente ejecutará el piloto;
+- **Plazo del piloto:** 60 a 180 días según materia;
+- **Responsables nominados:** quiénes de la Mesa acompañan el piloto en terreno.
+
+Las propuestas se publican. El territorio y la ciudadanía general pueden comentar a través de Salas de Comentario — aportan señal, no decisión.
+
+**Salida obligatoria de la fase:** las 2-3 propuestas firmadas y publicadas, con documentación completa. Sin publicación, la Mesa no avanza.
+
+#### Fase 3 — EXPERIMENTAR (plazo por defecto: 60 a 180 días según materia)
+
+Cada propuesta se activa simultáneamente en su Taller + Círculo asignado. **Los autores de la propuesta tienen presencia obligatoria en el piloto** — no se diseña desde escritorio y se delega a ejecutores. Piel en el juego real.
+
+El piloto reporta datos en el Tablero Público:
+
+- datos operativos en tiempo real (ejecución presupuestaria, indicadores de avance),
+- hallazgos intermedios (sorpresas que modifican la hipótesis),
+- obstáculos enfrentados (recursos faltantes, resistencia local, limitaciones técnicas),
+- ajustes al plan original (qué se modificó y por qué).
+
+Si una propuesta comienza a fracasar visiblemente antes del plazo (criterios de falla documentados en Fase 2), se **mata rápido** y se inscribe el aprendizaje en Memoria sin ambigüedad. Matar un piloto no es fracaso individual del equipo; es éxito del método. Lo que es fracaso es continuar gastando recursos en algo que ya evidenció no funcionar.
+
+**Salida obligatoria de la fase:** un **Informe de Piloto** por propuesta con datos completos, hallazgos, análisis de hipótesis confirmadas y refutadas, y recomendación del equipo de experimentación. Sin Informes de todos los pilotos (o justificación del muertocumentado), la Mesa no avanza.
+
+#### Fase 4 — ANALIZAR (plazo por defecto: 30 días)
+
+Con los Informes de Piloto en mano, la Mesa delibera y emite **Resolución Vinculante**. La Resolución especifica:
+
+- **Qué propuesta (o combinación) se escala:** cronograma, presupuesto, Taller ejecutor, métricas de seguimiento;
+- **Qué se mantiene experimental:** requiere un segundo ciclo LDEA reducido antes de escalar;
+- **Qué se descarta:** motivo fundamentado, con inscripción explícita en Memoria ("esta intervención se intentó con X resultado, no se repetirá sin evidencia nueva de Y condición");
+- **Qué preguntas quedaron abiertas:** temas que ameritan Mesa futura;
+- **Qué actores responden por ejecución:** nombres específicos con responsabilidad nominal pública;
+- **Qué revisión se programa:** fecha de reporte de avance, próximo checkpoint.
+
+La Resolución se firma por cada miembro de la Mesa, se publica, se inyecta al Arquitecto (activa iniciativa con cronograma), y se inscribe en PLANMEMORIA con lineage completo: quién estudió, quién diseñó, quién experimentó, quién analizó, qué pasó.
+
+**Salida obligatoria de la fase:** Resolución firmada, publicada, inyectada e inscrita. Sin las cuatro operaciones, la Mesa no cierra.
+
+### 3.4 La Regla de Oro del Ciclo
+
+Ningún actor — ni el gobierno, ni el Consejo de Continuidad Nacional, ni la AMCC, ni un juez, ni la mayoría simple de la Mesa — puede saltar una fase. La Mesa bloquea su propio avance si la fase previa no entregó. El sistema está diseñado para que **sea más fácil cumplir que evadir**.
+
+Existe una excepción acotada, el **Protocolo de Emergencia** (Sección 12), que habilita un ciclo LDEA comprimido en casos documentados de catástrofe. La compresión es de plazo, no de fases — las cuatro operaciones se ejecutan, pero en 21 días en lugar de 150. Y el Protocolo queda inscrito como excepción con justificación auditada.
+
+### 3.5 ¿Por Qué Cuatro Fases y No Otras Tantas?
+
+Las cuatro fases son el número mínimo viable para convertir una decisión pública en ciclo de aprendizaje:
+
+- Saltarse APRENDER es decidir por intuición — el patrón argentino de los últimos cincuenta años.
+- Saltarse DISEÑAR es aceptar una sola propuesta sin alternativa — la oportunidad de captura.
+- Saltarse EXPERIMENTAR es escalar sin evidencia — la causa raíz de las reversiones masivas.
+- Saltarse ANALIZAR es ejecutar sin cierre — lo que genera archivos huérfanos.
+
+Modelos con más fases (Design Thinking de cinco etapas, Lean Startup de siete pasos) agregan granularidad útil en contextos de producto comercial, pero introducen complejidad que degrada la adherencia en contexto cívico. Cuatro fases es lo suficiente estructurado y lo suficientemente simple para que cada fase tenga significado operativo intuitivo para un ciudadano sin formación específica.
+
+---
+
+## SECCIÓN 4: ARQUITECTURA INSTITUCIONAL DE LA MESA CIVIL
+
+> *"Una Mesa sin arquitectura institucional es asamblea con buenas intenciones. Una arquitectura institucional sin Mesa es burocracia con pretensiones de legitimidad. PLANMESA construye las dos al mismo tiempo."*
+
+### 4.1 Las Cuatro Capas de la Arquitectura
+
+**Capa 1 — Mesa Territorial Base.** La unidad operativa. Entre 9 y 15 miembros según escala barrial o municipal. Ejecuta ciclos LDEA sobre materias territorialmente delimitadas (agua de la cuenca X, transporte urbano del municipio Y, salud primaria del partido Z).
+
+**Capa 2 — Mesa Provincial.** Entre 15 y 21 miembros. Ejecuta ciclos sobre materias que requieren escala provincial (planificación energética, sistema de justicia local, educación secundaria, red de APS, seguridad de proximidad coordinada).
+
+**Capa 3 — Mesa Federal.** Entre 21 y 25 miembros. Ejecuta ciclos sobre materias nacionales (política monetaria coordinada con BCRA, relaciones exteriores estratégicas, integración regional, CyT nacional, políticas estructurales transversales).
+
+**Capa 4 — Mesa de Síntesis Intermateria.** Cuerpo acotado (9 miembros) compuesto por representantes rotativos de las Mesas de otras materias que se cruzan. Resuelve conflictos cuando dos Mesas activas producen Resoluciones contradictorias (ejemplo: una Mesa de Agua escala una intervención que afecta a una Mesa de Producción). No es cámara de apelación — es cámara de coordinación. Emite Resolución de Síntesis con las dos Mesas firmantes.
+
+### 4.2 La Agencia de Mesa y Cédula Civil (AMCC)
+
+La AMCC es el ente autárquico que administra la infraestructura de las Mesas — no decide dentro de ellas. Sus funciones:
+
+- **Custodia del Protocolo de Mesa:** actualiza, corrige, versiona.
+- **Validación de Credenciales:** audita las capas de cada Credencial, detecta manipulación, suspende o revoca.
+- **Sorteo estratificado:** ejecuta el sorteo con los Filtros de Mérito cuando hay más auto-postulados que sillas.
+- **Dietas de servicio:** administra el fondo de dietas, asegura pago por hora real trabajada, incluye cuidado sustituto.
+- **Auditoría de composición:** verifica que cada Mesa cumple los cupos plurales antes de iniciar el ciclo.
+- **Tablero nacional:** publica datos agregados (cuántas Mesas activas, cuántos ciclos cerrados, tiempo promedio por fase, tasa de Resoluciones ejecutadas).
+- **Interfaz con el Arquitecto, PLANMEMORIA y la Oficina de Mandato y Evidencia:** sincroniza los flujos.
+
+**Gobernanza de la AMCC:** directorio de 11 miembros, con composición:
+
+- 3 Síndicos de Archivo (representación de PLANMEMORIA),
+- 3 miembros sorteados entre ex-miembros de Mesa con Credencial Consolidada (representación cívica acumulada),
+- 2 representantes técnicos designados por concurso público (administración y tecnología),
+- 1 representante de la Oficina de Mandato y Evidencia,
+- 1 representante de la Defensoría de Integridad,
+- 1 representante externo con voz sin voto (rotación académica internacional).
+
+Mandato de cada miembro: 4 años no renovables consecutivamente. Dietas acotadas (equivalente a Juez de Cámara). Auditoría anual por Defensoría de Integridad.
+
+**Presupuesto constitucional protegido:** 0.05% del PBI (aproximadamente USD 300-400M anuales en régimen), no modificable por decreto, con mecanismos de indexación a inflación.
+
+### 4.3 Sala de Deliberación — el Escenario de la Mesa
+
+Cada Mesa opera en un espacio digital-físico híbrido:
+
+**Presencial:** sede oficial en la capital provincial/municipal/federal correspondiente, accesible al público general con reserva. Al menos el 40% de las reuniones son presenciales (distintas modalidades).
+
+**Digital:** Sala de Deliberación en la plataforma ¡BASTA!. Vista interna para miembros (documentos de trabajo, votaciones preliminares, comentarios privados). Vista externa pública (agenda, documentos firmados, reloj de transparencia, comentarios de la Sala de Comentario Público).
+
+**Sincronicidad flexible:** deliberación síncrona (sesiones con horario) y asíncrona (comentario pautado entre sesiones). Esto acomoda a miembros con jornada laboral rígida o responsabilidades de cuidado.
+
+**Registro integral:** toda sesión presencial se graba en video. Toda deliberación digital queda inscrita. El archivo es público con delay de 30 días para proteger deliberación en vivo.
+
+### 4.4 Protección Anti-Captura
+
+PLANMESA prevé diez mecanismos anti-captura específicos:
+
+1. **Auto-postulación abierta con filtros objetivos por Credencial**, no designación;
+2. **Composición plural obligatoria** por roles (practicante, afectado, estudioso, ejecutor);
+3. **Cupos territoriales y etarios** para prevenir sesgo demográfico;
+4. **Mandato corto por ciclo LDEA** con máximo de tres ciclos consecutivos en la misma materia;
+5. **Máximo de dos Mesas simultáneas activas** por miembro;
+6. **Declaración pública de conflicto de interés** con excusación obligatoria;
+7. **Transparencia radical** de deliberación con delay acotado;
+8. **Sala de Comentario Público** vinculada pero no vinculante — voz ciudadana constante;
+9. **Inscripción de captura** en PLANMEMORIA con efecto sobre Credencial del actor;
+10. **Presupuesto constitucional protegido** para que el gobierno de turno no pueda vaciar la AMCC.
+
+La captura nunca es cero. El diseño hace que sea visible y costosa.
+
+### 4.5 Relación con los Poderes Constitucionales
+
+PLANMESA no modifica la Constitución Nacional ni la estructura de los tres poderes. Opera en un espacio complementario:
+
+- **Con el Ejecutivo:** la Resolución de Mesa activa iniciativas del Arquitecto que el Ejecutivo ejecuta como parte de su responsabilidad constitucional. El Ejecutivo conserva facultad de veto parcial si la Resolución excede el marco legal, con obligación de convocar nuevo ciclo LDEA para resolver el conflicto.
+- **Con el Legislativo:** las Mesas federales pueden elevar al Congreso propuestas legislativas con respaldo de proceso LDEA cerrado. El Congreso conserva potestad de aprobar, rechazar, modificar o archivar. Pero la CASCADA_LEGAL del marco ¡BASTA! prevé que el Congreso debe fundamentar rechazos.
+- **Con el Judicial:** las Resoluciones de Mesa son actos administrativos complejos susceptibles de revisión judicial por ilegalidad o irracionalidad manifiesta. El Judicial conserva el control de legalidad.
+
+La Mesa **no es un cuarto poder**. Es una capa de producción decisional integrada a los tres poderes existentes, con su propio protocolo de legitimidad (mérito demostrado + ciclo LDEA + inscripción archivable).
+
+---
+
+## SECCIÓN 5: LA CREDENCIAL DE MATERIA — ARQUITECTURA EN DETALLE
+
+> *"La Credencial no es un título. Es biografía cívica legible. No es puntaje. Es track record. No es pedigree. Es práctica documentada."*
+
+### 5.1 ¿Qué Es una Credencial de Materia?
+
+Es el documento vivo del ciudadano sobre una materia específica, compuesto por cinco capas acumulativas, actualizado en tiempo real por la plataforma ¡BASTA!, público en la Cédula Civil del usuario, auditable por cualquier otro ciudadano, revocable ante manipulación detectada, y decayente por inactividad sostenida.
+
+**Materias inicialmente codificadas** (pueden ampliarse vía procedimiento):
+
+- Agua
+- Vivienda y hábitat
+- Salud integral
+- Seguridad y orden público
+- Educación formal y continua
+- Cultura viva
+- Energía
+- Producción y economía popular
+- Reconversión laboral
+- Justicia popular
+- Suelo vivo y soberanía alimentaria
+- Soberanía digital
+- Moneda y arquitectura fiscal
+- Geopolítica
+- Sustancias y vida psicoactiva
+- Urbanismo y ciudades
+- Cuidado y vínculos
+- Memoria y archivo
+- Decisión y método LDEA
+
+Ampliaciones requieren ciclo LDEA de Mesa Federal correspondiente.
+
+### 5.2 Las Cinco Capas — Estudio, Declaración, Decisión, Producción, Vínculo
+
+#### Capa 1 — Estudio
+
+Se gana por engagement verificable con material de conocimiento sobre la materia. Fuentes:
+
+- **Cursos completados** en la red de formación pública de ¡BASTA! (materiales desarrollados por PLANEDU con trazabilidad individual por usuario);
+- **Iniciativas del Arquitecto leídas** con registro de tiempo de lectura y test de comprensión básico;
+- **Precedentes de PLANMEMORIA consultados** con documentación firmada de consulta;
+- **Publicaciones académicas o técnicas originadas por el usuario** (con peer review comunitario cuando aplica);
+- **Participación en Círculos de Estudio** (tipo especializado de Círculo).
+
+Indicador de progreso: 40 horas acumuladas verificables de engagement para umbral inicial, 120 horas para umbral consolidado, 300+ horas para profundidad experta.
+
+#### Capa 2 — Declaración
+
+Se gana por señales declaradas en El Mapa sobre la materia específica. Tipos:
+
+- Sueños (qué querés que cambie)
+- Valores (qué no negociás)
+- Necesidades (qué te falta)
+- Bastas (qué rechazás)
+- Recursos (qué ofrecés)
+- Capacidades (qué sabés hacer)
+
+Indicador de progreso: mínimo 8 señales acumuladas con geolocalización y fechas distribuidas en al menos 6 meses para umbral inicial.
+
+#### Capa 3 — Decisión
+
+Se gana por servicio efectivo en Mesas previas sobre la materia. Requiere ciclo LDEA cerrado con firma en la Resolución final.
+
+Indicador de progreso: 1 ciclo cerrado para umbral inicial (nivel básico), 3 ciclos cerrados para umbral consolidado, 5+ ciclos con evidencia de impacto positivo documentado para profundidad experta.
+
+#### Capa 4 — Producción
+
+Se gana por contribución verificable a Talleres activos sobre la materia (PLANTALLER). Tipos de contribución:
+
+- Horas registradas con entregable verificable;
+- Hipótesis productiva propuesta;
+- Hallazgos publicados y replicados por otros Talleres;
+- Rol de mentor/a en Taller activo.
+
+Indicador de progreso: 80 horas verificadas para umbral inicial, 240 horas para consolidado, 500+ horas con hallazgos replicados para experta.
+
+#### Capa 5 — Vínculo
+
+Se gana por Pactos de Cuidado activos relevantes a la materia (PLANCUIDADO). No todas las materias requieren Capa de Vínculo alta — pero para las que sí (cuidado, salud, educación, niñez, tercera edad), la Capa es determinante. Para otras, el umbral es mínimo.
+
+Indicador de progreso: al menos 1 Pacto activo sostenido 12+ meses con evidencia de bienestar de ambas partes para umbral básico.
+
+### 5.3 Niveles de Credencial
+
+Combinando las cinco capas, la Credencial asume uno de cuatro niveles:
+
+**Nivel 0 — Exploración.** 1-2 capas iniciadas. No habilita servicio en Mesa ni roles pagos. Permite participar en Salas de Comentario y en Círculos de Estudio.
+
+**Nivel 1 — Básica.** 3-4 capas con umbral inicial. Habilita comentario calificado en Mesas activas de la materia, participación en Tallers y Círculos, apertura de Pactos de Cuidado.
+
+**Nivel 2 — Completa.** 5 capas con umbral inicial mínimo. Habilita auto-postulación a Mesa, voto en resoluciones, rol de autor en propuestas de Fase DISEÑAR.
+
+**Nivel 3 — Consolidada.** 5 capas con umbral consolidado y 3+ años de actividad continua. Habilita rol de Síndico de Archivo, coordinación de Mesa, mentor de Credenciales en construcción, representación de la materia en Mesas de Síntesis Intermateria.
+
+### 5.4 Reglas de Adquisición y Decaimiento
+
+**Adquisición:** cada capa se incrementa por acción documentada. Toda acción tiene trazabilidad y se registra con fecha, lugar, verificador y evidencia. La plataforma audita los incrementos automáticamente.
+
+**Equivalencia por materia:** algunas Capas admiten acciones equivalentes cuando la materia tiene especificidades. Por ejemplo, en Ciencia y Tecnología, la Capa de Producción puede satisfacerse con contribución verificable a proyectos de CONICET/INVAP/INTA — con registro tipo Taller por extensión.
+
+**Decaimiento:** la Credencial decae por inactividad sostenida en la materia (12 meses sin nueva acción documentada). El decaimiento no borra el track record — lo marca como inactivo. La reactivación requiere acción nueva en cualquier capa.
+
+**Revocación:** por manipulación documentada (falsificación de horas, Pactos fraudulentos, declaraciones falsas en El Mapa). Procedimiento: denuncia ante AMCC, investigación con garantías de defensa, resolución fundamentada, apelación ante Defensoría de Integridad, inscripción en Memoria con efecto reputacional permanente.
+
+**Suspensión temporal:** por conflicto de interés activo (un miembro de Mesa con rol ejecutivo en actor regulado por la Resolución potencial). Se suspende mientras dura el conflicto.
+
+### 5.5 La Cédula Civil
+
+La Cédula Civil es el perfil público del usuario en la plataforma ¡BASTA!, que integra:
+
+- Credenciales por materia con detalle por capa;
+- Servicios en Mesa (con lineage completo — qué Mesa, qué ciclo, qué firma);
+- Contribuciones a Talleres (horas, entregables, hallazgos);
+- Pactos de Cuidado activos (con privacidad respetada — públicos sólo si ambas partes consintieron);
+- Depósitos en PLANMEMORIA;
+- Semillas sostenidas.
+
+No es ranking. No hay puntaje agregado. Cada capa es legible por sí sola. La comparación entre ciudadanos es posible pero no ordenada — dos Credenciales Consolidadas son Consolidadas, punto.
+
+La Cédula Civil es **siempre pública** para los componentes que registran acción pública (servicio en Mesa, contribución en Taller, declaración en Mapa). Es **privada por defecto** para componentes personales (Pactos de Cuidado, depósitos sensibles de Memoria) con opción de publicar.
+
+---
+
+## SECCIÓN 6: EL CICLO LDEA EN DETALLE — PROTOCOLO OPERATIVO
+
+### 6.1 Activación de un Caso de Mesa
+
+Un Caso de Mesa se activa por dos vías:
+
+**Vía 1 — Activación por Mandato Vivo.** El sistema algorítmico detecta que una materia en un territorio ha acumulado señales suficientes (umbral cuantitativo) con discordancia activa o ausencia de ciclo LDEA reciente (12+ meses). Emite automáticamente un `Caso de Mesa Abierto` en el Tablero Nacional.
+
+**Vía 2 — Activación por petición ciudadana.** Un grupo de ciudadanos con Credencial Básica o superior en la materia, alcanzando un umbral mínimo (100 firmas a escala municipal, 500 a provincial, 2.000 a federal), puede peticionar la apertura de un Caso. La AMCC valida y abre.
+
+El Caso de Mesa, una vez abierto, tiene 21 días para completar sorteo de composición.
+
+### 6.2 Sorteo Estratificado con Filtro de Mérito
+
+Ventana de auto-postulación de 15 días desde apertura. Ciudadanos con Credencial en la materia y el territorio pueden auto-postularse. La AMCC ejecuta sorteo **estratificado** sobre los postulantes:
+
+1. Se identifican los cupos por rol (practicante, afectado, estudioso, ejecutor) con mínimos por categoría.
+2. Se identifican cupos territoriales dentro del territorio jurisdiccional (si es Mesa Provincial, cupos por departamento).
+3. Se identifican cupos etarios (al menos 20% sub-35, al menos 20% plus-60).
+4. Se ejecuta sorteo cumpliendo simultáneamente todos los filtros.
+5. Si hay menos postulantes que sillas en alguna categoría, la AMCC amplía ventana de postulación por 7 días adicionales con publicidad dirigida. Si persiste la brecha, la AMCC habilita auto-postulación de ciudadanos con Credencial Básica con formación acelerada (Capa de Estudio reforzada en las primeras dos semanas del ciclo).
+
+La Mesa queda constituida. La composición se publica. Se inicia Fase APRENDER.
+
+### 6.3 Operación Interna de la Mesa
+
+**Moderación:** cada Mesa elige de entre sus miembros una Coordinación rotativa por fase (no la misma persona las cuatro fases). La Coordinación es responsable de agenda, mantenimiento de tiempos, registro de deliberación. No tiene voto adicional.
+
+**Deliberación:** se combina sincrónica (sesiones presenciales y por videoconferencia) con asincrónica (foros internos, comentarios pautados). Mínimo 40% sincrónica presencial.
+
+**Decisión interna:** las decisiones internas de la Mesa (elegir testigos, aprobar versiones de entregables, votar Resolución final) se toman por consenso calificado — mayoría de dos tercios. Si no se alcanza, deliberación extendida con mediador asignado por AMCC. Si persiste el impasse, la Mesa emite Resolución con disensos explícitos firmados; los disensos se inscriben en Memoria con igual peso que la posición mayoritaria.
+
+**Apoyo técnico:** cada Mesa cuenta con un/a **Secretaria/o Técnica/o** designado por la AMCC por concurso. No vota. Documenta. Facilita acceso a información. Maneja logística. Su desempeño es evaluado por la Mesa al cierre del ciclo.
+
+### 6.4 Interacción con el Ecosistema ¡BASTA!
+
+Durante el ciclo, la Mesa interactúa continuamente con el ecosistema:
+
+- **Con El Mapa:** consulta señales; sus pedidos de datos son visibles en el Tablero público.
+- **Con el Mandato Vivo:** recibe síntesis semanales del territorio y materia.
+- **Con el Arquitecto:** revisa iniciativas vinculadas y propuestas de activación.
+- **Con los Tallers:** los Tallers asignados en Fase 3 reportan datos continuos.
+- **Con los Círculos:** los Círculos sustentan pilotos experimentales y actividades adyacentes.
+- **Con PLANMEMORIA:** consulta Precedentes, inscribe nuevos registros, recibe alertas de riesgo de reversión sobre Resoluciones pasadas.
+- **Con PLANCUIDADO:** asegura que miembros en sobrecarga de cuidado tengan apoyo (Círculo de Cuidado activo).
+- **Con la Defensoría de Integridad:** canal de denuncia de captura o irregularidad.
+
+### 6.5 Excepciones y Procedimientos de Emergencia
+
+**Procedimiento de Emergencia.** Habilita un ciclo LDEA comprimido cuando concurren tres condiciones: (a) catástrofe declarada (sanitaria, climática, seguridad), (b) plazo crítico documentado, (c) resolución insustituible por medios ordinarios. Compresión típica: APRENDER 7 días, DISEÑAR 7 días, EXPERIMENTAR 7 días (piloto concurrente multi-sitio), ANALIZAR 3 días. Total: 24 días. La excepción se inscribe en PLANMEMORIA con justificación específica y auditoría posterior obligatoria.
+
+**Procedimiento de Corrección Urgente.** Cuando una Resolución ejecutada muestra daños graves no previstos en fase de piloto, cualquier Mesa o la Defensoría de Integridad puede convocar Mesa de Corrección con ciclo LDEA comprimido (35 días). La Mesa original es convocada con prioridad.
+
+**Procedimiento de Disolución.** Si una Mesa entra en impasse sostenido (más de 90 días sin avance documentado en una fase), la AMCC puede disolver la Mesa e iniciar nuevo proceso de sorteo, con justificación pública y con inscripción en Memoria del caso.
+
+### 6.6 Post-Cierre: Seguimiento y Responsabilidad
+
+Una Resolución ejecutada no es "fin de historia". La Mesa queda en estado *seguimiento activo* durante 24 meses después del cierre. Cada 6 meses, la AMCC convoca a la Mesa a revisar ejecución:
+
+- ¿Se cumplieron las métricas de éxito comprometidas?
+- ¿Se detectaron capturas o desvíos?
+- ¿Hubo daños no previstos?
+- ¿La iniciativa debería ser actualizada, ampliada, o corregida?
+
+Los reportes de seguimiento son públicos y se inscriben en Memoria. Si la Mesa detecta desviaciones graves, convoca Mesa de Corrección. Si detecta ejecución exitosa, contribuye a la Capa de Decisión de sus miembros como logro de impacto.
+
+---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANMESA se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANMESA"*.
+
+### Lo que PLANMESA aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMOV** | IMPORTANT | INSTITUTIONAL | Mesas Civiles de Corredor deciden priorización de reactivación ferroviaria |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS aloja la plataforma de auto-postulación, la Credencial de Materia y la Cédula Civil sobre nodos federados soberanos |
+| **PLANEDU** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: PLANEDU construye la Capa de Estudio de la Credencial de Materia — currículum obligatorio y evaluación continua de servidores de Mesa |
+| **PLANMEMORIA** | CRITICAL | INSTITUTIONAL | PLANMEMORIA opera la Consulta Ancestral obligatoria en Fase APRENDER: el archivo federado responde en cada ciclo LDEA |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Tallers son los ejecutores operativos de Fase EXPERIMENTAR: prototipan, miden y retornan hallazgos a Mesa |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | Red de Cuidado provee la Capa de Vínculo de la Credencial y el sostén relacional de quienes sirven en Mesa |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | JUS aporta control legal de las Resoluciones de Mesa y arbitra disputas sobre auto-postulación o Credenciales revocadas |
+
+### Lo que PLANMESA necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | Plataforma técnica para auto-postulación, Credencial de Materia y Cédula Civil |
+| **PLANEDU** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: Capa de Estudio de la Credencial se construye en PLANEDU (Fase 0 de PLANMESA es arranque técnico autónomo) |
+| **PLANMEMORIA** | CRITICAL | INSTITUTIONAL | Consulta Ancestral obligatoria en Fase APRENDER de cada ciclo LDEA |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Tallers son ejecutores de Fase EXPERIMENTAR del ciclo LDEA |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | Capa de Vínculo de Credencial; sostén relacional del servidor de Mesa |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Control legal de Resoluciones y disputas sobre auto-postulación |
+| **PLANMOV** | IMPORTANT | INSTITUTIONAL | Mesas Civiles de Corredor son los cuerpos deliberativos que priorizan la reactivación ferroviaria kilómetro por kilómetro |
+
+## SECCIÓN 8: MODELO ECONÓMICO Y FISCAL
+
+### 8.1 Costos del Sistema
+
+El sistema PLANMESA tiene cuatro componentes de costo:
+
+**C1 — Dietas de servicio.** Pago por hora real trabajada en Mesa. Escala base: equivalente a salario bruto de docente universitario titular por cada hora activa, ajustado por dedicación. Incluye cuidado sustituto para miembros con responsabilidades de cuidado (enlazado con PLANCUIDADO).
+
+**C2 — Infraestructura técnica.** Plataforma digital, integraciones con Arquitecto, Mandato Vivo, Memoria. Costo una-vez de desarrollo + mantenimiento continuo. Sobre PLANDIG.
+
+**C3 — Operación de la AMCC.** Presupuesto del ente autárquico: personal técnico, sedes, auditoría.
+
+**C4 — Dietas de Secretarios Técnicos y personal de apoyo.**
+
+### 8.2 Proyección de Costos — Escala Plena (Horizonte 2040, Visión)
+
+**TABLA 8.2: Proyección de Costo Anual — Escala Plena (Horizonte 2040, Visión, no compromiso operativo)**
+
+| Componente | Supuesto | Monto estimado |
 |---|---|---|
-| Políticas estructurales revertidas por el gobierno siguiente | ~42% | 28–32% — en rampa hacia la meta de régimen (reducción 25–40% conjunta con PLANMEMORIA, deslinde Sección 10.3) |
-| Tasa de consulta de precedente antes de decidir | ~11% | 100% en materias con Mesa (la Consulta Ancestral es obligatoria); 35–50% en el resto del Estado por contagio metodológico |
-| Credenciales de Materia Consolidadas | 0 | 450.000–500.000 |
-| Cédulas Civiles abiertas | 0 | 2.500.000–4.000.000 |
-| Mesas Civiles activas | 0 | 160–180 |
-| Resoluciones acumuladas con lineage completo | 0 | 1.400–1.800 |
-| Respuesta fundada dentro de plazo | — | ≥90% |
-| Jurisdicciones adheridas | 0 | 22–24 |
-| Litigiosidad post-decisión en materias con Mesa | línea de base | –50 a –60% |
-| Programas con evaluación ex-post pública | ~8% | >70% (toda Resolución programa su propia revisión) |
-| Costo evitado acumulado atribuible a PLANMESA | — | USD 9.000–35.000M — estimación propia, sujeta a verificación contra el Registro |
-| Costo total invertido acumulado | — | dentro del rango USD 4.200–6.800M |
+| Dietas de servicio (miembros) | 2.000 Mesas activas simultáneamente a nivel nacional, 15 miembros promedio, 80 hs/año por miembro | USD 180-260M |
+| Dietas Secretarios Técnicos | 2.000 secretarios | USD 40-60M |
+| Cuidado sustituto + accesibilidad | 15% de miembros requieren apoyo | USD 15-25M |
+| Infraestructura técnica | Mantenimiento + upgrades | USD 35-55M |
+| Operación AMCC | 180-240 personas | USD 40-60M |
+| Auditorías + Síndicos | Red distribuida | USD 25-40M |
+| Comunicación + formación | Inducción continua | USD 25-40M |
+| Reserva de contingencia | 15% del total | USD 60-90M |
+| **TOTAL ANUAL RÉGIMEN** | | **USD 420-630M** |
 
-La fila que más importa no tiene número: en 2040, la pregunta *"¿y esto pasó por Mesa?"* debería ser parte del sentido común político argentino — la vara con la que un vecino, un periodista o un juez mide si una política nació aprendiendo o nació por decreto de apuro. Las instituciones triunfan cuando se vuelven gramática.
+Esto es aproximadamente 0.07% del PBI argentino (~USD 640.000M). Comparación: el presupuesto de publicidad oficial consolidada del Estado argentino en 2023 fue superior a USD 450M. **Nota del 2026-08-01: esa comparación pasa a ser histórica.** `PLANFOCO` (ordinal 26) extingue la publicidad oficial nacional en quintos entre 2027 y 2031, así que a partir de ese año la vara es cero y el dato de 2023 queda como referencia de época. El argumento de esta sección no cambia —el presupuesto de PLANMESA es modesto— pero se sostiene contra el gasto que había, no contra el que va a haber.
 
-### 16.2 Catorce Años Después — Las Sillas Ocupadas
+### 8.3 Fuente de Financiamiento
 
-**Ramona Quiroga tiene 72 años.** Está jubilada del INTA, pero su Cédula Civil no se jubiló: sirvió en dos Mesas de Agua — la del Salado del Norte y, cinco años después, la de revisión que la propia Resolución había programado. La carpeta de cartón con elásticos está digitalizada como capa de Producción, citada en el lineage de tres Resoluciones, consultada por Mesas de otras dos provincias. El programa de cosecha de agua distribuida que su Mesa recomendó escalar sobrevivió dos cambios de gobierno provincial y uno nacional — el primer programa de toda su vida profesional que vio sobrevivir a sus autores. Cuando el último gobernador quiso relanzar el acueducto de los caños amigos, no necesitó marchar: le alcanzó con que el expediente existiera. Hoy Ramona valida capas de Vínculo de extensionistas jóvenes. Dice que es el trabajo más fácil que tuvo nunca: solo hay que reconocer lo que ella tenía y nadie miraba.
+**Fase 1 (Años 1-2):** capitalización inicial vía reasignación de presupuestos existentes:
 
-**Osvaldo Brizuela tiene 81 años.** Sirvió a los 70 en una Mesa de su municipio — estamento de Afectados, sorteado entre postulantes — y descubrió que su capa más valiosa era la que él consideraba una derrota: la experiencia deliberativa de Lanús 2002, acreditada como Declaración y Decisión en contexto real. En la Mesa fue lo que los facilitadores llaman un guardián: el primero en detectar cuándo una deliberación empezaba a girar en círculo, el primero en señalar al que hablaba para la tribuna. Su Cédula la miran sus nietos como otras familias miran un álbum. Osvaldo sostiene que la asamblea de Lanús no murió en 2002 — tardó veinticuatro años en encontrar esqueleto. No es una metáfora que conceda fácil: la hizo verificar.
+- 30% desde reducción de consultorías externas (el Estado argentino gasta ~USD 320M/año en consultorías que PLANMESA hace obsoletas en buena parte);
+- 25% desde reducción de estructuras de participación ciudadana redundantes (audiencias sin efecto, consejos consultivos inactivos);
+- 20% desde ahorro por reducción de reversiones de política pública (conservador estimado);
+- 25% desde reasignación de presupuestos de agencias que PLANMESA simplifica o absorbe.
 
-**Carina Mansilla tiene 58 años.** Es jefa de enfermería y sirvió en la Mesa de Cuidado de la Patagonia Sur — estamento de practicantes, Credencial construida casi entera con lo que ya tenía. El quinto programa de atención primaria de su carrera fue el primero que no vio morir: nació de un ciclo LDEA que arrancó leyendo los expedientes de los cuatro anteriores, se piloteó en las postas donde el segundo programa había funcionado, y lleva nueve años y dos gobiernos de signos opuestos sin relanzamiento, sin logo nuevo, sin recapacitación en lo mismo. Las derivaciones evitables bajaron un tercio — el mismo tercio que el programa desarmado de 2009 había logrado antes de que lo borraran — y esta vez el dato está inscrito, con su firma en la Resolución. Carina sigue siendo precisa. Ahora el sistema también.
+**Fase 2 (Años 3-5):** consolidación presupuestaria constitucional.
 
-**Federico Acosta tiene 49 años.** Es Síndico de Archivo — uno de los dos mil del cuerpo nacional — y los cuatro expedientes que encontró en 2024 en un depósito de Paraná son hoy el documento fundacional de "Precedentes Considerados" de la Mesa de Vivienda de Entre Ríos: el caso que se enseña en los trayectos de formación de Síndicos como ejemplo de lo que el país hacía con su propio saber. El quinto Plan Federal de Vivienda idéntico a los anteriores nunca ocurrió: en su lugar hubo un ciclo, tres propuestas rivales, dos pilotos y una Resolución que los gobiernos posteriores corrigieron — con evidencia, por el método — pero no borraron. El Registro Nacional de Reversiones, cuya metodología ayudó a fundar, mide año a año la hemorragia que su cuenta de servilleta había estimado a solas. Federico ya no ordena un archivo muerto. Custodia una memoria que decide.
+**Fase 3 (Años 6+):** presupuesto constitucional protegido al 0.07% del PBI, indexado.
 
-Cuatro personas, catorce años, un solo cambio de fondo: **ninguno se volvió político, ninguno se volvió famoso, ninguno se volvió rico.** Se volvieron lo que el sistema les debía: ciudadanos cuya práctica cuenta, inscribe y protege. El Hombre Gris no pide el poder — pide que su plata deje de tratarse como plomo.
+### 8.4 Retorno — No Fiscal Directo, Sí Macroeconómico
 
-### 16.3 La Generación Cédula
+PLANMESA no recauda. No ahorra por reducir gasto. Pero genera macro:
 
-Hay un quinto personaje en 2040 que el preámbulo no pudo nombrar porque en 2026 está terminando la secundaria. Abrió su Cédula Civil a los 18, como trámite, igual que sus compañeros — para 2040 abrirla a la mayoría de edad es tan normal como sacar el DNI. A los 25 tiene una capa de Vínculo real (el club, la cooperadora, dos veranos de brigada contra incendios) y un trayecto de Estudio empezado en una materia que eligió porque el Caso de su pueblo salió en el Tablero. No sirvió en ninguna Mesa todavía — quizás nunca sirva, y el sistema está bien con eso: la mayoría de las Cédulas de 2040 no son antesalas de una silla sino algo más silencioso y más grande — la primera generación argentina que crece sabiendo que su práctica cívica *queda*, se acumula y vale, sirva o no sirva en una Mesa. Para Ramona, la Credencial fue una reparación: el reconocimiento tardío de treinta años invisibles. Para esta generación es otra cosa — es el punto de partida. Nadie le robó décadas de saber porque el registro existió desde el principio. La diferencia entre reparar y prevenir es la diferencia entre la primera década de PLANMESA y todas las siguientes.
+- **Reducción de reversiones.** Si reduce en 25% la reversión de política pública en los siguientes 15 años (conservador), sobre el estimado de USD 420.000M históricos, retorna USD 105.000M en valor preservado.
+- **Reducción de litigiosidad.** Decisiones respaldadas por ciclo LDEA son menos litigiables. Estimado: 30-40% menos litigios de alto impacto.
+- **Reducción de captura.** Proyectos vinculados a Resoluciones de Mesa tienen trazabilidad que eleva el costo de desvío. Estimado: 15-20% menos captura sobre presupuestos públicos afectados (~USD 4.500M/año ahorro conservador).
+- **Mejora de ejecución de iniciativas.** El match Mesa-Taller-Círculo produce ejecución más certera. Estimado: 10-15% mejor ejecución sobre iniciativas del Arquitecto activadas (~USD 2.800M/año).
 
-### 16.4 Lo Que Esta Visión Es — y Lo Que No
-
-La Visión 2040 es diseño idealizado leído desde el final: el punto al que se apunta, no el punto al que se promete llegar (Sección 4.1). Cada número de la TABLA 33 es falsable contra el Tablero y el Registro; cada viñeta es una proyección narrativa de mecanismos que el documento especificó pieza por pieza. Si en 2040 los números dan la mitad, el plan habrá sido un éxito parcial medible — no un relato fracasado, porque nunca fue un relato. Y si dan cero, está la Sección 17.
-
----
-
-## SECCIÓN 17: PROTOCOLO DE FALLA — LO QUE PUEDE SALIR MAL
-
-> *"Lo que puede salir mal: Todo."*
-
-Todos los PLANes del ecosistema ¡BASTA! cierran mirando de frente sus modos de muerte — pero en PLANMESA esta sección tiene un peso especial, casi recursivo: un plan cuyo objeto es que el país aprenda de sus fracasos no puede permitirse fracasar sin protocolo. La Sección 12 listó los riesgos y sus mitigaciones; esta sección asume que las mitigaciones fallaron y especifica **qué hace el sistema cuando el sistema falla** — escenario por escenario, con la señal que lo detecta y la respuesta protocolizada que no depende del humor de nadie.
-
-**TABLA 34: Escenarios de Falla — Señal, Respuesta, Salida**
-
-| Escenario de falla | Señal en el Tablero | Respuesta protocolizada |
-|---|---|---|
-| **Las Mesas producen Resoluciones mediocres de manera sostenida** | Resoluciones rechazadas con fundamento sólido >40% por dos años; pilotos que no superan sus propias métricas en serie | Ciclo LDEA sobre el Protocolo de Credencial y las compuertas de fase: el problema es de filtro o de método, y ambos son corregibles por el mecanismo que el plan ya tiene — congelamiento de nuevas Mesas en la materia afectada mientras tanto |
-| **Silencio estatal masivo** — el peldaño 1 es ignorado por los tres poderes | Respuesta fundada <40% por dos años consecutivos a nivel nacional | Las Mesas siguen produciendo e inscribiendo (el archivo no depende de la respuesta); la Defensoría litiga el incumplimiento; la campaña pasa a modo contador-en-rojo permanente; la adhesión se persigue jurisdicción por jurisdicción donde sí haya voluntad — el sistema se repliega al territorio que lo quiere y deja el mapa del desprecio a la vista |
-| **Captura partidaria comprobada de una Mesa** | Impugnación confirmada de composición; correlación anómala detectada por auditoría de algoritmo | Disolución de la Mesa, reapertura del Caso con nueva composición, inhabilitación de las Credenciales involucradas en fraude, denuncia penal si hubo venta de acreditación — y publicación completa del caso: la captura expuesta por el propio sistema es vacuna; la tapada, veneno |
-| **Fraude de Credenciales en escala** | Impugnaciones confirmadas >3% en una materia (fusible TABLA 19) | Suspensión de emisiones de la materia, auditoría completa del circuito, re-verificación muestral retroactiva — el sistema prefiere encoger acreditando bien a crecer acreditando trucho |
-| **Desfinanciamiento hostil** | Ejecución del piso <80% por dos ejercicios (gatillo TABLA 19) | Acción judicial de la AMCC por incumplimiento legal; triaje publicado: se protegen dietas comprometidas y Tablero (la transparencia es lo último que se apaga); moratoria de Mesas nuevas con cartel público de causa — que el costo del ahorro tenga nombre |
-| **La participación se derrumba** | Postulación <40 por ventana en materias múltiples, sostenida | Revisión del Protocolo por ciclo express (¿barreras mal calibradas? ¿dieta insuficiente? ¿desencanto por silencio estatal?); si la causa es externa al diseño, reducción ordenada de escala — un sistema chico y vivo vale más que uno grande y simulado |
-| **Elitización medible** | Perfil socioeconómico de Credenciales Consolidadas divergiendo del padrón de practicantes reales; tiempos de verificación peores en jurisdicciones pobres | Gatillo federal (Sección 15.3): verificación itinerante reforzada, recalibración de capas con veto del Panel Ciudadano, metas de equidad con plazo en el Tablero |
-| **Crisis macroeconómica arrasa el calendario** | Definida por los umbrales del kit de crisis de PLANRUTA | PLANMESA pasa a modo mínimo preacordado: se sostienen Cédulas, Registro de Reversiones y las Mesas en fase A (cerrar lo abierto antes que abrir lo nuevo); la expansión espera — el plan está diseñado para hibernar sin morir, que es exactamente lo que la asamblea de Lanús no pudo hacer |
-| **La adhesión nunca llega** — el peldaño 2 no se conquista | Menos de 4 jurisdicciones adheridas al año 8 | El sistema asume su meseta con dignidad: un régimen consultivo permanente con respuesta fundada, archivo completo y medio millón de acreditados sigue siendo más de lo que la Argentina tuvo jamás — y se dice así, en público, sin inflar. La escalera no promete ni se resigna: espera en el peldaño que la evidencia sostiene |
-| **Falla sistémica — el conjunto no funciona** | Compuertas mayores incumplidas en serie; metas de impacto en cero al año 8 | **Cláusula de revisión total:** ciclo LDEA sobre PLANMESA entero, conducido con Panel Ciudadano ampliado y veedores externos, con tres salidas posibles y ninguna prohibida: rediseño profundo, reducción permanente de alcance, o **cierre ordenado** — con cada Cédula devuelta a su titular, cada dato público preservado y la autopsia completa inscrita en PLANMEMORIA |
-
-**La jerarquía de lo que se apaga último.** Varios escenarios de la tabla exigen triaje — desfinanciamiento, crisis macro, reducción de escala — y el triaje no se improvisa en la emergencia: se deja escrito ahora, cuando nadie está apurado. El orden de protección, de lo más sagrado a lo más prescindible: primero el **Tablero y los datos públicos** (la transparencia es lo último que se apaga — un sistema opaco en crisis es un sistema muerto que todavía cobra sueldo); segundo las **Cédulas Civiles** (son propiedad de los ciudadanos: el Estado puede quebrar, el registro del mérito ajeno no); tercero el **Registro Nacional de Reversiones** (medir lo que se pierde cuesta poco y vale más justamente cuando se está perdiendo); cuarto las **dietas comprometidas y las Mesas en fase A** (cerrar lo abierto antes que abrir lo nuevo — una Mesa abandonada a mitad de ciclo es una promesa francesa); y último todo lo demás: expansión, materias nuevas, estructura. La AMCC que tenga que elegir ya tiene elegido. Eso también es protocolo.
-
-La última fila es la que ningún plan argentino escribió jamás, y por eso se subraya: **PLANMESA incluye su propia partida de defunción.** Si fracasa, fracasa documentado — qué se intentó, qué se midió, dónde se rompió, qué recomendaría a quien lo intente de nuevo. La asamblea de Lanús murió sin autopsia, y el país tardó veinticuatro años en volver a pensar el problema en serio. El presupuesto participativo de Porto Alegre murió sin autopsia institucional, y mil quinientas réplicas heredaron el entusiasmo sin heredar la advertencia. Un PLANMESA que muriera dejando su expediente completo en el archivo habría cumplido, en su derrota, la mitad de su misión: que la próxima vez, la Consulta Ancestral tenga qué leer. Esa es la diferencia entre fracasar y fracasar en vano — y este plan, que no puede prometer no fracasar, promete lo segundo: no fracasar en vano.
+ROI estimado: entre 10:1 y 25:1 en horizonte 15 años sobre la inversión de régimen.
 
 ---
 
-## SECCIÓN 18: CIERRE — NOTA DEL AUTOR
+## SECCIÓN 9: CATÁLOGO DE MATERIAS PRIORITARIAS
 
-> *"La silla existe en el momento en que alguien decide construirla. Ocuparla, en cambio, no depende del carpintero."*
+> *"Las Mesas no van a activarse todas el mismo día. Las primeras son las que tienen señal acumulada más clara, Credencial disponible en territorio, e iniciativas del Arquitecto listas para pilotear."*
 
-Este documento empezó con cuatro sillas vacías y termina con un país que podría ocuparlas. Entre una cosa y la otra hay dieciocho secciones, treinta y cuatro tablas, una agencia, tres leyes, una escalera jurídica, quinientas mil Credenciales proyectadas y un rango presupuestario derivado partida por partida. Pero la distancia real entre el preámbulo y la visión no se mide en secciones — se mide en una sola decisión colectiva: si la Argentina está dispuesta a aceptar que su problema no es de opinión sino de aprendizaje, y que el aprendizaje, a escala de república, no es un sentimiento: es una infraestructura.
+### 9.1 Mesas de Primera Ola (Tranche-2 inicial, 2028-2030)
 
-Ramona, Osvaldo, Carina y Federico no figuran en ningún padrón con esos nombres — son personajes de diseño, compuestos con los materiales de miles de biografías reales que cualquier lector reconoce, porque tiene una en la familia o la ve en el espejo. Esa es, quizás, la verificación más rápida de la tesis central de este plan: no hace falta explicar quiénes son. El país está lleno de ellos. Lo que el país no tiene es la silla — y la silla es, de todas las piezas de este documento, la única que no requiere milagro: requiere una ley, una agencia que no juegue, un método con compuertas y la paciencia de subir una escalera sin saltearse peldaños.
+**Mesa de Agua y Saneamiento** — se activa en territorios críticos (Matanza-Riachuelo, Reconquista, provincias del NOA con cuencas degradadas).
 
-Sobre la honestidad del documento, una declaración final sin atenuantes. Casi todos los números importantes de este plan son estimaciones propias, presentadas en rango, marcadas como sujetas a verificación — empezando por el más citado: los USD 180.000–420.000M del costo de reversión, que nadie midió antes porque al sistema que lo produce no le conviene medirlo. Quien quiera refutar estas cifras tiene todo lo necesario para hacerlo: la metodología está publicada, la caja metodológica dice "leer antes de citar", y el Registro Nacional de Reversiones existirá precisamente para que la discusión deje de ser entre estimaciones y pase a ser entre datos. Refutar este plan con evidencia y firma no es atacarlo — es ejecutarlo. Un documento sobre deliberación con método que se ofendiera por la crítica metodológica sería su propia refutación.
+**Mesa de Salud Primaria** — se activa en partidos bonaerenses, capitales provinciales del interior.
 
-Y sobre el Hombre Gris, una última vez, porque el nombre se malinterpreta con facilidad: gris no es el color de la resignación — es el color de la **plata** sin pulir. Argentum. El país entero lleva el metal en el nombre y lo trata como plomo: deja que sus Ramonas se jubilen con la carpeta cerrada, que sus Federicos ordenen archivos que nadie lee, que sus Osvaldos juren no volver. PLANMESA es, en su núcleo más simple, una tecnología de pulido a escala nacional: un sistema para que el saber opaco del territorio brille donde se decide, se inscriba donde se recuerda y pese donde se aprende. La república no se decide solo en urna. Se decide en mesa. Y la mesa, por primera vez, tiene las sillas dibujadas, el método escrito y el precio calculado — en rango, con disclaimer, como corresponde.
+**Mesa de Educación Básica** — se activa por distrito escolar con indicadores de alfabetización en riesgo.
 
-Lo que falta no está en este documento. Lo que falta es que alguien se siente.
+**Mesa de Seguridad de Proximidad** — se activa en territorios con tensión documentada y Credencial ciudadana disponible.
+
+**Mesa de Vivienda Incremental** — se activa en partidos con déficit habitacional crítico.
+
+**Mesa de Cuidado de Mayores** — se activa en territorios con densidad alta de adultos mayores y Credencial de Vínculo disponible.
+
+### 9.2 Mesas de Segunda Ola (Tranche-2 consolidación a Tranche-3 entrada, 2030-2032)
+
+**Mesa de Producción Local** — articulación con PLANEB, PLANTALLER.
+
+**Mesa de Energía Distribuida** — articulación con PLANEN.
+
+**Mesa de Cultura Viva** — articulación con PLANCUL.
+
+**Mesa de Justicia Popular** — articulación con PLANJUS.
+
+**Mesa de Suelo Vivo y Soberanía Alimentaria** — articulación con PLANISV.
+
+**Mesa de Movilidad y Transporte Urbano.**
+
+### 9.3 Mesas de Tercera Ola (Tranche-3 maduración, 2032+)
+
+**Mesa de Política Monetaria y Fiscal** — alta sensibilidad, requiere Credencial consolidada ampliamente.
+
+**Mesa de Geopolítica y Frentes Estratégicos** — articulación con PLANGEO.
+
+**Mesa de Sustancias Reguladas** — articulación con PLANSUS.
+
+**Mesa de Ciudades Nuevas** — articulación con PLAN24CN.
+
+**Mesa de Ciencia y Tecnología Soberana.**
+
+### 9.4 Mesas Transversales Permanentes
+
+**Mesa de Arquitectura del Sistema LDEA** — evalúa y ajusta el propio protocolo, detecta fallas, propone mejoras.
+
+**Mesa de Integridad y Capturas** — funciona como Defensoría específica del sistema.
+
+**Mesa de Síntesis Intermateria** — resuelve conflictos cruzados (ver Sección 4.1).
 
 ---
 
-**PLANMESA — Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende** es uno de los 22 PLANes del ecosistema **¡BASTA!** (al 23 de abril de 2026). Como todos los PLANes, es diseño idealizado: muestra dónde podría apuntar el país — no promete dónde va a estar. Los ciudadanos diseñan, el Estado administra, la política ejecuta.
+## SECCIÓN 10: RIESGOS Y RESPUESTAS
 
-*Todas las cifras de este documento se presentan en rango y constituyen estimaciones propias sujetas a verificación, salvo indicación expresa de fuente. Este documento pasa por su propio ciclo LDEA: cada protocolo aquí descrito es revisable por el método que propone.*
+### 10.1 Matriz de Riesgos Principales
 
-**Abril 2026 | Versión 1.0**
-*DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA*
+**TABLA 10.1: Matriz de Riesgos PLANMESA**
+
+| # | Riesgo | Probabilidad | Impacto | Mitigación principal | Riesgo residual |
+|---|---|---|---|---|---|
+| R1 | Captura política de la AMCC | Media | Alto | Presupuesto constitucional, composición rotativa, auditoría permanente | Medio |
+| R2 | Gamificación de Credenciales (puntos sin sustancia) | Media-alta | Medio | Diseño sin ranking agregado, auditorías anti-manipulación | Bajo-medio |
+| R3 | Brecha digital que excluye sectores | Alta | Alto | Puntos de acceso asistidos, versión simplificada, apoyo humano | Medio |
+| R4 | Burocratización del ciclo LDEA | Media | Alto | Auditoría sustantiva de entregables, sampling de Mesas con revisión | Medio |
+| R5 | Fatiga de los servidores de Mesa | Media | Medio | Dietas justas, mandatos acotados, sustrato de PLANCUIDADO | Bajo-medio |
+| R6 | Hipertrofia regulatoria (demasiadas Mesas) | Baja-media | Medio | Umbrales claros de activación, presupuesto fijo | Bajo |
+| R7 | Exclusión de trabajadores informales por tiempo | Alta | Alto | Formato híbrido, dietas por hora real, apoyo integral | Medio |
+| R8 | Conflicto con poder político tradicional | Alta | Alto | Integración explícita no-invasiva, legitimidad paralela | Medio-alto |
+| R9 | Partidización de las Mesas | Media | Alto | Credencial específica por materia (no política), divulgación de afiliación | Medio |
+| R10 | Sobrecarga del Archivo de Memoria | Media | Medio | Curaduría activa, síntesis automáticas | Bajo |
+
+### 10.2 Protocolo de Gobernanza de Crisis
+
+Cuando se detecta crisis sistémica (captura masiva, falla técnica crítica, litigio estructural), la AMCC convoca a **Mesa de Emergencia Institucional** en 72 hs:
+
+- Composición: 11 miembros — 5 Síndicos de Archivo, 3 Coordinadores de Mesa con Credencial Consolidada, 1 Defensor de Integridad, 1 representante Oficina de Mandato, 1 externo.
+- Facultades: suspender Mesas afectadas, congelar Resoluciones bajo revisión, convocar a auditoría externa, proponer reformas urgentes del protocolo.
+- Plazo: 30 días para diagnóstico y 30 adicionales para propuesta de corrección con ciclo LDEA propio.
+- Responsabilidad: documenta todo en Memoria; resultado es vinculante para AMCC pero apelable ante Corte Suprema por razones de derecho.
+
+### 10.3 Críticas Anticipadas y Respuestas
+
+**"Esto es tecnocracia disfrazada."**
+No. Tecnocracia es decisión por credenciales académicas o empleo estatal. La Credencial exige las cinco capas simultáneas, incluyendo declaración en Mapa (posición política) y vínculo de cuidado (no requiere título). Un docente primario con 15 años de práctica y comunidad activa tiene Credencial plena en Educación. Un PhD sin práctica no la tiene.
+
+**"Esto es elitismo."**
+No. La Credencial está abierta a cualquier argentino que quiera construirla. No hay examen, no hay entrevista, no hay comité de admisión. Hay práctica documentada en plataforma pública. El "elitismo" de esto es el mismo que el de ser alfabetizado — un techo bajo al que cualquiera puede acceder.
+
+**"Esto reemplaza a la democracia."**
+No. Es un complemento al sistema electoral y administrativo. Las elecciones siguen. Las leyes las sigue haciendo el Congreso. Lo que cambia es que entre "el pueblo opinó" y "el Estado ejecutó" ahora hay "la Mesa decidió con ciclo LDEA cerrado".
+
+**"Esto no va a funcionar en Argentina, somos muy politizados."**
+Al contrario — funciona *más* en Argentina por eso. Somos politizados pero sin infraestructura para que la politización produzca aprendizaje. La Mesa canaliza politización en forma productiva: discutas lo que discutas, si querés decidir, tenés que estudiar, proponer, pilotear y analizar.
+
+**"El sorteo estratificado con Credencial es demasiado complejo."**
+Ya opera a escala de jurado popular en varias provincias con éxito. La escala mayor requiere plataforma tecnológica — que la plataforma ¡BASTA! ya tiene.
+
+**"Los pilotos experimentales son caros."**
+Son más baratos que escalar directamente intervenciones no probadas. El costo del piloto es una fracción del costo de una política pública fallida escalada nacional.
+
+**"Y si se captura desde dentro por activistas dedicados?"**
+Múltiples filtros concurrentes: composición plural obligatoria, rotación entre ciclos, límites de Mesas simultáneas, transparencia radical con delay. Captura total es estructuralmente difícil. Captura parcial es detectable rápidamente.
+
+---
+
+## SECCIÓN 11: HOJA DE RUTA
+
+### 11.1 Cronograma Maestro
+
+> **REVISIÓN 2026-04-28:** PLANMESA es **tranche-2** (entrada 24-30m, ventana absoluta 2028-2030). El cronograma original "Año 1-6+" se reescribe como etapas dentro de tranche-2 + tranche-3. **PLANMESA no sustituye al Congreso ni al PEO** — es consulta, no decisión vinculante. **Presupuesto constitucional + régimen pleno con 2.000+ Mesas → diferidos a horizonte 2040 (Visión, no compromiso operativo de remediación 2026-04-26).**
+
+**Tranche-2 inicial — Fase de Fundamentos (2028-2030):**
+- Decreto + ley ordinaria de marco AMCC piloto (sin agencia autárquica). Protocolo v1.0. Plataforma base sobre estadio A de PLANDIG.
+- Credencial de Materia, Cédula Civil en plataforma. Formación de directorio AMCC (execution cell).
+- Pilotos de Credencial en 3 materias seleccionadas.
+- Primeras 6 Mesas Piloto Territoriales. Primer ciclo LDEA completado.
+
+**Tranche-2 consolidación — Fase de Escalamiento Inicial (2030-2032):**
+- 40 Mesas activas en 8 provincias piloto.
+- Protocolo v2.0 con aprendizaje de pilotos.
+- Primera Mesa Federal piloto (materia: Infancia y Niñez Crítica).
+- Primera Mesa de Síntesis Intermateria.
+
+**Tranche-3 entrada — Fase de Maduración (2032-2034, condicional a tranche-2 cerrado):**
+- 200 Mesas activas en todas las provincias.
+- Cobertura completa de las materias de primera ola.
+- Presupuesto operativo estable (NO constitucional).
+- Primera revisión externa del sistema.
+
+**Tranche-3 maduración (2034-2036):**
+- 800-1.200 Mesas activas.
+- Segunda ola de materias activada.
+- Mesas transversales permanentes operando.
+- Integración con PLANMEMORIA completa.
+
+**Horizonte 2040 (Visión, NO compromiso operativo de remediación):**
+- 2.000-2.500 Mesas activas a escala nacional.
+- Tercera ola de materias activada.
+- Presupuesto constitucional consolidado (diferido).
+- Sistema auto-revisante con Mesa de Arquitectura operando continuo.
+
+### 11.2 Lo Que No Sabemos Todavía
+
+- El umbral exacto de densidad de señal que debe activar un Caso de Mesa (ajustable por piloto).
+- La tolerancia real de ciudadanos a servir ciclos de 12 meses promedio (ajustable por diseño de dietas).
+- La respuesta efectiva del sistema político tradicional (provincias, intendencias, ministerios) a la integración con Mesas.
+- La capacidad de los Tallers de absorber la demanda de pilotos experimentales simultáneos.
+
+Cada uno de estos puntos se monitorea y ajusta.
+
+---
+
+## SECCIÓN 12: TABLERO DE MÉTRICAS
+
+### 12.1 Métricas del Sistema (Agregadas)
+
+- **Mesas activas totales** (por materia, por escala, por territorio).
+- **Ciclos LDEA cerrados por trimestre** (indicador de velocidad de aprendizaje).
+- **Tiempo promedio por fase** (indicador de eficiencia).
+- **Tasa de Resoluciones ejecutadas vs. emitidas** (indicador de integración con Ejecutivo).
+- **Densidad de Credencial por territorio y materia** (indicador de capacidad cívica distribuida).
+- **Tasa de retorno a precedente** (proporción de Resoluciones que citan precedente vs. ignoran — indicador de aprendizaje).
+- **Tasa de captura detectada** (indicador de integridad).
+- **Cobertura demográfica de servicio de Mesa** (por edad, género, territorio, condición socioeconómica).
+
+### 12.2 Métricas por Mesa
+
+- Composición (cupos de roles, territoriales, etarios cumplidos).
+- Puntualidad por fase.
+- Calidad de entregables (auditada por sampling externo).
+- Diversidad de propuestas en Fase DISEÑAR.
+- Integridad del experimento (adhesión al piloto).
+- Seguimiento post-Resolución (cumplimiento del cronograma activado).
+
+### 12.3 Métricas de Credencial (Agregadas, no individuales)
+
+- Distribución demográfica de Credenciales por materia.
+- Tiempo promedio a Credencial Básica, Completa y Consolidada.
+- Tasa de decaimiento.
+- Tasa de revocación por manipulación detectada.
+
+### 12.4 Triggers Correctivos
+
+- Mesa con plazo excedido >30% del estimado: revisión técnica.
+- Más de 3 Mesas consecutivas con impasse: revisión del protocolo de composición.
+- Tasa de Resoluciones ejecutadas cayendo por debajo de 75%: diagnóstico de fricción Ejecutivo/Mesa.
+- Credencial desafiada por más de 10 denuncias en trimestre: revisión del proceso de adquisición.
+
+---
+
+## SECCIÓN 14: DIMENSIÓN FEDERAL — 24 PROVINCIAS, UNA RED DE MESAS
+
+### 14.1 Las Mesas Provinciales
+
+Cada provincia tiene su propia red de Mesas con autonomía operativa dentro del Protocolo nacional. La AMCC central articula, las AMCCs provinciales ejecutan.
+
+### 14.2 Convenios Marco AMCC-Provincia
+
+Tipo de convenio escalable:
+
+- Provincia se adhiere al Protocolo base y aporta contrapartida logística (sedes, articulación con sistema educativo provincial para Capa de Estudio).
+- AMCC aporta infraestructura técnica, auditoría, dietas marco.
+- Se crea AMCC provincial con directorio compuesto con representantes de la AMCC nacional (3), de la provincia (3), y 5 sorteados entre ciudadanos con Credencial Consolidada de la provincia.
+- Monitoreo continuo con escalamiento a AMCC nacional si se detectan fallas.
+
+### 14.3 Provincias Piloto
+
+Criterio de selección de las primeras 8 provincias piloto (tranche-2 consolidación, ventana 2030-2032):
+
+- Densidad de usuarios activos en plataforma ¡BASTA!.
+- Diversidad demográfica (una del NEA, una del NOA, una cuyana, una bonaerense, una patagónica, una de litoral, CABA, y una intermedia).
+- Disposición institucional del gobernador correspondiente (firma de convenio).
+- Materia crítica claramente identificada.
+
+### 14.4 Federalismo Real
+
+PLANMESA es estructuralmente federal — la mayoría de las materias tienen escala municipal o provincial. Sólo la Mesa Federal y la Mesa de Síntesis Intermateria operan a nivel nación. Esto respeta la estructura constitucional argentina y aprovecha las capacidades territoriales distribuidas.
+
+---
+
+## SECCIÓN 15: ESTRATEGIA DE STAKEHOLDERS
+
+### 15.1 Con la Clase Política Tradicional
+
+No se confronta. Se muestra ventaja. Un intendente, un gobernador, un ministro se benefician de PLANMESA porque:
+
+- Sus iniciativas llegan mejor preparadas (pilotadas antes de escalar).
+- Las reversiones por cambio de gobierno son menos probables.
+- El litigio post-decisión se reduce.
+- La legitimidad de su gestión se amplifica por proceso transparente.
+
+Los que pierden son específicamente los que dependían de discrecionalidad opaca, captura y clientelismo.
+
+### 15.2 Con el Poder Judicial
+
+La Mesa no compite con el Judicial. Es cuerpo de decisión administrativa compleja. El Judicial mantiene el control de legalidad. Las Resoluciones de Mesa pueden ser revisadas judicialmente por ilegalidad o irracionalidad manifiesta. Esto protege al Judicial de la acusación de "activismo" — las decisiones complejas de política pública bajan de la Corte cuando la Mesa las toma con proceso LDEA.
+
+### 15.3 Con la Administración Pública
+
+Los cuadros técnicos ganan. Hoy están subutilizados, bajo presión política, sin vehículo para su conocimiento. En PLANMESA:
+
+- Son actores naturales de Credencial en sus materias.
+- Pueden servir en Mesas aportando su experiencia.
+- Ven que sus diagnósticos técnicos impactan en decisiones vinculantes.
+- Recuperan orgullo profesional.
+
+### 15.4 Con Organizaciones de la Sociedad Civil
+
+Las ONGs y movimientos sociales ganan acceso estructurado. Sus cuadros pueden construir Credencial. Sus saberes territoriales se vuelven visibles. Pero dejan de ser la única voz de "la sociedad civil" — ahora hay millones de ciudadanos construyendo su propia autoridad cívica.
+
+### 15.5 Con los Medios
+
+Los medios tradicionales tendrán tentación de reducir la Mesa a "asamblea ciudadana" (simplificación que degrada) o a "nuevo invento del kirchnerismo/liberalismo/etc." (politización falsa). Estrategia de comunicación:
+
+- Cobertura estructurada con portavoces diversos (cuadros técnicos, ciudadanos recién credencializados, Síndicos de Archivo).
+- Casos de estudio visibles ("La Mesa del Riachuelo que resolvió lo que ACUMAR no resolvió").
+- Transparencia radical del proceso como defensa contra la tergiversación.
+
+---
+
+## SECCIÓN 16: HOJA DE RUTA LEGISLATIVA
+
+PLANMESA requiere tres piezas legales:
+
+### 16.1 Ley de Creación de la AMCC
+
+Ley nacional que:
+
+- Crea la Agencia de Mesa y Cédula Civil como ente autárquico.
+- Define su presupuesto constitucional protegido (0.07% del PBI).
+- Establece su gobernanza (directorio de 11 miembros con composición mixta).
+- Regula las Mesas Civiles como figura jurídica nueva.
+- Define la Resolución de Mesa como acto administrativo complejo con efectos vinculantes acotados.
+- Establece el derecho ciudadano a construir Credencial y acceder a la Cédula Civil.
+
+### 16.2 Ley de Procedimiento de la Mesa
+
+Ley que regula el ciclo LDEA:
+
+- Plazos por fase.
+- Composición plural obligatoria.
+- Requisitos de Consulta Ancestral.
+- Formato de Resolución vinculante.
+- Procedimiento de revisión y reversión.
+
+### 16.3 Reformas a Leyes Sectoriales
+
+Modificaciones puntuales a leyes de procedimiento administrativo, participación ciudadana, presupuesto público, y organización de la administración para integrar las Resoluciones de Mesa como insumo vinculante.
+
+---
+
+## SECCIÓN 17: ESTRATEGIA DE COMUNICACIÓN
+
+### 17.1 La Campaña: "La Silla Que Te Estaba Esperando"
+
+Mensaje central: *la decisión pública siempre fue tuya, pero nadie te ofreció la silla. Hasta ahora.* La Credencial se presenta como ruta: cualquier argentino puede sentarse, si camina el camino.
+
+### 17.2 Del Documento a las Primeras 25.000 Credenciales
+
+El primer año objetivo: 25.000 argentinos con Credencial Básica, distribuidos en las provincias piloto. La meta no es número — es dispersión territorial y diversidad demográfica.
+
+### 17.3 Los Relatos de Victoria Temprana
+
+Cinco a siete casos concretos de Mesa Civil Piloto que resuelven visible y verificablemente problemas territoriales. Cada caso se documenta con video, testimonio y datos. Se distribuye como contraejemplo del fatalismo institucional.
+
+### 17.4 La Narrativa contra la Narrativa del Fracaso
+
+Argentina ha convertido el fatalismo institucional en identidad. PLANMESA lo desafía con evidencia: acá hay una Mesa que sí decidió, que sí experimentó, que sí midió, que sí inscribió. Cada caso concreto erosiona el fatalismo.
+
+---
+
+## SECCIÓN 18: VISIÓN 2040 — LA REPÚBLICA QUE APRENDIÓ
+
+### 18.1 Lo Que Se Ve Desde 2040
+
+Si PLANMESA se despliega con su hoja de ruta:
+
+- 2.500 Mesas activas a escala nacional.
+- 4-5 millones de argentinos con al menos una Credencial Básica.
+- 400-600 mil con Credencial Completa en al menos una materia.
+- 80-120 mil con Credencial Consolidada.
+- 20.000+ ciclos LDEA cerrados cumulativamente.
+- Archivo de Memoria con 15+ años de precedentes operativos consultables.
+- Reversión de política pública reducida al 15-20% (vs. 42% actual).
+- Litigiosidad estructural reducida 35%.
+- Confianza en instituciones decisionales pasando del 18% actual al 50-60%.
+
+### 18.2 Lo Que No Se Ve — Pero Está
+
+Lo intangible: ciudadanos que saben lo que decidieron y por qué. Territorios que pueden mostrar sus Mesas como orgullo, no como promesa rota. Jóvenes que empiezan a construir Credencial a los 18 y a los 40 son parte estructural del sistema decisional de su país. Una clase política que ya no es intermediaria obligada entre el ciudadano y la decisión pública.
+
+### 18.3 La Pregunta Final
+
+¿Puede una república aprender? La historia dice que raramente. Pero Argentina tiene algo que ninguna otra tuvo: la plataforma cívica para registrarlo. Lo que falta es la voluntad de empezar.
+
+---
+
+## SECCIÓN 19: PROTOCOLO DE FALLA
+
+### 19.1 Matriz de Escenarios de Falla
+
+**F1 — Vaciamiento presupuestario.** Si un gobierno hostil recorta la AMCC por debajo del 50% del presupuesto constitucional, se activa modo mínimo: Mesas activas existentes continúan, nuevas Mesas se priorizan por escala federal, formación pública se reduce a voluntariado, Cédula Civil se mantiene operativa por plataforma sin actualizaciones técnicas.
+
+**F2 — Ataque técnico a la plataforma.** Si la plataforma ¡BASTA! sufre compromiso crítico, backup distribuido en nodos provinciales sostiene operación, Mesas activas pueden completar ciclo en modalidad híbrida presencial-documento, la Credencial se audita desde archivo firmado.
+
+**F3 — Captura sistémica de la AMCC.** Si se detecta captura del directorio de la AMCC, la Defensoría de Integridad activa Mesa de Emergencia Institucional (Sección 10.2) con facultad de suspender al directorio y convocar elección extraordinaria.
+
+**F4 — Colapso de participación.** Si la auto-postulación a Mesas cae por debajo de 30% del requerido durante tres trimestres, se activa protocolo de reingeniería: revisión del protocolo, ampliación de dietas, campaña de comunicación, incentivos adicionales.
+
+**F5 — Reversión legislativa.** Si el Congreso deroga la Ley de la AMCC, las Mesas ya constituidas completan ciclos abiertos (efecto legal adquirido), la plataforma cívica ¡BASTA! conserva Credenciales y Archivo como estructura no estatal, y se construye plan de reinstauración.
+
+### 19.2 La Cláusula de Muerte Digna
+
+Si las cinco fallas confluyen catastróficamente, el sistema se pone en hibernación dignificada: Archivo de Memoria preservado, Credenciales congeladas sin revocación, plataforma disponible en modo archivo. El aprendizaje acumulado sobrevive para que la próxima vez que Argentina tenga voluntad de aprender, encuentre el archivo — no el vacío.
+
+---
+
+## CIERRE
+
+La Argentina no fracasa por falta de ideas. Fracasa porque las ideas no se inscriben, las decisiones no se experimentan antes de escalarse, los aprendizajes no se consultan antes de repetir. El país que opina más sobre política pública en la región es el país que menos aprende operativamente de política pública en la región. No es casualidad — es el mismo fenómeno visto de dos lados.
+
+PLANMESA no es otra idea. Es la infraestructura para que las ideas se conviertan en aprendizaje. Es el eslabón que falta entre la plataforma cívica que ya captura señal y la ejecución pública que hoy sigue ocurriendo en los mismos despachos con las mismas caras y los mismos resultados.
+
+Ramiro, el técnico del Matanza-Riachuelo, sigue sentado en su escritorio. Pero en la versión de Argentina que PLANMESA construye, dentro de siete años, va a estar sirviendo en su tercera Mesa de Agua de la Cuenca, habiendo cerrado dos ciclos LDEA con Resoluciones ejecutadas, habiendo sumado a su Cédula Civil el peso específico de haber hecho el trabajo. Y la próxima inundación — porque va a haber próxima inundación, el cambio climático no se rinde ante ninguna ideología — va a encontrar una Mesa ya constituida, con Credencial acumulada, con Archivo a mano, lista para activar un ciclo de emergencia en 24 días y no un documento que nadie lee en siete reuniones.
+
+Ramiro no va a ser presidente. No va a ser senador. No va a ser ministro. Va a ser algo que en la Argentina actual no existe: un ciudadano con autoridad pública construida por práctica, reconocida por protocolo, inscrita por memoria. La silla que siempre debió haber estado — finalmente le será ofrecida. Y él va a sentarse sabiendo exactamente qué hacer el lunes a la mañana.
+
+*"La república no se decide en urna. Se decide en mesa. Y en la mesa no se sienta quien ganó la elección. Se sienta quien hizo el trabajo."*
+
+---
+
+**FIN DEL DOCUMENTO**
+
+*Documento técnico del decimoctavo mandato del Proyecto ¡BASTA! — Abril 2026*
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-2
+- **Misión matrix:** Verde
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Piloto deliberativo de portfolio.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANMESA`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANMESA`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, vas a poder mirar las deliberaciones del piloto de Mesa y la respuesta del gobierno a cada recomendación."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANMESA`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANDIG, PLANRUTA.
+- Provee a: todos.
+
+### 7. Privacy Impact Assessment
+No requiere PIA específico (este PLAN no toca datos personales sensibles directamente). Si en fase de implementación se identifican datos personales, generar PIA antes de piloto.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

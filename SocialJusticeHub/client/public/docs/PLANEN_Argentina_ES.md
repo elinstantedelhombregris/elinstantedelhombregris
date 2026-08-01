@@ -1,3 +1,52 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-2 (misión matrix: Ámbar).
+>
+> **Alcance entregable:** nodos de resiliencia + datos energéticos abiertos.
+>
+> **Presupuesto canónico:** (tranche-2) (línea PLANEN del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (tranche-2).
+>
+> **Instrumento legal:** (tranche-2: marco datos energéticos abiertos).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Tranche-2 = nodos de resiliencia + datos energéticos abiertos. Sin reforma corporativa profunda en tranche-1/2. Estatización de generadoras → diferida. Datos energéticos abiertos publicados con SLA + auditoría externa. Conflicto provincial: mapa de adhesión + incentivos. Conexión con PLANTER (L2 regalías litio/hidrocarburos), PLANISV (suelo bajo servidumbre), PLANMOV (electrificación gradual). Transición acelerada → reformulada como gradual con métricas. Sub-mandato cyber resilience eléctrica heredado de PLANDIG estadio A.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANEN. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANEN. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANEN.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANEN.md` si existe.
+>
+> **MARCO TEMPORAL CANÓNICO (REVISIÓN 2026-04-28):** este PLAN es **tranche-2** con entrada operativa en 2028-Q2. Todas las referencias "Año X" en el cuerpo del documento (cronogramas, tablas de inversión, metas de cobertura, planes de escalamiento, financial gap, fases) se anchorean según esta tabla:
+>
+> | Texto original | Ventana absoluta | Tranche |
+> |----------------|------------------|---------|
+> | Año 0 | 2028 | tranche-1 inicial |
+> | Año 1 | 2029 | tranche-1 |
+> | Año 2 | 2030 | tranche-1 → tranche-2 |
+> | Año 3 | 2031 | tranche-2 |
+> | Año 4 | 2032 | tranche-2 |
+> | Año 5 | 2033 | tranche-2 cierre |
+> | Año 7 | 2035 | tranche-3 |
+> | Año 10 | 2038 | tranche-3 maduración |
+> | Año 15+ | 2043+ | Horizonte 2040 (Visión, no compromiso operativo) |
+>
+> **Reglas de tranche aplicadas:** "Tranche-2 = nodos de resiliencia + datos energéticos abiertos; sin reforma corporativa profunda en tranche-1/2; estatización generadoras diferida; transición acelerada → gradual con métricas"
+>
+> **Presupuesto canónico:** (tranche-2) — fuentes: F01 reasignación, F03 bonos largos, multilateral. **Future returns prohibidos como fuente activa de tranche-1.**
+>
+> **Instrumento legal:** (tranche-2). Reformas constitucionales **diferidas a horizonte 2040** por defecto.
+
+---
+
 ```
 LA ENERGÍA QUE PRODUCIMOS
 ES LA QUE NO NOS ALCANZA
@@ -112,7 +161,7 @@ Todo lo que PLANEN propone es la *primera mejor alternativa* basada en la mejor 
 
 ---
 
-**Tesis Central:** La Argentina tiene el segundo yacimiento de shale gas del mundo (Vaca Muerta, 308 TCF de reservas recuperables), el tercer recurso de litio del planeta (19,3 millones de toneladas identificadas), vientos clase 6-7 en la Patagonia con factores de capacidad del 45-55%, irradiación solar de 5-6 kWh/m²/día en el NOA, potencial hidroeléctrico subutilizado en el NEA, y una industria nuclear que diseñó el reactor CAREM — y sin embargo importa energía, subsidia entre USD 10.000 y USD 15.000 millones anuales, tiene siete millones de personas en pobreza energética, y exporta litio como carbonato a USD 10.000-15.000 la tonelada mientras importa baterías a USD 80.000-200.000 la tonelada. No tenemos una crisis de recursos. Tenemos una crisis de diseño — un modelo que extrae sin industrializar, que exporta sin agregar valor, que subsidia el consumo sin invertir en la oferta, y que deja el control de la cadena de valor en manos de empresas que nos necesitan más de lo que nosotros las necesitamos a ellas. PLANEN propone la primera arquitectura integral de soberanía energética organizada en cinco pilares: **(1) Gas natural como puente** — Vaca Muerta industrializado, no solo exportado como crudo; infraestructura de GNL para maximizar el valor de exportación durante 20 años de demanda garantizada; **(2) Renovables escalables** — eólica en la Patagonia, solar en el NOA, hidro en el NEA, biomasa del litoral; **(3) Industrialización del litio** — de la extracción de carbonato a la manufactura de cátodos, celdas y baterías, con transferencia tecnológica condicionada y procesamiento obligatorio en territorio nacional; **(4) Nuclear de nueva generación** — CAREM + reactores modulares pequeños (SMR) como base firme de la matriz; **(5) Frontera Tecnológica** — el **LANEF** (Laboratorio Nacional de Energía del Futuro), una red nacional de investigación que posiciona a Argentina como pionera mundial en electrolizadores de ultra-alta eficiencia (>90%, rompiendo la barrera de los 60-80% comerciales actuales), cosecha de energía electromagnética ambiental (rectennas, metamateriales absorbentes, captación de RF y del campo electromagnético terrestre para alimentar dispositivos distribuidos), reactores modulares de cuarta generación (evolución del CAREM), geotermia profunda andina, energía mareal atlántica (5.117 km de costa inexplorada), almacenamiento avanzado (baterías de estado sólido, sodio-ion, almacenamiento gravitacional), sistemas biológicos de energía integrados con la agricultura regenerativa de PLANISV, y participación en programas internacionales de fusión nuclear. El LANEF no investiga para publicar — investiga para producir: cada programa tiene un horizonte de transferencia a la industria y una meta de exportación de tecnología. Los cinco pilares convergen en la **ANEN** (Agencia Nacional de Energía y Transición de Matriz), ente autárquico con presupuesto constitucional protegido, gobernado por concurso técnico, sorteo democrático y representación de comunidades originarias en zonas de extracción; en la **Bastarda Energética** — empresa de propósito perpetuo que distribuye energía al costo real, sin extracción, con transparencia radical, generación distribuida, net metering ciudadano, y comunidades solares; y en el programa **Cada Techo un Generador** — que convierte a los 14,5 millones de hogares argentinos en prosumidores de energía, disolviendo la necesidad del subsidio porque no hay precio que subsidiar cuando cada argentino genera su propia electricidad. Las **regalías** de la explotación de gas, petróleo y litio — estimadas en USD 2.000-5.000 millones anuales — alimentan directamente el **Fondo Soberano Bastardo** de PLANMON, cumpliendo la principal condición pendiente del sistema monetario del Pulso. Los datos de producción energética — gas, petróleo, litio, renovables — alimentan la **canasta del peso-canasta**, donde gas natural (12%), petróleo (10%), litio (8%) y energía renovable (5%) representan el 35% de la ponderación total. La inversión estimada es de USD 45.000-76.000 millones en 15 años — menos de lo que la Argentina gasta en subsidios energéticos en 5 años. PLANEN es el decimotercer mandato de ¡BASTA!. Se integra con los otros 21 PLANes: con PLANMON (regalías para el Fondo Soberano, datos energéticos para la canasta del peso-canasta), con PLANEB (Bastarda Energética como entidad de la Red Bastarda), con PLANDIG (smart grid, IoT energético, nodos de validación alimentados por renovables), con PLAN24CN (generación distribuida para las 24 ciudades nuevas), con PLANAGUA (nexo agua-energía, protección de cuencas contra fracking, hidroeléctrica), con PLANISV (bioenergía de residuos agrícolas, cultivos energéticos regenerativos), con PLANEDU (formación en ingeniería energética, educación sobre transición), con PLANREP (oficios de la energía como rama del trabajo vivo, reconversión de trabajadores fósiles), con PLANJUS (resolución de disputas energéticas en el sistema JUS), con PLANSUS (biocombustibles de cáñamo, marihuana industrial como biomasa), con PLANSAL (pobreza energética como determinante social de la salud), y con PLANGEO (energía como leverage geopolítico — GNL para Europa, litio para la transición global, hidrógeno verde como exportación del futuro). Este plan lo escribió alguien que enciende la estufa en invierno y se pregunta por qué el gas que sale de la tierra argentina llega a su casa con un precio que no puede pagar.
+**Tesis Central:** La Argentina tiene el segundo yacimiento de shale gas del mundo (Vaca Muerta, 308 TCF de reservas recuperables), el tercer recurso de litio del planeta (19,3 millones de toneladas identificadas), vientos clase 6-7 en la Patagonia con factores de capacidad del 45-55%, irradiación solar de 5-6 kWh/m²/día en el NOA, potencial hidroeléctrico subutilizado en el NEA, y una industria nuclear que diseñó el reactor CAREM — y sin embargo importa energía, subsidia entre USD 10.000 y USD 15.000 millones anuales, tiene siete millones de personas en pobreza energética, y exporta litio como carbonato a USD 10.000-15.000 la tonelada mientras importa baterías a USD 80.000-200.000 la tonelada. No tenemos una crisis de recursos. Tenemos una crisis de diseño — un modelo que extrae sin industrializar, que exporta sin agregar valor, que subsidia el consumo sin invertir en la oferta, y que deja el control de la cadena de valor en manos de empresas que nos necesitan más de lo que nosotros las necesitamos a ellas. PLANEN propone la primera arquitectura integral de soberanía energética organizada en cinco pilares: **(1) Gas natural como puente** — Vaca Muerta industrializado, no solo exportado como crudo; infraestructura de GNL para maximizar el valor de exportación durante 20 años de demanda garantizada; **(2) Renovables escalables** — eólica en la Patagonia, solar en el NOA, hidro en el NEA, biomasa del litoral; **(3) Industrialización del litio** — de la extracción de carbonato a la manufactura de cátodos, celdas y baterías, con transferencia tecnológica condicionada y procesamiento obligatorio en territorio nacional; **(4) Nuclear de nueva generación** — CAREM + reactores modulares pequeños (SMR) como base firme de la matriz; **(5) Frontera Tecnológica** — el **LANEF** (Laboratorio Nacional de Energía del Futuro), una red nacional de investigación que posiciona a Argentina como pionera mundial en electrolizadores de ultra-alta eficiencia (>90%, rompiendo la barrera de los 60-80% comerciales actuales), cosecha de energía electromagnética ambiental (rectennas, metamateriales absorbentes, captación de RF y del campo electromagnético terrestre para alimentar dispositivos distribuidos), reactores modulares de cuarta generación (evolución del CAREM), geotermia profunda andina, energía mareal atlántica (5.117 km de costa inexplorada), almacenamiento avanzado (baterías de estado sólido, sodio-ion, almacenamiento gravitacional), sistemas biológicos de energía integrados con la agricultura regenerativa de PLANISV, y participación en programas internacionales de fusión nuclear. El LANEF no investiga para publicar — investiga para producir: cada programa tiene un horizonte de transferencia a la industria y una meta de exportación de tecnología. Los cinco pilares convergen en la **ANEN** (Agencia Nacional de Energía y Frontera Tecnológica), ente autárquico con presupuesto constitucional protegido, gobernado por concurso técnico, sorteo democrático y representación de comunidades originarias en zonas de extracción; en la **Bastarda Energética** — empresa de propósito perpetuo que distribuye energía al costo real, sin extracción, con transparencia radical, generación distribuida, net metering ciudadano, y comunidades solares; y en el programa **Cada Techo un Generador** — que convierte a los 14,5 millones de hogares argentinos en prosumidores de energía, disolviendo la necesidad del subsidio porque no hay precio que subsidiar cuando cada argentino genera su propia electricidad. Las **regalías** de la explotación de gas, petróleo y litio — estimadas en USD 2.000-5.000 millones anuales — alimentan directamente el **Fondo Soberano Bastardo** de PLANMON, cumpliendo la principal condición pendiente del sistema monetario del Pulso. Los datos de producción energética — gas, petróleo, litio, renovables — alimentan la **canasta del peso-canasta**, donde gas natural (12%), petróleo (10%), litio (8%) y energía renovable (5%) representan el 35% de la ponderación total. La inversión estimada es de USD 40.000-80.000 millones en 15 años — menos de lo que la Argentina gasta en subsidios energéticos en 5 años. PLANEN es el decimotercer mandato de ¡BASTA!. Se integra con los otros quince mandatos: con PLANMON (regalías para el Fondo Soberano, datos energéticos para la canasta del peso-canasta), con PLANEB (Bastarda Energética como entidad de la Red Bastarda), con PLANDIG (smart grid, IoT energético, nodos de validación alimentados por renovables), con PLAN24CN (generación distribuida para las 24 ciudades nuevas), con PLANAGUA (nexo agua-energía, protección de cuencas contra fracking, hidroeléctrica), con PLANISV (bioenergía de residuos agrícolas, cultivos energéticos regenerativos), con PLANEDU (formación en ingeniería energética, educación sobre transición), con PLANREP (oficios de la energía como rama del trabajo vivo, reconversión de trabajadores fósiles), con PLANJUS (resolución de disputas energéticas en el sistema JUS), con PLANSUS (biocombustibles de cáñamo, marihuana industrial como biomasa), con PLANSAL (pobreza energética como determinante social de la salud), y con PLANGEO (energía como leverage geopolítico — GNL para Europa, litio para la transición global, hidrógeno verde como exportación del futuro). Este plan lo escribió alguien que enciende la estufa en invierno y se pregunta por qué el gas que sale de la tierra argentina llega a su casa con un precio que no puede pagar.
 
 ---
 
@@ -664,8 +713,8 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 
 **A. Hub de Manufactura del NOA**
 - Ubicación: corredor Jujuy-Salta-Catamarca, proximidad a salares + energía solar.
-- Etapa 1 (Años 1-3): Planta de materiales catódicos (NMC, LFP). Joint venture con socio tecnológico (condicionada a transferencia real: ingenieros argentinos operan la planta en Año 3, no el socio extranjero).
-- Etapa 2 (Años 3-7): Planta de celdas. Capacidad inicial: 2 GWh/año. Objetivo: 10 GWh/año al Año 10.
+- Etapa 1 (Años 1-3): Planta de materiales catódicos (NMC, LFP). Joint venture con socio tecnológico (condicionada a transferencia real: ingenieros argentinos operan la planta en 2031 (tranche-2 entrada), no el socio extranjero).
+- Etapa 2 (Años 3-7): Planta de celdas. Capacidad inicial: 2 GWh/año. Objetivo: 10 GWh/año al 2038 (tranche-3 maduración).
 - Etapa 3 (Años 7-12): Ensamblaje de baterías para vehículos eléctricos y almacenamiento estacionario. Integración con Bastarda Energética (baterías domésticas) y PLAN24CN (almacenamiento de red para ciudades nuevas).
 - Etapa 4 (Años 10-15): Planta de reciclaje de baterías. Cierre del ciclo.
 
@@ -673,7 +722,7 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 - Toda empresa que extraiga litio en Argentina debe comprometerse a:
   - Procesar a nivel de hidróxido/carbonato como mínimo (ya se cumple mayoritariamente).
   - Instalar capacidad de procesamiento de cátodos o celdas en territorio nacional dentro de 5 años, o aportar al fondo de industrialización un porcentaje equivalente.
-  - Emplear un porcentaje mínimo creciente de mano de obra local (30% Año 1, 60% Año 5, 80% Año 10).
+  - Emplear un porcentaje mínimo creciente de mano de obra local (30% 2029 (tranche-1), 60% 2033 (tranche-2), 80% 2038 (tranche-3 maduración)).
   - Cumplir con el protocolo PLANAGUA de gestión de agua en salares.
 - No cumplir = no renovar concesión. No es expropiación — es condicionamiento legítimo del acceso a un recurso soberano.
 
@@ -685,7 +734,7 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 
 **D. Financiamiento**
 - Inversión total estimada: USD 5.000-10.000M en 15 años.
-- Fuentes: inversión extranjera condicionada (China, Corea, Japón, UE compiten por acceso al litio — la condición es transferencia tecnológica), fondos multilaterales de desarrollo, bonos verdes, y cofinanciamiento del Fondo Soberano (Año 5+).
+- Fuentes: inversión extranjera condicionada (China, Corea, Japón, UE compiten por acceso al litio — la condición es transferencia tecnológica), fondos multilaterales de desarrollo, bonos verdes, y cofinanciamiento del Fondo Soberano (2033+ (tranche-2)).
 
 ### 4.4 PILAR 4: Nuclear de Nueva Generación — La Base Firme
 
@@ -700,7 +749,7 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 
 **B. Programa SMR Nacional**
 - Sobre la base de CAREM, desarrollar una línea de SMRs de 100-300 MW fabricados en serie.
-- Objetivo: 3-5 SMRs operativos al Año 15, sumando 500-1.500 MW de base firme.
+- Objetivo: 3-5 SMRs operativos al 2043 (Visión 2040+), sumando 500-1.500 MW de base firme.
 - Cada SMR se instala en 3-5 años (vs. 10-15 años para un reactor convencional de 1.000 MW).
 - Ubicación: zonas industriales con demanda de base firme y proximidad a agua de refrigeración.
 
@@ -845,7 +894,7 @@ Argentina tiene 5.117 km de costa atlántica. Las corrientes patagónicas son de
 
 **Sede:** CENPAT-CONICET (Puerto Madryn/Comodoro Rivadavia) + Universidad Nacional de la Patagonia
 **Inversión estimada:** USD 800-1.500M en 15 años
-**Primer hito:** Piloto de 5-10 MW con turbinas mareales en el Golfo San Matías (Año 7-10)
+**Primer hito:** Piloto de 5-10 MW con turbinas mareales en el Golfo San Matías (2035-2038 (tranche-3 maduración))
 
 ### 4B.6 Programa 5: Almacenamiento Avanzado de Energía
 
@@ -890,13 +939,13 @@ Argentina tiene una de las pocas comunidades de físicos de plasmas y nucleares 
 
 | Programa | Inversión 15 años (USD M) | Horizonte de transferencia industrial | Potencial de exportación |
 |---|---|---|---|
-| Electrolizadores ultra-eficientes | 1.350-2.250 | Año 8-10 | USD 900M-2.500M/año |
-| Cosecha electromagnética ambiental | 530-990 | Año 7-9 (sensores); 15+ (escalamiento) | Mercado emergente |
-| Geotermia profunda (EGS) | 2.600-4.900 | Año 9-15 | Tecnología + consultoría |
-| Energía mareal atlántica | 800-1.500 | Año 10-15 | Regional |
-| Almacenamiento avanzado | 1.000-2.000 | Año 8-12 | USD 500M-2.000M/año |
+| Electrolizadores ultra-eficientes | 1.350-2.250 | 2036-2038 (tranche-3 maduración) | USD 900M-2.500M/año |
+| Cosecha electromagnética ambiental | 530-990 | 2035-2037 (tranche-3) (sensores); 15+ (escalamiento) | Mercado emergente |
+| Geotermia profunda (EGS) | 2.600-4.900 | 2037-2043 (Visión 2040+) | Tecnología + consultoría |
+| Energía mareal atlántica | 800-1.500 | 2038-2043 (Visión 2040+) | Regional |
+| Almacenamiento avanzado | 1.000-2.000 | 2036-2040 (tranche-3 maduración) | USD 500M-2.000M/año |
 | Fusión (participación) | 200-500 | 20+ años | Posicional |
-| Sistemas biológicos | 300-600 | Año 5-10 | Con PLANISV |
+| Sistemas biológicos | 300-600 | 2033-2038 (tranche-3 maduración) | Con PLANISV |
 | **TOTAL LANEF** | **USD 6.780-12.740M** | | |
 
 **Promedio anual:** USD 450-850M/año — comparable a lo que Israel invierte en I+D energético per cápita.
@@ -938,7 +987,7 @@ PLANEB (Sección 9.4) define la Bastarda Energética como una Empresa de Propós
 **Cobertura:**
 - Fase 1 (Años 1-3): Operación en las primeras ciudades PLAN24CN. Las ciudades nuevas nacen Bastarda-nativas — no hay concesiones preexistentes que renegociar.
 - Fase 2 (Años 3-7): Expansión a ciudades existentes donde expiren concesiones de distribución. No se revocan concesiones vigentes — se espera a que venzan y se ofrece la alternativa Bastarda.
-- Fase 3 (Años 7-15): Cobertura nacional progresiva. Objetivo: 50% del territorio servido por la Bastarda al Año 15.
+- Fase 3 (Años 7-15): Cobertura nacional progresiva. Objetivo: 50% del territorio servido por la Bastarda al 2043 (Visión 2040+).
 
 **TABLA 5.2: Comparación — Distribuidora Tradicional vs. Bastarda Energética**
 
@@ -1010,7 +1059,7 @@ Precio al usuario = Costo real - Subsidio
 Subsidio = USD 10.000-15.000M/año
 ```
 
-**Con PLANEN (Año 10):**
+**Con PLANEN (2038 (tranche-3 maduración)):**
 ```
 Costo real de energía = (generación barata [renovables LCOE USD 25-45/MWh])
                       + (transmisión eficiente [pérdidas 5-7% con smart grid])
@@ -1021,15 +1070,15 @@ Subsidio = ~USD 0
 
 **La magia está en los componentes:**
 
-1. **Generación.** El costo nivelado de energía eólica en la Patagonia es USD 30-45/MWh. El de solar en el NOA, USD 25-40/MWh. El de una central térmica a gas natural, USD 50-80/MWh (dependiendo del precio del gas). Las renovables son más baratas que el gas. Cuantas más renovables hay en la matriz, menor es el costo promedio de generación. Al Año 10, con 60%+ de renovables, el costo promedio de generación cae entre un 20% y un 40%.
+1. **Generación.** El costo nivelado de energía eólica en la Patagonia es USD 30-45/MWh. El de solar en el NOA, USD 25-40/MWh. El de una central térmica a gas natural, USD 50-80/MWh (dependiendo del precio del gas). Las renovables son más baratas que el gas. Cuantas más renovables hay en la matriz, menor es el costo promedio de generación. Al 2038 (tranche-3 maduración), con 60%+ de renovables, el costo promedio de generación cae entre un 20% y un 40%.
 
 2. **Transmisión y distribución.** Las pérdidas pasan del 15-25% al 6-10% con smart grid y modernización de red. Eso significa que por cada 100 kWh generados, llegan 90-94 al usuario en vez de 75-85. Más energía entregada por cada peso invertido en generación.
 
 3. **Distribución Bastarda.** Sin margen de accionistas, sin ineficiencias operativas incentivadas por el modelo de retorno sobre patrimonio, el costo de distribución cae entre un 15% y un 30%.
 
-**TABLA 5.5: Descomposición del Costo de Energía — Hoy vs. PLANEN Año 10**
+**TABLA 5.5: Descomposición del Costo de Energía — Hoy vs. PLANEN 2038 (tranche-3 maduración)**
 
-| Componente | Costo actual (USD/MWh promedio) | Costo PLANEN Año 10 (USD/MWh promedio) | Reducción |
+| Componente | Costo actual (USD/MWh promedio) | Costo PLANEN 2038 (tranche-3 maduración) (USD/MWh promedio) | Reducción |
 |---|---|---|---|
 | Generación | 55-75 | 35-50 | -30 a -40% |
 | Transmisión | 5-8 | 4-6 | -20 a -25% |
@@ -1043,11 +1092,11 @@ El subsidio no se elimina de un día para otro. Se reduce gradualmente a medida 
 | Año | Subsidio estimado (USD M) | % del nivel 2026 | Mecanismo de reducción |
 |---|---|---|---|
 | 2026 (actual) | 10.000-15.000 | 100% | — |
-| Año 3 | 8.000-12.000 | 80% | Primeros parques renovables + Bastarda en ciudades PLAN24CN |
-| Año 5 | 5.000-8.000 | 50-55% | Más renovables + reducción de pérdidas + Bastarda expandida |
-| Año 7 | 3.000-5.000 | 30-35% | Penetración renovable >50% + Bastarda >20% del territorio |
-| Año 10 | 1.000-2.000 | 10-15% | Solo subsidio residual para zonas aún no alcanzadas por la transición |
-| Año 15 | ~0 | ~0% | Transición completa — energía más barata que tarifa subsidiada actual |
+| 2031 (tranche-2 entrada) | 8.000-12.000 | 80% | Primeros parques renovables + Bastarda en ciudades PLAN24CN |
+| 2033 (tranche-2) | 5.000-8.000 | 50-55% | Más renovables + reducción de pérdidas + Bastarda expandida |
+| 2035 (tranche-3) | 3.000-5.000 | 30-35% | Penetración renovable >50% + Bastarda >20% del territorio |
+| 2038 (tranche-3 maduración) | 1.000-2.000 | 10-15% | Solo subsidio residual para zonas aún no alcanzadas por la transición |
+| 2043 (Visión 2040+) | ~0 | ~0% | Transición completa — energía más barata que tarifa subsidiada actual |
 
 Lo que se ahorra en subsidios cada año se reasigna a inversión en la transición (TABLA 12.2). El subsidio se consume a sí mismo — financia la infraestructura que lo vuelve innecesario. Es un mecanismo autoextintivo.
 
@@ -1131,9 +1180,9 @@ PLANEN es responsable de proveer los datos verificables que alimentan esas ponde
 | 10 | 3.500 | 800 | 500 | 4.800 | 42.000 |
 | 15 | 3.000 | 1.000 | 700 | 4.700 | 85.000 |
 
-**Nota:** Las regalías de gas/petróleo caen después del Año 10 a medida que la transición renovable avanza y la demanda global de gas se estabiliza o cae. Las regalías de litio y créditos de carbono crecen compensando parcialmente la caída. El fondo sigue creciendo por efecto compuesto.
+**Nota:** Las regalías de gas/petróleo caen después del 2038 (tranche-3 maduración) a medida que la transición renovable avanza y la demanda global de gas se estabiliza o cae. Las regalías de litio y créditos de carbono crecen compensando parcialmente la caída. El fondo sigue creciendo por efecto compuesto.
 
-Esta proyección muestra que **solo con las regalías energéticas** el Fondo acumularía ~USD 85.000M al Año 15. Sumando las otras fuentes de capitalización de PLANMON (PLANSUS, Bastarda Financiera, recupero de evasión, repatriación), el objetivo de USD 100.000M+ al Año 10-15 es alcanzable.
+Esta proyección muestra que **solo con las regalías energéticas** el Fondo acumularía ~USD 85.000M al 2043 (Visión 2040+). Sumando las otras fuentes de capitalización de PLANMON (PLANSUS, Bastarda Financiera, recupero de evasión, repatriación), el objetivo de USD 100.000M+ al 2038-2043 (Visión 2040+) es alcanzable.
 
 PLANMON ya no necesita el asterisco. Las cifras dejan de ser condicionales.
 
@@ -1197,7 +1246,7 @@ PLANAGUA (Sección 10.3) establece salvaguardas para el fracking:
 
 PLANEN complementa con:
 
-- **Inversión obligatoria en reciclaje de agua de flowback** por parte de las operadoras de Vaca Muerta. Meta: 80% de reciclaje al Año 5.
+- **Inversión obligatoria en reciclaje de agua de flowback** por parte de las operadoras de Vaca Muerta. Meta: 80% de reciclaje al 2033 (tranche-2).
 - **Tasa hídrica por metro cúbico de agua dulce consumida en fracking.** El ingreso de la tasa se destina a PLANAGUA para inversión en infraestructura hídrica en la cuenca del Neuquén.
 - **Protocolo de gobernanza conjunta ANEN-ANAGUA** para la cuenca neuquina: toda autorización de nuevo pozo de fracking requiere dictamen conjunto de ambas agencias.
 
@@ -1308,7 +1357,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 4. **Diseño regulatorio.** Marco legal para la Bastarda Energética, regalías progresivas, condicionamiento de concesiones de litio, net metering ciudadano.
 5. **Negociaciones internacionales iniciales.** Acuerdos marco con potenciales socios para plantas de GNL, joint ventures de baterías, contratos de suministro de largo plazo con Europa.
 
-### 8.2 Fase 0: Fundacional (Año 0)
+### 8.2 Fase 0: Fundacional (2028 (tranche-1 inicial))
 
 **Duración:** 12 meses.
 
@@ -1327,7 +1376,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 ### 8.3 Fase 1: Gas como Puente + Renovables Escalables (Años 1-5)
 
 **Acciones clave:**
-1. **Infraestructura de GNL.** Inicio de construcción de la primera planta de licuefacción. Objetivo: operativa al Año 4-5.
+1. **Infraestructura de GNL.** Inicio de construcción de la primera planta de licuefacción. Objetivo: operativa al 2032-2033 (tranche-2).
 2. **Plan Eólico Patagónico — Primera Ola.** 5.000-8.000 MW eólicos nuevos. Líneas de transmisión asociadas.
 3. **Plan Solar del NOA — Primera Ola.** 3.000-5.000 MW solares nuevos.
 4. **Hub de Litio — Etapa 1.** Planta piloto de cátodos en el NOA. Joint venture firmada con socio tecnológico.
@@ -1337,7 +1386,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 8. **Polo Petroquímico — Diseño e inicio de construcción.**
 9. **Regalías al Fondo Soberano:** USD 1.000-3.500M/año (creciente).
 
-**Hitos verificables al Año 5:**
+**Hitos verificables al 2033 (tranche-2):**
 - Renovables representan 28%+ de la generación eléctrica (desde ~15% actual).
 - Exportaciones de GNL iniciadas (primera planta operativa).
 - Planta piloto de cátodos produciendo.
@@ -1359,7 +1408,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 9. **Programa de Techos Solares.** 500.000 acumulados.
 10. **Extensión de vida de Atucha I/II + Embalse completada.**
 
-**Hitos verificables al Año 10:**
+**Hitos verificables al 2038 (tranche-3 maduración):**
 - Renovables + nuclear representan 60%+ de la generación eléctrica.
 - Exportaciones energéticas (GNL + petróleo + litio procesado): USD 20.000-35.000M/año.
 - Fondo Soberano: USD 42.000M+ (solo regalías energéticas).
@@ -1378,7 +1427,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 6. **1 millón de techos solares.** Generación distribuida masiva.
 7. **Tercera/cuarta planta de GNL** (si la demanda global lo justifica; evaluación cada 5 años).
 
-**Hitos verificables al Año 15:**
+**Hitos verificables al 2043 (Visión 2040+):**
 - Renovables + nuclear: 85%+ de la generación eléctrica.
 - Argentina es exportadora neta de energía (gas + petróleo + litio procesado + hidrógeno verde + baterías + tecnología nuclear).
 - Fondo Soberano: USD 85.000M+ (solo regalías energéticas).
@@ -1392,7 +1441,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 | Fase | Período | Inversión estimada (USD M) | Hitos clave | Empleos generados |
 |---|---|---|---|---|
 | Pre-Fase | Año -1 | 200-500 | Auditoría, mapeo, diseño regulatorio | 2.000-5.000 (consultoría y planificación) |
-| Fase 0 | Año 0 | 500-1.000 | ANEN, marco legal, Tablero, primera Bastarda | 5.000-10.000 |
+| Fase 0 | 2028 (tranche-1 inicial) | 500-1.000 | ANEN, marco legal, Tablero, primera Bastarda | 5.000-10.000 |
 | Fase 1 | Años 1-5 | 15.000-25.000 | GNL, 8.000-13.000 MW renovables, Hub litio piloto, CAREM | 80.000-120.000 |
 | Fase 2 | Años 5-10 | 20.000-30.000 | 18.000+ MW renovables, baterías a escala, polo petroquímico, SMRs | 120.000-180.000 |
 | Fase 3 | Años 10-15 | 10.000-20.000 | 85% renovable+nuclear, H2 verde, ciclo completo litio | 80.000-120.000 (más mantenimiento permanente de 40.000-60.000) |
@@ -1483,171 +1532,29 @@ El gemelo digital es open-source. Cualquier universidad, cualquier investigador,
 Estas restricciones son severas. Son deliberadamente severas. El lobby energético es el más poderoso de la Argentina — más que el agropecuario, más que el financiero. Si la ANEN es capturable, PLANEN fracasa.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 10: INTEGRACIÓN CON EL ECOSISTEMA ¡BASTA! — 22 PLANES, UN SISTEMA
+Esta sección documenta cómo PLANEN se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANEN"*.
 
-> *"Ningún PLAN funciona solo. Un plan de energía sin plan de agua se queda sin refrigeración. Un plan de energía sin plan monetario se queda sin financiamiento. Un plan de energía sin plan de trabajo se queda sin gente. Los 22 PLANes son un solo sistema — como las arterias de un cuerpo, que si cortás una, las demás dejan de funcionar."*
+### Lo que PLANEN aporta al ecosistema
 
-### 10.1 PLANMON — La Articulación Más Importante
-
-**Dirección del flujo:** PLANEN → PLANMON (regalías y datos) + PLANMON → PLANEN (financiamiento del Fondo).
-
-**Integración específica:**
-
-1. **Regalías al Fondo Soberano Bastardo.** PLANEN provee USD 2.000-4.800M/año (Sección 6). Esto convierte las "proyecciones condicionales" de PLANMON en arquitectura operativa. PLANEN resuelve el asterisco más importante de PLANMON.
-
-2. **Datos para la canasta del peso-canasta.** PLANEN provee datos verificables de producción de gas, petróleo, litio y energía renovable — el 35% de la ponderación de la canasta. Sin estos datos, la canasta no tiene ancla energética. El Índice Canasta Argentina (ICA) no puede calcularse sin PLANEN.
-
-3. **Inversión del Fondo en infraestructura energética.** Una vez capitalizado, el Fondo Soberano invierte parte de su cartera en infraestructura productiva doméstica (PLANMON Sección 6.3: "10-15% de la cartera en inversión productiva doméstica vía PLANes"). PLANEN es uno de los principales destinos: plantas de GNL, parques renovables, Hub de litio. El ciclo es virtuoso: las regalías capitalizan el fondo → el fondo invierte en infraestructura energética → la infraestructura genera más regalías.
-
-4. **Contratos de obra pública en Pulso.** Los contratos de construcción de infraestructura energética se denominan en peso-canasta (PLANMON Sección 9.2). Esto genera demanda de Pulsos y ancla la moneda en proyectos reales.
-
-5. **Swap deuda-por-infraestructura energética.** PLANMON (Sección 8.2) propone que acreedores conviertan deuda en participación en proyectos de PLANEN. Los acreedores obtienen retorno vinculado al flujo de caja de la infraestructura energética (GNL, parques solares, Hub de litio) — más seguro y más rentable que un cupón de deuda soberana argentina.
-
-### 10.2 PLANEB — La Red Bastarda Energética
-
-**Dirección del flujo:** PLANEB → PLANEN (modelo institucional) + PLANEN → PLANEB (Bastarda Energética).
-
-- La **Bastarda Energética** (Sección 5) es una EPP bajo el Protocolo Bastardo de PLANEB. Opera con cero extracción, transparencia radical, y gobernanza distribuida.
-- PLANEB provee el marco legal, el protocolo de constitución, la certificación de la ANEB. PLANEN provee la implementación sectorial: generación distribuida, net metering, comunidades solares, trading peer-to-peer.
-- La Bastarda Energética se integra en la **Red Bastarda** — comparte infraestructura de datos con la Bastarda Conectada (telecomunicaciones), comparte pool de mantenimiento con la Bastarda Habitacional, y mutualiza su fondo de catástrofe con otras Bastardas del sistema.
-
-### 10.3 PLANDIG — Smart Grid e IoT Energético
-
-**Dirección del flujo:** PLANDIG → PLANEN (infraestructura digital) + PLANEN → PLANDIG (datos energéticos).
-
-- **Smart grid.** La red eléctrica inteligente requiere infraestructura de telecomunicaciones (fibra, 5G, LoRaWAN) que PLANDIG despliega. Cada medidor inteligente, cada sensor de red, cada controlador de generación distribuida se conecta a través de la infraestructura de PLANDIG.
-- **IoT energético.** Sensores en cada transformador, cada línea, cada generador — datos en tiempo real sobre estado, consumo, pérdidas, temperatura. Los datos alimentan el Tablero Nacional de Energía y el Gemelo Digital del sistema eléctrico.
-- **Nodos de validación renovables.** Los nodos de la red del Pulso (PLANMON) que validan transacciones se alimentan con energía renovable generada por PLANEN. Una blockchain alimentada por energía limpia — no como Bitcoin.
-
-### 10.4 PLAN24CN — Ciudades Energéticamente Soberanas
-
-**Dirección del flujo:** PLANEN → PLAN24CN (infraestructura energética) + PLAN24CN → PLANEN (laboratorio).
-
-- Cada una de las 24 ciudades nuevas nace con:
-  - Generación distribuida (solar en cada techo, mini-eólica donde corresponda).
-  - Almacenamiento comunitario (baterías de litio, fabricadas en el Hub del NOA).
-  - Bastarda Energética operando desde el Día 1.
-  - Red eléctrica inteligente (smart grid nativa, sin cables de 1960).
-  - Net metering universal.
-- Las ciudades PLAN24CN son el **laboratorio natural** de la transición energética. Lo que funciona ahí se escala al territorio nacional. Lo que no funciona se ajusta antes de escalar.
-
-### 10.5 PLANAGUA — El Nexo Agua-Energía
-
-**Dirección del flujo:** Bidireccional (PLANEN ↔ PLANAGUA).
-
-- Desarrollado en Sección 7. Fracking vs. agua, hidro vs. caudales ecológicos, hidrógeno verde vs. consumo de agua, gobernanza conjunta ANEN-ANAGUA.
-- **PLANAGUA necesita energía:** Las plantas potabilizadoras, estaciones de bombeo, sistemas de desalinización, y red IoT de monitoreo hídrico de PLANAGUA consumen electricidad. PLANEN la provee al costo vía la Bastarda Energética. La desalinización — la tecnología que resuelve el acceso al agua en zonas áridas — es viable solo si la energía es barata. Renovables baratas hacen posible desalinización accesible.
-
-### 10.6 PLANISV — Bioenergía y Suelo Vivo
-
-**Dirección del flujo:** PLANISV → PLANEN (biomasa) + PLANEN → PLANISV (energía para agricultura).
-
-- **Bioenergía de residuos agrícolas.** Los 70 millones de hectáreas agropecuarias generan residuos que PLANISV puede convertir en biogás, bioetanol, y biodiesel. PLANEN integra esa bioenergía en la matriz.
-- **Digestión anaeróbica.** El biodigestor produce dos cosas: biogás (energía) y digestato (fertilizante orgánico). Es la intersección perfecta entre PLANISV (suelo vivo) y PLANEN (energía renovable).
-- **Energía para agricultura de precisión.** La agricultura regenerativa de PLANISV requiere tecnología (sensores, drones, riego inteligente) que consume energía. PLANEN provee esa energía vía generación distribuida renovable en zonas rurales.
-
-### 10.7 PLANEDU — Formación Para La Transición
-
-**Dirección del flujo:** Bidireccional (PLANEN ↔ PLANEDU).
-
-- **Ingeniería energética.** Las Escuelas del Futuro de PLANEDU incluyen formación técnica en energía renovable, almacenamiento, nuclear, y smart grid. Argentina necesita decenas de miles de técnicos e ingenieros para la transición — PLANEDU los forma.
-- **Educación sobre transición energética.** Desde la escuela primaria: qué es la energía, de dónde viene, cómo se genera, por qué importa la transición. Ciudadanos informados toman mejores decisiones energéticas.
-- **Universidad y investigación.** Programas de posgrado en energías renovables, hidrógeno, nuclear, baterías. Conexión con CONICET, CNEA, INVAP.
-
-### 10.8 PLANREP — Los Oficios de la Energía
-
-**Dirección del flujo:** PLANEN → PLANREP (empleos) + PLANREP → PLANEN (mano de obra calificada).
-
-- **Reconversión de trabajadores del sector fósil.** La transición no puede dejar atrás a los trabajadores de centrales térmicas, minas de carbón, o transporte de combustible. PLANREP (los Centros de la Vida) proveen programas de reconversión: de operador de central térmica a operador de parque solar, de camionero de combustible a técnico de red eléctrica, de minero de carbón a técnico de batería.
-- **Los oficios de la energía como rama del trabajo vivo.** Instalador de paneles solares, técnico de turbinas eólicas, operador de planta de almacenamiento, técnico de smart grid, inspector de red — son los oficios del siglo XXI. PLANREP los dignifica, los remunera, y los integra al Índice de Contribución.
-
-### 10.9 PLANJUS — Disputas Energéticas
-
-**Dirección del flujo:** PLANJUS → PLANEN (resolución de conflictos).
-
-- Las disputas del sector energético — tarifas, conexiones, acceso a red, compensaciones por servidumbre, impacto ambiental de obras — se resuelven en el sistema JUS de PLANJUS. En semanas, no en años.
-- Las Casas JUS son puntos de acceso para el ciudadano que tiene un reclamo contra la distribuidora, contra una petrolera, contra un parque eólico que afecta su tierra.
-
-### 10.10 PLANSUS — Biocombustibles y Biomasa
-
-**Dirección del flujo:** PLANSUS → PLANEN (biomasa industrial).
-
-- PLANSUS legaliza la marihuana y regula sustancias. Pero la marihuana industrial (cáñamo) tiene un subproducto relevante para PLANEN: **biomasa**.
-- El cáñamo es una de las plantas que más biomasa produce por hectárea por año. Esa biomasa se puede convertir en biocombustible, biogás, o pellets para calefacción.
-- Adicionalmente, los aceites de cáñamo tienen aplicaciones como biocombustible líquido alternativo.
-- Es un nicho — no un pilar de la matriz. Pero es un eslabón más de la cadena de bioenergía.
-
-### 10.11 PLANSAL — La Pobreza Energética Como Problema de Salud
-
-**Dirección del flujo:** PLANEN → PLANSAL (reducción de pobreza energética = mejora de salud).
-
-- La pobreza energética es un determinante social de la salud. Hogares sin calefacción en invierno → enfermedades respiratorias. Hogares sin refrigeración en verano en el norte → golpes de calor. Cocinas a leña → contaminación intradomiciliaria → EPOC, cáncer de pulmón.
-- PLANEN reduce la pobreza energética. PLANSAL mide el impacto en salud. El círculo es virtuoso: cada hogar que accede a energía limpia y accesible es un hogar con menos internaciones, menos ausentismo escolar, menos gasto en salud.
-
-### 10.12 PLANGEO — Energía Como Leverage Geopolítico
-
-> *"Un país con gas, litio, sol, viento, agua, alimentos y cerebros no es un país dependiente. Es un país que otros dependen de él — si tiene la inteligencia de darse cuenta."*
-
-**Dirección del flujo:** Bidireccional (PLANEN ↔ PLANGEO).
-
-PLANGEO documenta extensamente la dimensión geopolítica de la energía argentina (Secciones 5.2, 5.3, 8.1, 8.2). PLANEN ejecuta:
-
-- **GNL para Europa.** Contratos de suministro a 15-20 años condicionados a transferencia tecnológica en hidrógeno verde y eólica offshore. "El gas compra tecnología. La tecnología compra futuro."
-- **Litio para la transición global.** El acceso preferencial al litio argentino se condiciona a: transferencia tecnológica en baterías, inversión en procesamiento local, acuerdos de no-sanción ante reformas ¡BASTA!.
-- **Hidrógeno verde como exportación del futuro.** La Patagonia + energía eólica + agua desalinizada = hidrógeno verde competitivo a nivel global. El hidrógeno verde es el GNL de 2040.
-- **Defensa de infraestructura energética.** PLANGEO (Sección 9.1) asigna a las FFAA la protección de infraestructura soberana crítica: plantas de procesamiento de litio, puertos GNL, nodos de ArgenCloud. PLANEN provee la infraestructura que las FFAA protegen.
-
-### 10.13b PLANSEG — Protección de Infraestructura Energética Crítica
-
-**Dirección del flujo:** PLANSEG → PLANEN (protección física y cibernética).
-
-La infraestructura energética es infraestructura de seguridad nacional. Gasoductos, refinerías, plantas de procesamiento de litio, reactores nucleares, parques eólicos y solares de gran escala, puertos de GNL — un solo atentado, un solo sabotaje, un solo ciberataque a la red eléctrica puede paralizar regiones enteras. PLANSEG provee la arquitectura de protección: vigilancia perimetral de activos críticos, ciberdefensa de los sistemas SCADA de la red eléctrica, protocolos de respuesta rápida ante sabotaje, y coordinación con las FFAA (que PLANGEO asigna como última línea de defensa). PLANEN construye la infraestructura; PLANSEG garantiza que siga funcionando.
-
-**TABLA 10: Mapa de Integraciones PLANEN con el Ecosistema ¡BASTA!**
-
-| PLAN | Integración con PLANEN | Dirección del flujo |
-|---|---|---|
-| **PLANMON** | Regalías → Fondo Soberano. Datos energéticos → canasta peso-canasta. Inversión del Fondo → infraestructura energética | PLANEN ↔ PLANMON |
-| **PLANEB** | Bastarda Energética como EPP del Protocolo Bastardo | PLANEB → PLANEN (modelo) / PLANEN → PLANEB (implementación) |
-| **PLANDIG** | Smart grid, IoT energético, nodos de validación renovables | PLANDIG → PLANEN (infraestructura) / PLANEN → PLANDIG (datos) |
-| **PLAN24CN** | Ciudades energéticamente soberanas, laboratorio de transición | PLANEN → PLAN24CN (energía) / PLAN24CN → PLANEN (laboratorio) |
-| **PLANAGUA** | Nexo agua-energía, fracking, hidro, H2 verde, gobernanza conjunta | Bidireccional |
-| **PLANISV** | Bioenergía de residuos agrícolas, digestión anaeróbica | PLANISV → PLANEN (biomasa) / PLANEN → PLANISV (energía rural) |
-| **PLANEDU** | Formación técnica, investigación, educación ciudadana | Bidireccional |
-| **PLANREP** | Reconversión laboral, oficios de la energía | PLANEN → PLANREP (demanda) / PLANREP → PLANEN (mano de obra) |
-| **PLANJUS** | Resolución de disputas energéticas en sistema JUS | PLANJUS → PLANEN |
-| **PLANSUS** | Biomasa de cáñamo, biocombustibles | PLANSUS → PLANEN |
-| **PLANSAL** | Pobreza energética como determinante de salud | PLANEN → PLANSAL |
-| **PLANGEO** | GNL como leverage, litio como moneda diplomática, H2 verde, defensa de infraestructura | Bidireccional |
-| **PLANSEG** | Protección física y cibernética de infraestructura energética crítica (gasoductos, plantas de litio, reactores, red eléctrica) | PLANSEG → PLANEN |
-| **PLANVIV** | Eficiencia energética en retrofit reduce demanda. Generación distribuida en barrios urbanizados. Solar en edificios Bastarda Inmobiliaria | PLANEN ↔ PLANVIV |
-
-### 10.14 PLANEN × PLANVIV: Eficiencia y Generación en el Hábitat Existente
-
-El retrofit energético que PLANVIV ejecuta en miles de edificios existentes es la forma más barata de reducir la demanda eléctrica — más barata que construir una central nueva. Aislación térmica, carpintería con doble vidrio, techos reflectivos en el norte, y eliminación de filtraciones reducen el consumo de calefacción y refrigeración hasta un 40% por vivienda. PLANEN diseña los estándares de eficiencia; PLANVIV los ejecuta en cada rehabilitación. Pero la relación es bidireccional: los barrios urbanizados por PLANVIV se convierten en nodos de generación distribuida — paneles solares en cada edificio de la Bastarda Inmobiliaria, microrredes barriales que venden excedente a la red, y comunidades energéticas que reducen la dependencia de distribuidoras monopólicas. PLANVIV reduce la demanda por un lado y suma oferta distribuida por el otro — y PLANEN gana por las dos puntas.
-
----
-
-### 10.13 Resumen Cuantitativo de Integraciones
-
-**TABLA 10b: Flujos Financieros entre PLANEN y el Ecosistema ¡BASTA! (Año 10 — Estimación)**
-
-| Flujo | Dirección | Monto estimado (USD M/año) | Mecanismo |
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
 |---|---|---|---|
-| Regalías energéticas → Fondo Soberano | PLANEN → PLANMON | 3.500-5.000 | Smart contract on-chain, transferencia automática |
-| Inversión del Fondo → infraestructura energética | PLANMON → PLANEN | 1.500-3.000 | 10-15% de la cartera del Fondo |
-| Servicios Bastarda Energética (facturación) | PLANEN → usuarios (en Pulso) | 5.000-8.000 | Operación al costo en peso-canasta |
-| Swap deuda-por-infraestructura | Acreedores → PLANEN | 500-1.000 | Bonos de proyecto vinculados a flujo de caja |
-| Exportaciones GNL + litio + H2 verde (divisas) | PLANEN → PLANMON (balanza de pagos) | 20.000-35.000 | Exportaciones genuinas de energía |
-| Empleo del sector (masa salarial) | PLANEN → PLANREP | 2.000-4.000 | 250.000-350.000 empleos directos |
-| Bioenergía (compra de biomasa) | PLANEN → PLANISV | 200-500 | Contratos de suministro de residuos agrícolas |
-| Infraestructura digital (smart grid) | PLANDIG → PLANEN | 300-600 | Telecomunicaciones para IoT energético |
-| **Flujo neto PLANEN al ecosistema** | | **~30.000-50.000** | |
+| **PLAN24CN** | CRITICAL | TECHNICAL | Bastarda Energética antes de que la primera ciudad reciba residentes |
+| **PLANMON** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) capitalizan Fondo Soberano |
+| **PLANMOV** | IMPORTANT | TECHNICAL | Rieles como columna múltiple: tendido eléctrico y fibra sobre misma traza; electrificación masiva de red ferroviaria reactivada |
+| **PLANDIG** | IMPORTANT | TECHNICAL | IDS provee Smart Grid IoT y Tablero Nacional de Energía con telemetría en tiempo real sobre nodos federados |
+| **PLANTER** | IMPORTANT | LEGAL | Licencia Territorial (reemplazo del RIGI) condiciona cualquier proyecto hidrocarburífero o minero a consulta previa y retorno comunitario |
 
-PLANEN es, después de PLANMON, el plan con mayor flujo financiero del ecosistema. Genera divisas, capitaliza el fondo, crea empleo, y reduce el mayor gasto discrecional del Estado (subsidios). Es el motor económico de ¡BASTA! — no porque sea más importante que los otros, sino porque la energía es el insumo de todo.
+### Lo que PLANEN necesita de otros
 
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | TECHNICAL | Smart grid IoT y Tablero Nacional de Energía |
+| **PLANTER** | IMPORTANT | LEGAL | Licencia Territorial reemplaza RIGI para proyectos de hidrocarburos y minería |
+| **PLAN24CN** | CRITICAL | TECHNICAL | Bastarda Energética y red 100% renovable provistas antes de que cada Ciudad Nueva reciba residentes |
+| **PLANMON** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) por hidrocarburos, minería y renovables capitalizan el Fondo Soberano Ciudadano |
+| **PLANMOV** | IMPORTANT | TECHNICAL | Red eléctrica + fibra sobre la misma traza ferroviaria: PLANEN electrifica la red reactivada con energía renovable soberana |
 
 ## SECCIÓN 11: GOBERNANZA ENERGÉTICA — QUIÉN DECIDE QUÉ
 
@@ -1722,7 +1629,7 @@ PLANEN cuesta menos de la mitad de lo que cuestan los subsidios energéticos en 
 
 **TABLA 12.3: Retorno Estimado de PLANEN**
 
-| Flujo de ingreso | Estimación anual (USD M, Año 10) | Concepto |
+| Flujo de ingreso | Estimación anual (USD M, 2038 (tranche-3 maduración)) | Concepto |
 |---|---|---|
 | Exportaciones de GNL | 10.000-20.000 | 2-4 plantas a plena capacidad |
 | Exportaciones de litio procesado (baterías, celdas) | 5.000-15.000 | Hub del NOA a escala industrial |
@@ -1731,9 +1638,9 @@ PLANEN cuesta menos de la mitad de lo que cuestan los subsidios energéticos en 
 | Ahorro en subsidios energéticos | 5.000-10.000 | Reducción del 50-70% del subsidio actual |
 | Regalías al Fondo Soberano | 3.500-5.000 | Gas + litio + créditos de carbono |
 | Exportación de tecnología nuclear (CAREM/SMRs) | 500-2.000 | 1-3 reactores vendidos |
-| **Total flujos generados (Año 10)** | **28.000-63.000** | |
+| **Total flujos generados (2038 (tranche-3 maduración))** | **28.000-63.000** | |
 
-El retorno de inversión es claro: PLANEN se paga a sí mismo en menos de 5 años con los flujos que genera. A partir del Año 5, genera excedente neto. A partir del Año 10, el excedente anual supera la inversión total acumulada.
+El retorno de inversión es claro: PLANEN se paga a sí mismo en menos de 5 años con los flujos que genera. A partir del 2033 (tranche-2), genera excedente neto. A partir del 2038 (tranche-3 maduración), el excedente anual supera la inversión total acumulada.
 
 ---
 
@@ -1812,7 +1719,7 @@ La transición de PLANEN afecta a trabajadores del sector fósil: operadores de 
 
 **TABLA 14.1: Balance de Empleo — Destrucción y Creación**
 
-| Sector | Empleos actuales (estimación) | Tendencia con PLANEN | Empleos al Año 10 (estimación) |
+| Sector | Empleos actuales (estimación) | Tendencia con PLANEN | Empleos al 2038 (tranche-3 maduración) (estimación) |
 |---|---|---|---|
 | Centrales térmicas (gas, carbón, fuel oil) | 15.000-20.000 | Declina gradualmente (gas como base → gas como respaldo) | 8.000-12.000 |
 | Transporte de combustibles fósiles | 10.000-15.000 | Declina parcialmente | 7.000-10.000 |
@@ -1856,7 +1763,7 @@ La transición no solo reconvierte trabajadores existentes — crea una nueva fu
 
 **TABLA 14.4: Nuevos Perfiles Laborales de la Transición Energética**
 
-| Perfil | Formación requerida | Demanda estimada (Año 10) | Formación vía | Salario estimado (USD/año) |
+| Perfil | Formación requerida | Demanda estimada (2038 (tranche-3 maduración)) | Formación vía | Salario estimado (USD/año) |
 |---|---|---|---|---|
 | Instalador de paneles solares | Técnico (6-12 meses) | 20.000-30.000 | PLANREP Centros de la Vida | 8.000-15.000 |
 | Técnico de turbinas eólicas | Técnico especializado (12-18 meses) | 5.000-8.000 | PLANREP + PLANEDU (UTN) | 15.000-25.000 |
@@ -2083,7 +1990,7 @@ A plena capacidad, Argentina producirá más de 200.000 toneladas de carbonato d
 
 Solo se implementa la mitad del plan: una planta de GNL (en vez de 2-4), 15.000 MW de renovables (en vez de 30.000+), Hub de litio a nivel piloto (sin escala industrial), CAREM operativo pero sin programa SMR, Bastarda Energética solo en ciudades PLAN24CN.
 
-| Indicador | Año 10 — Escenario conservador |
+| Indicador | 2038 (tranche-3 maduración) — Escenario conservador |
 |---|---|
 | Renovables + nuclear | 50-55% de la generación (desde 45%) |
 | Exportaciones energéticas | USD 12.000-18.000M/año |
@@ -2098,7 +2005,7 @@ Incluso en el escenario conservador, PLANEN genera más de lo que cuesta. El Fon
 
 Implementación completa según la Hoja de Ruta (Sección 8).
 
-| Indicador | Año 10 — Escenario base |
+| Indicador | 2038 (tranche-3 maduración) — Escenario base |
 |---|---|
 | Renovables + nuclear | 60-65% de la generación |
 | Exportaciones energéticas | USD 20.000-35.000M/año |
@@ -2111,7 +2018,7 @@ Implementación completa según la Hoja de Ruta (Sección 8).
 
 PLANEN pleno + precios de commodities altos + financiamiento internacional abundante + contexto geopolítico favorable (Europa compra todo el GNL que Argentina produce).
 
-| Indicador | Año 10 — Escenario optimista |
+| Indicador | 2038 (tranche-3 maduración) — Escenario optimista |
 |---|---|
 | Renovables + nuclear | 70%+ de la generación |
 | Exportaciones energéticas | USD 35.000-50.000M/año |
@@ -2124,7 +2031,7 @@ PLANEN pleno + precios de commodities altos + financiamiento internacional abund
 
 Crisis global, caída de precios de commodities, financiamiento internacional cerrado, inestabilidad política doméstica.
 
-| Indicador | Año 10 — Escenario adverso |
+| Indicador | 2038 (tranche-3 maduración) — Escenario adverso |
 |---|---|
 | Renovables + nuclear | 50% (solo proyectos ya financiados se completan) |
 | Exportaciones energéticas | USD 8.000-12.000M/año |
@@ -2179,7 +2086,7 @@ Cada una de estas mitigaciones tiene costo. Ese costo está incluido en las esti
 
 | Impacto | Positivo / Negativo | Magnitud | Mitigación |
 |---|---|---|---|
-| Reducción de emisiones de CO₂ por reemplazo de térmicas | Positivo | -50-80 Mt CO₂/año al Año 15 | — (es el objetivo) |
+| Reducción de emisiones de CO₂ por reemplazo de térmicas | Positivo | -50-80 Mt CO₂/año al 2043 (Visión 2040+) | — (es el objetivo) |
 | Reducción de contaminación urbana (particulado, NOx) | Positivo | Mejora sustancial en ciudades con centrales térmicas | — |
 | Consumo de agua por minería de litio | Negativo | 50-200M litros/año por proyecto | Protocolo PLANAGUA, monitoreo, principio precautorio |
 | Consumo de agua por fracking | Negativo | Cientos de millones de m³ acumulados | Reciclaje obligatorio, tasa hídrica, gobernanza conjunta |
@@ -2189,7 +2096,7 @@ Cada una de estas mitigaciones tiene costo. Ese costo está incluido en las esti
 | Mejora de salud por reducción de pobreza energética | Positivo | Reducción de enfermedades respiratorias, mortalidad por frío/calor | — |
 | **Balance neto** | **Fuertemente positivo** | | |
 
-La transición energética de PLANEN reduce las emisiones de CO₂ de Argentina entre 50 y 80 millones de toneladas por año al Año 15 — un tercio de las emisiones actuales totales del país. Esto posiciona a Argentina para cumplir sus compromisos climáticos internacionales (Acuerdo de París) y genera créditos de carbono que alimentan el Fondo Soberano. La descarbonización no es solo ética — es económicamente rentable.
+La transición energética de PLANEN reduce las emisiones de CO₂ de Argentina entre 50 y 80 millones de toneladas por año al 2043 (Visión 2040+) — un tercio de las emisiones actuales totales del país. Esto posiciona a Argentina para cumplir sus compromisos climáticos internacionales (Acuerdo de París) y genera créditos de carbono que alimentan el Fondo Soberano. La descarbonización no es solo ética — es económicamente rentable.
 
 ---
 
@@ -2200,3 +2107,54 @@ Versión 1.0 | Marzo 2026
 Preparado bajo el marco ¡BASTA! — ¡Basta de vivir apagados!
 
 *Todo lo que PLANEN propone es la primera mejor alternativa basada en la mejor evidencia disponible. Un plan que no cambia no es valiente — es sordo. Y un plan sordo sobre energía en un siglo de transición climática es un plan suicida.*
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: electrificación gradual del transporte público (línea L1) + tendido eléctrico en corredores ferroviarios (línea L2).
+- Capacidad que PLANMOV deposita en este PLAN: datos de demanda energética para planificar columna múltiple ferroviaria.
+- Punto de conflicto identificado: servidumbres ferroviarias y de tendido eléctrico se coordinan vía RACI.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: auditoría de regalías de hidrocarburos y litio para fondear transición (línea L2).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: extracción de minerales críticos para baterías requiere consulta previa originaria (L3); enforcement ambiental sobre infraestructura energética (L1).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-2
+- **Misión matrix:** Ámbar
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Nodos de resiliencia + datos energéticos abiertos.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANEN`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANEN`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, vas a ver datos energéticos abiertos y nodos de resiliencia en provincias prioritarias."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANEN`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANISV, PLANAGUA, PLANTER (L2), PLANDIG, PLANRUTA.
+- Provee a: PLAN24CN, PLANMOV, PLANEB.
+
+### 7. Privacy Impact Assessment
+No requiere PIA específico (este PLAN no toca datos personales sensibles directamente). Si en fase de implementación se identifican datos personales, generar PIA antes de piloto.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

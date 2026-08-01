@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-2 (misión matrix: Ámbar).
+>
+> **Alcance entregable:** estabilización + mando + integridad + presencia comunitaria sin militarización.
+>
+> **Presupuesto canónico:** (tranche-2) (línea PLANSEG del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (tranche-2).
+>
+> **Instrumento legal:** (tranche-2: ley orgánica de fuerzas).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Tranche-2 reentrada — no tranche-1 launch operativo. Fuerza federal de intervención rápida → eliminada de tranche-1. Auditoría externa permanente como gate de entrada a tranche-2. PLANSUS no avanza mientras PLANSEG no esté estabilizado. Narcotest universal y vigilancia masiva → eliminados de cualquier tranche. Captura sindical/policial: rotación + canal denuncia OEA + sanción visible. Sortición ciudadana solo para juntas de control, no para mandos operativos.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANSEG. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANSEG. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANSEG.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANSEG.md` si existe.
+
+---
+
 ```
 LA SEGURIDAD QUE NOS FALTA
 NO SE COMPRA CON MÁS POLICÍAS
@@ -88,7 +117,7 @@ Todo lo que PLANSEG propone es la *primera mejor alternativa* basada en la mejor
 
 ---
 
-**Tesis Central:** La arquitectura de seguridad de la Argentina está diseñada para fracasar. 340.000 efectivos de fuerzas de seguridad federales y provinciales, un gasto de seguridad que supera el 2% del PBI — USD 8.000–12.000 millones anuales entre Nación, provincias y municipios — y el resultado es una tasa de homicidios de 5,3 cada 100.000 habitantes, una percepción de inseguridad superior al 70%, cárceles con más de 100.000 personas detenidas (el 70% sin sentencia firme), una tasa de reincidencia superior al 60%, y barrios enteros donde el Estado dejó de ser la autoridad hace años. El modelo es reactivo, punitivo y corrupto: policías entrenados para reprimir, no para prevenir; cárceles que funcionan como universidades del delito; un aparato de enforcement de drogas que gasta miles de millones para producir cero resultados mientras financia la corrupción policial. PLANSEG propone cuatro pilares: (1) **Policía Comunitaria** — estaciones barriales modelo koban japonés donde los oficiales viven en la comunidad que protegen, con evaluación por paneles ciudadanos y formación en desescalamiento, mediación y primeros auxilios; (2) **Protocolo de Transición Narco** — sincronizado con la cascada de legalización de PLANSUS en 5 años, con mapeo territorial previo, amnistía inteligente para operadores de bajo nivel via PLANREP, seguridad territorio-por-territorio durante la transición, y enfrentamiento focalizado contra organizaciones que rechacen la transición; (3) **Reforma Carcelaria** — modelo restaurativo que reduce la población carcelaria un 50% en 10 años mediante justicia restaurativa (coordinada con PLANJUS), trabajo y formación intramuros vinculados a PLANREP, eliminación de la prisión preventiva como regla, y transformación de las prisiones en centros de rehabilitación y reinserción; (4) **Infraestructura de Prevención** — diseño CPTED en todas las ciudades de PLAN24CN, iluminación inteligente, redes comunitarias de alerta temprana, y programas de intervención temprana para jóvenes en riesgo. A esto se suma la **Reconversión de Fuerzas de Seguridad** — más de 60.000 efectivos cuya función principal era el enforcement de drogas necesitan nuevos roles: policía comunitaria, ciberseguridad (PLANDIG), enforcement ambiental (PLANAGUA/PLANISV), gestión de fronteras — todos formados a través de la infraestructura de capacitación de PLANREP. Y la **Vigilancia Digital con Derechos** — cámaras corporales obligatorias para todas las interacciones policiales, monitoreo de IA con supervisión judicial (orden judicial requerida para reconocimiento facial), datos almacenados en infraestructura soberana de PLANDIG, y junta civil de supervisión por sorteo democrático. La **ANSEG** (Agencia Nacional de Seguridad Ciudadana) administra todo con el mismo modelo ¡BASTA!: sorteo democrático, paneles ciudadanos, transparencia radical, presupuesto constitucional protegido. El **Tablero Nacional de Seguridad** publica en tiempo real: mapeo de delitos, desempeño policial, satisfacción comunitaria, estado de la transición narco, indicadores carcelarios. PLANSEG es el decimocuarto PLAN de ¡BASTA! en el orden estratégico de lanzamiento. Se integra con los otros 21 PLANes del ecosistema — entre ellos: con PLANSUS (protocolo de seguridad durante la legalización — LA integración crítica), con PLANJUS (prevención vs. resolución — PLANSEG previene, PLANJUS resuelve), con PLANREP (reconversión de fuerzas y de operadores del mercado negro), con PLAN24CN (ciudades seguras por diseño), con PLANDIG (vigilancia con derechos, datos soberanos), con PLANEB (servicios comunitarios de seguridad), con PLANSAL (seguridad como determinante de salud — trauma, PTSD), con PLANEDU (prevención de violencia en escuelas), con PLANAGUA (enforcement ambiental), con PLANISV (seguridad rural), con PLANMON (seguridad durante transición monetaria), con PLANGEO (cooperación de seguridad con países vecinos), con PLANEN (protección de infraestructura energética). El programa completo tiene un costo bruto de USD 21.100–35.750M en 15 años — pero alrededor del 60% de esa cifra no es plata nueva: es reasignación del gasto de seguridad que la Argentina ya ejecuta hoy, y ejecuta mal (~USD 18.000–30.000M del período provienen del presupuesto de seguridad existente, del enforcement de drogas que PLANSUS vuelve innecesario, y del ahorro carcelario). La inversión NETA nueva es de USD 3.000–6.000M en 15 años. El costo de no actuar — en vidas perdidas, productividad destruida, trauma colectivo, corrupción institucional, gasto carcelario inútil, turismo perdido, y el vacío de seguridad que PLANSUS va a crear si no se acompaña con un protocolo de transición — supera los USD 30.000M en el mismo período: más que todo el programa bruto, y entre cinco y diez veces la inversión neta. Las metas a 2040: tasa de homicidios de menos de 2/100K (desde 5,3), población carcelaria reducida un 50%, reincidencia menor al 25% (desde más de 60%), satisfacción ciudadana con la seguridad superior al 70% (desde menos de 30%), cero casos de gatillo fácil, y 100% de cobertura de cámaras corporales.
+**Tesis Central:** La arquitectura de seguridad de la Argentina está diseñada para fracasar. 340.000 efectivos de fuerzas de seguridad federales y provinciales, un gasto de seguridad que supera el 2% del PBI — USD 8.000–12.000 millones anuales entre Nación, provincias y municipios — y el resultado es una tasa de homicidios de 5,3 cada 100.000 habitantes, una percepción de inseguridad superior al 70%, cárceles con más de 100.000 personas detenidas (el 70% sin sentencia firme), una tasa de reincidencia superior al 60%, y barrios enteros donde el Estado dejó de ser la autoridad hace años. El modelo es reactivo, punitivo y corrupto: policías entrenados para reprimir, no para prevenir; cárceles que funcionan como universidades del delito; un aparato de enforcement de drogas que gasta miles de millones para producir cero resultados mientras financia la corrupción policial. PLANSEG propone cuatro pilares: (1) **Policía Comunitaria** — estaciones barriales modelo koban japonés donde los oficiales viven en la comunidad que protegen, con evaluación por paneles ciudadanos y formación en desescalamiento, mediación y primeros auxilios; (2) **Protocolo de Transición Narco** — sincronizado con la cascada de legalización de PLANSUS en 5 años, con mapeo territorial previo, amnistía inteligente para operadores de bajo nivel via PLANREP, seguridad territorio-por-territorio durante la transición, y enfrentamiento focalizado contra organizaciones que rechacen la transición; (3) **Reforma Carcelaria** — modelo restaurativo que reduce la población carcelaria un 50% en 10 años mediante justicia restaurativa (coordinada con PLANJUS), trabajo y formación intramuros vinculados a PLANREP, eliminación de la prisión preventiva como regla, y transformación de las prisiones en centros de rehabilitación y reinserción; (4) **Infraestructura de Prevención** — diseño CPTED en todas las ciudades de PLAN24CN, iluminación inteligente, redes comunitarias de alerta temprana, y programas de intervención temprana para jóvenes en riesgo. A esto se suma la **Reconversión de Fuerzas de Seguridad** — más de 60.000 efectivos cuya función principal era el enforcement de drogas necesitan nuevos roles: policía comunitaria, ciberseguridad (PLANDIG), enforcement ambiental (PLANAGUA/PLANISV), gestión de fronteras — todos formados a través de la infraestructura de capacitación de PLANREP. Y la **Vigilancia Digital con Derechos** — cámaras corporales obligatorias para todas las interacciones policiales, monitoreo de IA con supervisión judicial (orden judicial requerida para reconocimiento facial), datos almacenados en infraestructura soberana de PLANDIG, y junta civil de supervisión por sorteo democrático. La **ANSEG** (Agencia Nacional de Seguridad Ciudadana) administra todo con el mismo modelo ¡BASTA!: sorteo democrático, paneles ciudadanos, transparencia radical, presupuesto constitucional protegido. El **Tablero Nacional de Seguridad** publica en tiempo real: mapeo de delitos, desempeño policial, satisfacción comunitaria, estado de la transición narco, indicadores carcelarios. PLANSEG es el decimocuarto mandato de ¡BASTA!. Se integra con los otros dieciséis mandatos: con PLANSUS (protocolo de seguridad durante la legalización — LA integración crítica), con PLANJUS (prevención vs. resolución — PLANSEG previene, PLANJUS resuelve), con PLANREP (reconversión de fuerzas y de operadores del mercado negro), con PLAN24CN (ciudades seguras por diseño), con PLANDIG (vigilancia con derechos, datos soberanos), con PLANEB (servicios comunitarios de seguridad), con PLANSAL (seguridad como determinante de salud — trauma, PTSD), con PLANEDU (prevención de violencia en escuelas), con PLANAGUA (enforcement ambiental), con PLANISV (seguridad rural), con PLANMON (seguridad durante transición monetaria), con PLANGEO (cooperación de seguridad con países vecinos), con PLANEN (protección de infraestructura energética). La inversión estimada es de USD 3.000–6.000M en 15 años. El costo de no actuar — en vidas perdidas, productividad destruida, trauma colectivo, corrupción institucional, gasto carcelario inútil, turismo perdido, y el vacío de seguridad que PLANSUS va a crear si no se acompaña con un protocolo de transición — supera los USD 30.000M en el mismo período. Las metas a 2040: tasa de homicidios de menos de 2/100K (desde 5,3), población carcelaria reducida un 50%, reincidencia menor al 25% (desde más de 60%), satisfacción ciudadana con la seguridad superior al 70% (desde menos de 30%), cero casos de gatillo fácil, y 100% de cobertura de cámaras corporales.
 
 ---
 
@@ -745,7 +774,7 @@ Esta sección detalla año por año la estrategia de seguridad sincronizada con 
 | -6 a 0 | **Establecimiento de canales de comunicación con operadores Tier 1 y 2.** A través de organizaciones comunitarias, mediadores barriales, y referentes de confianza. Mensaje: El Puente está abierto. La transición viene. Hay lugar para todos los que quieran cruzar | ANSEG + ANSUS + organizaciones comunitarias |
 | -3 a 0 | **Activación de Protocolo VERDE en todo el país. Protocolo AMARILLO en zonas rojas.** Presencia reforzada preventiva. Sin operativos ofensivos — presencia comunitaria, no militarización | ANSEG |
 
-### 5.2 Fase 1: "El Alivio" (Año 1) — Cannabis legal + despenalización
+### 5.2 Fase 1: "El Alivio" (Tranche-2 inicial, 2028-2030) — Cannabis legal + despenalización
 
 **Contexto PLANSUS:** Cannabis legal para adultos. Despenalización de uso personal de todas las sustancias. Primeras licencias Micro para ex-operadores Tier 1. Liberación de primeros presos por drogas.
 
@@ -755,7 +784,7 @@ Esta sección detalla año por año la estrategia de seguridad sincronizada con 
 - La despenalización del uso reduce la presión policial sobre consumidores (positivo)
 - La liberación de presos genera un flujo de personas al que hay que dar contención (PLANREP)
 
-**TABLA 13: Acciones de Seguridad — Año 1**
+**TABLA 13: Acciones de Seguridad — Tranche-2 inicial (2028-2030)**
 
 | Trimestre | Acción | Indicador de éxito | Protocolo de escalamiento |
 |---|---|---|---|
@@ -871,7 +900,7 @@ Esta transición identitaria es el mayor obstáculo invisible de la reconversió
 - Crisis personal (depresión, aislamiento, sensación de pérdida de propósito)
 - Conductas compensatorias (abusos aislados que buscan recuperar la sensación de "autoridad")
 
-El Programa de Bienestar del Oficial Comunitario (PBOC, Sección 6.5) aborda esto directamente. Los grupos de pares son espacios donde los oficiales pueden procesar la transición con otros que están viviendo lo mismo. Los mentores — oficiales que ya transitaron — modelan que la nueva identidad es viable y valiosa. Y las evaluaciones comunitarias, cuando son positivas, reemplazan el viejo estatus ("soy el que capturó al narco") con un estatus nuevo y más sostenible ("soy el que hizo que el barrio mejore").
+El Programa de Bienestar del Oficial Comunitario (PBOC, Sección 17) aborda esto directamente. Los grupos de pares son espacios donde los oficiales pueden procesar la transición con otros que están viviendo lo mismo. Los mentores — oficiales que ya transitaron — modelan que la nueva identidad es viable y valiosa. Y las evaluaciones comunitarias, cuando son positivas, reemplazan el viejo estatus ("soy el que capturó al narco") con un estatus nuevo y más sostenible ("soy el que hizo que el barrio mejore").
 
 ### 6.3 Destinos de Reconversión
 
@@ -910,29 +939,6 @@ La reconversión no es un evento. Es un proceso de 2-3 años por persona:
 - Nadie es desvinculado durante la reconversión (salvo falta grave)
 - Obra social y beneficios sociales mantenidos
 - Acompañamiento psicológico disponible (la transición de identidad profesional es un proceso emocionalmente complejo)
-
-### 6.5 Salud Mental de las Fuerzas — El Cuidado del Cuidador
-
-> *"No podés pedirle a alguien que proteja a otros si nadie lo protege a él."*
-
-Hay una crisis de salud mental en las fuerzas de seguridad argentinas que nadie quiere ver. Los policías argentinos tienen tasas de suicidio que duplican o triplican las de la población general. Alcoholismo, depresión, PTSD, violencia intrafamiliar, aislamiento social — el inventario de patologías de las fuerzas es un reflejo del sistema que las produce.
-
-Un policía que trabaja doce horas en un entorno hostil, que cobra un sueldo que no alcanza, que ve violencia todos los días, que no tiene acceso a acompañamiento psicológico, que vive en una cultura institucional donde pedir ayuda es sinónimo de debilidad — ese policía se rompe. Y cuando se rompe, rompe a otros: a su familia, a los ciudadanos con los que interactúa, a sí mismo.
-
-La reconversión no puede tratarse como un trámite administrativo sobre personas rotas. Por eso el cuidado del cuidador es parte estructural de esta sección — no un anexo.
-
-**Programa de Bienestar del Oficial Comunitario (PBOC):**
-
-| Componente | Descripción | Frecuencia |
-|---|---|---|
-| Sesión psicológica individual | Acceso gratuito, confidencial, sin impacto en la carrera. Psicólogos externos a la fuerza | Mínimo mensual. Voluntaria (pero incentivada) |
-| Grupo de pares | Grupos de 6-8 oficiales con un facilitador. Espacio para hablar de lo que el trabajo genera | Quincenal |
-| Detección temprana de burnout | Cuestionario estandarizado de bienestar (GHQ-12 + MBI). Aplicado digitalmente | Trimestral |
-| Protocolo post-incidente crítico | Después de cualquier evento traumático (uso de fuerza letal, muerte de compañero, agresión grave), el oficial tiene 72 horas de licencia obligatoria con acompañamiento psicológico | Por evento |
-| Actividad física y recreativa | Acceso a gimnasio, actividades deportivas, espacios de ocio | Permanente |
-| Línea de crisis 24/7 | Línea telefónica confidencial para oficiales en crisis. Atendida por profesionales especializados en trauma de fuerzas de seguridad | 24/7 |
-
-El PBOC no es un beneficio adicional. Es una condición operativa. Un oficial que no está bien no puede cuidar a otros. La inversión en salud mental de las fuerzas es inversión en seguridad ciudadana.
 
 ---
 
@@ -1074,13 +1080,13 @@ Mismo modelo que ANSUS (Tablero Nacional de Sustancias), ANJUS, y ANAGUA. Plataf
 
 **TABLA 21: Fases de PLANSEG**
 
-| Fase | Período | Nombre | Objetivo central |
+| Fase | Ventana absoluta | Nombre | Objetivo central |
 |---|---|---|---|
-| Pre-Fase | Año -1 | "Los Ojos" | Mapeo, auditoría, piloto de EB, capacitación inicial |
-| Fase 0 | Año 0 | "La Fundación" | Ley, ANSEG creada, protocolo narco activado, primeras 250 EB |
-| Fase 1 | Años 1-5 | "La Transición" | Despliegue comunitario + transición narco sincronizada con PLANSUS + reforma carcelaria |
-| Fase 2 | Años 5-10 | "La Consolidación" | Modelo comunitario completo + 50% reducción carcelaria + infraestructura digital |
-| Fase 3 | Años 10-15 | "La Madurez" | Consolidación, reconocimiento internacional, metas 2040 alcanzadas |
+| Pre-Fase | Pre-tranche-2 (2027-2028) | "Los Ojos" | Mapeo, auditoría externa, piloto de EB, capacitación inicial |
+| Fase 0 | Tranche-2 entrada (2028) | "La Fundación" | Decreto + ley ordinaria, ANSEG execution cell creada, protocolo narco activado, primeras 250 EB |
+| Fase 1 | Tranche-2 + Tranche-3 entrada (2028-2032) | "La Transición" | Despliegue comunitario + transición narco coordinada con PLANSUS research + reforma carcelaria piloto |
+| Fase 2 | Tranche-3 maduración (2032-2036) | "La Consolidación" | Modelo comunitario completo + 50% reducción carcelaria + infraestructura digital sobre estadio A de PLANDIG |
+| Fase 3 | Horizonte 2040 (Visión, no compromiso operativo) | "La Madurez" | Consolidación, reconocimiento internacional, metas 2040 — autonomía ANSEG diferida |
 
 ### 9.1 Pre-Fase: "Los Ojos" (Año -1)
 
@@ -1093,7 +1099,7 @@ Mismo modelo que ANSUS (Tablero Nacional de Sustancias), ANJUS, y ANAGUA. Plataf
 | Protocolo VERDE activado | Mes 0 | Todo el país. AMARILLO en zonas rojas |
 | Canales con El Puente | Meses -6 a 0 | Comunicación abierta con operadores que quieren transicionar |
 
-### 9.2 Fase 0: "La Fundación" (Año 0)
+### 9.2 Fase 0: "La Fundación" (Pre-tranche-2, 2027-2028)
 
 | Hito | Descripción |
 |---|---|
@@ -1139,76 +1145,30 @@ Esta fase coincide exactamente con la cascada de legalización de PLANSUS. Es la
 | Reconocimiento internacional | Argentina como modelo de referencia en seguridad ciudadana para América Latina |
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 10: INTEGRACIÓN CON EL ECOSISTEMA ¡BASTA! — VEINTIDÓS PLANES, UNA ARQUITECTURA
+Esta sección documenta cómo PLANSEG se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANSEG"*.
 
-> *"PLANSEG no funciona solo. Ningún PLAN ¡BASTA! funciona solo. Funcionan juntos — o no funcionan."*
+### Lo que PLANSEG aporta al ecosistema
 
-PLANSEG es el decimocuarto PLAN de ¡BASTA! en el orden estratégico de lanzamiento. El ecosistema completo tiene 22 PLANes (al 23 de abril de 2026, sin contar PLANRUTA — el plan meta/bootstrap). Esta sección detalla las integraciones de mayor intensidad operativa:
-
-### 10.1 PLANSUS — Plan Nacional de Soberanía sobre Sustancias
-**LA INTEGRACIÓN CRÍTICA.** PLANSEG es el brazo de seguridad de PLANSUS. Sin PLANSEG, la legalización de sustancias crea un vacío de seguridad territorial que puede ser peor que el problema original. La sincronización es milimétrica: Pre-Fase de PLANSEG coincide con Pre-Fase de PLANSUS. Cada fase de la cascada de legalización tiene un protocolo de seguridad PLANSEG correspondiente. El Puente de PLANSUS tiene un componente de protección de seguridad operado por PLANSEG. Los indicadores de seguridad son condición necesaria para que PLANSUS avance de una fase a la siguiente — si la seguridad está en ROJO, la cascada se pausa.
-
-### 10.2 PLANJUS — Plan Nacional de Justicia Popular
-PLANSEG previene. PLANJUS resuelve. La frontera es clara: PLANSEG trabaja para que los conflictos no escalen a violencia; cuando escalan, PLANJUS los resuelve. El sistema JUS absorbe los conflictos menores que hoy sobrecargan el sistema penal — disputas vecinales, conflictos comerciales, problemas de convivencia — y los resuelve en 15/45/90 días sin necesidad de policía. ANJUS y ANSEG operan en coordinación permanente. Los Paneles Ciudadanos de Seguridad (PCS) de PLANSEG y los Paneles Ciudadanos de PLANJUS comparten la base de sorteo democrático. La justicia restaurativa de PLANJUS es el complemento de la reforma carcelaria de PLANSEG.
-
-### 10.3 PLANREP — Plan Nacional de Reconversión del Empleo Público
-PLANREP es la infraestructura de reconversión que PLANSEG necesita. Los 50.000-80.000 efectivos de enforcement que la legalización vuelve innecesarios se reconvierten a través de los Centros de la Vida de PLANREP. Los soldaditos y jóvenes del Programa Primer Puente se forman en los oficios de la Economía de la Vida. Los presos liberados por la reforma carcelaria se insertan en el mercado laboral a través de PLANREP. Sin PLANREP, la reconversión de PLANSEG no tiene infraestructura.
-
-### 10.4 PLAN24CN — Plan Nacional de 24 Ciudades Nuevas
-Las ciudades de PLAN24CN nacen seguras por diseño: CPTED integrado, vigilancia natural, estaciones comunitarias en el plano original, iluminación inteligente, mixtura social que evita la segregación. PLANSEG lleva esos mismos principios a las ciudades existentes que PLAN24CN no reemplaza. La especificación de seguridad de PLAN24CN (percepción de seguridad >8/10, diseño CPTED en cada manzana) es el estándar que PLANSEG persigue para todo el territorio.
-
-### 10.5 PLANDIG — Plan Nacional de Soberanía Digital
-PLANDIG provee la infraestructura tecnológica de PLANSEG: almacenamiento soberano para cámaras corporales y cámaras comunitarias, plataforma digital del Tablero Nacional de Seguridad, infraestructura de comunicaciones para EB, herramientas de IA de análisis de datos. PLANSEG define las reglas de uso (vigilancia con derechos); PLANDIG construye y opera la infraestructura. La ciberseguridad soberana de PLANDIG protege los datos de seguridad. Los efectivos reconvertidos a ciberseguridad (Sección 6) operan bajo la órbita de PLANDIG.
-
-### 10.6 PLANEB — Plan Nacional de Empresas Bastardas
-¿Los servicios de seguridad comunitaria pueden organizarse como Bastardas? PLANSEG dice que la seguridad pública es función del Estado y no se privatiza. Pero los servicios complementarios — mantenimiento de iluminación, limpieza de espacios públicos, gestión de RCAT, soporte técnico de cámaras — pueden operarse como Bastardas barriales: cooperativas de propósito perpetuo, sin extracción de ganancia, al servicio de la comunidad. El protocolo Bastardo se aplica a estos servicios bajo supervisión de ANSEG.
-
-### 10.7 PLANSAL — Plan Nacional de Salud
-La seguridad es un determinante de salud. El trauma — individual y colectivo — generado por la violencia urbana produce PTSD, depresión, ansiedad, adicciones, enfermedades cardiovasculares. PLANSAL atiende las consecuencias de salud de la inseguridad; PLANSEG ataca la causa. La coordinación es directa: los centros de salud de PLANSAL operan dentro de la órbita de las EB (derivación directa de casos de violencia de género, sobredosis, crisis de salud mental). Los oficiales comunitarios de PLANSEG tienen formación en primeros auxilios psicológicos y naloxona (Sección 4.1.2).
-
-### 10.8 PLANEDU — Plan Nacional de Educación
-La prevención de violencia empieza en la escuela. PLANEDU incluye contenidos de resolución pacífica de conflictos, inteligencia emocional, y ciudadanía. PLANSEG coordina con PLANEDU para los programas de intervención temprana (Primer Puente) — la escuela es el punto de detección de jóvenes en riesgo. Cada EB tiene relación directa con las escuelas de su zona: los oficiales comunitarios visitan escuelas, participan en actividades, y son el punto de contacto si la escuela detecta una situación de riesgo.
-
-### 10.9 PLANAGUA — Plan Nacional de Soberanía Hídrica
-El enforcement ambiental es una de las nuevas funciones para efectivos reconvertidos. La protección de cuencas, el control de vertidos industriales, la vigilancia de extracción ilegal de agua — todas son funciones que requieren personal con capacidad de enforcement, y los efectivos reconvertidos de PLANSEG las pueden cubrir. ANAGUA define qué se controla; PLANSEG provee el personal reconvertido y formado.
-
-### 10.10 PLANISV — Plan Nacional de Soberanía del Suelo Vivo
-La seguridad rural es la dimensión olvidada de la seguridad argentina. El robo de maquinaria agrícola, el cuatrerismo, los conflictos por tierra, la violencia contra comunidades indígenas, el enforcement de legislación ambiental en zonas rurales — todo esto requiere presencia de seguridad que hoy no existe o es deficiente. Los efectivos reconvertidos al enforcement ambiental (Sección 6.2) cubren esta función en coordinación con PLANISV.
-
-### 10.11 PLANMON — Plan Nacional de Soberanía Monetaria
-La transición monetaria que PLANMON propone genera riesgos de seguridad específicos: protección de la nueva infraestructura financiera, prevención de fraude en nuevos sistemas de pago, seguridad de reservas, y enforcement contra lavado de activos (especialmente relevante durante la transición narco de PLANSUS, cuando las organizaciones desmanteladas intentarán lavar sus activos). PLANSEG coordina con PLANMON en la seguridad de la transición financiera.
-
-### 10.12 PLANGEO — Plan Nacional de Geopolítica
-La cooperación de seguridad con países vecinos es fundamental: el narcotráfico argentino está integrado en redes que cruzan Bolivia, Paraguay, Brasil, y más allá. PLANSUS legaliza en Argentina, pero los países vecinos pueden no hacerlo al mismo tiempo. PLANSEG coordina con PLANGEO para: (a) cooperación de inteligencia transfronteriza, (b) gestión de fronteras comerciales post-legalización, (c) prevención de arbitraje criminal (organizaciones que se mudan a países vecinos), (d) diplomacia de seguridad para promover reformas regionales similares.
-
-### 10.13 PLANEN — Plan Nacional de Soberanía Energética
-La infraestructura energética es infraestructura crítica. Oleoductos, gasoductos, centrales generadoras, redes de transmisión, parques eólicos y solares — todos requieren protección física. PLANSEG asigna efectivos reconvertidos a la protección de infraestructura energética en coordinación con PLANEN. No seguridad privada — seguridad pública especializada.
-
-### 10.13b PLANVIV — Plan Nacional de Vivienda Digna y Hábitat
-La urbanización de 1.800 asentamientos informales es una operación de seguridad tanto como de vivienda. Muchas villas están bajo control territorial narco — PLANSEG lo sabe porque es la realidad que el Protocolo de Transición Narco (Sección 4.2) enfrenta. Cuando PLANVIV entra a urbanizar, PLANSEG entra primero: pacificación del territorio, desarticulación de redes de control, presencia permanente de Estaciones Barriales que acompañan la urbanización durante los años más vulnerables de la transición. Sin el sobre de seguridad de PLANSEG, los tractores de PLANVIV no llegan a la segunda cuadra. Con PLANSEG, la urbanización avanza metro a metro y cada metro ganado es un metro donde el narco pierde pie y el Estado gana legitimidad.
-
-### 10.14 Mapa de Integración Completo
-
-**TABLA 21B: Matriz de Integración PLANSEG × Ecosistema ¡BASTA!**
-
-| Mandato | Qué le da PLANSEG | Qué le da a PLANSEG | Intensidad |
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
 |---|---|---|---|
-| PLANSUS | Protocolo de seguridad para la cascada. Protección de El Puente. Enforcement residual | Financiamiento (earmark). Reducción de mercado negro. Alternativas económicas | CRITICA |
-| PLANJUS | Prevención (reduce carga procesal). Derivación a justicia restaurativa | Resolución de conflictos que descargan al sistema penal. Paneles Ciudadanos | ALTA |
-| PLANREP | Personal reconvertido. Jóvenes de Primer Puente formados | Infraestructura de reconversión (Centros de la Vida). Formación laboral | ALTA |
-| PLAN24CN | Principios CPTED para ciudades existentes | Diseño seguro desde cero en ciudades nuevas. Laboratorio de modelos | ALTA |
-| PLANDIG | Reglas de vigilancia con derechos. Personal de ciberseguridad | Infraestructura digital: almacenamiento, IA, comunicaciones, SOC | ALTA |
-| PLANEB | Supervisión de Bastardas de servicio comunitario | Servicios complementarios: mantenimiento, limpieza, soporte técnico | MEDIA |
-| PLANSAL | Primeros auxilios. Derivación desde EB. Prevención de trauma | Atención de salud mental de oficiales (PBOC). Tratamiento de trauma comunitario | MEDIA |
-| PLANEDU | Programas en escuelas. Detección de jóvenes en riesgo | Contenidos de resolución pacífica de conflictos. Reinserción escolar | MEDIA |
-| PLANAGUA | Personal de enforcement ambiental reconvertido | Definición de qué se controla (cuencas, vertidos, extracción) | MEDIA |
-| PLANISV | Seguridad rural. Enforcement ambiental | Definición de protección de suelo y recursos rurales | MEDIA |
-| PLANMON | Seguridad durante transición monetaria. Anti-lavado | Estabilidad financiera durante la transición | BAJA |
-| PLANGEO | Cooperación de seguridad transfronteriza | Marco diplomático. Coordinación con fuerzas vecinas | MEDIA |
-| PLANEN | Protección de infraestructura energética | Definición de infraestructura crítica a proteger | BAJA |
+| **PLANSUS** | CRITICAL | TEMPORAL | PLANSEG debe tener 250+ EB operativas 12 meses ANTES de legalización |
+| **PLANSUS** | CRITICAL | INSTITUTIONAL | Protocolo de transición narco sincronizado GREEN/YELLOW/RED |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | CPTED (prevención por diseño ambiental) en urbanizaciones |
+| **PLANTER** | CRITICAL | INSTITUTIONAL | Protección de defensores territoriales y Guardacostas ampliada |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Red soberana provee cadena de custodia criptográfica a body cams, video IA y sensores urbanos |
+| **PLANREP** | IMPORTANT | LABOR | Oficiales reconvertidos de fuerzas desmanteladas migran a seguridad comunitaria y enforcement sin violencia |
 
----
+### Lo que PLANSEG necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | TECHNICAL | Body cams, video IA, sensores urbanos sobre infra soberana |
+| **PLANREP** | IMPORTANT | LABOR | Oficiales de enforcement reconvertidos a seguridad comunitaria |
+| **PLANSUS** | CRITICAL | TEMPORAL | Reforma policial + 250+ EB operativas + protocolo GREEN/YELLOW/RED son precondición para la legalización escalonada: PLANSEG marca el pulso temporal de la transición narco |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Protocolos CPTED (prevención del delito por diseño ambiental) aplicados en urbanizaciones y retrofits |
+| **PLANTER** | CRITICAL | INSTITUTIONAL | PLANSEG extiende protección formal a defensores territoriales y amplía la Guardia Costera para soberanía marítima |
 
 ## SECCIÓN 11: MARCO PRESUPUESTARIO Y ROI
 
@@ -1231,11 +1191,7 @@ La urbanización de 1.800 asentamientos informales es una operación de segurida
 | ANSEG (establecimiento + operación) | USD 300-600M | Sede + personal + paneles ciudadanos + tablero |
 | Protocolo de transición narco | USD 200-500M | Inteligencia, protección de cooperadores, operaciones focalizadas |
 | Contingencia (15%) | USD 2.750-4.600M | |
-| **TOTAL BRUTO (15 años)** | **USD 21.100-35.750M** | **Promedio: USD 1.400-2.380M/año** |
-| *(menos) Reasignación del gasto de seguridad existente* | *USD 18.000-30.000M* | *Presupuesto de seguridad ya ejecutado hoy (piso 1,5% PBI vía ANSEG) + enforcement de drogas que PLANSUS vuelve innecesario + ahorro carcelario — ver Tabla de Fuentes (11.2)* |
-| **INVERSIÓN NETA NUEVA (15 años)** | **USD 3.000-6.000M** | **Promedio: USD 200-400M/año de plata genuinamente nueva** |
-
-**La aclaración que evita la demagogia presupuestaria.** Cuando alguien diga "PLANSEG cuesta 30 mil millones de dólares", la respuesta es: no. El programa bruto cuesta USD 21.100-35.750M en 15 años — pero la Argentina YA gasta USD 8.000-12.000M POR AÑO en seguridad (USD 120.000-180.000M en el mismo período de 15 años). PLANSEG no agrega un sistema encima del existente: redirecciona una porción de ese gasto — alrededor del 60% del costo bruto del plan proviene de reasignar plata que hoy se quema en un modelo que no funciona. La inversión NETA nueva — lo que el país tiene que poner de plata genuinamente adicional — es de USD 3.000-6.000M en 15 años. Para dimensionar: menos de lo que el país pierde en un solo año por los costos indirectos de la inseguridad (TABLA 4D).
+| **TOTAL (15 años)** | **USD 21.100-35.750M** | **Promedio: USD 1.400-2.380M/año** |
 
 ### 11.2 Fuentes de Financiamiento
 
@@ -1258,11 +1214,7 @@ La urbanización de 1.800 asentamientos informales es una operación de segurida
 | Ahorro en salud (trauma evitado) | USD 2.000-4.000M | Menos PTSD, menos depresión, menos adicciones derivadas de violencia |
 | **TOTAL BENEFICIO ESTIMADO** | **USD 18.800-35.500M** | |
 
-**ROI sobre el gasto bruto: ~1:1 a 1,5:1 en 15 años.** Es decir: aun en la lectura más conservadora — comparando el beneficio contra TODO el costo del programa, incluyendo la plata que ya se gasta hoy — PLANSEG se paga solo.
-
-**ROI sobre la inversión neta nueva: ~3:1 a 10:1 en 15 años.** Esta es la comparación honesta para decidir si el plan vale la pena: ¿qué retorna cada dólar genuinamente nuevo? Cada dólar adicional que la Argentina invierte en PLANSEG devuelve entre tres y diez — porque la mayor parte del costo bruto es plata que ya se gasta, redirigida de un modelo que fracasa a uno que funciona.
-
-Y ambos cálculos subestiman masivamente el beneficio, porque no incluyen el valor de la confianza institucional, la cohesión social, la dignidad, y el simple hecho de que una madre pueda mandar a su hijo a la escuela sin miedo.
+**ROI estimado: 1:1 a 1,5:1 en 15 años** — pero este cálculo subestima masivamente el beneficio, porque no incluye el valor de la confianza institucional, la cohesión social, la dignidad, y el simple hecho de que una madre pueda mandar a su hijo a la escuela sin miedo.
 
 ---
 
@@ -1316,7 +1268,7 @@ El enfoque no es purga masiva (se intentó varias veces y fracasó siempre, porq
 
 > *"Las leyes que necesitamos no existen. Las leyes que tenemos no funcionan. Hay que crear las primeras y reformar las segundas."*
 
-### 13.1 Lo Que Se Crea
+### 12.1 Lo Que Se Crea
 
 | Instrumento legal | Contenido | Mecanismo |
 |---|---|---|
@@ -1326,7 +1278,7 @@ El enfoque no es purga masiva (se intentó varias veces y fracasó siempre, porq
 | **Protocolo Nacional de Uso de la Fuerza** | Regulación detallada del uso de la fuerza policial: proporcionalidad, desescalamiento obligatorio, body cams, sanciones por incumplimiento | Decreto reglamentario + adhesión provincial |
 | **Ley de Vigilancia con Derechos** | Marco legal de vigilancia digital: prohibiciones explícitas (reconocimiento facial masivo, scoring social), permisos con control judicial, JCVD, datos soberanos | Ley del Congreso |
 
-### 13.2 Lo Que Se Reforma
+### 12.2 Lo Que Se Reforma
 
 | Ley existente | Reforma | Motivo |
 |---|---|---|
@@ -1346,7 +1298,7 @@ El enfoque no es purga masiva (se intentó varias veces y fracasó siempre, porq
 |---|---|---|---|
 | Violencia de bandas durante transición narco | Alta | Alto | Protocolo VERDE/AMARILLO/ROJO + inteligencia focalizada + presencia comunitaria + pausa de cascada si necesario |
 | Resistencia de fuerzas de seguridad a la reforma | Alta | Alto | Incentivos de reconversión + mantención de sueldos + participación de fuerzas en diseño + gradualismo |
-| Resistencia política (gobernadores, intendentes) | Alta | Alto | Autonomía constitucional de ANSEG + presupuesto protegido + presión ciudadana desde PCS |
+| Resistencia política (gobernadores, intendentes) | Alta | Alto | En tranche-2: auditoría externa permanente + canal OEA + presión ciudadana desde PCS. Autonomía constitucional de ANSEG diferida a horizonte 2040. |
 | Captura de ANSEG por intereses políticos | Media | Alto | Sorteo democrático + mandatos no renovables + transparencia radical + Panel Ciudadano con poder de veto |
 | Fracaso de modelo comunitario en zonas de alto riesgo | Media | Medio | Pilotaje gradual + evaluación continua + ajuste de modelo + soporte táctico para EB en zonas difíciles |
 | Abuso de tecnología de vigilancia | Media | Alto | Candados (Sección 7) + JCVD + prohibiciones constitucionales + auditoría permanente |
@@ -1355,7 +1307,7 @@ El enfoque no es purga masiva (se intentó varias veces y fracasó siempre, porq
 | Backlash social ("mano dura") | Alta | Medio | Comunicación basada en evidencia + resultados verificables + transparencia del tablero + historias humanas |
 | Crisis fiscal que reduzca presupuesto ANSEG | Media | Alto | Piso constitucional 1,5% PBI + financiamiento parcial desde recaudación PLANSUS |
 
-### 14.1 El Riesgo Más Grande: El Backlash "Mano Dura"
+### 13.1 El Riesgo Más Grande: El Backlash "Mano Dura"
 
 Lo decimos de frente: el mayor riesgo de PLANSEG no es técnico ni operativo. Es político-cultural.
 
@@ -1417,7 +1369,9 @@ Halden Prison existe. Los koban de Japón existen. La policía de proximidade de
 
 **"¿Y si el próximo gobierno desarma todo?"**
 
-ANSEG tiene autonomía constitucional, presupuesto protegido, y gobernanza por sorteo democrático. Desarmar PLANSEG requeriría reforma constitucional — el mismo blindaje que tienen las demás agencias ¡BASTA!. Además, los Paneles Ciudadanos de Seguridad generan una base social de personas que vivieron la diferencia. Destruir algo que funciona y tiene apoyo ciudadano visible tiene un costo político enorme. No imposible — pero caro.
+> **REVISIÓN 2026-04-28:** PLANSEG es **tranche-2** (entrada 24-30m, ventana 2028-2030). En tranche-2, ANSEG opera como **execution cell con auditoría externa permanente + canal denuncia OEA** (no agencia autárquica con autonomía constitucional). **Autonomía constitucional + presupuesto protegido + reforma constitucional como blindaje → diferidos a horizonte 2040 (Visión, no compromiso operativo de remediación 2026-04-26).** El blindaje real en tranche-2/3 es operativo: auditoría, transparencia, canal externo.
+
+En el horizonte 2040 (Visión, no compromiso operativo): ANSEG tendría autonomía constitucional, presupuesto protegido, y gobernanza por sorteo democrático. Desarmar PLANSEG requeriría reforma constitucional. En tranche-2/3 actual, el blindaje principal es **operativo** (auditoría externa + canal OEA + transparencia), no constitucional. Los Paneles Ciudadanos de Seguridad generan base social. Destruir algo que funciona y tiene apoyo ciudadano visible tiene un costo político enorme. No imposible — pero caro.
 
 Pero hay una protección más poderosa que la constitucional: la material. Cuando un barrio tiene una EB que funciona, un oficial comunitario que conoce a los vecinos, una RCAT que los conecta, y una percepción de seguridad que mejoró — ese barrio no va a dejar que le saquen eso sin pelear. La mejor protección contra la regresión política no es un artículo en la Constitución. Es un millón de personas que experimentaron la diferencia y no están dispuestas a volver atrás.
 
@@ -1435,7 +1389,7 @@ No. PLANSEG no reemplaza a las fuerzas existentes de un día para el otro. Las E
 
 > *"El futuro no se predice. Se diseña."*
 
-### 16.1 Los Números
+### 15.1 Los Números
 
 | Indicador | 2026 (actual) | 2040 (meta PLANSEG) |
 |---|---|---|
@@ -1452,19 +1406,7 @@ No. PLANSEG no reemplaza a las fuerzas existentes de un día para el otro. Las E
 | Mercado negro de sustancias | ~USD 3-8B | <5% del total |
 | Gasto en seguridad privada | USD 2-4B/año | <USD 500M/año |
 
-**"Cero gatillo fácil": cómo se mide y cómo se llega.** Una meta de cero sin trayectoria intermedia es un eslogan, no una meta. PLANSEG define las dos cosas.
-
-*Definición de medición:* el indicador de gatillo fácil se mide con **doble fuente obligatoria** — el registro oficial de muertes causadas por fuerzas de seguridad (ANSEG, alimentado por las investigaciones de la Defensoría del Ciudadano ante las Fuerzas) y el registro independiente de CORREPI, que lleva décadas documentando lo que el Estado no quiso contar. Ambas series se publican lado a lado en el Tablero Nacional de Seguridad. Si divergen más de un 15%, se activa una auditoría conjunta: la divergencia es en sí misma un indicador de subregistro estatal. La definición operativa es la de CORREPI — muerte causada por integrantes de fuerzas de seguridad (en servicio o no, con arma reglamentaria o no) en circunstancias que no configuran legítima defensa verificada — porque es la definición más exigente, y un plan que elige medirse con la vara más blanda ya empezó a mentir.
-
-*Trayectoria intermedia (línea de base: ~200 muertes/año):*
-
-| Hito | Año 3 | Año 5 | Año 8 | Año 12 | Año 15 (2040) |
-|---|---|---|---|---|---|
-| Muertes por fuerzas de seguridad/año | ≤100 (−50%) | ≤60 (−70%) | ≤30 (−85%) | ≤10 | 0 sostenido (3 años consecutivos) |
-
-Si la trayectoria no se cumple — en particular, si el gatillo fácil no baja el 50% al Año 3 — no se ajusta la meta: se ajusta el plan. El disparador concreto está definido en el Tablero Nacional (Sección 19): revisión integral del protocolo de reconversión y de la formación en uso de la fuerza, con informe público del Panel Ciudadano Nacional.
-
-### 16.2 Las Historias
+### 15.2 Las Historias
 
 **Graciela Ríos, 2040.** Tiene 67 años. Sigue viviendo en Tablada. Pero Tablada cambió. La Estación Barrial de su cuadra — la EB Tablada Norte — lleva doce años funcionando. El oficial que la atiende, Martín, empezó como oficial comunitario en la primera generación de PLANSEG. Vive a cuatro cuadras. Conoce a Graciela por nombre. Le pregunta por Nahuel cada vez que la ve. Nahuel terminó la técnica, estudió en la universidad — becado — y trabaja en uno de los CRR de Rosario como coordinador de reinserción laboral. El kiosco de Sergio reabrió en 2031. Hoy vende café de especialidad y cosas del barrio. Nadie le pide plata. Nadie le rompe la persiana. La bala que se incrustó en la pared del cuarto de Nahuel sigue ahí — Sergio la dejó como recordatorio. Pero ya no le tiene miedo. Es una cicatriz, no una herida.
 
@@ -1480,253 +1422,26 @@ No es perfecto. Nada humano es perfecto. Pero es incomparablemente mejor que lo 
 
 ---
 
-## SECCIÓN 17: ESTRATEGIA DE STAKEHOLDERS — TEJER, NO DESTRUIR
+## SECCIÓN 17: SALUD MENTAL DE LAS FUERZAS — EL CUIDADO DEL CUIDADOR
 
-> *"Una reforma de seguridad que se hace contra los que portan el uniforme termina en motín. Una que se hace con ellos termina en transformación."*
+> *"No podés pedirle a alguien que proteja a otros si nadie lo protege a él."*
 
-PLANSEG es, de los 22 PLANes de ¡BASTA!, el que más actores poderosos incomoda al mismo tiempo: 340.000 personas armadas y organizadas, 24 gobernadores que controlan sus propias policías, un servicio penitenciario con cultura de fortaleza, un poder judicial que administra la prisión preventiva como herramienta, y organizaciones de derechos humanos que tienen razones históricas para desconfiar de cualquier plan que tenga la palabra "seguridad" en el título. Si PLANSEG trata a estos actores como obstáculos a demoler, fracasa antes de la primera EB. La estrategia es otra: **tejer**. Identificar qué pierde cada actor con la reforma, qué gana, y construir el puente entre las dos cosas — actor por actor, sin ingenuidad y sin desprecio.
+Hay una crisis de salud mental en las fuerzas de seguridad argentinas que nadie quiere ver. Los policías argentinos tienen tasas de suicidio que duplican o triplican las de la población general. Alcoholismo, depresión, PTSD, violencia intrafamiliar, aislamiento social — el inventario de patologías de las fuerzas es un reflejo del sistema que las produce.
 
-**TABLA 24: Mapa de Stakeholders — Qué Pierde, Qué Gana, Cómo Se Teje**
+Un policía que trabaja doce horas en un entorno hostil, que cobra un sueldo que no alcanza, que ve violencia todos los días, que no tiene acceso a acompañamiento psicológico, que vive en una cultura institucional donde pedir ayuda es sinónimo de debilidad — ese policía se rompe. Y cuando se rompe, rompe a otros: a su familia, a los ciudadanos con los que interactúa, a sí mismo.
 
-| Actor | Qué pierde con PLANSEG | Qué gana con PLANSEG | Cómo se teje |
-|---|---|---|---|
-| Círculos y mutuales policiales | El modelo conocido. El estatus interno asociado al paradigma represivo | Sueldos dignos, formación real, bonificación del 20%, evaluación justa, PBOC, fin del policía como chivo expiatorio | Mesa permanente de reconversión con participación de círculos de oficiales y suboficiales. Co-diseño de la transición, no imposición |
-| Gobernadores y ministros de seguridad provinciales | Control discrecional de la caja y la cadena de mando policial como herramienta política | Financiamiento federal para EB, formación y tecnología. Resultados medibles para mostrar. Salida del costo político de la inseguridad | Convenio Federal voluntario con incentivos (Sección 12.2). Adhesión temprana = prioridad presupuestaria |
-| La Bonaerense | El monopolio territorial del conurbano. Las cajas ilegales que el modelo actual habilita | Reconversión voluntaria con sueldo mantenido + 20%. Dignidad profesional. Fin de la guerra perdida | Sistema paralelo de EB que demuestra antes de exigir (Sección 12.3 + 17.3). Reconversión individual, no purga colectiva |
-| SPF y penitenciarios provinciales | El modelo custodial conocido. Las economías informales intramuros | Reconversión a operadores de rehabilitación. Condiciones laborales humanas. Menos violencia intramuros = menos riesgo propio | Formación en modelo relacional con sueldo completo. Los CRR se inauguran con personal reconvertido, no reemplazado |
-| Jueces y fiscales | La prisión preventiva como herramienta de gestión. Las jurisdicciones de narcotráfico | Descarga procesal masiva (JUS absorbe conflictos menores). Nuevas jurisdicciones: ambiental, digital, restaurativa | Reforma procesal gradual co-diseñada con el Consejo de la Magistratura. Reconversión de jurisdicciones, no eliminación de cargos |
-| CORREPI / CELS | Nada — pero arriesgan su credibilidad si avalan una reforma que después incumple | Lo que pidieron durante décadas: body cams, fin del gatillo fácil con trayectoria verificable, auditoría independiente | Rol institucional de auditor externo con acceso pleno a datos. Doble fuente del indicador de gatillo fácil (Sección 19) |
-| Vecinos organizados (foros de seguridad) | El canal conocido de reclamo (a menudo capturado por el discurso punitivo) | Poder real: PCS con peso del 40% en la evaluación de oficiales. Gobernanza de cámaras. RCAT con reglas | Integración de foros existentes a los PCS por sorteo. El vecino deja de pedir mano dura cuando tiene mano propia |
+**Programa de Bienestar del Oficial Comunitario (PBOC):**
 
-### 17.1 Las Fuerzas y Sus Representaciones Reales
-
-Primera precisión, porque los detalles importan: **en la Argentina los sindicatos policiales son ilegales.** La Corte Suprema lo ratificó en 2017 — las fuerzas de seguridad tienen prohibida la sindicalización. Quien diseñe una estrategia de stakeholders "negociando con el sindicato policial" está negociando con un fantasma.
-
-Los actores reales son otros:
-
-- **Los círculos de oficiales y suboficiales** — asociaciones civiles que agrupan a personal en actividad y retirado, con peso simbólico e influencia interna real aunque sin estatus gremial
-- **Las mutuales policiales** — estructuras de servicios (salud, crédito, vivienda, sepelio) que tocan el bolsillo y la vida cotidiana de cada efectivo y su familia
-- **Las asociaciones de retirados** — guardianas de la memoria institucional y de la cultura de la fuerza; hablan al oído de los que están en actividad
-- **Los "autoconvocados"** — el actor más peligroso precisamente porque no tiene forma institucional. La protesta bonaerense de septiembre de 2020 — patrulleros rodeando la residencia presidencial — demostró qué pasa cuando 90.000 personas armadas sin canal gremial legal deciden hacerse escuchar
-
-PLANSEG se teje con los cuatro. La **Mesa Permanente de Reconversión** — convocada por ANSEG desde la Pre-Fase — incluye representantes de círculos y mutuales en el co-diseño del protocolo de reconversión (Sección 6.4). No es cosmética: los incentivos (sueldo mantenido, bonificación del 20%, prioridad de asignación cerca del domicilio) salieron de escuchar qué necesita un policía real, no de un escritorio. Las mutuales se integran como prestadoras del PBOC (Sección 6.5) — el círculo que administra la obra social del efectivo es el socio natural del programa de salud mental. Y con los autoconvocados, la estrategia es preventiva: la principal causa histórica de las protestas policiales es salarial — y PLANSEG es el primer plan que pone el sueldo policial digno como condición estructural, no como concesión de crisis. Un efectivo que cobra bien, se forma bien, y es evaluado con justicia no rodea ninguna quinta.
-
-Lo que PLANSEG no negocia: la evaluación comunitaria, las body cams, y la auditoría externa. La mesa discute el cómo y el cuándo — no el si.
-
-### 17.2 Gobernadores y Ministros de Seguridad Provinciales
-
-La seguridad es competencia provincial, y ningún papel firmado en Buenos Aires cambia eso. Los gobernadores pierden algo concreto con PLANSEG: la policía provincial como herramienta política — la caja, los ascensos discrecionales, los operativos mediáticos en año electoral. Y ganan algo más concreto todavía: dejar de ser los responsables políticos de un problema que no pueden resolver. Ningún gobernador argentino de las últimas tres décadas mejoró su imagen por su gestión de seguridad. Es la cuenta que siempre se paga y nunca se cobra.
-
-La oferta de PLANSEG (Sección 12.2) es transaccional y transparente: adhesión al Convenio Federal = financiamiento para EB, formación y tecnología + resultados medibles para mostrar. Los ministros de seguridad provinciales — los fusibles que cada crisis quema — reciben además un activo personal: el ministro que adopta el modelo y muestra el tablero con homicidios bajando deja de ser fusible y pasa a ser caso de éxito. La secuencia importa: Santa Fe primero (Rosario hace que cualquier mejora sea visible y urgente), Buenos Aires después (el premio mayor), y el efecto demostración arrastra al resto. A los que no adhieren no se los castiga — se los deja mirar cómo a la provincia de al lado le baja el delito.
-
-### 17.3 La Bonaerense — El Caso Mayor
-
-La Sección 12.3 define el enfoque operativo (sistema paralelo de EB + reconversión voluntaria + auditoría externa). Acá va la lectura de poder, porque la Bonaerense no es solo una fuerza — es un sistema político-económico con tres niveles que requieren estrategias distintas:
-
-**El efectivo de base** — el cabo Pereyra del preámbulo — es la mayoría silenciosa: mal pago, mal formado, usado como variable de ajuste. Para él, PLANSEG es la primera oferta seria que recibió en su carrera: reconversión con sueldo mantenido + 20%, formación real, evaluación que no depende del humor del comisario. La estrategia: comunicación directa, sin intermediarios — cada efectivo bonaerense recibe la oferta de reconversión personalmente, con números, en la Pre-Fase. El tejido se hace de a uno.
-
-**La cadena de mando media** — comisarios y jefes departamentales — es donde vive la resistencia real, porque es donde viven las cajas. Acá no hay tejido posible con los comprometidos: hay auditoría (Sección 5.1 — separación funcional de efectivos vinculados al narco) y hay una salida digna para los que no lo están: los comisarios honestos — que existen, y que el sistema actual también tritura — tienen prioridad como formadores y supervisores del nuevo modelo. Se les ofrece ser fundadores de lo nuevo en vez de administradores de lo viejo.
-
-**La conducción política de la fuerza** se alinea con la estrategia del gobernador (17.2): cuando la Provincia adhiere al Convenio, la conducción ejecuta. La presión no baja por la cadena de mando policial — baja por la cadena de mando democrática, reforzada desde abajo por los PCS de cada barrio del conurbano que empiezan a comparar la EB con la comisaría.
-
-El error histórico que PLANSEG no repite: las purgas masivas (se intentaron — Arslanián dos veces — y el sistema se regeneró). La Bonaerense no se purga: se la vuelve obsoleta barrio por barrio, oficial por oficial, hasta que reformarse sea la única manera de seguir existiendo.
-
-### 17.4 El Servicio Penitenciario — Los Olvidados del Sistema
-
-Nadie piensa en los penitenciarios cuando se habla de reforma carcelaria — y por eso las reformas carcelarias fracasan. El SPF y los servicios provinciales suman decenas de miles de trabajadores formados en la lógica custodial: contener, requisar, reprimir motines. La reforma de PLANSEG (Sección 4.3) les cambia el trabajo entero — y si no se los incluye, lo sabotean desde adentro con la herramienta más simple: hacer que el modelo nuevo no funcione.
-
-Qué pierden: el modelo conocido, y las economías informales que el hacinamiento habilita (los "peajes" intramuros que nadie nombra y todos conocen). Qué ganan: un trabajo menos peligroso — la violencia intramuros lastima primero a los internos pero segundo a los agentes —, formación como operadores de rehabilitación (modelo Halden: el guardia que comparte la mesa, no el que vigila la jaula), y la reducción de población carcelaria como mejora directa de sus condiciones laborales: menos hacinamiento es menos motines.
-
-Cómo se teje: los CRR (Sección 4.3.5) se inauguran con personal reconvertido del sistema existente — no con planteles nuevos que dejen a los viejos custodiando las unidades obsoletas hasta que cierren. La reconversión penitenciaria (TABLA 16: 5.000-8.000 agentes) sigue el mismo protocolo de cuatro fases que la policial, con la misma regla: nadie pierde el sueldo por la reforma. Y las mutuales penitenciarias se integran al PBOC igual que las policiales — porque el trauma del que custodia un pabellón violento no es menor que el del que patrulla una esquina.
-
-### 17.5 Jueces y Fiscales — Los Dueños de la Llave
-
-La reforma carcelaria de PLANSEG tiene un cuello de botella que no es presupuestario ni policial: es judicial. La prisión preventiva como regla — el mecanismo que mantiene a 70.000 personas presas sin condena — no la aplica la policía. La aplican fiscales que la piden y jueces que la conceden, en un sistema donde pedirla es gratis y no pedirla puede costar la carrera: si el fiscal libera y el liberado reincide, el escándalo es del fiscal; si encierra a un inocente tres años, el costo es del inocente.
-
-PLANSEG cambia los incentivos, no los discursos. La reforma procesal (Sección 13.1) invierte la carga: la prisión preventiva requiere fundamentación de riesgo concreto, y la detención preventiva prolongada sin avance procesal genera responsabilidad administrativa del fiscal — el costo de encerrar de más deja de ser cero. A cambio, el sistema JUS de PLANJUS absorbe la marea de causas menores que hoy ahogan los juzgados, y los fiscales y jueces de las jurisdicciones de narcotráfico que PLANSUS vacía tienen reconversión a las jurisdicciones nuevas — ambiental, digital, restaurativa — donde hay carrera por construir (TABLA 5). El tejido institucional pasa por el Consejo de la Magistratura y las asociaciones de magistrados: la reforma procesal se co-diseña con los que la van a aplicar, porque una reforma procesal sancionada contra el poder judicial se muere en la interpretación.
-
-### 17.6 CORREPI y CELS — Los Auditores Aliados
-
-Las organizaciones que documentaron el gatillo fácil durante décadas — CORREPI con su archivo de casos, el CELS con su trabajo sobre violencia institucional y cárceles — son los aliados más valiosos y los más difíciles de PLANSEG. Valiosos porque tienen lo que ningún ministerio tiene: credibilidad ganada contándole al Estado sus muertos. Difíciles porque esa credibilidad se construyó desconfiando del Estado — y PLANSEG es el Estado prometiendo, otra vez, que ahora sí.
-
-PLANSEG no les pide confianza. Les ofrece poder de verificación:
-
-- **Doble fuente institucionalizada:** el indicador de gatillo fácil del Tablero Nacional se publica con las dos series — la oficial y la de CORREPI — lado a lado, con auditoría automática si divergen (Secciones 16.1 y 19). El Estado se obliga a medirse con la vara de quien lo denuncia
-- **Acceso pleno:** convenio de auditoría externa con acceso a las grabaciones de body cams vinculadas a denuncias de violencia institucional, a los datos crudos del tablero, y a las investigaciones de la Defensoría del Ciudadano ante las Fuerzas
-- **Sin cooptación:** el rol de auditor es incompatible con cargos en ANSEG. CORREPI y el CELS no se integran al sistema — lo vigilan desde afuera, que es donde sirven. Si un día PLANSEG incumple, la denuncia de sus propios auditores tiene que doler
-
-La regla de oro: si CORREPI dice que el número oficial está mal, la carga de la prueba es del Estado. Siempre.
-
-### 17.7 Vecinos Organizados — Del Reclamo a la Gobernanza
-
-Los foros vecinales de seguridad, las asambleas barriales post-hecho-trágico, los grupos de WhatsApp que hoy mezclan alerta vecinal con cacería — son la materia prima de la participación, hoy capturada mayormente por el discurso punitivo. No por maldad: porque pedir mano dura es lo único que el sistema actual les deja pedir. El vecino que marchó pidiendo más patrulleros no es el enemigo de PLANSEG. Es su destinatario.
-
-La estrategia es darles algo mejor que un petitorio: poder institucional. Los PCS (Sección 4.1.3) absorben la energía de los foros existentes — con una diferencia estructural: el sorteo. Los PCS no se integran con "los que siempre van a las reuniones" (que es como los foros se capturan, por punteros o por personalidades) sino por sorteo democrático entre todos los vecinos. El que pedía mano dura descubre que ahora evalúa al oficial de su cuadra con el 40% del peso, decide dónde van las cámaras, y audita la RCAT. La experiencia internacional y la apuesta de PLANSEG coinciden: el punitivismo se alimenta de la impotencia. Cuando el vecino tiene poder real sobre la seguridad de su barrio, deja de pedir que alguien reparta palos en su nombre.
-
----
-
-## SECCIÓN 18: ESTRATEGIA DE COMUNICACIÓN — "SEGURIDAD QUE SE VE"
-
-> *"En seguridad, la percepción no es un detalle del problema. Es la mitad del problema."*
-
-La TABLA 23 lo dice sin vueltas: el backlash "mano dura" es el riesgo político-cultural número uno de PLANSEG (Sección 14.1). Un plan que reduce homicidios pero pierde la batalla de la percepción es un plan muerto en la segunda elección. La Sección 5.7 define los principios de comunicación durante la transición narco. Esta sección los convierte en una estrategia nacional permanente, con campañas con nombre, canales definidos, y un protocolo de crisis para el momento que — no hay que engañarse — va a llegar.
-
-### 18.1 La Campaña Madre: "Seguridad Que Se Ve"
-
-El paradigma punitivo gana las discusiones abstractas porque es intuitivo: más delito → más policía → más cárcel. PLANSEG no le discute en el plano abstracto. Le discute en la vereda. La campaña madre del plan se llama **"Seguridad Que Se Ve"** y tiene una sola regla: no se comunica nada que el vecino no pueda verificar caminando por su barrio.
-
-- **La unidad de comunicación es el barrio, no el país.** No se dice "los homicidios bajaron 12% a nivel nacional" (nadie vive a nivel nacional). Se dice: "en Tablada Norte, hace 14 meses que no hay una balacera. Esta es tu EB. Este es Martín, tu oficial. Este es el número del tablero de tu barrio"
-- **Cada EB es un medio de comunicación.** La cartelera física y el canal digital de cada Estación Barrial publican los datos de SU zona cada mes: delitos, tiempo de respuesta, mediaciones resueltas, evaluación del PCS. El vecino no tiene que creerle al ministro — le cree a la esquina
-- **Los resultados se inauguran.** Cuando una zona baja de AMARILLO a VERDE, hay acto público en el barrio — con los vecinos del PCS hablando, no con políticos cortando cintas. La mejora de seguridad se celebra como se celebra una escuela nueva: es infraestructura que se inauguró
-- **Las historias llevan nombre.** Como define la Sección 5.7: testimonios reales — la vecina que volvió a salir de noche, el kiosquero que reabrió, el oficial reconvertido, el pibe del Primer Puente. No actores. No spots. Gente
-
-**TABLA 25: Arquitectura de Campañas de PLANSEG**
-
-| Campaña | Audiencia | Mensaje central | Canales | Momento |
-|---|---|---|---|---|
-| **"Seguridad Que Se Ve"** (madre) | Población general, barrio por barrio | Los resultados se verifican en tu cuadra, no en un discurso | Cartelera de EB, canal digital barrial, tablero público, actos barriales | Permanente, desde la primera EB piloto |
-| **"Tu Barrio Te Cuida"** | Vecinos de zonas con EB nueva | Qué es la EB, quién es tu oficial, cómo funciona el PCS y la RCAT | Puerta a puerta del oficial comunitario, escuelas, clubes, ferias | Lanzamiento de cada EB (primeros 90 días) |
-| **"El Que Vuelve"** | Población general + fuerzas | La reconversión tiene cara: policías y penitenciarios que eligieron el modelo nuevo y están mejor | Testimonios en video, medios provinciales, redes de mutuales y círculos | Fases 0-1, sostenida durante la reconversión |
-| **"Cruzar el Puente"** | Operadores Tier 1/2 y sus familias | La amnistía es real, el plazo es finito, la EB es tu punto seguro | Mediadores barriales, organizaciones comunitarias, PAC — nunca medios masivos | Ventanas de El Puente (sincronizada con PLANSUS) |
-| **"Los Números Son Tuyos"** | Formadores de opinión, periodismo, academia | Todo el dato es público, crudo y auditable — incluida la serie de CORREPI | Tablero Nacional, API abierta, informes trimestrales, mesas con redacciones | Permanente desde el Año 0 |
-
-### 18.2 Los Canales — Dónde Se Da la Batalla
-
-**El territorio primero.** El canal principal de PLANSEG no es la televisión: es la EB, el PAC, la RCAT, la escuela, el club. La comunicación territorial es lenta y no escala — pero es inmune al rating. Un vecino que conoce a su oficial por nombre no cambia de opinión por un panelista.
-
-**Medios provinciales y locales antes que nacionales.** La radio de Rosario que transmite desde la zona sur tiene más peso en la percepción del rosarino que cualquier cadena porteña. ANSEG prioriza el vínculo con redacciones locales: acceso a datos zonales, recorridas por EB, entrevistas con oficiales y PCS.
-
-**Redes con datos zonales, no con eslóganes.** El contenido digital de PLANSEG es hiperlocal y verificable: el tablero de tu barrio, el video de tu EB, el testimonio de tu cuadra. El algoritmo premia la indignación — PLANSEG no compite con indignación, compite con pertenencia.
-
-**El tablero como arma comunicacional.** La transparencia radical tiene un dividendo narrativo: nadie puede acusar de ocultamiento a un plan que publica sus peores números. Cada vez que un opositor cite un dato del Tablero Nacional para criticar a PLANSEG, está validando la herramienta. Eso es una victoria estructural disfrazada de derrota táctica.
-
-### 18.3 Protocolo de Crisis: El Día Que Va a Llegar
-
-Hay que escribirlo antes de que pase, porque va a pasar. En algún momento de la transición — probablemente temprano — va a haber un crimen brutal y mediático: una víctima inocente, un victimario con antecedentes, una cámara que registró todo. Y a las dos horas, un dirigente va a decir la frase para la que este protocolo existe: **"Esto pasó por desarmar a la policía."** Si esa frase encuentra un vacío, lo llena. La respuesta no se improvisa: está pre-aprobada por el Directorio de ANSEG desde el Año 0.
-
-**TABLA 26: Protocolo de Comunicación de Crisis — Primer Caso Mediático**
-
-| Ventana | Acción | Responsable | Regla |
-|---|---|---|---|
-| Hora 0-2 | Comunicado inicial con hechos verificados: qué pasó, qué se sabe, qué no se sabe todavía, qué está haciendo el sistema. Sin especulación | Vocería de ANSEG (vocero técnico permanente, no funcionario político) | La primera versión pública la da ANSEG, no un panel de TV. Si ANSEG tarda 6 horas, el relato ya tiene dueño |
-| Hora 2-24 | Contexto verificable: datos del tablero de la zona (tendencia real del delito), estado del caso, intervención de la justicia. Contacto directo y privado con la familia de la víctima — antes que cualquier uso público del caso | ANSEG + EB de la zona + PLANJUS | Prohibido relativizar el hecho ("pero las estadísticas mejoran"). Un muerto no se contesta con un porcentaje. Primero el dolor, después los datos |
-| Día 2-7 | Respuesta a la pregunta de fondo, de frente: ¿el modelo falló acá? Si hubo falla operativa (la EB no respondió, el protocolo no se activó), se reconoce públicamente y se informa la corrección. Si no la hubo, se muestra con datos — y se recuerda qué producía el modelo anterior en esa misma zona | Directorio de ANSEG + PCS de la zona (la voz vecinal es la más creíble) | Nunca esconderse. El silencio de una semana cuesta más que un error reconocido. Y nunca mentir: la primera mentira detectada quema toda la credibilidad del tablero |
-| Semana 2+ | Si el caso desató una ola de "mano dura": gira territorial de resultados — los intendentes, PCS y vecinos de las zonas donde el modelo funciona hablan en los medios. La defensa de PLANSEG no la hace el gobierno: la hacen los barrios que lo vivieron | ANSEG + red de PCS | La evidencia local es irrebatible (Sección 14.1). Contra "desarmaron a la policía", la mejor respuesta es un vecino de Tablada diciendo "yo vivo ahí, y ahora vivo mejor" |
-
-Tres reglas permanentes que el protocolo no puede violar, ni siquiera bajo pánico político:
-
-1. **Nunca mentir, nunca maquillar, nunca demorar un dato malo.** La credibilidad del Tablero Nacional es el activo comunicacional más valioso del plan — y se pierde una sola vez
-2. **Nunca usar a una víctima sin su familia.** Ni a favor ni en contra. El dolor ajeno no es material de campaña — esa es exactamente la práctica del modelo que PLANSEG viene a enterrar
-3. **Nunca responder punitivismo con soberbia técnica.** El vecino asustado que pide mano dura no es un ignorante a corregir: es la persona a la que este plan le debe resultados. Se le contesta con respeto, con datos de su barrio, y con la invitación al PCS — donde el poder de evaluar lo va a tener él
-
----
-
-## SECCIÓN 19: TABLERO NACIONAL DE SEGURIDAD — MÉTRICAS, FRECUENCIAS Y DISPARADORES
-
-> *"Lo que no se mide se relata. Y cuando la seguridad se relata, gana el que grita más fuerte."*
-
-La Sección 8.4 define qué publica el Tablero Nacional de Seguridad. Esta sección define lo que convierte a un tablero en un instrumento de gobierno y no en una vidriera: **las definiciones de medición, las frecuencias, las metas de trayectoria, y los disparadores automáticos** — los umbrales que, si se cruzan, obligan a una acción predefinida sin necesidad de que nadie tenga el coraje político de pedirla.
-
-### 19.1 Métricas Núcleo
-
-**TABLA 27: Métricas Núcleo del Tablero — Definición, Frecuencia y Trayectoria**
-
-| Métrica | Definición y fuente | Frecuencia | Línea de base (2026) | Trayectoria |
-|---|---|---|---|---|
-| Tasa de homicidios | Homicidios dolosos por 100K hab. Fuente: SNIC/Ministerio + verificación judicial. Desagregada por zona (nacional, provincial, barrial) | Mensual (zonal), trimestral (consolidado) | 5,3/100K | Año 5: ≤4 · Año 10: ≤3 · Año 15: <2 |
-| Robos y hurtos | Denuncias + encuesta de victimización anual (para corregir cifra negra). Fuente: SNIC + encuesta ANSEG | Mensual / encuesta anual | ~1.200.000 denuncias/año | Reducción 30-50% de delitos contra la propiedad al Año 15 |
-| Gatillo fácil | Muertes causadas por fuerzas de seguridad (en servicio o no). **Doble fuente obligatoria: registro oficial ANSEG + registro CORREPI**, publicadas lado a lado. Definición operativa: la de CORREPI, la más exigente (Sección 16.1) | Trimestral, con informe anual conjunto | ~200/año | Año 3: ≤100 · Año 5: ≤60 · Año 8: ≤30 · Año 15: 0 sostenido |
-| Confianza en la policía | Encuesta continua estandarizada por zona (muestra rotativa mensual). Pregunta núcleo: "¿Confiás en la policía de tu barrio?" | Mensual (zonal), semestral (nacional) | ~25% | Año 5: 40% · Año 10: 55% · Año 15: >70% |
-| Tiempo de respuesta | Minutos entre llamado de emergencia y llegada de respuesta, medido automáticamente por el sistema de despacho — no autoreportado. Desagregado por zona | Tiempo real (publicación mensual) | <5 min zonas ricas / 15-40 min barrios populares | Brecha entre zonas <2x al Año 5; <8 min en todas las zonas al Año 10 |
-| EB operativas | EB con personal completo, body cams funcionando y PCS activo (las tres condiciones — una EB sin PCS no cuenta como operativa) | Mensual | 0 | Año 1: 500 · Año 3: 1.500 · Año 5: 2.500 · Año 10: 5.000 |
-| Evaluación comunitaria de EB | Promedio de evaluación trimestral de los PCS (escala 1-10) | Trimestral | — | Media nacional >7/10 sostenida desde el Año 5 |
-| Presos sin sentencia firme | % de población carcelaria sin condena. Fuente: SNEEP + verificación judicial | Trimestral | ~70% | Año 5: 50% · Año 10: 30% · Año 15: <20% |
-
-### 19.2 Disparadores Automáticos (Circuit-Breakers)
-
-Un tablero que solo informa es un termómetro. PLANSEG necesita un termostato: umbrales que disparan acciones automáticas, pre-acordadas, públicas. La gracia del disparador automático es que despolitiza la mala noticia — nadie tiene que admitir un fracaso para que se active la corrección, porque la corrección está escrita desde antes.
-
-**TABLA 28: Disparadores Automáticos del Tablero**
-
-| Condición (umbral) | Acción automática | Quién ejecuta |
+| Componente | Descripción | Frecuencia |
 |---|---|---|
-| Gatillo fácil no baja 50% al Año 3 (>100 muertes/año) | **Revisión integral del protocolo de reconversión y de la formación en uso de la fuerza.** Auditoría de las EB y unidades con incidentes. Informe público del Panel Ciudadano Nacional en 90 días con medidas correctivas vinculantes | ANSEG + Panel Ciudadano Nacional + auditores externos (CORREPI/CELS) |
-| Divergencia >15% entre serie oficial y serie CORREPI de gatillo fácil | Auditoría conjunta caso por caso. Hasta resolverla, el tablero publica la serie más alta como principal | ANSEG + CORREPI + Defensoría del Ciudadano ante las Fuerzas |
-| Homicidios suben dos trimestres consecutivos en una zona de transición narco | Protocolo AMARILLO automático en la zona + revisión de la fase PLANSUS local (Sección 5). Si sube un tercer trimestre: evaluación tripartita de pausa de cascada (ANSEG + ANSUS + Panel Ciudadano) | ANSEG + ANSUS |
-| Tiempo de respuesta de una zona >2x la media nacional por 6 meses | Refuerzo de personal y equipamiento prioritario a esa zona en el siguiente ciclo presupuestario — automático, sin gestión política | ANSEG (asignación presupuestaria reglada) |
-| Evaluación comunitaria media de una EB <5/10 por dos trimestres | Intervención de la EB: revisión de personal, plan de mejora con el PCS, re-evaluación a 90 días. Tercera evaluación negativa: reemplazo del equipo completo | ANSEG + PCS local |
-| Confianza en la policía cae >10 puntos en una zona en un año | Diagnóstico obligatorio con el PCS: ¿qué pasó acá? Informe público y plan de respuesta en 60 días | ANSEG + PCS |
-| % de EB no operativas >15% del total desplegado | Congelamiento de la expansión: no se inauguran EB nuevas hasta normalizar las existentes. Crecer sobre bases rotas es maquillaje | ANSEG (regla de despliegue) |
-| Presos sin sentencia no baja del 60% al Año 3 | Informe público de la Defensoría + revisión de la implementación procesal con el Consejo de la Magistratura. El cuello de botella judicial se nombra y se ataca, no se disimula | ANSEG + PLANJUS |
+| Sesión psicológica individual | Acceso gratuito, confidencial, sin impacto en la carrera. Psicólogos externos a la fuerza | Mínimo mensual. Voluntaria (pero incentivada) |
+| Grupo de pares | Grupos de 6-8 oficiales con un facilitador. Espacio para hablar de lo que el trabajo genera | Quincenal |
+| Detección temprana de burnout | Cuestionario estandarizado de bienestar (GHQ-12 + MBI). Aplicado digitalmente | Trimestral |
+| Protocolo post-incidente crítico | Después de cualquier evento traumático (uso de fuerza letal, muerte de compañero, agresión grave), el oficial tiene 72 horas de licencia obligatoria con acompañamiento psicológico | Por evento |
+| Actividad física y recreativa | Acceso a gimnasio, actividades deportivas, espacios de ocio | Permanente |
+| Línea de crisis 24/7 | Línea telefónica confidencial para oficiales en crisis. Atendida por profesionales especializados en trauma de fuerzas de seguridad | 24/7 |
 
-### 19.3 Gobernanza del Tablero
-
-El tablero es creíble solo si nadie con interés en los resultados puede tocarlo. Reglas:
-
-- **Los datos crudos son públicos** — API abierta, descarga libre, sin registro. El periodismo, la academia y la oposición acceden a lo mismo que el Directorio de ANSEG, al mismo tiempo
-- **La metodología es pública y estable.** Cualquier cambio de definición de una métrica requiere aprobación del Panel Ciudadano Nacional, se anuncia con 6 meses de anticipación, y obliga a publicar las dos series (vieja y nueva) en paralelo durante 2 años. Prohibido el truco más viejo de la estadística criminal argentina: mejorar el número cambiando la regla
-- **Los disparadores no se pueden desactivar por decisión administrativa.** Modificar un umbral de la TABLA 28 requiere el mismo proceso que modificar una métrica. Un gobierno que quiera apagar el termostato va a tener que hacerlo a la vista de todos
-
----
-
-## SECCIÓN 20: PROTOCOLO DE FALLA — QUÉ PASA SI ALGO SALE MAL
-
-> *"Un plan que no planifica su propia falla, falla dos veces: la primera cuando pasa, la segunda cuando lo agarra sin respuesta."*
-
-PLANSEG está diseñado para funcionar. Pero el diseño honesto incluye la pregunta incómoda: ¿y si no? Esta sección nombra los cuatro escenarios de falla más probables — no los más cómodos — y define para cada uno la señal de detección temprana, la respuesta inmediata, y el plan B. La diferencia entre una crisis y una catástrofe es tener el protocolo escrito antes.
-
-**TABLA 29: Escenarios de Falla — Detección, Respuesta, Plan B**
-
-| Escenario | Señal de detección | Respuesta inmediata | Plan B |
-|---|---|---|---|
-| **Falla de la transición narco en Rosario** — la violencia escala en vez de bajar | Homicidios vinculados a narco suben 2 trimestres consecutivos en zona de transición. Ataques a operadores de El Puente o a EB. Indicadores de diversificación criminal (extorsión, secuestro) >20%/trimestre | Protocolo ROJO zonal (Sección 4.2.2): intervención focalizada contra la organización específica, protección integral de cooperadores, mediación comunitaria de emergencia | **Pausa de la cascada PLANSUS en la zona** por decisión tripartita ANSEG + ANSUS + Panel Ciudadano. Re-secuenciación: consolidar seguridad territorial antes de avanzar de fase. La cascada espera a la seguridad — nunca al revés |
-| **Captura de ANSEG** — politización del Directorio, manipulación de datos, designaciones digitadas | Divergencia creciente oficial/CORREPI. Renuncias en serie de panelistas ciudadanos. Bloqueo de auditorías externas. Cambios metodológicos exprés en el tablero | El Panel Ciudadano Nacional tiene poder de veto y de denuncia pública. La Defensoría del Ciudadano investiga con autonomía. Los auditores externos (CORREPI/CELS) publican sin pedir permiso | Activación del mecanismo de remoción del Directorio por el Panel Ciudadano + re-sorteo. Si la captura persiste: la arquitectura descentralizada es el seguro — los PCS, las EB y los datos zonales siguen funcionando y denunciando desde abajo. Una agencia capturada con 5.000 paneles barriales mirándola es una captura con fecha de vencimiento |
-| **Provincia abandona el Convenio Federal post-despliegue** — cambio de gobierno provincial, retiro del modelo con EB ya operativas | Señales políticas previas (campaña contra el "modelo blando"). Desfinanciamiento provincial de contrapartes. Remoción de oficiales comunitarios formados | Negociación federal: las EB y su financiamiento son de ANSEG, no de la provincia — el retiro provincial no las cierra automáticamente. Continuidad del personal nacional y del tablero zonal | Modo enclave: las EB siguen operando con financiamiento y cadena de mando federal donde el convenio con municipios lo permita (los intendentes con EB exitosas tienen incentivos propios para sostenerlas). Los PCS y vecinos organizados son la presión de retorno: el costo político de cerrar una EB que funciona lo paga el gobernador, frente a su propia gente, barrio por barrio |
-| **Falla del modelo EB a escala** — funciona en 50 pilotos con recursos y atención, se degrada en 5.000 | Evaluación comunitaria media cae sostenidamente con la expansión. % de EB no operativas >15%. Brecha creciente entre EB piloto y EB de expansión. Rotación alta de oficiales | Disparador automático de la TABLA 28: congelamiento de la expansión. Diagnóstico: ¿qué tienen las que funcionan que no tienen las que no? (personal, formación, densidad de PCS, contexto) | Re-diseño antes que re-despliegue: ajustar el modelo (más personal por EB, formación más larga, despliegue más lento) y recién entonces descongelar. Si el modelo koban adaptado no escala en algún tipo de territorio, se admite y se diseña la variante territorial — el dogma es la prevención comunitaria, no la tipología edilicia. Lo que no se hace: seguir inaugurando cáscaras vacías para cumplir la meta numérica |
-
-### 20.1 La Falla Que Más Duele: Rosario
-
-Si PLANSEG va a fallar en algún lado, va a ser en Rosario — porque es donde el problema es más profundo, donde las bandas tienen más que perder, y donde cada bala tiene cámara de televisión. Por eso el escenario Rosario tiene tratamiento propio.
-
-La lección de Colombia (Sección 3.1) es exacta: el vacío territorial post-desmovilización lo llenó otro, y costó 1.300 líderes sociales asesinados. La versión rosarina del riesgo: PLANSUS le quita el mercado a las bandas de la zona sur, las bandas no cruzan El Puente, y en lugar de disolverse se reconvierten a extorsión generalizada — cobrándole "protección" al kiosco de Sergio ya no por vender, sino por existir. Si eso pasa, la percepción pública será inmediata y letal para el plan: *"legalizaron la droga y ahora es peor"*.
-
-El protocolo: la detección está en el tablero (extorsión como métrica zonal específica en Rosario, frecuencia mensual). La respuesta escala por VERDE/AMARILLO/ROJO con una particularidad — en Rosario el protocolo ROJO incluye desde el día uno la opción de pausa de cascada PLANSUS, sin esperar el tercer trimestre malo. Y el plan B es asumido de antemano: **es preferible atrasar la legalización dos años en una zona que perder la zona.** PLANSUS lo acepta en su propio diseño — los indicadores de seguridad son condición de avance de fase (Sección 10.1). La sincronización no es un eslogan: es este mecanismo, funcionando en la ciudad más difícil del país.
-
-### 20.2 El Principio General de Falla
-
-Las cuatro filas de la TABLA 29 comparten una lógica que es el verdadero protocolo:
-
-1. **La señal está definida antes** — nadie tiene que "darse cuenta" de la falla: el tablero la marca solo
-2. **La primera respuesta nunca es negar** — es el disparador automático, que actúa sin pedirle a ningún funcionario que admita un error
-3. **El plan B existe por escrito** — y siempre prefiere perder tiempo antes que perder territorio, credibilidad o vidas
-4. **Toda falla se publica** — porque un plan que esconde sus fallas le está enseñando a la ciudadanía a no creerle ni siquiera sus éxitos
-
-PLANSEG es la primera mejor alternativa basada en la evidencia disponible (Preámbulo). Si la evidencia nueva dice que algo no funciona, PLANSEG cambia. Esa no es la debilidad del plan. Es la diferencia entre un plan y una doctrina.
-
----
-
-## SECCIÓN 21: GLOSARIO
-
-Las siglas de PLANSEG, en un solo lugar — porque un plan que obliga a leer 1.500 líneas para entender una sigla de la línea 200 no está siendo transparente, está siendo críptico.
-
-| Sigla | Significado | Qué es | Dónde se desarrolla |
-|---|---|---|---|
-| **ANSEG** | Agencia Nacional de Seguridad Ciudadana | Ente autárquico que administra PLANSEG: sorteo democrático, presupuesto constitucional protegido, transparencia radical | Sección 8 |
-| **EB** | Estación Barrial | Unidad básica del modelo de policía comunitaria: microestación tipo koban, 15-20 manzanas, oficiales que viven en el barrio, evaluación vecinal | Sección 4.1.1 |
-| **PCS** | Panel Ciudadano de Seguridad | Grupo de 7-11 vecinos por sorteo que evalúa a los oficiales de su EB (40% de la calificación), gobierna las cámaras zonales y audita la RCAT | Sección 4.1.3 |
-| **RCAT** | Red Comunitaria de Alerta Temprana | Red vecinal de comunicación coordinada por la EB: se reporta, no se actúa por mano propia. Auditada por el PCS | Sección 4.4.2 |
-| **CRR** | Centro de Rehabilitación y Reinserción | Nueva tipología carcelaria (modelo Halden): unidades chicas de 200-400 plazas diseñadas para rehabilitar, no para almacenar | Sección 4.3.5 |
-| **CPTED** | Crime Prevention Through Environmental Design (Prevención del Delito mediante Diseño Ambiental) | Disciplina que reduce oportunidades de delito con diseño urbano: iluminación, vigilancia natural, recuperación de espacios | Sección 4.4.1 |
-| **PAC** | Protocolo de Acompañamiento Comunitario | Equipo interdisciplinario de 5-8 profesionales instalado en cada zona roja durante la transición narco (mínimo 3 años) | Sección 5.6 |
-| **PBOC** | Programa de Bienestar del Oficial Comunitario | Programa de salud mental de las fuerzas: psicólogo individual, grupos de pares, protocolo post-incidente, línea de crisis 24/7 | Sección 6.5 |
-| **JCVD** | Junta Civil de Vigilancia Digital | Cuerpo de 15 ciudadanos por sorteo + 5 expertos que audita todo uso de IA y tecnología de vigilancia, con poder de suspensión | Sección 7.3 |
-| **VERDE / AMARILLO / ROJO** | Protocolo de alerta escalonada | Sistema de niveles de la transición narco: operación normal / tensión elevada / crisis (con opción de pausa de la cascada PLANSUS) | Sección 4.2.2 |
-| **El Puente** | Programa de amnistía y transición de PLANSUS | Vía de salida del mercado negro para operadores: amnistía Tier 1, transición Tier 2, cooperación Tier 3. PLANSEG aporta su componente de seguridad | Sección 4.2.4 |
-| **Tier 1 / 2 / 3** | Niveles de operadores del mercado negro | Calle (soldaditos, dealers de esquina) / distribución / alto nivel. Cada tier tiene su protocolo de amnistía y de protección | Sección 4.2.4 |
-| **JUS** | Sistema de Justicia Popular de PLANJUS | Resolución de conflictos menores en 15/45/90 días sin sistema penal. Descarga procesal que hace viable la reforma carcelaria | Sección 10.2 |
-| **SOC** | Centro de Operaciones de Ciberseguridad | Centro nacional (infraestructura PLANDIG) que coordina respuesta a incidentes y capacidad forense digital | Sección 7.5 |
-| **SNEEP / SNIC** | Sistemas nacionales de estadística (ejecución de la pena / criminal) | Fuentes estadísticas oficiales existentes, integradas y verificadas en el Tablero Nacional | Secciones 1.3 y 19.1 |
-| **Tablero Nacional de Seguridad** | Plataforma pública de datos de PLANSEG | Publica en tiempo real delito, desempeño, cárceles, transición narco y confianza — con métricas, frecuencias y disparadores automáticos | Secciones 8.4 y 19 |
+El PBOC no es un beneficio adicional. Es una condición operativa. Un oficial que no está bien no puede cuidar a otros. La inversión en salud mental de las fuerzas es inversión en seguridad ciudadana.
 
 ---
 
@@ -1736,7 +1451,7 @@ La seguridad no es un privilegio. No es algo que se compra con una alarma y un g
 
 La Argentina gasta miles de millones en un sistema de seguridad que no protege a la gente. Que entrena policías para reprimir en vez de prevenir. Que llena cárceles de personas que no tendrían que estar ahí. Que persigue una guerra contra las drogas que perdió hace décadas mientras los narcos controlan barrios enteros. Que dispara contra los pibes pobres y protege a los poderosos. Que mide su éxito por la cantidad de presos y no por la cantidad de personas que viven tranquilas.
 
-PLANSEG no es una utopía. Es un plan. Con números, con cronogramas, con presupuestos, con métricas verificables. Con precedentes internacionales que funcionan. Con integración milimétrica con los otros 21 PLANes del ecosistema ¡BASTA!. Con la cascada de legalización de PLANSUS como eje temporal. Con la infraestructura de reconversión de PLANREP como soporte. Con la justicia restaurativa de PLANJUS como complemento. Con las ciudades de PLAN24CN como laboratorio de diseño seguro. Con la soberanía digital de PLANDIG como infraestructura tecnológica. Con la gobernanza de ANSEG como escudo contra la captura política.
+PLANSEG no es una utopía. Es un plan. Con números, con cronogramas, con presupuestos, con métricas verificables. Con precedentes internacionales que funcionan. Con integración milimétrica con los otros quince mandatos del ecosistema ¡BASTA!. Con la cascada de legalización de PLANSUS como eje temporal. Con la infraestructura de reconversión de PLANREP como soporte. Con la justicia restaurativa de PLANJUS como complemento. Con las ciudades de PLAN24CN como laboratorio de diseño seguro. Con la soberanía digital de PLANDIG como infraestructura tecnológica. Con la gobernanza de ANSEG como escudo contra la captura política.
 
 Y con una convicción: que Graciela Ríos, Daniel Pereyra, y Yamila Cardozo merecen algo mejor. Que un pibe de 17 años no debería tener una bala incrustada en la pared de su cuarto. Que un policía no debería tener que elegir entre su conciencia y su supervivencia. Que una piba de 19 años no debería tener que aceptar el riesgo de ser violentada para poder ir a trabajar.
 
@@ -1750,7 +1465,7 @@ Hay una imagen que resume todo lo que PLANSEG busca. Es una imagen sencilla. Es 
 
 Nada más. Un pibe en una vereda.
 
-Pero para que esa imagen sea posible en Tablada, en Fiorito, en Empalme Graneros, en González Catán, en cada barrio de la Argentina donde hoy sentarse en la vereda a las nueve de la noche puede costarte la vida — para que esa imagen sea posible, hace falta todo esto. Hacen falta 5.000 Estaciones Barriales y 50.000 oficiales comunitarios. Hace falta una reforma carcelaria que deje de fabricar reincidentes. Hace falta un protocolo de transición narco sincronizado al milímetro con PLANSUS. Hace falta reconvertir 60.000 efectivos de enforcement. Hace falta vigilancia con derechos, body cams, paneles ciudadanos, un tablero que publica todo. Hace falta ANSEG, hace falta PLANJUS, hace falta PLANREP, hacen falta los 22 PLANes de ¡BASTA! funcionando juntos.
+Pero para que esa imagen sea posible en Tablada, en Fiorito, en Empalme Graneros, en González Catán, en cada barrio de la Argentina donde hoy sentarse en la vereda a las nueve de la noche puede costarte la vida — para que esa imagen sea posible, hace falta todo esto. Hacen falta 5.000 Estaciones Barriales y 50.000 oficiales comunitarios. Hace falta una reforma carcelaria que deje de fabricar reincidentes. Hace falta un protocolo de transición narco sincronizado al milímetro con PLANSUS. Hace falta reconvertir 60.000 efectivos de enforcement. Hace falta vigilancia con derechos, body cams, paneles ciudadanos, un tablero que publica todo. Hace falta ANSEG, hace falta PLANJUS, hace falta PLANREP, hacen falta los dieciséis mandatos de ¡BASTA! funcionando juntos.
 
 Todo eso — los miles de millones de dólares, los años de trabajo, las leyes, las instituciones, las formaciones, los protocolos — todo eso es para que un pibe pueda sentarse en la vereda de su casa sin que nadie le dispare.
 
@@ -1764,7 +1479,7 @@ Si eso no vale la pena, nada vale la pena.
 **Decimocuarto Mandato del Proyecto ¡BASTA!**
 **Versión 1.0 — Marzo 2026**
 
-*Este plan fue preparado como parte del proyecto ¡BASTA! — un ecosistema de 22 PLANes (al 23 de abril de 2026) que propone una arquitectura integral de transformación nacional para la República Argentina. PLANSEG es inseparable del ecosistema: su diseño, su cronograma, su presupuesto, y sus metas están entrelazados con los otros 21 PLANes. Implementar PLANSEG sin PLANSUS es como poner un motor sin combustible. Implementar PLANSUS sin PLANSEG es como poner combustible sin frenos.*
+*Este plan fue preparado como parte del proyecto ¡BASTA! — un ecosistema de dieciséis mandatos que propone una arquitectura integral de transformación nacional para la República Argentina. PLANSEG es inseparable del ecosistema: su diseño, su cronograma, su presupuesto, y sus metas están entrelazados con los otros quince mandatos. Implementar PLANSEG sin PLANSUS es como poner un motor sin combustible. Implementar PLANSUS sin PLANSEG es como poner combustible sin frenos.*
 
 *El pueblo gobierna. El gobierno ejecuta. Y la seguridad es de todos — o no es de nadie.*
 
@@ -1788,3 +1503,39 @@ Si eso no vale la pena, nada vale la pena.
 15. Preguntas Anticipadas
 16. Visión 2040
 17. Salud Mental de las Fuerzas — El Cuidado del Cuidador
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-2
+- **Misión matrix:** Ámbar
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Estabilización + mando + integridad + presencia comunitaria sin militarización.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANSEG`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANSEG`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, una auditoría externa va a publicar trimestralmente cuántos casos de captura policial tuvieron sanción."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANSEG`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANRUTA, PLANDIG, PLANJUS (piloto).
+- Provee a: PLANJUS, PLANSUS, PLANTER, PLANMOV, PLANCUIDADO.
+
+### 7. Privacy Impact Assessment
+Ver `PIA/PLANSEG.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA aprobado.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

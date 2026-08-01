@@ -1,3 +1,52 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-1 (misión matrix: Verde).
+>
+> **Alcance entregable:** 50–300 pilotos de suelo medidos con INTA.
+>
+> **Presupuesto canónico:** 50M/año + 150M inv 24m (línea PLANISV del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** F02 parcial, INTA convenio.
+>
+> **Instrumento legal:** LMV-07 (Convenios INTA-pilotos suelo).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Cap 50–300 pilotos. Rollout nacional pre-cierre tranche-1 → eliminado. Agencia de suelo → execution cell INTA + MinAgro. Captura agroempresaria: declaración obligatoria de conflicto + rotación. Falsificación: triplicación medición. No subsidio sin medición.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANISV. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANISV. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANISV.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANISV.md` si existe.
+>
+> **MARCO TEMPORAL CANÓNICO (REVISIÓN 2026-04-28):** este PLAN es **tranche-1** con entrada operativa en 2026-Q2. Todas las referencias "Año X" en el cuerpo del documento (cronogramas, tablas de inversión, metas de cobertura, planes de escalamiento, financial gap, fases) se anchorean según esta tabla:
+>
+> | Texto original | Ventana absoluta | Tranche |
+> |----------------|------------------|---------|
+> | Año 0 | 2026 | tranche-1 inicial |
+> | Año 1 | 2027 | tranche-1 |
+> | Año 2 | 2028 | tranche-1 → tranche-2 |
+> | Año 3 | 2029 | tranche-2 |
+> | Año 4 | 2030 | tranche-2 |
+> | Año 5 | 2031 | tranche-2 cierre |
+> | Año 7 | 2033 | tranche-3 |
+> | Año 10 | 2036 | tranche-3 maduración |
+> | Año 15+ | 2041+ | Horizonte 2040 (Visión, no compromiso operativo) |
+>
+> **Reglas de tranche aplicadas:** "Cap 50–300 pilotos en tranche-1; rollout nacional pre-cierre tranche eliminado; Agencia de suelo → execution cell INTA + MinAgro; sin subsidio sin medición"
+>
+> **Presupuesto canónico:** 1.0% PBI / cap 50-300 pilotos — fuentes: F02 (BID parcial), INTA. **Future returns prohibidos como fuente activa de tranche-1.**
+>
+> **Instrumento legal:** LMV-07. Reformas constitucionales **diferidas a horizonte 2040** por defecto.
+
+---
+
 ```
 LA DEUDA CON EL SUELO
 ES LA DEUDA REAL
@@ -30,9 +79,9 @@ La Argentina es una de las naciones productoras de alimentos más importantes de
 
 Pero este documento no es una elegía. Es un plan de guerra.
 
-PLANISV forma parte de lo que llamamos el **proyecto ¡BASTA!** y sus 22 PLANes (al 23 de abril de 2026) — un ecosistema de iniciativas estratégicas interconectadas que abordan, en conjunto, las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular que protege a las otras cuatro). Cinco documentos fundacionales. Un solo diagnóstico: la Argentina tiene todos los recursos para ser un país extraordinario y un sistema diseñado para impedirlo. ¡BASTA!
+PLANISV forma parte de lo que llamamos el **proyecto ¡BASTA!** — dieciséis mandatos estratégicos interconectados que abordan, en conjunto, las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (ciudades nuevas), PLANREP (reconversión del empleo público), PLANISV (infraestructura biológica del suelo), PLANEDU (refundación educativa), PLANJUS (justicia popular), PLANSUS (soberanía sobre sustancias), PLANEB (empresas al costo real), PLANSAL (salud integral y vitalidad), PLANAGUA (soberanía hídrica), PLANDIG (soberanía digital), PLANGEO (posicionamiento geopolítico), PLANMON (soberanía monetaria), PLANEN (soberanía energética), PLANSEG (seguridad ciudadana), PLANVIV (vivienda digna) y PLANCUL (cultura viva). Dieciséis mandatos. Un solo diagnóstico: la Argentina tiene todos los recursos para ser un país extraordinario y un sistema diseñado para impedirlo. ¡BASTA!.
 
-Hay una filosofía que atraviesa el proyecto ¡BASTA! y sus 22 PLANes. La llamamos *El Instante del Hombre Gris*. La premisa es simple y brutal: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, reducidas a engranajes, a consumidores, a ejecutores de rutinas que no eligieron. El Hombre Gris es el que despierta — el que decide pulir su carácter, encender su espíritu, dejar de aceptar el letargo. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes del sol. El suelo argentino necesita su propio instante. Fue forzado a producir bajo un modelo que lo vacía, lo envenena y lo ignora — un suelo apagado, dormido, tratado como insumo descartable. Su microbiología — esa fuerza laboral invisible de miles de millones de organismos por gramo — fue tratada como prescindible, reemplazable por química sintética. No lo es. Nunca lo fue. Y la Argentina está pagando el precio.
+Hay una filosofía que atraviesa los dieciséis mandatos. La llamamos *El Instante del Hombre Gris*. La premisa es simple y brutal: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, reducidas a engranajes, a consumidores, a ejecutores de rutinas que no eligieron. El Hombre Gris es el que despierta — el que decide pulir su carácter, encender su espíritu, dejar de aceptar el letargo. Gris como la plata antes de brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes del sol. El suelo argentino necesita su propio instante. Fue forzado a producir bajo un modelo que lo vacía, lo envenena y lo ignora — un suelo apagado, dormido, tratado como insumo descartable. Su microbiología — esa fuerza laboral invisible de miles de millones de organismos por gramo — fue tratada como prescindible, reemplazable por química sintética. No lo es. Nunca lo fue. Y la Argentina está pagando el precio.
 
 El instante del Hombre Gris es el momento en que algo se enciende y la persona decide despertar. Decide crear en vez de consumir. Decide sanar en vez de seguir roto. Se convierte en Hombre Gris — alguien que pule su carácter, que elige brillar. Para la Argentina agropecuaria, ese instante es ahora. No porque seamos idealistas, sino porque la aritmética no miente: el costo de seguir como estamos supera, por órdenes de magnitud, el costo de cambiar.
 
@@ -328,7 +377,7 @@ El enfoque de especificación técnica (vs. especificación de marca) crea una p
 4. Crear incentivos arancelarios para acuerdos de transferencia tecnológica con compromisos de manufactura nacional.
 5. Integrar proveedores PyME del interior en la cadena de suministro (metalúrgicas, plásticos, electrónica), generando empleo industrial en las mismas regiones donde se despliega PLANISV.
 
-**Objetivo:** 70%+ del equipamiento del programa fabricado en Argentina para el Año 5, creando un nuevo sector industrial agro-tecnológico con potencial exportador a otros países de la región.
+**Objetivo:** 70%+ del equipamiento del programa fabricado en Argentina para el 2031 (tranche-2), creando un nuevo sector industrial agro-tecnológico con potencial exportador a otros países de la región.
 
 ### 4.5 Innovación Digital y Agricultura de Precisión
 
@@ -444,10 +493,10 @@ La experiencia global en programas de transformación agropecuaria demuestra que
 
 | Nivel | Nombre | Audiencia Objetivo | Paquete Tecnológico | Escala y Cronograma |
 |---|---|---|---|---|
-| **1** | **Demostrar** | Estaciones Experimentales INTA, facultades de agronomía, campos de demostración CREA | Sistema completo Biología + Agua (escala media) + instrumentación MRV completa + monitoreo climático + sensores IoT | 50 sitios en Año 1, en 6 agro-regiones. Propósito: datos de prueba irrefutables y localmente adaptados. |
-| **2** | **Regionalizar** | Unidades de Extensión INTA, cooperativas, Grupos CREA, agencias provinciales, comunidades indígenas | Elaboración biológica escalada (500-2.000L) + optimización del agua integrada + protocolo MRV + app móvil | 300 centros para Año 3 en zonas prioritarias. |
-| **3** | **Comercializar** | Campos a gran escala, pools de siembra, estancias, agroindustrias, bodegas, exportadores | Sistemas a escala comercial (2.000-10.000L+ elaboración; agua de alto caudal) + monitoreo automatizado + infraestructura de carbono + trazabilidad blockchain | 1.000+ operaciones para Año 5. Autofinanciado vía pagos por resultados + carbono + primas. |
-| **4** | **Democratizar** | Agricultura familiar, huertas comunitarias, huertas urbanas, escuelas, comunidades indígenas, cooperativas | Elaboradores compactos (100-300L) + agua a pequeña escala + kits de sustratos orgánicos + monitoreo simplificado + app móvil | 5.000+ sitios para Año 5. Financiado vía programas sociales, cooperativas, financiamiento internacional. |
+| **1** | **Demostrar** | Estaciones Experimentales INTA, facultades de agronomía, campos de demostración CREA | Sistema completo Biología + Agua (escala media) + instrumentación MRV completa + monitoreo climático + sensores IoT | 50 sitios en 2027 (tranche-1), en 6 agro-regiones. Propósito: datos de prueba irrefutables y localmente adaptados. |
+| **2** | **Regionalizar** | Unidades de Extensión INTA, cooperativas, Grupos CREA, agencias provinciales, comunidades indígenas | Elaboración biológica escalada (500-2.000L) + optimización del agua integrada + protocolo MRV + app móvil | 300 centros para 2029 (tranche-2 entrada) en zonas prioritarias. |
+| **3** | **Comercializar** | Campos a gran escala, pools de siembra, estancias, agroindustrias, bodegas, exportadores | Sistemas a escala comercial (2.000-10.000L+ elaboración; agua de alto caudal) + monitoreo automatizado + infraestructura de carbono + trazabilidad blockchain | 1.000+ operaciones para 2031 (tranche-2). Autofinanciado vía pagos por resultados + carbono + primas. |
+| **4** | **Democratizar** | Agricultura familiar, huertas comunitarias, huertas urbanas, escuelas, comunidades indígenas, cooperativas | Elaboradores compactos (100-300L) + agua a pequeña escala + kits de sustratos orgánicos + monitoreo simplificado + app móvil | 5.000+ sitios para 2031 (tranche-2). Financiado vía programas sociales, cooperativas, financiamiento internacional. |
 
 ---
 
@@ -507,12 +556,12 @@ La Pampa Húmeda — la joya agrícola de la Argentina — necesita un modelo de
 
 | Año | Uso | Resultado Esperado |
 |---|---|---|
-| Año 1 | Soja sobre cultivo de cobertura pastoreado (vicia + avena + centeno) | Reducción de insumos; cobertura todo el año; ingreso ganadero adicional |
-| Año 2 | Maíz con cultivo de cobertura posterior (raigrás + trébol) | Raíz profunda de maíz; cobertura invernal; pastoreo de otoño-invierno |
-| Año 3 | Trigo + pastura consociada (festuca + lotus + trébol blanco) | Pastura establecida bajo el trigo; grano + inicio de ciclo ganadero |
-| Año 4 | Pastura en producción ganadera (pastoreo holístico planificado) | Máxima restauración biológica; producción de carne/leche; secuestro de carbono |
-| Año 5 | Pastura en producción ganadera (segundo año) | Consolidación de materia orgánica; profundización de raíces; biodiversidad máxima |
-| Año 6 | Retorno a soja sobre pastura vieja | El cultivo se beneficia de 2 años de restauración biológica intensa; rendimientos superiores con mínimos insumos |
+| 2027 (tranche-1) | Soja sobre cultivo de cobertura pastoreado (vicia + avena + centeno) | Reducción de insumos; cobertura todo el año; ingreso ganadero adicional |
+| 2028 (tranche-1) | Maíz con cultivo de cobertura posterior (raigrás + trébol) | Raíz profunda de maíz; cobertura invernal; pastoreo de otoño-invierno |
+| 2029 (tranche-2 entrada) | Trigo + pastura consociada (festuca + lotus + trébol blanco) | Pastura establecida bajo el trigo; grano + inicio de ciclo ganadero |
+| 2030 (tranche-2) | Pastura en producción ganadera (pastoreo holístico planificado) | Máxima restauración biológica; producción de carne/leche; secuestro de carbono |
+| 2031 (tranche-2) | Pastura en producción ganadera (segundo año) | Consolidación de materia orgánica; profundización de raíces; biodiversidad máxima |
+| 2032 (tranche-3 entrada) | Retorno a soja sobre pastura vieja | El cultivo se beneficia de 2 años de restauración biológica intensa; rendimientos superiores con mínimos insumos |
 
 Este modelo de rotación 3-2-1 (3 años de agricultura, 2 de ganadería sobre pastura, 1 de transición) es una adaptación del sistema que funcionó en la Pampa durante décadas antes de la sojización, actualizado con las herramientas de PLANISV (inoculación biológica, agua optimizada, sensores, pagos por resultados).
 
@@ -782,7 +831,7 @@ PLANISV está diseñado para apalancar mecanismos de financiamiento existentes y
 | Fuente de Financiamiento | Aplicación a PLANISV | Potencial Estimado |
 |---|---|---|
 | **Reestructuración de retenciones** | Redirigir una fracción de los derechos de exportación agropecuarios del ingreso general a inversión en infraestructura de suelo. Una afectación del 1% sobre las retenciones de soja sola generaría USD 300–500 millones/año a volúmenes actuales de exportación. El argumento es irrefutable: el derecho de exportación debe mantener el activo que genera las exportaciones. La retención que no se reinvierte en el suelo es un impuesto a la liquidación. | USD 300–500M+ anuales (con afectación del 1%) |
-| **Fondo Nacional de Suelo Vivo (nuevo fondo)** | Fondo dedicado para PLANISV, capitalizado mediante afectación de retenciones, financiamiento climático internacional e ingresos por carbono. Administrado por un directorio tripartito (SAGyP, INTA, representantes de productores) con gobernanza transparente y auditoría pública. El modelo replica la estructura del Fondo de Garantía de Sustentabilidad (FGS), pero con destino productivo y resultados verificables. | Objetivo: USD 500M–1.000M+ para el Año 3 |
+| **Fondo Nacional de Suelo Vivo (nuevo fondo)** | Fondo dedicado para PLANISV, capitalizado mediante afectación de retenciones, financiamiento climático internacional e ingresos por carbono. Administrado por un directorio tripartito (SAGyP, INTA, representantes de productores) con gobernanza transparente y auditoría pública. El modelo replica la estructura del Fondo de Garantía de Sustentabilidad (FGS), pero con destino productivo y resultados verificables. | Objetivo: USD 500M–1.000M+ para el 2029 (tranche-2 entrada) |
 | **Líneas de crédito Banco Nación** | Líneas de crédito subsidiadas para adquisición de tecnología Nivel 2–3. Garantizadas por el equipamiento y los pagos por resultados proyectados. El Banco Nación ya tiene experiencia en líneas agropecuarias — esta es una extensión natural con mejor perfil de riesgo, dado que los pagos por resultados de PLANISV proveen un flujo predecible de repago. | Infraestructura existente; expansión de líneas crediticias vigentes |
 | **Programas agropecuarios provinciales** | Los Ministerios provinciales de Producción cofinancian despliegues Nivel 1–2 en sus jurisdicciones. Modelo de cofinanciamiento: 60% nacional, 40% provincial. Las provincias con mayor dependencia de la actividad agropecuaria (Buenos Aires, Santa Fe, Córdoba, Entre Ríos) tienen el mayor incentivo — y la mayor urgencia — para participar. | Variable por provincia; fondos contrapartida provinciales |
 | **Reasignación presupuestaria de INTA** | Designar PLANISV como programa estratégico prioritario dentro del presupuesto existente de INTA. Apalancar las 52 Estaciones Experimentales y las 350+ Unidades de Extensión como columna vertebral de despliegue. No se requiere nueva apropiación presupuestaria para la Fase 1 — se requiere decisión de priorización institucional. | Reasignación institucional; sin nueva apropiación requerida para Fase 1 |
@@ -848,17 +897,17 @@ La estructura de PPR de PLANISV está diseñada como una escalera de valor: cada
 
 Para hacer tangible la transformación económica, consideremos una operación típica de rotación soja-maíz-trigo en zona núcleo pampeana:
 
-- **Año 1 — Pago Base:** USD 10.000–25.000. El productor instala tecnología, envía datos de línea base. Inversión mínima de tiempo y riesgo; el sistema empieza a trabajar.
+- **2027 (tranche-1) — Pago Base:** USD 10.000–25.000. El productor instala tecnología, envía datos de línea base. Inversión mínima de tiempo y riesgo; el sistema empieza a trabajar.
 
-- **Año 2–3 — Pago de Rendimiento:** USD 25.000–50.000/año adicionales. La biología del suelo responde — la materia orgánica sube, la biomasa microbiana se duplica. El productor ve los primeros ahorros en insumos químicos.
+- **2028 (tranche-1)–3 — Pago de Rendimiento:** USD 25.000–50.000/año adicionales. La biología del suelo responde — la materia orgánica sube, la biomasa microbiana se duplica. El productor ve los primeros ahorros en insumos químicos.
 
-- **Año 3+ — Pago de Impacto:** USD 50.000–100.000/año adicionales. El suelo secuestra carbono medible, los insumos químicos bajan un 25%+. El campo empieza a funcionar como sistema biológico, no como paciente en terapia intensiva química.
+- **2029+ (tranche-2 entrada) — Pago de Impacto:** USD 50.000–100.000/año adicionales. El suelo secuestra carbono medible, los insumos químicos bajan un 25%+. El campo empieza a funcionar como sistema biológico, no como paciente en terapia intensiva química.
 
 - **Bono de Carbono:** 1.000 ha × 1,0 t CO₂e/ha × USD 35/t = **USD 35.000/año** en ingresos por créditos de carbono.
 
 - **Prima de Exportación:** Prima de soja regenerativa verificada sobre 500 t = **USD 15.000–30.000/año** en ingresos adicionales.
 
-**Potencial total en Año 3+ de aumento de ingresos anuales: USD 135.000–240.000** — más reducción de costos de insumos de USD 20.000–40.000/año por reducción química, más mejoras de rendimiento del 20–40% por suelo biológicamente activo.
+**Potencial total en 2029+ (tranche-2 entrada) de aumento de ingresos anuales: USD 135.000–240.000** — más reducción de costos de insumos de USD 20.000–40.000/año por reducción química, más mejoras de rendimiento del 20–40% por suelo biológicamente activo.
 
 La transformación económica neta: de la cinta sin fin de commodities — donde el productor gasta más cada año para obtener lo mismo — a flujos de ingresos diversificados y premium donde cada campaña mejora el activo en vez de degradarlo.
 
@@ -1160,7 +1209,7 @@ El TNSS no es una planilla de cálculo — es una plataforma de datos de infraes
 - **Ingesta de datos:** APIs REST/GraphQL para carga de datos desde dispositivos de campo, laboratorios y sistemas satelitales. Soporte para carga manual (formularios web), carga automatizada (sensores IoT) y carga por lotes (laboratorios).
 - **Almacenamiento:** Data lake para datos crudos (sensor, imágenes) + base de datos relacional para datos procesados y métricas + base de datos espacial (PostGIS) para datos georreferenciados.
 - **Procesamiento:** Pipeline de procesamiento de datos con validación automática, detección de anomalías y cálculo de índices. Modelos de machine learning para predicción de tendencias y detección temprana de degradación.
-- **Visualización:** Dashboard web responsive con mapas interactivos, gráficos temporales y drill-down desde nivel nacional hasta nivel de lote. Exportación de reportes en formatos estándar.
+- **Visualización:** Tablero web responsive con mapas interactivos, gráficos temporales y drill-down desde nivel nacional hasta nivel de lote. Exportación de reportes en formatos estándar.
 - **APIs abiertas:** APIs públicas documentadas para acceso programático a datos agregados (nivel municipal, departamental, provincial, regional, nacional). Datos a nivel de lote accesibles solo para el productor y verificadores autorizados.
 
 **Interoperabilidad:**
@@ -1229,11 +1278,11 @@ El resultado es un gemelo digital del suelo argentino — una representación vi
 
 La Argentina tiene 39 millones de hectáreas bajo cultivo y un programa que aspira a restaurar la biología de la mayor parte de ellas. Tiene sensores satelitales, inoculantes microbianos, sistemas de optimización hídrica, tableros de datos en tiempo real, y un mercado de carbono que puede generar miles de millones de dólares. Lo que todavía no tiene — y sin lo cual todo lo demás es chatarra sofisticada — es la gente capacitada para hacer funcionar todo esto en el campo.
 
-No alcanza con 300 extensionistas de INTA. No alcanza con técnicos que sepan operar un equipo. Se necesita una nueva fuerza laboral: personas que entiendan biología del suelo, que manejen tecnología de precisión, que sepan leer un dashboard y traducirlo en decisiones agronómicas, que puedan dialogar con un productor de 500 hectáreas en Pergamino y con una familia horticultora de 5 hectáreas en Santiago del Estero. Y esa fuerza laboral tiene que incluir — de manera deliberada, estructural y no decorativa — a las mujeres que producen la mitad de los alimentos del país sin que nadie las nombre.
+No alcanza con 300 extensionistas de INTA. No alcanza con técnicos que sepan operar un equipo. Se necesita una nueva fuerza laboral: personas que entiendan biología del suelo, que manejen tecnología de precisión, que sepan leer un tablero y traducirlo en decisiones agronómicas, que puedan dialogar con un productor de 500 hectáreas en Pergamino y con una familia horticultora de 5 hectáreas en Santiago del Estero. Y esa fuerza laboral tiene que incluir — de manera deliberada, estructural y no decorativa — a las mujeres que producen la mitad de los alimentos del país sin que nadie las nombre.
 
 ### 15.1 Los 300 Extensionistas y Más Allá
 
-Los 300 extensionistas mencionados en la Sección 11 (ver Fase 1) son la avanzada, no el ejército. Son los primeros en ser capacitados en las 50 Estaciones Experimentales de INTA durante el Año 1, los que van a operar los sitios de demostración Nivel 1, los que van a generar los datos iniciales del Tablero Nacional de Salud del Suelo. Pero 300 personas no restauran 39 millones de hectáreas. Necesitamos miles.
+Los 300 extensionistas mencionados en la Sección 11 (ver Fase 1) son la avanzada, no el ejército. Son los primeros en ser capacitados en las 50 Estaciones Experimentales de INTA durante el 2027 (tranche-1), los que van a operar los sitios de demostración Nivel 1, los que van a generar los datos iniciales del Tablero Nacional de Salud del Suelo. Pero 300 personas no restauran 39 millones de hectáreas. Necesitamos miles.
 
 ¿De dónde salen? De cuatro fuentes convergentes:
 
@@ -1269,7 +1318,7 @@ PLANISV crea esa profesión. El Técnico de Suelo Vivo es alguien que:
 
 - **Monitorea:** Instala y opera los sistemas de monitoreo continuo (sensores de humedad, temperatura del suelo, actividad biológica), carga los datos al Tablero Nacional, y hace el seguimiento de la evolución del campo a lo largo del tiempo.
 
-- **Comunica:** Traduce la ciencia en lenguaje que el productor entiende. Muestra resultados. Comparte los datos del dashboard. Acompaña la transición del paradigma químico al biológico con paciencia, evidencia y empatía.
+- **Comunica:** Traduce la ciencia en lenguaje que el productor entiende. Muestra resultados. Comparte los datos del tablero. Acompaña la transición del paradigma químico al biológico con paciencia, evidencia y empatía.
 
 **Carrera profesional:**
 
@@ -1307,7 +1356,7 @@ PLANISV no puede repetir ese error. No por corrección política — porque es e
 
 **TABLA 20: Metas de Participación de Género y Mecanismos**
 
-| Dimensión | Meta Año 3 | Meta Año 6 | Meta Año 15 | Mecanismo |
+| Dimensión | Meta 2029 (tranche-2 entrada) | Meta 2032 (tranche-3 entrada) | Meta 2041 (Visión 2040+) | Mecanismo |
 |---|---|---|---|---|
 | Mujeres entre extensionistas PLANISV | 30% | 40% | 50% | Cuota mínima en convocatorias + becas específicas |
 | Mujeres beneficiarias de PPR | 25% | 35% | 45% | PPR accesibles sin título de propiedad para mujeres que demuestren trabajo en la tierra |
@@ -1320,7 +1369,7 @@ PLANISV no puede repetir ese error. No por corrección política — porque es e
 
 **TABLA 21: Plan de Desarrollo de la Fuerza Laboral por Fase**
 
-| Componente | Fase 1 (Año 1) | Fase 2 (Año 2-3) | Fase 3 (Año 3-6) | Fase 4 (Año 6-15) |
+| Componente | Fase 1 (2027 (tranche-1)) | Fase 2 (2028-2029 (tranche-2 entrada)) | Fase 3 (2029-2032 (tranche-3 entrada)) | Fase 4 (2032-2041 (Visión 2040+)) |
 |---|---|---|---|---|
 | Extensionistas INTA capacitados | 300 | 800 | 1.500 | 2.500 |
 | Técnicos de Suelo Vivo Nivel 1 | 100 | 500 | 2.000 | 8.000 |
@@ -1355,7 +1404,7 @@ PLANISV Urbano no es un programa paralelo — es la extensión del Nivel 4 (Demo
 
 La Argentina tiene una tradición de huertas urbanas que se remonta a la crisis de 2001, cuando el programa ProHuerta de INTA llegó a distribuir 5 millones de kits de semillas a familias urbanas. Esa red existe. Está degradada, subfinanciada, pero existe. PLANISV la reactiva y la integra.
 
-**Huertas comunitarias:** En terrenos baldíos municipales, en predios de organizaciones sociales, en espacios cedidos por instituciones. Cada huerta es un sitio de demostración Nivel 4 donde vecinos aprenden a compostar, a cultivar sin agroquímicos, a entender la biología del suelo a escala pequeña. Meta: 5.000 huertas comunitarias activas para el Año 6, 15.000 para el Año 15.
+**Huertas comunitarias:** En terrenos baldíos municipales, en predios de organizaciones sociales, en espacios cedidos por instituciones. Cada huerta es un sitio de demostración Nivel 4 donde vecinos aprenden a compostar, a cultivar sin agroquímicos, a entender la biología del suelo a escala pequeña. Meta: 5.000 huertas comunitarias activas para el 2032 (tranche-3 entrada), 15.000 para el 2041 (Visión 2040+).
 
 **Huertas escolares:** Cada escuela primaria y secundaria del país debería tener un metro cuadrado de suelo vivo. No como hobby de la maestra de biología — como parte del currículum. Los chicos que ven germinar una semilla, que tocan la tierra, que observan un lombriz, entienden más sobre biología del suelo en una hora que en diez clases teóricas. PLANISV financia kits de huerta escolar y capacita docentes a través de los Centros de Excelencia (ver Sección 9).
 
@@ -1373,7 +1422,7 @@ PLANISV aborda esto con un programa específico: **Cinturón Vivo**.
 
 **Cinturón Vivo** incluye: diagnóstico de contaminación de suelos periurbanos (heavy metals, residuos de agroquímicos), protocolos de biorremediación, transición a producción agroecológica con asistencia técnica y financiamiento, creación de zonas buffer biológicas entre áreas residenciales y productivas, y monitoreo continuo con datos públicos. Articulación directa con la regulación de agroquímicos (ver Sección 18.7).
 
-Meta: 100% de los cinturones hortícolas de las 20 ciudades más grandes del país con diagnóstico de suelo y plan de restauración para el Año 6.
+Meta: 100% de los cinturones hortícolas de las 20 ciudades más grandes del país con diagnóstico de suelo y plan de restauración para el 2032 (tranche-3 entrada).
 
 ### 16.4 Compostaje Urbano — De Basura a Suelo
 
@@ -1381,7 +1430,7 @@ La Argentina genera aproximadamente 50.000 toneladas de residuos sólidos urbano
 
 PLANISV integra el compostaje urbano como fuente de enmienda biológica para la restauración de suelos. El circuito es: separación en origen → compostaje municipal → enmienda certificada → aplicación en suelos periurbanos y urbanos. Un circuito que convierte un problema ambiental (residuos) en un insumo productivo (compost), que reduce emisiones de metano, que genera empleo (plantas de compostaje), y que cierra el ciclo de nutrientes entre la ciudad y el campo.
 
-**Programa "Devolver a la Tierra":** Financiamiento y asistencia técnica para que municipios instalen plantas de compostaje de escala intermedia (10-100 toneladas/día). Certificación INTI del compost producido. Convenios con productores periurbanos para aplicación. Meta: 50 plantas municipales de compostaje operativas para el Año 6, 200 para el Año 15.
+**Programa "Devolver a la Tierra":** Financiamiento y asistencia técnica para que municipios instalen plantas de compostaje de escala intermedia (10-100 toneladas/día). Certificación INTI del compost producido. Convenios con productores periurbanos para aplicación. Meta: 50 plantas municipales de compostaje operativas para el 2032 (tranche-3 entrada), 200 para el 2041 (Visión 2040+).
 
 ### 16.5 Escuelas y Universidades — Enseñar que el Suelo es Infraestructura
 
@@ -1389,7 +1438,7 @@ Si la próxima generación de argentinos crece pensando que el suelo es "tierra"
 
 **En escuelas primarias y secundarias:** Módulos curriculares de "Suelo Vivo" integrados en ciencias naturales, geografía, y educación tecnológica. Kits de microscopía básica para que los estudiantes observen la vida que hay en un puñado de tierra. Visitas a Estaciones Experimentales de INTA. Concursos nacionales de proyectos de restauración de suelo.
 
-**En universidades:** Las 6+ Centros de Excelencia regionales de PLANISV (ver Sección 9) funcionan en facultades de agronomía. Pero PLANISV también necesita presencia en facultades de ingeniería (infraestructura hídrica), de ciencias exactas (microbiología del suelo), de economía (mercados de carbono, valuación de capital natural), de derecho (marco legal ambiental), y de comunicación (narrativa del suelo vivo). Becas de investigación doctoral en biología del suelo financiadas por el Fondo Nacional: meta de 100 becas activas para el Año 6.
+**En universidades:** Las 6+ Centros de Excelencia regionales de PLANISV (ver Sección 9) funcionan en facultades de agronomía. Pero PLANISV también necesita presencia en facultades de ingeniería (infraestructura hídrica), de ciencias exactas (microbiología del suelo), de economía (mercados de carbono, valuación de capital natural), de derecho (marco legal ambiental), y de comunicación (narrativa del suelo vivo). Becas de investigación doctoral en biología del suelo financiadas por el Fondo Nacional: meta de 100 becas activas para el 2032 (tranche-3 entrada).
 
 **Jardín de la Restauración:** En el predio de cada Centro de Excelencia, un espacio público abierto a la comunidad donde se muestra, de manera visible y tangible, qué pasa cuando se restaura un suelo degradado. Antes y después. Muerto y vivo. Es el museo del suelo — y es el mejor argumento comunicacional que PLANISV puede tener (ver Sección 19).
 
@@ -1475,7 +1524,7 @@ Este asiento es deliberadamente incómodo. Las comunidades fumigadas de la Argen
 
 | Asiento | Representación | Nominación | Perfil requerido | Mandato | Renovación |
 |---|---|---|---|---|---|
-| 1-4 | Gobierno Nacional (SAGyP, Ambiente, CyT, COFEMA) | PEN con acuerdo del Senado | Gestión pública + conocimiento sectorial | 5 años | Escalonada: 2 en Año 0, 2 en Año 2,5 |
+| 1-4 | Gobierno Nacional (SAGyP, Ambiente, CyT, COFEMA) | PEN con acuerdo del Senado | Gestión pública + conocimiento sectorial | 5 años | Escalonada: 2 en 2026 (tranche-1 inicial), 2 en 2028 (tranche-1),5 |
 | 5-7 | INTA (investigación, extensión, dirección) | Consejo Directivo de INTA | Investigador/a, extensionista, directivo/a | 5 años | Escalonada |
 | 8-10 | Productores (SRA/CRA, FAA/CONINAGRO, AACREA/AAPRESID) | Rotación entre organizaciones | Productor/a activo/a + gestión organizacional | 5 años | Rotación al finalizar mandato |
 | 11-12 | Provincias (2 de 6 agro-regiones) | Acuerdo de gobernadores de región | Gestión agropecuaria o ambiental provincial | 5 años | Rotación: 3 regiones cada 2,5 años |
@@ -1744,13 +1793,13 @@ La ley debe establecer:
 
 | Instrumento Legal | Prioridad | Plazo de presentación | Complejidad política | Aliados clave | Riesgo principal |
 |---|---|---|---|---|---|
-| Ley de Infraestructura de Suelo Vivo (crea ENSV + Fondo) | CRÍTICA | Año 1 | Alta — requiere consenso bipartidista | Bloque agro en Congreso + ambientalistas + provincias productoras | Captura por lobby agroquímico |
-| Reforma Ley 22.428 (conservación de suelos) | Alta | Año 1-2 | Media — actualización de ley existente | INTA + comunidad científica + productores innovadores | Resistencia de productores conservadores |
-| Ley de Mercado de Carbono Agroecológico | Alta | Año 2 | Media — mercado emergente con apoyo internacional | Sector exportador + financiero internacional + diplomacia climática | Volatilidad del mercado global de carbono |
-| Disposición de Afectación de Retenciones | Alta | Año 1-2 | MUY alta — las retenciones son tema nuclear en Argentina | Productores que se benefician del Fondo + provincias | Resistencia del Ministerio de Economía + sectores anti-retenciones |
-| Ley de Presupuestos Mínimos de Salud del Suelo | Media | Año 2-3 | Alta — tensión federal/provincial | COFEMA + provincias líderes + sector científico | Resistencia de provincias celosas de su jurisdicción |
-| Reforma de regulación de agroquímicos | Media | Año 3-5 | MUY alta — lobby agroquímico multimillonario | Comunidades fumigadas + salud pública + mercado UE | Lobby de Bayer/Syngenta/BASF + resistencia de productores dependientes |
-| Protocolo CPLI para territorios indígenas | Alta | Año 1 | Baja — alineado con Convenio 169 ya ratificado | Organizaciones indígenas + DDHH + cooperación internacional | Falta de voluntad de implementación real |
+| Ley de Infraestructura de Suelo Vivo (crea ENSV + Fondo) | CRÍTICA | 2027 (tranche-1) | Alta — requiere consenso bipartidista | Bloque agro en Congreso + ambientalistas + provincias productoras | Captura por lobby agroquímico |
+| Reforma Ley 22.428 (conservación de suelos) | Alta | 2027-2028 (tranche-1) | Media — actualización de ley existente | INTA + comunidad científica + productores innovadores | Resistencia de productores conservadores |
+| Ley de Mercado de Carbono Agroecológico | Alta | 2028 (tranche-1) | Media — mercado emergente con apoyo internacional | Sector exportador + financiero internacional + diplomacia climática | Volatilidad del mercado global de carbono |
+| Disposición de Afectación de Retenciones | Alta | 2027-2028 (tranche-1) | MUY alta — las retenciones son tema nuclear en Argentina | Productores que se benefician del Fondo + provincias | Resistencia del Ministerio de Economía + sectores anti-retenciones |
+| Ley de Presupuestos Mínimos de Salud del Suelo | Media | 2028-2029 (tranche-2 entrada) | Alta — tensión federal/provincial | COFEMA + provincias líderes + sector científico | Resistencia de provincias celosas de su jurisdicción |
+| Reforma de regulación de agroquímicos | Media | 2029-2031 (tranche-2) | MUY alta — lobby agroquímico multimillonario | Comunidades fumigadas + salud pública + mercado UE | Lobby de Bayer/Syngenta/BASF + resistencia de productores dependientes |
+| Protocolo CPLI para territorios indígenas | Alta | 2027 (tranche-1) | Baja — alineado con Convenio 169 ya ratificado | Organizaciones indígenas + DDHH + cooperación internacional | Falta de voluntad de implementación real |
 
 ---
 
@@ -1798,7 +1847,7 @@ Los Embajadores provienen de tres fuentes:
 
 - **Productores independientes:** Chacareros que por convicción, necesidad económica o intuición ya trabajan con prácticas biológicas. Son los héroes silenciosos — PLANISV los hace visibles.
 
-Meta: 50 Embajadores en Año 1, 300 en Año 3, 1.000 en Año 6, 5.000 en Año 15.
+Meta: 50 Embajadores en 2027 (tranche-1), 300 en 2029 (tranche-2 entrada), 1.000 en 2032 (tranche-3 entrada), 5.000 en 2041 (Visión 2040+).
 
 ### 19.4 Contra-Narrativa Agroindustrial
 
@@ -1857,7 +1906,7 @@ Un programa necesita una identidad. PLANISV necesita ser reconocible — en un s
 
 **TABLA 25: Estrategia de Comunicación por Canal, Audiencia y Fase**
 
-| Canal | Audiencia primaria | Contenido | Fase 1 (Año 1) | Fase 2 (Año 2-3) | Fase 3+ (Año 3-15) |
+| Canal | Audiencia primaria | Contenido | Fase 1 (2027 (tranche-1)) | Fase 2 (2028-2029 (tranche-2 entrada)) | Fase 3+ (2029-2041 (Visión 2040+)) |
 |---|---|---|---|---|---|
 | Jornadas de Campo | Productores | Demostraciones, microscopía, testimonios | 6/año (1 por región) | 24/año (4 por región) | 72+/año (descentralizadas) |
 | Radio rural | Productores, familias rurales | Micros semanales, testimonios, datos | 1 programa piloto nacional | 6 programas regionales | Presencia permanente en 20+ emisoras |
@@ -2000,139 +2049,6 @@ PLANISV no opera en un vacío global. Hay un ecosistema internacional creciente 
 | **Cooperación internacional** | Impacto climático verificable, replicabilidad | Condicionalidades excesivas | Argentina como caso de referencia global | Financiamiento GCF/BID + alianzas de investigación |
 
 ---
-
----
-
-## SECCIÓN 21: INTEGRACIÓN CON EL PROYECTO ¡BASTA! — LAS PATAS DE LA MESA
-
-> *"Un país no se arregla con un solo plan. Se arregla cuando varios planes se miran entre sí y descubren que son partes del mismo cuerpo."*
-
----
-
-### 21.1 El Proyecto ¡BASTA!: Arquitectura de una Transformación Nacional
-
-La Argentina no necesita un programa. Necesita un sistema. Un programa resuelve un problema aislado — el suelo, el empleo, la vivienda, la tecnología — y lo deja a merced del próximo ciclo político. Un sistema conecta esos problemas entre sí, de modo que la solución de uno alimenta la solución de los otros, y el conjunto se vuelve más difícil de destruir que cualquiera de sus partes.
-
-El proyecto ¡BASTA! es ese sistema. 22 PLANes (al 23 de abril de 2026) que funcionan cada uno de forma independiente pero que, conectados, constituyen la transformación nacional más ambiciosa intentada en la Argentina desde la Generación del 80 — con la diferencia decisiva de que esta transformación no se basa en la acumulación extractiva sino en la regeneración productiva.
-
-**¡BASTA!** es un acrónimo operativo, no publicitario:
-
-- **B** — **Belleza**: PLANREP-Belleza. La reconversión de 600.000-900.000 empleados públicos improductivos en artesanos, oficios y productores de la Economía de la Belleza. Carpinteros, ceramistas, panaderos, agroecólogos, restauradores, cocineros artesanales, viveristas, constructores con oficios de excelencia.
-- **A** — **Alimentación**: PLANISV. La reconstrucción de la infraestructura biológica del suelo argentino. 25+ millones de hectáreas restauradas. Soberanía alimentaria real, no retórica. Este documento.
-- **S** — **Sistemas inteligentes**: PLANREP-Inteligencia. La formación de 300.000-600.000 trabajadores en habilidades AI-aumentadas para la exportación de servicios al mundo. Operadores de drones, analistas de datos, desarrolladores, orquestadores de sistemas inteligentes.
-- **T** — **Territorio**: PLAN24CN. La construcción de 24 nuevas ciudades en la Argentina, redistribuyendo población, creando polos productivos regionales, y rompiendo la macrocefalia de Buenos Aires.
-- **A** — **Autonomía**: El resultado emergente de las cuatro anteriores. Autonomía alimentaria (PLANISV), autonomía laboral (PLANREP), autonomía territorial (PLAN24CN), autonomía tecnológica (PLANREP-Inteligencia). Un país que no depende de nadie para comer, trabajar, vivir y pensar.
-
-PLANJUS — Justicia Popular — es la quinta iniciativa fundacional: el sistema inmunológico que protege a las otras cuatro. Sin justicia que funcione, ningún plan sobrevive al sabotaje, la corrupción o la inercia institucional. PLANJUS es el escudo de ¡BASTA!.
-
-El proyecto madre que contiene a ¡BASTA! es **El Instante del Hombre Gris** — un marco filosófico sobre el despertar del argentino atrapado en el letargo de un sistema que lo apaga. El Hombre Gris no es la persona dormida — es la que despierta. Es la que decide pulir su carácter, encender su espíritu, brillar. Cada uno de los 22 PLANes es un camino concreto desde el apagón hacia la creación.
-
-### 21.2 PLANISV × PLAN24CN: Suelo Vivo para Ciudades Nuevas
-
-PLAN24CN propone la construcción de 24 nuevas ciudades a lo largo y ancho de la Argentina — no como experimentos utópicos sino como polos de desarrollo territorial diseñados para absorber crecimiento demográfico, redistribuir actividad económica y romper la concentración porteña. Cada ciudad está concebida para 100.000-250.000 habitantes en su madurez, con identidad arquitectónica regional, infraestructura de primer nivel y vocación productiva específica.
-
-Cada una de esas ciudades necesita comer. Y no de cualquier modo: necesitan un sistema alimentario local que reduzca dependencia logística, que provea alimentos frescos y nutritivos, y que sea resiliente a shocks de transporte.
-
-Acá entra PLANISV. La integración opera en tres niveles:
-
-**Cinturones alimentarios.** Cada una de las 24 ciudades nuevas se diseña con un **cinturón alimentario** — una zona periurbana de 5.000-15.000 hectáreas donde se aplican protocolos PLANISV de restauración biológica del suelo para producción hortícola, frutícola, avícola y láctea de proximidad. Estos cinturones no son huertas comunitarias simbólicas: son sistemas productivos profesionales, con suelo restaurado, riego optimizado, monitoreo MRV, y trazabilidad completa. Cada cinturón alimenta al menos el 40% de la demanda de alimentos frescos de su ciudad.
-
-**Infraestructura verde.** Los corredores de biodiversidad que PLANISV despliega a escala nacional (ver Sección 16) se integran con la planificación territorial de PLAN24CN. Las ciudades nuevas no se construyen contra el paisaje: se construyen dentro de él. Parques lineales con suelo vivo, bosques urbanos con especies nativas, sistemas de retención hídrica con humedales construidos. La infraestructura verde de la ciudad es infraestructura PLANISV.
-
-**Agua limpia.** Los sistemas de optimización de física del agua de PLANISV (ver Sección 6) protegen las cuencas que abastecen a las ciudades nuevas. Suelo sano aguas arriba significa agua limpia aguas abajo. Cada ciudad de PLAN24CN tiene un plan de cuenca asociado que es, en esencia, un plan PLANISV aplicado a la zona de captación hídrica.
-
-**Escala de inversión compartida.** PLAN24CN genera una demanda de infraestructura de suelo que justifica inversiones PLANISV que serían más difíciles de financiar aisladamente. Los caminos rurales que conectan cinturones alimentarios con ciudades nuevas sirven también como red logística de distribución de insumos biológicos. Los centros de procesamiento de alimentos en las ciudades generan demanda estable para los productores PLANISV de la zona.
-
-### 21.3 PLANISV × PLANREP-Belleza: Del Escritorio al Campo
-
-PLANREP-Belleza propone reconvertir a cientos de miles de empleados públicos improductivos en productores de la Economía de la Belleza — artesanos, oficios manuales, productores gastronómicos, constructores especializados. La intersección con PLANISV es directa y masiva:
-
-**Fuerza laboral de restauración.** Los egresados de PLANREP-Belleza en tracks de agroecología, viverismo, remediación de suelos, y gastronomía artesanal se convierten en la fuerza laboral de PLANISV. El técnico de salud del suelo que mide biomasa microbiana en una estación INTA puede ser un ex-empleado del Registro Civil de Florencio Varela que pasó por el Centro de Oficios de Buenos Aires. La viverista que produce inoculantes biológicos para la zona de Mar del Plata puede ser una ex-administrativa del Ministerio de Desarrollo Social que descubrió que tenía mano verde.
-
-**Cadena alimentaria artesanal.** Los suelos restaurados por PLANISV producen alimentos de mayor densidad nutricional y sabor superior (ver Sección 8). Esos alimentos alimentan la cadena gastronómica artesanal que PLANREP-Belleza crea: panaderos con masa madre de trigo cultivado en suelo vivo, queseros artesanales con leche de vacas que pastan en pasturas biodiversas, viñateros orgánicos con uvas de cepas en suelo sin agroquímicos. El producto PLANISV se convierte en materia prima de la Economía de la Belleza. El circuito se cierra: suelo sano → alimento excepcional → gastronomía artesanal → exportación premium → orgullo nacional.
-
-**Turismo regenerativo.** Los paisajes restaurados por PLANISV — corredores de biodiversidad, fincas agroecológicas, humedales recuperados — se convierten en destinos de turismo rural gestionados por cooperativas PLANREP-Belleza. Un paisaje degradado no atrae turistas. Un paisaje vivo, sí. El ecoturismo vinculado a fincas regenerativas genera entre USD 50-200 por hectárea por año en ingresos complementarios — un flujo que PLANISV no captura solo, pero que la integración con PLANREP-Belleza activa.
-
-**Empleo estimado en la intersección:** 80.000-150.000 puestos de trabajo directos generados en la zona de superposición PLANISV × PLANREP-Belleza, incluyendo técnicos de suelo, viveristas, productores orgánicos certificados, artesanos gastronómicos, guías de turismo regenerativo, y monitores ambientales.
-
-### 21.4 PLANISV × PLANREP-Inteligencia: La Inteligencia que Sana el Suelo
-
-PLANREP-Inteligencia forma trabajadores en habilidades AI-aumentadas para la exportación de servicios digitales. Pero esa misma capacidad tecnológica es exactamente lo que PLANISV necesita para operar a escala nacional:
-
-**Operadores de drones.** PLANISV despliega miles de drones para mapeo multispectral, aplicación de bioinsumos, y monitoreo de cultivos de cobertura. Esos drones necesitan pilotos certificados. Los egresados de PLANREP-Inteligencia con track en robótica/drones son esos pilotos.
-
-**Analistas de datos de suelo con IA.** El Tablero Nacional de Salud del Suelo (ver Sección 10) genera terabytes de datos sensoriales, de laboratorio, satelitales y de campo. Analizar esos datos a escala nacional requiere modelos de machine learning y analistas humanos que sepan interpretarlos. Los egresados de PLANREP-Inteligencia con track en análisis de datos son esos analistas.
-
-**Desarrolladores del Tablero.** La infraestructura digital de PLANISV — el tablero nacional, las apps de campo para productores, el sistema MRV, la plataforma de créditos de carbono — necesita desarrollo y mantenimiento continuo. Los egresados de PLANREP-Inteligencia con track en desarrollo son esos desarrolladores.
-
-**Técnicos de IoT y sensores.** La red de sensores de suelo que PLANISV despliega en 25+ millones de hectáreas necesita instaladores, técnicos de mantenimiento, y especialistas en conectividad rural. Los egresados de PLANREP-Inteligencia con track en IoT son esos técnicos.
-
-**Especialistas en trazabilidad blockchain.** La certificación de créditos de carbono y la trazabilidad de producción regenerativa para cumplimiento EUDR (ver Sección 9) requieren infraestructura blockchain. Los egresados de PLANREP-Inteligencia con track en blockchain son esos especialistas.
-
-**Exportación del modelo.** Cuando Brasil, Paraguay, Uruguay y otros países adopten programas similares a PLANISV — lo cual es cuestión de tiempo dado el marco regulatorio EUDR — van a necesitar la misma infraestructura tecnológica que Argentina construyó. Los egresados de PLANREP-Inteligencia pueden exportar esos servicios: análisis de datos de suelo como servicio, operación remota de drones, desarrollo de tableros, consultoría en MRV. La Argentina no solo exporta carbono del suelo: exporta la inteligencia para medirlo.
-
-**Empleo estimado en la intersección:** 30.000-60.000 puestos tecnológicos vinculados directamente a la operación de PLANISV, más un potencial de exportación de servicios de USD 500M-2.000M/año una vez que el modelo se replica regionalmente.
-
-### 21.5 PLANISV × PLANJUS: Justicia para el Suelo
-
-PLANJUS aporta al ecosistema PLANISV lo que ningún programa técnico puede: la certeza de que los conflictos ambientales y contractuales se resuelven antes de que destruyan la confianza en el sistema.
-
-**Conflictos ambientales resueltos en 45 días.** Las disputas por contaminación de suelos, envenenamiento de napas y deriva de agroquímicos — que hoy tardan 7-12 años en la justicia ordinaria — se resuelven a través de PLANJUS JUS-2 (juicio completo) en un máximo de 45 días, con peritos ambientales especializados y resolución vinculante. El productor que contamina la cuenca de un vecino enfrenta consecuencias reales antes de que el daño se vuelva irreversible.
-
-**Contratos de manejo regenerativo con dientes.** Los compromisos que los productores asumen al ingresar al programa PLANISV — rotación de cultivos, eliminación gradual de agroquímicos, implementación de cultivos de cobertura — no son declaraciones de buena voluntad. Los incumplimientos se resuelven en PLANJUS JUS-1 (resolución simple) en 15 días. Esto protege tanto al programa como a los productores honestos que cumplen mientras sus vecinos hacen trampa.
-
-**Conflictos de uso del suelo entre productores y comunidades.** Las disputas territoriales entre establecimientos agropecuarios y comunidades rurales — fumigaciones cerca de escuelas, contaminación de agua comunitaria, avance sobre tierras indígenas — se canalizan a través de PLANJUS JUS-3 (apelación especializada) con paneles que incluyen peritos ambientales y representantes comunitarios. Resolución en 90 días máximo, no en décadas.
-
-**Empleo estimado en la intersección:** 2.000-5.000 peritos ambientales, mediadores especializados en conflictos de suelo, y operadores de justicia rural formados en la intersección PLANISV-PLANJUS.
-
-### 21.6 Sinergia de Financiamiento
-
-Los programas de ¡BASTA! comparten infraestructura, reducen costos por escala y amplifican la capacidad de captación de financiamiento internacional:
-
-- **Infraestructura compartida.** Los Centros de Oficios de PLANREP-Belleza y los Centros de Inteligencia de PLANREP-Inteligencia pueden co-ubicarse en las 24 ciudades nuevas de PLAN24CN, compartiendo campus, conectividad, vivienda estudiantil y servicios. Los laboratorios de suelo de PLANISV pueden operar dentro de Centros de Excelencia universitarios que también sirven como centros de formación PLANREP.
-- **Financiamiento internacional combinado.** Una propuesta al Green Climate Fund que combine restauración de suelos (PLANISV), ciudades resilientes (PLAN24CN) y empleo verde (PLANREP) tiene un perfil de impacto enormemente superior a cualquiera de los tres por separado. Lo mismo aplica a BID, Banco Mundial, CAF, y fondos bilaterales europeos.
-- **Economías de escala en comunicación.** Una campaña nacional de ¡BASTA! tiene mayor impacto mediático y menor costo por programa que campañas separadas.
-- **Sinergia fiscal.** Los egresados de PLANREP que se emplean en PLANISV y PLAN24CN generan recaudación impositiva que financia parcialmente los programas mismos. El circuito fiscal se cierra: inversión pública → empleo genuino → recaudación → reinversión.
-
-**Ahorro estimado por sinergias:** USD 2.000-5.000M en el horizonte de 15 años por compartición de infraestructura, financiamiento combinado y eliminación de duplicaciones.
-
-### 21.7 PLANISV y la Transición Económica: El Suelo como Infraestructura de los Tres Horizontes
-
-PLANREP Sección 15.1 establece cinco Fideicomisos de Propósito Perpetuo — estructuras patrimoniales diseñadas para que los activos estratégicos de la Argentina generen valor a perpetuidad sin depender de decisiones políticas coyunturales. Uno de ellos es el **Fideicomiso de Suelo Vivo**, cuyos activos productivos son precisamente las tierras y la infraestructura biológica que PLANISV restaura. Cada hectárea que pasa de suelo degradado a suelo biológicamente activo engrosa la base patrimonial de ese fideicomiso. El trabajo de PLANISV no es solo un programa de empleo — es la construcción del activo subyacente de una de las cinco columnas financieras del país.
-
-En la **Economía de la Contribución** que PLANREP desarrolla en la Sección 15.4, "Regeneración ambiental" es una de las siete categorías de contribución cívica formalmente reconocidas. A medida que el sistema madure, el trabajo de restauración de suelos que hoy hacen los Técnicos de Suelo Vivo como empleados será también valorado como contribución cívica a través del Índice de Contribución — un mecanismo de validación que mide impacto real, no horas sentado en una oficina. El productor que regenera su campo contribuye; el técnico que lo acompaña contribuye; la comunidad que protege su cuenca contribuye.
-
-A medida que el Fideicomiso de Suelo Vivo madure, sus retornos — agricultura regenerativa, créditos de carbono, arrendamientos productivos — alimentarán el **Dividendo Nacional de Productividad (DNP)**, convirtiendo a los trabajadores rurales del suelo en co-propietarios del valor que su trabajo genera. No es metáfora: es arquitectura financiera concreta.
-
-**Mapeo por horizontes temporales:**
-- **Horizonte 1 (2026-2035):** Centrado en empleo. PLANISV crea puestos de trabajo, forma técnicos, restaura hectáreas. El valor se mide en empleos, salarios y toneladas de carbono secuestrado.
-- **Horizonte 2 (2035-2045):** Parte del trabajo de suelo opera a través de Nodos de Contribución. El Fideicomiso automatiza monitoreo y distribuye retornos. Los técnicos más experimentados coordinan redes, no solo campos.
-- **Horizonte 3 (2045+):** El suelo regenerado es infraestructura fideicomisaria que financia el DNP. La restauración se convirtió en patrimonio nacional productivo.
-
-Estos conceptos están desarrollados en profundidad en PLANREP Sección 15. PLANISV no los replica — los reconoce. Nuestra fuerza laboral existe dentro de una transición económica más amplia, y esta sección explicita esa conexión para que ningún técnico, productor o funcionario que lea este documento crea que estamos diseñando empleos en el vacío.
-
-### 21.8 El Instante del Hombre Gris: Del Apagón al Despertar Verde
-
-El Instante del Hombre Gris es la filosofía madre del proyecto ¡BASTA!. Su premisa es simple y devastadora: millones de argentinos están atrapados en el letargo — empleos que no generan valor, trabajos de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que los mantiene apagados, dormidos, en piloto automático.
-
-El Hombre Gris no es esa persona dormida. El Hombre Gris es el que **despierta**. Es el empleado público que un día se cansa de sellar expedientes que nadie lee y decide aprender un oficio. Es el joven que encuentra su propósito. Es la mujer que siempre supo que podía más y finalmente encuentra el camino. Es el productor que mira su suelo moribundo y dice: *esto se puede sanar*. El Hombre Gris es gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata — no como el cemento que aplasta. Es el color de la transformación, no del sometimiento.
-
-PLANISV le da al Hombre Gris un destino verde. El ex-empleado administrativo que se forma como técnico de salud del suelo y empieza a medir biomasa microbiana en campos de la Pampa Húmeda tuvo su instante — se convirtió en Hombre Gris, y eligió lo verde. La ex-recepcionista que se forma como operadora de drones y monitorea cultivos de cobertura desde una estación INTA tuvo su instante. El productor que deja de fumigar, empieza a compostar y ve cómo su suelo revive tuvo su instante.
-
-Del apagón al despertar. De lo extractivo a lo regenerativo. De administrar la decadencia a construir fertilidad. Esa es la transformación que PLANISV opera a nivel de cada persona que toca.
-
-Y cuando esa transformación se multiplica por 500.000 personas en diversas modalidades de actividad productiva — técnicos, productores, operadores, analistas, artesanos alimentarios, monitores ambientales — deja de ser una política pública y se convierte en un movimiento civilizatorio. La Argentina que extraía se convierte en la Argentina que regenera. El instante del Hombre Gris fue el instante en que eligió despertar — y despertar significó sanar el suelo.
-
-**TABLA 27: Matriz de Integración de ¡BASTA! con PLANISV**
-
-| Intersección | Recursos que fluyen hacia PLANISV | Recursos que fluyen desde PLANISV | Impacto conjunto estimado |
-|---|---|---|---|
-| **PLAN24CN → PLANISV** | Demanda de cinturones alimentarios; infraestructura territorial; inversión en cuencas hídricas | Suelo restaurado alimenta ciudades; infraestructura verde urbana; protección de cuencas | 24 cinturones alimentarios de 5.000-15.000 ha cada uno; 40% de autosuficiencia alimentaria local |
-| **PLANISV → PLAN24CN** | Paisajes regenerados como atractivo territorial; calidad de agua superior | Mercado cautivo para producción PLANISV; logística compartida | Valor inmobiliario +15-25% en ciudades con cinturón alimentario activo |
-| **PLANREP-Belleza → PLANISV** | 80.000-150.000 trabajadores formados: técnicos de suelo, viveristas, agroecólogos, artesanos alimentarios | Materia prima de alta calidad para gastronomía artesanal; paisajes para turismo regenerativo | Cadena completa campo→mesa→exportación; turismo regenerativo USD 200M+/año |
-| **PLANREP-Inteligencia → PLANISV** | 30.000-60.000 trabajadores tech: pilotos de drones, analistas IA, desarrolladores, técnicos IoT | Demanda de servicios exportables (MRV, drones, análisis de suelo como servicio) | Exportación de servicios de suelo inteligente USD 500M-2.000M/año |
-| **PLANISV + PLANJUS** | Resolución rápida de conflictos ambientales, de contratos agrícolas y de uso del suelo | Productores que incumplen compromisos de regeneración enfrentan resolución en 45 días, no en 7 años |
-| **¡BASTA! completo** | Sistema integrado de financiamiento, infraestructura, talento, mercados y justicia | Seguridad alimentaria como base de todo el sistema productivo | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
 
 ---
 
@@ -2513,7 +2429,7 @@ El presupuesto original de PLANISV contemplaba seis categorías de inversión. E
 
 **TABLA 30: Presupuesto Detallado por Fase (en millones de USD)**
 
-| Componente | Fase 0 (Pre) | Fase 1 (Año 1) | Fase 2 (Año 2-3) | Fase 3 (Año 3-6) | Fase 4 (Año 6-15) | **Total 15 años** |
+| Componente | Fase 0 (Pre) | Fase 1 (2027 (tranche-1)) | Fase 2 (2028-2029 (tranche-2 entrada)) | Fase 3 (2029-2032 (tranche-3 entrada)) | Fase 4 (2032-2041 (Visión 2040+)) | **Total 15 años** |
 |---|---|---|---|---|---|---|
 | **Equipamiento tecnológico** (sensores, biofábricas, sistemas MRV) | — | 5-10 | 25-50 | 80-200 | 200-400 | **310-660** |
 | **Instalación e integración** | — | 2-4 | 10-20 | 25-50 | 40-80 | **77-154** |
@@ -2592,7 +2508,7 @@ Los riesgos identificados en la versión original de PLANISV se mantienen vigent
 | R2 | **Discontinuidad política** (cambio de gobierno deprioriza o cancela) | Media-Alta | Muy alto | Institucionalizar vía ley (no decreto); anclar en INTA (continuidad institucional); crear constituencia de productores vía PPR; demostrar valor bipartidista | Nuevo gobierno anuncia revisión o congelamiento de PLANISV | Activar movilización de productores beneficiarios; publicar informe de impacto económico; convocar a gobernadores aliados; apelar a compromisos internacionales (EUDR, París); invocar la Ley |
 | R3 | **Resistencia a la adopción** (productores escépticos) | Media | Alto | Demos en INTA y CREA (instituciones de confianza); PPR desriesgan adopción; efecto red de pares; prueba económica visible en 1-2 campañas | Adopción <50% de meta en cualquier fase | Intensificar demostración en campos de referencia; aumentar PPR temporalmente; identificar y resolver objeciones específicas por región; activar productores embajadores |
 | R4 | **Variabilidad de resultados entre regiones** | Media | Medio | 6 agro-regiones distintas; MRV estandarizado; Centros de Excelencia regionales desarrollan protocolos locales | Mejoras significativas en <60% de sitios | Análisis regional de causas; ajuste de protocolos; reasignación de recursos a regiones con mejor respuesta; publicación transparente de resultados (incluyendo fracasos) |
-| R5 | **Dependencia de importación tecnológica** | Media | Medio | Objetivos de manufactura nacional 70% para Año 5; acuerdos de transferencia tecnológica; certificación INTI | Manufactura nacional <30% para Año 3 | Acelerar programa de transferencia tecnológica; ampliar incentivos fiscales para fabricantes nacionales; establecer líneas de crédito preferenciales para fabricantes INTI-certificados |
+| R5 | **Dependencia de importación tecnológica** | Media | Medio | Objetivos de manufactura nacional 70% para 2031 (tranche-2); acuerdos de transferencia tecnológica; certificación INTI | Manufactura nacional <30% para 2029 (tranche-2 entrada) | Acelerar programa de transferencia tecnológica; ampliar incentivos fiscales para fabricantes nacionales; establecer líneas de crédito preferenciales para fabricantes INTI-certificados |
 | R6 | **Integridad de datos / fraude MRV** | Baja | Muy alto | Verificación por terceros; tablero abierto; auditorías independientes; validación universitaria; trazabilidad blockchain | Primer hallazgo de fraude o cuestionamiento de credibilidad | Tolerancia cero: suspensión inmediata del sitio; investigación independiente; publicación de resultados; refuerzo de protocolos; auditoría completa del sistema |
 | R7 | **Sequía severa durante implementación** | Media-Alta | Alto | El suelo sano ES la mitigación de sequía (+30% retención hídrica); distribución en 6 regiones reduce riesgo concentrado; protocolos de cultivos de cobertura resistentes a sequía | Sequía que afecte >30% de los sitios PLANISV | Documentar y publicar el rendimiento comparativo de suelos PLANISV vs. convencionales bajo sequía (oportunidad de demostración); activar protocolos de emergencia hídrica; redirigir recursos a zonas menos afectadas |
 | R8 | **Colapso del precio del carbono** (caída a <USD 5/t) | Baja-Media | Medio | Ingresos por carbono son suplementarios, no primarios; economía diversificada: rindes + ahorro insumos + prima exportación + PPR | Precio spot de carbono <USD 10/t durante 12+ meses | Reducir dependencia presupuestaria del carbono; mantener programa con fuentes alternativas (retenciones, financiamiento internacional, PPR); posicionar créditos en mercados premium (EUDR-linked) menos sensibles a precio spot |
@@ -2603,19 +2519,19 @@ Los riesgos identificados en la versión original de PLANISV se mantienen vigent
 
 ### 25.2 Análisis de Escenarios de Contingencia
 
-**Escenario A: La Sequía del Siglo.** Año 3 de PLANISV. Una sequía comparable a 2008-2009 o peor golpea la Pampa Húmeda durante 8 meses. ¿Qué pasa?
+**Escenario A: La Sequía del Siglo.** 2029 (tranche-2 entrada) de PLANISV. Una sequía comparable a 2008-2009 o peor golpea la Pampa Húmeda durante 8 meses. ¿Qué pasa?
 
 Respuesta: PLANISV brilla. Los campos con suelo restaurado (+30% retención hídrica, +1% MOS, mejor estructura del suelo) rinden un 15-25% más que los campos convencionales bajo la misma sequía. Las pérdidas son menores. La recuperación post-sequía es más rápida. Los datos de rendimiento comparativo durante la sequía se convierten en el argumento más poderoso a favor de PLANISV — más que cualquier campaña de comunicación. La sequía no destruye PLANISV: lo valida. El programa ES la política de mitigación de sequía.
 
-**Escenario B: Bayer/Syngenta van a la guerra.** Año 2 de PLANISV. Las multinacionales de agroquímicos lanzan una campaña mediática masiva: "PLANISV pone en riesgo la producción argentina", "La agricultura biológica no alimenta al mundo", "El gobierno quiere que los productores vuelvan al arado de mula".
+**Escenario B: Bayer/Syngenta van a la guerra.** 2028 (tranche-1) de PLANISV. Las multinacionales de agroquímicos lanzan una campaña mediática masiva: "PLANISV pone en riesgo la producción argentina", "La agricultura biológica no alimenta al mundo", "El gobierno quiere que los productores vuelvan al arado de mula".
 
 Respuesta: La estrategia de comunicación de PLANISV (ver Sección 19) está diseñada para este escenario. Tres líneas de defensa: (1) Datos campo por campo — no teoría, resultados verificados por INTA, publicados en el Tablero Nacional. (2) Productores embajadores — no funcionarios del gobierno, productores reales que cuentan su experiencia en primera persona. (3) Contranarración económica — "¿Quién paga USD 3.000-4.000M/año en importación de agroquímicos? ¿Quién gana si Argentina sigue dependiendo de insumos importados?" El lobby agroquímico tiene presupuesto. PLANISV tiene evidencia y productores. En la historia de la agricultura, la evidencia entre pares siempre fue más poderosa que la publicidad corporativa.
 
-**Escenario C: El nuevo gobierno quiere desfinanciar.** Año 5 de PLANISV. Un nuevo presidente, con afinidad al establishment agroindustrial convencional, quiere eliminar PLANISV o redirigir sus fondos.
+**Escenario C: El nuevo gobierno quiere desfinanciar.** 2031 (tranche-2) de PLANISV. Un nuevo presidente, con afinidad al establishment agroindustrial convencional, quiere eliminar PLANISV o redirigir sus fondos.
 
-Respuesta: PLANISV fue diseñado para este escenario. Defensa en profundidad: (1) La Ley de Infraestructura de Suelo Vivo no puede ser derogada por decreto — requiere mayoría en ambas cámaras. (2) El Ente Autónomo tiene autarquía financiera y directivos con mandato fijo. (3) Para el Año 5, hay 100.000+ productores recibiendo PPR — una constituencia electoral que ningún político inteligente quiere antagonizar. (4) Argentina tiene compromisos internacionales vinculados a PLANISV (EUDR, Acuerdo de París, préstamos de BID/Banco Mundial con condicionalidades). (5) Los gobernadores de 23 provincias son co-ejecutores del programa. Desfinanciar PLANISV requiere ir contra los productores, contra la ley, contra las provincias, contra los organismos internacionales y contra la evidencia. Es políticamente suicida.
+Respuesta: PLANISV fue diseñado para este escenario. Defensa en profundidad: (1) La Ley de Infraestructura de Suelo Vivo no puede ser derogada por decreto — requiere mayoría en ambas cámaras. (2) El Ente Autónomo tiene autarquía financiera y directivos con mandato fijo. (3) Para el 2031 (tranche-2), hay 100.000+ productores recibiendo PPR — una constituencia electoral que ningún político inteligente quiere antagonizar. (4) Argentina tiene compromisos internacionales vinculados a PLANISV (EUDR, Acuerdo de París, préstamos de BID/Banco Mundial con condicionalidades). (5) Los gobernadores de 23 provincias son co-ejecutores del programa. Desfinanciar PLANISV requiere ir contra los productores, contra la ley, contra las provincias, contra los organismos internacionales y contra la evidencia. Es políticamente suicida.
 
-**Escenario D: Los resultados son mediocres.** Año 3 de PLANISV. Los datos muestran mejoras de MOS del 0,3% en lugar del 1,5% esperado. Los rendimientos mejoraron solo marginalmente. Los productores están desilusionados.
+**Escenario D: Los resultados son mediocres.** 2029 (tranche-2 entrada) de PLANISV. Los datos muestran mejoras de MOS del 0,3% en lugar del 1,5% esperado. Los rendimientos mejoraron solo marginalmente. Los productores están desilusionados.
 
 Respuesta: Esto es un problema científico, no político. Protocolo: (1) Análisis regional detallado — ¿en qué regiones funcionó y en cuáles no? ¿Qué variables explican la diferencia? (2) Ajuste de protocolos — quizás el stack tecnológico necesita calibración regional. (3) Consulta con los Centros de Excelencia y la red internacional de investigación. (4) Publicación transparente de resultados, incluyendo los decepcionantes — la credibilidad se construye con honestidad, no con ocultamiento. (5) Concentración de recursos en las regiones donde sí funciona, expandiendo desde el éxito. (6) Revisión del timeline — quizás los suelos pampeanos necesitan 5 años, no 3, para mostrar resultados significativos. Los suelos no se ajustan al calendario político; el programa se ajusta a los suelos.
 
@@ -2661,7 +2577,7 @@ El protocolo argentino de créditos de carbono de suelo es la referencia global.
 
 Buenos Aires fue sede de la Primera Cumbre Mundial de Salud del Suelo en 2035. Vinieron delegaciones de 94 países. La FAO creó un Centro de Referencia en Restauración de Suelos Agrícolas en Buenos Aires, alojado en la Facultad de Agronomía de la UBA. Brasil, Paraguay, Uruguay, Colombia, Perú y México implementaron versiones adaptadas de PLANISV. Los técnicos argentinos que los asesoran son la nueva generación de extensionistas que INTA formó — y algunos de ellos son egresados de PLANREP.
 
-El Fondo Nacional de Suelo Vivo se autofinancia desde el Año 8. Los ingresos por créditos de carbono, más la contribución de productores beneficiarios (el 1% del incremento de rendimiento), más el flujo continuo de retenciones afectadas, generan un superávit que permite al Ente financiar investigación de frontera sin depender de presupuesto discrecional.
+El Fondo Nacional de Suelo Vivo se autofinancia desde el 2034 (tranche-3). Los ingresos por créditos de carbono, más la contribución de productores beneficiarios (el 1% del incremento de rendimiento), más el flujo continuo de retenciones afectadas, generan un superávit que permite al Ente financiar investigación de frontera sin depender de presupuesto discrecional.
 
 ### 26.4 Las Personas: Los Nombres Detrás de los Números
 
@@ -2719,3 +2635,77 @@ PLAN24CN · PLANISV · PLANREP-Belleza · PLANREP-Inteligencia · PLANJUS
 
 — Fin del Documento —
 ```
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANISV se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANISV"*.
+
+### Lo que PLANISV aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLAN24CN** | CRITICAL | TECHNICAL | Suelo regenerado para agricultura urbana e infraestructura verde |
+| **PLANMON** | IMPORTANT | DATA | El Pulso consume la telemetría de producción agrícola y rendimientos de Suelo Vivo como insumo para la estabilidad del peso-canasta |
+| **PLANTER** | IMPORTANT | INSTITUTIONAL | PLANTER provee la Licencia Territorial y el marco de co-soberanía indígena donde PLANISV regenera suelo en tierras fiscales y comunidades originarias |
+
+### Lo que PLANISV necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANMON** | IMPORTANT | DATA | Datos de producción agrícola alimentan canasta del peso-canasta |
+| **PLANTER** | IMPORTANT | INSTITUTIONAL | Plan Suelo Vivo se coordina con Licencia Territorial y co-soberanía indígena en tierras fiscales y comunidades originarias |
+| **PLAN24CN** | CRITICAL | TECHNICAL | Suelo regenerado y balances agua-suelo-carbono recalibrados se destinan a agricultura urbana y anillos verdes de las Ciudades Nuevas |
+
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: logística de insumos y muestras de suelo a laboratorios (línea L1).
+- Capacidad que PLANMOV deposita en este PLAN: datos de uso de suelo para planificar trazas ferroviarias y servidumbres.
+- Punto de conflicto identificado: servidumbres extractivas que afectan suelo medido se gateaña por RACI.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: datos de suelo en territorios originarios solo con consulta previa (línea L3).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: enforcement ambiental sobre contaminación de suelo (L1); regalías por uso intensivo (L2).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-1
+- **Misión matrix:** Verde
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+50-300 pilotos de suelo medidos.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANISV`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANISV`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, doscientos pilotos de suelo con datos públicos van a estar mostrando qué prácticas funcionan en tu provincia."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANISV`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANRUTA.
+- Provee a: PLANAGUA, PLANTER (L1), PLANEN, PLANSAL.
+
+### 7. Privacy Impact Assessment
+No requiere PIA específico (este PLAN no toca datos personales sensibles directamente). Si en fase de implementación se identifican datos personales, generar PIA antes de piloto.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

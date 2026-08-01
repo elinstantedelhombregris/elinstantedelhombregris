@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** research-only / diferido (misión matrix: Rojo).
+>
+> **Alcance entregable:** laboratorio académico (convenio universidades + BCRA), sin curso legal.
+>
+> **Presupuesto canónico:** (research budget) (línea PLANMON del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (sin presupuesto operativo).
+>
+> **Instrumento legal:** (sin LMV en tranche-1/2/3).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Estado research-only / diferido. Moneda nacional alternativa → eliminada de cualquier ventana de tranche; laboratorio académico únicamente. DCM nacional, Canon de Automatización monetario → eliminados como entregables tranche-1/2/3. Reforma de Carta Orgánica BCRA → diferida; opinión legal stub LEGAL_OPINIONS/PLANMON.md requerida para cualquier consideración tranche-3+. Estabilización macro previa como pre-requisito explícito. Corrida cambiaria: mitigación con coordinación BCRA + multilateral. Conexión con estadio B de PLANDIG (rieles dependen del estadio B activado, también diferido). Sin presupuesto operativo en tranche-1/2 — solo gasto de research bajo F01 mínima.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANMON. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANMON. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANMON.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANMON.md` si existe.
+
+---
+
 ```
 LA PLATA QUE TENEMOS
 NO ES LA PLATA QUE MERECEMOS
@@ -1982,9 +2011,13 @@ La modificación no elimina la facultad del Congreso de emitir moneda — la amp
 
 La modificación agrega: "y establecer el marco de reconocimiento de monedas de red ciudadana cuyo valor sea determinado por protocolos públicos, auditables y no modificables unilateralmente por el poder político." La clave es la última frase: monedas cuyo valor no pueda ser manipulado políticamente. Es un candado constitucional contra la tentación de destruir el Pulso por la vía monetaria — imprimiendo pesos para devaluar el Pulso, o fijando tipos de cambio artificiales.
 
-**Protección constitucional de la ANMON.** Igual que la Auditoría General de la Nación y el Defensor del Pueblo tienen rango constitucional (Art. 85 y 86), la ANMON debería tenerlo. La reforma constitucional crea un nuevo artículo que establece a la ANMON como organismo autárquico de rango constitucional, con las garantías de independencia descritas en Sección 14: mandatos de 8 años no renovables, presupuesto propio de la red, no remoción por el Ejecutivo. Esto pone a la ANMON fuera del alcance de un decreto presidencial o una ley ordinaria — cambiarla requiere otra reforma constitucional.
+**Protección constitucional de la ANMON.**
 
-**El precedente del Art. 75 inc. 22.** Argentina ya reformó su Constitución para incorporar tratados internacionales de derechos humanos con rango constitucional (reforma de 1994). No es imposible agregar un artículo sobre soberanía monetaria ciudadana — especialmente si el Pulso ya demostró su valor durante 10-15 años. La reforma constitucional no es el punto de partida — es la coronación de un proceso que empezó sin ley, creció con ley marco, y se consolida en la ley fundamental.
+> **REVISIÓN 2026-04-28:** PLANMON es **research-only / diferido** (clasificación Rojo en matriz de misiones). Toda la sección sobre **reforma constitucional para crear ANMON con rango constitucional** se preserva como **Visión 2040+ contingente**, no como compromiso operativo de remediación 2026-04-26. La reforma de Carta Orgánica BCRA + reforma constitucional del Art. 75 inc. 11 está **diferida indefinidamente** hasta que: (1) el Pulso demuestre valor durante 10-15 años de laboratorio académico, (2) exista coalición política viable, (3) BCRA + FMI coordinen el marco. **En tranche-1/2/3 no hay reforma constitucional de PLANMON.** Ver `LEGAL_OPINIONS/PLANMON.md` para riesgos.
+
+En el horizonte 2040+ (Visión, no compromiso operativo): igual que la Auditoría General de la Nación y el Defensor del Pueblo tienen rango constitucional (Art. 85 y 86), la ANMON debería tenerlo. La reforma constitucional crearía un nuevo artículo que establezca a la ANMON como organismo autárquico de rango constitucional, con las garantías de independencia descritas en Sección 14: mandatos de 8 años no renovables, presupuesto propio de la red, no remoción por el Ejecutivo. Esto pondría a la ANMON fuera del alcance de un decreto presidencial o una ley ordinaria — cambiarla requeriría otra reforma constitucional.
+
+**El precedente del Art. 75 inc. 22.** Argentina ya reformó su Constitución para incorporar tratados internacionales de derechos humanos con rango constitucional (reforma de 1994). En la Visión 2040+, no sería imposible agregar un artículo sobre soberanía monetaria ciudadana — especialmente si el Pulso (en laboratorio académico) demostrara su valor durante 10-15 años. **En la remediación 2026-04-26, la reforma constitucional NO es punto de partida ni compromiso operativo** — es coronación hipotética de un proceso que, en tranche-1/2/3, opera únicamente como research académico bajo convenio universitario + BCRA.
 
 ### 14B.5 La Honestidad del Camino Legal
 
@@ -2124,7 +2157,7 @@ Eso no es utopía. Es ingeniería. Es diseño de sistemas. Es lo que pasa cuando
 
 **Puente Operativo (Años 0-2):** Durante los primeros dos años, antes de que la Bastarda Financiera alcance escala piloto (PLANEB, Fase 2), El Pulso opera sobre rieles bancarios existentes. El convenio puente se establece con el Banco Nación, el Banco de la Provincia de Buenos Aires, y la red de bancos cooperativos (CREDICOOP y otros). Estos bancos proveen: custodia de reservas del peso-canasta, infraestructura de pagos para el Pulso, y créditos de desarrollo en peso-canasta. A partir del Año 3, la Bastarda Financiera asume progresivamente estas funciones, y para el Año 5 opera como nodo ancla exclusivo. El puente no es un compromiso — es una estrategia de penetración: los bancos existentes se familiarizan con El Pulso y se convierten en aliados en vez de enemigos.
 
-**Nota de secuenciación:** PLANMON es el undécimo mandato en la secuencia de lanzamiento de los 22 PLANes. Las leyes y agencias de PLANJUS y PLANREP se establecen primero (Año 0, Q1-Q2), seguidos por PLANDIG y PLANEB (Año 0, Q3-Q4), y los mandatos subsiguientes. PLANMON lanza su Pre-Fase en el Año 2 y su Fase 0 formal en el Año 3, cuando la Bastarda Financiera (PLANEB) y la infraestructura digital (PLANDIG) ya están operativas. Esta secuenciación garantiza que PLANMON no dependa de componentes que aún no existen.
+**Nota de secuenciación:** PLANMON es el undécimo mandato en secuencia de lanzamiento. Las leyes y agencias de PLANJUS y PLANREP se establecen primero (Año 0, Q1-Q2), seguidos por PLANDIG y PLANEB (Año 0, Q3-Q4), y los mandatos subsiguientes. PLANMON lanza su Pre-Fase en el Año 2 y su Fase 0 formal en el Año 3, cuando la Bastarda Financiera (PLANEB) y la infraestructura digital (PLANDIG) ya están operativas. Esta secuenciación garantiza que PLANMON no dependa de componentes que aún no existen.
 
 ---
 
@@ -2170,3 +2203,74 @@ Versión 1.0 | Marzo 2026
 Preparado bajo el marco ¡BASTA! — ¡Basta de vivir apagados!
 
 *Todo lo que PLANMON propone es la primera mejor alternativa basada en la mejor evidencia disponible. Un plan que no cambia no es valiente — es sordo. Y un plan sordo sobre dinero en un país que destruyó cinco monedas es un plan suicida.*
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANMON se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANMON"*.
+
+### Lo que PLANMON aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANEB** | IMPORTANT | FINANCIAL | Red Bastarda provee infraestructura anti-inflacionaria al costo |
+| **PLANVIV** | IMPORTANT | FINANCIAL | Crédito Hipotecario Bastardo denominado en peso-canasta (necesario en Fase 1, no en pre-fase de censo) |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Peso-canasta regional para comercio Mercosur |
+| **PLANISV** | IMPORTANT | DATA | Datos de producción agrícola alimentan canasta del peso-canasta |
+| **PLANSUS** | IMPORTANT | FINANCIAL | Recaudación fiscal de sustancias capitaliza Fondo Soberano |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS provee los nodos soberanos sobre los cuales corren los rieles SAPI y el registro del Pulso monetario |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Sala Financiera de JUS arbitra disputas on-chain del Pulso y del Fondo Soberano con enforcement automatizado |
+| **PLANEN** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) por hidrocarburos, minería y renovables capitalizan el Fondo Soberano Ciudadano |
+| **PLANTER** | IMPORTANT | FINANCIAL | El Dividendo del Suelo y el FSC son la palanca territorial que ancla al Fondo Soberano Ciudadano en activos reales |
+
+### Lo que PLANMON necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | SAPI payment rails — backbone del Pulso |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Disputas financieras y enforcement on-chain |
+| **PLANEB** | CRITICAL | FINANCIAL | Bastarda Financiera es nodo ancla del Pulso |
+| **PLANEN** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) capitalizan Fondo Soberano |
+| **PLANTER** | IMPORTANT | FINANCIAL | Fondo Soberano Ciudadano es palanca macro de la soberanía monetaria |
+| **PLANVIV** | IMPORTANT | FINANCIAL | Peso-canasta denomina el Crédito Hipotecario Bastardo; el Pulso provee liquidez estable a la vivienda familiar |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Peso-canasta y Pulso son exportables como estándar monetario regional para el comercio Mercosur |
+| **PLANISV** | IMPORTANT | DATA | El Pulso consume la telemetría de producción agrícola y rendimientos de Suelo Vivo como insumo para la estabilidad del peso-canasta |
+| **PLANSUS** | IMPORTANT | FINANCIAL | El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas como uno de sus pilares de capitalización |
+
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** research-only / diferido
+- **Misión matrix:** Rojo
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Laboratorio académico convenio universidades + BCRA; sin curso legal.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANMON`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANMON`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, no vamos a haber lanzado moneda nueva; vamos a tener resultados de laboratorio publicados sin compromiso de implementación."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANMON`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANDIG (estadio B activado), BCRA estabilizado, PLANRUTA.
+- Provee a: reflujos.
+
+### 7. Privacy Impact Assessment
+Ver `PIA/PLANMON.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA aprobado.
+
+### 8. Opinión legal
+Ver `LEGAL_OPINIONS/PLANMON.md`. Stub identifica riesgos; opinión externa firmada requerida antes de promoción a piloto.
+

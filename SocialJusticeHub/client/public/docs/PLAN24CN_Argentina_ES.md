@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** research-only / diferido (misión matrix: Rojo).
+>
+> **Alcance entregable:** labs de diseño con universidades, sin construcción ni compromisos de tierra.
+>
+> **Presupuesto canónico:** (research budget) (línea PLAN24CN del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (sin presupuesto operativo).
+>
+> **Instrumento legal:** (sin LMV en tranche-1/2/3).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Estado research-only / diferido completo. Construcción de Capital Nacional o ciudades nuevas → eliminada de tranche-1/2/3; solo labs de diseño. PLANVIV gana competencia urbana en tranche-1/2/3. Sin compromisos de tierra hasta resultados PLANVIV. Conexión con PLANTER (consulta previa originaria sobre cualquier sitio), PLANEN (sin compromisos energéticos de gran escala), estadio B de PLANDIG (gemelo digital de ciudad diferido). Captura inmobiliaria: sin compromisos de tierra. Labs de diseño: convenio con universidades, sin presupuesto de inversión.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLAN24CN. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLAN24CN. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLAN24CN.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLAN24CN.md` si existe.
+
+---
+
 ```
 LAS CIUDADES QUE TENEMOS
 NO SON LAS CIUDADES QUE MERECEMOS
@@ -31,7 +60,7 @@ Russell Ackoff, uno de los pensadores más lúcidos en diseño de sistemas, prop
 
 Y la responde en serio. Con números, con planos, con presupuestos, con cronogramas, con gobernanza.
 
-Este plan no es un ejercicio de urbanismo. Es la instanciación física del **proyecto ¡BASTA!** y sus 22 PLANes (al 23 de abril de 2026) — un ecosistema de iniciativas estratégicas interconectadas cuyo núcleo fundacional incluye: PLAN24CN (las 24 ciudades nuevas), PLANREP (la reconversión del empleo público), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular y resolución de conflictos) — con el compromiso de hacer de la Argentina el mejor lugar del planeta para vivir una experiencia humana. Porque esa experiencia no ocurre en el aire, no ocurre en un PowerPoint, no ocurre en un discurso: ocurre en una calle, en una vereda, en un patio, en un parque, en un mercado, en una escuela, en la esquina donde te encontrás con tu vecina. Ocurre en la ciudad. Y si la ciudad está diseñada contra el bienestar — si genera estrés, aislamiento, fealdad, inseguridad, enfermedad, desigualdad — entonces ningún programa social, ningún subsidio, ninguna app va a compensar ese daño estructural.
+Este plan no es un ejercicio de urbanismo. Es la instanciación física del **proyecto ¡BASTA!** — dieciséis mandatos estratégicos interconectados: PLAN24CN (ciudades nuevas), PLANREP (reconversión del empleo público), PLANISV (infraestructura biológica del suelo), PLANEDU (refundación educativa), PLANJUS (justicia popular), PLANSUS (soberanía sobre sustancias), PLANEB (empresas al costo real), PLANSAL (salud integral), PLANAGUA (soberanía hídrica), PLANDIG (soberanía digital), PLANGEO (posicionamiento geopolítico), PLANMON (soberanía monetaria), PLANEN (soberanía energética), PLANSEG (seguridad ciudadana), PLANVIV (vivienda digna) y PLANCUL (cultura viva) — con el compromiso de hacer de la Argentina el mejor lugar del planeta para vivir una experiencia humana. Porque esa experiencia no ocurre en el aire, no ocurre en un PowerPoint, no ocurre en un discurso: ocurre en una calle, en una vereda, en un patio, en un parque, en un mercado, en una escuela, en la esquina donde te encontrás con tu vecina. Ocurre en la ciudad. Y si la ciudad está diseñada contra el bienestar — si genera estrés, aislamiento, fealdad, inseguridad, enfermedad, desigualdad — entonces ningún programa social, ningún subsidio, ninguna app va a compensar ese daño estructural.
 
 La propuesta es concreta: fundar **24 ciudades nuevas**, una por provincia. No réplicas de las ciudades existentes. No conjuntos habitacionales rebautizados. Ciudades completas, diseñadas integralmente, desde la primera piedra hasta la última fibra óptica, con los mejores conocimientos disponibles en el planeta. Cada una un faro. Cada una única — porque Misiones no es Mendoza, y Tierra del Fuego no es Tucumán. Cada una una prueba de concepto de que otra forma de vivir es posible AHORA, no en un futuro lejano que nunca llega.
 
@@ -40,6 +69,10 @@ Este documento no es académico. No es una tesis doctoral que va a juntarse polv
 > *"No pedimos mejores ciudades. Pedimos ciudades dignas de la vida humana. Ciudades que nos hagan mejores personas por el solo hecho de habitarlas."*
 
 Este documento incorpora las revisiones derivadas de una evaluación externa que identificó vulnerabilidades macroeconómicas, tensiones con el federalismo, riesgos diplomáticos, incertidumbres demográficas, supuestos tecnológicos extremos y riesgos de captura política. Cada una de esas vulnerabilidades fue abordada con mecanismos concretos que se detallan en las secciones correspondientes. Un plan que no se somete a la crítica no es valiente — es irresponsable. Un plan que absorbe la crítica y se fortalece con ella es un plan que merece ejecutarse.
+
+Hay una filosofía que atraviesa los dieciséis mandatos del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+
+Las ciudades argentinas apagan. Apagan porque fueron diseñadas para mover gente, no para hacerla florecer. El conurbano no es hostil por accidente — es hostil por omisión de diseño. Cada hora de viaje en el 160, cada vereda rota, cada barrio sin plaza ni árbol ni lugar donde un vecino pueda sentarse a hablar con otro vecino, es una pieza más de la máquina que mantiene a millones de personas en piloto automático. PLAN24CN existe para demostrar que otra ciudad es posible — una ciudad que no apaga sino que enciende. Donde el espacio físico sea el primer aliado de quien decide despertar, no el primer obstáculo. Veinticuatro ciudades diseñadas desde cero para que el instante del Hombre Gris no sea la excepción heroica de un individuo, sino la consecuencia natural de habitar un lugar digno.
 
 Todo lo que PLAN24CN propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. Diseñar 24 ciudades para los próximos 250 años exige acertar en lo grande — las necesidades humanas de belleza, comunidad y naturaleza — y ser flexible en los detalles: tecnología, estructuras económicas, mecanismos de gobernanza. Los instrumentos de adaptación son concretos: el Tablero Nacional de Ciudades Nuevas mide, la Contraloría Ciudadana audita, y el plan se ajusta. Un plan que no evoluciona no es ambicioso — es arrogante. Estas ciudades están diseñadas para durar siglos; los métodos para construirlas están diseñados para cambiar con cada década.
 
@@ -167,7 +200,7 @@ El principio biomimético fundacional es: **especialización + interconexión + 
 
 - **El sistema nervioso** es la red digital soberana: la fibra óptica que conecta las 24 ciudades, los datacenters distribuidos que procesan información, la inteligencia artificial que optimiza en tiempo real, las plataformas de gobernanza que permiten coordinación instantánea.
 - **El sistema circulatorio** es la red de transporte físico: los corredores ferroviarios que mueven personas y materiales, las rutas que conectan los anillos productivos, los hubs logísticos que redistribuyen recursos.
-- **El sistema inmunológico** es la infraestructura de gobernanza y transparencia: la contraloría ciudadana, los dashboards públicos, los mecanismos anticaptura, las auditorías cruzadas entre ciudades.
+- **El sistema inmunológico** es la infraestructura de gobernanza y transparencia: la contraloría ciudadana, los tableros públicos, los mecanismos anticaptura, las auditorías cruzadas entre ciudades.
 - **El sistema endocrino** es la red de señales económicas: los flujos de comercio intercélula, los precios de energía y materiales, los incentivos fiscales que regulan el crecimiento.
 
 Esta no es una metáfora decorativa. Es un marco de diseño operativo que determina decisiones concretas: cómo se planifican las redes de transporte (no radiales hacia Buenos Aires, sino reticulares entre células), cómo se distribuye la infraestructura digital (no centralizada en un megadatacenter, sino distribuida en 24 nodos), cómo se gobiernan los recursos compartidos (protocolos de cooperación intercélula, no competencia predatoria).
@@ -1883,7 +1916,7 @@ La objeción más previsible es: "Muy lindo, pero Argentina tiene crisis cada 7 
 
 **¿Cómo sobrevive a la hiperinflación?** Todos los contratos del PLAN24CN se denominan en una unidad de cuenta propia: la **Unidad Ciudad (UC)**, indexada al costo de construir un metro cuadrado de infraestructura urbana estandarizada — análoga a la UVA argentina o al UFIR brasileño. La UC sube y baja con el costo real de construcción, no con el IPC general ni con el tipo de cambio. Un contrato firmado por 1.000 UC siempre paga lo que cuestan 1.000 m² de infraestructura, independientemente de la inflación nominal. Los presupuestos se publican en UC y en pesos corrientes: la UC da certidumbre real; los pesos dan legibilidad política.
 
-**¿Cómo sobrevive a una crisis fiscal?** El diseño por fases es el blindaje principal. Si el Estado entra en crisis fiscal, la Fase 2 se ralentiza — pero las 4 ciudades piloto de Fase 1 ya están en camino al autofinanciamiento (breakeven en año 5–8). El compromiso del FGS no es una cifra nominal fija sino un porcentaje de activos (10–20%), que flota con el tamaño del fondo. Las cooperativas de vivienda operan con ahorro previo de los propios habitantes, independiente del presupuesto nacional. Y la valorización de tierra genera ingresos propios que no dependen de transferencias fiscales.
+**¿Cómo sobrevive a una crisis fiscal?** El diseño por fases es el blindaje principal. Si el Estado entra en crisis fiscal, la Fase 2 se ralentiza — pero las 4 ciudades piloto de Fase 1 ya están en camino al autofinanciamiento (breakeven en año 5–8). El compromiso del FGS no es una cifra nominal fija sino un porcentaje de activos (10–20%), que flota con el tamaño del fondo. Las cooperativas de vivienda operan con ahorro previo de los propios habitantes, independiente del presupuesto nacional. Y la valorización de tierra genera ingresos propios que no dependen de transferencias fiscales. **[FGS → ver NOTA DE COORDINACIÓN]**
 
 **Stress-test: ¿Qué Pasa si...?**
 
@@ -1922,7 +1955,7 @@ El financiamiento de PLAN24CN se estructura como un portafolio diversificado de 
 
 **TOTAL POTENCIAL ESTIMADO: USD 56.500–132.000M en 15 años (promedio USD 3.770–8.800M/año)**
 
-Desglosemos los mecanismos más relevantes. La **valorización de tierra pública** es el motor principal y se desarrolla en profundidad en la sección 5.3. El **FGS-ANSES** administra activos por más de USD 50.000 millones; destinar el 10–20% a infraestructura de ciudades nuevas (activos reales con rendimiento superior a la inflación) es financieramente sólido y tiene precedentes: el FGS ya invirtió en YPF, en préstamos provinciales, en Procrear. La diferencia es que aquí la inversión genera activos urbanos tangibles —tierra urbanizada, edificios, redes— que se aprecian con el tiempo.
+Desglosemos los mecanismos más relevantes. La **valorización de tierra pública** es el motor principal y se desarrolla en profundidad en la sección 5.3. El **FGS-ANSES** administra activos por más de USD 50.000 millones; destinar el 10–20% a infraestructura de ciudades nuevas (activos reales con rendimiento superior a la inflación) es financieramente sólido y tiene precedentes: el FGS ya invirtió en YPF, en préstamos provinciales, en Procrear. La diferencia es que aquí la inversión genera activos urbanos tangibles —tierra urbanizada, edificios, redes— que se aprecian con el tiempo. **[FGS → ver NOTA DE COORDINACIÓN]**
 
 Los **bonos municipales** son un instrumento subutilizado en Argentina. En Estados Unidos, los bonos municipales financian el 70% de la infraestructura local. El desafío argentino es la credibilidad crediticia de los municipios. PLAN24CN lo resuelve de dos maneras: primero, las ciudades nuevas tienen un flujo de ingresos predecible (porque la demanda de lotes y vivienda es planificada, no especulativa); segundo, la Corporación Nacional de Desarrollo Urbano actúa como garante de los primeros bonos hasta que la ciudad demuestre solvencia propia.
 
@@ -1976,9 +2009,9 @@ El rango amplio de la estimación (USD 20.000M–210.000M) refleja la incertidum
 
 El despliegue financiero sigue la lógica de fases del plan general: cuatro ciudades piloto primero, luego doce ciudades más, finalmente las 24 operativas. Cada fase se financia parcialmente con los retornos de la fase anterior, generando un efecto de snowball fiscal.
 
-**TABLA 14 — Inversión Total por Fase y Componente**
+**TABLA 14 — Inversión Total por Fase y Componente (Visión 2040+, NO compromiso operativo de remediación)**
 
-| Componente | Fase 1 (Año 0–3) 4 piloto | Fase 2 (Año 3–7) +12 ciudades | Fase 3 (Año 7–15) 24 ciudades | Total |
+| Componente | Fase 1 Visión (post-2040, 4 piloto) | Fase 2 Visión (post-2045, +12 ciudades) | Fase 3 Visión (post-2055, 24 ciudades) | Total |
 |---|---|---|---|---|
 | Adquisición/preparación tierra | USD 200–500M | USD 500–1.500M | USD 1.000–3.000M | USD 1.700–5.000M |
 | Infraestructura básica (vialidad, redes) | USD 1.000–2.500M | USD 3.000–8.000M | USD 5.000–15.000M | USD 9.000–25.500M |
@@ -2256,7 +2289,7 @@ La gobernanza municipal argentina arrastra una crisis estructural que se acumul�
 
 **Dependencia fiscal crónica.** Los municipios argentinos recaudan, en promedio, solo el 30-40% de lo que gastan. El resto viene de transferencias provinciales y nacionales — discrecionales, políticamente condicionadas, impredecibles. Esta dependencia convierte al intendente en un gestor de transferencias, no en un constructor de ciudad. La relación con el gobernador y con la Casa Rosada pesa más que la relación con los vecinos. El incentivo fiscal está invertido: al municipio le conviene ser pobre y dependiente, no próspero y autónomo.
 
-**Opacidad endémica.** La corrupción municipal en Argentina no es la excepción; es la norma estadística. Licitaciones direccionadas, sobreprecios en obra pública, contratos con empresas vinculadas, empleo público clientelar, cajas negras de fondos de afectación específica. Un estudio de Transparencia Internacional ubica a los gobiernos locales argentinos entre los más opacos del continente. No hay dashboards públicos de gasto en tiempo real. No hay auditorías independientes sistemáticas. No hay consecuencias reales para la malversación.
+**Opacidad endémica.** La corrupción municipal en Argentina no es la excepción; es la norma estadística. Licitaciones direccionadas, sobreprecios en obra pública, contratos con empresas vinculadas, empleo público clientelar, cajas negras de fondos de afectación específica. Un estudio de Transparencia Internacional ubica a los gobiernos locales argentinos entre los más opacos del continente. No hay tableros públicos de gasto en tiempo real. No hay auditorías independientes sistemáticas. No hay consecuencias reales para la malversación.
 
 **Participación ciudadana inexistente.** El modelo argentino de democracia municipal es brutalmente simple: votás cada cuatro años y después te callás. Las audiencias públicas — cuando existen — son trámites formales sin impacto real. El presupuesto participativo, donde se implementó (Porto Alegre lo inventó; Rosario y CABA lo importaron), raramente supera el 3-5% del presupuesto total y está limitado a obras menores. El ciudadano promedio no sabe cuánto gasta su municipio, en qué lo gasta, ni tiene mecanismo alguno para influir en las prioridades fuera del ciclo electoral.
 
@@ -2315,7 +2348,7 @@ Diseñar una gobernanza limpia en el papel es fácil. Mantenerla limpia frente a
 
 **Mecanismo de captura 4: Cooptación de consejos barriales.** Los punteros políticos coloniczan los espacios de participación vecinal y los convierten en extensiones del aparato partidario. **Defensa Ciudad Viva:** Rotación obligatoria de consejeros barriales (máximo 2 años consecutivos). Prohibición de que funcionarios de partidos políticos integren los Consejos de Barrio durante su mandato partidario. Quórum mínimo del 20% de la unidad vecinal para que las decisiones del consejo sean vinculantes.
 
-**Mecanismo de captura 5: Opacidad total de las finanzas.** Sin información, no hay control ciudadano. **Defensa Ciudad Viva:** Dashboard público en tiempo real (Sección 9.4). Cada factura, cada contrato, cada transferencia visible por web y app. Datos exportables en formato abierto (CSV, JSON, API). La opacidad no es posible por diseño de la infraestructura — no por voluntad del funcionario de turno.
+**Mecanismo de captura 5: Opacidad total de las finanzas.** Sin información, no hay control ciudadano. **Defensa Ciudad Viva:** Tablero público en tiempo real (Sección 9.4). Cada factura, cada contrato, cada transferencia visible por web y app. Datos exportables en formato abierto (CSV, JSON, API). La opacidad no es posible por diseño de la infraestructura — no por voluntad del funcionario de turno.
 
 **Protocolo de auditoría de captura.** Durante los primeros 10 años de cada Ciudad Célula, un equipo independiente de cientistas políticos del CONICET realiza una **auditoría anual de captura** que busca indicadores tempranos: concentración de contratos en pocos proveedores, patrones de contratación de personal correlacionados con ciclos electorales, caída progresiva de la participación ciudadana, aumento del gasto discrecional. Los resultados son públicos y vinculantes: si la auditoría detecta captura sistémica, la Corporación Nacional tiene potestad — con validación judicial — para intervenir la gobernanza de la ciudad hasta restablecer las condiciones del charter fundacional.
 
@@ -2337,7 +2370,7 @@ El modelo toma la experiencia de Porto Alegre (1989–2004), la expande con las 
 - **Meses 7–8:** Deliberación y votación (digital + presencial).
 - **Meses 9–12:** Ejecución, con seguimiento en tiempo real por la Contraloría.
 
-**Transparencia radical del gasto.** Cada peso del presupuesto participativo tiene trazabilidad blockchain. El dashboard público muestra: proyecto aprobado, monto asignado, proveedor seleccionado (con detalle de licitación), avance físico (con fotos actualizadas semanalmente), avance financiero (pago ejecutado vs. programado), evaluación de satisfacción de los beneficiarios. Cualquier ciudadano puede ver en su teléfono exactamente qué se está haciendo con el dinero que él decidió invertir.
+**Transparencia radical del gasto.** Cada peso del presupuesto participativo tiene trazabilidad blockchain. El tablero público muestra: proyecto aprobado, monto asignado, proveedor seleccionado (con detalle de licitación), avance físico (con fotos actualizadas semanalmente), avance financiero (pago ejecutado vs. programado), evaluación de satisfacción de los beneficiarios. Cualquier ciudadano puede ver en su teléfono exactamente qué se está haciendo con el dinero que él decidió invertir.
 
 **Incentivos de participación.** Las ciudades con mayor tasa de participación ciudadana reciben bonificaciones del Fondo Nacional de Ciudades Nuevas. Meta mínima: participación del 40% de los residentes adultos en cada ciclo presupuestario. Las primeras experiencias internacionales muestran que cuando la participación es real (no cosmética), las tasas superan el 50%.
 
@@ -2347,7 +2380,7 @@ El modelo toma la experiencia de Porto Alegre (1989–2004), la expande con las 
 
 **La opacidad es el oxígeno de la corrupción.** Cortale el oxígeno y la corrupción muere. Las ciudades del PLAN24CN adoptan un principio absoluto: **todo es público por defecto.** La excepción — datos personales protegidos por ley — se define de manera restrictiva y se justifica caso por caso.
 
-**Dashboard de Transparencia Municipal en tiempo real.** Cada ciudad tiene un tablero público, accesible por web y app, que muestra:
+**Tablero de Transparencia Municipal en tiempo real.** Cada ciudad tiene un tablero público, accesible por web y app, que muestra:
 
 - **Finanzas:** Ingresos y egresos diarios. Cada factura, cada transferencia, cada contrato. Desglosado por área, por proyecto, por proveedor. Comparación presupuestado vs. ejecutado actualizada semanalmente.
 - **Contrataciones:** Cada licitación, cada oferta recibida, cada evaluación técnica, cada adjudicación. Registro de beneficiarios finales de empresas contratistas. Historial de cumplimiento de cada proveedor.
@@ -2455,9 +2488,9 @@ El PLAN24CN opera dentro del marco constitucional argentino sin requerir reforma
 
 ### 11.1 Arquitectura
 
-El **Tablero Nacional de Ciudades Nuevas (TNCN)** es la infraestructura de monitoreo que convierte el PLAN24CN en un programa transparente, medible y corregible en tiempo real. No es un informe anual que nadie lee: es un dashboard vivo, público, accesible a cualquier argentino con conexión a internet.
+El **Tablero Nacional de Ciudades Nuevas (TNCN)** es la infraestructura de monitoreo que convierte el PLAN24CN en un programa transparente, medible y corregible en tiempo real. No es un informe anual que nadie lee: es un tablero vivo, público, accesible a cualquier argentino con conexión a internet.
 
-La arquitectura del TNCN se inspira en los mejores tableros de gestión pública del mundo — el Performance Dashboard de Singapur, el Seoul Open Data Plaza de Corea del Sur, el CityScore de Boston — pero adaptada al contexto argentino y a la escala del programa (24 ciudades simultáneas en distintas fases de desarrollo).
+La arquitectura del TNCN se inspira en los mejores tableros de gestión pública del mundo — el Performance Tablero de Singapur, el Seoul Open Data Plaza de Corea del Sur, el CityScore de Boston — pero adaptada al contexto argentino y a la escala del programa (24 ciudades simultáneas en distintas fases de desarrollo).
 
 **Componentes técnicos:**
 
@@ -2465,7 +2498,7 @@ La arquitectura del TNCN se inspira en los mejores tableros de gestión pública
 
 - **Capa de procesamiento:** Data lake centralizado en infraestructura de nube soberana (ARSAT); procesamiento con inteligencia artificial para detección de anomalías, tendencias y alertas tempranas; validación cruzada con fuentes independientes (universidades, CONICET).
 
-- **Capa de visualización:** Dashboard web responsivo y app móvil. Interfaz en español con lenguaje claro (no tecnocrático). Tres niveles de detalle: vista nacional (las 24 ciudades), vista de ciudad individual, vista de barrio. Datos actualizados diariamente para construcción y finanzas; semanalmente para servicios; trimestralmente para bienestar y ambiente.
+- **Capa de visualización:** Tablero web responsivo y app móvil. Interfaz en español con lenguaje claro (no tecnocrático). Tres niveles de detalle: vista nacional (las 24 ciudades), vista de ciudad individual, vista de barrio. Datos actualizados diariamente para construcción y finanzas; semanalmente para servicios; trimestralmente para bienestar y ambiente.
 
 - **Capa de análisis:** Informes trimestrales automáticos generados por IA con interpretación de tendencias. Alertas automáticas cuando un indicador cae por debajo de umbrales predefinidos. Comparación intemporal (evolución de cada ciudad) e intercity (comparación entre las 24).
 
@@ -2613,12 +2646,14 @@ La Fase 4 es la de cosecha. Las 24 ciudades avanzan hacia su población de dise�
 
 **TABLA 22: Hoja de Ruta del PLAN24CN — Fases de Implementación**
 
-| Fase | Período | Ciudades | Población Acumulada | Inversión Acumulada | Hito Clave |
+> **REVISIÓN 2026-04-28:** PLAN24CN es **research-only / diferido** (clasificación Rojo en matriz de misiones). En tranche-1/2/3 **NO HAY CONSTRUCCIÓN**, solo labs de diseño con universidades. La tabla siguiente es **Visión 2040+** (no compromiso operativo de remediación 2026-04-26). PLANVIV gana la competencia urbana en tranche-1/2/3. Cualquier ciudad nueva requiere primero: (1) resultados visibles de PLANVIV en ciudad existente, (2) consulta previa originaria documentada (PLANTER L3), (3) sin compromisos de tierra hasta nueva auditoría.
+
+| Fase | Período (Visión 2040+) | Ciudades | Población Acumulada | Inversión Acumulada | Hito Clave |
 |---|---|---|---|---|---|
-| 1 – Cimentar | Año 0–1.5 | 4 piloto | 0 (en construcción) | USD 3–7 mil M | Ley aprobada; tierra asegurada; diseño listo |
-| 2 – Escalar | Año 1.5–5 | 16 | 50.000–100.000 | USD 12–28 mil M | Primeros residentes en pilotos; 12 en construcción |
-| 3 – Completar | Año 5–10 | 24 | 300.000–800.000 | USD 25–70 mil M | Todas en operación; primeras se autofinancian |
-| 4 – Transformar | Año 10–25 | 24 (madurando) | 1.000.000–1.800.000 | Autofinanciamiento | Efecto faro; exportación del modelo |
+| 1 – Cimentar | Visión, NO operativo | 4 piloto (labs de diseño únicamente en remediación) | 0 (research) | research budget académico | Marco legal preliminar; estudios; sin tierra asegurada |
+| 2 – Escalar | Visión 2040+ | 16 (Visión, no compromiso) | 50.000–100.000 (Visión) | USD 12–28 mil M (Visión) | Primeros residentes en pilotos hipotéticos |
+| 3 – Completar | Visión 2050+ | 24 (Visión) | 300.000–800.000 (Visión) | USD 25–70 mil M (Visión) | Todas en operación (Visión) |
+| 4 – Transformar | Visión 2055+ | 24 madurando (Visión) | 1.000.000–1.800.000 (Visión) | Autofinanciamiento (Visión) | Efecto faro (Visión) |
 
 ---
 
@@ -2699,9 +2734,9 @@ A continuación, la matriz completa de riesgos, impactos, mitigaciones y métric
 | Baja demanda de residentes (ciudades no atraen población) | Ciudades vacías; inversión sin retorno; fracaso político | Incentivos atractivos; empleos reales antes de convocatoria; calidad de vida demostrable; concurso participativo de diseño | 80%+ de ocupación meta en año 5 post-inauguración |
 | Resistencia NIMBYista provincial (oposición local) | Bloqueo político y social; demoras; conflicto | Participación de comunidades vecinas desde día 1; beneficios derramados; empleo local en construcción; servicios compartidos | Apoyo >60% en encuesta de comunidades circundantes |
 | Sobrecostos de construcción | Presupuesto insuficiente; programa cuestionado | Diseño modular estandarizado; materiales locales; contingencia del 20%; construcción cooperativa; licitaciones transparentes | Desvío <15% del presupuesto original |
-| Captura política de gobernanza (ciudad nueva cae en las mismas dinámicas) | Corrupción; clientelismo; deterioro de servicios | Gobernanza profesional por ley; contraloría ciudadana por sorteo; mandatos limitados; transparencia total; dashboard público | Índice de transparencia >90/100; rotación efectiva |
+| Captura política de gobernanza (ciudad nueva cae en las mismas dinámicas) | Corrupción; clientelismo; deterioro de servicios | Gobernanza profesional por ley; contraloría ciudadana por sorteo; mandatos limitados; transparencia total; tablero público | Índice de transparencia >90/100; rotación efectiva |
 | Impacto ambiental de construcción | La construcción genera daño ecológico neto | EIA riguroso pre-construcción; protección de áreas sensibles; compensación 2:1 de hábitat; materiales bajos en carbono | Huella de carbono de construcción compensada en <5 años |
-| Desigualdad entre ciudades (algunas prosperan, otras fracasan) | Fracaso parcial; inequidad reproduce inequidad | Fondo de nivelación entre ciudades; asistencia técnica diferenciada; competencia sana vía dashboard; intervención temprana | INCN: ninguna ciudad <60% del promedio nacional |
+| Desigualdad entre ciudades (algunas prosperan, otras fracasan) | Fracaso parcial; inequidad reproduce inequidad | Fondo de nivelación entre ciudades; asistencia técnica diferenciada; competencia sana vía tablero; intervención temprana | INCN: ninguna ciudad <60% del promedio nacional |
 | Fuga de capitales de ciudades existentes | Ciudades vecinas sufren éxodo de talento y capital | Diseño como complemento, no competencia; integración regional; servicios compartidos; simbiosis territorial (Sección 4.1e) | PBI regional circundante crece, no decrece |
 | Metas tecnológicas inalcanzables en plazos previstos | Dependencia temporaria de sistemas convencionales; pérdida de credibilidad net-zero | Rutas de escalamiento graduadas (Secciones 3.3.1–3.3.3); metas intermedias publicadas; conexión de respaldo a redes convencionales; auditorías técnicas bianuales | Cumplimiento >80% de metas intermedias por período |
 | Bloqueo diplomático de Ciudad Delta | Proyecto emblemático inviable; daño político al programa | Plan B Costanera terrestre (Sección 4.3, ficha Ciudad Delta); desacople temporal; estudios de variante terrestre en paralelo desde Año 0 | Decisión Go/No-Go en Año 3 con alternativa lista |
@@ -2727,7 +2762,7 @@ Todo plan ambicioso enfrenta escepticismo. El escepticismo sano se responde con 
 | "Los gobernadores no van a aceptar" | Gradualismo federal: protección escalonada 5+5+5, no muro de 15 años. El gobernador gana empleo, actividad económica, legado histórico y valorización de tierra provincial. | Sección 10.2.1 |
 | "¿Quién va a ir a vivir ahí?" | Protocolo Semilla: instituciones ancla, relocalización de organismos, cooperativas pre-fundacionales, bootstrap constructivo, integración con PLANREP. | Sección 6.4.1 |
 | "La macro lo destruye" | 80% materiales locales; Unidad Ciudad indexada; stress-test con 6 escenarios; fases ajustables; FGS como % flotante. | Sección 5.1.1 |
-| "La política captura todo en Argentina" | 5 defensas nombradas contra 5 mecanismos específicos de captura; auditoría CONICET anual; blockchain en contratos; sorteo cívico para contraloría; dashboard público. | Sección 9.2.1 |
+| "La política captura todo en Argentina" | 5 defensas nombradas contra 5 mecanismos específicos de captura; auditoría CONICET anual; blockchain en contratos; sorteo cívico para contraloría; tablero público. | Sección 9.2.1 |
 | "Las metas tecnológicas son irreales" | Rutas de escalamiento graduadas: no se promete net-zero el día 1. Se promete 60% renovable → net-zero → net-positive en 10 años. Cada hito auditable. Backup convencional durante transición. | Secciones 3.3.1–3.3.3 |
 | "Ciudad Delta es inviable por Uruguay" | Plan B terrestre listo en paralelo. Ciudad Delta desacoplada del resto del programa. Decisión Go/No-Go en Año 3. | Ficha Ciudad Delta (Sección 4.3) |
 | "24 ciudades aisladas no cambian un país" | No son aisladas: son 24 células de un organismo (Red Viva). Corredores de transporte, red digital soberana, cadenas de valor intercélula, movilidad de talento, fondo solidario. | Sección 4B |
@@ -2760,7 +2795,7 @@ Su diseño incluye, desde el origen, mecanismos de transferencia de innovación 
 
 **Modelos de vivienda cooperativa.** Las cooperativas de vivienda del PLAN24CN desarrollan módulos constructivos, sistemas de financiamiento y modelos de gobernanza interna que son directamente transferibles. Un grupo de familias en Mendoza que quiere construir su barrio puede usar el mismo diseño, los mismos materiales y el mismo modelo de organización que las cooperativas de Ciudad Viento.
 
-**Herramientas de gobernanza participativa.** La plataforma digital de presupuesto participativo, el sistema de contraloría por sorteo cívico, el dashboard de transparencia — todo es software de código abierto, documentado, con manuales de implementación. Cualquier municipio argentino puede adoptarlo. La Corporación Nacional ofrece asistencia técnica gratuita a los primeros 50 municipios que implementen el modelo.
+**Herramientas de gobernanza participativa.** La plataforma digital de presupuesto participativo, el sistema de contraloría por sorteo cívico, el tablero de transparencia — todo es software de código abierto, documentado, con manuales de implementación. Cualquier municipio argentino puede adoptarlo. La Corporación Nacional ofrece asistencia técnica gratuita a los primeros 50 municipios que implementen el modelo.
 
 **Infraestructura de reciclaje de agua.** Los sistemas de tratamiento y reutilización de aguas grises, probados en ciudades nuevas, se adaptan como soluciones para barrios de ciudades existentes con problemas hídricos. El diseño modular permite instalaciones a escala barrial (5.000–10.000 personas) sin requerir megaobras.
 
@@ -2809,111 +2844,6 @@ Las ciudades del PLAN24CN son la prueba física de la tesis central del proyecto
 
 ---
 
-## SECCIÓN 16: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS
-
-### 16.1 PLAN24CN + PLANISV (Suelo Vivo)
-
-El PLAN24CN y el PLANISV — el Plan Nacional de Inversión en Suelo Vivo — no son programas paralelos: son dos caras de la misma moneda. El PLANISV regenera el suelo para producir alimentos sanos y capturar carbono. El PLAN24CN crea las ciudades donde viven las personas que producen, procesan y consumen esos alimentos. Separar suelo y ciudad es el error del siglo XX. Integrarlos es la oportunidad del siglo XXI.
-
-**Cinturones agroecológicos periurbanos.** Cada ciudad del PLAN24CN está rodeada de un cinturón de producción agroecológica de 2.000–5.000 hectáreas que opera bajo los protocolos del PLANISV: suelo vivo (no agroquímicos), enmiendas biológicas (biochar, compost, inoculantes micorrícicos), rotaciones diversificadas, agroforestería. Este cinturón cumple tres funciones simultáneas:
-
-1. **Soberanía alimentaria local.** El 60–80% de las frutas, verduras, lácteos y proteínas que consume la ciudad se produce dentro de un radio de 30 km. Reducción drástica de huella logística. Alimentos frescos, de estación, con trazabilidad completa.
-
-2. **Captura de carbono.** Los suelos regenerados mediante protocolos PLANISV capturan entre 2 y 5 toneladas de CO₂-equivalente por hectárea por año. Sobre 100.000 hectáreas periurbanas (24 ciudades), eso representa entre 200.000 y 500.000 toneladas anuales de carbono secuestrado — que se suman a los créditos de las ciudades net-zero.
-
-3. **Barrera ecológica.** El cinturón agroecológico funciona como barrera contra la expansión urbana desordenada. No se puede construir sobre suelo productivo: es una protección legal y económica contra el sprawl que destruyó los cinturones hortícolas de Buenos Aires, Córdoba y Rosario.
-
-**Laboratorios de enmienda de suelo.** Cada ciudad tiene un laboratorio de análisis y desarrollo de enmiendas biológicas que provee servicios al PLANISV regional. La tecnología de biochar desarrollada en Ciudad Sol Alto se aplica en los campos de la quebrada jujeña. Los inoculantes micorrícicos producidos en Ciudad Selva se distribuyen por toda la mesopotamia. Las ciudades son nodos de innovación para la regeneración del suelo nacional.
-
-**Formación conjunta.** Los programas de formación del PLANISV y del PLAN24CN se integran: un técnico agropecuario que trabaja en el cinturón periurbano de Ciudad Raíz se forma tanto en regeneración de suelo (PLANISV) como en agricultura urbana y logística de proximidad (PLAN24CN). El resultado es un profesional integral, capaz de operar en la intersección entre campo y ciudad — exactamente donde Argentina necesita más inteligencia aplicada.
-
----
-
-### 16.2 PLAN24CN + Educación
-
-Las ciudades nuevas son la oportunidad más grande de la historia argentina para diseñar sistemas educativos desde cero. Sin herencia de burocracia sindical esclerotizada, sin edificios deteriorados que condicionan la pedagogía, sin currículos desactualizados que nadie actualiza porque "siempre se hizo así."
-
-Cada ciudad tiene un **sistema educativo integrado** que incluye: escuelas primarias barriales (una cada 3.000–5.000 habitantes, a distancia caminable), escuelas secundarias técnicas especializadas en la vocación productiva de la ciudad, un centro de formación profesional permanente para adultos, y un campus universitario o terciario asociado a una universidad nacional.
-
-El diseño pedagógico es radicalmente distinto: aprendizaje basado en proyectos reales (los chicos de Ciudad Selva estudian biología en la selva, no en un libro sobre la selva), integración curricular con la vida productiva de la ciudad (la escuela técnica de Ciudad Sol Alto forma técnicos en energía solar con los paneles de la ciudad como aula), multilingüismo (español + inglés + lengua originaria local donde corresponda) y evaluación por competencias, no por memorización.
-
-El sistema educativo de las ciudades nuevas funciona como laboratorio nacional: las innovaciones pedagógicas que se prueban y validan se ofrecen al Ministerio de Educación para su adopción progresiva en todo el sistema educativo argentino.
-
----
-
-### 16.3 PLAN24CN + Salud
-
-El sistema de salud de las ciudades nuevas invierte la lógica del sistema argentino existente. En Argentina, la infraestructura de salud se construye para tratar enfermedad: hospitales, clínicas, salas de emergencia. En las ciudades del PLAN24CN, la infraestructura de salud se diseña para producir salud.
-
-En el centro de cada ciudad hay un **Centro de Bienestar** — no un hospital. El Centro ofrece medicina preventiva, nutrición, actividad física guiada, salud mental, atención materno-infantil, vacunación, seguimiento de enfermedades crónicas y educación sanitaria. Los hospitales existen (uno regional cada 4–6 ciudades), pero su demanda es estructuralmente menor porque la ciudad misma es una máquina de salud: se camina, se anda en bicicleta, se come alimento local y fresco, se respira aire limpio, se vive en vivienda digna sin hacinamiento, se duerme en silencio.
-
-La evidencia es contundente: un habitante de una ciudad bien diseñada tiene un riesgo 30–40% menor de diabetes tipo 2, 20–30% menor de enfermedad cardiovascular y 25–35% menor de trastornos de ansiedad y depresión que un habitante de una ciudad dispersa y contaminada. La mejor infraestructura de salud es una buena ciudad.
-
----
-
-### 16.4 PLAN24CN + Economía
-
-La Argentina tiene una economía concentrada en pocas actividades y pocos territorios. El 60% del PBI se genera en un radio de 300 km alrededor de Buenos Aires. Las exportaciones dependen críticamente de soja, carne, petróleo y minería. La industrialización es insuficiente, la economía del conocimiento está subdesarrollada y las economías regionales sobreviven con subsidios.
-
-Las 24 ciudades del PLAN24CN son 24 motores económicos nuevos que diversifican la matriz productiva por diseño. No por accidente ni por esperanza: por decisión estratégica. Cada ciudad tiene una vocación productiva definida en función de sus ventajas comparativas regionales: biotecnología agrícola en la pampa, litio valor agregado en el NOA, bioeconomía forestal en el NEA, energía eólica en Patagonia, turismo de calidad en Cuyo, economía del conocimiento en el centro.
-
-El resultado agregado: menos dependencia de commodities, mayor valor agregado por tonelada exportada, mayor complejidad económica, mayor resiliencia frente a shocks de precios internacionales. Las 24 ciudades no reemplazan la economía existente — la complementan, la diversifican y la modernizan.
-
----
-
-### 16.5 PLAN24CN + Ciudades Existentes: El Protocolo de Simbiosis
-
-Cada Ciudad Célula tiene una **ciudad hermana existente** — la ciudad más cercana dentro de su zona de influencia. La relación no es de competencia sino de nutrición mutua, formalizada en un convenio de simbiosis.
-
-**Pares simbióticos de las ciudades piloto:**
-
-| Ciudad Célula | Ciudad Hermana Existente | Flujos de Simbiosis |
-|---|---|---|
-| Ciudad Raíz (Buenos Aires) | Trenque Lauquen / Pehuajó | Mercado laboral agrícola ↔ biotecnología de semillas; hospital regional compartido |
-| Ciudad Sol Alto (Jujuy) | Humahuaca / Tilcara | Turismo cultural ↔ tecnología solar; formación técnica compartida |
-| Ciudad Viento (Chubut) | Rawson / Trelew | Industria existente ↔ hidrógeno verde; infraestructura portuaria compartida |
-| Ciudad Selva (Misiones) | Oberá / Eldorado | Yerba mate ↔ bioeconomía CLT; campus universitario compartido UNaM |
-
-Cada convenio de simbiosis incluye: **planificación conjunta de infraestructura** (no duplicar hospitales, universidades ni plantas de tratamiento que pueden servir a ambas poblaciones), **estrategia económica compartida** (la ciudad nueva no le roba los comercios a la vieja sino que genera nueva demanda), **monitoreo de impacto bidireccional** (si el PBI o la población de la ciudad hermana empieza a caer, se activan mecanismos correctivos), y **resolución de conflictos** vía el Comité de Proyecto mixto.
-
-La simbiosis no es caridad: es inteligencia territorial. Una Ciudad Célula aislada de su contexto regional es frágil. Una Ciudad Célula integrada con su entorno es un catalizador de transformación regional — que es el objetivo real del PLAN24CN.
-
----
-
-### 16.6 PLAN24CN + PLANJUS (Justicia Popular)
-
-Las ciudades nuevas del PLAN24CN nacen con justicia incorporada — no como un servicio que se agrega después, sino como parte del diseño original. La integración con PLANJUS es estructural desde el primer día.
-
-**Casa JUS integrada en cada centro comunitario.** Cada Ciudad Célula incluye al menos una Casa JUS en su Núcleo Cívico, integrada en el centro comunitario principal. No es un juzgado: es un espacio de resolución de conflictos accesible, cercano, diseñado para que cualquier vecino pueda presentar un caso sin abogado, sin trámites kafkianos, sin esperar años. La Casa JUS ofrece mediación comunitaria, paneles ciudadanos por sorteo, y justicia restaurativa — todo dentro de los plazos PLANJUS: 15 días para casos simples, 45 días para casos intermedios, 90 días para casos complejos.
-
-**Conflictos de construcción resueltos en tiempo real.** Los contratos de construcción de las ciudades nuevas — miles de acuerdos entre cooperativas, proveedores, trabajadores y la Corporación Nacional de Desarrollo Urbano — generan disputas inevitables. En el sistema actual, una disputa contractual tarda 4-6 años en resolverse. Con PLANJUS, los conflictos de construcción del PLAN24CN se resuelven en paneles JUS-2 (45 días), con panelistas capacitados en contratos de obra pública y construcción cooperativa. La ciudad no se detiene porque un conflicto se pudre en un juzgado.
-
-**Gobernanza ciudadana con resolución de conflictos integrada.** Las Asambleas Ciudadanas y los Consejos de Ciudad del PLAN24CN generan tensiones legítimas: disputas sobre uso del suelo, conflictos entre barrios por asignación de recursos, desacuerdos sobre normas de convivencia. En vez de judicializar estos conflictos — lo que los sacaría de la esfera comunitaria y los metería en el aparato judicial tradicional — los paneles PLANJUS los resuelven localmente, con vecinos que entienden el contexto porque lo viven.
-
-**Conflictos ambientales y de planificación urbana.** Los paneles ambientales de PLANJUS resuelven disputas sobre impacto ambiental de obras, conflictos entre el cinturón agroecológico y la expansión urbana, y tensiones entre desarrollo económico y preservación ecológica. Los panelistas incluyen expertos en urbanismo y ecología designados por el Consejo de Sabiduría de cada ciudad.
-
-**Efecto sobre la cultura cívica.** Una ciudad donde los conflictos se resuelven en 15-45 días, donde la justicia es visible y accesible, donde los vecinos participan como panelistas — es una ciudad que genera confianza institucional desde el nacimiento. Los habitantes de las ciudades PLAN24CN no heredan la desconfianza argentina hacia la justicia: crecen en un sistema donde la justicia funciona, donde es rápida, transparente y comunitaria. Esa experiencia se transmite a la generación siguiente como normalidad — no como excepción.
-
-Las ciudades del PLAN24CN nacen con justicia incorporada — no como un servicio que se agrega después, sino como parte del diseño original.
-
-### 16.7 PLAN24CN + PLANREP: Las Ciudades como Infraestructura de la Transición Económica
-
-PLANREP ya aparece en este documento como fuente demográfica para la planificación de las ciudades. Pero PLANREP v4.0 (Sección 15) ahora incluye la arquitectura completa de la transición post-laboral: Fideicomisos de Propósito Perpetuo, Dividendo Nacional de Productividad, Economía de la Contribución, Paneles Ciudadanos de Futuro Económico. Esa arquitectura no flota en el vacío — necesita territorio, edificios, redes y gente. Las 24 ciudades son donde esa transición FÍSICAMENTE ocurre.
-
-La intersección es concreta y múltiple:
-
-- **Los Fideicomisos poseen infraestructura EN estas ciudades.** El Fideicomiso de Energía Renovable es dueño de los parques solares y eólicos. El de Infraestructura Digital es dueño de los datacenters. El de Vivienda Social es dueño del stock habitacional cooperativo. La base patrimonial de los fideicomisos no es financiera — es física, y está en las 24 ciudades.
-
-- **Los Nodos de Contribución operan en espacios construidos por PLAN24CN.** Los talleres, incubadoras y laboratorios de cada ciudad son los lugares donde la Economía de la Contribución se practica concretamente — donde la gente cuida, crea, enseña, investiga y emprende socialmente.
-
-- **Los Paneles Ciudadanos de Futuro Económico se reúnen en los Núcleos Cívicos.** Los edificios diseñados para la gobernanza participativa de cada ciudad son donde los ciudadanos deliberan sobre los parámetros del DNP, los umbrales de automatización y la velocidad de la transición.
-
-- **El Portfolio Ciudadano Único corre sobre la red de datacenters.** El sistema educativo de PLANEDU que prepara a los estudiantes para una relación diferente entre actividad e ingreso — los Tres Horizontes educativos — funciona sobre infraestructura digital construida y localizada en estas ciudades. Y las escuelas donde eso se enseña ESTÁN en estas ciudades.
-
-Las ciudades no son solo edificios. Son el escenario donde Argentina ensaya, prueba y ejecuta la transición de una economía centrada en el empleo a una economía de la contribución. PLAN24CN provee el escenario. PLANREP provee el guión. PLANEDU provee los actores. PLANJUS provee las reglas. PLANISV provee la tierra.
-
----
-
 ## SECCIÓN 17: ESTRUCTURA DE GOBERNANZA DEL PROGRAMA NACIONAL
 
 ### 17.1 Arquitectura Institucional
@@ -2938,7 +2868,7 @@ La Corporación tiene sedes regionales: una oficina operativa en cada ciudad en 
 
 **La verificación independiente** es tan importante como la ejecución. Sin ella, el programa es vulnerable a los mismos vicios que critica. CONICET y las universidades nacionales realizan evaluaciones de impacto rigurosas con metodología publicada y datos abiertos. La Auditoría General de la Nación fiscaliza las finanzas con acceso irrestricto a toda la contabilidad. Los paneles de expertos internacionales — convocados cada dos años — evalúan el programa contra estándares globales y publican informes de benchmarking. La Defensoría del Pueblo recibe y tramita denuncias de residentes que se sientan afectados. Ninguna de estas instancias tiene poder de veto sobre la ejecución — pero sus informes son públicos y generan consecuencias reputacionales y políticas que ningún directivo de la Corporación puede ignorar.
 
-**Mecanismo anticaptura.** El mayor riesgo institucional es que la Corporación sea capturada por intereses políticos o empresariales. Para prevenirlo: (a) los miembros del directorio tienen incompatibilidades estrictas (no pueden tener intereses en empresas constructoras, inmobiliarias ni de servicios urbanos); (b) la rotación escalonada impide renovación total por un solo gobierno; (c) la transparencia total del dashboard elimina la posibilidad de operar en la oscuridad; (d) la Contraloría Ciudadana por sorteo cívico funciona como auditor permanente desde adentro.
+**Mecanismo anticaptura.** El mayor riesgo institucional es que la Corporación sea capturada por intereses políticos o empresariales. Para prevenirlo: (a) los miembros del directorio tienen incompatibilidades estrictas (no pueden tener intereses en empresas constructoras, inmobiliarias ni de servicios urbanos); (b) la rotación escalonada impide renovación total por un solo gobierno; (c) la transparencia total del tablero elimina la posibilidad de operar en la oscuridad; (d) la Contraloría Ciudadana por sorteo cívico funciona como auditor permanente desde adentro.
 
 ---
 
@@ -3008,7 +2938,7 @@ Este documento no es un estudio académico. No es un informe de consultoría. Es
 
 7. **Inicio del proceso participativo** de definición de vocación económica y diseño para cada piloto, con convocatoria abierta a futuros residentes y comunidades vecinas.
 
-8. **Presentación del Tablero Nacional de Ciudades Nuevas (beta)** con indicadores de seguimiento de las 4 pilotos, dashboard público accesible por web y app, datos abiertos desde el día 1.
+8. **Presentación del Tablero Nacional de Ciudades Nuevas (beta)** con indicadores de seguimiento de las 4 pilotos, tablero público accesible por web y app, datos abiertos desde el día 1.
 
 ---
 
@@ -3021,3 +2951,99 @@ Este documento no es un estudio académico. No es un informe de consultoría. Es
 *PLAN24CN — Plan Nacional de 24 Ciudades Nuevas para la Argentina*
 *Documento Estratégico — Secciones 9 a 18*
 *Iniciativa del Proyecto ¡BASTA!*
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLAN24CN se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLAN24CN"*.
+
+### Lo que PLAN24CN aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | Ciudades nuevas proveen comunidades vírgenes donde Dendritas son nativas |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS + SAPI + El Mapa proveen la capa operativa de las ciudades inteligentes antes de que reciban residentes |
+| **PLANEN** | CRITICAL | TECHNICAL | Bastarda Energética y red 100% renovable provistas antes de que cada Ciudad Nueva reciba residentes |
+| **PLANISV** | CRITICAL | TECHNICAL | Suelo regenerado y balances agua-suelo-carbono recalibrados se destinan a agricultura urbana y anillos verdes de las Ciudades Nuevas |
+| **PLANAGUA** | IMPORTANT | TECHNICAL | Red hídrica troncal, acueductos y tratamiento provistos por ANAGUA cuando la ciudad pasa de diseño a ocupación |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Red Bastarda aloja al costo todos los servicios urbanos de las 24 ciudades: energía, agua, telecomunicaciones y transporte |
+
+### Lo que PLAN24CN necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | Ciudades inteligentes necesitan IDS + SAPI + El Mapa |
+| **PLANEN** | CRITICAL | TECHNICAL | Bastarda Energética antes de que la primera ciudad reciba residentes |
+| **PLANISV** | CRITICAL | TECHNICAL | Suelo regenerado para agricultura urbana e infraestructura verde |
+| **PLANAGUA** | IMPORTANT | TECHNICAL | Infraestructura hídrica para ciudades en construcción (necesaria cuando llegan residentes, no en fase de diseño) |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Ciudades nacen Bastarda-nativas: todos los servicios al costo |
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | Las Ciudades Nuevas son lienzos donde Dendritas (células culturales) nacen nativas en comunidades vírgenes |
+
+
+## NOTA DE COORDINACIÓN — EL FGS Y LAS JUBILACIONES
+
+**El hueco que esta nota viene a cerrar, y el que deja abierto.** El hallazgo **I-8** de `audit/05-strategic-gaps.md` quedó registrado el 26 de abril de 2026 en estos términos: *«PLAN24CN propone usar 10-20% de activos del FGS, cuya función primaria es respaldar jubilaciones»*, con el pedido de documentar el análisis de riesgo —qué pasa con las jubilaciones si la inversión en ciudades no genera el retorno esperado— y de proteger al FGS contra pérdida de capital. Nadie lo documentó. Acá va lo que se puede escribir con lo que hay, y lo que sigue faltando.
+
+**Las dos bandas no son dos bandas: son dos denominadores.** Conviene decirlo primero porque parecen contradecirse y no se contradicen. `:1958` le pide al FGS el **10–20% de los activos del fondo**, que administra más de USD 50.000 millones, y la Tabla 12 de `:1943` lo cuantifica en **USD 5.000–10.000M** a quince años. `:2676` le adjudica al FGS el **15–20% de la estructura de financiamiento del programa**, que ese mismo párrafo reparte entre siete fuentes. `:1927` mide el riesgo de retiro en esa segunda unidad, y `:1919` explicita la primera: el compromiso *«no es una cifra nominal fija sino un porcentaje de activos (10–20%), que flota con el tamaño del fondo»*. Una es la porción **del fondo** y la otra la porción **del programa**. No hay número único que defender porque no hay dos números en disputa.
+
+**El dueño de la materia existe desde julio de 2026, y no reclamó el fondo.** El FGS respalda jubilaciones, y lo previsional ya tiene PLAN propio: `PLANARCO_Argentina_ES.md`, el arco de la vida, ordinal 24, con la Agencia Nacional del Arco de la Vida administrando la partida. Era el reclamante natural y el que más fácil lo habría justificado. **No lo reclamó:** su §4.4 declina el fondo entero y escribe la razón —*«el argumento que le niega a un PLAN la enmienda unilateral no puede dejar de servir cuando el beneficiado sería uno mismo»*— y su §11 lo repite del lado de las pérdidas, aclarando que PLAN24CN no pierde el FGS a manos de PLANARCO. **Esta nota no le pone tope a la banda de este PLAN, y no lo hace porque no hay tope escrito en ninguna parte:** inventarlo acá sería exactamente la enmienda unilateral que el otro documento se prohibió.
+
+**Lo que sí cambia es el marco, y cambia en dos cosas.** La primera: hasta ahora el FGS era un stock previsional sin nadie que respondiera por su materia; con la ANAV escrita, el reclamo de este PLAN pasa a competir con un organismo que responde por ella, y esa conversación tiene ahora contraparte identificable. La segunda: este PLAN está declarado **research-only / diferido**, con alcance de *«labs de diseño con universidades, sin construcción ni compromisos de tierra»* y **sin presupuesto operativo**, en su propia cabecera (`:8-12`), y `PLANPACTO:719` lo lista entre los que **no reclaman piso**. Lo que está en discusión es **una reserva no ejecutada, no un compromiso vigente**. Confundir las dos cosas convierte una conversación de prioridades en una acusación de incumplimiento, y este PLAN no incumplió nada porque todavía no ejecutó nada.
+
+**Lo que I-8 pidió y sigue sin estar.** El análisis de riesgo con números —cuánto se resiente el respaldo de las jubilaciones si las ciudades no llegan al breakeven de año 5–8 que promete `:1919`, y con qué se repone el capital del FGS si eso pasa— **falta acá porque no está calculado en ninguna parte del corpus, y estimarlo sería estrenar un número.** Queda declarado como hueco abierto y con dueño: se cierra cuando este PLAN salga de research-only y pida fondos de verdad, y la contraparte de esa negociación es la ANAV.
+
+**Procedencia y reversión.** Nota aplicada el 2026-08-01 desde el tramo C de PLANARCO. No modifica ninguna cifra, ninguna fase, ningún mecanismo ni ninguna tabla de este documento. Reversible sin residuo: alcanza con borrar la marca de la Sección 5 y esta nota.
+
+---
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: conectividad ferroviaria a sitio piloto (línea L2) + movilidad interna autónoma (línea L4 research).
+- Capacidad que PLANMOV deposita en este PLAN: datos de planificación urbana para columna múltiple.
+- Punto de conflicto identificado: diseño de ciudad nueva en research-only no implica compromisos de infraestructura.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: consulta previa originaria obligatoria sobre cualquier sitio (línea L3).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: auditoría de regalías sobre actividades extractivas adyacentes (L2); enforcement ambiental sobre el sitio (L1).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** research-only / diferido
+- **Misión matrix:** Rojo
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Labs de diseño con universidades; sin construcción ni compromisos de tierra.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLAN24CN`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLAN24CN`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, no vamos a haber empezado ninguna ciudad nueva; vamos a tener diseños y aprendizajes publicados."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLAN24CN`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANTER, PLANEN, PLANDIG (estadio B activado), PLANRUTA.
+- Provee a: ninguno.
+
+### 7. Privacy Impact Assessment
+No requiere PIA específico (este PLAN no toca datos personales sensibles directamente). Si en fase de implementación se identifican datos personales, generar PIA antes de piloto.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

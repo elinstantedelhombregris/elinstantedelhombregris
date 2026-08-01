@@ -75,5 +75,11 @@ jobs:
       - name: Guardia de remisiones del corpus
         run: npx tsx scripts/verificar-remisiones.ts
 
+      # `client/public/docs/` es una copia derivada del taller y era manual: al
+      # 2026-08-01 los 22 documentos que tenía estaban driftados y le faltaban
+      # cinco. Esto falla si vuelve a divergir.
+      - name: Documentos públicos sincronizados con el taller
+        run: npx tsx scripts/sync-docs-publicos.ts --check
+
       - name: Production build
         run: npm run build

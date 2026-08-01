@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-1 (misión matrix: Verde).
+>
+> **Alcance entregable:** 1–2 Bastardas piloto bajo riesgo (medicamentos genéricos + fertilizantes/materiales).
+>
+> **Presupuesto canónico:** 0.1B/año + 0.5B inv 24m (línea PLANEB del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** F07 (capital cooperativo).
+>
+> **Instrumento legal:** LMV-06 (Marco contable Bastardas piloto).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Cap 1–2 Bastardas piloto. ANEB → execution cell en MinProducción, no agencia autónoma con presupuesto protegido. Marco contable público publicado ANTES de la primera Bastarda. DAO governance sin asumir blockchain — sortición + auditoría comunitaria primero. Red Bastarda Nacional → diferida. Ley sistema Bastardo → diferida (solo marco contable LMV-06 en tranche-1).
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANEB. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANEB. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANEB.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANEB.md` si existe.
+
+---
+
 ```
 EL MERCADO QUE TENEMOS
 NO ES EL MERCADO QUE MERECEMOS
@@ -16,7 +45,7 @@ Preparado para la República Argentina
 Ministerio de Economía · Ministerio de Justicia · Ministerio de Desregulación
 Secretaría de Comercio · BCRA · SSN · ENACOM · ENRE · Congreso de la Nación
 
-Marzo 2026 | Versión 1.2
+Marzo 2026 | Versión 1.0
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
@@ -42,7 +71,7 @@ Son entre $650.000 y $850.000 por año. Para los Moretti — para esa familia qu
 
 Y acá viene la parte que duele de verdad: **los Moretti no pueden saberlo.** No tienen forma de saber cuánto cuesta realmente proveer un seguro de auto, o un servicio de telefonía, o una cuenta bancaria. La información no está disponible. No porque sea secreta — está publicada, en algún lado, en algún formato incomprensible. Está *técnicamente* accesible e *intencionalmente* opaca. La opacidad no es un error del sistema. **Es el negocio.** Cuando no podés ver cuánto cuesta algo realmente, no podés juzgar si el precio es justo. Y cuando no podés juzgar si el precio es justo, pagás lo que te dicen que pagues.
 
-Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
 Claudia tuvo su instante. Sentada frente a esa servilleta con números que no debería haber tenido que calcular, se hizo la pregunta que este plan intenta responder:
 
@@ -54,7 +83,7 @@ Todo lo que PLANEB propone es la *primera mejor alternativa* basada en la mejor 
 
 ---
 
-**Tesis Central:** Los mercados argentinos de servicios esenciales — seguros, banca, telecomunicaciones, energía, salud prepaga — operan sobre una asimetría de información estructural: el ciudadano no puede saber cuánto cuesta realmente proveer el servicio que consume, y esa opacidad es el mecanismo central de extracción de valor. La regulación estatal no la corrige — la Superintendencia de Seguros publica balances que nadie lee, el BCRA regula comisiones que igual se cobran por otra ventanilla, la CNDC sanciona conductas que se repiten al año siguiente. PLANEB propone una solución estructural: el derecho de los ciudadanos a crear **Empresas Bastardas** — entidades constituidas como Fideicomisos de Propósito Perpetuo, gobernadas como Organizaciones Autónomas Descentralizadas (DAO), sin dueño, sin accionistas, sin fines de lucro, que proveen servicios esenciales **al costo real** con **transparencia radical**: cada peso que entra y cada peso que sale es auditable en tiempo real por cualquier ciudadano. La Empresa Bastarda no busca destruir a las empresas existentes — busca iluminarlas. Al operar como referencia de precio transparente, obliga al mercado entero a competir sobre valor real, no sobre opacidad. Las empresas que ya operan eficientemente no tienen nada que temer — ganan un benchmark que valida su pricing. Las que sobreviven cobrando de más por servicios que cuestan menos, enfrentan por primera vez la pregunta que nunca tuvieron que responder: *¿por qué cobrás más si se puede hacer por menos?* La **Red Bastarda** — la red de Empresas Bastardas interconectadas — opera sobre el **Protocolo Bastardo**, infraestructura compartida open-source que incluye identidad descentralizada, tesorería on-chain, gobernanza por sorteo democrático, y un motor de transparencia que publica automáticamente cada dato financiero. Cada Bastarda es autónoma en su operación pero comparte infraestructura, reservas cruzadas (el **Fondo de Solidaridad Bastarda** — el 2% de cada Bastarda fluye a un fondo de ayuda mutua entre sectores), y gobernanza interoperable. La primera Bastarda — **La Bastarda Aseguradora** — ataca el sector de seguros: producto obligatorio (responsabilidad civil automotor), alta demanda, riesgo bien modelado, regulación clara, y extracción visible (20-35% de las primas no van a siniestros). Los usuarios contratan con un **techo** (cuota máxima mensual) y pagan el **costo real dinámico** — si un mes hay pocos siniestros, pagan menos; si hay una catástrofe, pagan más pero nunca por encima del techo. La capitalización inicial es ciudadana: 25.000 fundadores aportan un capital semilla que elimina la necesidad de inversores, del Estado, y de cualquier entidad que después pueda reclamar propiedad. La **ANEB** (Agencia Nacional de la Red Bastarda) — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo democrático y representación técnica — administra el Protocolo Bastardo, gestiona el Fondo de Solidaridad, certifica nuevos adaptadores sectoriales, y sirve de interfaz con los reguladores (SSN, BCRA, ENACOM, ENRE). Pero no gobierna a las Bastardas individuales — cada una es soberana dentro de su constitución. PLANEB opera en doble vía legal: lanza las primeras Bastardas bajo la ley argentina vigente de fideicomisos (CCyC Art. 1666-1707) mientras propone la **Ley de Entidades de Propósito Perpetuo y Gobernanza Descentralizada** — marco legal nuevo para entidades sin dueño, con duración perpetua, gobernanza DAO reconocida, y exención impositiva (no hay ganancia que gravar — solo costo). La inversión estimada para la primera Bastarda (seguros) es de USD 8-15M en capitalización ciudadana. El retorno no es financiero — es social: 200.000 usuarios ahorrando 20-30% en seguros devuelven USD 30-90M por año a los bolsillos de los ciudadanos. El ROI social es de 3:1 a 10:1 en cinco años. PLANEB se integra con los 22 PLANes del ecosistema ¡BASTA! (al 23 de abril de 2026) — y no como un plan más entre pares, sino como la entidad que varios de ellos ya reclaman por nombre: PLANMON designa a la Bastarda Financiera como **nodo ancla de la Red del Pulso** y custodio de reservas del nuevo sistema monetario; PLANVIV constituye la **Bastarda Inmobiliaria** sobre el fideicomiso de suelo perpetuo del Protocolo Bastardo; PLANEN despliega la **Bastarda Energética** como distribuidora al costo de la transición; PLANAGUA organiza **Bastardas Hídricas** por cuenca más una Bastarda Ambiental de misión; PLANMOV opera la **Bastarda Logística Federal**, la **Bastarda Fluvial** y la **BAMD** (Bastarda de Activos Móviles Disponibles), y convierte el Canon de Automatización Logística en un mecanismo replicable por toda la Red; PLAN24CN funda **ciudades Bastarda-nativas** donde todos los servicios nacen al costo; PLANTALLER usa la Red Bastarda como **canal comercial at-cost** de los Tallers Federales; PLANGEO exporta el **Protocolo Bastardo** como módulo del Stack de Soberanía; PLANSEG organiza los servicios complementarios de seguridad como EB barriales; PLANSUS se bancariza a través de la Bastarda Financiera; PLANREP forma y compensa a los trabajadores de las Bastardas; PLANJUS resuelve sus disputas; y PLANDIG provee los rieles — SAPI, ArgenCloud, identidad soberana — sobre los que el Protocolo corre. PLANEB no es un plan más — es la **capa de ejecución económica** que todos los PLANes necesitan. Cada PLAN que requiere infraestructura de mercado ahora tiene una herramienta para crearla: transparente, al costo, gobernada por la gente, sin dueño. No para reemplazar al mercado. Para sanarlo.
+**Tesis Central:** Los mercados argentinos de servicios esenciales — seguros, banca, telecomunicaciones, energía, salud prepaga — operan sobre una asimetría de información estructural: el ciudadano no puede saber cuánto cuesta realmente proveer el servicio que consume, y esa opacidad es el mecanismo central de extracción de valor. La regulación estatal no la corrige — la Superintendencia de Seguros publica balances que nadie lee, el BCRA regula comisiones que igual se cobran por otra ventanilla, la CNDC sanciona conductas que se repiten al año siguiente. PLANEB propone una solución estructural: el derecho de los ciudadanos a crear **Empresas Bastardas** — entidades constituidas como Fideicomisos de Propósito Perpetuo, gobernadas como Organizaciones Autónomas Descentralizadas (DAO), sin dueño, sin accionistas, sin fines de lucro, que proveen servicios esenciales **al costo real** con **transparencia radical**: cada peso que entra y cada peso que sale es auditable en tiempo real por cualquier ciudadano. La Empresa Bastarda no busca destruir a las empresas existentes — busca iluminarlas. Al operar como referencia de precio transparente, obliga al mercado entero a competir sobre valor real, no sobre opacidad. Las empresas que ya operan eficientemente no tienen nada que temer — ganan un benchmark que valida su pricing. Las que sobreviven cobrando de más por servicios que cuestan menos, enfrentan por primera vez la pregunta que nunca tuvieron que responder: *¿por qué cobrás más si se puede hacer por menos?* La **Red Bastarda** — la red de Empresas Bastardas interconectadas — opera sobre el **Protocolo Bastardo**, infraestructura compartida open-source que incluye identidad descentralizada, tesorería on-chain, gobernanza por sorteo democrático, y un motor de transparencia que publica automáticamente cada dato financiero. Cada Bastarda es autónoma en su operación pero comparte infraestructura, reservas cruzadas (el **Fondo de Solidaridad Bastarda** — el 3-5% de cada Bastarda fluye a un fondo de ayuda mutua entre sectores, más un 1-2% como **Contribución de Soberanía** al Fondo Soberano Nacional), y gobernanza interoperable. La primera Bastarda — **La Bastarda Aseguradora** — ataca el sector de seguros: producto obligatorio (responsabilidad civil automotor), alta demanda, riesgo bien modelado, regulación clara, y extracción visible (20-35% de las primas no van a siniestros). Los usuarios contratan con un **techo** (cuota máxima mensual) y pagan el **costo real dinámico** — si un mes hay pocos siniestros, pagan menos; si hay una catástrofe, pagan más pero nunca por encima del techo. La capitalización inicial es ciudadana: 25.000 fundadores aportan un capital semilla que elimina la necesidad de inversores, del Estado, y de cualquier entidad que después pueda reclamar propiedad. La **ANEB** (Agencia Nacional de la Red Bastarda) — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo democrático y representación técnica — administra el Protocolo Bastardo, gestiona el Fondo de Solidaridad, certifica nuevos adaptadores sectoriales, y sirve de interfaz con los reguladores (SSN, BCRA, ENACOM, ENRE). Pero no gobierna a las Bastardas individuales — cada una es soberana dentro de su constitución. PLANEB opera en doble vía legal: lanza las primeras Bastardas bajo la ley argentina vigente de fideicomisos (CCyC Art. 1666-1707) mientras propone la **Ley de Entidades de Propósito Perpetuo y Gobernanza Descentralizada** — marco legal nuevo para entidades sin dueño, con duración perpetua, gobernanza DAO reconocida, y exención impositiva (no hay ganancia que gravar — solo costo). La inversión estimada para la primera Bastarda (seguros) es de USD 8-15M en capitalización ciudadana. El retorno no es financiero — es social: 200.000 usuarios ahorrando 20-30% en seguros devuelven USD 30-90M por año a los bolsillos de los ciudadanos. El ROI social es de 3:1 a 10:1 en cinco años. PLANEB se integra con los otros quince mandatos de ¡BASTA!: con PLANREP (los trabajadores de las Bastardas se compensan vía Índice de Contribución y se forman en los Centros de la Vida), con PLANJUS (resolución de disputas en tres niveles), con PLANSUS (la Bastarda Financiera provee bancarización para el mercado regulado de sustancias), con PLANEDU (la Bastarda Educativa extiende el aprendizaje de por vida), con PLAN24CN (las ciudades nuevas nacen Bastardas — seguros, energía, telecomunicaciones, banca, todos al costo desde el día uno), con PLANISV (la Bastarda Alimentaria distribuye producción regenerativa), y con PLANSAL (la Bastarda Sanitaria complementa el sistema público de salud). PLANEB no es un mandato más — es la **capa de ejecución económica** que todos los mandatos necesitan. Cada PLAN que requiere infraestructura de mercado ahora tiene una herramienta para crearla: transparente, al costo, gobernada por la gente, sin dueño. No para reemplazar al mercado. Para sanarlo.
 
 ---
 
@@ -404,7 +433,7 @@ La Empresa Bastarda usa blockchain — pero sus usuarios no necesitan saberlo. L
 |---|---|---|
 | **Tesorería** | Smart contracts para ingresos, egresos, reservas. Multi-firma para movimientos grandes (Panel + Consejo). | Integración con sistema bancario argentino para cobros/pagos. |
 | **Votaciones** | Registro inmutable de cada voto. Delegaciones. Resultados. | Interfaz de usuario (web/mobile) para votar con un click. |
-| **Auditoría** | Hash de cada transacción financiera. Merkle tree de operaciones off-chain. | Informes legibles, dashboards, alertas. |
+| **Auditoría** | Hash de cada transacción financiera. Merkle tree de operaciones off-chain. | Informes legibles, tableros, alertas. |
 | **Identidad** | DID (Decentralized Identity) para cada usuario. ZKP (Zero-Knowledge Proofs) para datos sensibles. | Registro con DNI, validación de identidad convencional. |
 | **Reclamos** | Hash del reclamo y su resolución. Trazabilidad del proceso. | Formulario web, comunicación con el usuario, análisis del caso. |
 | **Sorteo** | Algoritmo verificable de selección aleatoria (VRF — Verifiable Random Function). | Notificación al seleccionado, proceso de aceptación. |
@@ -477,7 +506,7 @@ La ANEB sigue el mismo patrón institucional de las agencias del marco ¡BASTA!:
 
 **Exclusiones:** Ningún miembro del directorio puede tener vinculación política partidaria activa en los 5 años previos a su designación. Ningún miembro puede haber sido ejecutivo, director, o accionista significativo de una empresa en los sectores donde operan Bastardas en los 3 años previos.
 
-**Rendición de cuentas:** Dashboard público en tiempo real con todas las decisiones, gastos, inversiones, y métricas de la Red. Auditoría externa anual por firma independiente rotativa. Informe semestral al Congreso de la Nación.
+**Rendición de cuentas:** Tablero público en tiempo real con todas las decisiones, gastos, inversiones, y métricas de la Red. Auditoría externa anual por firma independiente rotativa. Informe semestral al Congreso de la Nación.
 
 ### 5.3b Roles Clave del Directorio
 
@@ -487,7 +516,7 @@ El directorio de once miembros funciona como órgano colegiado — las decisione
 
 **Director/a de Tecnología.** Supervisa el desarrollo, la evolución y la seguridad del Protocolo Bastardo — el sistema operativo sobre el que corre toda la Red. Responsabilidades: coordinar el equipo de desarrollo open-source, gestionar auditorías de seguridad (penetration testing trimestral, bug bounties permanentes), certificar adaptadores sectoriales antes de su despliegue, y garantizar la interoperabilidad entre Bastardas. Requisito excluyente: 10 o más años de experiencia demostrable en sistemas distribuidos, arquitectura de software a escala, o criptografía aplicada. Selección por concurso público de antecedentes y oposición, con evaluación técnica conducida por un panel de 5 expertos independientes (3 académicos internacionales + 2 del sector privado argentino, ninguno vinculado a empresas en sectores donde operan Bastardas). El/la Director/a de Tecnología puede vetar un despliegue técnico por razones de seguridad — pero el veto es público, fundamentado, y apelable ante el directorio pleno.
 
-**Director/a de Integridad.** Este es el rol más inusual y el más importante. El/la Director/a de Integridad no reporta al directorio — reporta directamente a la ciudadanía. Su función: gestionar el Canal de Transparencia (whistleblower channel para denuncias internas y externas), monitorear señales de captura regulatoria o influencia indebida sobre el directorio, auditar conflictos de interés, y publicar un Informe de Integridad trimestral que se difunde en el dashboard de la ANEB y en el Tablero Nacional de la Red Bastarda. El/la Director/a de Integridad tiene acceso irrestricto a toda la documentación interna de la ANEB — actas, comunicaciones, registros financieros — y puede convocar audiencias con cualquier miembro del directorio o personal técnico. Protección clave: no puede ser removido/a por el directorio. La única vía de remoción es una Asamblea Extraordinaria convocada por el 10% de los usuarios registrados de todas las Bastardas, con aprobación por mayoría simple del total de votantes. Esta protección asegura que el/la Director/a de Integridad pueda señalar irregularidades sin miedo a represalias internas.
+**Director/a de Integridad.** Este es el rol más inusual y el más importante. El/la Director/a de Integridad no reporta al directorio — reporta directamente a la ciudadanía. Su función: gestionar el Canal de Transparencia (whistleblower channel para denuncias internas y externas), monitorear señales de captura regulatoria o influencia indebida sobre el directorio, auditar conflictos de interés, y publicar un Informe de Integridad trimestral que se difunde en el tablero de la ANEB y en el Tablero Nacional de la Red Bastarda. El/la Director/a de Integridad tiene acceso irrestricto a toda la documentación interna de la ANEB — actas, comunicaciones, registros financieros — y puede convocar audiencias con cualquier miembro del directorio o personal técnico. Protección clave: no puede ser removido/a por el directorio. La única vía de remoción es una Asamblea Extraordinaria convocada por el 10% de los usuarios registrados de todas las Bastardas, con aprobación por mayoría simple del total de votantes. Esta protección asegura que el/la Director/a de Integridad pueda señalar irregularidades sin miedo a represalias internas.
 
 ### 5.3c Mecanismos Anti-Captura
 
@@ -495,7 +524,7 @@ La captura institucional — el proceso por el cual un organismo regulador o de 
 
 **Cooling-off bilateral.** No alcanza con pedir que nadie venga del sector regulado (3 años de cuarentena de entrada, ya establecida en S5.3). También hay que impedir que alguien use la ANEB como trampolín para después irse al sector privado con información privilegiada. Regla: 3 años después de dejar la ANEB, ningún ex-miembro del directorio puede trabajar, asesorar, o tener relación contractual con empresas que operen en sectores donde existen Bastardas activas. Violación: la ANEB puede iniciar acción civil por daños y perjuicios, y el Informe de Integridad lo documenta públicamente.
 
-**Declaración jurada patrimonial.** Todos los miembros del directorio publican declaración jurada patrimonial anual en el dashboard de la ANEB — no en un PDF enterrado en un sitio web, sino en formato estructurado, consultable, con histórico comparativo año a año. Cualquier ciudadano puede ver la evolución patrimonial de cualquier miembro del directorio. Incrementos patrimoniales no explicados por ingresos declarados activan una investigación automática del/la Director/a de Integridad.
+**Declaración jurada patrimonial.** Todos los miembros del directorio publican declaración jurada patrimonial anual en el tablero de la ANEB — no en un PDF enterrado en un sitio web, sino en formato estructurado, consultable, con histórico comparativo año a año. Cualquier ciudadano puede ver la evolución patrimonial de cualquier miembro del directorio. Incrementos patrimoniales no explicados por ingresos declarados activan una investigación automática del/la Director/a de Integridad.
 
 **Límite de mandato vitalicio.** Ningún miembro del directorio — en ninguno de los 5 estamentos (ciudadanos sorteados, expertos técnicos, representantes Bastardas, rep. ANCE, rep. ANJUS) — puede servir más de 2 mandatos en toda su vida. No dos mandatos consecutivos: dos mandatos *total*. Esto impide la profesionalización del cargo — que alguien salga, espere un período, y vuelva a entrar. La ANEB no es una carrera. Es un servicio.
 
@@ -528,10 +557,16 @@ No alcanza con buena voluntad. Cada estamento del directorio necesita perfiles e
 - Certifica actualizaciones antes del despliegue
 
 **2. Gestión del Fondo de Solidaridad Bastarda**
-- Recibe el 2% de ingresos de cada Bastarda activa
+- Recibe el 3-5% de ingresos de cada Bastarda activa (ver Sección 6.1)
 - Invierte en instrumentos de alta liquidez y baja volatilidad
 - Desembolsa ante activación de catástrofe en cualquier Bastarda
 - Publica el estado del fondo en tiempo real
+
+**2b. Administración de la Contribución de Soberanía**
+- Recibe el 1-2% de ingresos brutos de cada Bastarda activa con destino al Fondo Soberano Nacional (PLANMON, Sección 6)
+- La Contribución de Soberanía reconoce que las Bastardas operan sobre infraestructura pública y acceso de mercado provistos por el Estado — no es ganancia, es renta de infraestructura
+- Transferencia mensual automatizada al Fondo Soberano Bastardo vía smart contract
+- Compatible con la filosofía de costo real: la contribución es transparente, fija, y beneficia los bienes comunes
 
 **3. Certificación de Adaptadores Sectoriales**
 - Cuando se desarrolla un nuevo adaptador (por ejemplo, para energía o telecomunicaciones), la ANEB certifica que cumple los estándares del Protocolo: seguridad, transparencia, interoperabilidad, cumplimiento regulatorio
@@ -580,7 +615,7 @@ No todo mercado necesita una Bastarda. Si podés comparar precios en cinco segun
 
 **3. Reemplazo del Estado**
 
-Las Bastardas complementan donde **los mercados** fallan — no donde el Estado falla. Hospitales públicos, escuelas públicas, fuerzas de seguridad, justicia, infraestructura vial, política exterior: todo eso es función estatal y queda fuera del alcance de la Red. Si el Estado falla en salud pública, la respuesta es PLANSAL. Si falla en educación, la respuesta es PLANEDU. Si falla en seguridad, la respuesta es PLANSEG. Cada PLAN de ¡BASTA! cubre un dominio de falla estatal. PLANEB cubre un dominio distinto: la falla de mercado. Confundir los dos es diluir ambos.
+Las Bastardas complementan donde **los mercados** fallan — no donde el Estado falla. Hospitales públicos, escuelas públicas, fuerzas de seguridad, justicia, infraestructura vial, política exterior: todo eso es función estatal y queda fuera del alcance de la Red. Si el Estado falla en salud pública, la respuesta es PLANSAL. Si falla en educación, la respuesta es PLANED. Si falla en seguridad, la respuesta es PLANSEG. Cada mandato de ¡BASTA! cubre un dominio de falla estatal. PLANEB cubre un dominio distinto: la falla de mercado. Confundir los dos es diluir ambos.
 
 **4. Caridad**
 
@@ -629,7 +664,7 @@ El modelo económico de la Empresa Bastarda es conceptualmente simple — tan si
 **Mecánica:** Cada mes, la Bastarda calcula:
 
 ```
-Cuota mensual = (Costos operativos + Siniestros/Prestaciones + Contribución a reservas) ÷ Cantidad de usuarios
+Cuota mensual = (Costos operativos + Siniestros/Prestaciones + Contribución a reservas + Contribución de Soberanía) ÷ Cantidad de usuarios
 ```
 
 Si este mes hubo menos siniestros → la cuota baja. Si hubo más → la cuota sube. No hay un precio fijo que esconda un margen. No hay un "costo administrativo" inflado que sea una ganancia disfrazada. Hay un número — el costo real dividido por la cantidad de personas — y ese número es público.
@@ -645,9 +680,10 @@ Si este mes hubo menos siniestros → la cuota baja. Si hubo más → la cuota s
 | Costos operativos (staff, tech, legal) | $750M | $750M | $750M |
 | Siniestros pagados | $1.750M | $1.000M | $4.000M |
 | Contribución a Reserva Operativa (10%) | $250M | $175M | $475M |
-| Contribución a Fondo de Solidaridad (2%) | $55M | $38.5M | $104.5M |
-| **Total** | **$2.805M** | **$1.963.5M** | **$5.329.5M** |
-| **Cuota por usuario** | **$56.100** | **$39.270** | **$106.590** |
+| Contribución a Fondo de Solidaridad (3-5%) | $110M | $77M | $209M |
+| Contribución de Soberanía (1-2%) | $41.5M | $29M | $78.5M |
+| **Total** | **$2.901.5M** | **$2.031M** | **$5.512.5M** |
+| **Cuota por usuario** | **$58.030** | **$40.620** | **$110.250** |
 | Techo contratado | $120.000 | $120.000 | $120.000 |
 | ¿Excede el techo? | No | No | No |
 
@@ -663,7 +699,8 @@ Tres niveles de protección, de menor a mayor alcance:
 |---|---|---|---|---|
 | **Reserva Operativa** | 10% de la cuota mensual de cada Bastarda | 3 meses de costos operativos | Suavizar fluctuaciones mes a mes dentro de cada Bastarda | Consejo Técnico de la Bastarda |
 | **Fondo de Catástrofe** | Acumulación de excedentes de meses buenos | 6 meses de siniestros promedio | Absorber shocks sectoriales (granizo masivo, epidemia) | Panel Ciudadano de la Bastarda |
-| **Fondo de Solidaridad Bastarda** | 2% de ingresos de todas las Bastardas | USD 50M+ (crece con la Red) | Ayuda mutua entre Bastardas. Si la Bastarda Sanitaria enfrenta una pandemia, las otras ayudan. | ANEB |
+| **Fondo de Solidaridad Bastarda** | 3-5% de ingresos de todas las Bastardas | USD 120-250M+ (crece con la Red) | Ayuda mutua entre Bastardas. Si la Bastarda Sanitaria enfrenta una pandemia, las otras ayudan. | ANEB |
+| **Contribución de Soberanía** | 1-2% de ingresos brutos de todas las Bastardas | USD 40-100M+ (crece con la Red) | Fluye al Fondo Soberano Nacional (PLANMON). Reconocimiento de que las Bastardas operan sobre infraestructura pública — no es ganancia, es renta de infraestructura. | ANEB → Fondo Soberano |
 
 **Cuarta línea de defensa: Reaseguro tradicional.** Las Bastardas contratan reaseguro con reaseguradoras globales (Swiss Re, Munich Re, Hannover Re) para eventos catastróficos que superen la capacidad de los tres fondos. Esto es práctica estándar en la industria — incluso las mayores aseguradoras del mundo compran reaseguro. La Bastarda lo hace con la misma prudencia pero publicando el costo del reaseguro como parte de la cuota.
 
@@ -686,7 +723,7 @@ Las Empresas Bastardas no buscan destruir al mercado. Buscan mejorarlo. La integ
 
 **Benchmarking.** La aseguradora privada puede señalar el precio publicado de la Bastarda y decir: "Nosotros cobramos 15% más porque ofrecemos cobertura internacional, asistencia 24/7 con vehículo de reemplazo, y atención personalizada con un productor asignado." Si el cliente valora esos servicios, paga la diferencia con conocimiento de causa. La Bastarda no eliminó la opción privada — la hizo transparente.
 
-**Infraestructura compartida.** El Protocolo Bastardo es open-source. Cualquier empresa privada puede adoptar el motor de transparencia, el dashboard de costos, o el sistema de reclamos. Si una aseguradora privada decide publicar su estructura de costos con el mismo nivel de detalle que la Bastarda, es bienvenida. Más transparencia para todos.
+**Infraestructura compartida.** El Protocolo Bastardo es open-source. Cualquier empresa privada puede adoptar el motor de transparencia, el tablero de costos, o el sistema de reclamos. Si una aseguradora privada decide publicar su estructura de costos con el mismo nivel de detalle que la Bastarda, es bienvenida. Más transparencia para todos.
 
 **Mutualizaciones cruzadas.** Bastardas y aseguradoras privadas pueden compartir pools de reaseguro para eventos catastróficos. El riesgo se diversifica. Los costos bajan. Todos ganan.
 
@@ -742,18 +779,18 @@ La primera Empresa Bastarda es el caso modelo. Las proyecciones a continuación 
 
 Veinticinco mil personas poniendo entre USD 320 y USD 680 cada una. No son inversores — son futuros usuarios que están comprando su primer año de cobertura anticipada + contribuyendo a la capitalización de una entidad que les va a ahorrar dinero cada mes de acá en adelante. No hay retorno financiero — hay retorno en forma de seguro más barato, más transparente, y gobernado por ellos mismos.
 
-**Dos números que no hay que confundir.** Este plan maneja dos magnitudes de capitalización que operan en planos distintos, y mezclarlas genera más confusión que cualquier balance de aseguradora. La primera es la de la tabla de arriba: **USD 8-17 millones de inversión privada-ciudadana** para la primera Bastarda — plata que ponen 25.000 fundadores de su bolsillo, sin un peso del Estado, y que financia una entidad concreta en un sector concreto. La segunda es la **capitalización pública de la Red a escala: USD 500-600 millones**, derivada del piso constitucional del 0,10% del PBI que financia a la ANEB (ver Sección 5.2) — y que cubre lo que ninguna Bastarda individual puede cubrir: el mantenimiento del Protocolo Bastardo, el Fondo de Solidaridad, la certificación de adaptadores, la interfaz regulatoria, y el co-financiamiento de la expansión federal cuando la Red pase de una Bastarda a decenas. La primera cifra es el costo de encender el motor. La segunda es el costo de mantener la ruta por la que el motor va a circular durante quince años. La primera Bastarda no necesita ni un centavo público; la Red madura — la que los demás PLANes del ecosistema dan por sentada — sí necesita su piso constitucional, igual que cualquier otra agencia del marco ¡BASTA!. *Ambas cifras son estimaciones de orden de magnitud — sujetas a verificación.*
-
 ### 7.2 Proyección Operativa Anual
 
 **TABLA 13: Bastarda Aseguradora — Proyección por Fase**
 
+> **REVISIÓN 2026-04-28:** PLANEB es **tranche-1** con cap **1-2 Bastardas piloto** (medicamentos genéricos como sugerida; aseguradora opcional). El "Año 5: Escala" se reformula como **horizonte 2040 (Visión, no compromiso operativo de remediación)**. Las cifras de la tabla son proyecciones estimadas; las metas de tranche-1 son las del piloto, no las del régimen pleno.
+
 | Fase | Usuarios | Producto | Ingreso Anual (al costo) | Costo Anual | Ahorro vs. Mercado (por usuario/año) |
 |---|---|---|---|---|---|
-| **Año 1: Auto Simple** | 10.000 | Resp. civil automotor | USD 6-8M | USD 6-8M | USD 150-300 |
-| **Año 2: Expansión** | 30.000 | Auto + Hogar + Micro | USD 20-30M | USD 20-30M | USD 200-400 |
-| **Año 3: Multi-producto** | 50.000 | Todo lo anterior + Vida | USD 30-50M | USD 30-50M | USD 250-500 |
-| **Año 5: Escala** | 200.000 | Espectro completo | USD 120-200M | USD 120-200M | USD 300-600 |
+| **Tranche-1 inicial (2026-2027): Auto Simple** | 10.000 | Resp. civil automotor | USD 6-8M | USD 6-8M | USD 150-300 |
+| **Tranche-1 consolidación (2027-2028): Expansión** | 30.000 | Auto + Hogar + Micro | USD 20-30M | USD 20-30M | USD 200-400 |
+| **Tranche-2 entrada (2028-2030): Multi-producto** | 50.000 | Todo lo anterior + Vida | USD 30-50M | USD 30-50M | USD 250-500 |
+| **Horizonte 2040 (Visión, no compromiso operativo): Escala** | 200.000 | Espectro completo | USD 120-200M | USD 120-200M | USD 300-600 |
 
 **Nota fundamental:** En una Empresa Bastarda, "ingreso" y "costo" son el mismo número. No hay margen. No hay ganancia. El ingreso es exactamente lo que se necesita para cubrir el costo. Si al final del año hay un excedente, se devuelve como menor cuota. Si hay un déficit, se cubre con reservas o se ajusta la cuota.
 
@@ -761,9 +798,9 @@ Veinticinco mil personas poniendo entre USD 320 y USD 680 cada una. No son inver
 
 PLANEB no genera retorno financiero. No hay inversores que esperen dividendos. Pero genera un retorno social masivo y cuantificable:
 
-**TABLA 14: Retorno Social de la Red Bastarda — Proyección a 5 Años**
+**TABLA 14: Retorno Social de la Red Bastarda — Proyección a horizonte 2040**
 
-| Métrica | Año 1 | Año 3 | Año 5 |
+| Métrica | Tranche-1 inicial (2027) | Tranche-2 entrada (2030) | Horizonte 2040 (Visión, no compromiso) |
 |---|---|---|---|
 | Usuarios en la Red (todas las Bastardas) | 10.000 | 80.000 | 300.000+ |
 | Ahorro promedio por usuario vs. mercado | USD 150-300/año | USD 200-500/año | USD 300-600/año |
@@ -771,14 +808,14 @@ PLANEB no genera retorno financiero. No hay inversores que esperen dividendos. P
 | Empleos dignos creados (PLANREP integración) | 30 | 200 | 800+ |
 | Sectores con referencia transparente | 1 (seguros) | 2-3 (+ banca, telecom) | 5+ |
 
-**Comparación con otros PLANes:**
+**Comparación con otros PLANs:**
 - PLANREP: inversión fiscal de USD 15.000-25.000M/año → 1M de personas reconvertidas
 - PLANSUS: inversión de USD 500M-1.500M → ROI 5:1 a 15:1 en 10 años
 - **PLANEB: inversión ciudadana de USD 8-17M → ahorro de USD 90-180M/año en año 5 = ROI social 6:1 a 20:1**
 
-PLANEB es el PLAN de ¡BASTA! con el mejor retorno por peso invertido — y el único que no requiere ni un centavo del Estado para su primera entidad. La ciudadanía financia su propia liberación económica.
+PLANEB es el mandato de ¡BASTA! con el mejor retorno por peso invertido — y el único que no requiere ni un centavo del Estado. La ciudadanía financia su propia liberación económica.
 
-**El efecto multiplicador fiscal.** El retorno social de la Red Bastarda no se agota en el ahorro directo de los usuarios. Hay un efecto de segundo orden que los economistas llaman multiplicador fiscal — y que acá opera al revés de lo habitual: en vez de inyectar dinero estatal en la economía, se *deja de extraer* dinero privado. El resultado neto es el mismo. Doscientos mil ciudadanos ahorrando entre un 20% y un 30% en seguros significa ingreso disponible adicional que no se evapora en dividendos de una corporación — se gasta en la economía real. Se compra comida, se paga educación, se va al cine, se ahorra para una casa. Cada peso que deja de ser extracción se convierte en un peso que compra algo real — y ese peso genera actividad económica, empleo, y consumo en cadena. El multiplicador estimado del consumo de hogares en Argentina oscila entre 1,2 y 1,5 — lo que significa que cada USD 100 millones de ahorro anual genera entre USD 120 y USD 150 millones en actividad económica agregada. Pero el efecto no termina ahí. Las entidades transparentes requieren menos supervisión regulatoria: cuando toda la información financiera es pública y auditable en tiempo real, la SSN puede reasignar recursos de auditoría hacia las aseguradoras que sí operan en la opacidad. Menos carga regulatoria, mejor focalización. Y hasta las arcas del Estado se benefician: mayor actividad económica implica mayor recaudación por IVA, Ingresos Brutos, y otros impuestos al consumo — sin aumentar ninguna alícuota. PLANEB no le pide plata al Estado, y encima le genera recaudación indirecta. Es el PLAN fiscalmente más eficiente de todo el marco ¡BASTA!.
+**El efecto multiplicador fiscal.** El retorno social de la Red Bastarda no se agota en el ahorro directo de los usuarios. Hay un efecto de segundo orden que los economistas llaman multiplicador fiscal — y que acá opera al revés de lo habitual: en vez de inyectar dinero estatal en la economía, se *deja de extraer* dinero privado. El resultado neto es el mismo. Doscientos mil ciudadanos ahorrando entre un 20% y un 30% en seguros significa ingreso disponible adicional que no se evapora en dividendos de una corporación — se gasta en la economía real. Se compra comida, se paga educación, se va al cine, se ahorra para una casa. Cada peso que deja de ser extracción se convierte en un peso que compra algo real — y ese peso genera actividad económica, empleo, y consumo en cadena. El multiplicador estimado del consumo de hogares en Argentina oscila entre 1,2 y 1,5 — lo que significa que cada USD 100 millones de ahorro anual genera entre USD 120 y USD 150 millones en actividad económica agregada. Pero el efecto no termina ahí. Las entidades transparentes requieren menos supervisión regulatoria: cuando toda la información financiera es pública y auditable en tiempo real, la SSN puede reasignar recursos de auditoría hacia las aseguradoras que sí operan en la opacidad. Menos carga regulatoria, mejor focalización. Y hasta las arcas del Estado se benefician: mayor actividad económica implica mayor recaudación por IVA, Ingresos Brutos, y otros impuestos al consumo — sin aumentar ninguna alícuota. PLANEB no le pide plata al Estado, y encima le genera recaudación indirecta. Es el mandato fiscal más eficiente de todo el marco ¡BASTA!.
 
 ---
 
@@ -801,7 +838,7 @@ Sin el Protocolo, cada Bastarda necesitaría desarrollar su propio sistema de go
 | **1. Identidad** | Registro de usuarios, verificación, privacidad | DID (Decentralized Identity) + ZKP (Zero-Knowledge Proofs) para datos sensibles | Estándares W3C existentes (did:web, did:key) |
 | **2. Tesorería** | Cobro de cuotas, pago de siniestros/prestaciones, gestión de reservas | Smart contracts (Solidity/Vyper) en L2 + multi-firma | Patrones probados (Gnosis Safe, OpenZeppelin) |
 | **3. Gobernanza** | Votaciones, delegaciones, sorteo, propuestas, Regla de Tres Rechazos | Contratos de votación on-chain + VRF (Verifiable Random Function) para sorteo + sistema de propuestas | Basado en Aragon, Governor (OpenZeppelin) |
-| **4. Transparencia** | Publicación de datos, dashboards, APIs, auditoría | Open API (REST + GraphQL) + reportes auto-generados + hooks de auditoría independiente | Desarrollo propio sobre estándares abiertos |
+| **4. Transparencia** | Publicación de datos, tableros, APIs, auditoría | Open API (REST + GraphQL) + reportes auto-generados + hooks de auditoría independiente | Desarrollo propio sobre estándares abiertos |
 | **5. Adaptadores** | Lógica específica de cada sector | Módulos pluggables que implementan interfaces del Protocolo | Uno por sector — ver Sección 9 |
 
 ### 8.3 La Identidad: Un Usuario, Todas las Bastardas
@@ -862,7 +899,7 @@ El primer adaptador. Seguro automotor obligatorio como producto de lanzamiento. 
 **La solución Bastarda:**
 - **Modelo MVNO (operador virtual):** La Bastarda alquila infraestructura de red a los operadores existentes. No necesita construir torres. Esto es estándar global — hay más de 1.700 MVNOs en el mundo.
 - **Pricing al costo:** Cuota = costo mayorista de datos/minutos + operación + reserva. Publicado en tiempo real.
-- **Dashboard de calidad:** Velocidad real, latencia, uptime — todo público, medido desde los dispositivos de los usuarios.
+- **Tablero de calidad:** Velocidad real, latencia, uptime — todo público, medido desde los dispositivos de los usuarios.
 - **Infraestructura propia (largo plazo):** A medida que la Bastarda crece, invierte en infraestructura propia donde tiene escala — torres comunitarias, fibra óptica cooperativa.
 - **Regulador:** ENACOM.
 
@@ -990,7 +1027,7 @@ De todos los sectores donde una Bastarda puede operar, el de seguros tiene las m
 | Acción | Detalle |
 |---|---|
 | Constitución legal | Fideicomiso de Propósito Perpetuo ante escribano. Inscripción en IGJ. |
-| Licencia SSN | Continuación del trámite de habilitación iniciado en la Pre-Fase (ver S18.1). Vehículo primario: el fideicomiso; el precedente mutual sirve como referencia regulatoria, no como forma societaria. Trámite completo estimado: 18-24 meses. |
+| Licencia SSN | Solicitud de habilitación como entidad aseguradora mutual. Proceso: 3-6 meses. |
 | Desarrollo de plataforma | Fork de plataforma open-source de seguros + adaptación al Protocolo Bastardo. |
 | Contratación del Consejo Técnico | Convocatoria abierta: actuarios, ingenieros, desarrolladores, abogados especializados en seguros. |
 | Primer Panel Ciudadano | Sorteo entre los 25.000 firmantes de la petición. 30 días de capacitación. |
@@ -1107,20 +1144,6 @@ La DAO es la capa de gobernanza interna — no la entidad legal. Ante la ley arg
 
 Esto es válido bajo la ley actual — pero es un workaround, no una solución elegante. La Fase B busca resolver esto de raíz.
 
-### 12.1b La Escalera de Fallback Regulatorio
-
-Una sola historia legal, contada igual en todo el documento. Porque un plan que dice "fideicomiso" en una sección, "mutual" en otra y "cooperativa" en una tercera no es flexible — es confuso. Esta es la escalera, en orden:
-
-**TABLA 18b: Escalera de Fallback Regulatorio de la Empresa Bastarda**
-
-| Peldaño | Figura Legal | Cuándo se Usa | Qué se Pierde |
-|---|---|---|---|
-| **1. Vía primaria** | Fideicomiso de Propósito Perpetuo (CCyC Art. 1666-1707) + gobernanza DAO | Siempre, por defecto. Es la forma que mejor expresa la cero-propiedad: el patrimonio pertenece al propósito, no a personas. | Nada — es el diseño pleno. |
-| **2. Fallback regulatorio general** | Cooperativa de usuarios (Ley 20.337) | Si un regulador sectorial o un tribunal bloquea la vía fiduciaria de forma definitiva (agotada la vía judicial). | Eficiencia estructural: aparece la figura del socio-propietario y el excedente repartible que la Bastarda evita por diseño. Se mitiga por estatuto: excedente irrepartible, reinversión obligatoria, gobernanza por sorteo. |
-| **3. Fallback del vertical asegurador** | Mutual (Ley 20.321) | Solo para la Bastarda Aseguradora, y solo si la SSN rechaza la habilitación del fideicomiso como entidad aseguradora. La SSN ya regula mutuales — el precedente es directo. | La interoperabilidad plena con el resto de la Red: la mutual queda confinada al sector seguros y requiere adaptación del Protocolo para su gobernanza asamblearia. |
-
-Tres reglas de lectura. Primera: **el fideicomiso es la vía, no una opción entre varias** — los peldaños 2 y 3 son rutas de emergencia, no alternativas equivalentes. Segunda: **la mutual no es el fallback general** — es un instrumento específico del vertical asegurador, porque es la única figura que la SSN reconoce con décadas de práctica; usarla en banca o telecomunicaciones no tiene sentido regulatorio. Tercera: **toda migración de peldaño es reversible** — si la Ley de EPP (ver 12.2) se sanciona, las Bastardas que hayan tenido que bajar a cooperativa o mutual vuelven a constituirse bajo el régimen pleno, con el plazo de adaptación de 24 meses que el Capítulo VIII del proyecto prevé. Esta escalera es la misma que aplican la matriz de riesgos (TABLA 25, S16.1) y el protocolo de falla ante revocación de licencia (S23.1). Una historia. Tres secciones. Cero contradicciones.
-
 ### 12.2 Fase B: Ley de Entidades de Propósito Perpetuo y Gobernanza Descentralizada
 
 PLANEB propone un proyecto de ley que cree un nuevo tipo de entidad jurídica en el derecho argentino:
@@ -1151,7 +1174,7 @@ Las siete disposiciones de arriba son principios. Pero un principio sin articula
 | **Cap. IV — Régimen Fiscal** | Exención de impuesto a las ganancias (no hay base imponible), IVA reducido para servicios esenciales al costo, contribuciones patronales estándar | 27-32 |
 | **Cap. V — Régimen Regulatorio** | Vía simplificada de habilitación ante SSN/BCRA/ENACOM/ENRE para EPPs que cumplan estándares de transparencia del Protocolo Bastardo | 33-38 |
 | **Cap. VI — Protección contra Conversión** | Nulidad absoluta de conversión de EPP a entidad con fines de lucro, prohibición de distribución de patrimonio, cláusula de "muerte digna" | 39-42 |
-| **Cap. VII — ANEB** | Creación legal del ente autárquico, competencias, presupuesto protegido, directorio por sorteo y representación técnica | 43-50 |
+| **Cap. VII — ANEB** | En tranche-1: creación de **execution cell en MinProducción** con marco contable transparente (LMV-06). Conversión a ente autárquico con presupuesto protegido, directorio por sorteo y representación técnica **diferida a tranche-2/3 condicional** (24m de prueba con ≥ 1 Bastarda viva, según `TABLA_AGENCIAS_BASTA.md`). Reforma constitucional con piso presupuestario diferida a horizonte 2040. | 43-50 |
 | **Cap. VIII — Disposiciones Transitorias** | Adaptación de Bastardas existentes (constituidas como fideicomisos) al nuevo régimen, plazo de 24 meses | 51-55 |
 
 Algunos capítulos merecen aclaración. El Capítulo III es el corazón ideológico: establece que una votación verificada on-chain tiene la misma validez legal que una resolución de asamblea de accionistas. Esto no tiene precedente en el derecho argentino. El articulado deberá resolver cuestiones de identidad (¿cómo se verifica que un voto on-chain corresponde a una persona real?), de impugnación (¿cómo se cuestiona una decisión tomada por smart contract?), y de integración con el sistema judicial existente. El Capítulo VI incluye la cláusula de "muerte digna" — si una EPP no puede continuar operando, su patrimonio se transfiere al Fondo de Solidaridad Bastarda o a otra EPP del mismo sector, jamás a manos privadas. No hay liquidación con reparto de remanente. La entidad nace sin dueño y muere sin heredero.
@@ -1188,7 +1211,7 @@ La visión: en 2040, un ciudadano de Colombia, de Portugal, de India, puede toma
 
 ### 13.1 Métricas de Red (Agregadas)
 
-**TABLA 19: Dashboard de la Red Bastarda — Métricas en Tiempo Real**
+**TABLA 19: Tablero de la Red Bastarda — Métricas en Tiempo Real**
 
 | Métrica | Descripción | Frecuencia | Público |
 |---|---|---|---|
@@ -1202,7 +1225,7 @@ La visión: en 2040, un ciudadano de Colombia, de Portugal, de India, puede toma
 
 ### 13.2 Métricas por Bastarda
 
-**TABLA 20: Dashboard Individual de Cada Bastarda**
+**TABLA 20: Tablero Individual de Cada Bastarda**
 
 | Métrica | Descripción | Trigger de Alerta |
 |---|---|---|
@@ -1227,16 +1250,16 @@ Si una métrica cruza un umbral crítico, el sistema responde automáticamente �
 | Satisfacción <50 NPS sostenida 2 trimestres | Revisión integral de operación. Consejo Técnico presenta plan de acción. |
 | Discrepancia on-chain/off-chain detectada | Congelamiento temporal de transacciones grandes. Auditoría de emergencia en 72 horas. |
 | Cuota excede 80% del techo contratado durante 3 meses consecutivos | Asamblea Extraordinaria para revisar coberturas, techo, o activar reaseguro adicional. |
-| Fondo de Solidaridad <USD 10M | Suspensión temporal de co-financiamiento de nuevas Bastardas hasta recuperación. |
+| Fondo de Solidaridad <USD 25M | Suspensión temporal de co-financiamiento de nuevas Bastardas hasta recuperación. |
 | Confianza ciudadana <60% sostenida 2 trimestres | Panel Ciudadano convocado para revisión integral de operación + comunicación + gobernanza. |
 
 ### 13.4 Indicadores de Impacto Humano — ¿Estamos Bien?
 
 Las métricas económicas te dicen si el sistema funciona. Las métricas humanas te dicen si el sistema importa.
 
-PLANREP tiene un "Dashboard de Impacto Humano — KPIs No Económicos" — indicadores que miden si la gente *siente* que su vida mejoró, no solo si los números del tablero dan bien. PLANEB sigue la misma filosofía, adaptada a la Red Bastarda. Porque una Bastarda puede tener las reservas perfectas, la cuota más baja del mercado y cero discrepancias on-chain — y aun así fallarle a las personas si nadie entiende su factura, si nadie siente que tiene voz, si nadie confía en que el sistema opera a su favor.
+PLANREP tiene un "Tablero de Impacto Humano — KPIs No Económicos" — indicadores que miden si la gente *siente* que su vida mejoró, no solo si los números del tablero dan bien. PLANEB sigue la misma filosofía, adaptada a la Red Bastarda. Porque una Bastarda puede tener las reservas perfectas, la cuota más baja del mercado y cero discrepancias on-chain — y aun así fallarle a las personas si nadie entiende su factura, si nadie siente que tiene voz, si nadie confía en que el sistema opera a su favor.
 
-**TABLA 21b: Dashboard de Impacto Humano de la Red Bastarda**
+**TABLA 21b: Tablero de Impacto Humano de la Red Bastarda**
 
 | Indicador | Pregunta | Método | Meta | Trigger de Alerta |
 |---|---|---|---|---|
@@ -1249,76 +1272,35 @@ PLANREP tiene un "Dashboard de Impacto Humano — KPIs No Económicos" — indic
 Estos no son indicadores cosméticos. Si Confianza cae por debajo del 60%, activa el mismo circuit breaker que una alerta financiera (ver TABLA 21, S13.3). Si Comprensión baja del 70%, el problema no es el usuario — es la factura. La respuesta correcta no es "educar" a la gente para que entienda un documento confuso; es rediseñar el documento hasta que sea imposible no entenderlo. Si Agencia cae por debajo del 5%, significa que la Bastarda dejó de ser de la gente y se convirtió en otro servicio más que te llega por débito automático. Y si Comunidad cae, si la gente no siente que pertenece a algo más grande que una póliza barata, entonces la Bastarda está ganando la batalla económica pero perdiendo la guerra cultural. El punto es claro: la Bastarda existe para servir a personas, no a números. Si los números dan bien pero las personas no lo sienten, algo anda mal.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 14: INTEGRACIÓN CON EL ECOSISTEMA ¡BASTA!
+Esta sección documenta cómo PLANEB se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANEB"*.
 
-> *"PLANEB no es un plan más. Es la capa económica que hace funcionar a todos los demás."*
+### Lo que PLANEB aporta al ecosistema
 
-### 14.1 De Ocho Mandatos a 22 PLANes
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMON** | CRITICAL | FINANCIAL | Bastarda Financiera es nodo ancla del Pulso |
+| **PLAN24CN** | CRITICAL | INSTITUTIONAL | Ciudades nacen Bastarda-nativas: todos los servicios al costo |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo (ambos lanzan Año 0) |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo como estándar internacional open-source |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Red Bastarda es canal de salida at-cost de producción de Tallers |
+| **PLANMOV** | CRITICAL | INSTITUTIONAL | Bastarda Logística Federal y Bastarda Fluvial como canales at-cost + BAMD (Bastarda de Activos Móviles Disponibles) como forma bastarda piloto; Canon de Automatización Logística replicable a otros sectores |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS provee el substrato on-chain y los servicios federados que el Protocolo Bastardo necesita para operar sin dependencias extranjeras |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Resolución Popular resuelve disputas de usuarios de cada Bastarda en primera instancia no-jurisdiccional, con apelación a JUS formal |
 
-Este documento nació cuando el ecosistema ¡BASTA! tenía ocho mandatos. Hoy — al 23 de abril de 2026 — el ecosistema cuenta **22 PLANes**, más PLANRUTA como plan meta/bootstrap que no se cuenta entre los 22. Y en ese crecimiento pasó algo que ningún otro plan puede decir: **los demás PLANes no solo citan a PLANEB — reclaman Bastardas por nombre propio.** PLANMON designó a la Bastarda Financiera como nodo ancla de su sistema monetario antes de que exista. PLANVIV constituyó la Bastarda Inmobiliaria sobre el fideicomiso de suelo perpetuo. PLANMOV definió tres formas bastardas — la Bastarda Logística Federal, la Bastarda Fluvial y la BAMD — para operar la columna logística del país. PLANAGUA organizó Bastardas Hídricas por cuenca. PLANEN desarrolló en profundidad la Bastarda Energética que este catálogo apenas esbozaba. La forma bastarda dejó de ser una propuesta de este plan — se convirtió en la **primitiva institucional de ejecución económica** de todo el ecosistema. Esta sección es el mapa actualizado de esa relación.
+### Lo que PLANEB necesita de otros
 
-**TABLA 22: PLANEB × Los 22 PLANes del Ecosistema (al 23 de abril de 2026)**
-
-| PLAN | Sinergia Específica |
-|---|---|
-| **PLANJUS** | El sistema JUS de tres niveles es el backstop de disputas en toda la Red. El modelo Kleros de PLANJUS se adapta para arbitraje interno de las Bastardas; la Resolución Popular atiende disputas de usuarios en primera instancia no-jurisdiccional. Las Casas JUS pueden hospedar las oficinas físicas de las Bastardas en municipios donde se necesite presencia. |
-| **PLANREP** | Los trabajadores de las Bastardas se compensan vía Índice de Contribución. Se forman en los Centros de la Vida. Las Bastardas son un destino de reconversión para empleados públicos. Los Fideicomisos de Propósito Perpetuo de PLANREP (macro-infraestructura) y los de PLANEB (servicios de mercado) comparten la misma arquitectura legal pero con distintos propósitos. |
-| **PLANMON** | La **Bastarda Financiera es el nodo ancla de la Red del Pulso** y custodio de reservas del peso-canasta. El Fondo Soberano Bastardo recibe la Contribución de Soberanía de toda la Red Bastarda. Y la Red entera opera como **infraestructura antiinflacionaria de oferta**: cada precio al costo publicado es una referencia que los formadores de precios no pueden ignorar. |
-| **PLANDIG** | PLANDIG define y construye el Protocolo Bastardo como infraestructura de gobernanza descentralizada de todo el ecosistema. El **SAPI es el riel de pagos de la Red** — transacciones con transparencia radical y costo cero —, ArgenCloud hostea el padrón de Bastardas, y la Bastarda Financiera canjea los Créditos de Contribución Nacional (CCN) por pesos. Sin soberanía digital, la transparencia bastarda corre sobre servidores ajenos. |
-| **PLANSUS** | La Bastarda Financiera provee bancarización para el mercado regulado de sustancias (resolviendo el "problema de la puerta trasera" bancaria que PLANSUS S21 identifica). Las Bastardas operan con la misma lógica de cascada con puertas de PLANSUS. Los ingresos fiscales del mercado regulado alimentan el Fondo Soberano que PLANMON administra. |
-| **PLANEDU** | La Bastarda Educativa extiende el aprendizaje de por vida más allá de las Escuelas del Futuro. Los graduados de PLANEDU construyen la tecnología del Protocolo Bastardo. La ANCE y la ANEB comparten estándares de gobernanza. |
-| **PLANSAL** | La Bastarda Sanitaria complementa el sistema público de salud de PLANSAL. Los Centros de Vitalidad de PLANSAL y las redes de prestadores de la Bastarda Sanitaria se interconectan. Farmacia al costo con genéricos. |
-| **PLANISV** | La Bastarda Alimentaria distribuye la producción de agricultura regenerativa de PLANISV. Trazabilidad blockchain de campo a mesa. Denominación de origen verificada para suelo vivo. Los datos de producción alimentan la canasta de respaldo del Pulso (PLANMON). |
-| **PLANAGUA** | Las **Bastardas Hídricas** — organizadas por cuenca hidrográfica — proveen agua al costo real, más una **Bastarda Ambiental** nacional de misión dedicada a la remediación de ríos contaminados, que se disuelve cuando la misión se completa. Las 600+ cooperativas de agua existentes son la proto-Bastarda Hídrica que PLANAGUA escala con el Protocolo. |
-| **PLAN24CN** | Las 24 ciudades nuevas nacen **Bastarda-nativas**: seguros al costo, energía distribuida, telecomunicaciones comunitarias, banca sin extracción, vivienda sin especulación — desde el día uno, sin incumbentes que desplazar. Las ciudades PLAN24CN son el laboratorio natural de la Red Bastarda a escala urbana. La primera ciudad Bastarda-nativa está calendarizada para el Año 4 — con dependencia explícita del cronograma de PLAN24CN (ver S18.2). |
-| **PLANGEO** | El **Protocolo Bastardo es un módulo exportable del Stack de Soberanía**: código abierto, cero lock-in, forkeable por cualquier país sin pedir permiso a Buenos Aires. La Ley de EPP se publica como template legal internacional (ver 12.3). La ANEB figura en el catálogo de agencias que PLANGEO presenta al mundo. |
-| **PLANEN** | La **Bastarda Energética** — esbozada en este catálogo (S9.4) y desarrollada en profundidad por PLANEN — distribuye energía al costo real, opera la generación distribuida y el programa Cada Techo un Generador. Condición de secuencia: opera antes de que la primera ciudad PLAN24CN reciba residentes. |
-| **PLANSEG** | Los servicios complementarios de seguridad — mantenimiento de iluminación, limpieza de espacios públicos, soporte técnico de cámaras — se organizan como **EB barriales bajo supervisión de ANSEG**; la seguridad pública en sí no se privatiza ni se bastardiza. Dato de secuencia que la Red registra: PLANSEG exige 250+ Estaciones Barriales operativas 12 meses antes de que arranque la cascada de legalización de PLANSUS. |
-| **PLANVIV** | La **Bastarda Inmobiliaria** — heredera directa de la Bastarda Habitacional de este catálogo (S9.9) — construye y alquila vivienda al costo sobre el fideicomiso de suelo perpetuo del Protocolo Bastardo. Ambos planes lanzan en Año 0. Cero especulación, cero pozo financiero, cero margen sobre la necesidad humana más básica. |
-| **PLANCUL** | **Bastardas Culturales**: editoriales, estudios de grabación y distribución cultural al costo. La Plataforma Dendrita corre sobre la misma infraestructura federada (ArgenCloud) que hostea el padrón de Bastardas. |
-| **PLANMESA** | Las Mesas Civiles son el ámbito natural de incubación de peticiones de nuevas Bastardas — el umbral de 25.000 firmas nace de deliberación, no de marketing. El ciclo LDEA (Aprender, Diseñar, Experimentar, Analizar) provee el método para diseñar adaptadores sectoriales, y la Credencial de Materia sirve como evidencia de competencia en los concursos de Consejos Técnicos. |
-| **PLANTALLER** | La Red Bastarda es el **canal comercial at-cost** de la producción de los Tallers Federales: insumos al costo hacia las Bastardas, excedentes al mercado popular. El recupero vía Red Bastarda integra el modelo de financiamiento de la ANT. Los Tallers, a su vez, fabrican y reparan para la Red. |
-| **PLANCUIDADO** | La economía del cuidado es sector candidato del catálogo: una **Bastarda de Cuidados** proveería servicios de cuidado al costo, coordinada con la ANCV y con las cuidadoras profesionalizadas por la Reconversión de Cuidadoras. El motor de transparencia del Protocolo puede publicar las Cuentas Satélite del Cuidado. |
-| **PLANMEMORIA** | La historia operativa de la Red — post-mortems, casos de estudio, registros de gobernanza de las Bastardas que mueren con la cláusula de muerte digna (S23.3) — se preserva como memoria operativa de la república, archivada en infraestructura soberana. Lo que una Bastarda aprende, ninguna Bastarda futura lo olvida. |
-| **PLANTER** | El Dividendo Ciudadano del Mineral pone ingreso en bolsillos que las Bastardas convierten en máximo poder de compra — cada peso del dividendo compra servicio real, no extracción. Los commons del subsuelo comparten la filosofía bastarda: propiedad de nadie, beneficio de todos. Y las zonas extractivas donde el mercado nunca llegó son territorio natural de Bastardas de servicios. |
-| **PLANMOV** | La **Bastarda Logística Federal (BLF)**, la **Bastarda Fluvial** y la **BAMD** (Bastarda de Activos Móviles Disponibles) son las formas bastardas que operan los canales de transporte at-cost del país. El **Canon de Automatización Logística** — que grava la operación autónoma para financiar la reconversión de transportistas — es un mecanismo replicable por cualquier Bastarda que automatice operaciones. La Bastarda Móvil de este catálogo (S9.7) cubre el transporte urbano de pasajeros; PLANMOV opera la escala federal. |
-
-**Nota — PLANRUTA.** PLANRUTA, el plan meta/bootstrap del ecosistema, no se cuenta entre los 22. Define la secuencia cero-a-implementación en la que la Red Bastarda se inserta — incluida la Pre-Fase de diseño del Protocolo Bastardo (ver S18) — y el kit de despliegue en crisis. Los 22 PLANes son la arquitectura; PLANRUTA es el manual de encendido.
-
-**Lectura de conjunto.** La tabla muestra tres tipos de relación. Primero, los PLANes que **reclaman Bastardas propias** (PLANMON, PLANVIV, PLANEN, PLANAGUA, PLANMOV, PLANCUL): para ellos, PLANEB no es una sinergia — es una dependencia constitutiva. Si la Red Bastarda no existe, sus arquitecturas pierden la pieza de ejecución. Segundo, los PLANes que **usan la Red como canal o infraestructura** (PLANTALLER, PLANSUS, PLAN24CN, PLANGEO, PLANDIG): la Red es su distribución, su bancarización, o su vidriera. Tercero, los PLANes que **comparten método y se refuerzan** (PLANJUS, PLANREP, PLANMESA, PLANEDU, PLANSAL, PLANISV, PLANSEG, PLANCUIDADO, PLANMEMORIA, PLANTER): sorteo, transparencia, deliberación, memoria. Ningún otro plan del ecosistema aparece nombrado en tantos documentos ajenos. Eso no es vanidad — es responsabilidad. Cada promesa que otro PLAN hace sobre una Bastarda es una promesa que esta hoja de ruta tiene que poder cumplir.
-
-### 14.2 Distinción Fundamental: Fideicomisos PLANREP vs. Bastardas PLANEB
-
-Esto es importante y se presta a confusión. Ambos usan Fideicomisos de Propósito Perpetuo. Pero son cosas distintas:
-
-**TABLA 23: PLANREP vs. PLANEB — Misma Herramienta, Distinto Propósito**
-
-| Dimensión | Fideicomisos PLANREP | Empresas Bastardas PLANEB |
-|---|---|---|
-| **Creador** | El Estado (por ley del Congreso) | Los ciudadanos (por petición + crowdfunding) |
-| **Propósito** | Poseer macro-infraestructura productiva (energía, suelo, conectividad, vivienda, vialidad) | Proveer servicios de mercado al costo (seguros, banca, telecom, etc.) |
-| **Financiamiento** | Contribución estatal inicial + Licencia Social de Automatización | Capital semilla ciudadano + cuotas de usuarios |
-| **Retorno** | Dividendo Nacional de Productividad (DNP) — ingreso universal | Menor costo de servicios — ahorro directo |
-| **Gobernanza** | Directorio de 9 (3 técnicos, 3 sorteo, 2 ANCE, 1 Panel) | 4 capas (Asamblea, Panel, Consejo, Auditoría) |
-| **Escala** | 5 fideicomisos nacionales, infraestructura macro | Red de Bastardas sectoriales, servicios específicos |
-
-Los dos sistemas se refuerzan mutuamente: los Fideicomisos de PLANREP construyen la infraestructura sobre la que las Bastardas operan (conectividad, energía, vivienda), y las Bastardas proveen los servicios que los ciudadanos beneficiarios de los Fideicomisos necesitan.
-
-### 14.3 PLAN24CN: Ciudades Bastardas desde el Día Uno
-
-Las 24 ciudades nuevas de PLAN24CN representan la oportunidad más potente de la Red Bastarda: diseñar una ciudad donde los servicios esenciales no están capturados por intereses extractivos desde el primer día.
-
-Cada ciudad nueva incluye en su carta fundacional:
-- **Bastarda Aseguradora:** Seguros al costo para todos los residentes
-- **Bastarda Energética:** Generación distribuida renovable, trading peer-to-peer
-- **Bastarda Conectada:** Red de telecomunicaciones comunitaria
-- **Bastarda Financiera:** Banca al costo, crédito para emprendedores PLANREP
-- **Bastarda Habitacional:** Vivienda sin especulación, suelo en fideicomiso perpetuo
-
-Una ciudad Bastarda-nativa no es una utopía — es un laboratorio. Los aprendizajes se replican en el resto de la Red. Las métricas se comparan con ciudades convencionales. Y cuando la diferencia sea visible — cuando los residentes de una ciudad PLAN24CN paguen 30% menos por los mismos servicios, con mejor transparencia y mayor satisfacción — la pregunta no será "¿por qué hay Bastardas?" sino "¿por qué no hay Bastardas en mi ciudad?"
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | Protocolo Bastardo requiere infraestructura digital soberana |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Resolución de disputas de usuarios de cada Bastarda |
+| **PLANMON** | IMPORTANT | FINANCIAL | Red Bastarda provee infraestructura anti-inflacionaria al costo |
+| **PLAN24CN** | CRITICAL | INSTITUTIONAL | Red Bastarda aloja al costo todos los servicios urbanos de las 24 ciudades: energía, agua, telecomunicaciones y transporte |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo implementa el fideicomiso perpetuo de la Bastarda Inmobiliaria: propiedad perpetua del ocupante, no especulable |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo open-source es la pieza central del estándar internacional de empresas al costo que PLANGEO promociona |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Red Bastarda es el canal de distribución at-cost de todo lo que produce la Red Taller: insumos a Bastardas y excedentes al mercado popular |
+| **PLANMOV** | CRITICAL | INSTITUTIONAL | Bastarda Logística Federal, Bastarda Fluvial y BAMD son las formas bastardas que operan canales at-cost y redistribuyen el Canon de Automatización Logística |
 
 ## SECCIÓN 15: ESTRATEGIA DE STAKEHOLDERS — TEJER, NO DESTRUIR
 
@@ -1399,7 +1381,7 @@ La estrategia es de co-desarrollo, no de competencia. Los hackathons conjuntos, 
 
 | Riesgo | Probabilidad | Impacto | Mitigación |
 |---|---|---|---|
-| **Bloqueo regulatorio** (SSN/BCRA niegan habilitación) | Alta | Alto | Escalera de fallback de la S12.1b: vía primaria = Fideicomiso de Propósito Perpetuo (CCyC 1666-1707); fallback general = cooperativa de usuarios (Ley 20.337); mutual (Ley 20.321) solo para el vertical asegurador si la SSN bloquea. Asesoría legal especializada. Presión ciudadana (25.000+ firmantes). Acción judicial si el rechazo es arbitrario. |
+| **Bloqueo regulatorio** (SSN/BCRA niegan habilitación) | Alta | Alto | Constitución bajo ley vigente de mutuales. Asesoría legal especializada. Presión ciudadana (25.000+ firmantes). Acción judicial si el rechazo es arbitrario. |
 | **Lobby de incumbentes** (campañas de desprestigio, lobby legislativo) | Alta | Medio | Transparencia radical = difícil de atacar sin evidencia. Base de usuarios como fuerza política. Narrativa clara ("¿quieren prohibir que ahorremos?"). |
 | **Exploit de smart contracts** (ataque cibernético a la tesorería on-chain) | Media | Muy alto | Auditorías de seguridad múltiples (mín. 3 firmas). Bug bounty permanente. Multi-firma para movimientos grandes. Seguro contra exploit (si existe en el mercado). Fondos de emergencia off-chain. |
 | **Selección adversa** (solo usuarios de alto riesgo se suman) | Baja (producto obligatorio) | Medio | Producto de lanzamiento es obligatorio (auto RC). Pricing basado en riesgo real publicado. Escala creciente diversifica. |
@@ -1427,8 +1409,8 @@ La lógica del escalamiento refleja un principio de gobernanza bastarda: los té
 
 **Protocolo de comunicación por nivel:**
 
-- **Nivel 1:** Informe interno al Panel Ciudadano de la Bastarda afectada + publicación en el dashboard de la Bastarda. Los usuarios ven que algo se está gestionando, pero no se genera alarma pública.
-- **Nivel 2:** Comunicado público en el dashboard + notificación directa a todos los usuarios de la Bastarda afectada. Transparencia total sobre la naturaleza de la crisis y las opciones que el Panel evalúa.
+- **Nivel 1:** Informe interno al Panel Ciudadano de la Bastarda afectada + publicación en el tablero de la Bastarda. Los usuarios ven que algo se está gestionando, pero no se genera alarma pública.
+- **Nivel 2:** Comunicado público en el tablero + notificación directa a todos los usuarios de la Bastarda afectada. Transparencia total sobre la naturaleza de la crisis y las opciones que el Panel evalúa.
 - **Nivel 3:** Comunicado oficial de la ANEB + notificación a usuarios de toda la Red Bastarda + alerta formal a los reguladores sectoriales relevantes (SSN, BCRA, ENACOM, ENRE según corresponda). La Red entera sabe que está pasando algo serio.
 - **Nivel 4:** Conferencia pública de la ANEB + cobertura mediática proactiva (no se espera a que los medios descubran el problema — se les lleva la información antes) + contacto directo con legisladores que impulsan la Ley de EPP. En una crisis existencial, la opacidad es el enemigo. Se comunica todo, incluso lo que duele.
 
@@ -1474,7 +1456,7 @@ El eje narrativo de PLANEB es la historia de los Moretti — la familia que desc
 1. **Integración con plataforma ¡BASTA!** Las declaraciones de ¡BASTA! sobre servicios caros, comisiones abusivas, y opacidad de mercado se canalizan hacia la petición de la primera Bastarda.
 2. **La Tribu.** Las comunidades ¡BASTA! organizadas a nivel barrial son el canal primario de difusión.
 3. **Calculadora Bastarda.** Herramienta online donde cualquier argentino ingresa sus facturas de seguro, banco, teléfono y energía, y ve cuánto ahorraría en una Bastarda — basado en las estimaciones del modelo.
-4. **Transparencia como contenido.** Cada dato publicado por la Red es contenido de comunicación. Los reportes mensuales de la Bastarda son notas de prensa. Los dashboards son viralizables.
+4. **Transparencia como contenido.** Cada dato publicado por la Red es contenido de comunicación. Los reportes mensuales de la Bastarda son notas de prensa. Los tableros son viralizables.
 
 ### 17.3 La Narrativa contra la Narrativa
 
@@ -1518,65 +1500,24 @@ Las crisis van a llegar. Lo que importa no es evitarlas — es cómo respondés.
 
 *Es 2041. Tomás Moretti tiene 24 años. Trabaja como desarrollador en el Protocolo Bastardo — manteniendo la infraestructura open-source que alimenta una red que sus viejos ayudaron a construir cuando él tenía nueve. Un compañero menciona que los seguros antes eran opacos. Tomás levanta la vista, confundido: "¿La gente pagaba sin saber cuánto costaba? ¿En serio?" El compañero se ríe. "Posta. Y no hace tanto."*
 
-### 18.1 Cronograma por Fases — del Año -1 al Año 15
+### 18.1 Cronograma
 
-Una tabla de cinco filas no es una hoja de ruta — es un deseo con fechas. Lo que sigue es el cronograma completo: seis fases, cada una con sus hitos, sus hitos regulatorios, y — lo más importante — su **trigger de avance**: la condición verificable que habilita el paso a la fase siguiente. Sin trigger cumplido, no se avanza. El calendario propone; las métricas disponen.
+**TABLA 26: Hoja de Ruta de PLANEB**
 
-**TABLA 26: Hoja de Ruta de PLANEB — Seis Fases, del Año -1 al Año 15**
+> **REVISIÓN 2026-04-28:** PLANEB es **tranche-1** (entrada 12-24m, ventana 2026-2028). Cap **1-2 Bastardas piloto**. El cronograma original "Año 0-5" se reescribe como etapas de tranche-1 + tranche-2/3 + horizonte 2040. **Red Bastarda con 5+ Bastardas + Ley EPP en Congreso → diferidos a horizonte 2040 (Visión, no compromiso operativo)**. Marco contable LMV-06 es la única ley de tranche-1.
 
-| Fase | Período | Foco | Bastardas Activas | Usuarios Estimados |
-|---|---|---|---|---|
-| **Pre-Fase — Diseño** | Año -1 | Protocolo Bastardo v0.x, ANEB embrionaria, inicio del trámite SSN | 0 | 0 |
-| **Semilla** | Año 0 | Constitución del fideicomiso, 25.000 fundadores, capital semilla | 0 | 0 (25.000 firmantes) |
-| **Auto Simple** | Años 0-1 | Lanzamiento público: auto RC, un solo producto, hecho bien | 1 | 10.000 |
-| **Expansión** | Años 1-2 | Multi-producto + petición de la segunda Bastarda | 1-2 | 30.000-50.000 |
-| **Espectro Completo** | Años 3-5 | Cascada sectorial + Ley de EPP en el Congreso | 3-5+ | 150.000-300.000+ |
-| **Red Madura** | Años 5-15 | Decenas de Bastardas, ciudades Bastarda-nativas, template internacional | 10+ | 500.000+ (escenario piso — ver S20.1) |
+| Etapa | Hito Principal | Bastardas Activas | Usuarios Estimados |
+|---|---|---|---|
+| **Pre-tranche-1 (2026-Q2)** | PLANEB publicado. Execution cell ANEB en MinProducción. Marco contable LMV-06 publicado. | 0 | 25.000 firmantes |
+| **Tranche-1 inicial (2026-2027)** | 1 Bastarda piloto (medicamentos genéricos esenciales OR aseguradora) constituida, marco contable transparente. | 1 | 10.000 |
+| **Tranche-1 consolidación (2027-2028)** | 1-2 Bastardas piloto operando con costos públicos. Evaluación de cierre tranche-1. | 1-2 | 30.000 |
+| **Tranche-2 entrada (2028-2030, condicional a tranche-1 cerrado)** | Promoción a sistema. Posible 2da Bastarda. | 2 | 80.000 |
+| **Tranche-3 (2030-2034, condicional)** | Bastarda Financiera, Energética en estudio. Coordinación con PLAN24CN diferida. | 2-3 | 150.000 |
+| **Horizonte 2040 (Visión, NO compromiso operativo)** | Red Bastarda con 5+ Bastardas activas. Ley sistema EPP en Congreso (diferida). | 5+ | 300.000+ |
 
-**Pre-Fase — Diseño (Año -1).** La fase que no aparece en las fotos pero decide la película. Antes del primer firmante, PLANRUTA ubica acá el diseño del Protocolo Bastardo: la infraestructura se escribe, se audita y se publica *antes* de pedirle plata a nadie.
+### 18.2 Lo Que No Sabemos
 
-| Hito | Detalle |
-|---|---|
-| Protocolo Bastardo v0.9 | Especificación completa de las cinco capas (S8.2). Código abierto desde el primer commit. |
-| Auditoría de seguridad inicial | Mínimo 2 firmas independientes sobre los contratos de tesorería e identidad. |
-| ANEB embrionaria | Equipo fundacional pre-legal (bajo paraguas de PLANRUTA) que después se formaliza por ley (S12.2, Cap. VII). |
-| Inicio del trámite SSN | Presentación de la consulta formal de habilitación. El reloj de 18-24 meses arranca acá — no cuando la Bastarda ya existe. |
-| Borrador de la Ley de EPP | Articulado completo (versiones Plena y Mínima, ver S12.2) listo para buscar campeones legislativos. |
-
-*Trigger de avance:* Protocolo v0.9 auditado y publicado + trámite SSN formalmente iniciado + petición de la Bastarda Aseguradora abierta.
-
-**Fase Semilla (Año 0).** PLANEB publicado. La petición junta sus 25.000 firmantes. El fideicomiso se constituye ante escribano (S10.2, Fase 0). El capital semilla — USD 8-17M de inversión privada-ciudadana, sin un peso del Estado (S7.1) — se integra. El Consejo Técnico se contrata por convocatoria abierta y el primer Panel Ciudadano se sortea.
-
-| Hito | Detalle |
-|---|---|
-| 25.000 fundadores | Umbral constitutivo. Si a los 12 meses no se alcanza, opera la reducción a 15.000 (TABLA 25). |
-| Fideicomiso inscripto | Fideicomiso de Propósito Perpetuo ante IGJ, con cláusula de renovación automática (S3.4). |
-| Capital semilla integrado | USD 8-17M verificables on-chain desde el día uno. |
-| Trámite SSN en curso | Mes 6-18 del expediente. La SSN ya conoce el modelo desde la Pre-Fase — no hay sorpresas. |
-
-*Trigger de avance:* capital semilla ≥ USD 8M + autorización SSN para piloto (o habilitación plena si el trámite corrió rápido) + plataforma operativa con auditoría vigente.
-
-**Fase Auto Simple (Años 0-1).** Un producto, hecho bien: responsabilidad civil automotor (S10.2, Fase 1). Hito regulatorio central: la **licencia SSN definitiva** llega dentro de esta fase — entre el mes 18 y el 24 del trámite iniciado en la Pre-Fase. Hasta entonces, el piloto opera bajo la autorización provisoria. Si la SSN rechaza, se activa la escalera de la S12.1b (peldaño 3: mutual, Ley 20.321 — solo este vertical).
-
-*Trigger de avance:* 10.000 usuarios + loss ratio dentro del rango actuarial proyectado por 2 trimestres consecutivos + NPS > 50 + licencia SSN definitiva otorgada.
-
-**Fase Expansión (Años 1-2).** La Aseguradora agrega productos (integral, hogar, micropólizas — S10.2, Fase 2) y el Fondo de Catástrofe empieza a acumular. En paralelo, la cascada (S11) produce su segunda criatura: la petición de la **Bastarda Financiera** alcanza sus 25.000 firmas y entra en constitución. La Ley de EPP se presenta formalmente en el Congreso — su timeline legislativo (18-24 meses, S12.2) corre en paralelo con esta fase y la siguiente.
-
-*Trigger de avance:* 50.000 usuarios agregados + Fondo de Catástrofe ≥ 3 meses de siniestralidad proyectada + segunda Bastarda constituida.
-
-**Fase Espectro Completo (Años 3-5).** La Aseguradora completa su catálogo (vida, salud, comerciales — S10.2, Fase 3). La Financiera pilotea. La Conectada peticiona. La Energética entra en estudio — coordinada con PLANEN, que la desarrolla en profundidad. Hito regulatorio central: la **sanción de la Ley de EPP** (versión Plena o Mínima) cae idealmente dentro de esta fase; si no sale, las Bastardas siguen operando bajo fideicomiso con renovación automática — incómodo pero viable. Hito de ecosistema: la **primera ciudad PLAN24CN con servicios Bastardos, calendarizada para el Año 4** (ver dependencia en S18.2).
-
-*Trigger de avance:* 3+ Bastardas activas + ahorro ciudadano verificado > USD 100M/año + (Ley de EPP sancionada **o** estructura fiduciaria judicialmente consolidada).
-
-**Fase Red Madura (Años 5-15).** La cascada deja de ser noticia. Decenas de Bastardas, presencia en las 24 provincias (S19), ciudades Bastarda-nativas operando, el Protocolo Bastardo exportado como template internacional (S12.3, PLANGEO). Los 500.000+ usuarios de la Visión 2040 son el **escenario piso standalone** — con la adopción de los planes hermanos, la escala es otra (ver S20.1). No hay trigger de salida: la Red Madura no termina — se mantiene, se audita, y de vez en cuando entierra con dignidad a una Bastarda que falló (S23.3).
-
-### 18.2 Dependencias Cruzadas — PLAN24CN y el Camino Degradado
-
-La hoja de ruta tiene una sola dependencia externa fuerte: la **primera ciudad Bastarda-nativa del Año 4 depende del cronograma de PLAN24CN**, no del de PLANEB. Si PLAN24CN se demora — y los planes de ciudades nuevas se demoran — PLANEB no se cae: se degrada con elegancia. El **camino degradado** es explícito: la Red sigue expandiéndose en ciudades existentes vía convenios marco ANEB-Provincia (S19.2), los servicios pensados para la ciudad nueva se despliegan barrio por barrio en municipios piloto, y el laboratorio urbano se pospone sin bloquear ninguna otra fase — ningún trigger de avance de la S18.1 depende de PLAN24CN. La condición de secuencia inversa sí es dura: la Bastarda Energética debe operar **antes** de que la primera ciudad PLAN24CN reciba residentes (TABLA 22). La Red le debe eso al ecosistema; el ecosistema no le debe la ciudad a la Red.
-
-### 18.3 Lo Que No Sabemos
-
-PLANEB sabe lo que todos los PLANes del ecosistema ¡BASTA! saben: que se equivoca en formas que todavía no puede ver. Las proyecciones son estimaciones. Los tiempos son optimistas. Los costos pueden ser mayores. Los reguladores pueden ser más resistentes. La adopción puede ser más lenta.
+PLANEB sabe lo que todos los PLANs de ¡BASTA! saben: que se equivoca en formas que todavía no puede ver. Las proyecciones son estimaciones. Los tiempos son optimistas. Los costos pueden ser mayores. Los reguladores pueden ser más resistentes. La adopción puede ser más lenta.
 
 Por eso PLANEB no es un cronograma rígido — es un sistema adaptativo con métricas, paneles ciudadanos, circuit breakers, y la humildad de saber que la primera mejor alternativa es exactamente eso: la primera. No la última.
 
@@ -1586,7 +1527,7 @@ Por eso PLANEB no es un cronograma rígido — es un sistema adaptativo con mét
 
 > *"La Argentina no es una ciudad con provincias. Es veinticuatro provincias que inventaron una ciudad para que las gobierne — y después se olvidaron de cobrarle alquiler."*
 
-La Argentina tiene 24 jurisdicciones: 23 provincias y la Ciudad Autónoma de Buenos Aires. Cada una con su constitución, sus entes reguladores, sus registros, sus lógicas. Cuando PLANEB propone crear Empresas Bastardas en siete sectores — seguros, banca, telecomunicaciones, energía, salud, alimentación, vivienda — no enfrenta un solo marco regulatorio sino una constelación de marcos superpuestos. Algunas Bastardas operan bajo reguladores nacionales y escalan con una sola habilitación. Otras chocan con regulaciones provinciales o municipales que varían de jurisdicción en jurisdicción. Sin una estrategia federal explícita, la Red Bastarda corre el riesgo de funcionar en Capital y Gran Buenos Aires y ser invisible en el resto del país — reproduciendo exactamente el centralismo que BASTA denuncia en todas sus dimensiones.
+La Argentina tiene 24 jurisdicciones: 23 provincias y la Ciudad Autónoma de Buenos Aires. Cada una con su constitución, sus entes reguladores, sus registros, sus lógicas. Cuando PLANEB propone crear Empresas Bastardas en siete sectores — seguros, banca, telecomunicaciones, energía, salud, alimentación, vivienda — no enfrenta un solo marco regulatorio sino una constelación de marcos superpuestos. Algunas Bastardas operan bajo reguladores nacionales y escalan con una sola habilitación. Otras chocan con regulaciones provinciales o municipales que varían de jurisdicción en jurisdicción. Sin una estrategia federal explícita, la Red Bastarda corre el riesgo de funcionar en Capital y Gran Buenos Aires y ser invisible en el resto del país — reproduciendo exactamente el centralismo que ¡BASTA! denuncia en todas sus dimensiones.
 
 **TABLA: Regulador por Sector × Jurisdicción**
 
@@ -1611,7 +1552,7 @@ El caso más evidente: una **Bastarda Energética Provincial** para Mendoza, ope
 
 El mecanismo de activación replica el modelo nacional: **petición ciudadana con 10.000 firmas provinciales**, ajustadas por población. Provincias con menos de 500.000 habitantes requieren 5.000 firmas. Provincias con menos de 200.000 requieren 2.500. El principio: proporcionalidad, no uniformidad. Tierra del Fuego no debería necesitar la misma masa crítica que Buenos Aires para decidir que quiere una Bastarda propia.
 
-Las Bastardas Provinciales usan la misma infraestructura del Protocolo Bastardo — identidad, tesorería on-chain, gobernanza por sorteo, motor de transparencia — pero su ámbito operativo es la provincia. Participan del Fondo de Solidaridad Bastarda (el 2% sigue fluyendo al fondo común) y acceden a sus reservas cruzadas. Son autónomas en su operación pero federadas en su infraestructura.
+Las Bastardas Provinciales usan la misma infraestructura del Protocolo Bastardo — identidad, tesorería on-chain, gobernanza por sorteo, motor de transparencia — pero su ámbito operativo es la provincia. Participan del Fondo de Solidaridad Bastarda (el 3-5% sigue fluyendo al fondo común) y de la Contribución de Soberanía (1-2% al Fondo Soberano Nacional), y acceden a sus reservas cruzadas. Son autónomas en su operación pero federadas en su infraestructura.
 
 ### 19.2 Convenios Marco ANEB-Provincia
 
@@ -1653,7 +1594,7 @@ PLAN24CN propone construir 24 ciudades nuevas — una por provincia. Cada ciudad
 
 Esas 24 ciudades son el **laboratorio federal natural** de las Bastardas. Cada una opera en una provincia diferente, interfacea con un ente regulador diferente, y enfrenta condiciones geográficas, climáticas y demográficas diferentes. Si la Bastarda Energética funciona en la ciudad nueva de Mendoza (solar), en la de Misiones (biomasa), y en la de Santa Cruz (eólica) — entonces funciona en cualquier lado. Si la Bastarda Alimentaria resuelve la cadena de frío en la ciudad nueva de Formosa y en la de Chubut — entonces las bromatologías municipales de todo el país tienen un modelo replicable.
 
-Las ciudades PLAN24CN nacen **Bastarda-nativas**: seguros al costo, banca al costo, telecomunicaciones al costo, energía al costo, salud al costo. Desde el día uno. No hay incumbentes de los que desplazar. No hay concesiones que renegociar. No hay lobby que resistir. Son la prueba de concepto más limpia posible — y la más visible, porque cada ciudad es vidriera de lo que pasa cuando la extracción desaparece (ver Sección 14: Integración con el Marco BASTA).
+Las ciudades PLAN24CN nacen **Bastarda-nativas**: seguros al costo, banca al costo, telecomunicaciones al costo, energía al costo, salud al costo. Desde el día uno. No hay incumbentes de los que desplazar. No hay concesiones que renegociar. No hay lobby que resistir. Son la prueba de concepto más limpia posible — y la más visible, porque cada ciudad es vidriera de lo que pasa cuando la extracción desaparece (ver Sección 14: Integración con el Marco ¡BASTA!).
 
 La dimensión federal de PLANEB no es un apéndice. Es una condición de legitimidad. Un plan que promete devolver soberanía económica a los ciudadanos pero solo funciona en AMBA no es un plan nacional — es un piloto porteño con buenas intenciones. Las Bastardas tienen que llegar a Jujuy, a Neuquén, a Corrientes, a Tierra del Fuego. No al mismo tiempo — la cascada tiene sus tiempos. Pero con la certeza de que cada provincia tiene un camino claro para sumarse, y que ese camino no depende de la buena voluntad de un gobernador sino de la voluntad organizada de sus ciudadanos.
 
@@ -1670,19 +1611,6 @@ Si PLANEB funciona — si la cascada se despliega, si las Bastardas prueban que 
 **500.000+ ciudadanos** en la Red Bastarda, usando servicios al costo en 5-10 sectores.
 
 **USD 200M+/año** de ahorro devuelto a los bolsillos de los ciudadanos — dinero que antes iba a márgenes de ganancia invisibles.
-
-**Dos escenarios, una aclaración honesta.** Esos dos números — 500.000 usuarios, USD 200M/año — son la **proyección piso**: lo que la Red Bastarda logra sola, *standalone*, sin que ningún otro plan del ecosistema se implemente. Es el escenario conservador con el que este documento hace todas sus cuentas, porque un plan que necesita que otros veintiún planes funcionen para cerrar sus números no es un plan — es una apuesta. Pero la TABLA 22 cuenta otra historia: si los planes hermanos avanzan, cada uno trae su propia masa de usuarios a la Red. PLANMON convierte a la Bastarda Financiera en nodo ancla de un sistema monetario nacional. PLAN24CN puebla ciudades enteras Bastarda-nativas. PLANVIV, PLANEN y PLANAGUA suman vivienda, energía y agua — servicios que usa *todo el mundo, todos los meses*. En ese **escenario ecosistema**, la Red no se mide en cientos de miles — se mide en millones.
-
-**TABLA 27: Visión 2040 — Proyección Piso vs. Escenario Ecosistema**
-
-| Dimensión | Escenario Piso (standalone) | Escenario Ecosistema (planes hermanos adoptados) |
-|---|---|---|
-| Usuarios de la Red | 500.000+ | Varios millones |
-| Ahorro ciudadano anual | USD 200M+ | USD 1.000M+ |
-| Sectores activos | 5-10 | 15+ (incluye vivienda, energía, agua, transporte federal) |
-| Supuesto central | Solo PLANEB se implementa | Los PLANes que reclaman Bastardas (TABLA 22) despliegan sus arquitecturas |
-
-*Ambos escenarios son estimaciones de orden de magnitud — sujetas a verificación. El piso es el compromiso; el ecosistema es el horizonte.*
 
 **Un nuevo estándar de transparencia** que obliga a todo el mercado a ser más honesto. Las empresas privadas que publican sus costos reales ya no son la excepción — son la norma, porque la Bastarda demostró que se puede.
 
@@ -1724,7 +1652,7 @@ Los usuarios de una Bastarda pagan como pagan cualquier otra cosa en Argentina. 
 
 **QR interoperables.** En los puntos de atención físicos de la Red Bastarda (oficinas, centros de atención, eventos comunitarios), el pago por código QR es el estándar. El mismo QR que funciona en cualquier kiosco funciona en la Bastarda.
 
-**Débito automático en tarjeta.** Para los usuarios que prefieren cargar contra su tarjeta de crédito o débito. Integración con procesadores estándar (Prisma, Fiserv). La Bastarda absorbe el costo de procesamiento (1-3%) dentro de sus gastos operativos — transparentado en el dashboard.
+**Débito automático en tarjeta.** Para los usuarios que prefieren cargar contra su tarjeta de crédito o débito. Integración con procesadores estándar (Prisma, Fiserv). La Bastarda absorbe el costo de procesamiento (1-3%) dentro de sus gastos operativos — transparentado en el tablero.
 
 ### 21.2 AML/CFT — Compliance Anti-Lavado
 
@@ -1816,7 +1744,7 @@ Cuando algo sale mal — y algo va a salir mal — la velocidad y transparencia 
 
 **Fase 5: Recuperación.** Implementación de la corrección. Redespliegue de contratos si es necesario. Restitución de fondos afectados desde reservas frías (ver 22.3). Verificación independiente de que el vector de ataque fue cerrado.
 
-**Fase 6: Post-mortem.** Publicado en el dashboard de la Bastarda dentro de los 30 días. Análisis de causa raíz. Cambios implementados. Lecciones aprendidas. Accesible para cualquier ciudadano. Porque el post-mortem no es un documento interno — es una rendición de cuentas.
+**Fase 6: Post-mortem.** Publicado en el tablero de la Bastarda dentro de los 30 días. Análisis de causa raíz. Cambios implementados. Lecciones aprendidas. Accesible para cualquier ciudadano. Porque el post-mortem no es un documento interno — es una rendición de cuentas.
 
 ### 22.3 Arquitectura de Recuperación
 
@@ -1836,7 +1764,7 @@ Cualquier persona — investigador de seguridad, hacker ético, miembro de la Ba
 
 **Escala de recompensas:** hasta el 5% del valor de la vulnerabilidad encontrada, con un tope de USD 500.000 por reporte. Las vulnerabilidades se clasifican por severidad (bajo, medio, alto, crítico) y el pago es proporcional.
 
-**Proceso:** reporte confidencial → verificación por equipo de seguridad (72h) → clasificación de severidad → pago → divulgación pública coordinada (después del fix). El programa se publica en el dashboard de la Bastarda y en plataformas especializadas (HackerOne, Immunefi).
+**Proceso:** reporte confidencial → verificación por equipo de seguridad (72h) → clasificación de severidad → pago → divulgación pública coordinada (después del fix). El programa se publica en el tablero de la Bastarda y en plataformas especializadas (HackerOne, Immunefi).
 
 **El incentivo es claro:** si encontrás un bug que podría drenar $10M, te pagamos hasta $500K por contárnoslo antes de que alguien lo explote. Es más barato que el exploit. Es más ético que la ignorancia. Y es la demostración de que la Bastarda confía más en la inteligencia colectiva que en la seguridad por oscuridad.
 
@@ -1858,18 +1786,20 @@ Esta sección mapea los escenarios de falla más probables y más graves, y defi
 
 | Escenario | Probabilidad | Impacto | Trigger de Detección | Respuesta de Gobernanza | Camino de Recuperación |
 |---|---|---|---|---|---|
-| **La primera Bastarda no alcanza 10.000 usuarios en el Año 1** | Media | Alto | Dashboard de usuarios < 5.000 al mes 9 | ANEB convoca Panel extraordinario. Opciones: extender piloto 6 meses, reducir umbral de lanzamiento, pivotar producto (ej: de seguro hogar a seguro salud). | Si no se recupera en 18 meses: fusión con otra Bastarda que sí tenga tracción, o cierre ordenado con devolución de reservas. |
+| **La primera Bastarda no alcanza 10.000 usuarios en el Año 1** | Media | Alto | Tablero de usuarios < 5.000 al mes 9 | ANEB convoca Panel extraordinario. Opciones: extender piloto 6 meses, reducir umbral de lanzamiento, pivotar producto (ej: de seguro hogar a seguro salud). | Si no se recupera en 18 meses: fusión con otra Bastarda que sí tenga tracción, o cierre ordenado con devolución de reservas. |
 | **Exploit de smart contract drena 50%+ de la tesorería** | Muy baja | Catastrófico | Alerta automática por movimiento anómalo (S22) | Freeze inmediato de todos los contratos. Auditoría de emergencia en 24h. Comunicación pública en 24h. Activación del Fondo de Solidaridad entre Bastardas + reservas frías (20% intocable). | Reconstrucción de contratos auditados por firmas independientes. Reembolso parcial a usuarios afectados desde reservas frías + Fondo de Solidaridad. Informe público completo en 30 días. |
 | **La SSN revoca la licencia bajo presión política** | Baja | Muy alto | Notificación formal de la SSN o señales políticas previas | Acción judicial inmediata: amparo ante la justicia federal argumentando arbitrariedad y violación de derechos adquiridos. Comunicación pública masiva. Movilización de usuarios (una Bastarda con 200K miembros tiene 200K votantes). Intervención de ANEB ante el Congreso. | Si se sostiene la revocación tras agotar vía judicial: migración de la operación a estructura cooperativa (Ley 20.337) como peor caso — pierde eficiencia pero conserva la misión. Apelación ante tribunales internacionales si hay tratado bilateral aplicable. |
 | **Captura de gobernanza — una facción toma control del Panel** | Muy baja | Alto | Patrones anómalos de votación detectados por Auditoría de Integridad. Concentración sospechosa de delegaciones líquidas. Denuncias de miembros. | Activación de la Alarma Ciudadana: 5.000 firmas verificadas disparan revisión obligatoria. Sorteo extraordinario de Panel completo. Investigación formal de la Auditoría Permanente con poder de anulación de decisiones comprometidas. | Si se confirma captura: disolución del Panel, sorteo completamente nuevo con exclusión de los participantes del Panel capturado, informe público con detalle de cómo ocurrió y qué se cambió para que no se repita. |
 | **Los incumbentes lanzan un producto transparente al costo ("Bastarda-killer")** | Media | Bajo (positivo) | Competidor lanza aseguradora/energética/etc. transparente, sin extracción, con precios equivalentes a la Bastarda | Celebrar. Literalmente. Este es el objetivo de PLANEB. Si los incumbentes se vuelven transparentes, la misión se cumplió. La presión competitiva funcionó. | La Bastarda puede fusionarse con el nuevo competidor, reducirse a nichos desatendidos, o especializarse. Si el mercado entero se transparentó, el trabajo de la Bastarda está hecho. Puede disolverse con orgullo. |
-| **Fatiga de gobernanza — la participación cae por debajo del 3%** | Alta | Medio | Dashboard de participación en gobernanza (votaciones, asambleas, propuestas) | Incentivos de participación: micro-descuento en cuota mensual por votación ejercida. Simplificación radical de las votaciones (menos frecuentes, más claras). Mayor uso de delegación líquida. Si nada funciona: reducir frecuencia de votaciones, confiar más en el Panel sorteado. | La democracia líquida + sorteo ciudadano = el sistema funciona incluso con baja participación activa. Los que participan deciden por los que no — y los que no pueden activarse en cualquier momento. No es una crisis existencial. Es una señal de que la Bastarda funciona tan bien que la gente confía en dejarla andar. |
+| **Fatiga de gobernanza — la participación cae por debajo del 3%** | Alta | Medio | Tablero de participación en gobernanza (votaciones, asambleas, propuestas) | Incentivos de participación: micro-descuento en cuota mensual por votación ejercida. Simplificación radical de las votaciones (menos frecuentes, más claras). Mayor uso de delegación líquida. Si nada funciona: reducir frecuencia de votaciones, confiar más en el Panel sorteado. | La democracia líquida + sorteo ciudadano = el sistema funciona incluso con baja participación activa. Los que participan deciden por los que no — y los que no pueden activarse en cualquier momento. No es una crisis existencial. Es una señal de que la Bastarda funciona tan bien que la gente confía en dejarla andar. |
 
 ### 23.2 El Fondo de Solidaridad entre Bastardas
 
 Ninguna Bastarda opera sola. La Red Bastarda es una red — y las redes se sostienen mutuamente. El Fondo de Solidaridad es el mecanismo:
 
-Cada Bastarda activa contribuye el 2% de sus reservas anuales al Fondo. El Fondo es un fideicomiso independiente, administrado por ANEB, con reglas de activación predefinidas:
+Cada Bastarda activa contribuye el 3-5% de sus ingresos anuales al Fondo. El Fondo es un fideicomiso independiente, administrado por ANEB, con reglas de activación predefinidas:
+
+Adicionalmente, cada Bastarda contribuye el 1-2% de sus ingresos brutos como **Contribución de Soberanía** — un flujo separado que se canaliza al Fondo Soberano Nacional (PLANMON, Sección 6). Esta contribución reconoce que las Bastardas operan sobre infraestructura pública (redes eléctricas, espectro radioeléctrico, vías, mercado financiero regulado) y acceso de mercado provistos por el Estado. No es ganancia — es renta de infraestructura, transparente y fija. Es compatible con la filosofía de costo real porque el usuario sabe exactamente cuánto paga y a dónde va: al sostenimiento de los bienes comunes que hacen posible la operación de la Bastarda.
 
 - **Activación Nivel 1 (asistencia técnica):** una Bastarda enfrenta dificultades operativas (baja de usuarios, problemas regulatorios). El Fondo financia consultoría, asistencia legal, o campaña de comunicación. Hasta USD 100K por evento.
 - **Activación Nivel 2 (rescate parcial):** una Bastarda sufre pérdida financiera significativa (exploit, fallo regulatorio). El Fondo cubre hasta el 50% de la pérdida, condicionado a plan de recuperación aprobado por ANEB.
@@ -1889,7 +1819,7 @@ Si una Bastarda fracasa — genuinamente fracasa, después de agotar el Fondo de
 
 **3. Datos preservados.** Toda la historia operativa de la Bastarda — transacciones, gobernanza, incidentes, métricas — se archiva en el Protocolo Bastardo como caso de estudio permanente. Los datos personales se destruyen según ley de protección de datos. Los datos operativos y de gobernanza se preservan como bien público.
 
-**4. Post-mortem público.** Dentro de los 60 días del cierre: informe completo publicado en el dashboard de ANEB. Qué falló. Por qué. Qué decisiones fueron erróneas. Qué factores externos intervinieron. Qué se podría haber hecho diferente. Sin eufemismos. Sin culpar al contexto. Análisis honesto de un fracaso honesto.
+**4. Post-mortem público.** Dentro de los 60 días del cierre: informe completo publicado en el tablero de ANEB. Qué falló. Por qué. Qué decisiones fueron erróneas. Qué factores externos intervinieron. Qué se podría haber hecho diferente. Sin eufemismos. Sin culpar al contexto. Análisis honesto de un fracaso honesto.
 
 **5. El Protocolo no muere.** Una Bastarda puede morir. El Protocolo Bastardo no. El código es open-source. Las lecciones están documentadas. Otra comunidad, en otra ciudad, en otro sector, puede tomar todo lo aprendido y fundar una nueva Bastarda que no repita los errores de la que cayó. El fracaso de una instancia alimenta el éxito de la siguiente. Eso es resiliencia sistémica — no depender de que cada nodo sobreviva, sino de que la red aprenda de cada nodo que cae.
 
@@ -1901,33 +1831,43 @@ No hay vergüenza en el fracaso planificado. Hay vergüenza en el fracaso que de
 
 ---
 
-## ANEXO: GLOSARIO BASTARDO
+*PLANEB es el octavo mandato del proyecto ¡BASTA!. Se integra con los otros quince mandatos: PLANREP (reconversión laboral), PLANJUS (justicia popular), PLANSUS (soberanía sobre sustancias), PLANEDU (refundación educativa), PLAN24CN (ciudades nuevas), PLANISV (soberanía del suelo), PLANSAL (salud pública), PLANAGUA (soberanía hídrica), PLANDIG (soberanía digital), PLANGEO (posicionamiento geopolítico), PLANMON (soberanía monetaria), PLANEN (soberanía energética), PLANSEG (seguridad ciudadana), PLANVIV (vivienda digna) y PLANCUL (cultura viva). Juntos, los dieciséis mandatos componen la arquitectura de una Argentina donde el pueblo diseña y el gobierno ejecuta.*
 
-Los términos que este documento usa como si fueran obvios — porque después de 23 secciones, lo son. Para el que llegó acá salteando, o el que necesita citar una definición exacta:
-
-**Empresa Bastarda (Bastarda).** Entidad que provee un servicio esencial al costo real, con transparencia total, gobernada por sus usuarios, y propiedad de nadie. Constituida como Fideicomiso de Propósito Perpetuo, gobernada como DAO híbrida. No es cooperativa, no es ONG, no es empresa estatal (S3).
-
-**Protocolo Bastardo.** La infraestructura compartida open-source de la Red: identidad descentralizada, tesorería on-chain, gobernanza por sorteo, motor de transparencia y template de adaptadores sectoriales (S8). PLANDIG lo construye; PLANGEO lo exporta.
-
-**Red Bastarda.** El conjunto de Bastardas interconectadas por el Protocolo, el Fondo de Solidaridad y la gobernanza interoperable. Cada Bastarda es soberana; la Red es el tejido (S8, S23.2).
-
-**ANEB (Agencia Nacional de la Red Bastarda).** Ente autárquico con presupuesto constitucional protegido (0,10% del PBI como piso) que administra el Protocolo, gestiona el Fondo de Solidaridad, certifica adaptadores y dialoga con los reguladores. No gobierna a las Bastardas — las sirve (S5).
-
-**EPP (Entidad de Propósito Perpetuo).** La figura jurídica nueva que propone la Ley de EPP: entidad sin dueño, sin plazo de vencimiento, gobernada por sus usuarios, con validez legal para decisiones on-chain y régimen fiscal acorde a quien no genera ganancia (S12.2).
-
-**Regla de Tres Rechazos.** Mecanismo de gobernanza: si el Panel Ciudadano rechaza tres veces consecutivas una propuesta del Consejo Técnico, la decisión escala automáticamente a la Asamblea. Ni los técnicos imponen, ni los ciudadanos vetan para siempre (S4.4).
-
-**Fondo de Solidaridad Bastarda.** Fideicomiso independiente administrado por ANEB, alimentado con el 2% de las reservas anuales de cada Bastarda. Tres niveles de activación: asistencia técnica, rescate parcial, absorción ordenada (S23.2).
-
-**BLF / Bastarda Fluvial / BAMD.** Las tres formas bastardas que PLANMOV define para la columna logística federal: la Bastarda Logística Federal, la Bastarda Fluvial y la Bastarda de Activos Móviles Disponibles. Se documentan en PLANMOV; esta hoja de ruta las registra como compromisos de la Red (TABLA 22).
-
-**At-cost (al costo).** El principio económico central: el usuario paga exactamente lo que cuesta proveer el servicio — ni un peso más. No hay margen, no hay excedente repartible; si sobra, vuelve como menor cuota el mes siguiente (S6).
-
-**Gobernanza de usuarios.** El modelo de cuatro capas — Asamblea (democracia líquida), Panel Ciudadano (sorteo), Consejo Técnico (expertise contratada), Auditoría Permanente — donde los que usan el servicio supervisan a los que lo operan. La expertise dice cuánto cuesta; la democracia verifica que no te cobren de más (S4).
+*Versión 1.1 — Marzo 2026*
+*Documento estratégico preparado en el marco de El Instante del Hombre Gris*
 
 ---
 
-*PLANEB es uno de los 22 PLANes del ecosistema ¡BASTA! (al 23 de abril de 2026) — la primitiva institucional de ejecución económica que los demás PLANes reclaman por nombre propio. El pueblo diseña, el Estado administra, la política ejecuta.*
+## Parche post-auditoría 2026-04-26
 
-*Versión 1.2 — Marzo 2026*
-*Documento estratégico preparado en el marco de El Instante del Hombre Gris*
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-1
+- **Misión matrix:** Verde
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+1-2 Bastardas piloto bajo riesgo.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANEB`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANEB`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, una empresa común va a publicar costos y márgenes para que veas si te conviene comprarle ahí."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANEB`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANDIG, PLANRUTA, PLANEDU.
+- Provee a: PLANCUL, PLANCUIDADO, PLANTALLER.
+
+### 7. Privacy Impact Assessment
+No requiere PIA específico (este PLAN no toca datos personales sensibles directamente). Si en fase de implementación se identifican datos personales, generar PIA antes de piloto.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

@@ -3814,4 +3814,237 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     stateCapacity: 'media',
     socialCapacity: 'media',
   },
+  // ── Los cuatro PLANes nuevos (acta del 2026-07-26). Los `summary` son copia
+  //    verbatim de v2/scripts/content/planes-sources.ts, y el test
+  //    `planes-sources.test.ts` lo verifica: si uno cambia, hay que cambiar el otro.
+  {
+    slug: 'planpacto-pacto-fiscal-reparto-federal',
+    title: 'PLANPACTO',
+    subtitle: 'Plan Nacional de Pacto Fiscal, Reparto Federal y Escalera de Garantías',
+    category: 'economia',
+    summary: 'Argentina discutió cuarenta años cuánto gastar y no discutió nunca quién paga ni cómo se reparte. La Ley 23.548 se sancionó con vigencia declarada de dos años y lleva treinta y ocho; el artículo 75 inciso 2 es el mandato constitucional incumplido más largo de la república. PLANPACTO no es una reforma tributaria: es el acuerdo previo a cualquier reforma tributaria. Parte el Techo en dos —Techo A de rigidez total, Techo B de afectación nueva, que es donde se aplica el LIFO—, reemplaza los diecisiete pisos constitucionales que los otros PLANes reclamaban por un piso ÚNICO y sustitutivo del 2,40% del PBI expresado como 7,5% del gasto primario consolidado, y ordena qué se conserva en la Escalera de Garantías: ocho escalones que suman ese 2,40% exacto. Administra el Consejo Federal Fiscal (CFF). USD 500–700M/año en régimen, 1.400–1.500M en transición.',
+    iconName: 'Scale',
+    documentFile: 'PLANPACTO_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>Argentina discutió cuarenta años <strong>cuánto</strong> gastar y no discutió nunca <strong>quién paga</strong> ni <strong>cómo se reparte</strong>. La Ley 23.548 de coparticipación se sancionó en 1988 con vigencia declarada de dos años y lleva treinta y ocho. El artículo 75 inciso 2 de la Constitución ordena sancionar una ley convenio de coparticipación: es el <strong>mandato constitucional incumplido más largo de la república</strong>.</p>
+<p>Y hay un hallazgo que este PLAN existe para haber hecho: <strong>los pisos constitucionales que los otros PLANes reclaman por escrito suman entre 7,82% y 9,41% del PBI</strong>, no el 5,45-6,25% que el corpus repetía. El proyecto arrastró durante meses una cifra que nadie había verificado.</p>`,
+      pullQuote: 'El Techo del 65% estaba calibrado, sin que nadie lo supiera, contra un país que ya no existe.',
+      stats: [
+        { label: 'Vigencia declarada de la Ley 23.548', value: '2 años' },
+        { label: 'Vigencia real', value: '38 años' },
+        { label: 'Pisos reclamados por los otros PLANes', value: '7,82-9,41% del PBI' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: 'Qué Pasa Si No Cambiamos',
+      content: `<p>En el escenario central la Argentina ya está en <strong>66,3% de rigidez fiscal con cero pisos ¡BASTA! sancionados</strong>. Cada piso nuevo empeora el ratio, porque un piso es gasto atado que suma al numerador y al denominador a la vez. Sin este PLAN, los otros veinticinco compiten por el mismo bolsillo sin árbitro, cada uno con su piso blindado, y la primera recesión los enfrenta a todos contra todos sin regla de prelación.</p>`,
+      pullQuote: 'Que el proyecto no supiera cuánto estaba pidiendo es el mejor argumento a favor de tener un PLAN que lleve la cuenta.',
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p><strong>El Techo se parte en dos.</strong> Techo A es la rigidez total (80% del gasto consolidado con intereses, bajando un punto por año hasta 70% en el año diez) y es un objetivo de convergencia, no un disparador. Techo B es la afectación nueva (7-8% del gasto primario consolidado) y es lo único que este PLAN controla de verdad: ahí se aplica el LIFO, y <strong>el LIFO nunca se aplica sobre A</strong>.</p>
+<p><strong>Un piso constitucional único: 2,40% del PBI</strong>, expresado como 7,5% del gasto primario consolidado y no como porcentaje del producto, porque un piso en % del PBI baja en pesos justo cuando más se lo necesita. Es <strong>bruto y sustitutivo</strong>: reemplaza los diecisiete pisos anteriores, no se suma a ellos.</p>
+<p><strong>La Escalera de Garantías</strong> se define por lo que conserva y no por lo que recorta: ocho escalones que suman ese 2,40% exacto, en orden — agua y alimento, salud de base, educación obligatoria, techo, cuidado y arco, justicia, deliberación y memoria, seguridad.</p>`,
+      pullQuote: 'Este documento existe porque el proyecto arrastró durante meses una cifra que nadie había verificado; no va a estrenar otra.',
+    },
+    elCamino: {
+      overview: 'Fase 0 no le pide permiso a nadie: se ejecuta con la información que el Estado ya tiene. La Fase 2 depende de 24 ratificaciones provinciales que el país no juntó en treinta años, y ese corte va en el cuerpo del PLAN y no en una nota al pie.',
+      steps: [
+        { id: 1, title: 'Fase 0 — La cuenta', description: 'Publicación del inventario real de pisos y afectaciones comprometidas, del Techo A y del Techo B medidos, y del registro LIFO. No requiere ley: requiere publicar lo que ya se sabe.', timeline: 'Año 1 (2027)', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 1 — La Escalera por ley ordinaria', description: 'Sanción del piso único del 2,40% y de los ocho escalones, con la cláusula de sustitución expresa de los diecisiete pisos anteriores.', timeline: 'Año 2-3 (2028-2029)', dependencies: ['Fase 0 — La cuenta'], orderIndex: 2 },
+        { id: 3, title: 'Fase 2 — La ley convenio', description: 'Coparticipación por ley convenio del art. 75 inc. 2: requiere ratificación de las 24 jurisdicciones. Es el cuello de botella del PLAN y se declara como tal.', timeline: 'Año 4-8 (2030-2034)', dependencies: ['Fase 1 — La Escalera por ley ordinaria'], orderIndex: 3 },
+        { id: 4, title: 'Fase 3 — Régimen', description: 'Consejo Federal Fiscal operando, Fondo de Compensación en régimen y convergencia del Techo A hacia el 70%.', timeline: 'Año 9-15 (2035-2041)', dependencies: ['Fase 2 — La ley convenio'], orderIndex: 4 },
+      ],
+    },
+    kpis: [
+      { id: 'pacto-rigidez', metric: 'Rigidez fiscal consolidada (Techo A)', currentValue: 66.3, targetValue: 70, unit: '%', source: 'PLANPACTO §2', milestones: [{ date: '2031', targetValue: 76 }, { date: '2036', targetValue: 72 }] },
+      { id: 'pacto-piso', metric: 'Piso constitucional único vigente', currentValue: 0, targetValue: 2.4, unit: '% del PBI', source: 'Escalera de Garantías' },
+      { id: 'pacto-ratif', metric: 'Jurisdicciones que ratificaron la ley convenio', currentValue: 0, targetValue: 24, unit: 'jurisdicciones', source: 'art. 75 inc. 2 CN' },
+    ],
+    tags: ['pacto fiscal', 'coparticipación', 'Escalera de Garantías', 'Techo A y B', 'LIFO', 'piso constitucional'],
+    relatedInitiativeSlugs: ['planarco-arco-de-la-vida', 'planrep-reconversion-empleo-publico'],
+    missionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'ambar',
+    citizenRoles: ['testigo', 'declarante'],
+    citizenAsk: 'Exigí que tu provincia publique qué recibe, qué transfiere y con qué regla. El reparto federal es el único número grande del país que nadie te muestra.',
+    mainRisk: 'La Fase 2 depende de 24 ratificaciones provinciales que la Argentina no juntó en treinta años. Si no salen, el PLAN queda en la Fase 0 y la Escalera, que ya es más de lo que hay hoy.',
+    stateCapacity: 'media',
+    socialCapacity: 'baja',
+  },
+  {
+    slug: 'planarco-arco-de-la-vida',
+    title: 'PLANARCO',
+    subtitle: 'Plan Nacional del Arco de la Vida, Calendario de Umbrales y Renta de Arco',
+    category: 'instituciones',
+    summary: 'Los otros PLANes están escritos para un adulto, productivo, urbano, en tiempo presente: nadie nace, nadie envejece, nadie muere. PLANARCO es el sistema endocrino que le avisa al resto del cuerpo en qué etapa de la vida está la persona que tiene enfrente. Organiza el arco entero —gestación, infancia, adolescencia, adultez, vejez, final— con un Calendario de Umbrales que fija qué le debe el Estado a cada persona en cada estación y con qué institución la atiende, más la Renta de Arco y la Dote. Agarra los dos flujos que el corpus nunca había tocado: el previsional, que es alrededor del 45% del presupuesto nacional, y el FGS. Lo administra la Agencia Nacional del Arco de la Vida (ANAV). USD 6.000–11.000M/año bruto, 2.500–5.000M netos incrementales.',
+    iconName: 'Sunrise',
+    documentFile: 'PLANARCO_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>Los otros PLANes están escritos para <strong>un adulto, productivo, urbano, en tiempo presente</strong>. Ese ciudadano tiene justicia, casa, agua, energía, transporte, trabajo, salud, deliberación, memoria, tierra, moneda y hasta alma. <strong>Nadie nace, nadie envejece, nadie muere.</strong></p>
+<p>Y el Estado argentino nunca se sentó sobre el flujo de plata más grande que efectivamente mueve: <strong>el sistema previsional, alrededor del 45% del presupuesto nacional</strong>, que no tenía dueño en ningún documento del corpus.</p>`,
+      pullQuote: 'Nacer no es una lotería. Morir no es un trámite.',
+      stats: [
+        { label: 'Peso del previsional en el presupuesto nacional', value: '~45%' },
+        { label: 'PLANes que modelaban el arco de la vida antes de este', value: '0' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: 'Qué Pasa Si No Cambiamos',
+      content: `<p>Sin un aparato que le avise al resto del cuerpo en qué etapa de la vida está la persona que tiene enfrente, cada PLAN atiende a un adulto genérico y las transiciones quedan sin dueño: el egreso de la escuela, el primer trabajo, la maternidad, la discapacidad sobrevenida, la viudez, el final. La Asignación Universal por Hijo enseñó la lección: <strong>un pago universal sobrevive solo, pero una estación del arco necesita alguien que la habite</strong>, y la AUH nunca tuvo institución.</p>`,
+      pullQuote: 'Es un pago, no una estación.',
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>El <strong>Calendario de Umbrales</strong> fija, estación por estación del arco, qué le debe el Estado a cada persona y qué institución la atiende. No es una lista de beneficios: es un mapa de responsables con nombre.</p>
+<p>La <strong>Renta de Arco</strong> y la <strong>Dote</strong> ordenan las transferencias por edad dentro de la Escalera de PLANPACTO, como eje intergeneracional y no como instrumento paralelo — dos reglas de reparto que corren en paralelo se contradicen en la primera recesión y no hay árbitro.</p>
+<p>El <strong>Fondo de Garantía de Sustentabilidad</strong> pasa a tener dueño explícito, con tope negociado del 8% para PLAN24CN escrito por las dos partes.</p>`,
+      pullQuote: 'Un pago universal sobrevive solo; una estación del arco necesita alguien que la habite.',
+    },
+    elCamino: {
+      overview: 'PLANARCO no se puede costear con honestidad hasta que exista la Escalera de PLANPACTO, y por eso va segundo. Es el nodo más dependiente del corpus: seis requires críticos entrantes.',
+      steps: [
+        { id: 1, title: 'Fase 0 — El Calendario en papel', description: 'Publicación del Calendario de Umbrales: cada estación del arco con su institución responsable, sin crear ninguna estructura nueva. Es un mapa de lo que ya existe y de lo que falta.', timeline: 'Año 1-2 (2028-2029)', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 1 — La ANAV y las primeras estaciones', description: 'Ley de la Agencia Nacional del Arco de la Vida. Estaciones de nacimiento, egreso escolar y vejez temprana operando.', timeline: 'Año 3-5 (2030-2032)', dependencies: ['Fase 0 — El Calendario en papel'], orderIndex: 2 },
+        { id: 3, title: 'Fase 2 — Renta de Arco y Dote', description: 'Integración del eje intergeneracional dentro de la Escalera de PLANPACTO y puesta en régimen de la Dote.', timeline: 'Año 6-10 (2033-2037)', dependencies: ['Fase 1 — La ANAV y las primeras estaciones'], orderIndex: 3 },
+        { id: 4, title: 'Fase 3 — Arco completo', description: 'Todas las estaciones con institución asignada y medición de continuidad entre umbrales.', timeline: 'Año 11-15 (2038-2042)', dependencies: ['Fase 2 — Renta de Arco y Dote'], orderIndex: 4 },
+      ],
+    },
+    kpis: [
+      { id: 'arco-estaciones', metric: 'Estaciones del arco con institución responsable asignada', currentValue: 0, targetValue: 16, unit: 'estaciones', source: 'Calendario de Umbrales' },
+      { id: 'arco-continuidad', metric: 'Personas que atraviesan un umbral sin interrupción de cobertura', currentValue: 0, targetValue: 90, unit: '%', source: 'ANAV' },
+      { id: 'arco-fgs', metric: 'Tope del FGS comprometido con PLAN24CN', currentValue: 20, targetValue: 8, unit: '% de activos', source: 'acuerdo escrito PLANARCO-PLAN24CN' },
+    ],
+    tags: ['arco de la vida', 'previsional', 'Calendario de Umbrales', 'Renta de Arco', 'Dote', 'FGS'],
+    relatedInitiativeSlugs: ['planpacto-pacto-fiscal-reparto-federal', 'plancuidado-cuidado-vinculo'],
+    missionSlug: 'instituciones-y-futuro',
+    secondaryMissionSlug: 'la-base-esta',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'ambar',
+    citizenRoles: ['testigo', 'custodio'],
+    citizenAsk: 'Fijate cuál es el próximo umbral de tu vida o de la de alguien que cuidás, y preguntá qué institución te atiende ahí. Si no hay respuesta, ese es el hueco.',
+    mainRisk: 'Es el nodo más dependiente del corpus: seis requires críticos entrantes y el mayor presupuesto administrado. Si PLANPACTO no entrega la Escalera, este PLAN no se puede costear con honestidad.',
+    stateCapacity: 'media',
+    socialCapacity: 'media',
+  },
+  {
+    slug: 'planpregunta-pregunta-censo-ignorancia',
+    title: 'PLANPREGUNTA',
+    subtitle: 'Plan Nacional de la Pregunta, el Censo de Ignorancia y la Prueba de Barro',
+    category: 'tecnologia',
+    summary: 'La Argentina no tiene un problema de talento: tiene un problema de puntería. Discute cuánto pone en ciencia y no discutió nunca para qué. PLANPREGUNTA hace de la Pregunta la unidad de organización del conocimiento público: la Pregunta Nacional con jurado sorteado, el Censo de Ignorancia bidireccional que registra lo que el país no sabe que no sabe, nueve verticales con dueño declarado, la Prueba de Barro —doce meses en manos de alguien que no lo inventó—, el Sello Abierto, el Banco de Materia Viva, el Turno de Máquina, la Cátedra Portátil y de Regreso, un cupo de Credencial Consolidada sin trayectoria académica, y un capítulo entero de doble uso y bioseguridad. No reclama piso constitucional ni el 0,39% legal: se financia con ocho puntos del Fondo Soberano Ciudadano de PLANTER. Lo administra la Agencia Nacional del Conocimiento (ANCON). USD 16.500–26.000M a quince años.',
+    iconName: 'HelpCircle',
+    documentFile: 'PLANPREGUNTA_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>El presupuesto argentino de ciencia y tecnología cayó al <strong>0,16% del PBI en 2025</strong>, el más bajo desde 2002, contra una meta legal vigente del 0,39% y un estándar OCDE del 2,7%. Quedan <strong>11.868 investigadores en CONICET</strong> contra más de 15.000 previos.</p>
+<p>Pero el problema no es solamente cuánto: es <strong>para qué</strong>. La Argentina discute el monto todos los años y no discutió nunca qué preguntas quiere contestar, quién decide cuáles son, ni qué pasa con lo que ya se sabe y no se usa.</p>`,
+      pullQuote: 'No nos falta talento. Nos falta decir para qué.',
+      stats: [
+        { label: 'Inversión en CyT (2025)', value: '0,16% del PBI' },
+        { label: 'Meta legal vigente', value: '0,39% del PBI' },
+        { label: 'Investigadores CONICET tras los recortes de 2024', value: '11.868' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: 'Qué Pasa Si No Cambiamos',
+      content: `<p>Sin una unidad de organización del conocimiento público, cada gobierno redefine las prioridades científicas por afinidad y cada recorte encuentra al sistema sin argumento propio. Y el déficit más caro no es el de producción sino el de <strong>adopción</strong>: la Argentina no usa lo que ya sabe, y nadie tiene el trabajo de preguntar por qué.</p>`,
+      pullQuote: 'El país no sabe lo que no sabe, y nadie tiene el trabajo de anotarlo.',
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>La unidad no es el proyecto ni la institución: es <strong>la Pregunta</strong>. La <strong>Pregunta Nacional</strong> se formula públicamente, se le asigna presupuesto y se le sortea un jurado con incompatibilidad de autoría: quien escribe una Pregunta no dirige el equipo que la contesta.</p>
+<p>El <strong>Censo de Ignorancia</strong> registra en las dos direcciones lo que el país no sabe y lo que sabe y no usa. La <strong>Prueba de Barro</strong> exige doce meses de uso real <strong>en manos de alguien que no lo inventó</strong>. Y un <strong>cupo del 5 al 8% de Cátedras</strong> queda reservado a Credencial Consolidada sin trayectoria académica: el baqueano, la partera, el productor.</p>
+<p>No reclama piso constitucional, no toca el 0,39% legal (que es de PLANDIG) ni el 0,20% del LANEF (que es de PLANEN): se financia con <strong>ocho puntos del Fondo Soberano Ciudadano de PLANTER</strong>.</p>`,
+      pullQuote: 'La Prueba de Barro no valida el diseño: valida la adopción, y por eso el autor tiene que estar afuera.',
+    },
+    elCamino: {
+      overview: 'La Fase 0 es administrativa, no necesita ley y funciona en papel si la plataforma no llega: registrar la ignorancia antes que la plata.',
+      steps: [
+        { id: 1, title: 'Fase 0 — El registro antes que la plata', description: 'Censo de Ignorancia en papel y por decreto. Sin ley, sin agencia y sin plataforma.', timeline: 'Año 1-2 (2029-2030)', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 1 — Las primeras cien Preguntas', description: 'Ley de la ANCON y del Fondo de la Pregunta. Primeras Preguntas Nacionales con jurado sorteado y presupuesto asignado.', timeline: 'Año 3-4 (2031-2032)', dependencies: ['Fase 0 — El registro antes que la plata'], orderIndex: 2 },
+        { id: 3, title: 'Fase 2 — La Cátedra y el Regreso', description: 'Cátedra Portátil y Cátedra de Regreso operando, con el cupo de Credencial Consolidada cubierto.', timeline: 'Año 5-6 (2033-2034)', dependencies: ['Fase 1 — Las primeras cien Preguntas'], orderIndex: 3 },
+        { id: 4, title: 'Fase 3 — Régimen pleno', description: 'Nueve verticales con dueño, Sello Abierto publicando en el Acervo de PLANFOCO y Prueba de Barro como requisito de escalamiento.', timeline: 'Año 7-15 (2035-2043)', dependencies: ['Fase 2 — La Cátedra y el Regreso'], orderIndex: 4 },
+    ],
+    },
+    kpis: [
+      { id: 'preg-abiertas', metric: 'Preguntas Nacionales abiertas con jurado y presupuesto', currentValue: 0, targetValue: 100, unit: 'preguntas', source: 'ANCON' },
+      { id: 'preg-barro', metric: 'Desarrollos que superaron la Prueba de Barro', currentValue: 0, targetValue: 60, unit: '% de los escalados', source: 'Prueba de Barro' },
+      { id: 'preg-cupo', metric: 'Cátedras cubiertas por Credencial Consolidada sin trayectoria académica', currentValue: 0, targetValue: 6.5, unit: '% de las cátedras', source: 'cupo del 5-8%' },
+    ],
+    tags: ['ciencia', 'Pregunta Nacional', 'Censo de Ignorancia', 'Prueba de Barro', 'Sello Abierto', 'ANCON'],
+    relatedInitiativeSlugs: ['planfoco-palabra-publica-biblioteca-viva', 'plandig-soberania-digital'],
+    missionSlug: 'instituciones-y-futuro',
+    secondaryMissionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'media',
+    state: 'ambar',
+    citizenRoles: ['declarante', 'constructor'],
+    citizenAsk: 'Anotá una pregunta que tu oficio o tu barrio necesita contestar y que nadie está contestando. El Censo de Ignorancia empieza así, en papel.',
+    mainRisk: 'Captura por el establishment científico: quienes están en condiciones de formular Preguntas escriben las que ellos mismos pueden contestar. Se cierra con incompatibilidad de autoría y jurados habilitados fuera de la ANCON.',
+    stateCapacity: 'media',
+    socialCapacity: 'media',
+  },
+  {
+    slug: 'planfoco-palabra-publica-biblioteca-viva',
+    title: 'PLANFOCO',
+    subtitle: 'Plan Nacional de la Palabra Pública, la Biblioteca Viva y el Acervo Común',
+    category: 'cultura',
+    summary: 'La palabra pública no se arregla poniéndole reglas al que habla: se arregla cambiando adónde mira el país y construyendo el lugar donde esa mirada aterriza. El Estado no regula, no licencia, no censura y no le toca un pelo a ningún medio — se aplica una sola disciplina a sí mismo, sobre su propia billetera. La Pauta Ciega le quita al Estado la capacidad de elegir a qué medio le da un peso y después extingue la publicidad oficial en cinco años, hasta cero. Con esa plata, que ya existe, financia la Biblioteca Viva (1.200–1.500 sedes con bibliotecario, acervo y horario), La Antena (dotación de canal para cualquiera que la pida), La Cartelera, El Acervo Abierto, La Sala Común, La Procedencia y el Desmontaje, que dicta PLANEDU. Sin piso constitucional: su techo lo fija la fuente que apaga. Lo administra la ANBAC. USD 300–450M/año.',
+    iconName: 'BookOpen',
+    documentFile: 'PLANFOCO_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina mira <strong>5,2 horas de pantalla no laboral por día</strong>, contra 3,8 del promedio global: una hora y media más que el mundo, todos los días, el equivalente de una jornada laboral por semana.</p>
+<p>Y no es un robo. Es que no hay otro lado. El derecho a un espacio público donde leer y pensar sin ser monetizado ya está consagrado en el corpus —una red de 3.000 espacios, uno cada 15.000 habitantes— y <strong>nunca tuvo una línea de presupuesto</strong>. Mientras tanto el Estado transfiere <strong>USD 450M por año</strong> a los medios que elige, sin contrato de resultado.</p>`,
+      pullQuote: 'Nadie te robó las cinco horas. Se las estás dando.',
+      stats: [
+        { label: 'Pantalla no laboral por día (Argentina)', value: '5,2 h' },
+        { label: 'Promedio global', value: '3,8 h' },
+        { label: 'Publicidad oficial consolidada', value: 'USD 450M/año' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: 'Qué Pasa Si No Cambiamos',
+      content: `<p>Los veinticinco PLANes anteriores dan por supuesto un ciudadano disponible: que estudie la materia, sirva en Mesas, produzca en Tallers, sostenga vínculos de cuidado y deposite en el Archivo. <strong>Todo el aparato corre sobre un insumo que ningún PLAN produce ni protege: el tiempo despierto de la gente</strong>, que se está consumiendo a razón de una hora y media por día por encima del promedio mundial.</p>`,
+      pullQuote: 'Un país que quiere que sus ciudadanos gobiernen tiene que preguntarse primero con qué horas van a hacerlo.',
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p><strong>El Estado no regula, no licencia, no censura y no le toca un pelo a ningún medio.</strong> Se aplica una sola disciplina a sí mismo, sobre su propia billetera: la <strong>Pauta Ciega</strong> le quita la capacidad de elegir a qué medio le da un peso, y después extingue la publicidad oficial en cinco años, en quintos, hasta cero. No la reparte mejor: cualquier fórmula —incluida la que pondera audiencia— le da más al que ya tiene más.</p>
+<p>Con esa plata, que ya existe, financia el otro lado: la <strong>Biblioteca Viva</strong> (1.200 a 1.500 sedes con bibliotecario, acervo y horario, sobre las bibliotecas populares que ya existen), <strong>La Antena</strong> (dotación de canal para cualquiera que la pida, sin evaluar qué va a decir), <strong>La Cartelera</strong>, el <strong>Acervo Abierto</strong>, la <strong>Sala Común</strong>, <strong>La Procedencia</strong> y el <strong>Desmontaje</strong>, que dicta PLANEDU.</p>`,
+      pullQuote: 'Este PLAN no puede ser más grande que la pauta que mata.',
+    },
+    elCamino: {
+      overview: 'Lo irreversible primero y lo caro después: la Fase 0 se ejecuta por decreto sobre la billetera del propio Estado y no le pide permiso a nadie.',
+      steps: [
+        { id: 1, title: 'Fase 0 — La pauta se vuelve ciega', description: 'Decreto de sorteo y cronograma de extinción publicados el mismo día. Inventario del Acervo y relevamiento de horarios. Sin ley, sin agencia y sin plataforma.', timeline: 'Año 1-2 (2027-2028)', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 1 — Las primeras seiscientas sedes', description: 'Convenios con bibliotecas populares bajo regla de precedencia, primeros concursos ciegos con sorteo, arranque de la digitalización y primeras dotaciones de La Antena.', timeline: 'Año 3-5 (2029-2031)', dependencies: ['Fase 0 — La pauta se vuelve ciega'], orderIndex: 2 },
+        { id: 3, title: 'Fase 2 — La red completa', description: 'De 600 a 1.200-1.500 sedes. La pauta ya es cero. Traspaso de las compras a las Mesas Territoriales y estándar de Procedencia publicado.', timeline: 'Año 6-8 (2032-2034)', dependencies: ['Fase 1 — Las primeras seiscientas sedes'], orderIndex: 3 },
+        { id: 4, title: 'Fase 3 — Régimen y evaluación', description: 'Operación plena y evaluación con umbral escrito: en 2038 se mide si las horas de uso de sede por habitante subieron contra la línea de base de 2027. Si no subieron, el PLAN falló y se reformula.', timeline: 'Año 9-15 (2035-2041)', dependencies: ['Fase 2 — La red completa'], orderIndex: 4 },
+      ],
+    },
+    kpis: [
+      { id: 'foco-uso', metric: 'Horas de uso de sede por habitante del radio', currentValue: 0, targetValue: 12, unit: 'horas/año', source: 'Tablero Nacional de la Mirada — indicador principal' },
+      { id: 'foco-pauta', metric: 'Publicidad oficial nacional colocada', currentValue: 450, targetValue: 0, unit: 'USD M/año', source: 'cronograma de extinción', milestones: [{ date: '2029', targetValue: 180 }, { date: '2031', targetValue: 0 }] },
+      { id: 'foco-sedes', metric: 'Sedes abiertas con bibliotecario y horario publicado', currentValue: 0, targetValue: 1350, unit: 'sedes', source: 'ANBAC' },
+      { id: 'foco-firma', metric: 'Material público publicado sin firma de procedencia', currentValue: 100, targetValue: 10, unit: '%', source: 'La Procedencia' },
+    ],
+    tags: ['palabra pública', 'Pauta Ciega', 'Biblioteca Viva', 'La Antena', 'Acervo Abierto', 'Desmontaje', 'ANBAC'],
+    relatedInitiativeSlugs: ['planpregunta-pregunta-censo-ignorancia', 'plancul-cultura-viva'],
+    missionSlug: 'infancia-escuela-cultura',
+    secondaryMissionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'transicion',
+    priority: 'media',
+    state: 'ambar',
+    citizenRoles: ['testigo', 'organizador', 'narrador'],
+    citizenAsk: 'Andá a la biblioteca popular más cercana y mirá el horario. Si está cerrada cuando vos estás despierto, ese cartel es el problema entero.',
+    mainRisk: 'La pauta vuelve por decreto en el gobierno siguiente. Este PLAN no tiene piso constitucional: su única defensa es que recrear la partida exija firma y monto en el Boletín Oficial mientras esa plata paga sedes abiertas.',
+    stateCapacity: 'media',
+    socialCapacity: 'media',
+  },
 ];
