@@ -427,7 +427,7 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
     valor: 'USD 2.475–4.650M',
     en: [H2_RENTA],
     porQue:
-      'el flujo del Fondo Intergeneracional, 15% del FSC — PLANTER:674. Es la única línea del fondo ' +
+      'el flujo del Fondo Intergeneracional, 15% del FSC — PLANTER:683. Es la única línea del fondo ' +
       'que acumula capital, y sus dos mandatos previos son «no distribuir»: el Fondo Previsional ' +
       'Bastardo choca contra ella y la sección lo tiene que decir con el número puesto',
   },
@@ -804,11 +804,15 @@ const FAMILIAS_DE_CIFRA: FamiliaDeCifra[] = [
   {
     cerca: 'Fondo Intergeneracional',
     unidad: /USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
-    valores: ['USD 2.475–4.650M'],
+    valores: ['USD 2.475–4.650M', 'USD 1.155–2.170M'],
     porQue:
-      'el flujo anual del Fondo Intergeneracional es uno solo (PLANTER:674) y §4.5 y §5.2 lo escriben ' +
-      'los dos. Dos magnitudes para la misma línea del mismo fondo es la contradicción que el ' +
-      'domicilio no ve',
+      'el flujo anual del Fondo Intergeneracional lo escriben §4.5 y §5.2, y desde el 2026-08-01 hay ' +
+      'DOS valores legítimos y no uno: el de cuando este documento se escribió (15% del FSC) y el ' +
+      'vigente (7%, PLANTER:683), porque `PLANPREGUNTA §13.2` reabrió el protocolo y le sacó ocho ' +
+      'puntos a esa línea. Las dos secciones tienen que llevar los dos, el viejo marcado como el de ' +
+      'entonces y el nuevo como el de ahora: **borrar el viejo escondería que el reparto cambió, y ' +
+      'borrar el nuevo dejaría al documento afirmando en presente un monto que ya no es**. Tres ' +
+      'magnitudes, o una sola, siguen siendo error',
   },
   {
     cerca: 'Mandato Kilométrico',
@@ -1080,7 +1084,7 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
     en: [H2_RENTA],
     porQue:
       'el entregable que §3.3 y §3.5 difieren a esta sección: tres pisos universales sobre la misma ' +
-      'persona de sesenta y cinco —el DNP de PLANREP §15.3, el DCM de PLANTER:366-367 y el Piso ' +
+      'persona de sesenta y cinco —el DNP de PLANREP §15.3, el DCM de PLANTER:375-376 y el Piso ' +
       'Vital— y el documento tiene que decir cuál se suma, cuál absorbe y cuál es absorbido. El ' +
       'diferimiento estaba declarado desde los dos lados en la prosa y en ninguna parte de la guardia',
   },
@@ -1115,7 +1119,7 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
     en: [H2_COMIENZO],
     porQue:
       'la resolución de C-7 del lado de la Dote. El Fondo Intergeneracional es 15% del FLUJO del FSC ' +
-      '(PLANTER:674), sin stock declarado ni regla de retiro, y sus dos mandatos escritos son ambos ' +
+      '(PLANTER:683), sin stock declarado ni regla de retiro, y sus dos mandatos escritos son ambos ' +
       'de no distribuir (PLANTER:163 y :710/:839). Financiar la Dote de ahí sería la misma cadena que ' +
       'a la SECCIÓN 4 le costó el Tramo Común: la renuncia va escrita, no supuesta',
   },
@@ -5389,7 +5393,7 @@ const CON_FORMA_DE_ANCLA = /§|:\d/u;
  * entre `` `PRESUPUESTO_CONSOLIDADO_BASTA.md:100` `` y su remisión corta
  * `` `:430` ``, la guardia salía **exit 0** y contaba esa ancla entre las
  * doscientas «abiertas y resueltas», mientras `:430` resolvía contra
- * `PLANTER:430` —el H2 de otra sección de otro PLAN— en vez de contra el
+ * `PLANTER:439` —el H2 de otra sección de otro PLAN— en vez de contra el
  * documento del que la oración hablaba.
  *
  * No es un chequeo que falla abierto: es uno que da por verificada una remisión
@@ -5405,7 +5409,7 @@ const CON_FORMA_DE_ANCLA = /§|:\d/u;
  *
  * **Falsos positivos: cero sobre el documento entero**, verificado antes de dar
  * el chequeo por bueno. El corpus escribe la remisión corta pegada a su ancla
- * —«`PLANTER:674` … (`:163`)»— y el caso ambiguo, cuando aparece, es prosa que
+ * —«`PLANTER:683` … (`:163`)»— y el caso ambiguo, cuando aparece, es prosa que
  * el lector tampoco puede desambiguar.
  *
  * ── DECIMOCUARTA FORMA: el arreglo de arriba cerró al hijacker DÉBIL y dejó
@@ -5416,7 +5420,7 @@ const CON_FORMA_DE_ANCLA = /§|:\d/u;
  * sobre `:455` (§4.5), insertando `` `PLANTER:349` `` entre
  * `` `PRESUPUESTO_CONSOLIDADO_BASTA.md:100` `` y sus dos remisiones cortas:
  * **exit 0**, el titular pasó de 246 anclas «abiertas y resueltas» a 247, y
- * `` `:430` `` resolvió contra `PLANTER:430` y `` `:3` `` contra `PLANTER:3`.
+ * `` `:430` `` resolvió contra `PLANTER:439` y `` `:3` `` contra `PLANTER:3`.
  * El ancla completa reasignaba el antecedente y encima LIMPIABA los pelados
  * pendientes.
  *
@@ -5475,7 +5479,7 @@ const CON_FORMA_DE_ANCLA = /§|:\d/u;
  */
 /**
  * Límite de ORACIÓN entre dos tokens. Los dos puntos NO cortan, y la diferencia
- * se midió: con `:` adentro del juego, la mutación «`PLANTER:674` … que
+ * se midió: con `:` adentro del juego, la mutación «`PLANTER:683` … que
  * `PLANMON:941` no computa … de no distribuir: preservación de capital (`:163`)»
  * se escapaba del chequeo de ambigüedad —el `:` de «no distribuir:» vaciaba el
  * conjunto— y solo caía de rebote, porque `PLANMON` no tiene esas líneas. De

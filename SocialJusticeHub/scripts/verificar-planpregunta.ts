@@ -536,7 +536,7 @@ const CIFRAS_CANONICAS: CifraCanonica[] = [
     valor: /16\.500\s*[–—-]\s*31\.000|16\.500 a 31\.000/u,
     ancla: /PLANTER|FSC|Fondo Soberano Ciudadano|flujo/iu,
     porQue:
-      'el flujo anual del FSC sale de PLANTER:670-676, donde el 40% del dividendo son 6.600-12.400M. ' +
+      'el flujo anual del FSC sale de PLANTER:681-686, donde el 40% del dividendo son 6.600-12.400M. ' +
       'Es el denominador del que salen los ocho puntos, y sin él el 8% no significa nada',
   },
   {
