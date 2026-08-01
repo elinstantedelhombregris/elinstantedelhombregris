@@ -570,3 +570,113 @@ Hay una diferencia entre dos frases que se parecen mucho y que separan a este PL
 **Los dos límites, escritos por adelantado.** Primero: **la Procedencia no detecta contenido falso.** Un organismo público puede publicar una estadística mal hecha y firmarla perfectamente. Lo que la firma prueba es que la publicó ese organismo y que no la tocaron después — lo cual, en un país donde las series estadísticas se alteraron y nadie pudo probar cuándo, es bastante más de lo que suena, y es mucho menos que la verdad. Segundo: **la firma no obliga a nadie de afuera del Estado.** Un material sin firma no es sospechoso, no está degradado y no tiene ninguna consecuencia: la enorme mayoría de lo que circula en la Argentina no se produce con plata pública y no tiene por qué llevar nada. Un sistema donde «sin firma» significara «dudoso» sería un registro de habilitados con criptografía, y eso es exactamente lo que este PLAN tiene prohibido construir.
 
 ---
+
+## SECCIÓN 9: LA ALFABETIZACIÓN DE LA MIRADA Y EL DESMONTAJE
+
+> *"La escuela enseña a leer un texto y ver cómo está escrito. Nadie enseña a mirar un mensaje y ver cómo está hecho."*
+
+Éste es el nervio del PLAN y es lo único que no se puede construir con plata. Todo lo demás —sedes, canales, archivos, firmas— es infraestructura, y la infraestructura sin esta sección produce un país con bibliotecas hermosas y la misma mirada.
+
+### 9.1 Qué es el Desmontaje
+
+El Desmontaje es una **capacidad técnica, no una actitud moral**, y la distinción decide si el dispositivo funciona o se convierte en lo contrario de sí mismo.
+
+No es «pensamiento crítico» en el sentido en que se usa esa expresión, que suele significar desconfiar más. Desconfiar más no es una capacidad: es un estado de ánimo, es gratis, y un país donde todo el mundo desconfía de todo es exactamente el país que le conviene a quien miente, porque en el ruido general la mentira deja de destacarse. **Un ciudadano que no le cree a nada es tan manejable como uno que le cree a todo, y sale más barato de producir.**
+
+El Desmontaje es la operación concreta de agarrar una pieza de comunicación —un aviso, una nota, un video, un discurso, un gráfico, un posteo— y responder cinco preguntas que tienen respuesta verificable:
+
+**Quién la hizo.** No quién la firma: quién la produjo y quién la pagó. Acá el Desmontaje se enchufa directo con la Procedencia de la Sección 8, que para el material público da la respuesta sin que haya que investigar nada.
+
+**Con qué materiales.** Qué es dato, qué es cita, qué es inferencia y qué es adjetivo. Es una operación de separación, y es enseñable: se aprende marcando con cuatro colores sobre un texto impreso, como se aprende a separar sujeto de predicado.
+
+**Con qué técnica.** Qué recurso formal se está usando y qué efecto produce: el encuadre de una imagen, el orden de un relato, la elección de un eje en un gráfico, la voz pasiva que borra al que hizo la acción, el plano que hace grande a una multitud chica.
+
+**Qué falta.** Cuál es la pregunta que la pieza no responde y que un lector razonable haría. Ésta es la más difícil de las cinco y la más útil.
+
+**Qué haría falta para saber si es cierto.** No «es cierto o no» —que es un juicio y no le corresponde a la escuela emitirlo— sino **qué dato habría que ir a buscar y dónde.** Ésta es la que convierte al Desmontaje en un hábito y no en un examen, porque la respuesta casi siempre es un lugar concreto al que se puede ir: una serie pública, un expediente, un boletín, una biblioteca.
+
+Las cinco preguntas se aplican **con la misma disciplina a las piezas que le gustan al que las aplica**, y esa es la única regla pedagógica innegociable. Un Desmontaje que se practica solamente sobre el adversario es propaganda con método.
+
+### 9.2 Quién lo dicta, y la referencia rota que esto repara
+
+**PLANEDU dicta el Desmontaje.** No PLANFOCO, no ANBAC, no la Biblioteca.
+
+La razón de fondo es la restricción del PLAN: una agencia estatal que enseña a los ciudadanos a interpretar mensajes está a un paso de enseñarles cuáles interpretar mal. La escuela también es el Estado, pero la escuela tiene currículum público, consejos federales, sindicatos docentes, editoriales que compiten y padres que reclaman: tiene, en una palabra, **contrapesos que una agencia nueva no tiene ni va a tener en veinte años.**
+
+Y la razón inmediata es que esto **repara una referencia cruzada rota**, que es un hallazgo de este documento y no del brief. `PLANDIG:803` afirma que la Ecología de la Atención *«articula directamente con PLANEDU (alfabetización algorítmica como materia desde secundaria)»*. La palabra «algorítmica» **no aparece ni una sola vez** en las 1.927 líneas de `PLANEDU_Argentina_ES.md`. Lo más cercano es `PLANEDU:162`, una fila de diagnóstico que dice *«Alfabetización digital | Parcial, desactualizada»*, y que describe un problema, no una materia.
+
+PLANDIG no mintió: escribió lo que suponía que su vecino tenía. Y el vecino no lo tenía. **Una referencia cruzada rota entre dos documentos largos no la encuentra nadie leyendo** —la encuentra un `grep`, y sólo si alguien sospecha—, y mientras tanto los dos documentos son internamente coherentes y el sistema en conjunto afirma algo falso sin que ninguna de sus partes mienta.
+
+La reparación se escribe de los dos lados, con nota fechada: acá y en PLANEDU. Y se escribe con la fecha, porque la afirmación de `PLANDIG:803` **pasa a ser verdadera** el día que PLANEDU incorpore la materia y no antes: hasta entonces sigue siendo lo que era.
+
+**Qué le toca a este PLAN, entonces, si no dicta.** Tres cosas y ninguna es curricular. **El material**, que se produce con la Procedencia adentro y se publica abierto para que lo use cualquier docente sin pedir permiso. **La formación de los mediadores** de la Biblioteca Viva, que no son docentes y hacen otra cosa: acompañan a un adulto que llega con una pregunta, no dan clase a un curso. Y **el lugar**, que es la sede, donde un adulto de cuarenta años que terminó la escuela hace veinticinco puede aprender esto sin volver a un aula, que es la única forma en que va a aprenderlo.
+
+**La objeción, que es la más seria que recibe este PLAN entero.** Enseñar a desmontar mensajes en una escuela estatal es enseñar a desconfiar, y quien elige los ejemplos elige de quién. Un manual con veinte piezas para desmontar y diecisiete de un solo signo político es adoctrinamiento con formato de método, y ningún reglamento lo impide, porque la elección de ejemplos parece un detalle didáctico.
+
+Este documento no puede resolver eso con una declaración de buenas intenciones, así que lo resuelve con tres reglas mecánicas y verificables desde afuera:
+
+**El corpus de ejemplos es abierto y contable.** Todas las piezas que se usan en la materia se publican en el Acervo con su procedencia, y **el balance por origen es un indicador del tablero** de la Sección 17, actualizado y consultable. No hay comité que juzgue equilibrio: hay un número que cualquiera puede mirar y discutir.
+
+**Al menos una de cada tres piezas es material del propio Estado**, incluido el del gobierno en ejercicio. Una materia de desmontaje que nunca desmonta un aviso oficial está enseñando lo contrario de lo que dice enseñar.
+
+**Y la evaluación no juzga conclusiones.** Ésta es la regla que decide si el dispositivo es educación o militancia: se evalúa si el alumno **identificó** quién produjo la pieza, si **separó** dato de inferencia, si **nombró** la técnica y si **formuló** qué dato habría que ir a buscar. **No se evalúa nunca a qué conclusión llegó.** Dos alumnos que desmontan la misma pieza con el mismo rigor y sacan conclusiones opuestas tienen los dos la nota completa, y el manual del docente lo dice en la primera página.
+
+### 9.3 El par recíproco: el Desmontaje y el Censo de Ignorancia
+
+`PLANPREGUNTA:734` dejó escrito, del lado de aquel documento, que el Desmontaje de PLANFOCO y su propio **Censo de Ignorancia** *«son la misma capacidad cívica a dos escalas: la de una persona frente a un mensaje y la de un país frente a lo que no sabe»*. Y dejó anotada la deuda con la fórmula que `PLANPACTO:721` había usado para PLANARCO: **PLANFOCO es el par recíproco de este PLAN y todavía tiene una sola mitad escrita.**
+
+**Esta sección es la otra mitad, y con ella el par queda completo.** Es la primera vez en el corpus que un par recíproco se cierra en el tramo siguiente al que lo declaró.
+
+La simetría no es retórica, y se puede escribir como una operación. El Desmontaje pregunta, sobre una pieza: *qué haría falta para saber si esto es cierto.* El Censo de Ignorancia pregunta, sobre un país: *qué haría falta saber que no sabemos.* Son la misma pregunta con distinto sujeto, y las dos tienen la misma respuesta estructural: **un lugar concreto adonde ir a buscar el dato que falta.** Sin ese lugar, las dos preguntas producen frustración; con ese lugar, producen una biblioteca llena a las tres de la tarde.
+
+De ahí sale la única obligación operativa recíproca que este PLAN asume: **toda Pregunta Nacional de PLANPREGUNTA tiene versión desmontable**, es decir un material que explica qué se preguntó, con qué materiales se contestó, qué técnica se usó y qué quedó sin responder, publicado en el Acervo y disponible en las sedes. No es divulgación: es la misma pieza de la que se hizo la ciencia, con las cinco preguntas contestadas por sus autores.
+
+---
+
+## SECCIÓN 10: QUIÉN COMPRA, QUIÉN ATIENDE Y QUIÉN CUENTA
+
+> *"Tres decisiones sobre personas, y las tres se resuelven quitándole a alguien el poder de decidirlas."*
+
+### 10.1 Las tres decisiones, y por qué se resuelven todas igual
+
+Un PLAN que abre mil quinientas sedes toma tres decisiones sobre personas, y cada una de las tres es, si se la deja suelta, una máquina de clientelismo mejor que la que quiere reemplazar:
+
+| Decisión | Quién NO la toma | Quién la toma | Mecanismo |
+|---|---|---|---|
+| Qué se compra para cada sede | ANBAC | la Mesa Territorial de `PLANMESA:466`, y hasta que exista, la asamblea de usuarios | deliberación local con acta pública |
+| Quién atiende cada sede | ANBAC | el concurso y después el azar | concurso ciego + **sorteo estratificado** de `PLANMESA:297` |
+| Quién cuenta lo que pasa en el territorio | ANBAC | la sede, sobre un padrón abierto | postulación abierta + sorteo |
+
+El patrón es el mismo en las tres filas y es el mismo de la Pauta Ciega: **el Estado se queda sin la capacidad de elegir.** No es desconfianza hacia el funcionario que va a ocupar el cargo: es que el cargo va a durar treinta años y el funcionario cinco.
+
+**La formación, que es lo que el sorteo no resuelve.** Sortear entre aprobados exige que el examen sea bueno y que haya suficientes aprobados, y en muchas localidades no va a haberlos el primer año. Este PLAN no baja la vara ni designa a dedo «hasta que haya candidatos»: **paga la formación por adelantado**, con una capacitación de doce semanas abierta a cualquiera que se anote, sin requisito de título, que acredita como Capa de Estudio de la Credencial de Materia de `PLANMESA:88`. El que se forma no tiene el cargo asegurado —entra al concurso como todos— y el que no queda conserva la acreditación, que le sirve en la Mesa de su materia. Formar a más gente de la que se va a contratar no es desperdicio: es lo que hace que el sorteo tenga entre quiénes sortear.
+
+### 10.2 La Beca del Desierto
+
+**Declaración de estreno:** «Beca del Desierto» tiene **cero ocurrencias** en los veinticuatro documentos del taller. Es un nombre nuevo de este documento y el dispositivo es una **decisión de diseño de este PLAN**, sin precedente interno al que remitirse.
+
+En el diseño crudo era un dispositivo nacional: una beca para cubrir «desiertos informativos», otorgada desde arriba, a periodistas, para producir cobertura en lugares donde no la hay. Así diseñada tiene dos problemas fatales. Uno: quien decide dónde está el desierto y quién lo cubre es una agencia nacional eligiendo qué se cuenta de cada pueblo, que es el ministerio de la verdad por otra puerta. Dos: produce cobertura *sobre* un territorio, no *desde* un territorio, y se termina cuando se termina la beca.
+
+**Se territorializa: la Beca del Desierto es el mediador-cronista de la Biblioteca local.** Un rol, no un subsidio; anclado a una sede, no a un proyecto; y con dos tareas que son la misma cosa mirada de los dos lados.
+
+**Hacia adentro, es mediador:** acompaña al que llega a la sede con una pregunta y no sabe cómo buscar. Es el que le enseña a Marisol las cinco preguntas del Desmontaje sin llamarlas así.
+
+**Hacia afuera, es cronista:** escribe lo que pasa en ese territorio y lo publica en la Cartelera y en el Acervo, sin línea editorial, sin encargo y sin que nadie de ANBAC le diga qué cubrir. Y **anota lo que sabe la gente que sabe y nadie escribió** — que es la tarea que le devuelve el sentido al nombre. Cuando el cronista de Chajarí se siente dos temporadas con Aldo Benítez y anote cuándo se corta un chupón y cuándo se lo deja, ese material queda en el Acervo con procedencia y firma, y la próxima Marisol tiene dónde aprender a podar. El desierto que este dispositivo riega no es informativo: **es el desierto de lo que se sabe y no está escrito.**
+
+**Cómo se asigna:** postulación abierta en la localidad, sin requisito de título ni de antecedente periodístico, y sorteo entre los que se postulan con la misma mecánica del bibliotecario. **La beca es a término y no renovable por decisión de ANBAC.** Un cronista designado por la agencia le debe el puesto a la agencia, y un cronista que le debe el puesto a alguien no es un cronista.
+
+### 10.3 El empleo que este PLAN crea, y qué le pasa si el PLAN se cae
+
+Mil quinientos bibliotecarios, un número comparable de mediadores-cronistas, el personal de digitalización del Acervo y la estructura chica de ANBAC. Son entre tres y cuatro mil empleos estables, calificados y distribuidos por todo el país — la mayoría en localidades donde el Estado nacional no emplea a nadie.
+
+Hay que decir dos cosas sobre eso y ninguna es cómoda.
+
+**Es una fortaleza política y hay que declararla como tal.** Tres mil personas con trabajo en mil doscientos barrios son tres mil personas a las que un gobierno que quiera cerrar esto tiene que despedir de a una, con nombre, en su pueblo. Este PLAN no tiene piso constitucional; lo que tiene, como defensa, es que su costo de reversión es visible y local. No es un accidente del diseño: es la única protección disponible para un PLAN que renunció a blindarse.
+
+**Y es exactamente por eso que el mecanismo de designación tiene que ser inatacable.** Un empleo público distribuido territorialmente y designado a dedo es la definición de aparato, y el reproche llegaría con razón. El concurso ciego y el sorteo no están para que las designaciones sean justas en abstracto: están para que, cuando alguien acuse a este PLAN de ser un aparato, la respuesta sea el acta del sorteo y no un discurso.
+
+**Bajo qué régimen laboral**, que es una pregunta que el corpus ya contestó y este PLAN no vuelve a contestar. El empleo de la Biblioteca Viva entra al régimen de empleo público que rediseña **PLANREP**, con su escalafón, su carrera y su régimen de concursos; este documento **no crea un estatuto propio** y no pide excepción de ninguna clase. Lo único que agrega es el mecanismo de ingreso —concurso ciego más sorteo— que es más exigente que el general, no menos, y que se aplica por encima del régimen y no en lugar de él. Un PLAN nuevo que se inventa su propio estatuto laboral está creando una isla, y las islas del empleo público argentino se convirtieron todas, sin excepción, en lo mismo.
+
+**Si el PLAN se descontinúa**, el protocolo de la Sección 21 fija qué se preserva y en qué orden: primero el Acervo, que es irreversible; después los convenios con las bibliotecas populares, que devuelven las sedes a instituciones que existían antes y van a seguir existiendo después. El personal no tiene garantía de continuidad y este documento no la promete, porque prometerla sería prometer un derecho adquirido sobre un presupuesto que puede no existir.
+
+---
