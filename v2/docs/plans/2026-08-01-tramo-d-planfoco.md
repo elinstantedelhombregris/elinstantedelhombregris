@@ -284,15 +284,23 @@ Objetivo total: **26.000–28.500 palabras**. Calibrado contra el corpus: PLANCU
 
 ## Tasks
 
+> **Desvío declarado respecto del red-green por tarea.** La guardia de la Task 1 se escribe
+> **entera** —las 26 secciones, las 14 cifras canónicas, los 13 prohibidos y las tres tablas— en vez
+> de crecer tarea por tarea. Con eso arranca reportando 53 problemas y cada tarea achica la lista, que
+> es el mismo rojo-verde con una sola vuelta de edición del script en lugar de trece. Lo que se pierde
+> es la posibilidad de ver *qué chequeo nuevo* puso rojo a la guardia en cada tarea; lo que se gana es
+> que ningún chequeo quede sin escribir por olvido al final. El intercambio se declara acá y no se
+> descubre después.
+
 ### Task 1 — La guardia y el esqueleto
 
-- [ ] Crear `SocialJusticeHub/scripts/verificar-planfoco.ts` con: los 26 H2 esperados en orden; epígrafes con default «tiene uno» y exentos verificados en las dos direcciones; conteo y numeración correlativa de subsecciones **con auto-descubrimiento** (una sección con ≥2 `### N.M` no declarada es error, no pase); cifras canónicas con ancla en la misma oración; prohibidos con `salvoSi` por oración; y la verificación de que no hay piso constitucional.
-- [ ] Heredar de `verificar-planpregunta.ts` las cuatro reglas de doctrina de guardia: default seguro con opt-out verificado en los dos sentidos; descubrimiento automático; si el ancla no es única el chequeo no corre y **lo dice**; patrón y excepción miden la misma unidad.
-- [ ] Crear el documento con `cat > … <<'EOF'`: cabecera de metadatos, H1, `## Vigésimo Séptimo Mandato del Proyecto ¡BASTA!`, versión, portada ASCII.
-- [ ] La cabecera escribe el **total de quince años** y remite a la Sección 13 para la banda anual. No estrena un número anual antes de derivarlo.
-- [ ] La cabecera escribe entera la habilitación: PLANFOCO **no se puede medir** con el gate de la regla 3 porque nunca tuvo huésped (`ACTA:31`, `:59`, `:97`). No es que falle: no lo alcanza.
-- [ ] Verificar: la guardia pasa; `wc -w` de la cabecera + portada cae en 700–780.
-- [ ] Commit.
+- [x] Crear `SocialJusticeHub/scripts/verificar-planfoco.ts` con: los 26 H2 esperados en orden; epígrafes con default «tiene uno» y exentos verificados en las dos direcciones; conteo y numeración correlativa de subsecciones **con auto-descubrimiento** (una sección con ≥2 `### N.M` no declarada es error, no pase); cifras canónicas con ancla en la misma oración; prohibidos con `salvoSi` por oración; y la verificación de que no hay piso constitucional.
+- [x] Heredar de `verificar-planpregunta.ts` las cuatro reglas de doctrina de guardia: default seguro con opt-out verificado en los dos sentidos; descubrimiento automático; si el ancla no es única el chequeo no corre y **lo dice**; patrón y excepción miden la misma unidad.
+- [x] Crear el documento con `cat > … <<'EOF'`: cabecera de metadatos, H1, `## Vigésimo Séptimo Mandato del Proyecto ¡BASTA!`, versión, portada ASCII.
+- [x] La cabecera escribe el **total de quince años** y remite a la Sección 13 para la banda anual. No estrena un número anual antes de derivarlo.
+- [x] La cabecera escribe entera la habilitación: PLANFOCO **no se puede medir** con el gate de la regla 3 porque nunca tuvo huésped (`ACTA:31`, `:59`, `:97`). No es que falle: no lo alcanza.
+- [x] Verificar: la guardia pasa; `wc -w` de la cabecera + portada cae en 700–780.
+- [x] Commit.
 
 ### Task 2 — PREÁMBULO y TESIS CENTRAL
 
