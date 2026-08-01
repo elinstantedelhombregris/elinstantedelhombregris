@@ -49,6 +49,8 @@ const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 1: LA CRISIS — EL PAÍS DISCUTE CUÁNTO PONE Y NUNCA DISCUTIÓ PARA QUÉ',
   '## SECCIÓN 2: PRECEDENTES INTERNACIONALES Y LOCALES',
   '## SECCIÓN 3: LA SOLUCIÓN — LA PREGUNTA NACIONAL',
+  '## SECCIÓN 4: EL CENSO DE IGNORANCIA',
+  '## SECCIÓN 5: LAS NUEVE VERTICALES',
 ];
 
 /**
@@ -105,7 +107,48 @@ const SUBSECCIONES_ESPERADAS: { h2: string; prefijo: string; cuantas: number; po
       'afuera · frontera con el LANEF. Las dos del medio son las que cierran el modo de falla número ' +
       'uno del PLAN, y son las que un recorte de prosa se lleva primero porque no tienen número',
   },
+  {
+    h2: '## SECCIÓN 4: EL CENSO DE IGNORANCIA',
+    prefijo: '4',
+    cuantas: 5,
+    porQue:
+      'el depósito · la devolución obligatoria · el padrón de Testigos · la Pregunta de Adopción · el ' +
+      'modo degradado en papel. La devolución es lo único que separa a este circuito de un buzón de ' +
+      'quejas, y el modo degradado es lo que impide que el Censo espere a una plataforma de estadio B',
+  },
+  {
+    h2: '## SECCIÓN 5: LAS NUEVE VERTICALES',
+    prefijo: '5',
+    cuantas: 4,
+    porQue: 'el reparto y la tabla · las siete naturales · República · Evaluación de mandatos',
+  },
 ];
+
+/**
+ * La tabla de las nueve verticales. Se parsea y se cuenta, y la columna de
+ * ocupantes es obligatoria en TODAS las filas: es lo que hace honesta la
+ * arquitectura. Una vertical sin ocupante declarado se lee como territorio
+ * vacío, y en este corpus casi nada lo está.
+ */
+const COLUMNAS_VERTICALES = ['Vertical', 'Ignorancia madre', 'Dueño', 'Quién la ocupa hoy'];
+
+function verificarVerticales(lineas: string[]): string[] {
+  const { filas, errores } = filasDeTabla(lineas, COLUMNAS_VERTICALES, true);
+  if (filas === null) return errores;
+  if (filas.length !== 9) {
+    errores.push(`la tabla de verticales tiene ${String(filas.length)} filas y el PLAN promete nueve`);
+  }
+  filas.forEach((fila, i) => {
+    const ocupante = (fila[3] ?? '').trim();
+    if (ocupante.length < 3) {
+      errores.push(
+        `vertical ${String(i + 1)} («${fila[0] ?? ''}») no declara quién la ocupa hoy: la columna es ` +
+          'obligatoria, y «nadie» también es una respuesta que hay que escribir',
+      );
+    }
+  });
+  return errores;
+}
 
 /**
  * La anatomía de cada falla: `### 0.N {título}` y debajo los tres leads de
@@ -864,6 +907,7 @@ function main(): void {
     ...verificarProhibidos(raw, lineas),
     ...verificarEstrenoDeclarado(raw),
     ...verificarQueNoTienePiso(),
+    ...verificarVerticales(lineas),
     ...verificarSplit(lineas),
     ...verificarSplitEnPlanter(),
     ...verificarCabecera(lineas),

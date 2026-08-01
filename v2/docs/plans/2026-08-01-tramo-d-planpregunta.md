@@ -444,7 +444,7 @@ Las nueve: los **siete naturales** (que la sección tiene que nombrar y justific
 
 **Palabras:** Censo 1.500–1.900 · verticales 2.000–2.500.
 
-- [ ] Task 5 completa
+- [x] Task 5 completa
 
 ---
 

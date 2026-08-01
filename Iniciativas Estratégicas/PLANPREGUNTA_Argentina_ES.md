@@ -318,3 +318,129 @@ El caso más claro es el energético. El **LANEF** de `PLANEN:782-792` tiene la 
 El caso interesante es el contrario, y es el que justifica que la agencia exista. **Cuando una Pregunta cae en un territorio donde ningún organismo tiene mandato, no hay a quién nombrar.** Ahí la ANCON arma equipo, y lo arma con lo que las Secciones 7 y 8 le dan: infraestructura común y Cátedras que se mueven. Ese es su rol propio y es acotado a propósito — el aparato se hace cargo de lo que no es de nadie, que es exactamente el hueco que le dio origen, y no de lo que ya tiene dueño. Un organismo que además de escribir las preguntas huérfanas empieza a contestar las que otros ya podían contestar es un organismo que en diez años compite por presupuesto con los institutos a los que debería estar apuntando.
 
 Es una renuncia grande y conviene mirarla de frente: **este PLAN puede terminar siendo, en varias verticales, el que escribe la pregunta y no el que la contesta.** Está bien que así sea. La falla 0.1 no era que faltara quien contestara.
+
+## SECCIÓN 4: EL CENSO DE IGNORANCIA
+
+> *"Un buzón que no contesta no recoge preguntas: recoge resignación, y con el tiempo deja de recoger."*
+
+El Censo de Ignorancia es el circuito por el cual una persona deposita algo que no sabe y recibe, en un plazo escrito, una respuesta escrita y firmada. La segunda mitad de esa oración es todo el dispositivo. Juntar ignorancias es fácil y ya se hizo muchas veces con muchos nombres: consultas públicas, buzones de sugerencias, mesas de participación, formularios con casilla de observaciones. **Lo que nunca se hizo es devolver.** Y sin devolución, el circuito muere solo en dos o tres años, porque la gente que deposita aprende antes que nadie que depositar no sirve.
+
+El corpus tiene el modelo de la forma correcta y conviene copiarlo en vez de inventar: el **Archivo de Depósito Ciudadano** de `PLANMEMORIA:283` recibe depósitos estructurados en tres momentos de la vida, los replica en siete nodos con sellado criptográfico, y le pone al depositante un **Síndico de Archivo** entrenado para ayudarlo a extraer el saber operativo (`:315`). Ese archivo guarda memoria. Este Censo guarda ignorancia. Son dos registros distintos y **el Censo no se aloja adentro del Archivo**, por una razón que la Sección 7 desarrolla: publicar y custodiar son funciones con incentivos opuestos.
+
+### 4.1 El depósito
+
+Se deposita una ignorancia, no una queja y no una propuesta. La distinción se sostiene con una sola exigencia de forma: el depósito tiene que poder completar la frase **«no sé por qué…»** o **«no sé si…»**. «El agua está mal» es una queja y se deriva a donde corresponda. «No sé por qué el agua está mal solo de este lado del canal» es una ignorancia y entra.
+
+Cuatro campos, y ninguno pide credencial: qué no sabe, desde cuándo lo observa, qué probó o consultó, y a quién le pasa lo mismo que a usted. El cuarto campo es el que convierte un depósito individual en evidencia de alcance, y es el que ninguna consulta pública pregunta.
+
+El depósito se puede hacer en la plataforma, en cualquier oficina de la red que la Sección 12 describe, o **en papel**, y la vía no cambia el trámite ni el plazo. Quien deposita queda registrado con nombre, salvo que pida reserva de identidad, en cuyo caso el registro guarda un identificador y la reserva se levanta solamente para pagarle la condición de Testigo si la Pregunta llega a abrirse.
+
+**Y hay un filtro de entrada y uno solo, escrito para que no haya otros:** el depósito se rechaza únicamente si no completa la frase. No se rechaza por estar mal formulado, por ser ingenuo, por estar ya contestado —eso se resuelve devolviendo la respuesta, que es mejor— ni por venir de alguien sin formación en el tema. **Un Censo con criterios de calidad en la puerta es un Censo que recibe lo que el sistema ya sabe pensar.**
+
+### 4.2 La devolución obligatoria, que es lo único nuevo
+
+**Toda ignorancia depositada vuelve con respuesta escrita y firmada, dentro de los ciento veinte días.** No hay excepción por volumen, por dificultad ni por presupuesto. Hay exactamente cuatro respuestas posibles y las cuatro son legítimas:
+
+**Uno: ya está contestada, acá está.** Se devuelve la referencia, y —esto es lo que la hace útil— **se devuelve traducida**, en la lengua en la que se preguntó y con la extensión de una carilla. Devolver la cita de un paper a quien preguntó en el renglón de observaciones de una planilla es una manera elegante de no contestar.
+
+**Dos: no está contestada y se abre como Pregunta Nacional.** Se devuelve el número, el dueño de sistema y la fecha de revisión, y el depositante queda inscripto como Testigo.
+
+**Tres: no está contestada y no se abre.** Se devuelve **el motivo**, con firma. Que la ignorancia no alcanzó prioridad, que otra Pregunta ya abierta la cubre, o que no se sabe cómo contestarla con lo que hay. Las tres son respuestas dignas; **«no se abre» sin motivo firmado no lo es.**
+
+**Cuatro: no se sabe si está contestada.** Es la respuesta más incómoda y por eso hay que habilitarla explícitamente: si nadie pudo determinar en ciento veinte días si el conocimiento existe, eso se dice. Y **una acumulación de respuestas del tipo cuatro sobre una misma materia es, por sí sola, evidencia de una Pregunta de Adopción** y se deriva al circuito de 4.4.
+
+La firma no es un formalismo. La respuesta la firma una persona con nombre, no un organismo, por la misma razón por la que el dueño de sistema es una persona: para que exista alguien a quien volver a preguntarle.
+
+### 4.3 El padrón de Testigos
+
+Cada Pregunta abierta lleva un padrón de entre cinco y nueve Testigos que firman el acta de cierre. Quien depositó la ignorancia lo es por derecho. Los demás se sortean con la misma mecánica de la Sección 3, entre quienes están alcanzados por la ignorancia en cuestión.
+
+El Testigo no evalúa la calidad técnica del trabajo: para eso está el jurado. **El Testigo contesta una sola pregunta, y por escrito: si lo que se produjo contesta o no lo que él preguntaba.** Son dos juicios distintos y el sistema actual solo tiene el primero, que es exactamente por qué se puede cerrar una línea de investigación entera con producción impecable sin que nadie se entere de que la pregunta original quedó igual de abierta.
+
+**Qué pasa si un Testigo se niega a firmar.** No bloquea el cierre —un derecho de veto individual sobre un cierre público es una invitación a comprarlo—, pero **la disidencia se publica junto al acta, con el texto que el Testigo quiera escribir y sin edición**, y queda adherida a la Pregunta para siempre. Una Pregunta cerrada con tres disidencias de cinco Testigos está formalmente cerrada y materialmente en discusión, y cualquiera que la consulte diez años después lo va a ver en el mismo renglón. **Eso es todo el poder que tiene un Testigo, y alcanza:** no puede impedir que se cierre, puede impedir que se olvide cómo se cerró.
+
+### 4.4 La Pregunta de Adopción
+
+Hay una Pregunta que no se abre ni se cierra: está abierta desde el primer día y no tiene fecha de vencimiento. Es la número uno y dice, en la formulación que le dio origen: **¿por qué no usamos lo que ya sabemos?**
+
+No es una figura retórica ni una consigna: es una Pregunta con todos sus campos, con dueño de sistema, con presupuesto y con criterio de cierre parcial. Lo que la distingue es que **su objeto son las otras Preguntas y el conocimiento que ya existe afuera de este circuito.** Investiga por qué una intervención probada no llegó a donde tenía que llegar, y esa investigación es tan legítima y tan cara como averiguar algo nuevo.
+
+Se alimenta de cuatro fuentes que ya están en el sistema: las respuestas del tipo uno, que dicen que el conocimiento existía y no había llegado; las del tipo cuatro, que dicen que ni siquiera se pudo averiguar si existía; las Pruebas de Barro fallidas de la Sección 6, que son el registro más honesto que este PLAN va a tener de conocimiento que funciona en el laboratorio y no en la mano de nadie; y los depósitos que preguntan por algo ya contestado, que dejan de ser ruido para convertirse en la medición del problema.
+
+**El cierre parcial es anual y es público:** un informe que dice qué se sabía y no se usaba, dónde, y qué se hizo al respecto. **Y va con una declaración incómoda:** este documento no tiene la magnitud del problema de adopción argentino, la falla 0.6 declaró que no la tiene, y el primer informe de esta Pregunta va a ser, casi con seguridad, la primera medición que exista. **Un dispositivo cuyo primer producto es descubrir el tamaño de su propio problema es un dispositivo honesto, y también es uno que no puede prometer resultados en su primer ciclo.**
+
+### 4.5 El modo degradado, que es de papel y no es una concesión
+
+El Censo corre sobre plataforma y la plataforma es de otro PLAN. `PLANDIG:2142` define el **estadio A** —identidad-lite, datos abiertos, registros de auditoría, mensajería segura, tableros, interoperabilidad, funcionamiento sin conexión— como lo que entrega en tranche-1, y `PLANDIG:2111` difiere el **estadio B** a tranche-3 o más, condicional, con seis condiciones de activación. **El Censo se diseña entero contra el estadio A**, y ninguno de sus cinco componentes necesita nada del B.
+
+Y aun así hay que escribir el escalón de abajo, porque la Fase 0 de este PLAN empieza en 2029 y el estadio A tiene su propio calendario. **El Censo funciona en papel.** Formulario de cuatro campos, recepción en cualquier oficina de la red, número de expediente correlativo asignado a mano, y devolución por escrito en el mismo plazo de ciento veinte días. Lo que se pierde sin plataforma es la búsqueda —o sea, la capacidad de contestar rápido las del tipo uno— y eso alarga las devoluciones, no las suspende.
+
+**La regla general de frontera con `PLANDIG`, para no repetirla en cada sección: la línea se traza por criterio de dato y no por adjetivo.** Un dato personal identificable de quien deposita es de la capa ciudadana de PLANDIG y este PLAN no lo custodia: lo consulta con autorización. El texto de la ignorancia y su respuesta son públicos por diseño y son de este PLAN. Todo lo que no entre limpio en una de las dos categorías se resuelve a favor de PLANDIG, que es el dueño del sustrato. **Decir «PLANPREGUNTA maneja datos científicos y PLANDIG datos administrativos» sería una frontera por adjetivo, y las fronteras por adjetivo se corren solas.**
+
+## SECCIÓN 5: LAS NUEVE VERTICALES
+
+> *"Repartir la ignorancia en materias no es un organigrama: es la decisión de qué cosas van a tener quien responda por ellas y cuáles no."*
+
+### 5.1 El reparto, y quién ya está ahí
+
+Toda Pregunta pertenece a una vertical y a una sola. La vertical tiene dueño de sistema permanente —distinto del dueño de cada Pregunta— y es la unidad sobre la que se reparte el presupuesto de la Sección 13.
+
+Son nueve. Siete recortan el mundo físico que la dirección del fundador nombra; una recorta al país como objeto de estudio; y la novena no recorta nada del mundo sino al propio proyecto. **La columna que importa de esta tabla es la última, y es la que este documento no puede omitir sin empezar mintiendo:** casi ninguna de estas materias está vacía. En casi todas hay ya un PLAN del proyecto con mandato, presupuesto y agencia, y la vertical no lo desplaza — le escribe las preguntas que ese PLAN no tiene por qué estar formulando.
+
+| Vertical | Ignorancia madre | Dueño de sistema | Quién la ocupa hoy |
+|---|---|---|---|
+| 1. Tierra | Qué le pasa al suelo argentino bajo cada manejo, y en cuánto tiempo se revierte | Dueño de vertical Tierra | `PLANISV` (suelo vivo, agroecología) y `PLANTER` (subsuelo, bosque nativo, sindicatura) |
+| 2. Agua | Qué hay en el agua argentina, dónde, y por qué ahí | Dueño de vertical Agua | `PLANAGUA` entero, con la ANAGUA y el Censo del Agua |
+| 3. Aire | Qué se respira en cada lugar del país | Dueño de vertical Aire | **Nadie.** Aparece de paso en tres documentos y en ninguno como materia con dueño |
+| 4. Flora | Qué tiene la Argentina que no sabe que tiene, y qué está perdiendo | Dueño de vertical Flora | Repartida: `PLANISV` (germoplasma), `PLANTER` (bosque), `PLANAGUA` (humedales) |
+| 5. Fauna | Qué poblaciones hay, cómo se mueven y qué las está sacando | Dueño de vertical Fauna | Repartida y sin dueño único, igual que Flora |
+| 6. Cuerpo | Por qué se enferma quien se enferma, dónde y de qué | Dueño de vertical Cuerpo | `PLANSAL`, con su red de atención y su vigilancia |
+| 7. Energía y materia | Cómo se produce, se guarda y se transforma acá lo que hoy se compra hecho | Dueño de vertical Energía y materia | `PLANEN` con el LANEF, que tiene la materia y su propio financiamiento blindado |
+| 8. República | Por qué las instituciones argentinas hacen lo que hacen | Dueño de vertical República | `PLANMEMORIA` archiva lo que pasó y `PLANMESA` la forma de decidir; **estudiarlas no es de nadie** |
+| 9. Evaluación de mandatos | Si los PLANes de ¡BASTA! producen lo que dicen que producen | Dueño de vertical Evaluación | Cada PLAN sobre sí mismo, y **solo si lo pide** (5.4) |
+
+Tres de las nueve tienen hueco declarado y conviene leerlas juntas, porque son las que justifican que las verticales existan: **Aire no tiene dueño en ningún PLAN**; **Flora y Fauna están repartidas entre tres documentos que las tocan por el costado de su propia materia**; y **República tiene quien archive y quien decida, y nadie que estudie**. En las otras seis, la vertical es un interlocutor y no un sustituto.
+
+**Y hay que decir qué pasa con lo que no entra en ninguna de las nueve, porque es mucho y es importante.** Una pregunta de matemática, de física fundamental, de historia antigua o de teoría del lenguaje no tiene vertical acá, y no la tiene por diseño: las nueve están recortadas por *efecto sobre un componente del sistema*, que es la dirección que ordena este PLAN, y hay conocimiento enorme y legítimo que no se recorta así. **Este documento no lo cubre y no pretende que sea menos valioso por eso.** Lo que hace es reservarle el único lugar donde puede entrar sin que la dirección se rompa: el **Seguro contra lo Imprevisto** de la Sección 9, que reparte el diez por ciento del presupuesto sin objetivo y sin vertical. Es poco y se declara como poco. **Un aparato que dijera cubrirlo todo con nueve verticales estaría mintiendo sobre el recorte que eligió; uno que no dijera nada estaría dando a entender que lo que no entra no existe.**
+
+Queda una regla operativa que ahorra la discusión más frecuente. Cuando una Pregunta parece caer en dos verticales, **no se comparte: se parte o se asigna a la vertical del daño, no a la del método.** Una ignorancia sobre un plaguicida que llega al agua y enferma gente es de Agua si lo que no se sabe es cómo llega, y es de Cuerpo si lo que no se sabe es qué produce; y si no se sabe ninguna de las dos cosas, son dos Preguntas con dos dueños y dos actas. **Una Pregunta con dos dueños es una Pregunta sin dueño**, que es la misma falla que el acta del freeze le encontró a los huecos repartidos entre varios huéspedes.
+
+### 5.2 Las siete naturales, y por qué esas siete
+
+No son un recorte científico sino una lista de sistemas que se pueden dañar y que se pueden medir, y en ese sentido siguen literalmente la dirección que ordena el PLAN: cada línea atada a un efecto sobre un componente del sistema.
+
+**Tierra, Agua y Aire** son los tres medios. Se los separa porque el daño viaja distinto en cada uno y porque los instrumentos para medirlos no se parecen. Aire está en la lista aunque no tenga ningún PLAN dueño, y precisamente por eso: una vertical sin ocupante es más urgente, no menos.
+
+**Flora y Fauna** van separadas por una razón práctica, no taxonómica: lo que se pregunta sobre una planta —qué variedades hay, qué resisten, qué se está perdiendo— y lo que se pregunta sobre un animal —dónde está, cuántos son, cómo se mueve— exigen métodos distintos, plazos distintos y padrones de Testigos distintos. Juntarlas bajo «biodiversidad» produce una vertical que suena completa y no puede formular nada concreto.
+
+**Cuerpo** es la salud humana mirada desde la pregunta y no desde la prestación. La distinción con `PLANSAL` es limpia: PLANSAL atiende, esta vertical averigua. Cuando las dos coinciden sobre lo mismo, manda PLANSAL, según la regla de frontera de 3.6.
+
+**Energía y materia** es la más ocupada de las siete, y su vertical es la más chica del PLAN por eso mismo. El LANEF tiene la materia, la red y el financiamiento. Lo que la vertical agrega es el enunciado público de lo que ese laboratorio **no** está averiguando, que es la clase de pregunta que ningún laboratorio se hace sobre sí mismo.
+
+### 5.3 República, o el país como objeto de estudio
+
+La octava vertical estudia la Argentina: sus instituciones, su conflicto, su lengua, su memoria, sus vínculos y sus creencias. No es sociología aplicada a la gestión ni es evaluación de políticas: es la pregunta de por qué este país hace lo que hace, formulada con la misma disciplina con la que se pregunta por qué se degrada un suelo.
+
+**El corpus tiene el hueco abierto y es fácil de ver.** `PLANMEMORIA` archiva lo que se intentó, con siete nodos y hash. `PLANMESA` protocoliza cómo se decide. `PLANCUL` sostiene la cultura viva. Ninguno de los tres **estudia**: archivar no es explicar, decidir bien no es entender por qué se decidía mal, y sostener una cultura no es preguntarse cómo funciona. La falla 0.6 mostró la consecuencia con la cifra de `PLANMEMORIA:90` —más del 40% de las políticas estructurales revertidas por el gobierno siguiente—, y esa cifra es una descripción sin explicación. **Nadie tiene a cargo averiguar por qué pasa.**
+
+Para que no quede en abstracto, así se ve una Pregunta de esta vertical. *No sé por qué las reversiones de política pública argentina se concentran en unas materias y no en otras.* *No sé si el costo de revertir lo paga el gobierno que revierte o el siguiente.* *No sé qué tienen en común las poquísimas políticas que sobrevivieron a tres gobiernos.* Las tres tienen la forma que 3.1 exige, las tres son contestables con métodos existentes, y **ninguna de las tres es de nadie hoy**: no son la función del archivo, no son la función de la Mesa, y no son la función de ningún ministerio, porque contestarlas produce evidencia que puede incomodar a quien las financia. Es el caso puro de una ignorancia que persiste por falta de dueño y no por falta de método.
+
+Y hay una advertencia de lengua que vale para toda la vertical: **estudiar la creencia, el vínculo y la lengua de un país no es lo mismo que administrarlos, y este PLAN solo puede hacer lo primero.** La frontera con `PLANCUL` es la misma que la de 3.6 y se resuelve igual: PLANCUL sostiene la cultura viva y esta vertical pregunta cómo funciona, y donde las dos coincidan sobre lo mismo, manda PLANCUL. Un aparato de conocimiento que empieza a tener opinión sobre lo que un pueblo debería creer dejó de ser un aparato de conocimiento dos pasos antes de darse cuenta.
+
+Es también la vertical más peligrosa del PLAN y hay que decirlo acá y no en la sección de riesgos: un aparato estatal que financia el estudio de las instituciones argentinas puede convertirse, sin que nadie lo decida, en el que financia el estudio que le conviene al gobierno de turno. Las dos salvaguardas de la Sección 3 —incompatibilidad de autoría y jurados habilitados afuera— valen para todas las verticales y **en ésta son la condición de existencia**. Si alguna vez hay que suspender una vertical entera por captura demostrada, ésta es la candidata, y la Sección 21 escribe el procedimiento.
+
+### 5.4 Evaluación de mandatos, que es invitación y no facultad
+
+La novena vertical pregunta si los PLANes de ¡BASTA! producen lo que dicen que producen. Es, de las nueve, la que más falta hace y la única que este documento **no se autoriza a ejercer por su cuenta.**
+
+**La regla: un PLAN puede pedir que una Pregunta evalúe su propio mandato. La ANCON no puede abrirla sin ese pedido.** El pedido es del PLAN, se hace por escrito, y una vez hecho es irrevocable — se puede no pedir, no se puede pedir y después arrepentirse cuando el resultado se ve venir.
+
+El motivo de la renuncia es de simetría y no de modestia. La Sección 3 acaba de prohibirle a quien escribe una Pregunta dirigir el equipo que la contesta, porque un aparato que se elige sus propias preguntas termina contestando lo que ya sabía. **Un PLAN que se autoasigna la facultad de auditar a los otros veinticinco comete exactamente ese error a escala del proyecto entero**, y lo comete además sin que ninguno de los veinticinco haya presupuestado ser evaluado. Esta vertical se estrenaría, si fuera facultad, promoviendo unilateralmente una obligación sobre documentos ajenos.
+
+**Y las dos consecuencias van escritas, porque son malas:**
+
+**La primera:** la vertical más importante del PLAN es la única que no puede iniciar. Es probable que durante años reciba pocos pedidos o ninguno, y que los que reciba vengan de los PLANes que menos los necesitan, que son los que están seguros del resultado. Este documento no tiene ninguna manera de forzar lo contrario y no finge tenerla.
+
+**La segunda:** un PLAN que se niegue a ser evaluado **no tiene ninguna sanción**. Ni presupuestaria, ni reputacional, ni de tranche. Lo único que existe es el registro: **el estado de cada uno de los veintiséis PLANes respecto de esta vertical —pedido, no pedido, en curso, cerrado— se publica en el tablero de la Sección 17 y se actualiza solo.** No obliga a nadie. Deja ver quién pidió y quién no, que es lo máximo que un PLAN puede hacer sin arrogarse una facultad que nadie le dio.
+
+Es la renuncia más cara del documento. Se hace igual, y por la misma razón por la que este PLAN no reclama piso: **la única autoridad que un aparato de conocimiento tiene sobre los demás es la de haber contestado bien, y esa no se legisla.**
