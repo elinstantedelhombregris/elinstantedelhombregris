@@ -61,5 +61,19 @@ jobs:
       - name: Guardia de PLANPREGUNTA
         run: npx tsx scripts/verificar-planpregunta.ts
 
+      # Lee cuatro archivos y los cuatro ya disparan este workflow: el documento y
+      # PLANCUL_Argentina_ES.md (`Iniciativas Estratégicas/**`) y el canon de pisos
+      # (`SocialJusticeHub/**`). Sin hueco de paths.
+      - name: Guardia de PLANFOCO
+        run: npx tsx scripts/verificar-planfoco.ts
+
+      # Barre el corpus entero: resuelve toda cita ARCHIVO:línea contra su archivo.
+      # Existe por la primera lección del tramo D — editar un documento ajeno corre
+      # sus líneas y rompe remisiones ajenas, y eso se encontró por casualidad.
+      # Lee `Iniciativas Estratégicas/**` y `SocialJusticeHub/scripts/**`: los dos
+      # disparan este workflow.
+      - name: Guardia de remisiones del corpus
+        run: npx tsx scripts/verificar-remisiones.ts
+
       - name: Production build
         run: npm run build

@@ -247,11 +247,11 @@ SocialJusticeHub/scripts/
 
 ## Presupuesto de palabras
 
-Objetivo total: **26.000–28.500 palabras**. Calibrado contra el corpus: PLANCUL 11.136, PLANMESA 15.871, PLANPACTO 26.541, PLANPREGUNTA 29.242, PLANARCO 34.440, PLANDIG 39.862. PLANFOCO es el más chico de los cuatro nuevos en plata y le corresponde el extremo bajo de la banda de los nuevos, no el de PLANCUL: su lista de dispositivos es larga aunque su presupuesto sea corto.
+Objetivo total: ~~26.000–28.500~~ **25.000–26.500 palabras** (corregido — ver la nota de abajo). Calibrado contra el corpus: PLANCUL 11.136, PLANMESA 15.871, PLANPACTO 26.541, PLANPREGUNTA 29.242, PLANARCO 34.440, PLANDIG 39.862. PLANFOCO es el más chico de los cuatro nuevos en plata y le corresponde el extremo bajo de la banda de los nuevos, no el de PLANCUL: su lista de dispositivos es larga aunque su presupuesto sea corto.
 
 | Sección | Palabras |
 |---|---|
-| Cabecera + portada | 700–780 |
+| Cabecera + portada | ~~700–780~~ **700–820** |
 | PREÁMBULO | 1.500–1.900 |
 | TESIS CENTRAL | 550–700 |
 | SECCIÓN 0 — las siete fallas | ~~2.000–2.500~~ **1.900–2.300** |
@@ -262,20 +262,20 @@ Objetivo total: **26.000–28.500 palabras**. Calibrado contra el corpus: PLANCU
 | SECCIÓN 5 — La Antena | 1.000–1.300 |
 | SECCIÓN 6 — La Cartelera | 800–1.050 |
 | SECCIÓN 7 — El Acervo Abierto y La Sala Común | 1.500–1.900 |
-| SECCIÓN 8 — La Procedencia | 1.000–1.300 |
+| SECCIÓN 8 — La Procedencia | ~~1.000–1.300~~ **900–1.150** |
 | SECCIÓN 9 — La Mirada y el Desmontaje | 1.500–1.900 |
 | SECCIÓN 10 — quién compra y quién atiende | 1.300–1.650 |
-| SECCIÓN 11 — lo que este PLAN tiene prohibido | 900–1.150 |
-| SECCIÓN 12 — ANBAC | 1.000–1.300 |
-| INTEGRACIÓN | 900–1.150 |
-| SECCIÓN 13 — modelo económico | 2.200–2.700 |
-| SECCIÓN 14 — riesgos | 700–900 |
-| SECCIÓN 15 — mapa de perdedores | 650–850 |
-| SECCIÓN 16 — hoja de ruta | 600–800 |
-| SECCIÓN 17 — tablero | 500–700 |
-| SECCIÓN 19 — federal | 500–700 |
-| SECCIÓN 20 — visión 2040 | 550–750 |
-| SECCIÓN 21 — protocolo de falla | 500–700 |
+| SECCIÓN 11 — lo que este PLAN tiene prohibido | ~~900–1.150~~ **820–1.050** |
+| SECCIÓN 12 — ANBAC | ~~1.000–1.300~~ **880–1.100** |
+| INTEGRACIÓN | ~~900–1.150~~ **690–880** |
+| SECCIÓN 13 — modelo económico | ~~2.200–2.700~~ **1.980–2.400** |
+| SECCIÓN 14 — riesgos | ~~700–900~~ **520–700** |
+| SECCIÓN 15 — mapa de perdedores | ~~650–850~~ **450–620** |
+| SECCIÓN 16 — hoja de ruta | ~~600–800~~ **310–450** |
+| SECCIÓN 17 — tablero | ~~500–700~~ **350–500** |
+| SECCIÓN 19 — federal | ~~500–700~~ **380–520** |
+| SECCIÓN 20 — visión 2040 | ~~550–750~~ **330–470** |
+| SECCIÓN 21 — protocolo de falla | ~~500–700~~ **430–580** |
 | CIERRE | 400–600 |
 
 
@@ -286,6 +286,22 @@ Objetivo total: **26.000–28.500 palabras**. Calibrado contra el corpus: PLANCU
 > 1.954 palabras**, y ésta quedó en 1.929 con siete fallas contra las ocho de PLANPREGUNTA. Los tres
 > rangos se bajan a lo medido en vez de rellenar tres secciones para alcanzar un número que nadie había
 > derivado de nada.
+
+
+> **Segunda corrección del presupuesto de palabras, con la medición escrita (2026-08-01, Task 13).**
+> Trece rangos más se bajan a lo medido, y esta vez la causa se identifica en vez de irse parcheando
+> sección por sección: **el presupuesto se calibró por analogía con PLANPREGUNTA (29.242 palabras) sin
+> descontar dos cosas.** Una, que PLANFOCO administra un tercio de su plata y tiene una lista de
+> dispositivos más corta por sección. Dos, y es la que explica el grueso del desvío, que **las
+> secciones 14 a 21 de este documento son dominadas por tablas, y `wc -w` cuenta una tabla por lo que
+> ocupa y no por lo que dice**: la SECCIÓN 14 son diez riesgos con mitigación escrita en 535 palabras y
+> la 17 son once indicadores en 364. Medidas contra el modelo correcto —las secciones finales de
+> PLANPREGUNTA, que van de catorce a veinte líneas cada una— están en escala.
+>
+> El documento cerró en **25.631 palabras**, contra 26.541 de PLANPACTO, 29.242 de PLANPREGUNTA y
+> 34.440 de PLANARCO. Es el más corto de los cuatro nuevos y también el de menor presupuesto
+> administrado, y esa proporción es la que se buscaba. **Ninguna sección se rellenó para alcanzar un
+> número que nadie había derivado de nada.**
 
 **Si una sección queda corta, se agrega contenido verificado o se corrige el rango con la medición escrita. Nunca se rellena.**
 
@@ -313,106 +329,154 @@ Objetivo total: **26.000–28.500 palabras**. Calibrado contra el corpus: PLANCU
 
 ### Task 2 — PREÁMBULO y TESIS CENTRAL
 
-- [ ] La cara: **Marisol Quiroga**, 34, cajera del turno noche de una estación de servicio en Chajarí, Entre Ríos. Vuelve a las siete de la mañana, duerme hasta las dos de la tarde, y tiene ocho horas despierta en un pueblo donde lo único abierto es el teléfono.
-- [ ] Tres hilos de anillo: **el cartel de horarios** de la biblioteca popular, escrito a mano, con un horario fijado para un pueblo que trabajaba de mañana; **algo que quiso aprender y no aprendió**, concreto y barato; y **el informe que le llega todos los meses** con sus horas de pantalla — que es el `Informe Mensual de Extracción Atencional` de `PLANDIG:886`, un dispositivo que el corpus ya tiene y que hoy le dice el número sin ofrecerle a dónde ir.
-- [ ] Las cinco horas del título se anclan en `PLANCUL:304` (5,2 no laborales por día contra 3,8 global) la primera vez que aparecen. El título acusa; la cifra sostiene la acusación.
-- [ ] Nombrar una vez, con domicilio, a la bibliotecaria que el corpus ya tenía (`PLANMOV:119`) — **F-6**.
-- [ ] TESIS CENTRAL: el Estado no regula, no licencia, no censura y no le toca un pelo a ningún medio; se aplica una sola disciplina a sí mismo, sobre su propia billetera. Un destino, un canal y un espejo.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] La cara: **Marisol Quiroga**, 34, cajera del turno noche de una estación de servicio en Chajarí, Entre Ríos. Vuelve a las siete de la mañana, duerme hasta las dos de la tarde, y tiene ocho horas despierta en un pueblo donde lo único abierto es el teléfono.
+- [x] Tres hilos de anillo: **el cartel de horarios** de la biblioteca popular, escrito a mano, con un horario fijado para un pueblo que trabajaba de mañana; **algo que quiso aprender y no aprendió**, concreto y barato; y **el informe que le llega todos los meses** con sus horas de pantalla — que es el `Informe Mensual de Extracción Atencional` de `PLANDIG:886`, un dispositivo que el corpus ya tiene y que hoy le dice el número sin ofrecerle a dónde ir.
+- [x] Las cinco horas del título se anclan en `PLANCUL:304` (5,2 no laborales por día contra 3,8 global) la primera vez que aparecen. El título acusa; la cifra sostiene la acusación.
+- [x] Nombrar una vez, con domicilio, a la bibliotecaria que el corpus ya tenía (`PLANMOV:119`) — **F-6**.
+- [x] TESIS CENTRAL: el Estado no regula, no licencia, no censura y no le toca un pelo a ningún medio; se aplica una sola disciplina a sí mismo, sobre su propia billetera. Un destino, un canal y un espejo.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 3 — SECCIÓN 0, SECCIÓN 1 y SECCIÓN 2
 
-- [ ] **SECCIÓN 0 — las siete fallas de la palabra pública argentina.** Forma de `PLANPACTO §0`: falla, evidencia con domicilio, consecuencia. Las que el corpus sostiene: la pauta como correa (`PRESUPUESTO:419`, `PLANMESA:788`); las cinco horas (`PLANCUL:304`); el derecho al Commons consagrado y no presupuestado (`PLANDIG:788` contra TABLA 20); la materia que se da por dictada y no existe (`PLANDIG:803` contra PLANEDU); la concentración que PLANCUL declara *«deseable, no esencial»* (`PLANCUL:387`). Las que son aserción propia se declaran: el acervo audiovisual sin custodio y la planta ociosa de los medios públicos (**F-6**).
-- [ ] **SECCIÓN 1 — la crisis.** No es una crisis de información: es de dónde aterriza la mirada. Ningún dispositivo del corpus le ofrece a Marisol un lugar abierto a las tres de la tarde.
-- [ ] **SECCIÓN 2 — precedentes.** Los verificables adentro del corpus primero (bibliotecas populares como exportación argentina, `PLAN24CN:2810`, `PLANCUL:259`); los externos con la advertencia de que son aserción propia.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] **SECCIÓN 0 — las siete fallas de la palabra pública argentina.** Forma de `PLANPACTO §0`: falla, evidencia con domicilio, consecuencia. Las que el corpus sostiene: la pauta como correa (`PRESUPUESTO:419`, `PLANMESA:788`); las cinco horas (`PLANCUL:304`); el derecho al Commons consagrado y no presupuestado (`PLANDIG:788` contra TABLA 20); la materia que se da por dictada y no existe (`PLANDIG:803` contra PLANEDU); la concentración que PLANCUL declara *«deseable, no esencial»* (`PLANCUL:387`). Las que son aserción propia se declaran: el acervo audiovisual sin custodio y la planta ociosa de los medios públicos (**F-6**).
+- [x] **SECCIÓN 1 — la crisis.** No es una crisis de información: es de dónde aterriza la mirada. Ningún dispositivo del corpus le ofrece a Marisol un lugar abierto a las tres de la tarde.
+- [x] **SECCIÓN 2 — precedentes.** Los verificables adentro del corpus primero (bibliotecas populares como exportación argentina, `PLAN24CN:2810`, `PLANCUL:259`); los externos con la advertencia de que son aserción propia.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 4 — SECCIÓN 3: La Pauta Ciega
 
-- [ ] Extender la guardia: la **tabla de extinción** tiene que parsear, tener seis filas y que la columna «liberado» sea el complemento exacto de la remanente contra 450.
-- [ ] Escribir el mecanismo: primero ciega (el Estado pierde la capacidad de elegir a qué medio le da un peso), después extinta. Y el argumento de por qué no hay fórmula buena: **pagar por alcance verificado es subsidiar al incumbente**, con `PLANCUL:387` como el ejemplo que el propio corpus produjo.
-- [ ] **Derogar la Acción 3 de PLANCUL por nombre**, acá y en el otro documento (Task 12), con el argumento de que derogar no le da agencia ni presupuesto ni piso — el arreglo 12 queda entero (`PLANCUL:389`).
-- [ ] **Arreglo 5:** el umbral de quién cuenta como medio va **en la ley**, no en resolución de ANBAC. Escribir por qué: en la resolución estaba escondida la facultad de licenciar, que es la única cosa que este PLAN tiene prohibida.
-- [ ] Escribir qué pasa con la comunicación de interés público que hoy va por pauta (salud, censo, elecciones): no desaparece, cambia de cañería — sale por La Antena y La Cartelera, que son del Estado y no le compran espacio a nadie.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] Extender la guardia: la **tabla de extinción** tiene que parsear, tener seis filas y que la columna «liberado» sea el complemento exacto de la remanente contra 450.
+- [x] Escribir el mecanismo: primero ciega (el Estado pierde la capacidad de elegir a qué medio le da un peso), después extinta. Y el argumento de por qué no hay fórmula buena: **pagar por alcance verificado es subsidiar al incumbente**, con `PLANCUL:387` como el ejemplo que el propio corpus produjo.
+- [x] **Derogar la Acción 3 de PLANCUL por nombre**, acá y en el otro documento (Task 12), con el argumento de que derogar no le da agencia ni presupuesto ni piso — el arreglo 12 queda entero (`PLANCUL:389`).
+- [x] **Arreglo 5:** el umbral de quién cuenta como medio va **en la ley**, no en resolución de ANBAC. Escribir por qué: en la resolución estaba escondida la facultad de licenciar, que es la única cosa que este PLAN tiene prohibida.
+- [x] Escribir qué pasa con la comunicación de interés público que hoy va por pauta (salud, censo, elecciones): no desaparece, cambia de cañería — sale por La Antena y La Cartelera, que son del Estado y no le compran espacio a nadie.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 5 — SECCIÓN 4: La Biblioteca Viva
 
-- [ ] Extender la guardia: prohibido `3.000` como meta de obra propia salvo con `PLANDIG:788`/`:799` en la oración.
-- [ ] Escribir la frontera de **F-3** con la tabla de las dos cifras y la aritmética que cierra el derecho: 1.500 propias + 2.000+ populares (`PLANCUL:259`) > 3.000 (`PLANDIG:788`).
-- [ ] Escribir la escala del favor (**F-4**): entre el 43% y el 64% del presupuesto anual de PLANDIG, contra la TABLA 20 que no tiene la fila.
-- [ ] **Arreglo 6:** contratación de bibliotecarios por **concurso ciego más sorteo**, con la mecánica de `PLANMESA:297`. Decir sin eufemismo qué era antes: la superficie clientelar más grande del corpus. La misma disciplina de la Pauta Ciega, aplicada adentro.
-- [ ] **Arreglo 7:** las compras las deciden las **Mesas de Materia locales** — Capa 1 de `PLANMESA:466`, escala barrial o municipal. Una agencia nacional eligiendo qué se lee en 1.200 barrios es el ministerio de la verdad que este PLAN existe para no ser. Declarar el modo degradado: PLANMESA entra 2028-2030 (`PLANMESA:925-956`), así que las primeras sedes abren antes de que exista la Mesa que compra, y hay que decir con qué órgano se compra mientras tanto y con qué fecha de traspaso.
-- [ ] El horario es el dispositivo, no el edificio: el cartel de Marisol se cierra acá.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] Extender la guardia: prohibido `3.000` como meta de obra propia salvo con `PLANDIG:788`/`:799` en la oración.
+- [x] Escribir la frontera de **F-3** con la tabla de las dos cifras y la aritmética que cierra el derecho: 1.500 propias + 2.000+ populares (`PLANCUL:259`) > 3.000 (`PLANDIG:788`).
+- [x] Escribir la escala del favor (**F-4**): entre el 43% y el 64% del presupuesto anual de PLANDIG, contra la TABLA 20 que no tiene la fila.
+- [x] **Arreglo 6:** contratación de bibliotecarios por **concurso ciego más sorteo**, con la mecánica de `PLANMESA:297`. Decir sin eufemismo qué era antes: la superficie clientelar más grande del corpus. La misma disciplina de la Pauta Ciega, aplicada adentro.
+- [x] **Arreglo 7:** las compras las deciden las **Mesas de Materia locales** — Capa 1 de `PLANMESA:466`, escala barrial o municipal. Una agencia nacional eligiendo qué se lee en 1.200 barrios es el ministerio de la verdad que este PLAN existe para no ser. Declarar el modo degradado: PLANMESA entra 2028-2030 (`PLANMESA:925-956`), así que las primeras sedes abren antes de que exista la Mesa que compra, y hay que decir con qué órgano se compra mientras tanto y con qué fecha de traspaso.
+- [x] El horario es el dispositivo, no el edificio: el cartel de Marisol se cierra acá.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 6 — SECCIÓN 5 (La Antena) y SECCIÓN 6 (La Cartelera)
 
-- [ ] **Arreglo 2:** La Antena vuelve **con su línea presupuestaria de 25–45M/año**, y se dice que se había caído del diseño corregido sin que nadie declarara la baja. Es el dispositivo que implementa literalmente la dirección del fundador: hoy todos pueden ser un canal.
-- [ ] Escribir qué es una dotación de canal: qué se entrega, a quién, con qué cola, qué **no** incluye (ni curaduría, ni auditoría de contenido, ni condición de línea editorial), y qué pasa cuando el que la pide dice cosas que al Estado no le gustan — que es la prueba de fuego del PLAN entero.
-- [ ] **La Cartelera:** territorio y fecha, sin ranking. Desambiguar de la cartelera física de `PLANSAL:1515` la primera vez (**F-6**).
-- [ ] **Arreglo 10:** la Cartelera necesita un fuero, y el fuero se crea **dentro de PLANJUS** — Panel de Legalidad de Publicación, **sin baja previa**. Acá se escribe qué necesita; en la Task 12 se escribe del lado de PLANJUS.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] **Arreglo 2:** La Antena vuelve **con su línea presupuestaria de 25–45M/año**, y se dice que se había caído del diseño corregido sin que nadie declarara la baja. Es el dispositivo que implementa literalmente la dirección del fundador: hoy todos pueden ser un canal.
+- [x] Escribir qué es una dotación de canal: qué se entrega, a quién, con qué cola, qué **no** incluye (ni curaduría, ni auditoría de contenido, ni condición de línea editorial), y qué pasa cuando el que la pide dice cosas que al Estado no le gustan — que es la prueba de fuego del PLAN entero.
+- [x] **La Cartelera:** territorio y fecha, sin ranking. Desambiguar de la cartelera física de `PLANSAL:1515` la primera vez (**F-6**).
+- [x] **Arreglo 10:** la Cartelera necesita un fuero, y el fuero se crea **dentro de PLANJUS** — Panel de Legalidad de Publicación, **sin baja previa**. Acá se escribe qué necesita; en la Task 12 se escribe del lado de PLANJUS.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 7 — SECCIÓN 7 (El Acervo Abierto y La Sala Común) y SECCIÓN 8 (La Procedencia)
 
-- [ ] **Declarar como aserción propia** todo lo que se afirme sobre los medios públicos y los setenta años de audiovisual estatal (**F-6**), con la rama que corresponda. Sin excepciones y sin disimulo.
-- [ ] **Arreglo 8:** el Acervo se parte — **manifiesto y hash en los siete nodos de PLANMEMORIA** (`PLANMEMORIA:90`), bitstream en la nube soberana de PLANDIG. Dos custodios, dos funciones, y se dice por qué: el que guarda el archivo no puede ser el mismo que certifica que no lo tocaron.
-- [ ] **F-10:** el Acervo acepta al **Sello Abierto** de PLANPREGUNTA, que ya se comprometió a publicar adentro (`PLANPREGUNTA:734`). Es dependencia entrante heredada, con protocolo y con costo.
-- [ ] **La Sala Común:** la planta de los medios públicos deja de programar y se presta por sorteo. Escribir qué pasa con la gente que hoy programa.
-- [ ] **Arreglo 4: costear La Procedencia** — 12–20M/año, y decir qué compra esa plata. El Estado no dictamina qué es verdad: garantiza que todo material hecho con plata pública lleve firma y trazabilidad verificable, y publica el estándar para que cualquiera lo adopte. La diferencia entre las dos cosas es la sección entera.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] **Declarar como aserción propia** todo lo que se afirme sobre los medios públicos y los setenta años de audiovisual estatal (**F-6**), con la rama que corresponda. Sin excepciones y sin disimulo.
+- [x] **Arreglo 8:** el Acervo se parte — **manifiesto y hash en los siete nodos de PLANMEMORIA** (`PLANMEMORIA:90`), bitstream en la nube soberana de PLANDIG. Dos custodios, dos funciones, y se dice por qué: el que guarda el archivo no puede ser el mismo que certifica que no lo tocaron.
+- [x] **F-10:** el Acervo acepta al **Sello Abierto** de PLANPREGUNTA, que ya se comprometió a publicar adentro (`PLANPREGUNTA:734`). Es dependencia entrante heredada, con protocolo y con costo.
+- [x] **La Sala Común:** la planta de los medios públicos deja de programar y se presta por sorteo. Escribir qué pasa con la gente que hoy programa.
+- [x] **Arreglo 4: costear La Procedencia** — 12–20M/año, y decir qué compra esa plata. El Estado no dictamina qué es verdad: garantiza que todo material hecho con plata pública lleve firma y trazabilidad verificable, y publica el estándar para que cualquiera lo adopte. La diferencia entre las dos cosas es la sección entera.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 8 — SECCIÓN 9 (La Mirada y el Desmontaje) y SECCIÓN 10 (quién compra y quién atiende)
 
-- [ ] El Desmontaje es el nervio del PLAN: leer una pieza y ver cómo está hecha. Escribir la mitad de PLANFOCO del par recíproco, cerrando lo que `PLANPREGUNTA:734` dejó abierto.
-- [ ] **Arreglo 11:** **PLANEDU dicta el Desmontaje**, y se escribe que esto repara `PLANDIG:803`, que afirmaba que PLANEDU ya lo hacía cuando la palabra «algorítmica» no aparece ni una vez en PLANEDU (**F-5**). La reparación del lado de PLANEDU es Task 12.
-- [ ] **Arreglo 9:** la **Beca del Desierto** se territorializa como mediador-cronista de la Biblioteca local, no como dispositivo nacional. Declarar que el nombre no tiene ni una ocurrencia en el corpus (**F-6**).
-- [ ] SECCIÓN 10 junta las tres decisiones de personas: quién compra (Mesas de Materia), quién atiende (concurso ciego + sorteo), quién cuenta el territorio (Beca del Desierto). Y el costo por sede contra `PLANTALLER:655` — USD 160–250k por Taller/año contra USD 127–229k por sede/año, mismo orden de magnitud, y eso es lo que hace creíble la cuenta.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] El Desmontaje es el nervio del PLAN: leer una pieza y ver cómo está hecha. Escribir la mitad de PLANFOCO del par recíproco, cerrando lo que `PLANPREGUNTA:734` dejó abierto.
+- [x] **Arreglo 11:** **PLANEDU dicta el Desmontaje**, y se escribe que esto repara `PLANDIG:803`, que afirmaba que PLANEDU ya lo hacía cuando la palabra «algorítmica» no aparece ni una vez en PLANEDU (**F-5**). La reparación del lado de PLANEDU es Task 12.
+- [x] **Arreglo 9:** la **Beca del Desierto** se territorializa como mediador-cronista de la Biblioteca local, no como dispositivo nacional. Declarar que el nombre no tiene ni una ocurrencia en el corpus (**F-6**).
+- [x] SECCIÓN 10 junta las tres decisiones de personas: quién compra (Mesas de Materia), quién atiende (concurso ciego + sorteo), quién cuenta el territorio (Beca del Desierto). Y el costo por sede contra `PLANTALLER:655` — USD 160–250k por Taller/año contra USD 127–229k por sede/año, mismo orden de magnitud, y eso es lo que hace creíble la cuenta.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 9 — SECCIÓN 11, SECCIÓN 12 (ANBAC) e INTEGRACIÓN
 
-- [ ] **SECCIÓN 11 — lo que este PLAN tiene prohibido.** La restricción absoluta, escrita como lista de cosas que ANBAC **no puede** hacer, con el mecanismo institucional que lo impide en cada caso. Es la sección que la guardia usa para verificar la Global Constraint 4.
-- [ ] **SECCIÓN 12 — ANBAC**, Agencia Nacional de la Biblioteca y el Acervo Común. Patrón AN+sufijo, como 15 de las 22 agencias del corpus. Sin facultad de licenciar, sin potestad sobre contenido, con el umbral de «qué cuenta como medio» fuera de su alcance porque está en la ley (arreglo 5).
-- [ ] **INTEGRACIÓN:** el par recíproco FOCO ↔ PREGUNTA queda **completo** y se dice con todas las letras que ésta era la deuda que `PLANPREGUNTA:732` dejó anotada. Además PLANDIG (Commons, nube, `§9.6` — el Presupuesto de Vida es instrumento de medición de PLANDIG, no dispositivo propio), PLANMEMORIA (hash), PLANMESA (compras), PLANEDU (Desmontaje), PLANJUS (Panel), PLANCUL (parasitismo intacto, Acción 3 derogada).
-- [ ] Verificar rangos y guardia. Commit.
+- [x] **SECCIÓN 11 — lo que este PLAN tiene prohibido.** La restricción absoluta, escrita como lista de cosas que ANBAC **no puede** hacer, con el mecanismo institucional que lo impide en cada caso. Es la sección que la guardia usa para verificar la Global Constraint 4.
+- [x] **SECCIÓN 12 — ANBAC**, Agencia Nacional de la Biblioteca y el Acervo Común. Patrón AN+sufijo, como 15 de las 22 agencias del corpus. Sin facultad de licenciar, sin potestad sobre contenido, con el umbral de «qué cuenta como medio» fuera de su alcance porque está en la ley (arreglo 5).
+- [x] **INTEGRACIÓN:** el par recíproco FOCO ↔ PREGUNTA queda **completo** y se dice con todas las letras que ésta era la deuda que `PLANPREGUNTA:732` dejó anotada. Además PLANDIG (Commons, nube, `§9.6` — el Presupuesto de Vida es instrumento de medición de PLANDIG, no dispositivo propio), PLANMEMORIA (hash), PLANMESA (compras), PLANEDU (Desmontaje), PLANJUS (Panel), PLANCUL (parasitismo intacto, Acción 3 derogada).
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 10 — SECCIÓN 13: modelo económico y fiscal
 
-- [ ] Extender la guardia con **tres tablas**: la extinción (ya en Task 4), la **rampa de quince años** —que se recomputa subtotal = anual × años, porque una tabla que declara subtotales a mano cierra siempre— y el **reparto interno del régimen**, que tiene que sumar 300 y 450 **exactos**.
-- [ ] Escribir **F-1** entero: el domicilio real es `:419`, la spec citaba `:396`, y los 180–270M no eran una bolsa aparte sino el 40–60% de la misma.
-- [ ] Escribir **F-8** entero: la banda se corrige de 300–500 a **300–450** porque el techo del PLAN es la pauta que extingue; el total de quince años se corrige de 3.000–5.000 a **3.540–5.400**; y el sobrante vuelve a la Fuente 1 de `PRESUPUESTO_CONSOLIDADO:419`, que baja de 180–270M a **0–150M/año**. Decir el año malo: en 2027, escenario alto, el ecosistema recibe cero.
-- [ ] Escribir **F-7**: por qué acá manda la banda y no el total, al revés que en PLANPREGUNTA — el gate nunca consumió estos números.
-- [ ] Tabla de reparto interno con las siete líneas (Biblioteca 190–275, Acervo 35–50, Antena 25–45, Procedencia 12–20, Cartelera 8–15, Mirada 15–25, ANBAC 15–20).
-- [ ] Confirmar la restricción de orden de la spec con domicilio: por debajo de PLANTALLER (`PRESUPUESTO:394`) y por debajo de PLANJUS (`PLANJUS:107`).
-- [ ] **Mutación obligatoria:** poner 500 en el régimen y verificar que la guardia lo detecta por el reparto interno y por el total. Documentar la mutación en el commit.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] Extender la guardia con **tres tablas**: la extinción (ya en Task 4), la **rampa de quince años** —que se recomputa subtotal = anual × años, porque una tabla que declara subtotales a mano cierra siempre— y el **reparto interno del régimen**, que tiene que sumar 300 y 450 **exactos**.
+- [x] Escribir **F-1** entero: el domicilio real es `:419`, la spec citaba `:396`, y los 180–270M no eran una bolsa aparte sino el 40–60% de la misma.
+- [x] Escribir **F-8** entero: la banda se corrige de 300–500 a **300–450** porque el techo del PLAN es la pauta que extingue; el total de quince años se corrige de 3.000–5.000 a **3.540–5.400**; y el sobrante vuelve a la Fuente 1 de `PRESUPUESTO_CONSOLIDADO:419`, que baja de 180–270M a **0–150M/año**. Decir el año malo: en 2027, escenario alto, el ecosistema recibe cero.
+- [x] Escribir **F-7**: por qué acá manda la banda y no el total, al revés que en PLANPREGUNTA — el gate nunca consumió estos números.
+- [x] Tabla de reparto interno con las siete líneas (Biblioteca 190–275, Acervo 35–50, Antena 25–45, Procedencia 12–20, Cartelera 8–15, Mirada 15–25, ANBAC 15–20).
+- [x] Confirmar la restricción de orden de la spec con domicilio: por debajo de PLANTALLER (`PRESUPUESTO:394`) y por debajo de PLANJUS (`PLANJUS:107`).
+- [x] **Mutación obligatoria:** poner 500 en el régimen y verificar que la guardia lo detecta por el reparto interno y por el total. Documentar la mutación en el commit.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 11 — SECCIONES 14–17, 19–21 y CIERRE
 
-- [ ] **14 riesgos** · **15 mapa de perdedores** (los medios que hoy viven de la pauta, con nombre de mecanismo y no de empresa) · **16 hoja de ruta** (las cuatro fases de la rampa) · **17 tablero** · **19 federal** (se saltea el 18, imitando al corpus) · **20 visión 2040**, donde va el piso constitucional que este PLAN no pide hoy · **21 protocolo de falla** · **CIERRE**, que vuelve a Marisol y al cartel.
-- [ ] El tablero no puede ser publicidad con tipografía de datos: publica también lo que salió mal, con la misma prominencia.
-- [ ] Verificar rangos y guardia. Commit.
+- [x] **14 riesgos** · **15 mapa de perdedores** (los medios que hoy viven de la pauta, con nombre de mecanismo y no de empresa) · **16 hoja de ruta** (las cuatro fases de la rampa) · **17 tablero** · **19 federal** (se saltea el 18, imitando al corpus) · **20 visión 2040**, donde va el piso constitucional que este PLAN no pide hoy · **21 protocolo de falla** · **CIERRE**, que vuelve a Marisol y al cartel.
+- [x] El tablero no puede ser publicidad con tipografía de datos: publica también lo que salió mal, con la misma prominencia.
+- [x] Verificar rangos y guardia. Commit.
 
 ### Task 12 — Las deudas en documentos ajenos, y la guardia que las vigila
 
-- [ ] **Escribir primero** `SocialJusticeHub/scripts/verificar-remisiones.ts`: recorre `Iniciativas Estratégicas/*.md` y `SocialJusticeHub/scripts/*.ts`, extrae toda remisión `ARCHIVO:N` y `ARCHIVO:N-M`, resuelve contra el archivo y **falla si la línea no existe o está vacía**. Correrlo **antes** de tocar nada y guardar la salida como línea de base.
-- [ ] `PLANCUL:387` — **in situ, misma cantidad de líneas**: derogar la Acción 3 con nota fechada de procedencia y reversión, siguiendo el formato que el tramo C ya dejó en `PLANCUL:694`.
-- [ ] `PLANDIG` — **in situ**: `:788`/`:799` ganan pagador; `:803` se repara (la materia la dicta PLANEDU a partir de PLANFOCO, no antes); nota de frontera después de la TABLA 20, con el mismo formato que la nota de PLANPREGUNTA que ya vive ahí.
-- [ ] `PLANEDU`, `PLANJUS`, `PLANMEMORIA` — **anexo al final**, nunca inserción: el Desmontaje como materia; el Panel de Legalidad de Publicación sin baja previa; el manifiesto y el hash del Acervo en los siete nodos.
-- [ ] `PLANMESA:788` — **in situ**: nota fechada de que la comparación con la pauta pasa a ser histórica (**F-1**).
-- [ ] `PRESUPUESTO_CONSOLIDADO:419` — **in situ**: la Fuente 1 baja de 180–270M a 0–150M, con el dueño nombrado por la regla de fuentes de `PLANPACTO §5.1`.
-- [ ] `PLANPREGUNTA:734` — **anexo**: la deuda del par queda saldada, con fecha. Es el único documento sin remisiones entrantes, así que es el único que se puede editar sin cuidado — y aun así se anexa.
-- [ ] **Correr `verificar-remisiones.ts` de nuevo y comparar contra la línea de base. Cero remisiones nuevas rotas, o la tarea no está hecha.**
-- [ ] Correr **todas** las guardias: `verificar-planpacto`, `verificar-planarco`, `verificar-planpregunta`, `verificar-planfoco`.
-- [ ] Commit.
+- [x] **Escribir primero** `SocialJusticeHub/scripts/verificar-remisiones.ts`: recorre `Iniciativas Estratégicas/*.md` y `SocialJusticeHub/scripts/*.ts`, extrae toda remisión `ARCHIVO:N` y `ARCHIVO:N-M`, resuelve contra el archivo y **falla si la línea no existe o está vacía**. Correrlo **antes** de tocar nada y guardar la salida como línea de base.
+- [x] `PLANCUL:387` — **in situ, misma cantidad de líneas**: derogar la Acción 3 con nota fechada de procedencia y reversión, siguiendo el formato que el tramo C ya dejó en `PLANCUL:694`.
+- [x] `PLANDIG` — **in situ**: `:788`/`:799` ganan pagador; `:803` se repara (la materia la dicta PLANEDU a partir de PLANFOCO, no antes); nota de frontera después de la TABLA 20, con el mismo formato que la nota de PLANPREGUNTA que ya vive ahí.
+- [x] `PLANEDU`, `PLANJUS`, `PLANMEMORIA` — **anexo al final**, nunca inserción: el Desmontaje como materia; el Panel de Legalidad de Publicación sin baja previa; el manifiesto y el hash del Acervo en los siete nodos.
+- [x] `PLANMESA:788` — **in situ**: nota fechada de que la comparación con la pauta pasa a ser histórica (**F-1**).
+- [x] `PRESUPUESTO_CONSOLIDADO:419` — **in situ**: la Fuente 1 baja de 180–270M a 0–150M, con el dueño nombrado por la regla de fuentes de `PLANPACTO §5.1`.
+- [x] `PLANPREGUNTA:734` — **anexo**: la deuda del par queda saldada, con fecha. Es el único documento sin remisiones entrantes, así que es el único que se puede editar sin cuidado — y aun así se anexa.
+- [x] **Correr `verificar-remisiones.ts` de nuevo y comparar contra la línea de base. Cero remisiones nuevas rotas, o la tarea no está hecha.**
+- [x] Correr **todas** las guardias: `verificar-planpacto`, `verificar-planarco`, `verificar-planpregunta`, `verificar-planfoco`.
+- [x] Commit.
 
 ### Task 13 — Attack paths, CI y cierre
 
-- [ ] `READINESS_GATES_ADVERSARIAL.md` — bloque `### PLANFOCO` con la nota de habilitación y **tres attack paths**: (1) captura de la Biblioteca por el aparato político local, que es el riesgo que el concurso ciego y el sorteo existen para cerrar; (2) la Antena usada para hostigar, y qué hace el Estado cuando el canal que dotó dice lo que no le gusta; (3) la pauta que vuelve por decreto en el gobierno siguiente, que es el riesgo terminal de un PLAN sin piso constitucional.
-- [ ] `.github/workflows/socialjusticehub-ci.yml`: pasos `Guardia de PLANFOCO` y `Guardia de remisiones del corpus`. **Verificar el hueco de paths**: los archivos que las guardias leen tienen que estar entre los que disparan el workflow, o la guardia no corre nunca y nadie se entera.
-- [ ] `npm run check`, `npm run check:routes`, `npm run test:unit`.
-- [ ] Medir el documento con `wc -w` y anotar el total real.
-- [ ] Escribir el **Registro de cierre** al final de este plan: mediciones finales, qué se corrigió de la spec y con qué medición, y las lecciones para el tramo E.
-- [ ] Commit.
+- [x] `READINESS_GATES_ADVERSARIAL.md` — bloque `### PLANFOCO` con la nota de habilitación y **tres attack paths**: (1) captura de la Biblioteca por el aparato político local, que es el riesgo que el concurso ciego y el sorteo existen para cerrar; (2) la Antena usada para hostigar, y qué hace el Estado cuando el canal que dotó dice lo que no le gusta; (3) la pauta que vuelve por decreto en el gobierno siguiente, que es el riesgo terminal de un PLAN sin piso constitucional.
+- [x] `.github/workflows/socialjusticehub-ci.yml`: pasos `Guardia de PLANFOCO` y `Guardia de remisiones del corpus`. **Verificar el hueco de paths**: los archivos que las guardias leen tienen que estar entre los que disparan el workflow, o la guardia no corre nunca y nadie se entera.
+- [x] `npm run check`, `npm run check:routes`, `npm run test:unit`.
+- [x] Medir el documento con `wc -w` y anotar el total real.
+- [x] Escribir el **Registro de cierre** al final de este plan: mediciones finales, qué se corrigió de la spec y con qué medición, y las lecciones para el tramo E.
+- [x] Commit.
+
+
+---
+
+## Registro de cierre — 2026-08-01
+
+**El tramo D queda completo y con él los cuatro PLANes nuevos de la spec.** PLANFOCO es el ordinal 26, el Vigésimo Séptimo Mandato, y el par recíproco FOCO ↔ PREGUNTA es el primero del corpus que se cierra en el tramo inmediatamente siguiente al que declaró la deuda.
+
+### Mediciones finales
+
+| Qué | Valor |
+|---|---|
+| `PLANFOCO_Argentina_ES.md` | **25.631 palabras**, 1.026 líneas, 26 secciones |
+| Posición entre los cuatro nuevos | el más corto, y el de menor presupuesto administrado |
+| Guardia propia | `verificar-planfoco.ts` — 26 secciones, 14 cifras canónicas con domicilio, 13 prohibidos, 3 tablas contables |
+| Guardia nueva de alcance general | `verificar-remisiones.ts` — **685 citas `ARCHIVO:línea` del corpus entero, todas resueltas** |
+| Documentos ajenos tocados | 8 (PLANCUL, PLANDIG, PLANEDU, PLANJUS, PLANMEMORIA, PLANMESA, PLANPREGUNTA, PRESUPUESTO_CONSOLIDADO) |
+| Líneas ajenas corridas | **cero** — cuatro ediciones in situ y cinco anexos al final |
+| Guardias en verde | PLANPACTO, PLANARCO, PLANPREGUNTA, PLANFOCO, remisiones |
+| Verificación del repo | `npm run check`, `check:routes`, `test:unit` (177 passed, 2 skipped) |
+
+### Lo que se corrigió de la spec, y con qué medición
+
+| Qué decía la spec | Qué quedó | Por qué |
+|---|---|---|
+| pauta en `PRESUPUESTO_CONSOLIDADO:396` | **`:419`** | `:396` es la fila de PLANDIG de la tabla de régimen. Y en el domicilio real los «180–270M genéricos» resultan ser el 40–60% de los mismos 450M: no hay dos bolsas |
+| USD 300–500M/año | **300–450** | el techo lo pone la fuente. La pauta entera son 450 y este PLAN no reclama una segunda: no puede ser más grande que lo que mata |
+| USD 3.000–5.000M a 15 años | **3.540–5.400** | derivado de la rampa, no elegido. El gate nunca consumió estos números (`huespedes: []`), así que acá manda la banda y el total es corregible |
+| «corregir 3.000 → 1.200–1.500 en todo el texto» | **las dos cifras quedan** | los 3.000 son de `PLANDIG:788` y son la cobertura de un derecho. 1.500 propias + 2.000+ populares de `PLANCUL:259` cierran los 3.000 |
+| arreglo 12: PLANCUL conserva parasitismo | **conserva todo menos la Acción 3** | `PLANCUL:387` reparte pauta con fórmula al 50% por audiencia, que es lo que la Pauta Ciega prohíbe. La spec no lo registró. Derogar no le da agencia ni presupuesto: le saca una tarea |
+
+### Las cuatro lecciones para el tramo E
+
+**1. La regla de no correr líneas funciona, y es barata.** Ocho documentos ajenos editados, **cero remisiones rotas**, contra las ocho que rompió el tramo D. El mecanismo es trivial —se reescribe adentro de una línea existente o se anexa al final, nunca se inserta en el medio— y hace innecesario el barrido posterior. El tramo E toca diez documentos: la regla se aplica sin excepción.
+
+**2. Una remisión puede romperse sin que el número cambie.** Es la lección nueva y la más incómoda. Al reescribir `PRESUPUESTO_CONSOLIDADO:419` para asignarle dueño, las dos citas textuales que PLANFOCO hacía de esa línea siguieron resolviendo —el número era correcto— y lo entrecomillado dejó de ser lo que había ahí. **`verificar-remisiones.ts` no detecta eso y lo declara en su cabecera**: detecta corrimientos, no reescrituras en el lugar. Quien reescriba una línea del corpus tiene que buscar además la cita textual de esa línea en los otros documentos. La guardia de PLANARCO ya sabe hacerlo para su propio documento (52 citas entrecomilladas verificadas contra su tramo); generalizarlo es trabajo pendiente y queda anotado.
+
+**3. Un prohibido escrito contra el reclamo se dispara sobre el rechazo.** Pasó tres veces en este tramo, todas el mismo día: la guardia se puso roja sobre «ninguna regulación de contenido se queda en manos del que la escribió», sobre «incluida la que paga por alcance verificado» y sobre «es un ministerio de la verdad con buenos modales». El método retórico del corpus es **nombrar el mecanismo prohibido para rechazarlo**, y un lookbehind sólo ve negaciones anteriores. Los dos mecanismos que lo resuelven son generales y se pueden copiar: `RECHAZO` (negación en cualquier parte de la oración) y `exigeActor` (el prohibido sólo dispara si la oración nombra a alguien que podría tener la potestad, porque una crítica abstracta no le da potestad a nadie).
+
+**4. Un presupuesto de palabras calibrado por analogía se equivoca por sección, no en el total.** Se corrigieron dieciséis rangos en dos tandas. La causa no era que las secciones estuvieran cortas sino que el modelo estaba mal elegido: **`wc -w` cuenta una tabla por lo que ocupa y no por lo que dice**, y las secciones finales de este documento son tablas. Calibrar contra el documento del corpus que tenga la misma **forma** —no el mismo tamaño— antes de escribir la primera palabra.
+
+### Lo que este tramo NO hizo, con nombre
+
+- **El tramo E entero:** la migración del canon (spec §9), los conteos hardcodeados de 22 en nueve lugares ejecutables, las 45 líneas de `CANONICAL_ARCHITECTURE` embebidas en el taller, las 69 aristas del grafo y `arquitecto-data.ts`, y `strategic-initiatives.ts`. **El taller ya tiene 27 documentos y `split-documento-plan.test.ts:101` espera 23**: ese test está roto desde que entró PLANPACTO y sigue roto.
+- **Lo no humano** (spec §7): diez huecos, diez huéspedes, cero PLANes nuevos. Sin empezar.
+- **La pata industrial de PLANCYT**, que sigue repartida entre PLANEB, PLANDIG, PLANISV, PLANMOV y PLANTER. Declarada como hueco en PLANPREGUNTA y no cerrada acá.
+- **La verificación externa de los precedentes internacionales** de la SECCIÓN 2 de PLANFOCO, declarada en el propio documento como pendiente de gate.
+- **La generalización del chequeo de citas textuales** (lección 2).
