@@ -433,3 +433,59 @@ Dos reglas duras salen de ahí. **Ninguna sede cierra durante toda la franja de 
 Ésta es la parte más barata del PLAN y probablemente la que más cambia. Cambiar el cartel de Chajarí no cuesta una ley ni un presupuesto: cuesta que alguien tenga el trabajo de averiguar a qué hora está despierto el pueblo, y que ese alguien cobre por hacerlo. En treinta y dos años nadie tuvo ese trabajo. **Este PLAN, antes que cualquier otra cosa, inventa ese trabajo.**
 
 ---
+
+## SECCIÓN 5: LA ANTENA
+
+> *"Hoy todos pueden ser un canal. El que no puede es porque nadie le dio la dotación."*
+
+**Nota de procedencia, porque este dispositivo estuvo a punto de no existir.** La Antena estaba en el diseño crudo de este PLAN y desapareció de la versión corregida sin que nadie declarara la baja: no hubo argumento, no hubo reemplazo, no hubo nota. Simplemente dejó de estar. Se repone acá con su línea presupuestaria escrita —**USD 25 a 45M por año**, Sección 13— porque es el dispositivo que implementa literalmente la dirección que ordenó este PLAN: *hoy todos pueden ser un canal*. Un PLAN que dice eso y no tiene el dispositivo que lo hace no dice nada.
+
+**Qué es.** La Antena es una **dotación de canal**: un paquete estandarizado que el Estado le entrega a cualquier argentino que lo pida, sin evaluar qué va a decir con él. El paquete tiene alojamiento y ancho de banda en la infraestructura soberana de PLANDIG, un dominio, herramientas de publicación y distribución, una identidad verificable —la misma firma de la Sección 8— y una cuota de almacenamiento. No incluye plata, no incluye equipo de producción y no incluye promoción.
+
+**Cómo se pide.** Por formulario, con la Cédula Civil, sin proyecto editorial, sin plan de contenidos, sin aval institucional y sin entrevista. Una persona, una dotación. El único límite es la cola: hay una cantidad finita de dotaciones por año y se otorgan por orden de solicitud, con el número de orden público. Cuando la cola se agota, se espera al año siguiente. **No hay criterio de prioridad**, porque un criterio de prioridad es un criterio de mérito y un criterio de mérito lo aplica alguien.
+
+**Qué no incluye, y esto es la mitad del diseño.** No hay curaduría. No hay revisión editorial previa ni posterior. No hay auditoría de contenido. No hay código de conducta administrado por ANBAC. No hay condición de línea editorial, de pluralismo, de veracidad, de calidad ni de interés público. **No hay ninguna causal por la cual ANBAC pueda dar de baja una dotación por lo que se publicó en ella**, y no la hay a propósito: la primera causal, por razonable que suene, convierte la dotación en una licencia y a la agencia en el organismo que decide quién puede hablar.
+
+**La prueba de fuego, escrita por adelantado.** Va a pasar —no puede no pasar— que alguien use una Antena dotada por el Estado para decir que el gobierno de turno es una porquería, para difundir cosas falsas, para hostigar, o para las tres. Cuando pase, la respuesta institucional es **ninguna**: ANBAC no interviene, no advierte, no suspende y no comenta. Si hay delito, hay justicia, con el mismo procedimiento que se aplicaría si la publicación se hubiera hecho en cualquier otro lado y con la misma carga de prueba: **la dotación no crea una jurisdicción especial ni un procedimiento abreviado.** Lo único que la ley le exige a ANBAC en ese caso es no borrar el registro de la dotación.
+
+Este párrafo es incómodo y es el más importante del dispositivo. Un Estado que dota canales y se reserva la facultad de apagarlos no dotó canales: repartió permisos revocables, que es peor que no repartir nada, porque el permiso revocable disciplina más que la prohibición.
+
+**La escala, en números, porque «cualquier argentino que la pida» suena a promesa universal y no lo es.** El costo de una dotación no es el alojamiento —que es marginal y baja todos los años— sino la mesa de ayuda: alguien que atienda a una persona de sesenta años de Chajarí que nunca publicó nada. Este documento estima, como **supuesto de trabajo sujeto a verificación en el piloto**, un costo de entre trescientos y ochocientos dólares por dotación por año, con el grueso en soporte humano. Contra la línea de 25 a 45 millones, eso da **entre treinta y ciento cincuenta mil dotaciones activas** según el extremo del rango y el año. Es mucho más que los medios que existen en la Argentina y es muchísimo menos que «todos». El número se publica y se corrige con la ejecución: un PLAN que promete una dotación por habitante y entrega cincuenta mil habría mentido.
+
+**Y acá vuelve la deuda que dejó abierta la Sección 3.** Los medios chicos que hoy viven de la pauta y que van a cerrar cuando la pauta se apague son, en su enorme mayoría, elegibles para una dotación —una radio de pueblo es una persona con un micrófono y un domicilio—. Este PLAN les cambia una transferencia discrecional que dependía del humor de un funcionario por una infraestructura que no depende de nadie. **No es equivalente en plata y este documento no dice que lo sea**: la dotación no paga sueldos. Es equivalente en otra cosa, que es la única que este PLAN puede ofrecer sin volver a construir la correa: nadie se la puede sacar.
+
+**Los tres límites reales, declarados.** Primero: la dotación no compra audiencia. Tener canal no es tener público, y este PLAN no promete lo segundo. Segundo: **la escala es chica** — con 25 a 45 millones por año, y aun con el costo marginal de alojamiento bajando todos los años, esto no dota a millones de personas; dota a decenas de miles y crece. Tercero: **depende del estadio A de PLANDIG**, y el modo degradado es feo pero honesto — sin infraestructura soberana disponible la dotación se presta sobre infraestructura contratada, con la pérdida de soberanía declarada en el convenio y con fecha de migración escrita. Lo que **no** se hace es postergar el dispositivo hasta que la nube soberana esté lista, porque eso lo mata sin que nadie lo mate.
+
+**Dónde se produce lo que se publica.** Una dotación de canal sin lugar donde grabar es un canal vacío, y comprarle equipo a cada solicitante sería multiplicar por cien el costo del dispositivo. La respuesta ya está construida en este mismo PLAN: la sala que se presta de cada sede de la Biblioteca Viva y la Sala Común de la Sección 7 son el estudio, y se piden con la misma planilla, por orden de llegada y sin que nadie evalúe qué se va a grabar. Los tres dispositivos se sostienen entre sí — el canal, el estudio y el tablón donde se anuncia — y ninguno de los tres le pregunta a nadie qué piensa decir.
+
+---
+
+## SECCIÓN 6: LA CARTELERA
+
+> *"Territorio y fecha. Sin ranking, sin recomendación y sin algoritmo."*
+
+**Desambiguación primero, porque el nombre ya está usado en el corpus.** `PLANSAL:1515` habla de la *«cartelera física»* donde cada Centro de Vitalidad publica sus ingresos, sus gastos y su saldo todos los meses. La Cartelera de este PLAN **no es el mismo objeto** que la cartelera física de `PLANSAL:1515`, y este documento no la absorbe: aquella es un tablón de rendición de cuentas de una sede sanitaria y sigue siendo de PLANSAL, mientras que la Cartelera es una superficie nacional donde se publica lo que va a pasar en un territorio. Comparten la palabra y el espíritu —las dos publican sin filtro— y nada más.
+
+**Qué es.** Un lugar —físico en cada sede de la Biblioteca Viva, y digital sobre la infraestructura de PLANDIG— donde cualquiera publica que algo va a pasar: una asamblea, un recital, una feria, una clase de poda, una misa, un partido, un remate, una protesta. Se publica con **dos campos obligatorios y ninguno más: territorio y fecha.** Se ordena por fecha y por cercanía.
+
+**Lo que no tiene, que es lo que la define.** No tiene ranking. No tiene recomendación. No tiene «destacados», no tiene posiciones pagas, no tiene métricas de popularidad visibles y no tiene ninguna señal que ordene una publicación por encima de otra que no sea cuándo y dónde. Un ranking es una decisión editorial ejecutada por una máquina, y una decisión editorial del Estado sobre qué le conviene ver a la gente es exactamente lo que este PLAN tiene prohibido. Una cartelera de barrio no ordena los papeles por importancia: los pega en orden de llegada, y el que mira decide.
+
+Eso la vuelve deliberadamente **peor** que cualquier plataforma comercial en la métrica que las plataformas optimizan, y mejor en la única que a este PLAN le importa: nadie decide por vos qué mirás primero.
+
+**La frontera con las plataformas que ya existen, que hay que escribir antes de que alguien pregunte por qué son tres.** `PLANDIG:1086` lista entre las plataformas del ecosistema soberano a **El Mapa** y a **La Tribu**, y las tres cosas se parecen lo suficiente como para confundirse. No son lo mismo y la distinción es de tiempo verbal: El Mapa registra lo que **está pasando** —señales, sensores, densidad territorial—; La Tribu coordina a los que **están haciendo** algo juntos; la Cartelera anuncia lo que **va a pasar** y después no guarda nada. Una publicación de la Cartelera vence el día del evento y se archiva sin métricas. No hay perfil, no hay seguidores, no hay historial público del que publica y no hay forma de saber cuánta gente vio un aviso. La Cartelera es la más tonta de las tres a propósito: es un tablón, no una red.
+
+**Y funciona en papel.** La versión física de cada sede es una pared con hojas impresas, ordenadas por fecha, que el bibliotecario imprime todas las mañanas y descuelga cuando vencen. En una localidad sin conectividad la Cartelera funciona igual, con la única diferencia de que las publicaciones se cargan en el mostrador en vez de desde un teléfono. Ningún dispositivo de este PLAN se posterga esperando la fibra, y éste es el más barato de todos para demostrarlo.
+
+**El problema de la publicación abierta, que hay que resolver sin crear un censor.** Una superficie donde cualquiera publica sin filtro va a recibir, tarde o temprano, publicaciones ilegales: convocatorias a un delito, difamación, contenido que no puede circular. Alguien tiene que poder decidir eso, y **ese alguien no puede ser ANBAC**, porque una agencia que puede bajar una publicación de la Cartelera puede bajar cualquier publicación que le moleste, y ya nombramos por qué eso no se hace.
+
+**Por eso este PLAN le pide a PLANJUS un fuero que hoy no existe: el Panel de Legalidad de Publicación**, con tres reglas que van en la ley y no en el reglamento de la agencia.
+
+**Sin baja previa.** La publicación no se baja mientras se decide. El estándar contrario —bajar primero y discutir después— convierte a cualquier denunciante en editor, porque el costo de denunciar es cero y el de defenderse no. Si el daño de una publicación es tan grave que no tolera el plazo del panel, hay medidas cautelares en la justicia ordinaria, con juez, con contraparte y con responsabilidad del que las pide.
+
+**Panel ciudadano sorteado, con el procedimiento de PLANJUS y no uno nuevo.** Es un JUS-1 por materia y por plazo: conflicto simple, quince días, panel de tres sorteados con exclusión automática de conflicto de interés (`PLANJUS:400`). No hace falta inventar un procedimiento: hace falta agregar una materia.
+
+**Y el que publicó es parte.** No se decide sobre una publicación sin escuchar al que la hizo, aunque no se haya presentado: si no comparece, el panel resuelve, pero el acta tiene que registrar que se lo notificó.
+
+La deuda con PLANJUS se escribe de los dos lados: acá y en aquel documento, con nota fechada. **PLANFOCO no puede crear un fuero adentro de otro PLAN por su cuenta**, y el día que PLANJUS no lo acepte, este dispositivo queda sin recurso y hay que decirlo: la Cartelera sin Panel de Legalidad publica igual y no tiene mecanismo propio para retirar nada, que es preferible a que lo tenga la agencia.
+
+---
