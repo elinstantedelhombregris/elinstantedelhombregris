@@ -147,11 +147,6 @@ export const BlogAuthor = lazy(async () => {
   const m = await import('~/pages/BlogAuthor');
   return { default: m.BlogAuthor };
 });
-/** PROTOTIPO del mapa sobre teselas. Se borra al decidir — ver PrototipoMapa.tsx. */
-export const PrototipoMapa = lazy(async () => {
-  const m = await import('~/pages/PrototipoMapa');
-  return { default: m.PrototipoMapa };
-});
 export const DatosAbiertos = lazy(async () => {
   const m = await import('~/pages/DatosAbiertos');
   return { default: m.DatosAbiertos };

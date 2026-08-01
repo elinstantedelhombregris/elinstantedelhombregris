@@ -127,6 +127,12 @@ GitHub Actions runs on push/PR touching `SocialJusticeHub/**`:
 2. `npm run check:routes` (route duplication guard)
 3. `npm run build` (production build)
 
+## Deudas conocidas
+
+`docs/DEUDAS.md` es el registro vivo de deficiencias del sistema, v1 y v2.
+
+**Cuando encontrés un defecto que no vas a arreglar en el momento, anotalo ahí antes de seguir.** Id correlativo nuevo por entrada; las resueltas se marcan resueltas, no se borran.
+
 ## Workflow: Spec → Plan → Implementation
 
 Design specs define the "why" and "what" (tone, structure, sections).

@@ -107,9 +107,18 @@ v2/
 - Validation messages, UI labels, error responses — everything.
 - Component names and identifiers stay English-or-mixed (`HeroSection`, `BastaPrincipio`).
 
+## Known deficiencies
+
+`../docs/DEUDAS.md` is the living log of known system deficiencies, v1 and v2.
+
+**When you find a defect you are not fixing right now, append it there before moving on.** Each entry gets a fresh correlative id, and resolved entries are marked resolved rather than deleted — the record of *why* things are the way they are is the point.
+
+Read it before starting map, geography, or dependency work: `D-001` (no server-side geo resolution) and `D-002` (the v2 database holds 12 demo rows and nothing else) invalidate most visual judgments about the map.
+
 ## When you're unsure
 
 - Read this file again.
 - Check `docs/adr/` for prior decisions.
+- Check `../docs/DEUDAS.md` — the thing you are about to debug may already be a known deficiency.
 - Read `../docs/REPORT_THIS_PROJECT_IS_UTTER_SHIT.md` to remind yourself which v1 mistake we're avoiding.
 - If still unsure: ask the user. Never invent behavior.
