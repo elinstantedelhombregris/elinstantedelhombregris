@@ -3,9 +3,12 @@
 
 import { PLAN_NODES, DEPENDENCIES, REQUIRES_DEPENDENCIES, TIMELINE_PHASES, type PlanNode } from './arquitecto-data';
 
-// Conteo esperado de PLANes del ecosistema (al 23 de abril de 2026).
-// Actualizar deliberadamente cuando se sume o quite un PLAN.
-const EXPECTED_PLAN_COUNT = 22;
+// Conteo esperado de PLANes del ecosistema (al 1 de agosto de 2026).
+// Actualizar deliberadamente cuando se sume o quite un PLAN. La autoridad de papel
+// es `Iniciativas Estratégicas/PLAN_REGISTRY.yml` (`thematic_count`), y este número
+// la sigue: pasó de 22 a 26 con PLANPACTO (23), PLANARCO (24), PLANPREGUNTA (25) y
+// PLANFOCO (26), habilitados por ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md.
+const EXPECTED_PLAN_COUNT = 26;
 
 export type RuleSeverity = 'ERROR' | 'WARNING';
 export type RuleCategory = 'REF' | 'TERM' | 'TIME' | 'FIN' | 'COV' | 'RES' | 'ADV';

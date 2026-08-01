@@ -36,10 +36,29 @@ const PISOS_SEGUN_EL_TALLER: Record<string, { floor: string; fuente: string }> =
   PLANMEMORIA: { floor: '0.10-0.14% PBI', fuente: 'PLANMEMORIA' },
   PLANTER: { floor: '0.20% PBI', fuente: 'PLANTER' },
   PLANMOV: { floor: '0.50% PBI', fuente: 'PLANMOV' },
+  /**
+   * PLANPACTO es el único piso SUSTITUTIVO: su 2,40% reemplaza a los diecisiete de
+   * arriba en vez de sumarse a ellos. `sumConstitutionalFloorsGross()` lo excluye a
+   * propósito (`PISOS_SUSTITUTIVOS` en arquitecto-data.ts) — sumarlo daría
+   * 10,22-11,81%, que es exactamente la lectura aditiva que ese PLAN existe para
+   * impedir, y es lo que este grafo empezó a computar solo el día que se cargó el nodo.
+   */
+  PLANPACTO: { floor: '2.40% PBI', fuente: 'PLANPACTO §2.3: 7,5% del gasto primario consolidado ~ 2,40% del PBI. BRUTO y SUSTITUTIVO' },
 };
 
-/** Los PLANes que por diseño no tienen piso. PLANCUL no lo tiene por filosofía. */
-const SIN_PISO = ['PLANREP', 'PLANMON', 'PLAN24CN', 'PLANGEO', 'PLANCUL'];
+/**
+ * Los PLANes que por diseño no tienen piso. PLANCUL no lo tiene por filosofía.
+ *
+ * Los tres nuevos de 2026-08 tampoco, y cada uno por su razón escrita:
+ * PLANARCO entra como eje intergeneracional DENTRO de la Escalera de PLANPACTO en
+ * vez de tener instrumento paralelo; PLANPREGUNTA se financia con ocho puntos del
+ * FSC de PLANTER y renuncia expresamente al 0,39% de CyT y al 0,20% del LANEF;
+ * PLANFOCO difiere su piso a Visión 2040+ y su techo lo fija la pauta que extingue.
+ */
+const SIN_PISO = [
+  'PLANREP', 'PLANMON', 'PLAN24CN', 'PLANGEO', 'PLANCUL',
+  'PLANARCO', 'PLANPREGUNTA', 'PLANFOCO',
+];
 
 /**
  * Presupuestos de los seis PLANes huésped que consume el gate de spin-off
@@ -83,7 +102,7 @@ describe('pisos constitucionales (canon contra el taller)', () => {
     }
   });
 
-  it('la tabla cubre a los 22: con piso + sin piso = PLAN_NODES', () => {
+  it('la tabla cubre a los 26: con piso + sin piso = PLAN_NODES', () => {
     const cubiertos = new Set([...Object.keys(PISOS_SEGUN_EL_TALLER), ...SIN_PISO]);
     expect(cubiertos.size).toBe(PLAN_NODES.length);
     for (const p of PLAN_NODES) {
@@ -116,7 +135,15 @@ describe('pisos constitucionales (canon contra el taller)', () => {
     }
   });
 
-  it('la suma de pisos es 7.82-9.41% del PBI', () => {
+  it('el piso EFECTIVO después de la sustitución es el 2,40% de PLANPACTO y nada más', () => {
+    // Si esto diera 10.22-11.81, el grafo estaría sumando el piso sustitutivo a los
+    // que sustituye: la lectura aditiva que PLANPACTO §2.3 declara ilegítima.
+    expect(ECOSYSTEM_METRICS.constitutionalFloorEffective).toBe('2.40-2.40% PBI');
+  });
+
+  it('la suma de los pisos RECLAMADOS sigue siendo 7.82-9.41% del PBI', () => {
+    // Es el hallazgo que funda a PLANPACTO: lo que el ecosistema pedía sin saberlo.
+    // No cambia al sustituir — la cuenta de la que se viene no se borra.
     expect(ECOSYSTEM_METRICS.constitutionalFloorGross).toBe('7.82-9.41% PBI');
   });
 

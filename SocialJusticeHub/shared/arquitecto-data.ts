@@ -307,6 +307,60 @@ export const PLAN_NODES: PlanNode[] = [
     color: '#0891b2', slug: 'planmov-movilidad-logistica',
     missionSlug: 'la-base-esta', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'alta', state: 'ambar',
   },
+
+  // ── Los cuatro PLANes nuevos (acta del 2026-07-26, escritos 2026-07/08). ──────
+  // Se ANEXAN con ordinales 23-26: los 01..22 no se mueven y el invariante de
+  // contigüidad se conserva. Las 69 aristas del grafo son trabajo aparte (tramo E)
+  // y todavía NO están cargadas: estos cuatro nodos existen sin dependencias.
+  {
+    id: 'PLANPACTO', name: 'Plan Nacional de Pacto Fiscal, Reparto Federal y Escalera de Garantías', ordinal: 23,
+    category: 'economia', agency: 'CFF', agencyFull: 'Consejo Federal Fiscal',
+    organMetaphor: 'riñón', organLabel: 'Kidney',
+    status: 'PUBLISHED', budgetLow: 12400, budgetHigh: 22000, timelineYears: 15,
+    // El único piso del ecosistema después de este PLAN: 2,40% del PBI, expresado
+    // como 7,5% del gasto primario consolidado. Es bruto y SUSTITUTIVO de los 17
+    // pisos anteriores — no se suma a ellos.
+    legalInstruments: 6, constitutionalFloor: '2.40% PBI',
+    mainSource: 'No tiene fuente propia: administra la presión fiscal consolidada (USD 145.000-160.000M/año) y reparte por la Escalera de Garantías',
+    color: '#14b8a6', slug: 'planpacto-pacto-fiscal-reparto-federal',
+    missionSlug: 'instituciones-y-futuro', temporalOrder: 'transicion', priority: 'alta', state: 'ambar',
+  },
+  {
+    id: 'PLANARCO', name: 'Plan Nacional del Arco de la Vida, Calendario de Umbrales y Renta de Arco', ordinal: 24,
+    category: 'instituciones', agency: 'ANAV', agencyFull: 'Agencia Nacional del Arco de la Vida',
+    organMetaphor: 'sistema endocrino', organLabel: 'Endocrine System',
+    status: 'PUBLISHED', budgetLow: 53000, budgetHigh: 96000, timelineYears: 15,
+    // Sin piso propio: entra como eje intergeneracional DENTRO de la Escalera de
+    // PLANPACTO. Dos reglas de reparto paralelas se contradicen en la primera recesión.
+    legalInstruments: 7, constitutionalFloor: null,
+    mainSource: 'Sistema previsional (~45% del presupuesto nacional) + FGS con tope del 8% para PLAN24CN + Dote',
+    color: '#a855f7', slug: 'planarco-arco-de-la-vida',
+    missionSlug: 'instituciones-y-futuro', secondaryMissionSlug: 'la-base-esta', temporalOrder: 'transicion', priority: 'alta', state: 'ambar',
+  },
+  {
+    id: 'PLANPREGUNTA', name: 'Plan Nacional de la Pregunta, el Censo de Ignorancia y la Prueba de Barro', ordinal: 25,
+    category: 'tecnologia', agency: 'ANCON', agencyFull: 'Agencia Nacional del Conocimiento',
+    organMetaphor: 'células madre', organLabel: 'Stem Cells',
+    status: 'PUBLISHED', budgetLow: 16500, budgetHigh: 26000, timelineYears: 15,
+    // Sin piso propio y sin reclamo sobre el 0,39% legal de CyT (que es de PLANDIG)
+    // ni sobre el 0,20% de I+D del LANEF (que es de PLANEN).
+    legalInstruments: 4, constitutionalFloor: null,
+    mainSource: 'Ocho puntos del Fondo Soberano Ciudadano de PLANTER (Fondo de la Pregunta), tomados del Fondo Intergeneracional',
+    color: '#22c55e', slug: 'planpregunta-pregunta-censo-ignorancia',
+    missionSlug: 'instituciones-y-futuro', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
+  },
+  {
+    id: 'PLANFOCO', name: 'Plan Nacional de la Palabra Pública, la Biblioteca Viva y el Acervo Común', ordinal: 26,
+    category: 'cultura', agency: 'ANBAC', agencyFull: 'Agencia Nacional de la Biblioteca y el Acervo Común',
+    organMetaphor: 'la mirada', organLabel: 'The Gaze',
+    status: 'PUBLISHED', budgetLow: 3540, budgetHigh: 5400, timelineYears: 15,
+    // Sin piso: diferido a Visión 2040+. Su techo lo fija la fuente que extingue —
+    // la publicidad oficial consolidada, USD 450M/año.
+    legalInstruments: 3, constitutionalFloor: null,
+    mainSource: 'Extinción de la publicidad oficial consolidada (USD 450M/año) en cinco años; el remanente vuelve a la Fuente 1 del ecosistema',
+    color: '#eab308', slug: 'planfoco-palabra-publica-biblioteca-viva',
+    missionSlug: 'infancia-escuela-cultura', secondaryMissionSlug: 'instituciones-y-futuro', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
+  },
 ];
 
 // === DEPENDENCIES ===
@@ -749,12 +803,49 @@ export const REQUIRES_DEPENDENCIES = DEPENDENCIES.filter(d => d.kind !== 'provid
  * Inmobiliaria), y ese descuento se discute en PRESUPUESTO_CONSOLIDADO_BASTA.md.
  * Acá se suma la obligación legal, que es lo que consume Techo.
  */
+/**
+ * PLANes cuyo piso **sustituye** a los demás en vez de sumarse a ellos.
+ *
+ * PLANPACTO declara un piso ÚNICO del 2,40% del PBI (7,5% del gasto primario
+ * consolidado) que es **bruto y sustitutivo**: reemplaza los diecisiete pisos que
+ * los otros PLANes reclamaban. Sumarlo a ellos da 10,22-11,81% del PBI, que es
+ * exactamente la lectura aditiva que ese PLAN existe para impedir — y es el
+ * número que este grafo empezó a computar solo el día que se cargó el nodo.
+ */
+const PISOS_SUSTITUTIVOS = new Set(['PLANPACTO']);
+
+/**
+ * Lo que el ecosistema reclamaba ANTES de la sustitución: la suma de los pisos
+ * declarados por cada PLAN, uno por uno. Es el hallazgo que funda a PLANPACTO
+ * —el proyecto no sabía cuánto estaba pidiendo— y por eso no se borra al
+ * sustituir: se conserva como la cuenta de la que se viene.
+ */
 function sumConstitutionalFloorsGross(): string {
   let low = 0;
   let high = 0;
   for (const plan of PLAN_NODES) {
     if (!plan.constitutionalFloor) continue;
+    if (PISOS_SUSTITUTIVOS.has(plan.id)) continue;
     const nums = plan.constitutionalFloor.match(/\d+(?:\.\d+)?/g);
+    if (!nums || nums.length === 0) continue;
+    const values = nums.map(Number);
+    low += values[0];
+    high += values.length > 1 ? values[1] : values[0];
+  }
+  return `${low.toFixed(2)}-${high.toFixed(2)}% PBI`;
+}
+
+/**
+ * Lo que el ecosistema reclama DESPUÉS de la sustitución. Si hay un piso
+ * sustitutivo, es ése y nada más; si no lo hay, es la suma de arriba.
+ */
+function constitutionalFloorEffective(): string {
+  const sustitutivos = PLAN_NODES.filter((p) => PISOS_SUSTITUTIVOS.has(p.id) && p.constitutionalFloor);
+  if (sustitutivos.length === 0) return sumConstitutionalFloorsGross();
+  let low = 0;
+  let high = 0;
+  for (const plan of sustitutivos) {
+    const nums = plan.constitutionalFloor?.match(/\d+(?:\.\d+)?/g);
     if (!nums || nums.length === 0) continue;
     const values = nums.map(Number);
     low += values[0];
@@ -768,7 +859,10 @@ export const ECOSYSTEM_METRICS = {
   totalBudgetLow: PLAN_NODES.reduce((sum, p) => sum + p.budgetLow, 0),   // USD millions
   totalBudgetHigh: PLAN_NODES.reduce((sum, p) => sum + p.budgetHigh, 0), // USD millions
   totalLegalInstruments: PLAN_NODES.reduce((sum, p) => sum + p.legalInstruments, 0),
+  /** Los pisos que los PLANes reclamaban uno por uno, sin PLANPACTO. El hallazgo. */
   constitutionalFloorGross: sumConstitutionalFloorsGross(),
+  /** Lo que queda en pie después de la sustitución de PLANPACTO: el piso único. */
+  constitutionalFloorEffective: constitutionalFloorEffective(),
   timelineHorizon: Math.max(...TIMELINE_PHASES.map(p => p.endYear)),
   totalDependencies: REQUIRES_DEPENDENCIES.length,
   criticalDependencies: REQUIRES_DEPENDENCIES.filter(d => d.nature === 'CRITICAL').length,

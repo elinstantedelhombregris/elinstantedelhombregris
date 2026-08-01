@@ -240,6 +240,15 @@ function verificarTablas(lineas: string[]): string[] {
     errores.push(`no se pudo leer PISOS_SEGUN_EL_TALLER de ${CANON_PISOS}`);
   } else if (delDoc.size > 0) {
     for (const [plan, [bajo, alto]] of canon) {
+      /**
+       * PLANPACTO está en el canon con su propio 2,40% desde el 2026-08-01, y NO
+       * puede estar en esta tabla: la tabla enumera los diecisiete pisos que este
+       * PLAN **sustituye**, y el sustituto no es uno de los sustituidos. Si algún
+       * día apareciera acá, la suma de la tabla daría 10,22-11,81 — la lectura
+       * aditiva que §2.3 declara ilegítima — y la guardia lo diría por la fila de
+       * total, no por esta línea.
+       */
+      if (plan === 'PLANPACTO') continue;
       const doc = delDoc.get(plan);
       if (!doc) {
         errores.push(`${plan}: está en el canon del taller y no en la tabla del documento`);
