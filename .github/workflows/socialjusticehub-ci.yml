@@ -5,11 +5,17 @@ on:
     paths:
       - "SocialJusticeHub/**"
       - "Iniciativas Estratégicas/**"
+      # La guardia de PLANARCO resuelve `spec:190` contra este archivo, que es la
+      # única entrada de DOCUMENTOS_CITABLES (scripts/verificar-planarco.ts) que
+      # NO vive en `Iniciativas Estratégicas/`. Sin esta línea, correrle las
+      # líneas a la spec rompe la guardia sin que CI llegue a correrla.
+      - "v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md"
       - ".github/workflows/socialjusticehub-ci.yml"
   pull_request:
     paths:
       - "SocialJusticeHub/**"
       - "Iniciativas Estratégicas/**"
+      - "v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md"
       - ".github/workflows/socialjusticehub-ci.yml"
 
 jobs:
@@ -44,6 +50,9 @@ jobs:
 
       - name: Guardia de PLANPACTO
         run: npx tsx scripts/verificar-planpacto.ts
+
+      - name: Guardia de PLANARCO
+        run: npx tsx scripts/verificar-planarco.ts
 
       - name: Production build
         run: npm run build
