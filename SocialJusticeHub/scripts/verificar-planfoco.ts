@@ -433,6 +433,12 @@ const PROHIBIDOS: Prohibido[] = [
     porQue:
       'domicilio equivocado. La spec citaba :396 —que es la fila de PLANDIG de la tabla de régimen— ' +
       'y la pauta vive en :419 (F-1)',
+    salvoSi: {
+      patron: /corrig|corrección|equivocad|atribu[íi]a|no habla de|spec|brief|:419/iu,
+      porQue:
+        'la oración que CORRIGE el domicilio tiene que poder nombrar el domicilio viejo. Es el mismo ' +
+        'mecanismo que ya tienen los dos prohibidos de cifras corregidas',
+    },
   },
   {
     patron: /3\.000\s*(?:sedes|Bibliotecas|bibliotecas)|(?:sedes|Bibliotecas)\s*(?:[^.;:\n]){0,20}3\.000/u,

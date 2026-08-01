@@ -680,3 +680,182 @@ Hay que decir dos cosas sobre eso y ninguna es cómoda.
 **Si el PLAN se descontinúa**, el protocolo de la Sección 21 fija qué se preserva y en qué orden: primero el Acervo, que es irreversible; después los convenios con las bibliotecas populares, que devuelven las sedes a instituciones que existían antes y van a seguir existiendo después. El personal no tiene garantía de continuidad y este documento no la promete, porque prometerla sería prometer un derecho adquirido sobre un presupuesto que puede no existir.
 
 ---
+
+## SECCIÓN 11: LO QUE ESTE PLAN TIENE PROHIBIDO
+
+> *"Un PLAN que se reserva una sola puerta para decidir qué se puede decir no necesita más puertas."*
+
+Los otros PLANes del corpus enumeran facultades. Éste enumera las que no tiene, y lo hace en una sección propia por una razón operativa: **una prohibición escrita en la exposición de motivos no la lee nadie; una prohibición escrita como articulado se puede invocar.**
+
+Cada línea de abajo tiene dos partes: la prohibición y el mecanismo que la hace verdadera. Una prohibición sin mecanismo es una promesa, y las promesas se heredan mal.
+
+**ANBAC no puede licenciar, habilitar ni autorizar contenido, ni de un medio, ni de una Antena, ni de una publicación de la Cartelera.** *Mecanismo:* la ley no le atribuye la facultad, y el único padrón que administra —el de la Pauta Ciega— tiene criterios fijados por ley y recurso ante un fuero ajeno (`3.3`, `6`). Un organismo no puede ejercer una potestad que su ley de creación no le dio; puede intentarlo, y entonces el recurso es de nulidad y no de fondo.
+
+**ANBAC no puede dar de baja una dotación de La Antena por lo que se publicó en ella.** *Mecanismo:* la ley no prevé ninguna causal de contenido. Cuando hay delito interviene la justicia ordinaria, con el mismo procedimiento y la misma carga de prueba que se aplicaría a cualquier publicación (`5`).
+
+**ANBAC no puede bajar una publicación de la Cartelera.** *Mecanismo:* la facultad está en PLANJUS —Panel de Legalidad de Publicación, sin baja previa, panel sorteado— y no en la agencia (`6`).
+
+**ANBAC no puede elegir qué se compra para las bibliotecas.** *Mecanismo:* la decisión es de la Mesa Territorial de `PLANMESA:466`, y hasta que exista, de la asamblea de usuarios de la sede, con acta pública (`4.4`).
+
+**ANBAC no puede elegir quién atiende una sede ni quién es cronista.** *Mecanismo:* concurso ciego y **sorteo estratificado** entre aprobados, con la mecánica de `PLANMESA:297`, y renovación por sorteo y no por evaluación de la agencia (`4.3`, `10.2`).
+
+**ANBAC no puede elegir a qué medio va un peso de pauta.** *Mecanismo:* sorteo con estratos y semilla publicados por anticipado durante cinco años, y después la partida no existe (`3.1`, `3.2`).
+
+**ANBAC no puede dictaminar si algo es verdadero o falso.** *Mecanismo:* la Procedencia firma origen y no contenido, y no hay ningún campo del registro donde un juicio de veracidad pueda alojarse (`8`).
+
+**ANBAC no puede programar contenido propio.** *Mecanismo:* la Sala Común se presta por sorteo, y la ley le prohíbe a la agencia producir bajo dirección editorial propia y coproducir (`7.4`). La coproducción es la forma elegante de la injerencia y por eso está en la lista.
+
+**ANBAC no puede evaluar el contenido científico del Sello Abierto.** *Mecanismo:* el régimen de publicación y de retención por doble uso lo fija PLANPREGUNTA; acá se aloja y se publica lo que aquel PLAN autoriza (`7.3`).
+
+**ANBAC no puede fijar el umbral de qué cuenta como medio.** *Mecanismo:* el umbral está en la ley (`3.3`). Es la prohibición más importante de la lista, porque es donde estaba escondida la facultad de licenciar sin que nadie la hubiera escrito.
+
+**ANBAC no puede condicionar la certificación de un Commons Atencional a nada que no sea el modo algorítmicamente off.** *Mecanismo:* la certificación tiene un solo criterio, tomado literalmente de `PLANDIG:786` —sin recomendación personalizada, sin perfilado, sin publicidad comportamental, sin tracking— y ningún otro. No se puede exigir acervo mínimo, ni horario, ni programación, ni pluralismo, ni adhesión a nada. Un espacio que no quiere certificarse no se certifica y no pierde nada: la certificación no da plata ni quita derechos, sólo cuenta para la cobertura del derecho de `PLANDIG:788`.
+
+**ANBAC no puede exigirle contraprestación a una biblioteca popular que firma convenio.** *Mecanismo:* el convenio tipo se publica y es de adhesión, con obligaciones que corren en un solo sentido — el Estado pone bibliotecario, acervo, arreglo del edificio y horario, y la institución conserva personería, comisión directiva, nombre, acervo propio y el derecho a rescindir sin causa con noventa días de aviso. Una institución que sobrevivió noventa años sin el Estado no necesita que el Estado le ponga condiciones para ayudarla, y una ayuda con condiciones se convierte en el año cinco en una dirección con otro nombre.
+
+**Y una prohibición sobre este documento y no sobre la agencia: ninguna de las anteriores tiene excepción.** No hay cláusula de emergencia, no hay excepción de seguridad nacional, no hay excepción por desinformación y no hay excepción por interés público superior. Un régimen de excepción bien redactado es la manera más eficiente que existe de conceder todo lo que la lista de arriba niega, y es la que se usa siempre, porque el momento en que se invoca es siempre un momento en que negarla parece irresponsable.
+
+Si alguna sección de este documento se lee como si abriera una de estas puertas, **la sección está mal escrita y se corrige la sección, no la lista.**
+
+---
+
+## SECCIÓN 12: LA AGENCIA NACIONAL DE LA BIBLIOTECA Y EL ACERVO COMÚN (ANBAC)
+
+> *"Una agencia que no puede elegir casi nada, y que por eso puede durar."*
+
+**El nombre y la sigla.** Agencia Nacional de la Biblioteca y el Acervo Común: **ANBAC**, siguiendo el patrón AN+sufijo que usan quince de las veintidós agencias del corpus. El nombre dice lo que administra —bibliotecas y acervo— y no dice «comunicación», «medios» ni «información», que son las tres palabras que habrían convertido a esta agencia en algo que este PLAN tiene prohibido crear. Un organismo tiende, con el tiempo, a ocupar todo el territorio que su nombre sugiere.
+
+**Qué hace.** Cinco cosas y ninguna implica un juicio sobre contenido: paga y administra la red de sedes; ejecuta el cronograma de extinción de la pauta y opera el sorteo mientras dura; financia la digitalización del Acervo y su catálogo; administra las dotaciones de La Antena y la cola; y mantiene la especificación abierta de la Procedencia.
+
+**Qué no hace:** la lista entera de la Sección 11.
+
+**Cómo se gobierna.** Directorio de siete, con mandatos escalonados que no coinciden con el ciclo electoral —la mitad del directorio siempre lo nombró la gestión anterior—, y una composición que ninguna autoridad única controla: dos por el Poder Ejecutivo con acuerdo del Senado; dos por las provincias, rotativos por región; **dos sorteados entre ciudadanos con Credencial de Materia** en la materia correspondiente, con la mecánica de `PLANMESA:297`; y uno por las bibliotecas populares federadas, elegido por ellas y no por el Estado. Remoción sólo por causa grave y con procedimiento; nunca por discrepancia.
+
+**La estructura es chica a propósito y el presupuesto lo obliga.** La línea de ANBAC en el reparto de la Sección 13 es de **USD 15 a 20M por año**, entre el cuatro y el cinco por ciento del total del PLAN. Todo lo demás va a sedes, acervo, canal, estándar y territorio. Una agencia que administra 450 millones con veinte de estructura no puede construir un aparato de control aunque quiera: **no le da el personal.** Ésa no es una virtud administrativa, es un límite físico, y es más confiable que un reglamento.
+
+**Cómo se la audita.** Con la misma disciplina que este PLAN le exige a todo el mundo y que copia de `PLANSAL:1515`: cada sede publica todos los meses sus ingresos, sus gastos detallados y su saldo, y cualquier vecino puede pedir explicación de cualquier gasto. La agencia publica lo mismo, agregado, más las tres cosas que sólo ella tiene: **las actas de todos los sorteos, con semilla y padrón**; el registro completo de dotaciones otorgadas y denegadas, con el motivo de cada denegación —que sólo puede ser «se agotó la cola»—; y el porcentaje de material público publicado sin firma por organismo.
+
+**Por qué agencia nueva y no una secretaría.** Una secretaría depende de un ministro, y un ministro decide. La autarquía no es un privilegio corporativo: es lo que permite que el mecanismo de sorteo sobreviva a un gobierno al que el resultado de un sorteo le moleste. **Y es también el costo más grande que este PLAN le impone al corpus**, porque cada agencia nueva es una estructura más que sostener y una más que puede capturarse. El corpus ya tiene veintidós. Este documento agrega la veintitrés y no puede pretender que sea gratis: lo que ofrece a cambio es la agencia más chica de todas, con la lista de facultades negadas más larga de todas.
+
+**Qué pasa con las provincias, que es donde este diseño tiene su costura más floja.** ANBAC es nacional y las bibliotecas, las escuelas y buena parte de la pauta son provinciales. La agencia **no tiene delegaciones provinciales** —eso sería duplicar la estructura y crear veinticuatro puntos de captura local— sino convenios con cada jurisdicción que adhiera, y dos de los siete directores los ponen las provincias por región rotativa. Una provincia que no adhiere conserva sus bibliotecas, su pauta y su decisión; lo que no recibe es la asignación prioritaria de sedes, que va primero a las jurisdicciones que adhirieron. **No hay ninguna otra consecuencia**, y en particular no hay retención de fondos coparticipables ni condicionamiento cruzado con ningún otro PLAN: eso sería usar la plata de otro para comprar una política propia, que es exactamente la lógica de la correa aplicada al federalismo.
+
+**Y qué pasa si un sillón del directorio no se puede llenar** —porque una región no se pone de acuerdo, porque no hay Credenciales suficientes en la materia, porque las bibliotecas federadas no eligen—. El directorio **funciona con los que hay**, con quórum sobre los cargos cubiertos y no sobre los previstos, y la vacante se publica todos los meses en el tablero de la Sección 17 con el motivo. Lo que no pasa nunca es que el Ejecutivo cubra una vacante ajena «en forma interina»: un interinato del Ejecutivo sobre un sillón ciudadano es la forma más común y más barata de capturar un directorio mixto, y este PLAN la cierra por escrito.
+
+**Tranche-2, y la Fase 0 no la necesita.** La Pauta Ciega arranca en 2027 por decreto, ejecutada por el organismo que hoy administra la pauta, sin ANBAC y sin ley. La agencia se crea después, cuando hay algo que administrar. Es la única secuencia que hace que el dispositivo irreversible no dependa de que el Congreso apruebe una agencia.
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+**El par recíproco FOCO ↔ PREGUNTA queda completo, y ésta es la primera deuda de par que el corpus cobra en el tramo siguiente al que la declaró.** `PLANPREGUNTA:732` lo dejó escrito con la fórmula que `PLANPACTO:721` había usado para PLANARCO: *«PLANFOCO es el par recíproco de este PLAN y todavía tiene una sola mitad escrita»*. La Sección 9.3 escribe la otra mitad y la Sección 7.3 acepta la dependencia entrante del Sello Abierto. De acá en adelante ninguna afirmación de PLANPREGUNTA sobre PLANFOCO queda sin contraparte, y las remisiones con número de línea entre los dos documentos pasan a ser posibles en las dos direcciones.
+
+**PLANDIG es el vecino más comprometido y la relación es asimétrica en las dos direcciones.** PLANFOCO paga el Commons Atencional que `PLANDIG:788` consagró y su TABLA 20 no presupuestó, y a cambio depende de la nube soberana para el Acervo, de la malla para la conectividad de las sedes y del estadio A para las dotaciones de La Antena. **Cada una de esas dependencias tiene modo degradado declarado y ninguna posterga un dispositivo**: una sede sin fibra abre igual, una dotación sin nube soberana se presta sobre infraestructura contratada con fecha de migración escrita, y el Acervo se digitaliza aunque el catálogo tarde. Y el Presupuesto de Vida no es dispositivo de este PLAN: es `PLANDIG §9.6` (`:867`), instrumento de medición, y así se lo nombra.
+
+**PLANCUL conserva todo lo suyo menos una tarea.** Sigue sin agencia, sin presupuesto, sin líder y sin piso, con su parasitismo estratégico intacto y su compromiso de no-intervención de `PLANCUL:389` reforzado, no debilitado. Lo único que pierde es la Acción 3 de `PLANCUL:387`, derogada en los dos documentos con nota fechada, y la pierde por una razón que aquel PLAN comparte: era un punto de contacto entre gobierno y cultura, y aquel documento declara que cada punto de contacto es un punto de vulnerabilidad.
+
+**PLANMEMORIA custodia la prueba y PLANFOCO custodia nada.** El manifiesto y el hash de cada pieza del Acervo van a los siete nodos de `PLANMEMORIA:90`; el bitstream a PLANDIG; ANBAC cataloga, publica y paga. Tres funciones, tres agencias, y la que produce el acervo no guarda ninguna de las dos copias que lo prueban.
+
+**PLANMESA decide dos cosas de este PLAN y presta la mecánica de una tercera.** Las Mesas Territoriales de `:466` deciden las compras; el sorteo estratificado de `:297` designa bibliotecarios, cronistas y dos directores de ANBAC; y la Credencial de Materia de `:88` acredita la formación. **La dependencia de calendario está declarada y es real**: `PLANMESA:925-956` la pone en tranche-2 con entrada 2028-2030, las primeras sedes abren en 2029, y el modo degradado —asamblea de usuarios con acta pública, traspaso automático sin acto administrativo— está escrito en `4.4`.
+
+**PLANEDU dicta el Desmontaje** y con eso repara `PLANDIG:803`, que lo daba por dictado. PLANFOCO produce el material y forma a los mediadores; no escribe currículum.
+
+**PLANJUS recibe un pedido y puede negarse.** El Panel de Legalidad de Publicación es un fuero nuevo adentro de aquel PLAN, con el procedimiento de `PLANJUS:400` y no uno propio. Si PLANJUS no lo acepta, la Cartelera publica igual y no tiene mecanismo propio para retirar nada — que es peor para las víctimas de una publicación ilegal y mejor que la alternativa, porque la alternativa es que el mecanismo lo tenga la agencia.
+
+**PLANREP da el régimen laboral** y PLANFOCO no crea estatuto propio ni pide excepción. **PLANPACTO da la regla de fuentes**, y por ella la pauta oficial tiene un solo dueño: este PLAN, que la recauda para extinguirla y le devuelve el sobrante al ecosistema (Sección 13). **PLANSAL presta su disciplina de transparencia por sede** (`:1515`) sin modificaciones. Y **PLANTALLER presta la única referencia de costo comparable** que existe en el corpus para una red federal de sedes.
+
+**Lo que este PLAN no hace por nadie, y conviene decirlo acá:** no resuelve la concentración de la propiedad de medios. Ese hueco sigue abierto, sigue siendo de la CNDC por la vía antimonopólica, y `PLANCUL:387` ya declaró que es una guerra de años que se peleó y se perdió. Este PLAN eligió no darla otra vez por el mismo lado.
+
+---
+
+## SECCIÓN 13: MODELO ECONÓMICO Y FISCAL
+
+> *"Este PLAN no puede ser más grande que la pauta que mata."*
+
+### 13.1 La fuente, y su domicilio real
+
+La fuente es una sola: **la publicidad oficial consolidada, USD 450M por año.**
+
+El domicilio es `PRESUPUESTO_CONSOLIDADO_BASTA.md:419`, dentro de «Fuente 1 — Reasignación de gastos actuales de baja productividad»: *«Publicidad oficial consolidada: USD 450M/año (eliminable en 40-60%)»*. `PLANMESA:788` lo confirma por otra vía, con dato de 2023.
+
+**Y hay una corrección de procedencia que hay que hacer antes de usar el número.** El brief que ordenó este documento atribuía los «180–270M genéricos» a `PRESUPUESTO_CONSOLIDADO:396`. Esa línea es la fila de PLANDIG de la tabla de régimen pleno y no habla de pauta. Al ir al domicilio correcto aparece algo que cambia el problema entero: **los 180–270M no son una bolsa distinta de los 450M — son el 40 al 60 por ciento de los mismos 450M.** No hay dos fuentes; hay una, y el corpus ¡BASTA! ya se había comprometido a gastar más de la mitad de ella en el ecosistema entero.
+
+Por la **regla de fuentes de `PLANPACTO §5.1`** —toda fuente tiene un solo dueño, y el dueño es el PLAN que la recauda— la pauta pasa a tener dueño: **PLANFOCO**. Un dueño peculiar, porque la recauda para extinguirla, pero dueño al fin: nadie más reclama sobre esta fuente sin reabrir el protocolo de esta Sección por escrito, en este documento.
+
+### 13.2 La extinción, y lo que el ecosistema pierde
+
+La tabla de extinción está en `3.2` y no se repite: quintos de 90 millones, cinco años, cero en 2031.
+
+Lo que corresponde acá es la cuenta del otro lado. **El corpus tenía anotados 180 a 270 millones por año de ahorro por esta vía, y a partir de ahora recibe entre 0 y 150.** El sobrante es el que queda después de que este PLAN gasta lo suyo, y en régimen pleno la aritmética es directa: liberado 450, gasto de este PLAN entre 300 y 450, **remanente para la Fuente 1 entre 150 y 0.**
+
+Es una pérdida real para el resto del ecosistema y este documento no la maquilla. Tiene tres atenuantes, y los tres son verdaderos pero ninguno la anula:
+
+**Uno.** La cifra vieja nunca estuvo asignada a nada. Los 180–270M eran un ahorro genérico contra un pool general, no una línea de ningún PLAN, así que lo que se pierde es holgura y no un dispositivo concreto.
+
+**Dos.** La Fuente 1 conserva sus otras líneas: `PRESUPUESTO_CONSOLIDADO:419` lista además consultorías externas federales por USD 320M/año eliminables en 50%, y unos USD 600M/año de gasto en extractivismo desincentivado.
+
+**Tres.** El corpus recibe, a cambio, que alguien pague el Commons Atencional que `PLANDIG:788` consagró y la TABLA 20 de `PLANDIG:1086` —USD 4.700–9.900M a diez años, unos 700M por año— nunca presupuestó. Si ese derecho hubiera que financiarlo con presupuesto nuevo, costaría más que lo que este PLAN le saca a la Fuente 1.
+
+**Y hay un año que hay que decir en voz alta y no dejarlo en la tabla: 2027.** Ese año la extinción libera 90 millones y este PLAN gasta, en el escenario alto, exactamente 90. **El ecosistema recibe cero.** No se redondea y no se promedia con los años siguientes.
+
+### 13.3 La rampa de quince años
+
+**Por qué acá manda la banda anual y no el total, al revés que en PLANPREGUNTA.** En aquel PLAN el total de quince años era intocable porque era el insumo del gate de spin-off y está publicado en el acta. Acá no: `gate-spinoff-planes-nuevos.ts` carga a PLANFOCO con `huespedes` vacío y el bucle sale antes de usar los montos, así que **los 3.000–5.000M de la spec nunca entraron a ningún cociente**, y la salida publicada en `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:31` lo confirma: dice «SIN HUÉSPED», no un ratio.
+
+Lo que sí está atado es la banda anual, porque de ella cuelga la restricción de orden que el brief fija —por debajo de PLANTALLER, no por encima de PLANJUS— y las dos referencias tienen domicilio: PLANTALLER opera en **USD 640–1.000M/año** (`PLANTALLER:655`, `PRESUPUESTO_CONSOLIDADO:394`) y PLANJUS estima **USD 800–2.500M/año** progresivos (`PLANJUS:107`). Este PLAN queda por debajo de los dos con holgura.
+
+**Y la banda se corrige de 300–500 a 300–450, por una razón de diseño y no de prudencia.** El techo lo pone la fuente: la pauta entera son 450 millones y este documento no reclama ninguna segunda fuente, así que un régimen de 500 sería un régimen con cincuenta millones sin origen. **Este PLAN no puede ser más grande que la pauta que mata**, y eso lo vuelve el único del corpus cuyo tamaño máximo lo fija aquello que elimina.
+
+| Fase | Años | Anual bajo | Anual alto | Subtotal bajo | Subtotal alto |
+|---|---|---|---|---|---|
+| 0 — la pauta se vuelve ciega (2027–2028) | 2 | 60 | 90 | 120 | 180 |
+| 1 — las primeras seiscientas sedes (2029–2031) | 3 | 170 | 260 | 510 | 780 |
+| 2 — la red completa, 1.200–1.500 sedes (2032–2034) | 3 | 270 | 430 | 810 | 1.290 |
+| 3 — régimen y evaluación (2035–2041) | 7 | 300 | 450 | 2.100 | 3.150 |
+| **Total** | **15** | — | — | **3.540** | **5.400** |
+
+**El total de quince años se corrige, entonces, de 3.000–5.000 a USD 3.540–5.400M**, y la corrección es una derivación, no una ambición: sale de multiplicar cada fase por sus años. Ninguna fila gasta por encima de lo que la extinción liberó ese año, y eso es lo que hace que este PLAN no necesite un peso de presupuesto nuevo en ningún momento de los quince años.
+
+### 13.4 El reparto interno del régimen
+
+Los 300 a 450 millones anuales de régimen se reparten en siete líneas, y la tabla cierra exacta en los dos extremos:
+
+| Línea | Bajo | Alto |
+|---|---|---|
+| Biblioteca Viva — operación de 1.200–1.500 sedes | 190 | 275 |
+| El Acervo Abierto — digitalización, custodia y catálogo | 35 | 50 |
+| La Antena — dotaciones de canal | 25 | 45 |
+| La Mirada y el Desmontaje — material y formación de mediadores | 15 | 25 |
+| La Procedencia — estándar, firma e integración | 12 | 20 |
+| ANBAC — operación institucional | 15 | 20 |
+| La Cartelera — operación | 8 | 15 |
+| **Total** | **300** | **450** |
+
+**La verificación que hace creíble la línea grande.** La Biblioteca Viva da entre 190 y 275 millones para 1.200 a 1.500 sedes, o sea entre **127 y 229 mil dólares por sede por año**. La única referencia comparable del corpus es PLANTALLER: `PRESUPUESTO_CONSOLIDADO:394` da *«USD 720M inicial (4.000 Tallers × 180K)»* y `PLANTALLER:655` da 640 a 1.000 millones anuales de operación, o sea entre 160 y 250 mil por Taller por año. **Mismo orden de magnitud por caminos independientes.** Si esta cuenta diera veinte mil por sede, estaría mal; si diera un millón, también.
+
+Dos observaciones sobre el reparto que conviene dejar escritas. **ANBAC es entre el cuatro y el cinco por ciento del total**, que es deliberadamente poco y es lo que hace que la agencia no pueda construir un aparato de control aunque quiera. Y **la Cartelera es la línea más chica de todas**, ocho a quince millones, porque es un tablón: cuando un dispositivo de publicación empieza a costar como una plataforma, es que dejó de ser un tablón.
+
+**Qué pasa si la fuente resulta más chica de lo que dice el corpus.** Los 450 millones son una estimación de `PRESUPUESTO_CONSOLIDADO:419` sobre datos de 2023, en dólares, sobre gasto consolidado de los tres niveles del Estado. Puede estar alta por dos motivos distintos y hay que tratarlos por separado.
+
+**Si está alta porque la cifra incluye pauta provincial y municipal que la Nación no puede extinguir** —que es el límite declarado en `3.2`—, entonces la fuente efectiva del primer día es menor y la rampa se estira. La regla de ajuste está escrita por adelantado y no se decide en el momento: **se posterga la apertura de sedes, no se recorta la operación de las que ya abrieron.** Mil sedes abiertas con bibliotecario valen más que mil quinientas abiertas a media máquina, y la tentación en una restricción presupuestaria siempre es la contraria, porque cerrar una sede se nota y desfinanciarla no.
+
+**Si está alta porque el gasto real cayó desde 2023**, la corrección es del corpus y no de este PLAN: la cifra hay que remedirla y republicarla en `PRESUPUESTO_CONSOLIDADO`, y este documento se recalcula contra el número nuevo. Lo que **no** se hace es completar la diferencia con presupuesto del Tesoro, porque en ese momento este PLAN dejaría de ser lo que dice ser y pasaría a competir por el mismo bolsillo que PLANEDU, PLANSAL y PLANVIV.
+
+**Y qué pasa en una crisis fiscal**, que en la Argentina no es un escenario sino una periodicidad. La respuesta honesta es que este PLAN **es de los primeros que se recorta**, porque no tiene piso constitucional y porque una biblioteca cerrada no mata a nadie esta semana. Lo dice `PLANPACTO` con su LIFO y lo dice la Escalera de Garantías, donde este PLAN no tiene escalón. La única protección que este documento construye es la de `3.2`: que volver atrás requiera **recrear la partida de pauta con firma y monto en el Boletín Oficial**, mientras la plata está visiblemente pagando bibliotecas abiertas. No es un blindaje. Es hacer que el recorte tenga que ser explícito, que es lo máximo que puede ofrecer un PLAN que renunció a blindarse.
+
+### 13.5 Lo que este PLAN no reclama
+
+Un PLAN que se financia solo con lo que apaga tiene que decir explícitamente qué no pide, porque el silencio se lee como reserva.
+
+**No reclama piso constitucional.** No agrega escalón a la Escalera de `PLANPACTO`, que cierra en ocho escalones y en 2,40% del PBI exacto. Su piso se difiere a Visión 2040+, y la Sección 20 explica bajo qué condición tendría sentido pedirlo.
+
+**No reclama presupuesto nuevo del Tesoro en ninguna de las cuatro fases.** Todo sale de la pauta que extingue.
+
+**No reclama el FSC de PLANTER**, que `PLANPREGUNTA` reabrió en su tramo y este PLAN deja como está.
+
+**No reclama el presupuesto de ciencia y tecnología**, que es de PLANDIG por `PLANDIG:1112` y sobre el cual ya hay una nota de frontera escrita.
+
+**No reclama canon de radiodifusión, ni impuesto a plataformas, ni tasa sobre la publicidad privada.** Las tres son fuentes plausibles y las tres están descartadas por la misma razón: crean una bolsa nueva de plata atada a medios, y la tesis de este PLAN es que la existencia de la bolsa es el problema y no su forma de reparto. Construir la Biblioteca con un impuesto a los medios sería ganar el edificio y perder el argumento.
+
+**Lo único que reclama, y no es plata:** que el umbral de qué cuenta como medio esté en la ley, que PLANEDU dicte el Desmontaje, que PLANJUS cree el Panel de Legalidad de Publicación, y que PLANMEMORIA acepte los manifiestos del Acervo en sus siete nodos. Cuatro pedidos, tres de ellos a documentos ajenos, todos escritos también del otro lado.
+
+---
