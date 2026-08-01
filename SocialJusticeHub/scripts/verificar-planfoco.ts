@@ -360,7 +360,46 @@ interface Prohibido {
   ambito?: 'documento' | 'cabecera';
   /** Excepción medida sobre **la oración del match** — la misma unidad que el patrón. */
   salvoSi?: { patron: RegExp; porQue: string };
+  /**
+   * **El prohibido sólo dispara si la oración nombra a alguien que podría tener
+   * la potestad.** Existe por un defecto que apareció apenas se escribieron las
+   * tres primeras secciones: los prohibidos de la restricción del fundador se
+   * pusieron rojos sobre frases que el documento NECESITA escribir — «ninguna
+   * regulación de contenido se queda en manos del que la escribió», «incluida la
+   * que paga por alcance verificado», «es un ministerio de la verdad con buenos
+   * modales» —, porque el método retórico de este PLAN es **nombrar el mecanismo
+   * prohibido para rechazarlo**, y el lookbehind sólo ve negaciones anteriores.
+   *
+   * El invariante real no es «la palabra no aparece»: es «este PLAN no le da a
+   * nadie la potestad sobre contenido». Entonces la oración tiene que nombrar a
+   * ese alguien. Una crítica abstracta al mecanismo no le da potestad a nadie.
+   *
+   * **Hueco conocido y declarado:** una construcción impersonal —«el contenido se
+   * licencia»— no nombra actor y se escapa. Es más angosto que el falso positivo
+   * que reemplaza, y queda anotado acá en vez de descubrirse después.
+   */
+  exigeActor?: boolean;
 }
+
+/**
+ * Quién podría tener la potestad. Si la oración no nombra a ninguno, el
+ * prohibido con `exigeActor` no corre.
+ */
+const ACTOR = /\bANBAC\b|\beste PLAN\b|\bPLANFOCO\b|\bel Estado\b|\bla agencia\b|\bel gobierno\b|\bla autoridad\b|\bla ANBAC\b/iu;
+
+/**
+ * Negación en CUALQUIER parte de la oración, no sólo antes del verbo. El
+ * lookbehind cubre «el Estado no licencia contenido»; esto cubre «... es un
+ * ministerio de la verdad con buenos modales, y este PLAN existe para no ser eso»,
+ * donde el rechazo llega después.
+ */
+const RECHAZO = {
+  patron: /\b(no|ni|nunca|jamás|tampoco|ning[úu]n|ninguna|nadie)\b|prohib|descart|rechaz|renunci/iu,
+  porQue:
+    'la negación puede llegar DESPUÉS del verbo, y el lookbehind sólo ve hacia atrás. Este ' +
+    'documento escribe la mitad de sus rechazos en esa forma: nombra el mecanismo y lo rechaza en la ' +
+    'cláusula siguiente',
+};
 
 /**
  * Lookbehind de negación reutilizable: la negación tiene que gobernar la misma
@@ -440,6 +479,8 @@ const PROHIBIDOS: Prohibido[] = [
     porQue:
       'la restricción del fundador es absoluta: ningún dispositivo puede licenciar, habilitar ni ' +
       'autorizar contenido. La forma negada queda exenta sola por el lookbehind',
+    exigeActor: true,
+    salvoSi: RECHAZO,
   },
   {
     patron: new RegExp(
@@ -447,11 +488,12 @@ const PROHIBIDOS: Prohibido[] = [
       'iu',
     ),
     porQue: 'el Estado no regula medios en este PLAN: se aplica una sola disciplina a sí mismo, sobre su propia billetera',
+    exigeActor: true,
     salvoSi: {
-      patron: /CNDC|antimonopolio|concentraci[óo]n|PLANCUL/u,
+      patron: new RegExp(`${RECHAZO.patron.source}|CNDC|antimonopolio|concentraci[óo]n|PLANCUL`, 'iu'),
       porQue:
-        'la acción antimonopolio de PLANCUL:387 (Acción 1) la aplica la CNDC y no es contenido: ' +
-        'nombrarla exige usar la palabra',
+        `${RECHAZO.porQue}. Y además: la acción antimonopolio de PLANCUL:387 (Acción 1) la aplica la ` +
+        'CNDC y no es contenido, así que nombrarla exige usar la palabra',
     },
   },
   {
@@ -462,10 +504,13 @@ const PROHIBIDOS: Prohibido[] = [
     porQue:
       'pagar por alcance verificado es subsidiar al incumbente, y es exactamente el mecanismo que ' +
       'la Pauta Ciega existe para desmontar (spec §6)',
+    exigeActor: true,
+    salvoSi: RECHAZO,
   },
   {
     patron: new RegExp(`${NEG}\\b(es|ser[íi]a|funciona como)\\b\\s+(?:un\\s+)?Ministerio de la Verdad`, 'iu'),
-    porQue: 'este PLAN existe para no serlo. La frase sólo puede aparecer negada',
+    porQue: 'este PLAN existe para no serlo. La frase sólo puede aparecer negada o rechazada',
+    salvoSi: RECHAZO,
   },
   /**
    * El piso: PLANFOCO no lo tiene y no lo pide. Su piso va a Visión 2040+.
@@ -764,7 +809,7 @@ function verificarProhibidos(raw: string, lineas: string[]): string[] {
   const errores: string[] = [];
   const plano = raw.replace(/\*\*/g, '');
   const cabecera = lineas.slice(0, 60).join('\n').replace(/\*\*/g, '');
-  for (const { patron, porQue, ambito, salvoSi } of PROHIBIDOS) {
+  for (const { patron, porQue, ambito, salvoSi, exigeActor } of PROHIBIDOS) {
     const texto = ambito === 'cabecera' ? cabecera : plano;
     const re = new RegExp(patron.source, patron.flags.includes('g') ? patron.flags : `${patron.flags}g`);
     let m: RegExpExecArray | null;
@@ -773,7 +818,10 @@ function verificarProhibidos(raw: string, lineas: string[]): string[] {
         re.lastIndex += 1;
         continue;
       }
-      if (salvoSi && salvoSi.patron.test(oracionDe(texto, m.index, m.index + m[0].length))) continue;
+      const oracion = oracionDe(texto, m.index, m.index + m[0].length);
+      if (salvoSi && salvoSi.patron.test(oracion)) continue;
+      // Una crítica abstracta al mecanismo no le da la potestad a nadie: sin actor, no hay reclamo.
+      if (exigeActor === true && !ACTOR.test(oracion)) continue;
       const nLinea = texto.slice(0, m.index).split('\n').length;
       errores.push(
         `${ambito === 'cabecera' ? 'cabecera, ' : ''}línea ${String(nLinea)}: «${m[0]}» está prohibido — ${porQue}`,
