@@ -149,7 +149,7 @@ La tabla de tres columnas que la spec exige (erogación bruta / gasto sustituido
 | Archivo | Responsabilidad |
 |---|---|
 | `SocialJusticeHub/scripts/verificar-planarco.ts` | La guardia: secciones en orden, cifras canónicas presentes, strings prohibidos ausentes, **y las dos tablas parseadas y sumadas** (el Calendario de Umbrales y la tabla de fuentes de la Renta de Arco). |
-| `Iniciativas Estratégicas/PLANARCO_Argentina_ES.md` | El documento. Objetivo: **27.000–31.000 palabras**. |
+| `Iniciativas Estratégicas/PLANARCO_Argentina_ES.md` | El documento. Objetivo: **32.000–35.000 palabras**. |
 
 **Modificar**
 
@@ -483,6 +483,6 @@ Un step `Guardia de PLANARCO` junto al de PLANPACTO. **Los `paths` ya cubren `In
 
 Al terminar las doce tareas:
 1. `npx tsx scripts/verificar-planarco.ts` verde, con el resumen de líneas, secciones, cifras y tablas sumadas.
-2. `wc -w` del documento dentro de 27.000–31.000.
+2. `wc -w` del documento dentro de **32.000–35.000**.
 3. **Revisión final del tramo entero**, con el documento leído de punta a punta por un agente que no escribió ninguna sección. El tramo B la hizo y encontró un Crítico que las nueve revisiones por tarea no podían ver: **la sección que defendía al PLAN era la menos verificada del documento.** Buscá el equivalente acá — es el que más caro sale.
 4. Ledger actualizado en `.superpowers/sdd/progress.md`.
