@@ -224,9 +224,9 @@ export const corrienteLocal = (): ItemCorriente[] => {
   return [...obras, ...misiones].sort((a, b) => fechaDe(b).localeCompare(fechaDe(a)));
 };
 
-export const constelacionesDeOficio = (): Array<{
+export const constelacionesDeOficio = (): {
   oficio: Oficio; obras: number; brillo: number; nivel: NivelBrillo;
-}> => {
+}[] => {
   const todas = db.select().from(pvObras).all();
   const ahora = ahoraISO();
   return OFICIOS.map((oficio) => {

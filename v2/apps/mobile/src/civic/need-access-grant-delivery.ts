@@ -1,4 +1,4 @@
-import type { LocationPrecision } from './types';
+import type { LocationPrecision, NeedGrantRevocationReason } from './types';
 import { and, eq, isNull } from 'drizzle-orm';
 
 import {
@@ -28,7 +28,6 @@ import {
   type NeedGrantProjectionV1,
   type NeedGrantUnitCode,
 } from './need-access-grants';
-import type { NeedGrantRevocationReason } from './types';
 
 const CONTRACT = 'basta-civic-custody-grants/v1';
 const UUID_V4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;

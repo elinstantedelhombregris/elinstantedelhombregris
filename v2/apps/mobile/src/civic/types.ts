@@ -1,3 +1,12 @@
+import type {
+  CivicAudience,
+  CivicSensitivity,
+  GeoPoint,
+  LocationPrecision,
+  LocationRole,
+  PublicLocation,
+} from '@v2/civic-core';
+
 export type CivicCampaignKey =
   | 'luminarias-v1'
   | 'ollas-v1'
@@ -58,15 +67,6 @@ export type CivicRecordStatus =
  * qué se puede publicar de ella — antes había dos, y nada impedía que
  * derivaran.
  */
-import type {
-  CivicAudience,
-  CivicSensitivity,
-  GeoPoint,
-  LocationPrecision,
-  LocationRole,
-  PublicLocation,
-} from '@v2/civic-core';
-
 export type {
   CivicAudience,
   CivicSensitivity,

@@ -50,7 +50,6 @@ import { haptic } from '@/theme/haptics';
 import {
   AMBAR_PT,
   CIAN,
-  PAPEL_CRUDO,
   ROJO_SELLO,
   TINTA,
   TINTA_50,
