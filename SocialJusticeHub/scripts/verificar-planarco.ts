@@ -118,6 +118,8 @@ const H2_CALENDARIO = '## SECCIÓN 3: LA SOLUCIÓN — EL CALENDARIO DE UMBRALES
 const H2_RENTA = '## SECCIÓN 4: LA RENTA DE ARCO';
 const H2_COMIENZO = '## SECCIÓN 5: EL COMIENZO';
 const H2_MEDIO = '## SECCIÓN 6: EL MEDIO';
+/** Prefijo, como `### 0.6 `: el domicilio de la tabla de fuentes es su número. */
+const H3_TABLA_DE_FUENTES = '### 4.6 ';
 
 const CIFRAS_CANONICAS: ValorConDomicilio[] = [
   {
@@ -220,7 +222,107 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
       'que acumula capital, y sus dos mandatos previos son «no distribuir»: el Fondo Previsional ' +
       'Bastardo choca contra ella y la sección lo tiene que decir con el número puesto',
   },
+  // ── Task 6 · SECCIÓN 6 ────────────────────────────────────────────────────
+  {
+    valor: '2.400 km/año',
+    en: [H2_MEDIO],
+    porQue:
+      'el cupo base del adulto en el Mandato Kilométrico Ciudadano — PLANMOV:469. §6.1 escribe la ' +
+      'regla de que el Pasaje no crea kilómetros CONTRA este número: sin él, «se descuenta del cupo» ' +
+      'no dice de cuánto',
+  },
+  {
+    valor: '1.200 km/año',
+    en: [H2_MEDIO],
+    veces: 2,
+    porQue:
+      'el cupo del MENOR — PLANMOV:469, y las dos ocurrencias hacen falta: la cita del cupo y el ' +
+      'argumento de que un solo viaje del Pasaje puede consumirlo entero. Sin la segunda, «cuatro ' +
+      'viajes pagos» se sigue leyendo como regalo en un régimen donde es uso obligado del cupo propio',
+  },
+  {
+    valor: 'USD 780M',
+    en: [H2_MEDIO],
+    porQue:
+      'la caja anual de «Cinco Años Dignos» — PLANMOV:1339. Es el precedente estructural del ' +
+      'reintegro del Alto y la única política del corpus anclada a una edad de la mediana vida: sin ' +
+      'el número, el precedente es una anécdota',
+  },
 ];
+
+/**
+ * **EL RECÍPROCO DEL DOMICILIO, y la Task 6 abrió el primer caso.** El campo
+ * `en` cierra que una cifra canónica DESAPAREZCA de donde tiene que estar. No
+ * cierra lo contrario: que el documento la CONTRADIGA fuera de su domicilio.
+ * Hasta acá no importaba porque ninguna sección posterior repetía una cifra de
+ * §4; §5.2 es la primera. Reproducido: mutando **solo** la copia de §5.2 a
+ * `USD 24.750–46.500M` —un orden de magnitud— la guardia salía **exit 0** y
+ * seguía anunciando «14 cifras canónicas» verificadas, con el documento
+ * afirmando dos magnitudes distintas para la misma línea del mismo fondo.
+ *
+ * **Por qué una familia y no un barrido de unidades.** Barrer todos los `USD `
+ * del documento y exigir que coincidan con la canónica es absurdo: hay ocho
+ * montos legítimos y distintos. Lo que identifica a la MAGNITUD no es la unidad
+ * sino el objeto del que se predica, así que la familia se declara con la cosa
+ * (`cerca`), la forma del número (`unidad`) y el juego cerrado de valores que
+ * esa cosa puede tener. En toda línea que nombre la cosa, cada número con esa
+ * forma tiene que ser uno de los declarados.
+ *
+ * **Falsos positivos: cero**, verificado línea por línea. Las cuatro líneas que
+ * nombran el Fondo Intergeneracional son `:465`, `:524`, `:526` y `:532`; las
+ * dos que traen monto traen el mismo, y las otras dos no traen ninguno y no
+ * disparan.
+ */
+type FamiliaDeCifra = { cerca: string; unidad: RegExp; valores: string[]; porQue: string };
+
+const FAMILIAS_DE_CIFRA: FamiliaDeCifra[] = [
+  {
+    cerca: 'Fondo Intergeneracional',
+    unidad: /USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
+    valores: ['USD 2.475–4.650M'],
+    porQue:
+      'el flujo anual del Fondo Intergeneracional es uno solo (PLANTER:674) y §4.5 y §5.2 lo escriben ' +
+      'los dos. Dos magnitudes para la misma línea del mismo fondo es la contradicción que el ' +
+      'domicilio no ve',
+  },
+  {
+    cerca: 'Mandato Kilométrico',
+    unidad: /[\d.]+\skm\/año/gu,
+    valores: ['2.400 km/año', '1.200 km/año'],
+    porQue:
+      'los dos cupos del MKC son los de PLANMOV:469 y no otros. El Pasaje se descuenta de ellos: un ' +
+      'cupo inflado en la copia vuelve gratis un viaje que consume el año entero de un menor',
+  },
+  {
+    cerca: 'Cinco Años Dignos',
+    unidad: /USD\s[\d.]+(?:[–-][\d.]+)?M/gu,
+    valores: ['USD 780M'],
+    porQue: 'la caja del precedente etario, PLANMOV:1339, no admite segunda versión',
+  },
+];
+
+/**
+ * El chequeo de la familia: en cada línea que nombre la cosa, todo número con
+ * la forma declarada tiene que ser uno de los valores canónicos.
+ */
+function verificarFamiliasDeCifra(lineas: string[]): string[] {
+  const errores: string[] = [];
+  for (const { cerca, unidad, valores, porQue } of FAMILIAS_DE_CIFRA) {
+    lineas.forEach((linea, k) => {
+      if (!linea.includes(cerca)) return;
+      const re = new RegExp(unidad.source, unidad.flags.includes('g') ? unidad.flags : `${unidad.flags}g`);
+      let m: RegExpExecArray | null;
+      while ((m = re.exec(linea)) !== null) {
+        if (valores.includes(m[0])) continue;
+        errores.push(
+          `línea ${String(k + 1)}: la línea nombra «${cerca}» y escribe «${m[0]}», que no es ninguno ` +
+            `de los valores canónicos de esa familia [${valores.join(' · ')}] — ${porQue}`,
+        );
+      }
+    });
+  }
+  return errores;
+}
 
 /**
  * Afirmaciones sin cifra que el documento está obligado a hacer, con el mismo
@@ -405,6 +507,14 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
   {
     valor: 'evidencia verificable por sistema',
     en: [H2_COMIENZO],
+    /**
+     * Encontrado rompiendo al verificar los arreglos de esta revisión, y es la
+     * limitación que CIFRAS_CANONICAS documenta desde la Task 4: la frase vive
+     * en el título del H3 y en la declaración, y borrar la DECLARACIÓN salía
+     * **exit 0** porque el título la cubría. El título nombra el criterio; la
+     * declaración es la que dice que no hay cuerpo que delibere.
+     */
+    veces: 2,
     porQue:
       'el arreglo 6: la liberación de la Dote NO se decide en una mesa. Un panel territorial que ' +
       'decide quién cobra un capital de dieciocho años es la mejor máquina de punteros que este ' +
@@ -435,6 +545,33 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
       'PLANMOV §14.3, mayores de 50 desplazados, con aportes previsionales y cobertura a cargo del ' +
       'FRM. No es la mediana edad como categoría —es un sector y un desplazamiento— pero decir ' +
       '«territorio virgen» sin acotarlo contra esto sería falso',
+  },
+  /**
+   * **Las dos decisiones propias de §6.3, que era lo que el pendiente 3 mandaba
+   * proteger y la Task 6 dejó afuera.** Las cinco aserciones de arriba cubren
+   * los cinco HALLAZGOS —lo que la sección encontró en otros PLANes— y ninguna
+   * cubre lo que la sección DECIDE. Verificado rompiendo, las dos **exit 0**:
+   * borrar el párrafo entero de la resolución del acantilado, y bajar el
+   * crédito «al 100%» a «al 75%», que es la asimetría con la jornada 6+2 dada
+   * vuelta y el modo de falla principal del dispositivo reintroducido.
+   */
+  {
+    valor: 'no escribir el umbral',
+    en: [H2_MEDIO],
+    porQue:
+      'la resolución del acantilado del empleado 50, y la decisión más disputable de la sección: el ' +
+      'crédito es igual para todos y proporcional a las horas, así que nadie cruza una frontera al ' +
+      'contratar. Un umbral movido a otro número es el mismo acantilado en otro lado, y sobre la ' +
+      'misma nómina PLANCUIDADO ya tiene dos cortes propios (:355, :356)',
+  },
+  {
+    valor: 'al 100% y no al 75%',
+    en: [H2_MEDIO],
+    porQue:
+      'la asimetría fundada con la jornada 6+2 de `PLANCUIDADO:347`: las 2 horas de cuidado las ' +
+      'recibe la comunidad y en parte la empresa, y el Alto no le devuelve nada a la empresa. Bajar ' +
+      'el reintegro al 75% deja la pausa paga parcialmente a cargo de quien emplea a alguien de ' +
+      'cuarenta y cinco años, que es el descarte por edad que el dispositivo existe para impedir',
   },
 ];
 
@@ -1081,6 +1218,169 @@ function resolverDueno(celda: string, registro: string[]): { id: string } | { er
 }
 
 /**
+ * **DECIMOCUARTA FORMA DEL LADO DE LA TABLA: la columna del dueño resolvía
+ * contra el REGISTRO GLOBAL y no contra la autoridad que la propia fila cita.**
+ *
+ * El arreglo anterior le puso autoridad a la columna: hoy una celda tiene que
+ * nombrar exactamente un dueño del registro. Lo que no cerró es que el registro
+ * es un CONJUNTO —todas las siglas del corpus— y la fila 4 no cita el conjunto:
+ * cita `SOURCE_OF_FUNDS_LEDGER.md:37`, que es F10, y esa línea trae dueño,
+ * clase, confianza y disponibilidad. Reproducido, las dos **exit 0**:
+ * `PEO` → `ANMov` (sigla real, dueño de otra fuente) y `baja` → `media`
+ * (mientras `:488` sigue diciendo «la lleva F10 con esa confianza»).
+ *
+ * **La autoridad está en la celda de al lado.** Cuando la celda «Fuente» ancla
+ * una línea del libro mayor, las cuatro columnas se cruzan contra ESA línea.
+ *
+ * La disponibilidad se cruza por equivalencia declarada y no por igualdad: el
+ * libro mayor escribe `rolling` y la tabla de este PLAN escribe la condición en
+ * castellano —«continua, adhesión por adhesión»—, que es lo que §4.6 declara
+ * cuando dice que tres de las cuatro dan condición y no fecha. Una igualdad
+ * literal ahí pondría en rojo prosa honesta; la equivalencia va escrita para que
+ * agregar una no sea gratis.
+ */
+const ANCLA_LIBRO_MAYOR = /SOURCE_OF_FUNDS_LEDGER\.md:(\d+)/;
+
+/** `rolling` del libro mayor ↔ la condición en castellano de la tabla. */
+const EQUIVALENCIAS_DE_DISPONIBILIDAD: Record<string, RegExp> = {
+  rolling: /continua|rolling/i,
+};
+
+/** Las celdas de una línea del libro mayor, por nombre de columna. */
+function filaDelLibroMayor(n: number): Record<string, string> | null {
+  const ls = lineasDelPlan('SOURCE_OF_FUNDS_LEDGER.md');
+  if (ls === null) return null;
+  const linea = ls[n - 1];
+  if (linea === undefined || !esFilaDeTabla(linea) || esSeparadorDeTabla(linea)) return null;
+  // La cabecera de esa tabla es la última fila de encabezado antes de `n`.
+  let cabecera: string[] | null = null;
+  for (let i = n - 2; i >= 0; i -= 1) {
+    const l = ls[i] ?? '';
+    if (!esFilaDeTabla(l)) break;
+    if (esSeparadorDeTabla(l)) {
+      cabecera = celdas(ls[i - 1] ?? '').map((c) => pelada(c));
+      break;
+    }
+  }
+  if (cabecera === null) return null;
+  const cs = celdas(linea).map((c) => pelada(c));
+  const out: Record<string, string> = {};
+  cabecera.forEach((col, i) => {
+    out[col] = cs[i] ?? '';
+  });
+  return out;
+}
+
+/**
+ * Cruza una fila de la tabla de fuentes contra la línea del libro mayor que
+ * ella misma cita. Devuelve los errores, o `[]` si la fila no cita ninguna.
+ */
+function cruzarContraLibroMayor(
+  fila: string[],
+  donde: string,
+  registro: string[],
+): string[] {
+  const m = ANCLA_LIBRO_MAYOR.exec(fila[0] ?? '');
+  if (!m) return [];
+  const n = Number(m[1]);
+  const ref = filaDelLibroMayor(n);
+  if (ref === null) {
+    return [
+      `${donde} ancla \`SOURCE_OF_FUNDS_LEDGER.md:${String(n)}\` y esa línea no es una fila de la ` +
+        'tabla del libro mayor: la fila dice apoyarse en una autoridad que no se puede leer',
+    ];
+  }
+
+  const errores: string[] = [];
+  const id = ref['ID'] ?? `línea ${String(n)}`;
+
+  const duenoRef = registro.length > 0 ? resolverDueno(ref['Dueño'] ?? '', registro) : null;
+  const duenoFila = registro.length > 0 ? resolverDueno(fila[1] ?? '', registro) : null;
+  if (duenoRef !== null && duenoFila !== null && 'id' in duenoRef && 'id' in duenoFila) {
+    if (duenoRef.id !== duenoFila.id) {
+      errores.push(
+        `${donde} nombra dueño «${duenoFila.id}» y la línea que ella misma cita —${id} de ` +
+          `\`SOURCE_OF_FUNDS_LEDGER.md:${String(n)}\`— dice «${duenoRef.id}». La autoridad de una fila ` +
+          'anclada es su línea, no el conjunto de siglas del corpus: contra el conjunto, cualquier ' +
+          'sigla real pasa',
+      );
+    }
+  }
+
+  const paresExactos: [string, string, number][] = [
+    ['Confianza', 'confianza', 3],
+    ['Clase', 'clase', 4],
+  ];
+  for (const [col, nombre, i] of paresExactos) {
+    const esperado = (ref[col] ?? '').toLowerCase();
+    const escrito = pelada(fila[i] ?? '').toLowerCase();
+    if (esperado !== '' && esperado !== escrito) {
+      errores.push(
+        `${donde} declara ${nombre} «${escrito}» y ${id} la tiene en «${esperado}» ` +
+          `(\`SOURCE_OF_FUNDS_LEDGER.md:${String(n)}\`)`,
+      );
+    }
+  }
+
+  const dispRef = (ref['Disponibilidad'] ?? '').toLowerCase();
+  const dispFila = pelada(fila[2] ?? '').toLowerCase();
+  const equiv = EQUIVALENCIAS_DE_DISPONIBILIDAD[dispRef];
+  const cierra = equiv ? equiv.test(dispFila) : dispRef === dispFila;
+  if (dispRef !== '' && !cierra) {
+    errores.push(
+      `${donde} declara disponibilidad «${dispFila}» y ${id} la tiene en «${dispRef}» ` +
+        `(\`SOURCE_OF_FUNDS_LEDGER.md:${String(n)}\`). Si son la misma cosa dicha de dos maneras, la ` +
+        'equivalencia se declara en EQUIVALENCIAS_DE_DISPONIBILIDAD y no se supone',
+    );
+  }
+
+  return errores;
+}
+
+/**
+ * **La otra mitad del mismo defecto: la fila SIN ancla al libro mayor.** La
+ * primera fila —la única con caja presente— no cita ninguna línea porque su
+ * fuente no está en el libro mayor, así que el cruce de arriba no la alcanza.
+ * Reproducido: `ANSES` → `ANTSPO` salía **exit 0**, con una sigla real, el
+ * dueño del fondo soberano de otro PLAN, y `:490` a tres líneas diciendo «los
+ * haberes que ANSES ya liquida».
+ *
+ * La autoridad de esas filas es la prosa que las glosa. La regla es simétrica y
+ * barata: **todo dueño del registro que §4.6 nombre en su prosa tiene que ser
+ * dueño de alguna fila de la tabla.** No exige que la prosa nombre a los cuatro
+ * —dos se glosan por su función y no por su sigla— sino que no pueda nombrar
+ * uno que la tabla ya no tiene.
+ *
+ * El domicilio es §4.6 y no la SECCIÓN 4 entera a propósito: §4.5 nombra a la
+ * ANTSPO como administradora del Fondo Soberano Ciudadano, que es verdad y no
+ * es un dueño de esta tabla. Y las filas de la tabla se descuentan del texto,
+ * porque si no la mutación se cubriría a sí misma.
+ */
+function verificarDuenosContraLaProsa(
+  lineas: string[],
+  duenosDeLaTabla: Set<string>,
+  registro: string[],
+): string[] {
+  const { texto, errores } = textoDeDomicilio(lineas, H3_TABLA_DE_FUENTES);
+  if (texto === null) return errores;
+  const prosa = texto
+    .split('\n')
+    .filter((l) => !esFilaDeTabla(l))
+    .join('\n');
+  for (const id of registro) {
+    if (duenosDeLaTabla.has(id)) continue;
+    const re = new RegExp(`(?<!\\p{L})${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!\\p{L})`, 'u');
+    if (!re.test(prosa)) continue;
+    errores.push(
+      `la prosa de §4.6 nombra a «${id}» como dueño y la tabla de fuentes no lo tiene en ninguna ` +
+        `fila (los que tiene son «${[...duenosDeLaTabla].join('», «')}»). La prosa y la tabla no ` +
+        'pueden nombrar dueños distintos para la misma plata: una de las dos está mutada',
+    );
+  }
+  return errores;
+}
+
+/**
  * Los conteos que la prosa de la SECCIÓN 4 tiene que decir, **derivados de la
  * tabla y no escritos a mano.** Misma doctrina que
  * `frasesDerivadasDelCalendario()`: se exige el par número-sustantivo y no la
@@ -1203,6 +1503,9 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
       duenos.add(pelada(fila[1]));
     }
 
+    // La autoridad de la fila anclada es su línea del libro mayor, no el conjunto.
+    errores.push(...cruzarContraLibroMayor(fila, donde, registro));
+
     const confianza = pelada(fila[3]).toLowerCase();
     if (!CONFIANZAS.includes(confianza)) {
       errores.push(
@@ -1229,6 +1532,10 @@ function verificarTablaDeFuentes(lineas: string[]): string[] {
       );
     }
   });
+
+  if (registro.length > 0) {
+    errores.push(...verificarDuenosContraLaProsa(lineas, duenos, registro));
+  }
 
   const { tramo, errores: errTramo } = tramoDeSeccion(lineas, H2_RENTA);
   errores.push(...errTramo);
@@ -1499,7 +1806,53 @@ const CON_FORMA_DE_ANCLA = /§|:\d/u;
  * el chequeo por bueno. El corpus escribe la remisión corta pegada a su ancla
  * —«`PLANTER:674` … (`:163`)»— y el caso ambiguo, cuando aparece, es prosa que
  * el lector tampoco puede desambiguar.
+ *
+ * ── DECIMOCUARTA FORMA: el arreglo de arriba cerró al hijacker DÉBIL y dejó
+ * abierto al FUERTE, que es el realista ────────────────────────────────────
+ *
+ * El nombre pelado entre backticks —`` `PLANTER` `` suelto— no es prosa que el
+ * corpus escriba. El **ancla completa de otro documento** sí lo es. Reproducido
+ * sobre `:455` (§4.5), insertando `` `PLANTER:349` `` entre
+ * `` `PRESUPUESTO_CONSOLIDADO_BASTA.md:100` `` y sus dos remisiones cortas:
+ * **exit 0**, el titular pasó de 246 anclas «abiertas y resueltas» a 247, y
+ * `` `:430` `` resolvió contra `PLANTER:430` y `` `:3` `` contra `PLANTER:3`.
+ * El ancla completa reasignaba el antecedente y encima LIMPIABA los pelados
+ * pendientes.
+ *
+ * **Lo que NO se puede hacer, y va escrito para que nadie lo reintente:** tratar
+ * cualquier ancla intermedia como ambigüedad. Un ancla completa siempre se
+ * vuelve el antecedente, así que «entre el antecedente y la remisión corta» no
+ * puede haber ninguna otra por construcción; y contar todos los documentos
+ * anclados desde la remisión corta anterior pone en rojo prosa honesta —`:465`
+ * ancla PLANTER, después PLANMON, después PLANTER otra vez, y sus tres
+ * remisiones cortas son correctas—. Medido sobre el árbol limpio: sesenta y
+ * pico de falsos positivos.
+ *
+ * **El corte que sí distingue es la ORACIÓN.** Un lector resuelve la remisión
+ * corta contra el último documento citado, y eso alcanza mientras la oración
+ * nombre uno solo. Cuando la MISMA oración ancla dos documentos distintos antes
+ * de la remisión corta, el lector tampoco puede desambiguar: ahí el chequeo no
+ * corre y lo dice, igual que con el nombre pelado. La oración se corta contra
+ * `.`, `;` o `:` —los mismos límites de cláusula que usa el prohibido del
+ * gate— y contra el principio de línea, porque el corpus escribe un párrafo por
+ * línea.
+ *
+ * **Falsos positivos: cero sobre el documento entero**, medido antes y después
+ * de las secciones nuevas. Lo que queda abierto va dicho: dos anclas en
+ * oraciones distintas siguen resolviendo por la última, que es como lo lee
+ * cualquiera.
  */
+/**
+ * Límite de ORACIÓN entre dos tokens. Los dos puntos NO cortan, y la diferencia
+ * se midió: con `:` adentro del juego, la mutación «`PLANTER:674` … que
+ * `PLANMON:941` no computa … de no distribuir: preservación de capital (`:163`)»
+ * se escapaba del chequeo de ambigüedad —el `:` de «no distribuir:» vaciaba el
+ * conjunto— y solo caía de rebote, porque `PLANMON` no tiene esas líneas. De
+ * rebote no es un chequeo. El castellano del corpus usa los dos puntos para
+ * seguir la misma oración, así que cortan `.` y `;` y nada más.
+ */
+const CORTA_ORACION = /[.;]\s|[.;]$/;
+
 function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resueltas: number } {
   const errores: string[] = [];
   /** Fijado SOLO por un ancla completa. Un nombre pelado no lo toca. */
@@ -1525,20 +1878,34 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
   };
 
   lineas.forEach((linea, k) => {
+    /** Documentos ANCLADOS en la oración en curso. Se vacía en cada `.`, `;`, `:`. */
+    let ancladosEnLaOracion = new Set<string>();
+    let finDelTokenAnterior = 0;
+
     for (const m of linea.matchAll(/`([^`\n]+)`/g)) {
       const bruto = m[1].trim();
       const donde = `línea ${String(k + 1)}`;
+      if (CORTA_ORACION.test(linea.slice(finDelTokenAnterior, m.index))) {
+        ancladosEnLaOracion = new Set<string>();
+      }
+      finDelTokenAnterior = m.index + m[0].length;
 
       const s = ANCLA_PROSA_SECCION.exec(bruto);
       if (s) {
-        if (lineasDelPlan(s[1]) !== null) fijarAntecedente(s[1]);
+        if (lineasDelPlan(s[1]) !== null) {
+          fijarAntecedente(s[1]);
+          ancladosEnLaOracion.add(s[1]);
+        }
         anotar(resolverContra(bruto, s[1], s[2], 0, 0, 'reportar'), donde);
         continue;
       }
 
       const l = ANCLA_PROSA_LINEA.exec(bruto);
       if (l) {
-        if (lineasDelPlan(l[1]) !== null) fijarAntecedente(l[1]);
+        if (lineasDelPlan(l[1]) !== null) {
+          fijarAntecedente(l[1]);
+          ancladosEnLaOracion.add(l[1]);
+        }
         const desde = Number(l[2]);
         anotar(
           resolverContra(bruto, l[1], null, desde, l[3] === undefined ? desde : Number(l[3]), 'reportar'),
@@ -1549,6 +1916,16 @@ function verificarAnclasDeProsa(lineas: string[]): { errores: string[]; resuelta
 
       const c = ANCLA_PROSA_CORTA.exec(bruto);
       if (c) {
+        if (ancladosEnLaOracion.size > 1) {
+          errores.push(
+            `${donde}: «${bruto}» es una remisión corta y su oración ancla más de un documento ` +
+              `(«${[...ancladosEnLaOracion].join('», «')}»): la última gana por regla, pero el lector ` +
+              'no tiene cómo saber cuál quiso decir el que escribió. La guardia no adivina — escribí ' +
+              'la cita con su nombre (`DOC:NNN`) o partí la oración. Un antecedente secuestrado por un ' +
+              'ancla legítima no rompe el chequeo: lo vuelve una afirmación de que la cita es correcta',
+          );
+          continue;
+        }
         if (antecedente === null) {
           errores.push(
             `${donde}: «${bruto}» es una remisión corta y no hay documento citado antes contra el ` +
@@ -2319,6 +2696,8 @@ function main(): void {
   errores.push(
     ...verificarValoresConDomicilio(lineas, ASERCIONES_OBLIGATORIAS, 'aserción obligatoria'),
   );
+  // 2 bis) El recíproco del domicilio: una cifra canónica contradicha AFUERA.
+  errores.push(...verificarFamiliasDeCifra(lineas));
 
   // 3) Los prohibidos, sobre el texto sin negritas.
   for (const { patron, porQue, salvoSi } of PROHIBIDOS) {
@@ -2368,7 +2747,9 @@ function main(): void {
 
   console.log(
     `PLANARCO OK: ${String(SECCIONES_ESPERADAS.length)} sección(es) esperada(s), ` +
-      `${String(CIFRAS_CANONICAS.length)} cifras canónicas, ${String(ASERCIONES_OBLIGATORIAS.length)} aserciones obligatorias, ` +
+      `${String(CIFRAS_CANONICAS.length)} cifras canónicas en su domicilio y ` +
+      `${String(FAMILIAS_DE_CIFRA.length)} familias barridas afuera de él, ` +
+      `${String(ASERCIONES_OBLIGATORIAS.length)} aserciones obligatorias, ` +
       `${String(PROHIBIDOS.length)} patrones prohibidos, ${String(DISPOSITIVOS_EN_PORTADA.length)} dispositivos en portada ` +
       '(conjunto exacto: ni falta ni sobra), ' +
       `${String(FALLAS_ESPERADAS)} fallas correlativas con sus ${String(LEADS_DE_FALLA.length)} leads, ` +
@@ -2376,10 +2757,12 @@ function main(): void {
       `Calendario de Umbrales con ${String(ESTACIONES_ESPERADAS)} estaciones parseadas, sus dispositivos ` +
       'cruzados contra los trece de la portada y sus ocupantes resueltos ancla por ancla contra el ' +
       'archivo destino, ' +
-      'tabla de fuentes contigua con sus clases cruzadas contra SOURCE_OF_FUNDS_LEDGER.md y sin una ' +
-      `sola fila \`${CLASE_PROHIBIDA}\`, ` +
+      'tabla de fuentes contigua con sus clases cruzadas contra SOURCE_OF_FUNDS_LEDGER.md, cada fila ' +
+      'anclada cruzada contra SU línea del libro mayor (dueño, confianza, disponibilidad y clase) y ' +
+      `sin una sola fila \`${CLASE_PROHIBIDA}\`, ` +
       `${String(prosa.resueltas)} anclas de la prosa abiertas y resueltas contra su documento ` +
-      '(y todo token con forma de ancla que la guardia no sepa leer se reporta, no se descarta), ' +
+      '(todo token con forma de ancla que la guardia no sepa leer se reporta, no se descarta, y la ' +
+      'remisión corta no corre cuando su oración ancla más de un documento), ' +
       `${String(lineas.length)} líneas. Sin piso constitucional propio, cruzado contra PISOS_SEGUN_EL_TALLER.`,
   );
 }
