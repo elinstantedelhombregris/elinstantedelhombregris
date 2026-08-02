@@ -13,6 +13,7 @@
     "lint": "eslint src --max-warnings 0",
     "lint:fix": "eslint src --fix",
     "rankings:once": "tsx src/features/gamification/cron-once.ts",
+    "geo:backfill": "tsx src/features/geographic/backfill-provincias.ts",
     "type-check": "tsc --noEmit",
     "test:unit": "vitest run --dir src --passWithNoTests",
     "test:integration": "vitest run tests/"

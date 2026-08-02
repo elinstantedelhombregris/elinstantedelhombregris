@@ -1,6 +1,8 @@
 import { prepareRecordLocation } from '@v2/civic-core';
 import { dreams, eq, getDb } from '@v2/db';
 
+import { provinciaIdDePunto } from '../geographic/provincias.js';
+
 import type { CapturaInput } from './validation.js';
 import type { LocationRole } from '@v2/civic-core';
 
@@ -79,6 +81,18 @@ export async function ingerirCaptura(input: CapturaInput): Promise<ReciboCaptura
     audience: 'collective',
   });
 
+  /**
+   * La provincia se deriva del punto publicado — D-001 en `docs/DEUDAS.md`.
+   *
+   * Se usa el punto PUBLICADO y no el crudo para que la fila sea internamente
+   * coherente: la provincia tiene que ser la del punto que el mapa dibuja, no
+   * la de uno que nadie ve. Si el cliente mandó `provinceId`, manda el
+   * cliente: sabe cosas que la geometría no, como de qué lado de un límite
+   * está realmente.
+   */
+  const provinceId =
+    input.provinceId ?? (await provinciaIdDePunto(db, ubicacion.publicPoint ?? null));
+
   const [fila] = await db
     .insert(dreams)
     .values({
@@ -92,7 +106,7 @@ export async function ingerirCaptura(input: CapturaInput): Promise<ReciboCaptura
       precision: ubicacion.publishedPrecision,
       locationRole: ROL_POR_TIPO[input.tipo],
       sensitivity: input.sensitivity,
-      ...(input.provinceId === undefined ? {} : { provinceId: input.provinceId }),
+      ...(provinceId === null ? {} : { provinceId }),
     })
     .returning({ id: dreams.id });
 

@@ -12,7 +12,7 @@
  */
 import '../src/load-env.js';
 
-import { dreams, eq, getDb, ilike } from '@v2/db';
+import { dreams, eq, geographicLocations, getDb, ilike } from '@v2/db';
 import supertest from 'supertest';
 import { afterAll, describe, expect, it } from 'vitest';
 
@@ -28,6 +28,7 @@ const ESQUINA = { lat: -34.6037, lng: -58.3816 };
 const UUID_POZO = '11111111-1111-4111-8111-111111111111';
 const UUID_NECESIDAD = '22222222-2222-4222-8222-222222222222';
 const UUID_RECURSO = '33333333-3333-4333-8333-333333333333';
+const UUID_GEO = '44444444-4444-4444-8444-444444444444';
 
 interface Recibo {
   idLocal: string;
@@ -71,6 +72,29 @@ dsuite('Civic capturas flows', () => {
       expect(Number(fila?.lng)).toBe(ESQUINA.lng);
       expect(fila?.locationRole).toBe('capture');
     });
+  });
+
+  it('la provincia sale del punto, no del cliente (D-001)', async () => {
+    // Antes `province_id` se guardaba solo si el cliente lo mandaba, y la app
+    // de campo no lo manda: manda coordenadas. El resultado era una voz con
+    // punto exacto e invisible en todo lo que agrega por territorio.
+    const res = await enviar(
+      captura({ idLocal: UUID_GEO, tipo: 'observation', texto: 'TEST captura: geo' }),
+    );
+    expect(res.status).toBe(201);
+
+    const { recibo } = (res.body as { data: { recibo: Recibo } }).data;
+    const id = Number(recibo.idPublico.replace('voz:', ''));
+    const db = getDb();
+    const [fila] = await db.select().from(dreams).where(eq(dreams.id, id));
+
+    expect(fila?.provinceId).not.toBeNull();
+
+    const [provincia] = await db
+      .select()
+      .from(geographicLocations)
+      .where(eq(geographicLocations.id, fila?.provinceId ?? -1));
+    expect(provincia?.name).toBe('Ciudad Autónoma de Buenos Aires');
   });
 
   it('reenviar la misma captura no duplica — el outbox reintenta', async () => {

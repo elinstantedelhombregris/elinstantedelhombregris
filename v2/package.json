@@ -25,6 +25,8 @@
     "test:e2e": "playwright test",
     "test:scripts": "vitest run --config scripts/vitest.config.ts",
     "planes:migrar": "tsx scripts/content/migrate-planes-v1-to-v2.ts",
+    "geo:provincias": "tsx scripts/build/geo/generar-provincias-api.ts",
+    "geo:backfill": "pnpm --filter @v2/api run geo:backfill",
     "planes:check": "tsx scripts/content/verify-planes-index.ts",
     "deps:check": "tsx scripts/build/deps-check.ts",
     "size": "size-limit",
