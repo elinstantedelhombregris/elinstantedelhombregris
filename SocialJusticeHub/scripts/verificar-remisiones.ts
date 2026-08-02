@@ -34,10 +34,17 @@ const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, '../..');
 const TALLER = resolve(REPO_ROOT, 'Iniciativas Estratégicas');
 
-/** Dónde se buscan remisiones. El taller y las guardias, que también citan. */
+/**
+ * Dónde se buscan remisiones. El taller, las guardias —que también citan— y
+ * `shared/`, que entró el 2026-08-02 con las sesenta y dos citas del grafo de
+ * `arquitecto-data.ts`: cada arista de los cuatro PLANes nuevos declara la línea
+ * del documento que la funda, y sin esta fuente esas citas quedaban afuera de
+ * toda verificación mientras se leían como si estuvieran verificadas.
+ */
 const FUENTES: { dir: string; ext: string }[] = [
   { dir: TALLER, ext: '.md' },
   { dir: SCRIPT_DIR, ext: '.ts' },
+  { dir: resolve(SCRIPT_DIR, '../shared'), ext: '.ts' },
 ];
 
 /**

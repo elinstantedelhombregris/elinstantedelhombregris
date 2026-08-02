@@ -261,3 +261,18 @@ La casa ya había decidido este canon en el otro pipeline de geografía (`script
 **Cómo:** se reintegraron los cuatro textos y el corpus pasó de 23 a 27 `.mdx` (`cf0567d`, `c49dad0`), y el test dejó de estar en rojo porque el corpus alcanzó al canon — no porque se le cambiara el número a mano.
 
 **La nota que sobrevive:** el conteo canónico de los dos `CLAUDE.md` sigue diciendo «22 PLANes + PLANRUTA». Con 27 documentos eso ya no es cierto y hay que actualizarlo.
+
+---
+
+### D-013 · V-FIN-05 suma el piso sustitutivo a los pisos que sustituye
+
+**Encontrada:** 2026-08-02, cargando las aristas de los cuatro PLANes nuevos
+**Dónde:** `SocialJusticeHub/shared/validation-engine.ts` — regla `vFin05`
+
+La regla suma el `constitutionalFloor` de todos los nodos y avisa si pasa el 10% del PBI. Hoy avisa **11,81%**, y ese número no mide nada: son los 9,41% que reclamaban los diecisiete PLANes con piso **más** el 2,40% de PLANPACTO, que es el piso que los **reemplaza**. Sumar el sustituto a los sustituidos es exactamente la lectura aditiva que PLANPACTO existe para impedir.
+
+El mismo bug ya se arregló en `arquitecto-data.ts` cuando se cargó el nodo: ahí vive `PISOS_SUSTITUTIVOS`, y `ECOSYSTEM_METRICS` publica las dos cifras por separado —`constitutionalFloorGross` (7,82–9,41%, lo que se reclamaba, que es el hallazgo que funda al PLAN) y `constitutionalFloorEffective` (2,40%, lo que queda)—. El motor de validación tiene su propia suma y no se enteró.
+
+**Por qué no se arregló en el momento:** el trabajo de ese día eran las aristas del grafo, y esto es la aritmética de los pisos. Mezclarlo habría metido dos cambios sin relación en el mismo commit.
+
+**Cómo se arregla:** exportar `PISOS_SUSTITUTIVOS` desde `arquitecto-data.ts` y saltearlos en `vFin05`, igual que hace `sumConstitutionalFloorsGross()`. La regla queda avisando sobre el bruto —que sigue siendo información: el ecosistema reclamaba casi diez puntos— o sobre el efectivo, y hay que **elegir cuál y escribir por qué**, porque las dos cifras son ciertas y contestan preguntas distintas. `pisos-constitucionales.test.ts` ya fija las dos.

@@ -3,8 +3,8 @@
 # Si hay desajuste con el texto del PLAN, gana este grafo.
 
 format_version: 1
-canonical_count: 22_thematic_plus_PLANRUTA
-last_updated: 2026-04-28
+canonical_count: 26_thematic_plus_PLANRUTA
+last_updated: 2026-08-02
 
 # Cada nodo declara qué necesita (depends_on) y qué entrega (provides_to).
 # PLANes con estadios/líneas internas (PLANDIG, PLANTER, PLANMOV) son UN solo nodo.
@@ -170,9 +170,52 @@ nodes:
     diferido: true
     notas: "Labs de diseño únicamente. Sin construcción en tranche-1/2/3."
 
+  # ── Los cuatro PLANes nuevos (ordinales 23-26, acta del 2026-07-26) ─────────
+  # Cargados el 2026-08-02 desde la sección «INTEGRACIÓN CON EL MARCO ¡BASTA!» de
+  # cada documento. A diferencia de los veintidós de arriba —cuyas listas salieron
+  # del cross-reference scan de abril— éstas salen de lo que cada documento
+  # declara de sí mismo, con modo degradado escrito para cada dependencia.
+  #
+  # `PLANRUTA` NO figura en ningún depends_on de los cuatro, y es deliberado: los
+  # tres documentos que quisieron tenderle una arista la bajaron a prosa con la
+  # razón escrita (`PLANPACTO:723`, `PLANARCO:779`, `PLANPREGUNTA:750`). No es un
+  # olvido de transcripción.
+
+  PLANPACTO:
+    depends_on: [PLANMON, PLANDIG, PLANMESA, PLANJUS]
+    provides_to: [PLANVIV, PLANCUIDADO, PLANEDU, PLANISV, PLANAGUA, PLANARCO, PLANFOCO]
+    integration_strength: alta
+    blocking_for_tranche_2: []
+    notas: "Reparte más de lo que pide. Su piso del 2,40% es BRUTO y SUSTITUTIVO de los diecisiete anteriores. No es punto único de falla: si no se sanciona, cada PLAN se queda con el reclamo de piso que ya tenía. Lo que la Escalera da es orden, no plata."
+
+  PLANARCO:
+    depends_on: [PLANCUIDADO, PLANMON, PLANTER, PLANDIG, PLANSAL, PLANREP, PLANPACTO]
+    provides_to: [PLANPACTO]
+    integration_strength: critica
+    blocking_for_tranche_2: []
+    notas: "El nodo más dependiente del corpus: seis dependencias críticas y ninguna capacidad crítica que devolver. PLANPACTO es la séptima y NO es crítica — sin él, el Calendario y la Renta siguen. Par recíproco con PLANPACTO, con las dos mitades escritas."
+
+  PLANPREGUNTA:
+    depends_on: [PLANDIG, PLANMESA, PLANTER, PLANFOCO, PLANEDU, PLANJUS, PLANTALLER]
+    provides_to: [PLANISV, PLANMEMORIA, PLANEN, PLANGEO, PLANFOCO]
+    integration_strength: media
+    blocking_for_tranche_2: []
+    notas: "PLANTER es la dependencia sin sustituto: sin Fondo Soberano Ciudadano no hay Fondo de la Pregunta, y para el régimen pleno no hay modo degradado. Par recíproco con PLANFOCO. Lo que le pide 'a los veinticinco' —ofrecerse a ser evaluados— no es arista: es renunciable sin consecuencia."
+
+  PLANFOCO:
+    depends_on: [PLANMESA, PLANEDU, PLANMEMORIA, PLANDIG, PLANJUS, PLANPACTO, PLANREP, PLANSAL, PLANTALLER]
+    provides_to: [PLANPREGUNTA, PLANDIG, PLANCUL]
+    integration_strength: media
+    blocking_for_tranche_2: []
+    notas: "El más desprendible: nueve aristas y solo tres críticas, con una Fase 0 que no depende de que nadie apruebe nada. Su dependencia de PLANDIG NO es crítica y el documento lo escribe: 'ninguna posterga un dispositivo'. Le paga a PLANDIG el Commons Atencional que aquel consagró y no presupuestó."
+
 # Métricas del grafo (de la auditoría 2026-04-26)
+# `total_thematic` es el conteo de hoy; todo lo demás de este bloque se midió en
+# abril sobre veintidós PLANes y NO incluye a los cuatro nuevos. Volver a correr
+# el cross-reference scan sobre veintiséis es trabajo pendiente: hasta que se
+# corra, estos rankings describen un grafo más chico que el que existe.
 metrics:
-  total_thematic: 22
+  total_thematic: 26
   highest_outbound_pre_audit:
     - PLANVIV: 230
     - PLANDIG: 196

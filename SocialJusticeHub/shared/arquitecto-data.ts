@@ -310,8 +310,8 @@ export const PLAN_NODES: PlanNode[] = [
 
   // ── Los cuatro PLANes nuevos (acta del 2026-07-26, escritos 2026-07/08). ──────
   // Se ANEXAN con ordinales 23-26: los 01..22 no se mueven y el invariante de
-  // contigüidad se conserva. Las 69 aristas del grafo son trabajo aparte (tramo E)
-  // y todavía NO están cargadas: estos cuatro nodos existen sin dependencias.
+  // contigüidad se conserva. Sus aristas se cargaron el 2026-08-02 y viven en el
+  // bloque d146-d211, con sus fases en TIMELINE_PHASES.
   {
     id: 'PLANPACTO', name: 'Plan Nacional de Pacto Fiscal, Reparto Federal y Escalera de Garantías', ordinal: 23,
     category: 'economia', agency: 'CFF', agencyFull: 'Consejo Federal Fiscal',
@@ -364,8 +364,11 @@ export const PLAN_NODES: PlanNode[] = [
 ];
 
 // === DEPENDENCIES ===
-// d01-d76: aristas 'requires' (source depende de target) — 73 relaciones reales.
-// d77-d145: anotaciones 'provides' (espejo proveedor→consumidor) — solo lectura UI.
+// d01-d76:   aristas 'requires' (source depende de target) — 73 relaciones reales.
+// d77-d145:  anotaciones 'provides' (espejo proveedor→consumidor) — solo lectura UI.
+// d146-d211: los cuatro PLANes nuevos (ordinales 23-26), las dos clases juntas.
+//            Ese bloque no sigue la partición de arriba a propósito: entró de una
+//            vez y sus dos mitades se leen juntas. Su cabecera explica por qué.
 // Las simulaciones de falla, grados y reglas de resiliencia usan SOLO 'requires'.
 
 export const DEPENDENCIES: Dependency[] = [
@@ -588,6 +591,139 @@ export const DEPENDENCIES: Dependency[] = [
   // Inversas de conexiones nuevas (d75, d76)
   { id: 'd144', kind: 'provides', source: 'PLANDIG', target: 'PLANSAL', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS aloja la Historia Clínica Unificada, telemedicina rural y el Registro de Salud Integral con criptografía y consentimiento explícito del paciente' },
   { id: 'd145', kind: 'provides', source: 'PLANTER', target: 'PLANISV', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'PLANTER provee la Licencia Territorial y el marco de co-soberanía indígena donde PLANISV regenera suelo en tierras fiscales y comunidades originarias' },
+
+  // ============================================================================
+  // === d146-d211 — EL GRAFO DE LOS CUATRO PLANes NUEVOS (ordinales 23-26).   ===
+  // === 27 `requires` (d146-d172) y 39 `provides` (d173-d211): 66 aristas.    ===
+  // ============================================================================
+  //
+  // Van en un bloque propio y no repartidas entre los de arriba, por dos razones.
+  // La primera es que las dos mitades —lo que estos PLANes piden y lo que dan— se
+  // leen juntas o no se leen: son el único tramo del grafo que entró completo de
+  // una vez. La segunda es que los ids son correlativos y renumerar habría movido
+  // todo lo anterior.
+  //
+  // ── DE DÓNDE SALEN ──────────────────────────────────────────────────────────
+  // De la sección «INTEGRACIÓN CON EL MARCO ¡BASTA!» de cada uno de los cuatro
+  // documentos, que es la sección que el corpus escribe para declarar aristas.
+  // Cada arista cita la línea que la declara y `verificar-remisiones.ts` la
+  // resuelve. La transcripción vive en `tests/unit/grafo-planes-nuevos.test.ts`,
+  // que además prohíbe las aristas de más: si acá aparece una que la tabla no
+  // declara, el test se pone rojo.
+  //
+  // ── SON 66 Y EL SPEC HABÍA CONTADO 69 ───────────────────────────────────────
+  // `2026-07-26-cuatro-planes-nuevos.md:314` contó «34 requires y 35 provides»
+  // sobre los borradores, antes de que los cuatro documentos se escribieran. Dos
+  // de esas 69 eran hacia `PLANRUTA` y el propio spec las bajó a prosa porque
+  // PLANRUTA no es nodo; las otras se movieron cuando cada documento fijó sus
+  // dependencias con modo degradado. **Manda el documento escrito, no el conteo
+  // previo**, y por eso este bloque tiene 66 en vez de completar 69 con relleno.
+  //
+  // ── LO QUE NO ES ARISTA, CON SU RAZÓN ───────────────────────────────────────
+  // `PLANRUTA` (`PLANPACTO:723`, `PLANARCO:779`, `PLANPREGUNTA:750`): no es nodo
+  // y declararlo rompería V-REF-03. Los alimentadores documentales —el libro
+  // mayor, el presupuesto consolidado, el acta— se citan como fuente y no como
+  // extremo. Lo que PLANPREGUNTA le pide «a los veinticinco» (`:748`) tampoco:
+  // veinticinco aristas idénticas y renunciables no informan nada.
+
+  // ── `requires` de PLANPACTO (23). Reparte más de lo que pide: son cuatro. ───
+  { id: 'd146', source: 'PLANPACTO', target: 'PLANMON', nature: 'CRITICAL', type: 'TECHNICAL', description: 'El Giro Diario liquida sobre el riel del Pulso y la Deuda con Nombre no afloja sus principios 4 y 5 (`PLANPACTO:717`). Degradado: sin PLANMON el Giro corre sobre el sistema de pagos del Banco Central y la emisión en peso-canasta queda suspendida en la Ficha de cada bono' },
+  { id: 'd147', source: 'PLANPACTO', target: 'PLANDIG', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Interoperabilidad de ARCA con las veinticuatro administraciones, capacidad del estadio A (`PLANPACTO:717`). Degradado: el Libro Mayor y la mitad nacional del Recibo salen igual porque ARCA ya tiene esos datos; lo que se demora es la consolidación de los otros dos niveles' },
+  { id: 'd148', source: 'PLANPACTO', target: 'PLANMESA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'PLANMESA delibera sobre la Escalera y publica dictamen no vinculante; que el Congreso no lo siga se publica junto al voto nominal de cada legislador (`PLANPACTO:721`)' },
+  { id: 'd149', source: 'PLANPACTO', target: 'PLANJUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'PLANJUS aporta la forma canónica de su sorteo a los dos paneles del PLAN (`PLANPACTO:721`)' },
+
+  // ── `requires` de PLANARCO (24). El nodo más dependiente del corpus. ────────
+  // Seis críticas declaradas en `PLANARCO:761`, más PLANPACTO, que es el par
+  // recíproco y NO es crítica: sin él, el Calendario y la Renta siguen.
+  { id: 'd150', source: 'PLANARCO', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Árbitro de nivel, ubicación de lo previsional en el Techo A, clases del libro mayor y permiso escrito para reemplazar el supuesto del eje intergeneracional (`PLANARCO:757`). Degradado: sin PLANPACTO sancionado la Regla de Arco no existe como norma y se pierde la obligación de cada escalón de declarar su reparto' },
+  { id: 'd151', source: 'PLANARCO', target: 'PLANCUIDADO', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Fórmula del Tramo Ganado y su validador: un año de cuidado por un año aportado, con techo anual (`PLANCUIDADO:340`). Degradado: sin la agencia que valida las horas, el Tramo Ganado liquida en cero y el Piso Vital no se toca' },
+  { id: 'd152', source: 'PLANARCO', target: 'PLANMON', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Capa previsional y el índice que reemplaza al de este PLAN cuando el haber se pague en Pulso (`PLANMON:1543-1576`). Degradado: mientras se pague en pesos corre la movilidad de la Renta de Arco — acá el degradado es hoy y el pleno es lo que hay que esperar' },
+  { id: 'd153', source: 'PLANARCO', target: 'PLANTER', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Fondo del que cuelga el Tramo Común (`PLANTER:349`); PLANTER es dueño del Fondo Intergeneracional, la línea que este PLAN declinó. Degradado: ya está corriendo — el Tramo Común quedó declarado y no financiado' },
+  { id: 'd154', source: 'PLANARCO', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Una estación que se abre sola necesita que el hecho registrado llegue sin que nadie lo tipee (`PLANARCO:769`). Degradado: el Calendario corre contra los padrones que ya existen, por convenio y por archivo, más lento y más caro' },
+  { id: 'd155', source: 'PLANARCO', target: 'PLANSAL', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Primeros mil días, licencia parental con números y Centros de Vitalidad (`PLANARCO:771`). Es la única de las seis que deja una estación vacía: el Umbral de la Llegada es remisión pura y sin el documento al que remite queda anunciado y sin nada adentro' },
+  { id: 'd156', source: 'PLANARCO', target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', description: 'Dividendo Nacional de Productividad, contra el cual corre la regla de absorción, y el Banco de Tiempo (`PLANREP:842`). Degradado: también corriendo — la regla no computa nada hasta que el dividendo exista' },
+
+  // ── `requires` de PLANPREGUNTA (25). Tres críticas y cuatro menores. ────────
+  { id: 'd157', source: 'PLANPREGUNTA', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Plataforma del Censo, cómputo del Turno de Máquina y sustrato de los Modelos de Órgano (`PLANPREGUNTA:738`). Degradado: el Censo funciona en papel, el Turno declara las Preguntas no contestables por falta de máquina y los Modelos esperan; ninguna capacidad del estadio B es requisito de la Fase 0' },
+  { id: 'd158', source: 'PLANPREGUNTA', target: 'PLANMESA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Mecánica de sorteo, Credencial de Materia sobre la que se estratifica, cupo y —cuando exista— Mesa Federal que decide qué Preguntas se abren (`PLANPREGUNTA:740`). Degradado: interinato con tope 2036, traspaso automático y declaración en cada acta de con qué padrón se sorteó' },
+  { id: 'd159', source: 'PLANPREGUNTA', target: 'PLANTER', nature: 'CRITICAL', type: 'FINANCIAL', description: 'PLANTER es dueño del Fondo Soberano Ciudadano, de donde sale la plata: sin FSC no hay Fondo de la Pregunta (`PLANPREGUNTA:742`). Es la dependencia sin sustituto — la Fase 0 no lo necesita y para el régimen pleno no hay modo degradado, y decirlo es más honesto que inventar una fuente de reemplazo' },
+  { id: 'd160', source: 'PLANPREGUNTA', target: 'PLANFOCO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'El Sello Abierto publica adentro del Acervo Abierto en vez de construir un repositorio propio; PLANFOCO acepta la dependencia entrante en su Sección 7.3 (`PLANFOCO:750`). Mitad PREGUNTA del par recíproco FOCO ↔ PREGUNTA' },
+  { id: 'd161', source: 'PLANPREGUNTA', target: 'PLANEDU', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'PLANEDU forma a quienes van a poder contestar las Preguntas, y este PLAN no le toca la formación (`PLANPREGUNTA:746`)' },
+  { id: 'd162', source: 'PLANPREGUNTA', target: 'PLANJUS', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'Forma canónica del sorteo puro para el Seguro contra lo Imprevisto, y solamente ahí; además presta infraestructura territorial para las Cátedras (`PLANPREGUNTA:746`)' },
+  { id: 'd163', source: 'PLANPREGUNTA', target: 'PLANTALLER', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'Infraestructura territorial donde se instalan las Cátedras Portátiles (`PLANPREGUNTA:746`)' },
+
+  // ── `requires` de PLANFOCO (26). El más desprendible: nueve aristas y solo ──
+  // tres críticas. Su dependencia de PLANDIG NO es crítica y el documento lo
+  // escribe con todas las letras: «ninguna posterga un dispositivo».
+  { id: 'd164', source: 'PLANFOCO', target: 'PLANMESA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Las Mesas Territoriales deciden las compras y el sorteo estratificado designa bibliotecarios, cronistas y dos directores de ANBAC (`PLANFOCO:758`). La dependencia de calendario es real: `PLANMESA:925-956` entra en tranche-2 entre 2028 y 2030 y las primeras sedes abren en 2029. Degradado: asamblea de usuarios con acta pública y traspaso automático' },
+  { id: 'd165', source: 'PLANFOCO', target: 'PLANEDU', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'PLANEDU dicta el Desmontaje, y con eso repara `PLANDIG:803`, que lo daba por dictado. PLANFOCO produce el material y forma a los mediadores; no escribe currículum (`PLANFOCO:760`)' },
+  { id: 'd166', source: 'PLANFOCO', target: 'PLANMEMORIA', nature: 'CRITICAL', type: 'DATA', description: 'El manifiesto y el hash de cada pieza del Acervo van a los siete nodos de `PLANMEMORIA:90`. La agencia que produce el acervo no guarda ninguna de las dos copias que lo prueban, y eso es diseño y no descuido' },
+  { id: 'd167', source: 'PLANFOCO', target: 'PLANDIG', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Nube soberana para el Acervo, malla para la conectividad de las sedes y estadio A para las dotaciones de La Antena (`PLANFOCO:752`). Cada una con modo degradado y ninguna posterga un dispositivo: una sede sin fibra abre igual y una dotación sin nube soberana se presta sobre infraestructura contratada con fecha de migración escrita' },
+  { id: 'd168', source: 'PLANFOCO', target: 'PLANJUS', nature: 'IMPORTANT', type: 'LEGAL', description: 'Panel de Legalidad de Publicación como fuero nuevo adentro de PLANJUS, con el procedimiento de `PLANJUS:400` y no uno propio (`PLANFOCO:762`). Si PLANJUS se niega, la Cartelera publica igual y no tiene mecanismo propio para retirar nada — peor para las víctimas de una publicación ilegal y mejor que la alternativa, que es que el mecanismo lo tenga la agencia' },
+  { id: 'd169', source: 'PLANFOCO', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La regla de fuentes le da a la pauta oficial un solo dueño: este PLAN, que la recauda para extinguirla y le devuelve el sobrante al ecosistema (`PLANFOCO:764`)' },
+  { id: 'd170', source: 'PLANFOCO', target: 'PLANREP', nature: 'IMPORTANT', type: 'LABOR', description: 'PLANREP da el régimen laboral de las sedes y de ANBAC; PLANFOCO no crea estatuto propio ni pide excepción (`PLANFOCO:764`)' },
+  { id: 'd171', source: 'PLANFOCO', target: 'PLANSAL', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'Disciplina de transparencia por sede tomada de `PLANSAL:1515`, sin modificaciones (`PLANFOCO:764`)' },
+  { id: 'd172', source: 'PLANFOCO', target: 'PLANTALLER', nature: 'MINOR', type: 'FINANCIAL', description: 'Única referencia de costo comparable que existe en el corpus para una red federal de sedes (`PLANFOCO:764`)' },
+
+  // ── Espejos `provides` de lo que pide PLANPACTO ────────────────────────────
+  { id: 'd173', kind: 'provides', source: 'PLANMON', target: 'PLANPACTO', nature: 'CRITICAL', type: 'TECHNICAL', description: 'El riel del Pulso liquida el Giro Diario y sostiene los principios 4 y 5 de la Deuda con Nombre' },
+  { id: 'd174', kind: 'provides', source: 'PLANDIG', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'El estadio A provee la interoperabilidad de ARCA con las veinticuatro administraciones, que es lo que consolida los tres niveles del Recibo' },
+  { id: 'd175', kind: 'provides', source: 'PLANMESA', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Delibera sobre la Escalera y publica dictamen no vinculante: la Escalera se ordena con deliberación ciudadana y no solo con voto legislativo' },
+  { id: 'd176', kind: 'provides', source: 'PLANJUS', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Presta la forma canónica de su sorteo a los dos paneles del pacto fiscal' },
+
+  // ── `provides` propios de PLANPACTO: la Escalera reparte escalones ─────────
+  // No hay `requires` de vuelta, y la razón es la que hace al PLAN: si PACTO no
+  // se sanciona, PLANVIV no pierde su 2,00% — se queda con el reclamo que ya
+  // tenía. Lo que la Escalera da es orden, no plata, y un orden que no llega no
+  // rompe a nadie. Es por esto que PLANPACTO no resulta punto único de falla, al
+  // revés de lo que el spec esperaba antes de que el documento se escribiera.
+  { id: 'd177', kind: 'provides', source: 'PLANPACTO', target: 'PLANVIV', nature: 'CRITICAL', type: 'FINANCIAL', description: 'PLANVIV entrega la exclusividad de su piso del 2,00% del PBI y recibe el escalón 4 de la Escalera: pierde blindaje propio y gana lugar en una fila escrita antes de que falte (`PLANPACTO:719`)' },
+  { id: 'd178', kind: 'provides', source: 'PLANPACTO', target: 'PLANCUIDADO', nature: 'CRITICAL', type: 'FINANCIAL', description: 'PLANCUIDADO entrega la exclusividad de su piso del 0,45% del PBI y recibe el escalón 5 de la Escalera (`PLANPACTO:719`)' },
+  { id: 'd179', kind: 'provides', source: 'PLANPACTO', target: 'PLANEDU', nature: 'CRITICAL', type: 'FINANCIAL', description: 'PLANEDU ocupa uno de los escalones restantes de la Escalera, con su piso ordenado por regla escrita en vez de por quién tenga mejor abogado el día del recorte (`PLANPACTO:719`)' },
+  { id: 'd180', kind: 'provides', source: 'PLANPACTO', target: 'PLANISV', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'PLANISV conserva su piso entero en el escalón 1, y su afectación de retenciones cuelga del Libro Mayor con la cifra corregida: 0,005-0,016% del PBI, no el 0,08-0,19% que el corpus arrastraba (`PLANPACTO:719`)' },
+  { id: 'd181', kind: 'provides', source: 'PLANPACTO', target: 'PLANAGUA', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'PLANAGUA conserva su piso entero en el escalón 1 de la Escalera (`PLANPACTO:719`)' },
+
+  // ── Espejos `provides` de lo que pide PLANARCO ─────────────────────────────
+  { id: 'd182', kind: 'provides', source: 'PLANPACTO', target: 'PLANARCO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'La Regla de Arco vive en la Sección 4.7 de PLANPACTO y es el eje intergeneracional de la Escalera: le da a PLANARCO el árbitro de nivel para no escribir regla de reparto propia (`PLANPACTO:721`)' },
+  { id: 'd183', kind: 'provides', source: 'PLANCUIDADO', target: 'PLANARCO', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'La ANCV valida las horas de cuidado y aporta la fórmula del Tramo Ganado: un año de cuidado por un año aportado, con techo anual (`PLANCUIDADO:340`)' },
+  { id: 'd184', kind: 'provides', source: 'PLANMON', target: 'PLANARCO', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Capa previsional del Pulso y el índice que reemplaza al de la Renta de Arco cuando el haber se pague en Pulso (`PLANMON:1543-1576`)' },
+  { id: 'd185', kind: 'provides', source: 'PLANTER', target: 'PLANARCO', nature: 'CRITICAL', type: 'FINANCIAL', description: 'El Fondo Soberano Ciudadano y el Fondo Intergeneracional son el fondo del que cuelga el Tramo Común (`PLANTER:349`)' },
+  { id: 'd186', kind: 'provides', source: 'PLANDIG', target: 'PLANARCO', nature: 'CRITICAL', type: 'TECHNICAL', description: 'El estadio A hace que el hecho registrado viaje solo, que es lo que permite que una estación del arco se abra sin que nadie la tipee' },
+  { id: 'd187', kind: 'provides', source: 'PLANSAL', target: 'PLANARCO', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Primeros mil días, licencia parental con números y Centros de Vitalidad: es lo que llena el Umbral de la Llegada, que sin PLANSAL queda anunciado y vacío' },
+  { id: 'd188', kind: 'provides', source: 'PLANREP', target: 'PLANARCO', nature: 'CRITICAL', type: 'LABOR', description: 'Dividendo Nacional de Productividad y Banco de Tiempo: el dividendo es el patrón contra el cual corre la regla de absorción de la Renta de Arco (`PLANREP:842`)' },
+
+  // ── `provides` propio de PLANARCO: la mitad ARCO del par recíproco ─────────
+  { id: 'd189', kind: 'provides', source: 'PLANARCO', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Entrega el Calendario de Umbrales como la lista pública contra la cual cada escalón declara cómo repartió lo que conserva, y renuncia a reclamar escalón y piso propios (`PLANARCO:757`)' },
+
+  // ── Espejos `provides` de lo que pide PLANPREGUNTA ─────────────────────────
+  { id: 'd190', kind: 'provides', source: 'PLANDIG', target: 'PLANPREGUNTA', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Plataforma del Censo de Ignorancia, cómputo soberano para el Turno de Máquina y sustrato de los Modelos de Órgano' },
+  { id: 'd191', kind: 'provides', source: 'PLANMESA', target: 'PLANPREGUNTA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Mecánica de sorteo, Credencial de Materia para estratificar el jurado y la Mesa Federal que decide qué Preguntas se abren' },
+  { id: 'd192', kind: 'provides', source: 'PLANTER', target: 'PLANPREGUNTA', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Ocho puntos del Fondo Soberano Ciudadano, tomados del Fondo Intergeneracional, son el Fondo de la Pregunta entero: sin FSC no hay financiamiento y no hay sustituto' },
+  { id: 'd193', kind: 'provides', source: 'PLANFOCO', target: 'PLANPREGUNTA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'El Acervo Abierto aloja al Sello Abierto con el régimen de doble uso fijado por PLANPREGUNTA y no por ANBAC, y el Desmontaje es la escala personal de lo que el Censo de Ignorancia hace a escala de país. Mitad FOCO del par recíproco' },
+  { id: 'd194', kind: 'provides', source: 'PLANEDU', target: 'PLANPREGUNTA', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'Forma a quienes van a poder contestar las Preguntas; PLANPREGUNTA no le toca la formación' },
+  { id: 'd195', kind: 'provides', source: 'PLANJUS', target: 'PLANPREGUNTA', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'Presta la forma canónica de su sorteo puro al Seguro contra lo Imprevisto e infraestructura territorial para las Cátedras' },
+  { id: 'd196', kind: 'provides', source: 'PLANTALLER', target: 'PLANPREGUNTA', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'Presta la infraestructura territorial donde se instalan las Cátedras Portátiles' },
+
+  // ── `provides` propios de PLANPREGUNTA (`PLANPREGUNTA:744`) ────────────────
+  { id: 'd197', kind: 'provides', source: 'PLANPREGUNTA', target: 'PLANISV', nature: 'IMPORTANT', type: 'DATA', description: 'Nodos, catálogo y régimen de préstamo del Banco de Materia Viva sobre el banco de germoplasma que PLANISV ya tiene, sin cambiarle el dueño' },
+  { id: 'd198', kind: 'provides', source: 'PLANPREGUNTA', target: 'PLANMEMORIA', nature: 'IMPORTANT', type: 'DATA', description: 'Flujo de actas de cierre, catálogos y préstamos que se inscriben en el Archivo federado; y al apagarse, el registro de Preguntas y las actas se transfieren ahí en vez de cerrarse' },
+  { id: 'd199', kind: 'provides', source: 'PLANPREGUNTA', target: 'PLANEN', nature: 'MINOR', type: 'DATA', description: 'Enunciado público de lo que el LANEF no está averiguando, y ninguna interferencia con lo que sí' },
+  { id: 'd200', kind: 'provides', source: 'PLANPREGUNTA', target: 'PLANGEO', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'El método como módulo del Stack de Soberanía a partir de 2040: open-source, forkeable y con cero lock-in, como `PLANGEO:207` exige de todo módulo. No se exporta el conocimiento sino la manera de administrar la ignorancia propia' },
+
+  // ── Espejos `provides` de lo que pide PLANFOCO ─────────────────────────────
+  { id: 'd201', kind: 'provides', source: 'PLANMESA', target: 'PLANFOCO', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Las Mesas Territoriales deciden qué se compra en 1.200 barrios y el sorteo estratificado designa bibliotecarios, cronistas y dos directores de ANBAC: es lo que impide que una agencia nacional elija qué se lee' },
+  { id: 'd202', kind: 'provides', source: 'PLANEDU', target: 'PLANFOCO', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Dicta el Desmontaje dentro del currículum escolar, que es la capacidad que PLANFOCO no puede escribir por sí mismo sin volverse autoridad sobre contenido' },
+  { id: 'd203', kind: 'provides', source: 'PLANMEMORIA', target: 'PLANFOCO', nature: 'CRITICAL', type: 'DATA', description: 'Los siete nodos federados custodian el manifiesto y el hash de cada pieza del Acervo (`PLANMEMORIA:90`): tres funciones, tres agencias, y la que produce el acervo no guarda ninguna de las dos copias que lo prueban' },
+  { id: 'd204', kind: 'provides', source: 'PLANDIG', target: 'PLANFOCO', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Nube soberana para el bitstream del Acervo, malla para la conectividad de las sedes y estadio A para las dotaciones de La Antena' },
+  { id: 'd205', kind: 'provides', source: 'PLANJUS', target: 'PLANFOCO', nature: 'IMPORTANT', type: 'LEGAL', description: 'Aloja el Panel de Legalidad de Publicación como fuero nuevo con el procedimiento de `PLANJUS:400`, y puede negarse: es un pedido, no una imposición' },
+  { id: 'd206', kind: 'provides', source: 'PLANPACTO', target: 'PLANFOCO', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La regla de fuentes le asigna a la publicidad oficial un solo dueño, y por eso PLANFOCO puede recaudarla para extinguirla sin disputar la fuente con nadie' },
+  { id: 'd207', kind: 'provides', source: 'PLANREP', target: 'PLANFOCO', nature: 'IMPORTANT', type: 'LABOR', description: 'Da el régimen laboral de las sedes y de ANBAC, que es lo que evita un estatuto propio y una excepción más en el ecosistema' },
+  { id: 'd208', kind: 'provides', source: 'PLANSAL', target: 'PLANFOCO', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'Presta su disciplina de transparencia por sede (`PLANSAL:1515`) sin modificaciones' },
+  { id: 'd209', kind: 'provides', source: 'PLANTALLER', target: 'PLANFOCO', nature: 'MINOR', type: 'FINANCIAL', description: 'Presta la única referencia de costo comparable del corpus para una red federal de sedes territoriales' },
+
+  // ── `provides` propios de PLANFOCO ─────────────────────────────────────────
+  { id: 'd210', kind: 'provides', source: 'PLANFOCO', target: 'PLANDIG', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'Paga el Commons Atencional que `PLANDIG:788` consagró y su TABLA 20 no presupuestó: la relación con PLANDIG es asimétrica en las dos direcciones, y ésta es la que va de vuelta' },
+  { id: 'd211', kind: 'provides', source: 'PLANFOCO', target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Asume la Acción 3 de `PLANCUL:387`, derogada en los dos documentos con nota fechada: el poder de los medios pasa a tener dueño y PLANCUL conserva su parasitismo, su presupuesto cero y su compromiso de no-intervención' },
 ];
 
 // === TIMELINE PHASES ===
@@ -725,6 +861,50 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
   { planId: 'PLANMOV', name: 'Fase 2 — Consolidación (AMBA-T + Hidrovía Soberana + escalado BAMD)', startYear: 5, endYear: 8 },
   { planId: 'PLANMOV', name: 'Fase 3 — Maduración (25.000 km ferroviarios + columna múltiple + piloto AV soberano)', startYear: 9, endYear: 14 },
   { planId: 'PLANMOV', name: 'Fase 4 — Régimen Pleno (AV público + BAMD consolidada + Visión 2046)', startYear: 15, endYear: 20 },
+
+  // ── Los cuatro PLANes nuevos (ordinales 23-26) ─────────────────────────────
+  // Las hojas de ruta de tres de los cuatro están escritas en años de calendario
+  // y esta tabla va en años relativos, así que hay una conversión y conviene
+  // dejarla escrita: **el año 0 del ecosistema es 2027**, que es donde PLANPACTO
+  // y PLANFOCO ponen su Fase 0. PLANARCO ya venía en años ordinales y entra tal
+  // cual. Sin estas fases, V-TIME-01 —la regla más severa del motor— hace
+  // `continue` sobre las veintisiete aristas nuevas y no verifica ninguna.
+  //
+  // Ninguno de los cuatro tiene pre-fase (`startYear` negativo) y no se le
+  // inventa una: los tres documentos que declaran dependencias críticas dicen
+  // que su Fase 0 no depende de nadie, y esa Fase 0 arranca en el año 0 como la
+  // de todos. V-TIME-05 avisa por eso y el aviso es correcto.
+
+  // PLANPACTO — `PLANPACTO:703-709`. Fase 3 llega a 2042: un año más que el
+  // horizonte de quince, porque la 6.1 ata su cierre al crecimiento de la masa
+  // y no a una fecha.
+  { planId: 'PLANPACTO', name: 'Fase 0 — El espejo (Libro Mayor por decreto + mitad nacional del Recibo)', startYear: 0, endYear: 1 },
+  { planId: 'PLANPACTO', name: 'Fase 1 — El acuerdo (Fórmula en sombra + IVA que Vuelve)', startYear: 2, endYear: 4 },
+  { planId: 'PLANPACTO', name: 'Fase 2 — El giro (ley-convenio ratificada + Giro Diario en producción)', startYear: 5, endYear: 8 },
+  { planId: 'PLANPACTO', name: 'Fase 3 — La convergencia (Fórmula al incremento + Fondo de Compensación se apaga)', startYear: 9, endYear: 15 },
+
+  // PLANARCO — `PLANARCO:920-926`, ya en años ordinales. Las fases se solapan a
+  // propósito: «el final no termina cuando empieza el medio».
+  { planId: 'PLANARCO', name: 'Fase 0 — Contar el arco (padrón y Tablero por estación)', startYear: 0, endYear: 1 },
+  { planId: 'PLANARCO', name: 'Fase 1 — El piso y el final (Piso Vital, Tramo Ganado, La Última Palabra)', startYear: 1, endYear: 4 },
+  { planId: 'PLANARCO', name: 'Fase 2 — La rampa y las casas (Rampa de Salida 60-72 + las dos Casas)', startYear: 4, endYear: 8 },
+  { planId: 'PLANARCO', name: 'Fase 3 — Los umbrales (Llegada, Bienvenida, Dote de Origen, Pasaje, Legado)', startYear: 6, endYear: 10 },
+  { planId: 'PLANARCO', name: 'Fase 4 — Régimen pleno (el arco entero)', startYear: 10, endYear: 15 },
+
+  // PLANPREGUNTA — `PLANPREGUNTA:883-891`. Arranca en 2029 y no en 2027: es el
+  // único de los cuatro cuya Fase 0 no es del primer año.
+  { planId: 'PLANPREGUNTA', name: 'Fase 0 — El registro antes que la plata (Censo abierto, en papel si hace falta)', startYear: 2, endYear: 3 },
+  { planId: 'PLANPREGUNTA', name: 'Fase 1 — Las primeras cien Preguntas (Ley ANCON + nueve verticales)', startYear: 4, endYear: 5 },
+  { planId: 'PLANPREGUNTA', name: 'Fase 2 — La Cátedra y el Regreso (Cátedras Portátiles + Turno de Máquina)', startYear: 6, endYear: 7 },
+  { planId: 'PLANPREGUNTA', name: 'Fase 3 — Régimen pleno (el Fondo de la Pregunta gira sus ocho puntos)', startYear: 8, endYear: 13 },
+  { planId: 'PLANPREGUNTA', name: 'Fase 4 — El método sale del país (módulo del Stack de Soberanía)', startYear: 14, endYear: 15 },
+
+  // PLANFOCO — `PLANFOCO:912-918`. Las cuatro fases traen su costo anual, y es
+  // el mismo que la rampa de la Sección 13: 60-90, 170-260, 270-430 y 300-450.
+  { planId: 'PLANFOCO', name: 'Fase 0 — La pauta se vuelve ciega (decreto de sorteo + cronograma de extinción)', startYear: 0, endYear: 1 },
+  { planId: 'PLANFOCO', name: 'Fase 1 — Las primeras seiscientas sedes (convenios + concursos ciegos)', startYear: 2, endYear: 4 },
+  { planId: 'PLANFOCO', name: 'Fase 2 — La red completa (1.200-1.500 sedes + compras a las Mesas Territoriales)', startYear: 5, endYear: 7 },
+  { planId: 'PLANFOCO', name: 'Fase 3 — Régimen y evaluación (el indicador contra la línea de base de 2027)', startYear: 8, endYear: 14 },
 ];
 
 // === CRITICAL CHAINS ===
@@ -784,6 +964,20 @@ export const CRITICAL_CHAINS: CriticalChain[] = [
     name: 'Cadena Urbano-Productiva y Cultural',
     description: 'PLAN24CN necesita PLANISV (suelo regenerado), PLANAGUA (red hídrica), PLANEN (Bastarda Energética antes de los primeros residentes) y PLANEB (ciudades Bastarda-nativas). PLANCUL y PLANGEO cosechan esta cadena: las ciudades son lienzo cultural y vidriera exportable del modelo.',
     plans: ['PLAN24CN', 'PLANISV', 'PLANAGUA', 'PLANEN', 'PLANEB', 'PLANCUL', 'PLANGEO'],
+    dangerLevel: 'HIGH',
+  },
+  {
+    id: 'chain-9',
+    name: 'Cadena del Arco de la Vida',
+    description: 'PLANARCO es el nodo más dependiente del corpus: seis dependencias críticas —PLANCUIDADO (valida las horas del Tramo Ganado), PLANMON (capa previsional), PLANTER (fondo del Tramo Común), PLANDIG (el hecho registrado que viaja solo), PLANSAL (los primeros mil días) y PLANREP (Dividendo de Productividad)— y ninguna capacidad crítica que devolver. Administra el 45-50% del presupuesto nacional con máxima criticidad entrante. Las seis traen modo degradado escrito, y dos ya están corriendo en degradado: el Tramo Común está declarado y no financiado, y la regla de absorción no computa nada hasta que el dividendo exista.',
+    plans: ['PLANARCO', 'PLANCUIDADO', 'PLANMON', 'PLANTER', 'PLANDIG', 'PLANSAL', 'PLANREP'],
+    dangerLevel: 'CRITICAL',
+  },
+  {
+    id: 'chain-10',
+    name: 'Cadena del Fondo Soberano Ciudadano',
+    description: 'PLANTER es dueño del FSC, y de ahí cuelgan dos PLANes nuevos que no se conocen entre sí: el Tramo Común de PLANARCO y los ocho puntos del Fondo de la Pregunta de PLANPREGUNTA. Es la dependencia sin sustituto declarado del corpus — PLANPREGUNTA escribe que para su régimen pleno no hay modo degradado y que inventar una fuente de reemplazo sería menos honesto que decirlo. Si el FSC se demora o se reparte de otro modo, los dos se enteran tarde y por separado.',
+    plans: ['PLANTER', 'PLANARCO', 'PLANPREGUNTA'],
     dangerLevel: 'HIGH',
   },
 ];

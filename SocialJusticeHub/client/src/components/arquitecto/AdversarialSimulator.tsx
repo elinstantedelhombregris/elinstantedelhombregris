@@ -121,7 +121,8 @@ export default function AdversarialSimulator() {
     return p ? parseFloat(p.porcentaje) : 0;
   }, [monteCarloResults, totalPlans]);
 
-  // Mayoría robusta: 2/3 de los planes (15 de 22)
+  // Mayoría robusta: 2/3 de los planes (18 de 26). El umbral se computa, no se
+  // fija: el comentario decía «15 de 22» y el canon pasó a 26 en agosto de 2026.
   const majorityThreshold = Math.ceil(totalPlans * 2 / 3);
 
   const probMajority = useMemo(() => {
