@@ -81,4 +81,18 @@ describe('el módulo generado', () => {
   it('trae las 24 jurisdicciones', () => {
     expect(AREAS_PROVINCIAS).toHaveLength(24);
   });
+
+  it('usa los nombres canónicos, no los de Natural Earth', () => {
+    // Mismo criterio que `scripts/build/__tests__/proyeccion.test.ts:135` para
+    // el otro pipeline de geografía: el canon es «Ciudad Autónoma de Buenos
+    // Aires».
+    //
+    // No es cosmético. El coroplético recorre las features del GeoJSON y para
+    // cada una busca su conteo en un mapa indexado por el nombre que devuelve
+    // la API. Con el nombre viejo, 23 provincias coinciden y CABA no — y CABA
+    // es donde está el 100% de los datos. La provincia se resolvería bien y
+    // el mapa la pintaría en cero igual.
+    expect(AREAS_PROVINCIAS.map((a) => a.nombre)).not.toContain('Ciudad de Buenos Aires');
+    expect(AREAS_PROVINCIAS.map((a) => a.nombre)).toContain('Ciudad Autónoma de Buenos Aires');
+  });
 });
