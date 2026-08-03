@@ -536,3 +536,55 @@ Doce meses es el borde de lo que ya se hace. El Australian Medical Council corre
 Y el límite, escrito acá en vez de descubierto en el piloto: hace falta un anestesista argentino con tiempo para supervisar, y eso escasea donde falta el anestesista. Por eso se empieza donde hay quien supervise y no donde el faltante grita más fuerte. **El minuto que Édgar sabe reconocer le llevó once años y no se puede acortar. El trámite sí.**
 
 ---
+
+## SECCIÓN 7: TRAMO 4 — EL ARRAIGO
+
+> *"El año siete no produce una sola noticia. Por eso es el año que hay que mirar."*
+
+Años tres a diez. La persona ya trabajó, ya firmó, y dejó de llamar la atención. Lo que se decide acá no tiene ceremonia: si el país se entera de quién se quedó, y si el lote pasa a ser una casa.
+
+### D9 · El Tablero de Arraigo
+
+**Qué es.** Una serie por cohorte de entrada: de los que se radicaron en un año dado, cuántos siguen acá al año uno, al tres, al cinco y al diez, abierta por origen y por jurisdicción. Se publica aunque dé mal. Los indicadores que la rodean y sus umbrales van enteros en la SECCIÓN 16; acá se decide de dónde sale el número, dónde vive y quién responde.
+
+**De dónde salen los datos.** La falla 0.5 dejó escrito el método y que los dos registros que hacen falta existen acá y hoy no se cruzan. **D9 es la orden de cruzarlos.** Lo que el método prestado no trae son tres cosas.
+
+**Primera: el agujero por donde se cae justo la gente que importa.** Leer la presencia en la actividad tributaria funciona donde declarar es lo normal. En el cuarto trimestre de 2025 el 43,0% de los ocupados en la Argentina trabajaba en condiciones informales (INDEC, Encuesta Permanente de Hogares). Un tablero que lee silencio fiscal como partida da por ido a un tercio largo del país, y falla más con el que menos margen tiene. Por eso la regla va al revés: **la falta de señal abre una pregunta y no cierra un caso.** Antes de dar a alguien por ido, la serie contrasta contra la matrícula escolar de PLANEDU y la atención en la APS territorial de PLANSAL, y lo que queda sin resolver **se publica como columna propia**. Un tablero que reparte los dudosos entre las dos columnas que le convienen dejó de ser una serie.
+
+**Segunda: dónde corre el cruce, que no es adentro de ANAR.** Las declaraciones juradas son secretas por el artículo 101 de la Ley 11.683. Donde el cruce es legal y queda acotado es el Sistema Estadístico Nacional: el artículo 10 de la Ley 17.622 obliga a que lo que entra ahí se use con fines estadísticos y se publique en compilaciones que no permitan individualizar a nadie, con sanción del Código Penal para el que lo revele. Entonces corre ahí, **ANAR recibe la serie por cohorte y no la fila**, y la habilitación expresa va en la misma ley que crea la agencia: suponerla resuelta es cómo se termina pidiendo el dato por otra ventanilla. Y corre en una sola dirección, porque del cruce no vuelve información sobre una persona a ningún organismo de control — es el compromiso de `PLANJUS:2366`, que no verifica estatus migratorio ni comparte información con la Dirección Nacional de Migraciones, extendido al registro que este PLAN estrena.
+
+**Tercera: quién publica, y qué pasa el año que no publica.** ANAR publica el Tablero y no produce el dato: lo produce el sistema estadístico, y la Mesa Civil de la materia lo audita como audita las series de D1 y de D11. El año en que el Tablero no sale, la Ventana de Pases no abre y la omisión se inscribe en PLANMEMORIA con su fecha. La sanción cae sobre el PLAN y no sobre una persona: el que no publica es el mismo que quería fichar.
+
+**Por qué gobierna.** De la permanencia a diez años depende que la Ventana abra, y ahí está toda la distancia con tener el número: Canadá lo publicó antes que nosotros y frenó igual por una encuesta.
+
+### La tierra que deja de ser condicional
+
+La primera pieza del Paquete entró con la obligación adosada: se habita o se produce, y si no, se pierde (SECCIÓN 6). En este tramo se cumple o no se cumple. **Cinco años de uso acreditado y el título condicionado consolida a plena propiedad.** El número no es propio: es el del Homestead Act de 1862, que pedía cinco años de residencia y mejoras antes de entregar el título definitivo (National Archives).
+
+De esa misma ley sale la regla que decide si el dispositivo funciona. El Homestead Act traía una cláusula de conmutación: a los seis meses de residencia y con mejoras mínimas, el reclamante podía pagarle al gobierno 1,25 dólares el acre y llevarse el título sin esperar los cinco años (National Archives). Un plazo que se compra dejó de ser una obligación de uso y pasó a ser un precio, y el que tiene con qué pagarlo es justo el que no necesita el lote. **Acá no hay conmutación:** el título consolida contra uso verificado o no consolida, y no hay monto que acorte el plazo. Es la misma prohibición que la SECCIÓN 8 escribe para la ciudadanía, adelantada cinco años y aplicada al suelo.
+
+El uso lo verifica el municipio que entregó el lote y no ANAR, contra la misma evidencia que el Tablero recoge por cohorte. Consolidado el título, el lote sale del Paquete: es propiedad común, se vende, se hereda, se hipoteca, y no queda nada que revocar sobre esa tierra. Es la parte del PLAN que se apaga sola, y la prueba de que la condicionalidad tenía fecha desde el día que se firmó.
+
+---
+
+## SECCIÓN 8: TRAMO 5 — LA CIUDADANÍA
+
+> *"La espera argentina ya es corta. Lo que falta no es acortarla: es mirar algo mientras dura."*
+
+Año diez en adelante, con una aclaración que ordena el dispositivo entero. **La Argentina ya tiene la espera más corta que este PLAN podría pedir.** La Ley 346 pide dos años de residencia continua y legal, y el Decreto 366/2025, del 29 de mayo de 2025, los dejó donde estaban y movió el trámite del juez federal a la Dirección Nacional de Migraciones, operativo desde el 6 de octubre de 2025. Entonces D10 no acelera nada, y decir que acelera sería vender como conquista algo que ya está en la ley. **Lo que cambia es contra qué se acredita.**
+
+### D10 · La Ciudadanía por Aporte Verificado
+
+**Qué acredita.** El aporte cívico que la persona ya hizo y que el corpus ya registró: las horas del Libro de Cuidado (`PLANCUIDADO §3.2`) y la actividad documentada de la Credencial de Materia (PLANMESA). Ninguno de los dos registros se armó para naturalizar a nadie — el primero existe para redimir horas en derechos previsionales, el segundo para habilitar la voz en una materia—, y ahí está lo que el dispositivo puede reclamar: una afirmación sobre la función, no sobre la originalidad. El hijo nacido acá queda afuera de esta cuenta: ya es argentino, y lo era antes de que el padre firmara nada.
+
+Premiar el aporte cívico con el pasaporte se escribió de dos maneras, y las dos están probadas. Alemania lo puso adentro de la ley de ciudadanía: la reforma de 2024 bajó la naturalización a tres años para quien acreditara *besondere Integrationsleistungen* —trabajo voluntario, desempeño académico o profesional destacado, alemán C1—; el Bundestag votó eliminarla el 8 de octubre de 2025, el Bundesrat el 17, la ley entró en vigor el 30 de octubre y el plazo volvió a ser uno solo de cinco años. **Dieciséis meses.** Austria lo escribió como condición de una vía más corta y ahí sigue: el §11a(4) de la Staatsbürgerschaftsgesetz habilita la naturalización a los seis años a quien acredite al menos tres de trabajo voluntario en una organización sin fines de lucro del §35 de la Bundesabgabenordnung. Las dos guardaron el crédito adentro del derecho de ciudadanía, que es donde una mayoría lo encuentra cuando lo va a buscar.
+
+Acá el registro vive afuera. El Libro de Cuidado y la Credencial existen por su cuenta y siguen existiendo si mañana se borra el artículo que los hace valer para el pasaporte: lo que una mayoría puede borrar es la puerta, y el aporte ya hecho queda escrito igual. Es la misma propiedad que hace que la silla del Paquete sea una Credencial ganada y no un derecho concedido por años de residencia (SECCIÓN 6).
+
+**El costo, escrito acá en vez de descubierto después.** `PLANARCO:552` ya marcó la superficie de captura del Libro de Cuidado: las horas entran por auto-reporte con verificación opcional de la contraparte (`PLANCUIDADO:334`), con muestreo aleatorio del Referente Territorial (`:335`), y se redimen contra la validación de la Mesa Civil (`:340`). Colgarle un pasaporte a ese registro **empeora ese problema**, porque le sube el premio a mentir. Por eso D10 no lee horas declaradas: lee horas ya redimidas —las que pasaron por la Mesa— y nada más. Y por eso el camino ordinario de la Ley 346 queda intacto: **D10 agrega una vía y no cierra ninguna**, igual que D11 con la mesa de examen.
+
+**Y nunca por plata.** Ni la residencia ni la ciudadanía se compran, sin excepción por monto, por proyecto ni por urgencia fiscal. Va escrito con nombre porque en la Argentina la venta está en el derecho vigente y no en un ejemplo extranjero: el mismo Decreto 366/2025 hace ciudadano por naturalización al extranjero que acredite «una inversión relevante», sin plazo de residencia; el Decreto 524/2025, publicado el 31 de julio de 2025, montó el procedimiento y la Agencia de Programas de Ciudadanía por Inversión en el ámbito del Ministerio de Economía; y el concurso internacional para diseñar el programa quedó suspendido el 14 de abril de 2026 por la Resolución RESOL-2026-522-APN-MEC, con el marco legal en pie. **D10 lo deroga.** La SECCIÓN 2 ya fechó adónde deriva un incentivo que no distingue entre venir a producir y venir a cobrar; acá alcanza con la regla: la puerta se paga con trabajo y con horas, que es lo que una transferencia bancaria no puede simular.
+
+Los cinco tramos terminan acá. Lo que sigue no es otro beneficio: son los límites, y se sancionan antes que todo lo que este documento acaba de ofrecer.
+
+---
