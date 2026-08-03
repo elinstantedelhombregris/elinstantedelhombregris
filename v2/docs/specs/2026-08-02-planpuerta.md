@@ -155,7 +155,7 @@ Una familia o un Círculo recibe. **Sin Estado.** Es el dispositivo de arraigo m
 **D7 · El Paquete.** Lo selectivo de C, en tres piezas, cada una con su condición de conservación:
 - **Tierra con obligación de uso.** Lote o hectáreas con **título condicionado**: se pierde si no se produce o no se habita durante N años. No es golden visa — es lo contrario: **no comprás la entrada, la pagás con trabajo.** Argentina tiene lo que casi nadie tiene, que es superficie, y este es el único incentivo del PLAN que ningún competidor puede copiar.
 - **Exención fiscal temporal.** Modelo *impatriati* italiano, que llevó los trabajadores entrantes de 11.285 (ejercicio 2019) a 41.020 (ejercicio 2023), **+264%**. **Ojo con qué porcentaje se copia:** el salto ocurrió bajo el *decreto Crescita* de 2019, que bajó la base imponible al **30% — es decir 70% de exención, y 90% en el sur**. El 50% (60% con hijos menores) es el régimen **nuevo, vigente desde 2024, más chico**, que reemplazó al que produjo el crecimiento. Y el propio Osservatorio sui Conti Pubblici Italiani dice que el dato *sugiere*, no prueba. Vive adentro de la Escalera de Garantías de PLANPACTO y bajo su techo, contabilizada como gasto tributario.
-- **Silla en la Mesa.** Voz deliberativa en PLANMESA **antes** de la ciudadanía. Ningún país del mundo le da poder de diseño a alguien que llegó hace seis meses.
+- **Silla en la Mesa.** Voz deliberativa en PLANMESA **antes** de la ciudadanía. **Ojo: no se reclame originalidad acá.** Nueva Zelanda le da voto nacional a los residentes permanentes al año, Chile a los cinco, y buena parte de la Unión Europea da voto local a residentes extranjeros. Lo distintivo no es que un recién llegado tenga voz: es que la voz sea **deliberativa sobre la materia en la que fue fichado** y llegue antes que la ciudadanía, no después. Afirmación de función, no de novedad.
 
 **D8 · La Regla del Problema Pago.**
 Ningún fichaje entra a una beca. Entra a un problema que ya tiene presupuesto y alguien que lo paga. Traducción directa del hallazgo de Chile (tracción → 5× retención). **PLANPUERTA no puede fichar antes de que exista el problema pago que el fichaje viene a resolver.**
@@ -201,7 +201,7 @@ Un límite inamovible tiene que ser enumerable y corto. Si no entra en una pági
 3. No usar territorio argentino como base para dañar a terceros.
 4. **Nada más. La lista es taxativa y no se amplía por decreto.**
 
-**II — Lo que el Estado se prohíbe a sí mismo.** Esto es lo que ningún país escribe, y es lo que hace aceptable a I:
+**II — Lo que el Estado se prohíbe a sí mismo.** Es lo que hace aceptable a I. *(No se afirme que ningún país lo escribe: varias constituciones prohíben la expulsión de nacionales y la de extranjeros sin debido proceso. Lo distintivo es el conjunto cerrado y taxativo, no cada pieza suelta.)*
 1. **Ninguna expulsión sin sentencia judicial firme.** Nunca administrativa, nunca por decreto.
 2. **Ninguna causal puede ser una idea, un culto, una opinión, una afiliación, un voto ni una participación gremial.**
 3. **Irretroactividad absoluta:** la causal que no existía cuando entraste no te alcanza nunca.
