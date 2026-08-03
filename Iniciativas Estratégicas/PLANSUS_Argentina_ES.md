@@ -2435,6 +2435,7 @@ Esta sección documenta cómo PLANSUS se acopla al resto del ecosistema de manda
 | **PLANJUS** | IMPORTANT | INSTITUTIONAL | Sala de Sustancias resuelve conflictos de licencias, zonificación y disputas comunitarias sobre uso de sustancias |
 | **PLANSEG** | CRITICAL | TEMPORAL | Reforma policial + 250+ EB operativas + protocolo GREEN/YELLOW/RED son precondición para la legalización escalonada: PLANSEG marca el pulso temporal de la transición narco |
 | **PLANMON** | IMPORTANT | FINANCIAL | El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas como uno de sus pilares de capitalización |
+| **PLANPREGUNTA** | IMPORTANT | DATA | El Registro Nacional de Resultados Terapéuticos (Sección 28) como bien público de conocimiento bajo fideicomiso argentino — evidencia que ninguna otra jurisdicción puede generar hoy |
 
 ### Lo que PLANSUS necesita de otros
 
@@ -2446,6 +2447,11 @@ Esta sección documenta cómo PLANSUS se acopla al resto del ecosistema de manda
 | **PLANMON** | IMPORTANT | FINANCIAL | Recaudación fiscal de sustancias capitaliza Fondo Soberano |
 | **PLANGEO** | IMPORTANT | LEGAL | Cuerpo legal de salida de convenciones internacionales de drogas provisto por PLANSUS permite a PLANGEO ejecutar la cascada diplomática |
 | **PLANSAL** | IMPORTANT | INSTITUTIONAL | PLANSUS habilita el uso terapéutico de sustancias e incluidos psicodélicos; los protocolos clínicos resultantes alimentan la medicina mental de PLANSAL |
+| **PLANPACTO** | IMPORTANT | FINANCIAL | Estabilidad jurídica con plazo cierto — **compuerta del tramo laboratorio** del bloque de atracción (Sección 30.5). Sin horizonte escrito no se radica investigación |
+| **PLANMON** | IMPORTANT | FINANCIAL | Repatriación de utilidades — **compuerta del tramo fábrica** (Sección 30.5). Nadie inmoviliza capital industrial donde no puede sacar lo ganado |
+| **PLANPUERTA** | IMPORTANT | INSTITUTIONAL | Régimen migratorio para la visa de investigador, la visa de paciente y el programa de retorno (Sección 31), con el arraigo como criterio rector |
+
+**Sobre las dos compuertas.** Son las únicas dependencias de este documento que PLANSUS declara sin poder resolver, y por eso se escriben como compuertas y no como supuestos. Si PLANPACTO y PLANMON no avanzan, los tramos de laboratorio y de fábrica no arrancan. El de clínica sí, porque se diseñó autónomo a propósito: requiere una norma de certificación y un régimen de visas, no divisas. **El bloque de atracción vale aunque las dos compuertas no se abran nunca.**
 
 
 ---

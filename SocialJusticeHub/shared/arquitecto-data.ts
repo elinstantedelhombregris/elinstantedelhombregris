@@ -724,6 +724,20 @@ export const DEPENDENCIES: Dependency[] = [
   // ── `provides` propios de PLANFOCO ─────────────────────────────────────────
   { id: 'd210', kind: 'provides', source: 'PLANFOCO', target: 'PLANDIG', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'Paga el Commons Atencional que `PLANDIG:788` consagró y su TABLA 20 no presupuestó: la relación con PLANDIG es asimétrica en las dos direcciones, y ésta es la que va de vuelta' },
   { id: 'd211', kind: 'provides', source: 'PLANFOCO', target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Asume la Acción 3 de `PLANCUL:387`, derogada en los dos documentos con nota fechada: el poder de los medios pasa a tener dueño y PLANCUL conserva su parasitismo, su presupuesto cero y su compromiso de no-intervención' },
+
+  // ── Bloque MARCOS DE ATRACCIÓN de PLANSUS (Secciones 28-31, 2026-08-03) ──────
+  // Las dos compuertas que PLANSUS declara y NO controla (Sección 30.5). Van como
+  // 'requires' reales, no como anotación: si no se abren, dos de los tres tramos
+  // del bloque no arrancan. El tercero —la clínica— es autónomo por diseño y por
+  // eso el bloque vale igual si estas aristas nunca se resuelven.
+  // NOTA: no hay arista hacia PLANPUERTA aunque la Sección 31 lo cite. PLANPUERTA
+  // tiene spec pero todavía no es nodo de este grafo, y una arista a un nodo
+  // inexistente es peor que la ausencia. Se agrega cuando el documento exista.
+  { id: 'd212', source: 'PLANSUS', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La estabilidad jurídica con plazo cierto es la compuerta del tramo laboratorio: sin ella no se radica investigación, cualquiera sea el marco regulatorio de sustancias' },
+  { id: 'd213', source: 'PLANSUS', target: 'PLANMON', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La repatriación de utilidades es la compuerta del tramo fábrica: nadie inmoviliza capital industrial donde no puede sacar lo ganado' },
+  { id: 'd214', kind: 'provides', source: 'PLANPACTO', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La estabilidad de reglas con horizonte escrito habilita el régimen de atracción sectorial de la Sección 30.3, que sin plazo cierto no es un régimen sino una promesa de gestión' },
+  { id: 'd215', kind: 'provides', source: 'PLANMON', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La normalización cambiaria habilita la inversión industrial del tramo fábrica del bloque de atracción' },
+  { id: 'd216', kind: 'provides', source: 'PLANSUS', target: 'PLANPREGUNTA', nature: 'IMPORTANT', type: 'DATA', description: 'El Registro Nacional de Resultados Terapéuticos es un bien público de conocimiento bajo fideicomiso argentino: legalidad a escala nacional más volumen produce evidencia que ninguna otra jurisdicción puede generar hoy' },
 ];
 
 // === TIMELINE PHASES ===
