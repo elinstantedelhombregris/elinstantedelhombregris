@@ -114,12 +114,13 @@ Y volver solo a «N VOCES · FALTA LA TUYA» en cuanto haya una. Es una condici�
 
 > **Prototipo · todavía sin voces**
 
-### 4.3 El feed de últimas voces
+### 4.3 El feed de últimas voces — ya está resuelto
 
-Con cero voces el feed queda en blanco. Su vacío:
+`FeedVoces.tsx` **ya tiene su estado vacío**, y está bien escrito:
 
-> **Acá van a aparecer las voces a medida que entren.**
-> La primera es la que rompe el hielo.
+> **El país todavía no dijo nada acá. Empezá vos.**
+
+Invita, no se disculpa, y está en voz. No se toca. Lo único que le falta es un test que lo cuide: hoy nada impide que alguien lo reemplace por un «no hay datos» sin que falle nada.
 
 ---
 
