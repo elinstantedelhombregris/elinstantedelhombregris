@@ -12,8 +12,8 @@
 > única métrica que no se puede falsear con marketing, porque para moverla hay que arreglar
 > el país. Y no espera sentado: sale a buscar. Como un director técnico arma un plantel, la
 > Argentina va a salir al mercado internacional a fichar exactamente lo que le falta, con la
-> lista escrita por sus propios PLANes y con un techo moral que ningún país del mundo se
-> puso todavía.
+> lista escrita por sus propios PLANes y con un techo moral que el Reino Unido se puso por
+> código de práctica y solo para salud, y que acá va por ley, más ancho y auditado.
 
 ---
 
@@ -103,23 +103,23 @@ El director técnico no le prohíbe a nadie entrar al estadio: ficha a los que q
 
 El indicador rector **no es llegadas. Es permanencia.**
 
-**Por qué.** Todos los países del mundo compiten por atraer; ninguno se **gobierna** por retener. El dato a veces existe —Canadá publica todos los años, vía la Longitudinal Immigration Database de Statistics Canada e IRCC, la retención de sus inmigrantes por provincia a uno y a cinco años—, pero **lo que mide es interprovincial: si el inmigrante se quedó en la provincia que lo admitió o se fue a Toronto, no si se fue de Canadá.** Nadie mide permanencia en el país a diez años porque ningún país rico cree que la gente se le vaya. Un objetivo de captación se puede mover con marketing y con exenciones. Un objetivo de arraigo solo se mueve arreglando el país.
+**Por qué.** El número existe y se puede construir: Statistics Canada cruza la Longitudinal Immigration Database contra las declaraciones de impuestos y publicó, el **2 de febrero de 2024**, que **más del 15% de los admitidos entre 1982 y 2017 emigró de Canadá dentro de los veinte años** —de las cohortes posteriores a 2000, cerca del **5% a los cinco años** y alrededor del **10% a la década**. Lo que Canadá **no** hace es gobernarse por esa serie: el programa se juzga por llegadas, y cuando frenó, frenó por una encuesta de opinión. **La diferencia de PLANPUERTA no es tener el número: es ponerlo a gobernar.** Un objetivo de captación se puede mover con marketing y con exenciones. Un objetivo de arraigo solo se mueve arreglando el país.
 
-> **Ojo con la formulación — ya se refutó dos veces.** Primera versión: «ninguno *publica*». La refuta Canadá, que publica, y la LID sigue resultados a más de cuarenta años. Segunda versión: «ninguno *corrige el programa* cuando el número cae». La refuta el mismo país: el **Atlantic Immigration Pilot Program** se lanzó en 2017 porque la retención en las provincias atlánticas era baja, Nueva Escocia pasó de **21,5%** de retención a un año entre los admitidos en 2016 a **67,6%** entre los admitidos en 2019, y el piloto **se volvió permanente en 2022 por ese número** (Statistics Canada). Eso es corregir el programa cuando cae y sostenerlo cuando sube.
+> **La premisa del «nadie mide» está muerta — se refutó tres veces y no se reformula una cuarta.** Primera versión: «ninguno *publica*». La refuta Canadá, que publica, y la IMDB sigue resultados a más de cuarenta años. Segunda versión: «ninguno *corrige el programa* cuando el número cae». La refuta el mismo país: el **Atlantic Immigration Pilot Program** se lanzó en 2017 porque la retención en las provincias atlánticas era baja, Nueva Escocia pasó de **21,5%** de retención a un año entre los admitidos en 2016 a **67,6%** entre los admitidos en 2019, y el piloto **se volvió permanente en 2022 por ese número** (Statistics Canada). Tercera versión: «Canadá mide entre provincias, no si se fue de Canadá». La refuta el estudio *Emigration of Immigrants: Results from the Longitudinal Immigration Database* (The Daily, 2/2/2024), que mide emigración **fuera** de Canadá con la misma IMDB, identificando a los emigrados por la declaración T1 porque no hay registro de salida.
 >
-> **La formulación que resiste es la distinción interprovincial/internacional:** lo que Canadá mide es a qué provincia se mudó el inmigrante, no si se fue de Canadá. Nadie mide permanencia *en el país* a diez años porque ningún país rico cree que la gente se le vaya; para Canadá la pregunta es Nueva Escocia o Toronto, para la Argentina es la Argentina o afuera. **Eso explica por qué el indicador rector de este PLAN no existe en ningún lado, en vez de declararlo.** Ninguna de las dos versiones refutadas vuelve al documento ni a esta spec.
+> **Lo que reemplaza a la premisa es una afirmación de función, no de originalidad:** Canadá tiene el dato y lo usa al margen; PLANPUERTA lo pone de indicador rector, publicado aunque dé mal, con umbrales de alarma escritos y atado a la Ventana de Pases. Una afirmación de función **no se refuta mostrando que alguien más tiene el número**, que es exactamente lo que tumbó a las tres anteriores. Beneficio colateral: **el Tablero de Arraigo gana modelo metodológico.** La IMDB es el método que la Argentina puede copiar —cruzar el registro de admisiones contra el registro tributario— y no hay que inventarlo. Ninguna de las tres versiones refutadas vuelve al documento ni a esta spec.
 
 **La evidencia que lo obliga.** Start-Up Chile es el experimento más parecido a lo que PLANPUERTA propone, y su fracaso es el más instructivo: **cerca del 80% de los emprendedores se fue apenas terminó el programa de seis meses**, un tercio a Estados Unidos, y solo el **12,5%** de una muestra de 200 startups de fundadores inmigrantes conservaba vínculo comercial con Chile a largo plazo — la medida es el vínculo, más angosta que «seguir operando». La retención mejoró después (34% → 56,4% hacia 2018), y el factor identificado es decisivo: **los que tuvieron tracción comercial fueron ~5× más propensos a quedarse.**
 
 > **El arraigo no se compra con subsidio. Se compra con mercado.** Un cerebro importado sin un problema real que resolver y sin quien le pague se va. Esto refuta el modelo «beca + visa» antes de escribirlo, y es el origen del dispositivo D8.
 
-**Población y mercado interno son consecuencia declarada, no función objetivo.** Se miden y se reportan, pero no gobiernan. El modelo que optimiza cabezas se autodestruye: Canadá recortó su meta de residentes permanentes de 500.000 a **395.000 para 2025 (−21%)**, y a 380.000 para 2026 y 365.000 para 2027, porque **el 58% de los canadienses dijo que entraba demasiada gente — la primera mayoría clara en un cuarto de siglo, y la proporción más alta desde 1998 (Environics/Focus Canada, 2.016 encuestados, 9-23 de septiembre de 2024).** El detonante fue vivienda. El país más pro-inmigración del mundo se dio vuelta en 24 meses.
+**Población y mercado interno son consecuencia declarada, no función objetivo.** Se miden y se reportan, pero no gobiernan. El modelo que optimiza cabezas se autodestruye: Canadá recortó su meta de residentes permanentes de 500.000 a **395.000 para 2025 (−21%)**, y a 380.000 para 2026 y 365.000 para 2027, porque **el 58% de los canadienses dijo que entraba demasiada gente — la primera mayoría clara en un cuarto de siglo, y la proporción más alta desde 1998 (Environics/Focus Canada, 2.016 encuestados, 9-23 de septiembre de 2024).** El detonante fue vivienda. Un consenso pro-inmigración de décadas se dio vuelta en 24 meses.
 
 ---
 
 ## 5. Arquitectura: cinco tramos, once dispositivos
 
-La columna vertebral es **el tiempo del que llega**, no la categoría de visa ni la operación de fichaje. Es la única estructura donde la función objetivo *es* el esqueleto: tres de los cinco tramos son retención, así que el PLAN no se puede escribir sin escribirla. Todos los sistemas migratorios del mundo están organizados por categoría de visa; ninguno por el ciclo de vida del que llega.
+La columna vertebral es **el tiempo del que llega**, no la categoría de visa ni la operación de fichaje. Es la única estructura donde la función objetivo *es* el esqueleto: tres de los cinco tramos son retención, así que el PLAN no se puede escribir sin escribirla. Los sistemas migratorios se organizan por categoría de visa; éste se organiza por el ciclo de vida del que llega.
 
 ### TRAMO 1 — LA BÚSQUEDA
 
@@ -215,7 +215,7 @@ Un límite inamovible tiene que ser enumerable y corto. Si no entra en una pági
 3. **Cláusula anti-casta.** Ningún invitado puede tener más derechos que un argentino en la misma situación. Solo puede tener *menos trámite*, nunca *más derecho*.
 4. **Freno automático por infraestructura**, por fórmula publicada.
 
-> **Sobre el Techo de Origen.** Importar médicos de Bolivia y Paraguay es hacerle a Bolivia exactamente lo que Europa y Estados Unidos nos hicieron a nosotros. Un proyecto anti-extractivo que se financia extrayendo capital humano de países más pobres es incoherente en su propia lógica. La Lista de la OMS es voluntaria y su cumplimiento es parcial —el Reino Unido la adoptó y prohibió el reclutamiento activo, y aun así siguen llegando por iniciativa individual, que es justamente lo que el código no toca—: **PLANPUERTA sería el primer país del mundo que se pone un techo a sí mismo sobre a quién le saca cerebros, lo escribe en la ley y lo publica en su Tablero.** No es una concesión — es la credencial moral que hace creíble al resto del PLAN, y es módulo exportable del Stack de Soberanía de PLANGEO.
+> **Sobre el Techo de Origen.** Importar médicos de Bolivia y Paraguay es hacerle a Bolivia exactamente lo que Europa y Estados Unidos nos hicieron a nosotros. Un proyecto anti-extractivo que se financia extrayendo capital humano de países más pobres es incoherente en su propia lógica. La Lista de la OMS es voluntaria y su cumplimiento es parcial —el Reino Unido la adoptó y prohibió el reclutamiento activo, y aun así siguen llegando por iniciativa individual, que es justamente lo que el código no toca—: **el techo británico es un código de práctica y solo cubre salud; el de PLANPUERTA va por ley, se extiende más allá de la salud y se publica auditado en su Tablero.** No es una concesión — es la credencial moral que hace creíble al resto del PLAN, y es módulo exportable del Stack de Soberanía de PLANGEO.
 
 ### 6.3 La regla única, y por qué
 
@@ -362,9 +362,11 @@ Primer dato de permanencia a diez años. **Acá el PLAN se aprueba o se reprueba
 
 ## 11. El Tablero de Arraigo
 
+**Método: la IMDB canadiense, copiada.** La serie rectora no se inventa. Statistics Canada la arma cruzando el registro de admisiones contra el registro tributario, y cuenta como emigrado al que dejó de declarar y no volvió a aparecer, porque no hay registro de salida que lo cuente por él. Acá los dos registros existen —radicaciones de la Dirección Nacional de Migraciones, CUIL— y hoy no se cruzan. **Lo que el Tablero estrena no es el método: es que el número gobierne.**
+
 | Indicador | Alarma |
 |---|---|
-| **Permanencia a 1/3/5/10 años**, por cohorte y por origen | *Rector.* Se publica aunque dé mal |
+| **Permanencia a 1/3/5/10 años**, por cohorte y por origen | *Rector.* Se publica aunque dé mal, y de él depende que la Ventana de Pases abra |
 | **Índice de Segunda Puerta** — cuántos de los que llegaron trajeron a alguien más | El mejor proxy de arraigo que existe: **nadie muda a su familia a un lugar del que piensa irse** |
 | Cobertura de la Lista de Faltantes (posiciones cubiertas, no volumen) | Si sube el volumen y no la cobertura, ANAR está fichando por su cuenta |
 | % de fichajes con problema pago verificado | < 100% = se está reinventando Start-Up Chile |
@@ -447,7 +449,7 @@ Se aplica **entera** la lección del tramo D (`project-planpregunta-tramo-d`, `p
 
 ## 16.bis Correcciones de hecho aplicadas el 2026-08-02
 
-Seis afirmaciones de la primera versión de esta spec resultaron falsas o más anchas que su fuente, y se corrigieron al escribirse la SECCIÓN 2 del documento. Se dejan anotadas para que no vuelvan:
+Once afirmaciones de las primeras versiones de esta spec resultaron falsas o más anchas que su fuente, y se corrigieron al escribirse las SECCIONES 0 a 2 del documento. Se dejan anotadas para que no vuelvan:
 
 | Decía | Dice ahora | Cómo se cayó |
 |---|---|---|
@@ -457,8 +459,12 @@ Seis afirmaciones de la primera versión de esta spec resultaron falsas o más a
 | Chile: «12,5% seguía operando» | 12,5% de una muestra de **200** conservó **vínculo comercial** | la medida es el vínculo, más angosta |
 | OMS: «casi nadie la respeta» | Cumplimiento parcial; el Reino Unido la adoptó | universal negativo, misma familia que los dos refutados abajo |
 | «seis menciones laterales» | referencias repartidas en **seis documentos** (la tabla tiene siete renglones) | inconsistencia con su propia tabla |
+| Canadá: «mide entre provincias, no si se fue de Canadá» | Canadá **mide la salida del país**: *Emigration of Immigrants*, The Daily, 2/2/2024 — más del **15%** de los admitidos 1982-2017 emigró a veinte años; post-2000, ~**5%** a cinco y ~**10%** a diez, por declaración T1 | tercera refutación de la misma premisa, con el mismo país |
+| «solo siete países más ricos que la Argentina en 1913» | **décima en 1913, con nueve arriba** (6.052 dólares internacionales de 2011): se agregan **Países Bajos (6.454)** y **Dinamarca (6.236)**. La lista de siete es el ranking de **1910** | Maddison Project Database — la misma base que la oración siguiente invocaba como autoridad |
+| «un techo que ningún país del mundo se puso todavía» | el Reino Unido se puso uno **por código de práctica y solo para salud**; lo distintivo es la ley, el alcance más allá de salud y la auditoría en el Tablero | la SECCIÓN 2 del propio documento lo desmiente dos pantallas más abajo |
+| «la única norma migratoria con nombre propio» | «la norma que el país recuerda **por lo que hacía**» | la Ley Avellaneda y la Ley Videla son normas migratorias con nombre propio, y las nombra el mismo documento |
 
-Y dos afirmaciones sobre retención fueron refutadas **dos veces** antes de quedar bien (ver §4). **Regla que queda para el resto del documento: nada de universales negativos —«ninguno», «nadie», «ningún país»— salvo que se puedan defender.** Es la forma exacta que se cayó tres veces.
+Y la premisa del «nadie mide retención» fue refutada **tres veces** antes de abandonarse (ver §4): no se reformula una cuarta, se reemplaza por una afirmación de **función**. **Regla que queda para el resto del documento: nada de universales negativos —«ninguno», «nadie», «ningún país»— salvo que se puedan defender.** Es la forma exacta que se cayó tres veces.
 
 ## 17. Fuentes
 
@@ -474,3 +480,5 @@ Y dos afirmaciones sobre retención fueron refutadas **dos veces** antes de qued
 - Italia, régimen *impatriati* — [Arletti Partners](https://arlettipartners.com/impatriate-tax-regime-italy-new-rules/)
 - Portugal, NHR → IFICI — [International Bar Association](https://www.ibanet.org/overview-Portugal-new-IFICI-regime)
 - OMS, Lista de Salvaguardia 2023 (55 países) — [WHO](https://www.who.int/publications/i/item/9789240069787)
+- Canadá, emigración de inmigrantes: *Emigration of Immigrants: Results from the Longitudinal Immigration Database*, The Daily, 2/2/2024 (>15% a veinte años, cohortes 1982-2017; identificación por T1) — [Statistics Canada](https://www150.statcan.gc.ca/n1/daily-quotidien/240202/dq240202a-eng.htm); estudio completo, cat. 91F0015M2024002 — [Statistics Canada](https://www150.statcan.gc.ca/n1/pub/91f0015m/91f0015m2024002-eng.htm)
+- Ranking de 1913 (Argentina décima, 6.052; Países Bajos 6.454; Dinamarca 6.236) — Maddison Project Database vía [Our World in Data](https://ourworldindata.org/grapher/gdp-per-capita-maddison)
