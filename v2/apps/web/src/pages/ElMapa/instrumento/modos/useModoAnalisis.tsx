@@ -3,6 +3,7 @@ import { Layer, Source } from 'react-map-gl/maplibre';
 
 import { Control, FiltroTipos, LeyendaRampa, Segmentado } from '../Chrome';
 import { COLOR_TIPO, RAMPAS } from '../paleta';
+import { PROVINCIAS_REF } from '../provincias-ref';
 import { AVISO_TEMAS, temasDe } from '../temas';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
@@ -29,34 +30,6 @@ type NivelGeo = 'provincia' | 'departamento';
 type Rango = '7d' | '30d' | 'todo';
 
 const DIAS: Record<'7d' | '30d', number> = { '7d': 7, '30d': 30 };
-
-/** Población (censo 2022, INDEC) en miles y superficie en miles de km². */
-const PROVINCIAS_REF: Record<string, { pob: number; km2: number }> = {
-  'Buenos Aires': { pob: 17569, km2: 307.6 },
-  'Ciudad Autónoma de Buenos Aires': { pob: 3121, km2: 0.2 },
-  Córdoba: { pob: 3978, km2: 165.3 },
-  'Santa Fe': { pob: 3556, km2: 133.0 },
-  Mendoza: { pob: 2014, km2: 148.8 },
-  Tucumán: { pob: 1703, km2: 22.5 },
-  Salta: { pob: 1440, km2: 155.5 },
-  'Entre Ríos': { pob: 1426, km2: 78.8 },
-  Misiones: { pob: 1281, km2: 29.8 },
-  Chaco: { pob: 1129, km2: 99.6 },
-  Corrientes: { pob: 1120, km2: 88.2 },
-  'Santiago del Estero': { pob: 978, km2: 136.4 },
-  'San Juan': { pob: 818, km2: 89.7 },
-  Jujuy: { pob: 797, km2: 53.2 },
-  'Río Negro': { pob: 747, km2: 203.0 },
-  Neuquén: { pob: 726, km2: 94.1 },
-  Formosa: { pob: 606, km2: 72.1 },
-  Chubut: { pob: 604, km2: 224.7 },
-  'San Luis': { pob: 540, km2: 76.7 },
-  Catamarca: { pob: 429, km2: 102.6 },
-  'La Rioja': { pob: 384, km2: 89.7 },
-  'La Pampa': { pob: 366, km2: 143.4 },
-  'Santa Cruz': { pob: 337, km2: 243.9 },
-  'Tierra del Fuego': { pob: 191, km2: 21.6 },
-};
 
 const METRICAS: { id: Metrica; etiqueta: string; explica: string; unidad: string }[] = [
   {
