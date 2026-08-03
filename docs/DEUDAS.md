@@ -41,6 +41,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | Parcial |
 | [D-015](#d-015--las-cifras-del-bloque-de-atracción-de-plansus-no-tenían-fuente-externa--resuelta-parcial) | Las cifras del bloque de atracción de PLANSUS no tenían fuente externa | Media | **Parcial** |
 | [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) | Este mismo archivo usa el id D-013 dos veces | Media | Abierta |
+| [D-017](#d-017--plangeo-promete-secciones-interno-que-no-existen) | PLANGEO promete secciones `[INTERNO]` que no existen | Media | Abierta |
 
 ---
 
@@ -409,3 +410,22 @@ La causa es estructural y va a repetirse: **el archivo no está ordenado por id*
 **Por qué no se arregló en el momento:** renumerar una de las dos D-013 rompe los anclas del índice y cualquier referencia externa, y elegir cuál se renumera es una decisión sobre el historial ajeno. La sesión que lo encontró estaba cerrando otra cosa.
 
 **Cómo se arregla:** renumerar la segunda D-013 —la de V-FIN-05, que es la más nueva— al próximo id libre, actualizar su fila del índice, y agregar una guardia que falle si un id aparece dos veces como encabezado. Sin la guardia, esto vuelve: el índice es una lista escrita a mano y nadie la mira antes de elegir un número.
+
+---
+
+### D-017 · PLANGEO promete secciones `[INTERNO]` que no existen
+
+**Dónde:** `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md` — nota de clasificación estratégica del encabezado; `PLAN_REGISTRY.yml` línea 269
+**Encontrada:** 2026-08-03, al escribir el spec del bloque de mecanismos de PLANGEO
+**Severidad:** media
+**Estado:** abierta
+
+La nota de clasificación de PLANGEO declara que el documento «existe en dos versiones» —pública e interna— y que «las secciones marcadas como [INTERNO] en futuras versiones no se incluirán en la versión pública». El registro lo respalda: `public_visibility: interno`, `phase: research-only`, `mission_matrix: Ámbar`.
+
+**No hay una sola marca `[INTERNO]` en las 1.570 líneas del documento, y no existe versión pública derivada.** La distinción es una promesa de la cabecera que ningún mecanismo implementa: hoy PLANGEO es un archivo único y todo su contenido tiene el mismo estatus, incluido el material que la propia corrección 13.B manda mantener fuera de la plataforma pública («doctrina antiimperialista → eliminada de plataforma pública; queda en doctrina interna»).
+
+**Por qué importa ahora:** el spec `v2/docs/specs/2026-08-03-plangeo-mecanismos.md` necesita alojar el Registro de Presión (S27.5) con compuerta de tranche, y una compuerta declarada sin marcado real es exactamente la misma promesa vacía. El bloque puede escribirse igual —la compuerta queda como texto— pero no hay forma de hacerla operativa hasta que exista el marcado.
+
+**Por qué no se arregló en el momento:** decidir qué secciones de PLANGEO son internas es una decisión editorial sobre material ajeno al bloque nuevo, y afecta al menos a S12 (doble capa), S13 (eje US-China) y S19 (Malvinas). La sesión estaba diseñando otra cosa.
+
+**Cómo se arregla:** definir el criterio de marcado, aplicarlo a las secciones existentes, y agregar una guardia que falle si un documento con `public_visibility: interno` en el registro se copia a `client/public/docs/` o `dist/` sin filtrar — porque hoy `PLANGEO_Argentina_ES.md` ya está publicado tal cual en `SocialJusticeHub/client/public/docs/`, que es la consecuencia práctica de que la distinción no exista.
