@@ -72,6 +72,7 @@ export const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 29: LA PUERTA CLÍNICA — EL PACIENTE QUE VIENE DE AFUERA',
   '## SECCIÓN 30: EL RÉGIMEN DE ATRACCIÓN — CAPITAL, EMPRESAS Y EL PROBLEMA ARGENTINO',
   '## SECCIÓN 31: EL TALENTO — QUIÉN VIENE, QUIÉN VUELVE',
+  '## FUENTES EXTERNAS DEL BLOQUE MARCOS DE ATRACCIÓN',
   '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
   '## Parche post-auditoría 2026-04-26',
 ];
@@ -103,6 +104,21 @@ export const CIFRAS_CANONICAS: { cifra: string; domicilio: string[]; desc: strin
     cifra: '2,40%',
     domicilio: ['Escalera'],
     desc: 'lo que la Escalera de PLANPACTO conserva del gasto primario consolidado',
+  },
+  {
+    cifra: '59%',
+    domicilio: ['Qiao'],
+    desc: 'costo de ensayo pivotal en América Latina como % de Norteamérica — Qiao et al., Clinical Trials, 2019',
+  },
+  {
+    cifra: '4008/2017',
+    domicilio: ['ANMAT'],
+    desc: 'la Disposición que ya fija los plazos de ensayo clínico. El instrumento de S30.2 no crea plazos: les agrega consecuencia',
+  },
+  {
+    cifra: '876,2 millones',
+    domicilio: ['retiros psicodélicos'],
+    desc: 'mercado global del nicho en 2024. Es el denominador que vuelve indefendible dimensionar el pilar contra él',
   },
 ];
 

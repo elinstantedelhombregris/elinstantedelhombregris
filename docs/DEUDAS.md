@@ -39,6 +39,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-012](#d-012--el-geojson-usaba-un-nombre-no-canónico-para-caba) | El GeoJSON usaba un nombre no canónico para CABA | Alta | **Resuelta** |
 | [D-013](#d-013--el-test-del-corpus-de-planes-tiene-el-total-a-mano-y-se-rompe-cada-vez) | El test del corpus de PLANes tiene el total a mano y se rompe cada vez | Media | Abierta |
 | [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | Parcial |
+| [D-015](#d-015--las-cifras-del-bloque-de-atracción-de-plansus-no-tenían-fuente-externa--resuelta-parcial) | Las cifras del bloque de atracción de PLANSUS no tenían fuente externa | Media | **Parcial** |
+| [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) | Este mismo archivo usa el id D-013 dos veces | Media | Abierta |
 
 ---
 
@@ -358,7 +360,7 @@ El mismo bug ya se arregló en `arquitecto-data.ts` cuando se cargó el nodo: ah
 
 ---
 
-### D-014 · Las cifras del bloque de atracción de PLANSUS no tienen fuente externa
+### D-015 · Las cifras del bloque de atracción de PLANSUS no tenían fuente externa — RESUELTA PARCIAL
 
 **Encontrada:** 2026-08-03, escribiendo las Secciones 28 a 31 de PLANSUS
 **Dónde:** `Iniciativas Estratégicas/PLANSUS_Argentina_ES.md` — Secciones 9.4, 13.2 y el bloque MARCOS DE ATRACCIÓN
@@ -374,3 +376,36 @@ El bloque nuevo se escribió sin inventar un solo número, que era la directiva.
 **Por qué no se arregló en el momento:** conseguir estas cifras es trabajo de investigación con fuentes primarias, no de redacción, y mezclarlo habría contaminado la prosa con números plausibles. Los últimos commits del repositorio son correcciones de cifras que una auditoría refutó: el default es no inventar.
 
 **Cómo se arregla:** una pasada de investigación con fuente primaria por cada punto, y después una edición quirúrgica. La guardia `verificar-plansus.ts` ya tiene el mecanismo para fijarlas cuando existan — `CIFRAS_CANONICAS` exige que cada cifra aparezca con su domicilio en la misma oración.
+
+---
+
+**RESUELTA PARCIAL — 2026-08-03**, misma jornada, con investigación de fuentes. Se cierran cuatro de los cinco puntos y el quinto se resuelve retirando la cifra en vez de inventarla. El detalle vive ahora en el propio documento, en `## FUENTES EXTERNAS DEL BLOQUE MARCOS DE ATRACCIÓN`, con una columna de solidez por fuente.
+
+| Punto | Estado | Qué se encontró |
+|---|---|---|
+| Costo comparado de ensayo clínico | **Cerrado, revisado por pares** | Qiao et al., *Clinical Trials*, 2019: América Latina al **59%** del costo de Norteamérica (RIC 50-70%), contra 78% de Europa Occidental y de Asia. Es regional y no argentino, y mide ejecución y no velocidad — las dos advertencias quedan escritas en la Sección 9.2 |
+| Plazos de ANMAT | **Cerrado, norma vigente** | Disposición **4008/2017**: 3 días hábiles para declarar evaluable, 60 para el informe técnico (45 por vía acelerada), 10 para el acto administrativo, 15 para subsanar observaciones. Total ~73 días hábiles, ~58 acelerado |
+| Precio por programa | **Cerrado con reserva** | Operadores legales cobran USD 200-900 por día; Beckley USD 5.900-8.900 (Países Bajos) y 4.800-9.500 (Jamaica); Oregon licenciado USD 1.500-3.500. **El techo de USD 15.000 que traía el documento no tiene respaldo** y se bajó a un rango de 1.500-9.500. Fuente interesada (los propios operadores), sirve para orden de magnitud |
+| Tamaño de mercado | **Cerrado, con dispersión declarada** | Nicho de retiros psicodélicos USD 876,2M (2024) → 2.740M (2033), investigación comercial. Turismo médico USD 30.500-107.500M (2024) según la consultora, → ~142.000M (2034). La dispersión de más de 3x entre firmas queda escrita en el texto |
+| Empleo del pilar | **Retirado, no resuelto** | Ver abajo |
+
+**El hallazgo que justificó la investigación entera.** Las cifras de empleo (decenas de miles de puestos) y la fila de ingresos de la TABLA 13.2 (USD 1.000-2.000M al 2036) eran **incompatibles con el mercado que el documento decía estar atacando**: implicaban que la Argentina sola se quedaba con cerca de la mitad del nicho global de retiros psicodélicos. La corrección no fue bajar las metas sino **nombrar el mercado**: el pilar juega en turismo médico, no en el nicho psicodélico, y ahí una participación de uno o dos puntos es ambiciosa y posible.
+
+Eso confirmó desde la aritmética lo que la Sección 29 ya había decidido por reputación — **el pilar solo cierra si es medicina** —, de modo que la reformulación de la Sección 9.4 no era cosmética. La cifra de empleo se **retiró del documento** hasta que exista un modelo que la sostenga contra el mercado correcto.
+
+**Lo único que sigue abierto:** el aviso de la embajada de EE.UU. en el Perú de 2024 sobre lejanía médica está citado vía fuente secundaria y falta el original; y nadie recalculó la fila de la TABLA 13.2 contra el mercado correcto, lo que quedó escrito en la propia tabla como tarea de la Pre-Fase.
+
+---
+
+### D-016 · Este mismo archivo usa el id D-013 dos veces
+
+**Encontrada:** 2026-08-03, al registrar la deuda del bloque de atracción de PLANSUS
+**Dónde:** `docs/DEUDAS.md` — líneas 229 y 346
+
+El id `D-013` está asignado a dos deficiencias distintas y sin relación: «El test del corpus de PLANes tiene el total a mano y se rompe cada vez» y «V-FIN-05 suma el piso sustitutivo a los pisos que sustituye». Son de sesiones distintas y ninguna de las dos sabía de la otra.
+
+La causa es estructural y va a repetirse: **el archivo no está ordenado por id**. Las entradas viven en dos zonas —el cuerpo y un bloque posterior— y los ids se intercalan, de modo que mirar el final del archivo para averiguar el último id usado da una respuesta equivocada. Es exactamente lo que pasó al registrar D-015: se leyó «D-013» al final, se asumió que el próximo libre era D-014, y D-014 ya existía en la línea 250. Se detectó por el índice, no por el procedimiento.
+
+**Por qué no se arregló en el momento:** renumerar una de las dos D-013 rompe los anclas del índice y cualquier referencia externa, y elegir cuál se renumera es una decisión sobre el historial ajeno. La sesión que lo encontró estaba cerrando otra cosa.
+
+**Cómo se arregla:** renumerar la segunda D-013 —la de V-FIN-05, que es la más nueva— al próximo id libre, actualizar su fila del índice, y agregar una guardia que falle si un id aparece dos veces como encabezado. Sin la guardia, esto vuelve: el índice es una lista escrita a mano y nadie la mira antes de elegir un número.

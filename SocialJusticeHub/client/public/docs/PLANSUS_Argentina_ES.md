@@ -857,6 +857,8 @@ Argentina tiene neurocientíficos de clase mundial y les paga sueldos de miseria
 
 PLANSUS convierte a la Argentina en el **centro global de investigación psicodélica**. Mientras Johns Hopkins y Imperial College London operan bajo restricciones regulatorias que hacen que cada ensayo clínico cueste millones y tarde años en aprobarse, Argentina ofrece: marco regulatorio claro, infraestructura de investigación, pacientes disponibles, costos operativos competitivos, y — crucialmente — ANMAT como regulador experimentado en ensayos clínicos.
 
+La ventaja de costo no es una impresión: está medida. El estudio de **Qiao** y colaboradores publicado en *Clinical Trials* en 2019 comparó los costos regionales de ensayos pivotales y ubicó a América Latina en el **59%** del costo de Norteamérica, con un rango intercuartílico de 50 a 70 por ciento — contra el 78% de Europa Occidental y el 78% de Asia. Es decir, alrededor de **cuatro dólares de cada diez se ahorran** por hacer el ensayo de este lado. Dos advertencias honestas sobre esa cifra: es regional y no específicamente argentina, y mide costo de ejecución y no velocidad regulatoria, que es un problema distinto y se trata en la Sección 30.2.
+
 Sustancias prioritarias: psilocibina, MDMA, DMT, ayahuasca, mescalina, ketamina (ya legal pero subutilizada), ibogaína. Cada una con un programa de investigación CONICET + universidad + partner internacional. Partnerships con MAPS, Usona Institute, Beckley Foundation, Compass Pathways. **5,000-15,000 posiciones de investigación de alta calificación en 5 años.** Pipeline de patentes argentinas en psicofarmacología.
 
 ### 9.3 Pilar 3: Industria Farmacéutica
@@ -876,7 +878,15 @@ La razón de encuadrarlo así es estratégica y está escrita en la Sección 2.5
 - **Circuitos de integración** post-sesión, que son un servicio en sí mismo y hoy no los ofrece prácticamente nadie en el mundo
 - **Integración PLAN24CN**: nuevas ciudades con infraestructura de tratamiento desde el diseño
 
-Rango de precio de referencia: USD 3,000-15,000 por semana, y **20,000-50,000 empleos** en hospitalidad, acompañamiento terapéutico, logística, gastronomía y transporte. Las dos cifras son estimaciones propias sin fuente externa verificada y así hay que leerlas hasta que la Pre-Fase las mida.
+**El precio, medido contra el mercado real.** Los operadores legales del mundo cobran hoy entre USD 200 y 900 por día, en programas de tres a siete días. Beckley Retreats cobra entre USD 5.900 y 8.900 en los Países Bajos y entre USD 4.800 y 9.500 en Jamaica; en Oregon, donde el servicio está licenciado por el Estado, una experiencia completa con preparación, sesión e integración sale entre USD 1.500 y 3.500 de bolsillo. El rango defendible es entonces de **USD 1.500 a 9.500 por programa**, y no el techo de quince mil que este documento supuso hasta agosto de 2026 y que no encuentra respaldo en ningún operador relevado.
+
+**Y una advertencia de escala que corrige a este mismo documento.** El nicho global de retiros psicodélicos se estimó en **USD 876,2 millones** en 2024, con proyección a USD 2.740 millones para 2033 según investigación de mercado comercial — no académica, y así hay que leerla. Contra ese denominador, las proyecciones de la TABLA 13.2 y cualquier cifra de empleo de decenas de miles serían indefendibles: implicarían que la Argentina sola se queda con la mitad del mercado mundial del nicho.
+
+La conclusión no es bajar las metas. Es **entender en qué mercado juega este pilar**, y no es el de los retiros psicodélicos: es el de **turismo médico**, estimado entre USD 30.500 y 107.500 millones en 2024 según la consultora que se consulte —una dispersión de más de tres veces entre firmas, que conviene declarar en vez de esconder— y proyectado a unos USD 142.000 millones para 2034. Ahí, una participación argentina de uno o dos puntos es ambiciosa y es posible.
+
+Esto confirma, desde la aritmética, lo que la Sección 29 decidió por reputación: **el pilar solo cierra si es medicina.** Como turismo de bienestar compite en un nicho de menos de mil millones; como tratamiento médico de no residentes compite en uno de cien mil. La reformulación no fue cosmética.
+
+La cifra de empleo que este documento traía —decenas de miles de puestos— queda **retirada hasta que exista un modelo que la sostenga** contra el mercado correcto. La Pre-Fase la calcula; el documento no la inventa.
 
 Todo lo operativo de este pilar —certificación de centros, seguro, protocolo de evento adverso, régimen fiscal del visitante— vive en la Sección 29. Acá solo se describe el pilar productivo.
 
@@ -1156,6 +1166,8 @@ La prohibición produce exactamente cero pesos de recaudación tributaria. Cada 
 | Tratamiento de no residentes (Sección 29) | USD 50-100M | USD 200-500M | USD 500M-1B | USD 1-2B |
 | Decomiso Activos Tier 3 | USD 200-500M | - | - | - |
 | **TOTAL** | **USD 500M-1.1B** | **USD 900M-2B** | **USD 2.2-4.4B** | **USD 4.2-8.4B** |
+
+**Sobre la fila de tratamiento de no residentes.** Sus valores vienen de la versión anterior de este documento, cuando la fila se llamaba «turismo de conciencia» y medía otra cosa. Se conservan, pero con el mercado nombrado, porque sin nombrarlo no significan nada: la meta de USD 1.000-2.000 millones al 2036 solo es defendible medida contra el **turismo médico** —del orden de las decenas de miles de millones de dólares anuales, con proyección a unos USD 142.000 millones para 2034— y sería absurda medida contra el nicho de retiros psicodélicos, que en 2024 era de menos de mil millones en todo el planeta. La Sección 9.4 desarrolla la cuenta. Nadie recalculó estos valores contra el mercado correcto: es tarea de la Pre-Fase.
 
 Las proyecciones son conservadoras. Colorado (5.8 millones de habitantes) recaudó USD 423M en impuestos al cannabis en 2023. Argentina tiene 46 millones de habitantes, un clima agrícola superior y una posición geográfica estratégica para el turismo internacional. Las cifras de 2036 (tranche-3 maduración) podrían ser significativamente mayores.
 
@@ -2351,9 +2363,17 @@ La mayoría de los regímenes argentinos de las últimas décadas empezaron por 
 
 En biotecnología la moneda no es el impuesto: es el calendario. Un ensayo clínico que empieza dieciocho meses antes vale más que cualquier exención, porque adelanta dieciocho meses toda la curva de ingresos de la molécula y descuenta dieciocho meses de patente vencida.
 
-Por eso el instrumento central de esta sección no es tributario. Es un **acuerdo de nivel de servicio vinculante** de ANSUS y ANMAT: plazos máximos publicados para cada tipo de trámite —autorización de ensayo, habilitación de centro, registro de producto, importación de comparador—, con **penalidad automática por incumplimiento** a favor del solicitante y publicación mensual del cumplimiento efectivo.
+Y acá hay que ser precisos, porque la Argentina **ya tiene los plazos escritos**. La Disposición **4008/2017** de ANMAT los fija para los estudios de farmacología clínica: tres días hábiles para que la Dirección de Evaluación y Registro de Medicamentos comunique si la solicitud está en condiciones de evaluarse, sesenta días hábiles para el informe técnico —cuarenta y cinco cuando el estudio ya está aprobado y en curso en un país de alta vigilancia sanitaria—, y diez días hábiles más para el acto administrativo. Si hay observaciones, el plazo se interrumpe y el patrocinador tiene quince días hábiles para subsanar, con rechazo automático si no responde.
 
-Un plazo sin penalidad es una expresión de deseo. Un plazo con penalidad es un contrato, y un contrato es lo que una empresa puede llevarle a su directorio.
+Sumado, el trayecto normativo es de unos setenta y tres días hábiles, y de unos cincuenta y ocho por la vía acelerada. Sobre el papel, es competitivo.
+
+**Entonces el instrumento de esta sección no es crear plazos: es ponerles consecuencia.** Un plazo que se incumple sin que pase nada no es un plazo, es una expectativa — y esa es exactamente la experiencia que tiene cualquiera que haya tramitado algo en la Argentina. Lo que PLANSUS agrega sobre la norma vigente son tres cosas que hoy no existen:
+
+- **Penalidad automática** a favor del solicitante cuando el plazo se vence, sin necesidad de reclamo ni de abogado.
+- **Publicación mensual del cumplimiento efectivo**, trámite por trámite, para que el plazo real y el plazo escrito se puedan comparar.
+- **Extensión del régimen** a los trámites que la Disposición 4008/2017 de ANMAT no cubre: habilitación de centros receptivos, registro de producto y autorización de importación de comparador.
+
+Un plazo sin penalidad es una expresión de deseo. Un plazo con penalidad y con publicación es un contrato, y un contrato es lo que una empresa puede llevarle a su directorio.
 
 Esto es lo único de la lista de 30.1 que PLANSUS puede entregar por sí mismo, sin depender de la política monetaria ni de un acuerdo federal. Y da la casualidad de que es el primero de la lista.
 
@@ -2413,6 +2433,26 @@ La Sección 9.2 dice una frase que este documento nunca terminó de asumir: la A
 **Programa de retorno.** Convocatoria específica para investigadores argentinos en el exterior en neurociencia, psiquiatría, farmacología y química de productos naturales, con financiamiento de repatriación, cargo garantizado por un plazo mínimo y acceso al Registro de la Sección 28 como argumento central — porque a un investigador serio no se lo trae con un sueldo, se lo trae con un dataset que no puede conseguir en otro lado.
 
 Todo esto se apoya en **PLANPUERTA**, el mandato migratorio, y adopta su criterio rector: se mide por **arraigo, no por llegadas**. Es exactamente lo que corresponde acá. Un investigador que viene tres años, publica y se va dejó papers; uno que se queda deja discípulos. Y en materia de formación local, esta sección no inventa nada: extiende el pipeline de capacitación de la Sección 25.3, que ya construye facilitadores, técnicos de control de calidad y agrónomos.
+
+---
+
+## FUENTES EXTERNAS DEL BLOQUE MARCOS DE ATRACCIÓN
+
+Las afirmaciones cuantitativas de las Secciones 9.2, 9.4, 13.2, 29 y 30 se apoyan en estas fuentes. Las que no tienen fuente están declaradas como tales en el texto, que es la única alternativa honesta a inventarlas.
+
+| Afirmación | Fuente | Solidez |
+|---|---|---|
+| 58 muertes atribuidas a la ayahuasca 2010-2022, 34 con consumo verificado, ninguna autopsia la atribuye, ~4 millones de consumidores | ICEERS, *Examining the Deaths Attributed to Ayahuasca* | Relevamiento de casos, institución especializada |
+| Lejanía médica como factor agravante | Aviso a ciudadanos de la embajada de EE.UU. en el Perú, 2024 | Citado vía fuente secundaria; falta el original |
+| América Latina al 59% del costo de Norteamérica en ensayos pivotales (RIC 50-70%) | Qiao et al., *Clinical Trials*, 2019 | **Revisado por pares** |
+| Plazos de ensayo clínico: 3 + 60 (o 45) + 10 días hábiles, 15 para subsanar | Disposición ANMAT 4008/2017 | **Norma vigente** |
+| Precios de operadores legales: USD 200-900 por día; Beckley USD 5.900-8.900 (Países Bajos) y 4.800-9.500 (Jamaica); Oregon licenciado USD 1.500-3.500 | Sitios de los propios operadores y agregadores de retiros | Fuente interesada; sirve para el orden de magnitud |
+| Nicho global de retiros psicodélicos, USD 876,2 millones en 2024 → USD 2.740 millones en 2033 | Investigación de mercado comercial | **Comercial, no académica.** Leer con reserva |
+| Turismo médico global: USD 30.500-107.500 millones en 2024 → ~142.000 millones en 2034 | Cuatro consultoras distintas | Dispersión de más de 3x entre firmas, declarada en el texto |
+
+**Lo que sigue sin fuente y está retirado del documento:** la cifra de empleo del pilar de tratamiento de no residentes. Se calcula en la Pre-Fase o no se escribe.
+
+---
 
 ---
 
