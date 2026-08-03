@@ -127,7 +127,7 @@ Antes de discutir a quién invitar, hay una pregunta más barata: qué estamos h
 
 Hay un minuto entre que algo empieza a salir mal y que ya no se puede arreglar. Édgar Colmenares sabe reconocerlo; le llevó once años y una guardia de urgencias en Maracaibo. Hace cuatro años que ese saber va y viene por Urquiza a las once de la noche, en el asiento de adelante de un Classic 2011, a treinta metros de la gente que lo necesita.
 
-Édgar no está esperando que lo vengan a rescatar. Maneja, mantiene la casa, crió acá a una hija argentina y sigue mandando el correo cada tanto. Lo que le falta no es voluntad: es que del otro lado haya alguien que conteste.
+Édgar sigue mandando el correo cada tanto; falta el escritorio que conteste.
 
 ## TESIS CENTRAL
 
@@ -137,15 +137,15 @@ Discutió quién entra, con qué papeles y con qué controles. Nunca discutió l
 
 Por eso el indicador rector de este PLAN no es cuántos entran. **Es cuántos siguen acá a los diez años.**
 
-Todos los países del mundo compiten por atraer y ninguno se gobierna por retener. El dato a veces está: Canadá publica todos los años cuántos de sus inmigrantes siguen en cada provincia al año y a los cinco. Lo que no hace nadie es corregir el programa cuando ese número cae. Una meta de llegadas se mueve con una campaña y con una exención impositiva. El arraigo no: se mueve arreglando la escuela a la que va Delfina, el quirófano al que Édgar todavía no entra y el expediente parado hace ocho meses. Es la única métrica que no se puede falsear con marketing, porque para moverla hay que hacer el trabajo.
+Todos los países del mundo compiten por atraer y ninguno se gobierna por retener. El dato a veces está: Canadá publica todos los años cuántos de sus inmigrantes siguen en cada provincia al año y a los cinco. Pero mide entre provincias —si se quedó en Nueva Escocia o se fue a Toronto—, no si se fue de Canadá: nadie mide permanencia en el país a diez años porque ningún país rico cree que la gente se le vaya. La Argentina tiene que medir lo que nadie mide: es un país del que la gente se va. Una campaña no lo mueve: lo mueve arreglar la escuela a la que va Delfina, el quirófano al que Édgar no entra y el expediente parado hace ocho meses.
 
 Y sobre esa medida, el PLAN sale a buscar. No abre un formulario y espera: arma un plantel. **La Lista de Faltantes** no la escribe este documento ni un ministerio con criterio propio —se la escriben los otros veintiséis PLANes, cada uno declarando qué posición tiene vacante, con qué problema concreto y con qué plata ya asignada—, y sobre esa lista sale a mirar **El Cuerpo de Scouts**. Es la diferencia entera entre un régimen migratorio y un mercado de pases: el régimen define requisitos y espera del otro lado del mostrador; el técnico sabe el nombre del jugador que quiere y viaja a verlo.
 
 Y sale a buscar con un techo que ningún país del mundo se puso todavía: **no se busca donde la falta duele más que acá.** Llevarse médicos de los países que tienen menos médicos que nosotros es hacerle a otro lo que nos hicieron a nosotros, y un proyecto anti-extractivo no puede financiarse extrayendo cerebros de gente más pobre. Ese límite se escribe, se publica y se audita: es la credencial moral que hace creíble todo lo demás.
 
-**El órgano de este PLAN es la piel.** No es el sistema inmune: esa metáfora, la que trata al que llega como una amenaza biológica que hay que detectar y neutralizar, está prohibida en cada página de este documento, y queda nombrada acá una sola vez con el único fin de rechazarla. La piel es otra cosa. Es el borde que decide qué entra, sí, pero sobre todo es lo que toca, lo que respira, el lugar donde ocurre el contacto. **Un país sin piel no se defiende: no siente.**
+**El órgano de este PLAN es la piel.** No es el sistema inmune: esa metáfora, la que trata al que llega como una amenaza biológica que hay que detectar y neutralizar, está prohibida en cada página de este documento. La piel es otra cosa. Es el borde que decide qué entra, sí, pero sobre todo es lo que toca, lo que respira, el lugar donde ocurre el contacto. **Un país sin piel no se defiende: no siente.**
 
-De ahí sale la restricción que gobierna cada página que sigue, sin excepción de seguridad, de emergencia ni de urgencia: **este PLAN no crea ni un gramo de poder de expulsión nuevo.** El incumplimiento de lo que alguien firmó revoca lo que ese acuerdo le daba, y nada más; el delito grave lo resuelve el derecho penal vigente, que ya prevé lo suyo con sentencia firme y no necesita ayuda de este documento. Un PLAN que se reserva una sola puerta para decidir quién sobra vuelve a escribir la Ley de Residencia de 1902, y el nombre nuevo no cambia lo que hace.
+De ahí sale la restricción que gobierna cada página que sigue, sin excepción de seguridad, de emergencia ni de urgencia: **este PLAN no crea ni un gramo de poder de expulsión nuevo.** El incumplimiento de lo que alguien firmó revoca lo que ese acuerdo le daba, y nada más; el delito grave lo resuelve el derecho penal vigente, que ya prevé lo suyo con sentencia firme. Un PLAN que se reserva una sola puerta para decidir quién sobra vuelve a escribir la Ley de Residencia de 1902, y el nombre nuevo no cambia lo que hace.
 
 Nadie deja su casa por una exención impositiva. Se deja la casa por un lugar donde valga la pena empezar de nuevo, y ese lugar hay que tenerlo construido antes de invitar a nadie.
 
