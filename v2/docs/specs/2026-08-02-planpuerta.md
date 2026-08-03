@@ -52,7 +52,7 @@ PLANPUERTA no es un sub-mandato que se independiza: es un hueco que la auditorí
 | **1914** | **29,9%** — la proporción más alta de la historia argentina |
 | **2022** | **4,2%** — la más baja del último siglo |
 
-De casi uno de cada tres a uno de cada veinticuatro. En el mismo período en que el país pasó de ser una de las diez economías más ricas del mundo a lo que es hoy. Y de los inmigrantes actuales, **el 65,9% viene de países limítrofes** — dato que resulta decisivo para §3.
+De casi uno de cada tres a uno de cada veinticuatro. En el mismo período en que el país pasó de ser una de las diez economías más ricas del mundo a lo que es hoy. Y de la población inmigrante actual, **el 65,9% nació en países limítrofes** — es **stock** del Censo 2022, no flujo anual, y así hay que escribirlo siempre — dato que resulta decisivo para §3.
 
 ---
 
@@ -81,7 +81,7 @@ De casi uno de cada tres a uno de cada veinticuatro. En el mismo período en que
 
 El **Acuerdo de Residencia del MERCOSUR** (Brasilia, 2002) está ratificado por **Ley 25.903** y vigente internacionalmente **desde el 28 de julio de 2009** para Argentina, Brasil, Paraguay, Uruguay, Bolivia y Chile. La **Ley 25.871, art. 23** lo incorporó como categoría migratoria propia: *«nacionalidad MERCOSUR»*. Los requisitos son acreditar nacionalidad y carecer de antecedentes penales. Nada más: no hay puntaje, ni oficio, ni evaluación.
 
-Cruzado con §1.3: **para el 65,9% del flujo migratorio real que recibe la Argentina, la residencia ya es un derecho por tratado, no una concesión que PLANPUERTA pueda regular.**
+Cruzado con §1.3: **para los dos tercios de la población inmigrante que ya vive acá, la residencia es un derecho por tratado, no una concesión que PLANPUERTA pueda regular.**
 
 ### 3.2 Por qué no se denuncia el tratado
 
