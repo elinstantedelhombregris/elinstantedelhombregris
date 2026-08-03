@@ -588,3 +588,130 @@ Premiar el aporte cívico con pasaporte se escribió de tres maneras por lo meno
 Los cinco tramos terminan acá. Lo que sigue no son beneficios: son límites, y se sancionan antes.
 
 ---
+
+## SECCIÓN 9: EL MARCO DE LA PUERTA
+
+> *"Una ley de expulsión sin juez no la escribió un monstruo. La escribió alguien que quería decir lo mismo que este PLAN quiere decir, y la escribió mal."*
+
+Todo lo que los ocho capítulos anteriores prometieron se apoya acá. El Marco no es un tramo ni el doceavo dispositivo: es lo que permite ofrecer todo eso sin que se vuelva otra cosa, y por convención de este documento **lo que no está escrito en esta sección no obliga**. Un dispositivo que remitió su prohibición al Marco y no la encuentra acá quedó sin norma.
+
+Un límite inamovible tiene que ser enumerable y corto. Lo que no entra en una página es un régimen, y un régimen se reforma cualquier martes con la mayoría de ese martes. Por eso lo que sigue son listas cerradas, con la cantidad de renglones adelante.
+
+### La ley que hay que poder nombrar
+
+El 22 de noviembre de 1902 el Congreso aprobó la **Ley 4.144, la Ley de Residencia**, por iniciativa del senador Miguel Cané. Facultaba al Poder Ejecutivo a expulsar sin juicio previo a cualquier extranjero cuya conducta comprometiera la seguridad nacional o perturbara el orden público — una facultad que este PLAN no reconstruye, no hereda y no vuelve a fundar con otro nombre. El artículo 4º le daba al alcanzado por la orden tres días para salir del país y habilitaba su detención hasta el momento del embarque (texto de la Ley 4.144, Suprema Corte de Justicia de la Provincia de Buenos Aires).
+
+Rigió cincuenta y seis años. La derogó la Ley 14.445, sancionada el 27 de junio de 1958 (argentina.gob.ar), y lo que importa de esa ley es lo que tuvo que hacer además de derogar: el mismo texto dejó sin efecto los decretos dictados en virtud de la 4.144 **por motivos políticos o gremiales**. El Congreso de 1958 tuvo que escribir esas dos palabras para deshacer lo hecho, y ahí quedó registrado contra qué se usó.
+
+Y acá está lo incómodo, que se escribe entero porque es la parte que enseña algo. Nadie escribió la 4.144 pensando en perseguir. La escribieron pensando exactamente lo que este PLAN quiere decir, que el que viene a vivir acá no puede venir a desconsiderar lo que somos. **La distancia entre esa frase y cincuenta y seis años de deportaciones sin juez es de una sola palabra mal definida.**
+
+La palabra era «conducta». Alcanzó para que la orden viviera en un escritorio en vez de en un juzgado, y una orden que vive en un escritorio cambia de firmante con cada gobierno y de sentido con cada conflicto. Este PLAN convive con PLANMEMORIA en el mismo corpus, así que la ley va nombrada acá con su número, su fecha y su autor, antes que un solo límite propio.
+
+### La regla única
+
+> **Se puede condicionar la permanencia a lo que alguien hace. Nunca a lo que piensa, cree, dice o vota.**
+
+De ahí sale todo lo demás, y se lee en las dos direcciones. Hacia el que llega: lo exigible es un acto, verificable, con umbral de prueba y con juez. Hacia el Estado: lo que la persona opine de este país, de este gobierno o de este PLAN queda afuera de todo expediente, aunque lo diga fuerte, aunque lo organice y aunque lo vote.
+
+La regla tiene un costo y se paga a la vista: alguien puede vivir acá y despreciar en voz alta lo que este PLAN llama arraigo, y el Marco no le hace nada. La respuesta a eso es la misma que el país le da a un argentino que hace lo mismo, que es discutirle. El día que sea distinta porque la persona nació afuera, la palabra mal definida ya volvió a entrar.
+
+### Límite I — lo que se le exige al que entra
+
+Cuatro renglones, y el cuarto es el que convierte a los tres primeros en un límite.
+
+1. **No cometer delito grave con sentencia firme.**
+2. **Cumplir el compromiso del Contrato de Puerta que la persona misma firmó** — si recibió tierra, producirla; si vino fichado, hacer el trabajo (SECCIÓN 5).
+3. **No usar territorio argentino como base para dañar a terceros, con sentencia firme, igual que el primero.**
+4. **Nada más. La lista es taxativa y no se amplía por decreto:** agregarle un renglón cuesta una ley del Congreso, con nombre y apellido de quien la propone.
+
+El tercer renglón lleva pegada la compuerta del primero, y la SECCIÓN 5 ya adelantó por qué. Sin «con sentencia firme» eso deja de ser un acto y pasa a ser un estándar de conducta — sin definición, sin umbral de prueba y aplicado por una agencia administrativa, que es la forma de 1902 con vocabulario de 2026. Con la compuerta puesta el renglón queda además redundante, porque dañar a terceros desde territorio argentino ya es delito y ya lo juzga un juez. Redundante y escrito es mejor que suelto: lo que queda suelto lo define el que lo aplica, el día que necesita aplicarlo.
+
+### Límite II — lo que el Estado se prohíbe a sí mismo
+
+Seis renglones. Son los que vuelven aceptable al conjunto anterior: un país que exige actos tiene que atarse las manos por escrito antes de exigirlos.
+
+1. **Ninguna expulsión sin sentencia judicial firme.** Nunca administrativa, nunca por decreto, nunca por resolución de una agencia.
+2. **Ninguna causal puede ser una idea, un culto, una opinión, una afiliación, un voto ni una participación gremial.**
+3. **Irretroactividad absoluta:** la causal que no existía cuando entraste no te alcanza nunca.
+4. **Ningún dato producido por este PLAN se comparte con fuerzas de seguridad ni con control migratorio.** Hereda y extiende el compromiso de `PLANJUS:2366`.
+5. **Los hijos nacidos acá son argentinos, y la condicionalidad no se hereda.**
+6. **Nadie pierde lo que ya ganó por un cambio de gobierno.**
+
+Nada de esto es invención argentina y el documento no la reclama: varias constituciones prohíben expulsar a los propios nacionales y exigen debido proceso antes de expulsar a un extranjero. Lo que se propone acá es la forma — un conjunto cerrado, corto y taxativo, escrito en la misma ley que crea los incentivos, para que el que quiera los incentivos cargue con los límites en el mismo paquete legislativo.
+
+El segundo renglón es la lista que el Congreso de 1958 tuvo que escribir para deshacer lo hecho, traída acá antes en vez de después. El tercero es el que el país va a querer romper primero, y ya se sabe dónde: la SECCIÓN 4 lo aplicó al freno de infraestructura, que corre sobre la ventana que todavía no abrió y nunca hacia atrás. Como norma dice esto y nada más: una causal nueva rige para quien entre después de sancionada.
+
+El quinto el PREÁMBULO ya lo escribió en el lugar donde se entiende, que es el pasillo de una maternidad: el hijo nacido acá es argentino por haber nacido acá, y lo que el padre o la madre firmen, cumplan o dejen de cumplir con este PLAN no lo alcanza nunca. Un régimen que hace descender la condición del padre sobre el hijo fabrica una clase de argentino con asterisco.
+
+**La garantía del cruce.** El cuarto renglón es fácil de escribir y difícil de sostener, porque el PLAN necesita cruzar registros para producir su indicador rector. La SECCIÓN 7 montó el cruce y remitió acá las dos piezas que lo hacen legal.
+
+Una de las dos es la dirección. Entran la radicación, la actividad tributaria, la matrícula escolar de PLANEDU y la atención en la APS de PLANSAL; **sale una serie agregada por cohorte, nunca un padrón**, y el camino va en un solo sentido. ANAR recibe la serie y jamás la fila, y del cruce no sale un fundamento sobre una persona para nadie: ni para el municipio que verifica el uso del lote, ni para la agencia que ficha. Y **la ley que cree ANAR tiene que declarar expresamente que para este registro no rige la excepción de datos de registro del artículo 10 de la Ley 17.622**. Ese artículo manda usar el Sistema Estadístico Nacional con fines estadísticos y publicar sin identificar a nadie, y en su propio texto exceptúa del secreto «nombre y apellido, o razón social, domicilio y rama de actividad» (Ley 17.622, texto actualizado, InfoLeg): el juego de campos que ubica a una persona en una dirección, liberado por la norma que se invocaba de blindaje. Una regla escrita en prosa no desplaza a una ley; una ley sí.
+
+La otra es la **regla de celda mínima**: **ninguna celda de menos de diez personas se publica**. La serie abierta por cohorte, por origen y por jurisdicción individualiza por construcción en cualquier partido chico con un origen poco frecuente. La celda chica se agrega al nivel superior, y se tapan además las vecinas que permitirían reconstruirla por resta. La SECCIÓN 16 hereda el umbral y no lo puede bajar.
+
+### Límite III — lo que el PLAN se prohíbe a sí mismo
+
+Cuatro renglones, y los cuatro le sacan al PLAN algo que le convendría tener.
+
+1. **La residencia no se vende.** Ni la residencia ni la ciudadanía se compran: el aporte se paga con trabajo y con horas registradas, y jamás con plata.
+2. **El Techo de Origen.** No se sale a buscar donde la falta duele más que acá.
+3. **La cláusula anti-casta.** Ningún invitado puede tener más derechos que un argentino en la misma situación: menos trámite, sí; más derecho, nunca.
+4. **El freno automático por infraestructura**, por fórmula publicada.
+
+La SECCIÓN 2 ya mostró a Portugal descubriendo al cabo de una década que un incentivo que no distingue entre venir a producir y venir a cobrar se llena de lo segundo, y la SECCIÓN 8 dejó escrito que acá la venta se intentó por decreto y un tribunal la volteó. El primer renglón la cierra donde cuesta reabrirla.
+
+**El Techo de Origen** es el renglón que le cuesta plata al PLAN y es el que lo hace creíble. La SECCIÓN 2 desarrolló la Lista de Salvaguardia de la OMS y lo poco que pesa un compromiso voluntario; la SECCIÓN 4 fijó dónde muerde, que es dónde se busca y jamás quién entra. La razón entra en una línea: llevarse médicos de los países que tienen menos médicos que nosotros es hacerle a otro lo que Europa y los Estados Unidos nos hicieron, y un proyecto anti-extractivo que se financia extrayendo capital humano de gente más pobre se cae por su propia lógica antes de que nadie lo discuta.
+
+La forma no es original y el documento no la reclama: la SECCIÓN 2 dejó al Reino Unido adoptando esa misma lista y prohibiéndoles a sus empleadores de salud reclutar en esos países, y la SECCIÓN 4 dejó al programa alemán autoexcluyéndose de los países en falta y llegando igual a sus colocaciones. Lo que cambia es la función: el techo británico es un código de práctica y cubre salud; éste va en la ley que crea la agencia, alcanza a toda la Lista de Faltantes y se audita en el Tablero del PLAN, con la fila que no salió a la Ventana y el país por el que no salió. Un compromiso que depende de la buena voluntad del que recluta se rompe el año en que cumplirlo cuesta; uno que se publica deja rastro de ese año.
+
+**La cláusula anti-casta** es la que el PLAN se pone contra su propio incentivo. La SECCIÓN 3 se negó a indexar el documento por tipo de persona y la SECCIÓN 5 se negó a reservar el Paquete para los invitados; el renglón lo vuelve norma. El piso ya lo puso el artículo 20 de la Constitución Nacional, que le reconoce al extranjero en el territorio todos los derechos civiles del ciudadano (Constitución Nacional, art. 20); la cláusula agrega el techo del otro lado, porque una categoría de habitante con más derecho que el vecino fabrica la casta desde arriba, y una casta de arriba termina justificando la de abajo.
+
+**La fórmula del freno.** La SECCIÓN 4 remitió acá el cálculo, y su propiedad central es que cualquiera llega al mismo número con los mismos insumos. Para cada jurisdicción que recibe, la Ventana lee tres márgenes declarados por quien los produce: las viviendas terminadas y disponibles que informa PLANVIV, la capacidad de agua potable habilitada que informa PLANAGUA y las vacantes escolares que informa PLANEDU. Cada margen se convierte a personas con el tamaño medio de hogar del último censo (censo.gob.ar) y con los estándares que esos mismos PLANes ya publican. **El cupo de la ventana en esa jurisdicción es el menor de los tres márgenes, y jamás el promedio.** Un promedio deja pasar el rojo compensándolo con verde, y el que llega a una ciudad con escuela y sin agua no vive en un promedio. Si el menor da cero, la ventana no abre ahí. Ningún insumo lo produce ANAR, y el umbral se publica con los insumos antes de que la ventana abra, para que el que quiera discutirlo lo discuta mientras nadie está arriba de un avión.
+
+### El techo de los doce meses
+
+La SECCIÓN 6 mandó acá el número de la Revalidación por Desempeño que no fija el colegio profesional. **El desempeño supervisado dura doce meses como máximo.** Adentro de ese techo cada colegio fija la duración de su materia; pasarlo requiere un Caso de Mesa, y jamás una resolución del propio colegio.
+
+El número vive en el Marco y no en el convenio por una cuestión de dónde vive el poder: la variable que decide si D11 sirve es la duración, y dejársela al actor que compite con el revalidado lo mata sin que nadie firme nada. Un desempeño supervisado de cinco años es una vía cerrada con la puerta abierta. La SECCIÓN 6 mostró el borde de la práctica establecida y el techo se apoya ahí, a la vista de quien quiera moverlo.
+
+El Marco cierra en catorce renglones: cuatro de exigencia, seis de límite al Estado, cuatro de límite al PLAN. Se sanciona antes que el primer incentivo, porque invertir el orden deja al país con un régimen de captación de extranjeros y sin marco, aunque sea por un año, y la falla 0.6 ya fechó cómo terminó eso.
+
+---
+
+## SECCIÓN 10: LO QUE ESTE PLAN TIENE PROHIBIDO
+
+> *"Un poder que no se funda no se puede heredar. Es la cerradura que un gobierno futuro no abre con una firma."*
+
+El Marco escribió los límites. Esta sección escribe el que sostiene a todos los demás, y va con las palabras exactas con las que hay que poder citarlo:
+
+> **PLANPUERTA no crea ni un gramo de poder de expulsión nuevo.**
+
+Sin excepción de seguridad, de emergencia ni de urgencia, porque ésas son las rendijas por las que la facultad vuelve a entrar cada vez que vuelve.
+
+### Lo que se revoca, y lo que queda de pie
+
+El incumplimiento de lo que la persona firmó revoca el Paquete y nada más. Se cae la tierra con su obligación de uso, se cae la exención impositiva temporal y se cae la anticipación deliberativa. La Credencial de Materia queda, porque se gana y decae como la de cualquier argentino y ANAR no la puede tocar (SECCIÓN 6). **La residencia queda intacta** y se rige por el derecho común, igual que la de cualquiera.
+
+Ahí adentro está la frase incómoda —salir si se desconsideran los ideales del lugar— convertida en algo que se puede aplicar sin mentir: te fuiste del acuerdo, perdés lo que el acuerdo te daba. La SECCIÓN 5 lo escribió del lado del Contrato de Puerta; acá está del lado del límite, que es el lado que después nadie relee. Y el delito grave lo resuelve el derecho vigente, que ya prevé la expulsión del condenado con sentencia firme y con juez, y que este PLAN no escribe, no amplía y no toca: no le agrega una causal, no le baja un umbral y no le acorta un plazo.
+
+Eso le da dientes al acuerdo sin construir el arma. El que firmó un Contrato de Puerta y no lo cumplió pierde lo que ese contrato le daba, que es exactamente lo que un contrato hace cuando se incumple, y sigue viviendo en el país en las mismas condiciones que cualquier otro residente. La consecuencia es patrimonial y deliberativa, no personal.
+
+### Por qué «pero le pusimos un juez» no alcanza
+
+La defensa intuitiva del poder de expulsión —el que este PLAN no funda— es procedimental: se le da la facultad a alguien y se le pone un juez adelante. Falla, y falla en el único lugar donde importa, que es el futuro. Un requisito procesal es una cláusula, y una cláusula se modifica con la misma mayoría que la escribió. La facultad, en cambio, queda. El gobierno que quiera usarla no necesita fundarla ni defenderla en el Congreso: la encuentra fundada, con su agencia montada, su expediente diseñado y su registro cargado, y lo único que le falta sacar es el juez. **La única defensa robusta es no crear la facultad.**
+
+La 4.144 lo prueba del lado que duele. No hizo falta un aparato nuevo ni un ministerio dedicado: alcanzó con una facultad escrita y una palabra elástica. Y la medida de cuánto se acumuló en el medio es que la ley que la derogó en 1958 tuvo que dejar sin efecto, además, los decretos dictados en su virtud por motivos políticos o gremiales (Ley 14.445, argentina.gob.ar). Derogar la norma no alcanzó: hubo que ir a buscar uno por uno lo que la norma había producido, cincuenta y seis años después.
+
+Por eso este documento no se defiende con garantías procesales sobre una facultad propia. Se defiende no teniéndola. ANAR firma y revoca Contratos de Puerta, publica un Tablero, sostiene un Cuerpo de Scouts y administra una Lista que no escribe, y ahí termina su potestad sobre una persona.
+
+### Las otras prohibiciones, juntas para poder citarlas
+
+El resto ya está escrito en su lugar y acá va reunido, porque un límite disperso en ocho capítulos se cita mal el día que hay que citarlo.
+
+**ANAR no absorbe la Dirección Nacional de Migraciones**: el que ficha no es el que controla, y la SECCIÓN 11 desarrolla por qué esa separación es un límite estructural y no una elegancia de organigrama. **Este PLAN no crea categoría migratoria nueva**: quien entra lo hace por la que ya le corresponde en la Ley 25.871, y lo que se agrega es lo que firma y lo que recibe (SECCIÓN 5). **El Acuerdo de Residencia del MERCOSUR no se toca**, ni se denuncia ni se renegocia, y la SECCIÓN 5 dejó escrito lo que romperlo le costaría a dos capítulos ajenos ya presupuestados. **Ninguna decisión de este PLAN se revisa hacia atrás sobre una persona**: ni la certificación de subsidiariedad que la Mesa desmintió (SECCIÓN 4), ni el problema pago que se apagó (SECCIÓN 6), ni la fila que se cayó del presupuesto que la sostenía.
+
+Un límite se prueba el día que estorba, y todos éstos van a estorbar. El año en que un hecho grave tenga cara de extranjero y la vía administrativa parezca más rápida que la judicial, el Marco va a ser lo que quede entre la frase incómoda y la palabra mal definida. Para eso está escrito con la cantidad de renglones a la vista, y para eso se sanciona antes que el primer peso de incentivo.
+
+La agencia que opera todo esto entra recién ahora, y entra con los poderes contados.
+
+---
