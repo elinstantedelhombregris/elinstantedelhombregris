@@ -172,10 +172,22 @@ El mecanismo: **no se revalida por examen y trámite —el examen lo toma la uni
 **D9 · El Tablero de Arraigo.** §11. Es el corazón del PLAN.
 La consolidación del título de la tierra a plena propiedad ocurre acá, al cumplirse la obligación de uso.
 
-### TRAMO 5 — LA CIUDADANÍA
+### TRAMO 5 — LA CIUDADANÍA *(sin fecha propia — la Ley 346 la habilita desde los dos años)*
 
 **D10 · Ciudadanía por aporte verificado.**
-**No es «naturalización acelerada»** *(corregido el 2026-08-03)*: la Ley 346 ya pide dos años de residencia continua, que es de los plazos más cortos del mundo, y acelerar dos años no es un incentivo. Lo que D10 cambia no es **cuánto** se espera sino **contra qué se acredita** — el Libro de Cuidado y la Credencial de Materia que el corpus ya tiene — **el registro de aporte cívico auditable es un activo real, pero NO se reclame que nadie más lo tiene** — hay esquemas de puntaje por integración y de crédito por servicio comunitario en varias jurisdicciones. Lo defendible es la función: acá el aporte se acredita contra un registro que el corpus ya usa para otra cosa, no contra un examen diseñado para naturalizar. Nunca por plata: prohibición explícita de venta de residencia (§6.2).
+**No es «naturalización acelerada»** *(corregido el 2026-08-03)*: la Ley 346 ya pide dos años de residencia **y nada más** —no hay examen de idioma, de civismo ni de integración—, que es de los plazos más cortos del mundo, y acelerar dos años no es un incentivo. Lo que D10 cambia no es **cuánto** se espera sino **contra qué se acredita**.
+
+**Y lo que se sustituye es la prueba, no el plazo** *(fijado en la Task 6, porque el reencuadre anterior dejaba el dispositivo sin mecanismo)*: si la ley no pide más que dos años, «contra qué se acredita» no nombraba ningún requisito reemplazado. Lo que un trabajador informal no puede acreditar es la residencia continua **documentada** —el mismo agujero del 43,0% que D9 nombra—, así que **D10 es la vía por la que el aporte cívico verificado prueba el arraigo que el papel no prueba.** Destinatario: el que está adentro del país hace años y no figura, no el fichado con contrato, que ya tiene con qué. Los dos años siguen siendo dos años. **NO se reclame que nadie más tiene un registro de aporte cívico auditable** — hay esquemas de puntaje por integración y de crédito por servicio comunitario en varias jurisdicciones: Alemania hasta 2025, Austria §11a(4), y Dinamarca con el *aktivt medborgerskab* de la residencia permanente (≥1 año en un consejo u organización, requisito suplementario). Lo defendible es la función: acá el aporte se acredita contra un registro que el corpus ya usa para otra cosa, no contra un examen diseñado para naturalizar.
+
+**El TRAMO 5 no está fechado en el año diez** *(corregido el 2026-08-03)*: el Ciclo de Arraigo ordena **lo que hace el PLAN**, no lo que permite la ley. La ciudadanía está disponible desde los dos años por el camino ordinario, y la permanencia a diez años es la métrica rectora con independencia de cuándo alguien se naturaliza. El Ciclo no es una línea de tiempo estricta.
+
+**El DNU 366/2025 está anulado** *(verificado el 2026-08-03)*: la Cámara Nacional Electoral declaró su **nulidad absoluta** el **30 de junio de 2026** en «Yang, Liping s/nacionalidad y ciudadanía» (Expte. CNE 8843/2023/CA1) —la ciudadanía es materia de derechos políticos y está vedada a los decretos por el art. 99 inc. 3 CN—, ordenó notificar a todos los jueces federales con competencia electoral, y la competencia volvió al juez federal. **Migraciones ya no otorga la ciudadanía.** Con el decreto se cayó también la naturalización por «inversión relevante», que vivía en el mismo texto. El documento lo cobra a favor: *lo que un decreto intentó y un tribunal anuló, D10 lo cierra por ley.* **Lección de método: no alcanza con verificar que una norma existe — hay que verificar que sigue en pie a la fecha del documento.**
+
+**Sin acoplamiento de rebote con ANAR** *(fijado en la Task 6)*: revocar el Paquete apaga la anticipación deliberativa y con ella la actividad que D10 lee. Si la ciudadanía dependiera de D10, la revocación tendría consecuencia migratoria y ANAR recuperaría por detrás la palanca que §5 D7 le negó. No la tiene: **el camino ordinario de la Ley 346 queda abierto siempre, con Paquete o sin él**, y una Credencial caída en PLANMESA no llega a un expediente de ciudadanía.
+
+**Techo de la mitigación** *(Task 6)*: D10 lee horas redimidas y no declaradas, pero de las **cuatro** redenciones del Libro (previsional, licencias, créditos sanitarios, puntaje habitacional) **solo la previsional pasa por la Mesa Civil** (`PLANCUIDADO:340`), y esa lleva **techo anual** — un tope silencioso sobre lo que D10 puede leer. Cerrar la brecha le toca a PLANCUIDADO, no a este PLAN.
+
+Nunca por plata: prohibición explícita de venta de residencia (§6.2).
 
 ---
 
@@ -214,6 +226,8 @@ Un límite inamovible tiene que ser enumerable y corto. Si no entra en una pági
 4. Ningún dato de PLANPUERTA se comparte con fuerzas de seguridad ni con control migratorio. Hereda y extiende el compromiso de `PLANJUS:2366`.
 5. **Los hijos nacidos acá son argentinos y punto: la condicionalidad no se hereda.**
 6. Nadie pierde lo que ya ganó por un cambio de gobierno.
+7. **Para el registro de arraigo (D9) no rige la excepción de datos de registro del art. 10 de la Ley 17.622.** *(Agregado en la Task 6.)* El art. 10 exceptúa del secreto estadístico «nombre y apellido, o razón social, domicilio y rama de actividad» — el juego exacto de campos que localiza a una persona, liberado por la misma norma que se invocaba de blindaje. Una regla de diseño escrita en prosa no desplaza a la ley que el texto eligió de domicilio: la ley que crea ANAR tiene que **derogar la excepción para este registro**, no limitarse a habilitar el cruce. Y el art. 101 de la Ley 11.683 tampoco es absoluto — cede en proceso penal por delitos comunes directamente vinculados y da acceso a la ANSES por fraude en prestaciones.
+8. **Regla de celda del Tablero:** ninguna celda de menos de diez personas se publica (§11).
 
 **III — Lo que el PLAN se prohíbe a sí mismo:**
 1. **La residencia no se vende.** Prohibición explícita de golden visa. El aporte se paga con trabajo, nunca con plata. Portugal probó lo contrario: el NHR terminó atrayendo jubilados ricos, se cerró a nuevos ingresos el 1/1/2024 y lo reemplazó el IFICI desde el 1/1/2025, redirigido de capital pasivo a talento en ciencia, tecnología, salud y energía. **Toda golden visa deriva a rentista si no se la ata a producción.**
@@ -237,7 +251,7 @@ PLANPUERTA convive con PLANMEMORIA en el mismo corpus. Si reinventa la 4.144, el
 
 > **PLANPUERTA no crea ni un gramo de poder de expulsión nuevo.** *(Va escrito con esas palabras.)*
 
-- **Incumplimiento del Contrato de Puerta → se revoca el Paquete.** Perdés la tierra, la exención, la Credencial, la silla en la Mesa. La residencia queda intacta y se rige por el derecho común, igual que la de cualquiera. Ahí está el «salir si se desconsideran los ideales», y es honesto: te fuiste del acuerdo, perdés lo que el acuerdo te daba.
+- **Incumplimiento del Contrato de Puerta → se revoca el Paquete.** Perdés la tierra, la exención y la anticipación deliberativa. **La Credencial no** — se gana y decae como la de cualquier argentino, y ANAR no la puede tocar (§5, D7). La residencia queda intacta y se rige por el derecho común, igual que la de cualquiera. Ahí está el «salir si se desconsideran los ideales», y es honesto: te fuiste del acuerdo, perdés lo que el acuerdo te daba.
 - **Delito grave → derecho penal vigente**, que ya prevé expulsión con sentencia firme. El PLAN no inventa nada.
 
 Da dientes sin construir el arma. Toda defensa contra la 4.144 que dependa de «pero le pusimos un juez» falla, porque los gobiernos futuros le sacan el juez; la única defensa robusta es **no crear la facultad.**
@@ -369,6 +383,10 @@ Primer dato de permanencia a diez años. **Acá el PLAN se aprueba o se reprueba
 ## 11. El Tablero de Arraigo
 
 **Método: la IMDB canadiense, copiada.** La serie rectora no se inventa. Statistics Canada la arma cruzando el registro de admisiones contra el registro tributario, y cuenta como emigrado al que dejó de declarar y no volvió a aparecer, porque no hay registro de salida que lo cuente por él. Acá los dos registros existen —radicaciones de la Dirección Nacional de Migraciones, CUIL— y hoy no se cruzan. **Lo que el Tablero estrena no es el método: es que el número gobierne.**
+
+**Regla de celda y supresión** *(agregada en la Task 6)*. La serie se publica abierta por origen y por jurisdicción, pero **ninguna celda de menos de diez personas se publica**: se agrega al nivel inmediato superior, y con ella se suprimen las vecinas que la reconstruirían por resta. Sin ese piso, cohorte × origen × jurisdicción × cuatro cortes individualiza por construcción donde el origen es raro y el municipio es chico —la fila que dice si *el* sirio radicado en 2029 en ese pueblo sigue acá—, que es exactamente lo que prohíbe el art. 10 de la Ley 17.622, la norma bajo la cual corre el cruce. **El umbral rige para todos los indicadores de esta sección.**
+
+**El cruce son cuatro registros, no dos** *(Task 6)*: radicaciones, actividad tributaria, matrícula escolar de PLANEDU y atención en la APS de PLANSAL. Los dos últimos son los caros —la APS es dato de salud, sensible por la Ley 25.326, y la matrícula identifica menores—, así que la garantía del §6.2 II corre para los cuatro o el registro que no la aguante sale del cruce. La verificación municipal del uso de la tierra (§5, D7) corre **contra la propia constatación del municipio**, que no tiene acceso al cruce.
 
 | Indicador | Alarma |
 |---|---|
