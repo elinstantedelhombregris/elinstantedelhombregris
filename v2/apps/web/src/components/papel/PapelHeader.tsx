@@ -4,7 +4,6 @@ import { Link, useLocation } from 'wouter';
 import { MenuBiblioteca } from './MenuBiblioteca';
 import {
   BIBLIOTECA_HREF,
-  DEMO_VOCES_COUNT,
   PAPEL_NAV,
   PAPEL_NAV_ALL,
   SECCIONES_BIBLIOTECA,
@@ -29,11 +28,23 @@ export function PapelHeader() {
   const [location] = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const vocesQuery = useVocesCount();
-  // Mientras carga o si falla, caemos al valor de demostración: nunca
-  // mostramos un contador en blanco ni un error en el header.
-  const vocesLabel = vocesQuery.data
-    ? vocesQuery.data.total.toLocaleString('es-AR')
-    : DEMO_VOCES_COUNT;
+  /**
+   * Tres estados y ninguna invención.
+   *
+   * Antes, mientras cargaba o si fallaba, caía a un `DEMO_VOCES_COUNT` de
+   * 12.496 voces: una cifra fabricada, en el lugar más visible del sitio, en
+   * todas las páginas. Un hueco es mejor que un número que nadie dijo.
+   *
+   * En cero el contador cambia de signo: no cuenta, invita. Y vuelve a contar
+   * solo en cuanto haya una voz — no hay ningún modo que apagar.
+   */
+  const total = vocesQuery.data?.total;
+  const leyendaVoces =
+    total === undefined
+      ? null
+      : total === 0
+        ? 'nadie habló todavía · empezá vos'
+        : `${total.toLocaleString('es-AR')} voces · falta la tuya`;
 
   return (
     // El menú móvil vive FUERA del <header>: el backdrop-filter del header lo
@@ -52,9 +63,11 @@ export function PapelHeader() {
             <span className="font-anton text-[26px] leading-none tracking-[0.01em]">
               <span className="text-violeta">¡</span>BASTA<span className="text-violeta">!</span>
             </span>
-            <span className="font-space text-tinta-50 hidden text-[10px] uppercase tracking-[0.14em] min-[561px]:inline">
-              {vocesLabel} voces · falta la tuya
-            </span>
+            {leyendaVoces === null ? null : (
+              <span className="font-space text-tinta-50 hidden text-[10px] uppercase tracking-[0.14em] min-[561px]:inline">
+                {leyendaVoces}
+              </span>
+            )}
           </Link>
 
           <nav className="hidden items-center gap-1.5 min-[1141px]:flex" aria-label="Recorrido">

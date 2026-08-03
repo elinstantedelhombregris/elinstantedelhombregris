@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { DEMO_VOCES_COUNT, PAPEL_NAV } from '../papel/papel-nav';
+import { PAPEL_NAV } from '../papel/papel-nav';
 import { PapelHeader } from '../papel/PapelHeader';
 
 import { useVocesCount } from '~/lib/queries/analytics';
@@ -23,7 +23,10 @@ function renderHeader() {
 }
 
 describe('PapelHeader', () => {
-  it('renders the wordmark linking home and falls back to the demo count while loading', () => {
+  it('mientras carga no inventa un número', () => {
+    // Antes caía a DEMO_VOCES_COUNT = '12.496': un número fabricado, en el
+    // lugar más visible del sitio, en TODAS las páginas. Un hueco es mejor que
+    // una cifra que nadie dijo.
     mockedUseVocesCount.mockReturnValue({
       data: undefined,
       isLoading: true,
@@ -32,10 +35,11 @@ describe('PapelHeader', () => {
     renderHeader();
 
     expect(screen.getByRole('link', { name: '¡BASTA! — inicio' })).toHaveAttribute('href', '/');
-    expect(screen.getByText(`${DEMO_VOCES_COUNT} voces · falta la tuya`)).toBeInTheDocument();
+    expect(screen.queryByText(/12\.496/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/voces/)).not.toBeInTheDocument();
   });
 
-  it('falls back to the demo count on error', () => {
+  it('si la consulta falla tampoco inventa', () => {
     mockedUseVocesCount.mockReturnValue({
       data: undefined,
       isLoading: false,
@@ -43,7 +47,29 @@ describe('PapelHeader', () => {
     } as ReturnType<typeof useVocesCount>);
     renderHeader();
 
-    expect(screen.getByText(`${DEMO_VOCES_COUNT} voces · falta la tuya`)).toBeInTheDocument();
+    expect(screen.queryByText(/voces/)).not.toBeInTheDocument();
+  });
+
+  it('en cero, el contador invita en vez de contar', () => {
+    mockedUseVocesCount.mockReturnValue({
+      data: { total: 0 },
+      isLoading: false,
+      isError: false,
+    } as ReturnType<typeof useVocesCount>);
+    renderHeader();
+
+    expect(screen.getByText('nadie habló todavía · empezá vos')).toBeInTheDocument();
+  });
+
+  it('con una sola voz vuelve a contar, sin que nadie apague nada', () => {
+    mockedUseVocesCount.mockReturnValue({
+      data: { total: 1 },
+      isLoading: false,
+      isError: false,
+    } as ReturnType<typeof useVocesCount>);
+    renderHeader();
+
+    expect(screen.getByText('1 voces · falta la tuya')).toBeInTheDocument();
   });
 
   it('renders the live total formatted es-AR once loaded', () => {

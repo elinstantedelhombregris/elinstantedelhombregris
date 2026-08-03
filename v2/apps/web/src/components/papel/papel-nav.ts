@@ -48,10 +48,3 @@ export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   ...PAPEL_NAV,
   { href: SEMBRAR_HREF, label: 'Sembrar', num: '06' },
 ];
-
-/**
- * Contador FOMO del header: «{N} voces · falta la tuya».
- * Dato de demostración hasta que exista el endpoint real de voces
- * (la plataforma real arranca en cero, y eso también está bien).
- */
-export const DEMO_VOCES_COUNT = '12.496';
