@@ -81,5 +81,11 @@ describe('FeedVoces', () => {
     render(<FeedVoces />);
 
     expect(screen.getByText('El país todavía no dijo nada acá. Empezá vos.')).toBeInTheDocument();
+
+    // La otra mitad del contrato del vacío: invita, y NO se disculpa. Sin esta
+    // línea nada impide que alguien reemplace el texto por «no hay datos
+    // disponibles» y el test siga en verde con el vacío arruinado.
+    expect(screen.queryByText(/no hay datos/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/no disponible/i)).not.toBeInTheDocument();
   });
 });
