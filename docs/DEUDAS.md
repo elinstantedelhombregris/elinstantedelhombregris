@@ -40,8 +40,10 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-013](#d-013--el-test-del-corpus-de-planes-tiene-el-total-a-mano-y-se-rompe-cada-vez) | El test del corpus de PLANes tiene el total a mano y se rompe cada vez | Media | Abierta |
 | [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | Parcial |
 | [D-015](#d-015--las-cifras-del-bloque-de-atracción-de-plansus-no-tenían-fuente-externa--resuelta-parcial) | Las cifras del bloque de atracción de PLANSUS no tenían fuente externa | Media | **Parcial** |
-| [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) | Este mismo archivo usa el id D-013 dos veces | Media | Abierta |
+| [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) | Este mismo archivo usa el id D-013 dos veces | Media | **Resuelta** |
 | [D-017](#d-017--plangeo-promete-secciones-interno-que-no-existen) | PLANGEO promete secciones `[INTERNO]` que no existen | Media | Abierta |
+| [D-018](#d-018--budget_class-del-registro-no-es-monótono-en-dólares) | `budget_class` del registro no ordena por presupuesto | Media | Abierta |
+| [D-019](#d-019--v-fin-05-suma-el-piso-sustitutivo-a-los-pisos-que-sustituye--resuelta) | V-FIN-05 suma el piso sustitutivo a los pisos que sustituye | Media | **Resuelta** |
 
 ---
 
@@ -346,9 +348,12 @@ La casa ya había decidido este canon en el otro pipeline de geografía (`script
 
 ---
 
-### D-013 · V-FIN-05 suma el piso sustitutivo a los pisos que sustituye
+### D-019 · V-FIN-05 suma el piso sustitutivo a los pisos que sustituye — RESUELTA
+
+> **Sobre el id.** Esta entrada nació como una segunda `D-013` y por eso existe [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces). Se renumeró a D-019 —el próximo libre— porque era la más nueva de las dos, y con eso D-016 queda cerrada. La renumeración la hizo la misma sesión que había elegido mal el número.
 
 **Encontrada:** 2026-08-02, cargando las aristas de los cuatro PLANes nuevos
+**Resuelta:** 2026-08-03, en la sesión siguiente
 **Dónde:** `SocialJusticeHub/shared/validation-engine.ts` — regla `vFin05`
 
 La regla suma el `constitutionalFloor` de todos los nodos y avisa si pasa el 10% del PBI. Hoy avisa **11,81%**, y ese número no mide nada: son los 9,41% que reclamaban los diecisiete PLANes con piso **más** el 2,40% de PLANPACTO, que es el piso que los **reemplaza**. Sumar el sustituto a los sustituidos es exactamente la lectura aditiva que PLANPACTO existe para impedir.
@@ -357,7 +362,11 @@ El mismo bug ya se arregló en `arquitecto-data.ts` cuando se cargó el nodo: ah
 
 **Por qué no se arregló en el momento:** el trabajo de ese día eran las aristas del grafo, y esto es la aritmética de los pisos. Mezclarlo habría metido dos cambios sin relación en el mismo commit.
 
-**Cómo se arregla:** exportar `PISOS_SUSTITUTIVOS` desde `arquitecto-data.ts` y saltearlos en `vFin05`, igual que hace `sumConstitutionalFloorsGross()`. La regla queda avisando sobre el bruto —que sigue siendo información: el ecosistema reclamaba casi diez puntos— o sobre el efectivo, y hay que **elegir cuál y escribir por qué**, porque las dos cifras son ciertas y contestan preguntas distintas. `pisos-constitucionales.test.ts` ya fija las dos.
+**Cómo se arregló:** `PISOS_SUSTITUTIVOS` se exporta desde `arquitecto-data.ts` y `vFin05` lo saltea, igual que `sumConstitutionalFloorsGross()`. El aviso pasa de 11,81% a callarse, porque el bruto real —9,41% en el extremo alto— está por debajo del umbral de 10.
+
+**La elección que había que hacer, hecha: la regla vigila el BRUTO.** Las dos cifras son ciertas y contestan preguntas distintas, así que la decisión no es aritmética. El efectivo (2,40%) es lo que el ecosistema se compromete a gastar y por diseño no se mueve: vigilarlo sería poner un guardia en una puerta tapiada. El bruto es lo que los PLANes reclaman uno por uno, así que crece el día que alguien escribe un piso nuevo — que es el único evento que esta regla puede llegar a ver. El `details` del aviso nombra el efectivo al lado, para que nadie vuelva a leer el número como deuda comprometida.
+
+**Fijado por:** `pisos-constitucionales.test.ts`, que ahora corre la regla y exige que calle; verificado con la mutación inversa —volver a incluir el sustitutivo pone el test en rojo—.
 
 ---
 
@@ -409,7 +418,9 @@ La causa es estructural y va a repetirse: **el archivo no está ordenado por id*
 
 **Por qué no se arregló en el momento:** renumerar una de las dos D-013 rompe los anclas del índice y cualquier referencia externa, y elegir cuál se renumera es una decisión sobre el historial ajeno. La sesión que lo encontró estaba cerrando otra cosa.
 
-**Cómo se arregla:** renumerar la segunda D-013 —la de V-FIN-05, que es la más nueva— al próximo id libre, actualizar su fila del índice, y agregar una guardia que falle si un id aparece dos veces como encabezado. Sin la guardia, esto vuelve: el índice es una lista escrita a mano y nadie la mira antes de elegir un número.
+**Cómo se arregló (2026-08-03):** la segunda D-013 —la de V-FIN-05, la más nueva— pasó a [D-019](#d-019--v-fin-05-suma-el-piso-sustitutivo-a-los-pisos-que-sustituye--resuelta), con su fila de índice. La renumeración la hizo la sesión que había elegido mal el número, así que no fue una decisión sobre historial ajeno.
+
+**Y la guardia que pedía está escrita:** `SocialJusticeHub/tests/unit/deudas-registro.test.ts`, en CI. Con una corrección sobre lo que esta entrada pedía, que corresponde dejar anotada: **prohibir que un id aparezca dos veces habría sido incorrecto.** El archivo tiene la convención de darle a una deuda resuelta un segundo encabezado con el mismo id y el mismo título —así están D-001, D-002 y D-009—, y esa guardia habría empujado a borrar el registro de cómo se cerraron, que es exactamente lo que este archivo dice que no se hace. La guardia detecta lo que esta entrada describe de verdad: **un id que nombra dos deficiencias distintas**, medido por el título y no por el conteo. Verifica además que el índice y el cuerpo se cubran en las dos direcciones — y al correrla por primera vez encontró que [D-018](#d-018--budget_class-del-registro-no-es-monótono-en-dólares) no tenía fila en el índice.
 
 ---
 

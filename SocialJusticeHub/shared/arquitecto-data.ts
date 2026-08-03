@@ -1027,7 +1027,7 @@ export const REQUIRES_DEPENDENCIES = DEPENDENCIES.filter(d => d.kind !== 'provid
  * exactamente la lectura aditiva que ese PLAN existe para impedir — y es el
  * número que este grafo empezó a computar solo el día que se cargó el nodo.
  */
-const PISOS_SUSTITUTIVOS = new Set(['PLANPACTO']);
+export const PISOS_SUSTITUTIVOS = new Set(['PLANPACTO']);
 
 /**
  * Lo que el ecosistema reclamaba ANTES de la sustitución: la suma de los pisos

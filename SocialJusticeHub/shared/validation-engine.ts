@@ -1,7 +1,7 @@
 // El Arquitecto — Validation Engine
 // 37 rules across 7 categories, checking ecosystem coherence
 
-import { PLAN_NODES, DEPENDENCIES, REQUIRES_DEPENDENCIES, TIMELINE_PHASES, type PlanNode } from './arquitecto-data';
+import { PLAN_NODES, DEPENDENCIES, REQUIRES_DEPENDENCIES, TIMELINE_PHASES, PISOS_SUSTITUTIVOS, ECOSYSTEM_METRICS, type PlanNode } from './arquitecto-data';
 
 // Conteo esperado de PLANes del ecosistema (al 1 de agosto de 2026).
 // Actualizar deliberadamente cuando se sume o quite un PLAN. La autoridad de papel
@@ -331,19 +331,37 @@ const vFin04: ValidationRule = {
       planId: p.id, message: `${p.id} sin fuente de financiamiento documentada` })),
 };
 
+/**
+ * D-013. Esta regla tenía su propia suma, separada de la de `arquitecto-data.ts`,
+ * y no se enteró de la sustitución: sumaba el 2,40% de PLANPACTO **encima** de
+ * los 9,41% que ese mismo piso reemplaza, y avisaba 11,81% — un número que no
+ * mide ninguna cantidad real. Es la lectura aditiva que PLANPACTO §2.3 declara
+ * ilegítima, publicada por el tablero del propio proyecto.
+ *
+ * **Vigila el BRUTO, y es una elección.** El efectivo (2,40%) es lo que el
+ * ecosistema se compromete a gastar y por diseño no se mueve: vigilarlo sería
+ * poner un guardia en una puerta tapiada. El bruto es lo que los PLANes reclaman
+ * uno por uno, así que crece el día que alguien escribe un piso nuevo — que es
+ * exactamente el evento que esta regla existe para ver. El mensaje nombra el
+ * efectivo al lado, para que el aviso no se vuelva a leer como deuda comprometida.
+ */
 const vFin05: ValidationRule = {
   id: 'V-FIN-05', category: 'FIN', name: 'Pisos constitucionales alineados',
-  severity: 'WARNING', description: 'La suma de pisos constitucionales no debe exceder 10% PBI',
+  severity: 'WARNING', description: 'La suma de pisos RECLAMADOS no debe exceder 10% PBI (excluye los sustitutivos)',
   check: () => {
     let floorHighSum = 0;
     for (const p of PLAN_NODES) {
       if (!p.constitutionalFloor) continue;
+      // El sustituto no se suma a los sustituidos. Sin esta línea, agregar el
+      // PLAN que ORDENA los pisos hace que el ecosistema parezca pedir más.
+      if (PISOS_SUSTITUTIVOS.has(p.id)) continue;
       const nums = p.constitutionalFloor.match(/\d+(?:\.\d+)?/g);
       if (!nums) continue;
       floorHighSum += Number(nums[nums.length - 1]);
     }
     return floorHighSum > 10 ? [{ ruleId: 'V-FIN-05', severity: 'WARNING', category: 'FIN',
-      message: `Pisos constitucionales acumulados: ${floorHighSum.toFixed(2)}% PBI en el extremo alto (máximo recomendado: 10%)` }] : [];
+      message: `Pisos RECLAMADOS acumulados: ${floorHighSum.toFixed(2)}% PBI en el extremo alto (máximo recomendado: 10%)`,
+      details: `Es lo que los PLANes piden uno por uno, no lo que el ecosistema debe: después de la sustitución de PLANPACTO el piso efectivo es ${ECOSYSTEM_METRICS.constitutionalFloorEffective}.` }] : [];
   },
 };
 

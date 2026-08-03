@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { PLAN_NODES, ECOSYSTEM_METRICS } from '../../shared/arquitecto-data';
+import { runValidationsByCategory } from '../../shared/validation-engine';
 
 /**
  * Canon de los pisos constitucionales.
@@ -145,6 +146,28 @@ describe('pisos constitucionales (canon contra el taller)', () => {
     // Es el hallazgo que funda a PLANPACTO: lo que el ecosistema pedía sin saberlo.
     // No cambia al sustituir — la cuenta de la que se viene no se borra.
     expect(ECOSYSTEM_METRICS.constitutionalFloorGross).toBe('7.82-9.41% PBI');
+  });
+
+  /**
+   * D-013. La regla V-FIN-05 tiene su propia suma de pisos, separada de la de
+   * `arquitecto-data.ts`, y no se enteró de la sustitución: sumaba el 2,40% de
+   * PLANPACTO **encima** de los 9,41% que ese mismo piso reemplaza y avisaba
+   * 11,81%, que no es ninguna cantidad real. Es la lectura aditiva que el PLAN
+   * existe para impedir, publicada por el tablero del propio proyecto.
+   *
+   * **Cuál de las dos cifras vigila la regla, y por qué el bruto.** El efectivo
+   * (2,40%) es lo que el ecosistema se compromete a gastar, y por diseño no va a
+   * moverse: vigilarlo sería poner un guardia en una puerta tapiada. El bruto es
+   * lo que los PLANes **reclaman uno por uno**, así que crece el día que alguien
+   * escribe un piso nuevo — que es exactamente el evento que esta regla existe
+   * para ver. Se vigila el bruto, y el mensaje nombra el efectivo al lado para
+   * que nadie vuelva a leer el aviso como si fuera deuda comprometida.
+   */
+  it('V-FIN-05 no suma el piso sustitutivo a los pisos que sustituye', () => {
+    const avisos = runValidationsByCategory('FIN').filter((r) => r.ruleId === 'V-FIN-05');
+    // 9,41% en el extremo alto está por debajo del umbral de 10: la regla calla.
+    // Si vuelve a sumar PLANPACTO da 11,81 y avisa — y eso es el bug, no el aviso.
+    expect(avisos.map((a) => a.message)).toEqual([]);
   });
 
   it('los presupuestos que el gate de spin-off consume no se movieron', () => {
