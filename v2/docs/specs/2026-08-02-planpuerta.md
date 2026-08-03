@@ -21,7 +21,7 @@
 
 ### 1.1 El hueco
 
-Ningún PLAN del corpus trata la inmigración. Barrido completo sobre los 27 documentos: hay seis menciones laterales y ninguna política.
+Ningún PLAN del corpus trata la inmigración. Barrido completo sobre los 27 documentos: hay referencias laterales repartidas en seis documentos y ninguna política.
 
 | Documento | Qué dice hoy | Naturaleza |
 |---|---|---|
@@ -109,11 +109,11 @@ El indicador rector **no es llegadas. Es permanencia.**
 >
 > **La formulación que resiste es la distinción interprovincial/internacional:** lo que Canadá mide es a qué provincia se mudó el inmigrante, no si se fue de Canadá. Nadie mide permanencia *en el país* a diez años porque ningún país rico cree que la gente se le vaya; para Canadá la pregunta es Nueva Escocia o Toronto, para la Argentina es la Argentina o afuera. **Eso explica por qué el indicador rector de este PLAN no existe en ningún lado, en vez de declararlo.** Ninguna de las dos versiones refutadas vuelve al documento ni a esta spec.
 
-**La evidencia que lo obliga.** Start-Up Chile es el experimento más parecido a lo que PLANPUERTA propone, y su fracaso es el más instructivo: **cerca del 80% de los emprendedores se fue apenas terminó el programa de seis meses**, un tercio a Estados Unidos, y solo el **12,5%** de las startups de fundadores inmigrantes seguía operando en Chile a largo plazo. La retención mejoró después (34% → 56,4% hacia 2018), y el factor identificado es decisivo: **los que tuvieron tracción comercial fueron ~5× más propensos a quedarse.**
+**La evidencia que lo obliga.** Start-Up Chile es el experimento más parecido a lo que PLANPUERTA propone, y su fracaso es el más instructivo: **cerca del 80% de los emprendedores se fue apenas terminó el programa de seis meses**, un tercio a Estados Unidos, y solo el **12,5%** de una muestra de 200 startups de fundadores inmigrantes conservaba vínculo comercial con Chile a largo plazo — la medida es el vínculo, más angosta que «seguir operando». La retención mejoró después (34% → 56,4% hacia 2018), y el factor identificado es decisivo: **los que tuvieron tracción comercial fueron ~5× más propensos a quedarse.**
 
 > **El arraigo no se compra con subsidio. Se compra con mercado.** Un cerebro importado sin un problema real que resolver y sin quien le pague se va. Esto refuta el modelo «beca + visa» antes de escribirlo, y es el origen del dispositivo D8.
 
-**Población y mercado interno son consecuencia declarada, no función objetivo.** Se miden y se reportan, pero no gobiernan. El modelo que optimiza cabezas se autodestruye: Canadá recortó su meta de residentes permanentes de 500.000 a **395.000 para 2025 (−21%)**, y a 380.000 para 2026 y 365.000 para 2027, porque **casi el 60% de los canadienses dijo que entraba demasiada gente — la primera vez desde el año 2000.** El detonante fue vivienda. El país más pro-inmigración del mundo se dio vuelta en 24 meses.
+**Población y mercado interno son consecuencia declarada, no función objetivo.** Se miden y se reportan, pero no gobiernan. El modelo que optimiza cabezas se autodestruye: Canadá recortó su meta de residentes permanentes de 500.000 a **395.000 para 2025 (−21%)**, y a 380.000 para 2026 y 365.000 para 2027, porque **el 58% de los canadienses dijo que entraba demasiada gente — la primera mayoría clara en un cuarto de siglo, y la proporción más alta desde 1998 (Environics/Focus Canada, 2.016 encuestados, 9-23 de septiembre de 2024).** El detonante fue vivienda. El país más pro-inmigración del mundo se dio vuelta en 24 meses.
 
 ---
 
@@ -154,7 +154,7 @@ Una familia o un Círculo recibe. **Sin Estado.** Es el dispositivo de arraigo m
 
 **D7 · El Paquete.** Lo selectivo de C, en tres piezas, cada una con su condición de conservación:
 - **Tierra con obligación de uso.** Lote o hectáreas con **título condicionado**: se pierde si no se produce o no se habita durante N años. No es golden visa — es lo contrario: **no comprás la entrada, la pagás con trabajo.** Argentina tiene lo que casi nadie tiene, que es superficie, y este es el único incentivo del PLAN que ningún competidor puede copiar.
-- **Exención fiscal temporal.** Modelo *impatriati* italiano, que llevó los trabajadores entrantes de 11.285 a ~41.000 (**+264%**) con exención del 50% sobre renta del trabajo (60% con hijos menores). Vive adentro de la Escalera de Garantías de PLANPACTO y bajo su techo, contabilizada como gasto tributario.
+- **Exención fiscal temporal.** Modelo *impatriati* italiano, que llevó los trabajadores entrantes de 11.285 (ejercicio 2019) a 41.020 (ejercicio 2023), **+264%**. **Ojo con qué porcentaje se copia:** el salto ocurrió bajo el *decreto Crescita* de 2019, que bajó la base imponible al **30% — es decir 70% de exención, y 90% en el sur**. El 50% (60% con hijos menores) es el régimen **nuevo, vigente desde 2024, más chico**, que reemplazó al que produjo el crecimiento. Y el propio Osservatorio sui Conti Pubblici Italiani dice que el dato *sugiere*, no prueba. Vive adentro de la Escalera de Garantías de PLANPACTO y bajo su techo, contabilizada como gasto tributario.
 - **Silla en la Mesa.** Voz deliberativa en PLANMESA **antes** de la ciudadanía. Ningún país del mundo le da poder de diseño a alguien que llegó hace seis meses.
 
 **D8 · La Regla del Problema Pago.**
@@ -210,12 +210,12 @@ Un límite inamovible tiene que ser enumerable y corto. Si no entra en una pági
 6. Nadie pierde lo que ya ganó por un cambio de gobierno.
 
 **III — Lo que el PLAN se prohíbe a sí mismo:**
-1. **La residencia no se vende.** Prohibición explícita de golden visa. El aporte se paga con trabajo, nunca con plata. Portugal probó lo contrario: el NHR terminó atrayendo jubilados ricos y tuvo que ser derogado el 1/1/2025 y reemplazado por el IFICI, redirigido de capital pasivo a talento en ciencia, tecnología, salud y energía. **Toda golden visa deriva a rentista si no se la ata a producción.**
+1. **La residencia no se vende.** Prohibición explícita de golden visa. El aporte se paga con trabajo, nunca con plata. Portugal probó lo contrario: el NHR terminó atrayendo jubilados ricos, se cerró a nuevos ingresos el 1/1/2024 y lo reemplazó el IFICI desde el 1/1/2025, redirigido de capital pasivo a talento en ciencia, tecnología, salud y energía. **Toda golden visa deriva a rentista si no se la ata a producción.**
 2. **Techo de Origen.** Se adopta la **Lista de Salvaguardia de la OMS (2023): 55 países** a los que no se puede reclutar activamente personal de salud salvo acuerdo Estado-a-Estado — **y se extiende más allá de salud.** Publicado y auditable.
 3. **Cláusula anti-casta.** Ningún invitado puede tener más derechos que un argentino en la misma situación. Solo puede tener *menos trámite*, nunca *más derecho*.
 4. **Freno automático por infraestructura**, por fórmula publicada.
 
-> **Sobre el Techo de Origen.** Importar médicos de Bolivia y Paraguay es hacerle a Bolivia exactamente lo que Europa y Estados Unidos nos hicieron a nosotros. Un proyecto anti-extractivo que se financia extrayendo capital humano de países más pobres es incoherente en su propia lógica. La Lista de la OMS es voluntaria y casi nadie la respeta: **PLANPUERTA sería el primer país del mundo que se pone un techo a sí mismo sobre a quién le saca cerebros, lo escribe en la ley y lo publica en su Tablero.** No es una concesión — es la credencial moral que hace creíble al resto del PLAN, y es módulo exportable del Stack de Soberanía de PLANGEO.
+> **Sobre el Techo de Origen.** Importar médicos de Bolivia y Paraguay es hacerle a Bolivia exactamente lo que Europa y Estados Unidos nos hicieron a nosotros. Un proyecto anti-extractivo que se financia extrayendo capital humano de países más pobres es incoherente en su propia lógica. La Lista de la OMS es voluntaria y su cumplimiento es parcial —el Reino Unido la adoptó y prohibió el reclutamiento activo, y aun así siguen llegando por iniciativa individual, que es justamente lo que el código no toca—: **PLANPUERTA sería el primer país del mundo que se pone un techo a sí mismo sobre a quién le saca cerebros, lo escribe en la ley y lo publica en su Tablero.** No es una concesión — es la credencial moral que hace creíble al resto del PLAN, y es módulo exportable del Stack de Soberanía de PLANGEO.
 
 ### 6.3 La regla única, y por qué
 
@@ -444,6 +444,21 @@ Se aplica **entera** la lección del tramo D (`project-planpregunta-tramo-d`, `p
 6. **La recepción social** — hueco declarado hacia PLANFOCO/PLANCUL.
 
 ---
+
+## 16.bis Correcciones de hecho aplicadas el 2026-08-02
+
+Seis afirmaciones de la primera versión de esta spec resultaron falsas o más anchas que su fuente, y se corrigieron al escribirse la SECCIÓN 2 del documento. Se dejan anotadas para que no vuelvan:
+
+| Decía | Dice ahora | Cómo se cayó |
+|---|---|---|
+| Canadá: «~60%, primera vez desde 2000» | **58%**, primera mayoría en un cuarto de siglo, la más alta desde 1998 | «desde 2000» no sale de ninguna fuente; Environics dice 1998 |
+| Italia: el salto lo produjo la exención del 50%/60% | Lo produjo el **70%** (90% en el sur) del *decreto Crescita* de 2019; el 50%/60% es el régimen posterior y **más chico** | el porcentaje a copiar en D7 no era el que la spec traía |
+| Portugal: «NHR derogado el 1/1/2025» | Cerrado a nuevos ingresos el **1/1/2024** (transición al 31/3/2025); IFICI desde el 1/1/2025 | son dos fechas, no una |
+| Chile: «12,5% seguía operando» | 12,5% de una muestra de **200** conservó **vínculo comercial** | la medida es el vínculo, más angosta |
+| OMS: «casi nadie la respeta» | Cumplimiento parcial; el Reino Unido la adoptó | universal negativo, misma familia que los dos refutados abajo |
+| «seis menciones laterales» | referencias repartidas en **seis documentos** (la tabla tiene siete renglones) | inconsistencia con su propia tabla |
+
+Y dos afirmaciones sobre retención fueron refutadas **dos veces** antes de quedar bien (ver §4). **Regla que queda para el resto del documento: nada de universales negativos —«ninguno», «nadie», «ningún país»— salvo que se puedan defender.** Es la forma exacta que se cayó tres veces.
 
 ## 17. Fuentes
 

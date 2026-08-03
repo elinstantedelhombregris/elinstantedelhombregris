@@ -108,10 +108,10 @@ La guardia verifica que cada una aparezca con su ancla en la misma oración, al 
 | Ley 25.903 · Acuerdo de Residencia MERCOSUR (2002), vigente desde 28/07/2009 | `argentina.gob.ar` / spec `:§3.1` | la puerta que no se toca |
 | Ley 25.871 art. 23 — categoría «nacionalidad MERCOSUR» | spec `:§3.1` | el derecho por nacionalidad |
 | Ley 4.144 (22/11/1902 – 1958), expulsión sin juicio previo, 56 años | spec `:§6.3` | **el precedente que ordena todos los límites** |
-| ~80% se fue a los seis meses · 12,5% a largo plazo · tracción → 5× | spec `:§4` | Start-Up Chile |
-| 500.000 → 395.000 para 2025 (−21%); ~60% dijo «demasiados», primera vez desde 2000 | spec `:§4` | Canadá |
-| 11.285 → ~41.000 (+264%), exención 50% / 60% con hijos menores | spec `:§5 D7` | Italia, régimen *impatriati* |
-| NHR derogado 1/1/2025 → IFICI | spec `:§6.2 III.1` | Portugal: toda golden visa deriva a rentista |
+| ~80% se fue a los seis meses · 12,5% de una muestra de 200 conservó **vínculo comercial** · tracción → 5× | spec `:§4` | Start-Up Chile |
+| 500.000 → 395.000 para 2025 (−21%); **58%** dijo «demasiados», primera mayoría en un cuarto de siglo, la más alta desde 1998 | spec `:§4` | Canadá (Environics/Focus Canada, sept. 2024) |
+| 11.285 (2019) → 41.020 (2023), +264%, bajo la exención del **70%** del *decreto Crescita* — NO el 50%/60%, que es el régimen posterior y más chico | spec `:§5 D7` | Italia, régimen *impatriati* |
+| NHR cerrado a nuevos ingresos 1/1/2024 (transición al 31/3/2025); IFICI vigente desde 1/1/2025 | spec `:§6.2 III.1` | Portugal: toda golden visa deriva a rentista |
 | Lista de Salvaguardia de la OMS 2023 — **55 países** | spec `:§6.2 III.2` | el Techo de Origen |
 | 5.000-10.000 trabajadores regionales · USD 10-20M | `PLANVIV:1566` | **lo que este PLAN deroga** |
 | 50.000-68.000 · USD 150-230M | `PLANVIV:1567` (post-derogación) | el total corregido |
