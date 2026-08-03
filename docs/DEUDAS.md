@@ -26,7 +26,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | Id | Deuda | Severidad | Estado |
 |---|---|---|---|
 | [D-001](#d-001--no-hay-resolución-geográfica-en-el-servidor) | No hay resolución geográfica en el servidor | Bloqueante | **Resuelta** |
-| [D-002](#d-002--la-base-de-v2-tiene-12-filas-y-las-12-son-de-demostración) | La base de v2 tiene 12 filas, y las 12 son de demostración | Alta | Abierta |
+| [D-002](#d-002--la-base-de-v2-tiene-12-filas-y-las-12-son-de-demostración) | La base de v2 tiene 12 filas, y las 12 son de demostración | Alta | **Resuelta** |
 | [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros) | Glyphs y teselas del mapa salen de CDN de terceros | Media | Abierta |
 | [D-004](#d-004--falta-la-capa-de-departamentos) | Falta la capa de departamentos | Media | Abierta |
 | [D-005](#d-005--falta-la-capa-de-municipios) | Falta la capa de municipios | Media | Abierta |
@@ -68,7 +68,7 @@ Es también la causa real de lo que se reportó como «no puedo ver qué provinc
 **Dónde:** tabla `dreams`, proyecto Neon `cool-bird-63087148`, ids 3132–3143
 **Encontrada:** 2026-08-01, contando voces por provincia
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-08-02**, ver [Resueltas](#resueltas)
 
 `SELECT count(*) FROM dreams` devuelve 12, y las 12 tienen el texto prefijado con `[prototipo]`. Todas caen en CABA y ninguna tiene `province_id`.
 
@@ -225,6 +225,21 @@ Mientras tanto la elección es deliberada: una provincia equivocada en el borde 
 ---
 
 ## Resueltas
+
+### D-002 · La base de v2 tiene 12 filas, y las 12 son de demostración
+
+**Resuelta:** 2026-08-02
+**Cómo:** se borraron. `SELECT count(*) FROM dreams` devuelve **0**.
+
+Antes de borrar se buscó de dónde traer datos reales. Producción de v1 (`sparkling-field-92271073`) tiene **una sola voz**, del 10 de marzo de 2026; no hay tabla de pulso; lo único con volumen son cursos, lecciones y las 549 localidades. **La plataforma nunca tuvo datos cívicos.**
+
+Con eso sobre la mesa se decidió **no sembrar nada** — ni sintéticos marcados, ni modo demo en memoria, ni un branch de Neon. La razón que inclinó la balanza no fue de pureza sino de producto: la Simulación es el argumento entero de la plataforma en un gesto —arrastrás la cortina y ves de la nada al país— y **ese gesto se debilita si el lado izquierdo está lleno de voces inventadas**. Sembrar compraba cuatro lentes legibles al precio de arruinar la quinta.
+
+El trabajo que reemplaza al sembrado está en `v2/docs/specs/2026-08-02-el-vacio-como-pieza.md`: que el vacío diga lo que tiene que decir en vez de parecer una herramienta rota.
+
+**Lo que hay que recordar:** el pie de página decía «Prototipo con datos de demostración». Al no haber datos de demostración, esa línea también cambia — está en la spec §4.2.
+
+---
 
 ### D-001 · No hay resolución geográfica en el servidor
 
