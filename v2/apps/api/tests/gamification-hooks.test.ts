@@ -19,6 +19,7 @@ import {
   getDb,
   proposalVotes,
   proposals,
+  inArray,
   pulseSignals,
 } from '@v2/db';
 
@@ -44,6 +45,20 @@ dsuite('Gamification hooks', () => {
   // pulseSignals.userId y proposals.authorId son onDelete:'set null' — borrar el
   // usuario NO borra estas filas, así que se juntan los ids y se limpian explícitos.
   const createdSignalIds: number[] = [];
+
+  /**
+   * Los textos que este archivo escribe — D-014. El `afterAll` los usa para
+   * barrer lo que dejó cualquier corrida cortada por la mitad.
+   */
+  const CUERPO_PRIMERA = 'Esto es una señal de prueba. Necesitamos más espacios verdes.';
+  const CUERPO_SEGUNDA = 'Segunda señal de prueba — el bus 12 nunca pasa.';
+  const CUERPOS_DE_PRUEBA = [CUERPO_PRIMERA, CUERPO_SEGUNDA];
+
+  /** Registra el id apenas vuelve la respuesta, pase lo que pase después. */
+  const anotarSenal = (res: { body?: { data?: { id?: unknown } } }): void => {
+    const id = res.body?.data?.id;
+    if (typeof id === 'number') createdSignalIds.push(id);
+  };
   const createdProposalIds: number[] = [];
   const createdPostIds: number[] = [];
 
@@ -75,6 +90,9 @@ dsuite('Gamification hooks', () => {
     for (const id of createdSignalIds) {
       await db.delete(pulseSignals).where(eq(pulseSignals.id, id));
     }
+    // Red de seguridad: si la corrida se corta con Ctrl-C el afterAll no llega
+    // a ejecutarse y las señales quedan en el mapa público para siempre.
+    await db.delete(pulseSignals).where(inArray(pulseSignals.body, CUERPOS_DE_PRUEBA));
     for (const id of createdPostIds) {
       await db.delete(communityPostInteractions).where(eq(communityPostInteractions.postId, id));
       await db.delete(communityPosts).where(eq(communityPosts.id, id));
@@ -87,9 +105,10 @@ dsuite('Gamification hooks', () => {
   it('POST /api/pulso returns xpEvent + awards first-pulse', async () => {
     const res = await csrfed(app, session)
       .post('/api/pulso')
-      .send({ body: 'Esto es una señal de prueba. Necesitamos más espacios verdes.' });
+      .send({ body: CUERPO_PRIMERA });
+    // Se registra ANTES de afirmar: si un assert falla, la fila queda huérfana.
+    anotarSenal(res);
     expect(res.status).toBe(201);
-    createdSignalIds.push(res.body.data.id as number);
     expect(res.body.data.xpEvent).toBeTruthy();
     expect(res.body.data.xpEvent.xpAwarded).toBe(10);
     expect(res.body.data.xpEvent.newBadges.some((b: { slug: string }) => b.slug === 'first-pulse')).toBe(true);
@@ -98,9 +117,9 @@ dsuite('Gamification hooks', () => {
   it('POST /api/pulso second time: xpEvent still fires (no dedup), but no new badge', async () => {
     const res = await csrfed(app, session)
       .post('/api/pulso')
-      .send({ body: 'Segunda señal de prueba — el bus 12 nunca pasa.' });
+      .send({ body: CUERPO_SEGUNDA });
+    anotarSenal(res);
     expect(res.status).toBe(201);
-    createdSignalIds.push(res.body.data.id as number);
     expect(res.body.data.xpEvent.xpAwarded).toBe(10);
     expect(res.body.data.xpEvent.newBadges).toEqual([]);
   });

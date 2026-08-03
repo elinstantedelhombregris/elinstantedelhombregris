@@ -38,7 +38,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-011](#d-011--la-geometría-de-provincias-erra-en-los-bordes) | La geometría de provincias erra en los bordes | Alta | Abierta |
 | [D-012](#d-012--el-geojson-usaba-un-nombre-no-canónico-para-caba) | El GeoJSON usaba un nombre no canónico para CABA | Alta | **Resuelta** |
 | [D-013](#d-013--el-test-del-corpus-de-planes-tiene-el-total-a-mano-y-se-rompe-cada-vez) | El test del corpus de PLANes tiene el total a mano y se rompe cada vez | Media | Abierta |
-| [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | Abierta |
+| [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | Parcial |
 
 ---
 
@@ -249,10 +249,12 @@ Es de otra sesión y estaba en vuelo cuando se encontró: no se tocó.
 
 ### D-014 · Los tests de integración ensucian el mapa que el sitio sirve
 
-**Dónde:** `v2/apps/api/tests/*.test.ts` — 21 de 23 archivos tienen `afterAll`, y al menos uno limpia de menos
+**Dónde:** `v2/apps/api/tests/pulso-flows.test.ts` · `v2/apps/api/tests/gamification-hooks.test.ts`
 **Encontrada:** 2026-08-02, cuando los estados vacíos no aparecían con la base supuestamente en cero
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** **parcialmente resuelta 2026-08-02** — las fugas conocidas están tapadas; la causa de fondo sigue
+
+> **Corrección.** La primera versión de esta entrada decía que `pulso-flows.test.ts` «limpia proposals y proposalVotes y no pulseSignals». **Eso era falso**: sí las limpia, por id. El problema era otro y más fino, y está abajo.
 
 Después de borrar las 12 voces de prototipo, `dreams` quedó en cero — pero el instrumento seguía diciendo **«voces en vista: 4»**. El endpoint del mapa consulta las cuatro capas, y las otras tres no estaban vacías:
 
@@ -263,16 +265,23 @@ pulso · «Esto es una señal de prueba. Necesitamos más...»
 pulso · «No alcanza la plata.»
 ```
 
-«Auth signal.» sale textual de `pulso-flows.test.ts:70`. Ese archivo **sí** tiene `afterAll`, pero limpia `proposalVotes` y `proposals` y **no** `pulseSignals`.
+«Auth signal.» sale textual de `pulso-flows.test.ts`. Los dos archivos que crean señales las limpian por id en su `afterAll`, así que la pregunta era por qué seguían ahí. Dos razones:
+
+1. **El id se registraba DESPUÉS de afirmar.** Si un `expect` fallaba entre el POST y el `push`, la fila quedaba huérfana y nadie la borraba nunca.
+2. **Un Ctrl-C mata el `afterAll`.** Si la corrida se corta, la limpieza no se ejecuta y lo creado queda para siempre. Ningún orden de líneas arregla esto.
 
 **Por qué es alta.** Los tests de integración corren contra la misma base que sirve el sitio de desarrollo, así que cada `pnpm test` deja señales de prueba en el mapa público. No son datos de demostración que alguien decidió poner: son residuo, con textos como «Auth signal.», y nadie los mira porque aparecen de a una. Además tapan el estado vacío recién construido: la condición es `todas.length === 0`, y con cuatro sobras nunca se cumple.
 
-**Qué haría falta.** Dos cosas, y la segunda importa más que la primera:
+**Lo que se hizo (2026-08-02).** Las dos fugas conocidas están tapadas y las cuatro filas se borraron:
 
-1. Que cada test limpie lo que crea — empezando por `pulseSignals` en `pulso-flows.test.ts`.
-2. Que los tests **no corran contra la base de desarrollo**. Un branch de Neon efímero por corrida, o al menos una base aparte, es lo que corresponde. Mientras compartan base, el próximo olvido vuelve a ensuciar el mapa y nadie se entera hasta que alguien mira.
+- El id se registra **apenas vuelve la respuesta**, antes de cualquier `expect`, con un helper que tolera una respuesta sin id. Un assert que falle ya no puede dejar huérfana una fila.
+- Los textos que cada archivo escribe son constantes, y el `afterAll` **barre también por texto**. Eso limpia lo que dejaron corridas anteriores cortadas por la mitad — que es como llegaron las cuatro que se encontraron.
 
-**Las cuatro filas actuales siguen ahí:** borrarlas es destructivo y quedaba fuera de lo que se autorizó (que eran las 12 de `dreams`).
+Verificado: se borraron las cuatro, se corrieron los dos archivos completos, y `pulse_signals` volvió a quedar en **0**.
+
+**Lo que falta, y es lo que importa.** Los tests siguen corriendo **contra la misma base que sirve el sitio**. El barrido por texto es un parche: solo limpia lo que un archivo sabe que escribió, y solo la próxima vez que ese archivo corra entero. Un test nuevo que olvide el patrón vuelve a ensuciar el mapa público, y nadie se entera hasta que alguien mira.
+
+Lo que corresponde es un branch de Neon efímero por corrida, o al menos una base aparte. **Queda pendiente por decisión: no se integra ahora.**
 
 ---
 
