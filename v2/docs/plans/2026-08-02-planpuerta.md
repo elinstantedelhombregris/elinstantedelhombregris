@@ -120,7 +120,7 @@ La guardia verifica que cada una aparezca con su ancla en la misma oración, al 
 | acceso pleno sin verificar estatus migratorio; no se comparte con Migraciones | `PLANJUS:2366` | el compromiso que se hereda |
 | derechos migratorios de reunificación | `PLANCUIDADO:318` | de dónde sale el Compadrazgo de Llegada |
 | Agencia del Litio del Cono Sur con Bolivia y Chile | `PLANGEO:425` | por qué no se denuncia MERCOSUR |
-| adopción municipal de la Red Soberana | `PLANGEO:1151` | ídem |
+| adopción municipal de la Red Soberana | `PLANGEO:1148-1149` | ídem |
 | «fábrica de emigrantes» subsidiada | `PLANREP:2182` | el problema inverso que este PLAN cierra |
 
 ---

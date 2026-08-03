@@ -85,7 +85,7 @@ Cruzado con §1.3: **para el 65,9% del flujo migratorio real que recibe la Argen
 
 ### 3.2 Por qué no se denuncia el tratado
 
-Un sistema puramente selectivo exigiría denunciar o renegociar el Acuerdo. Eso rompe PLANGEO de punta a punta: `PLANGEO:425` le propone a Bolivia y Chile cogobernar el litio en la Agencia del Litio del Cono Sur, y `PLANGEO:1151` monta la expansión de la Red Soberana sobre adopción municipal en la región. **No se le pide a Bolivia que comparta el triángulo del litio el mismo año que se le cierra la puerta a sus ciudadanos.**
+Un sistema puramente selectivo exigiría denunciar o renegociar el Acuerdo. Eso rompe PLANGEO de punta a punta: `PLANGEO:425` le propone a Bolivia y Chile cogobernar el litio en la Agencia del Litio del Cono Sur, y `PLANGEO:1148-1149` monta la expansión de la Red Soberana sobre adopción municipal en la región. **No se le pide a Bolivia que comparta el triángulo del litio el mismo año que se le cierra la puerta a sus ciudadanos.**
 
 ### 3.3 La decisión: B+C
 
