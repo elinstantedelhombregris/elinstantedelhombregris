@@ -103,7 +103,9 @@ El director técnico no le prohíbe a nadie entrar al estadio: ficha a los que q
 
 El indicador rector **no es llegadas. Es permanencia.**
 
-**Por qué.** Todos los países del mundo compiten por atraer; ninguno se mide por retener. Portugal, Emiratos, Estonia, Canadá y Chile publican visas otorgadas; **ninguno publica cuántos siguen ahí a los diez años.** Un objetivo de captación se puede mover con marketing y con exenciones. Un objetivo de arraigo solo se mueve arreglando el país.
+**Por qué.** Todos los países del mundo compiten por atraer; ninguno se **gobierna** por retener. El dato a veces existe —Canadá publica todos los años, vía la Longitudinal Immigration Database de Statistics Canada e IRCC, la retención de sus inmigrantes por provincia a uno y a cinco años—, y **ningún país lo tiene como indicador rector ni corrige el programa cuando cae.** Un objetivo de captación se puede mover con marketing y con exenciones. Un objetivo de arraigo solo se mueve arreglando el país.
+
+> **Ojo con la formulación.** La versión falsable es «ninguno *publica*»: Canadá publica, y la LID sigue resultados a más de cuarenta años. Lo que no se puede refutar —y es el punto real— es que **ninguno se gobierna por ese número.**
 
 **La evidencia que lo obliga.** Start-Up Chile es el experimento más parecido a lo que PLANPUERTA propone, y su fracaso es el más instructivo: **cerca del 80% de los emprendedores se fue apenas terminó el programa de seis meses**, un tercio a Estados Unidos, y solo el **12,5%** de las startups de fundadores inmigrantes seguía operando en Chile a largo plazo. La retención mejoró después (34% → 56,4% hacia 2018), y el factor identificado es decisivo: **los que tuvieron tracción comercial fueron ~5× más propensos a quedarse.**
 
@@ -161,7 +163,7 @@ Ningún fichaje entra a una beca. Entra a un problema que ya tiene presupuesto y
 
 **La restricción que efectivamente ata todo el PLAN no es legal ni fiscal: es la revalidación de títulos.** Revalidar un título extranjero de medicina, ingeniería o arquitectura en la Argentina es un vía crucis de años, controlado por colegios profesionales con todo el incentivo para que siga siéndolo. Se puede tener la mejor puerta del mundo: si el médico fichado no puede ejercer, no viene — y si viene, se va.
 
-El mecanismo: **no se revalida por examen y trámite —el instrumento que los colegios controlan— sino por desempeño supervisado en el problema pago al que la persona vino.** Un período con supervisión de un par argentino, con resultados medidos, y al final la matrícula. Es más honesto que el examen porque mide si sabe hacerlo en lugar de si sabe rendir. Y esquiva el veto corporativo sin pelearlo de frente: **no se le saca al colegio la facultad de habilitar, se le cambia la evidencia con la que habilita.**
+El mecanismo: **no se revalida por examen y trámite —el examen lo toma la universidad nacional, la matrícula la da el colegio, y el que llega tiene que pasar por los dos— sino por desempeño supervisado en el problema pago al que la persona vino.** Un período con supervisión de un par argentino, con resultados medidos, y al final la matrícula. Es más honesto que el examen porque mide si sabe hacerlo en lugar de si sabe rendir. Y esquiva el veto corporativo sin pelearlo de frente: **no se le saca al colegio la facultad de habilitar, se le cambia la evidencia con la que habilita.**
 
 ### TRAMO 4 — EL ARRAIGO *(años 3 a 10)*
 
