@@ -30,7 +30,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros) | Glyphs y teselas del mapa salen de CDN de terceros | Media | Abierta |
 | [D-004](#d-004--falta-la-capa-de-departamentos) | Falta la capa de departamentos | Media | Abierta |
 | [D-005](#d-005--falta-la-capa-de-municipios) | Falta la capa de municipios | Media | Abierta |
-| [D-006](#d-006--las-73-dependencias-entre-planes-viven-solo-en-v1) | Las 73 dependencias entre PLANes viven solo en v1 | Baja | Abierta |
+| [D-006](#d-006--las-73-dependencias-entre-planes-viven-solo-en-v1) | Las dependencias entre PLANes viven solo en v1 (ya son 208) | Media | Abierta |
 | [D-007](#d-007--dos-majors-de-typesreact-conviven-por-parche-de-pnpm) | Dos majors de `@types/react` conviven por parche de pnpm | Media | Abierta |
 | [D-008](#d-008--los-parches-de-dependencias-están-atados-a-versión-exacta) | Los parches de dependencias están atados a versión exacta | Baja | Abierta |
 | [D-009](#d-009--tres-planes-del-corpus-fuente-no-están-migrados-a-v2) | Tres PLANes del corpus fuente no están migrados a v2 | Alta | **Resuelta** |
@@ -123,14 +123,17 @@ Bloquea la rebanada 4 de `docs/specs/2026-08-01-el-mapa-simulacion.md`.
 
 ### D-006 · Las 73 dependencias entre PLANes viven solo en v1
 
-**Dónde:** `SocialJusticeHub/shared/arquitecto-data.ts` (832 líneas)
+**Dónde:** `SocialJusticeHub/shared/arquitecto-data.ts` (1.120 líneas)
 **Encontrada:** 2026-08-01, diseñando la palanca de orden de arranque
-**Severidad:** baja
+**Actualizada:** 2026-08-02 — el grafo creció
+**Severidad:** ~~baja~~ → media
 **Estado:** abierta
 
-73 aristas `requires` con naturaleza y tipo, más 69 anotaciones `provides`. Es contenido razonado y valioso que v2 no tiene. Sin él no existe la palanca de secuencia de la Simulación ni el chequeo de operabilidad.
+**208 aristas** con naturaleza (crítica/importante/menor) y tipo (financiera, institucional, técnica, legal, laboral, de datos, temporal), de las cuales 108 son anotaciones `provides`. Es contenido razonado y valioso que v2 no tiene.
 
-Bloquea la rebanada 5 de la spec de la Simulación, que de todos modos es opcional.
+Subió de severidad porque creció: el commit `95851ef` sumó las aristas de los cuatro PLANes nuevos y el grafo pasó de 22 nodos sueltos a 26 conectados. Cuanto más se invierte del lado de v1, más caro sale que v2 no lo tenga.
+
+Sin él no existe la palanca de secuencia de la Simulación ni el chequeo de operabilidad — es lo único del motor que tendría estructura real en vez de multiplicación. Bloquea la rebanada 5, que de todos modos es opcional.
 
 ---
 
