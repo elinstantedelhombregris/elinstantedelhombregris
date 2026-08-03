@@ -429,3 +429,28 @@ La nota de clasificación de PLANGEO declara que el documento «existe en dos ve
 **Por qué no se arregló en el momento:** decidir qué secciones de PLANGEO son internas es una decisión editorial sobre material ajeno al bloque nuevo, y afecta al menos a S12 (doble capa), S13 (eje US-China) y S19 (Malvinas). La sesión estaba diseñando otra cosa.
 
 **Cómo se arregla:** definir el criterio de marcado, aplicarlo a las secciones existentes, y agregar una guardia que falle si un documento con `public_visibility: interno` en el registro se copia a `client/public/docs/` o `dist/` sin filtrar — porque hoy `PLANGEO_Argentina_ES.md` ya está publicado tal cual en `SocialJusticeHub/client/public/docs/`, que es la consecuencia práctica de que la distinción no exista.
+
+---
+
+### D-018 · `budget_class` del registro no es monótono en dólares
+
+**Dónde:** `Iniciativas Estratégicas/PLAN_REGISTRY.yml`, campo `budget_class` de las 26 entradas
+**Encontrada:** 2026-08-03, escribiendo la SECCIÓN 12 de PLANPUERTA, al intentar declarar su propia clase
+**Severidad:** media
+**Estado:** abierta
+
+El campo `budget_class` usa una escala `XS · S · M · L · XL` que **no ordena por presupuesto**, y no hay leyenda publicada en ningún lado del corpus que diga qué mide.
+
+Los contraejemplos son directos, cruzando el registro contra `PRESUPUESTO_CONSOLIDADO_BASTA.md`:
+
+| PLAN | `budget_class` | Inversión declarada |
+|---|---|---|
+| **PLAN24CN** | **XS** | USD 26.350-73.000M (`:33`) |
+| **PLANISV** | **S** | USD 1.000-3.000M (`:35`) |
+| **PLANCUL** | **S** | **USD 0** — diseño parasitario (`:41`) |
+
+Un `XS` que cuesta veintiséis mil millones y un `S` que cuesta cero no pueden estar en la misma escala midiendo lo mismo. Las lecturas posibles son al menos tres —inversión total, gasto anual en régimen, o carga sobre el presupuesto **nacional** después de descontar autofinanciamiento— y el campo no dice cuál.
+
+**Consecuencia inmediata:** PLANPUERTA declaró su clase **S** como *decisión de diseño* y no como medición, y lo dejó escrito así en su SECCIÓN 12. Cualquier PLAN que se escriba después tiene el mismo problema, y cualquier lector que ordene el corpus por este campo obtiene un orden falso.
+
+**Qué haría falta:** publicar la leyenda (qué mide y con qué cortes), o derivar el campo de `PRESUPUESTO_CONSOLIDADO_BASTA.md` en vez de escribirlo a mano. Mientras tanto, ningún documento debería tratar la letra como si fuera comparable entre PLANes.
