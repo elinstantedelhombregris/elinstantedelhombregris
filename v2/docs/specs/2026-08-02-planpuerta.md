@@ -141,8 +141,8 @@ El fichaje tiene calendario, no es continuo. Hace el flujo visible y auditable, 
 **D5 · El Contrato de Puerta.**
 El documento bilateral: qué da el país, qué se compromete el que llega. **Es el dispositivo que convierte «salir si se desconsideran los ideales» en mecanismo legítimo:** el Paquete se revoca contra lo que la persona misma firmó, nunca contra un ideal difuso interpretado por un funcionario. Es la diferencia entera con la Ley 4.144 (§6.3).
 
-**D6 · El Padrinazgo.**
-Una familia o un Círculo recibe. **Sin Estado.** Es el dispositivo de arraigo más barato que existe y el más literalmente argentino: abrir la puerta y poner la mesa. No se inventa de cero — es una variante del Pacto de Cuidado de PLANCUIDADO.
+**D6 · El Compadrazgo de Llegada.**
+Una familia o un Círculo recibe. **Sin Estado.** Es el dispositivo de arraigo más barato que existe y el más literalmente argentino: abrir la puerta y poner la mesa. **No se inventa de cero ni se llama «Padrinazgo»** — `PLANMESA:88` usa esa palabra una sola vez y en sentido peyorativo, y `PLANARCO:574` ya resolvió lo mismo reusando el **Compadrazgo** tipificado en `PLANCUIDADO:307`. Este PLAN hace igual.
 
 ### TRAMO 3 — LOS PRIMEROS MIL DÍAS
 
@@ -273,7 +273,7 @@ PLAN24CN funda 24 ciudades, una por provincia, USD 26.350-73.000M a 15-20 años.
 | **PLANEB** | El canal sin Estado: las Empresas Bastardas fichan directo y son empleador del fichaje. Así corre la Fase 0 |
 | **PLANVIV** | El dato del freno de infraestructura |
 | **PLANMESA** | La Credencial de Materia y la silla — base de la ciudadanía por aporte verificado |
-| **PLANCUIDADO** | El Padrinazgo como variante del Pacto de Cuidado, que ya genera derechos migratorios de reunificación (`:318`) |
+| **PLANCUIDADO** | El Compadrazgo de Llegada como variante del Pacto de Cuidado, que ya genera derechos migratorios de reunificación (`:318`) |
 | **PLANDIG** | Infraestructura del Tablero y del registro de revalidación |
 | **PLANEDU** | Las escuelas de oficios que hacen posible la subsidiariedad |
 
@@ -306,7 +306,7 @@ PLAN24CN funda 24 ciudades, una por provincia, USD 26.350-73.000M a 15-20 años.
 | Reconocimiento/revalidación e infraestructura de Tablero (con PLANDIG) | Puntual, bajo |
 | **Tierra con obligación de uso** | **~0 marginal** — asignación dentro de PLAN24CN, no gasto nuevo |
 | **Exención fiscal** | **No es gasto: es renuncia fiscal**, con techo, contabilizada en PLANPACTO como gasto tributario |
-| Llegada y Padrinazgo | ~0 — civil, sin Estado |
+| Llegada y Compadrazgo | ~0 — civil, sin Estado |
 
 **Total estimado: USD 450-900M a 15 años. Clase S. Sin piso constitucional.**
 
@@ -317,7 +317,7 @@ Y conviene decirlo como virtud, no como disculpa: PLANPUERTA es de los PLANes m�
 | Tramo | Sin Estado | Con Estado |
 |---|---|---|
 | **1. Búsqueda** | Scouts de la red de diáspora, Empresas Bastardas fichando directo, asociación civil | Revalidación |
-| **2. Llegada** | Padrinazgo, casa, primeros 90 días, Círculos | Residencia — **pero para la región ya está por tratado** |
+| **2. Llegada** | Compadrazgo, casa, primeros 90 días, Círculos | Residencia — **pero para la región ya está por tratado** |
 | **3. Primeros Mil Días** | Trabajo real, Círculo de Cuidado, red | Exención fiscal, tierra |
 | **4. Arraigo** | Comunidad, Mesa, Taller | Consolidación del título |
 | **5. Ciudadanía** | — | Solo Estado |
@@ -330,7 +330,7 @@ Y conviene decirlo como virtud, no como disculpa: PLANPUERTA es de los PLANes m�
 
 ### 10.1 Fase 0 — Sin permiso *(meses 0-12)*
 
-No requiere ley, decreto ni presupuesto estatal. Scouts civiles desde la diáspora, fichaje contratado por Empresas Bastardas, Padrinazgo civil, y una **primera cohorte piloto de 100-300 personas medida desde el día uno**. La puerta MERCOSUR ya está abierta por Ley 25.903: para buscar en la región no hay que pedirle permiso a nadie. Mismo espíritu que la Fase 0 de PLANPACTO.
+No requiere ley, decreto ni presupuesto estatal. Scouts civiles desde la diáspora, fichaje contratado por Empresas Bastardas, Compadrazgo civil, y una **primera cohorte piloto de 100-300 personas medida desde el día uno**. La puerta MERCOSUR ya está abierta por Ley 25.903: para buscar en la región no hay que pedirle permiso a nadie. Mismo espíritu que la Fase 0 de PLANPACTO.
 
 En paralelo y como trabajo de escritorio: **el acta de excepción al freeze**, con el argumento de §1.2.
 

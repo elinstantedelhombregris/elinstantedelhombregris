@@ -114,11 +114,11 @@ La guardia verifica que cada una aparezca con su ancla en la misma oración, al 
 | 5.000-10.000 trabajadores regionales · USD 10-20M | `PLANVIV:1566` | **lo que este PLAN deroga** |
 | 50.000-68.000 · USD 150-230M | `PLANVIV:1567` (post-derogación) | el total corregido |
 | 15.000 de brecha en el extremo bajo | `PLANVIV:1571` + V-5 | **la deuda declarada** |
-| USD 26.350-73.000M a 15-20 años | `PRESUPUESTO_CONSOLIDADO_BASTA.md:37` (fila PLAN24CN) | dónde salen los lotes |
+| USD 26.350-73.000M a 15-20 años | `PRESUPUESTO_CONSOLIDADO_BASTA.md:33` (fila PLAN24CN) | dónde salen los lotes |
 | USD 80.000-120.000M a 15 años | `PRESUPUESTO_CONSOLIDADO_BASTA.md:37` (fila PLANVIV) | el contraste de escala |
-| ~3,5 millones de empleados públicos | `PLANREP:80` (TABLA 1) | por qué existe la Regla de Subsidiariedad |
+| ~3,5 millones de empleados públicos | `PLANREP:87` (TABLA 1) | por qué existe la Regla de Subsidiariedad |
 | acceso pleno sin verificar estatus migratorio; no se comparte con Migraciones | `PLANJUS:2366` | el compromiso que se hereda |
-| derechos migratorios de reunificación | `PLANCUIDADO:318` | de dónde sale el Padrinazgo |
+| derechos migratorios de reunificación | `PLANCUIDADO:318` | de dónde sale el Compadrazgo de Llegada |
 | Agencia del Litio del Cono Sur con Bolivia y Chile | `PLANGEO:425` | por qué no se denuncia MERCOSUR |
 | adopción municipal de la Red Soberana | `PLANGEO:1151` | ídem |
 | «fábrica de emigrantes» subsidiada | `PLANREP:2182` | el problema inverso que este PLAN cierra |
@@ -335,7 +335,7 @@ git commit -m "Add la guardia de PLANPUERTA y el esqueleto — arranca en rojo c
 - Modify: `Iniciativas Estratégicas/PLANPUERTA_Argentina_ES.md`
 
 - [ ] **La cara del preámbulo: un médico venezolano que maneja para una app en Rosario.** Nombre propio, edad, especialidad concreta, año de llegada. Llegó con título, con residencia hecha, con años de guardia encima — y hace cuatro años que no ejerce porque la revalidación no termina nunca. **Es la elección deliberada del documento: PLANPUERTA no empieza por los que faltan sino por los que ya están y estamos desperdiciando.** El país no tiene un problema de captación antes que un problema de aprovechamiento.
-- [ ] Tres hilos de anillo, que vuelven en el CIERRE: **el expediente de revalidación** que suma años sin resolverse (el hilo de D11); **la puerta de un vecino que se abrió** el primer mes y que es la razón por la que se quedó pese a todo (el hilo del Padrinazgo, D6); y **el hijo que nació acá y es argentino** (el hilo del límite II.5, la condicionalidad que no se hereda).
+- [ ] Tres hilos de anillo, que vuelven en el CIERRE: **el expediente de revalidación** que suma años sin resolverse (el hilo de D11); **la puerta de un vecino que se abrió** el primer mes y que es la razón por la que se quedó pese a todo (el hilo del Compadrazgo de Llegada, D6); y **el hijo que nació acá y es argentino** (el hilo del límite II.5, la condicionalidad que no se hereda).
 - [ ] Las dos cifras de la SECCIÓN 1 se anuncian en el preámbulo sin desarrollarse: **29,9% en 1914, 4,2% en 2022**, con domicilio `censo.gob.ar` la primera vez.
 - [ ] **TESIS CENTRAL:** la Argentina no cerró la puerta con una ley — dejó de ser un lugar al que valía la pena venir; el problema es la oferta y no la frontera. Se mide por permanencia a diez años, la única métrica que no se puede falsear con marketing. Y sale a buscar: como un director técnico arma un plantel, con la lista escrita por los otros veintiséis PLANes y con un techo moral que ningún país se puso todavía.
 - [ ] **Nombrar la piel en la tesis y rechazar la metáfora inmunológica por su nombre**, una sola vez y para siempre: un país sin piel no se defiende, no siente.
@@ -363,7 +363,7 @@ git commit -m "Add la guardia de PLANPUERTA y el esqueleto — arranca en rojo c
 
 - [ ] **SECCIÓN 3** presenta los cinco tramos y los once dispositivos en tabla, y argumenta la elección de columna vertebral: **por qué el ciclo de vida del que llega y no la categoría de visa.** Todos los sistemas migratorios del mundo se organizan por categoría; ninguno por ciclo. Una estructura por categorías de persona fabrica castas — es el Ataque 1 convertido en índice.
 - [ ] **SECCIÓN 4 — Tramo 1.** D1 Lista de Faltantes (la escriben los otros veintiséis PLANes; regla de hierro: nada entra sin PLAN que la pida, presupuesto asignado y veto de subsidiariedad levantado). D2 Cuerpo de Scouts (la diáspora primero; **funciona sin Estado desde el día uno**; el DT no publica un aviso, sale a ver jugar). D3 Ventana de Pases con sus dos frenos — Techo de Origen y freno de infraestructura **por fórmula publicada, nunca por discrecionalidad de un funcionario**.
-- [ ] La Regla de Subsidiariedad se enuncia acá con su cita: `PLANREP:80` da ~3,5 millones de empleados públicos en reconversión, y sin esta regla el PLAN es indefendible frente a *«traen extranjeros y a mí me echan»*.
+- [ ] La Regla de Subsidiariedad se enuncia acá con su cita: `PLANREP:87` da ~3,5 millones de empleados públicos en reconversión, y sin esta regla el PLAN es indefendible frente a *«traen extranjeros y a mí me echan»*.
 - [ ] Verificar rangos y guardia. Commit.
 
 ---
@@ -373,8 +373,8 @@ git commit -m "Add la guardia de PLANPUERTA y el esqueleto — arranca en rojo c
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANPUERTA_Argentina_ES.md`
 
-- [ ] **SECCIÓN 5 — Tramo 2.** D4 Las Tres Puertas (de Derecho — MERCOSUR, `Ley 25.903`, no se toca y se explica por qué con `PLANGEO:425`; de Invitación; del Regreso). D5 El Contrato de Puerta — **el dispositivo que convierte «salir si se desconsideran los ideales» en mecanismo legítimo**: se revoca contra lo que la persona firmó, nunca contra un ideal interpretado por un funcionario. D6 El Padrinazgo, variante del Pacto de Cuidado (`PLANCUIDADO:318`), sin Estado.
-- [ ] **SECCIÓN 6 — Tramo 3.** D7 El Paquete en tres piezas con su condición de conservación cada una: tierra con obligación de uso (lotes de PLAN24CN, `PRESUPUESTO_CONSOLIDADO_BASTA.md:37`; *no comprás la entrada, la pagás con trabajo*), exención temporal (modelo italiano con su cifra), silla en la Mesa antes de la ciudadanía. D8 La Regla del Problema Pago, derivada del hallazgo de Chile. **D11 La Revalidación por Desempeño** — la restricción que ata todo el PLAN; no se le saca al colegio la facultad de habilitar, se le cambia la evidencia con la que habilita.
+- [ ] **SECCIÓN 5 — Tramo 2.** D4 Las Tres Puertas (de Derecho — MERCOSUR, `Ley 25.903`, no se toca y se explica por qué con `PLANGEO:425`; de Invitación; del Regreso). D5 El Contrato de Puerta — **el dispositivo que convierte «salir si se desconsideran los ideales» en mecanismo legítimo**: se revoca contra lo que la persona firmó, nunca contra un ideal interpretado por un funcionario. D6 **El Compadrazgo de Llegada** — NO «Padrinazgo»: `PLANMESA:88` usa esa palabra una sola vez y en sentido peyorativo, y `PLANARCO:574` ya resolvió el problema usando el **Compadrazgo** tipificado en `PLANCUIDADO:307`. Se reusa esa figura, no se inventa una nueva. Sin Estado.
+- [ ] **SECCIÓN 6 — Tramo 3.** D7 El Paquete en tres piezas con su condición de conservación cada una: tierra con obligación de uso (lotes de PLAN24CN, `PRESUPUESTO_CONSOLIDADO_BASTA.md:33`; *no comprás la entrada, la pagás con trabajo*), exención temporal (modelo italiano con su cifra), silla en la Mesa antes de la ciudadanía. D8 La Regla del Problema Pago, derivada del hallazgo de Chile. **D11 La Revalidación por Desempeño** — la restricción que ata todo el PLAN; no se le saca al colegio la facultad de habilitar, se le cambia la evidencia con la que habilita.
 - [ ] D11 vuelve explícitamente sobre el médico del preámbulo. El hilo se cierra acá, no en el CIERRE.
 - [ ] Verificar rangos y guardia. Commit.
 
@@ -425,7 +425,7 @@ git commit -m "Add la guardia de PLANPUERTA y el esqueleto — arranca en rojo c
 
 - [ ] La tabla de componentes con las tres distinciones que hacen al PLAN barato: **la tierra es asignación dentro de PLAN24CN y no gasto nuevo**; **la exención es renuncia fiscal y no gasto**, contabilizada en PLANPACTO como gasto tributario bajo su techo; **la llegada es civil y cuesta cero**.
 - [ ] Total USD 450-900M a quince años, clase S, **sin piso constitucional** — dicho en forma negada para no disparar el prohibido.
-- [ ] El contraste de escala con su domicilio: `PRESUPUESTO_CONSOLIDADO_BASTA.md:37` da PLANVIV en 80.000-120.000M y PLAN24CN en 26.350-73.000M. Y el argumento: **un PLAN de inmigración que necesita decenas de miles de millones ya se equivocó de diseño — si hay que pagarle a la gente para que venga, no viene por el país y se va apenas alguien pague más.**
+- [ ] El contraste de escala con su domicilio: `PRESUPUESTO_CONSOLIDADO_BASTA.md:37` da PLANVIV en 80.000-120.000M y `:33` da PLAN24CN en 26.350-73.000M. Y el argumento: **un PLAN de inmigración que necesita decenas de miles de millones ya se equivocó de diseño — si hay que pagarle a la gente para que venga, no viene por el país y se va apenas alguien pague más.**
 - [ ] La tabla con-Estado / sin-Estado por tramo, con el hallazgo: los tramos 1 y 2, que deciden si el fichaje llega y sobrevive el primer año, son casi enteramente sin Estado.
 - [ ] Verificar rangos y guardia. Commit.
 
