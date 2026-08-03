@@ -79,7 +79,7 @@ export function PapelFooter() {
 
         <div className="font-space text-oscuro-tenue flex flex-wrap justify-between gap-4 pt-6 text-[11px] max-[560px]:flex-col">
           <span>© 2026 ¡BASTA! — El instante del hombre gris</span>
-          <span>Prototipo con datos de demostración</span>
+          <span>Prototipo · todavía sin voces</span>
         </div>
       </div>
     </footer>
