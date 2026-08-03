@@ -2188,6 +2188,113 @@ Este bloque tiene su casa conceptual en **PLANPREGUNTA**, el mandato del conocim
 
 ---
 
+## SECCIÓN 29: LA PUERTA CLÍNICA — EL PACIENTE QUE VIENE DE AFUERA
+
+> *"El día que se muera un turista en un retiro argentino, el país entero va a estar en juicio. Esta sección se escribe hoy para que ese día encuentre un protocolo y no una improvisación."*
+
+### 29.1 Qué mata de verdad, y qué no
+
+Antes de diseñar la puerta hay que saber por qué se muere gente en el turismo psicodélico, y la respuesta más repetida es falsa.
+
+El instituto **ICEERS** revisó **58 muertes** atribuidas a la ayahuasca entre 2010 y 2022. En solo 34 de esos casos pudo verificarse que la persona hubiera consumido. De las nueve autopsias que se hicieron públicas, ninguna atribuyó la muerte a la sustancia. Y el hallazgo central, que conviene leer despacio: **ningún análisis toxicológico ni examen forense determinó jamás una sola muerte por intoxicación aguda de ayahuasca.** El denominador que ordena esas cifras, según el mismo relevamiento de **ICEERS**, es de aproximadamente **cuatro millones de personas** que la tomaron alguna vez, unas 820.000 solo en 2019.
+
+Entonces, ¿de qué se muere la gente? De esto:
+
+| Causa identificada | Casos | Qué significa |
+|---|---|---|
+| **Envenenamiento por tabaco** | 4 confirmados | La causa identificada **más frecuente**, y no es la sustancia del titular: es la purga que se sirve al lado |
+| Infarto | 2 | Con condiciones preexistentes no aclaradas |
+| Otras sustancias no declaradas | varios | Escopolamina, 5-MeO-DMT sintético — cosas que el participante no sabía que estaba tomando |
+| Intoxicación por agua (hiponatremia) | 1 | Protocolo de hidratación inexistente |
+| Ahogamientos y accidentes | varios | **Lapsos de supervisión** |
+| Homicidios | 8 | Solo 2 con el agresor bajo efectos. El resto es violencia entre participantes sin contención |
+| Suicidios | 14 vinculados por prensa | **1 solo** con consumo reciente confirmado |
+| Circunstancias no relacionadas | 9 | La prensa los contó igual |
+
+Y hay un factor agravante que no aparece en la tabla porque no es una causa sino una condición: la embajada de los Estados Unidos en el Perú advirtió en 2024 que los incidentes ocurren en zonas remotas de la Amazonia, **lejos de cualquier atención médica moderna**. Un infarto en un consultorio es una urgencia; el mismo infarto a seis horas de navegación es una muerte.
+
+Este cuadro es, en sí mismo, un argumento a favor de regular. La sustancia que la prohibición trata como veneno no aparece matando a nadie en trece años de registros. Lo que mata es **la falta de un marco**: purgas sin declarar, cuerpos sin revisar, noches sin vigilancia, y selva sin hospital.
+
+### 29.2 Los cuatro controles
+
+De cada causa sale un control. No son cuatro buenas ideas — son la respuesta punto por punto a la tabla de arriba.
+
+**Primero: se licencia el protocolo completo, no la molécula.** La licencia declara **todo** lo que se administra en la sesión —la sustancia principal, las purgas, el rapé, el kambó, el esquema de hidratación, cualquier planta auxiliar— y administrar algo que no está declarado es causal de revocación inmediata, sin sumario previo. Es la regla que ataca la causa de muerte identificada más frecuente, y hasta donde alcanza este relevamiento no la escribe ninguna jurisdicción del mundo, porque todas regulan la molécula famosa y ninguna mira lo que se sirve al lado.
+
+**Segundo: tamizaje remoto y anticipado.** Cardiovascular, psiquiátrico y de medicación. Y remoto no por comodidad sino por necesidad médica: la reconciliación de medicación exige una ventana de lavado de semanas para varios antidepresivos, así que el tamizaje tiene que ocurrir **antes de que la persona compre el pasaje**, no cuando ya está en Ezeiza con las vacaciones pagas y la presión de que no se le arruine el viaje. Un tamizaje en el aeropuerto no es un tamizaje: es un trámite.
+
+**Tercero: supervisión continua con ratio declarado.** Personal despierto y sobrio durante toda la sesión y todo el período de descenso, con una relación mínima de acompañantes por participante escrita en la habilitación. Los ahogamientos, las caídas y la violencia entre participantes salen todos del mismo lugar: alguien que tenía que estar mirando y no estaba.
+
+**Cuarto: distancia máxima a atención crítica.** Cada centro declara y acredita el tiempo de traslado a un establecimiento con terapia intensiva, y ese tiempo es un requisito de habilitación como lo es la salida de emergencia de un teatro.
+
+### 29.3 La ventaja que no se puede copiar
+
+El cuarto control merece párrafo propio porque es donde la Argentina tiene algo estructural que sus competidores no pueden conseguir con voluntad política.
+
+Salta, Jujuy, Misiones, las Sierras de Córdoba, Mendoza y buena parte de la Patagonia tienen hospitales de complejidad a distancia de ambulancia. La Amazonia peruana, por geografía, no. Y no es un problema de inversión: es la selva.
+
+Eso le permite a la Argentina hacer una promesa que un destino de bienestar no puede hacer y que además **se puede auditar**: la ceremonia con una terapia intensiva cerca. En un mercado donde el riesgo percibido es el principal freno de compra, y donde los avisos consulares de los países emisores mencionan explícitamente la lejanía médica, esa es la diferencia comercial más grande del pilar.
+
+### 29.4 La admisión clínica única
+
+Acá está la decisión de arquitectura de esta sección.
+
+**Todo no residente que acceda a cualquier sustancia bajo este plan pasa por una sola admisión clínica** — vaya después a un centro terapéutico o a una ceremonia comunitaria, sin excepción. Una compuerta, y después muchas habitaciones. La admisión asigna un **médico argentino responsable**, con nombre, antes de que la persona viaje.
+
+Esto resuelve una tensión que parecía irresoluble. La Sección 5.1 establece que en la Vía Ceremonial la comunidad define los protocolos y el Estado observa sin intervenir. Prohibirle a una comunidad recibir a un extranjero sería volver a meter al Estado exactamente en el lugar del que este plan lo acaba de sacar.
+
+No hace falta. **El Estado no toca la ceremonia: toca al visitante antes de que llegue.** La soberanía comunitaria sobre el rito queda intacta —ni un protocolo, ni una duración, ni un contenido—, y la responsabilidad del Estado sobre la salud de quien pisa su territorio, que es una competencia que nunca cedió y que ejerce con cualquier turista que se descompone en un colectivo, se ejerce donde siempre se ejerció: sobre el cuerpo de la persona, no sobre la creencia.
+
+### 29.5 Certificación de centros
+
+Tres categorías, con requisitos distintos y sin jerarquía entre ellas:
+
+| Categoría | Quién | Requisitos propios |
+|---|---|---|
+| **Centro clínico** | Vía Terapéutica | Habilitación sanitaria, profesional licenciado, historia clínica, los cuatro controles |
+| **Centro comunitario receptivo** | Comunidad de Vía Ceremonial que **decidió** recibir visitantes | Atestación propia (Sección 5.1), protocolo completo declarado, supervisión y distancia acreditadas. El rito no se audita |
+| **Centro de integración** | Cualquiera | Acompañamiento post-sesión, sin administración de sustancias |
+
+Ninguna comunidad está obligada a certificarse. La que no quiere recibir extranjeros no hace nada y nada le pasa.
+
+### 29.6 Seguro y responsabilidad del no residente
+
+La Sección 21.3 construyó el marco asegurador doméstico y le falta la pata transfronteriza. Se completa acá: cobertura de responsabilidad civil obligatoria para todo centro que reciba no residentes, con suma asegurada mínima por participante, y seguro de asistencia al viajero con cobertura explícita de la actividad —porque las pólizas estándar excluyen "consumo de sustancias" y esa exclusión, en este contexto, dejaría a la persona sin nada.
+
+### 29.7 La integración que cruza la frontera
+
+Es el hueco de seguridad más grande del turismo terapéutico actual y nadie lo cubre: la persona hace la sesión el sábado y el martes está de vuelta en Berlín, sola, sin nadie que sepa qué le pasó.
+
+El protocolo obligatorio: teleseguimiento a la semana, al mes y a los tres meses con el equipo tratante argentino, y convenio de derivación con un profesional en el país de origen cuando la persona lo tenga y lo autorice. Es lo mismo que alimenta el Registro de la Sección 28 — el cuidado y el dato son el mismo acto.
+
+**Y acá hay un problema sin resolver que este documento no va a fingir que resolvió.** Buena parte de los visitantes van a volver a jurisdicciones donde su tratamiento es un delito. Eso complica todo: qué se le entrega por escrito, si conviene que exista una historia clínica a su nombre, cómo se lo deriva sin exponerlo, qué pasa si su obra social pregunta. No tenemos la respuesta. Queda escrita como pregunta abierta para que la resuelva la Pre-Fase con los colegios profesionales y la Cancillería, y no como un detalle que alguien va a descubrir después.
+
+### 29.8 Cuando sale mal
+
+Esta subsección existe por la misma razón que la Sección 23: porque el primer incidente va a ser tapa de diario y la única defensa contra la demagogia es tener el protocolo publicado de antemano.
+
+1. **Escalamiento**: criterio clínico explícito para trasladar, y traslado que no requiere autorización de nadie.
+2. **Notificación consular** en el mismo día, sin esperar a saber la causa.
+3. **Repatriación médica** cubierta por el seguro del punto 29.6.
+4. **Investigación de ANSUS** con suspensión preventiva del centro mientras dure.
+5. **Protocolo de prensa**: un vocero designado, los datos que se publican en las primeras 24 horas —incluido si el centro estaba habilitado y si el protocolo declarado se cumplió—, y la prohibición de que cualquier funcionario especule sobre la causa antes de la autopsia.
+
+Que nos ataquen. Pero que no nos encuentren improvisando.
+
+### 29.9 Régimen fiscal del visitante
+
+La exención impositiva de la Vía Ceremonial **no alcanza al no residente**. Existe para que una comunidad no pague impuestos por su propio rito, no para que un visitante extranjero acceda a una tarifa exenta. El que viene de afuera tributa, vaya a la habitación que vaya, y recauda **ARCA**.
+
+Lo recaudado por este concepto va al mismo destino que el resto del excise de la Sección 5.3: reducción de daños, reparación comunitaria, investigación y ANSUS.
+
+### 29.10 Posicionamiento
+
+Argentina no le compite a Costa Rica por precio. Esa carrera la gana siempre el que tiene menos que perder.
+
+Le compite a Suiza por credibilidad, a una fracción del precio suizo. Marco legal nacional en vez de excepciones caso por caso, hospital cerca, protocolo completo declarado, seguro real, y seguimiento que no termina cuando la persona sube al avión. El comprador de este mercado no busca la experiencia más barata: busca la que puede explicarle a su médico.
+
+---
+
 *PLANSUS — Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido*
 *Sexto Mandato ¡BASTA!*
 *República Argentina — Marzo 2026 — Versión 1.0*

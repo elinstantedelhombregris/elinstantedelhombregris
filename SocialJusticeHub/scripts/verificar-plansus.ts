@@ -69,6 +69,7 @@ export const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 27: PROPIEDAD INTELECTUAL Y PROTECCIÓN DEL CONOCIMIENTO',
   '## MARCOS DE ATRACCIÓN — CÓMO EL MUNDO LLEGA A LA ARGENTINA',
   '## SECCIÓN 28: EL REGISTRO — LA EVIDENCIA COMO ACTIVO NACIONAL',
+  '## SECCIÓN 29: LA PUERTA CLÍNICA — EL PACIENTE QUE VIENE DE AFUERA',
   '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
   '## Parche post-auditoría 2026-04-26',
 ];
@@ -77,13 +78,37 @@ export const SECCIONES_ESPERADAS: string[] = [
  * Cifras que no pueden aparecer huérfanas. `domicilio` es la fuente que tiene
  * que estar en la MISMA ORACIÓN.
  */
-export const CIFRAS_CANONICAS: { cifra: string; domicilio: string[]; desc: string }[] = [];
+export const CIFRAS_CANONICAS: { cifra: string; domicilio: string[]; desc: string }[] = [
+  {
+    cifra: '58 muertes',
+    domicilio: ['ICEERS'],
+    desc: 'muertes atribuidas a ayahuasca 2010-2022 — el numerador',
+  },
+  {
+    // «4 millones» a secas NO sirve como ancla: matchea adentro de «3,4 millones»
+    // (Uruguay, Sección 2.2). Es el caso de la doctrina 3 — ancla no única. Se
+    // escribe en letras, que además es como va en la prosa.
+    cifra: 'cuatro millones de personas',
+    domicilio: ['ICEERS'],
+    desc: 'el denominador. Sin él, el numerador miente',
+  },
+];
 
 /**
  * Strings prohibidos. `excepcion` habilita la forma legítima: si el patrón
  * aparece en una oración que TAMBIÉN contiene la excepción, no cuenta.
  */
-export const PROHIBIDOS: { patron: string; excepcion?: string; porque: string }[] = [];
+export const PROHIBIDOS: { patron: string; excepcion?: string; porque: string }[] = [
+  {
+    patron: 'AFIP',
+    porque: 'la AFIP fue disuelta en octubre de 2024 y reemplazada por ARCA. El corpus arrastra 45 menciones en 9 PLANes; este no suma la 46',
+  },
+  {
+    patron: 'muertes por ayahuasca',
+    excepcion: 'ICEERS',
+    porque: 'la atribución sin fuente es exactamente lo que ICEERS refuta. Va con domicilio o no va',
+  },
+];
 
 /**
  * Cláusulas cuya AUSENCIA es el defecto. Se verifican en forma AFIRMATIVA
