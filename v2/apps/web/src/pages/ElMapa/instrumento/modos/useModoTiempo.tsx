@@ -3,6 +3,7 @@ import { Layer, Source } from 'react-map-gl/maplibre';
 
 import { Control } from '../Chrome';
 import { COLOR_TIPO } from '../paleta';
+import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 
@@ -171,7 +172,12 @@ export function useModoTiempo(ctx: ContextoModo): ResultadoModo {
       </Source>
     ),
 
-    sobreMapa: rango ? (
+    sobreMapa: ctx.todas.length === 0 && !ctx.cargando ? (
+      <Vacio
+        titulo="La línea arranca cuando alguien la arranque."
+        cuerpo="Acá va a verse el día que el mapa se despertó."
+      />
+    ) : rango ? (
       <div className="pointer-events-auto absolute inset-x-4 bottom-4 z-10">
         <div className="border-oscuro-borde bg-oscuro-barra/95 flex items-center gap-4 border px-4 py-3 backdrop-blur">
           <button

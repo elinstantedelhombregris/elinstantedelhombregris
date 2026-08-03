@@ -9,6 +9,7 @@ import { anilloCerrado } from '../geojson';
 import { LazoOverlay } from '../LazoOverlay';
 import { COLOR_TIPO } from '../paleta';
 import { PanelArea } from '../PanelArea';
+import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 import type { GeoPoint } from '@v2/civic-core';
@@ -227,7 +228,13 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
       </>
     ),
 
-    sobreMapa: lazoActivo ? (
+    sobreMapa: ctx.todas.length === 0 && !ctx.cargando ? (
+      <Vacio
+        titulo="Todavía no habló nadie."
+        cuerpo="La primera voz del mapa puede ser la tuya."
+        accion={{ href: '#instrumento', etiqueta: 'Soltar la primera voz' }}
+      />
+    ) : lazoActivo ? (
       <LazoOverlay
         viewBox={{ x: 0, y: 0, ancho: 0, alto: 0 }}
         desproyectarPixel={desproyectar}

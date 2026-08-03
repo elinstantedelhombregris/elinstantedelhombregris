@@ -83,7 +83,9 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
         mapaRef={ctx.mapaRef}
         izquierda={capas.izquierda}
         derecha={capas.derecha}
-        etiquetaIzquierda="Hoy"
+        /* Con el país mudo, «Hoy» a secas no dice nada. «Hoy · nadie» convierte
+           el lado vacío en la mitad del argumento. */
+        etiquetaIzquierda={ctx.todas.length === 0 ? 'Hoy · nadie' : 'Hoy'}
         etiquetaDerecha="Si hablaran"
       />
     ) : null;

@@ -100,9 +100,21 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
               <p className="font-anton text-violeta-claro text-[30px] leading-none tabular-nums">
                 {porcentaje}%
               </p>
+              {/* Con TODO en silencio el conteo se lee como afirmación y no
+                  como falla: es el estado más verdadero de esta lente, no su
+                  ausencia de datos. */}
               <p className="text-oscuro-secundario mt-1.5 text-[13px] leading-relaxed">
-                <strong>{mudas.toLocaleString('es-AR')}</strong> de {total.toLocaleString('es-AR')}{' '}
-                celdas sin una sola voz.
+                {mudas === total ? (
+                  <>
+                    <strong>{total.toLocaleString('es-AR')} celdas.</strong> Las{' '}
+                    {total.toLocaleString('es-AR')} en silencio.
+                  </>
+                ) : (
+                  <>
+                    <strong>{mudas.toLocaleString('es-AR')}</strong> de{' '}
+                    {total.toLocaleString('es-AR')} celdas sin una sola voz.
+                  </>
+                )}
               </p>
               <p className="font-space text-oscuro-meta mt-2 text-[10px] uppercase tracking-[0.1em]">
                 celdas de {lado.toLocaleString('es-AR')} m de lado

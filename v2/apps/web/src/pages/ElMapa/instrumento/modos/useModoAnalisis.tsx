@@ -5,6 +5,7 @@ import { Control, FiltroTipos, LeyendaRampa, Segmentado } from '../Chrome';
 import { COLOR_TIPO, RAMPAS } from '../paleta';
 import { PROVINCIAS_REF } from '../provincias-ref';
 import { AVISO_TEMAS, temasDe } from '../temas';
+import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 import type { SenalConTipo } from '../useVistaMapa';
@@ -378,6 +379,14 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         )}
       </>
     ),
+
+    sobreMapa:
+      ctx.todas.length === 0 && !ctx.cargando ? (
+        <Vacio
+          titulo="Ninguna provincia tiene todavía con qué hablar."
+          cuerpo="Cuando entren las primeras voces esto se llena de intensidades: quién habla más, por habitante, por territorio. Tocá una provincia para ver cuántas voces necesita."
+        />
+      ) : null,
 
     capas: conValores ? (
       <Source id="provincias" type="geojson" data={conValores}>
