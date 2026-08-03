@@ -1367,8 +1367,13 @@ Antes de que la ley se sancione. El año más importante — porque todo lo que 
 | C8 | Curriculas de formación laboral desarrolladas (Sección 25.3), primeras cohortes inscriptas | Mes -6 a -3 | Programas lanzados en INTA, UNCuyo, Centros de la Vida |
 | C9 | Plataforma de trazabilidad semilla-a-venta operativa en modo testeo (Sección 10.5) | Mes -3 | Sistema licenciado/desarrollado, operativo en ambiente de prueba |
 | C10 | Campaña de comunicación y destigmatización lanzada (Sección 17) | Mes -6 | Encuestas muestran >40% de apoyo en provincias prioritarias |
+| C11 | **Registro Nacional de Resultados Terapéuticos operativo** (Sección 28) | Mes -6 a -1 | Instrumentos de medición elegidos y validados, arquitectura de consentimiento aprobada por comité de ética, fideicomiso público constituido, sistema recibiendo carga de prueba |
+| C12 | Norma de certificación de centros receptivos y protocolo de admisión clínica única publicados (Secciones 29.4 y 29.5) | Mes -3 | Texto en Boletín Oficial, primer lote de centros en proceso de habilitación, protocolo de evento adverso y de prensa publicado |
+| C13 | Acuerdos de nivel de servicio de ANSUS y ANMAT definidos, con plazos y penalidades (Sección 30.2) | Mes -3 | Plazos máximos por tipo de trámite publicados, mecanismo de penalidad reglamentado |
 
 **Si algún hito de Los Cimientos no se cumple en plazo, la ley no se sanciona.** No por debilidad — por inteligencia. Sancionar una ley sin infraestructura es construir el techo antes que los cimientos.
+
+**Por qué C11 va acá y no en la Fase 1.** Es la decisión de secuencia más importante del bloque de atracción, y conviene dejar escrito el razonamiento porque la tentación de postergarlo va a ser fuerte: el Registro cuesta plata y no se ve. Pero **el dato de las primeras sesiones legales no se puede recuperar después.** Si el Registro arranca seis meses tarde, esos seis meses de tratamientos —los primeros del mundo a escala nacional, los más valiosos científicamente porque son la línea de base de todo lo que viene— quedan sin capturar para siempre. El activo nacería mutilado y nadie se daría cuenta hasta necesitarlo. Un registro que empieza tarde no se pone al día: arrastra el hueco toda su vida.
 
 ### Fase 1 — 2027 (tranche-1): "El Alivio" (Cannabis + Despenalización)
 

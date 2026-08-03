@@ -202,6 +202,24 @@ function verificarProhibidos(raw: string): string[] {
   return errores;
 }
 
+/**
+ * E7: el Registro tiene que estar nombrado DENTRO de la Pre-Fase de S18, no
+ * después. Se mide por POSICIÓN y no por presencia, porque el documento nombra
+ * el Registro en varias secciones y una búsqueda global pasaría en verde con el
+ * Registro arrancando en la Fase 1 — que es exactamente el defecto a evitar: el
+ * dato de las primeras sesiones legales no se puede recuperar más tarde.
+ */
+function verificarRegistroEnPreFase(lineas: string[]): string[] {
+  const iPre = lineas.findIndex((l) => l.startsWith('### Pre-Fase'));
+  const iF1 = lineas.findIndex((l) => l.startsWith('### Fase 1'));
+  if (iPre === -1 || iF1 === -1) return ['no se encontraron los H3 de Pre-Fase y Fase 1 en la Sección 18'];
+  if (iF1 < iPre) return ['la Fase 1 aparece antes que la Pre-Fase en la Sección 18'];
+  const bloque = lineas.slice(iPre, iF1).join('\n');
+  return bloque.includes('Registro')
+    ? []
+    : ['E7: la Pre-Fase de la Sección 18 no nombra el Registro — el activo nacería sin el dato de las primeras sesiones'];
+}
+
 function verificarCandados(raw: string): string[] {
   return CANDADOS.filter(({ ancla }) => !raw.includes(ancla)).map(
     ({ ancla, desc }) => `falta el candado «${ancla}» — ${desc}`,
@@ -244,6 +262,7 @@ function main(): void {
     ...verificarCifras(raw),
     ...verificarProhibidos(raw),
     ...verificarCandados(raw),
+    ...verificarRegistroEnPreFase(lineas),
     ...verificarPiso(),
   ];
 
