@@ -1,9 +1,9 @@
 # PLANGEO — Mecanismos: la defensa que no necesita enforcement
 
 **Fecha:** 2026-08-03
-**Documento objetivo:** `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md` (ordinal 15, v1.1, 1.570 líneas, 25 secciones)
+**Documento objetivo:** `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md` (ordinal 12, v1.1, 1.570 líneas, 25 secciones)
 **Salida:** un bloque nuevo de tres secciones (S26–S28), nueve ediciones forzadas sobre secciones existentes, y una entrada de deuda propia
-**Plan de implementación:** pendiente (`v2/docs/plans/2026-08-03-plangeo-mecanismos.md`)
+**Plan de implementación:** `v2/docs/plans/2026-08-03-plangeo-mecanismos.md` (9 tareas; arranca por las verificaciones, no por la guardia)
 **Precedente de estilo:** `v2/docs/specs/2026-08-03-plansus-marcos-de-atraccion.md`
 
 > **Tesis.** PLANGEO tiene una doctrina de plataforma excelente y una postura de coerción dura
@@ -156,6 +156,22 @@ Epígrafe propuesto: *«No hay que construirlas. Hay que darse cuenta de que est
 | 7 | S20.1.1 y S5 (bloque 2048) | Remisión a S27.6 | El reloj 2048 y el hub austral existen sin la pieza que los conecta |
 | 8 | S22.2 (sanciones financieras) | Agregar Cláusula Espejo y Cláusula del Buitre al bloque de pre-sanción | El protocolo actual es 100% reactivo salvo por el colchón financiero |
 | 9 | S24.1 | Tabla de servicio a cada PLAN: filas nuevas de PLANMON (jurisdicción de deuda), PLANSEG (armas) y PLANTER (mar) | La tabla es el índice de integración y quedaría desactualizada |
+
+### 6.bis Las remisiones que estas ediciones mueven
+
+**Corrección al §5.** La decisión de apendar sin renumerar evita romper remisiones por *ordinal*, pero no alcanza: el corpus cita a PLANGEO **por número de línea**, y las nueve ediciones forzadas corren líneas. Verificado con `grep -rn 'PLANGEO:[0-9]'`:
+
+| Ancla | Qué hay ahí | Quién la cita | ¿La mueven las ediciones? |
+|---|---|---|---|
+| `PLANGEO:199-207`, `:207`, `:223` | El «cero lock-in» del Stack y la tabla de módulos | PLANPREGUNTA (documento, copia pública, `.mdx` de v2), `arquitecto-data.ts:711` (arista `d200`), plan del tramo D | **No.** Toda edición forzada cae por debajo de la línea 425 |
+| `PLANGEO:425` | Agencia del Litio del Cono Sur | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:397` | **No.** La edición más alta es la de S5 (~469), que está por debajo |
+| `PLANGEO:1148-1149`, `:1151` | Adopción municipal de la Red Soberana (S21.1) | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:402` | **Sí — siete de las nueve ediciones las corren.** S5, S11, S17.4, S18.1, S18.2.4, S19.3 y S20.1 están todas por encima de 1148 |
+
+Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho remisiones de PLANARCO, y esta vez se detectó antes. Tres consecuencias para el plan:
+
+1. **Las anclas `:1148-1149` y `:1151` se recalculan y se actualizan en los cuatro archivos que las llevan**, como paso obligatorio de la última tarea. `verificar-planpuerta.ts` es una guardia ajena: si queda desactualizada, rompe el CI de otro PLAN.
+2. **`verificar-remisiones.ts` ya corre en CI y barre el corpus entero.** No hay que construir la red — hay que no ignorarla.
+3. **Ordenar las ediciones de abajo hacia arriba** (S24 → S22 → S20 → S19 → S18 → S17 → S11 → S5) para que cada una no invalide los números de la siguiente mientras se trabaja.
 
 **Además:** cabecera del documento a v1.2, conteo de secciones 25 → 28, y `PLAN_REGISTRY.yml` con `version` y `last_updated` nuevos. `budget_class` **sigue siendo XS** — este bloque no reclama piso y hay que decirlo explícito, porque PLANPACTO midió que los pisos declarados del corpus ya suman entre 7,82% y 9,41% del PBI contra el 2,40% que la Escalera conserva.
 
