@@ -465,3 +465,24 @@ Un `XS` que cuesta veintiséis mil millones y un `S` que cuesta cero no pueden e
 **Consecuencia inmediata:** PLANPUERTA declaró su clase **S** como *decisión de diseño* y no como medición, y lo dejó escrito así en su SECCIÓN 12. Cualquier PLAN que se escriba después tiene el mismo problema, y cualquier lector que ordene el corpus por este campo obtiene un orden falso.
 
 **Qué haría falta:** publicar la leyenda (qué mide y con qué cortes), o derivar el campo de `PRESUPUESTO_CONSOLIDADO_BASTA.md` en vez de escribirlo a mano. Mientras tanto, ningún documento debería tratar la letra como si fuera comparable entre PLANes.
+
+---
+
+### D-019 · La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo y nadie lo vio
+
+**Dónde:** `Iniciativas Estratégicas/PLANPUERTA_Argentina_ES.md`, `## SECCIÓN 9: EL MARCO DE LA PUERTA`
+**Encontrada:** 2026-08-03, en el fix de la Task 10, midiendo los rangos de todas las secciones
+**Severidad:** baja
+**Estado:** abierta
+
+El rango de la SECCIÓN 9 es **2.000-2.400** palabras y el reporte de la Task 7 la dejó en **2.389**, dentro. Hoy mide **2.648**: **248 por encima del techo.**
+
+El salto entra entero en un commit: `d21078a` («Fix los dos Critical y los siete Important de la revisión de la Task 8»), que le agregó a la SECCIÓN 9 el apartado **«La garantía del cruce»** y **«La fórmula del freno»**. Las dos adiciones eran correctas y necesarias —las pedía la revisión—, pero **ninguna vino con la poda compensatoria**, y el rango no se volvió a medir después de esa tarea. `2390 → 2648` entre `6a5a4bd` y `d21078a`.
+
+Hay además dos desbordes chicos del mismo tipo: **SECCIÓN 2 en 1.411 contra un techo de 1.400** (11 de más, desde que se escribió).
+
+**Dónde está la grasa, si alguien la poda:** el apartado *«El techo de los doce meses»* repite casi textual lo que la SECCIÓN 6 ya escribe en D11 («adentro de ese techo cada colegio fija la duración de su materia; pasarlo requiere un Caso de Mesa»), y el primer párrafo de *«La garantía del cruce»* repite el de la SECCIÓN 7 sobre el artículo 10 de la Ley 17.622.
+
+**Por qué no se arregla acá:** el fix de la Task 10 tenía alcance escrito y la revisión aprobó la sección como pieza. Podar 248 palabras de la sección más citada del documento es trabajo propio, no un efecto lateral de otro fix.
+
+**Qué haría falta:** que `scripts/verificar-planpuerta.ts` mida los rangos por sección y falle, en vez de dejarlos en el reporte de cada tarea. Un techo que solo vive en un `.md` de reporte se pasa el día que la tarea siguiente no lo relee.

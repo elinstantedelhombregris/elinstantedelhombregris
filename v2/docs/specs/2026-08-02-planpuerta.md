@@ -292,7 +292,7 @@ PLAN24CN funda 24 ciudades, una por provincia, USD 26.350-73.000M a 15-20 años.
 
 | PLAN | Qué aporta |
 |---|---|
-| **PLANPACTO** | Estabilidad fiscal y crédito recuperado — la mesa de entrada del incentivo. La exención vive dentro de la Escalera de Garantías y bajo su techo |
+| **PLANPACTO** | Estabilidad fiscal y crédito recuperado — la mesa de entrada del incentivo. Y el techo de gasto tributario que todavía no tiene y que esta exención le pide *(corregido el 2026-08-03: no vive dentro de la Escalera, que es de pisos de gasto)* |
 | **PLANREP** | El veto de subsidiariedad; y su red «Embajador Digital» de diáspora, sobre la que se monta el Cuerpo de Scouts |
 | **PLANEB** | El canal sin Estado: las Empresas Bastardas fichan directo y son empleador del fichaje. Así corre la Fase 0 |
 | **PLANVIV** | El dato del freno de infraestructura |
@@ -329,7 +329,7 @@ PLAN24CN funda 24 ciudades, una por provincia, USD 26.350-73.000M a 15-20 años.
 | ANAR + Cuerpo de Scouts | ~USD 30-60M/año |
 | Reconocimiento/revalidación e infraestructura de Tablero (con PLANDIG) | Puntual, bajo |
 | **Tierra con obligación de uso** | **~0 marginal para la Nación, pero NO gratis** *(corregido el 2026-08-03)*: `PLAN24CN:1942` cuenta con **vender** esos lotes — «valorización de tierra pública, USD 15.000-30.000M» — así que el lote regalado sale de la fila de ingresos de PLAN24CN. El precio lo paga la ciudad que recibe, no la Nación, **y por eso la obligación de uso es la contraprestación y no un adorno** |
-| **Exención fiscal** | **No es gasto: es renuncia fiscal**, con techo, contabilizada en PLANPACTO como gasto tributario |
+| **Exención fiscal** | **No es gasto: es renuncia fiscal**, y PLANPACTO todavía no tiene techo de gasto tributario bajo el cual contabilizarla — ésta es la exención que se lo pide |
 | Llegada y Compadrazgo | ~0 — civil, sin Estado |
 
 **Total estimado: USD 450-900M a 15 años. Clase S. Sin piso constitucional.**
@@ -368,15 +368,15 @@ Si se invierte el orden, el país se queda —aunque sea por un año— con un r
 
 ### 10.3 Fase 2 — El Paquete *(años 2-4)*
 
-Exención dentro de la Escalera de PLANPACTO. Primeros lotes en ciudades de PLAN24CN. Ventana de Pases formal con sus dos frenos activos. Revalidación por Desempeño en piloto.
+Exención, contra el techo de gasto tributario que PLANPACTO todavía no tiene (§9). Primeros lotes en ciudades de PLAN24CN. Ventana de Pases formal con sus dos frenos activos. Revalidación por Desempeño en piloto.
 
-### 10.4 Fase 3 — Régimen *(años 4-10)*
+### 10.4 Fase 3 — Régimen *(años 4-12)*
 
 Cohortes anuales.
 
-### 10.5 Fase 4 — El juicio *(año 10+)*
+### 10.5 Fase 4 — El juicio *(año 12+)*
 
-Primer dato de permanencia a diez años. **Acá el PLAN se aprueba o se reprueba, y no antes.**
+**Corregido el 2026-08-03: no es el año 10.** La Fase 2 entrega el primer Paquete entre el año 2 y el año 4, así que la primera cohorte que lo firmó cumple diez años de permanencia entre el **año 12 y el año 14** —2040 en el extremo tardío, que es la fecha que §18 del documento ya pedía—. El examen lo fecha la fase y no un número redondo. **Ahí el PLAN se aprueba o se reprueba, y no antes.**
 
 ---
 
@@ -399,6 +399,7 @@ Primer dato de permanencia a diez años. **Acá el PLAN se aprueba o se reprueba
 | Semáforo de infraestructura (vivienda / agua / escuela) | Rojo = la Ventana no abre |
 | **Revocaciones de Paquete, con causal desagregada** | **Una sola revocación por causal fuera de la lista taxativa = alarma máxima del sistema** |
 | Tiempo mediano de revalidación, por profesión | Es la restricción real; si no baja, el resto es decoración |
+| **Cobertura del Compadrazgo** — qué proporción de los que llegaron registró un vínculo *(agregado el 2026-08-03)* | Por debajo de la mitad dos cohortes seguidas: es el único riesgo declarado sin mitigación ocurriendo |
 
 ---
 

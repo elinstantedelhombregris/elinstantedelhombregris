@@ -235,7 +235,7 @@ Alcanza con la correlación y con una observación que no depende de la direcci�
 
 ### Los que sí vienen, y por qué eso ordena todo el diseño
 
-De ese 4,2%, el 65,9% nació en países limítrofes, el 23,5% en el resto de América, el 8,3% en Europa y el 2,4% en el resto del mundo (censo.gob.ar, Censo 2022). Paraguay aporta el 27% de la población inmigrante, Bolivia el 17,5% y Venezuela el 8,4%. Es el dato que gobierna todo lo que sigue, porque para dos de cada tres personas que hoy llegan la residencia argentina ya es un derecho y no una concesión que este PLAN pueda repartir.
+De ese 4,2%, el 65,9% nació en países limítrofes, el 23,5% en el resto de América, el 8,3% en Europa y el 2,4% en el resto del mundo (censo.gob.ar, Censo 2022). Paraguay aporta el 27% de la población inmigrante, Bolivia el 17,5% y Venezuela el 8,4%. Es el dato que gobierna todo lo que sigue, porque para dos de cada tres de los que vinieron —y para los que vengan de esos mismos países— la residencia argentina ya es un derecho y no una concesión que este PLAN pueda repartir.
 
 El Acuerdo de Residencia del MERCOSUR, firmado en Brasilia en 2002, está ratificado por la Ley 25.903 y rige internacionalmente para la Argentina desde el 28 de julio de 2009, junto con Brasil, Paraguay, Uruguay, Bolivia y Chile. El artículo 23 de la Ley 25.871 lo incorporó al derecho interno como categoría migratoria propia —la «nacionalidad MERCOSUR»—, y los requisitos son dos: acreditar la nacionalidad y no registrar antecedentes penales. Sin puntaje, sin oficio requerido, sin evaluación de mérito.
 
@@ -493,11 +493,11 @@ Repartir tierra contra la obligación de usarla no es original, y la lección m�
 
 **Segunda pieza: exención impositiva temporal.** El modelo es italiano y el porcentaje que se copia no es el que parece.
 
-La SECCIÓN 2 dejó los números: 11.285 en el ejercicio 2019 y 41.020 en el 2023. El salto ocurrió bajo el *decreto Crescita* de 2019, que cambió dos cosas a la vez: llevó la exención al 70% —90% en el sur— y ensanchó quién calificaba, porque bajó la no-residencia previa de cinco períodos fiscales a dos, eliminó el requisito de empleador italiano y dejó de reservarlo a directivos y perfiles de alta calificación (DL 34/2019, art. 5). Con dos cambios simultáneos el crecimiento no se le puede adjudicar al porcentaje, y el propio Osservatorio escribe que el dato sugiere y no prueba.
+La SECCIÓN 2 dejó los números —11.285 en 2019, 41.020 en 2023— y el salto ocurrió bajo el *decreto Crescita*, que cambió dos cosas a la vez: llevó la exención al 70% —90% en el sur— y ensanchó quién calificaba, porque bajó la no-residencia previa de cinco períodos fiscales a dos, eliminó el requisito de empleador italiano y dejó de reservarlo a directivos y perfiles de alta calificación (DL 34/2019, art. 5). Con dos cambios simultáneos el crecimiento no se le puede adjudicar al porcentaje, y el propio Osservatorio escribe que el dato sugiere y no prueba.
 
 **Por eso este PLAN copia el número chico y no el grande: 50%, 60% para quien se muda con un hijo menor.** Es el régimen vigente en Italia desde 2024 —más chico, con la alta calificación repuesta y con tope de renta— y el que **no** tiene el crecimiento detrás. Se copia por su forma y no por su nivel: un hogar con un chico en la escuela es lo más parecido al arraigo que un régimen impositivo puede leer. El 90% del sur tampoco se copia: el diferencial territorial de este PLAN ya es la tierra.
 
-Su plazo va en el Contrato y su condición de conservación es la del Paquete entero. Vive adentro de la Escalera de Garantías de PLANPACTO y bajo su Techo, contabilizada como gasto tributario: este PLAN no le agrega un escalón. Y el límite ya lo dijo la portada.
+Su plazo va en el Contrato y su condición de conservación es la del Paquete entero. **No entra a la Escalera de Garantías de PLANPACTO ni le agrega un escalón: la Escalera son ocho pisos de gasto, y una renuncia no es gasto.** Es gasto tributario sin techo, y la SECCIÓN 12 escribe cuál falta. Y el límite ya lo dijo la portada.
 
 **Tercera pieza: la silla en la Mesa — lo que el Paquete da es la anticipación, no la Credencial.** La **Credencial de Materia** se gana y decae como la de cualquier argentino: las mismas cinco capas —estudio, declaración, decisión, producción, vínculo—, la misma auto-postulación (`PLANMESA:88`), el mismo decaimiento por doce meses sin acción documentada (`PLANMESA:640`). **ANAR no la puede tocar**: darle a la agencia una palanca sobre la voz política de una persona es la segunda forma en que entra lo que este PLAN dice no fundar. Lo único que el Paquete otorga y revoca es **el acceso deliberativo en la materia del fichaje antes de la ciudadanía**. Revocado el Paquete, la persona conserva lo que ganó: **pierde la anticipación, no la voz.**
 
@@ -531,7 +531,7 @@ D1 se tomó un párrafo entero para escribir quién audita su veto y qué cuesta
 
 Doce meses es el borde de lo que ya se hace. El Australian Medical Council corre su evaluación en el puesto —evaluaciones clínicas breves, discusión de casos, evaluación multifuente— entre seis y doce meses en lugar del examen clínico, y la mayoría de los programas va a doce; los canadienses de *Practice-Ready Assessment* evalúan a médicos formados afuera en hasta unas doce semanas que varían por provincia, atadas a un compromiso de servicio en una comunidad desatendida (Medical Council of Canada). Ahí la plaza la abre el regulador y su número es el cuello de botella; acá la abre el PLAN que pidió la fila, y el cuello de botella pasa a ser el faltante declarado. Y D11 no distingue por pasaporte: alcanza al fichado, al que entró por la Puerta de Derecho y al argentino que volvió con un título de afuera.
 
-Édgar Colmenares no necesita ninguna de las tres puertas: ya entró, tiene residencia, DNI y CUIL, y su hija nació en el hospital frente al que espera pasajeros. Lo que necesita es que en la Lista de Faltantes esté escrito «anestesista» con el nombre de ese hospital al lado, y que alguien pueda mirarlo trabajar. D11 no le acelera el expediente: sigue donde está, y si algún día lo llaman, rinde. Le abre la otra puerta — quirófano supervisado, resultados medidos, y la matrícula contra esa evidencia en vez de contra un programa analítico sellado en la carilla correcta.
+Édgar Colmenares no necesita ninguna de las tres puertas: ya entró, y tiene residencia, DNI y CUIL. Lo que necesita es que en la Lista de Faltantes esté escrito «anestesista» con el nombre de ese hospital al lado, y que alguien pueda mirarlo trabajar. D11 no le acelera el expediente: sigue donde está, y si algún día lo llaman, rinde. Le abre la otra puerta — quirófano supervisado, resultados medidos, y la matrícula contra esa evidencia en vez de contra un programa analítico sellado en la carilla correcta.
 
 Y el límite, escrito acá en vez de descubierto en el piloto: hace falta un anestesista argentino con tiempo para supervisar, y eso escasea donde falta el anestesista. Por eso se empieza donde hay quien supervise y no donde el faltante grita más fuerte. **El minuto que Édgar sabe reconocer le llevó once años y no se puede acortar. El trámite sí.**
 
@@ -639,7 +639,7 @@ Ocho renglones. Son los que vuelven aceptable al conjunto anterior: un país que
 7. **Ningún estatus de residencia se ata a un empleador, a un contrato ni a un proyecto.** Perder el trabajo no puede costar el país.
 8. **Ningún dato nominal que este PLAN produzca se conserva más que el acto que lo justificaba.** Se destruye con certificado, y el que lo usa no es el que lo guarda.
 
-Nada de esto es invención argentina: varias constituciones prohíben expulsar a los propios nacionales y exigen debido proceso antes de expulsar a un extranjero. Lo que se propone acá es la forma, y nada más — un conjunto cerrado, corto y taxativo, escrito en la misma ley que crea los incentivos, para que el que quiera los incentivos cargue con los límites en el mismo paquete legislativo.
+Nada de esto es invención argentina: varias constituciones prohíben expulsar a los propios nacionales y exigen debido proceso antes de expulsar a un extranjero. Lo que se propone acá es la forma, y nada más — un conjunto cerrado, corto y taxativo, escrito en la misma ley que crea los incentivos, para que quien los quiera cargue con los límites.
 
 El segundo renglón es la lista de 1958 traída antes en vez de después. El tercero es el que el país va a querer romper primero, y la SECCIÓN 4 ya lo aplicó al freno de infraestructura: una causal nueva rige para quien entre o firme después de sancionada, y la ventana que todavía no abrió es lo único que alcanza.
 
@@ -682,7 +682,7 @@ La SECCIÓN 6 mandó acá el número de la Revalidación por Desempeño que no f
 
 El número vive en el Marco y no en el convenio por una cuestión de dónde vive el poder: la variable que decide si D11 sirve es la duración, y dejársela al actor que compite con el revalidado lo mata sin que nadie firme nada. **Es cifra depositada y no renglón:** el Marco custodia el número por encargo de la SECCIÓN 6, y las tres listas siguen cerradas en lo que dicen.
 
-Los tres Límites cierran en dieciséis renglones: tres de exigencia y uno de clausura, ocho de límite al Estado, cuatro de límite al PLAN. Se sancionan antes que el primer incentivo, porque invertir el orden deja al país con un régimen de captación de extranjeros y sin marco, aunque sea por un año, y la falla 0.6 ya fechó cómo terminó eso. Falta el renglón que sostiene a los quince, y va en la sección que sigue.
+Los tres Límites cierran en dieciséis renglones: tres de exigencia y uno de clausura, ocho de límite al Estado, cuatro de límite al PLAN. Se sancionan antes que el primer incentivo, porque invertir el orden deja al país con un régimen de captación de extranjeros y sin marco, aunque sea por un año, y la falla 0.6 ya fechó cómo terminó eso. Falta el renglón que sostiene a los dieciséis, y con él el Marco cierra en diecisiete: va en la sección que sigue.
 
 ---
 
@@ -728,7 +728,7 @@ La agencia que opera todo esto entra recién ahora, y entra con los poderes cont
 
 > *"Dos secciones enteras se escribieron para que esta agencia no pueda hacer daño. Ésta muestra con qué se queda después de eso."*
 
-El nombre dice la función objetivo y no el trámite: es el escritorio que el PREÁMBULO no encontró, el que mira la carpeta parada y el quirófano vacío al mismo tiempo. Entra después de los dieciséis renglones del Marco: lo que sigue es inventario.
+El nombre dice la función objetivo y no el trámite: es el escritorio que el PREÁMBULO no encontró, el que mira la carpeta parada y el quirófano vacío al mismo tiempo. Entra después de los diecisiete renglones del Marco: lo que sigue es inventario.
 
 ### Los cuatro poderes, y el renglón que los cierra
 
@@ -781,7 +781,7 @@ PLANPUERTA entró sin huésped y sin sacarle un peso a ningún PLAN existente: s
 
 | PLAN | Qué aporta |
 |---|---|
-| **PLANPACTO** | Estabilidad fiscal y crédito recuperado. La exención vive adentro de su Escalera de Garantías y bajo su Techo |
+| **PLANPACTO** | Estabilidad fiscal y crédito recuperado. Y el techo de gasto tributario que le falta y que esta exención le pide |
 | **PLAN24CN** | La tierra: los lotes del Paquete salen de sus veinticuatro ciudades |
 | **PLANREP** | El veto de subsidiariedad, que los 3,5 millones de empleados públicos en reconversión (`PLANREP:87`) vuelven indispensable, y su red «Embajador Digital» de diáspora (`PLANREP:1823`), donde se monta el primer Cuerpo de Scouts |
 | **PLANEDU** | Las escuelas de oficios y el dato de cohorte que certifican ese veto: sin nadie cursando no hay nada que certificar |
@@ -806,7 +806,7 @@ PLANPUERTA entró sin huésped y sin sacarle un peso a ningún PLAN existente: s
 
 ### El acoplamiento estrella: PLAN24CN
 
-Los dos PLANes tienen el mismo problema al revés, y la SECCIÓN 6 ya escribió el encaje: el suelo está comprometido en un presupuesto ajeno, así que el lote es asignación y no partida nueva. Del otro lado la deuda es mayor — sin gente que fichar, veinticuatro ciudades nuevas son infraestructura vacía.
+Los dos PLANes tienen el mismo problema al revés. La SECCIÓN 6 ya escribió el encaje: el suelo está comprometido en un presupuesto ajeno, así que el lote es asignación y no partida nueva. Del otro lado la deuda es mayor: sin gente, veinticuatro ciudades nuevas son infraestructura vacía.
 
 El desfase se escribe acá: las ciudades tardan quince o veinte años y el Paquete necesita lotes antes. No hace falta mecanismo nuevo: el freno toma el menor de los tres márgenes de la jurisdicción que recibe (SECCIÓN 9), y donde la ciudad todavía no está el menor da cero y la ventana no abre ahí. El desfase se paga en ventanas que no abren, y no en gente que llegó a un lugar que no existía.
 
@@ -814,7 +814,7 @@ El desfase se escribe acá: las ciudades tardan quince o veinte años y el Paque
 
 **Bajar impuestos y bajar el costo de vida es PLANPACTO, y este documento no lo toca.** Lo consume como precondición: si la Escalera de Garantías no está en pie, PLANPUERTA no tiene qué ofrecer y su Ventana no debería abrir. Escribirlo al revés —un PLAN de inmigración que promete arreglar la macro— es el PLAN que se agranda hasta no cumplir nada.
 
-Mismo criterio con la infraestructura: PLANVIV, PLAN24CN y PLANMOV construyen; este PLAN no promete un metro y usa lo construido como freno. Con PLANVIV hay además una deuda: derogar su fila de reclutamiento (SECCIÓN 0) le baja el costo y le saca los brazos —los 5.000-10.000 trabajadores de la construcción— en su ventana crítica. Se cierra atando con fecha el cronograma de escuelas de oficios de PLANEDU y PLANREP al de obra, y hasta que eso pase la deuda es de este PLAN. La aritmética que la derogación mueve va con la cuenta, en la SECCIÓN 12.
+Mismo criterio con la infraestructura: PLANVIV, PLAN24CN y PLANMOV construyen; este PLAN no promete un metro y usa lo construido como freno. Con PLANVIV hay además una deuda: derogar su fila de reclutamiento (SECCIÓN 0) le baja el costo y le saca los brazos —5.000-10.000 trabajadores de la construcción— en su ventana crítica. Se cierra atando con fecha el cronograma de escuelas de oficios de PLANEDU y PLANREP al de obra, y hasta que eso pase la deuda es de este PLAN. La aritmética va con la cuenta, en la SECCIÓN 12.
 
 **Y falta un lado entero del arraigo, que se declara y no se ocupa.** Acá está escrito lo que le pasa al que llega. Del otro lado está si la sociedad lo recibe bien, y eso no vive en este documento. El Compadrazgo de Llegada hace que la lista exista y que alguien pregunte; la disposición a golpear la puerta no la fabrica ningún régimen migratorio, y sostener lo contrario sería la promesa que la SECCIÓN 0 le reprocha al Estado. El hueco tiene candidatos escritos —**PLANFOCO** o **PLANCUL**— y tiene medida: el Tablero publica dónde no golpeó nadie (SECCIÓN 5). Este PLAN sabe contar el hueco y no sabe llenarlo.
 
@@ -868,7 +868,7 @@ Lo barato tiene su contracara, y la SECCIÓN 11 la escribió: un PLAN que cabe a
 | **4 · El Arraigo** | la Mesa, el Taller y el barrio que ya sabe quién se quedó | la consolidación del título, y el cruce del que sale la serie del Tablero |
 | **5 · La Ciudadanía** | lo que acredita: las horas del Libro de Cuidado y la actividad de la Credencial | el acto de naturalización, que no lo hace nadie más |
 
-**Leída de cerca, la tabla dice menos de lo que parece.** De los seis dispositivos que la SECCIÓN 3 pone en los tramos 1 y 2, uno solo corre sin Estado. Cuatro pasan por ANAR, que administra la Lista, sostiene el Cuerpo, publica la Ventana y firma el Contrato; el sexto son las Tres Puertas, que son residencia. Queda el Compadrazgo. Lo verdadero lo escribió la SECCIÓN 3, y es más fuerte: **los dos dispositivos que corren sin Estado están los dos acá arriba, y por eso la Fase 0 puede existir.** Arranca sin ley porque en la Fase 0 corren sólo esos dos y ANAR todavía no existe; la columna derecha empieza el día que el Congreso sancione el Marco.
+**Leída de cerca, la tabla dice menos de lo que parece.** De los seis dispositivos que la SECCIÓN 3 pone en los tramos 1 y 2, uno solo corre sin Estado. Cuatro pasan por ANAR, que administra la Lista, sostiene el Cuerpo, publica la Ventana y firma el Contrato; el sexto son las Tres Puertas, que son residencia. Queda el Compadrazgo. Lo verdadero lo escribió la SECCIÓN 3, y es más fuerte: **los dos dispositivos que corren sin Estado están los dos acá arriba, y por eso la Fase 0 puede existir.** Arranca sin ley porque en la Fase 0 corren solo esos dos y ANAR todavía no existe; la columna derecha empieza el día que el Congreso sancione el Marco.
 
 Leído al revés incomoda más. Las dos piezas del Estado que más pesan en la decisión de venirse —la tierra y la exención— no le abren partida a la Nación; y lo que decide si esa persona sigue acá a los diez años —el trabajo, la cuadra, el que golpea la puerta— no se compra con ninguna partida, por grande que sea.
 
@@ -929,47 +929,50 @@ Van en orden de capacidad de bloqueo y nombrados por mecanismo: la institución 
 
 > *"El orden no es una preferencia de redacción. Es el dispositivo de seguridad principal de todo el PLAN."*
 
-Antes de las fases, la regla que las gobierna:
+Antes de las fases, la regla:
 
 > **El Marco de la Puerta se sanciona antes que el primer peso de incentivo. Sin excepción.**
 
-Invertirlo deja al país, aunque sea por un año, con un régimen de captación de extranjeros y sin marco de límites, y la falla 0.6 ya fechó cómo terminó eso. No admite piloto ni adelanto por decreto: mientras las SECCIONES 9 y 10 no sean ley, no se abre una ventana, no se firma un Contrato y no se entrega un lote.
+Invertirlo deja al país un año con captación de extranjeros y sin marco, y la falla 0.6 ya fechó cómo terminó eso. Mientras las SECCIONES 9 y 10 no sean ley, no se abre una ventana, no se firma un Contrato y no se entrega un lote.
 
-**Fase 0 — sin permiso (meses 0 a 12).** Scouts civiles montados sobre la red «Embajador Digital» de diáspora de `PLANREP:1823`, fichaje contratado por las Empresas Bastardas de PLANEB, Compadrazgo civil con una planilla, y una primera cohorte piloto de 100 a 300 personas —número de este documento y no de ninguna fila del corpus— medida desde el día uno. No necesita ley, decreto ni un peso de presupuesto estatal, y por eso es tranche-1. **Y por eso mismo la Fase 0 no funda ANAR ni la anticipa por decreto:** los principios no negociables de la cabecera prohíben agencias autónomas nuevas en tranche-1, así que lo único que se hace acá sobre la agencia es redactar su proyecto de ley, que es papel y no organismo. En paralelo y como trabajo de escritorio, el acta de excepción al freeze.
+**Fase 0 — sin permiso (meses 0 a 12).** Scouts civiles sobre la red «Embajador Digital» de `PLANREP:1823`, fichaje de las Empresas Bastardas de PLANEB, Compadrazgo con una planilla, y una cohorte piloto de 100 a 300 personas —cifra de este documento y de ninguna fila del corpus— medida desde el día uno. No necesita ley, decreto ni un peso de presupuesto: es tranche-1, que no admite agencias autónomas nuevas. **La Fase 0 no funda ANAR ni la anticipa por decreto**: lo único que se hace sobre la agencia es redactar su proyecto de ley, papel y no organismo.
 
-**Fase 1 — la Lista y el Marco (años 1 a 2).** Los otros veintiséis PLANes escriben sus faltantes contra su propio texto, con las cinco columnas y el veto levantado. Se sancionan el Marco —dieciséis renglones— y la ley de ANAR, que es donde la agencia empieza a existir y donde el documento entra a tranche-2. Sin esa ley la Fase 2 no arranca, y la Fase 0 sigue corriendo el tiempo que haga falta.
+**Y las tres reglas que todavía no son ley rigen igual, autoimpuestas y por escrito.** Se busca contra un puesto que un PLAN ya declaró y ya paga y contra ningún otro —sin Lista, la fila es el texto de ese PLAN con su `ARCHIVO:línea`—; nunca en un país de la Lista de Salvaguardia de la OMS; nunca en un oficio que PLANEDU o PLANREP estén formando. Ninguna es exigible, y por eso el piloto no entrega lote ni compromete exención: produce una cohorte medida y nada más.
 
-**Fase 2 — el Paquete (años 2 a 4).** La exención adentro de la Escalera de Garantías de PLANPACTO y bajo su Techo. Primeros lotes en ciudades de PLAN24CN. Primera Ventana de Pases formal, con el Techo de Origen y el freno de infraestructura activos desde esa misma ventana y con la fórmula publicada antes de que abra. Revalidación por Desempeño en piloto, donde haya quien supervise.
+**Fase 1 — la Lista y el Marco (años 1 a 2).** Los otros veintiséis PLANes escriben sus faltantes, con las cinco columnas y el veto levantado. Se sancionan el Marco —diecisiete renglones— y la ley de ANAR, que es donde la agencia empieza a existir y el documento entra a tranche-2. Sin esa ley la Fase 2 no arranca.
 
-**Fase 3 — régimen (años 4 a 10).** Cohortes anuales. El año que el Tablero no sale, la Ventana no abre y la falta se inscribe en PLANMEMORIA (SECCIÓN 7).
+**Fase 2 — el Paquete (años 2 a 4).** La exención, contra el techo de gasto tributario que PLANPACTO no tiene (SECCIÓN 12). Primeros lotes en ciudades de PLAN24CN. Primera Ventana de Pases formal, con los dos frenos activos y la fórmula publicada antes de que abra. Revalidación por Desempeño en piloto, donde haya quien supervise.
 
-**Fase 4 — el juicio (año 10 en adelante).** Primer dato de permanencia a diez años. **Acá el PLAN se aprueba o se reprueba, y no antes.** El umbral está escrito por adelantado en la SECCIÓN 19, con su cohorte de control.
+**Fase 3 — régimen (años 4 a 12).** Cohortes anuales. El año que el Tablero no sale, la Ventana no abre y la falta se inscribe en PLANMEMORIA (SECCIÓN 7).
 
-**Lo que no se puede mover de lugar.** El Marco antes del primer incentivo, que es la regla de arriba. La cohorte piloto medida antes de comprometer una exención o un lote, porque el riesgo de que no venga nadie se contesta con una planilla o con quince años de presupuesto. Y la fórmula del freno publicada antes de la primera ventana: una fórmula que sale después de su primer resultado es un resultado con una fórmula puesta encima.
+**Fase 4 — el juicio (año 12 en adelante).** El primer Paquete se entrega entre el año dos y el cuatro, así que la primera cohorte cumple diez años de permanencia entre el doce y el catorce, y no antes: el examen lo fecha la fase y no un número redondo. **Ahí el PLAN se aprueba o se reprueba.** El umbral está en la SECCIÓN 19, con su cohorte de control.
+
+**Lo que no se puede mover.** El Marco antes del primer incentivo, la cohorte piloto antes del primer lote, y la fórmula del freno antes de la primera ventana: una fórmula que sale después de su primer resultado es un resultado con una fórmula puesta encima.
 
 ---
 
 ## SECCIÓN 16: TABLERO DE ARRAIGO
 
-> *"Lo que salió mal va en la misma página, en el mismo tamaño y el mismo año que lo que salió bien."*
+> *"Lo que salió mal va en la misma página, el mismo tamaño y el mismo año que lo que salió bien."*
 
-El método ya está fechado: la SECCIÓN 2 dejó a Statistics Canada armando la serie con dos registros existentes, y la SECCIÓN 7 lo volvió la orden de cruzar los cuatro de acá. Encima van nueve indicadores con su alarma escrita antes del dato.
+El método ya está fechado: Statistics Canada con dos registros (SECCIÓN 2), la orden de cruzar los cuatro de acá (SECCIÓN 7). Encima, diez indicadores con su alarma escrita antes del dato.
 
-**Dos reglas se heredan y ninguna se afloja acá.** La **celda mínima** del Marco: ninguna celda de menos de diez personas se publica, la chica se agrega al nivel superior y se tapan las vecinas que la reconstruirían por resta (SECCIÓN 9); corre para los nueve. Y la **columna de no resueltos** de la SECCIÓN 7: el cruce lee presencia en registros, y con el 43,0% de informalidad del cuarto trimestre de 2025 (INDEC, Encuesta Permanente de Hogares) el silencio no es partida. Todo indicador del cruce publica su columna de casos sin resolver, con la misma prominencia que el resultado. **La falta de señal abre una pregunta y no cierra un caso.**
+**Dos reglas se heredan y ninguna se afloja acá**, y las dos corren para los diez. La **celda mínima** del Marco (SECCIÓN 9): ninguna celda de menos de diez personas se publica, la chica se agrega al nivel superior y se tapan las vecinas que la reconstruirían por resta. Y la **columna de no resueltos** (SECCIÓN 7): con el 43,0% de informalidad del cuarto trimestre de 2025 (INDEC, Encuesta Permanente de Hogares), el silencio que lee el cruce no es partida, y cada indicador publica los suyos con la misma prominencia que el resultado. **La falta de señal abre una pregunta y no cierra un caso.**
 
 | Indicador | Alarma | No resueltos |
 |---|---|---|
 | **Permanencia a 1, 3, 5 y 10 años**, por cohorte, origen y jurisdicción | *Rector.* Se publica aunque dé mal, y de él depende que la Ventana abra | sí |
-| **Índice de Segunda Puerta** — cuántos de los que llegaron trajeron después a alguien | cae dos cohortes seguidas: casi nadie muda a la familia a un lugar del que piensa irse | sí |
+| **Índice de Segunda Puerta** — cuántos de los que llegaron trajeron a alguien | cae dos cohortes seguidas: casi nadie muda a la familia a un lugar del que piensa irse | sí |
 | Cobertura de la Lista de Faltantes, en posiciones y no en volumen | sube el volumen y no la cobertura: se ficha fuera de la Lista | — |
-| Fichajes con problema pago verificado | por debajo del 100%: es Start-Up Chile otra vez | — |
+| Fichajes con problema pago verificado | por debajo del 100%: Start-Up Chile otra vez | — |
 | Extracción por país contra la Lista de Salvaguardia de la OMS | cualquier superación del Techo de Origen | — |
-| **Brecha de casta** — acceso del invitado, del residente MERCOSUR y del argentino en la misma fila | que se abra: es el primer riesgo de la SECCIÓN 13 | sí |
-| Semáforo de infraestructura por jurisdicción | rojo: la ventana no abre ahí, y sale como lista de obras | — |
-| **Revocaciones de Paquete, con causal desagregada** | **una sola revocación por una causal que no esté en la lista taxativa es la alarma máxima del sistema** | — |
+| **Brecha de casta** — acceso del invitado, del residente MERCOSUR y del argentino en la misma fila | que se abra: el primer riesgo de la SECCIÓN 13 | sí |
+| Semáforo de infraestructura por jurisdicción | rojo: no abre ventana ahí, y sale como lista de obras | — |
+| **Revocaciones de Paquete, con causal desagregada** | **una sola causal fuera de la lista taxativa es la alarma máxima del sistema** | — |
 | Tiempo mediano de revalidación, por profesión | no baja contra el año anterior: el resto es decoración | — |
+| **Cobertura del Compadrazgo** — qué proporción de los que llegaron registró un vínculo | por debajo de la mitad dos cohortes seguidas | sí |
 
-Las cuatro filas en negrita son las que un tablero complaciente dejaría afuera: el rector delata al país entero, la Segunda Puerta se contesta mudando gente y no contestando una encuesta, la brecha de casta delata el primer riesgo mientras ocurre, y la causal fuera de lista delata lo único que este documento no puede permitirse ni una vez.
+Las cinco negritas son las que un tablero complaciente dejaría afuera: el rector delata al país entero; la Segunda Puerta se contesta mudando gente; la brecha de casta, el primer riesgo mientras ocurre; la causal fuera de lista, lo único que no puede pasar ni una vez; y la cobertura del Compadrazgo, el único riesgo que este PLAN declaró sin mitigación.
 
 ---
 
@@ -1009,25 +1012,25 @@ Y que en 2040 esté publicada la primera serie de permanencia a diez años de un
 
 > *"Apagar esto tiene que salir más barato que sostenerlo mal, y el orden del apagado va escrito antes."*
 
-**El umbral, con su fecha y con su comparación.** En el año diez se mide la permanencia a diez años de la primera cohorte que entró con Paquete, contra una cohorte de control: los que entraron el mismo año por la Puerta de Derecho, sin Contrato y sin Paquete. Las dos salen del mismo cruce y del mismo método. **Si las dos series dan lo mismo, el Paquete no compró arraigo y este PLAN falló en su apuesta central.** No se recorta ni se defiende: se reformula, empezando por la pregunta que Start-Up Chile ya contestó una vez — si lo que retiene es la tierra y la exención, o el problema pago, el par que supervisa y la cuadra.
+**El umbral, con su fecha y con su comparación.** La Fase 2 entrega el primer Paquete entre el año dos y el cuatro, así que la permanencia a diez años de esa cohorte se mide entre el doce y el catorce —2040 en el extremo tardío, la fecha que pide la SECCIÓN 18— contra una cohorte de control: los que entraron el mismo año por la Puerta de Derecho, sin Contrato y sin Paquete. Las dos salen del mismo cruce y método. **Si las dos series dan lo mismo, el Paquete no compró arraigo y este PLAN falló en su apuesta central.** No se recorta ni se defiende: se reformula, empezando por la pregunta de Start-Up Chile — si lo que retiene es la tierra y la exención, o el problema pago, el par que supervisa y la cuadra.
 
-El umbral es interno a propósito. Statistics Canada publicó el 2 de febrero de 2024 que de sus cohortes posteriores a 2000 se fue alrededor del 10% a los diez años, y esa serie mide otra población y otro momento. Un número prestado se discute el día del examen; una cohorte de control entra al diseño desde la primera ventana.
+El umbral es interno a propósito. La serie que Statistics Canada publicó el 2 de febrero de 2024 —alrededor del 10% ido a los diez años en las cohortes posteriores a 2000— mide otra población y otro momento. Un número prestado se discute el día del examen; una cohorte de control entra al diseño desde la primera ventana.
 
 **Fallas parciales.**
 
-**Si el Marco no se sanciona**, no se abre una ventana y no se entrega un lote. La Fase 0 sigue corriendo, porque la diáspora, las Empresas Bastardas y el Compadrazgo no dependen del Congreso. Quedarse diez años en Fase 0 es un resultado pobre; el orden inverso es 1902.
+**Si el Marco no se sanciona**, no se abre una ventana y no se entrega un lote. La Fase 0 sigue corriendo: la diáspora, las Empresas Bastardas y el Compadrazgo no dependen del Congreso. Quedarse diez años en Fase 0 es un resultado pobre; el orden inverso es 1902.
 
-**Si el Marco sale y la ley de ANAR no**, quedan los límites sin la agencia, que es el lado seguro por el que este PLAN puede fallar: la Lista se escribe igual, y sin nadie que la administre la Ventana no abre.
+**Si el Marco sale y la ley de ANAR no**, quedan los límites sin la agencia, que es el lado seguro por el que este PLAN puede fallar: la Lista se escribe igual, y sin quien la administre la Ventana no abre.
 
 **Si un colegio no firma el convenio**, D11 queda sin vía ahí y el faltante sigue vacío. No se compensa saltando la matrícula: la habilitación es competencia provincial (SECCIÓN 17), y el atajo sería la facultad ajena que este documento se prohíbe.
 
-**Si el Tablero no sale un año**, la Ventana no abre y la falta se inscribe en PLANMEMORIA. La sanción cae sobre el PLAN y jamás sobre una persona: el que no publicó es el mismo que quería fichar (SECCIÓN 7).
+**Si el Tablero no sale un año**, la Ventana no abre y la falta se inscribe en PLANMEMORIA: la sanción cae sobre el PLAN y jamás sobre una persona, porque el que no publicó es el mismo que quería fichar (SECCIÓN 7).
 
-**Si la cohorte piloto de la Fase 0 no se llena**, es el décimo riesgo ocurriendo y ahí termina: costó una planilla, dos vecinos y ninguna exención comprometida, que es para lo que va primero.
+**Si la cohorte piloto no se llena**, es el décimo riesgo ocurriendo y ahí termina: costó una planilla, dos vecinos y ninguna exención comprometida: para eso va primero.
 
-**El orden del apagado**, que es lo único que este protocolo ordena de manera terminante:
+**El orden del apagado**, lo único que este protocolo ordena de manera terminante:
 
-1. **El archivo nominal se destruye entero, primero y con certificado firmado**, en los treinta días de `PLANDIG:881-884`. No es una pérdida: es el único acto del apagado que hay que ejecutar con acta, porque un registro de quién firmó qué, huérfano de la política que lo justificaba, le sirve a cualquiera que venga después.
+1. **El archivo nominal se destruye entero, primero y con certificado firmado**, en los treinta días de `PLANDIG:881-884`. Es el único acto del apagado que hay que ejecutar con acta: un registro de quién firmó qué, huérfano de la política que lo justificaba, le sirve a cualquiera que venga después.
 2. **Los Contratos de Puerta vigentes se cumplen hasta extinguirse.** El país que incumple lo que firmó sale más caro que el que no ofreció nada, y la irretroactividad del Marco alcanza también al final.
 3. **Los títulos de tierra ya consolidados quedan donde están**: al consolidarse salieron del Paquete y no queda nada que revocar (SECCIÓN 7).
 4. **La serie por cohorte, sin nombres, se transfiere al sistema estadístico y a PLANMEMORIA.** Es lo único irreversible del documento entero, y por eso es lo último que se suelta.
@@ -1040,16 +1043,16 @@ El umbral es interno a propósito. Statistics Canada publicó el 2 de febrero de
 
 El expediente sigue teniendo número y sigue sin tener fecha. Este PLAN no le pone una: no toca la mesa de entradas, no acorta el trámite de nadie y no le fija plazo a ninguna secretaría que quede a cinco mil kilómetros. Decir lo contrario sería prometer sobre escritorios que este documento no dirige, que es el vicio que la SECCIÓN 0 le reprocha al Estado durante siete fallas seguidas.
 
-Lo que hace es más chico y se puede leer renglón por renglón. Administra una lista de puestos que escriben otros y que tiene prohibido engordar. Sale a buscar contra esa lista, con un techo que le impide buscar donde la falta duele más que acá. Ofrece tierra con obligación de uso, una exención que copia el número chico y no el grande, y una silla que se gana igual que la de cualquiera. Y se ata las manos por escrito antes de ofrecer nada: dieciséis renglones que se sancionan primero, y adentro de ellos el que dice que ningún estatus se ata a un empleador y el que dice que ninguna causal nueva alcanza hacia atrás.
+Lo que hace es más chico y se puede leer renglón por renglón. Administra una lista de puestos que escriben otros y que tiene prohibido engordar. Sale a buscar contra esa lista, con un techo que le impide buscar donde la falta duele más que acá. Ofrece tierra con obligación de uso, una exención que copia el número chico y no el grande, y una silla que se gana igual que la de cualquiera. Y se ata las manos por escrito antes de ofrecer nada: diecisiete renglones que se sancionan primero, y adentro de ellos el que dice que ningún estatus se ata a un empleador y el que dice que ninguna causal nueva alcanza hacia atrás.
 
-Lo mejor que tiene para ofrecer, sin embargo, ya existía y no lo inventó él. A los once días de que Édgar llegara a Rosario, Nélida Ocampo subió una mesa de fórmica por la escalera parando en cada descanso, y volvió después con cuatro sillas desparejas y con lo que ninguna oficina le había dicho todavía: qué colectivo va al centro. Comen en su casa casi todos los domingos desde hace cuatro años. El Compadrazgo de Llegada no mejora eso, no lo organiza y no puede mandar a Nélida a hacerlo. Lo único que agrega es la lista donde anotarlo, para que el país sepa en qué cuadras no golpeó nadie. Cuesta una planilla.
+Lo mejor que tiene para ofrecer, sin embargo, ya existía y no lo inventó él. Once días: eso tardó Nélida Ocampo en golpear la puerta que ninguna oficina del Estado argentino había golpeado todavía. El Compadrazgo de Llegada no mejora eso, no lo organiza y no puede mandarla a hacerlo. Lo único que agrega es la lista donde anotarlo, para que el país sepa en qué cuadras no golpeó nadie. Cuesta una planilla.
 
-Delfina Colmenares nació el 3 de marzo de 2024 en el Hospital Provincial del Centenario, de madrugada, doce horas antes de la fecha probable de parto, mientras el padre esperaba en el pasillo de un hospital donde no puede trabajar. Es argentina. El renglón del Marco que dice que la condicionalidad no se hereda no le regala nada: ella ya lo era antes de que este documento existiera. Ese renglón está escrito contra el país que viene, y no a favor de ella.
+Delfina Colmenares es argentina desde una madrugada de marzo de 2024, y lo era antes de que este documento existiera. El renglón del Marco que dice que la condicionalidad no se hereda no le regala nada: está escrito contra el país que viene, y no a favor de ella.
 
-Y en ninguna serie de este PLAN va a aparecer. El Tablero cuenta cohortes de entrada, y Delfina no entró: nació. La fila que la incluya no existe, y no se va a escribir.
+Y de la serie que juzga a este PLAN va a estar afuera siempre. La permanencia se cuenta por cohortes de entrada, y Delfina no entró: nació. La cohorte que la incluya no existe, y no se va a escribir. En el Tablero sí va a figurar, y en dos filas por diseño: el día que tome una fila de la Lista, la brecha de casta la cuenta como argentina; si estudia afuera y vuelve, el tiempo de revalidación la cuenta también. Ninguna de las dos la mide a ella. Miden al país con ella adentro.
 
-Y sin embargo el número que decide si esto sirvió y el número que decide si Delfina se queda se mueven con las mismas cosas: la escuela a la que va, el quirófano al que el padre no entra, el alquiler, el sueldo, y si alguien golpea la puerta. En marzo de 2042 Delfina cumple dieciocho y va a poder irse a donde quiera, como se fue la gente que la falla 0.4 no supo contar con tres métodos distintos.
+Y los dos números que importan —el que decide si esto sirvió y el que decide si Delfina se queda— se mueven con las mismas cosas: la escuela a la que va, el quirófano al que el padre no entra, el alquiler, el sueldo, y si alguien golpea la puerta. En marzo de 2042 Delfina cumple dieciocho y va a poder irse a donde quiera, como se fue la gente que la falla 0.4 no supo contar con tres métodos distintos.
 
-Este PLAN no la va a retener. No tiene con qué, y no quiere tenerlo: retener personas es la facultad que no funda en ninguna de sus páginas. Lo único que el país puede hacer es ser un lugar donde valga la pena quedarse, que es lo mismo que la primera línea de este documento pide para poder invitar a alguien.
+Este PLAN no la va a retener. No tiene con qué, y no quiere tenerlo: retener personas es la facultad que no funda en ninguna de sus páginas. Lo único que el país puede hacer es ser un lugar donde valga la pena quedarse, que es lo mismo que el último párrafo de la TESIS pide tener construido antes de invitar a nadie.
 
-**Quedarse lo decide ella.**
+**Quedarse lo decide Delfina. Que haya algo que decidir lo decide el país.**
