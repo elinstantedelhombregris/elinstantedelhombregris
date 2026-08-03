@@ -89,8 +89,9 @@ const DISPOSITIVOS_DE_PORTADA: { enPortada: string; alias?: string[] }[] = [
   { enPortada: 'El Contrato de Puerta', alias: ['Contrato de Puerta'] },
   // Sin alias a propósito (N-3): cualquier forma corta de «El Compadrazgo de Llegada» —
   // «Compadrazgo», «Compadrazgo de Llegada»— es por construcción un substring del
-  // enPortada, y el conteo de `veces` SUMA las formas: un alias así hace que una sola
-  // mención real cuente doble y MENCIONES_MINIMAS deje de verificar nada.
+  // enPortada. La protección contra el doble conteo ya NO depende de este renglón: la
+  // hace `contarMenciones` para las doce entradas. Queda sin alias igual, porque acá
+  // ninguna forma corta aportaría una mención que el nombre completo no cubra.
   { enPortada: 'El Compadrazgo de Llegada' },
   { enPortada: 'El Paquete', alias: ['Paquete'] },
   { enPortada: 'La Regla del Problema Pago', alias: ['Regla del Problema Pago', 'Problema Pago'] },
@@ -102,6 +103,33 @@ const DISPOSITIVOS_DE_PORTADA: { enPortada: string; alias?: string[] }[] = [
 
 /** Mínimo de menciones en el cuerpo. Una sola puede ser la que la portada dejó suelta. */
 const MENCIONES_MINIMAS = 2;
+
+/**
+ * **Menciones sin doble conteo.** La versión anterior sumaba las ocurrencias de
+ * cada forma por separado, y en once de las doce entradas el alias es substring
+ * del `enPortada` —«Lista de Faltantes» adentro de «La Lista de Faltantes»—: una
+ * sola mención real contaba dos, y con `MENCIONES_MINIMAS = 2` el chequeo no
+ * verificaba absolutamente nada. La corrección estaba escrita a mano en UNA
+ * entrada (la del Compadrazgo, que se quedó sin alias) y las otras once
+ * arrastraban el defecto.
+ *
+ * Acá se cuenta cada ocurrencia una sola vez: se recorren las formas de la más
+ * larga a la más corta y cada una **consume** el texto que matcheó, así que un
+ * alias sólo suma donde no lo cubrió ya el nombre completo. Es la protección
+ * general, no la de una entrada: «ANAR» sigue contando cuando aparece suelta y
+ * deja de contar dentro de «Agencia Nacional de Arraigo (ANAR)».
+ */
+function contarMenciones(cuerpo: string, formas: string[]): number {
+  let resto = cuerpo;
+  let total = 0;
+  for (const forma of [...formas].sort((a, b) => b.length - a.length)) {
+    if (forma.length === 0) continue;
+    const trozos = resto.split(forma);
+    total += trozos.length - 1;
+    resto = trozos.join('\n'); // marca lo consumido: ninguna forma cruza un salto de línea
+  }
+  return total;
+}
 
 function verificarPortada(lineas: string[]): string[] {
   const errores: string[] = [];
@@ -120,8 +148,7 @@ function verificarPortada(lineas: string[]): string[] {
       );
       continue;
     }
-    const formas = [enPortada, ...(alias ?? [])];
-    const veces = formas.reduce((n, f) => n + cuerpo.split(f).length - 1, 0);
+    const veces = contarMenciones(cuerpo, [enPortada, ...(alias ?? [])]);
     if (veces < MENCIONES_MINIMAS) {
       errores.push(
         `la portada anuncia «${enPortada}» y el cuerpo lo nombra ${String(veces)} vez/veces ` +
