@@ -336,7 +336,7 @@ export const CIFRAS_CANONICAS: CifraCanonica[] = [
     ancla: /PRESUPUESTO_CONSOLIDADO|:\s*33|PLAN24CN/u,
     porQue:
       'de dónde salen los lotes: PLAN24CN son USD 26.350-73.000M a 15-20 años. **El domicilio es ' +
-      'PRESUPUESTO_CONSOLIDADO_BASTA.md:33** — el plan escribió :37, que es la fila de PLANVIV',
+      'PRESUPUESTO_CONSOLIDADO_BASTA.md:33** — no confundir con :37, que es la fila de PLANVIV',
   },
   {
     valor: /80\.000\s*[-–—]\s*120\.000/u,
@@ -422,7 +422,7 @@ const ACTOR =
  * rechazo llega después.
  */
 const RECHAZO = {
-  patron: /\b(no|ni|nunca|jamás|tampoco|ning[úu]n|ninguna|nadie)\b|prohib|descart|rechaz|renunci|deroga/iu,
+  patron: /\b(no|ni|nunca|jamás|tampoco|ning[úu]n|ninguna|nadie)\b|prohib|descart|rechaz|renunci/iu,
   porQue:
     'la negación puede llegar DESPUÉS del verbo, y el lookbehind sólo ve hacia atrás. Este ' +
     'documento escribe la mitad de sus rechazos en esa forma: nombra el mecanismo y lo rechaza en la ' +
@@ -460,8 +460,15 @@ export const PROHIBIDOS: Prohibido[] = [
       'que hay que escribir y queda exenta sola',
     exigeActor: true,
     salvoSi: {
+      // «4.144» y «vigente» sueltos NO entran acá (hallazgo de la Task 1 al verificar
+      // I-1): una oración que sólo MENCIONA la 4.144 no es lo mismo que una oración que
+      // ATRIBUYE la expulsión al derecho penal vigente — «la Ley de Residencia 4.144 ...
+      // y ANAR la recupera» nombra la 4.144 sin negar nada, y un salvoSi con «4.144» o
+      // «vigente» sueltos la eximía igual, con o sin `deroga` en RECHAZO. La frase entera
+      // («derecho penal», «código penal», «sentencia (judicial) firme») exige la atribución
+      // real; una negación genérica sigue cubierta por RECHAZO.
       patron: new RegExp(
-        `${RECHAZO.patron.source}|derecho penal|c[óo]digo penal|sentencia (?:judicial )?firme|4\\.144|vigente`,
+        `${RECHAZO.patron.source}|derecho penal|c[óo]digo penal|sentencia (?:judicial )?firme`,
         'iu',
       ),
       porQue:
@@ -477,7 +484,10 @@ export const PROHIBIDOS: Prohibido[] = [
       'la decisión 9 del registro de la spec',
     exigeActor: true,
     salvoSi: {
-      patron: new RegExp(`${RECHAZO.patron.source}|met[áa]fora|la piel|prohibid`, 'iu'),
+      // Propio y NO el RECHAZO genérico (I-2): «rechaz» es vocabulario cotidiano de
+      // inmigración —«ANAR rechaza la solicitud»— y eximiría sola una prohibición
+      // absoluta. La exención legítima es sólo la negación de la metáfora por nombre.
+      patron: /\b(no|ni|nunca|jam[áa]s|tampoco|ning[úu]n|ninguna|nadie)\b|prohibid|met[áa]fora|la piel/iu,
       porQue: 'la oración que RECHAZA la metáfora por nombre es la que el documento tiene que escribir, y aparece en la portada y en la SECCIÓN 10',
     },
   },
