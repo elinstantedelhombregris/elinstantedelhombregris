@@ -628,7 +628,7 @@ El tercer renglón lleva pegada la compuerta del primero por lo que la SECCIÓN 
 
 ### Límite II — lo que el Estado se prohíbe a sí mismo
 
-Siete renglones. Son los que vuelven aceptable al conjunto anterior: un país que exige actos tiene que atarse las manos por escrito antes de exigirlos.
+Ocho renglones. Son los que vuelven aceptable al conjunto anterior: un país que exige actos tiene que atarse las manos por escrito antes de exigirlos.
 
 1. **Ninguna expulsión sin sentencia judicial firme.** Nunca administrativa, nunca por decreto, nunca por resolución de una agencia.
 2. **Ninguna causal puede ser una idea, un culto, una opinión, una afiliación, un voto ni una participación gremial.**
@@ -637,6 +637,7 @@ Siete renglones. Son los que vuelven aceptable al conjunto anterior: un país qu
 5. **Los hijos nacidos acá son argentinos, y la condicionalidad no se hereda.**
 6. **Nadie pierde lo que ya ganó por un cambio de gobierno.**
 7. **Ningún estatus de residencia se ata a un empleador, a un contrato ni a un proyecto.** Perder el trabajo no puede costar el país.
+8. **Ningún dato nominal que este PLAN produzca se conserva más que el acto que lo justificaba.** Se destruye con certificado, y el que lo usa no es el que lo guarda.
 
 Nada de esto es invención argentina: varias constituciones prohíben expulsar a los propios nacionales y exigen debido proceso antes de expulsar a un extranjero. Lo que se propone acá es la forma, y nada más — un conjunto cerrado, corto y taxativo, escrito en la misma ley que crea los incentivos, para que el que quiera los incentivos cargue con los límites en el mismo paquete legislativo.
 
@@ -648,9 +649,11 @@ El quinto el PREÁMBULO ya lo escribió en el pasillo de una maternidad, y acá 
 
 **La garantía del cruce.** El cuarto renglón es fácil de escribir y difícil de sostener: el PLAN necesita cruzar registros para producir su indicador rector, y la SECCIÓN 7 remitió acá las dos piezas que lo hacen legal.
 
-Una de las dos es la dirección. Entran los cuatro registros de la SECCIÓN 7; **sale una serie agregada por cohorte, nunca un padrón**, y el camino va en un solo sentido. ANAR recibe la serie y jamás la fila, y del cruce no sale un fundamento sobre una persona para nadie: ni para el municipio que verifica el uso del lote, ni para la agencia que ficha. La norma que lo sostiene va acá porque en prosa no se sostiene: **la ley que cree ANAR tiene que declarar expresamente que para este registro no rige la excepción de datos de registro del artículo 10 de la Ley 17.622** —«nombre y apellido, o razón social, domicilio y rama de actividad» (Ley 17.622, texto actualizado, InfoLeg)—, que es el juego de campos que ubica a una persona en una dirección.
+La primera es la dirección. Entran los cuatro registros de la SECCIÓN 7; **sale una serie agregada por cohorte, nunca un padrón**, y el camino va en un solo sentido. ANAR recibe la serie y jamás la fila, y del cruce no sale un fundamento sobre una persona para nadie: ni para el municipio que verifica el uso del lote, ni para la agencia que ficha. La norma que lo sostiene va acá porque en prosa no se sostiene: **la ley que cree ANAR tiene que declarar expresamente que para este registro no rige la excepción de datos de registro del artículo 10 de la Ley 17.622** —«nombre y apellido, o razón social, domicilio y rama de actividad» (Ley 17.622, texto actualizado, InfoLeg)—, que es el juego de campos que ubica a una persona en una dirección.
 
-La otra es la **regla de celda mínima**: **ninguna celda de menos de diez personas se publica**; la chica se agrega al nivel superior y se tapan las vecinas que la reconstruyen por resta. Corre para los cuatro registros, y dos la necesitan además por norma ajena: la APS es dato sensible de la **Ley 25.326** y la matrícula identifica menores (SECCIÓN 7). La SECCIÓN 16 hereda el umbral y no lo puede bajar.
+La segunda es la **regla de celda mínima**: **ninguna celda de menos de diez personas se publica**; la chica se agrega al nivel superior y se tapan las vecinas que la reconstruyen por resta. Corre para los cuatro registros, y dos la necesitan además por norma ajena: la APS es dato sensible de la **Ley 25.326** y la matrícula identifica menores (SECCIÓN 7). La SECCIÓN 16 hereda el umbral y no lo puede bajar.
+
+**El archivo que no se hereda.** El cuarto renglón prohíbe compartir y el octavo prohíbe guardar, y hacen falta los dos: un requisito de no compartir es una cláusula, y una cláusula se modifica con la misma mayoría que la escribió — la carpeta que no existe no se comparte con nadie. Lo que ANAR acumula es nominal: quién firmó qué Contrato de Puerta, contra qué fila y si lo cumplió. **No lo custodia ella.** Vive en el registro de PLANDIG, que no ficha, no busca y no firma nada, y ANAR lo consulta sin poder copiarlo ni exportarlo. **Se destruye a los treinta días y con certificado firmado** —el plazo y la forma que PLANDIG ya usa para el borrado (`PLANDIG:881-884`)— en cualquiera de los tres momentos en que el acto que lo justificaba se termina, el que llegue primero: extinguido el Contrato, cumplido o revocado y firme el Caso de Mesa si se abrió; consolidado el título de la tierra, cuando el lote sale del Paquete y no queda nada que revocar (SECCIÓN 7); naturalizada la persona, que dejó de ser extranjera para todo lo demás. Sobrevive la fila de cohorte sin nombre, que es lo único que el Tablero necesita. Y el día que a ANAR le bajen la partida, el registro no cambia de escritorio: se destruye entero, porque no queda Contrato que administrar.
 
 ### Límite III — lo que el PLAN se prohíbe a sí mismo
 
@@ -679,7 +682,7 @@ La SECCIÓN 6 mandó acá el número de la Revalidación por Desempeño que no f
 
 El número vive en el Marco y no en el convenio por una cuestión de dónde vive el poder: la variable que decide si D11 sirve es la duración, y dejársela al actor que compite con el revalidado lo mata sin que nadie firme nada. **Es cifra depositada y no renglón:** el Marco custodia el número por encargo de la SECCIÓN 6, y las tres listas siguen cerradas en lo que dicen.
 
-Los tres Límites cierran en quince renglones: tres de exigencia y uno de clausura, siete de límite al Estado, cuatro de límite al PLAN. Se sancionan antes que el primer incentivo, porque invertir el orden deja al país con un régimen de captación de extranjeros y sin marco, aunque sea por un año, y la falla 0.6 ya fechó cómo terminó eso. Falta el renglón que sostiene a los quince, y va en la sección que sigue.
+Los tres Límites cierran en dieciséis renglones: tres de exigencia y uno de clausura, ocho de límite al Estado, cuatro de límite al PLAN. Se sancionan antes que el primer incentivo, porque invertir el orden deja al país con un régimen de captación de extranjeros y sin marco, aunque sea por un año, y la falla 0.6 ya fechó cómo terminó eso. Falta el renglón que sostiene a los quince, y va en la sección que sigue.
 
 ---
 
@@ -725,7 +728,7 @@ La agencia que opera todo esto entra recién ahora, y entra con los poderes cont
 
 > *"Dos secciones enteras se escribieron para que esta agencia no pueda hacer daño. Ésta muestra con qué se queda después de eso."*
 
-El nombre dice la función objetivo y no el trámite: es el escritorio que el PREÁMBULO no encontró, el que mira la carpeta parada y el quirófano sin anestesista al mismo tiempo. Entra después de los quince renglones del Marco: lo que sigue es inventario.
+El nombre dice la función objetivo y no el trámite: es el escritorio que el PREÁMBULO no encontró, el que mira la carpeta parada y el quirófano vacío al mismo tiempo. Entra después de los dieciséis renglones del Marco: lo que sigue es inventario.
 
 ### Los cuatro poderes, y el renglón que los cierra
 
@@ -736,84 +739,83 @@ El nombre dice la función objetivo y no el trámite: es el escritorio que el PR
 | 3 | Firmar y revocar **El Contrato de Puerta** | tocar la residencia: revoca el Paquete (SECCIONES 5 y 10) |
 | 4 | Publicar **El Tablero de Arraigo** | producir el dato ni recibir la fila (SECCIÓN 7) |
 
-No hay una quinta. **ANAR no tiene una sola facultad de expulsión, de control migratorio ni de sanción sobre personas**, y sumarle un poder cuesta una ley del Congreso, igual que a los tres Límites.
+No hay una quinta: **la Ventana de Pases no es un poder de ANAR.** Publica el calendario y no elige lo que va adentro: sale toda fila con el veto levantado, el cupo lo corta la fórmula del freno, y el Techo de Origen lo declara el PLAN que escribe la fila (SECCIÓN 4). Elegir cuál no sale sería el poder de no fichar. **ANAR no tiene facultad de expulsión, de control migratorio ni de sanción sobre personas.**
 
-### Las tres palancas que el documento ya le sacó
+### Lo que se le sacó, y la única decisión que le queda
 
-Una lista de poderes es una intención hasta que alguien muestra qué hubo que quitarle. A ANAR se le sacaron tres, de a una, donde dolía:
+- **La voz.** El Paquete otorga la anticipación deliberativa y jamás la Credencial de Materia, que ANAR no puede tocar (SECCIÓN 6).
+- **El veredicto.** El incumplimiento lo constata el PLAN que paga la fila o el municipio que entregó el lote; con el informe, la revocación se registra y no se decide, y **no registrarla es la misma falta que revocar sin informe** (SECCIÓN 9).
+- **El expediente.** Del cruce sale serie por cohorte y nunca padrón (SECCIONES 7 y 9).
 
-- **La voz.** El Paquete otorga la anticipación deliberativa y jamás la Credencial de Materia, que se gana y decae como la de cualquier argentino: **ANAR no la puede tocar** (SECCIÓN 6).
-- **El veredicto.** ANAR no juzga si el fichado cumplió: lo constata el PLAN que paga la fila o el municipio que entregó el lote. La agencia registra lo que le informan, y la revocación abre Caso de Mesa (SECCIÓN 9).
-- **El expediente.** Del cruce sale serie por cohorte y nunca padrón, con celda mínima de diez, y de ahí no sale un fundamento sobre nadie (SECCIONES 7 y 9).
-
-Queda un organismo que sabe qué le falta al país, dónde buscarlo y cuánta gente se quedó, y nada utilizable sobre nadie salvo lo firmado.
+Queda **firmar**, la única decisión de este PLAN sobre una persona, y va con regla: reunidos los requisitos que la fila publica, ANAR firma; la negativa va por escrito y abre Caso de Mesa igual que la revocación; y con más candidatos que filas adjudica el PLAN que paga la fila.
 
 ### Por qué la línea con Migraciones se traza acá y no en un organigrama
 
-La Dirección Nacional de Migraciones conserva su competencia entera: sigue siendo la autoridad de aplicación de la Ley 25.871 —organismo descentralizado del Ministerio de Seguridad Nacional (Disposición DNM 180/2026, Boletín Oficial del 6 de mayo de 2026)— y la expulsión sigue en el derecho vigente, con juez y sentencia firme, que este PLAN no escribe ni amplía.
+La Dirección Nacional de Migraciones conserva su competencia entera: es la autoridad de aplicación de la Ley 25.871 y organismo bajo el Ministerio de Seguridad Nacional desde el Decreto 793/2025 (Boletín Oficial del 11 de noviembre de 2025). Y la expulsión está donde el Marco necesita leerla: la orden la dicta la propia Dirección por acto administrativo, y el juez revisa después, no antes. Eso es lo que prohíbe el primer renglón del Límite II, y este PLAN no lo escribe ni lo amplía.
 
-Juntarlas no fundaría una facultad nueva, y por eso el riesgo se lee mal como reparto de competencias. Haría algo más barato y peor: **le daría a la facultad que ya existe el archivo que hoy no tiene.** ANAR sí acumula un archivo nominal —quién firmó qué Contrato de Puerta, contra qué fila, y si lo cumplió—, y ése es el material de este PLAN que una autoridad con poder de expulsión —poder que este PLAN no funda y que ANAR no tiene— querría sobre el escritorio. La línea no reparte poder entre dos edificios: **mantiene separados el poder y el archivo.** A la 4.144 le alcanzó con la facultad y una palabra elástica; lo que le faltaba era la carpeta, y acá no se la deja armada a nadie.
+Juntarlas no fundaría una facultad nueva. Haría algo más barato y peor: **le daría a la facultad que ya existe el archivo que hoy no tiene.** ANAR sí acumula un archivo nominal —quién firmó qué Contrato, contra qué fila y si lo cumplió—, y ése es el material que una autoridad con poder de expulsión —que este PLAN no funda— querría sobre el escritorio. **La línea mantiene separados el poder y el archivo.** A la 4.144 le alcanzó con la facultad y una palabra elástica; lo que le faltaba era el legajo.
 
-Partir el organigrama tampoco es hallazgo argentino: Canadá lo tiene en tres —IRCC selecciona, la Canada Border Services Agency controla la frontera y ejecuta las remociones, y un tribunal independiente resuelve los recursos—, y el reparto no cambia por sí solo lo que se ejecuta. Lo distinto acá va pegado a la línea: el cuarto renglón del Límite II, que le prohíbe a este PLAN pasarle un dato a control migratorio. Dos carteles sobre sistemas conectados son una oficina sola.
+Separar no alcanza. Un organigrama dura lo que dura una ley —el Bill C-12 acaba de sacarle pedidos enteros a la junta independiente de Canadá—, y una agencia sin partida se apaga con los papeles adentro. Por eso el archivo va cerrado por los dos lados del Marco: el cuarto renglón prohíbe pasarle un dato a control migratorio, y el octavo le puso custodio, plazo y destrucción (SECCIÓN 9).
 
 ### Quién la conduce, quién la puede voltear y quién la audita
 
-La conducción sale de concurso público de antecedentes y oposición —la forma que el corpus ya usa para sus cargos técnicos (`PLANMESA:490`, `PLANEB:517`)— y la designa el Congreso. **Seis años, sin renovación.** Seis no entra en cuatro, así que ninguna conducción coincide con un gobierno, y quien no puede ser renovado no tiene a quién complacer el último año.
+La conducción sale de concurso público de antecedentes y oposición —la forma que el corpus ya usa para sus cargos técnicos (`PLANMESA:490`, `PLANEB:517`)— y la designa el Congreso. **Seis años, sin renovación:** seis no entra en cuatro, y ninguna conducción coincide con un gobierno.
 
-La remoción va por causal escrita, con la mayoría que designó y nunca por el Ejecutivo solo. La primera causal es la que este documento necesita: **haber ejercido, pedido o aceptado sobre una persona una facultad que la ley no le dio.** El removido queda inscripto en PLANMEMORIA.
+La remoción va por causal escrita, **por los dos tercios de ambas cámaras** —la mayoría con la que el corpus blinda lo que no quiere que se voltee con la del día (`PLANAGUA:1972`, `PLANMOV:783`)—, nunca por el Ejecutivo solo. Las causales son tres y la lista cierra como las del Marco: ejercer, pedir o aceptar sobre una persona una facultad que la ley no le dio; pasarle un dato a control migratorio; no destruir lo que el octavo renglón manda destruir. El removido queda inscripto en PLANMEMORIA.
 
-Y no se audita a sí misma en ninguno de los cuatro poderes: la Mesa Civil de la materia (PLANMESA) audita el veto de D1, la revocación de un Contrato a pedido de la persona, las series de D11 y el Tablero de D9. Un solo auditor cuatro veces: los cuatro poderes son objetos que la Mesa ya miraba.
+Y no se audita a sí misma en ninguno de los cuatro poderes: la Mesa Civil de la materia (PLANMESA) ya miraba la certificación del veto, el Tablero y las dos puntas del Contrato. Faltaba el Cuerpo de Scouts, único poder donde ANAR actúa afuera y con plata: **el scout se evalúa contra la permanencia a diez años de la gente que trajo —serie del Tablero, por cohorte— y no contra el juicio de la agencia que le reparte las filas** (SECCIÓN 4).
 
 ### Lo que necesita y no tiene
 
-**ANAR no tiene piso presupuestario y este PLAN no se lo pide.** Otras agencias lo tienen —la ANCON de PLANPREGUNTA es ente autárquico con presupuesto propio (`PLANPREGUNTA:710`)—; vive de una partida anual adentro de la Escalera de PLANPACTO, sin escalón nuevo. Un gobierno que la quiera muerta no necesita derogar nada: le baja la partida y espera.
+**ANAR no tiene piso presupuestario y este PLAN no se lo pide** — a diferencia de la ANCON de PLANPREGUNTA, ente autárquico con presupuesto propio (`PLANPREGUNTA:710`). Vive de una partida anual de la Escalera de PLANPACTO, y un gobierno que la quiera muerta se la baja y espera.
 
-Lo que importa es hacia dónde se rompe ese día. Sin plata, ANAR deja de sostener scouts y de publicar el Tablero; y el año que el Tablero no sale, la Ventana de Pases no abre (SECCIÓN 7). **La agencia desfinanciada no se vuelve peligrosa: se apaga, y se lleva puesto el fichaje.** Ésa es la propiedad que hay que exigirle a un organismo antes de fundarlo. Vale igual para el mandato de seis años, que el mismo Congreso puede acortar: lo único que no se reforma barato es lo que no está escrito, y **acá no hay facultad sobre personas que capturar.**
+Se rompe hacia un solo lado: sin plata, ANAR deja de sostener scouts y de publicar el Tablero, y el año que el Tablero no sale la Ventana no abre (SECCIÓN 7). **La agencia desfinanciada no se vuelve peligrosa: se apaga, y se lleva puesto el fichaje** — la propiedad que hay que exigirle a un organismo antes de fundarlo.
 
 ---
 
 ## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-PLANPUERTA entró sin huésped y sin sacarle un peso a ningún PLAN existente, así que su integración no es un reparto de presupuesto: es lo que consume de nueve documentos y lo que les devuelve a seis. Las dos listas van completas, porque una dependencia que no se escribe se descubre el día que falla.
+PLANPUERTA entró sin huésped y sin sacarle un peso a ningún PLAN existente: su integración no es un reparto de presupuesto, es lo que consume de doce documentos y lo que les devuelve a seis. Las dos listas van completas, porque una dependencia que no se escribe se descubre el día que falla.
 
 ### Lo que este PLAN recibe
 
 | PLAN | Qué aporta |
 |---|---|
-| **PLANPACTO** | Estabilidad fiscal y crédito recuperado, la mesa sobre la que se apoya cualquier incentivo. La exención vive adentro de su Escalera de Garantías y bajo su Techo |
-| **PLANREP** | El veto de subsidiariedad, que los 3,5 millones de empleados públicos en reconversión (`PLANREP:87`) vuelven indispensable; y su red «Embajador Digital» de diáspora (`PLANREP:1823`), sobre la que se monta el primer Cuerpo de Scouts |
-| **PLANEDU** | Las escuelas de oficios y el dato de cohorte que permiten certificar ese veto: sin nadie cursando no hay nada que certificar |
-| **PLANEB** | El canal sin Estado — las Empresas Bastardas fichan directo porque son ellas el empleador, y por eso la Fase 0 corre sin ley y sin partida |
+| **PLANPACTO** | Estabilidad fiscal y crédito recuperado. La exención vive adentro de su Escalera de Garantías y bajo su Techo |
+| **PLAN24CN** | La tierra: los lotes del Paquete salen de sus veinticuatro ciudades |
+| **PLANREP** | El veto de subsidiariedad, que los 3,5 millones de empleados públicos en reconversión (`PLANREP:87`) vuelven indispensable, y su red «Embajador Digital» de diáspora (`PLANREP:1823`), donde se monta el primer Cuerpo de Scouts |
+| **PLANEDU** | Las escuelas de oficios y el dato de cohorte que certifican ese veto: sin nadie cursando no hay nada que certificar |
+| **PLANSAL** | La atención en la APS, uno de los cuatro registros del cruce de D9 |
+| **PLANEB** | El canal sin Estado: las Empresas Bastardas fichan directo porque son ellas el empleador, y la Fase 0 corre sin ley ni partida |
 | **PLANVIV** y **PLANAGUA** | Los márgenes de vivienda y de agua del freno de infraestructura, declarados por quien los produce |
-| **PLANMESA** | La Credencial de Materia, la silla, y el Caso de Mesa que audita a D1, a D9, a D11 y a la propia agencia |
-| **PLANCUIDADO** | El Compadrazgo como figura ya tipificada del Pacto de Cuidado (`PLANCUIDADO:307`), que ya genera reunificación migratoria (`:318`), y las horas del Libro de Cuidado que lee D10 |
-| **PLANDIG** | La infraestructura del Tablero y del registro de la revalidación |
+| **PLANMESA** | La Credencial de Materia, la silla, y el Caso de Mesa que audita a D1, a D9, a D11 y las dos puntas del Contrato |
+| **PLANCUIDADO** | El Compadrazgo como figura tipificada del Pacto de Cuidado (`PLANCUIDADO:307`), que cuenta la reunificación migratoria entre sus efectos con su reserva puesta (`:318`), y las horas del Libro de Cuidado que lee D10 |
+| **PLANMEMORIA** | El registro donde se inscribe lo que este PLAN sanciona: la certificación desmentida, la duración estirada, el Tablero que no salió, el removido |
+| **PLANDIG** | La infraestructura del Tablero y de la revalidación, y la custodia del archivo que el octavo renglón manda destruir |
 
 ### Lo que este PLAN aporta
 
 | PLAN | Qué recibe |
 |---|---|
 | **PLAN24CN** | Población para veinticuatro ciudades que no tienen escrito quién las habita |
-| **PLANREP** | La Puerta del Regreso: el dispositivo que le faltaba al PLAN que declaró el riesgo de ser fábrica de emigrantes (`PLANREP:2182`) |
+| **PLANREP** | La Puerta del Regreso, que le faltaba al PLAN que declaró el riesgo de ser fábrica de emigrantes (`PLANREP:2182`) |
 | **PLANPREGUNTA** | Fichajes contra las Preguntas Nacionales que no tienen quién las conteste |
-| **PLANGEO** | El Techo de Origen como módulo exportable, y la no denuncia del Acuerdo del MERCOSUR, que le deja en pie la Agencia del Litio del Cono Sur (`PLANGEO:425`) |
-| **PLANJUS** | Coherencia: su compromiso de no compartir estatus migratorio (`PLANJUS:2366`) deja de ser una línea suelta y pasa a renglón del Marco |
+| **PLANGEO** | El Techo de Origen como módulo exportable, y la no denuncia del MERCOSUR, que le deja en pie la Agencia del Litio del Cono Sur (`PLANGEO:425`) |
+| **PLANJUS** | Su compromiso de no compartir estatus migratorio (`PLANJUS:2366`) deja de ser una línea suelta y pasa a renglón del Marco |
 | **PLANMEMORIA** | La cláusula anti-4.144, con su ley, su fecha y su autor escritos para poder citarla |
 
 ### El acoplamiento estrella: PLAN24CN
 
-Los dos PLANes tienen el mismo problema al revés. PLAN24CN funda veinticuatro ciudades, una por provincia, por USD 26.350-73.000M a quince o veinte años (`PRESUPUESTO_CONSOLIDADO_BASTA.md:33`), y no tiene escrito quién las va a llenar. PLANPUERTA sabe a quién quiere traer y necesita algo que ofrecerle que no dependa de ser más rico que el vecino.
+Los dos PLANes tienen el mismo problema al revés, y la SECCIÓN 6 ya escribió el encaje: el suelo está comprometido en un presupuesto ajeno, así que el lote es asignación y no partida nueva. Del otro lado la deuda es mayor — sin gente que fichar, veinticuatro ciudades nuevas son infraestructura vacía.
 
-Encajan, y el encaje es barato. El suelo ya está comprometido en un presupuesto ajeno, así que entregar un lote es asignación y no partida nueva: la pieza más potente del Paquete sale a costo marginal cercano a cero. En la otra dirección la deuda es mayor — sin gente que fichar, veinticuatro ciudades nuevas son infraestructura vacía, una de las formas más caras de fracasar.
-
-El desfase va escrito acá en vez de descubrirse en el año seis: las ciudades tardan quince o veinte años y el Paquete necesita lotes antes. No hace falta un mecanismo nuevo — el que hay lo absorbe solo. El freno de infraestructura lee los márgenes de vivienda, agua y escuela de la jurisdicción que recibe y toma el menor de los tres (SECCIÓN 9); donde la ciudad todavía no está, el menor da cero y la ventana no abre ahí. El desfase se paga en ventanas que no abren, y no en gente que llegó a un lugar que no existía.
+El desfase se escribe acá: las ciudades tardan quince o veinte años y el Paquete necesita lotes antes. No hace falta mecanismo nuevo: el freno toma el menor de los tres márgenes de la jurisdicción que recibe (SECCIÓN 9), y donde la ciudad todavía no está el menor da cero y la ventana no abre ahí. El desfase se paga en ventanas que no abren, y no en gente que llegó a un lugar que no existía.
 
 ### Lo que este PLAN explícitamente no hace
 
-**Bajar impuestos y bajar el costo de vida es PLANPACTO, y este documento no lo toca.** Lo consume como precondición: si la Escalera de Garantías no está en pie, PLANPUERTA no tiene qué ofrecer y su Ventana de Pases no debería abrir. Escribirlo al revés —un PLAN de inmigración que promete arreglar la macro— es el PLAN que se agranda hasta no cumplir nada.
+**Bajar impuestos y bajar el costo de vida es PLANPACTO, y este documento no lo toca.** Lo consume como precondición: si la Escalera de Garantías no está en pie, PLANPUERTA no tiene qué ofrecer y su Ventana no debería abrir. Escribirlo al revés —un PLAN de inmigración que promete arreglar la macro— es el PLAN que se agranda hasta no cumplir nada.
 
-Mismo criterio con la infraestructura: PLANVIV, PLAN24CN y PLANMOV construyen; este PLAN no promete un metro y usa lo construido como freno. La única obra que pide ya está presupuestada en otro lado.
+Mismo criterio con la infraestructura: PLANVIV, PLAN24CN y PLANMOV construyen; este PLAN no promete un metro y usa lo construido como freno. Con PLANVIV hay además una deuda, y va acá porque acá se paga: derogar su fila de reclutamiento (SECCIÓN 0) le baja el costo y le saca los brazos —los 5.000-10.000 trabajadores de la construcción— en su ventana crítica. Se cierra atando con fecha el cronograma de escuelas de oficios de PLANEDU y PLANREP al de obra, y hasta que eso pase la deuda es de este PLAN.
 
-**Y falta un lado entero del arraigo, que se declara y no se ocupa.** Acá está escrito lo que le pasa al que llega: qué firma, qué recibe, qué pierde, cuándo se lo mide. Del otro lado está si la sociedad lo recibe bien, y eso no vive en este documento. El Compadrazgo de Llegada hace que la lista exista y que alguien pregunte; la disposición a golpear la puerta no la fabrica ningún régimen migratorio, y sostener lo contrario sería la promesa que la SECCIÓN 0 le reprocha al Estado. El hueco tiene candidatos escritos —**PLANFOCO** o **PLANCUL**— y tiene urgencia: la SECCIÓN 2 dejó a Canadá dándose vuelta en veinticuatro meses, y lo que se dio vuelta ahí no fue el régimen de admisión.
+**Y falta un lado entero del arraigo, que se declara y no se ocupa.** Acá está escrito lo que le pasa al que llega. Del otro lado está si la sociedad lo recibe bien, y eso no vive en este documento. El Compadrazgo de Llegada hace que la lista exista y que alguien pregunte; la disposición a golpear la puerta no la fabrica ningún régimen migratorio, y sostener lo contrario sería la promesa que la SECCIÓN 0 le reprocha al Estado. El hueco tiene candidatos escritos —**PLANFOCO** o **PLANCUL**— y tiene medida: el Tablero publica dónde no golpeó nadie (SECCIÓN 5). Este PLAN sabe contar el hueco y no sabe llenarlo.
 
 ---
