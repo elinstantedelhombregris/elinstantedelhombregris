@@ -1153,7 +1153,7 @@ La prohibición produce exactamente cero pesos de recaudación tributaria. Cada 
 | Impuesto psicodélicos | - | USD 100-300M | USD 300-600M | USD 500M-1B |
 | Impuesto otras sustancias | - | - | USD 200-500M | USD 500M-1B |
 | Licencias y tasas regulatorias | USD 50-100M | USD 100-200M | USD 150-300M | USD 200-400M |
-| Turismo de conciencia expandida | USD 50-100M | USD 200-500M | USD 500M-1B | USD 1-2B |
+| Tratamiento de no residentes (Sección 29) | USD 50-100M | USD 200-500M | USD 500M-1B | USD 1-2B |
 | Decomiso Activos Tier 3 | USD 200-500M | - | - | - |
 | **TOTAL** | **USD 500M-1.1B** | **USD 900M-2B** | **USD 2.2-4.4B** | **USD 4.2-8.4B** |
 
@@ -1229,6 +1229,10 @@ Las 24 nuevas ciudades propuestas por PLAN24CN incorporan infraestructura PLANSU
 | Precio legal no competitivo | Media | Alto | Excise escalonado + subsidio de testeo 2027 (tranche-1) + premiums de calidad/conveniencia (Sección 25) |
 | Represalia violenta de carteles | Alta | Alto | Protocolo escalonado VERDE/AMARILLO/ROJO + inteligencia focalizada + protección de cooperadores (Sección 22) |
 | Biopiratería / captura de conocimiento tradicional | Baja | Alto | Marco Nagoya + registro defensivo + consentimiento comunitario vinculante (Sección 27) |
+| Muerte de un visitante extranjero | Baja por caso, alta en impacto | Muy alto | Los cuatro controles de la Sección 29.2 — protocolo completo declarado, tamizaje remoto anticipado, supervisión con ratio, distancia acreditada a terapia intensiva — más el protocolo de evento adverso y de prensa de la Sección 29.8, escritos antes del primer incidente |
+| Captura del Registro por un actor externo | Media | Alto | Fideicomiso público bajo ley argentina, no licenciable en propiedad ni exportable como base, con coautoría obligatoria (Secciones 28.4 y 28.5) |
+| Enclave: el capital extrae y se va | Media-alta | Alto | Obligaciones del régimen de estabilidad de la Sección 30.3 + el activo principal no es transportable (Sección 28.7) |
+| Las compuertas de PLANPACTO y PLANMON no se abren nunca | Media | Medio | El bloque de atracción se diseñó para que la clínica sea autónoma: produce divisas y evidencia con las restricciones cambiarias puestas (Sección 30.5) |
 
 **Sanciones internacionales.** Es el riesgo que más se agita como espantapájaros. Pero la realidad geopolítica de 2026 es que 24 estados de EE.UU. tienen cannabis legal, Canadá legalizó hace ocho años, Alemania despenalizó, y la presión por una nueva convención crece. Argentina no va a ser sancionada por hacer lo que medio mundo ya hace. El marco AML/CFT que PLANSUS construye desde el día uno elimina el único argumento técnico para sanciones financieras.
 
@@ -1283,6 +1287,24 @@ Sección 21 resuelve esto antes del Día 1. Comunicación BCRA con safe harbor r
 **"No es el momento."**
 
 Nunca es "el momento." No era el momento en 2001 cuando Portugal despenalizó. No era el momento en 2013 cuando Uruguay legalizó el cannabis. No era el momento en 2012 cuando Colorado votó. Siempre es "prematuro", siempre hay "otras prioridades", siempre "la sociedad no está lista." Mientras tanto, cada día que pasa, alguien muere por una bala narco, alguien entra preso por tener una planta, alguien consume una sustancia adulterada sin saber qué tiene. **El momento fue ayer. PLANSUS es para hoy.**
+
+### "Esto es turismo de drogas. Van a venir a drogarse acá."
+
+Vamos con el dato antes que con el argumento, porque el dato solo alcanza.
+
+El instituto **ICEERS** relevó las muertes atribuidas a la ayahuasca entre 2010 y 2022 y encontró que ningún análisis forense determinó jamás una muerte por intoxicación aguda, sobre un denominador de aproximadamente cuatro millones de personas que la consumieron. Lo que sí aparece matando en ese relevamiento es el envenenamiento por tabaco de las purgas, los infartos sin tamizaje previo, las sustancias que nadie declaró, y los ahogamientos por falta de supervisión. Es decir: **mata la ausencia de marco, que es exactamente lo que la prohibición garantiza.**
+
+Y después el argumento. Lo que la Sección 29 diseña no es un circuito de retiros: es una puerta clínica. El visitante extranjero entra por una admisión médica única con un profesional argentino responsable asignado **antes** de que viaje, con tamizaje anticipado, con el protocolo completo declarado, con distancia acreditada a terapia intensiva, y con seguimiento a la semana, al mes y a los tres meses. No existe país en el mundo que le exija eso hoy a un visitante. Argentina sería el primero.
+
+Quien quiera drogarse sin control tiene, hoy mismo, decenas de destinos más baratos y sin ninguna de estas exigencias. Ese no es nuestro cliente y este marco está diseñado para que no lo sea.
+
+### "Están vendiendo el país. Van a venir las multinacionales a llevarse todo."
+
+Es la crítica correcta al plan equivocado. Vender el país sería dar la exención sin la obligación, que es lo que la Argentina viene haciendo hace décadas.
+
+Acá el activo central —el Registro Nacional de Resultados de la Sección 28— se constituye como fideicomiso público bajo ley argentina, **no se vende, no se exporta como base y no se licencia en propiedad**. Se da acceso, que es revocable. Toda publicación derivada lleva coautoría argentina y toda patente que lo use como respaldo reconoce participación argentina. Y el régimen de estabilidad de la Sección 30.3 se entrega **con obligaciones**: transferencia tecnológica verificable, copropiedad local, coautoría y participación en patentes. El que no las acepta puede invertir igual — simplemente no entra al régimen.
+
+Hay además una defensa estructural que ningún contrato puede darte: **un registro público bajo ley argentina no entra en un contenedor.** El quebracho se lo llevaron. Los datos no se los pueden llevar.
 
 ---
 
