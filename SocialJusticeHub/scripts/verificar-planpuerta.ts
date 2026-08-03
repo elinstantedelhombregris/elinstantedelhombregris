@@ -464,37 +464,33 @@ export const PROHIBIDOS: Prohibido[] = [
       'que hay que escribir y queda exenta sola',
     exigeActor: true,
     salvoSi: {
-      // «4.144» y «vigente» sueltos NO entran acá (hallazgo de la Task 1 al verificar
-      // I-1): una oración que sólo MENCIONA la 4.144 no es lo mismo que una oración que
-      // ATRIBUYE la expulsión al derecho penal vigente — «la Ley de Residencia 4.144 ...
-      // y ANAR la recupera» nombra la 4.144 sin negar nada, y un salvoSi con «4.144» o
-      // «vigente» sueltos la eximía igual, con o sin `deroga` en RECHAZO. La frase entera
-      // («derecho penal», «código penal», «sentencia (judicial) firme») exige la atribución
-      // real; una negación genérica sigue cubierta por RECHAZO.
+      // No hay rama histórica. Se probó una (commit 60addfb): eximir cualquier oración
+      // que trajera «4.144» + un marcador de época (1902, 1958, «56 años», «histórico»,
+      // «derogad[a/o]», «precedente», «sin juicio previo»), salvo que dijera «recuper…».
+      // Una auditoría la rompió con cinco ataques — «la 4.144 ... y ANAR la restablece»,
+      // «reinstala», «hereda», «vuelve a usarla», «conserva la potestad» — porque
+      // «expulsión» vive en la cláusula histórica y el verbo que comete la infracción
+      // (restablece/hereda/conserva/...) no forma parte de ningún patrón del prohibido.
+      // El regex nunca mira el lugar donde está el problema. Ampliar la lista de verbos
+      // es un parche sobre casos de prueba, no una corrección: siempre queda un verbo
+      // más para la próxima auditoría.
       //
-      // Pero sacar «4.144» entero también se llevó puesta la HISTORIA legítima (N-2): la
-      // SECCIÓN 9 entera se escribe alrededor de la Ley 4.144 como precedente (1902-1958,
-      // derogada, sin juicio previo), y esa descripción histórica pura no ataca el
-      // invariante — no le da la facultad a NADIE actual. La rama de abajo exige que la
-      // oración traiga la 4.144 Y un marco histórico (1902 | 1958 | 56 años | histórico |
-      // derogad[a/o] | precedente | sin juicio previo) EN CUALQUIER ORDEN — con
-      // lookaheads, no con una ventana direccional, porque «durante 56 años el gobierno
-      // firmó cada expulsión con la Ley 4.144» trae el marco ANTES del número. Y excluye
-      // con un lookahead negativo cualquier oración que además diga «recuper…»: «la Ley
-      // 4.144, derogada en 1958, ... y ANAR la recupera para los casos graves» tiene marco
-      // histórico Y 4.144, pero el «recupera» es la atribución real que el prohibido existe
-      // para cazar, y una rama histórica que no la excluyera reabriría el agujero original.
+      // El invariante real: toda oración que nombre un actor y la expulsión tiene que
+      // negar la atribución, o atribuirla al derecho penal. Un regex no puede distinguir
+      // «el Estado de 1902 expulsaba» de «ANAR conserva esa facultad» porque la diferencia
+      // vive en el tiempo verbal de un verbo que ningún patrón captura — no es un problema
+      // de vocabulario, es un techo estructural de esta guardia. La disciplina se resuelve
+      // en la prosa, no en el regex: la oración que describe la 4.144 como precedente
+      // histórico (SECCIÓN 9) tiene que llevar su propia cláusula de rechazo («y este PLAN
+      // no reconstruye esa facultad», «ninguna de esas facultades vuelve acá») para pasar
+      // por RECHAZO como cualquier otra. No reintentar la rama histórica con regex.
       patron: new RegExp(
-        `${RECHAZO.patron.source}|derecho penal|c[óo]digo penal|sentencia (?:judicial )?firme|` +
-          `(?=.*4\\.144)(?=.*\\b(?:1902|1958|56 años|hist[óo]ric|derogad|precedente|sin juicio previo)\\b)(?!.*\\brecuper)`,
+        `${RECHAZO.patron.source}|derecho penal|c[óo]digo penal|sentencia (?:judicial )?firme`,
         'iu',
       ),
       porQue:
         `${RECHAZO.porQue}. Y además: la oración que ATRIBUYE la expulsión al derecho penal vigente ` +
-        'con sentencia firme es la que hay que escribir, porque es la que aclara que el PLAN no inventa nada. ' +
-        'Y también: la descripción histórica pura de la 4.144 (con su marco — año, derogación, «sin juicio ' +
-        'previo») no le da la facultad a nadie actual y la SECCIÓN 9 la necesita; pero si la misma oración ' +
-        'además dice que alguien la «recupera», eso vuelve a ser la atribución real y sigue prohibido',
+        'con sentencia firme es la que hay que escribir, porque es la que aclara que el PLAN no inventa nada.',
     },
   },
   {
