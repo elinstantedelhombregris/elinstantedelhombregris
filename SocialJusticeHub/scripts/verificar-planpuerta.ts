@@ -87,7 +87,11 @@ const DISPOSITIVOS_DE_PORTADA: { enPortada: string; alias?: string[] }[] = [
   { enPortada: 'La Ventana de Pases', alias: ['Ventana de Pases'] },
   { enPortada: 'Las Tres Puertas', alias: ['Tres Puertas'] },
   { enPortada: 'El Contrato de Puerta', alias: ['Contrato de Puerta'] },
-  { enPortada: 'El Padrinazgo', alias: ['Padrinazgo'] },
+  // Sin alias a propósito (N-3): cualquier forma corta de «El Compadrazgo de Llegada» —
+  // «Compadrazgo», «Compadrazgo de Llegada»— es por construcción un substring del
+  // enPortada, y el conteo de `veces` SUMA las formas: un alias así hace que una sola
+  // mención real cuente doble y MENCIONES_MINIMAS deje de verificar nada.
+  { enPortada: 'El Compadrazgo de Llegada' },
   { enPortada: 'El Paquete', alias: ['Paquete'] },
   { enPortada: 'La Regla del Problema Pago', alias: ['Regla del Problema Pago', 'Problema Pago'] },
   { enPortada: 'El Tablero de Arraigo', alias: ['Tablero de Arraigo'] },
@@ -358,7 +362,7 @@ export const CIFRAS_CANONICAS: CifraCanonica[] = [
   {
     valor: /reunificaci[óo]n/u,
     ancla: /PLANCUIDADO|:\s*318/u,
-    porQue: 'de dónde sale el Padrinazgo: el Pacto de Cuidado ya genera derechos migratorios de reunificación (PLANCUIDADO:318)',
+    porQue: 'de dónde sale el Compadrazgo de Llegada: el Pacto de Cuidado ya genera derechos migratorios de reunificación (PLANCUIDADO:318)',
   },
   {
     valor: /Agencia del Litio/u,
@@ -367,8 +371,8 @@ export const CIFRAS_CANONICAS: CifraCanonica[] = [
   },
   {
     valor: /Red Soberana/u,
-    ancla: /PLANGEO|:\s*1151|municipal/u,
-    porQue: 'ídem: PLANGEO:1151 monta la expansión de la Red Soberana sobre adopción municipal en la región',
+    ancla: /PLANGEO|:\s*114[89]|municipal/u,
+    porQue: 'ídem: PLANGEO:1148-1149 monta la expansión de la Red Soberana sobre adopción municipal en la región (commit 447c659: :1151 es el «Por qué es poderosa» y :1150 está en blanco)',
   },
   {
     valor: /f[áa]brica de emigrantes/u,
@@ -467,13 +471,30 @@ export const PROHIBIDOS: Prohibido[] = [
       // «vigente» sueltos la eximía igual, con o sin `deroga` en RECHAZO. La frase entera
       // («derecho penal», «código penal», «sentencia (judicial) firme») exige la atribución
       // real; una negación genérica sigue cubierta por RECHAZO.
+      //
+      // Pero sacar «4.144» entero también se llevó puesta la HISTORIA legítima (N-2): la
+      // SECCIÓN 9 entera se escribe alrededor de la Ley 4.144 como precedente (1902-1958,
+      // derogada, sin juicio previo), y esa descripción histórica pura no ataca el
+      // invariante — no le da la facultad a NADIE actual. La rama de abajo exige que la
+      // oración traiga la 4.144 Y un marco histórico (1902 | 1958 | 56 años | histórico |
+      // derogad[a/o] | precedente | sin juicio previo) EN CUALQUIER ORDEN — con
+      // lookaheads, no con una ventana direccional, porque «durante 56 años el gobierno
+      // firmó cada expulsión con la Ley 4.144» trae el marco ANTES del número. Y excluye
+      // con un lookahead negativo cualquier oración que además diga «recuper…»: «la Ley
+      // 4.144, derogada en 1958, ... y ANAR la recupera para los casos graves» tiene marco
+      // histórico Y 4.144, pero el «recupera» es la atribución real que el prohibido existe
+      // para cazar, y una rama histórica que no la excluyera reabriría el agujero original.
       patron: new RegExp(
-        `${RECHAZO.patron.source}|derecho penal|c[óo]digo penal|sentencia (?:judicial )?firme`,
+        `${RECHAZO.patron.source}|derecho penal|c[óo]digo penal|sentencia (?:judicial )?firme|` +
+          `(?=.*4\\.144)(?=.*\\b(?:1902|1958|56 años|hist[óo]ric|derogad|precedente|sin juicio previo)\\b)(?!.*\\brecuper)`,
         'iu',
       ),
       porQue:
         `${RECHAZO.porQue}. Y además: la oración que ATRIBUYE la expulsión al derecho penal vigente ` +
-        'con sentencia firme es la que hay que escribir, porque es la que aclara que el PLAN no inventa nada',
+        'con sentencia firme es la que hay que escribir, porque es la que aclara que el PLAN no inventa nada. ' +
+        'Y también: la descripción histórica pura de la 4.144 (con su marco — año, derogación, «sin juicio ' +
+        'previo») no le da la facultad a nadie actual y la SECCIÓN 9 la necesita; pero si la misma oración ' +
+        'además dice que alguien la «recupera», eso vuelve a ser la atribución real y sigue prohibido',
     },
   },
   {
@@ -484,10 +505,16 @@ export const PROHIBIDOS: Prohibido[] = [
       'la decisión 9 del registro de la spec',
     exigeActor: true,
     salvoSi: {
-      // Propio y NO el RECHAZO genérico (I-2): «rechaz» es vocabulario cotidiano de
-      // inmigración —«ANAR rechaza la solicitud»— y eximiría sola una prohibición
-      // absoluta. La exención legítima es sólo la negación de la metáfora por nombre.
-      patron: /\b(no|ni|nunca|jam[áa]s|tampoco|ning[úu]n|ninguna|nadie)\b|prohibid|met[áa]fora|la piel/iu,
+      // Propio y NO el RECHAZO genérico (I-2 original): «rechaz» es vocabulario cotidiano de
+      // inmigración —«ANAR rechaza la solicitud»— y eximiría sola una prohibición absoluta. Es
+      // el ÚNICO término de RECHAZO que hay que sacar. La primera corrección lo escribió a mano
+      // en vez de derivarlo de RECHAZO y de paso angostó «prohib» a «prohibid» y perdió
+      // «descart»/«renunci», dejando en rojo «el Estado descarta la idea de…», «este PLAN
+      // renuncia a hablar de contagio…» y «la prohibición de ANAR alcanza…» — las tres de la
+      // SECCIÓN 10, que se llama justamente «LO QUE ESTE PLAN TIENE PROHIBIDO» (hallazgo de la
+      // Task 1 al verificar N-1). Por eso: RECHAZO.patron.source menos «rechaz», más la rama
+      // propia de metáfora/piel.
+      patron: /\b(no|ni|nunca|jam[áa]s|tampoco|ning[úu]n|ninguna|nadie)\b|prohib|descart|renunci|met[áa]fora|la piel/iu,
       porQue: 'la oración que RECHAZA la metáfora por nombre es la que el documento tiene que escribir, y aparece en la portada y en la SECCIÓN 10',
     },
   },

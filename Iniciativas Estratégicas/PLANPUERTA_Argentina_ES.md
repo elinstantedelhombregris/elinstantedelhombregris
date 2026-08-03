@@ -38,7 +38,7 @@ Plan Nacional de Arraigo, Búsqueda de Talento y Poblamiento
 PLANPUERTA
 
 La Lista de Faltantes · El Cuerpo de Scouts · La Ventana de Pases
-Las Tres Puertas · El Contrato de Puerta · El Padrinazgo
+Las Tres Puertas · El Contrato de Puerta · El Compadrazgo de Llegada
 El Paquete · La Regla del Problema Pago · El Tablero de Arraigo
 La Ciudadanía por Aporte Verificado · La Revalidación por Desempeño
 Agencia Nacional de Arraigo (ANAR)
