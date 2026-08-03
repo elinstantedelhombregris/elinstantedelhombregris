@@ -64,7 +64,7 @@ Preparado para la República Argentina
 Ministerio de Economía · Ministerio de Salud · Ministerio de Seguridad
 CONICET · INTA · ANMAT · SEDRONAR · Congreso de la Nación
 
-Marzo 2026 | Versión 1.0
+Agosto 2026 | Versión 1.2
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
@@ -2418,7 +2418,7 @@ Todo esto se apoya en **PLANPUERTA**, el mandato migratorio, y adopta su criteri
 
 *PLANSUS — Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido*
 *Sexto Mandato ¡BASTA!*
-*República Argentina — Marzo 2026 — Versión 1.0*
+*República Argentina — Agosto 2026 — Versión 1.2*
 
 ---
 

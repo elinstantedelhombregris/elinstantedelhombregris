@@ -726,18 +726,25 @@ export const DEPENDENCIES: Dependency[] = [
   { id: 'd211', kind: 'provides', source: 'PLANFOCO', target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Asume la Acción 3 de `PLANCUL:387`, derogada en los dos documentos con nota fechada: el poder de los medios pasa a tener dueño y PLANCUL conserva su parasitismo, su presupuesto cero y su compromiso de no-intervención' },
 
   // ── Bloque MARCOS DE ATRACCIÓN de PLANSUS (Secciones 28-31, 2026-08-03) ──────
-  // Las dos compuertas que PLANSUS declara y NO controla (Sección 30.5). Van como
-  // 'requires' reales, no como anotación: si no se abren, dos de los tres tramos
-  // del bloque no arrancan. El tercero —la clínica— es autónomo por diseño y por
-  // eso el bloque vale igual si estas aristas nunca se resuelven.
+  // Las dos compuertas que PLANSUS declara y NO controla (Sección 30.5) entran
+  // como 'provides' y NO como 'requires', y la razón la da el propio documento.
+  //
+  // 'requires' alimenta las simulaciones de falla: si el target cae, el source
+  // cae con él. Pero la Sección 30.5 dice literalmente que «el bloque de
+  // atracción vale aunque las dos compuertas no se abran nunca», porque el tramo
+  // de clínica se diseñó autónomo — necesita una norma de certificación y un
+  // régimen de visas, no divisas. Un 'requires' marcaría a PLANSUS como caído
+  // cada vez que la simulación tumbe a PLANPACTO, y eso contradiría al texto.
+  // Lo descubrió `tests/unit/grafo-planes-nuevos.test.ts`, que además prohíbe
+  // que un PLAN viejo le reclame a uno nuevo: la invariante y el documento
+  // resultaron decir lo mismo.
+  //
   // NOTA: no hay arista hacia PLANPUERTA aunque la Sección 31 lo cite. PLANPUERTA
   // tiene spec pero todavía no es nodo de este grafo, y una arista a un nodo
   // inexistente es peor que la ausencia. Se agrega cuando el documento exista.
-  { id: 'd212', source: 'PLANSUS', target: 'PLANPACTO', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La estabilidad jurídica con plazo cierto es la compuerta del tramo laboratorio: sin ella no se radica investigación, cualquiera sea el marco regulatorio de sustancias' },
-  { id: 'd213', source: 'PLANSUS', target: 'PLANMON', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La repatriación de utilidades es la compuerta del tramo fábrica: nadie inmoviliza capital industrial donde no puede sacar lo ganado' },
-  { id: 'd214', kind: 'provides', source: 'PLANPACTO', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La estabilidad de reglas con horizonte escrito habilita el régimen de atracción sectorial de la Sección 30.3, que sin plazo cierto no es un régimen sino una promesa de gestión' },
-  { id: 'd215', kind: 'provides', source: 'PLANMON', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La normalización cambiaria habilita la inversión industrial del tramo fábrica del bloque de atracción' },
-  { id: 'd216', kind: 'provides', source: 'PLANSUS', target: 'PLANPREGUNTA', nature: 'IMPORTANT', type: 'DATA', description: 'El Registro Nacional de Resultados Terapéuticos es un bien público de conocimiento bajo fideicomiso argentino: legalidad a escala nacional más volumen produce evidencia que ninguna otra jurisdicción puede generar hoy' },
+  { id: 'd212', kind: 'provides', source: 'PLANPACTO', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La estabilidad de reglas con horizonte escrito habilita el régimen de atracción sectorial de la Sección 30.3 — compuerta del tramo laboratorio: sin plazo cierto no se radica investigación, cualquiera sea el marco regulatorio de sustancias' },
+  { id: 'd213', kind: 'provides', source: 'PLANMON', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La normalización cambiaria habilita el tramo fábrica del bloque de atracción: nadie inmoviliza capital industrial donde no puede repatriar lo ganado' },
+  { id: 'd214', kind: 'provides', source: 'PLANSUS', target: 'PLANPREGUNTA', nature: 'IMPORTANT', type: 'DATA', description: 'El Registro Nacional de Resultados Terapéuticos es un bien público de conocimiento bajo fideicomiso argentino: legalidad a escala nacional más volumen produce evidencia que ninguna otra jurisdicción puede generar hoy' },
 ];
 
 // === TIMELINE PHASES ===

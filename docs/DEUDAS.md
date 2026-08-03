@@ -355,3 +355,22 @@ El mismo bug ya se arregló en `arquitecto-data.ts` cuando se cargó el nodo: ah
 **Por qué no se arregló en el momento:** el trabajo de ese día eran las aristas del grafo, y esto es la aritmética de los pisos. Mezclarlo habría metido dos cambios sin relación en el mismo commit.
 
 **Cómo se arregla:** exportar `PISOS_SUSTITUTIVOS` desde `arquitecto-data.ts` y saltearlos en `vFin05`, igual que hace `sumConstitutionalFloorsGross()`. La regla queda avisando sobre el bruto —que sigue siendo información: el ecosistema reclamaba casi diez puntos— o sobre el efectivo, y hay que **elegir cuál y escribir por qué**, porque las dos cifras son ciertas y contestan preguntas distintas. `pisos-constitucionales.test.ts` ya fija las dos.
+
+---
+
+### D-014 · Las cifras del bloque de atracción de PLANSUS no tienen fuente externa
+
+**Encontrada:** 2026-08-03, escribiendo las Secciones 28 a 31 de PLANSUS
+**Dónde:** `Iniciativas Estratégicas/PLANSUS_Argentina_ES.md` — Secciones 9.4, 13.2 y el bloque MARCOS DE ATRACCIÓN
+
+El bloque nuevo se escribió sin inventar un solo número, que era la directiva. Pero eso deja huecos declarados en vez de huecos tapados, y conviene tenerlos listados por nombre para que alguien los busque con fuente en vez de rellenarlos con verosimilitud:
+
+- **Tamaño del mercado global de turismo terapéutico.** La Sección 9.4 lo describe cualitativamente. No hay cifra porque no hay fuente verificada.
+- **Costo comparado de un ensayo clínico, Argentina contra EE.UU. y la UE.** Es el argumento central de la Sección 9.2 y del tramo laboratorio de la Sección 30, y hoy se sostiene en una afirmación genérica sobre «costos operativos competitivos».
+- **Plazos actuales de dictamen de ANMAT.** Son la línea de base contra la cual se fijan los acuerdos de nivel de servicio de la Sección 30.2. Sin ese número, el instrumento central de la sección no tiene contra qué medirse.
+- **USD 3.000-15.000 por semana y 20.000-50.000 empleos** (Sección 9.4). Venían del documento anterior sin fuente; quedaron marcados en el texto como estimación propia sin verificar, en vez de borrados o maquillados.
+- **La fila de tratamiento de no residentes de la TABLA 13.2** conserva los valores de la vieja fila de turismo, cuya base conceptual cambió. Los números pueden estar bien o mal; nadie los recalculó.
+
+**Por qué no se arregló en el momento:** conseguir estas cifras es trabajo de investigación con fuentes primarias, no de redacción, y mezclarlo habría contaminado la prosa con números plausibles. Los últimos commits del repositorio son correcciones de cifras que una auditoría refutó: el default es no inventar.
+
+**Cómo se arregla:** una pasada de investigación con fuente primaria por cada punto, y después una edición quirúrgica. La guardia `verificar-plansus.ts` ya tiene el mecanismo para fijarlas cuando existan — `CIFRAS_CANONICAS` exige que cada cifra aparezca con su domicilio en la misma oración.
