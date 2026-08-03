@@ -153,7 +153,7 @@ Una familia o un Círculo recibe. **Sin Estado.** Es el dispositivo de arraigo m
 *Acá se decide todo. Acá perdió Start-Up Chile.*
 
 **D7 · El Paquete.** Lo selectivo de C, en tres piezas, cada una con su condición de conservación:
-- **Tierra con obligación de uso.** Lote o hectáreas con **título condicionado**: se pierde si no se produce o no se habita durante N años. No es golden visa — es lo contrario: **no comprás la entrada, la pagás con trabajo.** Argentina tiene lo que casi nadie tiene, que es superficie, y este es el único incentivo del PLAN que ningún competidor puede copiar.
+- **Tierra con obligación de uso.** Lote o hectáreas con **título condicionado**: se pierde si no se produce o no se habita durante N años. No es golden visa — es lo contrario: **no comprás la entrada, la pagás con trabajo.** **Ojo: la tierra condicionada no es original y ni siquiera es nueva acá adentro** — el Homestead Act de 1862, la propia Ley 817 de 1876 (cuya parte de colonización se derogó en 1903 por la Ley 4.167), los esquemas de repoblación de Japón y Extremadura, las casas a un euro. Lo defendible es la función: es algo que ofrecer **que no depende de ser más rico que el vecino**.
 - **Exención fiscal temporal.** Modelo *impatriati* italiano, que llevó los trabajadores entrantes de 11.285 (ejercicio 2019) a 41.020 (ejercicio 2023), **+264%**. **Ojo con qué porcentaje se copia:** el salto ocurrió bajo el *decreto Crescita* de 2019, que bajó la base imponible al **30% — es decir 70% de exención, y 90% en el sur**. El 50% (60% con hijos menores) es el régimen **nuevo, vigente desde 2024, más chico**, que reemplazó al que produjo el crecimiento. Y el propio Osservatorio sui Conti Pubblici Italiani dice que el dato *sugiere*, no prueba. Vive adentro de la Escalera de Garantías de PLANPACTO y bajo su techo, contabilizada como gasto tributario.
 - **Silla en la Mesa.** Voz deliberativa en PLANMESA **antes** de la ciudadanía. **Ojo: no se reclame originalidad acá.** Nueva Zelanda le da voto nacional a los residentes permanentes al año, Chile a los cinco, y buena parte de la Unión Europea da voto local a residentes extranjeros. Lo distintivo no es que un recién llegado tenga voz: es que la voz sea **deliberativa sobre la materia en la que fue fichado** y llegue antes que la ciudadanía, no después. Afirmación de función, no de novedad.
 
@@ -175,7 +175,7 @@ La consolidación del título de la tierra a plena propiedad ocurre acá, al cum
 ### TRAMO 5 — LA CIUDADANÍA
 
 **D10 · Ciudadanía por aporte verificado.**
-Naturalización acelerada atada al Libro de Cuidado y la Credencial de Materia que el corpus ya tiene — **nadie más en el mundo tiene un registro de aporte cívico auditable.** Nunca por plata: prohibición explícita de venta de residencia (§6.2).
+Naturalización acelerada atada al Libro de Cuidado y la Credencial de Materia que el corpus ya tiene — **el registro de aporte cívico auditable es un activo real, pero NO se reclame que nadie más lo tiene** — hay esquemas de puntaje por integración y de crédito por servicio comunitario en varias jurisdicciones. Lo defendible es la función: acá el aporte se acredita contra un registro que el corpus ya usa para otra cosa, no contra un examen diseñado para naturalizar. Nunca por plata: prohibición explícita de venta de residencia (§6.2).
 
 ---
 
