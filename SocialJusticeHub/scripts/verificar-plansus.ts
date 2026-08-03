@@ -120,6 +120,10 @@ export const PROHIBIDOS: { patron: string; excepcion?: string; porque: string }[
     excepcion: 'ICEERS',
     porque: 'la atribución sin fuente es exactamente lo que ICEERS refuta. Va con domicilio o no va',
   },
+  {
+    patron: 'Cannabis + vino',
+    porque: 'S9.4 tenía marco de bienestar y la S29 volvió la puerta médica. Ese ítem es el que ancla la lectura de fiesta — la trampa holandesa que la propia S2.5 describe',
+  },
 ];
 
 /**

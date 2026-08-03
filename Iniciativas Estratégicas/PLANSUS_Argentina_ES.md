@@ -867,14 +867,18 @@ Manufactura de APIs (ingredientes farmacéuticos activos) psicodélicos. Medicam
 
 ### 9.4 Pilar 4: Turismo de Conciencia
 
-No turismo de joda. **Turismo terapéutico premium.** La intersección entre bienestar, espiritualidad, naturaleza y neurociencia está creando un mercado global que mueve decenas de miles de millones de dólares.
+No turismo de joda, y tampoco turismo de bienestar. **Tratamiento médico de no residentes.** La distinción no es de marketing: define quién entra, por qué puerta, y qué se lleva el país. El visitante de este pilar es un paciente, no un turista, y entra por la admisión clínica única de la Sección 29.4 — médico argentino responsable asignado antes del viaje, tamizaje previo, protocolo completo declarado y seguimiento que no termina cuando sube al avión.
 
-- **Retiros de ayahuasca** en el Norte Argentino (Salta, Jujuy, Misiones) — integración con comunidades indígenas como facilitadores y co-propietarios, no como decorado exótico
-- **Terapia asistida con psilocibina** en Patagonia y Sierras de Córdoba — paisajes que potencian la experiencia terapéutica
-- **Cannabis + vino** en Mendoza — enoturismo expandido a una experiencia sensorial completa
-- **Integración PLAN24CN**: nuevas ciudades con infraestructura de turismo terapéutico desde el diseño
+La razón de encuadrarlo así es estratégica y está escrita en la Sección 2.5 de este mismo documento: si el país se lee como destino de fiesta, la industria seria no viene, y el pilar de investigación de la Sección 9.2 muere antes de nacer. Un país no puede ser Ámsterdam y Basilea al mismo tiempo.
 
-Rango de precio: USD 3,000-15,000 por semana en retiros premium. **20,000-50,000 empleos** en hospitalidad, guía terapéutica, logística, gastronomía, transporte.
+- **Retiros ceremoniales** en el Norte Argentino (Salta, Jujuy, Misiones) — comunidades indígenas como facilitadoras y copropietarias, nunca como decorado exótico, y solo las que **deciden** recibir visitantes. La atestación comunitaria no es transferible (Sección 5.1), de modo que el operador comercial no puede colgarse de la exención
+- **Terapia asistida con psilocibina** en Patagonia y Sierras de Córdoba — con la ventaja competitiva que la Sección 29.3 desarrolla: paisaje **y** terapia intensiva a distancia de ambulancia
+- **Circuitos de integración** post-sesión, que son un servicio en sí mismo y hoy no los ofrece prácticamente nadie en el mundo
+- **Integración PLAN24CN**: nuevas ciudades con infraestructura de tratamiento desde el diseño
+
+Rango de precio de referencia: USD 3,000-15,000 por semana, y **20,000-50,000 empleos** en hospitalidad, acompañamiento terapéutico, logística, gastronomía y transporte. Las dos cifras son estimaciones propias sin fuente externa verificada y así hay que leerlas hasta que la Pre-Fase las mida.
+
+Todo lo operativo de este pilar —certificación de centros, seguro, protocolo de evento adverso, régimen fiscal del visitante— vive en la Sección 29. Acá solo se describe el pilar productivo.
 
 ### 9.5 Pilar 5: Cáñamo Industrial
 
