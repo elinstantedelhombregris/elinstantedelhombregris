@@ -86,7 +86,16 @@ export const PROHIBIDOS: { patron: string; excepcion?: string; porque: string }[
  * Cláusulas cuya AUSENCIA es el defecto. Se verifican en forma AFIRMATIVA
  * porque un prohibido no serviría.
  */
-export const CANDADOS: { ancla: string; desc: string }[] = [];
+export const CANDADOS: { ancla: string; desc: string }[] = [
+  {
+    ancla: 'atestación comunitaria no es transferible',
+    desc: 'E2: cierra el paraguas de la exención ceremonial — sin esto, el retiro comercial se cuelga de la Vía Ceremonial',
+  },
+  {
+    ancla: 'Sub-carril de no residentes',
+    desc: 'E3: la Vía Terapéutica estaba escrita entera para pacientes argentinos con PMO',
+  },
+];
 
 /** Corta el cuerpo en oraciones. Unidad de medida de cifras y prohibidos. */
 function oraciones(raw: string): string[] {

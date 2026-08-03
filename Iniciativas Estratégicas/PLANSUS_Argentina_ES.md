@@ -488,6 +488,10 @@ Las plantas sagradas no son "drogas." Son tecnologías espirituales desarrollada
 
 La Vía Ceremonial es la más simple porque es la más antigua. Estas prácticas existían antes del Estado argentino, antes de la Constitución, antes de la idea misma de "regular sustancias." PLANSUS no las autoriza — eso sería arrogancia. Las reconoce. Y retira al Estado de un espacio donde nunca debió meterse.
 
+**El candado: la atestación comunitaria no es transferible y no se alquila.** La exención existe para reconocer una práctica ancestral, no para darle cobertura fiscal y regulatoria a la industria del retiro. Un operador comercial no indígena que no pueda producir su propia atestación no entra por acá: se licencia por la Vía Terapéutica, con médico responsable, espacio habilitado e impuesto. Y conviene decir por qué existe esta línea, porque no es una hipótesis: es exactamente por ese hueco que se deformó el turismo de ayahuasca en el Perú, donde la ceremonia terminó de decorado de un negocio que ninguna comunidad controlaba.
+
+Ojo con lo que este candado **no** hace. No le dice a ninguna comunidad a quién puede recibir — eso sería volver a meter al Estado en el espacio del que acaba de retirarse, dos párrafos más arriba, en este mismo documento. Regula quién puede invocar la atestación **ajena**. La comunidad que decide abrir su ceremonia decide sola; el que no tiene comunidad no puede prestarse una.
+
 ### 5.2 Vía Terapéutica
 
 La revolución psicoterapéutica más importante del siglo XXI está ocurriendo ahora mismo. La psilocibina muestra eficacia superior a los antidepresivos convencionales para depresión resistente. La MDMA-asistida logra tasas de remisión del TEPT del 71% donde la terapia convencional logra el 48%. La ketamina interrumpe ideación suicida en horas. Australia ya lo legalizó en 2023. Oregon abrió su programa en 2023. La FDA está en proceso de aprobación. Y la Argentina — con su tradición de excelencia en salud mental, con su densidad de psicólogos por habitante entre las más altas del mundo — podría liderar este campo. Si deja de prohibir.
@@ -502,6 +506,9 @@ La revolución psicoterapéutica más importante del siglo XXI está ocurriendo 
 | **Impuesto** | Tasa reducida (5-8%) |
 | **Cobertura** | Inclusión progresiva en PMO para indicaciones con evidencia nivel I |
 | **Investigación** | Integración con CONICET, universidades nacionales, y red internacional de centros de investigación psicodélica |
+| **Sub-carril de no residentes** | El visitante extranjero entra por acá y solo por acá, con admisión clínica única previa al viaje (Sección 29). La exención ceremonial no le alcanza: tributa cualquiera sea la habitación a la que vaya |
+
+Esa última fila es nueva y arregla un supuesto que el documento arrastraba sin decirlo. Las cuatro vías estaban escritas enteras para argentinos —esta habla de cobertura progresiva en el PMO, que es una frase que solo tiene sentido para un residente— y el extranjero no aparecía en ninguna parte de la arquitectura de licencias. La Sección 29 lo trata en serio.
 
 ### 5.3 Vía Recreativa / Personal
 
