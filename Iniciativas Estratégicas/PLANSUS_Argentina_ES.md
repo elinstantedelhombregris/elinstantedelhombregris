@@ -2120,6 +2120,74 @@ Bajo PLANSUS, eso no pasa. El equipo europeo necesita consentimiento previo, lib
 
 ---
 
+## MARCOS DE ATRACCIÓN — CÓMO EL MUNDO LLEGA A LA ARGENTINA
+
+Las siete secciones anteriores construyen la implementación puertas adentro: cómo se banca, cómo se controla, cómo se maneja, cómo se cura, cómo se cultiva, cómo se protege el conocimiento. Este bloque mira para afuera y responde una pregunta que el documento, hasta acá, no se hizo nunca: **por qué alguien vendría.**
+
+Hay que decirlo sin adorno, porque es la debilidad de todo el plan. La Sección 9 describe con detalle qué produce la economía blanca — cannabis, psicodélicos, farmacéutica, turismo, cáñamo — y no explica en ninguna línea por qué un paciente, un investigador o una empresa elegiría la Argentina en vez de Lisboa, Basilea, Denver o Melbourne. Legalizar abre la puerta. No llena la casa.
+
+**Y el reloj corre.** Australia legalizó la terapia con MDMA y psilocibina en 2023; Oregon abrió su programa el mismo año; Portugal, Canadá, Uruguay, Suiza y media Europa vienen moviéndose desde hace una década, como documenta la Sección 2. En diez años, legalizar no va a distinguir a nadie. La ventana para ser **sede** en vez de ser un mercado más tiene fecha de vencimiento, y el resto de este documento la ignoraba.
+
+La respuesta de este bloque tiene un orden, y el orden es lo más importante que dice. Primero **la clínica** — los pacientes vienen acá. Después **el laboratorio** — la investigación se radica acá. Al final **la fábrica** — se produce y se exporta desde acá. Esa secuencia no es una preferencia estética: está ordenada por cuánta macroeconomía argentina necesita arreglada cada tramo. La clínica requiere una norma de certificación y una visa, y se puede empezar con el cepo puesto. El laboratorio requiere estabilidad jurídica con plazo cierto, y depende de PLANPACTO. La fábrica requiere poder sacar las utilidades del país, y depende de PLANMON. Un plan que promete inversión extranjera como si la ley de drogas fuera el cuello de botella miente: el cuello de botella es la macro, y este bloque lo dice con todas las letras en la Sección 30.
+
+Cuatro secciones. El activo, la puerta, el capital y la gente.
+
+---
+
+## SECCIÓN 28: EL REGISTRO — LA EVIDENCIA COMO ACTIVO NACIONAL
+
+> *"El país no vende retiros ni paisajes ni precios bajos. Vende la única cosa que la prohibición mundial dejó escasa: saber qué pasa de verdad cuando cien mil personas se tratan."*
+
+### 28.1 El activo que nadie más puede construir
+
+La investigación psicodélica del mundo tiene un techo, y no es científico ni económico: es legal. Los ensayos que la Sección 2.11 cita —Johns Hopkins, Imperial College, MAPS— trabajan con muestras de decenas de sujetos, no porque no consigan financiamiento sino porque cada participante requiere una excepción regulatoria que cuesta años tramitar. Oregon tiene un programa en un estado. Australia abrió un carril clínico angosto y supervisado. Suiza otorga autorizaciones caso por caso. Los Países Bajos toleran sin regular.
+
+Para producir evidencia a escala hacen falta dos cosas al mismo tiempo: **legalidad a nivel nacional y volumen**. Ninguna jurisdicción del planeta tiene hoy las dos, y no las va a tener mientras siga legalizando por pedacitos. Argentina las va a tener el día que este plan se sancione, porque legaliza el país entero.
+
+Ahí está el activo. No en las plantas — las plantas las va a tener medio mundo en diez años. No en el paisaje, que Nueva Zelanda y Costa Rica también tienen. No en el precio, que siempre lo va a ganar alguien más pobre. **En el dato.**
+
+### 28.2 Qué es el Registro
+
+El **Registro Nacional de Resultados Terapéuticos** es el repositorio público de los resultados de cada tratamiento realizado bajo las vías Terapéutica y Ceremonial de este plan, con consentimiento de la persona tratada. Instrumentos validados internacionalmente para que los datos sean comparables con la literatura existente. Medición basal antes de la primera sesión, y seguimiento a la semana, al mes, a los tres meses y al año.
+
+Y acá aparece la economía elegante de este diseño: **el seguimiento clínico y la captura del dato son exactamente el mismo mecanismo.** La persona que se trata necesita integración post-sesión por razones médicas — es un requisito de la Vía Terapéutica desde la Sección 5.2, y para el visitante extranjero que se vuelve a su país es directamente una cuestión de seguridad, como desarrolla la Sección 29.7. Ese protocolo de seguimiento, que hay que construir de todos modos, es el que llena el Registro. Una sola inversión, dos resultados: la persona queda acompañada y el país queda con la evidencia.
+
+### 28.3 Consentimiento
+
+El dato es de la persona antes que del Estado, y el diseño lo refleja: consentimiento **granular** — se puede aceptar el seguimiento clínico y rechazar el uso investigativo, o aceptar el uso público y rechazar el comercial —, **revocable** en cualquier momento y sin explicar por qué, y con opción de participar **sin identificación**, aportando el resultado sin aportar el nombre.
+
+Un registro construido sobre consentimientos arrancados no serviría ni éticamente ni científicamente: la gente que se siente vigilada miente en los cuestionarios, y un dato mentido contamina el activo entero.
+
+### 28.4 Soberanía del dato
+
+El Registro se constituye como **fideicomiso público bajo ley argentina**. De ahí se derivan tres reglas que no se negocian:
+
+- **No se vende.** Ni entero, ni por partes, ni bajo la forma de una sociedad que lo administre.
+- **No se exporta como base.** Se consulta contra servidores en territorio argentino; nadie se lleva una copia.
+- **No se licencia en propiedad.** Se da **acceso**, que es una cosa distinta y revocable.
+
+El acceso es gratuito para la investigación pública argentina y para el sistema de salud; arancelado para el uso comercial, con arancel escalonado según el tamaño del solicitante, de manera que un laboratorio nacional pequeño no pague lo mismo que una multinacional.
+
+### 28.5 Lo que se lleva quien usa el Registro
+
+Toda publicación derivada del Registro lleva **coautoría argentina** — investigadores de las instituciones que lo sostienen, no como cortesía sino como condición de acceso. Y toda patente que use datos del Registro como evidencia de respaldo reconoce **participación argentina** en su titularidad o en sus regalías.
+
+Esto no es proteccionismo: es la aplicación directa de lo que la Sección 27 ya construyó para el conocimiento tradicional, extendida al conocimiento nuevo. El principio es el mismo en los dos casos — **el que aporta el saber participa de lo que ese saber produce.** Sería incoherente defender a las comunidades del NOA de la biopiratería y después regalar el corpus clínico nacional.
+
+### 28.6 Gobernanza
+
+El Registro lo gobierna un consejo con cuatro patas: **ANSUS** (regulación), **ANMAT** (estándar clínico), **CONICET** (integridad científica) y un **comité de personas tratadas** —gente que pasó por los tratamientos que el Registro documenta— **con voto, no consultivo**. La diferencia entre voto y consulta es toda la diferencia: un comité consultivo se escucha cuando conviene.
+
+### 28.7 Por qué esto también es el seguro contra el enclave
+
+La historia económica argentina tiene un patrón que conviene no repetir: llega capital extranjero, extrae el recurso, y se va cuando el recurso baja de precio o cuando el país se complica. Pasó con el quebracho, con el petróleo en más de un ciclo, y con buena parte de la minería.
+
+Si el activo de este plan fuera la tierra o la mano de obra barata, pasaría exactamente lo mismo. Pero **un registro público bajo ley argentina no se puede meter en un contenedor.** El que quiera trabajar con la mejor evidencia del mundo en terapias psicodélicas va a tener que venir a donde está, aceptar las condiciones de acceso, y publicar con argentinos al lado. El activo no es transportable, y esa es su mejor defensa.
+
+Este bloque tiene su casa conceptual en **PLANPREGUNTA**, el mandato del conocimiento: el Registro es, en los hechos, el mayor bien público de investigación que la Argentina construiría en una generación, y nace de un plan que empezó hablando de cárceles.
+
+---
+
 *PLANSUS — Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido*
 *Sexto Mandato ¡BASTA!*
 *República Argentina — Marzo 2026 — Versión 1.0*
