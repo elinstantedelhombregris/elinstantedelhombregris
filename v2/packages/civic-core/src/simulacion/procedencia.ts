@@ -49,10 +49,9 @@ const TIPOS: readonly string[] = ['medido', 'declarado', 'derivado'];
 export function esMagnitud(valor: unknown): valor is Magnitud {
   if (typeof valor !== 'object' || valor === null) return false;
   const candidato = valor as Record<string, unknown>;
-  if (typeof candidato['valor'] !== 'number' || typeof candidato['unidad'] !== 'string') {
-    return false;
-  }
-  const proc = candidato['procedencia'];
+  if (typeof candidato.valor !== 'number' || typeof candidato.unidad !== 'string') return false;
+  const proc = candidato.procedencia;
   if (typeof proc !== 'object' || proc === null) return false;
-  return TIPOS.includes((proc as Record<string, unknown>)['tipo'] as string);
+  const tipo = (proc as Record<string, unknown>).tipo;
+  return typeof tipo === 'string' && TIPOS.includes(tipo);
 }
