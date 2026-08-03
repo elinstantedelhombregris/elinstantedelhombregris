@@ -70,6 +70,8 @@ export const SECCIONES_ESPERADAS: string[] = [
   '## MARCOS DE ATRACCIÓN — CÓMO EL MUNDO LLEGA A LA ARGENTINA',
   '## SECCIÓN 28: EL REGISTRO — LA EVIDENCIA COMO ACTIVO NACIONAL',
   '## SECCIÓN 29: LA PUERTA CLÍNICA — EL PACIENTE QUE VIENE DE AFUERA',
+  '## SECCIÓN 30: EL RÉGIMEN DE ATRACCIÓN — CAPITAL, EMPRESAS Y EL PROBLEMA ARGENTINO',
+  '## SECCIÓN 31: EL TALENTO — QUIÉN VIENE, QUIÉN VUELVE',
   '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
   '## Parche post-auditoría 2026-04-26',
 ];
@@ -91,6 +93,16 @@ export const CIFRAS_CANONICAS: { cifra: string; domicilio: string[]; desc: strin
     cifra: 'cuatro millones de personas',
     domicilio: ['ICEERS'],
     desc: 'el denominador. Sin él, el numerador miente',
+  },
+  {
+    cifra: '0,10% del PBI',
+    domicilio: ['piso'],
+    desc: 'el piso de PLANSUS. Nunca escribir «no pide piso»: es falso y el canon lo desmiente',
+  },
+  {
+    cifra: '2,40%',
+    domicilio: ['Escalera'],
+    desc: 'lo que la Escalera de PLANPACTO conserva del gasto primario consolidado',
   },
 ];
 

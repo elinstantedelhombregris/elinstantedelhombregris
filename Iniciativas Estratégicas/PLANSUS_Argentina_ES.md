@@ -2295,6 +2295,96 @@ Le compite a Suiza por credibilidad, a una fracción del precio suizo. Marco leg
 
 ---
 
+## SECCIÓN 30: EL RÉGIMEN DE ATRACCIÓN — CAPITAL, EMPRESAS Y EL PROBLEMA ARGENTINO
+
+> *"Hay una manera rápida de descubrir si un plan argentino de atracción de inversiones es serio: fijarse si menciona cómo se sacan las utilidades del país. Los que no lo mencionan no son planes — son folletos."*
+
+Esta sección arranca reconociendo algo que el resto del documento no dice: **la ley de drogas no es el cuello de botella.**
+
+Se puede sancionar el marco regulatorio más avanzado del planeta y no ver aterrizar un solo laboratorio. No porque la regulación falle, sino porque ninguna empresa muda un pipeline de investigación de diez años a un país donde las reglas cambian cada elección, y ninguna inmoviliza capital donde no sabe si va a poder repatriar la utilidad. Ese es un problema macroeconómico argentino, es anterior a este plan, y PLANSUS no lo resuelve.
+
+Lo que sí puede hacer es dos cosas. Ser honesto sobre qué depende de otros y qué no. Y entregar completo lo poco que depende solo de él, que resulta ser lo que más importa.
+
+### 30.1 Qué necesita de verdad una empresa para venir
+
+En orden de importancia real, que es casi el inverso del que usan los regímenes de promoción argentinos:
+
+1. **Previsibilidad regulatoria.** Saber cuánto tarda un trámite. No que sea rápido — que sea *predecible*.
+2. **Estabilidad de reglas con plazo cierto.** Un horizonte escrito, no una promesa de gestión.
+3. **Repatriación de utilidades.** Poder sacar lo ganado.
+4. **Incentivo fiscal.** Recién acá.
+
+La mayoría de los regímenes argentinos de las últimas décadas empezaron por el cuarto y no resolvieron los tres primeros. Por eso atrajeron capital financiero de corto plazo y no industria.
+
+### 30.2 El producto real es el tiempo
+
+En biotecnología la moneda no es el impuesto: es el calendario. Un ensayo clínico que empieza dieciocho meses antes vale más que cualquier exención, porque adelanta dieciocho meses toda la curva de ingresos de la molécula y descuenta dieciocho meses de patente vencida.
+
+Por eso el instrumento central de esta sección no es tributario. Es un **acuerdo de nivel de servicio vinculante** de ANSUS y ANMAT: plazos máximos publicados para cada tipo de trámite —autorización de ensayo, habilitación de centro, registro de producto, importación de comparador—, con **penalidad automática por incumplimiento** a favor del solicitante y publicación mensual del cumplimiento efectivo.
+
+Un plazo sin penalidad es una expresión de deseo. Un plazo con penalidad es un contrato, y un contrato es lo que una empresa puede llevarle a su directorio.
+
+Esto es lo único de la lista de 30.1 que PLANSUS puede entregar por sí mismo, sin depender de la política monetaria ni de un acuerdo federal. Y da la casualidad de que es el primero de la lista.
+
+### 30.3 Régimen de estabilidad sectorial, con obligaciones
+
+Estabilidad de las reglas aplicables a la actividad por un plazo cierto, para quien invierta por encima de un umbral y se registre.
+
+Y **con obligaciones**, porque un régimen de estabilidad sin contrapartida no es un régimen: es un regalo con formato de norma. Las obligaciones son cuatro y se pactan al ingresar:
+
+- **Transferencia tecnológica** verificable a una institución pública argentina.
+- **Copropiedad local** de la unidad productiva o del desarrollo, en proporción a definir por actividad.
+- **Coautoría argentina** en la producción científica derivada, en los términos de la Sección 28.5.
+- **Participación argentina** en las patentes que usen el Registro como evidencia de respaldo.
+
+El que no las acepta puede invertir igual. Simplemente no entra al régimen.
+
+### 30.4 El enclave, dicho de frente
+
+El riesgo tiene nombre y tiene antecedentes argentinos: llega capital, extrae el recurso, y se va cuando el precio baja o el país se complica. Pasó con el quebracho y pasó en más de un ciclo del petróleo y de la minería. Sería ingenuo suponer que esta industria es distinta por ser nueva.
+
+Las obligaciones de 30.3 son la primera defensa. La segunda es estructural y ya quedó explicada en la Sección 28.7: **el activo principal de este plan no es transportable.** El que quiera trabajar con la mejor evidencia clínica del mundo en terapias psicodélicas tiene que venir a donde está, porque el Registro no sale del país. Un yacimiento se agota y el que lo explotó se va; un registro se vuelve más valioso cada año y sigue siendo argentino.
+
+### 30.5 Las compuertas que PLANSUS no controla
+
+Acá está la parte incómoda, y va escrita como compuerta con la misma mecánica de la Sección 18, no como promesa.
+
+| Tramo | Qué necesita | De quién depende | Se puede empezar hoy |
+|---|---|---|---|
+| **La clínica** (Sección 29) | Norma de certificación y régimen de visas | De nadie más | **Sí** |
+| **El laboratorio** | Estabilidad jurídica con plazo cierto | PLANPACTO | No |
+| **La fábrica** | Repatriación de utilidades | PLANMON | No |
+
+Por eso este bloque se construye en ese orden. La clínica es capital-liviana: no requiere cientos de millones de inversión extranjera, requiere una norma y una visa, y funciona con las restricciones cambiarias puestas. El laboratorio y la fábrica no arrancan hasta que sus compuertas se abran, y **PLANSUS no tiene manera de abrirlas**.
+
+Conviene decir la consecuencia completa: **si esas compuertas no se abren nunca, este bloque vale igual.** La clínica es autónoma por diseño, produce divisas, empleo territorial y —sobre todo— el Registro de la Sección 28, que es el activo que va a estar esperando el día que la macroeconomía argentina se ordene. Un plan que solo sirve si todo lo demás sale bien no es un plan: es una condición.
+
+### 30.6 Lo que PLANSUS pide y lo que devuelve
+
+Una última cuenta, porque en la discusión presupuestaria del proyecto ¡BASTA! este plan tiene una posición que conviene no exagerar ni subestimar.
+
+PLANSUS **sí reclama un piso**, y ese piso es de **0,10% del PBI** — el más chico del conjunto, empatado con PLANEB y PLANISV, contra el 0,50-1,50% de PLANSAL o el 0,50-1,0% de PLANDIG. Y del otro lado del mostrador, la **Escalera** de PLANPACTO conserva **2,40%** del gasto primario consolidado para repartir entre todos los mandatos que reclaman piso, cuando lo que el corpus reclama por escrito suma bastante más que eso.
+
+La formulación correcta es entonces esta, y no una más cómoda: **PLANSUS pide el piso más chico del conjunto y es el que más rápido lo devuelve.** La Sección 13.4 ya proyecta autofinanciamiento desde el primer tranche; este bloque agrega divisas por tratamiento de no residentes sin pedir un peso adicional del Techo. Decir «PLANSUS no pide piso» sería más lindo y sería falso.
+
+---
+
+## SECCIÓN 31: EL TALENTO — QUIÉN VIENE, QUIÉN VUELVE
+
+> *"Un hub sin gente es un parque industrial vacío con muy buena señalización."*
+
+La Sección 9.2 dice una frase que este documento nunca terminó de asumir: la Argentina «tiene neurocientíficos de clase mundial y les paga sueldos de miseria». Muchos ya se fueron. Esta sección es la contracara operativa de esa frase.
+
+**Visa de investigador.** Residencia temporaria de tramitación acelerada para investigadores, técnicos de laboratorio y profesionales formados en terapias asistidas, con la institución receptora como garante y sin exigencia de reválida previa para tareas de investigación —la reválida se tramita mientras se trabaja, no antes.
+
+**Visa de paciente.** Estadía corta de propósito específico, atada a la admisión clínica única de la Sección 29.4: la constancia de admisión es el respaldo del trámite. Sin ese documento no hay visa, lo que además cierra por vía migratoria el paso al visitante que quiso saltearse el tamizaje.
+
+**Programa de retorno.** Convocatoria específica para investigadores argentinos en el exterior en neurociencia, psiquiatría, farmacología y química de productos naturales, con financiamiento de repatriación, cargo garantizado por un plazo mínimo y acceso al Registro de la Sección 28 como argumento central — porque a un investigador serio no se lo trae con un sueldo, se lo trae con un dataset que no puede conseguir en otro lado.
+
+Todo esto se apoya en **PLANPUERTA**, el mandato migratorio, y adopta su criterio rector: se mide por **arraigo, no por llegadas**. Es exactamente lo que corresponde acá. Un investigador que viene tres años, publica y se va dejó papers; uno que se queda deja discípulos. Y en materia de formación local, esta sección no inventa nada: extiende el pipeline de capacitación de la Sección 25.3, que ya construye facilitadores, técnicos de control de calidad y agrónomos.
+
+---
+
 *PLANSUS — Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido*
 *Sexto Mandato ¡BASTA!*
 *República Argentina — Marzo 2026 — Versión 1.0*
