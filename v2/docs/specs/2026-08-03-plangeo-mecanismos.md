@@ -2,7 +2,7 @@
 
 **Fecha:** 2026-08-03
 **Documento objetivo:** `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md` (ordinal 12, v1.1, 1.570 líneas, 25 secciones)
-**Salida:** un bloque nuevo de tres secciones (S26–S28), nueve ediciones forzadas sobre secciones existentes, y una entrada de deuda propia
+**Salida:** un bloque nuevo de tres secciones (S26–S28), diez ediciones forzadas sobre secciones existentes, y una entrada de deuda propia
 **Plan de implementación:** `v2/docs/plans/2026-08-03-plangeo-mecanismos.md` (9 tareas; arranca por las verificaciones, no por la guardia)
 **Precedente de estilo:** `v2/docs/specs/2026-08-03-plansus-marcos-de-atraccion.md`
 
@@ -12,10 +12,11 @@
 > en patrullaje naval, USD 200-400M en un Comando de Ciberdefensa con «capacidad ofensiva
 > disuasoria»— y Argentina no puede pagar ninguna de esas peleas ni ganarlas si las pagara.
 > **Un país que no puede costear enforcement tiene que diseñar reglas que no lo necesiten.**
-> Los siete mecanismos de este bloque comparten una sola forma: el adversario, actuando en su
+> Los ocho mecanismos de este bloque comparten una sola forma: el adversario, actuando en su
 > propio interés, ejecuta la defensa argentina. No hay funcionario que pueda ceder bajo presión,
 > porque la defensa no vive en una decisión — vive en un contrato, en un dato público o en una
-> regla de compra.
+> regla de compra. El octavo protege a los otros siete de lo único que puede desarmarlos:
+> el paso del tiempo argentino.
 
 ---
 
@@ -58,7 +59,9 @@ Un mecanismo entra a este bloque si cumple las cuatro condiciones. Si falla una,
 
 De esas cuatro, la tercera es la que más importa y la que el corpus no tiene escrita en ninguna parte. **PLANGEO S22.3 blinda a ¡BASTA! contra el cambio de gobierno, pero nada blinda al funcionario contra la llamada de un martes a la tarde.** La captura de una política pública casi nunca es un decreto: es una serie de cesiones chicas que nadie registra. Un mecanismo que vive en un contrato no cede porque no tiene con qué.
 
-**Corolario presupuestario.** PLANGEO es `budget_class: XS`, `phase: research-only` en `PLAN_REGISTRY.yml`, y la cabecera del documento lo declara sin presupuesto operativo. Ese no es un obstáculo para este bloque — **es su argumento.** Seis de los siete mecanismos tienen costo marginal cercano a cero porque son normas, cláusulas o datos. El único con costo de capital real (la constelación de monitoreo del S27.1) cuesta una fracción de la línea naval de USD 500-800M que ya está presupuestada en S18.1, y la reemplaza.
+**La condición 3 tiene una segunda cara, temporal, y es la que casi se nos escapa.** Un mecanismo sin punto de cesión humano sigue teniendo un punto de cesión *político*: el gobierno que viene. Cuatro de los siete anteriores —el commons antártico sobre todo— solo valen si se sostienen dos décadas, y sostener algo dos décadas es precisamente lo que la Argentina no hace. De ahí sale el octavo, la S26.7, que no es un mecanismo más al lado de los otros: **es el que hace que los otros duren.**
+
+**Corolario presupuestario.** PLANGEO es `budget_class: XS`, `phase: research-only` en `PLAN_REGISTRY.yml`, y la cabecera del documento lo declara sin presupuesto operativo. Ese no es un obstáculo para este bloque — **es su argumento.** Siete de los ocho mecanismos tienen costo marginal cercano a cero porque son normas, cláusulas o datos. El único con costo de capital real (la constelación de monitoreo del S27.1) cuesta una fracción de la línea naval de USD 500-800M que ya está presupuestada en S18.1, y la reemplaza.
 
 ---
 
@@ -75,8 +78,9 @@ El bloque no puede presentarse como si PLANGEO no tuviera nada. Tiene. La honest
 | Cláusula del Buitre | Nada. S17.4 habla del FMI, no de jurisdicción de deuda | Todo |
 | Registro de Presión | Nada | Todo |
 | Anexo ABACC | Nada | Todo |
+| Compromiso de Horizonte | S22.3 blinda contra el cambio de gobierno **por vía constitucional** — lento, caro, y reversible por la misma vía que lo creó | La dirección inversa: el compromiso se escribe **hacia afuera**, con contrapartes que no votan en Argentina. Y el test de tres condiciones que impide que sea captura |
 
-Tres piezas son extensiones con vuelta de tuerca y van como sub-secciones que **remiten explícitamente** a lo que extienden. Cuatro son nuevas.
+Cuatro piezas son extensiones con vuelta de tuerca y van como sub-secciones que **remiten explícitamente** a lo que extienden. Cuatro son nuevas.
 
 ---
 
@@ -94,9 +98,10 @@ PLANGEO es `mission_matrix: Ámbar`, `public_visibility: interno`, y la correcci
 | Feed abierto de monitoreo | **Sí** | Es publicación de datos. S21.2 ya consagra «transparencia total como arma» |
 | Anexo ABACC | **Sí, y conviene** | Es no proliferación. Refuerza el perfil argentino ante el régimen que más podría castigarlo |
 | Ley del Segundo Proveedor | **Sí** | Es una norma de compras públicas. Se justifica por competencia antes que por seguridad |
+| Compromiso de Horizonte | **Sí** | Es un contrato de cooperación con publicación de cumplimiento. Lo contrario de confrontativo: la contraparte gana |
 | **Registro de Presión** | **No en tranche-1** | Es el único abrasivo del bloque. Publicar que una embajada llamó es un acto diplomático, aunque el instrumento sea un archivo |
 
-Seis de siete pasan el filtro Ámbar sin modificación. El séptimo se escribe completo en el documento y se le pone compuerta declarada de tranche, con la mecánica que PLANGEO ya usa en S11.2 (secuenciamiento) y S22 (protocolos de falla). **No se recorta el diseño para que entre: se declara cuándo entra.**
+Siete de ocho pasan el filtro Ámbar sin modificación. El octavo se escribe completo en el documento y se le pone compuerta declarada de tranche, con la mecánica que PLANGEO ya usa en S11.2 (secuenciamiento) y S22 (protocolos de falla). **No se recorta el diseño para que entre: se declara cuándo entra.**
 
 Escribir el Registro de Presión aunque no se active todavía tiene valor propio, y hay que decirlo en el documento: la pieza que blinda al funcionario contra la cesión silenciosa es la que más tarda en construirse políticamente. Si no está escrita, en tranche-3 no va a existir.
 
@@ -118,6 +123,8 @@ Epígrafe propuesto: *«Un acuerdo bien escrito es un ejército que no come.»*
 - **26.4 La Cláusula Espejo.** En contratos de inversión extranjera, concesiones y licencias: si el Estado de origen o de control efectivo del inversor adopta sanciones contra la Argentina, la resolución de controversias pasa a tribunales argentinos y se suspende la repatriación de utilidades mientras la medida esté vigente. **Convierte cada dólar extranjero invertido en un lobbista contra sancionar a la Argentina.** Simétrica, publicada, no discriminatoria por país. Cuanto más penetrada la economía, más fuerte la defensa: la vulnerabilidad que S11 registra como amenaza pasa a ser amortiguador.
 - **26.5 Lo que sigue vivo de 2015.** La Resolución 69/319 de la Asamblea General —Principios Básicos sobre Reestructuración de Deuda Soberana, impulsados por la Argentina, aprobados por amplia mayoría, no vinculantes, jamás implementados por nadie— es la victoria diplomática más grande y más desaprovechada del período. Implementarlos unilateralmente y ofrecer el Tribunal Arbitral de Deuda Soberana a la Red Soberana (S10). *(Cifras exactas de la votación: ver §11, bloqueante.)*
 - **26.6 Costo declarado.** Sobretasa estimada en la emisión. **No inventar el número:** encargar la estimación y dejar el rango como tarea de la Pre-Fase, con el precedente de PLANSUS a la vista — una cifra sin modelo es una deuda con fecha.
+- **26.7 El Compromiso de Horizonte.** *La pieza que sostiene a las otras siete.* El commons antártico rinde en 2048; el corpus, el banco de germoplasma y el examen de modelos rinden a quince o veinte años. Son cinco o seis gobiernos. **La Argentina no sostiene nada dos décadas, y ese es el defecto que ¡BASTA! existe para corregir.** S22.3 lo enfrenta con blindaje constitucional, que es lento, caro, y reversible por la misma vía que lo creó. El mecanismo es el inverso: para la clase acotada de compromisos que solo valen a veinte años, **el compromiso no se escribe hacia adentro sino hacia afuera** — contrato de horizonte con las contrapartes externas que usan el activo (los países del commons antártico, los amarrados al cable, los que adoptaron el examen), con aporte comprometido, obligación recíproca, penalidad y publicación anual del cumplimiento de cada parte. Derogar una ley argentina no le cuesta nada a un gobierno argentino el primer día; incumplirle a treinta países le cuesta en todos los foros donde después va a necesitar algo. **Se externaliza el compromiso para que sobreviva a la política doméstica.** Es la condición 3 del §2 llevada al final: no hay funcionario que pueda ceder, y ahora tampoco hay gobierno que pueda.
+- **26.8 El límite del Horizonte, que hay que escribir en la misma sección.** Un mecanismo que ata a los gobiernos que vienen es, literalmente, lo que hace un tecnócrata para escapar del control democrático — y este es el PLAN de un proyecto cuya premisa es que la gente gobierna. **La contradicción es real y no se resuelve declamando que esta vez es por una buena causa.** Se resuelve acotando la clase: un compromiso solo entra al Horizonte si cumple las tres condiciones, verificables una por una. **(a) Preserva opciones, no impone políticas** — mantener abierto el commons antártico no le dice a un gobierno futuro qué hacer con la Antártida; le impide destruir el activo con el que va a decidir. **(b) Es recíproco** — Argentina recibe tanto como entrega, así que no es una atadura unilateral sino un intercambio del que salir tiene costo porque se pierde algo, no porque se castiga. **(c) Pasó por el mecanismo popular de decisión que ¡BASTA! establece**, no por firma de canciller. Un compromiso que impone una política, que no da nada a cambio, o que no fue decidido popularmente, **no es Horizonte: es captura con otro nombre.** El documento tiene que enunciar las tres como test, y tiene que decir qué queda afuera por aplicarlas.
 
 ### S27 — LA VISIBILIDAD COMO PODER
 
@@ -128,7 +135,7 @@ Epígrafe propuesto: *«No hay que perseguirlos. Hay que hacer que sean vistos.�
 - **27.3 La capa que aplica el castigo.** Ningún pesquero de altura opera sin cobertura de protección e indemnización. Cuando el feed argentino es el mejor dato disponible y es gratis, se vuelve el que la mesa de suscripción usa — y un buque con historial de apagones documentado pasa a ser riesgo no suscribible. **El punto de estrangulamiento del saqueo del Atlántico Sur no está en el agua: está en una mesa de suscripción en Londres.** Argentina no sanciona, no persigue, no rompe con nadie, no gasta en enforcement. Solo hace visible.
 - **27.4 Reemplazo de la línea naval.** Consecuencia presupuestaria explícita sobre S18.1: **la línea de USD 500-800M en capacidad naval se reasigna**, no se suma. Una corbeta patrulla un punto por vez y llega tarde; el problema es de cobertura y de mercado, no de intercepción. *(Rango de reasignación: pendiente de estimación, ver §11.)*
 - **27.5 El Registro de Presión.** *Compuerta de tranche declarada — no antes de tranche-3.* Todo funcionario que reciba de un gobierno extranjero, organismo multilateral, transnacional o representante de acreedores un pedido, sugerencia o advertencia sobre política pública argentina lo registra en 72 horas: quién, cuándo, qué pidió, qué ofreció, qué insinuó como consecuencia. Publicación inmediata. **No prohíbe pedir.** Abre una tenaza sin salida: si piden igual, el costo político lo paga el que presiona ante su propia opinión pública; si dejan de pedir, ya ganaste. El valor mayor es interno y hay que escribirlo así: **le saca al funcionario el peso de tener que ser valiente.** Deja de ser una decisión de coraje y pasa a ser un trámite cuya omisión es falta grave.
-- **27.6 El commons antártico.** *Extiende S5 (reloj 2048) y S20.1.1 (Ushuaia).* Toda campaña que zarpa de Ushuaia aporta sus datos científicos a un repositorio abierto alojado en el nodo austral de ArgenCloud, con DOI argentino, acceso libre y sin reclamo de propiedad. S5.475 ya dice que cada dataset compartido «cuenta en 2048» y nunca dice dónde vive. **La estrategia no es reclamar: es que en 2048 la pregunta haya dejado de ser de quién es y haya pasado a ser quién sabe** — y que la respuesta esté escrita en veinte años de citas. Es la Diplomacia de Código (S21.7) aplicada al hielo.
+- **27.6 El commons antártico.** *Extiende S5 (reloj 2048) y S20.1.1 (Ushuaia). Se sostiene con S26.7 — sin el Horizonte, esta sub-sección es una promesa a veintidós años sin nada que la ate, y hay que remitir de forma explícita porque es la dependencia interna más fuerte del bloque.* Toda campaña que zarpa de Ushuaia aporta sus datos científicos a un repositorio abierto alojado en el nodo austral de ArgenCloud, con DOI argentino, acceso libre y sin reclamo de propiedad. S5.475 ya dice que cada dataset compartido «cuenta en 2048» y nunca dice dónde vive. **La estrategia no es reclamar: es que en 2048 la pregunta haya dejado de ser de quién es y haya pasado a ser quién sabe** — y que la respuesta esté escrita en veinte años de citas. Es la Diplomacia de Código (S21.7) aplicada al hielo.
 
 ### S28 — LA CAPACIDAD QUE YA EXISTE
 
@@ -156,16 +163,17 @@ Epígrafe propuesto: *«No hay que construirlas. Hay que darse cuenta de que est
 | 7 | S20.1.1 y S5 (bloque 2048) | Remisión a S27.6 | El reloj 2048 y el hub austral existen sin la pieza que los conecta |
 | 8 | S22.2 (sanciones financieras) | Agregar Cláusula Espejo y Cláusula del Buitre al bloque de pre-sanción | El protocolo actual es 100% reactivo salvo por el colchón financiero |
 | 9 | S24.1 | Tabla de servicio a cada PLAN: filas nuevas de PLANMON (jurisdicción de deuda), PLANSEG (armas) y PLANTER (mar) | La tabla es el índice de integración y quedaría desactualizada |
+| 10 | S22.3 | Blindaje institucional: agregar el Horizonte como **complemento** del blindaje constitucional, con remisión a S26.7 y S26.8 | S22.3 hoy propone una sola vía —constitucionalizar— para un problema que tiene dos caras. Si el Horizonte no se ancla ahí, el documento propone dos respuestas al mismo problema en dos lugares sin saber una de la otra |
 
 ### 6.bis Las remisiones que estas ediciones mueven
 
-**Corrección al §5.** La decisión de apendar sin renumerar evita romper remisiones por *ordinal*, pero no alcanza: el corpus cita a PLANGEO **por número de línea**, y las nueve ediciones forzadas corren líneas. Verificado con `grep -rn 'PLANGEO:[0-9]'`:
+**Corrección al §5.** La decisión de apendar sin renumerar evita romper remisiones por *ordinal*, pero no alcanza: el corpus cita a PLANGEO **por número de línea**, y las diez ediciones forzadas corren líneas. Verificado con `grep -rn 'PLANGEO:[0-9]'`:
 
 | Ancla | Qué hay ahí | Quién la cita | ¿La mueven las ediciones? |
 |---|---|---|---|
 | `PLANGEO:199-207`, `:207`, `:223` | El «cero lock-in» del Stack y la tabla de módulos | PLANPREGUNTA (documento, copia pública, `.mdx` de v2), `arquitecto-data.ts:711` (arista `d200`), plan del tramo D | **No.** Toda edición forzada cae por debajo de la línea 425 |
 | `PLANGEO:425` | Agencia del Litio del Cono Sur | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:397` | **No.** La edición más alta es la de S5 (~469), que está por debajo |
-| `PLANGEO:1148-1149`, `:1151` | Adopción municipal de la Red Soberana (S21.1) | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:402` | **Sí — siete de las nueve ediciones las corren.** S5, S11, S17.4, S18.1, S18.2.4, S19.3 y S20.1 están todas por encima de 1148 |
+| `PLANGEO:1148-1149`, `:1151` | Adopción municipal de la Red Soberana (S21.1) | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:402` | **Sí — siete de las diez ediciones las corren.** S5, S11, S17.4, S18.1, S18.2.4, S19.3 y S20.1 están todas por encima de 1148. Las tres restantes (S22.2, S22.3, S24.1) caen por debajo y no las mueven |
 
 Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho remisiones de PLANARCO, y esta vez se detectó antes. Tres consecuencias para el plan:
 
@@ -190,6 +198,8 @@ Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho r
 | **PLANPACTO** | Confirmar que el bloque no abre piso nuevo |
 | **PLANFOCO** | El Registro de Presión (S27.5) es palabra pública; la compuerta de tranche debe ser coherente con su régimen |
 | **PLANSEG** | El hueco declarado de armas civiles **queda fuera de este bloque** — es seguridad interna, no coerción externa. Se anota como pendiente de PLANSEG, no se anexa acá |
+| **PLANMESA** | **Dependencia dura del Horizonte.** La condición (c) de S26.8 —que el compromiso haya pasado por el mecanismo popular de decisión— necesita que ese mecanismo exista y esté nombrado. Si PLANMESA no lo provee, el Horizonte no tiene cómo distinguirse de un acuerdo de canciller y **no se escribe** |
+| **PLANPACTO** (bis) | El Horizonte compromete aporte a veinte años. Verificar que eso no sea un piso encubierto: **es aporte a un activo, no gasto corriente garantizado**, y la diferencia hay que poder defenderla ante la Escalera |
 
 ---
 
@@ -201,19 +211,23 @@ Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho r
 4. **El Registro de Presión choca de frente con la directiva de diplomacia sobria.** Se mitiga con compuerta, no se resuelve.
 5. **Todo S28 depende de hechos externos que este spec no verificó.** Ver §11.
 6. **Riesgo de tono.** El bloque es el más «astuto» del documento y PLANGEO es un PLAN interno de un movimiento que se presenta como transparente. Si se escribe con épica de espionaje, contradice al proyecto. Se escribe en registro de ingeniería institucional: mecanismos, costos, compuertas.
+7. **El Compromiso de Horizonte es el riesgo doctrinario del bloque, no un riesgo técnico.** Atar a los gobiernos que vienen es lo que hace un tecnócrata para escapar del control democrático, y ¡BASTA! dice que la gente gobierna. El test de tres condiciones de S26.8 lo acota, pero **acotar no es resolver**: queda una tensión viva entre «el pueblo decide» y «esto no se toca por veinte años», y el documento la tiene que dejar escrita como tensión y no como problema saldado. Un lector hostil va a atacar por acá y va a tener parte de razón. **Es preferible que la objeción esté escrita por nosotros y bien, a que la escriba otro.**
+8. **Riesgo de captura del propio Horizonte.** Si el test se aplica con laxitud, el mecanismo se convierte en la mejor herramienta de captura que el corpus haya diseñado: basta con firmar afuera lo que no se puede sostener adentro. La mitigación es que las tres condiciones sean **verificables por separado y públicas**, y que exista la lista de lo que quedó afuera por aplicarlas — una lista vacía es la señal de que el test no está funcionando.
 
 ---
 
 ## 9. Decisiones tomadas (registro — no se rediscuten)
 
 1. **Bloque nuevo S26-S28 apendado, sin renumerar nada.** Cero remisiones rotas por encima de la prolijidad editorial.
-2. **Siete mecanismos, no diez.** Los que no cumplen las cuatro condiciones del §2 no entran, por buenos que sean.
-3. **La línea naval se reasigna, no se suma.** El bloque no aumenta el presupuesto de PLANGEO.
-4. **S18.2.4 se reescribe, no se matiza.** Una capacidad que no vamos a tener no se suaviza: se saca.
-5. **El Registro de Presión se escribe completo y se le pone compuerta de tranche.** No se recorta el diseño para que entre.
-6. **PLANGEO sigue sin reclamar piso presupuestario.**
-7. **Las armas civiles de PLANSEG quedan fuera.** Es seguridad interna.
-8. **Ninguna cifra se escribe sin fuente.** Precedente PLANSUS: las cifras sin modelo terminan siendo una entrada de deuda con nombre y apellido.
+2. **Ocho mecanismos.** Los que no cumplen las cuatro condiciones del §2 no entran, por buenos que sean. El octavo —el Horizonte— entró después que los otros siete, al advertir que la condición 3 tiene una cara temporal que ninguno de ellos cubría.
+3. **El Horizonte va en S26 y no en sección propia.** Es un mecanismo contractual y S26 es la sección de los mecanismos contractuales. Darle sección propia lo pondría por encima de los otros siete, y **no está por encima: está debajo, sosteniéndolos.**
+4. **S26.8 se escribe aunque debilite la propuesta.** La objeción democrática al Horizonte es buena y va escrita en el cuerpo, no en un anexo de riesgos. Un mecanismo que se propone sin su propia objeción es propaganda.
+5. **La línea naval se reasigna, no se suma.** El bloque no aumenta el presupuesto de PLANGEO.
+6. **S18.2.4 se reescribe, no se matiza.** Una capacidad que no vamos a tener no se suaviza: se saca.
+7. **El Registro de Presión se escribe completo y se le pone compuerta de tranche.** No se recorta el diseño para que entre.
+8. **PLANGEO sigue sin reclamar piso presupuestario.**
+9. **Las armas civiles de PLANSEG quedan fuera.** Es seguridad interna.
+10. **Ninguna cifra se escribe sin fuente.** Precedente PLANSUS: las cifras sin modelo terminan siendo una entrada de deuda con nombre y apellido.
 
 ---
 
@@ -224,6 +238,8 @@ Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho r
 - **El umbral del Segundo Proveedor.** El 60% es un número plausible sin respaldo. Debe salir de un análisis de concentración real de compras públicas argentinas, o declararse como parámetro a fijar.
 - **Costo de la constelación y del enjambre**, contra los USD 500-800M que reasigna. Sin ese número, S27.4 es una afirmación.
 - **Quién es el titular de dominio del commons antártico** y bajo qué licencia. Un repositorio «sin reclamo de propiedad» necesita igual una figura jurídica.
+- **Qué instrumento jurídico concreto es un Compromiso de Horizonte.** Un tratado necesita ratificación legislativa y entonces se deroga como una ley; un memorándum no obliga a nada. La figura que sirve está en el medio y **este spec no sabe cuál es** — probablemente un acuerdo interinstitucional con contraprestación, pero es una pregunta para Cancillería, no para el diseño. Sin esa respuesta, S26.7 describe un efecto sin nombrar el vehículo.
+- **Si el mecanismo popular de decisión de PLANMESA alcanza** para satisfacer la condición (c) de S26.8, o si hay que definir un umbral más alto para compromisos de veinte años que para una decisión ordinaria. Intuitivamente sí hace falta un umbral más alto — pero eso es una decisión de PLANMESA, no de PLANGEO.
 
 ---
 

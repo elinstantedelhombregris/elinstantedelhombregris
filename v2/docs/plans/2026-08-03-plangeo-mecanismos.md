@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Agregar a `PLANGEO_Argentina_ES.md` el bloque MECANISMOS (S26–S28) y las nueve ediciones forzadas que la spec declara, sin escribir un solo hecho externo sin fuente primaria y sin romper las remisiones ajenas que las ediciones mueven.
+**Goal:** Agregar a `PLANGEO_Argentina_ES.md` el bloque MECANISMOS (S26–S28) y las diez ediciones forzadas que la spec declara, sin escribir un solo hecho externo sin fuente primaria y sin romper las remisiones ajenas que las ediciones mueven.
 
 **Architecture:** Este plan **no arranca por la guardia** — arranca por la investigación. La spec §11 declara diez hechos que sostienen el bloque y que provienen de conocimiento del modelo, no de fuente consultada; dos de ellos (V6, V7) pueden invalidar la SECCIÓN 27 entera. Escribir prosa antes de saber si el mecanismo existe es construir sobre una afirmación. La Task 1 los verifica y produce un ledger; la Task 2 recién ahí crea la guardia sobre el documento actual; de la Task 3 en adelante rige el ciclo del repositorio — la guardia se pone en rojo con la expectativa nueva, se escribe la prosa, la guardia queda en verde, se commitea.
 
@@ -19,7 +19,7 @@
 - **Cero cifras inventadas.** Toda cifra nueva va con su fuente en la misma oración. Si no hay fuente, se escribe como rango declarado incierto o no se escribe. Es la lección de D-015, y en este bloque es más severa que de costumbre porque casi todo el material es fáctico y externo.
 - **Nada de universales negativos** —«ninguno», «nadie», «ningún país», «única en el mundo»— salvo que se puedan defender con fuente citada en la misma oración. **Este bloque está lleno de ellos por naturaleza** («la única agencia binacional de salvaguardias del mundo», «el único caso de dos rivales que se desarmaron verificándose»). Cada uno se sostiene con cita o se degrada a una formulación acotada del tipo «no se conoce otro caso de».
 - **PLANGEO no reclama piso presupuestario y no lo va a reclamar.** El bloque reasigna la línea naval de S18.1; no agrega dinero. `budget_class` sigue en `XS`.
-- **La restricción de tranche es vinculante.** Seis mecanismos son públicos; el Registro de Presión (S27.5) se escribe completo **con compuerta declarada de tranche-3**. La compuerta va en el cuerpo de la sub-sección, no en una nota al pie.
+- **La restricción de tranche es vinculante.** Siete mecanismos son públicos; el Registro de Presión (S27.5) se escribe completo **con compuerta declarada de tranche-3**. La compuerta va en el cuerpo de la sub-sección, no en una nota al pie.
 - **Toda edición por script va con `assert` de presencia y unicidad.** Un `str.replace()` que no matcheó sale en verde. Ya pasó en este repositorio.
 - **Ruta de commit explícita** en cada `git add`. Hay sesiones concurrentes (deuda D-010); un `git add -A` se lleva trabajo ajeno.
 - **Las ediciones forzadas se aplican de abajo hacia arriba** (S24 → S22 → S20 → S19 → S18 → S17 → S11 → S5). Cada inserción corre las líneas de todo lo que está debajo; trabajando al revés, los números de la siguiente edición siguen siendo válidos mientras se trabaja.
@@ -108,7 +108,7 @@ Modelarla sobre `verificar-plansus.ts` (304 líneas, es la más chica y la más 
 
 Cuatro chequeos que las otras no tienen:
 
-1. **Anclas ajenas.** `PLANGEO:207`, `:223`, `:425`, `:1148-1149`, `:1151` — la guardia verifica que la línea citada siga conteniendo lo que el citador dice que contiene. Es la única guardia del repositorio que se mira desde afuera, y existe porque siete de las nueve ediciones forzadas corren dos de esas anclas.
+1. **Anclas ajenas.** `PLANGEO:207`, `:223`, `:425`, `:1148-1149`, `:1151` — la guardia verifica que la línea citada siga conteniendo lo que el citador dice que contiene. Es la única guardia del repositorio que se mira desde afuera, y existe porque siete de las diez ediciones forzadas corren dos de esas anclas.
 2. **Ausencia de piso.** PLANGEO no reclama piso presupuestario. El chequeo es **afirmativo por la negativa**: falla si aparece un patrón de reclamo de piso en el documento.
 3. **La compuerta de tranche del Registro de Presión.** S27.5 tiene que contener la palabra que declara la compuerta. Si alguien la borra, el documento pasa a proponer material confrontacional público sin condición, contra la corrección 13.B de su propia cabecera.
 4. **S18.2.4 no vuelve.** La «capacidad ofensiva disuasoria» se elimina en la E2. El prohibido evita que reaparezca por un merge.
@@ -128,7 +128,7 @@ Debajo de la guardia de PLANSUS, antes de la de remisiones. Anotar en el YAML �
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-plangeo.ts`
 
-- [ ] **Step 1: Rojo primero.** Agregar `SECCIÓN 26: EL CONTRATO COMO DEFENSA` a `SECCIONES_ESPERADAS` y las subsecciones 26.1–26.6 al chequeo de correlatividad. Correr la guardia y verla fallar.
+- [ ] **Step 1: Rojo primero.** Agregar `SECCIÓN 26: EL CONTRATO COMO DEFENSA` a `SECCIONES_ESPERADAS` y las subsecciones 26.1–26.8 al chequeo de correlatividad. Agregar además el chequeo del **test de tres condiciones** de la 26.8: si el Horizonte queda en el documento sin sus tres condiciones enunciadas, la guardia falla. Correr la guardia y verla fallar.
 
 - [ ] **Step 2: Escribir la sección.** Se inserta **después de la S25 y antes del bloque `INTEGRACIÓN CON EL MARCO ¡BASTA!`**. Epígrafe: *«Un acuerdo bien escrito es un ejército que no come.»*
 
@@ -140,6 +140,8 @@ Contenido, según spec §5:
 - **26.4 La Cláusula Espejo.** Texto tipo. **Escribir el riesgo en la misma sub-sección, no en la S22** — riesgo §8.2 de la spec: puede leerse como riesgo expropiatorio. Las cuatro mitigaciones de diseño (simetría, publicidad, no discriminación por país, activación solo ante sanción estatal) van en el cuerpo.
 - **26.5 Lo que sigue vivo de 2015.** La Resolución 69/319 según el ledger V2. **Si el acta no se consiguió, va sin cifra de votación.**
 - **26.6 Costo declarado.** La sobretasa **no se inventa**. Va como tarea de la Pre-Fase con el precedente de PLANSUS citado.
+- **26.7 El Compromiso de Horizonte.** La pieza que sostiene a las otras siete. **Precondición: leer PLANMESA y nombrar su mecanismo popular de decisión con el nombre que tenga ahí** — la condición (c) de la 26.8 depende de que ese mecanismo exista, y si PLANMESA no lo provee, spec §7 dice que el Horizonte **no se escribe**. Verificarlo antes de redactar, no después. El vehículo jurídico concreto queda declarado como abierto (spec §10): se describe el efecto y se dice que la figura es pregunta para Cancillería. **No inventar un instrumento.**
+- **26.8 El límite del Horizonte.** Las tres condiciones —preserva opciones y no impone políticas; es recíproco; pasó por el mecanismo popular— enunciadas como test, cada una verificable por separado, más la lista de lo que queda afuera por aplicarlas. **Esta sub-sección debilita la propuesta y va igual, en el cuerpo y no en un anexo.** Escribir la objeción democrática con su mejor forma, no con una versión de paja: un mecanismo que ata a los gobiernos que vienen es lo que hace un tecnócrata para escapar del control democrático, y este es el PLAN de un proyecto cuya premisa es que la gente gobierna. La tensión se acota, no se resuelve, y así se escribe.
 
 - [ ] **Step 3: Verde.** Guardia en verde. Releer en voz alta contra el registro de la S17, que es la sección tonalmente más cercana.
 
@@ -193,26 +195,27 @@ Contenido, según spec §5:
 
 ---
 
-## Task 6: Las nueve ediciones forzadas, de abajo hacia arriba
+## Task 6: Las diez ediciones forzadas, de abajo hacia arriba
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-plangeo.ts`
 
-El orden es **E9 → E8 → E7 → E6 → E2 → E1 → E3 → E4 → E5**, de la línea más alta a la más baja. Cada `assert` de presencia y unicidad antes de tocar.
+El orden es **E9 → E10 → E8 → E7 → E6 → E2 → E1 → E3 → E4 → E5**, de la línea más alta a la más baja. Cada `assert` de presencia y unicidad antes de tocar.
 
-- [ ] **Step 1: E9 — S24.1** (~1383). Filas nuevas en la tabla de servicio a cada PLAN: PLANMON (jurisdicción de deuda), PLANSEG (armas — **como remisión a que el tema es de PLANSEG, no que PLANGEO lo resuelva**), PLANTER (mar).
-- [ ] **Step 2: E8 — S22.2** (~1300). Cláusula Espejo y Cláusula del Buitre al bloque de pre-sanción. El protocolo actual es enteramente reactivo salvo por el colchón financiero.
-- [ ] **Step 3: E7 — S20.1.1** (~1120). Remisión a S27.6. *(El bloque 2048 de S5 se hace en el Step 9, por estar más arriba.)*
-- [ ] **Step 4: E6 — S19.3.2 y S19.3.4** (~1090-1110). Remisión a S27.1-27.3, para que nadie lea el monitoreo y el sello como el mecanismo completo.
-- [ ] **Step 5: E2 — S18.2.4** (~1050). **Reescritura completa**, la edición más delicada del plan. Sale «capacidad ofensiva disuasoria»; entra la Doctrina del Erizo con remisión a S28.6. Escribir el porqué sin denigrar el documento: la escalada cibernética ofensiva contra un actor capaz de atacar en serio no es una pelea que Argentina gane, y prometerla debilita al resto de la sección. Agregar el prohibido a la guardia.
-- [ ] **Step 6: E1 — S18.1** (~1010). Reasignar la línea naval de USD 500-800M hacia constelación + enjambre, con remisión a S27.4. **Reasignar, no sumar** — el total de la TABLA 14 de S23.1 no cambia; verificar que siga cerrando.
-- [ ] **Step 7: E3 — S17.4** (~990). Jurisdicción de la deuda en la fase de convivencia, con remisión a S26.
-- [ ] **Step 8: E4 y E5 — S11** (~700-737). Fila de calificadoras de la TABLA 11 con la Cláusula del Buitre junto al ISN; y el Protocolo Anti-Cascada de S11.2 con los mecanismos que se activan sin decisión humana — **que es el punto entero: la cascada es justo el momento en que un funcionario bajo presión cede.**
-- [ ] **Step 9: E7-bis — el bloque 2048 de S5** (~469). Remisión a S27.6.
+- [ ] **Step 1: E9 — S24.1** (~1383). Filas nuevas en la tabla de servicio a cada PLAN: PLANMON (jurisdicción de deuda), PLANSEG (armas — **como remisión a que el tema es de PLANSEG, no que PLANGEO lo resuelva**), PLANTER (mar), PLANMESA (el mecanismo popular que habilita el Horizonte).
+- [ ] **Step 2: E10 — S22.3** (~1310). El Horizonte como **complemento** del blindaje constitucional, con remisión a S26.7 y S26.8. **No como reemplazo** — S22.3 hoy propone constitucionalizar y esa vía sigue siendo válida para lo que se hace adentro; el Horizonte cubre lo que solo rinde a veinte años. Si queda escrito como sustituto, el documento se contradice consigo mismo a cuatro secciones de distancia.
+- [ ] **Step 3: E8 — S22.2** (~1298). Cláusula Espejo y Cláusula del Buitre al bloque de pre-sanción. El protocolo actual es enteramente reactivo salvo por el colchón financiero.
+- [ ] **Step 4: E7 — S20.1.1** (~1120). Remisión a S27.6. *(El bloque 2048 de S5 se hace en el Step 10, por estar más arriba.)*
+- [ ] **Step 5: E6 — S19.3.2 y S19.3.4** (~1090-1110). Remisión a S27.1-27.3, para que nadie lea el monitoreo y el sello como el mecanismo completo.
+- [ ] **Step 6: E2 — S18.2.4** (~1050). **Reescritura completa**, la edición más delicada del plan. Sale «capacidad ofensiva disuasoria»; entra la Doctrina del Erizo con remisión a S28.6. Escribir el porqué sin denigrar el documento: la escalada cibernética ofensiva contra un actor capaz de atacar en serio no es una pelea que Argentina gane, y prometerla debilita al resto de la sección. Agregar el prohibido a la guardia.
+- [ ] **Step 7: E1 — S18.1** (~1010). Reasignar la línea naval de USD 500-800M hacia constelación + enjambre, con remisión a S27.4. **Reasignar, no sumar** — el total de la TABLA 14 de S23.1 no cambia; verificar que siga cerrando.
+- [ ] **Step 8: E3 — S17.4** (~990). Jurisdicción de la deuda en la fase de convivencia, con remisión a S26.
+- [ ] **Step 9: E4 y E5 — S11** (~700-737). Fila de calificadoras de la TABLA 11 con la Cláusula del Buitre junto al ISN; y el Protocolo Anti-Cascada de S11.2 con los mecanismos que se activan sin decisión humana — **que es el punto entero: la cascada es justo el momento en que un funcionario bajo presión cede.**
+- [ ] **Step 10: E7-bis — el bloque 2048 de S5** (~469). Remisión a S27.6.
 
 **Verify:** guardia en verde; `npx tsx scripts/verificar-remisiones.ts` **va a fallar acá** y está bien — lo arregla la Task 8. Anotar el fallo, no taparlo.
 
-**Commit:** `Fix las nueve ediciones forzadas de PLANGEO — de abajo hacia arriba`
+**Commit:** `Fix las diez ediciones forzadas de PLANGEO — de abajo hacia arriba`
 
 ---
 
@@ -230,7 +233,7 @@ El orden es **E9 → E8 → E7 → E6 → E2 → E1 → E3 → E4 → E5**, de l
 
 ## Task 8: Las anclas ajenas y la integración con el corpus
 
-Esta es la tarea que la spec §6.bis existe para forzar. Siete de las nueve ediciones corrieron `PLANGEO:1148-1149` y `PLANGEO:1151`.
+Esta es la tarea que la spec §6.bis existe para forzar. Siete de las diez ediciones corrieron `PLANGEO:1148-1149` y `PLANGEO:1151`.
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANPUERTA_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-planpuerta.ts`, `v2/docs/specs/2026-08-02-planpuerta.md`, `v2/docs/plans/2026-08-02-planpuerta.md`, `SocialJusticeHub/shared/arquitecto-data.ts`, `Iniciativas Estratégicas/DEPENDENCY_GRAPH.yml`
@@ -264,6 +267,8 @@ Esta es la tarea que la spec §6.bis existe para forzar. Siete de las nueve edic
 
 **Lo que más probablemente salga mal:** que la Task 1 devuelva V6 o V7 en rojo y el agente escriba la S27 igual, porque la sección está diseñada y es linda. La precondición de la Task 4 existe por eso y es una precondición dura: **si V7 no acredita la práctica de suscripción, la S27.3 dice «hipótesis» o el bloque pierde la sección.** No hay tercera salida.
 
-**Lo segundo:** que las ediciones forzadas se hagan de arriba hacia abajo por costumbre y cada una invalide los números de la siguiente. El orden E9→E5 no es cosmético.
+**Lo segundo:** que las ediciones forzadas se hagan de arriba hacia abajo por costumbre y cada una invalide los números de la siguiente. El orden E9→E10→E8→…→E5 no es cosmético.
+
+**Lo tercero, y es el que más fácil se pasa por alto:** que la S26.8 se escriba como trámite. Es la sub-sección que ataca a la propuesta del propio documento, y la tentación de redactarla en una versión débil —para que la objeción se caiga sola— es enorme. **Si la objeción escrita no es la mejor versión de la objeción, la sub-sección no cumple su función y conviene no tenerla.** El chequeo de las tres condiciones en la guardia detecta que estén; no detecta que estén bien escritas. Eso lo mira el autor.
 
 **Lo que este plan no cubre y hay que saberlo:** la sobretasa de la Cláusula del Buitre, la opinión legal sobre si la conversión de foro es ejecutable bajo ley extranjera, el umbral del Segundo Proveedor y el costo de la constelación contra la línea naval que reemplaza. Los cuatro están en spec §10 como abiertos. **Este plan escribe el documento con esos huecos declarados adentro** — no los cierra, y un documento que declara sus huecos es más honesto que uno que los rellena con números plausibles. Es exactamente lo que D-015 enseñó a costa de PLANSUS.
