@@ -1435,6 +1435,54 @@ Cuando una Puerta tiene una o más métricas en ROJO:
 
 ---
 
+## SECCIÓN 19: LO QUE PLANSUS NO HACE — LOS LÍMITES DEL MANDATO
+
+> *"Un plan que promete todo es un plan que nadie puede auditar. Los límites no son la letra chica: son lo que vuelve verificable a todo lo demás."*
+
+Acá termina la hoja de ruta y empieza la visión de 2040. Antes de pintar ese cuadro conviene decir qué queda afuera del marco, porque la sección que sigue va a describir un país mejor y hay una manera fácil de arruinarla: dejar que el lector crea que todo eso lo hace este documento.
+
+No lo hace. PLANSUS es un mandato con bordes, y los bordes se declaran acá — antes de la audiencia pública, antes del debate parlamentario, antes de que un adversario los encuentre y los presente como si fueran un descubrimiento suyo.
+
+### 19.1 No obliga a nadie a nada
+
+PLANSUS no promueve el consumo. No lo desalienta tampoco: sale del negocio de opinar sobre qué hace un adulto con su conciencia. El argentino que no consumió nunca y no piensa consumir no tiene que hacer absolutamente nada distinto el día después de la sanción, y es probable que sea la mayoría. Un plan de soberanía sobre las sustancias que terminara empujando a alguien hacia ellas se habría convertido en lo que dice combatir: alguien decidiendo por otro.
+
+### 19.2 El Estado no vende
+
+En ninguna de las cuatro vías el Estado es el comerciante. Licencia, controla, grava y sanciona — no despacha. La distinción no es estética: un Estado que vende tiene un interés fiscal en que se venda más, y ese conflicto de interés es el que corrompió a los monopolios estatales de alcohol y de tabaco en medio mundo. ANSUS regula un mercado del que no participa.
+
+### 19.3 No cura la adicción
+
+Esto es lo más importante de esta sección y lo que más se va a tergiversar. La legalización **no es un tratamiento**. Saca a la adicción del código penal y la devuelve al sistema de salud, que es donde siempre debió estar — pero el sistema de salud tiene que existir para recibirla. Por eso la Sección 24 construye el Puente Sanitario de 36 meses en vez de esperar sentada a PLANSAL. PLANSUS deja de encarcelar a la persona que sufre; curarla es de otro mandato, y ese mandato tiene que llegar.
+
+### 19.4 No promete que nadie se va a lastimar
+
+Va a haber gente que la pase mal con sustancias legales, igual que hay gente que la pasa mal con el alcohol, que es legal, y con los psicofármacos, que se recetan. La promesa de PLANSUS no es un país sin daño: es un país donde el daño se puede medir, atender y reducir, en vez de esconderse porque admitirlo es confesar un delito. La comparación honesta nunca fue contra un mundo sin drogas. Es contra el mundo que tenemos, que es el de la prohibición.
+
+### 19.5 No termina con el narcotráfico
+
+Lo desfinancia en su rama más grande y le saca el monopolio de las sustancias. No le toca la trata de personas, ni el mercado de armas, ni la extorsión, ni el juego clandestino, ni el contrabando, y las organizaciones que hoy viven de la droga tienen esas otras puertas abiertas. Cualquiera que lea este plan como el fin del crimen organizado lo leyó mal, y la Sección 22 existe justamente porque la transición es el momento más peligroso, no el más seguro.
+
+### 19.6 No reemplaza a la política de seguridad
+
+La Sección 18 lo dice al revés y conviene subrayarlo: PLANSEG es **precondición**, no consecuencia. Sin reforma policial previa, la legalización entrega un mercado nuevo a las mismas estructuras que hoy cobran por dejarlo funcionar. PLANSUS depende de PLANSEG mucho más de lo que PLANSEG depende de PLANSUS.
+
+### 19.7 No hace desaparecer el mercado negro
+
+Lo vuelve marginal si el precio legal le gana, que es de lo que se ocupa la Sección 25.1. Ningún país que reguló lo eliminó del todo, y prometerlo sería fijar una vara que garantiza el fracaso. La vara correcta es la participación del mercado ilegal, medida y publicada, no su desaparición.
+
+### 19.8 No decide por las comunidades
+
+La Vía Ceremonial no es una licencia que el Estado otorga: es un reconocimiento de algo anterior al Estado. PLANSUS no fija protocolos ceremoniales, no evalúa la autenticidad de una tradición y no decide a quién recibe una comunidad. Lo único que regula, y quedó escrito en la Sección 5.1, es que nadie invoque una atestación ajena.
+
+### 19.9 No es una opinión sobre las sustancias
+
+PLANSUS no dice que las drogas sean buenas. Dice que la decisión sobre el propio cuerpo es del que lo habita, y que el Estado que se arrogó esa decisión durante sesenta años produjo cárceles llenas, muertos, y un mercado de miles de millones en manos del crimen. Se puede pensar que consumir es una pésima idea y sostener este plan completo. De hecho, es la posición de mucha gente que va a votarlo.
+
+**El principio de esta sección:** cada uno de estos límites es una promesa que PLANSUS **no** hace, y por eso es una promesa que nadie va a poder acusarlo de haber incumplido. Lo que sigue en la Sección 20 es lo que el plan sí se compromete a construir — y se puede leer con confianza justamente porque acá quedó dicho todo lo que queda afuera.
+
+---
+
 ## SECCIÓN 20: VISIÓN 2040 — LA ARGENTINA DONDE LA CONCIENCIA ES LIBRE
 
 > *"Toda visión del futuro es un acto de fe informada. Fe en lo que los datos muestran que es posible. Fe en lo que la historia demuestra que es inevitable. Fe en lo que las personas hacen cuando les sacás las cadenas."*
