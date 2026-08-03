@@ -814,8 +814,64 @@ El desfase se escribe acá: las ciudades tardan quince o veinte años y el Paque
 
 **Bajar impuestos y bajar el costo de vida es PLANPACTO, y este documento no lo toca.** Lo consume como precondición: si la Escalera de Garantías no está en pie, PLANPUERTA no tiene qué ofrecer y su Ventana no debería abrir. Escribirlo al revés —un PLAN de inmigración que promete arreglar la macro— es el PLAN que se agranda hasta no cumplir nada.
 
-Mismo criterio con la infraestructura: PLANVIV, PLAN24CN y PLANMOV construyen; este PLAN no promete un metro y usa lo construido como freno. Con PLANVIV hay además una deuda, y va acá porque acá se paga: derogar su fila de reclutamiento (SECCIÓN 0) le baja el costo y le saca los brazos —los 5.000-10.000 trabajadores de la construcción— en su ventana crítica. Se cierra atando con fecha el cronograma de escuelas de oficios de PLANEDU y PLANREP al de obra, y hasta que eso pase la deuda es de este PLAN.
+Mismo criterio con la infraestructura: PLANVIV, PLAN24CN y PLANMOV construyen; este PLAN no promete un metro y usa lo construido como freno. Con PLANVIV hay además una deuda: derogar su fila de reclutamiento (SECCIÓN 0) le baja el costo y le saca los brazos —los 5.000-10.000 trabajadores de la construcción— en su ventana crítica. Se cierra atando con fecha el cronograma de escuelas de oficios de PLANEDU y PLANREP al de obra, y hasta que eso pase la deuda es de este PLAN. La aritmética que la derogación mueve va con la cuenta, en la SECCIÓN 12.
 
 **Y falta un lado entero del arraigo, que se declara y no se ocupa.** Acá está escrito lo que le pasa al que llega. Del otro lado está si la sociedad lo recibe bien, y eso no vive en este documento. El Compadrazgo de Llegada hace que la lista exista y que alguien pregunte; la disposición a golpear la puerta no la fabrica ningún régimen migratorio, y sostener lo contrario sería la promesa que la SECCIÓN 0 le reprocha al Estado. El hueco tiene candidatos escritos —**PLANFOCO** o **PLANCUL**— y tiene medida: el Tablero publica dónde no golpeó nadie (SECCIÓN 5). Este PLAN sabe contar el hueco y no sabe llenarlo.
+
+---
+
+## SECCIÓN 12: MODELO ECONÓMICO
+
+> *"Lo único que este PLAN paga con plata propia es una agencia chica. Todo lo demás lo paga decidiendo dónde va cada cosa."*
+
+La cabecera declaró el total y remitió acá el desglose. Al abrir la cuenta aparece que el renglón grande es uno solo, y que los otros cuatro cuestan lo que cuesta una decisión.
+
+### Los componentes
+
+| Componente | Qué cuesta | De dónde sale |
+|---|---|---|
+| **ANAR y el Cuerpo de Scouts** | USD 30-60M por año | la única partida operativa del PLAN: la agencia, los scouts que sostiene y el Tablero que publica |
+| **Revalidación e infraestructura del Tablero** | puntual y sin monto escrito | convenio con los colegios profesionales y con PLANEDU; el soporte lo pone PLANDIG, que ya lo tiene montado |
+| **Tierra con obligación de uso** | costo marginal cercano a cero | lotes de las ciudades de PLAN24CN, que ya se construyen |
+| **Exención impositiva temporal** | renuncia fiscal | la Escalera de Garantías de PLANPACTO, contabilizada como gasto tributario y bajo su Techo |
+| **La llegada y el Compadrazgo** | cero | son civiles: una planilla y dos vecinos |
+
+**Los USD 30-60M por año son supuesto de trabajo de este documento y no salen de ninguna fila del corpus.** Por quince años dan los USD 450-900M que la cabecera declaró, y ahí termina el desglose, porque ninguno de los otros cuatro renglones mueve la cuenta. El de la revalidación y el Tablero va sin monto a propósito: es hueco declarado, y el que lo cierre va a tener que firmar los dos convenios antes de poder ponerle un número.
+
+### Lo que no entra a la cuenta, y la razón distinta de cada uno
+
+**La tierra es asignación.** Los lotes salen de PLAN24CN —USD 26.350-73.000M a quince o veinte años, `PRESUPUESTO_CONSOLIDADO_BASTA.md:33`—, un programa que se construye con este PLAN o sin él. Entregar un lote contra un Contrato de Puerta cambia el nombre del adjudicatario y no el presupuesto: el suelo ya estaba comprometido, y lo que este PLAN le agrega a esa fila es el trámite de asignarla.
+
+**La exención no sale del presupuesto porque nunca entra a él.** Un gasto se vota, se imputa a una partida y sale de la caja; una renuncia fiscal es plata que no se recauda, y aparece del otro lado de la cuenta pública, en el registro de gastos tributarios. Las dos pesan igual en el resultado fiscal y se controlan distinto: al gasto lo limita la partida, y a la renuncia la limita el techo bajo el que se la contabiliza. La de este PLAN vive adentro de la Escalera de Garantías de PLANPACTO como gasto tributario, y no le agrega escalón.
+
+**Y la llegada cuesta cero porque es civil.** El Compadrazgo de Llegada no tiene partida ni organismo, y el PLAN no se los va a poner: lo que hace es que la lista exista y que alguien pregunte.
+
+### El total, y la escala como argumento
+
+USD 450-900M a quince años, clase S, **sin piso constitucional** y sin presión sobre el Techo de PLANPACTO. La letra es el campo `budget_class` de `PLAN_REGISTRY.yml`, donde la fila propia de este PLAN entra con la migración del canon; el registro no publica los cortes de esa escala, así que la letra es decisión de diseño de este documento y no una medición.
+
+Al lado, la escala del corpus: PLANVIV son USD 80.000-120.000M a quince años (`PRESUPUESTO_CONSOLIDADO_BASTA.md:37`) y PLAN24CN USD 26.350-73.000M a quince o veinte (`:33`). PLANPUERTA entra dos órdenes de magnitud por debajo del primero y usa la tierra del segundo sin agregarle un peso.
+
+Y la escala es el argumento. **Un PLAN de inmigración que necesita decenas de miles de millones para funcionar ya se equivocó de diseño: si hay que pagarle a la gente para que venga, no viene por el país, y se va apenas alguien pague más.** Un presupuesto grande compra llegadas, y las llegadas no son la función objetivo de este PLAN. El poder sale de dónde se asigna y de a quién se coordina: la Lista que escriben los otros veintiséis, el suelo que construye PLAN24CN, el sueldo que paga el PLAN que declaró el problema.
+
+Lo barato tiene su contracara, y la SECCIÓN 11 ya la escribió: un PLAN que cabe adentro de una partida anual se apaga con esa partida. La agencia no tiene piso presupuestario y este documento no se lo pide, de manera que un gobierno que la quiera muerta le baja el renglón y espera. Lo que compensa no es fiscal: es hacia qué lado se rompe. Sin plata deja de fichar y deja de publicar, y el año que el Tablero no sale la Ventana no abre; lo que no queda es una agencia operando con la mitad de sus controles apagados. Un presupuesto chico compra poca inercia, y la inercia es justamente lo que un organismo con material sobre personas no debería tener.
+
+### Con Estado y sin Estado, tramo por tramo
+
+| Tramo | Sin Estado | Con Estado |
+|---|---|---|
+| **1 · La Búsqueda** | los scouts de la diáspora y las Empresas Bastardas de PLANEB, que fichan directo porque son ellas el empleador | la Lista que escriben los otros veintiséis PLANes, y la Ventana que ANAR publica |
+| **2 · La Llegada** | el Compadrazgo, la cuadra y los primeros noventa días | el registro del Contrato de Puerta, y la residencia — que para dos de cada tres ya es derecho por tratado |
+| **3 · Los Primeros Mil Días** | el problema pago cuando lo paga una Bastarda, el par que supervisa, el Círculo de Cuidado | la exención, el lote y la matrícula contra el desempeño medido |
+| **4 · El Arraigo** | la Mesa, el Taller y el barrio que ya sabe quién se quedó | la consolidación del título, y el cruce del que sale la serie del Tablero |
+| **5 · La Ciudadanía** | lo que acredita: las horas del Libro de Cuidado y la actividad de la Credencial | el acto de naturalización, que no lo hace nadie más |
+
+**Los tramos 1 y 2 —los que deciden si el fichaje llega y si sobrevive el primer año— son casi enteramente sin Estado.** Ésa es la razón entera por la que la Fase 0 arranca sin ley, sin decreto y sin partida: la columna izquierda existe hoy y no espera permiso, y la derecha empieza el día que el Congreso sancione el Marco.
+
+Leído al revés incomoda más. Las dos piezas que el Estado aporta y que más pesan en la decisión de venirse —la tierra y la exención— son justamente las dos que no le cuestan plata nueva; y lo que decide si esa persona sigue acá a los diez años —el trabajo real, la cuadra, el que golpea la puerta— no se compra con ninguna partida, por grande que sea.
+
+### La deuda con PLANVIV
+
+Este PLAN deroga la fila de reclutamiento de `PLANVIV:1566` —5.000-10.000 trabajadores de la construcción de Bolivia, Paraguay y Perú, con visas atadas a proyectos y USD 10-20M de gestión migratoria— y la aritmética de esa tabla cascadea. El TOTAL de `PLANVIV:1567` pasaba de 55.000-78.000 trabajadores y USD 160-250M a **50.000-68.000 trabajadores y USD 150-230M**. La brecha contra el objetivo de 80.000 crece con la derogación: el rango inferior queda **30.000 corto** donde `PLANVIV:1569` escribía 25.000. Y la primera mitigación de PLANVIV no la tapa: con los Hubs de Manufactura bajando la demanda efectiva a unos 65.000 (`PLANVIV:1571`), el extremo bajo sigue **15.000 de brecha**. Formar un oficial de obra lleva de dos a cuatro años, así que PLANVIV se queda sin brazos en su ventana crítica salvo que el cronograma de escuelas de oficios de PLANEDU y de PLANREP se ate con fecha al cronograma de obra. La deuda es de este PLAN, va con la cifra, y se salda el día que esas dos fechas queden atadas y no antes.
 
 ---
