@@ -1,7 +1,7 @@
 import { PROVINCIAS_REF } from '../provincias-ref';
 
 import type { SenalConTipo } from '../useVistaMapa';
-import type { EstadoMedido, Territorio, TipoVozCivica, VozMedida } from '@v2/civic-core';
+import type { EstadoMedido, Territorio, VozMedida } from '@v2/civic-core';
 import type { ProvinciaApi } from '~/lib/queries/open-data';
 
 /**
@@ -47,7 +47,7 @@ export function estadoMedidoDesde(
     if (nombre === undefined || PROVINCIAS_REF[nombre] === undefined) continue;
     const fecha = Date.parse(s.createdAt);
     if (Number.isNaN(fecha)) continue;
-    voces.push({ territorioId: nombre, tipo: s.tipoVoz as TipoVozCivica, fecha });
+    voces.push({ territorioId: nombre, tipo: s.tipoVoz, fecha });
   }
 
   return { voces, ahora };

@@ -12,24 +12,6 @@ import type { Palancas } from '@v2/civic-core';
  * capa del IGN.
  */
 
-export const PALANCAS_INICIALES: Palancas = {
-  /** 200 cada 100.000 es el doble del piso: arranca mostrando un país que sí cambia. */
-  participacion: 200,
-  dispersion: 0.6,
-  composicion: {
-    basta: 1 / 6,
-    sueño: 1 / 6,
-    necesidad: 1 / 6,
-    compromiso: 1 / 6,
-    recurso: 1 / 6,
-    valor: 1 / 6,
-  },
-  horizonte: 2,
-  resistencia: 0.3,
-  constancia: 0.7,
-  cumplimiento: 0.5,
-};
-
 interface Dial {
   campo: 'participacion' | 'dispersion' | 'horizonte' | 'resistencia' | 'constancia';
   etiqueta: string;

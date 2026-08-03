@@ -5,11 +5,12 @@
  * componentes Y constantes pierde el hot reload de esos componentes. Es una
  * regla del tooling, no un capricho — y la alternativa era silenciar el aviso.
  */
-export type Modo = 'mapa' | 'analisis' | 'tiempo' | 'cobertura';
+export type Modo = 'mapa' | 'analisis' | 'tiempo' | 'cobertura' | 'simulacion';
 
 export const MODOS: { id: Modo; etiqueta: string; descripcion: string }[] = [
   { id: 'mapa', etiqueta: 'Mapa', descripcion: 'Cada voz donde fue dicha' },
   { id: 'analisis', etiqueta: 'Análisis', descripcion: 'Qué provincia habla y cuánto' },
   { id: 'tiempo', etiqueta: 'Línea de tiempo', descripcion: 'Cómo se fue despertando' },
   { id: 'cobertura', etiqueta: 'Cobertura', descripcion: 'Dónde todavía no habló nadie' },
+  { id: 'simulacion', etiqueta: 'Simulación', descripcion: 'Y si hablamos, qué cambia' },
 ];

@@ -1,7 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { PALANCAS_INICIALES, PanelPalancas } from '../simulacion/PanelPalancas';
+import { PALANCAS_INICIALES } from '../simulacion/palancas';
+import { PanelPalancas } from '../simulacion/PanelPalancas';
 
 /**
  * El panel de las palancas.

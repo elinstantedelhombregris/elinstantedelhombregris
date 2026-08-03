@@ -29,6 +29,18 @@ export interface ResultadoModo {
   panel: ReactNode;
   /** Capas maplibre — van adentro del `<Map>`. */
   capas: ReactNode;
+  /**
+   * Compuerta de escape: cuando un modo necesita SU PROPIA superficie en vez
+   * de capas sobre el mapa compartido. Si viene, se renderiza EN LUGAR del
+   * mapa base y `capas` se ignora.
+   *
+   * La usa solo la Simulación, y por una razón que no tiene vuelta: la cortina
+   * son dos instancias de mapa recortadas una sobre otra, y no hay forma de
+   * recortar una capa de maplibre por posición de pantalla. Antes de agregar
+   * la segunda usuaria, revisar si el contrato de los modos sigue siendo el
+   * correcto.
+   */
+  superficie?: ReactNode;
   /** Lo que se dibuja ENCIMA del mapa (overlays de dibujo, scrubbers). */
   sobreMapa?: ReactNode;
   /** Leyenda flotante abajo a la izquierda. */

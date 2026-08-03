@@ -21,21 +21,20 @@ const PROVINCIAS: ProvinciaApi[] = [
   { id: 99, name: 'Provincia Inventada', isoCode: null },
 ];
 
-const senal = (provinceId: number | null, createdAt: string): SenalConTipo =>
-  ({
-    id: `voz:${String(provinceId)}-${createdAt}`,
-    capa: 'voz',
-    tipo: 'basta',
-    tipoVoz: 'basta',
-    texto: 'TEST',
-    lat: null,
-    lng: null,
-    precision: 'province',
-    role: 'subject',
-    provinceId,
-    cityId: null,
-    createdAt,
-  }) as SenalConTipo;
+const senal = (provinceId: number | null, createdAt: string): SenalConTipo => ({
+  id: `voz:${String(provinceId)}-${createdAt}`,
+  capa: 'voz',
+  tipo: 'basta',
+  tipoVoz: 'basta',
+  texto: 'TEST',
+  lat: null,
+  lng: null,
+  precision: 'province',
+  role: 'subject',
+  provinceId,
+  cityId: null,
+  createdAt,
+});
 
 describe('territoriosDesde', () => {
   it('usa el nombre canónico como id del territorio', () => {

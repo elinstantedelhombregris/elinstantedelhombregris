@@ -27,6 +27,17 @@ export interface MapaBaseProps {
   onClickCapa?: (idCapa: string, propiedades: Record<string, unknown>) => void;
   /** Capas sobre las que el click devuelve propiedades. */
   capasInteractivas?: string[];
+  /**
+   * Se llama en CADA cuadro del movimiento, no solo al final. Lo usa la
+   * cortina de la Simulación: el mapa de arriba tiene que seguir al de abajo
+   * mientras se arrastra, no después.
+   */
+  onMoverContinuo?: (mapa: MapRef | null) => void;
+  /**
+   * `false` apaga toda la interacción y los controles. El mapa de arriba de la
+   * cortina no se toca: el de abajo maneja el arrastre por los dos.
+   */
+  interactivo?: boolean;
 }
 
 export function MapaBase({
@@ -36,6 +47,8 @@ export function MapaBase({
   mapaRef,
   onClickCapa,
   capasInteractivas = [],
+  onMoverContinuo,
+  interactivo = true,
 }: MapaBaseProps) {
   const propio = useRef<MapRef>(null);
   const ref = mapaRef ?? propio;
@@ -54,6 +67,14 @@ export function MapaBase({
       touchZoomRotate={arrastreHabilitado}
       onLoad={alTerminarMovimiento}
       onMoveEnd={alTerminarMovimiento}
+      {...(onMoverContinuo
+        ? {
+            onMove: () => {
+              onMoverContinuo(ref.current);
+            },
+          }
+        : {})}
+      interactive={interactivo}
       interactiveLayerIds={capasInteractivas}
       onClick={(e) => {
         const rasgo = e.features?.[0];
@@ -64,9 +85,15 @@ export function MapaBase({
       style={{ width: '100%', height: '100%', background: FONDO }}
       attributionControl={false}
     >
-      {/* Abajo a la derecha, como en cualquier mapa: el zoom donde se lo busca. */}
-      <NavigationControl position="bottom-right" showCompass={false} />
-      <ScaleControl position="bottom-left" maxWidth={110} unit="metric" />
+      {/* Abajo a la derecha, como en cualquier mapa: el zoom donde se lo busca.
+          El mapa de arriba de la cortina no los lleva: serían dos juegos de
+          controles superpuestos sobre el mismo encuadre. */}
+      {interactivo ? (
+        <>
+          <NavigationControl position="bottom-right" showCompass={false} />
+          <ScaleControl position="bottom-left" maxWidth={110} unit="metric" />
+        </>
+      ) : null}
       {children}
     </MapaGL>
   );

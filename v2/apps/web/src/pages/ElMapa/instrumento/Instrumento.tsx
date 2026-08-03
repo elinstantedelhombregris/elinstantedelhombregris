@@ -5,6 +5,7 @@ import { MapaBase } from './MapaBase';
 import { useModoAnalisis } from './modos/useModoAnalisis';
 import { useModoCobertura } from './modos/useModoCobertura';
 import { useModoMapa } from './modos/useModoMapa';
+import { useModoSimulacion } from './modos/useModoSimulacion';
 import { useModoTiempo } from './modos/useModoTiempo';
 import { useSenalesEnVista, useVistaMapa } from './useVistaMapa';
 
@@ -49,6 +50,7 @@ export function Instrumento() {
     analisis: useModoAnalisis(ctx),
     tiempo: useModoTiempo(ctx),
     cobertura: useModoCobertura(ctx),
+    simulacion: useModoSimulacion(ctx),
   };
   const activo = resultados[modo];
 
@@ -70,6 +72,12 @@ export function Instrumento() {
         </PanelLateral>
 
         <div className="relative">
+          {activo.superficie ? (
+            /* La Simulación trae su propia superficie: la cortina son dos
+               instancias de mapa y no se puede recortar una capa por posición
+               de pantalla. La `key` la aísla igual que a las capas. */
+            <Fragment key={modo}>{activo.superficie}</Fragment>
+          ) : (
           <MapaBase
             mapaRef={mapaRef}
             onMover={alMover}
@@ -87,6 +95,7 @@ export function Instrumento() {
             */}
             <Fragment key={modo}>{activo.capas}</Fragment>
           </MapaBase>
+          )}
 
           {/* El contador flota arriba a la derecha y responde al encuadre:
               arrastrás sobre una provincia y el número contesta. */}
