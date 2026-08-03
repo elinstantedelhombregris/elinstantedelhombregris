@@ -53,7 +53,12 @@ Esto le da a PLANSUS algo que casi ningún PLAN del corpus tiene: **compuertas d
 
 La mecánica de compuertas ya existe en S18 (Puertas 1A, 2 y 3 con protocolo de falla). El bloque nuevo se cuelga de esa maquinaria en vez de inventar una propia.
 
-**Corolario presupuestario.** PLANPACTO midió que los pisos que los PLANes reclaman por escrito suman entre 7,82% y 9,41% del PBI, y que la Escalera solo conserva 2,40% del gasto primario consolidado. En esa pelea, **PLANSUS es de los pocos que llega aportando excedente en vez de reclamando piso** (S13.4 ya proyecta autofinanciamiento desde el primer tranche). Hay que decirlo, porque es la posición negociadora del PLAN dentro del corpus.
+**Corolario presupuestario.** PLANPACTO midió que los pisos que los PLANes reclaman por escrito suman entre 7,82% y 9,41% del PBI, y que la Escalera solo conserva 2,40% del gasto primario consolidado. PLANSUS **sí reclama piso** —0,10% del PBI, declarado en `tests/unit/pisos-constitucionales.test.ts:25` con fuente en el propio documento— y ese dato hay que traerlo bien, porque la relación es la posición negociadora del PLAN:
+
+- Es **el piso más chico del canon**, empatado con PLANEB y PLANISV, contra 0,50–1,50% de PLANSAL y 0,50–1,0% de PLANDIG.
+- Y contra ese 0,10%, S13.4 proyecta autofinanciamiento desde el primer tranche más excedente fiscal que puede alimentar a otros mandatos.
+
+La formulación correcta no es «PLANSUS no pide piso» —es falsa— sino **«PLANSUS pide el piso más chico y es el que más rápido lo devuelve»**. El bloque nuevo refuerza ese argumento: la clínica genera divisas sin reclamar pesos adicionales del Techo B.
 
 ---
 
@@ -255,6 +260,7 @@ Una afirmación estructural de la primera versión de esta spec resultó falsa, 
 | Decía | Dice ahora | Cómo se cayó |
 |---|---|---|
 | La gente se muere en los retiros de ayahuasca por **interacción ISRS/IMAO y síndrome serotoninérgico**; el diseño se ordenaba alrededor de esa causa | **Ningún análisis forense determinó jamás una muerte por intoxicación aguda de ayahuasca** (58 muertes atribuidas 2010-2022, 34 con consumo verificado, 9 autopsias públicas, cero atribuciones). Las causas confirmadas son **envenenamiento por tabaco** (4, la más frecuente), infarto, otras sustancias no declaradas, hiponatremia, lapsos de supervisión y homicidio | ICEERS. La primera versión salía de las páginas de los propios centros de retiro, que son fuente interesada, y no de un análisis de casos |
+| «PLANSUS llega aportando excedente **en vez de** reclamando piso» | PLANSUS reclama **0,10% del PBI** — el piso más chico del canon, empatado con PLANEB y PLANISV — **y** proyecta autofinanciamiento desde el primer tranche. La formulación correcta es «pide el piso más chico y es el que más rápido lo devuelve» | `tests/unit/pisos-constitucionales.test.ts:25`. La afirmación era una oposición binaria donde había una relación, y el canon de pisos la desmentía en una línea |
 
 La corrección **mejoró** el diseño: la compuerta pasó de un control genérico a cuatro controles específicos que mapean contra las causas reales, y apareció la ventaja estructural argentina —distancia a terapia intensiva— que la versión falsa no veía.
 
