@@ -175,7 +175,7 @@ La consolidación del título de la tierra a plena propiedad ocurre acá, al cum
 ### TRAMO 5 — LA CIUDADANÍA
 
 **D10 · Ciudadanía por aporte verificado.**
-Naturalización acelerada atada al Libro de Cuidado y la Credencial de Materia que el corpus ya tiene — **el registro de aporte cívico auditable es un activo real, pero NO se reclame que nadie más lo tiene** — hay esquemas de puntaje por integración y de crédito por servicio comunitario en varias jurisdicciones. Lo defendible es la función: acá el aporte se acredita contra un registro que el corpus ya usa para otra cosa, no contra un examen diseñado para naturalizar. Nunca por plata: prohibición explícita de venta de residencia (§6.2).
+**No es «naturalización acelerada»** *(corregido el 2026-08-03)*: la Ley 346 ya pide dos años de residencia continua, que es de los plazos más cortos del mundo, y acelerar dos años no es un incentivo. Lo que D10 cambia no es **cuánto** se espera sino **contra qué se acredita** — el Libro de Cuidado y la Credencial de Materia que el corpus ya tiene — **el registro de aporte cívico auditable es un activo real, pero NO se reclame que nadie más lo tiene** — hay esquemas de puntaje por integración y de crédito por servicio comunitario en varias jurisdicciones. Lo defendible es la función: acá el aporte se acredita contra un registro que el corpus ya usa para otra cosa, no contra un examen diseñado para naturalizar. Nunca por plata: prohibición explícita de venta de residencia (§6.2).
 
 ---
 
