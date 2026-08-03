@@ -294,3 +294,133 @@ El Reino Unido adoptó esa lista como su lista roja y les prohibió a los emplea
 Los cinco midieron lo que su política necesitaba defender: Chile a quién retuvo, Italia cuántos se acogieron a la exención, Portugal qué clase de persona había atraído, la OMS a quién no habría que sacarle gente. Canadá midió las dos puntas. El 2 de febrero de 2024, Statistics Canada publicó que más del 15% de los admitidos entre 1982 y 2017 emigró dentro de los veinte años, y que de las cohortes posteriores a 2000 se fue cerca del 5% a los cinco y alrededor del 10% a los diez; a los que se van los identifica por la declaración de impuestos, porque no hay registro de salida que los cuente. El número que este PLAN necesita existe y su método está escrito: la SECCIÓN 16 lo copia en vez de inventarlo. Lo que Canadá no hizo fue gobernarse por él: frenó por encuesta, no por esa serie.
 
 ---
+
+## SECCIÓN 3: LA SOLUCIÓN — ARQUITECTURA DE LOS ONCE DISPOSITIVOS
+
+> *"Un régimen de visas se puede escribir entero sin nombrar nunca el año tres. Este documento está indexado por el año tres."*
+
+### La columna vertebral: el tiempo del que llega
+
+Un documento como éste se ordena de dos maneras. Una es por categoría —trabajo, estudio, vínculo familiar, inversión, asilo—, que es la forma de cualquier régimen de visas: un catálogo de categorías con sus requisitos, y un trámite que consiste en averiguar en cuál cae el que golpea la puerta.
+
+La otra es por tiempo: qué le pasa el día noventa, el año uno, el año tres, el año diez. Es la que usa este PLAN, y la razón no es estética.
+
+**La primera razón es que la función objetivo tiene que ser el esqueleto y no un capítulo.** Un índice por categorías puede estar completo sin nombrar nunca el año tres, que es cuando la persona decide si se queda. Un índice por tiempo no puede: tres de los cinco tramos son retención pura, y un tramo vacío se ve.
+
+**La segunda razón es que las categorías de persona fabrican castas.** Una categoría no describe un trámite: describe un tipo de habitante, y el que tiene capítulo propio termina con su propio conjunto de derechos, su propia velocidad y su propio techo. El ataque más fuerte que este PLAN va a recibir —invitación selectiva montada sobre una población de servicio que nunca accede a los beneficios— entra primero por el índice. La SECCIÓN 13 lo escribe entero; acá basta la consecuencia de diseño: **este documento no tiene un capítulo por tipo de persona.** Tiene un capítulo por momento, y en cada momento aparecen todos los que están adentro del país.
+
+La forma existe en otros lados y no se la reclama como propia: Nueva Zelanda sigue a la persona después de la visa con la Migrant Settlement and Integration Strategy de Immigration New Zealand —cinco resultados y dieciséis indicadores, reportados todos los años—. Lo distinto acá es el lugar: allá el ciclo acompaña al régimen de admisión; acá **el ciclo es el índice del régimen**, y no hay forma de sancionar la mitad de la admisión sin sancionar la mitad de la retención.
+
+### Los cinco tramos
+
+| Tramo | Cuándo | Qué se decide ahí |
+|---|---|---|
+| **1 · La Búsqueda** | antes de que sepa que existimos | a quién se busca y cuándo se abre |
+| **2 · La Llegada** | días 0 a 90 | por qué puerta entra, qué firma y quién le golpea la puerta |
+| **3 · Los Primeros Mil Días** | años 1 a 3 | si hay trabajo pago, tierra, matrícula y voz |
+| **4 · El Arraigo** | años 3 a 10 | si se queda, y si el título de la tierra se consolida |
+| **5 · La Ciudadanía** | año 10 en adelante | si el aporte ya hecho vale como camino |
+
+Los tramos 3, 4 y 5 son retención. Los tramos 1 y 2 corren casi sin Estado, y de ahí sale buena parte de por qué este PLAN es barato.
+
+### Los once dispositivos
+
+| # | Dispositivo | Tramo | Qué hace |
+|---|---|---|---|
+| D1 | **La Lista de Faltantes** | 1 | qué le falta al país, escrito por los otros veintiséis PLANes |
+| D2 | **El Cuerpo de Scouts** | 1 | sale a buscar contra esa lista, empezando por la diáspora |
+| D3 | **La Ventana de Pases** | 1 | el calendario del fichaje, con los dos frenos adentro |
+| D4 | **Las Tres Puertas** | 2 | de Derecho (MERCOSUR, intacta), de Invitación y del Regreso |
+| D5 | **El Contrato de Puerta** | 2 | qué da el país y qué se compromete el que llega |
+| D6 | **El Compadrazgo de Llegada** | 2 | una familia o un Círculo recibe. Sin Estado |
+| D7 | **El Paquete** | 3 | tierra con obligación de uso, exención temporal y silla en la Mesa |
+| D8 | **La Regla del Problema Pago** | 3 | ningún fichaje entra a una beca: entra a un problema pago |
+| D11 | **La Revalidación por Desempeño** | 2 y 3 | la matrícula se gana trabajando supervisado, no rindiendo |
+| D9 | **El Tablero de Arraigo** | 4 | la permanencia por cohorte, publicada aunque dé mal |
+| D10 | **La Ciudadanía por Aporte Verificado** | 5 | naturalización atada al aporte cívico ya registrado |
+
+**D11 lleva el número once y opera cuarto.** Apareció haciendo el mapa de perdedores de la SECCIÓN 14, cuando quedó a la vista quién puede bloquear todo esto, y entró al diseño con los otros diez ya numerados. El orden de descubrimiento queda escrito en vez de disimularse: el hallazgo tardío suele ser el más caro.
+
+### Lo que no es un dispositivo
+
+**El Marco de la Puerta** —la SECCIÓN 9— no es el doceavo: es lo que sostiene a los cinco tramos. Tres listas taxativas —lo que se le exige al que entra, lo que el Estado se prohíbe, lo que el PLAN se prohíbe— y una regla de secuencia: **el Marco se sanciona antes que cualquier incentivo, sin excepción.** Invertirlo deja al país, aunque sea por un año, con un régimen de captación de extranjeros y sin marco de límites: la falla 0.6 ya fechó cómo terminó eso.
+
+La **Agencia Nacional de Arraigo (ANAR)** tampoco es un dispositivo: es la mano que opera cuatro de ellos. Administra la Lista de Faltantes que no escribe, sostiene el Cuerpo de Scouts, firma y revoca Contratos de Puerta, y publica el Tablero de Arraigo. Sus poderes son taxativos y son ésos. **ANAR no absorbe la Dirección Nacional de Migraciones**, que sigue haciendo control de frontera con su propia ley: el que ficha no es el que controla. La SECCIÓN 11 lo escribe entero.
+
+### Por qué el conjunto se sostiene
+
+La prueba de si algo es sistema o lista es sacarle una pieza y mirar. Acá falla, y de maneras precisas. Sin la Lista de Faltantes, el Cuerpo de Scouts busca con criterio propio y ANAR se convierte en el ministerio que este PLAN dice no ser. Sin la Regla del Problema Pago, el Paquete financia gente sin nada que hacer: Start-Up Chile con otro presupuesto. Sin la ciudadanía por aporte verificado, el ciclo se corta en el año diez. Y sin el Contrato de Puerta, la única forma de darle dientes al acuerdo sería una facultad sobre las personas, que es la que este documento no funda en ninguna página.
+
+El recorrido que sigue es el de la persona, en el orden en que lo vive. Empieza antes de que sepa que existimos.
+
+---
+
+## SECCIÓN 4: TRAMO 1 — LA BÚSQUEDA
+
+> *"Un país que espera del otro lado del mostrador recibe a los que no tenían mejor opción. Salir a buscar obliga a escribir primero qué se busca."*
+
+### D1 · La Lista de Faltantes
+
+**Qué es.** Un registro público de posiciones concretas que el país necesita llenar y no puede llenar con la gente que tiene. No es un catálogo de oficios: es una lista de puestos, cada uno con nombre, lugar, problema y plata.
+
+**Quién la escribe.** No este documento y no ANAR: la escriben los otros veintiséis PLANes. Cada uno declara qué posición tiene vacante, contra qué problema concreto de su propio texto, y con qué presupuesto ya asignado. ANAR administra una lista que no redacta: **el que administra la lista no puede agregarle un renglón.**
+
+Una fila tiene cinco campos, ninguno opcional:
+
+| Campo | Qué contesta |
+|---|---|
+| Posición | qué se hace, dónde y con quién |
+| PLAN que la pide | quién responde por el renglón, con su `ARCHIVO:línea` |
+| Problema | qué deja de pasar mientras el puesto siga vacío |
+| Presupuesto | qué partida ya asignada lo paga |
+| Veto levantado | la certificación de PLANREP y de PLANEDU |
+
+**La regla de hierro.** Ninguna posición entra a la Lista sin las tres cosas: un PLAN que la pida, presupuesto ya asignado, y el veto de subsidiariedad levantado. Falta una, la fila no existe. Cada una tapa una forma de que la lista se llene sola. Sin PLAN que la pida, la lista la termina escribiendo el que tiene mejor acceso a quien firma. Sin presupuesto, se ficha para un puesto que después nadie paga, y el fichado descubre a los seis meses que vino a una intención.
+
+**La Regla de Subsidiariedad.**
+
+> **No se ficha afuera lo que se puede formar adentro dentro de la ventana del proyecto.**
+
+Es un veto de PLANREP y de PLANEDU, y la palabra veto está en sentido literal: si la escuela de oficios o el programa de reconversión llegan a llenar la posición antes de que el proyecto la necesite, la fila no entra a la Lista, y no hay instancia que revise eso hacia arriba. No es una preferencia por lo nacional ni un criterio de desempate: es la respuesta anticipada al ataque político más peligroso que este PLAN va a recibir, que cabe entero en una frase de campaña:
+
+> *«Traen extranjeros y a mí me echan.»*
+
+El corpus nombra el ataque en vez de esquivarlo, porque describe algo que puede pasar de verdad. PLANREP está reconvirtiendo alrededor de **3,5 millones de empleados públicos** (`PLANREP:87`, TABLA 1). Un Estado que sale a fichar afuera mientras adentro tiene a esa cantidad de gente en transición no necesita que le inventen la acusación: se escribe sola, y esa vez tiene razón. La Regla existe para que la respuesta sea verificable y no retórica — no «también formamos argentinos», sino: *este renglón no está en la Lista porque PLANEDU certificó que llega a tiempo.*
+
+Y ya tiene jurisprudencia adentro del proyecto. La fila de reclutamiento de trabajadores regionales de `PLANVIV:1566` presupuestaba plata pública para traer de afuera un oficio que el Estado debería estar enseñando adentro, y este PLAN la deroga por esta regla y no por otra. La derogación no le cierra la puerta a nadie —esos trabajadores entran por derecho propio— y deja una deuda abierta que este documento declara con su cifra en vez de disimularla.
+
+**Lo que la Lista no es.** Las listas de oficios faltantes son un instrumento común y este PLAN no las estrena: el Reino Unido tiene la Immigration Salary List, que reemplazó a la Shortage Occupation List el 4 de abril de 2024 por recomendación del Migration Advisory Committee, y sirve para bajarle el umbral salarial a una vía de visa. Aquélla la publica la autoridad migratoria y le permite a un empleador contratar más barato; ésta la escriben los PLANes que van a pagar el sueldo, y no habilita nada. **Describe un puesto que ya existe y ya está financiado**, y si el puesto se cae, la fila se cae con él.
+
+### D2 · El Cuerpo de Scouts
+
+**Qué hace un scout.** Toma una fila de la Lista de Faltantes. Va a donde esa gente trabaja —el laboratorio, el hospital, el departamento de la universidad, la empresa— y averigua quiénes son los tres o cuatro que hacen eso bien. Verifica que el problema pago siga en pie. Y vuelve con un nombre y un informe de por qué esa persona y no otra. Ahí termina su trabajo: **el scout no contrata, no promete y no negocia residencia.** Lo que sigue lo firma el empleador y lo registra ANAR.
+
+**Quiénes son.** El primer cuerpo es la diáspora argentina, por costo antes que por sentimiento: ya están adentro de las instituciones donde queremos fichar. No hay que mandarlos a ningún lado — están. El segundo canal son las Empresas Bastardas de PLANEB, que fichan directo porque son ellas mismas el empleador. **Por eso el dispositivo funciona sin Estado desde el día uno:** una red en el exterior y un empleador que paga no necesitan ley, ni decreto, ni partida, y la Fase 0 corre entera con eso.
+
+**Cómo se le paga.** No por fichaje. Un scout que cobra por colocación es un reclutador, y un reclutador optimiza cierres: cierra rápido, cierra mucho y no vuelve a mirar. El scout se evalúa contra la permanencia a diez años de la gente que trajo, que es el número por el que se juzga el PLAN entero: buen historial, más filas; mal historial, menos. El costo del Cuerpo sale de la línea de ANAR y se deriva en la SECCIÓN 12.
+
+**Lo que acá no se estrena.** Salir a buscar activamente no es una idea nueva y este PLAN no la reclama como propia. Alemania recluta enfermeros en el exterior desde 2013 con el programa Triple Win, operado por su agencia federal de empleo junto con la GIZ, con más de ocho mil colocaciones y mediante acuerdos con los países socios. Quebec organizó durante años sus ferias de contratación en el exterior —las Journées Québec— y las suspendió hasta el 30 de junio de 2025 para alinearlas con su decisión de reducir residentes temporarios. Y la red de diáspora tampoco es nueva: GlobalScot la sostiene desde Escocia, y ChileGlobal se fundó en 2005 tomando ese modelo.
+
+Quedan tres diferencias de función, que son las que un contraejemplo no tumba. **La primera:** el scout no escribe la lista contra la que busca. **La segunda:** su resultado no se mide en colocaciones sino en permanencia, con el mismo Tablero de Arraigo con que se juzga el PLAN. **La tercera** la ilustra Quebec: un programa colgado de la misma decisión política que las metas de residentes temporarios se suspende cuando la política cambia. Acá lo que decide si se busca es la Ventana de Pases, y la Ventana no depende de una decisión.
+
+### D3 · La Ventana de Pases
+
+**El fichaje tiene calendario.** No es continuo. Se abre en fechas publicadas, cubre filas concretas de la Lista de Faltantes, y al cerrarse informa cuántas se llenaron y cuántas no. Un flujo continuo, en cambio, nunca tiene un momento en que alguien lo mire entero.
+
+Y la ventana tiene una propiedad que el flujo no tiene: **se puede no abrir.** Frenar un sistema continuo exige que alguien decida frenarlo, lo anuncie y lo defienda, y por eso los sistemas continuos se frenan tarde y de golpe. Una ventana que no abre no requiere ninguna decisión: requiere que la fórmula haya dado lo que dio.
+
+Los dos frenos viven acá.
+
+**El Techo de Origen.** La SECCIÓN 2 ya lo desarrolló con la Lista de Salvaguardia de la OMS, sus 55 países y lo que el caso británico enseña sobre su alcance; la SECCIÓN 9 lo escribe como norma. Lo que importa acá es dónde muerde: **limita dónde se busca, nunca quién entra.** Una fila que solo se pueda llenar reclutando donde la falta duele más que acá no sale a la Ventana. No es un límite a la entrada de nadie ni un cupo por nacionalidad — la puerta de esos países queda donde está. Lo que el Techo apaga es la búsqueda activa financiada con plata argentina. El programa alemán del apartado anterior muestra la excepción que la propia lista contempla: reclutar mediante acuerdo entre Estados, con el país de origen adentro de la decisión.
+
+**El freno de infraestructura.** El otro freno lee tres cosas en la jurisdicción que recibe: vivienda, agua y escuela. Los datos son de PLANVIV, PLANAGUA y PLANEDU, y no los produce ANAR. **Se corta por fórmula publicada y nunca por discrecionalidad de un funcionario**, y las dos mitades de esa frase pesan lo mismo. Publicada quiere decir que la fórmula, sus insumos y el umbral están disponibles antes de que la ventana abra, y cualquiera llega al mismo número por su cuenta. Nunca discrecional quiere decir que no hay instancia que pueda levantar el freno por conveniencia ni bajarlo por presión.
+
+La SECCIÓN 2 dejó escrito qué pasa cuando el freno llega por encuesta y no por regla. Acá va cableado desde el primer día, y eso da dos cosas que un freno reactivo no da. La primera: se puede discutir antes, porque una fórmula publicada se argumenta y se impugna mientras nadie está todavía arriba de un avión. La segunda: **el freno se aplica sobre la ventana que todavía no abrió, y nunca hacia atrás.** El que ya firmó su Contrato de Puerta conserva lo que firmó, incluso el año en que la ventana no abre — es la irretroactividad del Marco de la SECCIÓN 9, aplicada al único lugar donde el país se va a tentar de romperla.
+
+Y tiene un efecto de segundo orden: la única manera que tiene una provincia de conseguir más ventana es construir. El semáforo en rojo no es un castigo — es la lista de obras que le faltan, publicada con su nombre.
+
+**Una ventana que no abre no es el PLAN fallando: es el PLAN funcionando.** El año en que la fórmula dé rojo, lo que hay que arreglar está adentro, y arreglarlo es lo único que mueve el número por el que este documento se juzga.
+
+El que pasa la Ventana viaja. Lo que le pasa al bajar del avión es el tramo que sigue.
+
+---
