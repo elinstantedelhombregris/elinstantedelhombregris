@@ -67,6 +67,14 @@ jobs:
       - name: Guardia de PLANFOCO
         run: npx tsx scripts/verificar-planfoco.ts
 
+      # Lee dos archivos y los dos ya disparan este workflow: el documento
+      # (`Iniciativas Estratégicas/**`) y el canon de pisos (`SocialJusticeHub/**`).
+      # Sin hueco de paths. Verifica el piso de PLANSUS en forma AFIRMATIVA —
+      # 0,10% del PBI — porque la SECCIÓN 30 razona sobre ese número contra la
+      # Escalera de PLANPACTO: si el canon lo cambia, el documento miente.
+      - name: Guardia de PLANSUS
+        run: npx tsx scripts/verificar-plansus.ts
+
       # Barre el corpus entero: resuelve toda cita ARCHIVO:línea contra su archivo.
       # Existe por la primera lección del tramo D — editar un documento ajeno corre
       # sus líneas y rompe remisiones ajenas, y eso se encontró por casualidad.
