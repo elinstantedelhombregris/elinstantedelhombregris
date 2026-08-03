@@ -1,9 +1,17 @@
 import { COEFICIENTES } from './coeficientes.js';
-import { hayMandato, pisoEfectivo, umbralDe } from './mandato.js';
+import {
+  hayMandato,
+  periodosDelHorizonte,
+  periodosSostenidos,
+  pisoEfectivo,
+  umbralDe,
+} from './mandato.js';
 import { derivado, medido } from './procedencia.js';
+import { repartir } from './reparto.js';
 
 import type {
   EstadoMedido,
+  Palancas,
   Retrato,
   RetratoTerritorio,
   SinDato,
@@ -140,5 +148,42 @@ export function retratoMedido(base: EstadoMedido, territorios: readonly Territor
     territorios,
     'voces cargadas',
     true,
+  );
+}
+
+/**
+ * El lado de la voz. Acá sí mandan las palancas — es la única mitad simulada.
+ *
+ * La constancia se aplica pareja a todos los territorios: la palanca describe
+ * cómo se comporta la gente, no un territorio en particular. Cuando existan
+ * campañas con su propia cadencia (rebanada 3) esto va a dejar de ser cierto.
+ */
+export function retratoSimulado(
+  palancas: Palancas,
+  base: EstadoMedido,
+  territorios: readonly Territorio[],
+): Retrato {
+  const poblacionTotal = territorios.reduce((s, t) => s + Math.max(0, t.poblacion), 0);
+  const totalVoces = Math.round((palancas.participacion * poblacionTotal) / 100_000);
+
+  const vocesBase = new Map<string, number>();
+  for (const v of base.voces) {
+    vocesBase.set(v.territorioId, (vocesBase.get(v.territorioId) ?? 0) + 1);
+  }
+
+  const conteo = repartir(totalVoces, territorios, palancas.dispersion, vocesBase);
+
+  const periodosTotales = periodosDelHorizonte(palancas.horizonte);
+  const sostenidos = periodosSostenidos(palancas.constancia, periodosTotales);
+  const sostenidosPorTerritorio = new Map(territorios.map((t) => [t.id, sostenidos]));
+
+  return armarRetrato(
+    conteo,
+    sostenidosPorTerritorio,
+    periodosTotales,
+    pisoEfectivo(palancas.resistencia),
+    territorios,
+    'participación × población ÷ 100.000, repartida por dispersión',
+    false,
   );
 }
