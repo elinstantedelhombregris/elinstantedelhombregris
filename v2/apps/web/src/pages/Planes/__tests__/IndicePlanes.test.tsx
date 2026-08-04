@@ -14,16 +14,16 @@ if (!planjus || !planrep) {
 }
 
 describe('IndicePlanes (§2–§3 — el índice de los N + el plan meta)', () => {
-  it('canon del registry: exactamente 1 plan isMeta y 26 sin isMeta', () => {
+  it('canon del registry: exactamente 1 plan isMeta y 27 sin isMeta', () => {
     expect(PLAN_REGISTRY.filter((p) => p.isMeta)).toHaveLength(1);
-    expect(PLAN_REGISTRY.filter((p) => !p.isMeta)).toHaveLength(26);
+    expect(PLAN_REGISTRY.filter((p) => !p.isMeta)).toHaveLength(27);
   });
 
-  it('renderiza 27 filas cerradas; la primera es 01 + PLANJUS; el meta es 00 + PLANRUTA bajo su encabezado', () => {
+  it('renderiza 28 filas cerradas; la primera es 01 + PLANJUS; el meta es 00 + PLANRUTA bajo su encabezado', () => {
     render(<IndicePlanes />);
 
     const filas = screen.getAllByRole('button', { expanded: false });
-    expect(filas).toHaveLength(27);
+    expect(filas).toHaveLength(28);
 
     expect(filas[0]).toHaveTextContent('01');
     expect(filas[0]).toHaveTextContent('PLANJUS');

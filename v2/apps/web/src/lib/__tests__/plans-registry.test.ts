@@ -8,8 +8,8 @@ import {
 } from '~/lib/plans-registry';
 
 describe('plans-registry (canon + carga diferida)', () => {
-  it('canon: 22 temáticos + 1 meta', () => {
-    expect(PLAN_REGISTRY.filter((p) => !p.isMeta)).toHaveLength(26);
+  it('canon: 27 temáticos + 1 meta', () => {
+    expect(PLAN_REGISTRY.filter((p) => !p.isMeta)).toHaveLength(27);
     expect(PLAN_REGISTRY.filter((p) => p.isMeta)).toHaveLength(1);
   });
 
