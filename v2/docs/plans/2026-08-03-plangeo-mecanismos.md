@@ -133,7 +133,7 @@ Debajo de la guardia de PLANSUS, antes de la de remisiones. Anotar en el YAML �
 
 ---
 
-## Task 3: SECCIÓN 26 — El contrato como defensa
+## Task 3: SECCIÓN 26 — El contrato como defensa ✅ **HECHA** (`2c9ccb3`)
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-plangeo.ts`
@@ -159,7 +159,7 @@ Contenido, según spec §5:
 
 ---
 
-## Task 4: SECCIÓN 27 — La visibilidad como poder
+## Task 4: SECCIÓN 27 — La visibilidad como poder ✅ **HECHA** (`bdae281`)
 
 **Precondición — ahora es otra.** El ledger cerró V6 y V7, así que la sección va. Pero **V7 dejó dos decisiones abiertas que son del autor y que esta tarea no puede tomar sola**: (1) **OROP con paraguas de soberanía o lista propia** — condiciona toda la 27.3; (2) **qué se hace con el «15 → 60 buques» de PLANTER** — condiciona la 27.4. Sin las dos respondidas, esta tarea **no arranca**.
 
@@ -183,7 +183,7 @@ Contenido, según spec §5:
 
 ---
 
-## Task 5: SECCIÓN 28 — La capacidad que ya existe
+## Task 5: SECCIÓN 28 — La capacidad que ya existe ✅ **HECHA** (`bbcfc62`)
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-plangeo.ts`
@@ -205,7 +205,7 @@ Contenido, según spec §5:
 
 ---
 
-## Task 6: Las once ediciones forzadas, de abajo hacia arriba
+## Task 6: Las once ediciones forzadas, de abajo hacia arriba ✅ **HECHA** (`e799962`)
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-plangeo.ts`
@@ -229,7 +229,7 @@ El orden es **E9 → E10 → E8 → E7 → E6 → E2 → E1 → E3 → E4 → E5
 
 ---
 
-## Task 7: Cabecera, numeración y la nota editorial
+## Task 7: Cabecera, numeración y la nota editorial ✅ **HECHA** (`e799962`) — ver D-028: iba antes de la Task 6, no en el medio
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`
@@ -241,7 +241,7 @@ El orden es **E9 → E10 → E8 → E7 → E6 → E2 → E1 → E3 → E4 → E5
 
 ---
 
-## Task 8: Las anclas ajenas y la integración con el corpus
+## Task 8: Las anclas ajenas y la integración con el corpus ✅ **HECHA** (`e799962`)
 
 Esta es la tarea que la spec §6.bis existe para forzar. Ocho de las once ediciones corrieron `PLANGEO:1148-1149` y `PLANGEO:1151`.
 
@@ -259,7 +259,7 @@ Esta es la tarea que la spec §6.bis existe para forzar. Ocho de las once edicio
 
 ---
 
-## Task 9: Verificación final, registro y deudas
+## Task 9: Verificación final, registro y deudas ✅ **HECHA** (`e799962`)
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLAN_REGISTRY.yml`, `SocialJusticeHub/client/public/docs/PLANGEO_Argentina_ES.md`, `docs/DEUDAS.md`
@@ -282,3 +282,30 @@ Esta es la tarea que la spec §6.bis existe para forzar. Ocho de las once edicio
 **Lo tercero, y es el que más fácil se pasa por alto:** que la S26.8 se escriba como trámite. Es la sub-sección que ataca a la propuesta del propio documento, y la tentación de redactarla en una versión débil —para que la objeción se caiga sola— es enorme. **Si la objeción escrita no es la mejor versión de la objeción, la sub-sección no cumple su función y conviene no tenerla.** El chequeo de las tres condiciones en la guardia detecta que estén; no detecta que estén bien escritas. Eso lo mira el autor.
 
 **Lo que este plan no cubre y hay que saberlo:** la sobretasa de la Cláusula del Buitre, la opinión legal sobre si la conversión de foro es ejecutable bajo ley extranjera, el umbral del Segundo Proveedor y el costo de la constelación contra la línea naval que reemplaza. Los cuatro están en spec §10 como abiertos. **Este plan escribe el documento con esos huecos declarados adentro** — no los cierra, y un documento que declara sus huecos es más honesto que uno que los rellena con números plausibles. Es exactamente lo que D-015 enseñó a costa de PLANSUS.
+
+
+---
+
+## Cierre — 2026-08-03
+
+**Las nueve tareas están hechas.** PLANGEO quedó en v1.2: 28 secciones, 2.004 líneas, 31.402 palabras.
+
+| Verificación | Estado |
+|---|---|
+| Ocho guardias del corpus | verde |
+| `npm run check` / `check:routes` | verde |
+| `verificar-remisiones.ts` | verde |
+| 28 documentos públicos sincronizados | verde |
+| `npm run test:unit` | **1 falla ajena** — D-025 a D-027 de la sesión concurrente no tienen fila en el índice de `docs/DEUDAS.md`. No es de este plan y no se tocó |
+
+**Lo que quedó abierto y no lo cierra este plan** (todo declarado dentro del documento, no escondido):
+
+1. La sobretasa de la Cláusula del Buitre (S26.6). Tarea de Pre-Fase, con estimación externa y publicada.
+2. La opinión legal sobre si la conversión automática de foro es oponible bajo ley extranjera (S26.3). `LEGAL_OPINIONS/PLANGEO.md` no existe.
+3. El umbral del Segundo Proveedor (S28.4). Sale de un análisis de concentración de compras públicas.
+4. El rango exacto de la reasignación de la línea naval (S27.4).
+5. El dato de producción nacional de IFA (S28.5), vía ANMAT / cámaras / INDEC.
+6. **El umbral popular de PLANMESA para el Compromiso de Horizonte.** Es la más grande de las seis: sin ella el Horizonte no se firma, y con él no se firma la OROP.
+7. **D-017** sigue abierta y ahora pesa más: la compuerta de tranche-3 del Registro de Presión no se puede hacer operativa mientras el marcado `[INTERNO]` no exista y el documento se publique entero en `client/public/docs/`.
+
+**La lección de método, anotada como D-028.** La regla «ediciones de abajo hacia arriba» cubría las ediciones de contenido y no las de metadatos. La cabecera es la edición más destructiva para las anclas y es la que uno hace al final, cuando ya cree que terminó.
