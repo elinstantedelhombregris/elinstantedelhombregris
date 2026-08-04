@@ -1,7 +1,7 @@
 # Mapa de Coalición — Aliados Potenciales
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** la auditoría 2026-04-26 advierte: la simulación adversarial es buena, el mapa de aliados está incompleto. Este documento empareja.
 > **COMPLEMENTA:** `SIMULACION_ADVERSARIAL_BASTA.md` y `READINESS_GATES_ADVERSARIAL.md`.

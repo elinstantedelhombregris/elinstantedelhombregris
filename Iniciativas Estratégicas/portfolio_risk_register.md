@@ -1,7 +1,7 @@
 # Registro de Riesgo del Portfolio
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **CADENCIA:** revisión mensual por PEO + revisión trimestral por Mesa de Gobierno + auditoría externa anual.
 > **LAST_AUDIT:** 2026-04-26

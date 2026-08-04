@@ -4047,4 +4047,65 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     stateCapacity: 'media',
     socialCapacity: 'media',
   },
+  {
+    slug: 'planpuerta-arraigo-talento-poblamiento',
+    title: 'PLANPUERTA',
+    subtitle: 'Plan Nacional de Arraigo, Búsqueda de Talento y Poblamiento',
+    category: 'instituciones',
+    summary: 'Ningún país se puebla por lo que decide en la frontera: se puebla por lo que ofrece adentro, y hace un siglo que la Argentina discute lo primero sin haber discutido nunca lo segundo. Por eso el indicador rector no es cuántos entran sino cuántos siguen acá a los diez años — la única métrica que no se puede falsear con marketing, porque para moverla hay que arreglar el país. Empieza por lo más barato, que es lo que ya está adentro y no se usa: se deja de revalidar por trámite y se pasa a revalidar mirando a la persona trabajar. Después sale a buscar contra La Lista de Faltantes, que escriben los otros veintiséis PLANes y no un ministerio, con un Techo de Origen que prohíbe buscar donde la falta duele más que acá. El Acuerdo de Residencia del MERCOSUR no se toca. El órgano es la piel, no el sistema inmune, y la restricción es absoluta: este PLAN no crea ni un gramo de poder de expulsión nuevo — el incumplimiento revoca el Paquete y la residencia queda intacta. Lo administra la ANAR. USD 450–900M a quince años, sin piso constitucional.',
+    iconName: 'DoorOpen',
+    documentFile: 'PLANPUERTA_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>En el Tercer Censo Nacional, el de 1914, el <strong>29,9%</strong> de la gente que vivía en la Argentina había nacido en otro país. En el Censo 2022 esa proporción es del <strong>4,2%</strong>: de casi uno de cada tres a uno de cada veinticuatro. Es el mismo siglo en que el país dejó de estar entre las diez economías más ricas del mundo, y no son dos hechos que se acompañan por casualidad.</p>
+<p>La explicación cómoda es que en algún momento se cerró la puerta. No se cerró: la del MERCOSUR está abierta por tratado y entra gente todos los días. Lo que pasó es más incómodo de decir — <strong>dejó de valer la pena el viaje</strong>.</p>
+<p>Y lo más barato ya está adentro y no se usa. Un anestesista con once años de quirófano maneja para una aplicación en Rosario mientras, a treinta metros, el hospital reprograma cirugías por falta de anestesista. Las dos cosas pasan a la misma hora y en la misma cuadra, separadas por una pared, porque <strong>en toda la administración argentina no hay un solo escritorio cuyo trabajo sea mirar las dos al mismo tiempo</strong>.</p>`,
+      pullQuote: 'Nadie deja su casa por una exención impositiva.',
+      stats: [
+        { label: 'Nacidos en el extranjero (1914)', value: '29,9%' },
+        { label: 'Nacidos en el extranjero (2022)', value: '4,2%' },
+        { label: 'Inmigrantes de países limítrofes', value: '65,9%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: 'Qué Pasa Si No Cambiamos',
+      content: `<p>Los otros veintiséis PLANes diseñan qué hace el país y ninguno se preguntó quién lo habita. PLAN24CN levanta veinticuatro ciudades nuevas sin tener escrito quién las va a vivir; PLANREP declaró el riesgo de que la Argentina sea una <strong>fábrica de emigrantes subsidiada</strong> y no escribió la puerta de vuelta.</p>
+<p>Del otro lado está el precedente que ordena todos los límites de este PLAN: la <strong>Ley 4.144</strong> —la Ley de Residencia de 1902— habilitaba la expulsión sin juicio previo y estuvo vigente cincuenta y seis años, hasta 1958. Un régimen de atracción montado antes que sus límites es esa ley entrando por la ventana con otro nombre, y por eso el Marco de la Puerta se sanciona <strong>antes</strong> que el primer peso de incentivo.</p>`,
+      pullQuote: 'Un país sin piel no se defiende: no siente.',
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p><strong>Se mide por arraigo y no por llegadas.</strong> El indicador rector es la permanencia a diez años, publicada aunque dé mal, con umbrales de alarma escritos antes del dato y contra una cohorte de control. De ella depende que la Ventana de Pases abra o no. Una campaña no la mueve: la mueve arreglar la escuela, el quirófano y el expediente parado hace ocho meses.</p>
+<p>Once dispositivos en cinco tramos. <strong>La Lista de Faltantes</strong> no la escribe un ministerio con criterio propio: se la escriben los otros veintiséis PLANes, cada uno declarando qué posición tiene vacante, con qué problema concreto y con qué plata ya asignada. Sobre esa lista sale <strong>El Cuerpo de Scouts</strong>, con un <strong>Techo de Origen</strong> que prohíbe reclutar en los países de la Lista de Salvaguardia de la OMS — no se financia un proyecto anti-extractivo extrayendo cerebros de gente más pobre. La <strong>Revalidación por Desempeño</strong> mide si sabe hacerlo en lugar de medir si sabe rendir. El <strong>Compadrazgo de Llegada</strong> no inventa nada: le pone nombre a la vecina que sube una mesa por la escalera, y cuesta una planilla.</p>
+<p><strong>El Marco de la Puerta son diecisiete renglones que se sancionan primero</strong>, y el más importante es el que este PLAN no puede tocar nunca: no crea ni un gramo de poder de expulsión nuevo. El incumplimiento revoca el Paquete y la residencia queda intacta; el delito grave lo resuelve el derecho penal vigente. El Acuerdo de Residencia del MERCOSUR (Ley 25.903) no se toca, y la ANAR no absorbe Migraciones: la línea mantiene separados el poder y el archivo.</p>`,
+      pullQuote: 'No se mide por cuántos entran, sino por cuántos siguen acá a los diez años.',
+    },
+    elCamino: {
+      overview: 'El orden no es una preferencia de redacción: es el dispositivo de seguridad principal del PLAN. El Marco de la Puerta se sanciona antes que el primer peso de incentivo, sin excepción — invertirlo deja al país un año con captación de extranjeros y sin marco.',
+      steps: [
+        { id: 1, title: 'Fase 0 — Sin permiso', description: 'Scouts civiles sobre la red de diáspora de PLANREP, fichaje directo de las Empresas Bastardas, Compadrazgo con una planilla y una cohorte piloto de 100 a 300 personas medida desde el día uno. No necesita ley, decreto ni un peso: no entrega lote ni compromete exención.', timeline: 'Meses 0-12', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 1 — La Lista y el Marco', description: 'Los otros veintiséis PLANes escriben sus faltantes con las cinco columnas y el veto de subsidiariedad levantado. Se sancionan el Marco —diecisiete renglones— y la ley de ANAR. Sin esa ley la Fase 2 no arranca.', timeline: 'Año 1-2', dependencies: ['Fase 0 — Sin permiso'], orderIndex: 2 },
+        { id: 3, title: 'Fase 2 — El Paquete', description: 'La exención, contra el techo de gasto tributario que PLANPACTO todavía no tiene. Primeros lotes en ciudades de PLAN24CN. Primera Ventana de Pases formal, con los dos frenos activos y la fórmula publicada antes de que abra. Revalidación por Desempeño en piloto.', timeline: 'Año 2-4', dependencies: ['Fase 1 — La Lista y el Marco'], orderIndex: 3 },
+        { id: 4, title: 'Fase 3 — Régimen', description: 'Cohortes anuales. El año que el Tablero de Arraigo no sale, la Ventana no abre y la falta se inscribe en PLANMEMORIA: la sanción cae sobre el PLAN y jamás sobre una persona.', timeline: 'Año 4-12', dependencies: ['Fase 2 — El Paquete'], orderIndex: 4 },
+        { id: 5, title: 'Fase 4 — El juicio', description: 'La primera cohorte cumple diez años de permanencia entre el año doce y el catorce. Se compara contra los que entraron el mismo año por la Puerta de Derecho, sin Contrato y sin Paquete. Si las dos series dan lo mismo, el Paquete no compró arraigo y el PLAN se reformula.', timeline: 'Año 12+', dependencies: ['Fase 3 — Régimen'], orderIndex: 5 },
+      ],
+    },
+    kpis: [
+      { id: 'puerta-permanencia', metric: 'Permanencia a diez años de la cohorte con Paquete, medida contra la cohorte de control', currentValue: 0, targetValue: 1, unit: 'puntos sobre la cohorte de control', source: 'Tablero de Arraigo — indicador rector. El umbral es interno y comparativo a propósito: si las dos series dan lo mismo, el Paquete no compró arraigo y el PLAN falló en su apuesta central. No se usa un porcentaje prestado de otro país' },
+      { id: 'puerta-segunda', metric: 'Índice de Segunda Puerta — cohortes consecutivas en las que cae la proporción de los que trajeron a alguien', currentValue: 0, targetValue: 0, unit: 'cohortes en caída', source: 'Tablero de Arraigo — alarma a las dos cohortes seguidas: casi nadie muda a la familia a un lugar del que piensa irse' },
+      { id: 'puerta-revalida', metric: 'Tiempo mediano de revalidación, por profesión', currentValue: 48, targetValue: 12, unit: 'meses', source: 'Tablero de Arraigo. Hoy no hay serie publicada: el valor actual es el expediente del PREÁMBULO, cuatro años sin resolver. El techo de doce meses lo fija el Marco de la Puerta y obliga adentro del convenio con cada jurisdicción' },
+    ],
+    tags: ['arraigo', 'Lista de Faltantes', 'Cuerpo de Scouts', 'Techo de Origen', 'Marco de la Puerta', 'Compadrazgo de Llegada', 'Revalidación por Desempeño', 'ANAR'],
+    relatedInitiativeSlugs: ['plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico'],
+    missionSlug: 'instituciones-y-futuro',
+    secondaryMissionSlug: 'territorio-legible',
+    temporalOrder: 'transicion',
+    priority: 'media',
+    state: 'ambar',
+    citizenRoles: ['testigo', 'organizador', 'declarante'],
+    citizenAsk: 'Si en tu edificio o en tu cuadra llegó alguien de afuera este año, golpeale la puerta. Eso es el Compadrazgo de Llegada entero, y no lo puede hacer ninguna política pública por vos.',
+    mainRisk: '«Dubái con asado»: un sistema de invitación selectiva con beneficios revocables, montado sobre una población de servicio regional que trabaja acá y no accede a ellos, es estructuralmente el modelo del Golfo. Se llega ahí sin proponérselo. Lo cierra la cláusula anti-casta y el indicador de brecha de casta, publicado en el mismo Tablero.',
+    stateCapacity: 'baja',
+    socialCapacity: 'media',
+  },
 ];

@@ -1,7 +1,7 @@
 /**
  * GENERADO — no editar a mano. Correr `pnpm planes:migrar`.
  *
- * Solo el frontmatter de los 23 planes: es lo único que entra eager al bundle.
+ * Solo el frontmatter de los 28 documentos del canon: es lo único que entra eager al bundle.
  * Los cuerpos (5,1 MB) se cargan por `import()` desde plans-registry.ts.
  */
 
@@ -21,7 +21,7 @@ export const PLANES_INDEX: readonly EntradaIndicePlan[] = [
     code: 'PLANRUTA',
     title: "Cuando el sistema caiga alguien tiene que saber reconstruir",
     nombreInstitucional: "Plan Nacional de Ruta de Arranque y Preparación para la Crisis Sistémica",
-    summary: "PLANRUTA es el meta-plan: cómo se arranca la ejecución de los otros 22, cómo se activa la red sin esperar permiso, cómo se sostiene el cambio en momentos de crisis. No es un plan más; es el manual de cómo arrancar todo.",
+    summary: "PLANRUTA es el meta-plan: cómo se arranca la ejecución de los otros 27, cómo se activa la red sin esperar permiso, cómo se sostiene el cambio en momentos de crisis. No es un plan más; es el manual de cómo arrancar todo.",
     orderIndex: 0,
     isMeta: true,
   },
@@ -257,6 +257,15 @@ export const PLANES_INDEX: readonly EntradaIndicePlan[] = [
     nombreInstitucional: "Plan Nacional de la Palabra Pública, la Biblioteca Viva y el Acervo Común",
     summary: "La palabra pública no se arregla poniéndole reglas al que habla: se arregla cambiando adónde mira el país y construyendo el lugar donde esa mirada aterriza. El Estado no regula, no licencia, no censura y no le toca un pelo a ningún medio — se aplica una sola disciplina a sí mismo, sobre su propia billetera. La Pauta Ciega le quita al Estado la capacidad de elegir a qué medio le da un peso y después extingue la publicidad oficial en cinco años, hasta cero. Con esa plata, que ya existe, financia la Biblioteca Viva (1.200–1.500 sedes con bibliotecario, acervo y horario), La Antena (dotación de canal para cualquiera que la pida), La Cartelera, El Acervo Abierto, La Sala Común, La Procedencia y el Desmontaje, que dicta PLANEDU. Sin piso constitucional: su techo lo fija la fuente que apaga. Lo administra la ANBAC. USD 300–450M/año.",
     orderIndex: 26,
+    isMeta: false,
+  },
+  {
+    slug: 'planpuerta',
+    code: 'PLANPUERTA',
+    title: "Nadie deja su casa por una exención impositiva",
+    nombreInstitucional: "Plan Nacional de Arraigo, Búsqueda de Talento y Poblamiento",
+    summary: "Ningún país se puebla por lo que decide en la frontera: se puebla por lo que ofrece adentro, y hace un siglo que la Argentina discute lo primero sin haber discutido nunca lo segundo. Por eso el indicador rector no es cuántos entran sino cuántos siguen acá a los diez años — la única métrica que no se puede falsear con marketing, porque para moverla hay que arreglar el país. Empieza por lo más barato, que es lo que ya está adentro y no se usa: se deja de revalidar por trámite y se pasa a revalidar mirando a la persona trabajar. Después sale a buscar contra La Lista de Faltantes, que escriben los otros veintiséis PLANes y no un ministerio, con un Techo de Origen que prohíbe buscar donde la falta duele más que acá. El Acuerdo de Residencia del MERCOSUR no se toca. El órgano es la piel, no el sistema inmune, y la restricción es absoluta: este PLAN no crea ni un gramo de poder de expulsión nuevo — el incumplimiento revoca el Paquete y la residencia queda intacta. Lo administra la ANAR. USD 450–900M a quince años, sin piso constitucional.",
+    orderIndex: 27,
     isMeta: false,
   },
 ];

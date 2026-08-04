@@ -271,7 +271,7 @@ Bloque a insertar después del título H1 (debajo de la primera línea `# ...`):
 
 ```markdown
 > **STATUS:** {current | superseded | historical | supporting}
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **SUCCESSOR (si superseded):** {nombre del archivo sucesor o "ver registro"}
 > **LAST_AUDIT:** 2026-04-26

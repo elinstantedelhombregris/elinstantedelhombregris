@@ -2,7 +2,7 @@
 
 > **STATUS:** current
 > **PLAN:** PLANDIG (un solo PLAN, sin división)
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — PLANDIG es **uno** de los 26.
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol — PLANDIG es **uno** de los 27.
 > **REGISTRY:** ver `PLAN_REGISTRY.yml` (campo `internal_stages`)
 > **MOTIVO:** PLANDIG es punto único de falla sistémico. La auditoría 2026-04-26 identificó 167 referencias entrantes desde otros PLANes. Estadiamos internamente las capacidades para reducir riesgo, sin partir el PLAN.
 > **LAST_AUDIT:** 2026-04-26

@@ -1,7 +1,7 @@
 # HOJA DE RUTA CONSOLIDADA DEL ECOSISTEMA ¡BASTA!
 
 > **STATUS:** current (recomputada en Fase 2 de remediación 2026-04-28)
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **MATRIZ VINCULANTE:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` (esta hoja de ruta la respeta; conflictos se resuelven a favor de la matriz)
 > **LAST_AUDIT:** 2026-04-26

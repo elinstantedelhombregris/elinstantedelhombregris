@@ -1,7 +1,7 @@
 # PLANRUTA — Protocolo Nacional de Ruta de Arranque y Disciplina de Portfolio
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **NATURE:** protocolo vinculante de readiness, secuencia y disciplina de portfolio. **No** es un mandato sectorial. **No** tiene políticas públicas propias. Su producto es la disciplina de portfolio.
 > **VEHICLE:** Portfolio Execution Office (PEO) — ver `PORTFOLIO_EXECUTION_OFFICE.md`. Célula temporal de ejecución, **no** agencia autónoma.
@@ -2707,7 +2707,7 @@ El instante del Hombre Gris. Gris como la **plata**. Como el amanecer. Como la c
 ## Parche post-auditoría 2026-04-26
 
 > **STATUS LOCAL:** alineado con auditoría 2026-04-26.
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 26 (o el protocolo, si es PLANRUTA). **Sin splits.**
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 27 (o el protocolo, si es PLANRUTA). **Sin splits.**
 
 ### 1. Tranche assignment
 - **Tranche:** tranche-1 (protocolo)

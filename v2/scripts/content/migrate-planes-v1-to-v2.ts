@@ -64,7 +64,7 @@ function main(): void {
     `/**
  * GENERADO — no editar a mano. Correr \`pnpm planes:migrar\`.
  *
- * Solo el frontmatter de los 23 planes: es lo único que entra eager al bundle.
+ * Solo el frontmatter de los ${String(PLANES_SOURCES.length)} documentos del canon: es lo único que entra eager al bundle.
  * Los cuerpos (5,1 MB) se cargan por \`import()\` desde plans-registry.ts.
  */
 

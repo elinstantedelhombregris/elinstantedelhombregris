@@ -44,6 +44,10 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-017](#d-017--plangeo-promete-secciones-interno-que-no-existen) | PLANGEO promete secciones `[INTERNO]` que no existen | Media | Abierta |
 | [D-018](#d-018--budget_class-del-registro-no-es-monótono-en-dólares) | `budget_class` del registro no ordena por presupuesto | Media | Abierta |
 | [D-019](#d-019--v-fin-05-suma-el-piso-sustitutivo-a-los-pisos-que-sustituye--resuelta) | V-FIN-05 suma el piso sustitutivo a los pisos que sustituye | Media | **Resuelta** |
+| [D-020](#d-020--el-conteo-canónico-vive-hardcodeado-en-siete-lugares-y-ninguno-avisa-cuando-queda-viejo--resuelta) | El conteo canónico vive hardcodeado en siete lugares y ninguno avisa cuando queda viejo | Media | **Resuelta** |
+| [D-021](#d-021--quedan-conteos-viejos-en-la-prosa-publicada-y-ninguna-guardia-los-mira) | Quedan conteos viejos en la prosa publicada, y ninguna guardia los mira | Baja | Abierta |
+| [D-022](#d-022--los-cuatro-planes-de-julio-nunca-entraron-a-presupuesto_consolidado_bastamd) | Los cuatro PLANes de julio nunca entraron a `PRESUPUESTO_CONSOLIDADO_BASTA.md` | Media | Abierta |
+| [D-023](#d-023--la-sección-9-de-planpuerta-se-pasó-248-palabras-del-techo-y-nadie-lo-vio) | La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo | Baja | Abierta |
 
 ---
 
@@ -468,7 +472,9 @@ Un `XS` que cuesta veintiséis mil millones y un `S` que cuesta cero no pueden e
 
 ---
 
-### D-019 · La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo y nadie lo vio
+### D-023 · La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo y nadie lo vio
+
+> **Sobre el id.** Esta entrada nació como una segunda `D-019`, colisionando con la de V-FIN-05, y **entró sin fila de índice** — que es por qué la colisión no la vio nadie leyendo el archivo. La encontró `tests/unit/deudas-registro.test.ts`, la guardia que pidió [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) justamente para esto, y que ya estaba en rojo antes de este tramo. Se renumeró a D-023 —el próximo libre— aplicando el precedente escrito en D-016: **se renumera la más nueva de las dos.** La de V-FIN-05 es del commit `aede891` y ésta del `3831a4d`, que es posterior. Renumerada el 2026-08-02 con la entrada de PLANPUERTA al canon.
 
 **Dónde:** `Iniciativas Estratégicas/PLANPUERTA_Argentina_ES.md`, `## SECCIÓN 9: EL MARCO DE LA PUERTA`
 **Encontrada:** 2026-08-03, en el fix de la Task 10, midiendo los rangos de todas las secciones
@@ -486,3 +492,65 @@ Hay además dos desbordes chicos del mismo tipo: **SECCIÓN 2 en 1.411 contra un
 **Por qué no se arregla acá:** el fix de la Task 10 tenía alcance escrito y la revisión aprobó la sección como pieza. Podar 248 palabras de la sección más citada del documento es trabajo propio, no un efecto lateral de otro fix.
 
 **Qué haría falta:** que `scripts/verificar-planpuerta.ts` mida los rangos por sección y falle, en vez de dejarlos en el reporte de cada tarea. Un techo que solo vive en un `.md` de reporte se pasa el día que la tarea siguiente no lo relee.
+
+---
+
+### D-020 · El conteo canónico vive hardcodeado en siete lugares y ninguno avisa cuando queda viejo — RESUELTA
+
+**Dónde:** `SocialJusticeHub/client/src/components/arquitecto/PlanEditor.tsx:8`, `SocialJusticeHub/shared/arquitecto-data.ts:2` y `:70`, `SocialJusticeHub/shared/validation-engine.ts:11`, `SocialJusticeHub/tests/unit/pisos-constitucionales.test.ts:59`, `v2/scripts/content/verify-planes-index.ts:34`, `v2/scripts/content/planes-sources.ts:2`
+**Encontrada:** 2026-08-02, migrando el canon de 26 a 27 con la entrada de PLANPUERTA
+**Severidad:** media
+**Estado:** **resuelta** en el mismo commit que la encontró
+
+La autoridad del conteo es `Iniciativas Estratégicas/PLAN_REGISTRY.yml` (`thematic_count`). Pero el número está **copiado a mano en siete lugares más**, y ninguno tiene forma de enterarse cuando el registro se mueve. La migración de 22 a 26 del 2026-08-01 movió el registro y dejó atrás por lo menos dos de esas copias durante un día entero:
+
+- **`PlanEditor.tsx:8`** decía `term: 'veintidós PLANes (al 23 de abril de 2026)'`. **Es un glosario normativo:** la lista de términos canónicos contra la que el editor marca violaciones. Con el canon en 26, ese glosario marcaba **el conteo correcto como violación** — el peor modo de falla posible para una guardia, porque es silencioso y va en la dirección equivocada.
+- **`arquitecto-data.ts:2`** decía «Extracted from 22 PLANes + support documents (April 2026)», y `:70` encabezaba la tabla de nodos con «PLAN NODES (22 mandatos)» mientras la tabla tenía 26.
+
+**Las otras cinco copias sí estaban al día en 26**, y las cinco había que moverlas a 27 en este tramo: `validation-engine.ts:11` (`EXPECTED_PLAN_COUNT`, que dispara V-REF-02 como ERROR), `pisos-constitucionales.test.ts:59` (la lista `SIN_PISO`, que es **opt-in**: un PLAN nuevo que no se agrega no rompe nada hasta que alguien mira), `verify-planes-index.ts:34` (`TEMATICOS_ESPERADOS`) y las dos cabeceras de prosa de `planes-sources.ts` y del índice generado.
+
+**Por qué se anota aunque se resuelva.** El defecto no fue el número: fue que **ningún chequeo mira los conteos escritos en prosa dentro del código**. Las guardias del corpus vigilan los documentos; el código las escribe. Que dos de las siete copias hayan quedado viejas un día entero sin que nada fallara es la medición de ese hueco, y la próxima migración lo va a repetir salvo que alguien derive el número del registro en vez de copiarlo.
+
+**Qué haría falta:** un test que lea `thematic_count` de `PLAN_REGISTRY.yml` y lo compare contra `EXPECTED_PLAN_COUNT`, `TEMATICOS_ESPERADOS`, `PLAN_NODES.length`, `STRATEGIC_INITIATIVES.length` y el término del glosario de `PlanEditor.tsx`. Cinco `expect` contra una sola fuente. Mientras no exista, cada migración del canon es una lista opt-in que sale verde incompleta.
+
+---
+
+### D-021 · Quedan conteos viejos en la prosa publicada, y ninguna guardia los mira
+
+**Dónde:** `SocialJusticeHub/shared/strategic-initiatives.ts:1786`, `:1844`, `:2919`; `SocialJusticeHub/client/src/pages/UnaRutaParaArgentina.tsx:1093`; `SocialJusticeHub/client/src/content/ensayos.generated.ts:437` y `:536`; `SocialJusticeHub/client/src/components/arquitecto/PlanEditor.tsx:16`
+**Encontrada:** 2026-08-02, barriendo conteos viejos durante la migración a 27 (ver D-020)
+**Severidad:** baja
+**Estado:** abierta
+
+Además de las siete copias estructurales de D-020, **el número viejo sobrevive en la prosa que se le muestra al lector**. Todos estos siguen diciendo 22:
+
+| Dónde | Qué dice | Qué es |
+|---|---|---|
+| `strategic-initiatives.ts:1786` | «son 22 PLANes simultáneos (al 23 de abril de 2026)» | `summary` de PLANGEO — se publica |
+| `strategic-initiatives.ts:1844`, `:2919` | «los 22 PLANes», «de 22 PLANes» | prosa de secciones de iniciativa |
+| `UnaRutaParaArgentina.tsx:1093` | «22 mandatos» | copy de página pública |
+| `ensayos.generated.ts:437`, `:536` | «los 22 PLANes» | generado desde `Ensayos/` |
+| `PlanEditor.tsx:16` | «Ecosistema de 22 PLANes» | entrada `3.0.0` del historial de versiones |
+
+**Los dos últimos casos no son iguales al resto y conviene separarlos.** El historial de versiones de `PlanEditor.tsx:16` es un **registro histórico**: la versión 3.0.0 efectivamente describía un ecosistema de 22, y reescribirlo sería falsificar el registro — ahí correspondería una entrada nueva, no una edición. Y `ensayos.generated.ts` es derivado de los ensayos de `Ensayos/`, que son texto de autor con tono propio y no se editan mecánicamente.
+
+**Por qué no se arregló acá:** el tramo tenía alcance escrito —el acta, el registro, el nodo del grafo y las cabeceras— y ninguna de estas líneas es un conteo de record que rompa una guardia. Son prosa. Corregirlas es trabajo propio, con criterio caso por caso.
+
+**Qué haría falta:** decidir por cada uno si es prosa fechada (se deja, con la fecha visible) o afirmación presente (se actualiza), y después un chequeo de repo que busque `\b(22|26) PLANes\b` y `veintidós PLANes` fuera de los archivos declarados como históricos.
+
+---
+
+### D-022 · Los cuatro PLANes de julio nunca entraron a `PRESUPUESTO_CONSOLIDADO_BASTA.md`
+
+**Dónde:** `Iniciativas Estratégicas/PRESUPUESTO_CONSOLIDADO_BASTA.md`, tabla de la sección 1 («INVERSION TOTAL POR PLAN», `:21-37`)
+**Encontrada:** 2026-08-02, al ir a anexar la fila de PLANPUERTA y ver contra qué se anexaba
+**Severidad:** media
+**Estado:** abierta
+
+La tabla de inversión por PLAN llega hasta **la fila 16 (PLANCUL)** y ahí termina. **PLANPACTO (23), PLANARCO (24), PLANPREGUNTA (25) y PLANFOCO (26) no tienen fila**, aunque los cuatro tienen presupuesto declarado en su documento y en `arquitecto-data.ts`. PLANFOCO aparece una sola vez en todo el archivo, en `:419`, y no como fila sino como nota sobre quién es dueño de la publicidad oficial.
+
+La consecuencia es que **el resumen consolidado de `:42-47` —«total acumulado», «promedio anual», «% del PBI»— se calcula sobre dieciséis PLANes de veintisiete.** Cualquiera que ordene o sume el ecosistema por este documento obtiene un número que no mide el ecosistema. Es el mismo tipo de defecto que motivó a PLANPACTO: un número consolidado que nadie recalculó cuando el conjunto cambió.
+
+**PLANPUERTA sí tiene fila, y va en un anexo al final del archivo, no en la tabla.** El motivo está escrito ahí: la tabla arranca en `:21` y hay más de ochocientas citas `ARCHIVO:línea` en el corpus, varias contra este documento por encima de `:37`. Insertar una fila en el medio corre todas las líneas de abajo. Anexar preserva las citas y cuesta que la tabla quede partida en dos.
+
+**Qué haría falta:** completar el anexo con los cuatro que faltan y recalcular el resumen consolidado sobre los veintisiete, dejando la tabla original intacta y marcándola como histórica. Eso es trabajo de contabilidad del corpus, no un efecto lateral de agregar un PLAN.

@@ -1,22 +1,27 @@
 # PLAN_REGISTRY.yml — Fuente única de verdad de la arquitectura ¡BASTA!
 # Generado: 2026-04-28 a partir de FULL_STRATEGIC_AUDIT_2026-04-26.md
-# Conteo canónico: 26 thematic + PLANRUTA protocol (actualizado 2026-08-01)
+# Conteo canónico: 27 thematic + PLANRUTA protocol (actualizado 2026-08-02)
 #
 # REGLA: este archivo es la única fuente de verdad sobre el conteo, estado y secuencia.
 # Cualquier prosa en otro documento que contradiga esto cede ante este registro.
 # Ningún PLAN se crea, divide ni elimina sin actualizar este archivo primero.
 
 architecture:
-  thematic_count: 26
+  thematic_count: 27
   protocol: PLANRUTA
-  total_documents: 27
+  total_documents: 28
   freeze_status: ACTIVE
   freeze_motivo: "Cierre del primer tranche (24m) o auditoría adicional"
-  # El freeze sigue activo para todo lo demás. Estos cuatro se exceptuaron por acta
-  # el 2026-07-26: ningún otro sub-mandato puede ser PLAN nuevo sin otro acta igual.
-  freeze_excepciones: [PLANPACTO, PLANARCO, PLANPREGUNTA, PLANFOCO]
-  freeze_excepciones_acta: ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md
-  # Las cuatro excepciones quedaron EJECUTADAS: los cuatro documentos existen en el
+  # El freeze sigue activo para todo lo demás. Estos cinco se exceptuaron por acta:
+  # los cuatro primeros el 2026-07-26, PLANPUERTA el 2026-08-02. Ningún otro
+  # sub-mandato puede ser PLAN nuevo sin otra acta igual.
+  freeze_excepciones: [PLANPACTO, PLANARCO, PLANPREGUNTA, PLANFOCO, PLANPUERTA]
+  # Lista, no escalar: con un solo campo, la segunda acta borraba a la primera en
+  # silencio. Cada excepción de arriba se habilita por una de estas dos.
+  freeze_excepciones_acta:
+    - ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md   # PLANPACTO, PLANARCO, PLANPREGUNTA, PLANFOCO
+    - ACTA_EXCEPCION_FREEZE_2026-08-02.md       # PLANPUERTA
+  # Las cinco excepciones quedaron EJECUTADAS: los cinco documentos existen en el
   # taller. El freeze sigue ACTIVE para todo lo demás y no se levanta acá — quien
   # quiera un PLAN nuevo necesita otra acta, con la misma derogación expresa de la
   # regla 5 y de la condición temporal de la regla 3.
@@ -25,8 +30,9 @@ architecture:
     - { code: PLANARCO, ordinal: 24, escrito: 2026-07-31 }
     - { code: PLANPREGUNTA, ordinal: 25, escrito: 2026-08-01 }
     - { code: PLANFOCO, ordinal: 26, escrito: 2026-08-01 }
+    - { code: PLANPUERTA, ordinal: 27, escrito: 2026-08-02 }
   source_of_truth_audit: FULL_STRATEGIC_AUDIT_2026-04-26.md
-  last_updated: 2026-08-01
+  last_updated: 2026-08-02
 
 plans:
   - code: PLANAGUA
@@ -459,6 +465,24 @@ plans:
       - Decreto de Pauta Ciega y cronograma de extinción (Fase 0, no requiere ley)
       - Ley de la ANBAC, del Acervo Abierto y del umbral de qué cuenta como medio
     last_updated: 2026-08-01
+  - code: PLANPUERTA
+    title: Arraigo, Búsqueda de Talento y Poblamiento
+    version: 2026-08
+    status: current
+    phase: tranche-2
+    mission_matrix: Ámbar
+    budget_class: S
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLAN24CN, PLANREP, PLANEDU, PLANPACTO, PLANMESA, PLANEB, PLANRUTA]
+    ordinal: 27
+    agency: ANAR
+    category: instituciones
+    constitutional_floor: "sin piso propio — no agrega escalón a la Escalera de PLANPACTO; vive de una partida anual"
+    legal_instruments:
+      - Marco de la Puerta (ley — se sanciona antes que cualquier incentivo)
+      - Estatuto de la ANAR
+    last_updated: 2026-08-02
 
 protocol:
   - code: PLANRUTA

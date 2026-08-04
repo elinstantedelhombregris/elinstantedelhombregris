@@ -27,11 +27,13 @@ const CAMPOS_TEXTO = ['slug', 'code', 'title', 'nombreInstitucional', 'summary']
 
 /**
  * El canon pasó de 22 a 26 temáticos el 2026-08-01, con la entrada de PLANPACTO
- * (23), PLANARCO (24), PLANPREGUNTA (25) y PLANFOCO (26). La autoridad de papel
- * es `Iniciativas Estratégicas/PLAN_REGISTRY.yml` (`thematic_count`), y este
+ * (23), PLANARCO (24), PLANPREGUNTA (25) y PLANFOCO (26); y de 26 a 27 el
+ * 2026-08-02 con PLANPUERTA (27), habilitado por
+ * `Iniciativas Estratégicas/ACTA_EXCEPCION_FREEZE_2026-08-02.md`. La autoridad de
+ * papel es `Iniciativas Estratégicas/PLAN_REGISTRY.yml` (`thematic_count`), y este
  * número tiene que seguirla — no al revés.
  */
-const TEMATICOS_ESPERADOS = 26;
+const TEMATICOS_ESPERADOS = 27;
 
 function leerFrontmatter(raw: string): Record<string, string> {
   const match = /^---\n([\s\S]*?)\n---\n/.exec(raw);

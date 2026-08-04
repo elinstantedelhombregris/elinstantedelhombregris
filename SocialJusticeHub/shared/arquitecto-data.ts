@@ -1,5 +1,9 @@
 // El Arquitecto — Structured ecosystem data for the ¡BASTA! strategic planning platform
-// Extracted from 22 PLANes + support documents (April 2026)
+// Extracted from 27 PLANes + support documents (agosto 2026)
+// El comentario decía «22 PLANes (April 2026)» y se quedó ahí durante las dos
+// migraciones del canon: 22 → 26 el 2026-08-01 y 26 → 27 el 2026-08-02. Queda
+// anotado en `docs/DEUDAS.md` (D-020) porque el defecto no fue el número: fue que
+// ningún chequeo mira los conteos escritos en prosa dentro del código.
 
 import type { MissionSlug, TemporalOrder, InitiativePriority, InitiativeState } from './strategic-initiatives';
 
@@ -63,7 +67,7 @@ export interface CriticalChain {
   dangerLevel: 'HIGH' | 'CRITICAL' | 'EXTREME';
 }
 
-// === PLAN NODES (22 mandatos) ===
+// === PLAN NODES (27 mandatos) ===
 // Convenciones:
 // - `ordinal` = orden estratégico de lanzamiento (lo usa la UI). Los documentos
 //   completos se auto-referencian por orden histórico de creación; ambos esquemas
@@ -360,6 +364,20 @@ export const PLAN_NODES: PlanNode[] = [
     mainSource: 'Extinción de la publicidad oficial consolidada (USD 450M/año) en cinco años; el remanente vuelve a la Fuente 1 del ecosistema',
     color: '#eab308', slug: 'planfoco-palabra-publica-biblioteca-viva',
     missionSlug: 'infancia-escuela-cultura', secondaryMissionSlug: 'instituciones-y-futuro', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
+  },
+  {
+    id: 'PLANPUERTA', name: 'Plan Nacional de Arraigo, Búsqueda de Talento y Poblamiento', ordinal: 27,
+    category: 'instituciones', agency: 'ANAR', agencyFull: 'Agencia Nacional de Arraigo',
+    organMetaphor: 'la piel', organLabel: 'The Skin',
+    status: 'PUBLISHED', budgetLow: 450, budgetHigh: 900, timelineYears: 15,
+    // Sin piso, y el documento no lo pide: no agrega escalón a la Escalera de
+    // PLANPACTO ni presión sobre su Techo (`PLANPUERTA:16`, `:853`). ANAR vive de
+    // una partida anual, y se rompe hacia el lado seguro — sin plata deja de fichar
+    // y de publicar el Tablero, y el año que el Tablero no sale la Ventana no abre.
+    legalInstruments: 2, constitutionalFloor: null,
+    mainSource: 'Partida anual de la Escalera de PLANPACTO para ANAR y el Cuerpo de Scouts (USD 30-60M/año); la tierra sale de la valorización de suelo de PLAN24CN y la exención es renuncia fiscal, no partida',
+    color: '#f97316', slug: 'planpuerta-arraigo-talento-poblamiento',
+    missionSlug: 'instituciones-y-futuro', secondaryMissionSlug: 'territorio-legible', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
   },
 ];
 
@@ -739,12 +757,55 @@ export const DEPENDENCIES: Dependency[] = [
   // que un PLAN viejo le reclame a uno nuevo: la invariante y el documento
   // resultaron decir lo mismo.
   //
-  // NOTA: no hay arista hacia PLANPUERTA aunque la Sección 31 lo cite. PLANPUERTA
-  // tiene spec pero todavía no es nodo de este grafo, y una arista a un nodo
-  // inexistente es peor que la ausencia. Se agrega cuando el documento exista.
+  // NOTA (actualizada el 2026-08-02): la arista hacia PLANPUERTA que esta nota
+  // dejaba pendiente ya se puede escribir — el documento existe y PLANPUERTA entró
+  // como nodo 27 en este mismo tramo. Va abajo, en el bloque de PLANPUERTA, con su
+  // domicilio `PLANSUS:2492`. Una nota que promete una arista para «cuando el
+  // documento exista» tiene que cobrarse el día que existe, o se vuelve permiso.
   { id: 'd212', kind: 'provides', source: 'PLANPACTO', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La estabilidad de reglas con horizonte escrito habilita el régimen de atracción sectorial de la Sección 30.3 — compuerta del tramo laboratorio: sin plazo cierto no se radica investigación, cualquiera sea el marco regulatorio de sustancias' },
   { id: 'd213', kind: 'provides', source: 'PLANMON', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'La normalización cambiaria habilita el tramo fábrica del bloque de atracción: nadie inmoviliza capital industrial donde no puede repatriar lo ganado' },
   { id: 'd214', kind: 'provides', source: 'PLANSUS', target: 'PLANPREGUNTA', nature: 'IMPORTANT', type: 'DATA', description: 'El Registro Nacional de Resultados Terapéuticos es un bien público de conocimiento bajo fideicomiso argentino: legalidad a escala nacional más volumen produce evidencia que ninguna otra jurisdicción puede generar hoy' },
+
+  // ── `requires` de PLANPUERTA (27). Seis aristas, tres críticas. ─────────────
+  // El documento las escribe enteras en «INTEGRACIÓN CON EL MARCO ¡BASTA!»
+  // (`PLANPUERTA:780-794`): consume de doce documentos y le devuelve a seis. Acá
+  // entran las seis que el PLAN no puede sustituir por otra vía, y las otras seis
+  // —PLANSAL, PLANEB, PLANVIV, PLANAGUA, PLANCUIDADO, PLANMEMORIA— quedan como
+  // consumo declarado en el documento y no como arista del grafo: ninguna de ellas
+  // frena un dispositivo si falta.
+  //
+  // Ninguna arista sale de la Fase 0: la Fase 0 corre «sin permiso» con dos
+  // dispositivos civiles y sin agencia (`PLANPUERTA:938`). Lo que estas seis
+  // condicionan es la Fase 2 en adelante.
+  { id: 'd215', source: 'PLANPUERTA', target: 'PLANPACTO', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Precondición declarada y no promesa propia: «si la Escalera de Garantías no está en pie, PLANPUERTA no tiene qué ofrecer y su Ventana no debería abrir» (`PLANPUERTA:815`). Y la exención le pide a PLANPACTO el techo de gasto tributario que hoy no tiene — la Escalera son ocho pisos de gasto y una renuncia fiscal no entra ahí. Degradado: no hay; sin macro arreglada este PLAN no tiene oferta y su propio diseño le dice que no abra' },
+  { id: 'd216', source: 'PLANPUERTA', target: 'PLAN24CN', nature: 'CRITICAL', type: 'FINANCIAL', description: 'La tierra del Paquete: los lotes salen de las veinticuatro ciudades, contra la fila de valorización de suelo de `PLAN24CN:1942`, y no abren partida nacional nueva. Degradado escrito y automático: el freno de infraestructura toma el menor de los tres márgenes de la jurisdicción que recibe, y donde la ciudad todavía no está el menor da cero y la ventana no abre ahí (`PLANPUERTA:811`)' },
+  { id: 'd217', source: 'PLANPUERTA', target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', description: 'El veto de subsidiariedad —no se ficha afuera lo que el país puede formar adentro a tiempo— es veto y no recomendación, y los 3,5 millones de empleados públicos en reconversión de `PLANREP:87` son lo que lo vuelve indispensable. Además su red «Embajador Digital» (`PLANREP:1823`) es donde se monta el primer Cuerpo de Scouts en Fase 0. Sin el veto, la Lista de Faltantes se vuelve un mercado de pases' },
+  { id: 'd218', source: 'PLANPUERTA', target: 'PLANEDU', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Las escuelas de oficios y el dato de cohorte que certifican el veto de subsidiariedad: sin nadie cursando no hay nada que certificar (`PLANPUERTA:787`). Y es la contraparte de la deuda que este PLAN abrió al derogar `PLANVIV:1566`: la brecha de 15.000 se salda atando con fecha el cronograma de escuelas de oficios al de obra. Degradado: la certificación corre más lenta contra los padrones existentes' },
+  { id: 'd219', source: 'PLANPUERTA', target: 'PLANMESA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'La Credencial de Materia —que ANAR no puede tocar—, la silla, y el Caso de Mesa que audita la certificación del veto, el Tablero y las dos puntas del Contrato de Puerta (`PLANPUERTA:791`, `:766`). Es el control que impide que la agencia se audite a sí misma; su ausencia no frena un dispositivo, deja a ANAR sin quien la mire' },
+  { id: 'd220', source: 'PLANPUERTA', target: 'PLANDIG', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Infraestructura del Tablero de Arraigo y de la revalidación, y custodia del archivo nominal que el octavo renglón del Marco manda destruir, con los treinta días de `PLANDIG:881-884` (`PLANPUERTA:794`). Degradado: el Tablero se publica igual con el cruce hecho a mano y más lento — lo que no se degrada es la custodia' },
+
+  // ── Espejos `provides` de lo que pide PLANPUERTA ───────────────────────────
+  { id: 'd221', kind: 'provides', source: 'PLANPACTO', target: 'PLANPUERTA', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Estabilidad fiscal y crédito recuperado, que es la oferta que PLANPUERTA no produce y sin la cual no tiene con qué invitar a nadie' },
+  { id: 'd222', kind: 'provides', source: 'PLAN24CN', target: 'PLANPUERTA', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Los lotes del Paquete, como asignación contra la valorización de suelo y no como partida nueva: el precio lo paga la ciudad que recibe y por eso la obligación de uso es la contraprestación' },
+  { id: 'd223', kind: 'provides', source: 'PLANREP', target: 'PLANPUERTA', nature: 'CRITICAL', type: 'LABOR', description: 'El dato de reconversión contra el que corre el veto de subsidiariedad, y la red «Embajador Digital» sobre la que se monta el primer Cuerpo de Scouts sin ley ni partida' },
+  { id: 'd224', kind: 'provides', source: 'PLANEDU', target: 'PLANPUERTA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Escuelas de oficios y dato de cohorte: es lo que convierte el veto de subsidiariedad en algo certificable en vez de una declaración de intenciones' },
+  { id: 'd225', kind: 'provides', source: 'PLANMESA', target: 'PLANPUERTA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'La Credencial de Materia y el Caso de Mesa que audita a ANAR en los poderes donde ANAR no puede auditarse: la voz del que llega no la otorga la agencia que lo fichó' },
+  { id: 'd226', kind: 'provides', source: 'PLANDIG', target: 'PLANPUERTA', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Infraestructura del Tablero y de la revalidación, y custodia con plazo y certificado del archivo nominal que el Marco manda destruir' },
+
+  // ── `provides` propios de PLANPUERTA (`PLANPUERTA:798-805`) ────────────────
+  // Ninguno de estos cuatro fue pedido por escrito por el PLAN que lo recibe: son
+  // anotaciones del lado proveedor, no reclamos. Por eso van como `provides`.
+  { id: 'd227', kind: 'provides', source: 'PLANPUERTA', target: 'PLAN24CN', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Población para veinticuatro ciudades que no tienen escrito quién las habita. Es el acoplamiento estrella y va en las dos direcciones: PLAN24CN pone el suelo, PLANPUERTA pone la razón por la que alguien se muda ahí' },
+  { id: 'd228', kind: 'provides', source: 'PLANPUERTA', target: 'PLANREP', nature: 'IMPORTANT', type: 'LABOR', description: 'La Puerta del Regreso, que le faltaba al PLAN que declaró el riesgo de ser una «fábrica de emigrantes» subsidiada (`PLANREP:2182`): el problema inverso que este PLAN cierra' },
+  { id: 'd229', kind: 'provides', source: 'PLANPUERTA', target: 'PLANPREGUNTA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Fichajes contra las Preguntas Nacionales que no tienen quién las conteste: la Lista de Faltantes le da a la ANCON una vía para cubrir una vertical vacía sin fundar un programa de becas propio' },
+  { id: 'd230', kind: 'provides', source: 'PLANPUERTA', target: 'PLANGEO', nature: 'MINOR', type: 'INSTITUTIONAL', description: 'El Techo de Origen como módulo exportable —no se recluta donde la falta duele más que acá—, y la no denuncia del MERCOSUR, que le deja en pie la Agencia del Litio del Cono Sur con Bolivia y Chile (`PLANGEO:425`)' },
+
+  // ── La arista que la NOTA del bloque de PLANSUS dejó pendiente ─────────────
+  // `PLANSUS:2492` la declara en la tabla de dependencias de PLANSUS, así que es
+  // un `requires` de PLANSUS y no un `provides` de PLANPUERTA: el que la pidió por
+  // escrito es PLANSUS.
+  { id: 'd231', source: 'PLANSUS', target: 'PLANPUERTA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Régimen migratorio para la visa de investigador, la visa de paciente y el programa de retorno de la Sección 31, con el arraigo como criterio rector: «un investigador que viene tres años, publica y se va dejó papers; uno que se queda deja discípulos» (`PLANSUS:2435`, `:2492`)' },
+  { id: 'd232', kind: 'provides', source: 'PLANPUERTA', target: 'PLANSUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Las tres vías migratorias del bloque de atracción de PLANSUS, bajo el criterio de arraigo y no de llegadas, y bajo el mismo Techo de Origen que rige para el resto del fichaje' },
 ];
 
 // === TIMELINE PHASES ===
@@ -926,6 +987,20 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
   { planId: 'PLANFOCO', name: 'Fase 1 — Las primeras seiscientas sedes (convenios + concursos ciegos)', startYear: 2, endYear: 4 },
   { planId: 'PLANFOCO', name: 'Fase 2 — La red completa (1.200-1.500 sedes + compras a las Mesas Territoriales)', startYear: 5, endYear: 7 },
   { planId: 'PLANFOCO', name: 'Fase 3 — Régimen y evaluación (el indicador contra la línea de base de 2027)', startYear: 8, endYear: 14 },
+
+  // PLANPUERTA (27) — `PLANPUERTA:938-948`, ya en años relativos. Tampoco tiene
+  // pre-fase y tampoco se le inventa una: su Fase 0 «no necesita ley, decreto ni un
+  // peso de presupuesto» y arranca en el año 0 como la de todos. V-TIME-05 avisa
+  // por las tres críticas sin pre-fase, y el aviso es correcto.
+  //
+  // La Fase 4 no es una etapa de despliegue sino el examen: la primera cohorte con
+  // Paquete cumple diez años de permanencia entre el doce y el catorce, y ahí el
+  // PLAN se aprueba o se reprueba contra su cohorte de control (`PLANPUERTA:1015`).
+  { planId: 'PLANPUERTA', name: 'Fase 0 — Sin permiso (scouts de diáspora + Bastardas + Compadrazgo + cohorte piloto)', startYear: 0, endYear: 0 },
+  { planId: 'PLANPUERTA', name: 'Fase 1 — La Lista y el Marco (los otros 26 escriben sus faltantes + ley de ANAR)', startYear: 1, endYear: 2 },
+  { planId: 'PLANPUERTA', name: 'Fase 2 — El Paquete (exención + primeros lotes + primera Ventana de Pases)', startYear: 2, endYear: 4 },
+  { planId: 'PLANPUERTA', name: 'Fase 3 — Régimen (cohortes anuales; sin Tablero no abre la Ventana)', startYear: 4, endYear: 12 },
+  { planId: 'PLANPUERTA', name: 'Fase 4 — El juicio (permanencia a diez años contra la cohorte de control)', startYear: 12, endYear: 15 },
 ];
 
 // === CRITICAL CHAINS ===

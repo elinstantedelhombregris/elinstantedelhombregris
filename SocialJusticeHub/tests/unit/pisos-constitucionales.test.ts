@@ -58,7 +58,7 @@ const PISOS_SEGUN_EL_TALLER: Record<string, { floor: string; fuente: string }> =
  */
 const SIN_PISO = [
   'PLANREP', 'PLANMON', 'PLAN24CN', 'PLANGEO', 'PLANCUL',
-  'PLANARCO', 'PLANPREGUNTA', 'PLANFOCO',
+  'PLANARCO', 'PLANPREGUNTA', 'PLANFOCO', 'PLANPUERTA',
 ];
 
 /**
@@ -103,7 +103,7 @@ describe('pisos constitucionales (canon contra el taller)', () => {
     }
   });
 
-  it('la tabla cubre a los 26: con piso + sin piso = PLAN_NODES', () => {
+  it('la tabla cubre a los 27: con piso + sin piso = PLAN_NODES', () => {
     const cubiertos = new Set([...Object.keys(PISOS_SEGUN_EL_TALLER), ...SIN_PISO]);
     expect(cubiertos.size).toBe(PLAN_NODES.length);
     for (const p of PLAN_NODES) {

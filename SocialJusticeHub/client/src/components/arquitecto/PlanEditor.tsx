@@ -5,7 +5,7 @@ import { PLAN_NODES, DEPENDENCIES, getPlanPhases, getDependenciesForPlan, type P
 
 const CANONICAL_TERMS = [
   { term: 'plata', forbidden: 'acero', context: 'Metáfora del Hombre Gris — argentum = plata, no acero' },
-  { term: 'veintidós PLANes (al 23 de abril de 2026)', forbidden: 'dieciséis/quince/diez mandatos', context: 'Conteo canónico del ecosistema — PLANRUTA es meta-plan y no se cuenta' },
+  { term: 'veintisiete PLANes (al 2 de agosto de 2026)', forbidden: 'veintidós/dieciséis/quince/diez mandatos', context: 'Conteo canónico del ecosistema — PLANRUTA es meta-plan y no se cuenta. La autoridad es `PLAN_REGISTRY.yml` (`thematic_count`); este glosario la sigue y hay que actualizarlo en el mismo commit que la mueve, o marca el conteo correcto como violación' },
   { term: '¡BASTA!', forbidden: 'BASTA (sin signos)', context: 'Siempre con signos de exclamación invertidos' },
   { term: 'Contribución de Soberanía', forbidden: 'superávit Bastarda', context: 'Mecanismo 1-2% de ingresos al Fondo Soberano' },
   { term: 'primera mejor alternativa', forbidden: 'primera mejor estrategia', context: 'Concepto de Ackoff' },

@@ -345,13 +345,13 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
     valor: '1,47–1,88x',
     en: [CABECERA],
     porQue:
-      'gate contra los dos huéspedes sumados: NO PASA contra un umbral de 1,5 — ACTA:26, :41-47. ' +
+      'gate contra los dos huéspedes sumados: NO PASA contra un umbral de 1,5 — ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:26, :41-47. ' +
       'Sin este cociente escrito, la cabecera cuenta media verdad',
   },
   {
     valor: 'umbral de 1,5',
     en: [CABECERA],
-    porQue: 'el cociente que falla no significa nada sin el umbral contra el que falla — ACTA:42-43',
+    porQue: 'el cociente que falla no significa nada sin el umbral contra el que falla — ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:42-43',
   },
   {
     valor: '53.000–96.000M',
@@ -591,7 +591,7 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
    * problema más grave del tramo.** El gate se corrió sobre USD 53.000–96.000M a
    * QUINCE AÑOS. **La banda es el INSUMO del gate, no su salida**, y eso importa
    * para citarla bien: vive en `scripts/gate-spinoff-planes-nuevos.ts:25`, y lo
-   * que el acta publica son los tres cocientes que salen de ella (`ACTA:24-26`).
+   * que el acta publica son los tres cocientes que salen de ella (`ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:24-26`).
    * Escribir «publicada en el acta» sería falso — verificado, el acta no trae
    * ninguno de los dos números. La cabecera la lleva desde la Task 1 con una
    * remisión a esta sección. La banda
@@ -609,7 +609,7 @@ const CIFRAS_CANONICAS: ValorConDomicilio[] = [
     porQue:
       'la banda de quince años sobre la que se corrió el gate de spin-off: es su INSUMO y vive en ' +
       '`gate-spinoff-planes-nuevos.ts:25`, y lo que el acta publica son los tres cocientes que salen ' +
-      'de ella (`ACTA:24-26`). Escribir «publicada en el acta» sería falso —verificado, el acta no ' +
+      'de ella (`ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:24-26`). Escribir «publicada en el acta» sería falso —verificado, el acta no ' +
       'trae ninguno de los dos números— y este `porQue` lo decía quince líneas debajo del JSDoc que ' +
       'lo declara falso. Es el único número de plata que este documento no puede tocar: sostiene la ' +
       'legitimidad del PLAN',
@@ -944,7 +944,7 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
     en: [CABECERA],
     porQue:
       'la autoridad real por la que este PLAN existe: regla 5 y condición temporal de la regla 3, ' +
-      'derogadas con nombre y fecha — ACTA:131-137',
+      'derogadas con nombre y fecha — ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:131-137',
   },
   {
     valor: 'sin piso constitucional propio',
@@ -956,7 +956,7 @@ const ASERCIONES_OBLIGATORIAS: ValorConDomicilio[] = [
     en: [CABECERA, H2_TESIS],
     porQue:
       'el acta retira solo la vejez del hueco «Discapacidad y vejez»; la discapacidad queda en ' +
-      'PLANCUIDADO + PLANSAL y PLANARCO tiene que decirlo — ACTA:169-173',
+      'PLANCUIDADO + PLANSAL y PLANARCO tiene que decirlo — ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:169-173',
   },
   {
     valor: 'extrapolación aritmética',
@@ -2946,7 +2946,7 @@ const PROHIBIDOS: Prohibido[] = [
   {
     // El lookbehind es de ancho variable (V8 lo soporta) porque la negación
     // castellana no siempre está pegada al verbo: «no lo supera el umbral»,
-    // «Ninguno de los cuatro superó el gate» —paráfrasis del ACTA:115, :36— son
+    // «Ninguno de los cuatro superó el gate» —paráfrasis del ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:115, :36— son
     // las dos frases verdaderas que un lookbehind de ancho fijo marcaba en rojo.
     // Una guardia que se pone roja sobre una frase honesta empuja a reescribir
     // la frase, no la regex, y eso degrada el documento que la guardia protege.
@@ -2982,7 +2982,7 @@ const PROHIBIDOS: Prohibido[] = [
     patron: AFIRMA_QUE_PASO_EL_GATE,
     porQue:
       'falso: PLANARCO falla contra la suma de sus dos huéspedes por tres centésimas. ' +
-      'Se habilita por derogación expresa, no por el gate (ACTA:41-47, :131-137)',
+      'Se habilita por derogación expresa, no por el gate (ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:41-47, :131-137)',
   },
   {
     /**
@@ -5199,7 +5199,11 @@ function planesDelTaller(): Set<string> {
 const DOCUMENTOS_CITABLES: Record<string, string> = {
   BLINDAJE: 'Iniciativas Estratégicas/BLINDAJE_INSTITUCIONAL_BASTA.md',
   'TABLA_AGENCIAS_BASTA.md': 'Iniciativas Estratégicas/TABLA_AGENCIAS_BASTA.md',
-  ACTA: 'Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md',
+  // El alias corto `ACTA` era único hasta el 2026-08-02; con la segunda acta
+  // (`ACTA_EXCEPCION_FREEZE_2026-08-02.md`) pasó a matchear dos archivos y la
+  // guardia de remisiones dejó de poder resolverlo. La clave va con el nombre
+  // completo, y las citas del documento también.
+  'ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md': 'Iniciativas Estratégicas/ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md',
   spec: 'v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md',
   // Task 5: el libro mayor de fuentes y sus dos vecinos, que la SECCIÓN 4 cita.
   'SOURCE_OF_FUNDS_LEDGER.md': 'Iniciativas Estratégicas/SOURCE_OF_FUNDS_LEDGER.md',
@@ -5342,10 +5346,15 @@ function resolverAncla(fragmento: string): string | null {
  * Una guardia roja sobre prosa honesta empuja al que sigue a reescribir la
  * frase en vez de arreglar la regex, y en este tramo ya pasó dos veces.
  */
-const ANCLA_PROSA_SECCION = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?)\s+§(\d+(?:\.\d+)*)$/;
-const ANCLA_PROSA_LINEA = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?):(\d+)(?:-(\d+))?$/;
+// El guion entra al nombre del documento desde el 2026-08-02: las actas se
+// llaman por fecha (`ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`) y sin `-` en la
+// clase de caracteres esa cita cae en «forma de ancla que no sé leer». No es un
+// caso nuevo: es el primero que apareció, porque hasta ese día ese documento se
+// citaba por el alias corto `ACTA`, que dejó de ser único al haber dos actas.
+const ANCLA_PROSA_SECCION = /^([A-Za-z][A-Za-z0-9_-]*(?:\.md)?)\s+§(\d+(?:\.\d+)*)$/;
+const ANCLA_PROSA_LINEA = /^([A-Za-z][A-Za-z0-9_-]*(?:\.md)?):(\d+)(?:-(\d+))?$/;
 const ANCLA_PROSA_CORTA = /^:(\d+)(?:-(\d+))?$/;
-const NOMBRE_DE_DOCUMENTO = /^([A-Za-z][A-Za-z0-9_]*(?:\.md)?)$/;
+const NOMBRE_DE_DOCUMENTO = /^([A-Za-z][A-Za-z0-9_-]*(?:\.md)?)$/;
 
 /**
  * **La octava forma del arquetipo, y la que le faltaba justo a este chequeo: la

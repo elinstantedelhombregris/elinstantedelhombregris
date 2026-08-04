@@ -11,7 +11,7 @@ import {
 import { runAllValidations } from '../../shared/validation-engine';
 
 /**
- * El grafo de los cuatro PLANes nuevos (ordinales 23-26).
+ * El grafo de los cinco PLANes nuevos (ordinales 23-27).
  *
  * ALCANCE — igual que `pisos-constitucionales.test.ts`, este test fija el grafo
  * contra una **transcripción humana** de los documentos del taller, no contra el
@@ -92,10 +92,27 @@ const REQUIRES_SEGUN_EL_TALLER: Record<string, AristaTranscripta[]> = {
     { target: 'PLANSAL', nature: 'MINOR', type: 'INSTITUTIONAL', domicilio: 'PLANFOCO:764' },
     { target: 'PLANTALLER', nature: 'MINOR', type: 'FINANCIAL', domicilio: 'PLANFOCO:764' },
   ],
+  /**
+   * PLANPUERTA (27), incorporado el 2026-08-02 por
+   * `ACTA_EXCEPCION_FREEZE_2026-08-02.md`. Las seis salen de la sección
+   * «INTEGRACIÓN CON EL MARCO ¡BASTA!» (`PLANPUERTA:780-794`), que declara doce
+   * documentos consumidos: entran al grafo las seis que **frenan un dispositivo**
+   * si faltan, y las otras seis —PLANSAL, PLANEB, PLANVIV, PLANAGUA, PLANCUIDADO,
+   * PLANMEMORIA— quedan como consumo declarado en prosa. Ninguna sale de la Fase 0,
+   * que corre sin ley, sin agencia y sin un peso (`PLANPUERTA:938`).
+   */
+  PLANPUERTA: [
+    { target: 'PLANPACTO', nature: 'CRITICAL', type: 'FINANCIAL', domicilio: 'PLANPUERTA:815' },
+    { target: 'PLAN24CN', nature: 'CRITICAL', type: 'FINANCIAL', domicilio: 'PLANPUERTA:785' },
+    { target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', domicilio: 'PLANPUERTA:786' },
+    { target: 'PLANEDU', nature: 'IMPORTANT', type: 'INSTITUTIONAL', domicilio: 'PLANPUERTA:787' },
+    { target: 'PLANMESA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', domicilio: 'PLANPUERTA:791' },
+    { target: 'PLANDIG', nature: 'IMPORTANT', type: 'TECHNICAL', domicilio: 'PLANPUERTA:794' },
+  ],
 };
 
 /**
- * Lo que los cuatro **proveen** sin que nadie lo haya declarado como `requires`.
+ * Lo que los cinco **proveen** sin que nadie lo haya declarado como `requires`.
  * No son espejos —los espejos se derivan— sino aristas de provisión propias:
  * capacidad que sale de un PLAN nuevo hacia uno viejo que no la pidió por escrito.
  */
@@ -132,7 +149,35 @@ const PROVIDES_PROPIOS_SEGUN_EL_TALLER: Record<string, AristaTranscripta[]> = {
     { target: 'PLANDIG', nature: 'IMPORTANT', type: 'FINANCIAL', domicilio: 'PLANFOCO:752' },
     { target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', domicilio: 'PLANFOCO:754' },
   ],
+  // «Lo que este PLAN aporta» (`PLANPUERTA:798-805`). Seis filas en el documento;
+  // entran las cuatro que son capacidad y no compromiso heredado — las de PLANJUS
+  // y PLANMEMORIA son cláusulas que este PLAN eleva a renglón del Marco, no algo
+  // que le entregue a esos PLANes para que operen.
+  PLANPUERTA: [
+    { target: 'PLAN24CN', nature: 'IMPORTANT', type: 'INSTITUTIONAL', domicilio: 'PLANPUERTA:800' },
+    { target: 'PLANREP', nature: 'IMPORTANT', type: 'LABOR', domicilio: 'PLANPUERTA:801' },
+    { target: 'PLANPREGUNTA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', domicilio: 'PLANPUERTA:802' },
+    { target: 'PLANGEO', nature: 'MINOR', type: 'INSTITUTIONAL', domicilio: 'PLANPUERTA:803' },
+  ],
 };
+
+/**
+ * Los `requires` que un PLAN **viejo** declara sobre uno nuevo. Hasta el
+ * 2026-08-02 esta lista estaba vacía y el test la daba por vacía en duro; el día
+ * que PLANSUS incorporó su bloque de Marcos de Atracción dejó de serlo, y el
+ * comentario que la explicaba se volvió falso sin que nada fallara.
+ *
+ * **Va con domicilio como cualquier otra transcripción**: lo que la habilita no es
+ * que alguien la agregue acá, sino que el documento del PLAN viejo la declare.
+ */
+const ENTRANTES_SEGUN_EL_TALLER: AristaTranscripta[] = [
+  // PLANSUS §31 pide el régimen migratorio para la visa de investigador, la de
+  // paciente y el programa de retorno. La arista quedó anotada como pendiente en
+  // `arquitecto-data.ts` mientras PLANPUERTA no fuera nodo, y se cobró el día que
+  // lo fue. Es `requires` de PLANSUS —el que la pidió por escrito es PLANSUS—
+  // y por eso no es un `provides` propio de PLANPUERTA.
+  { target: 'PLANPUERTA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', domicilio: 'PLANSUS:2492' },
+];
 
 const NUEVOS = Object.keys(REQUIRES_SEGUN_EL_TALLER);
 
@@ -140,8 +185,8 @@ function clave(d: Dependency): string {
   return `${d.kind ?? 'requires'} ${d.source}->${d.target}`;
 }
 
-describe('grafo de los cuatro PLANes nuevos (ordinales 23-26)', () => {
-  it('los cuatro existen como nodos', () => {
+describe('grafo de los cinco PLANes nuevos (ordinales 23-27)', () => {
+  it('los cinco existen como nodos', () => {
     for (const id of NUEVOS) {
       expect(PLAN_NODES.find((p) => p.id === id), `${id}: no está en PLAN_NODES`).toBeDefined();
     }
@@ -183,13 +228,34 @@ describe('grafo de los cuatro PLANes nuevos (ordinales 23-26)', () => {
   });
 
   it('ningún PLAN viejo declara `requires` sobre uno nuevo salvo los transcriptos', () => {
-    // Hoy la lista es vacía a propósito: ninguno de los veintidós documentos
-    // viejos fue reescrito para pedirle algo a uno de los cuatro. Lo que los
-    // nuevos les dan entra como `provides`, que es una anotación y no un reclamo.
+    // La regla general sigue siendo la misma: lo que un PLAN nuevo le da a uno
+    // viejo entra como `provides`, que es una anotación y no un reclamo. La
+    // excepción es que el documento del PLAN viejo lo pida por escrito, y esas
+    // van transcriptas en ENTRANTES_SEGUN_EL_TALLER con su domicilio.
+    const permitidos = new Set(ENTRANTES_SEGUN_EL_TALLER.map((a) => a.target));
     const entrantes = REQUIRES_DEPENDENCIES.filter(
-      (d) => NUEVOS.includes(d.target) && !NUEVOS.includes(d.source),
+      (d) => NUEVOS.includes(d.target) && !NUEVOS.includes(d.source) && !permitidos.has(d.target),
     );
     expect(entrantes.map(clave)).toEqual([]);
+  });
+
+  /**
+   * Y el lado de exhaustividad del permiso anterior: cada entrante transcripto
+   * tiene que estar en el grafo. Sin esto, la lista de permitidos solo afloja el
+   * test y nunca lo aprieta — que es cómo una excepción escrita se vuelve un
+   * agujero.
+   */
+  describe('cada `requires` entrante transcripto está en el grafo', () => {
+    for (const a of ENTRANTES_SEGUN_EL_TALLER) {
+      it(`→ ${a.target} (${a.nature}/${a.type}, ${a.domicilio})`, () => {
+        const encontradas = REQUIRES_DEPENDENCIES.filter(
+          (d) => d.target === a.target && !NUEVOS.includes(d.source),
+        );
+        expect(encontradas.length, `entrante a ${a.target}: no está en el grafo`).toBe(1);
+        expect(encontradas[0]!.nature).toBe(a.nature);
+        expect(encontradas[0]!.type).toBe(a.type);
+      });
+    }
   });
 
   describe('cada `provides` propio transcripto está en el grafo', () => {
@@ -257,7 +323,7 @@ describe('grafo de los cuatro PLANes nuevos (ordinales 23-26)', () => {
     expect(fantasmas).toEqual([]);
   });
 
-  it('ninguno de los cuatro queda aislado (V-REF-04 / V-RES-04)', () => {
+  it('ninguno de los cinco queda aislado (V-REF-04 / V-RES-04)', () => {
     for (const id of NUEVOS) {
       const grado = REQUIRES_DEPENDENCIES.filter(
         (d) => d.source === id || d.target === id,
@@ -271,7 +337,7 @@ describe('grafo de los cuatro PLANes nuevos (ordinales 23-26)', () => {
    * críticas nuevas: la regla más severa del motor se saltea en silencio los
    * cuatro PLANes. Cargar las fases es lo que la enciende.
    */
-  it('los cuatro tienen fases cargadas, así V-TIME-01 no los saltea', () => {
+  it('los cinco tienen fases cargadas, así V-TIME-01 no los saltea', () => {
     for (const id of NUEVOS) {
       const fases = TIMELINE_PHASES.filter((p) => p.planId === id);
       expect(fases.length, `${id}: sin TIMELINE_PHASES`).toBeGreaterThanOrEqual(4);

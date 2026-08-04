@@ -1,7 +1,7 @@
 # Tabla Canonica de Agencias del Ecosistema ¡BASTA!
 
 > **STATUS:** superseded (asume agencias autónomas; obsoleto post-auditoría 2026-04-26)
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **SUCCESSOR_PENDING:** reclassify en Fase 5 — default execution cells dentro de ministerios existentes; autonomía solo tras 24m de prueba
 > **LAST_AUDIT:** 2026-04-26

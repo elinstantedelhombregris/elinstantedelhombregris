@@ -1,5 +1,5 @@
 /**
- * Frontmatter de los 27 documentos del canon: 26 planes temáticos + PLANRUTA.
+ * Frontmatter de los 28 documentos del canon: 27 planes temáticos + PLANRUTA.
  *
  * Borrador emitido por scripts/content/extraer-fuentes-planes.ts y DESPUÉS
  * CORREGIDO A MANO. Esta tabla es la autoridad: el extractor no se vuelve a
@@ -30,7 +30,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
     slug: 'planruta',
     title: "Cuando el sistema caiga alguien tiene que saber reconstruir",
     nombreInstitucional: "Plan Nacional de Ruta de Arranque y Preparación para la Crisis Sistémica",
-    summary: "PLANRUTA es el meta-plan: cómo se arranca la ejecución de los otros 22, cómo se activa la red sin esperar permiso, cómo se sostiene el cambio en momentos de crisis. No es un plan más; es el manual de cómo arrancar todo.",
+    summary: "PLANRUTA es el meta-plan: cómo se arranca la ejecución de los otros 27, cómo se activa la red sin esperar permiso, cómo se sostiene el cambio en momentos de crisis. No es un plan más; es el manual de cómo arrancar todo.",
     orderIndex: 0,
     isMeta: true,
     archivoFuente: 'PLANRUTA_Argentina_ES.md',
@@ -294,5 +294,15 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
     orderIndex: 26,
     isMeta: false,
     archivoFuente: 'PLANFOCO_Argentina_ES.md',
+  },
+  {
+    code: 'PLANPUERTA',
+    slug: 'planpuerta',
+    title: "Nadie deja su casa por una exención impositiva",
+    nombreInstitucional: "Plan Nacional de Arraigo, Búsqueda de Talento y Poblamiento",
+    summary: "Ningún país se puebla por lo que decide en la frontera: se puebla por lo que ofrece adentro, y hace un siglo que la Argentina discute lo primero sin haber discutido nunca lo segundo. Por eso el indicador rector no es cuántos entran sino cuántos siguen acá a los diez años — la única métrica que no se puede falsear con marketing, porque para moverla hay que arreglar el país. Empieza por lo más barato, que es lo que ya está adentro y no se usa: se deja de revalidar por trámite y se pasa a revalidar mirando a la persona trabajar. Después sale a buscar contra La Lista de Faltantes, que escriben los otros veintiséis PLANes y no un ministerio, con un Techo de Origen que prohíbe buscar donde la falta duele más que acá. El Acuerdo de Residencia del MERCOSUR no se toca. El órgano es la piel, no el sistema inmune, y la restricción es absoluta: este PLAN no crea ni un gramo de poder de expulsión nuevo — el incumplimiento revoca el Paquete y la residencia queda intacta. Lo administra la ANAR. USD 450–900M a quince años, sin piso constitucional.",
+    orderIndex: 27,
+    isMeta: false,
+    archivoFuente: 'PLANPUERTA_Argentina_ES.md',
   },
 ];

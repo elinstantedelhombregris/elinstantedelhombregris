@@ -1,7 +1,7 @@
 # Matriz RACI — Dependencias Inter-PLAN
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** ninguna decisión inter-PLAN se toma por defecto. Toda colisión tiene un dueño explícito.
 > **LAST_AUDIT:** 2026-04-26

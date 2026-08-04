@@ -1,7 +1,7 @@
 # Playbook de Revisión Editorial Profunda — PLAN por PLAN
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **APLICACIÓN:** ejecutar este protocolo en cada uno de los 23 archivos `PLAN*_Argentina_ES.md` antes de declarar la remediación cerrada.
 > **NIVEL DE REVISIÓN:** la Fase 13 (standard patch) ya se aplicó a los 23 archivos. Este playbook es el complemento de **revisión editorial profunda** opcional pero recomendado.

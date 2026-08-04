@@ -117,7 +117,7 @@ function archivosDe(dir: string, ext: string): string[] {
 /**
  * Índice de los documentos del taller por su nombre corto, **con resolución por
  * prefijo**: el corpus cita `PRESUPUESTO_CONSOLIDADO:419` y el archivo se llama
- * `PRESUPUESTO_CONSOLIDADO_BASTA.md`, igual que cita `BLINDAJE:28` y `ACTA:31`.
+ * `PRESUPUESTO_CONSOLIDADO_BASTA.md`, igual que cita `BLINDAJE:28` y `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md:31`.
  * Sin esto, 55 remisiones de las 653 quedaban sin verificar y la guardia las
  * informaba como «nombres desconocidos», que es la forma silenciosa de no mirar.
  *

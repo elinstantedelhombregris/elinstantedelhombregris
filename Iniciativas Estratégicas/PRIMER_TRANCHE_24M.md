@@ -1,7 +1,7 @@
 # Paquete de Gobierno — Primer Tranche (Meses 0–24)
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** probar competencia antes de transformación total.
 > **VENTANA:** 2026-05 a 2028-05.

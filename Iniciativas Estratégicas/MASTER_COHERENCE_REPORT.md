@@ -1,7 +1,7 @@
 # INFORME MAESTRO DE COHERENCIA ESTRATEGICA
 
 > **STATUS:** current (purgado de la frase contradictoria "vigesimo tercer mandato"; análisis previo preservado como anexo)
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **SUCCESSOR_PENDING:** update en Fase 15 con resumen canónico actualizado y purga de la frase "vigesimo tercer mandato"
 > **LAST_AUDIT:** 2026-04-26

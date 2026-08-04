@@ -1,7 +1,7 @@
 # PRESUPUESTO CONSOLIDADO DEL ECOSISTEMA ¡BASTA!
 
 > **STATUS:** superseded (estimación de régimen completo, mezcla de tablas de % PBI; obsoleto para gobernar tranche-1 post-auditoría 2026-04-26)
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **SUCCESSOR:** `SOURCE_OF_FUNDS_LEDGER.md` (libro mayor único con clase, confianza, dueño y disponibilidad por fuente)
 > **LAST_AUDIT:** 2026-04-26
@@ -471,3 +471,44 @@ Las Bastardas generan margen mínimo para amortización. La BLF y Bastarda Fluvi
 ---
 
 *Actualización Abril 2026 por ampliación del ecosistema ¡BASTA! de 16 a 22 PLANes temáticos. Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md Sección 12, PLANTER_Argentina_ES.md, PLANMOV_Argentina_ES.md, PLANDIG_Argentina_ES.md v2.0.*
+
+---
+
+## ANEXO — PLANes incorporados después de abril de 2026
+
+**Por qué van en anexo y no en la tabla de la sección 1.** Esa tabla arranca en la
+línea 21 y hay más de ochocientas citas `ARCHIVO:línea` en el corpus, muchas contra
+este documento (`:26`, `:33`, `:37`, `:76`, `:100`, `:162`, `:204`, `:217`, `:341`,
+`:419`, `:447`). Insertar una fila en el medio corre todas las líneas de abajo y
+rompe cada una de esas citas sin que nada avise. La regla del taller es explícita:
+**toda edición de documento ajeno conserva el conteo de líneas o se anexa al final.**
+Este anexo se anexa.
+
+**Qué falta acá, y se declara.** De los cinco PLANes incorporados desde abril
+—PLANPACTO (23), PLANARCO (24), PLANPREGUNTA (25), PLANFOCO (26) y PLANPUERTA
+(27)— sólo el último tiene fila. Los otros cuatro entraron sin pasar por este
+documento y siguen sin figurar: es una deficiencia conocida de este archivo, no un
+descuido de esta entrada.
+
+| # | Plan | Agencia | Inversión USD (rango) | Período | Fuente principal |
+|---|------|---------|----------------------|---------|-----------------|
+| 27 | **PLANPUERTA** — Arraigo, Búsqueda de Talento y Poblamiento | ANAR | USD 450-900M (15 años; ~USD 30-60M/año para ANAR y el Cuerpo de Scouts, que es la única partida operativa) | 15 años | Partida anual de la Escalera de PLANPACTO. Sin piso constitucional y sin fuente propia: la tierra es asignación contra la valorización de suelo de PLAN24CN (`:33`) y la exención es renuncia fiscal, que no entra al presupuesto porque nunca sale de la caja |
+
+**Nota sobre la escala.** Es de los PLANes más baratos del corpus y eso es diseño y
+no modestia: un PLAN de inmigración que necesita decenas de miles de millones para
+funcionar ya se equivocó — si hay que pagarle a la gente para que venga, no viene por
+el país y se va apenas alguien pague más. Su poder sale de dónde se asigna y a quién
+se coordina, no de cuánto gasta. Contra PLANVIV (`:37`, USD 80.000-120.000M a quince
+años) entra dos órdenes de magnitud por debajo.
+
+**Nota sobre lo que este PLAN le devolvió al ecosistema.** PLANPUERTA derogó
+`PLANVIV:1566` —USD 10-20M para reclutar 5.000-10.000 trabajadores de la construcción
+regionales— bajo la Regla de Subsidiariedad. El TOTAL de `PLANVIV:1567` bajó de USD
+160-250M a **USD 150-230M**, y la brecha de mano de obra creció: el extremo bajo queda
+**15.000 trabajadores corto** aun después de la mitigación de `PLANVIV:1571`. La deuda
+es de PLANPUERTA, está escrita en su SECCIÓN 12 con esa cifra, y se salda el día que
+el cronograma de escuelas de oficios de PLANEDU y PLANREP quede atado con fecha al
+cronograma de obra.
+
+*Anexo agregado el 2026-08-02 con la entrada de PLANPUERTA al canon (26 → 27
+temáticos), por `ACTA_EXCEPCION_FREEZE_2026-08-02.md`.*

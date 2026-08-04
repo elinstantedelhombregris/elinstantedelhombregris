@@ -1,7 +1,7 @@
 # CASCADA LEGAL ¡BASTA!
 
 > **STATUS:** current (LMV de 8 instrumentos para tranche-1 al inicio; histórico 16-mandatos preservado abajo)
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **LMV TRANCHE-1:** ver primera sección abajo (8 instrumentos)
 > **NOTA AUDITORÍA 2026-04-26:** El conteo "16 Mandatos" abajo corresponde a versión obsoleta. Conteo canónico: 22 thematic + PLANRUTA.

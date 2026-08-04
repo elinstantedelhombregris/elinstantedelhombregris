@@ -1,7 +1,7 @@
 # Asignación de Huecos de Cobertura — Sin Nuevos PLANes
 
 > **STATUS:** current
-> **CANONICAL_ARCHITECTURE:** 26 thematic + PLANRUTA protocol
+> **CANONICAL_ARCHITECTURE:** 27 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **PRINCIPIO:** todo hueco identificado en la auditoría sección "Coverage Gaps" se asigna como **sub-mandato** (sección interna) de un PLAN existente.
 > **FREEZE LEVANTADO el 2026-07-26** para cuatro PLANes y sólo cuatro — ver `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`. Para todo lo demás, el principio sigue vigente: sin PLANes nuevos.
