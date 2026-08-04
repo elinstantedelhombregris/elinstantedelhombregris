@@ -574,3 +574,54 @@ Los tres se arreglaron derivando el conteo de `PLAN_REGISTRY.yml` (`v2/scripts/c
 **Por qué no se arregla acá:** meter `v2` al workflow de `SocialJusticeHub` mezcla dos árboles con gestores de paquetes distintos (`npm` contra `pnpm`), y hacerlo bien es un job aparte con su propio `setup-node`, su propio caché y su propio `paths`. Es trabajo de infraestructura, no un efecto lateral de agregar un PLAN.
 
 **Qué haría falta:** un job `validate-v2` en el mismo workflow o en uno propio, con `pnpm` y al menos `pnpm test:scripts` + `pnpm type-check:scripts` + `pnpm lint:scripts`, disparado por `paths` sobre `v2/**` **y** sobre `Iniciativas Estratégicas/**` — porque estos tests leen el corpus y se rompen cuando el corpus cambia, que es exactamente lo que pasó.
+
+---
+
+### D-025 · `tsc` de la app de campo está en rojo por una fuga de `@types/react@18`
+
+**Dónde:** `v2/apps/mobile/src/components/ui/Pressable97.tsx`, contra `v2/node_modules/.pnpm/@types+react@18.3.28/`
+**Encontrada:** 2026-08-04, corriendo `npx tsc --noEmit` al empezar el diseño de El Registro
+**Severidad:** baja
+**Estado:** abierta
+
+`npm run check` de `apps/mobile` devuelve **cuatro errores**, todos en el mismo archivo: uno de `createAnimatedComponent` sobre `Pressable` y tres de parámetros `e` con `any` implícito derivados del primero.
+
+La causa no está en el código. `apps/mobile/package.json` declara `@types/react ~19.2.2`, pero el error cita el `ReactNode` de **`@types/react@18.3.28`** resuelto desde la raíz del workspace. Son dos copias de los tipos de React en el mismo árbol, y la vieja gana en ese punto.
+
+**Por qué no se arregla acá:** el diseño de El Registro no toca el árbol de dependencias, y `Pressable97.tsx` es una de las pocas piezas de `src/` que sobrevive la reescritura. Tocar la resolución de pnpm en medio de un cambio de superficie mezcla dos causas de rotura.
+
+**Qué haría falta:** un `pnpm.overrides` o un `resolutions` que fije `@types/react` a la 19 en todo el workspace, y volver a correr `npx tsc --noEmit` en `apps/mobile` y en `apps/web`. Si algo de la web dependía de los tipos 18, aparece ahí.
+
+---
+
+### D-026 · No hay población por celda, así que el brillo del mapa no se puede normalizar todavía
+
+**Dónde:** `v2/packages/civic-core/src/simulacion/retrato.ts` (`voces ÷ población × 100.000`) y `coverage.ts`
+**Encontrada:** 2026-08-04, diseñando el brillo de El Registro (`docs/specs/2026-08-04-el-registro.md` §6)
+**Severidad:** media
+**Estado:** abierta
+
+El brillo de una celda se define como **voces distintas ÷ habitantes estimados**. Sin denominador, el mapa dibuja densidad de población en vez de participación: el microcentro brilla más que un pueblo donde habló el 40% de la gente. Eso choca con la regla 5 de la Constitución de producto — *«la participación no equivale a representatividad»*.
+
+La fórmula ya existe y ya es honesta: `retrato.ts` calcula `voces ÷ población × 100.000`, guarda la procedencia del cálculo y tiene el camino `sinDato` para cuando falta el denominador. **Lo que no existe es el dato de población a nivel celda.** `retrato.ts` opera sobre territorios con un campo `poblacion`, que es escala provincia.
+
+**Por qué no se arregla acá:** conseguir población por celda es un trabajo de datos —radios censales del INDEC, su geometría, y el reparto de esa geometría sobre una grilla que se arma dinámicamente según el recuadro—, no una función que falte.
+
+**Qué haría falta:** los radios censales del INDEC con geometría, y una función en `civic-core` que reparta población de radio a celda por intersección de área. Mientras tanto, El Registro normaliza por provincia y marca las celdas como *sin denominador*, que se dibujan en el gris `sinDato` y **nunca oscuras** — oscuro ya significa «nadie habló».
+
+---
+
+### D-027 · Dos librerías de mapa en v2, contra la regla de una sola de cada cosa
+
+**Dónde:** `v2/apps/web` (`maplibre-gl` ^5.24.0 vía `react-map-gl`) y `v2/apps/mobile` (`react-native-maps` 1.27.2, más `maplibre-gl` para el export web)
+**Encontrada:** 2026-08-04, revisando dependencias al diseñar El Registro
+**Severidad:** media
+**Estado:** abierta
+
+`v2/CLAUDE.md` es explícito: *«One of each: one map lib, one chart lib…»*. Hoy hay dos, y `apps/mobile` de hecho carga las dos —`react-native-maps` en nativo y `maplibre-gl` en la build web, vía los tres archivos `TerritoryMap.native.tsx` / `.web.tsx` / `.tsx`.
+
+Hasta ahora era tolerable porque el mapa era una pantalla enterrada en `/territorio/mapa`. **Con El Registro el mapa pasa a ser la portada**, y las dos implementaciones tienen que dibujar la misma grilla de celdas con la misma rampa de brillo. Dos motores de render que se tienen que ver idénticos es una fuente de divergencia que ya no es barata.
+
+**Por qué no se arregla acá:** unificar en MapLibre nativo (`@maplibre/maplibre-react-native`) es un cambio de dependencia pesada con su propia configuración de build en iOS y Android, y merece su propio ADR según la regla de dependencias pesadas de `v2/CLAUDE.md`.
+
+**Qué haría falta:** un ADR que compare `@maplibre/maplibre-react-native` contra seguir con el split, midiendo tamaño de bundle, estabilidad en SDK 57 y cuánto código de capa se puede compartir de verdad. Si se unifica, `TerritoryMap.*` colapsa de tres archivos a uno.
