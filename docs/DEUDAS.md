@@ -644,3 +644,28 @@ La cabecera es el bloque de portada, o sea lo más alto del archivo. Agregarle d
 **Por qué importa más allá de este caso.** La regla «de abajo hacia arriba» se pensó para las ediciones *de contenido* y no cubrió la edición *de metadatos*. Cualquier cambio de versión, de conteo de secciones o de bloque de portada es, para las anclas, la edición más destructiva posible — y es justo la que uno hace al final, cuando ya cree que terminó.
 
 **Cómo se arregla:** en los planes que editan un documento citado por línea, la tarea de cabecera va **antes** que la de contenido, o el recálculo de anclas va **al final de todo**, después de la cabecera. Nunca en el medio. La guardia de PLANGEO lo detectó las dos veces, así que el costo fue tiempo y no un corpus roto — pero lo detectó porque existe, y las guardias de los otros PLANes no verifican anclas ajenas.
+
+---
+
+### D-029 · Los paquetes del workspace publican TypeScript, así que nada compilado de v2 arranca en Node
+
+**Dónde:** `v2/packages/{db,shared,civic-core}/package.json` (`main`, `types` y todos los `exports` apuntan a `./src/*.ts`) y, como consecuencia, `v2/apps/api/dist/`
+**Encontrada:** 2026-08-04, preparando el pasaje de v2 a producción — al buscar qué importa la función de Vercel
+**Severidad:** alta
+**Estado:** abierta (rodeada por el bundle del ADR 0008 D7, no resuelta)
+
+`apps/api` compila limpio (`tsc -p tsconfig.build.json` sale en verde y deja `dist/src/app.js`), pero **el resultado no se puede ejecutar**:
+
+```
+$ node -e "import('./dist/src/app.js')"
+ERR_MODULE_NOT_FOUND: Cannot find module '.../packages/db/src/client.js'
+  imported from .../packages/db/src/index.ts
+```
+
+`dist/src/app.js` importa `@v2/db`, que resuelve a `packages/db/src/index.ts` — TypeScript crudo. Node 22 le saca los tipos y sigue, y recién ahí se cae, en el `./client.js` que no existe porque al lado sólo hay `client.ts`.
+
+**Por qué no se había visto.** Nada ejercita esa ruta. Los 182 tests de integración importan `createApp()` bajo vitest, que transpila al vuelo; `pnpm dev` corre con `tsx`; y `pnpm --filter @v2/api start` —el único comando que usaría `dist/`— nunca se corrió, porque v2 nunca se desplegó. El `build` verde de CI compila y no ejecuta: mide que los tipos cierran, no que el artefacto arranca.
+
+**Por qué no se arregla acá:** la salida limpia es `exports` condicionales (`development` → `./src/index.ts`, `default` → `./dist/index.js`) en los tres paquetes, con sus cuatro subpaths, más `resolve.conditions` en vite y vitest y el equivalente para `tsx`. Son tres paquetes, doce entradas y tres configs de herramienta, todo por debajo de una suite de 182 tests de integración que hoy está verde. Cambiar la resolución de módulos de todo el workspace en el mismo movimiento que se estrena un host es mezclar dos causas de rotura.
+
+**Qué haría falta:** los `exports` condicionales, y después un test que valide lo que el `build` no valida — importar el artefacto emitido desde Node puro y afirmar que expone lo que promete. Sin ese test, el próximo `build` verde vuelve a no significar nada.

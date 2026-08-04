@@ -7,9 +7,12 @@
  * always shows fresh top themes + sentiment.
  *
  * Invoked from:
- *   - apps/api/api/cron/mandato-engine.ts (Vercel cron entry, when v2
- *     deploys)
  *   - manually via `pnpm --filter @v2/api run mandato:once` for dev
+ *
+ * Todavía NO tiene entry de Vercel: el ADR 0008 D5 pide medir una corrida real
+ * contra el techo de duración de la función antes de agendarlo, porque son 50
+ * señales con una llamada de LLM cada una. Cuando se mida, la entry va en
+ * apps/api/src/vercel/ y el horario en v2/vercel.json, como la de rankings.
  *
  * Concurrency is limited so we don't blow past the AI provider rate
  * limits; the cron runs every 15 minutes and chips away.

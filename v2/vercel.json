@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "pnpm build && pnpm api:bundle",
+  "outputDirectory": "apps/web/dist",
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }],
+  "functions": {
+    "api/cron/rankings.mjs": { "maxDuration": 60 }
+  },
+  "crons": [{ "path": "/api/cron/rankings", "schedule": "0 5 * * *" }]
+}

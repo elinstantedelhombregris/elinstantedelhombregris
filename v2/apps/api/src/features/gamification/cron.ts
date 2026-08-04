@@ -11,8 +11,8 @@
  * periodStart, scopeKind) key whose userId is not in the new top set.
  *
  * Invoked from:
- *   - apps/api/api/cron/gamification-rankings.ts (Vercel cron entry — to
- *     be wired up to a vercel.json schedule in Phase 10)
+ *   - apps/api/src/vercel/cron-rankings.ts, que se empaqueta a
+ *     v2/api/cron/rankings.mjs y lo agenda v2/vercel.json (ADR 0008 D2, D3)
  *   - manually via `pnpm --filter @v2/api run rankings:once` for dev
  */
 import { and, dailyActivity, desc, eq, getDb, inArray, not, rankings, sql, userLevels, users } from '@v2/db';
