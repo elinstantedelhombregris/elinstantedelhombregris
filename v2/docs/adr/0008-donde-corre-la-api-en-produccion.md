@@ -116,10 +116,13 @@ más.
   entero en su proyecto `elinstantedelhombregris`, con su base intacta. Volver
   atrás es un comando: `vercel domains add elinstantedelhombregris.com
   elinstantedelhombregris --force`, y lo mismo con el `www`.
-- **El repo está conectado por Git**, así que un push a `main` despliega. El
-  proyecto viejo **también** sigue conectado al mismo repo: cada push le dispara
-  además una build de v1, que no sirve a nadie pero mantiene el proyecto vivo
-  como red de rollback. Desconectarlo es una decisión pendiente, no un olvido.
+- **El repo está conectado por Git**, así que un push a `main` despliega el sitio
+  vivo. Al proyecto viejo se le **desconectó** la integración de Git: seguía atado
+  al mismo repo y cada push le disparaba una build de v1 que no servía a nadie.
+  Desconectar no borra nada — sus deployments de producción siguen ahí, que es lo
+  único que el rollback necesita.
+- **`vercel git connect` no corre desde `v2/`**: busca el `.git` en el directorio
+  de trabajo y la raíz del repo es el padre. Hay que pasarle la URL del repo.
 - **Dos cosas del ruteo que sólo aparecen contra un deploy real** y que no
   conviene volver a descubrir: Vercel publica cada archivo de `api/` en su ruta
   **exacta**, y la ruta catch-all `api/[...path].mjs` **atiende un segmento pero
