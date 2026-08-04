@@ -615,3 +615,99 @@ git commit -m "Add los attack paths de PLANPUERTA, la guardia en CI, y el regist
 - **La recepción social** — el llamado a la gentileza. Hueco declarado hacia PLANFOCO o PLANCUL.
 - **La verificación externa de los cinco precedentes internacionales** de la SECCIÓN 2, declarada en el propio documento como pendiente de gate.
 - **La generalización de la verificación de citas textuales** (lección 2 del tramo D). Sigue siendo trabajo pendiente de alcance general; este tramo la hace a mano en la Task 11 Paso 2.
+
+---
+
+## Registro de cierre — 2026-08-03
+
+**El tramo queda completo.** PLANPUERTA es el **ordinal 27**, el Vigésimo Octavo Mandato, y es el primer PLAN del corpus que entra por un hueco que la auditoría nunca vio en vez de por un sub-mandato que creció: no tuvo huésped, así que no le sacó un peso a nadie.
+
+### Mediciones finales
+
+| Qué | Valor |
+|---|---|
+| `PLANPUERTA_Argentina_ES.md` | **27.235 palabras**, 1.058 líneas, **25 secciones** (PREÁMBULO + TESIS + SECCIONES 0 a 19 + INTEGRACIÓN + CIERRE) |
+| Contra el presupuesto de palabras de este plan | **21.000-24.000 declarado, 27.235 real: +13,5% sobre el techo.** Y el techo estaba mal desde el día uno — ver lección 5 |
+| Guardia propia | `verificar-planpuerta.ts` — 25 secciones, **22 cifras canónicas con domicilio**, 13 prohibidos, y la derogación en PLANVIV verificada del lado ajeno |
+| Trayectoria de la guardia | **59 → 55 → 38 → 25 → 19 → 17 → 15 → 13 → 9 → 1 → 0** problemas, once tareas |
+| Rondas de revisión aplicadas | **18 Critical y 52 Important**, más los Minor, en once tareas con fix propio |
+| Documentos ajenos editados a mano | **8** — PLANVIV, PLANARCO, PLANFOCO, `PLAN_REGISTRY.yml`, `PRESUPUESTO_CONSOLIDADO_BASTA.md`, `READINESS_GATES_ADVERSARIAL.md`, `client/public/docs/PLANVIV`, y el registro de cierre del tramo D |
+| Documentos ajenos migrados mecánicamente | **112** `.md`/`.mdx` (cabeceras `CANONICAL_ARCHITECTURE`), más **29** regenerados por `pnpm planes:migrar` |
+| **Líneas ajenas corridas** | **cero en el taller.** PLANVIV 5/5, PLANARCO 3/3, PLANFOCO 2/2, las 112 cabeceras adds=deletes, y el presupuesto anexado al final del archivo y no de la tabla. Lo único que se corrió es la sección `## Cierre` de `READINESS_GATES_ADVERSARIAL.md`, **once líneas, y se verificó antes que ningún documento lo cita por número de línea** |
+| Archivos de código tocados | 15 (`strategic-initiatives.ts`, `arquitecto-data.ts`, `validation-engine.ts`, `PlanEditor.tsx`, dos tests de `SocialJusticeHub`, `verificar-planarco.ts`, `verificar-remisiones.ts`, tres scripts de contenido de v2, y los tres tests de canon de v2 más el `canon-registro.ts` nuevo del que ahora derivan) |
+| Tests de v2 que estaban rojos y no lo sabía nadie | **3** (`split-documento-plan`, `planes-sources`, `validar-campos-planos`), arreglados por derivación. Suite de scripts de v2: **66 passed** |
+| Guardias en verde | **6** — PLANPACTO, PLANARCO, PLANPREGUNTA, PLANFOCO, **PLANPUERTA**, remisiones |
+| `verificar-remisiones.ts` | **841 citas `ARCHIVO:línea`** resueltas contra 161 documentos del taller |
+| Verificación del repo | `npm run check`, `check:routes`, `test:unit` — **247 passed, 2 skipped** |
+| CI | la guardia de PLANPUERTA entra al workflow, y se tapan **tres** agujeros de `paths` — uno anticipado y **dos que nadie había mirado** (ver lección 6) |
+
+### Lo que se corrigió de la spec, y con qué medición
+
+Fueron muchas y son el corazón de este registro. **Dieciséis afirmaciones empíricas de la spec resultaron falsas y se refutaron con fuente**, y cuatro de las dieciséis las puso el mismo país.
+
+| Qué decía | Qué quedó | La medición |
+|---|---|---|
+| Canadá no mide retención / la mide y no la usa (**cuatro versiones, refutada cuatro veces**) | **la premisa se abandona, no se reformula:** el PLAN no reclama tener el número, reclama ponerlo a gobernar | Statistics Canada cruzó la IMDB contra declaraciones de impuestos y publicó el **2/2/2024** que >15% de los admitidos 1982-2017 se fue dentro de los veinte años. La afirmación «nadie mide» era el pilar retórico de la SECCIÓN 2 y no sobrevivió |
+| el DNU 366/2025 como derecho vigente | **anulado**, y el PLAN cierra por ley lo que el decreto intentó | Cámara Nacional Electoral, «Yang, Liping», **30/06/2026**, nulidad absoluta: la ciudadanía es derecho político vedado a los decretos (art. 99 inc. 3 CN). El implementador investigó hasta el 14/4/2026 y se detuvo **poco más de un mes antes de la anulación** |
+| el salto italiano lo produjo el régimen que este PLAN copia | **se copia el régimen chico, y el crecimiento se atribuye al grande** | 11.285 beneficiarios (2019) → 41.020 dependientes acogidos (2023) ocurrió bajo el *decreto Crescita* (50%→70%, 90% en el sur). El vigente desde 2024 es el 50/60% y **no** tiene ese crecimiento detrás. Los 41.020 son del **MEF**, no del OCPI |
+| la Immigration Salary List británica como precedente vivo | fuera | **abolida el 22/07/2025** por HC 997 |
+| Triple Win ilustra la excepción de la Lista de Salvaguardia de la OMS | fuera: **cumple por evitación**, no por excepción | lectura del programa contra el texto del Código de la OMS |
+| «los autónomos italianos entran recién ahora» | ya estaban **desde 2017** | normativa italiana |
+| los 12 meses del Programa Siria salen de la Disp. 3915/2014 | **Disp. 4683/2016** | boletín |
+| CESEDA L413-5 sin excepciones relevantes | **17 categorías exentas** | texto del código |
+| Chile como proyecto | **Ley 21.773 promulgada** | Diario Oficial |
+| la reválida la resuelven los colegios | la revalidación de título la hace la **universidad nacional**; el colegio da la matrícula | spec `:162` y `:164`, y art. 121 CN |
+| la SUBE como ejemplo en Rosario | **Movi** — la SUBE no existía en Rosario hasta 2023 | cronología |
+| «la Argentina fue el séptimo país más rico del mundo» | el ranking es de **1910**; en **1913 es décima** | series históricas |
+| la Ley 4.144 se derogó y punto | la Ley **14.445 del 27/06/1958** además tuvo que dejar sin efecto los decretos dictados en su virtud «por motivos políticos o gremiales» | texto de la ley — **hallazgo, no corrección**: es la prueba documental de que la facultad sobrevive a su ley |
+| la expulsión hoy la dicta un juez con sentencia firme | **falsa:** bajo la Ley 25.871 la dicta la DNM por acto administrativo con revisión judicial posterior — y si fuera con juez, el primer renglón del Límite II no tendría nada que prohibir | Ley 25.871; domicilio de la órbita: **Decreto 793/2025**, no la Disp. DNM 180/2026 |
+| el art. 10 de la Ley 17.622 blinda el secreto estadístico | trae **una excepción final** —nombre, domicilio, rama de actividad— que es justo el juego de campos que localiza a una persona: el escudo traía la puerta adentro | texto del artículo |
+| la exención vive en la Escalera de Garantías de PLANPACTO | **no:** `grep «gasto tributario»` sobre PLANPACTO da **cero**, y la Escalera es de pisos de **gasto**. PLANPACTO no tiene techo de renuncias, y esta exención es el caso que se lo va a pedir | grep sobre el documento |
+| la tierra del Paquete es gratis | **no:** `PLAN24CN:1942` cuenta con vender esos lotes por USD 15.000-30.000M, así que el lote regalado sale de su fila de ingresos | el documento ajeno |
+
+**Y los cuatro Critical de diseño**, que no son hechos externos sino agujeros del propio PLAN:
+
+| # | Qué estaba mal | Cómo quedó |
+|---|---|---|
+| 1 | **el tercer acto del Límite I no tenía compuerta judicial** — usar territorio argentino para dañar a terceros se constataba sin juez, y es el acto que un gobierno usaría para revocarle el Paquete a un disidente | lleva **sentencia firme**, igual que el primero |
+| 2 | **la silla en la Mesa se contradecía con D5** — el Paquete repartía Credencial, y darle a ANAR una palanca sobre la voz política es la segunda forma en que entra lo que este PLAN dice no fundar | el Paquete da **la anticipación, no la Credencial**; ANAR no la puede tocar |
+| 3 | **la convención «lo que no está en esta sección no obliga» des-obligaba la restricción central del PLAN** — la SECCIÓN 10 estaba fuera del Marco, y el Marco era el único lugar que obliga | **el Marco son las SECCIONES 9 y 10**, escrito en las dos |
+| 4 | **el examen del que depende el PLAN estaba mal fechado** — «acá se aprueba o se reprueba» decía año 10, pero la Fase 2 entrega el primer Paquete entre el 2 y el 4, así que la permanencia a diez años se mide entre el **12 y el 14** | corregido, y con cohorte de control |
+
+### Las lecciones para el tramo siguiente
+
+**1. No alcanza con verificar que una norma existe: hay que verificar que sigue en pie a la fecha del documento.** El DNU 366/2025 existía, estaba publicado, era citable y estaba **anulado hacía cinco semanas**. La verificación se detuvo en «la norma existe» y esa es la pregunta equivocada. La pregunta es «¿qué le pasó a esta norma entre su publicación y hoy?», y hay que hacerla explícitamente para cada norma citada, con la fecha del documento escrita al lado.
+
+**2. Los universales negativos son la forma que más se cayó, y se cayó por una razón que se puede enseñar.** «Nadie mide retención», «ningún país publica X», «esto no existe en ningún lado»: cada uno de esos se refuta con **un solo contraejemplo**, y el corpus es grande y el mundo más. La distinción que hay que hacer antes de escribir uno: **una afirmación sobre la *función* que algo cumple no se refuta mostrando que alguien más lo hace** —Canadá tiene la serie y la usa al costado; el PLAN la pone a gobernar, y eso sigue en pie—, pero **una afirmación sobre *originalidad* sí se refuta así, y con un solo caso.** Cuando el borrador quiera un universal negativo, hay que preguntarse cuál de los dos está escribiendo. Si es el segundo, se reescribe como afirmación de función antes de que lo refute un revisor.
+
+**3. Una corrección local no se propaga sola.** Con doce tareas encima, el riesgo dejó de ser lo que falta escribir y pasó a ser que un fix no llegue a todos lados. El barrido de la Task 10 encontró **siete supervivientes reales** de fixes anteriores, seis del mismo hilo (Escalera / gasto tributario), y **tres de ellos en la spec, que nadie había vuelto a mirar porque el documento ya no se escribía desde ahí**. La regla que sale: todo fix de una afirmación se cierra con un grep de la afirmación sobre **documento + spec + plan + guardia**, y el grep va escrito en el reporte de la tarea. Un fix sin barrido es un fix local.
+
+**4. Un rango que vive en un `.md` de reporte y no en la guardia deja de medirse.** Es D-023: la SECCIÓN 9 se pasó **248 palabras** del techo de 2.400, el desborde entró con el fix de la Task 8, y **ninguna de las cuatro tareas posteriores volvió a medir** — porque los rangos viven en la tabla de este plan y la guardia nunca los leyó. Lo que se mide en un documento de proceso se mide una vez; lo que se mide en la guardia se mide todos los días. Si un rango importa, va a la guardia.
+
+**5. Corolario del 4, y este tramo lo pagó entero: un total declarado que no es la suma de su propia tabla no es un límite.** El presupuesto de palabras de arriba declara **21.000-24.000** y la suma de los techos de sus veinticinco filas da **27.310**. El documento cerró en **27.235**: cabe holgadamente adentro de la tabla y se pasa 13,5% del total. **Las dos cifras estaban en la misma página del mismo archivo y nadie las sumó.** Un presupuesto por partes y un total escritos a mano por separado se contradicen calladamente; el total tiene que derivarse de la tabla, no elegirse al lado de ella.
+
+**6. El agujero de `paths` tiene dos lados, y el segundo no lo había mirado nadie.** La pregunta que el corpus se venía haciendo es «¿qué lee cada guardia que esté fuera de `paths`?», y esa se contestó dos veces a mano (la spec de PLANARCO, y hoy la de PLANPUERTA). La pregunta que faltaba es más ancha: **«¿qué lee CUALQUIER paso de CI que esté fuera de `paths`?»** Barridos los once pasos, aparecieron dos, los dos vivos desde antes de este tramo:
+
+- **`Unit tests` → `docs/DEUDAS.md`**, en la raíz del repo. `tests/unit/deudas-registro.test.ts` lo abre y verifica que ningún id de deuda signifique dos cosas — la guardia existe porque eso ya pasó **dos veces**. Y `docs/` no estaba en ninguna de las cuatro entradas: **anotar una deuda, que es la edición que más necesitaba disparar esa guardia, era exactamente la que no la disparaba.**
+- **`Production build` → `Ensayos/`**, en la raíz. `scripts/build-ensayos.ts` lee los veintiún ensayos y genera `client/src/content/ensayos.generated.ts`. Un ensayo renombrado o borrado rompe el build **en un commit que CI no mira**.
+
+Los dos se taparon en este tramo, con el motivo escrito adentro del workflow. La regla general: **cada vez que entra un paso nuevo a CI, se enumeran los archivos que ese paso abre y se cruzan contra `paths`.** Un paso de CI que no puede correr es peor que no tenerlo, porque figura en verde en la lista de garantías.
+
+**7. Un alias corto es único hasta el día que deja de serlo, y ese día rompe remisiones ajenas.** `verificar-remisiones.ts` resuelve por prefijo, y `ACTA:31` resolvió sin ambigüedad mientras hubo **una** acta. La segunda acta —creada por este tramo— dejó **doce citas** sin poder resolver, once de ellas escritas por otros tramos en PLANARCO, PLANFOCO y `verificar-planarco.ts`. El guard se portó bien: se negó a elegir en vez de resolver al primero por orden de directorio. La lección es sobre el que crea el segundo documento: **quien estrena un nombre que comparte prefijo con uno existente hereda la deuda de expandir todas las citas del viejo.**
+
+**8. Una nota que promete algo «para cuando X exista» hay que cobrarla el día de X, o se vuelve permiso.** `arquitecto-data.ts` tenía escrito «no hay arista hacia PLANPUERTA aunque la Sección 31 lo cite […] Se agrega cuando el documento exista». El documento existió en este tramo y la arista se agregó. Una nota así es una deuda con fecha implícita, y las deudas con fecha implícita no las cobra nadie salvo que alguien las busque.
+
+**9. Un test que fija un conteo canónico con un literal se rompe una vez por PLAN nuevo — y no era uno, eran tres.** El registro del tramo D nombró a `split-documento-plan.test.ts:101` sin poder arreglarlo, y ese test estuvo rojo **tres veces por la misma causa** (literal `23`, después literal `27`, y hoy el corpus tiene 28). Al medirlo aparecieron **dos más**, rojos desde la Task 12 de este mismo tramo y sin que nada avisara: `planes-sources.test.ts` (tres aserciones) y `validar-campos-planos.test.ts`. Los tres viven en `v2/scripts/content/__tests__/`, que **no corre en el CI de `SocialJusticeHub`** — por eso se quedaron rojos sin ruido, y por eso los encontró una corrida a mano y no una guardia. Se cerró la clase y no las instancias: el conteo se lee de `PLAN_REGISTRY.yml` a través de un único `canon-registro.ts`, y `thematic_count` / `total_documents` ya no se copian a mano en ningún test. Es el mismo remedio que D-020 pide para los otros siete lugares. **Lo que sigue abierto es la causa de fondo: hay dos suites de tests en este repo y sólo una está en CI.**
+
+**10. Un registro que declara pendiente algo hecho manda al siguiente a rehacer trabajo.** El registro del tramo D declaró pendiente la migración del canon **cuarenta y cuatro minutos antes de que se ejecutara** (`e294328` 11:16, `f226173` 12:00, el mismo 2026-08-01), y nunca se volvió a tocar. Este tramo tuvo que abrir una verificación previa entera (V-1) para averiguar que ya estaba hecha, porque el único registro escrito decía que no — y el siguiente le cree, que es exactamente para lo que el registro existe. Corregido hoy con nota fechada en `2026-08-01-tramo-d-planfoco.md`. **Un registro de cierre no se cierra en el commit del registro: se cierra cuando el tramo termina de verdad.**
+
+### Lo que este tramo NO hizo, con nombre
+
+- **El hueco más serio de la spec (§16.2): cómo accede al Paquete el ~1,9M de residentes MERCOSUR que ya está acá.** La cláusula anti-casta lo cubre en principio —el Paquete se ata a la fila y no al pasaporte— y **el mecanismo concreto no existe**. Va escrito en el documento como hueco declarado y no tapado con una frase, y es el fondo del attack path 1 de `READINESS_GATES_ADVERSARIAL.md`: con la cláusula atada a la fila y sin camino a la fila, la cláusula es verdadera y vacía.
+- **La política de asilo y refugio.** `PLANJUS:2367` la toca en el acceso a la justicia. PLANPUERTA la declara y no la absorbe.
+- **La meta poblacional numérica.** Se resuelve con el dato de la Fase 0 y no antes: poner un número ahora sería estrenar una cifra.
+- **La recepción social** — si el vecino recibe bien al que llega. Hueco declarado hacia **PLANFOCO o PLANCUL**, y el único riesgo que el documento declara **sin mitigación**: sólo medición, el Tablero publica las cuadras donde nadie golpeó la puerta.
+- **La verificación externa de los cinco precedentes internacionales de la SECCIÓN 2**, que el propio documento declara pendiente de gate. Este tramo le puso **owner (Oficial Evaluación PEO) y fecha (antes del cierre de la Fase 0, mes 12)** en el archivo de gates, que es lo que el documento prometía que iba a estar ahí. La verificación en sí no está hecha.
+- **La generalización del chequeo de citas textuales** (lección 2 del tramo D). Sigue pendiente de alcance general; este tramo la hizo a mano en la Task 11.
+- **Las deudas D-018 a D-023**, que quedan como quedan: **D-018** (`budget_class` no es monótono en dólares) abierta; **D-019** y **D-020** resueltas; **D-021** (siete conteos viejos en prosa publicada, dos de ellos que **no** deben corregirse mecánicamente porque son registro histórico y texto de autor) abierta; **D-022** (PLANPACTO, PLANARCO, PLANPREGUNTA y PLANFOCO nunca entraron a `PRESUPUESTO_CONSOLIDADO_BASTA.md`, así que su resumen consolidado se calcula sobre 16 PLANes de 27) abierta; **D-023** (la SECCIÓN 9, 248 palabras sobre el techo) abierta. Y **D-024, anotada hoy**: hay dos suites de tests en el repo y sólo una corre en CI — la de `v2/` no la corre nadie, y por eso tres de sus tests pudieron quedarse rojos un día entero después de que este tramo tocara el canon.
+- **Las siete citas con el alias corto `ACTA:`** que quedan en tres documentos de `v2/docs/plans/`. La guardia de remisiones no escanea ese directorio, así que no ponen nada en rojo, y son registros históricos. No se tocaron, y quedan anotadas acá para que quien amplíe el alcance de la guardia sepa que las va a encontrar.

@@ -6,6 +6,8 @@ import { describe, expect, it } from 'vitest';
 
 import { partirDocumentoPlan } from '../split-documento-plan';
 
+import { TOTAL_SEGUN_REGISTRO } from './canon-registro';
+
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const CORPUS = resolve(SCRIPT_DIR, '../../../../Iniciativas Estratégicas');
 
@@ -97,8 +99,8 @@ describe('partirDocumentoPlan', () => {
     expect(cuerpo).toContain('# PLANX');
   });
 
-  it('los 27 documentos reales del corpus se parten con cuerpo no vacío', () => {
-    expect(archivosCorpus).toHaveLength(27);
+  it('los documentos reales del corpus se parten con cuerpo no vacío, y son los que el registro dice', () => {
+    expect(archivosCorpus).toHaveLength(TOTAL_SEGUN_REGISTRO);
 
     for (const archivo of archivosCorpus) {
       const raw = readFileSync(resolve(CORPUS, archivo), 'utf8');
@@ -112,7 +114,7 @@ describe('partirDocumentoPlan', () => {
     }
   });
 
-  it('no pierde ni duplica contenido: los 23 documentos conservan todas sus líneas no vacías', () => {
+  it('no pierde ni duplica contenido: cada documento conserva todas sus líneas no vacías', () => {
     const noVacias = (s: string) =>
       s
         .split('\n')

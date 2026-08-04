@@ -475,8 +475,41 @@ Objetivo total: ~~26.000–28.500~~ **25.000–26.500 palabras** (corregido — 
 
 ### Lo que este tramo NO hizo, con nombre
 
-- **El tramo E entero:** la migración del canon (spec §9), los conteos hardcodeados de 22 en nueve lugares ejecutables, las 45 líneas de `CANONICAL_ARCHITECTURE` embebidas en el taller, las 69 aristas del grafo y `arquitecto-data.ts`, y `strategic-initiatives.ts`. **El taller ya tiene 27 documentos y `split-documento-plan.test.ts:101` espera 23**: ese test está roto desde que entró PLANPACTO y sigue roto.
+- ~~**El tramo E entero:** la migración del canon (spec §9), los conteos hardcodeados de 22 en nueve lugares ejecutables, las 45 líneas de `CANONICAL_ARCHITECTURE` embebidas en el taller, las 69 aristas del grafo y `arquitecto-data.ts`, y `strategic-initiatives.ts`. **El taller ya tiene 27 documentos y `split-documento-plan.test.ts:101` espera 23**: ese test está roto desde que entró PLANPACTO y sigue roto.~~ → **CORREGIDO el 2026-08-03: este renglón era falso el día que se escribió y siguió siendo falso durante dos días. La migración del canon SÍ se ejecutó.** Ver la NOTA DE CORRECCIÓN al final de este archivo, que trae la medición.
 - **Lo no humano** (spec §7): diez huecos, diez huéspedes, cero PLANes nuevos. Sin empezar.
 - **La pata industrial de PLANCYT**, que sigue repartida entre PLANEB, PLANDIG, PLANISV, PLANMOV y PLANTER. Declarada como hueco en PLANPREGUNTA y no cerrada acá.
 - **La verificación externa de los precedentes internacionales** de la SECCIÓN 2 de PLANFOCO, declarada en el propio documento como pendiente de gate.
 - **La generalización del chequeo de citas textuales** (lección 2).
+
+---
+
+## NOTA DE CORRECCIÓN — 2026-08-03, desde el tramo de PLANPUERTA
+
+**Qué se corrige:** el primer renglón de «Lo que este tramo NO hizo, con nombre» (línea 478), que declaraba el tramo E entero como pendiente — «la migración del canon, los conteos hardcodeados, `strategic-initiatives.ts`».
+
+**Anexo y no inserción:** este bloque va al final del archivo y la línea 478 se reescribió adentro de sí misma, sin correr una sola línea. El plan de PLANPUERTA cita este archivo por número de línea en cuatro lugares.
+
+**La cronología exacta, medida sobre git y no recordada:**
+
+| Momento | Qué pasó |
+|---|---|
+| 2026-08-01 **11:16:19** | `e294328` — se escribe este registro de cierre, y la línea 478 es **verdadera** |
+| 2026-08-01 **12:00:05** | `f226173` — «Sube el canon de 22 a 26 en la autoridad de papel: PLAN_REGISTRY y las 76 cabeceras». **Cuarenta y cuatro minutos después, la línea 478 pasa a ser falsa** |
+| 2026-08-01 → 2026-08-03 | tres tramos de trabajo encima, y nadie vuelve al registro |
+| 2026-08-03 | se corrige acá |
+
+**La medición que la desmiente**, tomada hoy sobre el árbol:
+
+| Qué decía pendiente | Estado real al 2026-08-03 |
+|---|---|
+| la migración del canon | **hecha dos veces**: 22→26 el 2026-08-01 (`f226173`), 26→27 el 2026-08-03 (`53b248f`, tramo de PLANPUERTA) |
+| las cabeceras `CANONICAL_ARCHITECTURE` | **181, todas en `27 thematic + PLANRUTA protocol`**; cero residuo en 26 y cero en 22 |
+| `PLAN_REGISTRY.yml` | `thematic_count: 27`, `total_documents: 28`, `last_updated: 2026-08-02` |
+| `strategic-initiatives.ts` | **27 entradas** |
+| `arquitecto-data.ts` | nodo 27 (PLANPUERTA) con sus 18 aristas |
+| `validation-engine.ts` | `EXPECTED_PLAN_COUNT = 27`, y V-REF-02 lo verifica como ERROR |
+| `split-documento-plan.test.ts:101`, que este renglón nombraba | **estuvo rojo tres veces por la misma causa** —literal `23`, después literal `27`, y hoy el corpus tiene 28—. Se cerró la clase de defecto: el conteo **se deriva de `total_documents` del registro** y ya no se escribe a mano |
+
+**Lo que este renglón le costó al tramo siguiente.** El plan de PLANPUERTA tuvo que abrir una verificación previa entera (V-1) para averiguar que la migración ya estaba hecha, porque el único registro escrito decía que no. Es trabajo de verificación que el registro tenía que haber ahorrado y en cambio causó.
+
+**La lección, y va como regla:** un registro que declara pendiente algo hecho es peor que un registro incompleto, porque **manda al siguiente a rehacer trabajo** — y el siguiente le cree, que es exactamente para lo que el registro existe. Un registro de cierre se escribe al final del tramo, y el tramo no termina en el commit del registro: termina cuando termina. Si algo de la lista de pendientes se hace después —aunque sea cuarenta y cuatro minutos después—, se vuelve al registro en el mismo commit que lo hace.

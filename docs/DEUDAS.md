@@ -48,6 +48,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-021](#d-021--quedan-conteos-viejos-en-la-prosa-publicada-y-ninguna-guardia-los-mira) | Quedan conteos viejos en la prosa publicada, y ninguna guardia los mira | Baja | Abierta |
 | [D-022](#d-022--los-cuatro-planes-de-julio-nunca-entraron-a-presupuesto_consolidado_bastamd) | Los cuatro PLANes de julio nunca entraron a `PRESUPUESTO_CONSOLIDADO_BASTA.md` | Media | Abierta |
 | [D-023](#d-023--la-sección-9-de-planpuerta-se-pasó-248-palabras-del-techo-y-nadie-lo-vio) | La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo | Baja | Abierta |
+| [D-024](#d-024--hay-dos-suites-de-tests-en-el-repo-y-sólo-una-corre-en-ci) | Hay dos suites de tests en el repo y sólo una corre en CI | Media | Abierta |
 
 ---
 
@@ -554,3 +555,22 @@ La consecuencia es que **el resumen consolidado de `:42-47` —«total acumulado
 **PLANPUERTA sí tiene fila, y va en un anexo al final del archivo, no en la tabla.** El motivo está escrito ahí: la tabla arranca en `:21` y hay más de ochocientas citas `ARCHIVO:línea` en el corpus, varias contra este documento por encima de `:37`. Insertar una fila en el medio corre todas las líneas de abajo. Anexar preserva las citas y cuesta que la tabla quede partida en dos.
 
 **Qué haría falta:** completar el anexo con los cuatro que faltan y recalcular el resumen consolidado sobre los veintisiete, dejando la tabla original intacta y marcándola como histórica. Eso es trabajo de contabilidad del corpus, no un efecto lateral de agregar un PLAN.
+
+---
+
+### D-024 · Hay dos suites de tests en el repo y sólo una corre en CI
+
+**Dónde:** `v2/scripts/vitest.config.ts` (`content/__tests__/**`, `build/__tests__/**`), `v2/apps/*` y `v2/packages/*` contra `.github/workflows/socialjusticehub-ci.yml`
+**Encontrada:** 2026-08-03, en la Task 13 de PLANPUERTA, corriendo la suite de v2 a mano al final del tramo
+**Severidad:** media
+**Estado:** abierta
+
+El único workflow que corre sobre el corpus es `socialjusticehub-ci.yml`, y su paso de tests es `npm run test:unit` **adentro de `SocialJusticeHub/`**. Los tests de `v2/` no los corre nadie en CI.
+
+La consecuencia es medible y ya ocurrió: **tres tests de `v2/scripts/content/__tests__/` quedaron rojos el 2026-08-02** al entrar PLANPUERTA al canon —`split-documento-plan.test.ts`, `planes-sources.test.ts` y `validar-campos-planos.test.ts`, los tres por el mismo literal de conteo— y **nadie se enteró durante un día entero**. Los encontró una corrida a mano al cierre del tramo, no una guardia. El de `split-documento-plan` venía además nombrado como roto en el registro de cierre del tramo D, sin que nada lo pusiera en rojo.
+
+Los tres se arreglaron derivando el conteo de `PLAN_REGISTRY.yml` (`v2/scripts/content/__tests__/canon-registro.ts`), que cierra la clase de defecto. **Lo que queda abierto es la causa de que nadie se enterara.**
+
+**Por qué no se arregla acá:** meter `v2` al workflow de `SocialJusticeHub` mezcla dos árboles con gestores de paquetes distintos (`npm` contra `pnpm`), y hacerlo bien es un job aparte con su propio `setup-node`, su propio caché y su propio `paths`. Es trabajo de infraestructura, no un efecto lateral de agregar un PLAN.
+
+**Qué haría falta:** un job `validate-v2` en el mismo workflow o en uno propio, con `pnpm` y al menos `pnpm test:scripts` + `pnpm type-check:scripts` + `pnpm lint:scripts`, disparado por `paths` sobre `v2/**` **y** sobre `Iniciativas Estratégicas/**` — porque estos tests leen el corpus y se rompen cuando el corpus cambia, que es exactamente lo que pasó.

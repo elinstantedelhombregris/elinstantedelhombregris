@@ -3,6 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { PLANES_SOURCES, type FuentePlan } from '../planes-sources';
 import { validarCamposPlanos } from '../validar-campos-planos';
 
+import { TOTAL_SEGUN_REGISTRO } from './canon-registro';
+
 /**
  * Fila base limpia: ningún campo lleva comilla simple ni salto de línea.
  * Cada test parte de acá y ensucia un solo campo para aislar la causa.
@@ -50,8 +52,8 @@ describe('validarCamposPlanos (guardia de comillas simples y saltos de línea)',
     expect(() => validarCamposPlanos(filaLimpia())).not.toThrow();
   });
 
-  it('la tabla real PLANES_SOURCES pasa la guardia — las 23 filas actuales', () => {
-    expect(PLANES_SOURCES).toHaveLength(27);
+  it('la tabla real PLANES_SOURCES pasa la guardia — todas las filas del registro', () => {
+    expect(PLANES_SOURCES).toHaveLength(TOTAL_SEGUN_REGISTRO);
     for (const fuente of PLANES_SOURCES) {
       expect(() => validarCamposPlanos(fuente), `${fuente.code} no pasó la guardia`).not.toThrow();
     }

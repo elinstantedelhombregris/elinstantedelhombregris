@@ -10,12 +10,33 @@ on:
       # NO vive en `Iniciativas Estratégicas/`. Sin esta línea, correrle las
       # líneas a la spec rompe la guardia sin que CI llegue a correrla.
       - "v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md"
+      # Mismo agujero, segunda vez: la guardia de PLANPUERTA lee este archivo
+      # como su SPEC y tampoco vive en `Iniciativas Estratégicas/`. Sin esta
+      # línea, correrle las líneas a la spec rompe la guardia sin que CI llegue
+      # a correrla.
+      - "v2/docs/specs/2026-08-02-planpuerta.md"
+      # El agujero al revés, que nadie había mirado hasta el 2026-08-03: no
+      # alcanza con preguntar qué lee cada guardia — hay que preguntar qué lee
+      # CUALQUIER paso de este workflow. Dos pasos leen fuera de los prefijos
+      # de arriba y hasta hoy podían romperse sin que CI llegara a correr:
+      #   · `Unit tests` → `tests/unit/deudas-registro.test.ts` abre
+      #     `docs/DEUDAS.md` en la raíz del repo, y es la guardia que existe
+      #     justamente porque un id de deuda ya significó dos cosas distintas.
+      #     Anotar una deuda es la edición que MÁS necesitaba dispararla.
+      #   · `Production build` → `scripts/build-ensayos.ts` lee `Ensayos/` en la
+      #     raíz y genera `client/src/content/ensayos.generated.ts`. Un ensayo
+      #     renombrado o borrado rompe el build.
+      - "docs/DEUDAS.md"
+      - "Ensayos/**"
       - ".github/workflows/socialjusticehub-ci.yml"
   pull_request:
     paths:
       - "SocialJusticeHub/**"
       - "Iniciativas Estratégicas/**"
       - "v2/docs/specs/2026-07-26-cuatro-planes-nuevos.md"
+      - "v2/docs/specs/2026-08-02-planpuerta.md"
+      - "docs/DEUDAS.md"
+      - "Ensayos/**"
       - ".github/workflows/socialjusticehub-ci.yml"
 
 jobs:
@@ -66,6 +87,13 @@ jobs:
       # (`SocialJusticeHub/**`). Sin hueco de paths.
       - name: Guardia de PLANFOCO
         run: npx tsx scripts/verificar-planfoco.ts
+
+      # Lee cuatro archivos. Tres ya disparan este workflow: el documento y
+      # PLANVIV_Argentina_ES.md (`Iniciativas Estratégicas/**`) y el canon de
+      # pisos (`SocialJusticeHub/**`). El cuarto es su SPEC, que vive en `v2/` y
+      # por eso tiene línea propia en las dos listas de `paths` de arriba.
+      - name: Guardia de PLANPUERTA
+        run: npx tsx scripts/verificar-planpuerta.ts
 
       # Lee dos archivos y los dos ya disparan este workflow: el documento
       # (`Iniciativas Estratégicas/**`) y el canon de pisos (`SocialJusticeHub/**`).

@@ -8,6 +8,7 @@ import { PLAN_NODES } from '../../../../SocialJusticeHub/shared/arquitecto-data'
 import { STRATEGIC_INITIATIVES } from '../../../../SocialJusticeHub/shared/strategic-initiatives';
 import { leerPortada } from '../leer-portada';
 import { PLANES_SOURCES } from '../planes-sources';
+import { TEMATICOS_SEGUN_REGISTRO, TOTAL_SEGUN_REGISTRO } from './canon-registro';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const CORPUS = resolve(SCRIPT_DIR, '../../../../Iniciativas Estratégicas');
@@ -27,10 +28,10 @@ function soloLetras(s: string): string {
 }
 
 describe('PLANES_SOURCES (canon de la tabla de fuentes)', () => {
-  it('tiene 23 entradas: 22 temáticas + 1 meta', () => {
-    expect(PLANES_SOURCES).toHaveLength(27);
+  it('tiene las entradas que declara el registro: los temáticos + 1 meta', () => {
+    expect(PLANES_SOURCES).toHaveLength(TOTAL_SEGUN_REGISTRO);
     expect(PLANES_SOURCES.filter((p) => p.isMeta)).toHaveLength(1);
-    expect(PLANES_SOURCES.filter((p) => !p.isMeta)).toHaveLength(26);
+    expect(PLANES_SOURCES.filter((p) => !p.isMeta)).toHaveLength(TEMATICOS_SEGUN_REGISTRO);
   });
 
   it('el meta es PLANRUTA y va en orderIndex 0', () => {
@@ -39,16 +40,16 @@ describe('PLANES_SOURCES (canon de la tabla de fuentes)', () => {
     expect(meta?.orderIndex).toBe(0);
   });
 
-  it('los ordinales temáticos son 1..26 sin huecos ni repetidos', () => {
+  it('los ordinales temáticos son 1..N sin huecos ni repetidos, con N del registro', () => {
     const ordinales = PLANES_SOURCES.filter((p) => !p.isMeta)
       .map((p) => p.orderIndex)
       .sort((a, b) => a - b);
-    expect(ordinales).toEqual(Array.from({ length: 26 }, (_, i) => i + 1));
+    expect(ordinales).toEqual(Array.from({ length: TEMATICOS_SEGUN_REGISTRO }, (_, i) => i + 1));
   });
 
   it('códigos y slugs únicos, y el slug es el código en minúscula', () => {
-    expect(new Set(PLANES_SOURCES.map((p) => p.code)).size).toBe(27);
-    expect(new Set(PLANES_SOURCES.map((p) => p.slug)).size).toBe(27);
+    expect(new Set(PLANES_SOURCES.map((p) => p.code)).size).toBe(TOTAL_SEGUN_REGISTRO);
+    expect(new Set(PLANES_SOURCES.map((p) => p.slug)).size).toBe(TOTAL_SEGUN_REGISTRO);
     for (const p of PLANES_SOURCES) {
       expect(p.slug).toBe(p.code.toLowerCase());
     }
@@ -57,19 +58,19 @@ describe('PLANES_SOURCES (canon de la tabla de fuentes)', () => {
   it('ningún campo de texto queda vacío', () => {
     for (const p of PLANES_SOURCES) {
       expect(p.title.length, `${p.code}: title vacío`).toBeGreaterThan(0);
-      expect(
-        p.nombreInstitucional.length,
-        `${p.code}: nombreInstitucional vacío`,
-      ).toBeGreaterThan(0);
+      expect(p.nombreInstitucional.length, `${p.code}: nombreInstitucional vacío`).toBeGreaterThan(
+        0,
+      );
       expect(p.summary.length, `${p.code}: summary vacío`).toBeGreaterThan(40);
     }
   });
 
   it('cada archivo fuente existe en el corpus', () => {
     for (const p of PLANES_SOURCES) {
-      expect(existsSync(resolve(CORPUS, p.archivoFuente)), `${p.code}: falta ${p.archivoFuente}`).toBe(
-        true,
-      );
+      expect(
+        existsSync(resolve(CORPUS, p.archivoFuente)),
+        `${p.code}: falta ${p.archivoFuente}`,
+      ).toBe(true);
     }
   });
 
@@ -81,9 +82,10 @@ describe('PLANES_SOURCES (canon de la tabla de fuentes)', () => {
         sinIniciativa.push(p.code);
         continue;
       }
-      expect(p.summary, `${p.code}: summary no coincide verbatim con strategic-initiatives.ts`).toBe(
-        iniciativa.summary,
-      );
+      expect(
+        p.summary,
+        `${p.code}: summary no coincide verbatim con strategic-initiatives.ts`,
+      ).toBe(iniciativa.summary);
     }
     expect(sinIniciativa).toEqual(['PLANRUTA']);
   });
