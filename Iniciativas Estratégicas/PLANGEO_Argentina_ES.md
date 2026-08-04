@@ -1807,6 +1807,114 @@ Es la Diplomacia de Código de la Sección 21.7 aplicada al hielo: no se disputa
 **Lo que sí es cierto y sostiene la posición argentina** es la presencia: la Base Orcadas fue transferida al gobierno argentino el 22 de febrero de 1904 por la expedición escocesa de William Speirs Bruce, y la ocupación no se interrumpió desde entonces. Es la presencia humana permanente más prolongada del continente.
 ---
 
+## SECCIÓN 28: LA CAPACIDAD QUE YA EXISTE
+
+> *"No hay que construirlas. Hay que darse cuenta de que están."*
+
+Las dos secciones anteriores diseñan mecanismos nuevos. Esta no diseña nada: enumera capacidades argentinas que ya existen, que en varios casos son singulares en el mundo, y que este documento —el encargado de proyectar a la Argentina hacia afuera— no había nombrado en ninguna de sus veinticinco secciones anteriores.
+
+### 28.1 ABACC
+
+El 18 de julio de 1991, por el Acuerdo de Guadalajara para el uso exclusivamente pacífico de la energía nuclear, Argentina y Brasil crearon la **Agencia Brasileño-Argentina de Contabilidad y Control de Materiales Nucleares (ABACC)**.
+
+La ABACC administra el Sistema Común de Contabilidad y Control, de alcance pleno sobre la totalidad del material nuclear de los dos países, y realiza **inspecciones mutuas**: inspectores argentinos verifican instalaciones brasileñas e inspectores brasileños verifican instalaciones argentinas. Es la única agencia binacional de salvaguardias nucleares del mundo.
+
+El Acuerdo Cuatripartito entre Argentina, Brasil, la ABACC y el Organismo Internacional de Energía Atómica se firmó el 13 de diciembre de 1991 y entró en vigor el 4 de marzo de 1994. El arreglo funciona sin interrupción desde entonces.
+
+**Conviene medir lo que eso significa.** Dos países que habían desarrollado programas nucleares paralelos, que se vigilaban mutuamente, y cuyas trayectorias apuntaban en la dirección conocida, resolvieron el problema de seguridad más difícil que existe —cómo dos rivales dejan de armarse sin que ninguno quede expuesto— **con contabilidad**. No con un tratado de renuncia, no con garantías de terceros, no con disuasión. Con inventarios verificados de manera cruzada.
+
+No se conoce otro caso de dos Estados con programas nucleares paralelos que hayan construido verificación mutua permanente y la hayan sostenido durante décadas. India y Pakistán no lo tienen. Las dos Coreas no lo tienen. Ningún par del Golfo lo tiene.
+
+Y no aparece mencionado en ninguna línea del corpus ¡BASTA!.
+
+### 28.2 El Protocolo ABACC como Producto
+
+**El mecanismo.** Argentina y Brasil empaquetan lo que construyeron y lo ofrecen: metodología de contabilidad de materiales, arquitectura de gobernanza paritaria, procedimientos de inspección cruzada, régimen de confidencialidad, y un cuerpo de inspectores argentino-brasileño disponible como tercero neutral para díadas que lo requieran.
+
+Argentina deja de presentarse como un país del Sur que pide consideración y pasa a ser **el país que sabe cómo dos enemigos dejan de armarse**. Eso no se sanciona. Eso se pide.
+
+Se acopla con la Sección 16 —Sur Global— y con la Sección 21.7 —la diplomacia de código, que busca convertir protocolos argentinos en estándares internacionales—, y no requiere presupuesto nuevo: la agencia existe, el personal existe, la metodología está escrita y auditada hace treinta y cinco años.
+
+Hay una tercera capa, más lenta y más importante. Si el protocolo se adopta entre pares que hoy no confían entre sí, los inspectores argentino-brasileños entran a las instalaciones más sensibles del planeta. Argentina no se convierte en potencia nuclear. **Se convierte en el país que sabe** — y en el siglo XXI eso pesa más.
+
+### 28.3 El Anexo de Exportación
+
+Argentina integra el grupo muy reducido de países que exportan reactores nucleares de investigación. INVAP ganó la licitación internacional del reactor **OPAL** para Australia en el año 2000 —20 MW, del orden de USD 200 millones, la mayor exportación tecnológica de la historia argentina—, construyó el **ETRR-2** de 22 MW para Egipto, el **NUR** de 1 MW para Argelia, y ganó la licitación del **PALLAS** para los Países Bajos, de complejidad comparable a la del OPAL.
+
+Ninguno de esos hechos figura en PLANGEO. El plan encargado de la proyección internacional de la Argentina no nombra a la empresa que colocó tecnología nuclear argentina en cuatro continentes.
+
+**El mecanismo.** Toda exportación nuclear argentina incorpora un anexo obligatorio de verificación con metodología ABACC: el comprador acepta contabilidad de materiales, inspección y publicación de inventarios bajo el sistema argentino-brasileño.
+
+Produce dos efectos, y el segundo es el estratégico:
+
+1. Cada reactor exportado siembra una célula del régimen de verificación más exitoso que existe.
+2. **Argentina se vuelve muy difícil de sancionar precisamente en el terreno donde más se la podría sancionar.** El régimen internacional de no proliferación existe para impedir que la tecnología nuclear se disperse sin control. Un país que exporta tecnología nuclear *con* control, y con un control más estricto que el estándar mínimo, no es un problema para ese régimen: es su mejor proveedor. **No se castiga al proveedor que hace el trabajo del régimen mejor que el estándar.**
+
+### 28.4 La Ley del Segundo Proveedor
+
+*Extiende la Sección 18.2.3, que ya establece auditoría de hardware en infraestructura crítica. Auditar verifica lo que ya se compró; esta regla cambia qué se puede comprar.*
+
+**El mecanismo.** Ningún sistema crítico del Estado argentino puede superar un umbral declarado de dependencia respecto de un solo proveedor, un solo sistema operativo o una sola jurisdicción. El cumplimiento se publica por organismo en un tablero abierto.
+
+**El umbral no se fija en este documento.** Tiene que salir de un análisis de concentración real de las compras públicas argentinas, no de una intuición. Se declara como parámetro a determinar en la Pre-Fase.
+
+Una regla de este tipo parece costo puro: se compra dos veces, se integra el doble, se mantienen dos entornos. **No lo es, y la razón está en la publicidad del tablero.**
+
+Cuando la regla y su cumplimiento son públicos, cada proveedor sabe dos cosas con certeza: que hay un segundo lugar garantizado, y que el primero está topeado. Eso convierte cada licitación en una competencia por un espacio que existe de verdad. El proveedor grande no puede ser desplazado del todo, pero tampoco puede quedarse con todo; el chico tiene una porción real por la que competir, no una promesa. Donde había un monopolio con cliente cautivo, pasa a haber dos oferentes permanentes. **El ahorro por competencia financia la redundancia.**
+
+Y hay un tercer efecto que importa más que los dos anteriores. **No se pueden operar dos entornos sin gente propia que entienda los dos.** La regla obliga al Estado a reconstruir capacidad técnica interna — que es la soberanía digital real, la que se ejerce, no la que se declara en un decreto.
+
+### 28.5 Insumos Críticos
+
+Un país que no puede medicar a su población durante seis meses de interrupción del suministro no es soberano, por más satélites que tenga. La misma lógica vale para insumos hospitalarios y para fertilizantes en plena campaña.
+
+Este documento **no cuantifica el grado de dependencia argentina en principios activos farmacéuticos**, porque no dispone de una fuente que lo acredite. La cifra queda como tarea de la Pre-Fase, a obtener de ANMAT, de las cámaras del sector y del INDEC, y **el mecanismo se propone sin ella** — porque una reserva estratégica es prudente aunque la dependencia resulte menor de lo que se supone, y porque este bloque no escribe números que no puede defender.
+
+**Tres capas:**
+
+1. **Reserva estratégica rotativa** de medicamentos esenciales, insumos hospitalarios críticos y fertilizantes. Rotación permanente contra el consumo corriente, de modo que nada venza y el costo sea financiero y no de descarte.
+2. **Capacidad latente de fabricación de emergencia.** Plantas que producen a baja escala en tiempos normales y pueden escalar en crisis. Es el modelo que Argentina improvisó con los respiradores en 2020, institucionalizado por vía de las Empresas Bastardas de PLANEB.
+3. **Reservas Estratégicas Cruzadas.** Argentina almacena en su territorio reservas alimentarias de países importadores, a cambio de que ellos almacenen en el suyo insumos críticos argentinos. Es la indispensabilidad de la Sección 2, pero física y con contrapartes que reaccionan: **atacar a la Argentina pasa a ser, de manera literal, atacar la reserva de un tercero.**
+
+### 28.6 La Doctrina del Erizo
+
+*Esta sub-sección reemplaza a la Sección 18.2.4.*
+
+La Sección 18.2.4 sostiene que Argentina necesita "capacidad ofensiva disuasoria": la aptitud técnica de responder un ciberataque con un ciberataque equivalente, y que los adversarios potenciales sepan que esa capacidad existe.
+
+**Es falso, y sostenerlo debilita al resto de la Sección 18.** Argentina no gana una escalada cibernética ofensiva contra ningún actor con capacidad e interés real de atacarla. No la gana con USD 200-400 millones ni con diez veces eso. Prometer una capacidad que no se va a tener no disuade a nadie: informa al adversario de que el documento no distingue entre lo que quiere y lo que puede.
+
+**La inversión de la premisa.** No hay que ser peligroso. Hay que ser **poco rentable de atacar.** Un ciberataque tiene sentido si te tumba. Si el país puede funcionar tres días sin red y sin energía, el ataque no compra nada, y esa aritmética la hace el atacante antes de decidir.
+
+**Cuatro componentes:**
+
+1. **Modo degradado ensayado.** Cada servicio crítico —salud, pagos, agua, energía, registro electoral— tiene un procedimiento en papel, escrito, actualizado y **ensayado de verdad**. No un anexo del manual: un ejercicio con fecha.
+2. **Desconcentración geográfica.** Hoy prácticamente toda la infraestructura crítica argentina está concentrada en un área metropolitana. Es un punto único de falla del tamaño de un tercio del país.
+3. **Diversidad obligatoria**, que es la Sección 28.4 aplicada a la resiliencia: sin monocultivo tecnológico, un compromiso no se propaga a todo el sistema.
+4. **El simulacro nacional, publicado.** Un ejercicio anual de interrupción, con resultados abiertos. Genera capacidad real, genera cultura, y es en sí mismo la señal dirigida a quien esté evaluando el costo y el beneficio de atacarnos.
+
+Se acopla directamente con el Kit de Despliegue de Crisis de PLANRUTA, que ya tiene escrito el protocolo de las primeras 72 horas para crisis internas. La doctrina del erizo es ese mismo protocolo, ensayado antes y contra un origen externo.
+
+---
+
+**Cierre del bloque.** Los ocho mecanismos de las Secciones 26, 27 y 28 comparten una forma y conviene dejarla enunciada:
+
+| Mecanismo | El adversario | Cómo se desarma |
+|---|---|---|
+| Cláusula del Buitre (26.2) | Fondo litigante | Ganar el juicio no paga más que el precio pagado |
+| Conversión de jurisdicción (26.3) | Fondo litigante | La cautelar que necesita destruye el foro donde cobrarla |
+| Cláusula Espejo (26.4) | Estado que sanciona | Su propio capital invertido argumenta en contra |
+| Compromiso de Horizonte (26.7) | El tiempo argentino | Incumplir le cuesta ante treinta contrapartes, no ante un juez local |
+| Mar Transparente (27.1-27.3) | Flota depredadora | El asegurador le retira la cobertura |
+| Registro de Presión (27.5) | Gobierno que presiona | Presionar le cuesta ante su propia opinión pública |
+| Anexo ABACC (28.3) | Régimen de no proliferación | No se castiga a quien hace su trabajo mejor que el estándar |
+| Segundo Proveedor (28.4) | Monopolio tecnológico | Compite contra sí mismo por la porción que no puede tener |
+
+Ninguno requiere un ejército. Ninguno requiere ganar una votación en un foro multilateral. Ninguno requiere que alguien de afuera se comporte bien. Y ninguno puede desactivarse con una llamada telefónica, porque no hay un funcionario argentino con potestad para ceder: la defensa está en el contrato, en el dato público o en la regla de compra.
+
+> *"El poder no es la capacidad de hacerle daño al otro. Es la capacidad de que el daño que el otro te quiera hacer le salga más caro a él que a vos."*
+---
+
 > *"No pedimos permiso. No vendemos ideología. Ofrecemos infraestructura. El que la necesita, la toma. El que la teme, que explique por qué."*
 >
 > — PLANGEO, Marzo 2026
