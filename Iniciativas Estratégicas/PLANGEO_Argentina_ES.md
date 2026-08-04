@@ -1656,6 +1656,157 @@ Por eso el control es doble. Además de las tres condiciones, **se publica anual
 Queda una tensión que este documento no cierra, y es honesto dejarla enunciada: entre *"el pueblo decide"* y *"esto no se toca por veinte años"* hay una distancia que las tres condiciones acotan pero no eliminan. Un lector hostil va a atacar por acá y va a tener parte de razón. **Es preferible que la objeción esté escrita acá, y bien, a que la escriba otro.**
 ---
 
+## SECCIÓN 27: LA VISIBILIDAD COMO PODER
+
+> *"No hay que perseguirlos. Hay que hacer que sean vistos."*
+
+### 27.1 El Mar Transparente
+
+*Esta sub-sección extiende la 19.3.2 (monitoreo satelital, AIS y drones) y la 19.3.4 (trazabilidad de la pesca con PLANISV). No las reemplaza: les agrega la pieza que les falta, que es quién aplica la consecuencia.*
+
+El diagnóstico está en PLANTER y es el siguiente. Argentina tiene 4.725 km de costa oceánica y una zona económica exclusiva de aproximadamente 1.500.000 km². La Prefectura Naval opera menos de quince buques con capacidad de patrullaje continuo. Entre 300 y 500 buques de flota extranjera operan en el límite de las 200 millas y lo sobrepasan de manera sistemática. **Argentina pierde por año entre USD 1.000 y USD 2.800 millones en recurso pesquero no controlado.**
+
+La respuesta refleja es comprar buques. Con el presupuesto íntegro que la Sección 18.1 asigna a capacidad naval —USD 500-800 millones a diez años— se compran unas pocas unidades de patrulla oceánica, cada una de las cuales cubre un punto por vez y llega después del hecho. Sobre 1.500.000 km², eso no es cobertura: es presencia simbólica cara.
+
+**Hay una capacidad argentina que ya existe y que este documento nunca nombró.** La CONAE opera la constelación SAOCOM —los satélites 1A y 1B, lanzados en 2018 y 2020, con radar de apertura sintética en banda L, que observa de noche y a través de nubes. Y VENG comercializa hoy, sobre esa constelación, un servicio de detección de buques que entrega el reporte de todas las embarcaciones detectadas con su georreferencia **dentro de las tres horas de la adquisición**, con dos productos diarios.
+
+El mecanismo entero está enunciado en la descripción comercial de ese servicio, con estas palabras: *si un barco sin datos AIS es detectado por SAOCOM, se sabe que es un barco no declarado.*
+
+Eso cambia por completo el verbo de esta sub-sección. **PLANGEO no propone construir una capacidad de monitoreo: propone escalar y abrir una que ya está operando y que hoy se vende por FTP a quien la pague.** Lo que falta no es el sensor. Es la decisión de publicar.
+
+**Las tres piezas:**
+
+1. **Ampliación de la constelación.** Más satélites y mayor frecuencia de revisita sobre el frente de la milla 201. El costo es una fracción del de una flota, y la comparación pertinente está en la Sección 27.4.
+2. **Enjambre de drones marítimos no armados de bajo costo**, desarrollados por INVAP y Fabricaciones Militares. La Sección 18.3.2 ya les asigna "drones de monitoreo marítimo" como línea de trabajo: esto es esa línea, con volumen y con destino.
+3. **El feed público.** Publicación abierta, en tiempo real, con interfaz de programación documentada. Gratuita. Sin registro. Sin condiciones de uso comercial.
+
+**Un límite que hay que declarar.** Ni la CONAE ni VENG publican el tamaño mínimo de embarcación detectable ni la cadencia efectiva de revisita sobre la totalidad de la zona económica exclusiva. Este documento **no afirma cobertura total** y no debe afirmarla hasta que esos dos parámetros estén acreditados. Lo que está acreditado es que la detección funciona y que el producto existe.
+
+### 27.2 El Certificado Que Se Regala
+
+Argentina emite el **Certificado de Trazabilidad del Atlántico Sur**. Se otorga de manera automática, sin trámite, sin costo y sin solicitud, a todo buque que cumpla dos condiciones triviales: mantener el transpondedor encendido de forma continua, y no ingresar a la zona económica exclusiva sin licencia.
+
+No hay que pedirlo. Se emite solo, por cruce satelital, y le llega al operador y a su aseguradora.
+
+La virtud del diseño no es la generosidad: es que **el certificado es gratuito y fácil, de modo que rechazarlo es una declaración.** Argentina no acusa a nadie, no inspecciona a nadie y no niega nada. Simplemente ofrece un bien sin costo que solo el operador honesto puede aceptar. El que no lo tiene se excluyó a sí mismo, y lo hizo ante un tercero que no es Argentina.
+
+### 27.3 La Capa Que Aplica el Castigo — y el Enchufe Que Falta
+
+**La premisa se confirma.** Ningún pesquero de altura opera sin cobertura de protección e indemnización. El International Group of P&I Clubs agrupa doce clubes que cubren cerca del 87% del tonelaje oceánico mundial. Y el mercado ya se movió en la dirección exacta que este mecanismo necesita:
+
+- El **Joint Hull Committee** del mercado de Londres publicó una cláusula que habilita al asegurador a **retirar la cobertura** de buques listados por pesca ilegal, no declarada y no reglamentada (INDNR), y a **cancelar la de buques relacionados con siete días de aviso**.
+- Aseguradoras de primera línea —Allianz, AXA, Generali, Hanseatic, The Shipowners' Club— se comprometieron públicamente a no asegurar a sabiendas buques incluidos en listas INDNR.
+- Existen herramientas construidas específicamente para que las mesas de suscripción evalúen riesgo de pesca ilícita antes de emitir la póliza.
+
+Es decir: **el punto de estrangulamiento del saqueo del Atlántico Sur no está en el agua. Está en una mesa de suscripción en Londres. Y esa mesa ya está dispuesta a apretarlo.**
+
+**Y acá aparece el problema, que es estructural y no de implementación.** El disparador de la cláusula no es un dato satelital. Es figurar en la lista INDNR **de una Organización Regional de Ordenamiento Pesquero**. La cláusula nombra a las OROP, no a los Estados ribereños.
+
+> **El Atlántico Sudoccidental —el Área FAO 41— es la única gran zona pesquera del mundo que no tiene OROP.**
+
+Sin OROP no hay lista. Sin lista, la cláusula no tiene de dónde agarrarse **exactamente en el océano donde a la Argentina la están saqueando**. El feed abierto de la Sección 27.1, por bueno que sea, alimentaría a un mecanismo que en el Área 41 no tiene entrada.
+
+**Y la razón por la que no hay OROP hay que escribirla, aunque sea incómoda.** Argentina no acepta al Reino Unido ni a las islas como Estado ribereño en una organización regional, y esa posición viene bloqueando la constitución de una Organización de Pesquerías del Atlántico Sudoccidental desde hace décadas. Estuvo cerca de constituirse hace veinte años. Hoy hay iniciativas de la propia industria —con participación española y brasileña— presionando ante la ONU y la FAO para crearla.
+
+Dicho de la manera más directa posible: **la posición de soberanía es lo que deja inutilizable la única palanca que castigaría el saqueo.** Entre USD 1.000 y 2.800 millones por año, con la soberanía intacta y sin ninguna consecuencia para nadie.
+
+Esta sub-sección no dice, entonces, que Argentina publique y el asegurador actúe. Dice algo más preciso y más difícil: **el mercado ya está cableado para obedecer una lista, y a la Argentina le falta el enchufe.**
+
+### 27.3.bis El Precedente, Que No Es una Hipótesis
+
+La objeción evidente es que un ordenamiento regional con el Reino Unido sentado a la mesa es incompatible con el reclamo argentino. **No lo es, y no hay que teorizarlo: ya se hizo.**
+
+Los Acuerdos de Madrid I y II —el primero surgido de la reunión del 17 al 19 de octubre de 1989, con la delegación argentina presidida por el embajador Lucio García del Solar y la británica por Sir Crispin Tickell— fundaron la fórmula jurídico-política conocida como **paraguas de soberanía**. Su cláusula central establece que nada de lo actuado en esas reuniones, ni en cualquier otra ulterior, puede interpretarse como cambio en la posición argentina sobre la soberanía o la jurisdicción territorial y marítima sobre las Islas Malvinas, Georgias del Sur y Sándwich del Sur.
+
+Y bajo esa fórmula de salvaguardia, la **Declaración Conjunta sobre Conservación de Recursos Pesqueros del 28 de noviembre de 1990** creó la **Comisión de Pesca del Atlántico Sur**. Funcionó cerca de quince años y llegó a su vigesimoséptima reunión.
+
+Se suspendió en 2005, cuando el Reino Unido otorgó licencias pesqueras por veinticinco años en las islas y Argentina rechazó la medida.
+
+**No la mató la fórmula. La mató un acto unilateral que la fórmula no tenía cómo penalizar.** El paraguas protegía la posición de cada parte, pero no imponía ningún costo a quien rompiera el arreglo. Era un acuerdo sin consecuencia — y un acuerdo sin consecuencia dura exactamente hasta que a una de las partes le convenga romperlo.
+
+### 27.3.ter Por Qué la Respuesta Ya Está en Este Bloque
+
+Lo que le faltó a la Comisión de Pesca del Atlántico Sur es, con precisión, lo que provee el Compromiso de Horizonte de la Sección 26.7: **obligación recíproca, penalidad por incumplimiento y publicación anual del cumplimiento de cada parte.** Con esos tres elementos, otorgar licencias por veinticinco años de manera unilateral deja de ser gratis.
+
+**La Organización de Pesquerías del Atlántico Sudoccidental es el primer caso de uso del Compromiso de Horizonte**, y conviene escribirlo así porque es la conexión que sostiene a las dos secciones. El Horizonte deja de ser una abstracción sobre el tiempo largo y pasa a tener un caso concreto con cifra, contraparte y precedente.
+
+Cumple además el test de la Sección 26.8 sin necesidad de forzarlo:
+
+- **(a) Preserva opciones, no impone políticas.** Una lista INDNR no decide sobre soberanía: decide sobre quién apagó el transpondedor. Ninguna de las dos partes cede posición al listar a un tercero.
+- **(b) Es recíproco.** Las dos partes reciben conservación del recurso y trazabilidad de su propia flota.
+- **(c) Pasó por el mecanismo popular de decisión.** Esta es la que hay que trabajar, y es la más difícil de todo el bloque — un compromiso a veinte años sobre el Atlántico Sur que además roza la cuestión Malvinas es el caso donde la legitimidad popular más falta hace. Es materia de PLANMESA y **sin ella no se firma**.
+
+### 27.3.quater El Costo Político, Escrito
+
+Los Acuerdos de Madrid son objeto de disputa doméstica activa. Hay corrientes que piden denunciarlos por considerarlos la base de un régimen colonial de administración de la cuestión. **Proponer volver a la fórmula del paraguas tiene costo político real, y este documento no puede presentarlo como una obviedad técnica.**
+
+El argumento honesto no es jurídico ni doctrinario. Es aritmético, y va escrito así: hoy, sin organización regional, sin lista y sin palanca, se pierden entre USD 1.000 y 2.800 millones por año, y la soberanía está intacta. La pregunta no es si la fórmula es incómoda. **La pregunta es si quince años de Comisión de Pesca costaron más que veinte años de saqueo sin consecuencia.**
+
+### 27.4 El Reemplazo de la Línea Naval
+
+De todo lo anterior se sigue una consecuencia presupuestaria directa sobre la Sección 18.1, y hay que escribirla de manera explícita para que no queden dos respuestas incompatibles en el mismo documento:
+
+**La línea de capacidad naval de USD 500-800 millones se reasigna hacia constelación satelital y enjambre de drones. No se suma. El total de la Tabla 14 de la Sección 23.1 no cambia.**
+
+La razón es que el problema es de cobertura y de mercado, no de intercepción. Una unidad de patrulla resuelve un incidente por vez y llega tarde; un satélite ve el frente entero cada día y no llega tarde a ninguna parte, porque no tiene que llegar.
+
+**El rango exacto de la reasignación queda pendiente de estimación** y no se escribe acá hasta tenerlo.
+
+**Y una aclaración necesaria sobre PLANTER, porque sin ella el corpus se contradice.** El dispositivo Mar Argentino Soberano de PLANTER propone incrementar el Servicio de Guardacostas de la Prefectura de 15 a 60 buques operativos. Eso **no contradice** a esta sección, y la línea que las separa es la milla 200:
+
+| Zona | Quién actúa | Por qué |
+|---|---|---|
+| **Dentro de la ZEE** | Guardacostas de PLANTER | Argentina tiene potestad: puede abordar, incautar y sancionar. Un buque es la herramienta correcta |
+| **Fuera de las 200 millas** | El mecanismo de esta sección | Argentina no tiene potestad, y ninguna cantidad de buques se la otorga. Es donde operan los 300 a 500 pesqueros del frente |
+
+La reasignación de la Sección 27.4 opera sobre la línea naval **de PLANGEO**, no sobre la de PLANTER. Los dos dispositivos son complementarios y cubren jurisdicciones distintas.
+
+### 27.5 El Registro de Presión
+
+> **Compuerta declarada: esta sub-sección no se implementa antes del tranche 3.** Es el único mecanismo del bloque cuya puesta en marcha constituye por sí misma un acto diplomático, y por lo tanto queda sujeta al secuenciamiento de la Sección 11.2 y a los protocolos de la Sección 22. Se escribe completa acá porque la pieza que blinda al funcionario contra la cesión silenciosa es la que más tarda en construirse políticamente: si no está escrita ahora, en el tranche 3 no va a existir.
+
+La presión geopolítica sobre un país como Argentina tiene una propiedad frágil que este documento no ha aprovechado en ninguna sección: **funciona únicamente en la oscuridad.**
+
+El embajador que llama para pedir que se demore una ley. El funcionario de un organismo multilateral que sugiere una condición que no figura en el acuerdo firmado. La corporación que avisa que "estaría reevaluando su plan de inversiones". Todos operan bajo la misma premisa: que no va a haber registro. Nadie lo pone por escrito, nadie lo dice en público, y cuando se filtra, se desmiente.
+
+**El mecanismo es una obligación de registro, no una prohibición:**
+
+> *Todo funcionario público argentino que reciba, de parte de un gobierno extranjero, organismo multilateral, empresa transnacional o representante de acreedores, un pedido, sugerencia o advertencia referida a política pública argentina, debe asentarlo dentro de las 72 horas en el Registro Público de Presión: quién, cuándo, qué pidió, qué ofreció y qué señaló como consecuencia. La omisión constituye falta grave.*
+
+Publicación inmediata, sin excepciones salvo dictamen fundado y también publicado.
+
+**Por qué desarma sin confrontar.** No prohíbe nada. Cualquier gobierno puede seguir pidiendo lo que quiera — solo que ahora lo pide sabiendo que va a estar publicado el jueves. Y ahí se abre una alternativa sin tercera salida:
+
+- Si **piden igual**, la presión queda documentada y el costo político lo paga quien presiona, ante su propia opinión pública. Un legislador extranjero explicando por qué su embajada intervino en una ley argentina tiene un problema doméstico, y el problema no es de Argentina.
+- Si **dejan de pedir**, el objetivo ya se cumplió.
+
+Conviene notar la forma del mecanismo, porque es la del bloque entero: **el Registro no es un arma que Argentina dispara. Es una condición del ambiente.** No hay acto hostil contra el cual protestar. Hay un archivo público.
+
+**El valor interno, que es la mitad del mecanismo y la que no se puede omitir.** El funcionario argentino que hoy recibe esa llamada y cede en silencio está tomando, cada vez, una decisión personal de coraje frente a alguien con más poder que él. Con el Registro, tiene una obligación legal que lo protege: *lo asiento, o cometo falta grave*. **La transparencia le saca al funcionario el peso de tener que ser valiente.** Deja de ser una decisión de carácter y pasa a ser un trámite cuya omisión tiene consecuencia. Ahí es donde se corta la captura — no en el acto heroico, sino en el procedimiento aburrido.
+
+Es la Estrategia del Espejo de la Sección 21.2, pero preventiva en lugar de reactiva.
+
+### 27.6 El Repositorio Antártico
+
+*Esta sub-sección extiende la Sección 5 (estrategia antártica y el reloj de 2048) y la 20.1.1 (Ushuaia como capital austral operativa). **Se sostiene sobre la Sección 26.7**: sin el Compromiso de Horizonte, lo que sigue es una promesa a veintidós años sin nada que la ate, y esa es la dependencia interna más fuerte de todo el bloque.*
+
+La Sección 5 afirma que cada expedición documentada y cada conjunto de datos compartido "cuenta en 2048". Es correcto, y nunca dice **dónde vive ese dato**. Esta sub-sección completa esa frase.
+
+**El mecanismo.** Toda campaña científica que zarpe desde Ushuaia aporta sus datos a un repositorio abierto, alojado en el nodo austral de ArgenCloud, con identificador digital argentino, acceso libre y sin reclamo de propiedad intelectual por parte de Argentina. Gratis. Sin condiciones. Sin reciprocidad exigida en el momento del depósito.
+
+**Por qué esto es una estrategia de soberanía y no una donación.** Veinte años de eso y la Antártida se estudia sobre infraestructura argentina. Cada trabajo publicado en el mundo sobre hielo antártico cita un conjunto de datos alojado en la Argentina. Y entonces, cuando se abra la discusión, **la pregunta deja de ser "de quién es" y pasa a ser "quién sabe"** — y la respuesta va a estar escrita en las citas de dos décadas de literatura científica revisada por pares.
+
+Es la Diplomacia de Código de la Sección 21.7 aplicada al hielo: no se disputa el territorio, se ocupa la capa de conocimiento. Y esa capa no se desaloja.
+
+**Una corrección de hecho que este documento arrastra y que acá se enmienda.** La Sección 5 afirma que "el Tratado Antártico vence en 2048". Es doblemente inexacto:
+
+- Lo que se puede revisar a partir de 2048 es el **Protocolo al Tratado Antártico sobre Protección del Medio Ambiente** —el Protocolo de Madrid, firmado el 4 de octubre de 1991 y en vigor desde el 14 de enero de 1998—, no el Tratado Antártico. Su artículo 25.2 habilita a cualquier Parte Consultiva a convocar una conferencia de revisión a partir de ese año.
+- La prohibición de toda actividad sobre recursos minerales, salvo con fines científicos, está en el **artículo 7 del Protocolo**.
+- Y **ninguno de los dos instrumentos vence**. Ni el Tratado ni el Protocolo tienen fecha de expiración. La idea de que "vencen en 2048" es un error muy extendido en la divulgación, y una estrategia a veintidós años no puede apoyarse en él.
+
+**Lo que sí es cierto y sostiene la posición argentina** es la presencia: la Base Orcadas fue transferida al gobierno argentino el 22 de febrero de 1904 por la expedición escocesa de William Speirs Bruce, y la ocupación no se interrumpió desde entonces. Es la presencia humana permanente más prolongada del continente.
+---
+
 > *"No pedimos permiso. No vendemos ideología. Ofrecemos infraestructura. El que la necesita, la toma. El que la teme, que explique por qué."*
 >
 > — PLANGEO, Marzo 2026
