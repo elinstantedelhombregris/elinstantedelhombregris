@@ -1494,6 +1494,168 @@ Porque la alternativa siempre existió. Solo faltaba quien se atreviera a constr
 
 ---
 
+## SECCIÓN 26: EL CONTRATO COMO DEFENSA
+
+> *"Un acuerdo bien escrito es un ejército que no come."*
+
+Las Secciones 26, 27 y 28 forman un bloque distinto del resto del documento. Las veinticinco anteriores describen qué construye Argentina y a quién se lo ofrece. Estas tres describen **qué pasa cuando alguien decide impedirlo por medios materiales** — y lo hacen bajo una restricción que conviene declarar antes de empezar, porque ordena todo lo que sigue.
+
+Argentina no puede costear enforcement. No puede patrullar 1.500.000 km² de zona económica exclusiva, no puede litigar durante quince años en tribunales extranjeros, no puede sostener una escalada cibernética contra un actor que la ataque en serio. Cada vez que este documento llegó a ese punto en secciones anteriores, la respuesta fue una línea de presupuesto. Una línea de presupuesto no es una doctrina.
+
+**Un país que no puede pagar el cumplimiento tiene que diseñar reglas que no lo necesiten.** Los ocho mecanismos de este bloque comparten una sola forma: el adversario, actuando en su propio interés, ejecuta la defensa argentina. No hay funcionario al que se pueda llamar por teléfono para desactivarlos, porque la defensa no vive en una decisión — vive en un contrato, en un dato público o en una regla de compra.
+
+Un mecanismo entra a este bloque si cumple las cuatro condiciones. Si falla una, no entra:
+
+1. **No requiere cumplimiento financiado.** Nadie tiene que patrullar, litigar ni sancionar para que funcione.
+2. **No requiere que un tercero se porte bien.** No depende de buena voluntad, de un voto en un foro multilateral, ni de que un aliado aguante presión.
+3. **No tiene un punto de cesión humano.** Está en el instrumento, no en la voluntad.
+4. **El costo de atacarlo lo paga el atacante.** La acción hostil es la que dispara el costo, del lado de quien la ejecuta.
+
+La tercera es la que más importa, y es la que ninguna sección anterior de este documento tiene escrita. La Sección 22.3 blinda a ¡BASTA! contra el cambio de gobierno; nada blinda al funcionario contra la llamada de un martes a la tarde. La captura de una política pública casi nunca es un decreto: es una serie de cesiones chicas que nadie registra. Un mecanismo que vive en un contrato no cede porque no tiene con qué.
+
+**Ninguno de los ocho reclama presupuesto nuevo.** Siete tienen costo marginal cercano a cero porque son normas, cláusulas o datos publicados. El único con costo de capital real —la constelación de monitoreo de la Sección 27.1— cuesta una fracción de la línea de capacidad naval que este documento ya presupuesta en la Sección 18.1, **y la reemplaza en lugar de sumarse a ella**.
+
+### 26.1 El Problema de la Jurisdicción
+
+En 2001 Argentina entró en el default soberano más grande de la historia hasta ese momento. Las reestructuraciones de 2005 y 2010 fueron aceptadas por más del 92% de los acreedores. El resto —fondos que habían comprado deuda en el mercado secundario a centavos— litigó en Nueva York por el valor nominal completo, y ganó. Un juez de distrito de Manhattan terminó decidiendo, en los hechos, si Argentina podía pagarle a los acreedores que sí habían aceptado.
+
+Argentina se defendió, entre otras vías, con la doctrina de *champerty*. El artículo 489 de la Ley Judicial del Estado de Nueva York prohíbe adquirir un crédito **con el propósito primario** de litigarlo. Es la norma exacta que describe lo que hicieron esos fondos. Y no sirvió.
+
+No sirvió por una razón que hay que entender bien, porque es la lección de diseño de toda esta sección: **la norma exige acreditar el propósito de un tercero.** Un fondo que declara propósito de inversión no puede ser desmentido salvo que confiese. El hecho decisivo del caso era inverificable por construcción.
+
+El error argentino no fue de estrategia procesal ni de calidad de los abogados. Fue aceptar un terreno donde ganar dependía de probar lo improbable. **Un país chico no puede permitirse que su defensa dependa de acreditar la intención ajena.** Todo lo que sigue en esta sección deriva de esa frase.
+
+### 26.2 La Cláusula del Buitre
+
+**El mecanismo.** Toda emisión de deuda soberana argentina futura incorpora en su prospecto una cláusula con esta forma:
+
+> *"Todo tenedor que adquiera este instrumento en el mercado secundario a un precio inferior a su valor nominal, y que promueva acción judicial de cobro contra el emisor, limita su reclamo recuperable al precio efectivamente pagado más un retorno equivalente a la tasa de referencia del período de tenencia."*
+
+**Lo que la cláusula no hace**, y hay que decirlo antes que lo que hace, porque de eso depende que sea colocable:
+
+- **No prohíbe el mercado secundario.** La deuda argentina se sigue comprando y vendiendo sin restricción.
+- **No toca al tenedor de buena fe.** A quien compró al valor nominal se le paga el valor nominal. La cláusula solo se activa sobre quien compró con descuento *y además* litiga.
+- **No expropia.** El fondo que compró a treinta y cobra treinta más la tasa del período no perdió: hizo una inversión razonable con un retorno razonable.
+
+Lo que se elimina no es el actor. Es **la asimetría**: la posibilidad de comprar a diez y cobrar cien por vía judicial. Sin esa asimetría no hay negocio en la ruina de un país, y sigue habiendo mercado de deuda.
+
+**Por qué esto es distinto de lo que ya se intentó en el mundo.** Hay dos precedentes legislativos y los dos tienen el mismo límite estructural:
+
+| Precedente | Qué hace | Su límite |
+|---|---|---|
+| **Bélgica**, Ley del 12 de julio de 2015 | Limita lo recuperable por acreedores que persiguen una ventaja ilegítima al adquirir deuda de un Estado. Alcanza al sistema de pagos Euroclear, que es lo que le da mordida real | Es una ley **de una jurisdicción**. Su alcance depende de dónde se litigue |
+| **Reino Unido**, Debt Relief (Developing Countries) Act 2010 | Primera ley del mundo en restringir a los fondos buitre | Alcanza **solo a países HIPC** — los más endeudados y más pobres. **No cubriría a la Argentina** |
+
+La ley belga merece un párrafo aparte porque es la que demuestra que el principio resiste. NML Capital —el mismo actor que ganó en Nueva York— la impugnó ante la Corte Constitucional de Bélgica **y perdió**. La norma sobrevivió al ataque directo del litigante más agresivo del rubro. No es un intento legislativo: es una defensa probada en tribunales.
+
+Y sin embargo Argentina no puede legislar la suya, porque la deuda argentina no se litiga en Argentina. **Ahí está la ventaja decisiva de la vía contractual sobre la vía legislativa: la cláusula no pertenece a una jurisdicción — viaja con el instrumento.** Va adonde vaya el bono. El tenedor la acepta en el momento de comprar, porque comprar es aceptar, y no hay que probarle a ningún juez cuál era su propósito: el límite ya está en la cosa que compró.
+
+Es la respuesta exacta al problema de la Sección 26.1. Donde *champerty* exigía acreditar una intención, la cláusula solo exige leer un precio.
+
+### 26.3 La Conversión Automática de Jurisdicción
+
+La cláusula anterior desactiva el premio. Esta desactiva el foro. Se incorpora a la misma emisión:
+
+> *"Si un tribunal de la jurisdicción aplicable dictare medida que impida al emisor el pago a los acreedores que aceptaron una reestructuración, la ley aplicable y el agente de pago del presente instrumento se trasladarán automáticamente a la República Argentina."*
+
+Conviene leerla dos veces. La medida cautelar que un litigante necesita obtener para bloquear los pagos **es la que traslada el instrumento fuera de su alcance**. Ganar el incidente es perder el foro. El arma se dispara sola y apunta a quien la usó.
+
+En condiciones normales la cláusula no hace nada, y ese es su mejor rasgo. El inversor de buena fe conserva íntegra la protección de la ley extranjera que compró, y no paga por una defensa que nunca se activa contra él. Solo se activa contra quien ataca.
+
+**Lo que este documento no sabe todavía**, y va escrito porque callarlo sería peor: si un tribunal de Nueva York declararía inoponible una cláusula de traslado automático. La respuesta requiere opinión legal formal, no diseño estratégico. **La Sección 26 propone el mecanismo y declara que su ejecutabilidad está sin acreditar.**
+
+### 26.4 La Cláusula Espejo
+
+La Sección 21.4 propone construir "anticuerpos" en el exterior: universidades, sociedad civil, diáspora. Es correcto y es lento — se construye en una década y depende de la voluntad de terceros.
+
+Hay un actor que ya está adentro, que tiene dinero propio en juego, y que tiene línea directa con su propio gobierno: **el inversor extranjero que ya invirtió en Argentina.** No hay que construirlo ni convencerlo. Hay que escribirle la cláusula.
+
+**El mecanismo.** En todo contrato de inversión extranjera, concesión y licencia:
+
+> *"Si el Estado de origen o de control efectivo del inversor adoptare contra la República Argentina medidas de sanción económica, restricción financiera o exclusión de sistemas de pago internacionales, la resolución de controversias del presente contrato se trasladará a los tribunales argentinos y los derechos de repatriación de utilidades quedarán suspendidos mientras la medida se encuentre vigente."*
+
+Desde el día de la firma, cada dólar extranjero invertido en Argentina se convierte en un argumento contra sancionar a Argentina. No por afecto: por balance. El director de la minera, del banco o de la energética levanta el teléfono a su ministerio de comercio para explicar en detalle por qué esa sanción le sale carísima a él.
+
+**Es una inversión del mecanismo clásico.** La Tabla 9 de la Sección 11 registra el capital extranjero como vector de represalia — el canal por el que llega la presión. Con la cláusula espejo, el mismo capital pasa a ser el amortiguador. Y el efecto escala al revés de lo que uno esperaría: **cuanto más penetrada está la economía, más fuerte es la defensa.**
+
+**El riesgo, escrito acá y no en la sección de riesgos.** Una cláusula de este tipo puede leerse como riesgo expropiatorio y ahuyentar inversión que Argentina necesita. Es una objeción seria y la mitigación es de diseño, no de comunicación:
+
+- **Simetría.** La cláusula no discrimina por país de origen. Se aplica igual a un inversor estadounidense, chino, brasileño o español.
+- **Publicidad.** Es parte del contrato modelo publicado, no una sorpresa en la letra chica.
+- **Activación acotada.** No se dispara por una disputa comercial, ni por un fallo adverso, ni por tensión diplomática. Se dispara únicamente ante una medida de sanción estatal contra Argentina.
+- **Reversibilidad.** La suspensión dura lo que dure la medida. No hay confiscación.
+
+Un inversor de buena fe firma esto sin dificultad, porque no tiene ninguna intención de que su gobierno sancione a Argentina. **El único que se incomoda es el que ya está calculando esa posibilidad — y su incomodidad, en la mesa de negociación, es información gratis.**
+
+### 26.5 Lo Que Sigue Vivo de 2015
+
+El 10 de septiembre de 2015, la Asamblea General de las Naciones Unidas adoptó, en su sexagésimo noveno período de sesiones, los **Principios Básicos sobre los Procesos de Reestructuración de la Deuda Soberana** (Resolución 69/319). La votación fue de **136 a favor, 6 en contra y 41 abstenciones**.
+
+Los seis votos en contra fueron **Estados Unidos, Reino Unido, Alemania, Canadá, Japón e Israel** — que es, con precisión notable, el mapa de los domicilios donde se litiga la deuda soberana del mundo.
+
+La resolución fue **iniciada por Argentina** tras el fallo de Nueva York y **presentada formalmente por Sudáfrica** en nombre del Grupo de los 77 más China, con la UNCTAD como secretaría técnica. Ese detalle no es protocolar: la autoría compartida es parte de por qué obtuvo 136 votos. Argentina puso el caso; el Sur Global puso la mayoría.
+
+Los nueve principios adoptados fueron: soberanía, buena fe, transparencia, imparcialidad, trato equitativo, inmunidad soberana, legitimidad, sostenibilidad y reestructuración por mayorías.
+
+Y después no pasó nada. La resolución no es vinculante, ningún Estado la implementó en su derecho interno, y Argentina —que la impulsó— siguió emitiendo deuda bajo ley extranjera.
+
+**Es la victoria diplomática más grande y más desaprovechada del período democrático.** PLANGEO propone dos cosas, ninguna de las cuales requiere permiso de nadie:
+
+1. **Implementación unilateral.** Argentina incorpora los nueve principios a su propio marco de emisión. No hace falta que nadie más los adopte para que rijan sobre la deuda argentina.
+2. **El Tribunal Arbitral de Deuda Soberana de la Red Soberana.** El mecanismo que la resolución imaginó y que nadie construyó. Argentina lo constituye con los países de la Red Soberana (Sección 10) y lo abre a cualquier Estado que quiera someterse, sea miembro o no.
+
+El valor de los 136 votos no caducó. Está esperando que alguien los use.
+
+### 26.6 Costo Declarado
+
+Una cláusula que limita lo recuperable en juicio encarece la emisión. Sería deshonesto presentar este mecanismo como gratuito, y sería peor inventar el número.
+
+**Este documento no estima la sobretasa.** La estimación requiere un modelo de colocación que PLANGEO no tiene y que no le corresponde construir. Queda como tarea de la Pre-Fase, con dos condiciones: que la estimación sea externa y publicada, y que el rango se escriba en este documento antes de que la cláusula se proponga como política.
+
+Lo que sí se puede afirmar es la comparación relevante, porque no depende de la cifra exacta: **el costo de la cláusula es un diferencial de tasa conocido y acotado; el costo de no tenerla ya se pagó una vez, y fue el acceso al crédito internacional durante quince años.**
+
+### 26.7 El Compromiso de Horizonte
+
+Los seis mecanismos anteriores no tienen punto de cesión humano. Les queda, sin embargo, un punto de cesión **político**: el gobierno que viene.
+
+El problema es estructural y este documento tiene que nombrarlo sin eufemismo. El repositorio de datos antárticos de la Sección 27.6 rinde en 2048. La Organización de Pesquerías del Atlántico Sudoccidental de la Sección 27.3 tarda años en constituirse y décadas en dar resultado. **Son cinco o seis gobiernos argentinos.** Y sostener una política de Estado durante veinte años es, con exactitud, lo que la Argentina no hace — es el defecto que el Proyecto ¡BASTA! existe para corregir.
+
+La Sección 22.3 enfrenta esto con blindaje constitucional: agencias con mandatos desfasados del ciclo presidencial, presupuestos constitucionales, protocolos de código abierto. Es correcto y es insuficiente por sí solo, por una razón simple: **lo que se crea por vía interna se deroga por la misma vía interna.** Una mayoría que puede constitucionalizar puede desconstitucionalizar.
+
+**El mecanismo es la dirección inversa.** Para la clase acotada de compromisos que solo tienen sentido a veinte años, el compromiso no se escribe hacia adentro sino **hacia afuera**: un contrato de horizonte con las contrapartes externas que usan el activo — los Estados que depositan datos en el repositorio antártico, los que amarran en la infraestructura de conectividad austral, los que adoptan los protocolos de verificación. Con cuatro elementos obligatorios:
+
+| Elemento | Función |
+|---|---|
+| Aporte comprometido de cada parte, con plazo | Convierte la intención en obligación exigible |
+| Obligación recíproca | Argentina recibe tanto como entrega — no es una atadura unilateral |
+| Penalidad por incumplimiento | Sin costo, el compromiso es una declaración |
+| Publicación anual del cumplimiento de **cada parte** | El incumplimiento se paga en reputación antes que en dinero |
+
+Derogar una ley argentina no le cuesta nada a un gobierno argentino el primer día de gestión. Incumplirle simultáneamente a treinta Estados le cuesta en todos los foros donde después va a necesitar algo. **Se externaliza el compromiso precisamente para que sobreviva a la política doméstica.**
+
+Es la cuarta condición del bloque llevada a su forma final: no hay funcionario que pueda ceder, y ahora tampoco hay gobierno que pueda hacerlo gratis.
+
+### 26.8 El Límite del Horizonte
+
+La sub-sección anterior propone un mecanismo que ata a los gobiernos futuros. Eso es, dicho sin adornos, **lo que hace un tecnócrata para escapar del control democrático** — y este es el documento de un proyecto cuya premisa es que la gente gobierna.
+
+La contradicción es real. No se resuelve declarando que esta vez es por una buena causa, ni escondiendo la objeción en un anexo. Se acota, y el límite tiene que ser verificable.
+
+**Un compromiso solo entra al Horizonte si cumple las tres condiciones. Se verifican por separado y el resultado es público.**
+
+**(a) Preserva opciones; no impone políticas.** Mantener abierto el repositorio antártico no le dice a un gobierno de 2044 qué hacer con la Antártida: le impide destruir el activo con el que va a decidir. Un compromiso que fija una política sustantiva —una alícuota, un alineamiento, una concesión— **no es Horizonte.**
+
+**(b) Es recíproco.** Argentina recibe tanto como entrega. Salir tiene costo porque se pierde algo que se estaba recibiendo, no porque un tercero castigue. Un compromiso donde Argentina solo entrega **no es Horizonte**: es una concesión con calendario.
+
+**(c) Pasó por el mecanismo popular de decisión.** No por firma de canciller ni por decreto. La legitimidad de atar veinte años tiene que ser mayor que la de una decisión ordinaria, no menor. Este documento no define ese umbral porque no le corresponde: es materia de PLANMESA, y **hasta que ese mecanismo exista y esté nombrado, el Horizonte no se firma.**
+
+Un compromiso que impone políticas, que no da nada a cambio, o que no fue decidido popularmente, no es un Compromiso de Horizonte. **Es captura con otro nombre**, y el mecanismo sería entonces la mejor herramienta de captura que este documento haya diseñado: bastaría con firmar afuera lo que no se puede sostener adentro.
+
+Por eso el control es doble. Además de las tres condiciones, **se publica anualmente la lista de los compromisos que quedaron afuera por aplicarlas.** Una lista vacía no es una buena noticia: es la señal de que el test no está funcionando.
+
+Queda una tensión que este documento no cierra, y es honesto dejarla enunciada: entre *"el pueblo decide"* y *"esto no se toca por veinte años"* hay una distancia que las tres condiciones acotan pero no eliminan. Un lector hostil va a atacar por acá y va a tener parte de razón. **Es preferible que la objeción esté escrita acá, y bien, a que la escriba otro.**
+---
+
 > *"No pedimos permiso. No vendemos ideología. Ofrecemos infraestructura. El que la necesita, la toma. El que la teme, que explique por qué."*
 >
 > — PLANGEO, Marzo 2026

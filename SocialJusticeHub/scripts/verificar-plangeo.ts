@@ -70,6 +70,7 @@ export const SECCIONES_ESPERADAS: string[] = [
   '## SECCIÓN 23: PRESUPUESTO E INVERSIÓN',
   '## SECCIÓN 24: INTEGRACIÓN ¡BASTA!',
   '## SECCIÓN 25: VISIÓN 2040',
+  '## SECCIÓN 26: EL CONTRATO COMO DEFENSA',
   '## INTEGRACIÓN CON EL MARCO ¡BASTA!',
   '## Parche post-auditoría 2026-04-26',
 ];
