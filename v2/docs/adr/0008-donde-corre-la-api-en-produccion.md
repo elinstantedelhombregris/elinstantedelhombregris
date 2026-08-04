@@ -107,6 +107,27 @@ posibles para cualquier rotura.
 arranque de una función: el handler cachea la app entre invocaciones tibias y nada
 más.
 
+## Cómo quedó en producción (2026-08-04)
+
+- **Proyecto `el-instante-v2`**, cuenta `elinstantedelhombregris777-3087`, scope
+  `juans-projects-0a7acadb`. **Root Directory = `v2`**, framework `Other`, build
+  `pnpm build && pnpm api:bundle`, output `apps/web/dist`.
+- **`elinstantedelhombregris.com` y su `www` cuelgan de este proyecto.** v1 sigue
+  entero en su proyecto `elinstantedelhombregris`, con su base intacta. Volver
+  atrás es un comando: `vercel domains add elinstantedelhombregris.com
+  elinstantedelhombregris --force`, y lo mismo con el `www`.
+- **El repo está conectado por Git**, así que un push a `main` despliega. El
+  proyecto viejo **también** sigue conectado al mismo repo: cada push le dispara
+  además una build de v1, que no sirve a nadie pero mantiene el proyecto vivo
+  como red de rollback. Desconectarlo es una decisión pendiente, no un olvido.
+- **Dos cosas del ruteo que sólo aparecen contra un deploy real** y que no
+  conviene volver a descubrir: Vercel publica cada archivo de `api/` en su ruta
+  **exacta**, y la ruta catch-all `api/[...path].mjs` **atiende un segmento pero
+  no dos**. El porqué del rewrite explícito está en la cabecera de
+  `apps/api/src/vercel/handler.ts`.
+- **El registro público sigue abierto y no debería**, por D4. Es lo primero de la
+  lista después del corte.
+
 ## Consecuencias
 
 - `v2/vercel.json` nace acá, con lo mínimo para que un deploy exista: build,
