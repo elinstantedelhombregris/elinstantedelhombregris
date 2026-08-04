@@ -93,7 +93,13 @@ Toda afirmación que no sobrevivió se corrige **en la spec**, no solo en el led
 
 ---
 
-## Task 2: La guardia, en verde sobre el documento actual
+## Task 2: La guardia, en verde sobre el documento actual ✅ **HECHA 2026-08-03**
+
+> **Cerrada.** `SocialJusticeHub/scripts/verificar-plangeo.ts` en verde sobre el documento sin modificar (28 secciones, 1.571 líneas, 22.499 palabras), enganchada en CI debajo de la guardia de PLANSUS. Las siete guardias del corpus en verde y `tsc --noEmit` limpio.
+>
+> **Probada en negativo antes de commitear:** simulando la inserción de tres líneas en la S5 —lo que va a hacer la E11— se rompen `:1148` y `:1151` y quedan intactas `:207` y `:425`. Confirma por ejecución lo que la spec §6.bis había predicho por lectura. Commit `9e2630d`.
+>
+> **Lo que la guardia todavía NO tiene:** las expectativas de S26, S27 y S28, que las agregan las tareas 3 a 5 en rojo antes de escribir cada sección. Hoy sólo custodia el documento tal como está.
 
 Antes de tocar una coma del documento. Si la guardia no puede describir el PLANGEO que ya existe, no sirve para custodiar el que viene.
 
