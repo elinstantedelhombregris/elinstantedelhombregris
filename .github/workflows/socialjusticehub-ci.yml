@@ -107,7 +107,7 @@ jobs:
       # (`Iniciativas Estratégicas/**`) y el canon de pisos (`SocialJusticeHub/**`).
       # Sin hueco de paths. Es la ÚNICA guardia que se mira desde afuera: verifica
       # que las cuatro anclas que otros documentos citan por número de línea
-      # (PLANGEO:207, :425, :1148, :1151) sigan diciendo lo que el citador afirma.
+      # (PLANGEO:209, :427, :1153, :1156) sigan diciendo lo que el citador afirma.
       # `verificar-remisiones.ts` comprueba que la línea exista; esto comprueba que
       # diga lo mismo, que es lo que rompe cuando se edita PLANGEO más arriba.
       # El piso se verifica POR LA NEGATIVA: PLANGEO tiene que seguir en SIN_PISO.

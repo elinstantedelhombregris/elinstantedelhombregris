@@ -43,6 +43,8 @@ Mapa de Fricción · Navegación US-China · Alineamiento UE
 Reforma Mercosur · BRICS+ · Atlántico Sur · Antártida
 Malvinas: Estrategia Bifurcada · Arquitectura Comercial
 Postura de Defensa · Cibersoberanía · Ideas sin Frontera
+El Contrato como Defensa · La Visibilidad como Poder
+La Capacidad que Ya Existe · Compromiso de Horizonte
 Integración con Plataforma ¡BASTA! · Visión 2040
 
 Preparado para la República Argentina
@@ -50,7 +52,7 @@ Ministerio de Relaciones Exteriores · Ministerio de Defensa
 Ministerio de Economía · Secretaría de Asuntos Estratégicos
 Consejo Nacional de Estrategia Geopolítica (CNEG)
 
-Marzo 2026 | Versión 1.1
+Marzo 2026 | Versión 1.2 (bloque MECANISMOS, agosto 2026)
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
@@ -466,7 +468,7 @@ PLANAGUA ya diseñó la infraestructura doméstica. PLANGEO la proyecta internac
 
 Argentina tiene la presencia continua más antigua en la Antártida (Base Orcadas, 1904 — 122 años ininterrumpidos). Tiene 6 bases permanentes y 7 estacionales. Tiene la ciudad más cercana al continente antártico (Ushuaia). Tiene infraestructura logística que otros países envidian.
 
-El Tratado Antártico vence en 2048. No "expira" técnicamente — permite revisión a partir de ese año. Cuando eso ocurra, las reclamaciones territoriales que hoy están congeladas se descongelarán. Y el país con mayor presencia, mayor infraestructura y mayor actividad científica tendrá la posición más fuerte.
+El instrumento revisable es el **Protocolo al Tratado Antártico sobre Protección del Medio Ambiente** —el Protocolo de Madrid, firmado el 4 de octubre de 1991 y en vigor desde el 14 de enero de 1998—, cuyo artículo 25.2 habilita a cualquier Parte Consultiva a convocar una conferencia de revisión **a partir de 2048**. La prohibición de toda actividad sobre recursos minerales, salvo con fines científicos, está en su artículo 7. **Ni el Tratado Antártico ni el Protocolo tienen fecha de vencimiento**: la idea de que "vencen en 2048" es un error extendido y una estrategia a veintidós años no puede apoyarse en él. Lo que sí ocurre a partir de ese año es que la revisión se vuelve convocable, y con ella se reabre la discusión sobre las reclamaciones hoy congeladas. *Dónde vive el dato que sostiene esa posición está en la Sección 27.6.* Cuando eso ocurra, las reclamaciones territoriales que hoy están congeladas se descongelarán. Y el país con mayor presencia, mayor infraestructura y mayor actividad científica tendrá la posición más fuerte.
 
 **Estrategia antártica 2026-2048:**
 
@@ -711,7 +713,7 @@ Esta sección consolida todas las amenazas identificadas en los Stacks individua
 | Banco Mundial | PLAN24CN (ciudades sin préstamos BM), Stack Urbano exportable | Restricción de financiamiento, descalificación técnica | Media | Financiamiento alternativo (bonos ciudadanos, Red Soberana) |
 | OMC | PLANEB (competencia desleal alegada), litio (restricciones de exportación) | Paneles de disputa, sanciones comerciales autorizadas | Media-Alta | Diseño legal preventivo: Bastardas como entidades sin ánimo de lucro, no subsidios |
 | JIFE (Junta Internacional de Fiscalización de Estupefacientes) | PLANSUS (denuncia de convenciones) | Recomendaciones negativas, presión sobre otros países | Media | Coalición reformista + publicación de evidencia |
-| Calificadoras (Moody's, S&P, Fitch) | Todo ¡BASTA! (percepción de "riesgo institucional") | Downgrade soberano → encarecimiento de deuda | Alta | Metodología de calificación soberana alternativa (Sección 21) |
+| Calificadoras (Moody's, S&P, Fitch) | Todo ¡BASTA! (percepción de "riesgo institucional") | Downgrade soberano → encarecimiento de deuda → **litigio de holdouts sobre la deuda abaratada** | Alta | Metodología de calificación soberana alternativa (Sección 21) **+ Cláusula del Buitre (26.2), que es la que protege del segundo tramo: el ISN es una narrativa alternativa y no impide un embargo** |
 
 ### 11.2 El Escenario Cascada: Cuando Todo Se Activa a la Vez
 
@@ -730,6 +732,7 @@ El peor escenario no es un actor individual atacando. Es la cascada:
 - **Secuenciamiento estratégico.** No lanzar todas las iniciativas juntas. PLANEB primero (empresas al costo — difícil de atacar retóricamente). PLANDIG segundo (soberanía digital — alineado con tendencia global). PLANSUS tercero — cuando la Red Soberana ya tenga masa crítica.
 - **Colchón financiero.** Antes de cada lanzamiento confrontativo, constituir reservas: swap de monedas con China, acuerdo de suministro de GNL con la UE, reserva alimentaria. No lanzar batallas sin municiones.
 - **Narrativa preventiva.** Antes de cada lanzamiento, publicar el caso con datos, en todos los idiomas relevantes, en medios del Sur Global, en universidades del Norte Global, en think tanks. Que la narrativa de Argentina llegue antes que la narrativa contra Argentina.
+- **Mecanismos que no requieren decisión en crisis.** La cascada es, con precisión, el momento en que un funcionario bajo presión cede — y ninguna de las contramedidas anteriores funciona si depende de que alguien decida bien un martes a la tarde. Las cláusulas de la Sección 26 se activan solas porque viven en el instrumento, y el Registro de Presión (27.5) convierte la cesión silenciosa en falta grave. **Lo que hay que tener firmado antes de la cascada no es un plan de respuesta: son contratos.**
 - **Aceleración de infraestructura paralela.** Antes de denunciar convenciones de drogas, tener el sistema de pagos soberano operativo. Antes de confrontar a Big Tech, tener ArgenCloud con al menos 3 nodos internacionales. Nunca provocar una desconexión que pueda ejecutarse.
 
 ---
@@ -996,6 +999,8 @@ Argentina tiene una relación crónica con el FMI — ciclos de endeudamiento, c
 
 3. **Fase de autonomía (2030-2033).** Argentina tiene superávit comercial estructural (GNL + litio industrializado + servicios de asistencia técnica de la Red Soberana). El programa FMI expira y no se renueva. La calificadora soberana alternativa (ISN, Sección 21.5) ofrece una narrativa de solvencia que no depende de Moody's. Argentina propone en la Red Soberana un "Fondo de Estabilización Soberano" — una alternativa al FMI para países miembros que necesiten liquidez de emergencia, financiado con contribuciones de la red y sin condicionalidad de austeridad.
 
+**La pieza que falta en la fase de convivencia: la jurisdicción.** El desacople gradual del FMI no protege del vector que ya se materializó una vez — un tribunal extranjero decidiendo si Argentina puede pagarle a quienes aceptaron una reestructuración. Toda emisión de la fase 2026-2028 lleva Cláusula del Buitre y conversión automática de foro (**Sección 26.2-26.3**). No es un agregado técnico: es la condición para que las fases 2 y 3 no se ejecuten sobre un piso que un juez de Manhattan puede levantar.
+
 **Coexistencia legal ¡BASTA!-FMI:** Las Empresas Bastardas (PLANEB) no usan fondos públicos — se capitalizan con aportes ciudadanos. Los Fideicomisos Productivos (PLANREP) se financian con bonos, no con deuda soberana. ArgenCloud (PLANDIG) se financia con reasignación presupuestaria de defensa y coinversión de adoptantes. Ninguno de estos instrumentos viola las cláusulas estándar de un programa FMI — porque no son gasto público deficitario. Son inversión productiva con retorno. Si el FMI objeta, la respuesta es técnica, no política: "Mostranos qué cláusula viola." Si no puede, la objeción se deslegitima sola.
 
 ---
@@ -1020,7 +1025,7 @@ Argentina gasta el 0,7% de su PBI en defensa — uno de los más bajos del mundo
 | Ciberdefensa | Crear Comando de Ciberdefensa con capacidad defensiva y ofensiva | USD 200-400M (5 años) |
 | Contrainteligencia | Reforzar capacidad de detección de operaciones encubiertas | USD 100-200M (5 años) |
 | Defensa de infraestructura crítica | Protección física y digital de nodos de ArgenCloud, plantas de litio, puertos GNL | USD 300-500M (5 años) |
-| Capacidad naval | Patrullaje efectivo de Zona Económica Exclusiva (plataforma continental extendida) | USD 500-800M (10 años) |
+| Capacidad naval → **cobertura satelital y no tripulada** | Constelación SAOCOM ampliada + enjambre de drones no armados. **Esta línea se REASIGNA, no se suma** — ver Sección 27.4: el problema es de cobertura y de mercado, no de intercepción | USD 500-800M (10 años) reasignados desde la línea naval, sin cambio en el total de la Tabla 14 |
 | Capacidad antártica | Logística militar para sostener presencia antártica ampliada | USD 200-300M (10 años) |
 
 ### 18.2 Cibersoberanía
@@ -1035,7 +1040,7 @@ La cibersoberanía no es solo defensa contra ataques. Es la capacidad de operar 
 
 3. **Auditoría de hardware.** Todo hardware en infraestructura crítica pasa por auditoría de seguridad independiente. No porque los proveedores sean maliciosos — porque no podemos confiar en lo que no podemos verificar.
 
-4. **Capacidad ofensiva disuasoria.** Como la disuasión nuclear, la ciberdisuasión funciona por capacidad conocida, no por uso. Argentina necesita la capacidad técnica de responder a un ciberataque con un ciberataque equivalente — y que los adversarios potenciales sepan que esa capacidad existe.
+4. **Resiliencia como disuasión — la doctrina del erizo.** Argentina no gana una escalada cibernética ofensiva contra ningún actor con capacidad e interés real de atacarla, y prometer esa capacidad no disuade a nadie: informa al adversario de que este documento no distingue entre lo que quiere y lo que puede. La disuasión efectiva para un país de estos recursos es la inversa. **No hay que ser peligroso: hay que ser poco rentable de atacar.** Un ciberataque compra algo si te tumba; si el país opera tres días sin red y sin energía, no compra nada, y esa cuenta la hace el atacante antes de decidir. Los cuatro componentes —modo degradado ensayado, desconcentración geográfica, diversidad tecnológica obligatoria y simulacro nacional publicado— están en la **Sección 28.6**.
 
 ### 18.3 Alineamiento Institucional Militar
 
@@ -1101,7 +1106,7 @@ Mientras la capa diplomática habla, la capa de infraestructura construye:
 
 3. **Conectividad submarina.** Tender cables submarinos de fibra óptica que conecten el continente argentino con los países de la Red Soberana vía el Atlántico Sur — pasando por la plataforma continental argentina. Si la infraestructura de telecomunicaciones del Atlántico Sur es argentina, la relevancia de una base británica en las islas se reduce.
 
-4. **Pesca soberana.** Implementar la trazabilidad blockchain de PLANISV para toda la pesca en la Zona Económica Exclusiva argentina. Los barcos que pescan ilegalmente en la zona (mayoritariamente con licencia británica de Malvinas) quedan registrados y sus productos marcados como "pesca no trazada" — bloqueados del acceso a mercados premium (UE, Japón) que exigen trazabilidad.
+4. **Pesca soberana.** *El monitoreo del punto 2 y el sello de este punto son el sensor y la etiqueta — no el mecanismo completo. Quién aplica la consecuencia está en la Sección 27.1-27.3, y la respuesta es que no la aplica Argentina.* Implementar la trazabilidad blockchain de PLANISV para toda la pesca en la Zona Económica Exclusiva argentina. Los barcos que pescan ilegalmente en la zona (mayoritariamente con licencia británica de Malvinas) quedan registrados y sus productos marcados como "pesca no trazada" — bloqueados del acceso a mercados premium (UE, Japón) que exigen trazabilidad.
 
 5. **Atracción económica de los isleños.** Los 3.500 habitantes de Malvinas dependen económicamente de la pesca (licencias) y del apoyo militar británico. Argentina ofrece gradualmente mejores condiciones: acceso al sistema de salud PLANSAL, educación bilingüe, conectividad mejorada, integración en la economía del continente. No se trata de comprar lealtad — se trata de hacer que la vida mirando hacia el continente sea objetivamente mejor que la vida mirando hacia Londres.
 
@@ -1123,7 +1128,7 @@ El Atlántico Sur y la Antártida son el espacio donde convergen todos los inter
 
 **Estrategia de proyección austral:**
 
-1. **Ushuaia como Capital Austral.** No simbólicamente — operativamente. Ushuaia debe ser el centro logístico, científico, turístico y de monitoreo de todo lo que pasa al sur del paralelo 50°. Inversión en puerto profundo, aeropuerto expandido, centro de datos (nodo austral de ArgenCloud), y sede del programa antártico.
+1. **Ushuaia como Capital Austral.** *La contraparte de esta línea es el repositorio antártico de la Sección 27.6: la logística sin la capa de datos produce un puerto, no una posición.* No simbólicamente — operativamente. Ushuaia debe ser el centro logístico, científico, turístico y de monitoreo de todo lo que pasa al sur del paralelo 50°. Inversión en puerto profundo, aeropuerto expandido, centro de datos (nodo austral de ArgenCloud), y sede del programa antártico.
 
 2. **Alianza Austral.** Argentina, Chile, Sudáfrica, Australia, Nueva Zelanda — los cinco países del hemisferio sur con intereses antárticos y atlántico-sur/pacífico-sur significativos. Una coordinación informal (no bloque) para posiciones comunes en gobernanza antártica, regulación pesquera, y proyección del hemisferio sur.
 
@@ -1303,7 +1308,7 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 **Probabilidad:** Muy baja si se respeta el secuenciamiento estratégico de la Sección 11.2. Media-baja si se lanza PLANSUS sin preparación.
 
 **Protocolo:**
-- **Pre-sanción (preparación):** Sistema de pagos soberano operativo. Swap de monedas con China (USD 18.000M existente + ampliación). Acuerdo de suministro energético con la UE (que no va a querer perder GNL por sanciones de EEUU). Reserva alimentaria constituida (6 meses de exportación).
+- **Pre-sanción (preparación):** **Cláusula Espejo (Sección 26.4) en todo contrato de inversión extranjera vigente — es la pieza que hay que tener firmada ANTES, porque después de la sanción ya no se negocia; y Cláusula del Buitre (26.2) en toda emisión, para que el ahorcamiento financiero no tenga foro donde ejecutarse.** Sistema de pagos soberano operativo. Swap de monedas con China (USD 18.000M existente + ampliación). Acuerdo de suministro energético con la UE (que no va a querer perder GNL por sanciones de EEUU). Reserva alimentaria constituida (6 meses de exportación).
 - **Post-sanción (respuesta):** Activar sistema de pagos alternativo. Comerciar con la Red Soberana + China + Rusia (si es necesario) en monedas locales. Publicar toda la evidencia de la sanción y sus causas — transparencia total como arma de presión moral. Movilizar a los Anticuerpos (Sección 21.4) en EEUU para presión interna.
 
 ### 22.3 Escenario 3: Desestabilización Política Interna
@@ -1315,6 +1320,7 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 **Protocolo:**
 - **Prevención:** ¡BASTA! no debe ser un proyecto de un gobierno. Debe ser un proyecto del pueblo — implementado por ley, con agencias autónomas protegidas constitucionalmente, con presupuestos garantizados. Si un cambio de gobierno puede deshacer ¡BASTA!, ¡BASTA! es frágil. Si deshacer ¡BASTA! requiere reformar la Constitución, ¡BASTA! es resiliente.
 - **Blindaje institucional:** Las agencias (ANEB, ANSUS, etc.) tienen mandatos de 6 años no coincidentes con el ciclo presidencial. Los presupuestos son constitucionales, no legislativos. Los protocolos son open-source y no dependen de servidores gubernamentales.
+- **Blindaje de horizonte:** El blindaje constitucional protege contra el cambio de gobierno, pero lo que se crea por vía interna se deroga por la misma vía interna. Para la clase acotada de compromisos que solo rinden a veinte años —el repositorio antártico, el ordenamiento pesquero regional— la protección es el **Compromiso de Horizonte de la Sección 26.7**: el compromiso se escribe hacia afuera, con contrapartes que no votan en Argentina. **No reemplaza al blindaje constitucional: lo complementa**, y solo para esa clase. Sus tres límites verificables están en la Sección 26.8, y sin ellos el mecanismo sería la mejor herramienta de captura de este documento.
 - **Blindaje social:** Si ¡BASTA! funciona — si los argentinos pagan menos por seguros, tienen mejor salud, acceden a mejor educación — deshacerlo tiene un costo electoral que ningún opositor racional pagaría. La mejor defensa contra la desestabilización es que ¡BASTA! mejore la vida de la gente de forma medible y visible.
 
 ### 22.4 Escenario 4: Aliados Clave Defeccionan
@@ -1398,6 +1404,10 @@ La inversión es grande. El retorno es mayor. Y lo que no se puede cuantificar �
 | **PLANAGUA** | Gobernanza transnacional del Guaraní + criosfera andina | DAO del Guaraní + alianza austral con Chile |
 | **PLANJUS** | Reconocimiento internacional de mecanismos alternativos de justicia | Standards track + alianza con países con sistemas judiciales colapsados |
 | **PLANISV** | Acceso a mercados agrícolas premium + protección contra barreras fitosanitarias | Alineamiento UE + trazabilidad blockchain como estándar |
+| **PLANMON** | Jurisdicción de la deuda soberana y defensa contra litigio de holdouts | Cláusula del Buitre y conversión automática de foro (Sección 26.2-26.3) + Tribunal Arbitral de Deuda Soberana (26.5) |
+| **PLANTER** | Consecuencia efectiva sobre la pesca que opera fuera de las 200 millas, donde su Servicio de Guardacostas no tiene potestad | Mar Transparente y capa aseguradora (Sección 27.1-27.3). **Los dos dispositivos son complementarios: la frontera es la milla 200** |
+| **PLANMESA** | — | El Compromiso de Horizonte (26.7) **le requiere** un mecanismo popular de decisión con umbral propio para compromisos de veinte años. Sin él, PLANGEO no firma Horizonte |
+| **PLANSEG** | — | La cuestión de las armas civiles **queda fuera del alcance de PLANGEO**: es seguridad interna, no coerción externa. Se anota acá para que la ausencia sea deliberada y no un olvido |
 
 ### 24.2 Secuenciamiento de Lanzamiento Internacional
 
@@ -1492,6 +1502,429 @@ Y si eso pasa — si el mundo elige eso con los ojos abiertos — entonces al me
 
 Porque la alternativa siempre existió. Solo faltaba quien se atreviera a construirla.
 
+> **Nota editorial sobre la ubicación de las Secciones 26 a 28.** El bloque MECANISMOS se agregó en agosto de 2026 y editorialmente debería ir antes de esta Visión 2040, que es el cierre natural del documento. Se lo apendó después por una razón mecánica y no estética: insertarlo antes obligaba a renumerar cuatro secciones existentes, y el corpus ¡BASTA! cita a PLANGEO **por número de línea** desde PLANPUERTA, PLANPREGUNTA y dos guardias de integración continua. Renumerar habría roto esas remisiones en silencio. **Se priorizó cero remisiones rotas sobre la prolijidad de la secuencia**, y el costo queda declarado acá en lugar de disimulado.
+
+---
+
+## SECCIÓN 26: EL CONTRATO COMO DEFENSA
+
+> *"Un acuerdo bien escrito es un ejército que no come."*
+
+Las Secciones 26, 27 y 28 forman un bloque distinto del resto del documento. Las veinticinco anteriores describen qué construye Argentina y a quién se lo ofrece. Estas tres describen **qué pasa cuando alguien decide impedirlo por medios materiales** — y lo hacen bajo una restricción que conviene declarar antes de empezar, porque ordena todo lo que sigue.
+
+Argentina no puede costear enforcement. No puede patrullar 1.500.000 km² de zona económica exclusiva, no puede litigar durante quince años en tribunales extranjeros, no puede sostener una escalada cibernética contra un actor que la ataque en serio. Cada vez que este documento llegó a ese punto en secciones anteriores, la respuesta fue una línea de presupuesto. Una línea de presupuesto no es una doctrina.
+
+**Un país que no puede pagar el cumplimiento tiene que diseñar reglas que no lo necesiten.** Los ocho mecanismos de este bloque comparten una sola forma: el adversario, actuando en su propio interés, ejecuta la defensa argentina. No hay funcionario al que se pueda llamar por teléfono para desactivarlos, porque la defensa no vive en una decisión — vive en un contrato, en un dato público o en una regla de compra.
+
+Un mecanismo entra a este bloque si cumple las cuatro condiciones. Si falla una, no entra:
+
+1. **No requiere cumplimiento financiado.** Nadie tiene que patrullar, litigar ni sancionar para que funcione.
+2. **No requiere que un tercero se porte bien.** No depende de buena voluntad, de un voto en un foro multilateral, ni de que un aliado aguante presión.
+3. **No tiene un punto de cesión humano.** Está en el instrumento, no en la voluntad.
+4. **El costo de atacarlo lo paga el atacante.** La acción hostil es la que dispara el costo, del lado de quien la ejecuta.
+
+La tercera es la que más importa, y es la que ninguna sección anterior de este documento tiene escrita. La Sección 22.3 blinda a ¡BASTA! contra el cambio de gobierno; nada blinda al funcionario contra la llamada de un martes a la tarde. La captura de una política pública casi nunca es un decreto: es una serie de cesiones chicas que nadie registra. Un mecanismo que vive en un contrato no cede porque no tiene con qué.
+
+**Ninguno de los ocho reclama presupuesto nuevo.** Siete tienen costo marginal cercano a cero porque son normas, cláusulas o datos publicados. El único con costo de capital real —la constelación de monitoreo de la Sección 27.1— cuesta una fracción de la línea de capacidad naval que este documento ya presupuesta en la Sección 18.1, **y la reemplaza en lugar de sumarse a ella**.
+
+### 26.1 El Problema de la Jurisdicción
+
+En 2001 Argentina entró en el default soberano más grande de la historia hasta ese momento. Las reestructuraciones de 2005 y 2010 fueron aceptadas por más del 92% de los acreedores. El resto —fondos que habían comprado deuda en el mercado secundario a centavos— litigó en Nueva York por el valor nominal completo, y ganó. Un juez de distrito de Manhattan terminó decidiendo, en los hechos, si Argentina podía pagarle a los acreedores que sí habían aceptado.
+
+Argentina se defendió, entre otras vías, con la doctrina de *champerty*. El artículo 489 de la Ley Judicial del Estado de Nueva York prohíbe adquirir un crédito **con el propósito primario** de litigarlo. Es la norma exacta que describe lo que hicieron esos fondos. Y no sirvió.
+
+No sirvió por una razón que hay que entender bien, porque es la lección de diseño de toda esta sección: **la norma exige acreditar el propósito de un tercero.** Un fondo que declara propósito de inversión no puede ser desmentido salvo que confiese. El hecho decisivo del caso era inverificable por construcción.
+
+El error argentino no fue de estrategia procesal ni de calidad de los abogados. Fue aceptar un terreno donde ganar dependía de probar lo improbable. **Un país chico no puede permitirse que su defensa dependa de acreditar la intención ajena.** Todo lo que sigue en esta sección deriva de esa frase.
+
+### 26.2 La Cláusula del Buitre
+
+**El mecanismo.** Toda emisión de deuda soberana argentina futura incorpora en su prospecto una cláusula con esta forma:
+
+> *"Todo tenedor que adquiera este instrumento en el mercado secundario a un precio inferior a su valor nominal, y que promueva acción judicial de cobro contra el emisor, limita su reclamo recuperable al precio efectivamente pagado más un retorno equivalente a la tasa de referencia del período de tenencia."*
+
+**Lo que la cláusula no hace**, y hay que decirlo antes que lo que hace, porque de eso depende que sea colocable:
+
+- **No prohíbe el mercado secundario.** La deuda argentina se sigue comprando y vendiendo sin restricción.
+- **No toca al tenedor de buena fe.** A quien compró al valor nominal se le paga el valor nominal. La cláusula solo se activa sobre quien compró con descuento *y además* litiga.
+- **No expropia.** El fondo que compró a treinta y cobra treinta más la tasa del período no perdió: hizo una inversión razonable con un retorno razonable.
+
+Lo que se elimina no es el actor. Es **la asimetría**: la posibilidad de comprar a diez y cobrar cien por vía judicial. Sin esa asimetría no hay negocio en la ruina de un país, y sigue habiendo mercado de deuda.
+
+**Por qué esto es distinto de lo que ya se intentó en el mundo.** Hay dos precedentes legislativos y los dos tienen el mismo límite estructural:
+
+| Precedente | Qué hace | Su límite |
+|---|---|---|
+| **Bélgica**, Ley del 12 de julio de 2015 | Limita lo recuperable por acreedores que persiguen una ventaja ilegítima al adquirir deuda de un Estado. Alcanza al sistema de pagos Euroclear, que es lo que le da mordida real | Es una ley **de una jurisdicción**. Su alcance depende de dónde se litigue |
+| **Reino Unido**, Debt Relief (Developing Countries) Act 2010 | Primera ley del mundo en restringir a los fondos buitre | Alcanza **solo a países HIPC** — los más endeudados y más pobres. **No cubriría a la Argentina** |
+
+La ley belga merece un párrafo aparte porque es la que demuestra que el principio resiste. NML Capital —el mismo actor que ganó en Nueva York— la impugnó ante la Corte Constitucional de Bélgica **y perdió**. La norma sobrevivió al ataque directo del litigante más agresivo del rubro. No es un intento legislativo: es una defensa probada en tribunales.
+
+Y sin embargo Argentina no puede legislar la suya, porque la deuda argentina no se litiga en Argentina. **Ahí está la ventaja decisiva de la vía contractual sobre la vía legislativa: la cláusula no pertenece a una jurisdicción — viaja con el instrumento.** Va adonde vaya el bono. El tenedor la acepta en el momento de comprar, porque comprar es aceptar, y no hay que probarle a ningún juez cuál era su propósito: el límite ya está en la cosa que compró.
+
+Es la respuesta exacta al problema de la Sección 26.1. Donde *champerty* exigía acreditar una intención, la cláusula solo exige leer un precio.
+
+### 26.3 La Conversión Automática de Jurisdicción
+
+La cláusula anterior desactiva el premio. Esta desactiva el foro. Se incorpora a la misma emisión:
+
+> *"Si un tribunal de la jurisdicción aplicable dictare medida que impida al emisor el pago a los acreedores que aceptaron una reestructuración, la ley aplicable y el agente de pago del presente instrumento se trasladarán automáticamente a la República Argentina."*
+
+Conviene leerla dos veces. La medida cautelar que un litigante necesita obtener para bloquear los pagos **es la que traslada el instrumento fuera de su alcance**. Ganar el incidente es perder el foro. El arma se dispara sola y apunta a quien la usó.
+
+En condiciones normales la cláusula no hace nada, y ese es su mejor rasgo. El inversor de buena fe conserva íntegra la protección de la ley extranjera que compró, y no paga por una defensa que nunca se activa contra él. Solo se activa contra quien ataca.
+
+**Lo que este documento no sabe todavía**, y va escrito porque callarlo sería peor: si un tribunal de Nueva York declararía inoponible una cláusula de traslado automático. La respuesta requiere opinión legal formal, no diseño estratégico. **La Sección 26 propone el mecanismo y declara que su ejecutabilidad está sin acreditar.**
+
+### 26.4 La Cláusula Espejo
+
+La Sección 21.4 propone construir "anticuerpos" en el exterior: universidades, sociedad civil, diáspora. Es correcto y es lento — se construye en una década y depende de la voluntad de terceros.
+
+Hay un actor que ya está adentro, que tiene dinero propio en juego, y que tiene línea directa con su propio gobierno: **el inversor extranjero que ya invirtió en Argentina.** No hay que construirlo ni convencerlo. Hay que escribirle la cláusula.
+
+**El mecanismo.** En todo contrato de inversión extranjera, concesión y licencia:
+
+> *"Si el Estado de origen o de control efectivo del inversor adoptare contra la República Argentina medidas de sanción económica, restricción financiera o exclusión de sistemas de pago internacionales, la resolución de controversias del presente contrato se trasladará a los tribunales argentinos y los derechos de repatriación de utilidades quedarán suspendidos mientras la medida se encuentre vigente."*
+
+Desde el día de la firma, cada dólar extranjero invertido en Argentina se convierte en un argumento contra sancionar a Argentina. No por afecto: por balance. El director de la minera, del banco o de la energética levanta el teléfono a su ministerio de comercio para explicar en detalle por qué esa sanción le sale carísima a él.
+
+**Es una inversión del mecanismo clásico.** La Tabla 9 de la Sección 11 registra el capital extranjero como vector de represalia — el canal por el que llega la presión. Con la cláusula espejo, el mismo capital pasa a ser el amortiguador. Y el efecto escala al revés de lo que uno esperaría: **cuanto más penetrada está la economía, más fuerte es la defensa.**
+
+**El riesgo, escrito acá y no en la sección de riesgos.** Una cláusula de este tipo puede leerse como riesgo expropiatorio y ahuyentar inversión que Argentina necesita. Es una objeción seria y la mitigación es de diseño, no de comunicación:
+
+- **Simetría.** La cláusula no discrimina por país de origen. Se aplica igual a un inversor estadounidense, chino, brasileño o español.
+- **Publicidad.** Es parte del contrato modelo publicado, no una sorpresa en la letra chica.
+- **Activación acotada.** No se dispara por una disputa comercial, ni por un fallo adverso, ni por tensión diplomática. Se dispara únicamente ante una medida de sanción estatal contra Argentina.
+- **Reversibilidad.** La suspensión dura lo que dure la medida. No hay confiscación.
+
+Un inversor de buena fe firma esto sin dificultad, porque no tiene ninguna intención de que su gobierno sancione a Argentina. **El único que se incomoda es el que ya está calculando esa posibilidad — y su incomodidad, en la mesa de negociación, es información gratis.**
+
+### 26.5 Lo Que Sigue Vivo de 2015
+
+El 10 de septiembre de 2015, la Asamblea General de las Naciones Unidas adoptó, en su sexagésimo noveno período de sesiones, los **Principios Básicos sobre los Procesos de Reestructuración de la Deuda Soberana** (Resolución 69/319). La votación fue de **136 a favor, 6 en contra y 41 abstenciones**.
+
+Los seis votos en contra fueron **Estados Unidos, Reino Unido, Alemania, Canadá, Japón e Israel** — que es, con precisión notable, el mapa de los domicilios donde se litiga la deuda soberana del mundo.
+
+La resolución fue **iniciada por Argentina** tras el fallo de Nueva York y **presentada formalmente por Sudáfrica** en nombre del Grupo de los 77 más China, con la UNCTAD como secretaría técnica. Ese detalle no es protocolar: la autoría compartida es parte de por qué obtuvo 136 votos. Argentina puso el caso; el Sur Global puso la mayoría.
+
+Los nueve principios adoptados fueron: soberanía, buena fe, transparencia, imparcialidad, trato equitativo, inmunidad soberana, legitimidad, sostenibilidad y reestructuración por mayorías.
+
+Y después no pasó nada. La resolución no es vinculante, ningún Estado la implementó en su derecho interno, y Argentina —que la impulsó— siguió emitiendo deuda bajo ley extranjera.
+
+**Es la victoria diplomática más grande y más desaprovechada del período democrático.** PLANGEO propone dos cosas, ninguna de las cuales requiere permiso de nadie:
+
+1. **Implementación unilateral.** Argentina incorpora los nueve principios a su propio marco de emisión. No hace falta que nadie más los adopte para que rijan sobre la deuda argentina.
+2. **El Tribunal Arbitral de Deuda Soberana de la Red Soberana.** El mecanismo que la resolución imaginó y que nadie construyó. Argentina lo constituye con los países de la Red Soberana (Sección 10) y lo abre a cualquier Estado que quiera someterse, sea miembro o no.
+
+El valor de los 136 votos no caducó. Está esperando que alguien los use.
+
+### 26.6 Costo Declarado
+
+Una cláusula que limita lo recuperable en juicio encarece la emisión. Sería deshonesto presentar este mecanismo como gratuito, y sería peor inventar el número.
+
+**Este documento no estima la sobretasa.** La estimación requiere un modelo de colocación que PLANGEO no tiene y que no le corresponde construir. Queda como tarea de la Pre-Fase, con dos condiciones: que la estimación sea externa y publicada, y que el rango se escriba en este documento antes de que la cláusula se proponga como política.
+
+Lo que sí se puede afirmar es la comparación relevante, porque no depende de la cifra exacta: **el costo de la cláusula es un diferencial de tasa conocido y acotado; el costo de no tenerla ya se pagó una vez, y fue el acceso al crédito internacional durante quince años.**
+
+### 26.7 El Compromiso de Horizonte
+
+Los seis mecanismos anteriores no tienen punto de cesión humano. Les queda, sin embargo, un punto de cesión **político**: el gobierno que viene.
+
+El problema es estructural y este documento tiene que nombrarlo sin eufemismo. El repositorio de datos antárticos de la Sección 27.6 rinde en 2048. La Organización de Pesquerías del Atlántico Sudoccidental de la Sección 27.3 tarda años en constituirse y décadas en dar resultado. **Son cinco o seis gobiernos argentinos.** Y sostener una política de Estado durante veinte años es, con exactitud, lo que la Argentina no hace — es el defecto que el Proyecto ¡BASTA! existe para corregir.
+
+La Sección 22.3 enfrenta esto con blindaje constitucional: agencias con mandatos desfasados del ciclo presidencial, presupuestos constitucionales, protocolos de código abierto. Es correcto y es insuficiente por sí solo, por una razón simple: **lo que se crea por vía interna se deroga por la misma vía interna.** Una mayoría que puede constitucionalizar puede desconstitucionalizar.
+
+**El mecanismo es la dirección inversa.** Para la clase acotada de compromisos que solo tienen sentido a veinte años, el compromiso no se escribe hacia adentro sino **hacia afuera**: un contrato de horizonte con las contrapartes externas que usan el activo — los Estados que depositan datos en el repositorio antártico, los que amarran en la infraestructura de conectividad austral, los que adoptan los protocolos de verificación. Con cuatro elementos obligatorios:
+
+| Elemento | Función |
+|---|---|
+| Aporte comprometido de cada parte, con plazo | Convierte la intención en obligación exigible |
+| Obligación recíproca | Argentina recibe tanto como entrega — no es una atadura unilateral |
+| Penalidad por incumplimiento | Sin costo, el compromiso es una declaración |
+| Publicación anual del cumplimiento de **cada parte** | El incumplimiento se paga en reputación antes que en dinero |
+
+Derogar una ley argentina no le cuesta nada a un gobierno argentino el primer día de gestión. Incumplirle simultáneamente a treinta Estados le cuesta en todos los foros donde después va a necesitar algo. **Se externaliza el compromiso precisamente para que sobreviva a la política doméstica.**
+
+Es la cuarta condición del bloque llevada a su forma final: no hay funcionario que pueda ceder, y ahora tampoco hay gobierno que pueda hacerlo gratis.
+
+### 26.8 El Límite del Horizonte
+
+La sub-sección anterior propone un mecanismo que ata a los gobiernos futuros. Eso es, dicho sin adornos, **lo que hace un tecnócrata para escapar del control democrático** — y este es el documento de un proyecto cuya premisa es que la gente gobierna.
+
+La contradicción es real. No se resuelve declarando que esta vez es por una buena causa, ni escondiendo la objeción en un anexo. Se acota, y el límite tiene que ser verificable.
+
+**Un compromiso solo entra al Horizonte si cumple las tres condiciones. Se verifican por separado y el resultado es público.**
+
+**(a) Preserva opciones; no impone políticas.** Mantener abierto el repositorio antártico no le dice a un gobierno de 2044 qué hacer con la Antártida: le impide destruir el activo con el que va a decidir. Un compromiso que fija una política sustantiva —una alícuota, un alineamiento, una concesión— **no es Horizonte.**
+
+**(b) Es recíproco.** Argentina recibe tanto como entrega. Salir tiene costo porque se pierde algo que se estaba recibiendo, no porque un tercero castigue. Un compromiso donde Argentina solo entrega **no es Horizonte**: es una concesión con calendario.
+
+**(c) Pasó por el mecanismo popular de decisión.** No por firma de canciller ni por decreto. La legitimidad de atar veinte años tiene que ser mayor que la de una decisión ordinaria, no menor. Este documento no define ese umbral porque no le corresponde: es materia de PLANMESA, y **hasta que ese mecanismo exista y esté nombrado, el Horizonte no se firma.**
+
+Un compromiso que impone políticas, que no da nada a cambio, o que no fue decidido popularmente, no es un Compromiso de Horizonte. **Es captura con otro nombre**, y el mecanismo sería entonces la mejor herramienta de captura que este documento haya diseñado: bastaría con firmar afuera lo que no se puede sostener adentro.
+
+Por eso el control es doble. Además de las tres condiciones, **se publica anualmente la lista de los compromisos que quedaron afuera por aplicarlas.** Una lista vacía no es una buena noticia: es la señal de que el test no está funcionando.
+
+Queda una tensión que este documento no cierra, y es honesto dejarla enunciada: entre *"el pueblo decide"* y *"esto no se toca por veinte años"* hay una distancia que las tres condiciones acotan pero no eliminan. Un lector hostil va a atacar por acá y va a tener parte de razón. **Es preferible que la objeción esté escrita acá, y bien, a que la escriba otro.**
+---
+
+## SECCIÓN 27: LA VISIBILIDAD COMO PODER
+
+> *"No hay que perseguirlos. Hay que hacer que sean vistos."*
+
+### 27.1 El Mar Transparente
+
+*Esta sub-sección extiende la 19.3.2 (monitoreo satelital, AIS y drones) y la 19.3.4 (trazabilidad de la pesca con PLANISV). No las reemplaza: les agrega la pieza que les falta, que es quién aplica la consecuencia.*
+
+El diagnóstico está en PLANTER y es el siguiente. Argentina tiene 4.725 km de costa oceánica y una zona económica exclusiva de aproximadamente 1.500.000 km². La Prefectura Naval opera menos de quince buques con capacidad de patrullaje continuo. Entre 300 y 500 buques de flota extranjera operan en el límite de las 200 millas y lo sobrepasan de manera sistemática. **Argentina pierde por año entre USD 1.000 y USD 2.800 millones en recurso pesquero no controlado.**
+
+La respuesta refleja es comprar buques. Con el presupuesto íntegro que la Sección 18.1 asigna a capacidad naval —USD 500-800 millones a diez años— se compran unas pocas unidades de patrulla oceánica, cada una de las cuales cubre un punto por vez y llega después del hecho. Sobre 1.500.000 km², eso no es cobertura: es presencia simbólica cara.
+
+**Hay una capacidad argentina que ya existe y que este documento nunca nombró.** La CONAE opera la constelación SAOCOM —los satélites 1A y 1B, lanzados en 2018 y 2020, con radar de apertura sintética en banda L, que observa de noche y a través de nubes. Y VENG comercializa hoy, sobre esa constelación, un servicio de detección de buques que entrega el reporte de todas las embarcaciones detectadas con su georreferencia **dentro de las tres horas de la adquisición**, con dos productos diarios.
+
+El mecanismo entero está enunciado en la descripción comercial de ese servicio, con estas palabras: *si un barco sin datos AIS es detectado por SAOCOM, se sabe que es un barco no declarado.*
+
+Eso cambia por completo el verbo de esta sub-sección. **PLANGEO no propone construir una capacidad de monitoreo: propone escalar y abrir una que ya está operando y que hoy se vende por FTP a quien la pague.** Lo que falta no es el sensor. Es la decisión de publicar.
+
+**Las tres piezas:**
+
+1. **Ampliación de la constelación.** Más satélites y mayor frecuencia de revisita sobre el frente de la milla 201. El costo es una fracción del de una flota, y la comparación pertinente está en la Sección 27.4.
+2. **Enjambre de drones marítimos no armados de bajo costo**, desarrollados por INVAP y Fabricaciones Militares. La Sección 18.3.2 ya les asigna "drones de monitoreo marítimo" como línea de trabajo: esto es esa línea, con volumen y con destino.
+3. **El feed público.** Publicación abierta, en tiempo real, con interfaz de programación documentada. Gratuita. Sin registro. Sin condiciones de uso comercial.
+
+**Un límite que hay que declarar.** Ni la CONAE ni VENG publican el tamaño mínimo de embarcación detectable ni la cadencia efectiva de revisita sobre la totalidad de la zona económica exclusiva. Este documento **no afirma cobertura total** y no debe afirmarla hasta que esos dos parámetros estén acreditados. Lo que está acreditado es que la detección funciona y que el producto existe.
+
+### 27.2 El Certificado Que Se Regala
+
+Argentina emite el **Certificado de Trazabilidad del Atlántico Sur**. Se otorga de manera automática, sin trámite, sin costo y sin solicitud, a todo buque que cumpla dos condiciones triviales: mantener el transpondedor encendido de forma continua, y no ingresar a la zona económica exclusiva sin licencia.
+
+No hay que pedirlo. Se emite solo, por cruce satelital, y le llega al operador y a su aseguradora.
+
+La virtud del diseño no es la generosidad: es que **el certificado es gratuito y fácil, de modo que rechazarlo es una declaración.** Argentina no acusa a nadie, no inspecciona a nadie y no niega nada. Simplemente ofrece un bien sin costo que solo el operador honesto puede aceptar. El que no lo tiene se excluyó a sí mismo, y lo hizo ante un tercero que no es Argentina.
+
+### 27.3 La Capa Que Aplica el Castigo — y el Enchufe Que Falta
+
+**La premisa se confirma.** Ningún pesquero de altura opera sin cobertura de protección e indemnización. El International Group of P&I Clubs agrupa doce clubes que cubren cerca del 87% del tonelaje oceánico mundial. Y el mercado ya se movió en la dirección exacta que este mecanismo necesita:
+
+- El **Joint Hull Committee** del mercado de Londres publicó una cláusula que habilita al asegurador a **retirar la cobertura** de buques listados por pesca ilegal, no declarada y no reglamentada (INDNR), y a **cancelar la de buques relacionados con siete días de aviso**.
+- Aseguradoras de primera línea —Allianz, AXA, Generali, Hanseatic, The Shipowners' Club— se comprometieron públicamente a no asegurar a sabiendas buques incluidos en listas INDNR.
+- Existen herramientas construidas específicamente para que las mesas de suscripción evalúen riesgo de pesca ilícita antes de emitir la póliza.
+
+Es decir: **el punto de estrangulamiento del saqueo del Atlántico Sur no está en el agua. Está en una mesa de suscripción en Londres. Y esa mesa ya está dispuesta a apretarlo.**
+
+**Y acá aparece el problema, que es estructural y no de implementación.** El disparador de la cláusula no es un dato satelital. Es figurar en la lista INDNR **de una Organización Regional de Ordenamiento Pesquero**. La cláusula nombra a las OROP, no a los Estados ribereños.
+
+> **El Atlántico Sudoccidental —el Área FAO 41— es la única gran zona pesquera del mundo que no tiene OROP.**
+
+Sin OROP no hay lista. Sin lista, la cláusula no tiene de dónde agarrarse **exactamente en el océano donde a la Argentina la están saqueando**. El feed abierto de la Sección 27.1, por bueno que sea, alimentaría a un mecanismo que en el Área 41 no tiene entrada.
+
+**Y la razón por la que no hay OROP hay que escribirla, aunque sea incómoda.** Argentina no acepta al Reino Unido ni a las islas como Estado ribereño en una organización regional, y esa posición viene bloqueando la constitución de una Organización de Pesquerías del Atlántico Sudoccidental desde hace décadas. Estuvo cerca de constituirse hace veinte años. Hoy hay iniciativas de la propia industria —con participación española y brasileña— presionando ante la ONU y la FAO para crearla.
+
+Dicho de la manera más directa posible: **la posición de soberanía es lo que deja inutilizable la única palanca que castigaría el saqueo.** Entre USD 1.000 y 2.800 millones por año, con la soberanía intacta y sin ninguna consecuencia para nadie.
+
+Esta sub-sección no dice, entonces, que Argentina publique y el asegurador actúe. Dice algo más preciso y más difícil: **el mercado ya está cableado para obedecer una lista, y a la Argentina le falta el enchufe.**
+
+### 27.3.bis El Precedente, Que No Es una Hipótesis
+
+La objeción evidente es que un ordenamiento regional con el Reino Unido sentado a la mesa es incompatible con el reclamo argentino. **No lo es, y no hay que teorizarlo: ya se hizo.**
+
+Los Acuerdos de Madrid I y II —el primero surgido de la reunión del 17 al 19 de octubre de 1989, con la delegación argentina presidida por el embajador Lucio García del Solar y la británica por Sir Crispin Tickell— fundaron la fórmula jurídico-política conocida como **paraguas de soberanía**. Su cláusula central establece que nada de lo actuado en esas reuniones, ni en cualquier otra ulterior, puede interpretarse como cambio en la posición argentina sobre la soberanía o la jurisdicción territorial y marítima sobre las Islas Malvinas, Georgias del Sur y Sándwich del Sur.
+
+Y bajo esa fórmula de salvaguardia, la **Declaración Conjunta sobre Conservación de Recursos Pesqueros del 28 de noviembre de 1990** creó la **Comisión de Pesca del Atlántico Sur**. Funcionó cerca de quince años y llegó a su vigesimoséptima reunión.
+
+Se suspendió en 2005, cuando el Reino Unido otorgó licencias pesqueras por veinticinco años en las islas y Argentina rechazó la medida.
+
+**No la mató la fórmula. La mató un acto unilateral que la fórmula no tenía cómo penalizar.** El paraguas protegía la posición de cada parte, pero no imponía ningún costo a quien rompiera el arreglo. Era un acuerdo sin consecuencia — y un acuerdo sin consecuencia dura exactamente hasta que a una de las partes le convenga romperlo.
+
+### 27.3.ter Por Qué la Respuesta Ya Está en Este Bloque
+
+Lo que le faltó a la Comisión de Pesca del Atlántico Sur es, con precisión, lo que provee el Compromiso de Horizonte de la Sección 26.7: **obligación recíproca, penalidad por incumplimiento y publicación anual del cumplimiento de cada parte.** Con esos tres elementos, otorgar licencias por veinticinco años de manera unilateral deja de ser gratis.
+
+**La Organización de Pesquerías del Atlántico Sudoccidental es el primer caso de uso del Compromiso de Horizonte**, y conviene escribirlo así porque es la conexión que sostiene a las dos secciones. El Horizonte deja de ser una abstracción sobre el tiempo largo y pasa a tener un caso concreto con cifra, contraparte y precedente.
+
+Cumple además el test de la Sección 26.8 sin necesidad de forzarlo:
+
+- **(a) Preserva opciones, no impone políticas.** Una lista INDNR no decide sobre soberanía: decide sobre quién apagó el transpondedor. Ninguna de las dos partes cede posición al listar a un tercero.
+- **(b) Es recíproco.** Las dos partes reciben conservación del recurso y trazabilidad de su propia flota.
+- **(c) Pasó por el mecanismo popular de decisión.** Esta es la que hay que trabajar, y es la más difícil de todo el bloque — un compromiso a veinte años sobre el Atlántico Sur que además roza la cuestión Malvinas es el caso donde la legitimidad popular más falta hace. Es materia de PLANMESA y **sin ella no se firma**.
+
+### 27.3.quater El Costo Político, Escrito
+
+Los Acuerdos de Madrid son objeto de disputa doméstica activa. Hay corrientes que piden denunciarlos por considerarlos la base de un régimen colonial de administración de la cuestión. **Proponer volver a la fórmula del paraguas tiene costo político real, y este documento no puede presentarlo como una obviedad técnica.**
+
+El argumento honesto no es jurídico ni doctrinario. Es aritmético, y va escrito así: hoy, sin organización regional, sin lista y sin palanca, se pierden entre USD 1.000 y 2.800 millones por año, y la soberanía está intacta. La pregunta no es si la fórmula es incómoda. **La pregunta es si quince años de Comisión de Pesca costaron más que veinte años de saqueo sin consecuencia.**
+
+### 27.4 El Reemplazo de la Línea Naval
+
+De todo lo anterior se sigue una consecuencia presupuestaria directa sobre la Sección 18.1, y hay que escribirla de manera explícita para que no queden dos respuestas incompatibles en el mismo documento:
+
+**La línea de capacidad naval de USD 500-800 millones se reasigna hacia constelación satelital y enjambre de drones. No se suma. El total de la Tabla 14 de la Sección 23.1 no cambia.**
+
+La razón es que el problema es de cobertura y de mercado, no de intercepción. Una unidad de patrulla resuelve un incidente por vez y llega tarde; un satélite ve el frente entero cada día y no llega tarde a ninguna parte, porque no tiene que llegar.
+
+**El rango exacto de la reasignación queda pendiente de estimación** y no se escribe acá hasta tenerlo.
+
+**Y una aclaración necesaria sobre PLANTER, porque sin ella el corpus se contradice.** El dispositivo Mar Argentino Soberano de PLANTER propone incrementar el Servicio de Guardacostas de la Prefectura de 15 a 60 buques operativos. Eso **no contradice** a esta sección, y la línea que las separa es la milla 200:
+
+| Zona | Quién actúa | Por qué |
+|---|---|---|
+| **Dentro de la ZEE** | Guardacostas de PLANTER | Argentina tiene potestad: puede abordar, incautar y sancionar. Un buque es la herramienta correcta |
+| **Fuera de las 200 millas** | El mecanismo de esta sección | Argentina no tiene potestad, y ninguna cantidad de buques se la otorga. Es donde operan los 300 a 500 pesqueros del frente |
+
+La reasignación de la Sección 27.4 opera sobre la línea naval **de PLANGEO**, no sobre la de PLANTER. Los dos dispositivos son complementarios y cubren jurisdicciones distintas.
+
+### 27.5 El Registro de Presión
+
+> **Compuerta declarada: esta sub-sección no se implementa antes del tranche 3.** Es el único mecanismo del bloque cuya puesta en marcha constituye por sí misma un acto diplomático, y por lo tanto queda sujeta al secuenciamiento de la Sección 11.2 y a los protocolos de la Sección 22. Se escribe completa acá porque la pieza que blinda al funcionario contra la cesión silenciosa es la que más tarda en construirse políticamente: si no está escrita ahora, en el tranche 3 no va a existir.
+
+La presión geopolítica sobre un país como Argentina tiene una propiedad frágil que este documento no ha aprovechado en ninguna sección: **funciona únicamente en la oscuridad.**
+
+El embajador que llama para pedir que se demore una ley. El funcionario de un organismo multilateral que sugiere una condición que no figura en el acuerdo firmado. La corporación que avisa que "estaría reevaluando su plan de inversiones". Todos operan bajo la misma premisa: que no va a haber registro. Nadie lo pone por escrito, nadie lo dice en público, y cuando se filtra, se desmiente.
+
+**El mecanismo es una obligación de registro, no una prohibición:**
+
+> *Todo funcionario público argentino que reciba, de parte de un gobierno extranjero, organismo multilateral, empresa transnacional o representante de acreedores, un pedido, sugerencia o advertencia referida a política pública argentina, debe asentarlo dentro de las 72 horas en el Registro Público de Presión: quién, cuándo, qué pidió, qué ofreció y qué señaló como consecuencia. La omisión constituye falta grave.*
+
+Publicación inmediata, sin excepciones salvo dictamen fundado y también publicado.
+
+**Por qué desarma sin confrontar.** No prohíbe nada. Cualquier gobierno puede seguir pidiendo lo que quiera — solo que ahora lo pide sabiendo que va a estar publicado el jueves. Y ahí se abre una alternativa sin tercera salida:
+
+- Si **piden igual**, la presión queda documentada y el costo político lo paga quien presiona, ante su propia opinión pública. Un legislador extranjero explicando por qué su embajada intervino en una ley argentina tiene un problema doméstico, y el problema no es de Argentina.
+- Si **dejan de pedir**, el objetivo ya se cumplió.
+
+Conviene notar la forma del mecanismo, porque es la del bloque entero: **el Registro no es un arma que Argentina dispara. Es una condición del ambiente.** No hay acto hostil contra el cual protestar. Hay un archivo público.
+
+**El valor interno, que es la mitad del mecanismo y la que no se puede omitir.** El funcionario argentino que hoy recibe esa llamada y cede en silencio está tomando, cada vez, una decisión personal de coraje frente a alguien con más poder que él. Con el Registro, tiene una obligación legal que lo protege: *lo asiento, o cometo falta grave*. **La transparencia le saca al funcionario el peso de tener que ser valiente.** Deja de ser una decisión de carácter y pasa a ser un trámite cuya omisión tiene consecuencia. Ahí es donde se corta la captura — no en el acto heroico, sino en el procedimiento aburrido.
+
+Es la Estrategia del Espejo de la Sección 21.2, pero preventiva en lugar de reactiva.
+
+### 27.6 El Repositorio Antártico
+
+*Esta sub-sección extiende la Sección 5 (estrategia antártica y el reloj de 2048) y la 20.1.1 (Ushuaia como capital austral operativa). **Se sostiene sobre la Sección 26.7**: sin el Compromiso de Horizonte, lo que sigue es una promesa a veintidós años sin nada que la ate, y esa es la dependencia interna más fuerte de todo el bloque.*
+
+La Sección 5 afirma que cada expedición documentada y cada conjunto de datos compartido "cuenta en 2048". Es correcto, y nunca dice **dónde vive ese dato**. Esta sub-sección completa esa frase.
+
+**El mecanismo.** Toda campaña científica que zarpe desde Ushuaia aporta sus datos a un repositorio abierto, alojado en el nodo austral de ArgenCloud, con identificador digital argentino, acceso libre y sin reclamo de propiedad intelectual por parte de Argentina. Gratis. Sin condiciones. Sin reciprocidad exigida en el momento del depósito.
+
+**Por qué esto es una estrategia de soberanía y no una donación.** Veinte años de eso y la Antártida se estudia sobre infraestructura argentina. Cada trabajo publicado en el mundo sobre hielo antártico cita un conjunto de datos alojado en la Argentina. Y entonces, cuando se abra la discusión, **la pregunta deja de ser "de quién es" y pasa a ser "quién sabe"** — y la respuesta va a estar escrita en las citas de dos décadas de literatura científica revisada por pares.
+
+Es la Diplomacia de Código de la Sección 21.7 aplicada al hielo: no se disputa el territorio, se ocupa la capa de conocimiento. Y esa capa no se desaloja.
+
+**Una corrección de hecho que este documento arrastra y que acá se enmienda.** La Sección 5 afirma que "el Tratado Antártico vence en 2048". Es doblemente inexacto:
+
+- Lo que se puede revisar a partir de 2048 es el **Protocolo al Tratado Antártico sobre Protección del Medio Ambiente** —el Protocolo de Madrid, firmado el 4 de octubre de 1991 y en vigor desde el 14 de enero de 1998—, no el Tratado Antártico. Su artículo 25.2 habilita a cualquier Parte Consultiva a convocar una conferencia de revisión a partir de ese año.
+- La prohibición de toda actividad sobre recursos minerales, salvo con fines científicos, está en el **artículo 7 del Protocolo**.
+- Y **ninguno de los dos instrumentos vence**. Ni el Tratado ni el Protocolo tienen fecha de expiración. La idea de que "vencen en 2048" es un error muy extendido en la divulgación, y una estrategia a veintidós años no puede apoyarse en él.
+
+**Lo que sí es cierto y sostiene la posición argentina** es la presencia: la Base Orcadas fue transferida al gobierno argentino el 22 de febrero de 1904 por la expedición escocesa de William Speirs Bruce, y la ocupación no se interrumpió desde entonces. Es la presencia humana permanente más prolongada del continente.
+---
+
+## SECCIÓN 28: LA CAPACIDAD QUE YA EXISTE
+
+> *"No hay que construirlas. Hay que darse cuenta de que están."*
+
+Las dos secciones anteriores diseñan mecanismos nuevos. Esta no diseña nada: enumera capacidades argentinas que ya existen, que en varios casos son singulares en el mundo, y que este documento —el encargado de proyectar a la Argentina hacia afuera— no había nombrado en ninguna de sus veinticinco secciones anteriores.
+
+### 28.1 ABACC
+
+El 18 de julio de 1991, por el Acuerdo de Guadalajara para el uso exclusivamente pacífico de la energía nuclear, Argentina y Brasil crearon la **Agencia Brasileño-Argentina de Contabilidad y Control de Materiales Nucleares (ABACC)**.
+
+La ABACC administra el Sistema Común de Contabilidad y Control, de alcance pleno sobre la totalidad del material nuclear de los dos países, y realiza **inspecciones mutuas**: inspectores argentinos verifican instalaciones brasileñas e inspectores brasileños verifican instalaciones argentinas. Es la única agencia binacional de salvaguardias nucleares del mundo.
+
+El Acuerdo Cuatripartito entre Argentina, Brasil, la ABACC y el Organismo Internacional de Energía Atómica se firmó el 13 de diciembre de 1991 y entró en vigor el 4 de marzo de 1994. El arreglo funciona sin interrupción desde entonces.
+
+**Conviene medir lo que eso significa.** Dos países que habían desarrollado programas nucleares paralelos, que se vigilaban mutuamente, y cuyas trayectorias apuntaban en la dirección conocida, resolvieron el problema de seguridad más difícil que existe —cómo dos rivales dejan de armarse sin que ninguno quede expuesto— **con contabilidad**. No con un tratado de renuncia, no con garantías de terceros, no con disuasión. Con inventarios verificados de manera cruzada.
+
+No se conoce otro caso de dos Estados con programas nucleares paralelos que hayan construido verificación mutua permanente y la hayan sostenido durante décadas. India y Pakistán no lo tienen. Las dos Coreas no lo tienen. Ningún par del Golfo lo tiene.
+
+Y no aparece mencionado en ninguna línea del corpus ¡BASTA!.
+
+### 28.2 El Protocolo ABACC como Producto
+
+**El mecanismo.** Argentina y Brasil empaquetan lo que construyeron y lo ofrecen: metodología de contabilidad de materiales, arquitectura de gobernanza paritaria, procedimientos de inspección cruzada, régimen de confidencialidad, y un cuerpo de inspectores argentino-brasileño disponible como tercero neutral para díadas que lo requieran.
+
+Argentina deja de presentarse como un país del Sur que pide consideración y pasa a ser **el país que sabe cómo dos enemigos dejan de armarse**. Eso no se sanciona. Eso se pide.
+
+Se acopla con la Sección 16 —Sur Global— y con la Sección 21.7 —la diplomacia de código, que busca convertir protocolos argentinos en estándares internacionales—, y no requiere presupuesto nuevo: la agencia existe, el personal existe, la metodología está escrita y auditada hace treinta y cinco años.
+
+Hay una tercera capa, más lenta y más importante. Si el protocolo se adopta entre pares que hoy no confían entre sí, los inspectores argentino-brasileños entran a las instalaciones más sensibles del planeta. Argentina no se convierte en potencia nuclear. **Se convierte en el país que sabe** — y en el siglo XXI eso pesa más.
+
+### 28.3 El Anexo de Exportación
+
+Argentina integra el grupo muy reducido de países que exportan reactores nucleares de investigación. INVAP ganó la licitación internacional del reactor **OPAL** para Australia en el año 2000 —20 MW, del orden de USD 200 millones, la mayor exportación tecnológica de la historia argentina—, construyó el **ETRR-2** de 22 MW para Egipto, el **NUR** de 1 MW para Argelia, y ganó la licitación del **PALLAS** para los Países Bajos, de complejidad comparable a la del OPAL.
+
+Ninguno de esos hechos figura en PLANGEO. El plan encargado de la proyección internacional de la Argentina no nombra a la empresa que colocó tecnología nuclear argentina en cuatro continentes.
+
+**El mecanismo.** Toda exportación nuclear argentina incorpora un anexo obligatorio de verificación con metodología ABACC: el comprador acepta contabilidad de materiales, inspección y publicación de inventarios bajo el sistema argentino-brasileño.
+
+Produce dos efectos, y el segundo es el estratégico:
+
+1. Cada reactor exportado siembra una célula del régimen de verificación más exitoso que existe.
+2. **Argentina se vuelve muy difícil de sancionar precisamente en el terreno donde más se la podría sancionar.** El régimen internacional de no proliferación existe para impedir que la tecnología nuclear se disperse sin control. Un país que exporta tecnología nuclear *con* control, y con un control más estricto que el estándar mínimo, no es un problema para ese régimen: es su mejor proveedor. **No se castiga al proveedor que hace el trabajo del régimen mejor que el estándar.**
+
+### 28.4 La Ley del Segundo Proveedor
+
+*Extiende la Sección 18.2.3, que ya establece auditoría de hardware en infraestructura crítica. Auditar verifica lo que ya se compró; esta regla cambia qué se puede comprar.*
+
+**El mecanismo.** Ningún sistema crítico del Estado argentino puede superar un umbral declarado de dependencia respecto de un solo proveedor, un solo sistema operativo o una sola jurisdicción. El cumplimiento se publica por organismo en un tablero abierto.
+
+**El umbral no se fija en este documento.** Tiene que salir de un análisis de concentración real de las compras públicas argentinas, no de una intuición. Se declara como parámetro a determinar en la Pre-Fase.
+
+Una regla de este tipo parece costo puro: se compra dos veces, se integra el doble, se mantienen dos entornos. **No lo es, y la razón está en la publicidad del tablero.**
+
+Cuando la regla y su cumplimiento son públicos, cada proveedor sabe dos cosas con certeza: que hay un segundo lugar garantizado, y que el primero está topeado. Eso convierte cada licitación en una competencia por un espacio que existe de verdad. El proveedor grande no puede ser desplazado del todo, pero tampoco puede quedarse con todo; el chico tiene una porción real por la que competir, no una promesa. Donde había un monopolio con cliente cautivo, pasa a haber dos oferentes permanentes. **El ahorro por competencia financia la redundancia.**
+
+Y hay un tercer efecto que importa más que los dos anteriores. **No se pueden operar dos entornos sin gente propia que entienda los dos.** La regla obliga al Estado a reconstruir capacidad técnica interna — que es la soberanía digital real, la que se ejerce, no la que se declara en un decreto.
+
+### 28.5 Insumos Críticos
+
+Un país que no puede medicar a su población durante seis meses de interrupción del suministro no es soberano, por más satélites que tenga. La misma lógica vale para insumos hospitalarios y para fertilizantes en plena campaña.
+
+Este documento **no cuantifica el grado de dependencia argentina en principios activos farmacéuticos**, porque no dispone de una fuente que lo acredite. La cifra queda como tarea de la Pre-Fase, a obtener de ANMAT, de las cámaras del sector y del INDEC, y **el mecanismo se propone sin ella** — porque una reserva estratégica es prudente aunque la dependencia resulte menor de lo que se supone, y porque este bloque no escribe números que no puede defender.
+
+**Tres capas:**
+
+1. **Reserva estratégica rotativa** de medicamentos esenciales, insumos hospitalarios críticos y fertilizantes. Rotación permanente contra el consumo corriente, de modo que nada venza y el costo sea financiero y no de descarte.
+2. **Capacidad latente de fabricación de emergencia.** Plantas que producen a baja escala en tiempos normales y pueden escalar en crisis. Es el modelo que Argentina improvisó con los respiradores en 2020, institucionalizado por vía de las Empresas Bastardas de PLANEB.
+3. **Reservas Estratégicas Cruzadas.** Argentina almacena en su territorio reservas alimentarias de países importadores, a cambio de que ellos almacenen en el suyo insumos críticos argentinos. Es la indispensabilidad de la Sección 2, pero física y con contrapartes que reaccionan: **atacar a la Argentina pasa a ser, de manera literal, atacar la reserva de un tercero.**
+
+### 28.6 La Doctrina del Erizo
+
+*Esta sub-sección reemplaza a la Sección 18.2.4.*
+
+La Sección 18.2.4 sostiene que Argentina necesita "capacidad ofensiva disuasoria": la aptitud técnica de responder un ciberataque con un ciberataque equivalente, y que los adversarios potenciales sepan que esa capacidad existe.
+
+**Es falso, y sostenerlo debilita al resto de la Sección 18.** Argentina no gana una escalada cibernética ofensiva contra ningún actor con capacidad e interés real de atacarla. No la gana con USD 200-400 millones ni con diez veces eso. Prometer una capacidad que no se va a tener no disuade a nadie: informa al adversario de que el documento no distingue entre lo que quiere y lo que puede.
+
+**La inversión de la premisa.** No hay que ser peligroso. Hay que ser **poco rentable de atacar.** Un ciberataque tiene sentido si te tumba. Si el país puede funcionar tres días sin red y sin energía, el ataque no compra nada, y esa aritmética la hace el atacante antes de decidir.
+
+**Cuatro componentes:**
+
+1. **Modo degradado ensayado.** Cada servicio crítico —salud, pagos, agua, energía, registro electoral— tiene un procedimiento en papel, escrito, actualizado y **ensayado de verdad**. No un anexo del manual: un ejercicio con fecha.
+2. **Desconcentración geográfica.** Hoy prácticamente toda la infraestructura crítica argentina está concentrada en un área metropolitana. Es un punto único de falla del tamaño de un tercio del país.
+3. **Diversidad obligatoria**, que es la Sección 28.4 aplicada a la resiliencia: sin monocultivo tecnológico, un compromiso no se propaga a todo el sistema.
+4. **El simulacro nacional, publicado.** Un ejercicio anual de interrupción, con resultados abiertos. Genera capacidad real, genera cultura, y es en sí mismo la señal dirigida a quien esté evaluando el costo y el beneficio de atacarnos.
+
+Se acopla directamente con el Kit de Despliegue de Crisis de PLANRUTA, que ya tiene escrito el protocolo de las primeras 72 horas para crisis internas. La doctrina del erizo es ese mismo protocolo, ensayado antes y contra un origen externo.
+
+---
+
+**Cierre del bloque.** Los ocho mecanismos de las Secciones 26, 27 y 28 comparten una forma y conviene dejarla enunciada:
+
+| Mecanismo | El adversario | Cómo se desarma |
+|---|---|---|
+| Cláusula del Buitre (26.2) | Fondo litigante | Ganar el juicio no paga más que el precio pagado |
+| Conversión de jurisdicción (26.3) | Fondo litigante | La cautelar que necesita destruye el foro donde cobrarla |
+| Cláusula Espejo (26.4) | Estado que sanciona | Su propio capital invertido argumenta en contra |
+| Compromiso de Horizonte (26.7) | El tiempo argentino | Incumplir le cuesta ante treinta contrapartes, no ante un juez local |
+| Mar Transparente (27.1-27.3) | Flota depredadora | El asegurador le retira la cobertura |
+| Registro de Presión (27.5) | Gobierno que presiona | Presionar le cuesta ante su propia opinión pública |
+| Anexo ABACC (28.3) | Régimen de no proliferación | No se castiga a quien hace su trabajo mejor que el estándar |
+| Segundo Proveedor (28.4) | Monopolio tecnológico | Compite contra sí mismo por la porción que no puede tener |
+
+Ninguno requiere un ejército. Ninguno requiere ganar una votación en un foro multilateral. Ninguno requiere que alguien de afuera se comporte bien. Y ninguno puede desactivarse con una llamada telefónica, porque no hay un funcionario argentino con potestad para ceder: la defensa está en el contrato, en el dato público o en la regla de compra.
+
+> *"El poder no es la capacidad de hacerle daño al otro. Es la capacidad de que el daño que el otro te quiera hacer le salga más caro a él que a vos."*
 ---
 
 > *"No pedimos permiso. No vendemos ideología. Ofrecemos infraestructura. El que la necesita, la toma. El que la teme, que explique por qué."*

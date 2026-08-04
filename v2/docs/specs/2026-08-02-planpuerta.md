@@ -85,7 +85,7 @@ Cruzado con §1.3: **para los dos tercios de la población inmigrante que ya viv
 
 ### 3.2 Por qué no se denuncia el tratado
 
-Un sistema puramente selectivo exigiría denunciar o renegociar el Acuerdo. Eso rompe PLANGEO de punta a punta: `PLANGEO:425` le propone a Bolivia y Chile cogobernar el litio en la Agencia del Litio del Cono Sur, y `PLANGEO:1148-1149` monta la expansión de la Red Soberana sobre adopción municipal en la región. **No se le pide a Bolivia que comparta el triángulo del litio el mismo año que se le cierra la puerta a sus ciudadanos.**
+Un sistema puramente selectivo exigiría denunciar o renegociar el Acuerdo. Eso rompe PLANGEO de punta a punta: `PLANGEO:427` le propone a Bolivia y Chile cogobernar el litio en la Agencia del Litio del Cono Sur, y `PLANGEO:1153-1154` monta la expansión de la Red Soberana sobre adopción municipal en la región. **No se le pide a Bolivia que comparta el triángulo del litio el mismo año que se le cierra la puerta a sus ciudadanos.**
 
 ### 3.3 La decisión: B+C
 
@@ -493,7 +493,7 @@ Y la premisa del «nadie mide retención» fue refutada **tres veces** antes de 
 
 ## 17. Fuentes
 
-**Corpus:** `PLAN_REGISTRY.yml`, `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`, `COVERAGE_GAPS_ASSIGNMENTS.md`, `PRESUPUESTO_CONSOLIDADO_BASTA.md`, `PLANJUS:2194,2357,2366-2367`, `PLANVIV:1566`, `PLANCUIDADO:318`, `PLANREP:1811,2182`, `PLANSAL:626`, `PLAN24CN:2475`, `PLANGEO:425,1151`.
+**Corpus:** `PLAN_REGISTRY.yml`, `ACTA_LEVANTAMIENTO_FREEZE_2026-07-26.md`, `COVERAGE_GAPS_ASSIGNMENTS.md`, `PRESUPUESTO_CONSOLIDADO_BASTA.md`, `PLANJUS:2194,2357,2366-2367`, `PLANVIV:1566`, `PLANCUIDADO:318`, `PLANREP:1811,2182`, `PLANSAL:626`, `PLAN24CN:2475`, `PLANGEO:427,1156`.
 
 **Externas:**
 - Acuerdo de Residencia MERCOSUR (2002), Ley 25.903; Ley 25.871 art. 23 — [argentina.gob.ar](https://www.argentina.gob.ar/servicio/obtener-una-residencia-temporaria-por-nacionalidad-mercosur)

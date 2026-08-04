@@ -439,7 +439,7 @@ Un régimen de visas tiene categorías; este PLAN tiene tres puertas, y lo que l
 
 **La Puerta de Derecho.** Es la del Acuerdo de Residencia del MERCOSUR que la SECCIÓN 1 ya fechó, y es más grande de lo que sugiere el mapa: además de los Estados parte y de Bolivia y Chile, rige para Perú desde 2011, Colombia desde 2012 y Ecuador desde 2014. Los limítrofes solos ya aportan el 65,9% de la población inmigrante del Censo 2022 (censo.gob.ar). Está abierta, es derecho por tratado, y este PLAN no la toca.
 
-Falta la razón. Un sistema puramente selectivo exigiría denunciar o renegociar ese Acuerdo, y eso rompe PLANGEO de punta a punta: `PLANGEO:425` le propone a Bolivia y a Chile cogobernar el litio en la **Agencia del Litio del Cono Sur**, y `PLANGEO:1148-1149` monta la expansión de la **Red Soberana** sobre la adopción municipal en la región. No se le pide a Bolivia que comparta el triángulo del litio el mismo año que se le cierra la puerta a sus ciudadanos: la coherencia regional es la condición de dos capítulos ajenos ya escritos y presupuestados.
+Falta la razón. Un sistema puramente selectivo exigiría denunciar o renegociar ese Acuerdo, y eso rompe PLANGEO de punta a punta: `PLANGEO:427` le propone a Bolivia y a Chile cogobernar el litio en la **Agencia del Litio del Cono Sur**, y `PLANGEO:1153-1154` monta la expansión de la **Red Soberana** sobre la adopción municipal en la región. No se le pide a Bolivia que comparta el triángulo del litio el mismo año que se le cierra la puerta a sus ciudadanos: la coherencia regional es la condición de dos capítulos ajenos ya escritos y presupuestados.
 
 De ahí sale una consecuencia de diseño que va contra la intuición: **el que entra por la Puerta de Derecho puede firmar un Contrato de Puerta igual que el fichado.** Si hay una fila de la Lista que le corresponde, la firma. Un Paquete reservado a los invitados fabricaría las castas que la SECCIÓN 3 se negó a indexar.
 
@@ -800,7 +800,7 @@ PLANPUERTA entró sin huésped y sin sacarle un peso a ningún PLAN existente: s
 | **PLAN24CN** | Población para veinticuatro ciudades que no tienen escrito quién las habita |
 | **PLANREP** | La Puerta del Regreso, que le faltaba al PLAN que declaró el riesgo de ser fábrica de emigrantes (`PLANREP:2182`) |
 | **PLANPREGUNTA** | Fichajes contra las Preguntas Nacionales que no tienen quién las conteste |
-| **PLANGEO** | El Techo de Origen como módulo exportable, y la no denuncia del MERCOSUR, que le deja en pie la Agencia del Litio del Cono Sur (`PLANGEO:425`) |
+| **PLANGEO** | El Techo de Origen como módulo exportable, y la no denuncia del MERCOSUR, que le deja en pie la Agencia del Litio del Cono Sur (`PLANGEO:427`) |
 | **PLANJUS** | Su compromiso de no compartir estatus migratorio (`PLANJUS:2366`) deja de ser una línea suelta y pasa a renglón del Marco |
 | **PLANMEMORIA** | La cláusula anti-4.144, con su ley, su fecha y su autor escritos para poder citarla |
 

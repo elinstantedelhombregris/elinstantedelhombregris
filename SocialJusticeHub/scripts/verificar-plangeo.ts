@@ -21,8 +21,8 @@
  *
  * ── LO PROPIO DE ESTA GUARDIA ───────────────────────────────────────────────
  * Es la única del repositorio que **se mira desde afuera**. Cuatro documentos
- * ajenos citan a PLANGEO por número de línea (`PLANGEO:207`, `:223`, `:425`,
- * `:1148-1149`, `:1151`) y ocho de las once ediciones forzadas del bloque
+ * ajenos citan a PLANGEO por número de línea (`PLANGEO:209`, `:427`,
+ * `:1153-1154`, `:1156`) y ocho de las once ediciones forzadas del bloque
  * S26-S28 corren dos de esas anclas. `verificar-remisiones.ts` detecta que la
  * cita apunte a una línea que existe; esto detecta que la línea siga diciendo
  * lo que el citador afirma que dice, que no es lo mismo y es lo que rompe.
@@ -116,24 +116,24 @@ export const PROHIBIDOS: { patron: string; excepcion?: string; porque: string }[
  */
 export const ANCLAS_AJENAS: { linea: number; debeContener: string; quienCita: string }[] = [
   {
-    linea: 207,
+    linea: 209,
     debeContener: 'cero lock-in',
     quienCita: 'PLANPREGUNTA (documento, copia pública, .mdx de v2) y arquitecto-data.ts:711 (arista d200)',
   },
   {
-    linea: 425,
+    linea: 427,
     debeContener: 'Coordinación del Triángulo',
     quienCita: 'PLANPUERTA (documento, spec, plan) y verificar-planpuerta.ts:397',
   },
   {
-    linea: 1148,
+    linea: 1153,
     debeContener: 'Las ciudades adoptantes se conectan directamente a la Red Soberana',
     quienCita: 'PLANPUERTA (documento, spec, plan) y verificar-planpuerta.ts:402',
   },
   {
-    linea: 1151,
+    linea: 1156,
     debeContener: 'Por qué es poderosa',
-    quienCita: 'ídem — es el ancla :1151 que el plan de PLANPUERTA documenta explícitamente',
+    quienCita: 'ídem — es el ancla que el plan de PLANPUERTA documenta explícitamente (era :1151 antes del bloque S26-S28)',
   },
 ];
 

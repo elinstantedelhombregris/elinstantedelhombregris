@@ -394,12 +394,12 @@ export const CIFRAS_CANONICAS: CifraCanonica[] = [
   {
     valor: /Agencia del Litio/u,
     ancla: /PLANGEO|:\s*425/u,
-    porQue: 'por qué no se denuncia MERCOSUR: PLANGEO:425 le propone a Bolivia y Chile cogobernar el litio en la Agencia del Litio del Cono Sur',
+    porQue: 'por qué no se denuncia MERCOSUR: PLANGEO:427 le propone a Bolivia y Chile cogobernar el litio en la Agencia del Litio del Cono Sur',
   },
   {
     valor: /Red Soberana/u,
     ancla: /PLANGEO|:\s*114[89]|municipal/u,
-    porQue: 'ídem: PLANGEO:1148-1149 monta la expansión de la Red Soberana sobre adopción municipal en la región (commit 447c659: :1151 es el «Por qué es poderosa» y :1150 está en blanco)',
+    porQue: 'ídem: PLANGEO:1153-1154 monta la expansión de la Red Soberana sobre adopción municipal en la región (commit 447c659: :1156 es el «Por qué es poderosa» y :1155 está en blanco)',
   },
   {
     valor: /f[áa]brica de emigrantes/u,

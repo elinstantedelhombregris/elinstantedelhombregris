@@ -49,6 +49,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-022](#d-022--los-cuatro-planes-de-julio-nunca-entraron-a-presupuesto_consolidado_bastamd) | Los cuatro PLANes de julio nunca entraron a `PRESUPUESTO_CONSOLIDADO_BASTA.md` | Media | Abierta |
 | [D-023](#d-023--la-sección-9-de-planpuerta-se-pasó-248-palabras-del-techo-y-nadie-lo-vio) | La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo | Baja | Abierta |
 | [D-024](#d-024--hay-dos-suites-de-tests-en-el-repo-y-sólo-una-corre-en-ci) | Hay dos suites de tests en el repo y sólo una corre en CI | Media | Abierta |
+| [D-028](#d-028--editar-la-portada-de-un-plan-corre-todas-sus-anclas-de-remisión) | Editar la portada de un PLAN corre todas sus anclas de remisión | Media | Abierta |
 
 ---
 
@@ -625,3 +626,21 @@ Hasta ahora era tolerable porque el mapa era una pantalla enterrada en `/territo
 **Por qué no se arregla acá:** unificar en MapLibre nativo (`@maplibre/maplibre-react-native`) es un cambio de dependencia pesada con su propia configuración de build en iOS y Android, y merece su propio ADR según la regla de dependencias pesadas de `v2/CLAUDE.md`.
 
 **Qué haría falta:** un ADR que compare `@maplibre/maplibre-react-native` contra seguir con el split, midiendo tamaño de bundle, estabilidad en SDK 57 y cuánto código de capa se puede compartir de verdad. Si se unifica, `TerritoryMap.*` colapsa de tres archivos a uno.
+
+
+---
+
+### D-028 · Editar la portada de un PLAN corre todas sus anclas de remisión
+
+**Dónde:** `v2/docs/plans/2026-08-03-plangeo-mecanismos.md` — orden de las tareas 6, 7 y 8
+**Encontrada:** 2026-08-03, ejecutando el bloque MECANISMOS de PLANGEO
+**Severidad:** media
+**Estado:** abierta
+
+El plan ordenó las ediciones forzadas **de abajo hacia arriba** justamente para que cada inserción no invalidara los números de la siguiente, y funcionó. Pero después puso la Task 7 —cabecera del documento a v1.2— **entre** la Task 6 y la Task 8, que es la que recalcula las anclas.
+
+La cabecera es el bloque de portada, o sea lo más alto del archivo. Agregarle dos líneas corrió **las cuatro** anclas a la vez, incluidas `:207` y `:425`, que hasta ese momento el análisis daba por intocables porque toda edición forzada caía por debajo de ellas. Hubo que recalcular dos veces y tocar nueve archivos en lugar de cinco.
+
+**Por qué importa más allá de este caso.** La regla «de abajo hacia arriba» se pensó para las ediciones *de contenido* y no cubrió la edición *de metadatos*. Cualquier cambio de versión, de conteo de secciones o de bloque de portada es, para las anclas, la edición más destructiva posible — y es justo la que uno hace al final, cuando ya cree que terminó.
+
+**Cómo se arregla:** en los planes que editan un documento citado por línea, la tarea de cabecera va **antes** que la de contenido, o el recálculo de anclas va **al final de todo**, después de la cabecera. Nunca en el medio. La guardia de PLANGEO lo detectó las dos veces, así que el costo fue tiempo y no un corpus roto — pero lo detectó porque existe, y las guardias de los otros PLANes no verifican anclas ajenas.

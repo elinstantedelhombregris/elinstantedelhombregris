@@ -267,7 +267,7 @@ plans:
 
   - code: PLANGEO
     title: Análisis Estratégico Internacional + Diplomacia Sobria
-    version: 2026-04
+    version: 2026-08
     status: current
     phase: research-only
     mission_matrix: Ámbar
@@ -276,7 +276,7 @@ plans:
     owner: TBD-PEO-asignar
     dependencies: [PLANRUTA]
     legal_instruments: []
-    last_updated: 2026-04-22
+    last_updated: 2026-08-03
 
   - code: PLAN24CN
     title: Capital Nacional — Labs de Diseño

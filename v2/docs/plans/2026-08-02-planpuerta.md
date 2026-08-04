@@ -121,8 +121,8 @@ La guardia verifica que cada una aparezca con su ancla en la misma oración, al 
 | ~3,5 millones de empleados públicos | `PLANREP:87` (TABLA 1) | por qué existe la Regla de Subsidiariedad |
 | acceso pleno sin verificar estatus migratorio; no se comparte con Migraciones | `PLANJUS:2366` | el compromiso que se hereda |
 | derechos migratorios de reunificación | `PLANCUIDADO:318` | de dónde sale el Compadrazgo de Llegada |
-| Agencia del Litio del Cono Sur con Bolivia y Chile | `PLANGEO:425` | por qué no se denuncia MERCOSUR |
-| adopción municipal de la Red Soberana | `PLANGEO:1148-1149` | ídem |
+| Agencia del Litio del Cono Sur con Bolivia y Chile | `PLANGEO:427` | por qué no se denuncia MERCOSUR |
+| adopción municipal de la Red Soberana | `PLANGEO:1153-1154` | ídem |
 | «fábrica de emigrantes» subsidiada | `PLANREP:2182` | el problema inverso que este PLAN cierra |
 
 ---
@@ -375,7 +375,7 @@ git commit -m "Add la guardia de PLANPUERTA y el esqueleto — arranca en rojo c
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANPUERTA_Argentina_ES.md`
 
-- [ ] **SECCIÓN 5 — Tramo 2.** D4 Las Tres Puertas (de Derecho — MERCOSUR, `Ley 25.903`, no se toca y se explica por qué con `PLANGEO:425`; de Invitación; del Regreso). D5 El Contrato de Puerta — **el dispositivo que convierte «salir si se desconsideran los ideales» en mecanismo legítimo**: se revoca contra lo que la persona firmó, nunca contra un ideal interpretado por un funcionario. D6 **El Compadrazgo de Llegada** — NO «Padrinazgo»: `PLANMESA:88` usa esa palabra una sola vez y en sentido peyorativo, y `PLANARCO:574` ya resolvió el problema usando el **Compadrazgo** tipificado en `PLANCUIDADO:307`. Se reusa esa figura, no se inventa una nueva. Sin Estado.
+- [ ] **SECCIÓN 5 — Tramo 2.** D4 Las Tres Puertas (de Derecho — MERCOSUR, `Ley 25.903`, no se toca y se explica por qué con `PLANGEO:427`; de Invitación; del Regreso). D5 El Contrato de Puerta — **el dispositivo que convierte «salir si se desconsideran los ideales» en mecanismo legítimo**: se revoca contra lo que la persona firmó, nunca contra un ideal interpretado por un funcionario. D6 **El Compadrazgo de Llegada** — NO «Padrinazgo»: `PLANMESA:88` usa esa palabra una sola vez y en sentido peyorativo, y `PLANARCO:574` ya resolvió el problema usando el **Compadrazgo** tipificado en `PLANCUIDADO:307`. Se reusa esa figura, no se inventa una nueva. Sin Estado.
 - [ ] **SECCIÓN 6 — Tramo 3.** D7 El Paquete en tres piezas con su condición de conservación cada una: tierra con obligación de uso (lotes de PLAN24CN, `PRESUPUESTO_CONSOLIDADO_BASTA.md:33`; *no comprás la entrada, la pagás con trabajo*), exención temporal (modelo italiano con su cifra), silla en la Mesa antes de la ciudadanía. D8 La Regla del Problema Pago, derivada del hallazgo de Chile. **D11 La Revalidación por Desempeño** — la restricción que ata todo el PLAN; no se le saca al colegio la facultad de habilitar, se le cambia la evidencia con la que habilita.
 - [ ] D11 vuelve explícitamente sobre el médico del preámbulo. El hilo se cierra acá, no en el CIERRE.
 - [ ] Verificar rangos y guardia. Commit.

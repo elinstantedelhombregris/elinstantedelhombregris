@@ -202,7 +202,7 @@ Verificado línea por línea, y es la mejor noticia del tramo:
 | Banco de germoplasma | existe; caso Doña Rosa 2029→2031→2035, +40% bajo estrés hídrico, con regalías a la comunidad | `PLANISV:2588` | El único precedente interno del Barro y del cupo |
 | Archivo de PLANMEMORIA | siete nodos, hash, Síndico de Archivo remunerado como investigador | `PLANMEMORIA:283`, `:297`, `:315` | El Sello publica, **PLANMEMORIA custodia** |
 | Gap de industria y ciencia | *«PENDIENTE DE EVALUACIÓN»*, con PLANCYT propuesto y diferido «no antes de 12 meses» | `ANALISIS_CONEXIONES_22_PLANES.md` **§9.4** (`:869-871`), `:880`, `:884`, `:1091` | **Arreglo 11: la cita es §9.4, no `audit/05`.** Y el diferimiento se cita, porque este documento lo desobedece |
-| Stack de PLANGEO | módulos open-source, cero lock-in, forkeables | `PLANGEO:199-207`, `:223` | El destino de la exportación del método (Fase 2040+) |
+| Stack de PLANGEO | módulos open-source, cero lock-in, forkeables | `PLANGEO:201-209`, `:223` | El destino de la exportación del método (Fase 2040+) |
 
 ### Strings prohibidos — cada uno con su razón, y todos en la guardia
 
@@ -562,7 +562,7 @@ El resto de la sección: los `requires` y `provides` en prosa, con **modo degrad
 - **PLANDIG y PLANEDU y PLANEB** pierden un sub-mandato que tenían asignado — aunque el acta ya declaró que **es una objeción de diseño y no un reproche por incumplimiento** (`ACTA:100-108`), y eso se cita.
 - **Y una ausencia que se escribe:** `PLANMON` **no** entra en esta lista. Ya perdió el nombre de su fondo y el objetivo de capital, pero eso lo cobró `PLANARCO:900`, no este documento. **Cobrarlo dos veces sería inflar el mapa**, y un mapa inflado se lee como un mapa falso.
 
-**SECCIÓN 16 — HOJA DE RUTA.** Las cinco fases de la spec: el registro antes que la plata (2029-30) · las primeras cien Preguntas (2030-32) · la Cátedra y el Regreso (2032-35) · régimen pleno (2035-40) · **la exportación del método como Stack de PLANGEO (2040+)**, que es `PLANGEO:199-207` con su cero lock-in.
+**SECCIÓN 16 — HOJA DE RUTA.** Las cinco fases de la spec: el registro antes que la plata (2029-30) · las primeras cien Preguntas (2030-32) · la Cátedra y el Regreso (2032-35) · régimen pleno (2035-40) · **la exportación del método como Stack de PLANGEO (2040+)**, que es `PLANGEO:201-209` con su cero lock-in.
 
 **SECCIÓN 17 — TABLERO · SECCIÓN 19 — FEDERAL · SECCIÓN 20 — VISIÓN 2040 · SECCIÓN 21 — PROTOCOLO DE FALLA.** Forma del corpus. La dimensión federal de este PLAN es real y no decorativa: las Preguntas son territoriales y las Cátedras se mueven.
 

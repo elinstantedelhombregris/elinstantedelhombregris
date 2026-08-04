@@ -43,6 +43,8 @@ Mapa de Fricción · Navegación US-China · Alineamiento UE
 Reforma Mercosur · BRICS+ · Atlántico Sur · Antártida
 Malvinas: Estrategia Bifurcada · Arquitectura Comercial
 Postura de Defensa · Cibersoberanía · Ideas sin Frontera
+El Contrato como Defensa · La Visibilidad como Poder
+La Capacidad que Ya Existe · Compromiso de Horizonte
 Integración con Plataforma ¡BASTA! · Visión 2040
 
 Preparado para la República Argentina
@@ -50,7 +52,7 @@ Ministerio de Relaciones Exteriores · Ministerio de Defensa
 Ministerio de Economía · Secretaría de Asuntos Estratégicos
 Consejo Nacional de Estrategia Geopolítica (CNEG)
 
-Marzo 2026 | Versión 1.1
+Marzo 2026 | Versión 1.2 (bloque MECANISMOS, agosto 2026)
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
@@ -466,7 +468,7 @@ PLANAGUA ya diseñó la infraestructura doméstica. PLANGEO la proyecta internac
 
 Argentina tiene la presencia continua más antigua en la Antártida (Base Orcadas, 1904 — 122 años ininterrumpidos). Tiene 6 bases permanentes y 7 estacionales. Tiene la ciudad más cercana al continente antártico (Ushuaia). Tiene infraestructura logística que otros países envidian.
 
-El Tratado Antártico vence en 2048. No "expira" técnicamente — permite revisión a partir de ese año. Cuando eso ocurra, las reclamaciones territoriales que hoy están congeladas se descongelarán. Y el país con mayor presencia, mayor infraestructura y mayor actividad científica tendrá la posición más fuerte.
+El instrumento revisable es el **Protocolo al Tratado Antártico sobre Protección del Medio Ambiente** —el Protocolo de Madrid, firmado el 4 de octubre de 1991 y en vigor desde el 14 de enero de 1998—, cuyo artículo 25.2 habilita a cualquier Parte Consultiva a convocar una conferencia de revisión **a partir de 2048**. La prohibición de toda actividad sobre recursos minerales, salvo con fines científicos, está en su artículo 7. **Ni el Tratado Antártico ni el Protocolo tienen fecha de vencimiento**: la idea de que "vencen en 2048" es un error extendido y una estrategia a veintidós años no puede apoyarse en él. Lo que sí ocurre a partir de ese año es que la revisión se vuelve convocable, y con ella se reabre la discusión sobre las reclamaciones hoy congeladas. *Dónde vive el dato que sostiene esa posición está en la Sección 27.6.* Cuando eso ocurra, las reclamaciones territoriales que hoy están congeladas se descongelarán. Y el país con mayor presencia, mayor infraestructura y mayor actividad científica tendrá la posición más fuerte.
 
 **Estrategia antártica 2026-2048:**
 
@@ -711,7 +713,7 @@ Esta sección consolida todas las amenazas identificadas en los Stacks individua
 | Banco Mundial | PLAN24CN (ciudades sin préstamos BM), Stack Urbano exportable | Restricción de financiamiento, descalificación técnica | Media | Financiamiento alternativo (bonos ciudadanos, Red Soberana) |
 | OMC | PLANEB (competencia desleal alegada), litio (restricciones de exportación) | Paneles de disputa, sanciones comerciales autorizadas | Media-Alta | Diseño legal preventivo: Bastardas como entidades sin ánimo de lucro, no subsidios |
 | JIFE (Junta Internacional de Fiscalización de Estupefacientes) | PLANSUS (denuncia de convenciones) | Recomendaciones negativas, presión sobre otros países | Media | Coalición reformista + publicación de evidencia |
-| Calificadoras (Moody's, S&P, Fitch) | Todo ¡BASTA! (percepción de "riesgo institucional") | Downgrade soberano → encarecimiento de deuda | Alta | Metodología de calificación soberana alternativa (Sección 21) |
+| Calificadoras (Moody's, S&P, Fitch) | Todo ¡BASTA! (percepción de "riesgo institucional") | Downgrade soberano → encarecimiento de deuda → **litigio de holdouts sobre la deuda abaratada** | Alta | Metodología de calificación soberana alternativa (Sección 21) **+ Cláusula del Buitre (26.2), que es la que protege del segundo tramo: el ISN es una narrativa alternativa y no impide un embargo** |
 
 ### 11.2 El Escenario Cascada: Cuando Todo Se Activa a la Vez
 
@@ -730,6 +732,7 @@ El peor escenario no es un actor individual atacando. Es la cascada:
 - **Secuenciamiento estratégico.** No lanzar todas las iniciativas juntas. PLANEB primero (empresas al costo — difícil de atacar retóricamente). PLANDIG segundo (soberanía digital — alineado con tendencia global). PLANSUS tercero — cuando la Red Soberana ya tenga masa crítica.
 - **Colchón financiero.** Antes de cada lanzamiento confrontativo, constituir reservas: swap de monedas con China, acuerdo de suministro de GNL con la UE, reserva alimentaria. No lanzar batallas sin municiones.
 - **Narrativa preventiva.** Antes de cada lanzamiento, publicar el caso con datos, en todos los idiomas relevantes, en medios del Sur Global, en universidades del Norte Global, en think tanks. Que la narrativa de Argentina llegue antes que la narrativa contra Argentina.
+- **Mecanismos que no requieren decisión en crisis.** La cascada es, con precisión, el momento en que un funcionario bajo presión cede — y ninguna de las contramedidas anteriores funciona si depende de que alguien decida bien un martes a la tarde. Las cláusulas de la Sección 26 se activan solas porque viven en el instrumento, y el Registro de Presión (27.5) convierte la cesión silenciosa en falta grave. **Lo que hay que tener firmado antes de la cascada no es un plan de respuesta: son contratos.**
 - **Aceleración de infraestructura paralela.** Antes de denunciar convenciones de drogas, tener el sistema de pagos soberano operativo. Antes de confrontar a Big Tech, tener ArgenCloud con al menos 3 nodos internacionales. Nunca provocar una desconexión que pueda ejecutarse.
 
 ---
@@ -996,6 +999,8 @@ Argentina tiene una relación crónica con el FMI — ciclos de endeudamiento, c
 
 3. **Fase de autonomía (2030-2033).** Argentina tiene superávit comercial estructural (GNL + litio industrializado + servicios de asistencia técnica de la Red Soberana). El programa FMI expira y no se renueva. La calificadora soberana alternativa (ISN, Sección 21.5) ofrece una narrativa de solvencia que no depende de Moody's. Argentina propone en la Red Soberana un "Fondo de Estabilización Soberano" — una alternativa al FMI para países miembros que necesiten liquidez de emergencia, financiado con contribuciones de la red y sin condicionalidad de austeridad.
 
+**La pieza que falta en la fase de convivencia: la jurisdicción.** El desacople gradual del FMI no protege del vector que ya se materializó una vez — un tribunal extranjero decidiendo si Argentina puede pagarle a quienes aceptaron una reestructuración. Toda emisión de la fase 2026-2028 lleva Cláusula del Buitre y conversión automática de foro (**Sección 26.2-26.3**). No es un agregado técnico: es la condición para que las fases 2 y 3 no se ejecuten sobre un piso que un juez de Manhattan puede levantar.
+
 **Coexistencia legal ¡BASTA!-FMI:** Las Empresas Bastardas (PLANEB) no usan fondos públicos — se capitalizan con aportes ciudadanos. Los Fideicomisos Productivos (PLANREP) se financian con bonos, no con deuda soberana. ArgenCloud (PLANDIG) se financia con reasignación presupuestaria de defensa y coinversión de adoptantes. Ninguno de estos instrumentos viola las cláusulas estándar de un programa FMI — porque no son gasto público deficitario. Son inversión productiva con retorno. Si el FMI objeta, la respuesta es técnica, no política: "Mostranos qué cláusula viola." Si no puede, la objeción se deslegitima sola.
 
 ---
@@ -1020,7 +1025,7 @@ Argentina gasta el 0,7% de su PBI en defensa — uno de los más bajos del mundo
 | Ciberdefensa | Crear Comando de Ciberdefensa con capacidad defensiva y ofensiva | USD 200-400M (5 años) |
 | Contrainteligencia | Reforzar capacidad de detección de operaciones encubiertas | USD 100-200M (5 años) |
 | Defensa de infraestructura crítica | Protección física y digital de nodos de ArgenCloud, plantas de litio, puertos GNL | USD 300-500M (5 años) |
-| Capacidad naval | Patrullaje efectivo de Zona Económica Exclusiva (plataforma continental extendida) | USD 500-800M (10 años) |
+| Capacidad naval → **cobertura satelital y no tripulada** | Constelación SAOCOM ampliada + enjambre de drones no armados. **Esta línea se REASIGNA, no se suma** — ver Sección 27.4: el problema es de cobertura y de mercado, no de intercepción | USD 500-800M (10 años) reasignados desde la línea naval, sin cambio en el total de la Tabla 14 |
 | Capacidad antártica | Logística militar para sostener presencia antártica ampliada | USD 200-300M (10 años) |
 
 ### 18.2 Cibersoberanía
@@ -1035,7 +1040,7 @@ La cibersoberanía no es solo defensa contra ataques. Es la capacidad de operar 
 
 3. **Auditoría de hardware.** Todo hardware en infraestructura crítica pasa por auditoría de seguridad independiente. No porque los proveedores sean maliciosos — porque no podemos confiar en lo que no podemos verificar.
 
-4. **Capacidad ofensiva disuasoria.** Como la disuasión nuclear, la ciberdisuasión funciona por capacidad conocida, no por uso. Argentina necesita la capacidad técnica de responder a un ciberataque con un ciberataque equivalente — y que los adversarios potenciales sepan que esa capacidad existe.
+4. **Resiliencia como disuasión — la doctrina del erizo.** Argentina no gana una escalada cibernética ofensiva contra ningún actor con capacidad e interés real de atacarla, y prometer esa capacidad no disuade a nadie: informa al adversario de que este documento no distingue entre lo que quiere y lo que puede. La disuasión efectiva para un país de estos recursos es la inversa. **No hay que ser peligroso: hay que ser poco rentable de atacar.** Un ciberataque compra algo si te tumba; si el país opera tres días sin red y sin energía, no compra nada, y esa cuenta la hace el atacante antes de decidir. Los cuatro componentes —modo degradado ensayado, desconcentración geográfica, diversidad tecnológica obligatoria y simulacro nacional publicado— están en la **Sección 28.6**.
 
 ### 18.3 Alineamiento Institucional Militar
 
@@ -1101,7 +1106,7 @@ Mientras la capa diplomática habla, la capa de infraestructura construye:
 
 3. **Conectividad submarina.** Tender cables submarinos de fibra óptica que conecten el continente argentino con los países de la Red Soberana vía el Atlántico Sur — pasando por la plataforma continental argentina. Si la infraestructura de telecomunicaciones del Atlántico Sur es argentina, la relevancia de una base británica en las islas se reduce.
 
-4. **Pesca soberana.** Implementar la trazabilidad blockchain de PLANISV para toda la pesca en la Zona Económica Exclusiva argentina. Los barcos que pescan ilegalmente en la zona (mayoritariamente con licencia británica de Malvinas) quedan registrados y sus productos marcados como "pesca no trazada" — bloqueados del acceso a mercados premium (UE, Japón) que exigen trazabilidad.
+4. **Pesca soberana.** *El monitoreo del punto 2 y el sello de este punto son el sensor y la etiqueta — no el mecanismo completo. Quién aplica la consecuencia está en la Sección 27.1-27.3, y la respuesta es que no la aplica Argentina.* Implementar la trazabilidad blockchain de PLANISV para toda la pesca en la Zona Económica Exclusiva argentina. Los barcos que pescan ilegalmente en la zona (mayoritariamente con licencia británica de Malvinas) quedan registrados y sus productos marcados como "pesca no trazada" — bloqueados del acceso a mercados premium (UE, Japón) que exigen trazabilidad.
 
 5. **Atracción económica de los isleños.** Los 3.500 habitantes de Malvinas dependen económicamente de la pesca (licencias) y del apoyo militar británico. Argentina ofrece gradualmente mejores condiciones: acceso al sistema de salud PLANSAL, educación bilingüe, conectividad mejorada, integración en la economía del continente. No se trata de comprar lealtad — se trata de hacer que la vida mirando hacia el continente sea objetivamente mejor que la vida mirando hacia Londres.
 
@@ -1123,7 +1128,7 @@ El Atlántico Sur y la Antártida son el espacio donde convergen todos los inter
 
 **Estrategia de proyección austral:**
 
-1. **Ushuaia como Capital Austral.** No simbólicamente — operativamente. Ushuaia debe ser el centro logístico, científico, turístico y de monitoreo de todo lo que pasa al sur del paralelo 50°. Inversión en puerto profundo, aeropuerto expandido, centro de datos (nodo austral de ArgenCloud), y sede del programa antártico.
+1. **Ushuaia como Capital Austral.** *La contraparte de esta línea es el repositorio antártico de la Sección 27.6: la logística sin la capa de datos produce un puerto, no una posición.* No simbólicamente — operativamente. Ushuaia debe ser el centro logístico, científico, turístico y de monitoreo de todo lo que pasa al sur del paralelo 50°. Inversión en puerto profundo, aeropuerto expandido, centro de datos (nodo austral de ArgenCloud), y sede del programa antártico.
 
 2. **Alianza Austral.** Argentina, Chile, Sudáfrica, Australia, Nueva Zelanda — los cinco países del hemisferio sur con intereses antárticos y atlántico-sur/pacífico-sur significativos. Una coordinación informal (no bloque) para posiciones comunes en gobernanza antártica, regulación pesquera, y proyección del hemisferio sur.
 
@@ -1303,7 +1308,7 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 **Probabilidad:** Muy baja si se respeta el secuenciamiento estratégico de la Sección 11.2. Media-baja si se lanza PLANSUS sin preparación.
 
 **Protocolo:**
-- **Pre-sanción (preparación):** Sistema de pagos soberano operativo. Swap de monedas con China (USD 18.000M existente + ampliación). Acuerdo de suministro energético con la UE (que no va a querer perder GNL por sanciones de EEUU). Reserva alimentaria constituida (6 meses de exportación).
+- **Pre-sanción (preparación):** **Cláusula Espejo (Sección 26.4) en todo contrato de inversión extranjera vigente — es la pieza que hay que tener firmada ANTES, porque después de la sanción ya no se negocia; y Cláusula del Buitre (26.2) en toda emisión, para que el ahorcamiento financiero no tenga foro donde ejecutarse.** Sistema de pagos soberano operativo. Swap de monedas con China (USD 18.000M existente + ampliación). Acuerdo de suministro energético con la UE (que no va a querer perder GNL por sanciones de EEUU). Reserva alimentaria constituida (6 meses de exportación).
 - **Post-sanción (respuesta):** Activar sistema de pagos alternativo. Comerciar con la Red Soberana + China + Rusia (si es necesario) en monedas locales. Publicar toda la evidencia de la sanción y sus causas — transparencia total como arma de presión moral. Movilizar a los Anticuerpos (Sección 21.4) en EEUU para presión interna.
 
 ### 22.3 Escenario 3: Desestabilización Política Interna
@@ -1315,6 +1320,7 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 **Protocolo:**
 - **Prevención:** ¡BASTA! no debe ser un proyecto de un gobierno. Debe ser un proyecto del pueblo — implementado por ley, con agencias autónomas protegidas constitucionalmente, con presupuestos garantizados. Si un cambio de gobierno puede deshacer ¡BASTA!, ¡BASTA! es frágil. Si deshacer ¡BASTA! requiere reformar la Constitución, ¡BASTA! es resiliente.
 - **Blindaje institucional:** Las agencias (ANEB, ANSUS, etc.) tienen mandatos de 6 años no coincidentes con el ciclo presidencial. Los presupuestos son constitucionales, no legislativos. Los protocolos son open-source y no dependen de servidores gubernamentales.
+- **Blindaje de horizonte:** El blindaje constitucional protege contra el cambio de gobierno, pero lo que se crea por vía interna se deroga por la misma vía interna. Para la clase acotada de compromisos que solo rinden a veinte años —el repositorio antártico, el ordenamiento pesquero regional— la protección es el **Compromiso de Horizonte de la Sección 26.7**: el compromiso se escribe hacia afuera, con contrapartes que no votan en Argentina. **No reemplaza al blindaje constitucional: lo complementa**, y solo para esa clase. Sus tres límites verificables están en la Sección 26.8, y sin ellos el mecanismo sería la mejor herramienta de captura de este documento.
 - **Blindaje social:** Si ¡BASTA! funciona — si los argentinos pagan menos por seguros, tienen mejor salud, acceden a mejor educación — deshacerlo tiene un costo electoral que ningún opositor racional pagaría. La mejor defensa contra la desestabilización es que ¡BASTA! mejore la vida de la gente de forma medible y visible.
 
 ### 22.4 Escenario 4: Aliados Clave Defeccionan
@@ -1398,6 +1404,10 @@ La inversión es grande. El retorno es mayor. Y lo que no se puede cuantificar �
 | **PLANAGUA** | Gobernanza transnacional del Guaraní + criosfera andina | DAO del Guaraní + alianza austral con Chile |
 | **PLANJUS** | Reconocimiento internacional de mecanismos alternativos de justicia | Standards track + alianza con países con sistemas judiciales colapsados |
 | **PLANISV** | Acceso a mercados agrícolas premium + protección contra barreras fitosanitarias | Alineamiento UE + trazabilidad blockchain como estándar |
+| **PLANMON** | Jurisdicción de la deuda soberana y defensa contra litigio de holdouts | Cláusula del Buitre y conversión automática de foro (Sección 26.2-26.3) + Tribunal Arbitral de Deuda Soberana (26.5) |
+| **PLANTER** | Consecuencia efectiva sobre la pesca que opera fuera de las 200 millas, donde su Servicio de Guardacostas no tiene potestad | Mar Transparente y capa aseguradora (Sección 27.1-27.3). **Los dos dispositivos son complementarios: la frontera es la milla 200** |
+| **PLANMESA** | — | El Compromiso de Horizonte (26.7) **le requiere** un mecanismo popular de decisión con umbral propio para compromisos de veinte años. Sin él, PLANGEO no firma Horizonte |
+| **PLANSEG** | — | La cuestión de las armas civiles **queda fuera del alcance de PLANGEO**: es seguridad interna, no coerción externa. Se anota acá para que la ausencia sea deliberada y no un olvido |
 
 ### 24.2 Secuenciamiento de Lanzamiento Internacional
 
@@ -1491,6 +1501,8 @@ PLANGEO no garantiza el éxito. Garantiza que si Argentina fracasa, no será por
 Y si eso pasa — si el mundo elige eso con los ojos abiertos — entonces al menos Argentina habrá obligado a elegir. Habrá puesto las herramientas sobre la mesa y dicho: *acá están. Son gratis. Son abiertas. Son de todos. Usenlas o no las usen. Pero no digan que no había alternativa.*
 
 Porque la alternativa siempre existió. Solo faltaba quien se atreviera a construirla.
+
+> **Nota editorial sobre la ubicación de las Secciones 26 a 28.** El bloque MECANISMOS se agregó en agosto de 2026 y editorialmente debería ir antes de esta Visión 2040, que es el cierre natural del documento. Se lo apendó después por una razón mecánica y no estética: insertarlo antes obligaba a renumerar cuatro secciones existentes, y el corpus ¡BASTA! cita a PLANGEO **por número de línea** desde PLANPUERTA, PLANPREGUNTA y dos guardias de integración continua. Renumerar habría roto esas remisiones en silencio. **Se priorizó cero remisiones rotas sobre la prolijidad de la secuencia**, y el costo queda declarado acá en lugar de disimulado.
 
 ---
 

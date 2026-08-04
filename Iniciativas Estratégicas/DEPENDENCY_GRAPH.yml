@@ -157,11 +157,11 @@ nodes:
     notas: "Research académico únicamente. Sin presupuesto operativo en tranche-1/2."
 
   PLANGEO:
-    depends_on: [PLANRUTA]
-    provides_to: [análisis interno]
+    depends_on: [PLANRUTA, PLANMESA]
+    provides_to: [análisis interno, PLANMON, PLANTER, PLANDIG, PLANRUTA]
     integration_strength: baja
     publico: false
-    notas: "Análisis interno + diplomacia sobria pública. Material confrontacional permanece privado."
+    notas: "Análisis interno + diplomacia sobria pública. Material confrontacional permanece privado. Desde el bloque MECANISMOS (S26-S28, ago-2026) aporta hacia afuera: jurisdicción de deuda a PLANMON, capa aseguradora a PLANTER (complementaria, fuera de las 200 millas), repositorio antártico y regla de segundo proveedor a PLANDIG, modo degradado a PLANRUTA. Depende de PLANMESA: sin mecanismo popular de decisión no se firma Compromiso de Horizonte."
 
   PLAN24CN:
     depends_on: [PLANTER, PLANEN, PLANDIG (estadio B activado), PLANRUTA]
