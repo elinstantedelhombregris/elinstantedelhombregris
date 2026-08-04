@@ -6,9 +6,10 @@
       "runtimeExecutable": "bash",
       "runtimeArgs": [
         "-lc",
-        "cd v2/apps/web && pnpm dev --port 5273"
+        "cd v2/apps/web && pnpm dev --port \"${PORT:-5273}\""
       ],
-      "port": 5273
+      "port": 5273,
+      "autoPort": true
     },
     {
       "name": "v2-api",
@@ -33,9 +34,10 @@
       "runtimeExecutable": "bash",
       "runtimeArgs": [
         "-lc",
-        "cd juego && npx expo start --web --port 8082"
+        "cd v2/apps/mobile && npx expo start --web --port \"$PORT\""
       ],
-      "port": 8082
+      "port": 8082,
+      "autoPort": true
     }
   ]
 }
