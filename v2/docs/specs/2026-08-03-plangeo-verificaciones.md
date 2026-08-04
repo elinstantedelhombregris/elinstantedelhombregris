@@ -152,6 +152,26 @@ S27.3 no puede decir «Argentina publica y el asegurador actúa». Tiene que dec
 
 ---
 
+## V7-bis — El paraguas de soberanía y la CPAS 🟢
+
+*Verificación agregada el 2026-08-03, después de que el autor eligiera el camino (a).*
+
+**Acreditado, y el precedente es exacto.**
+
+- Los **Acuerdos de Madrid I y II** (1989 y 1990) fundaron la fórmula jurídico-política del **paraguas de soberanía**. Madrid I: reunión del **17 al 19 de octubre de 1989**, delegación argentina presidida por el embajador **Lucio García del Solar**, británica por **Sir Crispin Tickell**. La cláusula establece que nada de lo actuado se interpreta como cambio en la posición argentina sobre soberanía o jurisdicción territorial y marítima sobre Malvinas, Georgias del Sur y Sándwich del Sur.
+- La **Comisión de Pesca del Atlántico Sur (CPAS)** fue creada por la **Declaración Conjunta sobre Conservación de Recursos Pesqueros del 28 de noviembre de 1990**, explícitamente **bajo fórmula de salvaguardia de soberanía**.
+- **Funcionó cerca de quince años y llegó a su vigesimoséptima reunión.** Se suspendió en **2005** —comunicado conjunto de la XXVII reunión, 15 de julio de 2005, Londres— cuando el Reino Unido otorgó licencias pesqueras por **veinticinco años** en las islas y Argentina rechazó la medida.
+
+**Las tres consecuencias para el diseño:**
+
+1. **La fórmula no es una hipótesis: es un dispositivo probado y aplicado a esta materia exacta.** La S27.3.bis deja de proponer algo nuevo y pasa a explicar por qué murió algo que funcionaba.
+2. **Lo que la mató fue un acto unilateral que la fórmula no podía penalizar** — no un defecto de la fórmula. Y eso es precisamente el hueco que la S26.7 llena: reciprocidad, penalidad y publicación anual del cumplimiento. **La OROP es el primer caso de uso del Compromiso de Horizonte**, y esa conexión no estaba en el diseño original: la trajo la verificación.
+3. **El costo político es real y hay que escribirlo.** Los Acuerdos de Madrid son objeto de disputa doméstica activa, con corrientes que piden denunciarlos por considerarlos base de un régimen colonial. El documento no puede presentar el paraguas como una obviedad técnica.
+
+**Fuentes:** [Cancillería — Conversaciones y entendimientos bilaterales con el Reino Unido](https://cancilleria.gob.ar/es/politica-exterior/cuestion-malvinas/conversaciones-y-entendimientos-bilaterales-con-el-reino-unido) · [Acuerdo de Madrid I — texto](https://www.dipublico.org/4049/acuerdo-de-madrid-i-declaracion-conjunta-de-las-delegaciones-de-la-republica-argentina-y-del-reino-unido-de-gran-bretana-e-irlanda-del-norte/) · [SciELO — la fórmula del paraguas de soberanía](https://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S2314-27662019000100013) · [Cancillería — XXIV Reunión de la CPAS](https://cancilleria.gob.ar/en/node/34552)
+
+---
+
 ## V8 — Antártida 🟢, y PLANGEO tiene un error de instrumento
 
 **Acreditado:**
