@@ -2,8 +2,9 @@
 
 **Fecha:** 2026-08-03
 **Documento objetivo:** `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md` (ordinal 12, v1.1, 1.570 líneas, 25 secciones)
-**Salida:** un bloque nuevo de tres secciones (S26–S28), diez ediciones forzadas sobre secciones existentes, y una entrada de deuda propia
+**Salida:** un bloque nuevo de tres secciones (S26–S28), once ediciones forzadas sobre secciones existentes, y una entrada de deuda propia
 **Plan de implementación:** `v2/docs/plans/2026-08-03-plangeo-mecanismos.md` (9 tareas; arranca por las verificaciones, no por la guardia)
+**Verificación:** `v2/docs/specs/2026-08-03-plangeo-verificaciones.md` — **cerrada 2026-08-03**, diez hechos contra fuente primaria. Ocho verdes, una verde con corrección de fondo (V7), una ámbar (V10). **Leerla antes que esta spec:** cambió el diseño de la S27
 **Precedente de estilo:** `v2/docs/specs/2026-08-03-plansus-marcos-de-atraccion.md`
 
 > **Tesis.** PLANGEO tiene una doctrina de plataforma excelente y una postura de coerción dura
@@ -130,9 +131,9 @@ Epígrafe propuesto: *«Un acuerdo bien escrito es un ejército que no come.»*
 
 Epígrafe propuesto: *«No hay que perseguirlos. Hay que hacer que sean vistos.»*
 
-- **27.1 El Mar Transparente.** *Extiende S19.3.2 y S19.3.4 — remisión explícita.* Tres piezas: constelación de radar propia (SAOCOM, CONAE) ampliada; enjambre de drones marítimos no armados de bajo costo (INVAP + Fabricaciones Militares, engancha con S18.3.2 que ya les asigna «drones de monitoreo marítimo»); y el feed público en tiempo real con API abierta, regalado a aseguradores, certificadoras, importadores y ONGs.
+- **27.1 El Mar Transparente.** *Extiende S19.3.2 y S19.3.4 — remisión explícita.* **Corregido por V6: la sub-sección no propone construir una capacidad, propone escalar y abrir una que ya existe y ya se vende.** VENG comercializa detección de buques sobre SAOCOM 1A/1B con entrega dentro de las tres horas, y enuncia el mecanismo con estas palabras: *«si un barco sin datos AIS es detectado por SAOCOM, se sabe que es un barco no declarado»*. Eso cambia el argumento entero — no hay que pedirle al lector que crea en una capacidad futura. **Lo que falta no es el sensor: es la decisión de publicar.** Tres piezas: la constelación ampliada; el enjambre de drones no armados (INVAP + Fabricaciones Militares, engancha con S18.3.2 que ya les asigna «drones de monitoreo marítimo»); y el feed público con API abierta. **No afirmar cobertura total:** ni CONAE ni VENG publican tamaño mínimo detectable ni cadencia de revisita sobre la ZEE, y ese hueco se declara.
 - **27.2 El certificado que se regala.** Se otorga automáticamente, sin trámite y sin costo, al buque que mantiene el transpondedor encendido y no entra a la ZEE sin licencia. **Equilibrio separador:** el que lo rechaza se está declarando. Argentina no acusa a nadie.
-- **27.3 La capa que aplica el castigo.** Ningún pesquero de altura opera sin cobertura de protección e indemnización. Cuando el feed argentino es el mejor dato disponible y es gratis, se vuelve el que la mesa de suscripción usa — y un buque con historial de apagones documentado pasa a ser riesgo no suscribible. **El punto de estrangulamiento del saqueo del Atlántico Sur no está en el agua: está en una mesa de suscripción en Londres.** Argentina no sanciona, no persigue, no rompe con nadie, no gasta en enforcement. Solo hace visible.
+- **27.3 La capa que aplica el castigo — y el enchufe que falta.** *Rediseñada por V7. Es el hallazgo más importante de la verificación y hay que escribirlo entero, incluida la parte incómoda.* La premisa se confirmó: el castigo lo aplica la mesa de suscripción y no el Estado costero. El International Group cubre alrededor del 87% del tonelaje oceánico; el **Joint Hull Committee** del mercado de Londres publicó una cláusula que permite retirar cobertura a buques listados como INDNR y cancelar la de buques relacionados con siete días de aviso; Allianz, AXA, Generali y otras se comprometieron a no asegurarlos; y existe **Vessel Viewer** para que los suscriptores evalúen riesgo de pesca ilícita. **El mecanismo existe y ya opera en el mundo.** Pero **el disparador no es un dato satelital: es figurar en la lista INDNR de una OROP** — y el Atlántico Sudoccidental (Área FAO 41) es la única gran zona pesquera del planeta **sin OROP**. Sin OROP no hay lista; sin lista, la cláusula no tiene de dónde agarrarse justo en el océano donde nos saquean. **Y la razón por la que no hay OROP es la posición argentina sobre Malvinas**: Argentina no acepta al Reino Unido ni a las islas como Estado ribereño, y eso bloquea la constitución de la organización desde hace décadas. Hay que escribirlo aunque incomode: **la posición de soberanía es lo que deja inutilizable la única palanca que castigaría el saqueo**, entre USD 1.000 y 2.800 millones al año. La sub-sección no dice «Argentina publica y el asegurador actúa»: dice que **el mercado ya está cableado para obedecer una lista y a la Argentina le falta el enchufe.** Las dos salidas —(a) la OROP con paraguas de soberanía, que conecta esta sección con la S19 de un modo que PLANGEO hoy no tiene; (b) la lista propia, que no concede nada pero es más lenta y más débil porque la cláusula nombra a las OROP— van planteadas como decisión abierta, no resuelta acá.
 - **27.4 Reemplazo de la línea naval.** Consecuencia presupuestaria explícita sobre S18.1: **la línea de USD 500-800M en capacidad naval se reasigna**, no se suma. Una corbeta patrulla un punto por vez y llega tarde; el problema es de cobertura y de mercado, no de intercepción. *(Rango de reasignación: pendiente de estimación, ver §11.)*
 - **27.5 El Registro de Presión.** *Compuerta de tranche declarada — no antes de tranche-3.* Todo funcionario que reciba de un gobierno extranjero, organismo multilateral, transnacional o representante de acreedores un pedido, sugerencia o advertencia sobre política pública argentina lo registra en 72 horas: quién, cuándo, qué pidió, qué ofreció, qué insinuó como consecuencia. Publicación inmediata. **No prohíbe pedir.** Abre una tenaza sin salida: si piden igual, el costo político lo paga el que presiona ante su propia opinión pública; si dejan de pedir, ya ganaste. El valor mayor es interno y hay que escribirlo así: **le saca al funcionario el peso de tener que ser valiente.** Deja de ser una decisión de coraje y pasa a ser un trámite cuya omisión es falta grave.
 - **27.6 El commons antártico.** *Extiende S5 (reloj 2048) y S20.1.1 (Ushuaia). Se sostiene con S26.7 — sin el Horizonte, esta sub-sección es una promesa a veintidós años sin nada que la ate, y hay que remitir de forma explícita porque es la dependencia interna más fuerte del bloque.* Toda campaña que zarpa de Ushuaia aporta sus datos científicos a un repositorio abierto alojado en el nodo austral de ArgenCloud, con DOI argentino, acceso libre y sin reclamo de propiedad. S5.475 ya dice que cada dataset compartido «cuenta en 2048» y nunca dice dónde vive. **La estrategia no es reclamar: es que en 2048 la pregunta haya dejado de ser de quién es y haya pasado a ser quién sabe** — y que la respuesta esté escrita en veinte años de citas. Es la Diplomacia de Código (S21.7) aplicada al hielo.
@@ -164,16 +165,17 @@ Epígrafe propuesto: *«No hay que construirlas. Hay que darse cuenta de que est
 | 8 | S22.2 (sanciones financieras) | Agregar Cláusula Espejo y Cláusula del Buitre al bloque de pre-sanción | El protocolo actual es 100% reactivo salvo por el colchón financiero |
 | 9 | S24.1 | Tabla de servicio a cada PLAN: filas nuevas de PLANMON (jurisdicción de deuda), PLANSEG (armas) y PLANTER (mar) | La tabla es el índice de integración y quedaría desactualizada |
 | 10 | S22.3 | Blindaje institucional: agregar el Horizonte como **complemento** del blindaje constitucional, con remisión a S26.7 y S26.8 | S22.3 hoy propone una sola vía —constitucionalizar— para un problema que tiene dos caras. Si el Horizonte no se ancla ahí, el documento propone dos respuestas al mismo problema en dos lugares sin saber una de la otra |
+| 11 | **S5, línea 469** | **Corrección de hecho.** «El Tratado Antártico vence en 2048» → lo revisable desde 2048 es el **Protocolo de Madrid** (art. 25.2), no el Tratado; la prohibición minera está en el **art. 7 del Protocolo**; y **ninguno de los dos «vence»** | V8. El documento nombra mal el instrumento y después se desmiente a sí mismo en la oración siguiente («no "expira" técnicamente»). **La S27.6 se apoya en ese bloque:** no se construye una estrategia a veintidós años sobre una frase que nombra mal el tratado |
 
 ### 6.bis Las remisiones que estas ediciones mueven
 
-**Corrección al §5.** La decisión de apendar sin renumerar evita romper remisiones por *ordinal*, pero no alcanza: el corpus cita a PLANGEO **por número de línea**, y las diez ediciones forzadas corren líneas. Verificado con `grep -rn 'PLANGEO:[0-9]'`:
+**Corrección al §5.** La decisión de apendar sin renumerar evita romper remisiones por *ordinal*, pero no alcanza: el corpus cita a PLANGEO **por número de línea**, y las once ediciones forzadas corren líneas. Verificado con `grep -rn 'PLANGEO:[0-9]'`:
 
 | Ancla | Qué hay ahí | Quién la cita | ¿La mueven las ediciones? |
 |---|---|---|---|
 | `PLANGEO:199-207`, `:207`, `:223` | El «cero lock-in» del Stack y la tabla de módulos | PLANPREGUNTA (documento, copia pública, `.mdx` de v2), `arquitecto-data.ts:711` (arista `d200`), plan del tramo D | **No.** Toda edición forzada cae por debajo de la línea 425 |
 | `PLANGEO:425` | Agencia del Litio del Cono Sur | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:397` | **No.** La edición más alta es la de S5 (~469), que está por debajo |
-| `PLANGEO:1148-1149`, `:1151` | Adopción municipal de la Red Soberana (S21.1) | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:402` | **Sí — siete de las diez ediciones las corren.** S5, S11, S17.4, S18.1, S18.2.4, S19.3 y S20.1 están todas por encima de 1148. Las tres restantes (S22.2, S22.3, S24.1) caen por debajo y no las mueven |
+| `PLANGEO:1148-1149`, `:1151` | Adopción municipal de la Red Soberana (S21.1) | PLANPUERTA (documento, spec, plan), `verificar-planpuerta.ts:402` | **Sí — ocho de las once ediciones las corren.** S5 (dos: E7-bis y E11), S11, S17.4, S18.1, S18.2.4, S19.3 y S20.1 están todas por encima de 1148. Las tres restantes (S22.2, S22.3, S24.1) caen por debajo y no las mueven |
 
 Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho remisiones de PLANARCO, y esta vez se detectó antes. Tres consecuencias para el plan:
 
@@ -191,6 +193,7 @@ Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho r
 |---|---|
 | **PLANMON** | Único documento que hoy nombra `holdout`. S26 es la contraparte externa de su arquitectura monetaria; hay que verificar que no se contradigan sobre emisión de deuda |
 | **PLANISV** | La trazabilidad blockchain es la Pieza 2 de S27; el certificado es su interfaz de exportación |
+| **PLANTER** ⚠️ | **Conflicto de doctrina detectado en V9, sin resolver.** `PLANTER:93` propone, como dispositivo Mar Argentino Soberano, *«incremento del Servicio de Guardacostas de la PNA de 15 a 60 buques operativos»*. **Es exactamente la doctrina que la S27 dice que no funciona.** Dos salidas honestas: **complementariedad** —los guardacostas ejercen jurisdicción *dentro* de la ZEE, donde Argentina tiene potestad; el mecanismo de mercado opera *fuera* de las 200 millas, donde no la tiene, y es probablemente la lectura correcta— o **contradicción declarada**, y uno de los dos documentos revisa su cifra. Lo que no se puede es escribir la S27.4 sin nombrar que PLANTER pide cuadruplicar la flota. Decisión del autor |
 | **PLANDIG** | ArgenCloud aloja el commons antártico (S27.6); la Ley del Segundo Proveedor (S28.4) es una regla de compras que PLANDIG tiene que poder ejecutar |
 | **PLANEN / PLAN24CN / PLANMESA / PLANMEMORIA** | Ya nombran a INVAP. S28.3 lo trae a PLANGEO por primera vez — chequear que la caracterización no choque |
 | **PLANRUTA** | El Kit de Despliegue de Crisis es la implementación del modo degradado de S28.6 |
@@ -207,7 +210,7 @@ Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho r
 
 1. **La Cláusula del Buitre encarece la emisión y nadie sabe cuánto.** Es el riesgo real. Si la sobretasa fuera grande, el mecanismo es una póliza cara vendida como gratuita. **Bloqueante para el plan de implementación:** no se escribe la cifra sin modelo.
 2. **La Cláusula Espejo puede leerse como riesgo expropiatorio** y ahuyentar inversión que la Argentina necesita — exactamente el problema que PLANSUS acaba de declarar como compuerta hacia PLANMON. Mitigación de diseño: simetría, publicidad, no discriminación por país, activación solo ante sanción estatal. Aun así el riesgo queda escrito, no minimizado.
-3. **La capa aseguradora es una hipótesis sobre el comportamiento de terceros.** Todo S27.3 depende de que las mesas de suscripción efectivamente incorporen el feed. Es lo más elegante del bloque y lo más frágil: si no lo adoptan, queda un sistema de monitoreo caro sin consecuencia. Mitigación: el feed sirve igual a certificadoras e importadores, que son varias puertas independientes.
+3. **~~La capa aseguradora es una hipótesis~~ — resuelto por V7, y el riesgo real es otro.** Ya no hay riesgo de que el mecanismo no exista: existe, con cláusula del Joint Hull Committee y compromisos públicos de aseguradoras. **El riesgo se movió al enchufe:** todo S27.3 depende ahora de que exista una lista INDNR para el Área 41, y eso depende de una OROP que la propia posición argentina bloquea. Es un riesgo político, no de mercado, y es mucho más grande que el anterior porque **no lo puede mitigar el diseño**. Mitigación parcial: el feed sirve igual a certificadoras e importadores, que son puertas independientes de la aseguradora — pero son puertas más blandas.
 4. **El Registro de Presión choca de frente con la directiva de diplomacia sobria.** Se mitiga con compuerta, no se resuelve.
 5. **Todo S28 depende de hechos externos que este spec no verificó.** Ver §11.
 6. **Riesgo de tono.** El bloque es el más «astuto» del documento y PLANGEO es un PLAN interno de un movimiento que se presenta como transparente. Si se escribe con épica de espionaje, contradice al proyecto. Se escribe en registro de ingeniería institucional: mecanismos, costos, compuertas.
@@ -243,9 +246,15 @@ Es exactamente el modo de falla que en el tramo D de PLANPREGUNTA rompió ocho r
 
 ---
 
-## 11. Verificación previa — bloqueante para el plan de implementación
+## 11. Verificación previa — **CERRADA 2026-08-03**
 
-Los hechos de abajo sostienen el bloque y **provienen de conocimiento del modelo, no de fuente consultada en esta sesión.** Ninguno se escribe en el documento antes de verificarse contra fuente primaria. Es literalmente el hallazgo de D-015 (PLANSUS) aplicado antes y no después.
+> **Estado: las diez cerradas contra fuente primaria.** Ocho verdes, una verde con corrección de fondo (V7), una ámbar (V10). El ledger completo, con fuentes y con lo que cada una le cambió al diseño, está en **`v2/docs/specs/2026-08-03-plangeo-verificaciones.md`**. Esta tabla queda como registro de lo que se preguntó.
+>
+> **Lo que la verificación cambió, en tres líneas:** el Mar Transparente no hay que construirlo —VENG ya lo vende sobre SAOCOM—; la capa aseguradora existe pero se dispara con listas de OROP y **el Atlántico Sudoccidental es la única gran zona pesquera del mundo sin OROP, por la posición argentina sobre Malvinas**; y PLANGEO nombra mal el instrumento antártico en su línea 469.
+>
+> **Valió la pena hacerla antes.** Si la S27 se hubiera escrito primero, habría descrito un mecanismo que en el Área 41 no tiene dónde enchufarse — y habría sonado perfectamente convincente.
+
+Los hechos de abajo sostenían el bloque y **provenían de conocimiento del modelo, no de fuente consultada.** Ninguno se escribió en el documento antes de verificarse. Es literalmente el hallazgo de D-015 (PLANSUS) aplicado antes y no después.
 
 | # | Afirmación | Dónde se usa | Fuente primaria a conseguir |
 |---|---|---|---|
@@ -260,7 +269,14 @@ Los hechos de abajo sostienen el bloque y **provienen de conocimiento del modelo
 | V9 | Cifras de saqueo pesquero del Atlántico Sur | S27.1 | **PLANTER ya las trae con fuente: usar esas, no generar nuevas** |
 | V10 | Dependencia argentina de principios activos farmacéuticos importados | S28.5 | **PLANSAL y PLANSUS ya tocan producción local: partir de ahí** |
 
-V6 y V7 son las dos que pueden matar S27 entero. Se verifican primero.
+V6 y V7 eran las dos que podían matar S27 entero. Se verificaron primero, y fue la decisión correcta: **V6 la fortaleció y V7 la rediseñó.**
+
+### 11.bis Lo que quedó abierto después de verificar
+
+1. **La decisión OROP: (a) paraguas de soberanía o (b) lista propia.** Es del autor y condiciona toda la S27.3. **Bloqueante para la Task 4 del plan.**
+2. **El conflicto con el Mar Argentino Soberano de PLANTER** (15 → 60 buques). Complementariedad o contradicción declarada. **Bloqueante para la S27.4.**
+3. **El dato real de producción nacional de IFA** (ANMAT, CILFA, INDEC) antes de que la S28.5 afirme dependencia farmacéutica. No bloqueante: la sub-sección se escribe sin la cifra.
+4. **Tamaño mínimo detectable y cadencia de revisita de SAOCOM sobre la ZEE.** No bloqueante: se declara el hueco en lugar de afirmar cobertura total.
 
 ---
 

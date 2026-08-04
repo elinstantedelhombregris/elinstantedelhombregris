@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Agregar a `PLANGEO_Argentina_ES.md` el bloque MECANISMOS (S26–S28) y las diez ediciones forzadas que la spec declara, sin escribir un solo hecho externo sin fuente primaria y sin romper las remisiones ajenas que las ediciones mueven.
+**Goal:** Agregar a `PLANGEO_Argentina_ES.md` el bloque MECANISMOS (S26–S28) y las once ediciones forzadas que la spec declara, sin escribir un solo hecho externo sin fuente primaria y sin romper las remisiones ajenas que las ediciones mueven.
 
 **Architecture:** Este plan **no arranca por la guardia** — arranca por la investigación. La spec §11 declara diez hechos que sostienen el bloque y que provienen de conocimiento del modelo, no de fuente consultada; dos de ellos (V6, V7) pueden invalidar la SECCIÓN 27 entera. Escribir prosa antes de saber si el mecanismo existe es construir sobre una afirmación. La Task 1 los verifica y produce un ledger; la Task 2 recién ahí crea la guardia sobre el documento actual; de la Task 3 en adelante rige el ciclo del repositorio — la guardia se pone en rojo con la expectativa nueva, se escribe la prosa, la guardia queda en verde, se commitea.
 
@@ -45,7 +45,11 @@
 
 ---
 
-## Task 1: Las diez verificaciones — y la decisión sobre la S27
+## Task 1: Las diez verificaciones — y la decisión sobre la S27 ✅ **HECHA 2026-08-03**
+
+> **Cerrada.** Ledger en `v2/docs/specs/2026-08-03-plangeo-verificaciones.md`. Ocho verdes, una verde con corrección de fondo (V7), una ámbar (V10). La spec quedó corregida en consecuencia: S27.1 y S27.3 rediseñadas, edición forzada E11 nueva, conflicto con PLANTER declarado.
+>
+> **Dos decisiones subieron al autor y bloquean la Task 4:** (1) OROP con paraguas de soberanía vs. lista propia; (2) qué se hace con el «15 → 60 buques» de PLANTER. **La Task 4 no arranca sin las dos.**
 
 **Esta tarea puede matar una sección entera y hay que dejarla que lo haga.** No se escribe una línea de PLANGEO hasta que esté cerrada.
 
@@ -108,7 +112,7 @@ Modelarla sobre `verificar-plansus.ts` (304 líneas, es la más chica y la más 
 
 Cuatro chequeos que las otras no tienen:
 
-1. **Anclas ajenas.** `PLANGEO:207`, `:223`, `:425`, `:1148-1149`, `:1151` — la guardia verifica que la línea citada siga conteniendo lo que el citador dice que contiene. Es la única guardia del repositorio que se mira desde afuera, y existe porque siete de las diez ediciones forzadas corren dos de esas anclas.
+1. **Anclas ajenas.** `PLANGEO:207`, `:223`, `:425`, `:1148-1149`, `:1151` — la guardia verifica que la línea citada siga conteniendo lo que el citador dice que contiene. Es la única guardia del repositorio que se mira desde afuera, y existe porque ocho de las once ediciones forzadas corren dos de esas anclas.
 2. **Ausencia de piso.** PLANGEO no reclama piso presupuestario. El chequeo es **afirmativo por la negativa**: falla si aparece un patrón de reclamo de piso en el documento.
 3. **La compuerta de tranche del Registro de Presión.** S27.5 tiene que contener la palabra que declara la compuerta. Si alguien la borra, el documento pasa a proponer material confrontacional público sin condición, contra la corrección 13.B de su propia cabecera.
 4. **S18.2.4 no vuelve.** La «capacidad ofensiva disuasoria» se elimina en la E2. El prohibido evita que reaparezca por un merge.
@@ -151,7 +155,7 @@ Contenido, según spec §5:
 
 ## Task 4: SECCIÓN 27 — La visibilidad como poder
 
-**Precondición:** el ledger cerró V6 y V7. Si alguno quedó en rojo, esta tarea no arranca — vuelve al autor.
+**Precondición — ahora es otra.** El ledger cerró V6 y V7, así que la sección va. Pero **V7 dejó dos decisiones abiertas que son del autor y que esta tarea no puede tomar sola**: (1) **OROP con paraguas de soberanía o lista propia** — condiciona toda la 27.3; (2) **qué se hace con el «15 → 60 buques» de PLANTER** — condiciona la 27.4. Sin las dos respondidas, esta tarea **no arranca**.
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-plangeo.ts`
@@ -195,7 +199,7 @@ Contenido, según spec §5:
 
 ---
 
-## Task 6: Las diez ediciones forzadas, de abajo hacia arriba
+## Task 6: Las once ediciones forzadas, de abajo hacia arriba
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANGEO_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-plangeo.ts`
@@ -211,11 +215,11 @@ El orden es **E9 → E10 → E8 → E7 → E6 → E2 → E1 → E3 → E4 → E5
 - [ ] **Step 7: E1 — S18.1** (~1010). Reasignar la línea naval de USD 500-800M hacia constelación + enjambre, con remisión a S27.4. **Reasignar, no sumar** — el total de la TABLA 14 de S23.1 no cambia; verificar que siga cerrando.
 - [ ] **Step 8: E3 — S17.4** (~990). Jurisdicción de la deuda en la fase de convivencia, con remisión a S26.
 - [ ] **Step 9: E4 y E5 — S11** (~700-737). Fila de calificadoras de la TABLA 11 con la Cláusula del Buitre junto al ISN; y el Protocolo Anti-Cascada de S11.2 con los mecanismos que se activan sin decisión humana — **que es el punto entero: la cascada es justo el momento en que un funcionario bajo presión cede.**
-- [ ] **Step 10: E7-bis — el bloque 2048 de S5** (~469). Remisión a S27.6.
+- [ ] **Step 10: E7-bis y E11 — el bloque 2048 de S5** (~469). Las dos van juntas porque tocan el mismo párrafo. **E11 es corrección de hecho y va primero:** «El Tratado Antártico vence en 2048» es doblemente falso — lo revisable desde 2048 es el **Protocolo de Madrid** (art. 25.2), la prohibición minera está en el **art. 7 del Protocolo**, y ninguno de los dos vence. El documento hoy afirma y se desmiente en dos renglones. **E7-bis** después: remisión a S27.6.
 
 **Verify:** guardia en verde; `npx tsx scripts/verificar-remisiones.ts` **va a fallar acá** y está bien — lo arregla la Task 8. Anotar el fallo, no taparlo.
 
-**Commit:** `Fix las diez ediciones forzadas de PLANGEO — de abajo hacia arriba`
+**Commit:** `Fix las once ediciones forzadas de PLANGEO — de abajo hacia arriba`
 
 ---
 
@@ -233,7 +237,7 @@ El orden es **E9 → E10 → E8 → E7 → E6 → E2 → E1 → E3 → E4 → E5
 
 ## Task 8: Las anclas ajenas y la integración con el corpus
 
-Esta es la tarea que la spec §6.bis existe para forzar. Siete de las diez ediciones corrieron `PLANGEO:1148-1149` y `PLANGEO:1151`.
+Esta es la tarea que la spec §6.bis existe para forzar. Ocho de las once ediciones corrieron `PLANGEO:1148-1149` y `PLANGEO:1151`.
 
 **Files:**
 - Modify: `Iniciativas Estratégicas/PLANPUERTA_Argentina_ES.md`, `SocialJusticeHub/scripts/verificar-planpuerta.ts`, `v2/docs/specs/2026-08-02-planpuerta.md`, `v2/docs/plans/2026-08-02-planpuerta.md`, `SocialJusticeHub/shared/arquitecto-data.ts`, `Iniciativas Estratégicas/DEPENDENCY_GRAPH.yml`
