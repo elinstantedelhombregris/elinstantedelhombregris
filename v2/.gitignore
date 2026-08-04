@@ -86,3 +86,5 @@ stats.html
 # Bundle de la API para las funciones de Vercel — lo genera `pnpm api:bundle`.
 # Los stubs de `api/` que lo reexportan SÍ se commitean (ADR 0008 D7).
 apps/api/dist-bundle/
+.vercel
+.env*

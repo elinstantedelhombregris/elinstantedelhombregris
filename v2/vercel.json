@@ -55,7 +55,10 @@
     { "source": "/apoya-al-movimiento", "destination": "/apoyo", "permanent": true },
     { "source": "/feedback", "destination": "/comunidad", "permanent": true }
   ],
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }],
+  "rewrites": [
+    { "source": "/api/((?!cron/).*)", "destination": "/api/index?__ruta=$1" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
   "functions": {
     "api/cron/rankings.mjs": { "maxDuration": 60 }
   },
