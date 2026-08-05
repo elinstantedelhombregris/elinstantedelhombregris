@@ -89,7 +89,7 @@ describe('Home (landing Papel y Tinta)', () => {
     }
     expect(
       screen.getByRole('heading', {
-        name: `Si uno solo pudo escribir ${PLAN_COUNT} planes de país, imaginate entre millones.`,
+        name: `${PLAN_COUNT} temas del país, pensados de cero.`,
       }),
     ).toBeInTheDocument();
   });

@@ -37,7 +37,7 @@ describe('PlanDetail (página papel 2.4 — El ejemplo, el lector)', () => {
     expect(screen.getByText('Ejemplo')).toBeInTheDocument();
     expect(
       screen.getByText(
-        'Esto lo escribió uno solo. Leelo para criticarlo, mejorarlo o reemplazarlo.',
+        'Primero el ideal, después el camino. Leelo para criticarlo, mejorarlo o reemplazarlo.',
       ),
     ).toBeInTheDocument();
     expect(screen.getByText('PLANJUS · ejemplo, no doctrina')).toBeInTheDocument();

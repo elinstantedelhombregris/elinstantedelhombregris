@@ -27,8 +27,8 @@ export function MetodoPrueba() {
       ),
     },
     {
-      titulo: 'Método Ackoff',
-      body: 'Diseño idealizado: no se pregunta qué se puede arreglar — se pregunta qué construiríamos hoy de cero. Después, el camino de vuelta.',
+      titulo: 'Diseño idealizado',
+      body: '¿Por qué empezar por el ideal y no por lo que está roto? Porque arrancar de lo roto hereda sus límites: se termina discutiendo cuánto se puede arreglar, nunca qué haría falta. El ideal primero deja ver el destino; el camino de vuelta se negocia después.',
     },
     {
       titulo: 'Hechos para ser superados',

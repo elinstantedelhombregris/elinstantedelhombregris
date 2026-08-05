@@ -11,7 +11,7 @@ const CHIP_ACENTO: Record<'violeta' | 'verde', string> = {
   verde: 'bg-verde text-papel border-verde',
 };
 
-/** Capítulo II — el método (absorbe la v1 /la-vision: Ackoff + tres roles + el ejemplo). */
+/** Capítulo II — el método (absorbe la v1 /la-vision: diseño idealizado + tres roles + el ejemplo). */
 export function CapituloMetodo() {
   return (
     <section id="capitulo-ii" className="mx-auto max-w-[1100px] px-5 py-20 min-[961px]:px-10">
@@ -82,10 +82,10 @@ export function CapituloMetodo() {
             No es doctrina
           </Sello>
           <p className="text-tinta-75 min-w-[260px] flex-1 text-pretty text-base leading-relaxed">
-            ¿Suena imposible? Ya está escrito. Un ciudadano común redactó {PLAN_COUNT} planes
-            de país — más PLANRUTA, el que explica cómo se arranca. No son doctrina: son ejemplos de
-            lo que podríamos producir, para inspirar y para levantar la vara de la discusión.
-            Imaginate lo que sale de millones.
+            ¿Suena imposible? Ya está escrito. Hay {PLAN_COUNT} planes de país — más PLANRUTA, el
+            que explica cómo se arranca — hechos con este método: primero el ideal, después el
+            camino. No son doctrina: son ejemplos de lo que podríamos producir, para inspirar y para
+            levantar la vara de la discusión. Imaginate lo que sale de millones.
           </p>
         </div>
         <BotonPapel asChild variant="fantasma">

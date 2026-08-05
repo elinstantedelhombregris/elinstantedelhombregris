@@ -15,16 +15,16 @@ export function PlanesTeaser() {
         <div>
           <Kicker className="mb-4">§ 03 — El ejemplo</Kicker>
           <h2 className="font-anton text-[clamp(40px,5vw,72px)] leading-none max-[960px]:text-[44px]">
-            Si uno solo pudo escribir {PLAN_COUNT} planes de país,
+            {PLAN_COUNT} temas del país,
             <br />
-            <span className="text-violeta">imaginate entre millones.</span>
+            <span className="text-violeta">pensados de cero.</span>
           </h2>
           <p className="text-tinta-50 mt-4 max-w-[520px] text-pretty text-base leading-relaxed">
-            Sin cargo, sin equipo, sin permiso. No son promesas ni programa: son ejemplos de lo que
-            podríamos producir — diseño idealizado, con presupuesto, métricas y rendición de cuentas.
-            Los publicamos para inspirar y para levantar la vara de la discusión que estamos
-            teniendo. No para que los sigas: para que la excusa de «no se puede» se quede sin
-            trabajo.
+            No son promesas ni programa: son ejemplos de lo que podríamos producir. Cada uno sale del
+            mismo proceso — primero el ideal, después el camino de vuelta — con presupuesto, métricas
+            y rendición de cuentas. Los publicamos para inspirar y para levantar la vara de la
+            discusión que estamos teniendo. No para que los sigas: para que la excusa de «no se
+            puede» se quede sin trabajo.
           </p>
         </div>
         <Link

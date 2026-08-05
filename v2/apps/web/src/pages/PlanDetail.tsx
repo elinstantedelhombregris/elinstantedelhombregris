@@ -146,7 +146,7 @@ export function PlanDetail() {
             <span>{expediente}</span>
           </div>
           <p className="font-space text-tinta-50 mb-8 text-[11px] tracking-[0.04em]">
-            Esto lo escribió uno solo. Leelo para criticarlo, mejorarlo o reemplazarlo.
+            Primero el ideal, después el camino. Leelo para criticarlo, mejorarlo o reemplazarlo.
           </p>
 
           <CuerpoDelPlan code={plan.code} />

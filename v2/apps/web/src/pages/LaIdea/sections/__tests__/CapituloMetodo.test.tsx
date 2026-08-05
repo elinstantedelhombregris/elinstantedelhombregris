@@ -27,7 +27,7 @@ describe('CapituloMetodo', () => {
     render(<CapituloMetodo />);
 
     expect(screen.getByText('No es doctrina')).toBeInTheDocument();
-    expect(screen.getByText(new RegExp(`redactó ${PLAN_COUNT} planes`))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`Hay ${PLAN_COUNT} planes`))).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Ver el ejemplo: los planes →' })).toHaveAttribute(
       'href',
       '/planes',

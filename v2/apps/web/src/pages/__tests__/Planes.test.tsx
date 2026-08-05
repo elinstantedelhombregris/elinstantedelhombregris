@@ -10,10 +10,10 @@ describe('Planes (página papel 2.4 — El ejemplo, composer)', () => {
     render(<Planes />);
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Esto lo escribió uno solo.' }),
+      screen.getByRole('heading', { level: 1, name: 'Primero el ideal. Después el camino.' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(`El ejemplo · ${PLAN_COUNT} planes · un solo autor`),
+      screen.getByText(`El ejemplo · ${PLAN_COUNT} planes · un mismo método`),
     ).toBeInTheDocument();
   });
 
@@ -31,7 +31,7 @@ describe('Planes (página papel 2.4 — El ejemplo, composer)', () => {
     render(<Planes />);
 
     expect(screen.getByRole('heading', { name: '¿Falta un plan?' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Método Ackoff' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Diseño idealizado' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Hechos para ser superados' })).toBeInTheDocument();
 
     const cta = screen.getByRole('link', { name: 'Soltá tu urgencia en el mapa →' });
