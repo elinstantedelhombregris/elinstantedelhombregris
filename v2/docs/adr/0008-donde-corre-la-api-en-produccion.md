@@ -130,6 +130,10 @@ más.
   `apps/api/src/vercel/handler.ts`.
 - **El registro público sigue abierto y no debería**, por D4. Es lo primero de la
   lista después del corte.
+- **v1 queda archivado (2026-08-04).** `main` es la rama de v2 y de nada más: un
+  push despliega el sitio vivo, sin `vercel deploy` a mano. El proyecto viejo no
+  se borra — sus deployments son la red de rollback del dominio — pero deja de
+  ser un destino de despliegue y no recibe trabajo nuevo.
 
 ## Consecuencias
 
