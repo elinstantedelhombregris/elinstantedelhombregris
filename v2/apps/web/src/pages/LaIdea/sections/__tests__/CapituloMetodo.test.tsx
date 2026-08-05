@@ -23,12 +23,12 @@ describe('CapituloMetodo', () => {
     expect(screen.getByText('↺')).toBeInTheDocument();
   });
 
-  it('cierra con la prueba: sello, conteo real de planes y CTA a /planes', () => {
+  it('cierra con el ejemplo: sello, conteo real de planes y CTA a /planes', () => {
     render(<CapituloMetodo />);
 
     expect(screen.getByText('No es doctrina')).toBeInTheDocument();
     expect(screen.getByText(new RegExp(`redactó ${PLAN_COUNT} planes`))).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Ver la prueba: los planes →' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Ver el ejemplo: los planes →' })).toHaveAttribute(
       'href',
       '/planes',
     );

@@ -2,7 +2,7 @@
  * Registry de los planes, partido en dos por peso.
  *
  * El índice (frontmatter de los 23) es eager: lo consumen la landing, La idea y
- * La prueba, y son pocos KB. Los cuerpos suman 5,1 MB, así que se cargan con un
+ * El ejemplo, y son pocos KB. Los cuerpos suman 5,1 MB, así que se cargan con un
  * `import()` por plan — solo el documento que el visitante abrió.
  */
 import { stripFrontmatter } from './markdown';

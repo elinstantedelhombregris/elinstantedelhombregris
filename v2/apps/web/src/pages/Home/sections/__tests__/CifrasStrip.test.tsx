@@ -58,7 +58,7 @@ describe('CifrasStrip', () => {
     expect(screen.getByText(/semillas plantadas/)).toBeInTheDocument();
     expect(screen.getByText(/propuestas del mandato/)).toBeInTheDocument();
     expect(screen.getByText(/señales del pulso/)).toBeInTheDocument();
-    expect(screen.getByText(/planes en la prueba/)).toBeInTheDocument();
+    expect(screen.getByText(/planes de ejemplo/)).toBeInTheDocument();
 
     const semillasLink = screen.getByText(/semillas plantadas/).closest('a');
     expect(semillasLink).toHaveAttribute('href', '/sembrar');

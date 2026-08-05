@@ -5,7 +5,7 @@ import { Planes } from '../Planes';
 
 import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
-describe('Planes (página papel 2.4 — La prueba, composer)', () => {
+describe('Planes (página papel 2.4 — El ejemplo, composer)', () => {
   it('abre con el rito de la tinta en el H1 y el kicker de la portada', () => {
     render(<Planes />);
 
@@ -13,7 +13,7 @@ describe('Planes (página papel 2.4 — La prueba, composer)', () => {
       screen.getByRole('heading', { level: 1, name: 'Esto lo escribió uno solo.' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(`La prueba · ${PLAN_COUNT} planes · un solo autor`),
+      screen.getByText(`El ejemplo · ${PLAN_COUNT} planes · un solo autor`),
     ).toBeInTheDocument();
   });
 

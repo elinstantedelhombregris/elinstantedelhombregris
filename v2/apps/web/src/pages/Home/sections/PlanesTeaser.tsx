@@ -5,7 +5,7 @@ import { PLAN_COUNT, PLANES_TEASER } from '../landing-data';
 import { Kicker } from '~/components/papel/primitives';
 
 /**
- * § 03 — La prueba de que se puede. Tres planes REALES del registro MDX
+ * § 03 — El ejemplo. Tres planes REALES del registro MDX
  * (grilla con juntas de tinta: gap de 1px sobre fondo tinta).
  */
 export function PlanesTeaser() {
@@ -13,23 +13,25 @@ export function PlanesTeaser() {
     <section className="mx-auto max-w-[1440px] px-5 py-[88px] min-[961px]:px-10">
       <div className="mb-9 flex flex-wrap items-end justify-between gap-6">
         <div>
-          <Kicker className="mb-4">§ 03 — La prueba de que se puede</Kicker>
+          <Kicker className="mb-4">§ 03 — El ejemplo</Kicker>
           <h2 className="font-anton text-[clamp(40px,5vw,72px)] leading-none max-[960px]:text-[44px]">
             Si uno solo pudo escribir {PLAN_COUNT} planes de país,
             <br />
             <span className="text-violeta">imaginate entre millones.</span>
           </h2>
           <p className="text-tinta-50 mt-4 max-w-[520px] text-pretty text-base leading-relaxed">
-            Sin cargo, sin equipo, sin permiso. No son promesas: son un ejercicio de diseño
-            idealizado — adónde podría apuntar el país — con presupuesto, métricas y rendición de
-            cuentas. No para que los sigas: para que la excusa de «no se puede» se quede sin trabajo.
+            Sin cargo, sin equipo, sin permiso. No son promesas ni programa: son ejemplos de lo que
+            podríamos producir — diseño idealizado, con presupuesto, métricas y rendición de cuentas.
+            Los publicamos para inspirar y para levantar la vara de la discusión que estamos
+            teniendo. No para que los sigas: para que la excusa de «no se puede» se quede sin
+            trabajo.
           </p>
         </div>
         <Link
           href="/planes"
           className="font-space text-violeta hover:text-violeta-hover whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.08em] transition-colors"
         >
-          Ver la prueba completa ↗
+          Ver todos los ejemplos ↗
         </Link>
       </div>
 

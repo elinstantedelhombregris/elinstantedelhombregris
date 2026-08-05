@@ -16,8 +16,8 @@ import {
 
 describe('Kicker', () => {
   it('renders the mono uppercase kicker with the violeta accent by default', () => {
-    render(<Kicker>La prueba · 22 planes</Kicker>);
-    const el = screen.getByText('La prueba · 22 planes');
+    render(<Kicker>El ejemplo · 22 planes</Kicker>);
+    const el = screen.getByText('El ejemplo · 22 planes');
     expect(el.className).toMatch(/text-violeta/);
     expect(el.className).toMatch(/uppercase/);
     expect(el.className).toMatch(/tracking-\[0\.16em\]/);

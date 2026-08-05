@@ -1,7 +1,7 @@
 import { PLAN_REGISTRY } from '~/lib/plans-registry';
 
 /**
- * La prueba (spec 2.4) — todo conteo visible sale del registry MDX.
+ * El ejemplo (spec 2.4) — todo conteo visible sale del registry MDX.
  * Jamás un «22» literal en JSX: si el contenido cambia, la página cambia.
  */
 export const PLANES = PLAN_REGISTRY.filter((p) => !p.isMeta);

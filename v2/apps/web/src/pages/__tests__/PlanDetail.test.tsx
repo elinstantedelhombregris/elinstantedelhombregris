@@ -30,7 +30,7 @@ function renderAt(path: string) {
   );
 }
 
-describe('PlanDetail (página papel 2.4 — La prueba, el lector)', () => {
+describe('PlanDetail (página papel 2.4 — El ejemplo, el lector)', () => {
   it('expediente PLANJUS: sello EJEMPLO, línea de autoría, cabecera y primer encabezado del MDX verbatim', async () => {
     renderAt('/planes/planjus');
 
@@ -40,9 +40,9 @@ describe('PlanDetail (página papel 2.4 — La prueba, el lector)', () => {
         'Esto lo escribió uno solo. Leelo para criticarlo, mejorarlo o reemplazarlo.',
       ),
     ).toBeInTheDocument();
-    expect(screen.getByText('PLANJUS · prueba, no doctrina')).toBeInTheDocument();
+    expect(screen.getByText('PLANJUS · ejemplo, no doctrina')).toBeInTheDocument();
     expect(screen.getByText(`expediente 01/${String(PLAN_COUNT)}`)).toBeInTheDocument();
-    expect(screen.getByText(`La prueba · expediente 01/${String(PLAN_COUNT)}`)).toBeInTheDocument();
+    expect(screen.getByText(`El ejemplo · expediente 01/${String(PLAN_COUNT)}`)).toBeInTheDocument();
 
     // El primer encabezado real del cuerpo MDX (verbatim, tras la carga
     // async); el title del frontmatter ("La justicia que tenemos no es la
@@ -62,7 +62,7 @@ describe('PlanDetail (página papel 2.4 — La prueba, el lector)', () => {
   it('expediente PLANJUS: backlink a /planes y pie con conversión + firma', () => {
     renderAt('/planes/planjus');
 
-    const backlink = screen.getByRole('link', { name: '← Volver a la prueba' });
+    const backlink = screen.getByRole('link', { name: '← Volver a los ejemplos' });
     expect(backlink).toHaveAttribute('href', '/planes');
 
     expect(screen.getByText(/¿Lo podés mejorar\? Esa es la idea\./)).toBeInTheDocument();
@@ -74,8 +74,8 @@ describe('PlanDetail (página papel 2.4 — La prueba, el lector)', () => {
   it('meta PLANRUTA: kicker "el plan meta" y cabecera sin numerador de expediente', () => {
     renderAt('/planes/planruta');
 
-    expect(screen.getByText('La prueba · el plan meta')).toBeInTheDocument();
-    expect(screen.getByText('PLANRUTA · prueba, no doctrina')).toBeInTheDocument();
+    expect(screen.getByText('El ejemplo · el plan meta')).toBeInTheDocument();
+    expect(screen.getByText('PLANRUTA · ejemplo, no doctrina')).toBeInTheDocument();
     expect(screen.getByText('el plan meta')).toBeInTheDocument();
     expect(screen.queryByText(/expediente \d+\//)).not.toBeInTheDocument();
   });
@@ -92,7 +92,7 @@ describe('PlanDetail (página papel 2.4 — La prueba, el lector)', () => {
     expect(folio).toHaveClass('hidden');
     expect(folio).toHaveClass('print:block');
 
-    const backlink = screen.getByRole('link', { name: '← Volver a la prueba' });
+    const backlink = screen.getByRole('link', { name: '← Volver a los ejemplos' });
     expect(backlink.closest('div')).toHaveClass('print:hidden');
 
     const conversion = screen.getByText(/¿Lo podés mejorar\? Esa es la idea\./);
@@ -108,7 +108,7 @@ describe('PlanDetail (página papel 2.4 — La prueba, el lector)', () => {
     expect(screen.getByText('expediente extraviado')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Ese plan no está.' })).toBeInTheDocument();
     expect(screen.getByText('Extraviado')).toBeInTheDocument();
-    const cta = screen.getByRole('link', { name: 'Volver a la prueba →' });
+    const cta = screen.getByRole('link', { name: 'Volver a los ejemplos →' });
     expect(cta).toHaveAttribute('href', '/planes');
   });
 

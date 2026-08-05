@@ -17,7 +17,7 @@ function ExpedienteExtraviado() {
           <Sello color="rojo">Extraviado</Sello>
         </div>
         <BotonPapel asChild variant="tinta">
-          <Link href="/planes">Volver a la prueba →</Link>
+          <Link href="/planes">Volver a los ejemplos →</Link>
         </BotonPapel>
       </div>
     </main>
@@ -99,7 +99,7 @@ function CuerpoDelPlan({ code }: { code: string }) {
 }
 
 /**
- * La prueba — lector de plan (spec 2.4): expediente papel-sobre-oscuro
+ * El ejemplo — lector de plan (spec 2.4): expediente papel-sobre-oscuro
  * con sello EJEMPLO permanente y la primera edición impresa del sistema.
  * El cuerpo MDX se renderiza VERBATIM; su # H1 es el título del documento.
  */
@@ -123,12 +123,12 @@ export function PlanDetail() {
     <main className="bg-tinta print:bg-transparent">
       <div className="mx-auto max-w-[860px] px-10 py-16 max-[560px]:px-5 print:p-0">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4 print:hidden">
-          <Kicker className="text-violeta-claro">La prueba · {expediente}</Kicker>
+          <Kicker className="text-violeta-claro">El ejemplo · {expediente}</Kicker>
           <Link
             href="/planes"
             className="font-space text-oscuro-meta text-xs uppercase tracking-[0.1em]"
           >
-            ← Volver a la prueba
+            ← Volver a los ejemplos
           </Link>
         </div>
 
@@ -142,7 +142,7 @@ export function PlanDetail() {
             </Sello>
           </div>
           <div className="font-space text-tinta-50 border-papel-borde mb-2 flex flex-wrap justify-between gap-2 border-b pb-3 text-[11px] uppercase tracking-[0.12em]">
-            <span>{plan.code} · prueba, no doctrina</span>
+            <span>{plan.code} · ejemplo, no doctrina</span>
             <span>{expediente}</span>
           </div>
           <p className="font-space text-tinta-50 mb-8 text-[11px] tracking-[0.04em]">

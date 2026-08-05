@@ -95,7 +95,7 @@ export function CifrasStrip() {
         >
           <div className="font-anton text-violeta text-[46px] leading-none">{PLAN_COUNT}</div>
           <div className="font-space text-tinta-50 mt-2.5 text-[11px] uppercase tracking-[0.12em]">
-            planes en la prueba ↗
+            planes de ejemplo ↗
           </div>
         </Link>
       </div>
