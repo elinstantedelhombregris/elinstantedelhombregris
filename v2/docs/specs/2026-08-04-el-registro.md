@@ -149,6 +149,8 @@ nitidez = confirmaciones ÷ señales verificables      → cuánto se comprobó
 
 **Por qué normalizado.** Sin denominador, el mapa dibuja densidad de población: el microcentro siempre brilla más que un pueblo de Formosa aunque en el pueblo haya hablado el 40% y en el microcentro el 0,1%. Eso choca de frente con la regla 5 (*«la participación no equivale a representatividad»*). La fórmula y su procedencia ya existen en `simulacion/retrato.ts`.
 
+**La rampa no puede ser lineal.** La participación real vive en el extremo bajo de la escala: un barrio donde deja una voz el 5% de la gente es un fenómeno extraordinario, y en una rampa lineal 0–1 se vería negro. Si la intensidad visual fuera la participación cruda, el mapa estaría apagado siempre y la idea entera no se vería nunca. Hacen falta dos coeficientes declarados, en un solo lugar y con su razón escrita, igual que `simulacion/coeficientes.ts`: una **participación de referencia** que se lee como celda plenamente encendida, y una **curva** que levanta la parte baja. Son decisiones de diseño sin datos todavía; cuando entren voces reales hay que volver a mirarlas.
+
 ### 6.1 Tres estados visuales, no dos
 
 Hoy la lente Cobertura de la web es binaria: `MUDA = #241F17` o `CON_VOZ = #1A7A4A`. Pasa a tres:
