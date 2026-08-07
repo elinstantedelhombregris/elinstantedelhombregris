@@ -1,0 +1,1306 @@
+{
+  "words": [
+    {
+      "start": 0.0,
+      "end": 0.012016310955928956,
+      "text": "En"
+    },
+    {
+      "start": 0.012016310955928956,
+      "end": 0.0377738373562265,
+      "text": "Medellín,"
+    },
+    {
+      "start": 0.0377738373562265,
+      "end": 0.06353136375652405,
+      "text": "Colombia,"
+    },
+    {
+      "start": 0.06353136375652405,
+      "end": 0.075547674712453,
+      "text": "la"
+    },
+    {
+      "start": 0.075547674712453,
+      "end": 0.10466856584720281,
+      "text": "aplicación"
+    },
+    {
+      "start": 0.10466856584720281,
+      "end": 0.13378945698195263,
+      "text": "deliberada"
+    },
+    {
+      "start": 0.13378945698195263,
+      "end": 0.14580576793788158,
+      "text": "de"
+    },
+    {
+      "start": 0.14580576793788158,
+      "end": 0.16973939848826883,
+      "text": "cultura"
+    },
+    {
+      "start": 0.16973939848826883,
+      "end": 0.19722074707622997,
+      "text": "ciudadana"
+    },
+    {
+      "start": 0.19722074707622997,
+      "end": 0.21920885442070767,
+      "text": "redujo"
+    },
+    {
+      "start": 0.21920885442070767,
+      "end": 0.23122516537663662,
+      "text": "la"
+    },
+    {
+      "start": 0.23122516537663662,
+      "end": 0.25870651396459776,
+      "text": "violencia"
+    },
+    {
+      "start": 0.25870651396459776,
+      "end": 0.27072282492052674,
+      "text": "en"
+    },
+    {
+      "start": 0.27072282492052674,
+      "end": 0.2827391358764557,
+      "text": "un"
+    },
+    {
+      "start": 0.2827391358764557,
+      "end": 0.3118600270112055,
+      "text": "doscientos"
+    },
+    {
+      "start": 0.3118600270112055,
+      "end": 0.33579365756159274,
+      "text": "noventa"
+    },
+    {
+      "start": 0.33579365756159274,
+      "end": 0.3440010398133317,
+      "text": "y"
+    },
+    {
+      "start": 0.3440010398133317,
+      "end": 0.36159394880194196,
+      "text": "ocho"
+    },
+    {
+      "start": 0.36159394880194196,
+      "end": 0.37661226870313874,
+      "text": "mil"
+    },
+    {
+      "start": 0.37661226870313874,
+      "end": 0.39163058860433553,
+      "text": "por"
+    },
+    {
+      "start": 0.39163058860433553,
+      "end": 0.41361869594881323,
+      "text": "ciento"
+    },
+    {
+      "start": 0.41361869594881323,
+      "end": 0.43350885075012846,
+      "text": "menos"
+    },
+    {
+      "start": 0.43350885075012846,
+      "end": 0.44552516170605744,
+      "text": "de"
+    },
+    {
+      "start": 0.44552516170605744,
+      "end": 0.4575414726619864,
+      "text": "lo"
+    },
+    {
+      "start": 0.4575414726619864,
+      "end": 0.4725597925631832,
+      "text": "que"
+    },
+    {
+      "start": 0.4725597925631832,
+      "end": 0.4845761035191122,
+      "text": "se"
+    },
+    {
+      "start": 0.4845761035191122,
+      "end": 0.5103336299194097,
+      "text": "esperaba"
+    },
+    {
+      "start": 0.5103336299194097,
+      "end": 0.5302237847207248,
+      "text": "entre"
+    },
+    {
+      "start": 0.5302237847207248,
+      "end": 0.5452421046219216,
+      "text": "dos"
+    },
+    {
+      "start": 0.5452421046219216,
+      "end": 0.5602604245231183,
+      "text": "mil"
+    },
+    {
+      "start": 0.5602604245231183,
+      "end": 0.575278744424315,
+      "text": "uno"
+    },
+    {
+      "start": 0.575278744424315,
+      "end": 0.5834861266760539,
+      "text": "a"
+    },
+    {
+      "start": 0.5834861266760539,
+      "end": 0.5985044465772507,
+      "text": "dos"
+    },
+    {
+      "start": 0.5985044465772507,
+      "end": 0.6135227664784474,
+      "text": "mil"
+    },
+    {
+      "start": 0.6135227664784474,
+      "end": 0.6311156754670577,
+      "text": "tres."
+    },
+    {
+      "start": 0.6311156754670577,
+      "end": 0.6431319864229866,
+      "text": "No"
+    },
+    {
+      "start": 0.6431319864229866,
+      "end": 0.6581503063241834,
+      "text": "fue"
+    },
+    {
+      "start": 0.6581503063241834,
+      "end": 0.6701666172801123,
+      "text": "un"
+    },
+    {
+      "start": 0.6701666172801123,
+      "end": 0.6941002478304995,
+      "text": "milagro:"
+    },
+    {
+      "start": 0.6941002478304995,
+      "end": 0.7091185677316962,
+      "text": "fue"
+    },
+    {
+      "start": 0.7091185677316962,
+      "end": 0.7311066750761739,
+      "text": "diseño"
+    },
+    {
+      "start": 0.7311066750761739,
+      "end": 0.7530947824206515,
+      "text": "social"
+    },
+    {
+      "start": 0.7530947824206515,
+      "end": 0.7805761310086127,
+      "text": "sostenido."
+    },
+    {
+      "start": 0.7805761310086127,
+      "end": 0.7887835132603516,
+      "text": "¿Y"
+    },
+    {
+      "start": 0.7887835132603516,
+      "end": 0.8007998242162805,
+      "text": "si"
+    },
+    {
+      "start": 0.8007998242162805,
+      "end": 0.8128161351722094,
+      "text": "la"
+    },
+    {
+      "start": 0.8128161351722094,
+      "end": 0.8419370263069592,
+      "text": "amabilidad"
+    },
+    {
+      "start": 0.8419370263069592,
+      "end": 0.8539533372628881,
+      "text": "no"
+    },
+    {
+      "start": 0.8539533372628881,
+      "end": 0.8738434920642033,
+      "text": "fuera"
+    },
+    {
+      "start": 0.8738434920642033,
+      "end": 0.8996010184645008,
+      "text": "cortesía?"
+    },
+    {
+      "start": 0.8996010184645008,
+      "end": 0.9215891258089786,
+      "text": "Decile"
+    },
+    {
+      "start": 0.9215891258089786,
+      "end": 0.9507100169437284,
+      "text": "amabilidad"
+    },
+    {
+      "start": 0.9507100169437284,
+      "end": 0.9589173991954673,
+      "text": "a"
+    },
+    {
+      "start": 0.9589173991954673,
+      "end": 0.9709337101513962,
+      "text": "un"
+    },
+    {
+      "start": 0.9709337101513962,
+      "end": 0.9984150587393573,
+      "text": "argentino"
+    },
+    {
+      "start": 0.9984150587393573,
+      "end": 1.0223486892897446,
+      "text": "curtido"
+    },
+    {
+      "start": 1.0223486892897446,
+      "end": 1.0373670091909415,
+      "text": "por"
+    },
+    {
+      "start": 1.0373670091909415,
+      "end": 1.0493833201468705,
+      "text": "la"
+    },
+    {
+      "start": 1.0493833201468705,
+      "end": 1.0692734749481858,
+      "text": "calle"
+    },
+    {
+      "start": 1.0692734749481858,
+      "end": 1.0774808571999248,
+      "text": "y"
+    },
+    {
+      "start": 1.0774808571999248,
+      "end": 1.0894971681558538,
+      "text": "te"
+    },
+    {
+      "start": 1.0894971681558538,
+      "end": 1.1015134791117829,
+      "text": "va"
+    },
+    {
+      "start": 1.1015134791117829,
+      "end": 1.1097208613635219,
+      "text": "a"
+    },
+    {
+      "start": 1.1097208613635219,
+      "end": 1.1296110161648372,
+      "text": "mirar"
+    },
+    {
+      "start": 1.1296110161648372,
+      "end": 1.144629336066034,
+      "text": "con"
+    },
+    {
+      "start": 1.144629336066034,
+      "end": 1.1768218095100007,
+      "text": "desconfianza."
+    },
+    {
+      "start": 1.1768218095100007,
+      "end": 1.194414718498611,
+      "text": "Pero"
+    },
+    {
+      "start": 1.194414718498611,
+      "end": 1.2094330383998078,
+      "text": "hay"
+    },
+    {
+      "start": 1.2094330383998078,
+      "end": 1.227025947388418,
+      "text": "otra"
+    },
+    {
+      "start": 1.227025947388418,
+      "end": 1.2509595779388052,
+      "text": "lectura,"
+    },
+    {
+      "start": 1.2509595779388052,
+      "end": 1.265977897840002,
+      "text": "una"
+    },
+    {
+      "start": 1.265977897840002,
+      "end": 1.2809962177411989,
+      "text": "que"
+    },
+    {
+      "start": 1.2809962177411989,
+      "end": 1.3029843250856765,
+      "text": "cambia"
+    },
+    {
+      "start": 1.3029843250856765,
+      "end": 1.3205772340742867,
+      "text": "todo."
+    },
+    {
+      "start": 1.3205772340742867,
+      "end": 1.3325935450302158,
+      "text": "La"
+    },
+    {
+      "start": 1.3325935450302158,
+      "end": 1.360074893618177,
+      "text": "confianza"
+    },
+    {
+      "start": 1.360074893618177,
+      "end": 1.3891957847529268,
+      "text": "multiplica."
+    },
+    {
+      "start": 1.3891957847529268,
+      "end": 1.406788693741537,
+      "text": "Cada"
+    },
+    {
+      "start": 1.406788693741537,
+      "end": 1.4374768387490158,
+      "text": "interacción"
+    },
+    {
+      "start": 1.4374768387490158,
+      "end": 1.4594649460934934,
+      "text": "amable"
+    },
+    {
+      "start": 1.4594649460934934,
+      "end": 1.4744832659946903,
+      "text": "era"
+    },
+    {
+      "start": 1.4744832659946903,
+      "end": 1.489501585895887,
+      "text": "una"
+    },
+    {
+      "start": 1.489501585895887,
+      "end": 1.5093917406972024,
+      "text": "señal,"
+    },
+    {
+      "start": 1.5093917406972024,
+      "end": 1.5175991229489414,
+      "text": "y"
+    },
+    {
+      "start": 1.5175991229489414,
+      "end": 1.5326174428501382,
+      "text": "las"
+    },
+    {
+      "start": 1.5326174428501382,
+      "end": 1.5565510734005255,
+      "text": "señales"
+    },
+    {
+      "start": 1.5565510734005255,
+      "end": 1.5856719645352753,
+      "text": "construyen"
+    },
+    {
+      "start": 1.5856719645352753,
+      "end": 1.6114294909355729,
+      "text": "sistemas."
+    },
+    {
+      "start": 1.6114294909355729,
+      "end": 1.6264478108367697,
+      "text": "Sin"
+    },
+    {
+      "start": 1.6264478108367697,
+      "end": 1.653929159424731,
+      "text": "confianza"
+    },
+    {
+      "start": 1.653929159424731,
+      "end": 1.66594547038066,
+      "text": "no"
+    },
+    {
+      "start": 1.66594547038066,
+      "end": 1.6809637902818568,
+      "text": "hay"
+    },
+    {
+      "start": 1.6809637902818568,
+      "end": 1.7116519352893356,
+      "text": "cooperación,"
+    },
+    {
+      "start": 1.7116519352893356,
+      "end": 1.7198593175410746,
+      "text": "y"
+    },
+    {
+      "start": 1.7198593175410746,
+      "end": 1.7348776374422714,
+      "text": "sin"
+    },
+    {
+      "start": 1.7348776374422714,
+      "end": 1.7655657824497502,
+      "text": "cooperación"
+    },
+    {
+      "start": 1.7655657824497502,
+      "end": 1.7775820934056792,
+      "text": "no"
+    },
+    {
+      "start": 1.7775820934056792,
+      "end": 1.792600413306876,
+      "text": "hay"
+    },
+    {
+      "start": 1.792600413306876,
+      "end": 1.8145885206513537,
+      "text": "ciudad"
+    },
+    {
+      "start": 1.8145885206513537,
+      "end": 1.838522151201741,
+      "text": "posible."
+    },
+    {
+      "start": 1.838522151201741,
+      "end": 1.85053846215767,
+      "text": "El"
+    },
+    {
+      "start": 1.85053846215767,
+      "end": 1.8725265695021476,
+      "text": "camino"
+    },
+    {
+      "start": 1.8725265695021476,
+      "end": 1.8945146768466252,
+      "text": "existe."
+    },
+    {
+      "start": 1.8945146768466252,
+      "end": 1.9184483073970124,
+      "text": "Empieza"
+    },
+    {
+      "start": 1.9184483073970124,
+      "end": 1.9334666272982093,
+      "text": "por"
+    },
+    {
+      "start": 1.9334666272982093,
+      "end": 1.9484849471994061,
+      "text": "una"
+    },
+    {
+      "start": 1.9484849471994061,
+      "end": 1.9742424735997037,
+      "text": "decisión"
+    },
+    {
+      "start": 1.9742424735997037,
+      "end": 2.0000000000000013,
+      "text": "repetida."
+    }
+  ],
+  "captions": [
+    {
+      "index": 1,
+      "start": 0.0,
+      "end": 0.064,
+      "text": "En Medellín, Colombia,",
+      "section": "01-signal",
+      "word_count": 3,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.012,
+          "text": "En"
+        },
+        {
+          "start": 0.012,
+          "end": 0.038,
+          "text": "Medellín,"
+        },
+        {
+          "start": 0.038,
+          "end": 0.064,
+          "text": "Colombia,"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "start": 0.064,
+      "end": 0.197,
+      "text": "la aplicación deliberada de cultura ciudadana",
+      "section": "01-signal",
+      "word_count": 6,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 0.064,
+          "end": 0.076,
+          "text": "la"
+        },
+        {
+          "start": 0.076,
+          "end": 0.105,
+          "text": "aplicación"
+        },
+        {
+          "start": 0.105,
+          "end": 0.134,
+          "text": "deliberada"
+        },
+        {
+          "start": 0.134,
+          "end": 0.146,
+          "text": "de"
+        },
+        {
+          "start": 0.146,
+          "end": 0.17,
+          "text": "cultura"
+        },
+        {
+          "start": 0.17,
+          "end": 0.197,
+          "text": "ciudadana"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "start": 0.197,
+      "end": 0.259,
+      "text": "redujo la violencia",
+      "section": "01-signal",
+      "word_count": 3,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 0.197,
+          "end": 0.219,
+          "text": "redujo"
+        },
+        {
+          "start": 0.219,
+          "end": 0.231,
+          "text": "la"
+        },
+        {
+          "start": 0.231,
+          "end": 0.259,
+          "text": "violencia"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "start": 0.259,
+      "end": 0.377,
+      "text": "en un doscientos noventa y ocho mil",
+      "section": "01-signal",
+      "word_count": 7,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 0.259,
+          "end": 0.271,
+          "text": "en"
+        },
+        {
+          "start": 0.271,
+          "end": 0.283,
+          "text": "un"
+        },
+        {
+          "start": 0.283,
+          "end": 0.312,
+          "text": "doscientos"
+        },
+        {
+          "start": 0.312,
+          "end": 0.336,
+          "text": "noventa"
+        },
+        {
+          "start": 0.336,
+          "end": 0.344,
+          "text": "y"
+        },
+        {
+          "start": 0.344,
+          "end": 0.362,
+          "text": "ocho"
+        },
+        {
+          "start": 0.362,
+          "end": 0.377,
+          "text": "mil"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "start": 0.377,
+      "end": 0.51,
+      "text": "por ciento menos de lo que se esperaba",
+      "section": "01-signal",
+      "word_count": 8,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 0.377,
+          "end": 0.392,
+          "text": "por"
+        },
+        {
+          "start": 0.392,
+          "end": 0.414,
+          "text": "ciento"
+        },
+        {
+          "start": 0.414,
+          "end": 0.434,
+          "text": "menos"
+        },
+        {
+          "start": 0.434,
+          "end": 0.446,
+          "text": "de"
+        },
+        {
+          "start": 0.446,
+          "end": 0.458,
+          "text": "lo"
+        },
+        {
+          "start": 0.458,
+          "end": 0.473,
+          "text": "que"
+        },
+        {
+          "start": 0.473,
+          "end": 0.485,
+          "text": "se"
+        },
+        {
+          "start": 0.485,
+          "end": 0.51,
+          "text": "esperaba"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "start": 0.51,
+      "end": 0.631,
+      "text": "entre dos mil uno a dos mil tres.",
+      "section": "01-signal",
+      "word_count": 8,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 0.51,
+          "end": 0.53,
+          "text": "entre"
+        },
+        {
+          "start": 0.53,
+          "end": 0.545,
+          "text": "dos"
+        },
+        {
+          "start": 0.545,
+          "end": 0.56,
+          "text": "mil"
+        },
+        {
+          "start": 0.56,
+          "end": 0.575,
+          "text": "uno"
+        },
+        {
+          "start": 0.575,
+          "end": 0.583,
+          "text": "a"
+        },
+        {
+          "start": 0.583,
+          "end": 0.599,
+          "text": "dos"
+        },
+        {
+          "start": 0.599,
+          "end": 0.614,
+          "text": "mil"
+        },
+        {
+          "start": 0.614,
+          "end": 0.631,
+          "text": "tres."
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "start": 0.631,
+      "end": 0.694,
+      "text": "No fue un milagro:",
+      "section": "01-signal",
+      "word_count": 4,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 0.631,
+          "end": 0.643,
+          "text": "No"
+        },
+        {
+          "start": 0.643,
+          "end": 0.658,
+          "text": "fue"
+        },
+        {
+          "start": 0.658,
+          "end": 0.67,
+          "text": "un"
+        },
+        {
+          "start": 0.67,
+          "end": 0.694,
+          "text": "milagro:"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "start": 0.694,
+      "end": 0.781,
+      "text": "fue diseño social sostenido.",
+      "section": "01-signal",
+      "word_count": 4,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 0.694,
+          "end": 0.709,
+          "text": "fue"
+        },
+        {
+          "start": 0.709,
+          "end": 0.731,
+          "text": "diseño"
+        },
+        {
+          "start": 0.731,
+          "end": 0.753,
+          "text": "social"
+        },
+        {
+          "start": 0.753,
+          "end": 0.781,
+          "text": "sostenido."
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "start": 0.781,
+      "end": 0.9,
+      "text": "¿Y si la amabilidad no fuera cortesía?",
+      "section": "02-noise",
+      "word_count": 7,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 0.781,
+          "end": 0.789,
+          "text": "¿Y"
+        },
+        {
+          "start": 0.789,
+          "end": 0.801,
+          "text": "si"
+        },
+        {
+          "start": 0.801,
+          "end": 0.813,
+          "text": "la"
+        },
+        {
+          "start": 0.813,
+          "end": 0.842,
+          "text": "amabilidad"
+        },
+        {
+          "start": 0.842,
+          "end": 0.854,
+          "text": "no"
+        },
+        {
+          "start": 0.854,
+          "end": 0.874,
+          "text": "fuera"
+        },
+        {
+          "start": 0.874,
+          "end": 0.9,
+          "text": "cortesía?"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "start": 0.9,
+      "end": 1.069,
+      "text": "Decile amabilidad a un argentino curtido por la calle",
+      "section": "02-noise",
+      "word_count": 9,
+      "wrapped_lines": 3,
+      "words": [
+        {
+          "start": 0.9,
+          "end": 0.922,
+          "text": "Decile"
+        },
+        {
+          "start": 0.922,
+          "end": 0.951,
+          "text": "amabilidad"
+        },
+        {
+          "start": 0.951,
+          "end": 0.959,
+          "text": "a"
+        },
+        {
+          "start": 0.959,
+          "end": 0.971,
+          "text": "un"
+        },
+        {
+          "start": 0.971,
+          "end": 0.998,
+          "text": "argentino"
+        },
+        {
+          "start": 0.998,
+          "end": 1.022,
+          "text": "curtido"
+        },
+        {
+          "start": 1.022,
+          "end": 1.037,
+          "text": "por"
+        },
+        {
+          "start": 1.037,
+          "end": 1.049,
+          "text": "la"
+        },
+        {
+          "start": 1.049,
+          "end": 1.069,
+          "text": "calle"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "start": 1.069,
+      "end": 1.177,
+      "text": "y te va a mirar con desconfianza.",
+      "section": "02-noise",
+      "word_count": 7,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 1.069,
+          "end": 1.077,
+          "text": "y"
+        },
+        {
+          "start": 1.077,
+          "end": 1.089,
+          "text": "te"
+        },
+        {
+          "start": 1.089,
+          "end": 1.102,
+          "text": "va"
+        },
+        {
+          "start": 1.102,
+          "end": 1.11,
+          "text": "a"
+        },
+        {
+          "start": 1.11,
+          "end": 1.13,
+          "text": "mirar"
+        },
+        {
+          "start": 1.13,
+          "end": 1.145,
+          "text": "con"
+        },
+        {
+          "start": 1.145,
+          "end": 1.177,
+          "text": "desconfianza."
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "start": 1.177,
+      "end": 1.251,
+      "text": "Pero hay otra lectura,",
+      "section": "02-noise",
+      "word_count": 4,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 1.177,
+          "end": 1.194,
+          "text": "Pero"
+        },
+        {
+          "start": 1.194,
+          "end": 1.209,
+          "text": "hay"
+        },
+        {
+          "start": 1.209,
+          "end": 1.227,
+          "text": "otra"
+        },
+        {
+          "start": 1.227,
+          "end": 1.251,
+          "text": "lectura,"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "start": 1.251,
+      "end": 1.321,
+      "text": "una que cambia todo.",
+      "section": "02-noise",
+      "word_count": 4,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 1.251,
+          "end": 1.266,
+          "text": "una"
+        },
+        {
+          "start": 1.266,
+          "end": 1.281,
+          "text": "que"
+        },
+        {
+          "start": 1.281,
+          "end": 1.303,
+          "text": "cambia"
+        },
+        {
+          "start": 1.303,
+          "end": 1.321,
+          "text": "todo."
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "start": 1.321,
+      "end": 1.389,
+      "text": "La confianza multiplica.",
+      "section": "03-network",
+      "word_count": 3,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 1.321,
+          "end": 1.333,
+          "text": "La"
+        },
+        {
+          "start": 1.333,
+          "end": 1.36,
+          "text": "confianza"
+        },
+        {
+          "start": 1.36,
+          "end": 1.389,
+          "text": "multiplica."
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "start": 1.389,
+      "end": 1.509,
+      "text": "Cada interacción amable era una señal,",
+      "section": "03-network",
+      "word_count": 6,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 1.389,
+          "end": 1.407,
+          "text": "Cada"
+        },
+        {
+          "start": 1.407,
+          "end": 1.437,
+          "text": "interacción"
+        },
+        {
+          "start": 1.437,
+          "end": 1.459,
+          "text": "amable"
+        },
+        {
+          "start": 1.459,
+          "end": 1.474,
+          "text": "era"
+        },
+        {
+          "start": 1.474,
+          "end": 1.49,
+          "text": "una"
+        },
+        {
+          "start": 1.49,
+          "end": 1.509,
+          "text": "señal,"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "start": 1.509,
+      "end": 1.611,
+      "text": "y las señales construyen sistemas.",
+      "section": "03-network",
+      "word_count": 5,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 1.509,
+          "end": 1.518,
+          "text": "y"
+        },
+        {
+          "start": 1.518,
+          "end": 1.533,
+          "text": "las"
+        },
+        {
+          "start": 1.533,
+          "end": 1.557,
+          "text": "señales"
+        },
+        {
+          "start": 1.557,
+          "end": 1.586,
+          "text": "construyen"
+        },
+        {
+          "start": 1.586,
+          "end": 1.611,
+          "text": "sistemas."
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "start": 1.611,
+      "end": 1.712,
+      "text": "Sin confianza no hay cooperación,",
+      "section": "04-horizon",
+      "word_count": 5,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 1.611,
+          "end": 1.626,
+          "text": "Sin"
+        },
+        {
+          "start": 1.626,
+          "end": 1.654,
+          "text": "confianza"
+        },
+        {
+          "start": 1.654,
+          "end": 1.666,
+          "text": "no"
+        },
+        {
+          "start": 1.666,
+          "end": 1.681,
+          "text": "hay"
+        },
+        {
+          "start": 1.681,
+          "end": 1.712,
+          "text": "cooperación,"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "start": 1.712,
+      "end": 1.839,
+      "text": "y sin cooperación no hay ciudad posible.",
+      "section": "04-horizon",
+      "word_count": 7,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 1.712,
+          "end": 1.72,
+          "text": "y"
+        },
+        {
+          "start": 1.72,
+          "end": 1.735,
+          "text": "sin"
+        },
+        {
+          "start": 1.735,
+          "end": 1.766,
+          "text": "cooperación"
+        },
+        {
+          "start": 1.766,
+          "end": 1.778,
+          "text": "no"
+        },
+        {
+          "start": 1.778,
+          "end": 1.793,
+          "text": "hay"
+        },
+        {
+          "start": 1.793,
+          "end": 1.815,
+          "text": "ciudad"
+        },
+        {
+          "start": 1.815,
+          "end": 1.839,
+          "text": "posible."
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "start": 1.839,
+      "end": 1.895,
+      "text": "El camino existe.",
+      "section": "04-horizon",
+      "word_count": 3,
+      "wrapped_lines": 1,
+      "words": [
+        {
+          "start": 1.839,
+          "end": 1.851,
+          "text": "El"
+        },
+        {
+          "start": 1.851,
+          "end": 1.873,
+          "text": "camino"
+        },
+        {
+          "start": 1.873,
+          "end": 1.895,
+          "text": "existe."
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "start": 1.895,
+      "end": 2.0,
+      "text": "Empieza por una decisión repetida.",
+      "section": "04-horizon",
+      "word_count": 5,
+      "wrapped_lines": 2,
+      "words": [
+        {
+          "start": 1.895,
+          "end": 1.918,
+          "text": "Empieza"
+        },
+        {
+          "start": 1.918,
+          "end": 1.933,
+          "text": "por"
+        },
+        {
+          "start": 1.933,
+          "end": 1.948,
+          "text": "una"
+        },
+        {
+          "start": 1.948,
+          "end": 1.974,
+          "text": "decisión"
+        },
+        {
+          "start": 1.974,
+          "end": 2.0,
+          "text": "repetida."
+        }
+      ]
+    }
+  ]
+}
