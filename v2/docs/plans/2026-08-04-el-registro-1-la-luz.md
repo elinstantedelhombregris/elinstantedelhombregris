@@ -30,22 +30,25 @@ cd v2/packages/civic-core && pnpm test && pnpm type-check && pnpm lint
 
 **Files:**
 - Create: `v2/packages/civic-core/src/brillo.ts`
+- Create: `v2/packages/civic-core/src/__tests__/_conteo.ts`
 - Test: `v2/packages/civic-core/src/__tests__/brillo.test.ts`
 
 **Interfaces:**
 - Consumes: nada. Es el primer módulo de la rebanada.
-- Produces: `ConteoCelda`, `Brillo`, `brilloDeCelda(conteo: ConteoCelda): Brillo`.
+- Produces: `ConteoCelda`, `Brillo`, `brilloDeCelda(conteo: ConteoCelda): Brillo`. Y para los tests, `conteo(parcial: Partial<ConteoCelda>): ConteoCelda` desde `__tests__/_conteo.ts` — la Task 5 importa esa misma fábrica, no la vuelve a escribir.
 
 - [ ] **Step 1: Write the failing test**
 
-Create `v2/packages/civic-core/src/__tests__/brillo.test.ts`:
+Create `v2/packages/civic-core/src/__tests__/_conteo.ts` — la fábrica compartida por los dos archivos de test de la rebanada. El guión bajo la mantiene fuera del glob `*.test.ts`, así que vitest no la levanta como suite:
 
 ```ts
-import { describe, expect, it } from 'vitest';
+import type { ConteoCelda } from '../brillo.js';
 
-import { brilloDeCelda, type ConteoCelda } from '../brillo.js';
-
-const conteo = (parcial: Partial<ConteoCelda>): ConteoCelda => ({
+/**
+ * Una celda con denominador conocido y nada dicho todavía. Cada test cambia
+ * sólo los campos que le importan, y así lo que varía queda a la vista.
+ */
+export const conteo = (parcial: Partial<ConteoCelda>): ConteoCelda => ({
   cellId: 'c1',
   vocesDistintas: 0,
   habitantes: 1000,
@@ -53,6 +56,15 @@ const conteo = (parcial: Partial<ConteoCelda>): ConteoCelda => ({
   confirmaciones: 0,
   ...parcial,
 });
+```
+
+Create `v2/packages/civic-core/src/__tests__/brillo.test.ts`:
+
+```ts
+import { describe, expect, it } from 'vitest';
+
+import { brilloDeCelda } from '../brillo.js';
+import { conteo } from './_conteo.js';
 
 describe('brilloDeCelda', () => {
   it('es la fracción de habitantes que habló', () => {
@@ -560,6 +572,7 @@ git commit -m "feat(civic-core): luzDeCelda junta brillo, nitidez e intensidad y
 
 **Files:**
 - Create: `v2/packages/civic-core/src/__tests__/brillo-guardas.test.ts`
+- Consume: `v2/packages/civic-core/src/__tests__/_conteo.ts` (creado en la Task 1 — importar la fábrica, no reescribirla)
 
 **Interfaces:**
 - Consumes: todo lo público de `brillo.ts`.
@@ -575,15 +588,7 @@ Create `v2/packages/civic-core/src/__tests__/brillo-guardas.test.ts`:
 import { describe, expect, it } from 'vitest';
 
 import { brilloDeCelda, intensidadDeBrillo, luzDeCelda, nitidezDeCelda, type ConteoCelda } from '../brillo.js';
-
-const conteo = (parcial: Partial<ConteoCelda>): ConteoCelda => ({
-  cellId: 'c1',
-  vocesDistintas: 0,
-  habitantes: 1000,
-  verificables: 0,
-  confirmaciones: 0,
-  ...parcial,
-});
+import { conteo } from './_conteo.js';
 
 describe('guardas de la luz', () => {
   /**
@@ -592,7 +597,7 @@ describe('guardas de la luz', () => {
    * alguien lo agrega y el brillo empieza a usarlo, esta guarda no alcanza a
    * verlo, pero el contrato de tipos sí.
    */
-  it('veinte señales de una persona pesan menos que cinco de cinco personas', () => {
+  it('una persona sola pesa menos que cinco personas', () => {
     const unaPersona = intensidadDeBrillo(brilloDeCelda(conteo({ vocesDistintas: 1 })));
     const cincoPersonas = intensidadDeBrillo(brilloDeCelda(conteo({ vocesDistintas: 5 })));
     expect(unaPersona).not.toBeNull();
