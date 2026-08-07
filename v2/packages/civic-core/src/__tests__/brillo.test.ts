@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { brilloDeCelda, nitidezDeCelda } from '../brillo.js';
+import { brilloDeCelda, intensidadDeBrillo, nitidezDeCelda } from '../brillo.js';
+import { COEFICIENTES_LUZ } from '../coeficientes-luz.js';
 
 import { conteo } from './_conteo.js';
 
@@ -78,5 +79,52 @@ describe('nitidezDeCelda', () => {
     if (b.tipo !== 'valor' || n.tipo !== 'valor') throw new Error('los dos deberían tener valor');
     expect(b.participacion).toBeGreaterThan(0.4);
     expect(n.fraccion).toBe(0);
+  });
+});
+
+describe('intensidadDeBrillo', () => {
+  it('la participación de referencia llega a la intensidad plena', () => {
+    const b = brilloDeCelda(conteo({
+      vocesDistintas: COEFICIENTES_LUZ.PARTICIPACION_PLENA * 1000,
+      habitantes: 1000,
+    }));
+    expect(intensidadDeBrillo(b)).toBeCloseTo(1);
+  });
+
+  it('sin denominador no hay intensidad: devuelve null, no cero', () => {
+    const b = brilloDeCelda(conteo({ vocesDistintas: 40, habitantes: null }));
+    expect(intensidadDeBrillo(b)).toBeNull();
+  });
+
+  it('nadie hablando es intensidad cero', () => {
+    expect(intensidadDeBrillo(brilloDeCelda(conteo({ vocesDistintas: 0 })))).toBe(0);
+  });
+
+  it('satura: el doble de la referencia no se pasa de 1', () => {
+    const b = brilloDeCelda(conteo({
+      vocesDistintas: COEFICIENTES_LUZ.PARTICIPACION_PLENA * 2000,
+      habitantes: 1000,
+    }));
+    expect(intensidadDeBrillo(b)).toBe(1);
+  });
+
+  it('una participación chiquita ya se ve, que es el punto de que la rampa no sea lineal', () => {
+    // Una sola voz en mil habitantes: 0,1% de participación.
+    const b = brilloDeCelda(conteo({ vocesDistintas: 1, habitantes: 1000 }));
+    const i = intensidadDeBrillo(b);
+    expect(i).not.toBeNull();
+    if (i === null) return;
+    expect(i).toBeGreaterThan(0.001);
+  });
+
+  it('crece de forma monótona con la participación', () => {
+    const de = (voces: number): number => {
+      const i = intensidadDeBrillo(brilloDeCelda(conteo({ vocesDistintas: voces, habitantes: 1000 })));
+      if (i === null) throw new Error('debería haber intensidad');
+      return i;
+    };
+    expect(de(1)).toBeLessThan(de(5));
+    expect(de(5)).toBeLessThan(de(20));
+    expect(de(20)).toBeLessThan(de(50));
   });
 });

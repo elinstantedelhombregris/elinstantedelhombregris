@@ -15,6 +15,8 @@
  * La Simulación modela un país posible; esto describe el que hay.
  */
 
+import { COEFICIENTES_LUZ } from './coeficientes-luz.js';
+
 /** Los conteos ya agregados de una celda. Quién los cuenta es problema de quien llama. */
 export interface ConteoCelda {
   cellId: string;
@@ -83,4 +85,17 @@ export const nitidezDeCelda = (conteo: ConteoCelda): Nitidez => {
     fraccion: Math.min(1, crudo),
     formula: 'confirmaciones ÷ señales verificables',
   };
+};
+
+/**
+ * De participación a intensidad visual, 0 a 1.
+ *
+ * Devuelve `null` —no `0`— cuando no hay denominador. Quien dibuje tiene que
+ * elegir el gris de `sinDato` en ese caso, nunca el oscuro: oscuro ya
+ * significa «nadie habló».
+ */
+export const intensidadDeBrillo = (brillo: Brillo): number | null => {
+  if (brillo.tipo !== 'valor') return null;
+  const relativa = Math.min(1, brillo.participacion / COEFICIENTES_LUZ.PARTICIPACION_PLENA);
+  return Math.pow(relativa, COEFICIENTES_LUZ.CURVA);
 };
