@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { brilloDeCelda } from '../brillo.js';
+import { brilloDeCelda, nitidezDeCelda } from '../brillo.js';
 
 import { conteo } from './_conteo.js';
 
@@ -40,5 +40,43 @@ describe('brilloDeCelda', () => {
     const b = brilloDeCelda(conteo({ vocesDistintas: 2000, habitantes: 1000 }));
     if (b.tipo !== 'valor') throw new Error('debería tener valor');
     expect(b.participacion).toBe(1);
+  });
+});
+
+describe('nitidezDeCelda', () => {
+  it('es la fracción de verificables que alguien confirmó', () => {
+    const n = nitidezDeCelda(conteo({ verificables: 4, confirmaciones: 3 }));
+    expect(n.tipo).toBe('valor');
+    if (n.tipo !== 'valor') return;
+    expect(n.fraccion).toBeCloseTo(0.75);
+  });
+
+  it('una celda de puros sueños no tiene nitidez cero: no tiene nitidez', () => {
+    const n = nitidezDeCelda(conteo({ vocesDistintas: 9, verificables: 0 }));
+    expect(n.tipo).toBe('inaplicable');
+    if (n.tipo !== 'inaplicable') return;
+    expect(n.razon).toBe('No hay hechos que comprobar en esta celda.');
+  });
+
+  it('hechos sin confirmar sí valen cero: eso es estar borrosa', () => {
+    const n = nitidezDeCelda(conteo({ verificables: 5, confirmaciones: 0 }));
+    expect(n.tipo).toBe('valor');
+    if (n.tipo !== 'valor') return;
+    expect(n.fraccion).toBe(0);
+  });
+
+  it('no pasa de 1 aunque haya más confirmaciones que hechos', () => {
+    const n = nitidezDeCelda(conteo({ verificables: 2, confirmaciones: 7 }));
+    if (n.tipo !== 'valor') throw new Error('debería tener valor');
+    expect(n.fraccion).toBe(1);
+  });
+
+  it('no depende del brillo: se puede estar encendida y borrosa', () => {
+    const c = conteo({ vocesDistintas: 500, habitantes: 1000, verificables: 3, confirmaciones: 0 });
+    const b = brilloDeCelda(c);
+    const n = nitidezDeCelda(c);
+    if (b.tipo !== 'valor' || n.tipo !== 'valor') throw new Error('los dos deberían tener valor');
+    expect(b.participacion).toBeGreaterThan(0.4);
+    expect(n.fraccion).toBe(0);
   });
 });

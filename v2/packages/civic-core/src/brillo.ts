@@ -58,3 +58,29 @@ export const brilloDeCelda = (conteo: ConteoCelda): Brillo => {
     formula: 'voces distintas ÷ habitantes',
   };
 };
+
+export type Nitidez =
+  | { tipo: 'valor'; fraccion: number; formula: string }
+  | { tipo: 'inaplicable'; razon: string };
+
+const SIN_HECHOS = 'No hay hechos que comprobar en esta celda.';
+
+/**
+ * Cuánto de lo afirmado sobre esta celda pasó por un segundo par de ojos.
+ *
+ * Sólo los hechos se corroboran: los sueños, valores y compromisos se
+ * deliberan — regla 11 de la Constitución. Por eso una celda de puras
+ * deliberables no da nitidez cero, da `inaplicable`: cero significa «hay
+ * hechos sin confirmar», y ahí no hay ningún hecho pendiente. La ausencia de
+ * pregunta no se pinta como mala respuesta.
+ */
+export const nitidezDeCelda = (conteo: ConteoCelda): Nitidez => {
+  const verificables = Math.max(0, conteo.verificables);
+  if (verificables === 0) return { tipo: 'inaplicable', razon: SIN_HECHOS };
+  const crudo = Math.max(0, conteo.confirmaciones) / verificables;
+  return {
+    tipo: 'valor',
+    fraccion: Math.min(1, crudo),
+    formula: 'confirmaciones ÷ señales verificables',
+  };
+};
