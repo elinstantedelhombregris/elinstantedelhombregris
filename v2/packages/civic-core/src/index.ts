@@ -13,5 +13,7 @@ export * from './geo.js';
 export * from './location-policy.js';
 export * from './lasso.js';
 export * from './coverage.js';
+export * from './coeficientes-luz.js';
+export * from './brillo.js';
 export * from './provincias.js';
 export * from './simulacion/index.js';

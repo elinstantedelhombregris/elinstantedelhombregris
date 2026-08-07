@@ -99,3 +99,25 @@ export const intensidadDeBrillo = (brillo: Brillo): number | null => {
   const relativa = Math.min(1, brillo.participacion / COEFICIENTES_LUZ.PARTICIPACION_PLENA);
   return Math.pow(relativa, COEFICIENTES_LUZ.CURVA);
 };
+
+/** La luz de una celda: los dos ejes más la intensidad ya lista para dibujar. */
+export interface LuzCelda {
+  cellId: string;
+  brillo: Brillo;
+  nitidez: Nitidez;
+  /** `null` cuando no hay denominador. Quien dibuje elige el gris de `sinDato`. */
+  intensidad: number | null;
+}
+
+export const luzDeCelda = (conteo: ConteoCelda): LuzCelda => {
+  const brillo = brilloDeCelda(conteo);
+  return {
+    cellId: conteo.cellId,
+    brillo,
+    nitidez: nitidezDeCelda(conteo),
+    intensidad: intensidadDeBrillo(brillo),
+  };
+};
+
+export const luzDeCeldas = (conteos: readonly ConteoCelda[]): LuzCelda[] =>
+  conteos.map(luzDeCelda);

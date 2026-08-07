@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { brilloDeCelda, intensidadDeBrillo, nitidezDeCelda } from '../brillo.js';
+import { brilloDeCelda, intensidadDeBrillo, luzDeCelda, luzDeCeldas, nitidezDeCelda } from '../brillo.js';
 import { COEFICIENTES_LUZ } from '../coeficientes-luz.js';
 
 import { conteo } from './_conteo.js';
@@ -126,5 +126,36 @@ describe('intensidadDeBrillo', () => {
     expect(de(1)).toBeLessThan(de(5));
     expect(de(5)).toBeLessThan(de(20));
     expect(de(20)).toBeLessThan(de(50));
+  });
+});
+
+describe('luzDeCelda', () => {
+  it('junta las tres cosas y conserva el id', () => {
+    const luz = luzDeCelda(conteo({
+      cellId: 'r3c7', vocesDistintas: 25, habitantes: 1000, verificables: 4, confirmaciones: 2,
+    }));
+    expect(luz.cellId).toBe('r3c7');
+    expect(luz.brillo.tipo).toBe('valor');
+    expect(luz.nitidez.tipo).toBe('valor');
+    expect(luz.intensidad).not.toBeNull();
+  });
+
+  it('una celda sin denominador viaja con intensidad null', () => {
+    const luz = luzDeCelda(conteo({ habitantes: null, vocesDistintas: 3 }));
+    expect(luz.intensidad).toBeNull();
+    expect(luz.brillo.tipo).toBe('sinDenominador');
+  });
+});
+
+describe('luzDeCeldas', () => {
+  it('respeta el orden de entrada', () => {
+    const luces = luzDeCeldas([
+      conteo({ cellId: 'a' }), conteo({ cellId: 'b' }), conteo({ cellId: 'c' }),
+    ]);
+    expect(luces.map((l) => l.cellId)).toEqual(['a', 'b', 'c']);
+  });
+
+  it('con la lista vacía devuelve la lista vacía', () => {
+    expect(luzDeCeldas([])).toEqual([]);
   });
 });
