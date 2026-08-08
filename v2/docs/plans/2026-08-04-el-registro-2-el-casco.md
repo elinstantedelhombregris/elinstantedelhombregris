@@ -254,8 +254,13 @@ import { describe, expect, it } from 'vitest';
 
 import { conteosPorCelda, type SenalParaConteo } from './conteos';
 
-const plan = () => {
-  const p = planTerritorialCoverage(
+/**
+ * `planTerritorialCoverage` devuelve `CoveragePlan`, NO `CoveragePlan | null`:
+ * ante una entrada mala devuelve un plan inválido, no ausencia. Así que no
+ * lleva guarda de nulidad — el lint la marcaría como condición innecesaria.
+ */
+const plan = () =>
+  planTerritorialCoverage(
     { points: [
       { lat: -34.62, lng: -58.45 },
       { lat: -34.58, lng: -58.45 },
@@ -264,9 +269,6 @@ const plan = () => {
     ] },
     { cellCount: 4 },
   );
-  if (!p) throw new Error('el plan debería existir');
-  return p;
-};
 
 /** Un punto adentro de la primera celda del plan. */
 const enPrimeraCelda = (p: ReturnType<typeof plan>) => {
