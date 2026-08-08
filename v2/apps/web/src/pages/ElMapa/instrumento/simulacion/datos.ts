@@ -1,4 +1,4 @@
-import { PROVINCIAS_REF } from '../provincias-ref';
+import { PROVINCIAS_REF } from '@v2/civic-core';
 
 import type { SenalConTipo } from '../useVistaMapa';
 import type { EstadoMedido, Territorio, VozMedida } from '@v2/civic-core';

@@ -1,9 +1,9 @@
+import { PROVINCIAS_REF } from '@v2/civic-core';
 import { useEffect, useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
 import { Control, FiltroTipos, LeyendaRampa, Segmentado } from '../Chrome';
 import { COLOR_TIPO, RAMPAS } from '../paleta';
-import { PROVINCIAS_REF } from '../provincias-ref';
 import { AVISO_TEMAS, temasDe } from '../temas';
 import { Vacio } from '../Vacio';
 
