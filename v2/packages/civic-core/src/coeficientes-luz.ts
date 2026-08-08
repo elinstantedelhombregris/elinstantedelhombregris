@@ -8,9 +8,9 @@
  */
 export interface CoeficientesLuz {
   /** Participación que se lee como celda plenamente encendida. */
-  PARTICIPACION_PLENA: number;
+  readonly PARTICIPACION_PLENA: number;
   /** Exponente de la rampa. Menor que 1 levanta la parte baja de la curva. */
-  CURVA: number;
+  readonly CURVA: number;
 }
 
 export const COEFICIENTES_LUZ: CoeficientesLuz = {

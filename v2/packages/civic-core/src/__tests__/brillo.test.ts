@@ -20,8 +20,12 @@ describe('brilloDeCelda', () => {
     expect(b.razon).toBe('Sin población conocida: no hay denominador.');
   });
 
-  it('cero habitantes es lo mismo que no saber cuántos hay', () => {
-    expect(brilloDeCelda(conteo({ habitantes: 0 })).tipo).toBe('sinDenominador');
+  it('cero habitantes tampoco da denominador, pero por otro motivo', () => {
+    const b = brilloDeCelda(conteo({ habitantes: 0 }));
+    expect(b.tipo).toBe('sinDenominador');
+    if (b.tipo !== 'sinDenominador') return;
+    // Saber que no vive nadie no es lo mismo que no saber cuánta gente vive.
+    expect(b.razon).toBe('Población estimada en cero: no hay denominador.');
   });
 
   it('una celda con denominador y sin voces sí vale cero', () => {

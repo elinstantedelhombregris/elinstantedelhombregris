@@ -32,6 +32,23 @@ describe('guardas de la luz', () => {
   });
 
   /**
+   * Spec §6 y §10: una celda de puras deliberables «se dibuja encendida y
+   * nítida, porque no hay nada pendiente de comprobar». La mitad de esa regla
+   * —que el tipo sea `inaplicable` y no un cero— la cuida `brillo.test.ts`;
+   * ésta cuida la otra mitad, que es cómo se ve. Sin esto, el mapa del
+   * teléfono y la lente de la web adivinan por separado, y lo más probable
+   * que adivine cualquiera para un valor ausente es 0 — que acá significa
+   * «hay hechos sin confirmar», o sea la mentira exacta que el módulo prohíbe.
+   */
+  it('una celda de puros sueños sale nítida, no en foco cero', () => {
+    const soloSuenos = luzDeCelda(conteo({ vocesDistintas: 10, verificables: 0 }));
+    const hechosSinConfirmar = luzDeCelda(conteo({ vocesDistintas: 10, verificables: 4 }));
+    expect(soloSuenos.nitidez.tipo).toBe('inaplicable');
+    expect(soloSuenos.foco).toBe(1);
+    expect(hechosSinConfirmar.foco).toBe(0);
+  });
+
+  /**
    * Spec §6.1: una celda sin denominador nunca se dibuja oscura, porque
    * oscuro ya significa «nadie habló».
    */
