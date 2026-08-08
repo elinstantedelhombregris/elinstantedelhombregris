@@ -10,7 +10,7 @@ unless the user explicitly asks to integrate the output into it.
 
 ## Start Here
 
-Run the local Studio for art-direction controls, six looks, deterministic rerolls,
+Run the local Studio for art-direction controls, eight looks, deterministic rerolls,
 visual approval sheets, an editable storyboard, playable previews, and production
 history:
 
@@ -102,6 +102,12 @@ native worlds remain the offline default.
 Available looks:
 
 - `plata`: restrained silver-and-gold editorial house style.
+- `tinta-papel`: the Papel y Tinta brand system as living print — warm stock,
+  black ink, violet action, red stamps, Anton/Archivo/Space Mono typography,
+  risograph misregistration and press-designed sound.
+- `tinta-papel-ilustrado`: the same editorial system with complete approved
+  illustrations preserved in full colour and semantic violet/red graphics printed
+  over them, plus restrained depth-aware camera parallax.
 - `terminal`: phosphor green terminal energy.
 - `blueprint`: precise technical cyan.
 - `archive`: warm documentary paper and amber.

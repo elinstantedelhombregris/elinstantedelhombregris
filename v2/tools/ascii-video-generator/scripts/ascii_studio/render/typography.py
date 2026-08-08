@@ -34,9 +34,27 @@ _HARD_MIN_FONT_PX = 4
 # so that slop never crosses the zone boundary.
 _ANTIALIAS_MARGIN_PX = 3
 
+PAPER = (242, 239, 231)
+PAPER_RAW = (251, 250, 244)
+PAPER_PRESSED = (236, 232, 220)
+INK = (22, 19, 14)
+INK_75 = (74, 70, 61)
+INK_50 = (122, 117, 106)
+BORDER_SOFT = (216, 212, 200)
+VIOLET = (82, 39, 204)
+STAMP_RED = (194, 59, 34)
+
 
 def _font(look: Look, px: int) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(look.ui_font, max(8, px))
+    return ImageFont.truetype(look.font_for("body"), max(8, px))
+
+
+def _display_font(look: Look, px: int) -> ImageFont.FreeTypeFont:
+    return ImageFont.truetype(look.font_for("display"), max(8, px))
+
+
+def _meta_font(look: Look, px: int) -> ImageFont.FreeTypeFont:
+    return ImageFont.truetype(look.font_for("meta"), max(8, px))
 
 
 def _relative_luminance(rgb: np.ndarray) -> float:
@@ -112,6 +130,9 @@ def _fit_text_size(look: Look, nominal: int, floor: int, zone_width: float,
 
 def draw_caption(img: Image.Image, grid: Grid, look: Look, caption, t: float, alpha: int) -> None:
     if caption is None:
+        return
+    if look.is_paper:
+        _draw_paper_caption(img, grid, look, caption, t)
         return
     draw = ImageDraw.Draw(img, "RGBA")
     zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["caption"])
@@ -205,6 +226,64 @@ def draw_caption(img: Image.Image, grid: Grid, look: Look, caption, t: float, al
         y += leading
 
 
+def _draw_paper_caption(img: Image.Image, grid: Grid, look: Look, caption, t: float) -> None:
+    """Editorial karaoke: a typeset excerpt, never a floating video-subtitle pill."""
+    draw = ImageDraw.Draw(img, "RGBA")
+    zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["caption"])
+    zone_width = zx1 - zx0
+    lines = caption_lines(caption.text)
+    if not lines:
+        return
+
+    nominal = int(grid.height * 0.028)
+    floor = max(9, int(nominal * _SHRINK_FLOOR_FRAC))
+
+    def measure(font: ImageFont.FreeTypeFont) -> float:
+        space = draw.textlength(" ", font=font)
+        return max(_line_width(draw, font, space, words) for words in lines)
+
+    font, size = _fit_text_size(look, nominal, floor, zone_width * 0.90, measure)
+    leading = int(size * 1.38)
+    block_h = leading * len(lines)
+    pad_x = int(grid.width * 0.035)
+    pad_y = max(8, int(grid.height * 0.010))
+    top = zy0 + ((zy1 - zy0) - block_h) // 2
+    plate = (zx0, top - pad_y, zx1 - 1, top + block_h + pad_y)
+    plate_alpha = 224 if look.is_illustrated else 244
+    draw.rectangle(plate, fill=(*PAPER_RAW, plate_alpha), outline=(*INK, 232), width=max(1, grid.width // 540))
+    # Printer's furniture: a section rule and a tiny crop mark make the caption
+    # belong to the page grid instead of floating over it.
+    draw.line((zx0 + pad_x, plate[1], zx1 - pad_x, plate[1]), fill=(*VIOLET, 255),
+              width=max(2, grid.width // 270))
+    meta = _meta_font(look, max(9, int(grid.height * 0.0085)))
+    draw.text((zx0 + pad_x, plate[1] + max(3, pad_y // 4)), "VOZ / EN CURSO",
+              font=meta, fill=(*INK_50, 235))
+
+    active = _active_index(caption, t)
+    space = draw.textlength(" ", font=font)
+    cursor = 0
+    y = top
+    for words in lines:
+        x = zx0 + pad_x
+        for word in words:
+            width = draw.textlength(word, font=font)
+            if cursor == active:
+                bbox = draw.textbbox((x, y), word, font=font)
+                underline_y = min(zy1 - 2, bbox[3] + max(2, size // 10))
+                draw.line((bbox[0], underline_y, bbox[2], underline_y), fill=(*VIOLET, 255),
+                          width=max(3, size // 9))
+                # A fractional second of riso offset on the spoken word: red ghost
+                # behind violet, while the black glyph stays the readable source.
+                draw.text((x + max(1, size // 24), y), word, font=font, fill=(*STAMP_RED, 64))
+                fill = (*VIOLET, 255)
+            else:
+                fill = (*INK, 252)
+            draw.text((x, y), word, font=font, fill=fill)
+            x += width + space
+            cursor += 1
+        y += leading
+
+
 def _progress_geometry(grid: Grid) -> tuple[int, int]:
     """Centreline y and half-thickness of the progress bar.
 
@@ -221,6 +300,9 @@ def _progress_geometry(grid: Grid) -> tuple[int, int]:
 
 def draw_title(img: Image.Image, grid: Grid, look: Look, title, chapter_label) -> None:
     if not title and not chapter_label:
+        return
+    if look.is_paper:
+        _draw_paper_title(img, grid, look, title, chapter_label)
         return
     draw = ImageDraw.Draw(img, "RGBA")
     zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["title"])
@@ -275,12 +357,47 @@ def draw_title(img: Image.Image, grid: Grid, look: Look, title, chapter_label) -
             break
 
 
+def _draw_paper_title(img: Image.Image, grid: Grid, look: Look, title, chapter_label) -> None:
+    draw = ImageDraw.Draw(img, "RGBA")
+    zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["title"])
+    if chapter_label:
+        meta = _meta_font(look, max(9, int(grid.height * 0.0105)))
+        label = f"§ {chapter_label.upper()}"
+        draw.text((zx0, zy1 - int(meta.size * 1.35)), label, font=meta, fill=(*INK_50, 245))
+    if not title:
+        return
+    words = title.upper().split()
+    max_width = zx1 - zx0
+    for size in range(int(grid.height * 0.034), 10, -1):
+        font = _display_font(look, size)
+        lines: list[str] = []
+        current: list[str] = []
+        for word in words:
+            trial = " ".join(current + [word])
+            if current and draw.textlength(trial, font=font) > max_width:
+                lines.append(" ".join(current))
+                current = [word]
+            else:
+                current.append(word)
+        if current:
+            lines.append(" ".join(current))
+        line_h = int(size * 1.02)
+        if len(lines) <= 2 and len(lines) * line_h <= (zy1 - zy0) * 0.78:
+            for index, line in enumerate(lines):
+                y = zy0 + index * line_h
+                draw.text((zx0 + 2, y), line, font=font, fill=(*VIOLET, 72))
+                draw.text((zx0 - 2, y), line, font=font, fill=(*STAMP_RED, 54))
+                draw.text((zx0, y), line, font=font, fill=(*INK, 255))
+            break
+
+
 def draw_progress(img: Image.Image, grid: Grid, look: Look,
                   chapter_index: int, chapter_count: int, progress: float) -> None:
     draw = ImageDraw.Draw(img, "RGBA")
     zx0, _, zx1, _ = grid.zone_px(ZONES["title"])
     y, thickness = _progress_geometry(grid)
-    draw.line((zx0, y, zx1, y), fill=(214, 228, 220, 64), width=thickness)
+    base = (*BORDER_SOFT, 255) if look.is_paper else (214, 228, 220, 64)
+    draw.line((zx0, y, zx1, y), fill=base, width=thickness)
     span = (zx1 - zx0) / max(1, chapter_count)
     end = zx0 + span * (chapter_index + max(0.0, min(1.0, progress)))
     accent = tuple(int(c * 255) for c in look.accent_rgb())
@@ -289,6 +406,9 @@ def draw_progress(img: Image.Image, grid: Grid, look: Look,
 
 def draw_footer(img: Image.Image, grid: Grid, look: Look, keyword, url, footer_alpha: int) -> None:
     if not keyword and not url:
+        return
+    if look.is_paper:
+        _draw_paper_footer(img, grid, look, keyword, url)
         return
     draw = ImageDraw.Draw(img, "RGBA")
     zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["footer"])
@@ -336,6 +456,28 @@ def draw_footer(img: Image.Image, grid: Grid, look: Look, keyword, url, footer_a
         draw.text((x, y), url, font=font, fill=(*ink, 255))
 
 
+def _draw_paper_footer(img: Image.Image, grid: Grid, look: Look, keyword, url) -> None:
+    draw = ImageDraw.Draw(img, "RGBA")
+    zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["footer"])
+    draw.rectangle((zx0, zy0, zx1 - 1, zy1 - 1), fill=(*PAPER, 238))
+    draw.line((zx0, zy0, zx1, zy0), fill=(*INK, 255), width=max(1, grid.width // 540))
+    meta = _meta_font(look, max(10, int(grid.height * 0.0115)))
+    if keyword:
+        draw.text((zx0, zy0 + max(5, int(grid.height * 0.007))), keyword.upper(),
+                  font=meta, fill=(*INK_50, 245))
+    if url:
+        nominal = int(grid.height * 0.0175)
+        font, _ = _fit_text_size(
+            look, nominal, max(10, int(nominal * 0.65)), zx1 - zx0,
+            lambda f: draw.textlength(url, font=_meta_font(look, f.size)),
+        )
+        font = _meta_font(look, font.size)
+        width = draw.textlength(url, font=font)
+        x = max(zx0, zx1 - width)
+        y = zy0 + max(5, (zy1 - zy0 - int(font.size * 1.2)) // 2)
+        draw.text((x, y), url, font=font, fill=(*INK, 255))
+
+
 def draw_scene_labels(img: Image.Image, grid: Grid, look: Look, chapter, progress: float) -> None:
     if chapter is None or not chapter.anchors:
         return
@@ -348,7 +490,7 @@ def draw_scene_labels(img: Image.Image, grid: Grid, look: Look, chapter, progres
         if strength <= 0.04:
             continue
         text = label.upper()[:22]
-        font = _font(look, nominal)
+        font = _display_font(look, nominal) if look.is_paper and shot.typography == "giant" else _font(look, nominal)
         max_text_width = grid.width * (0.76 if shot.typography == "giant" else 0.32)
         while font.size > 9 and draw.textlength(text, font=font) > max_text_width:
             font = _font(look, font.size - 1)
@@ -358,14 +500,22 @@ def draw_scene_labels(img: Image.Image, grid: Grid, look: Look, chapter, progres
         ty = min(grid.height * 0.59 - th, y + nominal * (0.20 if shot.typography == "giant" else 1.05))
         pad = max(3, round(grid.width * 0.006))
         alpha = round(205 * strength)
-        draw.rounded_rectangle(
-            (tx - pad, ty - pad // 2, tx + tw + pad, ty + th + pad // 2),
-            radius=max(2, pad // 2), fill=(4, 6, 8, alpha),
-        )
-        ink = bright if label == chapter.keyword else muted
+        if look.is_paper:
+            draw.rectangle(
+                (tx - pad, ty - pad // 2, tx + tw + pad, ty + th + pad // 2),
+                fill=(*PAPER_RAW, alpha), outline=(*INK, round(190 * strength)),
+                width=max(1, grid.width // 540),
+            )
+            ink = VIOLET if label == chapter.keyword else INK_75
+        else:
+            draw.rounded_rectangle(
+                (tx - pad, ty - pad // 2, tx + tw + pad, ty + th + pad // 2),
+                radius=max(2, pad // 2), fill=(4, 6, 8, alpha),
+            )
+            ink = bright if label == chapter.keyword else muted
         draw.text((tx, ty), text, font=font, fill=(*ink, round(255 * strength)))
 
-    relation_font = _font(look, max(9, int(grid.height * 0.0115)))
+    relation_font = _meta_font(look, max(9, int(grid.height * 0.0115))) if look.is_paper else _font(look, max(9, int(grid.height * 0.0115)))
     accent = tuple(int(c * 255) for c in look.accent_rgb())
     for text, x, y, strength in semantic.relation_label_layout(
         chapter, grid.width, grid.height, progress,
@@ -378,14 +528,23 @@ def draw_scene_labels(img: Image.Image, grid: Grid, look: Look, chapter, progres
         tx = max(grid.width * 0.05, min(x - tw / 2, grid.width * 0.95 - tw))
         ty = max(grid.height * 0.12, min(y - th / 2, grid.height * 0.58 - th))
         pad_x, pad_y = max(5, int(grid.width * 0.008)), max(3, int(grid.height * 0.003))
-        draw.rounded_rectangle((tx - pad_x, ty - pad_y, tx + tw + pad_x, ty + th + pad_y),
-                               radius=pad_y, fill=(3, 5, 7, round(225 * strength)),
-                               outline=(*accent, round(180 * strength)), width=max(1, grid.width // 540))
-        draw.text((tx, ty), text, font=relation_font, fill=(*bright, round(248 * strength)))
+        if look.is_paper:
+            draw.rectangle((tx - pad_x, ty - pad_y, tx + tw + pad_x, ty + th + pad_y),
+                           fill=(*PAPER_RAW, round(235 * strength)),
+                           outline=(*VIOLET, round(220 * strength)), width=max(1, grid.width // 540))
+            draw.text((tx, ty), text.upper(), font=relation_font, fill=(*INK, round(248 * strength)))
+        else:
+            draw.rounded_rectangle((tx - pad_x, ty - pad_y, tx + tw + pad_x, ty + th + pad_y),
+                                   radius=pad_y, fill=(3, 5, 7, round(225 * strength)),
+                                   outline=(*accent, round(180 * strength)), width=max(1, grid.width // 540))
+            draw.text((tx, ty), text, font=relation_font, fill=(*bright, round(248 * strength)))
 
 
 def draw_hook(img: Image.Image, grid: Grid, look: Look, hook: str, progress: float) -> None:
     if not hook:
+        return
+    if look.is_paper:
+        _draw_paper_hook(img, grid, look, hook, progress)
         return
     draw = ImageDraw.Draw(img, "RGBA")
     x0, y0, x1, y1 = grid.zone_px(ZONES["stage"])
@@ -441,6 +600,76 @@ def draw_hook(img: Image.Image, grid: Grid, look: Look, hook: str, progress: flo
         draw.text((x + offset, top + index * leading), line, font=font,
                   fill=(*ink, round(255 * min(1.0, eased * 2.0))),
                   stroke_width=max(1, size // 30), stroke_fill=(*ink, 230))
+
+
+def _draw_paper_hook(img: Image.Image, grid: Grid, look: Look, hook: str, progress: float) -> None:
+    draw = ImageDraw.Draw(img, "RGBA")
+    x0, y0, x1, y1 = grid.zone_px(ZONES["stage"])
+    draw.rectangle((x0, y0, x1 - 1, y1 - 1), fill=(*PAPER, 218))
+    draw.line((x0, y0 + int(grid.height * 0.012), x1, y0 + int(grid.height * 0.012)),
+              fill=(*INK, 255), width=max(1, grid.width // 540))
+    meta = _meta_font(look, max(10, int(grid.height * 0.011)))
+    draw.text((x0, y0 + int(grid.height * 0.022)), "MANIFIESTO / ARGENTINA · 2026",
+              font=meta, fill=(*INK_50, 255))
+
+    words = hook.upper().split()
+    lines: list[str] = []
+    current: list[str] = []
+    display = _display_font(look, int(grid.height * 0.056))
+    max_width = (x1 - x0) * 0.88
+    for word in words:
+        trial = " ".join(current + [word])
+        if current and draw.textlength(trial, font=display) > max_width:
+            lines.append(" ".join(current))
+            current = [word]
+        else:
+            current.append(word)
+    if current:
+        lines.append(" ".join(current))
+    while len(lines) > 5 and display.size > 18:
+        display = _display_font(look, display.size - 2)
+        lines, current = [], []
+        for word in words:
+            trial = " ".join(current + [word])
+            if current and draw.textlength(trial, font=display) > max_width:
+                lines.append(" ".join(current)); current = [word]
+            else:
+                current.append(word)
+        if current:
+            lines.append(" ".join(current))
+    leading = int(display.size * 1.02)
+    total_h = len(lines) * leading
+    top = y0 + max(int(grid.height * 0.09), ((y1 - y0) - total_h) // 2)
+    eased = float(np.clip(progress, 0.0, 1.0))
+    visible_chars = round(sum(len(line.replace(" ", "")) for line in lines) * min(1.0, eased * 1.35))
+    seen = 0
+    for index, line in enumerate(lines):
+        y = top + index * leading
+        x = x0 + int(grid.width * 0.045)
+        for char in line:
+            width = draw.textlength(char, font=display)
+            revealed = char == " " or seen < visible_chars
+            if char != " ":
+                seen += 1
+            ink = INK if revealed else (181, 177, 168)
+            if revealed and char != " ":
+                draw.text((x + 2, y), char, font=display, fill=(*VIOLET, 60))
+                draw.text((x - 2, y), char, font=display, fill=(*STAMP_RED, 46))
+            draw.text((x, y), char, font=display, fill=(*ink, 255))
+            x += width
+    stamp_w = int(grid.width * 0.37)
+    stamp_h = int(grid.height * 0.048)
+    sx = x1 - stamp_w - int(grid.width * 0.05)
+    sy = min(y1 - stamp_h - 12, top + total_h + int(grid.height * 0.035))
+    stamp_alpha = round(255 * min(1.0, max(0.0, eased - 0.62) / 0.20))
+    if stamp_alpha:
+        draw.rectangle((sx, sy, sx + stamp_w, sy + stamp_h), outline=(*STAMP_RED, stamp_alpha),
+                       width=max(3, grid.width // 180))
+        stamp_font = _meta_font(look, max(10, int(grid.height * 0.013)))
+        stamp_text = "EL INSTANTE ES AHORA"
+        tw = draw.textlength(stamp_text, font=stamp_font)
+        draw.text((sx + (stamp_w - tw) / 2, sy + (stamp_h - stamp_font.size) / 2), stamp_text,
+                  font=stamp_font, fill=(*STAMP_RED, stamp_alpha))
 
 
 def overlay(frame: np.ndarray, grid: Grid, look: Look, *, caption=None, t: float = 0.0,

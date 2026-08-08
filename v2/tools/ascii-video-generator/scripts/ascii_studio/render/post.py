@@ -133,8 +133,67 @@ def _grain_for_frame(frame_index: int, height: int, width: int) -> np.ndarray:
     return big[:height, :width]
 
 
+@lru_cache(maxsize=8)
+def _paper_texture(height: int, width: int) -> np.ndarray:
+    """Stable multi-scale fibre texture for the physical-paper look.
+
+    Unlike film grain this texture belongs to the sheet, so it must not reshuffle
+    every frame.  A broad pulp cloud, fine tooth and sparse horizontal fibres are
+    combined once per canvas size and cached for the complete render.
+    """
+    rng = np.random.default_rng(1613 + height * 17 + width * 31)
+    tooth = rng.standard_normal((height, width)).astype(np.float32)
+    pulp_small = rng.standard_normal((max(8, height // 36), max(8, width // 36))).astype(np.float32)
+    pulp = cv2.resize(pulp_small, (width, height), interpolation=cv2.INTER_CUBIC)
+    fibres = cv2.GaussianBlur(tooth, (0, 0), sigmaX=18.0, sigmaY=0.45)
+    texture = tooth * 0.34 + pulp * 0.48 + fibres * 0.18
+    texture -= float(texture.mean())
+    texture /= max(1e-6, float(texture.std()))
+    texture = np.clip(texture, -2.4, 2.4).astype(np.float32)
+    texture.setflags(write=False)
+    return texture
+
+
+def _ink_absorb(frame: np.ndarray, mask: np.ndarray, pigment: np.ndarray, amount: float) -> np.ndarray:
+    """Multiply a translucent print pigment into ``frame`` through ``mask``."""
+    absorption = mask[:, :, None] * amount * (1.0 - pigment[None, None, :])
+    return frame * np.clip(1.0 - absorption, 0.0, 1.0)
+
+
+def _paper_grade(rgb: np.ndarray, look: Look) -> np.ndarray:
+    """Letterpress/riso grade: warm stock, absorbed ink and restrained misregistration."""
+    out = np.clip(np.asarray(rgb, dtype=np.float32), 0.0, 1.0).copy()
+    # Press pressure deepens the ink without turning the warm stock neutral grey.
+    darkness = 1.0 - out
+    out = 1.0 - np.clip(darkness * look.ink_gain, 0.0, 1.0)
+
+    if look.riso_offset > 0:
+        luma = out[..., 0] * 0.2126 + out[..., 1] * 0.7152 + out[..., 2] * 0.0722
+        ink = np.clip((0.78 - luma) / 0.62, 0.0, 1.0)
+        offset = max(1, int(round(look.riso_offset)))
+        violet_mask = np.roll(ink, offset, axis=1) * (1.0 - ink * 0.82)
+        red_mask = np.roll(ink, -offset, axis=1) * (1.0 - ink * 0.86)
+        out = _ink_absorb(out, violet_mask, look.accent_rgb().astype(np.float32), 0.34)
+        out = _ink_absorb(out, red_mask, look.secondary_accent_rgb().astype(np.float32), 0.24)
+
+    if look.vignette > 0:
+        falloff = _vignette_falloff(out.shape[0], out.shape[1], look.vignette)
+        # A printed sheet darkens only gently toward the edge; preserve at least 93%.
+        out *= (0.93 + 0.07 * falloff)[:, :, None]
+
+    if look.paper_texture > 0:
+        texture = _paper_texture(out.shape[0], out.shape[1]) * look.paper_texture
+        # Paper tooth modulates reflected light, equally across channels.
+        out += texture[:, :, None]
+
+    return np.clip(out, 0.0, 1.0)
+
+
 def grade(rgb: np.ndarray, look: Look, frame_index: int) -> np.ndarray:
     out = np.clip(np.asarray(rgb, dtype=np.float32), 0.0, 1.0)
+
+    if look.is_paper:
+        return (_paper_grade(out, look) * 255.0).astype(np.uint8)
 
     if look.halation > 0:
         # out.max(axis=2) forces a strided reduction that measures ~10x slower than
@@ -179,6 +238,9 @@ def grade_reference(rgb: np.ndarray, look: Look, frame_index: int) -> np.ndarray
     `grade` stays visually faithful to it. Do not call this from render code.
     """
     out = np.clip(np.asarray(rgb, dtype=np.float32), 0.0, 1.0)
+
+    if look.is_paper:
+        return (_paper_grade(out, look) * 255.0).astype(np.uint8)
 
     if look.halation > 0:
         luma = out.max(axis=2)

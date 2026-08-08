@@ -751,11 +751,17 @@ def compose_scene(
     # native ASCII; labels alone are redrawn crisply after the glyph grade.
     has_world = chapter.world not in {"", "abstract-field"}
     if has_world:
-        world_frame = worlds.render_world(chapter, (accent_h, accent_w), t, progress, state)
-        world_layer = world_frame.luminance
+        # The illustrated paper mode keeps approved plates at the final buffer
+        # resolution.  Its colour image is the actual photographed/painted
+        # world, not merely a low-resolution source for glyph matching.  The
+        # monochrome depth/hero maps are reduced again for the semantic
+        # compositor below, retaining the existing performance profile.
+        world_shape = (height, width) if look.is_illustrated else (accent_h, accent_w)
+        world_frame = worlds.render_world(chapter, world_shape, t, progress, state)
+        world_layer = _resize_to(world_frame.luminance, accent_h, accent_w)
         state["world_layer"] = world_layer
-        state["world_depth"] = world_frame.depth
-        state["hero_mask"] = world_frame.hero_mask
+        state["world_depth"] = _resize_to(world_frame.depth, accent_h, accent_w)
+        state["hero_mask"] = _resize_to(world_frame.hero_mask, accent_h, accent_w)
         state["world_identity"] = chapter.world
     else:
         world_layer = np.zeros((accent_h, accent_w), dtype=np.float32)

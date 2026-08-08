@@ -305,7 +305,10 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         for relation in chapter.relations:
             point = points.get(relation.target, points.get(relation.source, 0.5))
             cue_times.append((start + (end - start) * point, relation.kind))
-    sfx = build_sfx(duration, storyboard.chapters, ranges, cue_times=cue_times)
+    sfx = build_sfx(
+        duration, storyboard.chapters, ranges, cue_times=cue_times,
+        sound_style="paper" if load_look(look_name).is_paper else "cinematic",
+    )
     music_path, sfx_path, mix_path = mix_audio(voice_path, music, sfx, out_dir, slug)
 
     # The score already knows every note onset, chapter root and section boundary
@@ -335,7 +338,10 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
 
     cover = out_dir / f"{slug}-cover.jpg"
     cover_frame = _cover_frame(ctx, duration * 0.82)
-    cover_module.designed_cover(cover_frame, storyboard.title, storyboard.cover_hook, load_look(look_name), cover)
+    cover_module.designed_cover(
+        cover_frame, storyboard.title, storyboard.cover_hook, load_look(look_name), cover,
+        url=args.platform_url,
+    )
     video_sheet = packaging.contact_sheet(master, out_dir / f"{slug}-contact-sheet.png")
     hook_path = None
     if not args.no_hook_cut:

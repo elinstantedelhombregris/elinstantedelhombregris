@@ -14,6 +14,7 @@ import numpy as np
 from . import color
 
 LOOKS_DIR = Path(__file__).parent / "looks"
+SKILL_DIR = Path(__file__).resolve().parents[3]
 
 
 @dataclass(frozen=True)
@@ -91,6 +92,26 @@ class Look:
     """Strength of macro/meso/micro structure preservation before glyph matching."""
     depth_contrast: float = 0.0
     """Foreground/background separation derived from the v4 depth planes."""
+    surface: str = "screen"
+    """Physical output metaphor: ``screen`` for emissive looks, ``paper`` for ink."""
+    display_font: str = ""
+    """Optional display face used by designed titles and covers."""
+    body_font: str = ""
+    """Optional editorial reading face used by captions."""
+    meta_font: str = ""
+    """Optional metadata face used by kickers, folios and the permanent URL."""
+    secondary_accent: str = "#C23B22"
+    """Second semantic ink, reserved for stamps and interruption."""
+    paper_texture: float = 0.0
+    """Strength of the fixed fibre/press texture used by paper surfaces."""
+    riso_offset: float = 0.0
+    """Pixel offset of the restrained violet/red risograph misregistration."""
+    ink_gain: float = 1.0
+    """Absorption multiplier for dark ink on a light paper surface."""
+    render_mode: str = "glyphs"
+    """``glyphs`` converts the world to ASCII; ``illustrated`` preserves approved plates."""
+    illustration_graphics: float = 0.0
+    """Strength of semantic violet/ink graphics composited over an illustrated plate."""
 
     def ramp_rgb(self) -> np.ndarray:
         return np.stack([color.hex_to_rgb01(stop) for stop in self.ramp])
@@ -101,6 +122,25 @@ class Look:
     def background_rgb(self) -> np.ndarray:
         return color.hex_to_rgb01(self.background)
 
+    def secondary_accent_rgb(self) -> np.ndarray:
+        return color.hex_to_rgb01(self.secondary_accent)
+
+    @property
+    def is_paper(self) -> bool:
+        return self.surface == "paper"
+
+    @property
+    def is_illustrated(self) -> bool:
+        return self.render_mode == "illustrated"
+
+    def font_for(self, role: str) -> str:
+        value = {
+            "display": self.display_font,
+            "body": self.body_font,
+            "meta": self.meta_font,
+        }.get(role, "")
+        return value or self.ui_font
+
 
 def load_look(name: str) -> Look:
     path = LOOKS_DIR / f"{name}.json"
@@ -109,4 +149,8 @@ def load_look(name: str) -> Look:
         raise FileNotFoundError(f"Unknown look {name!r}. Available: {available}")
     payload = json.loads(path.read_text(encoding="utf-8"))
     payload["ramp"] = tuple(payload["ramp"])
+    for key in ("field_font", "ui_font", "display_font", "body_font", "meta_font"):
+        value = payload.get(key)
+        if value and not Path(value).is_absolute():
+            payload[key] = str((SKILL_DIR / value).resolve())
     return Look(**payload)

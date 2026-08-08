@@ -260,6 +260,55 @@ def render_resolution_tail(track: np.ndarray, start: float, duration: float, cho
     track[left:right] += ((body + shimmer) * env * 0.16).astype(np.float32)
 
 
+def render_paper_rustle(track: np.ndarray, start: float, duration: float,
+                        rng: np.random.Generator, gain: float = 0.10) -> None:
+    """Band-limited sheet movement: tactile, dry and short enough to stay under voice."""
+    left = max(0, int(start * SAMPLE_RATE))
+    right = min(len(track), left + int(duration * SAMPLE_RATE))
+    n = right - left
+    if n <= 0:
+        return
+    white = rng.standard_normal(n).astype(np.float64)
+    nyq = SAMPLE_RATE / 2
+    b, a = sps.butter(2, [650.0 / nyq, 6200.0 / nyq], btype="bandpass")
+    paper = sps.lfilter(b, a, white)
+    tt = np.arange(n, dtype=np.float64) / SAMPLE_RATE
+    flutter = 0.45 + 0.55 * np.sin(2 * np.pi * (7.0 + rng.uniform(-1.0, 1.0)) * tt) ** 2
+    env = np.sin(np.pi * np.clip(tt / max(0.01, duration), 0.0, 1.0)) ** 1.7
+    track[left:right] += (paper * flutter * env * gain).astype(np.float32)
+
+
+def render_press_roll(track: np.ndarray, start: float, duration: float,
+                      rng: np.random.Generator, gain: float = 0.12) -> None:
+    """Low mechanical roller plus paper tooth, used as a chapter impression."""
+    left = max(0, int(start * SAMPLE_RATE))
+    right = min(len(track), left + int(duration * SAMPLE_RATE))
+    n = right - left
+    if n <= 0:
+        return
+    tt = np.arange(n, dtype=np.float64) / SAMPLE_RATE
+    motor = np.sin(2 * np.pi * 42.0 * tt + 0.7 * np.sin(2 * np.pi * 3.3 * tt))
+    teeth = filtered_pulses(n, rng, rate_hz=13.0, duty=0.08, cutoff_hz=1700.0)
+    env = np.sin(np.pi * np.clip(tt / max(0.01, duration), 0.0, 1.0)) ** 1.2
+    track[left:right] += ((motor * 0.42 + teeth * 0.58) * env * gain).astype(np.float32)
+
+
+def render_stamp_hit(track: np.ndarray, at: float, rng: np.random.Generator,
+                     gain: float = 0.30) -> None:
+    """Wood/rubber stamp: a dry crack, a felt body and a tiny desk resonance."""
+    render_impact(track, at, rng, gain=gain * 0.72, low_hz=78.0)
+    duration = 0.16
+    left = max(0, int(at * SAMPLE_RATE))
+    right = min(len(track), left + int(duration * SAMPLE_RATE))
+    n = right - left
+    if n <= 0:
+        return
+    tt = np.arange(n, dtype=np.float64) / SAMPLE_RATE
+    crack = rng.standard_normal(n) * np.exp(-tt * 42.0)
+    resonance = np.sin(2 * np.pi * 310.0 * tt) * np.exp(-tt * 24.0)
+    track[left:right] += ((crack * 0.36 + resonance * 0.64) * gain).astype(np.float32)
+
+
 # ---------------------------------------------------------------------------
 # Top-level score assembly
 # ---------------------------------------------------------------------------
@@ -283,7 +332,8 @@ def build_music_track(duration: float, chapters: Sequence[Chapter], ranges: dict
 
 
 def build_sfx_track(duration: float, chapters: Sequence[Chapter], ranges: dict[str, tuple[float, float]],
-                    cue_times: list[tuple[float, str]] | None = None) -> np.ndarray:
+                    cue_times: list[tuple[float, str]] | None = None,
+                    sound_style: str = "cinematic") -> np.ndarray:
     """Structural sound design: the opening seal, each chapter join, the final resolve."""
     track = np.zeros(int((duration + 0.25) * SAMPLE_RATE), dtype=np.float32)
     rng = np.random.default_rng(8291)
@@ -292,6 +342,10 @@ def build_sfx_track(duration: float, chapters: Sequence[Chapter], ranges: dict[s
     # Opening seal.
     render_air_swell(track, 0.0, 1.1, rng, gain=0.13, cutoff_hz=2600.0)
     render_impact(track, 0.02, rng, gain=0.4, low_hz=40.0)
+    if sound_style == "paper":
+        render_paper_rustle(track, 0.0, 0.72, rng, gain=0.11)
+        render_press_roll(track, 0.10, 0.95, rng, gain=0.10)
+        render_stamp_hit(track, 0.84, rng, gain=0.22)
 
     count = len(chapters)
     for index, chapter in enumerate(chapters):
@@ -300,6 +354,9 @@ def build_sfx_track(duration: float, chapters: Sequence[Chapter], ranges: dict[s
             render_riser(track, max(0.0, start - 0.45), start, rng, gain=0.13)
             render_impact(track, start, rng, gain=0.34, low_hz=44.0 + 3.0 * (index % 4))
             render_air_swell(track, start, 0.5, rng, gain=0.06, cutoff_hz=1800.0)
+            if sound_style == "paper":
+                render_paper_rustle(track, max(0.0, start - 0.18), 0.54, rng, gain=0.075)
+                render_press_roll(track, start, 0.62, rng, gain=0.075)
         if chapter.motif in {"signal", "network", "evidence"}:
             for offset in (0.22, 0.58, 0.94):
                 if start + offset < end:
@@ -316,6 +373,11 @@ def build_sfx_track(duration: float, chapters: Sequence[Chapter], ranges: dict[s
             render_air_swell(track, max(0.0, cue_time - 0.08), 0.42, rng, gain=0.07, cutoff_hz=3900.0)
         else:
             render_impact(track, cue_time, rng, gain=0.08, low_hz=84.0)
+        if sound_style == "paper":
+            if kind in {"reduces", "contrasts"}:
+                render_stamp_hit(track, cue_time, rng, gain=0.12)
+            else:
+                render_paper_rustle(track, max(0.0, cue_time - 0.04), 0.22, rng, gain=0.032)
     return track
 
 

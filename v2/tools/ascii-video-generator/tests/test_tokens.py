@@ -53,11 +53,35 @@ def test_unknown_look_raises():
         tokens.load_look("does-not-exist")
 
 
-def test_six_production_looks_load_with_distinct_palettes():
-    names = ["plata", "terminal", "blueprint", "archive", "manifesto", "nocturne"]
+def test_eight_production_looks_load():
+    names = [
+        "plata", "tinta-papel", "tinta-papel-ilustrado", "terminal",
+        "blueprint", "archive", "manifesto", "nocturne",
+    ]
     looks = [tokens.load_look(name) for name in names]
-    assert len({tuple(look.background_rgb()) for look in looks}) == len(names)
+    # The two paper modes intentionally share one brand palette; their render
+    # strategy, not arbitrary recolouring, is what makes them distinct.
+    assert len({tuple(look.background_rgb()) for look in looks}) >= len(names) - 1
     assert all(len(look.ramp) >= 5 and look.glyph_set for look in looks)
+
+
+def test_tinta_papel_ilustrado_is_a_separate_full_plate_mode():
+    look = tokens.load_look("tinta-papel-ilustrado")
+    assert look.is_paper
+    assert look.is_illustrated
+    assert look.render_mode == "illustrated"
+    assert look.illustration_graphics > 0.5
+
+
+def test_tinta_papel_bundles_the_brand_type_system():
+    look = tokens.load_look("tinta-papel")
+    assert look.is_paper
+    assert look.accent == "#5227CC"
+    assert look.secondary_accent == "#C23B22"
+    assert "Anton-Regular" in look.font_for("display")
+    assert "Archivo-SemiBold" in look.font_for("body")
+    assert "SpaceMono-Bold" in look.font_for("meta")
+    assert all(Path(look.font_for(role)).exists() for role in ("display", "body", "meta"))
 
 
 def test_field_scale_comes_only_from_the_look_file():

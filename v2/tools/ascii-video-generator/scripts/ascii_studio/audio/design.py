@@ -80,8 +80,11 @@ def build_music(duration: float, chapters: Sequence[Chapter], ranges: dict[str, 
 
 
 def build_sfx(duration: float, chapters: Sequence[Chapter], ranges: dict[str, tuple[float, float]],
-              cue_times: list[tuple[float, str]] | None = None) -> np.ndarray:
-    track = score_module.build_sfx_track(duration, chapters, ranges, cue_times=cue_times)
+              cue_times: list[tuple[float, str]] | None = None,
+              sound_style: str = "cinematic") -> np.ndarray:
+    track = score_module.build_sfx_track(
+        duration, chapters, ranges, cue_times=cue_times, sound_style=sound_style,
+    )
     return soft_limit(track, threshold=0.9)
 
 
@@ -175,7 +178,11 @@ def voice_duck_curve(
 # ---------------------------------------------------------------------------
 
 LOUDNORM_I = -14.0
-LOUDNORM_TP = -1.5
+# Leave codec headroom before AAC.  Short, dry transients (especially the new
+# press/stamp language) gained about 2 dBTP during AAC encoding in a measured
+# smoke master; -3.5 dBTP in the PCM mix lands safely below -0.8 dBTP in the
+# distributed MP4 while preserving the -14 LUFS programme target.
+LOUDNORM_TP = -3.5
 LOUDNORM_LRA = 11.0
 
 

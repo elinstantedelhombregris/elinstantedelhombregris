@@ -1,5 +1,7 @@
 from dataclasses import asdict
 
+import pytest
+
 from ascii_studio.storyboard.build import build_storyboard
 from software import app
 
@@ -28,6 +30,21 @@ def test_studio_exposes_v3_direction_controls(tmp_path, monkeypatch):
     assert command[command.index("--platform-url") + 1] == "www.elinstantedelhombregris.com"
     assert job.platform_url == "www.elinstantedelhombregris.com"
     assert "--persona" not in command
+
+
+@pytest.mark.parametrize("look", ["tinta-papel", "tinta-papel-ilustrado"])
+def test_studio_accepts_tinta_papel_as_a_selectable_look(tmp_path, monkeypatch, look):
+    monkeypatch.setattr(app.threading.Thread, "start", lambda _self: None)
+    source = tmp_path / "source.md"
+    source.write_text("# Papel\n\nLa ciudadanía imprime otra forma de poder.", encoding="utf-8")
+    studio = app.Studio(tmp_path / "studio")
+    job = studio.create_job({
+        "source_path": str(source),
+        "mode": "brief",
+        "look": look,
+    }, "", None)
+    assert job.look == look
+    assert job.command[job.command.index("--look") + 1] == look
 
 
 def test_studio_validates_saves_and_approves_reviewed_storyboard(tmp_path, monkeypatch):

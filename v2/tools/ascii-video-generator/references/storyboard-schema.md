@@ -92,8 +92,11 @@ explicitly requested; direct the film through semantic and shot fields.
 Motifs provide atmospheric field behavior: `noise`, `signal`, `network`, `orbit`,
 `mirror`, `blueprint`, `pulse`, `fracture`, `evidence`, and `horizon`.
 
-Looks provide the production palette and typography system: `plata`, `terminal`,
-`blueprint`, `archive`, `manifesto`, and `nocturne`.
+Looks provide the production palette and typography system: `plata`, `tinta-papel`,
+`tinta-papel-ilustrado`, `terminal`, `blueprint`, `archive`, `manifesto`, and
+`nocturne`. The illustrated paper mode preserves approved colour plates and prints
+the semantic diagram over them; the original paper mode converts those plates to
+ASCII ink.
 
 ## Editorial Rules
 

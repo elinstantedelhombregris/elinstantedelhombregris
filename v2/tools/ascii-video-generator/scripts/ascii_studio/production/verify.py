@@ -45,13 +45,12 @@ def _sample_frames(path: Path, count: int = 12) -> list[np.ndarray]:
     return output
 
 
-def _signature_bright_fraction(frames: list[np.ndarray]) -> float:
-    """Measure persistent bright ink in the reserved right-hand footer.
+def _signature_bright_fraction(frames: list[np.ndarray], paper: bool = False) -> float:
+    """Measure persistent signature ink in the reserved right-hand footer.
 
     The chapter keyword occupies the left side, so it cannot satisfy this gate.
     Normalized coordinates keep the same check valid for vertical, square, and
-    landscape masters. A rendered brand signature measures about 0.05 after H.264
-    compression; the unsigned release master measures exactly 0.0.
+    landscape masters. Emissive looks use bright ink; paper uses dark ink.
     """
     ratios: list[float] = []
     for frame in frames:
@@ -62,8 +61,23 @@ def _signature_bright_fraction(frames: list[np.ndarray]) -> float:
             int(width * 0.28):int(width * 0.97),
         ]
         if footer.size:
-            ratios.append(float(np.mean(footer > 150)))
+            ratios.append(float(np.mean(footer < 112 if paper else footer > 150)))
     return float(np.median(ratios)) if ratios else 0.0
+
+
+def _brand_accent_fraction(frames: list[np.ndarray]) -> float:
+    """Fraction of pixels carrying the canonical violet or stamp red pigments."""
+    if not frames:
+        return 0.0
+    targets = (np.array([82, 39, 204]), np.array([194, 59, 34]))
+    values: list[float] = []
+    for frame in frames:
+        sample = frame[::4, ::4].astype(np.int16)
+        near = np.zeros(sample.shape[:2], dtype=bool)
+        for target in targets:
+            near |= np.sqrt(np.sum((sample - target) ** 2, axis=2)) < 58.0
+        values.append(float(np.mean(near)))
+    return float(np.median(values))
 
 
 def _background_structure(frames: list[np.ndarray]) -> float:
@@ -108,7 +122,9 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
     differences = [
         float(np.mean(np.abs(a - b))) for a, b in zip(grayscale, grayscale[1:])
     ]
-    signature_bright_fraction = _signature_bright_fraction(frames)
+    paper_look = str(getattr(storyboard, "look", "")).startswith("tinta-papel")
+    signature_bright_fraction = _signature_bright_fraction(frames, paper=paper_look)
+    brand_accent_fraction = _brand_accent_fraction(frames) if paper_look else 0.0
     background_structure = _background_structure(frames)
     shot_counts = [len(chapter.shots) for chapter in storyboard.chapters]
     semantic = [bool(chapter.anchors and chapter.archetype) for chapter in storyboard.chapters]
@@ -125,6 +141,7 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
     loudness_applicable = duration_seconds >= 3.0
     cover_image = cv2.imread(str(cover), cv2.IMREAD_GRAYSCALE)
     cover_contrast = float(cover_image.std()) if cover_image is not None else 0.0
+    frame_contrast = float(np.median([value.std() for value in grayscale])) if grayscale else 0.0
     timings_ordered = all(
         value.end >= value.start and (index == 0 or value.start >= word_timings[index - 1].start)
         for index, value in enumerate(word_timings)
@@ -149,10 +166,17 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
         "three_shots_per_chapter": all(value >= 3 for value in shot_counts),
         "semantic_chapters": all(semantic),
         "visual_change": bool(differences) and float(np.median(differences)) > 1.2,
-        "exposure": bool(brightness) and 8.0 < float(np.mean(brightness)) < 95.0,
+        "exposure": bool(brightness) and (
+            145.0 < float(np.mean(brightness)) < 246.0 if paper_look
+            else 8.0 < float(np.mean(brightness)) < 95.0
+        ),
         "cover_exists": cover.exists() and cover.stat().st_size > 10_000,
         "cover_mobile_contrast": cover_contrast > 18.0,
-        "platform_signature": bool(platform_url.strip()) and signature_bright_fraction > 0.008,
+        "platform_signature": bool(platform_url.strip()) and signature_bright_fraction > (0.012 if paper_look else 0.008),
+        "paper_surface": (not paper_look) or (
+            bool(brightness) and float(np.mean(brightness)) > 145.0 and frame_contrast > 24.0
+        ),
+        "paper_brand_accents": (not paper_look) or brand_accent_fraction > 0.00004,
         "cinematic_worlds": (not v4) or all(value not in {"", "abstract-field"} for value in worlds),
         "four_depth_planes": (not v4) or all(
             int(getattr(chapter, "depth_layers", 0)) >= 4 for chapter in storyboard.chapters
@@ -210,6 +234,8 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
             "shots_per_chapter": shot_counts,
             "cover_contrast_stddev": round(cover_contrast, 3),
             "platform_signature_bright_fraction": round(signature_bright_fraction, 5),
+            "brand_accent_fraction": round(brand_accent_fraction, 6),
+            "sample_frame_contrast_stddev": round(frame_contrast, 3),
             "background_edge_density": round(background_structure, 5),
             "adjacent_frame_difference": round(adjacent_motion, 5),
             "temporal_coherence_applicable": temporal_applicable,

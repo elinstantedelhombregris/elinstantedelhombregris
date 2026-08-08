@@ -64,6 +64,62 @@ class Renderer:
         self._prev = None
         self._scene_state = {}
 
+    def _illustrated_frame(
+        self, extra: np.ndarray | None, frame_index: int,
+    ) -> np.ndarray | None:
+        """Print semantic graphics over a complete approved colour plate.
+
+        This path deliberately bypasses glyph matching: the illustration stays
+        whole, while the same semantic layer used by the ASCII modes is absorbed
+        into it as violet/red editorial ink.  A look without an approved plate
+        falls through to the ordinary glyph renderer, so the mode remains safe
+        for older storyboards and native procedural worlds.
+        """
+        plate = self._scene_state.get("world_plate_rgb")
+        if plate is None:
+            return None
+        height, width = self.grid.buffer_shape()
+        if plate.shape[:2] != (height, width):
+            plate = cv2.resize(plate, (width, height), interpolation=cv2.INTER_CUBIC)
+        rgb = np.clip(plate, 0.0, 1.0).astype(np.float32).copy()
+
+        semantic = self._scene_state.get("semantic_layer")
+        if semantic is not None and self.look.illustration_graphics > 0:
+            semantic = cv2.resize(
+                semantic, (width, height), interpolation=cv2.INTER_LINEAR,
+            ).astype(np.float32)
+            mask = np.clip((semantic - 0.035) / 0.965, 0.0, 1.0)
+            mask = np.power(mask, 0.78, dtype=np.float32)
+            edge = cv2.Canny((mask * 255).astype(np.uint8), 38, 112)
+            edge = cv2.GaussianBlur(edge.astype(np.float32) / 255.0, (0, 0), 0.55)
+            strength = float(np.clip(self.look.illustration_graphics, 0.0, 1.0))
+            violet = self.look.accent_rgb().astype(np.float32)
+            red = self.look.secondary_accent_rgb().astype(np.float32)
+            violet_mask = np.clip(mask * strength * 0.78 + edge * strength * 0.42, 0.0, 0.92)
+            red_mask = np.roll(edge, max(1, int(round(self.look.riso_offset))), axis=1)
+            red_mask = np.clip(red_mask * strength * 0.22, 0.0, 0.28)
+            rgb *= np.clip(
+                1.0 - violet_mask[:, :, None] * (1.0 - violet[None, None, :]), 0.0, 1.0,
+            )
+            rgb *= np.clip(
+                1.0 - red_mask[:, :, None] * (1.0 - red[None, None, :]), 0.0, 1.0,
+            )
+
+        # Intro seals and other authored luminance overlays remain real ink in
+        # the illustrated mode instead of being silently discarded with ASCII.
+        if extra is not None:
+            extra_full = extra
+            if extra.shape[:2] != (height, width):
+                extra_full = cv2.resize(extra, (width, height), interpolation=cv2.INTER_LINEAR)
+            ink_mask = np.clip(extra_full.astype(np.float32), 0.0, 1.0) * 0.88
+            ink = self.look.ramp_rgb()[-1].astype(np.float32)
+            rgb *= np.clip(
+                1.0 - ink_mask[:, :, None] * (1.0 - ink[None, None, :]), 0.0, 1.0,
+            )
+
+        graded = post.grade(rgb, self.look, frame_index)
+        return graded[:self.grid.height, :self.grid.width]
+
     def frame(
         self,
         chapter: LegacyChapter,
@@ -90,6 +146,11 @@ class Renderer:
             )
         if extra is not None:
             lum = np.clip(lum + extra, 0.0, 1.0)
+
+        if self.look.is_illustrated:
+            illustrated = self._illustrated_frame(extra, frame_index)
+            if illustrated is not None:
+                return illustrated
 
         # Percentile tone mapping: stretch [tone_low_pct, tone_high_pct] of the
         # buffer's own luminance distribution to 0..1, then apply tone_gamma.
@@ -163,6 +224,12 @@ class Renderer:
             depth=depth_full,
             depth_contrast=self.look.depth_contrast if world_layer is not None else 0.0,
         )
+        if self.look.is_paper:
+            # A press does not emit grey haze: weak atmosphere stays the colour of
+            # the sheet while meaningful contours receive decisive ink.  This
+            # shoulder removes the low field that reads beautifully as glow on a
+            # dark screen but as dirty toner on paper.
+            lum_n = np.clip((lum_n - 0.105) / 0.895, 0.0, 1.0).astype(np.float32)
 
         grid_idx = asciify.asciify(
             lum_n, self.grid, self.atlas, self.look, self._prev,
@@ -183,12 +250,35 @@ class Renderer:
         # only varies subtly for depth.
         v = self.look.tone_floor + (1.0 - self.look.tone_floor) * cell_lum
         fg = color.ramp_lookup(self._ramp, v).astype(np.float32)
-        fg = color.temperature_shift(fg, chapter.temperature)
+        if self.look.is_paper:
+            # Preserve authored spot-colour separations from approved print
+            # plates after their luminance has been converted to glyphs.  This
+            # keeps the asset genuinely ASCII while retaining the violet/red
+            # riso topology that carries meaning in the illustration.
+            violet_layer = self._scene_state.get("world_plate_violet")
+            red_layer = self._scene_state.get("world_plate_red")
+            if violet_layer is not None:
+                violet = cv2.resize(
+                    violet_layer, (self.grid.cols, self.grid.rows), interpolation=cv2.INTER_AREA,
+                )[:, :, None]
+                accent = self.look.accent_rgb().astype(np.float32)[None, None, :]
+                fg = fg * (1.0 - violet * 0.92) + accent * (violet * 0.92)
+            if red_layer is not None:
+                red = cv2.resize(
+                    red_layer, (self.grid.cols, self.grid.rows), interpolation=cv2.INTER_AREA,
+                )[:, :, None]
+                accent = self.look.secondary_accent_rgb().astype(np.float32)[None, None, :]
+                fg = fg * (1.0 - red * 0.86) + accent * (red * 0.86)
+        # Paper carries one disciplined ink system.  Chapter temperature is an
+        # emissive-light device and would turn the canonical black into arbitrary
+        # brown/blue pigments, so it remains exclusive to screen looks.
+        if not self.look.is_paper:
+            fg = color.temperature_shift(fg, chapter.temperature)
         bg = np.tile(self._background.astype(np.float32), (self.grid.rows, self.grid.cols, 1))
 
         rgb = glyphs.blit(grid_idx, self.atlas, fg, bg)
 
-        if env is not None:
+        if env is not None and not self.look.is_paper:
             beat = float(np.clip(env.get("beat", 0.0), 0.0, 1.0))
             rgb = post.sh_chromatic(rgb, _BEAT_CHROMATIC_PX * (0.4 + beat * 0.8))
 

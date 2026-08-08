@@ -266,24 +266,60 @@ def _locked_plate(chapter: LegacyChapter, shape: tuple[int, int], state: dict) -
     key = (str(path.resolve()), shape)
     cache = state.setdefault("world_plate_cache", {})
     if key in cache:
-        return cache[key]
-    source = cv2.imread(str(path), cv2.IMREAD_GRAYSCALE)
-    if source is None:
+        result, violet, red, rgb = cache[key]
+        state["world_plate_violet"] = violet
+        state["world_plate_red"] = red
+        state["world_plate_rgb"] = rgb
+        return result
+    source_color = cv2.imread(str(path), cv2.IMREAD_COLOR)
+    if source_color is None:
         return None
+    source = cv2.cvtColor(source_color, cv2.COLOR_BGR2GRAY)
     height, width = shape
     scale = max(width / source.shape[1], height / source.shape[0])
     resized = cv2.resize(source, (round(source.shape[1] * scale), round(source.shape[0] * scale)),
                          interpolation=cv2.INTER_AREA)
+    resized_color = cv2.resize(
+        source_color, (round(source.shape[1] * scale), round(source.shape[0] * scale)),
+        interpolation=cv2.INTER_AREA,
+    )
     y0 = max(0, (resized.shape[0] - height) // 2)
     x0 = max(0, (resized.shape[1] - width) // 2)
     plate = resized[y0:y0 + height, x0:x0 + width].astype(np.float32) / 255.0
+    plate_color = resized_color[y0:y0 + height, x0:x0 + width]
+    plate_rgb = cv2.cvtColor(plate_color, cv2.COLOR_BGR2RGB).astype(np.float32) / 255.0
     low, high = np.percentile(plate, [3, 99])
     plate = np.clip((plate - low) / max(1e-5, high - low), 0.0, 1.0)
-    edge = cv2.Canny((plate * 255).astype(np.uint8), 50, 130).astype(np.float32) / 255.0
-    hero = np.clip((plate - 0.52) * 2.4 + edge, 0.0, 1.0)
-    depth = np.clip(0.12 + plate * 0.76 + cv2.GaussianBlur(edge, (0, 0), 4.0) * 0.25, 0.0, 1.0)
-    result = WorldFrame(np.clip(plate * 0.78 + edge * 0.42, 0.0, 1.0), depth, hero)
-    cache[key] = result
+
+    # A locked plate can be either screen art (bright subject on dark) or a
+    # scanned/printed drawing (dark ink on a light sheet).  Treat the dominant
+    # surface as empty space so both enter the glyph renderer with the same
+    # contract: higher luminance means more authored subject, not more paper.
+    # The old implementation interpreted the white stock of a print as a solid
+    # wall of glyphs and made its actual black engraving disappear.
+    border_h = max(1, round(height * 0.06))
+    border_w = max(1, round(width * 0.06))
+    border = np.concatenate((plate[:border_h].ravel(), plate[-border_h:].ravel(),
+                             plate[:, :border_w].ravel(), plate[:, -border_w:].ravel()))
+    subject = 1.0 - plate if float(np.median(border)) > 0.56 else plate
+    subject = np.clip(subject, 0.0, 1.0).astype(np.float32)
+    edge = cv2.Canny((subject * 255).astype(np.uint8), 44, 124).astype(np.float32) / 255.0
+    detail = cv2.GaussianBlur(subject, (0, 0), 0.72)
+    hero = np.clip((detail - 0.18) * 1.48 + edge * 0.62, 0.0, 1.0)
+    depth = np.clip(0.10 + detail * 0.78 + cv2.GaussianBlur(edge, (0, 0), 3.2) * 0.24,
+                    0.0, 1.0)
+    result = WorldFrame(np.clip(subject * 0.86 + edge * 0.34, 0.0, 1.0), depth, hero)
+    hsv = cv2.cvtColor(plate_color, cv2.COLOR_BGR2HSV)
+    violet = (((hsv[..., 0] >= 116) & (hsv[..., 0] <= 156) &
+               (hsv[..., 1] >= 52))).astype(np.float32)
+    red = ((((hsv[..., 0] <= 12) | (hsv[..., 0] >= 171)) &
+            (hsv[..., 1] >= 62))).astype(np.float32)
+    violet = cv2.GaussianBlur(violet, (0, 0), 0.52)
+    red = cv2.GaussianBlur(red, (0, 0), 0.52)
+    state["world_plate_violet"] = violet
+    state["world_plate_red"] = red
+    state["world_plate_rgb"] = plate_rgb
+    cache[key] = (result, violet, red, plate_rgb)
     return result
 
 
@@ -312,6 +348,119 @@ def _camera(layer: np.ndarray, camera: str, local: float, depth: float,
                           borderMode=cv2.BORDER_CONSTANT)
 
 
+def _camera_rgb(layer: np.ndarray, camera: str, local: float, depth: float,
+                t: float, seed: int) -> np.ndarray:
+    """Gentle full-colour camera move with reflected paper beyond the crop."""
+    h, w = layer.shape[:2]
+    eased = float(easing.cubic_in_out(local))
+    drift = math.sin(t * 0.17 + (seed % 113) * 0.07)
+    scale = 1.018
+    dx = drift * w * 0.008 * depth
+    dy = math.cos(t * 0.13 + seed * 0.01) * h * 0.004 * depth
+    angle = 0.0
+    if camera in {"push", "push-in"}:
+        scale += eased * 0.045 * depth
+    elif camera in {"pull", "pull-out"}:
+        scale += (1.0 - eased) * 0.045 * depth
+    elif camera == "orbit":
+        angle = (-0.72 + 1.44 * eased) * depth
+    elif camera == "drift":
+        dx += (eased - 0.5) * w * 0.024 * depth
+    elif camera == "rack" and depth < 0.55:
+        layer = cv2.GaussianBlur(layer, (0, 0), 0.9 * abs(eased - 0.5))
+    matrix = cv2.getRotationMatrix2D((w / 2, h / 2), angle, scale)
+    matrix[:, 2] += (dx, dy)
+    return cv2.warpAffine(layer, matrix, (w, h), flags=cv2.INTER_CUBIC,
+                          borderMode=cv2.BORDER_REFLECT101)
+
+
+def _animate_locked_plate(base: WorldFrame, chapter: LegacyChapter, t: float,
+                          progress: float) -> WorldFrame:
+    """Turn one approved illustration into a restrained multi-plane shot.
+
+    The decomposition is deterministic and derived from the plate's own tonal
+    depth map.  A faint stationary foundation prevents seams while four
+    feathered planes move at different rates; the result has genuine parallax
+    without hallucinating or redrawing a human-approved key frame.
+    """
+    shot = semantic.active_shot(chapter, progress)
+    composed = base.luminance * 0.26
+    hero = base.hero_mask * 0.18
+    depth_map = base.depth * 0.40
+    bands = ((0.08, 0.34, 0.22), (0.25, 0.55, 0.43),
+             (0.46, 0.76, 0.68), (0.67, 1.01, 0.96))
+    blur_sigma = max(0.7, min(base.luminance.shape) / 420.0)
+    for index, (lower, upper, plane_depth) in enumerate(bands):
+        mask = ((base.depth >= lower) & (base.depth < upper)).astype(np.float32)
+        mask = cv2.GaussianBlur(mask, (0, 0), blur_sigma)
+        layer = base.luminance * np.clip(mask * 1.24, 0.0, 1.0)
+        moved = _camera(layer, shot.camera, shot.local, plane_depth, t,
+                        chapter.seed + 1301 + index * 131)
+        composed = _screen(composed, moved * (0.70 + index * 0.045))
+
+        moved_depth = _camera(base.depth * mask, shot.camera, shot.local,
+                              plane_depth, t, chapter.seed + 1709 + index * 131)
+        depth_map = np.maximum(depth_map, moved_depth)
+        if index >= 2:
+            moved_hero = _camera(base.hero_mask * mask, shot.camera, shot.local,
+                                 plane_depth, t, chapter.seed + 2027 + index * 131)
+            hero = np.maximum(hero, moved_hero)
+
+    # The ink settles over the first beat of each chapter like a press coming
+    # into register.  It never fades to zero, avoiding an exposure pump.
+    settle = 0.76 + 0.24 * float(easing.cubic_out(np.clip(progress / 0.13, 0.0, 1.0)))
+    return WorldFrame(np.clip(composed * settle, 0.0, 1.0),
+                      np.clip(depth_map, 0.0, 1.0), np.clip(hero, 0.0, 1.0))
+
+
+def _animate_plate_separation(mask: np.ndarray, depth: np.ndarray,
+                              chapter: LegacyChapter, t: float,
+                              progress: float) -> np.ndarray:
+    """Move a spot-colour separation with the same planes as its ink drawing."""
+    if not np.any(mask > 0.01):
+        return mask
+    shot = semantic.active_shot(chapter, progress)
+    composed = mask * 0.26
+    bands = ((0.08, 0.34, 0.22), (0.25, 0.55, 0.43),
+             (0.46, 0.76, 0.68), (0.67, 1.01, 0.96))
+    blur_sigma = max(0.7, min(mask.shape) / 420.0)
+    for index, (lower, upper, plane_depth) in enumerate(bands):
+        band = ((depth >= lower) & (depth < upper)).astype(np.float32)
+        band = cv2.GaussianBlur(band, (0, 0), blur_sigma)
+        layer = mask * np.clip(band * 1.24, 0.0, 1.0)
+        moved = _camera(layer, shot.camera, shot.local, plane_depth, t,
+                        chapter.seed + 1301 + index * 131)
+        composed = _screen(composed, moved * (0.70 + index * 0.045))
+    return np.clip(composed, 0.0, 1.0)
+
+
+def _animate_plate_rgb(rgb: np.ndarray, depth: np.ndarray,
+                       chapter: LegacyChapter, t: float,
+                       progress: float) -> np.ndarray:
+    """Preserve the complete illustration while giving its ink real depth.
+
+    The whole approved plate receives a quiet editorial camera move.  Three
+    feathered subject bands then travel a little farther, creating parallax
+    without cutting the image into visible cardboard layers or rebuilding it
+    as glyphs.
+    """
+    shot = semantic.active_shot(chapter, progress)
+    output = _camera_rgb(rgb, shot.camera, shot.local, 0.30, t, chapter.seed + 887)
+    bands = ((0.28, 0.52, 0.42, 0.18), (0.44, 0.74, 0.68, 0.27),
+             (0.64, 1.01, 0.96, 0.38))
+    blur_sigma = max(1.0, min(depth.shape) / 340.0)
+    for index, (lower, upper, plane_depth, strength) in enumerate(bands):
+        mask = ((depth >= lower) & (depth < upper)).astype(np.float32)
+        mask = cv2.GaussianBlur(mask, (0, 0), blur_sigma)
+        moved_mask = _camera(mask, shot.camera, shot.local, plane_depth, t,
+                             chapter.seed + 2503 + index * 149)
+        moved_rgb = _camera_rgb(rgb, shot.camera, shot.local, plane_depth, t,
+                                chapter.seed + 2503 + index * 149)
+        alpha = np.clip(moved_mask * strength, 0.0, 0.68)[:, :, None]
+        output = output * (1.0 - alpha) + moved_rgb * alpha
+    return np.clip(output, 0.0, 1.0).astype(np.float32)
+
+
 def _narrative_light(shape: tuple[int, int], lighting: str, morph: float,
                      seed: int) -> np.ndarray:
     h, w = shape
@@ -335,7 +484,22 @@ def render_world(chapter: LegacyChapter, shape: tuple[int, int], t: float,
                  progress: float, state: dict) -> WorldFrame:
     locked = _locked_plate(chapter, shape, state)
     if locked is not None:
-        return locked
+        violet = state.get("world_plate_violet")
+        red = state.get("world_plate_red")
+        rgb = state.get("world_plate_rgb")
+        if rgb is not None:
+            state["world_plate_rgb"] = _animate_plate_rgb(
+                rgb, locked.depth, chapter, t, progress,
+            )
+        if violet is not None:
+            state["world_plate_violet"] = _animate_plate_separation(
+                violet, locked.depth, chapter, t, progress,
+            )
+        if red is not None:
+            state["world_plate_red"] = _animate_plate_separation(
+                red, locked.depth, chapter, t, progress,
+            )
+        return _animate_locked_plate(locked, chapter, t, progress)
 
     height, width = shape
     y0, y1, x0, x1 = _stage_bounds(shape)

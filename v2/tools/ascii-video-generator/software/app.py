@@ -42,7 +42,10 @@ DEFAULT_EDGE_PITCH = "-4Hz"
 DEFAULT_SAY_VOICE = "Reed (Spanish (Mexico))"
 DEFAULT_SAY_RATE = "160"
 DEFAULT_VOICE_PERFORMANCE = "editorial"
-LOOKS = ("plata", "terminal", "blueprint", "archive", "manifesto", "nocturne")
+LOOKS = (
+    "plata", "tinta-papel", "tinta-papel-ilustrado", "terminal",
+    "blueprint", "archive", "manifesto", "nocturne",
+)
 FORMATS = ("vertical", "square", "landscape")
 DEFAULT_LOGO_CANDIDATES = [
     Path("~/Library/CloudStorage/OneDrive-Personal/Hombre Gris/Cruz Orlada Logo NB.png").expanduser(),
