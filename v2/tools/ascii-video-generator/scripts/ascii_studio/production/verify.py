@@ -93,6 +93,36 @@ def _background_structure(frames: list[np.ndarray]) -> float:
     return float(np.median(values)) if values else 0.0
 
 
+def _exposure_ok(brightness: list[float], *, paper: bool, illustrated: bool) -> bool:
+    """Validate the authored surface instead of forcing every paper mode white.
+
+    Glyph-based paper uses an almost-empty warm sheet and therefore should be
+    bright overall.  A complete editorial illustration legitimately contains
+    large fields of black engraving; for that mode the safe gate is a broad
+    photographic exposure window, paired with the separate contrast/structure
+    checks below.
+    """
+    if not brightness:
+        return False
+    mean = float(np.mean(brightness))
+    if illustrated:
+        return 38.0 < mean < 222.0
+    if paper:
+        return 145.0 < mean < 246.0
+    return 8.0 < mean < 95.0
+
+
+def _paper_surface_ok(
+    brightness: list[float], frame_contrast: float, *, illustrated: bool,
+) -> bool:
+    if not brightness:
+        return False
+    mean = float(np.mean(brightness))
+    if illustrated:
+        return 38.0 < mean < 222.0 and frame_contrast > 38.0
+    return mean > 145.0 and frame_contrast > 24.0
+
+
 def _adjacent_motion(path: Path, samples: int = 6) -> float:
     capture = cv2.VideoCapture(str(path))
     frame_count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -122,7 +152,9 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
     differences = [
         float(np.mean(np.abs(a - b))) for a, b in zip(grayscale, grayscale[1:])
     ]
-    paper_look = str(getattr(storyboard, "look", "")).startswith("tinta-papel")
+    look_name = str(getattr(storyboard, "look", ""))
+    paper_look = look_name.startswith("tinta-papel")
+    illustrated_look = look_name == "tinta-papel-ilustrado"
     signature_bright_fraction = _signature_bright_fraction(frames, paper=paper_look)
     brand_accent_fraction = _brand_accent_fraction(frames) if paper_look else 0.0
     background_structure = _background_structure(frames)
@@ -166,15 +198,14 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
         "three_shots_per_chapter": all(value >= 3 for value in shot_counts),
         "semantic_chapters": all(semantic),
         "visual_change": bool(differences) and float(np.median(differences)) > 1.2,
-        "exposure": bool(brightness) and (
-            145.0 < float(np.mean(brightness)) < 246.0 if paper_look
-            else 8.0 < float(np.mean(brightness)) < 95.0
+        "exposure": _exposure_ok(
+            brightness, paper=paper_look, illustrated=illustrated_look,
         ),
         "cover_exists": cover.exists() and cover.stat().st_size > 10_000,
         "cover_mobile_contrast": cover_contrast > 18.0,
         "platform_signature": bool(platform_url.strip()) and signature_bright_fraction > (0.012 if paper_look else 0.008),
-        "paper_surface": (not paper_look) or (
-            bool(brightness) and float(np.mean(brightness)) > 145.0 and frame_contrast > 24.0
+        "paper_surface": (not paper_look) or _paper_surface_ok(
+            brightness, frame_contrast, illustrated=illustrated_look,
         ),
         "paper_brand_accents": (not paper_look) or brand_accent_fraction > 0.00004,
         "cinematic_worlds": (not v4) or all(value not in {"", "abstract-field"} for value in worlds),
