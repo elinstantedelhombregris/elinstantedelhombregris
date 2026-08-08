@@ -180,7 +180,9 @@ WEB          lee — el país en plata, misma grilla, otra altura
 
 **Por qué hace falta el endpoint, si la web hoy calcula la cobertura en el cliente.** Porque el brillo cuenta *personas distintas*, y contar personas distintas en el cliente exigiría que el feed público trajera identificadores de persona. **El servidor devuelve el conteo ya agregado y nunca los identificadores.** Es una razón de privacidad, no de rendimiento, y por eso no admite el atajo.
 
-La supresión de grupos pequeños que la Constitución ya exige para la Radiografía aplica igual acá.
+**El contrato que `civic-core` entrega ya resuelto.** `luzDeCelda` devuelve `intensidad: number | null` y `foco: number`, los dos listos para dibujar. La asimetría es deliberada: `sinDenominador` no tiene intensidad definida, pero `inaplicable` sí tiene aspecto definido y es nítido. Ninguna de las dos superficies vuelve a decidir esto por su cuenta — de eso se trata que la fórmula viva en un paquete compartido.
+
+**La supresión de grupos pequeños tiene que pasar ANTES de `luzDeCelda`, no después.** El brillo dibujado es exactamente invertible: con los coeficientes públicos, `voces = habitantes × PARTICIPACION_PLENA × intensidad^(1/CURVA)`. Una celda rural encendida al mínimo delata que habló una sola persona, que es precisamente la desanonimización que la supresión existe para impedir. `LuzCelda` no lleva conteos crudos, pero eso no alcanza si la intensidad los reconstruye. La supresión que la Constitución ya exige para la Radiografía se aplica sobre los `ConteoCelda` que entran, no sobre las luces que salen (`D-028`).
 
 ---
 

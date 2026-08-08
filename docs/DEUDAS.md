@@ -669,3 +669,26 @@ ERR_MODULE_NOT_FOUND: Cannot find module '.../packages/db/src/client.js'
 **Por qué no se arregla acá:** la salida limpia es `exports` condicionales (`development` → `./src/index.ts`, `default` → `./dist/index.js`) en los tres paquetes, con sus cuatro subpaths, más `resolve.conditions` en vite y vitest y el equivalente para `tsx`. Son tres paquetes, doce entradas y tres configs de herramienta, todo por debajo de una suite de 182 tests de integración que hoy está verde. Cambiar la resolución de módulos de todo el workspace en el mismo movimiento que se estrena un host es mezclar dos causas de rotura.
 
 **Qué haría falta:** los `exports` condicionales, y después un test que valide lo que el `build` no valida — importar el artefacto emitido desde Node puro y afirmar que expone lo que promete. Sin ese test, el próximo `build` verde vuelve a no significar nada.
+
+---
+
+### D-028 · El brillo dibujado es invertible: delata cuánta gente habló en una celda
+
+**Dónde:** `v2/packages/civic-core/src/brillo.ts` (`intensidadDeBrillo`) junto con `v2/packages/civic-core/src/coeficientes-luz.ts`, que el barril exporta
+**Encontrada:** 2026-08-04, en la revisión final de la rebanada 1 de El Registro
+**Severidad:** alta cuando entre la rebanada 4; hoy inerte porque no hay endpoint ni datos
+**Estado:** abierta
+
+`intensidadDeBrillo` es una función invertible y sus dos coeficientes son públicos. Con `PARTICIPACION_PLENA` y `CURVA` a la vista, cualquiera despeja:
+
+```
+voces distintas = habitantes × PARTICIPACION_PLENA × intensidad^(1/CURVA)
+```
+
+Verificado numéricamente: una intensidad de 0,1720 sobre 1.000 habitantes invierte exactamente a **1 voz**. Es decir que una celda rural encendida al mínimo publica que ahí habló **una sola persona**, y en una celda de pocos habitantes eso alcanza para saber quién.
+
+`LuzCelda` fue diseñada sin llevar conteos crudos, y eso está bien, pero **no alcanza**: la intensidad los reconstruye. La supresión de grupos pequeños que la Constitución de producto ya exige para la Radiografía no se puede aplicar sobre las luces que salen — tiene que aplicarse sobre los `ConteoCelda` que entran.
+
+**Por qué no se arregla acá:** la rebanada 1 no tiene endpoint ni consumidores, así que no hay nada que suprimir todavía. Y la supresión es una decisión de política —qué umbral, qué se devuelve por debajo de él— que pertenece al diseño del endpoint, no a una función pura de dibujo.
+
+**Qué haría falta:** que `GET /api/v1/civic/map/cells` suprima antes de llamar a `luzDeCeldas`, y que la respuesta distinga «suprimida por grupo chico» de «sin denominador» y de «nadie habló» — tres estados distintos que no se pueden pintar igual, por la misma razón por la que hoy hay tres y no dos. Ojo con el orden: si la supresión llegara como una cuarta variante de `Brillo`, sería un cambio rompedor sobre una unión que para entonces van a estar importando dos apps. Conviene decidirlo al diseñar el endpoint, no después.
