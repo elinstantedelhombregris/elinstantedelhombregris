@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Text, View, type GestureResponderEvent } from 'react-native';
 import MapView, { Marker, Polygon as MapPolygon, type MapStyleElement } from 'react-native-maps';
 import Svg, { Polygon, Polyline } from 'react-native-svg';
@@ -8,6 +8,7 @@ import { Pressable97 } from '@/components/ui/Pressable97';
 import { VIOLETA, VIOLETA_CLARO } from '@/theme/tokens';
 import { selectTerritoryPoints } from '@/civic/lasso';
 
+import { colorDeLuz } from './luz-a-color';
 import type { TerritoryMapProps } from './TerritoryMap.types';
 
 interface PixelPoint { x: number; y: number }
@@ -49,12 +50,14 @@ const DARK_STYLE: MapStyleElement[] = [
 export default function TerritoryMap({
   points,
   coverageCells = [],
+  luces,
   highlightedPointId,
   selectedPointId,
   onPointPress,
   onSelection,
 }: TerritoryMapProps) {
   const map = useRef<MapView>(null);
+  const luzPorCelda = useMemo(() => new Map((luces ?? []).map((luz) => [luz.cellId, luz])), [luces]);
   const [lasso, setLasso] = useState(false);
   const [path, setPath] = useState<PixelPoint[]>([]);
   const [polygon, setPolygon] = useState<{ latitude: number; longitude: number }[]>([]);
@@ -99,15 +102,19 @@ export default function TerritoryMap({
         customMapStyle={DARK_STYLE}
         initialRegion={initialRegion(points, highlightedPointId)}
       >
-        {coverageCells.map((cell) => (
-          <MapPolygon
-            key={cell.id}
-            coordinates={cell.polygon.map((point) => ({ latitude: point.lat, longitude: point.lng }))}
-            fillColor="rgba(167,139,250,0.11)"
-            strokeColor="rgba(196,181,253,0.7)"
-            strokeWidth={1}
-          />
-        ))}
+        {coverageCells.map((cell) => {
+          const luz = luzPorCelda.get(cell.id);
+          const color = luz ? colorDeLuz(luz) : null;
+          return (
+            <MapPolygon
+              key={cell.id}
+              coordinates={cell.polygon.map((point) => ({ latitude: point.lat, longitude: point.lng }))}
+              fillColor={color ? color.fill : 'rgba(167,139,250,0.11)'}
+              strokeColor={color ? color.stroke : 'rgba(196,181,253,0.7)'}
+              strokeWidth={1}
+            />
+          );
+        })}
         {points.map((point) => {
           const highlighted = point.id === highlightedPointId;
           const opened = point.id === selectedPointId;

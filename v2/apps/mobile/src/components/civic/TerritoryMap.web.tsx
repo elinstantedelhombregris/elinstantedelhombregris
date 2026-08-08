@@ -9,6 +9,7 @@ import { VIOLETA, VIOLETA_CLARO } from '@/theme/tokens';
 import { selectTerritoryPoints } from '@/civic/lasso';
 import type { GeoPoint } from '@/civic/types';
 
+import { colorDeLuz } from './luz-a-color';
 import type { TerritoryMapProps } from './TerritoryMap.types';
 
 interface PixelPoint { x: number; y: number }
@@ -76,22 +77,43 @@ const pointsGeoJson = (
   })),
 });
 
-const coverageGeoJson = (cells: NonNullable<TerritoryMapProps['coverageCells']>) => ({
-  type: 'FeatureCollection' as const,
-  features: cells.map((cell) => ({
-    type: 'Feature' as const,
-    id: cell.id,
-    properties: { id: cell.id },
-    geometry: {
-      type: 'Polygon' as const,
-      coordinates: [[...cell.polygon, cell.polygon[0]!].map((point) => [point.lng, point.lat])],
-    },
-  })),
-});
+// Mismo look que tenía la capa antes de que existiera `colorDeLuz`, para las
+// celdas que no tienen una `luz` con el mismo `cellId` — no cambia lo que ya
+// se veía cuando no hay datos de luz para pintar.
+const SIN_LUZ_FILL = 'rgba(157,133,232,0.11)';
+const SIN_LUZ_STROKE = 'rgba(196,181,253,0.72)';
+
+const coverageGeoJson = (
+  cells: NonNullable<TerritoryMapProps['coverageCells']>,
+  luces: NonNullable<TerritoryMapProps['luces']>,
+) => {
+  const luzPorCelda = new Map(luces.map((luz) => [luz.cellId, luz]));
+  return {
+    type: 'FeatureCollection' as const,
+    features: cells.map((cell) => {
+      const luz = luzPorCelda.get(cell.id);
+      const color = luz ? colorDeLuz(luz) : null;
+      return {
+        type: 'Feature' as const,
+        id: cell.id,
+        properties: {
+          id: cell.id,
+          fill: color ? color.fill : SIN_LUZ_FILL,
+          stroke: color ? color.stroke : SIN_LUZ_STROKE,
+        },
+        geometry: {
+          type: 'Polygon' as const,
+          coordinates: [[...cell.polygon, cell.polygon[0]!].map((point) => [point.lng, point.lat])],
+        },
+      };
+    }),
+  };
+};
 
 export default function TerritoryMap({
   points,
   coverageCells = [],
+  luces = [],
   highlightedPointId,
   selectedPointId,
   onPointPress,
@@ -131,14 +153,14 @@ export default function TerritoryMap({
       setReady(true);
       instance.on('load', () => {
         if (!alive) return;
-        instance.addSource('coverage', { type: 'geojson', data: coverageGeoJson([]) });
+        instance.addSource('coverage', { type: 'geojson', data: coverageGeoJson([], []) });
         instance.addLayer({
           id: 'coverage-fill', type: 'fill', source: 'coverage',
-          paint: { 'fill-color': VIOLETA_CLARO, 'fill-opacity': 0.11 },
+          paint: { 'fill-color': ['get', 'fill'] },
         });
         instance.addLayer({
           id: 'coverage-line', type: 'line', source: 'coverage',
-          paint: { 'line-color': '#C4B5FD', 'line-opacity': 0.72, 'line-width': 1.2 },
+          paint: { 'line-color': ['get', 'stroke'], 'line-width': 1.2 },
         });
         instance.addSource('signals', { type: 'geojson', data: pointsGeoJson(points, new Set(), highlightedPointId, selectedPointId) });
         instance.addLayer({
@@ -229,8 +251,8 @@ export default function TerritoryMap({
 
   useEffect(() => {
     if (!ready) return;
-    (map.current?.getSource('coverage') as GeoJSONSource | undefined)?.setData(coverageGeoJson(coverageCells));
-  }, [coverageCells, ready]);
+    (map.current?.getSource('coverage') as GeoJSONSource | undefined)?.setData(coverageGeoJson(coverageCells, luces));
+  }, [coverageCells, luces, ready]);
 
   const pixel = (event: GestureResponderEvent): PixelPoint => ({
     x: event.nativeEvent.locationX,
