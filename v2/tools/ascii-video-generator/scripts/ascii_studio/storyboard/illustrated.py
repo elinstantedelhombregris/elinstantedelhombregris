@@ -302,7 +302,7 @@ def make_illustration_direction(
             ),
             trigger_token=trigger, end_token=max(trigger, end),
             source=relation.source, target=relation.target,
-            treatment="violet-thread-red-punctuation",
+            treatment="bright-silver-thread-red-punctuation",
             callout=_relation_callout(narrated, relation),
             animation=_cue_animation(kind),
             emphasis="primary" if index == 0 else "secondary",

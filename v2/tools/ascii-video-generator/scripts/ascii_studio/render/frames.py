@@ -228,6 +228,33 @@ def _press_registration_entry(
     return np.clip(output, 0.0, 1.0).astype(np.float32)
 
 
+def _silver_foil(
+    shape: tuple[int, int], accent: np.ndarray, frame_index: int,
+) -> np.ndarray:
+    """Cold brushed silver with one restrained travelling reflection.
+
+    A flat light grey reads as disabled UI, not metal.  This field combines a
+    fine fixed brush with a broad diagonal highlight.  Motion is deliberately
+    slow enough to feel like reflected light on foil rather than a digital
+    neon pulse.
+    """
+    height, width = shape
+    yy, xx = np.meshgrid(
+        np.arange(height, dtype=np.float32),
+        np.arange(width, dtype=np.float32),
+        indexing="ij",
+    )
+    scale = max(1.0, float(width))
+    diagonal = (xx + yy * 0.32) / scale
+    centre = ((frame_index * 0.0065) % 1.72) - 0.22
+    sheen = np.exp(-((diagonal - centre) ** 2) / (2.0 * 0.052 ** 2))
+    brush = 0.5 + 0.5 * np.sin(xx * 0.31 + yy * 0.037)
+    value = np.clip(0.84 + brush * 0.10 + sheen * 0.24, 0.76, 1.14)
+    foil = accent[None, None, :] * value[:, :, None]
+    foil += sheen[:, :, None] * np.array([0.10, 0.11, 0.12], dtype=np.float32)
+    return np.clip(foil, 0.0, 1.0).astype(np.float32)
+
+
 class Renderer:
     def __init__(
         self, look: Look, width: int = 1080, height: int = 1920, scene: str = "composer",
@@ -273,7 +300,7 @@ class Renderer:
 
         This path deliberately bypasses glyph matching: the illustration stays
         whole, while only reviewed non-textual cues are absorbed into it as
-        violet/red editorial ink. A look without an approved plate falls through
+        silver/red editorial marks. A look without an approved plate falls through
         to the ordinary glyph renderer; the production protocol prevents that
         fallback from being published accidentally.
         """
@@ -302,17 +329,23 @@ class Renderer:
             edge = cv2.Canny((mask_roi * 255).astype(np.uint8), 38, 112)
             edge = cv2.GaussianBlur(edge.astype(np.float32) / 255.0, (0, 0), 0.55)
             strength = float(np.clip(self.look.illustration_graphics, 0.0, 1.0))
-            violet = self.look.accent_rgb().astype(np.float32)
+            silver = _silver_foil(
+                mask_roi.shape, self.look.accent_rgb().astype(np.float32), frame_index,
+            )
             red = self.look.secondary_accent_rgb().astype(np.float32)
-            violet_mask = np.clip(mask_roi * strength * 0.66 + edge * strength * 0.30, 0.0, 0.78)
+            silver_mask = np.clip(mask_roi * strength * 0.84 + edge * strength * 0.42, 0.0, 0.94)
+            halo_mask = cv2.GaussianBlur(mask_roi, (0, 0), 1.05)
+            halo_mask = np.clip(halo_mask * strength * 0.34, 0.0, 0.38)[:, :, None]
             red_mask = np.roll(edge, max(1, int(round(self.look.riso_offset))), axis=1)
             red_mask = np.clip(red_mask * strength * 0.18, 0.0, 0.22)
             # Pigment blend remains visible over both paper and dense black ink;
             # multiplicative darkening made semantic paths disappear in the
             # very engravings this mode is now designed around.
-            violet_alpha = violet_mask[:, :, None]
+            silver_alpha = silver_mask[:, :, None]
             red_alpha = red_mask[:, :, None]
-            rgb_roi = rgb_roi * (1.0 - violet_alpha) + violet[None, None, :] * violet_alpha
+            graphite = np.array([0.29, 0.31, 0.34], dtype=np.float32)[None, None, :]
+            rgb_roi = rgb_roi * (1.0 - halo_mask) + graphite * halo_mask
+            rgb_roi = rgb_roi * (1.0 - silver_alpha) + silver * silver_alpha
             rgb_roi = rgb_roi * (1.0 - red_alpha) + red[None, None, :] * red_alpha
             rgb[y0:y1, x0:x1] = rgb_roi
 

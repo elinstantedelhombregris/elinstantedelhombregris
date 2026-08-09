@@ -68,7 +68,8 @@ def _illustrated_cover(
     image = Image.blend(image, paper, 0.12)
     draw = ImageDraw.Draw(image, "RGBA")
     ink = (22, 19, 14)
-    violet, red = (82, 39, 204), (194, 59, 34)
+    silver = tuple(int(channel * 255) for channel in look.accent_rgb())
+    silver_shadow, red = (91, 98, 106), (194, 59, 34)
     margin = int(width * 0.065)
 
     hook_text = (hook.rstrip(".") or title).upper()
@@ -88,15 +89,20 @@ def _illustrated_cover(
         (margin - 10, top - int(height * 0.018), width - margin + 10, block_bottom),
         fill=(242, 239, 231, 224),
     )
+    rule_width = max(3, width // 240)
     draw.line(
         (margin, top - int(height * 0.018), width - margin, top - int(height * 0.018)),
-        fill=(*violet, 255), width=max(3, width // 240),
+        fill=(*silver_shadow, 255), width=rule_width + max(2, rule_width // 2),
+    )
+    draw.line(
+        (margin, top - int(height * 0.018), width - margin, top - int(height * 0.018)),
+        fill=(*silver, 255), width=rule_width,
     )
     for index, line in enumerate(lines):
         y = top + index * leading
         # A restrained two-ink misregistration ties the cover to the video
         # without overwhelming the full-colour plate.
-        draw.text((margin + 2, y), line, font=font, fill=(*violet, 54))
+        draw.text((margin + 2, y), line, font=font, fill=(*silver, 76))
         draw.text((margin - 2, y), line, font=font, fill=(*red, 42))
         draw.text((margin, y), line, font=font, fill=(*ink, 255))
 

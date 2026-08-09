@@ -732,6 +732,7 @@ def compose_scene(
         state.pop("world_plate_rgb", None)
         plate_frame = worlds.render_world(
             chapter, (height, width), t, progress, state, colour_only=True,
+            colour_accent=look.accent_rgb(),
         )
         if state.get("world_plate_rgb") is not None:
             for key in ("semantic_layer", "stencil_bounds", "feedback"):

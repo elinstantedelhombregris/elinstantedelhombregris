@@ -63,8 +63,9 @@ copying a subject from any individual plate.
 
 - **Form:** editorial woodcut/linocut, carved black line, dense directional hatching,
   irregular pressure and physical paper grain.
-- **Palette:** black ink and aged cream/ochre stock dominate. Violet is reserved for
-  systems, routes and alternatives; red is a single warning, fracture or decision.
+- **Palette:** black ink and aged cream/ochre stock dominate. Bright cold silver,
+  edged in graphite and animated with a restrained directional sheen, is reserved
+  for systems, routes and alternatives; red is a single warning, fracture or decision.
 - **Composition:** one legible civic allegory, monumental perspective, concrete
   foreground/midground/horizon and people acting collectively inside the system.
 - **World:** Argentine architecture, territory and public infrastructure without
@@ -82,7 +83,7 @@ approve anatomy, composition or narrative meaning; those remain human decisions.
 
 - `draw-pulse-arrive`: causal line draws by travelled distance, pulses at the moving
   tip and resolves with an arrow only after arrival.
-- `thread-pulse-connect`: violet thread joins concrete endpoints; nodes appear only
+- `thread-pulse-connect`: a bright silver thread joins concrete endpoints; nodes appear only
   when reached.
 - `arch-build-settle`: a bridge is constructed from one side to the other.
 - `orbit-draw-pulse`: a feedback arc closes progressively and marks direction.

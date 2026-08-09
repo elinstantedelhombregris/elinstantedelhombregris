@@ -54,6 +54,7 @@ def test_style_contract_and_prompts_are_explicit_and_text_free():
     assert contract["name"] == "Grabado cívico alegórico"
     assert "xilografía" in prompt
     assert "vertical 9:16" in prompt
+    assert "plata fría brillante #CBD2D9" in prompt
     assert "sin texto incrustado" in prompt
     assert "fotorrealismo" in avoid
     assert "logotipos" in avoid

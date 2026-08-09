@@ -85,9 +85,29 @@ def test_illustrated_mode_preserves_full_colour_plate_and_prints_graphics(tmp_pa
     # Colour survives as colour, rather than collapsing into one ASCII ramp.
     assert float(np.mean(np.std(frame.astype(np.float32), axis=2))) > 11.0
     assert len(np.unique(frame.reshape(-1, 3), axis=0)) > 800
-    # The overprinted semantic layer introduces the house violet.
+    # Both the plate's legacy violet and the live semantic layer become cool
+    # bright silver, with no purple pigment left in the illustrated result.
+    spread = frame.max(axis=2).astype(np.int16) - frame.min(axis=2).astype(np.int16)
+    silver = (frame.mean(axis=2) > 145) & (spread < 34) & (frame[..., 2] >= frame[..., 0])
     violet = (frame[..., 2] > frame[..., 1] * 1.16) & (frame[..., 0] > frame[..., 1] * 1.05)
-    assert float(violet.mean()) > 0.0005
+    assert float(silver.mean()) > 0.001
+    assert float(violet.mean()) < 0.0005
+
+
+def test_legacy_violet_separation_is_recoloured_as_textured_silver():
+    rgb = np.full((80, 80, 3), (242, 225, 190), dtype=np.uint8).astype(np.float32) / 255.0
+    rgb[20:60, 16:64] = np.array([82, 39, 204], dtype=np.float32) / 255.0
+    violet_mask = np.zeros((80, 80), dtype=np.float32)
+    violet_mask[20:60, 16:64] = 1.0
+
+    result = worlds._replace_violet_with_silver(
+        rgb, violet_mask, np.array([203, 210, 217], dtype=np.float32) / 255.0,
+    )
+    centre = result[26:54, 22:58]
+
+    assert float(np.mean(np.max(centre, axis=2) - np.min(centre, axis=2))) < 0.10
+    assert float(centre.mean()) > 0.55
+    assert float(result[5:15, 5:15].mean()) == float(rgb[5:15, 5:15].mean())
 
 
 def test_illustrated_colour_path_skips_discarded_monochrome_plate_work(
@@ -163,6 +183,29 @@ def test_illustrated_opening_title_orients_then_completely_clears():
 
     assert not np.array_equal(opening, frame)
     assert np.array_equal(cleared, frame)
+
+
+def test_illustrated_opening_title_suppresses_competing_callouts(monkeypatch):
+    look = load_look("tinta-papel-ilustrado")
+    renderer = Renderer(look, width=270, height=480)
+    frame = np.full((480, 270, 3), 91, dtype=np.uint8)
+    calls = []
+    monkeypatch.setattr(
+        typography, "draw_illustrated_callouts",
+        lambda *_args, **_kwargs: calls.append(1),
+    )
+
+    typography.overlay(
+        frame, renderer.grid, look, t=1.0, title="Título",
+        title_card_seconds=2.8, scene_chapter=object(),
+    )
+    assert not calls
+
+    typography.overlay(
+        frame, renderer.grid, look, t=3.0, title="Título",
+        title_card_seconds=2.8, scene_chapter=object(),
+    )
+    assert calls == [1]
 
 
 def test_illustrated_callout_is_word_bound_and_not_persistent():

@@ -1,7 +1,9 @@
 import numpy as np
 
 from ascii_studio.production.verify import (
+    _brand_accent_fraction,
     _exposure_ok,
+    _loudness_required,
     _paper_surface_ok,
     _signature_bright_fraction,
 )
@@ -35,3 +37,18 @@ def test_illustrated_paper_accepts_deep_engraving_without_weakening_ascii_gate()
 def test_illustrated_paper_still_rejects_crushed_or_flat_frames():
     assert not _exposure_ok([22.0], paper=True, illustrated=True)
     assert not _paper_surface_ok([101.0], 12.0, illustrated=True)
+
+
+def test_illustrated_accent_gate_recognizes_silver_without_counting_paper():
+    paper = np.full((120, 120, 3), (242, 239, 231), dtype=np.uint8)
+    silver = paper.copy()
+    silver[20:80, 20:80] = (203, 210, 217)
+
+    assert _brand_accent_fraction([paper], "tinta-papel-ilustrado") == 0.0
+    assert _brand_accent_fraction([silver], "tinta-papel-ilustrado") > 0.01
+
+
+def test_silent_three_second_smoke_does_not_require_publishable_loudness():
+    assert not _loudness_required(3.0, [object()], "none")
+    assert not _loudness_required(3.0, [])
+    assert _loudness_required(3.0, [object()])

@@ -66,17 +66,23 @@ def _signature_bright_fraction(frames: list[np.ndarray], paper: bool = False) ->
     return float(np.median(ratios)) if ratios else 0.0
 
 
-def _brand_accent_fraction(frames: list[np.ndarray]) -> float:
-    """Fraction of pixels carrying the canonical violet or stamp red pigments."""
+def _brand_accent_fraction(frames: list[np.ndarray], look_name: str = "") -> float:
+    """Fraction of pixels carrying the look's primary or stamp-red material."""
     if not frames:
         return 0.0
-    targets = (np.array([82, 39, 204]), np.array([194, 59, 34]))
+    primary = (
+        np.array([203, 210, 217])
+        if look_name == "tinta-papel-ilustrado"
+        else np.array([82, 39, 204])
+    )
+    targets = (primary, np.array([194, 59, 34]))
     values: list[float] = []
     for frame in frames:
         sample = frame[::4, ::4].astype(np.int16)
         near = np.zeros(sample.shape[:2], dtype=bool)
         for target in targets:
-            near |= np.sqrt(np.sum((sample - target) ** 2, axis=2)) < 58.0
+            threshold = 44.0 if look_name == "tinta-papel-ilustrado" else 58.0
+            near |= np.sqrt(np.sum((sample - target) ** 2, axis=2)) < threshold
         values.append(float(np.mean(near)))
     return float(np.median(values))
 
@@ -92,6 +98,13 @@ def _background_structure(frames: list[np.ndarray]) -> float:
             edges = cv2.Canny(stage, 38, 110)
             values.append(float(np.mean(edges > 0)))
     return float(np.median(values)) if values else 0.0
+
+
+def _loudness_required(
+    duration_seconds: float, word_timings: list, tts_mode: str = "",
+) -> bool:
+    """Only narrated, non-diagnostic packages carry the publication loudness gate."""
+    return tts_mode != "none" and duration_seconds >= 3.0 and bool(word_timings)
 
 
 def _exposure_ok(brightness: list[float], *, paper: bool, illustrated: bool) -> bool:
@@ -143,7 +156,7 @@ def _adjacent_motion(path: Path, samples: int = 6) -> float:
 def verify_package(master: Path, cover: Path, storyboard, captions: list, word_timings: list,
                    expected_width: int, expected_height: int,
                    required_assets: dict[str, str] | None = None,
-                   platform_url: str = "") -> dict:
+                   platform_url: str = "", tts_mode: str = "") -> dict:
     media = probe(master)
     video = next(stream for stream in media["streams"] if stream["codec_type"] == "video")
     audio = next((stream for stream in media["streams"] if stream["codec_type"] == "audio"), {})
@@ -160,7 +173,7 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
         storyboard, require_render_ready=True,
     ) if illustrated_look else True
     signature_bright_fraction = _signature_bright_fraction(frames, paper=paper_look)
-    brand_accent_fraction = _brand_accent_fraction(frames) if paper_look else 0.0
+    brand_accent_fraction = _brand_accent_fraction(frames, look_name) if paper_look else 0.0
     background_structure = _background_structure(frames)
     shot_counts = [len(chapter.shots) for chapter in storyboard.chapters]
     semantic = [bool(chapter.anchors and chapter.archetype) for chapter in storyboard.chapters]
@@ -174,7 +187,10 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
     # EBU-style integrated loudness is not meaningful on the two-second
     # diagnostic renders used by the compatibility suite.  Real deliverables
     # remain subject to the full -14 LUFS target window.
-    loudness_applicable = duration_seconds >= 3.0
+    # Deliberately silent smoke renders have no word timings.  The documented
+    # three-second `--tts none` workflow must validate its picture without
+    # pretending that a publishable narration mix exists.
+    loudness_applicable = _loudness_required(duration_seconds, word_timings, tts_mode)
     cover_image = cv2.imread(str(cover), cv2.IMREAD_GRAYSCALE)
     cover_contrast = float(cover_image.std()) if cover_image is not None else 0.0
     frame_contrast = float(np.median([value.std() for value in grayscale])) if grayscale else 0.0

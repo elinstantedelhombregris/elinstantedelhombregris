@@ -61,7 +61,7 @@ class GraphicCue:
     end_token: int
     source: str = ""
     target: str = ""
-    treatment: str = "violet-path"
+    treatment: str = "silver-foil-path"
     target_region: list[float] = field(default_factory=list)
     callout: str = ""
     animation: str = "draw-hold-retract"

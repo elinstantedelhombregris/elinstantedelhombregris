@@ -55,7 +55,7 @@ GRABADO_CIVICO = IllustrationStyleProfile(
     palette=(
         "tinta negra dominante con línea tallada, rayado y trama manual",
         "papel crema/ocre envejecido como segundo tono dominante",
-        "violeta #5227CC reservado para relaciones, recorridos, redes y alternativas",
+        "plata fría brillante #CBD2D9, con borde grafito y reflejo direccional, reservada para relaciones, recorridos, redes y alternativas",
         "rojo #C23B22 usado una sola vez como alarma, fractura o decisión",
         "sin paleta cinematográfica completa ni iluminación fotográfica de color",
     ),
@@ -74,7 +74,7 @@ GRABADO_CIVICO = IllustrationStyleProfile(
         "estética de póster vectorial limpio, infografía corporativa o collage genérico",
         "texto, letras, números, logotipos, banderas partidarias o marcas dentro de la imagen",
         "rostros reconocibles de dirigentes reales salvo aprobación editorial explícita",
-        "violeta o rojo usados como relleno masivo sin función semántica",
+        "plata o rojo usados como relleno masivo sin función semántica",
         "manos deformes, arquitectura imposible por error o multitudes clonadas",
     ),
     target_aspect_ratio=9.0 / 16.0,

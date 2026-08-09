@@ -42,6 +42,7 @@ INK_75 = (74, 70, 61)
 INK_50 = (122, 117, 106)
 BORDER_SOFT = (216, 212, 200)
 VIOLET = (82, 39, 204)
+SILVER_SHADOW = (91, 98, 106)
 STAMP_RED = (194, 59, 34)
 
 
@@ -234,6 +235,7 @@ def draw_caption(img: Image.Image, grid: Grid, look: Look, caption, t: float, al
 def _draw_paper_caption(img: Image.Image, grid: Grid, look: Look, caption, t: float) -> None:
     """Editorial karaoke: a typeset excerpt, never a floating video-subtitle pill."""
     draw = ImageDraw.Draw(img, "RGBA")
+    active_accent = tuple(int(channel * 255) for channel in look.accent_rgb())
     zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["caption"])
     zone_width = zx1 - zx0
     lines = caption_lines(caption.text)
@@ -284,15 +286,28 @@ def _draw_paper_caption(img: Image.Image, grid: Grid, look: Look, caption, t: fl
             if cursor == active:
                 bbox = draw.textbbox((x, y), word, font=font)
                 underline_y = min(zy1 - 2, bbox[3] + max(2, size // 10))
-                draw.line((bbox[0], underline_y, bbox[2], underline_y), fill=(*VIOLET, 255),
-                          width=max(3, size // 9))
-                # A fractional second of riso offset on the spoken word: red ghost
-                # behind violet, while the black glyph stays the readable source.
+                if look.is_illustrated:
+                    draw.line(
+                        (bbox[0], underline_y, bbox[2], underline_y),
+                        fill=(*SILVER_SHADOW, 248), width=max(4, size // 7),
+                    )
+                draw.line(
+                    (bbox[0], underline_y, bbox[2], underline_y),
+                    fill=(*active_accent, 255), width=max(3, size // 9),
+                )
+                # A fractional second of print offset on the spoken word: red
+                # ghost behind the primary pigment, while the word stays legible.
                 draw.text((x + max(1, size // 24), y), word, font=font, fill=(*STAMP_RED, 64))
-                fill = (*VIOLET, 255)
+                fill = (*active_accent, 255)
             else:
                 fill = (*INK, 252)
-            draw.text((x, y), word, font=font, fill=fill)
+            if cursor == active and look.is_illustrated:
+                draw.text(
+                    (x, y), word, font=font, fill=fill,
+                    stroke_width=max(1, size // 30), stroke_fill=(*SILVER_SHADOW, 255),
+                )
+            else:
+                draw.text((x, y), word, font=font, fill=fill)
             x += width + space
             cursor += 1
         y += leading
@@ -711,6 +726,7 @@ def draw_illustrated_title_card(
     if not title or duration <= 0.0 or t < 0.0 or t >= duration:
         return
     draw = ImageDraw.Draw(img, "RGBA")
+    silver = tuple(int(channel * 255) for channel in look.accent_rgb())
     x0, y0, x1, _y1 = grid.zone_px(ZONES["stage"])
     margin = int(grid.width * 0.035)
     left, right = x0 + margin, x1 - margin
@@ -753,9 +769,14 @@ def draw_illustrated_title_card(
     panel_alpha = round(225 * opacity)
     draw.rectangle((left, top, panel_right, bottom), fill=(*PAPER_RAW, panel_alpha))
     rule_y = top - max(2, grid.height // 640)
+    rule_width = max(3, grid.width // 270)
     draw.line(
         (left, rule_y, left + (panel_right - left) * min(1.0, enter * 1.3), rule_y),
-        fill=(*VIOLET, round(255 * opacity)), width=max(3, grid.width // 270),
+        fill=(*SILVER_SHADOW, round(230 * opacity)), width=rule_width + max(2, rule_width // 2),
+    )
+    draw.line(
+        (left, rule_y, left + (panel_right - left) * min(1.0, enter * 1.3), rule_y),
+        fill=(*silver, round(255 * opacity)), width=rule_width,
     )
 
     total_chars = sum(len(line.replace(" ", "")) for line in lines)
@@ -771,7 +792,7 @@ def draw_illustrated_title_card(
                 seen += 1
             if revealed:
                 alpha = round(255 * opacity)
-                draw.text((x + 2, y), char, font=font, fill=(*VIOLET, round(alpha * 0.22)))
+                draw.text((x + 2, y), char, font=font, fill=(*silver, round(alpha * 0.30)))
                 draw.text((x - 2, y), char, font=font, fill=(*STAMP_RED, round(alpha * 0.14)))
                 draw.text((x, y), char, font=font, fill=(*INK, alpha))
             x += char_width
@@ -789,6 +810,7 @@ def draw_illustrated_callouts(
     if chapter is None:
         return
     draw = ImageDraw.Draw(img, "RGBA")
+    silver = tuple(int(channel * 255) for channel in look.accent_rgb())
     for cue in getattr(chapter, "graphic_cues", []):
         text = str(cue.get("callout", "")).strip().upper()
         if not text:
@@ -830,11 +852,18 @@ def draw_illustrated_callouts(
         bx1, by1 = bx0 + box_width, by0 + box_height
         alpha = round(220 * strength)
         draw.rectangle((bx0, by0, bx1, by1), fill=(*PAPER_RAW, alpha))
-        # The violet thread ties the label to the actual intervention; the red
+        # The silver thread ties the label to the actual intervention; the red
         # square is punctuation, never a second competing colour field.
         rule_end = bx0 + round(box_width * min(1.0, local / 0.42))
-        draw.line((bx0, by1, rule_end, by1), fill=(*VIOLET, round(255 * strength)),
-                  width=max(3, grid.width // 300))
+        rule_width = max(3, grid.width // 300)
+        draw.line(
+            (bx0, by1, rule_end, by1), fill=(*SILVER_SHADOW, round(240 * strength)),
+            width=rule_width + max(2, rule_width // 2),
+        )
+        draw.line(
+            (bx0, by1, rule_end, by1), fill=(*silver, round(255 * strength)),
+            width=rule_width,
+        )
         marker = max(4, grid.width // 135)
         draw.rectangle(
             (bx1 - marker, by0 - marker // 2, bx1, by0 + marker // 2),
@@ -869,7 +898,8 @@ def overlay(frame: np.ndarray, grid: Grid, look: Look, *, caption=None, t: float
     if look.is_illustrated:
         # One opening title and exact-word editorial callouts replace the old
         # permanent furniture.  The image remains clean for the rest of the film.
-        draw_illustrated_callouts(img, grid, look, scene_chapter, progress)
+        if not title or t >= title_card_seconds:
+            draw_illustrated_callouts(img, grid, look, scene_chapter, progress)
         draw_caption(img, grid, look, caption, t, alpha)
         draw_illustrated_title_card(img, grid, look, title, t, title_card_seconds)
         draw_footer(img, grid, look, None, url, footer_alpha)

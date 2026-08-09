@@ -489,7 +489,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         assets["instagram_upload"] = str(upload)
     verification = verify_package(
         master, cover, storyboard, captions, timings, args.width, args.height,
-        required_assets=assets, platform_url=args.platform_url,
+        required_assets=assets, platform_url=args.platform_url, tts_mode=args.tts,
     )
     report_path = write_report(out_dir / f"{slug}-verification.json", verification)
     assets["verification"] = str(report_path)

@@ -105,13 +105,13 @@ class Look:
     paper_texture: float = 0.0
     """Strength of the fixed fibre/press texture used by paper surfaces."""
     riso_offset: float = 0.0
-    """Pixel offset of the restrained violet/red risograph misregistration."""
+    """Pixel offset of the restrained primary/red print misregistration."""
     ink_gain: float = 1.0
     """Absorption multiplier for dark ink on a light paper surface."""
     render_mode: str = "glyphs"
     """``glyphs`` converts the world to ASCII; ``illustrated`` preserves approved plates."""
     illustration_graphics: float = 0.0
-    """Strength of semantic violet/ink graphics composited over an illustrated plate."""
+    """Strength of semantic accent/ink graphics composited over an illustrated plate."""
 
     def ramp_rgb(self) -> np.ndarray:
         return np.stack([color.hex_to_rgb01(stop) for stop in self.ramp])
