@@ -21,6 +21,8 @@ def _fit(draw: ImageDraw.ImageDraw, look: Look, lines: list[str], width: int, no
 
 def designed_cover(frame: np.ndarray, title: str, hook: str, look: Look, out: Path,
                    url: str = "www.elinstantedelhombregris.com") -> Path:
+    if look.is_illustrated:
+        return _illustrated_cover(frame, title, hook, look, out, url)
     if look.is_paper:
         return _paper_cover(frame, title, hook, look, out, url)
     image = Image.fromarray(frame).convert("RGB")
@@ -45,6 +47,74 @@ def designed_cover(frame: np.ndarray, title: str, hook: str, look: Look, out: Pa
     draw.text((int(width * 0.09), int(height * 0.86)), title.upper(), font=small, fill=(*white, 230))
     draw.text((int(width * 0.09), int(height * 0.895)), "CINEMATIC ASCII ESSAY", font=small, fill=(*accent, 255))
     image.save(out, quality=94)
+    return out
+
+
+def _illustrated_cover(
+    frame: np.ndarray, title: str, hook: str, look: Look, out: Path, url: str,
+) -> Path:
+    """A story-specific cover that lets the approved illustration remain art.
+
+    The generic paper cover carries manifesto slogans and a large document
+    apparatus by design.  Those marks are meaningful for ASCII broadsheets,
+    but became unrelated copy when inherited by illustrated Bitácora videos.
+    This variant uses only the story promise, its title and one brand signature.
+    """
+    image = Image.fromarray(frame).convert("RGB")
+    width, height = image.size
+    paper = Image.new("RGB", image.size, (242, 239, 231))
+    # Keep the authored colour and character identity; a restrained paper veil
+    # makes the type block feel printed into the same stock instead of pasted on.
+    image = Image.blend(image, paper, 0.12)
+    draw = ImageDraw.Draw(image, "RGBA")
+    ink = (22, 19, 14)
+    violet, red = (82, 39, 204), (194, 59, 34)
+    margin = int(width * 0.065)
+
+    hook_text = (hook.rstrip(".") or title).upper()
+    wrap = 22
+    lines = textwrap.wrap(hook_text, width=wrap)
+    while len(lines) > 5:
+        wrap += 2
+        lines = textwrap.wrap(hook_text, width=wrap)
+    font = ImageFont.truetype(look.font_for("display"), int(height * 0.061))
+    max_width = width - margin * 2
+    while font.size > 22 and max(draw.textlength(line, font=font) for line in lines) > max_width:
+        font = ImageFont.truetype(look.font_for("display"), font.size - 1)
+    leading = int(font.size * 1.01)
+    top = int(height * 0.070)
+    block_bottom = top + leading * len(lines) + int(height * 0.030)
+    draw.rectangle(
+        (margin - 10, top - int(height * 0.018), width - margin + 10, block_bottom),
+        fill=(242, 239, 231, 224),
+    )
+    draw.line(
+        (margin, top - int(height * 0.018), width - margin, top - int(height * 0.018)),
+        fill=(*violet, 255), width=max(3, width // 240),
+    )
+    for index, line in enumerate(lines):
+        y = top + index * leading
+        # A restrained two-ink misregistration ties the cover to the video
+        # without overwhelming the full-colour plate.
+        draw.text((margin + 2, y), line, font=font, fill=(*violet, 54))
+        draw.text((margin - 2, y), line, font=font, fill=(*red, 42))
+        draw.text((margin, y), line, font=font, fill=(*ink, 255))
+
+    bottom = int(height * 0.875)
+    band_top = bottom - int(height * 0.022)
+    draw.rectangle((0, band_top, width, height), fill=(242, 239, 231, 226))
+    draw.line((margin, band_top, width - margin, band_top), fill=(*ink, 255),
+              width=max(2, width // 360))
+    title_font = ImageFont.truetype(look.font_for("body"), max(16, int(height * 0.016)))
+    url_font = ImageFont.truetype(look.font_for("meta"), max(15, int(height * 0.014)))
+    title_lines = textwrap.wrap(title.upper(), width=46)[:2]
+    for index, line in enumerate(title_lines):
+        draw.text((margin, bottom + index * int(title_font.size * 1.15)), line,
+                  font=title_font, fill=(*ink, 255))
+    url_width = draw.textlength(url, font=url_font)
+    draw.text((width - margin - url_width, int(height * 0.955)), url,
+              font=url_font, fill=(*ink, 255))
+    image.save(out, quality=96)
     return out
 
 

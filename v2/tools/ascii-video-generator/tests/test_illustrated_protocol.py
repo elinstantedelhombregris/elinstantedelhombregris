@@ -10,6 +10,7 @@ from ascii_studio.storyboard.build import build_storyboard, scene_ranges
 from ascii_studio.storyboard.illustrated import (
     analyze_plate, analyze_storyboard_plates,
     bind_illustrated_timeline,
+    split_illustrated_units,
     validate_illustrated_protocol,
 )
 from ascii_studio.storyboard.schema import Caption, WordTiming, load_storyboard, write_json
@@ -45,6 +46,31 @@ def test_illustrated_segmentation_never_deduplicates_repeated_narration():
 
     assert planned.count("La idea vuelve.") == 2
     assert board.chapters[-1].illustration.word_end == len(text.split())
+
+
+def test_elliptical_pivot_modulates_the_next_image_instead_of_flashing_alone():
+    text = (
+        "La dureza parece la única salida. Pero no lo es. "
+        "La amabilidad estratégica expone el problema con precisión."
+    )
+    units = split_illustrated_units("Amabilidad estratégica", text)
+
+    assert not any(unit.texts == ["Pero no lo es."] for unit in units)
+    assert any(
+        unit.texts[:2] == [
+            "Pero no lo es.",
+            "La amabilidad estratégica expone el problema con precisión.",
+        ]
+        for unit in units
+    )
+
+
+def test_short_pivot_with_concrete_subject_keeps_its_own_image_unit():
+    text = "La presidencia concentra poder. Sin embargo la red lo distribuye."
+    units = split_illustrated_units("La red", text)
+
+    assert len(units) == 2
+    assert units[1].texts == ["Sin embargo la red lo distribuye."]
 
 
 def test_plate_analysis_proposes_regions_but_requires_semantic_review(tmp_path):

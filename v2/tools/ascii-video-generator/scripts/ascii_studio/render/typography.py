@@ -249,15 +249,24 @@ def _draw_paper_caption(img: Image.Image, grid: Grid, look: Look, caption, t: fl
     pad_y = max(8, int(grid.height * 0.010))
     top = zy0 + ((zy1 - zy0) - block_h) // 2
     plate = (zx0, top - pad_y, zx1 - 1, top + block_h + pad_y)
-    plate_alpha = 224 if look.is_illustrated else 244
-    draw.rectangle(plate, fill=(*PAPER_RAW, plate_alpha), outline=(*INK, 232), width=max(1, grid.width // 540))
-    # Printer's furniture: a section rule and a tiny crop mark make the caption
-    # belong to the page grid instead of floating over it.
-    draw.line((zx0 + pad_x, plate[1], zx1 - pad_x, plate[1]), fill=(*VIOLET, 255),
-              width=max(2, grid.width // 270))
-    meta = _meta_font(look, max(9, int(grid.height * 0.0085)))
-    draw.text((zx0 + pad_x, plate[1] + max(3, pad_y // 4)), "VOZ / EN CURSO",
-              font=meta, fill=(*INK_50, 235))
+    if look.is_illustrated:
+        # The generated plate already reserves a calm lower field.  A lighter
+        # local wash keeps the narration readable without turning it into a
+        # white sticker pasted over the art; the active-word underline is all
+        # the editorial furniture this mode needs.
+        draw.rectangle(plate, fill=(*PAPER_RAW, 182))
+    else:
+        draw.rectangle(
+            plate, fill=(*PAPER_RAW, 244), outline=(*INK, 232),
+            width=max(1, grid.width // 540),
+        )
+        # Printer's furniture belongs to the designed ASCII paper mode.  The
+        # illustrated plate deliberately stays quieter.
+        draw.line((zx0 + pad_x, plate[1], zx1 - pad_x, plate[1]), fill=(*VIOLET, 255),
+                  width=max(2, grid.width // 270))
+        meta = _meta_font(look, max(9, int(grid.height * 0.0085)))
+        draw.text((zx0 + pad_x, plate[1] + max(3, pad_y // 4)), "VOZ / EN CURSO",
+                  font=meta, fill=(*INK_50, 235))
 
     active = _active_index(caption, t)
     space = draw.textlength(" ", font=font)
@@ -459,8 +468,9 @@ def draw_footer(img: Image.Image, grid: Grid, look: Look, keyword, url, footer_a
 def _draw_paper_footer(img: Image.Image, grid: Grid, look: Look, keyword, url) -> None:
     draw = ImageDraw.Draw(img, "RGBA")
     zx0, zy0, zx1, zy1 = grid.zone_px(ZONES["footer"])
-    draw.rectangle((zx0, zy0, zx1 - 1, zy1 - 1), fill=(*PAPER, 238))
-    draw.line((zx0, zy0, zx1, zy0), fill=(*INK, 255), width=max(1, grid.width // 540))
+    if not look.is_illustrated:
+        draw.rectangle((zx0, zy0, zx1 - 1, zy1 - 1), fill=(*PAPER, 238))
+        draw.line((zx0, zy0, zx1, zy0), fill=(*INK, 255), width=max(1, grid.width // 540))
     meta = _meta_font(look, max(10, int(grid.height * 0.0115)))
     if keyword:
         draw.text((zx0, zy0 + max(5, int(grid.height * 0.007))), keyword.upper(),
@@ -475,6 +485,17 @@ def _draw_paper_footer(img: Image.Image, grid: Grid, look: Look, keyword, url) -
         width = draw.textlength(url, font=font)
         x = max(zx0, zx1 - width)
         y = zy0 + max(5, (zy1 - zy0 - int(font.size * 1.2)) // 2)
+        if look.is_illustrated:
+            bbox = draw.textbbox((x, y), url, font=font)
+            pad_x = max(4, int(grid.width * 0.009))
+            pad_y = max(2, int(grid.height * 0.0025))
+            draw.rectangle(
+                (
+                    max(zx0, bbox[0] - pad_x), max(zy0, bbox[1] - pad_y),
+                    min(zx1 - 1, bbox[2] + pad_x), min(zy1 - 1, bbox[3] + pad_y),
+                ),
+                fill=(*PAPER_RAW, 218),
+            )
         draw.text((x, y), url, font=font, fill=(*INK, 255))
 
 
@@ -693,11 +714,12 @@ def overlay(frame: np.ndarray, grid: Grid, look: Look, *, caption=None, t: float
     if look.is_illustrated:
         # The image carries the proposition. Illustrated videos never inherit
         # the ASCII mode's floating concept labels, relationship words, chapter
-        # headers or footer keyword. Captions and the permanent URL remain in
-        # their reserved editorial zones; planned graphics are drawn earlier by
-        # the exact word-bound cue renderer.
-        chapter_label = None
-        keyword = None
+        # headers, title, hook, progress furniture or footer keyword. Captions
+        # and the permanent URL remain in their reserved editorial zones;
+        # planned graphics are drawn earlier by the exact word-bound cue renderer.
+        draw_caption(img, grid, look, caption, t, alpha)
+        draw_footer(img, grid, look, None, url, footer_alpha)
+        return np.asarray(img, dtype=np.uint8)
     if not in_cold_open and not look.is_illustrated:
         draw_scene_labels(img, grid, look, scene_chapter, progress)
     display_title = title if t < cold_open_seconds + 1.8 else None

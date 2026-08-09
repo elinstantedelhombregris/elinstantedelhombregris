@@ -68,6 +68,7 @@ _REGULAR_AR = [
     "castigar", "premiar", "votar", "gobernar", "ejecutar",
     "reformar", "mapear", "diagnosticar",
     "rediseñar", "priorizar", "coordinar",
+    "evitar", "disfrazar", "iluminar", "tolerar",
     "escalar", "consolidar", "articular", "propagar",
     "multiplicar", "aumentar", "acelerar", "frenar",
     "iniciar", "abandonar", "recuperar", "reparar",
@@ -79,6 +80,7 @@ _REGULAR_ER = [
     "responder", "temer", "ofender", "prometer", "meter", "correr",
     "comer", "beber", "esconder", "encender", "obedecer", "sostener",
     "detener",
+    "parecer", "resolver",
 ]
 _REGULAR_IR = [
     "vivir", "sentir", "seguir", "servir", "existir", "escribir", "recibir",
@@ -176,6 +178,7 @@ _IRREGULAR_FORMS = {
         "pudiste", "pudo", "pudimos", "pudieron", "podia", "podias",
         "podiamos", "podian", "podre", "podras", "podra", "podremos",
         "podran", "podria", "podrias", "podriamos", "podrian", "pudiendo",
+        "pueda", "puedas", "podamos", "puedan",
     },
     "decir": {
         "digo", "dices", "decis", "dice", "decimos", "dicen", "dije",
@@ -308,6 +311,10 @@ def _ducir_forms(prefix: str) -> set[str]:
         prefix + "dujiste", prefix + "dujo", prefix + "dujimos",
         prefix + "dujeron", prefix + "ducia", prefix + "ducias",
         prefix + "duciamos", prefix + "ducian", prefix + "duciendo",
+        # presente de subjuntivo ("produzca", "reduzcan", ...), a common
+        # argumentative form that otherwise leaked into visual concepts.
+        prefix + "duzca", prefix + "duzcas", prefix + "duzcamos",
+        prefix + "duzcan",
     }
 
 

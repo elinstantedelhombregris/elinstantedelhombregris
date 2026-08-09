@@ -136,6 +136,11 @@ def _cover_frame(ctx: video.RenderContext, t: float) -> np.ndarray:
         extra = seal.seal_luminance(ctx.logo_mask, renderer.grid, t, ctx.intro_seal_seconds)
     env = video._env_at(ctx, int(round(t * ctx.fps)))
     frame = renderer.frame(legacy, t, progress, 0, extra=extra, env=env)
+    if renderer.look.is_illustrated:
+        # Illustrated covers have their own story-specific typography and one
+        # brand signature.  Feeding them a playback frame that already contains
+        # the footer URL duplicated the signature inside the final cover.
+        return frame
     return typography.overlay(
         frame, renderer.grid, renderer.look,
         caption=None, t=t,

@@ -41,6 +41,11 @@ _STRONG_RHETORIC = {
     "contrast", "question", "evidence", "consequence", "call-to-action",
     "definition", "process", "resolution",
 }
+_ELLIPTICAL_PIVOT_RE = re.compile(
+    r"^(?:pero|sin embargo|aunque|en cambio)\s+"
+    r"(?:(?:no|sí)\s+)?(?:lo|la|eso|esto|así|es|son)\b",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
@@ -75,6 +80,8 @@ def _boundary_reason(
     current_rhetoric: str, current_concepts: set[str],
 ) -> str:
     normalized = " ".join(normalized_words(sentence))
+    if re.match(r"^\s*(?:[-*•]|\d+[.)])\s+", sentence):
+        return "structured-point"
     if any(normalized.startswith(marker.strip()) for marker in _TURN_MARKERS):
         return "explicit-rhetorical-turn"
     concept_overlap = _overlap(concepts, current_concepts)
@@ -85,9 +92,54 @@ def _boundary_reason(
         and concept_overlap < 0.42
     ):
         return "rhetorical-function-change"
-    if concepts and current_concepts and concept_overlap == 0.0:
+    # A concept extractor can legitimately choose different nouns in two
+    # consecutive sentences that still describe one drawable situation.
+    # Subject change earns a cut only when both sides are materially populated
+    # and the incoming sentence has enough substance to establish a new scene;
+    # otherwise it becomes motion/graphics inside the current plate.
+    if (
+        len(concepts) >= 2 and len(current_concepts) >= 2
+        and concept_overlap == 0.0 and len(sentence.split()) >= 18
+    ):
         return "visual-subject-change"
     return ""
+
+
+def _merge_elliptical_pivots(
+    units: list[NarrativeUnit], title: str, full_text: str,
+) -> list[NarrativeUnit]:
+    """Attach a tiny rhetorical hinge to the scene it introduces.
+
+    “Pero no lo es” is an edit cue, not a self-sufficient illustration.  It
+    should trigger a change *within* the next plate rather than flash a new
+    image for a handful of words.  This is semantic, not a minimum/maximum
+    image-count rule: a short sentence with an actual subject and action (for
+    example “Sin embargo la red lo distribuye”) remains its own unit.
+    """
+    merged: list[NarrativeUnit] = []
+    index = 0
+    while index < len(units):
+        unit = units[index]
+        proposition = " ".join(unit.texts).strip()
+        if (
+            index + 1 < len(units)
+            and len(proposition.split()) <= 7
+            and _ELLIPTICAL_PIVOT_RE.match(proposition)
+        ):
+            following = units[index + 1]
+            texts = unit.texts + following.texts
+            segment = " ".join(texts)
+            merged.append(NarrativeUnit(
+                texts=texts,
+                boundary_reason=unit.boundary_reason,
+                rhetoric=following.rhetoric,
+                concepts=chapter_concepts(segment, full_text, title, limit=4),
+            ))
+            index += 2
+            continue
+        merged.append(unit)
+        index += 1
+    return merged
 
 
 def split_illustrated_units(title: str, text: str) -> list[NarrativeUnit]:
@@ -126,7 +178,7 @@ def split_illustrated_units(title: str, text: str) -> list[NarrativeUnit]:
             current, current_reason, current_rhetoric,
             chapter_concepts(segment, text, title, limit=4),
         ))
-    return units
+    return _merge_elliptical_pivots(units, title, text)
 
 
 def _local_trigger(tokens: Sequence[str], relation: Relation) -> int:

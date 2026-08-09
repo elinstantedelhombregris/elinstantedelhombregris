@@ -189,7 +189,10 @@ def test_term_weights_is_deterministic():
 
 
 def test_verb_forms_catch_the_real_defect_examples():
-    for form in ["pasa", "falta", "estas", "esperabamos", "pensalo", "hay", "mide"]:
+    for form in [
+        "pasa", "falta", "estas", "esperabamos", "pensalo", "hay", "mide",
+        "parece", "disfraza", "ilumina", "toleren", "evita", "produzca", "puedan",
+    ]:
         assert is_conjugated_verb(form), form
 
 

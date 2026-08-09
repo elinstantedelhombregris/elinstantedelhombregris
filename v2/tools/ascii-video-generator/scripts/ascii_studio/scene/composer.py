@@ -722,6 +722,22 @@ def compose_scene(
     voice = float(np.clip(env.get("voice", 0.0), 0.0, 1.0))
 
     height, width = grid.buffer_shape()
+
+    # A reviewed illustrated plate is already the complete visual world.  The
+    # old path still generated three procedural fields, a semantic diagram and
+    # a feedback pass, only to discard every one of them when `Renderer`
+    # returned the colour plate.  Load and animate the plate directly; retain
+    # the ordinary path below as a deliberate missing-plate diagnostic fallback.
+    if look.is_illustrated and chapter.plate:
+        state.pop("world_plate_rgb", None)
+        plate_frame = worlds.render_world(
+            chapter, (height, width), t, progress, state,
+        )
+        if state.get("world_plate_rgb") is not None:
+            for key in ("semantic_layer", "stencil_bounds", "feedback"):
+                state.pop(key, None)
+            return np.clip(plate_frame.luminance, 0.0, 1.0).astype(np.float32)
+
     motif = chapter.motif if chapter.motif in BACKGROUND_RECIPES else "horizon"
 
     bg_h, bg_w = _reduced_shape(height, width, _BG_DIVISOR)

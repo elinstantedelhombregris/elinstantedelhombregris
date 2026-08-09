@@ -1,4 +1,5 @@
 from dataclasses import replace
+from types import SimpleNamespace
 
 import cv2
 import numpy as np
@@ -99,8 +100,91 @@ def test_illustrated_typography_never_draws_automatic_scene_labels(monkeypatch):
         typography, "draw_scene_labels",
         lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("labels are forbidden")),
     )
+    for forbidden in ("draw_title", "draw_progress", "draw_hook"):
+        monkeypatch.setattr(
+            typography, forbidden,
+            lambda *_args, **_kwargs: (_ for _ in ()).throw(
+                AssertionError("automatic text furniture is forbidden")
+            ),
+        )
     result = typography.overlay(
-        frame, renderer.grid, look, chapter_label="01 / NETWORK", keyword="PODER",
+        frame, renderer.grid, look, title="Título", hook="Gancho automático",
+        chapter_label="01 / NETWORK", keyword="PODER",
         url="www.elinstantedelhombregris.com", scene_chapter=chapter, progress=0.6,
     )
     assert result.shape == frame.shape
+
+
+def test_illustrated_renderer_loads_plate_even_with_legacy_scene(tmp_path):
+    source = np.full((480, 270, 3), (218, 232, 241), dtype=np.uint8)
+    cv2.circle(source, (135, 238), 92, (32, 71, 201), -1, cv2.LINE_AA)
+    plate = tmp_path / "legacy-flag.png"
+    assert cv2.imwrite(str(plate), source)
+    chapter = LegacyChapter(
+        motif="network", keyword="RED", anchors=["RED"], seed=41,
+        plate=str(plate), world="abstract-field",
+    )
+
+    renderer = Renderer(
+        load_look("tinta-papel-ilustrado"), width=270, height=480, scene="legacy",
+    )
+    frame = renderer.frame(chapter, 1.0, 0.5, 2)
+
+    assert renderer._scene_state.get("world_plate_rgb") is not None
+    assert float(np.mean(np.std(frame.astype(np.float32), axis=2))) > 8.0
+
+
+def test_illustrated_renderer_builds_ascii_atlas_only_for_missing_plate(monkeypatch):
+    look = load_look("tinta-papel-ilustrado")
+    calls = []
+    from ascii_studio.render import glyphs
+
+    real_build = glyphs.build_atlas
+
+    def tracked(*args, **kwargs):
+        calls.append(1)
+        return real_build(*args, **kwargs)
+
+    monkeypatch.setattr(glyphs, "build_atlas", tracked)
+    renderer = Renderer(look, width=135, height=240)
+    assert not calls
+
+    chapter = LegacyChapter(motif="signal", keyword="IDEA", anchors=["IDEA"], seed=7)
+    renderer.frame(chapter, 0.5, 0.3, 1)
+    assert len(calls) == 1
+
+
+def test_illustrated_caption_has_no_automatic_voice_label(monkeypatch):
+    look = load_look("tinta-papel-ilustrado")
+    renderer = Renderer(look, width=270, height=480)
+    image = typography.Image.fromarray(np.full((480, 270, 3), 232, dtype=np.uint8))
+    caption = SimpleNamespace(
+        text="La red distribuye poder.",
+        words=[SimpleNamespace(text=value, start=index * 0.3, end=index * 0.3 + 0.2)
+               for index, value in enumerate("La red distribuye poder.".split())],
+    )
+    monkeypatch.setattr(
+        typography, "_meta_font",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("illustrated captions must not add metadata text")
+        ),
+    )
+
+    typography._draw_paper_caption(image, renderer.grid, look, caption, 0.5)
+
+
+def test_illustrated_footer_does_not_paint_a_full_width_paper_bar():
+    look = load_look("tinta-papel-ilustrado")
+    renderer = Renderer(look, width=270, height=480)
+    source = np.full((480, 270, 3), 83, dtype=np.uint8)
+    image = typography.Image.fromarray(source.copy())
+    zx0, zy0, _zx1, zy1 = renderer.grid.zone_px(typography.ZONES["footer"])
+
+    typography._draw_paper_footer(
+        image, renderer.grid, look, None, "www.elinstantedelhombregris.com",
+    )
+    result = np.asarray(image)
+
+    # The left side stays part of the illustration; only the right-aligned URL
+    # receives a local paper backing.
+    assert np.array_equal(result[(zy0 + zy1) // 2, zx0 + 2], source[0, 0])

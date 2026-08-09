@@ -83,7 +83,7 @@ EXTRA_STOPWORDS = {
     "vez", "veces", "forma", "formas", "manera", "maneras", "parte",
     "partes", "momento", "momentos", "cosa", "cosas", "punto", "puntos",
     "exclusivamente", "poquito", "enfrente", "hacerlo", "solas", "serie",
-    "poner", "modo", "unidad", "segundo", "hora", "tarde", "dia", "situacion",
+    "poner", "modo", "unidad", "segundo", "hora", "tarde", "dia", "tiempo", "situacion",
     "persona", "mirar", "hablar", "pelear",
 }
 

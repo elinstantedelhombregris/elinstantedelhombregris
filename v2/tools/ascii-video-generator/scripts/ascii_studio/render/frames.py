@@ -108,13 +108,26 @@ class Renderer:
         self.look = look
         self.scene = scene
         self.grid: Grid = make_grid(width, height, look)
-        self.atlas = glyphs.build_atlas(
+        # A complete illustrated plate never enters glyph matching.  Building
+        # the atlas here was pure work (and made every still/contact-sheet
+        # worker pay for an ASCII resource it could not use).  Keep the safety
+        # fallback for a missing plate, but create it only if that fallback is
+        # actually reached.
+        self.atlas = None if look.is_illustrated else glyphs.build_atlas(
             look.field_font, look.cell_w, look.cell_h, look.glyph_set
         )
         self._ramp = look.ramp_rgb()
         self._background = look.background_rgb()
         self._prev: np.ndarray | None = None
         self._scene_state: dict = {}
+
+    def _glyph_atlas(self):
+        if self.atlas is None:
+            self.atlas = glyphs.build_atlas(
+                self.look.field_font, self.look.cell_w, self.look.cell_h,
+                self.look.glyph_set,
+            )
+        return self.atlas
 
     def reset(self) -> None:
         """Drop hysteresis + scene state. Call at a chapter cut so glyphs do not
@@ -193,7 +206,15 @@ class Renderer:
         non-audio-reactive pipeline -- every caller that does not yet have
         envelope data (bench, stills, tests) is unaffected.
         """
-        if self.scene == "legacy":
+        # Illustrated plates are a renderer-level contract, independent of the
+        # old procedural scene selector.  Previously `--scene legacy` silently
+        # skipped plate loading and published an ASCII fallback even after the
+        # plate had passed review.
+        if self.look.is_illustrated:
+            lum = composer.compose_scene(
+                chapter, self.grid, t, progress, self.look, self._scene_state, env=env
+            )
+        elif self.scene == "legacy":
             lum = compose(chapter, self.grid, t, progress, self.look)
         else:
             lum = composer.compose_scene(
@@ -286,8 +307,9 @@ class Renderer:
             # dark screen but as dirty toner on paper.
             lum_n = np.clip((lum_n - 0.105) / 0.895, 0.0, 1.0).astype(np.float32)
 
+        atlas = self._glyph_atlas()
         grid_idx = asciify.asciify(
-            lum_n, self.grid, self.atlas, self.look, self._prev,
+            lum_n, self.grid, atlas, self.look, self._prev,
             orientation_weight=self.look.orientation_weight if world_layer is not None else 0.0,
         )
         self._prev = grid_idx
@@ -331,7 +353,7 @@ class Renderer:
             fg = color.temperature_shift(fg, chapter.temperature)
         bg = np.tile(self._background.astype(np.float32), (self.grid.rows, self.grid.cols, 1))
 
-        rgb = glyphs.blit(grid_idx, self.atlas, fg, bg)
+        rgb = glyphs.blit(grid_idx, atlas, fg, bg)
 
         if env is not None and not self.look.is_paper:
             beat = float(np.clip(env.get("beat", 0.0), 0.0, 1.0))
