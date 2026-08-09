@@ -44,10 +44,10 @@ import type {
   ListeningScope,
   ListeningSource,
   ListeningTheme,
+  TipoSenalCapturada,
 } from '@/civic/types';
 import { FTUE, SENAL_POR_KEY } from '@/content';
 import { CLAVES, crearEstrellaCivicaUnaVez, getSetting, setSetting } from '@/db/repos';
-import type { TipoEstrella } from '@/game/types';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
@@ -66,7 +66,7 @@ import { TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 type Destination = 'private' | 'collective';
 
 /** Toda escucha enciende su estrella: el tipo del Cielo que le corresponde. */
-const ESTRELLA_POR_ESCUCHA: Record<ListeningKind, TipoEstrella> = {
+const ESTRELLA_POR_ESCUCHA: Record<ListeningKind, TipoSenalCapturada> = {
   need: 'need',
   dream: 'dream',
   proposal: 'value',

@@ -8,7 +8,16 @@
  */
 
 import { getSetting, setSetting } from '@/db/repos';
-import { LIMITES_CHISPA, LIMITES_CIRCULO } from '@/game/qr-codec';
+
+/**
+ * Cotas del payload de chispa. Vivían en `game/qr-codec.ts`, que sigue
+ * definiendo su propia copia para el códec de las chispas — acá quedan
+ * las que necesita esta cáscara social, sin importar nada del juego.
+ */
+const LIMITES_CHISPA = { deMax: 80 } as const;
+
+/** Cotas del payload de círculo (ver nota de `LIMITES_CHISPA` arriba). */
+const LIMITES_CIRCULO = { nombreMin: 1, nombreMax: 60 } as const;
 
 /** Claves de settings del mundo social (G5). */
 export const CLAVES_SOCIAL = {

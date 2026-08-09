@@ -28,6 +28,7 @@ import {
   TituloAnton,
 } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
+import type { TipoSenalCapturada } from '@/civic/types';
 import { COMPARTIR, ESTADOS_VACIOS, PLANTILLAS_EXPEDICION } from '@/content';
 import {
   canjearNonce,
@@ -293,7 +294,10 @@ function TabRecibir() {
         multiplicador: multiplicadorHoy(),
       });
       const star = crearEstrella({
-        tipo: 'amistad',
+        // 'amistad' ya no es un miembro del tipo cívico de captura (Task 4):
+        // esta pantalla (chispas QR) muere entera en la demolición de src/game/,
+        // así que el cast es un puente a corto plazo, no una vuelta al tipo viejo.
+        tipo: 'amistad' as TipoSenalCapturada,
         texto: r.payload.de ? `Chispa de ${r.payload.de}` : 'Una chispa cara a cara',
         eventoActivo: st.eventoHoy !== null,
       });
@@ -365,7 +369,8 @@ function TabRecibir() {
       detalle = `Tu círculo «${propio.nombre}» ahora cuenta ${miembros} manos.`;
     }
     const star = crearEstrella({
-      tipo: 'amistad',
+      // Ver nota de más arriba: cast de puente, esta pantalla no sobrevive.
+      tipo: 'amistad' as TipoSenalCapturada,
       texto: `Círculo: ${r.payload.nombre}`,
       eventoActivo: st.eventoHoy !== null,
     });

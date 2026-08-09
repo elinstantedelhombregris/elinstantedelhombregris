@@ -6,6 +6,15 @@ import type {
   LocationRole,
   PublicLocation,
 } from '@v2/civic-core';
+import type { TipoSenal } from '@/content/types';
+
+/**
+ * El tipo de una captura guardada. Vivía en `game/types.ts` como
+ * `TipoEstrella`, que era `TipoSenal | 'amistad'` — el miembro extra lo
+ * escribía sólo el flujo de chispas por QR, que ya no existe. Acá queda
+ * exactamente el catálogo cívico: las seis señales y nada más.
+ */
+export type TipoSenalCapturada = TipoSenal;
 
 export type CivicCampaignKey =
   | 'luminarias-v1'

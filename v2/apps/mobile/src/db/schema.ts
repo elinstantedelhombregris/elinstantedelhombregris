@@ -60,20 +60,20 @@ import type {
   SyncEntity,
   SyncOperation,
   SyncStatus,
+  TipoSenalCapturada,
   VerificationVerdict,
 } from '../civic/types';
 import type {
   EstadoCompromiso,
   EstadoExpedicion,
   OrigenExpedicion,
-  TipoEstrella,
   TipoUnlock,
 } from '../game/types';
 
 /** Estrellas del Cielo — cada captura real (spec §3.1). */
 export const stars = sqliteTable('stars', {
   id: text('id').primaryKey(), // uuid
-  tipo: text('tipo').$type<TipoEstrella>().notNull(),
+  tipo: text('tipo').$type<TipoSenalCapturada>().notNull(),
   texto: text('texto'),
   photoUri: text('photo_uri'),
   lat: real('lat'),

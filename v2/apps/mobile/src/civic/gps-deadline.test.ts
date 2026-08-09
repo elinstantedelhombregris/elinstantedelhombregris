@@ -20,10 +20,7 @@ vi.mock('expo-location', () => ({
 vi.mock('@/db/repos', () => ({
   getSetting: mocks.getSetting,
   setSetting: mocks.setSetting,
-}));
-
-vi.mock('@/stores/juego', () => ({
-  CLAVES_DIA: { gpsPedido: 'gps-pedido' },
+  CLAVES: { gpsPedido: 'gps-pedido' },
 }));
 
 describe('plazo total de ubicación', () => {

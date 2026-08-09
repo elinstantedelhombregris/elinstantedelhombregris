@@ -6,8 +6,7 @@
 
 import * as Location from 'expo-location';
 
-import { getSetting, setSetting } from '@/db/repos';
-import { CLAVES_DIA } from '@/stores/juego';
+import { CLAVES, getSetting, setSetting } from '@/db/repos';
 
 export interface UbicacionCapturada {
   point: { lat: number; lng: number };
@@ -37,11 +36,11 @@ export const obtenerUbicacion = async (): Promise<UbicacionCapturada | null> => 
         let perm = await Location.getForegroundPermissionsAsync();
         if (expired) return;
         if (!perm.granted) {
-          if (getSetting(CLAVES_DIA.gpsPedido) !== null) {
+          if (getSetting(CLAVES.gpsPedido) !== null) {
             finish(null);
             return;
           }
-          setSetting(CLAVES_DIA.gpsPedido, '1');
+          setSetting(CLAVES.gpsPedido, '1');
           perm = await Location.requestForegroundPermissionsAsync();
           if (expired) return;
           if (!perm.granted) {

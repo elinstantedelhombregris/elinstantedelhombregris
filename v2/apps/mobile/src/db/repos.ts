@@ -25,15 +25,15 @@ import {
 } from '../game/expediciones';
 import { civicCaptureKeys } from '../game/capture-attempt';
 import { addDias, computeRacha } from '../game/racha';
-import { calcularRarezas } from '../game/rarezas';
+import { esFundadora, esFugaz } from '../game/rarezas';
 import type {
   EmberEntry,
   Luz,
   OrigenExpedicion,
   RachaEstado,
-  TipoEstrella,
   TipoUnlock,
 } from '../game/types';
+import type { TipoSenalCapturada } from '../civic/types';
 import { db, type DBExecutor } from './client';
 import {
   civicActions,
@@ -104,9 +104,6 @@ export const hoyLocal = (): string => {
 /** Timestamp ISO 8601 (UTC) para createdAt y ledger. */
 export const ahoraISO = (): string => new Date().toISOString();
 
-/** Hora local 0-23 (para el flag nocturna). */
-export const horaLocal = (): number => new Date().getHours();
-
 // ---------------------------------------------------------------------------
 // Settings
 // ---------------------------------------------------------------------------
@@ -119,6 +116,8 @@ export const CLAVES = {
   eventoVistoFecha: 'evento_visto_fecha',
   corrienteUltimaVisita: 'corriente_ultima_visita',
   pactoAceptado: 'pacto_aceptado',
+  /** Se pidió (o se intentó pedir) permiso de ubicación una sola vez en la vida. */
+  gpsPedido: 'gps_pedido',
 } as const;
 
 export const getSetting = (key: string): string | null =>
@@ -209,42 +208,38 @@ export const estrellasTodas = (): StarRow[] =>
   db.select().from(stars).orderBy(asc(stars.createdAt)).all();
 
 export interface NuevaEstrella {
-  tipo: TipoEstrella;
+  tipo: TipoSenalCapturada;
   texto?: string | null;
   photoUri?: string | null;
   lat?: number | null;
   lng?: number | null;
   expeditionId?: string | null;
   expeditionStepKey?: string | null;
-  /** Hora local 0-23; por defecto la del reloj (flag nocturna). */
-  hora?: number;
   /** ¿Hay un evento fugaz activo? (flag fugaz). */
   eventoActivo?: boolean;
 }
 
-const prepararEstrella = (id: string, input: NuevaEstrella): StarRow => {
-  const rarezas = calcularRarezas(
-    {
-      tipo: input.tipo,
-      hora: input.hora ?? horaLocal(),
-      eventoActivo: input.eventoActivo ?? false,
-    },
-    estrellasTodas(),
-  );
-  return {
-    id,
-    tipo: input.tipo,
-    texto: input.texto ?? null,
-    photoUri: input.photoUri ?? null,
-    lat: input.lat ?? null,
-    lng: input.lng ?? null,
-    ...rarezas,
-    expeditionId: input.expeditionId ?? null,
-    expeditionStepKey: input.expeditionStepKey ?? null,
-    constelacionId: null,
-    createdAt: ahoraISO(),
-  };
-};
+/**
+ * El flag `nocturna` era del juego (spec §3.1, rareza por horario) y ya no
+ * se calcula: queda siempre en `false` hasta que la Task 6 borre la columna.
+ * `fundadora` y `fugaz` siguen vivos porque el Cielo (juego, todavía en pie)
+ * los sigue mostrando.
+ */
+const prepararEstrella = (id: string, input: NuevaEstrella): StarRow => ({
+  id,
+  tipo: input.tipo,
+  texto: input.texto ?? null,
+  photoUri: input.photoUri ?? null,
+  lat: input.lat ?? null,
+  lng: input.lng ?? null,
+  fundadora: esFundadora(input.tipo, estrellasTodas()),
+  nocturna: false,
+  fugaz: esFugaz(input.eventoActivo ?? false),
+  expeditionId: input.expeditionId ?? null,
+  expeditionStepKey: input.expeditionStepKey ?? null,
+  constelacionId: null,
+  createdAt: ahoraISO(),
+});
 
 /** Crea una estrella calculando sus rarezas contra el cielo existente. */
 export const crearEstrella = (input: NuevaEstrella): StarRow => {

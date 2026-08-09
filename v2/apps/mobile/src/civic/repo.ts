@@ -1,6 +1,6 @@
 import { and, asc, eq, inArray } from 'drizzle-orm';
 
-import { ahoraISO, ganarBrasasUnaVez, nuevoId } from '@/db/repos';
+import { ahoraISO, nuevoId } from '@/db/repos';
 import { db, type DBExecutor } from '@/db/client';
 import {
   civicActions,
@@ -24,7 +24,6 @@ import type {
   CivicVerificationRow,
   SyncOutboxRow,
 } from '@/db/schema';
-import { GANANCIAS, MOTIVOS } from '@/game/brasas';
 
 import {
   appendDisclosureReceipt,
@@ -686,14 +685,6 @@ export const addVerification = (input: {
       const updated = { status: quality.status, confidence: quality.confidence, updatedAt: ahoraISO() };
       tx.update(civicObservations).set(updated).where(eq(civicObservations.id, observation.id)).run();
       syncMissionCellForObservation(observation.id, quality.status, tx);
-      if (quality.status === 'corroborated' && observation.status !== 'corroborated') {
-        ganarBrasasUnaVez(
-          `civic-observation:${observation.id}:corroborated`,
-          GANANCIAS.corroboracionUtil,
-          MOTIVOS.corroboracionUtil,
-          { database: tx },
-        );
-      }
       // La vista local se actualiza al instante; el estado compartido lo deriva
       // el servidor desde verificaciones append-only, nunca desde este cliente.
     }
@@ -1146,14 +1137,6 @@ export const transitionAction = (id: string, status: CivicActionStatus, outcome:
     if (status === 'completed') update.completedAt = now;
     if (status === 'confirmed') update.confirmedAt = now;
     tx.update(civicActions).set(update).where(eq(civicActions.id, id)).run();
-    if (status === 'confirmed') {
-      ganarBrasasUnaVez(
-        `civic-action:${id}:confirmed`,
-        GANANCIAS.resultadoConfirmado,
-        MOTIVOS.resultadoConfirmado,
-        { database: tx },
-      );
-    }
     enqueueSync('action', id, 'transition', update, `action:${id}:${status}`, tx);
     return tx.select().from(civicActions).where(eq(civicActions.id, id)).get() ?? null;
   });
