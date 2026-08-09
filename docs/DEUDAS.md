@@ -583,7 +583,7 @@ Los tres se arreglaron derivando el conteo de `PLAN_REGISTRY.yml` (`v2/scripts/c
 **Dónde:** `v2/apps/mobile/src/components/ui/Pressable97.tsx`, contra `v2/node_modules/.pnpm/@types+react@18.3.28/`
 **Encontrada:** 2026-08-04, corriendo `npx tsc --noEmit` al empezar el diseño de El Registro
 **Severidad:** baja
-**Estado:** abierta
+**Estado:** RESUELTA 2026-08-04 — de rebote, al sacar `@shopify/react-native-skia` en la demolición del juego (rebanada 2 de El Registro). Skia era quien arrastraba la copia vieja de los tipos. `npx tsc --noEmit` en `apps/mobile` devuelve **0 errores**. No hizo falta ningún `pnpm.overrides`.
 
 `npm run check` de `apps/mobile` devuelve **cuatro errores**, todos en el mismo archivo: uno de `createAnimatedComponent` sobre `Pressable` y tres de parámetros `e` con `any` implícito derivados del primero.
 
