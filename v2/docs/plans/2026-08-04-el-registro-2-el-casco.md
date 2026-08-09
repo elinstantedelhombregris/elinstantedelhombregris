@@ -647,24 +647,22 @@ Cambiá `src/db/schema.ts` y `src/db/repos.ts` para que importen `TipoSenalCaptu
 - `src/lib/capturar-gps.ts` importa `CLAVES_DIA` de `@/stores/juego`, que es un espacio de nombres de claves de settings. Mové esa constante a `src/db/repos.ts`, junto a `CLAVES`, que es donde vive el resto del vocabulario de settings.
 - `src/civic/gps-deadline.test.ts` mockea `@/stores/juego`. Actualizá el mock al nuevo origen.
 
-- [ ] **Step 4: Podar `db/repos.ts`**
+- [ ] **Step 4: NO podar `db/repos.ts` todavía**
 
-Según el análisis, **se conservan**: `nuevoId`, `hoyLocal`, `ahoraISO`, `getSetting`, `setSetting`, `CLAVES` (podado), `NuevaEstrella`, `prepararEstrella`, `crearEstrellaCivicaUnaVez`.
+La versión anterior de este plan pedía podar acá las funciones del juego que viven en `db/repos.ts`. **Estaba mal ordenado:** unas diez pantallas del juego que todavía existen las usan, y esas pantallas no mueren hasta la Task 5. Podar ahora rompe la compilación de código que este mismo plan prohíbe borrar.
 
-**Se van** (sólo del juego): `horaLocal`, `ledgerTodo`, `brasasBalance`, `brasasTotalGanado`, `ganarBrasas`, `ganarBrasasUnaVez`, `gastarBrasas`, `estrellasTodas`, `crearEstrella`, `persistirAsignaciones`, `diaDeHoy`, `diasTodos`, `marcarLuz`, `rachaActual`, `registrarRito`, y todo lo de rarezas, hitos y desbloqueos.
-
-**Cuidado con `prepararEstrella`:** usa `horaLocal` para el flag `nocturna`. Ese flag es del juego. Sacalo del preparado y de la fila que se inserta; la columna la borra la Task 6.
-
-**Sacá también los imports relativos a `../game/`** (`calcularRarezas`, `hitosCruzados` y compañía). Al terminar esta tarea, `db/` no puede importar nada de `game/`.
+La poda se mudó a la **Task 6**, que corre después del borrado. Acá no toques `db/repos.ts` más allá de los imports de tipo del Step 1.
 
 - [ ] **Step 5: Verificar que el desacople está completo**
 
 Este grep busca **los dos estilos de import**, que es lo que el plan original no hizo:
 
 ```bash
-cd v2/apps/mobile/src && grep -rn "@/game/\|@/cielo/\|@/stores/juego\|@/stores/rangos\|\.\./game/\|\./game/" civic/ db/ lib/ protocolo/ content/ components/civic components/papel components/ui
+cd v2/apps/mobile/src && grep -rn "@/game/\|@/cielo/\|@/stores/juego\|@/stores/rangos\|\.\./game/\|\./game/" civic/ lib/ protocolo/ components/civic components/papel components/ui
 ```
-Expected: **sin resultados.** Si algo aparece, no está terminado.
+Expected: **sin resultados.**
+
+`db/` queda fuera del gate **a propósito**: sigue importando del juego y no puede dejar de hacerlo hasta que la Task 5 borre las pantallas que lo usan. La Task 6 lo cierra.
 
 ```bash
 cd v2/apps/mobile && npx vitest run && npx tsc --noEmit 2>&1 | grep -c "error TS"
@@ -756,6 +754,22 @@ git commit -m "refactor(mobile): se va la superficie del juego — El Cielo, las
 | `settings`, `civic_*`, `pv_*` | se quedan | |
 
 De la tabla renombrada sacá además las columnas que eran sólo del juego: `nocturna`, `fugaz`, `fundadora`, `constelacionId`. **Dejá `expeditionId` y `expeditionStepKey`**: las expediciones sobreviven.
+
+- [ ] **Step 1: Podar `db/repos.ts`**
+
+Esto venía de la Task 4 y se movió acá porque antes del borrado rompía la compilación.
+
+**Se conservan**: `nuevoId`, `hoyLocal`, `ahoraISO`, `getSetting`, `setSetting`, `CLAVES` (podado), `NuevaEstrella`, `prepararEstrella`, `crearEstrellaCivicaUnaVez`.
+
+**Se van** (sólo del juego): `horaLocal`, `ledgerTodo`, `brasasBalance`, `brasasTotalGanado`, `ganarBrasas`, `ganarBrasasUnaVez`, `gastarBrasas`, `estrellasTodas`, `crearEstrella`, `persistirAsignaciones`, `diaDeHoy`, `diasTodos`, `marcarLuz`, `rachaActual`, `registrarRito`, y todo lo de rarezas, hitos y desbloqueos.
+
+**Cuidado con `prepararEstrella`:** usa `horaLocal` para el flag `nocturna`, que es del juego. Sacalo del preparado y de la fila que se inserta.
+
+Al terminar, este grep tiene que estar vacío y con eso cierra el gate que la Task 4 dejó abierto:
+
+```bash
+cd v2/apps/mobile/src && grep -rn "@/game/\|\.\./game/" db/
+```
 
 - [ ] **Step 1: Editar el schema y los usos**
 
