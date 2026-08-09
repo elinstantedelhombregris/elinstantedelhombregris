@@ -84,6 +84,12 @@ export const CLAVES = {
   pactoAceptado: 'pacto_aceptado',
   /** Se pidió (o se intentó pedir) permiso de ubicación una sola vez en la vida. */
   gpsPedido: 'gps_pedido',
+  /**
+   * El polígono de la zona elegida en el FTUE — `GeoPoint[]` serializado.
+   * La única pregunta del onboarding cívico (`ftue.tsx`); la portada
+   * (`(tabs)/index.tsx`) lo lee para armar la grilla de cobertura.
+   */
+  zona: 'mi_zona_v1',
 } as const;
 
 export const getSetting = (key: string): string | null =>

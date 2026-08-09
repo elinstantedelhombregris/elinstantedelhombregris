@@ -3,7 +3,12 @@ import path from 'node:path';
 
 export default defineConfig({
   resolve: {
-    alias: { '@': path.resolve(__dirname, 'src') },
+    alias: [
+      // Orden importa: '@/assets' es más específico que '@' y tiene que
+      // resolverse primero, igual que en tsconfig.json.
+      { find: '@/assets', replacement: path.resolve(__dirname, 'assets') },
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+    ],
   },
   test: {
     environment: 'node',
