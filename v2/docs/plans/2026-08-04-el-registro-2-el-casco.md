@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- **Dos paquetes:** `v2/packages/civic-core` (Tasks 1) y `v2/apps/mobile` (Tasks 2–6). La web se toca sólo para reapuntar un import (Task 1).
+- **Dos paquetes:** `v2/packages/civic-core` (Task 1) y `v2/apps/mobile` (Tasks 2–8). La web se toca sólo para reapuntar un import (Task 1).
 - **Commits en `main`.** El dueño del repo tiene instrucción permanente de no abrir ramas salvo pedido explícito.
 - **`civic-core` es lógica pura:** sin UI, sin APIs de plataforma, sin red, sin disco, sin `Date.now()`.
 - **Imports con extensión `.js`** en `civic-core` (ESM). En `mobile` se usan los alias `@/…` sin extensión.
@@ -599,70 +599,202 @@ git commit -m "feat(mobile): el mapa pinta la luz por celda, y el gris de sin-da
 
 ---
 
-### Task 4: La demolición
+### Task 4: Desacoplar — el tipo de captura se muda a civic, y lo cívico deja de escribir en el juego
 
 **Files:**
-- Delete: `v2/apps/mobile/src/game/` (todo), `src/cielo/` (todo), `src/components/juego/` (todo), `src/stores/juego.ts`, `src/stores/rangos-check.ts`
-- Delete: `src/app/index.tsx`, `src/app/ver.tsx`, `src/app/encender.tsx`, `src/app/dar.tsx`, `src/app/rito.tsx`, `src/app/album.tsx`, `src/app/qr.tsx`, `src/app/compartir.tsx`, `src/app/expediciones/` (todo), `src/app/ftue.tsx`
-- Modify: `src/app/escuchar.tsx`, `src/app/ajustes.tsx`, `src/app/misiones/[id].tsx` — desacoplarlas del juego
+- Modify: `v2/apps/mobile/src/civic/types.ts` — recibe el tipo de captura
+- Modify: `v2/apps/mobile/src/civic/repo.ts` — sacar las 2 llamadas a brasas
+- Modify: `v2/apps/mobile/src/lib/social.ts` — dejar de importar del juego
+- Modify: `v2/apps/mobile/src/lib/capturar-gps.ts` — dejar de importar del store del juego
+- Modify: `v2/apps/mobile/src/civic/gps-deadline.test.ts` — el mock ya no apunta al juego
+- Modify: `v2/apps/mobile/src/db/repos.ts` — podar lo que es sólo del juego
+- Modify: `v2/apps/mobile/src/db/schema.ts` — el tipo de la columna viene de civic
+
+**Interfaces:**
+- Produces: `TipoSenalCapturada` en `@/civic/types`. `db/schema.ts` y `db/repos.ts` dejan de importar de `../game/`.
+
+**Por qué esta tarea existe y va primero.** El plan original decía «borrá `src/game/`» sobre una medición equivocada: se buscó el acople con `grep "@/game/"` sólo en `app/` y `components/`, y `db/repos.ts` y `db/schema.ts` importan por **ruta relativa** (`'../game/types'`), así que no aparecieron. El acople real está documentado en `.superpowers/sdd/r2-task-4-analisis.md`.
+
+**El hallazgo que ordena todo:** `TipoEstrella = TipoSenal | 'amistad'`, y la tabla `stars` está documentada como *«cada captura real»*. La escribe `escuchar.tsx`, que sobrevive, vía `crearEstrellaCivicaUnaVez`. **Es la tabla de captura de la app con nombre de juego.** Por eso el tipo se rescata antes de borrar nada.
+
+**El miembro `'amistad'`** lo escribía sólo `qr.tsx` (chispas entre teléfonos), que muere. Ningún código cívico lo escribe nunca. Así que el tipo cívico es exactamente `TipoSenal`, sin ese miembro, y las filas viejas que lo tengan las limpia la migración de la Task 6.
+
+- [ ] **Step 1: Mudar el tipo**
+
+En `src/civic/types.ts` agregá, importando `TipoSenal` de `@/content/types`:
+
+```ts
+/**
+ * El tipo de una captura guardada. Vivía en `game/types.ts` como
+ * `TipoEstrella`, que era `TipoSenal | 'amistad'` — el miembro extra lo
+ * escribía sólo el flujo de chispas por QR, que ya no existe. Acá queda
+ * exactamente el catálogo cívico: las seis señales y nada más.
+ */
+export type TipoSenalCapturada = TipoSenal;
+```
+
+Cambiá `src/db/schema.ts` y `src/db/repos.ts` para que importen `TipoSenalCapturada` de `../civic/types` en vez de `TipoEstrella` de `../game/types`. **No renombres la tabla todavía** — eso es la Task 6.
+
+- [ ] **Step 2: Lo cívico deja de otorgar brasas**
+
+`src/civic/repo.ts` importa `GANANCIAS, MOTIVOS` de `@/game/brasas` y llama a `ganarBrasasUnaVez` en dos sitios: corroboración útil y resultado confirmado. Sacá el import y las dos llamadas.
+
+**Antes de sacarlas, verificá que su valor de retorno no se use para control de flujo.** Si se usara, pará y reportá: significaría que otorgar brasas decide algo cívico, y eso es otra conversación.
+
+- [ ] **Step 3: Las otras tres dependencias**
+
+- `src/lib/social.ts` importa `LIMITES_CHISPA, LIMITES_CIRCULO` de `@/game/qr-codec`. Mové esas constantes al propio `social.ts` con su comentario, o a donde tenga sentido dentro de `lib/` — pero fuera de `game/`.
+- `src/lib/capturar-gps.ts` importa `CLAVES_DIA` de `@/stores/juego`, que es un espacio de nombres de claves de settings. Mové esa constante a `src/db/repos.ts`, junto a `CLAVES`, que es donde vive el resto del vocabulario de settings.
+- `src/civic/gps-deadline.test.ts` mockea `@/stores/juego`. Actualizá el mock al nuevo origen.
+
+- [ ] **Step 4: Podar `db/repos.ts`**
+
+Según el análisis, **se conservan**: `nuevoId`, `hoyLocal`, `ahoraISO`, `getSetting`, `setSetting`, `CLAVES` (podado), `NuevaEstrella`, `prepararEstrella`, `crearEstrellaCivicaUnaVez`.
+
+**Se van** (sólo del juego): `horaLocal`, `ledgerTodo`, `brasasBalance`, `brasasTotalGanado`, `ganarBrasas`, `ganarBrasasUnaVez`, `gastarBrasas`, `estrellasTodas`, `crearEstrella`, `persistirAsignaciones`, `diaDeHoy`, `diasTodos`, `marcarLuz`, `rachaActual`, `registrarRito`, y todo lo de rarezas, hitos y desbloqueos.
+
+**Cuidado con `prepararEstrella`:** usa `horaLocal` para el flag `nocturna`. Ese flag es del juego. Sacalo del preparado y de la fila que se inserta; la columna la borra la Task 6.
+
+**Sacá también los imports relativos a `../game/`** (`calcularRarezas`, `hitosCruzados` y compañía). Al terminar esta tarea, `db/` no puede importar nada de `game/`.
+
+- [ ] **Step 5: Verificar que el desacople está completo**
+
+Este grep busca **los dos estilos de import**, que es lo que el plan original no hizo:
+
+```bash
+cd v2/apps/mobile/src && grep -rn "@/game/\|@/cielo/\|@/stores/juego\|@/stores/rangos\|\.\./game/\|\./game/" civic/ db/ lib/ protocolo/ content/ components/civic components/papel components/ui
+```
+Expected: **sin resultados.** Si algo aparece, no está terminado.
+
+```bash
+cd v2/apps/mobile && npx vitest run && npx tsc --noEmit 2>&1 | grep -c "error TS"
+```
+Expected: tests verdes (algunos del juego pueden ponerse rojos si probaban lo podado — reportá cuáles), y el conteo de `tsc` **no sube de 4**.
+
+> La app todavía arranca en este punto: no se borró ninguna pantalla.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add -A v2/apps/mobile
+git commit -m "refactor(mobile): el tipo de captura se muda a civic y la capa cívica deja de otorgar brasas"
+```
+
+---
+
+### Task 5: Borrar la superficie del juego
+
+**Files:**
+- Delete: `src/game/`, `src/cielo/`, `src/components/juego/`, `src/stores/juego.ts`, `src/stores/rangos-check.ts`
+- Delete: `src/app/index.tsx`, `ver.tsx`, `encender.tsx`, `dar.tsx`, `rito.tsx`, `album.tsx`, `qr.tsx`, `compartir.tsx`, `ftue.tsx`, `bitacora.tsx`, `expediciones/index.tsx`, `expediciones/fundar.tsx`
 - Modify: `package.json` — sacar `@shopify/react-native-skia`
 - Delete: `patches/@shopify+react-native-skia+2.6.2.patch`
-- Modify: `src/content/index.ts` y `src/content/*` — sacar lo que era sólo del juego, si queda huérfano
 
-**El acople es superficial y por eso esto es tratable.** Verificado antes de escribir el plan:
+**Lo que NO se borra, y por qué.** Estas dos cosas parecen del juego y no lo son:
 
-| Pantalla | Qué importa del juego | Qué hacer |
-|---|---|---|
-| `escuchar.tsx` | `TipoEstrella` (tipo) y `useJuego` (store) | Desacoplar: son dos usos |
-| `ajustes.tsx` | `LIMITES_CHISPA` y `useJuego` | Desacoplar |
-| `ftue.tsx` | `LuzPlaca`, `SkyView`, `GANANCIAS`, `Luz`, `useJuego` | Borrar; se reescribe en la Task 6 |
-| `aportar.tsx`, `verificar.tsx`, `conectar.tsx`, `publicar.tsx`, `mis-datos.tsx`, `territorio/*`, `circulos.tsx` | nada | **No se tocan** |
+- **`src/app/expediciones/[id].tsx` sobrevive.** `repos-protocolo.ts` (`fundarMision`) crea una expedición para las misiones de relevamiento, y `misiones/[id].tsx` —que sobrevive— lee su progreso y tiene un botón «Capturar →» que apunta justo a esa pantalla. Borrarla dejaría el botón colgando.
+- **`src/app/misiones/*` sobrevive.** El spec fusiona los dos conceptos de misión y hace sobrevivir el territorial, pero **eso es trabajo de la rebanada 3**. Acá se saca el juego, nada más.
 
-**No borres nada de `src/civic/`.** Son las 7.758 líneas de custodia que se conservan enteras por decisión explícita, más el resto de la capa cívica. La rebanada 3 las va a reorganizar en la ficha; acá no se toca ninguna.
+`bitacora.tsx` **sí** se borra: su única fuente de escritura era la luz VER, y el dueño del repo decidió que la Bitácora se va con el juego. La tabla `reflections` la borra la Task 6.
 
-- [ ] **Step 1: Confirmar el inventario antes de borrar**
+- [ ] **Step 1: Borrar**
+
+Borrá los directorios y archivos de arriba. Sacá Skia del `package.json`, borrá su parche, y después:
 
 ```bash
-cd v2/apps/mobile/src
-grep -rl "@/game/\|@/cielo/\|@/stores/juego\|@/stores/rangos\|components/juego" app/ components/ civic/ | sort
+cd v2/apps/mobile && npm install
 ```
 
-Anotá la lista. Al final de la tarea este mismo comando tiene que devolver **cero líneas**. Si aparece algo de `civic/`, pará y reportá: significa que la capa cívica tenía un acople al juego que este plan no vio.
+Si `npm install` se queja de dependencias transitivas colgadas, **no lo fuerces**: reportá qué quedó roto.
 
-- [ ] **Step 2: Borrar y desacoplar**
+- [ ] **Step 2: Podar el contenido huérfano**
 
-Borrá los directorios y archivos de la sección **Files**. Después, en `escuchar.tsx` y `ajustes.tsx`, sacá los imports del juego y lo que dependía de ellos: si una pantalla otorgaba brasas al guardar, esa llamada se va sin reemplazo — el progreso ahora es territorial y lo lleva el mapa.
+En `src/content/`, borrá lo que existía **sólo** para el juego. Antes de borrar cada archivo, buscá quién lo importa todavía. **Las seis señales y sus preguntas son contenido cívico y se quedan.**
 
-Sacá Skia del `package.json` y borrá su parche. Después:
-
-```bash
-cd v2/apps/mobile && rm -rf node_modules/.cache && npm install
-```
-
-- [ ] **Step 3: Verificar que no quedó nada colgado**
+- [ ] **Step 3: Verificar**
 
 ```bash
-cd v2/apps/mobile/src && grep -rn "@/game/\|@/cielo/\|@/stores/juego\|@/stores/rangos\|components/juego\|react-native-skia" . | grep -v node_modules
+cd v2/apps/mobile/src && grep -rn "@/game/\|@/cielo/\|@/stores/juego\|@/stores/rangos\|components/juego\|\.\./game/\|react-native-skia" . | grep -v node_modules
 ```
 Expected: sin resultados.
 
 ```bash
 cd v2/apps/mobile && npx vitest run && npx tsc --noEmit 2>&1 | grep -c "error TS"
 ```
-Expected: los tests que quedan pasan. **Van a desaparecer los tests de `src/game/`** — eso es correcto y esperado, la lógica que probaban ya no existe. Anotá cuántos tests había antes y cuántos quedan. El conteo de errores de `tsc` tiene que bajar a **4** o menos.
+El conteo de tests **baja** — es correcto, la lógica que probaban ya no existe. Reportá el antes y el después. `tsc` no sube de 4.
 
-> En este punto la app **no arranca**: no hay `src/app/index.tsx`. Es esperado y lo arregla la Task 5. No inventes un `index.tsx` provisorio.
+> A partir de acá **la app no arranca**: no hay `src/app/index.tsx`. Es esperado y lo arreglan las Tasks 7 y 8. **No inventes una portada provisoria** — sobreviviría y se pudriría.
 
 - [ ] **Step 4: Commit**
 
 ```bash
 git add -A v2/apps/mobile
-git commit -m "refactor(mobile): se va el juego entero — El Cielo, las brasas, los rangos y Skia"
+git commit -m "refactor(mobile): se va la superficie del juego — El Cielo, las luces, el álbum y Skia"
 ```
 
 ---
 
-### Task 5: El casco — pestañas reales
+### Task 6: El schema queda cívico — renombre y poda con migración
+
+**Files:**
+- Modify: `v2/apps/mobile/src/db/schema.ts`
+- Modify: los archivos que nombren `stars` (`src/db/repos.ts`, `src/civic/campaigns.ts`, y los que aparezcan)
+- Create: `v2/apps/mobile/drizzle/0019_*.sql` y su snapshot, vía `npx drizzle-kit generate`
+
+**Qué cambia en el schema:**
+
+| Tabla | Qué le pasa | Por qué |
+|---|---|---|
+| `stars` | **se renombra a `senales`** | Es la tabla de captura de la app; tenía nombre de juego |
+| `reflections` | se borra | La Bitácora se va con el juego (decisión del dueño) |
+| `commitments` | se borra | Es la mecánica de la luz DAR; la señal cívica «compromiso» es otra cosa |
+| `days` | se borra | Las tres luces del día |
+| `ember_ledger` | se borra | Las brasas; la Task 4 ya sacó las 2 escrituras cívicas |
+| `unlocks` | se borra | Constelaciones del álbum |
+| `redeemed_nonces` | se borra | Anti-replay de las chispas por QR |
+| `expeditions`, `expedition_entries` | **se quedan** | Las usa Protocolo Vivo, no el juego |
+| `settings`, `civic_*`, `pv_*` | se quedan | |
+
+De la tabla renombrada sacá además las columnas que eran sólo del juego: `nocturna`, `fugaz`, `fundadora`, `constelacionId`. **Dejá `expeditionId` y `expeditionStepKey`**: las expediciones sobreviven.
+
+- [ ] **Step 1: Editar el schema y los usos**
+
+Renombrá la tabla y su export, borrá las seis tablas, sacá las columnas del juego. Actualizá cada archivo que las nombre. El comentario de la tabla pasa a decir lo que la tabla es de verdad — cada captura real del territorio — sin vocabulario de juego.
+
+- [ ] **Step 2: Generar la migración**
+
+```bash
+cd v2/apps/mobile && npx drizzle-kit generate
+```
+
+**Revisá el SQL generado antes de aceptarlo.** drizzle-kit para SQLite suele implementar un renombre como *crear tabla nueva + copiar + borrar vieja*; verificá que el `INSERT ... SELECT` **copie las filas existentes**. Si el SQL borra y recrea sin copiar, **paralo y reportá**: eso destruye las capturas del usuario, que es exactamente lo que este renombre existe para evitar.
+
+Agregá a mano, en la misma migración, el borrado de las filas heredadas del juego:
+
+```sql
+DELETE FROM senales WHERE tipo = 'amistad';
+```
+
+Con su comentario: eran chispas de amistad del flujo de QR, no señales del territorio.
+
+- [ ] **Step 3: Verificar que la migración corre**
+
+```bash
+cd v2/apps/mobile && npx vitest run && npx tsc --noEmit 2>&1 | grep -c "error TS"
+```
+
+Hay tests de migración en `src/civic/` (`protocolo-migration.test.ts` y compañía) que corren las migraciones de verdad. Si alguno se pone rojo, la migración está mal — **no ablandes el test**.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add -A v2/apps/mobile
+git commit -m "refactor(mobile): la tabla de capturas se llama senales, y el schema pierde las seis tablas del juego"
+```
+
+---
+
+### Task 7: El casco — pestañas reales
 
 **Files:**
 - Modify: `v2/apps/mobile/src/app/_layout.tsx`
@@ -749,7 +881,7 @@ git commit -m "feat(mobile): cuatro pestañas reales en vez de un dock que sólo
 
 ---
 
-### Task 6: La portada es el mapa
+### Task 8: La portada es el mapa
 
 **Files:**
 - Create: `v2/apps/mobile/src/app/(tabs)/index.tsx`
@@ -827,10 +959,10 @@ git commit -m "feat(mobile): la portada es el mapa, y una celda se enciende cuan
 Este plan normalmente tendría que traer el código completo de cada paso. Tres no lo traen, y la razón es deliberada:
 
 - **Task 3, Step 5** — enchufar el color en los dos mapas.
-- **Task 5, Step 2** — mover las pantallas de pestaña y podar el `Stack`.
-- **Task 6, Step 1** — escribir la portada.
+- **Task 7, Step 2** — mover las pantallas de pestaña y podar el `Stack`.
+- **Task 8, Step 1** — escribir la portada.
 
-Los tres **adaptan código existente y grande** (`TerritoryMap.web.tsx` son 339 líneas de maplibre, `territorio/mapa.tsx` son 437) que quien implemente tiene que leer igual. Escribirles el código desde un conocimiento parcial del archivo produciría algo que se ve seguro y está mal, que es peor que una instrucción precisa. Para los tres, el plan da el **contrato exacto** —qué props, qué flujo de datos, qué expresión de maplibre, qué tope de líneas— y la verificación observable de la Task 6, Step 2, que es la que realmente decide si la rebanada está terminada.
+Los tres **adaptan código existente y grande** (`TerritoryMap.web.tsx` son 339 líneas de maplibre, `territorio/mapa.tsx` son 437) que quien implemente tiene que leer igual. Escribirles el código desde un conocimiento parcial del archivo produciría algo que se ve seguro y está mal, que es peor que una instrucción precisa. Para los tres, el plan da el **contrato exacto** —qué props, qué flujo de datos, qué expresión de maplibre, qué tope de líneas— y la verificación observable de la Task 8, Step 2, que es la que realmente decide si la rebanada está terminada.
 
 ## Riesgos
 
