@@ -201,8 +201,10 @@ function CivicApp() {
   useCivicSync();
 
   // El onboarding del juego (FTUE) se fue con el resto de la superficie del
-  // juego (R2 Task 5). Todavía no hay portada ni onboarding cívico propio —
-  // eso es trabajo de una tarea posterior; acá no se inventa un reemplazo.
+  // juego (R2 Task 5). El nuevo FTUE cívico («elegí tu zona») vive en
+  // `ftue.tsx`; la portada (`(tabs)/index.tsx`) es quien decide si redirige
+  // ahí — acá no hace falta ninguna redirección: el `<Stack>` sólo declara
+  // que la ruta existe.
 
   // react-native-screens oculta las pantallas inactivas con `display:none` y
   // `aria-hidden`. Si un botón conservaba el foco al empujar otra ruta, el
@@ -224,6 +226,8 @@ function CivicApp() {
     <Stack
       screenOptions={{ headerShown: false, contentStyle: { backgroundColor: BG } }}
     >
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="ftue" options={{ animation: 'fade', gestureEnabled: false }} />
       <Stack.Screen name="misiones/index" />
       <Stack.Screen name="misiones/fundar" />
       <Stack.Screen name="misiones/[id]" />
@@ -231,15 +235,12 @@ function CivicApp() {
       <Stack.Screen name="corriente" />
       <Stack.Screen name="escuchar" />
       <Stack.Screen name="escuchar/necesidad/[id]" />
-      <Stack.Screen name="ajustes" />
-      <Stack.Screen name="territorio/index" />
       <Stack.Screen name="territorio/inteligencia" />
       <Stack.Screen name="territorio/mapa" />
       <Stack.Screen name="territorio/misiones/index" />
       <Stack.Screen name="territorio/misiones/[id]" />
       <Stack.Screen name="verificar" />
       <Stack.Screen name="conectar" />
-      <Stack.Screen name="aportar" />
       <Stack.Screen name="publicar" />
       <Stack.Screen name="mis-datos" />
       <Stack.Screen name="circulos" />
