@@ -68,7 +68,7 @@ _REGULAR_AR = [
     "castigar", "premiar", "votar", "gobernar", "ejecutar",
     "reformar", "mapear", "diagnosticar",
     "rediseñar", "priorizar", "coordinar",
-    "evitar", "disfrazar", "iluminar", "tolerar",
+    "evitar", "disfrazar", "iluminar", "tolerar", "secuestrar",
     "escalar", "consolidar", "articular", "propagar",
     "multiplicar", "aumentar", "acelerar", "frenar",
     "iniciar", "abandonar", "recuperar", "reparar",

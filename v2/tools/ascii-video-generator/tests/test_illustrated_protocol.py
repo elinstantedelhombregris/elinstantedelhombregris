@@ -4,11 +4,12 @@ import cv2
 import numpy as np
 import pytest
 
-from ascii_studio.render.frames import _planned_graphics
+from ascii_studio.render.frames import _planned_graphics, _press_registration_entry
+from ascii_studio.render.tokens import load_look
 from ascii_studio.scene.legacy import LegacyChapter
 from ascii_studio.storyboard.build import build_storyboard, scene_ranges
 from ascii_studio.storyboard.illustrated import (
-    analyze_plate, analyze_storyboard_plates,
+    PROTOCOL_VERSION, analyze_plate, analyze_storyboard_plates,
     bind_illustrated_timeline,
     split_illustrated_units,
     validate_illustrated_protocol,
@@ -129,8 +130,12 @@ def test_render_readiness_lists_every_missing_human_decision():
 def test_fully_reviewed_checksum_stable_direction_can_pass_the_render_gate(tmp_path):
     board = build_storyboard("Una imagen", "una-imagen", "La red distribuye poder.", 8, illustrated=True)
     chapter = board.chapters[0]
-    image = np.full((480, 270, 3), 232, dtype=np.uint8)
-    cv2.circle(image, (135, 210), 72, (52, 39, 120), -1, cv2.LINE_AA)
+    # OpenCV writes BGR; this becomes warm cream RGB (224, 190, 151).
+    image = np.full((480, 270, 3), (151, 190, 224), dtype=np.uint8)
+    for y in range(0, 480, 10):
+        cv2.line(image, (0, y), (269, y), (18, 16, 12), 3, cv2.LINE_AA)
+    for x in range(0, 270, 37):
+        cv2.line(image, (x, 0), (x, 479), (18, 16, 12), 1, cv2.LINE_AA)
     plate = tmp_path / f"{chapter.id}.png"
     assert cv2.imwrite(str(plate), image)
     chapter.plate = str(plate)
@@ -146,6 +151,7 @@ def test_fully_reviewed_checksum_stable_direction_can_pass_the_render_gate(tmp_p
     analysis.approved = True
     board.illustrated_review_status = "approved"
 
+    assert analysis.style_score == 1.0
     assert not validate_illustrated_protocol(board, require_render_ready=True)
 
 
@@ -211,12 +217,48 @@ def test_planned_graphics_are_invisible_before_their_exact_trigger():
     assert float(after.mean()) > 0.0005
 
 
+@pytest.mark.parametrize("kind", [
+    "connection-path", "causal-path", "bridge", "feedback-loop",
+    "split-field", "subtraction-mask", "reveal-mask",
+])
+def test_every_illustrated_object_has_a_progressive_draw_animation(kind):
+    chapter = LegacyChapter(
+        motif="network", graphic_cues=[{
+            "id": "cue", "kind": kind,
+            "target_region": [0.12, 0.14, 0.86, 0.58],
+        }],
+        reveal_points={"graphic:cue:start": 0.20, "graphic:cue:end": 0.82},
+    )
+    early = _planned_graphics(chapter, 320, 180, 0.28)
+    late = _planned_graphics(chapter, 320, 180, 0.67)
+
+    assert early.max() > 0.0
+    assert late.max() > 0.0
+    assert not np.array_equal(early, late)
+    assert np.count_nonzero(late) >= np.count_nonzero(early)
+
+
+def test_plate_registration_animates_after_the_exact_cut_then_settles():
+    look = load_look("tinta-papel-ilustrado")
+    rgb = np.full((240, 135, 3), 0.62, dtype=np.float32)
+    rgb[:, :68, 0] = 0.18
+
+    entering = _press_registration_entry(rgb, 0.045, look)
+    settled = _press_registration_entry(rgb, 0.10, look)
+
+    assert not np.array_equal(entering, rgb)
+    assert np.array_equal(settled, rgb)
+
+
 def test_nested_illustrated_protocol_round_trips_through_storyboard_json(tmp_path):
     board = build_storyboard("Otra arquitectura", "otra-arquitectura", NARRATION, 2, illustrated=True)
     path = tmp_path / "board.json"
     write_json(path, asdict(board))
     loaded = load_storyboard(path)
 
-    assert loaded.illustrated_protocol == 1
+    assert loaded.illustrated_protocol == PROTOCOL_VERSION
     assert loaded.chapters[0].illustration is not None
     assert loaded.chapters[0].illustration.image_brief == board.chapters[0].illustration.image_brief
+    assert loaded.chapters[0].illustration.style_id == "grabado-civico"
+    assert loaded.chapters[0].illustration.generation_prompt
+    assert loaded.illustration_style == "grabado-civico"

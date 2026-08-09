@@ -481,7 +481,7 @@ def _narrative_light(shape: tuple[int, int], lighting: str, morph: float,
 
 
 def render_world(chapter: LegacyChapter, shape: tuple[int, int], t: float,
-                 progress: float, state: dict) -> WorldFrame:
+                 progress: float, state: dict, *, colour_only: bool = False) -> WorldFrame:
     locked = _locked_plate(chapter, shape, state)
     if locked is not None:
         violet = state.get("world_plate_violet")
@@ -491,6 +491,13 @@ def render_world(chapter: LegacyChapter, shape: tuple[int, int], t: float,
             state["world_plate_rgb"] = _animate_plate_rgb(
                 rgb, locked.depth, chapter, t, progress,
             )
+        # The full-colour illustrated renderer consumes only world_plate_rgb.
+        # Its grayscale parallax and spot separations used to add fourteen
+        # full-frame warps per frame and were then thrown away by Renderer.
+        # Keep the ordinary locked-plate contract intact for ASCII looks, while
+        # letting the illustrated path skip that invisible work entirely.
+        if colour_only:
+            return locked
         if violet is not None:
             state["world_plate_violet"] = _animate_plate_separation(
                 violet, locked.depth, chapter, t, progress,

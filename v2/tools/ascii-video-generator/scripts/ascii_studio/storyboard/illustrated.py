@@ -22,14 +22,23 @@ import numpy as np
 
 from ..editorial.concepts import chapter_concepts
 from ..editorial.rhetoric import classify_rhetoric
+from ..editorial.verb_forms import is_conjugated_verb
 from ..speech.captions import caption_text
 from ..text import normalized_words, word_core
+from .illustration_style import (
+    DEFAULT_ILLUSTRATION_STYLE,
+    assess_plate_style,
+    generation_prompt,
+    get_style,
+    negative_prompt,
+    style_contract,
+)
 from .schema import (
     Caption, GraphicCue, IllustrationDirection, PlateAnalysis, Relation, Storyboard,
 )
 
 ILLUSTRATED_LOOK = "tinta-papel-ilustrado"
-PROTOCOL_VERSION = 1
+PROTOCOL_VERSION = 2
 FORBIDDEN_GRAPHIC_KINDS = {"label", "text", "title", "word", "caption"}
 
 _TURN_MARKERS = (
@@ -203,10 +212,51 @@ def _graphic_kind(relation: Relation) -> str:
     }.get(relation.kind, "relationship-path")
 
 
+def _relation_callout(narrated: str, relation: Relation) -> str:
+    """Return a short phrase already spoken, never invented overlay copy."""
+    narration_words = normalized_words(narrated)
+    for candidate in (
+        f"{relation.source} {relation.target}".strip(),
+        relation.target,
+        relation.source,
+    ):
+        words = normalized_words(candidate)
+        if not 1 <= len(words) <= 4:
+            continue
+        # The surface phrase must exist without punctuation inserted between
+        # its words. Normalized-token adjacency alone accepted spans across a
+        # comma ("debilidad, sostener") as if they were authored copy.
+        if candidate.strip().casefold() not in narrated.casefold():
+            continue
+        # Relation extraction may join a noun at the end of one clause to the
+        # verb that begins the next ("debilidad sostener").  Such a span is
+        # technically present in token order but reads like broken copy.
+        if len(words) > 1 and is_conjugated_verb(words[-1]):
+            continue
+        for index in range(len(narration_words) - len(words) + 1):
+            if narration_words[index:index + len(words)] == words:
+                return candidate.strip().upper()
+    return ""
+
+
+def _cue_animation(kind: str) -> str:
+    return {
+        "causal-path": "draw-pulse-arrive",
+        "connection-path": "thread-pulse-connect",
+        "relationship-path": "thread-pulse-connect",
+        "bridge": "arch-build-settle",
+        "feedback-loop": "orbit-draw-pulse",
+        "split-field": "seam-open-hold",
+        "subtraction-mask": "hatch-cancel-clear",
+        "reveal-mask": "corner-scan-reveal",
+    }.get(kind, "draw-hold-retract")
+
+
 def make_illustration_direction(
     *, texts: list[str], boundary_reason: str, rhetoric: str,
     concepts: Sequence[str], relations: Sequence[Relation], word_start: int,
     previous_subject: str = "",
+    style_id: str = DEFAULT_ILLUSTRATION_STYLE,
 ) -> IllustrationDirection:
     narrated = " ".join(caption_text(value) for value in texts)
     tokens = narrated.split()
@@ -222,22 +272,40 @@ def make_illustration_direction(
         "process": f"Mostrar cómo {subject} cambia de estado paso a paso.",
         "resolution": f"Resolver visualmente la tensión acumulada alrededor de {subject}.",
     }.get(rhetoric, f"Encarnar la proposición sobre {subject} en una escena específica.")
+    profile = get_style(style_id)
+    must_show = list(concepts[:4]) or [subject]
+    continuity_in = (
+        f"Conservar una relación visual reconocible con {previous_subject}; "
+        f"el cambio hacia {subject} debe sentirse motivado por la narración."
+        if previous_subject else "Establecer la gramática visual que continuará en las imágenes siguientes."
+    )
     image_brief = (
-        f"Ilustración editorial completa para: {proposition} "
+        f"{profile.name}. Ilustración editorial completa para: {proposition} "
         f"La imagen debe sostener por sí sola esta tesis visual: {visual_thesis}"
+    )
+    prompt = generation_prompt(
+        proposition=proposition, visual_thesis=visual_thesis,
+        must_show=must_show, continuity_in=continuity_in, style_id=style_id,
     )
     graphics: list[GraphicCue] = []
     for index, relation in enumerate(relations):
         trigger = _local_trigger(tokens, relation)
+        kind = _graphic_kind(relation)
+        # A relation should animate around the phrase that names it, not remain
+        # painted over the entire rest of a chapter.
+        end = min(len(tokens) - 1, trigger + max(3, min(8, len(tokens) // 4)))
         graphics.append(GraphicCue(
-            id=f"relation-{index + 1:02d}", kind=_graphic_kind(relation),
+            id=f"relation-{index + 1:02d}", kind=kind,
             purpose=(
                 f"Hacer perceptible la relación {relation.source} {relation.kind} "
-                f"{relation.target} sin escribir esos conceptos sobre la imagen."
+                f"{relation.target}; el microtexto, si existe, sólo identifica una frase ya pronunciada."
             ),
-            trigger_token=trigger, end_token=max(trigger, len(tokens) - 1),
+            trigger_token=trigger, end_token=max(trigger, end),
             source=relation.source, target=relation.target,
-            treatment="violet-red-editorial-ink",
+            treatment="violet-thread-red-punctuation",
+            callout=_relation_callout(narrated, relation),
+            animation=_cue_animation(kind),
+            emphasis="primary" if index == 0 else "secondary",
         ))
     return IllustrationDirection(
         word_start=word_start,
@@ -248,16 +316,15 @@ def make_illustration_direction(
         proposition=proposition,
         visual_thesis=visual_thesis,
         image_brief=image_brief,
-        must_show=list(concepts[:4]) or [subject],
+        style_id=style_id,
+        generation_prompt=prompt,
+        negative_prompt=negative_prompt(style_id),
+        must_show=must_show,
         must_avoid=[
             "texto incrustado", "rótulos flotantes", "metáfora genérica",
             "elementos decorativos sin función narrativa", "duplicar literalmente el subtítulo",
         ],
-        continuity_in=(
-            f"Conservar una relación visual reconocible con {previous_subject}; "
-            f"el cambio hacia {subject} debe sentirse motivado por la narración."
-            if previous_subject else "Establecer la gramática visual que continuará en las imágenes siguientes."
-        ),
+        continuity_in=continuity_in,
         transition="motivated-cut",
         graphics=graphics,
     )
@@ -329,7 +396,10 @@ def _overlay_regions(gray: np.ndarray, count: int = 3) -> list[list[float]]:
     return [region for _score, region in sorted(candidates, key=lambda value: value[0])[:count]]
 
 
-def analyze_plate(path: Path, previous: PlateAnalysis | None = None) -> PlateAnalysis:
+def analyze_plate(
+    path: Path, previous: PlateAnalysis | None = None,
+    style_id: str = DEFAULT_ILLUSTRATION_STYLE,
+) -> PlateAnalysis:
     path = Path(path).expanduser().resolve()
     if not path.exists() or not path.is_file():
         return PlateAnalysis(path=str(path), status="missing")
@@ -342,7 +412,11 @@ def analyze_plate(path: Path, previous: PlateAnalysis | None = None) -> PlateAna
     gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
     height, width = gray.shape
     edge_density = float(np.mean(cv2.Canny(gray, 38, 112) > 0))
-    keep_review = previous is not None and previous.checksum == checksum
+    style_score, style_checks, style_metrics = assess_plate_style(rgb, style_id)
+    keep_review = (
+        previous is not None and previous.checksum == checksum
+        and previous.style_id in {"", style_id}
+    )
     return PlateAnalysis(
         path=str(path), checksum=checksum, status="analyzed",
         width=width, height=height, aspect_ratio=round(width / max(1, height), 5),
@@ -355,6 +429,8 @@ def analyze_plate(path: Path, previous: PlateAnalysis | None = None) -> PlateAna
         must_avoid_clear=bool(previous.must_avoid_clear) if keep_review else False,
         continuity_notes=previous.continuity_notes if keep_review else "",
         approved=bool(previous.approved) if keep_review else False,
+        style_id=style_id, style_score=style_score,
+        style_checks=style_checks, style_metrics=style_metrics,
     )
 
 
@@ -369,6 +445,7 @@ def analyze_storyboard_plates(storyboard: Storyboard) -> None:
         direction.plate_analysis = analyze_plate(
             Path(chapter.plate),
             direction.plate_analysis,
+            direction.style_id,
         )
         if direction.plate_analysis.status == "analyzed":
             for index, cue in enumerate(direction.graphics):
@@ -387,7 +464,7 @@ def validate_illustrated_protocol(
         return []
     problems: list[str] = []
     if storyboard.illustrated_protocol < PROTOCOL_VERSION:
-        problems.append("storyboard: falta el protocolo ilustrado v1")
+        problems.append(f"storyboard: falta el protocolo ilustrado v{PROTOCOL_VERSION}")
     if storyboard.overlay_policy != "graphics-only":
         problems.append("storyboard: overlay_policy debe ser graphics-only")
     cursor = 0
@@ -408,6 +485,10 @@ def validate_illustrated_protocol(
         cursor = direction.word_end
         if not direction.proposition or not direction.visual_thesis or not direction.image_brief:
             problems.append(f"{prefix}: falta proposición, tesis visual o brief de imagen")
+        if direction.style_id != storyboard.illustration_style:
+            problems.append(f"{prefix}: el estilo de imagen no coincide con el storyboard")
+        if not direction.generation_prompt or not direction.negative_prompt:
+            problems.append(f"{prefix}: falta el contrato reproducible de generación")
         for cue in direction.graphics:
             if cue.kind.lower() in FORBIDDEN_GRAPHIC_KINDS:
                 problems.append(f"{prefix}/{cue.id}: el ilustrado prohíbe gráficos de texto")
@@ -415,6 +496,16 @@ def validate_illustrated_protocol(
                 problems.append(f"{prefix}/{cue.id}: cue fuera del rango de narración")
             if not cue.purpose:
                 problems.append(f"{prefix}/{cue.id}: falta propósito semántico")
+            if len(cue.callout.split()) > 4:
+                problems.append(f"{prefix}/{cue.id}: el microtexto supera cuatro palabras")
+            if cue.callout:
+                callout = normalized_words(cue.callout)
+                narration = normalized_words(narrated)
+                if not any(
+                    narration[index:index + len(callout)] == callout
+                    for index in range(len(narration) - len(callout) + 1)
+                ):
+                    problems.append(f"{prefix}/{cue.id}: el microtexto no pertenece a la narración")
         if not require_render_ready:
             continue
         if not direction.direction_approved:
@@ -436,6 +527,11 @@ def validate_illustrated_protocol(
             problems.append(f"{prefix}: falta revisar continuidad con las placas vecinas")
         if not analysis.approved:
             problems.append(f"{prefix}: análisis de placa no aprobado")
+        if analysis.style_id != direction.style_id or analysis.style_score < 0.82:
+            problems.append(
+                f"{prefix}: la placa se aleja del estilo {direction.style_id} "
+                f"({analysis.style_score:.2f})"
+            )
         for cue in direction.graphics:
             if len(cue.target_region) != 4:
                 problems.append(f"{prefix}/{cue.id}: falta ubicar el gráfico sobre la placa analizada")
@@ -457,6 +553,7 @@ def illustrated_protocol_summary(storyboard: Storyboard) -> dict[str, object]:
     return {
         "protocol": storyboard.illustrated_protocol,
         "status": storyboard.illustrated_review_status,
+        "illustration_style": storyboard.illustration_style,
         "image_count": len(directions),
         "analyzed_images": analyzed,
         "approved_images": approved,
@@ -482,6 +579,9 @@ def illustration_briefs(storyboard: Storyboard) -> dict[str, object]:
             "narrative_function": direction.narrative_function,
             "visual_thesis": direction.visual_thesis,
             "image_brief": direction.image_brief,
+            "style_id": direction.style_id,
+            "generation_prompt": direction.generation_prompt,
+            "negative_prompt": direction.negative_prompt,
             "must_show": direction.must_show,
             "must_avoid": direction.must_avoid,
             "continuity_in": direction.continuity_in,
@@ -490,12 +590,16 @@ def illustration_briefs(storyboard: Storyboard) -> dict[str, object]:
                 {
                     "id": cue.id, "kind": cue.kind, "purpose": cue.purpose,
                     "trigger_token": cue.trigger_token, "end_token": cue.end_token,
+                    "callout": cue.callout, "animation": cue.animation,
+                    "emphasis": cue.emphasis,
                 }
                 for cue in direction.graphics
             ],
         })
     return {
         "protocol": PROTOCOL_VERSION,
+        "illustration_style": storyboard.illustration_style,
+        "style_contract": style_contract(storyboard.illustration_style),
         "image_count": len(units),
         "count_policy": "narrative-earned-no-minimum-no-maximum",
         "units": units,
@@ -537,6 +641,8 @@ def bind_illustrated_timeline(
                 "end_seconds": round(timed_words[cue.end_token].end, 4),
                 "trigger_word": timed_words[cue.trigger_token].text,
                 "target_region": cue.target_region,
+                "callout": cue.callout,
+                "animation": cue.animation,
             })
         next_start = (
             chapter_payloads[payload_index + 1][2][0].start

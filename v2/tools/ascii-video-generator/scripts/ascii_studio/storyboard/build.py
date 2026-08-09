@@ -20,9 +20,10 @@ from .director import (
     world_direction,
 )
 from .illustrated import (
-    ILLUSTRATED_LOOK, finalize_continuity, make_illustration_direction,
+    ILLUSTRATED_LOOK, PROTOCOL_VERSION, finalize_continuity, make_illustration_direction,
     split_illustrated_units,
 )
+from .illustration_style import DEFAULT_ILLUSTRATION_STYLE
 from .schema import Caption, Chapter, Shot, Storyboard
 
 STOPWORDS = {
@@ -266,6 +267,7 @@ def chapter_parameters(segment: str, motif: str, anchors: Sequence[str]) -> tupl
 
 def build_storyboard(
     title: str, slug: str, text: str, chapter_limit: int, *, illustrated: bool = False,
+    illustration_style: str = DEFAULT_ILLUSTRATION_STYLE,
 ) -> Storyboard:
     if illustrated:
         # An illustrated unit exists because the proposition, rhetorical job or
@@ -323,6 +325,7 @@ def build_storyboard(
                 rhetoric=rhetoric, concepts=narrative_unit.concepts or anchors,
                 relations=relations, word_start=word_cursor,
                 previous_subject=previous_subject,
+                style_id=illustration_style,
             )
             word_cursor = illustration.word_end
         else:
@@ -368,9 +371,10 @@ def build_storyboard(
         hook=hooks[0], cover_hook=hooks[1] if len(hooks) > 1 else hooks[0],
         format="reel" if len(text.split()) <= 240 else "long",
         look=ILLUSTRATED_LOOK if illustrated else "plata",
-        illustrated_protocol=1 if illustrated else 0,
+        illustrated_protocol=PROTOCOL_VERSION if illustrated else 0,
         illustrated_review_status="planning" if illustrated else "not-applicable",
         overlay_policy="graphics-only" if illustrated else "semantic-labels",
+        illustration_style=illustration_style,
     )
     if illustrated:
         finalize_continuity(storyboard)
@@ -413,6 +417,7 @@ def write_art_direction(path: Path, storyboard: Storyboard) -> None:
             f"- Unidades de imagen determinadas por la narración: `{len(storyboard.chapters)}`",
             "- Límite mínimo/máximo: `ninguno`",
             f"- Política de superposición: `{storyboard.overlay_policy}`",
+            f"- Estilo de imágenes: `{storyboard.illustration_style}`",
             f"- Estado de revisión: `{storyboard.illustrated_review_status}`",
             "- Regla: ninguna placa puede renderizarse sin análisis técnico, correspondencia narrativa y aprobación.",
             "",
@@ -452,12 +457,22 @@ def write_art_direction(path: Path, storyboard: Storyboard) -> None:
                 f"- Proposición: {direction.proposition}",
                 f"- Tesis visual: {direction.visual_thesis}",
                 f"- Brief: {direction.image_brief}",
+                f"- Estilo: `{direction.style_id}`",
+                f"- Prompt de generación: {direction.generation_prompt}",
+                f"- Prompt negativo: {direction.negative_prompt}",
                 f"- Debe mostrar: {', '.join(direction.must_show)}",
                 f"- Debe evitar: {', '.join(direction.must_avoid)}",
                 f"- Continuidad de entrada: {direction.continuity_in}",
                 f"- Continuidad de salida: {direction.continuity_out}",
-                f"- Gráficos no textuales: {', '.join(cue.kind for cue in direction.graphics) or 'ninguno'}",
+                "- Intervenciones: " + (
+                    ", ".join(
+                        f"{cue.kind}/{cue.animation}"
+                        + (f" «{cue.callout}»" if cue.callout else "")
+                        for cue in direction.graphics
+                    ) or "ninguna"
+                ),
                 f"- Estado de placa: `{direction.plate_analysis.status}`",
+                f"- Coincidencia de estilo: `{direction.plate_analysis.style_score:.2f}`",
                 "",
             ])
     path.write_text("\n".join(lines), encoding="utf-8")

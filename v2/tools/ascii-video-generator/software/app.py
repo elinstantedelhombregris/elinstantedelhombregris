@@ -33,6 +33,9 @@ RENDERER = SKILL_DIR / "scripts" / "render_cinematic_ascii_video.py"
 PYTHON_PACKAGE_DIR = SKILL_DIR / "scripts"
 if str(PYTHON_PACKAGE_DIR) not in sys.path:
     sys.path.insert(0, str(PYTHON_PACKAGE_DIR))
+from ascii_studio.storyboard.illustration_style import (  # noqa: E402
+    DEFAULT_ILLUSTRATION_STYLE, available_style_ids,
+)
 ALLOWED_SOURCE_SUFFIXES = {".txt", ".md", ".mdx"}
 DEFAULT_ROOT = Path("~/Movies/CinematicAsciiStudio").expanduser()
 DEFAULT_PLATFORM_URL = "www.elinstantedelhombregris.com"
@@ -42,6 +45,7 @@ DEFAULT_EDGE_PITCH = "-4Hz"
 DEFAULT_SAY_VOICE = "Reed (Spanish (Mexico))"
 DEFAULT_SAY_RATE = "160"
 DEFAULT_VOICE_PERFORMANCE = "editorial"
+ILLUSTRATION_STYLES = available_style_ids()
 LOOKS = (
     "plata", "tinta-papel", "tinta-papel-ilustrado", "terminal",
     "blueprint", "archive", "manifesto", "nocturne",
@@ -76,7 +80,9 @@ class Job:
     persona: str = "none"  # legacy job-file compatibility; no longer rendered
     intro_seal_seconds: str = "1.6"
     cold_open_seconds: str = "1.25"
+    title_card_seconds: str = "2.8"
     look: str = "plata"
+    illustration_style: str = DEFAULT_ILLUSTRATION_STYLE
     duration_mode: str = "auto"
     formats: str = "vertical"
     seed_offset: str = "0"
@@ -158,14 +164,24 @@ class Studio:
             command += ["--storyboard", str(storyboard_path)]
         intro_seal_seconds = fields.get("intro_seal_seconds", "1.6").strip() or "1.6"
         cold_open_seconds = fields.get("cold_open_seconds", "1.25").strip() or "1.25"
+        title_card_seconds = fields.get("title_card_seconds", "2.8").strip() or "2.8"
         try:
-            if float(intro_seal_seconds) < 0 or float(cold_open_seconds) < 0:
+            if (
+                float(intro_seal_seconds) < 0 or float(cold_open_seconds) < 0
+                or float(title_card_seconds) < 0
+            ):
                 raise ValueError
         except ValueError as exc:
             raise ValueError("Reveal durations must be non-negative numbers") from exc
         look = fields.get("look", "plata").strip() or "plata"
         if look not in LOOKS:
             raise ValueError("Unsupported visual look")
+        illustration_style = (
+            fields.get("illustration_style", DEFAULT_ILLUSTRATION_STYLE).strip()
+            or DEFAULT_ILLUSTRATION_STYLE
+        )
+        if illustration_style not in ILLUSTRATION_STYLES:
+            raise ValueError("Unsupported illustration style")
         if (
             look == "tinta-papel-ilustrado"
             and mode != "brief"
@@ -191,7 +207,9 @@ class Studio:
         command += [
             "--intro-seal-seconds", intro_seal_seconds,
             "--cold-open-seconds", cold_open_seconds,
+            "--title-card-seconds", title_card_seconds,
             "--look", look,
+            "--illustration-style", illustration_style,
             "--duration-mode", duration_mode,
             "--formats", formats,
             "--seed-offset", seed_offset,
@@ -234,7 +252,9 @@ class Studio:
             plate_dir=str(Path(plate_text).expanduser().resolve()) if plate_text else "",
             intro_seal_seconds=intro_seal_seconds,
             cold_open_seconds=cold_open_seconds,
+            title_card_seconds=title_card_seconds,
             look=look,
+            illustration_style=illustration_style,
             duration_mode=duration_mode,
             formats=formats,
             seed_offset=seed_offset,
@@ -352,7 +372,9 @@ class Studio:
         payload["plate_dir"] = job.plate_dir or self._command_option(job.command, "--plate-dir")
         payload["intro_seal_seconds"] = job.intro_seal_seconds or self._command_option(job.command, "--intro-seal-seconds") or "1.6"
         payload["cold_open_seconds"] = job.cold_open_seconds or self._command_option(job.command, "--cold-open-seconds") or "1.25"
+        payload["title_card_seconds"] = job.title_card_seconds or self._command_option(job.command, "--title-card-seconds") or "2.8"
         payload["look"] = job.look or self._command_option(job.command, "--look") or "plata"
+        payload["illustration_style"] = job.illustration_style or self._command_option(job.command, "--illustration-style") or DEFAULT_ILLUSTRATION_STYLE
         payload["duration_mode"] = job.duration_mode or self._command_option(job.command, "--duration-mode") or "auto"
         payload["formats"] = job.formats or self._command_option(job.command, "--formats") or "vertical"
         payload["seed_offset"] = job.seed_offset or self._command_option(job.command, "--seed-offset") or "0"
@@ -528,6 +550,8 @@ class Handler(BaseHTTPRequestHandler):
                 "default_voice_performance": DEFAULT_VOICE_PERFORMANCE,
                 "looks": list(LOOKS),
                 "formats": list(FORMATS),
+                "illustration_styles": list(ILLUSTRATION_STYLES),
+                "default_illustration_style": DEFAULT_ILLUSTRATION_STYLE,
                 "cinema_version": 4,
             })
             return

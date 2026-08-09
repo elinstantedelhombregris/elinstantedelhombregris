@@ -38,6 +38,9 @@ from .storyboard.illustrated import (
     ILLUSTRATED_LOOK, analyze_storyboard_plates, bind_illustrated_timeline,
     illustrated_protocol_summary, illustration_briefs, validate_illustrated_protocol,
 )
+from .storyboard.illustration_style import (
+    DEFAULT_ILLUSTRATION_STYLE, available_style_ids,
+)
 from .storyboard.schema import load_storyboard, write_json
 from .text import slugify
 from .util import run
@@ -73,6 +76,13 @@ def build_parser() -> argparse.ArgumentParser:
     render.add_argument("--storyboard", help="Use an edited storyboard JSON instead of the automatic draft")
     render.add_argument("--plate-dir", type=Path,
                         help="Optional approved PNG/JPG plates named after chapter ids")
+    render.add_argument(
+        "--illustration-style", choices=available_style_ids(), default=None,
+        help=(
+            "Named prompt and raster-audit contract for illustrated plates; "
+            f"new storyboards default to {DEFAULT_ILLUSTRATION_STYLE}"
+        ),
+    )
     render.add_argument("--brief-only", action="store_true", help="Write brief and storyboard without rendering")
     render.add_argument(
         "--chapters", type=int, default=8,
@@ -100,6 +110,10 @@ def build_parser() -> argparse.ArgumentParser:
     render.add_argument("--persona", choices=PERSONA_CHOICES, default="none", help="Removed: the persona figure no longer renders; kept as a no-op for old command lines")
     render.add_argument("--intro-seal-seconds", type=float, default=1.6, help="Seconds for the large ASCII logo reveal")
     render.add_argument("--cold-open-seconds", type=float, default=1.25, help="Hook-first typographic cold open duration")
+    render.add_argument(
+        "--title-card-seconds", type=float, default=2.8,
+        help="Seconds the illustrated opening title enters, holds and clears",
+    )
     render.add_argument("--look", default=None, help="Rendering look/palette; defaults to the storyboard look")
     render.add_argument("--formats", default="vertical", help="Comma-separated vertical,square,landscape renders")
     render.add_argument("--hook-seconds", type=float, default=45.0)
@@ -196,10 +210,21 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
     if args.storyboard:
         storyboard = load_storyboard(Path(args.storyboard).expanduser().resolve())
         look_name = args.look or storyboard.look or "plata"
+        if (
+            args.illustration_style
+            and args.illustration_style != storyboard.illustration_style
+        ):
+            raise ValueError(
+                "Changing --illustration-style invalidates approved image directions; "
+                "generate a new brief/storyboard instead"
+            )
+        illustration_style = args.illustration_style or storyboard.illustration_style
     else:
         look_name = args.look or "plata"
+        illustration_style = args.illustration_style or DEFAULT_ILLUSTRATION_STYLE
         storyboard = build_storyboard(
             title, slug, text, args.chapters, illustrated=look_name == ILLUSTRATED_LOOK,
+            illustration_style=illustration_style,
         )
     if look_name != ILLUSTRATED_LOOK:
         storyboard = upgrade_storyboard_v4(storyboard)
@@ -221,6 +246,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
     storyboard.slug = slug
     storyboard.title = args.title or storyboard.title
     storyboard.look = look_name
+    storyboard.illustration_style = illustration_style
     if look_name == ILLUSTRATED_LOOK:
         analyze_storyboard_plates(storyboard)
     external_pronunciations = {}
@@ -255,6 +281,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         "hook": storyboard.hook,
         "cover_hook": storyboard.cover_hook,
         "format": storyboard.format,
+        "illustration_style": storyboard.illustration_style,
         "source_word_count": len(source_text.split()),
         "narration_word_count": len(text.split()),
         "illustrated_protocol": illustrated_summary,
@@ -377,6 +404,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         logo_mask=seal.load_logo_mask(Path(args.logo) if args.logo else None),
         url=args.platform_url, intro_seal_seconds=args.intro_seal_seconds,
         cold_open_seconds=args.cold_open_seconds,
+        title_card_seconds=args.title_card_seconds,
         look_name=look_name, width=args.width, height=args.height,
         fps=args.fps, crf=args.crf, scene=args.scene, envelopes=envelopes,
     )
@@ -485,6 +513,8 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         "formats": sorted(requested_formats),
         "intro_seal_seconds": args.intro_seal_seconds,
         "cold_open_seconds": args.cold_open_seconds,
+        "title_card_seconds": args.title_card_seconds,
+        "illustration_style": storyboard.illustration_style,
         "platform_url": args.platform_url,
         "seed_offset": args.seed_offset,
         "plate_dir": str(args.plate_dir.expanduser().resolve()) if args.plate_dir else "",
@@ -534,6 +564,8 @@ def main(argv: list[str] | None = None) -> int:
             raise SystemExit("--intro-seal-seconds cannot be negative")
         if args.cold_open_seconds < 0:
             raise SystemExit("--cold-open-seconds cannot be negative")
+        if args.title_card_seconds < 0:
+            raise SystemExit("--title-card-seconds cannot be negative")
         if args.persona != "none":
             print(
                 "Note: the persona figure was removed; --persona is now a no-op and is ignored.",

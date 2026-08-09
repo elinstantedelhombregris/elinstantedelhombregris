@@ -45,6 +45,11 @@ VIOLET = (82, 39, 204)
 STAMP_RED = (194, 59, 34)
 
 
+def _smoothstep(value: float) -> float:
+    value = float(np.clip(value, 0.0, 1.0))
+    return value * value * (3.0 - 2.0 * value)
+
+
 def _font(look: Look, px: int) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(look.font_for("body"), max(8, px))
 
@@ -693,11 +698,161 @@ def _draw_paper_hook(img: Image.Image, grid: Grid, look: Look, hook: str, progre
                   font=stamp_font, fill=(*STAMP_RED, stamp_alpha))
 
 
+def draw_illustrated_title_card(
+    img: Image.Image, grid: Grid, look: Look, title: str | None,
+    t: float, duration: float,
+) -> None:
+    """One deliberate opening title, then a completely clean illustrated stage.
+
+    The title behaves like a strip pulled from a printed broadsheet: the paper
+    enters, the type registers in two inks, holds long enough to understand the
+    subject and clears upward.  It is not repeated as a persistent header.
+    """
+    if not title or duration <= 0.0 or t < 0.0 or t >= duration:
+        return
+    draw = ImageDraw.Draw(img, "RGBA")
+    x0, y0, x1, _y1 = grid.zone_px(ZONES["stage"])
+    margin = int(grid.width * 0.035)
+    left, right = x0 + margin, x1 - margin
+    available = right - left
+
+    enter = _smoothstep(t / min(0.42, max(0.18, duration * 0.20)))
+    exit_start = max(duration * 0.72, duration - 0.55)
+    leave = _smoothstep((t - exit_start) / max(0.18, duration - exit_start))
+    opacity = max(0.0, enter * (1.0 - leave))
+    if opacity <= 0.01:
+        return
+
+    words = title.upper().split()
+    chosen: tuple[ImageFont.FreeTypeFont, list[str]] | None = None
+    for size in range(int(grid.height * 0.047), 17, -1):
+        font = _display_font(look, size)
+        lines: list[str] = []
+        current: list[str] = []
+        for word in words:
+            trial = " ".join(current + [word])
+            if current and draw.textlength(trial, font=font) > available * 0.88:
+                lines.append(" ".join(current))
+                current = [word]
+            else:
+                current.append(word)
+        if current:
+            lines.append(" ".join(current))
+        if len(lines) <= 3:
+            chosen = font, lines
+            break
+    if chosen is None:
+        return
+    font, lines = chosen
+    leading = int(font.size * 1.02)
+    pad_x = int(grid.width * 0.035)
+    pad_y = int(grid.height * 0.019)
+    top = y0 + int(grid.height * 0.035) - round(leave * grid.height * 0.055)
+    bottom = top + len(lines) * leading + pad_y * 2
+    panel_right = left + round((right - left) * enter)
+    panel_alpha = round(225 * opacity)
+    draw.rectangle((left, top, panel_right, bottom), fill=(*PAPER_RAW, panel_alpha))
+    rule_y = top - max(2, grid.height // 640)
+    draw.line(
+        (left, rule_y, left + (panel_right - left) * min(1.0, enter * 1.3), rule_y),
+        fill=(*VIOLET, round(255 * opacity)), width=max(3, grid.width // 270),
+    )
+
+    total_chars = sum(len(line.replace(" ", "")) for line in lines)
+    visible = round(total_chars * _smoothstep(max(0.0, t - 0.16) / 0.72))
+    seen = 0
+    for index, line in enumerate(lines):
+        x = left + pad_x
+        y = top + pad_y + index * leading
+        for char in line:
+            char_width = draw.textlength(char, font=font)
+            revealed = char == " " or seen < visible
+            if char != " ":
+                seen += 1
+            if revealed:
+                alpha = round(255 * opacity)
+                draw.text((x + 2, y), char, font=font, fill=(*VIOLET, round(alpha * 0.22)))
+                draw.text((x - 2, y), char, font=font, fill=(*STAMP_RED, round(alpha * 0.14)))
+                draw.text((x, y), char, font=font, fill=(*INK, alpha))
+            x += char_width
+
+
+def draw_illustrated_callouts(
+    img: Image.Image, grid: Grid, look: Look, chapter, progress: float,
+) -> None:
+    """Animate only reviewed microtext already present in the narration.
+
+    A callout is never a second subtitle.  It is a one-to-four-word annotation
+    attached to a semantic object/path, printed in a plate-analysis-approved
+    low-detail region and removed as soon as its word-bound interval ends.
+    """
+    if chapter is None:
+        return
+    draw = ImageDraw.Draw(img, "RGBA")
+    for cue in getattr(chapter, "graphic_cues", []):
+        text = str(cue.get("callout", "")).strip().upper()
+        if not text:
+            continue
+        cue_id = str(cue.get("id", ""))
+        start = float(getattr(chapter, "reveal_points", {}).get(
+            f"graphic:{cue_id}:start", 1.01,
+        ))
+        end = float(getattr(chapter, "reveal_points", {}).get(
+            f"graphic:{cue_id}:end", 1.0,
+        ))
+        if progress < start or progress > end + 0.055:
+            continue
+        span = max(0.015, end - start)
+        local = float(np.clip((progress - start) / span, 0.0, 1.0))
+        enter = _smoothstep(local / 0.24)
+        leave = _smoothstep((progress - end) / 0.055) if progress > end else 0.0
+        strength = enter * (1.0 - leave)
+        region = cue.get("target_region", [])
+        if not isinstance(region, (list, tuple)) or len(region) != 4:
+            continue
+        rx0, ry0, rx1, ry1 = [float(np.clip(value, 0.0, 1.0)) for value in region]
+        left = round(rx0 * grid.width)
+        top = round(ry0 * grid.height)
+        right = round(rx1 * grid.width)
+        bottom = round(ry1 * grid.height)
+        font_size = int(grid.height * (0.0165 if cue.get("emphasis") == "primary" else 0.014))
+        font = _meta_font(look, max(12, font_size))
+        text_width = draw.textlength(text, font=font)
+        pad_x = max(7, int(grid.width * 0.014))
+        pad_y = max(4, int(grid.height * 0.004))
+        box_width = min(right - left, round(text_width + pad_x * 2))
+        box_height = round(font.size * 1.35 + pad_y * 2)
+        if box_width < 18 or box_height >= bottom - top:
+            continue
+        slide = round((1.0 - enter) * grid.width * 0.025)
+        bx0 = max(0, min(grid.width - box_width, left + slide))
+        by0 = max(0, min(grid.height - box_height, top + pad_y))
+        bx1, by1 = bx0 + box_width, by0 + box_height
+        alpha = round(220 * strength)
+        draw.rectangle((bx0, by0, bx1, by1), fill=(*PAPER_RAW, alpha))
+        # The violet thread ties the label to the actual intervention; the red
+        # square is punctuation, never a second competing colour field.
+        rule_end = bx0 + round(box_width * min(1.0, local / 0.42))
+        draw.line((bx0, by1, rule_end, by1), fill=(*VIOLET, round(255 * strength)),
+                  width=max(3, grid.width // 300))
+        marker = max(4, grid.width // 135)
+        draw.rectangle(
+            (bx1 - marker, by0 - marker // 2, bx1, by0 + marker // 2),
+            fill=(*STAMP_RED, round(235 * strength)),
+        )
+        visible = round(len(text) * _smoothstep(local / 0.36))
+        draw.text(
+            (bx0 + pad_x, by0 + pad_y), text[:visible], font=font,
+            fill=(*INK, round(255 * strength)),
+        )
+
+
 def overlay(frame: np.ndarray, grid: Grid, look: Look, *, caption=None, t: float = 0.0,
             title=None, chapter_label=None, chapter_index: int = 0,
             chapter_count: int = 1, progress: float = 0.0,
             keyword=None, url=None, scene_chapter=None, hook=None,
-            cold_open_seconds: float = 1.25) -> np.ndarray:
+            cold_open_seconds: float = 1.25,
+            title_card_seconds: float = 2.8) -> np.ndarray:
     alpha = plate_alpha(frame, grid)
     footer_alpha = plate_alpha(frame, grid, ZONES["footer"])
     # Deliberately kept RGB, not converted to RGBA: PIL's `ImageDraw(im, "RGBA")` only
@@ -712,12 +867,11 @@ def overlay(frame: np.ndarray, grid: Grid, look: Look, *, caption=None, t: float
     img = Image.fromarray(frame)
     in_cold_open = bool(hook) and t < cold_open_seconds
     if look.is_illustrated:
-        # The image carries the proposition. Illustrated videos never inherit
-        # the ASCII mode's floating concept labels, relationship words, chapter
-        # headers, title, hook, progress furniture or footer keyword. Captions
-        # and the permanent URL remain in their reserved editorial zones;
-        # planned graphics are drawn earlier by the exact word-bound cue renderer.
+        # One opening title and exact-word editorial callouts replace the old
+        # permanent furniture.  The image remains clean for the rest of the film.
+        draw_illustrated_callouts(img, grid, look, scene_chapter, progress)
         draw_caption(img, grid, look, caption, t, alpha)
+        draw_illustrated_title_card(img, grid, look, title, t, title_card_seconds)
         draw_footer(img, grid, look, None, url, footer_alpha)
         return np.asarray(img, dtype=np.uint8)
     if not in_cold_open and not look.is_illustrated:

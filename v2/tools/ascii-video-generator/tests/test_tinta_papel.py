@@ -90,6 +90,36 @@ def test_illustrated_mode_preserves_full_colour_plate_and_prints_graphics(tmp_pa
     assert float(violet.mean()) > 0.0005
 
 
+def test_illustrated_colour_path_skips_discarded_monochrome_plate_work(
+        tmp_path, monkeypatch):
+    source = np.full((480, 270, 3), (224, 238, 246), dtype=np.uint8)
+    cv2.rectangle(source, (40, 90), (230, 390), (24, 24, 24), -1)
+    plate = tmp_path / "colour-only.png"
+    assert cv2.imwrite(str(plate), source)
+    chapter = LegacyChapter(
+        motif="network", keyword="PODER", anchors=["PODER"], seed=29,
+        plate=str(plate), world="civic-plaza",
+    )
+    monkeypatch.setattr(
+        worlds, "_animate_locked_plate",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("illustrated mode must not build discarded grayscale parallax")
+        ),
+    )
+    monkeypatch.setattr(
+        worlds, "_animate_plate_separation",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("illustrated mode must not animate discarded spot masks")
+        ),
+    )
+
+    renderer = Renderer(load_look("tinta-papel-ilustrado"), width=270, height=480)
+    frame = renderer.frame(chapter, 1.0, 0.5, 2)
+
+    assert frame.shape == (480, 270, 3)
+    assert renderer._scene_state.get("world_plate_rgb") is not None
+
+
 def test_illustrated_typography_never_draws_automatic_scene_labels(monkeypatch):
     look = load_look("tinta-papel-ilustrado")
     renderer = Renderer(look, width=270, height=480)
@@ -113,6 +143,56 @@ def test_illustrated_typography_never_draws_automatic_scene_labels(monkeypatch):
         url="www.elinstantedelhombregris.com", scene_chapter=chapter, progress=0.6,
     )
     assert result.shape == frame.shape
+
+
+def test_illustrated_opening_title_orients_then_completely_clears():
+    look = load_look("tinta-papel-ilustrado")
+    renderer = Renderer(look, width=270, height=480)
+    frame = np.full((480, 270, 3), 91, dtype=np.uint8)
+
+    opening = typography.overlay(
+        frame, renderer.grid, look, t=0.9,
+        title="Por qué concentrar poder nos debilita",
+        title_card_seconds=2.8,
+    )
+    cleared = typography.overlay(
+        frame, renderer.grid, look, t=3.0,
+        title="Por qué concentrar poder nos debilita",
+        title_card_seconds=2.8,
+    )
+
+    assert not np.array_equal(opening, frame)
+    assert np.array_equal(cleared, frame)
+
+
+def test_illustrated_callout_is_word_bound_and_not_persistent():
+    look = load_look("tinta-papel-ilustrado")
+    renderer = Renderer(look, width=270, height=480)
+    frame = np.full((480, 270, 3), 91, dtype=np.uint8)
+    chapter = LegacyChapter(
+        motif="network",
+        graphic_cues=[{
+            "id": "relation-01", "kind": "connection-path",
+            "callout": "AUTORIDAD DISTRIBUIDA", "emphasis": "primary",
+            "target_region": [0.10, 0.30, 0.72, 0.50],
+        }],
+        reveal_points={"graphic:relation-01:start": 0.30,
+                       "graphic:relation-01:end": 0.65},
+    )
+
+    active = typography.overlay(
+        frame, renderer.grid, look, progress=0.46, scene_chapter=chapter,
+    )
+    before = typography.overlay(
+        frame, renderer.grid, look, progress=0.20, scene_chapter=chapter,
+    )
+    after = typography.overlay(
+        frame, renderer.grid, look, progress=0.75, scene_chapter=chapter,
+    )
+
+    assert not np.array_equal(active, frame)
+    assert np.array_equal(before, frame)
+    assert np.array_equal(after, frame)
 
 
 def test_illustrated_renderer_loads_plate_even_with_legacy_scene(tmp_path):

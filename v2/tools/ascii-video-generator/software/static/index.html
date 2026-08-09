@@ -237,6 +237,11 @@
               <label for="sourcePath">Or use an existing local path</label>
               <input data-testid="source-path" id="sourcePath" name="source_path" placeholder="/Users/name/Documents/article.md">
             </div>
+            <div class="field">
+              <label for="videoTitle">Video title</label>
+              <input id="videoTitle" name="title" placeholder="Uses the article title when left empty">
+              <p class="hint">In illustrated videos it appears once as an animated printed strip, then clears.</p>
+            </div>
             <div class="button-row field">
               <button data-testid="load-example" class="btn btn-small" id="loadExample" type="button">Load included example</button>
             </div>
@@ -328,6 +333,19 @@
               <div>
                 <label for="introSealSeconds">Seal reveal</label>
                 <input id="introSealSeconds" name="intro_seal_seconds" type="number" min="0" step="0.1" value="1.6">
+              </div>
+            </div>
+            <div class="grid-2 field">
+              <div>
+                <label for="illustrationStyle">Illustration language</label>
+                <select id="illustrationStyle" name="illustration_style">
+                  <option value="grabado-civico" selected>Grabado cívico · concept-plates</option>
+                </select>
+                <p class="hint">Black carved ink, aged paper, violet systems and a single red punctuation.</p>
+              </div>
+              <div>
+                <label for="titleCardSeconds">Opening title duration</label>
+                <input id="titleCardSeconds" name="title_card_seconds" type="number" min="0" step="0.1" value="2.8">
               </div>
             </div>
             <div class="grid-2 field">
@@ -478,7 +496,7 @@
       $("#prepareSmoke").disabled = protocolBlocked;
       $("#prepareRender").disabled = protocolBlocked;
       $("#protocolSummary").textContent = protocol
-        ? `${protocol.image_count} narrative images · ${protocol.analyzed_images} analyzed · ${protocol.approved_images} approved · ${protocolBlocked ? protocol.render_errors.length + " blockers" : "ready"}`
+        ? `${protocol.image_count} narrative images · ${protocol.illustration_style || "illustrated"} · ${protocol.analyzed_images} analyzed · ${protocol.approved_images} approved · ${protocolBlocked ? protocol.render_errors.length + " blockers" : "ready"}`
         : "";
       const assets = $("#assetGrid");
       assets.innerHTML = job.assets.length ? job.assets.map(asset => `
@@ -546,13 +564,16 @@
       const job = await request(`/api/jobs/${encodeURIComponent(id)}`);
       $("#sourceFile").value = "";
       $("#sourcePath").value = job.source;
+      $("#videoTitle").value = job.title || "";
       $("#storyboardPath").value = job.followup_storyboard || "";
       $("#platformUrl").value = job.platform_url || "";
       $("#logoPath").value = job.logo_path || "";
       $("#plateDir").value = job.plate_dir || "";
       $("#introSealSeconds").value = job.intro_seal_seconds || "1.6";
       $("#coldOpenSeconds").value = job.cold_open_seconds || "1.25";
+      $("#titleCardSeconds").value = job.title_card_seconds || "2.8";
       $("#look").value = job.look || "plata";
+      $("#illustrationStyle").value = job.illustration_style || "grabado-civico";
       $("#durationMode").value = job.duration_mode || "auto";
       $("#formats").value = job.formats || "vertical";
       $("#seedOffset").value = job.seed_offset || "0";
@@ -614,6 +635,7 @@
       $("#sayVoice").value = state.config.default_say_voice || "Reed (Spanish (Mexico))";
       $("#sayRate").value = state.config.default_say_rate || "160";
       $("#voicePerformance").value = state.config.default_voice_performance || "editorial";
+      $("#illustrationStyle").value = state.config.default_illustration_style || "grabado-civico";
       $("#loadExample").addEventListener("click", () => {
         $("#sourceFile").value = "";
         $("#sourcePath").value = state.config.example_path;

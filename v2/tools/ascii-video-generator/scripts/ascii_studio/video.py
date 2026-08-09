@@ -59,6 +59,7 @@ class RenderContext:
     url: str | None
     intro_seal_seconds: float
     cold_open_seconds: float = 1.25
+    title_card_seconds: float = 2.8
     look_name: str = "plata"
     width: int = 1080
     height: int = 1920
@@ -266,6 +267,7 @@ def render_segment(ctx: RenderContext, start_frame: int, end_frame: int, out_pat
                 chapter_index=index, chapter_count=len(chapters), progress=progress,
                 keyword=chapter.keyword, url=ctx.url, scene_chapter=chapter_scene,
                 hook=ctx.storyboard.hook, cold_open_seconds=ctx.cold_open_seconds,
+                title_card_seconds=ctx.title_card_seconds,
             )
 
     return _encode(frames(), ctx.width, ctx.height, ctx.fps, ctx.crf, out_path)

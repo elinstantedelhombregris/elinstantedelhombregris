@@ -52,7 +52,7 @@ class Shot:
 
 @dataclass
 class GraphicCue:
-    """A non-textual intervention tied to exact local narration tokens."""
+    """A restrained editorial intervention tied to exact narration tokens."""
 
     id: str
     kind: str
@@ -63,6 +63,9 @@ class GraphicCue:
     target: str = ""
     treatment: str = "violet-path"
     target_region: list[float] = field(default_factory=list)
+    callout: str = ""
+    animation: str = "draw-hold-retract"
+    emphasis: str = "primary"
 
 
 @dataclass
@@ -87,6 +90,10 @@ class PlateAnalysis:
     must_avoid_clear: bool = False
     continuity_notes: str = ""
     approved: bool = False
+    style_id: str = ""
+    style_score: float = 0.0
+    style_checks: dict[str, bool] = field(default_factory=dict)
+    style_metrics: dict[str, float] = field(default_factory=dict)
 
 
 @dataclass
@@ -101,6 +108,9 @@ class IllustrationDirection:
     proposition: str
     visual_thesis: str
     image_brief: str
+    style_id: str = "grabado-civico"
+    generation_prompt: str = ""
+    negative_prompt: str = ""
     must_show: list[str] = field(default_factory=list)
     must_avoid: list[str] = field(default_factory=list)
     continuity_in: str = ""
@@ -159,6 +169,7 @@ class Storyboard:
     illustrated_protocol: int = 0
     illustrated_review_status: str = "not-applicable"
     overlay_policy: str = "semantic-labels"
+    illustration_style: str = "grabado-civico"
 
 
 _CHAPTER_FIELDS = {f.name for f in fields(Chapter)}
@@ -239,6 +250,7 @@ def load_storyboard(path: Path) -> Storyboard:
         illustrated_protocol=int(payload.get("illustrated_protocol", 0)),
         illustrated_review_status=payload.get("illustrated_review_status", "not-applicable"),
         overlay_policy=payload.get("overlay_policy", "semantic-labels"),
+        illustration_style=payload.get("illustration_style", "grabado-civico"),
     )
 
 

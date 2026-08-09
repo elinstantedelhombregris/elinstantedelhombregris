@@ -18,6 +18,8 @@ def test_studio_exposes_v3_direction_controls(tmp_path, monkeypatch):
         "duration_mode": "reel",
         "formats": "vertical,square,landscape",
         "cold_open_seconds": "1.4",
+        "title_card_seconds": "3.1",
+        "illustration_style": "grabado-civico",
         "seed_offset": "3",
     }, "", None)
 
@@ -26,6 +28,8 @@ def test_studio_exposes_v3_direction_controls(tmp_path, monkeypatch):
     assert command[command.index("--duration-mode") + 1] == "reel"
     assert command[command.index("--formats") + 1] == "vertical,square,landscape"
     assert command[command.index("--cold-open-seconds") + 1] == "1.4"
+    assert command[command.index("--title-card-seconds") + 1] == "3.1"
+    assert command[command.index("--illustration-style") + 1] == "grabado-civico"
     assert command[command.index("--seed-offset") + 1] == "3"
     assert command[command.index("--platform-url") + 1] == "www.elinstantedelhombregris.com"
     assert job.platform_url == "www.elinstantedelhombregris.com"
