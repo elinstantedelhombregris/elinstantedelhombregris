@@ -46,8 +46,8 @@ export const cachedEvidenceUrisFromExport = (
   cacheUri: string,
 ): string[] => {
   const candidates: string[] = [];
-  if (Array.isArray(exported.stars)) {
-    for (const row of exported.stars) {
+  if (Array.isArray(exported.senales)) {
+    for (const row of exported.senales) {
       if (row && typeof row === 'object' && typeof (row as { photoUri?: unknown }).photoUri === 'string') {
         candidates.push((row as { photoUri: string }).photoUri);
       }

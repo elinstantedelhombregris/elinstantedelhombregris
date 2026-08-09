@@ -32,7 +32,7 @@ describe('deudas de retiro antes del borrado local', () => {
 
   it('sólo propone borrar evidencia dentro del cache controlado por la app', () => {
     expect(cachedEvidenceUrisFromExport({
-      stars: [
+      senales: [
         { photoUri: 'file:///cache/a.jpg' },
         { photoUri: 'file:///documents/no-borrar.jpg' },
       ],

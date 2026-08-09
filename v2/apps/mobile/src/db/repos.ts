@@ -29,27 +29,21 @@ import {
   civicRecordContexts,
   civicTerritories,
   civicVerifications,
-  commitments,
-  days,
-  emberLedger,
   expeditionEntries,
   expeditions,
   pvMisionMiembros,
   pvMisiones,
   pvObras,
   pvPulsos,
-  redeemedNonces,
-  reflections,
+  senales,
   settings,
-  stars,
   syncOutbox,
-  unlocks,
 } from './schema';
 import type {
   ExpeditionEntryRow,
   ExpeditionRow,
   OrigenExpedicion,
-  StarRow,
+  SenalRow,
 } from './schema';
 import type { TipoSenalCapturada } from '../civic/types';
 
@@ -116,51 +110,41 @@ export interface NuevaEstrella {
   expeditionStepKey?: string | null;
 }
 
-/**
- * `fundadora`, `nocturna` y `fugaz` eran rarezas del juego (spec §3.1) —
- * calculadas contra el cielo existente, la hora local y los eventos fugaces.
- * Esa lógica vivía en `src/game/rarezas.ts`, borrado en R2 Task 5: quedan en
- * `false` hasta que la Task 6 borre las tres columnas junto con
- * `constelacionId`, que ya no se asigna.
- */
-const prepararEstrella = (id: string, input: NuevaEstrella): StarRow => ({
+/** Arma la fila de una señal nueva a partir de lo que capturó la pantalla. */
+const prepararEstrella = (id: string, input: NuevaEstrella): SenalRow => ({
   id,
   tipo: input.tipo,
   texto: input.texto ?? null,
   photoUri: input.photoUri ?? null,
   lat: input.lat ?? null,
   lng: input.lng ?? null,
-  fundadora: false,
-  nocturna: false,
-  fugaz: false,
   expeditionId: input.expeditionId ?? null,
   expeditionStepKey: input.expeditionStepKey ?? null,
-  constelacionId: null,
   createdAt: ahoraISO(),
 });
 
 /**
  * Variante exclusiva de una captura cívica reintentable. El intento usa su
- * UUID como PK de estrella: si una escritura posterior falla, volver a llamar
- * devuelve la misma estrella y nunca recalcula una segunda rareza.
+ * UUID como PK de la señal: si una escritura posterior falla, volver a llamar
+ * devuelve la misma señal en vez de crear una segunda.
  */
 export const crearEstrellaCivicaUnaVez = (
   captureAttemptId: string,
   input: NuevaEstrella,
-): StarRow => {
-  const validate = (star: StarRow): StarRow => {
+): SenalRow => {
+  const validate = (senal: SenalRow): SenalRow => {
     if (
-      star.tipo !== input.tipo
-      || star.expeditionId !== (input.expeditionId ?? null)
-      || star.expeditionStepKey !== (input.expeditionStepKey ?? null)
+      senal.tipo !== input.tipo
+      || senal.expeditionId !== (input.expeditionId ?? null)
+      || senal.expeditionStepKey !== (input.expeditionStepKey ?? null)
     ) throw new Error('capture_attempt_star_mismatch');
-    return star;
+    return senal;
   };
-  const existing = db.select().from(stars).where(eq(stars.id, captureAttemptId)).get();
+  const existing = db.select().from(senales).where(eq(senales.id, captureAttemptId)).get();
   if (existing) return validate(existing);
   const row = prepararEstrella(captureAttemptId, input);
-  db.insert(stars).values(row).onConflictDoNothing().run();
-  return validate(db.select().from(stars).where(eq(stars.id, captureAttemptId)).get() ?? row);
+  db.insert(senales).values(row).onConflictDoNothing().run();
+  return validate(db.select().from(senales).where(eq(senales.id, captureAttemptId)).get() ?? row);
 };
 
 // ---------------------------------------------------------------------------
@@ -220,34 +204,28 @@ export const entradasDeExpedicion = (expeditionId: string): ExpeditionEntryRow[]
 // Export y borrado local (spec §3.7 — ética innegociable)
 //
 // Estas dos funciones son infraestructura genérica, no del juego: recorren
-// TODAS las tablas que existen hoy. Las tablas que eran sólo del juego
-// (`reflections`, `commitments`, `days`, `ember_ledger`, `unlocks`,
-// `redeemed_nonces`) siguen en pie — Task 6 las borra con su propia
-// migración — así que export/borrado las siguen incluyendo hasta entonces.
+// TODAS las tablas que existen hoy.
 // ---------------------------------------------------------------------------
 
 /**
  * Copia completa de la base local, en una sola instantánea consistente.
  * La versión 10 inventaría también los comandos privados de respuesta y
  * ejecución pendientes, necesarios para reintentos exactos después de reiniciar.
- * La versión 11 suma las tablas pv_* del Protocolo Vivo (Mission Layer):
+ * La versión 11 sumó las tablas pv_* del Protocolo Vivo (Mission Layer):
  * misiones, membresías, obras y pulsos.
+ * La versión 12 refleja la poda de R2 Task 6: `stars` pasa a `senales` y
+ * las seis tablas que eran sólo del juego (`reflections`, `commitments`,
+ * `days`, `ember_ledger`, `unlocks`, `redeemed_nonces`) dejan de existir.
  * Las credenciales de acceso de SecureStore/AsyncStorage no se exportan.
  */
 export const exportarTodo = (): Record<string, unknown> => {
   const exportadoEn = ahoraISO();
   return db.transaction((tx) => ({
     exportadoEn,
-    version: 11,
-    stars: tx.select().from(stars).orderBy(asc(stars.createdAt)).all(),
-    reflections: tx.select().from(reflections).orderBy(asc(reflections.fecha)).all(),
-    commitments: tx.select().from(commitments).all(),
-    days: tx.select().from(days).orderBy(asc(days.fecha)).all(),
+    version: 12,
+    senales: tx.select().from(senales).orderBy(asc(senales.createdAt)).all(),
     expeditions: tx.select().from(expeditions).orderBy(asc(expeditions.createdAt)).all(),
     expeditionEntries: tx.select().from(expeditionEntries).all(),
-    emberLedger: tx.select().from(emberLedger).orderBy(asc(emberLedger.fecha)).all(),
-    unlocks: tx.select().from(unlocks).orderBy(asc(unlocks.fecha)).all(),
-    redeemedNonces: tx.select().from(redeemedNonces).all(),
     settings: tx.select().from(settings).all(),
     territories: tx.select().from(civicTerritories).all(),
     missions: tx.select().from(civicMissions).all(),
@@ -305,14 +283,8 @@ export const borrarTodo = (): void => {
     tx.delete(pvMisiones).run();
 
     tx.delete(expeditionEntries).run();
-    tx.delete(stars).run();
+    tx.delete(senales).run();
     tx.delete(expeditions).run();
-    tx.delete(reflections).run();
-    tx.delete(commitments).run();
-    tx.delete(days).run();
-    tx.delete(emberLedger).run();
-    tx.delete(unlocks).run();
-    tx.delete(redeemedNonces).run();
     tx.delete(settings).run();
   });
 };

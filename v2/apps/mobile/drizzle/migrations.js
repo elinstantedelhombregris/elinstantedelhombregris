@@ -20,28 +20,31 @@ import m0015 from './0015_civic_custody_response_intents.sql';
 import m0016 from './0016_civic_custody_execution_intents.sql';
 import m0017 from './0017_protocolo_vivo.sql';
 import m0018 from './0018_mision_expedicion.sql';
+import m0019 from './0019_old_raza.sql';
 
-export default {
-  journal,
-  migrations: {
-    m0000,
-    m0001,
-    m0002,
-    m0003,
-    m0004,
-    m0005,
-    m0006,
-    m0007,
-    m0008,
-    m0009,
-    m0010,
-    m0011,
-    m0012,
-    m0013,
-    m0014,
-    m0015,
-    m0016,
-    m0017,
-    m0018,
-  },
-};
+  export default {
+    journal,
+    migrations: {
+      m0000,
+m0001,
+m0002,
+m0003,
+m0004,
+m0005,
+m0006,
+m0007,
+m0008,
+m0009,
+m0010,
+m0011,
+m0012,
+m0013,
+m0014,
+m0015,
+m0016,
+m0017,
+m0018,
+m0019
+    }
+  }
+  

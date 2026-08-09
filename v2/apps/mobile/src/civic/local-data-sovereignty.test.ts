@@ -72,13 +72,13 @@ const fakeExecutor = (withExecutionIntent = true) => {
 describe('inventario soberano de datos locales', () => {
   beforeEach(() => { mocks.executor = null; });
 
-  it('incluye custodia, grants e intenciones privadas en la exportación completa v11', () => {
+  it('incluye custodia, grants e intenciones privadas en la exportación completa v12', () => {
     const { executor } = fakeExecutor();
     mocks.executor = executor;
     const exported = exportarTodo();
 
     expect(exported).toMatchObject({
-      version: 11,
+      version: 12,
       needCustodies: [{ needId: 'need-private' }],
       needAccessGrants: [{
         id: 'grant-local',

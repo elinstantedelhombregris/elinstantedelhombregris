@@ -65,60 +65,32 @@ import type {
 } from '../civic/types';
 
 /**
- * Estos cuatro tipos vivían en `game/types.ts`. El juego se borró en R2
- * Task 5, pero las tablas que los usan (`commitments`, `expeditions`,
- * `unlocks`) siguen en pie — eso es trabajo de la Task 6, con su propia
- * migración — así que sus columnas se inlinean acá en vez de desaparecer.
+ * Estos dos tipos vivían en `game/types.ts`. El juego se borró en R2 Task 5,
+ * pero la tabla que los usa (`expeditions`) sigue en pie: la usa el Protocolo
+ * Vivo, así que sus columnas se inlinean acá en vez de desaparecer.
  */
-export type EstadoCompromiso = 'pendiente' | 'cumplido' | 'no';
 export type EstadoExpedicion = 'activa' | 'completa';
 export type OrigenExpedicion = 'propia' | 'precargada' | 'qr';
-export type TipoUnlock = 'carta' | 'paleta' | 'rango';
 
-/** Estrellas del Cielo — cada captura real (spec §3.1). */
-export const stars = sqliteTable('stars', {
+/**
+ * Señales — cada captura real del territorio. Es la tabla de captura de la
+ * app: la escribe `crearEstrellaCivicaUnaVez` desde `escuchar.tsx` cada vez
+ * que una persona registra una señal cívica (sueño, valor, necesidad, basta,
+ * compromiso o recurso), con su texto, foto y ubicación opcionales. Se llamó
+ * `stars` porque nació como parte de un juego; ese juego se borró en R2 Task
+ * 5 y esta tabla es lo que queda: el registro real de lo que la gente vio y
+ * contó, no una mecánica de progreso.
+ */
+export const senales = sqliteTable('senales', {
   id: text('id').primaryKey(), // uuid
   tipo: text('tipo').$type<TipoSenalCapturada>().notNull(),
   texto: text('texto'),
   photoUri: text('photo_uri'),
   lat: real('lat'),
   lng: real('lng'),
-  fundadora: integer('fundadora', { mode: 'boolean' }).notNull().default(false),
-  nocturna: integer('nocturna', { mode: 'boolean' }).notNull().default(false),
-  fugaz: integer('fugaz', { mode: 'boolean' }).notNull().default(false),
   expeditionId: text('expedition_id'),
   expeditionStepKey: text('expedition_step_key'),
-  /** Se asigna al completar una constelación (pegajoso, no se roba). */
-  constelacionId: text('constelacion_id'),
   createdAt: text('created_at').notNull(), // ISO 8601
-});
-
-/** Bitácora privada — reflexiones de la luz VER. */
-export const reflections = sqliteTable('reflections', {
-  id: text('id').primaryKey(),
-  preguntaId: text('pregunta_id').notNull(),
-  texto: text('texto').notNull(),
-  fecha: text('fecha').notNull(), // YYYY-MM-DD local
-});
-
-/** Micro-compromisos de la luz DAR — la confianza es la mecánica. */
-export const commitments = sqliteTable('commitments', {
-  id: text('id').primaryKey(),
-  texto: text('texto').notNull(),
-  categoria: text('categoria').notNull(),
-  fecha: text('fecha').notNull(), // YYYY-MM-DD local
-  estado: text('estado').$type<EstadoCompromiso>().notNull().default('pendiente'),
-});
-
-/** Un registro por día: qué luces se encendieron (spec §2). */
-export const days = sqliteTable('days', {
-  fecha: text('fecha').primaryKey(), // YYYY-MM-DD local
-  ver: integer('ver', { mode: 'boolean' }).notNull().default(false),
-  encender: integer('encender', { mode: 'boolean' }).notNull().default(false),
-  dar: integer('dar', { mode: 'boolean' }).notNull().default(false),
-  nocheCompleta: integer('noche_completa', { mode: 'boolean' })
-    .notNull()
-    .default(false),
 });
 
 /** Expediciones — quests multi-paso (spec §3.2). */
@@ -144,28 +116,6 @@ export const expeditionEntries = sqliteTable('expedition_entries', {
   data: text('data').notNull().default('{}'),
   starId: text('star_id'),
   createdAt: text('created_at').notNull(),
-});
-
-/** Ledger de brasas — append-only, jamás se edita ni borra (spec §3.3). */
-export const emberLedger = sqliteTable('ember_ledger', {
-  id: text('id').primaryKey(),
-  delta: integer('delta').notNull(),
-  motivo: text('motivo').notNull(),
-  fecha: text('fecha').notNull(), // ISO 8601
-});
-
-/** Desbloqueos: cartas de lore, paletas, rangos alcanzados. */
-export const unlocks = sqliteTable('unlocks', {
-  id: text('id').primaryKey(),
-  tipo: text('tipo').$type<TipoUnlock>().notNull(),
-  clave: text('clave').notNull(),
-  fecha: text('fecha').notNull(),
-});
-
-/** Nonces de chispa ya canjeados — anti-replay local (spec §3.5). */
-export const redeemedNonces = sqliteTable('redeemed_nonces', {
-  nonce: text('nonce').primaryKey(),
-  fecha: text('fecha').notNull(),
 });
 
 /** Ajustes clave-valor (ritoFecha, paleta activa, flags de FTUE…). */
@@ -733,16 +683,10 @@ export const pvPulsos = sqliteTable(
 );
 
 // Tipos de fila inferidos — los usan repos y pantallas.
-export type StarRow = typeof stars.$inferSelect;
-export type NewStarRow = typeof stars.$inferInsert;
-export type ReflectionRow = typeof reflections.$inferSelect;
-export type CommitmentRow = typeof commitments.$inferSelect;
-export type DayRow = typeof days.$inferSelect;
+export type SenalRow = typeof senales.$inferSelect;
+export type NewSenalRow = typeof senales.$inferInsert;
 export type ExpeditionRow = typeof expeditions.$inferSelect;
 export type ExpeditionEntryRow = typeof expeditionEntries.$inferSelect;
-export type EmberLedgerRow = typeof emberLedger.$inferSelect;
-export type UnlockRow = typeof unlocks.$inferSelect;
-export type RedeemedNonceRow = typeof redeemedNonces.$inferSelect;
 export type SettingRow = typeof settings.$inferSelect;
 export type CivicTerritoryRow = typeof civicTerritories.$inferSelect;
 export type CivicMissionRow = typeof civicMissions.$inferSelect;
