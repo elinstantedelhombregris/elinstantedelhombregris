@@ -1,39 +1,20 @@
 /**
- * Contenido estático de ¡BASTA! — el juego.
- * Punto de entrada único: `import { PREGUNTAS, CONSTELACIONES, ... } from '@/content'`.
+ * Contenido estático cívico y de Protocolo Vivo.
+ * Punto de entrada único: `import { SENALES, PLANTILLAS_EXPEDICION, ... } from '@/content'`.
+ *
+ * El contenido que era sólo del juego (preguntas de la luz VER, mazo de
+ * compromisos de DAR, constelaciones y paletas del álbum) se borró en
+ * R2 Task 5 junto con las pantallas que lo consumían.
  */
 
 export type {
   TipoSenal,
-  Pregunta,
-  CategoriaCompromiso,
-  Compromiso,
   MicroUI,
   SenalExpedicion,
   PasoExpedicion,
   PlantillaExpedicion,
-  PuntoSilueta,
-  CartaLore,
-  Constelacion,
 } from './types';
 
-export { PREGUNTAS } from './preguntas';
 export { SENALES, SENAL_POR_KEY, type SenalDef } from './senales';
-export { COMPROMISOS } from './compromisos';
 export { PLANTILLAS_EXPEDICION } from './expediciones';
-export { CONSTELACIONES } from './constelaciones';
-export { PALETAS, PALETA_DEFAULT, paletaPorId, type PaletaCielo } from './paletas';
-export {
-  FTUE,
-  FTUE_ASOMBRO,
-  NOCHE_COMPLETA,
-  RITO_REENCENDIDO,
-  NOCHE_NUBLADA,
-  ESTRELLA_FUGAZ,
-  ASCENSO_RANGO,
-  NOTIFICACIONES,
-  COMPROMISO_AYER,
-  ESTADOS_VACIOS,
-  COMPARTIR,
-  CAPTURA,
-} from './textos-ui';
+export { FTUE, NOTIFICACIONES } from './textos-ui';

@@ -9,7 +9,6 @@
  * campo — cada obra es una entrada numerada, cada misión una línea mono.
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { Image } from 'expo-image';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -35,7 +34,6 @@ import type { PvMisionRow, PvObraRow } from '@/db/schema';
 import { staggerDelay } from '@/motion/variants';
 import { PULSOS_APRECIO_POR_DIA, pulsosDisponibles } from '@/protocolo/pulsos';
 import { haptic } from '@/theme/haptics';
-import { TINTA_50 } from '@/theme/tokens';
 
 type Renderable =
   | { kind: 'divider' }
@@ -123,7 +121,7 @@ export default function Corriente() {
   const irAMision = (id: string) =>
     router.push({ pathname: '/misiones/[id]', params: { id } } as never);
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   /**
    * La numeración del cuaderno cuenta solo las obras — las misiones son
@@ -163,14 +161,6 @@ export default function Corriente() {
             className="-ml-2 min-h-11 min-w-11 items-center justify-center"
           >
             <Text className="font-space text-2xl text-tinta">←</Text>
-          </Pressable97>
-          <Pressable97
-            accessibilityRole="button"
-            accessibilityLabel="Chispas y círculos"
-            onPress={() => router.push('/qr' as never)}
-            className="min-h-11 min-w-11 items-center justify-center"
-          >
-            <Ionicons name="qr-code-outline" size={20} color={TINTA_50} />
           </Pressable97>
         </View>
 

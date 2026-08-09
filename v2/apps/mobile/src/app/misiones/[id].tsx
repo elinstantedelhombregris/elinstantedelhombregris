@@ -34,7 +34,6 @@ import { oficioPorId } from '@/content/oficios';
 import { ahoraISO, entradasDeExpedicion, expedicionPorId } from '@/db/repos';
 import { misionPorId, registrarLatido, sumarseAMision, transicionar } from '@/db/repos-protocolo';
 import type { ExpeditionRow } from '@/db/schema';
-import { progresoExpedicion } from '@/game/expediciones';
 import { fadeUp } from '@/motion/variants';
 import { latidoVencido } from '@/protocolo/pulsos';
 import type { EstadoMision, Gobernanza, TipoMision } from '@/protocolo/tipos';
@@ -132,7 +131,7 @@ export default function MisionDetalle() {
   const mision = datos?.mision ?? null;
   const miembros = datos?.miembros ?? [];
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   if (!mision) {
     return (
@@ -177,7 +176,6 @@ export default function MisionDetalle() {
     ? PLANTILLAS_EXPEDICION.find((p) => p.id === exp.plantillaId)
     : undefined;
   const colorExp = plantillaExp ? SENAL_POR_KEY[plantillaExp.senal].color : undefined;
-  const progreso = exp ? progresoExpedicion(capturas, exp.meta) : null;
   const expedicionVinculadaVisible =
     Boolean(mision.expeditionId) && exp !== null
     && (mision.estado === 'activa' || mision.estado === 'verificacion');
@@ -320,12 +318,10 @@ export default function MisionDetalle() {
             </View>
             <View className="mt-4 items-start">
               <BotonTinta
-                etiqueta="Capturar →"
+                etiqueta="Aportar →"
                 variante="fantasma"
                 tamano="compacto"
-                onPress={() =>
-                  router.push({ pathname: '/expediciones/[id]', params: { id: exp.id } } as never)
-                }
+                onPress={() => router.push('/aportar')}
               />
             </View>
           </PapelCard>
@@ -367,7 +363,7 @@ export default function MisionDetalle() {
 
         {mision.estado === 'activa' && (
           <View className="mt-8 gap-3">
-            {exp && progreso && progreso.estado !== 'completa' && (
+            {exp && exp.estado !== 'completa' && (
               <View className="border border-bordeSuave px-4 py-3">
                 <Text className="font-archivo text-xs leading-5 text-tinta-75">
                   La expedición va {capturas} de {exp.meta} — podés presentar igual.

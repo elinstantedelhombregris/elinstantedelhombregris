@@ -1,8 +1,8 @@
 /**
- * AJUSTES — la ética hecha pantalla (spec §3.7): tu nombre para las chispas,
- * la notificación diaria opt-in de las 20:00 (spec §3.6), el export JSON de
- * TODO con un tap y el borrado local con doble confirmación. La bitácora y
- * los borradores son locales; lo que la persona publica puede sincronizarse.
+ * AJUSTES — la ética hecha pantalla (spec §3.7): la notificación diaria
+ * opt-in de las 20:00 (spec §3.6), el export JSON de TODO con un tap y el
+ * borrado local con doble confirmación. Los borradores privados son
+ * locales; lo que la persona publica puede sincronizarse.
  *
  * Registro papel del sistema Papel y Tinta (spec §8): filas del cuaderno,
  * toggle rectangular (OFF papel-presionado / ON violeta) y la zona de
@@ -51,10 +51,7 @@ import { Pressable97 } from '@/components/ui/Pressable97';
 import { NOTIFICACIONES } from '@/content';
 import { flushWebDatabaseSnapshot } from '@/db/client';
 import { borrarTodo, exportarTodo, getSetting, setSetting } from '@/db/repos';
-import { LIMITES_CHISPA } from '@/game/qr-codec';
-import { CLAVES_SOCIAL, guardarNombre, leerNombre } from '@/lib/social';
 import { fadeUp, staggerDelay } from '@/motion/variants';
-import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
 import { ROJO_SELLO, TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
@@ -68,6 +65,11 @@ const cargarNotificaciones = (): Promise<typeof import('expo-notifications') | n
   Platform.OS === 'web' ? Promise.resolve(null) : import('expo-notifications');
 
 const VERSION = Constants.expoConfig?.version ?? '1.0.0';
+
+/** Vivía en `lib/social.ts` junto a las claves de chispas/círculo, que se
+ * fueron con el resto del juego (R2 Task 5). Esta es la única que seguía
+ * viva: el aviso diario no tiene nada de juego. */
+const CLAVE_NOTIF_DIARIA = 'notif_diaria';
 
 const ENTITY_LABEL = {
   observation: 'Observación',
@@ -172,22 +174,15 @@ export default function Ajustes() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
-  // --- Nombre (viaja como `de` en las chispas) ---
-  const [nombre, setNombre] = useState(() => leerNombre());
-  const [enfocadoNombre, setEnfocadoNombre] = useState(false);
   const [disclosureReceipts, setDisclosureReceipts] = useState(() => disclosureReceiptsAll());
   const [showAllReceipts, setShowAllReceipts] = useState(false);
   useFocusEffect(useCallback(() => {
     setDisclosureReceipts(disclosureReceiptsAll());
   }, []));
-  const cambiarNombre = (v: string) => {
-    setNombre(v);
-    guardarNombre(v);
-  };
 
   // --- Notificación diaria (20:00 local, opt-in, 1/día máx) ---
   const [notif, setNotif] = useState(
-    () => getSetting(CLAVES_SOCIAL.notifDiaria) === '1',
+    () => getSetting(CLAVE_NOTIF_DIARIA) === '1',
   );
   const [notifNota, setNotifNota] = useState<string | null>(null);
   const [notifOcupado, setNotifOcupado] = useState(false);
@@ -201,7 +196,7 @@ export default function Ajustes() {
       if (!Notifications) {
         // En web no hay notificaciones locales: el toggle queda apagado.
         setNotif(false);
-        setSetting(CLAVES_SOCIAL.notifDiaria, '0');
+        setSetting(CLAVE_NOTIF_DIARIA, '0');
         setNotifNota('El aviso diario funciona en la app del teléfono.');
         return;
       }
@@ -209,7 +204,7 @@ export default function Ajustes() {
         const perm = await Notifications.requestPermissionsAsync();
         if (!perm.granted) {
           setNotif(false);
-          setSetting(CLAVES_SOCIAL.notifDiaria, '0');
+          setSetting(CLAVE_NOTIF_DIARIA, '0');
           setNotifNota(
             'El teléfono no dio permiso. Se habilita desde los ajustes del sistema.',
           );
@@ -233,16 +228,16 @@ export default function Ajustes() {
           },
         });
         setNotif(true);
-        setSetting(CLAVES_SOCIAL.notifDiaria, '1');
+        setSetting(CLAVE_NOTIF_DIARIA, '1');
         haptic.tick();
       } else {
         await Notifications.cancelAllScheduledNotificationsAsync();
         setNotif(false);
-        setSetting(CLAVES_SOCIAL.notifDiaria, '0');
+        setSetting(CLAVE_NOTIF_DIARIA, '0');
       }
     } catch {
       setNotif(false);
-      setSetting(CLAVES_SOCIAL.notifDiaria, '0');
+      setSetting(CLAVE_NOTIF_DIARIA, '0');
       setNotifNota('No se pudo programar el aviso. Probá de nuevo.');
     } finally {
       setNotifOcupado(false);
@@ -406,7 +401,6 @@ export default function Ajustes() {
               cachedFilesNotDeleted += 1;
             }
           }
-          useJuego.getState().refresh(); // el store vuelve a cero
           if ([communityReset, actorReset, deviceReset].some((result) => result.status === 'rejected')) {
             setBorrarNota(
               'La base local se borró, pero no pudimos retirar todas las credenciales. Probá de nuevo para completar el borrado del dispositivo.',
@@ -424,7 +418,7 @@ export default function Ajustes() {
             return;
           }
           haptic.send();
-          router.replace('/'); // el Cielo vacío manda de nuevo al FTUE
+          router.replace('/territorio'); // borrado ok: vuelve al territorio, ya vacío
         } finally {
           releaseNeedGrantEraseFence();
         }
@@ -448,7 +442,7 @@ export default function Ajustes() {
     }
   };
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   return (
     <View className="flex-1 bg-papel">
@@ -478,26 +472,6 @@ export default function Ajustes() {
         }}
       >
         <Animated.View entering={fadeUp}>
-          {/* Nombre */}
-          <Seccion titulo="Tu nombre">
-            <TextInput
-              value={nombre}
-              onChangeText={cambiarNombre}
-              onFocus={() => setEnfocadoNombre(true)}
-              onBlur={() => setEnfocadoNombre(false)}
-              placeholder="Opcional — viaja en las chispas que regalás"
-              placeholderTextColor={TINTA_50}
-              maxLength={LIMITES_CHISPA.deMax}
-              accessibilityLabel="Tu nombre para las chispas"
-              className="bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
-              style={estiloInput(enfocadoNombre)}
-            />
-            <Text className="mt-2 font-archivo text-[11px] leading-4 text-tinta-50">
-              Solo aparece cuando regalás una chispa, para que sepan de quién
-              vino. No sale de los teléfonos que se miran.
-            </Text>
-          </Seccion>
-
           {/* Notificación diaria — vive en el teléfono, no en la web */}
           {Platform.OS === 'web' ? (
             <Seccion titulo="Aviso diario">

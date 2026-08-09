@@ -38,7 +38,7 @@ export default function MisionesTerritoriales() {
   const [missions, setMissions] = useState<CivicMissionRow[]>([]);
   useFocusEffect(useCallback(() => setMissions(missionsAll()), []));
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   return (
     <View className="flex-1 bg-papel">

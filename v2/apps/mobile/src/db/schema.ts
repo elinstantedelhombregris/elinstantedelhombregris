@@ -63,12 +63,17 @@ import type {
   TipoSenalCapturada,
   VerificationVerdict,
 } from '../civic/types';
-import type {
-  EstadoCompromiso,
-  EstadoExpedicion,
-  OrigenExpedicion,
-  TipoUnlock,
-} from '../game/types';
+
+/**
+ * Estos cuatro tipos vivían en `game/types.ts`. El juego se borró en R2
+ * Task 5, pero las tablas que los usan (`commitments`, `expeditions`,
+ * `unlocks`) siguen en pie — eso es trabajo de la Task 6, con su propia
+ * migración — así que sus columnas se inlinean acá en vez de desaparecer.
+ */
+export type EstadoCompromiso = 'pendiente' | 'cumplido' | 'no';
+export type EstadoExpedicion = 'activa' | 'completa';
+export type OrigenExpedicion = 'propia' | 'precargada' | 'qr';
+export type TipoUnlock = 'carta' | 'paleta' | 'rango';
 
 /** Estrellas del Cielo — cada captura real (spec §3.1). */
 export const stars = sqliteTable('stars', {

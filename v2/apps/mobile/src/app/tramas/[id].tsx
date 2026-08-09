@@ -166,7 +166,7 @@ export default function TramaRoom() {
 
   const reasons = useMemo(() => snapshot ? parseReasons(snapshot.match.reasonsJson) : [], [snapshot]);
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   if (!loaded) return <View className="flex-1 bg-papel" />;
 

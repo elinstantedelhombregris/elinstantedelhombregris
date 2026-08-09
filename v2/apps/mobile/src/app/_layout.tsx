@@ -28,8 +28,6 @@ import {
   migrations,
   restoreWebDatabasePersistence,
 } from '@/db/client';
-import { CLAVES, getSetting } from '@/db/repos';
-import { useJuego } from '@/stores/juego';
 import { BG } from '@/theme/tokens';
 
 SplashScreen.preventAutoHideAsync();
@@ -200,23 +198,11 @@ function DbGate({ onReintentar }: { onReintentar: () => void }) {
 /** La sincronización sólo arranca después de que todas las tablas existan. */
 function CivicApp() {
   const pathname = usePathname();
-  const router = useRouter();
-  const needsOnboardingRedirect = getSetting(CLAVES.ftueCompleto) !== '1' && pathname !== '/ftue';
   useCivicSync();
 
-  useEffect(() => {
-    // Una ruta profunda o una recarga no pasa necesariamente por El Cielo.
-    // Hidratamos la economía y el día en cada cambio de ruta para que todas
-    // las pantallas lean la misma verdad persistida.
-    useJuego.getState().refresh();
-
-    // El onboarding protege todo el producto, no sólo la portada. Sin este
-    // guard un deep link podía abrir coordinación o captura antes de explicar
-    // privacidad, ubicación y control de datos.
-    if (needsOnboardingRedirect) {
-      router.replace('/ftue');
-    }
-  }, [needsOnboardingRedirect, pathname, router]);
+  // El onboarding del juego (FTUE) se fue con el resto de la superficie del
+  // juego (R2 Task 5). Todavía no hay portada ni onboarding cívico propio —
+  // eso es trabajo de una tarea posterior; acá no se inventa un reemplazo.
 
   // react-native-screens oculta las pantallas inactivas con `display:none` y
   // `aria-hidden`. Si un botón conservaba el foco al empujar otra ruta, el
@@ -234,61 +220,18 @@ function CivicApp() {
     if (!editable) activo.blur();
   }, [pathname]);
 
-  if (needsOnboardingRedirect) return null;
-
   return (
     <Stack
       screenOptions={{ headerShown: false, contentStyle: { backgroundColor: BG } }}
     >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="ftue" options={{ animation: 'fade', gestureEnabled: false }} />
-      <Stack.Screen
-        name="ver"
-        options={{
-          presentation: 'transparentModal',
-          animation: 'fade',
-          contentStyle: { backgroundColor: 'transparent' },
-        }}
-      />
-      <Stack.Screen
-        name="encender"
-        options={{
-          presentation: 'transparentModal',
-          animation: 'fade',
-          contentStyle: { backgroundColor: 'transparent' },
-        }}
-      />
-      <Stack.Screen
-        name="dar"
-        options={{
-          presentation: 'transparentModal',
-          animation: 'fade',
-          contentStyle: { backgroundColor: 'transparent' },
-        }}
-      />
-      <Stack.Screen
-        name="rito"
-        options={{
-          presentation: 'transparentModal',
-          animation: 'fade',
-          contentStyle: { backgroundColor: 'transparent' },
-        }}
-      />
-      <Stack.Screen name="album" />
-      <Stack.Screen name="expediciones/index" />
-      <Stack.Screen name="expediciones/fundar" />
-      <Stack.Screen name="expediciones/[id]" />
       <Stack.Screen name="misiones/index" />
       <Stack.Screen name="misiones/fundar" />
       <Stack.Screen name="misiones/[id]" />
       <Stack.Screen name="obras/publicar" />
       <Stack.Screen name="corriente" />
-      <Stack.Screen name="bitacora" />
       <Stack.Screen name="escuchar" />
       <Stack.Screen name="escuchar/necesidad/[id]" />
       <Stack.Screen name="ajustes" />
-      <Stack.Screen name="qr" />
-      <Stack.Screen name="compartir" />
       <Stack.Screen name="territorio/index" />
       <Stack.Screen name="territorio/inteligencia" />
       <Stack.Screen name="territorio/mapa" />

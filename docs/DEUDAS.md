@@ -692,3 +692,42 @@ Verificado numéricamente: una intensidad de 0,1720 sobre 1.000 habitantes invie
 **Por qué no se arregla acá:** la rebanada 1 no tiene endpoint ni consumidores, así que no hay nada que suprimir todavía. Y la supresión es una decisión de política —qué umbral, qué se devuelve por debajo de él— que pertenece al diseño del endpoint, no a una función pura de dibujo.
 
 **Qué haría falta:** que `GET /api/v1/civic/map/cells` suprima antes de llamar a `luzDeCeldas`, y que la respuesta distinga «suprimida por grupo chico» de «sin denominador» y de «nadie habló» — tres estados distintos que no se pueden pintar igual, por la misma razón por la que hoy hay tres y no dos. Ojo con el orden: si la supresión llegara como una cuarta variante de `Brillo`, sería un cambio rompedor sobre una unión que para entonces van a estar importando dos apps. Conviene decidirlo al diseñar el endpoint, no después.
+
+---
+
+### D-030 · Las misiones de relevamiento y las campañas cívicas perdieron su captura guiada por celda
+
+**Dónde:** `v2/apps/mobile/src/app/misiones/[id].tsx`, `v2/apps/mobile/src/app/territorio/misiones/[id].tsx` (función `capture`), `v2/apps/mobile/src/app/territorio/index.tsx` (función `play`)
+**Encontrada:** 2026-08-08, en R2 Task 5 (borrado de la superficie del juego)
+**Severidad:** media — el botón sigue existiendo y sigue llevando a algo real, pero la misión de relevamiento ya no acredita la celda automáticamente
+**Estado:** abierta
+
+`src/app/expediciones/[id].tsx` era, al mismo tiempo, la pantalla del juego (ritual guiado, brasas, hitos, ascenso de rango) **y** la única pantalla que sabía cerrar el círculo de una captura de misión: fundaba/reutilizaba la expedición, llamaba `recordCampaignCapture` y eso completaba la celda vía `completeActiveMissionCell`. Al borrar el juego entero (game/brasas, game/expediciones, stores/juego, stores/rangos-check, components/juego) esa pantalla no podía sobrevivir con su lógica intacta — habría significado mantener viva toda la economía de brasas y el sistema de rangos sólo para esta bisagra.
+
+Se optó (decisión del dueño del repo, tras reportarlo) por cortar el vínculo: el botón "Hallazgo"/"Capturar →" en `misiones/[id].tsx`, `territorio/misiones/[id].tsx` y las tarjetas de campaña en `territorio/index.tsx` ahora navegan directo a `/aportar`, sin fundar expedición, sin `prepareMissionCellCapture`, sin llamar `recordCampaignCapture`. En `territorio/misiones/[id].tsx` sólo queda un camino real para cerrar una celda: "Recorrí y no registré un hallazgo" (GPS, `completeAssignedMissionCellWithoutFinding`) — que acredita el recorrido, pero nunca un hallazgo positivo.
+
+`civic/campaigns.ts` (`recordCampaignCapture`, `campaignForExpedition`) y `civic/missions.ts` (`prepareMissionCellCapture`) quedaron sin ningún consumidor de UI. Se dejaron intactos y probados (no son juego, son Protocolo Vivo) porque la próxima captura cívica los va a necesitar de nuevo.
+
+**Por qué no se arregla acá:** reconstruir una captura guiada por celda sin el ritual del juego es diseño de producto — qué pasos pedir, si hay micro-UI, cómo se ve — no una consecuencia mecánica de borrar el juego. R2 Task 5 es una tarea de demolición, no de reconstrucción.
+
+**Qué haría falta:** una pantalla de captura cívica propia (sin brasas, sin rango) que reciba `missionId`/`missionCellId` como `expediciones/[id].tsx` los recibía, y que llame `recordCampaignCapture`/`completeActiveMissionCell` al cerrar. Mientras no exista, las misiones de relevamiento con plantilla sólo pueden cerrar celdas "sin hallazgo".
+
+---
+
+### D-031 · Cabos sueltos menores del borrado del juego (R2 Task 5)
+
+**Dónde:** varios
+**Encontrada:** 2026-08-08
+**Severidad:** baja — cosmético o dead code inerte, nada roto
+**Estado:** abierta
+
+Encontrados durante la demolición, fuera del alcance explícito de la tarea (que era borrar `src/game/`, `src/cielo/`, las pantallas del juego y podar `db/repos.ts` + `src/content/`), así que quedaron sin tocar:
+
+- `react-native-qrcode-svg` (`v2/apps/mobile/package.json`) quedó sin ningún importador — su único consumidor era `qr.tsx`, borrado. La tarea sólo pedía sacar `@shopify/react-native-skia`.
+- `civic/workflow-navigation.ts` (`missionExpeditionLinkKey`) quedó sin llamador fuera de su propio test — lo usaba `territorio/misiones/[id].tsx` antes de D-030.
+- `v2/apps/mobile/package.json` sigue con `"name": "juego"`.
+- Copy suelta que todavía nombra "el juego" o "el Cielo" sin que rompa nada: `ajustes.tsx` (título de sección "La ética del juego", la línea de ÉTICA sobre la bitácora, el `app: '¡BASTA! — el juego'` del export JSON), `content/textos-ui.ts` (`NOTIFICACIONES.tuCieloEspera`).
+
+**Por qué no se arregla acá:** ninguno compila mal ni rompe un test; tocarlos era ensanchar una tarea ya de por sí grande (12+ pantallas, dos archivos de infraestructura, todo `src/content/`) con cambios de producto (renombrar el paquete, reescribir copy) que nadie pidió.
+
+**Qué haría falta:** una pasada de limpieza chica, después de que la Task 6 (renombre de `stars`→`senales` y migración) asiente el resto del vocabulario.

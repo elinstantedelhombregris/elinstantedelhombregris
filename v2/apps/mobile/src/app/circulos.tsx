@@ -1079,7 +1079,7 @@ export default function Circulos() {
   const historicalCustodyExecutions = Object.values(custodyExecutions)
     .filter((execution) => !activeExecutionProposalIds.has(execution.proposalId));
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   return (
     <View className="flex-1 bg-papel">

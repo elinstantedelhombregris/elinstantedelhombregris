@@ -6,7 +6,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { BotonTinta, ChipTipo, GranoPapel, Kicker, Palitos, PapelCard, TituloAnton } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
-import { CIVIC_CAMPAIGNS } from '@/civic/campaigns';
 import { sharedPrecisionLabel } from '@/civic/record-context';
 import {
   cellsForMission,
@@ -16,22 +15,13 @@ import {
   missionById,
   missionCellLabel,
   myAssignedCells,
-  prepareMissionCellCapture,
   replaceMissionPassport,
   summarizeMissionCoverage,
   transitionMission,
   type MissionPassport,
 } from '@/civic/missions';
-import { PLANTILLAS_EXPEDICION } from '@/content';
-import {
-  expedicionPorId,
-  fundarExpedicion,
-  getSetting,
-  setSetting,
-} from '@/db/repos';
 import type { CivicMissionCellRow, CivicMissionRow } from '@/db/schema';
 import type { CivicCampaignKey, CoverageCellStatus } from '@/civic/types';
-import { missionExpeditionLinkKey } from '@/civic/workflow-navigation';
 import { obtenerUbicacion } from '@/lib/capturar-gps';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
@@ -111,50 +101,16 @@ export default function MisionTerritorial() {
     }
   };
 
-  const capture = (cell: CivicMissionCellRow) => {
+  // El recorrido guiado por celda vivía en la expedición del juego (spec
+  // §3.2), borrada en R2 Task 5 junto con `/expediciones/[id]`. Por ahora
+  // "Hallazgo" manda directo a aportar un dato — sin fundar expedición, sin
+  // vincular la celda — y ya no acredita la celda automáticamente; sólo
+  // "Recorrí y no registré un hallazgo" (GPS) sigue completando el tramo.
+  // Una etapa posterior le da a las misiones de relevamiento su propia
+  // captura cívica ligada a la celda.
+  const capture = (_cell: CivicMissionCellRow) => {
     if (!mission || mission.status !== 'active' || busy) return;
-    const campaign = CIVIC_CAMPAIGNS.find((item) => item.key === mission.campaignKey);
-    const template = campaign
-      ? PLANTILLAS_EXPEDICION.find((item) => item.slug === campaign.expeditionSlug)
-      : null;
-    if (!template) {
-      setNotice('Esta campaña todavía no tiene un recorrido de campo instalado.');
-      return;
-    }
-    setBusy(true);
-    setNotice(null);
-    try {
-      const linkKey = missionExpeditionLinkKey(mission.id);
-      const linkedId = getSetting(linkKey);
-      const linked = linkedId ? expedicionPorId(linkedId) : null;
-      const existing = linked?.plantillaId === template.id && linked.estado === 'activa'
-        ? linked
-        : null;
-      const expedition = existing ?? fundarExpedicion({
-        plantillaId: template.id,
-        titulo: template.titulo,
-        zona: mission.title,
-        meta: mission.plannedCells,
-        origen: 'precargada',
-      });
-      if (!existing) setSetting(linkKey, expedition.id);
-      // La celda se activa después de asegurar el cuaderno de esta misión: si
-      // fundar fallara, una captura futura no podría acreditarse por accidente.
-      prepareMissionCellCapture(cell.id);
-      router.push({
-        pathname: '/expediciones/[id]',
-        params: {
-          id: expedition.id,
-          missionId: mission.id,
-          missionCellId: cell.id,
-          missionCell: missionCellLabel(cell.cellKey),
-        },
-      });
-    } catch {
-      setNotice('No pudimos abrir el recorrido. La celda sigue asignada y no se registró ninguna captura.');
-    } finally {
-      setBusy(false);
-    }
+    router.push('/aportar');
   };
 
   const recordVisitWithoutFinding = async (cell: CivicMissionCellRow) => {
@@ -224,7 +180,7 @@ export default function MisionTerritorial() {
     refresh();
   };
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   if (!mission) {
     return (
@@ -396,11 +352,11 @@ export default function MisionTerritorial() {
                       </View>
                       <View className="ml-3 flex-1 pr-3">
                         <Text className="font-archivo-bold text-sm text-tinta">Recorrer esta celda</Text>
-                        <Text className="mt-1 font-archivo text-xs text-tinta-50">Un hallazgo válido o un recorrido acreditado completan el tramo.</Text>
+                        <Text className="mt-1 font-archivo text-xs text-tinta-50">Por ahora, sólo un recorrido acreditado con GPS completa el tramo.</Text>
                       </View>
                       <BotonTinta
-                        etiqueta="Hallazgo"
-                        accessibilityLabel={`Registrar un hallazgo en la celda ${missionCellLabel(cell.cellKey)}`}
+                        etiqueta="Aportar →"
+                        accessibilityLabel={`Aportar un hallazgo de la celda ${missionCellLabel(cell.cellKey)}`}
                         variante="fantasma"
                         tamano="compacto"
                         disabled={mission.status !== 'active' || busy}

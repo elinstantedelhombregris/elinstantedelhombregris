@@ -464,7 +464,7 @@ export default function MisDatos() {
     }
   };
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   const visible = filter === 'all'
     ? records

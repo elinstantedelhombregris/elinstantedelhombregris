@@ -215,7 +215,7 @@ export default function InteligenciaTerritorial() {
     if (publicState.status === 'idle') void loadPublic();
   };
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
   const open = (route: LocalPriorityRoute) => router.push(route as never);
   const possibleBridges = report.categories.reduce((total, row) => total + row.potentialBridges, 0);
   const maxCategoryCount = Math.max(

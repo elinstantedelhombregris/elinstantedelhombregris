@@ -170,7 +170,7 @@ export default function PrepararNecesidad() {
     return 'Todo listo para crear el pedido bajo custodia.';
   })();
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   const save = () => {
     if (!canSave || !listening) return;

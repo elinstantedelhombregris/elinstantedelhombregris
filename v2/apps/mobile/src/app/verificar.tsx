@@ -217,7 +217,7 @@ export default function Verificar() {
     }
   };
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   return (
     <View className="flex-1 bg-papel">

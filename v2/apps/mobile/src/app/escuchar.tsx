@@ -49,7 +49,6 @@ import type {
 import { FTUE, SENAL_POR_KEY } from '@/content';
 import { CLAVES, crearEstrellaCivicaUnaVez, getSetting, setSetting } from '@/db/repos';
 import { fadeUp, staggerDelay } from '@/motion/variants';
-import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
 import { TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
@@ -238,7 +237,7 @@ export default function Escuchar() {
     setStep((value) => value - 1);
   };
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   // Se muestra una única vez en la vida de la app: aceptar el pacto queda
   // grabado en settings y ninguna sesión futura vuelve a pedirlo.
@@ -267,15 +266,14 @@ export default function Escuchar() {
       supportWanted,
     });
     setSavedListeningId(voice.id);
-    // Toda escucha enciende una estrella en el Cielo personal (privado como
-    // la bitácora): el juego y la escucha son el mismo gesto. Idempotente
-    // por id de escucha — un reintento jamás duplica la estrella.
+    // Toda escucha deja una señal capturada (spec §3.1) — idempotente por id
+    // de escucha, un reintento jamás la duplica. El Cielo que la animaba se
+    // fue con el juego (R2 Task 5); la captura en sí sigue intacta.
     try {
-      const estrella = crearEstrellaCivicaUnaVez(voice.id, {
+      crearEstrellaCivicaUnaVez(voice.id, {
         tipo: ESTRELLA_POR_ESCUCHA[kind],
         texto: statement.trim(),
       });
-      useJuego.getState().setNewStar(estrella.id);
     } catch {
       // El refugio del relato ya está garantizado; la estrella puede esperar.
     }
@@ -298,10 +296,10 @@ export default function Escuchar() {
     type Accion = { key: string; label: string; detail: string; onPress: () => void };
     const acciones: Accion[] = [
       {
-        key: 'cielo',
-        label: 'Ver mi cielo',
-        detail: 'Tu escucha acaba de encender una estrella.',
-        onPress: () => router.replace('/'),
+        key: 'inicio',
+        label: 'Volver al inicio',
+        detail: 'Tu escucha quedó registrada.',
+        onPress: () => router.replace('/territorio'),
       },
       ...(supportWanted && kind === 'need' && savedListeningId
         ? [{
@@ -311,12 +309,6 @@ export default function Escuchar() {
             onPress: () => router.replace({ pathname: '/escuchar/necesidad/[id]', params: { id: savedListeningId } }),
           }]
         : []),
-      {
-        key: 'bitacora',
-        label: 'Abrir mi bitácora',
-        detail: 'Cada escucha guardada queda anotada ahí.',
-        onPress: () => router.replace('/bitacora'),
-      },
       ...(savedShared && kind === 'capacity' && supportWanted
         ? [{
             key: 'aportar',

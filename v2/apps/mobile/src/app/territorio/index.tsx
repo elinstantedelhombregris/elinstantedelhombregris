@@ -13,7 +13,7 @@ import {
   TituloAnton,
 } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
-import { CIVIC_CAMPAIGNS, type CivicCampaignDefinition } from '@/civic/campaigns';
+import { CIVIC_CAMPAIGNS } from '@/civic/campaigns';
 import { listeningsAll } from '@/civic/listening';
 import { missionsAll } from '@/civic/missions';
 import { retryDeadLetters, syncCivicNetwork } from '@/civic/sync';
@@ -28,8 +28,6 @@ import {
   resourcesAll,
   territoriesAll,
 } from '@/civic/repo';
-import { PLANTILLAS_EXPEDICION } from '@/content';
-import { expedicionesTodas, fundarExpedicion } from '@/db/repos';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 
 interface Pulse {
@@ -95,25 +93,12 @@ export default function Territorio() {
     syncCivicNetwork().then(refresh);
   }, [refresh]));
 
-  const play = (campaign: CivicCampaignDefinition) => {
-    const template = PLANTILLAS_EXPEDICION.find((item) => item.slug === campaign.expeditionSlug);
-    if (!template) return;
-    const existing = expedicionesTodas().find(
-      (item) => item.plantillaId === template.id && item.estado === 'activa',
-    );
-    if (existing) {
-      router.push(`/expediciones/${existing.id}`);
-      return;
-    }
-    const expedition = fundarExpedicion({
-      plantillaId: template.id,
-      titulo: template.titulo,
-      zona: 'Zona a confirmar',
-      meta: template.metaSugerida,
-      origen: 'precargada',
-    });
-    router.push(`/expediciones/${expedition.id}`);
-  };
+  // Las campañas fundadoras arrancaban un recorrido guiado de expedición
+  // (juego, R2 Task 5). Se fue con el resto de la superficie del juego: por
+  // ahora "jugar una campaña" aporta directo, sin el ritual paso a paso ni
+  // el vínculo automático a una expedición. Una etapa posterior le da a
+  // cada campaña su propia captura cívica.
+  const play = () => router.push('/aportar');
 
   const nextTitle = pulse.voices === 0
     ? 'Escuchá la primera voz'
@@ -138,7 +123,7 @@ export default function Territorio() {
         ? '/aportar'
         : '/territorio/mapa';
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   return (
     <View className="flex-1 bg-papel">
@@ -231,7 +216,7 @@ export default function Territorio() {
         <Pressable97
           accessibilityRole="button"
           accessibilityLabel={nextTitle}
-          onPress={() => nextRoute ? router.push(nextRoute as never) : play(CIVIC_CAMPAIGNS[0]!)}
+          onPress={() => nextRoute ? router.push(nextRoute as never) : play()}
           className="mt-3 border-2 border-violeta bg-papel-crudo px-5 py-4"
         >
           <View className="flex-row items-center">
@@ -277,8 +262,8 @@ export default function Territorio() {
             <Animated.View key={campaign.key} entering={staggerDelay(index)}>
               <Pressable97
                 accessibilityRole="button"
-                accessibilityLabel={`Jugar ${campaign.title}`}
-                onPress={() => play(campaign)}
+                accessibilityLabel={`Aportar para ${campaign.title}`}
+                onPress={play}
                 className="bg-papel-crudo border border-tinta p-5"
               >
                 <ChipTipo etiqueta={campaign.eyebrow} />
@@ -313,7 +298,6 @@ export default function Territorio() {
           {[
             ['/territorio/misiones', 'Misiones', pulse.missions > 0 ? `${pulse.missions} en marcha` : 'Lazo → operación'],
             ['/misiones', 'Misiones del protocolo', 'Fundá o sumate'],
-            ['/expediciones', 'Expediciones', 'Quests de datos con pasos guiados.'],
             ['/territorio/mapa', 'Trazar zona', pulse.territories > 0 ? `${pulse.territories} guardadas` : 'Lazo vivo'],
             ['/verificar', 'Corroborar', `${pulse.review} por mirar`],
             ['/conectar', 'Conectar', `${pulse.needs} ↔ ${pulse.resources}`],

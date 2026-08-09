@@ -76,7 +76,7 @@ export default function Misiones() {
   const irAlDetalle = (id: string) =>
     router.push({ pathname: '/misiones/[id]', params: { id } } as never);
 
-  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   return (
     <View className="flex-1 bg-papel">
