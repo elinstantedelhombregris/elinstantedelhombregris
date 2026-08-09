@@ -73,9 +73,12 @@ class RenderContext:
 
 
 def chapter_at(t: float, chapters: Sequence[Chapter], ranges: dict) -> tuple[int, Chapter, float]:
+    first_start, _first_end = ranges[chapters[0].id]
+    if t < first_start:
+        return 0, chapters[0], 0.0
     for index, chapter in enumerate(chapters):
         start, end = ranges[chapter.id]
-        if start <= t <= end or index == len(chapters) - 1:
+        if start <= t < end or index == len(chapters) - 1:
             return index, chapter, float(np.clip((t - start) / max(0.01, end - start), 0.0, 1.0))
     return 0, chapters[0], 0.0
 
@@ -93,6 +96,11 @@ def _as_legacy(chapter: Chapter, reveal_points: dict[str, float] | None = None) 
         world=chapter.world, hero_subject=chapter.hero_subject, plate=chapter.plate,
         depth_layers=chapter.depth_layers, lighting=chapter.lighting,
         metamorphosis=chapter.metamorphosis,
+        graphic_cues=(
+            [asdict(value) for value in chapter.illustration.graphics]
+            if chapter.illustration else []
+        ),
+        overlay_policy="graphics-only" if chapter.illustration else "semantic-labels",
     )
 
 
@@ -113,6 +121,16 @@ def reveal_points_for(chapter: Chapter, captions: Sequence, ranges: dict) -> dic
         )
         if match is not None:
             points[label] = float(np.clip((match.start - start) / span, 0.0, 1.0))
+    if chapter.illustration:
+        for cue in chapter.illustration.graphics:
+            if 0 <= cue.trigger_token < len(timed_words):
+                points[f"graphic:{cue.id}:start"] = float(np.clip(
+                    (timed_words[cue.trigger_token].start - start) / span, 0.0, 1.0,
+                ))
+            if 0 <= cue.end_token < len(timed_words):
+                points[f"graphic:{cue.id}:end"] = float(np.clip(
+                    (timed_words[cue.end_token].end - start) / span, 0.0, 1.0,
+                ))
     return points
 
 
@@ -189,6 +207,7 @@ def _transition(a: np.ndarray, b: np.ndarray, blend_t: float, chapter: Chapter) 
 
 def render_segment(ctx: RenderContext, start_frame: int, end_frame: int, out_path: Path) -> Path:
     look = load_look(ctx.look_name)
+    transition_seconds = 0.0 if look.is_illustrated else TRANSITION_SECONDS
     renderer = Renderer(look, ctx.width, ctx.height, scene=ctx.scene)
     chapters = ctx.storyboard.chapters
     reveal_cache = {
@@ -228,7 +247,7 @@ def render_segment(ctx: RenderContext, start_frame: int, end_frame: int, out_pat
             if index < len(chapters) - 1:
                 cut_start, cut_end = ctx.ranges[chapter.id]
                 time_to_cut = cut_end - t
-                if 0.0 <= time_to_cut < TRANSITION_SECONDS:
+                if transition_seconds > 0 and 0.0 <= time_to_cut < transition_seconds:
                     next_chapter = chapters[index + 1]
                     if pending is None:
                         pending = Renderer(look, ctx.width, ctx.height, scene=ctx.scene)
@@ -237,7 +256,7 @@ def render_segment(ctx: RenderContext, start_frame: int, end_frame: int, out_pat
                         _as_legacy(next_chapter, reveal_cache[next_chapter.id]), t, 0.0, frame_index,
                         extra=_extra_for(ctx, pending, next_chapter, t), env=env,
                     )
-                    blend_t = 1.0 - (time_to_cut / TRANSITION_SECONDS)
+                    blend_t = 1.0 - (time_to_cut / transition_seconds)
                     frame = _transition(frame, incoming, blend_t, next_chapter)
 
             yield typography.overlay(

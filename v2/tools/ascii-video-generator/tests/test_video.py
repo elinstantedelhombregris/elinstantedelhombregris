@@ -60,6 +60,16 @@ def test_chapter_at_returns_progress():
     assert 0.4 < progress < 0.6
 
 
+def test_chapter_at_holds_first_image_before_its_first_spoken_word():
+    ctx = _ctx()
+    first = ctx.storyboard.chapters[0]
+    ctx.ranges[first.id] = (0.4, ctx.ranges[first.id][1])
+    index, chapter, progress = video.chapter_at(0.1, ctx.storyboard.chapters, ctx.ranges)
+    assert index == 0
+    assert chapter.id == first.id
+    assert progress == 0.0
+
+
 def test_env_at_is_none_without_envelopes():
     ctx = _ctx()
     assert ctx.envelopes is None

@@ -19,7 +19,11 @@ from .director import (
     build_shots, choose_archetype, compact_anchor, reveal_bindings, temperature_for,
     world_direction,
 )
-from .schema import Caption, Chapter, Storyboard
+from .illustrated import (
+    ILLUSTRATED_LOOK, finalize_continuity, make_illustration_direction,
+    split_illustrated_units,
+)
+from .schema import Caption, Chapter, Shot, Storyboard
 
 STOPWORDS = {
     "a", "aca", "ahora", "al", "algo", "alguien", "ante", "aqui", "asi", "aun",
@@ -260,22 +264,35 @@ def chapter_parameters(segment: str, motif: str, anchors: Sequence[str]) -> tupl
     return seed, density, motion, variants[seed % len(variants)]
 
 
-def build_storyboard(title: str, slug: str, text: str, chapter_limit: int) -> Storyboard:
-    units = split_units(text)
-    # Pace by spoken length, not punctuation density.  A prose style full of
-    # short sentences should not produce a parade of thin 10-word chapters.
-    target_count = max(4, math.ceil(len(text.split()) / 42))
-    count = min(len(units), chapter_limit, target_count)
-    chunks = partition(units, count)
+def build_storyboard(
+    title: str, slug: str, text: str, chapter_limit: int, *, illustrated: bool = False,
+) -> Storyboard:
+    if illustrated:
+        # An illustrated unit exists because the proposition, rhetorical job or
+        # visual subject changed.  There is intentionally no target, minimum,
+        # maximum, or `chapter_limit` in this branch.
+        narrative_units = split_illustrated_units(title, text)
+        chunks = [unit.texts for unit in narrative_units]
+    else:
+        units = split_units(text)
+        # Pace by spoken length, not punctuation density.  A prose style full of
+        # short sentences should not produce a parade of thin 10-word chapters.
+        target_count = max(4, math.ceil(len(text.split()) / 42))
+        count = min(len(units), chapter_limit, target_count)
+        chunks = partition(units, count)
+        narrative_units = []
+    count = len(chunks)
     global_keywords = extract_concepts(text, title, limit=14) or extract_keywords(text)
     chapters: list[Chapter] = []
     previous: str | None = None
+    previous_subject = ""
+    word_cursor = 0
     used: Counter[str] = Counter()
     for index, texts in enumerate(chunks):
         segment = " ".join(texts)
         fallback = FALLBACK_MOTIFS[min(index, len(FALLBACK_MOTIFS) - 1)]
         motif = choose_motif(segment, fallback, previous, used)
-        if index == count - 1:
+        if index == count - 1 and not illustrated:
             motif = "horizon"
         anchors = [compact_anchor(value) for value in chapter_anchors(segment, text, title)]
         if len(anchors) < 2:
@@ -292,7 +309,25 @@ def build_storyboard(title: str, slug: str, text: str, chapter_limit: int) -> St
         relations = direct_fallback_relations(extract_relations(segment, anchors), rhetoric)
         archetype = choose_archetype(motif, rhetoric, relations)
         world, lighting, metamorphosis, hero_subject = world_direction(motif, index, count, anchors)
-        shots = build_shots(archetype, composition, anchors, density, lighting, metamorphosis)
+        if illustrated:
+            # One authored image unit, one continuous shot. Any intervention
+            # inside it comes from exact word-bound graphic cues, not a generic
+            # establish/explain/transform clock.
+            shots = [Shot(
+                "image-unit", 0.0, 1.0, "illustrate", composition, "drift", "none",
+                density, "crossfade", keyword, "inhabit", lighting, "none",
+            )]
+            narrative_unit = narrative_units[index]
+            illustration = make_illustration_direction(
+                texts=texts, boundary_reason=narrative_unit.boundary_reason,
+                rhetoric=rhetoric, concepts=narrative_unit.concepts or anchors,
+                relations=relations, word_start=word_cursor,
+                previous_subject=previous_subject,
+            )
+            word_cursor = illustration.word_end
+        else:
+            shots = build_shots(archetype, composition, anchors, density, lighting, metamorphosis)
+            illustration = None
         chapters.append(Chapter(
             id=f"{index + 1:02d}-{motif}",
             label=f"{index + 1:02d} / {motif.upper()}",
@@ -314,25 +349,51 @@ def build_storyboard(title: str, slug: str, text: str, chapter_limit: int) -> St
             shots=shots,
             temperature=temperature_for(index, count, rhetoric),
             reveal_words=reveal_bindings(anchors, segment),
-            camera=shots[1].camera,
+            camera=shots[0].camera if illustrated else shots[1].camera,
             world=world,
             hero_subject=hero_subject,
             depth_layers=4,
             lighting=lighting,
             metamorphosis=metamorphosis,
+            illustration=illustration,
         ))
         previous = motif
+        previous_subject = hero_subject
         used[motif] += 1
     thesis = " ".join(split_units(text, 22)[:2])
     hooks = hook_candidates(title, text)
-    return Storyboard(
+    storyboard = Storyboard(
         title=title, slug=slug, thesis=thesis, keywords=global_keywords, chapters=chapters,
-        version=4, hook=hooks[0], cover_hook=hooks[1] if len(hooks) > 1 else hooks[0],
+        version=5 if illustrated else 4,
+        hook=hooks[0], cover_hook=hooks[1] if len(hooks) > 1 else hooks[0],
         format="reel" if len(text.split()) <= 240 else "long",
+        look=ILLUSTRATED_LOOK if illustrated else "plata",
+        illustrated_protocol=1 if illustrated else 0,
+        illustrated_review_status="planning" if illustrated else "not-applicable",
+        overlay_policy="graphics-only" if illustrated else "semantic-labels",
     )
+    if illustrated:
+        finalize_continuity(storyboard)
+    return storyboard
 
 
 def scene_ranges(captions: Sequence[Caption], chapters: Sequence[Chapter], duration: float) -> dict[str, tuple[float, float]]:
+    if any(chapter.illustration is not None for chapter in chapters):
+        # Exact illustrated cuts: the outgoing image holds through any spoken
+        # pause and the new image begins on the first native word boundary of
+        # its own proposition. Caption pre-roll/hold never moves an image cut.
+        starts: list[float] = []
+        for chapter in chapters:
+            words = [
+                word for caption in captions if caption.section == chapter.id for word in caption.words
+            ]
+            starts.append(words[0].start if words else (starts[-1] if starts else 0.0))
+        return {
+            chapter.id: (
+                starts[index], starts[index + 1] if index + 1 < len(starts) else duration,
+            )
+            for index, chapter in enumerate(chapters)
+        }
     ranges: dict[str, tuple[float, float]] = {}
     for chapter in chapters:
         matching = [caption for caption in captions if caption.section == chapter.id]
@@ -344,7 +405,19 @@ def scene_ranges(captions: Sequence[Caption], chapters: Sequence[Chapter], durat
 
 
 def write_art_direction(path: Path, storyboard: Storyboard) -> None:
-    lines = [f"# {storyboard.title}", "", storyboard.thesis, "", "## Visual Chapters", ""]
+    lines = [f"# {storyboard.title}", "", storyboard.thesis, ""]
+    if storyboard.look == ILLUSTRATED_LOOK:
+        lines.extend([
+            "## Protocolo ilustrado",
+            "",
+            f"- Unidades de imagen determinadas por la narración: `{len(storyboard.chapters)}`",
+            "- Límite mínimo/máximo: `ninguno`",
+            f"- Política de superposición: `{storyboard.overlay_policy}`",
+            f"- Estado de revisión: `{storyboard.illustrated_review_status}`",
+            "- Regla: ninguna placa puede renderizarse sin análisis técnico, correspondencia narrativa y aprobación.",
+            "",
+        ])
+    lines.extend(["## Visual Chapters", ""])
     for chapter in storyboard.chapters:
         lines.extend([
             f"### {chapter.label}",
@@ -369,4 +442,22 @@ def write_art_direction(path: Path, storyboard: Storyboard) -> None:
             f"- Seed: `{chapter.seed}`",
             "",
         ])
+        if chapter.illustration:
+            direction = chapter.illustration
+            lines.extend([
+                f"#### Contrato de imagen {chapter.id}",
+                "",
+                f"- Rango de palabras: `[{direction.word_start}, {direction.word_end})`",
+                f"- Motivo del corte: `{direction.boundary_reason}`",
+                f"- Proposición: {direction.proposition}",
+                f"- Tesis visual: {direction.visual_thesis}",
+                f"- Brief: {direction.image_brief}",
+                f"- Debe mostrar: {', '.join(direction.must_show)}",
+                f"- Debe evitar: {', '.join(direction.must_avoid)}",
+                f"- Continuidad de entrada: {direction.continuity_in}",
+                f"- Continuidad de salida: {direction.continuity_out}",
+                f"- Gráficos no textuales: {', '.join(cue.kind for cue in direction.graphics) or 'ninguno'}",
+                f"- Estado de placa: `{direction.plate_analysis.status}`",
+                "",
+            ])
     path.write_text("\n".join(lines), encoding="utf-8")

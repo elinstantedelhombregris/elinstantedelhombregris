@@ -61,6 +61,28 @@ python3 ~/.codex/skills/create-ascii-blog-videos/scripts/render_cinematic_ascii_
 6. Render the approved storyboard and inspect the designed cover, video contact
    sheet, playable master, hook cut, and verification report.
 
+For `tinta-papel-ilustrado`, the order is stricter and the software enforces it:
+
+1. Run `--brief-only --look tinta-papel-ilustrado` without a plate directory.
+   The director divides narration at proposition, rhetorical-purpose and visual-
+   subject changes. The resulting image count has no minimum, maximum or requested
+   target; every unit receives exact word coverage and its own image brief.
+2. Approve or edit each proposition, visual thesis, must-show/must-avoid list and
+   continuity instruction before creating illustrations.
+3. Create exactly the planned illustrations, then run the brief again with
+   `--plate-dir`. The software records checksum, palette, contrast, focus and
+   candidate overlay regions. Replacing any file invalidates its prior approval.
+4. Describe what the resulting image actually shows, justify its narrative match,
+   review continuity with neighbouring images, place any non-textual graphic cues,
+   and approve both the direction and plate analysis.
+5. Only then approve the illustrated storyboard. The Studio disables smoke/full
+   render actions and the CLI refuses even to synthesize speech while a blocker
+   remains.
+6. Native TTS word boundaries become exact image windows and graphic-cue times.
+   Floating concept labels, relationship words, chapter headers and footer keywords
+   are prohibited over illustrations; captions and the permanent URL retain their
+   reserved zones.
+
 For a reviewed production render:
 
 ```bash
@@ -106,8 +128,9 @@ Available looks:
   black ink, violet action, red stamps, Anton/Archivo/Space Mono typography,
   risograph misregistration and press-designed sound.
 - `tinta-papel-ilustrado`: the same editorial system with complete approved
-  illustrations preserved in full colour and semantic violet/red graphics printed
-  over them, plus restrained depth-aware camera parallax.
+  illustrations preserved in full colour, narrative-first image planning, mandatory
+  post-image analysis, exact word-bound non-textual graphics and restrained
+  depth-aware camera parallax.
 - `terminal`: phosphor green terminal energy.
 - `blueprint`: precise technical cyan.
 - `archive`: warm documentary paper and amber.
@@ -200,9 +223,11 @@ Do not call the package finished until every gate passes:
 - Rendering: deterministic best-match ASCII, stable exposure, edge-to-edge fields,
   controlled flicker, no thick transition seams, and ≥2.5 fps at 1080×1920 on the
   reference machine.
-- Direction: at least three distinct shot states per chapter, five or more looks,
-  legible semantic relationships, a distinct cinematic world per chapter, four
-  depth planes, semantic metamorphosis, hook-first opening, and designed cover.
+- Direction: ASCII modes require at least three distinct shot states per chapter,
+  legible semantic relationships, distinct worlds, depth and metamorphosis.
+  Illustrated mode instead requires contiguous word coverage, narratively earned
+  image units, approved image briefs and plates, motivated continuity and only
+  purpose-bound graphics. Every mode retains a hook-first opening and designed cover.
 - Image craft: recognizable hero silhouette, direction-aware glyphs, multiscale
   detail, narrative lighting, stable parallax, and no repeated world topology.
 - Captions: exact visible/spoken token parity, no hidden word, no overlapping line,

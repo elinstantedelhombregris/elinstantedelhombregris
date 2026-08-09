@@ -307,8 +307,8 @@
               <input id="logoPath" name="logo_path" placeholder="/Users/name/Documents/logo.png">
             </div>
             <div class="field">
-              <label for="plateDir">Approved cinematic plates (optional)</label>
-              <input id="plateDir" name="plate_dir" placeholder="Folder with 01-signal.png, 02-evidence.png…">
+              <label for="plateDir">Illustrations created from the approved narrative plan</label>
+              <input id="plateDir" name="plate_dir" placeholder="Leave empty for planning; add the matching plate folder for analysis">
             </div>
             <div class="grid-2 field">
               <div>
@@ -323,6 +323,7 @@
                   <option value="manifesto">Manifesto · high contrast</option>
                   <option value="nocturne">Nocturne · cinematic</option>
                 </select>
+                <p class="hint">Illustrated mode decides its image count from narrative changes, then requires plate analysis and approval before rendering.</p>
               </div>
               <div>
                 <label for="introSealSeconds">Seal reveal</label>
@@ -409,6 +410,7 @@
               <button class="btn btn-primary btn-small" id="approveStoryboard" type="button">Approve direction</button>
               <button class="btn btn-small" id="rerollDirection" type="button">Prepare reroll</button>
             </div>
+            <p class="hint" id="protocolSummary"></p>
             <textarea id="storyboardEditor" spellcheck="false" placeholder="Generate an editorial brief to review its storyboard."></textarea>
             <p class="hint" id="reviewMessage"></p>
           </div>
@@ -471,6 +473,13 @@
       followups.classList.toggle("hidden", job.status !== "done" || !job.followup_storyboard);
       $("#prepareSmoke").dataset.jobId = job.id;
       $("#prepareRender").dataset.jobId = job.id;
+      const protocol = job.illustrated_protocol;
+      const protocolBlocked = Boolean(protocol && protocol.render_errors && protocol.render_errors.length);
+      $("#prepareSmoke").disabled = protocolBlocked;
+      $("#prepareRender").disabled = protocolBlocked;
+      $("#protocolSummary").textContent = protocol
+        ? `${protocol.image_count} narrative images · ${protocol.analyzed_images} analyzed · ${protocol.approved_images} approved · ${protocolBlocked ? protocol.render_errors.length + " blockers" : "ready"}`
+        : "";
       const assets = $("#assetGrid");
       assets.innerHTML = job.assets.length ? job.assets.map(asset => `
         <a class="asset" href="${artifactUrl(job, asset)}" target="_blank" rel="noopener">
@@ -569,7 +578,9 @@
       if (!asset) throw new Error("Generate an editorial brief first.");
       const payload = await request(artifactUrl(job, asset));
       $("#storyboardEditor").value = JSON.stringify(payload, null, 2);
-      $("#reviewMessage").textContent = "Storyboard loaded. Edit hooks, anchors, relations, shots, or camera direction, then save.";
+      $("#reviewMessage").textContent = job.illustrated_protocol
+        ? "Review every proposition, image brief, real plate analysis, continuity note, and word-bound graphic cue. Approval remains blocked until all are complete."
+        : "Storyboard loaded. Edit hooks, anchors, relations, shots, or camera direction, then save.";
     }
     async function persistStoryboard(approve) {
       if (!state.selectedJob) return;
@@ -582,7 +593,7 @@
       });
       renderDetail(job);
       $("#reviewMessage").textContent = approve
-        ? `Approved ${job.approved_chapters.length} chapters. Full render will use this reviewed direction.`
+        ? `Approved ${job.approved_chapters.length} narrative units. Full render may now use this reviewed direction.`
         : "Edits saved as a reviewed storyboard.";
     }
     async function prepareReroll() {

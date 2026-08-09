@@ -690,7 +690,15 @@ def overlay(frame: np.ndarray, grid: Grid, look: Look, *, caption=None, t: float
     # caption accents -- actually visible instead of a no-op.
     img = Image.fromarray(frame)
     in_cold_open = bool(hook) and t < cold_open_seconds
-    if not in_cold_open:
+    if look.is_illustrated:
+        # The image carries the proposition. Illustrated videos never inherit
+        # the ASCII mode's floating concept labels, relationship words, chapter
+        # headers or footer keyword. Captions and the permanent URL remain in
+        # their reserved editorial zones; planned graphics are drawn earlier by
+        # the exact word-bound cue renderer.
+        chapter_label = None
+        keyword = None
+    if not in_cold_open and not look.is_illustrated:
         draw_scene_labels(img, grid, look, scene_chapter, progress)
     display_title = title if t < cold_open_seconds + 1.8 else None
     draw_title(img, grid, look, display_title, chapter_label)

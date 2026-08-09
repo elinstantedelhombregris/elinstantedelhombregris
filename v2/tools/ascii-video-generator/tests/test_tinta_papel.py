@@ -5,6 +5,7 @@ import numpy as np
 
 from ascii_studio.render.frames import Renderer
 from ascii_studio.render.tokens import load_look
+from ascii_studio.render import typography
 from ascii_studio.scene.legacy import LegacyChapter
 from ascii_studio.scene import worlds
 
@@ -69,6 +70,11 @@ def test_illustrated_mode_preserves_full_colour_plate_and_prints_graphics(tmp_pa
         seed=29, density=0.6, motion=0.35, plate=str(plate), world="civic-plaza",
         archetype="network", composition="assembly", depth_layers=4,
         lighting="dawn", metamorphosis="crowd-becomes-network",
+        graphic_cues=[{
+            "id": "relation-01", "kind": "connection-path",
+            "target_region": [0.12, 0.16, 0.88, 0.48],
+        }],
+        reveal_points={"graphic:relation-01:start": 0.4, "graphic:relation-01:end": 0.92},
     )
     look = load_look("tinta-papel-ilustrado")
     renderer = Renderer(look, width=270, height=480)
@@ -81,3 +87,20 @@ def test_illustrated_mode_preserves_full_colour_plate_and_prints_graphics(tmp_pa
     # The overprinted semantic layer introduces the house violet.
     violet = (frame[..., 2] > frame[..., 1] * 1.16) & (frame[..., 0] > frame[..., 1] * 1.05)
     assert float(violet.mean()) > 0.0005
+
+
+def test_illustrated_typography_never_draws_automatic_scene_labels(monkeypatch):
+    look = load_look("tinta-papel-ilustrado")
+    renderer = Renderer(look, width=270, height=480)
+    frame = np.full((480, 270, 3), 232, dtype=np.uint8)
+    chapter = LegacyChapter(motif="network", keyword="PODER", anchors=["PODER", "RED"])
+
+    monkeypatch.setattr(
+        typography, "draw_scene_labels",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(AssertionError("labels are forbidden")),
+    )
+    result = typography.overlay(
+        frame, renderer.grid, look, chapter_label="01 / NETWORK", keyword="PODER",
+        url="www.elinstantedelhombregris.com", scene_chapter=chapter, progress=0.6,
+    )
+    assert result.shape == frame.shape

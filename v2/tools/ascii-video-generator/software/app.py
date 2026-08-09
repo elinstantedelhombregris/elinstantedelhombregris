@@ -166,6 +166,15 @@ class Studio:
         look = fields.get("look", "plata").strip() or "plata"
         if look not in LOOKS:
             raise ValueError("Unsupported visual look")
+        if (
+            look == "tinta-papel-ilustrado"
+            and mode != "brief"
+            and not fields.get("storyboard_path", "").strip()
+        ):
+            raise ValueError(
+                "Illustrated mode starts with a narrative brief. Review its image units, "
+                "analyze the created plates, and approve the protocol before any test or render."
+            )
         duration_mode = fields.get("duration_mode", "auto").strip() or "auto"
         if duration_mode not in {"auto", "reel", "long"}:
             raise ValueError("Unsupported duration mode")
@@ -361,11 +370,22 @@ class Studio:
             key=lambda asset: ("reviewed-storyboard" not in asset["relative"], asset["relative"]),
         )
         payload["followup_storyboard"] = str(Path(job.output_dir) / storyboards[0]["relative"]) if storyboards else ""
+        payload["illustrated_protocol"] = None
+        if payload["followup_storyboard"]:
+            try:
+                from ascii_studio.storyboard.illustrated import illustrated_protocol_summary
+                from ascii_studio.storyboard.schema import load_storyboard
+                board = load_storyboard(Path(payload["followup_storyboard"]))
+                if board.look == "tinta-papel-ilustrado":
+                    payload["illustrated_protocol"] = illustrated_protocol_summary(board)
+            except (OSError, ValueError, KeyError, TypeError):
+                pass
         return payload
 
     def save_storyboard(self, job_id: str, payload: dict[str, object], approve: bool = False) -> Job:
         """Validate and persist the human-reviewed storyboard beside its source draft."""
-        from ascii_studio.storyboard.schema import load_storyboard
+        from ascii_studio.storyboard.illustrated import validate_illustrated_protocol
+        from ascii_studio.storyboard.schema import load_storyboard, write_json
 
         job = self.get_job(job_id)
         if not isinstance(payload, dict):
@@ -378,6 +398,15 @@ class Studio:
         except Exception as exc:  # noqa: BLE001
             reviewed.unlink(missing_ok=True)
             raise ValueError(f"Invalid storyboard: {exc}") from exc
+        if storyboard.look == "tinta-papel-ilustrado":
+            storyboard.illustrated_review_status = "approved" if approve else "reviewing"
+            write_json(reviewed, asdict(storyboard))
+            problems = validate_illustrated_protocol(
+                storyboard, require_render_ready=approve,
+            )
+            if problems:
+                sample = "\n".join(f"- {value}" for value in problems[:24])
+                raise ValueError("Illustrated protocol review failed:\n" + sample)
         with self.lock:
             job.assets = self._assets(Path(job.output_dir))
             job.approved_chapters = [chapter.id for chapter in storyboard.chapters] if approve else []

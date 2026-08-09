@@ -47,6 +47,36 @@ def test_studio_accepts_tinta_papel_as_a_selectable_look(tmp_path, monkeypatch, 
     assert job.command[job.command.index("--look") + 1] == look
 
 
+def test_studio_requires_illustrated_brief_before_any_render(tmp_path, monkeypatch):
+    monkeypatch.setattr(app.threading.Thread, "start", lambda _self: None)
+    source = tmp_path / "source.md"
+    source.write_text("# Papel\n\nLa ciudadanía distribuye poder.", encoding="utf-8")
+    studio = app.Studio(tmp_path / "studio")
+
+    with pytest.raises(ValueError, match="starts with a narrative brief"):
+        studio.create_job({
+            "source_path": str(source), "mode": "render",
+            "look": "tinta-papel-ilustrado",
+        }, "", None)
+
+
+def test_studio_refuses_to_approve_incomplete_illustrated_protocol(tmp_path, monkeypatch):
+    monkeypatch.setattr(app.threading.Thread, "start", lambda _self: None)
+    source = tmp_path / "source.md"
+    source.write_text("# Papel\n\nLa ciudadanía distribuye poder.", encoding="utf-8")
+    studio = app.Studio(tmp_path / "studio")
+    job = studio.create_job({
+        "source_path": str(source), "mode": "brief",
+        "look": "tinta-papel-ilustrado",
+    }, "", None)
+    board = build_storyboard(
+        "Papel", "papel", "La ciudadanía distribuye poder.", 8, illustrated=True,
+    )
+
+    with pytest.raises(ValueError, match="Illustrated protocol review failed"):
+        studio.save_storyboard(job.id, asdict(board), approve=True)
+
+
 def test_studio_validates_saves_and_approves_reviewed_storyboard(tmp_path, monkeypatch):
     monkeypatch.setattr(app.threading.Thread, "start", lambda _self: None)
     source = tmp_path / "source.md"

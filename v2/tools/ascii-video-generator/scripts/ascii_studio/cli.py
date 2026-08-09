@@ -34,6 +34,10 @@ from .speech.tts import (
 from .speech.pronunciation import apply_pronunciations, restore_timing_text, validate_pronunciations
 from .storyboard.build import build_storyboard, scene_ranges, write_art_direction
 from .storyboard.director import upgrade_storyboard_v4
+from .storyboard.illustrated import (
+    ILLUSTRATED_LOOK, analyze_storyboard_plates, bind_illustrated_timeline,
+    illustrated_protocol_summary, illustration_briefs, validate_illustrated_protocol,
+)
 from .storyboard.schema import load_storyboard, write_json
 from .text import slugify
 from .util import run
@@ -70,7 +74,10 @@ def build_parser() -> argparse.ArgumentParser:
     render.add_argument("--plate-dir", type=Path,
                         help="Optional approved PNG/JPG plates named after chapter ids")
     render.add_argument("--brief-only", action="store_true", help="Write brief and storyboard without rendering")
-    render.add_argument("--chapters", type=int, default=8, help="Maximum automatic storyboard chapter count")
+    render.add_argument(
+        "--chapters", type=int, default=8,
+        help="Maximum automatic chapter count for ASCII looks; ignored by the narrative-first illustrated protocol",
+    )
     render.add_argument("--seed-offset", type=int, default=0,
                         help="Deterministically reroll the visual direction without changing the script")
     render.add_argument("--duration-mode", choices=("auto", "reel", "long"), default="auto",
@@ -181,8 +188,16 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         args.duration_mode == "auto" and not args.storyboard and len(source_text.split()) > args.reel_max_words
     )
     text = adapt_for_reel(source_text, title, args.reel_min_words, args.reel_max_words) if adapt else source_text
-    storyboard = load_storyboard(Path(args.storyboard).expanduser().resolve()) if args.storyboard else build_storyboard(title, slug, text, args.chapters)
-    storyboard = upgrade_storyboard_v4(storyboard)
+    if args.storyboard:
+        storyboard = load_storyboard(Path(args.storyboard).expanduser().resolve())
+        look_name = args.look or storyboard.look or "plata"
+    else:
+        look_name = args.look or "plata"
+        storyboard = build_storyboard(
+            title, slug, text, args.chapters, illustrated=look_name == ILLUSTRATED_LOOK,
+        )
+    if look_name != ILLUSTRATED_LOOK:
+        storyboard = upgrade_storyboard_v4(storyboard)
     if args.plate_dir:
         plate_dir = args.plate_dir.expanduser().resolve()
         if not plate_dir.is_dir():
@@ -200,8 +215,9 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
             chapter.seed = (chapter.seed + args.seed_offset * 104729) % (2 ** 32)
     storyboard.slug = slug
     storyboard.title = args.title or storyboard.title
-    look_name = args.look or storyboard.look or "plata"
     storyboard.look = look_name
+    if look_name == ILLUSTRATED_LOOK:
+        analyze_storyboard_plates(storyboard)
     external_pronunciations = {}
     if args.pronunciations:
         external_pronunciations = json.loads(Path(args.pronunciations).expanduser().read_text(encoding="utf-8"))
@@ -214,6 +230,14 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
     art_direction_path = out_dir / f"{slug}-art-direction.md"
     write_json(storyboard_path, asdict(storyboard))
     write_art_direction(art_direction_path, storyboard)
+    illustrated_summary = (
+        illustrated_protocol_summary(storyboard) if look_name == ILLUSTRATED_LOOK else None
+    )
+    illustrated_protocol_path = out_dir / f"{slug}-illustrated-protocol.json"
+    illustration_briefs_path = out_dir / f"{slug}-illustration-briefs.json"
+    if illustrated_summary is not None:
+        write_json(illustrated_protocol_path, illustrated_summary)
+        write_json(illustration_briefs_path, illustration_briefs(storyboard))
     write_json(brief_path, {
         "title": storyboard.title,
         "slug": storyboard.slug,
@@ -228,6 +252,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         "format": storyboard.format,
         "source_word_count": len(source_text.split()),
         "narration_word_count": len(text.split()),
+        "illustrated_protocol": illustrated_summary,
         "art_direction": [
             {
                 "chapter": chapter.id,
@@ -246,6 +271,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
                 "lighting": chapter.lighting,
                 "metamorphosis": chapter.metamorphosis,
                 "plate": chapter.plate,
+                "illustration": asdict(chapter.illustration) if chapter.illustration else None,
             }
             for chapter in storyboard.chapters
         ],
@@ -268,21 +294,35 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         "voice_performance_script": str(voice_script_path),
         "social_adaptation": str(adaptation_path),
     }
-    shot_dir = out_dir / "storyboard-stills"
-    shot_stills = stills.render_shot_stills(storyboard_path, shot_dir, look_name)
-    storyboard_sheet = stills.contact_sheet(
-        shot_stills, out_dir / f"{slug}-storyboard-contact-sheet.png", columns=3, look_name=look_name,
+    if illustrated_summary is not None:
+        assets["illustrated_protocol"] = str(illustrated_protocol_path)
+        assets["illustration_briefs"] = str(illustration_briefs_path)
+    has_all_illustrated_plates = look_name != ILLUSTRATED_LOOK or all(
+        chapter.plate and Path(chapter.plate).exists() for chapter in storyboard.chapters
     )
-    assets["storyboard_contact_sheet"] = str(storyboard_sheet)
-    hero_dir = out_dir / "hero-plates"
-    hero_stills = stills.render_hero_stills(storyboard_path, hero_dir, look_name)
-    hero_sheet = stills.contact_sheet(
-        hero_stills, out_dir / f"{slug}-hero-plate-contact-sheet.png",
-        columns=min(5, max(1, len(hero_stills))), look_name=look_name,
-    )
-    assets["hero_plate_contact_sheet"] = str(hero_sheet)
+    if has_all_illustrated_plates:
+        shot_dir = out_dir / "storyboard-stills"
+        shot_stills = stills.render_shot_stills(storyboard_path, shot_dir, look_name)
+        storyboard_sheet = stills.contact_sheet(
+            shot_stills, out_dir / f"{slug}-storyboard-contact-sheet.png", columns=3, look_name=look_name,
+        )
+        assets["storyboard_contact_sheet"] = str(storyboard_sheet)
+        hero_dir = out_dir / "hero-plates"
+        hero_stills = stills.render_hero_stills(storyboard_path, hero_dir, look_name)
+        hero_sheet = stills.contact_sheet(
+            hero_stills, out_dir / f"{slug}-hero-plate-contact-sheet.png",
+            columns=min(5, max(1, len(hero_stills))), look_name=look_name,
+        )
+        assets["hero_plate_contact_sheet"] = str(hero_sheet)
     if args.brief_only:
         return assets
+    if look_name == ILLUSTRATED_LOOK:
+        readiness = validate_illustrated_protocol(storyboard, require_render_ready=True)
+        if readiness:
+            sample = "\n".join(f"- {value}" for value in readiness[:24])
+            raise RuntimeError(
+                "Illustrated protocol is not approved; refusing to synthesize or render:\n" + sample
+            )
     voice_path, timings, duration = synthesize_voice(
         voice_script, out_dir, slug, args.tts, args.voice, args.edge_rate, args.edge_pitch,
         args.say_voice, args.say_rate, args.render_seconds,
@@ -292,6 +332,16 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         duration = min(duration, args.render_seconds)
     captions = build_precise_captions(storyboard.chapters, timings)
     validate_caption_sync(captions, timings)
+    if look_name == ILLUSTRATED_LOOK:
+        illustrated_timeline = bind_illustrated_timeline(storyboard, captions)
+        illustrated_timeline_path = out_dir / f"{slug}-illustrated-timeline.json"
+        write_json(illustrated_timeline_path, illustrated_timeline)
+        assets["illustrated_timeline"] = str(illustrated_timeline_path)
+        if not illustrated_timeline["passed"]:
+            raise RuntimeError(
+                "Illustrated word-bound timeline failed: "
+                + "; ".join(illustrated_timeline["errors"][:12])
+            )
     srt_path, vtt_path = out_dir / f"{slug}.srt", out_dir / f"{slug}.vtt"
     word_timings_path = out_dir / f"{slug}-word-timings.json"
     write_subtitles(captions, srt_path, vtt_path)
@@ -416,7 +466,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
     manifest = out_dir / f"{slug}-manifest.json"
     write_json(manifest, {
         "software": "cinematic-ascii-video",
-        "version": 4,
+        "version": storyboard.version,
         "input": str(input_path),
         "duration_seconds": round(duration, 3),
         "canvas": {"width": args.width, "height": args.height, "fps": args.fps},
@@ -433,6 +483,7 @@ def run_render(args: argparse.Namespace) -> dict[str, str]:
         "platform_url": args.platform_url,
         "seed_offset": args.seed_offset,
         "plate_dir": str(args.plate_dir.expanduser().resolve()) if args.plate_dir else "",
+        "illustrated_protocol": illustrated_summary,
         "assets": assets,
     })
     assets["manifest"] = str(manifest)

@@ -51,6 +51,67 @@ class Shot:
 
 
 @dataclass
+class GraphicCue:
+    """A non-textual intervention tied to exact local narration tokens."""
+
+    id: str
+    kind: str
+    purpose: str
+    trigger_token: int
+    end_token: int
+    source: str = ""
+    target: str = ""
+    treatment: str = "violet-path"
+    target_region: list[float] = field(default_factory=list)
+
+
+@dataclass
+class PlateAnalysis:
+    """Technical inspection plus the human semantic review of one illustration."""
+
+    path: str = ""
+    checksum: str = ""
+    status: str = "missing"
+    width: int = 0
+    height: int = 0
+    aspect_ratio: float = 0.0
+    luma_mean: float = 0.0
+    contrast: float = 0.0
+    edge_density: float = 0.0
+    palette: list[str] = field(default_factory=list)
+    focus_box: list[float] = field(default_factory=list)
+    overlay_regions: list[list[float]] = field(default_factory=list)
+    semantic_summary: str = ""
+    narrative_match: str = ""
+    must_show_coverage: list[str] = field(default_factory=list)
+    must_avoid_clear: bool = False
+    continuity_notes: str = ""
+    approved: bool = False
+
+
+@dataclass
+class IllustrationDirection:
+    """Narrative contract for one image unit in the illustrated protocol."""
+
+    word_start: int
+    word_end: int
+    narration_checksum: str
+    boundary_reason: str
+    narrative_function: str
+    proposition: str
+    visual_thesis: str
+    image_brief: str
+    must_show: list[str] = field(default_factory=list)
+    must_avoid: list[str] = field(default_factory=list)
+    continuity_in: str = ""
+    continuity_out: str = ""
+    transition: str = "motivated-cut"
+    graphics: list[GraphicCue] = field(default_factory=list)
+    plate_analysis: PlateAnalysis = field(default_factory=PlateAnalysis)
+    direction_approved: bool = False
+
+
+@dataclass
 class Chapter:
     id: str
     label: str
@@ -79,6 +140,7 @@ class Chapter:
     depth_layers: int = 4
     lighting: str = "volumetric"
     metamorphosis: str = "reveal"
+    illustration: IllustrationDirection | None = None
 
 
 @dataclass
@@ -94,6 +156,9 @@ class Storyboard:
     look: str = "plata"
     format: str = "reel"
     pronunciations: dict[str, str] = field(default_factory=dict)
+    illustrated_protocol: int = 0
+    illustrated_review_status: str = "not-applicable"
+    overlay_policy: str = "semantic-labels"
 
 
 _CHAPTER_FIELDS = {f.name for f in fields(Chapter)}
@@ -131,6 +196,33 @@ def load_storyboard(path: Path) -> Storyboard:
             for value in chapter.get("shots", [])
             if isinstance(value, (dict, Shot))
         ]
+        illustration = chapter.get("illustration")
+        if isinstance(illustration, dict):
+            graphics = [
+                value if isinstance(value, GraphicCue) else GraphicCue(**{
+                    key: val for key, val in value.items()
+                    if key in {f.name for f in fields(GraphicCue)}
+                })
+                for value in illustration.get("graphics", [])
+                if isinstance(value, (dict, GraphicCue))
+            ]
+            analysis_raw = illustration.get("plate_analysis", {})
+            analysis = (
+                analysis_raw if isinstance(analysis_raw, PlateAnalysis)
+                else PlateAnalysis(**{
+                    key: val for key, val in analysis_raw.items()
+                    if key in {f.name for f in fields(PlateAnalysis)}
+                }) if isinstance(analysis_raw, dict) else PlateAnalysis()
+            )
+            chapter["illustration"] = IllustrationDirection(**{
+                **{
+                    key: val for key, val in illustration.items()
+                    if key in {f.name for f in fields(IllustrationDirection)}
+                    and key not in {"graphics", "plate_analysis"}
+                },
+                "graphics": graphics,
+                "plate_analysis": analysis,
+            })
         chapters.append(Chapter(**chapter))
     return Storyboard(
         title=payload["title"],
@@ -144,6 +236,9 @@ def load_storyboard(path: Path) -> Storyboard:
         look=payload.get("look", "plata"),
         format=payload.get("format", "long" if int(payload.get("version", 2)) < 3 else "reel"),
         pronunciations=payload.get("pronunciations", {}),
+        illustrated_protocol=int(payload.get("illustrated_protocol", 0)),
+        illustrated_review_status=payload.get("illustrated_review_status", "not-applicable"),
+        overlay_policy=payload.get("overlay_policy", "semantic-labels"),
     )
 
 

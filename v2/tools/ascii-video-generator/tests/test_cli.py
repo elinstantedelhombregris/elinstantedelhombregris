@@ -4,6 +4,7 @@ import re
 import subprocess
 import sys
 import time
+from dataclasses import asdict
 from pathlib import Path
 
 import pytest
@@ -11,6 +12,8 @@ import pytest
 from ascii_studio import cli
 from ascii_studio.render import frames, tokens
 from ascii_studio.scene.legacy import LegacyChapter
+from ascii_studio.storyboard.build import build_storyboard
+from ascii_studio.storyboard.schema import load_storyboard, write_json
 
 STORYBOARD = {
     "title": "t", "slug": "s", "thesis": "t", "keywords": [],
@@ -53,6 +56,56 @@ def test_render_parser_defaults_to_the_permanent_brand_signature():
 def test_benchmark_can_measure_the_v4_world_engine():
     args = cli.build_parser().parse_args(["bench", "--world", "civic-plaza"])
     assert args.world == "civic-plaza"
+
+
+def test_illustrated_brief_writes_protocol_without_rendering_fallback_stills(tmp_path):
+    source = tmp_path / "essay.md"
+    source.write_text(
+        "# Otra arquitectura\n\nLa presidencia concentra poder. Sin embargo la ciudadanía coordina redes.",
+        encoding="utf-8",
+    )
+    out = tmp_path / "out"
+    args = cli.build_parser().parse_args([
+        "render", "--input", str(source), "--out", str(out),
+        "--look", "tinta-papel-ilustrado", "--brief-only", "--chapters", "1",
+    ])
+    assets = cli.run_render(args)
+    board = load_storyboard(Path(assets["storyboard"]))
+
+    assert board.version == 5
+    assert board.illustrated_protocol == 1
+    assert len(board.chapters) > 1  # old maximum is irrelevant
+    assert "illustrated_protocol" in assets
+    assert "illustration_briefs" in assets
+    briefs = json.loads(Path(assets["illustration_briefs"]).read_text(encoding="utf-8"))
+    assert briefs["count_policy"] == "narrative-earned-no-minimum-no-maximum"
+    assert briefs["image_count"] == len(board.chapters)
+    assert "storyboard_contact_sheet" not in assets
+    assert not list(out.glob("*.mp4"))
+
+
+def test_unapproved_illustrated_plan_stops_before_speech_or_video(tmp_path, monkeypatch):
+    source = tmp_path / "essay.md"
+    source.write_text("# Red\n\nLa red distribuye poder.", encoding="utf-8")
+    board = build_storyboard("Red", "red", "La red distribuye poder.", 8, illustrated=True)
+    storyboard = tmp_path / "board.json"
+    write_json(storyboard, asdict(board))
+    called = False
+
+    def forbidden_speech(*_args, **_kwargs):
+        nonlocal called
+        called = True
+        raise AssertionError("speech synthesis must not run")
+
+    monkeypatch.setattr(cli, "synthesize_voice", forbidden_speech)
+    args = cli.build_parser().parse_args([
+        "render", "--input", str(source), "--out", str(tmp_path / "out"),
+        "--storyboard", str(storyboard), "--look", "tinta-papel-ilustrado",
+    ])
+    with pytest.raises(RuntimeError, match="refusing to synthesize or render"):
+        cli.run_render(args)
+    assert not called
+    assert not list((tmp_path / "out").glob("*.mp4"))
 
 
 def test_compatible_delivery_rejects_missing_file(tmp_path):

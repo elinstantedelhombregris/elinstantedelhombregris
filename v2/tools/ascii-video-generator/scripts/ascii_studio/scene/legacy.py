@@ -51,6 +51,8 @@ class LegacyChapter:
     lighting: str = "volumetric"
     metamorphosis: str = "reveal"
     world_only: bool = False
+    graphic_cues: list[dict] = dc_field(default_factory=list)
+    overlay_policy: str = "semantic-labels"
 
 
 def field_luminance(

@@ -10,6 +10,7 @@ import cv2
 import numpy as np
 
 from .package import probe
+from ..storyboard.illustrated import validate_illustrated_protocol
 
 
 def _audio_metrics(path: Path) -> dict[str, float]:
@@ -155,6 +156,9 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
     look_name = str(getattr(storyboard, "look", ""))
     paper_look = look_name.startswith("tinta-papel")
     illustrated_look = look_name == "tinta-papel-ilustrado"
+    illustrated_protocol_ready = not validate_illustrated_protocol(
+        storyboard, require_render_ready=True,
+    ) if illustrated_look else True
     signature_bright_fraction = _signature_bright_fraction(frames, paper=paper_look)
     brand_accent_fraction = _brand_accent_fraction(frames) if paper_look else 0.0
     background_structure = _background_structure(frames)
@@ -195,8 +199,9 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
         "caption_word_parity": sum(len(caption.words) for caption in captions) == len(word_timings),
         "caption_timing_order": timings_ordered,
         "caption_visible_parity": all(len(caption.text.split()) == len(caption.words) for caption in captions),
-        "three_shots_per_chapter": all(value >= 3 for value in shot_counts),
-        "semantic_chapters": all(semantic),
+        "three_shots_per_chapter": illustrated_look or all(value >= 3 for value in shot_counts),
+        "semantic_chapters": illustrated_look or all(semantic),
+        "illustrated_protocol": illustrated_protocol_ready,
         "visual_change": bool(differences) and float(np.median(differences)) > 1.2,
         "exposure": _exposure_ok(
             brightness, paper=paper_look, illustrated=illustrated_look,
@@ -208,16 +213,18 @@ def verify_package(master: Path, cover: Path, storyboard, captions: list, word_t
             brightness, frame_contrast, illustrated=illustrated_look,
         ),
         "paper_brand_accents": (not paper_look) or brand_accent_fraction > 0.00004,
-        "cinematic_worlds": (not v4) or all(value not in {"", "abstract-field"} for value in worlds),
-        "four_depth_planes": (not v4) or all(
+        "cinematic_worlds": (not v4) or illustrated_look or all(value not in {"", "abstract-field"} for value in worlds),
+        "four_depth_planes": (not v4) or illustrated_look or all(
             int(getattr(chapter, "depth_layers", 0)) >= 4 for chapter in storyboard.chapters
         ),
-        "semantic_metamorphosis": (not v4) or all(
+        "semantic_metamorphosis": (not v4) or illustrated_look or all(
             getattr(chapter, "metamorphosis", "") not in {"", "none", "reveal"}
             for chapter in storyboard.chapters
         ),
-        "world_diversity": (not v4) or world_diversity >= 0.75,
-        "background_structure": (not v4) or 0.008 <= background_structure <= 0.38,
+        "world_diversity": (not v4) or illustrated_look or world_diversity >= 0.75,
+        "background_structure": (not v4) or (
+            0.008 <= background_structure <= (0.72 if illustrated_look else 0.38)
+        ),
         "temporal_coherence": (not v4) or (not temporal_applicable) or 0.02 <= adjacent_motion <= 12.0,
         "hero_plate_contact_sheet": (not v4) or bool(
             (required_assets or {}).get("hero_plate_contact_sheet")

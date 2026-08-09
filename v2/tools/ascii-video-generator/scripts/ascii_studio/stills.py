@@ -27,6 +27,16 @@ def chapters_from_storyboard(path: Path) -> list[LegacyChapter]:
     board = load_storyboard(Path(path))
     chapters: list[LegacyChapter] = []
     for entry in board.chapters:
+        graphic_cues = (
+            [asdict(value) for value in entry.illustration.graphics]
+            if entry.illustration else []
+        )
+        reveal_points = {}
+        if entry.illustration:
+            local_count = max(1, entry.illustration.word_end - entry.illustration.word_start)
+            for cue in entry.illustration.graphics:
+                reveal_points[f"graphic:{cue.id}:start"] = cue.trigger_token / local_count
+                reveal_points[f"graphic:{cue.id}:end"] = min(1.0, (cue.end_token + 1) / local_count)
         chapters.append(LegacyChapter(
             motif=entry.motif or entry.archetype,
             keyword=entry.keyword, anchors=list(entry.anchors), seed=entry.seed,
@@ -38,6 +48,8 @@ def chapters_from_storyboard(path: Path) -> list[LegacyChapter]:
             world=entry.world, hero_subject=entry.hero_subject, plate=entry.plate,
             depth_layers=entry.depth_layers, lighting=entry.lighting,
             metamorphosis=entry.metamorphosis,
+            graphic_cues=graphic_cues, reveal_points=reveal_points,
+            overlay_policy=board.overlay_policy,
         ))
     return chapters
 
@@ -83,7 +95,10 @@ def render_hero_stills(storyboard_path: Path, out_dir: Path,
     written: list[Path] = []
     for index, chapter in enumerate(chapters_from_storyboard(storyboard_path)):
         renderer.reset()
-        frame = renderer.frame(replace(chapter, world_only=True), STILL_TIME + 0.88, 0.88, index)
+        frame = renderer.frame(
+            replace(chapter, world_only=True, graphic_cues=[]),
+            STILL_TIME + 0.88, 0.88, index,
+        )
         path = out_dir / f"{index + 1:02d}-{chapter.world}-hero.png"
         Image.fromarray(frame).save(path)
         written.append(path)

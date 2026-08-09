@@ -40,6 +40,65 @@ benches/tests/stills that call `frame()` without `env` get exactly the
 pre-existing pipeline, unchanged."""
 
 
+def _smoothstep(value: float) -> float:
+    value = float(np.clip(value, 0.0, 1.0))
+    return value * value * (3.0 - 2.0 * value)
+
+
+def _planned_graphics(
+    chapter: LegacyChapter, height: int, width: int, progress: float,
+) -> np.ndarray:
+    """Draw only approved, word-bound, non-textual interventions."""
+    layer = np.zeros((height, width), dtype=np.float32)
+    for cue in chapter.graphic_cues:
+        cue_id = str(cue.get("id", ""))
+        start = float(chapter.reveal_points.get(f"graphic:{cue_id}:start", 1.01))
+        end = float(chapter.reveal_points.get(f"graphic:{cue_id}:end", 1.0))
+        if progress < start or progress > end + 0.06:
+            continue
+        strength = _smoothstep((progress - start) / 0.075)
+        if progress > end:
+            strength *= 1.0 - _smoothstep((progress - end) / 0.06)
+        region = cue.get("target_region", [])
+        if not isinstance(region, (list, tuple)) or len(region) != 4:
+            continue
+        x0, y0, x1, y1 = [float(np.clip(value, 0.0, 1.0)) for value in region]
+        left, top = round(x0 * width), round(y0 * height)
+        right, bottom = round(x1 * width), round(y1 * height)
+        if right - left < 8 or bottom - top < 8:
+            continue
+        kind = str(cue.get("kind", "relationship-path"))
+        thickness = max(2, round(width * 0.0045))
+        value = float(np.clip(strength, 0.0, 1.0))
+        center = ((left + right) // 2, (top + bottom) // 2)
+        if kind == "feedback-loop":
+            axes = (max(4, (right - left) // 2 - thickness), max(4, (bottom - top) // 2 - thickness))
+            cv2.ellipse(layer, center, axes, 0, 18, 338, value, thickness, cv2.LINE_AA)
+            tip = (right - thickness * 2, center[1] - thickness)
+            cv2.line(layer, tip, (tip[0] - thickness * 3, tip[1] - thickness * 2), value,
+                     thickness, cv2.LINE_AA)
+        elif kind == "split-field":
+            cv2.line(layer, (center[0], top), (center[0], bottom), value, thickness, cv2.LINE_AA)
+            tick = max(8, (right - left) // 8)
+            cv2.line(layer, (center[0] - tick, top), (center[0] + tick, top), value,
+                     thickness, cv2.LINE_AA)
+            cv2.line(layer, (center[0] - tick, bottom), (center[0] + tick, bottom), value,
+                     thickness, cv2.LINE_AA)
+        elif kind in {"subtraction-mask", "reveal-mask"}:
+            cv2.rectangle(layer, (left, top), (right, bottom), value, thickness, cv2.LINE_AA)
+            cv2.line(layer, (left, bottom), (right, top), value * 0.82, thickness, cv2.LINE_AA)
+        else:
+            p0 = (left, bottom - thickness)
+            p1 = (left + (right - left) // 3, top + (bottom - top) // 3)
+            p2 = (right, top + thickness)
+            points = np.asarray([p0, p1, p2], dtype=np.int32)
+            cv2.polylines(layer, [points], False, value, thickness, cv2.LINE_AA)
+            radius = max(3, thickness * 2)
+            cv2.circle(layer, p0, radius, value, -1, cv2.LINE_AA)
+            cv2.circle(layer, p2, radius, value, -1, cv2.LINE_AA)
+    return np.clip(layer, 0.0, 1.0)
+
+
 class Renderer:
     def __init__(
         self, look: Look, width: int = 1080, height: int = 1920, scene: str = "composer",
@@ -65,15 +124,16 @@ class Renderer:
         self._scene_state = {}
 
     def _illustrated_frame(
-        self, extra: np.ndarray | None, frame_index: int,
+        self, chapter: LegacyChapter, progress: float,
+        extra: np.ndarray | None, frame_index: int,
     ) -> np.ndarray | None:
         """Print semantic graphics over a complete approved colour plate.
 
         This path deliberately bypasses glyph matching: the illustration stays
-        whole, while the same semantic layer used by the ASCII modes is absorbed
-        into it as violet/red editorial ink.  A look without an approved plate
-        falls through to the ordinary glyph renderer, so the mode remains safe
-        for older storyboards and native procedural worlds.
+        whole, while only reviewed non-textual cues are absorbed into it as
+        violet/red editorial ink. A look without an approved plate falls through
+        to the ordinary glyph renderer; the production protocol prevents that
+        fallback from being published accidentally.
         """
         plate = self._scene_state.get("world_plate_rgb")
         if plate is None:
@@ -83,13 +143,8 @@ class Renderer:
             plate = cv2.resize(plate, (width, height), interpolation=cv2.INTER_CUBIC)
         rgb = np.clip(plate, 0.0, 1.0).astype(np.float32).copy()
 
-        semantic = self._scene_state.get("semantic_layer")
-        if semantic is not None and self.look.illustration_graphics > 0:
-            semantic = cv2.resize(
-                semantic, (width, height), interpolation=cv2.INTER_LINEAR,
-            ).astype(np.float32)
-            mask = np.clip((semantic - 0.035) / 0.965, 0.0, 1.0)
-            mask = np.power(mask, 0.78, dtype=np.float32)
+        mask = _planned_graphics(chapter, height, width, progress)
+        if np.any(mask > 0.001) and self.look.illustration_graphics > 0:
             edge = cv2.Canny((mask * 255).astype(np.uint8), 38, 112)
             edge = cv2.GaussianBlur(edge.astype(np.float32) / 255.0, (0, 0), 0.55)
             strength = float(np.clip(self.look.illustration_graphics, 0.0, 1.0))
@@ -148,7 +203,7 @@ class Renderer:
             lum = np.clip(lum + extra, 0.0, 1.0)
 
         if self.look.is_illustrated:
-            illustrated = self._illustrated_frame(extra, frame_index)
+            illustrated = self._illustrated_frame(chapter, progress, extra, frame_index)
             if illustrated is not None:
                 return illustrated
 
