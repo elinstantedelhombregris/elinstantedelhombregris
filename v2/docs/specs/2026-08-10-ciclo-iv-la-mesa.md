@@ -55,11 +55,26 @@ y no negocia después:
 - Una casa rota bien no transmite peor que una casa entera mal.
 - El que no tuvo hijos igual cría, y el que no tuvo familia no está condenado.
 
-**2.3. El ciclo tiene un solo músculo.** La reparación. Se entrena en una cocina
-a los cinco años (ensayo 3), se examina en una cama a los ochenta (ensayo 6), y
-se firma en las dos direcciones del tiempo (ensayo 7). Ni el Ciclo I ni el II
-tuvieron esa unidad; el III la tuvo y por eso es el mejor encadenado de los
-tres. Este la busca deliberadamente.
+**2.3. El ciclo tiene un solo músculo: decir el final.** Los finales que no se
+dicen —la puerta, el silencio que se hace costumbre— se ejecutan solos. El que
+se dice es el único que no ocurre por defecto, y es el único que educa. Se
+entrena en una cocina a los cinco años (ensayo 3), se examina en una cama a los
+ochenta (ensayo 6) y se firma en las dos direcciones del tiempo (ensayo 7). Ni
+el Ciclo I ni el II tuvieron esa unidad; el III la tuvo y por eso es el mejor
+encadenado de los tres. Este la busca deliberadamente.
+
+**La reparación es el caso doméstico del músculo, no el músculo.** Reparar es
+decir un final cuyo contenido es *seguimos acá*: dos que se pelearon vuelven a
+nombrarse en voz alta y dejan dicho que el vínculo sigue en pie aunque el
+desacuerdo no se haya movido un centímetro. Que además *enseñe* depende de dónde
+ocurre —delante de quien los vio pelear—; hecha a solas repara igual y no enseña
+nada. Esa distinción entre la operación y su condición pedagógica es lo que
+permite que los ensayos 6 y 7 reusen el músculo: el ensayo 6 dice finales sin
+prórroga y a veces sin testigo, y la carta del ensayo 7 dice un final por
+escrito, de a uno, a alguien que puede estar muerto y con quien el vínculo no
+siguió en pie. Si el músculo fuera "la reparación" con el testigo y la
+continuidad del vínculo adentro de la definición, ninguno de esos dos usos
+sería legal.
 
 ---
 
@@ -169,14 +184,17 @@ PLANFOCO (la palabra pública, mismo mecanismo en escala grande).
 *Sobre la reparación, y sobre lo que se aprende de cómo terminan las peleas*
 
 **Tesis — la keystone del ciclo.** El chico no aprende del conflicto. Aprende de
-**cómo termina** el conflicto. El que nunca vio a dos adultos pelearse y
+**cómo termina** el conflicto. Y de los tres finales posibles, sólo uno se dice
+en vez de ejecutarse solo: ahí nace el músculo del ciclo. El que nunca vio a dos adultos pelearse y
 quedarse aprende una sola cosa, y la aprende bien: que el desacuerdo se resuelve
 por ruptura. A los cuarenta ejecuta a escala nacional lo que aprendió a los
 cinco.
 
 **Movimiento.** Tres finales posibles de una pelea doméstica —la ruptura, el
 silencio que se hace costumbre, la reparación explícita— y qué aprende un
-testigo chico de cada uno. La casa sin conflicto visible no enseña paz: enseña
+testigo chico de cada uno. La definición de reparar se fija acá y tiene que
+quedar **portable**: la operación por un lado, el testigo como condición de que
+enseñe por el otro (ver §2.3). La casa sin conflicto visible no enseña paz: enseña
 que el conflicto es innombrable, que es el mismo resultado por otra vía. Y
 después el salto de escala, que es el aporte del ensayo a toda la serie: setenta
 años de grieta no son el producto de una ideología, son el resultado agregado de
@@ -321,9 +339,9 @@ volvió distinto, el que no volvió, el que colaboró—. Un chico que crece con
 silencio en la casa no crece sin el hecho: crece con el hecho más el miedo a
 nombrarlo.
 
-**Sanar antes.** Irse en paz con los demás es la reparación del ensayo 3 sin
-prórroga posible: la misma operación, ahora con fecha de vencimiento
-desconocida. La postergación de una reparación es una apuesta a que va a haber
+**Sanar antes.** Irse en paz con los demás es el músculo del ensayo 3 sin
+prórroga posible: decir un final, ahora con fecha de vencimiento desconocida y a
+veces sin nadie mirando. La postergación de una reparación es una apuesta a que va a haber
 tiempo, y es la única apuesta que la casa hace todos los días sin darse cuenta
 de que la está haciendo.
 
@@ -352,8 +370,10 @@ ciclo, que es la referencia estructural más importante del texto.
 *Dos textos: uno que salda, uno que abre*
 
 **Tesis del cierre.** La carta salda hacia atrás; el acuerdo abre hacia
-adelante; y no se puede firmar el segundo sin haber escrito la primera. Es la
-reparación del ensayo 3 ejecutada en las dos direcciones del tiempo.
+adelante; y no se puede firmar el segundo sin haber escrito la primera. Es el
+músculo del ensayo 3 —decir el final— ejecutado en las dos direcciones del
+tiempo: la carta dice un final que ya ocurrió, el acuerdo dice de antemano cómo
+se van a decir los que vengan.
 
 **Estructura.** Ensayo con dos documentos incrustados, con precedente en la
 serie: el Credo va dentro de `06-belleza.md`, el Acta en la sección III de su
