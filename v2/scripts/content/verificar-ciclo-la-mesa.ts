@@ -136,6 +136,9 @@ export function auditar(
       for (const m of carto.matchAll(/^- \*([^*]+)\*/gm)) {
         referencias++;
         const titulo = (m[1] ?? '').trim();
+        // Los PLANes ya los valida la regla de arriba contra content/planes;
+        // volver a mirarlos acá sólo produciría una advertencia por cada uno.
+        if (/^PLAN[A-Z0-9]{2,}$/.test(titulo)) continue;
         if (!titulosConocidos.has(titulo)) push(archivo, 'titulo-desconocido', titulo);
       }
 
@@ -181,6 +184,20 @@ function listarTitulos(): Set<string> {
         const raw = readFileSync(resolve(dir, entrada.name), 'utf-8');
         const primera = raw.split('\n').find((l) => l.trim() !== '') ?? '';
         if (primera.startsWith('# ')) titulos.add(primera.slice(2).trim());
+
+        // Las Cartografías del corpus ya publicado citan, además de ensayos,
+        // superficies de la plataforma (*El Mapa*, *La Semilla de ¡BASTA!*,
+        // *El Mandato Vivo*) y apodos de planes (*Empresas Bastardas*). Todo
+        // lo que los 21 ensayos previos ya citaron cuenta como conocido: la
+        // regla existe para cazar un título inventado, no para pelearse con
+        // la casa. Se excluye el ciclo nuevo, que es justo lo que se audita.
+        if (dir === SRC_DIR) continue;
+        const idx = raw.indexOf('\n## Cartografía');
+        if (idx < 0) continue;
+        for (const m of raw.slice(idx).matchAll(/^- \*([^*]+)\*/gm)) {
+          const t = (m[1] ?? '').trim();
+          if (t !== '') titulos.add(t);
+        }
       }
     }
   };
