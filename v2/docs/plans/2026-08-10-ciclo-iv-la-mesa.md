@@ -281,22 +281,22 @@ function listarEnsayos(): Set<string> {
 
 function main(): void {
   if (!existsSync(SRC_DIR)) {
-    console.error(`✗ no existe ${SRC_DIR}`);
+    process.stderr.write(`✗ no existe ${SRC_DIR}\n`);
     process.exit(1);
   }
   const archivos = readdirSync(SRC_DIR).filter((f) => /^0[1-7]-[a-z0-9-]+\.md$/.test(f)).sort();
   const docs = archivos.map((archivo) => ({ archivo, raw: readFileSync(resolve(SRC_DIR, archivo), 'utf-8') }));
   const hallazgos = auditar(docs, listarPlanes(), listarEnsayos());
 
-  for (const h of hallazgos) console.error(`✗ ${h.archivo} — ${h.regla}: ${h.detalle}`);
-  console.log(`${String(archivos.length)}/${String(ESPERADOS)} ensayos · ${String(hallazgos.length)} hallazgos`);
+  for (const h of hallazgos) process.stderr.write(`✗ ${h.archivo} — ${h.regla}: ${h.detalle}\n`);
+  process.stdout.write(`${String(archivos.length)}/${String(ESPERADOS)} ensayos · ${String(hallazgos.length)} hallazgos\n`);
 
   if (hallazgos.length > 0) process.exit(1);
   if (archivos.length !== ESPERADOS) {
-    console.error(`✗ ciclo incompleto: faltan ${String(ESPERADOS - archivos.length)} ensayos`);
+    process.stderr.write(`✗ ciclo incompleto: faltan ${String(ESPERADOS - archivos.length)} ensayos\n`);
     process.exit(1);
   }
-  console.log('✓ el ciclo pasa el guardián');
+  process.stdout.write('✓ el ciclo pasa el guardián\n');
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) main();
@@ -686,7 +686,7 @@ El guardián verifica forma. Esta tarea verifica que los siete sean **un** argum
 | 3 → 4 | Si la casa enseñó a romper, ¿quién le sacó lo que hacía falta para enseñar a reparar? |
 | 4 → 5 | Si la casa está vaciada, ¿qué se pierde exactamente cuando se pierde criar? |
 | 5 → 6 | Si criar termina en aceptar la propia sustitución, ¿cómo se sale? |
-| 6 → 7 | Si irse en paz es reparar sin prórroga, ¿qué se escribe mientras todavía hay tiempo? |
+| 6 → 7 | Si irse en paz es decir el final sin prórroga, ¿qué se escribe mientras todavía hay tiempo? |
 
 - [ ] **Step 3: Verificar el músculo único.** La reparación aparece en el 3 (se define), en el 6 (sin prórroga) y en el 7 (en las dos direcciones). Confirmar que en los tres es **la misma operación con el mismo nombre** y no tres cosas parecidas.
 
