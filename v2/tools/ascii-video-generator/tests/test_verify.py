@@ -39,13 +39,13 @@ def test_illustrated_paper_still_rejects_crushed_or_flat_frames():
     assert not _paper_surface_ok([101.0], 12.0, illustrated=True)
 
 
-def test_illustrated_accent_gate_recognizes_silver_without_counting_paper():
+def test_illustrated_accent_gate_recognizes_cobalt_without_counting_paper():
     paper = np.full((120, 120, 3), (242, 239, 231), dtype=np.uint8)
-    silver = paper.copy()
-    silver[20:80, 20:80] = (203, 210, 217)
+    cobalt = paper.copy()
+    cobalt[20:80, 20:80] = (64, 89, 199)
 
     assert _brand_accent_fraction([paper], "tinta-papel-ilustrado") == 0.0
-    assert _brand_accent_fraction([silver], "tinta-papel-ilustrado") > 0.01
+    assert _brand_accent_fraction([cobalt], "tinta-papel-ilustrado") > 0.01
 
 
 def test_silent_three_second_smoke_does_not_require_publishable_loudness():

@@ -87,16 +87,16 @@ explicitly requested; direct the film through semantic and shot fields.
   `human-pulse`, `iris-dawn`, or `dawn`.
 - `metamorphosis`: the visible conceptual transformation completed by the chapter.
 
-## Illustrated protocol v5
+## Illustrated storyboard v5 / protocol v3
 
-`tinta-papel-ilustrado` uses v5. Here a chapter is an earned image unit, not a
+`tinta-papel-ilustrado` uses storyboard v5 and illustrated protocol v3. Here a chapter is an earned image unit, not a
 fixed-duration ASCII chapter. The top level must contain:
 
 ```json
 {
   "version": 5,
   "look": "tinta-papel-ilustrado",
-  "illustrated_protocol": 1,
+  "illustrated_protocol": 3,
   "illustrated_review_status": "planning",
   "overlay_policy": "graphics-only"
 }
@@ -125,7 +125,10 @@ Every chapter adds an `illustration` contract:
       "kind": "causal-path",
       "purpose": "The semantic relation this intervention makes visible without text.",
       "trigger_token": 12,
+      "callout_trigger_token": 17,
       "end_token": 36,
+      "callout": "distributed authority",
+      "animation": "register-build-trace-resolve",
       "target_region": [0.08, 0.18, 0.38, 0.42]
     }
   ],
@@ -147,9 +150,11 @@ Every chapter adds an `illustration` contract:
 
 Token ranges are zero-based, half-open and must cover the full visible/spoken script
 without gaps or overlaps. Graphic trigger indexes are local to the image unit and
-are resolved to native TTS word-boundary timestamps before rendering. Text, label,
-title, word and caption graphic kinds are invalid; ordinary karaoke captions remain
-in their reserved caption zone.
+are resolved to native TTS word-boundary timestamps before rendering. The visual
+trigger may precede the phrase so the object can register and build;
+`callout_trigger_token` must point to the exact first narrated word printed by
+`callout`. Text, label, title, word and caption graphic kinds are invalid; ordinary
+karaoke captions remain in their reserved caption zone.
 
 ## Motifs and Looks
 

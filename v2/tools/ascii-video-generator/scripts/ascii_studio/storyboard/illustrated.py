@@ -38,7 +38,7 @@ from .schema import (
 )
 
 ILLUSTRATED_LOOK = "tinta-papel-ilustrado"
-PROTOCOL_VERSION = 2
+PROTOCOL_VERSION = 3
 FORBIDDEN_GRAPHIC_KINDS = {"label", "text", "title", "word", "caption"}
 
 _TURN_MARKERS = (
@@ -199,6 +199,17 @@ def _local_trigger(tokens: Sequence[str], relation: Relation) -> int:
     return max(0, len(tokens) // 2)
 
 
+def _phrase_trigger(tokens: Sequence[str], phrase: str, fallback: int) -> int:
+    """Locate the exact first token of authored microtext in local narration."""
+    wanted = normalized_words(phrase)
+    surfaces = [word_core(token) for token in tokens]
+    if wanted:
+        for index in range(len(surfaces) - len(wanted) + 1):
+            if surfaces[index:index + len(wanted)] == wanted:
+                return index
+    return fallback
+
+
 def _graphic_kind(relation: Relation) -> str:
     return {
         "causes": "causal-path",
@@ -215,6 +226,8 @@ def _graphic_kind(relation: Relation) -> str:
 def _relation_callout(narrated: str, relation: Relation) -> str:
     """Return a short phrase already spoken, never invented overlay copy."""
     narration_words = normalized_words(narrated)
+    tokens = narrated.split()
+    valid: list[tuple[str, int]] = []
     for candidate in (
         f"{relation.source} {relation.target}".strip(),
         relation.target,
@@ -235,8 +248,22 @@ def _relation_callout(narrated: str, relation: Relation) -> str:
             continue
         for index in range(len(narration_words) - len(words) + 1):
             if narration_words[index:index + len(words)] == words:
-                return candidate.strip().upper()
-    return ""
+                valid.append((candidate.strip().upper(), index))
+                break
+    if not valid:
+        return ""
+    # Prefer the relation target while it still leaves enough narration to
+    # reveal and hold.  A target on the final word would only flash; in that
+    # case use the earliest valid source phrase and bind it to its own word.
+    target = relation.target.strip().upper()
+    minimum_tail = max(3, round(len(tokens) * 0.16))
+    target_match = next((value for value in valid if value[0] == target), None)
+    if (
+        target_match
+        and len(tokens) - target_match[1] - len(normalized_words(target)) >= minimum_tail
+    ):
+        return target_match[0]
+    return min(valid, key=lambda value: value[1])[0]
 
 
 def _cue_animation(kind: str) -> str:
@@ -289,11 +316,21 @@ def make_illustration_direction(
     )
     graphics: list[GraphicCue] = []
     for index, relation in enumerate(relations):
-        trigger = _local_trigger(tokens, relation)
+        semantic_trigger = _local_trigger(tokens, relation)
         kind = _graphic_kind(relation)
-        # A relation should animate around the phrase that names it, not remain
-        # painted over the entire rest of a chapter.
-        end = min(len(tokens) - 1, trigger + max(3, min(8, len(tokens) // 4)))
+        callout = _relation_callout(narrated, relation)
+        callout_trigger = _phrase_trigger(tokens, callout, semantic_trigger)
+        # The visual argument begins before the exact phrase that names it, then
+        # develops through that phrase and resolves near the end of the image
+        # unit.  Microtext remains tied to ``callout_trigger``; separating the
+        # two timings gives the object enough screen life to tell a story.
+        prelude = max(1, min(5, len(tokens) // 6))
+        trigger = max(0, callout_trigger - prelude)
+        minimum_life = max(6, round(len(tokens) * 0.62))
+        end = min(
+            len(tokens) - 1,
+            max(callout_trigger + 4, trigger + minimum_life),
+        )
         graphics.append(GraphicCue(
             id=f"relation-{index + 1:02d}", kind=kind,
             purpose=(
@@ -301,9 +338,10 @@ def make_illustration_direction(
                 f"{relation.target}; el microtexto, si existe, sólo identifica una frase ya pronunciada."
             ),
             trigger_token=trigger, end_token=max(trigger, end),
+            callout_trigger_token=callout_trigger,
             source=relation.source, target=relation.target,
-            treatment="bright-silver-thread-red-punctuation",
-            callout=_relation_callout(narrated, relation),
+            treatment="cobalt-indigo-ink-red-punctuation",
+            callout=callout,
             animation=_cue_animation(kind),
             emphasis="primary" if index == 0 else "secondary",
         ))
@@ -323,6 +361,10 @@ def make_illustration_direction(
         must_avoid=[
             "texto incrustado", "rótulos flotantes", "metáfora genérica",
             "elementos decorativos sin función narrativa", "duplicar literalmente el subtítulo",
+            "rostros o siluetas reconocibles de dirigentes, candidatos o figuras públicas reales",
+            "peinados, gestos, patillas, trajes o poses asociados a líderes políticos contemporáneos",
+            "un varón carismático central presentado como héroe, conductor o salvador",
+            "símbolos, colores, consignas o iconografía de partidos políticos reales",
         ],
         continuity_in=continuity_in,
         transition="motivated-cut",
@@ -494,6 +536,12 @@ def validate_illustrated_protocol(
                 problems.append(f"{prefix}/{cue.id}: el ilustrado prohíbe gráficos de texto")
             if not (0 <= cue.trigger_token <= cue.end_token < max(1, len(tokens))):
                 problems.append(f"{prefix}/{cue.id}: cue fuera del rango de narración")
+            callout_token = (
+                cue.callout_trigger_token
+                if cue.callout_trigger_token >= 0 else cue.trigger_token
+            )
+            if not (cue.trigger_token <= callout_token <= cue.end_token):
+                problems.append(f"{prefix}/{cue.id}: microtexto fuera del desarrollo visual")
             if not cue.purpose:
                 problems.append(f"{prefix}/{cue.id}: falta propósito semántico")
             if len(cue.callout.split()) > 4:
@@ -590,6 +638,7 @@ def illustration_briefs(storyboard: Storyboard) -> dict[str, object]:
                 {
                     "id": cue.id, "kind": cue.kind, "purpose": cue.purpose,
                     "trigger_token": cue.trigger_token, "end_token": cue.end_token,
+                    "callout_trigger_token": cue.callout_trigger_token,
                     "callout": cue.callout, "animation": cue.animation,
                     "emphasis": cue.emphasis,
                 }
@@ -635,11 +684,20 @@ def bind_illustrated_timeline(
             if not (0 <= cue.trigger_token <= cue.end_token < len(timed_words)):
                 problems.append(f"{chapter.id}/{cue.id}: cue sin palabra temporizada")
                 continue
+            callout_token = (
+                cue.callout_trigger_token
+                if cue.callout_trigger_token >= 0 else cue.trigger_token
+            )
+            if not (cue.trigger_token <= callout_token <= cue.end_token):
+                problems.append(f"{chapter.id}/{cue.id}: microtexto fuera del desarrollo visual")
+                continue
             graphics.append({
                 "id": cue.id, "kind": cue.kind, "purpose": cue.purpose,
                 "start_seconds": round(timed_words[cue.trigger_token].start, 4),
                 "end_seconds": round(timed_words[cue.end_token].end, 4),
                 "trigger_word": timed_words[cue.trigger_token].text,
+                "callout_seconds": round(timed_words[callout_token].start, 4),
+                "callout_word": timed_words[callout_token].text,
                 "target_region": cue.target_region,
                 "callout": cue.callout,
                 "animation": cue.animation,

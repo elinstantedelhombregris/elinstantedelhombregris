@@ -1,4 +1,4 @@
-# Illustrated narrative protocol v2
+# Illustrated narrative protocol v3
 
 ## Principle
 
@@ -33,12 +33,14 @@ of editorial analysis and has no minimum or maximum.
   deduplicated.
 - Image cuts occur at editorial boundaries and final timestamps derive from spoken
   word events, not estimated seconds.
-- Every graphic cue declares its semantic purpose, exact trigger/end token, animation,
-  treatment and reviewed target region. A graphic is optional; decoration is not a
-  reason. It draws on, pulses and retracts instead of appearing as a static overlay.
+- Every graphic cue declares its semantic purpose, visual prelude, exact callout/end
+  token, animation, treatment and reviewed target region. A graphic is optional;
+  decoration is not a reason. It registers, constructs, reveals secondary structure,
+  traces and resolves instead of appearing as a static overlay.
 - A cue may carry one microtext of one to four words only when those exact words are
   already present in the narration. It identifies the animated object; it never
-  paraphrases, introduces a new claim or duplicates a complete subtitle.
+  paraphrases, introduces a new claim or duplicates a complete subtitle. Its first
+  visible frame is bound to the first exact spoken word of that same phrase.
 - Floating concepts, chapter headers and keyword furniture remain disabled. One
   opening title enters as a printed strip, holds long enough to orient the viewer and
   clears. Karaoke captions and the permanent website remain in reserved zones.
@@ -63,9 +65,9 @@ copying a subject from any individual plate.
 
 - **Form:** editorial woodcut/linocut, carved black line, dense directional hatching,
   irregular pressure and physical paper grain.
-- **Palette:** black ink and aged cream/ochre stock dominate. Bright cold silver,
-  edged in graphite and animated with a restrained directional sheen, is reserved
-  for systems, routes and alternatives; red is a single warning, fracture or decision.
+- **Palette:** black ink and aged cream/ochre stock dominate. Cold cobalt-indigo
+  `#4059C7`, printed as absorbed spot ink rather than metal, is reserved for systems,
+  routes and alternatives; red is a single warning, fracture or decision.
 - **Composition:** one legible civic allegory, monumental perspective, concrete
   foreground/midground/horizon and people acting collectively inside the system.
 - **World:** Argentine architecture, territory and public infrastructure without
@@ -83,7 +85,7 @@ approve anatomy, composition or narrative meaning; those remain human decisions.
 
 - `draw-pulse-arrive`: causal line draws by travelled distance, pulses at the moving
   tip and resolves with an arrow only after arrival.
-- `thread-pulse-connect`: a bright silver thread joins concrete endpoints; nodes appear only
+- `thread-pulse-connect`: a cobalt-indigo thread joins concrete endpoints; nodes appear only
   when reached.
 - `arch-build-settle`: a bridge is constructed from one side to the other.
 - `orbit-draw-pulse`: a feedback arc closes progressively and marks direction.
@@ -96,3 +98,8 @@ approve anatomy, composition or narrative meaning; those remain human decisions.
 At an image cut the incoming plate appears on the exact first spoken word. A brief
 risograph-registration settle and travelling ink seam animate the cut after that
 boundary; the next image is never leaked early by a crossfade.
+
+Every graphic cue now carries separate timings for its visual prelude and its exact
+narrated callout. It develops through registration, construction, secondary structure,
+travelling trace and red resolution, occupying most of the earned image unit instead
+of flashing as a short decorative line.

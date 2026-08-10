@@ -2,7 +2,7 @@
   "name": "tinta-papel-ilustrado",
   "background": "#F2EFE7",
   "ramp": ["#FBFAF4", "#E4E0D3", "#B5B1A8", "#7A756A", "#4A463D", "#33302A", "#241F17", "#16130E"],
-  "accent": "#CBD2D9",
+  "accent": "#4059C7",
   "secondary_accent": "#C23B22",
   "glyph_set": "cinematic",
   "field_font": "assets/fonts/SpaceMono-Bold.ttf",

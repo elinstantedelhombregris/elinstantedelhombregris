@@ -71,7 +71,7 @@ def test_tinta_papel_ilustrado_is_a_separate_full_plate_mode():
     assert look.is_illustrated
     assert look.render_mode == "illustrated"
     assert look.illustration_graphics > 0.5
-    assert look.accent == "#CBD2D9"
+    assert look.accent == "#4059C7"
 
 
 def test_tinta_papel_bundles_the_brand_type_system():

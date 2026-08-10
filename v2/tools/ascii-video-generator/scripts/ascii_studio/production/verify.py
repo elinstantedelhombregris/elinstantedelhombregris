@@ -71,7 +71,7 @@ def _brand_accent_fraction(frames: list[np.ndarray], look_name: str = "") -> flo
     if not frames:
         return 0.0
     primary = (
-        np.array([203, 210, 217])
+        np.array([64, 89, 199])
         if look_name == "tinta-papel-ilustrado"
         else np.array([82, 39, 204])
     )
@@ -81,7 +81,7 @@ def _brand_accent_fraction(frames: list[np.ndarray], look_name: str = "") -> flo
         sample = frame[::4, ::4].astype(np.int16)
         near = np.zeros(sample.shape[:2], dtype=bool)
         for target in targets:
-            threshold = 44.0 if look_name == "tinta-papel-ilustrado" else 58.0
+            threshold = 50.0 if look_name == "tinta-papel-ilustrado" else 58.0
             near |= np.sqrt(np.sum((sample - target) ** 2, axis=2)) < threshold
         values.append(float(np.mean(near)))
     return float(np.median(values))

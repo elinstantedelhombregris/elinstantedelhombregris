@@ -132,6 +132,14 @@ def reveal_points_for(chapter: Chapter, captions: Sequence, ranges: dict) -> dic
                 points[f"graphic:{cue.id}:end"] = float(np.clip(
                     (timed_words[cue.end_token].end - start) / span, 0.0, 1.0,
                 ))
+            callout_token = (
+                cue.callout_trigger_token
+                if cue.callout_trigger_token >= 0 else cue.trigger_token
+            )
+            if 0 <= callout_token < len(timed_words):
+                points[f"graphic:{cue.id}:callout"] = float(np.clip(
+                    (timed_words[callout_token].start - start) / span, 0.0, 1.0,
+                ))
     return points
 
 

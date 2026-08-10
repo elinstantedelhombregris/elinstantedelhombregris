@@ -59,12 +59,13 @@ class GraphicCue:
     purpose: str
     trigger_token: int
     end_token: int
+    callout_trigger_token: int = -1
     source: str = ""
     target: str = ""
-    treatment: str = "silver-foil-path"
+    treatment: str = "cobalt-indigo-pigment"
     target_region: list[float] = field(default_factory=list)
     callout: str = ""
-    animation: str = "draw-hold-retract"
+    animation: str = "register-build-trace-resolve"
     emphasis: str = "primary"
 
 

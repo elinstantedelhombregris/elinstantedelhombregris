@@ -37,6 +37,11 @@ def chapters_from_storyboard(path: Path) -> list[LegacyChapter]:
             for cue in entry.illustration.graphics:
                 reveal_points[f"graphic:{cue.id}:start"] = cue.trigger_token / local_count
                 reveal_points[f"graphic:{cue.id}:end"] = min(1.0, (cue.end_token + 1) / local_count)
+                callout_token = (
+                    cue.callout_trigger_token
+                    if cue.callout_trigger_token >= 0 else cue.trigger_token
+                )
+                reveal_points[f"graphic:{cue.id}:callout"] = callout_token / local_count
         chapters.append(LegacyChapter(
             motif=entry.motif or entry.archetype,
             keyword=entry.keyword, anchors=list(entry.anchors), seed=entry.seed,

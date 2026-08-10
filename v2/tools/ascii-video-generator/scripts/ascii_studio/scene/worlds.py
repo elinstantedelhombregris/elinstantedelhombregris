@@ -461,16 +461,14 @@ def _animate_plate_rgb(rgb: np.ndarray, depth: np.ndarray,
     return np.clip(output, 0.0, 1.0).astype(np.float32)
 
 
-def _replace_violet_with_silver(
+def _replace_legacy_violet_with_accent(
     rgb: np.ndarray, violet_mask: np.ndarray, accent: np.ndarray,
 ) -> np.ndarray:
-    """Turn legacy concept-plate violet into textured cold silver.
+    """Reprint a legacy violet separation with the current approved spot ink.
 
-    The presidents reference plates predate the silver art direction.  Their
-    violet is an authored spot separation, so replacing that separation is both
-    safer and more faithful than globally desaturating the complete image.  The
-    plate's own luminance supplies subtle engraved relief; bright specular motion
-    is added later only to live semantic graphics.
+    The early presidents plates contain an authored violet separation. Reusing
+    its mask preserves the engraving while letting the house system move to the
+    colder, more blue cobalt-indigo without a global colour transformation.
     """
     if not np.any(violet_mask > 0.01):
         return rgb
@@ -480,13 +478,15 @@ def _replace_violet_with_silver(
     )
     relief = cv2.GaussianBlur(luma.astype(np.float32), (0, 0), 0.85)
     relief = np.clip(0.88 + (relief - 0.5) * 0.22, 0.78, 1.04)
-    silver = accent[None, None, :].astype(np.float32) * relief[:, :, None]
-    # A cool white edge makes the replacement read as reflective foil while
-    # retaining enough graphite value to remain visible on warm paper.
+    pigment = accent[None, None, :].astype(np.float32) * relief[:, :, None]
+    # A denser blue edge reads as pressed spot ink, not reflective metal.
     edge = cv2.Canny((violet_mask * 255).astype(np.uint8), 28, 88)
     edge = cv2.GaussianBlur(edge.astype(np.float32) / 255.0, (0, 0), 0.62)
-    silver = np.clip(silver + edge[:, :, None] * np.array([0.08, 0.09, 0.10]), 0.0, 1.0)
-    return np.clip(rgb * (1.0 - mask) + silver * mask, 0.0, 1.0).astype(np.float32)
+    pigment = np.clip(
+        pigment - edge[:, :, None] * np.array([0.025, 0.030, 0.010]),
+        0.0, 1.0,
+    )
+    return np.clip(rgb * (1.0 - mask) + pigment * mask, 0.0, 1.0).astype(np.float32)
 
 
 def _narrative_light(shape: tuple[int, int], lighting: str, morph: float,
@@ -518,7 +518,7 @@ def render_world(chapter: LegacyChapter, shape: tuple[int, int], t: float,
         rgb = state.get("world_plate_rgb")
         if rgb is not None:
             if colour_only and colour_accent is not None and violet is not None:
-                rgb = _replace_violet_with_silver(rgb, violet, colour_accent)
+                rgb = _replace_legacy_violet_with_accent(rgb, violet, colour_accent)
             state["world_plate_rgb"] = _animate_plate_rgb(
                 rgb, locked.depth, chapter, t, progress,
             )

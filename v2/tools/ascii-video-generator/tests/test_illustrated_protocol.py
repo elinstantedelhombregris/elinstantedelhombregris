@@ -4,7 +4,9 @@ import cv2
 import numpy as np
 import pytest
 
-from ascii_studio.render.frames import _planned_graphics, _press_registration_entry
+from ascii_studio.render.frames import (
+    _planned_graphic_layers, _planned_graphics, _press_registration_entry,
+)
 from ascii_studio.render.tokens import load_look
 from ascii_studio.scene.legacy import LegacyChapter
 from ascii_studio.storyboard.build import build_storyboard, scene_ranges
@@ -15,6 +17,7 @@ from ascii_studio.storyboard.illustrated import (
     validate_illustrated_protocol,
 )
 from ascii_studio.storyboard.schema import Caption, WordTiming, load_storyboard, write_json
+from ascii_studio.text import normalized_words, word_core
 
 
 NARRATION = (
@@ -38,6 +41,30 @@ def test_illustrated_segmentation_has_no_requested_minimum_or_maximum():
     assert board.illustrated_review_status == "planning"
     assert all(len(chapter.shots) == 1 for chapter in board.chapters)
     assert not validate_illustrated_protocol(board)
+
+
+def test_graphics_get_a_long_visual_arc_and_a_separate_exact_callout():
+    board = build_storyboard(
+        "Autoridad distribuida", "autoridad-distribuida",
+        "La presidencia concentra toda la información política en una sola persona, "
+        "mientras la ciudadanía conecta decisiones y distribuye autoridad entre comunidades.",
+        8, illustrated=True,
+    )
+    cues = [
+        cue for chapter in board.chapters if chapter.illustration
+        for cue in chapter.illustration.graphics
+    ]
+
+    assert cues
+    assert all(cue.trigger_token <= cue.callout_trigger_token <= cue.end_token for cue in cues)
+    assert all(cue.end_token - cue.trigger_token >= 5 for cue in cues)
+    for chapter in board.chapters:
+        tokens = [word_core(value) for value in " ".join(chapter.texts).split()]
+        for cue in chapter.illustration.graphics:
+            words = normalized_words(cue.callout)
+            assert tokens[
+                cue.callout_trigger_token:cue.callout_trigger_token + len(words)
+            ] == words
 
 
 def test_illustrated_segmentation_never_deduplicates_repeated_narration():
@@ -236,6 +263,27 @@ def test_every_illustrated_object_has_a_progressive_draw_animation(kind):
     assert late.max() > 0.0
     assert not np.array_equal(early, late)
     assert np.count_nonzero(late) >= np.count_nonzero(early)
+
+
+@pytest.mark.parametrize("kind", [
+    "connection-path", "bridge", "feedback-loop", "split-field",
+    "subtraction-mask", "reveal-mask",
+])
+def test_every_object_develops_structure_echo_and_red_resolution(kind):
+    chapter = LegacyChapter(
+        motif="network", graphic_cues=[{
+            "id": "cue", "kind": kind,
+            "target_region": [0.12, 0.14, 0.86, 0.58],
+        }],
+        reveal_points={"graphic:cue:start": 0.12, "graphic:cue:end": 0.90},
+    )
+    primary, echo, punctuation = _planned_graphic_layers(
+        chapter, 320, 180, 0.78,
+    )
+
+    assert np.count_nonzero(primary) > 0
+    assert np.count_nonzero(echo) > 0
+    assert np.count_nonzero(punctuation) > 0
 
 
 def test_plate_registration_animates_after_the_exact_cut_then_settles():

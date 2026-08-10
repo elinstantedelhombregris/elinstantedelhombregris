@@ -129,8 +129,8 @@ Available looks:
   risograph misregistration and press-designed sound.
 - `tinta-papel-ilustrado`: the same editorial system with complete approved
   illustrations preserved in full colour, narrative-first image planning, mandatory
-  post-image analysis, exact word-bound non-textual graphics and restrained
-  depth-aware camera parallax.
+  post-image analysis, exact word-bound non-textual graphics, cold cobalt-indigo
+  semantic ink, multi-act interventions and restrained depth-aware camera parallax.
 - `terminal`: phosphor green terminal energy.
 - `blueprint`: precise technical cyan.
 - `archive`: warm documentary paper and amber.

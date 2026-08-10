@@ -42,7 +42,7 @@ INK_75 = (74, 70, 61)
 INK_50 = (122, 117, 106)
 BORDER_SOFT = (216, 212, 200)
 VIOLET = (82, 39, 204)
-SILVER_SHADOW = (91, 98, 106)
+INDIGO_SHADOW = (34, 43, 104)
 STAMP_RED = (194, 59, 34)
 
 
@@ -289,7 +289,7 @@ def _draw_paper_caption(img: Image.Image, grid: Grid, look: Look, caption, t: fl
                 if look.is_illustrated:
                     draw.line(
                         (bbox[0], underline_y, bbox[2], underline_y),
-                        fill=(*SILVER_SHADOW, 248), width=max(4, size // 7),
+                        fill=(*INDIGO_SHADOW, 248), width=max(4, size // 7),
                     )
                 draw.line(
                     (bbox[0], underline_y, bbox[2], underline_y),
@@ -304,7 +304,7 @@ def _draw_paper_caption(img: Image.Image, grid: Grid, look: Look, caption, t: fl
             if cursor == active and look.is_illustrated:
                 draw.text(
                     (x, y), word, font=font, fill=fill,
-                    stroke_width=max(1, size // 30), stroke_fill=(*SILVER_SHADOW, 255),
+                    stroke_width=max(1, size // 30), stroke_fill=(*INDIGO_SHADOW, 255),
                 )
             else:
                 draw.text((x, y), word, font=font, fill=fill)
@@ -726,7 +726,7 @@ def draw_illustrated_title_card(
     if not title or duration <= 0.0 or t < 0.0 or t >= duration:
         return
     draw = ImageDraw.Draw(img, "RGBA")
-    silver = tuple(int(channel * 255) for channel in look.accent_rgb())
+    indigo = tuple(int(channel * 255) for channel in look.accent_rgb())
     x0, y0, x1, _y1 = grid.zone_px(ZONES["stage"])
     margin = int(grid.width * 0.035)
     left, right = x0 + margin, x1 - margin
@@ -772,11 +772,11 @@ def draw_illustrated_title_card(
     rule_width = max(3, grid.width // 270)
     draw.line(
         (left, rule_y, left + (panel_right - left) * min(1.0, enter * 1.3), rule_y),
-        fill=(*SILVER_SHADOW, round(230 * opacity)), width=rule_width + max(2, rule_width // 2),
+        fill=(*INDIGO_SHADOW, round(230 * opacity)), width=rule_width + max(2, rule_width // 2),
     )
     draw.line(
         (left, rule_y, left + (panel_right - left) * min(1.0, enter * 1.3), rule_y),
-        fill=(*silver, round(255 * opacity)), width=rule_width,
+        fill=(*indigo, round(255 * opacity)), width=rule_width,
     )
 
     total_chars = sum(len(line.replace(" ", "")) for line in lines)
@@ -792,7 +792,7 @@ def draw_illustrated_title_card(
                 seen += 1
             if revealed:
                 alpha = round(255 * opacity)
-                draw.text((x + 2, y), char, font=font, fill=(*silver, round(alpha * 0.30)))
+                draw.text((x + 2, y), char, font=font, fill=(*indigo, round(alpha * 0.30)))
                 draw.text((x - 2, y), char, font=font, fill=(*STAMP_RED, round(alpha * 0.14)))
                 draw.text((x, y), char, font=font, fill=(*INK, alpha))
             x += char_width
@@ -810,14 +810,17 @@ def draw_illustrated_callouts(
     if chapter is None:
         return
     draw = ImageDraw.Draw(img, "RGBA")
-    silver = tuple(int(channel * 255) for channel in look.accent_rgb())
+    indigo = tuple(int(channel * 255) for channel in look.accent_rgb())
     for cue in getattr(chapter, "graphic_cues", []):
         text = str(cue.get("callout", "")).strip().upper()
         if not text:
             continue
         cue_id = str(cue.get("id", ""))
-        start = float(getattr(chapter, "reveal_points", {}).get(
+        graphic_start = float(getattr(chapter, "reveal_points", {}).get(
             f"graphic:{cue_id}:start", 1.01,
+        ))
+        start = float(getattr(chapter, "reveal_points", {}).get(
+            f"graphic:{cue_id}:callout", graphic_start,
         ))
         end = float(getattr(chapter, "reveal_points", {}).get(
             f"graphic:{cue_id}:end", 1.0,
@@ -852,16 +855,16 @@ def draw_illustrated_callouts(
         bx1, by1 = bx0 + box_width, by0 + box_height
         alpha = round(220 * strength)
         draw.rectangle((bx0, by0, bx1, by1), fill=(*PAPER_RAW, alpha))
-        # The silver thread ties the label to the actual intervention; the red
+        # The indigo thread ties the label to the actual intervention; the red
         # square is punctuation, never a second competing colour field.
         rule_end = bx0 + round(box_width * min(1.0, local / 0.42))
         rule_width = max(3, grid.width // 300)
         draw.line(
-            (bx0, by1, rule_end, by1), fill=(*SILVER_SHADOW, round(240 * strength)),
+            (bx0, by1, rule_end, by1), fill=(*INDIGO_SHADOW, round(240 * strength)),
             width=rule_width + max(2, rule_width // 2),
         )
         draw.line(
-            (bx0, by1, rule_end, by1), fill=(*silver, round(255 * strength)),
+            (bx0, by1, rule_end, by1), fill=(*indigo, round(255 * strength)),
             width=rule_width,
         )
         marker = max(4, grid.width // 135)

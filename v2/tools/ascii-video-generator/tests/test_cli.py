@@ -73,7 +73,7 @@ def test_illustrated_brief_writes_protocol_without_rendering_fallback_stills(tmp
     board = load_storyboard(Path(assets["storyboard"]))
 
     assert board.version == 5
-    assert board.illustrated_protocol == 2
+    assert board.illustrated_protocol == 3
     assert len(board.chapters) > 1  # old maximum is irrelevant
     assert "illustrated_protocol" in assets
     assert "illustration_briefs" in assets

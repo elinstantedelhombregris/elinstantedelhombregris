@@ -92,22 +92,46 @@ def _arrowhead(
                  thickness, cv2.LINE_AA)
 
 
-def _planned_graphics(
+def _polyline_point(points: np.ndarray, fraction: float) -> tuple[int, int]:
+    """Return a stable distance-based point for a travelling editorial tracer."""
+    points = np.asarray(points, dtype=np.float32)
+    if len(points) < 2:
+        return tuple(points[0].astype(int)) if len(points) else (0, 0)
+    segments = points[1:] - points[:-1]
+    lengths = np.sqrt(np.sum(segments * segments, axis=1))
+    remaining = float(lengths.sum()) * float(np.clip(fraction, 0.0, 1.0))
+    for index, length in enumerate(lengths):
+        if remaining <= float(length):
+            amount = remaining / max(1e-5, float(length))
+            return tuple(np.rint(points[index] + segments[index] * amount).astype(int))
+        remaining -= float(length)
+    return tuple(np.rint(points[-1]).astype(int))
+
+
+def _planned_graphic_layers(
     chapter: LegacyChapter, height: int, width: int, progress: float,
-) -> np.ndarray:
-    """Draw approved editorial objects with authored entrance/hold/exit motion."""
-    layer = np.zeros((height, width), dtype=np.float32)
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Build a multi-act editorial intervention, not a decorative one-line cue.
+
+    Every approved object has four readable stages: register the area, construct
+    the main relationship, reveal secondary structure, then send a tracer to a
+    red point of consequence.  Returning separate pigment layers keeps the red
+    semantic instead of manufacturing a colour fringe around every blue line.
+    """
+    primary = np.zeros((height, width), dtype=np.float32)
+    echo = np.zeros((height, width), dtype=np.float32)
+    punctuation = np.zeros((height, width), dtype=np.float32)
     for cue in chapter.graphic_cues:
         cue_id = str(cue.get("id", ""))
         start = float(chapter.reveal_points.get(f"graphic:{cue_id}:start", 1.01))
         end = float(chapter.reveal_points.get(f"graphic:{cue_id}:end", 1.0))
-        if progress < start or progress > end + 0.06:
+        if progress < start or progress > end + 0.08:
             continue
         span = max(0.012, end - start)
         local = float(np.clip((progress - start) / span, 0.0, 1.0))
-        strength = _smoothstep(local / 0.20)
+        strength = _smoothstep(local / 0.14)
         if progress > end:
-            strength *= 1.0 - _smoothstep((progress - end) / 0.06)
+            strength *= 1.0 - _smoothstep((progress - end) / 0.08)
         region = cue.get("target_region", [])
         if not isinstance(region, (list, tuple)) or len(region) != 4:
             continue
@@ -116,85 +140,166 @@ def _planned_graphics(
         right, bottom = round(x1 * width), round(y1 * height)
         if right - left < 8 or bottom - top < 8:
             continue
+
         kind = str(cue.get("kind", "relationship-path"))
         thickness = max(2, round(width * 0.0045))
         value = float(np.clip(strength, 0.0, 1.0))
-        reveal = _smoothstep(local / 0.56)
+        registration = _smoothstep(local / 0.16)
+        construction = _smoothstep((local - 0.07) / 0.39)
+        structure = _smoothstep((local - 0.30) / 0.30)
+        trace = _smoothstep((local - 0.50) / 0.34)
         center = ((left + right) // 2, (top + bottom) // 2)
+        node_radius = max(3, thickness * 2)
+
+        # Quiet crop/registration marks establish where to look before the
+        # semantic object begins to draw.
+        corner = max(7, round(min(right - left, bottom - top) * 0.075 * registration))
+        if corner:
+            for x, y, sx, sy in (
+                (left, top, 1, 1), (right, top, -1, 1),
+                (left, bottom, 1, -1), (right, bottom, -1, -1),
+            ):
+                cv2.line(echo, (x, y), (x + sx * corner, y), value * 0.44,
+                         max(1, thickness // 2), cv2.LINE_AA)
+                cv2.line(echo, (x, y), (x, y + sy * corner), value * 0.44,
+                         max(1, thickness // 2), cv2.LINE_AA)
+
         if kind == "feedback-loop":
-            axes = (max(4, (right - left) // 2 - thickness), max(4, (bottom - top) // 2 - thickness))
-            angle_end = 18 + 320 * reveal
-            cv2.ellipse(layer, center, axes, 0, 18, angle_end, value,
+            axes = (
+                max(4, (right - left) // 2 - thickness),
+                max(4, (bottom - top) // 2 - thickness),
+            )
+            angle_end = 18 + 320 * construction
+            cv2.ellipse(primary, center, axes, 0, 18, angle_end, value,
                         thickness, cv2.LINE_AA)
+            inner = (max(3, round(axes[0] * 0.73)), max(3, round(axes[1] * 0.73)))
+            cv2.ellipse(echo, center, inner, 0, 198, 198 + 286 * structure,
+                        value * 0.62, max(1, thickness // 2), cv2.LINE_AA)
             angle = np.deg2rad(angle_end)
             tip = (
                 round(center[0] + axes[0] * np.cos(angle)),
                 round(center[1] + axes[1] * np.sin(angle)),
             )
             tangent = (-axes[0] * np.sin(angle), axes[1] * np.cos(angle))
-            if reveal > 0.32:
-                _arrowhead(layer, tip, tangent, value, thickness)
-            pulse = 0.5 + 0.5 * np.sin(local * np.pi * 6.0)
-            cv2.circle(layer, center, max(4, round(thickness * (1.8 + pulse))),
-                       value * (0.56 + pulse * 0.34), thickness, cv2.LINE_AA)
+            if construction > 0.35:
+                _arrowhead(primary, tip, tangent, value, thickness)
+            if trace > 0.0:
+                trace_angle = np.deg2rad(18 + 320 * trace)
+                tracer = (
+                    round(center[0] + axes[0] * np.cos(trace_angle)),
+                    round(center[1] + axes[1] * np.sin(trace_angle)),
+                )
+                cv2.circle(punctuation, tracer, node_radius, value, -1, cv2.LINE_AA)
+                cv2.circle(echo, center, round(node_radius * (1.2 + trace)),
+                           value * 0.55, max(1, thickness // 2), cv2.LINE_AA)
         elif kind == "split-field":
-            half = round((bottom - top) * 0.5 * reveal)
-            cv2.line(layer, (center[0], center[1] - half),
+            half = round((bottom - top) * 0.5 * construction)
+            cv2.line(primary, (center[0], center[1] - half),
                      (center[0], center[1] + half), value, thickness, cv2.LINE_AA)
-            tick = max(8, round((right - left) * 0.14 * reveal))
-            cv2.line(layer, (center[0] - tick, top), (center[0] + tick, top),
-                     value, thickness, cv2.LINE_AA)
-            cv2.line(layer, (center[0] - tick, bottom), (center[0] + tick, bottom),
-                     value, thickness, cv2.LINE_AA)
+            branch = round((right - left) * 0.41 * structure)
+            upper_y = top + round((bottom - top) * 0.22)
+            lower_y = bottom - round((bottom - top) * 0.22)
+            for y in (upper_y, lower_y):
+                cv2.line(echo, (center[0] - branch, y), (center[0] + branch, y),
+                         value * 0.72, max(1, thickness // 2), cv2.LINE_AA)
+                cv2.line(echo, (center[0], y),
+                         (center[0], center[1]), value * 0.54,
+                         max(1, thickness // 2), cv2.LINE_AA)
+            if trace > 0.0:
+                side = -1 if int(trace * 8) % 2 == 0 else 1
+                tracer = (center[0] + round(side * branch * trace),
+                          upper_y if side < 0 else lower_y)
+                cv2.circle(punctuation, tracer, node_radius, value, -1, cv2.LINE_AA)
         elif kind == "reveal-mask":
-            corner = max(10, round(min(right - left, bottom - top) * 0.22 * reveal))
+            reveal_corner = max(10, round(min(right - left, bottom - top) * 0.22 * construction))
             for x, y, sx, sy in (
                 (left, top, 1, 1), (right, top, -1, 1),
                 (left, bottom, 1, -1), (right, bottom, -1, -1),
             ):
-                cv2.line(layer, (x, y), (x + sx * corner, y), value,
+                cv2.line(primary, (x, y), (x + sx * reveal_corner, y), value,
                          thickness, cv2.LINE_AA)
-                cv2.line(layer, (x, y), (x, y + sy * corner), value,
+                cv2.line(primary, (x, y), (x, y + sy * reveal_corner), value,
                          thickness, cv2.LINE_AA)
-            scan_x = round(left + (right - left) * reveal)
-            cv2.line(layer, (scan_x, top), (scan_x, bottom), value * 0.72,
+            scan_x = round(left + (right - left) * structure)
+            cv2.line(echo, (scan_x, top), (scan_x, bottom), value * 0.76,
                      max(1, thickness // 2), cv2.LINE_AA)
+            if trace > 0.0:
+                scan_y = round(top + (bottom - top) * trace)
+                cv2.circle(punctuation, (scan_x, scan_y), node_radius, value,
+                           -1, cv2.LINE_AA)
         elif kind == "subtraction-mask":
-            diagonal_count = 7
-            visible = max(1, round(diagonal_count * reveal))
+            diagonal_count = 9
+            visible = max(1, round(diagonal_count * construction))
             for index in range(visible):
                 offset = index / max(1, diagonal_count - 1)
                 x = round(left + (right - left) * offset)
-                cv2.line(layer, (x, bottom),
+                cv2.line(primary, (x, bottom),
                          (min(right, x + (right - left) // 3), top),
                          value, thickness, cv2.LINE_AA)
+            baseline_y = round(bottom - (bottom - top) * 0.12)
+            cv2.line(echo, (left, baseline_y),
+                     (round(left + (right - left) * structure), baseline_y),
+                     value * 0.68, max(1, thickness // 2), cv2.LINE_AA)
+            if trace > 0.0:
+                x = round(left + (right - left) * trace)
+                cv2.circle(punctuation, (x, baseline_y), node_radius, value,
+                           -1, cv2.LINE_AA)
         elif kind == "bridge":
-            xs = np.linspace(left, right, 28, dtype=np.float32)
+            xs = np.linspace(left, right, 32, dtype=np.float32)
             normalized = (xs - left) / max(1.0, right - left)
             ys = bottom - np.sin(normalized * np.pi) * (bottom - top) * 0.82
             points = np.stack((xs, ys), axis=1)
-            tip = _draw_polyline_fraction(layer, points, reveal, value, thickness)
-            cv2.circle(layer, (left, bottom), max(3, thickness * 2), value,
-                       -1, cv2.LINE_AA)
-            if reveal > 0.96:
-                cv2.circle(layer, (right, bottom), max(3, thickness * 2), value,
-                           -1, cv2.LINE_AA)
+            tip = _draw_polyline_fraction(primary, points, construction, value, thickness)
+            support_count = 5
+            visible_supports = round(support_count * structure)
+            for index in range(1, visible_supports + 1):
+                position = index / (support_count + 1)
+                support = _polyline_point(points, position)
+                cv2.line(echo, support, (support[0], bottom), value * 0.62,
+                         max(1, thickness // 2), cv2.LINE_AA)
+            cv2.circle(primary, (left, bottom), node_radius, value, -1, cv2.LINE_AA)
+            if construction > 0.96:
+                cv2.circle(primary, (right, bottom), node_radius, value, -1, cv2.LINE_AA)
+            if trace > 0.0:
+                cv2.circle(punctuation, _polyline_point(points, trace), node_radius,
+                           value, -1, cv2.LINE_AA)
         else:
             p0 = (left, bottom - thickness)
             p1 = (left + (right - left) // 3, top + (bottom - top) // 3)
             p2 = (left + round((right - left) * 0.70), top + round((bottom - top) * 0.58))
             p3 = (right, top + thickness)
             points = np.asarray([p0, p1, p2, p3], dtype=np.float32)
-            tip = _draw_polyline_fraction(layer, points, reveal, value, thickness)
-            radius = max(3, thickness * 2)
-            cv2.circle(layer, p0, radius, value, -1, cv2.LINE_AA)
-            if reveal > 0.96:
-                cv2.circle(layer, p3, radius, value, -1, cv2.LINE_AA)
-                _arrowhead(layer, tip, np.asarray(p3) - np.asarray(p2), value, thickness)
-            elif reveal > 0.15:
-                pulse = max(radius + 1, round(radius * (1.0 + 0.55 * np.sin(local * np.pi * 5.0) ** 2)))
-                cv2.circle(layer, tip, pulse, value * 0.62, max(1, thickness // 2), cv2.LINE_AA)
-    return np.clip(layer, 0.0, 1.0)
+            tip = _draw_polyline_fraction(primary, points, construction, value, thickness)
+            cv2.circle(primary, p0, node_radius, value, -1, cv2.LINE_AA)
+            if construction > 0.96:
+                cv2.circle(primary, p3, node_radius, value, -1, cv2.LINE_AA)
+                _arrowhead(primary, tip, np.asarray(p3) - np.asarray(p2), value, thickness)
+            node_count = 4
+            for index in range(1, round(node_count * structure) + 1):
+                node = _polyline_point(points, index / (node_count + 1))
+                cv2.circle(echo, node, node_radius + thickness, value * 0.62,
+                           max(1, thickness // 2), cv2.LINE_AA)
+            if trace > 0.0:
+                tracer = _polyline_point(points, trace)
+                cv2.circle(punctuation, tracer, node_radius, value, -1, cv2.LINE_AA)
+                cv2.circle(echo, tracer, round(node_radius * (1.4 + trace)),
+                           value * 0.58, max(1, thickness // 2), cv2.LINE_AA)
+
+    return (
+        np.clip(primary, 0.0, 1.0),
+        np.clip(echo, 0.0, 1.0),
+        np.clip(punctuation, 0.0, 1.0),
+    )
+
+
+def _planned_graphics(
+    chapter: LegacyChapter, height: int, width: int, progress: float,
+) -> np.ndarray:
+    """Compatibility view of the richer pigment-layer animation."""
+    primary, echo, punctuation = _planned_graphic_layers(
+        chapter, height, width, progress,
+    )
+    return np.clip(np.maximum.reduce((primary, echo * 0.78, punctuation)), 0.0, 1.0)
 
 
 def _press_registration_entry(
@@ -228,31 +333,24 @@ def _press_registration_entry(
     return np.clip(output, 0.0, 1.0).astype(np.float32)
 
 
-def _silver_foil(
+def _cobalt_pigment(
     shape: tuple[int, int], accent: np.ndarray, frame_index: int,
 ) -> np.ndarray:
-    """Cold brushed silver with one restrained travelling reflection.
-
-    A flat light grey reads as disabled UI, not metal.  This field combines a
-    fine fixed brush with a broad diagonal highlight.  Motion is deliberately
-    slow enough to feel like reflected light on foil rather than a digital
-    neon pulse.
-    """
+    """Dense cobalt-indigo spot ink with paper tooth and a slow wet edge."""
     height, width = shape
     yy, xx = np.meshgrid(
         np.arange(height, dtype=np.float32),
         np.arange(width, dtype=np.float32),
         indexing="ij",
     )
-    scale = max(1.0, float(width))
-    diagonal = (xx + yy * 0.32) / scale
-    centre = ((frame_index * 0.0065) % 1.72) - 0.22
-    sheen = np.exp(-((diagonal - centre) ** 2) / (2.0 * 0.052 ** 2))
-    brush = 0.5 + 0.5 * np.sin(xx * 0.31 + yy * 0.037)
-    value = np.clip(0.84 + brush * 0.10 + sheen * 0.24, 0.76, 1.14)
-    foil = accent[None, None, :] * value[:, :, None]
-    foil += sheen[:, :, None] * np.array([0.10, 0.11, 0.12], dtype=np.float32)
-    return np.clip(foil, 0.0, 1.0).astype(np.float32)
+    tooth = (
+        np.sin(xx * 0.47 + yy * 0.071)
+        + np.sin(xx * 0.093 - yy * 0.39)
+    ) * 0.5
+    wet_edge = 0.5 + 0.5 * np.sin((xx + yy * 0.24) * 0.024 - frame_index * 0.035)
+    value = np.clip(0.86 + tooth * 0.055 + wet_edge * 0.045, 0.78, 0.98)
+    pigment = accent[None, None, :] * value[:, :, None]
+    return np.clip(pigment, 0.0, 1.0).astype(np.float32)
 
 
 class Renderer:
@@ -300,7 +398,7 @@ class Renderer:
 
         This path deliberately bypasses glyph matching: the illustration stays
         whole, while only reviewed non-textual cues are absorbed into it as
-        silver/red editorial marks. A look without an approved plate falls through
+        cobalt-indigo/red editorial marks. A look without an approved plate falls through
         to the ordinary glyph renderer; the production protocol prevents that
         fallback from being published accidentally.
         """
@@ -313,39 +411,54 @@ class Renderer:
         rgb = np.clip(plate, 0.0, 1.0).astype(np.float32).copy()
         rgb = _press_registration_entry(rgb, progress, self.look)
 
-        mask = _planned_graphics(chapter, height, width, progress)
-        if np.any(mask > 0.001) and self.look.illustration_graphics > 0:
+        primary_mask, echo_mask, punctuation_mask = _planned_graphic_layers(
+            chapter, height, width, progress,
+        )
+        union_mask = np.maximum.reduce((primary_mask, echo_mask, punctuation_mask))
+        if np.any(union_mask > 0.001) and self.look.illustration_graphics > 0:
             # Cues live in a reviewed fraction of the frame.  Running Canny,
             # Gaussian blur and three RGB pigment blends over every empty pixel
             # roughly halved illustrated throughput.  Work on the exact nonzero
             # bounding box plus a small antialias/riso pad and write it back.
-            bounds = cv2.boundingRect((mask > 0.001).astype(np.uint8))
+            bounds = cv2.boundingRect((union_mask > 0.001).astype(np.uint8))
             bx, by, bw, bh = bounds
             pad = max(4, int(round(self.look.riso_offset)) + 3)
             x0, y0 = max(0, bx - pad), max(0, by - pad)
             x1, y1 = min(width, bx + bw + pad), min(height, by + bh + pad)
-            mask_roi = mask[y0:y1, x0:x1]
+            primary_roi = primary_mask[y0:y1, x0:x1]
+            echo_roi = echo_mask[y0:y1, x0:x1]
+            punctuation_roi = punctuation_mask[y0:y1, x0:x1]
             rgb_roi = rgb[y0:y1, x0:x1]
-            edge = cv2.Canny((mask_roi * 255).astype(np.uint8), 38, 112)
+            edge = cv2.Canny((primary_roi * 255).astype(np.uint8), 38, 112)
             edge = cv2.GaussianBlur(edge.astype(np.float32) / 255.0, (0, 0), 0.55)
             strength = float(np.clip(self.look.illustration_graphics, 0.0, 1.0))
-            silver = _silver_foil(
-                mask_roi.shape, self.look.accent_rgb().astype(np.float32), frame_index,
+            cobalt = _cobalt_pigment(
+                primary_roi.shape, self.look.accent_rgb().astype(np.float32), frame_index,
             )
             red = self.look.secondary_accent_rgb().astype(np.float32)
-            silver_mask = np.clip(mask_roi * strength * 0.84 + edge * strength * 0.42, 0.0, 0.94)
-            halo_mask = cv2.GaussianBlur(mask_roi, (0, 0), 1.05)
-            halo_mask = np.clip(halo_mask * strength * 0.34, 0.0, 0.38)[:, :, None]
-            red_mask = np.roll(edge, max(1, int(round(self.look.riso_offset))), axis=1)
-            red_mask = np.clip(red_mask * strength * 0.18, 0.0, 0.22)
+            cobalt_mask = np.clip(
+                primary_roi * strength * 0.88 + edge * strength * 0.22,
+                0.0, 0.94,
+            )
+            echo_alpha = np.clip(echo_roi * strength * 0.66, 0.0, 0.74)
+            halo_mask = cv2.GaussianBlur(np.maximum(primary_roi, echo_roi), (0, 0), 1.05)
+            halo_mask = np.clip(halo_mask * strength * 0.22, 0.0, 0.28)[:, :, None]
+            red_mask = np.clip(punctuation_roi * strength * 0.92, 0.0, 0.94)
             # Pigment blend remains visible over both paper and dense black ink;
             # multiplicative darkening made semantic paths disappear in the
             # very engravings this mode is now designed around.
-            silver_alpha = silver_mask[:, :, None]
+            cobalt_alpha = cobalt_mask[:, :, None]
+            echo_alpha = echo_alpha[:, :, None]
             red_alpha = red_mask[:, :, None]
-            graphite = np.array([0.29, 0.31, 0.34], dtype=np.float32)[None, None, :]
+            graphite = np.array([0.18, 0.20, 0.29], dtype=np.float32)[None, None, :]
+            paper = self.look.background_rgb().astype(np.float32)
+            echo_pigment = np.clip(
+                self.look.accent_rgb().astype(np.float32) * 0.76 + paper * 0.24,
+                0.0, 1.0,
+            )[None, None, :]
             rgb_roi = rgb_roi * (1.0 - halo_mask) + graphite * halo_mask
-            rgb_roi = rgb_roi * (1.0 - silver_alpha) + silver * silver_alpha
+            rgb_roi = rgb_roi * (1.0 - echo_alpha) + echo_pigment * echo_alpha
+            rgb_roi = rgb_roi * (1.0 - cobalt_alpha) + cobalt * cobalt_alpha
             rgb_roi = rgb_roi * (1.0 - red_alpha) + red[None, None, :] * red_alpha
             rgb[y0:y1, x0:x1] = rgb_roi
 

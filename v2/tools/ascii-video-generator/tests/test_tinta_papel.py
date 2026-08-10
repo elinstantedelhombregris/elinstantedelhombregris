@@ -85,28 +85,29 @@ def test_illustrated_mode_preserves_full_colour_plate_and_prints_graphics(tmp_pa
     # Colour survives as colour, rather than collapsing into one ASCII ramp.
     assert float(np.mean(np.std(frame.astype(np.float32), axis=2))) > 11.0
     assert len(np.unique(frame.reshape(-1, 3), axis=0)) > 800
-    # Both the plate's legacy violet and the live semantic layer become cool
-    # bright silver, with no purple pigment left in the illustrated result.
-    spread = frame.max(axis=2).astype(np.int16) - frame.min(axis=2).astype(np.int16)
-    silver = (frame.mean(axis=2) > 145) & (spread < 34) & (frame[..., 2] >= frame[..., 0])
-    violet = (frame[..., 2] > frame[..., 1] * 1.16) & (frame[..., 0] > frame[..., 1] * 1.05)
-    assert float(silver.mean()) > 0.001
-    assert float(violet.mean()) < 0.0005
+    # The live semantic layer is a distinctly blue cobalt-indigo pigment, not
+    # the previous neutral foil or a reddish-purple spot ink.
+    sample = frame.astype(np.int32)
+    target = np.array([64, 89, 199], dtype=np.int32)
+    cobalt = np.sqrt(np.sum((sample - target) ** 2, axis=2)) < 72
+    old_violet = (frame[..., 2] > frame[..., 1] * 1.16) & (frame[..., 0] > frame[..., 1] * 1.50)
+    assert float(cobalt.mean()) > 0.001
+    assert float(old_violet.mean()) < 0.0005
 
 
-def test_legacy_violet_separation_is_recoloured_as_textured_silver():
+def test_legacy_violet_separation_is_recoloured_as_cobalt_spot_ink():
     rgb = np.full((80, 80, 3), (242, 225, 190), dtype=np.uint8).astype(np.float32) / 255.0
     rgb[20:60, 16:64] = np.array([82, 39, 204], dtype=np.float32) / 255.0
     violet_mask = np.zeros((80, 80), dtype=np.float32)
     violet_mask[20:60, 16:64] = 1.0
 
-    result = worlds._replace_violet_with_silver(
-        rgb, violet_mask, np.array([203, 210, 217], dtype=np.float32) / 255.0,
+    result = worlds._replace_legacy_violet_with_accent(
+        rgb, violet_mask, np.array([64, 89, 199], dtype=np.float32) / 255.0,
     )
     centre = result[26:54, 22:58]
 
-    assert float(np.mean(np.max(centre, axis=2) - np.min(centre, axis=2))) < 0.10
-    assert float(centre.mean()) > 0.55
+    assert float(centre[..., 2].mean()) > float(centre[..., 1].mean()) * 1.7
+    assert float(centre[..., 1].mean()) > float(centre[..., 0].mean())
     assert float(result[5:15, 5:15].mean()) == float(rgb[5:15, 5:15].mean())
 
 
