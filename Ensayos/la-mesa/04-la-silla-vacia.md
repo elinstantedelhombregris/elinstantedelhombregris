@@ -53,11 +53,11 @@ No voy a escribir sobre el tiempo de pantalla, ni sobre a qué edad, ni sobre cu
 
 Fijate cómo contesta el resto del tablero. La escuela imprime, y tiene un programa escrito y una puerta donde una madre puede golpear. Una iglesia imprime, y su doctrina se puede leer y se puede dejar. El Estado imprime, y se lo puede echar. Y la familia, que es la que más imprime de todas, le responde a esa persona por el resto de su vida, que es la auditoría más dura que existe: a los treinta y cinco te la cobran en la cocina.
 
-Uno solo de los transmisores de esa mesa no le responde a nadie que el chico pueda nombrar. Y a nadie se le preguntó, porque no se podía: una persona de cinco años no consiente, y una de doce tampoco. La plataforma tiene escrito el principio —el consentimiento por defecto no es consentimiento— a escala de sistemas y de leyes. A escala de una infancia no lo escribió todavía nadie.
+Uno solo de los transmisores de esa mesa no le responde a nadie que el chico pueda nombrar. Y a nadie se le preguntó, porque no se podía: una persona de cinco años no consiente, y una de doce tampoco. La plataforma tiene escrito el principio —el consentimiento por defecto no es consentimiento— y lo bajó hasta la infancia: prohíbe perfilar a un menor de dieciocho *con fines comerciales*, con multa del cuatro por ciento de la facturación global. Pero eso prohíbe monetizar a un chico, no formarlo, y la excepción pedagógica que deja abierta concede que hay una impresión permitida sin nombrar quién la permite.
 
 Y lo peor no es la ocupación: es que no fue una decisión. Nadie se sentó a evaluar quién forma a su hijo. Hubo un adulto reventado a las nueve de la noche que necesitaba veinte minutos para hacer la comida. La sustracción y la ocupación son la misma operación mirada en dos momentos.
 
-Lo cual deja una cosa en pie: una discusión que nunca se dio todavía se puede dar, y hay exactamente un lugar donde darla, que es la pieza donde se cedió.
+Lo cual deja una cosa en pie: la discusión que falta todavía se puede dar, y hay un solo lugar donde darla, que es la pieza donde se cedió.
 
 ## V. La bisagra
 
@@ -71,7 +71,7 @@ Hacé la lista completa y hacela con honestidad. El viaje no lo decidís vos. El
 
 Y hay que blindarla para que no se dé vuelta. La bisagra no mueve un gramo de responsabilidad hacia adentro: nadie con dos trabajos es un mal padre por tener dos trabajos, y ninguna cocina compensa un país. Dice algo más chico y más duro: la fracción que sobrevivió a la resta es entera tuya, y para sacártela habría que entrar a tu casa.
 
-Un ensayo del primer ciclo llamó al hogar un sitio concreto de soberanía y no dijo por qué. Es por esto: no porque esté intacto —no está—, sino porque es el último lugar donde una decisión no pide permiso.
+Un ensayo del primer ciclo llamó al hogar un sitio concreto de soberanía y dijo por qué: porque ahí se hacen los ciudadanos, y al que tiene un punto fijo —un lugar donde es querido, conocido y a quien le rinde cuenta— no lo propagandean igual. Ya tenía en su lista el viaje largo, el segundo trabajo y las pantallas, entre mil presiones chicas de efecto sólo acumulado. Lo que no hizo fue separarlas: acá una tiene precio y otra dejó de ser presión para volverse una cuestión de derecho. Y esa razón no da esta bisagra —una casa vaciada hace ciudadanos peor, y la soberanía se caería con la resta—. Ésta la da: no porque el hogar esté intacto —no está—, sino porque es el último lugar donde una decisión no pide permiso.
 
 ## VI. Lo que cabe en una hora
 
@@ -111,8 +111,8 @@ Los tres ensayos anteriores dijeron qué es la casa, por dónde transmite y qué
 - *PLANMOV* — mide que el usuario promedio del conurbano dedica entre dos horas y media y cuatro por día al transporte, y le pone precio a esas horas como pérdida de producción. Su Mandato Kilométrico Ciudadano garantiza un cupo anual de kilómetros por persona, transferible dentro del grupo familiar. Es lo más cerca que el corpus está del tiempo de viaje como infraestructura de crianza, y aun así lo cuenta como productividad.
 - *PLANCUIDADO* — la Jornada 6+2: seis horas de trabajo remunerado más dos de cuidado acreditable pagadas por el empleador, y un Libro donde esas horas se redimen en jubilación. Arranca como piloto voluntario. El único dispositivo del corpus que devuelve horas en vez de plata.
 - *PLANVIV* — el crédito hipotecario argentino equivale al uno por ciento del producto, contra quince o veinte en Chile, y hay dos millones de viviendas vacías. La sección III, cuantificada.
-- *PLANPACTO* — la Regla de Arco: ningún escalón de la Escalera de Garantías puede conservarse concentrando lo que le queda en un solo tramo de la vida. La regla intergeneracional más explícita del proyecto, y opera adentro de cada materia, no al costado.
-- *PLANDIG* — el derecho a ser no predecible: ningún sistema puede construir un modelo predictivo de una persona sin consentimiento explícito, informado y revocable, porque el consentimiento por defecto no es consentimiento. La sección IV como norma, a escala de plataformas y no de infancias.
+- *PLANPACTO* — la Regla de Arco: ningún escalón de la Escalera de Garantías puede conservarse concentrando lo que le queda en un solo tramo de la vida. La regla intergeneracional más explícita del proyecto, y opera adentro de cada escalón, no al costado.
+- *PLANDIG* — el derecho a ser no predecible: ningún sistema modela a una persona sin consentimiento explícito, informado y revocable. Y sí lo bajó a la infancia: identidad digital al nacer, autonomía graduada de los trece a los dieciocho, perfilado comercial de menores prohibido y multado. La sección IV entra por la juntura que deja: prohíbe monetizar a un chico, no dice quién puede formarlo.
 - *PLANFOCO* — dice a escala nacional lo que éste dice en una cocina: todo el aparato ¡BASTA! corre sobre un insumo que ningún plan produce ni protege, el tiempo despierto y disponible de la gente.
 
 **En los ciclos anteriores.**
