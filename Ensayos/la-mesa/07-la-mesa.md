@@ -1,0 +1,145 @@
+# La mesa, hacia atrás y hacia adelante
+## Dos textos: uno que salda, uno que abre
+
+## I. El cajón
+
+Cuando se muere alguien en una casa argentina, a la semana o al mes alguien abre el cajón. Adentro hay una escritura, la cédula verde de un auto que ya no está, el carnet de la obra social, un manojo de llaves que no abren nada. Sesenta años de una persona, ordenados para el trámite.
+
+Lo que casi nunca hay es una sola línea escrita en primera persona y dirigida a alguien. La casa que escribió toda su vida —listas de mandados, teléfonos en el margen del diario, la receta al dorso de una boleta de luz que el ensayo anterior puso sobre la mesa— nunca escribió en el único género que después hace falta.
+
+El ensayo anterior terminó preguntando qué se escribe mientras todavía hay tiempo. Se escriben dos cosas, y son las dos que ningún escribano puede redactar en tu lugar.
+
+**La primera salda hacia atrás. La segunda abre hacia adelante. Y no se puede firmar la segunda sin haber escrito la primera.**
+
+Es el músculo que el ciclo viene usando desde el tercer ensayo —decir el final— ejecutado en las dos direcciones del tiempo. La carta dice un final que ya ocurrió: la crianza terminó, el que la hizo no la puede modificar y el que la recibió no la puede devolver. El acuerdo dice por adelantado cómo se van a decir los finales que todavía no pasaron. Uno cierra la cuenta que traés. El otro fija el trato de la mesa que armás.
+
+El orden no es capricho. El que no saldó lo de atrás firma el acuerdo con la letra de otro: escribe *acá no se grita* porque en su casa se gritaba, y a los cuatro meses el acuerdo se le convirtió en el juicio pendiente que nunca hizo. Escribir la carta primero no es terapia. Es sacarle al acuerdo lo que no le pertenece.
+
+Y las dos se escriben en lugar de decirse por una razón material. Hablar tiene fecha de vencimiento y la fecha no figura en ningún lado; el ensayo anterior la mostró con dos hermanos de Rafaela y seiscientos kilómetros manejados tarde. Lo escrito no vence, y paga por eso un precio propio: un papel no contesta. Ésa es su falla, y en las dos secciones que siguen va a resultar su única propiedad indispensable.
+
+## II. La carta que va para atrás
+
+El primer ciclo de esta serie cerró con una carta. La escribe un viejo, en la cocina de la casa de su hija, hacia un nieto que todavía no nació, y en su primer párrafo está la línea que la vuelve posible: *"Casi todo lo que importa se dice hacia una niebla."* Va dirigida a alguien sin nombre y sin fecha de nacimiento, y llega igual, porque el que la escribe eligió escribir como si el otro ya estuviera leyendo.
+
+Fijate la dirección. Esa carta nombra a los que vinieron antes —el bisabuelo que no tuvo palabras, la abuela de la casa de Mendoza— y no le escribe a ninguno. Habla de los de arriba y le escribe a los de abajo: una sola vía, y todo su gesto consiste en darle algo a alguien que no puede devolver nada.
+
+La que falta va exactamente al revés, y se arma dando vuelta cada pieza. Aquélla va hacia adelante; ésta va hacia atrás. Aquélla va hacia la niebla; ésta va hacia gente con nombre y con voz conocida, viva o muerta. Aquélla la escribe el que sostuvo; ésta la escribe el que fue sostenido. Aquélla deja seis cosas; ésta nombra lo recibido y lo que no va a seguir llevando. Aquélla está segura de que alguna vez va a ser leída. Ésta, casi seguro, no se lee nunca.
+
+Y ahí está su parte fuerte, que no es un consuelo. El ensayo anterior dejó puesta la línea que hace que esto funcione: una reparación ofrecida y rechazada es un final dicho, que es la única parte que alguna vez estuvo en tus manos. Dejó escrita además la cláusula de que la operación se puede hacer sin nadie mirando, y no le dio cuerpo: su escena buena tiene tres hijos sentados alrededor de un café. Éste es el cuerpo. Una carta que nadie va a leer es un final dicho con nadie mirando, y sirve igual, porque lo que la operación necesitaba no era un destinatario: era un emisor.
+
+Va en segunda persona y en singular a propósito: se escribe una por cada uno. No se le escribe a la familia, que es una entidad y no contesta.
+
+---
+
+**CARTA A LOS QUE ME CRIARON**
+
+*A vos, que me sostuviste — tengas o no mi apellido, estés vivo o no, sepas o no que esto existe. Sin acuse de recibo y sin esperar ninguno, dejo escrito lo que sigue.*
+
+**No te escribo por lo que me dijiste.** De lo que me explicaste no me acuerdo casi nada, y lo poco que me acuerdo no me gobernó nunca. Me gobierna lo que te vi hacer cuando creías que no estabas enseñando.
+
+**Te devuelvo la escena.** Acá va un día tuyo, con la hora y con las manos: no una virtud, no una semblanza, un martes. Con una alcanza, y es lo único que puedo darte que no tenías.
+
+**Te nombro lo que me quedó sin que ninguno de los dos lo eligiera.** No es un reproche y no lleva firma de culpable: se transmite mirando y no se puede apagar. Lo digo porque un permiso retirado no vuelve solo.
+
+**Te digo lo que no me diste, y lo digo sin factura.** A vos te lo habían sacado antes — las horas, el piso, la moneda, la tarde que te tocaba y no tuviste. Esto no te absuelve y no te acusa. Deja constancia, que es la única forma que las dos partes pueden usar.
+
+**Te digo qué corto acá.** Con nombre, y no porque estuviera mal en tu vida: porque no sirve en la mía. No te lo devuelvo como defecto. Dejo de usarlo, que es distinto.
+
+**Y te digo el final, que es la única parte de todo esto que estuvo alguna vez en mis manos.** Esto ya pasó. Lo que hiciste está hecho y no lo podés modificar; lo que me quedó está adentro y no te lo puedo devolver. No estoy pidiendo que cambie nada. Estoy dejando dicho que lo miré entero, con lo bueno y con lo otro, y que sigo acá.
+
+**Esta carta no necesita llegar.** El que fue criado por alguien que lo lastimó, y el que no fue criado por nadie y aprendió de una vereda y de una maestra, escriben la versión que no se manda: la misma, con nombre, guardada o rota el mismo día. El destinatario nunca fue el punto. El punto era que alguien dijera el final en voz alta, y el único que podía decirlo lo acaba de decir.
+
+*Mandada o no, contestada o no. Firmada en el momento de escribirse.*
+
+---
+
+## III. El acuerdo que va para adelante
+
+La carta cierra una cuenta. Lo que sigue abre una mesa, y no es la misma: es la que vos ponés.
+
+El padrón ya lo hicimos. El primer ensayo de este ciclo pidió dos columnas en un papel de cocina —los que te sostienen, los que sostenés—, y esa lista, que se armó para verse a uno mismo, es la nómina de firmantes de lo que viene: los que están en el flujo, no los que están en el apellido.
+
+Y firman los chicos, con su letra. El segundo ensayo dejó fijado por qué: un chico no es candidato a miembro de esa casa, es miembro, y decirle que es el futuro es una manera educada de decirle que hoy no es nada.
+
+---
+
+**EL ACUERDO DE LA MESA**
+
+*Entre los que estamos sentados acá, con o sin el mismo apellido, durmamos o no bajo el mismo techo. Sin escribano y sin más autoridad que la nuestra. Se lee en voz alta una vez y se firma el mismo día.*
+
+**Acá se pelea de frente.** No se manda la discusión al cuarto ni se le baja el volumen cuando entra un chico. Lo que no se puede decir en esta mesa es lo que después gobierna esta casa.
+
+**Acá se repara antes de dormir, y delante del que vio.** Nadie tiene que tener razón, nadie cede el argumento y el tema puede quedar abierto veinte años. Se vuelve al mismo lugar y se dicen dos cosas: que nos peleamos y que seguimos. Si el que vuelve es siempre el mismo, no estamos reparando: estamos cobrando un peaje, y eso también se dice en voz alta.
+
+**Acá se nombra a los que no están.** Con nombre, con escena y con los defectos adentro, que es lo que distingue a un muerto que enseña de una estampita. Y no hay en esta casa una zona donde no se entre, ni una foto en el estante que no tenga respuesta.
+
+**Acá hay una hora que no se le vende a nadie.** Una por semana, con día y horario, siempre la misma, sin programa y sin teléfonos. No el domingo, que ya carga demasiado. Se falta a esa hora como se falta a un turno médico: no se falta.
+
+**Acá se hereda a propósito.** Dos listas cortas, revisadas una vez al año: lo que queremos pasar —un oficio, una frase, la manera de saludar al que trae el pedido— y lo que se corta con nosotros, con nombre y sin llamarlo tradición. Lo que no se elige se transmite igual; eso ya está probado.
+
+**Acá se sienta más gente de la que duerme acá.** La que aparecería mañana si esto se pusiera feo, tenga o no papel que lo diga. La casa no termina en la puerta y este acuerdo tampoco.
+
+**Firman todos, los chicos incluidos**, y la firma del que tiene siete años vale lo mismo. Cualquiera puede pedir, una vez al año y sin explicar por qué, que se relea entero en voz alta.
+
+**Este acuerdo no se puede firmar solo, y ésa es su diferencia con el acta que cerró el ciclo anterior.** Aquélla se firma de a uno, sin poderes de nadie, porque nadie puede realizar la interdependencia en lugar de otro. Éste no entra en vigor con una firma sola: obliga a levantar la vista y pedirle algo a alguien que puede decir que no.
+
+**Y si el otro no firma, el que firmó firma igual.** Cumple sus cláusulas solo, sin anunciarlo y sin cobrárselas a nadie. El acuerdo queda abierto arriba de la mesa, esperando al resto, sin reproche — como el tejido, que no castiga la ausencia: la espera.
+
+*Sin sello y sin copias. Se relee cuando alguien lo pide y se corrige cuando hace falta, que es lo que lo distingue de una regla.*
+
+---
+
+## IV. La primera pieza que puede fallar
+
+Esa penúltima cláusula es nueva en todo el proyecto y no conviene pasarla de largo.
+
+El Credo del primer ciclo se puede decir en voz alta con alguien *o solo, si tenés que*. El acta del tercero lo dice de sí misma: se firma de a uno, y se firma con la conducta. La carta de la sección anterior funciona sin destinatario. Los tres fueron construidos para no depender de nadie, y ésa fue su fuerza: no hay cómo sacarte una firma que no necesita testigos.
+
+El Acuerdo de la Mesa es el primer documento de este corpus que no puede hacer eso. Necesita una segunda firma para estar en vigor. Puede ser rechazado por alguien que te importa, en la cara, un domingo, con una respuesta corta. Puede firmarse el sábado y desmentirse el martes, que es peor. Y es la primera vez que la palabra fracaso se puede aplicar sin metáfora a algo que este proyecto le pide a una persona.
+
+No hay forma de blindarlo: el blindaje sería devolverlo al lugar donde están los otros. Un acuerdo que se cumple sin que nadie más lo firme no es un acuerdo, es una disciplina personal, y de eso el corpus ya tiene bastante.
+
+La plataforma lo sabía sin haberlo bajado a una cocina. PLANCUIDADO define el Pacto de Cuidado como figura bilateral, registrada con consentimiento explícito de las dos partes y con cierre unilateral avisando treinta días. Es la misma estructura: un vínculo que ninguna de las dos puntas puede declarar sola y que cualquiera de las dos puede terminar diciéndolo. Lo que el plan pone en un registro nacional, esto lo pone en la única instancia disponible el lunes.
+
+Creo que estas cosas no se escriben porque el pedido asusta más que el contenido. Ninguna de las cláusulas es difícil de cumplir; lo difícil es la cara del otro mientras las escucha por primera vez, y ese minuto es el precio entero. Un país que hace tres generaciones no consigue terminar una conversación tampoco consigue empezarla: es el mismo miedo visto desde los dos extremos, que el otro se levante y no vuelva.
+
+## V. Una mesa y treinta años
+
+El primer ensayo de este ciclo dijo la tesis y admitió que era una afirmación: la unidad más chica de la política argentina es una mesa, y lo que pasa en esa mesa es la política argentina de dentro de treinta años. Prometió recorrer la cadena eslabón por eslabón. Está recorrida.
+
+Una familia es quién sostiene a quién, y por eso la casa no termina en la puerta. Esa función se ejecuta por testigo: lo que un chico registra no es lo que le explicaron, es lo que vio hacer, y ese canal no tiene interruptor. Lo que viajó por ese canal durante setenta años fue un final —el que suelta a la persona cuando el desacuerdo aprieta—, y de ahí sale una grieta que no es un desacuerdo de ideas sino un solo linaje repartido en dos hinchadas. Las condiciones para enseñar el otro final se las sacaron a la casa en horas, y la silla que quedó libre no se quedó libre. Adentro de esa casa vaciada se apagó además una materia que el adulto estaba cursando sin saberlo, la única tecnología doméstica que produce pensamiento largo. Y lo último que esa casa dejó de practicar fue lo que más falta hace al final: decir que algo se termina, mientras todavía se puede decir.
+
+Treinta años no es retórica. Los que hoy tienen siete van a estar decidiendo cosas en 2056, y lo que van a llevar puesto no es lo que les expliquemos: es cómo terminó la última pelea que vieron. Eso es todo lo que este ciclo tenía para demostrar, y es todo lo que se puede hacer sin permiso de nadie.
+
+Entonces, el lunes, dos cosas, y no requieren fundar nada.
+
+Sentate y escribí la carta. Una hoja, a mano, a una sola persona, con una escena adentro y una hora. No la mandes: dejala una semana en un cajón —el único cajón de esta serie con algo escrito en primera persona adentro— y recién a la semana decidís. Si el que te crió está muerto, o lastimó, o no existió, escribila igual; ya está dicho por qué.
+
+Y el domingo siguiente, con la mesa puesta y antes de que alguien se levante, leé el acuerdo en voz alta. Entero, aunque dé vergüenza. Después preguntá quién firma. Puede ser que firme uno solo y sea el que lo leyó.
+
+Está bien. Queda arriba de la mesa, abierto, esperando.
+
+---
+
+## Cartografía
+
+Cierre del cuarto ciclo. Los seis anteriores dijeron qué es una casa, cómo transmite, qué transmitió, quién la vació, qué se aprende adentro y cómo despide. Las conexiones:
+
+**En el ciclo.**
+
+- *La Capa Cero* — la definición funcional y la lista de dos columnas. Aquella lista se hizo para verse a uno mismo; acá es la nómina de firmantes del Acuerdo.
+- *Lo que el chico mira cuando nadie cree que mira* — el canal del testimonio y el chico que ya es miembro. Por eso el Acuerdo lo hace firmar.
+- *La grieta se aprende en la cocina* — la operación que los dos documentos ejecutan: decir el final. Allá con el vínculo siguiendo; acá hacia atrás y hacia adelante.
+- *La silla vacía* — la resta de horas y la hora blindada, que acá entra como cláusula para no depender de que alguien se acuerde.
+- *Las lecciones que no hacen falta* — criar como curso, y la custodia descubierta sobre un solo cuerpo. La carta de la sección II la escribe el que cursó del otro lado.
+- *Enseñar a morir* — el ensayo anterior: dejó la línea sobre la reparación rechazada y la cláusula del final dicho sin testigos, y cerró preguntando qué se escribe mientras todavía hay tiempo.
+
+**En la plataforma.**
+
+- *PLANCUIDADO* — el Pacto de Cuidado: figura bilateral con consentimiento explícito de las dos partes, tipo declarado, revisión a los noventa días y cierre unilateral con treinta días de aviso. Es el Acuerdo de la Mesa escrito como derecho, con registro nacional y Referente Territorial. Este ensayo agrega la versión sin registro, disponible el lunes.
+
+**En los ciclos anteriores.**
+
+- *Carta al Nieto* — el cierre del primer ciclo, escrito hacia adelante y hacia la niebla. La carta de la sección II es su espejo: hacia atrás, hacia gente con nombre, y escrita por el que fue sostenido.
+- *Acta de la Interdependencia* — el cierre del tercer ciclo, que se firma de a uno y con la conducta, y cuyo tejido espera sin reproche. El Acuerdo toma esa espera y cambia la condición de firma: necesita a otro, y por eso puede ser rechazado.
+- *La belleza como acto político* — el ensayo que anotó que el Credo iba incrustado en el séptimo, diseñado para asambleas, familias y los espacios chicos. Ése es el precedente formal de estos dos documentos.
