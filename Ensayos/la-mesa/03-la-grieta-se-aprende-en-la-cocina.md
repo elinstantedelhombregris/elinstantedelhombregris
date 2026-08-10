@@ -27,15 +27,17 @@ Una casa sin conflicto visible no enseña paz. Enseña que el desacuerdo es inno
 
 **El tercero es la reparación explícita**, y hay que definirla despacio, porque es la única operación que este ciclo va a usar de acá hasta el final.
 
-Reparar no es tener razón ni conceder que el otro la tenía. No es perdonar, que es otra cosa y llega mucho después, cuando llega. No es resolver el tema: el tema puede quedar abierto veinte años. **Reparar es el acto por el cual dos que se pelearon vuelven a nombrarse en voz alta, delante de quien los vio pelear, y dejan dicho que el vínculo sigue en pie aunque el desacuerdo no se haya movido un centímetro.** Se repara el vínculo. El desacuerdo queda donde estaba.
+Reparar no es tener razón ni conceder que el otro la tenía. No es perdonar, que es otra cosa y llega mucho después, cuando llega. No es resolver el tema: el tema puede quedar abierto veinte años. **Reparar es el acto por el cual dos que se pelearon vuelven a nombrarse en voz alta y dejan dicho que el vínculo sigue en pie aunque el desacuerdo no se haya movido un centímetro.** Se repara el vínculo. El desacuerdo queda donde estaba.
 
-Y ahí aparece la asimetría que hace que este ensayo exista. Los dos primeros finales se enseñan solos: la puerta suena aunque nadie quiera que suene, el silencio se respira sin que nadie lo administre. El tercero es el único que no ocurre por defecto y el único que un chico no puede deducir. Lo tiene que ver. Si ocurre en el pasillo o en el cuarto con la puerta cerrada, que es donde la gente decente lo hace por pudor, para el chico no ocurrió: vio la pelea y después vio que la cosa se había calmado, sin saber por qué, y de eso no sale ningún procedimiento. Sale la idea de que estas cosas a veces pasan y a veces no.
+Eso es la operación. Que además enseñe depende de dónde ocurre: delante de quien los vio pelear. Hecha a solas repara igual y no enseña nada. Y la diferencia de fondo entre los tres no es cuál conserva a la gente: los dos primeros se ejecutan, éste se dice. Por ahora alcanza con verlo acá, donde lo dicho es *seguimos acá*.
+
+Y ahí aparece la asimetría que hace que este ensayo exista. Los dos primeros finales se enseñan solos: la puerta suena aunque nadie quiera que suene, el silencio se respira sin que nadie lo administre. El tercero es el único de los tres que no ocurre por defecto y el único que un chico no puede deducir. Lo tiene que ver. Si ocurre en el pasillo o en el cuarto con la puerta cerrada, que es donde la gente decente lo hace por pudor, para el chico no ocurrió: vio la pelea y después vio que la cosa se había calmado, sin saber por qué, y de eso no sale ningún procedimiento. Sale la idea de que estas cosas a veces pasan y a veces no.
 
 ## III. Setenta años de finales
 
 El ensayo anterior hizo este movimiento de costado, en una frase: contó la casa donde no se habla de plata y preguntó, casi al pasar, por qué a este país le cuesta tanto discutir en voz alta lo que todo el mundo sabe. Ahora hay que hacerlo entero, porque es lo que este ciclo le aporta a la serie.
 
-Un ensayo del segundo ciclo llegó al borde de esto y se detuvo. Dijo que la grieta argentina no es un debate de ideas sino *"una guerra entre dos linajes emocionales que se transmiten en el cuerpo familiar de generación en generación"*. La frase es exacta y quedó ahí, sin mecanismo: nombró el sitio de la transmisión y no dijo qué se transmite ni por qué operación. Se transmite un final. La operación es la que acabo de describir. Y con el mecanismo puesto hay que corregirla en un punto, que es lo que este ensayo le debe a la serie: los linajes no son dos.
+Un ensayo del segundo ciclo llegó al borde de esto y se detuvo. Dijo que la grieta argentina no es un debate de ideas sino *"una guerra entre dos linajes emocionales que se transmiten en el cuerpo familiar de generación en generación"*. La frase es exacta, y aquel ensayo dijo incluso qué cruza: los odios y los amores de la casa, aprendidos antes de los seis años, un piso emocional debajo de toda opinión posterior. Lo que no dijo es por qué operación cruzan. Y puesta la operación, el contenido deja de ser la herencia: el veredicto se cambia sin que cambie nada de fondo. Lo que cruza no es qué se odia. Es cómo se termina. Se transmite un final. Falta corregirla en un punto más, que es lo que este ensayo le debe a la serie: los linajes no son dos.
 
 Dos hermanas, una casada con un chacarero de la zona de Pergamino y la otra empleada en una repartición de La Plata. Entre marzo y julio de 2008 hubo tres o cuatro llamadas que terminaron mal y una que terminó peor. Desde entonces se hablan de cumpleaños, de la salud de la madre y de los chicos: diecisiete años de un protocolo impecable en el que jamás se dijo la palabra campo. Cuando enterraron a la madre se abrazaron llorando, y tampoco se dijo. Los hijos de las dos crecieron sabiendo, sin que nadie se los explicara, que hay un tema que en esa familia cuesta una hermana.
 
@@ -96,7 +98,7 @@ El ensayo anterior describió el canal; éste dice qué viajó por él y nombra 
 
 **En la plataforma.**
 
-- *PLANMESA* — Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende. La Mesa que no alcanza acuerdo no se disuelve: firma su resolución con los disensos adentro, inscritos con el mismo peso que la posición mayoritaria. Y si una resolución ya ejecutada produce daño, la Mesa que la firmó es la primera convocada a corregirla. Es la reparación escrita como protocolo.
+- *PLANMESA* — Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende. La Mesa que no alcanza acuerdo no se disuelve por no acordar: firma su resolución con los disensos adentro, inscritos con el mismo peso que la posición mayoritaria. Y si una resolución ya ejecutada produce daño, la Mesa que la firmó es la primera convocada a corregirla. Es la reparación escrita como protocolo.
 
 **En los ciclos anteriores.**
 
