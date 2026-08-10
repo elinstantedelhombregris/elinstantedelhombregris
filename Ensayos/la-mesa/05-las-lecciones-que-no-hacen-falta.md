@@ -61,8 +61,6 @@ Y el registro civil llega tarde, como siempre. Este país está lleno de familia
 
 ## VI. La que enseña a soltar
 
-Acá dejo de demostrar.
-
 De todo lo que este curso entrega, la lección que más vale es la que enseña a soltar. Y lo que me parece extraordinario, al punto de no ocurrírseme otro caso, es que la enseña la misma cosa que uno más quiere retener: el objeto mismo del apego, empujando en dirección contraria todos los días, un poco por vez, durante veinte años. La mano que se suelta en la vereda. El primer viaje sin vos. La puerta del cuarto que ahora se cierra. Ninguno de esos momentos se sufre como una pérdida grande; se sufren como nada, y por eso funcionan. Es un entrenamiento que no diseñó nadie y que dicta alguien que no sabe que lo está dictando.
 
 Un ensayo del segundo ciclo llegó a esto por el camino largo y lo llamó servir sin poseer: amar sin necesitar que el otro sea como uno quiere, sin exigir correspondencia, sin colgar la identidad propia del objeto amado. Lo aplicó a la patria y a la bandera, que era su trabajo. Al hijo lo nombró varias veces al pasar, y en la única línea donde le aplicó la doctrina —el padre que sigue amando al hijo que eligió una vida que él no habría aprobado— gastó una oración. Lo que no hizo fue ponerle cuerpo: decir cuánto cuesta, quién lo paga y a qué hora. Este ensayo es esa doctrina ejecutada por alguien que la tiene que hacer un martes a las siete de la tarde y que no eligió el examen.

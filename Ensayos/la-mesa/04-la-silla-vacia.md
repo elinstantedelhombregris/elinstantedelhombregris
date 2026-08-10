@@ -75,8 +75,6 @@ Un ensayo del primer ciclo llamó al hogar un sitio concreto de soberanía y dij
 
 ## VI. Lo que cabe en una hora
 
-Acá dejo de demostrar.
-
 Creo que la unidad mínima de transmisión es mucho más chica de lo que la culpa nos hace creer, y que ése es el único dato bueno de lo anterior.
 
 Tomá las escenas que este ciclo viene usando y cronometralas. El adulto que contaba billetes en la mesa el día que había dicho, con un chico jugando en el piso: noventa segundos. El vuelto de más que el kiosquero no vio: dos segundos. La reparación entera del ensayo anterior, volver al mismo lugar y decir *nos peleamos fuerte, y estamos bien*: dos minutos, más treinta segundos de incomodidad. Ninguna necesitó una tarde.
