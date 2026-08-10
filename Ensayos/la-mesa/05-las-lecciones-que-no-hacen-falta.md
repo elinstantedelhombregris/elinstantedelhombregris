@@ -25,7 +25,7 @@ Lo primero que cambia no es una conducta. Es una palabra.
 
 El futuro, hasta entonces, era un concepto. Se usaba en frases —el futuro del país, mi futuro, dentro de unos años— y no pesaba nada, porque un concepto no pesa. Después tiene un nombre de cuatro letras y una fiebre a las tres de la mañana, y a esa hora, con un cuerpo caliente encima y un termómetro que no termina de decidirse, deja de ser una categoría y pasa a ser algo que respira mal a treinta centímetros de tu cara. Nadie que haya pasado esa noche vuelve a usar la palabra igual. No es que le importe más el futuro: es que ya no lo puede pensar sin cuerpo.
 
-Después llega la paciencia, y llega desfigurada. Era una virtud moral, de esas que se elogian en los demás y se intentan a ratos. Criando se vuelve una disciplina física, del mismo orden que aguantar un peso: la novena vez que hay que explicar por qué no, la misma pregunta cuarenta veces en un viaje de cuarenta minutos. No se sostiene con convicción, porque la convicción se termina alrededor de la tercera vez. Se sostiene con el cuerpo, y como todo lo que se sostiene con el cuerpo, se entrena o se rompe. El que la entrenó ahí después la tiene para todo, y no sabe explicar de dónde le salió.
+Después llega la paciencia, y llega desfigurada. Era una virtud moral, de esas que se elogian en los demás y se intentan a ratos. Criando se vuelve una disciplina física, del mismo orden que aguantar un peso: la novena vez que hay que explicar por qué no, la misma pregunta cuarenta veces en un viaje de cuarenta minutos. No se sostiene con convicción, porque la convicción se termina alrededor de la tercera vez. Se sostiene con el cuerpo, y como todo lo que se sostiene con el cuerpo, se entrena o se rompe. El que la entrenó ahí después la tiene para todo.
 
 Y en algún momento —tarde, en general, y siempre sin aviso— llega el espejo.
 
@@ -45,7 +45,7 @@ De ese límite sale la lección más política de todas, y es la que le da a est
 
 Criando se aprende a pensar en décadas que no vas a ver. No como ejercicio: como reflejo. Elegís una cuadra pensando en si alguien de diecisiete va a poder volver caminando de noche por ahí, y el que va a tener diecisiete tiene hoy cuatro. Aprendés el vocabulario completo de una enfermedad que no tenés, porque la va a necesitar otro. Mirás una decisión de este mes preguntándote qué va a ser en 2041, y la pregunta te sale sola, sin esfuerzo y sin ninguna virtud.
 
-Fijate contra qué corre eso. Este país entrena en la dirección inversa desde hace setenta años: el que se acostumbró a que el precio de mañana no se parezca al de hoy aprende a decidir por mes, y a los cincuenta le van a diagnosticar cortoplacismo como si fuera un rasgo de carácter nacional. El Estado tampoco ayuda a desaprenderlo, porque administra personas por trámite y no por trayectoria: ningún funcionario argentino tiene el deber de saber en qué tramo de su vida está alguien. Contra todo eso, criar es la única tecnología doméstica que produce pensamiento largo. No lo pide ni lo premia: lo instala, en gente común, sin que lo haya diseñado nadie.
+Fijate contra qué corre eso. Este país entrena en la dirección inversa desde hace setenta años: el que se acostumbró a que el precio de mañana no se parezca al de hoy aprende a decidir por mes. El Estado tampoco ayuda a desaprenderlo, porque administra personas por trámite y no por trayectoria: ningún funcionario argentino tiene el deber de saber en qué tramo de su vida está alguien. Contra todo eso, criar es la única tecnología doméstica que produce pensamiento largo. No lo pide ni lo premia: lo instala, en gente común, sin que lo haya diseñado nadie.
 
 ## V. Los que cursan por otra puerta
 
@@ -57,13 +57,13 @@ El primer ensayo de este ciclo dejó fijada la definición y no se rediscute: un
 
 La Capa Cero de este ciclo —esa unidad de sostén que no diseñó nadie y que ninguna crisis apagó— es el padrón de esta materia. El que está adentro del flujo sosteniendo a alguien está cursando, se llame como se llame en el registro civil.
 
-Y el registro civil llega tarde, como siempre. Este país está lleno de familias que se agrandaron un martes cualquiera, porque alguien se quedó y se hizo cargo, y de papeles que llegaron diez años después, cuando ya había que anotar al chico en el secundario. La materia se venía dictando igual.
+Y el registro civil llega tarde, como siempre. Este país está lleno de familias que se agrandaron un martes cualquiera, porque alguien se quedó y se hizo cargo, y de papeles que llegaron mucho después. La materia se venía dictando igual.
 
 ## VI. La que enseña a soltar
 
 De todo lo que este curso entrega, la lección que más vale es la que enseña a soltar. Y lo que me parece extraordinario, al punto de no ocurrírseme otro caso, es que la enseña la misma cosa que uno más quiere retener: el objeto mismo del apego, empujando en dirección contraria todos los días, un poco por vez, durante veinte años. La mano que se suelta en la vereda. El primer viaje sin vos. La puerta del cuarto que ahora se cierra. Ninguno de esos momentos se sufre como una pérdida grande; se sufren como nada, y por eso funcionan. Es un entrenamiento que no diseñó nadie y que dicta alguien que no sabe que lo está dictando.
 
-Un ensayo del segundo ciclo llegó a esto por el camino largo y lo llamó servir sin poseer: amar sin necesitar que el otro sea como uno quiere, sin exigir correspondencia, sin colgar la identidad propia del objeto amado. Lo aplicó a la patria y a la bandera, que era su trabajo. Al hijo lo nombró varias veces al pasar, y en la única línea donde le aplicó la doctrina —el padre que sigue amando al hijo que eligió una vida que él no habría aprobado— gastó una oración. Lo que no hizo fue ponerle cuerpo: decir cuánto cuesta, quién lo paga y a qué hora. Este ensayo es esa doctrina ejecutada por alguien que la tiene que hacer un martes a las siete de la tarde y que no eligió el examen.
+Un ensayo del segundo ciclo alcanzó esto por el camino largo y lo llamó servir sin poseer: amar sin necesitar que el otro sea como uno quiere, sin exigir correspondencia, sin colgar la identidad propia del objeto amado. Lo aplicó a la patria y a la bandera, que era su trabajo. Al hijo lo nombró varias veces al pasar, y en la única línea donde le aplicó la doctrina —el padre que sigue amando al hijo que eligió una vida que él no habría aprobado— gastó una oración. Lo que no hizo fue ponerle cuerpo: decir cuánto cuesta, quién lo paga y a qué hora. Este ensayo es esa doctrina ejecutada por alguien que la tiene que hacer un martes a las siete de la tarde y que no eligió el examen.
 
 Y queda la última, que es la más dura y va sin adorno. Criar bien es fabricar, deliberadamente, a la persona que te va a reemplazar. No es una manera de decirlo: el objetivo declarado del trabajo es que el otro pueda hacer sin vos todo lo que hoy hace con vos. Si lo lográs, sobrás. Si no lo lográs, fallaste. Es la única tarea humana que se evalúa por lo bien que se vuelve innecesaria, y el que la hace bien acepta su propia sustitución mientras la ejecuta, sin ceremonia y sin que nadie se lo agradezca a tiempo.
 
@@ -73,7 +73,7 @@ Sentate y escribí tres cosas que aprendiste criando a alguien —un hijo, un he
 
 Después mirá las tres juntas y preguntate cuál usás hoy afuera de tu casa. Casi seguro que dos, y casi seguro que en el trabajo, con gente que no tiene la menor idea de dónde salieron.
 
-Y queda una cosa afuera, que este ensayo no puede contestar sin cambiar de tema. La casa que enseña a vivir tiene pendiente la otra mitad, y ahí está la pregunta que abre el que viene: si criar termina en aceptar la propia sustitución, ¿cómo se sale?
+La casa que enseña a vivir tiene pendiente la otra mitad, y ahí está la pregunta que abre el que viene: si criar termina en aceptar la propia sustitución, ¿cómo se sale?
 
 ---
 

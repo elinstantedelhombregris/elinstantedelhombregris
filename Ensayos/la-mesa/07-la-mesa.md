@@ -37,7 +37,7 @@ Va en segunda persona y en singular a propósito: se escribe una por cada uno. N
 
 **No te escribo por lo que me dijiste.** De lo que me explicaste no me acuerdo casi nada, y lo poco que me acuerdo no me gobernó nunca. Me gobierna lo que te vi hacer cuando creías que no estabas enseñando.
 
-**Te devuelvo la escena.** Acá va un día tuyo, con la hora y con las manos: no una virtud, no una semblanza, un martes. Con una alcanza, y es lo único que puedo darte que no tenías.
+**Te devuelvo la escena.** Un día tuyo, con la hora y con las manos: no una virtud, no una semblanza, un martes. Con una alcanza, y es lo único que puedo darte que no tenías.
 
 **Te nombro lo que me quedó sin que ninguno de los dos lo eligiera.** No es un reproche y no lleva firma de culpable: se transmite mirando y no se puede apagar. Lo digo porque un permiso retirado no vuelve solo.
 
@@ -75,13 +75,13 @@ Y firman los chicos, con su letra. El segundo ensayo dejó fijado por qué: un c
 
 **Acá hay una hora que no se le vende a nadie.** Una por semana, con día y horario, siempre la misma, sin programa y sin teléfonos. No el domingo, que ya carga demasiado. Se falta a esa hora como se falta a un turno médico: no se falta.
 
-**Acá se hereda a propósito.** Dos listas cortas, revisadas una vez al año: lo que queremos pasar —un oficio, una frase, la manera de saludar al que trae el pedido— y lo que se corta con nosotros, con nombre y sin llamarlo tradición. Lo que no se elige se transmite igual; eso ya está probado.
+**Acá se hereda a propósito.** Dos listas cortas, revisadas una vez al año: lo que queremos pasar —un oficio, una frase, la manera de saludar al que trae el pedido— y lo que se corta con nosotros, con nombre y sin llamarlo tradición. Lo que no se elige se transmite igual.
 
 **Acá se sienta más gente de la que duerme acá.** La que aparecería mañana si esto se pusiera feo, tenga o no papel que lo diga. La casa no termina en la puerta y este acuerdo tampoco.
 
 **Firman todos, los chicos incluidos**, y la firma del que tiene siete años vale lo mismo. Cualquiera puede pedir, una vez al año y sin explicar por qué, que se relea entero en voz alta.
 
-**Este acuerdo no se puede firmar solo, y ésa es su diferencia con el acta que cerró el ciclo anterior.** Aquélla se firma de a uno, sin poderes de nadie, porque nadie puede realizar la interdependencia en lugar de otro. Éste no entra en vigor con una firma sola: obliga a levantar la vista y pedirle algo a alguien que puede decir que no.
+**Este acuerdo no entra en vigor con una firma sola, y ésa es su diferencia con el acta que cerró el ciclo anterior.** Aquélla se firma de a uno, sin poderes de nadie, porque nadie puede realizar la interdependencia en lugar de otro. Éste obliga a levantar la vista y pedirle algo a alguien que puede decir que no: la vigencia depende de dos, la conducta no.
 
 **Y si el otro no firma, el que firmó firma igual.** Cumple sus cláusulas solo, sin anunciarlo y sin cobrárselas a nadie. El acuerdo queda abierto arriba de la mesa, esperando al resto, sin reproche — como el tejido, que no castiga la ausencia: la espera.
 
@@ -113,9 +113,9 @@ Treinta años no es retórica. Los que hoy tienen siete van a estar decidiendo c
 
 Entonces, el lunes, dos cosas, y no requieren fundar nada.
 
-Sentate y escribí la carta. Una hoja, a mano, a una sola persona, con una escena adentro y una hora. No la mandes: dejala una semana en un cajón —el único cajón de esta serie con algo escrito en primera persona adentro— y recién a la semana decidís. Si el que te crió está muerto, o lastimó, o no existió, escribila igual; ya está dicho por qué.
+Sentate y escribí la carta. Una hoja, a mano, a una sola persona, con una escena adentro y una hora. No la mandes: dejala una semana en un cajón —el único cajón de este ciclo con algo escrito en primera persona adentro— y recién a la semana decidís. Si el que te crió está muerto, o lastimó, o no existió, escribila igual; ya está dicho por qué.
 
-Y el domingo siguiente, con la mesa puesta y antes de que alguien se levante, leé el acuerdo en voz alta. Entero, aunque dé vergüenza. Después preguntá quién firma. Puede ser que firme uno solo y sea el que lo leyó.
+Y el domingo siguiente —una vez, no la hora semanal—, con la mesa puesta y antes de que alguien se levante, leé el acuerdo en voz alta. Entero, aunque dé vergüenza. Después preguntá quién firma. Puede ser que firme uno solo y sea el que lo leyó.
 
 Está bien. Queda arriba de la mesa, abierto, esperando.
 

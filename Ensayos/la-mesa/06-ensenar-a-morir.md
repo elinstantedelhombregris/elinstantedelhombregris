@@ -81,7 +81,7 @@ Contá un muerto tuyo, con nombre y en voz alta, delante de alguien que no lo co
 
 Y hacé hoy la reparación que venías dejando para cuando hubiera un momento mejor. Hoy, con el teléfono que tenés en la mano. No hace falta que tengas razón, ni que la tenga el otro, ni que el tema se mueva un centímetro: el ciclo ya dejó demostrado que la operación no requiere nada de eso. Sólo tiene un requisito, y es el único que no se puede reponer después.
 
-Y queda una cosa afuera, que este ensayo no puede contestar sin volverse otro. Todo lo anterior se dice hablando, y hablando se dicen los finales que llegan a tiempo. Si irse en paz es decir el final sin prórroga, ¿qué se escribe mientras todavía hay tiempo?
+Lo que queda afuera este ensayo no lo puede contestar sin volverse otro. Todo lo anterior se dice hablando, y hablando se dicen los finales que llegan a tiempo. Si irse en paz es decir el final sin prórroga, ¿qué se escribe mientras todavía hay tiempo?
 
 ---
 

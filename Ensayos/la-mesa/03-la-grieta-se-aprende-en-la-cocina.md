@@ -81,7 +81,7 @@ Peleate delante de ellos. No mandes la discusión al cuarto ni le bajes el volum
 
 Y después —esa misma noche, no la semana que viene— volvé al mismo lugar donde se peleó, delante del mismo chico, y decí dos cosas en voz alta. Que se pelearon. Y que siguen. No hace falta explicar quién tenía razón, ni ponerlo de árbitro, ni fingir que el tema se resolvió si no se resolvió. Alcanza con: *nos peleamos fuerte, y estamos bien*. Dicho adelante, no atrás.
 
-Porque la reparación en privado no educa a nadie. La pelea ya la pagaste entera; regalar la clase es la única parte que no tiene ningún sentido.
+La pelea ya la pagaste entera; regalar la clase es la única parte que no tiene ningún sentido.
 
 Y queda algo afuera, que no voy a contestar acá. Todo esto ocurre en cocinas donde alguien, en algún momento, vio hacerlo. Si una casa no lo vio nunca —si lo único que tuvo para mirar fueron los otros dos finales—, entonces la pregunta ya no es por qué no repara. La pregunta es la que abre el ensayo que viene: si la casa enseñó a romper, ¿quién le sacó lo que hacía falta para enseñar a reparar?
 

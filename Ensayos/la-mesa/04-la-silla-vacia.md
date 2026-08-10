@@ -47,7 +47,7 @@ Lo que se hereda es el trato y no la forma —el ciclo ya lo fijó—, y una cas
 
 La máquina del segundo ensayo no tiene interruptor: si los adultos no están, no queda apagada, queda libre. Y una banda libre no se queda libre.
 
-Hay otro transmisor sentado a esa mesa. No duerme. No tuvo un mal día. No llegó de dos viajes de hora y cuarto. Está disponible a las once de la noche y a las tres de la mañana con la misma disposición exacta. Aprende al chico en semanas, con una precisión que ningún adulto de esa casa va a alcanzar: sabe en qué segundo pierde interés y a qué hora se le cae la defensa. Y no lo quiere. No por maldad: no fue construido para quererlo, fue construido para que no se vaya.
+Hay otro transmisor sentado a esa mesa. No duerme. No tuvo un mal día. No llegó de dos viajes de hora y cuarto. Está disponible a las once de la noche y a las tres de la mañana con la misma disposición exacta. Aprende al chico en semanas, mejor de lo que lo conoce nadie de esa casa: sabe en qué segundo pierde interés y a qué hora se le cae la defensa. Y no lo quiere. No por maldad: no fue construido para quererlo, fue construido para que no se vaya.
 
 No voy a escribir sobre el tiempo de pantalla, ni sobre a qué edad, ni sobre cuántos minutos: ésa es una discusión de higiene y no toca el asunto. **La pregunta es de derecho: quién tiene derecho a imprimir a un ser humano antes de que ese ser humano pueda consentir.**
 
@@ -91,7 +91,7 @@ No le pongas actividad: si le ponés programa la matás, porque lo que tiene que
 
 Un ensayo del tercer ciclo lo escribió para otra cosa y sirve igual para ésta: una hora por semana sostenida un año teje más que un heroísmo de tres meses. Regularidad antes que intensidad. Es aburrido, y es lo único que funciona.
 
-Y queda una cosa afuera, que este ensayo dio por sabida durante seis secciones: vengo hablando de criar como si supiéramos qué es. No sabemos. Si la casa está vaciada, la pregunta que abre el ensayo que viene es qué se pierde exactamente cuando se pierde criar, y no la voy a contestar acá.
+Falta algo que este ensayo dio por sabido durante seis secciones: vengo hablando de criar como si supiéramos qué es. No sabemos. Si la casa está vaciada, la pregunta que abre el ensayo que viene es qué se pierde exactamente cuando se pierde criar.
 
 ---
 

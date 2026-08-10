@@ -3,13 +3,13 @@
 
 ## I. La mesa del domingo y el ladrillo que nadie abrió
 
-Son las dos y media de un domingo en una cocina de cualquier lado. Hay seis personas y cinco sillas, así que alguien trajo la del escritorio, que es más baja y le tocó al que llegó último. Sobre la mesa hay una fuente que ya no humea, una botella por la mitad, el celular de la hija dado vuelta porque la madre pidió que se den vuelta, y una discusión sobre si conviene vender el auto. Nadie convocó esto. No hay orden del día, no hay quórum, no hay actas.
+Son las dos y media de un domingo en una cocina. Hay seis personas y cinco sillas, así que alguien trajo la del escritorio, que es más baja y le tocó al que llegó último. Sobre la mesa hay una fuente que ya no humea, una botella por la mitad, el celular de la hija dado vuelta porque la madre pidió que se den vuelta, y una discusión sobre si conviene vender el auto. Nadie convocó esto. No hay orden del día, no hay quórum, no hay actas.
 
 Y sin embargo, en esa sobremesa, esta semana se resolvió quién acompaña al abuelo al turno del jueves, cuánta plata se le manda al que está sin trabajo —y de qué manera se la manda, para que no parezca limosna—, y si el chico de doce ya puede volver solo desde la esquina. Tres decisiones de gobierno sobre la salud, la economía y la libertad de circulación de un cuerpo humano. Ninguna figura en ningún registro del Estado argentino.
 
 El ciclo anterior terminó pidiendo lealtad a una realidad que no se ve, y en la lista de gestos con que esa lealtad se firma había uno que pasó casi sin ruido: *cada mesa que no rompas*. Este ciclo empieza levantando esa frase del piso para preguntarle qué es, exactamente, lo que se rompe cuando se rompe una mesa.
 
-Y ahí aparece el problema, porque cuando vas a buscar esa mesa en la arquitectura que tres ciclos vinieron dibujando, no está. Está la capa del barrio, la de la comuna, la de la región, la del país. La más chica de todas, la Capa Uno, quedó definida en el cuarto ensayo del primer ciclo así: "un cuerpo cívico definido, de unas cincuenta a quinientas familias".
+Y ahí aparece el problema, porque cuando vas a buscar esa mesa en la arquitectura que tres ciclos vinieron dibujando, no está. La más chica de las que sí están, la Capa Uno, quedó definida en el cuarto ensayo del primer ciclo así: "un cuerpo cívico definido, de unas cincuenta a quinientas familias".
 
 Leelo otra vez, despacio. Todo el edificio se apoya en su piso sobre una unidad de medida, y la unidad es la familia. Contamos familias como el albañil cuenta ladrillos: cincuenta acá, quinientas allá, y con eso se levanta la pared. En veintiún ensayos, en cientos de páginas, nadie abrió un ladrillo para ver de qué está hecho.
 
@@ -17,9 +17,9 @@ No fue por desprecio. Fue por lo contrario, que es más peligroso: la familia ap
 
 Y una arquitectura que cuenta familias sin saber qué es una familia está construida en metros sin haber fijado nunca el metro. Puede sostenerse mucho tiempo. Puede parecer sólida. Pero no sabés dónde está el error, si hay error, porque no sabés qué estás contando.
 
-Este ciclo empieza ahí, en ese hueco, y termina en una mesa como la del domingo, donde vos vas a tener que sentarte. La tesis de los siete ensayos que vienen es fácil de decir y difícil de aguantar: la unidad más chica de la política argentina es una mesa, y lo que pasa en esa mesa es la política argentina de dentro de treinta años. No es una metáfora tierna. Es una cadena causal, y los ensayos que siguen la van a recorrer eslabón por eslabón.
+Y el ciclo termina en una mesa como la del domingo, donde vos vas a tener que sentarte. La tesis de los siete ensayos que vienen es fácil de decir y difícil de aguantar: la unidad más chica de la política argentina es una mesa, y lo que pasa en esa mesa es la política argentina de dentro de treinta años. No es una metáfora tierna. Es una cadena causal, y los ensayos que siguen la van a recorrer eslabón por eslabón.
 
-Pero nada de eso se puede recorrer sin este primer paso, que es sacarle a la familia todo lo que no es. Recién ahí vamos a poder nombrar lo que queda, que es la capa que la arquitectura dio por supuesta y nunca dibujó.
+Pero nada de eso se recorre sin el primer paso: sacarle a la familia todo lo que no es.
 
 ## II. Lo que una familia no es
 
@@ -47,7 +47,7 @@ El flujo va en las dos direcciones, aunque casi nunca esté equilibrado el mismo
 
 Si la definición es funcional, entonces hay que aceptar sus consecuencias, y la primera es que la casa no termina en la puerta.
 
-El hermano mayor que crió a los de abajo mientras la madre hacía turnos. El tío que llegó al acto del 25 de mayo con la cámara cuando el padre no llegó nunca a ninguno, y que después enseñó a manejar y adelantó la matrícula del último año. El abuelo que enseñó un oficio en un galpón con olor a aceite quemado. La vecina del tercero que sube a ver si la señora de al lado prendió la luz. La madrina que bancó el secundario entero —la cuota, los útiles de marzo, el viaje de egresados— y nunca lo mencionó delante del padre, para no humillarlo. La maestra de cuarto grado que un martes se dio cuenta de que un pibe no había comido, y que desde ese martes preparó dos viandas cada mañana hasta que terminó el año, y al año siguiente subió a quinto a preguntar si seguía comiendo. El entrenador del club que le enseñó a un chico a perder un sábado y a volver el sábado siguiente, que es la única materia cívica que en este país se dicta bien.
+El hermano mayor que crió a los de abajo mientras la madre hacía turnos. El tío que llegó con la cámara al acto del 25 de mayo cuando el padre no llegó nunca a ninguno. El abuelo que enseñó un oficio en un galpón con olor a aceite quemado. La vecina del tercero que sube a ver si la señora de al lado prendió la luz. La madrina que bancó el secundario entero —la cuota, los útiles de marzo, el viaje de egresados— y nunca lo mencionó delante del padre, para no humillarlo. La maestra de cuarto grado que un martes se dio cuenta de que un pibe no había comido, y que desde ese martes preparó dos viandas cada mañana hasta que terminó el año, y al año siguiente subió a quinto a preguntar si seguía comiendo. El entrenador del club que le enseñó a un chico a perder un sábado y a volver el sábado siguiente, que es la única materia cívica que en este país se dicta bien.
 
 No los pongas en el margen del texto. No son la excepción conmovedora que confirma la regla: son la demostración de que la regla nunca fue la sangre. Si la familia fuera sangre, ninguno de ellos contaría — y todos sabemos que cuentan más que muchos que sí son sangre. La definición funcional no los incluye por generosidad. Los incluye porque son, literalmente, lo que la definición describe: gente que sostiene a alguien y por lo tanto es su familia, se llame como se llame en el registro civil.
 

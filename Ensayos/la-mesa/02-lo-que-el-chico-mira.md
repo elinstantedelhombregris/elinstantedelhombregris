@@ -75,7 +75,7 @@ Y esto sirve para el que está leyendo con la culpa ya cargada. El canal no tran
 
 Entonces, el lunes, empezá esto, que no requiere fundar nada ni hablar con nadie.
 
-Conseguite un cuaderno, o las notas del teléfono. Durante siete días, cada noche antes de dormir, anotá una sola cosa: algo que un chico te vio hacer ese día. No lo que le dijiste, no el reto, no la charla que preparaste. Lo que vio. Cómo atendiste el teléfono. Qué hiciste con el vuelto. Si el martes hiciste lo que el lunes dijiste que ibas a hacer. Y no hace falta que lleve tu apellido ni duerma acá: la casa no termina en la puerta, y el sobrino, la alumna, el pibe del club también miran.
+Conseguite un cuaderno. Durante siete días, cada noche antes de dormir, anotá una sola cosa: algo que un chico te vio hacer ese día. No lo que le dijiste, no el reto, no la charla que preparaste. Lo que vio. Cómo atendiste el teléfono. Qué hiciste con el vuelto. Si el martes hiciste lo que el lunes dijiste que ibas a hacer. Y no hace falta que lleve tu apellido ni duerma acá: la casa no termina en la puerta, y el sobrino, la alumna, el pibe del club también miran.
 
 Y ahora la parte que hace que sirva: no te corrijas. No expliques al lado por qué ese día estabas cansado. Un chico tampoco anota el atenuante, así que si lo ponés estás anotando otra cosa distinta de la que se transmitió.
 
