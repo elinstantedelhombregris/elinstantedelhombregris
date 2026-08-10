@@ -3,10 +3,15 @@
  * mientras el ciclo esté incompleto o fuera de las restricciones del spec
  * (v2/docs/specs/2026-08-10-ciclo-iv-la-mesa.md).
  *
- * Verifica lo que se puede verificar por texto: forma, largo, tics, y que la
- * Cartografía no cite nada que no exista. Los dispositivos de autor —espejo
- * argentino, la parte hermosa, el movimiento— los verifica el revisor humano,
- * no este script: no hay grep honesto para ellos.
+ * Verifica lo que se puede verificar por texto: forma, largo, tics, que los
+ * siete ordinales estén cada uno una sola vez, y que la Cartografía no cite
+ * un PLAN, un archivo `NN-slug.md` o un *Título en itálica* que no exista en
+ * el corpus. Un título itálico desconocido NO es fatal por sí solo —la casa
+ * cita cosas que no son ensayos (Mandato Territorial, PLANCUIDADO...)— se
+ * reporta como advertencia (`titulo-desconocido`) para que un humano la lea.
+ * Los dispositivos de autor —espejo argentino, la parte hermosa, el
+ * movimiento— los verifica el revisor humano, no este script: no hay grep
+ * honesto para ellos.
  *
  * Run: ./apps/api/node_modules/.bin/tsx scripts/content/verificar-ciclo-la-mesa.ts
  */
@@ -51,11 +56,31 @@ export function auditar(
   docs: { archivo: string; raw: string }[],
   planesConocidos: Set<string>,
   ensayosConocidos: Set<string>,
+  titulosConocidos: Set<string>,
 ): Hallazgo[] {
   const hallazgos: Hallazgo[] = [];
   const push = (archivo: string, regla: string, detalle: string): void => {
     hallazgos.push({ archivo, regla, detalle });
   };
+
+  const porOrdinal = new Map<string, string[]>();
+  for (const { archivo } of docs) {
+    const ordinal = archivo.slice(0, 2);
+    const lista = porOrdinal.get(ordinal) ?? [];
+    lista.push(archivo);
+    porOrdinal.set(ordinal, lista);
+  }
+  for (const [ordinal, archivosConEseOrdinal] of porOrdinal) {
+    if (archivosConEseOrdinal.length > 1) {
+      for (const archivo of archivosConEseOrdinal) {
+        push(
+          archivo,
+          'ordinal-duplicado',
+          `el ordinal ${ordinal} se usa ${String(archivosConEseOrdinal.length)} veces: ${archivosConEseOrdinal.join(', ')}`,
+        );
+      }
+    }
+  }
 
   for (const { archivo, raw } of docs) {
     const lineas = raw.split('\n');
@@ -94,11 +119,28 @@ export function auditar(
 
     if (idxCarto >= 0) {
       const carto = raw.slice(idxCarto);
+      let referencias = 0;
+
       for (const m of carto.matchAll(/\bPLAN[A-Z0-9]{2,}\b/g)) {
+        referencias++;
         if (!planesConocidos.has(m[0])) push(archivo, 'plan-inexistente', m[0]);
       }
       for (const m of carto.matchAll(/\b\d{2}-[a-z0-9-]+\.md\b/g)) {
+        referencias++;
         if (!ensayosConocidos.has(m[0])) push(archivo, 'ensayo-inexistente', m[0]);
+      }
+      // Estilo de la casa: "- *Título* — glosa". Sólo se cuentan las
+      // itálicas al arranque de un ítem de lista, no las citas incrustadas
+      // en medio de una glosa (ej. *"lo que no se transforma, se
+      // transmite"*), que no son referencias a un título.
+      for (const m of carto.matchAll(/^- \*([^*]+)\*/gm)) {
+        referencias++;
+        const titulo = (m[1] ?? '').trim();
+        if (!titulosConocidos.has(titulo)) push(archivo, 'titulo-desconocido', titulo);
+      }
+
+      if (referencias === 0) {
+        push(archivo, 'cartografia-vacia', 'la sección Cartografía no cita ningún PLAN, título ni archivo');
       }
     }
   }
@@ -123,6 +165,29 @@ function listarEnsayos(): Set<string> {
   return nombres;
 }
 
+/**
+ * Todos los H1 de todo `.md` bajo Ensayos/, recursivo. El corpus tiene
+ * títulos en inglés sueltos en la raíz (ej. `04-arquitectura.md`) y su
+ * versión castellana en la subcarpeta (`presidencia, democracia y
+ * belleza/04-arquitectura.md`) — hay que juntar los dos, no sólo uno.
+ */
+function listarTitulos(): Set<string> {
+  const titulos = new Set<string>();
+  const visitar = (dir: string): void => {
+    for (const entrada of readdirSync(dir, { withFileTypes: true })) {
+      if (entrada.isDirectory()) {
+        visitar(resolve(dir, entrada.name));
+      } else if (entrada.name.endsWith('.md')) {
+        const raw = readFileSync(resolve(dir, entrada.name), 'utf-8');
+        const primera = raw.split('\n').find((l) => l.trim() !== '') ?? '';
+        if (primera.startsWith('# ')) titulos.add(primera.slice(2).trim());
+      }
+    }
+  };
+  visitar(ENSAYOS_ROOT);
+  return titulos;
+}
+
 function main(): void {
   if (!existsSync(SRC_DIR)) {
     process.stderr.write(`✗ no existe ${SRC_DIR}\n`);
@@ -130,16 +195,30 @@ function main(): void {
   }
   const archivos = readdirSync(SRC_DIR).filter((f) => /^0[1-7]-[a-z0-9-]+\.md$/.test(f)).sort();
   const docs = archivos.map((archivo) => ({ archivo, raw: readFileSync(resolve(SRC_DIR, archivo), 'utf-8') }));
-  const hallazgos = auditar(docs, listarPlanes(), listarEnsayos());
+  const hallazgos = auditar(docs, listarPlanes(), listarEnsayos(), listarTitulos());
 
-  for (const h of hallazgos) {
+  const fatales = hallazgos.filter((h) => h.regla !== 'titulo-desconocido');
+  const advertencias = hallazgos.filter((h) => h.regla === 'titulo-desconocido');
+
+  for (const h of fatales) {
     process.stderr.write(`✗ ${h.archivo} — ${h.regla}: ${h.detalle}\n`);
   }
-  process.stdout.write(`${String(archivos.length)}/${String(ESPERADOS)} ensayos · ${String(hallazgos.length)} hallazgos\n`);
+  for (const h of advertencias) {
+    process.stderr.write(`⚠ ${h.archivo} — ${h.regla}: ${h.detalle}\n`);
+  }
+  process.stdout.write(
+    `${String(archivos.length)}/${String(ESPERADOS)} ensayos · ${String(fatales.length)} hallazgos` +
+      (advertencias.length > 0 ? ` · ${String(advertencias.length)} advertencias\n` : '\n'),
+  );
 
-  if (hallazgos.length > 0) process.exit(1);
+  if (fatales.length > 0) process.exit(1);
   if (archivos.length !== ESPERADOS) {
-    process.stderr.write(`✗ ciclo incompleto: faltan ${String(ESPERADOS - archivos.length)} ensayos\n`);
+    const diferencia = ESPERADOS - archivos.length;
+    if (diferencia > 0) {
+      process.stderr.write(`✗ ciclo incompleto: faltan ${String(diferencia)} ensayos\n`);
+    } else {
+      process.stderr.write(`✗ ciclo incompleto: sobran ${String(-diferencia)} ensayos\n`);
+    }
     process.exit(1);
   }
   process.stdout.write('✓ el ciclo pasa el guardián\n');

@@ -5,10 +5,16 @@
  * For each v1 source in Ensayos/la-mesa/NN-*.md:
  *   - a corresponding v2 MDX file exists, with frontmatter series ==
  *     'la-mesa' and orderIndex == NN
+ *   - the frontmatter `title` and `subtitle` match the v1 H1 and H2 exactly
+ *     (the H1/H2 live outside the migrated body, so a wrong frontmatter
+ *     title would otherwise slip past a body-only check)
  *   - the v2 body (everything after the frontmatter block) is byte-identical
  *     to the v1 body (everything after the H1 title + optional H2 subtitle),
- *     modulo a single trailing-newline/leading-blank-line normalization
+ *     modulo leading blank lines — both sides run through `trimStart()`
+ *     before comparing; nothing normalizes trailing whitespace
  *   - paragraph counts match exactly (split on blank lines)
+ *   - v2/content-txt/ensayos/<slug>.txt exists and is byte-identical to the
+ *     .mdx file (spec §6: the .txt is a straight copy, not re-derived)
  *
  * Self-contained: no workspace imports, so it stays runnable as a one-shot
  * from the repo root, independent of the migration script's internals.
@@ -25,6 +31,7 @@ const V2_ROOT = resolve(SCRIPT_DIR, '../..');
 const REPO_ROOT = resolve(V2_ROOT, '..');
 const SRC_DIR = resolve(REPO_ROOT, 'Ensayos/la-mesa');
 const OUT_DIR = resolve(V2_ROOT, 'content/ensayos');
+const TXT_DIR = resolve(V2_ROOT, 'content-txt/ensayos');
 
 const ROMAN_HEADING = /^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII)\.\s/;
 
@@ -69,6 +76,19 @@ function frontmatterField(raw: string, key: string): string | undefined {
   return m?.[1]?.trim();
 }
 
+/** Frontmatter values that contain YAML-special characters (a colon, say)
+ * get wrapped in quotes on write; strip them before comparing to raw v1
+ * text, same convention as apps/web/src/lib/ensayos-registry.ts. */
+function unquote(value: string): string {
+  if (
+    (value.startsWith("'") && value.endsWith("'")) ||
+    (value.startsWith('"') && value.endsWith('"'))
+  ) {
+    return value.slice(1, -1);
+  }
+  return value;
+}
+
 function paragraphs(text: string): string[] {
   return text
     .split(/\n\s*\n/)
@@ -88,6 +108,9 @@ interface Row {
   bodyMatch: boolean;
   seriesOk: boolean;
   orderIndexOk: boolean;
+  titleOk: boolean;
+  subtitleOk: boolean;
+  txtOk: boolean;
 }
 
 function main(): void {
@@ -128,15 +151,23 @@ function main(): void {
 
     const series = frontmatterField(outRaw, 'series');
     const orderIndexField = frontmatterField(outRaw, 'orderIndex');
+    const titleField = frontmatterField(outRaw, 'title');
+    const subtitleField = frontmatterField(outRaw, 'subtitle');
 
     const seriesOk = series === 'la-mesa';
     const orderIndexOk = orderIndexField === String(orderIndex);
     const bodyMatch = sha(src.body) === sha(outBody);
+    const titleOk = (titleField !== undefined ? unquote(titleField) : undefined) === src.title;
+    const subtitleOk = (subtitleField !== undefined ? unquote(subtitleField) : undefined) === src.subtitle;
 
     if (!seriesOk) failures.push(`${file}: series="${String(series)}", expected "la-mesa"`);
     if (!orderIndexOk)
       failures.push(`${file}: orderIndex="${String(orderIndexField)}", expected "${String(orderIndex)}"`);
     if (!bodyMatch) failures.push(`${file}: body differs from source (sha256 mismatch) — NOT verbatim`);
+    if (!titleOk)
+      failures.push(`${file}: frontmatter title="${String(titleField)}", expected "${src.title}"`);
+    if (!subtitleOk)
+      failures.push(`${file}: frontmatter subtitle="${String(subtitleField)}", expected "${src.subtitle}"`);
 
     const srcParagraphs = paragraphs(src.body).length;
     const outParagraphs = paragraphs(outBody).length;
@@ -146,15 +177,39 @@ function main(): void {
       );
     }
 
-    rows.push({ slug, file, srcParagraphs, outParagraphs, bodyMatch, seriesOk, orderIndexOk });
+    const txtPath = resolve(TXT_DIR, `${slug}.txt`);
+    let txtOk = false;
+    if (!existsSync(txtPath)) {
+      failures.push(`${file}: missing txt copy ${slug}.txt in ${TXT_DIR}`);
+    } else {
+      const mdxBuf = readFileSync(outPath);
+      const txtBuf = readFileSync(txtPath);
+      txtOk = mdxBuf.equals(txtBuf);
+      if (!txtOk) failures.push(`${file}: ${slug}.txt is not byte-identical to ${slug}.mdx`);
+    }
+
+    rows.push({
+      slug,
+      file,
+      srcParagraphs,
+      outParagraphs,
+      bodyMatch,
+      seriesOk,
+      orderIndexOk,
+      titleOk,
+      subtitleOk,
+      txtOk,
+    });
   }
 
-  process.stdout.write('slug'.padEnd(30) + 'src¶  v2¶  body  series  orderIndex\n');
+  process.stdout.write('slug'.padEnd(30) + 'src¶  v2¶  body  series  orderIndex  title  subtitle  txt\n');
   for (const r of rows) {
     process.stdout.write(
       `${r.slug.padEnd(30)}${String(r.srcParagraphs).padEnd(5)}${String(r.outParagraphs).padEnd(5)}${
         r.bodyMatch ? 'OK' : 'FAIL'
-      }    ${r.seriesOk ? 'OK' : 'FAIL'}      ${r.orderIndexOk ? 'OK' : 'FAIL'}\n`,
+      }    ${r.seriesOk ? 'OK' : 'FAIL'}      ${r.orderIndexOk ? 'OK' : 'FAIL'}         ${
+        r.titleOk ? 'OK' : 'FAIL'
+      }     ${r.subtitleOk ? 'OK' : 'FAIL'}       ${r.txtOk ? 'OK' : 'FAIL'}\n`,
     );
   }
   const totalSrcParagraphs = rows.reduce((n, r) => n + r.srcParagraphs, 0);

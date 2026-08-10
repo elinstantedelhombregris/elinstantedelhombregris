@@ -4,9 +4,9 @@ import { ENSAYOS, type EnsayoEntry } from '~/lib/ensayos-registry';
 
 /**
  * La biblioteca (spec 3.1/3.2) — todas las derivaciones de contenido en un
- * solo lugar. El registry ordena por `orderIndex` GLOBAL: con tres ciclos de
- * 1..7 los ensayos quedan intercalados, así que las páginas consumen esto y
- * nunca `ENSAYOS` crudo. Ningún conteo literal vive en el JSX.
+ * solo lugar. El registry ordena por `orderIndex` GLOBAL: con cuatro ciclos
+ * de 1..7 los ensayos quedan intercalados, así que las páginas consumen esto
+ * y nunca `ENSAYOS` crudo. Ningún conteo literal vive en el JSX.
  */
 export interface Ciclo {
   serie: string;

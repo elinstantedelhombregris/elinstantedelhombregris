@@ -70,9 +70,9 @@ los tres: cada ensayo usa el hallazgo del anterior.
 *La familia como Capa Cero · agosto de 2026 · `la-mesa/`*
 
 Del ladrillo que la arquitectura nunca abrió —la familia— a la mesa que cada
-uno arma con lo que queda. Es el ciclo más encadenado de los cuatro: cada
-ensayo retoma la pregunta que dejó abierta el anterior, hasta cerrar en dos
-textos que se escriben, no se leen.
+uno arma con lo que queda. Cada ensayo retoma la pregunta que dejó abierta el
+anterior, y es el único de los cuatro que no cierra en un texto que se lee:
+cierra en dos que se escriben.
 
 | # | Archivo | Título |
 |---|---------|--------|
