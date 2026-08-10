@@ -15,7 +15,7 @@ Entonces la tesis, que ordena todo lo que sigue. **La familia enseña a vivir y 
 
 Conviene empezar por el lado que no duele, porque es el que casi nunca se cuenta.
 
-Un tipo fue tornero cuarenta y un años en un galpón de Villa Martelli. Murió en 2011. Su nieto tenía seis y no lo vio trabajar nunca. Hoy ese nieto vende software, revisa dos veces lo que entrega antes de mandarlo y, cuando le preguntan por qué, dice que le sale así. Le sale así porque durante seis años estuvo cerca de un hombre que revisaba cosas.
+Un tipo fue tornero cuarenta y un años en un galpón de Villa Martelli. Murió en 2011. Su nieto tenía seis y no lo vio trabajar nunca. Hoy ese nieto vende software, revisa dos veces lo que entrega antes de mandarlo y, cuando le preguntan por qué, dice que le sale así. Le sale así porque durante seis años estuvo cerca de un hombre que revisaba cosas. El primer ensayo de este ciclo listó al abuelo que enseñaba un oficio en un galpón; éste es el mismo galpón, sin la clase.
 
 Eso es lo que queda operando. No la herencia en el sentido del papel: un modo. A veces es un oficio que sobrevive convertido en otra cosa. A veces es una sola frase, dicha tantas veces que ya no se cita, se obedece —*a nadie se lo deja parado en la puerta*— y una nieta de treinta y cuatro hace pasar a la chica del delivery a tomar agua sin saber que está cumpliendo una orden de 1969. A veces es una tozudez: la señora que no firmaba nada sin leerlo entero, y una bisnieta que en una inmobiliaria de Quilmes se toma veinte minutos con un contrato mientras el corredor mira el reloj, y queda como conflictiva, y no afloja.
 
@@ -43,6 +43,10 @@ El tercer ensayo de este ciclo definió la operación y marcó, en la misma pág
 
 Porque hay un final cuyo contenido no es *seguimos acá*. Es: esto se termina, y lo quiero dejar dicho antes de que se termine. Es el mismo músculo —decir el final— con dos diferencias que lo vuelven otra cosa. La primera es que no hay segunda fecha: se dice ahora o no se dice. La segunda es que puede no haber nadie mirando, y el ciclo ya dejó escrito que la operación hecha a solas repara igual aunque no enseñe nada. Acá reparar igual alcanza y sobra.
 
+Una mujer de Berazategui juntó a los tres hijos un sábado y esperó a que estuviera servido el café. Después dijo que de ésta no salía, y que quería hablarlo mientras todavía pudiera hablar. No informó nada: los tres lo sabían hacía dos meses y ninguno lo había dicho nunca en voz alta. El más chico se levantó a buscar la azucarera que ya estaba arriba de la mesa. Estuvieron ahí hasta las nueve y en algún momento se rieron de algo. No se decidió nada, no se repartió nada, no hubo ninguna carta. Lo único que cambió fue que a partir de esa tarde el tema tenía nombre adentro de esa casa, y los cuatro meses que siguieron se hablaron.
+
+Ahí está el músculo entero funcionando sin *seguimos acá* adentro. Lo que se dijo en esa cocina fue exactamente lo contrario, y la casa quedó en mejores condiciones que la semana anterior. Que la operación pareciera necesitar esa promesa era un accidente del ejemplo. Lo que necesitaba era que alguien dijera el final.
+
 **Postergar una reparación es apostar a que va a haber tiempo, y es la única apuesta que una casa hace todos los días sin darse cuenta de que la está haciendo.**
 
 Un ensayo del segundo ciclo pasó al lado de esto y preguntó, entre otras cuatro preguntas sobre el futuro condicional argentino: *"¿Cuántas conversaciones importantes con tu pareja, con tus hijos, con vos mismo, están guardadas para un momento más tranquilo que nunca llega?"*. La pregunta está entera y es la mía. Lo que hizo después fue cobrarla de un solo lado: el precio que puso es la vida que se te va en la espera, y es un precio real. Del otro lado del teléfono también hay una fecha, y esa fecha no figura en ningún lado. La postergación no la paga solamente el que posterga.
@@ -67,7 +71,7 @@ Y acá el espejo se escribe solo, sin que haga falta elegir una década, y no vo
 
 ## VI. Lo único que ninguna casa tuvo que pedir
 
-De esto no hay estadística, y no la va a haber: nadie volvió nunca a contar cómo le fue. Así que lo que sigue no lo puedo demostrar, y lo escribo igual porque es lo único que a esta altura me parece que hay que decir.
+De esto no hay estadística, y no la va a haber: nadie volvió nunca a contar cómo le fue.
 
 La muerte es la única cosa que le pasa a todo el mundo sin excepción, y es también la única sobre la que cada casa decide sola qué se dice. No hay ley que lo regule ni presupuesto que se pueda recortar. Este ciclo ya fijó que a la casa argentina le sacaron las condiciones —las horas, el piso, la moneda— y que aun así es la última superficie donde una persona todavía decide sin pedir permiso. Esto ni siquiera hubo que defenderlo: nadie se lo dio nunca a nadie, y por eso nadie se lo pudo quitar. Es soberanía en estado puro. Y casi nadie la ejerce.
 
