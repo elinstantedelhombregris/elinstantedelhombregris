@@ -51,6 +51,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-024](#d-024--hay-dos-suites-de-tests-en-el-repo-y-sólo-una-corre-en-ci) | Hay dos suites de tests en el repo y sólo una corre en CI | Media | Abierta |
 | [D-028](#d-028--editar-la-portada-de-un-plan-corre-todas-sus-anclas-de-remisión) | Editar la portada de un PLAN corre todas sus anclas de remisión | Media | Abierta |
 | [D-032](#d-032--los-ensayos-del-ciclo-i-glosan-planmesa-como-soberanía-alimentaria-y-hace-meses-que-no-lo-es) | Los ensayos del Ciclo I glosan PLANMESA como soberanía alimentaria | Media | Abierta |
+| [D-033](#d-033--pnpm-formatcheck-falla-en-564-archivos-preexistentes-scriptscontent-incluido) | `pnpm format:check` falla en 564 archivos preexistentes, `scripts/content/` incluido | Baja | Abierta |
 
 ---
 
@@ -758,3 +759,18 @@ El Ciclo II ya lo tiene bien: `Ensayos/indagaciones/06-amor-sin-apego.md` cita "
 **Por qué no se arregla acá:** el spec del Ciclo IV (`v2/docs/specs/2026-08-10-ciclo-iv-la-mesa.md`) deja explícitamente fuera de alcance editar los ciclos ya publicados. Tocar cuatro cartografías del Ciclo I desde una tarea del Ciclo IV mezcla dos causas de cambio en un mismo commit, y esos cuatro archivos tienen superficie de publicación en `v2/` (`.mdx`, `content-txt`, tests de registry) que habría que mover junto.
 
 **Qué haría falta:** reescribir las cuatro glosas contra el `nombreInstitucional` vigente de PLANMESA —y, donde la intención original era alimentaria, reapuntar la remisión a PLANISV, que es donde esa soberanía se mudó—, propagar a la superficie publicada en `v2/`, y después una guardia que cruce cada token de PLAN citado en una Cartografía contra el `summary` de su `.mdx`, aunque sea por solapamiento de sustantivos, para que la próxima mudanza de dominio entre PLANes no deje glosas huérfanas en la prosa.
+
+---
+
+### D-033 · `pnpm format:check` falla en 564 archivos preexistentes, `scripts/content/` incluido
+
+**Dónde:** `v2/` — corrida completa de `pnpm format:check`
+**Encontrada:** 2026-08-10, verificando la Task 10 (publicación del Ciclo IV — La Mesa a v2)
+**Severidad:** baja — no bloquea build ni tests, sólo el paso de formato del checklist
+**Estado:** abierta
+
+`cd v2 && pnpm format:check` reporta 564 archivos con estilo fuera de Prettier — entre ellos todo `packages/db/src/schema/*.ts`, `packages/civic-core/src/*.ts`, y los seis scripts ya existentes en `scripts/content/` (`verify-ensayos-interdependencia.ts`, `verify-planes-index.ts`, `html-to-md.ts`, etc.). Es deriva preexistente, no algo que esta tarea haya introducido: `scripts/content/verify-ensayos-la-mesa.ts` —clonado línea por línea de `verify-ensayos-interdependencia.ts` por instrucción explícita de la Task 10— hereda el mismo desvío que su original. Ninguno de los `.mdx`/`.txt` nuevos del Ciclo IV aparece en el listado; el desvío es específicamente de los `.ts` de `scripts/` y de los paquetes, no del contenido publicado.
+
+**Por qué no se arregla acá:** correr `pnpm format` sobre el repo entero reformatea 564 archivos ajenos a esta tarea, mezclando una limpieza de estilo con una publicación de contenido, y varios de esos archivos tienen sesiones concurrentes trabajando encima (ver D-010).
+
+**Qué haría falta:** decidir si el `.prettierrc` vigente es el que se quiere, y si sí, una pasada de `pnpm format` de todo el repo en un commit dedicado y sin trabajo concurrente en curso; si no, revisar qué cambió en la config de Prettier para que 564 archivos ya escritos dejen de pasar el check.
