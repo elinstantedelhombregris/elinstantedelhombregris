@@ -438,7 +438,7 @@ Es la keystone del ciclo. Si sólo un ensayo sale perfecto, tiene que ser éste.
 
 **Interfaces:**
 - Consumes: el mecanismo del ensayo 2; `04-libertad-de-lo-conocido.md`, que abrió la tesis de la grieta heredada y la dejó sin mecanismo.
-- Produces: **la reparación** como el músculo único del ciclo. El ensayo 6 la retoma en forma terminal y el 7 la ejecuta en las dos direcciones del tiempo. El nombre y la definición de la operación se fijan acá.
+- Produces: el músculo único del ciclo, que es **decir el final** — la reparación delante de un chico es su *caso doméstico*, y el testigo es la condición de que la operación **enseñe**, no parte de lo que la operación **es** (spec §2.3). El ensayo 6 lo retoma sin prórroga y a veces sin testigo, y el 7 lo ejecuta en las dos direcciones del tiempo. La definición se fija acá y tiene que quedar **portable**: si lleva el testigo y la continuidad del vínculo adentro, ni el 6 ni el 7 pueden reusarla.
 
 **Título:** `# La grieta se aprende en la cocina`
 **Subtítulo:** `## Sobre cómo terminan las peleas, y sobre lo que aprende el que mira`
@@ -583,7 +583,7 @@ git commit -m "feat(ensayos): Ciclo IV 5/7 — Las lecciones que no hacen falta"
 - Create: `Ensayos/la-mesa/06-ensenar-a-morir.md`
 
 **Interfaces:**
-- Consumes: **la reparación del ensayo 3**, que es su referencia estructural más importante; la sustitución aceptada del ensayo 5.
+- Consumes: **el músculo del ensayo 3 (decir el final)**, que es su referencia estructural más importante; la sustitución aceptada del ensayo 5.
 - Produces: el material del que se hace el ensayo 7 — lo que se salda antes de que se acabe el tiempo.
 
 **Título:** `# Enseñar a morir`
@@ -594,7 +594,7 @@ git commit -m "feat(ensayos): Ciclo IV 5/7 — Las lecciones que no hacen falta"
 - **I.** La familia enseña a vivir y tiene que enseñar a morir. La casa que no habla de la muerte no produce chicos protegidos: produce adultos que no saben acompañar, no saben despedirse y no saben irse.
 - **II.** Los que se fueron como fuente, no como duelo mudo. Qué de un muerto sigue operando en la casa: un oficio, una frase, un modo de tratar a la gente, una receta, una tozudez. **La herencia que no es plata es la única que no se devalúa** — y en este país esa frase tiene un peso literal.
 - **III.** El reverso: los silencios se heredan con la misma fidelidad que los relatos, y acá los silencios tienen apellido — el que se fue, el que perdió todo, el que volvió distinto, el que no volvió, el que colaboró. Un chico que crece con un silencio en la casa no crece sin el hecho: crece con el hecho más el miedo a nombrarlo.
-- **IV.** Sanar antes. Irse en paz con los demás es la reparación del ensayo 3 sin prórroga posible: la misma operación, ahora con fecha de vencimiento desconocida. **Postergar una reparación es apostar a que va a haber tiempo, y es la única apuesta que una casa hace todos los días sin darse cuenta de que la está haciendo.**
+- **IV.** Sanar antes. Irse en paz con los demás es el músculo del ensayo 3 (decir el final) sin prórroga posible: la misma operación, ahora con fecha de vencimiento desconocida. **Postergar una reparación es apostar a que va a haber tiempo, y es la única apuesta que una casa hace todos los días sin darse cuenta de que la está haciendo.**
 - **V.** Hablar de la muerte. No como preparación morbosa sino como alfabetización: que un chico sepa que los que quiere se van a morir, y que eso se puede decir en voz alta en su casa, es la diferencia entre un adulto que puede acompañar y uno que desaparece cuando alguien se enferma. Un país que no elabora sus muertos está hecho de casas que no elaboran los suyos — **y el espejo argentino se escribe solo, sin necesidad de nombrar ninguna década en particular.**
 - **VI.** **La parte hermosa:** la muerte es la única cosa que le pasa a todos y la única sobre la que cada casa decide sola qué se dice. Es soberanía en estado puro y casi nadie la ejerce. **El movimiento:** contá un muerto tuyo, con nombre, delante de alguien que no lo conoció. Y hacé hoy la reparación que estabas dejando para cuando hubiera un momento mejor.
 - **Cartografía.**
@@ -639,7 +639,7 @@ Cierra el ciclo y contiene dos documentos, con precedente en la serie: el Credo 
 
 **Esqueleto:**
 
-- **I.** La tesis del cierre: la carta salda hacia atrás, el acuerdo abre hacia adelante, y no se puede firmar el segundo sin haber escrito la primera. Es la reparación del ensayo 3 ejecutada en las dos direcciones del tiempo.
+- **I.** La tesis del cierre: la carta salda hacia atrás, el acuerdo abre hacia adelante, y no se puede firmar el segundo sin haber escrito la primera. Es el músculo del ensayo 3 (decir el final) ejecutada en las dos direcciones del tiempo.
 - **II. Carta a los que me criaron.** El documento, entero, en el cuerpo del ensayo. Espejo exacto de `07-carta.md`: aquélla escribe hacia adelante y hacia la niebla; ésta hacia atrás y hacia gente con nombre, viva o muerta. **Su cláusula obligatoria:** el que fue criado por alguien que lastimó, o por nadie, escribe la versión que no se manda — sirve igual, porque el destinatario nunca fue el punto.
 - **III. El Acuerdo de la Mesa.** El documento, entero. Corto, firmado entre todos, chicos incluidos. Cláusulas: cómo se pelea acá; cómo se repara y en cuánto tiempo; qué se cuenta de los que no están y qué no se calla; qué hora de la semana no se le vende a nadie; qué se hereda a propósito y qué se corta con nosotros —acá se incrusta el inventario de *lo que dejo*, que nace del ensayo 6—; y quién más está en esta mesa aunque no duerma acá.
 - **IV.** La diferencia con el Acta de la Interdependencia, **dicha adentro del documento y no escondida.** El Acta se firma solo, con la conducta de uno. El Acuerdo no se puede firmar solo: es la primera pieza del corpus que obliga a levantar la vista y mirar a alguien. Por eso puede fallar de un modo que las otras no podían — el otro puede no firmar. **Cláusula final:** el que firma solo, firma igual, y el acuerdo queda abierto esperando al resto, sin reproche, como el tejido espera en `07-acta-de-la-interdependencia.md`.
@@ -688,7 +688,7 @@ El guardián verifica forma. Esta tarea verifica que los siete sean **un** argum
 | 5 → 6 | Si criar termina en aceptar la propia sustitución, ¿cómo se sale? |
 | 6 → 7 | Si irse en paz es decir el final sin prórroga, ¿qué se escribe mientras todavía hay tiempo? |
 
-- [ ] **Step 3: Verificar el músculo único.** La reparación aparece en el 3 (se define), en el 6 (sin prórroga) y en el 7 (en las dos direcciones). Confirmar que en los tres es **la misma operación con el mismo nombre** y no tres cosas parecidas.
+- [ ] **Step 3: Verificar el músculo único.** El músculo es **decir el final**; la reparación delante de un chico es su caso doméstico. Aparece en el 3 (se define, con la operación separada de su condición pedagógica), en el 6 (sin prórroga y a veces sin testigo) y en el 7 (en las dos direcciones del tiempo). Confirmar que en los tres es **la misma operación con el mismo nombre** y no tres cosas parecidas. **No verificar contra "la reparación" a secas:** esa definición se probó contra los ensayos 6 y 7 y no sobrevive — falla las cuatro cláusulas contra la carta que no se manda.
 
 - [ ] **Step 4: Auditoría de repetición.** Buscar ejemplos, escenas y frases usados dos veces en el ciclo. Cada escena vive en un solo ensayo; el que la repite la cede al que la usa mejor.
 
