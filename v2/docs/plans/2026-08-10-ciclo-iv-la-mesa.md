@@ -825,7 +825,9 @@ Los `.mdx` los descubre el glob del registry solos, pero tres puntos tienen los 
 - Consumes: los siete MDX con `series: la-mesa`.
 - Produces: el ciclo visible en `/biblioteca` y en `EnsayoDetail` con romano `IV`, rótulo y descripción.
 
-- [ ] **Step 1: Actualizar los tests primero, y verlos fallar**
+- [ ] **Step 1: Actualizar los tests al nuevo canon de cuatro ciclos**
+
+Los siete MDX ya existen desde la Task 10, así que estos tests están fallando **ahora mismo** en su forma vieja: `toHaveLength(21)` ve 28, y el assert de series desconocidas ve una serie de más. Correrlos antes de tocarlos para ver ese rojo es opcional; lo que no es opcional es que después de este paso queden verdes por la razón correcta y no por haber aflojado un assert.
 
 En `v2/apps/web/src/lib/__tests__/ensayos-registry.test.ts`:
 
