@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest';
 
 import { ENSAYOS, findEnsayoBySlug } from '../ensayos-registry';
 
-const EXPECTED_SERIES = ['primer-ciclo', 'indagaciones', 'interdependencia'] as const;
+const EXPECTED_SERIES = ['primer-ciclo', 'indagaciones', 'interdependencia', 'la-mesa'] as const;
 
 describe('ENSAYOS registry', () => {
-  it('loads 21 ensayos across the three cycles', () => {
-    expect(ENSAYOS).toHaveLength(21);
+  it('loads 28 ensayos across the four cycles', () => {
+    expect(ENSAYOS).toHaveLength(28);
   });
 
   it('every entry has non-empty slug/title/summary/body and a valid form', () => {
@@ -20,7 +20,7 @@ describe('ENSAYOS registry', () => {
     }
   });
 
-  it('each of the three cycles has exactly 7 ensayos, in order 1..7', () => {
+  it('each of the four cycles has exactly 7 ensayos, in order 1..7', () => {
     for (const series of EXPECTED_SERIES) {
       const items = ENSAYOS.filter((e) => e.series === series).sort(
         (a, b) => a.orderIndex - b.orderIndex,
@@ -30,7 +30,7 @@ describe('ENSAYOS registry', () => {
     }
   });
 
-  it('no series outside the three known cycles', () => {
+  it('no series outside the four known cycles', () => {
     const seriesSet = new Set(ENSAYOS.map((e) => e.series));
     expect([...seriesSet].sort()).toEqual([...EXPECTED_SERIES].sort());
   });

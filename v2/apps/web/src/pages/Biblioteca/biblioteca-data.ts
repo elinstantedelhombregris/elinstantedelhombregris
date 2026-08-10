@@ -40,6 +40,11 @@ const ROTULOS: Record<string, { rotulo: string; descripcion: string }> = {
     descripcion:
       'Escrito para un 9 de julio: de qué está hecha una nación, qué cortó el bisturí de 1816 y qué se firma sin papel.',
   },
+  'la-mesa': {
+    rotulo: 'La Mesa',
+    descripcion:
+      'La familia como Capa Cero: el ladrillo que la arquitectura contó sin abrir, la reparación que se aprende en una cocina, y lo que una casa enseña a vivir y a morir.',
+  },
 };
 
 const ROMANOS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'] as const;
