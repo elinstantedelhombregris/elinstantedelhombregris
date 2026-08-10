@@ -15,7 +15,7 @@ Lo que hay que aceptar es la jerarquía entre los dos, que no es pareja ni es ne
 
 ## II. Lo único que un chico puede registrar
 
-Un chico de cinco años no tiene con qué evaluar un argumento. No puede chequear una premisa, no puede pedir evidencia, no sabe todavía que existe la palabra incoherencia. Si le explicás por qué hay que ser honesto, él no está midiendo la explicación: no tiene el instrumento. Lo que sí tiene, afinadísimo, es un aparato para registrar conducta, y la registra con una precisión que ningún adulto de esa casa conserva, porque todavía no aprendió a mirar para otro lado por educación.
+Un chico de cinco años no tiene con qué evaluar un argumento. No puede chequear una premisa, no puede pedir evidencia, no sabe todavía que existe la palabra incoherencia. Si le explicás por qué hay que ser honesto, no está midiendo la explicación: no tiene el instrumento. Lo que sí tiene, afinadísimo, es un aparato para registrar conducta, y la registra con una precisión que ningún adulto de la casa conserva, porque todavía no aprendió a mirar para otro lado por educación.
 
 Fijate qué es lo que efectivamente entra por ahí.
 
@@ -31,7 +31,7 @@ Y entra, sobre todo, qué se hace cuando nadie mira y no hay ningún costo. El k
 
 Hay una casa argentina donde esto se ve con una claridad casi cruel: la casa donde no se habla de plata. Se decide no hablar para proteger a los chicos, y la decisión es honesta. Y los chicos igual saben todo. Saben qué mes viene mal por el tipo de silencio que hay a la noche, reconocen el sonido de una conversación con la puerta cerrada, notan que este año no se habló del viaje. No enterarse de los números no les enseña que no hay problema: les enseña que los problemas verdaderos de una casa son los que no se nombran. Después uno se pregunta por qué a este país le cuesta tanto discutir en voz alta lo que todo el mundo sabe.
 
-Y está el hallazgo que el chico hace sin buscarlo, sentado en el piso mientras el adulto habla por teléfono: que la misma persona tiene tres voces. Una para el que puede complicarle la vida —el banco, el jefe, el que atiende el reclamo—, hecha de un respeto muy prolijo y muy tenso. Otra para el que le está haciendo un trabajo, la voz corta del que no tiene que agradar. Y una tercera, la suelta, la que se le escapa cuando atiende un amigo. El chico no tiene la palabra clase ni la palabra jerarquía, pero aprendió el mapa completo antes de saber leer, y se va a mover en él con una comodidad que nunca va a poder justificar.
+Y está el hallazgo que el chico hace sin buscarlo, sentado en el piso mientras el adulto habla por teléfono: que la misma persona tiene tres voces. Una para el que puede complicarle la vida —el banco, el jefe—, de un respeto muy prolijo y muy tenso. Otra para el que le está haciendo un trabajo, la voz corta del que no tiene que agradar. Y una tercera, la suelta, la que se le escapa cuando atiende un amigo. El chico no tiene la palabra clase ni la palabra jerarquía, pero aprendió el mapa completo antes de saber leer, y se va a mover en él con una comodidad que nunca va a poder justificar.
 
 ## III. No le podés enseñar a tu hijo un país que vos no estás viviendo
 
@@ -45,19 +45,19 @@ Ese sábado se enseñaron dos cosas, y una sola de las dos se dijo con la boca.
 
 No es un reproche moral. Es una descripción del ancho del canal. El canal de la palabra transmite muy poco y transmite lento; el canal del testimonio transmite todo, todo el tiempo, y no se puede apagar. Ese padre no es un hipócrita al que haya que denunciar: es un hombre que usó el canal chico para lo que quería transmitir y el canal grande para lo otro, sin saber cuál era cuál. Y le llegó lo otro, completo.
 
-Esto tiene una consecuencia para toda esta plataforma, y conviene decirla acá porque no está dicha en ninguno de los planes que la componen. La arquitectura entera presupone una persona que hace ciertas cosas cuando nadie la mira y cuando no cumplirlas le saldría gratis. Ninguna ley produce a esa persona: no hay artículo que la fabrique ni presupuesto que la compre. Sale de una casa, de a una por vez, y sale antes de saber que existe algo llamado país.
+Esto tiene una consecuencia para toda esta plataforma, y conviene decirla acá porque los planes la presuponen sin poder producirla. PLANJUS diseña una justicia por sorteo cuyo mejor argumento es que no depende de la virtud de nadie: tres desconocidos sorteados minutos antes, y alcanza con que uno se niegue y avise para que la compra del fallo fracase. Descansa sobre ese uno, en una pieza donde negarse no da premio y avisar es una molestia. PLANMESA pide, para habilitar una silla, un pacto de cuidado sostenido doce meses: registra la firma, no los doce meses de aparecer. Ninguna ley produce a esa persona: no hay artículo que la fabrique ni presupuesto que la compre. Sale de la Capa Cero, de a una por vez, y esa capa que no diseñó nadie es la que produce el material del que dependen todas las otras.
 
-Por eso el ciclo anterior, cuando miró a la escuela argentina y la llamó una fábrica de obediencia, describió bien la máquina y llegó tarde. Cuando un chico entra al jardín ya cursó tres años de un currículum sin timbre y sin vacaciones, dictado por dos o tres personas que lo tenían a upa. La escuela no funda: ratifica. Recibe un material ya formado y le pone doce años de barniz.
+Por eso el segundo ciclo, cuando miró a la escuela argentina y la llamó una fábrica de obediencia, describió bien la máquina y se detuvo antes de la puerta. Preguntó qué reforma podría arreglar a millones de adultos que le apagan la llama a un chico por día, se contestó que ninguna, y cerró diciendo que la obediencia se enseñó casa por casa. Nombró la dirección en la última línea y no entró. Adentro pasa esto: cuando un chico entra al jardín ya cursó tres años de un currículum sin timbre y sin vacaciones, dictado por dos o tres personas que lo tenían a upa. La escuela no funda: ratifica. Recibe un material ya formado y le pone doce años de barniz.
 
-Y falta lo más incómodo: no se puede fingir. El chico no detecta la contradicción como contradicción, pero la registra como una textura rara —*cuando papá dice eso, no le sale la voz igual*—, y eso no le produce un rebelde. Le produce algo peor y mucho más útil para moverse por acá: le enseña que las palabras son una capa que va arriba y no tiene por qué coincidir con lo de abajo. Un chico que aprende eso a los seis años es un adulto equipado para vivir en un lugar donde todo se declara y nada se cumple. Se lo enseñaron en su casa, sin querer, y le funcionó siempre.
+Y falta lo más incómodo: no se puede fingir. El chico no detecta la contradicción como contradicción, pero la registra como una textura rara —*cuando papá dice eso, no le sale la voz igual*—, y eso no le produce un rebelde. Le produce algo peor y mucho más útil para moverse por acá: le enseña que las palabras son una capa que va arriba y no tiene por qué coincidir con lo de abajo. Un chico que aprende eso a los seis años es un adulto equipado para vivir en un lugar donde todo se declara y nada se cumple. Se lo enseñaron sin querer, y le funcionó siempre.
 
 ## IV. El chico no es el futuro
 
-En todos los actos escolares de este país se dice la misma frase, con la mejor intención que hay: los chicos son el futuro de la patria. Suena generoso. Es una postergación.
+En todos los actos escolares de este país se dice la misma frase, con la mejor intención: los chicos son el futuro de la patria. Suena generoso. Es una postergación.
 
-Un chico al que se le dice que es el futuro aprende, sin que nadie se lo aclare, que hoy no es nada todavía. Que la ciudadanía es un objeto que se recibe con la edad, como el registro de conducir, y que mientras tanto lo que corresponde es esperar. Treinta años después es exactamente el adulto que este proyecto describió cuando examinó nuestra idea de democracia: alguien que entiende su función cívica como presentarse cada dos años a entregarle la decisión a otro, y después quejarse de cómo la usó. El hábito de esperar el turno no se desaprende votando. Se aprendió mucho antes de la primera boleta.
+Un chico al que se le dice que es el futuro aprende, sin que nadie se lo aclare, que hoy no es nada todavía. Que la ciudadanía es un objeto que se recibe con la edad, como el registro de conducir, y que mientras tanto lo que corresponde es esperar. Treinta años después es exactamente el adulto que este proyecto describió cuando examinó nuestra idea de democracia: alguien a quien se le dice, cada cuatro años, que es soberano y el resto del tiempo espera. Aquel ensayo puso la falla en el mecanismo que le impide gobernarse mientras le informa que se está gobernando, no en el que espera: ese adulto hace lo que aprendió que correspondía. El hábito de esperar el turno no se desaprende votando. Se aprendió mucho antes de la primera boleta.
 
-Pero mirá lo que dice la definición del ensayo anterior, que ya está fijada. Una familia es una obligación de sostén efectivamente sostenida, y un chico está adentro de ese flujo desde el primer día: recibe casi todo y devuelve casi nada, y sin embargo está adentro. No es un candidato a miembro. Es miembro. Si la ciudadanía es una función que se ejerce y no un estatus que se otorga, no hay ninguna razón para que empiece a ejercerse a los dieciocho.
+Pero la definición del ensayo anterior ya está fijada. Una familia es una obligación de sostén efectivamente sostenida, y un chico está adentro de ese flujo desde el primer día: recibe casi todo y devuelve casi nada, y sin embargo está adentro. No es un candidato a miembro. Es miembro. Si la ciudadanía es una función que se ejerce y no un estatus que se otorga, no hay ninguna razón para que empiece a ejercerse a los dieciocho.
 
 A escala de un chico las decisiones existen y son reales. A quién se le da la bicicleta que ya no le entra, y por qué a ese y no a otro. Si se le avisa al vecino que se le escapó el perro aunque el vecino sea insoportable. Quién llama a la abuela el domingo. Para un adulto son minucias; son, en la escala en que ese cuerpo puede operar, las mismas operaciones que después se llaman deliberar y hacerse cargo.
 
@@ -67,15 +67,15 @@ Una casa que decide todo por encima de la cabeza del chico y después se lo comu
 
 Y acá está la razón por la que vale la pena escribir un ensayo entero sobre un canal: el mecanismo no tiene signo. Transmite con la misma fidelidad la mezquindad y lo otro. La misma máquina que reproduce al que se queda con el vuelto reproduce, sin discurso, sin plan y sin esfuerzo, al que cumple lo que promete.
 
-Pensá en alguien de treinta y cuatro años que no puede dejar una deuda sin pagar. No la del banco: los doscientos pesos que le prestó un compañero para el café. Le molesta físicamente hasta que la salda, y si le preguntás por qué no tiene argumento; va a decir que le sale, que no sabe. Lo que tiene es una escena de la que ni siquiera se acuerda bien: un adulto contando billetes en la mesa de la cocina el día que había dicho, sin que nadie se lo reclamara y sin nadie mirando salvo un chico que jugaba en el piso. Entró sin lección, por el canal grande.
+Pensá en alguien de treinta y cuatro años que no puede dejar una deuda sin pagar. No la del banco: los doscientos pesos que le prestó un compañero para el café. Le molesta físicamente hasta que la salda, y si le preguntás por qué va a decir que le sale, que no sabe. Lo que tiene es una escena de la que ni se acuerda bien: un adulto contando billetes en la mesa de la cocina el día que había dicho, sin que nadie se lo reclamara y sin nadie mirando salvo un chico que jugaba en el piso. Entró sin lección, por el canal grande.
 
 Es el mismo chico que a los nueve le dice gracias al que trae el pedido y lo mira a la cara, porque vio hacerlo mil veces y nunca escuchó una sola frase sobre la dignidad del trabajo. La misma economía: costo cero, transmisión total.
 
-Y esto sirve para el que está leyendo con la culpa ya cargada. El canal no transmite perfección: transmite dirección. Un chico no necesita un padre impecable —cosa que además no existe—, sino un adulto cuyas dos señales apunten más o menos al mismo lado. Lo que lo desarma no es que el adulto falle: es tener que elegir, a los seis años y sin datos, entre dos señales que lo mandan a lugares opuestos.
+Y esto sirve para el que está leyendo con la culpa ya cargada. El canal no transmite perfección: transmite dirección. Un chico no necesita adultos impecables —cosa que además no existe—, sino que las dos señales del que tiene enfrente apunten más o menos al mismo lado. Lo que lo desarma no es que el adulto falle: es tener que elegir, a los seis años y sin datos, entre dos señales que lo mandan a lugares opuestos.
 
 Entonces, el lunes, empezá esto, que no requiere fundar nada ni hablar con nadie.
 
-Conseguite un cuaderno, o las notas del teléfono. Durante siete días, cada noche antes de dormir, anotá una sola cosa: algo que un chico de tu casa te vio hacer ese día. No lo que le dijiste, no el reto, no la charla que preparaste. Lo que vio. Cómo atendiste el teléfono. Qué hiciste con el vuelto. Si el martes hiciste lo que el lunes dijiste que ibas a hacer.
+Conseguite un cuaderno, o las notas del teléfono. Durante siete días, cada noche antes de dormir, anotá una sola cosa: algo que un chico te vio hacer ese día. No lo que le dijiste, no el reto, no la charla que preparaste. Lo que vio. Cómo atendiste el teléfono. Qué hiciste con el vuelto. Si el martes hiciste lo que el lunes dijiste que ibas a hacer. Y no hace falta que lleve tu apellido ni duerma acá: la casa no termina en la puerta, y el sobrino, la alumna, el pibe del club también miran.
 
 Y ahora la parte que hace que sirva: no te corrijas. No expliques al lado por qué ese día estabas cansado. Un chico tampoco anota el atenuante, así que si lo ponés estás anotando otra cosa distinta de la que se transmitió.
 
@@ -83,13 +83,13 @@ Van a pasar dos cosas. Algunas noches no se te va a ocurrir nada, y ese blanco t
 
 Al octavo día leelo entero, de corrido, como si fuera un programa de estudios. Porque eso es: la lista de contenidos que dictaste esa semana, en la única materia de la que sos titular sin haber rendido nunca un concurso.
 
-Ya sabemos por dónde pasa, entonces. No pasa por lo que se dice: pasa por lo que se presencia, con un ancho de banda que ninguna palabra alcanza, y no se puede apagar mientras haya un chico en la casa. Pero si el canal es ese, y viene funcionando en millones de cocinas desde hace generaciones sin que nadie lo supervisara nunca, entonces queda arriba de la mesa la pregunta que abre el próximo ensayo, y no la voy a contestar acá: si transmite por testigo, ¿qué es lo que este país viene atestiguando?
+Ya sabemos por dónde pasa, entonces. No pasa por lo que se dice: pasa por lo que se presencia, con un ancho de banda que ninguna palabra alcanza, y no se puede apagar mientras haya un chico mirando. Pero si el canal es ese, y viene funcionando en millones de cocinas sin que nadie lo supervisara nunca, entonces queda arriba de la mesa la pregunta que abre el próximo ensayo, y no la voy a contestar acá: si transmite por testigo, ¿qué es lo que este país viene atestiguando?
 
 ---
 
 ## Cartografía
 
-El ensayo anterior definió la Capa Cero por su función; este describe cómo esa función se ejecuta, es decir cuál es el canal. Las conexiones:
+El ensayo anterior definió la Capa Cero por su función; este describe cómo esa función se ejecuta. Las conexiones:
 
 **En el ciclo.**
 
@@ -98,10 +98,10 @@ El ensayo anterior definió la Capa Cero por su función; este describe cómo es
 
 **En la plataforma.**
 
-- *PLANEDU* — la refundación educativa. Este ensayo le agrega una condición de borde: el sistema recibe un material ya formado, y ninguna reforma de aula alcanza al currículum que se dictó antes del jardín.
+- *PLANEDU* — la refundación educativa. El plan ya sabe que el aula no alcanza sola: tiene primera infancia y un programa de alfabetización familiar que admite que el nivel de lectura depende más de la casa que del aula. Este ensayo agrega lo que falta: la casa también dicta un currículum de conducta, y a ese no se lo convoca a un taller, se lo mira.
 - *PLANFOCO* — la palabra pública. El mismo mecanismo en escala nacional: lo que un país declara sobre sí mismo pesa mucho menos que lo que hace mientras lo declara.
 
 **En los ciclos anteriores.**
 
-- *La fábrica de obediencia* — la escuela como productora de obediencia. Acá se sostiene que la fábrica arranca antes del jardín y que el aula ratifica lo que ya venía formado.
-- *La falacia de la democracia* — el adulto que espera que la ciudadanía le llegue por turno. La sección IV muestra dónde se adquiere ese hábito, treinta años antes de la primera boleta.
+- *La fábrica de obediencia* — el ensayo que abre el segundo ciclo. Cerró diciendo que la obediencia se enseñó casa por casa, y no entró en ninguna. Acá se entra: la fábrica arranca antes del jardín y el aula ratifica lo que ya venía formado.
+- *La falacia de la democracia* — el mecanismo que cada cuatro años le dice a alguien que es soberano y el resto del tiempo lo deja esperando. La sección IV muestra dónde se adquiere el hábito de esperar.
