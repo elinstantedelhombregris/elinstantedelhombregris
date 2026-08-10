@@ -1,17 +1,23 @@
 # La Capa Cero
 ## Sobre la unidad que la arquitectura contó sin abrir
 
-## I. El ladrillo que nadie abrió
+## I. La mesa del domingo y el ladrillo que nadie abrió
 
-Hay una frase en el cuarto ensayo del primer ciclo que sobrevivió veintiún ensayos sin que nadie la mirara de cerca. Dice que el barrio, la unidad más chica de la vida cívica, es "un cuerpo cívico definido, de unas cincuenta a quinientas familias".
+Son las dos y media de un domingo en una cocina de cualquier lado. Hay seis personas y cinco sillas, así que alguien trajo la del escritorio, que es más baja y le tocó al que llegó último. Sobre la mesa hay una fuente que ya no humea, una botella por la mitad, el celular de la hija dado vuelta porque la madre pidió que se den vuelta, y una discusión sobre si conviene vender el auto. Nadie convocó esto. No hay orden del día, no hay quórum, no hay actas.
 
-Leela otra vez, despacio. Toda la arquitectura de este proyecto —las capas, los mandatos, las mesas, el país entero que tres ciclos vinieron dibujando— se apoya en su piso sobre una unidad de medida, y la unidad es la familia. Contamos familias como el albañil cuenta ladrillos: cincuenta acá, quinientas allá, y con eso se levanta la pared. En veintiún ensayos, en cientos de páginas, nadie abrió un ladrillo para ver de qué está hecho.
+Y sin embargo, en esa sobremesa, esta semana se resolvió quién acompaña al abuelo al turno del jueves, cuánta plata se le manda al que está sin trabajo —y de qué manera se la manda, para que no parezca limosna—, y si el chico de doce ya puede volver solo desde la esquina. Tres decisiones de gobierno sobre la salud, la economía y la libertad de circulación de un cuerpo humano. Ninguna figura en ningún registro del Estado argentino.
+
+El ciclo anterior terminó pidiendo lealtad a una realidad que no se ve, y en la lista de gestos con que esa lealtad se firma había uno que pasó casi sin ruido: *cada mesa que no rompas*. Este ciclo empieza levantando esa frase del piso para preguntarle qué es, exactamente, lo que se rompe cuando se rompe una mesa.
+
+Y ahí aparece el problema, porque cuando vas a buscar esa mesa en la arquitectura que tres ciclos vinieron dibujando, no está. Está la capa del barrio, la de la comuna, la de la región, la del país. La más chica de todas, la Capa Uno, quedó definida en el cuarto ensayo del primer ciclo así: "un cuerpo cívico definido, de unas cincuenta a quinientas familias".
+
+Leelo otra vez, despacio. Todo el edificio se apoya en su piso sobre una unidad de medida, y la unidad es la familia. Contamos familias como el albañil cuenta ladrillos: cincuenta acá, quinientas allá, y con eso se levanta la pared. En veintiún ensayos, en cientos de páginas, nadie abrió un ladrillo para ver de qué está hecho.
 
 No fue por desprecio. Fue por lo contrario, que es más peligroso: la familia aparece todo el tiempo en estas páginas y siempre como escenografía. La mesa donde se come sin pantallas. Las lealtades que ordenan un voto. El cuerpo donde se transmite la grieta. Nunca como objeto de examen. Nunca se preguntó qué es exactamente esa cosa que estamos usando para medir el país.
 
 Y una arquitectura que cuenta familias sin saber qué es una familia está construida en metros sin haber fijado nunca el metro. Puede sostenerse mucho tiempo. Puede parecer sólida. Pero no sabés dónde está el error, si hay error, porque no sabés qué estás contando.
 
-Este ciclo empieza ahí, en ese hueco, y termina en una mesa donde vos vas a tener que sentarte. La tesis de los siete ensayos que vienen es fácil de decir y difícil de aguantar: la unidad más chica de la política argentina es una mesa, y lo que pasa en esa mesa es la política argentina de dentro de treinta años. No es una metáfora tierna. Es una cadena causal, y los ensayos que siguen la van a recorrer eslabón por eslabón.
+Este ciclo empieza ahí, en ese hueco, y termina en una mesa como la del domingo, donde vos vas a tener que sentarte. La tesis de los siete ensayos que vienen es fácil de decir y difícil de aguantar: la unidad más chica de la política argentina es una mesa, y lo que pasa en esa mesa es la política argentina de dentro de treinta años. No es una metáfora tierna. Es una cadena causal, y los ensayos que siguen la van a recorrer eslabón por eslabón.
 
 Pero nada de eso se puede recorrer sin este primer paso, que es sacarle a la familia todo lo que no es. Recién ahí vamos a poder nombrar lo que queda, que es la capa que la arquitectura dio por supuesta y nunca dibujó.
 
@@ -41,7 +47,7 @@ El flujo va en las dos direcciones, aunque casi nunca esté equilibrado el mismo
 
 Si la definición es funcional, entonces hay que aceptar sus consecuencias, y la primera es que la casa no termina en la puerta.
 
-El hermano mayor que crió a los de abajo mientras la madre hacía turnos. El tío que llegó al acto del 25 de mayo con la cámara cuando el padre no llegó nunca a ninguno, y que después enseñó a manejar y adelantó la matrícula del último año. El abuelo que enseñó un oficio en un galpón con olor a aceite quemado. La vecina del tercero que sube a ver si la señora de al lado prendió la luz. La madrina que se acordó del cumpleaños todos los años, incluso los años en que nadie más se acordó. La maestra de cuarto grado que un martes cualquiera se dio cuenta de que un pibe no había comido y resolvió el asunto sin informarlo a nadie. El entrenador del club que le enseñó a un chico a perder un sábado y a volver el sábado siguiente, que es la única materia cívica que en este país se dicta bien.
+El hermano mayor que crió a los de abajo mientras la madre hacía turnos. El tío que llegó al acto del 25 de mayo con la cámara cuando el padre no llegó nunca a ninguno, y que después enseñó a manejar y adelantó la matrícula del último año. El abuelo que enseñó un oficio en un galpón con olor a aceite quemado. La vecina del tercero que sube a ver si la señora de al lado prendió la luz. La madrina que bancó el secundario entero —la cuota, los útiles de marzo, el viaje de egresados— y nunca lo mencionó delante del padre, para no humillarlo. La maestra de cuarto grado que un martes se dio cuenta de que un pibe no había comido, y que desde ese martes preparó dos viandas cada mañana hasta que terminó el año, y al año siguiente subió a quinto a preguntar si seguía comiendo. El entrenador del club que le enseñó a un chico a perder un sábado y a volver el sábado siguiente, que es la única materia cívica que en este país se dicta bien.
 
 No los pongas en el margen del texto. No son la excepción conmovedora que confirma la regla: son la demostración de que la regla nunca fue la sangre. Si la familia fuera sangre, ninguno de ellos contaría — y todos sabemos que cuentan más que muchos que sí son sangre. La definición funcional no los incluye por generosidad. Los incluye porque son, literalmente, lo que la definición describe: gente que sostiene a alguien y por lo tanto es su familia, se llame como se llame en el registro civil.
 
@@ -53,11 +59,11 @@ Hay que decir esto ahora, temprano, antes de que empiecen los ensayos difíciles
 
 **Una casa rota bien no transmite peor que una casa entera mal.**
 
-Dos personas que se separaron y consiguieron no usar al chico de mensajero, no hablar mal del otro adelante de él, no negociar la cuota con el hijo como rehén, sostienen una Capa Cero que funciona. Le transmiten a ese chico algo enorme, que además es lo que este ciclo va a perseguir durante siete ensayos: que un vínculo puede terminar sin que termine el trato. Y una casa que nunca se rompió, donde hace once años que se cena en silencio y todo el mundo sabe lo que no se puede nombrar, transmite otra cosa, y la transmite con la misma eficacia.
+Dos personas que se separaron y consiguieron no usar al chico de mensajero, no hablar mal del otro adelante de él, no negociar la cuota con el hijo como rehén, están sosteniendo la función entera, y la están sosteniendo bien. Le transmiten a ese chico algo enorme, que además es lo que este ciclo va a perseguir durante siete ensayos: que un vínculo puede terminar sin que termine el trato. Y una casa que nunca se rompió, donde hace once años que se cena en silencio y todo el mundo sabe lo que no se puede nombrar, transmite otra cosa, y la transmite con la misma eficacia.
 
 Lo que se hereda no es la forma. Es el trato. La foto de la mesa completa no dice nada sobre lo que pasa en la mesa.
 
-Y va también la otra mitad, para el que la necesite: el que no tuvo una Capa Cero no está condenado. La función no viene con la infancia; se puede construir después, a los treinta, a los cincuenta, con gente que uno elige de a poco y con más torpeza que los que la recibieron armada. Cuesta más. Se arma más tarde. Pero es la misma función, hecha del mismo material, y funciona igual — porque nunca dependió de la sangre, y ya vimos por qué.
+Y va también la otra mitad, para el que la necesite: el que no recibió nada de esto no está condenado. La función no viene con la infancia; se puede construir después, a los treinta, a los cincuenta, con gente que uno elige de a poco y con más torpeza que los que la recibieron armada. Cuesta más. Se arma más tarde. Pero es la misma función, hecha del mismo material, y funciona igual — porque nunca dependió de la sangre, y ya vimos por qué.
 
 ## VI. La capa que nadie diseñó
 
@@ -85,16 +91,17 @@ Este ensayo abre el cuarto ciclo. Los tres anteriores diseñaron la república, 
 
 **En el ciclo.**
 
-- *Lo que el chico mira cuando nadie cree que mira* — el ensayo siguiente: cómo la Capa Cero ejecuta efectivamente su función, que no es diciendo.
+- *Lo que el chico mira cuando nadie cree que mira* — el ensayo siguiente: por dónde pasa efectivamente la ejecución de la Capa Cero, es decir cuál es el canal por el que una casa transmite.
 
 **En la plataforma.**
 
 - *PLANCUIDADO* — el parentesco jurídicamente plural, la obligación de sostén y el Referente Territorial de Cuidado. Es la traducción institucional exacta de la definición funcional de la sección III, y ya estaba escrita antes que este ensayo.
-- *PLANMESA* — la mesa como la república más chica, en su dimensión material.
-- *El Mandato Vivo* — la Capa Uno en operación: lo que se construye encima de todo esto.
+- *Mandato Territorial* — la Capa Uno materializada: el cuerpo cívico barrial que se cuenta en familias. Es la capa que apoya directamente sobre esta.
+- *El Mandato Vivo* — la deliberación territorial en operación: lo que se construye encima de todo esto.
 
 **En los ciclos anteriores.**
 
-- *Una arquitectura para el hombre gris* (`04-arquitectura.md`) — el texto que contó "cincuenta a quinientas familias" y siguió de largo. Este ensayo abre el ladrillo.
-- *¿De qué está hecha una nación?* (`01-que-es-una-nacion.md`) — el camino negativo y las realidades de acuerdo. La Capa Cero está hecha del mismo material que la nación, en escala de tres a diez personas.
+- *Una arquitectura para el hombre gris* — el texto que contó "cincuenta a quinientas familias" y siguió de largo. Este ensayo abre el ladrillo.
+- *Acta de la Interdependencia* — el cierre del tercer ciclo, que pidió lealtad a lo invisible y enumeró "cada mesa que no rompas" sin detenerse a decir qué era esa mesa. Este ciclo se detiene ahí.
+- *¿De qué está hecha una nación?* — el camino negativo y las realidades de acuerdo. La Capa Cero está hecha del mismo material que la nación, en escala de tres a diez personas.
 - *La soberanía del hombre gris* — el hogar como sitio concreto de soberanía. Aquel ensayo lo nombró; este dice qué es lo que ahí se está sosteniendo.

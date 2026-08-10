@@ -50,6 +50,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-023](#d-023--la-sección-9-de-planpuerta-se-pasó-248-palabras-del-techo-y-nadie-lo-vio) | La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo | Baja | Abierta |
 | [D-024](#d-024--hay-dos-suites-de-tests-en-el-repo-y-sólo-una-corre-en-ci) | Hay dos suites de tests en el repo y sólo una corre en CI | Media | Abierta |
 | [D-028](#d-028--editar-la-portada-de-un-plan-corre-todas-sus-anclas-de-remisión) | Editar la portada de un PLAN corre todas sus anclas de remisión | Media | Abierta |
+| [D-032](#d-032--los-ensayos-del-ciclo-i-glosan-planmesa-como-soberanía-alimentaria-y-hace-meses-que-no-lo-es) | Los ensayos del Ciclo I glosan PLANMESA como soberanía alimentaria | Media | Abierta |
 
 ---
 
@@ -731,3 +732,29 @@ Encontrados durante la demolición, fuera del alcance explícito de la tarea (qu
 **Por qué no se arregla acá:** ninguno compila mal ni rompe un test; tocarlos era ensanchar una tarea ya de por sí grande (12+ pantallas, dos archivos de infraestructura, todo `src/content/`) con cambios de producto (renombrar el paquete, reescribir copy) que nadie pidió.
 
 **Qué haría falta:** una pasada de limpieza chica, después de que la Task 6 (renombre de `stars`→`senales` y migración) asiente el resto del vocabulario.
+
+---
+
+### D-032 · Los ensayos del Ciclo I glosan PLANMESA como soberanía alimentaria, y hace meses que no lo es
+
+**Dónde:** `Ensayos/presidencia, democracia y belleza/04-arquitectura.md:211`, `Ensayos/presidencia, democracia y belleza/05-soberania.md:226`, `Ensayos/presidencia, democracia y belleza/06-belleza.md:221`, `Ensayos/00-ANALISIS.md:183`
+**Encontrada:** 2026-08-10, escribiendo la Cartografía del ensayo 1 del Ciclo IV — La Mesa
+**Severidad:** media — no rompe ninguna guardia ni ningún build, pero le miente al lector sobre qué es un PLAN del canon
+**Estado:** abierta
+
+Las cartografías del Ciclo I remiten a *PLANMESA* con glosas alimentarias heredadas de una versión vieja del plan:
+
+- `04-arquitectura.md:211` — "*PLANMESA* — soberanía alimentaria."
+- `05-soberania.md:226` — "*PLANMESA* — soberanía alimentaria; la mesa como la república más chica."
+- `06-belleza.md:221` — "*PLANMESA* — la comida bien preparada como acto cívico."
+- `00-ANALISIS.md:183` — mapea *"The sovereignty of the hearth"* a "PLANCUIDADO (cuidado), PLANMESA (alimento)".
+
+PLANMESA hoy es, según `v2/content/planes/PLANMESA.mdx`, el **Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende**: Mesas Civiles, Credencial de Materia, ciclo LDEA. No tiene nada alimentario ni doméstico. La soberanía alimentaria vive en PLANISV. La "mesa" del nombre es la mesa donde se decide, no la mesa donde se come — y las cuatro glosas leen exactamente la palabra al revés.
+
+El Ciclo II ya lo tiene bien: `Ensayos/indagaciones/06-amor-sin-apego.md` cita "*PLANMESA* (*Mesa Civil*) — cargos ejecutivos que no pertenecen a ningún partido". O sea que la deriva quedó sólo en el Ciclo I y en el análisis.
+
+**Por qué el guardián no lo ve.** `v2/scripts/content/verificar-ciclo-la-mesa.ts` —y las guardias equivalentes— sólo verifican que el token `PLAN[A-Z0-9]+` citado en una Cartografía **exista** en `v2/content/planes/`. Nadie compara la glosa contra el `nombreInstitucional` ni contra el `summary` del PLAN. Una remisión puede apuntar a un plan real y describir otro plan y pasar en verde.
+
+**Por qué no se arregla acá:** el spec del Ciclo IV (`v2/docs/specs/2026-08-10-ciclo-iv-la-mesa.md`) deja explícitamente fuera de alcance editar los ciclos ya publicados. Tocar cuatro cartografías del Ciclo I desde una tarea del Ciclo IV mezcla dos causas de cambio en un mismo commit, y esos cuatro archivos tienen superficie de publicación en `v2/` (`.mdx`, `content-txt`, tests de registry) que habría que mover junto.
+
+**Qué haría falta:** reescribir las cuatro glosas contra el `nombreInstitucional` vigente de PLANMESA —y, donde la intención original era alimentaria, reapuntar la remisión a PLANISV, que es donde esa soberanía se mudó—, propagar a la superficie publicada en `v2/`, y después una guardia que cruce cada token de PLAN citado en una Cartografía contra el `summary` de su `.mdx`, aunque sea por solapamiento de sustantivos, para que la próxima mudanza de dominio entre PLANes no deje glosas huérfanas en la prosa.
