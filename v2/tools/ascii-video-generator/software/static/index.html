@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cinematic ASCII Studio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b0d;
+      --surface: #101518;
+      --surface-2: #151c1f;
+      --line: #2b373a;
+      --line-soft: #202a2d;
+      --text: #edf1ec;
+      --muted: #9aaba8;
+      --gold: #e8bc69;
+      --teal: #70cbbd;
+      --red: #ed7b68;
+      --radius: 7px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .app-shell { min-height: 100vh; display: grid; grid-template-rows: auto 1fr; }
+    header {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--line);
+      background: #0b0f11;
+    }
+    .brand { display: flex; align-items: center; gap: 13px; min-width: 0; }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font: 18px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0; }
+    .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+    .header-meta { color: var(--muted); font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
+    main {
+      display: grid;
+      grid-template-columns: minmax(340px, 440px) minmax(0, 1fr);
+      min-height: 0;
+    }
+    .control-panel {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      background: #0d1214;
+      overflow-y: auto;
+    }
+    .workspace { min-width: 0; padding: 22px 28px 34px; overflow-y: auto; }
+    h2 { margin: 0 0 14px; font-size: 14px; font-weight: 700; }
+    h3 { margin: 0; font-size: 13px; font-weight: 700; }
+    .section { padding: 0 0 22px; margin-bottom: 22px; border-bottom: 1px solid var(--line-soft); }
+    .section:last-child { border-bottom: 0; margin-bottom: 0; }
+    label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 12px; }
+    input, select {
+      width: 100%;
+      height: 38px;
+      padding: 0 10px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      outline: 0;
+    }
+    input:focus, select:focus { border-color: var(--teal); }
+    textarea {
+      width: 100%; min-height: 460px; padding: 12px; resize: vertical;
+      color: #cbd8d4; background: #080c0e; border: 1px solid var(--line); border-radius: var(--radius);
+      font: 11px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; outline: 0;
+    }
+    textarea:focus { border-color: var(--teal); }
+    input[type="file"] { height: auto; padding: 9px; }
+    .field { margin-top: 13px; }
+    .dropzone {
+      padding: 14px;
+      border: 1px dashed #405156;
+      border-radius: var(--radius);
+      background: #101719;
+    }
+    .dropzone strong { display: block; margin-bottom: 5px; font-size: 13px; }
+    .hint { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
+    .segmented { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; background: #080b0d; border: 1px solid var(--line); border-radius: var(--radius); }
+    .segmented label { position: relative; margin: 0; overflow: hidden; }
+    .segmented input { position: absolute; inset: 0 auto auto 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+    .segmented span {
+      min-height: 42px;
+      display: grid;
+      place-items: center;
+      padding: 5px 4px;
+      border-radius: 4px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 11px;
+    }
+    .segmented input:checked + span { background: var(--surface-2); color: var(--gold); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      min-height: 38px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      color: var(--text);
+      background: var(--surface-2);
+    }
+    .btn:hover { border-color: #50656a; }
+    .btn-primary { color: #101313; background: var(--gold); border-color: var(--gold); font-weight: 800; }
+    .btn-primary:hover { background: #f0cb82; border-color: #f0cb82; }
+    .btn-danger { color: var(--red); }
+    .btn-small { min-height: 30px; padding: 0 9px; font-size: 12px; }
+    .status-line { min-height: 20px; margin-top: 10px; color: var(--muted); font-size: 12px; }
+    .workspace-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    .workspace-head p { margin: 3px 0 0; color: var(--muted); font-size: 12px; }
+    .job-grid { display: grid; gap: 10px; }
+    .job {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .job.selected { border-color: var(--gold); }
+    .job-title { overflow: hidden; color: var(--text); font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+    .job-meta { margin-top: 5px; color: var(--muted); font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+      padding: 0 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .badge.done { color: var(--teal); border-color: #37645f; }
+    .badge.running, .badge.queued { color: var(--gold); border-color: #735f37; }
+    .badge.failed, .badge.cancelled { color: var(--red); border-color: #71433e; }
+    .detail {
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+    .detail-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .detail-head p { margin: 4px 0 0; color: var(--muted); font-size: 12px; word-break: break-all; }
+    .tabs { display: flex; gap: 4px; margin-bottom: 12px; border-bottom: 1px solid var(--line); }
+    .tab { padding: 9px 10px; border: 0; border-bottom: 2px solid transparent; color: var(--muted); background: transparent; font-size: 12px; }
+    .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+    pre {
+      max-height: 460px;
+      overflow: auto;
+      margin: 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: #cbd8d4;
+      background: #080c0e;
+      font: 11px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .asset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+    .asset {
+      display: block;
+      min-width: 0;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      color: var(--text);
+      background: var(--surface);
+      text-decoration: none;
+    }
+    .asset:hover { border-color: var(--teal); }
+    .asset-kind { color: var(--teal); font: 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+    .asset-name { overflow: hidden; margin-top: 4px; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+    .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+    .preview-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #06090a; }
+    .preview-card img, .preview-card video { display: block; width: 100%; max-height: 560px; object-fit: contain; background: #030505; }
+    .preview-label { padding: 9px 11px; color: var(--muted); font-size: 11px; }
+    .review-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .review-state { color: var(--teal); font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+    .empty { padding: 40px 16px; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted); text-align: center; }
+    .hidden { display: none; }
+    @media (max-width: 860px) {
+      main { display: block; }
+      .control-panel { border-right: 0; border-bottom: 1px solid var(--line); }
+      .workspace { padding: 20px; }
+      header { padding: 13px 18px; }
+      .header-meta { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">#</div>
+        <div>
+          <h1>Cinematic ASCII Studio</h1>
+          <p>V4 · cinematic semantic worlds</p>
+        </div>
+      </div>
+      <div class="header-meta" id="outputRoot">Loading local workspace...</div>
+    </header>
+    <main>
+      <aside class="control-panel">
+        <form id="renderForm">
+          <section class="section">
+            <h2>1. Source text</h2>
+            <div class="dropzone">
+              <strong>Choose a Markdown or text file</strong>
+              <input data-testid="source-file" id="sourceFile" name="source_file" type="file" accept=".txt,.md,.mdx,text/plain,text/markdown">
+              <p class="hint">Supported formats: .txt, .md, .mdx</p>
+            </div>
+            <div class="field">
+              <label for="sourcePath">Or use an existing local path</label>
+              <input data-testid="source-path" id="sourcePath" name="source_path" placeholder="/Users/name/Documents/article.md">
+            </div>
+            <div class="field">
+              <label for="videoTitle">Video title</label>
+              <input id="videoTitle" name="title" placeholder="Uses the article title when left empty">
+              <p class="hint">In illustrated videos it appears once as an animated printed strip, then clears.</p>
+            </div>
+            <div class="button-row field">
+              <button data-testid="load-example" class="btn btn-small" id="loadExample" type="button">Load included example</button>
+            </div>
+          </section>
+          <section class="section">
+            <h2>2. Run mode</h2>
+            <div class="segmented">
+              <label><input name="mode" type="radio" value="brief" checked><span>Editorial brief</span></label>
+              <label><input name="mode" type="radio" value="smoke"><span>3 sec test</span></label>
+              <label><input name="mode" type="radio" value="render"><span>Full render</span></label>
+            </div>
+            <p class="hint">Start with a brief. Render only after reviewing the visual chapters.</p>
+          </section>
+          <section class="section">
+            <h2>3. Production settings</h2>
+            <div class="grid-2">
+              <div>
+                <label for="tts">Speech</label>
+                <select id="tts" name="tts">
+                  <option value="say" selected>Private local male · exact sync</option>
+                  <option value="edge">Cloud neural male · exact sync</option>
+                  <option value="none">Silent</option>
+                </select>
+              </div>
+              <div>
+                <label for="voicePerformance">Reading style</label>
+                <select id="voicePerformance" name="voice_performance">
+                  <option value="editorial" selected>Editorial</option>
+                  <option value="dramatic">Dramatic</option>
+                  <option value="flat">Flat</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid-2 field">
+              <div>
+                <label for="edgeVoice">Neural voice</label>
+                <select id="edgeVoice" name="edge_voice">
+                  <option value="es-AR-TomasNeural" selected>Tomas · Argentina</option>
+                  <option value="es-ES-AlvaroNeural">Alvaro · Spain</option>
+                  <option value="es-MX-JorgeNeural">Jorge · Mexico</option>
+                </select>
+              </div>
+              <div>
+                <label for="sayVoice">Laptop voice</label>
+                <input id="sayVoice" name="say_voice" value="Reed (Spanish (Mexico))">
+              </div>
+            </div>
+            <div class="grid-2 field">
+              <div>
+                <label for="edgeRate">Neural speed</label>
+                <input id="edgeRate" name="edge_rate" value="-8%">
+              </div>
+              <div>
+                <label for="edgePitch">Neural pitch</label>
+                <input id="edgePitch" name="edge_pitch" value="-4Hz">
+              </div>
+            </div>
+            <div class="field">
+              <label for="sayRate">Laptop voice rate</label>
+              <input id="sayRate" name="say_rate" type="number" min="80" max="260" step="1" value="160">
+            </div>
+            <div class="field">
+              <label for="platformUrl">Permanent website signature</label>
+              <input id="platformUrl" name="platform_url" value="www.elinstantedelhombregris.com">
+            </div>
+            <div class="field">
+              <label for="logoPath">Optional logo path</label>
+              <input id="logoPath" name="logo_path" placeholder="/Users/name/Documents/logo.png">
+            </div>
+            <div class="field">
+              <label for="plateDir">Illustrations created from the approved narrative plan</label>
+              <input id="plateDir" name="plate_dir" placeholder="Leave empty for planning; add the matching plate folder for analysis">
+            </div>
+            <div class="grid-2 field">
+              <div>
+                <label for="look">Art direction</label>
+                <select id="look" name="look">
+                  <option value="plata" selected>Plata · editorial</option>
+                  <option value="tinta-papel">Tinta y Papel · imprenta viva</option>
+                  <option value="tinta-papel-ilustrado">Tinta y Papel · ilustrado vivo</option>
+                  <option value="terminal">Terminal · phosphor</option>
+                  <option value="blueprint">Blueprint · technical</option>
+                  <option value="archive">Archive · documentary</option>
+                  <option value="manifesto">Manifesto · high contrast</option>
+                  <option value="nocturne">Nocturne · cinematic</option>
+                </select>
+                <p class="hint">Illustrated mode decides its image count from narrative changes, then requires plate analysis and approval before rendering.</p>
+              </div>
+              <div>
+                <label for="introSealSeconds">Seal reveal</label>
+                <input id="introSealSeconds" name="intro_seal_seconds" type="number" min="0" step="0.1" value="1.6">
+              </div>
+            </div>
+            <div class="grid-2 field">
+              <div>
+                <label for="illustrationStyle">Illustration language</label>
+                <select id="illustrationStyle" name="illustration_style">
+                  <option value="grabado-civico" selected>Grabado cívico · concept-plates</option>
+                </select>
+                <p class="hint">Black carved ink, aged paper, cold cobalt-indigo systems and a single red punctuation.</p>
+              </div>
+              <div>
+                <label for="titleCardSeconds">Opening title duration</label>
+                <input id="titleCardSeconds" name="title_card_seconds" type="number" min="0" step="0.1" value="2.8">
+              </div>
+            </div>
+            <div class="grid-2 field">
+              <div>
+                <label for="durationMode">Story length</label>
+                <select id="durationMode" name="duration_mode">
+                  <option value="auto" selected>Auto social edit</option>
+                  <option value="reel">Focused reel</option>
+                  <option value="long">Full essay</option>
+                </select>
+              </div>
+              <div>
+                <label for="formats">Deliverables</label>
+                <select id="formats" name="formats">
+                  <option value="vertical" selected>Vertical</option>
+                  <option value="vertical,square">Vertical + square</option>
+                  <option value="vertical,square,landscape">All three formats</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid-2 field">
+              <div>
+                <label for="coldOpenSeconds">Hook-first opening</label>
+                <input id="coldOpenSeconds" name="cold_open_seconds" type="number" min="0" step="0.05" value="1.25">
+              </div>
+              <div>
+                <label for="seedOffset">Visual reroll</label>
+                <input id="seedOffset" name="seed_offset" type="number" step="1" value="0">
+              </div>
+            </div>
+            <div class="field">
+              <label for="storyboardPath">Optional reviewed storyboard</label>
+              <input id="storyboardPath" name="storyboard_path" placeholder="/path/to/article-storyboard.json">
+            </div>
+            <div class="field">
+              <label for="outputDir">Optional custom output directory</label>
+              <input id="outputDir" name="output_dir" placeholder="Uses the studio workspace by default">
+            </div>
+          </section>
+          <button data-testid="start-job" class="btn btn-primary" type="submit">Generate video package</button>
+          <div class="status-line" id="formStatus"></div>
+        </form>
+      </aside>
+      <section class="workspace">
+        <div class="workspace-head">
+          <div>
+            <h2>Production queue</h2>
+            <p>Briefs, tests, renders, and downloadable artifacts remain on this laptop.</p>
+          </div>
+          <button data-testid="refresh-jobs" class="btn btn-small" id="refreshJobs" type="button">Refresh</button>
+        </div>
+        <div class="job-grid" id="jobGrid"></div>
+        <section class="detail hidden" id="detail">
+          <div class="detail-head">
+            <div>
+              <h3 id="detailTitle"></h3>
+              <p id="detailPath"></p>
+            </div>
+            <button class="btn btn-danger btn-small hidden" id="cancelJob" type="button">Stop render</button>
+          </div>
+          <div class="button-row" id="followupActions" style="margin-bottom:12px">
+            <button class="btn btn-small" id="prepareSmoke" type="button">Prepare 3 sec test</button>
+            <button class="btn btn-primary btn-small" id="prepareRender" type="button">Prepare full render</button>
+          </div>
+          <div class="tabs">
+            <button class="tab active" data-tab="art" type="button">Art direction</button>
+            <button class="tab" data-tab="visuals" type="button">Visual review</button>
+            <button class="tab" data-tab="storyboard" type="button">Storyboard</button>
+            <button class="tab" data-tab="assets" type="button">Artifacts</button>
+            <button class="tab" data-tab="log" type="button">Render log</button>
+            <button class="tab" data-tab="command" type="button">Command</button>
+          </div>
+          <div id="tabArt"><pre id="artDirection"></pre></div>
+          <div class="hidden" id="tabVisuals"><div class="preview-grid" id="previewGrid"></div></div>
+          <div class="hidden" id="tabStoryboard">
+            <div class="review-bar">
+              <span class="review-state" id="reviewStatus">Draft</span>
+              <button class="btn btn-small" id="loadStoryboard" type="button">Load JSON</button>
+              <button class="btn btn-small" id="saveStoryboard" type="button">Save edits</button>
+              <button class="btn btn-primary btn-small" id="approveStoryboard" type="button">Approve direction</button>
+              <button class="btn btn-small" id="rerollDirection" type="button">Prepare reroll</button>
+            </div>
+            <p class="hint" id="protocolSummary"></p>
+            <textarea id="storyboardEditor" spellcheck="false" placeholder="Generate an editorial brief to review its storyboard."></textarea>
+            <p class="hint" id="reviewMessage"></p>
+          </div>
+          <div class="hidden" id="tabAssets"><div class="asset-grid" id="assetGrid"></div></div>
+          <div class="hidden" id="tabLog"><pre id="renderLog"></pre></div>
+          <div class="hidden" id="tabCommand"><pre id="commandText"></pre></div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script>
+    const state = { jobs: [], selectedId: null, selectedJob: null, activeTab: "art", config: null };
+    const $ = (selector) => document.querySelector(selector);
+    const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;" }[char]));
+    const dateText = (timestamp) => timestamp ? new Date(timestamp * 1000).toLocaleString() : "";
+    async function request(url, options = {}) {
+      const response = await fetch(url, options);
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || `Request failed: ${response.status}`);
+      return payload;
+    }
+    function artifactUrl(job, asset) {
+      return `/files/${encodeURIComponent(job.id)}/${encodeURIComponent(asset.relative)}`;
+    }
+    function renderJobs() {
+      const grid = $("#jobGrid");
+      if (!state.jobs.length) {
+        grid.innerHTML = '<div class="empty">Load the included example or choose your first text file.</div>';
+        $("#detail").classList.add("hidden");
+        return;
+      }
+      grid.innerHTML = state.jobs.map(job => `
+        <article class="job ${job.id === state.selectedId ? "selected" : ""}">
+          <div>
+            <div class="job-title">${escapeHtml(job.title)}</div>
+            <div class="job-meta">${escapeHtml(job.phase || job.mode)} · ${escapeHtml(job.look || "plata")} · ${escapeHtml(dateText(job.created_at))}</div>
+          </div>
+          <div>
+            <span class="badge ${escapeHtml(job.status)}">${escapeHtml(job.status)}</span>
+            <div style="margin-top:8px"><button class="btn btn-small" data-open-job="${escapeHtml(job.id)}" type="button">Open</button></div>
+          </div>
+        </article>
+      `).join("");
+      document.querySelectorAll("[data-open-job]").forEach(button => {
+        button.addEventListener("click", () => selectJob(button.dataset.openJob));
+      });
+    }
+    function renderDetail(job) {
+      state.selectedJob = job;
+      $("#detail").classList.remove("hidden");
+      $("#detailTitle").textContent = `${job.title} · ${job.status}`;
+      $("#detailPath").textContent = job.output_dir;
+      $("#artDirection").textContent = job.art_direction || "The art-direction report appears when the editorial pass finishes.";
+      $("#renderLog").textContent = job.log_tail || "No log output yet.";
+      $("#commandText").textContent = job.command_text;
+      const cancel = $("#cancelJob");
+      cancel.classList.toggle("hidden", !["queued", "running"].includes(job.status));
+      cancel.dataset.jobId = job.id;
+      const followups = $("#followupActions");
+      followups.classList.toggle("hidden", job.status !== "done" || !job.followup_storyboard);
+      $("#prepareSmoke").dataset.jobId = job.id;
+      $("#prepareRender").dataset.jobId = job.id;
+      const protocol = job.illustrated_protocol;
+      const protocolBlocked = Boolean(protocol && protocol.render_errors && protocol.render_errors.length);
+      $("#prepareSmoke").disabled = protocolBlocked;
+      $("#prepareRender").disabled = protocolBlocked;
+      $("#protocolSummary").textContent = protocol
+        ? `${protocol.image_count} narrative images · ${protocol.illustration_style || "illustrated"} · ${protocol.analyzed_images} analyzed · ${protocol.approved_images} approved · ${protocolBlocked ? protocol.render_errors.length + " blockers" : "ready"}`
+        : "";
+      const assets = $("#assetGrid");
+      assets.innerHTML = job.assets.length ? job.assets.map(asset => `
+        <a class="asset" href="${artifactUrl(job, asset)}" target="_blank" rel="noopener">
+          <div class="asset-kind">${escapeHtml(asset.kind)}</div>
+          <div class="asset-name">${escapeHtml(asset.name)}</div>
+        </a>
+      `).join("") : '<div class="empty">Artifacts appear when the job completes.</div>';
+      const previewAssets = job.assets.filter(asset =>
+        (asset.kind === "image" && (asset.name.includes("contact-sheet") || asset.name.includes("cover"))) ||
+        (asset.kind === "video" && (asset.name.includes("master") || asset.name.includes("hook-cut") || asset.name.includes("seamless-loop")))
+      );
+      $("#previewGrid").innerHTML = previewAssets.length ? previewAssets.map(asset => `
+        <figure class="preview-card">
+          ${asset.kind === "image"
+            ? `<img src="${artifactUrl(job, asset)}" alt="${escapeHtml(asset.name)}" loading="lazy">`
+            : `<video src="${artifactUrl(job, asset)}" controls muted playsinline preload="metadata"></video>`}
+          <figcaption class="preview-label">${escapeHtml(asset.name)}</figcaption>
+        </figure>
+      `).join("") : '<div class="empty">The approval sheet, cover, and playable cuts appear here.</div>';
+      $("#reviewStatus").textContent = job.storyboard_review_status || "draft";
+      $("#loadStoryboard").disabled = !job.followup_storyboard;
+      $("#saveStoryboard").disabled = !job.followup_storyboard;
+      $("#approveStoryboard").disabled = !job.followup_storyboard;
+      showTab(state.activeTab);
+    }
+    function showTab(tab) {
+      state.activeTab = tab;
+      document.querySelectorAll(".tab").forEach(button => button.classList.toggle("active", button.dataset.tab === tab));
+      ["art", "visuals", "storyboard", "assets", "log", "command"].forEach(name => {
+        $(`#tab${name[0].toUpperCase()}${name.slice(1)}`).classList.toggle("hidden", name !== tab);
+      });
+    }
+    async function loadJobs() {
+      const payload = await request("/api/jobs");
+      state.jobs = payload.jobs;
+      if (!state.selectedId && state.jobs.length) state.selectedId = state.jobs[0].id;
+      renderJobs();
+      if (state.selectedId) {
+        const job = await request(`/api/jobs/${encodeURIComponent(state.selectedId)}`);
+        renderDetail(job);
+      }
+    }
+    async function selectJob(id) {
+      state.selectedId = id;
+      renderJobs();
+      renderDetail(await request(`/api/jobs/${encodeURIComponent(id)}`));
+    }
+    async function submitJob(event) {
+      event.preventDefault();
+      $("#formStatus").textContent = "Starting local job...";
+      try {
+        const form = new FormData(event.currentTarget);
+        const sourceFile = $("#sourceFile").files[0];
+        if (sourceFile) form.set("source_file", sourceFile);
+        const job = await request("/api/jobs", { method: "POST", body: form });
+        state.selectedId = job.id;
+        $("#formStatus").textContent = "Job started. Results remain on this laptop.";
+        await loadJobs();
+      } catch (error) {
+        $("#formStatus").textContent = error.message;
+      }
+    }
+    async function prepareFollowup(id, mode) {
+      const job = await request(`/api/jobs/${encodeURIComponent(id)}`);
+      $("#sourceFile").value = "";
+      $("#sourcePath").value = job.source;
+      $("#videoTitle").value = job.title || "";
+      $("#storyboardPath").value = job.followup_storyboard || "";
+      $("#platformUrl").value = job.platform_url || "";
+      $("#logoPath").value = job.logo_path || "";
+      $("#plateDir").value = job.plate_dir || "";
+      $("#introSealSeconds").value = job.intro_seal_seconds || "1.6";
+      $("#coldOpenSeconds").value = job.cold_open_seconds || "1.25";
+      $("#titleCardSeconds").value = job.title_card_seconds || "2.8";
+      $("#look").value = job.look || "plata";
+      $("#illustrationStyle").value = job.illustration_style || "grabado-civico";
+      $("#durationMode").value = job.duration_mode || "auto";
+      $("#formats").value = job.formats || "vertical";
+      $("#seedOffset").value = job.seed_offset || "0";
+      $("#edgeVoice").value = job.edge_voice || "es-AR-TomasNeural";
+      $("#edgeRate").value = job.edge_rate || "-8%";
+      $("#edgePitch").value = job.edge_pitch || "-4Hz";
+      $("#sayVoice").value = job.say_voice || "Reed (Spanish (Mexico))";
+      $("#sayRate").value = job.say_rate || "160";
+      $("#voicePerformance").value = job.voice_performance || "editorial";
+      document.querySelector(`input[name="mode"][value="${mode}"]`).checked = true;
+      $("#formStatus").textContent = mode === "smoke"
+        ? "Ready. Generate a 3 second test using this reviewed brief."
+        : "Ready. Generate the full video using this reviewed brief.";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    function storyboardAsset(job) {
+      const matches = job.assets.filter(asset => asset.relative.endsWith("-storyboard.json"));
+      return matches.find(asset => asset.relative.includes("reviewed-storyboard")) || matches[0];
+    }
+    async function loadStoryboardEditor() {
+      const job = state.selectedJob;
+      const asset = job && storyboardAsset(job);
+      if (!asset) throw new Error("Generate an editorial brief first.");
+      const payload = await request(artifactUrl(job, asset));
+      $("#storyboardEditor").value = JSON.stringify(payload, null, 2);
+      $("#reviewMessage").textContent = job.illustrated_protocol
+        ? "Review every proposition, image brief, real plate analysis, continuity note, and word-bound graphic cue. Approval remains blocked until all are complete."
+        : "Storyboard loaded. Edit hooks, anchors, relations, shots, or camera direction, then save.";
+    }
+    async function persistStoryboard(approve) {
+      if (!state.selectedJob) return;
+      let payload;
+      try { payload = JSON.parse($("#storyboardEditor").value); }
+      catch (_error) { throw new Error("The storyboard editor contains invalid JSON."); }
+      const action = approve ? "approve" : "storyboard";
+      const job = await request(`/api/jobs/${encodeURIComponent(state.selectedJob.id)}/${action}`, {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload)
+      });
+      renderDetail(job);
+      $("#reviewMessage").textContent = approve
+        ? `Approved ${job.approved_chapters.length} narrative units. Full render may now use this reviewed direction.`
+        : "Edits saved as a reviewed storyboard.";
+    }
+    async function prepareReroll() {
+      if (!state.selectedJob) return;
+      await prepareFollowup(state.selectedJob.id, "brief");
+      $("#storyboardPath").value = "";
+      $("#seedOffset").value = String(Number(state.selectedJob.seed_offset || 0) + 1);
+      $("#formStatus").textContent = "A new deterministic visual direction is ready to generate; the narration remains unchanged.";
+    }
+    async function init() {
+      state.config = await request("/api/config");
+      $("#outputRoot").textContent = state.config.output_root;
+      $("#platformUrl").value = state.config.default_platform_url || "";
+      $("#logoPath").value = state.config.default_logo_path || "";
+      $("#edgeVoice").value = state.config.default_edge_voice || "es-AR-TomasNeural";
+      $("#edgeRate").value = state.config.default_edge_rate || "-8%";
+      $("#edgePitch").value = state.config.default_edge_pitch || "-4Hz";
+      $("#sayVoice").value = state.config.default_say_voice || "Reed (Spanish (Mexico))";
+      $("#sayRate").value = state.config.default_say_rate || "160";
+      $("#voicePerformance").value = state.config.default_voice_performance || "editorial";
+      $("#illustrationStyle").value = state.config.default_illustration_style || "grabado-civico";
+      $("#loadExample").addEventListener("click", () => {
+        $("#sourceFile").value = "";
+        $("#sourcePath").value = state.config.example_path;
+        $("#formStatus").textContent = "Included Markdown example loaded. Start with an editorial brief.";
+      });
+      $("#renderForm").addEventListener("submit", submitJob);
+      $("#refreshJobs").addEventListener("click", loadJobs);
+      $("#cancelJob").addEventListener("click", async event => {
+        await request(`/api/jobs/${encodeURIComponent(event.currentTarget.dataset.jobId)}/cancel`, { method: "POST" });
+        await loadJobs();
+      });
+      $("#prepareSmoke").addEventListener("click", event => prepareFollowup(event.currentTarget.dataset.jobId, "smoke"));
+      $("#prepareRender").addEventListener("click", event => prepareFollowup(event.currentTarget.dataset.jobId, "render"));
+      $("#loadStoryboard").addEventListener("click", () => loadStoryboardEditor().catch(error => { $("#reviewMessage").textContent = error.message; }));
+      $("#saveStoryboard").addEventListener("click", () => persistStoryboard(false).catch(error => { $("#reviewMessage").textContent = error.message; }));
+      $("#approveStoryboard").addEventListener("click", () => persistStoryboard(true).catch(error => { $("#reviewMessage").textContent = error.message; }));
+      $("#rerollDirection").addEventListener("click", () => prepareReroll().catch(error => { $("#reviewMessage").textContent = error.message; }));
+      document.querySelectorAll(".tab").forEach(button => button.addEventListener("click", () => showTab(button.dataset.tab)));
+      await loadJobs();
+      setInterval(loadJobs, 5000);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) loadJobs();
+      });
+    }
+    init().catch(error => { $("#formStatus").textContent = error.message; });
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "nocturne",
+  "background": "#04030A",
+  "ramp": ["#0b0815", "#1c1630", "#30264b", "#4b3b69", "#6b568b", "#917ab0", "#c0abd2", "#f7ecff"],
+  "accent": "#55D6BE",
+  "glyph_set": "field",
+  "field_font": "/Users/juanb/Library/Fonts/JetBrainsMono-Regular.ttf",
+  "ui_font": "/Users/juanb/Library/Fonts/JetBrainsMono-Regular.ttf",
+  "cell_w": 9, "cell_h": 15, "hysteresis": 0.06, "dither": "bayer8", "supersample": 2,
+  "grain": 0.014, "halation": 0.3, "scanlines": 0.035, "vignette": 0.24,
+  "field_scale": 4, "tone_floor": 0.55, "halation_threshold": 0.53, "halation_sigma": 7.5,
+  "dither_amplitude": 0.16, "tone_low_pct": 2.0, "tone_high_pct": 98.7, "tone_gamma": 3.1,
+  "orientation_weight": 0.25, "multiscale_detail": 0.28, "depth_contrast": 0.22
+}

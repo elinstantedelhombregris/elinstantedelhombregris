@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Golden fixtures pin .srt/.vtt/-word-timings.json only; large renderer
+# byproducts (audio stems, video, cover art, previews) must never land here.
+tests/fixtures/golden-sync/*.wav
+tests/fixtures/golden-sync/*.mp4
+tests/fixtures/golden-sync/*.jpg
+tests/fixtures/golden-sync/preview/

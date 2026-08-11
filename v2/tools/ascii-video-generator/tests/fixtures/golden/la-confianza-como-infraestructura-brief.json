@@ -1,0 +1,83 @@
+{
+  "title": "La confianza como infraestructura",
+  "slug": "la-confianza-como-infraestructura",
+  "thesis": "En Medellín, Colombia, la aplicación deliberada de cultura ciudadana redujo la violencia en un 298.000 por ciento menos de lo que se esperaba entre 2001-2003. No fue un milagro: fue diseño social sostenido.",
+  "keywords": [
+    "amabilidad",
+    "confianza",
+    "cooperacion",
+    "medellin",
+    "colombia",
+    "aplicacion",
+    "deliberada",
+    "cultura",
+    "ciudadana",
+    "redujo",
+    "violencia",
+    "ciento",
+    "menos",
+    "esperaba"
+  ],
+  "chapter_count": 4,
+  "motifs": [
+    "signal",
+    "noise",
+    "network",
+    "horizon"
+  ],
+  "art_direction": [
+    {
+      "chapter": "01-signal",
+      "metaphor": "detector isolating APLICACIÓN DELIBERADA / SOCIAL SOSTENIDO / CULTURA CIUDADANA",
+      "anchors": [
+        "APLICACIÓN DELIBERADA",
+        "SOCIAL SOSTENIDO",
+        "CULTURA CIUDADANA",
+        "VIOLENCIA"
+      ],
+      "composition": "radar",
+      "density": 0.717,
+      "motion": 0.38
+    },
+    {
+      "chapter": "02-noise",
+      "metaphor": "interference field concealing AMABILIDAD / ARGENTINO CURTIDO / CORTESÍA",
+      "anchors": [
+        "AMABILIDAD",
+        "ARGENTINO CURTIDO",
+        "CORTESÍA",
+        "LECTURA"
+      ],
+      "composition": "fault",
+      "density": 0.698,
+      "motion": 0.765
+    },
+    {
+      "chapter": "03-network",
+      "metaphor": "relational map connecting SEÑALES CONSTRUYEN SISTEMAS / CONFIANZA / INTERACCIÓN AMABLE",
+      "anchors": [
+        "SEÑALES CONSTRUYEN SISTEMAS",
+        "CONFIANZA",
+        "INTERACCIÓN AMABLE",
+        "SEÑAL"
+      ],
+      "composition": "bridge",
+      "density": 0.535,
+      "motion": 0.47
+    },
+    {
+      "chapter": "04-horizon",
+      "metaphor": "converging paths opening toward COOPERACIÓN / CONFIANZA / CIUDAD POSIBLE",
+      "anchors": [
+        "COOPERACIÓN",
+        "CONFIANZA",
+        "CIUDAD POSIBLE",
+        "DECISIÓN REPETIDA"
+      ],
+      "composition": "opening",
+      "density": 0.56,
+      "motion": 0.38
+    }
+  ],
+  "input": "/Users/juanb/.codex/skills/create-ascii-blog-videos/tests/fixtures/sample-article.md"
+}

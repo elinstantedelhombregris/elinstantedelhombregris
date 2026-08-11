@@ -1,0 +1,122 @@
+{
+  "title": "La confianza como infraestructura",
+  "slug": "la-confianza-como-infraestructura",
+  "thesis": "En Medellín, Colombia, la aplicación deliberada de cultura ciudadana redujo la violencia en un 298.000 por ciento menos de lo que se esperaba entre 2001-2003. No fue un milagro: fue diseño social sostenido.",
+  "keywords": [
+    "amabilidad",
+    "confianza",
+    "cooperacion",
+    "medellin",
+    "colombia",
+    "aplicacion",
+    "deliberada",
+    "cultura",
+    "ciudadana",
+    "redujo",
+    "violencia",
+    "ciento",
+    "menos",
+    "esperaba"
+  ],
+  "chapters": [
+    {
+      "id": "01-signal",
+      "label": "01 / SIGNAL",
+      "motif": "signal",
+      "keyword": "APLICACIÓN DELIBERADA",
+      "texts": [
+        "En Medellín, Colombia, la aplicación deliberada de cultura ciudadana redujo la violencia en un 298.000",
+        "por ciento menos de lo que se esperaba entre 2001-2003.",
+        "No fue un milagro: fue diseño social sostenido."
+      ],
+      "primary": "#f5d47c",
+      "secondary": "#66d7c0",
+      "accent": "#e5f3ef",
+      "anchors": [
+        "APLICACIÓN DELIBERADA",
+        "SOCIAL SOSTENIDO",
+        "CULTURA CIUDADANA",
+        "VIOLENCIA"
+      ],
+      "metaphor": "detector isolating APLICACIÓN DELIBERADA / SOCIAL SOSTENIDO / CULTURA CIUDADANA",
+      "seed": 3933992259,
+      "density": 0.717,
+      "motion": 0.38,
+      "composition": "radar"
+    },
+    {
+      "id": "02-noise",
+      "label": "02 / NOISE",
+      "motif": "noise",
+      "keyword": "AMABILIDAD",
+      "texts": [
+        "¿Y si la amabilidad no fuera cortesía?",
+        "Decile \"amabilidad\" a un argentino curtido por la calle y te va a mirar con desconfianza.",
+        "Pero hay otra lectura, una que cambia todo."
+      ],
+      "primary": "#f2bc67",
+      "secondary": "#ee735f",
+      "accent": "#c7d2ce",
+      "anchors": [
+        "AMABILIDAD",
+        "ARGENTINO CURTIDO",
+        "CORTESÍA",
+        "LECTURA"
+      ],
+      "metaphor": "interference field concealing AMABILIDAD / ARGENTINO CURTIDO / CORTESÍA",
+      "seed": 4180031251,
+      "density": 0.698,
+      "motion": 0.765,
+      "composition": "fault"
+    },
+    {
+      "id": "03-network",
+      "label": "03 / NETWORK",
+      "motif": "network",
+      "keyword": "SEÑALES CONSTRUYEN SISTEMAS",
+      "texts": [
+        "La confianza multiplica.",
+        "Cada interacción amable era una señal, y las señales construyen sistemas."
+      ],
+      "primary": "#7dd5c2",
+      "secondary": "#e6bb63",
+      "accent": "#edf4ef",
+      "anchors": [
+        "SEÑALES CONSTRUYEN SISTEMAS",
+        "CONFIANZA",
+        "INTERACCIÓN AMABLE",
+        "SEÑAL"
+      ],
+      "metaphor": "relational map connecting SEÑALES CONSTRUYEN SISTEMAS / CONFIANZA / INTERACCIÓN AMABLE",
+      "seed": 1182039752,
+      "density": 0.535,
+      "motion": 0.47,
+      "composition": "bridge"
+    },
+    {
+      "id": "04-horizon",
+      "label": "04 / HORIZON",
+      "motif": "horizon",
+      "keyword": "COOPERACIÓN",
+      "texts": [
+        "Sin confianza no hay cooperación, y sin cooperación no hay ciudad posible.",
+        "El camino existe.",
+        "Empieza por una decisión repetida."
+      ],
+      "primary": "#f1cb73",
+      "secondary": "#6fd0bf",
+      "accent": "#f5efe0",
+      "anchors": [
+        "COOPERACIÓN",
+        "CONFIANZA",
+        "CIUDAD POSIBLE",
+        "DECISIÓN REPETIDA"
+      ],
+      "metaphor": "converging paths opening toward COOPERACIÓN / CONFIANZA / CIUDAD POSIBLE",
+      "seed": 2818380308,
+      "density": 0.56,
+      "motion": 0.38,
+      "composition": "opening"
+    }
+  ]
+}
