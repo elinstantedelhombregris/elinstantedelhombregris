@@ -5,6 +5,7 @@ import { LaSemillaNoEsMia } from './QuienEstaDetras/sections/LaSemillaNoEsMia';
 import { LosDosNombres } from './QuienEstaDetras/sections/LosDosNombres';
 import { PorQueEmpece } from './QuienEstaDetras/sections/PorQueEmpece';
 import { PortadaQuien } from './QuienEstaDetras/sections/PortadaQuien';
+import { QueGanoYo } from './QuienEstaDetras/sections/QueGanoYo';
 import { QuienPaga } from './QuienEstaDetras/sections/QuienPaga';
 
 /**
@@ -27,6 +28,7 @@ export function QuienEstaDetras() {
       <LosDosNombres />
       <LaSemillaNoEsMia />
       <QuienPaga />
+      <QueGanoYo />
       <CierreFirma />
     </main>
   );

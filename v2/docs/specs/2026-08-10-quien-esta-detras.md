@@ -72,11 +72,30 @@ se cambia un `null` por una ruta y el layout no se corre un pixel.
 | 0 | `PortadaQuien` | papel | Rito de la tinta: «Alguien tuvo que / plantarla.» |
 | 1 | `LaFicha` | papel | Retrato 4:5 + ficha de expediente. Última fila: `ACÁ — ningún cargo`. |
 | 2 | `PorQueEmpece` | papel | Prosa en primera persona: las puertas, el concurso, la plataforma. Foto documental. |
-| 3 | `DeDondeVengo` | papel crudo | Trayectoria como índice numerado `01–05`, no como CV. |
-| 4 | `LosDosNombres` | **tinta** | La charla con el amigo · la psicografía · sin sangre. |
-| 5 | `LaSemillaNoEsMia` | papel | Cinco prohibiciones con `Sello`, y la cita de `/la-idea`. |
+| 3 | `DeDondeVengo` | papel crudo | Trayectoria como índice numerado `01–06`, no como CV. |
+| 4 | `LosDosNombres` | **tinta** | La charla con Ricardo · la psicografía · plata y *argentum* · sin sangre. |
+| 5 | `LaSemillaNoEsMia` | papel crudo | Cinco prohibiciones con `Sello`, y la cita de `/la-idea`. |
 | 6 | `QuienPaga` | papel | Tres columnas: de dónde sale · quién no lo financia · a dónde va. |
-| 7 | `CierreFirma` | violeta | `BandaCta`: «No me sigas a mí.» → `/sembrar`. Firma manuscrita. |
+| 7 | `QueGanoYo` | papel crudo | Los tres intereses declarados, y por qué eso vuelve creíble la prohibición 04. |
+| 8 | `CierreFirma` | violeta | `BandaCta`: «No me sigas a mí.» → `/sembrar`. Firma manuscrita. |
+
+### Decisión 7: la empresa se fundó afuera, y eso se dice primero
+
+Kairospace se fundó en Estados Unidos. Callarlo abriría la grieta más obvia contra la página —
+alguien que pide arreglar la Argentina desde una empresa registrada afuera— y dejaría el hallazgo
+en manos del primero que lo busque. Dicho de frente, deja de ser una contradicción y pasa a ser la
+evidencia central: **trabajar allá es más fácil, y no porque la gente sea mejor.** Es más fácil
+porque el sistema está diseñado para que lo sea. Juan no leyó esa diferencia: la vivió, y por eso
+la trayectoria gana una fila propia (`04 — Lo que me quiero traer`) que nombra qué se copia — reglas
+estables, trámites que terminan, crédito que existe, contratos que se cumplen.
+
+### Decisión 8: el interés propio se declara, no se disimula
+
+Un proyecto cívico que jura desinterés obliga a creerle a una persona. Uno que enumera lo que gana
+se puede auditar. Los tres intereses —los hijos, las empresas que quiere fundar, la plata para
+investigación y desarrollo— van en primera persona y sin atenuantes. El cierre es lo que los vuelve
+compatibles con la prohibición 04: ninguno se sirve cobrando de la plataforma; los tres se sirven si
+el país funciona. *«Si esto sale bien yo gano — pero gano afuera de acá, en el país que quede.»*
 
 ## Contenido a completar
 

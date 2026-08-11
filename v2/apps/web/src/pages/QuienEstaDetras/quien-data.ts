@@ -128,16 +128,22 @@ export const TRAYECTORIA: readonly FilaTrayectoria[] = [
     num: '03',
     titulo: 'Kairospace Technologies',
     cuerpo:
-      'La empresa que co-fundé y dirijo: tecnologías de tratamiento de agua, y algunas cositas más. Es de donde vengo y de lo que vivo. Lo aclaro por una razón sola: este proyecto no me paga el sueldo, y no está pensado para pagármelo nunca.',
+      'La empresa que co-fundé y dirijo: tecnologías de tratamiento de agua, y algunas cositas más. La fundamos en Estados Unidos, y lo digo de frente porque es incómodo y porque explica todo lo demás. Allá me resulta muchísimo más fácil trabajar — y no es que la gente sea mejor ni que sobre la plata. Es más fácil porque el sistema está diseñado para que lo sea.',
   },
   {
     num: '04',
+    titulo: 'Lo que me quiero traer',
+    cuerpo:
+      'Hoy estamos desarrollando proyectos acá, en la Argentina. Todo lo que aprendí trabajando afuera me lo quiero traer, y no hablo de la empresa: hablo del sistema. Las reglas que no cambian cada seis meses, los trámites que terminan, el crédito que existe, el contrato que se cumple. Nada de eso es carácter nacional. Todo eso es diseño, y el diseño se copia.',
+  },
+  {
+    num: '05',
     titulo: 'Las puertas',
     cuerpo:
       'Años presentando propuestas al Estado sin obtener respuesta. Ahí aprendí lo único que hacía falta aprender, y no fue sobre política: fue sobre diseño. El problema no es que falten ideas. Es que falta el lugar donde dejarlas.',
   },
   {
-    num: '05',
+    num: '06',
     titulo: 'La plataforma',
     cuerpo:
       'Más de siete años dándole vueltas a esto, y no tengo la fecha exacta: no creo que exista. En la idea de hacer de la Argentina un país mejor vengo trabajando desde mucho antes, sin saber que iba a terminar acá. Al principio solo. En el camino se fue sumando gente que me banca, me corrige y me empuja — y nada de lo que hay en este sitio quedó escrito sin que alguien me lo discutiera antes.',
@@ -263,7 +269,49 @@ export const PLATA: readonly ColumnaPlata[] = [
 export const PLATA_CIERRE =
   'El día que esto reciba plata de alguien más, va a estar escrito acá — con el nombre y el monto — antes de gastarse un peso.';
 
-// ─── § 7 · Cierre ───────────────────────────────────────────────────────────
+// ─── § 7 · Qué gano yo ──────────────────────────────────────────────────────
+
+/**
+ * La contracara de «Quién paga esto». Ahí se contesta quién me financia; acá,
+ * por qué lo hago igual. El interés propio declarado es más auditable que el
+ * altruismo prometido — y ninguno de los tres se sirve cobrando de esta
+ * plataforma: se sirven si el país funciona. Eso es lo que hace creíble a la
+ * prohibición 04, no la buena fe de nadie.
+ */
+export const QUE_GANO_TITULO =
+  'Tengo intereses. Prefiero decirlos yo antes de que los adivine otro.';
+
+export interface Interes {
+  num: string;
+  titulo: string;
+  cuerpo: string;
+}
+
+export const INTERESES: readonly Interes[] = [
+  {
+    num: '01',
+    titulo: 'Mis tres hijos',
+    cuerpo:
+      'Quiero que vivan en un país más lindo que el que les estamos dejando. Es la razón más simple que tengo y no le hace falta ningún adorno: si esto sale bien, ellos van a vivir mejor.',
+  },
+  {
+    num: '02',
+    titulo: 'Las empresas que faltan',
+    cuerpo:
+      'Quiero fundar muchas más. Un país donde emprender no sea una proeza me conviene, y me conviene mucho. Es interés propio y lo digo con todas las letras: prefiero que sepas exactamente qué gano antes que creerte que hago esto por amor a la humanidad.',
+  },
+  {
+    num: '03',
+    titulo: 'La plata que quiero hacer',
+    cuerpo:
+      'Quiero ganar mucha, y ya sé en qué la quiero poner: investigación y desarrollo. Que se convierta en cosas que antes no existían, pensadas y hechas acá. Ese es el destino que tiene en mi cabeza desde antes de tenerla.',
+  },
+];
+
+export const QUE_GANO_CIERRE =
+  'Ninguno de los tres se sirve cobrando de esta plataforma. Los tres se sirven si el país funciona. Por eso me podés creer más que si te dijera que lo hago por vocación de servicio: si esto sale bien yo gano — pero gano afuera de acá, en el país que quede.';
+
+// ─── § 8 · Cierre ───────────────────────────────────────────────────────────
 
 export const CIERRE = {
   titulo: ['No me sigas a mí.', 'Plantá la tuya.'],
