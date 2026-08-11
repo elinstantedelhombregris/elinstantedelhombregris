@@ -47,6 +47,10 @@ export const LaIdea = lazy(async () => {
   const m = await import('~/pages/LaIdea');
   return { default: m.LaIdea };
 });
+export const QuienEstaDetras = lazy(async () => {
+  const m = await import('~/pages/QuienEstaDetras');
+  return { default: m.QuienEstaDetras };
+});
 export const Sembrar = lazy(async () => {
   const m = await import('~/pages/Sembrar');
   return { default: m.Sembrar };

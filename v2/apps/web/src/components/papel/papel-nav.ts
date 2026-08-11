@@ -43,6 +43,19 @@ export const SECCIONES_BIBLIOTECA: readonly PapelNavItem[] = [
 
 export const SEMBRAR_HREF = '/sembrar';
 
+/**
+ * «Quién está detrás» — la única página del sitio con entrada única, y
+ * deliberadamente fuera del recorrido: vive en la franja inferior del
+ * footer y en ningún otro lado (spec 2026-08-10-quien-esta-detras.md).
+ *
+ * Está acá y no suelta dentro del footer para que la regla sea auditable:
+ * si algún día alguien la agrega a `PAPEL_NAV_ALL`, el test de PapelFooter
+ * lo caza. La decisión es que el sitio no promocione a la persona; el
+ * enlace existe para el que lo busca.
+ */
+export const QUIEN_HREF = '/quien-esta-detras';
+export const QUIEN_LABEL = 'Quién está detrás';
+
 export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   { href: '/', label: 'Inicio', num: '00' },
   ...PAPEL_NAV,

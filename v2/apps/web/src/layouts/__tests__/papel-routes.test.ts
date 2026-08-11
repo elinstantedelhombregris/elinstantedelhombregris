@@ -79,6 +79,10 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/entrenamientosque')).toBe(false);
   });
 
+  it('«Quién está detrás» recibe chrome papel aunque no esté en el recorrido', () => {
+    expect(esRutaPapel('/quien-esta-detras')).toBe(true);
+  });
+
   it('matchea la crónica del país que viene por igualdad exacta (spec 3.6, sin hijos dinámicos)', () => {
     expect(esRutaPapel('/cronica')).toBe(true);
   });

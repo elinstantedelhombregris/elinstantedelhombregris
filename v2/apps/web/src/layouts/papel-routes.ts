@@ -18,6 +18,8 @@ const PAPEL_ROUTES = new Set([
   '/blog',
   '/entrenamientos',
   '/cronica',
+  // Sin entrada en el recorrido: se llega solo desde la franja del footer.
+  '/quien-esta-detras',
 ]);
 
 /**

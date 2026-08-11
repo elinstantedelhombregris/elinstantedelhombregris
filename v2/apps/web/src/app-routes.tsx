@@ -42,6 +42,7 @@ import {
   PracticaDetail,
   PropuestaDetail,
   PulsoDetail,
+  QuienEstaDetras,
   Register,
   ResetPassword,
   Sembrar,
@@ -65,6 +66,9 @@ export function AppRoutes() {
       <Route path="/bienvenida" component={Bienvenida} />
       <Route path="/apoyo" component={ApoyaAlMovimiento} />
       <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
+      {/* Entrada única desde la franja inferior del footer — nunca desde el
+          header ni el recorrido (spec 2026-08-10-quien-esta-detras.md). */}
+      <Route path="/quien-esta-detras" component={QuienEstaDetras} />
 
       {/* ¡BASTA! framework */}
       <Route path="/manifiesto" component={Manifiesto} />

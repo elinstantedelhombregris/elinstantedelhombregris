@@ -1,6 +1,6 @@
 import { Link } from 'wouter';
 
-import { PAPEL_NAV_ALL, SEMBRAR_HREF } from './papel-nav';
+import { PAPEL_NAV_ALL, QUIEN_HREF, QUIEN_LABEL, SEMBRAR_HREF } from './papel-nav';
 
 const PRINCIPIOS = [
   'Abierto y auditable',
@@ -78,7 +78,15 @@ export function PapelFooter() {
         </div>
 
         <div className="font-space text-oscuro-tenue flex flex-wrap justify-between gap-4 pt-6 text-[11px] max-[560px]:flex-col">
-          <span>© 2026 ¡BASTA! — El instante del hombre gris</span>
+          <span className="flex flex-wrap items-center gap-2">
+            © 2026 ¡BASTA! — El instante del hombre gris
+            <span aria-hidden>·</span>
+            {/* Única puerta de entrada de toda la página: no está en el
+                recorrido ni en el header, a propósito. */}
+            <Link href={QUIEN_HREF} className="hover:text-papel underline transition-colors">
+              {QUIEN_LABEL}
+            </Link>
+          </span>
           <span>Prototipo · todavía sin voces</span>
         </div>
       </div>

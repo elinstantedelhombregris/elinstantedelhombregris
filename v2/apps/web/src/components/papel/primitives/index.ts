@@ -8,6 +8,7 @@ export {
 export { ChipTipo, type ChipTipoProps, type TipoVoz } from './ChipTipo';
 export { FilaIndice, type FilaIndiceProps } from './FilaIndice';
 export { FilaIndiceExpandible, type FilaIndiceExpandibleProps } from './FilaIndiceExpandible';
+export { FotoPapel, type FotoPapelProps, type ProporcionFoto } from './FotoPapel';
 export { Kicker, type KickerColor, type KickerProps } from './Kicker';
 export { NotaDemo } from './NotaDemo';
 export { Palitos, type PalitosProps } from './Palitos';
