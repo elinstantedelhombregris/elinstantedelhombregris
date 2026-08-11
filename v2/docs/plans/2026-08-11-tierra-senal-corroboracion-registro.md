@@ -4,7 +4,7 @@
 
 **Goal:** Cerrar el defecto de origen del mapa —un campo `tipo` que son cuatro vocabularios— construyendo, en orden de dependencia real, las cuatro piezas que lo reemplazan: el callejero del Estado espejado en Neon, una sola tabla de señales con vocabulario cerrado en la base, la máquina de corroboración con su rastro verificable, y el registro público con feed cronológico y volcado diario. Al terminar, `verificables` y `confirmaciones` —los dos números que `brillo.ts` pide desde julio y que ninguna tabla sabe producir— existen, y la métrica norte pasa de frase a consulta.
 
-**Architecture:** Una sola tabla `senales` reemplaza a `dreams`, `pulse_signals` y `proposals`. El vocabulario vive en `packages/civic-core/src/senal/` y la base lo copia con FK compuestas contra tres catálogos sembrados dentro de la migración: el par `('sueño','hecho')` no existe, así que no se puede insertar. Encima de esa tabla se cuelgan cinco tablas de corroboración (`confirmaciones`, `senal_resolucion`, `resolucion_confirmacion`, `rastro_senal`, `evidencia`) y una materializada (`celda_luz`). El callejero crece hacia abajo en `geographic_locations` (21.345 filas) más `geo_calles` (326.832), y una señal guarda calle + altura + texto normalizado con nueve CHECK que hacen inexpresable publicar la altura de la casa de alguien. El registro público lee de esa misma tabla con keyset simple y serializa desde una lista blanca con piso de publicación por rol.
+**Architecture:** Una sola tabla `senales` reemplaza a `dreams`, `pulse_signals` y `proposals`. El vocabulario vive en `packages/civic-core/src/senal/` y la base lo copia con FK compuestas contra tres catálogos sembrados dentro de la migración: el par `('sueño','hecho')` no existe, así que no se puede insertar. Encima de esa tabla se cuelgan cinco tablas de corroboración (`confirmaciones`, `senal_resolucion`, `resolucion_confirmacion`, `rastro_senal`, `evidencia`) y una materializada (`celda_luz`). El callejero crece hacia abajo en `geographic_locations` (17.986 filas medidas) más `geo_calles` (326.832 medidas), y una señal guarda calle + altura + texto normalizado con nueve CHECK que hacen inexpresable publicar la altura de la casa de alguien. El registro público lee de esa misma tabla con keyset simple y serializa desde una lista blanca con piso de publicación por rol.
 
 **Tech Stack:** TypeScript ESM estricto · Drizzle ORM 0.36.4 sobre Neon Postgres 17 · Express en función serverless (ADR 0008) · React 18 + Vite + Tailwind · vitest 2.1.8 · Expo SDK 57 en `apps/mobile` · sin dependencias nuevas salvo `@vercel/blob` (rebanada 6, con ADR).
 
@@ -142,7 +142,13 @@ nameNorm: text('name_norm'),
 vigenteHasta: timestamp('vigente_hasta', { withTimezone: true }),
 ```
 
-Se cae `uniqueIndex('geographic_locations_level_name_unique')` — con 4.037 localidades censales, el país tiene decenas de «San Martín» y «25 de Mayo» y la segunda revienta. Entra `uniqueIndex('geographic_locations_georef_unique').on(georefId)` y `index('geographic_locations_level_norm_idx').on(level, nameNorm)`.
+Se cae `uniqueIndex('geographic_locations_level_name_unique')` — con 4.027 localidades censales, el país tiene decenas de «San Martín» y «25 de Mayo» y la segunda revienta. Entran **los cuatro índices de A §3.1** y no dos: `uniqueIndex('geographic_locations_georef_unique').on(georefId)`, `index('geographic_locations_level_norm_idx').on(level, nameNorm)`, `index('geographic_locations_parent_idx').on(parentId)` e `index('geographic_locations_municipality_idx').on(municipalityId)`. El Step 3 de este plan enumeraba sólo los dos primeros y A declara cuatro: **gana la spec, que es la que los razonó**. Medidos, los cuatro juntos son 3,78 MB sobre 17.986 filas — dentro del ruido del presupuesto de la Task 19.
+
+**`UNIQUE (georef_id)` se queda, y el seed deduplica. Es la decisión, y sale de la medición del 2026-08-11.** El supuesto de A §3.1 es falso: los ids de georef son únicos **dentro** de cada recurso y no **entre** recursos. **3.349 de los 14.673 asentamientos traen el mismo id que una localidad censal** —son el mismo lugar listado en los dos niveles, con `localidad_censal.id === id`; el caso testigo es `58112040`, Zapala— y el `COPY` revienta en la fila 6.690 de asentamientos.
+
+Las dos salidas son mover la clave a `(level, georef_id)` o deduplicar. **Gana deduplicar**, y la razón es la misma por la que existe toda esta tarea: con la clave compuesta, el mismo lugar entra dos veces con dos `id` distintos, y entonces dos señales cargadas en Zapala pueden resolver a filas distintas según por qué recurso las alcanzó el resolvedor. **Dos filas para el mismo lugar es exactamente el defecto que `georef_id` vino a cerrar**, y se manifestaría como un mapa donde una localidad aparece dos veces con la mitad de las señales cada una — visible recién con datos, o sea tarde.
+
+Deduplicar es correcto además por contenido: el lugar **ya entró como `locality`**, que es el nivel más informativo de los dos. El seed saltea el asentamiento cuyo `georef_id` ya existe **y lo cuenta en el reporte de la corrida**, porque un salteo silencioso sería un `filas_escritas <> total_declarado` sin explicación (Task 5, Step 4). **Consecuencia en los conteos, y hay que propagarla:** la jerarquía son **17.986 filas y no 21.345**, con `settlement` en 11.324 y no 14.673.
 
 `geo-calles.ts` y `geo-seed.ts` según A §3.2, §3.3 y §4.7, con los cinco CHECK de `geo_calles` (`georef_id ~ '^[0-9]{13}$'`, `nombre_clase`, los dos de altura `> 0`, y `desde <= hasta`) declarados con `check()` de `drizzle-orm/pg-core` para que el snapshot de `migrations/meta/` los conozca. **`geographic_locations.parent_id` vale distinto en cada nivel y esa tabla no es opcional** (A §3.1): provincia NULL, departamento y **municipio** cuelgan de la provincia, localidad del departamento, asentamiento de su localidad censal o del departamento si BAHRA no la trae.
 
@@ -188,20 +194,57 @@ ON CONFLICT (georef_id) DO UPDATE SET name_norm = EXCLUDED.name_norm
 
 Sin esto, sembrar una base vacía —CI con branch limpio, un dev local, la fase 1 del seed— muere con `null value in column "province_id" violates not-null constraint`. El quinto test del Step 2 lo prueba sobre base vacía, no sólo sobre la que ya tiene las 24 filas.
 
-- [ ] **Step 7: Aplicar contra una rama efímera y después contra la base**
+`name_norm` se escribe con `claveDeProvincia`, que es **la misma expresión que corre `findProvinceByName`** (`normalizarNombreDeLugar(normalizeProvinceName(x))`). La lista canónica sale de `scripts/provincias-canonicas.ts`, que es datos sin efectos: el seed la sembraba, el relleno la necesita y el test de la migración la copiaba, y una lista copiada tres veces es una lista que va a divergir en la copia que nadie mira.
+
+- [ ] **Step 7: Rellenar las 24 filas que YA existen — sin esto la migración rompe producción**
+
+**El Step 6 hace nacer bien una base vacía y no repara la que ya existe.** Las 24 filas vivas entraron antes de la `0013` y quedan con `name_norm` y `georef_id` en NULL; `seed-provinces.ts` las saltea por su guard de existencia, y el guard tiene que quedarse: `ON CONFLICT (georef_id)` no alcanza a una fila cuyo `georef_id` es NULL —en Postgres un NULL no conflictúa con nada— así que sin el guard esas 24 filas se **duplicarían**.
+
+O sea que el minuto siguiente a aplicar la migración, sin este paso, se ve así:
+
+```
+findProvinceByName(...)  → undefined  para las 24
+provinciaIdDePunto(...)  → null       para todo punto del país
+toda señal nueva         → se guarda sin provincia
+```
+
+y desaparece del coroplético, del detalle por provincia y de todo lo que agrega por territorio, **sin un solo error en ningún lado**. Eso es **D-001, que ya estaba arreglado y desplegado**. Medido sobre una base con la `0013` aplicada y sin rellenar: `findProvinceByName` devuelve `undefined` para **24 de 24**.
+
+```bash
+cd v2
+pnpm --filter @v2/db geo:rellenar-provincias            # en seco: muestra qué haría
+pnpm --filter @v2/db geo:rellenar-provincias --aplicar  # escribe
+```
+
+`scripts/rellenar-provincias.ts`. Cuatro propiedades, y ninguna es adorno:
+
+- **Un solo normalizador.** La clave sale de `claveDeProvincia`, la misma función que corre la consulta. La spec A §5 prohíbe el segundo normalizador y no hay versión en SQL de esto: la diferencia entre dos normalizadores no aparece como un error sino como resultados que faltan.
+- **En seco por defecto**, escribe con `--aplicar`. Es el patrón de `geo:backfill`.
+- **Idempotente.** Cada UPDATE lleva su `IS DISTINCT FROM` y sólo se emite para las filas que difieren. Medido: segunda corrida, `0 a rellenar · 24 ya estaban`.
+- **Falla cerrado.** Ante una fila de nivel `province` que no es ninguna de las 24, ante dos filas que caen en la misma clave, o ante una provincia del catálogo que no tiene fila, **no escribe nada** y sale con código distinto de cero. Un relleno a medias deja la mitad de las provincias encontrables y la otra mitad no, que es la forma más cara de fallar.
+
+El driver es `pg` y no el HTTP de Neon, igual que `migrate.ts`: corre en el mismo minuto que la migración, con la conexión sin pooler, y con `pg` el script se puede ensayar contra cualquier Postgres. Contra el HTTP de Neon sólo se podría probar en la base que repara.
+
+El script cierra diciendo **la cuenta que la Task 6 necesita**: cuántas filas quedan sin `georef_id`.
+
+- [ ] **Step 8: Aplicar contra una rama efímera y después contra la base**
 
 ```bash
 # Rama efímera primero. La irreversibilidad no se ensaya en producción.
 cd v2 && DATABASE_URL_UNPOOLED="$NEON_BRANCH_URL" pnpm --filter @v2/db db:migrate
-cd v2 && pnpm --filter @v2/db test:integration
+cd v2 && DATABASE_URL_UNPOOLED="$NEON_BRANCH_URL" pnpm --filter @v2/db geo:rellenar-provincias --aplicar
+cd v2 && DATABASE_URL_DESCARTABLE="$NEON_BRANCH_URL" pnpm --filter @v2/db test:integration
 ```
 
-Expected: los cinco tests verdes. Recién después, contra la base real.
+Expected: todos verdes. Recién después, contra la base real — y ahí también los dos comandos, migración **y** relleno, en ese orden y sin nada en el medio.
 
-- [ ] **Step 8: Commit**
+`DATABASE_URL_DESCARTABLE` no es un adorno del ejemplo: la suite de `migracion-0013.test.ts` que prueba «sobre base vacía» crea un esquema, lo llena y lo tira, y por eso **no corre contra `DATABASE_URL` y no cae a ella por default**. Sin esa variable se saltea con un mensaje; apuntada a la misma base que sirve el sitio —incluso por el otro endpoint de Neon, que es el error fácil— se saltea igual **y** un test se pone rojo.
+
+- [ ] **Step 9: Commit**
 
 ```bash
-git add v2/packages/db/src/schema v2/packages/db/migrations v2/packages/db/drizzle.config.ts v2/packages/db/tests v2/docs/specs
+git add v2/packages/db/src/schema v2/packages/db/migrations v2/packages/db/drizzle.config.ts \
+        v2/packages/db/scripts v2/packages/db/package.json v2/packages/db/tests v2/docs/specs
 git commit -m "feat(db): la jerarquía territorial deja de colgar de un serial sin destino"
 ```
 
@@ -218,7 +261,8 @@ git commit -m "feat(db): la jerarquía territorial deja de colgar de un serial s
 
 **Interfaces:**
 - Consumes: `LocationPrecision`, `LocationRole`, `CivicSensitivity`, `PublishedPrecisionResult`, `normalizedLocationLabel`.
-- Produces: `normalizarNombreDeCalle`, `normalizarNombreDeLugar`, `RangoDeAltura`, `clasificarAltura`, `DireccionEstado`, `componerDireccion`, `direccionPermitida`, `ubicacionPublicable`, `etiquetaDeDireccion`.
+- Produces: `normalizarNombreDeCalle`, `normalizarNombreDeLugar`, `RangoDeAltura`, `clasificarAltura`, `DireccionEstado`, `componerDireccion`, **`direccionPermitida(tipo, role, sensitivity)`**, `techoDeTipo(tipo)`, `TIPOS_CON_TECHO_DE_DIRECCION`, `permisoMasRestrictivo`, `ubicacionPublicable`, `etiquetaDeDireccion`, `direccionSinAltura`.
+  > **`direccionPermitida` toma TRES ejes y es la única puerta.** El piso por rol y sensibilidad —dos ejes— vive adentro del módulo y no se exporta desde `civic-core/src/index.ts`: mirar sólo el rol deja publicar la altura de un `saber` sobre la casa de otro (§2.6 de la spec A), que es el hueco entero que esta tabla existe para cerrar. La tabla cruda `TECHO_POR_TIPO` tampoco se exporta; se lee con `techoDeTipo`, que normaliza a NFC y devuelve una unión discriminada en vez de `undefined`.
 
 **Resolución de contradicción (A vs B, `service_area` hereda la dirección completa):** la spec A razonó la fila «rol no-`subject`» sobre `capture` y `meeting_point`, y B metió cuatro tipos más en `service_area`. Bajo la tabla de A, un `saber` cargado como «en el pasillo del fondo del 340 vive una señora sola sin agua» se guarda y se publica entero. **Se separan los dos ejes:** el rol sigue gobernando el punto, y la dirección se gobierna por una función propia con su `Record` exhaustivo. Sólo `capture` y `meeting_point` llevan altura y `texto_libre`; `service_area` lleva calle y nada más; `subject` lleva calle sólo si la sensibilidad no es alta, y nada si lo es.
 
@@ -254,20 +298,32 @@ export type DireccionEstado =
  *  heredaban calle, altura y texto libre sin ninguna compuerta. */
 export type PermisoDireccion = 'completa' | 'solo_calle' | 'ninguna';
 
+/** El techo de un tipo, o la constancia de que el tipo no se reconoce. Unión y
+ *  no `PermisoDireccion | undefined`: «no está en la tabla» y «está y no
+ *  permite nada» son afirmaciones distintas, y sólo una habilita rechazar en el
+ *  borde en vez de degradar en silencio. Acepta `string` porque el borde de la
+ *  API todavía no validó nada. La búsqueda normaliza a NFC las dos puntas:
+ *  `'práctica'` con la tilde combinante es OTRO string para JavaScript. */
+export const techoDeTipo = (tipo: string): TechoDeTipo => { ... };
+
+/** **La ÚNICA puerta de §2.6, y son TRES ejes.** El mínimo entre el techo del
+ *  tipo y el piso del rol. El piso por rol y sensibilidad existe adentro del
+ *  módulo y NO se exporta: mirar sólo el rol deja publicar la altura de un
+ *  `saber` sobre la casa de otro, y mientras hubo dos funciones exportadas la
+ *  forma de equivocarse era llamar a la que estaba a mano. Un tipo que no está
+ *  en la tabla vale `'ninguna'`, nunca el techo más permisivo. */
 export const direccionPermitida = (
-  role: LocationRole, sensitivity: CivicSensitivity,
-): PermisoDireccion => {
-  if (role === 'capture' || role === 'meeting_point') return 'completa';
-  if (role === 'service_area') return 'solo_calle';
-  return sensitivity === 'high' ? 'ninguna' : 'solo_calle';   // subject
-};
+  tipo: TipoConTechoDeDireccion, role: LocationRole, sensitivity: CivicSensitivity,
+): PermisoDireccion => { ... };
 ```
+
+**Nada de acá puede fallar abierto, y ésa es la única regla que gobierna el módulo.** `permisoMasRestrictivo` devuelve el MÁS restrictivo ante cualquier valor que no esté en la escala —con `PERMISOS.indexOf` daba `-1`, `-1` es menor que todo, y devolvía el permiso menos restrictivo—, la tabla `TECHO_POR_TIPO` **no se exporta** porque su uso natural (`TABLA[tipo]`) es exactamente el camino que devuelve `undefined` sin que el compilador lo vea, y `direccionSinAltura` ante un texto que no termina en la altura registrada devuelve el nombre de la calle o `null`, nunca el texto crudo con el número adentro.
 
 `clasificarAltura` es total sobre las cuatro variantes de `RangoDeAltura`. **El estado se llama `altura_en_rango` y no `altura_confirmada` a propósito:** conseguir ese valor cuesta cero —cualquiera elige una calle con rango publicado y escribe un número adentro— y no prueba presencia ni existencia del domicilio. Es una afirmación sobre el **catálogo**, nunca sobre la señal.
 
 `normalizarNombreDeCalle(texto, categorias)`: NFD, saca diacríticos combinantes, **elimina todo lo que no sea alfanumérico o espacio** (así `%` y `_` desaparecen antes de tocar cualquier `LIKE`), mayúsculas, colapsa espacios, y si el primer **token completo** está en `categorias` lo saca —salvo que sacarlo dejara el resultado vacío, que es el caso de `nombre: "CALLE"` con `categoria: "CALLE"` y que contra una columna `NOT NULL` reventaría. El corte por token completo es lo que hace que `AVELLANEDA` con categoría `AV` siga siendo `AVELLANEDA`.
 
-`etiquetaDeDireccion` devuelve las cinco frases de A §6 y **no puede contener «confirmada», «confirmado» ni «verificada»**. Como esta rebanada sale antes que la máquina de estados, durante esa ventana la única etiqueta con pinta de estado en una fila va a ser la de la dirección: si dijera «confirmada», quien la lea entendería que alguien corroboró la señal, cuando lo único que pasó es que un número cayó dentro de un rango del INDEC.
+`etiquetaDeDireccion` devuelve las cinco frases de A §6 y **no puede contener «confirmada», «confirmado» ni «verificada»**. **Y la que hay que escribir con más cuidado es la de `altura_sin_rango`, porque es la que va a ver la mayoría de la gente:** medido sobre el callejero real, sólo el 24,3% de las calles tiene rango publicado y apenas el 18,5% de las señales con altura cae en `altura_en_rango` (Task 5, Step 6). La etiqueta del caso mayoritario tiene que decir que **el catálogo no publica el rango de esa calle** —un hecho sobre el Estado— y no insinuar que la dirección es dudosa, que es un hecho sobre la persona que la escribió. Como esta rebanada sale antes que la máquina de estados, durante esa ventana la única etiqueta con pinta de estado en una fila va a ser la de la dirección: si dijera «confirmada», quien la lea entendería que alguien corroboró la señal, cuando lo único que pasó es que un número cayó dentro de un rango del INDEC.
 
 En `location-policy.ts`, `PublishedPrecisionInput` gana `sujeto: 'propio' | 'tercero'` (default `'propio'`) y `overridable` pasa a `false` cuando vale `'tercero'`. El campo estaba previsto: su comentario dice «la persona manda sobre **su propia** ubicación» y «existe igual para que un régimen legal futuro pueda ponerlo en `false`».
 
@@ -304,7 +360,7 @@ git commit -m "feat(civic-core): una dirección dice hasta dónde se pudo verifi
 
 - [ ] **Step 1: El test que caza la regresión silenciosa**
 
-`findProvinceByName` (`geographic.ts:37-45`) matchea `name` con tildes apoyado en el índice que la Task 1 dropeó. Si nadie lo toca, pasa a ser seq scan sobre 21.345 filas **en cada escritura que resuelve provincia** —o sea en el camino que cerró D-001— y sigue funcionando, que es lo peor que puede pasar. El test es la guarda 9 de A §8.1: las 24 provincias, con los nombres exactos de `provincias.generated.ts`, contra `findProvinceByName` sobre `name_norm`.
+`findProvinceByName` (`geographic.ts:37-45`) matchea `name` con tildes apoyado en el índice que la Task 1 dropeó. Si nadie lo toca, pasa a ser seq scan sobre 17.986 filas **en cada escritura que resuelve provincia** —o sea en el camino que cerró D-001— y sigue funcionando, que es lo peor que puede pasar. El test es la guarda 9 de A §8.1: las 24 provincias, con los nombres exactos de `provincias.generated.ts`, contra `findProvinceByName` sobre `name_norm`.
 
 - [ ] **Step 2: Reparar `geographic.ts`**
 
@@ -395,7 +451,7 @@ Va en su propia rebanada porque es la única del plan que depende de una API de 
 
 **Interfaces:**
 - Consumes: `geo_seed_progreso`, `geo_catalogo_version`, `geo_calle_categorias`, `normalizarNombreDeCalle`.
-- Produces: 21.345 filas en `geographic_locations` y 326.832 en `geo_calles`.
+- Produces: **17.986** filas en `geographic_locations` (medidas 2026-08-11, no las 21.345 estimadas: ver la deduplicación de la Task 1 Step 3) y **326.832** en `geo_calles` (medidas, exactamente el número esperado).
 
 **Reversibilidad:** **IRREVERSIBLE.** Escribe ~347.000 filas en la base de producción. Correr **primero completo contra una rama efímera de Neon**, medir el pico con las consultas del Step 6, y recién después contra la base real.
 
@@ -403,7 +459,11 @@ Va en su propia rebanada porque es la única del plan que depende de una API de 
 
 `traer → normalizar → escribir`, en tres módulos, para que cambiar la fuente sea cambiar una capa. **Los paths exactos, porque el recurso se equivoca fácil y el error no falla:** `/provincias`, `/departamentos`, `/municipios`, **`/localidades-censales`** (con guión, y **no** `/localidades`, que es otro recurso: sembrar el equivocado entra filas plausibles y el `filas_escritas = total_declarado` cierra igual), `/asentamientos`, `/calles`.
 
-Paginada con `?inicio=` y `?max=`; `total` viene en cada respuesta. Con `max=1000` son 327 requests de calles más 22 de jerarquía: **349 requests, serializadas, concurrencia 1**, porque en las pruebas de este proyecto georef cortó a la tercera llamada concurrente. Backoff exponencial y reintento por página. Si georef rechaza `max=1000`, baja a `max=100`: 3.269 requests y ~55 minutos, y sigue siendo un costo de una sola vez.
+**LA PAGINACIÓN QUE ESTE PLAN ESCRIBIÓ NO EXISTE. Corregido con la corrida real del 2026-08-11.** El plan decía «con `max=1000` son 327 requests de calles», o sea caminar `?inicio=` de mil en mil hasta 326.832. **La API topea `inicio` en 10.000 y `max` en 5.000: son 15.000 filas por combinación de filtros, y no hay ninguna forma de pedir la 15.001.** Con el callejero como una sola consulta, es inalcanzable — y el modo de falla es el peor de todos: las primeras 15.000 filas entran perfecto, el script no falla, y el país queda con el 4,6% de sus calles.
+
+**La partición es por departamento y es obligatoria.** 529 departamentos más 5 llamadas de jerarquía = **534 requests con `max=5000`, serializadas, concurrencia 1, 350 ms de pausa entre una y otra: 268 segundos, cero 429.** Ningún departamento se acerca al techo de 15.000 —el mayor es Córdoba Capital con 8.542— así que la partición no sólo alcanza: sobra. Backoff exponencial y reintento por página igual, y **la unidad de `geo_seed_progreso` pasa a ser el departamento y no la provincia**, que además hace la reanudación nueve veces más fina.
+
+**Y el chequeo que no puede faltar: si alguna partición devuelve exactamente 15.000 filas, el seed aborta.** Es la firma de que se tocó el techo y de que faltan filas que la API no va a entregar nunca con esa consulta. Sin ese chequeo, el día que un departamento crezca el país pierde calles en silencio y `filas_escritas = total_declarado` cierra igual, porque `total` viene truncado en la misma respuesta.
 
 **El orden es obligatorio:** provincias → departamentos → municipios → localidades censales → asentamientos → calles. Las FK no dejan otra. La **fase 1 son las 24 provincias** con la sentencia de `nextval` de la Task 1 Step 6, y `seed-provinces.ts` deja de ser un script suelto.
 
@@ -412,6 +472,12 @@ Paginada con `?inicio=` y `?max=`; `total` viene en cada respuesta. Con `max=100
 El seed normaliza **cada fila con su propio campo `categoria`** (`normalizar(fila.nombre, [fila.categoria])`), y la consulta pasa la lista entera de `geo_calle_categorias`. **El seed no lee esa tabla, y no leerla es la decisión:** sería circular —carga de a una provincia y la tabla se llena a medida que avanza, así que las primeras provincias se normalizarían contra una lista incompleta y `nombre_norm` quedaría inconsistente a lo largo de la tabla, en silencio, devolviendo menos resultados en unas provincias que en otras. La guarda 7 de la Task 2 afirma que los dos lados dan el mismo resultado igual.
 
 El `0` de georef se traduce a `NULL` **en el borde del seed**, y el CHECK de la Task 1 le prohíbe la entrada para siempre.
+
+**Tres cosas más que el borde tiene que limpiar, encontradas cargando el corpus real el 2026-08-11:**
+
+1. **30 calles vienen con el rango invertido** (`altura_desde > altura_hasta`), y el CHECK `desde <= hasta` de la Task 1 las rechaza. **Se anula el `desde` y se conserva el `hasta`**, o sea la fila entra como `parcialHasta`: el `hasta` es el dato que `clasificarAltura` usa para decir «fuera de rango», que es la afirmación útil, y el `desde` invertido no se puede reparar sin inventar. **No se descarta la calle** — una calle sin rango sigue sirviendo para elegirla por nombre. Se cuenta en el reporte de la corrida.
+2. **La provincia no matchea por nombre en 1 de 24.** Georef dice «Tierra del Fuego, Antártida e Islas del Atlántico Sur» y la base dice «Tierra del Fuego». **El seed resuelve la provincia por `georef_id` y no por nombre**, y donde necesite el nombre usa la tabla de alias de `normalizeProvinceName` (Task 3, Step 2) — **nunca un segundo normalizador**, que es cómo vuelve D-012. Sin esto el seed falla en la provincia 24 de 24, o sea después de cuatro minutos de corrida.
+3. **`geo_calles.categoria` trae basura del Estado y hay que dejarla entrar.** 23 categorías distintas, cinco numéricas («0» ×3, «101», «330», «1015», «301050»), una literal «TIPO», y cuatro que no son calles: `LINEA FERREA` (23), `LIMITE DE PROPIEDAD` (20), `LINEA IMAGINARIA` (20), `CURSO DE AGUA` (13). **Valida la decisión de A de no ponerle CHECK a `categoria` y publicar el dominio en `geo_calle_categorias`:** con un CHECK, el seed habría muerto en la primera «301050» y alguien habría «arreglado» el dato del Estado a mano. El dominio se descubre, se publica y se puede mirar; no se decreta.
 
 - [ ] **Step 3: La escritura, en dos sentencias porque `COPY` no acepta `ON CONFLICT`**
 
@@ -453,7 +519,11 @@ Ese script corre, imprime y compara, y **falla con exit 1 si algo no da**:
 ```sql
 -- Los cinco niveles, contra los totales verificados de la API.
 SELECT level, count(*) FROM geographic_locations GROUP BY level;
--- province 24 · department 529 · municipality 2082 · locality 4037 · settlement 14673
+-- MEDIDOS 2026-08-11, no estimados:
+-- province 24 · department 529 · municipality 2082 · locality 4027 · settlement 11324
+-- Total 17.986. `settlement` NO da los 14.673 que declara la fuente: 3.349 son el
+-- mismo lugar que una localidad censal y el seed los saltea (Task 1, Step 3).
+-- `locality` son 4.027 y no 4.037: el 4.037 era un número de spec, no de la API.
 SELECT count(*) FROM geo_calles;                      -- 326832 ± el diff de la corrida
 
 -- La reparación de la Task 1: las tres tienen que dar 0.
@@ -484,13 +554,17 @@ GROUP BY p.name ORDER BY sin_rango DESC;
 SELECT * FROM geo_seed_progreso WHERE corrida = $vigente
   AND (estado <> 'completa' OR filas_escritas <> total_declarado);
 
--- El presupuesto, medido y no estimado. `pg_total_relation_size` incluye heap
--- MÁS índices: 48 + 61 (btree) = 109 sin el GIN todavía.
-SELECT pg_size_pretty(pg_total_relation_size('geo_calles'));   -- ~109 MB
-SELECT pg_size_pretty(pg_database_size(current_database()));   -- ~156 MB
+-- El presupuesto. `pg_total_relation_size` incluye heap MÁS índices.
+-- MEDIDOS 2026-08-11 con el corpus completo y VACUUM ANALYZE corrido:
+SELECT pg_size_pretty(pg_total_relation_size('geo_calles'));   -- 89,87 MB (37,6 datos + 52,2 índices)
+SELECT pg_size_pretty(pg_database_size(current_database()));   -- 153,58 MB con el GIN y sin señales
 ```
 
-**El umbral que dispara un rediseño:** si `pg_total_relation_size('geo_calles')` pasa de **200 MB** con el GIN puesto (46 sobre el presupuesto, 30%), la primera palanca es normalizar los nombres a una tabla `geo_calle_nombres` de nombres distintos — el nomenclátor argentino repite muchísimo.
+**El umbral que dispara un rediseño: si `pg_total_relation_size('geo_calles')` pasa de 200 MB con el GIN puesto.** Medido dio **89,87 MB, o sea el 45% del umbral**: no hay rediseño que hacer y la palanca de normalizar los nombres a una tabla `geo_calle_nombres` queda guardada sin usar. **El umbral se conserva igual**, porque el que corre este script dentro de dos años, después de una re-siembra, necesita saber contra qué comparar; un umbral que se borra porque esta vez dio bien es un umbral que la próxima vez no está.
+
+**Y una sorpresa que hay que dejar escrita: el índice más caro del callejero no es el GIN.** El GIN de trigramas mide **9,1 MB** —el plan y D-035 lo presupuestaban en el 22% del budget, ~72 MB— porque **120.115 calles se llaman «CALLE SN»** y los trigramas deduplican. El más caro es `geo_calles_georef_unique`, con **17,4 MB**, que es justo el que no se puede sacar: es el que sostiene el `ON CONFLICT` del Step 3 y la identidad de una calle.
+
+**LA COBERTURA MEDIDA, que cambia lo que el producto puede prometer:** de las 326.832 calles, **120.115 (36,8%) son `sin_nombre`** y sólo **79.441 (24,3%) tienen algún rango de altura**. Sobre datos sintéticos con esa distribución, de 4.064 señales con altura sólo **752 quedaron `altura_en_rango`**; 3.067 fueron `altura_sin_rango` y 245 `altura_fuera_de_rango`. **`altura_en_rango` es la rama minoritaria de la unión discriminada, no el caso normal** — un booleano `tiene_rango` habría dicho «no» tres de cada cuatro veces y nadie habría sabido si era «no hay rango» o «está fuera». Es el mejor argumento a favor del diseño de la Task 2, y hay que decirlo en la etiqueta de pantalla: la frase que ve la mayoría de la gente es la de `altura_sin_rango`.
 
 - [ ] **Step 7: La auditoría contra la fuente, a mano y nunca en CI**
 
@@ -522,7 +596,11 @@ git commit -m "feat(db): las 326.832 calles del país entran de a una provincia 
 
 **Reversibilidad:** IRREVERSIBLE (constraint sobre datos vivos), trivial de revertir con `DROP CONSTRAINT`.
 
-- [ ] **Step 1:** Con el seed completo, `georef_id` ya está lleno en las 21.345 filas. Recién ahora `ALTER TABLE geographic_locations ALTER COLUMN georef_id SET NOT NULL` se puede aplicar. Un `NOT NULL` sobre filas que no lo cumplen no se puede aplicar, y por eso esto no estaba en la Task 1.
+- [ ] **Step 1:** Con el seed completo, `georef_id` ya está lleno en las 17.986 filas. Recién ahora `ALTER TABLE geographic_locations ALTER COLUMN georef_id SET NOT NULL` se puede aplicar. Un `NOT NULL` sobre filas que no lo cumplen no se puede aplicar, y por eso esto no estaba en la Task 1.
+
+**Las 24 filas viejas ya no son el obstáculo — la cuenta está hecha (2026-08-11).** Hoy `geographic_locations` tiene **24 filas y ninguna otra**: las 24 provincias, `level = 'province'`, ids 1 a 24, y cero filas de cualquier otro nivel (leído de la base viva). El Step 7 de la Task 1 les escribe `georef_id` a las 24, así que el `SET NOT NULL` de acá arranca desde **0 filas incumplidoras de las 24 preexistentes** y sólo tiene que esperar a las 17.962 que agrega el seed. Ensayado sobre una copia local con la `0013` aplicada y el relleno corrido: el `ALTER TABLE` pasa y `is_nullable` queda en `NO`.
+
+Sin el Step 7, en cambio, este `ALTER` falla con `column "georef_id" contains null values` en 24 filas — o sea que la Task 6 es el segundo lugar donde se nota que faltó el relleno; el primero, y silencioso, es el coroplético vacío.
 
 - [ ] **Step 2:** Verificar y commitear.
 
@@ -551,14 +629,19 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm;
 CREATE INDEX geo_calles_nombre_trgm ON geo_calles USING gin (nombre_norm gin_trgm_ops);
 ```
 
-**Va separado por tres razones que se suman:** es el 22% del presupuesto de bytes; sirve sólo al caso frío (buscar por provincia con un tipeo, no un prefijo); y **si se construye en la misma corrida que el seed, su WAL se suma al del seed** y el pico sube 90 MB. Con la partición: pico del seed ≈ 337 MB, pico del GIN ≈ 290 MB, los dos bien bajo 512; juntos serían ~471, con el margen en 41.
+**Va separado por dos razones, y la tercera se cayó al medir:** sirve sólo al caso frío (buscar por provincia con un tipeo, no un prefijo), y **si se construye en la misma corrida que el seed, su WAL se suma al del seed**. La que se cayó es la de los bytes: el plan lo presupuestaba en el 22% del budget del callejero y **midió 9,1 MB**.
+
+**Los picos también estaban sobreestimados, y por mucho.** El plan calculaba pico del seed ≈ 337 MB y pico del GIN ≈ 290 MB, «juntos ~471, con el margen en 41». **Medido con el corpus completo: el máximo de toda la corrida fue 162,23 MB** —calles 85,88 · los tres btree 106,70 · el GIN 115,88 · las señales 162,23—. **La partición se conserva igual**: cuesta una migración de tres líneas y protege contra un pico cuyo tamaño real recién se sabe después de correr, que es cuando ya no se puede decidir.
+
+**Una advertencia sobre esa medición, para que nadie la lea como más firme de lo que es:** el GIN se construyó en 2,2 segundos y el muestreador toma una lectura cada 2 segundos, o sea **dos muestras**. Los 9,1 MB del artefacto final son sólidos y descartan un pico *permanente*; **un pico transitorio de memoria o de WAL durante el build no lo habría visto ningún muestreo a esa cadencia.**
 
 - [ ] **Step 2: Verificar el tamaño medido**
 
 ```bash
 cd v2 && pnpm --filter @v2/db exec tsx scripts/verificar-callejero.ts --con-gin
-# SELECT pg_size_pretty(pg_relation_size('geo_calles_nombre_trgm'));  -- ~45 MB presupuestados
-# SELECT pg_size_pretty(pg_database_size(current_database()));        -- ~201 MB
+# MEDIDOS 2026-08-11 con las 326.832 calles reales:
+# SELECT pg_size_pretty(pg_relation_size('geo_calles_nombre_trgm'));  -- 9,1 MB (~45 presupuestados)
+# SELECT pg_size_pretty(pg_database_size(current_database()));        -- 153,58 MB (~201 presupuestados)
 ```
 
 - [ ] **Step 3: Commit**
@@ -730,7 +813,7 @@ git commit -m "feat(civic-core): no saber quién habló deja de contarse como qu
 
 **Interfaces:**
 - Consumes: nada.
-- Produces: `TEXTO_CONSENTIMIENTO_ACTOR`, `TEXTO_CESION_LICENCIA`, `TEXTO_PUBLICACION_IRREVOCABLE`, `LICENCIAS`.
+- Produces: `TEXTO_CONSENTIMIENTO_ACTOR`, `TEXTO_CESION_LICENCIA`, `TEXTO_PUBLICACION_IRREVOCABLE`, `DECLARACION_DELIBERACION`, `LICENCIAS`.
 
 **Hueco bloqueante que cierra: la cesión de licencia del texto no la escribe nadie.** D §2.8 decide que el proyecto es custodio y no titular, que `texto` sólo sale bajo CC BY para las filas con cesión explícita, y §8.7 punto 10 dice «sin esa pantalla, D no publica». D le asignó la cesión a C; C no menciona licencias en ninguna sección; B, que escribe el contrato de ingesta y rehace `PanelSoltarVoz`, no tiene campo de cesión ni columna que la marque. **Resultado si nadie la escribe: el entregable central de D —el registro público bajable— sale sin la columna que le da sentido, indefinidamente.** La cesión es una columna de `senales` (Task 11) y una casilla en el contrato de ingesta (Task 13); el texto vive acá.
 
@@ -738,7 +821,7 @@ git commit -m "feat(civic-core): no saber quién habló deja de contarse como qu
 
 **Reversibilidad:** REVERSIBLE.
 
-- [ ] **Step 1: Los tres textos, en rioplatense y sin párrafo legal**
+- [ ] **Step 1: Los tres textos del consentimiento, en rioplatense y sin párrafo legal**
 
 ```ts
 /** Va pegada a los DOS botones que crean un actor —el de enviar una señal y el
@@ -760,9 +843,35 @@ export const TEXTO_PUBLICACION_IRREVOCABLE =
   'archivos mensuales que ya se publicaron, que quien los bajó ya los tiene.';
 ```
 
+- [ ] **Step 1b: La declaración de deliberación — DECISIÓN DEL DUEÑO DEL PRODUCTO, 2026-08-11**
+
+**La deliberación no se construye y no se disimula: se declara en pantalla.** D-037 deja de ser una decisión pendiente. La regla 11 se cumple entera del lado de corroborar y a la mitad del lado de deliberar, **y el producto lo dice**. Cuatro superficies, un solo texto:
+
+```ts
+/** La mitad deliberativa de la regla 11 no tiene mecanismo (D-037) y el producto
+ *  lo dice en vez de disimularlo. Va en la superficie de TODA señal de clase
+ *  `deseo` —`sueño` y `propuesta`—, en el body de los tres 410 de la Task 16, y
+ *  en `PROCEDENCIA.md`. Las tres frases del medio no son relleno: dicen qué NO
+ *  es una adhesión, que es lo único que evita que «yo también» se lea como voto. */
+export const DECLARACION_DELIBERACION = {
+  sueño:
+    'Todavía no se puede deliberar. Por ahora un sueño sólo recibe adhesiones ' +
+    '—«yo también»—, y eso no es una votación ni un acuerdo: nadie está midiendo ' +
+    'quién gana. Lo estamos construyendo.',
+  propuesta:
+    'Todavía no se puede deliberar. Esta propuesta sólo recibe adhesiones ' +
+    '—«yo también»—: nadie está votando, y una adhesión no la aprueba ni la ' +
+    'rechaza. Lo estamos construyendo.',
+} as const satisfies Record<TipoDeseo, string>;
+```
+
+**El `satisfies Record<TipoDeseo, string>` no es adorno:** el día que la clase `deseo` gane un tercer tipo, la constante no compila hasta que alguien escriba su frase, en vez de que ese tipo salga a producción sin aviso. `TipoDeseo` se importa de `@v2/civic-core` (Task 8) — es el único import de este archivo.
+
+**«Lo estamos construyendo» es una promesa y por eso está al final y no al principio:** lo primero que se lee es la limitación, no el consuelo. Si algún día se decide que la deliberación no se construye, esa frase se saca y las dos anteriores siguen siendo verdad.
+
 - [ ] **Step 2: La guarda de la fuente única**
 
-El test afirma que `PROCEDENCIA.md` (Task 33) imprime **esta misma constante** y no una copia, y hace grep sobre `apps/web/src` y `apps/mobile/src` buscando fragmentos literales de los tres textos: si aparecen escritos a mano, falla nombrando el archivo.
+El test afirma que `PROCEDENCIA.md` (Task 33) imprime **estas mismas constantes** y no una copia, y hace grep sobre `apps/web/src` y `apps/mobile/src` buscando fragmentos literales de los cuatro textos: si aparecen escritos a mano, falla nombrando el archivo. **`'Todavía no se puede deliberar'` entra a esa lista de fragmentos**: es el que más tentación da de copiar, porque va en cuatro superficies.
 
 - [ ] **Step 3: Verificar y commitear**
 
@@ -814,16 +923,23 @@ git commit -m "feat(shared): un solo texto de consentimiento para el mismo sí"
 
 - [ ] **Step 2: Los catálogos, sembrados DENTRO de la migración**
 
-Las 9 + 22 + 11 filas van como INSERT literales en el mismo `.sql`, con `on conflict do nothing`: son menos de 1 KB, y si fueran un script aparte una base nueva —la de CI, un branch efímero, el dev que clona— arrancaría con `senales` inservible y todo insert fallaría con una violación de FK que parece un bug del código y es un setup faltante. **`drizzle-kit generate` NO produce estos INSERT: hay que escribirlos a mano en el `.sql` generado.**
+Las 9 + 20 + 11 filas van como INSERT literales en el mismo `.sql`, con `on conflict do nothing`: son menos de 1 KB, y si fueran un script aparte una base nueva —la de CI, un branch efímero, el dev que clona— arrancaría con `senales` inservible y todo insert fallaría con una violación de FK que parece un bug del código y es un setup faltante. **`drizzle-kit generate` NO produce estos INSERT: hay que escribirlos a mano en el `.sql` generado.**
 
-`estados_senal`, 22 filas y no 18 (la corrección de la Task 8):
+`estados_senal`, **20 filas** y no 18 (la corrección de la Task 8):
 
-| clase | estados permitidos |
-|---|---|
-| hecho | `enviada` · `por_verificar` · `corroborada` · `resuelta` · `desactualizada` · `retirada` |
-| **acto** | `enviada` · **`por_verificar`** · **`corroborada`** · `resuelta` · `no_cumplida` · `desactualizada` · `retirada` |
-| deseo | `enviada` · `desactualizada` · `retirada` |
-| meta | `enviada` · **`resuelta`** · `desactualizada` · `retirada` |
+| clase | estados permitidos | filas |
+|---|---|---:|
+| hecho | `enviada` · `por_verificar` · `corroborada` · `resuelta` · `desactualizada` · `retirada` | 6 |
+| **acto** | `enviada` · **`por_verificar`** · **`corroborada`** · `resuelta` · `no_cumplida` · `desactualizada` · `retirada` | 7 |
+| deseo | `enviada` · `desactualizada` · `retirada` | 3 |
+| meta | `enviada` · **`resuelta`** · `desactualizada` · `retirada` | 4 |
+| | **total** | **20** |
+
+**Corrección al plan, 2026-08-11 (encontrada escribiendo el DDL y confirmada al medir):** este plan decía «22 filas» y su propia tabla daba 20. **Gana la tabla, no el número escrito**, porque la tabla es lo que gobierna las FK compuestas: es el objeto que dice qué pares `(clase, estado)` existen, y el 22 era una cuenta hecha de memoria sobre una versión anterior de la tabla. Las filas se cuentan al escribir el INSERT, no antes. **La columna de totales entra a la tabla justamente para que el número y las filas no puedan volver a divergir sin que se vea.**
+
+`estados_senal.orden` es `NOT NULL` y ninguna spec da los valores. **Van `1..n` dentro de cada clase, en el orden en que esta tabla los lista** —que es el orden del ciclo de vida, no alfabético—, así que `hecho` va 1–6, `acto` 1–7, `deseo` 1–3 y `meta` 1–4. La guarda de la Task 12 lee `order by clase, orden` y compara contra el código: sin un criterio escrito acá, el primero que reordene una sub-unión de TypeScript pone la guarda roja sin haber roto nada.
+
+`temas.etiqueta` es `NOT NULL` y tampoco estaba especificada. **Es la clave con mayúscula inicial** (`alimento` → «Alimento», `educación` → «Educación»). Es texto de pantalla y se cambia ahí el día que el producto quiera otra cosa; lo que no puede quedar es la columna sin valor y el `INSERT` sin compilar.
 
 `borrador` **no está**, y esa ausencia es la decisión: un borrador vive en el dispositivo y nunca llega al servidor. Si el servidor tuviera el borrador, tendría copia de lo que la persona todavía no decidió publicar — la regla 3 y la regla 12 rotas de un saque.
 
@@ -852,6 +968,21 @@ create unique index actores_user_unico on actores (user_id) where user_id is not
 
 Ninguna columna derivada del dispositivo: ni user-agent, ni idioma, ni zona horaria, ni IP. La guarda de la Task 16 falla si alguien agrega una.
 
+**`actores_por_origen` — la tabla que sostiene el techo de D-036 y que ninguna spec tipó.** Aparece nombrada con sus tres campos (`hora`, `bucket`, `creados`) y sin tipos ni clave, y sin clave el contador no se puede upsertear: cada alta insertaría una fila nueva y el `WHERE creados >= 20` no encontraría nunca nada. El techo existiría en prosa y no en la base.
+
+```sql
+create table actores_por_origen (
+  hora    timestamptz not null,          -- truncada a la hora, no `now()` crudo
+  bucket  bytea       not null,          -- HMAC(pepper, prefijo de red). Mismo tipo
+                                         -- que los otros hash del esquema: la IP
+                                         -- cruda no se guarda en ninguna forma.
+  creados integer     not null default 0,
+  primary key (hora, bucket)
+);
+```
+
+**El `bucket` es `bytea` y no `text` a propósito:** es el mismo HMAC con pepper que `actor_hash`, así que rota con `pepper_version` y no hay ninguna fila del esquema desde la que se pueda reconstruir un prefijo de red. Las filas viejas las barre la pasada del cron de la Task 23; sin barrido esta tabla es un registro perpetuo de desde qué redes se habló, que es exactamente lo que la regla 3 prohíbe.
+
 - [ ] **Step 4: `senales`, con `direccionColumns` adentro desde el primer minuto**
 
 Las columnas de la Task 2 se spread-ean acá —no en una migración posterior— con sus nueve CHECK renombrados a `senales_*`. **Sin eso, toda la defensa de A queda escrita sobre tablas muertas:** A declaró sus CHECK sobre `dreams`, `pulse_signals` y `proposals`, que son las tres que esta migración retira de la ingesta, y en `senales` no habría nada que impida guardar una altura con rol `subject`. La regla pasaría a depender de que alguien llame a `ubicacionPublicable`, o sea de la costumbre que A rechaza tres veces.
@@ -866,6 +997,14 @@ ubicacion_origen text not null default 'ninguna'
   check (ubicacion_origen in ('catalogo','punto','declarada','ninguna')),
 constraint senales_origen_provincia_chk
   check (province_id is null or ubicacion_origen <> 'ninguna'),
+
+-- La respuesta a la pregunta de la casa, PERSISTIDA. Es `sujeto` de
+-- `PublishedPrecisionInput` (Task 2) escrito en la fila: sin esta columna,
+-- `senales_rechazo_chk` no compila —cita una columna que no existe— y el
+-- `overridable = false` para ubicación de terceros vive sólo en memoria del
+-- request. Default `true` porque es el default de la Task 2: la mayoría de las
+-- señales hablan del lugar donde está quien las carga.
+sujeto_propio boolean not null default true,
 
 -- Resolución de la contradicción «¿puede alguien publicar exacto el punto de su
 -- propia casa?». Gana D en el piso y B en el mecanismo: el piso de publicación
@@ -889,15 +1028,52 @@ vence_el_revision timestamptz,
 caduca_el timestamptz,
 retenida_en timestamptz,
 retenida_motivo text,
+
+-- El origen de los dos relojes, que ninguna de las dos specs declaró acá: B no
+-- la nombra en ninguna parte y C la agregaba con un `ALTER TABLE` que sobre
+-- esta tabla ya no tiene nada que agregar. Nace acá y la 0016 no la toca.
+-- NO se deriva de `creada_en`: hay señales que esperan provincia o evidencia y
+-- pueden publicarse horas después. Sin ella, `vence_el_revision` queda sin
+-- procedencia auditable y la pasada 5 del cron no tiene dónde escribir.
+publicada_en timestamptz,
 ```
 
 `vence_el` (fecha del compromiso, de B) y `vence_el_revision` (reloj de vigencia, de C) son **dos columnas y no una**: B usaba `vence_el` para «plazo del compromiso» y C para «hora de revisar», sobre la misma fila conceptual, y fusionarlas es cómo se reintroduce el defecto que este plan existe para cerrar. El nombre largo es a propósito.
+
+**Lo que se cae al sacar `vigencia_hasta`, y que ninguna spec dijo que se caía (encontrado escribiendo el DDL, 2026-08-11):** B §3.3 colgaba de esa columna dos CHECK y un índice. Los dos CHECK —`solo_hecho_tiene_vigencia` y `hecho_tiene_vigencia`— **no entran**, y el segundo no es opcional que no entre: con los relojes seteados al publicar y no al crear, `hecho_tiene_vigencia` haría fallar **todo INSERT de un hecho**, porque en el momento del alta la columna todavía es `NULL`. Un CHECK que hace inexpresable el camino normal es peor que ningún CHECK.
+
+El índice `senales_vigencia_idx` de B **no se crea acá**, y su reemplazo son **los tres parciales de C §3.2 con `vence_el` reapuntado a `vence_el_revision`, que entran en la `0016`** (Task 21, Step 1) junto con el cron que los barre. Son los que hacen que las pasadas 1, 2 y 5 de la Task 23 sean una consulta y no un barrido de la tabla entera cada hora:
+
+```sql
+-- Van en la 0016, no acá: hasta la rebanada 5 ninguna consulta los usa.
+create index senales_vigencia_idx    on senales (vence_el_revision)
+  where vence_el_revision is not null and estado in ('corroborada','resuelta');
+create index senales_caducidad_idx   on senales (caduca_el)
+  where caduca_el is not null and estado = 'por_verificar';
+create index senales_publicacion_idx on senales (id) where estado = 'enviada';
+```
+
+**Las columnas van en la `0015` y los índices en la `0016`, y la asimetría es a propósito:** una columna que llega tarde exige un `ALTER TABLE` sobre una tabla con filas, y un índice que llega tarde exige un `CREATE INDEX` y nada más. Se paga lo caro temprano y lo barato cuando se usa.
+
+**`senales_feed_idx` NO se crea en la 0015.** B §3.3 lo declara sobre `(creada_en desc)` y la Task 29 lo declara sobre `(creada_en desc, id desc)` con predicado — mismo nombre, dos definiciones, y dos índices no pueden compartir nombre. **Gana la 0017**, que es la que lo usa: el feed no existe hasta la rebanada 6, y un índice sin consulta es bytes en el presupuesto de la Task 19 y nada más. Si alguien concatena los dos bloques tal como las specs los escriben, la 0017 aborta con `relation "senales_feed_idx" already exists`.
+
+**`senales_calle_idx` va UNA sola vez.** A §3.4 lo cierra su bloque de DDL y B §3.3 lo repite en su lista de siete, con el mismo nombre y el mismo predicado, y los dos bloques van a este mismo archivo. **Viene con el bloque de A y no se repite:** los nueve CHECK de dirección coincidieron exactamente entre las dos specs y el índice es lo único que quedó declarado dos veces, así que quien escriba la migración concatenando aborta con `relation "senales_calle_idx" already exists` **en la migración que crea la tabla**, o sea antes de que exista nada que salvar.
 
 `senal_estado_historia` de B **no se crea**: la bitácora es `rastro_senal` (Task 21), que hace todo lo que hacía y además es verificable desde afuera y protegida por privilegios del motor. Si se construyeran las dos, las transiciones que escribiera B no dejarían evento en la cadena de C y la guarda «que la cadena de una señal esté entera» quedaría roja de forma permanente.
 
 - [ ] **Step 5: Las tablas viejas quedan, con comentario de cabecera**
 
-`dreams`, `pulse_signals`, `proposals`, `proposal_votes`, `proposal_status_history` y `mandate_suggestions` **no se borran en esta migración**: borrar es irreversible y no tiene por qué compartir transacción con la que crea la nueva. Cada una gana un comentario que dice que ya no recibe escrituras y apunta a la Task 36.
+`dreams`, `pulse_signals`, `proposals`, `proposal_votes`, `proposal_status_history` y `mandate_suggestions` **no se borran en esta migración**: borrar es irreversible y no tiene por qué compartir transacción con la que crea la nueva. Cada una gana un comentario que dice que ya no recibe escrituras y apunta a la Task 36. **El texto exacto, porque «un comentario de cabecera» sin texto se escribe distinto seis veces:**
+
+```sql
+comment on table dreams is
+  'RETIRADA 2026-08-11 (migración 0015). Ya no recibe escrituras: toda señal
+   vive en `senales`. Se conserva sólo para poder auditar lo que quedó escrito
+   antes del corte. El DROP es la Task 36 del plan
+   docs/plans/2026-08-11-tierra-senal-corroboracion-registro.md.';
+```
+
+Igual para las otras cinco, cambiando el nombre. **Va la fecha y el número de migración adentro del comentario**: dentro de un año, «ya no recibe escrituras» sin fecha obliga a abrir el historial de git para saber desde cuándo, y el que abre `psql` para entender una tabla rara casi nunca tiene el repo al lado.
 
 - [ ] **Step 6: Generar, editar, aplicar contra rama efímera**
 
@@ -909,6 +1085,8 @@ cd v2 && pnpm --filter @v2/db test:integration -- senales-imposibles
 ```
 
 Expected: PASS — los doce imposibles rechazados por la base, cada uno con su error del motor.
+
+**Ya ensayado el 2026-08-11 (Task 19):** la `0015` escrita a mano —con los tres catálogos adentro y los nueve CHECK de dirección— aplicó limpia sobre el esquema real, y los doce imposibles de este Step 1 mordieron, más los de `geo_calles`, `rastro_cadena_check`, `senal_resolucion_enlace_check`, `confirmaciones_coherencia_check` y los dos de `volcados`. **Lo que falta acá no es el SQL sino que `db:generate` lo produzca y que el journal lo registre**: los archivos de la medición eran SQL plano, sin `--> statement-breakpoint` ni entrada en `_journal.json`, y un `.sql` sin entrada en el journal no se aplica nunca y no avisa.
 
 - [ ] **Step 7: Commit**
 
@@ -940,6 +1118,14 @@ select clave from temas order by orden;
 
 La primera tiene que dar exactamente `TIPOS_SENAL.map((t, i) => ({ tipo: t, clase: claseDe(t), orden: i + 1 }))`. **Es la única forma de que TypeScript y Postgres no deriven**, porque el schema no puede importar civic-core. Como los catálogos se siembran dentro de la migración, esta guarda no verifica «alguien corrió el seed» sino «la migración y `TIPOS_SENAL` no derivaron», que es lo que importa.
 
+La segunda tiene que dar **20 filas, no 22** —6 de `hecho`, 7 de `acto`, 3 de `deseo`, 4 de `meta`— y su `orden` reinicia en 1 dentro de cada clase (Task 11, Step 2). **El número va afirmado explícitamente y no sólo derivado de las cuatro uniones:**
+
+```ts
+expect(filas).toHaveLength(20);   // 6 + 7 + 3 + 4, la tabla de la Task 11 Step 2
+```
+
+Sin esa línea, el día que alguien borre un estado de una sub-unión de TypeScript **y** su fila del catálogo, la guarda sigue verde y el vocabulario se achicó sin que nadie lo decidiera. La comparación de conjuntos prueba que los dos lados coinciden; el número prueba contra qué coinciden.
+
 - [ ] **Step 2: Verificar y commitear**
 
 ```bash
@@ -959,8 +1145,10 @@ git commit -m "test(api): el vocabulario de la base y el del código son el mism
 - Test: `apps/api/tests/senales-ingesta.test.ts`
 
 **Interfaces:**
-- Consumes: `resolverUbicacion` (Task 4), `ubicacionPublicable`/`componerDireccion`/`direccionPermitida` (Task 2), `prepareRecordLocation`, `normalizedLocationLabel`, los textos de la Task 10.
+- Consumes: `resolverUbicacion` (Task 4), `ubicacionPublicable`/`componerDireccion`/**`direccionPermitida(tipo, role, sensitivity)`**/`techoDeTipo`/`TIPOS_CON_TECHO_DE_DIRECCION` (Task 2), `prepareRecordLocation`, `normalizedLocationLabel`, los textos de la Task 10.
 - Produces: el endpoint y su recibo.
+
+> **Los tres ejes, no dos.** `direccionPermitida` toma `tipo` primero. No existe una versión de dos ejes exportada —el piso por rol es interno— justamente para que este endpoint no pueda llamar a la que no mira el tipo. El enum de Zod de `senal.ts` se arma con `TIPOS_CON_TECHO_DE_DIRECCION` y **normaliza el `tipo` del cuerpo a NFC antes de validar**: `'práctica'` con la tilde combinante es otro string, lo manda un cliente iOS sin querer, y un 400 sobre una palabra bien escrita es un defecto propio. Si aun así llega un tipo que no está en la tabla, `techoDeTipo` lo dice y el endpoint responde 400 en castellano; nada de eso depende de que alguien se acuerde, porque `ubicacionPublicable` con un tipo desconocido ya devuelve `sin_direccion`.
 
 **Hueco bloqueante que cierra: el orden de cinco pasos de A §4.5 no viajaba al `POST` de B.** A declara obligatorio el orden y explica que invertirlo deja «AV JOSE MARIA MORENO 1450» adentro de `direccion_texto` con `altura IS NULL`, texto que sale por la API y por el volcado. Pero A lo especificó para `capturas.ts` y `open-data/routes.ts`, y B reemplaza a los dos por un endpoint nuevo del que A no sabe nada. **La ingesta primaria del sistema quedaba sin la secuencia que hace inexpresable el error, y el CHECK no lo caza: `direccion_texto` es texto libre con tope de largo.**
 
@@ -1098,7 +1286,7 @@ git commit -m "feat(api): el sistema te DA un identificador, no te lo saca — y
 - Test: `apps/api/tests/adhesiones.test.ts`
 
 **Interfaces:**
-- Produces: `POST`/`DELETE /api/v1/civic/senales/:id/adhesion`, `ConteoAdhesiones`.
+- Produces: `POST`/`DELETE /api/v1/civic/senales/:idPublico/adhesion`, `ConteoAdhesiones`.
 
 **Resolución de contradicción (si una adhesión enciende la celda):** gana B. El cron de `celda_luz` (Task 25) **tiene que unir los actores que adhirieron a la celda de la señal que apoyan**. Con la definición de C —`count(distinct actor_id)` sobre las SEÑALES de la celda— adherir no enciende nada, y la decisión 7 existe porque la adhesión es el gesto más barato y el que más gente va a hacer: si no mueve el brillo, el mapa vuelve a medir a quien tuvo tiempo y teclado. C no puede expresarlo con su consulta actual: necesita un join contra `adhesiones` con **el punto de la señal apoyada, no del adherente** — que es lo correcto, porque un adherente no tiene punto propio.
 
@@ -1194,7 +1382,9 @@ Eso es una consulta, no una promesa. `marcaDeCaptura` se borra.
 
 - [ ] **Step 4: Los tres 410**
 
-`POST /api/pulso`, `POST /api/propuestas` y `POST /api/propuestas/:id/vote` responden **410 Gone**, con el mismo criterio con que `'valor'` recibe 410: el recurso existía y ya no. **Apagar el voto apaga la única superficie de deliberación que el sistema tenía, y eso no se disimula:** queda declarado en «Lo que este plan NO hace» y como D-037.
+`POST /api/pulso`, `POST /api/propuestas` y `POST /api/propuestas/:id/vote` responden **410 Gone**, con el mismo criterio con que `'valor'` recibe 410: el recurso existía y ya no. **Apagar el voto apaga la única superficie de deliberación que el sistema tenía, y eso no se disimula.**
+
+El body de los tres 410 lleva **`DECLARACION_DELIBERACION.propuesta` de la Task 10, textual**, y no una redacción propia. Es el cuarto lugar donde aparece la misma frase, con los otros tres en la web (Task 17) y en `PROCEDENCIA.md` (Task 33). Un 410 que dice «este recurso ya no existe» y nada más le hace creer a quien integró que el reemplazo está en otro path; **el que dice que la deliberación todavía no existe en ningún path es el único honesto.** Queda declarado además en «Lo que este plan NO hace» y como D-037, ahora **decidida**.
 
 - [ ] **Step 5: El clasificador, con el sentinel arreglado**
 
@@ -1226,11 +1416,15 @@ git commit -am "feat(api): las ingestas viejas se traducen, y el UUID del teléf
 - Delete: `apps/web/src/lib/tipos-voz.ts` y su test
 - Modify: `apps/web/src/components/papel/primitives/{ChipTipo,Sello}.tsx`
 - Create: `apps/web/src/components/papel/primitives/ChipEstado.tsx`
+- Create: `apps/web/src/components/papel/primitives/NotaDeAlcance.tsx`
+- Modify: `apps/web/src/components/papel/primitives/index.ts`
 - Modify: `apps/web/src/pages/ElMapa/el-mapa-data.ts`
 - Modify: `apps/web/src/pages/ElMapa/instrumento/{paleta,Chrome}.tsx`, `useVistaMapa.ts`
 - Modify: `apps/web/src/pages/ElMandatoVivo/{el-mandato-data,mandato-regimen}.ts`
 - Modify: `apps/web/src/lib/queries/{civic-map,open-data}.ts`
 - Modify: `apps/web/src/pages/ElMapa/sections/PanelSoltarVoz.tsx`
+- Modify: `apps/web/src/pages/ElMapa/sections/` — la ficha de una señal (el detalle de `deseo`)
+- Test: `apps/web/src/components/papel/__tests__/declaracion-deliberacion.test.tsx`
 
 **Resolución de contradicción (`ChipEstado.tsx` lo crean las tres, con tres juegos de valores):** gana **B**, que es quien fija el vocabulario de estados; C y D lo consumen. Las siete entradas: `enviada`, `por_verificar`, `corroborada`, `resuelta`, `desactualizada`, `no_cumplida`, `retirada`, más la variante `sinEstado` con su razón en `title` que D necesita para el esquema 0. Mismo molde que `ChipTipo`: unión de literales + `Record` exhaustivo + un span. **No una card nueva, no un badge de shadcn.**
 
@@ -1267,18 +1461,69 @@ El prompt de `valor` —«¿Qué no se negocia para vos? Dejalo por escrito.»�
 
 Los nueve tipos, los campos condicionales, la pregunta de la casa, la línea de consentimiento del actor **pegada al botón de envío** (no en un pie), la casilla de cesión, y las tres heurísticas de datos personales —teléfono, dirección postal, firma institucional— que **advierten y piden confirmar, no bloquean**, y se declaran heurística en pantalla igual que `AVISO_TEMAS`. La tercera no es opcional: sin ella, un `compromiso` firmado «Secretaría de Obras — Municipalidad de Vicente López» vence, el reloj lo marca, y el mapa muestra un compromiso oficial incumplido que nadie del municipio escribió. `firma` se renderiza **siempre** con «firmado como … · sin verificar». Nunca sola.
 
-- [ ] **Step 5: Verificar**
+- [ ] **Step 5: `NotaDeAlcance` — la primitiva del kit que dice lo que el producto todavía no hace**
+
+**Decisión del dueño del producto, 2026-08-11 (D-037): la deliberación no se construye, y se declara en pantalla.** Hace falta una superficie para decirlo, y el kit Papel y Tinta no tiene ninguna: `NotaDemo` es la más cercana —es literalmente «esto que estás mirando no es real todavía»— pero su texto es fijo, sin props, y su micro-tipografía (`text-[10px] uppercase tracking-[0.12em]`) es ilegible para una frase de tres oraciones. **Se agrega la duodécima primitiva y no se estira `NotaDemo`:** son dos afirmaciones distintas —«el dato es de mentira» contra «el mecanismo todavía no existe»— y colapsarlas haría que el día que los datos sean reales alguien borre la nota y se lleve puesta la otra declaración.
+
+```tsx
+/** Lo que el producto TODAVÍA no hace, dicho en la superficie donde se nota.
+ *  Hermana de NotaDemo: misma familia tipográfica, tamaño legible, porque esto
+ *  se lee entero y aquello se reconoce de un vistazo. Filete arriba, no caja:
+ *  una card la convertiría en un aviso que se cierra, y esto no se cierra. */
+export function NotaDeAlcance({ children }: { children: ReactNode }) {
+  return (
+    <p className="font-space text-tinta-60 border-tinta-15 mt-4 border-t pt-3 text-[12px] leading-relaxed">
+      {children}
+    </p>
+  );
+}
+```
+
+**Cero tokens nuevos** (`font-space`, `tinta-60`, `tinta-15` ya existen), y va exportada desde `primitives/index.ts` como las otras once.
+
+- [ ] **Step 6: Dónde aparece la declaración, y el texto exacto**
+
+`DECLARACION_DELIBERACION` de la Task 10, importada, **nunca escrita a mano**. Dos superficies en la web, y en las dos la nota va **debajo del botón de adhesión**, no arriba: primero se ve qué se puede hacer, después qué no.
+
+| superficie | qué tipo | texto |
+|---|---|---|
+| `PanelSoltarVoz`, con `tipo = 'sueño'` seleccionado | `sueño` | «Todavía no se puede deliberar. Por ahora un sueño sólo recibe adhesiones —«yo también»—, y eso no es una votación ni un acuerdo: nadie está midiendo quién gana. Lo estamos construyendo.» |
+| `PanelSoltarVoz`, con `tipo = 'propuesta'` seleccionado | `propuesta` | «Todavía no se puede deliberar. Esta propuesta sólo recibe adhesiones —«yo también»—: nadie está votando, y una adhesión no la aprueba ni la rechaza. Lo estamos construyendo.» |
+| la ficha de una señal ya publicada, al lado del «Yo también» | el de la señal | el mismo, por tipo |
+
+**Sólo la clase `deseo`.** Un `¡basta!` o un `compromiso` con esa nota abajo sería falso —esos sí tienen su mecanismo entero, que es la corroboración— y el aviso repetido en las nueve superficies se vuelve mobiliario que nadie lee. **La regla es `claseDe(tipo) === 'deseo'`, derivada del vocabulario, no una lista de dos strings escrita a mano acá.**
+
+- [ ] **Step 7: La guarda de que el aviso está**
+
+`declaracion-deliberacion.test.tsx`, con la redacción de frase-afirmación:
+
+```
+«el panel de un sueño declara que no se puede deliberar»       → render tipo='sueño',    el texto está
+«el panel de una propuesta declara que no se puede deliberar»  → render tipo='propuesta', el texto está
+«el panel de un ¡basta! NO lo declara»                         → render tipo='basta',    el texto NO está
+«la ficha de un deseo publicado lo declara al lado del Yo también»
+«ninguna de las dos frases está escrita a mano en apps/web»    → grep, cero resultados fuera del import
+«toda clase deseo tiene su frase»                              → Object.keys(DECLARACION_DELIBERACION)
+                                                                 cubre TIPOS_SENAL.filter(t => claseDe(t)==='deseo')
+```
+
+La última es la que sobrevive al tiempo: es la misma afirmación que el `satisfies` de la Task 10 hace en tipos, hecha otra vez en runtime, **porque el día que alguien cambie la clase de `propuesta` el `satisfies` sigue compilando y esta guarda no.**
+
+- [ ] **Step 8: Verificar**
 
 ```bash
 cd v2/apps/web && pnpm type-check && pnpm test:unit
 cd v2 && grep -rn "?? 'valor'" apps packages --include=*.ts --include=*.tsx   # cero resultados
 cd v2 && grep -rn "'sueño'" packages apps --include=*.ts --include=*.tsx      # sólo vocabulario, guardas y tests
+cd v2 && grep -rn "no se puede deliberar" apps packages --include=*.ts --include=*.tsx
+# Expected: UNA sola definición (packages/shared/src/open-data/consentimiento.ts)
+# más los imports. Cualquier otra ocurrencia literal es una copia y hay que borrarla.
 ```
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
-git commit -am "feat(web): el color dice si se comprueba o se delibera, y ningún tipo desconocido se disfraza"
+git commit -am "feat(web): el color dice si se comprueba o se delibera, y lo que todavía no se puede hacer está escrito"
 ```
 
 ---
@@ -1340,37 +1585,83 @@ Una sola tarea, y va acá porque **es la única decisión de las cuatro specs qu
 
 ---
 
-### Task 19: La suma conjunta de los 512 MB
+### Task 19: La suma conjunta de los 512 MB — MEDIDA, ya no estimada
 
 **Files:**
 - Create: `packages/db/scripts/presupuesto.ts`
 - Create: `apps/api/src/features/civic-map/cron-presupuesto.ts` (chequeo programado)
-- Modify: `docs/DEUDAS.md` (D-041)
+- Modify: `docs/DEUDAS.md` (D-041, D-035)
 
-**Hueco bloqueante que cierra: las cuatro specs no entran juntas en 512 MB, y ninguna hizo la suma.** A presupuesta 201 MB (el callejero, incluidos los 38 de hoy). B presupuesta ~800 B por señal con su adhesión y calcula «≈460.000 señales» asumiendo que el callejero pesa 100 MB. C presupuesta 376 MB para 100.000 señales (el rastro es cuatro quintos) «contra 474 MB libres», **ignorando el callejero Y las filas de B**. Sumadas de verdad:
+**Hueco bloqueante que cerró: las cuatro specs presupuestaron por separado y ninguna hizo la suma.** A estimaba 201 MB (el callejero, incluidos los 38 de hoy). B estimaba ~800 B por señal con su adhesión y calculaba «≈460.000 señales» asumiendo un callejero de 100 MB. C estimaba 376 MB para 100.000 señales —«el rastro es cuatro quintos»— «contra 474 MB libres», **ignorando el callejero Y las filas de B**. La suma de esas tres estimaciones daba 657 MB a 100.000 señales y un techo conjunto de **~68.000 señales**, que es lo que este plan escribió antes de medir.
 
-| renglón | MB |
-|---|---:|
-| hoy | 38 |
-| incremental de A (callejero medido, Task 5 Step 6) | 163 |
-| B: 100.000 señales × ~800 B con su adhesión | 80 |
-| C: rastro, confirmaciones, evidencia, celda_luz a 100.000 señales | 376 |
-| **total a 100.000 señales** | **657** |
-| **techo duro** | **512** |
+**LA MEDICIÓN CORRIÓ EL 2026-08-11 Y LOS NÚMEROS DE ABAJO SON MEDIDOS.** Rama de Neon `medicion-512mb-2026-08-11` (padre `br-wild-meadow-ajvpwwdh`, **no** producción). Las cinco migraciones `0013`–`0017` aplicaron limpias y sin una corrección al SQL. **El callejero entró COMPLETO y real —326.832 calles del Ministerio del Interior, no una muestra extrapolada—** más la jerarquía entera (24 provincias · 529 departamentos · 2.082 municipios · 4.027 localidades censales · 11.324 asentamientos = 17.986 filas) y 10.000 señales sintéticas **con su cola entera**: adhesiones con su distribución larga (7,98 por señal, cola hasta 399), confirmaciones, evidencia sin blobs, rastro, resoluciones y celdas. Las diez `COPY` entraron sin una sola violación de constraint, lo que además valida el DDL contra datos realistas. Todos los tamaños con `VACUUM ANALYZE` corrido.
 
-**145 MB por encima del techo.** El techo conjunto real es **~68.000 señales**, no 460.000 (B) ni 115.000 (C). Nadie escribió ese número, y las tres alarmas están puestas contra denominadores distintos.
+**PISO FIJO — lo que no crece con las señales: 115.965.952 B = 110,59 MB (21,6% del techo)**
+
+| renglón | filas | bytes | MB | origen |
+|---|---:|---:|---:|---|
+| `geo_calles` (39,4 MB de datos + 54,7 de índices) | 326.832 | 94.232.576 | 89,87 | medido |
+| `geographic_locations` | 17.986 | 6.332.416 | 6,04 | medido |
+| catálogos geo (`geo_calle_categorias`, `geo_catalogo_version`, `geo_seed_progreso`) | 24 | 163.840 | 0,16 | medido |
+| catálogos de señal (`tipos_senal`, `estados_senal`, `temas`, `actores_por_origen`) | 40 | 262.144 | 0,25 | medido |
+| `volcados` (vacía) | 0 | 32.768 | 0,03 | medido |
+| tablas v1 preexistentes + catálogos del sistema + `pg_trgm` | — | 14.942.208 | 14,25 | medido |
+| **piso fijo** | | **115.965.952** | **110,59** | |
+
+**Callejero + jerarquía solos: 100.728.832 B = 96,06 MB.** La estimación de A decía 163 MB de incremental: **sobrestimaba en un 70%**.
+
+**COSTO MARGINAL POR SEÑAL — medido sobre 10.000 señales con su cola entera: 4.506 B**
+
+| tabla | filas / señal | bytes totales | B por señal |
+|---|---:|---:|---:|
+| `rastro_senal` | 3,86 | 14.344.192 | 1.434 |
+| `senales` | 1 | 9.101.312 | 910 |
+| `adhesiones` | 7,98 | 8.249.344 | 825 |
+| `actores` | **2,5 (hipótesis, ver abajo)** | 6.004.736 | 600 |
+| `confirmaciones` | 1,27 (1,65 por hecho) | 2.785.280 | 279 |
+| `celda_luz` | 0,69 | 2.015.232 | 202 |
+| `evidencia` (sin blobs) | 0,50 | 1.777.664 | 178 |
+| `resolucion_confirmacion` | 0,19 | 385.024 | 39 |
+| `senal_resolucion` | 0,10 | 294.912 | 29 |
+| `respuestas` | 0,05 | 106.496 | 11 |
+| **total** | | **45.064.192** | **4.506** |
+
+**La fórmula, para que cualquiera rehaga la cuenta:**
+
+```
+TOTAL(n) = 115.965.952 + n × 4.506,4   bytes
+TECHO    = (512 × 1024² − 115.965.952) / 4.506,4 = 93.401 señales
+```
+
+| n señales | MB | % del techo |
+|---:|---:|---:|
+| 10.000 (medido, no extrapolado) | 153,6 | 30,0% |
+| 53.400 | 340,0 | 66,4% ← **la alarma** |
+| 68.000 (el techo que este plan creía) | 402,8 | 78,7% |
+| **93.401** | **512,0** | **100% ← el techo real** |
+| 100.000 | 540,4 | 105,5% |
+| 1.000.000 | 4.408,2 | 861,0% |
+
+**Tres cosas que la medición dio vuelta y hay que decirlas:**
+
+1. **El pico no era el problema.** El máximo observado en toda la corrida fue **162,23 MB**, contra los ~337 MB que el plan presupuestaba para el momento de construir el GIN. La cuatro protecciones del Step 3 de la Task 5 alcanzan y sobran.
+2. **El GIN de trigramas mide 9,1 MB, no ~72.** D-035 lo presupuestaba en el 22% del budget del callejero. Midió **ocho veces menos**, porque 120.115 calles se llaman «CALLE SN» y los trigramas deduplican. **El índice más caro del callejero no es el GIN sino `geo_calles_georef_unique`, con 17,4 MB.** D-035 baja de «baja» a informativa: dropear el GIN ya no compra nada.
+3. **El rastro no es cuatro quintos: es el 31,8% del costo por señal.** C lo estimaba como el renglón dominante y de ahí salía la urgencia del archivado frío. Archivarlo entero baja el marginal de 4.506 a 3.072 B y sube el techo de 93.401 a ~137.000 señales: sigue siendo la palanca más grande que hay, **pero ya no es una emergencia** (ver la decisión del Step 3).
+
+**LO QUE SIGUE SIENDO ESTIMACIÓN, marcado como tal:**
+
+- **`actores` a 2,5 por señal es una hipótesis, no una medición.** Los actores escalan con personas, no con señales. Aportan 600 de los 4.506 B. **Si el ratio real es menor, el marginal baja a 3.906 B y el techo sube a ~107.700 señales;** si es mayor, baja. Es el primer número a re-medir con tráfico real.
+- **El texto de las señales salió con media 155 caracteres** (p50 127, p95 352, máx 1.522) contra los ~180 del diseño, así que `bytesPorSenal` queda subestimado en torno al 0,5%. **Nada TOASTeó** —los TOAST de `senales` y `rastro_senal` quedaron en el mínimo de 8 KB—, y eso importa: al cruzar ~2 KB de texto el costo cambia de régimen y deja de ser lineal.
+- **El pico medido es una COTA INFERIOR del que Neon factura.** `pg_database_size` no incluye WAL, y Neon guarda el WAL aparte y su storage incluye historia dentro de la ventana de retención. **Si la decisión de pagar se juega en el margen, el número que manda es el de la consola de Neon, no éste.**
 
 **Reversibilidad:** REVERSIBLE (es medición y una alarma).
 
-- [ ] **Step 1: Medir el incremental de A y de B con datos reales, no con la estimación**
+- [x] **Step 1: Medir el incremental de A y de B con datos reales, no con la estimación** — HECHO 2026-08-11
 
-```bash
-cd v2 && pnpm --filter @v2/db exec tsx scripts/presupuesto.ts
-```
+Corrió contra la rama `medicion-512mb-2026-08-11`. Las dos consultas que produjeron la tabla de arriba, y que `presupuesto.ts` tiene que seguir corriendo:
 
 ```sql
--- `pg_database_size` NO sirve: Neon factura tamaño lógico MÁS historia de PITR,
--- así que ese proxy dice que hay margen cuando ya no lo hay.
+-- El total lógico, que es el que entra al techo del tier.
 select pg_size_pretty(sum(pg_total_relation_size(c.oid))) from pg_class c
   join pg_namespace n on n.oid = c.relnamespace
  where n.nspname = 'public' and c.relkind in ('r','i');
@@ -1381,22 +1672,41 @@ select relname, pg_size_pretty(pg_total_relation_size(oid))
  order by pg_total_relation_size(oid) desc limit 20;
 ```
 
-- [ ] **Step 2: Sembrar 10.000 señales sintéticas en una rama efímera y extrapolar**
+**Corrección a lo que este plan escribió antes de medir:** decía que «`pg_database_size` NO sirve». Sirve, con su límite dicho: es exactamente el tamaño lógico, y el tamaño lógico es lo que el tier cuenta. Lo que **no** incluye es el WAL ni la historia de PITR, que Neon guarda aparte. Por eso el script reporta **los dos números**: el lógico (que es el que la fórmula proyecta) y una nota de que el de la consola de Neon es el que factura. Un solo número acá sería otra vez el `0` que significa «no sé».
 
-Es la única forma de medir `~800 B/señal` en vez de creerle a la aritmética de la spec. La proyección lineal a 68.000 y a 100.000 se escribe en el reporte con su fórmula.
+- [x] **Step 2: Sembrar 10.000 señales sintéticas con su cola entera y extrapolar** — HECHO 2026-08-11
 
-- [ ] **Step 3: La decisión que sale de la medición, tomada ANTES de escribir `rastro_senal`**
+`~800 B/señal` era la aritmética de la spec. **Medido: 4.506 B/señal**, o sea 5,6 veces más. La diferencia no está en `senales` (910 B, del orden de lo estimado) sino en la cola que B no contaba: el rastro, las 7,98 adhesiones y los actores.
 
-Si la suma da lo que da el papel, **el archivado frío del rastro deja de ser una tarea de «la spec siguiente» y entra en la rebanada 5** (Task 21, Step 5): sus filas son inmutables y su verificación es una cadena que se recorre offline, así que es el candidato natural. Las dos palancas, en orden de preferencia:
+**Dos cosas del generador que hay que conservar en `presupuesto.ts`, porque sin ellas la medición miente hacia abajo:**
 
-1. **Archivar el rastro por corte** a un blob (el mismo store del volcado), dejando en la base sólo la cabeza de cadena por señal y el sello diario. Recupera ~300 de los 376 MB de C.
-2. Si eso no alcanza: **una segunda rama de Neon para el rastro**, con el costo de que la verificación de la cadena cruza un límite de base.
+1. **La cola de adhesiones tiene que ser larga, no plana.** Con media 7,98 y máximo 399 salieron 6.865 celdas encendidas; con una distribución plana salen 212 y el costo de `celda_luz` desaparece de la cuenta.
+2. **El PRNG no puede ser un LCG en JavaScript.** `semilla × 1103515245` desborda 2^53, pierde los bits bajos y degenera: la primera corrida de esta medición midió 3,5 adhesiones por señal por ese bug. **Usar `mulberry32`.** Si alguien reproduce con un LCG, va a medir de menos y va a creer que hay más margen del que hay.
+
+- [x] **Step 3: LA DECISIÓN — se queda en free, y el archivado frío baja a deuda** — TOMADA 2026-08-11
+
+**Se queda en el plan free.** Los tres números que la sostienen:
+
+- **Entran 93.401 señales en 512 MB**, un 37% más que las ~68.000 que este plan daba por techo.
+- **Después del callejero quedan 401,41 MB libres** (78,4% del techo) para señales, y el callejero **ya no crece**: es una foto del Estado (D-034), no una tabla que se llena con el uso.
+- **La alarma de 340 MB se cruza a las ~53.400 señales.** Entre esa alarma y el techo hay 40.000 señales de aire, o sea meses de margen para decidir con datos de tráfico reales en vez de con una hipótesis sobre `actores`.
+
+**El archivado frío del rastro SALE de la rebanada 5 y baja a deuda (D-041 reformulada).** El argumento con el que entraba era que «el rastro es cuatro quintos del consumo»: **es el 31,8%**. Sigue siendo la palanca más grande —implementarlo sube el techo de 93.401 a ~137.000 señales— pero comprarla hoy cuesta una columna, una pasada de cron, un store de blobs y una verificación de cadena que cruza el borde de la base, **a cambio de un margen que recién aprieta a las 93.000 señales sobre una tabla que hoy tiene cero filas**. Se implementa cuando la alarma de 340 MB suene, no antes. **La deuda queda escrita con su disparador, que es lo que la hace una deuda y no un olvido.**
+
+Las dos palancas quedan escritas para ese día, en orden de preferencia:
+
+1. **Archivar el rastro por corte** a un blob (el mismo store del volcado), dejando en la base sólo la cabeza de cadena por señal y el sello diario. Recupera 1.434 de los 4.506 B por señal.
+2. Si eso no alcanza: **pagar el tier**. La segunda rama de Neon para el rastro se descarta: hace que la verificación de la cadena cruce un límite de base para ahorrar un costo que ya sabemos acotado, y una verificación que cruza dos bases es una verificación que en la práctica nadie corre.
 
 - [ ] **Step 4: La alarma es programada, no una consulta que alguien recuerda correr**
 
-Alarma en **340 MB** (66% del techo), como chequeo del cron diario. **Una alarma que depende de que alguien se acuerde no es una alarma.**
+Alarma en **340 MB** (66% del techo ≈ 53.400 señales), como chequeo del cron diario. **Una alarma que depende de que alguien se acuerde no es una alarma.**
 
-- [ ] **Step 5: Anotar D-041 y commitear**
+El chequeo emite **dos** números y nunca uno solo: `pg_database_size` (el lógico, contra el que corre el umbral) y un recordatorio en el mismo log de que la consola de Neon reporta lógico **más** historia de PITR. Y emite el `n` de señales al que corresponde el tamaño de hoy, para que el número diga cuánto falta y no sólo dónde estamos.
+
+- [ ] **Step 5: Anotar D-041 y D-035 con los números medidos, y commitear**
+
+D-041 pasa de «el techo es ~68.000 señales» a **«el techo medido es 93.401 señales, el archivado frío es la palanca y su disparador es la alarma de 340 MB»**. D-035 pasa a informativa: el GIN mide 9,1 MB y no el 22% del presupuesto, así que dropearlo no compra nada.
 
 ```bash
 git add v2/packages/db/scripts/presupuesto.ts v2/apps/api/src/features/civic-map/cron-presupuesto.ts docs/DEUDAS.md
@@ -1453,7 +1763,7 @@ hash       = sha256(hash_previo ‖ seq ‖ senal_id ‖ ocurrio_en_publicado �
 
 **Resolución de contradicción (a qué resolución se publica el tiempo):** una sola regla, en un solo lugar. `redondearParaPublicar(instante, sensitivity)`: **a la hora por defecto, al día cuando `sensitivity='high'`, al día siempre en el volcado.** El minuto de B no alcanza —sesenta segundos de granularidad más un punto engrosado siguen emparejando dos señales de la misma sesión, que es el ataque que el propio B describe— y tener tres resoluciones distintas para el mismo riesgo es la manera de que una se olvide.
 
-Y el `ocurrio_en` **exacto** de C sale de la preimagen externa y **entra en `canonJSON(datos)`**, o sea adentro del `compromiso`, que ya viaja con su `nonce`. La preimagen externa usa el instante redondeado. Sin esto, `GET /senales/:id/rastro` devolvía exacto el timestamp que las otras dos specs redondean en cuatro lugares —el primer evento de toda señal es `ingreso`, y su `ocurrio_en` ES el instante de creación—, y reconstruir la sesión de campo costaba N requests. El verificador externo sigue cerrando la cadena con lo que la respuesta pública le da; quien tiene los campos privados abre el compromiso y ve el instante exacto.
+Y el `ocurrio_en` **exacto** de C sale de la preimagen externa y **entra en `canonJSON(datos)`**, o sea adentro del `compromiso`, que ya viaja con su `nonce`. La preimagen externa usa el instante redondeado. Sin esto, `GET /senales/:idPublico/rastro` devolvía exacto el timestamp que las otras dos specs redondean en cuatro lugares —el primer evento de toda señal es `ingreso`, y su `ocurrio_en` ES el instante de creación—, y reconstruir la sesión de campo costaba N requests. El verificador externo sigue cerrando la cadena con lo que la respuesta pública le da; quien tiene los campos privados abre el compromiso y ve el instante exacto.
 
 - [ ] **Step 3: `asignarACelda` en `coverage.ts`**
 
@@ -1491,6 +1801,10 @@ git commit -m "feat(civic-core): los coeficientes de la corroboración con su ra
 - [ ] **Step 1: Las tablas, con las cinco FK apuntando a `senales(id)`**
 
 `senal_confirmacion` → `confirmaciones`. Todas las `references dreams(id)` de C pasan a `references senales(id)`. Se cae `dreams_hecho_con_actor_check` (Task 11). Se cae `estadoColumns` como objeto compartido: sus columnas ya viven en `senales`. Se cae `dreams_estado_check` y `dreams_estado_por_clase_check`: las FK compuestas contra `estados_senal` expresan lo mismo con más precisión y **sin el agujero de `NULL or false`**.
+
+**Los constraints se renombran CON la tabla**, cosa que el renombre no dice y que hay que decir: `confirmaciones_veredicto_check`, `confirmaciones_coherencia_check`, `confirmaciones_uq`, y así con todos. Un `senal_confirmacion_veredicto_check` colgando de una tabla que se llama `confirmaciones` es la clase de resto que dentro de un año hace que alguien busque una tabla `senal_confirmacion` que no existe — y los nombres de constraint son lo que Postgres devuelve en el mensaje de error, o sea lo que la gente googlea.
+
+**Y el `ALTER TABLE senales` de C §3.1 no entra en esta migración: no le queda ninguna columna que agregar.** Las seis de vigencia y `publicada_en` nacen todas en la `0015` (Task 11, Step 4). C agregaba siete columnas con `add column` sin `if not exists`, así que copiar ese bloque tal cual **aborta la `0016` en su primera línea** con `column "estado_desde" of relation "senales" already exists` — y con ella caen `evidencia`, `confirmaciones`, las resoluciones, `rastro_senal`, `celda_luz` y el bloque de privilegios, o sea la rebanada 5 entera, en la primera corrida. Los índices parciales de los relojes —los tres del bloque de la Task 11 Step 4, con `vence_el` reapuntado a `vence_el_revision`— **sí** son de C y sí entran acá, junto con el cron que los barre; no colisionan con ningún nombre de la `0015`.
 
 `on delete restrict` en las FK a `senales`: una señal con confirmaciones no se borra; si hay que borrar contenido, se redacta.
 
@@ -1531,9 +1845,13 @@ El nombre es `rastro_senal` y no `bitacora_senal` a propósito: la regla 3 dice 
 
 `arranque-privilegios.ts` corre al levantar la API, pregunta `has_table_privilege(current_user, 'rastro_senal', 'UPDATE')`, y si da `true` **loguea en WARN con el texto exacto de qué falta hacer en Neon**. Es lo más que se puede hacer sin bloquear el arranque de producción por una tarea de infraestructura.
 
-- [ ] **Step 5: La decisión de archivado frío que sale de la Task 19**
+- [ ] **Step 5: El archivado frío NO entra — la medición de la Task 19 lo bajó a deuda**
 
-Si la medición confirmó los ~68.000 de techo conjunto, el archivado frío del rastro se implementa **en esta migración**, no después: `rastro_senal` gana `archivado_en timestamptz` y el cron de la Task 23 gana una pasada que mueve los eventos de señales cerradas hace más de 90 días al blob, dejando la cabeza de cadena y el sello. **El rastro es cuatro quintos del consumo de C y es lo que marca el límite.**
+Esta migración iba a crear `rastro_senal.archivado_en` y a cargarle al cron de la Task 23 una pasada de archivado, condicionado a que la Task 19 confirmara el techo conjunto de ~68.000 señales. **La medición corrió el 2026-08-11 y no lo confirmó: el techo es 93.401 señales y el rastro es el 31,8% del costo marginal, no los «cuatro quintos» que C estimaba.**
+
+**`archivado_en` no se crea, la pasada de archivado no se escribe, y el store de blobs no se toca en la rebanada 5.** Queda como D-041 con su disparador escrito: cuando la alarma de 340 MB suene (≈53.400 señales), `rastro_senal` gana `archivado_en timestamptz` en una migración propia y el cron gana la pasada que mueve los eventos de señales cerradas hace más de 90 días al blob, dejando la cabeza de cadena y el sello. Sube el techo a ~137.000 señales.
+
+**Agregar la columna hoy no es gratis y por eso no se agrega:** una columna que ningún código escribe se lee dentro de seis meses como una que sí, y la primera consulta que alguien escriba con `where archivado_en is null` va a estar filtrando por una condición que siempre es verdadera —o sea, no filtrando— sin que nada falle. **Una columna sin escritor es un `0` que significa «no sé» con forma de esquema.**
 
 - [ ] **Step 6: Verificar**
 
@@ -1554,7 +1872,9 @@ git commit -m "feat(db): el rastro no lo puede reescribir ni la aplicación quer
 
 ---
 
-### Task 22: `POST /senales/:id/confirmaciones` — la transición en una sola sentencia
+### Task 22: `POST /senales/:idPublico/confirmaciones` — la transición en una sola sentencia
+
+> **Corrección de nomenclatura que vale para TODO el plan: ninguna ruta pública recibe el ordinal.** B §4.8 escribe `:id` en cinco endpoints públicos —adhesión, `segunda-mirada`, `PATCH /tema`, `DELETE` y el recurso individual— y su propia §3.3 explica por qué eso no puede ser: «un ordinal en la URL permite enumerar el corpus y emparejar dos señales de la misma sesión». C y D escriben `:idPublico` en todas las suyas. **El plan usa `:idPublico` en las cinco**, y la guarda de la Task 34 gana una afirmación más: **ninguna ruta pública recibe el ordinal.** La guarda que ya existía busca la cadena en el JSON serializado, y **un ordinal que viaja en el path no lo ve nadie** — pasa por afuera del único lugar donde se estaba mirando.
 
 **Files:**
 - Create: `apps/api/src/features/civic-map/confirmaciones.ts`
@@ -1696,7 +2016,7 @@ git commit -m "feat(api): un hecho envejece desde que se publica, y vencerse no 
 - Test: `apps/api/tests/metrica-norte.test.ts`
 
 **Interfaces:**
-- Produces: `POST /senales/:id/resolucion`, `POST /senales/:id/resolucion/confirmaciones`, `GET /api/v1/civic/metrica-norte`.
+- Produces: `POST /senales/:idPublico/resolucion`, `POST /senales/:idPublico/resolucion/confirmaciones`, `GET /api/v1/civic/metrica-norte`.
 
 **Resolución de contradicción (cuántas confirmaciones hacen falta para `resuelta`):** gana **C**, entero. Es su dominio y es la única que razona el ataque: **con tres identidades gratis alguien propone y confirma un cierre, y como `resuelta` está en el numerador Y en el denominador de la nitidez, cerrar falsamente además ILUMINA la zona** — herramienta perfecta para borrar un pozo del mapa. Que `resuelta` **no sea terminal** (180 días y vuelve a `por_verificar`) es la contracautela. El «al menos una confirmación de un actor distinto» que D obliga es un piso que su propia guarda de volcado verifica y que el diseño de C satisface con holgura.
 
@@ -1941,7 +2261,7 @@ Es la obligación literal de C a B, y vale igual acá: **el cierre de un comprom
 
 - [ ] **Step 3: El feed de coincidencias, sin red social**
 
-`GET /api/v1/civic/senales/:id/coincidencias` devuelve recursos y prácticas cuya celda cruza la de la necesidad. **Se siguen LUGARES y NECESIDADES, no personas** (decisión 10): la respuesta no trae autor, no trae `firma`, y no hay «qué publicó quien seguís».
+`GET /api/v1/civic/senales/:idPublico/coincidencias` devuelve recursos y prácticas cuya celda cruza la de la necesidad. **Se siguen LUGARES y NECESIDADES, no personas** (decisión 10): la respuesta no trae autor, no trae `firma`, y no hay «qué publicó quien seguís».
 
 - [ ] **Step 4: Verificar y commitear**
 
@@ -2041,6 +2361,8 @@ Con 100.000 filas y un recuadro de barrio, sin el segundo el planner tiene dos o
 
 El índice geo que ya existe (`senales_geo_idx on (lat,lng) where lat is not null`) sirve para el dibujo del mapa y se queda; no sirve para el feed.
 
+**`senales_feed_idx` es nombre libre acá y no hace falta ningún `drop index if exists`,** porque la Task 11 Step 4 decidió que la `0015` no lo crea. Esta tarea se acordaba de que `senales_geo_idx` ya existía y no se acordaba de éste: **la spec B declara un `senales_feed_idx on (creada_en desc)` sin predicado en la misma `0015`,** y con los dos escritos tal como están las specs, la `0017` aborta con `relation "senales_feed_idx" already exists`. Si alguien implementa la `0015` copiando el bloque de índices de B sin leer la corrección, la falla aparece **dos rebanadas después** de la causa, que es la peor distancia posible entre un error y su origen.
+
 - [ ] **Step 3: Verificar el plan, que es lo único que prueba que el índice sirve**
 
 ```bash
@@ -2125,7 +2447,7 @@ Un campo nuevo en la tabla no aparece en ninguna respuesta ni en ningún volcado
 
 **Resolución del defecto A×D (`ciudad` no resuelve, y si se arregla mal, expone):** el filtro de D era `level in ('city','localidad')` y **no matchea ni un solo valor del CHECK de A** — `'city'` deja de existir y `'localidad'` nunca existió (el término es `'locality'`, en inglés, por paridad con `'province'`). Ese LEFT JOIN devolvería NULL para todas las filas y el registro publicaría `ciudad: null` para siempre, en silencio, **sin que ninguna guarda lo cace: la de A verifica el CHECK, la de D verifica exclusión de campos, y ninguna verifica que un campo incluido traiga valor.**
 
-Y el arreglo obvio —ampliar el `in` para que entre lo que hay— **publica los 14.673 asentamientos de BAHRA como «Ciudad»**: para un paraje de cuarenta casas, el nombre del asentamiento es bastante más fino que los 500 m del piso de publicación, y entra por el campo de texto que el piso no mira. La resolución, que toma lo mejor de los dos informes:
+Y el arreglo obvio —ampliar el `in` para que entre lo que hay— **publica los 11.324 asentamientos de BAHRA como «Ciudad»**: para un paraje de cuarenta casas, el nombre del asentamiento es bastante más fino que los 500 m del piso de publicación, y entra por el campo de texto que el piso no mira. La resolución, que toma lo mejor de los dos informes:
 
 - `ciudad` se resuelve **sólo de `level = 'locality'`**, con el valor tomado de una constante compartida y no de un literal tipeado dos veces.
 - Si `city_id` apunta a un `settlement`, **se sube al `parent_id`** (su localidad censal) y se publica ésa.
@@ -2142,7 +2464,7 @@ cd v2 && pnpm --filter @v2/api test:integration -- registro-feed
 #   primero contra offset para demostrar el bug.
 # «el cursor con filtros distintos es 400»; «un cursor con firma inválida es 400»;
 # «una señal provincial nunca se cuenta como si estuviera adentro»;
-# «una señal retenida no aparece en el feed ni en /senales/:id (404, no 403)»;
+# «una señal retenida no aparece en el feed ni en /senales/:idPublico (404, no 403)»;
 # «ciudad no sale null para una fila con city_id de una locality».
 ```
 
@@ -2187,7 +2509,7 @@ El feed y el mapa **no son dos vistas de dos consultas**: son dos representacion
 | maplibre monta y emite su primer `recuadro` | **no cambia nada.** Un feed que se resetea solo al terminar de montar el instrumento perezoso reinicia una lectura que nadie interrumpió, y haría falsa la justificación entera de «la cercanía es la que la persona eligió» |
 | Hover o foco en una fila | el punto gana anillo. **El mapa no se mueve** — moverlo por un hover recargaría el feed que estás leyendo: un bucle |
 | Abrís el pliegue de una fila | `easeTo` al punto **sin cambiar el zoom** y sólo si está fuera del encuadre. Es un gesto deliberado, y **el feed no se remonta** |
-| Clickeás un punto fuera de las páginas cargadas | se pide `GET /senales/:id` y la cabecera muestra esa señal sola. **No se autopagina para ir a buscarla:** sería scroll que vos no pediste |
+| Clickeás un punto fuera de las páginas cargadas | se pide `GET /senales/:idPublico` y la cabecera muestra esa señal sola. **No se autopagina para ir a buscarla:** sería scroll que vos no pediste |
 | Enfocás una señal sin coordenada | se enciende el lavado de su provincia y la fila dice «a nivel provincia» |
 
 No se adivina la ubicación de nadie por IP ni se pide geolocalización: **la cercanía es visible y es la que la persona eligió.**
@@ -2327,6 +2649,8 @@ Tres razones: la función no está hecha para streamear (responde con `res.json(
 
 Los campos de unión salen como **dos columnas** en CSV: `estado`/`estado_razon`, `procedencia`/`procedencia_detalle`, `texto`/`texto_omitido`, `corroborable` con tres valores documentados y `confirmacionesContadas` **vacío** cuando es inaplicable. **Una planilla no puede leer una celda vacía como cero si la columna de al lado dice por qué está vacía.**
 
+**Corrección obligatoria a la definición que D §7.2.9 deja escrita: `corroborable` es `clase === 'hecho' || clase === 'acto'`, no `clase === 'hecho'`.** D se escribió cuando la clase `acto` no corría la máquina de corroboración, y la reconciliación se la dio: `estados_senal` le da a `acto` los estados `por_verificar` y `corroborada` (Task 11, Step 2) y la guarda de la Task 8 es «un compromiso llega a cumplido — alta → `por_verificar` → confirmación ajena → `corroborada` → cierre». Con la definición vieja, **un compromiso que tres vecinos confirmaron se publica con `corroborable: false` y `confirmacionesContadas` vacío** —la afirmación invertida sobre el eje de calidad, en el archivo que se firma con sha256 y se retiene para siempre— y la guarda «`estado === 'resuelta'` implica al menos una confirmación» queda **roja de forma permanente**, o sea `pnpm verify` inalcanzable. `deseo` y `meta` siguen en `false` y vacío. El `.describe()` de la Task 32 dice **de qué clases sale un número y de cuáles sale vacío**, porque el CSV lo lee una planilla y una planilla no lee prosa.
+
 - [ ] **Step 3: Los tres requisitos que no son detalles de implementación**
 
 1. **Toda página filtra por el corte y pagina por keyset**, nunca por `offset`. El cliente es `neon-http`: HTTP sin sesión, cada página es su propia transacción y no hay snapshot que sostener entre las diez. **La consistencia la da el predicado, no la transacción.** Con offset y una inserción entre la página 3 y la 4, el CSV duplica una fila y pierde otra — **y el archivo lleva `filas` y `sha256` publicados, así que el error queda firmado y citable.**
@@ -2359,8 +2683,9 @@ Los **7 cortes diarios** más recientes, más el **corte del día 1 de cada mes*
 8. El sha256 y los bytes de cada uno de los seis archivos.
 9. Las dos licencias y cuántas filas salieron **sin `texto`** por falta de cesión.
 10. **Los defectos conocidos que afectan al dato**, linkeados a `docs/DEUDAS.md`: hoy `D-011` (Natural Earth erra en los bordes provinciales) y `D-026` (densidad provincial pareja, que subestima el brillo del campo).
+11. **Lo que el sistema todavía no hace y afecta cómo se lee el archivo:** `DECLARACION_DELIBERACION.propuesta` de la Task 10, **textual**, más la frase que la traduce al lenguaje del volcado: *en este registro, las filas de clase `deseo` sólo acumulan adhesiones; ninguna columna de este archivo mide acuerdo, rechazo ni resultado de una deliberación, porque el sistema todavía no delibera*. Sin ese renglón, alguien va a leer la columna de adhesiones de una `propuesta` como un recuento de votos —es la lectura obvia— y a publicar «el 68% apoya X» sobre un dato que no dice eso.
 
-**El punto 10 es el que hace que este archivo valga: un volcado que no publica sus propios defectos conocidos le pasa el problema al que lo baje.**
+**Los puntos 10 y 11 son los que hacen que este archivo valga: un volcado que no publica sus propios defectos conocidos ni lo que su sistema todavía no hace le pasa el problema al que lo baje.**
 
 - [ ] **Step 7: Las dos licencias, porque son dos cosas**
 
@@ -2410,18 +2735,18 @@ git commit -m "feat(api): el registro se baja entero, con su corte, su hash y su
 - [ ] **Step 1: Las cinco, porque una sola no alcanza**
 
 1. **Guarda de tipo (no compila).** El descriptor runtime de la Task 32 es la fuente y el tipo se deriva de él, no al revés.
-2. **Guarda de runtime sobre la respuesta CRUDA.** Siembra una señal con todos los campos sensibles poblados con centinelas irrepetibles, golpea cada endpoint público —**incluido `/senales/:id`**— y cada uno de los tres serializadores, y afirma que la cadena centinela **no aparece en el body serializado, buscando en el texto crudo y no en el objeto parseado**. Buscar en el objeto parseado exige saber dónde mirar; **buscar la cadena encuentra el campo anidado que nadie previó.**
+2. **Guarda de runtime sobre la respuesta CRUDA.** Siembra una señal con todos los campos sensibles poblados con centinelas irrepetibles, golpea cada endpoint público —**incluido `/senales/:idPublico`**— y cada uno de los tres serializadores, y afirma que la cadena centinela **no aparece en el body serializado, buscando en el texto crudo y no en el objeto parseado**. Buscar en el objeto parseado exige saber dónde mirar; **buscar la cadena encuentra el campo anidado que nadie previó.**
 3. **Guarda de clasificación de columnas.** Introspecciona las columnas de `senales` y `volcados` desde el schema de Drizzle, las compara contra `COLUMNAS_CLASIFICADAS: Record<string, 'publicable' | 'privada'>` con su razón al lado, y **falla si aparece una columna sin clasificar**. Es la única que caza el campo nuevo **el día que se agrega a la tabla**. La lista de exclusiones de `PROCEDENCIA.md` se genera desde acá, no se escribe a mano.
-4. **Guarda de FILAS.** Las tres de arriba son de columnas. Ésta siembra **una señal `retirada` y una `retenida_en` no nula** y afirma que su `idPublico` **no aparece en ningún endpoint ni en ninguno de los tres formatos**, y que `/senales/:id` devuelve **404 y no 403** — un 403 sería un oráculo para confirmar la existencia probando ids. **Es la guarda que la resolución de la Task 30 reapunta:** D la había escrito sembrando `pending`/`rejected`/`draft`/`archived`, que bajo `senales` son estados imposibles, y sin reapuntar quedaba verde sin probar nada.
+4. **Guarda de FILAS.** Las tres de arriba son de columnas. Ésta siembra **una señal `retirada` y una `retenida_en` no nula** y afirma que su `idPublico` **no aparece en ningún endpoint ni en ninguno de los tres formatos**, y que `/senales/:idPublico` devuelve **404 y no 403** — un 403 sería un oráculo para confirmar la existencia probando ids. **Es la guarda que la resolución de la Task 30 reapunta:** D la había escrito sembrando `pending`/`rejected`/`draft`/`archived`, que bajo `senales` son estados imposibles, y sin reapuntar quedaba verde sin probar nada.
 5. **Guarda de números pelados en el sobre.** Recorre el sobre serializado de `/senales` y de `/conteos` y falla si alguno de los campos citables llega como `number` sin procedencia. **La guarda que ya existe recorre el resultado de la Simulación y no cubre HTTP: ésta es la que faltaba.**
 
 **Las cinco corren en CI**, y la 2 y la 4 **parametrizadas por los tres formatos**: un CSV que filtra un campo es la misma fuga que un JSON que lo filtra.
 
 - [ ] **Step 2: `firma` — decidir de una vez, porque hoy no sale por ningún lado**
 
-B le prohíbe a D publicarla en la descarga masiva, **con buen argumento**: `group by firma order by sum(adhesiones)` sobre un CSV público es un ranking público individual **que construiría el propio proyecto**, y `firma` es texto libre que la gente va a llenar con su nombre, porque para eso está. Pero B la manda al recurso individual, y D declara que `GET /senales/:id` usa **el mismo serializador** que el feed, o sea la misma lista blanca — donde `firma` no está. **Resultado: el único campo de autoría del sistema no se publica en ningún lado, y el prompt que invita a firmar escribe en un campo que nadie ve.**
+B le prohíbe a D publicarla en la descarga masiva, **con buen argumento**: `group by firma order by sum(adhesiones)` sobre un CSV público es un ranking público individual **que construiría el propio proyecto**, y `firma` es texto libre que la gente va a llenar con su nombre, porque para eso está. Pero B la manda al recurso individual, y D declara que `GET /senales/:idPublico` usa **el mismo serializador** que el feed, o sea la misma lista blanca — donde `firma` no está. **Resultado: el único campo de autoría del sistema no se publica en ningún lado, y el prompt que invita a firmar escribe en un campo que nadie ve.**
 
-**Resolución:** `firma` entra a `FilaPublicable` **con la restricción escrita en el descriptor**: se serializa en `GET /senales/:id`, y el serializador del **feed y del volcado la omite**, con la razón en `.describe()`. Es una excepción a «un solo serializador» y por lo tanto **necesita su propia guarda**, que va en el Step 1 punto 2: la cadena centinela de `firma` no aparece en el feed ni en ninguno de los tres formatos, y **sí** aparece en el recurso individual.
+**Resolución:** `firma` entra a `FilaPublicable` **con la restricción escrita en el descriptor**: se serializa en `GET /senales/:idPublico`, y el serializador del **feed y del volcado la omite**, con la razón en `.describe()`. Es una excepción a «un solo serializador» y por lo tanto **necesita su propia guarda**, que va en el Step 1 punto 2: la cadena centinela de `firma` no aparece en el feed ni en ninguno de los tres formatos, y **sí** aparece en el recurso individual.
 
 - [ ] **Step 3: Verificar y commitear**
 
@@ -2449,7 +2774,7 @@ Hoy renderiza un catálogo estático de cuatro datasets, **los cuatro con `avail
 
 - [ ] **Step 2: El catálogo geográfico es el primer dataset y se puede publicar HOY**
 
-21.345 lugares + 326.832 calles, con licencia, corte y procedencia. **Es el único de la plataforma que se puede publicar con las tablas cívicas en cero, y prueba el formato antes de que haya nada en juego.** `geo_catalogo_version.corrida` es el número de versión que su sobre cita — con el unique parcial de la Task 1, no hay dos.
+17.986 lugares + 326.832 calles (los dos medidos), con licencia, corte y procedencia. **Es el único de la plataforma que se puede publicar con las tablas cívicas en cero, y prueba el formato antes de que haya nada en juego.** `geo_catalogo_version.corrida` es el número de versión que su sobre cita — con el unique parcial de la Task 1, no hay dos.
 
 Y un volcado cívico vacío pero bien formado y versionado **vale más que un botón deshabilitado**: el texto «se publican cuando alcanzan masa crítica (~1000 registros)» con las tablas en cero es un cheque a un año.
 
@@ -2534,7 +2859,7 @@ git commit -m "docs(deudas): lo que las cuatro rebanadas dejan abierto, con id p
 
 ## Lo que este plan NO hace
 
-- **El ciclo de deliberación de una `propuesta`.** Es el agujero más grande del alcance y hay que decirlo así. Los tres `POST` de deliberación se apagan con 410 (Task 16) y el reemplazo no entra: deliberar de verdad —quórum, ventana, quién puede votar, qué pasa con el empate— es un mecanismo entero. **Al terminar este plan, el sistema tiene la mitad de corroboración blindada con FK compuesta y unión discriminada, y la mitad de deliberación en cero: un deseo sólo puede recibir «yo también».** Lo que **sí** queda decidido, con el mismo detalle con que las otras piezas se le fijaron a sus dueños: tabla `deliberaciones`, `unique (propuesta_id, actor_id)`, y **no reusa `estado`**, porque calidad y deliberación son dos ejes y ya se pisaron una vez. **Es una decisión del dueño del producto:** o entra una quinta spec antes del despliegue, o se acepta que la regla 11 se cumple a la mitad **y se declara en pantalla**.
+- **El ciclo de deliberación de una `propuesta` — DECIDIDO 2026-08-11: no se construye, y se declara en pantalla.** Es el agujero más grande del alcance y hay que decirlo así. Los tres `POST` de deliberación se apagan con 410 (Task 16) y el reemplazo no entra: deliberar de verdad —quórum, ventana, quién puede votar, qué pasa con el empate— es un mecanismo entero. **Al terminar este plan, el sistema tiene la mitad de corroboración blindada con FK compuesta y unión discriminada, y la mitad de deliberación en cero: un deseo sólo puede recibir «yo también».** La decisión del dueño del producto ya está tomada y no es «entra una quinta spec»: **se acepta que la regla 11 se cumple a la mitad y el producto lo dice**, con `DECLARACION_DELIBERACION` (Task 10) en las cuatro superficies donde se nota —los dos paneles de carga, la ficha de un deseo publicado y el body de los tres 410— más `PROCEDENCIA.md`, y con la guarda que verifica que el aviso está (Task 17, Steps 5–7). Lo que **sí** queda decidido para el día que se construya, con el mismo detalle con que las otras piezas se le fijaron a sus dueños: tabla `deliberaciones`, `unique (propuesta_id, actor_id)`, y **no reusa `estado`**, porque calidad y deliberación son dos ejes y ya se pisaron una vez. Sigue en D-037, ahora con estado «decidida».
 - **La geocodificación inversa.** Un punto no produce una dirección. Traerla pediría la traza de las 326.832 calles, que georef no publica (~90 MB en una tabla lateral, probablemente PostGIS, o sea ADR). Consecuencia concreta y correcta: **una captura hecha con GPS y sin que la persona elija la calle se guarda con punto y sin dirección** — la alternativa sería adivinar en qué cuadra estaba parada.
 - **La geometría de departamentos y municipios** (D-004, D-005). Se cargan las **filas**, no los polígonos: no se puede dibujar un coroplético por departamento ni hacer point-in-polygon por debajo de provincia, y el modo Análisis sigue con el escalón «departamento» deshabilitado. Costo de traerla, para que la decisión futura tenga número: ~860 KB de TS generado para departamentos, ~2,2 MB para municipios.
 - **La moderación.** No hay columna. `dreams.status` tenía default `'approved'`, o sea moderación que no existía. **Diferirla se puede porque el retiro por parte de quien publicó no está diferido** (Task 14): lo que no era defendible era diferir las dos.
@@ -2543,6 +2868,50 @@ git commit -m "docs(deudas): lo que las cuatro rebanadas dejan abierto, con id p
 - **La rama efímera de Neon por corrida de tests** (D-014). Los tests de integración siguen corriendo contra la misma base que sirve el sitio. Este plan **agrega muchos endpoints de escritura y hereda el riesgo**: cada test siembra con prefijo de centinela y barre en `afterAll`, que es un parche.
 - **Las dos enmiendas al documento vinculante.** La regla 8 nombra las brasas, que El Registro R7 borró —su contenido sigue vivo y este plan lo cita por contenido, pero su sujeto ya no existe—; y «Las tres superficies» dice tres y lista **cuatro**, y una de las cuatro es El Cielo, que también se borró. **Hay que pedírselas al dueño del producto.**
 - **El feed personalizado.** No hay ninguno. Seguir un lugar es guardar un `ambito`, y eso es una preferencia de cliente que no necesita servidor. **No es una red social, es una red de coincidencias.**
+
+### No corrige las cuatro specs: quedan 30 defectos vivos en los documentos
+
+**Este plan es la autoridad y las specs no lo son.** Cada contradicción que aparece abajo está resuelta *acá*, en la tarea que la ejecuta, y quien implemente siguiendo el plan no se topa con ninguna. **Pero los cuatro documentos siguen diciendo lo que decían**, y alguien que abra una spec suelta para entender una pieza va a leer la versión vieja. Se listan con nombre para que la corrección sea una tarea que se puede agendar, y no un descubrimiento.
+
+**Regla que resuelve el 90% de los casos: si el plan y una spec se contradicen, gana el plan.** Los tres únicos lugares donde eso no alcanza están marcados con ⚠ — son decisiones de producto que ninguna de las dos partes puede tomar sola.
+
+**En A — la tierra (8):**
+1. ⚠ **A §7.3 le ordena a D publicar la dirección recortada; D §2.6 decide no publicar ninguna.** SERIA. El plan sigue a D (Tasks 32 y 34 no publican dirección en ninguna forma), así que `direccionSinAltura` y `etiquetaDeDireccion` nacen **sin llamador de producción público** —el defecto de `city_id` que A §1.3 denuncia, cometido por A— y A §5 no las incluye en su lista de «sale sin cablear». **Es decisión de producto: si el registro público no muestra ni la calle, hay que decir por qué, no dejar dos órdenes opuestas escritas.**
+2. ⚠ **`ubicacion_origen` no sale por ningún canal público.** SERIA. A §7.3 la da por publicada en el volcado; en D la palabra no aparece. El plan **crea la columna** (Task 11) y **no la publica**, así que D-011 sigue sin canal auditable desde afuera: nadie que baje el CSV puede saber qué filas tienen la provincia sacada del polígono malo.
+3. **`direccionPermitida` tiene dos firmas y dos casas.** SERIA. A §2.6 la pone en `direcciones.ts` devolviendo `'calle_altura_y_texto' | 'solo_calle' | 'ninguna'`; B §4.7 la pone en `location-policy.ts` devolviendo `'altura_y_texto_libre' | 'solo_calle' | 'nada'`. **Resuelto en la Task 2** (`PermisoDireccion` en `direcciones.ts`, tercer juego de nombres); las dos specs siguen con el suyo.
+4. **El paquete de departamento se quedaba sin cliente.** SERIA. **Resuelto en la Task 18, Step 1**, que baja el de departamento con el argumento de A §4.3 textual. B §5 sigue diciendo que descarga sólo el de localidad.
+5. **`C §3.7` debe ser `C §3.8`** — el presupuesto conjunto. MENOR. Tres veces en A (§3.5, §7.2, §8.2), una en B §3.7, una en D §3.1. **Cinco punteros muertos hacia el número que decide si se paga el plan**, y que la Task 19 ya midió.
+6. **`TipoDeSenal` no existe: es `TipoSenal`, y vive en B §4.1 y no en §3.1.** MENOR. Tres apariciones en A.
+7. **B §3.3 y C §7 citan una versión de A que ya no existe.** MENOR. El comentario de `senales_altura_rol_chk` dice que es «más apretado que el de A», y A §3.4 ya escribe el mismo `in ('capture','meeting_point')`; C §7 le atribuye a A §7.2 un encargo que A §7.2 ya no hace.
+8. **A §7.3 le asigna a D dos cosas que D no recoge:** el volcado del catálogo geográfico con `geo_catalogo_version.corrida` como versión, y el filtro `departamento` del feed. MENOR (ver D-5 y D-8).
+
+**En B — la señal (8):**
+1. **BLOQUEANTE. El `ALTER TABLE senales` de C §3.1 aborta la `0016` en su primera línea**, porque seis de sus siete columnas ya están en el `create table` de B §3.3. **Resuelto en el plan** (Task 11 Step 4 crea las siete, Task 21 Step 1 declara que el `ALTER` no entra). **En las specs sigue vivo, y es el defecto que rompe la rebanada 5 entera en la primera corrida.**
+2. **`publicada_en` no tenía dueño.** SERIA. **Resuelto en la Task 11 Step 4.** Queda vivo el pedazo de mapeo: B §3.6 no mapea el disparador `alta` a ningún `tipo_evento`, y el catálogo de C tiene `publicacion` esperándolo — sin esa fila, la guarda «que ninguna transición carezca de evento» devuelve toda señal recién publicada, todos los días.
+3. ⚠ **Nadie acordó si `enviada` es una cola, y el contrato de ingesta no acepta evidencia.** SERIA. B dice «`enviada` es un instante»; C sostiene una cola con `senales_publicacion_idx`. El plan sigue a C (Task 23, pasada 5) con el atajo de que el caso normal se resuelve en el mismo POST. **Lo que sigue sin dueño es el productor de evidencia: `evidencia.senal_id` es `NOT NULL` y el contrato único de ingesta de B §4.7 no tiene ningún campo para enlazarla.** Decisión de producto: o el contrato gana `evidenciaId` y el recibo devuelve `'enviada' | 'por_verificar'`, o la evidencia de señal no existe en esta rebanada y hay que borrar media pasada 5.
+4. **Dos módulos para la única regla de redondeo del instante público.** SERIA. B §4.10 crea `senal/tiempo.ts` con `instantePublico`; C §2.11 crea `tiempo-publico.ts`; **cada una le dice a la otra que importe el suyo**, y D no nombra ninguno. Es el mismo patrón que `UMBRAL_SUPRESION` vs `VOCES_MINIMAS_POR_CELDA`, que las dos specs sí mataron. Con los dos vivos, el día que alguien mueva el escalón de `high` la superficie que quede atrás no falla: **publica más fino.**
+5. **El conteo por fila tiene dos nombres.** MENOR. B §7 y C §7 obligan `confirmacionesContadas`; D ya lo llama `actoresQueConfirmaron` en cinco lugares. **El plan usa `confirmacionesContadas`** (Tasks 32 y 33). El nombre de D es mejor —dice la unidad— y la corrección es barata mientras `/esquema` no exista.
+6. **El texto de consentimiento tiene tres archivos.** MENOR. B lo manda a `open-data/campos.ts`, D lo crea en `open-data/textos.ts`, **y el plan lo pone en `open-data/consentimiento.ts`** (Task 10). Gana el plan; las tres menciones de B y la de C a «D §7.3.4» quedan muertas.
+7. **`:id` en cinco rutas públicas.** MENOR. **Corregido en el plan** (nota de la Task 22): `:idPublico` en las cinco, más la afirmación nueva en la guarda de la Task 34.
+8. **`senales_calle_idx` declarado dos veces**, en A §3.4 y en B §3.3, los dos hacia la `0015`. MENOR. **Corregido en la Task 11 Step 4.**
+
+**En C — la corroboración (6):**
+1. **BLOQUEANTE.** Es el mismo que B-1, visto desde C. **Resuelto en el plan.** C además se cuenta mal a sí misma: dice «seis columnas» y su SQL lista siete.
+2. **Los dos módulos del redondeo.** SERIA. Mismo que B-4.
+3. **`corroborada_en` es una columna que no existe.** MENOR. C §2.5 dice que `vence_el` «se recalcula desde `corroborada_en`». La columna que contiene ese instante es `estado_desde`. **El riesgo es que alguien la invente**, y una columna más sobre `senales` es el renglón más caro del presupuesto.
+4. **C §7 le pide a D un renombre que D ya hizo con otro nombre.** MENOR. Mismo que B-5, y el riesgo es que alguien agregue un **segundo** campo por fila para satisfacer la letra.
+5. **`senal_resolucion` es el nombre viejo: C la renombró a `resoluciones`.** MENOR. **El plan y el DDL medido usan `senal_resolucion`** (Architecture, Task 21) y son internamente consistentes, así que el renombre de C no se adoptó. Hay que elegir uno de los dos y escribirlo en los dos lados; hoy el corpus tiene los dos nombres vivos para la misma tabla.
+6. **`C §4.5` debe ser `C §4.6`** en la entrada de la métrica norte del volcado de D. MENOR.
+
+**En D — el registro público (8):**
+1. **BLOQUEANTE. `corroborable` está definido como `clase === 'hecho'`** y la reconciliación le dio la máquina de corroboración también a `acto`. **Corregido en la Task 33 Step 2.** Sin corregir, un compromiso confirmado por tres vecinos se publica con `corroborable: false` en un archivo firmado y perpetuo, **y la guarda de D §8.5 queda roja para siempre**, o sea `pnpm verify` inalcanzable.
+2. ⚠ **La dirección.** SERIA. Mismo que A-1, del otro lado.
+3. **La lista de `direccionColumns` de D nombra dos columnas que no existen** (`calle_texto`, `texto_libre` —que es un *valor* de `direccion_estado`, no una columna—) **y omite las dos que sí** (`direccion_estado`, `ubicacion_origen`). SERIA. **Consecuencia directa: la guarda 8.4.3 —la mejor de D, la que caza la columna nueva el día que se agrega— arranca roja**, y su falla tapa justamente las dos columnas cuya clasificación había que decidir.
+4. **Las filas centinela de D §8.4.2 y §8.5 violan tres de los nueve CHECK de A §3.4.** SERIA. Siembran `altura` + `texto_libre` juntos y con rol `service_area`: son ramas mutuamente excluyentes y el rol no admite ninguna de las dos. **El INSERT falla antes de la primera aserción, y una guarda que muere en el setup se arregla borrándola.** Además prueban el caso equivocado: el caso donde la altura existe y hay que probar que no sale es `capture`/`meeting_point` sin punto — el de Córdoba sin GPS. La reescritura va contra la Task 34.
+5. **El volcado del catálogo geográfico no tiene lugar en `volcados`.** SERIA. A se lo asigna con nombre; el `check formato in (...)` de D no lo admite y su índice único `(corte, formato, particion)` haría chocar el CSV del catálogo con el de señales. **Cuesta una columna `dataset` hoy y una migración después.** Y es el único dataset publicable con las tablas cívicas en cero, o sea la única forma de probar el pipeline entero —cron, blob, sha256, `PROCEDENCIA.md`— **sin datos de personas adentro**.
+6. **`textos.ts` vs `campos.ts` vs `consentimiento.ts`.** MENOR. Mismo que B-6.
+7. **Qué estados llevan sello.** MENOR. D pide `resuelta`/`no_cumplida`/`desactualizada`; B decide `desactualizada`/`no_cumplida`/`retirada`. **El plan sigue a B** (Task 17 Step 2), así que la fila que D quiere destacar —`resuelta`, lo único que el registro destaca estructuralmente— no lleva sello. Lo razonable es que B agregue `resuelta` y deje `retirada` para las superficies internas, porque el registro público no la ve nunca.
+8. **`C §3.7` debe ser `C §3.8`** en D §3.1. MENOR. Mismo que A-5.
 
 ---
 
@@ -2557,16 +2926,19 @@ git commit -m "docs(deudas): lo que las cuatro rebanadas dejan abierto, con id p
 **Severidad:** media — el dato envejece en silencio
 **Estado:** abierta
 
-La API del Ministerio del Interior no expone `?desde=`: detectar deriva exige re-descargar una provincia entera y comparar el `hash_fuente`, o sea 327 requests para saber si algo se movió. Mitigación: la re-siembra es barata en escrituras (cero filas si nada cambió, por el `WHERE` del `DO UPDATE`) y cara en requests (~6 minutos), así que corre a mano y no en cron. **Qué haría falta:** una fuente con changelog, o aceptar una re-siembra trimestral agendada.
+La API del Ministerio del Interior no expone `?desde=`: detectar deriva exige re-descargar el corpus entero y comparar el `hash_fuente`. **Medido el 2026-08-11: son 534 requests y 268 segundos**, y no los 327 requests que esta deuda decía — la API topea `inicio` en 10.000 y `max` en 5.000, así que el callejero hay que pedirlo partido por departamento (529) y no por provincia (24). Mitigación: la re-siembra es barata en escrituras (cero filas si nada cambió, por el `WHERE` del `DO UPDATE`) y cara en requests (~4,5 minutos), así que corre a mano y no en cron. **Qué haría falta:** una fuente con changelog, o aceptar una re-siembra trimestral agendada.
 
-### D-035 · El scope de provincia del buscador de calles depende de un GIN de 45 MB que sirve a un solo caso
+### D-035 · El scope de provincia del buscador de calles depende de un GIN que resultó costar ocho veces menos de lo presupuestado
 
 **Dónde:** `v2/packages/db/migrations/0014_trigram_calles.sql`
 **Encontrada:** 2026-08-11, presupuestando la rebanada 2
-**Severidad:** baja
-**Estado:** abierta
+**Medida:** 2026-08-11 (Task 19 del plan)
+**Severidad:** **informativa** — era baja, y el argumento de bytes que la sostenía se cayó
+**Estado:** abierta sin acción
 
-El índice trigram es el 22% del presupuesto de bytes del callejero y sirve **sólo** al caso frío: buscar por provincia con un tipeo en vez de un prefijo. Si el presupuesto aprieta, se dropea sin migración inversa y el producto sigue funcionando peor pero funcionando — el scope de provincia pasa a exigir localidad o departamento. **Qué haría falta para cerrarla:** medir cuántas búsquedas reales usan ese scope.
+La deuda decía que el índice trigram es «el 22% del presupuesto de bytes del callejero» (~45–72 MB) y sirve **sólo** al caso frío: buscar por provincia con un tipeo en vez de un prefijo. **Medido sobre las 326.832 calles reales: 9,1 MB.** Ocho veces menos, y la razón es que **120.115 calles se llaman «CALLE SN»** y los trigramas deduplican. **Dropearlo ya no compra nada** —son el 1,8% del techo— así que la palanca «si el presupuesto aprieta, se dropea» deja de existir como palanca.
+
+**Y el hallazgo que la reemplaza: el índice más caro del callejero es `geo_calles_georef_unique`, con 17,4 MB**, que es justo el que no se puede sacar — sostiene el `ON CONFLICT` del seed y la identidad de una calle. **Qué haría falta para cerrarla:** nada que valga la pena. Queda anotada para que nadie vuelva a proponer dropear el GIN citando un número que ya no es cierto.
 
 ### D-036 · Las adhesiones seudónimas se pueden inflar borrando la cookie
 
@@ -2577,14 +2949,18 @@ El índice trigram es el 22% del presupuesto de bytes del callejero y sirve **s�
 
 Borrar la cookie y volver a adherir cuesta unos segundos. El techo es de **20 altas de actor por bucket de red por hora** y persiste en `actores_por_origen`: frena el bucle automatizado, no frena a quien tenga paciencia. **La defensa real contra encender una celda falsa es `UMBRAL_SUPRESION = 5`**, y contra el techo hay que medirlo donde importa: en Santa Cruz (~1,4 hab/km²) una celda de 1 km² se satura con **0,07 voces** —un actor la desborda y le sobra—; en CABA (~15.600 hab/km²) una celda de 250 m estima ~975 habitantes, o sea **49 voces**: dos horas y media al techo. **El techo por bucket no alcanza y no se puede fingir que alcanza.**
 
-### D-037 · La mitad deliberativa de la regla 11 queda sin mecanismo
+### D-037 · La mitad deliberativa de la regla 11 queda sin mecanismo, y el producto lo declara
 
-**Dónde:** `v2/apps/api/src/features/pulso/routes.ts` (tres `POST` en 410)
+**Dónde:** `v2/apps/api/src/features/pulso/routes.ts` (tres `POST` en 410); `packages/shared/src/open-data/consentimiento.ts` (`DECLARACION_DELIBERACION`); `apps/web/src/components/papel/primitives/NotaDeAlcance.tsx`
 **Encontrada:** 2026-08-11, cerrando el alcance de las cuatro rebanadas
 **Severidad:** alta — es media regla constitucional sin implementación
-**Estado:** abierta
+**Estado:** abierta · **decisión tomada 2026-08-11: se declara, no se construye**
 
-El voto se apaga y el reemplazo está diferido. Hasta que llegue, **un deseo sólo puede recibir «yo también»**. La regla 11 se cumple entera del lado de la corroboración —la clase está en el tipo, el tipo en el catálogo, el catálogo atado por FK compuesta, y `corroborar(unSueño)` no compila— **y se cumple a la mitad del lado de la deliberación**. Lo que queda decidido: tabla `deliberaciones`, `unique (propuesta_id, actor_id)`, y **no reusa `estado`**. **Qué haría falta:** una decisión del dueño del producto sobre si entra una quinta spec o si esto se declara en pantalla.
+El voto se apaga y el reemplazo está diferido. Hasta que llegue, **un deseo sólo puede recibir «yo también»**. La regla 11 se cumple entera del lado de la corroboración —la clase está en el tipo, el tipo en el catálogo, el catálogo atado por FK compuesta, y `corroborar(unSueño)` no compila— **y se cumple a la mitad del lado de la deliberación**.
+
+**La decisión del dueño del producto ya no está pendiente: sale con corroboración blindada y deliberación en cero, y se dice en pantalla.** No entra una quinta spec. `DECLARACION_DELIBERACION` es una constante única que aparece en cuatro superficies —el panel de un `sueño`, el panel de una `propuesta`, la ficha de un deseo publicado, y el body de los tres 410— más `PROCEDENCIA.md`, con la guarda `declaracion-deliberacion.test.tsx` que verifica que el aviso está donde tiene que estar, que **no** está donde sería falso (clase `hecho` o `acto`), y que no hay una segunda redacción escrita a mano.
+
+**Lo que sigue abierto es el mecanismo, no la honestidad sobre su ausencia.** Lo que queda decidido para el día que se construya: tabla `deliberaciones`, `unique (propuesta_id, actor_id)`, y **no reusa `estado`**, porque calidad y deliberación son dos ejes y ya se pisaron una vez. **Qué haría falta para cerrarla:** el mecanismo entero —quórum, ventana, quién puede votar, qué pasa con el empate—, que es una spec propia. **Cuándo se borra el aviso: sólo cuando ese mecanismo esté en producción, nunca antes.** Un aviso que se saca porque molesta deja al producto afirmando lo que no hace.
 
 ### D-038 · La adhesión con cuenta se puede lavar si alguien afloja el unique parcial de `actores.user_id`
 
@@ -2613,14 +2989,30 @@ El ataque es trivial sin ese índice: adherir, borrar la cookie, repetir 20 vece
 
 `firma` se serializa en `GET /senales/:idPublico` y **se omite en el feed y en los tres formatos**, porque `group by firma order by sum(adhesiones)` sobre un CSV público es un ranking público individual que construiría el propio proyecto. Es la única excepción a «un solo serializador» de todo el registro, y por lo tanto **el único campo cuya corrección depende de una guarda y no de la forma del código**. **Qué haría falta:** o un segundo serializador con su propio descriptor, o sacar `firma` del contrato.
 
-### D-041 · El techo conjunto de la rama es ~68.000 señales, no 460.000
+### D-041 · El techo conjunto de la rama es 93.401 señales, y el archivado frío del rastro es la palanca que no se compró
 
 **Dónde:** Neon `cool-bird-63087148`, rama de producción
 **Encontrada:** 2026-08-11, sumando los presupuestos de las cuatro specs por primera vez
-**Severidad:** **alta** — cuando se descubra por sí solo, la base ya va a estar llena
-**Estado:** abierta
+**Medida:** 2026-08-11, rama `medicion-512mb-2026-08-11` (Task 19 del plan)
+**Severidad:** media — era alta hasta que se midió
+**Estado:** abierta, **acotada y con disparador escrito**
 
-Las cuatro specs presupuestaron por separado y ninguna hizo la suma: A 201 MB (callejero), B ~800 B/señal asumiendo 100 MB de callejero, C 376 MB para 100.000 señales «contra 474 libres» **ignorando el callejero Y las filas de B**. Sumadas: `38 + 163 + 80 + 376 = 657 MB` a 100.000 señales, **145 por encima del techo duro de 512**. El renglón más grande es `rastro_senal` (cuatro quintos de C). **Mitigación implementada:** alarma programada en 340 MB medida con `pg_total_relation_size` y no con `pg_database_size` —que no es lo que Neon factura, porque cobra tamaño lógico **más** historia de PITR y diría que hay margen sin haberlo— y archivado frío del rastro. **Qué haría falta para cerrarla:** medir el consumo real con 10.000 señales y recalcular.
+Las cuatro specs presupuestaron por separado y ninguna hizo la suma: A 201 MB (callejero), B ~800 B/señal asumiendo 100 MB de callejero, C 376 MB para 100.000 señales «contra 474 libres» **ignorando el callejero Y las filas de B**. Sumadas daban 657 MB a 100.000 señales y un techo conjunto de ~68.000.
+
+**Medido con el callejero completo y real (326.832 calles) más 10.000 señales con su cola entera:**
+
+```
+piso fijo (callejero + jerarquía + catálogos + v1) = 115.965.952 B = 110,59 MB
+costo marginal por señal                           = 4.506 B
+TOTAL(n) = 115.965.952 + n × 4.506,4
+TECHO en 512 MB = 93.401 señales
+```
+
+**Tres correcciones a lo que la deuda decía:** el techo es 93.401 y no ~68.000 (37% más aire); el callejero pesa 96,06 MB y no los 163 que A estimaba; y **`rastro_senal` es el 31,8% del costo por señal, no «cuatro quintos»** — de ahí salía la urgencia y la urgencia no existía.
+
+**Mitigación implementada:** alarma programada en **340 MB ≈ 53.400 señales**, con `pg_database_size` (que sí es el tamaño lógico, o sea lo que el tier cuenta) **más** el recordatorio de que la consola de Neon reporta lógico *más* historia de PITR y es la que factura. **El archivado frío del rastro NO se implementó**: sube el techo de 93.401 a ~137.000 señales y cuesta una columna, una pasada de cron, un store de blobs y una verificación de cadena que cruza el borde de la base. **Su disparador es la alarma de 340 MB**, no una fecha.
+
+**Qué haría falta para cerrarla:** re-medir `actores` con tráfico real. Los 2,5 actores por señal son la única hipótesis que queda adentro del número, y aportan 600 de los 4.506 B: si el ratio real es menor, el techo sube a ~107.700.
 
 ### D-042 · `quality.ts` devuelve `confidence: 0` para decir «no evaluada»
 
@@ -2658,6 +3050,8 @@ Con lado fijo, k=5 en una celda del interior con veinte habitantes es el **25% d
 
 La migración crea el rol `v2_app` de forma idempotente y le revoca `update/delete/truncate` sobre `rastro_senal`, pero **la contraseña del rol y el cambio de `DATABASE_URL` los hace una persona en Neon**. Si ese paso no ocurre, la API sigue conectándose como dueña, el revoke no protege nada, y **la capa que C califica de «inmutable de verdad» existe sólo en el archivo de migración. No hay guarda que lo detecte: la migración aplica igual.** Mitigación: chequeo de arranque que loguea en WARN si la conexión tiene privilegio de `UPDATE` sobre `rastro_senal`.
 
+**Confirmada dos veces el 2026-08-11 y sigue abierta:** quien escribió el DDL dejó el bloque `create role` / `grant` / `revoke` deliberadamente fuera de los archivos de migración porque necesita el paso humano, y la medición de la Task 19 corrió sin él. **La capa 1 de inmutabilidad del rastro existe hoy sólo en prosa, y la medición no lo cambió.**
+
 ### D-046 · El clasificador de temas agrega un evento de rastro por señal que el presupuesto no contaba
 
 **Dónde:** `v2/apps/api/src/features/mandato/classifier.ts`, `rastro_senal`
@@ -2665,4 +3059,4 @@ La migración crea el rol `v2_app` de forma idempotente y le revoca `update/dele
 **Severidad:** baja
 **Estado:** abierta
 
-C exige que **toda escritura de máquina sobre una fila de señal deje su evento** con `actor_clase: 'maquina'`, y B hace que el clasificador escriba `tema_intentado_en` en **toda** fila, incluidas las que no logra mapear. Cruzadas: **un evento más por señal sobre los ~8 que el presupuesto contaba, en el renglón que ya es cuatro quintos del consumo de la base** (D-041). Hay que decidir si el intento de clasificación deja evento o si `tema_intentado_en` es su propia constancia.
+C exige que **toda escritura de máquina sobre una fila de señal deje su evento** con `actor_clase: 'maquina'`, y B hace que el clasificador escriba `tema_intentado_en` en **toda** fila, incluidas las que no logra mapear. Cruzadas: **un evento más por señal**, en el renglón más grande del costo marginal (D-041). **La medición del 2026-08-11 acota el daño y hay que decirlo:** `rastro_senal` promedió **3,86 eventos por señal** —no los ~8 que el presupuesto contaba— y pesa el 31,8% del marginal, no los «cuatro quintos» que C estimaba. Un evento más por señal es **+371 B sobre 4.506**, o sea el techo baja de 93.401 a ~86.300 señales: real, medible, y no una emergencia. Hay que decidir igual si el intento de clasificación deja evento o si `tema_intentado_en` es su propia constancia.

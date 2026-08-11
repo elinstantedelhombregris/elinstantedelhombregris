@@ -66,6 +66,28 @@ function isAnonAllowed(method: string, path: string): boolean {
   }
   // Blog view tracking: POST /api/blog/posts/:id/view
   if (method === 'POST' && /^\/api\/blog\/posts\/\d+\/view$/.test(path)) return true;
+  /**
+   * El olvido de una dirección: DELETE /api/v1/geo/direccion/:tabla/:id?c=…
+   * (spec `2026-08-11-a-la-tierra.md` §4.5).
+   *
+   * Va como patrón EXACTO —un regex anclado, no una entrada de `ANON_ALLOWED`—
+   * y es deliberado. Una entrada `'/api/v1/geo/direccion'` en la lista quedaría
+   * exenta por la rama `path.startsWith(`${p}/`)` de acá arriba, que es
+   * exactamente la que se va a borrar (Task 14 del plan de la tierra): esa rama
+   * exime SUBRUTAS que nadie decidió eximir, y el día que `/direccion/...`
+   * gane un `POST` hermano se lo llevaría puesto sin que nadie lo note.
+   *
+   * Se exime porque su autenticación no es la cookie: es el HMAC que viajó en
+   * el recibo, y quien lo tiene es exactamente quien cargó la dirección. Del
+   * otro lado puede no haber navegador —la app de campo no manda cookies— así
+   * que el doble envío no tiene qué muestrear.
+   */
+  if (
+    method === 'DELETE' &&
+    /^\/api\/v1\/geo\/direccion\/[a-z_]{1,40}\/[A-Za-z0-9_-]{1,64}$/.test(path)
+  ) {
+    return true;
+  }
   return false;
 }
 

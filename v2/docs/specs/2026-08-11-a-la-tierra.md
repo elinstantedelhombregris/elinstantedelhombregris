@@ -1,14 +1,18 @@
 # A · La tierra
 
 **Fecha:** 2026-08-11
-**Serie:** A de cuatro (A la tierra · B el vocabulario de la señal · C el feed y la adhesión · D la descarga)
+**Serie:** cuatro specs · A la tierra · B la señal · C la corroboración · D el registro público
 **Documento vinculante:** `apps/mobile/docs/PRODUCT_CONSTITUTION.md`
+**Migraciones:** `0013` (reparación + catálogo) y `0014` (pg_trgm + GIN)
+**Deudas nuevas:** D-034 y D-035
 **Cierra a medias:** [D-004](../../../docs/DEUDAS.md) y [D-005](../../../docs/DEUDAS.md) — ver §7.4
 **Hace medible:** D-011
 
 > **Qué resuelve.** Que una señal pueda decir *dónde* con las palabras del país y no con un punto solo: el callejero completo del Estado espejado en nuestra base — 24 provincias, 529 departamentos, 2.082 municipios, 4.037 localidades censales, 14.673 asentamientos y 326.832 calles — más una dirección normalizada en cada señal, verificada contra ese catálogo, que declara *hasta dónde* pudo verificarse.
 >
-> **Qué NO resuelve.** No define qué tipo de señal es (spec B), no la ordena en un feed (spec C), no la exporta (spec D). No dibuja departamentos ni municipios: carga sus **filas**, no su **geometría**. Y no convierte una dirección en un punto: acá una dirección y una coordenada son dos hechos independientes, y ninguno se deriva del otro.
+> **Qué NO resuelve.** No define qué tipo de señal es ni dónde vive (spec B), no la corrobora (spec C), no la publica (spec D). No dibuja departamentos ni municipios: carga sus **filas**, no su **geometría**. Y no convierte una dirección en un punto: acá una dirección y una coordenada son dos hechos independientes, y ninguno se deriva del otro.
+>
+> **Dónde viven las columnas de dirección.** En `senales`, la tabla única de `docs/specs/2026-08-11-b-la-senal.md` §2.7 — no en `dreams`, `pulse_signals` ni `proposals`, que mueren sin escrituras y están en cero. **A define las columnas y sus CHECK; B los aplica en la misma migración que crea la tabla.** Es la única dependencia circular real entre las dos specs, partida por donde no duele.
 
 ---
 
@@ -33,7 +37,7 @@ La columna sobre la que hay que colgar 21.321 filas nuevas hoy está rota.
 
 ### 1.3 `city_id` existe, se lee y nadie la escribe
 
-`cityColumn` de `_geo-columns.ts:49-53` la aporta a las tres tablas de señal. `CivicMapRepository` la selecciona y la devuelve en cada `SenalMapa` (`civic-map.ts:143, 190`). El cliente web ya la tipó (`queries/civic-map.ts:36`). **No hay un solo writer en toda la API.** Es una columna muerta que el mapa ya lee — y, por ser leída, es ubicación *publicada* que ninguna función de privacidad gobierna. §2.6 la mete bajo la misma regla que la calle. No está muerta por descuido: no hay ninguna fila de localidad a la que pudiera apuntar.
+`cityColumn` de `_geo-columns.ts:49-53` la aporta a las tres tablas de señal. `CivicMapRepository` la selecciona y la devuelve en cada `SenalMapa` (`civic-map.ts:143, 190`). El cliente web ya la tipó (`queries/civic-map.ts:36`). **No hay un solo writer en toda la API.** Es una columna muerta que el mapa ya lee — y, por ser leída, es ubicación *publicada* que ninguna función de privacidad gobierna. §2.6 la mete bajo la misma regla que la calle. No está muerta por descuido: no hay ninguna fila de localidad a la que pudiera apuntar. La hereda `senales`, con writer desde el primer día (§4.4).
 
 ### 1.4 La resolución al escribir llega hasta provincia, y la geometría con la que llega es mala
 
@@ -43,7 +47,9 @@ La columna sobre la que hay que colgar 21.321 filas nuevas hoy está rota.
 
 No hay `calle_id`, no hay altura, no hay texto de dirección: una necesidad cargada desde una vereda concreta se guarda como «Santa Fe» o como un punto sin nombre.
 
-Y hay un segundo hecho, verificado, que condiciona toda esta spec: **la compuerta que protegería esa dirección hoy está abierta en el camino principal.** `publishedPrecision` (`location-policy.ts:88-91`) solo engrosa cuando `role==='subject' && sensitivity==='high' && audience!=='private'`. `PanelSoltarVoz.tsx:38-44` manda `body`, `category`, `provinceId` y —si hay punto— `punto` + `precisionPedida`, y **nunca** `locationRole` ni `sensitivity`. `POST /api/open-data/dreams` defaultea `sensitivity: 'low'`. O sea: toda voz web es `subject`/`low`, la protección nunca dispara, y el selector de precisión pone `exact` en el mismo instante en que la persona toca el GPS. Agregar el campo de dirección sobre eso publicaría calle y altura de la casa de alguien en un `GET` abierto. §2.6 y §3.4 existen para cerrar esa compuerta antes, no después.
+Y hay un segundo hecho, verificado, que condiciona toda esta spec: **la compuerta que protegería esa dirección hoy está abierta en el camino principal.** `publishedPrecision` (`location-policy.ts:88-91`) solo engrosa cuando `role==='subject' && sensitivity==='high' && audience!=='private'`. `PanelSoltarVoz.tsx:38-44` manda `body`, `category`, `provinceId` y —si hay punto— `punto` + `precisionPedida`, y **nunca** `locationRole` ni `sensitivity`. `POST /api/open-data/dreams` defaultea `sensitivity: 'low'`. O sea: toda voz web es `subject`/`low`, la protección nunca dispara, y el selector de precisión pone `exact` en el mismo instante en que la persona toca el GPS.
+
+B reemplaza esa ingesta por una que pregunta de verdad. Pero la defensa no puede colgar de que la ingesta nueva se acuerde: §2.6 y §3.4 existen para que la regla viva en la base, donde no se olvida.
 
 ### 1.6 Y georef está del otro lado de la red
 
@@ -60,7 +66,7 @@ La API del Ministerio del Interior tiene los datos. Verificado: `GET /calles?pro
 2. **Naturaleza.** Una calle no es una unidad administrativa: no tiene punto ni población, no es ámbito de nada ni sujeto de ningún agregado. Es un nombre con un rango de numeración colgado de una localidad.
 3. **Índices.** Necesitan un índice trigram que ninguna otra cosa del catálogo necesita, y que en una tabla compartida se pagaría sobre las 21.345 filas que no lo usan.
 
-Y una razón que las cierra: **nueve columnas de seis tablas apuntan a `geographic_locations.id`** — `province_id` y `city_id` de `dreams`, `pulse_signals` y `proposals`, más `territory_mandates.province_id` (`mandato.ts:24`), `mandate_suggestions.province_id` (`mandato.ts:48`) y `gamification.scope_id` (`gamification.ts:205`). Partir la jerarquía en cinco tablas obligaría a decidir a cuál apunta cada una de esas nueve columnas, y a reescribir cada una. Crecer hacia abajo no toca ninguna.
+Y una razón que las cierra: **nueve columnas de seis tablas apuntan hoy a `geographic_locations.id`** — `province_id` y `city_id` de `dreams`, `pulse_signals` y `proposals`, más `territory_mandates.province_id` (`mandato.ts:24`), `mandate_suggestions.province_id` (`mandato.ts:48`) y `gamification.scope_id` (`gamification.ts:205`); después de B serán cinco. Partir la jerarquía en cinco tablas obligaría a decidir a cuál apunta cada una y a reescribirlas. Crecer hacia abajo no toca ninguna, ni antes ni después.
 
 ### 2.2 El municipio no es un escalón del árbol
 
@@ -76,9 +82,9 @@ El municipio cuelga de la **provincia** y no del departamento, justamente porque
 ### 2.3 Los ids del Estado son clave única, no clave primaria
 
 `geographic_locations` y `geo_calles` conservan un `serial id` como PK y ganan `georef_id text NOT NULL UNIQUE`. Tres razones, en orden de peso:
-1. **Compatibilidad.** Las nueve columnas de §2.1 son `integer`. Cambiar la PK a texto las reescribe todas, con sus índices, para ganar nada.
+1. **Compatibilidad.** Las columnas que apuntan a la jerarquía son `integer`. Cambiar la PK a texto las reescribe todas, con sus índices, para ganar nada.
 2. **Soberanía del identificador.** El id de georef es del Estado. Una recodificación —departamentos que se renumeran, localidades que se fusionan— es un evento del Estado que no puede cascadear dentro de nuestros datos. Como clave única nos da lo que necesitamos (re-sembrar sin duplicar, auditar contra la fuente) sin darnos lo que no queremos (que nuestra identidad interna dependa de la suya).
-3. **Bytes.** Un `integer` son 4 bytes; el id de georef son 13 caracteres, 14 bytes con cabecera varlena. Multiplicado por cada FK y cada entrada de índice sobre las tablas de señal, que son las que crecen sin techo.
+3. **Bytes.** Un `integer` son 4 bytes; el id de georef son 13 caracteres, 14 bytes con cabecera varlena. Multiplicado por cada FK y cada entrada de índice sobre `senales`, que es la tabla que crece sin techo.
 
 El id de georef tiene 13 dígitos y su prefijo es jerárquico. Verificado contra la API: `"0204901005420"` → los primeros 5 dígitos, `"02049"`, son exactamente `departamento.id`; `"1400707000220"` → `"14007"` es `departamento.id`. La descomposición es `provincia(2) + departamento(3) + localidad(2) + calle(6)`. **Pero el componente de localidad no reconstruye `localidad_censal.id`.** Para la calle de CABA el componente es `01` y la localidad censal es `02000010`; para la de Córdoba es `07` y la localidad censal es `14007070`. Se parecen y no son lo mismo. Por eso: **la FK a la localidad se toma del campo `localidad_censal.id` del payload, nunca de cortar el id de la calle.** El prefijo de departamento sí se usa —está verificado en dos provincias— pero como comprobación cruzada, no como fuente.
 
@@ -122,21 +128,58 @@ Y el estado de la dirección de una señal es una unión discriminada de **seis*
 
 `texto_libre` no es una concesión: es constitucional. Las 326.832 calles del INDEC no son todas las calles del país. Negarse a guardar lo que no está en el catálogo del Estado sería que esta plataforma le diga a un barrio que no existe. **Con un límite que §2.6 le pone y que hay que leer sin confundirlo con lo anterior:** el texto libre sobrevive para el lugar de una *cosa* — un pozo, una olla, un depósito en un barrio sin nomenclar. Para el lugar de una *persona* no sobrevive ninguna dirección, y menos una que la escribe alguien sin que ningún catálogo la acote («al fondo del pasillo, casilla 14» es una puerta).
 
-### 2.6 La dirección se gobierna por el rol de la ubicación, no por la precisión del punto
+### 2.6 La dirección se gobierna por su propio eje, y el rol solo pone el piso
 
-Es la interacción más peligrosa de esta spec y merece una regla propia. La versión anterior de esta sección se llaveaba en `LocationPrecision` y estaba mal por los dos lados: dejaba pasar el caso desprotegido (rol `subject` + sensibilidad `low` + `exact`, que es el default de la web, §1.5) y borraba la dirección del caso inofensivo (una señal sin punto, cuya precisión es gruesa porque no hay punto, no porque haya protección). El eje correcto es el que ya gobierna todo lo demás en `location-policy.ts`: **el rol de la ubicación.** Un punto de entrega o la esquina de un pozo se publican exactos porque a 100 metros no sirven. El lugar donde vive o está una persona, no.
+Es la interacción más peligrosa de esta spec y merece una regla propia. Hubo dos ejes candidatos y los dos, solos, fallan.
 
-| situación de la fila | qué se guarda de la dirección | por qué |
+**No es `LocationPrecision`.** Deja pasar el caso desprotegido (rol `subject` + sensibilidad `low` + `exact`, que es el default de la web, §1.5) y borra la dirección del caso inofensivo (una señal sin punto, cuya precisión es gruesa porque no hay punto, no porque haya protección).
+
+**Y no alcanza con el rol.** `ROL_POR_TIPO` tiene nueve entradas en B (`docs/specs/2026-08-11-b-la-senal.md` §4.7) y cuatro tipos —`sueño`, `saber`, `propuesta`, `pregunta`— salen `service_area`, que es no-`subject`. Bajo una regla que solo mire el rol, un `saber` se publica con calle, altura y texto libre íntegro y sin piso posible: el ejemplo con el que esta misma sección prohíbe el texto libre —«en el pasillo del fondo del 340 vive una señora sola sin agua»— entra entero por la puerta de al lado. B movió esos cuatro fuera de `subject` con un argumento sobre el **punto** («un sueño habla de un lugar, no señala un punto»), correcto para el punto y ciego para la dirección.
+
+Entonces son **dos ejes separados**, y la dirección tiene función propia:
+
+```ts
+// Implementado en `packages/civic-core/src/direcciones.ts` con estos nombres.
+export type PermisoDireccion = 'completa' | 'solo_calle' | 'ninguna';
+
+export function direccionPermitida(
+  tipo: TipoConTechoDeDireccion, role: LocationRole, sensitivity: CivicSensitivity,
+): PermisoDireccion;
+```
+
+Devuelve **el mínimo entre el techo del tipo y el piso del rol**. Nunca amplía: ningún tipo puede subir lo que el rol bajó, y ningún rol puede subir lo que el tipo no admite.
+
+**Son tres ejes y hay una sola función exportada con ese nombre.** El piso por rol y sensibilidad —la tabla de cuatro filas de más abajo— existe adentro del módulo y **no sale por `civic-core/src/index.ts`**. La razón es la de esta misma sección: una función que mira sólo el rol deja publicar la altura de un `saber` sobre la casa de otro, y mientras las dos estuvieron exportadas la de dos ejes se llamaba `direccionPermitida` y era la que el contrato citaba — de modo que la forma de equivocarse era llamar a la que estaba a mano y tenía el nombre correcto. Que la insegura no exista como símbolo importable no es higiene: es lo que convierte el error de desalentado en inexpresable.
+
+**Y ninguna de estas funciones puede fallar abierto.** Es una regla del módulo, no un detalle de implementación: cuando algo que decide cuánto se publica recibe un valor que no entiende, la respuesta es publicar **menos**. En concreto — el mínimo de la escala devuelve `'ninguna'` ante cualquier valor que no esté en ella (una comparación por `indexOf` devolvía el permiso *menos* restrictivo, porque `-1` es menor que todo); la tabla de techos por tipo **no se exporta**, se lee con `techoDeTipo(tipo: string)`, que **normaliza a NFC las dos puntas** —`'práctica'` con la tilde combinante es otro string y lo manda un cliente iOS sin querer— y devuelve una unión discriminada `{reconocido: true, techo} | {reconocido: false}` en vez de `undefined`; y un tipo no reconocido vale `'ninguna'`, con su propia frase en el recibo para no inventarle a la persona un motivo que no es.
+
+**El techo por tipo** — nueve entradas, exhaustivas sobre el vocabulario de B:
+
+| tipo | techo | por qué |
 |---|---|---|
-| rol `subject` **y** sensibilidad alta (o sea: corrió la protección) | **nada.** `sin_direccion`, y `city_id` sube a `department_id` | el punto quedó en una celda de 500 m *conocida* (`obfuscatePoint` redondea a grilla fija, no agrega ruido); cruzarla con un nombre de calle deja un segmento de a lo sumo 500 m, o una cortada entera |
-| rol `subject`, sensibilidad no alta | solo la calle. Nunca la altura, nunca `texto_libre` | una altura ubica en ~15 m sobre el lugar de una persona, y `sensitivity` la declara el cliente: la protección no puede colgar de un campo que el que carga elige |
-| rol no-`subject`, con punto de precisión `exact` | calle + altura + `texto_libre` | el punto ya es exacto: la dirección no agrega exposición |
-| rol no-`subject`, con punto más grueso que `exact` | solo la calle | una calle argentina mide entre 100 m y 2 km: nombrarla es del orden del punto |
-| rol no-`subject`, **sin punto** | calle + altura + `texto_libre` | no hay ningún punto que la dirección pueda contradecir. `precision` describe un punto que no existe y no gobierna nada |
+| `basta` | calle + altura + texto | habla de una cosa en un lugar: un pozo, una luminaria, una vereda rota |
+| `recurso` | calle + altura + texto | es un punto de entrega: a 100 m no sirve |
+| `práctica` | calle + altura + texto | es un lugar al que se va |
+| `compromiso` | calle + altura + texto | es una obra en una dirección, y su incumplimiento se comprueba ahí |
+| `necesidad` | solo calle | habla del lugar de una persona |
+| `saber`, `sueño`, `propuesta`, `pregunta` | solo calle | hablan **sobre** un lugar y a menudo sobre quien vive ahí. Es el hueco que abría `service_area` |
 
-Tres consecuencias que hay que leer completas. **La primera: la altura sirve para el lugar de una cosa, no para el de una persona.** `ROL_POR_TIPO` ya manda `observation → capture` y `resource → meeting_point`: un pozo y un punto de entrega conservan calle y altura, que es donde la dirección de verdad sirve. `need → subject` no lleva altura nunca. No es una pérdida: una necesidad se resuelve coordinando, no yendo a una puerta que se publicó en un `GET` abierto.
+**El piso por rol y sensibilidad** — cuatro filas, y ninguna se puede fusionar:
 
-**La segunda: lo que no se publica no se guarda**, igual que el punto crudo (`_geo-columns.ts:22-27`). Y no se marca reservado: un estado que dijera «hay una altura que no te muestro» filtraría que el registro es preciso y está protegido, que es justo lo que hay que no decir. **Y la tercera: esto no es un contrato de equipo, es una restricción de la base.** Las columnas de la regla (`location_role`, `sensitivity`, `precision`, `lat`) y las de la dirección (`calle_id`, `altura`, `direccion_estado`) viven en la **misma fila de la misma tabla**, así que la regla entera es expresable como CHECK y va como CHECK (§3.4). Sin eso, la cuarta ingesta que alguien escriba —la de B, la del móvil, un backfill— guarda una altura protegida sin error, sin test rojo y sin que nadie se entere.
+| situación de la fila | dirección | por qué |
+|---|---|---|
+| rol `subject` **y** sensibilidad alta | **ninguna.** `sin_direccion`, y `city_id` sube a `department_id` | el punto quedó en una celda de 500 m *conocida* (`obfuscatePoint` redondea a grilla fija, no agrega ruido); cruzarla con un nombre de calle deja un segmento de a lo sumo 500 m, o una cortada entera |
+| rol `subject`, sensibilidad no alta | solo la calle. Nunca la altura, nunca `texto_libre` | una altura ubica en ~15 m sobre el lugar de una persona. Y la calle **sí** sobrevive: mide entre 100 m y 2 km, o sea que nombrarla es del orden del punto engrosado |
+| rol `service_area` | solo la calle | un ámbito no es una puerta |
+| rol `capture` o `meeting_point` | lo que permita el tipo | un pozo y un punto de entrega son cosas, no personas |
+
+La segunda fila existe de verdad, y es la mitad de para qué existe esta spec. Con «es mi casa» mapeado a `subject`+`high` ninguna combinación producía `subject` sin `high`: la fila quedaba muerta y un `¡basta!` sobre tu propio techo que se llueve perdía la dirección entera, ni siquiera la calle. **La pregunta de la casa mapea «es mi casa» a `subject`+`moderate`**; «es la casa de otra persona» y «sin respuesta» quedan en `subject`+`high` con `overridable: false` (obligación en §7.1). El piso de publicación del punto es por rol, así que `subject`+`moderate` sigue saliendo engrosado a 500 m: la gradación no cuesta un metro de protección y recupera la cuadra.
+
+Tres consecuencias que hay que leer completas. **La primera: la altura sirve para el lugar de una cosa, no para el de una persona.** No es una pérdida: una necesidad se resuelve coordinando, no yendo a una puerta que se publicó en un `GET` abierto.
+
+**La segunda: lo que no se publica no se guarda**, igual que el punto crudo (`_geo-columns.ts:22-27`). Y no se marca reservado: un estado que dijera «hay una altura que no te muestro» filtraría que el registro es preciso y está protegido, que es justo lo que hay que no decir.
+
+**Y la tercera: esto no es un contrato de equipo.** Las columnas de la regla (`location_role`, `sensitivity`, `precision`, `lat`) y las de la dirección viven en la **misma fila de la misma tabla**, así que el piso entero es expresable como CHECK y va como CHECK (§3.4). El techo por tipo lo fuerza el compilador; el piso lo fuerza el motor. Sin eso, la próxima ingesta que alguien escriba guarda una altura protegida sin error, sin test rojo y sin que nadie se entere.
 
 ### 2.7 Resolver la jerarquía: por catálogo cuando se puede, por punto cuando no queda otra, nunca por cercanía
 
@@ -233,7 +276,9 @@ CREATE INDEX geographic_locations_level_norm_idx      ON geographic_locations (l
 | `locality` | el departamento | el departamento | el municipio, o NULL si el Estado no la lista en ninguno |
 | `settlement` | la localidad censal del payload; si BAHRA no la trae, el departamento | el departamento | el de su localidad, o NULL |
 
-`listChildren(provincia)` devuelve departamentos **y** municipios, y es correcto: el árbol de una provincia tiene dos ramas. Los asentamientos que cuelgan del departamento por falta de localidad se cuentan en el reporte de la corrida (§4.7): es un dato sobre BAHRA, no un error nuestro. Y `city` sale del vocabulario porque no hay ni una fila con ese valor. `city_id` en las señales se queda con su nombre y pasa a apuntar a una fila `locality` o `settlement` — renombrar tres columnas de tres tablas más el repositorio más el tipo del cliente web no compra nada que un comentario no compre. Lo que sí hay que tocar es `GeographicRepository.findCity`, que filtra `level = 'city'` y desde este CHECK solo puede devolver `undefined` (§5). Y `georef_id` entra nullable y se hace `NOT NULL` en una segunda migración, después de que el seed lo llene en las 24 filas: un `NOT NULL` sobre filas que no lo cumplen no se puede aplicar.
+`listChildren(provincia)` devuelve departamentos **y** municipios, y es correcto: el árbol de una provincia tiene dos ramas. Los asentamientos que cuelgan del departamento por falta de localidad se cuentan en el reporte de la corrida (§4.7): es un dato sobre BAHRA, no un error nuestro.
+
+**El vocabulario es éste y estos cinco valores son los únicos que existen.** `city` sale porque no hay ni una fila con ese valor, y `'localidad'` en castellano nunca existió: el término es `'locality'`, en inglés, por paridad con `'province'`. Cualquier filtro por nivel escrito en cualquier spec de la serie se escribe contra estos cinco, tomados de una constante compartida y no de un literal tipeado dos veces (obligación a D en §7.3). `city_id` en las señales se queda con su nombre y pasa a apuntar a una fila `locality` o `settlement` — renombrar la columna, el repositorio y el tipo del cliente web no compra nada que un comentario no compre. Lo que sí hay que tocar es `GeographicRepository.findCity`, que filtra `level = 'city'` y desde este CHECK solo puede devolver `undefined` (§5). Y `georef_id` entra nullable y se hace `NOT NULL` en una segunda migración, después de que el seed lo llene en las 24 filas: un `NOT NULL` sobre filas que no lo cumplen no se puede aplicar.
 
 Y **las 24 filas no se borran, no cambian de id, y `seed-provinces.ts` sigue siendo su origen**: lo único que se les escribe es `georef_id` (`"02"`, `"06"`, `"14"`…), `province_id = id` y `name_norm`; sus `iso_code` y centroides quedan como están, y un test fija sus ids por `iso_code` (§8.5).
 
@@ -300,9 +345,9 @@ CREATE INDEX geo_calles_departamento_nombre_idx ON geo_calles (departamento_id, 
 CREATE INDEX geo_calles_provincia_nombre_idx    ON geo_calles (provincia_id, nombre_norm);
 ```
 
-**El tamaño de la rebanada, con el peor caso verificado y no con el promedio.** El promedio es 326.832/4.037 ≈ 81 calles por localidad, pero no es lo que hay que dimensionar: **Córdoba capital (localidad censal `14014010`) tiene 8.542 calles**, verificado contra la API en esta revisión — 2,7× CABA, que tiene 3.127. Es el peor caso del scope `localidad` y también el del `departamento`, porque el departamento Capital (`14014`) devuelve el mismo total. Un scan de 8.542 entradas de índice por tecla es del orden de milisegundos y no toca el heap. Sin el índice por departamento, en cambio, un `q` de 2 caracteres con ese scope cae en seq scan sobre 326.832 filas —el GIN no puede ayudar: de un patrón de 2 caracteres no se extrae un trigrama completo— y es un endpoint público cuyo espacio de URLs es infinito, así que el scan se pagaría en cada tipeo nuevo.
+**El tamaño de la rebanada, con el peor caso verificado y no con el promedio.** El promedio es 326.832/4.037 ≈ 81 calles por localidad, pero no es lo que hay que dimensionar: **Córdoba capital (localidad censal `14014010`) tiene 8.542 calles**, verificado contra la API — 2,7× CABA, que tiene 3.127. Es el peor caso del scope `localidad` y también el del `departamento`, porque el departamento Capital (`14014`) devuelve el mismo total. Un scan de 8.542 entradas de índice por tecla es del orden de milisegundos y no toca el heap. Sin el índice por departamento, en cambio, un `q` de 2 caracteres con ese scope cae en seq scan sobre 326.832 filas —el GIN no puede ayudar: de un patrón de 2 caracteres no se extrae un trigrama completo— y es un endpoint público cuyo espacio de URLs es infinito, así que el scan se pagaría en cada tipeo nuevo.
 
-Y en **una migración aparte**, corrida en una pasada distinta de la del seed:
+Y en **una migración aparte** (`0014`), corrida en una pasada distinta de la del seed:
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
@@ -317,12 +362,13 @@ Va separado por tres razones que se suman: es el 22% del presupuesto de bytes (�
 
 ### 3.4 `direccionColumns` — lo que gana una señal
 
-Van en `_geo-columns.ts`, al lado de `geoColumns` y como **segundo objeto exportado**, no adentro del primero: `geoColumns` significa «dónde está el punto publicado» y la dirección es un hecho paralelo. Separarlos hace legible el diff y evita que alguien lea la dirección como parte de la política del punto.
+**Estas columnas y estos CHECK viven en `senales`, la tabla única de B, y entran en la migración `0015` — la misma que crea la tabla, no una posterior.** A los define, B los aplica: A necesita que la ingesta pregunte por el rol y la sensibilidad, y B necesita que alguien defina qué se hace con la respuesta.
+
+Se descartó spread-earlos en `dreams`, `pulse_signals` y `proposals`: defender con nueve CHECK tres tablas que dejan de recibir escrituras y están en cero (`b-la-senal.md` §2.7) era escribir la defensa entera sobre el lado que se apaga. Con eso se retira también la D-035 reservada para «`direccionColumns` sin writer en `pulse_signals` y `proposals`»: el problema deja de existir antes de nacer, y el ordinal se reusa en §7.4. `direccionColumns` sigue siendo un objeto exportado de `_geo-columns.ts` aunque hoy tenga un solo consumidor: es el vehículo de esa partición, y su comentario lo dice.
 
 ```ts
 /** La dirección normalizada de una señal (spec A §2.5). Se spread-ea en
- *  `dreams`, `pulse_signals` y `proposals` junto con `geoColumns`, por la
- *  misma razón: que las tres no puedan divergir.
+ *  `senales` junto con `geoColumns`, en la migración que crea la tabla.
  *
  *  Regla que gobierna todo lo de acá: lo que se guarda es lo PUBLICABLE. Lo
  *  que §2.6 no deja publicar no se guarda, igual que el punto crudo. Y lo hace
@@ -334,7 +380,7 @@ export const direccionColumns = {
   altura: integer('altura'),
 
   /** La unión discriminada de §2.5, verificada por CHECK. `sin_direccion` es
-   *  el default: toda fila anterior queda exactamente donde estaba. */
+   *  el default: una señal sin dirección nace válida. */
   direccionEstado: text('direccion_estado').notNull().default('sin_direccion'),
 
   /** El texto presentable, compuesto AL ESCRIBIR —y después de degradar,
@@ -351,13 +397,14 @@ export const direccionColumns = {
 } as const;
 ```
 
-Los CHECK, en la migración, sobre `dreams` — **idénticos sobre `pulse_signals` y `proposals`**:
+Los nueve CHECK, en `0015`, sobre `senales`:
+
 ```sql
 -- La unión discriminada, hecha cumplir por la base. Cada rama fija QUÉ columnas
 -- tienen que estar y cuáles faltar, y de paso cierra el dominio de
 -- `direccion_estado`: un valor desconocido no satisface ninguna rama y la fila
 -- se rechaza. Por eso no hay un CHECK de enum aparte.
-ALTER TABLE dreams ADD CONSTRAINT dreams_direccion_chk CHECK (
+ALTER TABLE senales ADD CONSTRAINT senales_direccion_chk CHECK (
      (direccion_estado = 'sin_direccion'
         AND calle_id IS NULL AND altura IS NULL AND direccion_texto IS NULL)
   OR (direccion_estado = 'calle'
@@ -367,42 +414,46 @@ ALTER TABLE dreams ADD CONSTRAINT dreams_direccion_chk CHECK (
   OR (direccion_estado = 'texto_libre'
         AND calle_id IS NULL AND altura IS NULL AND direccion_texto IS NOT NULL));
 
-ALTER TABLE dreams ADD CONSTRAINT dreams_direccion_origen_chk
+ALTER TABLE senales ADD CONSTRAINT senales_direccion_origen_chk
   CHECK (ubicacion_origen IN ('catalogo','punto','declarada','ninguna'));
-ALTER TABLE dreams ADD CONSTRAINT dreams_altura_chk
+ALTER TABLE senales ADD CONSTRAINT senales_altura_chk
   CHECK (altura IS NULL OR (altura > 0 AND altura < 1000000));
-ALTER TABLE dreams ADD CONSTRAINT dreams_direccion_texto_len_chk
+ALTER TABLE senales ADD CONSTRAINT senales_direccion_texto_len_chk
   CHECK (direccion_texto IS NULL OR length(direccion_texto) <= 120);
 
--- §2.6, hecho estructura. Las columnas de la regla y las de la dirección están
--- en la misma fila: la regla es expresable, así que va acá y no en un
--- comentario. La ingesta que se olvide de `ubicacionPublicable` falla el INSERT
--- en vez de filtrar en silencio.
-ALTER TABLE dreams ADD CONSTRAINT dreams_altura_punto_chk
+-- §2.6, hecho estructura. El piso por rol, que no depende del tipo y por lo
+-- tanto sí es expresable en SQL. La ingesta que se olvide de
+-- `ubicacionPublicable` falla el INSERT en vez de filtrar en silencio.
+ALTER TABLE senales ADD CONSTRAINT senales_altura_punto_chk
   CHECK (altura IS NULL OR lat IS NULL OR precision = 'exact');
-ALTER TABLE dreams ADD CONSTRAINT dreams_altura_rol_chk
-  CHECK (altura IS NULL OR location_role <> 'subject');
-ALTER TABLE dreams ADD CONSTRAINT dreams_texto_libre_rol_chk
-  CHECK (direccion_estado <> 'texto_libre' OR location_role <> 'subject');
-ALTER TABLE dreams ADD CONSTRAINT dreams_direccion_protegida_chk
+ALTER TABLE senales ADD CONSTRAINT senales_altura_rol_chk
+  CHECK (altura IS NULL OR location_role IN ('capture','meeting_point'));
+ALTER TABLE senales ADD CONSTRAINT senales_texto_libre_rol_chk
+  CHECK (direccion_estado <> 'texto_libre'
+         OR location_role IN ('capture','meeting_point'));
+ALTER TABLE senales ADD CONSTRAINT senales_direccion_protegida_chk
   CHECK (NOT (location_role = 'subject' AND sensitivity = 'high')
          OR direccion_estado = 'sin_direccion');
 
 -- §2.7: una fila con provincia tiene que decir de dónde salió, o el conjunto de
 -- D-011 queda incompleto sin que nada avise.
-ALTER TABLE dreams ADD CONSTRAINT dreams_origen_provincia_chk
+ALTER TABLE senales ADD CONSTRAINT senales_origen_provincia_chk
   CHECK (province_id IS NULL OR ubicacion_origen <> 'ninguna');
 
-CREATE INDEX dreams_calle_idx ON dreams (calle_id) WHERE calle_id IS NOT NULL;
+CREATE INDEX senales_calle_idx ON senales (calle_id) WHERE calle_id IS NOT NULL;
 ```
 
-Los defaults (`direccion_estado='sin_direccion'`, `ubicacion_origen='ninguna'`, el resto NULL) hacen verdadera la rama 1 para toda fila existente y para los dos writers actuales, que no insertan ninguna de estas columnas: la migración no puede fallar por datos. La única excepción es `dreams_origen_provincia_chk`, que sí toca filas viejas — las que hoy tienen `province_id` y nacerían con origen `'ninguna'`. **Por eso 0013 corre un `UPDATE ... SET ubicacion_origen = 'declarada' WHERE province_id IS NOT NULL` antes de agregar ese CHECK**: es lo que efectivamente pasó con esas filas.
+Los dos CHECK de rol subieron de fuerza al separarse los ejes: antes decían `location_role <> 'subject'` y ahora enumeran los dos roles que sí pueden llevar altura. Es la diferencia entre «no es una persona» y «es una cosa»: `service_area` no es ninguna de las dos y por eso caía en el medio.
+
+`senales` nace vacía, así que ningún CHECK puede fallar por datos: se descarta el `UPDATE ... SET ubicacion_origen = 'declarada' WHERE province_id IS NOT NULL` que este documento tenía escrito para las filas viejas de `dreams`.
 
 El techo de `altura < 1000000`: la numeración más alta del país está en cinco cifras (Rivadavia llega a ~11.500; las rutas numeradas por kilómetro, a decenas de miles). Seis cifras es generoso para una dirección real y caza un teléfono tipeado en el campo equivocado.
 
 ### 3.5 El presupuesto de bytes
 
-Techo duro de la rama: **512 MB**. Uso actual: **38 MB**. **`geo_calles`, heap.** Ancho de fila con las reglas de alineación de Postgres (MAXALIGN 8, varlena con cabecera corta de 1 byte para textos < 127 bytes):
+**Qué es el techo, dicho con precisión.** Los 512 MB son el límite del **plan free de Neon**, no una restricción de diseño: la organización está hoy en ese plan y por eso el número manda. Lo que esta sección entrega es **un renglón medido**, no un veredicto: el conjunto —callejero + señales + rastro— lo cierra `docs/specs/2026-08-11-c-la-corroboracion.md` §3.7 antes de escribir una línea de `rastro_senal`, y con ese número en la mano se decide si se paga el plan o si se diseña para caber. Lo que no se hace es descubrirlo con la base llena.
+
+Uso actual: **38 MB**. **`geo_calles`, heap.** Ancho de fila con las reglas de alineación de Postgres (MAXALIGN 8, varlena con cabecera corta de 1 byte para textos < 127 bytes):
 
 | campo | bytes | de dónde sale |
 |---|---:|---|
@@ -443,21 +494,20 @@ Los 18 caracteres de nombre promedio son una **estimación** apoyada en los cuat
 | `geo_calles` GIN trigram | 45 |
 | `geographic_locations` a 21.345 filas (3,1 heap + 4 índices) | 8 |
 | `geo_seed_progreso`, `geo_calle_categorias`, `geo_catalogo_version` | <1 |
-| **total** | **201** |
-| **techo** | **512** |
-| **holgura** | **311** |
+| **total del renglón de A** | **201** |
+| **incremental sobre hoy** | **163** |
 
-**201 MB, contra un límite de rediseño de 250.** Pasa, con 49 MB de margen; los dos índices que esta revisión agregó (`departamento_id`, y el `nombre_norm` de `provincia_id`) valen 20 de esos MB y compran no hacer seq scan de 326.832 filas en un endpoint público sin auth. **El número que importa después.** Las columnas de dirección le agregan a cada señal 4 (`calle_id`) + 4 (`altura`) + 15 (`direccion_estado`) + 56 (`direccion_texto`, 55 caracteres promedio y ahora con tope de 120 hecho cumplir) + 10 (`ubicacion_origen`) ≈ **90 bytes**, más ~28 de índice sobre `calle_id` cuando no es nulo. Con una fila de señal completa del orden de 400 bytes, la rama se llena alrededor de las **850.000 señales**. Ese es el disparador de la próxima decisión de almacenamiento, escrito acá para verlo venir en vez de descubrirlo.
+**163 MB de incremental, contra un límite de rediseño propio de 250.** Los dos índices que esta revisión agregó (`departamento_id`, y el `nombre_norm` de `provincia_id`) valen 20 de esos MB y compran no hacer seq scan de 326.832 filas en un endpoint público sin auth. **El número que le sigue, y que va a la suma conjunta:** las columnas de dirección le agregan a cada fila de `senales` 4 (`calle_id`) + 4 (`altura`) + 15 (`direccion_estado`) + 56 (`direccion_texto`, 55 caracteres promedio con tope de 120 hecho cumplir) + 10 (`ubicacion_origen`) ≈ **90 bytes**, más ~28 de índice sobre `calle_id` cuando no es nulo. Ese número entra en la cuenta de C junto con la fila base de la señal y el rastro; **no se divide 512 por 90 acá**, porque el techo no es de esta spec sola y hacerlo daría un número tranquilizador y falso.
 
 **El pico durante el seed, que es el riesgo real.** Cargar heap e índices genera WAL con imágenes de página completa, y Neon cuenta el historial de la ventana de retención contra el almacenamiento de la rama. Cuatro cosas lo protegen, las cuatro obligatorias:
-1. **El staging es `UNLOGGED`.** `CREATE UNLOGGED TABLE geo_calles_stage (LIKE geo_calles INCLUDING DEFAULTS)`, `COPY` adentro, y de ahí el `INSERT ... SELECT ... ON CONFLICT` a la tabla real (§4.7). Una staging logueada re-escribiría ~48 MB de WAL en cada re-corrida: justo el costo que el punto 4 dice haber eliminado.
-2. **Los tres btree compuestos se construyen después de la carga.** El único índice que existe durante el seed es el UNIQUE de `georef_id`, porque el `ON CONFLICT` lo necesita. Mantener cinco índices fila por fila sobre 326.832 filas multiplica el WAL y el tiempo.
-3. **El GIN va en otra corrida** (§3.2), así que su WAL no se suma al del seed. Con esa partición: pico del seed ≈ 155 de almacenamiento + ~182 de WAL = **337 MB**; pico del GIN ≈ 200 + ~90 = **290 MB**. Los dos bien bajo 512. Juntos serían ~471, con el margen en 41 MB.
-4. **Un re-seed sin cambios escribe cero filas.** El `ON CONFLICT DO UPDATE ... WHERE` de §4.7 lo garantiza; sin esa cláusula, cada re-corrida duplicaría el WAL y con él el almacenamiento.
+1. **El staging es `UNLOGGED`.** `CREATE UNLOGGED TABLE geo_calles_stage (LIKE geo_calles INCLUDING DEFAULTS)`, `COPY` adentro, y de ahí el `INSERT ... SELECT ... ON CONFLICT` a la tabla real (§4.7). Una staging logueada re-escribiría ~48 MB de WAL en cada re-corrida.
+2. **Los tres btree compuestos se construyen después de la carga.** El único índice que existe durante el seed es el UNIQUE de `georef_id`, porque el `ON CONFLICT` lo necesita.
+3. **El GIN va en otra corrida** (§3.2), así que su WAL no se suma al del seed. Con esa partición: pico del seed ≈ 155 de almacenamiento + ~182 de WAL = **337 MB**; pico del GIN ≈ 200 + ~90 = **290 MB**. Juntos serían ~471, con el margen en 41 MB.
+4. **Un re-seed sin cambios escribe cero filas.** El `ON CONFLICT DO UPDATE ... WHERE` de §4.7 lo garantiza.
 
 ### 3.6 Lo que NO se guarda
 
-**La traza de las calles.** No entra ninguna geometría de calle (razones en §2.4). Costo de traerla más adelante, para que la decisión futura tenga número: 326.832 polilíneas de ~8 vértices, como pares de coordenadas más un bounding box indexable, ≈ 200 bytes/fila → **65 MB de heap + ~25 de índice = 90 MB**, en una tabla lateral `geo_calles_traza` con `calle_id` como PK. Entra en el presupuesto (201 + 90 = 291) pero pide una fuente que no es georef y probablemente PostGIS, que es dependencia pesada y por lo tanto un ADR.
+**La traza de las calles.** No entra ninguna geometría de calle (razones en §2.4). Costo de traerla más adelante, para que la decisión futura tenga número: 326.832 polilíneas de ~8 vértices, como pares de coordenadas más un bounding box indexable, ≈ 200 bytes/fila → **65 MB de heap + ~25 de índice = 90 MB**, en una tabla lateral `geo_calles_traza` con `calle_id` como PK. Pide una fuente que no es georef y probablemente PostGIS, que es dependencia pesada y por lo tanto un ADR.
 
 **La geometría de departamentos y municipios.** Tampoco entra, y su costo no es de base sino de bundle: `provincias.generated.ts` son 18.310 bytes para 684 vértices, o sea **27 bytes por vértice**. Un layer de departamentos usable (529 × ~60 vértices) son ~860 KB de TS generado; municipios (2.082 × ~40), ~2,2 MB. Eso es D-004 y D-005, y sigue siendo de ellos (§7.4).
 
@@ -553,9 +603,11 @@ La regla 1 es «offline-first, nunca offline-only» y la decisión 1 pide autoco
 | `localidad/:id` | 81 calles ≈ 4 KB crudos | Córdoba capital, **8.542 calles** ≈ 427 KB crudos, **~107 KB gzip** |
 | `departamento/:id` | 618 calles ≈ 31 KB crudos, ~8 KB gzip | departamento Capital de Córdoba: las mismas 8.542, ~107 KB gzip |
 
-El peor caso no es CABA. Verificado en esta revisión contra la API: CABA es una sola localidad censal (`02000010`) con **3.127** calles (~39 KB gzip), y **Córdoba capital (`14014010`) tiene 8.542** — 2,7× más. Con 107 KB gzip para el peor caso del país, la regla 10 sigue cumplida por un orden de magnitud, pero el número del documento anterior estaba corto y ahora no lo está.
+El peor caso no es CABA. Verificado contra la API: CABA es una sola localidad censal (`02000010`) con **3.127** calles (~39 KB gzip), y **Córdoba capital (`14014010`) tiene 8.542** — 2,7× más. Con 107 KB gzip para el peor caso del país, la regla 10 sigue cumplida por un orden de magnitud.
 
-**Un `settlement` no tiene paquete propio y resuelve a su localidad ancestro** por `parent_id` (§3.1); los que BAHRA deja sin localidad cuelgan del departamento y resuelven a su paquete. Y la `corrida` va en la ruta, con el paquete servido `immutable` (§4.1): el teléfono compara su `corrida` contra la de `/version`, que responde `no-cache`, y baja de nuevo solo cuando cambió. Es más barato y más honesto que revalidar cada paquete.
+**Un `settlement` no tiene paquete propio y resuelve a su localidad ancestro** por `parent_id` (§3.1); los que BAHRA deja sin localidad cuelgan del departamento y resuelven a su paquete. Y la `corrida` va en la ruta, con el paquete servido `immutable` (§4.1): el teléfono compara su `corrida` contra la de `/version`, que responde `no-cache`, y baja de nuevo solo cuando cambió.
+
+**El cliente de estos dos endpoints lo escribe B** (`b-la-senal.md`, la rebanada de `apps/mobile`): es el único momento en que alguien toca la app de campo en serio, y sin él la decisión 1 del proyecto queda sin implementación. Se descartó asignárselo a C, que no toca el móvil. Hasta entonces el único llamador es el test de integración de §8.4, y se dice acá en vez de dejarlo implícito.
 
 ### 4.4 La resolución al escribir
 
@@ -610,16 +662,19 @@ La tabla completa, con `AV JUAN BAUTISTA ALBERDI` (`parcialHasta: 3200`) verific
 | `parcialDesde` 801 | 5000 | `altura_sin_rango` | no se sabe dónde termina |
 | `ausente` | cualquiera | `altura_sin_rango` | Córdoba entera |
 
-**El orden es obligatorio y va numerado, porque invertirlo anula §2.6 con una columna de texto:** si el texto se compusiera primero, la fila quedaría con `altura IS NULL` y con «AV JOSE MARIA MORENO 1450» adentro de `direccion_texto`, que sale por `GET /api/open-data/dreams` y por el volcado de la spec D.
+**El orden es obligatorio y va numerado, porque invertirlo anula §2.6 con una columna de texto:** si el texto se compusiera primero, la fila quedaría con `altura IS NULL` y con «AV JOSE MARIA MORENO 1450» adentro de `direccion_texto`, que sale por la API pública y por el volcado de D. Los CHECK no lo cazan —`direccion_texto` es texto libre con tope de largo—, y por eso **es la única parte de §2.6 que la base no puede defender sola.**
 1. `resolverUbicacion` (§4.4) → jerarquía + origen.
 2. `prepareRecordLocation` **sin `locationLabel`** → punto publicado + `PublishedPrecisionResult`.
 3. `ubicacionPublicable(...)` → la dirección y la jerarquía ya degradadas.
 4. `componerDireccion(...)` **sobre lo que salió del paso 3** → `direccion_texto`.
 5. `normalizedLocationLabel(direccionTexto)` → la etiqueta de la fila. Es la misma función que usa `prepareRecordLocation`, así que columna y etiqueta no pueden divergir.
 
+**Esta secuencia es obligación de `b-la-senal.md` §4.7**, que es donde vive la ingesta única. Se descartó especificarla contra `capturas.ts` y `open-data/routes.ts`: B los reemplaza por `POST /api/v1/civic/senales` y una secuencia escrita contra dos endpoints que se apagan no protege el que queda.
+
 `ubicacionPublicable` **no recibe ni devuelve el texto**, y esa es la parte del diseño que hace el error inexpresable:
 ```ts
 export function ubicacionPublicable(input: {
+  tipo: TipoDeSenal;                     // el techo de §2.6, vía `direccionPermitida`
   direccion: { calleId: number | null; altura: number | null; textoLibre: string | null };
   rango: RangoDeAltura;
   jerarquia: { cityId: number | null; departmentId: number | null };
@@ -631,12 +686,14 @@ export function ubicacionPublicable(input: {
       retirado: string | null };
 ```
 
-Implementa la tabla de §2.6 y es **total sobre los seis estados y las seis precisiones**. Tres cosas que la versión anterior hacía mal y acá no:
-- **Se llavea en el rol y en `coarsenedBecause`, no en `LocationPrecision`.** Una precisión gruesa porque no hay punto no es lo mismo que una gruesa porque corrió la protección, y `PublishedPrecisionResult` ya trae el campo que las distingue.
+Implementa la tabla de §2.6 y es **total sobre los seis estados, las seis precisiones, los cuatro roles y los nueve tipos**. Tres cosas que la hacen distinta de un `if` suelto:
+- **Se llavea en `direccionPermitida` y en `coarsenedBecause`, no en `LocationPrecision`.** Una precisión gruesa porque no hay punto no es lo mismo que una gruesa porque corrió la protección, y `PublishedPrecisionResult` ya trae el campo que las distingue.
 - **`city_id` es su salida también.** Cuando corrió la protección, la localidad se retira y queda el departamento (§3.1 lo desnormaliza en la fila: es leer un campo). Publicar el paraje exacto al lado de un punto engrosado a 500 m es la misma fuga por el otro flanco, y `city_id` es público desde que `CivicMapRepository` lo devuelve.
-- **`texto_libre` tiene rama.** Con rol `subject` no se guarda; con protección corrida tampoco. Y no deja rastro, igual que la altura.
+- **`texto_libre` tiene rama.** Solo sobrevive con `capture` o `meeting_point` y techo `completa`. Y no deja rastro, igual que la altura.
 
-**Y se puede olvidar.** La regla 9 pide consentimiento comprensible **y revocable**, y hasta esta revisión la spec entregaba solo la primera mitad sobre el dato más sensible que la plataforma guardó nunca. `olvidarDireccion(db, tabla, id)` es **una sola sentencia**: `SET direccion_estado='sin_direccion', calle_id=NULL, altura=NULL, direccion_texto=NULL`. Una sola transición, y el CHECK de §3.4 garantiza que esa es la **única forma legal** de la fila después — no queda residuo en una columna que la función olvidó. La superficie es `DELETE /api/v1/geo/direccion/:tabla/:id?c=<código>`, con el código un HMAC del id contra el secreto del servidor: cero columnas nuevas, sin cuenta, y solo lo tiene quien recibió el recibo. Su límite se dice en vez de disimularse: **el código vive en el recibo y no se regenera.** Con ingesta anónima no hay a quién probarle que la señal es suya; esto es lo más revocable que una ingesta sin cuentas puede ser.
+**`TipoDeSenal` lo declara B** (`b-la-senal.md` §3.1). A escribe `direccionPermitida` y su tabla de nueve entradas hoy, declarada con `satisfies Record<string, PermisoDireccion>` y **sin exportar** (se lee con `techoDeTipo`); cuando B declara el union, la guarda de exhaustividad entra y un tipo décimo sin fila no compila. Es la misma partición A-define/B-aplica de §3.4.
+
+**Y se puede olvidar.** La regla 9 pide consentimiento comprensible **y revocable**, y sobre el dato más sensible que la plataforma guardó nunca hacen falta las dos mitades. `olvidarDireccion(db, idPublico)` es **una sola sentencia**: `SET direccion_estado='sin_direccion', calle_id=NULL, altura=NULL, direccion_texto=NULL`. Una sola transición, y el CHECK de §3.4 garantiza que esa es la **única forma legal** de la fila después — no queda residuo en una columna que la función olvidó. La superficie es `DELETE /api/v1/geo/direccion/:idPublico?c=<código>`, con el código un HMAC del id contra el secreto del servidor: cero columnas nuevas, sin cuenta, y solo lo tiene quien recibió el recibo. Su límite se dice en vez de disimularse: **el código vive en el recibo y no se regenera.** Es la mitad de dirección del retiro que B construye para el texto (`estado = 'retirada'`) y C para el actor (vaciar `actor_hash`): tres verbos sobre tres objetos, ninguno sustituye a otro.
 
 ### 4.6 Casos límite
 
@@ -649,10 +706,11 @@ Implementa la tabla de §2.6 y es **total sobre los seis estados y las seis prec
 | la calle elegida pertenece a otra localidad que la declarada | **gana el catálogo**. El select es una comodidad de UI; la pertenencia es del Estado. El recibo lo dice |
 | la calle elegida contradice el **punto** | se guarda con `origen: 'catalogo'` y `discrepancia` puesta; el recibo dice «el punto que marcaste no cae en la provincia de esa calle» |
 | dos calles con el mismo nombre en el scope | las dos vuelven, con su `nomenclatura` completa. La persona elige. Nunca se resuelve sola |
-| el texto no matchea ninguna calle | `texto_libre`, íntegro (tope 120), **salvo rol `subject`**: ahí no se guarda y el recibo ofrece elegir una calle o cargar sin dirección |
-| la calle referida dejó de estar en georef | `vigente_hasta` seteado, la fila sigue, la FK no cuelga. Por eso el catálogo no borra |
-| **señal con dirección y sin punto** | **válida, y conserva la dirección entera.** `lat`/`lng` en NULL; `precision` describe un punto que no existe y no gobierna nada; la dirección se gobierna sola por rol y sensibilidad (§2.6, última fila) |
+| altura o texto libre en un tipo de techo `solo_calle` (`saber`, `sueño`, `propuesta`, `pregunta`, `necesidad`) | se guarda `calle`, sin altura y sin texto libre. El recibo dice qué se retiró y por qué |
+| texto libre con rol `subject` o `service_area` | no se guarda; el recibo ofrece elegir una calle o cargar sin dirección |
+| **señal con dirección y sin punto** | **válida, y conserva lo que su tipo permita.** `lat`/`lng` en NULL; `precision` describe un punto que no existe y no gobierna nada; la dirección se gobierna sola por tipo, rol y sensibilidad (§2.6) |
 | señal con punto y sin dirección | válida. Es todo lo que existe hoy |
+| la calle referida dejó de estar en georef | `vigente_hasta` seteado, la fila sigue, la FK no cuelga. Por eso el catálogo no borra |
 | `q` con tildes, minúsculas o `%` | el mismo normalizador de los dos lados; los metacaracteres se eliminan antes del `LIKE`: «josé maría moreno» encuentra `JOSE MARIA MORENO`. Y `limite=100000` da 400: el servidor topea en 50 y pone `LIMIT` aunque el cliente no mande nada |
 
 ### 4.7 El seed
@@ -688,7 +746,7 @@ CREATE TABLE geo_seed_progreso (
 - **Las desapariciones no borran.** Una calle que georef dejó de listar recibe `vigente_hasta = now()`. Que el Estado deje de listarla no la hace desaparecer del barrio, y puede haber señales apuntando: por eso la FK nunca cuelga y no necesita `ON DELETE SET NULL`.
 - **El orden es obligatorio:** provincias → departamentos → municipios → localidades censales → asentamientos → calles; las FK no dejan otra. La **fase 1 son las 24 provincias** con la sentencia de `nextval` de §3.1, y `seed-provinces.ts` deja de ser un script suelto. Los tres btree compuestos se crean al final; el GIN, en otra corrida (§3.5).
 
-**La versión del catálogo**, que es lo que citan `/api/v1/geo/version` y la descarga de la spec D:
+**La versión del catálogo**, que es lo que citan `/api/v1/geo/version` y el volcado de la spec D:
 
 ```sql
 CREATE TABLE geo_catalogo_version (
@@ -712,44 +770,38 @@ La corrida nueva se marca vigente al final, en la misma transacción que cierra 
 
 ## §5 Lo que se rompe
 
-Archivo por archivo, con lo que hay que tocar.
+Archivo por archivo, con lo que hay que tocar. **Todo lo de acá entra en las migraciones `0013` y `0014` y no toca ninguna tabla de señal:** las cinco columnas de dirección y sus nueve CHECK se definen en `_geo-columns.ts` y los aplica B en `0015` (§3.4).
 
 | archivo | qué cambia |
 |---|---|
 | `packages/db/src/schema/geographic.ts` | `provinceId: serial('province_id')` → `integer` notNull con self-FK (línea 31). Columnas nuevas `georefId`, `parentId`, `departmentId`, `municipalityId`, `nameNorm`, `vigenteHasta`. Se cae `uniqueIndex('geographic_locations_level_name_unique')` (línea 40), entra el unique sobre `georef_id`. **Las cuatro FK auto-referenciales no compilan sin anotar el callback**: con `strict: true` TypeScript rechaza la inferencia circular (TS7022/7023), y `no-explicit-any` cierra la salida fácil. Hay que importar `type AnyPgColumn` de `drizzle-orm/pg-core` y escribir `.references((): AnyPgColumn => geographicLocations.id)` en las cuatro. No hay un solo precedente en el repo: éste es el molde |
 | `packages/db/src/schema/geo-calles.ts` · `geo-seed.ts` | **nuevos.** `geoCalles`, `geoCalleCategorias`, `geoSeedProgreso`, `geoCatalogoVersion`, y `schema/index.ts` los exporta |
-| `packages/db/src/schema/_geo-columns.ts` | `direccionColumns` nuevo, al lado de `geoColumns`. El comentario de `cityColumn` (líneas 41-48) se actualiza: `city_id` apunta a `level='locality'` o `'settlement'`, ahora **sí** tiene writer, y es ubicación publicada que `ubicacionPublicable` gobierna |
-| `packages/db/src/schema/dreams.ts` · `pulso.ts` | spread de `direccionColumns` en `dreams`, `pulseSignals` y `proposals`; índice parcial sobre `calle_id`; los CHECK de §3.4 declarados con `check()` de `drizzle-orm/pg-core` (verificado: 0.36.4 lo exporta) para que el snapshot de `migrations/meta/` los conozca |
+| `packages/db/src/schema/_geo-columns.ts` | `direccionColumns` nuevo, al lado de `geoColumns`, **exportado y sin consumidor hasta `0015`**. El comentario de `cityColumn` (líneas 41-48) se actualiza: `city_id` apunta a `level='locality'` o `'settlement'`, y es ubicación publicada que `ubicacionPublicable` gobierna |
 | `packages/db/src/repositories/geographic.ts` | `findCity` filtra `level='city'`, valor que el CHECK nuevo vuelve imposible: pasa a `findLocalidad`, con `level IN ('locality','settlement')` **y** `name_norm` con igualdad exacta. `findProvinceByName` (líneas 37-45) matchea `name` con tildes apoyado en el índice que §3.1 dropea: pasa a `name_norm`, con la MISMA función que escribió la columna, y usa `(level, name_norm)`. Si no, es seq scan sobre 21.345 filas en cada escritura que resuelve provincia — o sea en el camino que cerró D-001. `normalizeProvinceName` queda como **tabla de alias** («CABA» → el nombre canónico) POR ENCIMA del normalizador, nunca como un segundo normalizador. `upsertLocation` **se llama upsert y es un INSERT pelado**: pasa a `ON CONFLICT (georef_id) DO UPDATE`. Métodos nuevos: `listChildren`, `findByGeorefId`, `resolveAncestors` |
 | `packages/db/src/repositories/geo-calles.ts` | **nuevo.** `buscarCalles`, `porId`, `paqueteDeLocalidad`, `paqueteDeDepartamento`, `upsertLote` |
-| `packages/db/src/repositories/civic-map.ts` · `apps/web/src/lib/queries/civic-map.ts` | `SenalMapa` gana `direccion: DireccionDeSenal` de los dos lados (repo y tipo del cliente, línea 26). Los tres `select` suman las columnas nuevas |
 | `packages/db/scripts/seed-provinces.ts` | el `values({...})` de las líneas 69-75 se reemplaza por la sentencia con `nextval` de §3.1 (`province_id` es NOT NULL sin default: el insert de hoy fallaría), y suma `georefId` y `nameNorm`. Pasa a ser la fase 1 de `seed-callejero.ts` |
 | `packages/db/scripts/seed-callejero.ts` | **nuevo.** §4.7 |
-| `packages/db/migrations/0013_*.sql` + `meta/_journal.json` | reparación de `province_id`, columnas, CHECKs y el `UPDATE` de `ubicacion_origen`. **La receta importa:** `pnpm --filter @v2/db db:generate` para columnas y tablas nuevas, después editar a mano el archivo generado para meterle el bloque de reparación de §3.1. Un `.sql` dejado en la carpeta **sin entrada en el journal nunca se aplica y no avisa** — `migrate.ts` usa el `migrate()` de drizzle, que lee el journal. Y drizzle-kit no genera la mitad interesante: sobre `serial → integer` emite un `SET DATA TYPE` y deja secuencia y default en pie |
+| `packages/db/migrations/0013_*.sql` + `meta/_journal.json` | reparación de `province_id`, columnas nuevas, CHECK de nivel, las cuatro tablas del catálogo. **La receta importa:** `pnpm --filter @v2/db db:generate` para columnas y tablas nuevas, después editar a mano el archivo generado para meterle el bloque de reparación de §3.1. Un `.sql` dejado en la carpeta **sin entrada en el journal nunca se aplica y no avisa** — `migrate.ts` usa el `migrate()` de drizzle, que lee el journal. Y drizzle-kit no genera la mitad interesante: sobre `serial → integer` emite un `SET DATA TYPE` y deja secuencia y default en pie |
 | `packages/db/migrations/0014_*.sql` | `CREATE EXTENSION pg_trgm` + el índice GIN. Se genera con `drizzle-kit generate --custom` para que obtenga su entrada en el journal. Corrida aparte de la del seed (§3.5) |
-| `packages/civic-core/src/direcciones.ts` | **nuevo.** `normalizarNombreDeCalle`, `normalizarNombreDeLugar`, `RangoDeAltura`, `clasificarAltura`, `componerDireccion`, `DireccionDeSenal`, `ubicacionPublicable`, `etiquetaDeDireccion`; `civic-core/src/index.ts` lo reexporta |
-| `apps/api/src/features/geo/{routes,service,validation,resolver}.ts` | **nuevo.** §4.1, §4.4 y el `DELETE /direccion/:tabla/:id` de §4.5; se monta en `app.ts` con `app.use('/api/v1/geo', geoRouter)` |
-| `apps/api/src/features/geographic/provincias.ts` · `backfill-provincias.ts` | `provinciaIdDePunto` (línea 46) se queda tal cual y gana un llamador nuevo; su comentario de cabecera se amplía, porque la resolución por punto ahora es la **última** opción y no la única. El backfill, además de `province_id`, escribe `ubicacion_origen = 'punto'`, para que el conjunto de D-011 quede marcado también hacia atrás |
-| `apps/api/src/features/civic-map/capturas.ts` | reemplaza el `provinciaIdDePunto` de la línea 94 por `resolverUbicacion`; acepta `calleId` y `altura`; corre la secuencia numerada de §4.5; el `ReciboCaptura` gana `direccion: { estado, texto, etiqueta, retirado, codigoDeOlvido }` |
-| `apps/api/src/features/open-data/routes.ts` | `POST /dreams` (línea 86) **por fin deriva provincia del punto** —la otra mitad de D-001— vía `resolverUbicacion`, acepta la dirección, y **empieza a exigir `locationRole` y `sensitivity`** cuando el payload trae dirección: el default `subject`/`low` de hoy es lo que dejaba la compuerta abierta (§1.5). `GET /dreams` (línea 55) devuelve `direccion` |
-| `apps/web/src/pages/ElMapa/lienzo/precision.ts` | `etiquetaDePrecision` se acompaña de `etiquetaDeDireccion` (§6, regla 4): la fila que dice «AV MORENO 1450» dice al lado en qué estado quedó esa altura, **sin usar la palabra de la regla 4** |
-| `apps/web/src/pages/ElMapa/sections/PanelSoltarVoz.tsx` | el selector de calle, con el kit que ya existe, y —prerrequisito de que ese campo se encienda— manda `locationRole` y `sensitivity` reales, preguntados en castellano (§6, regla 9) |
+| `packages/civic-core/src/direcciones.ts` | **nuevo.** `normalizarNombreDeCalle`, `normalizarNombreDeLugar`, `RangoDeAltura`, `clasificarAltura`, `PermisoDireccion`, **`direccionPermitida(tipo, role, sensitivity)`**, `techoDeTipo`, `TIPOS_CON_TECHO_DE_DIRECCION`, `permisoMasRestrictivo`, `componerDireccion`, `direccionSinAltura`, `DireccionDeSenal`, `ubicacionPublicable`, `etiquetaDeDireccion`; `civic-core/src/index.ts` lo reexporta. **El piso por rol y la tabla de techos por tipo NO se exportan** (§2.6) |
+| `apps/api/src/features/geo/{routes,service,validation,resolver}.ts` | **nuevo.** §4.1, §4.4 y el `DELETE /direccion/:idPublico` de §4.5; se monta en `app.ts` con `app.use('/api/v1/geo', geoRouter)` |
+| `apps/api/src/features/geographic/provincias.ts` · `backfill-provincias.ts` | `provinciaIdDePunto` (línea 46) se queda tal cual y gana un llamador nuevo; su comentario de cabecera se amplía, porque la resolución por punto ahora es la **última** opción y no la única. El backfill, además de `province_id`, escribe `ubicacion_origen = 'punto'` cuando esa columna exista, para que el conjunto de D-011 quede marcado también hacia atrás |
 
-**Lo que NO se rompe, y es la mitad del argumento de §2.1:** ninguna de las nueve columnas que apuntan a `geographic_locations.id` cambia de tipo ni de destino. **Y lo que queda sin writer, dicho en voz alta para no repetir el defecto de §1.3:** `direccionColumns` se spread-ea en las tres tablas de señal por paridad de forma —el argumento entero de `_geo-columns.ts` es que las tres no puedan divergir— pero el resolvedor se cablea en dos endpoints y los dos escriben `dreams`. `apps/api/src/features/pulso/routes.ts`, el único writer de `pulse_signals` y de `proposals`, **no se toca**: `POST /api/pulso` y `POST /api/propuestas` no tienen un solo cliente en v2, y cablear un resolvedor en un endpoint que nadie llama es trabajo sin destino. Consecuencia: `SenalMapa.direccion` devuelve `sin_direccion` para dos de las cuatro capas hasta que B o C les den ingesta. Va a `docs/DEUDAS.md` como **D-035**, con id propio, en vez de quedar como una sorpresa para el que venga después.
+**Lo que NO se rompe, y es la mitad del argumento de §2.1:** ninguna columna que apunta a `geographic_locations.id` cambia de tipo ni de destino.
+
+**Y lo que esta spec deja sin cablear, dicho en voz alta para no repetir el defecto de §1.3:** `resolverUbicacion`, `ubicacionPublicable`, `direccionPermitida` y los dos paquetes offline salen sin llamador de producción. No es descuido: la ingesta única es de B, y encender un campo de dirección sobre una ingesta que defaultea `subject`/`low` (§1.5) sería exactamente el daño que §2.6 existe para impedir. El selector de calle de `PanelSoltarVoz.tsx` y la columna `direccion` de `SenalMapa` entran con B, en la misma rebanada que la pregunta en castellano. Las obligaciones están en §7.1.
 
 ---
 
 ## §6 Contra la Constitución
 
-**Regla 1 — «Offline-first, nunca offline-only.»** El callejero se espeja localmente (decisión 1) y se reparte por paquete de localidad **y de departamento** (§4.3), para que la superficie offline no sea más angosta que la online: 107 KB gzip para el peor caso del país, verificado. El normalizador vive en civic-core, que no toca red ni disco, así que corre igual en Hermes. Georef no está en el camino de captura, ni siquiera con red.
+**Regla 1 — «Offline-first, nunca offline-only.»** El callejero se espeja localmente (decisión 1) y se reparte por paquete de localidad **y de departamento** (§4.3), para que la superficie offline no sea más angosta que la online: 107 KB gzip para el peor caso del país, verificado. El normalizador vive en civic-core, que no toca red ni disco, así que corre igual en Hermes. Georef no está en el camino de captura, ni siquiera con red. **La regla queda cumplida del lado del servidor acá y del lado del teléfono cuando B escriba el cliente** (§7.1): mientras tanto se dice, no se supone.
 
-**Regla 2 — «La ubicación exacta es privada por defecto; lo público usa precisión reducida.»** Es la regla que esta spec pone más en riesgo, y hay que empezar por lo incómodo: **hoy el default es lo contrario de lo que la regla dice.** `publishedPrecision` solo engrosa con `role='subject' && sensitivity='high'`, y la superficie de carga más usada no manda ninguno de los dos (§1.5): toda voz web es `subject`/`low` y la protección nunca dispara. Citar esa función como si fuera restrictiva sería citar código que no se ejecuta.
+**Regla 2 — «La ubicación exacta es privada por defecto; lo público usa precisión reducida.»** Es la regla que esta spec pone más en riesgo, y hay que empezar por lo incómodo: **hoy el default es lo contrario de lo que la regla dice.** `publishedPrecision` solo engrosa con `role='subject' && sensitivity='high'`, y la superficie de carga más usada no manda ninguno de los dos (§1.5). Citar esa función como si fuera restrictiva sería citar código que no se ejecuta.
 
-Esta spec cierra la compuerta en tres lugares a la vez, para que no dependa de que nadie se acuerde. **En el eje:** §2.6 se llavea en el **rol** —que la ingesta deriva del tipo, no la persona— y no en `sensitivity`, que la declara el cliente; rol `subject` no lleva altura ni `texto_libre`, cualquiera sea la sensibilidad. **En la base:** los CHECK de §3.4 son la regla entera, sobre columnas de la misma fila, así que una ingesta que se olvide de `ubicacionPublicable` **falla el INSERT** — no hay versión silenciosa del error. **En la ingesta:** `POST /api/open-data/dreams` deja de defaultear rol y sensibilidad cuando el payload trae dirección, y el panel web tiene que mandarlos de verdad antes de que el campo se encienda (§5, §7.1).
+Esta spec cierra la compuerta en tres lugares a la vez, para que no dependa de que nadie se acuerde. **En el eje:** la dirección tiene función propia, `direccionPermitida` (§2.6), con techo por tipo y piso por rol — de modo que un `saber` o un `sueño`, que no son `subject` y por lo tanto nunca se engrosan, tampoco puedan llevar altura ni texto libre. **En la base:** los nueve CHECK de §3.4 son el piso entero, sobre columnas de la misma fila, así que una ingesta que se olvide de `ubicacionPublicable` **falla el INSERT**. **En la ingesta:** la pregunta por el rol y la sensibilidad se hace de verdad y en castellano antes de que el campo de dirección exista (§7.1). Y lo que no se publica no se guarda: `prepareRecordLocation` sigue siendo el único dueño de la decisión sobre el punto, y `ubicacionPublicable` es su par para la dirección y para `city_id`.
 
-Y lo que no se publica no se guarda, igual que el punto crudo. `prepareRecordLocation` sigue siendo el único dueño de la decisión sobre el punto; `ubicacionPublicable` es su par para la dirección y para `city_id`, y recibe su resultado entero en vez de una etiqueta.
-
-**Regla 4 — «Una señal siempre muestra su estado de calidad.»** El estado de la dirección **no es** el estado de calidad de la señal. Son dos ejes: uno dice hasta dónde se pudo verificar la ubicación contra el catálogo del Estado, el otro dice si la señal fue corroborada por gente. Confundirlos sería fusionar «la altura no se pudo confirmar» con «nadie corroboró esto». La máquina de la regla 4 le corresponde a la spec B — pero **como A sale antes que B, A escribe ya el texto de pantalla y prohíbe la palabra**: durante esa ventana la única etiqueta con pinta de estado en una fila va a ser la de la dirección, y si dijera «confirmada», quien la lea entendería que alguien corroboró la señal, cuando lo único que pasó es que un número cayó dentro de un rango del INDEC. `etiquetaDeDireccion` devuelve, y no puede contener «confirmada», «confirmado» ni «verificada»:
+**Regla 4 — «Una señal siempre muestra su estado de calidad.»** El estado de la dirección **no es** el estado de calidad de la señal. Son dos ejes: uno dice hasta dónde se pudo verificar la ubicación contra el catálogo del Estado, el otro si la señal fue corroborada por gente. Confundirlos sería fusionar «la altura no se pudo confirmar» con «nadie corroboró esto». La máquina de la regla 4 es de B y de C — pero **A escribe ya el texto de pantalla y prohíbe la palabra**, porque `etiquetaDeDireccion` va a convivir con el chip de estado y una etiqueta que dijera «confirmada» haría entender que alguien corroboró la señal, cuando lo único que pasó es que un número cayó dentro de un rango del INDEC. Devuelve, y no puede contener «confirmada», «confirmado» ni «verificada»:
 
 | estado | etiqueta |
 |---|---|
@@ -765,57 +817,68 @@ Y lo que no se publica no se guarda, igual que el punto crudo. `prepareRecordLoc
 
 **Regla 7 — «No hay ranking público individual ni puntaje ideológico.»** Esta spec no crea ningún ranking. Habilita **uno**, el municipal de la Simulación (§7.4), con dos condiciones nombradas y no opcionales, porque con 2.082 municipios y las tablas cívicas en cero la cabeza de ese ranking sería un municipio donde habló una sola persona — o sea una etiqueta territorial alrededor de un individuo, que es la regla 7 por la puerta de atrás.
 
-**Regla 9 — «Consentimiento comprensible y revocable.»** Las dos mitades, no una. *Comprensible:* el recibo de captura ya existe (`ReciboCaptura` con `precisionPublicada` y `engrosado`) y gana la dirección, en castellano y sin eufemismos: *«Confirmamos la calle. La altura no la pudimos confirmar: el Estado no publica el rango de numeración de esta calle.»* Y cuando §2.6 se lleva algo: *«No publicamos la altura: esta señal habla del lugar de una persona.»* Y en el panel web, antes de que el campo de dirección exista, la pregunta que hoy nadie hace: si lo que cargás pasa en el lugar de una persona, y si es delicado.
+**Regla 9 — «Consentimiento comprensible y revocable.»** Las dos mitades, no una. *Comprensible:* el recibo de captura ya existe (`ReciboCaptura` con `precisionPublicada` y `engrosado`) y gana la dirección, en castellano y sin eufemismos: *«Confirmamos la calle. La altura no la pudimos confirmar: el Estado no publica el rango de numeración de esta calle.»* Y cuando §2.6 se lleva algo: *«No publicamos la altura: esta señal habla del lugar de una persona.»*
 
-*Revocable:* `olvidarDireccion` (§4.5), expuesta como `DELETE /api/v1/geo/direccion/:tabla/:id?c=<código>`, con el código en el recibo. Una sola transición, y el CHECK de §3.4 garantiza que no queda residuo en ninguna columna — incluido `direccion_texto`, que es donde una implementación descuidada lo dejaría. El límite se declara: el código no se regenera; con ingesta anónima no hay a quién probarle que la señal es suya.
+*Revocable:* `olvidarDireccion` (§4.5), expuesta como `DELETE /api/v1/geo/direccion/:idPublico?c=<código>`, con el código en el recibo. Una sola transición, y el CHECK de §3.4 garantiza que no queda residuo en ninguna columna — incluido `direccion_texto`, que es donde una implementación descuidada lo dejaría. El límite se declara: el código no se regenera; con ingesta anónima no hay a quién probarle que la señal es suya.
 
-**Regla 10 — «Teléfonos modestos y redes intermitentes.»** 107 KB gzip por el territorio más grande del país, ~4 KB por la localidad promedio, ~8 KB por el departamento promedio. Los paquetes son `immutable` con la corrida en la ruta; lo que se revalida es `/version`, que pesa 200 bytes.
+**Regla 11 — «Los hechos se corroboran; los sueños y propuestas se deliberan.»** La dirección es un hecho sobre el mundo y se corrobora contra el registro del Estado. Y una frase vinculante que sale del renombre de §2.5: **`direccion_estado` es una afirmación sobre el CATÁLOGO, nunca sobre la señal.** No entra en `verificables` ni en `confirmaciones` de `brillo.ts`, y ninguna etiqueta derivada de él puede contener la palabra «verificada».
 
-**Regla 11 — «Los hechos se corroboran; los sueños y propuestas se deliberan.»** La dirección es un hecho sobre el mundo y se corrobora contra el registro del Estado. Y una frase vinculante que sale del renombre de §2.5: **`direccion_estado` es una afirmación sobre el CATÁLOGO, nunca sobre la señal.** No entra en `verificables` ni en `confirmaciones` de `brillo.ts`, y ninguna etiqueta derivada de él puede contener la palabra «verificada». Ni el vocabulario de tipos ni la clase de la señal se tocan acá — son de la spec B.
+La otra mitad de la regla hay que decirla acá aunque no sea de esta spec, porque el barrido tiene que ser completo: **la deliberación no se construye en esta serie** (decisión del dueño del producto, D-037). El sistema sale con la corroboración blindada y la deliberación en cero, y se declara en pantalla sin eufemismo: *«Todavía no se puede deliberar. Por ahora un sueño sólo recibe adhesiones. Lo estamos construyendo.»* Nada de esta spec lo contradice y nada de esta spec lo repara.
 
 **Reglas 3, 8 y 12 — no se tocan.** Esta spec no escribe bitácora ni reflexión personal (3), no crea facetas ni las comparte (12), y no reparte recompensas (8 — cuyo sujeto, las brasas, ya no existe: El Registro R7 las eliminó; su contenido, premiar utilidad, corroboración, cobertura difícil y resolución y no volumen bruto, sigue valiendo y nada de acá lo contradice). Se listan para que el barrido sea completo: uno que omite reglas sin nombrarlas no se distingue de uno que las olvidó, y es así como el ranking municipal de §7.4 casi pasa sin que nadie mirara la regla 7.
 
-**Métrica norte — «Necesidades verificadas que alcanzan una resolución confirmada sin exponer a personas vulnerables.»** Esta spec empuja las dos mitades en direcciones opuestas y hay que decirlo así. Sube la primera: una necesidad con dirección normalizada es infinitamente más **accionable** que una con la etiqueta «Santa Fe» — accionable, no verificada: una dirección plantada es más específica y más falsa a la vez. Y sube el riesgo de la segunda: una dirección es una dirección. La respuesta es §2.6, y está en la base y no en el manual de estilo del equipo porque una costumbre se olvida en el tercer endpoint que escriba una señal.
+**Métrica norte — «Necesidades verificadas que alcanzan una resolución confirmada sin exponer a personas vulnerables.»** Esta spec empuja las dos mitades en direcciones opuestas y hay que decirlo así. Sube la primera: una necesidad con dirección normalizada es infinitamente más **accionable** que una con la etiqueta «Santa Fe» — accionable, no verificada: una dirección plantada es más específica y más falsa a la vez. Y sube el riesgo de la segunda: una dirección es una dirección. La respuesta es §2.6, y está en la base y no en el manual de estilo del equipo porque una costumbre se olvida en el tercer endpoint que escriba una señal. Y una consecuencia que sobrevive a la reconciliación: **una `necesidad` es siempre techo `solo_calle`**, así que la clase de señal que da nombre a la métrica es exactamente la que nunca lleva altura.
 
 ---
 
 ## §7 Lo que esta spec NO hace
 
-### 7.1 De la spec B (el vocabulario y el estado de la señal)
+### 7.1 Lo que le debe a `docs/specs/2026-08-11-b-la-senal.md`
 
-- **Los 8 tipos en 3 clases.** Esta spec no toca `dreams.category` ni ninguno de los cinco vocabularios paralelos. Sí le deja preparado el molde: los CHECK de §3.4 muestran cómo se cierra un dominio de texto en este esquema, y `ROL_POR_TIPO` de `capturas.ts:42` es el `Record` que hay que extender de 3 a 8 — y que, después de §2.6, **decide también qué señales pueden llevar altura**. Un tipo nuevo mal mapeado a `subject` no expone nada; uno mal mapeado a `capture` sí.
-- **La máquina de estados de la regla 4.** No existe en ningún lado y no se escribe acá. **Ojo con el choque de nombres:** los estados de dirección de §2.5 no son estados de calidad, y por eso `altura_confirmada` se llama ahora `altura_en_rango` y §6 prohíbe la palabra en la etiqueta — la separación tiene que sobrevivir a la ventana entre A y B, y no alcanza con separarlas en la base si se vuelven a pegar en la pantalla.
-- **Lo que B le debe a A, y es bloqueante:** el campo de dirección **no se enciende en la web** hasta que la ingesta mande `locationRole` y `sensitivity` reales, con la pregunta en castellano de la regla 9. Sin eso todo es `subject`/`low` y la mitad de §2.6 depende de un default (§1.5). Los CHECK de §3.4 impiden el daño —una altura con rol `subject` no entra— pero impedir no es preguntar.
-- **Y una que A le debe a B:** el default de `ubicacion_origen` es `'ninguna'`, y una ingesta nueva que setee `province_id` sin setear el origen dejaría el conjunto de D-011 incompleto. **Eso ya no queda en manos de un test de B:** las dos columnas viven en la misma fila y `dreams_origen_provincia_chk` lo rechaza (§3.4). Lo que B sí tiene que hacer es setear el valor correcto, no descubrir el problema.
+Cinco obligaciones, dirigidas por documento y sección. Las cinco son bloqueantes para que §2.6 signifique algo.
 
-### 7.2 De la spec C (el feed y la adhesión)
+1. **`senales` nace con `direccionColumns` adentro y con los nueve CHECK de §3.4, en la migración `0015`** — la misma que crea la tabla. Sin eso, §2.6 pasa a depender de que alguien llame a `ubicacionPublicable`, que es la costumbre que esta spec rechaza tres veces.
+2. **El contrato de ingesta de `b-la-senal.md` §4.7 cita la secuencia numerada de §4.5** y hereda la guarda 5 de §8.1 («lo que no se publica no deja rastro, tampoco en el texto»).
+3. **`ubicacion_origen` entra en ese contrato**, con el valor correcto y no con el default. `senales_origen_provincia_chk` impide la fila incoherente, pero impedir no es setear: si B escribe `province_id` sin origen, el INSERT falla — mejor que el silencio, peor que hacerlo bien.
+4. **La pregunta de la casa se hace en los nueve tipos**, no en cuatro, y «es mi casa» mapea a `subject`+`moderate` (§2.6) mientras «es la casa de otra persona» y «sin respuesta» quedan en `subject`+`high` con `overridable: false`. El campo de dirección **no se enciende en la web** hasta que esa pregunta exista: sin ella todo es `subject`/`low` (§1.5).
+5. **El cliente del paquete offline** (§4.3) se cablea en `apps/mobile`, en la rebanada de campo de B.
 
-- **El «cerca tuyo» del feed** puede usar la jerarquía del catálogo en vez de un bbox: «mi localidad» y «mi departamento» ahora son consultas exactas contra `city_id`, no recortes de rectángulo. Y la cabecera de cobertura puede citar `/api/v1/geo/version` para decir cuántas señales del recorte tienen dirección y cuántas no.
-- **El cliente del paquete offline es de C.** El selector de calle de la web (§5) usa `/calles` online; el que baja y cachea los paquetes de §4.3 es la app de campo, y su cliente lo trae C. Hasta entonces el endpoint existe y su único llamador es su test de integración — igual que `/capturas` hoy, y por eso se dice acá en vez de dejarlo implícito. **Lo que C no puede hacer:** mostrar la altura de una señal que no la tiene, recomponiéndola desde otra tabla; la fila no la tiene porque §2.6 no la dejó entrar.
+Y lo que A le presta a B: `ROL_POR_TIPO` de `capturas.ts:42` es el `Record` que hay que extender de 3 a 9, y los CHECK de §3.4 son el molde de cómo se cierra un dominio de texto en este esquema. **Un tipo nuevo mal mapeado a `subject` no expone nada; uno mal mapeado a `capture` sí.**
 
-### 7.3 De la spec D (la descarga masiva)
+### 7.2 Lo que le debe a `docs/specs/2026-08-11-c-la-corroboracion.md`
 
-- **El volcado del catálogo geográfico es un dataset propio y bueno**, y el único de la plataforma que se puede publicar hoy con las tablas cívicas en cero: 21.345 lugares + 326.832 calles, con licencia, corte y procedencia. Prueba el formato antes de que haya algo en juego. **`geo_catalogo_version.corrida` es el número de versión** que su sobre tiene que citar — con el unique parcial de §4.7, no hay dos.
-- **Lo que D tiene que respetar:** una señal exportada lleva su `direccion_texto` **tal como está guardada** —o sea, ya degradada por §2.6— y nunca se recompone desde `calle_id` + `altura`, porque recomponer saltearía el degradado. Y `ubicacion_origen` va en el volcado: quien baje el CSV tiene derecho a saber que la provincia de una fila salió de un polígono de 29 vértices.
+- **El presupuesto conjunto es de C** (§3.5): el renglón del callejero está medido acá y entra en la suma de C §3.7, que es la que decide si el plan free alcanza. Esta spec no declara un techo de señales propio, porque un techo calculado sobre un solo renglón es un número tranquilizador y falso.
+- **Lo que C no puede hacer:** mostrar la altura de una señal que no la tiene, recomponiéndola desde otra tabla ni desde el rastro. La fila no la tiene porque §2.6 no la dejó entrar, y una reconstrucción sería la fuga por la ventana después de haber cerrado la puerta.
 
-### 7.4 D-004 y D-005: no se cierran, se parten
+### 7.3 Lo que le debe a `docs/specs/2026-08-11-d-el-registro-publico.md`
+
+- **La altura no sale al registro público.** Ni en la API, ni en el CSV, ni en el JSONL, ni en el GeoJSON. Lo que sale es `direccionSinAltura(fila)` —el texto recortado a la calle— más `direccion_estado` y su etiqueta. Razón: una fila con dirección y sin punto es válida y emblemática (§4.6), y el piso de publicación de D se llavea en `lat`/`precision`, así que sobre esa fila no tiene sobre qué actuar; publicar la altura ubicaría en ~15 m justo en la clase de fila que el filtro por bbox nunca alcanza y el archivo mensual retiene para siempre. La altura queda para la superficie autenticada de coordinación, el único lugar donde esta spec argumenta que sirve. Si el producto decide publicarla igual, la palabra «altura» tiene que estar adentro del texto de consentimiento.
+- **Una fila con dirección no puede etiquetarse «sólo declaró su provincia».** El bucket `sinPunto` de D se llavea en la fila entera y no en `lat`.
+- **Los cinco niveles son los de §3.1**, tomados de una constante compartida: `('province','department','municipality','locality','settlement')`. `'city'` no existe y `'localidad'` en castellano nunca existió. **`settlement` no se publica como nombre de ciudad:** si `city_id` apunta a un asentamiento, D sube al `parent_id` (la localidad censal) y publica ése — el mismo movimiento que §4.3 hace para el paquete offline —, porque el nombre de un paraje de cuarenta casas es más fino que los 500 m del piso de publicación y entra por un campo de texto que el piso no mira. Y cuando corrió la protección, `city_id` apunta a un **departamento**: se rotula como departamento, nunca como ciudad.
+- **`direccion_texto` se exporta tal como está guardado**, ya degradado por §2.6 y después recortado por `direccionSinAltura`. Nunca se recompone desde `calle_id` + `altura`: recomponer saltearía el degradado. Y **`ubicacion_origen` va en el volcado**: quien baje el CSV tiene derecho a saber que la provincia de una fila salió de un polígono de 29 vértices.
+- **El volcado del catálogo geográfico es un dataset propio y bueno**, y el único publicable hoy con las tablas cívicas en cero: 21.345 lugares + 326.832 calles, con licencia, corte y procedencia. Prueba el formato antes de que haya algo en juego. **`geo_catalogo_version.corrida` es el número de versión** que su sobre tiene que citar — con el unique parcial de §4.7, no hay dos.
+- **El «cerca tuyo» del feed es de D**, no de C: con `city_id` escrito, «mi localidad» y «mi departamento» son consultas exactas contra la jerarquía en vez de recortes de rectángulo, y la cabecera de cobertura puede citar `/api/v1/geo/version`.
+
+### 7.4 D-004 y D-005: no se cierran, se parten. Y las dos deudas nuevas
 
 **Cada una era dos deudas juntas. La mitad del catálogo se cierra:** las 529 filas de departamento y las 2.082 de municipio existen, con id del Estado, nombre y jerarquía, y una señal se puede atribuir a las dos **exactamente**, por catálogo, sin geometría de por medio (§2.7). **La mitad de la geometría queda abierta, y es la que da nombre a las deudas:** D-004 apunta a `apps/web/public/geo/` y dice «solo hay `provincias.geojson`», y sigue siendo cierto — no se puede dibujar un coroplético por departamento, ni hacer point-in-polygon por debajo de provincia, y el modo Análisis sigue con el escalón «departamento» deshabilitado.
 
 **El ranking municipal de la Simulación se desbloquea para AGRUPAR, no para PUBLICAR.** D-005 lo declara bloqueado por falta de geometría, y `municipality_id` lo desbloquea sin un solo polígono. Pero agrupar no es publicar, y publicarlo hoy sería la regla 7 por la puerta de atrás (§6). Quien lo use tiene dos condiciones, nombradas:
 1. **No hay población por municipio.** `poblacion.ts` solo tiene `PROVINCIAS_REF`, las 24, así que `habitantesDeCelda` devuelve `null` para cualquier municipio. Hasta que exista ese denominador, `brillo` devuelve `sinDenominador` y **no un número**: sin denominador el ranking mide quién tuvo tiempo y teclado, que es el enemigo declarado de la decisión 7 del proyecto.
-2. **No hay supresión de grupo chico.** Es D-028 —«el brillo dibujado es invertible: delata cuánta gente habló en una celda»— y sigue abierta. Con 2.082 municipios y las tablas en cero, la cabeza del ranking sería un municipio con una sola voz. Hay que suprimir por mínimo de voces distintas **antes** de pintar nada, y sobre los `ConteoCelda` que entran, no sobre las luces que salen.
+2. **No hay supresión de grupo chico.** Es D-028 y sigue abierta. Con 2.082 municipios y las tablas en cero, la cabeza del ranking sería un municipio con una sola voz. Hay que suprimir por mínimo de voces distintas **antes** de pintar nada, y sobre los `ConteoCelda` que entran, no sobre las luces que salen. El umbral es uno solo y vive en `coeficientes-corroboracion.ts` (C).
 
-**Lo que hay que editar en `docs/DEUDAS.md`** (no se edita en esta corrida: archivo compartido, sesiones concurrentes, D-010):
+**Lo que hay que editar en `docs/DEUDAS.md`** — ordinales reservados para A: **D-034 y D-035**. Se edita en un commit propio con ruta explícita (archivo compartido, sesiones concurrentes, D-010).
 1. **D-004** pasa a «Falta la **geometría** de departamentos» y suma una línea: las filas existen desde esta spec. Severidad media, sin cambio.
 2. **D-005** pasa a «Falta la **geometría** de municipios», y **baja de media a baja**, con la salvedad de las dos condiciones de arriba escrita en la entrada.
 3. **D-011** suma la frase que la hace medible: `where ubicacion_origen = 'punto'` es el conjunto exacto de filas cuya provincia puede estar mal, y ahora es exacto de verdad porque un CHECK impide la fila con provincia y sin origen. Cuando entre geometría del IGN, ese `where` es el backfill.
 4. **D-034** — nueva: *«El callejero es una foto y georef no tiene feed de cambios.»* Detectar deriva exige re-descargar una provincia entera y comparar el `hash_fuente`: 327 requests para saber si algo se movió. No hay `?desde=`. Mitigación: la re-siembra es barata en escrituras (cero filas si nada cambió) y cara en requests (~6 minutos), así que corre a mano y no en cron.
-5. **D-035** — nueva: *«`direccionColumns` entra en `pulse_signals` y `proposals` sin writer.»* Diez columnas que nadie escribe hasta la spec B o C, por paridad de forma con `dreams` (§5).
+5. **D-035** — nueva: *«La dirección sólo se puede revocar con el recibo original.»* El código de `olvidarDireccion` es un HMAC del id que viaja en el recibo y no se regenera (§4.5): quien pierde el recibo pierde la revocación, y con ingesta anónima no hay a quién probarle que la señal es suya. Severidad baja: es el límite de un mecanismo que hoy no existe en ninguna otra columna del sistema, no una regresión. Se cierra el día que haya cuentas. **Reemplaza al D-035 que este documento tenía reservado** —«`direccionColumns` sin writer en `pulse_signals` y `proposals`»—, que se retira antes de nacer: esas tablas dejan de recibir escrituras y las columnas viven en `senales`, que nace con writer.
 
 ### 7.5 Lo que nadie hace y hay que saberlo
 
 No hay geocodificación inversa: un punto no produce una dirección. Ninguna de las cuatro specs la trae, y traerla pediría la traza (§3.6). Consecuencia concreta: **una captura hecha con GPS y sin que la persona elija la calle se guarda con punto y sin dirección.** Es correcto — la alternativa sería adivinar en qué cuadra estaba parada.
+
+**Y nadie puede llamar al piso por rol, porque no existe como símbolo importable.** La única función de §2.6 que sale del paquete es `direccionPermitida(tipo, role, sensitivity)`, de tres ejes. Quien escriba la ingesta (§7.1, obligación 2) no tiene a mano una versión de dos ejes a la que llamar por costumbre, y la tabla de techos por tipo se lee con `techoDeTipo`, nunca por índice. Está dicho acá y no sólo en §2.6 porque el defecto que lo motivó no fue de razonamiento sino de contrato: **la spec declaraba la función de tres ejes y la implementación le puso ese nombre a la de dos**, así que quien siguiera el documento al pie de la letra escribía la llamada segura y conseguía el comportamiento inseguro, sin un test rojo y sin nada que avisara.
 
 ---
 
@@ -827,13 +890,14 @@ En `packages/civic-core/src/__tests__/direcciones-guardas.test.ts`, con la misma
 1. **«el cero de georef nunca entra como altura»** — el normalizador del seed traduce los cuatro ceros a `RangoDeAltura.ausente`, y ningún camino produce `desde: 0` ni `hasta: 0`.
 2. **«una calle sin rango no dice que la altura esté bien ni que esté mal»** — `clasificarAltura({tipo:'ausente'}, 1234)` → `'altura_sin_rango'`, y ese valor no es igual ni a en-rango ni a fuera-de-rango.
 3. **«medio rango clasifica lo que puede y no clasifica lo que no»** — el caso `AV JUAN BAUTISTA ALBERDI` textual: `{tipo:'parcialHasta', hasta:3200}` con 4000 → `fuera_de_rango`; con 100 → `sin_rango`.
-4. **«la dirección se retira cuando corrió la protección, no cuando falta el punto»** — property test sobre **(6 estados × 6 precisiones × 4 roles × 3 sensibilidades × hayPunto)**. Tres afirmaciones: con rol `subject` nunca vuelve altura ni `texto_libre`; con `coarsenedBecause !== null` vuelve `sin_direccion` **y** `cityId: null` con el departamento en su lugar; y **sin punto, con rol no-`subject` y sin protección, la dirección vuelve entera** — que es el caso emblemático de la spec (Córdoba, sin GPS, calle escrita a mano) y el que el diseño anterior borraba. El oráculo es el CHECK de §3.4: cada resultado tiene que satisfacer la disyunción de `dreams_direccion_chk` y los cuatro CHECK de §2.6.
-5. **«lo que no se publica no deja rastro, tampoco en el texto»** — con precisión engrosada, `componerDireccion` sobre la salida de `ubicacionPublicable` produce un texto **sin la altura**, con una fixture de calle cuyo nombre tenga números: `25 DE MAYO 1450` degradado da `25 DE MAYO`, no `DE MAYO`. Por eso es una función testeada y no un regex en la base.
-6. **«lo que no está en el callejero se guarda igual»** — un texto sin match, con rol `capture`, produce `texto_libre` con el texto íntegro, no un descarte.
+4. **«la dirección se retira cuando corrió la protección o cuando el tipo no la admite, no cuando falta el punto»** — property test sobre **(6 estados × 6 precisiones × 4 roles × 3 sensibilidades × 9 tipos × hayPunto)**. Cuatro afirmaciones: con rol `subject` nunca vuelve altura ni `texto_libre`; con rol `service_area` tampoco, cualquiera sea el tipo; con `coarsenedBecause !== null` vuelve `sin_direccion` **y** `cityId: null` con el departamento en su lugar; y **sin punto, con rol `capture` o `meeting_point` y sin protección, la dirección vuelve entera** — que es el caso emblemático de la spec (Córdoba, sin GPS, calle escrita a mano). El oráculo es el CHECK de §3.4: cada resultado tiene que satisfacer la disyunción de `senales_direccion_chk` y los cuatro CHECK de piso.
+5. **«lo que no se publica no deja rastro, tampoco en el texto»** — con precisión engrosada, `componerDireccion` sobre la salida de `ubicacionPublicable` produce un texto **sin la altura**, con una fixture de calle cuyo nombre tenga números: `25 DE MAYO 1450` degradado da `25 DE MAYO`, no `DE MAYO`. Lo mismo para `direccionSinAltura` sobre una fila con altura guardada legítimamente. Por eso son funciones testeadas y no un regex en la base.
+6. **«lo que no está en el callejero se guarda igual»** — un texto sin match, con rol `capture` y tipo de techo `completa`, produce `texto_libre` con el texto íntegro, no un descarte.
 7. **«el mismo texto normaliza igual en el seed y en la consulta»** — fixture de 50 nombres: `normalizar(fila.nombre, [fila.categoria])` (el seed) == `normalizar(texto, todasLasCategorias)` (la consulta). Incluye el caso degenerado `nombre: "CALLE"` con `categoria: "CALLE"`, que no puede dar cadena vacía.
 8. **«el prefijo de categoría no come una calle que empieza parecido»** — `AVELLANEDA` con categoría `AV` sigue siendo `AVELLANEDA`, en los dos lados: el corte es por token completo.
 9. **«una provincia se sigue encontrando por su nombre después de la migración»** — las 24 filas, con los nombres exactos de `provincias.generated.ts`, contra `findProvinceByName` sobre `name_norm`. Es el camino de escritura que cerró D-001 y D-012; si falla, falla en silencio devolviendo `undefined`.
 10. **«la etiqueta de dirección no usa la palabra de la regla 4»** — ninguna salida de `etiquetaDeDireccion` contiene «confirmada», «confirmado» ni «verificada».
+11. **«todo nivel usado en un filtro está en el CHECK»** — la constante compartida de niveles (§3.1) y los filtros que la consumen se afirman contra el dominio de `geographic_locations_level_chk`. Es la guarda que caza el `level in ('city','localidad')` que devolvería NULL en silencio.
 
 ### 8.2 Las consultas después del seed
 
@@ -867,14 +931,15 @@ FROM geo_calles c JOIN geographic_locations p ON p.id = c.provincia_id
 GROUP BY p.name ORDER BY sin_rango DESC;
 -- Córdoba tiene que salir arriba de todo. Si no sale, la traducción del 0 falló.
 
--- El presupuesto de §3.5, medido y no estimado. `pg_total_relation_size` incluye
--- heap MÁS todos los índices: 48 + 61 (btree) + 45 (GIN) = 154, no 126.
+-- El presupuesto de §3.5, medido y no estimado, y con el número que va a la suma
+-- conjunta de C §3.7. `pg_total_relation_size` incluye heap MÁS todos los
+-- índices: 48 + 61 (btree) + 45 (GIN) = 154, no 126.
 SELECT pg_size_pretty(pg_total_relation_size('geo_calles'));       -- 154 MB (109 sin el GIN)
 SELECT pg_size_pretty(pg_relation_size('geo_calles_nombre_trgm')); -- 45 MB
 SELECT pg_size_pretty(pg_database_size(current_database()));       -- 201 MB
 ```
 
-**El umbral que dispara un rediseño:** si `pg_total_relation_size('geo_calles')` pasa de **200 MB** (46 MB sobre el presupuesto, 30%), la primera palanca es normalizar los nombres a una tabla `geo_calle_nombres` de nombres distintos —el nomenclátor argentino repite muchísimo: San Martín, Belgrano, Sarmiento, 25 de Mayo— lo que achica el heap y hace que el GIN corra sobre decenas de miles de filas en vez de 326.832. No se hace ahora porque el presupuesto entra con 311 MB de holgura y un join en el camino caliente del autocompletado cuesta más que 45 MB de un índice que podemos pagar.
+**El umbral que dispara un rediseño:** si `pg_total_relation_size('geo_calles')` pasa de **200 MB** (46 MB sobre el presupuesto, 30%), la primera palanca es normalizar los nombres a una tabla `geo_calle_nombres` de nombres distintos —el nomenclátor argentino repite muchísimo: San Martín, Belgrano, Sarmiento, 25 de Mayo— lo que achica el heap y hace que el GIN corra sobre decenas de miles de filas en vez de 326.832. No se hace ahora porque un join en el camino caliente del autocompletado cuesta más que 45 MB de un índice que podemos pagar. **El número medido acá se le entrega a C**, que es quien cierra la suma de los cuatro renglones contra el techo del plan.
 
 ### 8.3 La auditoría contra la fuente
 
@@ -886,15 +951,18 @@ Contra Postgres real, según el estándar de `v2/CLAUDE.md` (≥ 1 por endpoint 
 - **`GET /api/v1/geo/calles`** — scope de localidad con `q` de un carácter; de provincia con `q` de tres; sin scope → 400; `limite=100000` → 400; `q=%` no devuelve la localidad entera; una `sin_nombre` no aparece y una con `vigente_hasta` tampoco.
 - **`GET /api/v1/geo/calles/:id`** — sí devuelve la `sin_nombre` y la no vigente, con su marca. **`/version`** trae la cobertura por provincia y no un total pelado, y responde `no-cache`. **`/paquete/:corrida/localidad/:id`** y **`/departamento/:id`** — tamaño y `ETag`; un `settlement` resuelve al paquete de su localidad ancestro, y uno sin localidad al de su departamento.
 - **`resolverUbicacion`** — las cinco vías en orden; `calleId` inexistente → 400 y no 500; punto que contradice la provincia de la calle → se guarda con `catalogo` y `discrepancia`; sin nada resoluble → `origen: 'ninguna'` con razón y `province_id` NULL. **Un test afirma explícitamente que no se guardó ningún centroide.**
+
+Y los que necesitan una fila de señal, o sea que **corren con la migración `0015` y son definición de terminado de B**, listados acá porque la regla que prueban es de esta spec:
+- **Los CHECK rechazan, cada uno con su INSERT directo sobre `senales`:** `calle` con altura · `altura_en_rango` sin `calle_id` · `texto_libre` con `calle_id` · `sin_direccion` con texto · altura con `precision='500m'` y punto · altura con `location_role='subject'` · altura con `location_role='service_area'` · `texto_libre` con `location_role='service_area'` · dirección con `subject`+`high` · `province_id` con `ubicacion_origen='ninguna'` · `direccion_texto` de 121 caracteres.
 - **Una señal punta a punta:** elegir calle → `altura_sin_rango` en Córdoba → se guarda con el texto compuesto → el recibo dice por qué no se pudo afirmar.
-- **El caso protegido:** señal con rol `subject` + dirección con altura → se guarda `direccion_estado='calle'` y `altura IS NULL`; con sensibilidad alta además → `sin_direccion` y `city_id` con el departamento. El recibo lo explica en los dos casos.
-- **El caso sin punto:** señal con rol `capture`, dirección con altura y **sin** `punto` → se guarda la dirección entera, `lat`/`lng` en NULL. Es el caso que el diseño anterior borraba en silencio.
-- **Una dirección revocada no deja rastro, tampoco en el texto:** `DELETE /api/v1/geo/direccion/...` con el código del recibo deja la fila en `sin_direccion` con las cuatro columnas en NULL, y un segundo pedido con el mismo código sigue siendo válido (es idempotente) mientras que uno con código ajeno da 403.
+- **El caso protegido:** señal con rol `subject` + dirección con altura → se guarda `direccion_estado='calle'` y `altura IS NULL`; con sensibilidad alta además → `sin_direccion` y `city_id` con el departamento. Un `saber` con altura → `calle`. El recibo lo explica en los tres casos.
+- **El caso sin punto:** señal de tipo `basta`, rol `capture`, dirección con altura y **sin** `punto` → se guarda la dirección entera, `lat`/`lng` en NULL. Y esa misma fila, pedida por el registro público, sale **sin la altura** (§7.3).
+- **Una dirección revocada no deja rastro, tampoco en el texto:** `DELETE /api/v1/geo/direccion/:idPublico` con el código del recibo deja la fila en `sin_direccion` con las cuatro columnas en NULL; un segundo pedido con el mismo código sigue siendo válido (es idempotente) y uno con código ajeno da 403.
 
 ### 8.5 Los tests de migración
 
 - **Sobre base VACÍA:** migrar y después sembrar las 24 provincias termina con las 24 filas y `province_id = id` en todas. Es el caso que la migración rompe si `seed-provinces.ts` no reserva su id (§3.1), y el que un test sobre la base actual no ve.
-- **Sobre una base con las 24 filas actuales:** después de migrar, los 24 `id` son los mismos (fijados por `iso_code`), `province_id = id` en las 24, y **ninguna fila de señal cambió de `province_id`**.
-- `DROP SEQUENCE geographic_locations_province_id_seq` no deja huérfano ningún default. Y los CHECK rechazan, cada uno con su INSERT directo: `calle` con altura · `altura_en_rango` sin `calle_id` · `texto_libre` con `calle_id` · `sin_direccion` con texto · **altura con `precision='500m'` y punto** · **altura con `location_role='subject'`** · **`texto_libre` con `location_role='subject'`** · **dirección con `subject`+`high`** · **`province_id` con `ubicacion_origen='ninguna'`** · `direccion_texto` de 121 caracteres.
+- **Sobre una base con las 24 filas actuales:** después de migrar, los 24 `id` son los mismos (fijados por `iso_code`) y `province_id = id` en las 24.
+- `DROP SEQUENCE geographic_locations_province_id_seq` no deja huérfano ningún default.
 - **Re-sembrar sin cambios escribe cero filas:** se compara `n_tup_upd` + `n_tup_ins` de `pg_stat_user_tables` antes y después de una segunda corrida. Si escribe, el `WHERE` del `DO UPDATE` está mal y el argumento de almacenamiento de §3.5 se cayó.
 - **Una recodificación no muta una calle en su lugar:** un `georef_id` que vuelve con otra localidad deja la fila vieja con `vigente_hasta` y su `id` intacto, y crea una nueva. Ninguna señal cambia de calle.

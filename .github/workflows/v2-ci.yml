@@ -110,6 +110,26 @@ jobs:
           DATABASE_URL_UNPOOLED: ${{ secrets.V2_DATABASE_URL_UNPOOLED }}
         run: pnpm --filter @v2/db db:migrate
 
+      # La 0013 agrega `name_norm` y `georef_id` VACÍAS, y la búsqueda de
+      # provincia por nombre pasa a ir por `name_norm`. Los dos comandos de acá
+      # abajo son la otra mitad de esa migración: sin ellos `findProvinceByName`
+      # devuelve `undefined` para las 24, toda señal nueva se guarda sin
+      # provincia (D-001) y el `georef_id SET NOT NULL` de la Task 6 no se puede
+      # aplicar. Los dos son idempotentes: el seed saltea las filas que ya
+      # existen y el relleno sólo emite UPDATE para las que difieren.
+      - name: Sembrar y reconciliar las 24 provincias
+        env:
+          DATABASE_URL: ${{ secrets.V2_DATABASE_URL }}
+          DATABASE_URL_UNPOOLED: ${{ secrets.V2_DATABASE_URL_UNPOOLED }}
+        run: |
+          pnpm --filter @v2/db db:seed-provinces
+          pnpm --filter @v2/db geo:rellenar-provincias --aplicar
+
+      # `DATABASE_URL_DESCARTABLE` NO se define acá a propósito, y no cae a
+      # `DATABASE_URL`: la suite de `migracion-0013.test.ts` que prueba «sobre
+      # base vacía» crea un esquema, lo llena y lo tira. Se saltea con un
+      # mensaje mientras esta rama no esté declarada descartable. Declararla es
+      # una decisión sobre la rama, no sobre el test.
       - name: Run integration tests
         env:
           DATABASE_URL: ${{ secrets.V2_DATABASE_URL }}

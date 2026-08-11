@@ -5,8 +5,8 @@
  * `./schema` or `./repositories` directly. Future domains add their
  * exports here.
  */
-export { getDb, resetDb } from './client.js';
-export type { Db } from './client.js';
+export { conTechoDeTiempo, getDb, resetDb } from './client.js';
+export type { ConsultaPendiente, Db } from './client.js';
 
 export * from './schema/index.js';
 export * from './repositories/index.js';

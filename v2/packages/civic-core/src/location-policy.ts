@@ -55,12 +55,26 @@ const COARSENED_BECAUSE =
   'Este registro habla de un lugar donde vive o está una persona. Te proponemos ' +
   'publicarlo con menos precisión para no exponerla.';
 
+/**
+ * De quién es el lugar del que habla el registro.
+ *
+ * `'tercero'` es la respuesta «es la casa de otra persona» —y también «sin
+ * respuesta»— de la pregunta de la casa (spec `2026-08-11-a-la-tierra.md` §2.6).
+ */
+export type SujetoDeUbicacion = 'propio' | 'tercero';
+
 export interface PublishedPrecisionInput {
   /** Lo que la persona eligió. */
   requested: LocationPrecision;
   role: LocationRole;
   sensitivity: CivicSensitivity;
   audience: CivicAudience;
+  /**
+   * Default `'propio'`, que es el caso de siempre. Con `'tercero'` la propuesta
+   * de engrosado deja de ser rechazable: la persona manda sobre SU propia
+   * ubicación, y sobre la casa de otro nadie firmó nada.
+   */
+  sujeto?: SujetoDeUbicacion;
 }
 
 export interface PublishedPrecisionResult {
@@ -71,10 +85,12 @@ export interface PublishedPrecisionResult {
   /**
    * Si la persona puede rechazar la propuesta y publicar lo que pidió.
    *
-   * Hoy es `true` siempre, a propósito: la persona manda sobre su propia
-   * ubicación y el sistema propone en vez de imponer. El campo existe igual
-   * para que un régimen legal futuro pueda ponerlo en `false` sin cambiar la
-   * forma del resultado ni romper a los consumidores.
+   * Es `true` cuando el registro habla del lugar propio: la persona manda sobre
+   * su propia ubicación y el sistema propone en vez de imponer. **Y es `false`
+   * cuando `sujeto` vale `'tercero'`** — el campo estaba previsto para esto
+   * desde que se escribió («existe igual para que un régimen legal futuro pueda
+   * ponerlo en `false`»), y el régimen llegó antes que la ley: sobre la casa de
+   * otra persona, quien carga no tiene nada que consentir.
    */
   overridable: boolean;
 }
@@ -89,17 +105,21 @@ export interface PublishedPrecisionResult {
 export function publishedPrecision(input: PublishedPrecisionInput): PublishedPrecisionResult {
   const protegido =
     input.role === 'subject' && input.sensitivity === 'high' && input.audience !== 'private';
+  // Vale en las tres salidas y no sólo en la que engrosa: si dijera `true`
+  // cuando no hay propuesta que rechazar, la ingesta que lo lea entendería que
+  // sobre esa fila hay algo que la persona puede decidir, y no lo hay.
+  const overridable = (input.sujeto ?? 'propio') === 'propio';
 
   if (!protegido) {
-    return { precision: input.requested, coarsenedBecause: null, overridable: true };
+    return { precision: input.requested, coarsenedBecause: null, overridable };
   }
 
   // Ya venía igual o más grueso que el piso: no hay nada que proponer.
   if (isCoarserOrEqual(input.requested, PROTECTED_FLOOR)) {
-    return { precision: input.requested, coarsenedBecause: null, overridable: true };
+    return { precision: input.requested, coarsenedBecause: null, overridable };
   }
 
-  return { precision: PROTECTED_FLOOR, coarsenedBecause: COARSENED_BECAUSE, overridable: true };
+  return { precision: PROTECTED_FLOOR, coarsenedBecause: COARSENED_BECAUSE, overridable };
 }
 
 export interface PrepareRecordLocationInput {
@@ -109,6 +129,8 @@ export interface PrepareRecordLocationInput {
   sensitivity?: CivicSensitivity;
   audience?: CivicAudience;
   locationLabel?: string | null;
+  /** De quién es el lugar. Default `'propio'`. */
+  sujeto?: SujetoDeUbicacion;
   /**
    * La persona rechazó la propuesta de engrosado (§3.2: es rechazable).
    * Solo tiene efecto cuando `publishedPrecision` marcó `overridable`.
@@ -143,6 +165,7 @@ export const prepareRecordLocation = (
     role: input.role ?? 'subject',
     sensitivity: input.sensitivity ?? 'low',
     audience: input.audience ?? 'collective',
+    sujeto: input.sujeto ?? 'propio',
   });
 
   const rechazado = input.overrideCoarsening === true && decision.overridable;

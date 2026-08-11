@@ -24,11 +24,15 @@
     "db:check": "drizzle-kit check",
     "db:seed-badges": "tsx scripts/seed-badges.ts",
     "db:seed-challenges": "tsx scripts/seed-challenges.ts",
+    "db:seed-provinces": "tsx scripts/seed-provinces.ts",
+    "geo:rellenar-provincias": "tsx scripts/rellenar-provincias.ts",
+    "test": "pnpm test:unit && pnpm test:integration",
     "test:unit": "vitest run src/ --passWithNoTests",
-    "test:integration": "vitest run --dir tests || true"
+    "test:integration": "vitest run --dir tests"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
+    "@v2/civic-core": "workspace:*",
     "drizzle-orm": "^0.36.4",
     "drizzle-zod": "^0.5.1",
     "pg": "^8.13.1",

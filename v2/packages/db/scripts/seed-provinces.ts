@@ -1,62 +1,37 @@
 #!/usr/bin/env tsx
 /**
- * Seed Argentina's 24 provinces (23 + CABA) into geographic_locations.
- * Idempotent: skips rows that already exist.
+ * Sembrar las 24 provincias (23 + CABA) en `geographic_locations`.
  *
- * Coordinates are approximate centroids — fine for province-level
- * pinning. Cities will be backfilled later.
+ * Idempotente: saltea las filas que ya existen.
+ *
+ * **Este script hace nacer bien una base vacía, y NO repara una base que ya
+ * tiene las 24 filas.** La diferencia importa: las 24 vivas entraron antes de
+ * la `0013` y tienen `name_norm` y `georef_id` en NULL, y acá se saltean por el
+ * guard de existencia — que tiene que quedarse, porque el `ON CONFLICT
+ * (georef_id)` de abajo no las alcanza: en Postgres un NULL no conflictúa con
+ * nada, así que sin el guard estas 24 filas se insertarían DUPLICADAS.
+ *
+ * Repararlas es de `rellenar-provincias.ts`, que corre una sola vez después de
+ * la `0013`. Este script cuenta cuántas están a medio llenar y lo dice.
  */
 import { config } from 'dotenv';
 
 config({ path: new URL('../../../.env', import.meta.url).pathname });
 
-if (!process.env['DATABASE_URL']) {
+if (!process.env.DATABASE_URL) {
   throw new Error('DATABASE_URL is required');
 }
 
 const { getDb } = await import('../src/client.js');
 const { geographicLocations } = await import('../src/schema/geographic.js');
-const { and, eq } = await import('drizzle-orm');
-
-interface ProvinceSeed {
-  name: string;
-  isoCode: string;
-  latitude: string;
-  longitude: string;
-}
-
-const PROVINCES: ProvinceSeed[] = [
-  { name: 'Ciudad Autónoma de Buenos Aires', isoCode: 'AR-C', latitude: '-34.603722', longitude: '-58.381592' },
-  { name: 'Buenos Aires', isoCode: 'AR-B', latitude: '-37.000000', longitude: '-60.000000' },
-  { name: 'Catamarca', isoCode: 'AR-K', latitude: '-28.469570', longitude: '-65.779000' },
-  { name: 'Chaco', isoCode: 'AR-H', latitude: '-26.500000', longitude: '-60.500000' },
-  { name: 'Chubut', isoCode: 'AR-U', latitude: '-44.000000', longitude: '-69.000000' },
-  { name: 'Córdoba', isoCode: 'AR-X', latitude: '-32.142932', longitude: '-63.801753' },
-  { name: 'Corrientes', isoCode: 'AR-W', latitude: '-28.751000', longitude: '-57.812000' },
-  { name: 'Entre Ríos', isoCode: 'AR-E', latitude: '-32.500000', longitude: '-59.500000' },
-  { name: 'Formosa', isoCode: 'AR-P', latitude: '-25.000000', longitude: '-59.500000' },
-  { name: 'Jujuy', isoCode: 'AR-Y', latitude: '-23.500000', longitude: '-65.800000' },
-  { name: 'La Pampa', isoCode: 'AR-L', latitude: '-37.000000', longitude: '-65.500000' },
-  { name: 'La Rioja', isoCode: 'AR-F', latitude: '-29.700000', longitude: '-67.500000' },
-  { name: 'Mendoza', isoCode: 'AR-M', latitude: '-34.500000', longitude: '-68.500000' },
-  { name: 'Misiones', isoCode: 'AR-N', latitude: '-26.800000', longitude: '-54.500000' },
-  { name: 'Neuquén', isoCode: 'AR-Q', latitude: '-38.500000', longitude: '-69.500000' },
-  { name: 'Río Negro', isoCode: 'AR-R', latitude: '-40.500000', longitude: '-67.500000' },
-  { name: 'Salta', isoCode: 'AR-A', latitude: '-25.500000', longitude: '-65.000000' },
-  { name: 'San Juan', isoCode: 'AR-J', latitude: '-31.500000', longitude: '-69.000000' },
-  { name: 'San Luis', isoCode: 'AR-D', latitude: '-33.500000', longitude: '-66.000000' },
-  { name: 'Santa Cruz', isoCode: 'AR-Z', latitude: '-49.000000', longitude: '-70.000000' },
-  { name: 'Santa Fe', isoCode: 'AR-S', latitude: '-30.500000', longitude: '-60.800000' },
-  { name: 'Santiago del Estero', isoCode: 'AR-G', latitude: '-27.800000', longitude: '-63.500000' },
-  { name: 'Tierra del Fuego', isoCode: 'AR-V', latitude: '-54.000000', longitude: '-67.500000' },
-  { name: 'Tucumán', isoCode: 'AR-T', latitude: '-26.800000', longitude: '-65.300000' },
-];
+const { PROVINCIAS_CANONICAS, claveDeProvincia } = await import('./provincias-canonicas.js');
+const { and, eq, isNull, or, sql } = await import('drizzle-orm');
 
 const db = getDb();
 let inserted = 0;
 let skipped = 0;
 
-for (const province of PROVINCES) {
+for (const province of PROVINCIAS_CANONICAS) {
   const [existing] = await db
     .select()
     .from(geographicLocations)
@@ -66,15 +41,55 @@ for (const province of PROVINCES) {
     skipped++;
     continue;
   }
-  await db.insert(geographicLocations).values({
-    level: 'province',
-    name: province.name,
-    isoCode: province.isoCode,
-    latitude: province.latitude,
-    longitude: province.longitude,
-  });
+  // `province_id` es NOT NULL y sin default desde la migración 0013, y una
+  // provincia es su propio padre: hay que reservarle el id ANTES de insertarla.
+  // El `values({...})` de Drizzle no puede expresar eso —necesita el valor de
+  // `nextval` dentro de la misma sentencia—, así que va en SQL.
+  //
+  // `name_norm` se escribe con `claveDeProvincia`, que es LA MISMA expresión
+  // que corre `findProvinceByName` del otro lado. No hay —ni puede haber— una
+  // versión en SQL de esto: un segundo normalizador es lo que la spec A §5
+  // prohíbe, y su diferencia no se ve como un error sino como una provincia
+  // que deja de encontrarse.
+  const nameNorm = claveDeProvincia(province.name);
+  await db.execute(sql`
+    WITH nuevo AS (SELECT nextval('geographic_locations_id_seq')::int AS id)
+    INSERT INTO geographic_locations
+      (id, province_id, level, name, iso_code, latitude, longitude, georef_id, name_norm)
+    SELECT nuevo.id, nuevo.id, 'province', ${province.name}::text, ${province.isoCode}::text,
+           ${province.latitude}::numeric, ${province.longitude}::numeric,
+           ${province.georefId}::text, ${nameNorm}::text
+      FROM nuevo
+    ON CONFLICT (georef_id) DO UPDATE SET name_norm = EXCLUDED.name_norm
+      WHERE geographic_locations.name_norm IS DISTINCT FROM EXCLUDED.name_norm
+  `);
   inserted++;
 }
 
 process.stdout.write(`Provinces seed: inserted=${String(inserted)} skipped=${String(skipped)}\n`);
+
+// Las que ya estaban y siguen a medio llenar. Decirlo acá es lo que separa
+// «sembré una base vacía» de «esta base necesita el relleno»: sin este conteo,
+// una corrida que saltea las 24 se lee como éxito y `findProvinceByName`
+// devuelve `undefined` para las 24 sin que nadie se entere.
+const [aMedias] = await db
+  .select({ n: sql<number>`count(*)::int` })
+  .from(geographicLocations)
+  .where(
+    and(
+      eq(geographicLocations.level, 'province'),
+      or(isNull(geographicLocations.nameNorm), isNull(geographicLocations.georefId)),
+    ),
+  );
+
+if (aMedias && aMedias.n > 0) {
+  process.stdout.write(
+    `\n${String(aMedias.n)} provincias ya existentes sin \`name_norm\` o sin \`georef_id\`.\n` +
+      'Mientras sigan así, `findProvinceByName` devuelve `undefined` para ellas y toda\n' +
+      'señal nueva se guarda sin provincia (D-001). Repararlas:\n' +
+      '  pnpm --filter @v2/db geo:rellenar-provincias            # muestra qué haría\n' +
+      '  pnpm --filter @v2/db geo:rellenar-provincias --aplicar  # escribe\n',
+  );
+}
+
 process.exit(0);

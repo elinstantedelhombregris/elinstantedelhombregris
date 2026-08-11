@@ -22,6 +22,8 @@ export default defineConfig({
     './src/schema/auth.ts',
     './src/schema/notifications.ts',
     './src/schema/geographic.ts',
+    './src/schema/geo-calles.ts',
+    './src/schema/geo-seed.ts',
     './src/schema/community.ts',
     './src/schema/blog.ts',
     './src/schema/ensayos.ts',

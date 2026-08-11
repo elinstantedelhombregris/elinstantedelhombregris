@@ -14,6 +14,7 @@ import { civicRouter } from './features/civic-map/routes.js';
 import { coachingRouter } from './features/coaching/routes.js';
 import { communityRouter } from './features/community/routes.js';
 import { gamificationRouter } from './features/gamification/routes.js';
+import { geoRouter } from './features/geo/routes.js';
 import { goalsRouter } from './features/goals/routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
@@ -77,6 +78,9 @@ export function createApp(): Express {
   app.use('/api/civic-assessment', civicAssessmentRouter);
   // Todo lo cívico cuelga del prefijo versionado que el móvil ya habla.
   app.use('/api/v1/civic', civicRouter);
+  // El callejero del Estado, espejado. Mismo prefijo versionado y por la misma
+  // razón: es contrato entre la web y la app de campo, no una vista de la web.
+  app.use('/api/v1/geo', geoRouter);
   app.use('/api', goalsRouter);
   app.use('/api/coaching', coachingRouter);
   app.use('/api/blog', blogRouter);

@@ -174,3 +174,60 @@ describe('prepareRecordLocation', () => {
     expect(validGeoPoint(ESQUINA)).toEqual(ESQUINA);
   });
 });
+
+/**
+ * La pregunta de la casa (spec `2026-08-11-a-la-tierra.md` §2.6, Task 2 del
+ * plan de la tierra). «Es mi casa» produce `subject`+`moderate`; «es la casa de
+ * otra persona» y «sin respuesta» quedan en `subject`+`high` **y con la
+ * propuesta de engrosado no rechazable**.
+ */
+describe('el sujeto de la ubicación', () => {
+  it('sobre el lugar propio la propuesta se puede rechazar', () => {
+    const r = publishedPrecision({
+      requested: 'exact',
+      role: 'subject',
+      sensitivity: 'high',
+      audience: 'collective',
+      sujeto: 'propio',
+    });
+    expect(r.precision).toBe('500m');
+    expect(r.overridable).toBe(true);
+  });
+
+  it('sobre la casa de otra persona, no', () => {
+    const r = publishedPrecision({
+      requested: 'exact',
+      role: 'subject',
+      sensitivity: 'high',
+      audience: 'collective',
+      sujeto: 'tercero',
+    });
+    expect(r.precision).toBe('500m');
+    expect(r.overridable).toBe(false);
+  });
+
+  it('y el rechazo no tiene efecto cuando no era rechazable', () => {
+    const r = prepareRecordLocation({
+      point: ESQUINA,
+      requestedPrecision: 'exact',
+      role: 'subject',
+      sensitivity: 'high',
+      audience: 'collective',
+      sujeto: 'tercero',
+      overrideCoarsening: true,
+    });
+    expect(r.publishedPrecision).toBe('500m');
+    expect(r.coarsenedBecause).toMatch(/persona/);
+  });
+
+  it('el default sigue siendo el lugar propio', () => {
+    // Sin la pregunta hecha, nada cambia para las superficies que ya existen.
+    const r = publishedPrecision({
+      requested: 'exact',
+      role: 'capture',
+      sensitivity: 'low',
+      audience: 'collective',
+    });
+    expect(r.overridable).toBe(true);
+  });
+});

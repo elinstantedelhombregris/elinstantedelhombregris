@@ -11,6 +11,7 @@
 export * from './types.js';
 export * from './geo.js';
 export * from './location-policy.js';
+export * from './direcciones.js';
 export * from './lasso.js';
 export * from './coverage.js';
 export * from './coeficientes-luz.js';

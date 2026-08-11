@@ -8,7 +8,39 @@
 export { UsersRepository } from './users.js';
 export { AuthRepository } from './auth.js';
 export { NotificationsRepository } from './notifications.js';
-export { GeographicRepository, normalizeProvinceName } from './geographic.js';
+export {
+  GeographicRepository,
+  normalizeProvinceName,
+  NIVELES_DE_LOCALIDAD,
+  NIVELES_DE_LUGAR,
+} from './geographic.js';
+export type {
+  Ancestros,
+  BusquedaDeLocalidad,
+  FiltroDeLugares,
+  NivelDeLugar,
+} from './geographic.js';
+export type { OpcionesDeLectura } from './_lectura.js';
+export {
+  COLUMNAS_DEL_PAQUETE,
+  GeoCallesRepository,
+  LIMITE_MAXIMO,
+  LIMITE_POR_DEFECTO,
+  MINIMO_DE_CONSULTA,
+} from './geo-calles.js';
+export type {
+  AmbitoDeBusqueda,
+  BusquedaDeCalles,
+  CalleDelCatalogo,
+  CalleParaSembrar,
+  ClaseDeNombre,
+  ConsultaDeCalles,
+  FilaDePaquete,
+  LugarNombrado,
+  PaqueteDeCalles,
+  ResultadoDeLote,
+  ScopeDeBusqueda,
+} from './geo-calles.js';
 export { CommunityRepository } from './community.js';
 export { BlogRepository } from './blog.js';
 export { EnsayosRepository } from './ensayos.js';
