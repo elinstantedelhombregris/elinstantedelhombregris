@@ -1,6 +1,6 @@
 import { cn } from '~/lib/utils';
 
-export type ProporcionFoto = 'retrato' | 'apaisada' | 'firma';
+export type ProporcionFoto = 'retrato' | 'cuadrada' | 'apaisada' | 'firma';
 
 /**
  * La proporción se reserva SIEMPRE, haya foto o no. Es la razón de ser de
@@ -9,8 +9,25 @@ export type ProporcionFoto = 'retrato' | 'apaisada' | 'firma';
  */
 const PROPORCION_CLASSES: Record<ProporcionFoto, string> = {
   retrato: 'aspect-[4/5]',
+  cuadrada: 'aspect-square',
   apaisada: 'aspect-[16/9]',
   firma: 'aspect-[5/2]',
+};
+
+/**
+ * Cómo se posa la foto sobre la hoja.
+ *
+ * `marco` — foto rectangular con borde de expediente. El default.
+ * `impresa` — para recortes sobre fondo blanco (retratos, firmas): sin
+ *   borde y con `multiply`, que hace que el blanco del archivo desaparezca
+ *   dentro del papel. La imagen deja de estar pegada encima de la hoja y
+ *   pasa a estar impresa en ella, que es lo que el sistema promete.
+ */
+export type PosadoFoto = 'marco' | 'impresa';
+
+const POSADO_CLASSES: Record<PosadoFoto, string> = {
+  marco: 'border-papel-borde border object-cover',
+  impresa: 'object-contain mix-blend-multiply',
 };
 
 export interface FotoPapelProps {
@@ -20,6 +37,8 @@ export interface FotoPapelProps {
   /** Nombre del archivo esperado — se imprime dentro del marco vacío. */
   archivo: string;
   proporcion: ProporcionFoto;
+  /** Cómo se posa sobre la hoja. Default `marco`. */
+  posado?: PosadoFoto;
   /** Epígrafe mono debajo de la foto (opcional). */
   epigrafe?: string;
   className?: string;
@@ -37,6 +56,7 @@ export function FotoPapel({
   alt,
   archivo,
   proporcion,
+  posado = 'marco',
   epigrafe,
   className,
 }: FotoPapelProps) {
@@ -61,10 +81,7 @@ export function FotoPapel({
           src={src}
           alt={alt}
           loading="lazy"
-          className={cn(
-            'border-papel-borde w-full border object-cover',
-            PROPORCION_CLASSES[proporcion],
-          )}
+          className={cn('w-full', PROPORCION_CLASSES[proporcion], POSADO_CLASSES[posado])}
         />
       )}
       {epigrafe === undefined ? null : (

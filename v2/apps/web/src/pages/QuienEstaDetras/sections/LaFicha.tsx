@@ -16,7 +16,8 @@ export function LaFicha() {
           archivo={RETRATO.archivo}
           alt={RETRATO.alt}
           epigrafe={RETRATO.epigrafe}
-          proporcion="retrato"
+          proporcion="cuadrada"
+          posado="impresa"
         />
 
         <div>

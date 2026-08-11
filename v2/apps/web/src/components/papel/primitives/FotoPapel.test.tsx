@@ -42,6 +42,24 @@ describe('FotoPapel', () => {
     expect(screen.getByRole('img', { name: 'x' })).toHaveClass('aspect-[16/9]');
   });
 
+  it('posada «impresa» funde el blanco en el papel y suelta el marco', () => {
+    // Los recortes sobre fondo blanco (el retrato, la firma) tienen que
+    // quedar impresos en la hoja, no pegados encima con un borde alrededor.
+    render(
+      <FotoPapel
+        src="/media/quien/retrato.png"
+        archivo="public/media/quien/retrato.png"
+        alt="Juan Ignacio Bravin"
+        proporcion="cuadrada"
+        posado="impresa"
+      />,
+    );
+
+    const img = screen.getByRole('img', { name: 'Juan Ignacio Bravin' });
+    expect(img).toHaveClass('mix-blend-multiply');
+    expect(img).not.toHaveClass('border');
+  });
+
   it('el epígrafe es opcional', () => {
     const { rerender } = render(
       <FotoPapel src={null} archivo="x.jpg" alt="x" proporcion="retrato" />,

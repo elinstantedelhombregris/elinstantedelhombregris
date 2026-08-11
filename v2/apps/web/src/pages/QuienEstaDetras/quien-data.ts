@@ -21,9 +21,8 @@
  * Buscá el centinela `PENDIENTE`. Ninguno de esos huecos inventa un valor de
  * relleno: si todavía no hay número, no hay número (regla de la casa).
  *
- *   · el año en que arrancó ¡BASTA!
  *   · cuánto cuesta sostener el sitio por mes
- *   · las cuatro fotos en public/media/quien/
+ *   · las tres fotos que faltan en public/media/quien/ (el retrato ya está)
  * ───────────────────────────────────────────────────────────────────────────
  */
 
@@ -58,10 +57,16 @@ export const FICHA: readonly FilaFicha[] = [
   { etiqueta: 'Acá', valor: 'Ningún cargo. Ninguna candidatura. Ningún voto que pedirte.' },
 ];
 
+/**
+ * El retrato viene recortado sobre blanco, así que va `impresa`: sin marco y
+ * con multiply, el blanco del archivo se funde en el papel y la cara queda
+ * impresa en la hoja en vez de pegada encima. Cuadrada porque el archivo es
+ * 640×640 — en el 4:5 original el recorte le comía el pelo de los costados.
+ */
 export const RETRATO = {
-  src: null as string | null,
-  archivo: 'public/media/quien/retrato.jpg',
-  alt: 'Retrato de Juan Ignacio Bravin',
+  src: '/media/quien/retrato.png' as string | null,
+  archivo: 'public/media/quien/retrato.png',
+  alt: 'Juan Ignacio Bravin',
   epigrafe: 'Mendoza',
 } as const;
 
@@ -134,7 +139,8 @@ export const TRAYECTORIA: readonly FilaTrayectoria[] = [
   {
     num: '05',
     titulo: 'La plataforma',
-    cuerpo: `Desde ${PENDIENTE}, construyendo esto. Al principio solo. En el camino se fue sumando gente que me banca, me corrige y me empuja — y nada de lo que hay acá quedó escrito sin que alguien me lo discutiera antes.`,
+    cuerpo:
+      'Más de siete años dándole vueltas a esto, y no tengo la fecha exacta: no creo que exista. En la idea de hacer de la Argentina un país mejor vengo trabajando desde mucho antes, sin saber que iba a terminar acá. Al principio solo. En el camino se fue sumando gente que me banca, me corrige y me empuja — y nada de lo que hay en este sitio quedó escrito sin que alguien me lo discutiera antes.',
   },
 ];
 
