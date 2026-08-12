@@ -235,6 +235,45 @@ dsuite('Faltas flows', () => {
     });
   });
 
+  describe('la descarga', () => {
+    it('sirve CSV y JSONL, y ninguno de los dos lleva la llave', async () => {
+      const creada = await dejar();
+      const { idPublico, llave } = creada.body.data as { idPublico: string; llave: string };
+
+      const csv = await request.get('/api/v1/faltas/descarga.csv');
+      expect(csv.status).toBe(200);
+      expect(csv.headers['content-type']).toContain('text/csv');
+      expect(csv.headers['content-disposition']).toContain('lo-que-falta.csv');
+      expect(csv.text.split('\n')[0]).toBe(
+        'idPublico,origen,superficie,estado,severidad,titulo,cuerpo,razon,anotadaComo,cierreUrl,firmas,creadaEn,movidaEn',
+      );
+      expect(csv.text).toContain(idPublico);
+      expect(csv.text).not.toContain(llave);
+      expect(csv.text).not.toContain(hashDeLlave(llave));
+
+      const jsonl = await request.get('/api/v1/faltas/descarga.jsonl');
+      expect(jsonl.status).toBe(200);
+      expect(jsonl.text).not.toContain(llave);
+      // Cada línea es un JSON completo por sí misma — eso es lo que hace JSONL.
+      for (const linea of jsonl.text.split('\n').filter(Boolean).slice(0, 5)) {
+        expect(() => JSON.parse(linea)).not.toThrow();
+      }
+    });
+
+    it('escapa comillas y comas del cuerpo en vez de partir la fila', async () => {
+      const creada = await dejar({
+        titulo: `Comas, "comillas" y saltos ${String(Date.now())}`,
+        cuerpo: 'Primera línea, con coma.\nSegunda con "comillas" adentro.',
+      });
+      const idPublico = creada.body.data.idPublico as string;
+
+      const csv = await request.get('/api/v1/faltas/descarga.csv');
+      const fila = csv.text.split('\n').find((l) => l.startsWith(idPublico));
+      expect(fila).toBeDefined();
+      expect(fila).toContain('""comillas""');
+    });
+  });
+
   describe('PATCH — mover de estado', () => {
     /**
      * La exención anónima de este canal cubre tres verbos y **no** el PATCH.

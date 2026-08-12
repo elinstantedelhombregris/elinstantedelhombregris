@@ -3,7 +3,6 @@
  *
  * Spec: `docs/specs/2026-08-12-lo-que-falta.md` §2.7.
  *
- *   pnpm --filter @v2/web exec tsx ../../scripts/content/importar-deudas.ts
  *   pnpm deudas:importar            (desde v2/)
  *   pnpm deudas:importar --seco     (no escribe: dice qué haría)
  *
@@ -19,6 +18,7 @@
  */
 import { readFileSync } from 'node:fs';
 
+import { FaltasRepository, getDb, type ResultadoDeImportacion } from '@v2/db';
 import { config } from 'dotenv';
 
 import { fusionar, leerDeudas } from './leer-deudas.js';
@@ -27,37 +27,39 @@ config({ path: new URL('../../.env', import.meta.url).pathname });
 
 const RUTA_DEUDAS = new URL('../../../docs/DEUDAS.md', import.meta.url).pathname;
 
+/** Los scripts de este repo escriben por stdout, no por console (regla `no-console`). */
+function decir(linea: string): void {
+  process.stdout.write(`${linea}\n`);
+}
+
 async function main(): Promise<void> {
   const seco = process.argv.includes('--seco');
 
   const deudas = fusionar(leerDeudas(readFileSync(RUTA_DEUDAS, 'utf8')));
   if (deudas.length === 0) {
-    console.error('No se leyó ninguna deuda de docs/DEUDAS.md — no se toca la base.');
+    decir('No se leyó ninguna deuda de docs/DEUDAS.md — no se toca la base.');
     process.exitCode = 1;
     return;
   }
 
-  const abiertas = deudas.filter((d) => !d.resuelta).length;
-  console.log(
-    `Leídas ${String(deudas.length)} deudas de docs/DEUDAS.md — ${String(abiertas)} abiertas, ${String(deudas.length - abiertas)} resueltas.`,
+  const resueltas = deudas.filter((d) => d.resuelta).length;
+  decir(
+    `Leídas ${String(deudas.length)} deudas de docs/DEUDAS.md — ` +
+      `${String(deudas.length - resueltas)} abiertas, ${String(resueltas)} resueltas.`,
   );
 
   if (seco) {
     for (const deuda of deudas) {
-      console.log(
-        `  ${deuda.idPublico}  ${deuda.resuelta ? 'hecha  ' : 'anotada'}  ${deuda.severidad ?? '—'}  ${deuda.titulo}`,
+      decir(
+        `  ${deuda.idPublico}  ${deuda.resuelta ? 'hecha  ' : 'anotada'}  ` +
+          `${deuda.severidad ?? '—'}  ${deuda.titulo}`,
       );
     }
-    console.log('Corrida seca: no se escribió nada.');
+    decir('Corrida seca: no se escribió nada.');
     return;
   }
 
-  // Import dinámico: en seco el script no necesita DATABASE_URL, y `@v2/db`
-  // construye el cliente al primer uso pero exige la variable al importarse
-  // desde un entorno sin ella.
-  const { FaltasRepository, getDb } = await import('@v2/db');
-
-  const resultado = await new FaltasRepository(getDb()).importarDeudas(
+  const resultado: ResultadoDeImportacion = await new FaltasRepository(getDb()).importarDeudas(
     deudas.map((deuda) => ({
       idPublico: deuda.idPublico,
       titulo: deuda.titulo,
@@ -67,24 +69,26 @@ async function main(): Promise<void> {
     })),
   );
 
-  console.log(
-    `Creadas ${String(resultado.creadas)} · actualizadas ${String(resultado.actualizadas)} · intactas por estar bajadas ${String(resultado.intactas.length)}`,
+  decir(
+    `Creadas ${String(resultado.creadas)} · actualizadas ${String(resultado.actualizadas)} · ` +
+      `intactas por estar bajadas ${String(resultado.intactas.length)}`,
   );
 
   if (resultado.intactas.length > 0) {
-    console.log(`  bajadas, no se pisaron: ${resultado.intactas.join(', ')}`);
+    decir(`  bajadas, no se pisaron: ${resultado.intactas.join(', ')}`);
   }
 
   if (resultado.huerfanas.length > 0) {
-    console.warn(
-      `⚠ ${String(resultado.huerfanas.length)} faltas quedaron huérfanas — están en la base y ya no en docs/DEUDAS.md:`,
+    decir(
+      `⚠ ${String(resultado.huerfanas.length)} faltas quedaron huérfanas — ` +
+        'están en la base y ya no en docs/DEUDAS.md:',
     );
-    console.warn(`  ${resultado.huerfanas.join(', ')}`);
-    console.warn('  No se borraron. Si el archivo las perdió por error, devolvelas ahí.');
+    decir(`  ${resultado.huerfanas.join(', ')}`);
+    decir('  No se borraron. Si el archivo las perdió por error, devolvelas ahí.');
   }
 }
 
 main().catch((error: unknown) => {
-  console.error(error);
+  process.stderr.write(`${String(error)}\n`);
   process.exit(1);
 });

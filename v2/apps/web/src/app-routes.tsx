@@ -19,6 +19,7 @@ import {
   EnsayoDetail,
   EntrenamientoDetail,
   Entrenamientos,
+  FaltaDetail,
   ForgotPassword,
   Goals,
   Home,
@@ -32,6 +33,7 @@ import {
   LifeAreaDetail,
   LifeAreasDashboard,
   Login,
+  LoQueFalta,
   Manifiesto,
   MiPerfil,
   NotFound,
@@ -158,6 +160,12 @@ export function AppRoutes() {
       </Route>
       <Route path="/datos-abiertos" component={DatosAbiertos} />
       <Route path="/tablero" component={InsightDashboard} />
+
+      {/* Canal de escucha (spec 2026-08-12-lo-que-falta.md). La ficha va ANTES
+          que el registro: `/lo-que-falta/:idPublico` tiene que ganarle a la
+          portada, y es la URL que vuelve en el recibo de cada envío. */}
+      <Route path="/lo-que-falta/:idPublico" component={FaltaDetail} />
+      <Route path="/lo-que-falta" component={LoQueFalta} />
 
       <Route component={NotFound} />
     </Switch>

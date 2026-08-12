@@ -56,6 +56,16 @@ export const SEMBRAR_HREF = '/sembrar';
 export const QUIEN_HREF = '/quien-esta-detras';
 export const QUIEN_LABEL = 'Quién está detrás';
 
+/**
+ * «Lo que falta» — el canal de escucha
+ * (spec 2026-08-12-lo-que-falta.md). Comparte la franja inferior con «Quién
+ * está detrás» y por la misma razón: es una puerta permanente que no compite
+ * con las cinco del recorrido. Las dos juntas cierran la simetría —quién
+ * sostiene esto, y qué le falta— y ninguna de las dos pide nada a cambio.
+ */
+export const FALTA_HREF = '/lo-que-falta';
+export const FALTA_LABEL = 'Lo que falta';
+
 export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   { href: '/', label: 'Inicio', num: '00' },
   ...PAPEL_NAV,

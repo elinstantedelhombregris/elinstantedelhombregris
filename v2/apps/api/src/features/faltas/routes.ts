@@ -25,8 +25,8 @@ import {
   transicionValida,
   type EstadoDeFalta,
 } from '@v2/civic-core';
-import { FaltasRepository, getDb, LIMITE_DE_PAGINA_MAXIMO } from '@v2/db';
-import { Router, type Router as RouterType } from 'express';
+import { FaltasRepository, getDb, LIMITE_DE_PAGINA_MAXIMO, type FaltaPublica } from '@v2/db';
+import { Router, type RequestHandler, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
 import { getConfig } from '../../lib/config.js';
@@ -97,6 +97,50 @@ const moverSchema = z.object({
   cierreUrl: z.string().trim().url('El cierre va con una URL.').max(500).optional(),
 });
 
+/**
+ * Techo de la descarga. Existe para que un registro que crezca sin control no
+ * tumbe la función serverless, y **se declara acá y no en silencio**: el día
+ * que se toque, la descarga tiene que partirse por fecha y decirlo en la
+ * cabecera. Cortar sin avisar sería publicar un registro incompleto que se
+ * lee como completo.
+ */
+const TECHO_DE_DESCARGA = 20_000;
+
+const COLUMNAS_CSV = [
+  'idPublico',
+  'origen',
+  'superficie',
+  'estado',
+  'severidad',
+  'titulo',
+  'cuerpo',
+  'razon',
+  'anotadaComo',
+  'cierreUrl',
+  'firmas',
+  'creadaEn',
+  'movidaEn',
+] as const;
+
+/**
+ * Una celda de CSV. `contexto` no está entre las columnas justamente porque es
+ * un objeto: si algún día entra, tiene que entrar serializado a propósito y no
+ * caer acá a que `String()` lo convierta en `[object Object]`.
+ */
+function celda(valor: string | number | null): string {
+  if (valor === null) return '';
+  const texto = String(valor);
+  return /[",\n\r]/.test(texto) ? `"${texto.replace(/"/g, '""')}"` : texto;
+}
+
+function aCsv(filas: readonly FaltaPublica[]): string {
+  const lineas = [COLUMNAS_CSV.join(',')];
+  for (const fila of filas) {
+    lineas.push(COLUMNAS_CSV.map((columna) => celda(fila[columna])).join(','));
+  }
+  return `${lineas.join('\n')}\n`;
+}
+
 /** El id público llega por la URL: se valida contra la gramática, no contra la base. */
 function exigirIdPublico(valor: unknown): string {
   if (typeof valor !== 'string' || !leerIdPublico(valor)) {
@@ -130,6 +174,47 @@ router.get('/conteos', async (_req, res, next) => {
     next(err);
   }
 });
+
+/**
+ * La descarga. Va **antes** de `/:idPublico` porque `descarga.csv` no tiene
+ * forma de id y caería en un 400 en vez de servir el archivo.
+ *
+ * El registro entero, sin cursor y sin paginar: una descarga que hay que
+ * pedir de a cuarenta no es una descarga. Y con las mismas columnas que la
+ * API pública — ni la llave, ni su hash, ni el id interno.
+ */
+router.get('/descarga.csv', descargar('csv'));
+router.get('/descarga.jsonl', descargar('jsonl'));
+
+function descargar(formato: 'csv' | 'jsonl'): RequestHandler {
+  return async (_req, res, next) => {
+    try {
+      const repo = new FaltasRepository(getDb());
+      const todas: FaltaPublica[] = [];
+      let cursor: string | undefined;
+
+      do {
+        const pagina = await repo.listar({
+          limite: LIMITE_DE_PAGINA_MAXIMO,
+          ...(cursor ? { cursor } : {}),
+        });
+        todas.push(...pagina.faltas);
+        cursor = pagina.siguiente ?? undefined;
+      } while (cursor && todas.length < TECHO_DE_DESCARGA);
+
+      const esCsv = formato === 'csv';
+      res.setHeader(
+        'Content-Type',
+        esCsv ? 'text/csv; charset=utf-8' : 'application/x-ndjson; charset=utf-8',
+      );
+      res.setHeader('Content-Disposition', `attachment; filename="lo-que-falta.${formato}"`);
+      res.send(esCsv ? aCsv(todas) : todas.map((f) => JSON.stringify(f)).join('\n'));
+    } catch (err) {
+      next(err);
+    }
+  };
+}
+
 
 router.get('/:idPublico', async (req, res, next) => {
   try {

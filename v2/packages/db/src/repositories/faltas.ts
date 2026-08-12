@@ -28,7 +28,7 @@ import { and, desc, eq, lt, notInArray, sql } from 'drizzle-orm';
 import { faltas, faltasFirmas } from '../schema/faltas.js';
 
 import type { Db } from '../client.js';
-import type { ContextoDeFalta, Falta } from '../schema/faltas.js';
+import type { ContextoDeFalta, Falta, NuevaFalta } from '../schema/faltas.js';
 
 /** Lo que ve cualquiera. No incluye `llaveHash` ni el id interno. */
 export interface FaltaPublica {
@@ -269,14 +269,14 @@ export class FaltasRepository {
       cierreUrl?: string | undefined;
     } = {},
   ): Promise<FaltaPublica | undefined> {
-    const set: Record<string, unknown> = { estado, movidaEn: new Date() };
-    if (patch.razon !== undefined) set['razon'] = patch.razon;
-    if (patch.anotadaComo !== undefined) set['anotadaComo'] = patch.anotadaComo;
-    if (patch.cierreUrl !== undefined) set['cierreUrl'] = patch.cierreUrl;
+    const set: Partial<NuevaFalta> = { estado, movidaEn: new Date() };
+    if (patch.razon !== undefined) set.razon = patch.razon;
+    if (patch.anotadaComo !== undefined) set.anotadaComo = patch.anotadaComo;
+    if (patch.cierreUrl !== undefined) set.cierreUrl = patch.cierreUrl;
     if (vaciaContenido(estado)) {
-      set['titulo'] = CONTENIDO_BAJADO;
-      set['cuerpo'] = CONTENIDO_BAJADO;
-      set['contexto'] = null;
+      set.titulo = CONTENIDO_BAJADO;
+      set.cuerpo = CONTENIDO_BAJADO;
+      set.contexto = null;
     }
 
     const [fila] = await this.db

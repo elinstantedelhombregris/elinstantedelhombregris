@@ -13,6 +13,7 @@ import type { Modo } from './catalogo-modos';
 import type { ContextoModo } from './modos/tipos';
 import type { MapRef } from 'react-map-gl/maplibre';
 
+import { PanelDejarFalta } from '~/components/papel/PanelDejarFalta';
 import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
 
 /**
@@ -28,6 +29,7 @@ import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
  */
 export function Instrumento() {
   const [modo, setModo] = useState<Modo>('mapa');
+  const [panelFalta, setPanelFalta] = useState(false);
   const mapaRef = useRef<MapRef>(null);
   const { recuadro, alMover } = useVistaMapa();
 
@@ -113,9 +115,35 @@ export function Instrumento() {
         </div>
       </div>
 
-      <p className="font-space text-oscuro-tenue border-oscuro-borde border-t px-4 py-2 text-[10px]">
-        Mapa © OpenStreetMap contributors · © CARTO
-      </p>
+      <div className="font-space text-oscuro-tenue border-oscuro-borde flex flex-wrap items-center justify-between gap-3 border-t px-4 py-2 text-[10px]">
+        <span>Mapa © OpenStreetMap contributors · © CARTO</span>
+        {/* La segunda boca del canal de escucha, y la única que adjunta algo:
+            lo que se deje desde acá se va con el encuadre y el modo que se
+            estaban mirando (spec 2026-08-12-lo-que-falta.md §2.8). El pedido
+            llega con la pantalla pegada y no como «no me anda una cosa». */}
+        <button
+          type="button"
+          onClick={() => {
+            setPanelFalta(true);
+          }}
+          className="hover:text-papel underline uppercase tracking-[0.1em] transition-colors"
+        >
+          Algo le falta a este mapa
+        </button>
+      </div>
+
+      <PanelDejarFalta
+        abierto={panelFalta}
+        onCerrar={() => {
+          setPanelFalta(false);
+        }}
+        superficieInicial="el-mapa"
+        contexto={{
+          ruta: '/el-mapa#instrumento',
+          capa: modo,
+          ...(recuadro ? { encuadre: recuadro } : {}),
+        }}
+      />
     </section>
   );
 }

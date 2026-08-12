@@ -1,6 +1,13 @@
 import { Link } from 'wouter';
 
-import { PAPEL_NAV_ALL, QUIEN_HREF, QUIEN_LABEL, SEMBRAR_HREF } from './papel-nav';
+import {
+  FALTA_HREF,
+  FALTA_LABEL,
+  PAPEL_NAV_ALL,
+  QUIEN_HREF,
+  QUIEN_LABEL,
+  SEMBRAR_HREF,
+} from './papel-nav';
 
 const PRINCIPIOS = [
   'Abierto y auditable',
@@ -85,6 +92,14 @@ export function PapelFooter() {
                 recorrido ni en el header, a propósito. */}
             <Link href={QUIEN_HREF} className="hover:text-papel underline transition-colors">
               {QUIEN_LABEL}
+            </Link>
+            <span aria-hidden>·</span>
+            {/* La cuarta boca del canal de escucha, y la que está en todas las
+                páginas (spec 2026-08-12-lo-que-falta.md §2.8). Va acá abajo y
+                no en el recorrido: es una puerta que tiene que estar siempre y
+                no pedir nada, no una sección que compita con las cinco. */}
+            <Link href={FALTA_HREF} className="hover:text-papel underline transition-colors">
+              {FALTA_LABEL}
             </Link>
           </span>
           <span>Prototipo · todavía sin voces</span>

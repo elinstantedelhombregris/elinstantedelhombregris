@@ -2,8 +2,8 @@
 
 **Fecha:** 2026-08-12
 **Ruta pública:** `/lo-que-falta`
-**Migración:** la primera libre después de la serie tierra/señal/corroboración/registro
-**Ordinal de `docs/DEUDAS.md` que abre:** el primero libre después de `D-044`
+**Migración:** `0019_lo_que_falta`. Se corrió a 19 a mano —drizzle-kit generó `0016`— para dejar `0016`–`0018` a la serie tierra/señal/corroboración/registro, que los tiene hablados y todavía no emitidos
+**Ordinales de `docs/DEUDAS.md` que abre:** `D-045` y `D-046`
 
 > **Qué resuelve.** Que la plataforma tenga una boca por donde entre lo que le falta, dicho por cualquiera, sin cuenta y sin dar un dato — y que lo dicho quede público, con estado visible y con respuesta. **Qué NO resuelve:** no toca `senales` ni el mapa civil, no manda un solo mail, no construye panel de administración, y no modera automáticamente nada.
 
@@ -88,14 +88,15 @@ Al dejar una falta la respuesta trae `{ id, url, llave }`. La llave es un secret
 
 `user_agent` no se guarda. La IP no se guarda: se usa en memoria para el freno de cadencia y no se persiste en ninguna columna.
 
-### 2.6 Cuatro frenos, ninguno de terceros
+### 2.6 Tres frenos, ninguno de terceros
 
-1. **Freno de cadencia** por IP, reusando `anonSubmitRateLimit()` (30/hora), más un freno propio más duro para el `POST` de creación.
-2. **Los enlaces nunca se renderizan como enlaces.** El cuerpo se muestra como texto plano, siempre, en toda superficie. Le saca al spam todo su valor.
-3. **Rito de tinta** — la primitiva `RitoTinta` que ya existe: fricción deliberada antes de mandar.
-4. **La baja deja marca**, así que ensuciar no borra: deja el número tachado en el registro para siempre.
+1. **Freno de cadencia** por IP: `anonSubmitRateLimit()` (30/hora) apilado con `dejarFaltaRateLimit()` (6/hora), más duro y sólo sobre el `POST` que crea. La IP la ve el limitador en memoria y no se persiste en ninguna columna.
+2. **Los enlaces nunca se renderizan como enlaces.** El cuerpo se muestra como texto plano, siempre, en toda superficie, y `comoTextoPlano()` le saca el esquema a las URLs para que ningún autolink las levante. Le quita al spam todo su valor de una función de una línea.
+3. **La baja deja marca**, así que ensuciar no borra: deja el número tachado en el registro para siempre.
 
 No hay CAPTCHA. `D-003` ya prohíbe depender de CDNs de terceros, y un CAPTCHA es exactamente eso.
+
+*El borrador tenía un cuarto freno —«rito de tinta», por la primitiva `RitoTinta`— y se cayó al implementarlo: `RitoTinta` es la animación de escritura de un titular, no una compuerta. Un retardo artificial antes de mandar no frena a un script, que no mira la pantalla, y sí castiga a la persona que escribió algo y quiere soltarlo. Los tres que quedan son los tres que hacen algo.*
 
 ### 2.7 El archivo manda, la base recibe
 
@@ -104,12 +105,21 @@ docs/DEUDAS.md ──[importar-deudas.ts, en cada despliegue]──► faltas (o
 panel público ───[POST /api/v1/faltas]─────────────────────► faltas (origen: afuera)
 ```
 
-El importador parsea `### D-0NN · título` con su bloque `**Dónde:** / **Encontrada:** / **Severidad:** / **Estado:**`, y es **idempotente por id público**. Reglas:
+El importador parsea `### D-0NN · título` con su bloque de campos, y es **idempotente por id público**. Reglas:
 
 - id nuevo en el archivo → fila nueva
-- id existente con contenido distinto → se actualiza
-- `**Estado:** Resuelta` (o `**Resuelta**`) en el archivo → la falta pasa a `hecha`
+- id existente → se actualiza
+- el archivo lo da por resuelto → la falta pasa a `hecha`
+- la falta ya está `bajada` → **no se pisa**: bajar es definitivo y una corrida del importador no resucita nada
 - id que está en la base y ya no en el archivo → **no se borra**: se marca `huerfana = true` y se reporta en el log
+
+**Leer «resuelta» del archivo no es leer un campo: es leer cinco formas.** Escritas por sesiones que no se conocían, `docs/DEUDAS.md` cierra una deuda de cinco maneras —`**Estado:** ~~abierta~~ → **resuelta**`, `**Estado:** RESUELTA …`, `**Resuelta:** fecha`, `**Encontrada y resuelta:** fecha`, `**Cómo se arregló:** …`— y tiene otras tres que contienen esas mismas palabras y son deudas **abiertas**: `**Estado:** abierta (…, no resuelta)` (D-029), `**Estado:** **parcialmente resuelta**` (D-014) y `**Por qué no se arregla acá:**` (D-032, D-033).
+
+La regla que sobrevivió a las ocho: **si hay `**Estado:**`, manda él** —es el campo que la plantilla del archivo declara, y es lo que salva a D-028, que dice `abierta` arriba y `**Cómo se arregla:**` (en presente, la receta) abajo—; si no hay, decide un nombre de campo que anuncie el cierre **en pasado** y sin negación.
+
+Buscar la palabra suelta fue el error grave, y por la dirección: daba por hechas cosas que no lo están, que es la única dirección en la que un registro público no puede equivocarse. «Parcialmente resuelta» cuenta como abierta a propósito — en el vocabulario del canal una falta está hecha o no lo está, y una a medio arreglar todavía le falta a alguien.
+
+La misma deuda aparece **dos veces** cuando se resuelve —la entrada del cuerpo y la copia de la sección «Resueltas»— y las dos se **fusionan**: título y severidad de la primera, `resuelta` si alguna lo dice, y el cuerpo de las dos. «Gana la última» perdía la severidad de las resueltas y las devolvía como abiertas; «gana la primera» perdería el relato de cómo se arregló, que es la mitad del valor del registro.
 
 No cambia el bucle de trabajo: se sigue anotando en el archivo mientras se programa.
 
@@ -122,13 +132,17 @@ Cuando se acepta una idea de afuera, el flujo es al revés y es manual: se copia
 | `/lo-que-falta` | nada; es la página del registro y del panel |
 | el instrumento del mapa | **el encuadre y la capa que se estaba mirando** |
 | el pie, en todas las páginas | la ruta actual |
-| `/datos-abiertos` | nada — ahí el registro se descarga, no se escribe |
+| `/lo-que-falta`, al pie | nada — ahí el registro se descarga, no se escribe |
 
 Un solo componente, `PanelDejarFalta`, montado desde las cuatro. El contexto llega por props, no lo lee el panel.
 
 ### 2.9 Se descarga
 
-El registro sale entero por `GET /api/v1/faltas` con cursor, y por descarga en CSV y JSONL desde `/datos-abiertos`. Nada de lo que la plataforma guarda es privado de la plataforma, y eso incluye la lista de sus propios defectos.
+El registro sale entero por `GET /api/v1/faltas` con cursor, y completo por `GET /api/v1/faltas/descarga.csv` y `descarga.jsonl` —sin cursor: una descarga que hay que pedir de a cuarenta no es una descarga—, con las mismas columnas que la API pública. Nada de lo que la plataforma guarda es privado de la plataforma, y eso incluye la lista de sus propios defectos.
+
+Las dos descargas se ofrecen **al pie de `/lo-que-falta`** y no en `/datos-abiertos`. La página del catálogo sigue en el sistema de diseño viejo, con cuatro datasets `available: false` apuntando a un directorio que no existe (`2026-08-11-d-el-registro-publico.md` §1.5): sumarle una quinta fila sería agregar una promesa a una página hecha de promesas. La descarga vive al lado del registro que descarga, y el catálogo se arregla cuando le toque su spec.
+
+El techo de la descarga es de 20.000 filas y **está declarado en el código**, no aplicado en silencio: el día que se toque, la descarga se parte por fecha y lo dice. Cortar sin avisar sería publicar un registro incompleto que se lee como completo.
 
 ---
 

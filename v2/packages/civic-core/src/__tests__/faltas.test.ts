@@ -26,11 +26,11 @@ describe('transicionValida', () => {
   it('rechaza un «no va» sin razón, y lo acepta con razón', () => {
     const sinRazon = transicionValida('dicha', 'no_va');
     expect(sinRazon.ok).toBe(false);
-    expect(sinRazon.ok === false && sinRazon.codigo).toBe('RAZON_REQUERIDA');
+    expect(!sinRazon.ok && sinRazon.codigo).toBe('RAZON_REQUERIDA');
 
     const conEspacios = transicionValida('dicha', 'no_va', { razon: '   ' });
     expect(conEspacios.ok).toBe(false);
-    expect(conEspacios.ok === false && conEspacios.codigo).toBe('RAZON_REQUERIDA');
+    expect(!conEspacios.ok && conEspacios.codigo).toBe('RAZON_REQUERIDA');
 
     expect(transicionValida('dicha', 'no_va', { razon: 'Ya lo cubre PLANFOCO.' })).toEqual({
       ok: true,
@@ -58,7 +58,7 @@ describe('transicionValida', () => {
     ] as [EstadoDeFalta, EstadoDeFalta][]) {
       const resultado = transicionValida(desde, hacia, { razon: 'da igual' });
       expect(resultado.ok, `${desde} → ${hacia}`).toBe(false);
-      expect(resultado.ok === false && resultado.codigo).toBe('TRANSICION_INVALIDA');
+      expect(!resultado.ok && resultado.codigo).toBe('TRANSICION_INVALIDA');
     }
   });
 
@@ -74,7 +74,7 @@ describe('transicionValida', () => {
         if (hacia === desde) continue;
         const resultado = transicionValida(desde, hacia, { razon: 'da igual' });
         expect(resultado.ok, `${desde} → ${hacia}`).toBe(false);
-        expect(resultado.ok === false && resultado.codigo, `${desde} → ${hacia}`).toBe(
+        expect(!resultado.ok && resultado.codigo, `${desde} → ${hacia}`).toBe(
           'YA_ES_TERMINAL',
         );
       }
@@ -84,13 +84,13 @@ describe('transicionValida', () => {
   it('rechaza mover una falta al estado en el que ya está', () => {
     const resultado = transicionValida('anotada', 'anotada');
     expect(resultado.ok).toBe(false);
-    expect(resultado.ok === false && resultado.codigo).toBe('TRANSICION_INVALIDA');
+    expect(!resultado.ok && resultado.codigo).toBe('TRANSICION_INVALIDA');
   });
 
   it('rechaza un estado que no existe', () => {
     const resultado = transicionValida('dicha', 'archivada' as EstadoDeFalta);
     expect(resultado.ok).toBe(false);
-    expect(resultado.ok === false && resultado.codigo).toBe('ESTADO_DESCONOCIDO');
+    expect(!resultado.ok && resultado.codigo).toBe('ESTADO_DESCONOCIDO');
   });
 });
 
