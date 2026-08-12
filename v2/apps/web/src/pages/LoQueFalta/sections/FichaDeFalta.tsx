@@ -56,7 +56,7 @@ export function FichaDeFalta({ falta }: FichaDeFaltaProps) {
       </div>
 
       <h1 className="font-anton mb-5 text-[clamp(30px,5vw,60px)] leading-[1.02]">
-        {bajada ? 'Contenido retirado' : falta.titulo}
+        {bajada ? 'Contenido retirado' : comoTextoPlano(falta.titulo)}
       </h1>
 
       <div className="font-space text-tinta-30 mb-8 flex flex-wrap gap-x-5 gap-y-1 text-[11px] uppercase tracking-[0.08em]">

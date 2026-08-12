@@ -19,6 +19,7 @@ import { afterAll, describe, expect, it } from 'vitest';
 import { eq, faltas, getDb, hashDeLlave } from '@v2/db';
 
 import { createApp } from '../src/app.js';
+import { getConfig, resetConfig } from '../src/lib/config.js';
 
 import { hasDatabaseUrl } from './helpers/index.js';
 
@@ -232,6 +233,29 @@ dsuite('Faltas flows', () => {
         .post(`/api/v1/faltas/${idPublico}/firmas`)
         .send({ llave: 'llave-de-prueba-para-firmar-0000' });
       expect(res.status).toBe(409);
+    });
+  });
+
+  describe('el freno de cadencia', () => {
+    /**
+     * La suite corre con `FALTAS_POR_HORA=500` (ver `vitest.config.ts`) porque
+     * crea más de seis faltas. Eso deja el mecanismo sin ejercitar, así que lo
+     * que se afirma acá es lo otro que importa: **que el default siga siendo
+     * seis**. Sin esta guarda, subir el techo en la config de test y olvidarse
+     * de que producción lo hereda es un cambio invisible en la única superficie
+     * del sistema que publica sin revisión previa.
+     */
+    it('el default de producción son seis por hora, con o sin variable puesta', () => {
+      const guardado = process.env['FALTAS_POR_HORA'];
+      try {
+        delete process.env['FALTAS_POR_HORA'];
+        resetConfig();
+        expect(getConfig().rateLimit.faltasPorHora).toBe(6);
+      } finally {
+        if (guardado === undefined) delete process.env['FALTAS_POR_HORA'];
+        else process.env['FALTAS_POR_HORA'] = guardado;
+        resetConfig();
+      }
     });
   });
 

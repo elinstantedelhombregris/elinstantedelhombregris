@@ -76,14 +76,27 @@ export function fechaLarga(iso: string): string {
  *
  * No es una decisión de estilo: es el freno anti-spam más barato que hay. Un
  * registro público al instante y sin cuenta donde los enlaces son enlaces es
- * una granja de backlinks el mismo día que alguien lo encuentre. Acá el
- * `<a>` no existe, así que el spam no tiene qué ganar.
+ * una granja de backlinks el mismo día que alguien lo encuentre. Acá el `<a>`
+ * no existe, así que el spam no tiene qué ganar. React ya escapa el HTML por
+ * su cuenta; el desarmado de URLs es la otra mitad — que una escrita a mano
+ * tampoco se vuelva clickeable por autolink de nadie.
  *
- * React ya escapa el HTML por su cuenta; esto es la otra mitad — que una URL
- * escrita a mano tampoco se vuelva clickeable por autolink de nadie.
+ * Y lo segundo, que apareció al ver la página con datos reales: **las faltas
+ * de adentro vienen de un archivo markdown**, así que el cuerpo llega con
+ * `**Dónde:**`, backticks y `[texto](url)`. Renderizarlo crudo mostraba los
+ * asteriscos; renderizarlo como markdown devolvería los `<a>` que el freno 2
+ * existe para prohibir. Queda la tercera: **se le sacan las marcas y se deja
+ * el texto**, que es exactamente lo que «texto plano» prometía. El enlace
+ * markdown conserva su etiqueta y pierde su destino, que es la forma correcta
+ * de degradarlo.
  */
 export function comoTextoPlano(cuerpo: string): string {
-  return cuerpo.replace(/\bhttps?:\/\/\S+/gi, (url) => url.replace(/^https?:\/\//i, ''));
+  return cuerpo
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/`{1,3}([^`]+)`{1,3}/g, '$1')
+    .replace(/\*{1,3}([^*]+)\*{1,3}/g, '$1')
+    .replace(/~~([^~]+)~~/g, '$1')
+    .replace(/\bhttps?:\/\/\S+/gi, (url) => url.replace(/^https?:\/\//i, ''));
 }
 
 /* ── La llave: lo único que el navegador guarda ─────────────────────────── */

@@ -74,6 +74,28 @@ describe('el cuerpo va como texto plano', () => {
     expect(comoTextoPlano('y HTTP://OTRO.example/x')).toBe('y OTRO.example/x');
   });
 
+  /**
+   * Las faltas de adentro llegan de `docs/DEUDAS.md`, o sea con markdown. Se
+   * le sacan las marcas y se deja el texto: renderizarlo crudo mostraba los
+   * asteriscos, y renderizarlo como markdown devolvería los `<a>` que el
+   * freno 2 existe para prohibir.
+   */
+  it('le saca las marcas de markdown que traen las deudas del archivo', () => {
+    expect(comoTextoPlano('**Dónde:** `packages/db/src/schema/feedback.ts`')).toBe(
+      'Dónde: packages/db/src/schema/feedback.ts',
+    );
+    expect(comoTextoPlano('**Estado:** ~~abierta~~ → **resuelta**')).toBe(
+      'Estado: abierta → resuelta',
+    );
+  });
+
+  it('un enlace markdown conserva su etiqueta y pierde su destino', () => {
+    expect(comoTextoPlano('ver [D-016](#d-016--el-archivo) para el detalle')).toBe(
+      'ver D-016 para el detalle',
+    );
+    expect(comoTextoPlano('[comprá acá](https://spam.example)')).toBe('comprá acá');
+  });
+
   it('no emite ningún <a> con el cuerpo de una falta', () => {
     const { container } = envolver(<FilaFalta falta={FALTA} propia={false} />);
     const enlaces = [...container.querySelectorAll('a')];

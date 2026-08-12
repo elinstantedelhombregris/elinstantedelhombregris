@@ -40,6 +40,18 @@ const ConfigSchema = z.object({
   rateLimit: z.object({
     windowMs: z.coerce.number().int().positive().default(60_000),
     maxRequests: z.coerce.number().int().positive().default(120),
+    /**
+     * Cuántas faltas por hora y por IP acepta `/lo-que-falta`
+     * (`docs/specs/2026-08-12-lo-que-falta.md` §2.6, freno 1).
+     *
+     * Es config y no una constante porque el canal publica **al instante y sin
+     * cola de revisión**: es la única superficie del sistema donde el número
+     * correcto se descubre viendo qué pasa, y bajarlo tiene que poder hacerse
+     * sin desplegar. El default es el de la spec y la guarda de
+     * `faltas-flows.test.ts` lo afirma; la suite de integración lo sube por
+     * `FALTAS_POR_HORA` porque crea más de seis en la misma corrida.
+     */
+    faltasPorHora: z.coerce.number().int().positive().default(6),
   }),
   log: z.object({
     level: z.enum(['debug', 'info', 'warn', 'error']).default('info'),
@@ -88,6 +100,7 @@ export function getConfig(): Config {
     rateLimit: {
       windowMs: process.env.RATE_LIMIT_WINDOW_MS,
       maxRequests: process.env.RATE_LIMIT_MAX_REQUESTS,
+      faltasPorHora: process.env.FALTAS_POR_HORA,
     },
     log: {
       level: process.env.LOG_LEVEL,

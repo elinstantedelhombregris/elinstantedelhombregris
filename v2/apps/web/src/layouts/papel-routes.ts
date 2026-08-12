@@ -20,6 +20,8 @@ const PAPEL_ROUTES = new Set([
   '/cronica',
   // Sin entrada en el recorrido: se llega solo desde la franja del footer.
   '/quien-esta-detras',
+  // El canal de escucha, que comparte esa franja (spec 2026-08-12-lo-que-falta.md).
+  '/lo-que-falta',
 ]);
 
 /**
@@ -41,6 +43,8 @@ const PAPEL_PREFIXES = [
   '/bitacora/',
   '/blog/',
   '/entrenamientos/',
+  // La ficha de una falta: `/lo-que-falta/:idPublico`.
+  '/lo-que-falta/',
 ];
 
 /**

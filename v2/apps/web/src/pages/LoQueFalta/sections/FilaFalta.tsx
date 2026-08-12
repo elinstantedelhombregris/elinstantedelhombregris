@@ -62,7 +62,7 @@ export function FilaFalta({ falta, propia }: FilaFaltaProps) {
       <div
         className={`mb-1.5 text-[17px] leading-snug ${bajada ? 'text-tinta-30 line-through' : 'text-tinta'}`}
       >
-        {bajada ? 'Contenido retirado' : falta.titulo}
+        {bajada ? 'Contenido retirado' : comoTextoPlano(falta.titulo)}
       </div>
 
       {bajada ? null : (

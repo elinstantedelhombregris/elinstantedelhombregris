@@ -100,7 +100,7 @@ export function anonSubmitRateLimit(): RequestHandler {
 }
 
 /**
- * Dejar una falta en `/lo-que-falta`: 6 por hora por IP.
+ * Dejar una falta en `/lo-que-falta`: 6 por hora por IP (`FALTAS_POR_HORA`).
  *
  * Más duro que `anonSubmitRateLimit` a propósito. Es el único acto del canal
  * que crea filas nuevas Y se publica al instante sin cola de revisión
@@ -110,7 +110,7 @@ export function anonSubmitRateLimit(): RequestHandler {
 export function dejarFaltaRateLimit(): RequestHandler {
   return rateLimit({
     windowMs: 60 * 60 * 1000,
-    max: 6,
+    max: getConfig().rateLimit.faltasPorHora,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
     message: {

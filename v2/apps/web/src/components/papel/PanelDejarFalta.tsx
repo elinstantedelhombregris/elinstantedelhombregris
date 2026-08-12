@@ -65,11 +65,20 @@ export function PanelDejarFalta({
   useEffect(() => {
     if (!abierto) return;
     primerCampo.current?.focus();
+
+    // El registro detrás mide 8.000 px de alto. Sin esto, la rueda del mouse
+    // sobre el panel arrastra la página de atrás y quien está escribiendo
+    // pierde el lugar al que iba a volver.
+    const overflowPrevio = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const alTeclado = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onCerrar();
     };
     document.addEventListener('keydown', alTeclado);
+
     return () => {
+      document.body.style.overflow = overflowPrevio;
       document.removeEventListener('keydown', alTeclado);
     };
   }, [abierto, onCerrar]);
