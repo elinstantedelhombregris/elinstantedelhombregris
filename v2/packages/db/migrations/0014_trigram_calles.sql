@@ -1,0 +1,117 @@
+-- ─────────────────────────────────────────────────────────────────────────────
+-- El GIN de trigramas del callejero, en su propia corrida.
+--
+-- Spec: `docs/specs/2026-08-11-a-la-tierra.md` §3.2 y §4.2.
+-- Plan: `docs/plans/2026-08-11-tierra-senal-corroboracion-registro.md`, Task 7.
+--
+-- ── Son dos sentencias y hacen dos trabajos distintos ────────────────────────
+--
+-- `CREATE EXTENSION pg_trgm` es una dependencia de CORRECCIÓN, no de velocidad:
+-- el scope de provincia de `buscarCalles` ordena por `similarity(nombre_norm, q)`
+-- (`repositories/geo-calles.ts`, `ordenDeBusqueda`), y `similarity()` la trae
+-- esta extensión. Sin ella ese scope no anda más lento: falla con «function
+-- similarity(text, text) does not exist». Por eso la extensión NO se puede
+-- revertir aunque el índice sí — ver «reversibilidad», abajo.
+--
+-- `CREATE INDEX ... USING gin` es la optimización, y sólo eso.
+--
+-- ── Qué acelera el GIN y qué NO ──────────────────────────────────────────────
+--
+-- Acelera `nombre_norm LIKE '%…%'`. `gin_trgm_ops` le extrae trigramas al
+-- patrón y busca las listas de posteo; de un patrón de menos de 3 caracteres no
+-- sale ningún trigrama completo y el índice no puede ayudar. **De ahí sale el
+-- `MINIMO_DE_CONSULTA.provincia = 3`**: no es una preferencia de producto, es el
+-- largo de un trigrama.
+--
+-- **NO acelera `similarity()`.** `similarity(a, b) > umbral` escrito como
+-- llamada a función no es indexable por `gin_trgm_ops`; lo indexable es el
+-- operador `a % b`, que consulta contra `pg_trgm.similarity_threshold`, y el
+-- repositorio no lo usa. Y un `ORDER BY similarity(...) DESC` no lo sirve
+-- ningún GIN: ordenar por un operador de distancia es cosa de GiST (`<->`), no
+-- de GIN. Consecuencia concreta, y hay que saberla antes de leer un plan: en el
+-- scope de provincia el `LIMIT` NO corta temprano. El motor filtra la rebanada
+-- entera, calcula `similarity()` fila por fila y la ordena completa; lo único
+-- que el `LIMIT` recorta es cuántas filas salen del Sort.
+--
+-- ── «No hay seq scan» no es «no toca el heap» ────────────────────────────────
+--
+-- La spec A §3.2 escribió que «el filtro corre sobre las entradas del índice,
+-- sin tocar el heap hasta el LIMIT», y §4.2 lo repite. **Es falso en Postgres, y
+-- conviene que quede corregido acá y no en la cabeza de quien lea un EXPLAIN.**
+-- Un Index Scan aplica como `Index Cond` sólo los quals que el índice sabe
+-- resolver, y todo lo demás como `Filter` **sobre la tupla del heap que ya
+-- trajo**. `LIKE '%…%'` no tiene prefijo, así que no es `Index Cond` en ningún
+-- plan: por el btree es `Filter` después del fetch, y por el GIN es
+-- `Recheck Cond` de un Bitmap Heap Scan, que también es después del fetch. Un
+-- Index Only Scan tampoco está disponible: la consulta selecciona `nombre`,
+-- `categoria` y cuatro nombres de lugar por join, que no viven en ningún índice
+-- de `geo_calles`.
+--
+-- Lo que sí es cierto —y es lo que el test afirma— es que no hay
+-- `Seq Scan on geo_calles`: el índice ahorra recorrer las otras ~318.000 filas,
+-- no el acceso al heap de la rebanada que devuelve.
+--
+-- ── Lo que ningún test de hoy prueba ─────────────────────────────────────────
+--
+-- Con `provincia_id = $1` disponible, el planificador tiene dos candidatos para
+-- el scope de provincia: el btree `(provincia_id, nombre_norm)` con el `LIKE`
+-- como `Filter`, o un BitmapAnd de este GIN con ese btree. **Los dos pasan el
+-- `not.toContain('Seq Scan on geo_calles')` de `tests/geo-calles.test.ts`**, así
+-- que esa suite en verde no distingue «el GIN se usa» de «el GIN son 9 MB
+-- muertos». Cuál elige se decide con estadísticas sobre el callejero sembrado,
+-- que es cuando se puede mirar de verdad; no se decide acá y no se afirma acá.
+--
+-- ── Lo que mide, medido y no estimado ────────────────────────────────────────
+--
+-- **9,1 MB** (`pg_relation_size`), sobre las 326.832 calles reales, el
+-- 2026-08-11. Presupuestado: 45 MB (D-035 lo citaba como el 22% del presupuesto
+-- del callejero, ~45–72 MB). La razón de la diferencia es que **120.115 calles
+-- se llaman «CALLE SN»** y los trigramas deduplican. El índice más caro del
+-- callejero no es éste sino `geo_calles_georef_unique`, con 17,4 MB — y es
+-- justo el que no se puede sacar. El traspaso de esta tarea circuló «8,9 MB»:
+-- son 0,2 MB de diferencia sobre la misma corrida y ninguna decisión depende de
+-- cuál de las dos cifras sea; lo que las dos descartan es el ~72 MB.
+--
+-- ── Cuándo se aplica ─────────────────────────────────────────────────────────
+--
+-- **Después del seed del callejero.** Y hay que decir cómo funciona de verdad,
+-- porque «corrida aparte» suena a que los archivos alcanzan y no alcanzan: el
+-- migrador de drizzle (`drizzle-orm/node-postgres/migrator`) aplica TODAS las
+-- migraciones pendientes dentro de UNA transacción, así que ésta y la `0015`
+-- entran juntas en un solo `pnpm db:migrate` y no hay forma de aplicar una sin
+-- la otra. Lo que tiene que quedar separado no es esta migración de la `0015`
+-- —eso no cuesta nada— sino esta construcción del SEED, y eso es una cuestión
+-- de ORDEN:
+--
+--   seed → migrate  ← el orden para el que está escrita. El GIN se construye de
+--                     una sobre la tabla llena, en su propia transacción, y su
+--                     WAL no se suma al de las 326.832 inserciones.
+--   migrate → seed  ← correcto también, pero el índice nace vacío y lo mantiene
+--                     el seed fila por fila: vuelve exactamente el pico que la
+--                     partición evita. En una base nueva (CI, un dev nuevo) es
+--                     el único orden posible y está bien: no hay nada que
+--                     indexar todavía.
+--
+-- No hay guarda automática para esto y no la va a haber acá: un `RAISE WARNING`
+-- desde una migración no se ve, porque `scripts/migrate.ts` usa `pg.Pool` sin
+-- escuchar el evento `notice` y el aviso se descarta en silencio. Una guarda
+-- que no se ve es peor que ninguna.
+--
+-- ── Por qué no va `CONCURRENTLY` ─────────────────────────────────────────────
+--
+-- `CREATE INDEX CONCURRENTLY` no puede correr dentro de una transacción, y el
+-- migrador envuelve todo en una. El build toma ACCESS EXCLUSIVE sobre
+-- `geo_calles` los 2,2 segundos que midió la corrida del 2026-08-11 (sobre la
+-- tabla vacía es instantáneo). Con el orden de arriba nadie está leyendo el
+-- callejero en ese momento, así que el lock no le cuesta a nadie.
+--
+-- ── Reversibilidad: la mitad ─────────────────────────────────────────────────
+--
+-- `DROP INDEX geo_calles_nombre_trgm` se puede hacer sin migración inversa y el
+-- producto sigue funcionando peor pero funcionando. **`DROP EXTENSION pg_trgm`
+-- no**: se lleva puesta `similarity()` y el scope de provincia deja de
+-- responder. El plan y la spec dicen «REVERSIBLE» de las dos sentencias juntas;
+-- lo reversible es el índice.
+-- ─────────────────────────────────────────────────────────────────────────────
+CREATE EXTENSION IF NOT EXISTS pg_trgm;--> statement-breakpoint
+CREATE INDEX "geo_calles_nombre_trgm" ON "geo_calles" USING gin ("nombre_norm" gin_trgm_ops);

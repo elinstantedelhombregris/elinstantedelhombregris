@@ -1,0 +1,63 @@
+-- ─────────────────────────────────────────────────────────────────────────────
+-- El id del Estado deja de poder faltar.
+--
+-- Spec: `docs/specs/2026-08-11-a-la-tierra.md` §3.1.
+-- Plan: `docs/plans/2026-08-11-tierra-senal-corroboracion-registro.md`, Task 6.
+--
+-- ── Por qué no estaba en la `0013` ───────────────────────────────────────────
+--
+-- Un `SET NOT NULL` sobre filas que no lo cumplen no se puede aplicar, y cuando
+-- la `0013` se escribió las 24 provincias vivas tenían `georef_id` en NULL: la
+-- columna nace ahí. `scripts/rellenar-provincias.ts --aplicar` se los escribió
+-- —una corrida, una sola vez— y ése es el Step que esta migración necesitaba.
+-- El script termina imprimiendo justo esta cuenta: cuántas filas quedan sin
+-- `georef_id`. **Verificado contra la base viva el 2026-08-11: 24 filas en la
+-- tabla y 0 incumplidoras**, así que el `ALTER` de abajo valida.
+--
+-- ── En qué momento de la secuencia va ────────────────────────────────────────
+--
+-- **No es esta migración la que pide un orden: es la `0014`.** El migrador de
+-- drizzle aplica todas las pendientes en UNA transacción, así que las dos entran
+-- juntas en un solo `pnpm db:migrate`; la `0014` quiere ir después del seed del
+-- callejero para no sumarle su WAL, y por arrastre ésta también. Pero el
+-- `SET NOT NULL` es indiferente al orden, y conviene decir por qué de los dos
+-- lados:
+--
+--   seed → migrate  ← el orden de la `0014`. Acá el NOT NULL valida contra las
+--                     17.986 filas que el seed ya escribió. La Task 5 escribe
+--                     `georef_id` en todas —es su clave de deduplicación, la
+--                     misma con la que descubre que 3.349 asentamientos son
+--                     localidades censales repetidas—, así que la restricción no
+--                     le pide nada nuevo al seed.
+--   migrate → seed  ← también válido, y para ESTA restricción estrictamente
+--                     mejor: aplicada antes, «al seed se le escapó una fila sin
+--                     `georef_id`» deja de ser un hueco silencioso y pasa a ser
+--                     un INSERT que falla. Lo que cuesta ese orden lo paga la
+--                     `0014`, no ésta.
+--
+-- ── Qué se rompería si faltara, que no es prolijidad ─────────────────────────
+--
+-- **En Postgres dos NULL no chocan en un índice único.** Una fila con
+-- `georef_id` en NULL es invisible para `geographic_locations_georef_unique`, o
+-- sea invisible para el `ON CONFLICT (georef_id)` de `upsertLocation`: la
+-- segunda corrida del seed la entra DE NUEVO, duplicada, sin un solo error. Y
+-- río abajo esa fila no se puede reconciliar nunca contra la fuente, así que la
+-- jerarquía se dobla en silencio. Ése es el modo de falla que esta línea cierra.
+--
+-- Los dos únicos caminos que insertan en esta tabla ya cumplen: `upsertLocation`
+-- (`repositories/geographic.ts`) exige `georefId: string` en el tipo de entrada,
+-- y `scripts/seed-provinces.ts` lo escribe en su INSERT. `name_norm` queda
+-- nullable a propósito y no por olvido: no es identidad de nada, no sostiene
+-- ningún unique, y su ausencia se ve —una provincia que `findProvinceByName` no
+-- encuentra— en vez de esconderse.
+--
+-- ── Costo y reversibilidad ───────────────────────────────────────────────────
+--
+-- `SET NOT NULL` toma ACCESS EXCLUSIVE y hace un scan completo para validar (no
+-- hay CHECK previo del que Postgres pueda deducirlo, así que el scan no se
+-- saltea). Sobre 17.986 filas es nada. No reescribe la tabla.
+--
+-- REVERSIBLE con `ALTER TABLE geographic_locations ALTER COLUMN georef_id DROP
+-- NOT NULL`: instantáneo, sin reescritura y sin migración inversa escrita.
+-- ─────────────────────────────────────────────────────────────────────────────
+ALTER TABLE "geographic_locations" ALTER COLUMN "georef_id" SET NOT NULL;
