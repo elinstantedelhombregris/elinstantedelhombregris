@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { INTERESES, QUE_GANO_CIERRE } from '../../quien-data';
+import { INTERESES, QUE_GANO_CIERRE, QUE_GANO_ENTRADA } from '../../quien-data';
 import { QueGanoYo } from '../QueGanoYo';
 
 describe('QueGanoYo', () => {
@@ -15,12 +15,23 @@ describe('QueGanoYo', () => {
     }
   });
 
-  it('cierra atando el interés propio a la prohibición 04', () => {
-    // El cierre es lo que hace creíble a «no puedo cobrar»: los tres
-    // intereses se sirven si el país funciona, no si la plataforma factura.
+  it('prueba la interdependencia desde el oficio antes que desde la política', () => {
+    // La entrada tiene que llegar antes que los tres bloques: sin la cuenca,
+    // los intereses vuelven a leerse como una lista de deseos.
+    render(<QueGanoYo />);
+
+    for (const parrafo of QUE_GANO_ENTRADA) {
+      expect(screen.getByText(parrafo)).toBeInTheDocument();
+    }
+    expect(QUE_GANO_ENTRADA[0]).toContain('nadie limpia su agua solo');
+  });
+
+  it('cierra en la aritmética, no en la generosidad', () => {
+    // Es lo que separa a esta franja del egoísmo declarado: el interés propio
+    // no compite con el ajeno — lo necesita.
     render(<QueGanoYo />);
 
     expect(screen.getByText(QUE_GANO_CIERRE)).toBeInTheDocument();
-    expect(QUE_GANO_CIERRE).toContain('el país que quede');
+    expect(QUE_GANO_CIERRE).toContain('donde yo gane y vos pierdas');
   });
 });

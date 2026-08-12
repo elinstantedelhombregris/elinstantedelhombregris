@@ -1,24 +1,36 @@
-import { INTERESES, QUE_GANO_CIERRE, QUE_GANO_TITULO } from '../quien-data';
+import { INTERESES, QUE_GANO_CIERRE, QUE_GANO_ENTRADA, QUE_GANO_TITULO } from '../quien-data';
 
 import { Kicker } from '~/components/papel/primitives';
 
 /**
  * § 7 — La contracara de «Quién paga esto»: ahí se contesta quién financia,
- * acá por qué lo hace igual. Tres intereses declarados en primera persona,
- * y un cierre que los ata a la prohibición 04: ninguno se sirve cobrando de
- * esta plataforma — los tres se sirven si el país funciona.
+ * acá por qué lo hace igual.
  *
- * El interés propio dicho en voz alta se puede auditar; el altruismo
- * prometido, no. Por eso esta franja existe.
+ * Los tres intereses van declarados, pero escritos como dependencias y no
+ * como deseos: el interés propio que necesita del ajeno deja de ser egoísmo
+ * y pasa a ser la tesis del proyecto probada con la aritmética de una
+ * persona. La entrada lo demuestra desde el oficio — en una cuenca nadie
+ * limpia su agua solo — antes de que aparezca un solo argumento político.
  */
 export function QueGanoYo() {
   return (
     <section className="bg-papel-crudo border-papel-borde border-y">
       <div className="mx-auto max-w-[1100px] px-5 py-20 min-[961px]:px-10">
         <Kicker className="mb-5">§ 07 — Qué gano yo con esto</Kicker>
-        <h2 className="font-anton riso-hover mb-12 max-w-[820px] text-[clamp(32px,4.2vw,58px)] leading-[1.02]">
+        <h2 className="font-anton riso-hover mb-8 max-w-[820px] text-[clamp(32px,4.2vw,58px)] leading-[1.02]">
           {QUE_GANO_TITULO}
         </h2>
+
+        <div className="mb-12 max-w-[640px]">
+          {QUE_GANO_ENTRADA.map((parrafo) => (
+            <p
+              key={parrafo}
+              className="text-tinta-75 text-pretty text-[18px] leading-[1.65] [&+&]:mt-5"
+            >
+              {parrafo}
+            </p>
+          ))}
+        </div>
 
         <ol className="bg-papel-borde m-0 grid list-none grid-cols-3 gap-px p-0 max-[860px]:grid-cols-1">
           {INTERESES.map((interes) => (

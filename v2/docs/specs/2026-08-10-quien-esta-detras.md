@@ -33,6 +33,17 @@ Una sola imagen sostiene la página, y no es una metáfora prestada: es el ofici
   abundancia sino porque alguien acordó cómo repartir el agua escasa, con reglas que se respetan
   hace siglos. Un país hecho de acuerdos que duran más que quienes los firmaron: ¡BASTA! contado
   como un hecho biográfico.
+- **Kairós se parece a «el instante» — y ahí hay que frenar.** La empresa de Juan se llama
+  Kairospace: *kairós* es el griego para el momento oportuno (no el tiempo del reloj, que es
+  *chronos*, sino el instante en que algo se vuelve posible) y *space* es el lugar donde ese momento
+  puede ocurrir. El sitio se llama «El instante del hombre gris», y las dos cosas apuntan a la misma
+  idea: el instante no se espera, se le construye el lugar.
+
+  **Tres cosas que el copy no puede decir, y que una versión anterior dijo:** que Kairospace sea
+  griego (es una palabra inventada, mitad griega y mitad inglesa); que «instante» y *kairós*
+  signifiquen lo mismo (el castellano no tiene una palabra que cargue lo *oportuno*, y «lo más cerca
+  que llega» es la formulación honesta); y que un nombre haya venido antes que el otro (nadie
+  verificó el orden). El parecido es real y vale; la equivalencia exacta y la cronología, no.
 - **El pozo cierra el círculo.** «Un pozo tallado no en piedra, sino en tiempo, destinado a
   desbordarse» es la imagen fundacional del manifiesto — y es agua. Responde «¿por qué vos?» sin
   reclamar nada excepcional.
@@ -89,13 +100,25 @@ porque el sistema está diseñado para que lo sea. Juan no leyó esa diferencia:
 la trayectoria gana una fila propia (`04 — Lo que me quiero traer`) que nombra qué se copia — reglas
 estables, trámites que terminan, crédito que existe, contratos que se cumplen.
 
-### Decisión 8: el interés propio se declara, no se disimula
+### Decisión 8: el interés propio se declara — pero escrito como dependencia
 
 Un proyecto cívico que jura desinterés obliga a creerle a una persona. Uno que enumera lo que gana
 se puede auditar. Los tres intereses —los hijos, las empresas que quiere fundar, la plata para
-investigación y desarrollo— van en primera persona y sin atenuantes. El cierre es lo que los vuelve
-compatibles con la prohibición 04: ninguno se sirve cobrando de la plataforma; los tres se sirven si
-el país funciona. *«Si esto sale bien yo gano — pero gano afuera de acá, en el país que quede.»*
+investigación y desarrollo— van en primera persona y sin atenuantes.
+
+La gramática, sin embargo, pesa tanto como el dato. Tres bloques que arrancan con «quiero» leen como
+una lista de deseos, y la franja entera se vuelve egoísta aunque cada frase sea cierta. Los mismos
+tres, escritos como **dependencias** —«esto no lo puedo tener solo»— dicen lo contrario: que el
+interés propio y el ajeno son el mismo interés. Un chico no vive en su casa, vive en un país; una
+empresa necesita clientes que puedan pagar y jueces que hagan valer un contrato; el conocimiento es
+lo menos apropiable que existe. Eso no es una concesión retórica: es la interdependencia consciente
+del proyecto, demostrada con la aritmética de una persona en vez de con una consigna.
+
+La entrada la prueba desde el oficio antes de que aparezca un solo argumento político: **en una
+cuenca nadie limpia su agua solo.** Podés tratar la tuya con la mejor tecnología del mundo, pero si
+la cuenca está contaminada la que te llega sigue llegando sucia. Un país es una cuenca. Y el cierre
+no pide confianza, pide verificación: *«No te pido que confíes en mi generosidad — te pido que
+revises la aritmética. No hay ninguna versión de esto donde yo gane y vos pierdas.»*
 
 ## Contenido a completar
 

@@ -17,6 +17,18 @@
  * metáforas apiladas. Cualquier reescritura debería quedarse adentro de él.
  * Y nunca hablar mal del agua: el agua es lo mejor que tenemos.
  *
+ * Hay además dos convergencias que la página no inventó y que conviene no
+ * perder al editar: gris = plata = *argentum* = Argentina, y kairós ≈ el
+ * instante.
+ *
+ * Cuidado con la segunda, que es fácil de exagerar y ya se exageró una vez:
+ * «Kairospace» NO es griego — es una palabra inventada, mitad griega
+ * (kairós) y mitad inglesa (space). Y «instante» tampoco traduce a kairós:
+ * en castellano no existe una palabra que cargue lo *oportuno* del momento,
+ * y por eso el copy dice «es lo más cerca que llega» en vez de «dice lo
+ * mismo». Tampoco se afirma qué nombre vino primero: nadie verificó el orden.
+ * El parecido es real; la equivalencia exacta y la cronología, no.
+ *
  * ─── LO QUE FALTA CONFIRMAR ────────────────────────────────────────────────
  * Buscá el centinela `PENDIENTE`. Ninguno de esos huecos inventa un valor de
  * relleno: si todavía no hay número, no hay número (regla de la casa).
@@ -120,21 +132,21 @@ export const TRAYECTORIA: readonly FilaTrayectoria[] = [
   },
   {
     num: '02',
-    titulo: 'El agua',
+    titulo: 'Los sistemas',
     cuerpo:
-      'El agua es lo mejor que tenemos y no hay que arreglarla. Mi trabajo es devolverle sus cualidades para que rinda más con menos, y sacarle las impurezas que no le pertenecen. No es un milagro, es un método: medís, intervenís, volvés a medir. Todo lo que hay en este sitio es ese mismo método aplicado a otra cosa.',
+      'Aprendí a mirar las cosas como sistemas: entradas, procesos, salidas, y una medición honesta en cada punto. Un sistema no se arregla a los gritos ni a fuerza de buena voluntad — se rediseña. Medís, intervenís, volvés a medir, y si no mejoró es que el problema era otro. No hay milagros en esto: hay método. Es lo único que sé hacer, y es lo que hay debajo de todo lo que vas a encontrar en este sitio.',
   },
   {
     num: '03',
-    titulo: 'Kairospace Technologies',
+    titulo: 'Kairospace y el agua',
     cuerpo:
-      'La empresa que co-fundé y dirijo: tecnologías de tratamiento de agua, y algunas cositas más. La fundamos en Estados Unidos, y lo digo de frente porque es incómodo y porque explica todo lo demás. Allá me resulta muchísimo más fácil trabajar — y no es que la gente sea mejor ni que sobre la plata. Es más fácil porque el sistema está diseñado para que lo sea.',
+      'La empresa que co-fundé y dirijo trata agua: le mejoramos las cualidades para que rinda más y le sacamos las impurezas que no le pertenecen. El agua es lo mejor que tenemos y no hay que arreglarla — hay que devolverle lo que es suyo. El nombre es una palabra inventada, mitad griega y mitad inglesa: kairós y space. Kairós es el momento oportuno — no el tiempo que mide el reloj, que en griego es chronos, sino el instante en que una cosa se vuelve posible; space es el lugar. Kairospace es el espacio donde ese momento puede ocurrir. Eso es lo que hago con el agua y es exactamente lo que quiero hacer acá: no esperar el instante, construir el lugar donde el instante pueda pasar. El castellano no tiene una palabra para kairós, y «instante» es lo más cerca que llega — así que no me sorprende haber terminado en un sitio que se llama así. Hace años que le doy vueltas a la misma idea con las palabras que tengo.',
   },
   {
     num: '04',
     titulo: 'Lo que me quiero traer',
     cuerpo:
-      'Hoy estamos desarrollando proyectos acá, en la Argentina. Todo lo que aprendí trabajando afuera me lo quiero traer, y no hablo de la empresa: hablo del sistema. Las reglas que no cambian cada seis meses, los trámites que terminan, el crédito que existe, el contrato que se cumple. Nada de eso es carácter nacional. Todo eso es diseño, y el diseño se copia.',
+      'A Kairospace la fundamos en Estados Unidos, y lo digo de frente porque es incómodo y porque explica todo lo demás: allá me resulta muchísimo más fácil trabajar, y no es que la gente sea mejor ni que sobre la plata. Es más fácil porque el sistema está diseñado para que lo sea. Hoy estamos desarrollando proyectos acá, en la Argentina, y todo lo que aprendí afuera me lo quiero traer — no la empresa: el sistema. Reglas que no cambian cada seis meses, trámites que terminan, crédito que existe, contratos que se cumplen. Nada de eso es carácter nacional. Todo eso es diseño, y el diseño se copia.',
   },
   {
     num: '05',
@@ -273,13 +285,24 @@ export const PLATA_CIERRE =
 
 /**
  * La contracara de «Quién paga esto». Ahí se contesta quién me financia; acá,
- * por qué lo hago igual. El interés propio declarado es más auditable que el
- * altruismo prometido — y ninguno de los tres se sirve cobrando de esta
- * plataforma: se sirven si el país funciona. Eso es lo que hace creíble a la
- * prohibición 04, no la buena fe de nadie.
+ * por qué lo hago igual.
+ *
+ * El interés propio se declara, pero la gramática importa tanto como el dato:
+ * tres bloques que arrancan con «quiero» leen como una lista de deseos. Los
+ * mismos tres, escritos como dependencias («esto no lo puedo tener solo»),
+ * dicen otra cosa — que el interés propio y el ajeno son el mismo interés.
+ * Eso no es una concesión retórica: es la tesis del proyecto (la
+ * interdependencia consciente) demostrada con la aritmética de una persona.
+ *
+ * La entrada la prueba desde el oficio, no desde la ideología: en una cuenca
+ * nadie limpia su agua solo. Un país es una cuenca.
  */
-export const QUE_GANO_TITULO =
-  'Tengo intereses. Prefiero decirlos yo antes de que los adivine otro.';
+export const QUE_GANO_TITULO = 'Nada de lo que quiero lo puedo conseguir solo.';
+
+export const QUE_GANO_ENTRADA: readonly string[] = [
+  'Trabajo con agua, y el agua te enseña esto antes que cualquier libro: nadie limpia su agua solo. Podés tratar la tuya —yo vivo de eso, así que sé que se puede—, pero cuanto peor está la cuenca, más caro te sale sacar lo mismo y más frágil se vuelve todo. Y lo que devolvés al río es lo que le llega al que está más abajo. En una cuenca no existe «mi agua» y «tu agua»: hay una sola. Y río abajo siempre hay alguien.',
+  'Un país es una cuenca. Por eso, cuando me preguntan qué gano yo con todo esto, la respuesta honesta no es una lista de deseos. Es una lista de cosas que no puedo tener si al resto le va mal.',
+];
 
 export interface Interes {
   num: string;
@@ -292,24 +315,24 @@ export const INTERESES: readonly Interes[] = [
     num: '01',
     titulo: 'Mis tres hijos',
     cuerpo:
-      'Quiero que vivan en un país más lindo que el que les estamos dejando. Es la razón más simple que tengo y no le hace falta ningún adorno: si esto sale bien, ellos van a vivir mejor.',
+      'No me alcanza con que a los míos les vaya bien. Un chico no vive en su casa: vive en un país. Si a los que van a ser sus compañeros, sus vecinos y sus socios les va mal, mis hijos van a vivir peor aunque yo haga todo bien — más encerrados, con más miedo, o lejos. La burbuja no existe: es apenas una versión más cara del mismo problema.',
   },
   {
     num: '02',
     titulo: 'Las empresas que faltan',
     cuerpo:
-      'Quiero fundar muchas más. Un país donde emprender no sea una proeza me conviene, y me conviene mucho. Es interés propio y lo digo con todas las letras: prefiero que sepas exactamente qué gano antes que creerte que hago esto por amor a la humanidad.',
+      'Quiero fundar muchas más, y una empresa no se sostiene sola. Necesita clientes que puedan pagar, proveedores que cumplan, técnicos formados, jueces que hagan valer un contrato. Cada una de esas cosas es alguien más al que le tiene que estar yendo bien. En un país pobre no hay empresas prósperas: hay empresas que zafan.',
   },
   {
     num: '03',
-    titulo: 'La plata que quiero hacer',
+    titulo: 'Investigación y desarrollo',
     cuerpo:
-      'Quiero ganar mucha, y ya sé en qué la quiero poner: investigación y desarrollo. Que se convierta en cosas que antes no existían, pensadas y hechas acá. Ese es el destino que tiene en mi cabeza desde antes de tenerla.',
+      'Quiero ganar mucha plata y ponerla acá, en investigar y desarrollar. Pero el conocimiento es lo menos apropiable que hay: se hace entre universidades, laboratorios, técnicos y gente que publica lo que encontró. Nadie investiga solo. Y ningún país investiga si no puede darse el lujo de pensar.',
   },
 ];
 
 export const QUE_GANO_CIERRE =
-  'Ninguno de los tres se sirve cobrando de esta plataforma. Los tres se sirven si el país funciona. Por eso me podés creer más que si te dijera que lo hago por vocación de servicio: si esto sale bien yo gano — pero gano afuera de acá, en el país que quede.';
+  'Así que sí, tengo intereses, y prefiero decirlos yo antes de que los adivine otro. Pero mirá bien la cuenta: ninguno se cumple cobrando de esta plataforma, y ninguno se cumple si a vos te va mal. No te pido que confíes en mi generosidad — te pido que revises la aritmética. No hay ninguna versión de esto donde yo gane y vos pierdas.';
 
 // ─── § 8 · Cierre ───────────────────────────────────────────────────────────
 
