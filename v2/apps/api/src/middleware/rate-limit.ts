@@ -99,6 +99,29 @@ export function anonSubmitRateLimit(): RequestHandler {
   });
 }
 
+/**
+ * Dejar una falta en `/lo-que-falta`: 6 por hora por IP.
+ *
+ * Más duro que `anonSubmitRateLimit` a propósito. Es el único acto del canal
+ * que crea filas nuevas Y se publica al instante sin cola de revisión
+ * (`docs/specs/2026-08-12-lo-que-falta.md` §2.2), así que es la superficie
+ * que hay que cuidar. Se apila sobre el genérico, no lo reemplaza.
+ */
+export function dejarFaltaRateLimit(): RequestHandler {
+  return rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 6,
+    standardHeaders: 'draft-7',
+    legacyHeaders: false,
+    message: {
+      error: {
+        code: 'RATE_LIMITED',
+        message: 'Ya dejaste varias. Dale un rato y volvé — el registro no se va a ningún lado.',
+      },
+    },
+  });
+}
+
 /** 2FA verify: 5 per 15 minutes per IP+ticket-prefix. */
 export function twoFactorVerifyRateLimit(): RequestHandler {
   return rateLimit({

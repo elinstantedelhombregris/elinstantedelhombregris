@@ -40,6 +40,7 @@ export default defineConfig({
     './src/schema/gamification.ts',
     './src/schema/life-areas.ts',
     './src/schema/semillas.ts',
+    './src/schema/faltas.ts',
   ],
   dialect: 'postgresql',
   dbCredentials: { url },

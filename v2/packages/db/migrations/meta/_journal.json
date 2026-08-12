@@ -99,6 +99,27 @@
       "when": 1786470041129,
       "tag": "0013_la_tierra",
       "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1786544314359,
+      "tag": "0014_trigram_calles",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1786544420883,
+      "tag": "0015_georef_not_null",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1786564469852,
+      "tag": "0019_lo_que_falta",
+      "breakpoints": true
     }
   ]
 }

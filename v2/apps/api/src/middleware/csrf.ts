@@ -88,6 +88,23 @@ function isAnonAllowed(method: string, path: string): boolean {
   ) {
     return true;
   }
+  /**
+   * El canal de escucha (`docs/specs/2026-08-12-lo-que-falta.md`): dejar una
+   * falta, firmarla y retirar la propia. Los tres son anónimos por diseño —no
+   * hay cuenta, así que no hay cookie de sesión que muestrear— y el techo de
+   * los tres es el límite de tasa.
+   *
+   * Van como **tres patrones anclados** y no como entradas de `ANON_ALLOWED`,
+   * por la misma razón que el olvido de una dirección de acá arriba: una
+   * entrada `'/api/v1/faltas'` quedaría exenta por la rama
+   * `path.startsWith(`${p}/`)`, que exime subrutas que nadie decidió eximir —y
+   * el `PATCH` de admin de esta misma familia es exactamente la subruta que NO
+   * se puede eximir.
+   */
+  const FALTA = /^\/api\/v1\/faltas\/[DIdi]-\d{1,6}$/;
+  if (method === 'POST' && path === '/api/v1/faltas') return true;
+  if (method === 'POST' && /^\/api\/v1\/faltas\/[DIdi]-\d{1,6}\/firmas$/.test(path)) return true;
+  if (method === 'DELETE' && FALTA.test(path)) return true;
   return false;
 }
 

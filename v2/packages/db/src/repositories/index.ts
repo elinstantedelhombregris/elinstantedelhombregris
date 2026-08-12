@@ -59,3 +59,20 @@ export { PulsoRepository } from './pulso.js';
 export { GamificationRepository } from './gamification.js';
 export { LifeAreasRepository } from './life-areas.js';
 export { SemillasRepository } from './semillas.js';
+export {
+  aFaltaPublica,
+  CONTENIDO_BAJADO,
+  FaltasRepository,
+  hashDeLlave,
+  LIMITE_DE_PAGINA_MAXIMO,
+  LIMITE_DE_PAGINA_POR_DEFECTO,
+  nuevaLlave,
+} from './faltas.js';
+export type {
+  ConsultaDeFaltas,
+  EntradaImportada,
+  FaltaDejada,
+  FaltaPublica,
+  PaginaDeFaltas,
+  ResultadoDeImportacion,
+} from './faltas.js';

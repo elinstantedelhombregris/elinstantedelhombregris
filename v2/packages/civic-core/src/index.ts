@@ -17,5 +17,7 @@ export * from './coverage.js';
 export * from './coeficientes-luz.js';
 export * from './brillo.js';
 export * from './provincias.js';
+export * from './provincias-canonicas.js';
 export * from './poblacion.js';
+export * from './faltas.js';
 export * from './simulacion/index.js';

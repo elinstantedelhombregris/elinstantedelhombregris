@@ -29,6 +29,7 @@
     "geo:provincias": "tsx scripts/build/geo/generar-provincias-api.ts",
     "geo:backfill": "pnpm --filter @v2/api run geo:backfill",
     "planes:check": "tsx scripts/content/verify-planes-index.ts",
+    "deudas:importar": "tsx scripts/content/importar-deudas.ts",
     "deps:check": "tsx scripts/build/deps-check.ts",
     "size": "size-limit",
     "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build"

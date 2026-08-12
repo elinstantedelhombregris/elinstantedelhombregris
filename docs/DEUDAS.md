@@ -52,6 +52,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-028](#d-028--editar-la-portada-de-un-plan-corre-todas-sus-anclas-de-remisión) | Editar la portada de un PLAN corre todas sus anclas de remisión | Media | Abierta |
 | [D-032](#d-032--los-ensayos-del-ciclo-i-glosan-planmesa-como-soberanía-alimentaria-y-hace-meses-que-no-lo-es) | Los ensayos del Ciclo I glosan PLANMESA como soberanía alimentaria | Media | Abierta |
 | [D-033](#d-033--pnpm-formatcheck-falla-en-564-archivos-preexistentes-scriptscontent-incluido) | `pnpm format:check` falla en 564 archivos preexistentes, `scripts/content/` incluido | Baja | Abierta |
+| [D-045](#d-045--platform_feedback-es-una-tabla-muerta-que-modela-lo-contrario-del-canal-de-escucha) | `platform_feedback` es una tabla muerta que modela lo contrario del canal de escucha | Media | Abierta |
+| [D-046](#d-046--la-guardia-de-este-mismo-archivo-está-en-rojo-y-nadie-la-corre) | La guardia de este mismo archivo está en rojo y nadie la corre | Alta | Abierta |
 
 ---
 
@@ -774,3 +776,41 @@ El Ciclo II ya lo tiene bien: `Ensayos/indagaciones/06-amor-sin-apego.md` cita "
 **Por qué no se arregla acá:** correr `pnpm format` sobre el repo entero reformatea 564 archivos ajenos a esta tarea, mezclando una limpieza de estilo con una publicación de contenido, y varios de esos archivos tienen sesiones concurrentes trabajando encima (ver D-010).
 
 **Qué haría falta:** decidir si el `.prettierrc` vigente es el que se quiere, y si sí, una pasada de `pnpm format` de todo el repo en un commit dedicado y sin trabajo concurrente en curso; si no, revisar qué cambió en la config de Prettier para que 564 archivos ya escritos dejen de pasar el check.
+
+---
+
+### D-045 · `platform_feedback` es una tabla muerta que modela lo contrario del canal de escucha
+
+**Dónde:** `v2/packages/db/src/schema/feedback.ts`, `v2/packages/db/src/repositories/feedback.ts`, migración `0005_greedy_mindworm.sql`
+**Encontrada:** 2026-08-12, explorando el terreno antes de escribir el spec de `/lo-que-falta`
+**Severidad:** media — no rompe nada, pero es una superficie de base de datos que nadie mantiene y que el próximo lector va a creer viva
+**Estado:** abierta
+
+`platform_feedback` existe en el esquema y en la base desde la migración `0005`, con `kind` / `subject` / `body` / `status` / `admin_response` / `page_url` / `user_agent`, y `FeedbackRepository` la envuelve en seis métodos exportados desde el barril de repositorios. **Ninguna ruta de API la toca, ninguna pantalla la muestra, ningún test la ejerce.** Las únicas referencias fuera del propio esquema están en `apps/api/dist-bundle/*.mjs`, o sea en artefactos compilados que la arrastran por el barril.
+
+No es sólo que esté muerta: modela lo contrario de lo que la plataforma decidió. `user_id` con `references(users.id)` —o sea, feedback atado a cuenta—; el comentario dice «Admins review via the admin dashboard», un panel que en v2 no existe; `admin_response` es «visible to user via their feedback list», una lista privada por usuario; y `user_agent` se guarda crudo. Es un buzón privado, con cuenta, con panel. El canal que se construyó en su lugar (`v2/docs/specs/2026-08-12-lo-que-falta.md`) es público al instante, sin cuenta, sin dato de contacto y sin user-agent.
+
+**Por qué no se borra acá:** sacar una tabla es una migración destructiva, y el commit que introduce `faltas` no es el lugar para mezclarla. Además hay que verificar antes que la tabla esté realmente vacía en la base de v2 y que ningún bundle desplegado la importe en runtime.
+
+**Qué haría falta:** confirmar `select count(*) from platform_feedback` en cero, borrar `schema/feedback.ts` y `repositories/feedback.ts`, sacarlos de los dos barriles y de `drizzle.config.ts`, y una migración que haga el `drop table`. Si tuviera filas, migrarlas a `faltas` con `origen = 'afuera'` antes de borrar.
+
+---
+
+### D-046 · La guardia de este mismo archivo está en rojo y nadie la corre
+
+**Dónde:** `SocialJusticeHub/tests/unit/deudas-registro.test.ts`, contra `docs/DEUDAS.md`
+**Encontrada:** 2026-08-12, escribiendo el importador de este archivo al registro público de `/lo-que-falta`
+**Severidad:** alta — el archivo es la memoria del proyecto y su única verificación automática lleva semanas fallando sin que nadie lo vea
+**Estado:** abierta
+
+La guardia que pidió [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) existe y está bien escrita: verifica que un id no nombre dos deficiencias distintas y que el índice y el cuerpo se cubran **en las dos direcciones**. Corrida hoy, falla: **seis entradas del cuerpo no tienen fila en el índice** — D-025, D-026, D-027, D-029, D-030 y D-031. Son 6 de 33.
+
+Y falla por una segunda cosa, que es la que de verdad importa: **`D-028` nombra dos deficiencias distintas y sin relación** — «Editar la portada de un PLAN corre todas sus anclas de remisión» (línea 637) y «El brillo dibujado es invertible: delata cuánta gente habló en una celda» (línea 679). Es *exactamente* lo que D-016 describió y pidió prevenir, repetido, con la guardia ya escrita mirando para otro lado. La segunda es además una deuda de privacidad, que es la peor clase para tener escondida detrás de un id compartido.
+
+La causa de que nadie lo note es de tubería, no de disciplina. El workflow de CI corre sobre `SocialJusticeHub/**`, y las seis entradas huérfanas se escribieron desde sesiones que sólo tocaron `v2/`. O sea que **la guardia de un archivo compartido vive detrás del filtro de rutas de uno solo de los dos árboles**, y el árbol que más lo escribe hoy es el que no la dispara. Es la misma forma de D-013 (el test que se rompe cada vez): una verificación que existe y no se ejecuta es indistinguible de una que no existe, salvo por la falsa sensación de estar cubierto.
+
+Se descubrió de rebote: el importador de `docs/DEUDAS.md` a `faltas` contó 33 entradas contra 27 filas de índice, y la diferencia llevó a correr la guardia a mano.
+
+**Por qué no se arregla acá:** agregar seis filas al índice es trivial, pero mover la guardia de árbol es una decisión sobre el CI de los dos proyectos, y el archivo tiene sesiones concurrentes escribiéndolo (ver [D-010](#d-010--sesiones-concurrentes-se-tragan-los-cambios-de-otras)).
+
+**Qué haría falta:** las seis filas de índice, y después mover la guardia a `v2/scripts/content/` con su propio paso de CI —o agregar `docs/DEUDAS.md` a los `paths` del workflow existente— para que la escriba quien la escriba, alguien la mida.

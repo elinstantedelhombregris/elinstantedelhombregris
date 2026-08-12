@@ -13,6 +13,7 @@ import { civicAssessmentRouter } from './features/civic-assessment/routes.js';
 import { civicRouter } from './features/civic-map/routes.js';
 import { coachingRouter } from './features/coaching/routes.js';
 import { communityRouter } from './features/community/routes.js';
+import { faltasRouter } from './features/faltas/routes.js';
 import { gamificationRouter } from './features/gamification/routes.js';
 import { geoRouter } from './features/geo/routes.js';
 import { goalsRouter } from './features/goals/routes.js';
@@ -91,6 +92,7 @@ export function createApp(): Express {
   app.use('/api/gamification', gamificationRouter);
   app.use('/api/mandato', mandatoRouter);
   app.use('/api/semillas', semillasRouter);
+  app.use('/api/v1/faltas', faltasRouter);
 
   // Tail middleware
   app.use(notFoundHandler());
