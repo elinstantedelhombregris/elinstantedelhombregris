@@ -27,10 +27,14 @@ Tres specs reclamaron `D-034` con tres significados distintos y dos reclamaron `
 
 | Rebanada | Migraciones | Ordinales de `docs/DEUDAS.md` |
 |---|---|---|
-| 1–2 · La tierra | `0013`, `0014` | D-034, D-035 |
-| 3 · La señal | `0015` | D-036 a D-040 |
-| 5 · La corroboración | `0016` | D-041 a D-043 |
-| 6 · El registro público | `0017` | D-044 a D-046 |
+| 1–2 · La tierra | `0013`, `0014`, **`0015`** | D-034, D-035 |
+| 3 · La señal | ~~`0015`~~ → **`0016`** | D-036 a D-040 |
+| 5 · La corroboración | ~~`0016`~~ → **`0017`** | D-041 a D-043 |
+| 6 · El registro público | ~~`0017`~~ → **`0018`** | D-044 a D-046 |
+
+**CORRIMIENTO DE UN NÚMERO, 2026-08-12 — la rebanada 1 se llevó tres migraciones y no dos.** La Task 6 necesitaba archivo propio: su `0013b_georef_not_null.sql` era «o append al `0013` si todavía no se aplicó», y el `0013` **se aplicó** (commit `91ef699`), así que appendear dejaría de existir como opción. Se escribió como **`0015_georef_not_null.sql`**, detrás del `0014_trigram_calles.sql` de la Task 7 — ese orden y no el inverso porque `repositories/geo-calles.ts` ya nombra al GIN como «la migración `0014`» en dos comentarios y `tests/geo-calles.test.ts` en uno, y renumerar el GIN sería editar prosa ya commiteada para no ganar nada.
+
+**Todo lo que este plan escribe de la `0015` para abajo corre un número: la señal es la `0016`, la corroboración la `0017`, el `senales_feed_idx` la `0018`.** Las cabeceras de las Tasks 11, 21 y 29 quedaron con el número viejo y llevan su nota; el que las implemente que deje que `drizzle-kit generate` asigne el número y no lo escriba a mano. Los números de la sección de medición (`las cinco migraciones 0013–0017`) son el registro de la corrida del 11/8 sobre la rama efímera y se quedan como están: describen lo que se corrió ese día.
 
 **Serie corregida, y hay que corregirla en las cuatro cabeceras (Task 1, Step 1):** *A la tierra · B la señal · C la corroboración · D el registro público.* Las cuatro specs nombran cuatro series distintas, y por eso tres obligaciones cruzadas quedaron dirigidas a documentos que no las iban a leer. Este plan las reasigna por documento y no por letra recordada.
 
@@ -194,7 +198,7 @@ ON CONFLICT (georef_id) DO UPDATE SET name_norm = EXCLUDED.name_norm
 
 Sin esto, sembrar una base vacía —CI con branch limpio, un dev local, la fase 1 del seed— muere con `null value in column "province_id" violates not-null constraint`. El quinto test del Step 2 lo prueba sobre base vacía, no sólo sobre la que ya tiene las 24 filas.
 
-`name_norm` se escribe con `claveDeProvincia`, que es **la misma expresión que corre `findProvinceByName`** (`normalizarNombreDeLugar(normalizeProvinceName(x))`). La lista canónica sale de `scripts/provincias-canonicas.ts`, que es datos sin efectos: el seed la sembraba, el relleno la necesita y el test de la migración la copiaba, y una lista copiada tres veces es una lista que va a divergir en la copia que nadie mira.
+`name_norm` se escribe con `claveDeProvincia`, que es **la misma expresión que corre `findProvinceByName`** (`normalizarNombreDeLugar(normalizeProvinceName(x))`) y vive en `packages/db/scripts/clave-de-provincia.ts`, del lado de la base porque depende de la tabla de alias. La lista canónica sale de `@v2/civic-core` (`PROVINCIAS_CANONICAS`), que es datos sin efectos: el seed la sembraba, el relleno la necesita, el test de la migración la copiaba y el test del mapa de la web la tenía hardcodeada —`apps/web` no puede importar de `packages/db`—, y una lista copiada cuatro veces es una lista que va a divergir en la copia que nadie mira.
 
 - [ ] **Step 7: Rellenar las 24 filas que YA existen — sin esto la migración rompe producción**
 
@@ -371,7 +375,7 @@ git commit -m "feat(civic-core): una dirección dice hasta dónde se pudo verifi
 
 - [ ] **Step 3: `geo-calles.ts`**
 
-`buscarCalles` implementa la tabla de scopes de A §4.2: `localidad` con `q` de 1 carácter por substring sobre `(localidad_id, nombre_norm)`; `departamento` con 2 por `(departamento_id, nombre_norm)`; `provincia` con 3 por `similarity()` sobre el GIN. **El scope es obligatorio**; sin él, 400. Nunca devuelve filas `nombre_clase = 'sin_nombre'` ni con `vigente_hasta` seteado — las dos **sí** salen por `porId`, con su marca, para que una señal vieja pueda seguir mostrando la dirección que tenía.
+`buscarCalles` implementa la tabla de scopes de A §4.2: `localidad` con `q` de 1 carácter por substring sobre `(localidad_id, nombre_norm)`; `departamento` con 2 por `(departamento_id, nombre_norm)`; `provincia` con 3 por substring apoyado en el GIN de trigramas, y **ordenado** por `similarity()` (corregido 2026-08-12: el operador de los tres scopes es el mismo `LIKE '%…%'`; el GIN indexa eso y no `similarity()`, que sólo ordena — ver Task 7). **El scope es obligatorio**; sin él, 400. Nunca devuelve filas `nombre_clase = 'sin_nombre'` ni con `vigente_hasta` seteado — las dos **sí** salen por `porId`, con su marca, para que una señal vieja pueda seguir mostrando la dirección que tenía.
 
 - [ ] **Step 4: Verificar**
 
@@ -591,22 +595,35 @@ git commit -m "feat(db): las 326.832 calles del país entran de a una provincia 
 ### Task 6: `georef_id NOT NULL` y el cierre de la jerarquía
 
 **Files:**
-- Modify: `packages/db/src/schema/geographic.ts`
-- Create: `packages/db/migrations/0013b_georef_not_null.sql` (o append al 0013 si todavía no se aplicó)
+- Modify: `packages/db/src/schema/geographic.ts` — HECHO 2026-08-12: `georefId: text('georef_id').notNull()`
+- Create: ~~`packages/db/migrations/0013b_georef_not_null.sql` (o append al 0013 si todavía no se aplicó)~~ → **`packages/db/migrations/0015_georef_not_null.sql`**, ESCRITA Y NO APLICADA 2026-08-12, con su entrada en `meta/_journal.json` (idx 15) y su `meta/0015_snapshot.json`. Appendear al `0013` dejó de ser una opción cuando el `0013` se aplicó (`91ef699`), y `0013b` no es un nombre que `drizzle-kit generate` sepa producir.
 
-**Reversibilidad:** IRREVERSIBLE (constraint sobre datos vivos), trivial de revertir con `DROP CONSTRAINT`.
+**Reversibilidad:** IRREVERSIBLE (constraint sobre datos vivos), trivial de revertir con `ALTER COLUMN georef_id DROP NOT NULL` — instantáneo y sin reescritura.
 
-- [ ] **Step 1:** Con el seed completo, `georef_id` ya está lleno en las 17.986 filas. Recién ahora `ALTER TABLE geographic_locations ALTER COLUMN georef_id SET NOT NULL` se puede aplicar. Un `NOT NULL` sobre filas que no lo cumplen no se puede aplicar, y por eso esto no estaba en la Task 1.
+- [x] **Step 1:** Con el seed completo, `georef_id` ya está lleno en las 17.986 filas. Recién ahora `ALTER TABLE geographic_locations ALTER COLUMN georef_id SET NOT NULL` se puede aplicar. Un `NOT NULL` sobre filas que no lo cumplen no se puede aplicar, y por eso esto no estaba en la Task 1.
+
+**EN QUÉ MOMENTO EXACTO DE LA SECUENCIA VA — corregido 2026-08-12, y la respuesta es «no es esta migración la que pide un orden».** Con las 24 filas ya rellenadas, el `SET NOT NULL` valida HOY, antes del seed: el orden no lo impone la Task 6 sino la Task 7, que quiere ir después del seed del callejero para no sumarle su WAL. Y como el migrador de drizzle (`drizzle-orm/node-postgres/migrator`) aplica **todas las pendientes dentro de UNA transacción**, la `0014` y la `0015` entran juntas en un solo `pnpm db:migrate` y no hay manera de aplicar una sin la otra. O sea: **la secuencia es seed → migrate**, y en esa secuencia el NOT NULL valida contra las 17.986 filas que el seed ya escribió con su `georef_id` (que es su clave de deduplicación, así que la restricción no le pide nada nuevo).
+
+El orden inverso —migrate → seed, que es el único posible en una base nueva, CI o un dev recién clonado— **también es válido, y para esta restricción es estrictamente mejor**: aplicada antes del seed, «a la Task 5 se le escapó una fila sin `georef_id`» deja de ser un hueco silencioso y pasa a ser un INSERT que falla. Lo que ese orden cuesta lo paga la `0014` (índice construido vacío y mantenido fila por fila durante el seed), no ésta.
 
 **Las 24 filas viejas ya no son el obstáculo — la cuenta está hecha (2026-08-11).** Hoy `geographic_locations` tiene **24 filas y ninguna otra**: las 24 provincias, `level = 'province'`, ids 1 a 24, y cero filas de cualquier otro nivel (leído de la base viva). El Step 7 de la Task 1 les escribe `georef_id` a las 24, así que el `SET NOT NULL` de acá arranca desde **0 filas incumplidoras de las 24 preexistentes** y sólo tiene que esperar a las 17.962 que agrega el seed. Ensayado sobre una copia local con la `0013` aplicada y el relleno corrido: el `ALTER TABLE` pasa y `is_nullable` queda en `NO`.
 
 Sin el Step 7, en cambio, este `ALTER` falla con `column "georef_id" contains null values` en 24 filas — o sea que la Task 6 es el segundo lugar donde se nota que faltó el relleno; el primero, y silencioso, es el coroplético vacío.
 
-- [ ] **Step 2:** Verificar y commitear.
+- [ ] **Step 2:** Verificar y commitear. **`db:migrate` aplica también la `0014`** — son las dos únicas pendientes y viajan en la misma transacción, así que este comando es el de la Task 7 al mismo tiempo. Correrlo con el callejero ya sembrado.
 
 ```bash
 cd v2 && pnpm --filter @v2/db db:migrate && pnpm --filter @v2/db test:integration
 git commit -am "feat(db): el id del Estado deja de poder faltar"
+```
+
+**Qué mirar después de aplicar, porque `migrations applied` no dice nada de esto:**
+
+```sql
+-- Las dos afirmaciones de esta tarea, una consulta cada una.
+SELECT is_nullable FROM information_schema.columns
+ WHERE table_name = 'geographic_locations' AND column_name = 'georef_id';  -- NO
+SELECT count(*) FROM geographic_locations;                                  -- 17.986
 ```
 
 ---
@@ -614,11 +631,11 @@ git commit -am "feat(db): el id del Estado deja de poder faltar"
 ### Task 7: La migración 0014 — `pg_trgm` y el GIN, en corrida aparte
 
 **Files:**
-- Create: `packages/db/migrations/0014_trigram_calles.sql` + entrada en el journal
+- Create: `packages/db/migrations/0014_trigram_calles.sql` + entrada en el journal — **ESCRITA Y NO APLICADA 2026-08-12**, journal idx 14 y `meta/0014_snapshot.json` (copia del `0013`, que es lo que `--custom` produce).
 
-**Reversibilidad:** REVERSIBLE — se dropea sin migración inversa y el producto sigue funcionando peor pero funcionando.
+**Reversibilidad:** REVERSIBLE **a medias, y la mitad importa.** `DROP INDEX geo_calles_nombre_trgm` se hace sin migración inversa y el producto sigue funcionando peor pero funcionando. **`DROP EXTENSION pg_trgm` no**: `similarity()` sale de ahí y el scope de provincia deja de responder — no más lento, con error. Lo reversible es el índice, no la migración.
 
-- [ ] **Step 1: Generar con `--custom` para que obtenga entrada en el journal**
+- [x] **Step 1: Generar con `--custom` para que obtenga entrada en el journal**
 
 ```bash
 cd v2 && pnpm --filter @v2/db exec drizzle-kit generate --custom --name trigram_calles
@@ -630,6 +647,21 @@ CREATE INDEX geo_calles_nombre_trgm ON geo_calles USING gin (nombre_norm gin_trg
 ```
 
 **Va separado por dos razones, y la tercera se cayó al medir:** sirve sólo al caso frío (buscar por provincia con un tipeo, no un prefijo), y **si se construye en la misma corrida que el seed, su WAL se suma al del seed**. La que se cayó es la de los bytes: el plan lo presupuestaba en el 22% del budget del callejero y **midió 9,1 MB**.
+
+**El tamaño, reconciliado (2026-08-12).** La medición del 11/8 dice **9,1 MB** con `pg_relation_size` sobre las 326.832 calles reales; el traspaso de esta tarea circuló **8,9 MB**. Son 0,2 MB sobre la misma corrida, ninguna decisión depende de cuál sea, y lo que las dos descartan es el **~72 MB** que D-035 presupuestaba (la spec A §3.5 lo presupuestaba en 45 y lo estimaba en 27,7). El número que se cita de acá en adelante es **9,1 MB**, que es el que tiene la corrida al lado.
+
+**«CORRIDA APARTE» NO LA HACEN LOS ARCHIVOS — corrección 2026-08-12.** `drizzle-orm/node-postgres/migrator` aplica **todas las migraciones pendientes dentro de UNA transacción**. La `0014` y la `0015` entran juntas en un solo `pnpm db:migrate` y no existe la opción de aplicar una sola. Lo que tiene que quedar aparte no es esta migración de su vecina —eso no cuesta nada— sino **esta construcción del seed**, y eso es una cuestión de ORDEN y no de numeración:
+
+- **`seed → migrate`** es el orden para el que está escrita: el GIN se construye de una sobre la tabla llena, en su propia transacción, y su WAL no se suma al de las 326.832 inserciones.
+- **`migrate → seed`** es correcto también, pero el índice nace vacío y lo mantiene el seed fila por fila: vuelve el pico que la partición evita. En una base nueva —CI, un dev recién clonado— es el único orden posible, y está bien: no hay nada que indexar todavía.
+
+**Y no hay guarda automática que lo avise, ni la va a haber en el `.sql`:** un `RAISE WARNING` desde una migración no se ve, porque `scripts/migrate.ts` usa `pg.Pool` sin escuchar el evento `notice` de node-postgres y el aviso se descarta en silencio. Una guarda que no se ve es peor que ninguna; el lugar donde esto se chequea es `verificar-callejero.ts` (Step 2), que corre después y sí imprime.
+
+**QUÉ ACELERA EL GIN Y QUÉ NO — corrección 2026-08-12, y desmiente dos frases de la spec A.**
+
+1. **El GIN acelera `nombre_norm LIKE '%…%'`, no `similarity()`.** `gin_trgm_ops` indexa el operador `%` (que consulta `pg_trgm.similarity_threshold`) y los `LIKE`/`ILIKE` con trigramas extraíbles. `similarity(a, b) > umbral` **escrito como llamada a función no es indexable**, y `repositories/geo-calles.ts` ni siquiera lo usa en el `WHERE`: usa `similarity()` sólo en el `ORDER BY` del scope de provincia. **Un `ORDER BY similarity(...) DESC` no lo sirve ningún GIN** —ordenar por operador de distancia es de GiST (`<->`)—, así que en ese scope el `LIMIT` **no corta temprano**: el motor filtra la rebanada entera, calcula la similitud fila por fila y ordena todo. La tabla de A §4.2 dice «`provincia` · operador: `similarity()` con umbral · índice: GIN» y la línea 374 de este plan decía «`provincia` con 3 por `similarity()` sobre el GIN»: **el operador del scope de provincia es el mismo `LIKE '%…%'` que el de los otros dos**; lo que cambia es que ahí el territorio no acota nada y por eso hace falta el GIN.
+2. **«No hay seq scan» no es «el índice entrega la rebanada sin tocar el heap».** A §3.2 escribió «el filtro corre sobre las entradas del índice, sin tocar el heap hasta el LIMIT» y §4.2 lo repite: **es falso en Postgres.** Un Index Scan aplica como `Index Cond` sólo los quals que el índice sabe resolver y todo lo demás como `Filter` **sobre la tupla del heap ya traída**; `LIKE '%…%'` no tiene prefijo, así que nunca es `Index Cond` — por el btree es `Filter` después del fetch, por el GIN es `Recheck Cond` de un Bitmap Heap Scan, que también es después. Un Index Only Scan tampoco está disponible: la consulta selecciona `nombre`, `categoria` y cuatro nombres de lugar por join. Lo cierto es lo que el test afirma —no hay `Seq Scan on geo_calles`—: el índice ahorra recorrer las otras ~318.000 filas, no el acceso al heap de la rebanada que devuelve.
+3. **Ningún test de hoy prueba que este índice se use.** Con `provincia_id = $1` disponible, el planificador tiene dos candidatos: el btree `(provincia_id, nombre_norm)` con el `LIKE` como `Filter`, o un BitmapAnd de este GIN con ese btree. **Los dos pasan el `not.toContain('Seq Scan on geo_calles')`** de `tests/geo-calles.test.ts`, así que esa suite en verde no distingue «el GIN se usa» de «el GIN son 9 MB muertos». Lo que sí es seguro es que la **extensión** es obligatoria: sin `pg_trgm` el scope de provincia falla con «function similarity(text, text) does not exist». Qué haría falta para cerrarlo: un test que afirme `Bitmap Index Scan on geo_calles_nombre_trgm` en el `EXPLAIN` del scope de provincia, contra el callejero sembrado.
 
 **Los picos también estaban sobreestimados, y por mucho.** El plan calculaba pico del seed ≈ 337 MB y pico del GIN ≈ 290 MB, «juntos ~471, con el margen en 41». **Medido con el corpus completo: el máximo de toda la corrida fue 162,23 MB** —calles 85,88 · los tres btree 106,70 · el GIN 115,88 · las señales 162,23—. **La partición se conserva igual**: cuesta una migración de tres líneas y protege contra un pico cuyo tamaño real recién se sabe después de correr, que es cuando ya no se puede decidir.
 
@@ -884,6 +916,8 @@ git commit -m "feat(shared): un solo texto de consentimiento para el mismo sí"
 ---
 
 ### Task 11: La migración 0015 — `senales`, `actores`, `adhesiones`, `respuestas` y los tres catálogos
+
+> **ES LA `0016`, no la `0015` (corrimiento del 2026-08-12).** La `0015` se la llevó `0015_georef_not_null.sql` de la Task 6. Dejá que `drizzle-kit generate` asigne el número; escribir `0015_la_senal.sql` a mano choca con un archivo que ya existe. Todas las apariciones de «la `0015`» de esta tarea para abajo, incluidas las de las Tasks 21 y 29, corren un número.
 
 **Files:**
 - Create: `packages/db/src/schema/senales.ts`
@@ -1781,6 +1815,8 @@ git commit -m "feat(civic-core): los coeficientes de la corroboración con su ra
 
 ### Task 21: La migración 0016 — las cinco tablas del rastro y el rol que no puede reescribirlo
 
+> **ES LA `0017` (corrimiento del 2026-08-12, ver la Task 11).** Y «la `0015`» que esta tarea nombra —la de la señal— es la `0016`.
+
 **Files:**
 - Create: `packages/db/src/schema/corroboracion.ts`
 - Modify: `packages/db/src/schema/{senales,index}.ts`
@@ -2322,6 +2358,8 @@ git commit -am "feat(civic-core): qué provincias toca un recuadro, sin GeoJSON 
 ---
 
 ### Task 29: La migración 0017 — `volcados` y los índices del feed
+
+> **ES LA `0018` (corrimiento del 2026-08-12, ver la Task 11).** El razonamiento sobre `senales_feed_idx` no cambia —lo crea esta migración y no la de la señal—, sólo su número.
 
 **Files:**
 - Create: `packages/db/src/schema/volcados.ts`

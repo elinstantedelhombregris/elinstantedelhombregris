@@ -26,6 +26,9 @@
     "db:seed-challenges": "tsx scripts/seed-challenges.ts",
     "db:seed-provinces": "tsx scripts/seed-provinces.ts",
     "geo:rellenar-provincias": "tsx scripts/rellenar-provincias.ts",
+    "geo:seed-callejero": "tsx scripts/seed-callejero.ts",
+    "db:seed-callejero": "tsx scripts/seed-callejero.ts",
+    "geo:verificar-callejero": "tsx scripts/verificar-callejero.ts",
     "test": "pnpm test:unit && pnpm test:integration",
     "test:unit": "vitest run src/ --passWithNoTests",
     "test:integration": "vitest run --dir tests"

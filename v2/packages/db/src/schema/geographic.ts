@@ -94,10 +94,19 @@ export const geographicLocations = pgTable(
 
     /**
      * El id del Estado (georef). UNIQUE y no clave primaria: la identidad
-     * interna no se le presta a una fuente externa. Entra nullable porque las
-     * 24 filas vivas todavía no lo tienen; se hace NOT NULL después del seed.
+     * interna no se le presta a una fuente externa.
+     *
+     * **`NOT NULL` desde la `0015`.** Entró nullable en la `0013` porque las 24
+     * provincias vivas todavía no lo tenían; `rellenar-provincias.ts --aplicar`
+     * se los escribió y recién entonces el `SET NOT NULL` pudo validar.
+     *
+     * Que sea obligatorio no es prolijidad: **en Postgres dos NULL no chocan en
+     * un índice único**, así que una fila sin `georef_id` es invisible para el
+     * `ON CONFLICT (georef_id)` de `upsertLocation` y la segunda corrida del
+     * seed la vuelve a entrar, duplicada y sin error. El NOT NULL es lo que
+     * convierte ese silencio en una falla en el INSERT.
      */
-    georefId: text('georef_id'),
+    georefId: text('georef_id').notNull(),
 
     /** Normalizado por el mismo normalizador con el que se consulta. Lo escribe el seed. */
     nameNorm: text('name_norm'),

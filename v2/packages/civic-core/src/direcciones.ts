@@ -34,14 +34,36 @@
  * «AV JOSE MARIA MORENO 1450» adentro de `direccion_texto`, que sale por la API
  * pública y por el volcado. Ningún CHECK lo caza —`direccion_texto` es texto
  * libre con tope de largo—, así que es la única parte de §2.6 que la base no
- * puede defender sola. La defensa de acá es de forma: `componerDireccion` sólo
- * acepta un `DireccionEstado`, y el único que produce uno es `ubicacionPublicable`.
+ * puede defender sola.
+ *
+ * **Y la defensa de acá tampoco es de forma.** Este comentario decía que
+ * `componerDireccion` sólo acepta un `DireccionEstado` y que el único que
+ * produce uno es `ubicacionPublicable`; es falso, y prometer una garantía que
+ * no existe sobre la única invariante que la base no defiende es peor que no
+ * prometer nada. `DireccionEstado` es una unión de literales de string:
+ * `componerDireccion({ estado: 'altura_en_rango', altura: 1450, … })` escrito a
+ * mano compila, y en este mismo módulo hay un segundo productor de esos
+ * literales (`direccionOlvidada`). Lo que hay es más chico y es cierto: **la
+ * secuencia está documentada acá y fijada por un test** —«la secuencia de §4.5,
+ * que el compilador no impide», en `direcciones.test.ts`—, que compone en los
+ * dos órdenes y muestra qué sale de cada uno.
+ *
+ * Marcar el tipo de verdad —un *branded type* que sólo `ubicacionPublicable`
+ * pudiera acuñar— se evaluó y se descartó por dos razones. La primera: la marca
+ * cubriría `estado` y `altura` y no `nombreCalle` ni `textoLibre`, que entran
+ * por separado porque el nombre de la calle se busca en el catálogo ENTRE el
+ * paso 3 y el 4 — o sea que «el error es inexpresable» seguiría siendo una
+ * frase más grande que el código, que es exactamente el defecto que se está
+ * arreglando. La segunda: `DireccionEstado` es también el vocabulario de la
+ * COLUMNA, y una fila leída de la base trae un string sin marca; acuñarla en el
+ * borde de lectura volvería a hacer falsa la promesa, y ahí sería mucho más
+ * difícil de ver que en un comentario.
  *
  * Módulo puro: sin red, sin disco, sin reloj. La lista de categorías de calle
  * entra por parámetro porque civic-core no lee la base.
  */
 
-import { normalizedLocationLabel } from './location-policy.js';
+import { TOPE_DE_ETIQUETA, normalizedLocationLabel } from './location-policy.js';
 
 import type { PublishedPrecisionResult } from './location-policy.js';
 import type { CivicSensitivity, LocationRole } from './types.js';
@@ -537,9 +559,23 @@ const PISO_DE_SUBJECT = new Map<string, PermisoDireccion>([
   ['high', 'ninguna'],
 ]);
 
-const pisoPorRol = (role: LocationRole, sensitivity: CivicSensitivity): PermisoDireccion =>
-  (role === 'subject' ? PISO_DE_SUBJECT.get(sensitivity) : PISO_POR_ROL.get(role)) ??
-  MAS_RESTRICTIVO;
+/**
+ * El piso de un rol, o la constancia de que no se lo reconoce. Es la unión
+ * hermana de `TechoDeTipo` y existe por lo mismo: «el piso de este rol es
+ * ninguna» y «no sé qué rol es éste» son afirmaciones distintas, y quien
+ * redacta el recibo necesita distinguirlas.
+ *
+ * `reconocido: false` cubre los dos huecos del vocabulario de §2.6 —un rol que
+ * no está en la tabla, y una sensibilidad que no está en la de `subject`—
+ * porque el piso es una sola respuesta a los dos ejes juntos y desde afuera no
+ * hay nada distinto que hacer con cada uno.
+ */
+type PisoDeRol = { reconocido: true; piso: PermisoDireccion } | { reconocido: false };
+
+const pisoPorRol = (role: LocationRole, sensitivity: CivicSensitivity): PisoDeRol => {
+  const piso = role === 'subject' ? PISO_DE_SUBJECT.get(sensitivity) : PISO_POR_ROL.get(role);
+  return piso === undefined ? { reconocido: false } : { reconocido: true, piso };
+};
 
 /**
  * **El techo por tipo** (§2.6), nueve entradas exhaustivas sobre el vocabulario
@@ -654,11 +690,13 @@ export const direccionPermitida = (
   role: LocationRole,
   sensitivity: CivicSensitivity,
 ): PermisoDireccion => {
-  // El tipo del parámetro dice que esto no puede fallar, y en runtime sí puede:
-  // los tipos se borran y el valor viene del cuerpo de una request (Task 13).
+  // El tipo de los parámetros dice que esto no puede fallar, y en runtime sí
+  // puede: los tipos se borran y los valores vienen del cuerpo de una request
+  // (Task 13). Los dos ejes fallan cerrado, cada uno por su lado.
   const techo = techoDeTipo(tipo);
-  return techo.reconocido
-    ? permisoMasRestrictivo(techo.techo, pisoPorRol(role, sensitivity))
+  const piso = pisoPorRol(role, sensitivity);
+  return techo.reconocido && piso.reconocido
+    ? permisoMasRestrictivo(techo.techo, piso.piso)
     : MAS_RESTRICTIVO;
 };
 
@@ -690,6 +728,29 @@ const RETIRO_ALTURA_CON_PUNTO_GRUESO =
 const RETIRO_TIPO_DESCONOCIDO =
   'No publicamos la dirección: no reconocemos el tipo de esta señal, y ante la duda ' +
   'publicamos menos.';
+/**
+ * El rol —o, con `subject`, su sensibilidad— no está en el vocabulario de §2.6.
+ * La constante hermana de la de arriba, por el otro eje, y por la misma razón:
+ * sin ella, un `basta` sobre un pozo cargado con un rol que no existe recibía
+ * «esta señal habla del lugar donde vive o está una persona», que es un motivo
+ * inventado para una decisión correcta. Fallar cerrado está bien; explicarlo
+ * mal, no.
+ */
+const RETIRO_ROL_DESCONOCIDO =
+  'No publicamos la dirección: no reconocemos qué es este lugar para la señal, y ante la duda ' +
+  'publicamos menos.';
+
+/**
+ * Por qué no se publicó ninguna dirección, en el orden en que hay que
+ * preguntarlo: primero los dos huecos del vocabulario —que no son sobre la
+ * señal sino sobre lo que llegó— y recién después la razón de §2.6, que es la
+ * única que afirma algo sobre lo que la señal dice.
+ */
+const motivoDeNinguna = (techo: TechoDeTipo, piso: PisoDeRol): string => {
+  if (!techo.reconocido) return RETIRO_TIPO_DESCONOCIDO;
+  if (!piso.reconocido) return RETIRO_ROL_DESCONOCIDO;
+  return RETIRO_DIRECCION_DE_PERSONA;
+};
 
 const unir = (retiros: readonly string[]): string | null =>
   retiros.length === 0 ? null : retiros.join(' ');
@@ -748,10 +809,12 @@ export interface UbicacionPublicable {
 export const ubicacionPublicable = (entrada: EntradaUbicacionPublicable): UbicacionPublicable => {
   const { direccion, jerarquia } = entrada;
   const permiso = direccionPermitida(entrada.tipo, entrada.role, entrada.sensitivity);
-  // El techo por separado, sólo para redactar el recibo: la decisión de cuánto
-  // se publica ya la tomó `direccionPermitida`, y volver a mirar la tabla para
-  // decidirla otra vez sería tener dos jueces.
+  // Los dos ejes por separado, sólo para redactar el recibo: la decisión de
+  // cuánto se publica ya la tomó `direccionPermitida`, y volver a mirar las
+  // tablas para decidirla otra vez sería tener dos jueces. Acá no se decide
+  // nada: se pregunta quién puso el techo, para poder decirlo sin inventar.
   const techo = techoDeTipo(entrada.tipo);
+  const piso = pisoPorRol(entrada.role, entrada.sensitivity);
   const textoLibre = normalizedLocationLabel(direccion.textoLibre);
   const retiros: string[] = [];
 
@@ -782,12 +845,11 @@ export const ubicacionPublicable = (entrada: EntradaUbicacionPublicable): Ubicac
   const { cityId, departmentId } = jerarquia;
 
   if (permiso === 'ninguna') {
-    // El recibo tiene que decir la verdad sobre por qué. Si el tipo no está en
-    // la tabla, la frase de «el lugar de una persona» sería una explicación
-    // inventada de una decisión correcta.
-    if (habiaAlgo) {
-      retiros.push(techo.reconocido ? RETIRO_DIRECCION_DE_PERSONA : RETIRO_TIPO_DESCONOCIDO);
-    }
+    // El recibo tiene que decir la verdad sobre por qué. Hay tres motivos
+    // distintos detrás del mismo «ninguna» —el techo del tipo, un tipo que no
+    // está en la tabla, un rol que no está en la suya— y sólo uno de ellos
+    // habla de una persona.
+    if (habiaAlgo) retiros.push(motivoDeNinguna(techo, piso));
     return {
       calleId: null,
       altura: null,
@@ -898,9 +960,13 @@ export interface EntradaComponerDireccion {
  * diciendo lo que decía.
  *
  * Se llavea en `estado` y no en los campos, así que una altura que
- * `ubicacionPublicable` retiró no puede volver a entrar por el texto. Tope 120,
- * el mismo de `normalizedLocationLabel` y el mismo que el CHECK
- * `senales_direccion_texto_len_chk` hace cumplir.
+ * `ubicacionPublicable` retiró no puede volver a entrar por el texto. Lo que
+ * **no** garantiza es que ese `estado` haya salido del paso 3: eso lo sostienen
+ * el orden y un test, no el compilador (ver la cabecera del módulo).
+ *
+ * El tope es `TOPE_DE_ETIQUETA`, el mismo de `normalizedLocationLabel` y el
+ * mismo que el CHECK `senales_direccion_texto_len_chk` hace cumplir, y se mide
+ * ANTES de pegar el número.
  */
 export const componerDireccion = (entrada: EntradaComponerDireccion): string | null => {
   switch (entrada.estado) {
@@ -915,7 +981,28 @@ export const componerDireccion = (entrada: EntradaComponerDireccion): string | n
     case 'altura_fuera_de_rango': {
       const calle = normalizedLocationLabel(entrada.nombreCalle);
       if (calle === null || entrada.altura === null) return calle;
-      return normalizedLocationLabel(`${calle} ${entrada.altura}`);
+      /**
+       * **El número entra entero o no entra.** Antes esto era
+       * `normalizedLocationLabel` sobre «calle + espacio + altura», o sea
+       * recortar a 120 DESPUÉS de pegar: medido, con un nombre de 116 y la
+       * altura 1450, `direccion_texto` terminaba en «AA 145» mientras la
+       * columna `altura` decía 1450. La fila afirmaba una puerta que no existe,
+       * en la única columna que ningún CHECK puede defender.
+       *
+       * Con nombres argentinos reales no se alcanza, y ésa es justamente la
+       * razón por la que había que arreglarlo acá: `geo_calles.nombre` es
+       * `text` sin tope y el largo entra desde el catálogo del Estado, no desde
+       * la persona — o sea que quien lo puede traer es el seed de esta misma
+       * rebanada, no un usuario.
+       *
+       * **Un número mutilado es peor que uno ausente**: el ausente ya tiene su
+       * estado (`calle`) y su etiqueta, el mutilado se lee como un dato. Cuando
+       * no entra queda una fila con `altura` y con un texto que no la nombra;
+       * del lado del registro público `direccionSinAltura` no puede probar que
+       * la sacó y no publica nada, que es la salida segura de las dos.
+       */
+      const compuesto = `${calle} ${entrada.altura}`;
+      return compuesto.length <= TOPE_DE_ETIQUETA ? compuesto : calle;
     }
   }
 };

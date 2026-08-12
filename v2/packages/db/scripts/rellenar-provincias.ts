@@ -55,6 +55,7 @@
 //
 // Los módulos de abajo son puros: ninguno lee el entorno al importarse, así que
 // el `config()` del cuerpo alcanza aunque los imports se evalúen antes que él.
+import { PROVINCIAS_CANONICAS } from '@v2/civic-core';
 import { config } from 'dotenv';
 import { and, eq, isNull, sql } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/node-postgres';
@@ -62,7 +63,7 @@ import pg from 'pg';
 
 import { geographicLocations } from '../src/schema/geographic.js';
 
-import { PROVINCIAS_CANONICAS, claveDeProvincia } from './provincias-canonicas.js';
+import { claveDeProvincia } from './clave-de-provincia.js';
 
 config({ path: new URL('../../../.env', import.meta.url).pathname });
 

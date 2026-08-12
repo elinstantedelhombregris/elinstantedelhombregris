@@ -37,8 +37,20 @@ export const validGeoPoint = (point: GeoPoint | null | undefined): GeoPoint | nu
   return { lat: point.lat, lng: point.lng };
 };
 
+/**
+ * El largo máximo de una etiqueta de lugar, que es también el de
+ * `direccion_texto` y el que hace cumplir el CHECK
+ * `senales_direccion_texto_len_chk`.
+ *
+ * Se exporta porque `componerDireccion` tiene que MEDIR contra él antes de
+ * pegarle una altura al nombre de una calle: recortar después de pegar parte el
+ * número por el medio y deja la fila afirmando una puerta que no existe. Medir
+ * contra un `120` escrito por segunda vez es cómo los dos topes se separan.
+ */
+export const TOPE_DE_ETIQUETA = 120;
+
 export const normalizedLocationLabel = (value?: string | null): string | null => {
-  const trimmed = value?.trim().slice(0, 120);
+  const trimmed = value?.trim().slice(0, TOPE_DE_ETIQUETA);
   // La etiqueta vacía es ausencia de etiqueta, no una etiqueta en blanco: por
   // eso no alcanza con `??`, que dejaría pasar la cadena vacía.
   return trimmed === undefined || trimmed === '' ? null : trimmed;

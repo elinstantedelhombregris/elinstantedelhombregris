@@ -321,6 +321,47 @@ describe('el techo por tipo', () => {
     // inventada de una decisión correcta.
     expect(salida.retirado).not.toContain('una persona');
   });
+
+  it('un rol desconocido tampoco publica dirección, y el recibo tampoco lo inventa', () => {
+    // El eje del rol había quedado sin la cortesía del eje del tipo: un ¡BASTA!
+    // sobre un pozo, cargado con un rol que no existe, recibía «esta señal
+    // habla del lugar donde vive o está una persona». La decisión de no
+    // publicar es correcta; el motivo era inventado.
+    const rolRaro = 'jefe' as unknown as LocationRole;
+    expect(direccionPermitida('basta', rolRaro, 'low')).toBe('ninguna');
+
+    const salida = ubicacionPublicable(entrada({ tipo: 'basta', role: rolRaro }));
+    expect(salida.estado).toBe('sin_direccion');
+    expect(salida.calleId).toBeNull();
+    expect(salida.altura).toBeNull();
+    expect(salida.retirado).toContain('no reconocemos qué es este lugar');
+    expect(salida.retirado).not.toContain('una persona');
+  });
+
+  it('una sensibilidad desconocida cae por el mismo lado que el rol', () => {
+    // El piso es una sola respuesta a los dos ejes juntos: con `subject` y una
+    // sensibilidad que no está en la tabla no se sabe cuánto expone, y eso no
+    // es lo mismo que saber que expone mucho.
+    const sensibilidadRara = 'media' as unknown as CivicSensitivity;
+    const salida = ubicacionPublicable(
+      entrada({ tipo: 'basta', role: 'subject', sensitivity: sensibilidadRara }),
+    );
+    expect(salida.estado).toBe('sin_direccion');
+    expect(salida.retirado).toContain('no reconocemos qué es este lugar');
+    expect(salida.retirado).not.toContain('una persona');
+  });
+
+  it('con el tipo y el rol en el vocabulario el recibo sí habla de la persona', () => {
+    // La tercera rama, que es la única que afirma algo sobre lo que la señal
+    // dice. Si las tres dijeran esto, el arreglo no serviría de nada.
+    const salida = ubicacionPublicable(
+      entrada({ tipo: 'basta', role: 'subject', sensitivity: 'high' }),
+    );
+    expect(salida.estado).toBe('sin_direccion');
+    expect(salida.retirado).toBe(
+      'No publicamos la dirección: esta señal habla del lugar donde vive o está una persona.',
+    );
+  });
 });
 
 describe('ubicacionPublicable', () => {
@@ -473,6 +514,80 @@ describe('componerDireccion', () => {
     ).toBeNull();
   });
 
+  /**
+   * El tope se mide ANTES de pegar el número.
+   *
+   * `geo_calles.nombre` es `text` sin tope y el largo entra desde el catálogo
+   * del Estado, no desde la persona: el que puede traer un nombre así es el
+   * seed, no un usuario. Con nombres argentinos reales esto no se alcanza —y
+   * por eso ningún test lo miraba.
+   */
+  describe('el número entra entero o no entra', () => {
+    /** Un nombre de calle de `n` caracteres, sin un solo dígito adentro. */
+    const calleDe = (n: number): string => `AVENIDA ${'A'.repeat(n - 8)}`;
+
+    it('con el compuesto justo en el tope, la altura entra', () => {
+      const calle = calleDe(115);
+      expect(
+        componerDireccion({
+          estado: 'altura_en_rango',
+          nombreCalle: calle,
+          altura: 1450,
+          textoLibre: null,
+        }),
+      ).toBe(`${calle} 1450`);
+    });
+
+    it('un caracter más y vuelve sólo la calle, no un número partido', () => {
+      // Medido: con 116 caracteres de nombre y altura 1450, recortar a 120
+      // DESPUÉS de pegar dejaba `…AA 145`. La fila afirmaba la puerta 145
+      // mientras la columna `altura` decía 1450.
+      const calle = calleDe(116);
+      const texto = componerDireccion({
+        estado: 'altura_en_rango',
+        nombreCalle: calle,
+        altura: 1450,
+        textoLibre: null,
+      });
+      expect(texto).toBe(calle);
+      expect(texto).not.toContain('145');
+    });
+
+    it('con el nombre más largo que el tope, tampoco se cuela un pedazo del número', () => {
+      const texto = componerDireccion({
+        estado: 'altura_sin_rango',
+        nombreCalle: calleDe(200),
+        altura: 1450,
+        textoLibre: null,
+      });
+      expect(texto).toBe(calleDe(200).slice(0, 120));
+      expect(texto).not.toMatch(/[0-9]/);
+    });
+
+    it('ninguna longitud deja un número a medias', () => {
+      // El barrido, que es lo que un caso suelto no puede afirmar: o el texto
+      // termina con la altura ENTERA, o no tiene un solo dígito.
+      const partidos: string[] = [];
+      for (let largo = 100; largo <= 130; largo += 1) {
+        for (const altura of [1, 9, 1450, 99999]) {
+          const texto =
+            componerDireccion({
+              estado: 'altura_fuera_de_rango',
+              nombreCalle: calleDe(largo),
+              altura,
+              textoLibre: null,
+            }) ?? '';
+          const entera = texto.endsWith(` ${String(altura)}`);
+          const sinDigitos = !/[0-9]/.test(texto);
+          if (!entera && !sinDigitos)
+            partidos.push(`${String(largo)}/${String(altura)} → ${texto}`);
+          expect(texto.length).toBeLessThanOrEqual(120);
+        }
+      }
+      expect(partidos).toEqual([]);
+    });
+  });
+
   it('el texto libre entra íntegro y recortado a 120', () => {
     expect(
       componerDireccion({
@@ -492,6 +607,69 @@ describe('componerDireccion', () => {
         textoLibre: largo,
       })?.length,
     ).toBe(120);
+  });
+});
+
+/**
+ * §4.5, y la única invariante de §2.6 que la base no puede defender sola.
+ *
+ * **Este bloque no verifica una garantía: la reemplaza.** El comentario del
+ * módulo decía que `componerDireccion` sólo acepta un `DireccionEstado` y que
+ * el único que produce uno es `ubicacionPublicable` — y es falso:
+ * `DireccionEstado` es una unión de literales de string y el compilador no
+ * tiene cómo saber de dónde salió el que le pasan. Lo que sostiene el orden es
+ * esto: la secuencia documentada, y un test que compone en los dos órdenes y
+ * muestra qué sale de cada uno.
+ */
+describe('la secuencia de §4.5, que el compilador no impide', () => {
+  const CARGADO = { calleId: 77, altura: 1450, textoLibre: null };
+
+  const degradada = () =>
+    ubicacionPublicable(
+      entrada({
+        tipo: 'necesidad',
+        role: 'subject',
+        sensitivity: 'moderate',
+        direccion: CARGADO,
+      }),
+    );
+
+  it('componer sobre lo que salió del paso 3 no deja la altura en el texto', () => {
+    const salida = degradada();
+    expect(salida.altura).toBeNull();
+    const texto = componerDireccion({
+      estado: salida.estado,
+      nombreCalle: '25 DE MAYO',
+      altura: salida.altura,
+      textoLibre: null,
+    });
+    expect(texto).toBe('25 DE MAYO');
+    expect(texto).not.toContain('1450');
+  });
+
+  it('componer sobre lo CARGADO sí la deja, y compila igual: por eso el orden va numerado', () => {
+    // Invertir los pasos 3 y 4 deja una fila con `altura IS NULL` y con
+    // «25 DE MAYO 1450» adentro de `direccion_texto`, que sale por la API
+    // pública y por el volcado. Nada en el sistema de tipos lo impide.
+    const invertido = componerDireccion({
+      estado: 'altura_en_rango',
+      nombreCalle: '25 DE MAYO',
+      altura: CARGADO.altura,
+      textoLibre: null,
+    });
+    expect(invertido).toBe('25 DE MAYO 1450');
+    expect(degradada().altura).toBeNull();
+  });
+
+  it('el módulo no exporta ninguna forma de acuñar un estado: sólo el vocabulario', async () => {
+    // Si algún día se marca el tipo de verdad, este test es el que hay que
+    // cambiar — y el comentario del módulo, con él.
+    const exportados = Object.keys(await import('../index.js'));
+    expect(exportados).toContain('componerDireccion');
+    expect(exportados).toContain('ubicacionPublicable');
+    // `direccionOlvidada` produce un `DireccionEstado` sin pasar por el paso 3,
+    // en este mismo módulo: el segundo productor que la frase vieja negaba.
+    expect(direccionOlvidada().estado).toBe('sin_direccion');
   });
 });
 
@@ -615,11 +793,15 @@ describe('direccionSinAltura — el rescate se valida por la salida', () => {
     // El falsificador de la revisión: cortar el último token deja `MITRE 340`,
     // que sigue nombrando la puerta 340.
     expect(direccionSinAltura({ direccionTexto: 'MITRE 340 PASILLO 12', altura: 340 })).toBeNull();
-    expect(direccionSinAltura({ direccionTexto: 'SAN MARTIN 1450 PISO 3', altura: 1450 })).toBeNull();
+    expect(
+      direccionSinAltura({ direccionTexto: 'SAN MARTIN 1450 PISO 3', altura: 1450 }),
+    ).toBeNull();
   });
 
   it('el camino feliz conserva el número que es parte del nombre de la calle', () => {
-    expect(direccionSinAltura({ direccionTexto: 'AV 9 DE JULIO 9', altura: 9 })).toBe('AV 9 DE JULIO');
+    expect(direccionSinAltura({ direccionTexto: 'AV 9 DE JULIO 9', altura: 9 })).toBe(
+      'AV 9 DE JULIO',
+    );
   });
 
   it('rescata cuando el corte deja un texto sin la altura', () => {

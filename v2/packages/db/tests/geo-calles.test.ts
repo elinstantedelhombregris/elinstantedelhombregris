@@ -32,6 +32,7 @@ import { sql } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/neon-http';
 import { beforeAll, describe, expect, it } from 'vitest';
 
+import { claveDeProvincia } from '../scripts/clave-de-provincia.js';
 import { getDb } from '../src/client.js';
 import { GeoCallesRepository } from '../src/repositories/geo-calles.js';
 import {
@@ -97,9 +98,13 @@ describe('los nombres de provincia, sin base', () => {
   it('los 24 nombres del GeoJSON caen en 24 claves distintas de `name_norm`', () => {
     // Si dos colapsaran a la misma clave, la búsqueda por nombre devolvería la
     // provincia equivocada sin ningún error de por medio.
-    const claves = NOMBRES_DEL_GEOJSON.map((n) =>
-      normalizarNombreDeLugar(normalizeProvinceName(n)),
-    );
+    //
+    // La clave se pide, no se recompone. Escribir acá
+    // `normalizarNombreDeLugar(normalizeProvinceName(n))` era tener la
+    // expresión por segunda vez: el día que `claveDeProvincia` cambie —agregar
+    // un paso, cambiar el orden— este test seguiría verde afirmando algo sobre
+    // una clave que ya no es la que se escribe en la columna.
+    const claves = NOMBRES_DEL_GEOJSON.map((n) => claveDeProvincia(n));
     expect(new Set(claves).size).toBe(24);
     expect(claves).not.toContain('');
   });
@@ -245,21 +250,36 @@ dsuite('el callejero contra Postgres', () => {
     expect(def).not.toContain("'city'");
   });
 
-  conLa0013('las 24 provincias se siguen encontrando por su nombre', async () => {
-    // Guarda 9, y el test que caza la regresión silenciosa: `findProvinceByName`
-    // es el final del camino de `provinciaIdDePunto`, o sea de D-001. Si acá
-    // devuelve `undefined`, cada captura con punto se guarda sin provincia y
-    // desaparece de todo lo que agrega por territorio, sin un solo error.
-    //
-    // Se pone rojo mientras `name_norm` esté en NULL en las 24 filas vivas: la
-    // fase 1 del seed (Task 5, Step 1) es la que las reconcilia.
-    const faltantes: string[] = [];
-    for (const nombre of NOMBRES_DEL_GEOJSON) {
-      const fila = await geo.findProvinceByName(nombre);
-      if (fila === undefined) faltantes.push(nombre);
-    }
-    expect(faltantes).toEqual([]);
-  });
+  conLa0013(
+    'las 24 provincias se siguen encontrando por su nombre',
+    async () => {
+      // Guarda 9, y el test que caza la regresión silenciosa: `findProvinceByName`
+      // es el final del camino de `provinciaIdDePunto`, o sea de D-001. Si acá
+      // devuelve `undefined`, cada captura con punto se guarda sin provincia y
+      // desaparece de todo lo que agrega por territorio, sin un solo error.
+      //
+      // Se pone rojo mientras `name_norm` esté en NULL en las 24 filas vivas: la
+      // fase 1 del seed (Task 5, Step 1) es la que las reconcilia.
+      //
+      // Las 24 consultas van de a una a propósito: lo que se afirma es que
+      // `findProvinceByName` —la función, una vez por nombre— encuentra la fila,
+      // y juntarlas en una sola consulta probaría otra cosa.
+      const faltantes: string[] = [];
+      for (const nombre of NOMBRES_DEL_GEOJSON) {
+        const fila = await geo.findProvinceByName(nombre);
+        if (fila === undefined) faltantes.push(nombre);
+      }
+      expect(faltantes).toEqual([]);
+    },
+    // 24 viajes HTTP a Neon, medidos entre 4,66 s y 4,88 s contra los 5000 ms
+    // que vitest pone por omisión: el 11/8 esto ya dio timeout a los 5006 ms.
+    // Los 5000 no eran un presupuesto de latencia que alguien haya elegido, y
+    // un rojo por 100 ms de red no dice nada sobre lo único que el test afirma
+    // —que las 24 se encuentran—. El número de acá SÍ es elegido: 30 s es
+    // holgura para la red, no para una consulta que se degradó. Si esto tarda
+    // 30 s, lo roto es el camino de `name_norm`, y entonces el rojo es cierto.
+    30_000,
+  );
 
   conLa0013('georef nombra a Tierra del Fuego distinto y la encuentra igual', async () => {
     const fila = await geo.findProvinceByName(TIERRA_DEL_FUEGO_GEOREF);

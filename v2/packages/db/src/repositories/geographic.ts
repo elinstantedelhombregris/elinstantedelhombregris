@@ -366,10 +366,15 @@ export class GeographicRepository {
    *
    * Se llamaba `upsert` y era un INSERT pelado: la segunda corrida del seed
    * habría entrado 17.986 filas repetidas. Ahora es un upsert de verdad, y
-   * `georefId` es **obligatorio** en la entrada aunque la columna sea nullable:
-   * en Postgres dos NULL no chocan en un índice único, así que un upsert sin
-   * `georef_id` no reconcilia con nada y entra siempre una fila nueva. La
-   * columna sigue nullable sólo hasta que la Task 6 la cierre.
+   * `georefId` es **obligatorio** en la entrada: en Postgres dos NULL no chocan
+   * en un índice único, así que un upsert sin `georef_id` no reconcilia con
+   * nada y entra siempre una fila nueva.
+   *
+   * Desde la migración `0015` la columna es `NOT NULL` y el tipo inferido ya lo
+   * exige solo, así que la intersección de abajo es redundante hoy. Se queda:
+   * es la que sigue exigiendo `georefId` en la entrada el día que alguien le
+   * saque el `notNull()` al esquema — un cambio cuyo daño no aparece hasta la
+   * segunda siembra, y ahí ya son 17.986 filas duplicadas.
    */
   async upsertLocation(
     input: NewGeographicLocation & { georefId: string },

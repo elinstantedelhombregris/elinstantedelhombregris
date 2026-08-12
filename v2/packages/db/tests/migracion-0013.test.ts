@@ -26,13 +26,14 @@
  * y el `drop schema` del `afterAll` no los devolvía. Acá la secuencia también
  * es descartable, y hay un test que lo afirma.
  */
+import { PROVINCIAS_CANONICAS } from '@v2/civic-core';
 import { config } from 'dotenv';
 import { sql } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import pg from 'pg';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { PROVINCIAS_CANONICAS, claveDeProvincia } from '../scripts/provincias-canonicas.js';
+import { claveDeProvincia } from '../scripts/clave-de-provincia.js';
 
 import { avisoDe0013, clasificar0013, estadoDe0013, saltea0013 } from './_migracion-0013.js';
 
@@ -433,6 +434,13 @@ suiteDescartable('migración 0013 · sobre base vacía (ESCRIBE: base descartabl
       ),
     );
 
+    // Desde la `0015` este INSERT viola DOS NOT NULL: `province_id` y
+    // `georef_id`. Sigue diciendo `province_id` porque Postgres recorre los
+    // atributos por `attnum` ascendente y aborta en el primero que falta:
+    // `province_id` nació en la `0002` y `georef_id` lo agregó la `0013`, así
+    // que el primero tiene el número más chico. Está anotado porque si algún
+    // día esta línea empieza a fallar con `georef_id`, la causa no es esta
+    // migración sino un orden de columnas que cambió.
     await expect(
       db.execute(
         sql.raw(`insert into ${VACIO}.geographic_locations (level, name) values ('province', 'X')`),
