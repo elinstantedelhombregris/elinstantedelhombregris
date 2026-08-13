@@ -26,6 +26,7 @@
 - **Un solo minutaje**, en `course.json`. `estimatedMinutes` desaparece del frontmatter.
 - **Los agentes nunca corren git.** Escriben archivos; los commits los hace el orquestador con rutas explícitas (deuda D-010: hay sesiones concurrentes en este repo).
 - **Ningún borrado por memoria.** Antes de borrar un campo, se repite el grep que demuestra que no tiene lector, y su salida va en el mensaje del commit.
+- **Los archivos compartidos se stagean por hunk, no completos.** `package.json`, `packages/shared/src/content/index.ts` y `.github/workflows/v2-ci.yml` los editan varias sesiones a la vez (deuda D-010). Un `git add v2/package.json` se lleva puesto lo que otra sesión dejó ahí sin commitear — ya pasó una vez en este ciclo, con una línea de la Radiografía. Antes de stagear uno de esos tres: `git diff v2/package.json` y `git add -p`, o `git stash` de lo ajeno.
 - **Emojis prohibidos** en el contenido de entrenamientos a partir de la Tarea 7 (esto revierte la spec 3.5, que los había dejado).
 - **Profundidad de encabezados:** el cuerpo de una lección usa `##` y `###`. Nada más.
 - **Dos directorios de trabajo, y no se mezclan.** Los `pnpm` y los `tsx` corren desde `v2/`. Los `git` corren desde la **raíz del repo** (`v2/` es un subdirectorio, no el repo), porque todas las rutas de los `git add` de este plan arrancan con `v2/…`. Un `git add v2/packages/…` desde dentro de `v2/` busca `v2/v2/packages` y falla.
@@ -618,8 +619,20 @@ Nada se borra sin una foto previa revisada. Este script no escribe en `content/`
 - Modify: `package.json` (script `entrenamientos:reporte`)
 
 **Interfaces:**
-- Consumes: `detectarCola`, `contarPalabrasRenderizables`, `minutosDeLectura` de `@v2/shared`.
-- Produces: `interface FilaReporte { curso: string; leccion: string; palabrasPropias: number; palabrasCola: number; motivo: MotivoCorte; minutosDeclarados: number; minutosReales: number }`, `relevarCorpus(raiz: string): FilaReporte[]`, y el archivo `docs/reportes/2026-08-12-entrenamientos-inventario.md`.
+- Consumes: `detectarCola`, `contarPalabrasRenderizables`, `minutosDeLectura`, `separarMdx`, `derivarSlugDeLeccion` de `@v2/shared`.
+- Produces:
+  - `interface FilaReporte { curso: string; leccion: string; palabrasPropias: number; palabrasCola: number; motivo: MotivoCorte; minutosDeclarados: number; minutosReales: number }` — una fila es un archivo que se leyó de verdad.
+  - `interface Anomalia { curso: string; leccion: string; clase: 'declarada-sin-archivo' | 'archivo-sin-declarar' }`
+  - `interface Relevamiento { filas: FilaReporte[]; anomalias: Anomalia[] }`
+  - `relevarCorpus(raiz: string): Relevamiento`, y el archivo `docs/reportes/2026-08-12-entrenamientos-inventario.md`.
+
+  **Por qué las anomalías son parte del contrato y no un extra.** Si el relevamiento
+  enumera sólo los `.mdx` del disco, una lección declarada en `course.json` cuyo archivo
+  no existe **desaparece de la foto sin dejar rastro**: no hay fila, no hay aviso, y los
+  totales cierran igual. Para una foto cuyo único trabajo es ser auditable antes de un
+  borrado de 320 archivos, ese es justo el desvío que no puede pasar desapercibido. Hoy
+  el corpus calza 1:1 en los 31 cursos (329 = 329, verificado), así que la lista va a
+  salir vacía — y el reporte lo dice con letras, que es distinto de no decir nada.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -633,27 +646,47 @@ import { describe, expect, it } from 'vitest';
 
 import { relevarCorpus } from '../entrenamientos-reporte';
 
-function corpusDePrueba(): string {
+const CON_COLA = `Cuatro palabras propias acá.
+
+### Idea fuerza
+
+Cuando un aprendizaje se traduce en decisiones mejores, deja de ser información.`;
+
+const frontmatter = (slug: string): string =>
+  `---\nslug: ${slug}\ncourseSlug: curso-uno\ntitle: Lección\norderIndex: 1\nestimatedMinutes: 9\n---\n\n`;
+
+/**
+ * Corpus mínimo en un directorio temporal.
+ * @param cuerpo El cuerpo de `leccion-uno.mdx`. Por defecto, uno con cola.
+ * @param opciones `declararDeMas` agrega una entrada a course.json sin archivo;
+ *   `archivoDeMas` agrega un archivo que course.json no declara.
+ */
+function corpusDePrueba(
+  cuerpo: string = CON_COLA,
+  opciones: { declararDeMas?: string; archivoDeMas?: string } = {},
+): string {
   const raiz = mkdtempSync(join(tmpdir(), 'entrenamientos-'));
   const curso = join(raiz, 'content', 'courses', 'curso-uno');
   mkdirSync(curso, { recursive: true });
-  writeFileSync(
-    join(curso, 'course.json'),
-    JSON.stringify({
-      slug: 'curso-uno',
-      lessons: [{ key: '01-leccion-uno', title: 'Lección uno', duration: 9, orderIndex: 1 }],
-    }),
-  );
-  writeFileSync(
-    join(curso, 'leccion-uno.mdx'),
-    `---\nslug: leccion-uno\ncourseSlug: curso-uno\ntitle: Lección uno\norderIndex: 1\nestimatedMinutes: 9\n---\n\nCuatro palabras propias acá.\n\n### Idea fuerza\n\nCuando un aprendizaje se traduce en decisiones mejores, deja de ser información.`,
-  );
+
+  const lessons = [{ key: '01-leccion-uno', title: 'Lección uno', duration: 9, orderIndex: 1 }];
+  if (opciones.declararDeMas !== undefined) {
+    lessons.push({ key: `02-${opciones.declararDeMas}`, title: 'Fantasma', duration: 9, orderIndex: 2 });
+  }
+  writeFileSync(join(curso, 'course.json'), JSON.stringify({ slug: 'curso-uno', lessons }));
+  writeFileSync(join(curso, 'leccion-uno.mdx'), frontmatter('leccion-uno') + cuerpo);
+  if (opciones.archivoDeMas !== undefined) {
+    writeFileSync(
+      join(curso, `${opciones.archivoDeMas}.mdx`),
+      frontmatter(opciones.archivoDeMas) + cuerpo,
+    );
+  }
   return raiz;
 }
 
 describe('relevarCorpus', () => {
   it('separa palabras propias de palabras de cola y compara minutos', () => {
-    const filas = relevarCorpus(corpusDePrueba());
+    const { filas } = relevarCorpus(corpusDePrueba());
     expect(filas).toHaveLength(1);
     expect(filas[0]).toMatchObject({
       curso: 'curso-uno',
@@ -663,7 +696,34 @@ describe('relevarCorpus', () => {
       minutosDeclarados: 9,
       minutosReales: 1,
     });
-    expect(filas[0].palabrasCola).toBeGreaterThan(10);
+    expect(filas[0]?.palabrasCola).toBeGreaterThan(10);
+  });
+
+  it('una lección sin cola cuenta TODO su cuerpo como propio', () => {
+    // La rama `corte.indice === null`. Sin este test, un cambio que colapse el
+    // ternario a `cuerpo.slice(0, corte.indice)` daría `slice(0, null)` → '' → 0
+    // palabras para las 9 lecciones sin cola del corpus, y la suite pasaría igual.
+    const raiz = corpusDePrueba('Cuatro palabras propias acá.');
+    const { filas } = relevarCorpus(raiz);
+    expect(filas[0]).toMatchObject({ motivo: 'sin-cola', palabrasPropias: 4, palabrasCola: 0 });
+  });
+
+  it('no reporta anomalías cuando el índice y el disco se corresponden', () => {
+    expect(relevarCorpus(corpusDePrueba()).anomalias).toEqual([]);
+  });
+
+  it('reporta la lección declarada en course.json cuyo archivo no existe', () => {
+    const raiz = corpusDePrueba(undefined, { declararDeMas: 'leccion-fantasma' });
+    expect(relevarCorpus(raiz).anomalias).toEqual([
+      { curso: 'curso-uno', leccion: 'leccion-fantasma', clase: 'declarada-sin-archivo' },
+    ]);
+  });
+
+  it('reporta el archivo que está en el disco y no en course.json', () => {
+    const raiz = corpusDePrueba(undefined, { archivoDeMas: 'leccion-huerfana' });
+    expect(relevarCorpus(raiz).anomalias).toEqual([
+      { curso: 'curso-uno', leccion: 'leccion-huerfana', clase: 'archivo-sin-declarar' },
+    ]);
   });
 });
 ```
@@ -705,9 +765,21 @@ export interface FilaReporte {
   minutosReales: number;
 }
 
-export function relevarCorpus(raiz: string): FilaReporte[] {
+export interface Anomalia {
+  curso: string;
+  leccion: string;
+  clase: 'declarada-sin-archivo' | 'archivo-sin-declarar';
+}
+
+export interface Relevamiento {
+  filas: FilaReporte[];
+  anomalias: Anomalia[];
+}
+
+export function relevarCorpus(raiz: string): Relevamiento {
   const dir = resolve(raiz, 'content/courses');
   const filas: FilaReporte[] = [];
+  const anomalias: Anomalia[] = [];
 
   for (const curso of readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory())) {
     const cursoDir = join(dir, curso.name);
@@ -717,6 +789,7 @@ export function relevarCorpus(raiz: string): FilaReporte[] {
     const declarados = new Map(
       indice.lessons.map((l) => [derivarSlugDeLeccion(l.key), l.duration] as const),
     );
+    const enDisco = new Set<string>();
 
     for (const archivo of readdirSync(cursoDir).filter((f) => f.endsWith('.mdx'))) {
       const { cuerpo } = separarMdx(readFileSync(join(cursoDir, archivo), 'utf-8'));
@@ -724,6 +797,10 @@ export function relevarCorpus(raiz: string): FilaReporte[] {
       const propio = corte.indice === null ? cuerpo : cuerpo.slice(0, corte.indice);
       const palabrasPropias = contarPalabrasRenderizables(propio);
       const leccion = basename(archivo, '.mdx');
+      enDisco.add(leccion);
+      if (!declarados.has(leccion)) {
+        anomalias.push({ curso: curso.name, leccion, clase: 'archivo-sin-declarar' });
+      }
       filas.push({
         curso: curso.name,
         leccion,
@@ -734,11 +811,22 @@ export function relevarCorpus(raiz: string): FilaReporte[] {
         minutosReales: minutosDeLectura(palabrasPropias),
       });
     }
+
+    // Al revés: lo que el índice declara y en el disco no está. Sin esto, una
+    // lección declarada sin archivo desaparece de la foto sin dejar rastro.
+    for (const leccion of declarados.keys()) {
+      if (!enDisco.has(leccion)) {
+        anomalias.push({ curso: curso.name, leccion, clase: 'declarada-sin-archivo' });
+      }
+    }
   }
-  return filas.sort((a, b) => a.curso.localeCompare(b.curso) || a.leccion.localeCompare(b.leccion));
+
+  const porNombre = (a: { curso: string; leccion: string }, b: { curso: string; leccion: string }): number =>
+    a.curso.localeCompare(b.curso) || a.leccion.localeCompare(b.leccion);
+  return { filas: filas.sort(porNombre), anomalias: anomalias.sort(porNombre) };
 }
 
-function markdown(filas: FilaReporte[]): string {
+function markdown({ filas, anomalias }: Relevamiento): string {
   const suma = (f: (x: FilaReporte) => number): number => filas.reduce((n, x) => n + f(x), 0);
   const porMotivo = new Map<MotivoCorte, number>();
   for (const f of filas) porMotivo.set(f.motivo, (porMotivo.get(f.motivo) ?? 0) + 1);
@@ -759,6 +847,12 @@ function markdown(filas: FilaReporte[]): string {
     '',
     '> Sólo `cola-limpia` se borra automáticamente. `sin-huella` y `cola-abierta` van a mano.',
     '',
+    '## Anomalías entre el índice y el disco',
+    '',
+    ...(anomalias.length === 0
+      ? ['Ninguna: cada `.mdx` tiene su entrada en `course.json` y cada entrada su archivo.']
+      : anomalias.map((a) => `- \`${a.clase}\`: ${a.curso}/${a.leccion}`)),
+    '',
     '## Lección por lección',
     '',
     '| Curso | Lección | Propias | Cola | Motivo | Decl. | Real |',
@@ -773,10 +867,12 @@ function markdown(filas: FilaReporte[]): string {
 
 if (process.argv[1]?.endsWith('entrenamientos-reporte.ts')) {
   const raiz = resolve(import.meta.dirname, '../..');
-  const filas = relevarCorpus(raiz);
+  const relevamiento = relevarCorpus(raiz);
   const salida = resolve(raiz, 'docs/reportes/2026-08-12-entrenamientos-inventario.md');
-  writeFileSync(salida, markdown(filas));
-  process.stdout.write(`${String(filas.length)} lecciones relevadas → ${salida}\n`);
+  writeFileSync(salida, markdown(relevamiento));
+  process.stdout.write(
+    `${String(relevamiento.filas.length)} lecciones relevadas, ${String(relevamiento.anomalias.length)} anomalías → ${salida}\n`,
+  );
 }
 ```
 
