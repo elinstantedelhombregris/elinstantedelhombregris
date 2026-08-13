@@ -42,16 +42,43 @@ export const OLLAMA_URL_POR_DEFECTO = 'http://127.0.0.1:11434';
  * saliera en crudo en el cuerpo de un POST, sin que nada avisara. «El texto no
  * sale» no puede depender de que nadie escriba mal una variable de entorno.
  */
+/**
+ * Los cuatro octetos de una IPv4, cada uno de 0 a 255 y sin ceros a la
+ * izquierda: `010.0.0.1` es octal para algunas bibliotecas y decimal para
+ * otras, y una guarda que no se decide no es una guarda.
+ */
+const IPV4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+
+/**
+ * Si la URL apunta a esta máquina y a ninguna otra.
+ *
+ * **Escrito por igualdad y por rango, nunca por prefijo de cadena.** La versión
+ * anterior cerraba con `limpio.startsWith('127.')` y eso acepta cualquier
+ * dominio que empiece con esos cuatro caracteres: `127.evil.com` y
+ * `127.0.0.1.evil.example.com` son nombres registrables que resuelven a donde
+ * quiera su dueño, y los dos pasaban. Verificado antes de tocar nada.
+ *
+ * Importa más de lo que parece: es la guarda que sostiene la promesa de la
+ * ADR 0009 —«el texto que escribe la gente no se manda a ningún proveedor
+ * externo, nunca»—, y la usan tanto el embebedor como el completer de la
+ * Simulación. Una guarda de privacidad que se puede saltear con un dominio de
+ * diez dólares no protege nada, y encima hace creer que sí.
+ */
 export function esDireccionLocal(url: string): boolean {
   try {
     const { hostname } = new URL(url);
-    const limpio = hostname.replace(/^\[|\]$/g, '');
-    return (
-      limpio === 'localhost' ||
-      limpio === '::1' ||
-      limpio === '0:0:0:0:0:0:0:1' ||
-      /^127\./.test(limpio)
-    );
+    // Una IPv6 en una URL viene entre corchetes; el hostname los conserva.
+    const limpio = hostname.replace(/^\[|\]$/g, '').toLowerCase();
+
+    if (limpio === 'localhost' || limpio === '::1' || limpio === '0:0:0:0:0:0:0:1') return true;
+
+    // Todo 127.0.0.0/8 es loopback, no sólo 127.0.0.1 — pero tiene que ser una
+    // IPv4 de verdad, con sus cuatro octetos en rango.
+    const m = IPV4.exec(limpio);
+    if (m === null) return false;
+    const octetos = m.slice(1, 5).map(Number);
+    if (octetos.some((o) => o > 255)) return false;
+    return octetos[0] === 127;
   } catch {
     return false;
   }
