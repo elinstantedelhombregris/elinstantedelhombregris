@@ -34,6 +34,7 @@
     "planes:check": "tsx scripts/content/verify-planes-index.ts",
     "entrenamientos:reporte": "tsx scripts/content/entrenamientos-reporte.ts",
     "entrenamientos:voseo": "tsx scripts/content/entrenamientos-voseo.ts",
+    "entrenamientos:borrar-cola": "tsx scripts/content/entrenamientos-borrar-cola.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
     "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",
     "simulacion:calibrar": "tsx scripts/simulacion/calibrar.ts",

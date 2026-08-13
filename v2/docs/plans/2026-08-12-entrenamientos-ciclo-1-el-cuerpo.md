@@ -25,7 +25,7 @@
 - **Cero datos inventados.** Ningún número en pantalla que no salga de una medición. Si no se puede verificar, no se muestra.
 - **Velocidad de lectura del proyecto:** `Math.max(1, Math.ceil(palabras / 220))`. Es la que ya usan blog y ensayos. No se elige otra.
 - **Un solo minutaje**, en `course.json`. `estimatedMinutes` desaparece del frontmatter.
-- **Los agentes nunca corren git.** Escriben archivos; los commits los hace el orquestador con rutas explícitas (deuda D-010: hay sesiones concurrentes en este repo).
+- **Los agentes nunca corren git.** Escriben archivos; los commits los hace el orquestador con rutas explícitas (deuda D-010: hay sesiones concurrentes en este repo). **Esto incluye el «Step N: Commit» que trae cada tarea de este plan**: ese bloque es la lista de rutas para el orquestador, no una instrucción para el agente. El brief de una tarea le copia el texto entero al agente, así que en la Tarea 4 el agente leyó su Step 7 y commiteó — no rompió nada, pero la regla vale y el brief tiene que decirlo explícito. El agente termina devolviendo la lista de archivos que escribió.
 - **Ningún borrado por memoria.** Antes de borrar un campo, se repite el grep que demuestra que no tiene lector, y su salida va en el mensaje del commit.
 - **Los archivos compartidos se stagean por hunk, no completos.** `package.json`, `packages/shared/src/content/index.ts` y `.github/workflows/v2-ci.yml` los editan varias sesiones a la vez (deuda D-010). Un `git add v2/package.json` se lleva puesto lo que otra sesión dejó ahí sin commitear — ya pasó una vez en este ciclo, con una línea de la Radiografía. Antes de stagear uno de esos tres: `git diff v2/package.json` y `git add -p`, o `git stash` de lo ajeno.
 - **Emojis prohibidos** en el contenido de entrenamientos a partir de la Tarea 7 (esto revierte la spec 3.5, que los había dejado).
@@ -1124,7 +1124,9 @@ git commit -m "fix(v2): las lecciones hablan en rioplatense, no en tuteo neutro"
 
 **Interfaces:**
 - Consumes: `detectarCola` (Tarea 2), el reporte de la Tarea 3 ya revisado.
-- Produces: nada de código. Deja `docs/reportes/2026-08-12-entrenamientos-cola-a-mano.txt` con los casos que no cumplen las tres anclas.
+- Produces: nada de código. Deja `docs/reportes/2026-08-13-entrenamientos-cola-a-mano.txt` con los casos que no cumplen las tres anclas — **y sólo si hay alguno**: un archivo con un `\n` adentro miente sobre lo que se revisó.
+
+**Medido el 2026-08-13, sobre el árbol exacto en el que va a correr esto** (después del voseo de la Tarea 4, que no cambió ninguna cuenta de palabras porque sus 1.182 sustituciones son 1:1): 320 lecciones a cortar, **106.893** palabras de cola, **174.073** palabras propias que quedan, **0** casos a revisar a mano. Las cinco lecciones que quedan más cortas terminan entre 197 y 213 palabras propias, y el mínimo de texto propio conservado en los 320 cortes es del **23%**. Que una lección quede en 197 palabras no es un error de esta tarea: es el tamaño real de lo que había abajo del relleno, y crecerlas es el trabajo de las Tareas 7, 13 y 14.
 
 - [ ] **Step 1: Write the script**
 
@@ -1157,6 +1159,13 @@ for (const curso of readdirSync(dir, { withFileTypes: true }).filter((d) => d.is
 
     if (resultado.motivo === 'cola-limpia' && resultado.indice !== null) {
       const propio = cuerpo.slice(0, resultado.indice);
+      // Una lección que es toda cola dejaría un cuerpo vacío. No existe en el
+      // corpus de hoy (el mínimo conservado es 23%), pero esto reescribe 320
+      // archivos publicados: si aparece, va a revisión y no se toca.
+      if (propio.trim() === '') {
+        aMano.push(`cuerpo-quedaria-vacio\t${curso.name}/${archivo}\t${resultado.encabezados.join(' · ')}`);
+        continue;
+      }
       borradas += contarPalabrasRenderizables(cuerpo) - contarPalabrasRenderizables(propio);
       writeFileSync(ruta, `${encabezado}${propio.trimEnd()}\n`);
       tocados += 1;
@@ -1166,9 +1175,15 @@ for (const curso of readdirSync(dir, { withFileTypes: true }).filter((d) => d.is
   }
 }
 
-writeFileSync(resolve(raiz, 'docs/reportes/2026-08-12-entrenamientos-cola-a-mano.txt'), `${aMano.join('\n')}\n`);
+if (aMano.length > 0) {
+  writeFileSync(resolve(raiz, 'docs/reportes/2026-08-13-entrenamientos-cola-a-mano.txt'), `${aMano.join('\n')}\n`);
+}
 process.stdout.write(`cola borrada en ${String(tocados)} lecciones — ${String(borradas)} palabras\n`);
-process.stdout.write(`a revisar a mano: ${String(aMano.length)}\n`);
+process.stdout.write(
+  aMano.length === 0
+    ? 'a revisar a mano: ninguna. Las 320 cumplieron las tres anclas.\n'
+    : `a revisar a mano: ${String(aMano.length)} — ver docs/reportes/2026-08-13-entrenamientos-cola-a-mano.txt\n`,
+);
 ```
 
 Agregar a `package.json`: `"entrenamientos:borrar-cola": "tsx scripts/content/entrenamientos-borrar-cola.ts",`
@@ -1176,8 +1191,9 @@ Agregar a `package.json`: `"entrenamientos:borrar-cola": "tsx scripts/content/en
 - [ ] **Step 2: Correr y verificar el orden de magnitud**
 
 Run: `pnpm entrenamientos:borrar-cola`
-Expected: `cola borrada en 320 lecciones — ~106.900 palabras` y `a revisar a mano: 0`.
-**Si «palabras» da menos de 95.000 o más de 120.000, pará**: el detector cambió de comportamiento respecto del reporte de la Tarea 3.
+Expected, exacto: `cola borrada en 320 lecciones — 106893 palabras` y `a revisar a mano: ninguna`.
+
+**Si alguno de los tres números no da exacto, pará y reportá.** No es una tolerancia de orden de magnitud: los tres se midieron el 2026-08-13 sobre este mismo árbol, corriendo `detectarCola` y `contarPalabrasRenderizables` tal como los va a correr el script. Cualquier diferencia significa que el detector cambió de comportamiento, y borrar 106.893 palabras con un detector que se movió no se arregla después.
 
 Ojo con qué se está contando: son **palabras renderizables** (`contarPalabrasRenderizables`), no tokens separados por espacios. La diferencia sobre el corpus entero es de **9.914 tokens** —`##`, viñetas, `>`, y los datos de path de los 13 SVG— y es la razón de que la cifra de este plan no coincida con un `wc -w`.
 
@@ -1186,19 +1202,28 @@ Ojo con qué se está contando: son **palabras renderizables** (`contarPalabrasR
 Run: `git diff v2/content/courses/como-funciona-argentina-anatomia-estado/el-estado-argentino-la-maquina-que-nadie-te-explico.mdx`
 Expected: se van las cinco secciones y **queda** todo lo anterior, terminando en la cita del pasajero del subte.
 
-Después, abrir `docs/reportes/2026-08-12-entrenamientos-cola-a-mano.txt` y resolver cada caso a mano en este mismo commit: si es cola, se borra; si es del autor, se deja y se anota por qué en el mensaje del commit.
+La medición del 2026-08-13 dice que no va a quedar ningún caso a mano, así que ese archivo no debería ni existir después de la corrida. Si existe, abrirlo y resolver cada caso en este mismo commit: si es cola, se borra; si es del autor, se deja y se anota por qué.
+
+Y **leer el diff de tres lecciones más, elegidas a propósito y no al azar**: las dos que quedan más cortas (`sobrevivir-prosperar-economia-argentina/herramientas-digitales-de-gestion-financiera.mdx`, que queda en 197 palabras, y `como-funciona-argentina-anatomia-estado/tu-mapa-del-poder-diagnostico-de-tu-territorio.mdx`, en 202) y una de las siete de `teoria-juegos` donde la generación C tapaba a la A. Las cortas son donde un corte de más se nota, y las de `teoria-juegos` son las que rompieron el detector en la Tarea 2.
+
+El muestreo al azar ya falló una vez en este ciclo: en la Tarea 4 las tres lecciones que se leyeron cayeron las tres dentro de la cola generada —era el 78% del diff— y los dos defectos reales estaban en el otro 22%.
 
 - [ ] **Step 4: Confirmar el nuevo total**
 
 Run: `pnpm entrenamientos:reporte && head -12 docs/reportes/2026-08-12-entrenamientos-inventario.md`
 Expected: palabras de cola ≈ 0; palabras propias ≈ 174.073.
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 5: Commit — lo hace el orquestador, no el agente**
+
+Las rutas, para stagear explícitas. `package.json` va **por hunk** (`git add -p`): lo editan varias sesiones a la vez y un `git add` completo se lleva puesto lo ajeno (D-010, ya pasó dos veces en este ciclo).
 
 ```bash
-git add v2/scripts/content/entrenamientos-borrar-cola.ts v2/package.json v2/content/courses v2/docs/reportes
+git add v2/scripts/content/entrenamientos-borrar-cola.ts v2/content/courses v2/docs/reportes
+git add -p v2/package.json
 git commit -m "fix(v2): mueren las 106.893 palabras de relleno generado en los entrenamientos"
 ```
+
+`v2/docs/reportes` va en la lista y no es opcional: el Step 4 regenera el inventario, y commitear sin él deja en `main` un reporte que declara 106.893 palabras de cola para un corpus que tiene 0 — exactamente la clase de defecto que este ciclo existe para matar. (Una revisión anterior de este plan lo había dejado caer al apretar la regla del hunk de `package.json`; la revisión de la Tarea 5 lo cazó.)
 
 ---
 

@@ -68,6 +68,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-058](#d-058--un-cron-que-falla-no-le-avisa-a-nadie-y-ahora-uno-de-ellos-sostiene-una-promesa-legal) | Un cron que falla no le avisa a nadie, y ahora uno de ellos sostiene una promesa legal | Media | Abierta |
 | [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo) | La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo | Baja | Abierta |
 | [D-060](#d-060--la-suite-de-integración-de-la-api-no-la-linta-nadie) | La suite de integración de la API no la linta nadie | Baja | Abierta |
+| [D-061](#d-061--153-lecciones-usan-encabezados-más-profundos-que-los-dos-que-el-plan-permite) | 153 lecciones usan encabezados más profundos que los dos que el plan permite | Baja | Abierta |
 
 ---
 
@@ -1004,9 +1005,13 @@ Es también la que traba a [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-
 **Severidad:** alta
 **Estado:** abierta
 
-Las lecciones terminan con las mismas cinco secciones —«Aplicación práctica», «Cómo se ve en el territorio», «Errores comunes», «Ejercicio guiado», «Idea fuerza»— copiadas casi textualmente, con una sola variable rellenada (el ámbito del curso: «tu municipio, tu provincia» o «tu hogar, tus ingresos») y el `summary` de la lección pegado al principio. Hay **dos generaciones** distintas del mismo relleno: una con encabezados `###` en 205 lecciones y otra con `##` en 108, con texto diferente pero igual de genérico.
+Las lecciones terminan con las mismas cinco secciones —«Aplicación práctica», «Cómo se ve en el territorio», «Errores comunes», «Ejercicio guiado», «Idea fuerza»— copiadas casi textualmente, con una sola variable rellenada (el ámbito del curso: «tu municipio, tu provincia» o «tu hogar, tus ingresos») y el `summary` de la lección pegado al principio. Hay **tres generaciones** distintas del mismo relleno: una con encabezados `###` en 205 lecciones, otra con `##` en 108, y una tercera en 7 lecciones de `teoria-juegos` (`Aplicación argentina` / `Errores comunes` / `Ejercicio de aplicación` / `Cierre`, con el `Cierre` byte-idéntico en las 7). La tercera apareció recién al construir el detector: la primera versión veía dos, y en esas 7 lecciones un «Errores comunes» de la tercera tapaba la cola de la primera.
 
-Son **106.893 palabras: el 38% de las 280.966 del corpus**. El texto que alguien escribió de verdad son 174.073. Cualquiera que lea dos lecciones seguidas ve la repetición, y es la razón por la que el material se siente hecho a máquina incluso donde es bueno.
+Son **106.893 palabras: el 38% de las 280.966 del corpus**. Cualquiera que lea dos lecciones seguidas ve la repetición, y es la razón por la que el material se siente hecho a máquina incluso donde es bueno.
+
+Lo que queda después de borrarlas son 174.073 palabras, y **no son todas humanas**. Medido el 2026-08-13, después del corte: 7 lecciones de `teoria-juegos-argentina-hombre-gris` conservan, *arriba* de la línea de corte, el mismo párrafo repetido hasta **cuatro veces** dentro del mismo archivo, cada vez bajo un encabezado distinto. Es el `summary` del frontmatter más una oración de plantilla («Este punto exige pasar de la definición a la lógica práctica…»). Son **28 instancias, 1.880 palabras** de texto de máquina; descontando la primera copia de cada lección, **21 copias sobrantes y 1.410 palabras, el 0,81%** de las 174.073. El detector hace bien en no tocarlas —no cumplen las tres anclas, y anclar por menos es lo que se llevaría los 168 encabezados del autor— así que salen a mano en las Tareas 7, 13 y 14.
+
+Y el corte tuvo una consecuencia editorial en esas mismas 7: **promovió el relleno de la mitad del documento al final.** `modulo-4-senales-informacion-y-reputacion-publica.mdx` ahora cierra con cuatro secciones seguidas cuyo contenido entero es el mismo párrafo, y la última se titula `### Nuevo SVG: árbol de señales` sin ningún `<svg>` debajo. El corte no creó eso, pero lo dejó como lo último que lee quien termina la lección.
 
 **Qué haría falta:** el borrado está especificado en `v2/docs/specs/2026-08-12-entrenamientos-ciclo-1-el-cuerpo.md`, con la parte delicada resuelta: hay 168 encabezados escritos por el autor con nombres parecidos (`Ejercicio: Mapear Bucles`, `Errores Comunes en el Diseño`) y algunas de esas secciones son lo mejor que tiene el corpus, así que el corte se ancla en tres condiciones simultáneas y lo que no las cumple va a revisión manual.
 
@@ -1155,3 +1160,18 @@ Medido con `npx eslint tests` desde `apps/api`: **293 errores en 23 de 28 archiv
 **Por qué se anota igual.** `v2/CLAUDE.md` declara `@typescript-eslint/no-explicit-any: error` y `no-console: error` como reglas duras sin excepción, y hay 29 archivos donde no rigen. Hoy no hay un solo `any` en ellos —se verificó, la regla no aparece en el conteo—, así que la deuda es que la puerta está abierta, no que alguien haya entrado.
 
 **Qué haría falta:** extender el script a `eslint src tests` en `apps/api` y sumar `tests/e2e` a `lint:scripts` en la raíz, y después bajar los 294 a cero. El grueso es mecánico (`--fix` cubre `import/order` y `dot-notation`); lo que pide criterio son los 200 `no-unsafe-member-access`, que son el precio de leer `res.body` sin tipo y se arreglan con un helper que parsee la respuesta a un tipo declarado, no con casteos uno por uno.
+### D-061 · 153 lecciones usan encabezados más profundos que los dos que el plan permite
+
+**Dónde:** `v2/content/courses/` — 153 de las 329 lecciones
+**Encontrada:** 2026-08-13, en la revisión del borrado de la cola generada (Tarea 5 del Ciclo 1). Salió de contar encabezados en el corpus ya cortado, no de leer el plan
+**Severidad:** baja
+**Estado:** abierta
+
+El plan del Ciclo 1 de entrenamientos fija que el cuerpo de una lección usa `##` y `###`, y nada más. Medido sobre el corpus después del corte: **153 lecciones tienen encabezados `####` o más profundos, y 13 usan `#`**, que compite con el `<h1>` que la página ya pone con el título de la lección.
+
+Es anterior a todo este ciclo —lo trajeron los dos scripts de migración de cursos— y no lo introdujo el borrado. Se anota porque el corte lo dejó a la vista: al desaparecer el 38% del texto, la estructura de encabezados de lo que queda es casi todo lo que hay.
+
+No rompe nada funcional. Lo que rompe es la jerarquía que un lector usa para orientarse, y en las 13 con `#` el documento tiene dos títulos de nivel uno.
+
+**Qué haría falta:** es la Tarea 7 del plan («Poda estructural»), que ya está especificada. Esta entrada existe para que, si esa tarea no se ejecuta, el defecto no se quede sin registro — que es lo que este archivo evita.
+
