@@ -76,6 +76,15 @@ export const LaRadiografia = lazy(async () => {
   const m = await import('~/pages/LaRadiografia');
   return { default: m.LaRadiografia };
 });
+/**
+ * La Simulación — un módulo con dos modos (spec 2026-08-13). Chunk propio, y
+ * conviene que lo sea: se lleva el motor entero de `civic-core/simulacion` y el
+ * worker del barrido, que nadie necesita para leer la portada.
+ */
+export const LaSimulacion = lazy(async () => {
+  const m = await import('~/pages/LaSimulacion');
+  return { default: m.LaSimulacion };
+});
 export const DetallesCalculoCostoHumano = lazy(async () => {
   const m = await import('~/pages/DetallesCalculoCostoHumano');
   return { default: m.DetallesCalculoCostoHumano };

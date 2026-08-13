@@ -9,6 +9,10 @@ const PAPEL_ROUTES = new Set([
   // La cuarta superficie (spec 2026-08-12-la-radiografia.md). Nace papel: su
   // interruptor nocturno gobierna la constelación, no el chrome del sitio.
   '/la-radiografia',
+  // El instrumento de análisis (spec 2026-08-13-el-modulo-de-simulacion.md).
+  // Nace papel, y fuera del recorrido: es una herramienta de trabajo, no una
+  // de las cinco puertas del sitio.
+  '/la-simulacion',
   '/mandato-vivo',
   '/planes',
   '/sembrar',

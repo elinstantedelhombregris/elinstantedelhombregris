@@ -34,6 +34,7 @@ import pg from 'pg';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { claveDeProvincia } from '../scripts/clave-de-provincia.js';
+import { elegirBaseDescartable, huellaDeBase } from '../src/base-descartable.js';
 
 import { avisoDe0013, clasificar0013, estadoDe0013, saltea0013 } from './_migracion-0013.js';
 
@@ -47,50 +48,16 @@ config({ path: new URL('../../../.env', import.meta.url).pathname });
 // ---------------------------------------------------------------------------
 
 /**
- * Host + nombre de base, sin credenciales ni parámetros.
+ * `huellaDeBase` y `elegirBaseDescartable` vivían acá adentro. Se mudaron a
+ * `src/base-descartable.ts` cuando el escritor del esquema `simulacion` —que
+ * siembra miles de filas sintéticas— necesitó la misma pregunta: dos copias de
+ * «¿puedo romper esta base?» terminan en desacuerdo justo el día que importa.
  *
- * El endpoint pooled y el directo de Neon son la MISMA base y se diferencian
- * sólo por el sufijo `-pooler` en el host. Comparar los DSN como cadenas
- * dejaría pasar justo el error más fácil de cometer: apuntar la descartable al
- * endpoint directo de la base que el sitio sirve por el pooled.
+ * Se re-exportan desde acá porque las afirmaciones de más abajo son de este
+ * archivo y siguen siendo las que definen el contrato.
  */
-export function huellaDeBase(dsn: string): string | null {
-  try {
-    const u = new URL(dsn);
-    return `${u.hostname.replace('-pooler', '')}${u.pathname}`;
-  } catch {
-    return null;
-  }
-}
-
-export type BaseDescartable =
-  | { readonly corre: true; readonly url: string }
-  | { readonly corre: false; readonly motivo: 'ausente' | 'es_la_viva' | 'ilegible' };
-
-/**
- * **No hay default y no cae a `DATABASE_URL`.** El valor por omisión de «¿puedo
- * romper esta base?» es que no; un default sería exactamente la respuesta
- * contraria, y es la que quemaba 24 ids de producción por corrida.
- *
- * Devuelve una unión discriminada y no una cadena vacía ni un booleano: el
- * motivo del «no» es lo que hace que el salteo se pueda leer.
- */
-export function elegirBaseDescartable(
-  descartable: string | undefined,
-  vivas: readonly string[],
-): BaseDescartable {
-  if (descartable === undefined || descartable.length === 0) {
-    return { corre: false, motivo: 'ausente' };
-  }
-  const huella = huellaDeBase(descartable);
-  // Un DSN que no se puede parsear no se puede comparar contra las vivas, y lo
-  // que no se puede comparar no se declara seguro.
-  if (huella === null) return { corre: false, motivo: 'ilegible' };
-  for (const viva of vivas) {
-    if (huellaDeBase(viva) === huella) return { corre: false, motivo: 'es_la_viva' };
-  }
-  return { corre: true, url: descartable };
-}
+export { elegirBaseDescartable, huellaDeBase };
+export type { BaseDescartable } from '../src/base-descartable.js';
 
 /** La base viva. Acá sólo se lee. */
 const URL_LECTURA = process.env.DATABASE_URL_UNPOOLED ?? process.env.DATABASE_URL;

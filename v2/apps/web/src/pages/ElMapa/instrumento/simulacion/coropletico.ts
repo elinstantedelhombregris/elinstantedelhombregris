@@ -72,7 +72,10 @@ export function coropleticoDe(geometria: unknown, retrato: Retrato): ColeccionPr
   return construir(geometria, (nombre) => {
     const t = retrato.porTerritorio.get(nombre);
     if (t === undefined) return null;
-    return { valor: t.voces.valor, tieneMandato: t.tieneMandato };
+    // `tieneMandato` dejó de ser un booleano pelado —era el único campo del
+    // resultado sin procedencia— y pasó a ser un `Veredicto` que trae las tres
+    // magnitudes que lo produjeron y, cuando no hay, por qué faltó.
+    return { valor: t.voces.valor, tieneMandato: t.veredicto.hay };
   });
 }
 

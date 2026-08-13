@@ -9,8 +9,15 @@ import type { Territorio } from './tipos.js';
  * así, afirma que se pidió esa mezcla.
  */
 
-/** Peso de cada territorio en la distribución concentrada. */
-function pesosConcentrado(
+/**
+ * Peso de cada territorio en la distribución concentrada.
+ *
+ * Se exporta porque `medirForma` necesita las dos referencias para poder leer
+ * hacia atrás dónde cayó un reparto real entre ellas. Si `medirForma` armara
+ * las suyas, el día que cambie un desempate acá la lectura empezaría a mentir
+ * sin que ningún test lo note.
+ */
+export function pesosConcentrado(
   territorios: readonly Territorio[],
   vocesBase: ReadonlyMap<string, number>,
 ): Map<string, number> {
@@ -25,7 +32,7 @@ function pesosConcentrado(
 }
 
 /** Peso de cada territorio en la distribución proporcional. */
-function pesosProporcional(territorios: readonly Territorio[]): Map<string, number> {
+export function pesosProporcional(territorios: readonly Territorio[]): Map<string, number> {
   const total = territorios.reduce((suma, t) => suma + Math.max(0, t.poblacion), 0);
   if (total <= 0) {
     const parejo = territorios.length === 0 ? 0 : 1 / territorios.length;
@@ -39,7 +46,10 @@ function pesosProporcional(territorios: readonly Territorio[]): Map<string, numb
  * las unidades sobrantes a los restos más grandes. Garantiza que la suma es
  * exactamente `total` — un reparto que no cierra invalida cualquier lectura.
  */
-function repartirEnteros(total: number, pesos: ReadonlyMap<string, number>): Map<string, number> {
+export function repartirEnteros(
+  total: number,
+  pesos: ReadonlyMap<string, number>,
+): Map<string, number> {
   const exactos = [...pesos.entries()].map(([id, peso]) => ({ id, exacto: total * peso }));
   const salida = new Map(exactos.map(({ id, exacto }) => [id, Math.floor(exacto)]));
   const asignado = [...salida.values()].reduce((a, b) => a + b, 0);

@@ -1,7 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { PAPEL_NAV_ALL, QUIEN_HREF, QUIEN_LABEL } from '../papel-nav';
+import {
+  PAPEL_NAV_ALL,
+  QUIEN_HREF,
+  QUIEN_LABEL,
+  SIMULACION_HREF,
+  SIMULACION_LABEL,
+} from '../papel-nav';
 import { PapelFooter } from '../PapelFooter';
 
 describe('PapelFooter', () => {
@@ -16,6 +22,18 @@ describe('PapelFooter', () => {
     // columna «Recorrido» del footer — y la página pasa a competir con la
     // idea, que es exactamente lo que dice que no hace.
     expect(PAPEL_NAV_ALL.some((item) => item.href === QUIEN_HREF)).toBe(false);
+  });
+
+  it('«La simulación» comparte la franja y tampoco entra al recorrido', () => {
+    // Es una herramienta de trabajo, no una sexta puerta. El propósito de la
+    // constitución —«no busca retener atención»— vale literal: un barrido de
+    // sensibilidad no compite por lectores.
+    render(<PapelFooter />);
+    expect(screen.getByRole('link', { name: SIMULACION_LABEL })).toHaveAttribute(
+      'href',
+      SIMULACION_HREF,
+    );
+    expect(PAPEL_NAV_ALL.some((item) => item.href === SIMULACION_HREF)).toBe(false);
   });
 
   it('no promete datos de demostración: no hay ninguno', () => {

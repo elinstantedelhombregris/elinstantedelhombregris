@@ -7,6 +7,8 @@ import {
   QUIEN_HREF,
   QUIEN_LABEL,
   SEMBRAR_HREF,
+  SIMULACION_HREF,
+  SIMULACION_LABEL,
 } from './papel-nav';
 
 const PRINCIPIOS = [
@@ -100,6 +102,14 @@ export function PapelFooter() {
                 no pedir nada, no una sección que compita con las cinco. */}
             <Link href={FALTA_HREF} className="hover:text-papel underline transition-colors">
               {FALTA_LABEL}
+            </Link>
+            <span aria-hidden>·</span>
+            {/* El instrumento de análisis (spec 2026-08-13 §2.9): tercera
+                inquilina de la franja, y por la misma razón que las dos de al
+                lado — es una herramienta de trabajo y no una puerta del
+                recorrido. */}
+            <Link href={SIMULACION_HREF} className="hover:text-papel underline transition-colors">
+              {SIMULACION_LABEL}
             </Link>
           </span>
           <span>Prototipo · todavía sin voces</span>

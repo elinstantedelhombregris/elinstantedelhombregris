@@ -22,7 +22,7 @@ function restar(silencio: Retrato, voz: Retrato): Diferencia {
 
   for (const [id, deVoz] of voz.porTerritorio) {
     const deSilencio = silencio.porTerritorio.get(id);
-    const gana = deVoz.tieneMandato && !(deSilencio?.tieneMandato ?? false);
+    const gana = deVoz.veredicto.hay && !(deSilencio?.veredicto.hay ?? false);
     if (gana) ganan += 1;
 
     porTerritorio.set(id, {
@@ -43,7 +43,7 @@ function restar(silencio: Retrato, voz: Retrato): Diferencia {
       ganan,
       'territorios',
       'territorios con mandato en la voz y sin mandato en el silencio',
-      ['voz.tieneMandato', 'silencio.tieneMandato'],
+      ['voz.veredicto', 'silencio.veredicto'],
     ),
   };
 }

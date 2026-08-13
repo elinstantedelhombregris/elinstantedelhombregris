@@ -71,13 +71,13 @@ describe('retratoMedido', () => {
     // Formosa: 606.000 hab → umbral 606 voces. Repartidas en 4 meses distintos.
     const muchas = Array.from({ length: 700 }, (_, i) => voz('formosa', i % 4));
     const r = retratoMedido(base(muchas), TERRITORIOS);
-    expect(r.porTerritorio.get('formosa')?.tieneMandato).toBe(true);
+    expect(r.porTerritorio.get('formosa')?.veredicto.hay).toBe(true);
   });
 
   it('un pico que no se sostiene no es mandato', () => {
     // Las mismas 700 voces, todas el mismo mes: 1 período < MINIMO_PERIODOS.
     const pico = Array.from({ length: 700 }, () => voz('formosa', 0));
     const r = retratoMedido(base(pico), TERRITORIOS);
-    expect(r.porTerritorio.get('formosa')?.tieneMandato).toBe(false);
+    expect(r.porTerritorio.get('formosa')?.veredicto.hay).toBe(false);
   });
 });

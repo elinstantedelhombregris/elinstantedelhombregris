@@ -1,12 +1,25 @@
+import type { Veredicto } from './espina/veredicto.js';
 import type { Magnitud } from './procedencia.js';
 
 /**
- * El vocabulario de la Simulación — spec §4 y §5.
+ * El vocabulario VIEJO de la Simulación — spec §4 y §5 de la spec previa.
  *
- * `TipoVozCivica` se define acá y no se importa de la web porque `civic-core`
- * no puede depender de una app. La web mantiene su propia lista en
- * `apps/web/src/lib/tipos-voz.ts`; un test de la web afirma que son idénticas,
- * que es más barato que reestructurar sus tipos.
+ * **Está desfasado y se migra en la rebanada 2.** El canon son nueve tipos en
+ * cuatro clases (`senal/vocabulario.ts`, que ya existe y es la fuente única), y
+ * `valor` salió del mapa: un valor no tiene coordenada. Esta lista de seis
+ * sigue viva porque `Palancas` la usa y `Palancas` la usan `/el-mapa` y su
+ * panel; migrarla es un movimiento de la web, y el orden importa —primero
+ * migrar el vocabulario, después conectar la palanca—, así que se hace de una
+ * sola vez ahí y no a mitad de camino desde acá.
+ *
+ * Lo nuevo NO la usa: `Forma.composicion` de la espina es
+ * `Record<ClaseSenal, number>` con cuatro claves, y el motor **la lee** — la
+ * clase es el eje de la cosecha.
+ *
+ * La fuente única del canon es `senal/vocabulario.ts`. Esta lista no lleva
+ * `@deprecated` porque el marcador haría fallar el lint en cada uso legítimo
+ * que le queda —`Palancas` y su panel— y un error de lint que hay que ignorar
+ * tres veces enseña a ignorar los errores de lint.
  */
 export type TipoVozCivica = 'basta' | 'sueño' | 'necesidad' | 'compromiso' | 'recurso' | 'valor';
 
@@ -64,17 +77,40 @@ export interface RetratoTerritorio {
   voces: Magnitud;
   vocesPorCienMil: Magnitud;
   umbral: Magnitud;
-  tieneMandato: boolean;
+  /**
+   * Antes era un `boolean` pelado, y era el único campo del resultado sin
+   * procedencia — justo la afirmación que alguien captura en pantalla.
+   */
+  veredicto: Veredicto;
 }
 
 export interface SinDato {
   territorioId: string;
   razon: string;
+  /**
+   * Las voces que este territorio tenía y que ningún total va a contar.
+   *
+   * Sin este campo el motor mentía en silencio: `repartir()` garantiza que la
+   * suma cierra exacta sobre todos los territorios, y `separarSinDato()`
+   * después descartaba los de población ≤ 0. Con dispersión 0 y un territorio
+   * sin población que tuviera voces base, el total entero desaparecía y
+   * `sinDato` decía «no hay denominador» sin decir que ahí se fue el total.
+   */
+  vocesPerdidas: Magnitud;
 }
 
 export interface Retrato {
   alcance: Magnitud;
+  /**
+   * Promedio ponderado por población. Antes era el MÁXIMO sobre territorios:
+   * uno solo que hubiera sostenido todos los meses fijaba la persistencia
+   * NACIONAL en 1,0000 aunque los otros veintitrés hubieran hablado una vez, y
+   * como `legitimidad = alcance × persistencia`, la legitimidad del país
+   * quedaba multiplicada por su mejor caso. Eso rozaba de frente la regla 5.
+   */
   persistencia: Magnitud;
+  /** El máximo, que sigue siendo una lectura útil, publicado y rotulado aparte. */
+  persistenciaMaxima: Magnitud;
   legitimidad: Magnitud;
   cobertura: Magnitud;
   porTerritorio: ReadonlyMap<string, RetratoTerritorio>;

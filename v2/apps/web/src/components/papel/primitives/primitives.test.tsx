@@ -12,6 +12,7 @@ import {
   Kicker,
   NotaDemo,
   Sello,
+  TablaPapel,
 } from './index';
 
 describe('Kicker', () => {
@@ -287,5 +288,50 @@ describe('RitoTinta', () => {
       expect(signo).toHaveClass('text-violeta');
       expect(signo.className).not.toMatch(/text-violeta-claro/);
     }
+  });
+});
+
+describe('TablaPapel', () => {
+  interface Fila {
+    readonly id: string;
+    readonly n: number;
+  }
+
+  const columnas = [
+    { clave: 'id', rotulo: 'Provincia', celda: (f: Fila) => f.id },
+    { clave: 'n', rotulo: 'Voces', alinear: 'der' as const, celda: (f: Fila) => f.n },
+  ];
+
+  it('es una tabla de verdad: caption, encabezados, y la primera columna como th de fila', () => {
+    // Un SVG es opaco para un lector de pantalla y para el teclado. Esta tabla
+    // es el camino accesible al MISMO dato que dibuja un lienzo, no una versión
+    // de consuelo con menos información.
+    render(
+      <TablaPapel
+        caption="Las voces por provincia."
+        columnas={columnas}
+        filas={[{ id: 'Chaco', n: 12 }]}
+        claveDeFila={(f) => f.id}
+      />,
+    );
+
+    const tabla = screen.getByRole('table', { name: 'Las voces por provincia.' });
+    expect(tabla).toBeInTheDocument();
+    expect(screen.getByRole('columnheader', { name: 'Provincia' })).toBeInTheDocument();
+    expect(screen.getByRole('rowheader', { name: 'Chaco' })).toBeInTheDocument();
+  });
+
+  it('sin filas dice qué pasa, en vez de dibujar una tabla vacía', () => {
+    render(
+      <TablaPapel
+        caption="Las voces por provincia."
+        columnas={columnas}
+        filas={[]}
+        claveDeFila={(f) => f.id}
+        vacio="Todavía no se corrió el barrido."
+      />,
+    );
+    expect(screen.queryByRole('table')).toBeNull();
+    expect(screen.getByText('Todavía no se corrió el barrido.')).toBeInTheDocument();
   });
 });

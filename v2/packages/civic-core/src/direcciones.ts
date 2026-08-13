@@ -66,6 +66,7 @@
 import { TOPE_DE_ETIQUETA, normalizedLocationLabel } from './location-policy.js';
 
 import type { PublishedPrecisionResult } from './location-policy.js';
+import type { TipoSenal } from './senal/vocabulario.js';
 import type { CivicSensitivity, LocationRole } from './types.js';
 
 // ---------------------------------------------------------------------------
@@ -590,10 +591,10 @@ const pisoPorRol = (role: LocationRole, sensitivity: CivicSensitivity): PisoDeRo
  * altura. No es una pérdida: una necesidad se resuelve coordinando, no yendo a
  * una puerta que se publicó en un `GET` abierto.
  *
- * Las claves se declaran acá con `satisfies Record<string, PermisoDireccion>` y
- * no contra el union del vocabulario, porque el union lo declara la rebanada 3
- * (Task 8) y esta tabla tiene que existir **antes** de que la ingesta pueda
- * escribir una dirección.
+ * Las claves se declaran con `satisfies Record<TipoSenal, PermisoDireccion>`
+ * contra el union del vocabulario (`senal/vocabulario.ts`), que antes no
+ * existía: un tipo décimo sin fila acá deja de compilar, y una fila de más
+ * también.
  *
  * **La tabla no se exporta.** Su uso natural —`TECHO_POR_TIPO[tipo]`— es
  * exactamente el camino que falla abierto: con una clave que no matchea
@@ -617,7 +618,7 @@ const TECHO_POR_TIPO = {
   sueño: 'solo_calle',
   propuesta: 'solo_calle',
   pregunta: 'solo_calle',
-} satisfies Record<string, PermisoDireccion>;
+} satisfies Record<TipoSenal, PermisoDireccion>;
 
 /** Los nueve tipos de señal, vistos desde el techo de dirección que tienen. */
 export type TipoConTechoDeDireccion = keyof typeof TECHO_POR_TIPO;

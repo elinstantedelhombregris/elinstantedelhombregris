@@ -103,7 +103,7 @@ describe('guardas de honestidad', () => {
 
     // Subir la voz recupera el mandato, y lo recupera donde vive la mayoría.
     const conMasVoz = simular(entrada({ resistencia: 1, participacion: 2000 })).voz;
-    expect(conMasVoz.porTerritorio.get('grande')?.tieneMandato).toBe(true);
+    expect(conMasVoz.porTerritorio.get('grande')?.veredicto.hay).toBe(true);
     expect(conMasVoz.alcance.valor).toBeGreaterThan(0.5);
 
     // Constancia, horizonte y cumplimiento por sí solos no mueven nada: no
@@ -118,8 +118,8 @@ describe('guardas de honestidad', () => {
     // la enseñe: amontonar todas las voces en un solo territorio cruza el piso
     // ahí aunque haya bloqueo total. El precio es que el resto queda sin nada.
     const concentrado = simular(entrada({ resistencia: 1, dispersion: 0 })).voz;
-    expect(concentrado.porTerritorio.get('chico')?.tieneMandato).toBe(true);
-    expect(concentrado.porTerritorio.get('grande')?.tieneMandato).toBe(false);
+    expect(concentrado.porTerritorio.get('chico')?.veredicto.hay).toBe(true);
+    expect(concentrado.porTerritorio.get('grande')?.veredicto.hay).toBe(false);
     expect(concentrado.alcance.valor).toBeLessThan(0.5);
     expect(concentrado.cobertura.valor).toBeLessThan(0.6);
   });

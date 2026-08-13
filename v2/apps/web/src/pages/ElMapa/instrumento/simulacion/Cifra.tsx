@@ -1,4 +1,26 @@
-import type { Magnitud } from '@v2/civic-core';
+import type { Magnitud, Procedencia } from '@v2/civic-core';
+
+/**
+ * La procedencia, en prosa.
+ *
+ * `hipotesis` ENVUELVE a las otras tres en vez de reemplazarlas, así que se lee
+ * recursivamente: la fórmula sigue estando a la vista y arriba de ella queda
+ * dicho de qué modelo salió el conteo del que cuelga. Un número de un modelo
+ * nunca se muestra igual que uno medido — es la regla 6 en pantalla, y por eso
+ * la palabra «hipótesis» va adelante y no en una nota al pie.
+ */
+function explicar(procedencia: Procedencia): string {
+  switch (procedencia.tipo) {
+    case 'derivado':
+      return procedencia.formula;
+    case 'medido':
+      return `Medido: ${procedencia.fuente}`;
+    case 'declarado':
+      return `Declarado: ${procedencia.palanca}`;
+    case 'hipotesis':
+      return `Hipótesis de ${procedencia.sello.modelo}, no medida — ${explicar(procedencia.sobre)}`;
+  }
+}
 
 /**
  * Un número de titular con su procedencia debajo.
@@ -16,13 +38,7 @@ export function Cifra({
   magnitud: Magnitud;
   formato: (v: number) => string;
 }) {
-  const { procedencia } = magnitud;
-  const explica =
-    procedencia.tipo === 'derivado'
-      ? procedencia.formula
-      : procedencia.tipo === 'medido'
-        ? `Medido: ${procedencia.fuente}`
-        : `Declarado: ${procedencia.palanca}`;
+  const explica = explicar(magnitud.procedencia);
 
   return (
     <div className="border-oscuro-borde border-t py-2">

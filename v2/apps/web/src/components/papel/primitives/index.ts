@@ -19,3 +19,4 @@ export { NotaDemo } from './NotaDemo';
 export { Palitos, type PalitosProps } from './Palitos';
 export { RitoTinta, type RitoTintaProps } from './RitoTinta';
 export { Sello, type SelloColor, type SelloProps } from './Sello';
+export { TablaPapel, type ColumnaPapel, type TablaPapelProps } from './TablaPapel';

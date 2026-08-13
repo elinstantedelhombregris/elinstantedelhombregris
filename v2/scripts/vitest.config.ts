@@ -15,6 +15,7 @@ export default defineConfig({
       'content/__tests__/**/*.test.ts',
       'build/__tests__/**/*.test.ts',
       'radiografia/__tests__/**/*.test.ts',
+      'simulacion/__tests__/**/*.test.ts',
     ],
   },
 });

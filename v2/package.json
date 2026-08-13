@@ -36,6 +36,8 @@
     "entrenamientos:voseo": "tsx scripts/content/entrenamientos-voseo.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
     "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",
+    "simulacion:calibrar": "tsx scripts/simulacion/calibrar.ts",
+    "simulacion:elenco": "tsx scripts/simulacion/elenco-ollama.ts",
     "deps:check": "tsx scripts/build/deps-check.ts",
     "size": "size-limit",
     "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build"

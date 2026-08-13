@@ -1,0 +1,330 @@
+{
+  "huella": "b208ee34",
+  "personas": 200,
+  "padre": null,
+  "sello": null,
+  "notas": {
+    "escritor": "fabricado",
+    "semilla": 7,
+    "grado": 8
+  },
+  "sesgo": {
+    "corpus": [
+      {
+        "documento": "blog/aprender-para-ser-libres-la-educacion-como-acto-de-soberania.mdx",
+        "sha": "ad89734962f6",
+        "personas": 5
+      },
+      {
+        "documento": "blog/buscar-en-el-pasado-para-controlar-el-futuro.mdx",
+        "sha": "f5138fd54c52",
+        "personas": 12
+      },
+      {
+        "documento": "blog/contra-quien-estas-peleando-en-serio.mdx",
+        "sha": "fca74383d857",
+        "personas": 10
+      },
+      {
+        "documento": "blog/cuales-deberian-ser-nuestros-parametros.mdx",
+        "sha": "e7ae0f35fb66",
+        "personas": 7
+      },
+      {
+        "documento": "blog/detectar-patrones-otro-poder-que-ya-tenes-y-nadie-te-enseno-a-usar.mdx",
+        "sha": "56d793def08c",
+        "personas": 13
+      },
+      {
+        "documento": "blog/diseno-idealizado-la-argentina-posible.mdx",
+        "sha": "11813d7f6172",
+        "personas": 4
+      },
+      {
+        "documento": "blog/el-abrazo-que-no-supimos-sostener.mdx",
+        "sha": "e3a55be2ee23",
+        "personas": 8
+      },
+      {
+        "documento": "blog/el-cansancio-sagrado-por-que-ya-no-podemos-esperar.mdx",
+        "sha": "2ac55eab7334",
+        "personas": 6
+      },
+      {
+        "documento": "blog/el-cristo-que-llevas-dentro.mdx",
+        "sha": "de7429f108bb",
+        "personas": 12
+      },
+      {
+        "documento": "blog/el-poder-del-pensamiento-sistemico-en-la-transformacion-social.mdx",
+        "sha": "6f705df86337",
+        "personas": 4
+      },
+      {
+        "documento": "blog/inteligencia-colectiva-por-que-juntos-pensamos-mejor-de-lo-que-creemos.mdx",
+        "sha": "25df175dea19",
+        "personas": 5
+      },
+      {
+        "documento": "blog/la-amabilidad-como-estrategia-de-transformacion.mdx",
+        "sha": "2ea0c0f012a9",
+        "personas": 4
+      },
+      {
+        "documento": "blog/la-amabilidad-como-ingenieria-social.mdx",
+        "sha": "bc423af03fa2",
+        "personas": 4
+      },
+      {
+        "documento": "blog/la-ciencia-de-la-confianza-el-capital-que-nadie-mide-pero-todos-necesitan.mdx",
+        "sha": "7381d7e93990",
+        "personas": 5
+      },
+      {
+        "documento": "blog/la-etica-del-servicio-construyendo-una-sociedad-de-servidores.mdx",
+        "sha": "4df619015042",
+        "personas": 4
+      },
+      {
+        "documento": "blog/las-fuerzas-del-cielo-el-poder-que-ya-tenes-y-nadie-te-enseno-a-usar.mdx",
+        "sha": "0d2f56b185db",
+        "personas": 8
+      },
+      {
+        "documento": "blog/lo-que-le-debemos-al-futuro-responsabilidad-intergeneracional-como-diseno.mdx",
+        "sha": "69c63d1e80d4",
+        "personas": 5
+      },
+      {
+        "documento": "blog/pago-por-inteligencia-artificial-y-por-la-mia.mdx",
+        "sha": "350f70b70c1c",
+        "personas": 7
+      },
+      {
+        "documento": "blog/por-que-nos-resistimos-a-cambiar-la-psicologia-de-la-transformacion.mdx",
+        "sha": "3dbc4a70ddb2",
+        "personas": 5
+      },
+      {
+        "documento": "blog/quien-tiene-el-timon.mdx",
+        "sha": "197a267df6c4",
+        "personas": 16
+      },
+      {
+        "documento": "blog/refinarse-o-repetirse.mdx",
+        "sha": "70364599ef0c",
+        "personas": 10
+      },
+      {
+        "documento": "blog/sistemas-vs-sintomas-como-pensar-como-ingeniero-social.mdx",
+        "sha": "e27c5cd93375",
+        "personas": 13
+      },
+      {
+        "documento": "ensayos/acta-de-la-interdependencia.mdx",
+        "sha": "b6fe44a02129",
+        "personas": 5
+      },
+      {
+        "documento": "ensayos/amor-sin-apego.mdx",
+        "sha": "50a180186446",
+        "personas": 7
+      },
+      {
+        "documento": "ensayos/arquitectura.mdx",
+        "sha": "20ab937afc08",
+        "personas": 12
+      },
+      {
+        "documento": "ensayos/belleza.mdx",
+        "sha": "215c8497a1ca",
+        "personas": 1
+      },
+      {
+        "documento": "ensayos/carta-al-nieto.mdx",
+        "sha": "1eed1634bb8d",
+        "personas": 2
+      },
+      {
+        "documento": "ensayos/caudillo-camino-sin-camino.mdx",
+        "sha": "8995c9a5074e",
+        "personas": 6
+      }
+    ],
+    "porTerritorio": [
+      {
+        "territorioId": "Buenos Aires",
+        "personas": 75,
+        "fraccionElenco": 0.375,
+        "fraccionPais": 0.3831007413868295,
+        "desvio": -0.00810074138682948
+      },
+      {
+        "territorioId": "Catamarca",
+        "personas": 3,
+        "fraccionElenco": 0.015,
+        "fraccionPais": 0.00935455734845181,
+        "desvio": 0.005645442651548189
+      },
+      {
+        "territorioId": "Chaco",
+        "personas": 7,
+        "fraccionElenco": 0.035,
+        "fraccionPais": 0.024618403837767117,
+        "desvio": 0.010381596162232887
+      },
+      {
+        "territorioId": "Chubut",
+        "personas": 0,
+        "fraccionElenco": 0,
+        "fraccionPais": 0.013170518970780637,
+        "desvio": -0.013170518970780637
+      },
+      {
+        "territorioId": "Ciudad Autónoma de Buenos Aires",
+        "personas": 7,
+        "fraccionElenco": 0.035,
+        "fraccionPais": 0.06805494984736153,
+        "desvio": -0.03305494984736153
+      },
+      {
+        "territorioId": "Corrientes",
+        "personas": 4,
+        "fraccionElenco": 0.02,
+        "fraccionPais": 0.02442215438290449,
+        "desvio": -0.00442215438290449
+      },
+      {
+        "territorioId": "Córdoba",
+        "personas": 18,
+        "fraccionElenco": 0.09,
+        "fraccionPais": 0.08674225904928042,
+        "desvio": 0.0032577409507195815
+      },
+      {
+        "territorioId": "Entre Ríos",
+        "personas": 7,
+        "fraccionElenco": 0.035,
+        "fraccionPais": 0.031094635848233756,
+        "desvio": 0.003905364151766247
+      },
+      {
+        "territorioId": "Formosa",
+        "personas": 1,
+        "fraccionElenco": 0.005,
+        "fraccionPais": 0.01321412996075011,
+        "desvio": -0.008214129960750109
+      },
+      {
+        "territorioId": "Jujuy",
+        "personas": 3,
+        "fraccionElenco": 0.015,
+        "fraccionPais": 0.017378979502834714,
+        "desvio": -0.0023789795028347147
+      },
+      {
+        "territorioId": "La Pampa",
+        "personas": 2,
+        "fraccionElenco": 0.01,
+        "fraccionPais": 0.007980811164413432,
+        "desvio": 0.0020191888355865686
+      },
+      {
+        "territorioId": "La Rioja",
+        "personas": 3,
+        "fraccionElenco": 0.015,
+        "fraccionPais": 0.008373310074138683,
+        "desvio": 0.006626689925861316
+      },
+      {
+        "territorioId": "Mendoza",
+        "personas": 10,
+        "fraccionElenco": 0.05,
+        "fraccionPais": 0.043916266899258614,
+        "desvio": 0.006083733100741388
+      },
+      {
+        "territorioId": "Misiones",
+        "personas": 10,
+        "fraccionElenco": 0.05,
+        "fraccionPais": 0.027932839075447014,
+        "desvio": 0.02206716092455299
+      },
+      {
+        "territorioId": "Neuquén",
+        "personas": 4,
+        "fraccionElenco": 0.02,
+        "fraccionPais": 0.01583078935891845,
+        "desvio": 0.004169210641081552
+      },
+      {
+        "territorioId": "Río Negro",
+        "personas": 3,
+        "fraccionElenco": 0.015,
+        "fraccionPais": 0.016288704753597907,
+        "desvio": -0.001288704753597908
+      },
+      {
+        "territorioId": "Salta",
+        "personas": 6,
+        "fraccionElenco": 0.03,
+        "fraccionPais": 0.03139991277802006,
+        "desvio": -0.0013999127780200613
+      },
+      {
+        "territorioId": "San Juan",
+        "personas": 0,
+        "fraccionElenco": 0,
+        "fraccionPais": 0.017836894897514173,
+        "desvio": -0.017836894897514173
+      },
+      {
+        "territorioId": "San Luis",
+        "personas": 1,
+        "fraccionElenco": 0.005,
+        "fraccionPais": 0.011774967291757523,
+        "desvio": -0.006774967291757523
+      },
+      {
+        "territorioId": "Santa Cruz",
+        "personas": 2,
+        "fraccionElenco": 0.01,
+        "fraccionPais": 0.007348451809856084,
+        "desvio": 0.0026515481901439163
+      },
+      {
+        "territorioId": "Santa Fe",
+        "personas": 18,
+        "fraccionElenco": 0.09,
+        "fraccionPais": 0.07754034016572176,
+        "desvio": 0.012459659834278242
+      },
+      {
+        "territorioId": "Santiago del Estero",
+        "personas": 4,
+        "fraccionElenco": 0.02,
+        "fraccionPais": 0.02132577409507196,
+        "desvio": -0.001325774095071959
+      },
+      {
+        "territorioId": "Tierra del Fuego",
+        "personas": 2,
+        "fraccionElenco": 0.01,
+        "fraccionPais": 0.0041648495420846055,
+        "desvio": 0.005835150457915395
+      },
+      {
+        "territorioId": "Tucumán",
+        "personas": 10,
+        "fraccionElenco": 0.05,
+        "fraccionPais": 0.03713475795900567,
+        "desvio": 0.012865242040994332
+      }
+    ],
+    "territoriosSinPersona": [
+      "Chubut",
+      "San Juan"
+    ],
+    "advertencia": "Esta población la escribió un modelo leyendo el corpus del proyecto: los PLANes, los ensayos y la bitácora. Es una sola voz. Lo que diga este elenco es una hipótesis sobre una población posible, nunca una medición del país."
+  }
+}

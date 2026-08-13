@@ -29,6 +29,7 @@
     "geo:seed-callejero": "tsx scripts/seed-callejero.ts",
     "db:seed-callejero": "tsx scripts/seed-callejero.ts",
     "geo:verificar-callejero": "tsx scripts/verificar-callejero.ts",
+    "simulacion:tirar": "tsx scripts/simulacion-tirar.ts",
     "test": "pnpm test:unit && pnpm test:integration",
     "test:unit": "vitest run src/ --passWithNoTests",
     "test:integration": "vitest run --dir tests"

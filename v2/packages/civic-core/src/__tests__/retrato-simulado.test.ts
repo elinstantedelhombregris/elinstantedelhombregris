@@ -39,8 +39,8 @@ describe('retratoSimulado', () => {
   it('la resistencia sube el piso y puede tumbar un mandato', () => {
     const sinResistencia = retratoSimulado(palancas(), BASE, TERRITORIOS);
     const conResistencia = retratoSimulado(palancas({ resistencia: 1 }), BASE, TERRITORIOS);
-    expect(sinResistencia.porTerritorio.get('grande')?.tieneMandato).toBe(true);
-    expect(conResistencia.porTerritorio.get('grande')?.tieneMandato).toBe(false);
+    expect(sinResistencia.porTerritorio.get('grande')?.veredicto.hay).toBe(true);
+    expect(conResistencia.porTerritorio.get('grande')?.veredicto.hay).toBe(false);
   });
 
   it('más voz recupera el mandato que la resistencia había tumbado', () => {
@@ -50,12 +50,12 @@ describe('retratoSimulado', () => {
       BASE,
       TERRITORIOS,
     );
-    expect(recuperado.porTerritorio.get('grande')?.tieneMandato).toBe(true);
+    expect(recuperado.porTerritorio.get('grande')?.veredicto.hay).toBe(true);
   });
 
   it('el estallido no sostiene: sin constancia no hay mandato', () => {
     const estallido = retratoSimulado(palancas({ constancia: 0 }), BASE, TERRITORIOS);
-    expect(estallido.porTerritorio.get('grande')?.tieneMandato).toBe(false);
+    expect(estallido.porTerritorio.get('grande')?.veredicto.hay).toBe(false);
   });
 
   it('la dispersión reparte el mismo total sin crear voces', () => {

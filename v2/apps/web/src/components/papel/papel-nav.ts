@@ -66,6 +66,19 @@ export const QUIEN_LABEL = 'Quién está detrás';
 export const FALTA_HREF = '/lo-que-falta';
 export const FALTA_LABEL = 'Lo que falta';
 
+/**
+ * «La Simulación» — el instrumento de análisis
+ * (spec 2026-08-13-el-modulo-de-simulacion.md §2.9). Comparte la franja
+ * inferior con las dos de arriba y por el mismo motivo: es una **herramienta de
+ * trabajo**, no una de las cinco puertas del recorrido. El propósito de la
+ * constitución de producto —«no busca retener atención»— vale acá literal: un
+ * barrido de sensibilidad no es una sección que compita por lectores, y
+ * ponerla en el header prometería que hay algo que mirar cuando lo que hay es
+ * algo con qué trabajar.
+ */
+export const SIMULACION_HREF = '/la-simulacion';
+export const SIMULACION_LABEL = 'La simulación';
+
 export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   { href: '/', label: 'Inicio', num: '00' },
   ...PAPEL_NAV,

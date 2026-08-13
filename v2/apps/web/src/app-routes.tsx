@@ -29,6 +29,7 @@ import {
   KitDePrensa,
   LaIdea,
   LaRadiografia,
+  LaSimulacion,
   Leaderboard,
   LeccionDetail,
   LifeAreaDetail,
@@ -97,6 +98,11 @@ export function AppRoutes() {
           (spec 2026-08-12-la-radiografia.md §12, y la respuesta a su pregunta
           abierta 4 — el nombre viene de la constitución de producto). */}
       <Route path="/la-radiografia" component={LaRadiografia} />
+      {/* El instrumento de análisis: página propia y no una pestaña más del
+          mapa (spec 2026-08-13 §2.9 — un barrido con tornado, nube y tabla no
+          es «un conjunto de capas sobre la misma instancia de mapa», que es la
+          definición de modo que `instrumento/modos/tipos.ts` defiende). */}
+      <Route path="/la-simulacion" component={LaSimulacion} />
       <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
       <Route path="/kit-de-prensa" component={KitDePrensa} />
 
