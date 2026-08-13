@@ -2,6 +2,7 @@ import { useCallback, useRef, type ReactNode } from 'react';
 import { Map as MapaGL, NavigationControl, ScaleControl, type MapRef } from 'react-map-gl/maplibre';
 
 import { FONDO } from './paleta';
+import { registrarProtocoloPmtiles } from './protocolo-pmtiles';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
 
@@ -12,6 +13,11 @@ import 'maplibre-gl/dist/maplibre-gl.css';
  * remonta el mapa ni pierde el encuadre. Es la diferencia entre pestañas de un
  * instrumento y páginas distintas que casualmente tienen un mapa.
  */
+
+// En el cuerpo del módulo, no en un efecto: el protocolo tiene que existir
+// antes de que maplibre lea el estilo, y este módulo se evalúa antes de que
+// el componente se monte. Ver `protocolo-pmtiles.ts`.
+registrarProtocoloPmtiles();
 
 const VISTA_INICIAL = { longitude: -63.6, latitude: -38.4, zoom: 3.7 };
 const ESTILO = '/maps/oscuro.json';

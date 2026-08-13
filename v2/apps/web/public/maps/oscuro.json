@@ -9,9 +9,9 @@
   },
   "glyphs": "/fonts/{fontstack}/{range}.pbf",
   "sources": {
-    "carto": {
+    "argentina": {
       "type": "vector",
-      "url": "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json",
+      "url": "pmtiles:///tiles/argentina.pmtiles",
       "attribution": "© <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> · © <a href=\"https://carto.com/attributions\">CARTO</a>"
     }
   },
@@ -26,7 +26,7 @@
     {
       "id": "verde",
       "type": "fill",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "park",
       "paint": {
         "fill-color": "#1D1A14",
@@ -36,7 +36,7 @@
     {
       "id": "urbano",
       "type": "fill",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "landuse",
       "filter": [
         "match",
@@ -60,7 +60,7 @@
     {
       "id": "agua",
       "type": "fill",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "water",
       "paint": {
         "fill-color": "#0E0C08"
@@ -69,7 +69,7 @@
     {
       "id": "rio",
       "type": "line",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "waterway",
       "paint": {
         "line-color": "#0E0C08",
@@ -91,7 +91,7 @@
     {
       "id": "manzanas",
       "type": "fill",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "building",
       "minzoom": 14,
       "paint": {
@@ -114,7 +114,7 @@
     {
       "id": "calles-menores",
       "type": "line",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -152,7 +152,7 @@
     {
       "id": "calles",
       "type": "line",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "transportation",
       "minzoom": 9,
       "filter": [
@@ -188,7 +188,7 @@
     {
       "id": "rutas",
       "type": "line",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "transportation",
       "filter": [
         "match",
@@ -226,7 +226,7 @@
     {
       "id": "limites",
       "type": "line",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "boundary",
       "filter": [
         "<=",
@@ -257,7 +257,7 @@
     {
       "id": "localidades",
       "type": "symbol",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "place",
       "filter": [
         "match",
@@ -306,7 +306,7 @@
     {
       "id": "calles-nombres",
       "type": "symbol",
-      "source": "carto",
+      "source": "argentina",
       "source-layer": "transportation_name",
       "minzoom": 14,
       "layout": {
