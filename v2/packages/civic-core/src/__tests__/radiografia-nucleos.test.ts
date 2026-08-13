@@ -50,6 +50,37 @@ describe('núcleos al umbral', () => {
     }
   });
 
+  it('falla CERRADO con una similitud NaN, en vez de pegarse a cualquier umbral', () => {
+    // Escrito como descarte (`similitud < umbral`), NaN sobrevivía a todo:
+    // `NaN < 0.99` es falso. Una arista sin medición se pegaba a un umbral de 1.
+    const { nucleos, solas } = nucleosAlUmbral(
+      ['x', 'y'],
+      [{ a: 'x', b: 'y', similitud: NaN }],
+      0.99,
+    );
+
+    expect(nucleos).toEqual([]);
+    expect(solas).toEqual(['x', 'y']);
+  });
+
+  it('falla CERRADO con un umbral NaN', () => {
+    const { nucleos, solas } = nucleosAlUmbral(ids, aristas, NaN);
+
+    expect(nucleos).toEqual([]);
+    expect(solas).toEqual(ids);
+  });
+
+  it('ignora una arista cuyos extremos no están en ids', () => {
+    const { nucleos, solas } = nucleosAlUmbral(
+      ['a', 'b'],
+      [{ a: 'a', b: 'fantasma', similitud: 1 }],
+      0.5,
+    );
+
+    expect(nucleos).toEqual([]);
+    expect(solas).toEqual(['a', 'b']);
+  });
+
   it('devuelve los ids ordenados, para que el resultado sea comparable', () => {
     const { nucleos } = nucleosAlUmbral(['b', 'a'], [{ a: 'a', b: 'b', similitud: 1 }], 0.5);
 

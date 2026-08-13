@@ -45,7 +45,12 @@ export const nucleosAlUmbral = (
   const tocadas = new Set<string>();
 
   for (const arista of aristas) {
-    if (arista.similitud < umbral) continue;
+    // Se escribe como prueba POSITIVA y no como descarte (`< umbral`) porque
+    // con `NaN` el descarte falla ABIERTO: `NaN < 0.99` es falso, así que una
+    // arista sin similitud se pegaba a cualquier umbral, incluso a 1. Con
+    // `!(x >= u)` un NaN —en la similitud o en el umbral— cae afuera, que es
+    // el lado correcto para fallar: sin medición no hay convergencia.
+    if (!(arista.similitud >= umbral)) continue;
     if (!padre.has(arista.a) || !padre.has(arista.b)) continue;
     tocadas.add(arista.a);
     tocadas.add(arista.b);
@@ -89,8 +94,16 @@ export const fraseDelNucleo = (
 ): { id: string; texto: string } | null => {
   if (senales.length === 0) return null;
 
-  const dimensiones = senales[0]?.vector.length ?? 0;
+  // El largo sale del MÁXIMO de todos los vectores y no del primero: mirando
+  // sólo `senales[0]` un núcleo entero se quedaba sin etiqueta porque el
+  // elemento que quedó primero traía el vector vacío, aunque el resto
+  // estuviera perfecto y con cesión.
+  const dimensiones = senales.reduce((maximo, s) => Math.max(maximo, s.vector.length), 0);
   if (dimensiones === 0) return null;
+
+  /** Rellena con ceros para que un vector corto no haga tirar al coseno. */
+  const alLargo = (v: readonly number[]): readonly number[] =>
+    v.length === dimensiones ? v : Array.from({ length: dimensiones }, (_, i) => v[i] ?? 0);
 
   const centro = new Array<number>(dimensiones).fill(0);
   for (const s of senales) {
@@ -103,7 +116,7 @@ export const fraseDelNucleo = (
   let mejor = -Infinity;
   for (const s of senales) {
     if (s.texto === null) continue;
-    const cerca = similitudCoseno(s.vector, centro);
+    const cerca = similitudCoseno(alLargo(s.vector), centro);
     // Desempate por id: dos señales igual de centrales no pueden alternar
     // entre corridas o la etiqueta del núcleo parpadearía sin motivo.
     if (cerca > mejor || (cerca === mejor && elegida !== null && s.id < elegida.id)) {
@@ -146,5 +159,11 @@ export const dosMasLejanos = (
     }
   }
   if (!mejor) return null;
-  return { a: mejor.a, b: mejor.b, km: Math.round(mejor.km / 10) * 10 };
+  // Redondeo a la decena, con un piso de 10 para toda distancia positiva.
+  // Sin el piso, cualquier par a menos de 5 km publicaba «0 km», que no es
+  // un redondeo sino otra afirmación: dice «en el mismo lugar». Redondear
+  // para arriba nunca acerca a dos personas más de lo que están, que es el
+  // lado seguro. El 0 queda reservado para la distancia que de verdad es 0.
+  const redondeada = Math.round(mejor.km / 10) * 10;
+  return { a: mejor.a, b: mejor.b, km: mejor.km > 0 ? Math.max(10, redondeada) : 0 };
 };

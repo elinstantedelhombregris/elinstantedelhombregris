@@ -78,39 +78,68 @@ export const aristasMedidas = (
  *
  * `autorDe` mapea `senalId → actorId` de quien la firma.
  */
+export const TECHO_ADHESIONES_POR_ACTOR = 200;
+
 export const aristasDeclaradas = (
   adhesiones: readonly Adhesion[],
   autorDe: ReadonlyMap<string, string>,
 ): AristaDeclarada[] => {
-  // actor → señales que ese actor sostiene (adheridas + firmadas)
-  const porActor = new Map<string, Set<string>>();
-  const sumar = (actorId: string, senalId: string): void => {
-    const set = porActor.get(actorId);
+  // Las dos bolsas van SEPARADAS a propósito. Volcarlas en una sola —que es
+  // como estaba— hace que las señales firmadas por un mismo actor se crucen
+  // entre sí, y «compartimos autor» no es una afirmación sobre que dos señales
+  // se parezcan. La spec §4.5.2 habilita co-adhesión y adhesión del autor, y
+  // nada más: firmada × firmada no existe.
+  const adheridasPor = new Map<string, Set<string>>();
+  const firmadasPor = new Map<string, Set<string>>();
+  const sumar = (bolsa: Map<string, Set<string>>, actorId: string, senalId: string): void => {
+    const set = bolsa.get(actorId);
     if (set) set.add(senalId);
-    else porActor.set(actorId, new Set([senalId]));
+    else bolsa.set(actorId, new Set([senalId]));
   };
 
-  for (const { actorId, senalId } of adhesiones) sumar(actorId, senalId);
+  for (const { actorId, senalId } of adhesiones) sumar(adheridasPor, actorId, senalId);
   for (const [senalId, actorId] of autorDe) {
-    // Sólo entra el autor que además participa por adhesión: si no, dos
-    // señales del mismo autor quedarían unidas por el mero hecho de tener el
-    // mismo autor, que no es una afirmación sobre que se parezcan.
-    if (porActor.has(actorId)) sumar(actorId, senalId);
+    // Sólo entra el autor que además adhirió a algo: sin adhesión no hay
+    // ninguna arista que su firma pueda sostener.
+    if (adheridasPor.has(actorId)) sumar(firmadasPor, actorId, senalId);
   }
 
   const cuenta = new Map<string, Set<string>>();
-  for (const [actorId, senales] of porActor) {
-    const lista = [...senales].sort();
+  const anotar = (actorId: string, a: string, b: string): void => {
+    if (a === b) return;
+    const c = clave(a, b);
+    const actores = cuenta.get(c);
+    if (actores) actores.add(actorId);
+    else cuenta.set(c, new Set([actorId]));
+  };
+
+  for (const [actorId, adheridas] of adheridasPor) {
+    /*
+     * Techo por actor. Esto es O(m²) en las señales de UN actor y sin límite
+     * se come la máquina: medido, 4.000 adhesiones de un mismo actor generan
+     * 7.998.000 aristas y ~3,6 GB de heap. Doscientas es un número alto para
+     * una persona y bajo para un ataque. Un actor por encima del techo no
+     * aporta aristas — sus adhesiones siguen contando en todo lo demás.
+     *
+     * El techo es visible acá y hay un test que lo fija; que además se muestre
+     * en pantalla cuando exista el consumidor está anotado en `docs/DEUDAS.md`.
+     */
+    const lista = [...adheridas].sort().slice(0, TECHO_ADHESIONES_POR_ACTOR);
+
+    // Co-adhesión: el mismo actor adhirió a dos señales.
     for (let i = 0; i < lista.length; i++) {
       for (let j = i + 1; j < lista.length; j++) {
         const a = lista[i];
         const b = lista[j];
-        if (!a || !b || a === b) continue;
-        const c = clave(a, b);
-        const actores = cuenta.get(c);
-        if (actores) actores.add(actorId);
-        else cuenta.set(c, new Set([actorId]));
+        if (!a || !b) continue;
+        anotar(actorId, a, b);
       }
+    }
+
+    // Adhesión del autor: la señal que firma ↔ cada señal a la que adhirió.
+    const firmadas = [...(firmadasPor.get(actorId) ?? [])].sort();
+    for (const firmada of firmadas) {
+      for (const adherida of lista) anotar(actorId, firmada, adherida);
     }
   }
 

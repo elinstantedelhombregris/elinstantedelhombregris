@@ -15,20 +15,54 @@ const MEDICION = ['similitud.ts', 'grafo.ts', 'nucleos.ts'] as const;
 const fuente = (archivo: string): string =>
   readFileSync(fileURLToPath(new URL(`../radiografia/${archivo}`, import.meta.url)), 'utf8');
 
+/**
+ * Los nombres prohibidos NO se escriben a mano: se **derivan de lo que
+ * `geometria.ts` exporta hoy**. La primera versión de esta guarda listaba
+ * `PHI` y `ANGULO_AUREO` y nada más, y por eso se podía meter φ adentro del
+ * umbral escribiendo `umbral / escalaModular(1)` con los cuatro tests en
+ * verde. Derivar la lista hace que agregar un export a `geometria.ts` extienda
+ * la guarda solo, sin que nadie se acuerde de venir acá.
+ */
+const exportadosDeGeometria = (): string[] => {
+  const codigo = fuente('geometria.ts');
+  const nombres = [...codigo.matchAll(/export\s+(?:const|function|class|interface|type)\s+(\w+)/g)]
+    .map((m) => m[1])
+    .filter((n): n is string => typeof n === 'string');
+  if (nombres.length === 0) throw new Error('la guarda no encontró exports en geometria.ts');
+  return nombres;
+};
+
 describe('la guarda de φ', () => {
-  it('ningún módulo de medición importa la geometría', () => {
+  it('ningún módulo de medición importa la geometría, se escriba como se escriba', () => {
     for (const archivo of MEDICION) {
-      expect(fuente(archivo)).not.toMatch(/from '\.\/geometria\.js'/);
+      // Cualquier ruta que termine en `geometria`, con o sin extensión, con
+      // comillas simples o dobles, y también en `import(...)` dinámico.
+      expect(fuente(archivo)).not.toMatch(/['"][^'"]*geometria(\.js)?['"]/);
     }
   });
 
-  it('ningún módulo de medición nombra φ ni el ángulo áureo', () => {
+  it('ningún módulo de medición nombra un export de la geometría', () => {
+    const prohibidos = exportadosDeGeometria();
+    // Si esto se rompe, es que geometria.ts dejó de exportar lo que exportaba.
+    expect(prohibidos).toEqual(
+      expect.arrayContaining(['PHI', 'ANGULO_AUREO', 'esferaDeFibonacci', 'espiralAurea', 'escalaModular']),
+    );
+
     for (const archivo of MEDICION) {
       const codigo = fuente(archivo);
-      expect(codigo).not.toMatch(/\bPHI\b/);
-      expect(codigo).not.toMatch(/\bANGULO_AUREO\b/);
-      // El literal de φ y el de √5, por si alguien lo escribe a mano.
+      for (const nombre of prohibidos) {
+        expect(codigo).not.toMatch(new RegExp(`\\b${nombre}\\b`));
+      }
+    }
+  });
+
+  it('ningún módulo de medición escribe φ a mano', () => {
+    for (const archivo of MEDICION) {
+      const codigo = fuente(archivo);
       expect(codigo).not.toMatch(/1\.618/);
+      expect(codigo).not.toMatch(/0\.618/);
+      expect(codigo).not.toMatch(/2\.618/);
+      expect(codigo).not.toMatch(/137\.5/);
       expect(codigo).not.toMatch(/Math\.sqrt\(5\)/);
     }
   });

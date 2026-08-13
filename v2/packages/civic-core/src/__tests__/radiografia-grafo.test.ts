@@ -30,6 +30,36 @@ describe('aristas medidas', () => {
     expect(aristas.some((e) => claveDe(e.a, e.b) === 'a-b')).toBe(true);
   });
 
+  it('k LIMITA de verdad: con k chico salen menos aristas que con k grande', () => {
+    // Sin este test, reemplazar `.slice(0, k)` por `.slice(0, ids.length)`
+    // —o sea ignorar k y devolver todos los pares— pasaba la suite entera.
+    const vs = new Map<string, readonly number[]>([
+      ['a', [1, 0, 0, 0, 0]],
+      ['b', [0, 1, 0, 0, 0]],
+      ['c', [0, 0, 1, 0, 0]],
+      ['d', [0, 0, 0, 1, 0]],
+      ['e', [0, 0, 0, 0, 1]],
+    ]);
+    const conUno = aristasMedidas(vs, 1);
+    const conCuatro = aristasMedidas(vs, 4);
+
+    // Cinco nodos, cada uno aporta a lo sumo una arista ⇒ 5 como techo duro.
+    expect(conUno.length).toBeLessThanOrEqual(5);
+    // Con k = n-1 salen todos los pares: C(5,2) = 10.
+    expect(conCuatro).toHaveLength(10);
+    expect(conUno.length).toBeLessThan(conCuatro.length);
+  });
+
+  it('con k mayor que la cantidad de vecinas no rompe ni duplica', () => {
+    const vs = new Map<string, readonly number[]>([
+      ['a', [1, 0]],
+      ['b', [0, 1]],
+      ['c', [1, 1]],
+    ]);
+
+    expect(aristasMedidas(vs, 99)).toHaveLength(3);
+  });
+
   it('no conecta una señal consigo misma', () => {
     const vs = new Map<string, readonly number[]>([
       ['a', [1, 0]],
