@@ -21,3 +21,4 @@ export * from './provincias-canonicas.js';
 export * from './poblacion.js';
 export * from './faltas.js';
 export * from './simulacion/index.js';
+export * from './radiografia/index.js';
