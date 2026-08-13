@@ -1,3 +1,4 @@
+import { CSP } from '@v2/shared/seguridad';
 import cors from 'cors';
 import helmet from 'helmet';
 
@@ -10,40 +11,26 @@ import type { RequestHandler } from 'express';
 /**
  * Helmet with a tight CSP.
  *
- * **Ningún host de terceros aparece en esta política, y ése es el
- * punto.** `img-src`, `connect-src` y `font-src` nombran sólo `'self'`,
- * más los esquemas `data:`/`blob:` que produce la propia app. Si estás
- * por agregar un host acá, estás por entregarle a alguien más la
- * dirección IP de cada persona que abre la página: empaquetá el recurso,
- * como ya están empaquetados `/maps/`, `/fonts/` y `/tiles/`.
+ * **La política ya no se escribe acá.** Vive en
+ * `packages/shared/src/seguridad/csp.ts`, con la justificación de cada permiso,
+ * porque desde el 13/8/2026 la emiten dos superficies: este middleware para
+ * `/api/*` y el bloque `headers` de `vercel.json` para el documento. Hasta ese
+ * día la emitía sólo Express —que en producción no sirve una sola página—, así
+ * que la CSP viajaba donde no protegía nada y faltaba donde corre el JavaScript
+ * (D-048). Si vas a cambiar un permiso, cambialo en la tabla compartida: acá
+ * sólo se elige el transporte.
  *
- * Notes:
- *   - No `'unsafe-eval'` in any environment.
- *   - `'unsafe-inline'` styles allowed only because Tailwind/Radix may
- *     emit them at runtime; investigate before tightening further.
- *   - El mapa entero sale de este origen desde el 12/8/2026 (D-003): el
- *     estilo en `/maps/oscuro.json`, los glyphs en `/fonts/` y las
- *     teselas en un único `.pmtiles` bajo `/tiles/` que el navegador lee
- *     por rangos de bytes. Hasta ese día hacían falta seis hosts ajenos
- *     —cinco de Carto y uno de openmaptiles— y eran la última fuga de IP
- *     a terceros que le quedaba al producto.
+ * `useDefaults: false` no es cosmético. Con los defaults de helmet, tres
+ * directivas —`frame-ancestors`, `script-src-attr` y
+ * `upgrade-insecure-requests`— salían en el header sin estar escritas en
+ * ningún archivo nuestro; `vercel.json`, que no tiene helmet, las habría
+ * perdido en silencio. Ahora la tabla es la política entera.
  */
 export function securityHeaders(): RequestHandler {
   return helmet({
     contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", 'data:', 'blob:'],
-        connectSrc: ["'self'"],
-        fontSrc: ["'self'", 'data:'],
-        objectSrc: ["'none'"],
-        frameSrc: ["'none'"],
-        workerSrc: ["'self'", 'blob:'],
-        baseUri: ["'self'"],
-        formAction: ["'self'"],
-      },
+      useDefaults: false,
+      directives: { ...CSP },
     },
     crossOriginEmbedderPolicy: false,
     crossOriginResourcePolicy: { policy: 'same-site' },

@@ -250,7 +250,7 @@ describe('contra el docs/DEUDAS.md real', () => {
     expect(estado('D-029'), 'abierta (…, no resuelta)').toBe(false);
   });
 
-  it('las resueltas del archivo son exactamente estas diez', () => {
+  it('las resueltas del archivo son exactamente estas once', () => {
     expect(
       deudas
         .filter((d) => d.resuelta)
@@ -266,6 +266,7 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-019',
       'D-020',
       'D-025',
+      'D-048',
       'D-049',
     ]);
   });

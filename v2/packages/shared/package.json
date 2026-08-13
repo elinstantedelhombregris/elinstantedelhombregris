@@ -11,7 +11,8 @@
     ".": "./src/index.ts",
     "./validation": "./src/validation/index.ts",
     "./content": "./src/content/index.ts",
-    "./content/loader": "./src/content/loader.ts"
+    "./content/loader": "./src/content/loader.ts",
+    "./seguridad": "./src/seguridad/index.ts"
   },
   "scripts": {
     "lint": "eslint src --max-warnings 0",

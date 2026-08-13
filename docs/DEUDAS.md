@@ -55,7 +55,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-045](#d-045--platform_feedback-es-una-tabla-muerta-que-modela-lo-contrario-del-canal-de-escucha) | `platform_feedback` es una tabla muerta que modela lo contrario del canal de escucha | Media | Abierta |
 | [D-046](#d-046--la-guardia-de-este-mismo-archivo-está-en-rojo-y-nadie-la-corre) | La guardia de este mismo archivo está en rojo y nadie la corre | Alta | Abierta |
 | [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera) | El basemap se congela en la fecha en que se extrajo y nadie se entera | Baja | Abierta |
-| [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento) | La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento | Alta | Abierta |
+| [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento) | La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento | Alta | **Resuelta** |
 | [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | **Resuelta** |
 | [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) | El borde del recorte de teselas se ve en el agua | Baja | Abierta |
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
@@ -66,6 +66,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 
 ### D-001 · No hay resolución geográfica en el servidor
 
+| [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo) | La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo | Baja | Abierta |
 **Dónde:** `v2/apps/api/src/features/civic-map/capturas.ts:95`
 **Encontrada:** 2026-08-01, verificando por qué el modo Análisis se ve vacío
 **Severidad:** bloqueante
@@ -315,6 +316,34 @@ Lo que corresponde es un branch de Neon efímero por corrida, o al menos una bas
 
 **Resuelta:** 2026-08-12
 **Cómo:** las seis familias viven en `v2/apps/web/public/fonts-ui/` y las baja `v2/scripts/build/tipografias/bajar-tipografias.ts`. `index.html` perdió los dos `preconnect` y el `<link>` a Google, y en su lugar pide `/fonts-ui/fuentes.css`, del mismo origen.
+
+### D-048 · La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento
+
+**Resuelta:** 2026-08-13
+**Cómo:** la política dejó de vivir adentro del middleware. Ahora es una tabla, `v2/packages/shared/src/seguridad/csp.ts`, y de ahí salen las dos superficies: el `helmet()` de la API y un bloque `headers` nuevo en `v2/vercel.json`, que es el único lugar donde se le pueden poner cabeceras al documento —el documento lo sirve Vercel desde su filesystem, sin pasar por un middleware nuestro—.
+
+- **Once cabeceras sobre la página**, las mismas que la API: la CSP y las diez de helmet (`X-Content-Type-Options`, `Referrer-Policy`, `Cross-Origin-Opener-Policy`, `X-Frame-Options`…). Hasta hoy el sitio no traía **ninguna**: `curl -sI` sobre producción devolvía sólo el `strict-transport-security` que agrega Vercel.
+- **La misma CSP carácter por carácter en las dos.** No hizo falta una política aparte para la página: la del middleware **ya estaba escrita para la página** —los estilos inline de Radix, el `blob:` del worker de maplibre, el `data:` de los SVG— aunque la emitiera un servidor que no sirve páginas. Lo que faltaba no era otra política; era que ésta llegara.
+- **`pnpm csp:generar`** escribe el bloque en `vercel.json` (JSON estático: no puede importar TypeScript ni llevar comentarios, así que la justificación de cada permiso vive en la tabla y en `v2/scripts/build/seguridad/csp-vercel.ts`). El generador **se niega a correr** si `index.html` pide un host de terceros que la CSP no nombra.
+- **Dos tests cierran el lazo.** `scripts/build/__tests__/csp-vercel.test.ts` falla si `vercel.json` quedó viejo respecto de la tabla, y `apps/api/tests/cabeceras-seguridad.test.ts` falla si lo que la API contesta de verdad deja de ser esa misma tabla. Divergir en silencio deja de ser posible.
+
+**Dos hallazgos que cambiaron la política, no sólo su transporte.**
+
+`useDefaults: false`. Helmet mezclaba sus defaults con lo escrito, así que el header llevaba tres directivas —`frame-ancestors`, `script-src-attr` y `upgrade-insecure-requests`— **que no estaban en ningún archivo del repo**. Copiadas a `vercel.json` a ojo, se habrían perdido las tres. Ahora la tabla es la política entera y helmet no agrega nada.
+
+`child-src 'self' blob:`, nuevo. maplibre arma su worker desde un `blob:`, y `worker-src` no existe en Safari anterior a 15.4: ahí el worker cae en `default-src 'self'` y **el mapa queda mudo sin un solo error de red que mirar**. Mientras la CSP no llegaba al navegador eso no podía pasar; desde hoy sí. `child-src` es el fallback que la especificación define, y no afloja los iframes porque `frame-src 'none'` es explícito y gana.
+
+**Lo que no se copió, a propósito:** `Strict-Transport-Security`. Vercel ya la manda en todo el dominio con `max-age=63072000`, el doble que helmet; declararla nosotros la habría **acortado a la mitad** creyendo que se la reforzaba. Y el patrón `"/((?!api/).*)"` deja `/api/*` afuera —el mismo lookahead de los `rewrites`— para que la API no conteste con dos `Content-Security-Policy`.
+
+**Qué se verificó, que no es que el JSON parsee.** Se levantó el build de producción detrás de un servidor que aplica exactamente el bloque de `vercel.json` (con `Range`, que es como se lee el `.pmtiles`) y se recorrieron `/`, `/el-mapa`, `/ingresar` y `/biblioteca`: **cero violaciones de CSP en consola**, el mapa dibuja con sus etiquetas —4 pedidos al `.pmtiles`, los glyphs desde `/fonts/`, el estilo desde `/maps/`—, las seis tipografías cargan desde `/fonts-ui/`, y de 36 recursos **ninguno sale a un origen ajeno**. `script-src 'self'` sin `'unsafe-inline'` ni `'unsafe-eval'`: el build de Vite no los necesita, y se comprobó que no los necesita en vez de ponerlos por las dudas.
+
+**Lo que lo destrabó:** [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas). Esta entrada avisaba que aplicar `font-src 'self'` al documento rompería las tipografías de Google que la página seguía pidiendo. Llegaron primero al origen, así que no rompió nada.
+
+**Lo que dejó atrás:** [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo).
+
+**Lo que falta verificar después del push:** que producción emita el header. La guardia mira el archivo, no el despliegue — un `curl -sI https://elinstantedelhombregris.com/el-mapa` tiene que traer las once cabeceras.
+
+---
 
 - **32 `.woff2`, 563 KB en el repo.** Un archivo por (familia, estilo, subconjunto), con las seis licencias OFL en `fonts-ui/licencias/`.
 - **Los pesos se recortaron; los subconjuntos no.** El script le pide a Google exactamente la misma query que tenía el `<link>`, así que baja los mismos pesos que el sitio declara y ni uno más. Los siete subconjuntos se quedan porque `unicode-range` los vuelve gratis en tiempo de carga: recortarlos ahorraría KB de repo y haría caer la `φ` de una fórmula a la fuente del sistema en medio de un párrafo.
@@ -895,7 +924,7 @@ Cuando las teselas las servía Carto, alguien las mantenía al día. Ahora las m
 **Dónde:** `v2/apps/api/src/middleware/security.ts` (montado en `apps/api/src/app.ts:44`), `v2/vercel.json`
 **Encontrada:** 2026-08-12, verificando el resultado de [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros)
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-08-13**, ver [Resueltas](#resueltas)
 
 `securityHeaders()` se monta **sólo en la app de Express**, y en producción Express contesta únicamente `/api/*`: el rewrite `"/((?!api/).*)" → /index.html` de `vercel.json` sirve el documento desde el filesystem de Vercel, que no pasa por ningún middleware nuestro. `vercel.json` no tiene bloque `headers`, no hay archivo de headers estáticos y `index.html` no lleva `<meta http-equiv="Content-Security-Policy">`.
 
@@ -987,3 +1016,20 @@ Los dos crons se defienden bien de que los invoque un desconocido: sin `Authoriz
 Para los rankings eso es una tabla que envejece. Para el barrido de sesiones es otra cosa: `content/legal/privacidad.mdx` afirma en primera persona que las sesiones vencidas se borran a los 90 días. Si el cron no corre, esa frase vuelve a ser falsa **sin que cambie una sola línea del documento** — que es exactamente el modo de falla de [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento): no la ausencia de la defensa, sino su apariencia.
 
 **Qué haría falta:** lo mínimo es una verificación manual después del primer despliegue —que `CRON_SECRET` esté en el entorno de Vercel y que la corrida del día siguiente figure en los logs con su `borradas`—. Lo que cierra la deuda es que el resultado de cada corrida deje rastro consultable: una fila con la fecha y el conteo, o un chequeo que compare el registro contra el calendario y grite cuando falta un día. Mientras tanto, la promesa de la política depende de una variable de entorno que nadie mira.
+
+---
+
+### D-059 · La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo
+
+**Dónde:** `v2/packages/shared/src/seguridad/csp.ts` (directiva `style-src`), reflejada en `v2/vercel.json`
+**Encontrada:** 2026-08-13, cerrando [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento) — la concesión existía desde antes, pero recién ahora el navegador la lee
+**Severidad:** baja
+**Estado:** abierta
+
+`style-src` es la única directiva de la política que lleva `'unsafe-inline'`, y hace falta de verdad: Radix y sonner insertan `<style>` en tiempo de ejecución, y maplibre escribe atributos `style` sobre el canvas y sus controles. Sin eso, los diálogos, los toasts y los controles del mapa se dibujan sin estilo.
+
+La salida canónica es un nonce por respuesta —`style-src 'nonce-…'`— y **con esta forma de hosting no se puede**: `index.html` es un archivo estático que Vercel sirve desde su CDN y las cabeceras de `vercel.json` son constantes, iguales para todas las respuestas. Un nonce exige que alguien genere un valor nuevo por pedido y lo escriba **a la vez** en el header y en el HTML; eso pide renderizar el documento desde una función, que es una decisión de arquitectura entera (adiós al servido estático y a su caché) por una directiva.
+
+**Qué se pierde, con precisión.** No es ejecución: `script-src 'self'` sigue sin `'unsafe-inline'`, así que un XSS reflejado no corre igual. Lo que queda abierto es el CSS como canal — exfiltrar la forma de la página, o disfrazar un control con estilos inyectados, si alguien logra escribir en el DOM.
+
+**Qué haría falta:** o hashes (`'sha256-…'`) por cada bloque inline, que con estilos que las librerías generan en tiempo de ejecución no se pueden enumerar; o un documento renderizado por función con nonce; o dejar de usar librerías que inyectan estilo. Ninguna de las tres es un arreglo local, y por eso queda anotada en vez de improvisada.
