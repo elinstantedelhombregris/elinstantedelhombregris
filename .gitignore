@@ -73,3 +73,15 @@ __pycache__/
 
 # Local Obsidian vault accidentally created inside the repo
 /ElInstantedelHombreGris/
+
+# Salidas de render de video (D-010). Son 6,9 GB de binarios sin trackear a un
+# `git add -A` de entrar a la historia del repo, y una historia de git no se
+# poda: entra una vez y pesa para siempre, en cada clon de cada persona.
+# Ya pasó dos veces en once días, que es por qué esta deuda existe.
+# Acotado a propósito y NO como `*.mp4` global: `SocialJusticeHub/client/public/
+# meaning-network-gource.mp4` está versionado desde hace tiempo. Un patrón global
+# no lo desversiona —los ignores sólo rigen sobre lo no trackeado— pero deja una
+# trampa para el que mañana lo borre y lo quiera volver a agregar.
+/ASCII-Video-*/
+/v2/content-txt/**/*.mp4
+/v2/content-txt/**/*.mov
