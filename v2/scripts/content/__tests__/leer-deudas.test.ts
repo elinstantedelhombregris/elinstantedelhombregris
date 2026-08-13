@@ -250,12 +250,23 @@ describe('contra el docs/DEUDAS.md real', () => {
     expect(estado('D-029'), 'abierta (…, no resuelta)').toBe(false);
   });
 
-  it('las resueltas del archivo son exactamente estas nueve', () => {
+  it('las resueltas del archivo son exactamente estas diez', () => {
     expect(
       deudas
         .filter((d) => d.resuelta)
         .map((d) => d.idPublico)
         .sort(),
-    ).toEqual(['D-001', 'D-002', 'D-003', 'D-009', 'D-012', 'D-016', 'D-019', 'D-020', 'D-025']);
+    ).toEqual([
+      'D-001',
+      'D-002',
+      'D-003',
+      'D-009',
+      'D-012',
+      'D-016',
+      'D-019',
+      'D-020',
+      'D-025',
+      'D-049',
+    ]);
   });
 });

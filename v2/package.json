@@ -28,6 +28,7 @@
     "planes:migrar": "tsx scripts/content/migrate-planes-v1-to-v2.ts",
     "geo:provincias": "tsx scripts/build/geo/generar-provincias-api.ts",
     "mapa:estilo": "tsx scripts/build/mapa/generar-estilo.ts",
+    "tipografias:bajar": "tsx scripts/build/tipografias/bajar-tipografias.ts",
     "geo:backfill": "pnpm --filter @v2/api run geo:backfill",
     "planes:check": "tsx scripts/content/verify-planes-index.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",

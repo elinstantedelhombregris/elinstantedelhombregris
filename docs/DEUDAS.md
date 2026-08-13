@@ -56,7 +56,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-046](#d-046--la-guardia-de-este-mismo-archivo-está-en-rojo-y-nadie-la-corre) | La guardia de este mismo archivo está en rojo y nadie la corre | Alta | Abierta |
 | [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera) | El basemap se congela en la fecha en que se extrajo y nadie se entera | Baja | Abierta |
 | [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento) | La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento | Alta | Abierta |
-| [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | Abierta |
+| [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | **Resuelta** |
 | [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) | El borde del recorte de teselas se ve en el agua | Baja | Abierta |
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
 | [D-057](#d-057--la-política-de-privacidad-espera-tres-datos-que-sólo-puede-dar-el-dueño) | La política de privacidad espera tres datos que sólo puede dar el dueño | Media | Abierta |
@@ -310,6 +310,27 @@ Lo que corresponde es un branch de Neon efímero por corrida, o al menos una bas
 ---
 
 ## Resueltas
+
+### D-049 · Las tipografías de la interfaz salen de Google Fonts en todas las páginas
+
+**Resuelta:** 2026-08-12
+**Cómo:** las seis familias viven en `v2/apps/web/public/fonts-ui/` y las baja `v2/scripts/build/tipografias/bajar-tipografias.ts`. `index.html` perdió los dos `preconnect` y el `<link>` a Google, y en su lugar pide `/fonts-ui/fuentes.css`, del mismo origen.
+
+- **32 `.woff2`, 563 KB en el repo.** Un archivo por (familia, estilo, subconjunto), con las seis licencias OFL en `fonts-ui/licencias/`.
+- **Los pesos se recortaron; los subconjuntos no.** El script le pide a Google exactamente la misma query que tenía el `<link>`, así que baja los mismos pesos que el sitio declara y ni uno más. Los siete subconjuntos se quedan porque `unicode-range` los vuelve gratis en tiempo de carga: recortarlos ahorraría KB de repo y haría caer la `φ` de una fórmula a la fuente del sistema en medio de un párrafo.
+- **Lo que baja un visitante no son 563 KB.** Medido en el home: **cinco archivos, 95 KB**. Los otros 27 no se piden nunca.
+
+**Cuatro de las seis familias son variables, y eso cambia la cuenta.** Archivo, Inter, JetBrains Mono y Playfair Display sirven todo su rango de pesos desde un solo archivo — los seis pesos de Archivo son 34 KB, no seis descargas. Google igual devuelve un bloque `@font-face` por peso apuntando todos al mismo archivo; el script los colapsa en un `font-weight: 300 800`. Bajar «un archivo por peso», que es lo que uno escribe sin mirar, habría bajado los mismos bytes seis veces.
+
+**La trampa, para no redescubrirla:** sin `User-Agent` de navegador moderno, la API `css2` de Google **devuelve TTF**. Con el UA por defecto de Node contesta una hoja que apunta a `.ttf`, que pesa el triple y **no trae `unicode-range`**, así que se bajaría todo siempre. El script manda un UA de Chrome y aborta si la hoja no menciona `woff2`.
+
+**Qué se verificó, que no es que compile.** Una fuente que no carga cae al fallback del sistema y el sitio queda *parecido pero mal*, que es lo difícil de ver. Contra el sitio levantado: las seis familias resuelven a una cara local con estado `loaded` en las once combinaciones de peso y estilo que el sitio declara (incluidas la itálica de Archivo y los extremos 300 y 800), y el ancho de un mismo texto medido en canvas difiere del de la familia genérica en las seis — o sea que ninguna está cayendo al fallback. Siete rutas recorridas con Playwright (`/`, `/ingresar`, `/manifiesto`, `/el-mapa`, `/privacidad`, `/planes`, `/biblioteca`): **cero pedidos a un origen que no sea el propio**.
+
+**Lo que arrastró:** `v2/content/legal/privacidad.mdx` decía que quedaba un pedido a terceros —las tipografías— y ahora no queda ninguno. La sección «Dónde viven tus datos, y qué sale del país» lo dice medido, y nombra los dos que se cerraron.
+
+**Lo que destraba:** [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento). Esa entrada avisa que aplicar la CSP del middleware al documento rompería las tipografías de Google que la página seguía pidiendo. Ya no las pide: `font-src 'self'` sobre el documento no rompe nada.
+
+---
 
 ### D-003 · Glyphs y teselas del mapa salen de CDN de terceros
 
@@ -891,7 +912,7 @@ O sea que **el header `Content-Security-Policy` llega en las respuestas JSON de 
 **Dónde:** `v2/apps/web/index.html:13-17`
 **Encontrada:** 2026-08-12, midiendo qué le quedaba de terceros al mapa después de [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros)
 **Severidad:** media
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-08-12**, ver [Resueltas](#resueltas)
 
 El `index.html` hace `preconnect` a `fonts.googleapis.com` y `fonts.gstatic.com` y carga seis familias —Anton, Archivo, Space Mono, Inter, JetBrains Mono, Playfair Display— desde ahí. Son unos siete pedidos externos por carga, **en todas las páginas del sitio**, no sólo en el mapa: Google ve la dirección IP de cualquiera que abra cualquier página.
 
