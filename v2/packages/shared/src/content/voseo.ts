@@ -105,11 +105,14 @@ export function normalizarVoseo(texto: string): { texto: string; cambios: number
     const reemplazo = TUTEO_DURO.get(encontrado.toLowerCase());
     if (reemplazo === undefined) return encontrado;
     cambios += 1;
+    // ¿Empieza con mayúscula? Con regex en vez de comparar `charAt(0)`
+    // contra su propio `toUpperCase()`: eslint (`prefer-string-starts-ends-with`)
+    // rechaza esa forma, y esto además es más directo.
+    const esMayuscula = /^\p{Lu}/u.test(encontrado);
     // `.charAt(0)` en vez de `[0]`: devuelve `string` siempre (cadena vacía
     // si no hay carácter), no `string | undefined` como la indexación —
-    // `encontrado` y `reemplazo` nunca son vacíos, pero así se lo demuestra
-    // al compilador sin un `!`.
-    const esMayuscula = encontrado.charAt(0) === encontrado.charAt(0).toUpperCase();
+    // `reemplazo` nunca es vacío acá, pero así se lo demuestra al
+    // compilador sin un `!`.
     return esMayuscula ? reemplazo.charAt(0).toUpperCase() + reemplazo.slice(1) : reemplazo;
   });
   return { texto: salida, cambios };
