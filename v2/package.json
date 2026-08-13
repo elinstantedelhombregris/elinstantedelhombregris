@@ -32,7 +32,9 @@
     "tipografias:bajar": "tsx scripts/build/tipografias/bajar-tipografias.ts",
     "geo:backfill": "pnpm --filter @v2/api run geo:backfill",
     "planes:check": "tsx scripts/content/verify-planes-index.ts",
+    "entrenamientos:reporte": "tsx scripts/content/entrenamientos-reporte.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
+    "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",
     "deps:check": "tsx scripts/build/deps-check.ts",
     "size": "size-limit",
     "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build"
