@@ -1,3 +1,4 @@
+import { AvisoEnObra } from './ElMapa/sections/AvisoEnObra';
 import { FeedVoces } from './ElMapa/sections/FeedVoces';
 import { PanelSoltarVoz } from './ElMapa/sections/PanelSoltarVoz';
 import { PortadaMapa } from './ElMapa/sections/PortadaMapa';
@@ -23,6 +24,7 @@ export function ElMapa() {
   return (
     <main>
       <PortadaMapa />
+      <AvisoEnObra />
 
       <section className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-10 px-5 pb-4 max-[960px]:grid-cols-1 max-[960px]:gap-8 min-[961px]:px-10">
         <PanelSoltarVoz />
