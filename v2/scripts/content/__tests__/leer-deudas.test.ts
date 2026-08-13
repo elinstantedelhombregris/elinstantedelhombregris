@@ -226,9 +226,14 @@ describe('contra el docs/DEUDAS.md real', () => {
     expect(deudas.filter((d) => !d.resuelta).length).toBeGreaterThan(0);
   });
 
-  it('D-003 sigue abierta y es la de los CDN de terceros', () => {
+  // Estuvo abierta hasta el 12/8/2026, y este test la fijaba abierta. La cerró
+  // el plan `docs/plans/2026-08-12-teselas-propias.md`: el mapa dejó de pedirle
+  // teselas a CARTO y tipografías a openmaptiles.org. Se deja anclada acá —
+  // ahora del otro lado— porque sigue siendo el ejemplo de una entrada que el
+  // parser tiene que leer bien.
+  it('D-003 quedó resuelta y es la de los CDN de terceros', () => {
     const d003 = deudas.find((d) => d.idPublico === 'D-003');
-    expect(d003?.resuelta).toBe(false);
+    expect(d003?.resuelta).toBe(true);
     expect(d003?.titulo).toContain('CDN de terceros');
   });
 
@@ -245,12 +250,12 @@ describe('contra el docs/DEUDAS.md real', () => {
     expect(estado('D-029'), 'abierta (…, no resuelta)').toBe(false);
   });
 
-  it('las resueltas del archivo son exactamente estas ocho', () => {
+  it('las resueltas del archivo son exactamente estas nueve', () => {
     expect(
       deudas
         .filter((d) => d.resuelta)
         .map((d) => d.idPublico)
         .sort(),
-    ).toEqual(['D-001', 'D-002', 'D-009', 'D-012', 'D-016', 'D-019', 'D-020', 'D-025']);
+    ).toEqual(['D-001', 'D-002', 'D-003', 'D-009', 'D-012', 'D-016', 'D-019', 'D-020', 'D-025']);
   });
 });
