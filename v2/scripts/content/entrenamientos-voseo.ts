@@ -22,12 +22,23 @@ for (const curso of readdirSync(dir, { withFileTypes: true }).filter((d) => d.is
       archivos += 1;
       cambios += n;
     }
+    // El reporte lo adjudica una persona, así que cada línea tiene que poder
+    // abrirse: número de línea del archivo entero (frontmatter incluido, para
+    // que el número sirva tal cual en el editor) y el texto de alrededor.
+    // `forma` sola no alcanzaba —1.340 líneas indistinguibles obligaban a
+    // volver a grepear cada archivo—, pero se queda: es lo único que permite
+    // contar y triar por forma, y la forma va al centro de la ventana.
+    const lineasEncabezado = encabezado.split('\n').length - 1;
     for (const h of detectarTuteo(texto).filter((x) => x.lista === 'blanda')) {
-      blandos.push(`${curso.name}/${archivo}: ${h.forma}`);
+      const linea = lineasEncabezado + texto.slice(0, h.indice).split('\n').length;
+      const desde = Math.max(0, h.indice - 40);
+      const hasta = Math.min(texto.length, h.indice + h.forma.length + 40);
+      const contexto = texto.slice(desde, hasta).replace(/\s+/gu, ' ').trim();
+      blandos.push(`${curso.name}/${archivo}:${String(linea)}: ${h.forma} — …${contexto}…`);
     }
   }
 }
 
 process.stdout.write(`voseo: ${String(cambios)} reemplazos en ${String(archivos)} archivos\n`);
 process.stdout.write(`lista blanda para revisar a mano: ${String(blandos.length)} casos\n`);
-writeFileSync(resolve(raiz, 'docs/reportes/2026-08-12-entrenamientos-voseo-blando.txt'), `${blandos.join('\n')}\n`);
+writeFileSync(resolve(raiz, 'docs/reportes/2026-08-13-entrenamientos-voseo-blando.txt'), `${blandos.join('\n')}\n`);

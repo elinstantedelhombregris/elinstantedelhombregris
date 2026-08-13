@@ -1097,7 +1097,7 @@ for (const curso of readdirSync(dir, { withFileTypes: true }).filter((d) => d.is
 
 process.stdout.write(`voseo: ${String(cambios)} reemplazos en ${String(archivos)} archivos\n`);
 process.stdout.write(`lista blanda para revisar a mano: ${String(blandos.length)} casos\n`);
-writeFileSync(resolve(raiz, 'docs/reportes/2026-08-12-entrenamientos-voseo-blando.txt'), `${blandos.join('\n')}\n`);
+writeFileSync(resolve(raiz, 'docs/reportes/2026-08-13-entrenamientos-voseo-blando.txt'), `${blandos.join('\n')}\n`);
 ```
 
 Agregar a `package.json`: `"entrenamientos:voseo": "tsx scripts/content/entrenamientos-voseo.ts",`
@@ -1110,7 +1110,7 @@ Expected: ~150 archivos tocados. **Leer el diff de tres lecciones al azar** ante
 - [ ] **Step 7: Commit**
 
 ```bash
-git add v2/packages/shared/src/content/voseo.ts v2/packages/shared/tests/voseo.test.ts v2/packages/shared/src/content/index.ts v2/scripts/content/entrenamientos-voseo.ts v2/package.json v2/content/courses v2/docs/reportes/2026-08-12-entrenamientos-voseo-blando.txt
+git add v2/packages/shared/src/content/voseo.ts v2/packages/shared/tests/voseo.test.ts v2/packages/shared/src/content/index.ts v2/scripts/content/entrenamientos-voseo.ts v2/package.json v2/content/courses v2/docs/reportes/2026-08-13-entrenamientos-voseo-blando.txt
 git commit -m "fix(v2): las lecciones hablan en rioplatense, no en tuteo neutro"
 ```
 

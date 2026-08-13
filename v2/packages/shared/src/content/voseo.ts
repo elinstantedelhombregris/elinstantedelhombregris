@@ -4,7 +4,9 @@
  * Medido el 2026-08-12 sobre los cuerpos propios: 775 apariciones en 151
  * lecciones, y 90 lecciones mezclan tú y vos en el mismo texto.
  *
- * DURA: formas sin ambigüedad. Se reemplazan y la guardia las prohíbe.
+ * DURA: formas sin ambigüedad. Se reemplazan sin que nadie mire. No hay
+ * guardia que las prohíba en el resto del proyecto todavía: la construye la
+ * Tarea 12 del Ciclo 1.
  * BLANDA: dependen del contexto — `define` es imperativo en «Define una acción»
  * e indicativo en «el sistema define el resultado» (127 apariciones). Se
  * reportan; las decide una persona.
@@ -25,6 +27,21 @@
  * `pregúntate`, `hazlo`) no tienen este problema: el imperativo con
  * pronombre pegado no tiene equivalente de una sola palabra en indicativo
  * («lo lleva» son dos palabras), así que esas sí quedan en la dura.
+ *
+ * `miras`, `haces` y `vives` salieron de la dura el 2026-08-13, en la revisión
+ * del barrido, por la misma clase de razón pero por el lado del sustantivo y
+ * del nombre propio: `las miras` («con las miras puestas en 2027», «miras
+ * estrechas») es idiomático justo en el registro político que escribe este
+ * corpus; `haces` es el plural de `haz` («haces de luz», «haces nerviosos»)
+ * en un corpus que habla de flujos de energía; y `Vives` es un apellido
+ * (Juan Luis Vives, Carlos Vives) que la lógica de mayúsculas convertiría en
+ * «según Vivís». Las sustituciones que ya se aplicaron con esas tres se
+ * verificaron una por una y eran correctas: salen para que no vuelvan a
+ * dispararse a ciegas, no porque hayan hecho daño.
+ *
+ * Y `estás tú` → `estás` se borró entera: era la única entrada que eliminaba
+ * una palabra en vez de traducirla. El voseo enfático es `estás vos`, así que
+ * tirar el pronombre descartaba el contraste que escribió el autor.
  */
 
 export const TUTEO_DURO: ReadonlyMap<string, string> = new Map([
@@ -33,17 +50,13 @@ export const TUTEO_DURO: ReadonlyMap<string, string> = new Map([
   ['debes', 'debés'],
   ['quieres', 'querés'],
   ['sabes', 'sabés'],
-  ['haces', 'hacés'],
   ['necesitas', 'necesitás'],
   ['sientes', 'sentís'],
   ['entiendes', 'entendés'],
-  ['vives', 'vivís'],
   ['eres', 'sos'],
-  ['estás tú', 'estás'],
   ['conviertes', 'convertís'],
   ['mejoras tu', 'mejorás tu'],
   ['separas', 'separás'],
-  ['miras', 'mirás'],
   ['llévalo', 'llevalo'],
   ['conviértelo', 'convertilo'],
   ['asegúrate', 'asegurate'],
@@ -55,8 +68,14 @@ export const TUTEO_DURO: ReadonlyMap<string, string> = new Map([
 // `tenías` y todo el imperfecto se escriben igual en las dos variedades: si se
 // listaran, el reemplazo contaría un cambio que no cambia nada.
 
-/** Formas cuyo reemplazo depende del contexto. Se reportan, no se tocan. */
+/**
+ * Formas cuyo reemplazo depende del contexto. Se reportan, no se tocan.
+ *
+ * Todas en minúscula: la detección es case-insensitive, así que duplicar la
+ * mayúscula sólo agrandaría la alternancia.
+ */
 export const TUTEO_BLANDO: readonly string[] = [
+  // Imperativos ambiguos: la misma forma es indicativo de tercera.
   'define',
   'elige',
   'recuerda',
@@ -67,6 +86,45 @@ export const TUTEO_BLANDO: readonly string[] = [
   'analiza',
   'observa',
   'imagina',
+  // La clase imperativa que faltaba. `establece` choca con «la ley establece»,
+  // `optimiza` con «el sistema se auto-optimiza» —dos casos reales en el
+  // corpus—, y `evita` con Evita: el corpus habla de Perón en trece lecciones.
+  'optimiza',
+  'empieza',
+  'cambia',
+  'reduce',
+  'establece',
+  'explica',
+  'evita',
+  'maximiza',
+  'haz',
+  // Segunda persona del singular. Como forma verbal son inequívocas, pero
+  // varias tienen sustantivo homógrafo —«las escuchas telefónicas», «las
+  // ayudas sociales», «las miras puestas en 2027», «haces de luz»— o apellido
+  // —Vives—, y la dura escribe sin mirar. Medidas por la revisión del
+  // 2026-08-13: al menos 46 tokens de tuteo inequívoco que no estaban en
+  // ninguna de las dos listas, con una sonda de sólo 19 formas.
+  'piensas',
+  'cambias',
+  'usas',
+  'escuchas',
+  'eliges',
+  'mantienes',
+  'dices',
+  'experimentas',
+  'logras',
+  'aprendes',
+  'crees',
+  'ayudas',
+  'atacas',
+  'miras',
+  'haces',
+  'vives',
+  // El pronombre. Sin él, el reporte nombraba `eres` y no el `tú` de al lado,
+  // y así se publicó un `TÚ sos` que no existe en ninguna variedad del
+  // castellano. Quedan 8 en el corpus, 7 de ellos la cita deliberada de
+  // Nietzsche («Tú debes», el lema del Gran Dragón), que no se toca.
+  'tú',
 ];
 
 export interface Hallazgo {
@@ -75,8 +133,20 @@ export interface Hallazgo {
   lista: 'dura' | 'blanda';
 }
 
-const patron = (formas: Iterable<string>): RegExp =>
-  new RegExp(`(?<![\\p{L}])(${[...formas].join('|')})(?![\\p{L}])`, 'giu');
+/**
+ * El límite incluye dígitos, guión y guión bajo, no sólo letras: `puedes-caja`,
+ * `tienes_2` y `eres3` son un id, una clase, un slug o un ancla, no prosa, y
+ * con el límite viejo se reescribían. Del lado del reporte, el guión también
+ * saca falsos positivos reales: «el sistema se auto-optimiza» no es una orden.
+ *
+ * Y la alternancia se arma por longitud descendente porque el regex es
+ * first-match-wins: si algún día entra `mejoras` pelado, el orden de inserción
+ * no puede decidir si gana la entrada de una palabra o la de dos.
+ */
+const patron = (formas: Iterable<string>): RegExp => {
+  const ordenadas = [...formas].sort((a, b) => b.length - a.length);
+  return new RegExp(`(?<![\\p{L}\\p{N}_-])(${ordenadas.join('|')})(?![\\p{L}\\p{N}_-])`, 'giu');
+};
 
 export function detectarTuteo(texto: string): Hallazgo[] {
   const hallazgos: Hallazgo[] = [];
@@ -105,6 +175,11 @@ export function normalizarVoseo(texto: string): { texto: string; cambios: number
     const reemplazo = TUTEO_DURO.get(encontrado.toLowerCase());
     if (reemplazo === undefined) return encontrado;
     cambios += 1;
+    // Mayúscula sostenida: `PUEDES` es énfasis del autor y tiene que salir
+    // `PODÉS`, no `Podés`. Antes se le comía el énfasis.
+    if (/\p{Lu}/u.test(encontrado) && !/\p{Ll}/u.test(encontrado)) {
+      return reemplazo.toUpperCase();
+    }
     // ¿Empieza con mayúscula? Con regex en vez de comparar `charAt(0)`
     // contra su propio `toUpperCase()`: eslint (`prefer-string-starts-ends-with`)
     // rechaza esa forma, y esto además es más directo.
