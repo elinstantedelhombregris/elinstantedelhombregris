@@ -220,7 +220,7 @@ const normalizar = (texto: string): string[] =>
   texto
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/[\u0300-\u036f]/g, '')
     .split(/[^a-z0-9ñ]+/)
     .filter((p) => p.length > 0);
 
@@ -484,7 +484,7 @@ import { similitudCoseno } from './similitud.js';
 
 import type { AristaMedida } from './tipos.js';
 
-const PAR = ' ';
+const PAR = '\u0000';
 
 /** Clave canónica de un par no dirigido. */
 const clave = (a: string, b: string): string => (a < b ? `${a}${PAR}${b}` : `${b}${PAR}${a}`);
