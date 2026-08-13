@@ -11,22 +11,15 @@
 import { runRankingCron } from '../features/gamification/cron.js';
 import { logger } from '../lib/logger.js';
 
-import type { IncomingMessage, ServerResponse } from 'node:http';
+import { autorizadoPorCronSecret } from './cron-secret.js';
 
-/** Devuelve true si el request trae el `CRON_SECRET` esperado. */
-function autorizado(req: IncomingMessage): boolean {
-  const esperado = process.env.CRON_SECRET;
-  // Sin secreto configurado no se corre: es preferible un cron muerto y
-  // ruidoso a un endpoint abierto que quema base y cuota.
-  if (!esperado) return false;
-  return req.headers.authorization === `Bearer ${esperado}`;
-}
+import type { IncomingMessage, ServerResponse } from 'node:http';
 
 export default async function handler(
   req: IncomingMessage,
   res: ServerResponse,
 ): Promise<void> {
-  if (!autorizado(req)) {
+  if (!autorizadoPorCronSecret(req)) {
     logger.warn('gamification-rankings: invocación sin CRON_SECRET válido');
     res.statusCode = 401;
     res.setHeader('content-type', 'application/json');

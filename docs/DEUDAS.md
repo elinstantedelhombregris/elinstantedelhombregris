@@ -59,6 +59,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | Abierta |
 | [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) | El borde del recorte de teselas se ve en el agua | Baja | Abierta |
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
+| [D-057](#d-057--la-política-de-privacidad-espera-tres-datos-que-sólo-puede-dar-el-dueño) | La política de privacidad espera tres datos que sólo puede dar el dueño | Media | Abierta |
+| [D-058](#d-058--un-cron-que-falla-no-le-avisa-a-nadie-y-ahora-uno-de-ellos-sostiene-una-promesa-legal) | Un cron que falla no le avisa a nadie, y ahora uno de ellos sostiene una promesa legal | Media | Abierta |
 
 ---
 
@@ -928,3 +930,39 @@ El estilo apunta a `pmtiles:///tiles/argentina.pmtiles` y el archivo existe **en
 Las tres salidas están escritas en el plan y ninguna es de código: servidor propio con nginx (cierra la fuga del todo), Cloudflare R2 (entra cómodo, egress gratis, pero Cloudflare vuelve a ver las IPs bajo dominio propio) o descartar Vercel para un archivo de este tamaño. Lo que la decisión pide verificar a mano es una sola cosa: que el hosting devuelva **`206 Partial Content` y `accept-ranges: bytes`**. Si devuelve `200` con el archivo entero, el navegador baja 1,2 GB por tesela y hay que cambiar de hosting, no de código.
 
 Es también la que traba a [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera): no se puede automatizar la actualización de un archivo que no tiene domicilio.
+---
+
+### D-057 · La política de privacidad espera tres datos que sólo puede dar el dueño
+
+**Dónde:** `v2/content/legal/privacidad.mdx`, secciones «Quién es responsable» y «Menores»
+**Encontrada:** 2026-08-12, cerrando los cuatro marcadores `⟨PENDIENTE: …⟩` que la versión 3 publicó a la vista de cualquiera
+**Severidad:** media
+**Estado:** abierta
+
+La versión 3 salió a producción con cuatro renglones marcados para completar después. Uno de los cuatro —cuánto se guardan las sesiones— no era una decisión sino un hecho, y se arregló haciendo cierto el plazo: hay un barrido diario que borra las sesiones vencidas hace más de 90 días. **Los otros tres son decisiones del dueño y no se inventan.** La versión 4 los declara con palabras en vez de esconderlos detrás de un marcador —que es la diferencia entre un documento que dice lo que le falta y uno que parece un borrador filtrado—, pero declararlos no es tenerlos.
+
+| Dato que falta | Qué se desbloquea con él | Qué se cambia exactamente |
+|---|---|---|
+| Razón social o nombre completo del responsable de la base | Que el documento identifique al responsable, como pide el art. 3 de la Ley 25.326 | Sección «Quién es responsable», segundo párrafo — el que hoy dice que la identificación legal está en trámite. Se reemplaza por la identificación. El tercer párrafo, el del canal, se queda como está |
+| Domicilio legal | Lo mismo, en el mismo párrafo y en el mismo acto | Igual: los dos datos entran juntos o no entra ninguno. Un responsable sin domicilio es media identificación |
+| Edad mínima para tener cuenta | Que la sección «Menores» diga una regla en vez de anunciar que está por escribirse | Sección «Menores», los dos párrafos completos |
+
+En los tres casos, además: subir `version` en el frontmatter y agregar la entrada correspondiente en «Cambios», que es lo que el propio documento promete hacer cuando cambia.
+
+**La edad mínima tiene una segunda punta, y es la que se olvida.** Hoy el registro no pide la edad: `registerInputSchema` (`v2/packages/shared/src/validation/users.ts:64`) toma nombre de usuario, correo, contraseña y nombre, y nada más. Escribir el número en la política sin agregar el campo deja al sitio con una regla publicada que el formulario no puede aplicar — peor que no tener regla, porque la afirmación queda escrita. La política lo dice hoy en voz alta («hoy el registro no pide la edad ni la verifica») y esa frase se cae en cuanto se fije el número, así que las dos puntas se mueven en el mismo commit.
+
+**Mientras tanto**, lo que el documento afirma es cierto: quién está detrás está publicado en `/quien-esta-detras`, el canal `privacidad@elinstantedelhombregris.com` funciona, y los plazos de los arts. 14 y 16 corren desde que alguien escribe, con trámite abierto o sin él.
+---
+
+### D-058 · Un cron que falla no le avisa a nadie, y ahora uno de ellos sostiene una promesa legal
+
+**Dónde:** `v2/api/cron/rankings.mjs`, `v2/api/cron/sesiones.mjs`, `v2/vercel.json` (bloque `crons`)
+**Encontrada:** 2026-08-12, al agendar el barrido de sesiones que vuelve cierta la retención de 90 días
+**Severidad:** media
+**Estado:** abierta
+
+Los dos crons se defienden bien de que los invoque un desconocido: sin `Authorization: Bearer $CRON_SECRET` devuelven 401 y loguean. Lo que ninguno hace es avisar cuando **el que no llega es Vercel**. Si `CRON_SECRET` no está cargado en el entorno de producción, o está cargado distinto del que manda la plataforma, cada invocación agendada se contesta con 401, la advertencia se escribe en un log que nadie mira y **el trabajo no se hace, todos los días, en silencio**.
+
+Para los rankings eso es una tabla que envejece. Para el barrido de sesiones es otra cosa: `content/legal/privacidad.mdx` afirma en primera persona que las sesiones vencidas se borran a los 90 días. Si el cron no corre, esa frase vuelve a ser falsa **sin que cambie una sola línea del documento** — que es exactamente el modo de falla de [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento): no la ausencia de la defensa, sino su apariencia.
+
+**Qué haría falta:** lo mínimo es una verificación manual después del primer despliegue —que `CRON_SECRET` esté en el entorno de Vercel y que la corrida del día siguiente figure en los logs con su `borradas`—. Lo que cierra la deuda es que el resultado de cada corrida deje rastro consultable: una fila con la fecha y el conteo, o un chequeo que compare el registro contra el calendario y grite cuando falta un día. Mientras tanto, la promesa de la política depende de una variable de entorno que nadie mira.

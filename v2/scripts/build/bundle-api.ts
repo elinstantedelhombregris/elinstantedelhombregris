@@ -56,6 +56,7 @@ function dependenciasExternas(): readonly string[] {
 const ENTRIES: readonly { readonly desde: readonly string[]; readonly hacia: string }[] = [
   { desde: ['apps', 'api', 'src', 'vercel', 'handler.ts'], hacia: 'handler' },
   { desde: ['apps', 'api', 'src', 'vercel', 'cron-rankings.ts'], hacia: 'cron-rankings' },
+  { desde: ['apps', 'api', 'src', 'vercel', 'cron-sesiones.ts'], hacia: 'cron-sesiones' },
 ];
 
 async function main(): Promise<void> {

@@ -8,7 +8,7 @@
  */
 import { createHash } from 'node:crypto';
 
-import { and, eq, gt, isNull } from 'drizzle-orm';
+import { and, eq, gt, isNull, lt } from 'drizzle-orm';
 
 import {
   authSessions,
@@ -60,6 +60,30 @@ export class AuthRepository {
       .update(authSessions)
       .set({ revokedAt: new Date() })
       .where(and(eq(authSessions.userId, userId), isNull(authSessions.revokedAt)));
+  }
+
+  /**
+   * Borra las sesiones que vencieron antes de `corte`. Devuelve cuántas filas
+   * se fueron.
+   *
+   * Mira `expiresAt` y no `issuedAt` a propósito. Lo que la política de
+   * privacidad promete —«90 días desde que la sesión vence»— es cuánto vive el
+   * dato **después** de dejar de servir para algo, no cuánto vive desde que se
+   * abrió. Una sesión revocada a mano entra por el mismo camino: su
+   * `expiresAt` sigue corriendo y termina cayendo del lado viejo del corte.
+   *
+   * Es un `DELETE`, no un `UPDATE`: lo que hay que sacar de la base es la
+   * dirección IP y el agente de usuario, y esos viven en la fila.
+   *
+   * Idempotente por construcción — una segunda corrida con el mismo corte no
+   * encuentra nada y devuelve 0.
+   */
+  async borrarSesionesVencidasAntesDe(corte: Date): Promise<number> {
+    const borradas = await this.db
+      .delete(authSessions)
+      .where(lt(authSessions.expiresAt, corte))
+      .returning({ id: authSessions.id });
+    return borradas.length;
   }
 
   // ---------- Email verification ----------

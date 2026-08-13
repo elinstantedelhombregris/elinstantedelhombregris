@@ -60,7 +60,11 @@
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "functions": {
-    "api/cron/rankings.mjs": { "maxDuration": 60 }
+    "api/cron/rankings.mjs": { "maxDuration": 60 },
+    "api/cron/sesiones.mjs": { "maxDuration": 60 }
   },
-  "crons": [{ "path": "/api/cron/rankings", "schedule": "0 5 * * *" }]
+  "crons": [
+    { "path": "/api/cron/rankings", "schedule": "0 5 * * *" },
+    { "path": "/api/cron/sesiones", "schedule": "30 5 * * *" }
+  ]
 }
