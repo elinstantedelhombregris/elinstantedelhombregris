@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "description": "El Instante del Hombre Gris \u2014 Argentine civic engagement platform built around the \u00a1BASTA! popular governance framework. v2 rebuild.",
+  "description": "El Instante del Hombre Gris — Argentine civic engagement platform built around the ¡BASTA! popular governance framework. v2 rebuild.",
   "engines": {
     "node": ">=22.0.0",
     "pnpm": ">=9.0.0"
@@ -27,6 +27,7 @@
     "api:bundle": "tsx scripts/build/bundle-api.ts",
     "planes:migrar": "tsx scripts/content/migrate-planes-v1-to-v2.ts",
     "geo:provincias": "tsx scripts/build/geo/generar-provincias-api.ts",
+    "mapa:estilo": "tsx scripts/build/mapa/generar-estilo.ts",
     "geo:backfill": "pnpm --filter @v2/api run geo:backfill",
     "planes:check": "tsx scripts/content/verify-planes-index.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@maplibre/maplibre-gl-style-spec": "^20.4.0",
     "@playwright/test": "^1.49.0",
     "@size-limit/preset-app": "^11.1.6",
     "@types/node": "^22.10.2",
@@ -49,6 +51,7 @@
     "lint-staged": "^15.2.10",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
+    "protomaps-themes-base": "^4.5.0",
     "size-limit": "^11.1.6",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",

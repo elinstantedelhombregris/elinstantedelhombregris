@@ -118,7 +118,10 @@ export function Instrumento() {
       </div>
 
       <div className="font-space text-oscuro-tenue border-oscuro-borde flex flex-wrap items-center justify-between gap-3 border-t px-4 py-2 text-[10px]">
-        <span>Mapa © OpenStreetMap contributors · © CARTO</span>
+        {/* Los datos son de OpenStreetMap y la ODbL obliga a decirlo; las
+            teselas las arma Protomaps, que pide su línea. Carto se fue el
+            12/8/2026 junto con las teselas que servía. */}
+        <span>Mapa © OpenStreetMap contributors · Protomaps</span>
         {/* La segunda boca del canal de escucha, y la única que adjunta algo:
             lo que se deje desde acá se va con el encuadre y el modo que se
             estaban mirando (spec 2026-08-12-lo-que-falta.md §2.8). El pedido

@@ -10,41 +10,34 @@ import type { RequestHandler } from 'express';
 /**
  * Helmet with a tight CSP.
  *
+ * **Ningún host de terceros aparece en esta política, y ése es el
+ * punto.** `img-src`, `connect-src` y `font-src` nombran sólo `'self'`,
+ * más los esquemas `data:`/`blob:` que produce la propia app. Si estás
+ * por agregar un host acá, estás por entregarle a alguien más la
+ * dirección IP de cada persona que abre la página: empaquetá el recurso,
+ * como ya están empaquetados `/maps/`, `/fonts/` y `/tiles/`.
+ *
  * Notes:
  *   - No `'unsafe-eval'` in any environment.
  *   - `'unsafe-inline'` styles allowed only because Tailwind/Radix may
  *     emit them at runtime; investigate before tightening further.
- *   - The style.json under `/maps/` and the glyphs under `/fonts/` are
- *     both self-hosted: nothing outside this origin serves the map's
- *     typography. Map tiles still come from carto's CDN, so we
- *     explicitly allow carto's origins in connect-src + img-src. They
- *     are pinned one by one (not a wildcard) and used only inside the
- *     mapStyle JSON we control.
- *
- *     OJO — allowing only `tiles.basemaps.cartocdn.com` is NOT enough,
- *     y es el error que había acá. Ese host sirve el `tiles.json`, pero
- *     apunta las teselas a CUATRO hosts distintos (`tiles-a` …
- *     `tiles-d`). Verificado contra el endpoint real: el estilo cargaba
- *     y las teselas se bloqueaban, que es la peor forma de fallar — un
- *     mapa vacío sin error visible.
+ *   - El mapa entero sale de este origen desde el 12/8/2026 (D-003): el
+ *     estilo en `/maps/oscuro.json`, los glyphs en `/fonts/` y las
+ *     teselas en un único `.pmtiles` bajo `/tiles/` que el navegador lee
+ *     por rangos de bytes. Hasta ese día hacían falta seis hosts ajenos
+ *     —cinco de Carto y uno de openmaptiles— y eran la última fuga de IP
+ *     a terceros que le quedaba al producto.
  */
 export function securityHeaders(): RequestHandler {
-  const cartoTiles = [
-    'https://tiles.basemaps.cartocdn.com',
-    'https://tiles-a.basemaps.cartocdn.com',
-    'https://tiles-b.basemaps.cartocdn.com',
-    'https://tiles-c.basemaps.cartocdn.com',
-    'https://tiles-d.basemaps.cartocdn.com',
-  ];
   return helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", 'data:', 'blob:', ...cartoTiles],
-        connectSrc: ["'self'", ...cartoTiles],
-        fontSrc: ["'self'", 'data:', ...cartoTiles],
+        imgSrc: ["'self'", 'data:', 'blob:'],
+        connectSrc: ["'self'"],
+        fontSrc: ["'self'", 'data:'],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],
         workerSrc: ["'self'", 'blob:'],

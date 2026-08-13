@@ -1,17 +1,20 @@
 /**
- * La CSP contra los hosts que el mapa realmente usa.
+ * La CSP del mapa, que desde el 12/8/2026 no nombra un solo host de afuera.
  *
- * El bug que este test fija: la CSP permitía solo
- * `tiles.basemaps.cartocdn.com`, que es donde viven el `tiles.json`, los
- * glyphs y el sprite — pero el `tiles.json` apunta las teselas a CUATRO hosts
- * distintos (`tiles-a` … `tiles-d`). Con esa CSP el estilo cargaba, maplibre
- * inicializaba, y las teselas se bloqueaban: un mapa vacío sin ningún error
- * visible, que es la peor forma de fallar.
+ * Este archivo empezó fijando lo contrario: que los cinco hosts de Carto
+ * estuvieran permitidos, porque permitir sólo `tiles.basemaps.cartocdn.com`
+ * dejaba el mapa en blanco —el `tiles.json` apunta las teselas a cuatro hosts
+ * más— y un mapa vacío sin error visible es la peor forma de fallar. Ese
+ * problema dejó de existir cuando las teselas pasaron a salir de un `.pmtiles`
+ * del propio origen (D-003), y el test cambió de bando: ahora lo que fija es
+ * que **ninguno de esos hosts vuelva**.
  *
- * Se verifica contra la lista de hosts leída del endpoint real de Carto en
- * julio de 2026. Si Carto agrega un `tiles-e`, este test NO lo va a detectar —
- * lo detecta un mapa en blanco. Por eso el comentario de `security.ts` dice de
- * dónde sale la lista.
+ * No es una formalidad. Cada host de tercero en `img-src`, `connect-src` o
+ * `font-src` es la dirección IP de cada persona que abre el mapa, entregada a
+ * alguien más — y encima sobre la pantalla donde se miran señales políticas. La
+ * política de privacidad ya no lo declara porque ya no pasa; si alguien
+ * reintroduce un host acá, el documento pasa a ser falso y esto tiene que
+ * romperse antes.
  */
 import '../src/load-env.js';
 
@@ -20,16 +23,18 @@ import { describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
 
-/** Los hosts que sirven las teselas vectoriales, según el tiles.json de Carto. */
-const HOSTS_DE_TESELAS = [
-  'https://tiles-a.basemaps.cartocdn.com',
-  'https://tiles-b.basemaps.cartocdn.com',
-  'https://tiles-c.basemaps.cartocdn.com',
-  'https://tiles-d.basemaps.cartocdn.com',
+/** Los que servían el basemap hasta el 12/8/2026. Ninguno puede volver. */
+const HOSTS_QUE_SE_FUERON = [
+  'tiles.basemaps.cartocdn.com',
+  'tiles-a.basemaps.cartocdn.com',
+  'tiles-b.basemaps.cartocdn.com',
+  'tiles-c.basemaps.cartocdn.com',
+  'tiles-d.basemaps.cartocdn.com',
+  'fonts.openmaptiles.org',
 ];
 
-/** El que sirve el tiles.json. */
-const HOST_DE_ESTILO = 'https://tiles.basemaps.cartocdn.com';
+/** Las tres que el mapa usaba para salir a buscar cosas afuera. */
+const DIRECTIVAS_DEL_MAPA = ['img-src', 'connect-src', 'font-src'];
 
 describe('CSP del mapa', () => {
   const request = supertest(createApp());
@@ -45,30 +50,32 @@ describe('CSP del mapa', () => {
       .map((d) => d.trim())
       .find((d) => d.startsWith(`${nombre} `)) ?? '';
 
-  it('permite los cuatro hosts de teselas en connect-src', async () => {
-    const connect = directiva(await csp(), 'connect-src');
-    for (const host of HOSTS_DE_TESELAS) {
-      expect(connect, host).toContain(host);
+  it('no nombra a ninguno de los seis hosts que servían el basemap', async () => {
+    const politica = await csp();
+    for (const host of HOSTS_QUE_SE_FUERON) {
+      expect(politica, host).not.toContain(host);
     }
   });
 
-  it('permite el host que sirve el tiles.json', async () => {
+  it('las tres directivas del mapa no tienen un solo host externo', async () => {
     const politica = await csp();
-    expect(directiva(politica, 'connect-src')).toContain(HOST_DE_ESTILO);
+    for (const nombre of DIRECTIVAS_DEL_MAPA) {
+      const valor = directiva(politica, nombre);
+      expect(valor, nombre).not.toBe('');
+      // Lo único permitido además de `'self'` son los esquemas que produce la
+      // propia app: `data:` para los SVG embebidos y `blob:` para lo que
+      // maplibre arma en memoria. Cualquier cosa con un punto es un dominio.
+      const permitidos = new Set(["'self'", 'data:', 'blob:']);
+      const fuentes = valor.split(/\s+/).slice(1);
+      for (const fuente of fuentes) {
+        expect(permitidos, `${nombre} → ${fuente}`).toContain(fuente);
+      }
+    }
   });
 
-  it('no le pide las tipografías a nadie de afuera', async () => {
+  it('sigue sin abrirse a comodines', async () => {
     const politica = await csp();
-    // Los glyphs viven en /fonts/ del propio origen desde el 12/8/2026. Si este
-    // host vuelve a aparecer es que alguien reintrodujo la fuga de IP que la
-    // política de privacidad ya no declara.
-    expect(politica).not.toContain('openmaptiles.org');
-    expect(directiva(politica, 'font-src')).toContain("'self'");
-  });
-
-  it('sigue sin abrirse a comodines: los hosts van pinneados uno por uno', async () => {
-    const politica = await csp();
-    expect(politica).not.toContain('*.cartocdn.com');
+    expect(politica).not.toContain('*');
     expect(politica).not.toContain("'unsafe-eval'");
     expect(directiva(politica, 'script-src')).toBe("script-src 'self'");
   });

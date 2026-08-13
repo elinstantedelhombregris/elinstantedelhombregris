@@ -27,7 +27,17 @@ const DIR_FUENTES = resolve(RAIZ_WEB, 'public/fonts');
 
 const estilo = JSON.parse(readFileSync(RUTA_ESTILO, 'utf8')) as StyleSpecification;
 
-/** Todas las familias que alguna capa nombra en `text-font`, a cualquier profundidad. */
+/**
+ * Todas las familias que alguna capa nombra en `text-font`, a cualquier
+ * profundidad.
+ *
+ * Hay dos formas válidas y hay que entender las dos: en `layout` el valor es un
+ * array pelado (`["Noto Sans Regular"]`), y adentro de las opciones de un
+ * `["format", …]` va en posición de expresión y tiene que ser
+ * `["literal", ["Noto Sans Regular"]]`. Cualquier otra forma es una expresión
+ * que elige familia según el dato de cada rasgo: eso puede pedir una que no
+ * servimos y no se puede verificar leyendo el archivo, así que se rechaza.
+ */
 function familiasPedidas(nodo: unknown, encontradas = new Set<string>()): Set<string> {
   if (Array.isArray(nodo)) {
     for (const hijo of nodo) familiasPedidas(hijo, encontradas);
@@ -35,24 +45,19 @@ function familiasPedidas(nodo: unknown, encontradas = new Set<string>()): Set<st
   }
   if (nodo !== null && typeof nodo === 'object') {
     for (const [clave, valor] of Object.entries(nodo as Record<string, unknown>)) {
-      // `text-font` puede ser un array literal o una expresión con
-      // `["literal", ["Noto Sans Medium"]]` adentro: por eso se junta cada
-      // string que cuelgue del subárbol, y no sólo el primer nivel.
-      if (clave === 'text-font') {
-        for (const s of stringsDe(valor)) encontradas.add(s);
-      } else {
+      if (clave !== 'text-font') {
         familiasPedidas(valor, encontradas);
+        continue;
       }
+      const pelado: unknown =
+        Array.isArray(valor) && valor[0] === 'literal' ? (valor as unknown[])[1] : valor;
+      if (!Array.isArray(pelado) || !pelado.every((x) => typeof x === 'string')) {
+        throw new Error(`Un text-font quedó como expresión: ${JSON.stringify(valor)}`);
+      }
+      for (const familia of pelado) encontradas.add(familia);
     }
   }
   return encontradas;
-}
-
-function stringsDe(nodo: unknown): string[] {
-  if (typeof nodo === 'string') return [nodo];
-  if (Array.isArray(nodo)) return nodo.flatMap(stringsDe);
-  if (nodo !== null && typeof nodo === 'object') return Object.values(nodo).flatMap(stringsDe);
-  return [];
 }
 
 describe('estilo oscuro del mapa', () => {
