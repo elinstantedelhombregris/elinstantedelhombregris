@@ -10,7 +10,11 @@
  *
  * **Este archivo es MEDICIÓN.** No importa `geometria.ts` (spec R10).
  */
-import type { AristaMedida, Nucleo, Particion } from './tipos.js';
+import { haversineKm } from '../geo.js';
+
+import { similitudCoseno } from './similitud.js';
+
+import type { AristaMedida, Nucleo, Particion, SenalParaNucleo } from './tipos.js';
 
 /** Union-find con compresión de camino. */
 const raizDe = (padre: Map<string, string>, id: string): string => {
@@ -66,4 +70,81 @@ export const nucleosAlUmbral = (
     .sort((p, q) => q.ids.length - p.ids.length || ((p.ids[0] ?? '') < (q.ids[0] ?? '') ? -1 : 1));
 
   return { nucleos, solas: ids.filter((id) => !tocadas.has(id)) };
+};
+
+/**
+ * La frase que rotula un núcleo: la señal **real** más cercana a su centro.
+ *
+ * Nunca un resumen generado (spec R8, y regla 6 de la constitución de
+ * producto: la máquina sugiere, no determina). La máquina elige *cuál*
+ * mostrar; nunca *qué decir*.
+ *
+ * El centro se calcula sobre **todas** las señales del núcleo, tengan cesión
+ * o no —el centro del núcleo es el centro del núcleo—, pero sólo puede
+ * prestar su frase una señal **con cesión de licencia** (spec §4.5.4). Si
+ * ninguna la tiene, devuelve `null` y quien llama muestra el motivo.
+ */
+export const fraseDelNucleo = (
+  senales: readonly SenalParaNucleo[],
+): { id: string; texto: string } | null => {
+  if (senales.length === 0) return null;
+
+  const dimensiones = senales[0]?.vector.length ?? 0;
+  if (dimensiones === 0) return null;
+
+  const centro = new Array<number>(dimensiones).fill(0);
+  for (const s of senales) {
+    for (let i = 0; i < dimensiones; i++) {
+      centro[i] = (centro[i] ?? 0) + (s.vector[i] ?? 0);
+    }
+  }
+
+  let elegida: { id: string; texto: string } | null = null;
+  let mejor = -Infinity;
+  for (const s of senales) {
+    if (s.texto === null) continue;
+    const cerca = similitudCoseno(s.vector, centro);
+    // Desempate por id: dos señales igual de centrales no pueden alternar
+    // entre corridas o la etiqueta del núcleo parpadearía sin motivo.
+    if (cerca > mejor || (cerca === mejor && elegida !== null && s.id < elegida.id)) {
+      mejor = cerca;
+      elegida = { id: s.id, texto: s.texto };
+    }
+  }
+  return elegida;
+};
+
+/**
+ * El par de señales del núcleo geográficamente más distante.
+ *
+ * Es el número que convierte «todos quieren lo mismo» de consigna en
+ * medición. Sale del **punto engrosado** —quien construye `SenalParaNucleo`
+ * ya pasó por `publicLocation`— y se redondea a la decena de kilómetros
+ * (spec R13): la precisión almacenada es un espejo de lo que declaró el
+ * cliente, no una protección, y publicar un número al kilómetro sobre
+ * domicilios sería publicar un padrón.
+ */
+export const dosMasLejanos = (
+  senales: readonly SenalParaNucleo[],
+): { a: string; b: string; km: number } | null => {
+  const conPunto = senales.filter(
+    (s): s is SenalParaNucleo & { punto: NonNullable<SenalParaNucleo['punto']> } =>
+      s.punto !== null,
+  );
+  if (conPunto.length < 2) return null;
+
+  let mejor: { a: string; b: string; km: number } | null = null;
+  for (let i = 0; i < conPunto.length; i++) {
+    for (let j = i + 1; j < conPunto.length; j++) {
+      const p = conPunto[i];
+      const q = conPunto[j];
+      if (!p || !q) continue;
+      const km = haversineKm(p.punto, q.punto);
+      if (!mejor || km > mejor.km) {
+        mejor = p.id < q.id ? { a: p.id, b: q.id, km } : { a: q.id, b: p.id, km };
+      }
+    }
+  }
+  if (!mejor) return null;
+  return { a: mejor.a, b: mejor.b, km: Math.round(mejor.km / 10) * 10 };
 };
