@@ -1,11 +1,26 @@
 #!/usr/bin/env tsx
 /**
- * Genera `apps/web/public/maps/oscuro.json` — el único estilo de mapa en uso
- * (plan `docs/plans/2026-08-12-teselas-propias.md`, Task 5 — cierre de D-003).
+ * Genera `apps/web/public/maps/oscuro-propio.json` — el estilo de las teselas
+ * propias (plan `docs/plans/2026-08-12-teselas-propias.md`, Task 5).
  *
  * Correr desde `v2/`:
  *
  *   pnpm mapa:estilo
+ *
+ * ## Cuál de los dos estilos escribe, y por qué no es `oscuro.json`
+ *
+ * **`oscuro.json` es el que se publica hoy y este script NO lo toca.** Sigue
+ * siendo las doce capas contra el esquema de OpenMapTiles que sirve Carto,
+ * porque el `.pmtiles` de 1,2 GB no tiene dónde vivir: no entra en el artefacto
+ * de Vercel y la decisión de hosting está abierta (D-051).
+ *
+ * Lo que este script escribe queda al lado, listo y sin usar. **El día que
+ * D-051 se cierre, `oscuro-propio.json` pasa a ser `oscuro.json`** —un `mv` y
+ * la línea de `MapaBase.tsx`— y este comentario se borra.
+ *
+ * Hasta entonces: apuntarlo de nuevo a `oscuro.json` publica un estilo del
+ * esquema equivocado contra las teselas de Carto, y el mapa queda en negro sin
+ * un error que mirar, porque los nombres de capa simplemente no matchean.
  *
  * ## Por qué hay un script y no un JSON escrito a mano
  *
@@ -65,7 +80,7 @@ import type { LayerSpecification, StyleSpecification } from '@maplibre/maplibre-
 import type { Theme } from 'protomaps-themes-base';
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
-const SALIDA = resolve(RAIZ, 'apps/web/public/maps/oscuro.json');
+const SALIDA = resolve(RAIZ, 'apps/web/public/maps/oscuro-propio.json');
 const DIR_FUENTES = resolve(RAIZ, 'apps/web/public/fonts');
 
 /** El id de la fuente dentro del estilo, y el archivo que la sirve. */

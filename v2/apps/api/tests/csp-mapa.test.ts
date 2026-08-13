@@ -1,20 +1,26 @@
 /**
- * La CSP del mapa, que desde el 12/8/2026 no nombra un solo host de afuera.
+ * La CSP del mapa, y las dos mitades de D-003 que van a velocidades distintas.
  *
- * Este archivo empezó fijando lo contrario: que los cinco hosts de Carto
- * estuvieran permitidos, porque permitir sólo `tiles.basemaps.cartocdn.com`
- * dejaba el mapa en blanco —el `tiles.json` apunta las teselas a cuatro hosts
- * más— y un mapa vacío sin error visible es la peor forma de fallar. Ese
- * problema dejó de existir cuando las teselas pasaron a salir de un `.pmtiles`
- * del propio origen (D-003), y el test cambió de bando: ahora lo que fija es
- * que **ninguno de esos hosts vuelva**.
+ * **La mitad cerrada, y no vuelve:** las tipografías. Los glyphs del mapa salen
+ * de `/fonts/` y las seis familias de la interfaz de `/fonts-ui/`, así que
+ * `font-src` no tiene un solo host ajeno y no depende de ninguna decisión de
+ * infraestructura. `fonts.openmaptiles.org` además nunca sirvió lo que el
+ * estilo le pedía —no tiene `Noto Sans Regular` y ante un fontstack desconocido
+ * devuelve su home con un 200— así que el mapa estuvo mudo mientras estuvo ahí.
+ * Ese host no puede volver por ninguna razón.
  *
- * No es una formalidad. Cada host de tercero en `img-src`, `connect-src` o
- * `font-src` es la dirección IP de cada persona que abre el mapa, entregada a
- * alguien más — y encima sobre la pantalla donde se miran señales políticas. La
- * política de privacidad ya no lo declara porque ya no pasa; si alguien
- * reintroduce un host acá, el documento pasa a ser falso y esto tiene que
- * romperse antes.
+ * **La mitad abierta:** el basemap todavía sale de Carto. Las teselas propias
+ * están generadas y su estilo listo en `/maps/oscuro-propio.json`; lo único que
+ * falta es dónde vive el archivo de 1,2 GB, que no entra en el artefacto de
+ * Vercel. Es D-051.
+ *
+ * Por eso este archivo NO fija «ningún host de afuera», que sería un test que
+ * miente. Fija lo que de verdad protege: que el permiso de Carto **no se
+ * derrame** a una directiva donde un dominio ajeno es ejecución de código en vez
+ * de una imagen, que **no aparezca un segundo host**, y que las tipografías
+ * sigan en casa. Cada host de tercero acá es la dirección IP de cada persona que
+ * abre el mapa, entregada a alguien más, sobre la pantalla donde se miran
+ * señales políticas.
  */
 import '../src/load-env.js';
 
@@ -23,17 +29,19 @@ import { describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
 
-/** Los que servían el basemap hasta el 12/8/2026. Ninguno puede volver. */
-const HOSTS_QUE_SE_FUERON = [
-  'tiles.basemaps.cartocdn.com',
-  'tiles-a.basemaps.cartocdn.com',
-  'tiles-b.basemaps.cartocdn.com',
-  'tiles-c.basemaps.cartocdn.com',
-  'tiles-d.basemaps.cartocdn.com',
-  'fonts.openmaptiles.org',
-];
+/**
+ * Los que se fueron para siempre. `fonts.openmaptiles.org` encabeza la lista
+ * porque además de filtrar la IP servía HTML con un 200 y dejaba el mapa mudo.
+ */
+const HOSTS_QUE_SE_FUERON = ['fonts.openmaptiles.org', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 
-/** Las tres que el mapa usaba para salir a buscar cosas afuera. */
+/** Los cinco del basemap: temporales, y sólo donde las teselas los necesitan. */
+const CARTO = /^https:\/\/tiles(-[abcd])?\.basemaps\.cartocdn\.com$/;
+
+/** Las únicas dos directivas donde Carto puede aparecer mientras dure D-051. */
+const CON_CARTO = new Set(['img-src', 'connect-src']);
+
+/** Las tres que el mapa usa para salir a buscar cosas afuera. */
 const DIRECTIVAS_DEL_MAPA = ['img-src', 'connect-src', 'font-src'];
 
 describe('CSP del mapa', () => {
@@ -50,26 +58,47 @@ describe('CSP del mapa', () => {
       .map((d) => d.trim())
       .find((d) => d.startsWith(`${nombre} `)) ?? '';
 
-  it('no nombra a ninguno de los seis hosts que servían el basemap', async () => {
+  it('ninguno de los que se fueron vuelve, en ninguna directiva', async () => {
     const politica = await csp();
     for (const host of HOSTS_QUE_SE_FUERON) {
       expect(politica, host).not.toContain(host);
     }
   });
 
-  it('las tres directivas del mapa no tienen un solo host externo', async () => {
+  it('las tipografías no salen de afuera, y eso ya no depende de nada', async () => {
+    // La mitad cerrada de D-003. Si esto cae, la política de privacidad pasa a
+    // ser falsa en la frase que dice que las tipografías son propias.
+    const valor = directiva(await csp(), 'font-src');
+    const fuentes = valor.split(/\s+/).slice(1);
+    for (const fuente of fuentes) {
+      expect(new Set(["'self'", 'data:']), `font-src → ${fuente}`).toContain(fuente);
+    }
+  });
+
+  it('Carto es el único de afuera, y sólo en img-src y connect-src', async () => {
     const politica = await csp();
-    for (const nombre of DIRECTIVAS_DEL_MAPA) {
-      const valor = directiva(politica, nombre);
-      expect(valor, nombre).not.toBe('');
-      // Lo único permitido además de `'self'` son los esquemas que produce la
-      // propia app: `data:` para los SVG embebidos y `blob:` para lo que
-      // maplibre arma en memoria. Cualquier cosa con un punto es un dominio.
-      const permitidos = new Set(["'self'", 'data:', 'blob:']);
-      const fuentes = valor.split(/\s+/).slice(1);
+    for (const bruta of politica.split(';')) {
+      const [nombre = '', ...fuentes] = bruta.trim().split(/\s+/);
       for (const fuente of fuentes) {
+        if (CARTO.test(fuente)) {
+          // Que no se derrame: en `script-src` un dominio ajeno es ejecución de
+          // código, no una imagen.
+          expect(CON_CARTO, `Carto se derramó a ${nombre}`).toContain(nombre);
+          continue;
+        }
+        // Lo único permitido además de `'self'` son los esquemas que produce la
+        // propia app: `data:` para los SVG embebidos y `blob:` para lo que
+        // maplibre arma en memoria. Cualquier cosa con un punto es un dominio.
+        const permitidos = new Set(["'self'", "'none'", "'unsafe-inline'", 'data:', 'blob:']);
         expect(permitidos, `${nombre} → ${fuente}`).toContain(fuente);
       }
+    }
+  });
+
+  it('las tres directivas del mapa siguen declaradas', async () => {
+    const politica = await csp();
+    for (const nombre of DIRECTIVAS_DEL_MAPA) {
+      expect(directiva(politica, nombre), nombre).not.toBe('');
     }
   });
 

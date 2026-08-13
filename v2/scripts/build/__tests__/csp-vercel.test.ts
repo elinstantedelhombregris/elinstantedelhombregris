@@ -85,14 +85,33 @@ describe('cabeceras del documento en vercel.json', () => {
     expect(valor('Content-Security-Policy')).not.toContain('*');
   });
 
-  it('ninguna directiva nombra un host de terceros', () => {
+  it('el único host de terceros es el basemap de Carto, y sólo en dos directivas', () => {
+    // Lista blanca y no «ninguno», porque hoy hay uno: el basemap todavía sale
+    // de Carto mientras el `.pmtiles` de 1,2 GB no tenga dónde vivir (D-051).
+    // Lo que este test fija es que no aparezca un SEGUNDO, y que el permiso no
+    // se derrame a otra directiva — sobre todo a `script-src`, donde un host
+    // ajeno es ejecución de código y no una imagen.
     const permitidos = new Set(["'self'", "'none'", "'unsafe-inline'", 'data:', 'blob:']);
+    const carto = /^https:\/\/tiles(-[abcd])?\.basemaps\.cartocdn\.com$/;
+    const conCarto = new Set(['img-src', 'connect-src']);
+
     for (const bruta of valor('Content-Security-Policy').split(';')) {
       const [nombre = '', ...fuentes] = bruta.trim().split(/\s+/);
       for (const fuente of fuentes) {
+        if (carto.test(fuente)) {
+          expect(conCarto, `Carto se derramó a ${nombre}`).toContain(nombre);
+          continue;
+        }
         expect(permitidos, `${nombre} → ${fuente}`).toContain(fuente);
       }
     }
+  });
+
+  it('las tipografías no salen de ningún lado de afuera, y eso no depende de D-051', () => {
+    // La mitad de D-003 que se cerró para siempre: los glyphs del mapa y las
+    // seis familias de la interfaz salen del propio origen. Si alguien vuelve a
+    // pegar un host acá, este test cae aunque el basemap siga en Carto.
+    expect(directiva('font-src')).toBe("font-src 'self' data:");
   });
 
   it('el mapa conserva lo que necesita para dibujar', () => {
@@ -101,8 +120,10 @@ describe('cabeceras del documento en vercel.json', () => {
     expect(directiva('worker-src')).toContain('blob:');
     expect(directiva('child-src')).toContain('blob:');
     expect(directiva('img-src')).toContain('blob:');
-    // El `.pmtiles` y la API son del mismo origen: alcanza con 'self'.
-    expect(directiva('connect-src')).toBe("connect-src 'self'");
+    // maplibre pide las teselas con `fetch`, no con `<img>`: hacen falta las
+    // dos directivas. Omitir ésta deja el mapa en blanco sin error de red.
+    expect(directiva('connect-src')).toContain("'self'");
+    expect(directiva('connect-src')).toContain('https://tiles.basemaps.cartocdn.com');
   });
 
   it('trae las cabeceras que no son la CSP', () => {

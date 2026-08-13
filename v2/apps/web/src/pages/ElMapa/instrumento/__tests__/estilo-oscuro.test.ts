@@ -22,10 +22,26 @@ import { describe, expect, it } from 'vitest';
 import type { StyleSpecification } from 'maplibre-gl';
 
 const RAIZ_WEB = resolve(dirname(fileURLToPath(import.meta.url)), '../../../../..');
-const RUTA_ESTILO = resolve(RAIZ_WEB, 'public/maps/oscuro.json');
 const DIR_FUENTES = resolve(RAIZ_WEB, 'public/fonts');
 
-const estilo = JSON.parse(readFileSync(RUTA_ESTILO, 'utf8')) as StyleSpecification;
+const leer = (nombre: string): StyleSpecification =>
+  JSON.parse(readFileSync(resolve(RAIZ_WEB, `public/maps/${nombre}`), 'utf8')) as StyleSpecification;
+
+/**
+ * Hay DOS estilos y conviene saber por qué antes de tocar cualquiera de los dos.
+ *
+ * `oscuro.json` es el que se publica hoy: glyphs propios, y las teselas todavía
+ * de Carto. `oscuro-propio.json` es el de teselas propias —66 capas contra el
+ * esquema de Protomaps— y está listo y sin usar, esperando dónde vive el
+ * archivo de 1,2 GB (D-051). No son versiones del mismo archivo: apuntan a
+ * esquemas de teselas distintos, así que las capas de uno no sirven en el otro.
+ *
+ * El día que D-051 se cierre, `oscuro-propio.json` pasa a ser `oscuro.json` y
+ * los dos `describe` de abajo se funden en uno. Hasta entonces los dos se
+ * verifican, porque el que no se publica se pudre en silencio si nadie lo mira.
+ */
+const estilo = leer('oscuro.json');
+const estiloPropio = leer('oscuro-propio.json');
 
 /**
  * Todas las familias que alguna capa nombra en `text-font`, a cualquier
@@ -60,22 +76,63 @@ function familiasPedidas(nodo: unknown, encontradas = new Set<string>()): Set<st
   return encontradas;
 }
 
+/** La atribución son enlaces de licencia que el usuario clickea: no los pide el
+ *  navegador al dibujar, y sacarlos sería incumplir la ODbL. */
+const sinAtribucion = (e: StyleSpecification): string =>
+  JSON.stringify(e, (clave, valor: unknown) => (clave === 'attribution' ? undefined : valor));
+
+/** Los cinco subdominios del basemap de Carto, la única excepción declarada. */
+const CARTO = /^https:\/\/tiles(-[abcd])?\.basemaps\.cartocdn\.com\//;
+
 describe('estilo oscuro del mapa', () => {
-  it('no le pide nada a ningún host de afuera', () => {
-    // La atribución son enlaces de licencia que el usuario clickea: no los pide
-    // el navegador al dibujar el mapa, y sacarlos sería incumplir la ODbL.
-    const sinAtribucion = JSON.stringify(estilo, (clave, valor: unknown) =>
-      clave === 'attribution' ? undefined : valor,
-    );
-    expect(sinAtribucion).not.toMatch(/https?:\/\//);
+  it('el ÚNICO host de afuera es el basemap de Carto, y se va con D-051', () => {
+    // Escrito por lista blanca y no por «no hay ninguno», porque hoy hay uno y
+    // negarlo sería un test que miente. Lo que fija es lo que importa: que no
+    // aparezca un SEGUNDO. El día que las teselas tengan domicilio, la lista
+    // queda vacía y este test pasa a ser el de `oscuro-propio.json`.
+    const urls = sinAtribucion(estilo).match(/https?:\/\/[^"']+/g) ?? [];
+    for (const url of urls) {
+      expect(url, `apareció un host ajeno nuevo en oscuro.json: ${url}`).toMatch(CARTO);
+    }
   });
 
   it('los glyphs salen del propio origen', () => {
     expect(estilo.glyphs).toBe('/fonts/{fontstack}/{range}.pbf');
   });
 
+  it('cada capa apunta a una fuente declarada', () => {
+    const declaradas = new Set(Object.keys(estilo.sources));
+    for (const capa of estilo.layers) {
+      if (capa.type === 'background') continue;
+      expect(declaradas, capa.id).toContain((capa as { source: string }).source);
+    }
+  });
+
+  it('cada familia tipográfica que pide está servida desde public/fonts', () => {
+    const enDisco = new Set(
+      readdirSync(DIR_FUENTES, { withFileTypes: true })
+        .filter((e) => e.isDirectory())
+        .map((e) => e.name),
+    );
+    const pedidas = familiasPedidas(estilo.layers);
+    expect(pedidas.size).toBeGreaterThan(0);
+    for (const familia of pedidas) {
+      expect(enDisco, `el estilo pide «${familia}» y no está en public/fonts/`).toContain(familia);
+    }
+  });
+});
+
+describe('estilo de teselas propias (oscuro-propio.json, esperando D-051)', () => {
+  it('no le pide nada a ningún host de afuera', () => {
+    expect(sinAtribucion(estiloPropio)).not.toMatch(/https?:\/\//);
+  });
+
+  it('los glyphs salen del propio origen', () => {
+    expect(estiloPropio.glyphs).toBe('/fonts/{fontstack}/{range}.pbf');
+  });
+
   it('las teselas son un archivo pmtiles de este origen', () => {
-    const fuentes = Object.values(estilo.sources);
+    const fuentes = Object.values(estiloPropio.sources);
     expect(fuentes).toHaveLength(1);
     for (const fuente of fuentes) {
       expect(fuente).toMatchObject({ type: 'vector' });
@@ -98,8 +155,8 @@ describe('estilo oscuro del mapa', () => {
     // sin romper nada. Ver D-050 — esto lo tapa, no lo cierra: lo que queda del
     // otro lado de un límite TERRESTRE se lee como mar, y eso se arregla
     // re-extrayendo con buffer, no acá.
-    const fondo = estilo.layers.find((capa) => capa.type === 'background');
-    const agua = estilo.layers.find((capa) => capa.id === 'water');
+    const fondo = estiloPropio.layers.find((capa) => capa.type === 'background');
+    const agua = estiloPropio.layers.find((capa) => capa.id === 'water');
     expect(fondo, 'el estilo perdió su capa background').toBeDefined();
     expect(agua, 'el estilo perdió su capa water').toBeDefined();
 

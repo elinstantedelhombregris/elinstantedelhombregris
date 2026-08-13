@@ -23,10 +23,10 @@ import type { StyleSpecification } from '@maplibre/maplibre-gl-style-spec';
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const estilo = JSON.parse(
-  readFileSync(resolve(RAIZ, 'apps/web/public/maps/oscuro.json'), 'utf8'),
+  readFileSync(resolve(RAIZ, 'apps/web/public/maps/oscuro-propio.json'), 'utf8'),
 ) as StyleSpecification;
 
-describe('apps/web/public/maps/oscuro.json', () => {
+describe('apps/web/public/maps/oscuro-propio.json', () => {
   it('valida contra la spec de maplibre', () => {
     const errores = validateStyleMin(estilo).map((e) => e.message);
     expect(errores).toEqual([]);

@@ -93,3 +93,4 @@ apps/api/dist-bundle/
 # recortando el planet de Protomaps. Se regeneran con un comando; meterlas en git
 # es irreversible. El script es la fuente de verdad, no el archivo.
 apps/web/public/tiles/
+apps/web/tiles-local/

@@ -41,15 +41,44 @@ export type FuentesCsp = readonly string[];
 export type DirectivasCsp = Readonly<Record<string, FuentesCsp>>;
 
 /**
- * La política entera. **Ningún host de terceros, y ése es el punto**: cada
- * dominio ajeno en `img-src`, `connect-src` o `font-src` es la dirección IP de
- * cada persona que abre la página, entregada a alguien más, encima sobre una
- * pantalla donde se miran señales políticas. Si estás por agregar uno, empaquetá
- * el recurso: así están servidos `/maps/`, `/fonts/`, `/fonts-ui/` y `/tiles/`.
+ * La política entera. La regla es que **ningún host de terceros entre acá**:
+ * cada dominio ajeno en `img-src`, `connect-src` o `font-src` es la dirección
+ * IP de cada persona que abre la página, entregada a alguien más, encima sobre
+ * una pantalla donde se miran señales políticas. Si estás por agregar uno,
+ * empaquetá el recurso: así están servidos `/maps/`, `/fonts/` y `/fonts-ui/`.
+ *
+ * **Hoy la regla tiene una excepción, y está declarada porque tiene fecha de
+ * vencimiento.** El basemap todavía sale de Carto. Las teselas propias están
+ * generadas —1,2 GB de Protomaps a z15, con su estilo listo en
+ * `/maps/oscuro-propio.json`— y lo único que falta es dónde vive el archivo:
+ * no entra en el artefacto de Vercel. Es D-051. El día que tenga domicilio,
+ * `CARTO_TESELAS` se borra de acá y de `oscuro.json`, y esta directiva vuelve
+ * a `'self'` sin tocar nada más.
+ *
+ * Lo que sí se cerró y no vuelve: los glyphs del mapa (D-003) y las seis
+ * familias de la interfaz (D-049) salen del propio origen. `font-src` no tiene
+ * un solo host ajeno y ésa es la mitad que no depende de ninguna decisión de
+ * infraestructura.
  *
  * El orden de las claves es el orden en que salen en el header. Se mantiene
  * estable para que el diff de `vercel.json` sea legible.
  */
+
+/**
+ * Los cinco hosts del basemap de Carto. Son cinco y no uno porque el TileJSON
+ * reparte las teselas entre subdominios; excluir uno deja huecos en el mapa que
+ * aparecen sólo a ciertos zooms, que es la peor forma de descubrirlo.
+ *
+ * TEMPORAL — ver D-051. No agregues nada a esta lista: si hace falta otro host,
+ * es señal de que el basemap cambió de proveedor y la decisión es otra.
+ */
+const CARTO_TESELAS: readonly string[] = [
+  'https://tiles.basemaps.cartocdn.com',
+  'https://tiles-a.basemaps.cartocdn.com',
+  'https://tiles-b.basemaps.cartocdn.com',
+  'https://tiles-c.basemaps.cartocdn.com',
+  'https://tiles-d.basemaps.cartocdn.com',
+];
 export const CSP: DirectivasCsp = {
   // Todo lo que no tenga directiva propia sale de este origen y de ninguno más.
   'default-src': ["'self'"],
@@ -72,17 +101,21 @@ export const CSP: DirectivasCsp = {
   'style-src': ["'self'", "'unsafe-inline'"],
 
   // `data:` por los SVG embebidos; `blob:` porque maplibre arma texturas y
-  // sprites en memoria y se los pasa al canvas como blob.
-  'img-src': ["'self'", 'data:', 'blob:'],
+  // sprites en memoria y se los pasa al canvas como blob. Carto es la excepción
+  // declarada de arriba: las teselas del basemap todavía salen de ahí (D-051).
+  'img-src': ["'self'", 'data:', 'blob:', ...CARTO_TESELAS],
 
   // Las seis familias de la interfaz salen de `/fonts-ui/` y los glyphs del
   // mapa de `/fonts/` desde D-049 y D-003. `data:` queda por las fuentes que
   // alguna librería pueda embeber en su propio CSS.
   'font-src': ["'self'", 'data:'],
 
-  // La API es del mismo origen (`/api/*`), y el `.pmtiles` también: el mapa no
-  // llama a un servidor de teselas, pide rangos de bytes de un archivo nuestro.
-  'connect-src': ["'self'"],
+  // La API es del mismo origen (`/api/*`). Carto entra por las teselas del
+  // basemap, que maplibre pide con `fetch` y no con `<img>`: hacen falta las
+  // dos directivas, y omitir ésta deja el mapa en blanco sin un error de red
+  // que mirar — sólo una violación de CSP en consola. Es la excepción de
+  // arriba, y se va con D-051.
+  'connect-src': ["'self'", ...CARTO_TESELAS],
 
   // maplibre arma su worker desde un `blob:` (así lo empaqueta la librería).
   'worker-src': ["'self'", 'blob:'],
