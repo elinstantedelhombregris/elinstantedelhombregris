@@ -3,7 +3,7 @@
 **Fecha:** 2026-08-12
 **Alcance:** `packages/civic-core` (grafo, núcleos, φ) · `packages/db` (columna de vector, repositorio, migración `0020`) · `scripts/` (el job de embebido) · `apps/web` (la página y su entrada en `PAPEL_ROUTES`; la ruta exacta es la pregunta 4 de §13) · `docs/adr` (dos ADR)
 **Documento vinculante:** `apps/mobile/docs/PRODUCT_CONSTITUTION.md` — reglas 2, 5, 6, 7, 11, y las cuatro superficies
-**Migración:** `0020`. **Ordinales de `docs/DEUDAS.md`:** desde `D-047` (A reservó D-034/D-035 · B D-036 a D-040 · C D-041 a D-043 · D D-044 a D-046)
+**Migración:** `0020`. **Ordinales de `docs/DEUDAS.md`:** desde **`D-061`**. *(Corregido el 13/8: esta línea decía «desde D-047» leyendo la reserva del plan de las cuatro specs. Esa reserva no se usó —D-034 a D-044 nunca se escribieron— y el archivo avanzó por otro lado: **D-045 a D-060 ya están ocupados** por el canal de escucha, el basemap, la CSP, las tipografías, los entrenamientos y los crons. Escribir D-047 hoy pisaría la entrada del basemap.)*
 **Se apoya en:** `docs/specs/2026-08-11-b-la-senal.md` (§2.1 el vocabulario de nueve tipos en cuatro clases, §2.4 el color codifica la clase, §3.2 `actores`, la tabla `adhesiones`) · `docs/specs/2026-08-11-c-la-corroboracion.md` (§2.9 `CeldaPublicada`) · `docs/specs/2026-08-11-d-el-registro-publico.md` (§2.5 el volcado periódico, §2.7 `FilaPublicable`, §2.8 las dos licencias, §4.3.2 el cursor) · `docs/specs/2026-08-02-el-vacio-como-pieza.md` (V2, V3, V4) · `docs/specs/2026-08-01-el-mapa-simulacion.md` (§3 el contrato epistémico) · `v2/CLAUDE.md` (dependencias pesadas requieren ADR)
 **Naturaleza:** spec de producto y de datos. Necesita plan de implementación antes de tocar código.
 
