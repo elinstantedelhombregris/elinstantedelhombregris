@@ -151,7 +151,11 @@ export const lessonFrontmatterSchema = z.object({
   title: z.string().min(1).max(200),
   summary: z.string().max(500).optional(),
   orderIndex: z.number().int().nonnegative(),
-  estimatedMinutes: z.number().int().positive().optional(),
+  /**
+   * No hay minutaje acá: vive sólo en `course.json`, calculado del cuerpo por
+   * `entrenamientos:minutaje` (deuda D-053). Duplicarlo fue lo que lo dejó
+   * mentir tres años.
+   */
   draft: z.boolean().default(false),
 });
 export type LessonFrontmatter = z.infer<typeof lessonFrontmatterSchema>;

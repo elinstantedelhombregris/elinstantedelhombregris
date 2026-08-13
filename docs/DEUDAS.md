@@ -60,7 +60,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) | El borde del recorte de teselas se ve en el agua | Baja | Abierta |
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
 | [D-052](#d-052--el-37-del-corpus-de-entrenamientos-es-texto-generado-y-repetido) | El 37% del corpus de entrenamientos es texto generado y repetido | Alta | Abierta |
-| [D-053](#d-053--el-catálogo-anuncia-53-horas-de-entrenamiento-y-hay-14) | El catálogo anuncia 53 horas de entrenamiento y hay 14 | Alta | Abierta |
+| [D-053](#d-053--el-catálogo-anunciaba-53-horas-de-entrenamiento-y-se-lee-en-16--resuelta) | El catálogo anunciaba 53 horas de entrenamiento y se lee en 16 | Alta | **Resuelta** |
 | [D-054](#d-054--la-mitad-de-las-lecciones-está-escrita-en-tuteo-y-no-en-rioplatense) | La mitad de las lecciones está escrita en tuteo, y no en rioplatense | Media | **Parcial** |
 | [D-055](#d-055--contentfile-no-resuelve-en-ninguna-de-las-329-lecciones-y-el-schema-lo-exige) | `contentFile` no resuelve en ninguna de las 329 lecciones, y el schema lo exige | Media | Abierta |
 | [D-056](#d-056--ninguna-lección-cita-una-fuente-ni-nombra-un-plan) | Ninguna lección cita una fuente ni nombra un PLAN | Alta | Abierta |
@@ -1015,20 +1015,24 @@ Y el corte tuvo una consecuencia editorial en esas mismas 7: **promovió el rell
 
 **Qué haría falta:** el borrado está especificado en `v2/docs/specs/2026-08-12-entrenamientos-ciclo-1-el-cuerpo.md`, con la parte delicada resuelta: hay 168 encabezados escritos por el autor con nombres parecidos (`Ejercicio: Mapear Bucles`, `Errores Comunes en el Diseño`) y algunas de esas secciones son lo mejor que tiene el corpus, así que el corte se ancla en tres condiciones simultáneas y lo que no las cumple va a revisión manual.
 
-### D-053 · El catálogo anuncia 53 horas de entrenamiento y hay 14
+### D-053 · El catálogo anunciaba 53 horas de entrenamiento y se lee en 16 — RESUELTA
 
 **Dónde:** `v2/content/courses/*/course.json` (`duration`), servido por `apps/web/src/lib/courses-registry.ts` a `/entrenamientos`
 **Encontrada:** 2026-08-12, comparando `duration` contra el largo real de los cuerpos
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** **resuelta** el 2026-08-13 (Tarea 6 del Ciclo 1) — con una reserva, abajo
 
-La suma de `duration` de los 31 cursos da **3.163 minutos: 53 horas**. El texto propio del corpus, a la velocidad de lectura que el propio proyecto usa en blog y ensayos (`words / 220`), se lee en **957 minutos: 15,9 horas**. La cifra está inflada **3,3 veces**, y es un número que la página muestra.
+La suma de `duration` de los 31 cursos daba **3.163 minutos: 53 horas**. El texto propio del corpus, a la velocidad de lectura que el propio proyecto usa en blog y ensayos (`words / 220`), se lee en **957 minutos: 15,9 horas**. La cifra estaba inflada **3,3 veces**, y era un número que la página mostraba.
 
-El caso típico: **185 lecciones declaran 9 minutos** y su mediana es de 344 palabras propias — **1,6 minutos** de lectura. Las 38 que declaran 8 minutos tienen 247 palabras: 1,1 minutos.
+El caso típico: **185 lecciones declaraban 9 minutos** y su mediana era de 344 palabras propias — **1,6 minutos** de lectura. Las 38 que declaraban 8 minutos tenían 247 palabras: 1,1 minutos.
 
-Es el caso de libro de dato inventado en pantalla, y el más visible que tiene v2 hoy. El agravante no es que el número esté mal calculado: **185 lecciones declaran el mismo valor**, así que nunca se calculó.
+Era el caso de libro de dato inventado en pantalla, y el más visible que tenía v2. El agravante no era que el número estuviera mal calculado: **185 lecciones declaraban el mismo valor**, así que nunca se calculó.
 
-**Qué haría falta:** una sola sede para el minutaje (`course.json`, que es lo que el registry lee), calculado del cuerpo con la función del proyecto extraída a `@v2/shared`, y una guardia que lo recalcule en el build. `estimatedMinutes` sale del frontmatter de las 329 lecciones: hoy el número vive dos veces y nadie los compara. Especificado en el Ciclo 1, Decisión 3.
+**Cómo se resolvió.** `pnpm entrenamientos:minutaje` recalcula el `duration` de cada lección desde su cuerpo con `minutosDeLectura(contarPalabrasRenderizables(cuerpo))` —la velocidad del proyecto, `Math.max(1, Math.ceil(palabras / 220))`, por lección y sumada, nunca como división global— y reescribe `course.duration` como la suma de sus lecciones. Los 31 `course.json` pasaron de **3.163 minutos a 957**. `estimatedMinutes` salió del frontmatter de las 329 lecciones y del `lessonFrontmatterSchema`: el número vivía dos veces y ninguna de las dos era la sede.
+
+Verificado en pantalla, que es lo único que demuestra que cambió lo que ve una persona: `accion-comunitaria` pasó de 82 minutos a 31, y la primera lección, que declaraba 9, ahora dice **3 MIN** en el navegador. Verificado también que el cambio es cirujano: los 329 `.mdx` son el archivo viejo menos exactamente la línea `estimatedMinutes`, byte a byte, y los 31 `course.json` difieren sólo en líneas `"duration"`. El corte de [D-052](#d-052--el-37-del-corpus-de-entrenamientos-es-texto-generado-y-repetido) no se tocó.
+
+**La reserva, y es real.** `lessonFrontmatterSchema` es un `z.object` plano, no `.strict()`, así que Zod descarta las claves desconocidas en silencio: quien vuelva a escribir `estimatedMinutes` mañana no recibe ningún error, se lo ignora. Y nada impide editar un `duration` a mano en `course.json`. Lo que mantiene esto cerrado no es el schema: es la guardia que recalcula en el build, y esa se construye en la Tarea 12 del Ciclo 1. Hasta que exista, esta deuda está resuelta pero no protegida.
 
 ### D-054 · La mitad de las lecciones está escrita en tuteo, y no en rioplatense
 

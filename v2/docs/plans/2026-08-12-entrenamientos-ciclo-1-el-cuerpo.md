@@ -1237,6 +1237,16 @@ git commit -m "fix(v2): mueren las 106.893 palabras de relleno generado en los e
 - Consumes: `contarPalabrasRenderizables`, `minutosDeLectura`.
 - Produces: `recalcularMinutaje(raiz: string, opciones?: { escribir?: boolean }): { curso: string; leccion: string; antes: number; ahora: number }[]`.
 
+**Medido el 2026-08-13, después del corte de la Tarea 5, sobre el árbol exacto donde va a correr esto:** 329 lecciones, los 329 slugs resuelven (`derivarSlugDeLeccion` se exporta desde `packages/shared/src/content/courses.ts:127`, no desde `slug.ts`), **3.163 minutos declarados** en los `course.json` —y la suma de los `course.duration` da exactamente lo mismo, así que el índice es internamente consistente— contra **957 minutos reales**. Factor de inflación **3,31×**. Después del recálculo quedan 8 lecciones de 329 en un minuto.
+
+**Tres cosas verificadas que sacan riesgo de encima:**
+
+1. **Los 31 `course.json` sobreviven el round-trip byte a byte.** `JSON.stringify(JSON.parse(raw), null, 2) + '\n'` devuelve los 31 archivos idénticos al original. O sea: el diff de este commit va a ser sólo los números de minutos. Si el diff de algún `course.json` muestra un reformateo, cambió otra cosa y hay que parar.
+2. **`lessonFrontmatterSchema` es un `z.object` plano, no `.strict()`**, así que Zod **descarta** las claves desconocidas en silencio. Sacar `estimatedMinutes` del schema no puede romper el build ni aunque quedara en un archivo. El corolario incómodo: el schema tampoco lo *prohíbe* — quien lo vuelva a escribir no recibe error, sólo se le ignora. Lo que lo prohíbe de verdad es la guardia de la Tarea 12, y la Tarea 11 ya trae el test de este comportamiento (`rechaza estimatedMinutes: el minutaje vive en course.json`, que afirma que la clave no sobrevive al `parse`). No lo dupliques.
+3. **`estimatedMinutes` no lo lee nadie en `apps/`** (grep sobre `apps/api/src` y `apps/web/src`: cero). Los 329 `.mdx` lo declaran y nadie lo consume.
+
+**FUERA DE ALCANCE, y es una trampa para quien grepee el nombre:** `estimatedMinutes` existe además como **columna de base de datos** en `packages/db/src/schema/courses.ts:64` y `packages/db/src/schema/life-areas.ts:199` (`integer('estimated_minutes')`). No se toca ninguna de las dos. Son otra cosa —la tabla de cursos y la de áreas de vida—, y borrarlas pediría una migración. Esta tarea saca un campo de Zod del frontmatter, nada más.
+
 - [ ] **Step 1: Write the script**
 
 ```ts
@@ -1314,12 +1324,14 @@ Agregar a `package.json`: `"entrenamientos:minutaje": "tsx scripts/content/entre
 - [ ] **Step 2: Simulacro primero**
 
 Run: `pnpm entrenamientos:minutaje`
-Expected: `simulacro: 3163 min declarados → ~957 min reales (329 lecciones)`.
+Expected, exacto: `simulacro: 3163 min declarados → 957 min reales (329 lecciones)`.
+
+**Si los dos números no dan exactos, pará y reportá antes de escribir nada.** Se midieron el 2026-08-13 sobre este mismo árbol con las mismas funciones que usa el script. El simulacro existe justamente para que una diferencia se vea antes de tocar 360 archivos.
 
 - [ ] **Step 3: Escribir**
 
 Run: `pnpm entrenamientos:minutaje --escribir`
-Expected: `escrito: 3163 min declarados → ~957 min reales (329 lecciones)`.
+Expected: `escrito: 3163 min declarados → 957 min reales (329 lecciones)`.
 
 - [ ] **Step 4: Sacar `estimatedMinutes` del schema**
 
@@ -1341,15 +1353,20 @@ En `packages/shared/src/content/frontmatter.ts`, en `lessonFrontmatterSchema`, b
 Run: `pnpm test:unit`
 Expected: PASS.
 
-- [ ] **Step 6: Verificar en pantalla**
+- [ ] **Step 6: Verificar en pantalla — lo hace el orquestador**
 
-Run: `pnpm dev` y abrir `/entrenamientos`; después una lección.
+`pnpm dev` y abrir `/entrenamientos`, después una lección.
 Expected: el catálogo ya no suma 53 h; `EntrenamientoDetail.tsx:99` y `LeccionDetail.tsx:148` muestran minutos de un dígito en la mayoría de las lecciones.
 
-- [ ] **Step 7: Commit**
+Este paso lo hace el orquestador con el panel del navegador, no el agente. Es la única verificación que demuestra que cambió el número que ve una persona, y el resto de la tarea se puede dar por buena sin ella y estar mal igual: `course.json` es la sede del dato, pero lo que importa es lo que dibuja la página.
+
+- [ ] **Step 7: Commit — lo hace el orquestador, no el agente**
+
+Las rutas, para stagear explícitas. `package.json` va por hunk.
 
 ```bash
-git add v2/scripts/content/entrenamientos-minutaje.ts v2/packages/shared/src/content/frontmatter.ts v2/content/courses v2/package.json v2/apps/web/src/lib/__tests__/courses-registry.test.ts
+git add v2/scripts/content/entrenamientos-minutaje.ts v2/packages/shared/src/content/frontmatter.ts v2/content/courses v2/apps/web/src/lib/__tests__/courses-registry.test.ts
+git add -p v2/package.json
 git commit -m "fix(v2): el minutaje de los entrenamientos se calcula, no se declara (D-053)"
 ```
 

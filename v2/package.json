@@ -35,6 +35,7 @@
     "entrenamientos:reporte": "tsx scripts/content/entrenamientos-reporte.ts",
     "entrenamientos:voseo": "tsx scripts/content/entrenamientos-voseo.ts",
     "entrenamientos:borrar-cola": "tsx scripts/content/entrenamientos-borrar-cola.ts",
+    "entrenamientos:minutaje": "tsx scripts/content/entrenamientos-minutaje.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
     "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",
     "simulacion:calibrar": "tsx scripts/simulacion/calibrar.ts",
