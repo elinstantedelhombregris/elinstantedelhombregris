@@ -26,5 +26,17 @@
     "path": "apps/web/dist/assets/plans-registry-*.js",
     "limit": "20 KB",
     "gzip": true
+  },
+  {
+    "name": "La Simulación page chunk (gzipped)",
+    "path": "apps/web/dist/assets/LaSimulacion-*.js",
+    "limit": "30 KB",
+    "gzip": true
+  },
+  {
+    "name": "barrido worker (gzipped)",
+    "path": "apps/web/dist/assets/barrido.worker-*.js",
+    "limit": "25 KB",
+    "gzip": true
   }
 ]
