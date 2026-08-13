@@ -28,6 +28,8 @@ import { existsSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+import { minutosDeLectura } from '@v2/shared';
+
 import { BLOG_SOURCES, type BlogSource } from './blog-sources.js';
 import { htmlToMarkdown } from './html-to-md.js';
 
@@ -68,7 +70,7 @@ function estimateReadingMinutes(body: string): number {
     .trim()
     .split(/\s+/)
     .filter((w) => w.length > 0).length;
-  return Math.max(1, Math.ceil(words / 220));
+  return minutosDeLectura(words);
 }
 
 function yamlEscape(s: string): string {

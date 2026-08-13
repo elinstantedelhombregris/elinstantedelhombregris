@@ -10,6 +10,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { minutosDeLectura } from '@v2/shared';
+
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const V2_ROOT = resolve(SCRIPT_DIR, '../..');
 const REPO_ROOT = resolve(V2_ROOT, '..');
@@ -248,7 +250,7 @@ function readSource(srcRelative: string): { title: string; subtitle: string; bod
 
 function estimateReadingMinutes(body: string): number {
   const words = body.trim().split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / 220));
+  return minutosDeLectura(words);
 }
 
 function yamlEscape(s: string): string {
