@@ -111,7 +111,37 @@ const { fondo, agua, verde, suelo, edificio, calle, ruta, etiqueta, etiquetaAlta
  * borra más abajo.
  */
 const TEMA: Theme = {
-  background: fondo,
+  /**
+   * **El fondo va del color del AGUA, no del de la tinta** (D-050).
+   *
+   * La capa `background` es la única del estilo que pinta el lienzo entero,
+   * tenga tesela o no: es lo que se ve donde el `.pmtiles` no llega. Y como el
+   * archivo está recortado a las 24 provincias, ese «donde no llega» existe en
+   * casi todos los encuadres.
+   *
+   * Cuando iba en `fondo` —el color de la tierra— el mar terminaba en una LÍNEA
+   * RECTA y del otro lado seguía en color de tierra. Medido en el navegador: a
+   * z3,7, la vista con la que abre la app, el 18,8% del lienzo era tinta puesta
+   * sobre el Atlántico y el Pacífico, partida en dos costuras verticales; a z10
+   * sobre Mar del Plata había un tajo vertical en el medio del océano.
+   * En agua eso es 0%: el mar se lee como mar hasta el borde del encuadre.
+   *
+   * **Lo que se paga, dicho:** el país vecino sin teselas ahora se lee como mar
+   * en vez de como tierra vacía. Se nota de z8 para arriba pegado a un límite
+   * terrestre —Chile, Brasil, Bolivia— y en un encuadre que cae entero afuera,
+   * como Montevideo a z11. Se elige igual porque el reparto no es parejo: el
+   * hueco marítimo aparece en la vista por defecto y en toda la costa, que es
+   * donde vive la mayor parte del país, mientras que el hueco terrestre aparece
+   * a zoom alto y en un encuadre que YA está vacío de datos —sin calles, sin
+   * etiquetas— o sea donde el mapa ya avisó que se terminó.
+   *
+   * **Esto no cierra D-050, y no puede.** Un color plano no sabe qué hay del
+   * otro lado del recorte; cualquiera que se elija miente en algún encuadre. El
+   * arreglo de verdad es re-extraer con un buffer alrededor de la región, y esa
+   * es una decisión sobre cuánto país ajeno se paga en MB — del dueño, no del
+   * estilo.
+   */
+  background: agua,
   earth: fondo,
   water: agua,
 
@@ -258,6 +288,8 @@ async function main(): Promise<void> {
         'El basemap se corre del camino. Fondo tinta, geografía en grises tenues, cero saturación: los únicos colores del mapa son los de las señales que van encima. La paleta son los tokens `oscuro-*` y `tinta` de tailwind.config.ts, más tres valores heredados del estilo escrito a mano (#0E0C08 agua, #1D1A14 verde, #1F1C15 suelo) que no son tokens y quedan declarados como lo que son.',
       apagado:
         'POIs, comercios y numeración de casas. Son ruido de mapa de navegación; este es un mapa cívico. Las huellas de edificio SÍ se dibujan de z14 para arriba, y a z15 se leen: la trama de manzanas dice algo cívico, se ve la cuadra. Es lo que hace que el zoom máximo del archivo de teselas signifique algo.',
+      fondo:
+        'La capa `background` va del color del AGUA (#0E0C08) y no del de la tierra. Es la única que pinta donde el .pmtiles no llega, y el archivo está recortado a las 24 provincias: en tinta, el mar terminaba en una línea recta y seguía en color de tierra —el 18,8% del lienzo en la vista por defecto—. Lo que se paga es que el país vecino sin teselas se lee como mar de z8 para arriba. Un color plano no sabe qué hay del otro lado del recorte; el arreglo de verdad es re-extraer con buffer (D-050).',
       atribucion: '© OpenStreetMap contributors, Protomaps',
       generado:
         'Este archivo lo escribe `scripts/build/mapa/generar-estilo.ts` (pnpm mapa:estilo). No lo edites a mano: la próxima corrida te lo pisa. El color, lo que se apaga y la tipografía se cambian en el script.',

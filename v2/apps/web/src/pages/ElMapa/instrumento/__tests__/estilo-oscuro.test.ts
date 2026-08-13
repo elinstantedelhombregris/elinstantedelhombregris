@@ -84,6 +84,33 @@ describe('estilo oscuro del mapa', () => {
     }
   });
 
+  it('el fondo es del color del agua, que es lo que tapa el borde del recorte', () => {
+    // El `.pmtiles` está recortado a las 24 provincias, así que en casi todo
+    // encuadre hay lienzo sin tesela, y ahí sólo pinta la capa `background`.
+    // Mientras fue del color de la tierra, el mar terminaba en una línea recta
+    // y del otro lado seguía en color de tierra: medido, el 18,8% del lienzo en
+    // la vista con la que abre la app, y un tajo vertical en el Atlántico a la
+    // altura de Mar del Plata.
+    //
+    // La invariante no es «el fondo es #0E0C08» sino «el fondo es EL MISMO que
+    // el agua»: el día que la paleta cambie el color del agua, este test pide
+    // que el fondo la siga. Escrito contra el valor a secas, la costura volvería
+    // sin romper nada. Ver D-050 — esto lo tapa, no lo cierra: lo que queda del
+    // otro lado de un límite TERRESTRE se lee como mar, y eso se arregla
+    // re-extrayendo con buffer, no acá.
+    const fondo = estilo.layers.find((capa) => capa.type === 'background');
+    const agua = estilo.layers.find((capa) => capa.id === 'water');
+    expect(fondo, 'el estilo perdió su capa background').toBeDefined();
+    expect(agua, 'el estilo perdió su capa water').toBeDefined();
+
+    const colorDelFondo = (fondo as { paint?: Record<string, unknown> }).paint?.[
+      'background-color'
+    ];
+    const colorDelAgua = (agua as { paint?: Record<string, unknown> }).paint?.['fill-color'];
+    expect(typeof colorDelAgua).toBe('string');
+    expect(colorDelFondo).toBe(colorDelAgua);
+  });
+
   it('cada capa apunta a una fuente declarada', () => {
     const declaradas = new Set(Object.keys(estilo.sources));
     for (const capa of estilo.layers) {

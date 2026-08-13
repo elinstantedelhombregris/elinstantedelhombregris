@@ -4,6 +4,7 @@
   "metadata": {
     "criterio": "El basemap se corre del camino. Fondo tinta, geografía en grises tenues, cero saturación: los únicos colores del mapa son los de las señales que van encima. La paleta son los tokens `oscuro-*` y `tinta` de tailwind.config.ts, más tres valores heredados del estilo escrito a mano (#0E0C08 agua, #1D1A14 verde, #1F1C15 suelo) que no son tokens y quedan declarados como lo que son.",
     "apagado": "POIs, comercios y numeración de casas. Son ruido de mapa de navegación; este es un mapa cívico. Las huellas de edificio SÍ se dibujan de z14 para arriba, y a z15 se leen: la trama de manzanas dice algo cívico, se ve la cuadra. Es lo que hace que el zoom máximo del archivo de teselas signifique algo.",
+    "fondo": "La capa `background` va del color del AGUA (#0E0C08) y no del de la tierra. Es la única que pinta donde el .pmtiles no llega, y el archivo está recortado a las 24 provincias: en tinta, el mar terminaba en una línea recta y seguía en color de tierra —el 18,8% del lienzo en la vista por defecto—. Lo que se paga es que el país vecino sin teselas se lee como mar de z8 para arriba. Un color plano no sabe qué hay del otro lado del recorte; el arreglo de verdad es re-extraer con buffer (D-050).",
     "atribucion": "© OpenStreetMap contributors, Protomaps",
     "generado": "Este archivo lo escribe `scripts/build/mapa/generar-estilo.ts` (pnpm mapa:estilo). No lo edites a mano: la próxima corrida te lo pisa. El color, lo que se apaga y la tipografía se cambian en el script."
   },
@@ -16,7 +17,7 @@
     }
   },
   "layers": [
-    { "id": "background", "type": "background", "paint": { "background-color": "#16130E" } },
+    { "id": "background", "type": "background", "paint": { "background-color": "#0E0C08" } },
     {
       "id": "earth",
       "type": "fill",

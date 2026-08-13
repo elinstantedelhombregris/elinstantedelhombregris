@@ -61,6 +61,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
 | [D-057](#d-057--la-política-de-privacidad-espera-tres-datos-que-sólo-puede-dar-el-dueño) | La política de privacidad espera tres datos que sólo puede dar el dueño | Media | Abierta |
 | [D-058](#d-058--un-cron-que-falla-no-le-avisa-a-nadie-y-ahora-uno-de-ellos-sostiene-una-promesa-legal) | Un cron que falla no le avisa a nadie, y ahora uno de ellos sostiene una promesa legal | Media | Abierta |
+| [D-060](#d-060--la-suite-de-integración-de-la-api-no-la-linta-nadie) | La suite de integración de la API no la linta nadie | Baja | Abierta |
 
 ---
 
@@ -958,13 +959,23 @@ Es la misma deficiencia que D-003 y es más grande, porque D-003 vivía en una p
 **Dónde:** `v2/apps/web/public/tiles/argentina.pmtiles`, recorte definido en `v2/scripts/build/mapa/extraer-teselas.ts`
 **Encontrada:** 2026-08-12, al repintar el estilo (Task 5 del plan de teselas propias)
 **Severidad:** baja
-**Estado:** abierta
+**Estado:** abierta — el borde marítimo tapado desde el estilo el 13/8/2026; el terrestre sigue
 
-El archivo se recortó exactamente con las 24 provincias de `apps/web/public/geo/provincias.geojson`. Fuera de ese contorno no hay tesela, y donde no hay tesela no se dibuja nada: el agua exterior queda del color del **fondo** en vez del color del **agua**, con un borde rectangular duro en el límite de la columna de teselas.
+El archivo se recortó exactamente con las 24 provincias de `apps/web/public/geo/provincias.geojson`. Fuera de ese contorno no hay tesela, y donde no hay tesela sólo pinta la capa `background` del estilo, que es la única que cubre el lienzo entero. Mientras esa capa fue del color de la **tierra**, el mar terminaba en una línea recta y del otro lado seguía en color de tierra.
 
-Se ve, y se ve en la vista con la que abre la app: a z3,7 hay una costura vertical en el Atlántico a la altura de -45°, y a z11 sobre el conurbano aparece un rectángulo más claro en el medio del Río de la Plata.
+**Qué se hizo el 13/8/2026:** la capa `background` pasó al color del **agua** (`scripts/build/mapa/generar-estilo.ts`, con guardia en `estilo-oscuro.test.ts` que exige que el fondo y la capa `water` sean el mismo color). Medido en el navegador sobre `/el-mapa`, 1400×900:
 
-**No se arregla en el estilo.** Pintar el fondo del color del agua tapa el río y hunde a Uruguay en cuanto se acerca el zoom. Se arregla en el recorte: darle un buffer a la región antes de extraer y volver a correr el script — dos minutos y unos pocos MB, según lo medido en la Task 2. Es una decisión sobre cuánto país ajeno se paga por no ver el borde, así que la toma el dueño.
+| encuadre | tinta sobre agua, antes | después |
+|---|---|---|
+| z3,7 — la vista con la que abre la app | 18,8% del lienzo, en dos costuras verticales | 0% |
+| z10 sobre Mar del Plata — un tajo vertical en el Atlántico | 37,7% | 0% |
+| z5 en el Atlántico sur, la costura de la columna z4 | 29,9% | 0% |
+
+**Lo que sigue abierto, y por qué esto no cierra:** un color plano no sabe qué hay del otro lado del recorte. Ahora el hueco se lee como mar **siempre**, así que el país vecino sin teselas se hunde: se nota de z8 para arriba pegado a un límite terrestre —Chile, Brasil, Bolivia— y en un encuadre que cae entero afuera, como Montevideo a z11, donde el 97,9% del lienzo no tiene tesela. Se eligió igual porque el reparto no es parejo: el hueco marítimo aparecía en la vista por defecto y en toda la costa, mientras que el terrestre aparece a zoom alto y sobre un encuadre que **ya está vacío de datos** —sin calles, sin etiquetas—, o sea donde el mapa ya avisó que se terminó.
+
+**El arreglo de verdad sigue siendo el mismo:** darle un buffer a la región antes de extraer y volver a correr el script — dos minutos y unos pocos MB, según lo medido en la Task 2. Es una decisión sobre cuánto país ajeno se paga por no ver el borde, así que la toma el dueño.
+
+**Corrección a lo que decía esta entrada:** «no se arregla en el estilo» era medio cierto y se anotó como entero. Pintar el fondo del color del agua **no** tapa el Río de la Plata —el río está adentro del recorte y lo dibuja su propia capa `water`, del mismo color— y sí hunde al vecino de al lado. Lo que el estilo no puede hacer es distinguir mar de tierra donde no hay dato; eso es lo que se cambió de creencia.
 
 ---
 
@@ -1033,3 +1044,19 @@ La salida canónica es un nonce por respuesta —`style-src 'nonce-…'`— y **
 **Qué se pierde, con precisión.** No es ejecución: `script-src 'self'` sigue sin `'unsafe-inline'`, así que un XSS reflejado no corre igual. Lo que queda abierto es el CSS como canal — exfiltrar la forma de la página, o disfrazar un control con estilos inyectados, si alguien logra escribir en el DOM.
 
 **Qué haría falta:** o hashes (`'sha256-…'`) por cada bloque inline, que con estilos que las librerías generan en tiempo de ejecución no se pueden enumerar; o un documento renderizado por función con nonce; o dejar de usar librerías que inyectan estilo. Ninguna de las tres es un arreglo local, y por eso queda anotada en vez de improvisada.
+---
+
+### D-060 · La suite de integración de la API no la linta nadie
+
+**Dónde:** `v2/apps/api/tests/` (28 archivos) y `v2/tests/e2e/`
+**Encontrada:** 2026-08-13, arreglando los tres rojos de `geo-catalogo.test.ts` — el linter tenía nueve cosas que decir sobre un archivo que CI nunca mira
+**Severidad:** baja
+**Estado:** abierta
+
+Los cinco paquetes del workspace declaran el mismo script: `eslint src --max-warnings 0`. Los tests que viven **adentro** de `src/` —los `__tests__/` de `packages/*` y de `apps/web`— entran ahí. Los que viven **afuera** no existen para el linter, y afuera está justo la suite de integración de la API, que es donde se prueba el borde HTTP entero.
+
+Medido con `npx eslint tests` desde `apps/api`: **293 errores en 23 de 28 archivos** (200 `no-unsafe-member-access` de los casteos sobre `res.body`, 38 `import/order`, 19 `dot-notation`), más uno en `tests/e2e/`. Ninguno rompe nada hoy y por eso la severidad es baja.
+
+**Por qué se anota igual.** `v2/CLAUDE.md` declara `@typescript-eslint/no-explicit-any: error` y `no-console: error` como reglas duras sin excepción, y hay 29 archivos donde no rigen. Hoy no hay un solo `any` en ellos —se verificó, la regla no aparece en el conteo—, así que la deuda es que la puerta está abierta, no que alguien haya entrado.
+
+**Qué haría falta:** extender el script a `eslint src tests` en `apps/api` y sumar `tests/e2e` a `lint:scripts` en la raíz, y después bajar los 294 a cero. El grueso es mecánico (`--fix` cubre `import/order` y `dot-notation`); lo que pide criterio son los 200 `no-unsafe-member-access`, que son el precio de leer `res.body` sin tipo y se arreglan con un helper que parsee la respuesta a un tipo declarado, no con casteos uno por uno.
