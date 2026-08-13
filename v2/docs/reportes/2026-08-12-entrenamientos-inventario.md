@@ -14,6 +14,10 @@
 
 > Sólo `cola-limpia` se borra automáticamente. `sin-huella` y `cola-abierta` van a mano.
 
+## Anomalías entre el índice y el disco
+
+Ninguna: cada `.mdx` tiene su entrada en `course.json` y cada entrada su archivo.
+
 ## Lección por lección
 
 | Curso | Lección | Propias | Cola | Motivo | Decl. | Real |
