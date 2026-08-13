@@ -14,27 +14,21 @@ import type { RequestHandler } from 'express';
  *   - No `'unsafe-eval'` in any environment.
  *   - `'unsafe-inline'` styles allowed only because Tailwind/Radix may
  *     emit them at runtime; investigate before tightening further.
- *   - The style.json itself is self-hosted under `/maps/`. Map tiles,
- *     fonts, and sprites still come from carto's CDN — full vector
- *     tile self-hosting is impractical at this size — so we explicitly
- *     allow carto's origins in connect-src + img-src. They are pinned
- *     one by one (not a wildcard) and used only inside the mapStyle
- *     JSON we control.
+ *   - The style.json under `/maps/` and the glyphs under `/fonts/` are
+ *     both self-hosted: nothing outside this origin serves the map's
+ *     typography. Map tiles still come from carto's CDN, so we
+ *     explicitly allow carto's origins in connect-src + img-src. They
+ *     are pinned one by one (not a wildcard) and used only inside the
+ *     mapStyle JSON we control.
  *
  *     OJO — allowing only `tiles.basemaps.cartocdn.com` is NOT enough,
- *     y es el error que había acá. Ese host sirve el `tiles.json`, los
- *     glyphs y el sprite, pero el `tiles.json` apunta las teselas a
- *     CUATRO hosts distintos (`tiles-a` … `tiles-d`). Verificado contra
- *     el endpoint real: el estilo cargaba y las teselas se bloqueaban,
- *     que es la peor forma de fallar — un mapa vacío sin error visible.
+ *     y es el error que había acá. Ese host sirve el `tiles.json`, pero
+ *     apunta las teselas a CUATRO hosts distintos (`tiles-a` …
+ *     `tiles-d`). Verificado contra el endpoint real: el estilo cargaba
+ *     y las teselas se bloqueaban, que es la peor forma de fallar — un
+ *     mapa vacío sin error visible.
  */
 export function securityHeaders(): RequestHandler {
-  /**
-   * Los glyphs NO pueden salir de Carto: ese host sirve las teselas pero no
-   * manda CORS en /fonts/, así que el navegador bloquea cada rango y el mapa
-   * queda sin una sola etiqueta. Verificado contra los dos endpoints.
-   */
-  const glyphs = 'https://fonts.openmaptiles.org';
   const cartoTiles = [
     'https://tiles.basemaps.cartocdn.com',
     'https://tiles-a.basemaps.cartocdn.com',
@@ -49,8 +43,8 @@ export function securityHeaders(): RequestHandler {
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", 'data:', 'blob:', ...cartoTiles],
-        connectSrc: ["'self'", ...cartoTiles, glyphs],
-        fontSrc: ["'self'", 'data:', ...cartoTiles, glyphs],
+        connectSrc: ["'self'", ...cartoTiles],
+        fontSrc: ["'self'", 'data:', ...cartoTiles],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],
         workerSrc: ["'self'", 'blob:'],

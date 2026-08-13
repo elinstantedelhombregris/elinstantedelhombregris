@@ -5,9 +5,9 @@
     "criterio": "El basemap se corre del camino. Fondo tinta, geografía en grises tenues, cero saturación: los únicos colores del mapa son los de las señales que van encima. Todos los valores salen de los tokens `oscuro-*` y `tinta` de tailwind.config.ts — no hay ningún color inventado acá.",
     "apagado": "POIs, comercios, numeración de casas y edificios sueltos. Son ruido de mapa de navegación; este es un mapa cívico.",
     "atribucion": "© OpenStreetMap contributors, © CARTO",
-    "glyphs": "Los glyphs NO salen de Carto: ese host sirve las teselas pero NO manda cabecera CORS en /fonts/, así que el navegador bloquea cada rango de caracteres y el mapa se queda SIN UNA SOLA ETIQUETA — sin nombres de calle, sin localidades — mientras la consola se llena de errores. Verificado contra los dos endpoints. fonts.openmaptiles.org los sirve con CORS y tiene las familias Noto Sans en regular, bold e italic."
+    "glyphs": "Los glyphs salen del propio origen, en /fonts/. No hay sprite porque ninguna capa usa icon-image. Los dos hosts que probamos antes fallan de la misma forma silenciosa: Carto sirve las teselas pero NO manda CORS en /fonts/, y fonts.openmaptiles.org no tiene la familia `Noto Sans Regular` (tiene `Klokantech Noto Sans Regular`) y ante un fontstack desconocido devuelve su página de inicio en HTML con estado 200. En los dos casos el mapa se queda SIN UNA SOLA ETIQUETA — sin nombres de calle, sin localidades — sin un error de red que mirar. Procedencia y regeneración: /fonts/LEEME.md."
   },
-  "glyphs": "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
+  "glyphs": "/fonts/{fontstack}/{range}.pbf",
   "sources": {
     "carto": {
       "type": "vector",

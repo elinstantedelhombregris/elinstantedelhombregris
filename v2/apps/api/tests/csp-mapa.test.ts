@@ -28,7 +28,7 @@ const HOSTS_DE_TESELAS = [
   'https://tiles-d.basemaps.cartocdn.com',
 ];
 
-/** El que sirve el tiles.json, los glyphs y el sprite. */
+/** El que sirve el tiles.json. */
 const HOST_DE_ESTILO = 'https://tiles.basemaps.cartocdn.com';
 
 describe('CSP del mapa', () => {
@@ -52,10 +52,18 @@ describe('CSP del mapa', () => {
     }
   });
 
-  it('permite el host del estilo, los glyphs y el sprite', async () => {
+  it('permite el host que sirve el tiles.json', async () => {
     const politica = await csp();
     expect(directiva(politica, 'connect-src')).toContain(HOST_DE_ESTILO);
-    expect(directiva(politica, 'font-src')).toContain(HOST_DE_ESTILO);
+  });
+
+  it('no le pide las tipografías a nadie de afuera', async () => {
+    const politica = await csp();
+    // Los glyphs viven en /fonts/ del propio origen desde el 12/8/2026. Si este
+    // host vuelve a aparecer es que alguien reintrodujo la fuga de IP que la
+    // política de privacidad ya no declara.
+    expect(politica).not.toContain('openmaptiles.org');
+    expect(directiva(politica, 'font-src')).toContain("'self'");
   });
 
   it('sigue sin abrirse a comodines: los hosts van pinneados uno por uno', async () => {
