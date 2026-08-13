@@ -59,6 +59,11 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | **Resuelta** |
 | [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) | El borde del recorte de teselas se ve en el agua | Baja | Abierta |
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
+| [D-052](#d-052--el-37-del-corpus-de-entrenamientos-es-texto-generado-y-repetido) | El 37% del corpus de entrenamientos es texto generado y repetido | Alta | Abierta |
+| [D-053](#d-053--el-catálogo-anuncia-53-horas-de-entrenamiento-y-hay-14) | El catálogo anuncia 53 horas de entrenamiento y hay 14 | Alta | Abierta |
+| [D-054](#d-054--la-mitad-de-las-lecciones-está-escrita-en-tuteo-y-no-en-rioplatense) | La mitad de las lecciones está escrita en tuteo, y no en rioplatense | Media | Abierta |
+| [D-055](#d-055--contentfile-no-resuelve-en-ninguna-de-las-329-lecciones-y-el-schema-lo-exige) | `contentFile` no resuelve en ninguna de las 329 lecciones, y el schema lo exige | Media | Abierta |
+| [D-056](#d-056--ninguna-lección-cita-una-fuente-ni-nombra-un-plan) | Ninguna lección cita una fuente ni nombra un PLAN | Alta | Abierta |
 | [D-057](#d-057--la-política-de-privacidad-espera-tres-datos-que-sólo-puede-dar-el-dueño) | La política de privacidad espera tres datos que sólo puede dar el dueño | Media | Abierta |
 | [D-058](#d-058--un-cron-que-falla-no-le-avisa-a-nadie-y-ahora-uno-de-ellos-sostiene-una-promesa-legal) | Un cron que falla no le avisa a nadie, y ahora uno de ellos sostiene una promesa legal | Media | Abierta |
 | [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo) | La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo | Baja | Abierta |
@@ -991,6 +996,73 @@ El estilo apunta a `pmtiles:///tiles/argentina.pmtiles` y el archivo existe **en
 Las tres salidas están escritas en el plan y ninguna es de código: servidor propio con nginx (cierra la fuga del todo), Cloudflare R2 (entra cómodo, egress gratis, pero Cloudflare vuelve a ver las IPs bajo dominio propio) o descartar Vercel para un archivo de este tamaño. Lo que la decisión pide verificar a mano es una sola cosa: que el hosting devuelva **`206 Partial Content` y `accept-ranges: bytes`**. Si devuelve `200` con el archivo entero, el navegador baja 1,2 GB por tesela y hay que cambiar de hosting, no de código.
 
 Es también la que traba a [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera): no se puede automatizar la actualización de un archivo que no tiene domicilio.
+
+### D-052 · El 37% del corpus de entrenamientos es texto generado y repetido
+
+**Dónde:** `v2/content/courses/*/*.mdx` — 320 de las 329 lecciones
+**Encontrada:** 2026-08-12, midiendo el corpus antes de proponer mejoras de contenido
+**Severidad:** alta
+**Estado:** abierta
+
+Las lecciones terminan con las mismas cinco secciones —«Aplicación práctica», «Cómo se ve en el territorio», «Errores comunes», «Ejercicio guiado», «Idea fuerza»— copiadas casi textualmente, con una sola variable rellenada (el ámbito del curso: «tu municipio, tu provincia» o «tu hogar, tus ingresos») y el `summary` de la lección pegado al principio. Hay **dos generaciones** distintas del mismo relleno: una con encabezados `###` en 205 lecciones y otra con `##` en 108, con texto diferente pero igual de genérico.
+
+Son **108.700 palabras: el 37% de las 293.107 del corpus**. El texto que alguien escribió de verdad son 184.407. Cualquiera que lea dos lecciones seguidas ve la repetición, y es la razón por la que el material se siente hecho a máquina incluso donde es bueno.
+
+**Qué haría falta:** el borrado está especificado en `v2/docs/specs/2026-08-12-entrenamientos-ciclo-1-el-cuerpo.md`, con la parte delicada resuelta: hay 168 encabezados escritos por el autor con nombres parecidos (`Ejercicio: Mapear Bucles`, `Errores Comunes en el Diseño`) y algunas de esas secciones son lo mejor que tiene el corpus, así que el corte se ancla en tres condiciones simultáneas y lo que no las cumple va a revisión manual.
+
+### D-053 · El catálogo anuncia 53 horas de entrenamiento y hay 14
+
+**Dónde:** `v2/content/courses/*/course.json` (`duration`), servido por `apps/web/src/lib/courses-registry.ts` a `/entrenamientos`
+**Encontrada:** 2026-08-12, comparando `duration` contra el largo real de los cuerpos
+**Severidad:** alta
+**Estado:** abierta
+
+La suma de `duration` de los 31 cursos da **3.163 minutos: 53 horas**. El texto propio del corpus, a la velocidad de lectura que el propio proyecto usa en blog y ensayos (`words / 220`), se lee en **838 minutos: 14 horas**. La cifra está inflada **3,8 veces**, y es un número que la página muestra.
+
+El caso típico: **185 lecciones declaran 9 minutos** y su mediana es de 357 palabras propias — **1,6 minutos** de lectura. Las 38 que declaran 8 minutos tienen 256 palabras: 1,2 minutos.
+
+Es el caso de libro de dato inventado en pantalla, y el más visible que tiene v2 hoy. El agravante no es que el número esté mal calculado: **185 lecciones declaran el mismo valor**, así que nunca se calculó.
+
+**Qué haría falta:** una sola sede para el minutaje (`course.json`, que es lo que el registry lee), calculado del cuerpo con la función del proyecto extraída a `@v2/shared`, y una guardia que lo recalcule en el build. `estimatedMinutes` sale del frontmatter de las 329 lecciones: hoy el número vive dos veces y nadie los compara. Especificado en el Ciclo 1, Decisión 3.
+
+### D-054 · La mitad de las lecciones está escrita en tuteo, y no en rioplatense
+
+**Dónde:** `v2/content/courses/*/*.mdx` — 151 lecciones
+**Encontrada:** 2026-08-12, en la misma medición del corpus
+**Severidad:** media
+**Estado:** abierta
+
+775 apariciones de formas verbales e imperativos de tuteo («tienes», «puedes», «identifica», «resume», «elige») en 151 lecciones, y **90 lecciones mezclan tú y vos en el mismo cuerpo**. El `CLAUDE.md` pide rioplatense en todo el texto de cara al usuario. Buena parte viene del relleno de [D-052](#d-052--el-37-del-corpus-de-entrenamientos-es-texto-generado-y-repetido), que está íntegramente en tuteo neutro, pero no todo: quedan cuerpos propios mezclados.
+
+**Qué haría falta:** dos listas, no una. La dura —formas sin ambigüedad— se reemplaza y se vigila con guardia. La blanda depende del contexto: `define` aparece 127 veces y es imperativo en «Define una acción» pero indicativo en «el sistema define el resultado»; `elige` (133) y `resume` (87), lo mismo. Un reemplazo ciego ahí rompe prosa correcta. El posesivo `tu` no se toca: es idéntico en voseo.
+
+### D-055 · `contentFile` no resuelve en ninguna de las 329 lecciones, y el schema lo exige
+
+**Dónde:** `v2/content/courses/*/course.json`, `packages/shared/src/content/courses.ts:25`
+**Encontrada:** 2026-08-12, verificando qué campos de la fuente tienen lector
+**Severidad:** media
+**Estado:** abierta
+
+Las 329 entradas de `lessons[]` declaran `contentFile: "lessons/NN-NN-….md"`, rutas del árbol de v1 que en v2 **no existen** — los cuerpos están en la raíz del directorio del curso y son `.mdx`. El campo está declarado como requerido en el schema Zod, así que v2 valida un dato que apunta a la nada en el 100% de los casos. La página funciona porque el registry deriva el slug de `key` y nunca abre `contentFile`.
+
+Sus únicos lectores son `scripts/content/migrate-courses-v1-to-v2.ts` y `scripts/content/verify-courses-migration.ts`, que lo resuelven contra el árbol de v1. La migración terminó el 2026-05-13.
+
+**Qué haría falta:** retirar los dos scripts de migración de cursos —su trabajo está hecho y commiteado— y borrar el campo del JSON y del schema. Mientras esté, el schema documenta como obligatorio algo que es basura de migración.
+
+### D-056 · Ninguna lección cita una fuente ni nombra un PLAN
+
+**Dónde:** `v2/content/courses/*/*.mdx` — las 329
+**Encontrada:** 2026-08-12, buscando enlaces y citas en el corpus
+**Severidad:** alta
+**Estado:** abierta
+
+En 329 lecciones y 184.407 palabras propias: **cero links** (internos o externos, salvo dos SVG), **cero menciones a un PLAN**, y sólo **10 lecciones** nombran una ley, un artículo o al INDEC. El corpus más grande del proyecto no toca el corpus doctrinal —26 PLANes, cuatro ciclos de ensayos, la crónica, la Radiografía— y no ofrece una sola manera de verificar lo que afirma.
+
+Dos consecuencias distintas. Una es de confianza: hay afirmaciones fuertes sin respaldo, del tipo «el 95% de los proyectos de ley muere en comisión», que la práctica repite como respuesta correcta. La otra es de arquitectura: contradice la directiva de que todo el contenido navega, justo donde más gente entra.
+
+Y hay contenido perecedero sin fecha: la lección de monotributo explica las categorías A–K sin un número, sin fecha de consulta y sin link a AFIP. En Argentina eso envejece en meses.
+
+**Qué haría falta:** el campo `fuentes:` con URL y fecha de consulta, exigido donde el texto nombre un dato o una norma (Ciclo 1, Decisión 11); y los campos `planes:` / `ensayos:` con enlaces en las dos direcciones (Ciclo 2). El frontmatter de los dos ciclos se define junto para editar los 329 archivos una sola vez.
 ---
 
 ### D-057 · La política de privacidad espera tres datos que sólo puede dar el dueño
