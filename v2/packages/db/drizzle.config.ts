@@ -41,6 +41,15 @@ export default defineConfig({
     './src/schema/life-areas.ts',
     './src/schema/semillas.ts',
     './src/schema/faltas.ts',
+    './src/schema/analisis.ts',
+    // El esquema `simulacion` — la siembra sintética, físicamente aparte de
+    // `public`. Va acá y NO en `schema/index.ts` a propósito: drizzle-kit tiene
+    // que verlo para generar la migración, pero el cliente que sirve la API no
+    // tiene que poder nombrarlo. Ver la cabecera de `simulacion-esquema.ts`.
+    './src/schema/simulacion-esquema.ts',
+    './src/schema/simulacion-elenco.ts',
+    './src/schema/simulacion-corrida.ts',
+    './src/schema/simulacion-ensayo.ts',
   ],
   dialect: 'postgresql',
   dbCredentials: { url },

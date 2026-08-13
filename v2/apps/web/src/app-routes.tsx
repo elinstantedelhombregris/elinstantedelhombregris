@@ -28,6 +28,7 @@ import {
   InsightDashboard,
   KitDePrensa,
   LaIdea,
+  LaRadiografia,
   Leaderboard,
   LeccionDetail,
   LifeAreaDetail,
@@ -92,6 +93,10 @@ export function AppRoutes() {
         <Redirect to="/la-idea" replace />
       </Route>
       <Route path="/el-mapa" component={ElMapa} />
+      {/* La cuarta superficie: página propia y no una sexta lente del mapa
+          (spec 2026-08-12-la-radiografia.md §12, y la respuesta a su pregunta
+          abierta 4 — el nombre viene de la constitución de producto). */}
+      <Route path="/la-radiografia" component={LaRadiografia} />
       <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
       <Route path="/kit-de-prensa" component={KitDePrensa} />
 

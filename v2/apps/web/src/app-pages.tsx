@@ -67,6 +67,15 @@ export const ElMapa = lazy(async () => {
   const m = await import('~/pages/ElMapa');
   return { default: m.ElMapa };
 });
+/**
+ * La cuarta superficie (`docs/specs/2026-08-12-la-radiografia.md`). Chunk
+ * propio como todas: la constelación es canvas-2D sin dependencias, así que
+ * lo único que se difiere acá es su propio código.
+ */
+export const LaRadiografia = lazy(async () => {
+  const m = await import('~/pages/LaRadiografia');
+  return { default: m.LaRadiografia };
+});
 export const DetallesCalculoCostoHumano = lazy(async () => {
   const m = await import('~/pages/DetallesCalculoCostoHumano');
   return { default: m.DetallesCalculoCostoHumano };

@@ -11,6 +11,10 @@ export default defineConfig({
   test: {
     environment: 'node',
     globals: false,
-    include: ['content/__tests__/**/*.test.ts', 'build/__tests__/**/*.test.ts'],
+    include: [
+      'content/__tests__/**/*.test.ts',
+      'build/__tests__/**/*.test.ts',
+      'radiografia/__tests__/**/*.test.ts',
+    ],
   },
 });

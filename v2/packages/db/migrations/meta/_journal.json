@@ -120,6 +120,20 @@
       "when": 1786564469852,
       "tag": "0019_lo_que_falta",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1786624936476,
+      "tag": "0020_radiografia",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1786631799079,
+      "tag": "0021_simulacion",
+      "breakpoints": true
     }
   ]
 }

@@ -76,3 +76,10 @@ export type {
   PaginaDeFaltas,
   ResultadoDeImportacion,
 } from './faltas.js';
+export { AnalisisRepository, TAMANO_DE_LOTE } from './analisis.js';
+export type {
+  ConsultaDeFaltantes,
+  TextoParaEmbeber,
+  VectorEmbebido,
+  VectorParaGuardar,
+} from './analisis.js';

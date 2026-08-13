@@ -30,3 +30,4 @@ export * from './gamification.js';
 export * from './life-areas.js';
 export * from './semillas.js';
 export * from './faltas.js';
+export * from './analisis.js';

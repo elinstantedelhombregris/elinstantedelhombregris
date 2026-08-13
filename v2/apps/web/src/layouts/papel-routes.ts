@@ -6,6 +6,9 @@ const PAPEL_ROUTES = new Set([
   '/',
   '/la-idea',
   '/el-mapa',
+  // La cuarta superficie (spec 2026-08-12-la-radiografia.md). Nace papel: su
+  // interruptor nocturno gobierna la constelación, no el chrome del sitio.
+  '/la-radiografia',
   '/mandato-vivo',
   '/planes',
   '/sembrar',

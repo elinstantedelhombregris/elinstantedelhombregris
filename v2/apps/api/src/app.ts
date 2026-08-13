@@ -23,6 +23,7 @@ import { mandatoRouter } from './features/mandato/routes.js';
 import { notificationsRouter } from './features/notifications/routes.js';
 import { openDataRouter } from './features/open-data/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
+import { radiografiaRouter } from './features/radiografia/routes.js';
 import { semillasRouter } from './features/semillas/routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
@@ -79,6 +80,10 @@ export function createApp(): Express {
   app.use('/api/civic-assessment', civicAssessmentRouter);
   // Todo lo cívico cuelga del prefijo versionado que el móvil ya habla.
   app.use('/api/v1/civic', civicRouter);
+  // La Radiografía comparte el prefijo cívico y NO el router del mapa: no es
+  // una sexta lente de `/el-mapa`, es una página propia con su propio estado
+  // (spec `docs/specs/2026-08-12-la-radiografia.md` §12).
+  app.use('/api/v1/civic/radiografia', radiografiaRouter);
   // El callejero del Estado, espejado. Mismo prefijo versionado y por la misma
   // razón: es contrato entre la web y la app de campo, no una vista de la web.
   app.use('/api/v1/geo', geoRouter);

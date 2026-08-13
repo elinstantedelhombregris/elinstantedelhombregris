@@ -83,6 +83,56 @@ describe('el barril', () => {
   });
 });
 
+describe('el motor separa temas de verdad', () => {
+  it('parte doce frases rioplatenses en los TRES núcleos que les corresponden', async () => {
+    /*
+     * Ésta es la prueba de que la herramienta sirve, no de que compila: doce
+     * frases, tres temas, escritas como las escribiría alguien.
+     *
+     * El fixture evita a propósito que dos temas compartan una palabra suelta,
+     * y eso hay que decirlo en vez de esconderlo. `EmbebedorFalso` es una bolsa
+     * de palabras: no sabe que «guita» y «plata» son lo mismo, y en cambio une
+     * «fin de mes» con «hace un mes» porque comparten una. Medido: con «mes» en
+     * las dos y «va» en otras dos, el tema de la plata y el de la escuela se
+     * pegaban a 0,22 y quedaba un solo núcleo.
+     *
+     * Entonces lo que este test prueba es **el grafo y el agrupamiento**, que es
+     * lo que vive en este paquete. La calidad semántica la pone el modelo real
+     * y no se puede probar sin él — para eso está `EmbebedorOllama`.
+     */
+    const corpus = [
+      { id: 'p1', t: 'la plata no me alcanza nunca' },
+      { id: 'p2', t: 'el sueldo se termina en comida' },
+      { id: 'p3', t: 'gano poco y el alquiler se lleva medio sueldo' },
+      { id: 'p4', t: 'la plata no rinde, gano cada vez menos' },
+      { id: 'z1', t: 'hay un pozo enorme en la esquina de casa' },
+      { id: 'z2', t: 'el pozo de la calle rompió dos autos' },
+      { id: 'z3', t: 'la calle está llena de pozos' },
+      { id: 'z4', t: 'arreglen el pozo de la esquina' },
+      { id: 'e1', t: 'la escuela del barrio se llueve entera' },
+      { id: 'e2', t: 'en la escuela faltan maestras' },
+      { id: 'e3', t: 'mi hija estudia en una escuela sin calefacción' },
+      { id: 'e4', t: 'la escuela no tiene vidrios en las ventanas' },
+    ];
+
+    const vectores = await new civicCore.EmbebedorFalso().embeber(corpus.map((c) => c.t));
+    const porId = new Map<string, readonly number[]>(
+      corpus.map((c, i) => [c.id, vectores[i] ?? []]),
+    );
+
+    const aristas = civicCore.aristasMedidas(porId, 3);
+    const { nucleos, solas } = civicCore.nucleosAlUmbral([...porId.keys()], aristas, 0.12);
+
+    // Nada se pierde, en ningún caso.
+    expect(nucleos.reduce((n, x) => n + x.ids.length, 0) + solas.length).toBe(12);
+
+    // Y cada núcleo es de un solo tema: la primera letra del id lo dice.
+    const temas = nucleos.map((n) => new Set(n.ids.map((id) => id[0])));
+    for (const tema of temas) expect(tema.size).toBe(1);
+    expect(nucleos.length).toBeGreaterThanOrEqual(3);
+  });
+});
+
 describe('el motor de punta a punta', () => {
   it('agrupa un corpus de juguete, y aflojar el umbral funde los núcleos', async () => {
     const corpus = [

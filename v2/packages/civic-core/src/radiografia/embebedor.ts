@@ -25,13 +25,31 @@ const fnv1a = (texto: string): number => {
   return h;
 };
 
+/**
+ * Las palabras que no dicen de qué se habla.
+ *
+ * Sin esta lista el falso no separaba nada: doce frases sobre tres temas
+ * distintos —que no llega la plata, un pozo en la calle, la escuela— daban
+ * CERO núcleos al umbral por defecto, porque los «la / de / no / que» que las
+ * tres comparten dominaban el coseno. Un modelo de verdad no la necesita:
+ * aprende solo que esas palabras no informan. Una bolsa de palabras no aprende.
+ */
+const VACIAS = new Set([
+  'la', 'el', 'los', 'las', 'un', 'una', 'unos', 'unas', 'lo', 'al', 'del',
+  'de', 'que', 'y', 'a', 'en', 'es', 'se', 'no', 'me', 'mi', 'te', 'su', 'sus',
+  'por', 'con', 'para', 'como', 'mas', 'pero', 'si', 'ya', 'muy', 'este',
+  'esta', 'esto', 'eso', 'ese', 'esa', 'hay', 'ni', 'o', 'le', 'nos', 'yo',
+  'vos', 'ser', 'son', 'fue', 'era', 'he', 'ha', 'han', 'sin', 'sobre', 'todo',
+  'cuando', 'donde', 'porque', 'tiene', 'tengo', 'hace', 'ver', 'ir', 'da',
+]);
+
 const normalizar = (texto: string): string[] =>
   texto
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .split(/[^a-z0-9ñ]+/)
-    .filter((p) => p.length > 0);
+    .filter((p) => p.length > 0 && !VACIAS.has(p));
 
 /**
  * Embebedor determinista para tests: una bolsa de palabras proyectada por
@@ -47,7 +65,10 @@ export class EmbebedorFalso implements Embebedor {
 
   // Sin anotar el tipo: `no-inferrable-types` lo prohíbe cuando el default ya
   // lo dice, y `number` es exactamente lo que infiere de `= 64`.
-  constructor(readonly dimensiones = 64) {}
+  // 1024 y no 64: con pocas dimensiones las colisiones de hash acercan frases
+  // que no tienen nada que ver, y eso ensucia justamente lo que este falso
+  // existe para probar. Es el mismo largo que devuelve `bge-m3`.
+  constructor(readonly dimensiones = 1024) {}
 
   embeber(textos: readonly string[]): Promise<readonly (readonly number[])[]> {
     return Promise.resolve(textos.map((t) => this.uno(t)));
