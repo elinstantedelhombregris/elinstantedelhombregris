@@ -304,6 +304,36 @@ let tierra: EstadoDeLaTierra = {
   provinciaConCalles: null,
 };
 
+/**
+ * Un GET al callejero que **sigue el 308 a la forma canónica**, como lo sigue
+ * solo cualquier cliente de verdad: el navegador, `fetch`, la app de campo.
+ *
+ * supertest no redirige, y de ahí salían tres rojos. No era un defecto del
+ * código: A §4.1 manda responder 308 cuando el `q` que llega difiere de su forma
+ * normalizada —«a» difiere de «A», «mo» de «MO», «CALLE SN» de «SN»— y estos
+ * tres tests afirmaban 200 sobre URLs que la spec manda redirigir. Estaban
+ * escritos cuando `geo_calles` no tenía una sola fila, así que se salteaban
+ * enteros y nadie los vio nunca correr; la siembra del callejero los despertó.
+ *
+ * De paso afirma la propiedad que hace útil al 308: **el destino ya no
+ * redirige**. Un redirect que encadena saltos deja en la caché un objeto por
+ * escalón, que es justo lo que este 308 existe para evitar. `formaCanonica` lo
+ * prueba en memoria sobre un caso elegido a mano; esto lo prueba contra los
+ * nombres que hay realmente en la base.
+ */
+type RespuestaHttp = Awaited<ReturnType<typeof request.get>>;
+
+const callejero = async (url: string): Promise<RespuestaHttp> => {
+  const primera = await request.get(url);
+  if (primera.status !== 308) return primera;
+
+  const destino = primera.headers['location'];
+  expect(typeof destino).toBe('string');
+  const segunda = await request.get(String(destino));
+  expect(segunda.status).not.toBe(308);
+  return segunda;
+};
+
 dsuite('el callejero contra la base', () => {
   beforeAll(async () => {
     const db = getDb();
@@ -406,9 +436,28 @@ dsuite('el callejero contra la base', () => {
     expect(res.headers['location']).toContain('nivel=province');
   });
 
+  it('en /calles el q no canónico también redirige, y a una URL entera', async ({ skip }) => {
+    if (tierra.localidadConCalles === null) skip();
+    const localidadId = String(tierra.localidadConCalles);
+    const res = await request.get(`/api/v1/geo/calles?localidad=${localidadId}&q=a`);
+    expect(res.status).toBe(308);
+    // Se afirma la URL COMPLETA y no un `toContain`: el `limite` entra aunque el
+    // cliente no lo haya mandado, y ése es el punto. Si el destino fuera
+    // `?localidad=…&q=A` a secas, el edge guardaría dos objetos —con y sin
+    // límite— para la misma respuesta, que es lo que este 308 existe para
+    // evitar. El orden de los parámetros también es parte del contrato: es lo
+    // que hace que dos clientes distintos pidan la misma clave de caché.
+    expect(res.headers['location']).toBe(
+      `/api/v1/geo/calles?localidad=${localidadId}&q=A&limite=20`,
+    );
+    // La redirección se cachea con la misma política que la respuesta: un objeto
+    // por consulta real incluye al escalón que lleva hasta ella.
+    expect(res.headers['cache-control']).toBe('public, max-age=300');
+  });
+
   it('el scope de localidad busca con un solo carácter', async ({ skip }) => {
     if (tierra.localidadConCalles === null) skip();
-    const res = await request.get(
+    const res = await callejero(
       `/api/v1/geo/calles?localidad=${String(tierra.localidadConCalles)}&q=a`,
     );
     expect(res.status).toBe(200);
@@ -418,14 +467,14 @@ dsuite('el callejero contra la base', () => {
 
   it('el scope de provincia pide tres, y con dos dice que no miró', async ({ skip }) => {
     if (tierra.provinciaConCalles === null) skip();
-    const corto = await request.get(
+    const corto = await callejero(
       `/api/v1/geo/calles?provincia=${String(tierra.provinciaConCalles)}&q=mo`,
     );
     expect(corto.status).toBe(200);
     // No es un array vacío: «no miramos» y «miramos y no hay» son distintas.
     expect((corto.body as { data: { estado: string } }).data.estado).toBe('consulta_corta');
 
-    const largo = await request.get(
+    const largo = await callejero(
       `/api/v1/geo/calles?provincia=${String(tierra.provinciaConCalles)}&q=mor`,
     );
     expect(largo.status).toBe(200);
@@ -465,11 +514,16 @@ dsuite('el callejero contra la base', () => {
       (porId.body as { data: { calle: { nombreClase: string } } }).data.calle.nombreClase,
     ).toBe('sin_nombre');
 
-    const buscada = await request.get(
+    // Buscar la calle por su propio nombre pasa por el 308: «CALLE SN» es una
+    // categoría más un resto, y su forma canónica es «SN». Que la búsqueda
+    // igual corra —y no muera en un `consulta_corta`— es lo que hace que la
+    // afirmación de abajo signifique algo.
+    const buscada = await callejero(
       `/api/v1/geo/calles?localidad=${String(sinNombre.localidad_id)}&q=${encodeURIComponent(
         sinNombre.nombre,
       )}`,
     );
+    expect(buscada.status).toBe(200);
     const cuerpo = buscada.body as { data: { estado: string; calles?: { id: number }[] } };
     if (cuerpo.data.estado === 'buscada') {
       expect(cuerpo.data.calles?.some((c) => c.id === sinNombre.id)).toBe(false);
