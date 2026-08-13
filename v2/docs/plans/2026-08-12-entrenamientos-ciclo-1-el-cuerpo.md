@@ -528,7 +528,12 @@ function encabezados(cuerpo: string): Encabezado[] {
   const re = /^(#{1,6}) *(.+?) *$/gm;
   let m: RegExpExecArray | null;
   while ((m = re.exec(cuerpo)) !== null) {
-    encontrados.push({ indice: m.index, nivel: m[1].length, texto: m[2] });
+    // Las dos guardas son por `noUncheckedIndexedAccess`: el regex garantiza los
+    // dos grupos, el compilador no.
+    const numerales = m[1];
+    const texto = m[2];
+    if (numerales === undefined || texto === undefined) continue;
+    encontrados.push({ indice: m.index, nivel: numerales.length, texto });
   }
   return encontrados;
 }
