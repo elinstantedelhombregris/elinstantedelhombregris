@@ -11,7 +11,7 @@ colores v1 → **deuda del autor, no se toca**». Este ciclo levanta esa mano.
 
 > **Tesis.** El catálogo anuncia 53 horas de entrenamiento. El texto que alguien
 > escribió de verdad se lee en 14. La diferencia no es una exageración de marketing:
-> son **108.700 palabras generadas a máquina** —el 37% del corpus— repetidas casi
+> son **109.120 palabras generadas a máquina** —el 37% del corpus— repetidas casi
 > textualmente en 320 de las 329 lecciones. Este ciclo borra eso, dice la verdad sobre
 > cuánto dura cada lección, y pone en su lugar un cierre que **no se puede rellenar**:
 > un validador compara los 320 cierres entre sí y rompe el build si dos se parecen.
@@ -24,8 +24,8 @@ Recorriendo los 31 directorios y las 329 lecciones:
 
 | Hecho | Valor | Consecuencia |
 |---|---|---|
-| Lecciones con cola generada | **320 de 329**, en **dos generaciones** distintas | Se borra con huella de texto, no con encabezado suelto |
-| Palabras de cola | **108.700 — 37% del corpus** | El corpus real es 184.407 palabras, no 293.107 |
+| Lecciones con cola generada | **320 de 329**, en **tres generaciones** distintas | Se borra con huella de texto, no con encabezado suelto |
+| Palabras de cola | **109.120 — 37% del corpus** | El corpus real es 183.987 palabras, no 293.107 |
 | Duración declarada | **3.163 min = 53 h** (suma de `duration`) | Contra **14 h** reales a 220 pal/min: inflada 3,8× |
 | Lecciones que declaran exactamente 9 minutos | **185**, con mediana de 357 palabras propias = 1,6 min | El minutaje no está mal calculado: nunca se calculó |
 | Lecciones bajo 350 palabras propias | **117** (17 de ellas bajo 250) | El piso mínimo hay que definirlo y hacerlo cumplir |
@@ -42,17 +42,30 @@ Recorriendo los 31 directorios y las 329 lecciones:
 | `passingScore` / `timeLimit` / `maxAttempts` | existen en los 31 `quiz.json`, **cero lectores** | «Acá no se toma examen» (3.5, Decisión 6) |
 | Velocidad de lectura del proyecto | `words / 220`, **copiada en dos migradores** | Se extrae a `@v2/shared` y la usan los tres |
 
-### Las dos generaciones de la cola
+### Las tres generaciones de la cola
 
-| Generación | Encabezados | Lecciones | Huella del primer párrafo |
-|---|---|---|---|
-| A | `### Aplicación práctica` · `### Cómo se ve en el territorio` · `### Errores comunes` · `### Ejercicio guiado` · `### Idea fuerza` | 205 | «Para que esta idea no quede en el plano conceptual» |
-| B | `## Aplicación práctica` · `## Ejercicio guiado` · `## Idea fuerza` | 108 | «Cobra valor cuando lo conviertes en una decisión observable» |
+| Generación | Encabezados | Lecciones | Palabras | Huella |
+|---|---|---|---|---|
+| A | `### Aplicación práctica` · `### Cómo se ve en el territorio` · `### Errores comunes` · `### Ejercicio guiado` · `### Idea fuerza` | 205 | ~84.600 | «Para que esta idea no quede en el plano conceptual» |
+| B | `## Aplicación práctica` · `## Ejercicio guiado` · `## Idea fuerza` | 108 | ~24.100 | «Cobra valor cuando lo conviertes en una decisión observable» |
+| C | `### Aplicación argentina` · `### Errores comunes` · `### Ejercicio de aplicación` · `### Cierre` | 7 | 3.096 | «La utilidad real del contenido aparece cuando lo llevas a decisiones concretas en Argentina» |
 
-Las dos rellenan una sola variable con el ámbito del curso («tu municipio, tu
-provincia» / «tu hogar, tus ingresos») y pegan el `summary` al principio. Las dos
+Las tres rellenan una sola variable con el ámbito del curso («tu municipio, tu
+provincia» / «tu hogar, tus ingresos») y pegan el `summary` al principio. Las tres
 están escritas en tuteo neutro: la cola es la fuente de la mitad de las 775
 apariciones.
+
+**La generación C apareció durante la implementación, no en este inventario**, y
+vale anotar cómo: la encontró la revisión de la Tarea 2 al preguntarse por qué 10
+lecciones quedaban sin clasificar. Vive sólo en `teoria-juegos-argentina-hombre-gris`
+—7 de sus 10 lecciones— y sus tres encabezados propios no aparecen en ninguna otra
+lección del corpus. Su sección `Cierre` tiene siete copias y **una sola versión
+distinta**. En cuatro de esas siete lecciones, C y A están apiladas: 618 palabras
+de relleno seguidas.
+
+La lección de método: **el inventario de un corpus generado se mide dos veces, y la
+segunda es la que encuentra la generación que no sabías que existía.** De ahí que el
+detector pruebe todos los encabezados candidatos en vez de quedarse con el primero.
 
 ### El riesgo del borrado, medido
 
@@ -85,24 +98,38 @@ frontmatters una sola vez.
 
 ### Decisión 1 — La cola se borra, no se reescribe
 
-108.700 palabras. Reescribirlas sería producir 320 variantes de un texto que no dice
+109.120 palabras. Reescribirlas sería producir 320 variantes de un texto que no dice
 nada. Lo que las reemplaza (Decisión 6) es más corto y más caro de escribir, y eso es
 exactamente el punto.
 
 ### Decisión 2 — El corte se ancla en tres condiciones simultáneas
 
-1. **Encabezado exacto, solo en la línea** — uno de los cinco títulos, sin palabras
-   extra. Descarta las 168 secciones del autor.
-2. **Huella del párrafo siguiente** — uno de los arranques de la generación A o B. Si
-   el encabezado coincide pero el párrafo no tiene huella, **no se toca**.
-3. **Cola cerrada** — desde el primer encabezado de cola hasta el final del archivo,
-   todo pertenece a la lista blanca. Si aparece cualquier otra cosa, la lección **no se
-   corta automáticamente**.
+1. **Encabezado exacto, solo en la línea** — uno de los ocho títulos de las tres
+   generaciones, sin palabras extra. Descarta las 168 secciones del autor.
+2. **Huella en la cola candidata** — uno de los arranques verbatim de A, B o C, en
+   **cualquiera** de sus secciones. Si el encabezado coincide pero en toda la cola no
+   hay huella, **no se toca**.
+3. **Cola cerrada** — desde el encabezado candidato hasta el final del archivo, todo
+   encabezado pertenece a la lista. Si aparece cualquier otra cosa, ese candidato
+   queda descartado.
 
-Lo que no cumple las tres cae en un **reporte de revisión manual** que se commitea
-antes de borrar nada. Se sabe de al menos 8 casos límite (matchean `Errores comunes`
-sin el resto de la cola). El script deja también el conteo de palabras borradas por
-lección: el borrado se audita, no se cree.
+Y **se prueban todos los candidatos, de arriba hacia abajo**, no sólo el primero.
+
+Las anclas 2 y 3 se ampliaron después de escribir esta spec, con lo que encontró la
+revisión de la implementación, y cada corrección tenía un caso real detrás:
+
+| Lo que decía | Lo que fallaba | Corregido |
+|---|---|---|
+| Huella en el párrafo siguiente al encabezado | En 3 lecciones a ese párrafo se le corrió una palabra («dos o tres frases propias»), y la huella textual estaba dos secciones más abajo | Huella en cualquier parte de la cola candidata |
+| El primer encabezado de cola es el arranque | En 7 lecciones de `teoria-juegos` hay un `Errores comunes` de la generación C **antes** de la cola de la A, y la cola real nunca se evaluaba | Se prueban todos los candidatos; gana el primero que pase las anclas 2 y 3 |
+
+**La seguridad no se movió**: la que protege el texto del autor es el ancla 3, y las
+dos correcciones la dejan intacta. Con las tres anclas corregidas, el corpus mide
+**320 `cola-limpia`, 9 sin cola, y cero para revisión manual** — el mismo 320 que
+este inventario contó por otro camino.
+
+Igual el script deja el conteo de palabras borradas por lección y la lista de lo que
+no pudo cortar solo: el borrado se audita, no se cree.
 
 ### Decisión 3 — Un solo minutaje, calculado, en `course.json`
 
@@ -320,8 +347,8 @@ trigramas, el detector de tuteo (duro y blando), y la extracción de texto rende
 | `promesa` / `noCubre` en 31 cursos | ~2.500 |
 | **Total** | **~67.800** |
 
-Contra las 184.407 palabras propias de hoy: es un **37% más de contenido real**, escrito
-a mano y con fuente. El corpus propio termina en **252.229 palabras — 19,1 h de lectura
+Contra las 183.987 palabras propias de hoy: es un **37% más de contenido real**, escrito
+a mano y con fuente. El corpus propio termina en **251.809 palabras — 19,1 h de lectura
 honesta**, y ése es el número que va a mostrar el catálogo.
 
 Hay que decirlo antes de empezar y no después: son casi 68.000 palabras. Por eso las 31

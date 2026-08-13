@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Borrar las 108.700 palabras de relleno generado de los entrenamientos, decir la verdad sobre cuánto dura cada lección, y escribir en su lugar un cierre propio por lección que un validador de build hace imposible de rellenar.
+**Goal:** Borrar las 109.120 palabras de relleno generado de los entrenamientos, decir la verdad sobre cuánto dura cada lección, y escribir en su lugar un cierre propio por lección que un validador de build hace imposible de rellenar.
 
 **Architecture:** Dos tramos. El **mecánico** (Tareas 1–12) es todo código: cinco módulos puros en `@v2/shared` con sus tests, seis scripts de un solo uso que editan los 329 archivos, y una guardia `entrenamientos:check` enganchada al CI. El **de escritura** (Tareas 13–16) es un curso piloto a mano y después **un agente por curso en paralelo** para los 30 restantes, con la guardia anti-clon como árbitro entre ellos.
 
@@ -28,7 +28,8 @@
 - **Ningún borrado por memoria.** Antes de borrar un campo, se repite el grep que demuestra que no tiene lector, y su salida va en el mensaje del commit.
 - **Emojis prohibidos** en el contenido de entrenamientos a partir de la Tarea 7 (esto revierte la spec 3.5, que los había dejado).
 - **Profundidad de encabezados:** el cuerpo de una lección usa `##` y `###`. Nada más.
-- **Comandos:** `pnpm` desde `v2/`. Tests de `@v2/shared`: `pnpm --filter @v2/shared exec vitest run <archivo>`. Tests de scripts: `pnpm vitest run --config scripts/vitest.config.ts <archivo>`.
+- **Dos directorios de trabajo, y no se mezclan.** Los `pnpm` y los `tsx` corren desde `v2/`. Los `git` corren desde la **raíz del repo** (`v2/` es un subdirectorio, no el repo), porque todas las rutas de los `git add` de este plan arrancan con `v2/…`. Un `git add v2/packages/…` desde dentro de `v2/` busca `v2/v2/packages` y falla.
+- **Comandos:** tests de `@v2/shared`: `pnpm --filter @v2/shared exec vitest run <archivo>`. Tests de scripts: `pnpm vitest run --config scripts/vitest.config.ts <archivo>`.
 - **Rama:** `main`. No se crean ramas de feature.
 
 ## Estructura de archivos
@@ -141,9 +142,10 @@ export const PALABRAS_POR_MINUTO = 220;
 const BLOQUES_NO_PROSA = [/```[\s\S]*?```/g, /<svg[\s\S]*?<\/svg>/gi, /<pre[\s\S]*?<\/pre>/gi];
 
 /**
- * Palabras que un lector realmente lee: prosa, encabezados, listas y tablas.
- * Fuera: código, SVG, `<pre>` y las etiquetas HTML (su texto interior sí cuenta).
- * El cuerpo entra SIN frontmatter — usar `stripFrontmatter` antes.
+ * Palabras que un lector realmente lee: el TEXTO de la prosa, los encabezados,
+ * las listas y las tablas — el marcado no cuenta, así que `## Un título` son dos
+ * palabras y no tres. Fuera: código, SVG, `<pre>` y las etiquetas HTML (su texto
+ * interior sí cuenta). El cuerpo entra SIN frontmatter: usar `separarMdx` antes.
  */
 export function contarPalabrasRenderizables(cuerpoSinFrontmatter: string): number {
   let texto = cuerpoSinFrontmatter;
@@ -352,6 +354,85 @@ describe('detectarCola', () => {
     const mezclado = `${GEN_A}\n\n## Un cierre del autor\n\nEsto lo escribió alguien.`;
     expect(detectarCola(mezclado).motivo).toBe('cola-abierta');
   });
+
+  it('corta cuando la huella está en una sección posterior de la cola, no en la primera', () => {
+    // Caso real: a la primera sección se le corrió una palabra («dos o tres
+    // frases» en vez de «dos frases»), y la huella textual está dos secciones
+    // más abajo. Con la ventana pegada a la primera sección, esto no se cortaba.
+    const corrido = `## Cooperativas
+
+Texto propio del autor.
+
+## Ejercicio guiado
+
+1. Resume la idea central de la lección en dos o tres frases propias.
+
+## Idea fuerza
+
+Cooperativas de consumo vale por su capacidad para mejorar decisiones reales.`;
+    const corte = detectarCola(corrido);
+    expect(corte.motivo).toBe('cola-limpia');
+    expect(corrido.slice(0, corte.indice ?? 0).trim().endsWith('Texto propio del autor.')).toBe(true);
+  });
+
+  it('un encabezado de cola temprano con cola abierta no tapa la cola real de más abajo', () => {
+    // Caso real de teoria-juegos: un «Errores comunes» de otro bloque aparece
+    // antes que la cola verdadera. Quedándose con el primer candidato, el
+    // archivo entero se declaraba sin-huella y la cola real no se veía nunca.
+    const dosBloques = `## Módulo 4
+
+Texto propio.
+
+### Errores comunes
+
+- Un error que escribió el autor.
+
+### Sección propia del autor
+
+Prosa del autor.
+
+### Aplicación práctica
+
+Para que esta idea no quede en el plano conceptual, conviene traducirla a decisiones observables.
+
+### Idea fuerza
+
+Cuando un aprendizaje se traduce en decisiones mejores, deja de ser información.`;
+    const corte = detectarCola(dosBloques);
+    expect(corte.motivo).toBe('cola-limpia');
+    expect(corte.encabezados).toEqual(['Aplicación práctica', 'Idea fuerza']);
+    expect(dosBloques.slice(0, corte.indice ?? 0)).toContain('Prosa del autor.');
+  });
+
+  it('reconoce la tercera generación, la de teoria-juegos', () => {
+    const genC = `## Coordinación
+
+Texto propio del autor.
+
+### Aplicación argentina
+
+La utilidad real del contenido aparece cuando lo llevas a decisiones concretas en Argentina.
+
+### Errores comunes
+
+- Quedarse con el concepto técnico y no traducirlo a decisiones observables.
+
+### Ejercicio de aplicación
+
+1. Elegí un caso.
+
+### Cierre
+
+La prueba de esta lección no está en repetir su vocabulario.`;
+    const corte = detectarCola(genC);
+    expect(corte.motivo).toBe('cola-limpia');
+    expect(corte.encabezados).toEqual([
+      'Aplicación argentina',
+      'Errores comunes',
+      'Ejercicio de aplicación',
+      'Cierre',
+    ]);
+  });
 });
 ```
 
@@ -367,27 +448,45 @@ Expected: FAIL — no existe el módulo.
 /**
  * La cola generada en v1 — su detector.
  *
- * 320 de las 329 lecciones terminan con las mismas cinco secciones, en dos
+ * 320 de las 329 lecciones terminan con las mismas secciones, en TRES
  * generaciones distintas (medido 2026-08-12). El corte exige TRES anclas
  * simultáneas, porque hay 168 encabezados del autor con nombres parecidos y
  * algunas de esas secciones son lo mejor del corpus:
  *
- *   1. el encabezado es uno de los cinco, exacto y solo en su línea;
- *   2. el párrafo que le sigue arranca con una huella conocida;
+ *   1. el encabezado es uno de la lista, exacto y solo en su línea;
+ *   2. la cola candidata contiene una huella conocida, en cualquiera de sus
+ *      secciones;
  *   3. de ahí al final del archivo, todo encabezado pertenece a la lista.
+ *
+ * Y se prueban todos los candidatos, no sólo el primero: un encabezado de cola
+ * temprano perteneciente a otro bloque no puede tapar la cola real.
  *
  * Sólo `cola-limpia` autoriza a borrar. Todo lo demás va a revisión humana.
  */
 
 export const ENCABEZADOS_COLA = [
+  // generaciones A y B
   'Aplicación práctica',
   'Cómo se ve en el territorio',
   'Errores comunes',
   'Ejercicio guiado',
   'Idea fuerza',
+  // generación C — 7 lecciones de `teoria-juegos-argentina-hombre-gris`, y estos
+  // tres encabezados no aparecen en NINGUNA otra lección del corpus (verificado
+  // 2026-08-12). `Cierre` es genérico, así que su seguridad la dan las otras dos
+  // anclas, no su nombre.
+  'Aplicación argentina',
+  'Ejercicio de aplicación',
+  'Cierre',
 ] as const;
 
-/** Arranques verbatim de las dos generaciones. Basta que el párrafo contenga uno. */
+/**
+ * Arranques verbatim de las tres generaciones. Basta que la cola candidata
+ * contenga uno — en cualquiera de sus secciones, no sólo en la primera: hay
+ * lecciones donde a la primera sección se le corrió una palabra («dos o tres
+ * frases propias» en vez de «dos frases propias») y la huella textual aparece
+ * dos secciones más abajo.
+ */
 export const HUELLAS = [
   // generación A (205 lecciones)
   'Para que esta idea no quede en el plano conceptual',
@@ -402,6 +501,10 @@ export const HUELLAS = [
   'Busca un caso cercano donde este principio te permita ver algo',
   'vale por su capacidad para mejorar decisiones reales',
   'deja de ser información suelta y se convierte en capacidad acumulable',
+  // generación C (7 lecciones, 3.096 palabras, «Cierre» idéntico en las 7)
+  'La utilidad real del contenido aparece cuando lo llevas a decisiones concretas en Argentina',
+  'Quedarse con el concepto técnico y no traducirlo a decisiones observables',
+  'La prueba de esta lección no está en repetir su vocabulario',
 ] as const;
 
 export type MotivoCorte = 'sin-cola' | 'cola-limpia' | 'sin-huella' | 'cola-abierta';
@@ -435,30 +538,44 @@ const esDeCola = (texto: string): boolean =>
 
 export function detectarCola(cuerpoSinFrontmatter: string): Corte {
   const todos = encabezados(cuerpoSinFrontmatter);
-  const primero = todos.findIndex((h) => esDeCola(h.texto));
-  if (primero === -1) return { motivo: 'sin-cola', indice: null, encabezados: [] };
+  const candidatos = todos.flatMap((h, i) => (esDeCola(h.texto) ? [i] : []));
+  if (candidatos.length === 0) return { motivo: 'sin-cola', indice: null, encabezados: [] };
 
-  const arranque = todos[primero];
-  const siguiente = todos[primero + 1];
-  const parrafo = cuerpoSinFrontmatter.slice(
-    arranque.indice,
-    siguiente ? siguiente.indice : cuerpoSinFrontmatter.length,
-  );
-  if (!HUELLAS.some((h) => parrafo.includes(h))) {
-    return { motivo: 'sin-huella', indice: null, encabezados: [arranque.texto] };
+  // Se prueban TODOS los candidatos, de arriba hacia abajo. Quedarse con el
+  // primero y no reintentar hacía que un encabezado de cola temprano —de otro
+  // bloque, con su propia cola abierta— tapara la cola real que venía después.
+  let motivoFinal: MotivoCorte = 'sin-huella';
+  let encabezadosFinal: string[] = [];
+
+  for (const i of candidatos) {
+    const arranque = todos[i];
+    if (arranque === undefined) continue;
+    const desdeElCorte = todos.slice(i);
+    const textos = desdeElCorte.map((h) => h.texto);
+
+    // Ancla 3 primero: si de acá al final hay un encabezado ajeno, este
+    // candidato no es el arranque de la cola. Se prueba el siguiente.
+    if (desdeElCorte.some((h) => !esDeCola(h.texto))) {
+      motivoFinal = 'cola-abierta';
+      encabezadosFinal = textos;
+      continue;
+    }
+
+    // Ancla 2: la huella, en cualquier parte de la cola candidata.
+    const cola = cuerpoSinFrontmatter.slice(arranque.indice);
+    if (!HUELLAS.some((h) => cola.includes(h))) {
+      motivoFinal = 'sin-huella';
+      encabezadosFinal = textos;
+      continue;
+    }
+
+    return { motivo: 'cola-limpia', indice: arranque.indice, encabezados: textos };
   }
 
-  const desdeElCorte = todos.slice(primero);
-  const ajeno = desdeElCorte.find((h) => !esDeCola(h.texto));
-  if (ajeno) {
-    return { motivo: 'cola-abierta', indice: null, encabezados: desdeElCorte.map((h) => h.texto) };
-  }
-
-  return {
-    motivo: 'cola-limpia',
-    indice: arranque.indice,
-    encabezados: desdeElCorte.map((h) => h.texto),
-  };
+  // Ningún candidato pasó. Se reporta el motivo del último evaluado: es el más
+  // cercano al final del archivo y por lo tanto el más informativo para quien
+  // lo revise a mano.
+  return { motivo: motivoFinal, indice: null, encabezados: encabezadosFinal };
 }
 ```
 
@@ -467,7 +584,15 @@ export function detectarCola(cuerpoSinFrontmatter: string): Corte {
 Agregar `export * from './cola-generada.js';` en `packages/shared/src/content/index.ts`.
 
 Run: `pnpm --filter @v2/shared exec vitest run tests/cola-generada.test.ts`
-Expected: PASS — 6 tests.
+Expected: PASS — 9 tests.
+
+- [ ] **Step 4b: Medir el corpus real y no ajustar los números para que cuadren**
+
+Los fixtures son maquetas cortas; el corpus es el juez. Correr el detector sobre las 329 lecciones y contar por motivo.
+
+Expected: **320 `cola-limpia`, 9 `sin-cola`, 0 `sin-huella`, 0 `cola-abierta`.** Los 320 son los que la spec midió por otro camino (§1), así que las dos mediciones tienen que coincidir.
+
+Si `sin-huella` o `cola-abierta` dan algo distinto de 0, **no toques las listas para que cierre**: reportá los conteos y las lecciones, porque significa que hay una cuarta generación o un encabezado del autor que nadie vio, y eso lo decide una persona.
 
 - [ ] **Step 5: Commit**
 
@@ -668,7 +793,7 @@ Expected: `329 lecciones relevadas → …/docs/reportes/2026-08-12-entrenamient
 
 - [ ] **Step 6: Leer el reporte y confirmar los números de la spec**
 
-Abrir el reporte y verificar contra la spec: 320 con cola (`cola-limpia` + los casos límite), ~108.700 palabras de cola, 3.163 minutos declarados contra ~838 reales. **Si los conteos de `sin-huella` o `cola-abierta` son mayores que 15, pará y revisá el detector antes de seguir.**
+Abrir el reporte y verificar contra la spec: 320 con cola (`cola-limpia` + los casos límite), ~109.100 palabras de cola, 3.163 minutos declarados contra ~838 reales. **Si los conteos de `sin-huella` o `cola-abierta` son mayores que 15, pará y revisá el detector antes de seguir.**
 
 - [ ] **Step 7: Commit**
 
@@ -946,8 +1071,8 @@ Agregar a `package.json`: `"entrenamientos:borrar-cola": "tsx scripts/content/en
 - [ ] **Step 2: Correr y verificar el orden de magnitud**
 
 Run: `pnpm entrenamientos:borrar-cola`
-Expected: `cola borrada en ~312 lecciones — ~108.000 palabras` y `a revisar a mano: ≤ 15`.
-**Si «palabras» da menos de 90.000 o más de 120.000, pará**: el detector cambió de comportamiento respecto del reporte de la Tarea 3.
+Expected: `cola borrada en 320 lecciones — ~109.100 palabras` y `a revisar a mano: 0`.
+**Si «palabras» da menos de 100.000 o más de 125.000, pará**: el detector cambió de comportamiento respecto del reporte de la Tarea 3. (No son 108.700 + 3.096: en las cuatro lecciones donde las generaciones C y A están apiladas, la medición vieja ya contaba parte de la C.)
 
 - [ ] **Step 3: Revisar el diff de tres lecciones y las que quedaron a mano**
 
@@ -959,13 +1084,13 @@ Después, abrir `docs/reportes/2026-08-12-entrenamientos-cola-a-mano.txt` y reso
 - [ ] **Step 4: Confirmar el nuevo total**
 
 Run: `pnpm entrenamientos:reporte && head -12 docs/reportes/2026-08-12-entrenamientos-inventario.md`
-Expected: palabras de cola ≈ 0; palabras propias ≈ 184.407.
+Expected: palabras de cola ≈ 0; palabras propias ≈ 183.987.
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add v2/scripts/content/entrenamientos-borrar-cola.ts v2/package.json v2/content/courses v2/docs/reportes
-git commit -m "fix(v2): mueren las 108.700 palabras de relleno generado en los entrenamientos"
+git commit -m "fix(v2): mueren las 109.120 palabras de relleno generado en los entrenamientos"
 ```
 
 ---
@@ -2542,7 +2667,7 @@ Expected: PASS de punta a punta, con `entrenamientos:check` incluido.
 
 Run: `pnpm entrenamientos:reporte && head -12 docs/reportes/2026-08-12-entrenamientos-inventario.md`
 
-Anotar los reales en la spec (sección 5) al lado de los estimados: palabras propias (estimado 252.229), minutos totales (estimado 1.146 = 19,1 h), palabras de cola (0).
+Anotar los reales en la spec (sección 5) al lado de los estimados: palabras propias (estimado 251.809), minutos totales (estimado 1.146 = 19,1 h), palabras de cola (0).
 
 - [ ] **Step 5: Marcar las deudas resueltas**
 
