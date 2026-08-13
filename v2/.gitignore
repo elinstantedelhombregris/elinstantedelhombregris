@@ -88,3 +88,8 @@ stats.html
 apps/api/dist-bundle/
 .vercel
 .env*
+
+# Teselas del basemap — 1,2 GB que genera `scripts/build/mapa/extraer-teselas.ts`
+# recortando el planet de Protomaps. Se regeneran con un comando; meterlas en git
+# es irreversible. El script es la fuente de verdad, no el archivo.
+apps/web/public/tiles/
