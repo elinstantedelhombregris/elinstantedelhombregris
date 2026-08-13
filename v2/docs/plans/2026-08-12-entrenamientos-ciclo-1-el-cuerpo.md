@@ -16,6 +16,7 @@
 - **`yaml` no es dependencia de este repo. `gray-matter` sí**, dentro de `packages/shared`, y está envuelto en `loadContentDir(dir, schema)` — subpath `@v2/shared/content/loader`, server-only. Devuelve `{ ok: [{ file, frontmatter, body }], errors }` con el frontmatter ya validado por Zod. La guardia usa eso; no se agrega ninguna dependencia nueva.
 - **El slug de una lección se deriva de `key`** con `derivarSlugDeLeccion` de `@v2/shared` — la misma función que usa `courses-registry.ts`. Ningún script vuelve a escribir ese `replace`.
 - **`scripts/build/build-content.ts` no corre en ningún lado**: no está en ningún `package.json` ni en `.github/workflows/v2-ci.yml`. La guardia nueva no se cuelga de él.
+- **`import.meta.dirname` es `undefined`** con el `tsx` de este repo (verificado 2026-08-13 con una prueba directa). Los scripts resuelven su directorio con `dirname(fileURLToPath(import.meta.url))`, que es lo que ya hacen `verify-planes-index.ts:22`, `migrate-planes-v1-to-v2.ts:22` y `build-content.ts:31`. Los siete scripts de este plan usan ese patrón; el primero que se escribió usó `import.meta.dirname` y crasheó con `ERR_INVALID_ARG_TYPE` en su primera corrida.
 - **El minutaje que la página muestra** sale de `course.json` → `courses-registry.ts:81` (`minutos: l.duration`) → `EntrenamientoDetail.tsx:99` y `LeccionDetail.tsx:148`. `estimatedMinutes` del frontmatter no lo lee nadie.
 
 ## Global Constraints
@@ -744,7 +745,8 @@ Expected: FAIL — no existe `entrenamientos-reporte`.
  * commitea y se revisa a ojo antes de autorizar un borrado masivo.
  */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { basename, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import {
   contarPalabrasRenderizables,
@@ -866,7 +868,7 @@ function markdown({ filas, anomalias }: Relevamiento): string {
 }
 
 if (process.argv[1]?.endsWith('entrenamientos-reporte.ts')) {
-  const raiz = resolve(import.meta.dirname, '../..');
+  const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
   const relevamiento = relevarCorpus(raiz);
   const salida = resolve(raiz, 'docs/reportes/2026-08-12-entrenamientos-inventario.md');
   writeFileSync(salida, markdown(relevamiento));
@@ -1065,11 +1067,12 @@ Expected: PASS.
 // scripts/content/entrenamientos-voseo.ts
 /** Aplica la lista dura de voseo a los cuerpos y reporta la blanda. No toca frontmatter. */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { detectarTuteo, normalizarVoseo, separarMdx } from '@v2/shared';
 
-const raiz = resolve(import.meta.dirname, '../..');
+const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const dir = resolve(raiz, 'content/courses');
 let archivos = 0;
 let cambios = 0;
@@ -1134,11 +1137,12 @@ git commit -m "fix(v2): las lecciones hablan en rioplatense, no en tuteo neutro"
  * adivinar, y 168 encabezados del autor tienen nombres parecidos.
  */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { contarPalabrasRenderizables, detectarCola, separarMdx } from '@v2/shared';
 
-const raiz = resolve(import.meta.dirname, '../..');
+const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const dir = resolve(raiz, 'content/courses');
 let tocados = 0;
 let borradas = 0;
@@ -1220,7 +1224,8 @@ git commit -m "fix(v2): mueren las 106.893 palabras de relleno generado en los e
  * `estimatedMinutes` sale del frontmatter en este mismo paso.
  */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { basename, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import {
   contarPalabrasRenderizables,
@@ -1268,7 +1273,7 @@ export function recalcularMinutaje(raiz: string, opciones: { escribir?: boolean 
 }
 
 if (process.argv[1]?.endsWith('entrenamientos-minutaje.ts')) {
-  const raiz = resolve(import.meta.dirname, '../..');
+  const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
   const escribir = process.argv.includes('--escribir');
   const cambios = recalcularMinutaje(raiz, { escribir });
   const antes = cambios.reduce((n, c) => n + c.antes, 0);
@@ -1388,7 +1393,8 @@ Expected: FAIL.
  * decisiones caso por caso y van a mano en esta misma tarea.
  */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const EMOJI = /[\p{Extended_Pictographic}\u{FE0F}\u{20E3}]/gu;
 
@@ -1440,7 +1446,7 @@ export function podar(
 }
 
 if (process.argv[1]?.endsWith('entrenamientos-poda.ts')) {
-  const raiz = resolve(import.meta.dirname, '../..');
+  const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
   const dir = resolve(raiz, 'content/courses');
   const conHtml: string[] = [];
   let tocados = 0;
@@ -1528,7 +1534,8 @@ Expected: todos vacíos salvo `contentFile` (schema + los dos migradores + el te
  * tiene; `contentFile` apunta a rutas del árbol de v1 en las 329 (D-055).
  */
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const MUERTOS_CURSO = [
   'seoTitle',
@@ -1560,7 +1567,7 @@ const limpiar = (o: Record<string, unknown>, claves: readonly string[]): void =>
   for (const k of claves) delete o[k];
 };
 
-const raiz = resolve(import.meta.dirname, '../..');
+const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const dir = resolve(raiz, 'content/courses');
 let cursos = 0;
 
@@ -2205,7 +2212,8 @@ Expected: FAIL.
  * tuteo, 1.012 encabezados de esquema, y campos requeridos que no resuelven.
  */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { basename, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import {
   contarPalabrasRenderizables,
@@ -2383,7 +2391,7 @@ export async function revisarCorpus(raiz: string): Promise<string[]> {
 }
 
 if (process.argv[1]?.endsWith('entrenamientos-check.ts')) {
-  const errores = await revisarCorpus(resolve(import.meta.dirname, '../..'));
+  const errores = await revisarCorpus(resolve(dirname(fileURLToPath(import.meta.url)), '../..'));
   if (errores.length > 0) {
     process.stderr.write(`${errores.join('\n')}\n\n${String(errores.length)} problemas en el corpus\n`);
     process.exit(1);
