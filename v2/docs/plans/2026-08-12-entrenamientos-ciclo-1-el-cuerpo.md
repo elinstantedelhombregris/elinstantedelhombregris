@@ -1400,7 +1400,9 @@ El 315 era la cola generada: el relleno arrancaba re-citando el `summary`, y la 
 
 **`#` no lo cubre la regex del plan.** `/^#{4,6} /` aplana 4-6 a `###` y deja los 13 `#` intactos, que compiten con el `<h1>` que la página ya pone con el título. Tienen que pasar a `##`. Verificado en el navegador: la página renderiza `h1=1` (el suyo) y `h4=8` en una sola lección, así que esto se ve.
 
-**Hallazgo nuevo, verificado en pantalla: 20 lecciones tienen 153 líneas que renderizan como bloque de código sin querer.** Son líneas con 4 o más espacios de sangría después de una línea en blanco y fuera de una lista, que en Markdown son un bloque indentado. Alguien las sangró para *centrar* un diagrama de flujo vertical, y el resultado es monoespaciado con los asteriscos a la vista:
+**Hallazgo nuevo, verificado en pantalla: 8 lecciones tienen 73 líneas que renderizan como bloque de código sin querer.** Son líneas con 4 o más espacios de sangría después de una línea en blanco y fuera de una lista, que en Markdown son un bloque indentado.
+
+**Corrección del 2026-08-13, sobre una cifra que este plan trajo mal por mi culpa.** La primera medición dijo 20 lecciones y 153 líneas. Estaba inflada: el detector contaba también las líneas sangradas **adentro de un `<svg>` inline** (`<defs>`, `<circle cx=…>`, `<!-- Observar -->`), y ahí la sangría es inocua — dentro de un bloque HTML, MDX no arranca un bloque de código. Descontando esas, los casos reales eran 8 lecciones y 73 líneas, que es lo que se arregló. El detector que sirve ignora lo que está entre `<svg>`/`<table>` y su cierre. Alguien las sangró para *centrar* un diagrama de flujo vertical, y el resultado es monoespaciado con los asteriscos a la vista:
 
 ```
 Diagrama del Flujo Energético
