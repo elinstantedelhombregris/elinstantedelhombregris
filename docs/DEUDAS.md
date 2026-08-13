@@ -27,7 +27,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 |---|---|---|---|
 | [D-001](#d-001--no-hay-resolución-geográfica-en-el-servidor) | No hay resolución geográfica en el servidor | Bloqueante | **Resuelta** |
 | [D-002](#d-002--la-base-de-v2-tiene-12-filas-y-las-12-son-de-demostración) | La base de v2 tiene 12 filas, y las 12 son de demostración | Alta | **Resuelta** |
-| [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros) | Glyphs y teselas del mapa salen de CDN de terceros | Media | Abierta |
+| [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros) | Glyphs y teselas del mapa salen de CDN de terceros | Media | **Resuelta** |
 | [D-004](#d-004--falta-la-capa-de-departamentos) | Falta la capa de departamentos | Media | Abierta |
 | [D-005](#d-005--falta-la-capa-de-municipios) | Falta la capa de municipios | Media | Abierta |
 | [D-006](#d-006--las-73-dependencias-entre-planes-viven-solo-en-v1) | Las dependencias entre PLANes viven solo en v1 (ya son 208) | Media | Abierta |
@@ -54,6 +54,11 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-033](#d-033--pnpm-formatcheck-falla-en-564-archivos-preexistentes-scriptscontent-incluido) | `pnpm format:check` falla en 564 archivos preexistentes, `scripts/content/` incluido | Baja | Abierta |
 | [D-045](#d-045--platform_feedback-es-una-tabla-muerta-que-modela-lo-contrario-del-canal-de-escucha) | `platform_feedback` es una tabla muerta que modela lo contrario del canal de escucha | Media | Abierta |
 | [D-046](#d-046--la-guardia-de-este-mismo-archivo-está-en-rojo-y-nadie-la-corre) | La guardia de este mismo archivo está en rojo y nadie la corre | Alta | Abierta |
+| [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera) | El basemap se congela en la fecha en que se extrajo y nadie se entera | Baja | Abierta |
+| [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento) | La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento | Alta | Abierta |
+| [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | Abierta |
+| [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) | El borde del recorte de teselas se ve en el agua | Baja | Abierta |
+| [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
 
 ---
 
@@ -102,7 +107,7 @@ Relacionado: el pie de página dice «Prototipo con datos de demostración» (`P
 **Dónde:** `v2/apps/api/src/middleware/security.ts:37-44`, `v2/apps/web/public/maps/{oscuro,papel}.json`
 **Encontrada:** 2026-08-01, al arreglar el mapa sin etiquetas
 **Severidad:** media
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-08-12**, ver [Resueltas](#resueltas)
 
 La CSP habilita seis hosts externos: cinco de Carto para las teselas y `fonts.openmaptiles.org` para los glyphs. `v2/CLAUDE.md` dice, textual: *«Helmet with strict CSP — don't add third-party CDN allowances; bundle locally»*. Esto la viola a conciencia.
 
@@ -212,6 +217,8 @@ El commit quedó con un mensaje que no menciona nada de eso. Dentro de un mes, `
 
 **Qué haría falta.** Regla de la casa: **commitear siempre con rutas explícitas**, nunca `-a` ni `add -A`, mientras pueda haber más de una sesión trabajando. Un hook de `pre-commit` que avise cuando el índice contiene archivos fuera del alcance declarado sería la versión que no depende de acordarse.
 
+**Volvió a pasar el 2026-08-12, con la regla ya escrita acá.** `9d7578d` («fix(v2): escapar el NUL crudo y el rango de diacríticos en el plan del motor») se llevó el borrado de `v2/apps/web/public/maps/{dark-matter,papel}.json`, que otra sesión había preparado con `git rm` y todavía no había commiteado — 3.217 líneas de borrado que el mensaje no menciona. El árbol quedó bien y el registro quedó mal: `git log` sobre esos dos estilos va a decir que los borró un commit sobre secuencias de escape. **Dos veces en once días es la medición de que la regla escrita no alcanza**; lo que falta es el hook.
+
 ---
 
 ### D-011 · La geometría de provincias erra en los bordes
@@ -301,6 +308,32 @@ Lo que corresponde es un branch de Neon efímero por corrida, o al menos una bas
 ---
 
 ## Resueltas
+
+### D-003 · Glyphs y teselas del mapa salen de CDN de terceros
+
+**Resuelta:** 2026-08-12
+**Cómo:** plan `v2/docs/plans/2026-08-12-teselas-propias.md`, commits `b477c5a`, `fbe1791`, `14730c4`, `28d550c`.
+
+- **Glyphs propios.** Los 256 rangos PBF de `Noto Sans Regular` viven en `v2/apps/web/public/fonts/` (5,95 MB) con su licencia OFL al lado. El estilo pide `/fonts/{fontstack}/{range}.pbf`.
+- **Teselas propias.** Un único `.pmtiles` estático de la Argentina entera, leído por range requests con el plugin `pmtiles` de MapLibre. **No hay servidor de teselas, no hay proceso nuevo, no hay base nueva.**
+- **Estilo propio.** Generado desde `protomaps-themes-base` con `pnpm mapa:estilo` y repintado con los tokens del proyecto: 66 capas contra las 12 escritas a mano.
+- **CSP a cero externos.** `imgSrc`, `connectSrc` y `fontSrc` quedaron en `'self'` más los esquemas `data:`/`blob:`. Un test de `apps/api/tests/csp-mapa.test.ts` falla si alguno de los seis hosts vuelve.
+
+**La premisa era correcta para lo que se estaba pensando, y falsa para lo que había que hacer.** Esta entrada decía que auto-hospedar teselas del país es «impracticable al tamaño actual», y lo es **para un servidor de teselas con `.mbtiles`**: hay que correr un proceso, mantenerlo y pagarlo. Para **un archivo estático servido por rangos** el número es otro:
+
+| | |
+|---|---|
+| Argentina entera a zoom 15, recortada por las 24 provincias | **1.206.728.792 bytes (1,2 GB)** |
+| Proporción del planet de Protomaps (137 GB) | **0,9%** |
+| Costo de generarlo | 481 range requests, 1,3 GB transferidos, **2 minutos** |
+
+Lo que hacía impracticable la idea no era el tamaño del país: era la forma del servidor que se le suponía. Vale anotarlo porque el mismo razonamiento —«esto es demasiado grande para nosotros»— está sin medir en otros lugares del proyecto.
+
+**Lo que apareció al arreglarlo, y que nadie sabía: el mapa estaba en blanco.** `fonts.openmaptiles.org` **no tiene** la familia `Noto Sans Regular` que el estilo pedía —su índice publica `Klokantech Noto Sans Regular`, que es otra— y ante un fontstack desconocido no devuelve 404: **devuelve su página de inicio con estado 200**. MapLibre parseaba ese HTML como protobuf, moría con `Unimplemented type: 4` y **no dibujaba ni una geometría**, no sólo las etiquetas. Cero errores de red que mirar, porque el estado era 200. La deuda estaba archivada como una fuga de privacidad y era además un mapa roto en producción, sin síntoma en la consola.
+
+**Lo que dejó atrás:** [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera), [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento), [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas), [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) y [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado).
+
+---
 
 ### D-002 · La base de v2 tiene 12 filas, y las 12 son de demostración
 
@@ -814,3 +847,84 @@ Se descubrió de rebote: el importador de `docs/DEUDAS.md` a `faltas` contó 33 
 **Por qué no se arregla acá:** agregar seis filas al índice es trivial, pero mover la guardia de árbol es una decisión sobre el CI de los dos proyectos, y el archivo tiene sesiones concurrentes escribiéndolo (ver [D-010](#d-010--sesiones-concurrentes-se-tragan-los-cambios-de-otras)).
 
 **Qué haría falta:** las seis filas de índice, y después mover la guardia a `v2/scripts/content/` con su propio paso de CI —o agregar `docs/DEUDAS.md` a los `paths` del workflow existente— para que la escriba quien la escriba, alguien la mida.
+
+---
+
+### D-047 · El basemap se congela en la fecha en que se extrajo y nadie se entera
+
+**Dónde:** `v2/apps/web/public/tiles/argentina.pmtiles`, generado por `v2/scripts/build/mapa/extraer-teselas.ts`
+**Encontrada:** 2026-08-12, cerrando [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros) — es la contracara de dejar de depender de un CDN
+**Severidad:** baja
+**Estado:** abierta
+
+Cuando las teselas las servía Carto, alguien las mantenía al día. Ahora las mantenemos nosotros, y no las mantiene nadie: el `.pmtiles` es una foto de OpenStreetMap del **12/8/2026 04:00 UTC** y va a seguir siéndolo hasta que una persona corra el script. Una calle nueva, un barrio que crece o un pueblo que se renombra no aparecen, y **no hay ningún síntoma**: el mapa se ve perfecto, sólo que viejo.
+
+**La cadencia decidida es mensual**, y está escrita en `v2/scripts/build/mapa/README.md` junto con la fecha de la última corrida. Para un basemap cívico alcanza: lo que el mapa dibuja son provincias, calles y manzanas, que cambian en años, no en semanas.
+
+**Por qué no se automatizó acá.** El extract necesita el binario de Go de `pmtiles`, 1,2 GB de disco y un lugar donde publicar el resultado — y ese lugar todavía no existe ([D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado)). El cron que el proyecto ya tiene (`vercel.json` → `/api/cron/rankings`) es una función serverless: no puede correr un binario nativo ni escribir un archivo de este tamaño. Automatizarlo depende de decidir primero dónde vive el archivo; hasta entonces, un cron sería un cron que falla todos los meses.
+
+**Qué haría falta:** una vez publicado el archivo, una tarea mensual en la máquina o el servidor que lo aloja, que invoque el script sin argumentos —resuelve solo el build vigente de Protomaps— y reemplace el archivo. Mientras tanto, la fecha del README es lo único que avisa.
+
+---
+
+### D-048 · La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento
+
+**Dónde:** `v2/apps/api/src/middleware/security.ts` (montado en `apps/api/src/app.ts:44`), `v2/vercel.json`
+**Encontrada:** 2026-08-12, verificando el resultado de [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros)
+**Severidad:** alta
+**Estado:** abierta
+
+`securityHeaders()` se monta **sólo en la app de Express**, y en producción Express contesta únicamente `/api/*`: el rewrite `"/((?!api/).*)" → /index.html` de `vercel.json` sirve el documento desde el filesystem de Vercel, que no pasa por ningún middleware nuestro. `vercel.json` no tiene bloque `headers`, no hay archivo de headers estáticos y `index.html` no lleva `<meta http-equiv="Content-Security-Policy">`.
+
+O sea que **el header `Content-Security-Policy` llega en las respuestas JSON de la API, donde no hay nada que proteger, y no llega en la página, que es donde corre el JavaScript.** La política existe, está bien escrita, tiene su test, y el navegador nunca la ve.
+
+**Por qué importa.** Es el peor modo de falla de una defensa: no la ausencia, sino la apariencia. El código declara una CSP estricta, `v2/CLAUDE.md` la nombra como regla dura y una sesión entera de trabajo se dedicó a sacarle seis hosts de terceros — y ninguno de esos seis estaba siendo bloqueado por nadie, porque la lista nunca se aplicó. Cualquier razonamiento futuro de la forma «eso no puede pasar, lo tapa la CSP» es falso hasta que esto se arregle.
+
+**Qué haría falta:** un bloque `headers` en `vercel.json` que sirva las mismas directivas para el documento, derivadas de la misma fuente que el middleware para que no puedan divergir. Ojo con el orden: hoy la política del middleware es `'self' data: blob:` para fuentes y tipografías, así que aplicarla al documento tal cual **rompe las tipografías de Google que la página sigue pidiendo** ([D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas)). Primero se traen las tipografías, después se aplica el header.
+
+---
+
+### D-049 · Las tipografías de la interfaz salen de Google Fonts en todas las páginas
+
+**Dónde:** `v2/apps/web/index.html:13-17`
+**Encontrada:** 2026-08-12, midiendo qué le quedaba de terceros al mapa después de [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros)
+**Severidad:** media
+**Estado:** abierta
+
+El `index.html` hace `preconnect` a `fonts.googleapis.com` y `fonts.gstatic.com` y carga seis familias —Anton, Archivo, Space Mono, Inter, JetBrains Mono, Playfair Display— desde ahí. Son unos siete pedidos externos por carga, **en todas las páginas del sitio**, no sólo en el mapa: Google ve la dirección IP de cualquiera que abra cualquier página.
+
+Es la misma deficiencia que D-003 y es más grande, porque D-003 vivía en una pantalla y ésta vive en el documento base. Cerrar el mapa y dejar esto abierto sería quedarse con el gesto sin el efecto.
+
+**Por qué se anota y no se arregla acá:** el trabajo es de la misma familia que el de los glyphs del mapa —bajar los `.woff2`, servirlos desde `/fonts/` con `@font-face` propio— pero toca el documento base y el sistema tipográfico de todo el sitio, que es superficie de diseño y no de este plan. Son seis familias con varios pesos cada una; conviene medir primero cuáles se usan de verdad, igual que se hizo con el mapa, donde de tres familias supuestas resultó que el estilo pedía una.
+
+**Consecuencia hoy, que hay que decir en voz alta:** la política de privacidad **no puede afirmar que el navegador no le pide nada a terceros**. Puede afirmar —y afirma, desde la versión 3— que el mapa dejó de hacerlo. Ver `v2/content/legal/privacidad.mdx`, sección «Dónde viven tus datos, y qué sale del país».
+
+---
+
+### D-050 · El borde del recorte de teselas se ve en el agua
+
+**Dónde:** `v2/apps/web/public/tiles/argentina.pmtiles`, recorte definido en `v2/scripts/build/mapa/extraer-teselas.ts`
+**Encontrada:** 2026-08-12, al repintar el estilo (Task 5 del plan de teselas propias)
+**Severidad:** baja
+**Estado:** abierta
+
+El archivo se recortó exactamente con las 24 provincias de `apps/web/public/geo/provincias.geojson`. Fuera de ese contorno no hay tesela, y donde no hay tesela no se dibuja nada: el agua exterior queda del color del **fondo** en vez del color del **agua**, con un borde rectangular duro en el límite de la columna de teselas.
+
+Se ve, y se ve en la vista con la que abre la app: a z3,7 hay una costura vertical en el Atlántico a la altura de -45°, y a z11 sobre el conurbano aparece un rectángulo más claro en el medio del Río de la Plata.
+
+**No se arregla en el estilo.** Pintar el fondo del color del agua tapa el río y hunde a Uruguay en cuanto se acerca el zoom. Se arregla en el recorte: darle un buffer a la región antes de extraer y volver a correr el script — dos minutos y unos pocos MB, según lo medido en la Task 2. Es una decisión sobre cuánto país ajeno se paga por no ver el borde, así que la toma el dueño.
+
+---
+
+### D-051 · El `.pmtiles` de 1,2 GB no está publicado en ningún lado
+
+**Dónde:** `v2/apps/web/public/tiles/argentina.pmtiles` (gitignoreado), Task 3 del plan `v2/docs/plans/2026-08-12-teselas-propias.md`
+**Encontrada:** 2026-08-12, cerrando el plan con la decisión de hosting todavía abierta
+**Severidad:** alta
+**Estado:** abierta
+
+El estilo apunta a `pmtiles:///tiles/argentina.pmtiles` y el archivo existe **en una sola máquina**, la de desarrollo. Está en `.gitignore` a propósito: 1,2 GB en git es irreversible. En producción no hay nada en esa ruta, así que **si esto se despliega tal cual, el mapa carga sin una sola tesela** — el fondo, las señales que dibuja React y nada más. Ningún host de terceros recibe el pedido, que era el objetivo de D-003, pero tampoco lo recibe nadie.
+
+Las tres salidas están escritas en el plan y ninguna es de código: servidor propio con nginx (cierra la fuga del todo), Cloudflare R2 (entra cómodo, egress gratis, pero Cloudflare vuelve a ver las IPs bajo dominio propio) o descartar Vercel para un archivo de este tamaño. Lo que la decisión pide verificar a mano es una sola cosa: que el hosting devuelva **`206 Partial Content` y `accept-ranges: bytes`**. Si devuelve `200` con el archivo entero, el navegador baja 1,2 GB por tesela y hay que cambiar de hosting, no de código.
+
+Es también la que traba a [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera): no se puede automatizar la actualización de un archivo que no tiene domicilio.

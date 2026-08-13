@@ -12,10 +12,13 @@
  * (`pnpm exec tsx` no resuelve tsx desde la raíz del workspace; es el mismo
  * arranque que documenta `scripts/build/data/README.md`.)
  *
- * Requiere el CLI de Protomaps: `brew install pmtiles`.
+ * Requiere el CLI de Protomaps: `brew install pmtiles`. La cadencia con la que
+ * hay que volver a correrlo —y la fecha de la última vez— están en el
+ * `README.md` de esta carpeta.
  *
- * **Tarda horas y baja ~1,2 GB.** Lanzalo desprendido de la terminal y mirá el
- * log, no la pantalla:
+ * **Baja ~1,2 GB en unos 2 minutos** (medido el 12/8/2026: 481 range requests
+ * grandes con 4 hilos, no millones de pedidos chicos). Si igual querés
+ * desprenderlo de la terminal y mirar el log en vez de la pantalla:
  *
  *   nohup ./apps/api/node_modules/.bin/tsx scripts/build/mapa/extraer-teselas.ts \
  *     > /tmp/extraer-teselas.log 2>&1 < /dev/null & disown
