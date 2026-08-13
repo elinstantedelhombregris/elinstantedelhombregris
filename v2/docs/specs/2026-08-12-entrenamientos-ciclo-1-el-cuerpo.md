@@ -10,8 +10,8 @@ colores v1 → **deuda del autor, no se toca**». Este ciclo levanta esa mano.
 **Continúa en:** Ciclo 2 (los puentes), Ciclo 3 (la práctica), Ciclo 4 (las rutas).
 
 > **Tesis.** El catálogo anuncia 53 horas de entrenamiento. El texto que alguien
-> escribió de verdad se lee en 14. La diferencia no es una exageración de marketing:
-> son **109.120 palabras generadas a máquina** —el 37% del corpus— repetidas casi
+> escribió de verdad se lee en 16. La diferencia no es una exageración de marketing:
+> son **106.893 palabras generadas a máquina** —el 38% del corpus— repetidas casi
 > textualmente en 320 de las 329 lecciones. Este ciclo borra eso, dice la verdad sobre
 > cuánto dura cada lección, y pone en su lugar un cierre que **no se puede rellenar**:
 > un validador compara los 320 cierres entre sí y rompe el build si dos se parecen.
@@ -20,16 +20,27 @@ colores v1 → **deuda del autor, no se toca**». Este ciclo levanta esa mano.
 
 ## 1. Lo que hay: inventario medido el 2026-08-12
 
-Recorriendo los 31 directorios y las 329 lecciones:
+Recorriendo los 31 directorios y las 329 lecciones. **Las cifras se corrigieron el
+2026-08-13**, cuando la implementación de la Tarea 3 midió el corpus con las funciones
+reales en vez de con un script de una sola vez, y aparecieron dos diferencias que
+importan porque las dos van a pantalla:
+
+| Se contaba | Se cuenta | Por qué |
+|---|---|---|
+| Tokens separados por espacios | **Palabras renderizables** | 9.914 tokens del corpus no son palabras que alguien lea: `##`, viñetas, `>`, y los datos de path de los 13 SVG. La primera cifra infla el corpus propio de 174.073 a 183.987 |
+| Palabras totales ÷ 220 | **Suma de los minutos de cada lección** | `course.json` guarda un entero por lección y el catálogo los suma, y `Math.max(1, Math.ceil(w / 220))` redondea hacia arriba **329 veces**. Eso agrega 166 minutos: la división global daba 791 min y el catálogo va a mostrar **957** |
+
+La segunda es la más fácil de errar y la que más importa: **el número honesto no es el
+que dividís, es el que la página suma.**
 
 | Hecho | Valor | Consecuencia |
 |---|---|---|
 | Lecciones con cola generada | **320 de 329**, en **tres generaciones** distintas | Se borra con huella de texto, no con encabezado suelto |
-| Palabras de cola | **109.120 — 37% del corpus** | El corpus real es 183.987 palabras, no 293.107 |
-| Duración declarada | **3.163 min = 53 h** (suma de `duration`) | Contra **14 h** reales a 220 pal/min: inflada 3,8× |
-| Lecciones que declaran exactamente 9 minutos | **185**, con mediana de 357 palabras propias = 1,6 min | El minutaje no está mal calculado: nunca se calculó |
-| Lecciones bajo 350 palabras propias | **117** (17 de ellas bajo 250) | El piso mínimo hay que definirlo y hacerlo cumplir |
-| Lecciones bajo 600 palabras propias | **222 (67%)** | Dos tercios del catálogo son notas, no lecciones |
+| Palabras de cola | **106.893 — 38% del corpus** | El corpus real son 174.073 palabras de las 280.966 del archivo |
+| Duración declarada | **3.163 min = 53 h** (suma de `duration`) | Contra **15,9 h** reales: inflada 3,3× |
+| Lecciones que declaran exactamente 9 minutos | **185**, con mediana de 344 palabras propias = 1,6 min | El minutaje no está mal calculado: nunca se calculó |
+| Lecciones bajo 350 palabras propias | **134** (23 de ellas bajo 250) | El piso mínimo hay que definirlo y hacerlo cumplir |
+| Lecciones bajo 600 palabras propias | **229 (70%)** | Dos tercios del catálogo son notas, no lecciones |
 | Lecciones con sección propia de ejercicio, caso o aplicación | **90** | No se les impone plantilla: sólo se les agrega el puente |
 | Tuteo verbal/imperativo | **775 apariciones en 151 lecciones**; 90 mezclan tú y vos en el mismo cuerpo | Viola la regla de rioplatense del CLAUDE.md |
 | Encabezados bajo `###` | **481** `h4` + **226** `h5` + **305** `h6` | Estructura de esquema generado, no de prosa |
@@ -46,9 +57,9 @@ Recorriendo los 31 directorios y las 329 lecciones:
 
 | Generación | Encabezados | Lecciones | Palabras | Huella |
 |---|---|---|---|---|
-| A | `### Aplicación práctica` · `### Cómo se ve en el territorio` · `### Errores comunes` · `### Ejercicio guiado` · `### Idea fuerza` | 205 | ~84.600 | «Para que esta idea no quede en el plano conceptual» |
-| B | `## Aplicación práctica` · `## Ejercicio guiado` · `## Idea fuerza` | 108 | ~24.100 | «Cobra valor cuando lo conviertes en una decisión observable» |
-| C | `### Aplicación argentina` · `### Errores comunes` · `### Ejercicio de aplicación` · `### Cierre` | 7 | 3.096 | «La utilidad real del contenido aparece cuando lo llevas a decisiones concretas en Argentina» |
+| A | `### Aplicación práctica` · `### Cómo se ve en el territorio` · `### Errores comunes` · `### Ejercicio guiado` · `### Idea fuerza` | 205 | 81.621 | «Para que esta idea no quede en el plano conceptual» |
+| B | `## Aplicación práctica` · `## Ejercicio guiado` · `## Idea fuerza` | 108 | 22.272 | «Cobra valor cuando lo conviertes en una decisión observable» |
+| C | `### Aplicación argentina` · `### Errores comunes` · `### Ejercicio de aplicación` · `### Cierre` | 7 | 3.000 | «La utilidad real del contenido aparece cuando lo llevas a decisiones concretas en Argentina» |
 
 Las tres rellenan una sola variable con el ámbito del curso («tu municipio, tu
 provincia» / «tu hogar, tus ingresos») y pegan el `summary` al principio. Las tres
@@ -60,7 +71,7 @@ vale anotar cómo: la encontró la revisión de la Tarea 2 al preguntarse por qu
 lecciones quedaban sin clasificar. Vive sólo en `teoria-juegos-argentina-hombre-gris`
 —7 de sus 10 lecciones— y sus tres encabezados propios no aparecen en ninguna otra
 lección del corpus. Su sección `Cierre` tiene siete copias y **una sola versión
-distinta**. En cuatro de esas siete lecciones, C y A están apiladas: 618 palabras
+distinta**. En cuatro de esas siete lecciones, C y A están apiladas: 600 palabras
 de relleno seguidas.
 
 La lección de método: **el inventario de un corpus generado se mide dos veces, y la
@@ -98,7 +109,7 @@ frontmatters una sola vez.
 
 ### Decisión 1 — La cola se borra, no se reescribe
 
-109.120 palabras. Reescribirlas sería producir 320 variantes de un texto que no dice
+106.893 palabras. Reescribirlas sería producir 320 variantes de un texto que no dice
 nada. Lo que las reemplaza (Decisión 6) es más corto y más caro de escribir, y eso es
 exactamente el punto.
 
@@ -147,19 +158,19 @@ número calculado es pedir que se desincronicen.
 - `duration` de curso = suma de sus lecciones. La guardia recalcula las tres cifras y
   rompe el build si no coinciden.
 
-**Lo que cambia en pantalla:** el catálogo pasa de anunciar 53 h a anunciar **14 h** el
-día del borrado, y **~19 h** cuando el ciclo termine (§5). Es la corrección de un dato
+**Lo que cambia en pantalla:** el catálogo pasa de anunciar 53 h a anunciar **15,9 h** el
+día del borrado, y **~20 h** cuando el ciclo termine (§5). Es la corrección de un dato
 inventado, no una pérdida. Los minutos se siguen mostrando **porque ahora son verdad**.
 
 ### Decisión 4 — Un solo piso: 600 palabras propias, incluido el cierre
 
 Barajé dos umbrales (350 que rompe, 600 que avisa) y la aritmética los volvió
-innecesarios: **con el cierre escrito, sólo 4 lecciones siguen bajo 350 palabras** —
-faltan 304 palabras en total. Un piso de 350 no vigila nada.
+innecesarios: **con el cierre escrito, sólo 7 lecciones siguen bajo 350 palabras**. Un piso de
+350 no vigila nada.
 
-Queda **un piso duro de 600 palabras propias, contando el cierre**. Hoy lo violan 222
-lecciones; después de los cierres siguen bajo el piso **189**, y llevarlas ahí cuesta
-**23.482 palabras** (§5). Es un costo real y es el que separa una nota de una lección.
+Queda **un piso duro de 600 palabras propias, contando el cierre**. Hoy lo violan 229
+lecciones; después de los cierres siguen bajo el piso **201**, y llevarlas ahí cuesta
+**27.197 palabras** (§5). Es un costo real y es el que separa una nota de una lección.
 
 El piso entra en vigor **curso por curso**, no de golpe: un curso está terminado
 cuando **ninguna de sus lecciones tiene `cierre: pendiente`**, y desde ese commit el
@@ -343,15 +354,15 @@ trigramas, el detector de tuteo (duro y blando), y la extracción de texto rende
 | Trabajo | Palabras nuevas |
 |---|---|
 | Cierres: 239 `completo` × 160 + 90 `puente` × 40 | 41.840 |
-| Engorde de las 189 lecciones que siguen bajo 600 después del cierre | 23.482 |
+| Engorde de las 201 lecciones que siguen bajo 600 después del cierre | 27.197 |
 | `promesa` / `noCubre` en 31 cursos | ~2.500 |
-| **Total** | **~67.800** |
+| **Total** | **~71.500** |
 
-Contra las 183.987 palabras propias de hoy: es un **37% más de contenido real**, escrito
-a mano y con fuente. El corpus propio termina en **251.809 palabras — 19,1 h de lectura
+Contra las 174.073 palabras propias de hoy: es un **41% más de contenido real**, escrito
+a mano y con fuente. El corpus propio termina en **245.610 palabras — 20,3 h de lectura
 honesta**, y ése es el número que va a mostrar el catálogo.
 
-Hay que decirlo antes de empezar y no después: son casi 68.000 palabras. Por eso las 31
+Hay que decirlo antes de empezar y no después: son más de 71.000 palabras. Por eso las 31
 tandas, un commit por curso, y el campo `cierre:` como libro mayor.
 
 ---
@@ -362,7 +373,7 @@ tandas, un commit por curso, y el campo `cierre:` como libro mayor.
 |---|---|
 | El borrado se come contenido del autor | Tres anclas simultáneas + reporte revisado y commiteado antes de borrar |
 | El reemplazo de voseo rompe prosa correcta | Dos listas; la blanda no se toca sin revisión humana |
-| La duración baja de 53 h a ~16 h y parece que el sitio perdió contenido | No perdió: nunca las tuvo. El número anterior era el inventado |
+| La duración baja de 53 h a 15,9 h y parece que el sitio perdió contenido | No perdió: nunca las tuvo. El número anterior era el inventado |
 | El ciclo se abandona a mitad | `cierre: pendiente` deja el estado visible; la página no muestra cierre y no miente |
 | Otra sesión toca los mismos archivos | Commits con rutas explícitas (D-010) |
 

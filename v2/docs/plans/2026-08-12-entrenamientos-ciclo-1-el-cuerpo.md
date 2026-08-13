@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Borrar las 109.120 palabras de relleno generado de los entrenamientos, decir la verdad sobre cuánto dura cada lección, y escribir en su lugar un cierre propio por lección que un validador de build hace imposible de rellenar.
+**Goal:** Borrar las 106.893 palabras de relleno generado de los entrenamientos, decir la verdad sobre cuánto dura cada lección, y escribir en su lugar un cierre propio por lección que un validador de build hace imposible de rellenar.
 
 **Architecture:** Dos tramos. El **mecánico** (Tareas 1–12) es todo código: cinco módulos puros en `@v2/shared` con sus tests, seis scripts de un solo uso que editan los 329 archivos, y una guardia `entrenamientos:check` enganchada al CI. El **de escritura** (Tareas 13–16) es un curso piloto a mano y después **un agente por curso en paralelo** para los 30 restantes, con la guardia anti-clon como árbitro entre ellos.
 
@@ -501,7 +501,7 @@ export const HUELLAS = [
   'Busca un caso cercano donde este principio te permita ver algo',
   'vale por su capacidad para mejorar decisiones reales',
   'deja de ser información suelta y se convierte en capacidad acumulable',
-  // generación C (7 lecciones, 3.096 palabras, «Cierre» idéntico en las 7)
+  // generación C (7 lecciones, 3.000 palabras, «Cierre» idéntico en las 7)
   'La utilidad real del contenido aparece cuando lo llevas a decisiones concretas en Argentina',
   'Quedarse con el concepto técnico y no traducirlo a decisiones observables',
   'La prueba de esta lección no está en repetir su vocabulario',
@@ -798,7 +798,7 @@ Expected: `329 lecciones relevadas → …/docs/reportes/2026-08-12-entrenamient
 
 - [ ] **Step 6: Leer el reporte y confirmar los números de la spec**
 
-Abrir el reporte y verificar contra la spec: 320 con cola (`cola-limpia` + los casos límite), ~109.100 palabras de cola, 3.163 minutos declarados contra ~838 reales. **Si los conteos de `sin-huella` o `cola-abierta` son mayores que 15, pará y revisá el detector antes de seguir.**
+Abrir el reporte y verificar contra la spec: 320 con cola (`cola-limpia` + los casos límite), ~106.900 palabras de cola, 3.163 minutos declarados contra ~957 reales. **Si los conteos de `sin-huella` o `cola-abierta` son mayores que 15, pará y revisá el detector antes de seguir.**
 
 - [ ] **Step 7: Commit**
 
@@ -1076,8 +1076,10 @@ Agregar a `package.json`: `"entrenamientos:borrar-cola": "tsx scripts/content/en
 - [ ] **Step 2: Correr y verificar el orden de magnitud**
 
 Run: `pnpm entrenamientos:borrar-cola`
-Expected: `cola borrada en 320 lecciones — ~109.100 palabras` y `a revisar a mano: 0`.
-**Si «palabras» da menos de 100.000 o más de 125.000, pará**: el detector cambió de comportamiento respecto del reporte de la Tarea 3. (No son 108.700 + 3.096: en las cuatro lecciones donde las generaciones C y A están apiladas, la medición vieja ya contaba parte de la C.)
+Expected: `cola borrada en 320 lecciones — ~106.900 palabras` y `a revisar a mano: 0`.
+**Si «palabras» da menos de 95.000 o más de 120.000, pará**: el detector cambió de comportamiento respecto del reporte de la Tarea 3.
+
+Ojo con qué se está contando: son **palabras renderizables** (`contarPalabrasRenderizables`), no tokens separados por espacios. La diferencia sobre el corpus entero es de **9.914 tokens** —`##`, viñetas, `>`, y los datos de path de los 13 SVG— y es la razón de que la cifra de este plan no coincida con un `wc -w`.
 
 - [ ] **Step 3: Revisar el diff de tres lecciones y las que quedaron a mano**
 
@@ -1089,13 +1091,13 @@ Después, abrir `docs/reportes/2026-08-12-entrenamientos-cola-a-mano.txt` y reso
 - [ ] **Step 4: Confirmar el nuevo total**
 
 Run: `pnpm entrenamientos:reporte && head -12 docs/reportes/2026-08-12-entrenamientos-inventario.md`
-Expected: palabras de cola ≈ 0; palabras propias ≈ 183.987.
+Expected: palabras de cola ≈ 0; palabras propias ≈ 174.073.
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add v2/scripts/content/entrenamientos-borrar-cola.ts v2/package.json v2/content/courses v2/docs/reportes
-git commit -m "fix(v2): mueren las 109.120 palabras de relleno generado en los entrenamientos"
+git commit -m "fix(v2): mueren las 106.893 palabras de relleno generado en los entrenamientos"
 ```
 
 ---
@@ -1186,12 +1188,12 @@ Agregar a `package.json`: `"entrenamientos:minutaje": "tsx scripts/content/entre
 - [ ] **Step 2: Simulacro primero**
 
 Run: `pnpm entrenamientos:minutaje`
-Expected: `simulacro: 3163 min declarados → ~838 min reales (329 lecciones)`.
+Expected: `simulacro: 3163 min declarados → ~957 min reales (329 lecciones)`.
 
 - [ ] **Step 3: Escribir**
 
 Run: `pnpm entrenamientos:minutaje --escribir`
-Expected: `escrito: 3163 min declarados → ~838 min reales (329 lecciones)`.
+Expected: `escrito: 3163 min declarados → ~957 min reales (329 lecciones)`.
 
 - [ ] **Step 4: Sacar `estimatedMinutes` del schema**
 
@@ -2672,7 +2674,7 @@ Expected: PASS de punta a punta, con `entrenamientos:check` incluido.
 
 Run: `pnpm entrenamientos:reporte && head -12 docs/reportes/2026-08-12-entrenamientos-inventario.md`
 
-Anotar los reales en la spec (sección 5) al lado de los estimados: palabras propias (estimado 251.809), minutos totales (estimado 1.146 = 19,1 h), palabras de cola (0).
+Anotar los reales en la spec (sección 5) al lado de los estimados: palabras propias (estimado 245.610), minutos totales (estimado 1.220 = 20,3 h), palabras de cola (0).
 
 - [ ] **Step 5: Marcar las deudas resueltas**
 

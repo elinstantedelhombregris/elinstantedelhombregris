@@ -1006,7 +1006,7 @@ Es también la que traba a [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-
 
 Las lecciones terminan con las mismas cinco secciones —«Aplicación práctica», «Cómo se ve en el territorio», «Errores comunes», «Ejercicio guiado», «Idea fuerza»— copiadas casi textualmente, con una sola variable rellenada (el ámbito del curso: «tu municipio, tu provincia» o «tu hogar, tus ingresos») y el `summary` de la lección pegado al principio. Hay **dos generaciones** distintas del mismo relleno: una con encabezados `###` en 205 lecciones y otra con `##` en 108, con texto diferente pero igual de genérico.
 
-Son **109.120 palabras: el 37% de las 293.107 del corpus**. El texto que alguien escribió de verdad son 183.987. Cualquiera que lea dos lecciones seguidas ve la repetición, y es la razón por la que el material se siente hecho a máquina incluso donde es bueno.
+Son **106.893 palabras: el 38% de las 280.966 del corpus**. El texto que alguien escribió de verdad son 174.073. Cualquiera que lea dos lecciones seguidas ve la repetición, y es la razón por la que el material se siente hecho a máquina incluso donde es bueno.
 
 **Qué haría falta:** el borrado está especificado en `v2/docs/specs/2026-08-12-entrenamientos-ciclo-1-el-cuerpo.md`, con la parte delicada resuelta: hay 168 encabezados escritos por el autor con nombres parecidos (`Ejercicio: Mapear Bucles`, `Errores Comunes en el Diseño`) y algunas de esas secciones son lo mejor que tiene el corpus, así que el corte se ancla en tres condiciones simultáneas y lo que no las cumple va a revisión manual.
 
@@ -1017,9 +1017,9 @@ Son **109.120 palabras: el 37% de las 293.107 del corpus**. El texto que alguien
 **Severidad:** alta
 **Estado:** abierta
 
-La suma de `duration` de los 31 cursos da **3.163 minutos: 53 horas**. El texto propio del corpus, a la velocidad de lectura que el propio proyecto usa en blog y ensayos (`words / 220`), se lee en **838 minutos: 14 horas**. La cifra está inflada **3,8 veces**, y es un número que la página muestra.
+La suma de `duration` de los 31 cursos da **3.163 minutos: 53 horas**. El texto propio del corpus, a la velocidad de lectura que el propio proyecto usa en blog y ensayos (`words / 220`), se lee en **957 minutos: 15,9 horas**. La cifra está inflada **3,3 veces**, y es un número que la página muestra.
 
-El caso típico: **185 lecciones declaran 9 minutos** y su mediana es de 357 palabras propias — **1,6 minutos** de lectura. Las 38 que declaran 8 minutos tienen 256 palabras: 1,2 minutos.
+El caso típico: **185 lecciones declaran 9 minutos** y su mediana es de 344 palabras propias — **1,6 minutos** de lectura. Las 38 que declaran 8 minutos tienen 247 palabras: 1,1 minutos.
 
 Es el caso de libro de dato inventado en pantalla, y el más visible que tiene v2 hoy. El agravante no es que el número esté mal calculado: **185 lecciones declaran el mismo valor**, así que nunca se calculó.
 
@@ -1056,7 +1056,7 @@ Sus únicos lectores son `scripts/content/migrate-courses-v1-to-v2.ts` y `script
 **Severidad:** alta
 **Estado:** abierta
 
-En 329 lecciones y 183.987 palabras propias: **cero links** (internos o externos, salvo dos SVG), **cero menciones a un PLAN**, y sólo **10 lecciones** nombran una ley, un artículo o al INDEC. El corpus más grande del proyecto no toca el corpus doctrinal —26 PLANes, cuatro ciclos de ensayos, la crónica, la Radiografía— y no ofrece una sola manera de verificar lo que afirma.
+En 329 lecciones y 174.073 palabras propias: **cero links** (internos o externos, salvo dos SVG), **cero menciones a un PLAN**, y sólo **10 lecciones** nombran una ley, un artículo o al INDEC. El corpus más grande del proyecto no toca el corpus doctrinal —26 PLANes, cuatro ciclos de ensayos, la crónica, la Radiografía— y no ofrece una sola manera de verificar lo que afirma.
 
 Dos consecuencias distintas. Una es de confianza: hay afirmaciones fuertes sin respaldo, del tipo «el 95% de los proyectos de ley muere en comisión», que la práctica repite como respuesta correcta. La otra es de arquitectura: contradice la directiva de que todo el contenido navega, justo donde más gente entra.
 
