@@ -1379,8 +1379,39 @@ git commit -m "fix(v2): el minutaje de los entrenamientos se calcula, no se decl
 - Modify: `package.json`, los `.mdx` afectados
 
 **Interfaces:**
-- Consumes: nada de las tareas anteriores.
+- Consumes: `separarMdx` de la Tarea 1.
 - Produces: `podar(mdx: string, meta: { title: string; summary?: string }): { texto: string; acciones: string[] }` — exportada para poder testearla.
+
+**Medido el 2026-08-13, después del corte de la Tarea 5 y del minutaje de la 6.** Cuatro de los números que este plan traía eran de antes del corte y estaban mal:
+
+| Lo que decía el plan | Lo medido |
+| --- | --- |
+| 1.012 encabezados por debajo de `###` | **1.012 exactos**, en 153 lecciones |
+| el `summary` repetido al inicio en **hasta 315** lecciones | **16 lecciones** |
+| emojis en **11** lecciones | **5 lecciones, 21 emojis** |
+| 13 lecciones con `<svg>` | **12** |
+| (no lo decía) | **73 lecciones** repiten el `title` como encabezado |
+| (no lo decía) | **13 lecciones usan `#`**, y la regex `#{4,6}` no las toca |
+| 18 lecciones con `<table>` | **18** |
+
+El 315 era la cola generada: el relleno arrancaba re-citando el `summary`, y la cola ya no está. Quedan 16 de verdad.
+
+**Los emojis son keycaps numéricos en encabezados**, no decoración: `#### 1⃣ Reconocer Abiertamente`, en 5 lecciones de `fundamentos-pensamiento-comprension-aprendizaje` y `liderazgo-distribuido`. La regex saca `U+20E3` y deja el dígito, así que el resultado mecánico es `### 1 Reconocer Abiertamente`. Eso queda raro. **Decisión: el script saca el keycap, y las ~21 líneas quedan como `### 1. Reconocer Abiertamente`** — con punto, que es la numeración que el autor quiso. Son 5 archivos; se arreglan a mano en esta misma tarea.
+
+**`#` no lo cubre la regex del plan.** `/^#{4,6} /` aplana 4-6 a `###` y deja los 13 `#` intactos, que compiten con el `<h1>` que la página ya pone con el título. Tienen que pasar a `##`. Verificado en el navegador: la página renderiza `h1=1` (el suyo) y `h4=8` en una sola lección, así que esto se ve.
+
+**Hallazgo nuevo, verificado en pantalla: 20 lecciones tienen 153 líneas que renderizan como bloque de código sin querer.** Son líneas con 4 o más espacios de sangría después de una línea en blanco y fuera de una lista, que en Markdown son un bloque indentado. Alguien las sangró para *centrar* un diagrama de flujo vertical, y el resultado es monoespaciado con los asteriscos a la vista:
+
+```
+Diagrama del Flujo Energético
+            **ENTRADA**
+Recursos • Información • Personas • Propósito
+            **TRANSFORMACIÓN**
+```
+
+Medido en el navegador sobre `diseno-idealizado-sistemas-vivos/leccion/1`: `pre=3`, `code=3`, y `**` literal en el texto renderizado. No es teoría de Markdown, se ve. Los otros casos son peores en otro sentido: `redaccion-de-proyectos-legislativos.mdx` tiene tres artículos de un proyecto de ley (`Art. 2: El presupuesto municipal…`) renderizando como código.
+
+Va al paso manual junto con las tablas y los SVG, porque la decisión es caso por caso: sangrar menos convierte el diagrama en prosa suelta y pierde el centrado, pero al menos el `**` se vuelve negrita. **El default: quitar la sangría y dejar que sea prosa.** Un diagrama que se lee como código no es un diagrama.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -1410,9 +1441,20 @@ describe('podar', () => {
     expect(podar('Mirá esto 🔥 acá', { title: 'T' }).texto).toBe('Mirá esto acá');
   });
 
+  it('sube h1 a h2: la página ya pone su propio h1 con el título', () => {
+    expect(podar('# Uno\n\nProsa.', { title: 'T' }).texto).toBe('## Uno\n\nProsa.');
+  });
+
   it('no toca h2 ni h3', () => {
     const original = '## Dos\n\n### Tres';
     expect(podar(original, { title: 'T' }).texto).toBe(original);
+  });
+
+  it('el keycap se va y el dígito queda', () => {
+    // `1⃣` es `1` + U+20E3. El dígito no es Extended_Pictographic, así que
+    // sobrevive: la numeración del autor no se pierde. Las ~21 líneas así
+    // quedan con punto (`### 1. Reconocer`) a mano, en esta misma tarea.
+    expect(podar('#### 1⃣ Reconocer', { title: 'T' }).texto).toBe('### 1 Reconocer');
   });
 });
 ```
@@ -1438,7 +1480,11 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const EMOJI = /[\p{Extended_Pictographic}\u{FE0F}\u{20E3}]/gu;
+import { separarMdx } from '@v2/shared';
+
+// Sin la bandera `g`: con `g` el `lastIndex` se arrastra entre llamadas y el
+// segundo `test()` sobre el mismo texto miente. Para `replace` se clona abajo.
+const EMOJI = /[\p{Extended_Pictographic}\u{FE0F}\u{20E3}]/u;
 
 const normalizar = (s: string): string =>
   s
@@ -1461,6 +1507,14 @@ export function podar(
     texto = aplanado;
   }
 
+  // `#` compite con el `<h1>` que la página ya pone con el título de la
+  // lección: 13 lecciones tienen dos títulos de nivel uno. Sube a `##`.
+  const sinH1 = texto.replace(/^# /gm, '## ');
+  if (sinH1 !== texto) {
+    acciones.push('h1 bajado a h2');
+    texto = sinH1;
+  }
+
   const sinTitulo = texto.replace(
     /^#{1,3} +(.+)$/gm,
     (linea, encabezado: string) => (normalizar(encabezado) === normalizar(meta.title) ? '' : linea),
@@ -1472,13 +1526,16 @@ export function podar(
 
   if (meta.summary !== undefined) {
     const lineas = texto.trimStart().split('\n');
-    if (lineas.length > 0 && normalizar(lineas[0]) === normalizar(meta.summary)) {
+    // `lineas[0]` es `string | undefined` con `noUncheckedIndexedAccess`, y
+    // `lineas.length > 0` no lo estrecha. Se desestructura, que sí lo estrecha.
+    const [primera, ...resto] = lineas;
+    if (primera !== undefined && normalizar(primera) === normalizar(meta.summary)) {
       acciones.push('summary duplicado borrado');
-      texto = lineas.slice(1).join('\n');
+      texto = resto.join('\n');
     }
   }
 
-  const sinEmoji = texto.replace(EMOJI, '').replace(/ {2,}/g, ' ');
+  const sinEmoji = texto.replace(new RegExp(EMOJI, 'gu'), '').replace(/ {2,}/g, ' ');
   if (sinEmoji !== texto) {
     acciones.push('emojis borrados');
     texto = sinEmoji;
@@ -1518,28 +1575,39 @@ Agregar a `package.json`: `"entrenamientos:poda": "tsx scripts/content/entrenami
 - [ ] **Step 4: Run the tests, then the script**
 
 Run: `pnpm vitest run --config scripts/vitest.config.ts scripts/content/__tests__/entrenamientos-poda.test.ts`
-Expected: PASS — 5 tests.
+Expected: PASS — 7 tests.
 
 Run: `pnpm entrenamientos:poda`
-Expected: ~320 lecciones tocadas y la lista de las ~31 con `<table>` o `<svg>`.
+Expected, medido el 2026-08-13: **176 lecciones tocadas** de 329, y la lista de las 30 con `<table>` (18) o `<svg>` (12). Si el número de lecciones difiere mucho de 176, pará: significa que alguna regla está agarrando más de lo que debe.
 
-- [ ] **Step 5: Las tablas y los SVG, a mano**
+- [ ] **Step 5: Lo que va a mano, caso por caso**
 
-Para cada una de las 18 con `<table>`: pasarla a tabla markdown. Para cada una de las 13 con `<svg>`: reemplazar los colores de v1 por los tokens del sistema (`docs/design-system/README.md`). Y verificar que el asset `/course-graphics/hombre-gris/evolucion-pago-estrategico.svg` que piden dos lecciones de `teoria-juegos-argentina-hombre-gris` exista en `apps/web/public/`; si no, portarlo desde `SocialJusticeHub/public/`.
+Tres grupos, y ninguno es mecánico:
 
-Run: `ls apps/web/public/course-graphics/hombre-gris/ 2>/dev/null || echo FALTA`
+**Las 18 con `<table>`:** pasarla a tabla markdown.
+
+**Las 12 con `<svg>`** (no 13; una se fue con el corte de la Tarea 5): reemplazar los colores de v1 por los tokens del sistema (`docs/design-system/README.md`). Están todas en `fundamentos-pensamiento-comprension-aprendizaje` y `niveles-superiores-pensamiento-conciencia`.
+
+**Las 20 con sangría que renderiza como código** (153 líneas): quitarles la sangría. El default es que quede prosa; un diagrama que se lee como código no es un diagrama. Dos casos merecen mirada propia: `diseno-idealizado-sistemas-vivos/el-pulso-energetico-de-todo-sistema.mdx`, que es un diagrama de flujo vertical centrado con espacios, y `diseno-instituciones-queja-propuesta/redaccion-de-proyectos-legislativos.mdx`, que tiene tres artículos de un proyecto de ley (`Art. 2: El presupuesto municipal…`) en monoespaciado. En el segundo, un bloque de cita (`>`) probablemente sea mejor que prosa suelta: es la letra de una norma citada.
+
+**El asset ya existe** — verificado el 2026-08-13: `apps/web/public/course-graphics/hombre-gris/evolucion-pago-estrategico.svg` está (2.100 bytes). Lo que **no** está bien es cómo lo citan: las dos lecciones de `teoria-juegos-argentina-hombre-gris` (`modulo-1` línea 92 y `modulo-3` línea 71) lo referencian con **12 espacios de sangría**, así que el `![...]` cae dentro de un bloque indentado y la imagen no se dibuja: se muestra el markdown crudo. Quitarles la sangría es parte del grupo de arriba.
 
 - [ ] **Step 6: Verificar que el minutaje siguió a la poda**
 
 Run: `pnpm entrenamientos:minutaje --escribir && pnpm test:unit`
 Expected: PASS. La poda cambió el conteo de palabras, así que el minutaje se recalcula en el mismo commit.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 7: Commit — lo hace el orquestador, no el agente**
+
+Las rutas, para stagear explícitas. `package.json` va por hunk.
 
 ```bash
-git add v2/scripts/content/entrenamientos-poda.ts v2/scripts/content/__tests__/entrenamientos-poda.test.ts v2/package.json v2/content/courses v2/apps/web/public
+git add v2/scripts/content/entrenamientos-poda.ts v2/scripts/content/__tests__/entrenamientos-poda.test.ts v2/content/courses v2/apps/web/public
+git add -p v2/package.json
 git commit -m "fix(v2): poda estructural de las lecciones — encabezados, duplicados, emojis, tablas"
 ```
+
+**Y una verificación en pantalla que no se delega**, porque toda esta tarea es sobre lo que se ve: abrir `diseno-idealizado-sistemas-vivos/leccion/1` y confirmar que ya no hay `<pre>` ni `**` literales, y una de las dos de `teoria-juegos` para confirmar que la imagen se dibuja. En la corrida del 2026-08-13, antes de la poda, esa lección daba `pre=3`, `code=3` y `h4=8`.
 
 ---
 
@@ -1553,6 +1621,10 @@ git commit -m "fix(v2): poda estructural de las lecciones — encabezados, dupli
 **Interfaces:**
 - Consumes: nada.
 - Produces: nada de código nuevo para otras tareas.
+
+**Un campo diecinueve, encontrado el 2026-08-13 en la Tarea 7, y esta vez la decisión no es obvia.** El `summary` del frontmatter de lección **no lo renderiza nadie**: `LeccionDetail.tsx` usa `titulo`, `slug` y `minutos`, y `courses-registry.ts` no lo carga. Las 329 lecciones lo declaran y no se ve nunca. Salió a la luz porque la poda borró la primera línea del cuerpo en 16 lecciones que la repetían verbatim, y la pregunta era si eso perdía contenido visible: no lo perdía —eran blurbs de catálogo en tuteo, «Aprende a…», «Explora cómo…», y lo que quedó en su lugar es la primera sección real— pero destapó que el campo está muerto.
+
+**A diferencia de los 18 de abajo, acá hay dos salidas y son las dos defendibles:** borrarlo, o renderizarlo como subtítulo de la lección. Blog y planes ya renderizan el suyo, así que la infraestructura existe y la asimetría es sospechosa. No lo borres por inercia junto con los otros 18: los 18 son campos que nadie quiso nunca, y este es un campo que alguien escribió 329 veces. Si se borra, se borra decidiéndolo.
 
 - [ ] **Step 1: Repetir el grep que autoriza cada borrado**
 

@@ -5,8 +5,6 @@ import { memoryLocation } from 'wouter/memory-location';
 
 import { LeccionDetail, sinTituloDuplicado } from '../LeccionDetail';
 
-import type { CursoEntry, LeccionEntry } from '~/lib/courses-registry';
-
 import { CURSOS, cargarLeccion } from '~/lib/courses-registry';
 import { fechaLarga } from '~/pages/Biblioteca/biblioteca-data';
 import { ubicarLeccion } from '~/pages/Entrenamientos/entrenamientos-data';
@@ -14,9 +12,9 @@ import { ubicarLeccion } from '~/pages/Entrenamientos/entrenamientos-data';
 /**
  * LeccionDetail.test.tsx — página papel 3.5, el lector de lección. Cero
  * slugs hardcodeados: las fixtures se eligen por posición derivada de
- * CURSOS/ubicarLeccion (patrón exacto de EnsayoDetail.test.tsx), más una
- * fixture explícita —la lección con `# H1` duplicado— encontrada
- * recorriendo el registry y cargando cuerpos, nunca por slug fijo.
+ * CURSOS/ubicarLeccion (patrón exacto de EnsayoDetail.test.tsx). La regla de
+ * deduplicación del H1 se prueba con un cuerpo armado acá, no con una lección
+ * del corpus: ver el comentario del test.
  */
 
 function renderAt(path: string) {
@@ -46,31 +44,6 @@ function primerH2(body: string): string {
   const m = /^##\s+(.+)$/m.exec(body);
   if (!m?.[1]) throw new Error('el cuerpo no abre con un heading nivel 2 — fixture inválida');
   return m[1].trim();
-}
-
-interface FixtureLeccion {
-  curso: CursoEntry;
-  leccion: LeccionEntry;
-  posicion: number;
-}
-
-/**
- * Recorre el registry cargando cuerpos hasta encontrar una lección cuyo
- * cuerpo abre con `# {title}` idéntico al frontmatter (Decisión 8, spec).
- * No hardcodea el curso ni el slug: usa `sinTituloDuplicado` —la misma
- * función que usa la página— para decidir si el cuerpo cambia al pasarla.
- */
-async function buscarLeccionConH1Duplicado(): Promise<FixtureLeccion> {
-  for (const curso of CURSOS) {
-    for (const [i, leccion] of curso.lecciones.entries()) {
-      // Búsqueda secuencial de una fixture, no un hot path — await en el loop es intencional.
-      const cuerpo = await cargarLeccion(curso.slug, leccion.slug);
-      if (cuerpo !== null && sinTituloDuplicado(cuerpo, leccion.titulo) !== cuerpo) {
-        return { curso, leccion, posicion: i + 1 };
-      }
-    }
-  }
-  throw new Error('ninguna lección con H1 duplicado — fixture inválida (verificado 2026-07-24: hay 10)');
 }
 
 const primerCurso = CURSOS[0];
@@ -118,18 +91,24 @@ describe('LeccionDetail (página papel 3.5 — el lector de lección)', () => {
     expect(await screen.findByRole('heading', { level: 2, name: fragmento })).toBeInTheDocument();
   });
 
-  it('deduplicación de H1: la lección cuyo cuerpo abre con # {title} muestra un solo heading nivel 1 y el título una sola vez', async () => {
-    const { curso, leccion, posicion } = await buscarLeccionConH1Duplicado();
+  /**
+   * Hasta la poda de la Tarea 7 esta fixture se buscaba recorriendo el corpus:
+   * había 73 lecciones que repetían su título como encabezado y 13 que abrían
+   * con `#`. La poda las sacó todas y la profundidad quedó acotada a `##`/`###`,
+   * así que ya no hay —ni debería volver a haber— una lección de la cual sacarla,
+   * y el buscador que la recorría moría con «fixture inválida». La regla sigue
+   * siendo la defensa del lector contra un cuerpo que se titula solo, y se prueba
+   * con un cuerpo armado acá: es para eso que `sinTituloDuplicado` está exportada
+   * aparte del componente. Que ninguna de las 329 traiga el H1 repetido lo vigila
+   * la guardia del corpus, no este test.
+   */
+  it('deduplicación de H1: el cuerpo que abre con # {title} pierde ese encabezado y nada más', () => {
+    const titulo = leccionMedio.titulo;
+    const resto = '## Primer subtítulo\n\nProsa que se queda.\n';
 
-    const { container } = renderAt(`/entrenamientos/${curso.slug}/leccion/${String(posicion)}`);
-    await esperarCargaCompleta();
-
-    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
-    // getByText no sirve acá: el H1 del rito de la tinta fragmenta el título en
-    // spans letra por letra, así que se cuenta la aparición literal sobre el
-    // texto concatenado del documento (1 = solo el H1; 2 = el cuerpo lo repitió).
-    const apariciones = container.textContent.split(leccion.titulo).length - 1;
-    expect(apariciones).toBe(1);
+    expect(sinTituloDuplicado(`# ${titulo}\n\n${resto}`, titulo)).toBe(resto);
+    // Deduplicación, no decapitación: un `# ` que dice otra cosa no se toca.
+    expect(sinTituloDuplicado(`# Otra cosa\n\n${resto}`, titulo)).toBe(`# Otra cosa\n\n${resto}`);
   });
 
   it('lección normal: el cuerpo se renderiza completo desde su primer ##, sin tocar el resto', async () => {

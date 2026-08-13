@@ -250,7 +250,7 @@ describe('contra el docs/DEUDAS.md real', () => {
     expect(estado('D-029'), 'abierta (…, no resuelta)').toBe(false);
   });
 
-  it('las resueltas del archivo son exactamente estas once', () => {
+  it('las resueltas del archivo son exactamente estas doce', () => {
     expect(
       deudas
         .filter((d) => d.resuelta)
@@ -268,6 +268,10 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-025',
       'D-048',
       'D-049',
+      // Cerrada el 2026-08-13 por la Tarea 6 del Ciclo 1 de entrenamientos: el
+      // minutaje pasó a calcularse del cuerpo y los 31 `course.json` bajaron de
+      // 3.163 minutos a 957.
+      'D-053',
     ]);
   });
 });
