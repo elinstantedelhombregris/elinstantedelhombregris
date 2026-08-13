@@ -111,6 +111,18 @@ export function leerTipo(crudo: string): LecturaDeTipo {
 }
 
 /**
+ * La clave estable de una lectura, para hashear o agrupar sin plegar.
+ *
+ * Lo que no está en el canon conserva su nombre crudo detrás de un prefijo que
+ * ningún tipo puede tener. Es lo que permite que una huella distinga «una voz
+ * de tipo `basta`» de «una voz que decía `bastta`» sin inventarle un tipo a la
+ * segunda: el `?? 'valor'` las hacía indistinguibles, y una huella que no
+ * distingue dos países distintos no sirve para nada.
+ */
+export const claveDeTipo = (lectura: LecturaDeTipo): string =>
+  lectura.reconocido ? lectura.tipo : `sin-canon:${lectura.crudo}`;
+
+/**
  * El tema de una señal.
  *
  * El canon lo define como un catálogo cerrado de once, y ese catálogo **no

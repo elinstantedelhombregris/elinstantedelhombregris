@@ -1,6 +1,6 @@
 import { explicarProcedencia, magnitudEsHipotesis, numero } from '../simulacion-lectura';
 
-import type { UmbralDeTerritorio } from '@v2/civic-core';
+import type { SalidaDeUmbrales, UmbralDeTerritorio } from '@v2/civic-core';
 
 import { TablaPapel, type ColumnaPapel } from '~/components/papel/primitives';
 
@@ -22,10 +22,15 @@ import { TablaPapel, type ColumnaPapel } from '~/components/papel/primitives';
  * - **ya tiene** — lo que lo sostiene no es la voz que este barrido mueve;
  * - **inalcanzable** — ni en el tope del dominio cruza el piso y lo sostiene.
  *   No es «infinito» ni un guion: es una afirmación con su tope declarado.
+ *
+ * Y hay un cuarto caso que **no es una fila**: en el modo gente la
+ * participación no es entrada del motor, así que la pregunta entera no se puede
+ * hacer. Eso no se dice provincia por provincia —el impedimento no es de
+ * ninguna provincia, es del modo—, se dice una vez y en lugar de la tabla.
  */
 
 export interface TablaDeUmbralesProps {
-  readonly umbrales: readonly UmbralDeTerritorio[];
+  readonly salida: SalidaDeUmbrales;
 }
 
 const RANGO: Readonly<Record<UmbralDeTerritorio['estado'], number>> = {
@@ -89,23 +94,42 @@ const COLUMNAS: readonly ColumnaPapel<UmbralDeTerritorio>[] = [
   },
 ];
 
-export function TablaDeUmbrales({ umbrales }: TablaDeUmbralesProps) {
+export function TablaDeUmbrales({ salida }: TablaDeUmbralesProps) {
   return (
     <section aria-labelledby="titulo-umbrales" className="mt-10">
       <h2 id="titulo-umbrales" className="font-anton text-tinta text-[28px] leading-[1.1]">
         A partir de cuántas voces gana mandato cada provincia
       </h2>
-      <p className="text-tinta-75 mb-5 mt-2 max-w-[70ch] text-[15px] leading-[1.55]">
-        Un número por provincia, encontrado por bisección con las demás variables en lo que dice la
-        mesa. Cambiá una y los veinticuatro se mueven: eso es lo que hay que mirar.
-      </p>
-      <TablaPapel
-        caption="La participación mínima con la que cada provincia gana mandato, con el estado de cada una."
-        columnas={COLUMNAS}
-        filas={ordenar(umbrales)}
-        claveDeFila={(u) => u.territorioId}
-        vacio="Todavía no se corrió el barrido de umbrales."
-      />
+
+      {salida.estado === 'sinPalanca' ? (
+        <div className="border-sello mt-3 border-2 p-5">
+          <p className="font-space text-sello text-[11px] font-bold uppercase tracking-[0.14em]">
+            Esta pregunta no se puede hacer en este modo
+          </p>
+          <p className="text-tinta-75 mt-2 max-w-[70ch] text-[15px] leading-[1.55]">
+            {salida.razon}
+          </p>
+          <p className="text-tinta-50 mt-2 max-w-[70ch] text-[13px] leading-[1.5]">
+            Para preguntarlo, pasá al modo forma — ahí la participación es la palanca que se
+            declara. Acá la forma se mide sobre lo que hace la población: mirá qué mueve el
+            resultado con las palancas del mecanismo.
+          </p>
+        </div>
+      ) : (
+        <>
+          <p className="text-tinta-75 mb-5 mt-2 max-w-[70ch] text-[15px] leading-[1.55]">
+            Un número por provincia, encontrado por bisección con las demás variables en lo que dice
+            la mesa. Cambiá una y los veinticuatro se mueven: eso es lo que hay que mirar.
+          </p>
+          <TablaPapel
+            caption="La participación mínima con la que cada provincia gana mandato, con el estado de cada una."
+            columnas={COLUMNAS}
+            filas={ordenar(salida.umbrales)}
+            claveDeFila={(u) => u.territorioId}
+            vacio="Todavía no se corrió el barrido de umbrales."
+          />
+        </>
+      )}
     </section>
   );
 }

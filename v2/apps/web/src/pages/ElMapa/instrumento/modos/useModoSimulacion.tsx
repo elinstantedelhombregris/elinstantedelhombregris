@@ -1,4 +1,4 @@
-import { simular } from '@v2/civic-core';
+import { abrirSimulacion, armarPais } from '@v2/civic-core';
 import { useEffect, useMemo, useState } from 'react';
 
 import { Control, Segmentado } from '../Chrome';
@@ -53,15 +53,32 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
   }, []);
 
   /**
-   * `ahora` se congela con las señales y no con cada render: el motor es puro
-   * y darle un reloj vivo lo volvería a recalcular sin que nadie tocara nada.
+   * EL RELOJ SE LEE UNA SOLA VEZ, al montar.
+   *
+   * Antes `Date.now()` vivía adentro del `useMemo` que depende de `palancas`, y
+   * eso significaba que **mover una perilla recalculaba el lado medido con otro
+   * reloj**: medido en el motor, 1 ms de avance movió el alcance del silencio de
+   * 0,0000 a 0,2857, porque una voz que estaba a un milisegundo del borde de un
+   * período cae del otro lado. La tesis de la cortina —el lado de hoy es
+   * medición y es idéntico para toda configuración— se caía en pantalla aunque
+   * el motor la cumpliera. Es el mismo arreglo que ya tenía `/la-simulacion`.
    */
-  const resultado = useMemo(() => {
+  const [ahora] = useState(() => Date.now());
+
+  /**
+   * El país: lo pesado, congelado, con su huella. No depende de las palancas y
+   * no puede: `armarPais` guarda el reloj adentro y `abrirSimulacion` calcula el
+   * silencio UNA vez por país, así que toda corrida devuelve el mismo objeto
+   * `silencio` en vez de uno igual. La garantía dejó de depender de este archivo.
+   */
+  const simulacion = useMemo(() => {
     const territorios = territoriosDesde(provincias.data ?? []);
     if (territorios.length === 0) return null;
-    const base = estadoMedidoDesde(ctx.todas, provincias.data ?? [], Date.now());
-    return simular({ palancas, base, territorios });
-  }, [ctx.todas, provincias.data, palancas]);
+    const base = estadoMedidoDesde(ctx.todas, provincias.data ?? [], ahora);
+    return abrirSimulacion(armarPais(base, territorios, 'provincia'));
+  }, [ctx.todas, provincias.data, ahora]);
+
+  const resultado = useMemo(() => simulacion?.correr(palancas) ?? null, [simulacion, palancas]);
 
   const capas = useMemo(() => {
     if (resultado === null) return { izquierda: null, derecha: null, diferencia: null };
@@ -116,22 +133,48 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
             Faltan las provincias para poder simular. Recargá en un momento.
           </p>
         ) : (
-          <section>
-            <h4 className="font-space text-oscuro-meta mb-1 text-[10px] uppercase tracking-[0.16em]">
-              Si hablaran
-            </h4>
-            <Cifra etiqueta="Legitimidad" magnitud={resultado.voz.legitimidad} formato={porcentaje} />
-            <Cifra etiqueta="Cobertura" magnitud={resultado.voz.cobertura} formato={porcentaje} />
-            <Cifra
-              etiqueta="Territorios que ganan mandato"
-              magnitud={resultado.diferencia.territoriosQueGananMandato}
-              formato={(v) => String(Math.round(v))}
-            />
-            <p className="text-oscuro-tenue mt-3 text-[10px] leading-snug">
-              Diseño idealizado, no pronóstico: muestra lo que sería posible, no lo que va a pasar.
-              El lado de hoy es medición y no se mueve con ninguna palanca.
-            </p>
-          </section>
+          <>
+            {/*
+              El lado medido, EN PANTALLA y no sólo en la prosa de abajo.
+              «No se mueve con ninguna palanca» era una afirmación que la
+              persona tenía que creernos: mostrando las dos cifras de hoy al
+              lado de las de la simulación, mover un dial y ver que éstas no se
+              mueven es la prueba, y es además la que cazó que el reloj vivo las
+              movía.
+            */}
+            <section aria-label="Hoy · medido">
+              <h4 className="font-space text-oscuro-meta mb-1 text-[10px] uppercase tracking-[0.16em]">
+                Hoy · medido
+              </h4>
+              <Cifra
+                etiqueta="Legitimidad"
+                magnitud={resultado.silencio.legitimidad}
+                formato={porcentaje}
+              />
+              <Cifra
+                etiqueta="Persistencia"
+                magnitud={resultado.silencio.persistencia}
+                formato={porcentaje}
+              />
+            </section>
+
+            <section aria-label="Si hablaran">
+              <h4 className="font-space text-oscuro-meta mb-1 text-[10px] uppercase tracking-[0.16em]">
+                Si hablaran
+              </h4>
+              <Cifra etiqueta="Legitimidad" magnitud={resultado.voz.legitimidad} formato={porcentaje} />
+              <Cifra etiqueta="Cobertura" magnitud={resultado.voz.cobertura} formato={porcentaje} />
+              <Cifra
+                etiqueta="Territorios que ganan mandato"
+                magnitud={resultado.diferencia.territoriosQueGananMandato}
+                formato={(v) => String(Math.round(v))}
+              />
+              <p className="text-oscuro-tenue mt-3 text-[10px] leading-snug">
+                Diseño idealizado, no pronóstico: muestra lo que sería posible, no lo que va a pasar.
+                El lado de hoy es medición y no se mueve con ninguna palanca.
+              </p>
+            </section>
+          </>
         )}
       </div>
     ),

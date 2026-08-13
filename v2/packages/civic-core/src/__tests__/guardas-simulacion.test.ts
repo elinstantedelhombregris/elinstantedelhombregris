@@ -3,7 +3,10 @@ import { describe, expect, it } from 'vitest';
 import { esMagnitud } from '../simulacion/procedencia.js';
 import { simular } from '../simulacion/simular.js';
 
-import type { EntradaSimulacion, Palancas, Retrato, Territorio } from '../simulacion/tipos.js';
+import type { EntradaSimulacion, Palancas, Retrato, Territorio, VozMedida } from '../simulacion/tipos.js';
+
+/** Una voz del canon, ya leída. El motor nunca recibe un tipo plegado. */
+const TIPO_BASTA: VozMedida['tipo'] = { reconocido: true, tipo: 'basta' };
 
 /**
  * Las guardas de honestidad — spec §12.
@@ -23,7 +26,7 @@ const TERRITORIOS: Territorio[] = [
 const PALANCAS: Palancas = {
   participacion: 200,
   dispersion: 1,
-  composicion: { basta: 1, sueño: 0, necesidad: 0, compromiso: 0, recurso: 0, valor: 0 },
+  composicion: { hecho: 1, deseo: 0, acto: 0, meta: 0 },
   horizonte: 2,
   resistencia: 0,
   constancia: 1,
@@ -38,7 +41,7 @@ const entrada = (over: Partial<Palancas> = {}): EntradaSimulacion => ({
   base: {
     voces: Array.from({ length: 40 }, (_, i) => ({
       territorioId: 'chico',
-      tipo: 'basta' as const,
+      tipo: TIPO_BASTA,
       fecha: AHORA - (i % 5) * MES,
     })),
     ahora: AHORA,
@@ -73,7 +76,7 @@ describe('guardas de honestidad', () => {
     const variaciones: Partial<Palancas>[] = [
       { participacion: 100_000 },
       { dispersion: 0 },
-      { composicion: { basta: 0, sueño: 1, necesidad: 0, compromiso: 0, recurso: 0, valor: 0 } },
+      { composicion: { hecho: 0, deseo: 1, acto: 0, meta: 0 } },
       { horizonte: 50 },
       { resistencia: 1 },
       { constancia: 0 },

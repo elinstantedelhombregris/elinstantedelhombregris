@@ -5,7 +5,7 @@
  */
 import type { TipoVoz } from '~/components/papel/primitives';
 
-import { TIPOS_VOZ } from '~/lib/tipos-voz';
+import { leerTipoVoz } from '~/lib/tipos-voz';
 
 export const UMBRAL_PORCENTAJE = 100;
 
@@ -39,16 +39,38 @@ export interface ConteoTipo {
   total: number;
 }
 
-/** Pliega categorías nulas o fuera de catálogo en 'valor' (criterio del mapa) y ordena desc. */
-export function plegarTipos(porTipo: readonly { tipo: string | null; total: number }[]): ConteoTipo[] {
+export interface ConteoDeTipos {
+  readonly porTipo: readonly ConteoTipo[];
+  /**
+   * Las voces con una categoría que la paleta no reconoce, contadas APARTE.
+   *
+   * Antes se plegaban en `valor` con un `?? 'valor'`, y el documento del mandato
+   * publicaba «valor: 3» cuando lo que había eran dos filas sin categoría y una
+   * que decía otra cosa. Eso es una afirmación sobre lo que la gente vino a
+   * decir, sacada de lo que el sistema no supo leer: es la regla 5 al revés —una
+   * síntesis que esconde su propio hueco en vez de mostrarlo.
+   */
+  readonly sinReconocer: number;
+}
+
+/** Cuenta por tipo de la paleta y ordena desc, sin plegar lo que no reconoce. */
+export function plegarTipos(porTipo: readonly { tipo: string | null; total: number }[]): ConteoDeTipos {
   const acumulado = new Map<TipoVoz, number>();
+  let sinReconocer = 0;
   for (const fila of porTipo) {
-    const tipo = TIPOS_VOZ.find((t) => t === fila.tipo) ?? 'valor';
-    acumulado.set(tipo, (acumulado.get(tipo) ?? 0) + fila.total);
+    const lectura = leerTipoVoz(fila.tipo);
+    if (!lectura.reconocido) {
+      sinReconocer += fila.total;
+      continue;
+    }
+    acumulado.set(lectura.tipo, (acumulado.get(lectura.tipo) ?? 0) + fila.total);
   }
-  return [...acumulado.entries()]
-    .map(([tipo, total]) => ({ tipo, total }))
-    .sort((a, b) => b.total - a.total);
+  return {
+    porTipo: [...acumulado.entries()]
+      .map(([tipo, total]) => ({ tipo, total }))
+      .sort((a, b) => b.total - a.total),
+    sinReconocer,
+  };
 }
 
 /** Cuántas brechas críticas entran en el documento (spec §4.III «tope 6»). */

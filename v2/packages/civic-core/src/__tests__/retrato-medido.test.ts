@@ -19,7 +19,7 @@ const TERRITORIOS: Territorio[] = [
 
 const voz = (territorioId: string, mesesAtras: number): VozMedida => ({
   territorioId,
-  tipo: 'basta',
+  tipo: { reconocido: true, tipo: 'basta' },
   fecha: AHORA - mesesAtras * MES,
 });
 

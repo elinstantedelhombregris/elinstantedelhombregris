@@ -11,3 +11,4 @@ export * from './reparto.js';
 export * from './retrato.js';
 export * from './simular.js';
 export * from './tipos.js';
+export * from './ubicacion-ensayada.js';

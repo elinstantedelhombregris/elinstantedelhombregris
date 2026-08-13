@@ -21,6 +21,8 @@
  *   perillas, y barrer una perilla sin pregunta no significa nada.
  */
 
+import { claveDeTipo } from '../../senal/vocabulario.js';
+
 import { acumularHuella, huellaHex, SEMILLA_FNV } from './azar.js';
 
 import type { ClaseSenal, TemaClave, TipoSenal } from '../../senal/vocabulario.js';
@@ -168,13 +170,21 @@ export function huellaDePais(
   }
 
   h = acumularHuella(h, '|voces|');
+  /**
+   * El tipo entra por `claveDeTipo` y no pelado: una voz cuyo tipo no está en el
+   * canon conserva su nombre crudo detrás de un prefijo, en vez de plegarse
+   * contra un tipo real. Con el `?? 'valor'` de antes, dos países con voces
+   * distintas podían compartir huella y compararse como si fueran el mismo.
+   */
+  const clave = (v: EstadoMedido['voces'][number]): string => claveDeTipo(v.tipo);
   const voces = [...base.voces].sort((a, b) => {
     if (a.territorioId !== b.territorioId) return a.territorioId < b.territorioId ? -1 : 1;
     if (a.fecha !== b.fecha) return a.fecha - b.fecha;
-    return a.tipo < b.tipo ? -1 : a.tipo > b.tipo ? 1 : 0;
+    const [ca, cb] = [clave(a), clave(b)];
+    return ca < cb ? -1 : ca > cb ? 1 : 0;
   });
   for (const v of voces) {
-    h = acumularHuella(h, `${v.territorioId}:${String(v.fecha)}:${v.tipo};`);
+    h = acumularHuella(h, `${v.territorioId}:${String(v.fecha)}:${clave(v)};`);
   }
 
   return huellaHex(h);

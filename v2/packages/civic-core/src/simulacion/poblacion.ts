@@ -20,6 +20,8 @@
  * que es —nadie lo lee durante la corrida—, no `memoria`.
  */
 
+import { TIPOS_SENAL } from '../senal/vocabulario.js';
+
 import { acumularHuella, huellaHex, SEMILLA_FNV } from './espina/azar.js';
 
 import type { SelloDelModelo } from './procedencia.js';
@@ -105,6 +107,22 @@ export interface Poblacion {
  * texto—, así que dos elencos con la misma conducta **son** el mismo elenco
  * para un barrido. Si el texto entrara en la huella, corregir una tilde
  * invalidaría un barrido de mil corridas sin cambiar un número.
+ *
+ * **Todo lo que entra, entra en un orden que no depende de cómo se construyó el
+ * objeto**: las personas por `id`, y la mezcla por `TIPOS_SENAL`. Lo segundo no
+ * es simetría por prolijidad, es un bug real que ya estaba: `mezcla_tipos` se
+ * guarda en `jsonb`, y `jsonb` reordena las claves por (longitud en bytes,
+ * después bytes). Entra
+ * `basta, necesidad, recurso, práctica, saber, sueño, propuesta, compromiso, pregunta`
+ * y sale
+ * `basta, saber, sueño, recurso, pregunta, necesidad, propuesta, práctica, compromiso`.
+ * Hasheando en orden de inserción, **un elenco escrito en la base y leído de
+ * vuelta perdía su identidad**: la misma conducta daba otra huella, y el worker
+ * abortaba con «Alguien editó el archivo» sobre un elenco que nadie tocó.
+ *
+ * Las claves se recorren desde el vocabulario y no desde el objeto por la otra
+ * mitad del mismo motivo: una mezcla a la que le falte un tipo rompe acá, en
+ * vez de hashear ocho claves y quedar indistinguible de otra mezcla distinta.
  */
 export function huellaDePoblacion(personas: readonly Persona[]): string {
   let h = acumularHuella(SEMILLA_FNV, `n=${String(personas.length)}|`);
@@ -118,8 +136,8 @@ export function huellaDePoblacion(personas: readonly Persona[]): string {
         `${c.umbralAdhesion.toFixed(6)}:${c.umbralCorroboracion.toFixed(6)}:` +
         `${c.radioAtencion}:${c.vinculos.join(',')};`,
     );
-    for (const [tipo, peso] of Object.entries(c.mezclaTipos)) {
-      h = acumularHuella(h, `${tipo}=${peso.toFixed(6)},`);
+    for (const tipo of TIPOS_SENAL) {
+      h = acumularHuella(h, `${tipo}=${c.mezclaTipos[tipo].toFixed(6)},`);
     }
   }
   return huellaHex(h);

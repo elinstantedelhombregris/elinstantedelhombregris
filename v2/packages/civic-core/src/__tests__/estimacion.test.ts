@@ -100,12 +100,27 @@ describe('las variantes que no son muestra', () => {
     if (est.tipo === 'sinDominio') expect(est.razon).toMatch(/cierren/);
   });
 
-  it('una exacta declarada conserva su magnitud entera, con procedencia', () => {
-    const est = estimacionExacta(derivado(0.3, 'fracción', 'alcance × persistencia', ['alcance']));
-    expect(centroDe(est)?.procedencia).toEqual({
-      tipo: 'derivado',
-      formula: 'alcance × persistencia',
-      de: ['alcance'],
-    });
+  it('una exacta conserva su procedencia y dice sobre cuántas corridas se apoya', () => {
+    // Conservar la procedencia es lo que este test siempre protegió, y sigue.
+    // Lo que se agrega es el `n`: «todas dieron lo mismo» pesa distinto con 200
+    // corridas que con 4, y antes la frase no decía cuántas eran.
+    const est = estimacionExacta(derivado(0.3, 'fracción', 'alcance × persistencia', ['alcance']), 200);
+    const proc = centroDe(est)?.procedencia;
+    expect(proc?.tipo).toBe('derivado');
+    if (proc?.tipo !== 'derivado') throw new Error('la exacta perdió su procedencia');
+    expect(proc.de).toEqual(['alcance']);
+    expect(proc.formula).toContain('alcance × persistencia');
+    expect(proc.formula).toContain('200 corridas');
+  });
+
+  it('la misma conclusión sobre cuatro corridas lo dice, y no se disfraza de dominio', () => {
+    const pocas = estimacionExacta(derivado(0.3, 'fracción', 'alcance', []), 4);
+    const proc = centroDe(pocas)?.procedencia;
+    if (proc?.tipo !== 'derivado') throw new Error('la exacta perdió su procedencia');
+    expect(proc.formula).toContain('4 corridas');
+    // No se bloquea: «las cuatro dieron 0,3» es cierto con cuatro. Lo que no se
+    // puede es publicar un p05 y un p95 con cuatro, y de eso se ocupa el piso
+    // de `estimarDeMuestras`.
+    expect(pocas.tipo).toBe('exacta');
   });
 });

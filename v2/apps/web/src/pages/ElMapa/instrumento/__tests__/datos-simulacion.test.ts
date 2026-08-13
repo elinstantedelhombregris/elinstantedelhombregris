@@ -1,3 +1,4 @@
+import { armarPais } from '@v2/civic-core';
 import { describe, expect, it } from 'vitest';
 
 import { estadoMedidoDesde, territoriosDesde } from '../simulacion/datos';
@@ -83,5 +84,37 @@ describe('estadoMedidoDesde', () => {
 
   it('lleva el instante que se le pasa, no el reloj', () => {
     expect(estadoMedidoDesde([], PROVINCIAS, ahora).ahora).toBe(ahora);
+  });
+
+  /**
+   * El vocabulario con que entra una voz al motor.
+   *
+   * Entraba `s.tipoVoz`, que es el resultado de la PALETA de la web: seis tipos
+   * y un `?? 'valor'` para todo lo demás. O sea que una categoría que el
+   * catálogo no tiene llegaba al motor afirmando ser un `valor`, que es un tipo
+   * real y que además no existe en el canon.
+   */
+  it('el tipo entra crudo y leído contra el canon, no pintado', () => {
+    const rara = { ...senal(1, '2026-08-01T00:00:00.000Z'), tipo: 'otra_cosa', tipoVoz: 'valor' as const };
+    const e = estadoMedidoDesde([rara], PROVINCIAS, ahora);
+    expect(e.voces[0]?.tipo).toEqual({ reconocido: false, crudo: 'otra_cosa' });
+  });
+
+  it('y por eso dos países con voces distintas no comparten huella', () => {
+    // La consecuencia que hacía cara la costumbre: plegadas contra `valor`, las
+    // dos voces eran la misma para la huella, y dos países distintos se podían
+    // comparar como si fueran uno.
+    const con = (tipo: string) =>
+      armarPais(
+        estadoMedidoDesde(
+          [{ ...senal(1, '2026-08-01T00:00:00.000Z'), tipo, tipoVoz: 'valor' as const }],
+          PROVINCIAS,
+          ahora,
+        ),
+        territoriosDesde(PROVINCIAS),
+        'provincia',
+      );
+
+    expect(con('otra_cosa').huella).not.toBe(con('valor').huella);
   });
 });

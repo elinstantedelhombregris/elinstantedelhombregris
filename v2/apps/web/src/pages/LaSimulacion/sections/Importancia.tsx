@@ -17,6 +17,15 @@ import type { Importancia as ImportanciaDeVariable, Objetivo } from '@v2/civic-c
  *
  * Una variable cuyo lado no varió no da un cero: da `sin variación` con su
  * razón. Un 0 se leería «no se relacionan», que es otra cosa.
+ *
+ * **Y con menos corridas que el piso no se publica ρ.** Es la misma vara con la
+ * que la sección de al lado decide si hay dispersión que mostrar: antes esta
+ * publicaba `ρ 0,71 · [0,73, 1,00] · 5 corridas` mientras la otra decía «5
+ * corridas no alcanzan», con el estimador afuera de su propio intervalo. Dos
+ * varas en la misma pantalla no son dos lecturas: son una contradicción, y quien
+ * mira no tiene cómo saber cuál creer. `sin muestras` y `sin variación` se
+ * escriben distinto porque dicen cosas distintas — una es «no alcanza para
+ * medir» y la otra es «se midió y no se movió».
  */
 
 const ANCHO = 240;
@@ -102,7 +111,7 @@ export function Importancia({ importancia, objetivo }: ImportanciaProps) {
             ) : (
               <span className="text-tinta-50 max-w-[62ch] text-[13px] leading-[1.45]">
                 <span className="font-space mr-2 text-[11px] uppercase tracking-[0.1em]">
-                  sin variación
+                  {fila.estado === 'sinMuestras' ? 'sin muestras' : 'sin variación'}
                 </span>
                 {fila.razon}
               </span>

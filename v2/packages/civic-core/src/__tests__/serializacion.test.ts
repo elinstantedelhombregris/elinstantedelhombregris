@@ -7,8 +7,8 @@ import {
   serializarCorrida,
   territoriosConMandatoDe,
 } from '../simulacion/espina/corrida.js';
-import { leerDiseno, serializarDiseno } from '../simulacion/espina/diseno-serie.js';
-import { armarPais, escenarioBase, MOTOR } from '../simulacion/espina/escenario.js';
+import { leerDiseno, relojDeDiseno, serializarDiseno } from '../simulacion/espina/diseno-serie.js';
+import { armarPais, escenarioBase, MOTOR, verificarPais } from '../simulacion/espina/escenario.js';
 import { conVariable } from '../simulacion/espina/variables.js';
 import { modoForma } from '../simulacion/modo-forma.js';
 import { huellaDePoblacion } from '../simulacion/poblacion.js';
@@ -180,7 +180,7 @@ describe('la huella de la población', () => {
 
 describe('el diseño, ida y vuelta', () => {
   it('lo que se escribe se vuelve a leer', () => {
-    const leido = leerDiseno(JSON.parse(JSON.stringify(serializarDiseno(DISENO))), DISENO);
+    const leido = leerDiseno(JSON.parse(JSON.stringify(serializarDiseno(DISENO, PAIS))), DISENO);
     expect(leido.avisos).toEqual([]);
     expect(leido.diseno.base.semilla).toBe(DISENO.base.semilla);
     expect(leido.diseno.base.forma.participacion).toBe(DISENO.base.forma.participacion);
@@ -199,24 +199,66 @@ describe('el diseño, ida y vuelta', () => {
   });
 
   it('acota lo que viene fuera de dominio, y lo dice', () => {
-    const roto = { ...serializarDiseno(DISENO), variables: { participacion: 1e12 } };
+    const roto = { ...serializarDiseno(DISENO, PAIS), variables: { participacion: 1e12 } };
     const leido = leerDiseno(roto, DISENO);
     expect(leido.diseno.base.forma.participacion).toBe(1000);
     expect(leido.avisos.join(' ')).toMatch(/participacion.*se acotó/i);
   });
 
   it('avisa cuando el diseño viene de otro motor', () => {
-    const viejo = { ...serializarDiseno(DISENO), motor: 'civic-core/simulacion@1999-01-01' };
+    const viejo = { ...serializarDiseno(DISENO, PAIS), motor: 'civic-core/simulacion@1999-01-01' };
     expect(leerDiseno(viejo, DISENO).avisos.join(' ')).toMatch(/motor/i);
   });
 
   it('avisa cuando el diseño se armó contra otro país', () => {
-    const otro = { ...serializarDiseno(DISENO), paisHuella: '00000000' };
+    const otro = { ...serializarDiseno(DISENO, PAIS), paisHuella: '00000000' };
     expect(leerDiseno(otro, DISENO).avisos.join(' ')).toMatch(/otro país/i);
   });
 
+  it('lleva el reloj del país: sin él un link no se puede volver a abrir', () => {
+    const serie = serializarDiseno(DISENO, PAIS);
+    expect(serie.paisAhora).toBe(AHORA);
+    expect(serie.paisHuella).toBe(PAIS.huella);
+    expect(relojDeDiseno(serie)).toBe(AHORA);
+    // Y con ese reloj se vuelve a armar el MISMO país, que es todo el punto.
+    expect(armarPais({ voces: [], ahora: serie.paisAhora }, TERRITORIOS, 'provincia').huella).toBe(
+      PAIS.huella,
+    );
+  });
+
+  it('un reloj que no es un instante da null, nunca 0', () => {
+    // Cero es un instante válido —el 1/1/1970— y usarlo para «no sé» pondría a
+    // la herramienta a contar períodos contra medio siglo de distancia.
+    for (const basura of [undefined, null, 0, -1, 1.5, NaN, Infinity, '1800000000000']) {
+      expect(relojDeDiseno({ paisAhora: basura })).toBeNull();
+    }
+    expect(relojDeDiseno(null)).toBeNull();
+  });
+
+  it('un diseño de otro país se corre contra el de acá, y lo dice: no mata la página', () => {
+    // El defecto que esto cierra: `leerDiseno` adoptaba la huella del link, así
+    // que `verificarPais` tiraba antes de la primera corrida. Y como la página
+    // reescribe el hash con lo leído, el link quedaba roto para siempre.
+    const ajeno = { ...serializarDiseno(DISENO, PAIS), paisHuella: '00000000' };
+    const leido = leerDiseno(ajeno, DISENO);
+
+    expect(leido.diseno.base.paisHuella).toBe(PAIS.huella);
+    expect(() => {
+      verificarPais(leido.diseno.base, PAIS);
+    }).not.toThrow();
+    // La procedencia no se pierde: no está en el escenario, está a la vista.
+    expect(leido.avisos.join(' ')).toContain('00000000');
+  });
+
+  it('un link del formato viejo, sin reloj, abre igual y dice qué le falta', () => {
+    const { paisAhora: _sinReloj, ...viejo } = serializarDiseno(DISENO, PAIS);
+    const leido = leerDiseno({ ...viejo, version: 1 }, DISENO);
+    expect(leido.diseno.base.forma.participacion).toBe(DISENO.base.forma.participacion);
+    expect(leido.avisos.join(' ')).toContain('no trae el reloj de su país');
+  });
+
   it('ignora una variable que no existe, y lo dice', () => {
-    const conFantasma = { ...serializarDiseno(DISENO), claves: ['participacion', 'karma'] };
+    const conFantasma = { ...serializarDiseno(DISENO, PAIS), claves: ['participacion', 'karma'] };
     const leido = leerDiseno(conFantasma, DISENO);
     expect(leido.diseno.claves).toEqual(['participacion']);
     expect(leido.avisos.join(' ')).toMatch(/karma/);

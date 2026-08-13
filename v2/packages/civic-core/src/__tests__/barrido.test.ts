@@ -2,15 +2,26 @@ import { describe, expect, it } from 'vitest';
 
 import { COEFICIENTES } from '../simulacion/coeficientes.js';
 import { barrer, prepararContexto, TECHO_TERRITORIO_CORRIDAS, territoriosQueGananMandato } from '../simulacion/espina/barrer.js';
-import { correr, ordenCanonico } from '../simulacion/espina/corrida.js';
+import { correr, leerObjetivo, ordenCanonico } from '../simulacion/espina/corrida.js';
 import { armarPais, escenarioBase } from '../simulacion/espina/escenario.js';
+import { MINIMO_MUESTRAS } from '../simulacion/espina/estimacion.js';
 import { hipercuboLatino, rangos, spearman } from '../simulacion/espina/metodos/muestreo.js';
 import { monotoniaDe } from '../simulacion/espina/metodos/oat.js';
-import { CLAVES_VARIABLE, conVariable, DOMINIOS, muestrear, probit } from '../simulacion/espina/variables.js';
+import {
+  CLAVES_VARIABLE,
+  conVariable,
+  conVariables,
+  DOMINIOS,
+  leerVariable,
+  muestrear,
+  probit,
+} from '../simulacion/espina/variables.js';
 import { modoForma } from '../simulacion/modo-forma.js';
 
 import type { Diseno } from '../simulacion/espina/barrer.js';
 import type { Escenario, Pais } from '../simulacion/espina/escenario.js';
+import type { BarraDeTornado } from '../simulacion/espina/metodos/oat.js';
+import type { ClaveVariable } from '../simulacion/espina/variables.js';
 import type { EstadoMedido, Territorio } from '../simulacion/tipos.js';
 
 const AHORA = 1_800_000_000_000;
@@ -74,6 +85,9 @@ describe('la bisección de umbrales — el titular del módulo', () => {
     );
     expect(salida.estado).toBe('listo');
     if (salida.estado !== 'listo' || salida.salida.metodo !== 'umbral') return;
+    // En el modo forma la participación SÍ es entrada, así que hay tabla.
+    expect(salida.salida.estado).toBe('medidos');
+    if (salida.salida.estado !== 'medidos') return;
 
     expect(salida.salida.umbrales).toHaveLength(4);
     for (const u of salida.salida.umbrales) {
@@ -107,6 +121,7 @@ describe('la bisección de umbrales — el titular del módulo', () => {
       modoForma,
     );
     if (salida.estado !== 'listo' || salida.salida.metodo !== 'umbral') throw new Error('no corrió');
+    if (salida.salida.estado !== 'medidos') throw new Error('el modo forma sí lee la palanca');
     const u = salida.salida.umbrales[0];
     expect(u?.estado).toBe('inalcanzable');
     if (u?.estado === 'inalcanzable') {
@@ -165,6 +180,106 @@ describe('el tornado', () => {
     expect(barra.amplitud.valor).toBeGreaterThan(0);
     // El rango lleva su razón escrita: un rango sin razón es un número inventado.
     expect(barra.razonDelRango.procedencia).toMatchObject({ tipo: 'declarado' });
+  });
+});
+
+/**
+ * El tornado tenía DOS definiciones de «cuánto mueve» y publicaba las dos: la
+ * lista ordenaba por `amplitud` —el recorrido observado— y el rect se dibujaba
+ * de `bajo` a `alto` —los extremos del rango—. Para una variable no monótona no
+ * son el mismo número, y había una inversión medida: `horizonte` ordenaba antes
+ * que `participacion` con una barra más corta. Una barra que ordena mal es peor
+ * que no tener tornado, porque parece conocimiento.
+ */
+describe('GUARDA: el tornado ordena y dibuja el mismo número', () => {
+  /** El escenario donde `horizonte` sube y después baja. Medido, no supuesto. */
+  const NO_MONOTONO: Escenario = conVariables(
+    ESC,
+    new Map<ClaveVariable, number>([
+      ['participacion', 180],
+      ['constancia', 0.6],
+      ['resistencia', 0],
+    ]),
+  );
+
+  function barrasDe(base: Escenario, objetivo: Diseno['objetivo']): readonly BarraDeTornado[] {
+    const salida = barrer(
+      diseno({
+        base,
+        objetivo,
+        claves: ['participacion', 'horizonte', 'constancia', 'dispersion'],
+        metodo: { tipo: 'unaPorVez', pasos: 11 },
+      }),
+      PAIS,
+      modoForma,
+    );
+    if (salida.estado !== 'listo' || salida.salida.metodo !== 'unaPorVez') {
+      throw new Error('el barrido tenía que estar listo');
+    }
+    return salida.salida.barras;
+  }
+
+  it('`amplitud` es exactamente el recorrido que se dibuja, para toda barra', () => {
+    for (const barra of barrasDe(NO_MONOTONO, 'legitimidad')) {
+      if (barra.estado !== 'medida') continue;
+      expect(barra.amplitud.valor).toBeCloseTo(barra.maximo.valor - barra.minimo.valor, 12);
+      // Y el recorrido contiene de verdad a todos los puntos medidos: si no,
+      // la barra sería más corta que la nube que tiene encima.
+      for (const punto of barra.puntos) {
+        expect(punto.salida).toBeGreaterThanOrEqual(barra.minimo.valor);
+        expect(punto.salida).toBeLessThanOrEqual(barra.maximo.valor);
+      }
+    }
+  });
+
+  it('una variable no monótona se sale de sus dos extremos, y por eso divergían', () => {
+    const barras = barrasDe(NO_MONOTONO, 'legitimidad');
+    const horizonte = barras.find((b) => b.clave === 'horizonte');
+    expect(horizonte?.estado).toBe('medida');
+    if (horizonte?.estado !== 'medida') return;
+
+    expect(horizonte.monotonia).toBe('noMonotona');
+    // Lo que el rect dibujaba antes: 0,600. Lo que la lista ordenaba: 0,6667.
+    const entreExtremos = Math.abs(horizonte.alto.valor - horizonte.bajo.valor);
+    expect(horizonte.amplitud.valor).toBeGreaterThan(entreExtremos);
+    // Y lo que se dibuja ahora es lo segundo, no lo primero.
+    expect(horizonte.maximo.valor - horizonte.minimo.valor).toBeGreaterThan(entreExtremos);
+    expect(horizonte.amplitud.valor).toBeCloseTo(2 / 3, 4);
+    expect(entreExtremos).toBeCloseTo(0.6, 4);
+
+    // Y la inversión que se veía en pantalla: `horizonte` ordena ARRIBA de
+    // `participacion` y dibujaba una barra más corta que la de abajo.
+    const participacion = barras.find((b) => b.clave === 'participacion');
+    if (participacion?.estado !== 'medida') throw new Error('tenía que estar medida');
+    expect(horizonte.amplitud.valor).toBeGreaterThan(participacion.amplitud.valor);
+    expect(entreExtremos).toBeLessThan(
+      Math.abs(participacion.alto.valor - participacion.bajo.valor),
+    );
+  });
+
+  it('la unidad la dice el objetivo medido, no una constante del archivo', () => {
+    // `territoriosConMandato` se cuenta en territorios. La barra fijaba
+    // «fracción» a mano y publicaba `{ valor: 4, unidad: 'fracción' }`: la
+    // primitiva de honestidad cargando un dato falso.
+    const barras = barrasDe(ESC, 'territoriosConMandato');
+    const esperada = leerObjetivo(
+      correr(conVariable(ESC, 'participacion', 900), PAIS, modoForma).corrida,
+      'territoriosConMandato',
+    ).unidad;
+    expect(esperada).toBe('territorios');
+
+    for (const barra of barras) {
+      if (barra.estado !== 'medida') continue;
+      for (const m of [barra.bajo, barra.alto, barra.minimo, barra.maximo, barra.amplitud]) {
+        expect(m.unidad).toBe(esperada);
+      }
+    }
+
+    // Y con un objetivo que sí es fracción, sigue diciendo fracción.
+    for (const barra of barrasDe(ESC, 'legitimidad')) {
+      if (barra.estado !== 'medida') continue;
+      expect(barra.amplitud.unidad).toBe('fracción');
+    }
   });
 });
 
@@ -281,6 +396,170 @@ describe('Spearman', () => {
     const uno = barrer(diseno(), PAIS, modoForma);
     const otro = barrer(diseno(), PAIS, modoForma);
     expect(JSON.stringify(uno)).toBe(JSON.stringify(otro));
+  });
+});
+
+/**
+ * El hipercubo guardaba en `entradas` el valor CRUDO del sorteo y recién
+ * después lo aplicaba. Para las cuatro `composicion.*`, `conVariable`
+ * renormaliza y el valor efectivo es otro — y Spearman mira sólo el orden, que
+ * es exactamente lo que la renormalización cambia. `barrerUnaPorVez` no lo
+ * tenía porque relee del escenario con `leerVariable`; ahora el hipercubo hace
+ * lo mismo.
+ */
+describe('GUARDA: el hipercubo correlaciona lo que el motor usó', () => {
+  const CLAVES: readonly ClaveVariable[] = [
+    'composicion.hecho',
+    'composicion.deseo',
+    'composicion.acto',
+    'composicion.meta',
+    'participacion',
+  ];
+  const MUESTRAS = 80;
+  const BASE = conVariable(ESC, 'participacion', 400);
+
+  /** El mismo diseño, recalculado a mano desde el hipercubo hacia afuera. */
+  function aMano(): {
+    efectivo: Map<ClaveVariable, number | null>;
+    crudo: Map<ClaveVariable, number | null>;
+  } {
+    const filas = hipercuboLatino(CLAVES, MUESTRAS, BASE.semilla);
+    const efectivas = new Map<ClaveVariable, number[]>(CLAVES.map((c) => [c, []]));
+    const crudas = new Map<ClaveVariable, number[]>(CLAVES.map((c) => [c, []]));
+    const salidas: number[] = [];
+
+    for (const fila of filas) {
+      const valores = new Map<ClaveVariable, number>();
+      CLAVES.forEach((c, i) => valores.set(c, fila[i] ?? 0));
+      const esc = conVariables(BASE, valores);
+      for (const c of CLAVES) {
+        efectivas.get(c)?.push(leerVariable(esc, c) ?? 0);
+        crudas.get(c)?.push(valores.get(c) ?? 0);
+      }
+      salidas.push(leerObjetivo(correr(esc, PAIS, modoForma).corrida, 'legitimidad').valor);
+    }
+
+    return {
+      efectivo: new Map(CLAVES.map((c) => [c, spearman(efectivas.get(c) ?? [], salidas)])),
+      crudo: new Map(CLAVES.map((c) => [c, spearman(crudas.get(c) ?? [], salidas)])),
+    };
+  }
+
+  it('para la composición, ρ sale del valor renormalizado y no del sorteado', () => {
+    const salida = barrer(
+      diseno({ base: BASE, claves: CLAVES, metodo: { tipo: 'hipercubo', muestras: MUESTRAS } }),
+      PAIS,
+      modoForma,
+    );
+    if (salida.estado !== 'listo' || salida.salida.metodo !== 'hipercubo') {
+      throw new Error('el barrido tenía que estar listo');
+    }
+    const { efectivo, crudo } = aMano();
+
+    let divergieron = 0;
+    for (const fila of salida.salida.importancia) {
+      if (fila.estado !== 'medida') continue;
+      const esperado = efectivo.get(fila.clave);
+      expect(esperado, `no se pudo recalcular «${fila.clave}»`).not.toBeNull();
+      if (esperado === null || esperado === undefined) continue;
+      expect(fila.correlacion.valor).toBeCloseTo(esperado, 12);
+
+      const sorteado = crudo.get(fila.clave);
+      if (sorteado !== null && sorteado !== undefined && Math.abs(sorteado - esperado) > 1e-9) {
+        divergieron += 1;
+      }
+    }
+
+    // Sin esta línea el test sería vacuo: hace falta que en este diseño los dos
+    // números sean de verdad distintos para que la afirmación distinga.
+    expect(divergieron).toBeGreaterThan(0);
+  });
+
+  it('el signo llega a darse vuelta, y el que publica el barrido es el del motor', () => {
+    const { efectivo, crudo } = aMano();
+    const efectivoActo = efectivo.get('composicion.acto');
+    const crudoActo = crudo.get('composicion.acto');
+    expect(efectivoActo).not.toBeNull();
+    expect(crudoActo).not.toBeNull();
+    if (efectivoActo == null || crudoActo == null) return;
+    // Los dos números existen y tienen signos opuestos: no es un decimal, es
+    // «sube» contra «baja» en la misma fila del ranking.
+    expect(Math.sign(efectivoActo)).not.toBe(Math.sign(crudoActo));
+
+    const salida = barrer(
+      diseno({ base: BASE, claves: CLAVES, metodo: { tipo: 'hipercubo', muestras: MUESTRAS } }),
+      PAIS,
+      modoForma,
+    );
+    if (salida.estado !== 'listo' || salida.salida.metodo !== 'hipercubo') {
+      throw new Error('el barrido tenía que estar listo');
+    }
+    const acto = salida.salida.importancia.find((f) => f.clave === 'composicion.acto');
+    if (acto?.estado !== 'medida') throw new Error('tenía que estar medida');
+    expect(Math.sign(acto.correlacion.valor)).toBe(Math.sign(efectivoActo));
+  });
+});
+
+/**
+ * La misma pantalla decía «5 corridas no alcanzan para estimar dispersión» y
+ * dos centímetros más abajo publicaba `ρ 0,71 · [0,73, 1,00] · 5 corridas`, con
+ * el estimador puntual afuera de su propio intervalo. Dos varas en la misma
+ * pantalla no son dos lecturas: son una contradicción.
+ */
+describe('GUARDA: una sola vara de «cuántas corridas alcanzan»', () => {
+  const conMuestras = (muestras: number) => {
+    const salida = barrer(
+      diseno({
+        claves: ['participacion', 'constancia'],
+        metodo: { tipo: 'hipercubo', muestras },
+      }),
+      PAIS,
+      modoForma,
+    );
+    if (salida.estado !== 'listo' || salida.salida.metodo !== 'hipercubo') {
+      throw new Error('el barrido tenía que estar listo');
+    }
+    return salida.salida;
+  };
+
+  it('por debajo del piso NINGUNA de las dos publica, y las dos dicen cuántas faltan', () => {
+    for (const muestras of [5, MINIMO_MUESTRAS - 1, 1]) {
+      const { importancia, estimaciones } = conMuestras(muestras);
+
+      expect(estimaciones.legitimidad.tipo).not.toBe('muestra');
+      for (const fila of importancia) {
+        expect(fila.estado, `«${fila.clave}» con ${String(muestras)} muestras`).not.toBe('medida');
+      }
+
+      const piso = importancia.find((f) => f.clave === 'participacion');
+      expect(piso?.estado).toBe('sinMuestras');
+      if (piso?.estado !== 'sinMuestras') continue;
+      expect(piso.n).toBe(muestras);
+      // El número que falta, escrito: es el mismo de `estimacion.ts`.
+      expect(piso.razon).toContain(String(MINIMO_MUESTRAS));
+    }
+  });
+
+  it('en el piso las dos publican, así que la vara no es un candado', () => {
+    const { importancia, estimaciones } = conMuestras(MINIMO_MUESTRAS);
+    expect(estimaciones.legitimidad.tipo).toBe('muestra');
+    const participacion = importancia.find((f) => f.clave === 'participacion');
+    expect(participacion?.estado).toBe('medida');
+    if (participacion?.estado !== 'medida') return;
+    expect(participacion.n).toBe(MINIMO_MUESTRAS);
+  });
+
+  it('«sin muestras» no se dice con las palabras de «sin variación»', () => {
+    // Son dos afirmaciones distintas: una es «no alcanza para medir» y la otra
+    // es «se midió y no se movió». Confundirlas afirma un hecho sobre el modelo
+    // que nadie comprobó.
+    const { importancia } = conMuestras(5);
+    const sinMuestras = importancia.filter((f) => f.estado === 'sinMuestras');
+    expect(sinMuestras.length).toBeGreaterThan(0);
+    for (const fila of sinMuestras) {
+      expect(fila.razon).not.toContain('no varió');
+      expect(fila.razon).toMatch(/no alcanzan/);
+    }
   });
 });
 

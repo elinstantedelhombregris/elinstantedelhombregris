@@ -77,7 +77,8 @@ const DIALES: readonly Dial[] = [
 const PENDIENTES = [
   {
     etiqueta: 'Qué dice',
-    razon: 'La mezcla de los seis tipos de voz todavía no cambia el resultado: entra con las campañas.',
+    razon:
+      'La mezcla de las cuatro clases —hecho, deseo, acto, meta— todavía no cambia el resultado acá: entra con las campañas. En /la-simulacion el motor ya la lee.',
   },
   {
     etiqueta: 'Cuánto se cumple',

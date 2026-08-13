@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
 import { COEFICIENTES } from '../simulacion/coeficientes.js';
-import { TIPOS_VOZ_CIVICOS } from '../simulacion/tipos.js';
 
 describe('coeficientes publicados', () => {
   it('el piso del mandato es 1 voz cada 1.000 habitantes', () => {
@@ -17,18 +16,5 @@ describe('coeficientes publicados', () => {
   it('el período es el mes', () => {
     expect(COEFICIENTES.PERIODOS_POR_ANIO).toBe(12);
     expect(COEFICIENTES.MINIMO_PERIODOS).toBe(3);
-  });
-});
-
-describe('tipos de voz', () => {
-  it('son los seis del catálogo, en el orden canónico', () => {
-    expect(TIPOS_VOZ_CIVICOS).toEqual([
-      'basta',
-      'sueño',
-      'necesidad',
-      'compromiso',
-      'recurso',
-      'valor',
-    ]);
   });
 });

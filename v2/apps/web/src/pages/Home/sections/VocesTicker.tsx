@@ -1,12 +1,6 @@
-import { type TipoVoz } from '~/components/papel/primitives';
 import { useVocesRecientes } from '~/lib/queries/analytics';
-import { TIPOS_VOZ } from '~/lib/tipos-voz';
+import { tipoParaPintar } from '~/lib/tipos-voz';
 import { cn } from '~/lib/utils';
-
-/** Categorías que no matchean uno de los 6 tipos de voz caen en 'valor' (tinta). */
-function tipoDeCategoria(categoria: string | null): TipoVoz {
-  return TIPOS_VOZ.find((tipo) => tipo === categoria) ?? 'valor';
-}
 
 /**
  * Ticker de voces: marquee continuo con sueños/señales reales recién
@@ -38,7 +32,7 @@ export function VocesTicker() {
         {[0, 1].map((copia) => (
           <div key={copia} aria-hidden={copia === 1} className="flex">
             {data.map((voz) => {
-              const tipo = tipoDeCategoria(voz.categoria);
+              const tipo = tipoParaPintar(voz.categoria);
               return (
                 <span
                   key={`${copia}-${voz.id}`}

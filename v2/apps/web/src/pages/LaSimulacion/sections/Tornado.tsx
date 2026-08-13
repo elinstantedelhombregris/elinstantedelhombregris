@@ -21,6 +21,16 @@ import type { BarraDeTornado, ClaveVariable, Monotonia, Objetivo } from '@v2/civ
  *    mismo criterio de las barras del Mandato Vivo, y es lo que hace que esto
  *    funcione con un lector de pantalla.
  *
+ * **La barra se dibuja con lo mismo con lo que se ordena la lista**, y eso hubo
+ * que arreglarlo: el rect iba de `bajo` a `alto` —los extremos del rango— y la
+ * lista ordenaba por `amplitud` —el recorrido observado—. Para una variable no
+ * monótona no son el mismo número, y había una inversión real: `horizonte`
+ * quedaba primera con una barra más corta que la de `participacion`, que
+ * quedaba segunda. **El ojo leía lo contrario que la lista.** Ahora el rect va
+ * de `minimo` a `maximo`, que mide exactamente `amplitud`. Cuando el recorrido
+ * se sale de los extremos, la fila lo dice con el número: sin eso, una barra
+ * más larga que su propio «de → a» sería otra contradicción, sólo que al revés.
+ *
  * A mano y no con la librería que ya está instalada: `recharts` vive en el
  * sistema de diseño viejo y arrastraría sus fuentes, sus colores y sus tooltips
  * a una página de papel. Cuarenta líneas de SVG con `viewBox` cuestan menos que
@@ -57,6 +67,20 @@ function extremos(barras: readonly BarraDeTornado[]): { minimo: number; maximo: 
   }
   if (!Number.isFinite(minimo) || !Number.isFinite(maximo)) return { minimo: 0, maximo: 0 };
   return { minimo, maximo };
+}
+
+/**
+ * Si el recorrido observado se sale de los dos extremos del rango.
+ *
+ * Cuando pasa, la barra es más larga que el «de → a» de al lado y hay que
+ * decirlo con el número: una barra que no se corresponde con ninguna cifra de su
+ * propia fila es la misma clase de defecto que este componente acaba de cerrar.
+ */
+function seSaleDeLosExtremos(barra: BarraDeTornado): boolean {
+  if (barra.estado !== 'medida') return false;
+  const piso = Math.min(barra.bajo.valor, barra.alto.valor);
+  const techo = Math.max(barra.bajo.valor, barra.alto.valor);
+  return barra.minimo.valor < piso || barra.maximo.valor > techo;
 }
 
 export function Tornado({ barras, objetivo, formato, elegida, onElegir }: TornadoProps) {
@@ -141,9 +165,9 @@ export function Tornado({ barras, objetivo, formato, elegida, onElegir }: Tornad
                       strokeWidth={1}
                     />
                     <rect
-                      x={Math.min(x(barra.bajo.valor), x(barra.alto.valor))}
+                      x={x(barra.minimo.valor)}
                       y={4}
-                      width={Math.max(2, Math.abs(x(barra.alto.valor) - x(barra.bajo.valor)))}
+                      width={Math.max(2, x(barra.maximo.valor) - x(barra.minimo.valor))}
                       height={ALTO - 8}
                       className={
                         barra.monotonia === 'noMonotona' ? 'fill-sello' : 'fill-violeta'
@@ -161,6 +185,11 @@ export function Tornado({ barras, objetivo, formato, elegida, onElegir }: Tornad
                   </svg>
                   <span className="font-space text-tinta-75 text-[12px] tabular-nums">
                     {formato(barra.bajo.valor)} → {formato(barra.alto.valor)}
+                    {seSaleDeLosExtremos(barra) ? (
+                      <span className="text-sello ml-2">
+                        pasa por {formato(barra.minimo.valor)} y {formato(barra.maximo.valor)}
+                      </span>
+                    ) : null}
                   </span>
                 </div>
               </button>

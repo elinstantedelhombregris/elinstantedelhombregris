@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 
+import { leerRelojDelHash } from './LaSimulacion/diseno-url';
 import { leerElencoDeArchivos, type ElencoCargado } from './LaSimulacion/elenco-archivos';
 import { CabeceraDelDiseno } from './LaSimulacion/sections/CabeceraDelDiseno';
 import { ControlesDeCorrida } from './LaSimulacion/sections/ControlesDeCorrida';
@@ -38,15 +39,30 @@ import { Kicker, RitoTinta } from '~/components/papel/primitives';
  *    que no alcanzan; y nada de esto es un pronóstico.
  */
 
+/**
+ * El reloj del país: **el del link si el link lo trae**, y el de la máquina si no.
+ *
+ * Se congela una sola vez, al montar. Eso solo es el arreglo del §1.5 —con
+ * `Date.now()` leído en cada cálculo un milisegundo alcanza para voltear el
+ * mandato de un territorio cuando una voz cae cerca del borde de un período—,
+ * pero congelarlo por carga no alcanza: `ahora` entra en `huellaDePais`, así
+ * que **cada carga inventaba un país distinto**, el escenario del hash declaraba
+ * el país de la carga anterior y `verificarPais` tiraba antes de la primera
+ * corrida. Recargar mataba la herramienta, y compartir una configuración —que la
+ * spec promete en su §8.7— era inalcanzable.
+ *
+ * Leerlo del hash es lo que ordena el resto: primero el reloj, después el país,
+ * después el diseño contra ese país. Un link congela su país en el instante en
+ * que se armó, que es justamente lo que se le pide a un diseño citable, y la
+ * cabecera muestra la fecha de ese reloj en vez de esconderla.
+ */
+function relojDelPais(): number {
+  if (typeof window === 'undefined') return Date.now();
+  return leerRelojDelHash(window.location.hash) ?? Date.now();
+}
+
 export function LaSimulacion() {
-  /**
-   * El reloj se congela una sola vez, al montar, y de ahí sale la huella del
-   * país. Es el arreglo del §1.5 de la spec: con `Date.now()` leído en cada
-   * cálculo, un milisegundo alcanza para voltear el mandato del lado medido
-   * cuando una voz cae cerca del borde de un período, y dos corridas del mismo
-   * diseño dejan de ser comparables sin que nada avise.
-   */
-  const [ahora] = useState(() => Date.now());
+  const [ahora] = useState(relojDelPais);
   const pais = useMemo(() => construirPais(ahora), [ahora]);
 
   const mesa = useDiseno(pais);

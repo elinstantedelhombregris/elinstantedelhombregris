@@ -1,5 +1,7 @@
 import type { TipoVoz } from '~/components/papel/primitives';
 
+import { tipoParaPintar } from '~/lib/tipos-voz';
+
 /**
  * La paleta de las señales SOBRE FONDO OSCURO.
  *
@@ -30,9 +32,16 @@ export const TIPOS: readonly TipoVoz[] = [
   'valor',
 ];
 
-/** Categorías fuera del catálogo caen en `valor` — mismo criterio que el feed. */
+/**
+ * Con qué color se dibuja una categoría sobre el chrome oscuro.
+ *
+ * El pliegue de lo que no está en la paleta vive UNA vez, en
+ * `lib/tipos-voz.ts`. Acá pintar es lo único que se hace con el resultado: lo
+ * que **cuenta** usa `leerTipoVoz`, y lo que entra al motor de la Simulación
+ * usa `leerTipo` del canon y no pasa por esta paleta.
+ */
 export function tipoDe(categoria: string | null): TipoVoz {
-  return TIPOS.find((t) => t === categoria) ?? 'valor';
+  return tipoParaPintar(categoria);
 }
 
 /** Superficies del chrome oscuro, para no repetir los hex por todos lados. */

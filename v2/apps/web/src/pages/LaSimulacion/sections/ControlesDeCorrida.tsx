@@ -1,4 +1,4 @@
-import { OBJETIVOS } from '@v2/civic-core';
+import { MINIMO_MUESTRAS, OBJETIVOS } from '@v2/civic-core';
 
 import { NOMBRE_DE_OBJETIVO } from '../simulacion-lectura';
 
@@ -131,7 +131,12 @@ export function ControlesDeCorrida({
             id="muestras"
             rotulo="Muestras"
             valor={diseno.metodo.muestras}
-            minimo={1}
+            /**
+             * El piso es el del módulo, no uno de la pantalla. Con menos, las
+             * dos secciones del hipercubo se niegan a publicar y el control
+             * ofrecía una corrida que sólo puede devolver «no alcanza».
+             */
+            minimo={MINIMO_MUESTRAS}
             maximo={20_000}
             onCambiar={(v) => { onCambiarMetodo({ tipo: 'hipercubo', muestras: v }); }}
           />

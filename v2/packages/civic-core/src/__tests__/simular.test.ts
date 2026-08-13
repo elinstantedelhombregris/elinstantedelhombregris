@@ -12,7 +12,7 @@ const TERRITORIOS: Territorio[] = [
 const PALANCAS: Palancas = {
   participacion: 200,
   dispersion: 1,
-  composicion: { basta: 1, sueño: 0, necesidad: 0, compromiso: 0, recurso: 0, valor: 0 },
+  composicion: { hecho: 1, deseo: 0, acto: 0, meta: 0 },
   horizonte: 2,
   resistencia: 0,
   constancia: 1,

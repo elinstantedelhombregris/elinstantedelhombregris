@@ -35,14 +35,17 @@
  * afirma: mover las cuatro no cambia la cosecha.
  */
 import { vencimientosDe } from '../senal/relojes.js';
+import { RESPUESTAS_DE_VIVIENDA } from '../senal/ubicacion.js';
 import { claseDe, esVerificable, TIPOS_SENAL } from '../senal/vocabulario.js';
 
 import { COEFICIENTES } from './coeficientes.js';
 import { azarDe } from './espina/azar.js';
+import { compararCeldas } from './espina/cosecha.js';
 import { verificarPais } from './espina/escenario.js';
 import { periodosDelHorizonte, pisoEfectivo } from './mandato.js';
 import { declarado, hipotesis } from './procedencia.js';
 import { armarRetrato } from './retrato.js';
+import { ubicacionEnsayada, VIVIENDA_SIN_DECLARAR } from './ubicacion-ensayada.js';
 
 import type { Elenco } from './elenco.js';
 import type { CeldaDeCosecha, Cosecha } from './espina/cosecha.js';
@@ -50,6 +53,8 @@ import type { Escenario, Pais } from './espina/escenario.js';
 import type { Conducta, Persona } from './poblacion.js';
 import type { Magnitud, SelloDelModelo } from './procedencia.js';
 import type { Retrato, Territorio } from './tipos.js';
+import type { RepartoDeVivienda, UbicacionEnsayada } from './ubicacion-ensayada.js';
+import type { RespuestaDeVivienda } from '../senal/ubicacion.js';
 import type { ClaseSenal, TipoSenal } from '../senal/vocabulario.js';
 
 /**
@@ -69,6 +74,8 @@ const PROPOSITO = {
   CUMPLIR: 106,
   ANONIMO: 107,
   PLAZO: 108,
+  /** «¿Esto habla de una casa donde vive alguien?», sorteada aparte de todo lo demás. */
+  VIVIENDA: 109,
 } as const;
 
 /**
@@ -192,6 +199,16 @@ export interface SenalEnsayada {
    * escribió el escritor determinista. **Jamás `medido`**: nada la midió.
    */
   readonly voz: Magnitud;
+  /**
+   * Precisión, rol y sensibilidad — derivados con `prepareRecordLocation`, la
+   * misma función que corre el servidor sobre una señal real (regla 2).
+   *
+   * Faltaba entero, y no se veía porque el modo gente todavía no pinta un mapa.
+   * El día que lo pinte, una señal ensayada saldría con una precisión que
+   * ninguna real puede tener. Una señal sin estos tres campos **no se puede
+   * dibujar**: el esquema los tiene `NOT NULL` justamente por eso.
+   */
+  readonly ubicacion: UbicacionEnsayada;
 }
 
 /** Una adhesión es una ARISTA, nunca un contador en la fila de la señal. */
@@ -248,6 +265,17 @@ export interface OpcionesDeFuncion {
    */
   readonly anonimato?: number;
   readonly guion?: readonly Evento[];
+  /**
+   * Cómo se reparte «¿esto habla de una casa donde vive alguien?».
+   *
+   * Sin declararlo, `VIVIENDA_SIN_DECLARAR`: todas sin respuesta, o sea todas
+   * `subject` + `high`. **El default es el lado seguro y no el permisivo**, y se
+   * nota en el resultado: una corrida que no declaró de qué habla su población
+   * sale con todo protegido, que es visible y raro, en vez de salir publicable
+   * y parecer normal. Un default de `no` al 100% haría que todo barrido fuera
+   * sistemáticamente optimista sobre la protección.
+   */
+  readonly vivienda?: RepartoDeVivienda;
 }
 
 /* ------------------------------------------------------------------ *
@@ -299,6 +327,7 @@ export function correrFuncion(
   const n = personas.length;
   const anonimato = acotar(opciones.anonimato ?? 0, 0, 1);
   const quiereRastro = opciones.rastro === true;
+  const vivienda = opciones.vivienda ?? VIVIENDA_SIN_DECLARAR;
 
   // Lo que el guion puede mover mientras corre.
   let chispa = mecanismo.chispa;
@@ -369,6 +398,13 @@ export function correrFuncion(
               texto: `Señal sembrada por el guion en la ronda ${String(r)}.`,
               plazoRondas: clase === 'acto' ? 1 : null,
               sello: elenco.sello,
+              /**
+               * A una señal que sembró el guion no le contestó nadie la
+               * pregunta de la casa —no la emitió una persona—, así que cae del
+               * lado seguro. Darle el reparto declarado de la corrida sería
+               * hacerle decir a la población algo que no dijo.
+               */
+              vivienda: 'sinRespuesta',
             });
             senales.push(senal);
             confirmantes.push(new Set());
@@ -447,6 +483,13 @@ export function correrFuncion(
           texto: elegirFrase(persona, tipo, azarDe(esc.semilla, r, i, PROPOSITO.FRASE)),
           plazoRondas,
           sello: elenco.sello,
+          /**
+           * La pregunta de la casa se sortea con su propio propósito: si
+           * compartiera el número con «¿qué tipo emite?», el que dice `basta`
+           * contestaría siempre lo mismo y el mapa ensayado tendría una
+           * correlación que nadie puso y que igual se vería razonable.
+           */
+          vivienda: elegirVivienda(vivienda, azarDe(esc.semilla, r, i, PROPOSITO.VIVIENDA)),
         });
         senales.push(senal);
         confirmantes.push(new Set());
@@ -523,6 +566,13 @@ export function correrFuncion(
           texto: `Cumplido: ${acto.texto}`,
           plazoRondas: 1,
           sello: elenco.sello,
+          /**
+           * El cierre habla del MISMO lugar que el compromiso que cierra: se
+           * hereda su respuesta en vez de sortear una nueva. Sortearla otra vez
+           * dejaría dos filas del mismo lugar con distinta protección, y la más
+           * floja de las dos manda.
+           */
+          vivienda: acto.ubicacion.vivienda,
         });
         senales.push({ ...cierre, estado: 'resuelta', desenlace: 'cumplido' });
         confirmantes.push(new Set());
@@ -696,6 +746,21 @@ function elegirDe(candidatas: readonly SenalViva[], sorteo: number): SenalViva |
   return candidatas[indice] ?? null;
 }
 
+/**
+ * Qué contesta esta señal a la pregunta de la casa, según el reparto declarado.
+ *
+ * Con todos los pesos en cero —que es lo que devuelve `elegirPorPeso` con
+ * `-1`— la respuesta es `'sinRespuesta'`: el lado seguro. No hay reparto que
+ * pueda producir «publicable» por omisión.
+ */
+function elegirVivienda(reparto: RepartoDeVivienda, sorteo: number): RespuestaDeVivienda {
+  const indice = elegirPorPeso(
+    RESPUESTAS_DE_VIVIENDA.map((r) => reparto[r]),
+    sorteo,
+  );
+  return indice === -1 ? 'sinRespuesta' : (RESPUESTAS_DE_VIVIENDA[indice] ?? 'sinRespuesta');
+}
+
 interface ArmadoDeSenal {
   id: number;
   ronda: number;
@@ -708,6 +773,7 @@ interface ArmadoDeSenal {
   texto: string;
   plazoRondas: number | null;
   sello: SelloDelModelo | null;
+  vivienda: RespuestaDeVivienda;
 }
 
 /**
@@ -747,6 +813,13 @@ function armarSenal(a: ArmadoDeSenal): SenalEnsayada {
     estado: 'enviada',
     desenlace: clase === 'acto' ? 'abierto' : null,
     voz: a.sello === null ? base : hipotesis(base, a.sello),
+    /**
+     * La ubicación sale de `ubicacionEnsayada`, que llama a
+     * `prepareRecordLocation` — la misma función que corre el servidor sobre una
+     * señal real. Ninguna decisión de protección se toma acá adentro: si se
+     * tomara, sería una segunda política, y dos políticas divergen.
+     */
+    ubicacion: ubicacionEnsayada(a.tipo, a.vivienda),
   };
 }
 
@@ -779,9 +852,24 @@ function anotarCierre(mapa: Map<number, number[]>, ronda: number, senalId: numbe
  * sola persona**. Contarla tres veces sería contar filas, que es exactamente
  * lo que la regla 8 prohíbe.
  *
- * El separador de la clave es NUL y no un espacio: «Buenos Aires» tiene uno
- * adentro, y con un espacio dos celdas distintas podrían compartir clave — un
- * conteo mal sumado sin ningún error a la vista.
+ * La clave junta territorio, período y clase con **U+0000, escrito como
+ * secuencia de escape y no como byte crudo**, y las dos mitades importan.
+ *
+ * El separador es NUL porque es el único carácter que no puede aparecer adentro
+ * de un `territorioId`: «Buenos Aires» tiene un espacio, y un id podría tener
+ * un guion, un punto o una coma. Con un separador que el dato puede contener,
+ * dos ternas distintas colisionan en la misma cadena y dos celdas se cuentan
+ * como una — que es contar mal justo donde la regla 8 pide contar personas.
+ *
+ * Y va **escapado** y no crudo. Con el byte literal en el archivo, `file` lo
+ * reporta como `data`, `grep` no encuentra una sola función de las trece que
+ * tiene, y `rg` avisa «binary file matches» y no muestra nada: el archivo más
+ * grande del modo gente queda invisible para toda búsqueda. El valor en tiempo
+ * de ejecución es idéntico; lo que cambia es que se pueda leer.
+ *
+ * Este comentario ya se escribió mal dos veces —una prometiendo un NUL que no
+ * estaba, otra negando el que sí está— así que hay un test que lo fija: si
+ * alguien cambia el separador, falla.
  */
 export class CosechaEnArmado {
   private readonly voces = new Map<string, number>();
@@ -791,7 +879,7 @@ export class CosechaEnArmado {
   private periodoMaximo = -1;
 
   private registrar(territorioId: string, periodo: number, clase: ClaseSenal): string {
-    const k = `${territorioId} ${String(periodo)} ${clase}`;
+    const k = `${territorioId}\u0000${String(periodo)}\u0000${clase}`;
     if (!this.indice.has(k)) this.indice.set(k, { territorioId, periodo, clase });
     if (periodo > this.periodoMaximo) this.periodoMaximo = periodo;
     return k;
@@ -822,7 +910,18 @@ export class CosechaEnArmado {
     else set.add(actorId);
   }
 
-  /** Cierra en orden canónico: dos corridas iguales dan el mismo array. */
+  /**
+   * Cierra en el orden canónico de la espina: dos corridas iguales dan el
+   * mismo array, y **las dos dinámicas dan el mismo array**.
+   *
+   * `compararCeldas` y no un comparador propio, porque `huellaDeCosecha` hashea
+   * `celdas` en el orden del array: el orden ES parte de la identidad. Este
+   * método tenía el suyo y ordenaba la clase alfabéticamente
+   * —`acto, deseo, hecho, meta`— contra el orden canónico del vocabulario
+   * —`hecho, deseo, acto, meta`—, así que las mismas celdas hasheaban distinto
+   * según qué modo las hubiera producido. Es exactamente lo que el comentario
+   * de `compararCeldas` advertía que pasaría si cada dinámica elegía el suyo.
+   */
   cerrar(periodos: number, autoridad: 'declarada' | 'hipotesis'): Cosecha {
     const celdas: CeldaDeCosecha[] = [];
     for (const [clave, campos] of this.indice) {
@@ -835,11 +934,7 @@ export class CosechaEnArmado {
         sinActor: this.sinActor.get(clave) ?? 0,
       });
     }
-    celdas.sort((a, b) => {
-      if (a.territorioId !== b.territorioId) return a.territorioId < b.territorioId ? -1 : 1;
-      if (a.periodo !== b.periodo) return a.periodo - b.periodo;
-      return a.clase < b.clase ? -1 : a.clase > b.clase ? 1 : 0;
-    });
+    celdas.sort(compararCeldas);
     return { celdas, periodos: Math.max(periodos, this.periodoMaximo + 1), autoridad };
   }
 }

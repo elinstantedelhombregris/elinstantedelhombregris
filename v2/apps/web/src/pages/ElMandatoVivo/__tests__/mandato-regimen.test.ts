@@ -41,7 +41,14 @@ describe('humanizarTema', () => {
 });
 
 describe('plegarTipos', () => {
-  it('pliega null y categorías fuera de catálogo en valor, y ordena desc', () => {
+  /**
+   * Esto afirmaba lo contrario: que `null` y `otra_cosa` se plegaban en `valor`
+   * y que el resultado era `{ tipo: 'valor', total: 3 }`. O sea que el registro
+   * del mandato publicaba como preferencia de la gente —«tres voces dijeron
+   * valor»— la suma de lo que el sistema no supo leer. Es la regla 5 al revés:
+   * una síntesis que esconde su hueco en vez de mostrarlo.
+   */
+  it('NO pliega lo que no reconoce: lo cuenta aparte, y ordena desc', () => {
     expect(
       plegarTipos([
         { tipo: 'basta', total: 5 },
@@ -49,11 +56,23 @@ describe('plegarTipos', () => {
         { tipo: 'otra_cosa', total: 1 },
         { tipo: 'sueño', total: 9 },
       ]),
-    ).toEqual([
-      { tipo: 'sueño', total: 9 },
-      { tipo: 'basta', total: 5 },
-      { tipo: 'valor', total: 3 },
-    ]);
+    ).toEqual({
+      porTipo: [
+        { tipo: 'sueño', total: 9 },
+        { tipo: 'basta', total: 5 },
+      ],
+      sinReconocer: 3,
+    });
+  });
+
+  it('un `valor` de verdad sigue siendo un valor', () => {
+    // La distinción entera: `valor` está en la paleta, así que cuando alguien
+    // efectivamente lo dijo se cuenta como tipo. Lo que no se cuenta es lo que
+    // nadie dijo.
+    expect(plegarTipos([{ tipo: 'valor', total: 4 }])).toEqual({
+      porTipo: [{ tipo: 'valor', total: 4 }],
+      sinReconocer: 0,
+    });
   });
 });
 

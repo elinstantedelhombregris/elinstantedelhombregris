@@ -12,7 +12,7 @@ export function RegistroDelMapa() {
 
   const data = documento.data;
   if (!data) return null;
-  const tipos = plegarTipos(data.voces.porTipo);
+  const { porTipo: tipos, sinReconocer } = plegarTipos(data.voces.porTipo);
   const regimen = regimenDe(data.voces.total);
   const maximo = tipos[0]?.total ?? 1;
   const fecha = new Date(data.generadoEl).toLocaleDateString('es-AR', {
@@ -58,6 +58,20 @@ export function RegistroDelMapa() {
           ))}
         </div>
       )}
+
+      {/*
+        Lo que no se supo leer va dicho, no repartido. Antes estas voces se
+        sumaban a «valor» y el registro publicaba como preferencia de la gente
+        lo que era un hueco del sistema.
+      */}
+      {sinReconocer > 0 ? (
+        <p className="font-space text-oscuro-meta mt-4 text-[12px]">
+          Y {sinReconocer.toLocaleString('es-AR')}{' '}
+          {sinReconocer === 1 ? 'voz llegó' : 'voces llegaron'} con una categoría que este registro
+          todavía no sabe leer. No se cuentan como ningún tipo: contarlas ahí sería inventarles lo
+          que dijeron.
+        </p>
+      ) : null}
 
       {data.voces.total >= 1 ? (
         <p className="font-space text-oscuro-tenue mt-4 text-[10px] uppercase tracking-[0.12em]">

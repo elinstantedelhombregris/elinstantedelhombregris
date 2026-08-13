@@ -23,6 +23,25 @@ export interface CabeceraDelDisenoProps {
   readonly avisos: readonly string[];
 }
 
+/**
+ * El reloj congelado, en palabras.
+ *
+ * Va a la vista porque un link **congela el país en el instante en que se
+ * armó**: es lo que hace que compartir una configuración signifique algo, y es
+ * también lo que hay que poder ver para no confundirlo con el país de hoy. Un
+ * reloj congelado que no se muestra es la misma clase de silencio que un número
+ * sin procedencia.
+ */
+function fechaDelReloj(ahora: number): string {
+  return new Date(ahora).toLocaleString('es-AR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+}
+
 export function CabeceraDelDiseno({ diseno, pais, estado, avisos }: CabeceraDelDisenoProps) {
   const vocesMedidas = pais.base.voces.length;
 
@@ -46,6 +65,8 @@ export function CabeceraDelDiseno({ diseno, pais, estado, avisos }: CabeceraDelD
               : `${vocesMedidas.toLocaleString('es-AR')} voces cargadas`}
             {' · huella '}
             {pais.huella}
+            {' · reloj congelado el '}
+            {fechaDelReloj(pais.ahora)}
           </Sub>
         </Celda>
 

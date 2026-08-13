@@ -1,13 +1,18 @@
 import type { TipoVoz } from '~/components/papel/primitives';
 
-import { TIPOS_VOZ } from '~/lib/tipos-voz';
+import { TIPOS_VOZ, tipoParaPintar } from '~/lib/tipos-voz';
 
 /** Los 6 tipos en el orden del panel (§7) — fuente única en `lib/tipos-voz.ts`. */
 export { TIPOS_VOZ };
 
-/** Categorías fuera del catálogo caen en 'valor' (tinta) — mismo criterio que VocesTicker. */
+/**
+ * Con qué color se dibuja una categoría. El pliegue de lo que no está en la
+ * paleta vive UNA vez, en `lib/tipos-voz.ts`, y acá sólo se lo usa: mientras
+ * estuvo copiado en cuatro archivos, migrar el vocabulario significaba
+ * encontrar las cuatro copias.
+ */
 export function tipoDeCategoria(categoria: string | null): TipoVoz {
-  return TIPOS_VOZ.find((tipo) => tipo === categoria) ?? 'valor';
+  return tipoParaPintar(categoria);
 }
 
 /** Relleno de los puntos del mapa. */

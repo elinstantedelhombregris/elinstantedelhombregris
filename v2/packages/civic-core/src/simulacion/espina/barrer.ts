@@ -33,7 +33,13 @@ import { estimarDeMuestras, estimacionExacta, estimacionSinDominio } from './est
 import { hipercuboLatino, importanciaDe } from './metodos/muestreo.js';
 import { barrerUnaPorVez } from './metodos/oat.js';
 import { umbralesDeParticipacion, OPCIONES_UMBRAL } from './metodos/umbral.js';
-import { conVariables, conectadaEn, CLAVES_VARIABLE, razonDeNoConectada } from './variables.js';
+import {
+  conVariables,
+  conectadaEn,
+  leerVariable,
+  CLAVES_VARIABLE,
+  razonDeNoConectada,
+} from './variables.js';
 
 import type { Magnitud, SelloDelModelo } from '../procedencia.js';
 import type { Azar } from './azar.js';
@@ -44,7 +50,7 @@ import type { Estimacion } from './estimacion.js';
 import type { Poblacion } from '../poblacion.js';
 import type { Importancia } from './metodos/muestreo.js';
 import type { BarraDeTornado } from './metodos/oat.js';
-import type { UmbralDeTerritorio } from './metodos/umbral.js';
+import type { SalidaDeUmbrales } from './metodos/umbral.js';
 import type { ClaveVariable, ModoDeCorrida } from './variables.js';
 import type { Retrato } from '../tipos.js';
 
@@ -127,7 +133,7 @@ export type SalidaDeMetodo =
       readonly estimaciones: Readonly<Record<Objetivo, Estimacion>>;
       readonly corridas: readonly Corrida[];
     }
-  | { readonly metodo: 'umbral'; readonly umbrales: readonly UmbralDeTerritorio[] };
+  | ({ readonly metodo: 'umbral' } & SalidaDeUmbrales);
 
 export type ResultadoBarrido =
   | {
@@ -274,9 +280,24 @@ function correrMetodo(
           const valor = fila[d];
           if (clave === undefined || valor === undefined) continue;
           valores.set(clave, valor);
-          entradas.get(clave)?.push(valor);
         }
-        corridas.push(correrUno(conVariables(diseno.base, valores)));
+        const esc = conVariables(diseno.base, valores);
+        /**
+         * Se RELEE del escenario, igual que `barrerUnaPorVez` (`oat.ts`).
+         *
+         * `conVariable` acota, redondea y —para las cuatro `composicion.*`—
+         * **renormaliza**, así que el valor crudo del hipercubo no es el que el
+         * motor usó. Medido: `composicion.acto` correlacionaba +0,0121 con el
+         * valor sorteado y −0,0716 con el efectivo, con el signo dado vuelta.
+         * Y Spearman mira sólo el orden, que es exactamente lo que la
+         * renormalización cambia. Correlacionar el crudo es publicar la
+         * importancia de un número que nunca entró al cálculo.
+         */
+        for (const clave of conectadas) {
+          const efectivo = leerVariable(esc, clave);
+          if (efectivo !== null) entradas.get(clave)?.push(efectivo);
+        }
+        corridas.push(correrUno(esc));
       }
 
       const salidas = corridas.map((c) => leerObjetivo(c, diseno.objetivo).valor);
@@ -290,9 +311,24 @@ function correrMetodo(
           });
           continue;
         }
+        const efectivas = entradas.get(clave) ?? [];
+        if (efectivas.length !== corridas.length) {
+          // El escenario no tuvo dónde guardar la variable —un eje del
+          // mecanismo sobre un escenario sin mecanismo— así que no hay valor
+          // efectivo que releer. Se dice, en vez de correlacionar el sorteado.
+          importancia.push({
+            estado: 'sinVariacion',
+            clave,
+            razon:
+              'El escenario no tiene dónde guardar esta variable, así que no se pudo releer lo ' +
+              'que el motor usó. Correlacionar el valor sorteado sería medir la importancia de un ' +
+              'número que nunca entró al cálculo.',
+          });
+          continue;
+        }
         const dimension = conectadas.indexOf(clave);
         importancia.push(
-          importanciaDe(clave, entradas.get(clave) ?? [], salidas, diseno.base.semilla, dimension),
+          importanciaDe(clave, efectivas, salidas, diseno.base.semilla, dimension),
         );
       }
 
@@ -308,15 +344,16 @@ function correrMetodo(
     }
 
     case 'umbral': {
-      const { umbrales, corridas } = umbralesDeParticipacion(
+      const { salida, corridas } = umbralesDeParticipacion(
         diseno.base,
         diseno.metodo.territorios,
         (esc, territorioId) => {
           const { retrato } = correr(esc, contexto.pais, ejecutar, poblacion, sello);
           return retrato.porTerritorio.get(territorioId)?.veredicto.hay === true;
         },
+        diseno.modo,
       );
-      return { salida: { metodo: 'umbral', umbrales }, corridas };
+      return { salida: { metodo: 'umbral', ...salida }, corridas };
     }
   }
 }
@@ -349,7 +386,7 @@ function estimacionesDe(
     const primera = corridas[0];
     if (primera === undefined) continue;
     if (valores.every((v) => v === (valores[0] ?? 0))) {
-      salida[objetivo] = estimacionExacta(leerObjetivo(primera, objetivo));
+      salida[objetivo] = estimacionExacta(leerObjetivo(primera, objetivo), valores.length);
       continue;
     }
     salida[objetivo] = estimarDeMuestras(

@@ -1,36 +1,23 @@
 import type { Veredicto } from './espina/veredicto.js';
 import type { Magnitud } from './procedencia.js';
+import type { ClaseSenal, LecturaDeTipo } from '../senal/vocabulario.js';
 
 /**
- * El vocabulario VIEJO de la Simulación — spec §4 y §5 de la spec previa.
+ * El vocabulario viejo de la Simulación —seis tipos con `valor` adentro— **ya
+ * no vive acá**.
  *
- * **Está desfasado y se migra en la rebanada 2.** El canon son nueve tipos en
- * cuatro clases (`senal/vocabulario.ts`, que ya existe y es la fuente única), y
- * `valor` salió del mapa: un valor no tiene coordenada. Esta lista de seis
- * sigue viva porque `Palancas` la usa y `Palancas` la usan `/el-mapa` y su
- * panel; migrarla es un movimiento de la web, y el orden importa —primero
- * migrar el vocabulario, después conectar la palanca—, así que se hace de una
- * sola vez ahí y no a mitad de camino desde acá.
+ * Vivía: `TipoVozCivica` y `TIPOS_VOZ_CIVICOS`, con un comentario que prometía
+ * migrarlos «en la rebanada 2». Mientras existieron, `Palancas.composicion`
+ * pedía seis claves que ningún cálculo leía y `VozMedida.tipo` sólo aceptaba
+ * uno de esos seis — así que la web tenía que plegar con `?? 'valor'` todo lo
+ * que no fuera del catálogo **antes de entrar al motor**, y la huella del país
+ * no podía distinguir una voz de tipo `basta` de una que decía cualquier otra
+ * cosa. Un vocabulario muerto no se muere solo: se muere cuando se le sacan los
+ * dos campos que lo obligaban a existir.
  *
- * Lo nuevo NO la usa: `Forma.composicion` de la espina es
- * `Record<ClaseSenal, number>` con cuatro claves, y el motor **la lee** — la
- * clase es el eje de la cosecha.
- *
- * La fuente única del canon es `senal/vocabulario.ts`. Esta lista no lleva
- * `@deprecated` porque el marcador haría fallar el lint en cada uso legítimo
- * que le queda —`Palancas` y su panel— y un error de lint que hay que ignorar
- * tres veces enseña a ignorar los errores de lint.
+ * La fuente única del canon es `senal/vocabulario.ts`: nueve tipos en cuatro
+ * clases, sin `valor` —un valor no tiene coordenada— y sin sumidero.
  */
-export type TipoVozCivica = 'basta' | 'sueño' | 'necesidad' | 'compromiso' | 'recurso' | 'valor';
-
-export const TIPOS_VOZ_CIVICOS: readonly TipoVozCivica[] = [
-  'basta',
-  'sueño',
-  'necesidad',
-  'compromiso',
-  'recurso',
-  'valor',
-];
 
 export interface Territorio {
   id: string;
@@ -41,7 +28,17 @@ export interface Territorio {
 
 export interface VozMedida {
   territorioId: string;
-  tipo: TipoVozCivica;
+  /**
+   * El tipo **tal como se lo leyó**, no plegado.
+   *
+   * Es una `LecturaDeTipo` y no un `TipoSenal` porque lo que entra al motor
+   * viene de una base con años de categorías escritas antes de que el canon
+   * existiera. Un tipo pelado obligaría al call site a elegir uno del canon
+   * para lo que no matchea, que es exactamente el `?? 'valor'` que esto viene a
+   * sacar: lo desconocido entra diciendo que es desconocido, y `claveDeTipo` le
+   * da una clave estable para la huella sin darle un tipo real.
+   */
+  tipo: LecturaDeTipo;
   /** Epoch en milisegundos. */
   fecha: number;
 }
@@ -60,8 +57,20 @@ export interface Palancas {
   participacion: number;
   /** 0 = todo concentrado · 1 = repartido en proporción a la población. */
   dispersion: number;
-  /** Mezcla de los seis tipos. Las claves suman 1. */
-  composicion: Readonly<Record<TipoVozCivica, number>>;
+  /**
+   * Mezcla de las cuatro CLASES. Las claves suman 1.
+   *
+   * Las mismas cuatro que `Forma.composicion` de la espina, y por la misma
+   * razón: la clase es la que toca maquinaria —`hecho` y `acto` se corroboran,
+   * `deseo` se delibera, `meta` se responde— y `composicion.hecho +
+   * composicion.acto` es «cuánto de lo que se dice es comprobable». Nueve
+   * deslizadores que suman 1 no son un control; cuatro sí.
+   *
+   * Este motor todavía **no la lee** —el panel lo dice con esas palabras—, pero
+   * pedir las claves del canon es lo que hace que conectarla sea conectar una
+   * palanca y no migrar un vocabulario.
+   */
+  composicion: Readonly<Record<ClaseSenal, number>>;
   /** Horizonte en años. */
   horizonte: number;
   /** 0 = el sistema colabora · 1 = bloquea. */

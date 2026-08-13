@@ -15,14 +15,16 @@ import type { Palancas } from '@v2/civic-core';
 export const PALANCAS_INICIALES: Palancas = {
   participacion: 200,
   dispersion: 0.6,
-  composicion: {
-    basta: 1 / 6,
-    sueño: 1 / 6,
-    necesidad: 1 / 6,
-    compromiso: 1 / 6,
-    recurso: 1 / 6,
-    valor: 1 / 6,
-  },
+  /**
+   * Las CUATRO CLASES del canon, parejas — el mismo reparto con que abre
+   * `escenarioBase` en la espina, porque es el único que no afirma nada.
+   *
+   * Eran los seis tipos viejos, con `valor` adentro: un vocabulario que ningún
+   * cálculo leía y que sobrevivía justamente por eso. La palanca es la clase y
+   * no el tipo porque la clase es la que toca maquinaria — `hecho` y `acto` se
+   * corroboran, `deseo` se delibera, `meta` se responde.
+   */
+  composicion: { hecho: 0.25, deseo: 0.25, acto: 0.25, meta: 0.25 },
   horizonte: 2,
   resistencia: 0.3,
   constancia: 0.7,

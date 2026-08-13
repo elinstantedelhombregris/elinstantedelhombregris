@@ -1,4 +1,4 @@
-import { entero, numero, porcentaje } from '../simulacion-lectura';
+import { entero, magnitudEsHipotesis, numero, porcentaje } from '../simulacion-lectura';
 
 import { CifraPapel } from './CifraPapel';
 
@@ -7,17 +7,24 @@ import type { Corrida, Forma } from '@v2/civic-core';
 /**
  * § La ficha de una corrida — los cinco escalares, con su procedencia.
  *
- * Tres cosas que esta ficha muestra y que un panel de resultados no suele
+ * Cuatro cosas que esta ficha muestra y que un panel de resultados no suele
  * mostrar:
  *
  * 1. **Pedido y logrado, juntos.** En modo forma coinciden por construcción, y
  *    eso **no se esconde: se dice**. Es la limitación principal de ese modo, y
  *    decirla en pantalla es lo que impide que alguien lea «la forma que pedí es
  *    la que salió» como una confirmación de algo.
- * 2. **Cobertura y sesgo, obligatorios** (regla 5). Participación no equivale a
+ * 2. **Y no se pintan igual.** Lo pedido lo declaró una persona; lo logrado lo
+ *    calculó el motor, y en modo gente lo calculó sobre una población que
+ *    escribió un modelo. El §7.1.7 de la spec pide que una magnitud `hipotesis`
+ *    no comparta tratamiento visual con una `medido` **en ningún lado**: acá eso
+ *    es la columna en rojo sello con subrayado punteado, que se ve desde lejos y
+ *    antes de leer. Ponerlo sólo en la prosa de abajo no alcanzaba: la cifra
+ *    grande se lee primero y se cita después.
+ * 3. **Cobertura y sesgo, obligatorios** (regla 5). Participación no equivale a
  *    representatividad: un país donde habló una sola provincia puede tener
  *    legitimidad alta y no representar a nadie.
- * 3. **Reproducible o no**, computado y no declarado a mano. Una corrida que no
+ * 4. **Reproducible o no**, computado y no declarado a mano. Una corrida que no
  *    se puede volver a producir no sirve para comparar con la de mañana.
  */
 
@@ -34,8 +41,18 @@ const CAMPOS: readonly { clave: CampoEscalar; rotulo: string; formato: (v: numbe
   { clave: 'constancia', rotulo: 'Constancia', formato: (v) => numero(v, 3) },
 ];
 
+/** El texto propio que el §7.1.7 le exige a toda cifra hipotética. */
+const POBLACION_GENERADA = 'población generada por un modelo, no medida';
+
 export function FichaDeCorrida({ corrida }: FichaDeCorridaProps) {
   const { resumen, cobertura } = corrida;
+  /**
+   * Las tres van juntas o no va ninguna: salen de la misma cosecha con la misma
+   * autoridad. Se pregunta por la magnitud y no por `corrida.modo`, porque quien
+   * decide es la procedencia y no el nombre del modo — un elenco fabricado por
+   * una regla corre en modo gente y **no** es hipótesis de ningún modelo.
+   */
+  const logradoEsHipotesis = magnitudEsHipotesis(corrida.logrado.participacion);
 
   return (
     <section aria-labelledby="titulo-ficha" className="mt-10">
@@ -71,14 +88,42 @@ export function FichaDeCorrida({ corrida }: FichaDeCorridaProps) {
           </h3>
           <dl className="text-[14px]">
             {CAMPOS.map(({ clave, rotulo, formato }) => (
-              <div key={clave} className="border-papel-borde flex justify-between border-b py-1.5">
+              <div
+                key={clave}
+                className="border-papel-borde flex items-baseline justify-between border-b py-1.5"
+              >
                 <dt className="text-tinta-75">{rotulo}</dt>
-                <dd className="font-space text-tinta tabular-nums">
-                  {formato(corrida.pedido[clave])} → {formato(corrida.logrado[clave])}
+                <dd className="font-space flex items-baseline gap-1.5 tabular-nums">
+                  <span className="text-tinta">{formato(corrida.pedido[clave])}</span>
+                  <span aria-hidden="true" className="text-tinta-30">
+                    →
+                  </span>
+                  <span
+                    className={
+                      logradoEsHipotesis
+                        ? 'text-sello decoration-sello underline decoration-dashed underline-offset-4'
+                        : 'text-tinta'
+                    }
+                    title={
+                      logradoEsHipotesis
+                        ? `Hipótesis · ${POBLACION_GENERADA}`
+                        : 'Medido sobre la cosecha del modo forma'
+                    }
+                  >
+                    {formato(corrida.logrado[clave].valor)}
+                  </span>
                 </dd>
               </div>
             ))}
           </dl>
+          {logradoEsHipotesis ? (
+            <p
+              className="font-space text-sello mt-2 text-[10px] font-bold uppercase tracking-[0.14em]"
+              role="note"
+            >
+              Lo que salió: hipótesis · {POBLACION_GENERADA}
+            </p>
+          ) : null}
           {corrida.modo === 'forma' ? (
             <p className="text-tinta-50 mt-2 max-w-[54ch] text-[13px] leading-[1.5]">
               En modo forma coinciden por construcción: el motor construye exactamente la forma que
@@ -88,8 +133,8 @@ export function FichaDeCorrida({ corrida }: FichaDeCorridaProps) {
           ) : (
             <p className="text-tinta-50 mt-2 max-w-[54ch] text-[13px] leading-[1.5]">
               En modo gente la forma es <strong>salida</strong>: lo pedido es lo que se declaró en la
-              mesa y lo logrado es lo que efectivamente hizo la población. La diferencia entre las
-              dos columnas es el desacuerdo entre los dos modos, y se puede medir.
+              mesa y lo logrado es lo que hizo la población generada — nadie lo midió. La diferencia
+              entre las dos columnas es el desacuerdo entre los dos modos, y se puede medir.
             </p>
           )}
         </div>

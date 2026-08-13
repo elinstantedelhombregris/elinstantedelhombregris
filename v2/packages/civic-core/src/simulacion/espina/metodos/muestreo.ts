@@ -16,10 +16,26 @@
  *    remuestrear un array no son corridas nuevas. Sin intervalo, un ranking de
  *    importancia con 200 muestras se lee como si sus decimales significaran
  *    algo.
+ *
+ * ## Una sola vara de «cuántas corridas alcanzan», compartida con `estimacion.ts`
+ *
+ * Este archivo no tenía piso de n y `estimacion.ts` cortaba en
+ * `MINIMO_MUESTRAS`. Con cinco corridas la misma pantalla decía «5 corridas no
+ * alcanzan para estimar dispersión» arriba y publicaba `ρ 0,71 · [0,73, 1,00]`
+ * dos centímetros más abajo — **con el estimador puntual afuera de su propio
+ * intervalo**, porque un bootstrap percentil sobre cinco muestras remuestrea
+ * empates y se corre entero. Quien mira no tiene cómo saber cuál de los dos
+ * creer.
+ *
+ * La vara es una y es la de `estimacion.ts`, por el mismo argumento y con el
+ * mismo número: por debajo de `MINIMO_MUESTRAS`, un cuantil del remuestreo es
+ * el extremo observado con otro nombre. Se importa de allá en vez de copiarse
+ * — dos constantes con el mismo propósito es cómo empiezan a divergir.
  */
 
 import { derivado } from '../../procedencia.js';
 import { azarDe } from '../azar.js';
+import { MINIMO_MUESTRAS } from '../estimacion.js';
 import { DOMINIOS, muestrear } from '../variables.js';
 
 import type { Magnitud } from '../../procedencia.js';
@@ -146,6 +162,17 @@ export type Importancia =
       readonly estado: 'sinVariacion';
       readonly clave: ClaveVariable;
       readonly razon: string;
+    }
+  /**
+   * Menos corridas que el piso. **No es lo mismo que `sinVariacion`**: allá se
+   * midió y no se movió; acá no alcanza para medir, y decirlo con las palabras
+   * de la otra sería afirmar un hecho sobre el modelo que nadie comprobó.
+   */
+  | {
+      readonly estado: 'sinMuestras';
+      readonly clave: ClaveVariable;
+      readonly razon: string;
+      readonly n: number;
     };
 
 const PROPOSITO_BOOTSTRAP = 203;
@@ -157,6 +184,11 @@ const REMUESTREOS = 200;
  * El bootstrap remuestrea las mismas corridas: no cuesta una corrida más. Y su
  * azar también entra por coordenada, así que el intervalo de la variable 3 no
  * cambia porque se haya agregado una variable 4 al barrido.
+ *
+ * El piso de n se comprueba **antes** que la constancia de los dos lados: con
+ * cuatro corridas, «no varió» es un accidente de cuatro corridas y no una
+ * propiedad del modelo, y publicarlo como propiedad sería sobreafirmar. Debajo
+ * del piso la única respuesta honesta es cuántas corridas hicieron falta.
  */
 export function importanciaDe(
   clave: ClaveVariable,
@@ -165,6 +197,20 @@ export function importanciaDe(
   semilla: number,
   dimension: number,
 ): Importancia {
+  const corridas = Math.min(entradas.length, salidas.length);
+  if (corridas < MINIMO_MUESTRAS) {
+    return {
+      estado: 'sinMuestras',
+      clave,
+      n: corridas,
+      razon:
+        `${String(corridas)} corridas no alcanzan para rankear importancia: por debajo de ` +
+        `${String(MINIMO_MUESTRAS)}, un percentil del bootstrap es el extremo observado con otro ` +
+        'nombre, y el ρ puede quedar afuera de su propio intervalo. Es la misma vara con la que ' +
+        'se decide si hay dispersión que publicar.',
+    };
+  }
+
   const correlacion = spearman(entradas, salidas);
   if (correlacion === null) {
     return {
@@ -177,7 +223,9 @@ export function importanciaDe(
   }
 
   const muestras: number[] = [];
-  const n = entradas.length;
+  // `spearman` ya devolvió null si los dos lados no median lo mismo, así que
+  // acá `corridas` es la longitud de los dos.
+  const n = corridas;
   for (let b = 0; b < REMUESTREOS; b++) {
     const ex: number[] = [];
     const sy: number[] = [];

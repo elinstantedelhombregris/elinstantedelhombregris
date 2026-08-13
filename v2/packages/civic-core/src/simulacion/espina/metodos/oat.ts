@@ -16,9 +16,38 @@
  * - **Una variable que el motor no lee no da una barra de largo cero**, da una
  *   fila con su razón. Una barra en cero se lee «la medimos y no importa», que
  *   es una afirmación completamente distinta y falsa.
+ *
+ * ## «Cuánto mueve» es UNA definición, no dos
+ *
+ * Había dos acá adentro y nadie lo había notado: la barra publicaba `bajo` y
+ * `alto` —los dos **extremos del rango declarado**— y por otro lado `amplitud`
+ * —el **recorrido observado**, máximo − mínimo sobre todos los puntos—. Para una
+ * variable monótona coinciden; para una que sube y después baja, no. Medido con
+ * `participacion = 180`, `constancia = 0,6` y `resistencia = 0`: `horizonte`
+ * ordenaba primero con amplitud 0,6667 y dibujaba una barra de 0,600, y
+ * `participacion` ordenaba segundo con 0,625 y dibujaba 0,625. **El ojo leía lo
+ * contrario de lo que decía la lista.** Una barra que ordena mal es peor que no
+ * tener tornado, porque parece conocimiento.
+ *
+ * Se elige el **recorrido observado** —`minimo`, `maximo`, `amplitud`— y es lo
+ * que se ordena y lo que se dibuja. El argumento: una variable que sube y vuelve
+ * al mismo lugar tiene `|alto − bajo| = 0` y **movió el resultado de punta a
+ * punta**; ordenarla última sería afirmar que no mueve nada, que es falso.
+ * `bajo` y `alto` siguen publicándose porque contestan otra pregunta —dónde
+ * empieza y dónde termina el recorrido— pero **ya no son la longitud de la
+ * barra**.
+ *
+ * ## La unidad sale del objetivo, no de una constante
+ *
+ * `bajo`, `alto` y `amplitud` fijaban `'fracción'` a mano. Con
+ * `objetivo = territoriosConMandato` —cuyo `Resumen` declara `territorios`—
+ * salía `{ valor: 4, unidad: 'fracción' }`: la primitiva de honestidad cargando
+ * un dato falso. La unidad la dice `leerObjetivo(corrida, objetivo).unidad`, que
+ * es la del número que efectivamente se midió.
  */
 
 import { declarado, derivado } from '../../procedencia.js';
+import { leerObjetivo } from '../corrida.js';
 import { estimacionSinDominio } from '../estimacion.js';
 import {
   CLASE_DE_VARIABLE,
@@ -48,8 +77,19 @@ export type BarraDeTornado =
       readonly estado: 'medida';
       readonly clave: ClaveVariable;
       readonly clase: ClaseDeVariable;
+      /** El objetivo en el PISO del rango declarado. Dónde empieza el recorrido. */
       readonly bajo: Magnitud;
+      /** El objetivo en el TOPE del rango declarado. Dónde termina. */
       readonly alto: Magnitud;
+      /**
+       * El menor y el mayor valor OBSERVADOS sobre el rango.
+       *
+       * No siempre son `bajo` y `alto`: una variable no monótona pasa por
+       * afuera de sus dos extremos. Esto es lo que se dibuja, y `amplitud` —lo
+       * que se ordena— es exactamente `maximo − minimo`.
+       */
+      readonly minimo: Magnitud;
+      readonly maximo: Magnitud;
       readonly amplitud: Magnitud;
       readonly monotonia: Monotonia;
       readonly puntos: readonly PuntoDeBarra[];
@@ -118,17 +158,28 @@ export function barrerUnaPorVez(
 
     const dominio = DOMINIOS[clave];
     const puntos: PuntoDeBarra[] = [];
+    /** La del objetivo medido, nunca una constante. `null` hasta la primera corrida. */
+    let unidad: string | null = null;
     for (let i = 0; i < pasos; i++) {
       const entrada = muestrear(dominio, i / (pasos - 1));
       const esc = conVariable(base, clave, entrada);
       const corrida = correrUno(esc);
       corridas += 1;
+      const medida = leerObjetivo(corrida, opciones.objetivo);
+      unidad = medida.unidad;
       // Se relee del escenario: `conVariable` acota y redondea, así que el
       // valor que la barra reporta es el que el motor realmente usó.
-      puntos.push({
-        entrada: leerVariable(esc, clave) ?? entrada,
-        salida: corrida.resumen[opciones.objetivo].valor,
-      });
+      puntos.push({ entrada: leerVariable(esc, clave) ?? entrada, salida: medida.valor });
+    }
+
+    if (unidad === null) {
+      // `pasos` es al menos 2, así que esto no puede pasar. Se tira en vez de
+      // poner una unidad por defecto: inventar «fracción» para un objetivo que
+      // se cuenta en territorios es el defecto que este archivo acaba de cerrar.
+      throw new Error(
+        `El barrido de «${clave}» no produjo ninguna corrida, así que no hay unidad del objetivo ` +
+          'que copiar. Una barra con la unidad inventada es peor que ninguna barra.',
+      );
     }
 
     const salidas = puntos.map((p) => p.salida);
@@ -145,11 +196,23 @@ export function barrerUnaPorVez(
       estado: 'medida',
       clave,
       clase,
-      bajo: derivado(primero, 'fracción', `${opciones.objetivo} en el mínimo del rango`, [clave]),
-      alto: derivado(ultimo, 'fracción', `${opciones.objetivo} en el máximo del rango`, [clave]),
+      bajo: derivado(primero, unidad, `${opciones.objetivo} en el piso del rango declarado`, [clave]),
+      alto: derivado(ultimo, unidad, `${opciones.objetivo} en el tope del rango declarado`, [clave]),
+      minimo: derivado(
+        minimo,
+        unidad,
+        `el menor ${opciones.objetivo} observado sobre el rango declarado`,
+        [clave],
+      ),
+      maximo: derivado(
+        maximo,
+        unidad,
+        `el mayor ${opciones.objetivo} observado sobre el rango declarado`,
+        [clave],
+      ),
       amplitud: derivado(
         maximo - minimo,
-        'fracción',
+        unidad,
         `máximo − mínimo de ${opciones.objetivo} sobre el rango declarado`,
         [clave],
       ),

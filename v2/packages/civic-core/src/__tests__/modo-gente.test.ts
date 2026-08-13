@@ -3,8 +3,16 @@ import { describe, expect, it } from 'vitest';
 import { TIPOS_SENAL } from '../senal/vocabulario.js';
 import { COEFICIENTES } from '../simulacion/coeficientes.js';
 import { congelarElenco } from '../simulacion/elenco.js';
-import { huellaDeCosecha, totalDeVoces } from '../simulacion/espina/cosecha.js';
+import { barrer } from '../simulacion/espina/barrer.js';
+import { correr } from '../simulacion/espina/corrida.js';
+import {
+  compararCeldas,
+  ConstructorDeCosecha,
+  huellaDeCosecha,
+  totalDeVoces,
+} from '../simulacion/espina/cosecha.js';
 import { armarPais, MOTOR } from '../simulacion/espina/escenario.js';
+import { razonDeNoConectada } from '../simulacion/espina/variables.js';
 import {
   ACTORES_PARA_CORROBORAR,
   correrFuncion,
@@ -15,10 +23,12 @@ import { esHipotesis } from '../simulacion/procedencia.js';
 
 import type { TipoSenal } from '../senal/vocabulario.js';
 import type { Elenco } from '../simulacion/elenco.js';
+import type { Corrida } from '../simulacion/espina/corrida.js';
+import type { Cosecha } from '../simulacion/espina/cosecha.js';
 import type { Escenario, Pais } from '../simulacion/espina/escenario.js';
 import type { Evento } from '../simulacion/modo-gente.js';
 import type { Conducta, Persona } from '../simulacion/poblacion.js';
-import type { SelloDelModelo } from '../simulacion/procedencia.js';
+import type { Magnitud, SelloDelModelo } from '../simulacion/procedencia.js';
 import type { Territorio } from '../simulacion/tipos.js';
 
 /**
@@ -460,5 +470,172 @@ describe('las guardas que impiden comparar peras con manzanas', () => {
     );
     expect(resultado.rondas).toBe(24);
     expect(resultado.cosecha.periodos).toBe(24);
+  });
+});
+
+/**
+ * La huella de la cosecha se toma sobre `celdas` en el orden del array, así
+ * que el orden **es** parte de la identidad. `compararCeldas` existe para que
+ * ese orden sea uno solo: su propio comentario dice que «las dos dinámicas
+ * ordenan con ella: si cada una eligiera el suyo, dos cosechas iguales tendrían
+ * huellas distintas y el barrido compararía corridas que creería incomparables».
+ *
+ * El modo gente elegía el suyo. Ordenaba la clase alfabéticamente
+ * —`acto, deseo, hecho, meta`— contra el orden canónico del vocabulario
+ * —`hecho, deseo, acto, meta`—, así que las mismas celdas hasheaban distinto
+ * según qué modo las produjo.
+ */
+describe('GUARDA: la cosecha del modo gente sale en el orden canónico de la espina', () => {
+  const clave = (c: { territorioId: string; periodo: number; clase: string }): string =>
+    `${c.territorioId}|${String(c.periodo)}|${c.clase}`;
+
+  it('las celdas ya vienen ordenadas por `compararCeldas`', () => {
+    const elenco = elencoDePrueba();
+    const cosecha = modoGente(escenario(elenco), paisVacio(), elenco);
+
+    // Que haya más de una clase por celda es lo que hace que el orden importe:
+    // sin eso el test pasaría sin poder fallar.
+    expect(new Set(cosecha.celdas.map((c) => c.clase)).size).toBeGreaterThan(1);
+    expect(cosecha.celdas.map(clave)).toEqual([...cosecha.celdas].sort(compararCeldas).map(clave));
+  });
+
+  it('las mismas celdas por el constructor de la espina dan la MISMA huella', () => {
+    const elenco = elencoDePrueba();
+    const cosecha = modoGente(escenario(elenco), paisVacio(), elenco);
+
+    // Se entran al revés a propósito: lo que tiene que igualar las huellas es
+    // el orden canónico de salida, no el orden en que llegaron.
+    const rearmada = new ConstructorDeCosecha();
+    for (const c of [...cosecha.celdas].reverse()) {
+      rearmada.sumar(c.territorioId, c.periodo, c.clase, c.voces, c.actores, c.sinActor);
+    }
+
+    expect(huellaDeCosecha(rearmada.cerrar(cosecha.periodos, cosecha.autoridad))).toBe(
+      huellaDeCosecha(cosecha),
+    );
+  });
+});
+
+/**
+ * `logrado` es LA salida de este modo: las cuatro variables que el modo forma
+ * declara, acá se producen. Y la produce una población que escribió un modelo.
+ *
+ * Regla 6: la IA puede sugerir, nunca determina la verdad de una señal. Si esas
+ * cuatro salen como números crudos —como salían—, la pantalla las pone debajo
+ * de «lo que efectivamente hizo la población» y quien las lee no tiene cómo
+ * saber que no las midió nadie.
+ */
+describe('GUARDA: lo logrado del modo gente es hipótesis, con su sello', () => {
+  const magnitudesDe = (corrida: Corrida): readonly Magnitud[] => [
+    corrida.logrado.participacion,
+    corrida.logrado.dispersion,
+    corrida.logrado.constancia,
+    ...Object.values(corrida.logrado.composicion),
+  ];
+
+  const corridaDe = (elenco: Elenco): Corrida => {
+    const pais = paisVacio();
+    const modo = (e: Escenario, p: Pais): Cosecha => modoGente(e, p, elenco);
+    return correr(escenario(elenco), pais, modo, elenco.poblacion, elenco.sello).corrida;
+  };
+
+  it('las siete salen selladas, y la fórmula NO se pierde', () => {
+    const corrida = corridaDe(elencoDePrueba(60, () => ({}), true));
+
+    const medidas = magnitudesDe(corrida);
+    expect(medidas).toHaveLength(7);
+    for (const m of medidas) {
+      expect(m.procedencia.tipo).toBe('hipotesis');
+      if (m.procedencia.tipo !== 'hipotesis') continue;
+      expect(m.procedencia.sello.modelo).toBe(SELLO.modelo);
+      expect(m.procedencia.sello.poblacionHuella).toBe(corrida.sello?.poblacionHuella);
+      // La hipótesis ENVUELVE al derivado en vez de reemplazarlo: si aplanara,
+      // se perdería justamente la fórmula que hace auditable el número.
+      expect(m.procedencia.sobre).toMatchObject({ tipo: 'derivado' });
+    }
+  });
+
+  it('ninguna de las siete se puede leer como `medido`', () => {
+    const corrida = corridaDe(elencoDePrueba(60, () => ({}), true));
+    for (const m of magnitudesDe(corrida)) expect(esHipotesis(m.procedencia)).toBe(true);
+    expect(JSON.stringify(corrida.logrado)).not.toContain('"medido"');
+  });
+
+  it('con un elenco fabricado por una regla sale `derivado`, y no se inventa un sello', () => {
+    // Un elenco sin modelo detrás no es una hipótesis de modelo. Sellarlo igual
+    // «para uniformar» sería la misma mentira en la dirección contraria.
+    const corrida = corridaDe(elencoDePrueba(60, () => ({}), false));
+    for (const m of magnitudesDe(corrida)) expect(m.procedencia.tipo).toBe('derivado');
+    expect(corrida.sello).toBeNull();
+  });
+});
+
+/**
+ * GUARDA: la bisección de umbrales no se puede correr en el modo gente.
+ *
+ * El método de umbral mueve UNA variable, `participacion`, y contesta «a partir
+ * de cuántas voces gana mandato cada provincia». En el modo gente esa variable
+ * **no es entrada**: la forma sale de lo que hace la población y `conectadaEn`
+ * lo dice desde siempre — el tornado ya la pinta «no conectada» en este modo.
+ *
+ * Corriendo igual, `conVariable` mueve un campo que nadie lee, el resultado no
+ * cambia nunca, y la bisección concluye lo único que puede concluir: que ni en
+ * el tope del dominio alcanza. Publica entonces, por cada provincia, «con estas
+ * otras palancas, la participación sola no le alcanza» — una afirmación sobre
+ * una palanca que el motor no leyó, con la forma de un hallazgo. Es el defecto
+ * que este módulo existe para no cometer: no es un cero, es peor, es una
+ * conclusión.
+ *
+ * La respuesta honesta no es por provincia, porque el impedimento no es de
+ * ninguna provincia: es del modo. Por eso el método se niega entero.
+ */
+describe('GUARDA: el umbral no contesta lo que en este modo no puede preguntar', () => {
+  const barrerUmbral = (modo: 'forma' | 'gente') => {
+    const elenco = elencoDePrueba(30);
+    const pais = paisVacio();
+    const ejecutar = (e: Escenario, p: Pais): Cosecha => modoGente(e, p, elenco);
+    return barrer(
+      {
+        base: escenario(elenco),
+        modo,
+        claves: ['participacion'],
+        objetivo: 'legitimidad',
+        metodo: { tipo: 'umbral', territorios: ['Alfa', 'Beta'] },
+      },
+      pais,
+      ejecutar,
+      elenco.poblacion,
+    );
+  };
+
+  it('en el modo gente se niega, y nombra la palanca que no lee', () => {
+    const salida = barrerUmbral('gente');
+    if (salida.estado !== 'listo' || salida.salida.metodo !== 'umbral') throw new Error('no corrió');
+
+    expect(salida.salida.estado).toBe('sinPalanca');
+    if (salida.salida.estado !== 'sinPalanca') return;
+    // La razón es la MISMA que ya usa el tornado: una sola fuente de verdad.
+    expect(salida.salida.razon).toContain(razonDeNoConectada('participacion', 'gente'));
+    expect(salida.salida.razon).toContain('participación');
+  });
+
+  it('no publica ni un solo veredicto por provincia, y no gasta corridas', () => {
+    const salida = barrerUmbral('gente');
+    if (salida.estado !== 'listo' || salida.salida.metodo !== 'umbral') throw new Error('no corrió');
+
+    // Lo que fallaba: dos filas `inalcanzable`, una por provincia, cada una
+    // afirmando que la participación no le alcanza.
+    expect(JSON.stringify(salida.salida)).not.toContain('inalcanzable');
+    expect(salida.corridasHechas.valor).toBe(0);
+  });
+
+  it('en el modo forma el mismo método sigue midiendo: la guarda no es un candado', () => {
+    const salida = barrerUmbral('forma');
+    if (salida.estado !== 'listo' || salida.salida.metodo !== 'umbral') throw new Error('no corrió');
+
+    expect(salida.salida.estado).toBe('medidos');
+    if (salida.salida.estado !== 'medidos') return;
+    expect(salida.salida.umbrales).toHaveLength(2);
+    expect(salida.corridasHechas.valor).toBeGreaterThan(0);
   });
 });

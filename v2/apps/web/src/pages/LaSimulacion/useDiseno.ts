@@ -64,15 +64,51 @@ export function useDiseno(pais: Pais): MesaDeDiseno {
   const [diseno, setDiseno] = useState<Diseno>(inicial.current.diseno);
   const avisos = inicial.current.avisos;
 
+  /**
+   * Si el hash de la URL se puede reescribir con lo de acá.
+   *
+   * Arranca en `true` —el caso normal: entrás sin hash, o con uno tuyo, y la
+   * URL tiene que quedar siempre lista para copiar— y arranca en **`false`
+   * cuando el link que llegó trajo un desajuste**, o sea cuando venía con hash
+   * Y `leerDisenoDelHash` tuvo algo que avisar.
+   *
+   * La distinción existe porque sin ella el efecto pisaba el hash recibido en
+   * el primer render con la huella y el reloj LOCALES. El aviso —«se armó
+   * contra otro país»— seguía apareciendo en esa sesión, así que parecía
+   * funcionar; lo que se perdía era la evidencia. Al recargar, el link ya decía
+   * el país de acá y no avisaba nada. **Un desajuste que se lava solo en un
+   * segundo es peor que uno que nunca se detectó, porque la próxima persona lo
+   * hereda limpio y no tiene cómo saber que hubo uno.**
+   *
+   * Mover un dial lo convierte en tuyo: ahí la huella de acá pasa a ser la
+   * verdad sobre lo que estás por correr, y la URL vuelve a escribirse sola.
+   */
+  const escribible = useRef(
+    typeof window === 'undefined' ||
+      window.location.hash.length <= 1 ||
+      inicial.current.avisos.length === 0,
+  );
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    if (!escribible.current) return;
     // `replaceState` y no `pushState`: mover un dial no es navegar, y llenar el
     // historial con cien pasos intermedios rompe el botón «atrás» del navegador.
-    window.history.replaceState(null, '', escribirDisenoEnHash(diseno));
-  }, [diseno]);
+    //
+    // El país entra acá porque lo que se escribe lleva su huella Y su reloj, y
+    // las dos tienen que salir del mismo objeto: un hash con la huella de un
+    // país y el reloj de otro es un link que abre un tercero.
+    window.history.replaceState(null, '', escribirDisenoEnHash(diseno, pais));
+  }, [diseno, pais]);
+
+  /** Todo camino que edita el diseño pasa por acá, y lo vuelve tuyo. */
+  const editar = useCallback((f: (previo: Diseno) => Diseno) => {
+    escribible.current = true;
+    setDiseno(f);
+  }, []);
 
   const alternarBarrida = useCallback((clave: ClaveVariable) => {
-    setDiseno((previo) => ({
+    editar((previo) => ({
       ...previo,
       claves: previo.claves.includes(clave)
         ? previo.claves.filter((c) => c !== clave)
@@ -84,19 +120,19 @@ export function useDiseno(pais: Pais): MesaDeDiseno {
     // Pasa por `conVariable`, que acota al dominio declarado y renormaliza la
     // composición: la mesa no puede escribir un escenario que el motor no
     // podría haber producido por su cuenta.
-    setDiseno((previo) => ({ ...previo, base: conVariable(previo.base, clave, valor) }));
+    editar((previo) => ({ ...previo, base: conVariable(previo.base, clave, valor) }));
   }, []);
 
   const cambiarMetodo = useCallback((metodo: Metodo) => {
-    setDiseno((previo) => ({ ...previo, metodo }));
+    editar((previo) => ({ ...previo, metodo }));
   }, []);
 
   const cambiarObjetivo = useCallback((objetivo: Objetivo) => {
-    setDiseno((previo) => ({ ...previo, objetivo }));
+    editar((previo) => ({ ...previo, objetivo }));
   }, []);
 
   const cambiarSemilla = useCallback((semilla: number) => {
-    setDiseno((previo) => ({ ...previo, base: { ...previo.base, semilla: Math.trunc(semilla) } }));
+    editar((previo) => ({ ...previo, base: { ...previo.base, semilla: Math.trunc(semilla) } }));
   }, []);
 
   /**
@@ -109,7 +145,7 @@ export function useDiseno(pais: Pais): MesaDeDiseno {
    * utilería.
    */
   const cambiarModo = useCallback((modo: ModoDeCorrida, poblacionHuella: string | null) => {
-    setDiseno((previo) => ({
+    editar((previo) => ({
       ...previo,
       modo,
       base: {

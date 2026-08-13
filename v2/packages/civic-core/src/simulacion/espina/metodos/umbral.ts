@@ -16,13 +16,29 @@
  * es proporcional a un total que crece), y más voces no puede sacar un mandato
  * que ya estaba. Si en el tope del dominio el territorio sigue sin mandato, la
  * respuesta es `inalcanzable` con el tope a la vista, no un número inventado.
+ *
+ * **Y ese supuesto tiene un modo donde es falso.** En el modo gente la forma no
+ * es entrada: sale de lo que hace la población, y `conectadaEn` marca
+ * `participacion` como no conectada — es lo mismo que ya hace decir al tornado
+ * «no está enchufada» en vez de dibujarle una barra en cero. Movida igual, la
+ * variable no cambia nada, los dos bordes dan el mismo veredicto y la bisección
+ * concluye lo único que puede concluir: `inalcanzable`, provincia por provincia,
+ * con la razón «la participación sola no le alcanza». Eso es una afirmación
+ * sobre una palanca que el motor no leyó, con la forma de un hallazgo — el
+ * error que este módulo existe para no cometer, y encima el caro: no es un cero
+ * que se note, es una conclusión que se lee bien.
+ *
+ * Por eso el método **se niega entero** y no territorio por territorio: el
+ * impedimento no es de ninguna provincia, es del modo, y publicarlo veinticuatro
+ * veces lo disfrazaría de propiedad del país.
  */
 
 import { declarado, derivado } from '../../procedencia.js';
-import { conVariable, DOMINIOS } from '../variables.js';
+import { conVariable, conectadaEn, DOMINIOS, razonDeNoConectada } from '../variables.js';
 
 import type { Magnitud } from '../../procedencia.js';
 import type { Escenario } from '../escenario.js';
+import type { ModoDeCorrida } from '../variables.js';
 
 export type UmbralDeTerritorio =
   | {
@@ -43,6 +59,17 @@ export type UmbralDeTerritorio =
       readonly razon: string;
     };
 
+/**
+ * Lo que contesta el método, que no siempre es una tabla.
+ *
+ * `sinPalanca` no es «no se encontró»: es «acá esa pregunta no se puede hacer».
+ * Van separadas porque se leen distinto — una habla del país, la otra del
+ * instrumento.
+ */
+export type SalidaDeUmbrales =
+  | { readonly estado: 'medidos'; readonly umbrales: readonly UmbralDeTerritorio[] }
+  | { readonly estado: 'sinPalanca'; readonly razon: string };
+
 export interface OpcionesUmbral {
   /** Cuándo dejar de partir. 0,01 voces cada 100.000 es más fino que una voz. */
   readonly tolerancia: number;
@@ -57,13 +84,32 @@ export const OPCIONES_UMBRAL: OpcionesUmbral = { tolerancia: 0.01, maximoDeCorri
  * `tieneMandato` recibe el escenario ya movido y contesta por un territorio.
  * Quién corre el motor no es asunto de este archivo: sirve igual para el modo
  * forma en el hilo principal y para un worker.
+ *
+ * `modo` no es decorativo: es la única entrada que decide si la pregunta tiene
+ * sentido. Se consulta contra `conectadaEn`, la misma función que usan el
+ * tornado y el hipercubo, para que la regla viva en un solo lugar.
  */
 export function umbralesDeParticipacion(
   base: Escenario,
   territorios: readonly string[],
   tieneMandato: (esc: Escenario, territorioId: string) => boolean,
+  modo: ModoDeCorrida,
   opciones: OpcionesUmbral = OPCIONES_UMBRAL,
-): { umbrales: readonly UmbralDeTerritorio[]; corridas: number } {
+): { salida: SalidaDeUmbrales; corridas: number } {
+  if (!conectadaEn('participacion', modo)) {
+    return {
+      salida: {
+        estado: 'sinPalanca',
+        razon:
+          'Este método busca a partir de qué participación gana mandato cada provincia, y en ' +
+          `este modo la participación no es una entrada del motor. ${razonDeNoConectada('participacion', modo)} ` +
+          'Moverla igual no cambiaría ningún resultado, así que la bisección diría que ni el tope ' +
+          'del dominio alcanza — una conclusión sobre una palanca que nadie leyó.',
+      },
+      corridas: 0,
+    };
+  }
+
   const dominio = DOMINIOS.participacion;
   const umbrales: UmbralDeTerritorio[] = [];
   let corridasTotales = 0;
@@ -123,5 +169,5 @@ export function umbralesDeParticipacion(
     corridasTotales += corridas;
   }
 
-  return { umbrales, corridas: corridasTotales };
+  return { salida: { estado: 'medidos', umbrales }, corridas: corridasTotales };
 }

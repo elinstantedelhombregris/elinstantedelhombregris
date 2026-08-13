@@ -1,4 +1,4 @@
-import { PROVINCIAS_REF } from '@v2/civic-core';
+import { leerTipo, PROVINCIAS_REF } from '@v2/civic-core';
 
 import type { SenalConTipo } from '../useVistaMapa';
 import type { EstadoMedido, Territorio, VozMedida } from '@v2/civic-core';
@@ -47,7 +47,17 @@ export function estadoMedidoDesde(
     if (nombre === undefined || PROVINCIAS_REF[nombre] === undefined) continue;
     const fecha = Date.parse(s.createdAt);
     if (Number.isNaN(fecha)) continue;
-    voces.push({ territorioId: nombre, tipo: s.tipoVoz, fecha });
+    /**
+     * El tipo entra CRUDO y leído contra el canon, no pintado.
+     *
+     * Antes entraba `s.tipoVoz`, que es el resultado de la paleta de la web —seis
+     * tipos, con un `?? 'valor'` para todo lo demás—. O sea que una categoría
+     * que el catálogo no tiene llegaba al motor diciendo que era un `valor`, y
+     * la huella del país no podía distinguir dos países distintos. `leerTipo`
+     * devuelve una unión discriminada: lo que no está en el canon entra
+     * diciendo que no está.
+     */
+    voces.push({ territorioId: nombre, tipo: leerTipo(s.tipo ?? ''), fecha });
   }
 
   return { voces, ahora };

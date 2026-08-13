@@ -32,15 +32,15 @@ const TERRITORIOS: Territorio[] = [
 
 const BASE: EstadoMedido = {
   voces: [
-    { territorioId: 'chaco', tipo: 'basta', fecha: AHORA - MES },
-    { territorioId: 'chaco', tipo: 'necesidad', fecha: AHORA - 2 * MES },
-    { territorioId: 'formosa', tipo: 'basta', fecha: AHORA - MES },
+    { territorioId: 'chaco', tipo: { reconocido: true, tipo: 'basta' }, fecha: AHORA - MES },
+    { territorioId: 'chaco', tipo: { reconocido: true, tipo: 'necesidad' }, fecha: AHORA - 2 * MES },
+    { territorioId: 'formosa', tipo: { reconocido: true, tipo: 'basta' }, fecha: AHORA - MES },
     // Una voz en el territorio SIN POBLACIÓN: es la que hacía que el reparto
     // concentrado se llevara el total entero a un lugar que ningún agregado
     // cuenta, y que las voces desaparecieran sin que nada lo dijera.
-    { territorioId: 'sin dato', tipo: 'basta', fecha: AHORA - MES },
-    { territorioId: 'sin dato', tipo: 'basta', fecha: AHORA - 2 * MES },
-    { territorioId: 'sin dato', tipo: 'basta', fecha: AHORA - 3 * MES },
+    { territorioId: 'sin dato', tipo: { reconocido: true, tipo: 'basta' }, fecha: AHORA - MES },
+    { territorioId: 'sin dato', tipo: { reconocido: true, tipo: 'basta' }, fecha: AHORA - 2 * MES },
+    { territorioId: 'sin dato', tipo: { reconocido: true, tipo: 'basta' }, fecha: AHORA - 3 * MES },
   ],
   ahora: AHORA,
 };
@@ -63,7 +63,7 @@ const palancasDe = (esc: Escenario): Palancas => ({
   participacion: esc.forma.participacion,
   dispersion: esc.forma.dispersion,
   // El motor viejo no lee ninguna de estas dos; se completan para que compile.
-  composicion: { basta: 1, sueño: 0, necesidad: 0, compromiso: 0, recurso: 0, valor: 0 },
+  composicion: { hecho: 1, deseo: 0, acto: 0, meta: 0 },
   cumplimiento: esc.ajustes.cumplimiento,
   horizonte: esc.ajustes.horizonte,
   resistencia: esc.ajustes.resistencia,

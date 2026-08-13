@@ -78,7 +78,7 @@ export function Resultados({
 
   return (
     <>
-      {salida.metodo === 'umbral' ? <TablaDeUmbrales umbrales={salida.umbrales} /> : null}
+      {salida.metodo === 'umbral' ? <TablaDeUmbrales salida={salida} /> : null}
 
       {salida.metodo === 'unaPorVez' ? (
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr_1fr]">

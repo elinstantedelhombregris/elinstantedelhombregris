@@ -14,17 +14,19 @@
  * la limitación principal de ese modo, dicha en pantalla y no en un comentario.
  */
 
+import { CLASES_SENAL } from '../../senal/vocabulario.js';
 import { derivado, hipotesis, medido } from '../procedencia.js';
 import { separarSinDato } from '../retrato.js';
 
 import { huellaDeCosecha, totalDeVoces, vocesPorTerritorio } from './cosecha.js';
 import { verificarPais } from './escenario.js';
-import { medirForma } from './forma.js';
+import { medirFormaConProcedencia } from './forma.js';
 import { retratar } from './retratar.js';
 
 
 import type { Cosecha, Modo } from './cosecha.js';
 import type { Escenario, Forma, Pais } from './escenario.js';
+import type { FormaMedida } from './forma.js';
 import type { Poblacion } from '../poblacion.js';
 import type { Magnitud, SelloDelModelo } from '../procedencia.js';
 import type { Retrato } from '../tipos.js';
@@ -68,10 +70,23 @@ export interface Corrida {
   readonly sello: SelloDelModelo | null;
   readonly reproducible: boolean;
   readonly resumen: Resumen;
-  /** Lo que se declaró. */
+  /**
+   * Lo que se declaró. Números pelados a propósito: es la configuración que
+   * alguien movió, su procedencia es `declarado` y es la misma para el objeto
+   * entero.
+   */
   readonly pedido: Forma;
-  /** Lo que salió, vía `medirForma()`. */
-  readonly logrado: Forma;
+  /**
+   * Lo que salió, vía `medirFormaConProcedencia()`.
+   *
+   * **No es simétrico con `pedido` y no puede serlo.** Esto lo CALCULA el motor
+   * desde la cosecha, así que va en `Magnitud` con su fórmula, y en modo gente
+   * sale sellado como hipótesis del modelo que escribió la población. Es la
+   * salida estrella de ese modo y la que la pantalla pone debajo de «lo que
+   * efectivamente hizo la población»: pasarla por hecho es la regla 6 rota en
+   * el peor lugar posible.
+   */
+  readonly logrado: FormaMedida;
   readonly cobertura: Cobertura;
   /** Bitset por territorio, en el orden canónico de `ordenCanonico(pais)`. */
   readonly mandatos: Uint8Array;
@@ -243,7 +258,17 @@ export function reducir(
       ),
     },
     pedido: esc.forma,
-    logrado: medirForma(cosecha, pais),
+    /**
+     * El sello sale de la autoridad de la COSECHA y no del parámetro suelto:
+     * `logrado` se mide sobre ella, así que su autoridad es la de ella. Hoy los
+     * dos coinciden —los dos salen de `elenco.sello`— y por eso la condición se
+     * escribe donde se puede verificar, no donde hay que acordarse.
+     */
+    logrado: medirFormaConProcedencia(
+      cosecha,
+      pais,
+      cosecha.autoridad === 'hipotesis' ? sello : null,
+    ),
     cobertura: coberturaDe(cosecha, pais, sello),
     mandatos,
     cosechaHuella: huellaDeCosecha(cosecha),
@@ -285,6 +310,21 @@ export interface MagnitudSerializada {
   readonly procedencia: unknown;
 }
 
+/**
+ * La forma medida, serializada — con la procedencia adentro de cada campo.
+ *
+ * Que el JSON de una corrida llevara `logrado: {participacion: 438.2}` era el
+ * mismo defecto que en memoria: quien lo lea después no tiene cómo saber que
+ * ese número lo produjo una población escrita por un modelo. Acá cada uno viaja
+ * con su fórmula y, cuando corresponde, con el sello.
+ */
+export interface FormaMedidaSerializada {
+  readonly participacion: MagnitudSerializada;
+  readonly dispersion: MagnitudSerializada;
+  readonly constancia: MagnitudSerializada;
+  readonly composicion: Readonly<Record<string, MagnitudSerializada>>;
+}
+
 export interface CorridaSerializada {
   readonly version: 1;
   readonly motor: string;
@@ -298,7 +338,7 @@ export interface CorridaSerializada {
   readonly variables: Readonly<Record<string, number>>;
   readonly resumen: Readonly<Record<string, MagnitudSerializada>>;
   readonly pedido: Forma;
-  readonly logrado: Forma;
+  readonly logrado: FormaMedidaSerializada;
   /** Un carácter por territorio, en `ordenCanonico`. Legible y diffeable. */
   readonly mandatos: string;
   readonly orden: readonly string[];
@@ -310,6 +350,20 @@ const serializarMagnitud = (m: Magnitud): MagnitudSerializada => ({
   unidad: m.unidad,
   procedencia: m.procedencia,
 });
+
+/** La composición sale por `CLASES_SENAL`: el orden de las claves es canónico. */
+function serializarFormaMedida(forma: FormaMedida): FormaMedidaSerializada {
+  const composicion: Record<string, MagnitudSerializada> = {};
+  for (const clase of CLASES_SENAL) {
+    composicion[clase] = serializarMagnitud(forma.composicion[clase]);
+  }
+  return {
+    participacion: serializarMagnitud(forma.participacion),
+    dispersion: serializarMagnitud(forma.dispersion),
+    constancia: serializarMagnitud(forma.constancia),
+    composicion,
+  };
+}
 
 /**
  * Una corrida como JSON: semilla, variables, versión del motor y huella de la
@@ -341,8 +395,12 @@ export function serializarCorrida(
     MINIMO_PERIODOS: esc.coeficientes.MINIMO_PERIODOS,
     PERIODOS_POR_ANIO: esc.coeficientes.PERIODOS_POR_ANIO,
   };
-  for (const [clase, peso] of Object.entries(esc.forma.composicion)) {
-    variables[`composicion.${clase}`] = peso;
+  // Por `CLASES_SENAL` y no por `Object.entries`: dos corridas iguales tienen
+  // que serializar el mismo JSON aunque una haya construido su composición
+  // insertando las claves en otro orden — y algo tan tonto como una ida y
+  // vuelta por `jsonb` alcanza para reordenarlas.
+  for (const clase of CLASES_SENAL) {
+    variables[`composicion.${clase}`] = esc.forma.composicion[clase];
   }
   if (esc.mecanismo !== null) {
     variables.chispa = esc.mecanismo.chispa;
@@ -370,7 +428,7 @@ export function serializarCorrida(
       territoriosConMandato: serializarMagnitud(corrida.resumen.territoriosConMandato),
     },
     pedido: corrida.pedido,
-    logrado: corrida.logrado,
+    logrado: serializarFormaMedida(corrida.logrado),
     mandatos,
     orden,
     cosechaHuella: corrida.cosechaHuella,

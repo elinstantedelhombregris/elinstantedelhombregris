@@ -16,6 +16,7 @@
  */
 
 import { CLASES_SENAL } from '../../senal/vocabulario.js';
+import { derivado, hipotesis } from '../procedencia.js';
 import { pesosConcentrado, pesosProporcional } from '../reparto.js';
 import { separarSinDato } from '../retrato.js';
 
@@ -29,6 +30,7 @@ import {
 import type { Cosecha } from './cosecha.js';
 import type { Forma, Pais } from './escenario.js';
 import type { ClaseSenal } from '../../senal/vocabulario.js';
+import type { Magnitud, SelloDelModelo } from '../procedencia.js';
 
 /**
  * Cuánto se parece un reparto real a la mezcla `(1−m)·concentrado + m·proporcional`.
@@ -117,6 +119,88 @@ export function medirForma(cosecha: Cosecha, pais: Pais): Forma {
     participacion: poblacionTotal <= 0 ? 0 : (total / poblacionTotal) * 100_000,
     dispersion: dispersionObservada(porTerritorio, pais, total),
     constancia: territoriosQueHablaron === 0 ? 0 : constanciaPonderada / territoriosQueHablaron,
+    composicion,
+  };
+}
+
+/**
+ * LO LOGRADO, con procedencia — la regla 6 en el campo estrella del modo gente.
+ *
+ * `medirForma` devuelve números pelados a propósito: es el pivote que la guarda
+ * de identidad compara contra `esc.forma`, y ahí lo que se afirma es sobre los
+ * valores. Pero lo que sale a la `Corrida` —y de ahí a pantalla— no puede ser
+ * eso. `logrado` es **lo que efectivamente hizo la población**, y en modo gente
+ * esa población la escribió un modelo: cada una de las cuatro es una hipótesis,
+ * jamás un hecho del país.
+ *
+ * Estaba mal de las dos maneras posibles y las dos se arreglan acá:
+ *
+ * - viajaba como `Forma` de números crudos, sin `Magnitud` y sin fórmula, en la
+ *   estructura donde todo lo demás la lleva;
+ * - **la guarda de números huérfanos lo eximía por nombre**, junto a `pedido`,
+ *   con el argumento de que «su procedencia es `declarado` por definición». Eso
+ *   es cierto para `pedido`, que es la configuración que alguien declaró, y
+ *   falso para `logrado`, que el motor CALCULA desde una cosecha cuya autoridad
+ *   puede ser `hipotesis`.
+ *
+ * El sello entra por parámetro y no se deduce acá: quien llama sabe si la
+ * cosecha la produjo una fórmula a la vista o una población escrita por un
+ * modelo. Con `null` salen `derivado` —el modo forma es un modelo, pero su
+ * fórmula se verifica con lápiz— y con sello salen `hipotesis` envolviendo al
+ * derivado, que es la variante que **no pierde la fórmula**.
+ */
+export interface FormaMedida {
+  readonly participacion: Magnitud;
+  readonly dispersion: Magnitud;
+  readonly constancia: Magnitud;
+  readonly composicion: Readonly<Record<ClaseSenal, Magnitud>>;
+}
+
+export function medirFormaConProcedencia(
+  cosecha: Cosecha,
+  pais: Pais,
+  sello: SelloDelModelo | null,
+): FormaMedida {
+  const cruda = medirForma(cosecha, pais);
+  const sellar = (m: Magnitud): Magnitud => (sello === null ? m : hipotesis(m, sello));
+
+  const composicion = {} as Record<ClaseSenal, Magnitud>;
+  for (const clase of CLASES_SENAL) {
+    composicion[clase] = sellar(
+      derivado(
+        cruda.composicion[clase],
+        'fracción',
+        `voces de clase ${clase} ÷ total de voces`,
+        ['voces'],
+      ),
+    );
+  }
+
+  return {
+    participacion: sellar(
+      derivado(
+        cruda.participacion,
+        'voces cada 100.000 hab.',
+        'voces de la cosecha ÷ población de los territorios con dato × 100.000',
+        ['voces', 'poblacion'],
+      ),
+    ),
+    dispersion: sellar(
+      derivado(
+        cruda.dispersion,
+        'fracción',
+        'proyección del reparto observado sobre la recta concentrado → proporcional',
+        ['voces', 'poblacion'],
+      ),
+    ),
+    constancia: sellar(
+      derivado(
+        cruda.constancia,
+        'fracción',
+        'períodos con voz ÷ períodos de la ventana, promediado sobre los territorios que hablaron',
+        ['voces'],
+      ),
+    ),
     composicion,
   };
 }

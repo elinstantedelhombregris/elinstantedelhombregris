@@ -1,10 +1,13 @@
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import {
   barrer,
+  conVariables,
   correr,
   derivado,
   hipotesis,
   modoForma,
+  MINIMO_MUESTRAS,
+  type ClaveVariable,
   type Diseno,
   type Persona,
   type SelloDelModelo,
@@ -12,6 +15,7 @@ import {
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { LaSimulacion } from '../../LaSimulacion';
+import { leerRelojDelHash } from '../diseno-url';
 import { CifraPapel } from '../sections/CifraPapel';
 import { ElElenco } from '../sections/ElElenco';
 import { FichaDePersona } from '../sections/FichaDePersona';
@@ -21,6 +25,7 @@ import { Resultados } from '../sections/Resultados';
 import { SelloSintetico } from '../sections/SelloSintetico';
 import { TablaDeUmbrales } from '../sections/TablaDeUmbrales';
 import { Tornado } from '../sections/Tornado';
+import { NOMBRE_DE_VARIABLE } from '../simulacion-lectura';
 import { construirPais, disenoPorDefecto } from '../simulacion-pais';
 
 import type { ElencoCargado } from '../elenco-archivos';
@@ -107,6 +112,85 @@ describe('el tornado', () => {
     expect(fila?.textContent).toMatch(/→/);
     expect(fila?.querySelector('svg')).not.toBeNull();
   });
+
+  /**
+   * El defecto que esto cierra: la lista ordenaba por `amplitud` —el recorrido
+   * observado— y el rect se dibujaba de `bajo` a `alto` —los extremos del
+   * rango—. Con `participacion = 180`, `constancia = 0,6` y `resistencia = 0`,
+   * `horizonte` quedaba SEGUNDA con una barra de 0,600 y `participacion`
+   * TERCERA con una de 0,625: el ojo leía lo contrario que la lista.
+   */
+  it('las barras bajan de largo hacia abajo, y cada una mide su propia amplitud', () => {
+    const base = disenoPorDefecto(pais);
+    const noMonotono = conVariables(
+      base.base,
+      new Map<ClaveVariable, number>([
+        ['participacion', 180],
+        ['constancia', 0.6],
+        ['resistencia', 0],
+      ]),
+    );
+    const resultadoNoMonotono = barrer(
+      { ...base, base: noMonotono, metodo: { tipo: 'unaPorVez', pasos: 11 } },
+      pais,
+      modoForma,
+      null,
+    );
+    if (resultadoNoMonotono.estado !== 'listo' || resultadoNoMonotono.salida.metodo !== 'unaPorVez') {
+      throw new Error('el barrido tenía que estar listo');
+    }
+    const barras = resultadoNoMonotono.salida.barras;
+    // Sin una barra no monótona el test sería vacuo: es el único caso donde las
+    // dos definiciones de «cuánto mueve» dan números distintos.
+    expect(barras.some((b) => b.estado === 'medida' && b.monotonia === 'noMonotona')).toBe(true);
+
+    const { container } = render(
+      <Tornado
+        barras={barras}
+        objetivo="legitimidad"
+        formato={(v) => v.toFixed(3)}
+        elegida={null}
+        onElegir={() => undefined}
+      />,
+    );
+
+    const filas = [...container.querySelectorAll('li')];
+    const dibujadas = barras
+      .filter((b) => b.estado === 'medida')
+      .map((b) => {
+        const li = screen.getByText(NOMBRE_DE_VARIABLE[b.clave]).closest('li');
+        const rect = li?.querySelector('rect');
+        return {
+          clave: b.clave,
+          posicion: li === null ? -1 : filas.indexOf(li),
+          ancho: Number(rect?.getAttribute('width') ?? -1),
+          amplitud: b.amplitud.valor,
+        };
+      })
+      .sort((a, b) => a.posicion - b.posicion);
+
+    expect(dibujadas.length).toBeGreaterThan(3);
+
+    // 1. Ninguna fila dibuja una barra más larga que la de arriba: el orden de
+    //    la lista y el largo del rect son el mismo hecho.
+    for (let i = 1; i < dibujadas.length; i++) {
+      const arriba = dibujadas[i - 1];
+      const abajo = dibujadas[i];
+      if (arriba === undefined || abajo === undefined) continue;
+      expect(
+        abajo.ancho,
+        `«${abajo.clave}» dibuja más largo que «${arriba.clave}», que está arriba suyo`,
+      ).toBeLessThanOrEqual(arriba.ancho + 1e-9);
+    }
+
+    // 2. Y el largo es proporcional a la amplitud, con la misma escala para
+    //    todas: si no, dos barras iguales significarían cosas distintas.
+    const conLargo = dibujadas.filter((d) => d.amplitud > 0);
+    const escala = conLargo.map((d) => d.ancho / d.amplitud);
+    const primera = escala[0];
+    expect(primera).toBeDefined();
+    for (const e of escala) expect(e).toBeCloseTo(primera ?? 0, 6);
+  });
 });
 
 describe('la tabla de umbrales', () => {
@@ -118,12 +202,37 @@ describe('la tabla de umbrales', () => {
     if (resultado.estado !== 'listo' || resultado.salida.metodo !== 'umbral') {
       throw new Error('el barrido tenía que estar listo');
     }
-    render(<TablaDeUmbrales umbrales={resultado.salida.umbrales} />);
+    render(<TablaDeUmbrales salida={resultado.salida} />);
 
     expect(screen.getByRole('table')).toBeInTheDocument();
     expect(screen.getByText('Chaco')).toBeInTheDocument();
     // Cada fila dice cómo se supo: nunca un número solo.
     expect(screen.getAllByText(/bisección|tope del dominio|mínimo del dominio/i).length).toBeGreaterThan(0);
+  });
+
+  /**
+   * En el modo gente la participación no es entrada del motor, y la bisección
+   * la mueve igual: los dos bordes dan lo mismo y el método concluye
+   * `inalcanzable` para las veinticuatro provincias, con la razón «la
+   * participación sola no le alcanza». Eso es una afirmación sobre una palanca
+   * que nadie leyó, con la forma de un hallazgo — y en pantalla se lee como un
+   * resultado del país, no como un límite del instrumento.
+   */
+  it('en el modo gente no publica veinticuatro veredictos: dice que la pregunta no va acá', () => {
+    render(
+      <TablaDeUmbrales
+        salida={{
+          estado: 'sinPalanca',
+          razon: 'En el modo gente la forma es SALIDA, no entrada.',
+        }}
+      />,
+    );
+
+    expect(screen.queryByRole('table')).not.toBeInTheDocument();
+    expect(screen.getByText(/no se puede hacer en este modo/i)).toBeInTheDocument();
+    // Y sobre todo: ni una sola afirmación sobre lo que la participación no alcanza.
+    expect(screen.queryByText(/no le alcanza/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/ni con/i)).not.toBeInTheDocument();
   });
 });
 
@@ -182,6 +291,47 @@ describe('la incertidumbre', () => {
     expect(screen.getByText(/no alcanzan para estimar dispersión/i)).toBeInTheDocument();
     expect(screen.getByText(/el modo forma no tiene interacción/i)).toBeInTheDocument();
     expect(screen.getAllByText(/exacta, no «±0»/i).length).toBe(2);
+  });
+});
+
+/**
+ * Las dos secciones del hipercubo salen juntas y a dos centímetros una de otra.
+ * Con cinco corridas, `Incertidumbre` decía «5 corridas no alcanzan para
+ * estimar dispersión» e `Importancia` publicaba `ρ 0,71 · [0,73, 1,00] · 5
+ * corridas` — con el estimador afuera de su propio intervalo. Quien mira no
+ * tiene cómo saber cuál de los dos creer, y ése es el defecto: no que el número
+ * fuera malo, sino que la pantalla se contradecía.
+ */
+describe('las dos lecturas del hipercubo miden con la misma vara', () => {
+  const pintar = (muestras: number) => {
+    const resultado = correrDiseno({ tipo: 'hipercubo', muestras });
+    if (resultado.estado !== 'listo') throw new Error('el barrido tenía que estar listo');
+    return render(
+      <Resultados
+        resultado={resultado}
+        base={corridaDeMuestra()}
+        objetivo="legitimidad"
+        territorios={24}
+        elegida={null}
+        onElegir={() => undefined}
+      />,
+    );
+  };
+
+  it('debajo del piso, la pantalla NO publica un ρ mientras dice que no alcanza', () => {
+    pintar(5);
+    // Lo que no puede pasar: un ρ con su intervalo mientras la sección de
+    // arriba dice que cinco corridas no alcanzan.
+    expect(screen.queryByText(/^ρ\s/)).toBeNull();
+    // Las dos secciones dicen lo mismo: la de dispersión y la de importancia.
+    expect(screen.getAllByText(/no alcanzan/i).length).toBeGreaterThan(1);
+    expect(screen.getAllByText(/sin muestras/i).length).toBeGreaterThan(0);
+  });
+
+  it('en el piso publica, así que la vara no es un candado', () => {
+    pintar(MINIMO_MUESTRAS);
+    expect(screen.getAllByText(/^ρ\s/).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/no alcanzan/i)).toBeNull();
   });
 });
 
@@ -416,6 +566,89 @@ describe('la página', () => {
     render(<LaSimulacion />);
     fireEvent.click(screen.getByRole('button', { name: /correr el barrido/i }));
     expect(screen.getByRole('alert').textContent).toContain('no tiene Web Workers');
+  });
+});
+
+// ---------------------------------------------------------------------------
+// El link compartido, y el propio recargado
+// ---------------------------------------------------------------------------
+
+describe('recargar y compartir', () => {
+  beforeEach(() => {
+    WorkerFalso.ultima = null;
+    WorkerFalso.creados = 0;
+    vi.stubGlobal('Worker', WorkerFalso);
+    window.location.hash = '';
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  function pedidoAlWorker(): { ahora: number; diseno: Diseno } {
+    const pedido = WorkerFalso.ultima?.enviados[0] as { ahora: number; diseno: Diseno } | undefined;
+    if (pedido === undefined) throw new Error('no se mandó ningún pedido al worker');
+    return pedido;
+  }
+
+  /** Lo que el worker de verdad hace con el pedido, sin worker de por medio. */
+  function correrElPedido(): void {
+    const pedido = pedidoAlWorker();
+    correr(pedido.diseno.base, construirPais(pedido.ahora), modoForma, null, null);
+  }
+
+  it('el diseño que sale por el hash reproduce SU país, y vuelve a correr un minuto después', () => {
+    const reloj = vi.spyOn(Date, 'now');
+    reloj.mockReturnValue(AHORA);
+
+    const primera = render(<LaSimulacion />);
+    const compartido = window.location.hash;
+    expect(compartido).not.toBe('');
+    primera.unmount();
+
+    // La misma pestaña recargada, o el link abierto por otra persona: lo único
+    // que cambió es el reloj de la máquina.
+    reloj.mockReturnValue(AHORA + 60_000);
+    window.location.hash = compartido;
+
+    render(<LaSimulacion />);
+    fireEvent.click(screen.getByRole('button', { name: /correr el barrido/i }));
+
+    // El reloj sale del link y no de la máquina: sin esto el link abre otro
+    // país, y un link que reproduce otro país no sirve para nada.
+    expect(pedidoAlWorker().ahora).toBe(AHORA);
+    expect(construirPais(pedidoAlWorker().ahora).huella).toBe(pais.huella);
+    expect(pedidoAlWorker().diseno.base.paisHuella).toBe(pais.huella);
+    // Y por eso no hay nada que avisar: es el mismo país, no uno parecido.
+    expect(screen.queryByText(/otro país/i)).toBeNull();
+    expect(correrElPedido).not.toThrow();
+  });
+
+  it('y el hash que deja después de recargar sigue sirviendo: no queda pegajoso', () => {
+    const reloj = vi.spyOn(Date, 'now');
+    reloj.mockReturnValue(AHORA);
+    const primera = render(<LaSimulacion />);
+    const compartido = window.location.hash;
+    primera.unmount();
+
+    reloj.mockReturnValue(AHORA + 60_000);
+    window.location.hash = compartido;
+    const segunda = render(<LaSimulacion />);
+    const reescrito = window.location.hash;
+    segunda.unmount();
+
+    // El efecto de `useDiseno` reescribe el hash apenas monta. Ahí estaba el
+    // lazo: reescribía el país de la carga anterior, así que el link quedaba
+    // roto hasta que alguien borrara el `#` a mano.
+    expect(leerRelojDelHash(reescrito)).toBe(AHORA);
+
+    reloj.mockReturnValue(AHORA + 120_000);
+    window.location.hash = reescrito;
+    render(<LaSimulacion />);
+    fireEvent.click(screen.getByRole('button', { name: /correr el barrido/i }));
+    expect(pedidoAlWorker().ahora).toBe(AHORA);
+    expect(correrElPedido).not.toThrow();
   });
 });
 

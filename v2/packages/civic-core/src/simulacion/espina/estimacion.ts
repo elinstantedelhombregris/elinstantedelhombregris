@@ -126,8 +126,30 @@ export function estimarDeMuestras(
   };
 }
 
-/** Un motor determinista sobre un eje: un valor, y se dice que es exacto. */
-export const estimacionExacta = (valor: Magnitud): Estimacion => ({ tipo: 'exacta', valor });
+/**
+ * Un motor determinista sobre un eje: un valor, y se dice que es exacto.
+ *
+ * **Lleva su `n` en la fórmula, y no es adorno.** «Todas las corridas dieron lo
+ * mismo» es una afirmación cuyo peso depende de cuántas fueron: con 200 dice
+ * algo del dominio barrido, con 4 puede ser un accidente de cuatro sorteos.
+ * `estimarDeMuestras` ya lo escribía así cuando el mínimo y el máximo coinciden
+ * (`estimacion.ts:110`); este atajo —el de `barrer.ts`, que corta antes de
+ * llegar allá— publicaba la misma conclusión sin decir sobre cuántas se apoya.
+ *
+ * No lleva piso de muestras a propósito, y ahí se aparta de `estimarDeMuestras`:
+ * un p05 y un p95 sobre cuatro corridas son los extremos observados disfrazados
+ * de percentil, pero «las cuatro dieron 0,25» es cierto con cuatro. Lo que
+ * había que arreglar no era el permiso, era la frase.
+ */
+export const estimacionExacta = (valor: Magnitud, n: number): Estimacion => ({
+  tipo: 'exacta',
+  valor: derivado(
+    valor.valor,
+    valor.unidad,
+    `${valor.procedencia.tipo === 'derivado' ? valor.procedencia.formula : 'valor del objetivo'} (las ${String(n)} corridas dieron lo mismo)`,
+    valor.procedencia.tipo === 'derivado' ? valor.procedencia.de : [],
+  ),
+});
 
 /** Una variable que el motor no lee. Nunca una barra de largo cero. */
 export const estimacionSinDominio = (clave: ClaveVariable, razon: string): Estimacion => ({

@@ -1,8 +1,14 @@
-import { conVariable, derivado, hipotesis, type SelloDelModelo } from '@v2/civic-core';
+import {
+  conVariable,
+  derivado,
+  hipotesis,
+  verificarPais,
+  type SelloDelModelo,
+} from '@v2/civic-core';
 import { describe, expect, it } from 'vitest';
 
 import { corridasPrevistas } from '../barrido-mensajes';
-import { escribirDisenoEnHash, leerDisenoDelHash } from '../diseno-url';
+import { escribirDisenoEnHash, leerDisenoDelHash, leerRelojDelHash } from '../diseno-url';
 import { medirSalto, pintarNube } from '../nube-pintor';
 import { esHipotesis, explicarProcedencia } from '../simulacion-lectura';
 import { construirPais, disenoPorDefecto } from '../simulacion-pais';
@@ -82,10 +88,49 @@ describe('el diseño en la URL', () => {
       ...base,
       base: conVariable({ ...base.base, semilla: 42 }, 'participacion', 350),
     };
-    const { diseno, avisos } = leerDisenoDelHash(escribirDisenoEnHash(movido), base);
+    const { diseno, avisos } = leerDisenoDelHash(escribirDisenoEnHash(movido, pais), base);
     expect(diseno.base.semilla).toBe(42);
     expect(diseno.base.forma.participacion).toBeCloseTo(350, 6);
     expect(avisos).toEqual([]);
+  });
+
+  it('el link lleva el reloj del país, y por eso se puede volver a armar el mismo país', () => {
+    // Sin esto cada carga inventa un `ahora` nuevo, `huellaDePais` cambia y
+    // `verificarPais` tira: el link compartido nace muerto y el propio, al
+    // recargar, también.
+    const reloj = leerRelojDelHash(escribirDisenoEnHash(base, pais));
+    expect(reloj).toBe(AHORA);
+    expect(construirPais(reloj ?? 0).huella).toBe(pais.huella);
+  });
+
+  it('un hash sin diseño, roto o sin reloj no devuelve un instante inventado', () => {
+    expect(leerRelojDelHash('')).toBeNull();
+    expect(leerRelojDelHash('#d=%7Bno-es-json')).toBeNull();
+    const viejo = JSON.stringify({ version: 1, paisHuella: pais.huella });
+    expect(leerRelojDelHash(`#d=${encodeURIComponent(viejo)}`)).toBeNull();
+  });
+
+  it('un link del formato viejo abre igual, y dice que no traía su reloj', () => {
+    const viejo = JSON.stringify({ version: 1, paisHuella: pais.huella, variables: {} });
+    const { avisos } = leerDisenoDelHash(`#d=${encodeURIComponent(viejo)}`, base);
+    expect(avisos.join(' ')).toContain('no trae el reloj de su país');
+  });
+
+  it('un diseño de otro país corre contra el de acá en vez de matar la página', () => {
+    // El caso que queda cuando el lado medido deje de estar vacío: mismo reloj,
+    // otras voces, otra huella. El diseño es el mismo; el dato, no. Eso se dice
+    // y se sigue corriendo — no se tira.
+    const otroPais = construirPais(AHORA + 60_000);
+    const { diseno, avisos } = leerDisenoDelHash(
+      escribirDisenoEnHash(base, otroPais),
+      base,
+    );
+    expect(diseno.base.paisHuella).toBe(pais.huella);
+    expect(() => {
+      verificarPais(diseno.base, pais);
+    }).not.toThrow();
+    expect(avisos.join(' ')).toMatch(/otro país/i);
+    expect(avisos.join(' ')).toContain(otroPais.huella);
   });
 
   it('ante basura abre el diseño por defecto y lo dice, en vez de romper', () => {
