@@ -61,13 +61,13 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
 | [D-057](#d-057--la-política-de-privacidad-espera-tres-datos-que-sólo-puede-dar-el-dueño) | La política de privacidad espera tres datos que sólo puede dar el dueño | Media | Abierta |
 | [D-058](#d-058--un-cron-que-falla-no-le-avisa-a-nadie-y-ahora-uno-de-ellos-sostiene-una-promesa-legal) | Un cron que falla no le avisa a nadie, y ahora uno de ellos sostiene una promesa legal | Media | Abierta |
+| [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo) | La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo | Baja | Abierta |
 | [D-060](#d-060--la-suite-de-integración-de-la-api-no-la-linta-nadie) | La suite de integración de la API no la linta nadie | Baja | Abierta |
 
 ---
 
 ### D-001 · No hay resolución geográfica en el servidor
 
-| [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo) | La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo | Baja | Abierta |
 **Dónde:** `v2/apps/api/src/features/civic-map/capturas.ts:95`
 **Encontrada:** 2026-08-01, verificando por qué el modo Análisis se ve vacío
 **Severidad:** bloqueante
@@ -313,11 +313,6 @@ Lo que corresponde es un branch de Neon efímero por corrida, o al menos una bas
 
 ## Resueltas
 
-### D-049 · Las tipografías de la interfaz salen de Google Fonts en todas las páginas
-
-**Resuelta:** 2026-08-12
-**Cómo:** las seis familias viven en `v2/apps/web/public/fonts-ui/` y las baja `v2/scripts/build/tipografias/bajar-tipografias.ts`. `index.html` perdió los dos `preconnect` y el `<link>` a Google, y en su lugar pide `/fonts-ui/fuentes.css`, del mismo origen.
-
 ### D-048 · La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento
 
 **Resuelta:** 2026-08-13
@@ -345,6 +340,11 @@ Lo que corresponde es un branch de Neon efímero por corrida, o al menos una bas
 **Lo que falta verificar después del push:** que producción emita el header. La guardia mira el archivo, no el despliegue — un `curl -sI https://elinstantedelhombregris.com/el-mapa` tiene que traer las once cabeceras.
 
 ---
+
+### D-049 · Las tipografías de la interfaz salen de Google Fonts en todas las páginas
+
+**Resuelta:** 2026-08-12
+**Cómo:** las seis familias viven en `v2/apps/web/public/fonts-ui/` y las baja `v2/scripts/build/tipografias/bajar-tipografias.ts`. `index.html` perdió los dos `preconnect` y el `<link>` a Google, y en su lugar pide `/fonts-ui/fuentes.css`, del mismo origen.
 
 - **32 `.woff2`, 563 KB en el repo.** Un archivo por (familia, estilo, subconjunto), con las seis licencias OFL en `fonts-ui/licencias/`.
 - **Los pesos se recortaron; los subconjuntos no.** El script le pide a Google exactamente la misma query que tenía el `<link>`, así que baja los mismos pesos que el sitio declara y ni uno más. Los siete subconjuntos se quedan porque `unicode-range` los vuelve gratis en tiempo de carga: recortarlos ahorraría KB de repo y haría caer la `φ` de una fórmula a la fuente del sistema en medio de un párrafo.
@@ -1044,6 +1044,7 @@ La salida canónica es un nonce por respuesta —`style-src 'nonce-…'`— y **
 **Qué se pierde, con precisión.** No es ejecución: `script-src 'self'` sigue sin `'unsafe-inline'`, así que un XSS reflejado no corre igual. Lo que queda abierto es el CSS como canal — exfiltrar la forma de la página, o disfrazar un control con estilos inyectados, si alguien logra escribir en el DOM.
 
 **Qué haría falta:** o hashes (`'sha256-…'`) por cada bloque inline, que con estilos que las librerías generan en tiempo de ejecución no se pueden enumerar; o un documento renderizado por función con nonce; o dejar de usar librerías que inyectan estilo. Ninguna de las tres es un arreglo local, y por eso queda anotada en vez de improvisada.
+
 ---
 
 ### D-060 · La suite de integración de la API no la linta nadie
