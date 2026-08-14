@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">El ciclo del diseño idealizado</title>
+  <desc id="desc">Un proceso iterativo que parte del propósito, describe el ideal, reconoce restricciones, prototipa, mide y aprende.</desc>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <text x="60" y="70" fill="#17131d" font-family="Arial, sans-serif" font-size="34" font-weight="700">DISEÑAR DESDE EL PROPÓSITO, NO DESDE EL PARCHE</text>
+  <g fill="none" stroke="#17131d" stroke-width="5"><circle cx="600" cy="380" r="245"/><path d="m840 355 18 25-23 18"/></g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" font-weight="700">
+    <circle cx="600" cy="150" r="76" fill="#a72c35" stroke="#17131d" stroke-width="4"/><text x="600" y="143" fill="#f2eadb" font-size="20">1. PROPÓSITO</text><text x="600" y="171" fill="#f2eadb" font-size="16">¿para qué existe?</text>
+    <circle cx="810" cy="265" r="76" fill="#573c73" stroke="#17131d" stroke-width="4"/><text x="810" y="258" fill="#f2eadb" font-size="20">2. IDEAL</text><text x="810" y="286" fill="#f2eadb" font-size="16">resultado observable</text>
+    <circle cx="810" cy="500" r="76" fill="#e5dac7" stroke="#17131d" stroke-width="4"/><text x="810" y="493" fill="#17131d" font-size="20">3. BRECHA</text><text x="810" y="521" fill="#17131d" font-size="16">límites del presente</text>
+    <circle cx="600" cy="610" r="76" fill="#a72c35" stroke="#17131d" stroke-width="4"/><text x="600" y="603" fill="#f2eadb" font-size="20">4. PROTOTIPO</text><text x="600" y="631" fill="#f2eadb" font-size="16">pequeño y reversible</text>
+    <circle cx="390" cy="500" r="76" fill="#573c73" stroke="#17131d" stroke-width="4"/><text x="390" y="493" fill="#f2eadb" font-size="20">5. MEDIDA</text><text x="390" y="521" fill="#f2eadb" font-size="16">señal y resguardo</text>
+    <circle cx="390" cy="265" r="76" fill="#e5dac7" stroke="#17131d" stroke-width="4"/><text x="390" y="258" fill="#17131d" font-size="20">6. APRENDER</text><text x="390" y="286" fill="#17131d" font-size="16">corregir el diseño</text>
+  </g>
+  <text x="600" y="370" text-anchor="middle" fill="#17131d" font-family="Arial, sans-serif" font-size="29" font-weight="700">VISIÓN FIRME</text>
+  <text x="600" y="408" text-anchor="middle" fill="#573c73" font-family="Arial, sans-serif" font-size="29" font-weight="700">CAMINO ADAPTABLE</text>
+  <text x="60" y="690" fill="#17131d" font-family="Arial, sans-serif" font-size="21">Idealizar no elimina restricciones: evita que las restricciones decidan el destino.</text>
+</svg>

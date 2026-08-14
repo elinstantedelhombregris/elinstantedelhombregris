@@ -84,4 +84,16 @@ describe('BLOG_POSTS registry', () => {
       expect(p.body.length).toBeGreaterThan(0);
     }
   });
+
+  it('las portadas piloto tienen ruta pública, texto alternativo, leyenda y crédito', () => {
+    const conPortada = BLOG_POSTS.filter((post) => post.coverImageUrl !== '');
+    expect(conPortada).toHaveLength(6);
+    for (const post of conPortada) {
+      expect(post.coverImageUrl).toMatch(/^\/media\/bitacora\/pilotos\/.+\.webp$/);
+      expect(post.coverImageAlt.length).toBeGreaterThan(20);
+      expect(post.coverImageCaption.length).toBeGreaterThan(10);
+      expect(post.coverImageCredit.length).toBeGreaterThan(5);
+      expect(post.updatedAt).toBe('2026-08-14T00:00:00Z');
+    }
+  });
 });

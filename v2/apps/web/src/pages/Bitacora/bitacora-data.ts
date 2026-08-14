@@ -37,14 +37,35 @@ export function fechaLarga(iso: string): string {
   const d = new Date(iso);
   return Number.isNaN(d.getTime())
     ? ''
-    : d.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
+    : d.toLocaleDateString('es-AR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        timeZone: 'UTC',
+      });
 }
 
 function mesYAnio(iso: string): string {
   const d = new Date(iso);
   return Number.isNaN(d.getTime())
     ? ''
-    : d.toLocaleDateString('es-AR', { month: 'long', year: 'numeric' });
+    : d.toLocaleDateString('es-AR', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+}
+
+const CATEGORIAS_VISIBLES: Readonly<Record<string, string>> = {
+  argentina: 'Argentina',
+  confianza: 'Confianza',
+  diseno: 'Diseño',
+  'ingenieria-social': 'Ingeniería social',
+  poder: 'Poder',
+  sociedad: 'Sociedad',
+  tecnologia: 'Tecnología',
+};
+
+/** Convierte la taxonomía de URL en una etiqueta editorial legible. */
+export function categoriaVisible(categoria: string): string {
+  if (categoria === '') return '';
+  return CATEGORIAS_VISIBLES[categoria] ?? categoria.replaceAll('-', ' ');
 }
 
 /** «desde {mes} de {año}»: la crónica más vieja de la colección. */

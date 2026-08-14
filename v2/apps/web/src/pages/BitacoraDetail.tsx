@@ -3,7 +3,13 @@ import { Link, Redirect, useRoute } from 'wouter';
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { BotonPapel, Kicker, RitoTinta, Sello } from '~/components/papel/primitives';
 import { type BlogPost } from '~/lib/blog-registry';
-import { fechaLarga, resolverCronica, ubicarCronica } from '~/pages/Bitacora/bitacora-data';
+import {
+  categoriaVisible,
+  fechaLarga,
+  resolverCronica,
+  ubicarCronica,
+} from '~/pages/Bitacora/bitacora-data';
+import { PortadaCronica } from '~/pages/Bitacora/sections/PortadaCronica';
 
 /** 404 §5: el expediente extraviado, sobre papel (el lector es editorial). */
 function CronicaExtraviada() {
@@ -28,7 +34,9 @@ function Eslabon({ post, lado }: { post: BlogPost; lado: 'reciente' | 'antigua' 
     <Link
       href={`/bitacora/${post.slug}`}
       className={`font-space max-w-[300px] text-xs uppercase tracking-[0.06em] ${
-        antigua ? 'text-tinta ml-auto text-right font-bold hover:text-violeta' : 'text-tinta-50 hover:text-tinta'
+        antigua
+          ? 'text-tinta hover:text-violeta ml-auto text-right font-bold'
+          : 'text-tinta-50 hover:text-tinta'
       }`}
     >
       <span className="text-tinta-30 block text-[10px] tracking-[0.1em]">
@@ -63,7 +71,7 @@ export function BitacoraDetail() {
 
   const post = resolucion.post;
   const ubicacion = ubicarCronica(post.slug);
-  const categoria = post.category !== '' ? ` · ${post.category}` : '';
+  const categoria = post.category !== '' ? ` · ${categoriaVisible(post.category)}` : '';
   const fecha = fechaLarga(post.publishedAt);
   const fechaTramo = fecha !== '' ? ` · ${fecha}` : '';
   const minutos = post.readingMinutes > 0 ? ` · ${String(post.readingMinutes)} min` : '';
@@ -94,8 +102,11 @@ export function BitacoraDetail() {
           <RitoTinta lineas={[post.title]} />
         </h1>
         {post.summary !== '' ? (
-          <p className="text-tinta-75 mb-7 max-w-[620px] text-pretty text-lg leading-[1.6]">{post.summary}</p>
+          <p className="text-tinta-75 mb-7 max-w-[620px] text-pretty text-lg leading-[1.6]">
+            {post.summary}
+          </p>
         ) : null}
+        <PortadaCronica post={post} />
         <div className="border-tinta border-t-2 pt-7">
           <MdxPapel raw={post.body} className="max-w-[680px] [&>*:first-child]:mt-0" />
         </div>
@@ -108,7 +119,9 @@ export function BitacoraDetail() {
       </nav>
 
       <div className="bg-tinta text-papel mt-11 flex flex-wrap items-center justify-between gap-5 px-8 py-7 print:hidden">
-        <span className="font-anton text-[22px] leading-tight">Esto ya pasó. Lo que sigue lo escribís vos.</span>
+        <span className="font-anton text-[22px] leading-tight">
+          Esto ya pasó. Lo que sigue lo escribís vos.
+        </span>
         <BotonPapel asChild variant="violeta" surface="oscuro">
           <Link href="/el-mapa">Decir la mía →</Link>
         </BotonPapel>

@@ -13,6 +13,11 @@ export interface BlogPost {
   publishedAt: string;
   readingMinutes: number;
   tags: readonly string[];
+  coverImageUrl: string;
+  coverImageAlt: string;
+  coverImageCaption: string;
+  coverImageCredit: string;
+  updatedAt: string;
   /** Direcciones viejas del post (slug de v1, con los acentos borrados). */
   legacySlugs: readonly string[];
   body: string;
@@ -109,6 +114,11 @@ function buildRegistry(): BlogPost[] {
       publishedAt: readString(scalars, 'publishedAt', ''),
       readingMinutes: readNumber(scalars, 'readingMinutes', 0),
       tags: lists.tags ?? [],
+      coverImageUrl: readString(scalars, 'coverImageUrl', ''),
+      coverImageAlt: readString(scalars, 'coverImageAlt', ''),
+      coverImageCaption: readString(scalars, 'coverImageCaption', ''),
+      coverImageCredit: readString(scalars, 'coverImageCredit', ''),
+      updatedAt: readString(scalars, 'updatedAt', ''),
       legacySlugs: lists.legacySlugs ?? [],
       body: stripFrontmatter(raw),
     });

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
 
-import { ANIOS, fechaLarga, numeroDeFila } from '../bitacora-data';
+import { ANIOS, categoriaVisible, fechaLarga, numeroDeFila } from '../bitacora-data';
 
 import type { BlogPost } from '~/lib/blog-registry';
 
@@ -42,7 +42,7 @@ export function IndiceCronicas() {
             </span>
             <span className="font-space text-tinta-50 mt-1 block text-[11px] uppercase tracking-[0.1em]">
               {fechaLarga(post.publishedAt)}
-              {post.category !== '' ? ` · ${post.category}` : ''}
+              {post.category !== '' ? ` · ${categoriaVisible(post.category)}` : ''}
             </span>
           </span>
         }

@@ -29,6 +29,10 @@ export function MdxPapel({ raw, className }: MdxPapelProps) {
         'prose-li:text-tinta-90 prose-li:text-[17px] prose-strong:text-tinta',
         'prose-a:text-violeta prose-a:underline prose-a:decoration-1 hover:prose-a:text-violeta-hover',
         'prose-blockquote:border-l-2 prose-blockquote:border-tinta prose-blockquote:font-normal prose-blockquote:text-tinta-75',
+        'prose-figure:my-10 prose-figure:border-2 prose-figure:border-tinta prose-figure:bg-papel-sombra prose-figure:shadow-[6px_6px_0_var(--color-tinta)]',
+        'prose-img:m-0 prose-img:w-full prose-img:border-0',
+        'prose-figcaption:font-space prose-figcaption:text-tinta-75 prose-figcaption:m-0 prose-figcaption:border-t prose-figcaption:border-tinta prose-figcaption:px-4 prose-figcaption:py-3 prose-figcaption:text-[11px] prose-figcaption:font-normal prose-figcaption:not-italic prose-figcaption:uppercase prose-figcaption:tracking-[0.07em]',
+        'prose-table:font-archivo prose-table:block prose-table:max-w-full prose-table:overflow-x-auto prose-table:text-[14px] prose-th:border-tinta prose-th:bg-papel-sombra prose-th:px-3 prose-th:py-2 prose-td:border-papel-borde prose-td:px-3 prose-td:py-2',
         'prose-hr:border-papel-borde',
         className,
       )}

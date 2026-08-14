@@ -56,6 +56,20 @@ describe('MdxPapel', () => {
     expect(container.firstElementChild?.className).toMatch(/\bprose\b/);
     expect(container.firstElementChild?.className).toMatch(/mt-8/);
   });
+
+  it('convierte una imagen con título en figure accesible con caption y dimensiones estables', () => {
+    const raw =
+      '![Mapa del sistema](/media/bitacora/pilotos/diagramas/sistemas-iceberg.svg "Del evento al sistema")';
+    const { container } = render(<MdxPapel raw={raw} />);
+
+    expect(container.querySelector('figure')).not.toBeNull();
+    expect(container.querySelector('figure')?.parentElement?.tagName).not.toBe('P');
+    expect(container.querySelectorAll('p:empty')).toHaveLength(0);
+    const image = screen.getByRole('img', { name: 'Mapa del sistema' });
+    expect(image).toHaveAttribute('width', '1200');
+    expect(image).toHaveAttribute('height', '720');
+    expect(screen.getByText('Del evento al sistema')).toBeInTheDocument();
+  });
 });
 
 describe('El chrome papel no se imprime (§10.8)', () => {

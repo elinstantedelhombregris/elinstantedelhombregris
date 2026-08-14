@@ -1,6 +1,15 @@
 import { describe, expect, it } from 'vitest';
 
-import { ANIOS, CRONICA_COUNT, DESDE, fechaLarga, numeroDeFila, resolverCronica, ubicarCronica } from '../bitacora-data';
+import {
+  ANIOS,
+  CRONICA_COUNT,
+  DESDE,
+  categoriaVisible,
+  fechaLarga,
+  numeroDeFila,
+  resolverCronica,
+  ubicarCronica,
+} from '../bitacora-data';
 
 import { BLOG_POSTS, findBlogPost, findBlogPostByLegacySlug } from '~/lib/blog-registry';
 
@@ -60,6 +69,7 @@ describe('DESDE', () => {
     const esperado = new Date(masVieja.publishedAt).toLocaleDateString('es-AR', {
       month: 'long',
       year: 'numeric',
+      timeZone: 'UTC',
     });
     expect(DESDE).toBe(esperado);
   });
@@ -134,12 +144,22 @@ describe('fechaLarga', () => {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
+      timeZone: 'UTC',
     });
     expect(fechaLarga(muestra.publishedAt)).toBe(esperado);
   });
 
   it('de un ISO que no parsea es cadena vacía', () => {
     expect(fechaLarga('no-es-una-fecha')).toBe('');
+  });
+});
+
+describe('categoriaVisible', () => {
+  it('humaniza las categorías editoriales y conserva las desconocidas', () => {
+    expect(categoriaVisible('tecnologia')).toBe('Tecnología');
+    expect(categoriaVisible('ingenieria-social')).toBe('Ingeniería social');
+    expect(categoriaVisible('tema-nuevo')).toBe('tema nuevo');
+    expect(categoriaVisible('')).toBe('');
   });
 });
 

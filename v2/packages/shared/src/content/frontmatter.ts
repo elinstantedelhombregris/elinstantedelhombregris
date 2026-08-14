@@ -16,6 +16,10 @@ const slugSchema = z
   .max(100)
   .regex(slugRegex, 'Slugs must be kebab-case alphanumeric.');
 
+const publicMediaPathSchema = z
+  .string()
+  .regex(/^\/media\/[a-zA-Z0-9/_-]+\.[a-zA-Z0-9]+$/, 'Must be a root-relative /media/ path.');
+
 // gray-matter auto-parses ISO date strings into JS Date objects, so the
 // schema accepts both. We re-emit ISO strings downstream.
 const isoDateSchema = z
@@ -50,7 +54,13 @@ export const blogFrontmatterSchema = z.object({
    */
   authorUsername: z.string().min(1).optional(),
   tags: z.array(z.string().min(1)).max(20).default([]),
-  coverImageUrl: z.string().url().optional(),
+  /** Absolute external URL or an asset served from apps/web/public/media. */
+  coverImageUrl: z.union([z.string().url(), publicMediaPathSchema]).optional(),
+  coverImageAlt: z.string().min(1).max(300).optional(),
+  coverImageCaption: z.string().min(1).max(500).optional(),
+  coverImageCredit: z.string().min(1).max(200).optional(),
+  /** Date of a material editorial update, distinct from the original publication date. */
+  updatedAt: isoDateSchema.optional(),
   /**
    * Direcciones viejas del post (el slug que produjo el slugify de v1, que
    * borraba los acentos). El lector redirige de estas al slug canónico: una

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">El iceberg del pensamiento sistémico</title>
+  <desc id="desc">Debajo del evento visible aparecen patrones, estructuras y modelos mentales; cuanto más profundo, mayor es el apalancamiento.</desc>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <text x="60" y="70" fill="#17131d" font-family="Arial, sans-serif" font-size="34" font-weight="700">DEL INCENDIO VISIBLE AL DISEÑO QUE LO PRODUCE</text>
+  <path d="M0 235 Q180 205 340 235T690 235T1200 235V720H0Z" fill="#d9d0c2"/>
+  <path d="M410 120 575 100 680 225 805 260 700 640 475 610 340 270Z" fill="#faf5e9" stroke="#17131d" stroke-width="4"/>
+  <path d="M410 120 575 100 680 225 340 270Z" fill="#a72c35" stroke="#17131d" stroke-width="4"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="520" y="178" fill="#f2eadb" font-size="28" font-weight="700">EVENTOS</text>
+    <text x="590" y="325" fill="#17131d" font-size="28" font-weight="700">PATRONES</text>
+    <text x="590" y="385" fill="#17131d" font-size="18">¿Qué se repite en el tiempo?</text>
+    <text x="590" y="470" fill="#573c73" font-size="28" font-weight="700">ESTRUCTURAS</text>
+    <text x="590" y="510" fill="#17131d" font-size="18">Reglas · incentivos · flujos · demoras</text>
+    <text x="590" y="585" fill="#573c73" font-size="28" font-weight="700">MODELOS MENTALES</text>
+  </g>
+  <path d="M1000 170V590" stroke="#17131d" stroke-width="5"/>
+  <path d="m980 560 20 30 20-30" fill="none" stroke="#17131d" stroke-width="5"/>
+  <text x="1035" y="315" fill="#17131d" font-family="Arial, sans-serif" font-size="20" font-weight="700" transform="rotate(90 1035 315)">MÁS APALANCAMIENTO</text>
+  <text x="60" y="680" fill="#17131d" font-family="Arial, sans-serif" font-size="22">Un parche cambia el evento. Un rediseño cambia lo que el sistema puede producir.</text>
+</svg>

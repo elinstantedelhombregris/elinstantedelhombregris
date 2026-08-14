@@ -3,7 +3,13 @@ import { describe, expect, it } from 'vitest';
 
 import { Bitacora } from '../Bitacora';
 
-import { ANIOS, CRONICA_COUNT, DESDE, fechaLarga } from '~/pages/Bitacora/bitacora-data';
+import {
+  ANIOS,
+  CRONICA_COUNT,
+  DESDE,
+  categoriaVisible,
+  fechaLarga,
+} from '~/pages/Bitacora/bitacora-data';
 
 /**
  * Bitacora.test.tsx — índice papel 3.4. Ningún literal de contenido
@@ -61,7 +67,7 @@ describe('Bitacora (página papel 3.4 — el índice, composer)', () => {
     expect(filas[0]).toHaveTextContent(primeraCronica.title);
     expect(filas[0]).toHaveTextContent(fechaLarga(primeraCronica.publishedAt));
     if (primeraCronica.category !== '') {
-      expect(filas[0]).toHaveTextContent(primeraCronica.category);
+      expect(filas[0]).toHaveTextContent(categoriaVisible(primeraCronica.category));
     }
   });
 

@@ -8,7 +8,7 @@ import { BitacoraDetail } from '../BitacoraDetail';
 import type { BlogPost } from '~/lib/blog-registry';
 
 import { BLOG_POSTS } from '~/lib/blog-registry';
-import { fechaLarga, ubicarCronica } from '~/pages/Bitacora/bitacora-data';
+import { categoriaVisible, fechaLarga, ubicarCronica } from '~/pages/Bitacora/bitacora-data';
 
 /**
  * BitacoraDetail.test.tsx — página papel 3.4, el lector de crónica. Cero
@@ -33,7 +33,7 @@ function escapeRegExp(valor: string): string {
 
 /** Texto exacto del kicker del lector — misma concatenación que produce el componente. */
 function textoDelKicker(post: BlogPost): string {
-  const categoria = post.category !== '' ? ` · ${post.category}` : '';
+  const categoria = post.category !== '' ? ` · ${categoriaVisible(post.category)}` : '';
   const fecha = fechaLarga(post.publishedAt);
   const fechaTramo = fecha !== '' ? ` · ${fecha}` : '';
   const minutos = post.readingMinutes > 0 ? ` · ${String(post.readingMinutes)} min` : '';
@@ -47,7 +47,8 @@ function fragmentoDelCuerpo(body: string): string {
     .replace(/^>+\s*/gm, '')
     .replace(/[*_#`]/g, '')
     .trim();
-  if (limpio.length < 10) throw new Error('no se encontró un fragmento de prosa — fixture inválida');
+  if (limpio.length < 10)
+    throw new Error('no se encontró un fragmento de prosa — fixture inválida');
   return limpio.slice(0, 40);
 }
 
@@ -61,7 +62,8 @@ function linkPorHref(scope: HTMLElement, href: string): HTMLElement {
 function cronicaDelMedio(): BlogPost {
   const i = Math.floor(BLOG_POSTS.length / 2);
   const medio = BLOG_POSTS[i];
-  if (!medio) throw new Error('BLOG_POSTS no tiene suficientes elementos para la fixture del medio');
+  if (!medio)
+    throw new Error('BLOG_POSTS no tiene suficientes elementos para la fixture del medio');
   return medio;
 }
 
@@ -84,6 +86,21 @@ describe('BitacoraDetail (página papel 3.4 — el lector de crónica)', () => {
 
     const backlink = screen.getByRole('link', { name: '← La bitácora' });
     expect(backlink).toHaveAttribute('href', '/bitacora');
+  });
+
+  it('renderiza la portada con texto alternativo y pie cuando la crónica declara una', () => {
+    const conPortada = BLOG_POSTS.find((post) => post.coverImageUrl !== '');
+    expect(conPortada).toBeDefined();
+    if (!conPortada) return;
+
+    renderAt(`/bitacora/${conPortada.slug}`);
+
+    const portada = screen.getByRole('img', { name: conPortada.coverImageAlt });
+    expect(portada).toHaveAttribute('src', conPortada.coverImageUrl);
+    expect(portada).toHaveAttribute('width', '1672');
+    expect(portada).toHaveAttribute('height', '941');
+    expect(screen.getByText(conPortada.coverImageCaption)).toBeInTheDocument();
+    expect(screen.getByText(conPortada.coverImageCredit)).toBeInTheDocument();
   });
 
   it('cadena — la más nueva no tiene eslabón anterior, solo el siguiente (más antigua)', () => {
