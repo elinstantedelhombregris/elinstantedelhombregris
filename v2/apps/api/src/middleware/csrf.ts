@@ -40,6 +40,13 @@ const ANON_ALLOWED: { method: string; path: string }[] = [
   { method: 'POST', path: '/api/auth/2fa/verify' },
   { method: 'POST', path: '/api/pulso' },
   { method: 'POST', path: '/api/open-data/dreams' },
+  /**
+   * La ingesta de señales. Anónima por diseño —la conversión primaria del
+   * sitio no pide cuenta— y por eso no hay sesión contra la que hacer el doble
+   * envío de cookie. El techo es `anonSubmitRateLimit`, igual que las de al
+   * lado.
+   */
+  { method: 'POST', path: '/api/v1/civic/senales' },
   { method: 'POST', path: '/api/semillas' },
   /**
    * Ingesta de campo del móvil (spec 4 §4). No hay cookie de sesión ni origen

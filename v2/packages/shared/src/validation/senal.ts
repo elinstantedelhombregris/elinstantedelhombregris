@@ -28,6 +28,7 @@ import {
   TIPOS_SENAL,
   claseDe,
   leerTipo,
+  type RespuestaDeVivienda,
   type TipoSenal,
 } from '@v2/civic-core';
 import { z } from 'zod';
@@ -64,7 +65,7 @@ const libre = (max: number) =>
 const libreOpcional = (max: number) => libre(max).nullish().transform((v) => v ?? null);
 
 const respuestaDeViviendaSchema = z.enum(
-  RESPUESTAS_DE_VIVIENDA as [string, ...string[]],
+  RESPUESTAS_DE_VIVIENDA as [RespuestaDeVivienda, ...RespuestaDeVivienda[]],
   { errorMap: () => ({ message: 'Contestá si esto habla de una casa donde vive alguien.' }) },
 );
 
@@ -127,7 +128,15 @@ const cuerpoBase = z.object({
   provinceId: z.number().int().positive().nullish().transform((v) => v ?? null),
   cityId: z.number().int().positive().nullish().transform((v) => v ?? null),
   punto: puntoSchema.nullish().transform((v) => v ?? null),
-  precisionPedida: z.enum(['exact', 'street', 'neighborhood', 'city', 'province']).nullish()
+  /**
+   * Los seis de `LocationPrecision`, y son SEIS. `'street'` no existe: la
+   * granularidad entre la manzana y el barrio se expresa con `'100m'` y
+   * `'500m'`, que es lo que el engrosado produce. Un séptimo valor acá pasaría
+   * el borde y moriría contra `senales_precision_chk`.
+   */
+  precisionPedida: z
+    .enum(['exact', '100m', '500m', 'neighborhood', 'city', 'province'])
+    .nullish()
     .transform((v) => v ?? null),
   calleId: z.number().int().positive().nullish().transform((v) => v ?? null),
   altura: z.number().int().min(0).max(99999).nullish().transform((v) => v ?? null),
