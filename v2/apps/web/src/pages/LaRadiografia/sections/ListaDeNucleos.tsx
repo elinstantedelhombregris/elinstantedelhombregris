@@ -1,3 +1,5 @@
+import { MOTIVO_TEXTO_OMITIDO } from '@v2/shared';
+
 import {
   colorDeClase,
   ORDENES,
@@ -130,7 +132,7 @@ export function ListaDeNucleos({
                           `«${nucleo.frase.texto}»`
                         ) : (
                           <em className={meta}>
-                            Sin frase — {nucleo.textoOmitido ?? 'sin cesión de licencia'}
+                            Sin frase — {nucleo.textoOmitido ?? MOTIVO_TEXTO_OMITIDO}
                           </em>
                         )}
                       </span>

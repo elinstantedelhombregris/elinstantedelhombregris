@@ -134,6 +134,13 @@
       "when": 1786631799079,
       "tag": "0021_simulacion",
       "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1786670675697,
+      "tag": "0022_senales",
+      "breakpoints": true
     }
   ]
 }

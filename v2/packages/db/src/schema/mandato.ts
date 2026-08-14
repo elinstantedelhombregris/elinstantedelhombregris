@@ -5,6 +5,18 @@
  * `mandateSuggestions` (citizens suggesting policy). We keep the same
  * two tables; the AI-driven mandato-engine cron writes derived state
  * from pulse signals.
+ *
+ * ── `mandate_suggestions` RETIRADA (migración 0022, 2026-08-13) ────────────
+ *
+ * **`mandate_suggestions` ya no recibe escrituras.** Se miró antes de inventar
+ * la adhesión desde cero y no sirve: su `support_count` es un contador de filas
+ * guardado en la fila del objeto —el antipatrón exacto que `adhesiones` existe
+ * para corregir— y su `user_id NOT NULL` es la respuesta cómoda que la spec se
+ * niega a dar. El `DROP` es la Task 36 de
+ * `docs/plans/2026-08-11-tierra-senal-corroboracion-registro.md`.
+ *
+ * **`territory_mandates` sobrevive**, pero sale del mapa de señales: un mandato
+ * no es una señal, es una lectura agregada, del género del brillo.
  */
 import { sql } from 'drizzle-orm';
 import { index, integer, json, pgTable, real, serial, text, timestamp, uniqueIndex } from 'drizzle-orm/pg-core';

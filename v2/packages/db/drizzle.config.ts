@@ -42,6 +42,13 @@ export default defineConfig({
     './src/schema/semillas.ts',
     './src/schema/faltas.ts',
     './src/schema/analisis.ts',
+    // La señal y su vocabulario. `_catalogos.ts` va PRIMERO de los cuatro: las
+    // dos FK compuestas de `senales` no se pueden crear antes que las tablas a
+    // las que apuntan.
+    './src/schema/_catalogos.ts',
+    './src/schema/actores.ts',
+    './src/schema/senales.ts',
+    './src/schema/adhesiones.ts',
     // El esquema `simulacion` — la siembra sintética, físicamente aparte de
     // `public`. Va acá y NO en `schema/index.ts` a propósito: drizzle-kit tiene
     // que verlo para generar la migración, pero el cliente que sirve la API no

@@ -1,3 +1,5 @@
+import { MOTIVO_TEXTO_OMITIDO } from '@v2/shared';
+
 import {
   colorDeClase,
   etiquetaDeClase,
@@ -69,7 +71,7 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
       ) : (
         <p className={`mb-5 text-[15px] leading-[1.5] ${meta}`}>
           Este núcleo existe, se cuenta y se mide, y no puede mostrar ninguna frase:{' '}
-          {nucleo.textoOmitido ?? 'sin cesión de licencia'}. El texto lo escribió una persona y el
+          {nucleo.textoOmitido ?? MOTIVO_TEXTO_OMITIDO}. El texto lo escribió una persona y el
           proyecto es custodio, no titular.
         </p>
       )}

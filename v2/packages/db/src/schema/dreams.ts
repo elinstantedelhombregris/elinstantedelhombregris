@@ -8,6 +8,18 @@
  * la ubicación ya no es solo la provincia: cada voz lleva su punto publicado,
  * su precisión, su rol y su sensibilidad. `province` sigue siendo el default,
  * así que toda fila anterior queda exactamente donde estaba.
+ *
+ * ── RETIRADA (migración 0022, 2026-08-13) ──────────────────────────────────
+ *
+ * **Ya no recibe escrituras: toda señal vive en `senales`.** Se conserva sólo
+ * para poder auditar lo que quedó escrito antes del corte, y por eso la
+ * migración que crea `senales` NO la borra: borrar es irreversible y no tiene
+ * por qué compartir transacción con la que crea. El `DROP` es la Task 36 de
+ * `docs/plans/2026-08-11-tierra-senal-corroboracion-registro.md`.
+ *
+ * La tabla lleva el mismo aviso como `COMMENT ON TABLE` en la base, con fecha y
+ * número de migración adentro: quien abre `psql` para entender una tabla rara
+ * casi nunca tiene el repo al lado.
  */
 import { sql } from 'drizzle-orm';
 import { index, integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';

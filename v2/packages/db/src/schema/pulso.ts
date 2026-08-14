@@ -9,6 +9,15 @@
  *   - proposal_status_history: audit log of proposal status changes
  *
  * The AI/NLP pipeline (Groq) writes to these tables; the UI reads.
+ *
+ * ── RETIRADAS (migración 0022, 2026-08-13) ─────────────────────────────────
+ *
+ * Las cuatro —`pulse_signals`, `proposals`, `proposal_votes` y
+ * `proposal_status_history`— **ya no reciben escrituras: toda señal vive en
+ * `senales`**, y el apoyo vive en `adhesiones`. Sus tres `POST` responden 410.
+ * Se conservan para auditar lo escrito antes del corte; el `DROP` es la Task 36
+ * de `docs/plans/2026-08-11-tierra-senal-corroboracion-registro.md`. Cada una
+ * lleva el mismo aviso como `COMMENT ON TABLE` en la base.
  */
 import { sql } from 'drizzle-orm';
 import { index, integer, json, pgTable, real, serial, text, timestamp } from 'drizzle-orm/pg-core';
