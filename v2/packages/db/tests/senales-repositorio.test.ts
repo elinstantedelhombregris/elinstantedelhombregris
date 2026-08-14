@@ -58,8 +58,17 @@ function unBasta(over: Partial<NewSenal> = {}): NewSenal {
 }
 
 viva('SenalesRepository', () => {
-  const db = drizzle(neon(DSN ?? ''), { schema });
-  const repo = new SenalesRepository(db as never);
+  /**
+   * El cliente se construye DENTRO de `beforeAll` y no en el cuerpo del
+   * `describe`, y no es cosmético: **`describe.skip` igual evalúa su
+   * callback**. Con la construcción arriba, `neon('')` tiraba «No database
+   * connection string was provided» al RECOLECTAR, o sea que la suite reventaba
+   * en vez de saltearse — exactamente el rojo que no dice nada que el header de
+   * este archivo dice evitar, y que en CI (sin `DATABASE_URL_DESCARTABLE`)
+   * rompía `pnpm test` entero.
+   */
+  let db: ReturnType<typeof drizzle>;
+  let repo: SenalesRepository;
   const escritas: string[] = [];
 
   const recordar = <T extends { idPublico: string }>(r: T): T => {
@@ -68,6 +77,8 @@ viva('SenalesRepository', () => {
   };
 
   beforeAll(async () => {
+    db = drizzle(neon(DSN ?? ''), { schema });
+    repo = new SenalesRepository(db as never);
     const filas = await db.select({ tipo: schema.tiposSenal.tipo }).from(schema.tiposSenal);
     expect(filas).toHaveLength(9);
   });

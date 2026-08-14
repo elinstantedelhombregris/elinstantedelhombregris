@@ -84,13 +84,35 @@ router.get('/dreams', async (req, res, next) => {
   try {
     const filters = listQuery.parse(req.query);
     const repo = new SenalesRepository(getDb());
-    const items = await repo.listar({
-      limite: filters.limit,
-      ...(filters.provinceId === undefined ? {} : { provinceId: filters.provinceId }),
-      ...(filters.category === undefined ? {} : { tipos: [filters.category] }),
-    });
-    res.json({
-      data: items.map((d) => ({
+    /**
+     * DOS fuentes, por lo mismo que la capa `voz` del mapa (D-064).
+     *
+     * `POST /api/open-data/dreams` y `POST /api/v1/civic/capturas` **siguen
+     * escribiendo `dreams`**. Cuando esta lista pasó a leer sólo `senales`, el
+     * feed y el mapa de papel dejaron de mostrar lo que esas dos rutas cargan —
+     * o sea que se podía postear a esta misma ruta y no verlo en su propia
+     * lista. Lo cazó `open-data-flows`, que hace exactamente ese viaje de ida y
+     * vuelta.
+     *
+     * Se va cuando las dos ingestas viejas escriban `senales`. Hasta entonces,
+     * leer de menos es perder datos que alguien ya cargó.
+     */
+    const viejoRepo = new DreamsRepository(getDb());
+    const viejoOpts: Parameters<typeof viejoRepo.listApproved>[0] = { limit: filters.limit };
+    if (filters.provinceId !== undefined) viejoOpts.provinceId = filters.provinceId;
+    if (filters.category !== undefined) viejoOpts.category = filters.category;
+
+    const [nuevas, viejas] = await Promise.all([
+      repo.listar({
+        limite: filters.limit,
+        ...(filters.provinceId === undefined ? {} : { provinceId: filters.provinceId }),
+        ...(filters.category === undefined ? {} : { tipos: [filters.category] }),
+      }),
+      viejoRepo.listApproved(viejoOpts),
+    ]);
+
+    const items = [
+      ...nuevas.map((d) => ({
         id: d.idPublico,
         body: d.texto,
         category: d.tipo,
@@ -98,16 +120,44 @@ router.get('/dreams', async (req, res, next) => {
         provinceId: d.provinceId,
         submittedAs: d.firma,
         createdAt: d.creadaEn,
+        lat: d.lat,
+        lng: d.lng,
+        precision: d.precision,
+      })),
+      ...viejas.map((d) => ({
+        /**
+         * El ordinal se conserva COMO NÚMERO y no se estampa a string.
+         *
+         * Es el contrato que los consumidores viejos ya tienen: quien posteó a
+         * esta misma ruta recibe un `id` numérico en el 201 y después lo busca
+         * en esta lista con `===`. Con el id convertido a string, `'123' === 123`
+         * es falso y el round-trip se rompe en silencio — lo cazó
+         * `open-data-flows`. La lista queda con `id: string | number`, que es
+         * honesto: son dos espacios de identidad distintos y uno de ellos es un
+         * uuid.
+         */
+        id: d.id,
+        body: d.body,
+        category: d.category,
+        // Sin clase: estos tipos no son del canon, y darles una sería inventarla.
+        clase: null,
+        provinceId: d.provinceId,
+        submittedAs: d.submittedAs,
+        createdAt: d.createdAt,
         // El mapa de conversión también dibuja con honestidad (spec 1 §5):
         // sin la precisión no puede distinguir un punto clavado de una voz que
         // solo sabe su provincia, y volvería al jitter que miente. Son tres
         // columnas más sobre una consulta que ya se hace — el instrumento
         // sigue siendo lo único que se paga aparte.
-        lat: d.lat,
-        lng: d.lng,
+        lat: d.lat === null ? null : Number(d.lat),
+        lng: d.lng === null ? null : Number(d.lng),
         precision: d.precision,
       })),
-    });
+    ]
+      .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)))
+      .slice(0, filters.limit);
+
+    res.json({ data: items });
   } catch (err) {
     next(err);
   }

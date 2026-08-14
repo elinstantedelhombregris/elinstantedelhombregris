@@ -20,9 +20,20 @@ export function useProvincias() {
 }
 
 export interface VozAbierta {
-  id: number;
+  /**
+   * Dos espacios de identidad conviviendo: un **uuid** para lo que vive en
+   * `senales`, y el ordinal numérico de lo que todavía escribe la app de campo
+   * en `dreams`. No se unifican a string a propósito — el 201 de la ruta vieja
+   * devuelve un número y quien lo guardó lo va a comparar con `===`.
+   *
+   * Como clave de React sirven los dos. Lo que NO hay que hacer es aritmética
+   * con esto ni asumir orden.
+   */
+  id: string | number;
   body: string;
   category: string | null;
+  /** La clase de la señal. `null` en lo viejo: sus tipos no son del canon. */
+  clase?: string | null;
   provinceId: number | null;
   submittedAs: string | null;
   createdAt: string;
