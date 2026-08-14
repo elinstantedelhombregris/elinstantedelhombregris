@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Comunicar sin Polarizar",
   "description": "Evaluá tu comprensión de las herramientas de comunicación constructiva.",
-  "passingScore": 70,
-  "timeLimit": 15,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 64,
   "questions": [
     {
       "question": "¿Cuál es el primer paso de la Comunicación No Violenta?",
@@ -19,8 +15,7 @@
       "correctAnswer": 2,
       "explanation": "La CNV empieza por observar los hechos sin mezclarlos con juicios o interpretaciones.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 611
+      "orderIndex": 1
     },
     {
       "question": "La amabilidad radical significa evitar todo conflicto.",
@@ -29,8 +24,7 @@
       "correctAnswer": false,
       "explanation": "La amabilidad radical dice la verdad incómoda pero sin intención de humillar. No evita el conflicto.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 612
+      "orderIndex": 2
     },
     {
       "question": "¿Cuál es una \"pregunta que abre\" conversaciones?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "Las preguntas que abren muestran genuina curiosidad por la experiencia del otro.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 613
+      "orderIndex": 3
     },
     {
       "question": "El \"test del almuerzo\" para redes sociales pregunta: ¿Le dirías esto a la persona cara a cara?",
@@ -54,8 +47,7 @@
       "correctAnswer": true,
       "explanation": "Si no lo dirías en persona, probablemente no deberías publicarlo en redes.",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 614
+      "orderIndex": 4
     },
     {
       "question": "¿Qué es la \"escalera de inferencia\"?",
@@ -69,8 +61,7 @@
       "correctAnswer": 1,
       "explanation": "Subimos la escalera en milisegundos y reaccionamos a interpretaciones, no a hechos.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 615
+      "orderIndex": 5
     },
     {
       "question": "Cambiar de opinión ante nueva evidencia es señal de debilidad intelectual.",
@@ -79,8 +70,7 @@
       "correctAnswer": false,
       "explanation": "La capacidad de actualizar creencias es una forma de inteligencia y coraje.",
       "points": 1,
-      "orderIndex": 6,
-      "legacyQuestionId": 616
+      "orderIndex": 6
     },
     {
       "question": "¿Cuál es el primer paso del protocolo PAUSA-CURIOSIDAD-EXPRESIÓN-ESCUCHA-CIERRE?",
@@ -94,8 +84,7 @@
       "correctAnswer": 1,
       "explanation": "La pausa de 10 segundos antes de responder puede transformar toda la conversación.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 617
+      "orderIndex": 7
     },
     {
       "question": "Para romper la burbuja informativa, debés seguir al menos 3 fuentes que no compartan tu perspectiva.",
@@ -104,8 +93,7 @@
       "correctAnswer": true,
       "explanation": "Diversificar fuentes ayuda a entender cómo piensa la otra parte y a salir de la burbuja.",
       "points": 1,
-      "orderIndex": 8,
-      "legacyQuestionId": 618
+      "orderIndex": 8
     },
     {
       "question": "En una discusión familiar intensa, ¿cuál es el objetivo primario de este curso?",
@@ -119,8 +107,7 @@
       "correctAnswer": 2,
       "explanation": "El curso prioriza sostener vínculos y calidad conversacional, no imponer un cambio inmediato de posición.",
       "points": 2,
-      "orderIndex": 9,
-      "legacyQuestionId": 619
+      "orderIndex": 9
     },
     {
       "question": "El steelmanning consiste en caricaturizar la posición opuesta para refutarla más fácil.",
@@ -129,8 +116,7 @@
       "correctAnswer": false,
       "explanation": "Steelmanning es reconstruir la versión más fuerte de la postura contraria antes de criticarla.",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": 620
+      "orderIndex": 10
     },
     {
       "question": "¿Qué conducta construye confianza en conversaciones laborales polarizadas?",
@@ -144,8 +130,7 @@
       "correctAnswer": 2,
       "explanation": "La confianza se fortalece con consistencia, transparencia y cumplimiento de compromisos.",
       "points": 2,
-      "orderIndex": 11,
-      "legacyQuestionId": 621
+      "orderIndex": 11
     },
     {
       "question": "Si sentís activación emocional alta durante una conversación, ¿qué recomienda el protocolo?",
@@ -159,8 +144,7 @@
       "correctAnswer": 2,
       "explanation": "La secuencia empieza con pausa y regulación para evitar respuestas reactivas.",
       "points": 2,
-      "orderIndex": 12,
-      "legacyQuestionId": 622
+      "orderIndex": 12
     }
   ]
 }

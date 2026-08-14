@@ -1,7 +1,14 @@
 import { quizJsonSchema } from '@v2/shared';
 import { describe, expect, it } from 'vitest';
 
-import { CURSOS, CURSO_COUNT, LECCION_COUNT, cargarLeccion, cargarPractica, findCursoBySlug } from '../courses-registry';
+import {
+  CURSOS,
+  CURSO_COUNT,
+  LECCION_COUNT,
+  cargarLeccion,
+  cargarPractica,
+  findCursoBySlug,
+} from '../courses-registry';
 
 // Canon verificado 2026-07-24 (spec + plan): estos tres son los únicos
 // literales de conteo del archivo — son la afirmación «no se perdió nada
@@ -46,6 +53,12 @@ describe('CURSOS registry — forma de cada entrada', () => {
       expect(c.title.length).toBeGreaterThan(0);
       expect(c.excerpt.length).toBeGreaterThan(0);
       expect(c.description.length).toBeGreaterThan(0);
+      expect(c.promesa).toHaveLength(3);
+      expect(c.noCubre).toHaveLength(2);
+      expect(c.paraQuien?.length ?? 0).toBeGreaterThan(0);
+      expect(c.productoFinal?.length ?? 0).toBeGreaterThan(0);
+      expect(c.coverImage).toMatch(/^\/course-art\/.+\.webp$/);
+      expect(c.fuentesBase.length).toBeGreaterThanOrEqual(2);
       expect(['beginner', 'intermediate', 'advanced']).toContain(c.level);
       expect(c.duration).toBeGreaterThan(0);
       const sumaLecciones = c.lecciones.reduce((n, l) => n + l.minutos, 0);

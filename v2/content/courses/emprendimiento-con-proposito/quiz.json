@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Emprendimiento con Propósito",
   "description": "Evaluá tu comprensión del emprendimiento con impacto en Argentina.",
-  "passingScore": 70,
-  "timeLimit": 15,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 54,
   "questions": [
     {
       "question": "¿Qué distingue a un emprendimiento con propósito de uno tradicional?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "Un emprendimiento con propósito genera valor económico, social y sistémico simultáneamente.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 507
+      "orderIndex": 1
     },
     {
       "question": "El monotributo requiere presentar una declaración jurada mensual compleja.",
@@ -29,8 +24,7 @@
       "correctAnswer": false,
       "explanation": "El monotributo es la forma más simple de formalización: un solo pago mensual cubre impuestos, obra social y jubilación.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 508
+      "orderIndex": 2
     },
     {
       "question": "¿Qué es el \"costeo por reposición\"?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "Con inflación, debés calcular tu margen sobre lo que costará REPONER, no sobre lo que pagaste originalmente.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 509
+      "orderIndex": 3
     },
     {
       "question": "En Argentina, WhatsApp Business es el canal de ventas más poderoso para emprendedores.",
@@ -54,8 +47,7 @@
       "correctAnswer": true,
       "explanation": "WhatsApp es la plataforma de comunicación dominante en Argentina y su versión Business ofrece herramientas gratuitas de venta.",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 510
+      "orderIndex": 4
     },
     {
       "question": "¿Qué es una SAS (Sociedad por Acciones Simplificada)?",
@@ -69,8 +61,7 @@
       "correctAnswer": 1,
       "explanation": "La SAS fue diseñada para emprendedores: se constituye digitalmente, en 24 horas, con capital mínimo y puede tener un solo socio.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 511
+      "orderIndex": 5
     },
     {
       "question": "Las Empresas B buscan ser \"las mejores PARA el mundo\" y no solo \"las mejores DEL mundo\".",
@@ -79,8 +70,7 @@
       "correctAnswer": true,
       "explanation": "Las Empresas B certifican que integran propósito social y ambiental en su modelo de negocios, no solo ganancias.",
       "points": 1,
-      "orderIndex": 6,
-      "legacyQuestionId": 512
+      "orderIndex": 6
     },
     {
       "question": "¿Cuál es la \"regla de las 3 herramientas\" para la digitalización?",
@@ -94,8 +84,7 @@
       "correctAnswer": 1,
       "explanation": "Mejor dominar 3 herramientas bien elegidas (una para vender, una para administrar, una para comunicar) que tener 20 mal implementadas.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 513
+      "orderIndex": 7
     },
     {
       "question": "En Argentina, un emprendedor puede operar exitosamente de forma completamente solitaria sin red de contactos.",
@@ -104,8 +93,7 @@
       "correctAnswer": false,
       "explanation": "La red de contactos es el \"sistema inmunológico empresarial\": mentores, socios, pares y comunidad son esenciales para sobrevivir las crisis.",
       "points": 1,
-      "orderIndex": 8,
-      "legacyQuestionId": 514
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Tecnología Accesible: Digitalizar Sin Complicar\"?",
@@ -119,8 +107,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en herramientas digitales gratuitas o baratas para potenciar tu emprendimiento..",
       "points": 1,
-      "orderIndex": 9,
-      "legacyQuestionId": null
+      "orderIndex": 9
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Redes y Ecosistema: Emprender Nunca Es Solitario\"?",
@@ -134,8 +121,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en el ecosistema emprendedor argentino y cómo conectarte para crecer..",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": null
+      "orderIndex": 10
     }
   ]
 }

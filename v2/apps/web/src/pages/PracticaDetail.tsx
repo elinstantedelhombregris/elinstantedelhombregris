@@ -3,7 +3,14 @@ import { Link, useRoute } from 'wouter';
 
 import { PreguntaPractica } from './Entrenamientos/sections/PreguntaPractica';
 
-import { BandaCta, BotonPapel, Kicker, Palitos, RitoTinta, Sello } from '~/components/papel/primitives';
+import {
+  BandaCta,
+  BotonPapel,
+  Kicker,
+  Palitos,
+  RitoTinta,
+  Sello,
+} from '~/components/papel/primitives';
 import { cargarPractica, findCursoBySlug, type PracticaEntry } from '~/lib/courses-registry';
 import { cn } from '~/lib/utils';
 
@@ -54,7 +61,10 @@ function PracticaRota({ cursoSlug }: { cursoSlug: string }) {
   );
 }
 
-type EstadoPractica = { fase: 'cargando' } | { fase: 'listo'; practica: PracticaEntry } | { fase: 'error' };
+type EstadoPractica =
+  | { fase: 'cargando' }
+  | { fase: 'listo'; practica: PracticaEntry }
+  | { fase: 'error' };
 
 /** Carga perezosa del quiz normalizado (el registry no lo trae eager). */
 function usePractica(cursoSlug: string): EstadoPractica {
@@ -77,7 +87,8 @@ function usePractica(cursoSlug: string): EstadoPractica {
   return estado;
 }
 
-const CLASE_ACCION = 'font-space text-tinta hover:text-violeta text-xs font-bold uppercase tracking-[0.08em]';
+const CLASE_ACCION =
+  'font-space text-tinta hover:text-violeta text-xs font-bold uppercase tracking-[0.08em]';
 
 /**
  * La práctica — página 3.5 «Página D»
@@ -146,8 +157,8 @@ export function PracticaDetail() {
             </p>
             <div className="bg-papel-crudo border-tinta mb-2 border p-6">
               <p className="font-space text-tinta-90 text-[13px] leading-relaxed">
-                Esto no es un examen. No se puntúa, no se guarda y no da certificado: es para que veas
-                qué te quedó y qué no.
+                Esto no es un examen. No se puntúa, no se guarda y no da certificado: es para que
+                veas qué te quedó y qué no.
               </p>
             </div>
 
@@ -178,8 +189,39 @@ export function PracticaDetail() {
                   </p>
                 </div>
                 <p className="text-tinta-75 mt-5 max-w-[620px] text-[15px] leading-relaxed">
-                  Las que fallaste tienen la explicación al lado. Si te quedó floja, volvé a la lección.
+                  Las que fallaste tienen la explicación al lado. Si te quedó floja, volvé a la
+                  lección.
                 </p>
+                {curso.productoFinal && curso.promesa?.length ? (
+                  <section className="border-violeta bg-papel-crudo mt-7 border-2 p-6">
+                    <Kicker className="mb-3">Prueba de transferencia</Kicker>
+                    <h2 className="font-anton text-2xl leading-tight">
+                      Ahora usalo fuera del curso.
+                    </h2>
+                    <p className="text-tinta-75 mt-3 text-[15px] leading-relaxed">
+                      Poné sobre la mesa este producto: <strong>{curso.productoFinal}</strong>{' '}
+                      Después, pasá la entrega por estas tres preguntas:
+                    </p>
+                    <ol className="mt-5 grid gap-3 text-[14px] leading-relaxed sm:grid-cols-3">
+                      {curso.promesa.map((promesa, i) => (
+                        <li key={promesa} className="border-papel-borde border-t pt-3">
+                          <span className="font-space text-violeta mb-1 block text-[10px] font-bold uppercase tracking-[0.08em]">
+                            contraste {i + 1}
+                          </span>
+                          ¿Qué evidencia mostraría que realmente podés{' '}
+                          {(
+                            promesa.charAt(0).toLocaleLowerCase('es-AR') + promesa.slice(1)
+                          ).replace(/[.!?]+$/, '')}
+                          ?
+                        </li>
+                      ))}
+                    </ol>
+                    <p className="text-tinta mt-5 text-[15px] font-semibold leading-relaxed">
+                      Elegí una mejora que puedas probar en 48 horas. Si no entra en 48 horas,
+                      todavía no es un experimento.
+                    </p>
+                  </section>
+                ) : null}
                 <div className="mt-6 flex flex-wrap gap-6">
                   <button type="button" onClick={reiniciar} className={CLASE_ACCION}>
                     Empezar de nuevo ↺

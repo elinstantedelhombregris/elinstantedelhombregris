@@ -4,7 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Entrenamientos } from '../Entrenamientos';
 
 import { CURSO_COUNT, LECCION_COUNT } from '~/lib/courses-registry';
-import { GRUPOS, duracionLarga, numeroDeFila, rotuloNivel } from '~/pages/Entrenamientos/entrenamientos-data';
+import {
+  GRUPOS,
+  duracionLarga,
+  numeroDeFila,
+  rotuloNivel,
+} from '~/pages/Entrenamientos/entrenamientos-data';
 
 /**
  * Entrenamientos.test.tsx — catálogo papel 3.5, composer. Ningún literal de
@@ -25,7 +30,7 @@ describe('Entrenamientos (página papel 3.5 — el catálogo, composer)', () => 
         new RegExp(`${String(CURSO_COUNT)} entrenamientos, ${String(LECCION_COUNT)} lecciones`),
       ),
     ).toBeInTheDocument();
-    expect(screen.getByText(/^Nada de esto se guarda:/)).toBeInTheDocument();
+    expect(screen.getByText(/^No mandamos tu recorrido a ningún servidor/)).toBeInTheDocument();
   });
 
   it('encabezado del índice y un h3 por grupo con el conteo real de ese grupo', () => {
@@ -81,6 +86,17 @@ describe('Entrenamientos (página papel 3.5 — el catálogo, composer)', () => 
     fireEvent.click(filaPrimera);
 
     expect(screen.getByText(`«${primerCurso.excerpt}»`)).toBeInTheDocument();
+    const entrega = screen.getByText(
+      (_texto, elemento) =>
+        elemento !== null &&
+        elemento.tagName === 'P' &&
+        elemento.textContent.includes(primerCurso.productoFinal ?? ''),
+    );
+    expect(entrega).toBeInTheDocument();
+    expect(entrega.closest('div')?.parentElement?.querySelector('img')).toHaveAttribute(
+      'src',
+      primerCurso.coverImage,
+    );
     const link = screen.getByRole('link', {
       name: `Abrir el entrenamiento · ${String(primerCurso.lecciones.length)} lecciones · ${duracionLarga(primerCurso.duration)} →`,
     });

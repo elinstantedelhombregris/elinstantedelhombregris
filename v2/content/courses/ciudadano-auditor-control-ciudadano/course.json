@@ -1,198 +1,119 @@
 {
-  "seoTitle": "Ciudadano Auditor: Herramientas de Control Ciudadano | Cívica | El Instante del Hombre Gris",
-  "seoDescription": "Las herramientas legales y prácticas para auditar a tu gobierno.",
-  "searchSummary": "Las herramientas legales y prácticas para auditar a tu gobierno.",
-  "ogImageUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800",
-  "lastReviewedAt": "2026-04-22",
-  "indexable": true,
-  "schemaVersion": 1,
   "slug": "ciudadano-auditor-control-ciudadano",
   "title": "Ciudadano Auditor: Herramientas de Control Ciudadano",
-  "description": "Conviértete en auditor de tu propio Estado. Aprende a leer presupuestos municipales, hacer pedidos de acceso a la información (Ley 27.275), usar datos.gob.ar, presentar amparos y ejercer control ciudadano efectivo.",
+  "description": "Conviértete en auditor de tu propio Estado. Aprendé a leer presupuestos municipales, hacer pedidos de acceso a la información (Ley 27.275), usar datos.gob.ar, presentar amparos y ejercer control ciudadano efectivo.",
   "excerpt": "Las herramientas legales y prácticas para auditar a tu gobierno.",
   "category": "civica",
   "level": "intermediate",
   "duration": 20,
-  "thumbnailUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800",
-  "videoUrl": null,
   "orderIndex": 24,
   "isPublished": true,
   "isFeatured": false,
   "requiresAuth": false,
-  "authorId": 1,
-  "legacyCourseId": 10,
   "quizFile": "quiz.json",
-  "rekeys": [],
   "lessons": [
     {
-      "seoTitle": "El Derecho a Saber: Fundamentos del Control Ciudadano | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Por qué el control ciudadano es un derecho y un deber cívico.",
-      "searchSummary": "Por qué el control ciudadano es un derecho y un deber cívico.",
-      "indexable": true,
       "key": "02-el-derecho-a-saber-fundamentos-del-control-ciudadano",
       "title": "El Derecho a Saber: Fundamentos del Control Ciudadano",
       "description": "Por qué el control ciudadano es un derecho y un deber cívico.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 1,
-      "isRequired": true,
-      "contentFile": "lessons/02-02-el-derecho-a-saber-fundamentos-del-control-ciudadano.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 709
+      "orderIndex": 1
     },
     {
-      "seoTitle": "Ley de Acceso a la Información Pública (27.275) | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Cómo usar la ley de acceso a la información para obtener datos del Estado.",
-      "searchSummary": "Cómo usar la ley de acceso a la información para obtener datos del Estado.",
-      "indexable": true,
       "key": "03-ley-de-acceso-a-la-informacion-publica-27-275",
       "title": "Ley de Acceso a la Información Pública (27.275)",
       "description": "Cómo usar la ley de acceso a la información para obtener datos del Estado.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 2,
-      "isRequired": true,
-      "contentFile": "lessons/03-03-ley-de-acceso-a-la-informacion-publica-27-275.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 710
+      "orderIndex": 2
     },
     {
-      "seoTitle": "Presupuesto Municipal: Leer la Plata de Tu Ciudad | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Cómo leer e interpretar un presupuesto municipal.",
-      "searchSummary": "Cómo leer e interpretar un presupuesto municipal.",
-      "indexable": true,
       "key": "04-presupuesto-municipal-leer-la-plata-de-tu-ciudad",
       "title": "Presupuesto Municipal: Leer la Plata de Tu Ciudad",
       "description": "Cómo leer e interpretar un presupuesto municipal.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 3,
-      "isRequired": true,
-      "contentFile": "lessons/04-04-presupuesto-municipal-leer-la-plata-de-tu-ciudad.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 711
+      "orderIndex": 3
     },
     {
-      "seoTitle": "Datos Abiertos: El Tesoro Que Nadie Busca | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Usar datos.gob.ar y otras fuentes de datos abiertos para control ciudadano.",
-      "searchSummary": "Usar datos.gob.ar y otras fuentes de datos abiertos para control ciudadano.",
-      "indexable": true,
       "key": "05-datos-abiertos-el-tesoro-que-nadie-busca",
       "title": "Datos Abiertos: El Tesoro Que Nadie Busca",
       "description": "Usar datos.gob.ar y otras fuentes de datos abiertos para control ciudadano.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 4,
-      "isRequired": true,
-      "contentFile": "lessons/05-05-datos-abiertos-el-tesoro-que-nadie-busca.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 712
+      "orderIndex": 4
     },
     {
-      "seoTitle": "Compras y Contrataciones Públicas: Seguir la Plata | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Cómo auditar las compras que hace el Estado con tu plata.",
-      "searchSummary": "Cómo auditar las compras que hace el Estado con tu plata.",
-      "indexable": true,
       "key": "06-compras-y-contrataciones-publicas-seguir-la-plata",
       "title": "Compras y Contrataciones Públicas: Seguir la Plata",
       "description": "Cómo auditar las compras que hace el Estado con tu plata.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 5,
-      "isRequired": true,
-      "contentFile": "lessons/06-06-compras-y-contrataciones-publicas-seguir-la-plata.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 713
+      "orderIndex": 5
     },
     {
-      "seoTitle": "El Amparo: Tu Arma Legal Contra el Abuso | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Cómo funciona el amparo como herramienta de protección de derechos.",
-      "searchSummary": "Cómo funciona el amparo como herramienta de protección de derechos.",
-      "indexable": true,
       "key": "07-el-amparo-tu-arma-legal-contra-el-abuso",
       "title": "El Amparo: Tu Arma Legal Contra el Abuso",
       "description": "Cómo funciona el amparo como herramienta de protección de derechos.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 6,
-      "isRequired": true,
-      "contentFile": "lessons/07-07-el-amparo-tu-arma-legal-contra-el-abuso.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 714
+      "orderIndex": 6
     },
     {
-      "seoTitle": "Audiencias Públicas y Participación Formal | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Los mecanismos formales de participación ciudadana y cómo aprovecharlos.",
-      "searchSummary": "Los mecanismos formales de participación ciudadana y cómo aprovecharlos.",
-      "indexable": true,
       "key": "08-audiencias-publicas-y-participacion-formal",
       "title": "Audiencias Públicas y Participación Formal",
       "description": "Los mecanismos formales de participación ciudadana y cómo aprovecharlos.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 7,
-      "isRequired": true,
-      "contentFile": "lessons/08-08-audiencias-publicas-y-participacion-formal.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 715
+      "orderIndex": 7
     },
     {
-      "seoTitle": "Organismos de Control: AGN, SIGEN, Defensorías | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Los organismos que deberían controlar al Estado y cómo interactuar con ellos.",
-      "searchSummary": "Los organismos que deberían controlar al Estado y cómo interactuar con ellos.",
-      "indexable": true,
       "key": "09-organismos-de-control-agn-sigen-defensorias",
       "title": "Organismos de Control: AGN, SIGEN, Defensorías",
       "description": "Los organismos que deberían controlar al Estado y cómo interactuar con ellos.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 8,
-      "isRequired": true,
-      "contentFile": "lessons/09-09-organismos-de-control-agn-sigen-defensorias.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 716
+      "orderIndex": 8
     },
     {
-      "seoTitle": "Periodismo Ciudadano y Denuncia Efectiva | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
-      "searchSummary": "Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
-      "indexable": true,
       "key": "10-periodismo-ciudadano-y-denuncia-efectiva",
       "title": "Periodismo Ciudadano y Denuncia Efectiva",
       "description": "Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 9,
-      "isRequired": true,
-      "contentFile": "lessons/10-10-periodismo-ciudadano-y-denuncia-efectiva.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 717
+      "orderIndex": 9
     },
     {
-      "seoTitle": "Tu Plan de Auditoría: 30 Días de Control Ciudadano | Ciudadano Auditor: Herramientas de Control Ciudadano",
-      "seoDescription": "Un plan práctico de 30 días para ejercer control ciudadano real.",
-      "searchSummary": "Un plan práctico de 30 días para ejercer control ciudadano real.",
-      "indexable": true,
       "key": "11-tu-plan-de-auditoria-30-dias-de-control-ciudadano",
       "title": "Tu Plan de Auditoría: 30 Días de Control Ciudadano",
       "description": "Un plan práctico de 30 días para ejercer control ciudadano real.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 10,
-      "isRequired": true,
-      "contentFile": "lessons/11-11-tu-plan-de-auditoria-30-dias-de-control-ciudadano.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 718
+      "orderIndex": 10
     }
-  ]
+  ],
+  "promesa": [
+    "Formular un pedido de información específico, trazable y difícil de evadir.",
+    "Leer las capas básicas de un presupuesto, una compra y un conjunto de datos públicos.",
+    "Documentar hallazgos separando evidencia, inferencia y denuncia."
+  ],
+  "noCubre": [
+    "No constituye asesoramiento legal ni asegura que una vía administrativa sea la adecuada en cada jurisdicción.",
+    "No autoriza hostigamiento, exposición de datos personales ni acusaciones sin evidencia."
+  ],
+  "paraQuien": "Para vecinos, organizaciones y periodistas ciudadanos que quieren controlar actos públicos con método y cuidado.",
+  "productoFinal": "Un plan de auditoría ciudadana de treinta días con expediente, cronología y matriz de evidencia.",
+  "prerrequisitos": [
+    "Elegir un tema público acotado y una jurisdicción concreta."
+  ],
+  "coverImage": "/course-art/civica.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-24430-804/texto",
+      "titulo": "Constitución de la Nación Argentina · texto oficial",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949/texto",
+      "titulo": "Ley 27.275 · Derecho de Acceso a la Información Pública",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/economia/onp/presupuesto-ciudadano-2026/datos-abiertos",
+      "titulo": "Presupuesto Ciudadano · datos abiertos e históricos",
+      "consultada": "2026-08-13"
+    }
+  ],
+  "revisarAntesDe": "2026-11-13"
 }

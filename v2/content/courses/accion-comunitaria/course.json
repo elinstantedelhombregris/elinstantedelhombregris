@@ -1,11 +1,4 @@
 {
-  "seoTitle": "Acción Comunitaria | Acción | El Instante del Hombre Gris",
-  "seoDescription": "Dejá de opinar y empezá a hacer: herramientas reales para transformar tu barrio, tu comunidad y tu país desde hoy.",
-  "searchSummary": "Dejá de opinar y empezá a hacer: herramientas reales para transformar tu barrio, tu comunidad y tu país desde hoy.",
-  "ogImageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800",
-  "lastReviewedAt": "2026-04-22",
-  "indexable": true,
-  "schemaVersion": 1,
   "slug": "accion-comunitaria",
   "title": "Acción Comunitaria",
   "description": "De la etimología de \"agere\" al fuego de la acción real. Este curso te saca del sillón y te pone en tu barrio: cómo empezar con 3 vecinos y una preocupación compartida, mapear los tesoros ocultos de tu comunidad, diseñar proyectos que sobrevivan al entusiasmo inicial, convocar sin manipular, y convertir acciones locales en transformación nacional. El Hombre Gris no opina — actúa.",
@@ -13,152 +6,92 @@
   "category": "action",
   "level": "intermediate",
   "duration": 31,
-  "thumbnailUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800",
-  "videoUrl": null,
   "orderIndex": 3,
   "isPublished": true,
   "isFeatured": false,
   "requiresAuth": false,
-  "authorId": 1,
-  "legacyCourseId": 3,
   "quizFile": "quiz.json",
-  "rekeys": [],
   "lessons": [
     {
-      "seoTitle": "Agere — La etimología de la acción | Acción Comunitaria",
-      "seoDescription": "De dónde viene la palabra \"acción\", qué significa ser agente, y por qué reaccionar no es lo mismo que actuar.",
-      "searchSummary": "De dónde viene la palabra \"acción\", qué significa ser agente, y por qué reaccionar no es lo mismo que actuar.",
-      "indexable": true,
       "key": "02-agere-la-etimologia-de-la-accion",
       "title": "Agere — La etimología de la acción",
       "description": "De dónde viene la palabra \"acción\", qué significa ser agente, y por qué reaccionar no es lo mismo que actuar.",
-      "type": "text",
       "duration": 3,
-      "orderIndex": 1,
-      "isRequired": true,
-      "contentFile": "lessons/02-02-agere-la-etimologia-de-la-accion.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 815
+      "orderIndex": 1
     },
     {
-      "seoTitle": "La enfermedad del sillón — Por qué Argentina opina pero no actúa | Acción Comunitaria",
-      "seoDescription": "Diagnóstico honesto de por qué sabemos qué hay que hacer y no lo hacemos, y cómo romper el ciclo.",
-      "searchSummary": "Diagnóstico honesto de por qué sabemos qué hay que hacer y no lo hacemos, y cómo romper el ciclo.",
-      "indexable": true,
       "key": "03-la-enfermedad-del-sillon-por-que-argentina-opina-pero-no-actua",
       "title": "La enfermedad del sillón — Por qué Argentina opina pero no actúa",
       "description": "Diagnóstico honesto de por qué sabemos qué hay que hacer y no lo hacemos, y cómo romper el ciclo.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 2,
-      "isRequired": true,
-      "contentFile": "lessons/03-03-la-enfermedad-del-sillon-por-que-argentina-opina-pero-no-actua.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 816
+      "orderIndex": 2
     },
     {
-      "seoTitle": "Tu barrio como laboratorio — Empezar donde estás | Acción Comunitaria",
-      "seoDescription": "No necesitás permiso ni presupuesto. Necesitás 3 vecinos y una preocupación compartida. La regla de los 3 metros.",
-      "searchSummary": "No necesitás permiso ni presupuesto. Necesitás 3 vecinos y una preocupación compartida. La regla de los 3 metros.",
-      "indexable": true,
       "key": "04-tu-barrio-como-laboratorio-empezar-donde-estas",
       "title": "Tu barrio como laboratorio — Empezar donde estás",
       "description": "No necesitás permiso ni presupuesto. Necesitás 3 vecinos y una preocupación compartida. La regla de los 3 metros.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 3,
-      "isRequired": true,
-      "contentFile": "lessons/04-04-tu-barrio-como-laboratorio-empezar-donde-estas.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 817
+      "orderIndex": 3
     },
     {
-      "seoTitle": "Mapear para actuar — Los tesoros ocultos de tu comunidad | Acción Comunitaria",
-      "seoDescription": "El enfoque de activos: antes de pedir lo que falta, descubrí lo que ya tenés. Cada barrio es más rico de lo que cree.",
-      "searchSummary": "El enfoque de activos: antes de pedir lo que falta, descubrí lo que ya tenés. Cada barrio es más rico de lo que cree.",
-      "indexable": true,
       "key": "05-mapear-para-actuar-los-tesoros-ocultos-de-tu-comunidad",
       "title": "Mapear para actuar — Los tesoros ocultos de tu comunidad",
       "description": "El enfoque de activos: antes de pedir lo que falta, descubrí lo que ya tenés. Cada barrio es más rico de lo que cree.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 4,
-      "isRequired": true,
-      "contentFile": "lessons/05-05-mapear-para-actuar-los-tesoros-ocultos-de-tu-comunidad.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 818
+      "orderIndex": 4
     },
     {
-      "seoTitle": "Diseñar proyectos que sobrevivan al entusiasmo | Acción Comunitaria",
-      "seoDescription": "El problema de los 3 meses, por qué mueren los proyectos comunitarios, y cómo diseñar uno que dure.",
-      "searchSummary": "El problema de los 3 meses, por qué mueren los proyectos comunitarios, y cómo diseñar uno que dure.",
-      "indexable": true,
       "key": "06-disenar-proyectos-que-sobrevivan-al-entusiasmo",
       "title": "Diseñar proyectos que sobrevivan al entusiasmo",
       "description": "El problema de los 3 meses, por qué mueren los proyectos comunitarios, y cómo diseñar uno que dure.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 5,
-      "isRequired": true,
-      "contentFile": "lessons/06-06-disenar-proyectos-que-sobrevivan-al-entusiasmo.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 819
+      "orderIndex": 5
     },
     {
-      "seoTitle": "El arte de convocar — Mover gente sin manipularla | Acción Comunitaria",
-      "seoDescription": "La diferencia entre convocar y manipular, por qué la gente se suma (y no se suma), y cómo inspirar sin mentir.",
-      "searchSummary": "La diferencia entre convocar y manipular, por qué la gente se suma (y no se suma), y cómo inspirar sin mentir.",
-      "indexable": true,
       "key": "07-el-arte-de-convocar-mover-gente-sin-manipularla",
       "title": "El arte de convocar — Mover gente sin manipularla",
       "description": "La diferencia entre convocar y manipular, por qué la gente se suma (y no se suma), y cómo inspirar sin mentir.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 6,
-      "isRequired": true,
-      "contentFile": "lessons/07-07-el-arte-de-convocar-mover-gente-sin-manipularla.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 820
+      "orderIndex": 6
     },
     {
-      "seoTitle": "Medir, aprender, iterar — La reflexión en la acción | Acción Comunitaria",
-      "seoDescription": "Sin medición no hay aprendizaje. 3 preguntas simples para evaluar cualquier proyecto y la bitácora como herramienta.",
-      "searchSummary": "Sin medición no hay aprendizaje. 3 preguntas simples para evaluar cualquier proyecto y la bitácora como herramienta.",
-      "indexable": true,
       "key": "08-medir-aprender-iterar-la-reflexion-en-la-accion",
       "title": "Medir, aprender, iterar — La reflexión en la acción",
       "description": "Sin medición no hay aprendizaje. 3 preguntas simples para evaluar cualquier proyecto y la bitácora como herramienta.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 7,
-      "isRequired": true,
-      "contentFile": "lessons/08-08-medir-aprender-iterar-la-reflexion-en-la-accion.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 821
+      "orderIndex": 7
     },
     {
-      "seoTitle": "De tu vereda al país — La acción distribuida del Hombre Gris | Acción Comunitaria",
-      "seoDescription": "Cómo las acciones locales se convierten en transformación nacional, el poder de la red, y la invitación final a actuar.",
-      "searchSummary": "Cómo las acciones locales se convierten en transformación nacional, el poder de la red, y la invitación final a actuar.",
-      "indexable": true,
       "key": "09-de-tu-vereda-al-pais-la-accion-distribuida-del-hombre-gris",
       "title": "De tu vereda al país — La acción distribuida del Hombre Gris",
       "description": "Cómo las acciones locales se convierten en transformación nacional, el poder de la red, y la invitación final a actuar.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 8,
-      "isRequired": true,
-      "contentFile": "lessons/09-09-de-tu-vereda-al-pais-la-accion-distribuida-del-hombre-gris.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 822
+      "orderIndex": 8
+    }
+  ],
+  "promesa": [
+    "Detectar un problema abordable sin confundirlo con todos los problemas del barrio.",
+    "Mapear activos, aliados, fricciones y una primera palanca de cambio.",
+    "Convocar una acción de siete días con responsables y una señal simple de avance."
+  ],
+  "noCubre": [
+    "No promete movilizaciones masivas ni resultados que dependan de autoridades externas.",
+    "No reemplaza el análisis legal o técnico de proyectos con riesgos físicos o sanitarios."
+  ],
+  "paraQuien": "Para personas cansadas de opinar desde afuera y grupos pequeños que necesitan una primera victoria concreta.",
+  "productoFinal": "Una ficha de acción comunitaria de siete días, con mapa de activos, responsables y criterio de cierre.",
+  "prerrequisitos": [],
+  "coverImage": "/course-art/action.webp",
+  "fuentesBase": [
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/datos-abiertos/portal",
+      "titulo": "Portal Nacional de Datos Públicos",
+      "consultada": "2026-08-13"
     }
   ]
 }

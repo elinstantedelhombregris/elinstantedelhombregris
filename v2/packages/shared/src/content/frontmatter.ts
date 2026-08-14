@@ -20,7 +20,9 @@ const slugSchema = z
 // schema accepts both. We re-emit ISO strings downstream.
 const isoDateSchema = z
   .union([
-    z.string().refine((v) => !Number.isNaN(Date.parse(v)), { message: 'Must be an ISO 8601 date.' }),
+    z
+      .string()
+      .refine((v) => !Number.isNaN(Date.parse(v)), { message: 'Must be an ISO 8601 date.' }),
     z.date(),
   ])
   .transform((v) => (typeof v === 'string' ? v : v.toISOString()));
@@ -142,9 +144,18 @@ export const cronicaFrontmatterSchema = z.object({
 });
 export type CronicaFrontmatter = z.infer<typeof cronicaFrontmatterSchema>;
 
-/**
- * Course lesson frontmatter — used by content/courses/<course-slug>/<lesson>.mdx.
- */
+export const fechaCortaSchema = z
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/, 'Las fechas van en AAAA-MM-DD.');
+
+export const fuenteSchema = z.object({
+  url: z.string().url(),
+  titulo: z.string().min(1).max(200),
+  consultada: fechaCortaSchema,
+});
+export type Fuente = z.infer<typeof fuenteSchema>;
+
+/** Course lesson frontmatter — content/courses/<course-slug>/<lesson>.mdx. */
 export const lessonFrontmatterSchema = z.object({
   slug: slugSchema,
   courseSlug: slugSchema,
@@ -157,5 +168,10 @@ export const lessonFrontmatterSchema = z.object({
    * mentir tres años.
    */
   draft: z.boolean().default(false),
+  cierre: z.enum(['pendiente', 'puente', 'completo']).default('pendiente'),
+  fuentes: z.array(fuenteSchema).default([]),
+  revisarAntesDe: fechaCortaSchema.optional(),
+  planes: z.array(z.string().min(1)).default([]),
+  ensayos: z.array(slugSchema).default([]),
 });
 export type LessonFrontmatter = z.infer<typeof lessonFrontmatterSchema>;

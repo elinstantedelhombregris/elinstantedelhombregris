@@ -27,7 +27,6 @@ const cursoBase = {
       title: 'Primera lección',
       duration: 12,
       orderIndex: 0,
-      contentFile: 'lessons/00-primera-leccion.md',
     },
   ],
 };
@@ -37,7 +36,12 @@ const cursoBase = {
 const preguntaMcIndice: QuizQuestionJson = {
   question: '¿De qué verbo latino proviene la palabra "acción"?',
   type: 'multiple_choice',
-  options: ['Audire (escuchar)', 'Agere (hacer, mover, conducir)', 'Vidēre (ver)', 'Sentire (sentir)'],
+  options: [
+    'Audire (escuchar)',
+    'Agere (hacer, mover, conducir)',
+    'Vidēre (ver)',
+    'Sentire (sentir)',
+  ],
   correctAnswer: 1,
   explanation: 'Acción viene de actio, que a su vez viene de agere.',
   points: 2,
@@ -72,7 +76,8 @@ const preguntaMcEtiquetaConComillasEnvolventes: QuizQuestionJson = {
     '"Si no podés llegar a horario, mejor no vengas"',
   ],
   correctAnswer: 'En las últimas tres reuniones llegaste 30 minutos tarde',
-  explanation: 'El método SBI describe Situación, Comportamiento e Impacto sin atacar a la persona.',
+  explanation:
+    'El método SBI describe Situación, Comportamiento e Impacto sin atacar a la persona.',
   points: 1,
   orderIndex: 4,
 };
@@ -82,7 +87,8 @@ const preguntaTfSinOpciones: QuizQuestionJson = {
   type: 'true_false',
   options: null,
   correctAnswer: false,
-  explanation: 'El activismo digital genera la ilusión de acción, pero no cambia nada en el mundo real.',
+  explanation:
+    'El activismo digital genera la ilusión de acción, pero no cambia nada en el mundo real.',
   points: 1,
   orderIndex: 3,
 };
@@ -134,7 +140,12 @@ describe('quizJsonSchema', () => {
     const parsed = quizJsonSchema.safeParse({
       title: 'Quiz de prueba',
       description: 'Descripción del quiz de prueba.',
-      questions: [preguntaMcIndice, preguntaMcEtiqueta, preguntaTfSinOpciones, preguntaTfConOpciones],
+      questions: [
+        preguntaMcIndice,
+        preguntaMcEtiqueta,
+        preguntaTfSinOpciones,
+        preguntaTfConOpciones,
+      ],
     });
     expect(parsed.success).toBe(true);
   });

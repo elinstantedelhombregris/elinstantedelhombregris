@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Argentina 1945-2001",
   "description": "Evaluá tu comprensión del medio siglo de péndulos y crisis.",
-  "passingScore": 70,
-  "timeLimit": 15,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 68,
   "questions": [
     {
       "question": "¿Qué ley impulsó Eva Perón que transformó la democracia argentina?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "El sufragio femenino de 1947 duplicó el padrón electoral y transformó la política argentina.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 647
+      "orderIndex": 1
     },
     {
       "question": "La proscripción del peronismo (1955-1973) debilitó al movimiento peronista.",
@@ -29,8 +24,7 @@
       "correctAnswer": false,
       "explanation": "La prohibición fortaleció al peronismo al convertirlo en mística de resistencia.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 648
+      "orderIndex": 2
     },
     {
       "question": "¿Qué fue el Cordobazo?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "El Cordobazo fue una insurrección obrero-estudiantil que desestabilizó la dictadura de Onganía.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 649
+      "orderIndex": 3
     },
     {
       "question": "¿Qué significó el Juicio a las Juntas de 1985?",
@@ -59,8 +52,7 @@
       "correctAnswer": 1,
       "explanation": "Argentina fue pionera mundial al juzgar y condenar a los comandantes de su dictadura en tribunales civiles.",
       "points": 2,
-      "orderIndex": 4,
-      "legacyQuestionId": 650
+      "orderIndex": 4
     },
     {
       "question": "La convertibilidad (1 peso = 1 dólar) fue sostenible a largo plazo.",
@@ -69,8 +61,7 @@
       "correctAnswer": false,
       "explanation": "La convertibilidad tenía bugs fatales: destruía la industria local, requería endeudamiento creciente y no era sostenible.",
       "points": 1,
-      "orderIndex": 5,
-      "legacyQuestionId": 651
+      "orderIndex": 5
     },
     {
       "question": "¿Cuántos presidentes tuvo Argentina en los 10 días posteriores a la renuncia de De la Rúa?",
@@ -84,8 +75,7 @@
       "correctAnswer": 2,
       "explanation": "Argentina tuvo 5 presidentes en 10 días, reflejando el colapso institucional total.",
       "points": 2,
-      "orderIndex": 6,
-      "legacyQuestionId": 652
+      "orderIndex": 6
     },
     {
       "question": "El grito \"Que se vayan todos\" iba dirigido exclusivamente contra el presidente De la Rúa.",
@@ -94,8 +84,7 @@
       "correctAnswer": false,
       "explanation": "Era contra todo el sistema político: partidos, sindicatos, jueces, medios y empresarios.",
       "points": 1,
-      "orderIndex": 7,
-      "legacyQuestionId": 653
+      "orderIndex": 7
     },
     {
       "question": "¿Cuál es el patrón central del péndulo argentino 1945-2001?",
@@ -109,8 +98,7 @@
       "correctAnswer": 1,
       "explanation": "El ciclo pendular se repitió múltiples veces, con cada fase dejando al país con menos capacidad institucional.",
       "points": 2,
-      "orderIndex": 8,
-      "legacyQuestionId": 654
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"La Crisis de 2001: El Colapso Sistémico\"?",
@@ -124,8 +112,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en el estallido de diciembre de 2001 como falla sistémica total..",
       "points": 1,
-      "orderIndex": 9,
-      "legacyQuestionId": null
+      "orderIndex": 9
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Los Patrones del Péndulo: El Ciclo que Se Repite\"?",
@@ -139,8 +126,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en análisis sistémico de los patrones recurrentes en la historia 1945-2001..",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": null
+      "orderIndex": 10
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Economía y Sociedad: Lo Que los Números No Dicen\"?",
@@ -154,8 +140,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en cómo los indicadores económicos ocultan realidades humanas en cada período..",
       "points": 1,
-      "orderIndex": 11,
-      "legacyQuestionId": null
+      "orderIndex": 11
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Lecciones para el Futuro: Lo Que Este Medio Siglo Nos Enseña\"?",
@@ -169,8 +154,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en síntesis de aprendizajes sistémicos para construir una argentina diferente..",
       "points": 1,
-      "orderIndex": 12,
-      "legacyQuestionId": null
+      "orderIndex": 12
     }
   ]
 }

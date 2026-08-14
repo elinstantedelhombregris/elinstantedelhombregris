@@ -23,8 +23,8 @@ export function PortadaEntrenamientos() {
         className="anim-fadeup text-tinta-50 mt-3 max-w-[620px] text-pretty text-[15px] leading-[1.6]"
         style={{ animationDelay: '1.05s' }}
       >
-        Nada de esto se guarda: leé en el orden que quieras, cortá cuando quieras, volvé cuando
-        quieras.
+        No mandamos tu recorrido a ningún servidor. Si escribís en la bitácora de una lección, la
+        nota queda solamente en este navegador.
       </p>
     </section>
   );

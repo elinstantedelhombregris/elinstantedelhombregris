@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Resiliencia y Propósito",
   "description": "Evaluá tu comprensión de la resiliencia como capacidad transformadora.",
-  "passingScore": 70,
-  "timeLimit": 15,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 57,
   "questions": [
     {
       "question": "¿Cuál es la diferencia entre \"cultura del aguante\" y resiliencia real?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "La resiliencia no es la capacidad de absorber golpes sin cambiar (eso es aguante). Es la capacidad de romperse y crear algo nuevo con los pedazos.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 537
+      "orderIndex": 1
     },
     {
       "question": "Según Frankl, el crecimiento postraumático es automático: todo sufrimiento genera fortaleza.",
@@ -29,8 +24,7 @@
       "correctAnswer": false,
       "explanation": "El crecimiento requiere condiciones: tiempo, reflexión, apoyo social, narrativa y acción. No es automático ni obligatorio.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 538
+      "orderIndex": 2
     },
     {
       "question": "¿Cuáles son los 3 pilares de la resiliencia según Cyrulnik?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "Cyrulnik identificó el vínculo seguro, la capacidad de narrar la experiencia, y la acción con propósito como los 3 pilares fundamentales.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 539
+      "orderIndex": 3
     },
     {
       "question": "Los valores son lo mismo que las metas: objetivos que alcanzar.",
@@ -54,8 +47,7 @@
       "correctAnswer": false,
       "explanation": "Las metas se cumplen y terminan. Los valores son direcciones permanentes que se viven en cada decisión, nunca se \"completan\".",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 540
+      "orderIndex": 4
     },
     {
       "question": "Si tu identidad depende de tu trabajo y status, ¿qué pasa en una crisis?",
@@ -69,8 +61,7 @@
       "correctAnswer": 1,
       "explanation": "Las identidades construidas sobre capas externas (trabajo, status) colapsan con la crisis. Las construidas sobre valores internos resisten.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 541
+      "orderIndex": 5
     },
     {
       "question": "La resiliencia se construye principalmente durante los momentos de crisis.",
@@ -79,8 +70,7 @@
       "correctAnswer": false,
       "explanation": "La resiliencia se construye en los momentos de calma, con hábitos diarios: sueño, ejercicio, vínculos, prácticas de sentido. La crisis solo la pone a prueba.",
       "points": 1,
-      "orderIndex": 6,
-      "legacyQuestionId": 542
+      "orderIndex": 6
     },
     {
       "question": "¿Por qué es importante procesar el duelo colectivo en Argentina?",
@@ -94,8 +84,7 @@
       "correctAnswer": 1,
       "explanation": "El duelo colectivo no procesado se convierte en \"este país no tiene arreglo\" (cinismo) o \"antes todo era mejor\" (nostalgia), ambos paralizantes.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 543
+      "orderIndex": 7
     },
     {
       "question": "Un manifiesto personal es más efectivo cuando se comparte con un testigo.",
@@ -104,8 +93,7 @@
       "correctAnswer": true,
       "explanation": "Compartir el manifiesto con un testigo lo convierte de intención en compromiso. Cuando alguien sabe lo que prometiste, es más difícil traicionarte.",
       "points": 1,
-      "orderIndex": 8,
-      "legacyQuestionId": 544
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"El Duelo Como Portal: Llorar lo que Pudo Ser\"?",
@@ -119,8 +107,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en procesar el duelo colectivo argentino como paso necesario hacia la transformación..",
       "points": 1,
-      "orderIndex": 9,
-      "legacyQuestionId": null
+      "orderIndex": 9
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Tu Manifiesto Personal: El Fuego que No Se Apaga\"?",
@@ -134,8 +121,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en integrar todo lo aprendido en una declaración personal de propósito y resiliencia..",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": null
+      "orderIndex": 10
     }
   ]
 }

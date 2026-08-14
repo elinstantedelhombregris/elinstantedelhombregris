@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Caja de Herramientas Ciudadanas",
   "description": "Evaluá tu dominio de las herramientas de acción ciudadana.",
-  "passingScore": 70,
-  "timeLimit": 12,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 58,
   "questions": [
     {
       "question": "¿Cuál es el error más común en las reuniones comunitarias?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "Sin agenda clara y sin acciones concretas asignadas al final, las reuniones son conversaciones sin resultado.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 561
+      "orderIndex": 1
     },
     {
       "question": "En oratoria ciudadana, es recomendable empezar pidiendo disculpas por no ser orador profesional.",
@@ -29,8 +24,7 @@
       "correctAnswer": false,
       "explanation": "Pedir disculpas al inicio resta credibilidad. Es mejor arrancar directo con un gancho que capture la atención.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 562
+      "orderIndex": 2
     },
     {
       "question": "¿Qué es el MAAN en negociación?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "El MAAN es lo que hacés si la negociación fracasa. Cuanto más fuerte tu MAAN, más poder tenés al negociar.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 563
+      "orderIndex": 3
     },
     {
       "question": "Correlación entre dos variables siempre implica que una causa la otra.",
@@ -54,8 +47,7 @@
       "correctAnswer": false,
       "explanation": "Correlación no es causalidad. Dos cosas pueden moverse juntas sin que una cause la otra.",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 564
+      "orderIndex": 4
     },
     {
       "question": "¿Cuál es la estructura básica de un discurso ciudadano efectivo?",
@@ -69,8 +61,7 @@
       "correctAnswer": 1,
       "explanation": "Un discurso efectivo tiene gancho que captura, cuerpo con máximo 3 puntos, y cierre con pedido de acción concreto.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 565
+      "orderIndex": 5
     },
     {
       "question": "Google My Maps permite crear mapas colaborativos del barrio de forma gratuita.",
@@ -79,8 +70,7 @@
       "correctAnswer": true,
       "explanation": "Google My Maps es gratuito y permite que múltiples personas agreguen puntos, fotos y descripciones en un mapa compartido.",
       "points": 1,
-      "orderIndex": 6,
-      "legacyQuestionId": 566
+      "orderIndex": 6
     },
     {
       "question": "¿Qué es sistematizar una experiencia comunitaria?",
@@ -94,8 +84,7 @@
       "correctAnswer": 1,
       "explanation": "Sistematizar es más que documentar: es analizar qué funcionó, qué no y por qué, para que otros puedan aprender de tu experiencia.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 567
+      "orderIndex": 7
     },
     {
       "question": "Para iniciar acción ciudadana, es mejor esperar a tener un grupo grande organizado antes de hacer cualquier cosa.",
@@ -104,8 +93,7 @@
       "correctAnswer": false,
       "explanation": "Es mejor empezar con 3-5 personas comprometidas y un problema concreto que esperar a tener una organización perfecta.",
       "points": 1,
-      "orderIndex": 8,
-      "legacyQuestionId": 568
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Documentar y Sistematizar: Que Nada Se Pierda\"?",
@@ -119,8 +107,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en cómo registrar tu experiencia para que otros puedan replicarla..",
       "points": 1,
-      "orderIndex": 9,
-      "legacyQuestionId": null
+      "orderIndex": 9
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Tu Plan de Acción Ciudadana: De Este Curso a Tu Barrio\"?",
@@ -134,8 +121,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en integrar todas las herramientas en un plan concreto de acción para tu comunidad..",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": null
+      "orderIndex": 10
     }
   ]
 }

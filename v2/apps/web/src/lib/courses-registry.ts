@@ -12,6 +12,7 @@ import {
   derivarSlugDeLeccion,
   normalizarPregunta,
   quizJsonSchema,
+  type Fuente,
   type PreguntaNormalizada,
 } from '@v2/shared';
 
@@ -20,6 +21,7 @@ import { stripFrontmatter } from './markdown';
 export interface LeccionEntry {
   slug: string;
   titulo: string;
+  resumen?: string;
   minutos: number;
   /** orderIndex del course.json — puede arrancar en 0. La URL usa la posición, no esto. */
   orden: number;
@@ -32,6 +34,14 @@ export interface CursoEntry {
   excerpt: string;
   category: string;
   level: 'beginner' | 'intermediate' | 'advanced';
+  promesa?: readonly string[];
+  noCubre?: readonly string[];
+  paraQuien?: string;
+  productoFinal?: string;
+  prerrequisitos: readonly string[];
+  coverImage?: string;
+  fuentesBase: readonly Fuente[];
+  revisarAntesDe?: string;
   duration: number;
   orderIndex: number;
   isFeatured: boolean;
@@ -70,6 +80,14 @@ function construirRegistry(): CursoEntry[] {
       excerpt: c.excerpt,
       category: c.category,
       level: c.level,
+      ...(c.promesa === undefined ? {} : { promesa: c.promesa }),
+      ...(c.noCubre === undefined ? {} : { noCubre: c.noCubre }),
+      ...(c.paraQuien === undefined ? {} : { paraQuien: c.paraQuien }),
+      ...(c.productoFinal === undefined ? {} : { productoFinal: c.productoFinal }),
+      prerrequisitos: c.prerrequisitos,
+      ...(c.coverImage === undefined ? {} : { coverImage: c.coverImage }),
+      fuentesBase: c.fuentesBase,
+      ...(c.revisarAntesDe === undefined ? {} : { revisarAntesDe: c.revisarAntesDe }),
       duration: c.duration,
       orderIndex: c.orderIndex,
       isFeatured: c.isFeatured,
@@ -78,6 +96,7 @@ function construirRegistry(): CursoEntry[] {
         .map((l) => ({
           slug: derivarSlugDeLeccion(l.key),
           titulo: l.title,
+          ...(l.description === undefined ? {} : { resumen: l.description }),
           minutos: l.duration,
           orden: l.orderIndex,
         })),
@@ -95,7 +114,10 @@ export function findCursoBySlug(slug: string): CursoEntry | undefined {
 }
 
 /** Cuerpo MDX de una lección, sin frontmatter. `null` si la clave no existe. */
-export async function cargarLeccion(cursoSlug: string, leccionSlug: string): Promise<string | null> {
+export async function cargarLeccion(
+  cursoSlug: string,
+  leccionSlug: string,
+): Promise<string | null> {
   const cargar = cuerpos[`${RAIZ}/${cursoSlug}/${leccionSlug}.mdx`];
   if (!cargar) return null;
   return stripFrontmatter(await cargar());

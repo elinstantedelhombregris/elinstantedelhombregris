@@ -11,8 +11,14 @@
  */
 import { z } from 'zod';
 
+import { fechaCortaSchema, fuenteSchema } from './frontmatter.js';
+
 const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const slugSchema = z.string().min(1).max(100).regex(slugRegex, 'Slugs must be kebab-case alphanumeric.');
+const slugSchema = z
+  .string()
+  .min(1)
+  .max(100)
+  .regex(slugRegex, 'Slugs must be kebab-case alphanumeric.');
 
 export const courseLessonJsonSchema = z.object({
   /** Clave v1 con prefijo numérico: «02-agere-…». El slug se deriva. */
@@ -22,7 +28,6 @@ export const courseLessonJsonSchema = z.object({
   duration: z.number().int().positive(),
   /** Un curso arranca en 0 — de ahí el nonnegative (verificado 2026-07-24). */
   orderIndex: z.number().int().nonnegative(),
-  contentFile: z.string().min(1),
 });
 export type CourseLessonJson = z.infer<typeof courseLessonJsonSchema>;
 
@@ -33,6 +38,15 @@ export const courseJsonSchema = z.object({
   excerpt: z.string().min(1),
   category: z.string().min(1).max(60),
   level: z.enum(['beginner', 'intermediate', 'advanced']),
+  promesa: z.array(z.string().min(1).max(200)).min(3).max(5).optional(),
+  noCubre: z.array(z.string().min(1).max(200)).min(2).max(3).optional(),
+  paraQuien: z.string().min(1).max(400).optional(),
+  productoFinal: z.string().min(1).max(300).optional(),
+  prerrequisitos: z.array(z.string().min(1).max(200)).max(4).default([]),
+  /** Ruta pública local. Las portadas editoriales viven con la aplicación, no en un CDN. */
+  coverImage: z.string().startsWith('/').optional(),
+  fuentesBase: z.array(fuenteSchema).max(8).default([]),
+  revisarAntesDe: fechaCortaSchema.optional(),
   /** Minutos totales; coincide con la suma de las lecciones en los 31. */
   duration: z.number().int().positive(),
   orderIndex: z.number().int().positive(),
@@ -109,7 +123,9 @@ export function normalizarPregunta(q: QuizQuestionJson): PreguntaNormalizada | n
   const opciones = q.options ?? [];
   if (opciones.length < 2) return null;
   if (typeof q.correctAnswer === 'number') {
-    return q.correctAnswer < opciones.length ? { ...base, opciones, correcta: q.correctAnswer } : null;
+    return q.correctAnswer < opciones.length
+      ? { ...base, opciones, correcta: q.correctAnswer }
+      : null;
   }
   if (typeof q.correctAnswer === 'string') {
     const iExacto = opciones.indexOf(q.correctAnswer);

@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Patrones Argentinos que Debemos Romper",
   "description": "Evaluá tu comprensión de los patrones sistémicos y los puntos de apalancamiento.",
-  "passingScore": 70,
-  "timeLimit": 15,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 69,
   "questions": [
     {
       "question": "¿Cuáles son los tres niveles de comprensión sistémica?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "El pensamiento sistémico va de los eventos visibles a los patrones recurrentes y a las estructuras que los generan.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 655
+      "orderIndex": 1
     },
     {
       "question": "El ciclo stop-go se repite porque los incentivos políticos premian la expansión cortoplacista.",
@@ -29,8 +24,7 @@
       "correctAnswer": true,
       "explanation": "Expandir la economía da votos ahora; el costo del ajuste viene después y probablemente le toque al siguiente gobierno.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 656
+      "orderIndex": 2
     },
     {
       "question": "¿Qué nivel de intervención sistémica tiene mayor impacto según Donella Meadows?",
@@ -44,8 +38,7 @@
       "correctAnswer": 2,
       "explanation": "Los modelos mentales y los objetivos del sistema son los niveles más profundos y transformadores de intervención.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 657
+      "orderIndex": 3
     },
     {
       "question": "La viveza criolla es un rasgo cultural innato de los argentinos.",
@@ -54,8 +47,7 @@
       "correctAnswer": false,
       "explanation": "La viveza criolla es la respuesta racional a un sistema que premia el atajo. Cambiando los incentivos se cambia el comportamiento.",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 658
+      "orderIndex": 4
     },
     {
       "question": "¿Qué diferencia al Hombre Gris del pesimista y del optimista ingenuo?",
@@ -69,8 +61,7 @@
       "correctAnswer": 1,
       "explanation": "El Hombre Gris ve patrones, identifica estructuras y busca puntos de apalancamiento en vez de quejarse o esperar milagros.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 659
+      "orderIndex": 5
     },
     {
       "question": "El \"diseño idealizado\" es un ejercicio de fantasía sin aplicación práctica.",
@@ -79,8 +70,7 @@
       "correctAnswer": false,
       "explanation": "El diseño idealizado es una brújula que indica la dirección. No dice qué hacer mañana, pero orienta cada decisión.",
       "points": 1,
-      "orderIndex": 6,
-      "legacyQuestionId": 660
+      "orderIndex": 6
     },
     {
       "question": "¿Cuál es un punto de apalancamiento de alto impacto para Argentina?",
@@ -94,8 +84,7 @@
       "correctAnswer": 1,
       "explanation": "La transparencia (flujos de información) es un punto de alto apalancamiento: cuando la gente ve cómo se gasta su dinero, exige rendición de cuentas.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 661
+      "orderIndex": 7
     },
     {
       "question": "La diferencia entre queja y diagnóstico es que el diagnóstico sugiere puntos de intervención.",
@@ -104,8 +93,7 @@
       "correctAnswer": true,
       "explanation": "Quejarse paraliza; diagnosticar identifica causas y sugiere dónde actuar.",
       "points": 1,
-      "orderIndex": 8,
-      "legacyQuestionId": 662
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"El Estado como Botín: Captura Institucional\"?",
@@ -119,8 +107,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en cómo los intereses privados capturan las instituciones públicas..",
       "points": 1,
-      "orderIndex": 9,
-      "legacyQuestionId": null
+      "orderIndex": 9
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"El Patrón de la Queja sin Acción\"?",
@@ -134,8 +121,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en la cultura del lamento como mecanismo de descarga que reemplaza la acción..",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": null
+      "orderIndex": 10
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Puntos de Apalancamiento: Dónde Intervenir\"?",
@@ -149,8 +135,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios..",
       "points": 1,
-      "orderIndex": 11,
-      "legacyQuestionId": null
+      "orderIndex": 11
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Diseño Idealizado: La Argentina que Podemos Construir\"?",
@@ -164,8 +149,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en ejercicio de diseño idealizado: si pudieras diseñar argentina desde cero, ¿cómo sería?.",
       "points": 1,
-      "orderIndex": 12,
-      "legacyQuestionId": null
+      "orderIndex": 12
     }
   ]
 }

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Argentina 1810–1945: capas de una construcción</title>
+  <desc id="desc">Línea de tiempo con hitos institucionales, electorales, económicos y sociales conectados por relaciones no lineales.</desc>
+  <defs>
+    <pattern id="paper" width="48" height="48" patternUnits="userSpaceOnUse">
+      <rect width="48" height="48" fill="#efe7d5"/>
+      <circle cx="7" cy="13" r="1" fill="#352f2a" opacity=".08"/>
+      <path d="M0 39c13-3 25 5 48 0" fill="none" stroke="#352f2a" stroke-width="1" opacity=".05"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0l10 5-10 5z" fill="#2f6f68"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="26" fill="url(#paper)"/>
+  <g font-family="Arial, sans-serif" fill="#292521">
+    <text x="92" y="105" font-size="46" font-weight="700">1810—1945</text>
+    <text x="92" y="153" font-size="24" letter-spacing="3">CAPAS DE UNA CONSTRUCCIÓN</text>
+    <text x="1508" y="116" font-size="19" text-anchor="end" opacity=".68">hitos ≠ explicación única</text>
+  </g>
+  <path d="M105 430C330 360 510 490 720 420s380-28 775-2" fill="none" stroke="#292521" stroke-width="7"/>
+  <path d="M180 685C380 570 570 680 770 585s430-28 650-135" fill="none" stroke="#2f6f68" stroke-width="4" stroke-dasharray="13 15" marker-end="url(#arrow)" opacity=".86"/>
+  <path d="M210 280c180 70 205 164 398 176M620 260c-20 100 60 180 160 194M990 250c-90 90-60 150 18 205M1260 282c-32 95 8 128 90 145" fill="none" stroke="#804e72" stroke-width="3" marker-end="url(#arrow)" opacity=".7"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(140 430)">
+      <circle r="28" fill="#d26952" stroke="#292521" stroke-width="5"/>
+      <text y="-63" font-size="27" font-weight="700" fill="#292521">1810</text>
+      <text y="72" font-size="21" fill="#292521">Revolución</text>
+    </g>
+    <g transform="translate(360 402)">
+      <circle r="25" fill="#d2a340" stroke="#292521" stroke-width="5"/>
+      <text y="-60" font-size="27" font-weight="700" fill="#292521">1853</text>
+      <text y="70" font-size="21" fill="#292521">Constitución</text>
+    </g>
+    <g transform="translate(590 449)">
+      <circle r="25" fill="#2f6f68" stroke="#292521" stroke-width="5"/>
+      <text y="-62" font-size="27" font-weight="700" fill="#292521">1880</text>
+      <text y="70" font-size="21" fill="#292521">Estado nacional</text>
+    </g>
+    <g transform="translate(830 394)">
+      <circle r="25" fill="#804e72" stroke="#292521" stroke-width="5"/>
+      <text y="-62" font-size="27" font-weight="700" fill="#292521">1912</text>
+      <text y="70" font-size="21" fill="#292521">Reforma electoral</text>
+    </g>
+    <g transform="translate(1080 420)">
+      <circle r="25" fill="#d26952" stroke="#292521" stroke-width="5"/>
+      <text y="-62" font-size="27" font-weight="700" fill="#292521">1930</text>
+      <text y="70" font-size="21" fill="#292521">Quiebre institucional</text>
+    </g>
+    <g transform="translate(1380 419)">
+      <circle r="30" fill="#d2a340" stroke="#292521" stroke-width="5"/>
+      <text y="-67" font-size="27" font-weight="700" fill="#292521">1945</text>
+      <text y="77" font-size="21" fill="#292521">Nuevo sujeto político</text>
+    </g>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#292521">
+    <g transform="translate(115 720)">
+      <rect width="300" height="92" rx="46" fill="#2f6f68" opacity=".13"/>
+      <text x="150" y="40" text-anchor="middle" font-weight="700">INSTITUCIONES</text>
+      <text x="150" y="68" text-anchor="middle">reglas · ciudadanía · poder</text>
+    </g>
+    <g transform="translate(535 720)">
+      <rect width="300" height="92" rx="46" fill="#d2a340" opacity=".19"/>
+      <text x="150" y="40" text-anchor="middle" font-weight="700">ECONOMÍA</text>
+      <text x="150" y="68" text-anchor="middle">tierra · trabajo · comercio</text>
+    </g>
+    <g transform="translate(955 720)">
+      <rect width="300" height="92" rx="46" fill="#804e72" opacity=".14"/>
+      <text x="150" y="40" text-anchor="middle" font-weight="700">SOCIEDAD</text>
+      <text x="150" y="68" text-anchor="middle">migración · derechos · conflicto</text>
+    </g>
+    <g transform="translate(1320 720)">
+      <rect width="165" height="92" rx="46" fill="#d26952" opacity=".14"/>
+      <text x="82" y="54" text-anchor="middle" font-weight="700">MEMORIA</text>
+    </g>
+  </g>
+</svg>

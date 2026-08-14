@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Arquitectura de Organizaciones Distribuidas",
   "description": "Evaluá tu comprensión de los modelos de gobernanza distribuida.",
-  "passingScore": 70,
-  "timeLimit": 20,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 50,
   "questions": [
     {
       "question": "¿Qué diferencia la decisión por consentimiento del consenso?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "El consentimiento pregunta \"¿alguien tiene una objeción razonada?\" en vez de buscar entusiasmo universal.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 471
+      "orderIndex": 1
     },
     {
       "question": "En la holacracia, una persona solo puede tener un rol a la vez.",
@@ -29,8 +24,7 @@
       "correctAnswer": false,
       "explanation": "Una persona puede tener varios roles, y un rol puede rotar entre personas.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 472
+      "orderIndex": 2
     },
     {
       "question": "¿Cuál es el primer nivel de resolución de conflictos en una organización horizontal?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "Siempre se empieza por la conversación directa antes de escalar.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 473
+      "orderIndex": 3
     },
     {
       "question": "El burnout activista es principalmente un problema individual, no organizacional.",
@@ -54,8 +47,7 @@
       "correctAnswer": false,
       "explanation": "El burnout es un problema de diseño organizacional: concentración de tareas, falta de límites y reconocimiento.",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 474
+      "orderIndex": 4
     },
     {
       "question": "¿Qué elemento de los estatutos previene mejor la concentración de poder financiero?",
@@ -69,8 +61,7 @@
       "correctAnswer": 1,
       "explanation": "Las firmas conjuntas y la transparencia obligatoria son mecanismos estructurales anti-concentración.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 475
+      "orderIndex": 5
     },
     {
       "question": "¿Qué es el \"doble enlace\" en la sociocracia?",
@@ -84,8 +75,7 @@
       "correctAnswer": 1,
       "explanation": "El doble enlace garantiza comunicación bidireccional entre niveles de la organización.",
       "points": 2,
-      "orderIndex": 6,
-      "legacyQuestionId": 476
+      "orderIndex": 6
     },
     {
       "question": "La Regla del 70% sugiere nunca usar más del 70% de tu capacidad como voluntario.",
@@ -94,8 +84,7 @@
       "correctAnswer": true,
       "explanation": "Dejar un 30% de margen previene el agotamiento y permite responder a imprevistos.",
       "points": 1,
-      "orderIndex": 7,
-      "legacyQuestionId": 477
+      "orderIndex": 7
     },
     {
       "question": "¿Cuál es el modelo de crecimiento donde cada organización barrial mantiene plena autonomía?",
@@ -109,8 +98,7 @@
       "correctAnswer": 1,
       "explanation": "La replicación crea organizaciones autónomas que comparten modelo pero no dependen entre sí.",
       "points": 2,
-      "orderIndex": 8,
-      "legacyQuestionId": 478
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál es la frecuencia recomendada de rotación para la facilitación de reuniones?",
@@ -124,8 +112,7 @@
       "correctAnswer": 2,
       "explanation": "La facilitación de reuniones es un rol que beneficia de rotación mensual para desarrollar capacidades en todos.",
       "points": 2,
-      "orderIndex": 9,
-      "legacyQuestionId": 479
+      "orderIndex": 9
     },
     {
       "question": "Si una decisión no quedó escrita, no se decidió.",
@@ -134,8 +121,7 @@
       "correctAnswer": true,
       "explanation": "La documentación es esencial para la memoria organizacional y para evitar malentendidos.",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": 480
+      "orderIndex": 10
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Comunicación Interna Que No Queme\"?",
@@ -149,8 +135,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en diseñar flujos de comunicación que informen sin saturar..",
       "points": 1,
-      "orderIndex": 11,
-      "legacyQuestionId": null
+      "orderIndex": 11
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"De la Organización al Movimiento: Escalar Sin Perder Esencia\"?",
@@ -164,8 +149,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en cómo crecer manteniendo los valores y la estructura distribuida..",
       "points": 1,
-      "orderIndex": 12,
-      "legacyQuestionId": null
+      "orderIndex": 12
     }
   ]
 }
