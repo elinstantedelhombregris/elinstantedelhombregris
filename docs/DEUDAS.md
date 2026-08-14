@@ -1226,7 +1226,7 @@ La capa quedó con dos fuentes, con ids en espacios distintos (`voz:` para las n
 **Dónde:** `v2/apps/api/tests/senales-ingesta.test.ts`
 **Encontrada:** 2026-08-14, validando la rebanada. La vi en producción, no en el código: el mapa devolvía una fila con el texto de mi propio test
 **Severidad:** media
-**Estado:** RESUELTA 2026-08-14 (la causa; las filas siguen ahí, ver abajo)
+**Estado:** RESUELTA 2026-08-14
 
 El archivo se guardaba con `hasDatabaseUrl`, o sea que corría contra lo que dijera `DATABASE_URL`. Con `DATABASE_URL_DESCARTABLE` puesta iba a la rama efímera; **sin ella —un `pnpm test` a secas, que es lo normal— iba a producción y escribía**. Encima su `afterAll` sólo limpiaba `senales`, y uno de sus tests postea a `/api/open-data/dreams`, que escribe en la otra tabla: esas filas no las borraba nadie.
 
@@ -1234,7 +1234,7 @@ Resultado: dos filas en `dreams` de producción con el texto «Hay un pozo en Ri
 
 **Cómo se cerró la causa:** el archivo exige `DATABASE_URL_DESCARTABLE` explícita y se saltea sin ella, y la limpieza barre las DOS tablas. La lección general vale para cualquier test futuro que escriba: **un archivo que escribe no puede decidir su destino por «hay una URL»**, tiene que pedir la base descartable por nombre.
 
-**Lo que queda:** las dos filas siguen en producción. Borrarlas es irreversible y es dato de la base real, así que espera decisión explícita del dueño.
+**Las filas:** borradas el 2026-08-14 con autorización explícita del dueño. Eran `#4088` y `#4119`, las dos con el mismo texto, las mismas coordenadas y sin firma —las dos corridas de la suite sin la variable de rama, a las 11:06 y 11:09—. Se borraron por id explícito y con una guarda que abortaba si la consulta previa no devolvía exactamente dos: un `DELETE` sobre la base real no se escribe sin eso. `dreams` y `senales` quedaron las dos en cero, que es el estado en que se encontró producción.
 
 ### D-066 · `engrosado_rechazado` comprobaba una de las dos condiciones de su CHECK
 
