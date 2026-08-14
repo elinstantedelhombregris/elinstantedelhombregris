@@ -49,7 +49,7 @@ const SENALES: readonly SenalConTipo[] = [
     id: 'voz:1',
     capa: 'voz',
     tipo: 'basta',
-    tipoVoz: 'basta',
+    claseSenal: 'hecho' as const,
     texto: 'TEST',
     lat: null,
     lng: null,

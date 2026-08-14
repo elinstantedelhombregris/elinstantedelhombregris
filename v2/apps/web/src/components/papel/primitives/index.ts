@@ -5,7 +5,7 @@ export {
   type BotonPapelSurface,
   type BotonPapelVariant,
 } from './BotonPapel';
-export { ChipTipo, type ChipTipoProps, type TipoVoz } from './ChipTipo';
+export { ChipTipo, type ChipTipoProps, type TipoSenal } from './ChipTipo';
 export { FilaIndice, type FilaIndiceProps } from './FilaIndice';
 export { FilaIndiceExpandible, type FilaIndiceExpandibleProps } from './FilaIndiceExpandible';
 export {

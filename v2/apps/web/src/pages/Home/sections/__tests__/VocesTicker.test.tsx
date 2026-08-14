@@ -22,7 +22,7 @@ function renderTicker() {
 }
 
 describe('VocesTicker', () => {
-  it('renders the fetched voices, mapping a known categoría to its tipo color and an unknown one to valor (tinta)', () => {
+  it('pinta por CLASE, y lo que el canon no reconoce sale neutro', () => {
     mockedUseVocesRecientes.mockReturnValue({
       data: [
         { id: 1, texto: 'Basta de rutas sin luz.', categoria: 'basta' },
@@ -33,11 +33,15 @@ describe('VocesTicker', () => {
     renderTicker();
 
     const bastaVoice = screen.getAllByText('«Basta de rutas sin luz.»')[0];
-    expect(bastaVoice?.className).toMatch(/text-sello/);
+    // `basta` es un `hecho`, y los hechos son ámbar. `sello` dejó de ser el
+    // color de un tipo: ahora es el color del estado ruidoso.
+    expect(bastaVoice?.className).toMatch(/text-ambar/);
 
     const unknownVoice = screen.getAllByText('«Una voz sin categoría reconocida.»')[0];
     expect(unknownVoice?.className).toMatch(/text-tinta-75/);
-    expect(unknownVoice?.className).not.toMatch(/text-sello/);
+    // Sin sumidero: lo que no está en el canon sale gris y no plegado contra
+    // un tipo real, que es lo que hacía el `?? 'valor'`.
+    expect(unknownVoice?.className).toMatch(/text-tinta-75/);
   });
 
   it('loops the duplicated aria-hidden copy so the marquee has content even with few voces', () => {

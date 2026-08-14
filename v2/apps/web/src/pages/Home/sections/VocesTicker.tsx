@@ -1,6 +1,6 @@
 import { useVocesRecientes } from '~/lib/queries/analytics';
-import { tipoParaPintar } from '~/lib/tipos-voz';
 import { cn } from '~/lib/utils';
+import { CLASE_TEXTO, claseDe, leerTipoSenal } from '~/lib/vocabulario';
 
 /**
  * Ticker de voces: marquee continuo con sueños/señales reales recién
@@ -32,13 +32,19 @@ export function VocesTicker() {
         {[0, 1].map((copia) => (
           <div key={copia} aria-hidden={copia === 1} className="flex">
             {data.map((voz) => {
-              const tipo = tipoParaPintar(voz.categoria);
+              /**
+               * Sin sumidero: lo que no está en el canon sale con el gris
+               * neutro y no plegado contra un tipo real. Antes esto era
+               * `?? 'valor'`, y por eso una voz de tipo «bastta» se pintaba
+               * como si fuera algo.
+               */
+              const lectura = leerTipoSenal(voz.categoria ?? '');
               return (
                 <span
                   key={`${copia}-${voz.id}`}
                   className={cn(
                     'font-space whitespace-nowrap px-[34px] text-[13px]',
-                    tipo === 'basta' ? 'text-sello' : 'text-tinta-75',
+                    lectura.reconocido ? CLASE_TEXTO[claseDe(lectura.tipo)] : 'text-tinta-75',
                   )}
                 >
                   «{voz.texto}»

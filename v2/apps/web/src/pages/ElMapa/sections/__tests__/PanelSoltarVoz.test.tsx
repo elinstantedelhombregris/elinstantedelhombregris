@@ -27,7 +27,12 @@ type MutateComoLoLlamaElComponente = (
 ) => void;
 
 /** Lo que devuelve el 201 cuando no hubo nada que engrosar. */
-const RESPUESTA_OK: VozSoltada = { id: 1, precisionPublicada: 'province', engrosado: null };
+const RESPUESTA_OK: VozSoltada = {
+  idPublico: '0f5f6b5a-1c2d-4e3f-8a9b-0c1d2e3f4a5b',
+  yaExistia: false,
+  precisionPublicada: 'province',
+  engrosado: null,
+};
 const mutate = vi.fn<MutateComoLoLlamaElComponente>();
 
 function armarMutacion(extra: Partial<ReturnType<typeof useSoltarVoz>> = {}) {
@@ -51,12 +56,34 @@ describe('PanelSoltarVoz', () => {
     armarMutacion();
   });
 
-  it('ofrece los 6 tipos y el botón nace deshabilitado', () => {
+  it('ofrece los NUEVE tipos del canon y el botón nace deshabilitado', () => {
     render(<PanelSoltarVoz />);
 
-    for (const tipo of ['basta', 'sueño', 'necesidad', 'compromiso', 'recurso', 'valor']) {
+    for (const tipo of [
+      'basta',
+      'necesidad',
+      'recurso',
+      'práctica',
+      'saber',
+      'sueño',
+      'propuesta',
+      'compromiso',
+      'pregunta',
+    ]) {
       expect(screen.getByRole('button', { name: tipo, pressed: false })).toBeInTheDocument();
     }
+    // `valor` salió del canon: un valor no tiene coordenada.
+    expect(screen.queryByRole('button', { name: 'valor' })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Soltar la voz →' })).toBeDisabled();
+  });
+
+  it('sin marcar la cesión el botón sigue deshabilitado', () => {
+    render(<PanelSoltarVoz />);
+    fireEvent.click(screen.getByRole('button', { name: 'sueño' }));
+    fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Trenes que lleguen.' } });
+
+    // Nadie licencia obra ajena por default: sin la marca, la fila saldría en
+    // el volcado público sin `texto`, y eso tiene que ser una decisión dicha.
     expect(screen.getByRole('button', { name: 'Soltar la voz →' })).toBeDisabled();
   });
 
@@ -66,12 +93,23 @@ describe('PanelSoltarVoz', () => {
     fireEvent.click(screen.getByRole('button', { name: 'sueño' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: '  Trenes que lleguen. ' } });
     fireEvent.change(screen.getByLabelText('¿Desde dónde? (opcional)'), { target: { value: '6' } });
+    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
     fireEvent.click(screen.getByRole('button', { name: 'Soltar la voz →' }));
 
     expect(mutate).toHaveBeenCalledWith(
-      { body: 'Trenes que lleguen.', category: 'sueño', provinceId: 6 },
+      expect.objectContaining({
+        contrato: 'basta-senal/v1',
+        tipo: 'sueño',
+        texto: 'Trenes que lleguen.',
+        provinceId: 6,
+        cedeLicencia: true,
+        casa: 'sinRespuesta',
+      }),
       expect.anything(),
     );
+    // El uuid de idempotencia lo pone el cliente y tiene que ser uno de verdad.
+    const [enviado] = mutate.mock.calls[0] as [SoltarVozInput];
+    expect(enviado.idLocal).toMatch(/^[0-9a-f-]{36}$/i);
   });
 
   it('doble submit mientras está pendiente no duplica la mutación', () => {
@@ -81,6 +119,7 @@ describe('PanelSoltarVoz', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'basta' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Basta.' } });
+    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
 
     fireEvent.submit(form);
     expect(mutate).toHaveBeenCalledTimes(1);
@@ -105,6 +144,7 @@ describe('PanelSoltarVoz', () => {
     fireEvent.click(screen.getByRole('button', { name: 'sueño' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Trenes que lleguen.' } });
     fireEvent.change(screen.getByLabelText('¿Desde dónde? (opcional)'), { target: { value: '6' } });
+    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
     fireEvent.click(screen.getByRole('button', { name: 'Soltar la voz →' }));
 
     expect(screen.getByText('Recibida')).toBeInTheDocument();
@@ -123,6 +163,7 @@ describe('PanelSoltarVoz', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'basta' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Basta.' } });
+    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
     fireEvent.click(screen.getByRole('button', { name: 'Soltar la voz →' }));
 
     expect(

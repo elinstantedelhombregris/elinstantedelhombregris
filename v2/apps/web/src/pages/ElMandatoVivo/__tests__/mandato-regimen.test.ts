@@ -65,13 +65,15 @@ describe('plegarTipos', () => {
     });
   });
 
-  it('un `valor` de verdad sigue siendo un valor', () => {
-    // La distinción entera: `valor` está en la paleta, así que cuando alguien
-    // efectivamente lo dijo se cuenta como tipo. Lo que no se cuenta es lo que
-    // nadie dijo.
+  it('`valor` salió del canon y ahora cae en «sin reconocer»', () => {
+    // Antes `valor` era un tipo de la paleta y se contaba como tal. Salió del
+    // canon —un valor no tiene coordenada— y la migración NO lo pliega contra
+    // ningún tipo nuevo: reparte su peso a «sin reconocer» y lo dice. Plegarlo
+    // en silencio contra, digamos, `sueño` habría inflado esa cuenta con filas
+    // que nadie escribió como sueños.
     expect(plegarTipos([{ tipo: 'valor', total: 4 }])).toEqual({
-      porTipo: [{ tipo: 'valor', total: 4 }],
-      sinReconocer: 0,
+      porTipo: [],
+      sinReconocer: 4,
     });
   });
 });

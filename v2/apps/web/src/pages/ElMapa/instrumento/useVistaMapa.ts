@@ -1,10 +1,12 @@
 import { useCallback, useMemo, useState } from 'react';
 
-import { tipoDe } from './paleta';
+
+
+import { claseDeCategoria } from '../el-mapa-data';
 
 import type { MapRef } from 'react-map-gl/maplibre';
-import type { TipoVoz } from '~/components/papel/primitives';
 import type { SenalMapa } from '~/lib/queries/civic-map';
+import type { ClaseSenal } from '~/lib/vocabulario';
 
 /**
  * Lo que está EN VISTA.
@@ -26,7 +28,15 @@ export interface Recuadro {
 }
 
 export interface SenalConTipo extends SenalMapa {
-  tipoVoz: TipoVoz;
+  /**
+   * La CLASE, y puede ser `null`.
+   *
+   * Antes esto era `tipoVoz: TipoVoz` y nunca era null porque `tipoDe` plegaba
+   * con `?? 'valor'` lo que no reconocía. El null es el arreglo: una señal cuyo
+   * tipo el canon no conoce se cuenta aparte y se pinta neutra, en vez de
+   * sumarse a una clase que nadie declaró.
+   */
+  claseSenal: ClaseSenal | null;
 }
 
 export interface VistaMapa {
@@ -70,15 +80,24 @@ export function useSenalesEnVista(
 ): SenalConTipo[] {
   return useMemo(() => {
     const base = recuadro ? senales.filter((s) => dentro(s, recuadro)) : senales;
-    return base.map((s) => ({ ...s, tipoVoz: tipoDe(s.tipo) }));
+    return base.map((s) => ({ ...s, claseSenal: claseDeCategoria(s.tipo) }));
   }, [senales, recuadro]);
 }
 
-/** Cuántas de cada tipo, para la barra apilada de composición. */
-export function componerPorTipo(senales: readonly SenalConTipo[]): { tipo: TipoVoz; n: number }[] {
-  const cuenta = new Map<TipoVoz, number>();
-  for (const s of senales) cuenta.set(s.tipoVoz, (cuenta.get(s.tipoVoz) ?? 0) + 1);
+/**
+ * Cuántas de cada CLASE, para la barra apilada de composición.
+ *
+ * Las que el canon no reconoce **no entran en la barra**: una composición es
+ * una afirmación sobre de qué habla el país, y meterlas adentro de cualquiera
+ * de las cuatro la vuelve falsa en la misma medida en que haya basura.
+ */
+export function componerPorClase(senales: readonly SenalConTipo[]): { clase: ClaseSenal; n: number }[] {
+  const cuenta = new Map<ClaseSenal, number>();
+  for (const s of senales) {
+    if (s.claseSenal === null) continue;
+    cuenta.set(s.claseSenal, (cuenta.get(s.claseSenal) ?? 0) + 1);
+  }
   return [...cuenta.entries()]
-    .map(([tipo, n]) => ({ tipo, n }))
+    .map(([clase, n]) => ({ clase, n }))
     .sort((a, b) => b.n - a.n);
 }

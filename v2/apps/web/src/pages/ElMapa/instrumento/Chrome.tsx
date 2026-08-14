@@ -1,13 +1,14 @@
 import { MODOS } from './catalogo-modos';
-import { COLOR_TIPO } from './paleta';
-import { componerPorTipo } from './useVistaMapa';
+import { COLOR_CLASE } from './paleta';
+import { componerPorClase } from './useVistaMapa';
 
 import type { Modo } from './catalogo-modos';
 import type { SenalConTipo } from './useVistaMapa';
 import type { ReactNode } from 'react';
-import type { TipoVoz } from '~/components/papel/primitives';
 
 import { cn } from '~/lib/utils';
+import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
+
 
 /**
  * El chrome del instrumento: la barra de modos, el panel lateral y las piezas
@@ -126,7 +127,7 @@ export function Segmentado<T extends string>({
  * número sin que haya que abrir nada.
  */
 export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] }) {
-  const composicion = componerPorTipo(senales);
+  const composicion = componerPorClase(senales);
   const total = senales.length;
 
   return (
@@ -145,25 +146,25 @@ export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] 
           <div
             className="mt-3 flex h-1.5 w-full overflow-hidden"
             role="img"
-            aria-label={composicion.map((c) => `${c.tipo}: ${String(c.n)}`).join(', ')}
+            aria-label={composicion.map((c) => `${c.clase}: ${String(c.n)}`).join(', ')}
           >
-            {composicion.map(({ tipo, n }) => (
+            {composicion.map(({ clase, n }) => (
               <span
-                key={tipo}
-                style={{ width: `${String((n / total) * 100)}%`, backgroundColor: COLOR_TIPO[tipo] }}
+                key={clase}
+                style={{ width: `${String((n / total) * 100)}%`, backgroundColor: COLOR_CLASE[clase] }}
               />
             ))}
           </div>
           <ul className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1">
-            {composicion.map(({ tipo, n }) => (
-              <li key={tipo} className="flex items-center gap-1.5">
+            {composicion.map(({ clase, n }) => (
+              <li key={clase} className="flex items-center gap-1.5">
                 <span
                   aria-hidden
                   className="h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ backgroundColor: COLOR_TIPO[tipo] }}
+                  style={{ backgroundColor: COLOR_CLASE[clase] }}
                 />
                 <span className="font-space text-oscuro-secundario truncate text-[10px]">
-                  {tipo}
+                  {CLASE_ROTULO[clase]}
                 </span>
                 <span className="font-space text-oscuro-meta ml-auto text-[10px] tabular-nums">
                   {Math.round((n / total) * 100)}%
@@ -181,25 +182,30 @@ export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] 
   );
 }
 
-/** Los chips de tipo de voz, que filtran. */
-export function FiltroTipos({
+/** Los chips de CLASE, que filtran. */
+export function FiltroClases({
   activos,
   onAlternar,
 }: {
-  activos: ReadonlySet<TipoVoz>;
-  onAlternar: (t: TipoVoz) => void;
+  activos: ReadonlySet<ClaseSenal>;
+  onAlternar: (c: ClaseSenal) => void;
 }) {
   return (
     <div className="flex flex-wrap gap-1.5">
-      {(Object.keys(COLOR_TIPO) as TipoVoz[]).map((tipo) => {
-        const activo = activos.has(tipo);
+      {/*
+        Cuatro chips y no nueve. Con nueve la columna de 340 px no da, y además
+        no es lo que hay que poder apagar de un vistazo: la lectura útil del
+        mapa es «mostrame lo comprobable» y no «mostrame los saberes».
+      */}
+      {(Object.keys(COLOR_CLASE) as ClaseSenal[]).map((clase) => {
+        const activo = activos.has(clase);
         return (
           <button
-            key={tipo}
+            key={clase}
             type="button"
             aria-pressed={activo}
             onClick={() => {
-              onAlternar(tipo);
+              onAlternar(clase);
             }}
             className={cn(
               'font-space flex items-center gap-1.5 border px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] transition-opacity',
@@ -209,9 +215,9 @@ export function FiltroTipos({
             <span
               aria-hidden
               className="h-2 w-2 rounded-full"
-              style={{ backgroundColor: COLOR_TIPO[tipo], opacity: activo ? 1 : 0.3 }}
+              style={{ backgroundColor: COLOR_CLASE[clase], opacity: activo ? 1 : 0.3 }}
             />
-            {tipo}
+            {CLASE_ROTULO[clase]}
           </button>
         );
       })}

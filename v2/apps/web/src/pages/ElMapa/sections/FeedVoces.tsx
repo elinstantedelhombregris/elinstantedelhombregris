@@ -1,6 +1,6 @@
 import { Link } from 'wouter';
 
-import { TEXTO_TIPO, tipoDeCategoria } from '../el-mapa-data';
+import { TEXTO_CLASE, claseDeCategoria } from '../el-mapa-data';
 
 import { useProvincias, useVocesAbiertas } from '~/lib/queries/open-data';
 import { cn } from '~/lib/utils';
@@ -37,11 +37,13 @@ export function FeedVoces() {
       ) : (
         <div className="border-papel-borde bg-papel-borde flex max-h-[380px] flex-col gap-px overflow-y-auto border">
           {items.map((voz) => {
-            const tipo = tipoDeCategoria(voz.category);
+            // Sin sumidero: lo que el canon no reconoce se pinta neutro y
+            // conserva su nombre crudo, en vez de disfrazarse de otro tipo.
+            const clase = claseDeCategoria(voz.category);
             return (
               <article key={voz.id} className="bg-papel px-[18px] py-4">
                 <div className="font-space mb-2 flex justify-between gap-3 text-[10px] uppercase tracking-[0.12em]">
-                  <span className={cn('font-bold', TEXTO_TIPO[tipo])}>{tipo}</span>
+                  <span className={cn('font-bold', clase === null ? 'text-tinta-50' : TEXTO_CLASE[clase])}>{voz.category}</span>
                   <span className="text-tinta-30">
                     {voz.provinceId === null
                       ? 'Argentina'

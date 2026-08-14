@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
 import { Control } from '../Chrome';
-import { COLOR_TIPO } from '../paleta';
+import { COLOR_CLASE } from '../paleta';
 import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
@@ -93,7 +93,7 @@ export function useModoTiempo(ctx: ContextoModo): ResultadoModo {
       type: 'FeatureCollection' as const,
       features: visibles.map((s) => ({
         type: 'Feature' as const,
-        properties: { color: COLOR_TIPO[s.tipoVoz] },
+        properties: { color: s.claseSenal === null ? '#8E8A82' : COLOR_CLASE[s.claseSenal] },
         geometry: { type: 'Point' as const, coordinates: [s.lng ?? 0, s.lat ?? 0] },
       })),
     }),

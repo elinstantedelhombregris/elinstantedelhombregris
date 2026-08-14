@@ -2,17 +2,18 @@ import { PROVINCIAS_REF } from '@v2/civic-core';
 import { useEffect, useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
-import { Control, FiltroTipos, LeyendaRampa, Segmentado } from '../Chrome';
-import { COLOR_TIPO, RAMPAS } from '../paleta';
+import { Control, FiltroClases, LeyendaRampa, Segmentado } from '../Chrome';
+import { COLOR_CLASE, RAMPAS } from '../paleta';
 import { AVISO_TEMAS, temasDe } from '../temas';
 import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 import type { SenalConTipo } from '../useVistaMapa';
-import type { TipoVoz } from '~/components/papel/primitives';
+
 
 import { useProvincias } from '~/lib/queries/open-data';
 import { cn } from '~/lib/utils';
+import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
 
 /**
  * Modo Análisis — qué provincia habla, cuánto, y QUÉ DICE.
@@ -60,8 +61,8 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
   const [nivel, setNivel] = useState<NivelGeo>('provincia');
   const [metrica, setMetrica] = useState<Metrica>('total');
   const [rango, setRango] = useState<Rango>('todo');
-  const [tipos, setTipos] = useState<Set<TipoVoz>>(
-    () => new Set(Object.keys(COLOR_TIPO) as TipoVoz[]),
+  const [clases, setClases] = useState<Set<ClaseSenal>>(
+    () => new Set(Object.keys(COLOR_CLASE) as ClaseSenal[]),
   );
   const [rampa, setRampa] = useState<keyof typeof RAMPAS>('violeta');
   const [opacidad, setOpacidad] = useState(0.8);
@@ -88,9 +89,11 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
   const filtradas = useMemo(() => {
     const desde = rango === 'todo' ? 0 : Date.now() - DIAS[rango] * 86_400_000;
     return ctx.todas.filter(
-      (s) => tipos.has(s.tipoVoz) && (rango === 'todo' || Date.parse(s.createdAt) >= desde),
+      (s) =>
+        (s.claseSenal === null || clases.has(s.claseSenal)) &&
+        (rango === 'todo' || Date.parse(s.createdAt) >= desde),
     );
-  }, [ctx.todas, tipos, rango]);
+  }, [ctx.todas, clases, rango]);
 
   /** Las voces agrupadas por nombre de provincia — el GeoJSON no sabe de ids. */
   const porNombre = useMemo(() => {
@@ -142,24 +145,27 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
   const detalle = useMemo(() => {
     if (seleccionada === null) return null;
     const lista = porNombre.get(seleccionada) ?? [];
-    const porTipo = new Map<TipoVoz, number>();
-    for (const s of lista) porTipo.set(s.tipoVoz, (porTipo.get(s.tipoVoz) ?? 0) + 1);
+    const porClase = new Map<ClaseSenal, number>();
+    for (const s of lista) {
+      if (s.claseSenal === null) continue;
+      porClase.set(s.claseSenal, (porClase.get(s.claseSenal) ?? 0) + 1);
+    }
     const valor =
       conValores?.features.find((f) => f.properties.name === seleccionada)?.properties.valor ?? 0;
     return {
       nombre: seleccionada,
       lista,
       valor,
-      porTipo: [...porTipo.entries()].sort((a, b) => b[1] - a[1]),
+      porClase: [...porClase.entries()].sort((a, b) => b[1] - a[1]),
       temas: temasDe(lista.map((s) => s.texto)),
     };
   }, [seleccionada, porNombre, conValores]);
 
-  const alternarTipo = (tipo: TipoVoz) => {
-    setTipos((previo) => {
+  const alternarClase = (clase: ClaseSenal) => {
+    setClases((previo) => {
       const siguiente = new Set(previo);
-      if (siguiente.has(tipo)) siguiente.delete(tipo);
-      else siguiente.add(tipo);
+      if (siguiente.has(clase)) siguiente.delete(clase);
+      else siguiente.add(clase);
       return siguiente;
     });
   };
@@ -231,7 +237,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         </Control>
 
         <Control etiqueta="Tipos de voz">
-          <FiltroTipos activos={tipos} onAlternar={alternarTipo} />
+          <FiltroClases activos={clases} onAlternar={alternarClase} />
           <p className="text-oscuro-meta mt-2 text-[11px]">
             {filtradas.length.toLocaleString('es-AR')} voces pasan los filtros.
           </p>
@@ -314,15 +320,15 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
             ) : (
               <>
                 <ul className="mt-3 space-y-1">
-                  {detalle.porTipo.map(([tipo, n]) => (
-                    <li key={tipo} className="flex items-center gap-2">
+                  {detalle.porClase.map(([clase, n]) => (
+                    <li key={clase} className="flex items-center gap-2">
                       <span
                         aria-hidden
                         className="h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ backgroundColor: COLOR_TIPO[tipo] }}
+                        style={{ backgroundColor: COLOR_CLASE[clase] }}
                       />
                       <span className="font-space text-oscuro-secundario text-[11px] uppercase">
-                        {tipo}
+                        {CLASE_ROTULO[clase]}
                       </span>
                       <span className="font-space text-oscuro-meta ml-auto text-[11px] tabular-nums">
                         {n}
@@ -358,7 +364,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
                     <li
                       key={s.id}
                       className="border-l-2 pl-2.5"
-                      style={{ borderColor: COLOR_TIPO[s.tipoVoz] }}
+                      style={{ borderColor: s.claseSenal === null ? '#8E8A82' : COLOR_CLASE[s.claseSenal] }}
                     >
                       <p className="text-oscuro-secundario text-[12px] leading-snug">«{s.texto}»</p>
                     </li>

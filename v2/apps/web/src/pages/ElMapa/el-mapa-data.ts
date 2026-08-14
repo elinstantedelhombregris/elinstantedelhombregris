@@ -1,57 +1,56 @@
-import type { TipoVoz } from '~/components/papel/primitives';
-
-import { TIPOS_VOZ, tipoParaPintar } from '~/lib/tipos-voz';
-
-/** Los 6 tipos en el orden del panel (§7) — fuente única en `lib/tipos-voz.ts`. */
-export { TIPOS_VOZ };
+import {
+  CLASE_BORDE,
+  CLASE_FONDO,
+  CLASE_TEXTO,
+  PROMPT_DE_TIPO,
+  PROMPT_NEUTRO,
+  TIPOS_SENAL,
+  claseDe,
+  leerTipoSenal,
+  type ClaseSenal,
+  type TipoSenal,
+} from '~/lib/vocabulario';
 
 /**
- * Con qué color se dibuja una categoría. El pliegue de lo que no está en la
- * paleta vive UNA vez, en `lib/tipos-voz.ts`, y acá sólo se lo usa: mientras
- * estuvo copiado en cuatro archivos, migrar el vocabulario significaba
- * encontrar las cuatro copias.
+ * Las tablas de color del mapa sobre PAPEL, llaveadas por CLASE.
+ *
+ * Antes eran tres `Record<TipoVoz, string>` de seis entradas cada una, más las
+ * dos del chrome oscuro, más la del chip: cinco tablas paralelas que había que
+ * editar juntas o el vocabulario quedaba a medias. Ahora son punteros a las
+ * cuatro de `lib/vocabulario.ts`, y el color de un tipo nuevo sale solo de
+ * haberlo clasificado.
  */
-export function tipoDeCategoria(categoria: string | null): TipoVoz {
-  return tipoParaPintar(categoria);
-}
+export { TIPOS_SENAL, claseDe };
+export type { ClaseSenal, TipoSenal };
 
 /** Relleno de los puntos del mapa. */
-export const FILL_TIPO: Record<TipoVoz, string> = {
-  basta: 'fill-sello',
-  sueño: 'fill-violeta',
-  necesidad: 'fill-ambar',
-  compromiso: 'fill-verde',
-  recurso: 'fill-cian',
-  valor: 'fill-tinta',
+export const FILL_CLASE: Readonly<Record<ClaseSenal, string>> = {
+  hecho: 'fill-ambar',
+  deseo: 'fill-violeta',
+  acto: 'fill-verde',
+  meta: 'fill-cian',
 };
 
-/** Color del label de tipo en el feed (sobre papel). */
-export const TEXTO_TIPO: Record<TipoVoz, string> = {
-  basta: 'text-sello',
-  sueño: 'text-violeta',
-  necesidad: 'text-ambar',
-  compromiso: 'text-verde',
-  recurso: 'text-cian',
-  valor: 'text-tinta',
-};
+/** Color del label en el feed (sobre papel). */
+export const TEXTO_CLASE = CLASE_TEXTO;
 
-/** Borde izquierdo del popover (el color va en el borde, no en texto sobre oscuro — AA). */
-export const BORDE_TIPO: Record<TipoVoz, string> = {
-  basta: 'border-sello',
-  sueño: 'border-violeta',
-  necesidad: 'border-ambar',
-  compromiso: 'border-verde',
-  recurso: 'border-cian',
-  valor: 'border-papel',
-};
+/** Borde izquierdo del popover — el color va en el borde y no en texto sobre oscuro (AA). */
+export const BORDE_CLASE = CLASE_BORDE;
 
-export const PLACEHOLDER_NEUTRO = 'Elegí un tipo y decilo como te sale.';
+export const FONDO_CLASE = CLASE_FONDO;
 
-export const PLACEHOLDER_TIPO: Record<TipoVoz, string> = {
-  basta: '¿De qué te cansaste? Decilo sin filtro.',
-  sueño: '¿Qué país te imaginás? Escribilo como si ya existiera.',
-  necesidad: '¿Qué falta donde vivís? Nombralo concreto.',
-  compromiso: '¿Qué vas a hacer vos? Prometé poco y cumplilo.',
-  recurso: '¿Qué sabés hacer, qué tenés para prestar? Ofrecelo.',
-  valor: '¿Qué no se negocia para vos? Dejalo por escrito.',
-};
+export const PLACEHOLDER_NEUTRO = PROMPT_NEUTRO;
+export const PLACEHOLDER_TIPO = PROMPT_DE_TIPO;
+
+/**
+ * La clase de una categoría que viene de la base, para PINTAR.
+ *
+ * Devuelve `null` cuando no la reconoce. El `tipoDeCategoria` que reemplaza
+ * hacía `?? 'valor'` y por eso una fila con un tipo mal escrito se pintaba como
+ * si fuera algo — indistinguible de una legítima, y sesgando cualquier cuenta
+ * que se hiciera sobre esa lectura.
+ */
+export function claseDeCategoria(categoria: string | null): ClaseSenal | null {
+  const lectura = leerTipoSenal(categoria ?? '');
+  return lectura.reconocido ? claseDe(lectura.tipo) : null;
+}

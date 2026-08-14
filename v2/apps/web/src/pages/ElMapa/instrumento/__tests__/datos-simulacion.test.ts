@@ -26,7 +26,7 @@ const senal = (provinceId: number | null, createdAt: string): SenalConTipo => ({
   id: `voz:${String(provinceId)}-${createdAt}`,
   capa: 'voz',
   tipo: 'basta',
-  tipoVoz: 'basta',
+  claseSenal: 'hecho' as const,
   texto: 'TEST',
   lat: null,
   lng: null,
@@ -89,13 +89,16 @@ describe('estadoMedidoDesde', () => {
   /**
    * El vocabulario con que entra una voz al motor.
    *
-   * Entraba `s.tipoVoz`, que es el resultado de la PALETA de la web: seis tipos
+   * Entraba `s.tipoVoz`, que era el resultado de la PALETA de la web: seis tipos
    * y un `?? 'valor'` para todo lo demás. O sea que una categoría que el
    * catálogo no tiene llegaba al motor afirmando ser un `valor`, que es un tipo
    * real y que además no existe en el canon.
    */
   it('el tipo entra crudo y leído contra el canon, no pintado', () => {
-    const rara = { ...senal(1, '2026-08-01T00:00:00.000Z'), tipo: 'otra_cosa', tipoVoz: 'valor' as const };
+    // `claseSenal: null` es lo que hoy devuelve `claseDeCategoria` para algo
+    // fuera del canon. Antes era `'valor'`, o sea un tipo real: la señal rara
+    // se contaba como si fuera algo.
+    const rara = { ...senal(1, '2026-08-01T00:00:00.000Z'), tipo: 'otra_cosa', claseSenal: null };
     const e = estadoMedidoDesde([rara], PROVINCIAS, ahora);
     expect(e.voces[0]?.tipo).toEqual({ reconocido: false, crudo: 'otra_cosa' });
   });
@@ -107,7 +110,7 @@ describe('estadoMedidoDesde', () => {
     const con = (tipo: string) =>
       armarPais(
         estadoMedidoDesde(
-          [{ ...senal(1, '2026-08-01T00:00:00.000Z'), tipo, tipoVoz: 'valor' as const }],
+          [{ ...senal(1, '2026-08-01T00:00:00.000Z'), tipo, claseSenal: null }],
           PROVINCIAS,
           ahora,
         ),

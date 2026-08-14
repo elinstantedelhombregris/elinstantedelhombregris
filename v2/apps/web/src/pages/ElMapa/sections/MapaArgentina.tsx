@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { FILL_TIPO, tipoDeCategoria } from '../el-mapa-data';
+import { FILL_CLASE, claseDeCategoria } from '../el-mapa-data';
 import { Lienzo } from '../lienzo/Lienzo';
 import { etiquetaDePrecision, precisionValida } from '../lienzo/precision';
 import { useAltitud } from '../lienzo/useAltitud';
@@ -94,14 +94,14 @@ export function MapaArgentina() {
         .filter((voz) => typeof voz.lat === 'number' && typeof voz.lng === 'number')
         .map((voz) => {
           const precision = precisionValida(voz.precision);
-          const tipo = tipoDeCategoria(voz.category);
+          const clase = claseDeCategoria(voz.category);
           return {
             id: `voz-${String(voz.id)}`,
             lat: voz.lat,
             lng: voz.lng,
             precision: voz.precision,
-            fill: FILL_TIPO[tipo],
-            etiqueta: `${tipo}: «${voz.body.slice(0, 80)}» — ${etiquetaDePrecision(precision)}`,
+            fill: clase === null ? 'fill-tinta-50' : FILL_CLASE[clase],
+            etiqueta: `${voz.category ?? 'sin tipo'}: «${voz.body.slice(0, 80)}» — ${etiquetaDePrecision(precision)}`,
           };
         }),
     [voces.data],

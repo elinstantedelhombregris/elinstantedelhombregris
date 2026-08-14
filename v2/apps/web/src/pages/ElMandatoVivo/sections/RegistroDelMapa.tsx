@@ -1,4 +1,4 @@
-import { RELLENO_TIPO_OSCURO } from '../el-mandato-data';
+import { rellenoDeTipo } from '../el-mandato-data';
 import { formatoPorcentaje, plegarTipos, regimenDe } from '../mandato-regimen';
 
 import { Palitos } from '~/components/papel/primitives';
@@ -42,12 +42,12 @@ export function RegistroDelMapa() {
               {regimen === 'porcentaje' ? (
                 <div aria-hidden className="bg-oscuro-barra relative h-[22px]">
                   <div
-                    className={cn('anim-growbar absolute inset-y-0 left-0', RELLENO_TIPO_OSCURO[tipo])}
+                    className={cn('anim-growbar absolute inset-y-0 left-0', rellenoDeTipo(tipo))}
                     style={{ width: `${String((total / maximo) * 100)}%`, animationDelay: `${String(i * 0.08)}s` }}
                   />
                 </div>
               ) : (
-                <Palitos n={total} claseRelleno={RELLENO_TIPO_OSCURO[tipo]} />
+                <Palitos n={total} claseRelleno={rellenoDeTipo(tipo)} />
               )}
               <span className="font-space text-oscuro-meta text-right text-[13px]">
                 {regimen === 'porcentaje'

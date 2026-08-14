@@ -42,6 +42,7 @@ function soltarVozRapido() {
   fireEvent.change(screen.getByLabelText('Tu voz'), {
     target: { value: 'Basta de laburar para el alquiler.' },
   });
+  fireEvent.click(screen.getByLabelText(/identificador al azar/i));
   fireEvent.click(screen.getByRole('button', { name: 'Soltar la voz →' }));
 }
 
@@ -56,7 +57,7 @@ describe('el paso de precisión es opcional (spec 2 §6, D2)', () => {
     // precisión declarada. Los 30 segundos son la ley de esta página.
     expect(input.punto).toBeUndefined();
     expect(input.precisionPedida).toBeUndefined();
-    expect(input.body).toBe('Basta de laburar para el alquiler.');
+    expect(input.texto).toBe('Basta de laburar para el alquiler.');
   });
 
   it('el selector aparece pero no es requisito para poder enviar', () => {
@@ -67,6 +68,7 @@ describe('el paso de precisión es opcional (spec 2 §6, D2)', () => {
     // botón sigue deshabilitado sin tipo o sin texto, como siempre.
     fireEvent.click(screen.getByRole('button', { name: /basta/i }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Basta.' } });
+    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
     expect(screen.getByRole('button', { name: 'Soltar la voz →' })).not.toBeDisabled();
   });
 

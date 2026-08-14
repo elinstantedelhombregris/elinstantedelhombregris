@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import type { TipoVoz } from '~/components/papel/primitives';
+import type { TipoSenal } from '~/components/papel/primitives';
 
 import { api } from '~/lib/api';
 
@@ -57,17 +57,37 @@ export function useVocesPorProvincia() {
   });
 }
 
+/**
+ * El cuerpo del contrato `basta-senal/v1`.
+ *
+ * Cambió entero: antes era `{body, category}` contra `/api/open-data/dreams`,
+ * con `category` como texto libre y los seis tipos viejos. Ahora es el contrato
+ * único de la spec B §4.7, con los nueve del canon y los tres campos que la
+ * base exige y que un default no puede inventar — `casa`, `cedeLicencia` y,
+ * según el tipo, la fecha, la fuente o la periodicidad.
+ */
 export interface SoltarVozInput {
-  body: string;
-  category: TipoVoz;
+  contrato: string;
+  idLocal: string;
+  tipo: TipoSenal;
+  texto: string;
+  casa: string;
+  cedeLicencia: boolean;
+  titulo?: string | null;
+  fuente?: string | null;
+  firma?: string | null;
+  comprometidoPara?: string | null;
+  periodicidad?: string | null;
+  sostenidaPor?: string | null;
   provinceId?: number;
-  /** Opcional (D2): la precisión la elige quien habla. Sin esto, provincia. */
   punto?: { lat: number; lng: number };
   precisionPedida?: string;
+  aceptaEngrosado?: boolean;
 }
 
 export interface VozSoltada {
-  id: number;
+  idPublico: string;
+  yaExistia: boolean;
   /**
    * Opcionales a propósito. La confirmación de la voz soltada es la conversión
    * primaria del sitio: no puede romperse porque una respuesta venga sin un
@@ -77,6 +97,9 @@ export interface VozSoltada {
   precisionPublicada?: string;
   /** Por qué el servidor engrosó la precisión, cuando la engrosó. */
   engrosado?: string | null;
+  /** Qué se retiró de la dirección y por qué. */
+  direccionRetirada?: string | null;
+  avisos?: readonly string[];
 }
 
 /**
@@ -88,11 +111,12 @@ export interface VozSoltada {
 export function useSoltarVoz() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (input: SoltarVozInput) => api.post<VozSoltada>('/api/open-data/dreams', input),
+    mutationFn: (input: SoltarVozInput) => api.post<VozSoltada>('/api/v1/civic/senales', input),
     onSuccess: async () => {
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: ['open-data'] }),
         queryClient.invalidateQueries({ queryKey: ['analytics'] }),
+        queryClient.invalidateQueries({ queryKey: ['senales'] }),
       ]);
     },
   });

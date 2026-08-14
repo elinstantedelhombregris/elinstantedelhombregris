@@ -1,15 +1,24 @@
 import type { Urgencia } from './mandato-regimen';
-import type { TipoVoz } from '~/components/papel/primitives';
 
-/** Relleno de barra/palito por tipo, EN OSCURO ('valor' usa papel: tinta sobre tinta no se ve — Decisión 8). */
-export const RELLENO_TIPO_OSCURO: Record<TipoVoz, string> = {
-  basta: 'bg-sello',
-  sueño: 'bg-violeta',
-  necesidad: 'bg-ambar',
-  compromiso: 'bg-verde',
-  recurso: 'bg-cian',
-  valor: 'bg-papel',
+import { claseDe, type ClaseSenal, type TipoSenal } from '~/lib/vocabulario';
+
+/**
+ * Relleno de barra/palito EN OSCURO, por CLASE.
+ *
+ * Era un `Record` de seis tipos con `valor: 'bg-papel'` — la excepción existía
+ * porque `valor` se pintaba `tinta` y tinta sobre tinta no se ve. Con el color
+ * llaveado en la clase la excepción desaparece sola: las cuatro se distinguen
+ * sobre el fondo oscuro sin casos especiales.
+ */
+export const RELLENO_CLASE_OSCURO: Record<ClaseSenal, string> = {
+  hecho: 'bg-ambar',
+  deseo: 'bg-violeta',
+  acto: 'bg-verde',
+  meta: 'bg-cian',
 };
+
+/** El relleno que le toca a un tipo, vía su clase. */
+export const rellenoDeTipo = (tipo: TipoSenal): string => RELLENO_CLASE_OSCURO[claseDe(tipo)];
 
 /** Borde + texto del tag de urgencia (sobre papel). */
 export const CLASE_URGENCIA: Record<Urgencia, string> = {

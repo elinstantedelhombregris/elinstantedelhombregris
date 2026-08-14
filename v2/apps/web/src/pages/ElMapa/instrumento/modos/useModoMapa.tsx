@@ -3,17 +3,17 @@ import { useCallback, useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
 import { escribirAreaEnHash } from '../area-url';
-import { Control, FiltroTipos } from '../Chrome';
+import { Control, FiltroClases } from '../Chrome';
 import { contarArea } from '../conteo';
 import { anilloCerrado } from '../geojson';
 import { LazoOverlay } from '../LazoOverlay';
-import { COLOR_TIPO } from '../paleta';
+import { COLOR_CLASE } from '../paleta';
 import { PanelArea } from '../PanelArea';
 import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 import type { GeoPoint } from '@v2/civic-core';
-import type { TipoVoz } from '~/components/papel/primitives';
+import type { ClaseSenal } from '~/lib/vocabulario';
 
 import { cn } from '~/lib/utils';
 
@@ -36,15 +36,18 @@ const METROS_POR_PRECISION: Partial<Record<string, number>> = {
 };
 
 export function useModoMapa(ctx: ContextoModo): ResultadoModo {
-  const [tiposActivos, setTiposActivos] = useState<Set<TipoVoz>>(
-    () => new Set(Object.keys(COLOR_TIPO) as TipoVoz[]),
+  const [clasesActivas, setClasesActivas] = useState<Set<ClaseSenal>>(
+    () => new Set(Object.keys(COLOR_CLASE) as ClaseSenal[]),
   );
   const [lazoActivo, setLazoActivo] = useState(false);
   const [poligono, setPoligono] = useState<GeoPoint[] | null>(null);
 
   const visibles = useMemo(
-    () => ctx.senales.filter((s) => tiposActivos.has(s.tipoVoz)),
-    [ctx.senales, tiposActivos],
+    // Lo que el canon no reconoce NO se filtra afuera en silencio: entra
+    // siempre, porque esconderlo detrás de un chip que no existe sería
+    // desaparecer datos sin que nadie pueda pedirlos.
+    () => ctx.senales.filter((s) => s.claseSenal === null || clasesActivas.has(s.claseSenal)),
+    [ctx.senales, clasesActivas],
   );
 
   const conPunto = useMemo(
@@ -58,7 +61,7 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
       features: conPunto.map((s) => ({
         type: 'Feature' as const,
         properties: {
-          color: COLOR_TIPO[s.tipoVoz],
+          color: s.claseSenal === null ? '#8E8A82' : COLOR_CLASE[s.claseSenal],
           halo: METROS_POR_PRECISION[s.precision] ?? 0,
           nitido: s.precision === 'exact' ? 1 : 0,
         },
@@ -118,11 +121,11 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
     [ctx.mapaRef],
   );
 
-  const alternarTipo = (tipo: TipoVoz) => {
-    setTiposActivos((previo) => {
+  const alternarClase = (clase: ClaseSenal) => {
+    setClasesActivas((previo) => {
       const siguiente = new Set(previo);
-      if (siguiente.has(tipo)) siguiente.delete(tipo);
-      else siguiente.add(tipo);
+      if (siguiente.has(clase)) siguiente.delete(clase);
+      else siguiente.add(clase);
       return siguiente;
     });
   };
@@ -135,7 +138,7 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
     panel: (
       <>
         <Control etiqueta="Tipos de voz">
-          <FiltroTipos activos={tiposActivos} onAlternar={alternarTipo} />
+          <FiltroClases activos={clasesActivas} onAlternar={alternarClase} />
         </Control>
 
         <Control etiqueta="Herramienta">

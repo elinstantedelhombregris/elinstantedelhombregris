@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { BORDE_TIPO, tipoDeCategoria } from '../el-mapa-data';
+import { BORDE_CLASE, claseDeCategoria } from '../el-mapa-data';
 
 import type { VozAbierta } from '~/lib/queries/open-data';
 
@@ -43,7 +43,7 @@ export function PopoverVoz({
 
   const voz = voces[idx] ?? voces[0];
   if (!voz) return null;
-  const tipo = tipoDeCategoria(voz.category);
+  const clase = claseDeCategoria(voz.category);
 
   return (
     <div
@@ -54,11 +54,13 @@ export function PopoverVoz({
       }}
       className={cn(
         'anim-fadeup bg-tinta text-papel absolute right-6 top-6 w-[min(300px,80%)] border-l-2 p-5',
-        BORDE_TIPO[tipo],
+        clase === null ? 'border-papel' : BORDE_CLASE[clase],
       )}
     >
       <div className="mb-2.5 flex items-baseline justify-between gap-3">
-        <span className="font-space text-[10px] font-bold uppercase tracking-[0.14em]">{tipo}</span>
+        <span className="font-space text-[10px] font-bold uppercase tracking-[0.14em]">
+          {voz.category ?? 'sin tipo'}
+        </span>
         <button
           ref={cerrarRef}
           type="button"

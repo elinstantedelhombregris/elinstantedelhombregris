@@ -3,9 +3,7 @@
  * según cuántos datos reales hay. Puro y testeado — la política de
  * «cero porcentajes inventados» vive acá, no repartida por el JSX.
  */
-import type { TipoVoz } from '~/components/papel/primitives';
-
-import { leerTipoVoz } from '~/lib/tipos-voz';
+import { leerTipoSenal, type TipoSenal } from '~/lib/vocabulario';
 
 export const UMBRAL_PORCENTAJE = 100;
 
@@ -35,7 +33,7 @@ export function humanizarTema(tema: string): string {
 }
 
 export interface ConteoTipo {
-  tipo: TipoVoz;
+  tipo: TipoSenal;
   total: number;
 }
 
@@ -55,10 +53,10 @@ export interface ConteoDeTipos {
 
 /** Cuenta por tipo de la paleta y ordena desc, sin plegar lo que no reconoce. */
 export function plegarTipos(porTipo: readonly { tipo: string | null; total: number }[]): ConteoDeTipos {
-  const acumulado = new Map<TipoVoz, number>();
+  const acumulado = new Map<TipoSenal, number>();
   let sinReconocer = 0;
   for (const fila of porTipo) {
-    const lectura = leerTipoVoz(fila.tipo);
+    const lectura = leerTipoSenal(fila.tipo ?? '');
     if (!lectura.reconocido) {
       sinReconocer += fila.total;
       continue;

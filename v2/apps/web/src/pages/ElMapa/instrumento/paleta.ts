@@ -1,47 +1,27 @@
-import type { TipoVoz } from '~/components/papel/primitives';
-
-import { tipoParaPintar } from '~/lib/tipos-voz';
+import { CLASE_COLOR_OSCURO, colorDeClase, type ClaseSenal } from '~/lib/vocabulario';
 
 /**
- * La paleta de las señales SOBRE FONDO OSCURO.
+ * La paleta de las señales SOBRE FONDO OSCURO, llaveada por CLASE.
  *
- * No es la misma que sobre papel, y no puede serlo: `tinta` (#16130E) es el
- * color del tipo «valor» sobre papel y es exactamente el color del fondo acá —
- * sería un punto invisible. Lo mismo con el violeta, que sobre oscuro necesita
- * su variante clara para leerse.
+ * No es la misma que sobre papel y no puede serlo: el violeta normal (#5227CC)
+ * se hunde en el fondo #16130E y necesita su variante clara. Los valores salen
+ * de `tailwind.config.ts` y se declaran en hexadecimal porque maplibre pinta en
+ * WebGL: no entiende clases de Tailwind.
  *
- * Todos los valores salen de `tailwind.config.ts`. Se declaran en hexadecimal
- * porque maplibre pinta en WebGL: no entiende clases de Tailwind.
+ * `TIPOS` —la lista de seis que vivía acá— se borró: el grep no le encontró un
+ * solo consumidor.
  */
-export const COLOR_TIPO: Record<TipoVoz, string> = {
-  basta: '#C23B22', // sello
-  sueño: '#9D85E8', // violeta claro — el violeta normal se hunde en el fondo
-  necesidad: '#A16C00', // ámbar
-  compromiso: '#1A7A4A', // verde
-  recurso: '#0F6B8A', // cian
-  valor: '#C9C5BA', // oscuro-secundario — sobre papel es tinta, acá sería el fondo
-};
-
-/** El orden del panel y de la barra de composición. */
-export const TIPOS: readonly TipoVoz[] = [
-  'basta',
-  'sueño',
-  'necesidad',
-  'compromiso',
-  'recurso',
-  'valor',
-];
+export const COLOR_CLASE: Readonly<Record<ClaseSenal, string>> = CLASE_COLOR_OSCURO;
 
 /**
- * Con qué color se dibuja una categoría sobre el chrome oscuro.
+ * Con qué color se dibuja una señal sobre el chrome oscuro.
  *
- * El pliegue de lo que no está en la paleta vive UNA vez, en
- * `lib/tipos-voz.ts`. Acá pintar es lo único que se hace con el resultado: lo
- * que **cuenta** usa `leerTipoVoz`, y lo que entra al motor de la Simulación
- * usa `leerTipo` del canon y no pasa por esta paleta.
+ * Devuelve `null` cuando no reconoce la clase, y eso es deliberado: el
+ * `?? 'valor'` que vivía acá hacía indistinguible una clase que no existe de
+ * una que sí, y cualquier cuenta hecha sobre esa lectura quedaba sesgada.
  */
-export function tipoDe(categoria: string | null): TipoVoz {
-  return tipoParaPintar(categoria);
+export function colorDe(clase: string | null): string | null {
+  return colorDeClase(clase);
 }
 
 /** Superficies del chrome oscuro, para no repetir los hex por todos lados. */
