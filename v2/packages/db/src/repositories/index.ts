@@ -83,3 +83,12 @@ export type {
   VectorEmbebido,
   VectorParaGuardar,
 } from './analisis.js';
+
+export { SenalesRepository } from './senales.js';
+export type {
+  FiltroDeSenales,
+  NewSenal,
+  ResultadoDeIngesta,
+  Senal,
+  SenalPublica,
+} from './senales.js';
