@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Taller de noventa minutos para diseñar un prototipo</title>
+  <desc id="desc">Cronograma que avanza desde propósito y personas hasta evidencia del ideal, resguardos, palanca, prototipo y una decisión previa.</desc>
+  <defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#17131d" opacity=".16"/></pattern></defs>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <text x="60" y="78" fill="#17131d" font-family="Arial, sans-serif" font-size="35" font-weight="700">90 MINUTOS PARA SALIR CON UNA DECISIÓN</text>
+  <text x="60" y="116" fill="#525a61" font-family="Arial, sans-serif" font-size="20">El ideal orienta. El prototipo produce evidencia. Los resguardos evitan que aprender dañe.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="60" y="170" width="180" height="280" fill="#d6d8d7" stroke="#17131d" stroke-width="3"/>
+    <rect x="240" y="170" width="240" height="280" fill="url(#dots)" stroke="#17131d" stroke-width="3"/>
+    <rect x="480" y="170" width="180" height="280" fill="#525a61" stroke="#17131d" stroke-width="3"/>
+    <rect x="660" y="170" width="240" height="280" fill="#d6d8d7" stroke="#17131d" stroke-width="3"/>
+    <rect x="900" y="170" width="240" height="280" fill="#a72c35" stroke="#17131d" stroke-width="3"/>
+    <g font-size="18" font-weight="700">
+      <text x="82" y="205" fill="#a72c35">0–15 MIN</text><text x="82" y="244" fill="#17131d" font-size="24">PROPÓSITO</text><text x="82" y="274" fill="#17131d" font-size="24">Y PERSONAS</text><text x="82" y="330" fill="#525a61" font-weight="400">Para quién existe</text><text x="82" y="358" fill="#525a61" font-weight="400">y qué daño evita</text>
+      <text x="262" y="205" fill="#a72c35">15–35 MIN</text><text x="262" y="244" fill="#17131d" font-size="24">EVIDENCIA</text><text x="262" y="274" fill="#17131d" font-size="24">DEL IDEAL</text><text x="262" y="330" fill="#525a61" font-weight="400">Una escena futura</text><text x="262" y="358" fill="#525a61" font-weight="400">observable y fechada</text>
+      <text x="502" y="205" fill="#f2eadb">35–50 MIN</text><text x="502" y="244" fill="#f2eadb" font-size="24">RESGUARDOS</text><text x="502" y="304" fill="#f2eadb" font-weight="400">Poder · datos</text><text x="502" y="332" fill="#f2eadb" font-weight="400">exclusión · salida</text><text x="502" y="376" fill="#f2eadb" font-weight="400">¿quién puede perder?</text>
+      <text x="682" y="205" fill="#a72c35">50–70 MIN</text><text x="682" y="244" fill="#17131d" font-size="24">BRECHA</text><text x="682" y="274" fill="#17131d" font-size="24">Y PALANCA</text><text x="682" y="330" fill="#525a61" font-weight="400">Una regla, flujo</text><text x="682" y="358" fill="#525a61" font-weight="400">o incentivo candidato</text>
+      <text x="922" y="205" fill="#f2eadb">70–90 MIN</text><text x="922" y="244" fill="#f2eadb" font-size="24">PROTOTIPO</text><text x="922" y="274" fill="#f2eadb" font-size="24">Y UMBRAL</text><text x="922" y="330" fill="#f2eadb" font-weight="400">30 días · reversible</text><text x="922" y="358" fill="#f2eadb" font-weight="400">resultado + daño</text>
+    </g>
+  </g>
+  <path d="M85 510H1115" stroke="#17131d" stroke-width="5"/><path d="m1090 492 25 18-25 18" fill="none" stroke="#17131d" stroke-width="5"/>
+  <text x="60" y="570" fill="#17131d" font-family="Arial, sans-serif" font-size="21" font-weight="700">DECIDAN ANTES DE EMPEZAR QUÉ RESULTADO SIGNIFICA:</text>
+  <g font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle">
+    <rect x="60" y="600" width="330" height="70" fill="#17131d"/><text x="225" y="644" fill="#f2eadb">ESCALAR</text>
+    <rect x="435" y="600" width="330" height="70" fill="#aeb4b7" stroke="#17131d" stroke-width="2"/><text x="600" y="644" fill="#17131d">CORREGIR</text>
+    <rect x="810" y="600" width="330" height="70" fill="none" stroke="#a72c35" stroke-width="5"/><text x="975" y="644" fill="#a72c35">DETENER</text>
+  </g>
+</svg>

@@ -11,12 +11,12 @@
     <rect x="360" y="565" width="220" height="64"/><text x="470" y="592" fill="#17131d">DECEPCIÓN</text><text x="470" y="615" fill="#17131d">Y OLVIDO</text>
     <rect x="120" y="375" width="180" height="64"/><text x="210" y="402" fill="#17131d">PODER SIN</text><text x="210" y="425" fill="#17131d">CONTRAPESO</text>
   </g>
-  <rect x="880" y="145" width="260" height="420" fill="#573c73" stroke="#17131d" stroke-width="4"/>
+  <rect x="880" y="145" width="260" height="420" fill="#525a61" stroke="#17131d" stroke-width="4"/>
   <text x="1010" y="195" text-anchor="middle" fill="#f2eadb" font-family="Arial, sans-serif" font-size="27" font-weight="700">LA SALIDA</text>
   <g fill="#f2eadb" font-family="Arial, sans-serif" font-size="21">
     <text x="920" y="255">1. Pausá</text><text x="920" y="310">2. Nombrá el ciclo</text><text x="920" y="365">3. Buscá evidencia</text><text x="920" y="420">4. Anotá el desenlace</text><text x="920" y="475">5. Exigí métricas</text>
   </g>
-  <text x="1010" y="535" text-anchor="middle" fill="#f3bd54" font-family="Arial, sans-serif" font-size="19" font-weight="700">MEMORIA &gt; REACCIÓN</text>
+  <text x="1010" y="535" text-anchor="middle" fill="#e5dac7" font-family="Arial, sans-serif" font-size="19" font-weight="700">MEMORIA &gt; REACCIÓN</text>
   <path d="M820 355H875" stroke="#17131d" stroke-width="6"/><path d="m850 335 25 20-25 20" fill="none" stroke="#17131d" stroke-width="6"/>
   <text x="60" y="685" fill="#17131d" font-family="Arial, sans-serif" font-size="22">Una intuición se vuelve análisis cuando puede anticipar qué observar después.</text>
 </svg>

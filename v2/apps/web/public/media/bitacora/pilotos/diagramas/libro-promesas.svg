@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">El ciclo del libro mayor de promesas</title>
+  <desc id="desc">Una promesa gana confianza cuando tiene responsable y fecha, produce una acción, muestra evidencia y se cierra o renegocia antes de vencer.</desc>
+  <defs><pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#17131d" opacity=".16"/></pattern></defs>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <text x="60" y="78" fill="#17131d" font-family="Arial, sans-serif" font-size="35" font-weight="700">LA PALABRA SE VUELVE CONFIABLE CUANDO DEJA RASTRO</text>
+  <text x="60" y="116" fill="#525a61" font-family="Arial, sans-serif" font-size="20">Un ritual semanal de quince minutos: no vigila personas, vuelve predecible el trabajo compartido.</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g><rect x="65" y="190" width="235" height="250" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/><circle cx="182" cy="230" r="25" fill="#a72c35"/><text x="182" y="238" fill="#f2eadb" font-size="22" font-weight="700">1</text><text x="182" y="296" fill="#17131d" font-size="24" font-weight="700">PROMETER</text><text x="182" y="344" fill="#525a61" font-size="17">acción concreta</text><text x="182" y="372" fill="#525a61" font-size="17">responsable + fecha</text></g>
+    <g><rect x="345" y="190" width="235" height="250" fill="url(#dots)" stroke="#17131d" stroke-width="4"/><circle cx="462" cy="230" r="25" fill="#525a61"/><text x="462" y="238" fill="#f2eadb" font-size="22" font-weight="700">2</text><text x="462" y="296" fill="#17131d" font-size="24" font-weight="700">HACER</text><text x="462" y="344" fill="#525a61" font-size="17">pedir ayuda antes</text><text x="462" y="372" fill="#525a61" font-size="17">de desaparecer</text></g>
+    <g><rect x="625" y="190" width="235" height="250" fill="#aeb4b7" stroke="#17131d" stroke-width="4"/><circle cx="742" cy="230" r="25" fill="#17131d"/><text x="742" y="238" fill="#f2eadb" font-size="22" font-weight="700">3</text><text x="742" y="296" fill="#17131d" font-size="24" font-weight="700">MOSTRAR</text><text x="742" y="344" fill="#17131d" font-size="17">enlace · acta</text><text x="742" y="372" fill="#17131d" font-size="17">foto · resultado</text></g>
+    <g><rect x="905" y="190" width="235" height="250" fill="#525a61" stroke="#17131d" stroke-width="4"/><circle cx="1022" cy="230" r="25" fill="#a72c35"/><text x="1022" y="238" fill="#f2eadb" font-size="22" font-weight="700">4</text><text x="1022" y="296" fill="#f2eadb" font-size="24" font-weight="700">CERRAR</text><text x="1022" y="344" fill="#f2eadb" font-size="17">cumplir o renegociar</text><text x="1022" y="372" fill="#f2eadb" font-size="17">antes del vencimiento</text></g>
+  </g>
+  <g fill="none" stroke="#a72c35" stroke-width="5"><path d="M300 315h40"/><path d="m325 300 15 15-15 15"/><path d="M580 315h40"/><path d="m605 300 15 15-15 15"/><path d="M860 315h40"/><path d="m885 300 15 15-15 15"/></g>
+  <text x="60" y="520" fill="#17131d" font-family="Arial, sans-serif" font-size="21" font-weight="700">DOS NÚMEROS, UNA CONVERSACIÓN</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="60" y="550" width="510" height="110" fill="#17131d"/><text x="315" y="594" fill="#f2eadb" font-size="20" font-weight="700">% DE PROMESAS CERRADAS</text><text x="315" y="630" fill="#aeb4b7" font-size="17">¿Nuestra palabra produce expectativa razonable?</text>
+    <rect x="630" y="550" width="510" height="110" fill="none" stroke="#a72c35" stroke-width="5"/><text x="885" y="594" fill="#a72c35" font-size="20" font-weight="700">% RENEGOCIADO A TIEMPO</text><text x="885" y="630" fill="#525a61" font-size="17">¿Podemos reparar antes de romper confianza?</text>
+  </g>
+</svg>

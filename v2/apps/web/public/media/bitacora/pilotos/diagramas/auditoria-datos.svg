@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Auditoría ciudadana de un sistema de datos</title>
+  <desc id="desc">Seis preguntas para evaluar propósito, datos, operación, decisiones, auditoría y apelación de un sistema público basado en datos.</desc>
+  <defs><pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#17131d" stroke-width="1" opacity=".12"/></pattern></defs>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <text x="60" y="76" fill="#17131d" font-family="Arial, sans-serif" font-size="35" font-weight="700">AUDITORÍA CIUDADANA EN DIEZ MINUTOS</text>
+  <text x="60" y="114" fill="#525a61" font-family="Arial, sans-serif" font-size="20">Para cada fila: SÍ · NO · SIN EVIDENCIA + enlace a la fuente.</text>
+  <g font-family="Arial, sans-serif">
+    <g><rect x="60" y="155" width="340" height="145" fill="#d6d8d7" stroke="#17131d" stroke-width="3"/><text x="85" y="194" fill="#a72c35" font-size="18" font-weight="700">01 · PROPÓSITO</text><text x="85" y="230" fill="#17131d" font-size="21" font-weight="700">¿Qué problema resuelve?</text><text x="85" y="265" fill="#525a61" font-size="16">Población + métrica de éxito</text></g>
+    <g><rect x="430" y="155" width="340" height="145" fill="url(#grid)" stroke="#17131d" stroke-width="3"/><text x="455" y="194" fill="#a72c35" font-size="18" font-weight="700">02 · DATOS</text><text x="455" y="230" fill="#17131d" font-size="21" font-weight="700">¿Qué usa y hasta cuándo?</text><text x="455" y="265" fill="#525a61" font-size="16">Inventario + base legal + borrado</text></g>
+    <g><rect x="800" y="155" width="340" height="145" fill="#aeb4b7" stroke="#17131d" stroke-width="3"/><text x="825" y="194" fill="#a72c35" font-size="18" font-weight="700">03 · OPERACIÓN</text><text x="825" y="230" fill="#17131d" font-size="21" font-weight="700">¿Quién controla cada capa?</text><text x="825" y="265" fill="#17131d" font-size="16">Organismo + proveedor + jurisdicción</text></g>
+    <g><rect x="60" y="330" width="340" height="145" fill="#525a61" stroke="#17131d" stroke-width="3"/><text x="85" y="369" fill="#f2eadb" font-size="18" font-weight="700">04 · DECISIÓN</text><text x="85" y="405" fill="#f2eadb" font-size="21" font-weight="700">¿Qué recomienda o ejecuta?</text><text x="85" y="440" fill="#f2eadb" font-size="16">Límites + supervisión humana</text></g>
+    <g><rect x="430" y="330" width="340" height="145" fill="#17131d" stroke="#17131d" stroke-width="3"/><text x="455" y="369" fill="#f2eadb" font-size="18" font-weight="700">05 · AUDITORÍA</text><text x="455" y="405" fill="#f2eadb" font-size="21" font-weight="700">¿Quién puede inspeccionar?</text><text x="455" y="440" fill="#aeb4b7" font-size="16">Código + modelo + registros</text></g>
+    <g><rect x="800" y="330" width="340" height="145" fill="none" stroke="#a72c35" stroke-width="5"/><text x="825" y="369" fill="#a72c35" font-size="18" font-weight="700">06 · APELACIÓN</text><text x="825" y="405" fill="#17131d" font-size="21" font-weight="700">¿Cómo impugna una persona?</text><text x="825" y="440" fill="#525a61" font-size="16">Canal + plazo + reparación</text></g>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" font-size="18" font-weight="700">
+    <rect x="60" y="530" width="180" height="58" fill="#17131d"/><text x="150" y="566" fill="#f2eadb">SÍ</text>
+    <rect x="260" y="530" width="180" height="58" fill="#aeb4b7"/><text x="350" y="566" fill="#17131d">NO</text>
+    <rect x="460" y="530" width="260" height="58" fill="none" stroke="#a72c35" stroke-width="4"/><text x="590" y="566" fill="#a72c35">SIN EVIDENCIA</text>
+  </g>
+  <text x="60" y="645" fill="#17131d" font-family="Arial, sans-serif" font-size="21" font-weight="700">“SIN EVIDENCIA” NO PRUEBA ABUSO.</text>
+  <text x="465" y="645" fill="#525a61" font-family="Arial, sans-serif" font-size="21">Prueba que todavía falta información pública para evaluar el riesgo.</text>
+</svg>

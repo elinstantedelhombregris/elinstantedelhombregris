@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Del relato a la evidencia</title>
+  <desc id="desc">Método de cinco pasos para observar una afirmación, formular una hipótesis, predecir, verificar con fuentes y actualizar la conclusión.</desc>
+  <defs>
+    <pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#17131d" opacity=".18"/></pattern>
+  </defs>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <rect x="32" y="32" width="1136" height="656" fill="none" stroke="#17131d" stroke-width="3"/>
+  <text x="65" y="88" fill="#17131d" font-family="Arial, sans-serif" font-size="35" font-weight="700">DEL RELATO A LA EVIDENCIA</text>
+  <text x="65" y="124" fill="#525a61" font-family="Arial, sans-serif" font-size="20">Una intuición se vuelve análisis cuando anticipa qué observar y acepta ser refutada.</text>
+  <path d="M125 315H1075" stroke="#525a61" stroke-width="7"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g><circle cx="145" cy="315" r="58" fill="#a72c35" stroke="#17131d" stroke-width="4"/><text x="145" y="326" fill="#f2eadb" font-size="31" font-weight="700">1</text><text x="145" y="405" fill="#17131d" font-size="21" font-weight="700">OBSERVAR</text><text x="145" y="437" fill="#525a61" font-size="17">afirmación exacta</text><text x="145" y="463" fill="#525a61" font-size="17">fecha y autor</text></g>
+    <g><circle cx="372" cy="315" r="58" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/><text x="372" y="326" fill="#17131d" font-size="31" font-weight="700">2</text><text x="372" y="405" fill="#17131d" font-size="21" font-weight="700">HIPÓTESIS</text><text x="372" y="437" fill="#525a61" font-size="17">el patrón que</text><text x="372" y="463" fill="#525a61" font-size="17">creés estar viendo</text></g>
+    <g><circle cx="600" cy="315" r="58" fill="#525a61" stroke="#17131d" stroke-width="4"/><text x="600" y="326" fill="#f2eadb" font-size="31" font-weight="700">3</text><text x="600" y="405" fill="#17131d" font-size="21" font-weight="700">PREDECIR</text><text x="600" y="437" fill="#525a61" font-size="17">qué debería pasar</text><text x="600" y="463" fill="#525a61" font-size="17">y en qué plazo</text></g>
+    <g><circle cx="828" cy="315" r="58" fill="url(#dots)" stroke="#17131d" stroke-width="4"/><text x="828" y="326" fill="#17131d" font-size="31" font-weight="700">4</text><text x="828" y="405" fill="#17131d" font-size="21" font-weight="700">VERIFICAR</text><text x="828" y="437" fill="#525a61" font-size="17">fuente primaria</text><text x="828" y="463" fill="#525a61" font-size="17">e indicador</text></g>
+    <g><circle cx="1055" cy="315" r="58" fill="#aeb4b7" stroke="#17131d" stroke-width="4"/><text x="1055" y="326" fill="#17131d" font-size="31" font-weight="700">5</text><text x="1055" y="405" fill="#17131d" font-size="21" font-weight="700">ACTUALIZAR</text><text x="1055" y="437" fill="#525a61" font-size="17">cambiar de idea</text><text x="1055" y="463" fill="#525a61" font-size="17">si cambió la evidencia</text></g>
+  </g>
+  <text x="65" y="550" fill="#17131d" font-family="Arial, sans-serif" font-size="20" font-weight="700">CALIDAD DE LA AFIRMACIÓN</text>
+  <g font-family="Arial, sans-serif" font-size="17" font-weight="700">
+    <rect x="65" y="576" width="290" height="62" fill="#17131d"/><text x="90" y="615" fill="#f2eadb">HECHO · fuente primaria</text>
+    <rect x="375" y="576" width="290" height="62" fill="#aeb4b7" stroke="#17131d" stroke-width="2"/><text x="400" y="615" fill="#17131d">INFERENCIA · razonada</text>
+    <rect x="685" y="576" width="450" height="62" fill="none" stroke="#a72c35" stroke-width="5"/><text x="710" y="615" fill="#a72c35">SIN EVIDENCIA · todavía no concluyas</text>
+  </g>
+</svg>

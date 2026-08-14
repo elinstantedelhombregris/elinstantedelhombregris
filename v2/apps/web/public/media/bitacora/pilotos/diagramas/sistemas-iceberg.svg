@@ -10,9 +10,9 @@
     <text x="520" y="178" fill="#f2eadb" font-size="28" font-weight="700">EVENTOS</text>
     <text x="590" y="325" fill="#17131d" font-size="28" font-weight="700">PATRONES</text>
     <text x="590" y="385" fill="#17131d" font-size="18">¿Qué se repite en el tiempo?</text>
-    <text x="590" y="470" fill="#573c73" font-size="28" font-weight="700">ESTRUCTURAS</text>
+    <text x="590" y="470" fill="#525a61" font-size="28" font-weight="700">ESTRUCTURAS</text>
     <text x="590" y="510" fill="#17131d" font-size="18">Reglas · incentivos · flujos · demoras</text>
-    <text x="590" y="585" fill="#573c73" font-size="28" font-weight="700">MODELOS MENTALES</text>
+    <text x="590" y="585" fill="#525a61" font-size="28" font-weight="700">MODELOS MENTALES</text>
   </g>
   <path d="M1000 170V590" stroke="#17131d" stroke-width="5"/>
   <path d="m980 560 20 30 20-30" fill="none" stroke="#17131d" stroke-width="5"/>

@@ -6,7 +6,7 @@
   <rect x="60" y="115" width="510" height="510" rx="4" fill="#e5dac7" stroke="#17131d" stroke-width="4"/>
   <rect x="630" y="115" width="510" height="510" rx="4" fill="#e5dac7" stroke="#17131d" stroke-width="4"/>
   <text x="95" y="170" fill="#a72c35" font-family="Arial, sans-serif" font-size="26" font-weight="700">TIMÓN CONCENTRADO</text>
-  <text x="665" y="170" fill="#573c73" font-family="Arial, sans-serif" font-size="26" font-weight="700">TIMÓN CIUDADANO</text>
+  <text x="665" y="170" fill="#525a61" font-family="Arial, sans-serif" font-size="26" font-weight="700">TIMÓN CIUDADANO</text>
   <circle cx="315" cy="322" r="76" fill="#a72c35" stroke="#17131d" stroke-width="5"/>
   <text x="315" y="314" text-anchor="middle" fill="#f2eadb" font-family="Arial, sans-serif" font-size="20" font-weight="700">OPERADOR</text>
   <text x="315" y="342" text-anchor="middle" fill="#f2eadb" font-family="Arial, sans-serif" font-size="20" font-weight="700">ÚNICO</text>
@@ -18,12 +18,12 @@
   </g>
   <text x="315" y="566" text-anchor="middle" fill="#17131d" font-family="Arial, sans-serif" font-size="18">Centraliza · predice · prescribe</text>
   <text x="315" y="596" text-anchor="middle" fill="#17131d" font-family="Arial, sans-serif" font-size="18">La persona no ve ni puede apelar</text>
-  <g stroke="#573c73" stroke-width="5" fill="#f2eadb">
+  <g stroke="#525a61" stroke-width="5" fill="#f2eadb">
     <circle cx="885" cy="330" r="54"/><circle cx="735" cy="250" r="42"/><circle cx="1035" cy="250" r="42"/><circle cx="735" cy="435" r="42"/><circle cx="1035" cy="435" r="42"/>
     <path d="M775 270 835 305M935 305 995 270M775 415 835 355M935 355 995 415M777 250 993 250M777 435 993 435"/>
   </g>
-  <text x="885" y="323" text-anchor="middle" fill="#573c73" font-family="Arial, sans-serif" font-size="17" font-weight="700">REGLAS</text>
-  <text x="885" y="345" text-anchor="middle" fill="#573c73" font-family="Arial, sans-serif" font-size="17" font-weight="700">PÚBLICAS</text>
+  <text x="885" y="323" text-anchor="middle" fill="#525a61" font-family="Arial, sans-serif" font-size="17" font-weight="700">REGLAS</text>
+  <text x="885" y="345" text-anchor="middle" fill="#525a61" font-family="Arial, sans-serif" font-size="17" font-weight="700">PÚBLICAS</text>
   <g fill="#17131d" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">
     <text x="735" y="255">DATOS</text><text x="1035" y="255">AUDITORÍA</text><text x="735" y="440">CIUDADANÍA</text><text x="1035" y="440">APELACIÓN</text>
   </g>
