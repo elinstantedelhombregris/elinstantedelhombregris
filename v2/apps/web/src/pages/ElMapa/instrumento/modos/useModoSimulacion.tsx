@@ -4,12 +4,16 @@ import { useEffect, useMemo, useState } from 'react';
 import { Control, Segmentado } from '../Chrome';
 import { RAMPAS } from '../paleta';
 import { CapaProvincias } from '../simulacion/CapaProvincias';
+import { CapaSembrada } from '../simulacion/CapaSembrada';
+import { sembrarRetrato } from '../simulacion/celdas-sembradas';
 import { Cifra } from '../simulacion/Cifra';
 import { coropleticoDe, coropleticoDiferencia, maximoDe } from '../simulacion/coropletico';
 import { Cortina } from '../simulacion/Cortina';
 import { estadoMedidoDesde, territoriosDesde } from '../simulacion/datos';
+import { DeclaracionDelSembrado } from '../simulacion/DeclaracionDelSembrado';
 import { PALANCAS_INICIALES } from '../simulacion/palancas';
 import { PanelPalancas } from '../simulacion/PanelPalancas';
+import { rectangulosDeProvincias } from '../simulacion/rectangulo-de-provincia';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 import type { Palancas } from '@v2/civic-core';
@@ -80,6 +84,20 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
 
   const resultado = useMemo(() => simulacion?.correr(palancas) ?? null, [simulacion, palancas]);
 
+  /**
+   * El sembrado del lado simulado: una celda por (provincia, clase), con el
+   * rectángulo adentro del cual el pintor reparte los puntos. Los rectángulos
+   * se derivan de la geometría UNA vez y no por movimiento de perilla — recorrer
+   * 24 polígonos en cada render de una palanca no compra nada.
+   */
+  const rectangulos = useMemo(() => rectangulosDeProvincias(geometria), [geometria]);
+
+  const sembrado = useMemo(
+    () =>
+      resultado === null ? null : sembrarRetrato(resultado.voz, rectangulos, palancas.composicion),
+    [resultado, rectangulos, palancas.composicion],
+  );
+
   const capas = useMemo(() => {
     if (resultado === null) return { izquierda: null, derecha: null, diferencia: null };
     const silencio = coropleticoDe(geometria, resultado.silencio);
@@ -89,10 +107,27 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
     const rampa = RAMPAS.violeta?.colores ?? RAMPA_DIFERENCIA;
     return {
       izquierda: silencio ? <CapaProvincias id="sim-silencio" datos={silencio} maximo={techo} colores={rampa} /> : null,
-      derecha: voz ? <CapaProvincias id="sim-voz" datos={voz} maximo={techo} colores={rampa} /> : null,
+      /*
+        Del lado simulado el lavado se apaga y quedan los bordes: el coroplético
+        y los puntos dicen la MISMA cifra, y su rampa violeta es el color de la
+        clase `deseo`, así que un punto de esa clase encima del lavado pierde el
+        contraste que el pintor garantiza. Los bordes se quedan porque el grueso
+        del territorio con mandato dice algo que los puntos no dicen.
+      */
+      derecha: voz ? (
+        <>
+          <CapaProvincias id="sim-voz" datos={voz} maximo={techo} colores={rampa} opacidad={0} />
+          {sembrado === null ? null : (
+            <CapaSembrada
+              celdas={sembrado.celdas}
+              clasesPorTerritorio={sembrado.clasesPorTerritorio}
+            />
+          )}
+        </>
+      ) : null,
       diferencia: dif ? <CapaProvincias id="sim-diferencia" datos={dif} maximo={maximoDe(dif)} colores={RAMPA_DIFERENCIA} /> : null,
     };
-  }, [resultado, geometria]);
+  }, [resultado, geometria, sembrado]);
 
   const superficie =
     vista === 'cortina' ? (
@@ -125,6 +160,10 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
             onCambiar={setVista}
           />
         </Control>
+
+        {vista === 'cortina' && sembrado !== null ? (
+          <DeclaracionDelSembrado sinDibujo={sembrado.sinDibujo} />
+        ) : null}
 
         <PanelPalancas palancas={palancas} onCambiar={setPalancas} />
 

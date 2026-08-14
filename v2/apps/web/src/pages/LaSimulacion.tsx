@@ -5,6 +5,7 @@ import { leerElencoDeArchivos, type ElencoCargado } from './LaSimulacion/elenco-
 import { CabeceraDelDiseno } from './LaSimulacion/sections/CabeceraDelDiseno';
 import { ControlesDeCorrida } from './LaSimulacion/sections/ControlesDeCorrida';
 import { ElElenco } from './LaSimulacion/sections/ElElenco';
+import { ElPaisCargado } from './LaSimulacion/sections/ElPaisCargado';
 import { FichaDePersona } from './LaSimulacion/sections/FichaDePersona';
 import { MesaDeVariables } from './LaSimulacion/sections/MesaDeVariables';
 import { Resultados } from './LaSimulacion/sections/Resultados';
@@ -174,6 +175,8 @@ export function LaSimulacion() {
             setPersonaAbierta(null);
           }}
         />
+
+        <ElPaisCargado pais={pais} escenario={diseno.base} elenco={enGente ? elenco : null} />
 
         {barrido.estado.fase === 'listo' ? (
           <Resultados
