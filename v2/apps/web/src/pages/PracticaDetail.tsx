@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useRoute } from 'wouter';
 
+import { EntregaFinalEntrenamiento } from './Entrenamientos/sections/EntregaFinalEntrenamiento';
 import { PreguntaPractica } from './Entrenamientos/sections/PreguntaPractica';
 
 import {
@@ -193,7 +194,7 @@ export function PracticaDetail() {
                   lección.
                 </p>
                 {curso.productoFinal && curso.promesa?.length ? (
-                  <section className="border-violeta bg-papel-crudo mt-7 border-2 p-6">
+                  <section className="border-tinta bg-papel-crudo mt-7 border p-6">
                     <Kicker className="mb-3">Prueba de transferencia</Kicker>
                     <h2 className="font-anton text-2xl leading-tight">
                       Ahora usalo fuera del curso.
@@ -221,6 +222,15 @@ export function PracticaDetail() {
                       todavía no es un experimento.
                     </p>
                   </section>
+                ) : null}
+                {curso.productoFinal && curso.promesa?.length ? (
+                  <EntregaFinalEntrenamiento
+                    key={cursoSlug}
+                    cursoSlug={cursoSlug}
+                    cursoTitulo={curso.title}
+                    productoFinal={curso.productoFinal}
+                    promesas={curso.promesa}
+                  />
                 ) : null}
                 <div className="mt-6 flex flex-wrap gap-6">
                   <button type="button" onClick={reiniciar} className={CLASE_ACCION}>

@@ -1,7 +1,7 @@
 {
   "slug": "sobrevivir-prosperar-economia-argentina",
   "title": "Sobrevivir y Prosperar en la Economía Argentina",
-  "description": "Comprendé cómo funciona realmente la economía argentina y aprende a proteger tu patrimonio. Desde la inflación como impuesto invisible hasta herramientas concretas de ahorro e inversión para un contexto volátil.",
+  "description": "Comprendé cómo funciona la economía argentina y aprendé a cuidar tus recursos. Desde inflación y presupuesto hasta criterios para comparar ahorro, deuda, protección e inversión en un contexto volátil.",
   "excerpt": "Dominá las herramientas financieras para prosperar en la economía argentina.",
   "category": "economia",
   "level": "beginner",
@@ -108,9 +108,7 @@
   ],
   "paraQuien": "Para personas que necesitan recuperar control operativo de sus finanzas en un contexto volátil.",
   "productoFinal": "Un plan financiero personal de seis meses con tablero, fondo, deuda, protección y fechas de revisión.",
-  "prerrequisitos": [
-    "Reunir movimientos aproximados de los últimos dos meses."
-  ],
+  "prerrequisitos": ["Reunir movimientos aproximados de los últimos dos meses."],
   "coverImage": "/course-art/economia.webp",
   "fuentesBase": [
     {
@@ -122,6 +120,16 @@
       "url": "https://www.argentina.gob.ar/cnv/proteccion-al-publico-inversor",
       "titulo": "CNV · protección y educación para el público inversor",
       "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/sites/default/files/pnef_2022.pdf",
+      "titulo": "Plan Nacional de Educación Financiera · planificación, deuda y riesgos",
+      "consultada": "2026-08-14"
+    },
+    {
+      "url": "https://www.cnv.gov.ar/sitioWeb/MarcoRegulatorio?panel=2",
+      "titulo": "CNV · normativa vigente y riesgos de instrumentos",
+      "consultada": "2026-08-14"
     }
   ],
   "revisarAntesDe": "2026-11-13"

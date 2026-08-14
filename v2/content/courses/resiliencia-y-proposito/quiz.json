@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"El Duelo Como Portal: Llorar lo que Pudo Ser\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «El Duelo Como Portal: Llorar lo que Pudo Ser» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Procesar el duelo colectivo argentino como paso necesario hacia la transformación.",
-        "Distinguir la resiliencia genuina de la cultura del aguante que enferma.",
-        "Convertir las crisis vividas en fortalezas conscientes y transferibles.",
-        "Viktor Frankl y la búsqueda de sentido aplicada a la inestabilidad crónica argentina."
+        "Un caso real trabajado con este foco: Procesar el duelo colectivo argentino como paso necesario hacia la transformación.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en procesar el duelo colectivo argentino como paso necesario hacia la transformación..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Manifiesto Personal: El Fuego que No Se Apaga\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Manifiesto Personal: El Fuego que No Se Apaga» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Integrar todo lo aprendido en una declaración personal de propósito y resiliencia.",
-        "Distinguir la resiliencia genuina de la cultura del aguante que enferma.",
-        "Convertir las crisis vividas en fortalezas conscientes y transferibles.",
-        "Viktor Frankl y la búsqueda de sentido aplicada a la inestabilidad crónica argentina."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Integrar todo lo aprendido en una declaración personal de propósito y resiliencia.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en integrar todo lo aprendido en una declaración personal de propósito y resiliencia..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

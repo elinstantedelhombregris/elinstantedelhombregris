@@ -6,7 +6,15 @@ import { describe, expect, it } from 'vitest';
 
 import { revisarCorpus } from '../entrenamientos-check';
 
-function corpus(cuerpo: string, extra = ''): string {
+function corpus(
+  cuerpo: string,
+  extra = '',
+  quiz: { title: string; description: string; questions: unknown[] } = {
+    title: 'Práctica',
+    description: 'Descripción',
+    questions: [],
+  },
+): string {
   const raiz = mkdtempSync(join(tmpdir(), 'entrenamientos-check-'));
   const curso = join(raiz, 'content/courses/curso-uno');
   mkdirSync(curso, { recursive: true });
@@ -37,10 +45,7 @@ function corpus(cuerpo: string, extra = ''): string {
       lessons: [{ key: '01-leccion-uno', title: 'Lección uno', duration: 1, orderIndex: 1 }],
     }),
   );
-  writeFileSync(
-    join(curso, 'quiz.json'),
-    JSON.stringify({ title: 'Práctica', description: 'Descripción', questions: [] }),
-  );
+  writeFileSync(join(curso, 'quiz.json'), JSON.stringify(quiz));
   writeFileSync(
     join(curso, 'leccion-uno.mdx'),
     `---\nslug: leccion-uno\ncourseSlug: curso-uno\ntitle: Lección uno\norderIndex: 1\n${extra}---\n\n${cuerpo}\n`,
@@ -71,4 +76,21 @@ describe('revisarCorpus', () => {
     expect((await revisarCorpus(corpus('Prosa.', 'estimatedMinutes: 9\n'))).join(' ')).toContain(
       'estimatedMinutes',
     ));
+  it('rechaza quizzes que sólo piden reconocer el tema de una lección', async () =>
+    expect(
+      (
+        await revisarCorpus(
+          corpus('Prosa.', '', {
+            title: 'Práctica',
+            description: 'Descripción',
+            questions: [
+              {
+                question: '¿Cuál es la idea central de la lección "Lección uno"?',
+                explanation: 'La lección se concentra en repetir el título.',
+              },
+            ],
+          }),
+        )
+      ).join(' '),
+    ).toMatch(/sólo repite el tema/i));
 });

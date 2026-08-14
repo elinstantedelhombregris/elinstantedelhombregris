@@ -1,11 +1,11 @@
 {
   "slug": "inteligencia-emocional-tiempos-turbulentos",
   "title": "Inteligencia Emocional para Tiempos Turbulentos",
-  "description": "Herramientas prácticas de inteligencia emocional diseñadas para navegar la inestabilidad crónica argentina. Aprendé a regular tu sistema nervioso, transformar la reactividad en respuesta consciente y construir resiliencia emocional genuina en un contexto donde el estrés es la norma.",
-  "excerpt": "Dominá tus emociones en tiempos de crisis: herramientas prácticas de inteligencia emocional para la Argentina real.",
+  "description": "Herramientas prácticas para atravesar incertidumbre sin convertir el contexto en diagnóstico. Aprendé a registrar señales, ganar margen antes de responder, poner límites y reconocer cuándo hace falta apoyo.",
+  "excerpt": "Ganale margen a la reacción: prácticas situadas de regulación, cuidado y conversación para tiempos inciertos.",
   "category": "reflection",
   "level": "beginner",
-  "duration": 29,
+  "duration": 28,
   "orderIndex": 16,
   "isPublished": true,
   "isFeatured": true,
@@ -15,15 +15,15 @@
     {
       "key": "02-que-son-las-emociones-y-como-funcionan-en-tu-cuerpo",
       "title": "¿Qué Son las Emociones y Cómo Funcionan en Tu Cuerpo?",
-      "description": "Comprendé la base neurofisiológica de las emociones y por qué tu cuerpo reacciona antes que tu mente.",
+      "description": "Diferenciá sensación, emoción, interpretación e impulso sin reducirlos a una sola causa cerebral.",
       "duration": 3,
       "orderIndex": 1
     },
     {
       "key": "03-la-respuesta-de-estres-en-una-economia-cronicamente-inestable",
       "title": "La Respuesta de Estrés en una Economía Crónicamente Inestable",
-      "description": "Entendé cómo la inestabilidad económica argentina programa tu sistema nervioso y qué hacer al respecto.",
-      "duration": 3,
+      "description": "Observá cómo la incertidumbre económica puede afectar cuerpo y decisiones sin convertir el contexto en diagnóstico.",
+      "duration": 2,
       "orderIndex": 2
     },
     {
@@ -36,14 +36,14 @@
     {
       "key": "05-regulacion-emocional-del-modo-reactivo-al-modo-responsivo",
       "title": "Regulación Emocional: Del Modo Reactivo al Modo Responsivo",
-      "description": "Aprendé técnicas concretas para pasar de la reacción automática a la respuesta consciente.",
+      "description": "Ensayá pausas y anclajes para ganar margen entre una activación intensa y la respuesta que elegís.",
       "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-tus-gatillos-emocionales-dinero-politica-y-familia",
       "title": "Tus Gatillos Emocionales: Dinero, Política y Familia",
-      "description": "Identificá y trabaja con los tres grandes gatillos emocionales de la vida argentina.",
+      "description": "Identificá gatillos vinculados con dinero, política y familia sin atribuirlos a toda persona argentina.",
       "duration": 3,
       "orderIndex": 5
     },
@@ -70,15 +70,15 @@
     },
     {
       "key": "10-habitos-emocionales-reprogramar-tu-sistema-nervioso",
-      "title": "Hábitos Emocionales: Reprogramar Tu Sistema Nervioso",
-      "description": "Creá rutinas diarias que fortalezcan tu regulación emocional de manera sostenible.",
+      "title": "Hábitos Emocionales: Entrenar Respuestas sin Promesas Mágicas",
+      "description": "Diseñá rutinas pequeñas, voluntarias y revisables para ampliar tu repertorio de cuidado.",
       "duration": 3,
       "orderIndex": 9
     },
     {
       "key": "11-tu-plan-de-bienestar-emocional",
       "title": "Tu Plan de Bienestar Emocional",
-      "description": "Integra todo lo aprendido en un plan personalizado y sostenible de salud emocional.",
+      "description": "Integrá lo aprendido en un plan personal de cuidado, límites, apoyos y señales para pedir ayuda.",
       "duration": 3,
       "orderIndex": 10
     }
@@ -106,6 +106,11 @@
       "url": "https://ctb.ku.edu/en/get-started",
       "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
       "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33593124/",
+      "titulo": "Revisión de 44 metaanálisis · beneficios y límites de intervenciones de mindfulness",
+      "consultada": "2026-08-14"
     }
   ]
 }

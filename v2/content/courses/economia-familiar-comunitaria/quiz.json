@@ -4,48 +4,58 @@
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿Qué porcentaje del PBI argentino representaría el trabajo doméstico no remunerado si se pagara?",
+      "question": "Un informe oficial publicado en 2020 estimó el trabajo doméstico y de cuidados no remunerado en 15,9% del PIB. ¿Cómo usás ese dato correctamente?",
       "type": "multiple_choice",
       "options": [
-        "2%",
-        "8%",
-        "16%",
-        "30%"
+        "Como porcentaje fijo para cualquier año",
+        "Como una estimación situada, citando año, fuentes y metodología antes de compararla",
+        "Como prueba de que todas las tareas de cuidado tienen el mismo valor",
+        "Como salario que efectivamente recibieron los hogares"
       ],
-      "correctAnswer": 2,
-      "explanation": "El trabajo doméstico y de cuidado equivale al 16% del PBI argentino, más que la industria manufacturera.",
+      "correctAnswer": 1,
+      "explanation": "El 15,9% surge de una estimación oficial publicada en 2020 con fuentes y supuestos específicos. Hace visible una contribución enorme, pero no es una cifra automática, actual ni un ingreso efectivamente pagado.",
       "points": 2,
       "orderIndex": 1
     },
     {
-      "question": "Para ahorrar en Argentina, es necesario tener ingresos altos.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": false,
-      "explanation": "Lo importante es la diferencia entre ingreso y gasto, no el monto absoluto. Se puede empezar ahorrando el 2%.",
+      "question": "Un hogar no logra generar margen mensual. ¿Cuál es el primer diagnóstico útil?",
+      "type": "multiple_choice",
+      "options": [
+        "Fijar un porcentaje de ahorro obligatorio aunque falten gastos esenciales",
+        "Reconstruir ingresos, gastos esenciales, deudas, ayudas y variaciones antes de definir una meta posible",
+        "Suponer que el problema es falta de voluntad",
+        "Tomar deuda para que la cuenta muestre saldo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La capacidad de ahorro depende del margen real y puede ser nula durante una crisis. El primer paso es hacer visible el flujo y proteger necesidades esenciales; recién después se fija una meta gradual.",
       "points": 1,
       "orderIndex": 2
     },
     {
-      "question": "¿Cuál es la diferencia entre deuda inteligente y deuda tóxica?",
+      "question": "¿Qué análisis evita llamar \"inteligente\" a una deuda sólo porque financia una herramienta o capacitación?",
       "type": "multiple_choice",
       "options": [
-        "El monto de la deuda",
-        "Si la deuda genera ingresos que superen su costo",
-        "El banco que presta",
-        "Si es en pesos o dólares"
+        "Comparar costo financiero total, flujo de cuotas, riesgos y retorno plausible del uso financiado",
+        "Mirar sólo el monto solicitado",
+        "Confirmar que la deuda sea en pesos",
+        "Elegir la oferta que se aprueba más rápido"
       ],
-      "correctAnswer": 1,
-      "explanation": "La deuda inteligente genera retorno (herramientas, capacitación), mientras la tóxica financia consumo sin retorno.",
+      "correctAnswer": 0,
+      "explanation": "El destino no vuelve buena a una deuda. Hay que contrastar costo total, calendario de pagos, variabilidad del ingreso, escenarios adversos y un retorno plausible sin presentarlo como garantía.",
       "points": 2,
       "orderIndex": 3
     },
     {
-      "question": "Un círculo de ahorro comunitario cobra intereses a sus miembros.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": false,
-      "explanation": "Los círculos de ahorro funcionan sin intereses ni comisiones. Son mecanismos de ahorro forzado colectivo.",
+      "question": "Antes de participar en un círculo de ahorro informal, ¿qué diseño conviene exigir?",
+      "type": "multiple_choice",
+      "options": [
+        "Sólo confianza verbal entre participantes",
+        "Reglas escritas sobre aportes, turnos, mora, custodia, salida, registros y resolución de conflictos",
+        "Que una sola persona controle el dinero y la información",
+        "Promesa de rendimiento sin explicar de dónde sale"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los círculos adoptan formas distintas y también tienen riesgos. La confianza necesita reglas, trazabilidad y un plan para atrasos, salidas y custodia; esto no reemplaza revisar su encuadre legal.",
       "points": 1,
       "orderIndex": 4
     },
@@ -64,11 +74,16 @@
       "orderIndex": 5
     },
     {
-      "question": "Los clubes de trueque del 2001 fracasaron porque la idea era inviable.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": false,
-      "explanation": "Fracasaron por problemas de diseño (falsificación de créditos, falta de regulación), no porque el concepto fuera malo.",
+      "question": "¿Qué explicación es más rigurosa para la crisis de muchos clubes de trueque alrededor de 2001-2002?",
+      "type": "multiple_choice",
+      "options": [
+        "Una sola causa: la idea del intercambio era inviable",
+        "Una combinación que puede incluir escala, emisión y falsificación de créditos, confianza, gobernanza y contexto económico",
+        "Una sola causa: faltó publicidad",
+        "Que todos los clubes siguieron el mismo diseño y tuvieron el mismo resultado"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Una experiencia heterogénea no admite una explicación monocausal. Conviene distinguir redes, reglas y momentos, y separar evidencia histórica de la evaluación normativa del trueque.",
       "points": 1,
       "orderIndex": 6
     },
@@ -87,25 +102,30 @@
       "orderIndex": 7
     },
     {
-      "question": "La verdadera medida de riqueza es cuántos meses podés mantener tu nivel de vida sin ingresos.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "La resiliencia financiera se mide por la capacidad de sostenerte sin ingresos, no por el monto de tu sueldo.",
+      "question": "¿Qué muestra el indicador \"meses de cobertura\" y qué deja afuera?",
+      "type": "multiple_choice",
+      "options": [
+        "Muestra toda la riqueza y no deja nada afuera",
+        "Aproxima liquidez frente a gastos, pero no resume ingresos futuros, deudas, redes, coberturas ni bienestar",
+        "Mide únicamente el sueldo mensual",
+        "Garantiza superar cualquier crisis si es mayor que tres"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los meses de cobertura son una señal útil de liquidez, no una definición total de riqueza o resiliencia. Deben leerse junto con obligaciones, estabilidad, protección y apoyos disponibles.",
       "points": 1,
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es la regla más importante para la logística de una cooperativa de consumo?",
+      "question": "¿Qué diseño protege mejor la liquidez de una compra comunitaria?",
       "type": "multiple_choice",
       "options": [
-        "Tener un local propio",
-        "Cobrar siempre por adelantado antes de comprar",
-        "Usar una app profesional de gestión",
-        "Que un solo líder coordine todo"
+        "Tener un local propio desde el primer día",
+        "Acordar anticipos, reservas, fechas de cierre, comprobantes y qué ocurre ante faltantes o mora",
+        "Depender de una app profesional",
+        "Concentrar caja y decisiones en una persona"
       ],
       "correctAnswer": 1,
-      "explanation": "Cobrar por adelantado evita deudas acumuladas y protege las finanzas del grupo. Es la regla que más cooperativas salva.",
+      "explanation": "El cobro anticipado puede reducir riesgo, pero necesita reglas para excepciones, devoluciones, faltantes y rendición. La protección surge del sistema completo y no de una consigna universal.",
       "points": 2,
       "orderIndex": 9
     },

@@ -1,7 +1,7 @@
 {
   "slug": "ciudadano-auditor-control-ciudadano",
   "title": "Ciudadano Auditor: Herramientas de Control Ciudadano",
-  "description": "Conviértete en auditor de tu propio Estado. Aprendé a leer presupuestos municipales, hacer pedidos de acceso a la información (Ley 27.275), usar datos.gob.ar, presentar amparos y ejercer control ciudadano efectivo.",
+  "description": "Convertite en auditor de tu propio Estado. Aprendé a leer presupuestos municipales, hacer pedidos de acceso a la información (Ley 27.275), usar datos.gob.ar, entender vías de reclamo y ejercer control ciudadano efectivo.",
   "excerpt": "Las herramientas legales y prácticas para auditar a tu gobierno.",
   "category": "civica",
   "level": "intermediate",
@@ -94,9 +94,7 @@
   ],
   "paraQuien": "Para vecinos, organizaciones y periodistas ciudadanos que quieren controlar actos públicos con método y cuidado.",
   "productoFinal": "Un plan de auditoría ciudadana de treinta días con expediente, cronología y matriz de evidencia.",
-  "prerrequisitos": [
-    "Elegir un tema público acotado y una jurisdicción concreta."
-  ],
+  "prerrequisitos": ["Elegir un tema público acotado y una jurisdicción concreta."],
   "coverImage": "/course-art/civica.webp",
   "fuentesBase": [
     {
@@ -113,6 +111,16 @@
       "url": "https://www.argentina.gob.ar/economia/onp/presupuesto-ciudadano-2026/datos-abiertos",
       "titulo": "Presupuesto Ciudadano · datos abiertos e históricos",
       "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://defensor.gob.ar/",
+      "titulo": "Defensoría del Pueblo de la Nación · autoridades, actuaciones e informes",
+      "consultada": "2026-08-14"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-24284-680/actualizacion",
+      "titulo": "Ley 24.284 · Defensoría del Pueblo",
+      "consultada": "2026-08-14"
     }
   ],
   "revisarAntesDe": "2026-11-13"

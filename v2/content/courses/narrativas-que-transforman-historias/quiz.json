@@ -96,44 +96,44 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Ética Narrativa: El Poder y la Responsabilidad\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Ética Narrativa: El Poder y la Responsabilidad» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Los límites éticos del storytelling para el cambio social.",
-        "Por qué las historias transforman más que los argumentos racionales.",
-        "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
-        "Descubrir y contar tu propia historia para conectar e inspirar."
+        "Un caso real trabajado con este foco: Los límites éticos del storytelling para el cambio social.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en los límites éticos del storytelling para el cambio social..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
-        "Por qué las historias transforman más que los argumentos racionales.",
-        "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
-        "Descubrir y contar tu propia historia para conectar e inspirar."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en ejercicio integrador: diseñar y ejecutar un proyecto narrativo real..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Escribir Bajo Presión: Crónica Urgente\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Escribir Bajo Presión: Crónica Urgente» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "El perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas.",
-        "Por qué las historias transforman más que los argumentos racionales.",
-        "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
-        "Descubrir y contar tu propia historia para conectar e inspirar."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: El perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en el perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas..",
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 11
     }

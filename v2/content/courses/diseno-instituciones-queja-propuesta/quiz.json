@@ -41,39 +41,39 @@
       "orderIndex": 3
     },
     {
-      "question": "¿Cuántas firmas se necesitan aproximadamente para una iniciativa popular nacional?",
+      "question": "¿Cómo calcula la Ley 24.747 el apoyo para una iniciativa popular nacional?",
       "type": "multiple_choice",
       "options": [
-        "1.000",
-        "50.000",
-        "500.000 (1.5% del padrón)",
-        "5.000.000"
+        "Con un número fijo de 500.000 firmas",
+        "Con al menos 1,5% del padrón usado en la última elección de diputados y representación de seis distritos, salvo el supuesto regional",
+        "Con mayoría simple de la Cámara de Diputados",
+        "Con 3% de la población total estimada"
       ],
-      "correctAnswer": 2,
-      "explanation": "La iniciativa popular requiere el 1.5% del padrón electoral, aproximadamente 500.000 firmas de al menos 6 distritos.",
+      "correctAnswer": 1,
+      "explanation": "La ley usa un porcentaje de un padrón electoral concreto, por eso un número absoluto envejece. También establece distribución territorial y materias excluidas que deben verificarse.",
       "points": 2,
       "orderIndex": 4
     },
     {
-      "question": "El presupuesto participativo permite a los vecinos opinar sobre el gasto pero no decidir.",
+      "question": "Todos los presupuestos participativos dan a la ciudadanía la misma capacidad vinculante de decisión.",
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "En el presupuesto participativo, los vecinos DECIDEN directamente en qué se invierte una porción del presupuesto.",
+      "explanation": "El grado de decisión, el monto, la elegibilidad y la ejecución dependen del diseño y la normativa local. Hay que leer las reglas antes de llamar vinculante a una instancia.",
       "points": 1,
       "orderIndex": 5
     },
     {
-      "question": "¿Qué componente es esencial en un proyecto de ley para que no sea \"decorativo\"?",
+      "question": "¿Qué conjunto vuelve implementable una propuesta normativa?",
       "type": "multiple_choice",
       "options": [
-        "Un título creativo",
-        "Autoridad de aplicación y sanciones por incumplimiento",
-        "Muchos artículos",
-        "Referencias a leyes extranjeras"
+        "Un título creativo y una campaña",
+        "Responsabilidades, recursos, plazos, procedimiento, control e indicadores coherentes con el problema",
+        "La mayor cantidad posible de artículos",
+        "Copiar sanciones de otra jurisdicción"
       ],
       "correctAnswer": 1,
-      "explanation": "Sin autoridad de aplicación y sanciones, una ley es solo una declaración de buenas intenciones.",
+      "explanation": "No toda norma necesita el mismo tipo de sanción, pero sí un mecanismo congruente: quién hace qué, con qué recursos, en qué plazo y cómo se controla y corrige.",
       "points": 2,
       "orderIndex": 6
     },
@@ -101,30 +101,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Comunicar Tu Propuesta: De la Idea al Apoyo Público\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Comunicar Tu Propuesta: De la Idea al Apoyo Público» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo comunicar propuestas institucionales para generar apoyo.",
-        "Pasar de la queja al diseño de soluciones institucionales.",
-        "Herramientas para analizar por qué una institución no funciona.",
-        "Principios básicos para diseñar políticas públicas efectivas."
+        "Un caso real trabajado con este foco: Cómo comunicar propuestas institucionales para generar apoyo.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo comunicar propuestas institucionales para generar apoyo..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Propuesta Institucional: Proyecto Final\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Propuesta Institucional: Proyecto Final» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Diseñar una propuesta institucional concreta y un plan para implementarla.",
-        "Pasar de la queja al diseño de soluciones institucionales.",
-        "Herramientas para analizar por qué una institución no funciona.",
-        "Principios básicos para diseñar políticas públicas efectivas."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Diseñar una propuesta institucional concreta y un plan para implementarla.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en diseñar una propuesta institucional concreta y un plan para implementarla..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

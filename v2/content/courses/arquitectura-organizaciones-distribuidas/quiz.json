@@ -27,16 +27,16 @@
       "orderIndex": 2
     },
     {
-      "question": "¿Cuál es el primer nivel de resolución de conflictos en una organización horizontal?",
+      "question": "¿Cuándo es razonable intentar una conversación directa antes de escalar un conflicto?",
       "type": "multiple_choice",
       "options": [
-        "Votación grupal",
-        "Conversación directa entre las dos personas",
-        "Mediación de un tercero",
-        "Panel de 3 personas"
+        "En todos los casos, incluso con violencia o represalias",
+        "Cuando hay condiciones de seguridad y poder suficientes; si no, se activa apoyo, mediación o protocolo",
+        "Sólo después de una votación grupal",
+        "Nunca: todo conflicto debe hacerse público"
       ],
       "correctAnswer": 1,
-      "explanation": "Siempre se empieza por la conversación directa antes de escalar.",
+      "explanation": "La conversación directa puede ser útil, pero no es obligatoria ante violencia, acoso, represalias o asimetrías graves. Una arquitectura cuidadosa ofrece rutas seguras y no descarga todo en quien reporta.",
       "points": 2,
       "orderIndex": 3
     },
@@ -45,7 +45,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "El burnout es un problema de diseño organizacional: concentración de tareas, falta de límites y reconocimiento.",
+      "explanation": "El agotamiento puede combinar factores personales, laborales y contextuales. La organización sí debe revisar carga, concentración de tareas, límites, apoyo y reconocimiento, sin diagnosticar ni culpabilizar.",
       "points": 1,
       "orderIndex": 4
     },
@@ -78,39 +78,34 @@
       "orderIndex": 6
     },
     {
-      "question": "La Regla del 70% sugiere nunca usar más del 70% de tu capacidad como voluntario.",
+      "question": "La llamada \"regla del 70%\" es un diagnóstico clínico y un límite universal de capacidad.",
       "type": "true_false",
       "options": null,
-      "correctAnswer": true,
-      "explanation": "Dejar un 30% de margen previene el agotamiento y permite responder a imprevistos.",
+      "correctAnswer": false,
+      "explanation": "Es una heurística de planificación para recordar el margen, no un porcentaje científico ni universal. El equipo debe acordar capacidad, señales de sobrecarga y revisiones periódicas.",
       "points": 1,
       "orderIndex": 7
     },
     {
       "question": "¿Cuál es el modelo de crecimiento donde cada organización barrial mantiene plena autonomía?",
       "type": "multiple_choice",
-      "options": [
-        "Centralización",
-        "Replicación",
-        "Fusión",
-        "Absorción"
-      ],
+      "options": ["Centralización", "Replicación", "Fusión", "Absorción"],
       "correctAnswer": 1,
       "explanation": "La replicación crea organizaciones autónomas que comparten modelo pero no dependen entre sí.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es la frecuencia recomendada de rotación para la facilitación de reuniones?",
+      "question": "¿Cómo conviene definir la rotación de la facilitación?",
       "type": "multiple_choice",
       "options": [
-        "Anual",
-        "Semestral",
-        "Mensual",
-        "Nunca debe rotar"
+        "Mensualmente para cualquier equipo",
+        "Según cadencia, complejidad, accesibilidad y aprendizaje, con suplencia y revisión explícitas",
+        "Sólo cuando renuncia quien facilita",
+        "Sin documentar el criterio para conservar flexibilidad"
       ],
-      "correctAnswer": 2,
-      "explanation": "La facilitación de reuniones es un rol que beneficia de rotación mensual para desarrollar capacidades en todos.",
+      "correctAnswer": 1,
+      "explanation": "Rotar puede distribuir capacidad y poder, pero la frecuencia depende del contexto. Lo importante es evitar dependencia, preparar relevos y cuidar continuidad y accesibilidad.",
       "points": 2,
       "orderIndex": 9
     },
@@ -124,30 +119,30 @@
       "orderIndex": 10
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Comunicación Interna Que No Queme\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Comunicación Interna Que No Queme» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Diseñar flujos de comunicación que informen sin saturar.",
-        "Por qué las organizaciones que dependen de una sola persona están condenadas a morir.",
-        "Introducción al modelo sociocrático de gobernanza y toma de decisiones.",
-        "Separar los roles de las personas para crear organizaciones más flexibles."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Diseñar flujos de comunicación que informen sin saturar.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en diseñar flujos de comunicación que informen sin saturar..",
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"De la Organización al Movimiento: Escalar Sin Perder Esencia\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «De la Organización al Movimiento: Escalar Sin Perder Esencia» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo crecer manteniendo los valores y la estructura distribuida.",
-        "Por qué las organizaciones que dependen de una sola persona están condenadas a morir.",
-        "Introducción al modelo sociocrático de gobernanza y toma de decisiones.",
-        "Separar los roles de las personas para crear organizaciones más flexibles."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Cómo crecer manteniendo los valores y la estructura distribuida."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo crecer manteniendo los valores y la estructura distribuida..",
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 12
     }

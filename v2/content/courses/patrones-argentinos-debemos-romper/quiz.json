@@ -96,58 +96,58 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"El Estado como Botín: Captura Institucional\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «El Estado como Botín: Captura Institucional» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo los intereses privados capturan las instituciones públicas.",
-        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
-        "El patrón económico más persistente de Argentina.",
-        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+        "Un caso real trabajado con este foco: Cómo los intereses privados capturan las instituciones públicas.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo los intereses privados capturan las instituciones públicas..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"El Patrón de la Queja sin Acción\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «El Patrón de la Queja sin Acción» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "La cultura del lamento como mecanismo de descarga que reemplaza la acción.",
-        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
-        "El patrón económico más persistente de Argentina.",
-        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: La cultura del lamento como mecanismo de descarga que reemplaza la acción.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en la cultura del lamento como mecanismo de descarga que reemplaza la acción..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Puntos de Apalancamiento: Dónde Intervenir\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Puntos de Apalancamiento: Dónde Intervenir» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios.",
-        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
-        "El patrón económico más persistente de Argentina.",
-        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios..",
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Diseño Idealizado: La Argentina que Podemos Construir\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Diseño Idealizado: La Argentina que Podemos Construir» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Ejercicio de diseño idealizado: si pudieras diseñar Argentina desde cero, ¿cómo sería?",
-        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
-        "El patrón económico más persistente de Argentina.",
-        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Ejercicio de diseño idealizado: si pudieras diseñar Argentina desde cero, ¿cómo sería?."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en ejercicio de diseño idealizado: si pudieras diseñar argentina desde cero, ¿cómo sería?.",
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 12
     }

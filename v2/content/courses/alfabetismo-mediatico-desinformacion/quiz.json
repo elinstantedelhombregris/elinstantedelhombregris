@@ -101,30 +101,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Inteligencia Artificial y el Futuro de la Desinformación\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Inteligencia Artificial y el Futuro de la Desinformación» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo la IA está transformando la creación y detección de contenido falso.",
-        "Mapear el paisaje de medios argentinos y entender quién es dueño de qué.",
-        "Entender cómo los algoritmos de redes sociales amplifican la desinformación.",
-        "Diferenciar tipos de desinformación y entender cómo se fabrican."
+        "Un caso real trabajado con este foco: Cómo la IA está transformando la creación y detección de contenido falso.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo la ia está transformando la creación y detección de contenido falso..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Kit de Supervivencia Mediática\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Kit de Supervivencia Mediática» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Protocolo personal para navegar el ecosistema informativo con inteligencia.",
-        "Mapear el paisaje de medios argentinos y entender quién es dueño de qué.",
-        "Entender cómo los algoritmos de redes sociales amplifican la desinformación.",
-        "Diferenciar tipos de desinformación y entender cómo se fabrican."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Protocolo personal para navegar el ecosistema informativo con inteligencia.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en protocolo personal para navegar el ecosistema informativo con inteligencia..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

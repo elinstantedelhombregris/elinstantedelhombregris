@@ -1,8 +1,8 @@
 {
   "slug": "niveles-superiores-pensamiento-conciencia",
-  "title": "Niveles Superiores de Pensamiento: Del Ego a la Conciencia Pura",
-  "description": "Un viaje transformador a través de los 6 niveles de pensamiento y conciencia, desde la perspectiva egocéntrica hasta la conciencia pura. Este curso explora cómo evolucionar tu capacidad de pensamiento, desarrollar empatía profunda, acceder a la metacognición y finalmente alcanzar estados de observación y conciencia pura que transforman completamente tu experiencia de vida.",
-  "excerpt": "Descubrí los 6 niveles de pensamiento y conciencia, desde el ego hasta la conciencia pura. Aprendé técnicas prácticas de meditación y mindfulness para transformar tu relación con tus pensamientos y emociones.",
+  "title": "Perspectivas, Metacognición y Conciencia",
+  "description": "Un laboratorio de seis perspectivas para observar experiencia, vínculos y pensamiento. Usá el modelo como una serie de lentes —no como una escala de superioridad— y contrastá introspección, inferencia y evidencia.",
+  "excerpt": "Practicá seis perspectivas para observar tu pensamiento sin convertirlas en etiquetas ni jerarquías humanas.",
   "category": "reflection",
   "level": "advanced",
   "duration": 21,
@@ -14,71 +14,71 @@
   "lessons": [
     {
       "key": "02-introduccion-los-niveles-de-conciencia",
-      "title": "Introducción: Los Niveles de Conciencia",
-      "description": "Una introducción al modelo de 6 niveles de pensamiento y conciencia, y por qué desarrollar niveles superiores transforma tu vida.",
+      "title": "Introducción: Seis Perspectivas de Conciencia",
+      "description": "Una introducción a seis perspectivas de pensamiento, sus usos y los límites de ordenarlas como niveles.",
       "duration": 2,
       "orderIndex": 1
     },
     {
       "key": "03-primera-persona-el-mundo-como-objetos",
       "title": "Primera Persona: El Mundo como Objetos",
-      "description": "Explorando el nivel más básico de pensamiento, donde otros son vistos como objetos sin interioridad.",
+      "description": "Explorá qué podés reportar desde tu experiencia y dónde empiezan la interpretación y el sesgo.",
       "duration": 2,
       "orderIndex": 2
     },
     {
       "key": "04-segunda-persona-reconociendo-la-interioridad-del-otro",
       "title": "Segunda Persona: Reconociendo la Interioridad del Otro",
-      "description": "El nivel donde comenzamos a entender que otros piensan diferente, aunque aún sin desarrollar empatía real.",
+      "description": "Reconocé que otras personas tienen experiencia propia sin adjudicarles una etapa de desarrollo.",
       "duration": 2,
       "orderIndex": 3
     },
     {
       "key": "05-tercera-persona-el-nacimiento-de-la-empatia",
       "title": "Tercera Persona: El Nacimiento de la Empatía",
-      "description": "El nivel donde puedes pensar sobre los pensamientos del otro, permitiendo verdadera empatía y compromiso.",
+      "description": "Ensayá hipótesis sobre la perspectiva de otra persona sin confundir empatía con lectura de mente.",
       "duration": 2,
       "orderIndex": 4
     },
     {
       "key": "06-cuarta-persona-la-puerta-a-la-metacognicion",
       "title": "Cuarta Persona: La Puerta a la Metacognición",
-      "description": "El nivel donde puedes pensar sobre tu propio pensamiento, permitiendo elección consciente de identidad y valores.",
+      "description": "Observá tu propio pensamiento, sus límites y el margen de elección sobre identidad y valores.",
       "duration": 2,
       "orderIndex": 5
     },
     {
       "key": "07-quinta-persona-el-observador",
       "title": "Quinta Persona: El Observador",
-      "description": "El descubrimiento revolucionario: \"No soy mi mente\". Aprendé a observar tus pensamientos y emociones sin identificarte con ellos.",
+      "description": "Practicá distancia frente a pensamientos y emociones sin negar su efecto ni convertir al observador en una identidad superior.",
       "duration": 2,
       "orderIndex": 6
     },
     {
       "key": "08-sexta-persona-la-conciencia-pura",
-      "title": "Sexta Persona: La Conciencia Pura",
-      "description": "El nivel más alto: el \"Yo\" puro, la conciencia misma que es simplemente ser, más allá del observador.",
+      "title": "Sexta Persona: La Metáfora de la Conciencia Pura",
+      "description": "Explorá la experiencia de presencia como una metáfora contemplativa, no como rango, diagnóstico ni hecho demostrado.",
       "duration": 2,
       "orderIndex": 7
     },
     {
       "key": "09-integracion-vivir-desde-los-niveles-superiores",
-      "title": "Integración: Vivir desde los Niveles Superiores",
-      "description": "Cómo integrar los niveles superiores de conciencia en tu vida diaria, encontrando equilibrio entre desidentificación y participación.",
+      "title": "Integración: Cambiar de Perspectiva sin Escapar",
+      "description": "Integrá las perspectivas en la vida diaria y equilibrá observación, cuerpo, vínculo y participación.",
       "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-practicas-de-desarrollo-meditacion-y-mindfulness",
       "title": "Prácticas de Desarrollo: Meditación y Mindfulness",
-      "description": "Técnicas específicas de meditación y mindfulness para desarrollar y mantener cada nivel de conciencia.",
+      "description": "Probá prácticas breves de atención con criterios de seguridad, registro y pausa si aparece malestar.",
       "duration": 2,
       "orderIndex": 9
     },
     {
       "key": "11-transformacion-personal-y-colectiva",
       "title": "Transformación Personal y Colectiva",
-      "description": "Cómo los niveles superiores de pensamiento transforman tus relaciones y tu impacto en la comunidad y sociedad.",
+      "description": "Convertí perspectiva y metacognición en una conversación o decisión que otra persona pueda contrastar.",
       "duration": 2,
       "orderIndex": 10
     }
@@ -93,10 +93,8 @@
     "No sustituye psicoterapia, atención psiquiátrica ni formación contemplativa acompañada."
   ],
   "paraQuien": "Para personas con práctica reflexiva que quieren ampliar perspectiva sin escapar del cuerpo ni del mundo.",
-  "productoFinal": "Un diario de siete perspectivas con registros, sesgos detectados y práctica personal de catorce días.",
-  "prerrequisitos": [
-    "Capacidad de pausar la práctica si produce malestar intenso."
-  ],
+  "productoFinal": "Un diario de seis perspectivas con registros, sesgos detectados y una práctica personal de catorce días.",
+  "prerrequisitos": ["Capacidad de pausar la práctica si produce malestar intenso."],
   "coverImage": "/course-art/reflection.webp",
   "fuentesBase": [
     {
@@ -108,6 +106,16 @@
       "url": "https://plato.stanford.edu/entries/nietzsche/",
       "titulo": "Stanford Encyclopedia of Philosophy · Friedrich Nietzsche",
       "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://plato.stanford.edu/entries/consciousness-neuroscience/",
+      "titulo": "Stanford Encyclopedia of Philosophy · conciencia, introspección y límites metodológicos",
+      "consultada": "2026-08-14"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33593124/",
+      "titulo": "Revisión de 44 metaanálisis · evidencia y límites del mindfulness",
+      "consultada": "2026-08-14"
     }
   ]
 }

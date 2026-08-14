@@ -2,7 +2,7 @@
   "slug": "argentina-sistema-viviente-primeros-principios",
   "title": "Argentina como Sistema Viviente: De las Leyes Físicas a la Transformación Nacional",
   "description": "Un recorrido condensado y coherente por los primeros principios de los sistemas, desde las leyes físicas y la complejidad hasta su aplicación práctica en familia, territorio y nación.",
-  "excerpt": "Comprendé cómo funcionan los sistemas y usa esa mirada para intervenir mejor en tu vida, tu barrio y Argentina.",
+  "excerpt": "Comprendé cómo funcionan los sistemas y usá esa mirada para intervenir mejor en tu vida, tu barrio y Argentina.",
   "category": "hombre-gris",
   "level": "intermediate",
   "duration": 108,
@@ -29,14 +29,14 @@
     {
       "key": "03-informacion-senales-y-comunicacion-efectiva",
       "title": "Información, señales y comunicación efectiva",
-      "description": "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
+      "description": "Estudiá cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
       "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-flujos-entradas-y-bucles-de-retroalimentacion",
       "title": "Flujos, entradas y bucles de retroalimentación",
-      "description": "Mapea las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse.",
+      "description": "Mapeá las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse.",
       "duration": 9,
       "orderIndex": 3
     },
@@ -50,21 +50,21 @@
     {
       "key": "06-teoria-de-control-cibernetica-y-sistemas-vivos",
       "title": "Teoría de control, cibernética y sistemas vivos",
-      "description": "Integra principios de control, cibernética y biología para dirigir sistemas con propósito sin caer en microgestión, rigidez ni desgaste innecesario.",
+      "description": "Integrá principios de control, cibernética y biología para dirigir sistemas con propósito sin caer en microgestión, rigidez ni desgaste innecesario.",
       "duration": 8,
       "orderIndex": 5
     },
     {
       "key": "07-psicologia-vinculos-y-habitos-en-sistemas-humanos",
       "title": "Psicología, vínculos y hábitos en sistemas humanos",
-      "description": "Aplica la mirada sistémica a la mente, las relaciones y los hábitos para entender cómo se forman patrones estables y cómo modificarlos sin violencia.",
+      "description": "Aplicá la mirada sistémica a la mente, las relaciones y los hábitos para entender cómo se forman patrones estables y cómo modificarlos sin violencia.",
       "duration": 10,
       "orderIndex": 6
     },
     {
       "key": "08-economia-incentivos-y-teoria-de-juegos",
       "title": "Economía, incentivos y teoría de juegos",
-      "description": "Conecta recursos, costos de oportunidad, incentivos y estrategias interdependientes para diseñar mejores decisiones personales, comunitarias y nacionales.",
+      "description": "Conectá recursos, costos de oportunidad, incentivos y estrategias interdependientes para diseñar mejores decisiones personales, comunitarias y nacionales.",
       "duration": 8,
       "orderIndex": 7
     },
@@ -78,7 +78,7 @@
     {
       "key": "10-gestion-de-energia-personal-y-salud-sistemica",
       "title": "Gestión de energía personal y salud sistémica",
-      "description": "Traduce los principios sistémicos al cuerpo y la vida cotidiana para optimizar energía, salud y sostenibilidad personal.",
+      "description": "Traducí los principios sistémicos al cuerpo y la vida cotidiana para cuidar energía, salud y sostenibilidad personal.",
       "duration": 7,
       "orderIndex": 9
     },
@@ -92,7 +92,7 @@
     {
       "key": "12-recursos-riqueza-y-diseno-de-objetivos",
       "title": "Recursos, riqueza y diseño de objetivos",
-      "description": "Ordena tu relación con los recursos y los objetivos para construir riqueza, foco y sistemas de ejecución que sostengan resultados.",
+      "description": "Ordená tu relación con los recursos y los objetivos para construir riqueza, foco y sistemas de ejecución que sostengan resultados.",
       "duration": 7,
       "orderIndex": 11
     },
@@ -106,21 +106,21 @@
     {
       "key": "14-barrio-y-municipio-donde-la-coordinacion-se-vuelve-visible",
       "title": "Barrio y municipio: donde la coordinación se vuelve visible",
-      "description": "Lleva los primeros principios al territorio inmediato para entender cómo se coordinan familias, organizaciones y Estado local en problemas concretos.",
+      "description": "Llevá los primeros principios al territorio inmediato para entender cómo se coordinan familias, organizaciones y Estado local en problemas concretos.",
       "duration": 8,
       "orderIndex": 13
     },
     {
       "key": "15-provincia-y-nacion-argentina-como-sistema-multinivel",
       "title": "Provincia y nación: Argentina como sistema multinivel",
-      "description": "Integra escalas territoriales para leer a Argentina como un sistema complejo donde las decisiones provinciales y nacionales se condicionan mutuamente.",
+      "description": "Integrá escalas territoriales para leer a Argentina como un sistema complejo donde las decisiones provinciales y nacionales se condicionan mutuamente.",
       "duration": 8,
       "orderIndex": 14
     },
     {
       "key": "16-la-clave-maestra-mejorar-relaciones-para-mejorar-rendimiento",
       "title": "La clave maestra: mejorar relaciones para mejorar rendimiento",
-      "description": "Cierra el curso sintetizando la idea central: cuando mejoran las relaciones entre las partes, mejora el rendimiento del sistema completo.",
+      "description": "Cerrá el curso sintetizando la idea central: cuando mejoran las relaciones entre las partes, mejora el rendimiento del sistema completo.",
       "duration": 5,
       "orderIndex": 15
     }
@@ -136,9 +136,7 @@
   ],
   "paraQuien": "Para personas que necesitan integrar problemas fragmentados y ensayar decisiones con una mirada sistémica.",
   "productoFinal": "Un mapa multinivel de un sistema argentino, con bucles, demoras, supuestos y una palanca comprobable.",
-  "prerrequisitos": [
-    "Disposición a dibujar relaciones y revisar una hipótesis inicial."
-  ],
+  "prerrequisitos": ["Disposición a dibujar relaciones y revisar una hipótesis inicial."],
   "coverImage": "/course-art/hombre-gris.webp",
   "fuentesBase": [
     {

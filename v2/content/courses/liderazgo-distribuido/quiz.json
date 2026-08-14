@@ -20,10 +20,7 @@
     {
       "question": "Según el curso, el \"radio de confianza\" en Argentina es amplio y la gente confía fácilmente en desconocidos.",
       "type": "true_false",
-      "options": [
-        "Verdadero",
-        "Falso"
-      ],
+      "options": ["Verdadero", "Falso"],
       "correctAnswer": "Falso",
       "explanation": "El radio de confianza en Argentina es cortísimo: tendemos a confiar solo en la familia cercana y sospechar de todos los demás, lo que genera enormes costos de transacción.",
       "points": 1,
@@ -60,10 +57,7 @@
     {
       "question": "Según el curso, si tu proyecto funciona perfectamente sin vos durante una semana, eso significa que fracasaste como líder.",
       "type": "true_false",
-      "options": [
-        "Verdadero",
-        "Falso"
-      ],
+      "options": ["Verdadero", "Falso"],
       "correctAnswer": "Falso",
       "explanation": "Al contrario: que el proyecto funcione sin vos es la prueba máxima de éxito en el liderazgo distribuido. Significa que construiste autonomía, no dependencia.",
       "points": 1,
@@ -100,40 +94,37 @@
     {
       "question": "El mentor ideal da respuestas claras y directas para que la persona mentoreada no pierda tiempo equivocándose.",
       "type": "true_false",
-      "options": [
-        "Verdadero",
-        "Falso"
-      ],
+      "options": ["Verdadero", "Falso"],
       "correctAnswer": "Falso",
       "explanation": "El mentor acompaña con preguntas, no con respuestas. Como un guía de montaña (no un GPS), enseña a la persona a leer el terreno y tomar sus propias decisiones, incluso si eso implica equivocarse.",
       "points": 1,
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Liderar en Crisis\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Liderar en Crisis» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina.",
-        "Por qué la cultura del caudillo sigue arruinando todo y qué alternativa existe.",
-        "Descubrir dónde ya tenés poder real y cómo expandirlo estratégicamente.",
-        "Construir confianza real en una sociedad que aprendió a desconfiar de todo."
+        "Un caso real trabajado con este foco: Mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto de Liderazgo\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto de Liderazgo» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Diseñar tu experimento de liderazgo distribuido de 90 días.",
-        "Por qué la cultura del caudillo sigue arruinando todo y qué alternativa existe.",
-        "Descubrir dónde ya tenés poder real y cómo expandirlo estratégicamente.",
-        "Construir confianza real en una sociedad que aprendió a desconfiar de todo."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Diseñar tu experimento de liderazgo distribuido de 90 días.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en diseñar tu experimento de liderazgo distribuido de 90 días..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

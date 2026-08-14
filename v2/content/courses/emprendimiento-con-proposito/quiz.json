@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tecnología Accesible: Digitalizar Sin Complicar\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tecnología Accesible: Digitalizar Sin Complicar» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Herramientas digitales gratuitas o baratas para potenciar tu emprendimiento.",
-        "Redefinir qué significa emprender en Argentina: no solo hacer dinero, sino construir confianza.",
-        "Cómo identificar problemas reales que se convierten en oportunidades de emprendimiento.",
-        "Adaptar el Business Model Canvas a la realidad argentina de alta incertidumbre."
+        "Un caso real trabajado con este foco: Herramientas digitales gratuitas o baratas para potenciar tu emprendimiento.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en herramientas digitales gratuitas o baratas para potenciar tu emprendimiento..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Redes y Ecosistema: Emprender Nunca Es Solitario\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Redes y Ecosistema: Emprender Nunca Es Solitario» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "El ecosistema emprendedor argentino y cómo conectarte para crecer.",
-        "Redefinir qué significa emprender en Argentina: no solo hacer dinero, sino construir confianza.",
-        "Cómo identificar problemas reales que se convierten en oportunidades de emprendimiento.",
-        "Adaptar el Business Model Canvas a la realidad argentina de alta incertidumbre."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: El ecosistema emprendedor argentino y cómo conectarte para crecer.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en el ecosistema emprendedor argentino y cómo conectarte para crecer..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

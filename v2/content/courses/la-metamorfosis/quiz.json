@@ -20,10 +20,7 @@
     {
       "question": "Según el curso, la transformación del Camello al León al Niño es un proceso lineal donde se abandona cada etapa al pasar a la siguiente.",
       "type": "true_false",
-      "options": [
-        "Verdadero",
-        "Falso"
-      ],
+      "options": ["Verdadero", "Falso"],
       "correctAnswer": "Falso",
       "explanation": "La persona madura integra las tres transformaciones simultáneamente: sabe cuándo cargar (Camello), cuándo poner límites (León) y cuándo crear (Niño). No es lineal sino integrador.",
       "points": 1,
@@ -58,14 +55,16 @@
       "orderIndex": 4
     },
     {
-      "question": "Según los estudios de Christakis y Fowler, los comportamientos se propagan hasta tres grados de separación en las redes sociales.",
-      "type": "true_false",
+      "question": "¿Qué precaución exige afirmar que un comportamiento se \"propaga\" en una red social?",
+      "type": "multiple_choice",
       "options": [
-        "Verdadero",
-        "Falso"
+        "Tratar toda asociación como contagio causal",
+        "Distinguir influencia, homofilia, entorno compartido, diseño del estudio y límites de generalización",
+        "Suponer que tres grados es una ley universal",
+        "Ignorar cómo se construyó la red analizada"
       ],
-      "correctAnswer": "Verdadero",
-      "explanation": "La investigación de Christakis y Fowler en Harvard demostró que comportamientos como la felicidad, la obesidad y los hábitos se propagan hasta tres grados de separación: amigos, amigos de amigos, y amigos de amigos de amigos.",
+      "correctAnswer": "Distinguir influencia, homofilia, entorno compartido, diseño del estudio y límites de generalización",
+      "explanation": "Las asociaciones en redes pueden ser sugerentes, pero separar contagio, selección de vínculos y contexto compartido es difícil. La metáfora no debe presentarse como una ley causal universal.",
       "points": 1,
       "orderIndex": 5
     },
@@ -84,56 +83,53 @@
       "orderIndex": 6
     },
     {
-      "question": "Según Damon Centola, ¿qué porcentaje aproximado de la población comprometida con un nuevo comportamiento se necesita para que se convierta en norma social?",
+      "question": "¿Cómo conviene usar el hallazgo experimental de un umbral cercano al 25% estudiado por Damon Centola y colaboradores?",
       "type": "multiple_choice",
       "options": [
-        "El 5%",
-        "El 25%",
-        "El 51% (mayoría simple)",
-        "El 90%"
+        "Como ley universal para cualquier sociedad y comportamiento",
+        "Como evidencia de un experimento específico que inspira hipótesis, no como receta automática",
+        "Como garantía de cambio cuando se alcanza exactamente ese número",
+        "Como reemplazo del análisis de poder, red y contexto"
       ],
-      "correctAnswer": "El 25%",
-      "explanation": "Los estudios de Centola sugieren que aproximadamente un 25% de la población comprometida con un nuevo comportamiento es suficiente para que se convierta en norma social — la masa crítica.",
+      "correctAnswer": "Como evidencia de un experimento específico que inspira hipótesis, no como receta automática",
+      "explanation": "El estudio encontró un umbral en condiciones experimentales determinadas. Escala, topología de red, comportamiento, poder y contexto pueden cambiar el resultado fuera del laboratorio.",
       "points": 1,
       "orderIndex": 7
     },
     {
       "question": "El \"Instante del Hombre Gris\" es un evento espectacular y único que sucede una sola vez en la vida.",
       "type": "true_false",
-      "options": [
-        "Verdadero",
-        "Falso"
-      ],
+      "options": ["Verdadero", "Falso"],
       "correctAnswer": "Falso",
       "explanation": "El Instante del Hombre Gris no es un evento espectacular sino una práctica diaria: elegir cada día quién ser, qué cargar, qué soltar, qué crear. Cada instante es una elección.",
       "points": 1,
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Argentina Como Laboratorio\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Argentina Como Laboratorio» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Las crisis repetidas como invitaciones permanentes a transformarse.",
-        "Diagnosticar las cargas heredadas que llevás sin haberlas elegido.",
-        "Confrontar el vacío que aparece cuando dejás de cargar lo que no te pertenece.",
-        "La segunda transformación: de la obediencia a los límites sagrados."
+        "Un caso real trabajado con este foco: Las crisis repetidas como invitaciones permanentes a transformarse.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en las crisis repetidas como invitaciones permanentes a transformarse..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Instante del Hombre Gris\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Instante del Hombre Gris» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Síntesis final: tu rol, tu compromiso, tu manifiesto personal.",
-        "Diagnosticar las cargas heredadas que llevás sin haberlas elegido.",
-        "Confrontar el vacío que aparece cuando dejás de cargar lo que no te pertenece.",
-        "La segunda transformación: de la obediencia a los límites sagrados."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Síntesis final: tu rol, tu compromiso, tu manifiesto personal.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en síntesis final: tu rol, tu compromiso, tu manifiesto personal..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

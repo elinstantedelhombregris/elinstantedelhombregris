@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Economía del Conocimiento: El Sector Que Puede Romper el Ciclo\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Economía del Conocimiento: El Sector Que Puede Romper el Ciclo» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo la economía del conocimiento puede transformar el modelo argentino.",
-        "Introducción al pensamiento sistémico aplicado a la economía argentina.",
-        "Entender la inflación como fenómeno sistémico multicausal.",
-        "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente."
+        "Un caso real trabajado con este foco: Cómo la economía del conocimiento puede transformar el modelo argentino.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo la economía del conocimiento puede transformar el modelo argentino..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Diseñar la Salida: Qué Debería Hacer Argentina\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Diseñar la Salida: Qué Debería Hacer Argentina» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Síntesis de intervenciones sistémicas para transformar la economía argentina.",
-        "Introducción al pensamiento sistémico aplicado a la economía argentina.",
-        "Entender la inflación como fenómeno sistémico multicausal.",
-        "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Síntesis de intervenciones sistémicas para transformar la economía argentina.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en síntesis de intervenciones sistémicas para transformar la economía argentina..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

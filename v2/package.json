@@ -39,6 +39,7 @@
     "entrenamientos:poda": "tsx scripts/content/entrenamientos-poda.ts",
     "entrenamientos:limpiar-fuente": "tsx scripts/content/entrenamientos-limpiar-fuente.ts",
     "entrenamientos:enriquecer-cursos": "tsx scripts/content/entrenamientos-enriquecer-cursos.ts",
+    "entrenamientos:mejorar-quizzes": "tsx scripts/content/entrenamientos-mejorar-quizzes.ts",
     "entrenamientos:check": "tsx scripts/content/entrenamientos-check.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
     "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",

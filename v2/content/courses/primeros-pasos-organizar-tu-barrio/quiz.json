@@ -20,12 +20,7 @@
     {
       "question": "¿Cuántas personas son suficientes para considerar exitosa una primera reunión barrial?",
       "type": "multiple_choice",
-      "options": [
-        "Al menos 50",
-        "Al menos 20",
-        "Al menos 5",
-        "Al menos 100"
-      ],
+      "options": ["Al menos 50", "Al menos 20", "Al menos 5", "Al menos 100"],
       "correctAnswer": 2,
       "explanation": "5 personas comprometidas que quieran volver es un excelente punto de partida.",
       "points": 2,
@@ -106,30 +101,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Rituales y Espacios de Encuentro\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Rituales y Espacios de Encuentro» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo.",
-        "Comprender por qué la organización barrial es la unidad mínima de transformación.",
-        "Técnica de mapeo de recursos y activos comunitarios existentes en tu barrio.",
-        "Estrategias probadas para convocar a vecinos a una primera reunión comunitaria."
+        "Un caso real trabajado con este foco: Crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Plan de Acción Barrial: Primeros 90 Días\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan de Acción Barrial: Primeros 90 Días» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Crear un plan concreto de organización barrial para los próximos tres meses.",
-        "Comprender por qué la organización barrial es la unidad mínima de transformación.",
-        "Técnica de mapeo de recursos y activos comunitarios existentes en tu barrio.",
-        "Estrategias probadas para convocar a vecinos a una primera reunión comunitaria."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Crear un plan concreto de organización barrial para los próximos tres meses.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en crear un plan concreto de organización barrial para los próximos tres meses..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

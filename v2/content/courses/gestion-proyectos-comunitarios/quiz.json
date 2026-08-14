@@ -22,7 +22,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "En Argentina los imprevistos son la regla. Siempre incluir un 10-15% de contingencia en el presupuesto.",
+      "explanation": "Todo presupuesto necesita identificar incertidumbres y definir reservas o respuestas proporcionadas. El porcentaje depende del tipo de proyecto, los precios, contratos, riesgos y reglas del financiador; 10-15% es sólo una referencia posible.",
       "points": 1,
       "orderIndex": 2
     },
@@ -87,67 +87,72 @@
       "orderIndex": 7
     },
     {
-      "question": "El ego y la competencia entre organizaciones es el principal obstáculo para las alianzas estratégicas.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Cuando se pone el propósito por encima del protagonismo, las alianzas florecen. El ego es el enemigo de la articulación.",
+      "question": "¿Qué diagnóstico ayuda más cuando una alianza entre organizaciones se traba?",
+      "type": "multiple_choice",
+      "options": [
+        "Atribuir todo al ego de las personas",
+        "Revisar incentivos, poder, costos, confianza, recursos, mandatos y reglas de decisión antes de personalizar",
+        "Pedir compromiso público sin aclarar responsabilidades",
+        "Eliminar las diferencias para evitar conflicto"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El protagonismo puede influir, pero rara vez explica todo. Un diagnóstico sistémico observa intereses, riesgos, asimetrías y reglas para diseñar compromisos verificables.",
       "points": 1,
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Sostenibilidad: Que Tu Proyecto Sobreviva a Tu Entusiasmo\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Sostenibilidad: Que Tu Proyecto Sobreviva a Tu Entusiasmo» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo hacer que un proyecto comunitario perdure más allá de sus fundadores.",
-        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
-        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
-        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+        "Un caso real trabajado con este foco: Cómo hacer que un proyecto comunitario perdure más allá de sus fundadores.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo hacer que un proyecto comunitario perdure más allá de sus fundadores..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto Empieza Hoy: De la Lección a la Acción\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto Empieza Hoy: De la Lección a la Acción» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Integrar todo lo aprendido en el diseño de tu propio proyecto comunitario.",
-        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
-        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
-        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Integrar todo lo aprendido en el diseño de tu propio proyecto comunitario.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en integrar todo lo aprendido en el diseño de tu propio proyecto comunitario..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Historia Completa: La Huerta Comunitaria de Flores\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Historia Completa: La Huerta Comunitaria de Flores» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.",
-        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
-        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
-        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción..",
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Historia Completa: El Grupo de WhatsApp que Cambió el Barrio\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Historia Completa: El Grupo de WhatsApp que Cambió el Barrio» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años.",
-        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
-        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
-        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años..",
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 12
     }

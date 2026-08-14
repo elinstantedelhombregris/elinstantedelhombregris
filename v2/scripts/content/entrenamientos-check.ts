@@ -21,6 +21,8 @@ import { loadContentDir } from '@v2/shared/content/loader';
 const PISO_PALABRAS = 600;
 const CAMPOS_MUERTOS =
   /"(?:seoTitle|seoDescription|searchSummary|ogImageUrl|thumbnailUrl|videoUrl|legacyCourseId|legacyLessonId|contentFile|passingScore|timeLimit|maxAttempts)"\s*:/;
+const PREGUNTA_DE_RECONOCIMIENTO =
+  /¿Cuál es (?:el foco principal|la idea central) de la lección|La lección se (?:centra|concentra) en/iu;
 
 function slugsValidos(raiz: string): Set<string> {
   const set = new Set<string>();
@@ -62,6 +64,8 @@ export async function revisarCorpus(raiz: string): Promise<string[]> {
     const quizRaw = readFileSync(join(cursoDir, 'quiz.json'), 'utf-8');
     if (CAMPOS_MUERTOS.test(quizRaw))
       errores.push(`${curso.name}: quiz.json conserva campos sin lector`);
+    if (PREGUNTA_DE_RECONOCIMIENTO.test(quizRaw))
+      errores.push(`${curso.name}: quiz conserva una pregunta que sólo repite el tema`);
     const declarados = new Map(
       indice.lessons.map((l) => [derivarSlugDeLeccion(l.key), l.duration] as const),
     );

@@ -108,9 +108,7 @@
   ],
   "paraQuien": "Para hogares y redes cercanas que quieren coordinar recursos sin ocultar tensiones ni cargar todo en una persona.",
   "productoFinal": "Un tablero económico familiar-comunitario con flujos, acuerdos, riesgos y protocolo de crisis.",
-  "prerrequisitos": [
-    "Usar números aproximados reales del hogar, sin compartirlos públicamente."
-  ],
+  "prerrequisitos": ["Usar números aproximados reales del hogar, sin compartirlos públicamente."],
   "coverImage": "/course-art/economia.webp",
   "fuentesBase": [
     {
@@ -127,6 +125,11 @@
       "url": "https://www.argentina.gob.ar/cnv/proteccion-al-publico-inversor",
       "titulo": "CNV · protección y educación para el público inversor",
       "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/economia/igualdadygenero/los-cuidados-un-sector-economico-estrategico/aporte-al-pib",
+      "titulo": "Economía, Igualdad y Género · metodología del aporte del cuidado al PIB",
+      "consultada": "2026-08-14"
     }
   ],
   "revisarAntesDe": "2026-11-13"

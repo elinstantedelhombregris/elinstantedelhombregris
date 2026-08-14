@@ -71,7 +71,7 @@
     {
       "key": "10-modulo-9-diseno-institucional-y-enforcement-cooperativo",
       "title": "Módulo 9 · Diseño institucional y cumplimiento cooperativo",
-      "description": "Traduce aprendizajes en reformas legales, contratos y órganos de control.",
+      "description": "Traducí aprendizajes en reformas legales, contratos y órganos de control.",
       "duration": 2,
       "orderIndex": 9
     },
@@ -94,9 +94,7 @@
   ],
   "paraQuien": "Para diseñadores institucionales y líderes comunitarios que quieren pensar cooperación bajo incentivos reales.",
   "productoFinal": "Un laboratorio de juego territorial con reglas, simulación, métricas, fallas y versión revisada.",
-  "prerrequisitos": [
-    "Comodidad con tablas simples y razonamiento por escenarios."
-  ],
+  "prerrequisitos": ["Comodidad con tablas simples y razonamiento por escenarios."],
   "coverImage": "/course-art/hombre-gris.webp",
   "fuentesBase": [
     {

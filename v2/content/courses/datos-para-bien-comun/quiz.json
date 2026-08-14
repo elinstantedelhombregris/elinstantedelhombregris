@@ -13,7 +13,7 @@
         "Ley de Transparencia Fiscal"
       ],
       "correctAnswer": 1,
-      "explanation": "La Ley 27.275 garantiza que cualquier ciudadano puede pedir información al Estado, que tiene 15 días hábiles para responder.",
+      "explanation": "La Ley 27.275 regula el derecho ante sujetos obligados de alcance nacional. Prevé 15 días hábiles y una prórroga excepcional fundada; jurisdicciones locales pueden tener otros regímenes.",
       "points": 2,
       "orderIndex": 1
     },
@@ -45,7 +45,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Con 50% de aumento nominal y 100% de inflación, el presupuesto real CAYÓ un 25%. Siempre ajustar por inflación.",
+      "explanation": "Bajo esos supuestos comparables, 1,5 dividido 2 equivale a 0,75: una caída real de 25%. La comparación debe explicitar período, índice, base, etapa presupuestaria y fecha de corte.",
       "points": 1,
       "orderIndex": 4
     },
@@ -75,51 +75,46 @@
     {
       "question": "¿Qué herramienta permite crear mapas temáticos gratuitos con datos geolocalizados?",
       "type": "multiple_choice",
-      "options": [
-        "Excel",
-        "Google My Maps",
-        "PowerPoint",
-        "WhatsApp"
-      ],
+      "options": ["Excel", "Google My Maps", "PowerPoint", "WhatsApp"],
       "correctAnswer": 1,
       "explanation": "Google My Maps permite crear mapas colaborativos gratuitos con puntos, áreas y datos asociados.",
       "points": 2,
       "orderIndex": 7
     },
     {
-      "question": "Las declaraciones juradas de los funcionarios públicos argentinos son información confidencial.",
+      "question": "Toda la información contenida en una declaración jurada patrimonial puede publicarse sin límites.",
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Las declaraciones juradas son información pública disponible en la Oficina Anticorrupción.",
+      "explanation": "Existe información pública y también resguardos sobre datos sensibles o reservados. Hay que verificar el régimen, el universo de funcionarios, el período y el canal oficial aplicable.",
       "points": 1,
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Rendición de Cuentas Basada en Datos\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Rendición de Cuentas Basada en Datos» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo usar datos para exigir transparencia y combatir la corrupción.",
-        "Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.",
-        "Métodos prácticos para relevar datos que no existen en fuentes oficiales.",
-        "Cómo transformar datos crudos en información útil usando hojas de cálculo."
+        "Un caso real trabajado con este foco: Cómo usar datos para exigir transparencia y combatir la corrupción.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo usar datos para exigir transparencia y combatir la corrupción..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto de Datos: De Este Curso a la Transformación\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto de Datos: De Este Curso a la Transformación» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Diseñar y ejecutar tu primer proyecto de datos para el bien común.",
-        "Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.",
-        "Métodos prácticos para relevar datos que no existen en fuentes oficiales.",
-        "Cómo transformar datos crudos en información útil usando hojas de cálculo."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Diseñar y ejecutar tu primer proyecto de datos para el bien común.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en diseñar y ejecutar tu primer proyecto de datos para el bien común..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

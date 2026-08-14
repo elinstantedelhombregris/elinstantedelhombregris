@@ -28,7 +28,7 @@
     },
     {
       "key": "04-congreso-nacional-como-un-proyecto-realmente-se-convierte-en-ley",
-      "title": "Congreso Nacional: Cómo un Proyecto Realmente Se Convertí en Ley",
+      "title": "Congreso Nacional: Cómo un Proyecto Realmente Se Convierte en Ley",
       "description": "El proceso legislativo real, más allá del esquema del manual escolar.",
       "duration": 2,
       "orderIndex": 3
@@ -125,6 +125,16 @@
       "url": "https://www.argentina.gob.ar/economia/onp/presupuesto-ciudadano-2026/datos-abiertos",
       "titulo": "Presupuesto Ciudadano · datos abiertos e históricos",
       "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.presupuestoabierto.gob.ar/api/",
+      "titulo": "Presupuesto Abierto · API y fechas de impacto",
+      "consultada": "2026-08-14"
+    },
+    {
+      "url": "https://defensor.gob.ar/",
+      "titulo": "Defensoría del Pueblo de la Nación · autoridades, actuaciones e informes",
+      "consultada": "2026-08-14"
     }
   ],
   "revisarAntesDe": "2026-11-13"

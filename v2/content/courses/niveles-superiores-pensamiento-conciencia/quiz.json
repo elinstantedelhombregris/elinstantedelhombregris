@@ -1,130 +1,140 @@
 {
-  "title": "Quiz: Niveles Superiores de Pensamiento y Conciencia",
-  "description": "Evalúa tu comprensión de los 6 niveles de pensamiento y conciencia, y las prácticas para desarrollarlos.",
+  "title": "Práctica: Perspectivas, Metacognición y Conciencia",
+  "description": "Evaluá si podés usar las seis perspectivas como lentes sin jerarquizar personas ni convertir introspección en certeza.",
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿Cuál es la característica principal del pensamiento de primera persona?",
+      "question": "¿Qué acceso especial ofrece la perspectiva de primera persona?",
       "type": "multiple_choice",
       "options": [
-        "Reconocer que otros tienen pensamientos propios",
-        "Ver a otros como objetos sin interioridad",
-        "Pensar sobre los pensamientos del otro",
-        "Observar tus propios pensamientos"
+        "Acceso infalible a las causas de todo lo que sentís",
+        "Un reporte situado de tu experiencia, que sigue siendo interpretable y falible",
+        "Acceso directo a la experiencia de otras personas",
+        "Una prueba objetiva de cualquier creencia"
       ],
       "correctAnswer": 1,
-      "explanation": "En primera persona, ves a otros como objetos en el mundo, sin reconocer que tienen pensamientos, emociones o razones internas para sus acciones.",
+      "explanation": "La experiencia propia es una fuente fundamental, pero introspección e interpretación no son infalibles. Conviene registrar qué sentís, qué inferís y qué evidencia externa existe.",
       "points": 2,
       "orderIndex": 1
     },
     {
-      "question": "¿En qué nivel nace la verdadera empatía?",
+      "question": "Para comprender la perspectiva de otra persona, ¿qué práctica evita la lectura de mente?",
       "type": "multiple_choice",
       "options": [
-        "Segunda persona",
-        "Tercera persona",
-        "Cuarta persona",
-        "Quinta persona"
+        "Suponer que sentir empatía confirma lo que la otra persona piensa",
+        "Formular una hipótesis, preguntar, escuchar y permitir corrección",
+        "Interpretar silencio como acuerdo",
+        "Usar tu propia reacción como única evidencia"
       ],
       "correctAnswer": 1,
-      "explanation": "En tercera persona, puedes pensar sobre los pensamientos del otro, lo que permite verdadera empatía y comprensión mutua.",
+      "explanation": "La empatía orienta una pregunta; no reemplaza la voz ajena. Una perspectiva responsable deja espacio para que la otra persona confirme, matice o rechace la hipótesis.",
       "points": 2,
       "orderIndex": 2
     },
     {
-      "question": "Cuarta persona es la puerta de entrada a la metacognición.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Cuarta persona te permite pensar sobre tu propio pensamiento, lo que es la puerta de entrada a la metacognición y los niveles superiores de conciencia.",
+      "question": "¿Qué registro demuestra metacognición en una decisión difícil?",
+      "type": "multiple_choice",
+      "options": [
+        "Anotar sólo la conclusión final",
+        "Identificar pensamiento, emoción, supuesto, evidencia y una alternativa posible",
+        "Eliminar toda emoción antes de decidir",
+        "Repetir que estás observando al observador"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La metacognición se vuelve útil cuando hace visible cómo pensaste y abre una posibilidad de corrección. No exige neutralidad perfecta ni ausencia de emoción.",
       "points": 2,
       "orderIndex": 3
     },
     {
-      "question": "¿Cuál es la realización clave en quinta persona?",
+      "question": "Decir \"no soy mi pensamiento\" puede ser útil si significa…",
       "type": "multiple_choice",
       "options": [
-        "Puedes pensar sobre los pensamientos del otro",
-        "\"No soy mi mente\" - Puedes observar sin identificarte",
-        "Puedes elegir conscientemente quién quieres ser",
-        "Eres la conciencia pura misma"
+        "Que los pensamientos no tienen ningún efecto",
+        "Que podés observar un pensamiento sin tratarlo automáticamente como orden o hecho",
+        "Que existe una identidad superior demostrada",
+        "Que conviene desconectarse del cuerpo"
       ],
       "correctAnswer": 1,
-      "explanation": "En quinta persona, realizas que \"no eres tu mente\". Puedes observar tus pensamientos, emociones y sensaciones sin identificarte con ellos.",
-      "points": 3,
+      "explanation": "Tomar distancia de un pensamiento puede dar margen de acción. Es una práctica de relación con la experiencia, no una prueba metafísica ni una invitación a ignorar cuerpo y contexto.",
+      "points": 2,
       "orderIndex": 4
     },
     {
-      "question": "En sexta persona, el pensamiento es completamente innecesario.",
+      "question": "En la llamada \"sexta persona\", el pensamiento debería volverse innecesario la mayor parte del tiempo.",
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "En sexta persona, el pensamiento se vuelve innecesario la mayor parte del tiempo (90%), pero sigue siendo una herramienta útil cuando lo necesitas para resolver problemas o planificar.",
+      "explanation": "No existe un porcentaje normativo de pensamiento que demuestre mayor conciencia. Pensar, sentir, percibir y actuar cumplen funciones distintas; la práctica busca flexibilidad, no supresión.",
       "points": 2,
       "orderIndex": 5
     },
     {
-      "question": "¿Qué metáfora se usa para describir cómo funciona la conciencia?",
+      "question": "¿Cuál es el límite de comparar la atención con una linterna?",
       "type": "multiple_choice",
       "options": [
-        "Una escalera",
-        "Una linterna (flashlight)",
-        "Un espejo",
-        "Una puerta"
+        "Ninguno: describe exactamente toda la conciencia",
+        "Ilustra selección de foco, pero simplifica procesos corporales, automáticos, sociales y no conscientes",
+        "Demuestra que sólo existe aquello que atendemos",
+        "Prueba que una persona controla voluntariamente toda su atención"
       ],
       "correctAnswer": 1,
-      "explanation": "La metáfora del flashlight (linterna) describe cómo puedes dirigir tu conciencia/atención hacia diferentes objetos (pensamientos, emociones), pero la conciencia misma siempre está presente.",
+      "explanation": "Una metáfora ayuda a practicar, pero no agota el fenómeno. La ciencia de la conciencia usa reportes, conducta y modelos que también tienen límites.",
       "points": 2,
       "orderIndex": 6
     },
     {
-      "question": "¿Cuál es el peligro principal de cuarta persona?",
+      "question": "La observación de tu pensamiento se transforma en sobreanálisis. ¿Qué experimento es más proporcionado?",
       "type": "multiple_choice",
       "options": [
-        "Falta de empatía",
-        "Análisis paralizante y sobrepensamiento",
-        "Desidentificación completa",
-        "Falta de acción"
+        "Seguir analizando hasta alcanzar certeza total",
+        "Poner un límite de tiempo, volver al cuerpo y elegir una acción pequeña y revisable",
+        "Concluir que retrocediste de nivel",
+        "Evitar toda decisión que produzca incertidumbre"
       ],
       "correctAnswer": 1,
-      "explanation": "Cuarta persona puede llevar a sobrepensamiento y parálisis por análisis, donde pasas horas pensando sobre qué tipo de persona quieres ser sin actuar.",
+      "explanation": "La práctica tiene que devolver capacidad de respuesta. Límite, grounding y una decisión reversible permiten aprender sin premiar la rumiación.",
       "points": 2,
       "orderIndex": 7
     },
     {
-      "question": "¿Qué práctica es esencial para desarrollar quinta persona?",
+      "question": "Una práctica de atención aumenta mucho el malestar o la desconexión. ¿Qué corresponde?",
       "type": "multiple_choice",
       "options": [
-        "Diálogo empático",
-        "Meditación de observación",
-        "Mapeo de posibles \"yoes\"",
-        "Reflexión sobre conflictos"
+        "Intensificarla porque el malestar demuestra progreso",
+        "Pausar, orientarte al entorno y buscar apoyo adecuado si persiste o preocupa",
+        "Ocultarlo para no abandonar el nivel alcanzado",
+        "Interpretarlo automáticamente como experiencia espiritual"
       ],
       "correctAnswer": 1,
-      "explanation": "La meditación de observación, donde observas tus pensamientos y emociones sin identificarte con ellos, es esencial para desarrollar quinta persona.",
+      "explanation": "Ninguna práctica exige atravesar malestar intenso en soledad. Pausar y pedir apoyo es una decisión de cuidado, no un fracaso.",
       "points": 3,
       "orderIndex": 8
     },
     {
-      "question": "En los niveles superiores (5-6), la realidad se experimenta como un sueño lúcido.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Cuando alcanzas quinta y sexta persona, te das cuenta de que la realidad es como un sueño lúcido: sabes que es un sueño (formas surgiendo de lo informe), pero eliges participar conscientemente.",
+      "question": "La expresión \"la realidad es un sueño lúcido\" debería enseñarse como…",
+      "type": "multiple_choice",
+      "options": [
+        "Un hecho neurocientífico",
+        "Una metáfora filosófica o contemplativa que puede explorarse sin exigir adhesión",
+        "Una señal diagnóstica de conciencia avanzada",
+        "Una razón para desconfiar de toda evidencia compartida"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las metáforas pueden abrir preguntas, pero deben etiquetarse como tales. La experiencia subjetiva no reemplaza la comprobación compartida ni justifica desanclarse de la realidad cotidiana.",
       "points": 2,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el compromiso recomendado para desarrollar niveles superiores?",
+      "question": "¿Qué plan de catorce días demuestra mejor una práctica sostenible?",
       "type": "multiple_choice",
       "options": [
-        "Práctica ocasional cuando te sientes estresado",
-        "Práctica constante y diaria",
-        "Solo meditación los fines de semana",
-        "Leer sobre los niveles una vez al mes"
+        "Una hora diaria obligatoria aunque empeore tu estado",
+        "Una práctica breve elegida, registro de efectos, criterio de pausa y revisión al final",
+        "Cambiar de técnica todos los días sin registrar nada",
+        "Medirte contra otras personas para saber quién llegó más alto"
       ],
       "correctAnswer": 1,
-      "explanation": "Desarrollar niveles superiores requiere práctica constante y diaria. La meditación regular, la observación consciente y el mindfulness diario son esenciales.",
+      "explanation": "Una práctica útil es específica, voluntaria y revisable. Registra efectos y límites; no crea una competencia espiritual ni promete transformación automática.",
       "points": 2,
       "orderIndex": 10
     }

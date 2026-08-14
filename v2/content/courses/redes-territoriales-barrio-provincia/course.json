@@ -1,7 +1,7 @@
 {
   "slug": "redes-territoriales-barrio-provincia",
   "title": "Redes Territoriales: Del Barrio a la Provincia",
-  "description": "Conecta organizaciones barriales en redes más amplias. Aprendé a construir coaliciones, articular con gobierno local y escalar iniciativas exitosas. Incluye análisis de las asambleas del 2001.",
+  "description": "Conectá organizaciones barriales en redes más amplias. Aprendé a construir coaliciones, articular con gobierno local y escalar iniciativas exitosas. Incluye análisis de las asambleas del 2001.",
   "excerpt": "Escala tu impacto conectando barrios en redes de cambio territorial.",
   "category": "community",
   "level": "advanced",
@@ -94,9 +94,7 @@
   ],
   "paraQuien": "Para organizaciones con trabajo local que necesitan cooperar a escala municipal o provincial.",
   "productoFinal": "Un diseño de red territorial con nodos, gobernanza, protocolo de comunicación e iniciativa compartida.",
-  "prerrequisitos": [
-    "Experiencia en una organización o iniciativa territorial real."
-  ],
+  "prerrequisitos": ["Experiencia en una organización o iniciativa territorial real."],
   "coverImage": "/course-art/community.webp",
   "fuentesBase": [
     {

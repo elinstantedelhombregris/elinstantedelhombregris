@@ -1,33 +1,33 @@
 {
   "title": "Quiz: Inteligencia Emocional para Tiempos Turbulentos",
-  "description": "Evalúa tu comprensión de las herramientas de inteligencia emocional aprendidas en este curso.",
+  "description": "Evaluá si podés usar herramientas de regulación emocional sin convertirlas en diagnósticos ni recetas universales.",
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿Cuánto tiempo tarda una emoción en recorrer tu cuerpo como reacción química según Jill Bolte Taylor?",
+      "question": "Alguien afirma que toda emoción debería desaparecer en 90 segundos. ¿Cuál es la respuesta más responsable?",
       "type": "multiple_choice",
       "options": [
-        "30 segundos",
-        "90 segundos",
-        "5 minutos",
-        "15 minutos"
+        "Es una ley neuroquímica aplicable a todas las personas",
+        "Es una regla popular, no un cronómetro clínico: duración e intensidad dependen de emoción, contexto, cuerpo e interpretación",
+        "Si dura más, la persona eligió sostenerla",
+        "Sólo las emociones positivas duran más"
       ],
       "correctAnswer": 1,
-      "explanation": "Según la neurocientífica Jill Bolte Taylor, una emoción tarda 90 segundos en recorrer el cuerpo como reacción química. Después de eso, si persiste es por realimentación cognitiva.",
+      "explanation": "La idea de los 90 segundos puede servir como invitación a pausar, pero no debe enseñarse como una ley ni usarse para culpabilizar. Las respuestas emocionales tienen múltiples componentes y tiempos.",
       "points": 1,
       "orderIndex": 1
     },
     {
-      "question": "¿Cuáles son los tres modos del sistema nervioso autónomo según la teoría polivagal?",
+      "question": "¿Cómo conviene presentar la teoría polivagal en un curso introductorio?",
       "type": "multiple_choice",
       "options": [
-        "Activo, pasivo y neutral",
-        "Seguro (ventral vagal), lucha/huida (simpático) y colapso (dorsal vagal)",
-        "Consciente, inconsciente y subconsciente",
-        "Emocional, racional y instintivo"
+        "Como diagnóstico neurológico que la persona puede aplicarse sola",
+        "Como un marco popular para nombrar experiencias, aclarando sus límites y sin confundirlo con consenso clínico",
+        "Como prueba de que cada emoción pertenece a un estado fijo",
+        "Como reemplazo de una evaluación profesional"
       ],
       "correctAnswer": 1,
-      "explanation": "La teoría polivagal de Stephen Porges identifica tres estados: ventral vagal (seguridad), simpático (lucha/huida) y dorsal vagal (colapso/shutdown).",
+      "explanation": "El vocabulario de seguridad, movilización y desconexión puede ayudar a observar patrones, pero no habilita autodiagnóstico ni demuestra por sí solo un mecanismo fisiológico concreto.",
       "points": 1,
       "orderIndex": 2
     },
@@ -50,7 +50,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Falso. La investigación demuestra que las personas autocompasivas son más resilientes, persisten más en tareas difíciles y sufren menos burnout.",
+      "explanation": "La autocompasión no equivale a resignación. La evidencia sugiere beneficios posibles en distintos contextos, pero no garantiza motivación, resiliencia ni un resultado clínico para cada persona.",
       "points": 1,
       "orderIndex": 4
     },
@@ -69,67 +69,62 @@
       "orderIndex": 5
     },
     {
-      "question": "¿Qué técnica de regulación emocional usa los cinco sentidos para traerte al presente?",
+      "question": "¿Cuál es el propósito realista de un ejercicio breve de grounding?",
       "type": "multiple_choice",
       "options": [
-        "Respiración 4-7-8",
-        "Reetiquetado cognitivo",
-        "Anclaje sensorial (Grounding) 5-4-3-2-1",
-        "Pausa de 90 segundos"
+        "Eliminar de inmediato toda emoción difícil",
+        "Orientar la atención al presente y recuperar margen para elegir el próximo paso",
+        "Demostrar que el peligro nunca es real",
+        "Reemplazar apoyo médico o psicológico"
       ],
-      "correctAnswer": 2,
-      "explanation": "El grounding 5-4-3-2-1 usa los cinco sentidos: 5 cosas que ves, 4 que tocas, 3 que escuchas, 2 que oles, 1 que saboreas.",
+      "correctAnswer": 1,
+      "explanation": "La OMS presenta el grounding como una práctica para atravesar tormentas emocionales, no para hacerlas desaparecer. Puede adaptarse o interrumpirse si aumenta el malestar.",
       "points": 1,
       "orderIndex": 6
     },
     {
-      "question": "¿Qué característica del estrés económico argentino lo hace especialmente dañino?",
+      "question": "¿Cómo evaluás el impacto emocional de la incertidumbre económica sin estereotipar?",
       "type": "multiple_choice",
       "options": [
-        "Es muy intenso",
-        "Es impredecible, sistémico, transgeneracional y normalizado",
-        "Solo afecta a los más pobres",
-        "Es exclusivamente financiero"
+        "Suponiendo que afecta a toda persona argentina del mismo modo",
+        "Observando exposición, recursos, historia, red de apoyo, responsabilidades y señales concretas de esa persona",
+        "Explicándolo sólo por una característica cultural",
+        "Midiéndolo únicamente por el ingreso"
       ],
       "correctAnswer": 1,
-      "explanation": "El estrés argentino combina cuatro factores que lo hacen particularmente dañino: impredecibilidad, naturaleza sistémica, transmisión transgeneracional y normalización cultural.",
+      "explanation": "La precariedad y la incertidumbre pueden pesar mucho, pero su impacto no es uniforme. Un registro situado evita convertir contexto, herencia o nacionalidad en un diagnóstico.",
       "points": 1,
       "orderIndex": 7
     },
     {
       "question": "En la filosofía del Hombre Gris, ¿qué metamorfosis se relaciona con la presencia y observación sin juicio?",
       "type": "multiple_choice",
-      "options": [
-        "El Camello",
-        "El León",
-        "El Niño",
-        "El Águila"
-      ],
+      "options": ["El Camello", "El León", "El Niño", "El Águila"],
       "correctAnswer": 2,
       "explanation": "El Niño es la tercera metamorfosis y representa la presencia pura, la observación sin juicio y la capacidad de crear desde la inocencia recuperada.",
       "points": 1,
       "orderIndex": 8
     },
     {
-      "question": "La \"ventana de tolerancia\" se refiere al rango de activación emocional dentro del cual puedes funcionar bien.",
+      "question": "La \"ventana de tolerancia\" es una medida clínica exacta e idéntica para todas las personas.",
       "type": "true_false",
       "options": null,
-      "correctAnswer": true,
-      "explanation": "Correcto. Dan Siegel desarrolló este concepto: dentro de la ventana puedes pensar, escuchar y decidir con claridad. Fuera de ella estás en hiper o hipoactivación.",
+      "correctAnswer": false,
+      "explanation": "Es una metáfora útil para registrar cuándo aumenta o cae el margen de respuesta, no una escala exacta. Cambia con el contexto y no reemplaza evaluación clínica.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es la proporción de interacciones positivas vs negativas en parejas exitosas según Gottman?",
+      "question": "¿Cómo usarías la conocida relación \"5 a 1\" asociada a estudios de parejas?",
       "type": "multiple_choice",
       "options": [
-        "1 a 1",
-        "3 a 1",
-        "5 a 1",
-        "10 a 1"
+        "Como test exacto para decidir si una relación es exitosa",
+        "Como recordatorio contextual sobre el clima relacional, no como diagnóstico, cuota diaria ni garantía",
+        "Como permiso para compensar una agresión con cinco elogios",
+        "Como regla aplicable sin conocer población ni método"
       ],
-      "correctAnswer": 2,
-      "explanation": "John Gottman descubrió que las parejas exitosas mantienen una proporción de 5 interacciones positivas por cada 1 negativa.",
+      "correctAnswer": 1,
+      "explanation": "Una relación estadística observada bajo ciertas definiciones no es una ley individual. No minimiza violencia, no sustituye seguridad y no convierte un conteo en calidad de vínculo.",
       "points": 1,
       "orderIndex": 10
     }

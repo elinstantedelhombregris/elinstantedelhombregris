@@ -1,7 +1,7 @@
 {
   "slug": "gestion-proyectos-comunitarios",
   "title": "Gestión de Proyectos Comunitarios",
-  "description": "Lleva tu proyecto comunitario del sueño a la realidad. Presupuestos, coordinación de voluntarios, medición de impacto, escritura de propuestas para fondos y estructuras legales.",
+  "description": "Llevá tu proyecto comunitario del sueño a la realidad. Presupuestos, coordinación de voluntarios, medición de impacto, escritura de propuestas para fondos y estructuras legales.",
   "excerpt": "Gestiona proyectos comunitarios con profesionalismo y corazón.",
   "category": "action",
   "level": "intermediate",
@@ -108,9 +108,7 @@
   ],
   "paraQuien": "Para grupos que ya tienen una idea comunitaria y necesitan convertirla en un proyecto gobernable.",
   "productoFinal": "Un canvas de proyecto comunitario con alcance, cronograma, presupuesto, riesgos, aliados e indicadores.",
-  "prerrequisitos": [
-    "Una idea concreta y al menos otra persona con quien contrastarla."
-  ],
+  "prerrequisitos": ["Una idea concreta y al menos otra persona con quien contrastarla."],
   "coverImage": "/course-art/action.webp",
   "fuentesBase": [
     {

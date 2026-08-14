@@ -13,44 +13,49 @@
         "Los comerciantes son ambiciosos"
       ],
       "correctAnswer": 1,
-      "explanation": "La inflación no es que las cosas valgan más, sino que el poder adquisitivo de tu dinero disminuye.",
+      "explanation": "La inflación es un aumento generalizado y sostenido del nivel de precios: si tus ingresos o ahorros no acompañan, su poder de compra cae. No se explica por una sola causa ni por un solo precio.",
       "points": 2,
       "orderIndex": 1
     },
     {
-      "question": "En un contexto de alta inflación, una deuda a tasa fija en pesos puede beneficiarte.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Si la inflación supera la tasa del préstamo, en términos reales la deuda se \"licúa\" a tu favor.",
+      "question": "¿Cuándo podría bajar el costo real de una deuda a tasa fija en pesos?",
+      "type": "multiple_choice",
+      "options": [
+        "Siempre que suba algún precio",
+        "Si la inflación supera el costo financiero y tus ingresos acompañan lo suficiente para sostener las cuotas",
+        "Sólo por extender el plazo",
+        "Automáticamente después de pagar la primera cuota"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La comparación relevante incluye costo financiero total, inflación, evolución de ingresos, plazo y riesgo de mora. Una deuda puede abaratarse en términos reales y aun así volverse impagable por falta de liquidez.",
       "points": 1,
       "orderIndex": 2
     },
     {
-      "question": "¿Qué instrumento protege específicamente contra la inflación?",
+      "question": "¿Qué describe mejor a un plazo fijo UVA?",
       "type": "multiple_choice",
       "options": [
-        "Plazo fijo tradicional",
-        "Plazo fijo UVA",
-        "Cuenta corriente",
-        "Caja de ahorro"
+        "Garantiza conservar poder de compra en cualquier escenario",
+        "Ajusta el capital por CER bajo condiciones de plazo, tasa y cancelación que deben verificarse",
+        "Replica el dólar sin riesgo de mercado",
+        "Permite retirar todo el dinero en cualquier momento sin condiciones"
       ],
       "correctAnswer": 1,
-      "explanation": "El plazo fijo UVA ajusta por inflación (CER), garantizando que tu ahorro mantenga su poder de compra.",
+      "explanation": "El ajuste por CER busca acompañar una medida de inflación, pero no constituye una garantía universal de poder de compra: importan plazo, tasa, liquidez, impuestos, reglas vigentes y tu canasta real.",
       "points": 2,
       "orderIndex": 3
     },
     {
-      "question": "¿Cuánto debería ser tu fondo de emergencia mínimo?",
+      "question": "¿Cómo definís una meta razonable para tu fondo de emergencia?",
       "type": "multiple_choice",
       "options": [
-        "1 semana de gastos",
-        "1 mes de gastos",
-        "3 meses de gastos",
-        "1 año de gastos"
+        "Usando tres meses como mínimo universal",
+        "Según gastos esenciales, estabilidad de ingresos, personas a cargo, coberturas y acceso real a liquidez",
+        "Eligiendo la cifra más alta que recomiende una red social",
+        "Invirtiendo todo para maximizar rendimiento"
       ],
-      "correctAnswer": 2,
-      "explanation": "El objetivo ideal es 3 meses de gastos esenciales en un instrumento líquido.",
+      "correctAnswer": 1,
+      "explanation": "No existe un número mínimo válido para todas las personas. La primera meta puede ser pequeña y crecer por etapas; debe ser líquida, alcanzable y proporcional a riesgos y gastos esenciales propios.",
       "points": 2,
       "orderIndex": 4
     },
@@ -73,7 +78,7 @@
         "Acciones de empresas argentinas"
       ],
       "correctAnswer": 1,
-      "explanation": "Los CEDEARs permiten invertir en empresas internacionales desde Argentina, combinando protección cambiaria con potencial de crecimiento.",
+      "explanation": "Los CEDEAR representan activos del exterior y cotizan localmente. Su precio puede depender del subyacente, el tipo de cambio, la relación de conversión, la liquidez y otros riesgos: no garantizan cobertura ni crecimiento.",
       "points": 2,
       "orderIndex": 6
     },
@@ -92,67 +97,67 @@
       "orderIndex": 7
     },
     {
-      "question": "¿Cuál debería ser el máximo de tus ingresos destinado a cuotas de deuda?",
+      "question": "¿Cómo evaluás si una carga mensual de deuda es sostenible?",
       "type": "multiple_choice",
       "options": [
-        "10%",
-        "30%",
-        "50%",
-        "70%"
+        "Aplicando 30% como límite seguro para cualquier hogar",
+        "Midiendo cuotas y costo total contra ingreso disponible, gastos esenciales, variabilidad, reservas y escenarios adversos",
+        "Mirando sólo el valor de la primera cuota",
+        "Sumando deuda mientras el banco mantenga una oferta disponible"
       ],
       "correctAnswer": 1,
-      "explanation": "Nunca debas más del 30% de tus ingresos mensuales en cuotas para mantener un margen de seguridad.",
+      "explanation": "Un porcentaje orientativo no reemplaza el flujo de fondos. La sostenibilidad depende del ingreso disponible, su estabilidad, los gastos esenciales, la moneda, la tasa, el plazo y el colchón ante imprevistos.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "El monotributo incluye aporte jubilatorio y obra social.",
+      "question": "La cuota del monotributo siempre incluye los mismos componentes para todas las personas.",
       "type": "true_false",
       "options": null,
-      "correctAnswer": true,
-      "explanation": "La cuota del monotributo integra impuesto, aporte jubilatorio (SIPA) y obra social.",
+      "correctAnswer": false,
+      "explanation": "La composición puede incluir impuesto integrado, aporte jubilatorio y obra social, pero existen situaciones y excepciones. Verificá categoría, condición personal y reglas vigentes en ARCA antes de decidir.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué es lo primero que debés hacer antes de empezar a invertir?",
+      "question": "¿Qué diagnóstico conviene hacer antes de elegir una inversión?",
       "type": "multiple_choice",
       "options": [
-        "Comprar acciones",
-        "Armar un fondo de emergencia y pagar deudas de tasa alta",
-        "Abrir una cuenta en el exterior",
-        "Leer noticias financieras"
+        "Comprar el activo que más subió el mes anterior",
+        "Revisar objetivos, plazo, liquidez, deudas, capacidad de pérdida, diversificación, costos y documentación del instrumento",
+        "Elegir sólo por rendimiento publicado",
+        "Copiar una cartera sin conocer el perfil de quien la armó"
       ],
       "correctAnswer": 1,
-      "explanation": "Antes de invertir, asegurate de tener fondo de emergencia y no tener deudas a tasa alta.",
+      "explanation": "Invertir es una decisión situada. El diagnóstico previo conecta objetivos y plazos con liquidez, deudas, riesgos, costos e información oficial; no produce una recomendación automática de compra.",
       "points": 2,
       "orderIndex": 10
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Herramientas Digitales de Gestión Financiera\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Herramientas Digitales de Gestión Financiera» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Apps y herramientas para gestionar tus finanzas en Argentina.",
-        "Entender qué es la inflación, cómo te afecta y por qué Argentina la sufre crónicamente.",
-        "La psicología de vivir en una economía traumada y cómo afecta tus decisiones financieras.",
-        "El método adaptativo de presupuesto personal diseñado para contextos de alta inflación."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Apps y herramientas para gestionar tus finanzas en Argentina.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en apps y herramientas para gestionar tus finanzas en argentina..",
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Plan Financiero Personal: Primeros 6 Meses\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan Financiero Personal: Primeros 6 Meses» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Crear un plan financiero personal adaptado a la realidad argentina.",
-        "Entender qué es la inflación, cómo te afecta y por qué Argentina la sufre crónicamente.",
-        "La psicología de vivir en una economía traumada y cómo afecta tus decisiones financieras.",
-        "El método adaptativo de presupuesto personal diseñado para contextos de alta inflación."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Crear un plan financiero personal adaptado a la realidad argentina."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en crear un plan financiero personal adaptado a la realidad argentina..",
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 12
     }

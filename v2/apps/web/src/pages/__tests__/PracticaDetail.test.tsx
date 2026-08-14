@@ -155,7 +155,8 @@ describe('PracticaDetail (página papel 3.5 — la práctica)', () => {
     const radios = within(fieldset).getAllByRole('radio');
     const radioIncorrecto = radios[incorrecta];
     const radioCorrecto = radios[pregunta.correcta];
-    if (!radioIncorrecto || !radioCorrecto) throw new Error('índices fuera de rango — fixture inválida');
+    if (!radioIncorrecto || !radioCorrecto)
+      throw new Error('índices fuera de rango — fixture inválida');
 
     fireEvent.click(radioIncorrecto);
 
@@ -236,6 +237,43 @@ describe('PracticaDetail (página papel 3.5 — la práctica)', () => {
     document.querySelectorAll('fieldset').forEach((f) => {
       expect(f).not.toBeDisabled();
     });
+  });
+
+  it('después del quiz abre una bitácora aplicada, la guarda localmente y usa el producto del curso', async () => {
+    window.localStorage.clear();
+    const { curso, practica } = await buscarCursoConMenosPreguntas();
+    expect(curso.productoFinal).toBeTruthy();
+    renderAt(`/entrenamientos/${curso.slug}/practica`);
+    await esperarCargaCompleta();
+
+    practica.preguntas.forEach((pregunta, i) => {
+      const radio = within(fieldsetDe(i)).getAllByRole('radio')[pregunta.correcta];
+      if (!radio) throw new Error('índice correcto fuera de rango — fixture inválida');
+      fireEvent.click(radio);
+    });
+
+    const tituloTaller = await screen.findByRole('heading', {
+      level: 2,
+      name: 'Que el curso deje una prueba.',
+    });
+    const taller = tituloTaller.closest('section');
+    if (!taller) throw new Error('el taller de entrega no tiene una sección contenedora');
+    expect(within(taller).getByText(curso.productoFinal ?? '')).toBeInTheDocument();
+    const campos = screen.getAllByRole('textbox');
+    expect(campos).toHaveLength(4);
+    const situacion = campos[0];
+    if (!situacion) throw new Error('falta el campo de situación real');
+    fireEvent.change(situacion, {
+      target: { value: 'Una situación concreta con actores, lugar y una decisión pendiente.' },
+    });
+
+    await waitFor(() => {
+      expect(window.localStorage.getItem(`entrenamientos:entrega:${curso.slug}:v1`)).toContain(
+        'Una situación concreta',
+      );
+    });
+    expect(screen.getByText('1 de 4 piezas con contenido')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Descargar bitácora .md ↓' })).toBeInTheDocument();
   });
 
   it('cierre: "Ya lo pensaste. Ahora decilo." + link "Soltar mi voz en el mapa →"', async () => {

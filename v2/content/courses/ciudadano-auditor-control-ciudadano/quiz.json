@@ -4,7 +4,7 @@
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿Qué ley te da derecho a pedir información a cualquier organismo del Estado?",
+      "question": "¿Qué ley regula el acceso a la información pública en el ámbito nacional?",
       "type": "multiple_choice",
       "options": [
         "Ley 25.326 de Datos Personales",
@@ -13,7 +13,7 @@
         "Ley 25.675 General del Ambiente"
       ],
       "correctAnswer": 1,
-      "explanation": "La Ley 27.275 de Acceso a la Información Pública te permite pedir cualquier información estatal sin dar explicaciones.",
+      "explanation": "La Ley 27.275 rige para los sujetos obligados de su ámbito y parte del principio de máxima divulgación, con excepciones legales. Provincias y municipios pueden tener sus propios regímenes.",
       "points": 2,
       "orderIndex": 1
     },
@@ -22,21 +22,21 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Cualquier ciudadano puede hacer un pedido con solo su nombre, DNI y la descripción de lo que pide.",
+      "explanation": "No hace falta patrocinio jurídico. El pedido debe identificar a quien solicita, describir con claridad la información y aportar datos de contacto según el canal aplicable.",
       "points": 1,
       "orderIndex": 2
     },
     {
-      "question": "¿Cuál es una \"red flag\" en el presupuesto municipal?",
+      "question": "Encontrás que una proporción alta del presupuesto municipal va a personal. ¿Cuál es el siguiente paso serio?",
       "type": "multiple_choice",
       "options": [
-        "Que tenga muchas páginas",
-        "Que más del 70% vaya a sueldos dejando poco para inversión",
-        "Que incluya gastos de salud",
-        "Que esté publicado online"
+        "Denunciar corrupción sólo con ese porcentaje",
+        "Comparar funciones, planta, servicios, ejecución y años equivalentes antes de formular una hipótesis",
+        "Suponer que todo gasto salarial es improductivo",
+        "Ignorar el dato porque el presupuesto fue aprobado"
       ],
       "correctAnswer": 1,
-      "explanation": "Si la mayor parte del presupuesto va a sueldos, queda muy poco para servicios e inversión pública.",
+      "explanation": "Un porcentaje aislado es un indicio, no una conclusión. Hay que conocer competencias, servicios intensivos en trabajo, ejecución, composición de la planta y comparables antes de evaluar riesgos.",
       "points": 2,
       "orderIndex": 3
     },
@@ -55,11 +55,11 @@
       "orderIndex": 4
     },
     {
-      "question": "La Defensoría del Pueblo de la Nación está en pleno funcionamiento desde 2009.",
+      "question": "La falta de titular definitivo en la Defensoría del Pueblo demuestra, por sí sola, que no recibe actuaciones ni produce informes.",
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "La Defensoría del Pueblo está vacante desde 2009, lo que la ha dejado prácticamente inoperante.",
+      "explanation": "La vacancia y la actividad institucional son dimensiones distintas. Para evaluar capacidad y límites hay que verificar autoridades, canales, actuaciones e informes actuales, además del marco legal.",
       "points": 1,
       "orderIndex": 5
     },
@@ -78,53 +78,53 @@
       "orderIndex": 6
     },
     {
-      "question": "Las audiencias públicas son obligatorias antes de aumentar tarifas de servicios públicos.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Las audiencias públicas son requisito legal previo a aumentos de tarifas, aunque la participación ciudadana suele ser baja.",
+      "question": "Antes de impugnar un cambio tarifario por falta de audiencia pública, ¿qué deberías verificar?",
+      "type": "multiple_choice",
+      "options": [
+        "Sólo si el porcentaje del aumento parece alto",
+        "El servicio, la jurisdicción, el marco regulatorio, el tipo de decisión y los antecedentes judiciales aplicables",
+        "Si la empresa publicó el cambio en redes sociales",
+        "Si hubo una audiencia en cualquier otra provincia"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La exigencia y los efectos de una audiencia dependen del régimen, la jurisdicción y la decisión concreta. Una auditoría responsable identifica primero la norma y el procedimiento aplicables.",
       "points": 1,
       "orderIndex": 7
     },
     {
       "question": "¿Qué portal permite ver las compras del Estado nacional?",
       "type": "multiple_choice",
-      "options": [
-        "mercadolibre.com.ar",
-        "comprar.gob.ar",
-        "datos.gob.ar",
-        "afip.gob.ar"
-      ],
+      "options": ["mercadolibre.com.ar", "comprar.gob.ar", "datos.gob.ar", "afip.gob.ar"],
       "correctAnswer": 1,
-      "explanation": "comprar.gob.ar publica todas las contrataciones del Estado nacional de manera accesible.",
+      "explanation": "COMPR.AR permite buscar procesos y documentación de contrataciones tramitadas en el sistema nacional. Hay que revisar alcance, organismo, modalidad, estado y documentos; no equivale a un universo sin excepciones.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Periodismo Ciudadano y Denuncia Efectiva\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Periodismo Ciudadano y Denuncia Efectiva» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
-        "Por qué el control ciudadano es un derecho y un deber cívico.",
-        "Cómo usar la ley de acceso a la información para obtener datos del Estado.",
-        "Cómo leer e interpretar un presupuesto municipal."
+        "Un caso real trabajado con este foco: Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo documentar, denunciar y visibilizar irregularidades de manera efectiva..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Plan de Auditoría: 30 Días de Control Ciudadano\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan de Auditoría: 30 Días de Control Ciudadano» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Un plan práctico de 30 días para ejercer control ciudadano real.",
-        "Por qué el control ciudadano es un derecho y un deber cívico.",
-        "Cómo usar la ley de acceso a la información para obtener datos del Estado.",
-        "Cómo leer e interpretar un presupuesto municipal."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Un plan práctico de 30 días para ejercer control ciudadano real.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en un plan práctico de 30 días para ejercer control ciudadano real..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

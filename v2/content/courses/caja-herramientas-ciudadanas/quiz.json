@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Documentar y Sistematizar: Que Nada Se Pierda\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Documentar y Sistematizar: Que Nada Se Pierda» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Cómo registrar tu experiencia para que otros puedan replicarla.",
-        "Pasar de quejarse a actuar requiere herramientas concretas, no solo voluntad.",
-        "Cómo organizar y facilitar reuniones productivas en contextos comunitarios.",
-        "Técnicas básicas de comunicación oral para asambleas, audiencias públicas y medios."
+        "Un caso real trabajado con este foco: Cómo registrar tu experiencia para que otros puedan replicarla.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
       "correctAnswer": 0,
-      "explanation": "La lección se centra en cómo registrar tu experiencia para que otros puedan replicarla..",
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Plan de Acción Ciudadana: De Este Curso a Tu Barrio\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan de Acción Ciudadana: De Este Curso a Tu Barrio» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Integrar todas las herramientas en un plan concreto de acción para tu comunidad.",
-        "Pasar de quejarse a actuar requiere herramientas concretas, no solo voluntad.",
-        "Cómo organizar y facilitar reuniones productivas en contextos comunitarios.",
-        "Técnicas básicas de comunicación oral para asambleas, audiencias públicas y medios."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Integrar todas las herramientas en un plan concreto de acción para tu comunidad.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en integrar todas las herramientas en un plan concreto de acción para tu comunidad..",
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 10
     }

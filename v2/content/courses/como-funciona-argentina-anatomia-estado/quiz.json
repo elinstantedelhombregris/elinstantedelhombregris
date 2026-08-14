@@ -13,42 +13,37 @@
         "Ordenanzas municipales"
       ],
       "correctAnswer": 1,
-      "explanation": "Los DNU permiten al presidente legislar sin pasar por el Congreso, diseñados para emergencias.",
+      "explanation": "Los DNU son disposiciones excepcionales del Poder Ejecutivo con fuerza de ley. El artículo 99 inciso 3 de la Constitución fija condiciones, materias excluidas y control posterior del Congreso.",
       "points": 2,
       "orderIndex": 1
     },
     {
-      "question": "El 95% de los proyectos de ley muere en comisión sin llegar al recinto.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "La gran mayoría de los proyectos nunca se tratan en el recinto. El presidente de comisión decide qué se trata.",
+      "question": "Un proyecto fue girado a comisión. ¿Qué evidencia necesitás antes de afirmar que el Congreso lo bloqueó?",
+      "type": "multiple_choice",
+      "options": [
+        "El expediente, las comisiones asignadas, los dictámenes, la agenda y el estado actualizado en el sitio oficial",
+        "La cantidad total de proyectos presentados ese año",
+        "Una declaración aislada de quien presentó el proyecto",
+        "Que todavía no aparezca en una búsqueda periodística"
+      ],
+      "correctAnswer": 0,
+      "explanation": "El giro a comisión es una etapa, no una prueba de bloqueo. Para reconstruir el trámite hay que consultar el expediente y distinguir giro, tratamiento, dictamen, orden del día, sanción y archivo.",
       "points": 1,
       "orderIndex": 2
     },
     {
       "question": "¿Qué organismo controla la emisión de dinero en Argentina?",
       "type": "multiple_choice",
-      "options": [
-        "AFIP",
-        "ANSES",
-        "BCRA",
-        "AGN"
-      ],
+      "options": ["ARCA", "ANSES", "BCRA", "AGN"],
       "correctAnswer": 2,
-      "explanation": "El Banco Central de la República Argentina (BCRA) controla la política monetaria y la emisión.",
+      "explanation": "El BCRA es la autoridad monetaria y regula la emisión, dentro del marco legal vigente. ARCA administra recursos tributarios y aduaneros: no emite moneda.",
       "points": 2,
       "orderIndex": 3
     },
     {
       "question": "¿Qué artículo constitucional establece el derecho al amparo?",
       "type": "multiple_choice",
-      "options": [
-        "Artículo 14",
-        "Artículo 19",
-        "Artículo 43",
-        "Artículo 75"
-      ],
+      "options": ["Artículo 14", "Artículo 19", "Artículo 43", "Artículo 75"],
       "correctAnswer": 2,
       "explanation": "El artículo 43 establece el amparo como herramienta de protección rápida de derechos constitucionales.",
       "points": 2,
@@ -64,30 +59,30 @@
       "orderIndex": 5
     },
     {
-      "question": "¿Cuál es la partida más grande del presupuesto nacional?",
+      "question": "¿Cómo determinás qué finalidad concentra más presupuesto nacional en un período?",
       "type": "multiple_choice",
       "options": [
-        "Defensa",
-        "Seguridad social (jubilaciones, AUH)",
-        "Educación",
-        "Obra pública"
+        "Comparando noticias publicadas en distintos meses",
+        "Eligiendo año y filtros, y comparando crédito inicial, crédito vigente y ejecución con la misma fecha de corte",
+        "Usando como regla permanente que siempre es seguridad social",
+        "Mirando sólo el monto nominal de una jurisdicción"
       ],
       "correctAnswer": 1,
-      "explanation": "La seguridad social (jubilaciones, AUH, pensiones) representa más del 40% del presupuesto.",
+      "explanation": "La composición cambia según el año, el clasificador y la etapa del gasto. Presupuesto Abierto permite comparar datos, pero hay que declarar filtros, unidad, etapa y fecha de corte.",
       "points": 2,
       "orderIndex": 6
     },
     {
-      "question": "¿Qué herramienta web permite ver la ejecución del presupuesto en tiempo real?",
+      "question": "¿Qué conviene guardar junto con una cifra obtenida de Presupuesto Abierto?",
       "type": "multiple_choice",
       "options": [
-        "afip.gob.ar",
-        "presupuestoabierto.gob.ar",
-        "datos.gob.ar",
-        "argentina.gob.ar"
+        "Sólo una captura de pantalla",
+        "Fuente, fecha de impacto o corte, filtros y etapa del gasto consultada",
+        "La cifra redondeada sin contexto",
+        "El nombre del funcionario que encabeza el ministerio"
       ],
       "correctAnswer": 1,
-      "explanation": "presupuestoabierto.gob.ar muestra en tiempo real cómo se ejecuta el presupuesto nacional.",
+      "explanation": "Presupuesto Abierto ofrece visualizaciones y una API de ejecución. No debe describirse como un dato sin demora: registrá la fecha de impacto, los filtros y si mirás crédito, compromiso, devengado o pagado.",
       "points": 2,
       "orderIndex": 7
     },
@@ -96,7 +91,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": true,
-      "explanation": "Los fiscales de mesa controlan el proceso electoral y son fundamentales para la transparencia.",
+      "explanation": "La fiscalización partidaria es una vía de participación, pero no es una autoridad de mesa: los fiscales representan a una agrupación y deben estar acreditados conforme a las reglas electorales.",
       "points": 1,
       "orderIndex": 8
     },
@@ -115,39 +110,44 @@
       "orderIndex": 9
     },
     {
-      "question": "La Defensoría del Pueblo de la Nación funciona normalmente desde 1994.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": false,
-      "explanation": "La Defensoría del Pueblo está vacante desde 2009, lo que la ha dejado inoperante.",
+      "question": "¿Cómo evaluás la capacidad actual de la Defensoría del Pueblo de la Nación?",
+      "type": "multiple_choice",
+      "options": [
+        "Si falta la máxima autoridad, se concluye automáticamente que la institución no opera",
+        "Se distingue la situación de su titular de la actividad institucional y se verifican autoridades, canales, actuaciones e informes vigentes",
+        "Se usa cualquier nota que mencione 2009, sin comprobar su fecha",
+        "Se descarta porque los organismos de control no reciben presentaciones ciudadanas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La acefalía de la titularidad es un problema institucional, pero no prueba por sí sola inactividad. La evaluación responsable contrasta la ley con autoridades, canales, actuaciones e informes actuales.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Medios y Poder: La Relación Que No Se Enseña\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Medios y Poder: La Relación Que No Se Enseña» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Entender la relación entre medios de comunicación y poder político en Argentina.",
-        "Visión general del Estado como sistema: qué es, qué hace y por qué importa entenderlo.",
-        "Cómo funciona realmente el Poder Ejecutivo y su estructura de decisión.",
-        "El proceso legislativo real, más allá del esquema del manual escolar."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Entender la relación entre medios de comunicación y poder político en Argentina.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en entender la relación entre medios de comunicación y poder político en argentina..",
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Cuál es el foco principal de la lección \"Tu Mapa del Poder: Diagnóstico de Tu Territorio\"?",
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Mapa del Poder: Diagnóstico de Tu Territorio» a una situación real?",
       "type": "multiple_choice",
       "options": [
-        "Ejercicio integrador: mapear la estructura de poder en tu territorio local.",
-        "Visión general del Estado como sistema: qué es, qué hace y por qué importa entenderlo.",
-        "Cómo funciona realmente el Poder Ejecutivo y su estructura de decisión.",
-        "El proceso legislativo real, más allá del esquema del manual escolar."
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Ejercicio integrador: mapear la estructura de poder en tu territorio local."
       ],
-      "correctAnswer": 0,
-      "explanation": "La lección se centra en ejercicio integrador: mapear la estructura de poder en tu territorio local..",
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
       "points": 1,
       "orderIndex": 12
     }
