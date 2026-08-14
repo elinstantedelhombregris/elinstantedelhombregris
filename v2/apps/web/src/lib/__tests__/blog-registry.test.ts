@@ -85,11 +85,13 @@ describe('BLOG_POSTS registry', () => {
     }
   });
 
-  it('las portadas piloto tienen ruta pública, texto alternativo, leyenda y crédito', () => {
+  it('todos los artículos tienen una portada editorial accesible y acreditada', () => {
     const conPortada = BLOG_POSTS.filter((post) => post.coverImageUrl !== '');
-    expect(conPortada).toHaveLength(6);
+    expect(conPortada).toHaveLength(22);
+    expect(conPortada.filter((post) => post.coverImageUrl.includes('/pilotos/'))).toHaveLength(6);
+    expect(conPortada.filter((post) => post.coverImageUrl.includes('/editorial/'))).toHaveLength(16);
     for (const post of conPortada) {
-      expect(post.coverImageUrl).toMatch(/^\/media\/bitacora\/pilotos\/.+\.webp$/);
+      expect(post.coverImageUrl).toMatch(/^\/media\/bitacora\/(?:pilotos|editorial)\/.+\.webp$/);
       expect(post.coverImageAlt.length).toBeGreaterThan(20);
       expect(post.coverImageCaption.length).toBeGreaterThan(10);
       expect(post.coverImageCredit.length).toBeGreaterThan(5);

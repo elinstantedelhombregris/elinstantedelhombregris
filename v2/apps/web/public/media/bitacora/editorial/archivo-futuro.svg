@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Del archivo a una decisión sobre el futuro</title><desc id="desc">Ciclo de preservar, ordenar, buscar, interpretar, probar y documentar para convertir memoria en capacidad de decisión.</desc>
+  <rect width="1200" height="720" fill="#f2eadb"/><text x="60" y="76" fill="#17131d" font-family="Arial,sans-serif" font-size="35" font-weight="700">LA MEMORIA SIRVE CUANDO CAMBIA UNA DECISIÓN PRESENTE</text><text x="60" y="112" fill="#525a61" font-family="Arial,sans-serif" font-size="20">Archivar no alcanza: hay que poder encontrar, interpretar, probar y devolver lo aprendido.</text>
+  <g fill="none" stroke="#17131d" stroke-width="5"><circle cx="600" cy="390" r="235"/><path d="m831 365 20 25-24 18"/></g><g font-family="Arial,sans-serif" text-anchor="middle" font-weight="700">
+    <g><circle cx="600" cy="155" r="70" fill="#a72c35" stroke="#17131d" stroke-width="4"/><text x="600" y="150" fill="#f2eadb" font-size="19">1 · PRESERVAR</text><text x="600" y="178" fill="#f2eadb" font-size="15">fuente + contexto</text></g>
+    <g><circle cx="805" cy="275" r="70" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/><text x="805" y="270" fill="#17131d" font-size="19">2 · ORDENAR</text><text x="805" y="298" fill="#525a61" font-size="15">índice + metadatos</text></g>
+    <g><circle cx="805" cy="510" r="70" fill="#525a61" stroke="#17131d" stroke-width="4"/><text x="805" y="505" fill="#f2eadb" font-size="19">3 · BUSCAR</text><text x="805" y="533" fill="#f2eadb" font-size="15">pregunta precisa</text></g>
+    <g><circle cx="600" cy="625" r="70" fill="#aeb4b7" stroke="#17131d" stroke-width="4"/><text x="600" y="620" fill="#17131d" font-size="19">4 · INTERPRETAR</text><text x="600" y="648" fill="#17131d" font-size="15">patrón + límites</text></g>
+    <g><circle cx="395" cy="510" r="70" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/><text x="395" y="505" fill="#17131d" font-size="19">5 · PROBAR</text><text x="395" y="533" fill="#525a61" font-size="15">acción + evidencia</text></g>
+    <g><circle cx="395" cy="275" r="70" fill="#17131d" stroke="#17131d" stroke-width="4"/><text x="395" y="270" fill="#f2eadb" font-size="19">6 · DEVOLVER</text><text x="395" y="298" fill="#aeb4b7" font-size="15">documentar para otros</text></g>
+    <text x="600" y="375" fill="#17131d" font-size="28">PASADO</text><text x="600" y="412" fill="#a72c35" font-size="28">→ CAPACIDAD →</text><text x="600" y="449" fill="#17131d" font-size="28">FUTURO</text>
+  </g>
+</svg>
