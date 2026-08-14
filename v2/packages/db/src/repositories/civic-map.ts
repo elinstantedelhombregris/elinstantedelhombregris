@@ -16,6 +16,7 @@ import { and, desc, eq, gte, isNotNull, lte, sql } from 'drizzle-orm';
 import { dreams } from '../schema/dreams.js';
 import { territoryMandates } from '../schema/mandato.js';
 import { proposals, pulseSignals } from '../schema/pulso.js';
+import { senales } from '../schema/senales.js';
 
 import type { Db } from '../client.js';
 import type { SQL } from 'drizzle-orm';
@@ -28,8 +29,10 @@ export interface SenalMapa {
   /** `"voz:412"` — la capa va adentro del id para que sea único entre capas. */
   id: string;
   capa: CapaMapa;
-  /** Los 6 tipos de voz, o el tipo propio de la capa. */
+  /** Uno de los nueve del canon, o el tipo propio de la capa. Crudo, sin plegar. */
   tipo: string | null;
+  /** La clase de la señal, cuando la capa la tiene. Es la que decide el color. */
+  clase?: string | null;
   texto: string;
   lat: number | null;
   lng: number | null;
@@ -116,8 +119,109 @@ export class CivicMapRepository {
    * y las cuenta aparte — son la clase «provincias tocadas» del conteo honesto
    * (spec 3 §4), que se nombra y no se suma.
    */
+  /**
+   * La capa «voz» sale de `senales` y ya no de `dreams`.
+   *
+   * No entró como una QUINTA capa —que era la otra opción— porque `dreams`
+   * tenía cero filas: no hay nada que convivir. Y el nombre de la capa se
+   * conserva a propósito: el instrumento, la URL del área y el estado guardado
+   * de los cinco modos hablan de `voz`, y renombrarla el mismo día que cambia
+   * la tabla habría mezclado dos migraciones en una.
+   *
+   * Tres filtros que `dreams` no tenía y esta tabla sí necesita:
+   *
+   * - `retenida_en is null` — la retención de cuidado es **visibilidad y no
+   *   calidad**, no toca `estado`, y sale de toda superficie pública;
+   * - `estado <> 'retirada'` — una retirada conserva la fila para la cobertura
+   *   pero su texto está vacío por CHECK, y un punto con texto vacío en el mapa
+   *   es ruido sin contenido;
+   * - `tipo` viaja crudo y sin plegar: el cliente lo lee con `leerTipo` y decide
+   *   qué hacer con lo que no reconoce.
+   */
+  /**
+   * La capa `voz` tiene DOS fuentes mientras dure la mudanza, y eso es
+   * deliberado.
+   *
+   * `POST /api/v1/civic/capturas` —la ingesta de la app de campo— sigue
+   * escribiendo en `dreams`. Cuando esta capa pasó a leer sólo `senales`, las
+   * capturas de terreno **desaparecieron del mapa**: un test lo cazó en el acto
+   * («la captura aparece en el mapa y el lazo la puede agarrar»). Dejar la
+   * segunda fuente cuesta una consulta y evita que la migración de la web se
+   * lleve puesta a la app de campo el mismo día.
+   *
+   * Se va cuando `capturas.ts` escriba `senales`, y eso pide una decisión que
+   * no es de este archivo: sus tres tipos —`observation`, `need`, `resource`—
+   * están en inglés y no son del canon, así que mapearlos es traducir, y una
+   * traducción hecha al pasar es cómo se pierde el significado.
+   */
   private async voces(consulta: ConsultaSenales, limite: number): Promise<SenalMapa[]> {
-    const filtros = [eq(dreams.status, 'approved')];
+    const [nuevas, viejas] = await Promise.all([
+      this.vocesDeSenales(consulta, limite),
+      this.vocesDeDreams(consulta, limite),
+    ]);
+    return [...nuevas, ...viejas];
+  }
+
+  private async vocesDeSenales(
+    consulta: ConsultaSenales,
+    limite: number,
+  ): Promise<SenalMapa[]> {
+    const filtros: SQL[] = [
+      sql`${senales.retenidaEn} is null`,
+      sql`${senales.estado} <> 'retirada'`,
+    ];
+    if (consulta.bbox) {
+      filtros.push(
+        isNotNull(senales.lat),
+        gte(senales.lat, String(consulta.bbox.sur)),
+        lte(senales.lat, String(consulta.bbox.norte)),
+        gte(senales.lng, String(consulta.bbox.oeste)),
+        lte(senales.lng, String(consulta.bbox.este)),
+      );
+    }
+    if (consulta.desde) filtros.push(gte(senales.creadaEn, consulta.desde));
+    if (consulta.hasta) filtros.push(lte(senales.creadaEn, consulta.hasta));
+
+    const filas = await this.db
+      .select({
+        id: senales.idPublico,
+        texto: senales.texto,
+        tipo: senales.tipo,
+        clase: senales.clase,
+        lat: senales.lat,
+        lng: senales.lng,
+        precision: senales.precision,
+        role: senales.locationRole,
+        provinceId: senales.provinceId,
+        cityId: senales.cityId,
+        createdAt: senales.creadaEn,
+      })
+      .from(senales)
+      .where(and(...filtros))
+      .orderBy(desc(senales.creadaEn))
+      .limit(limite);
+
+    return filas.map((f) => ({
+      // El id público y no el ordinal: un entero en la URL deja enumerar el
+      // corpus entero y emparejar dos señales de la misma sesión.
+      id: `voz:${f.id}`,
+      capa: 'voz' as const,
+      tipo: f.tipo,
+      clase: f.clase,
+      texto: f.texto,
+      lat: aNumero(f.lat),
+      lng: aNumero(f.lng),
+      precision: f.precision,
+      role: f.role,
+      provinceId: f.provinceId,
+      cityId: f.cityId,
+      createdAt: aIso(f.createdAt),
+    }));
+  }
+
+  /** La fuente vieja: lo que la app de campo todavía escribe. */
+  private async vocesDeDreams(consulta: ConsultaSenales, limite: number): Promise<SenalMapa[]> {
+    const filtros: SQL[] = [eq(dreams.status, 'approved')];
     if (consulta.bbox) {
       filtros.push(
         isNotNull(dreams.lat),
@@ -149,9 +253,14 @@ export class CivicMapRepository {
       .limit(limite);
 
     return filas.map((f) => ({
-      id: `voz:${String(f.id)}`,
+      // El prefijo `voz-v1:` y no `voz:` — dos espacios de id que no se pisan,
+      // y que además dejan ver de dónde salió cada punto sin adivinar.
+      id: `voz-v1:${String(f.id)}`,
       capa: 'voz' as const,
       tipo: f.tipo,
+      // Sin clase: estos tipos no son del canon. `null` y no una clase
+      // inventada — el cliente los pinta neutros, que es lo honesto.
+      clase: null,
       texto: f.texto,
       lat: aNumero(f.lat),
       lng: aNumero(f.lng),
@@ -299,14 +408,21 @@ export class CivicMapRepository {
 
   /** Conteo por capa sin traer las filas — para la leyenda y las fichas. */
   async countByLayer(): Promise<Record<CapaMapa, number>> {
-    const [voz, pulso, propuesta, mandato] = await Promise.all([
-      this.db.select({ n: sql<number>`count(*)::int` }).from(dreams).where(eq(dreams.status, 'approved')),
+    const [voz, vozV1, pulso, propuesta, mandato] = await Promise.all([
+      this.db
+        .select({ n: sql<number>`count(*)::int` })
+        .from(senales)
+        .where(sql`${senales.retenidaEn} is null and ${senales.estado} <> 'retirada'`),
+      this.db
+        .select({ n: sql<number>`count(*)::int` })
+        .from(dreams)
+        .where(eq(dreams.status, 'approved')),
       this.db.select({ n: sql<number>`count(*)::int` }).from(pulseSignals),
       this.db.select({ n: sql<number>`count(*)::int` }).from(proposals),
       this.db.select({ n: sql<number>`count(*)::int` }).from(territoryMandates),
     ]);
     return {
-      voz: voz[0]?.n ?? 0,
+      voz: (voz[0]?.n ?? 0) + (vozV1[0]?.n ?? 0),
       pulso: pulso[0]?.n ?? 0,
       propuesta: propuesta[0]?.n ?? 0,
       mandato: mandato[0]?.n ?? 0,

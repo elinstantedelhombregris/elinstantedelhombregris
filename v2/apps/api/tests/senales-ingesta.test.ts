@@ -225,6 +225,61 @@ dsuite('Ingesta de señales', () => {
     });
   });
 
+  describe('el círculo se cierra: lo cargado aparece', () => {
+    it('una señal nueva sale por el mapa del instrumento', async () => {
+      const res = await soltar(
+        cuerpo({ tipo: 'necesidad', casa: 'no', punto: { lat: -31.42, lng: -64.18 } }),
+      );
+      const idEsperado = `voz:${res.body.data.idPublico as string}`;
+
+      // El instrumento oscuro. Hasta hoy leía `dreams`, que tiene cero filas:
+      // se podía cargar y no se veía nada.
+      const mapa = await request.get('/api/v1/civic/map/signals?capas=voz&limite=500');
+      expect(mapa.status).toBe(200);
+      const senales = mapa.body.data.signals as { id: string; tipo: string; clase?: string }[];
+      const mia = senales.find((s) => s.id === idEsperado);
+      expect(mia).toBeDefined();
+      expect(mia?.tipo).toBe('necesidad');
+      // La clase viaja al lado para que el color no haya que derivarlo.
+      expect(mia?.clase).toBe('hecho');
+    });
+
+    it('y también por el feed y el mapa de papel', async () => {
+      const res = await soltar(cuerpo({ tipo: 'sueño' }));
+
+      const feed = await request.get('/api/open-data/dreams?limit=500');
+      expect(feed.status).toBe(200);
+      const items = feed.body.data as { id: string; category: string; clase: string }[];
+      const mia = items.find((d) => d.id === res.body.data.idPublico);
+      expect(mia).toBeDefined();
+      // La ruta y la forma no cambian de nombre; lo que cambia es que
+      // `category` ahora trae uno de los NUEVE y no uno de los seis viejos.
+      expect(mia?.category).toBe('sueño');
+      expect(mia?.clase).toBe('deseo');
+    });
+  });
+
+  describe('la ruta vieja ya no deja elegir cuánta protección querés', () => {
+    it('`sensitivity` y `locationRole` del cuerpo se ignoran', async () => {
+      // El agujero: hasta hoy estos dos campos venían del cuerpo, con default
+      // `sensitivity: 'low'`, y se pasaban tal cual a `prepareRecordLocation`.
+      // Un cliente que pidiera `low` + `capture` publicaba su punto exacto.
+      const res = await request.post('/api/open-data/dreams').send({
+        body: 'Hay un pozo en Rivadavia y Boedo.',
+        category: 'basta',
+        punto: { lat: -34.603722, lng: -58.381592 },
+        precisionPedida: 'exact',
+        sensitivity: 'low',
+        locationRole: 'capture',
+      });
+
+      expect(res.status).toBe(201);
+      // Falla cerrado: `subject` + `high` fijos, así que el punto se engrosa
+      // por más que el cuerpo haya pedido lo contrario.
+      expect(res.body.data.precisionPublicada).not.toBe('exact');
+    });
+  });
+
   describe('la lectura', () => {
     it('filtra por clase', async () => {
       await soltar(cuerpo({ tipo: 'sueño' }));

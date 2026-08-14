@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+
 /**
  * Integration tests for /api/v1/civic/map/* — el instrumento territorial.
  *
@@ -13,7 +15,7 @@
  */
 import '../src/load-env.js';
 
-import { dreams, eq, getDb } from '@v2/db';
+import { eq, getDb, senales } from '@v2/db';
 import supertest from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
@@ -43,16 +45,24 @@ interface SenalRespuesta {
 dsuite('Civic map flows', () => {
   const app = createApp();
   const request = supertest(app);
-  const creados: number[] = [];
+  const creados: string[] = [];
 
   beforeAll(async () => {
     const db = getDb();
+    // La capa `voz` salió de `dreams` y ahora sale de `senales`. Lo que este
+    // archivo prueba —bbox, capas, conteo— no cambió; sí cambió de dónde lee.
+    const base = {
+      tipo: 'basta' as const,
+      clase: 'hecho' as const,
+      origen: 'web' as const,
+    };
     const filas = await db
-      .insert(dreams)
+      .insert(senales)
       .values([
         {
-          body: 'TEST civic-map: pozo en la esquina',
-          status: 'approved',
+          ...base,
+          idLocal: randomUUID(),
+          texto: 'TEST civic-map: pozo en la esquina',
           lat: String(CABA.lat),
           lng: String(CABA.lng),
           precision: 'exact',
@@ -60,8 +70,9 @@ dsuite('Civic map flows', () => {
           sensitivity: 'low',
         },
         {
-          body: 'TEST civic-map: algo en Ushuaia',
-          status: 'approved',
+          ...base,
+          idLocal: randomUUID(),
+          texto: 'TEST civic-map: algo en Ushuaia',
           lat: String(USHUAIA.lat),
           lng: String(USHUAIA.lng),
           precision: 'exact',
@@ -69,18 +80,19 @@ dsuite('Civic map flows', () => {
           sensitivity: 'low',
         },
         {
-          body: 'TEST civic-map: voz vieja sin coordenada',
-          status: 'approved',
+          ...base,
+          idLocal: randomUUID(),
+          texto: 'TEST civic-map: voz vieja sin coordenada',
           // Sin lat/lng — el default deja la precisión en 'province'.
         },
       ])
-      .returning({ id: dreams.id });
+      .returning({ id: senales.idPublico });
     creados.push(...filas.map((f) => f.id));
   });
 
   afterAll(async () => {
     const db = getDb();
-    for (const id of creados) await db.delete(dreams).where(eq(dreams.id, id));
+    for (const id of creados) await db.delete(senales).where(eq(senales.idPublico, id));
   });
 
   const traer = async (query: string): Promise<SenalRespuesta[]> => {
@@ -96,7 +108,9 @@ dsuite('Civic map flows', () => {
     expect(pozo?.precision).toBe('exact');
     expect(pozo?.role).toBe('capture');
     expect(pozo?.lat).toBeCloseTo(CABA.lat, 4);
-    expect(pozo?.id).toMatch(/^voz:\d+$/);
+    // El id lleva el UUID público y ya no el ordinal: un entero en la URL deja
+    // enumerar el corpus entero y emparejar dos señales de la misma sesión.
+    expect(pozo?.id).toMatch(/^voz:[0-9a-f-]{36}$/i);
   });
 
   it('el punto exacto llega exacto — no se corre al pasar por la API', async () => {

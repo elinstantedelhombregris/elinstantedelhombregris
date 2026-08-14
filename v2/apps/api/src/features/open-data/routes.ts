@@ -7,7 +7,7 @@
  *   GET  /api/open-data/dreams/by-province   — count + top categories per province
  */
 import { prepareRecordLocation } from '@v2/civic-core';
-import { dreams as dreamsTable, DreamsRepository, eq, GeographicRepository, getDb, normalizeProvinceName, sql } from '@v2/db';
+import { dreams as dreamsTable, DreamsRepository, eq, GeographicRepository, getDb, normalizeProvinceName, SenalesRepository, sql } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
@@ -32,8 +32,22 @@ const submitSchema = z.object({
     .object({ lat: z.number().min(-90).max(90), lng: z.number().min(-180).max(180) })
     .optional(),
   precisionPedida: z.enum(['exact', '100m', '500m', 'neighborhood', 'city', 'province']).optional(),
-  locationRole: z.enum(['subject', 'capture', 'service_area', 'meeting_point']).optional(),
-  sensitivity: z.enum(['low', 'moderate', 'high']).optional(),
+  /**
+   * `locationRole` y `sensitivity` **ya no se aceptan del cuerpo**, y su
+   * ausencia acá es el arreglo.
+   *
+   * Estaban declarados como opcionales y se pasaban tal cual a
+   * `prepareRecordLocation`, con default `sensitivity: 'low'`. O sea que un
+   * cliente que mandara `{"sensitivity":"low","locationRole":"capture"}`
+   * **desactivaba el engrosado de su propio punto** y publicaba coordenada
+   * fina: el eje de privacidad entero decidido por quien envía. Es exactamente
+   * la puerta que `senales.sensitivity` cierra con su default `'high'`, y que
+   * esta ruta dejaba abierta.
+   *
+   * Zod los descarta en silencio si igual llegan —el objeto no es `strict()`—,
+   * que es el comportamiento correcto para un cliente viejo: se ignora lo que
+   * pidió y se lo protege de más, en vez de rechazarle el envío.
+   */
 });
 
 const listQuery = z.object({
@@ -52,29 +66,45 @@ router.get('/provinces', async (_req, res, next) => {
   }
 });
 
+/**
+ * El feed y el mapa de papel — ahora leen `senales`.
+ *
+ * La RUTA no cambia de nombre y la FORMA de la respuesta tampoco: `body`,
+ * `category`, `submittedAs` siguen llamándose igual aunque adentro sean
+ * `texto`, `tipo` y `firma`. No es pereza — es que esta ruta la consumen el
+ * feed, el mapa SVG y el ticker de la portada, y renombrar el contrato el
+ * mismo día que cambia la tabla mezcla dos migraciones. El renombre va
+ * después, solo, y con los tres consumidores a la vista.
+ *
+ * Lo que sí cambia y se nota: `category` ahora trae uno de los NUEVE del canon
+ * en vez de uno de los seis viejos, y `clase` viaja al lado para que el color
+ * salga de ahí sin que el cliente tenga que derivarlo.
+ */
 router.get('/dreams', async (req, res, next) => {
   try {
     const filters = listQuery.parse(req.query);
-    const repo = new DreamsRepository(getDb());
-    const callOpts: Parameters<typeof repo.listApproved>[0] = { limit: filters.limit };
-    if (filters.provinceId !== undefined) callOpts.provinceId = filters.provinceId;
-    if (filters.category !== undefined) callOpts.category = filters.category;
-    const items = await repo.listApproved(callOpts);
+    const repo = new SenalesRepository(getDb());
+    const items = await repo.listar({
+      limite: filters.limit,
+      ...(filters.provinceId === undefined ? {} : { provinceId: filters.provinceId }),
+      ...(filters.category === undefined ? {} : { tipos: [filters.category] }),
+    });
     res.json({
       data: items.map((d) => ({
-        id: d.id,
-        body: d.body,
-        category: d.category,
+        id: d.idPublico,
+        body: d.texto,
+        category: d.tipo,
+        clase: d.clase,
         provinceId: d.provinceId,
-        submittedAs: d.submittedAs,
-        createdAt: d.createdAt,
+        submittedAs: d.firma,
+        createdAt: d.creadaEn,
         // El mapa de conversión también dibuja con honestidad (spec 1 §5):
         // sin la precisión no puede distinguir un punto clavado de una voz que
         // solo sabe su provincia, y volvería al jitter que miente. Son tres
         // columnas más sobre una consulta que ya se hace — el instrumento
         // sigue siendo lo único que se paga aparte.
-        lat: d.lat === null ? null : Number(d.lat),
-        lng: d.lng === null ? null : Number(d.lng),
+        lat: d.lat,
+        lng: d.lng,
         precision: d.precision,
       })),
     });
@@ -110,11 +140,20 @@ router.post('/dreams', anonSubmitRateLimit(), optionalAuthenticate, async (req, 
      * punto, `prepareRecordLocation` devuelve `province` y nada cambia respecto
      * del comportamiento anterior.
      */
+    /**
+     * Falla CERRADO: `subject` + `high` fijos, no lo que diga el cuerpo.
+     *
+     * Esta ruta no hace la pregunta de la casa —la hace `/api/v1/civic/senales`,
+     * que es la que la web usa hoy—, así que acá el sistema no sabe si el punto
+     * habla de la vivienda de alguien. No saber tiene que costar protección de
+     * más y no de menos: el default permisivo era un `0` que significaba «no
+     * sé» con el valor más peligroso.
+     */
     const ubicacion = prepareRecordLocation({
       point: input.punto ?? null,
       requestedPrecision: input.precisionPedida ?? 'province',
-      role: input.locationRole ?? 'subject',
-      sensitivity: input.sensitivity ?? 'low',
+      role: 'subject',
+      sensitivity: 'high',
       audience: 'collective',
     });
     if (ubicacion.publicPoint) {
@@ -122,8 +161,9 @@ router.post('/dreams', anonSubmitRateLimit(), optionalAuthenticate, async (req, 
       insertArgs.lng = String(ubicacion.publicPoint.lng);
     }
     insertArgs.precision = ubicacion.publishedPrecision;
-    if (input.locationRole !== undefined) insertArgs.locationRole = input.locationRole;
-    if (input.sensitivity !== undefined) insertArgs.sensitivity = input.sensitivity;
+    insertArgs.locationRole = 'subject';
+    // Fijo, por lo mismo que arriba: esta ruta no sabe de quién es el lugar.
+    insertArgs.sensitivity = 'high';
 
     const dream = await dreamsRepo.create(insertArgs);
     res.status(201).json({

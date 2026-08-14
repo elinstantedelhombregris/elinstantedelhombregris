@@ -1179,3 +1179,44 @@ No rompe nada funcional. Lo que rompe es la jerarquía que un lector usa para or
 
 **Qué haría falta:** es la Tarea 7 del plan («Poda estructural»), que ya está especificada. Esta entrada existe para que, si esa tarea no se ejecuta, el defecto no se quede sin registro — que es lo que este archivo evita.
 
+
+### D-062 · `POST /api/open-data/dreams` dejaba que el cliente eligiera cuánta protección quería
+
+**Dónde:** `v2/apps/api/src/features/open-data/routes.ts:34-35, 112`
+**Encontrada:** 2026-08-14, mapeando el hueco entre el canon de nueve tipos y la web. No la buscaba nadie: salió de leer la ruta vieja para ver qué escribía
+**Severidad:** alta
+**Estado:** RESUELTA 2026-08-14
+
+El esquema de la ingesta aceptaba `locationRole` y `sensitivity` **del cuerpo del request**, opcionales, y los pasaba tal cual a `prepareRecordLocation` con default `sensitivity: 'low'`. Un cliente que mandara `{"sensitivity":"low","locationRole":"capture"}` **desactivaba el engrosado de su propio punto** y publicaba coordenada exacta: el eje entero de privacidad decidido por quien envía.
+
+Es exactamente la puerta que `senales.sensitivity` cierra con su default `'high'` —«es la única tabla que recibe escrituras, y el default de una columna de privacidad tiene que fallar cerrado»— y que esta ruta, escrita antes, dejaba abierta.
+
+**Cómo se cerró:** los dos campos salieron del esquema y la ruta fija `role: 'subject'` + `sensitivity: 'high'`. Falla cerrado porque esta ruta **no hace la pregunta de la casa** —la hace `/api/v1/civic/senales`, que es la que la web usa desde hoy—, así que no sabe si el punto habla de la vivienda de alguien. No saber tiene que costar protección de más. Un cliente viejo que igual los mande no recibe un rechazo: se le ignora lo que pidió y se lo protege, que es preferible a romperle el envío.
+
+Guarda: `apps/api/tests/senales-ingesta.test.ts`, «`sensitivity` y `locationRole` del cuerpo se ignoran».
+
+### D-063 · Las capturas de campo entran a La Radiografía mal clasificadas
+
+**Dónde:** `v2/apps/api/src/features/civic-map/capturas.ts` y `v2/apps/api/src/features/radiografia/clase-provisional.ts:38-46`
+**Encontrada:** 2026-08-14, verificando el mapa del hueco de las señales
+**Severidad:** media
+**Estado:** abierta
+
+`capturas.ts` escribe `observation` / `need` / `resource` en `dreams.category` — tres tipos en inglés que no están en el canon de nueve. `POR_CATEGORIA` de `clase-provisional.ts` no los tiene, así que caen en `'meta'` por fallback: la clase que significa «no afirma nada del mundo». **Toda la app de campo entra a La Radiografía como si no afirmara nada**, cuando es justo al revés — es lo único recorrido en terreno.
+
+Lo mismo la deja fuera del color del mapa: desde que la capa `voz` lee `senales`, las capturas siguen apareciendo (por la segunda fuente, ver D-064) pero sin clase, o sea pintadas neutras.
+
+**Qué haría falta:** que `capturas.ts` escriba `senales` con tipos del canon. No es un renombre mecánico: `observation` no es un `basta` —un `basta` es algo que estaba y se rompió— y mapearlo al pasar es cómo se pierde el significado. Pide decidir los tres pares con la app de campo a la vista.
+
+### D-064 · La capa `voz` del mapa lee dos tablas, y eso es transitorio
+
+**Dónde:** `v2/packages/db/src/repositories/civic-map.ts`, métodos `vocesDeSenales` y `vocesDeDreams`
+**Encontrada:** 2026-08-14, y la cazó un test en el acto
+**Severidad:** baja
+**Estado:** abierta
+
+Al repuntar la capa `voz` de `dreams` a `senales`, las capturas de terreno **desaparecieron del mapa** —`POST /api/v1/civic/capturas` sigue escribiendo en `dreams`—. Lo agarró el test «la captura aparece en el mapa y el lazo la puede agarrar» antes de salir de la sesión.
+
+La capa quedó con dos fuentes, con ids en espacios distintos (`voz:` para las nuevas, `voz-v1:` para las viejas) y `clase: null` en las viejas, que es lo honesto: sus tipos no son del canon y darles una clase sería inventarla.
+
+**Qué haría falta:** resolver D-063. `vocesDeDreams` se borra el día que la app de campo escriba `senales`, y no antes: sacarla ahora es hacer desaparecer datos que alguien cargó caminando.
