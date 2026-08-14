@@ -173,6 +173,35 @@ export async function ingerirSenal(
   // ── Paso 5 · Normalizar la etiqueta ────────────────────────────────────────
   const direccionTexto = normalizedLocationLabel(compuesta);
 
+  /**
+   * El rechazo del engrosado necesita las DOS condiciones del CHECK, no una.
+   *
+   * `senales_rechazo_chk` exige `casa = 'propia' AND location_role = 'subject'`,
+   * y acá se comprobaba sólo la primera. En cinco de los nueve tipos el rol NO
+   * es `subject` —`práctica` es `meeting_point`, y `saber`, `sueño`, `propuesta`
+   * y `pregunta` son `service_area`, porque hablan **de** un lugar y no señalan
+   * la casa de nadie—, así que un envío con `casa: 'propia'` y
+   * `aceptaEngrosado: false` pasaba el contrato Zod, llegaba al INSERT y moría
+   * contra el CHECK: **500 en un endpoint público y sin auth, y la señal
+   * perdida**. Lo encontró una revisión adversaria y lo disparó de verdad.
+   *
+   * Cuando el rol no es `subject` no hay nada que rechazar: no corrió ninguna
+   * protección sobre la vivienda, así que la casilla no describe un
+   * consentimiento sino una preferencia sin objeto. Se guarda `false` y **se
+   * dice en el recibo** en vez de asentar en silencio el rechazo de una
+   * propuesta que nunca se le hizo a nadie — que es justamente lo que la
+   * columna existe para no hacer.
+   */
+  const rechazoPedido = !cuerpo.aceptaEngrosado && cuerpo.casa === 'propia';
+  const rechazoHonrado = rechazoPedido && encuadre.role === 'subject';
+  if (rechazoPedido && !rechazoHonrado) {
+    avisos.push(
+      `Pediste que no engrosemos el punto, pero un «${tipo}» habla de un área y no de una ` +
+        'vivienda: no corre ninguna protección que rechazar, así que no quedó registrado ' +
+        'ningún rechazo.',
+    );
+  }
+
   // ── La fila ────────────────────────────────────────────────────────────────
   const ahora = new Date();
   const relojes = calcularRelojes(tipo, ahora, cuerpo.comprometidoPara, cuerpo.diasDeVigencia);
@@ -221,7 +250,7 @@ export async function ingerirSenal(
     direccionTexto,
 
     casa: cuerpo.casa,
-    engrosadoRechazado: !cuerpo.aceptaEngrosado && cuerpo.casa === 'propia',
+    engrosadoRechazado: rechazoHonrado,
 
     publicadaEn: ahora,
     ...(relojes === null ? {} : { venceElRevision: relojes.venceEl, caducaEl: relojes.caducaEl }),
@@ -239,9 +268,60 @@ export async function ingerirSenal(
       : {}),
   };
 
-  const escrita = await new SenalesRepository(db).crear(fila);
+  const repo = new SenalesRepository(db);
+  const escrita = await repo.crear(fila);
 
   if (publicable.retirado !== null) avisos.push(publicable.retirado);
+
+  /**
+   * **Un reintento describe la fila GUARDADA, no la que acaba de llegar.**
+   *
+   * `crear` con `yaExistia: true` no escribe nada y devuelve tres campos. El
+   * recibo armaba los otros ocho —`tipo`, `precisionPublicada`, `engrosado`,
+   * `direccionTexto`…— con las variables locales de ESTA request, que nunca
+   * tocó la base. Con el mismo `idLocal` y un cuerpo distinto, el servidor
+   * confirmaba una publicación que no ocurrió: un reenvío que afina informaba
+   * punto fino sobre una fila gruesa, y uno que achica informaba protección
+   * sobre una fila fina. Es el campo que este módulo trata como el recibo del
+   * consentimiento, así que mentirlo es peor que fallar.
+   *
+   * La web no lo dispara —genera un uuid nuevo por envío— pero el contrato dice
+   * que `idLocal` **es** la clave de idempotencia del outbox, y el endpoint es
+   * público y sin auth: cualquier cliente que lo use para lo que el contrato
+   * dice lo dispara.
+   *
+   * Se relee y se contesta lo que hay. `avisos` lleva la diferencia dicha, para
+   * que un outbox que mandó dos cuerpos distintos se entere en vez de creer que
+   * el segundo pisó al primero.
+   */
+  if (escrita.yaExistia) {
+    const guardada = await repo.porIdPublico(escrita.idPublico);
+    if (guardada !== null) {
+      const distinto = guardada.tipo !== tipo || guardada.texto !== cuerpo.texto;
+      return {
+        idPublico: guardada.idPublico,
+        idLocal: cuerpo.idLocal,
+        yaExistia: true,
+        estado: guardada.estado,
+        tipo: guardada.tipo,
+        clase: guardada.clase,
+        precisionPublicada: guardada.precision,
+        // No se puede reconstruir por qué se engrosó una fila que se escribió
+        // en otra request: `null` y no el motivo de ESTA, que sería inventarlo.
+        engrosado: null,
+        direccionRetirada: null,
+        direccionTexto: guardada.direccionTexto,
+        venceEl: null,
+        avisos: distinto
+          ? [
+              ...avisos,
+              'Esta señal ya estaba cargada con ese mismo identificador y NO se sobrescribió. ' +
+                'Lo que ves es lo que quedó guardado la primera vez, no lo que acabás de mandar.',
+            ]
+          : avisos,
+      };
+    }
+  }
 
   return {
     idPublico: escrita.idPublico,

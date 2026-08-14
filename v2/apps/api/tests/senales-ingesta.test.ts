@@ -11,9 +11,10 @@
  * 3. que `origen` lo ponga la ruta y el cuerpo no lo pueda mover;
  * 4. que el recibo no filtre el ordinal, el actor ni la clave de idempotencia.
  *
- * **Escribe filas.** Si hay `DATABASE_URL_DESCARTABLE` corre contra esa rama;
- * si no, contra la que diga `DATABASE_URL` —la rama de test de CI— y borra por
- * `id_publico` lo que creó. Nunca se apoya en «la tabla estaba vacía».
+ * **Escribe filas, y en DOS tablas** — `senales` por la ruta nueva y `dreams`
+ * por la vieja, que este archivo también prueba. Exige
+ * `DATABASE_URL_DESCARTABLE` y se saltea sin ella: ver el comentario de
+ * `dsuite`, que cuenta cómo se descubrió que hacía falta.
  */
 import { randomUUID } from 'node:crypto';
 
@@ -35,7 +36,29 @@ import { createApp } from '../src/app.js';
 
 import { hasDatabaseUrl } from './helpers/index.js';
 
-const dsuite = hasDatabaseUrl ? describe : describe.skip;
+/**
+ * **Este archivo se NIEGA a correr contra producción.**
+ *
+ * Antes usaba `hasDatabaseUrl`, o sea que corría contra lo que dijera
+ * `DATABASE_URL`. Con la variable de rama efímera puesta iba a la rama; sin
+ * ella —un `pnpm test` a secas, que es lo normal— **iba a producción y
+ * escribía**. Dejó dos filas de prueba en `dreams` de la base real, visibles en
+ * el mapa público, porque el `afterAll` sólo limpiaba `senales`.
+ *
+ * El `hasDatabaseUrl` no alcanzaba y el problema no era ese: era que un archivo
+ * que ESCRIBE no puede decidir su destino por «hay una URL». Ahora exige la
+ * rama descartable explícita, y sin ella se saltea con su razón.
+ */
+const dsuite =
+  DESCARTABLE !== undefined && DESCARTABLE !== '' && hasDatabaseUrl ? describe : describe.skip;
+
+if (DESCARTABLE === undefined || DESCARTABLE === '') {
+  process.stderr.write(
+    '\n[senales-ingesta] Se saltea: falta DATABASE_URL_DESCARTABLE.\n' +
+      '  Este archivo ESCRIBE filas —en `senales` Y en `dreams`, por la ruta vieja— así que\n' +
+      '  no corre contra DATABASE_URL. Poné el DSN de una rama efímera de Neon.\n\n',
+  );
+}
 
 const RUTA = '/api/v1/civic/senales';
 
@@ -67,13 +90,23 @@ dsuite('Ingesta de señales', () => {
     return res;
   };
 
+  /** Lo que la ruta VIEJA crea. Se limpia aparte porque vive en otra tabla. */
+  const creadasViejas: number[] = [];
+
   afterAll(async () => {
-    if (creadas.length === 0) return;
     // `@v2/db` reexporta los helpers de drizzle justamente para esto: `apps/api`
     // no declara `drizzle-orm` como dependencia y no debería, así que importarlo
     // acá directo rompe la resolución del test.
-    const { getDb, inArray, senales } = await import('@v2/db');
-    await getDb().delete(senales).where(inArray(senales.idPublico, creadas));
+    const { getDb, inArray, dreams, senales } = await import('@v2/db');
+    const db = getDb();
+    // Las DOS tablas. Limpiar sólo `senales` fue lo que dejó filas de prueba en
+    // la base real: la ruta vieja escribe en la otra.
+    if (creadasViejas.length > 0) {
+      await db.delete(dreams).where(inArray(dreams.id, creadasViejas));
+    }
+    if (creadas.length > 0) {
+      await db.delete(senales).where(inArray(senales.idPublico, creadas));
+    }
   });
 
   describe('los nueve tipos entran', () => {
@@ -274,6 +307,7 @@ dsuite('Ingesta de señales', () => {
       });
 
       expect(res.status).toBe(201);
+      creadasViejas.push(res.body.data.id as number);
       // Falla cerrado: `subject` + `high` fijos, así que el punto se engrosa
       // por más que el cuerpo haya pedido lo contrario.
       expect(res.body.data.precisionPublicada).not.toBe('exact');

@@ -1220,3 +1220,46 @@ Al repuntar la capa `voz` de `dreams` a `senales`, las capturas de terreno **des
 La capa quedó con dos fuentes, con ids en espacios distintos (`voz:` para las nuevas, `voz-v1:` para las viejas) y `clase: null` en las viejas, que es lo honesto: sus tipos no son del canon y darles una clase sería inventarla.
 
 **Qué haría falta:** resolver D-063. `vocesDeDreams` se borra el día que la app de campo escriba `senales`, y no antes: sacarla ahora es hacer desaparecer datos que alguien cargó caminando.
+
+### D-065 · Un test de integración escribía en la base real y dejó filas visibles en el mapa
+
+**Dónde:** `v2/apps/api/tests/senales-ingesta.test.ts`
+**Encontrada:** 2026-08-14, validando la rebanada. La vi en producción, no en el código: el mapa devolvía una fila con el texto de mi propio test
+**Severidad:** media
+**Estado:** RESUELTA 2026-08-14 (la causa; las filas siguen ahí, ver abajo)
+
+El archivo se guardaba con `hasDatabaseUrl`, o sea que corría contra lo que dijera `DATABASE_URL`. Con `DATABASE_URL_DESCARTABLE` puesta iba a la rama efímera; **sin ella —un `pnpm test` a secas, que es lo normal— iba a producción y escribía**. Encima su `afterAll` sólo limpiaba `senales`, y uno de sus tests postea a `/api/open-data/dreams`, que escribe en la otra tabla: esas filas no las borraba nadie.
+
+Resultado: dos filas en `dreams` de producción con el texto «Hay un pozo en Rivadavia y Boedo.», visibles en el mapa público. En una plataforma cuyo punto entero es que lo que se muestra sea verdad, eso es peor que un bug funcional.
+
+**Cómo se cerró la causa:** el archivo exige `DATABASE_URL_DESCARTABLE` explícita y se saltea sin ella, y la limpieza barre las DOS tablas. La lección general vale para cualquier test futuro que escriba: **un archivo que escribe no puede decidir su destino por «hay una URL»**, tiene que pedir la base descartable por nombre.
+
+**Lo que queda:** las dos filas siguen en producción. Borrarlas es irreversible y es dato de la base real, así que espera decisión explícita del dueño.
+
+### D-066 · `engrosado_rechazado` comprobaba una de las dos condiciones de su CHECK
+
+**Dónde:** `v2/apps/api/src/features/senales/service.ts`
+**Encontrada:** 2026-08-14, por una revisión adversaria que lo disparó de verdad contra la base
+**Severidad:** alta
+**Estado:** RESUELTA 2026-08-14
+
+`senales_rechazo_chk` exige `casa = 'propia' AND location_role = 'subject'`. El servicio escribía `!aceptaEngrosado && casa === 'propia'` — sólo la primera.
+
+En **cinco de los nueve tipos** el rol no es `subject`: `práctica` es `meeting_point`, y `saber`, `sueño`, `propuesta` y `pregunta` son `service_area`, porque hablan *de* un lugar y no señalan la casa de nadie. Un envío con `casa: 'propia'` y `aceptaEngrosado: false` pasaba el contrato Zod, llegaba al INSERT y moría contra el CHECK: **500 en un endpoint público y sin auth, con la señal perdida**.
+
+**Cómo se cerró:** el servicio comprueba las dos condiciones. Cuando el rol no es `subject` no hay protección que rechazar, así que se guarda `false` y **se dice en el recibo** en vez de asentar en silencio el rechazo de una propuesta que nunca se le hizo a nadie. Guarda: `apps/api/tests/senales-defectos.test.ts`, los cinco tipos uno por uno.
+
+### D-067 · El recibo de un reintento describía la fila que llegó, no la guardada
+
+**Dónde:** `v2/apps/api/src/features/senales/service.ts`
+**Encontrada:** 2026-08-14, misma revisión adversaria
+**Severidad:** media
+**Estado:** RESUELTA 2026-08-14
+
+`crear()` con `yaExistia: true` no escribe nada y devuelve tres campos. El recibo armaba los otros ocho —`tipo`, `precisionPublicada`, `engrosado`, `direccionTexto`…— con las variables de **esa** request, que nunca tocó la base.
+
+Con el mismo `idLocal` y un cuerpo distinto, el servidor confirmaba una publicación que no ocurrió, en las dos direcciones: un reenvío que afina informaba punto fino sobre una fila gruesa, y uno que achica informaba protección sobre una fila fina. Es el campo que el módulo trata como el recibo del consentimiento, así que mentirlo es peor que fallar.
+
+La web no lo disparaba —genera un uuid nuevo por envío— pero el contrato dice que `idLocal` **es** la clave de idempotencia del outbox, y el endpoint es público y sin auth.
+
+**Cómo se cerró:** cuando `yaExistia`, se relee la fila y se contesta lo que hay. Si el cuerpo difiere, un aviso lo dice con todas las letras: «ya estaba cargada con ese identificador y NO se sobrescribió».
