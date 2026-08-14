@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Introducción al Hombre Gris",
   "description": "Evaluá tu comprensión del viaje completo: de la tierra al brillo, de la etimología a la acción.",
-  "passingScore": 70,
-  "timeLimit": 20,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 70,
   "questions": [
     {
       "question": "¿De qué palabra latina proviene \"hombre\" (homo)?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "Homo viene de humus (tierra, suelo). El ser humano es, etimológicamente, \"el que viene de la tierra\". De la misma raíz nacen humanidad y humildad.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 663
+      "orderIndex": 1
     },
     {
       "question": "En la metáfora del curso, ¿qué representa el color gris?",
@@ -34,8 +29,7 @@
       "correctAnswer": 2,
       "explanation": "El gris no es ausencia ni neutralidad. Es lo que ocurre cuando todas las longitudes de onda se mezclan: contiene todos los colores. Representa la síntesis de la complejidad humana.",
       "points": 2,
-      "orderIndex": 2,
-      "legacyQuestionId": 664
+      "orderIndex": 2
     },
     {
       "question": "¿Cómo sabía el orfebre antiguo que la plata estaba completamente refinada?",
@@ -49,8 +43,7 @@
       "correctAnswer": 1,
       "explanation": "La plata estaba lista cuando el orfebre podía ver su propio reflejo en ella. Mientras hubiera impurezas, la superficie era turbia. La pureza se mide por la capacidad de reflejar.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 665
+      "orderIndex": 3
     },
     {
       "question": "¿Qué significa etimológicamente \"Argentina\"?",
@@ -64,8 +57,7 @@
       "correctAnswer": 1,
       "explanation": "Argentina viene del latín argentum, que significa plata. El país lleva en su nombre la vocación de brillar — no para sí mismo, sino como espejo del mundo.",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 666
+      "orderIndex": 4
     },
     {
       "question": "Las psicografías de Parravicini sugieren que el Hombre Gris es necesariamente un individuo político específico.",
@@ -74,8 +66,7 @@
       "correctAnswer": false,
       "explanation": "Identificar al Hombre Gris con un solo individuo o candidato político reduce una visión colectiva a una narrativa de caudillismo. Las psicografías apuntan a una transformación de conciencia, no a un liderazgo individual.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 667
+      "orderIndex": 5
     },
     {
       "question": "¿Cuál es la diferencia entre certeza y fe según el curso?",
@@ -89,8 +80,7 @@
       "correctAnswer": 1,
       "explanation": "La certeza dice \"ya sé todo\" y cierra la posibilidad de crecer. La fe dice \"confío en que hay más por descubrir\" y te mantiene abierto al aprendizaje. El Hombre Gris camina con fe, no con certeza.",
       "points": 2,
-      "orderIndex": 6,
-      "legacyQuestionId": 668
+      "orderIndex": 6
     },
     {
       "question": "¿Cuántos pilares fundamentales tiene el movimiento del Hombre Gris?",
@@ -104,8 +94,7 @@
       "correctAnswer": 2,
       "explanation": "Los cinco pilares son: Visión (ver el brillo posible), Acción (entrar al fuego), Comunidad (el crisol que sostiene), Reflexión (el orfebre que observa), y Síntesis (la plata que refleja).",
       "points": 1,
-      "orderIndex": 7,
-      "legacyQuestionId": 669
+      "orderIndex": 7
     },
     {
       "question": "En la metáfora del refinamiento, ¿qué representa la Comunidad?",
@@ -119,8 +108,7 @@
       "correctAnswer": 2,
       "explanation": "La Comunidad es el crisol: el recipiente que soporta el fuego sin romperse y contiene al metal mientras se transforma. Solos, el fuego nos destruye. En comunidad, nos transforma.",
       "points": 2,
-      "orderIndex": 8,
-      "legacyQuestionId": 670
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál de las siguientes acciones refleja mejor el espíritu del Hombre Gris?",
@@ -134,8 +122,7 @@
       "correctAnswer": 2,
       "explanation": "El Hombre Gris no busca ganar ni convencer. Busca entender, integrar y reflejar. Escuchar al otro buscando su humanidad es el acto más transformador que existe.",
       "points": 2,
-      "orderIndex": 9,
-      "legacyQuestionId": 671
+      "orderIndex": 9
     },
     {
       "question": "El nombre del proyecto es \"El Instante del Hombre Gris\". ¿Qué implica la palabra \"instante\"?",
@@ -149,8 +136,7 @@
       "correctAnswer": 2,
       "explanation": "\"Instante\" significa que la transformación no es un proceso lejano. Es una decisión que se toma ahora, en cada momento. No mañana, no cuando las condiciones sean perfectas. El instante es siempre ahora.",
       "points": 2,
-      "orderIndex": 10,
-      "legacyQuestionId": 672
+      "orderIndex": 10
     },
     {
       "question": "Brillar como plata refinada significa ser famoso o tener protagonismo.",
@@ -159,8 +145,7 @@
       "correctAnswer": false,
       "explanation": "Brillar no es protagonismo. La plata brilla para que otros se vean reflejados en ella. Brillar es ser tan transparente y auténtico que cuando alguien te mira, ve lo mejor de sí mismo.",
       "points": 2,
-      "orderIndex": 11,
-      "legacyQuestionId": 673
+      "orderIndex": 11
     },
     {
       "question": "¿Cuál es el primer paso de la \"arqueología personal\" que propone el curso?",
@@ -174,8 +159,7 @@
       "correctAnswer": 1,
       "explanation": "La arqueología personal comienza por excavar las capas de creencias heredadas — de la familia, el barrio, la clase social — no para rechazarlas todas, sino para elegir conscientemente cuáles conservar.",
       "points": 2,
-      "orderIndex": 12,
-      "legacyQuestionId": 674
+      "orderIndex": 12
     }
   ]
 }

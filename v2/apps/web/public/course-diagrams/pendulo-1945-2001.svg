@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Argentina 1945–2001: péndulos y continuidades</title>
+  <desc id="desc">Un péndulo recorre alternancias políticas mientras una línea inferior muestra continuidades económicas y sociales.</desc>
+  <defs>
+    <pattern id="paper2" width="56" height="56" patternUnits="userSpaceOnUse">
+      <rect width="56" height="56" fill="#efe7d5"/>
+      <path d="M3 14c15 4 30-5 48 1M8 46c12-3 22 4 41 0" fill="none" stroke="#292521" stroke-width="1" opacity=".05"/>
+    </pattern>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0l10 5-10 5z" fill="#2f6f68"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="26" fill="url(#paper2)"/>
+  <g font-family="Arial, sans-serif" fill="#292521">
+    <text x="92" y="105" font-size="46" font-weight="700">1945—2001</text>
+    <text x="92" y="153" font-size="24" letter-spacing="3">PÉNDULOS Y CONTINUIDADES</text>
+    <text x="1508" y="116" font-size="19" text-anchor="end" opacity=".68">alternar no siempre es transformar</text>
+  </g>
+  <line x1="800" y1="205" x2="800" y2="324" stroke="#292521" stroke-width="8"/>
+  <circle cx="800" cy="202" r="17" fill="#d2a340" stroke="#292521" stroke-width="5"/>
+  <path d="M800 322C495 360 310 480 248 602M800 322c305 38 490 158 552 280" fill="none" stroke="#292521" stroke-width="5" stroke-dasharray="12 12" opacity=".35"/>
+  <line x1="800" y1="322" x2="1175" y2="548" stroke="#804e72" stroke-width="10"/>
+  <circle cx="1175" cy="548" r="64" fill="#804e72" stroke="#292521" stroke-width="7"/>
+  <path d="M258 602c110 72 211 72 320 0s213-72 322 0 211 72 320 0 213-72 322 0" fill="none" stroke="#2f6f68" stroke-width="8" marker-end="url(#arrow2)"/>
+  <g font-family="Arial, sans-serif" fill="#292521" text-anchor="middle">
+    <text x="300" y="325" font-size="22" font-weight="700">APERTURA</text>
+    <text x="1300" y="325" font-size="22" font-weight="700">CIERRE</text>
+    <text x="800" y="680" font-size="22" font-weight="700">CONTINUIDADES BAJO LA ALTERNANCIA</text>
+    <text x="800" y="714" font-size="20">desigualdad · inflación · centralización · memoria · organización social</text>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#292521">
+    <g transform="translate(165 602)"><circle r="23" fill="#d2a340" stroke="#292521" stroke-width="5"/><text y="-48" font-size="24" font-weight="700">1945</text></g>
+    <g transform="translate(365 632)"><circle r="23" fill="#d26952" stroke="#292521" stroke-width="5"/><text y="65" font-size="24" font-weight="700">1955</text></g>
+    <g transform="translate(565 602)"><circle r="23" fill="#804e72" stroke="#292521" stroke-width="5"/><text y="-48" font-size="24" font-weight="700">1966</text></g>
+    <g transform="translate(765 632)"><circle r="23" fill="#d26952" stroke="#292521" stroke-width="5"/><text y="65" font-size="24" font-weight="700">1976</text></g>
+    <g transform="translate(965 602)"><circle r="23" fill="#2f6f68" stroke="#292521" stroke-width="5"/><text y="-48" font-size="24" font-weight="700">1983</text></g>
+    <g transform="translate(1165 632)"><circle r="23" fill="#d2a340" stroke="#292521" stroke-width="5"/><text y="65" font-size="24" font-weight="700">1989</text></g>
+    <g transform="translate(1365 602)"><circle r="28" fill="#d26952" stroke="#292521" stroke-width="5"/><text y="-53" font-size="24" font-weight="700">2001</text></g>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="20" fill="#292521">
+    <rect x="122" y="770" width="1356" height="62" rx="31" fill="#292521" opacity=".08"/>
+    <text x="800" y="809" text-anchor="middle">Usá el péndulo para preguntar qué cambió; usá la continuidad para preguntar qué resistió.</text>
+  </g>
+</svg>

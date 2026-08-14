@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Primeros Pasos para Organizar tu Barrio",
   "description": "Evaluá tu comprensión de las herramientas básicas de organización barrial.",
-  "passingScore": 70,
-  "timeLimit": 15,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 49,
   "questions": [
     {
       "question": "¿Qué propone el mapeo de activos como punto de partida?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "El mapeo de activos propone empezar por las fortalezas existentes, no por los problemas.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 463
+      "orderIndex": 1
     },
     {
       "question": "¿Cuántas personas son suficientes para considerar exitosa una primera reunión barrial?",
@@ -34,8 +29,7 @@
       "correctAnswer": 2,
       "explanation": "5 personas comprometidas que quieran volver es un excelente punto de partida.",
       "points": 2,
-      "orderIndex": 2,
-      "legacyQuestionId": 464
+      "orderIndex": 2
     },
     {
       "question": "La conversación valiente busca eliminar todo conflicto del grupo.",
@@ -44,8 +38,7 @@
       "correctAnswer": false,
       "explanation": "La conversación valiente no elimina el conflicto sino que lo canaliza productivamente.",
       "points": 1,
-      "orderIndex": 3,
-      "legacyQuestionId": 465
+      "orderIndex": 3
     },
     {
       "question": "¿Cuál es el criterio más importante para elegir el primer proyecto comunitario?",
@@ -59,8 +52,7 @@
       "correctAnswer": 1,
       "explanation": "El primer éxito genera confianza, que es el recurso más escaso. Por eso debe ser pequeño y exitoso.",
       "points": 2,
-      "orderIndex": 4,
-      "legacyQuestionId": 466
+      "orderIndex": 4
     },
     {
       "question": "¿Cuál es la diferencia entre consenso y consentimiento en decisiones grupales?",
@@ -74,8 +66,7 @@
       "correctAnswer": 1,
       "explanation": "El consentimiento pregunta \"¿alguien tiene una objeción seria?\" en vez de buscar que todos estén entusiasmados.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 467
+      "orderIndex": 5
     },
     {
       "question": "La frecuencia de encuentros es más importante que su duración para sostener un grupo.",
@@ -84,8 +75,7 @@
       "correctAnswer": true,
       "explanation": "Es mejor juntarse 30 minutos cada semana que 4 horas una vez al mes. La frecuencia construye hábito.",
       "points": 1,
-      "orderIndex": 6,
-      "legacyQuestionId": 468
+      "orderIndex": 6
     },
     {
       "question": "¿Qué es la \"regla de las 24 horas\" para conflictos?",
@@ -99,8 +89,7 @@
       "correctAnswer": 1,
       "explanation": "Cuando un conflicto se pone caliente, nadie responde en el momento. Se espera 24 horas para ganar perspectiva.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 469
+      "orderIndex": 7
     },
     {
       "question": "¿Cuál es la capa de convocatoria más efectiva para la primera reunión?",
@@ -114,8 +103,7 @@
       "correctAnswer": 2,
       "explanation": "La invitación personal tiene 10 veces más poder que cualquier otro medio de convocatoria.",
       "points": 2,
-      "orderIndex": 8,
-      "legacyQuestionId": 470
+      "orderIndex": 8
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Rituales y Espacios de Encuentro\"?",
@@ -129,8 +117,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo..",
       "points": 1,
-      "orderIndex": 9,
-      "legacyQuestionId": null
+      "orderIndex": 9
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Tu Plan de Acción Barrial: Primeros 90 Días\"?",
@@ -144,8 +131,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en crear un plan concreto de organización barrial para los próximos tres meses..",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": null
+      "orderIndex": 10
     }
   ]
 }

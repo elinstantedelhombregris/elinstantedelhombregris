@@ -1,11 +1,7 @@
 {
   "title": "Quiz: La Partida del Hombre Gris",
   "description": "Evalúa tu comprensión de estrategias cooperativas, tit for tat y rediseño de incentivos.",
-  "passingScore": 75,
-  "timeLimit": 25,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 7,
   "questions": [
     {
       "question": "¿Cuál es la intención central de la masterclass?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "Toda la masterclass gira en torno a mover el equilibrio hacia juegos de suma positiva diseñando incentivos cooperativos.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 61
+      "orderIndex": 1
     },
     {
       "question": "En el curso se considera que Argentina es un juego de suma variable e iterado.",
@@ -29,8 +24,7 @@
       "correctAnswer": true,
       "explanation": "La narrativa base es que los actores se encuentran repetidamente y el payoff puede expandirse.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 62
+      "orderIndex": 2
     },
     {
       "question": "¿Qué elemento vuelve más atractivo el payoff cooperativo?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "Las lecciones muestran que subir beneficios reales y transparentes hace que (C,C) domine.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 63
+      "orderIndex": 3
     },
     {
       "question": "Tit for Tat versión Hombre Gris siempre:",
@@ -59,8 +52,7 @@
       "correctAnswer": 2,
       "explanation": "El protocolo arranca cooperando, responde proporcionalmente y vuelve a cooperar tras reparación.",
       "points": 2,
-      "orderIndex": 4,
-      "legacyQuestionId": 64
+      "orderIndex": 4
     },
     {
       "question": "La memoria corta implica olvidar lo sucedido.",
@@ -69,8 +61,7 @@
       "correctAnswer": false,
       "explanation": "Memoria corta = castigo proporcional y perdón rápido, no amnesia.",
       "points": 1,
-      "orderIndex": 5,
-      "legacyQuestionId": 65
+      "orderIndex": 5
     },
     {
       "question": "¿Qué estrategia genera espirales de venganza interminables?",
@@ -84,8 +75,7 @@
       "correctAnswer": 1,
       "explanation": "El rencor perpetuo impide reingresar a la cooperación y congela políticas.",
       "points": 2,
-      "orderIndex": 6,
-      "legacyQuestionId": 66
+      "orderIndex": 6
     },
     {
       "question": "¿Por qué el perdón ingenuo es riesgoso?",
@@ -99,8 +89,7 @@
       "correctAnswer": 1,
       "explanation": "Perdonar sin condiciones incentiva defectos sucesivos.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 67
+      "orderIndex": 7
     },
     {
       "question": "Selecciona la característica esencial de un laboratorio territorial Hombre Gris.",
@@ -114,8 +103,7 @@
       "correctAnswer": 0,
       "explanation": "Los laboratorios son pilotos medibles que permiten iterar antes de escalar.",
       "points": 2,
-      "orderIndex": 8,
-      "legacyQuestionId": 68
+      "orderIndex": 8
     },
     {
       "question": "El heatmap territorial presentado en la masterclass sirve para…",
@@ -129,8 +117,7 @@
       "correctAnswer": 0,
       "explanation": "Visualiza cómo Estado, ciudadanía, empresas y territorio cooperan en cada piloto.",
       "points": 2,
-      "orderIndex": 9,
-      "legacyQuestionId": 69
+      "orderIndex": 9
     },
     {
       "question": "Los microacuerdos deben incluir recompensas inmediatas.",
@@ -139,8 +126,7 @@
       "correctAnswer": true,
       "explanation": "El curso insiste en beneficios tangibles tempranos para sostener motivación.",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": 70
+      "orderIndex": 10
     },
     {
       "question": "¿Qué entrega final se solicita en la lección de cierre?",
@@ -154,8 +140,7 @@
       "correctAnswer": 0,
       "explanation": "El cierre exige un compromiso público con tablero y cofirmantes.",
       "points": 2,
-      "orderIndex": 11,
-      "legacyQuestionId": 71
+      "orderIndex": 11
     },
     {
       "question": "Para que cooperar sea el negocio dominante se debe…",
@@ -169,8 +154,7 @@
       "correctAnswer": 1,
       "explanation": "La arquitectura de payoffs rediseña incentivos: cooperar debe pagar más y defraudar debe costar caro.",
       "points": 2,
-      "orderIndex": 12,
-      "legacyQuestionId": 72
+      "orderIndex": 12
     }
   ]
 }

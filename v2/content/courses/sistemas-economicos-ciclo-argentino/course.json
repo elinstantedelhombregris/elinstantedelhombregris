@@ -1,198 +1,114 @@
 {
-  "seoTitle": "Sistemas Económicos: Por Qué Argentina Repite el Ciclo | Economía | El Instante del Hombre Gris",
-  "seoDescription": "Entiende los ciclos económicos argentinos como sistemas de retroalimentación.",
-  "searchSummary": "Entiende los ciclos económicos argentinos como sistemas de retroalimentación.",
-  "ogImageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
-  "lastReviewedAt": "2026-04-22",
-  "indexable": true,
-  "schemaVersion": 1,
   "slug": "sistemas-economicos-ciclo-argentino",
   "title": "Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-  "description": "Analiza los ciclos económicos argentinos a través del pensamiento sistémico. Entiende por qué la emisión genera inflación, cómo funciona el stop-go, y qué significa la dependencia de commodities como bucle de retroalimentación.",
-  "excerpt": "Entiende los ciclos económicos argentinos como sistemas de retroalimentación.",
+  "description": "Analizá los ciclos económicos argentinos a través del pensamiento sistémico. Entendé por qué la emisión genera inflación, cómo funciona el stop-go, y qué significa la dependencia de commodities como bucle de retroalimentación.",
+  "excerpt": "Entendé los ciclos económicos argentinos como sistemas de retroalimentación.",
   "category": "economia",
   "level": "intermediate",
   "duration": 20,
-  "thumbnailUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800",
-  "videoUrl": null,
   "orderIndex": 13,
   "isPublished": true,
   "isFeatured": false,
   "requiresAuth": false,
-  "authorId": 1,
-  "legacyCourseId": 13,
   "quizFile": "quiz.json",
-  "rekeys": [],
   "lessons": [
     {
-      "seoTitle": "La Economía como Sistema: Dejá de Mirar Números, Empezá a Ver Conexiones | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "Introducción al pensamiento sistémico aplicado a la economía argentina.",
-      "searchSummary": "Introducción al pensamiento sistémico aplicado a la economía argentina.",
-      "indexable": true,
       "key": "02-la-economia-como-sistema-deja-de-mirar-numeros-empeza-a-ver-conexiones",
       "title": "La Economía como Sistema: Dejá de Mirar Números, Empezá a Ver Conexiones",
       "description": "Introducción al pensamiento sistémico aplicado a la economía argentina.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 1,
-      "isRequired": true,
-      "contentFile": "lessons/02-02-la-economia-como-sistema-deja-de-mirar-numeros-empeza-a-ver-conexiones.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 593
+      "orderIndex": 1
     },
     {
-      "seoTitle": "Inflación: La Fiebre Crónica de Argentina | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "Entender la inflación como fenómeno sistémico multicausal.",
-      "searchSummary": "Entender la inflación como fenómeno sistémico multicausal.",
-      "indexable": true,
       "key": "03-inflacion-la-fiebre-cronica-de-argentina",
       "title": "Inflación: La Fiebre Crónica de Argentina",
       "description": "Entender la inflación como fenómeno sistémico multicausal.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 2,
-      "isRequired": true,
-      "contentFile": "lessons/03-03-inflacion-la-fiebre-cronica-de-argentina.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 594
+      "orderIndex": 2
     },
     {
-      "seoTitle": "El Dólar: La Obsesión Argentina | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente.",
-      "searchSummary": "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente.",
-      "indexable": true,
       "key": "04-el-dolar-la-obsesion-argentina",
       "title": "El Dólar: La Obsesión Argentina",
       "description": "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 3,
-      "isRequired": true,
-      "contentFile": "lessons/04-04-el-dolar-la-obsesion-argentina.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 595
+      "orderIndex": 3
     },
     {
-      "seoTitle": "El Ciclo Stop-Go: La Montaña Rusa que No Para | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "El patrón económico central de Argentina analizado en profundidad.",
-      "searchSummary": "El patrón económico central de Argentina analizado en profundidad.",
-      "indexable": true,
       "key": "05-el-ciclo-stop-go-la-montana-rusa-que-no-para",
       "title": "El Ciclo Stop-Go: La Montaña Rusa que No Para",
       "description": "El patrón económico central de Argentina analizado en profundidad.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 4,
-      "isRequired": true,
-      "contentFile": "lessons/05-05-el-ciclo-stop-go-la-montana-rusa-que-no-para.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 596
+      "orderIndex": 4
     },
     {
-      "seoTitle": "Commodities y el Síndrome Holandés: La Maldición de la Riqueza Fácil | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "Cómo la dependencia de materias primas condiciona toda la economía.",
-      "searchSummary": "Cómo la dependencia de materias primas condiciona toda la economía.",
-      "indexable": true,
       "key": "06-commodities-y-el-sindrome-holandes-la-maldicion-de-la-riqueza-facil",
       "title": "Commodities y el Síndrome Holandés: La Maldición de la Riqueza Fácil",
       "description": "Cómo la dependencia de materias primas condiciona toda la economía.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 5,
-      "isRequired": true,
-      "contentFile": "lessons/06-06-commodities-y-el-sindrome-holandes-la-maldicion-de-la-riqueza-facil.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 597
+      "orderIndex": 5
     },
     {
-      "seoTitle": "El Estado en la Economía: ¿Mucho o Poco? | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "El rol del Estado argentino en la economía: más allá de la falsa dicotomía.",
-      "searchSummary": "El rol del Estado argentino en la economía: más allá de la falsa dicotomía.",
-      "indexable": true,
       "key": "07-el-estado-en-la-economia-mucho-o-poco",
       "title": "El Estado en la Economía: ¿Mucho o Poco?",
       "description": "El rol del Estado argentino en la economía: más allá de la falsa dicotomía.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 6,
-      "isRequired": true,
-      "contentFile": "lessons/07-07-el-estado-en-la-economia-mucho-o-poco.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 598
+      "orderIndex": 6
     },
     {
-      "seoTitle": "Deuda Externa: La Soga al Cuello | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "La historia de la deuda argentina como patrón sistémico recurrente.",
-      "searchSummary": "La historia de la deuda argentina como patrón sistémico recurrente.",
-      "indexable": true,
       "key": "08-deuda-externa-la-soga-al-cuello",
       "title": "Deuda Externa: La Soga al Cuello",
       "description": "La historia de la deuda argentina como patrón sistémico recurrente.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 7,
-      "isRequired": true,
-      "contentFile": "lessons/08-08-deuda-externa-la-soga-al-cuello.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 599
+      "orderIndex": 7
     },
     {
-      "seoTitle": "Impuestos: Quién Paga y Quién No | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "El sistema impositivo argentino y sus distorsiones sistémicas.",
-      "searchSummary": "El sistema impositivo argentino y sus distorsiones sistémicas.",
-      "indexable": true,
       "key": "09-impuestos-quien-paga-y-quien-no",
       "title": "Impuestos: Quién Paga y Quién No",
       "description": "El sistema impositivo argentino y sus distorsiones sistémicas.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 8,
-      "isRequired": true,
-      "contentFile": "lessons/09-09-impuestos-quien-paga-y-quien-no.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 600
+      "orderIndex": 8
     },
     {
-      "seoTitle": "Economía del Conocimiento: El Sector Que Puede Romper el Ciclo | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "Cómo la economía del conocimiento puede transformar el modelo argentino.",
-      "searchSummary": "Cómo la economía del conocimiento puede transformar el modelo argentino.",
-      "indexable": true,
       "key": "10-economia-del-conocimiento-el-sector-que-puede-romper-el-ciclo",
       "title": "Economía del Conocimiento: El Sector Que Puede Romper el Ciclo",
       "description": "Cómo la economía del conocimiento puede transformar el modelo argentino.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 9,
-      "isRequired": true,
-      "contentFile": "lessons/10-10-economia-del-conocimiento-el-sector-que-puede-romper-el-ciclo.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 601
+      "orderIndex": 9
     },
     {
-      "seoTitle": "Diseñar la Salida: Qué Debería Hacer Argentina | Sistemas Económicos: Por Qué Argentina Repite el Ciclo",
-      "seoDescription": "Síntesis de intervenciones sistémicas para transformar la economía argentina.",
-      "searchSummary": "Síntesis de intervenciones sistémicas para transformar la economía argentina.",
-      "indexable": true,
       "key": "11-disenar-la-salida-que-deberia-hacer-argentina",
       "title": "Diseñar la Salida: Qué Debería Hacer Argentina",
       "description": "Síntesis de intervenciones sistémicas para transformar la economía argentina.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 10,
-      "isRequired": true,
-      "contentFile": "lessons/11-11-disenar-la-salida-que-deberia-hacer-argentina.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 602
+      "orderIndex": 10
     }
-  ]
+  ],
+  "promesa": [
+    "Conectar inflación, divisas, deuda, producción, impuestos y expectativas en mapas discutibles.",
+    "Distinguir identidad política, dato, mecanismo e hipótesis económica.",
+    "Comparar intervenciones por secuencia, distribución de costos y efectos secundarios."
+  ],
+  "noCubre": [
+    "No pronostica inflación, dólar o crecimiento ni recomienda inversiones.",
+    "No presenta una escuela económica como neutral o suficiente para explicar todo el ciclo."
+  ],
+  "paraQuien": "Para ciudadanos que quieren discutir economía argentina con mecanismos y límites, no solo consignas.",
+  "productoFinal": "Un mapa del ciclo económico argentino con variables, demoras, ganadores, perdedores y tres escenarios.",
+  "prerrequisitos": [
+    "No hace falta matemática avanzada; sí disposición a comparar supuestos."
+  ],
+  "coverImage": "/course-art/economia.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.argentina.gob.ar/economia/inclusion-financiera",
+      "titulo": "Inclusión financiera · herramientas y protección",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/cnv/proteccion-al-publico-inversor",
+      "titulo": "CNV · protección y educación para el público inversor",
+      "consultada": "2026-08-13"
+    }
+  ],
+  "revisarAntesDe": "2026-11-13"
 }

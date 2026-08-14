@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Cómo Funciona Argentina de Verdad",
   "description": "Evaluá tu comprensión del funcionamiento real del Estado argentino.",
-  "passingScore": 70,
-  "timeLimit": 15,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 61,
   "questions": [
     {
       "question": "¿Qué son los DNU (Decretos de Necesidad y Urgencia)?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "Los DNU permiten al presidente legislar sin pasar por el Congreso, diseñados para emergencias.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 585
+      "orderIndex": 1
     },
     {
       "question": "El 95% de los proyectos de ley muere en comisión sin llegar al recinto.",
@@ -29,8 +24,7 @@
       "correctAnswer": true,
       "explanation": "La gran mayoría de los proyectos nunca se tratan en el recinto. El presidente de comisión decide qué se trata.",
       "points": 1,
-      "orderIndex": 2,
-      "legacyQuestionId": 586
+      "orderIndex": 2
     },
     {
       "question": "¿Qué organismo controla la emisión de dinero en Argentina?",
@@ -44,8 +38,7 @@
       "correctAnswer": 2,
       "explanation": "El Banco Central de la República Argentina (BCRA) controla la política monetaria y la emisión.",
       "points": 2,
-      "orderIndex": 3,
-      "legacyQuestionId": 587
+      "orderIndex": 3
     },
     {
       "question": "¿Qué artículo constitucional establece el derecho al amparo?",
@@ -59,8 +52,7 @@
       "correctAnswer": 2,
       "explanation": "El artículo 43 establece el amparo como herramienta de protección rápida de derechos constitucionales.",
       "points": 2,
-      "orderIndex": 4,
-      "legacyQuestionId": 588
+      "orderIndex": 4
     },
     {
       "question": "La coparticipación es la distribución de recursos de las provincias a la Nación.",
@@ -69,8 +61,7 @@
       "correctAnswer": false,
       "explanation": "Es al revés: la Nación recauda y distribuye (coparticipa) a las provincias.",
       "points": 1,
-      "orderIndex": 5,
-      "legacyQuestionId": 589
+      "orderIndex": 5
     },
     {
       "question": "¿Cuál es la partida más grande del presupuesto nacional?",
@@ -84,8 +75,7 @@
       "correctAnswer": 1,
       "explanation": "La seguridad social (jubilaciones, AUH, pensiones) representa más del 40% del presupuesto.",
       "points": 2,
-      "orderIndex": 6,
-      "legacyQuestionId": 590
+      "orderIndex": 6
     },
     {
       "question": "¿Qué herramienta web permite ver la ejecución del presupuesto en tiempo real?",
@@ -99,8 +89,7 @@
       "correctAnswer": 1,
       "explanation": "presupuestoabierto.gob.ar muestra en tiempo real cómo se ejecuta el presupuesto nacional.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 591
+      "orderIndex": 7
     },
     {
       "question": "Ser fiscal de mesa es una forma de participación electoral ciudadana.",
@@ -109,8 +98,7 @@
       "correctAnswer": true,
       "explanation": "Los fiscales de mesa controlan el proceso electoral y son fundamentales para la transparencia.",
       "points": 1,
-      "orderIndex": 8,
-      "legacyQuestionId": 592
+      "orderIndex": 8
     },
     {
       "question": "¿Qué es el clientelismo político?",
@@ -124,8 +112,7 @@
       "correctAnswer": 1,
       "explanation": "El clientelismo es un sistema donde se intercambia acceso a recursos del Estado por apoyo político.",
       "points": 2,
-      "orderIndex": 9,
-      "legacyQuestionId": 593
+      "orderIndex": 9
     },
     {
       "question": "La Defensoría del Pueblo de la Nación funciona normalmente desde 1994.",
@@ -134,8 +121,7 @@
       "correctAnswer": false,
       "explanation": "La Defensoría del Pueblo está vacante desde 2009, lo que la ha dejado inoperante.",
       "points": 1,
-      "orderIndex": 10,
-      "legacyQuestionId": 594
+      "orderIndex": 10
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Medios y Poder: La Relación Que No Se Enseña\"?",
@@ -149,8 +135,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en entender la relación entre medios de comunicación y poder político en argentina..",
       "points": 1,
-      "orderIndex": 11,
-      "legacyQuestionId": null
+      "orderIndex": 11
     },
     {
       "question": "¿Cuál es el foco principal de la lección \"Tu Mapa del Poder: Diagnóstico de Tu Territorio\"?",
@@ -164,8 +149,7 @@
       "correctAnswer": 0,
       "explanation": "La lección se centra en ejercicio integrador: mapear la estructura de poder en tu territorio local..",
       "points": 1,
-      "orderIndex": 12,
-      "legacyQuestionId": null
+      "orderIndex": 12
     }
   ]
 }

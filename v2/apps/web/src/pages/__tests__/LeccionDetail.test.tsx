@@ -70,7 +70,13 @@ describe('LeccionDetail (página papel 3.5 — el lector de lección)', () => {
         `Lección ${String(posicionMedio)} de ${String(cursoMedio.lecciones.length)} · ${String(leccionMedio.minutos)} min`,
       ),
     ).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 1, name: leccionMedio.titulo })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 1, name: leccionMedio.titulo }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('progressbar', { name: 'Avance en el entrenamiento' })).toHaveAttribute(
+      'aria-valuenow',
+      String(posicionMedio),
+    );
   });
 
   it('backlink al entrenamiento', () => {
@@ -89,6 +95,22 @@ describe('LeccionDetail (página papel 3.5 — el lector de lección)', () => {
     renderAt(`/entrenamientos/${primerCurso.slug}/leccion/1`);
 
     expect(await screen.findByRole('heading', { level: 2, name: fragmento })).toBeInTheDocument();
+    expect(screen.getByRole('textbox', { name: 'Tu bitácora privada' })).toBeInTheDocument();
+    expect(screen.getByText('No se envía ni se comparte.')).toBeInTheDocument();
+  });
+
+  it('la apertura del curso incluye una lámina editorial accesible y las demás lecciones no la repiten', () => {
+    const primera = renderAt(`/entrenamientos/${primerCurso.slug}/leccion/1`);
+
+    const lamina = screen.getByRole('img');
+    expect(lamina).toHaveAttribute('alt');
+    expect(lamina.getAttribute('alt')).not.toHaveLength(0);
+    expect(lamina).toHaveAttribute('loading', 'lazy');
+    primera.unmount();
+
+    expect(posicionMedio).toBeGreaterThan(1);
+    renderAt(`/entrenamientos/${cursoMedio.slug}/leccion/${String(posicionMedio)}`);
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
   /**
@@ -146,7 +168,9 @@ describe('LeccionDetail (página papel 3.5 — el lector de lección)', () => {
     expect(ubicacion).not.toBeNull();
     if (!ubicacion?.anterior || !ubicacion.siguiente) return;
 
-    const { container } = renderAt(`/entrenamientos/${cursoMedio.slug}/leccion/${String(posicionMedio)}`);
+    const { container } = renderAt(
+      `/entrenamientos/${cursoMedio.slug}/leccion/${String(posicionMedio)}`,
+    );
     const nav = container.querySelector('nav');
     expect(nav).not.toBeNull();
     if (!nav) return;
@@ -196,7 +220,9 @@ describe('LeccionDetail (página papel 3.5 — el lector de lección)', () => {
   });
 
   it('edición impresa: article con edicion-impresa, folio con clases print, backlink/cadena con print:hidden, H1 con guarda de impresión', async () => {
-    const { container } = renderAt(`/entrenamientos/${cursoMedio.slug}/leccion/${String(posicionMedio)}`);
+    const { container } = renderAt(
+      `/entrenamientos/${cursoMedio.slug}/leccion/${String(posicionMedio)}`,
+    );
     await esperarCargaCompleta();
 
     const article = container.querySelector('article');
@@ -238,7 +264,9 @@ describe('LeccionDetail (página papel 3.5 — el lector de lección)', () => {
   });
 
   it('honestidad: sin firma de autor, sin CTA al mapa, sin % en el chrome de la página', async () => {
-    const { container } = renderAt(`/entrenamientos/${cursoMedio.slug}/leccion/${String(posicionMedio)}`);
+    const { container } = renderAt(
+      `/entrenamientos/${cursoMedio.slug}/leccion/${String(posicionMedio)}`,
+    );
     await esperarCargaCompleta();
 
     expect(screen.queryByText('— El hombre gris')).not.toBeInTheDocument();

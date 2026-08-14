@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
 
-import { GRUPOS, duracionLarga, numeroDeFila, rotuloNivel, type Grupo } from '../entrenamientos-data';
+import {
+  GRUPOS,
+  duracionLarga,
+  numeroDeFila,
+  rotuloNivel,
+  type Grupo,
+} from '../entrenamientos-data';
 
 import type { CursoEntry } from '~/lib/courses-registry';
 
@@ -10,7 +16,8 @@ import { FilaIndiceExpandible } from '~/components/papel/primitives';
 /**
  * § 2 de la spec — los {N} entrenamientos, agrupados por `category` real.
  * Gemelo de `IndiceEnsayos` (3.1): apertura única en toda la página, misma
- * receta de fila y de bloque de grupo. Sin filtros, sin chips, sin búsqueda.
+ * receta de fila y de bloque de grupo. El pliegue muestra portada, promesa
+ * de entrega y duración sin convertir el índice en una grilla de marketing.
  */
 export function IndiceEntrenamientos() {
   const [abierto, setAbierto] = useState<string | null>(null);
@@ -37,16 +44,33 @@ export function IndiceEntrenamientos() {
         </span>
       }
     >
-      <p className="text-tinta-90 mb-3 max-w-[640px] text-pretty text-base leading-[1.6]">
-        «{curso.excerpt}»
-      </p>
-      <Link
-        href={`/entrenamientos/${curso.slug}`}
-        className="font-space text-violeta text-xs font-bold uppercase tracking-[0.1em]"
-      >
-        Abrir el entrenamiento · {curso.lecciones.length} lecciones · {duracionLarga(curso.duration)}{' '}
-        →
-      </Link>
+      <div className="grid gap-5 sm:grid-cols-[180px_1fr] sm:items-start">
+        {curso.coverImage ? (
+          <img
+            src={curso.coverImage}
+            alt=""
+            loading="lazy"
+            className="border-tinta aspect-[16/9] w-full border object-cover"
+          />
+        ) : null}
+        <div>
+          <p className="text-tinta-90 mb-3 max-w-[640px] text-pretty text-base leading-[1.6]">
+            «{curso.excerpt}»
+          </p>
+          {curso.productoFinal ? (
+            <p className="text-tinta-75 mb-4 text-sm leading-relaxed">
+              <strong className="text-tinta">Te llevás:</strong> {curso.productoFinal}
+            </p>
+          ) : null}
+          <Link
+            href={`/entrenamientos/${curso.slug}`}
+            className="font-space text-violeta text-xs font-bold uppercase tracking-[0.1em]"
+          >
+            Abrir el entrenamiento · {curso.lecciones.length} lecciones ·{' '}
+            {duracionLarga(curso.duration)} →
+          </Link>
+        </div>
+      </div>
     </FilaIndiceExpandible>
   );
 

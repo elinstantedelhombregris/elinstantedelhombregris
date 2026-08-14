@@ -37,13 +37,16 @@
     "entrenamientos:borrar-cola": "tsx scripts/content/entrenamientos-borrar-cola.ts",
     "entrenamientos:minutaje": "tsx scripts/content/entrenamientos-minutaje.ts",
     "entrenamientos:poda": "tsx scripts/content/entrenamientos-poda.ts",
+    "entrenamientos:limpiar-fuente": "tsx scripts/content/entrenamientos-limpiar-fuente.ts",
+    "entrenamientos:enriquecer-cursos": "tsx scripts/content/entrenamientos-enriquecer-cursos.ts",
+    "entrenamientos:check": "tsx scripts/content/entrenamientos-check.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
     "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",
     "simulacion:calibrar": "tsx scripts/simulacion/calibrar.ts",
     "simulacion:elenco": "tsx scripts/simulacion/elenco-ollama.ts",
     "deps:check": "tsx scripts/build/deps-check.ts",
     "size": "size-limit",
-    "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build"
+    "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm entrenamientos:check && pnpm build"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",

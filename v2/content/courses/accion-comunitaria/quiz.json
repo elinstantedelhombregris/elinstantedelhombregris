@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Acción Comunitaria",
   "description": "Evaluá tu comprensión del viaje completo: de la etimología de agere a la acción distribuida del Hombre Gris.",
-  "passingScore": 70,
-  "timeLimit": 20,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 72,
   "questions": [
     {
       "question": "¿De qué verbo latino proviene la palabra \"acción\"?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "Acción viene de actio, que a su vez viene de agere: hacer, mover, conducir. De la misma raíz nacen agente, agenda, agitar y protagonista.",
       "points": 2,
-      "orderIndex": 1,
-      "legacyQuestionId": 695
+      "orderIndex": 1
     },
     {
       "question": "¿Cuál es la diferencia clave entre reaccionar y actuar según el curso?",
@@ -34,8 +29,7 @@
       "correctAnswer": 2,
       "explanation": "Reaccionar es ser movido por las circunstancias (respuesta automática). Actuar es mover las circunstancias desde una decisión interna con dirección elegida.",
       "points": 2,
-      "orderIndex": 2,
-      "legacyQuestionId": 696
+      "orderIndex": 2
     },
     {
       "question": "El \"activismo de sofá\" genera cambios reales equivalentes a la acción comunitaria.",
@@ -44,8 +38,7 @@
       "correctAnswer": false,
       "explanation": "El activismo digital genera la ilusión de acción (dopamina, validación) pero no cambia nada en el mundo real. La indignación online no es acción — es reacción.",
       "points": 1,
-      "orderIndex": 3,
-      "legacyQuestionId": 697
+      "orderIndex": 3
     },
     {
       "question": "¿Qué propone la \"regla de los 3 metros\"?",
@@ -59,8 +52,7 @@
       "correctAnswer": 1,
       "explanation": "La regla de los 3 metros dice: mirá lo que está inmediatamente a tu alrededor y mejoralo. Si 45 millones de personas mejoran sus 3 metros, el país entero se transforma.",
       "points": 2,
-      "orderIndex": 4,
-      "legacyQuestionId": 698
+      "orderIndex": 4
     },
     {
       "question": "¿Qué enfoque propone preguntar \"¿qué ya tenemos?\" en vez de \"¿qué nos falta?\"?",
@@ -74,8 +66,7 @@
       "correctAnswer": 2,
       "explanation": "El Asset-Based Community Development (ABCD) de McKnight y Kretzmann propone mapear los activos existentes (personas, organizaciones, espacios, redes, historias) antes de buscar ayuda externa.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 699
+      "orderIndex": 5
     },
     {
       "question": "El mapeo comunitario más efectivo se hace con encuestas digitales anónimas.",
@@ -84,8 +75,7 @@
       "correctAnswer": false,
       "explanation": "La mejor herramienta de mapeo es la conversación cara a cara: golpear puertas, tomar mate, preguntar \"¿en qué sos bueno?\" y \"¿qué te gustaría mejorar?\". Eso revela más que cualquier encuesta.",
       "points": 1,
-      "orderIndex": 6,
-      "legacyQuestionId": 700
+      "orderIndex": 6
     },
     {
       "question": "¿Cuál es la principal causa de muerte de proyectos comunitarios según el curso?",
@@ -99,8 +89,7 @@
       "correctAnswer": 2,
       "explanation": "Los proyectos no mueren por falta de recursos sino por falta de diseño: objetivos vagos, dependencia de una sola persona, no medir avances, no celebrar logros pequeños, y no pedir ayuda a tiempo.",
       "points": 2,
-      "orderIndex": 7,
-      "legacyQuestionId": 701
+      "orderIndex": 7
     },
     {
       "question": "¿Cuáles son las 3 preguntas para evaluar cualquier proyecto comunitario?",
@@ -114,8 +103,7 @@
       "correctAnswer": 1,
       "explanation": "Las 3 preguntas mágicas son: ¿Qué intentamos hacer? ¿Qué pasó realmente? ¿Qué aprendimos y qué hacemos diferente? Transforman fracasos en aprendizajes y proyectos en organismos que evolucionan.",
       "points": 2,
-      "orderIndex": 8,
-      "legacyQuestionId": 702
+      "orderIndex": 8
     },
     {
       "question": "La gente se suma a proyectos cuando entiende la propuesta técnica.",
@@ -124,8 +112,7 @@
       "correctAnswer": false,
       "explanation": "La gente no se suma a proyectos — se suma a personas. La confianza, construida con coherencia entre lo que se dice y lo que se hace, es la moneda de la acción comunitaria.",
       "points": 2,
-      "orderIndex": 9,
-      "legacyQuestionId": 703
+      "orderIndex": 9
     },
     {
       "question": "¿Cuál es la diferencia entre convocar y manipular?",
@@ -139,8 +126,7 @@
       "correctAnswer": 1,
       "explanation": "Convocar es una invitación abierta y honesta donde la persona es libre de aceptar o no. Manipular usa culpa, urgencia artificial o promesas incumplibles. La manipulación destruye la confianza.",
       "points": 2,
-      "orderIndex": 10,
-      "legacyQuestionId": 704
+      "orderIndex": 10
     },
     {
       "question": "En la metáfora del refinamiento de plata, ¿qué representa la Acción?",
@@ -154,8 +140,7 @@
       "correctAnswer": 2,
       "explanation": "La Visión es ver la plata dentro del mineral. La Acción es encender el fuego. Sin fuego no hay refinamiento. Sin acción, la plata queda gris para siempre.",
       "points": 2,
-      "orderIndex": 11,
-      "legacyQuestionId": 705
+      "orderIndex": 11
     },
     {
       "question": "¿Cómo describe el curso la transformación del Hombre Gris a nivel nacional?",
@@ -169,8 +154,7 @@
       "correctAnswer": 2,
       "explanation": "El Hombre Gris no es un líder central. Es una red distribuida: cada persona y comunidad actúa en su territorio, conectada por visión compartida. Cuando la acción se vuelve contagiosa, la transformación es imparable.",
       "points": 2,
-      "orderIndex": 12,
-      "legacyQuestionId": 706
+      "orderIndex": 12
     }
   ]
 }

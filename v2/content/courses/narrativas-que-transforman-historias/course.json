@@ -1,215 +1,120 @@
 {
-  "seoTitle": "Narrativas que Transforman: Contar Historias que Mueven | Comunicación | El Instante del Hombre Gris",
-  "seoDescription": "Cuenta historias que muevan a la acción y transformen realidades.",
-  "searchSummary": "Cuenta historias que muevan a la acción y transformen realidades.",
-  "ogImageUrl": "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800",
-  "lastReviewedAt": "2026-04-22",
-  "indexable": true,
-  "schemaVersion": 1,
   "slug": "narrativas-que-transforman-historias",
   "title": "Narrativas que Transforman: Contar Historias que Mueven",
-  "description": "Aprende a contar historias que inspiren acción. Storytelling para el cambio social, escritura de impacto y creación de contenido audiovisual.",
+  "description": "Aprendé a contar historias que inspiren acción. Storytelling para el cambio social, escritura de impacto y creación de contenido audiovisual.",
   "excerpt": "Cuenta historias que muevan a la acción y transformen realidades.",
   "category": "comunicacion",
   "level": "advanced",
   "duration": 29,
-  "thumbnailUrl": "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800",
-  "videoUrl": null,
   "orderIndex": 28,
   "isPublished": true,
   "isFeatured": false,
   "requiresAuth": false,
-  "authorId": 1,
-  "legacyCourseId": 21,
   "quizFile": "quiz.json",
-  "rekeys": [],
   "lessons": [
     {
-      "seoTitle": "El Poder de las Historias: Por Qué los Datos No Alcanzan | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Por qué las historias transforman más que los argumentos racionales.",
-      "searchSummary": "Por qué las historias transforman más que los argumentos racionales.",
-      "indexable": true,
       "key": "02-el-poder-de-las-historias-por-que-los-datos-no-alcanzan",
       "title": "El Poder de las Historias: Por Qué los Datos No Alcanzan",
       "description": "Por qué las historias transforman más que los argumentos racionales.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 1,
-      "isRequired": true,
-      "contentFile": "lessons/02-02-el-poder-de-las-historias-por-que-los-datos-no-alcanzan.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 750
+      "orderIndex": 1
     },
     {
-      "seoTitle": "Storytelling para el Cambio Social: Los Principios | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
-      "searchSummary": "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
-      "indexable": true,
       "key": "03-storytelling-para-el-cambio-social-los-principios",
       "title": "Storytelling para el Cambio Social: Los Principios",
       "description": "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 2,
-      "isRequired": true,
-      "contentFile": "lessons/03-03-storytelling-para-el-cambio-social-los-principios.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 751
+      "orderIndex": 2
     },
     {
-      "seoTitle": "Tu Historia Personal como Herramienta de Cambio | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Descubrir y contar tu propia historia para conectar e inspirar.",
-      "searchSummary": "Descubrir y contar tu propia historia para conectar e inspirar.",
-      "indexable": true,
       "key": "04-tu-historia-personal-como-herramienta-de-cambio",
       "title": "Tu Historia Personal como Herramienta de Cambio",
       "description": "Descubrir y contar tu propia historia para conectar e inspirar.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 3,
-      "isRequired": true,
-      "contentFile": "lessons/04-04-tu-historia-personal-como-herramienta-de-cambio.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 752
+      "orderIndex": 3
     },
     {
-      "seoTitle": "Historias de Comunidad: Narrar lo Colectivo | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Contar historias que reflejen la fuerza de lo comunitario.",
-      "searchSummary": "Contar historias que reflejen la fuerza de lo comunitario.",
-      "indexable": true,
       "key": "05-historias-de-comunidad-narrar-lo-colectivo",
       "title": "Historias de Comunidad: Narrar lo Colectivo",
       "description": "Contar historias que reflejen la fuerza de lo comunitario.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 4,
-      "isRequired": true,
-      "contentFile": "lessons/05-05-historias-de-comunidad-narrar-lo-colectivo.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 753
+      "orderIndex": 4
     },
     {
-      "seoTitle": "Escritura de Impacto: Del Texto al Corazón | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Técnicas de escritura para comunicar con claridad, emoción y poder.",
-      "searchSummary": "Técnicas de escritura para comunicar con claridad, emoción y poder.",
-      "indexable": true,
       "key": "06-escritura-de-impacto-del-texto-al-corazon",
       "title": "Escritura de Impacto: Del Texto al Corazón",
       "description": "Técnicas de escritura para comunicar con claridad, emoción y poder.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 5,
-      "isRequired": true,
-      "contentFile": "lessons/06-06-escritura-de-impacto-del-texto-al-corazon.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 754
+      "orderIndex": 5
     },
     {
-      "seoTitle": "Video y Audio: Narrativas Audiovisuales Accesibles | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Crear contenido audiovisual de impacto con herramientas al alcance de todos.",
-      "searchSummary": "Crear contenido audiovisual de impacto con herramientas al alcance de todos.",
-      "indexable": true,
       "key": "07-video-y-audio-narrativas-audiovisuales-accesibles",
       "title": "Video y Audio: Narrativas Audiovisuales Accesibles",
       "description": "Crear contenido audiovisual de impacto con herramientas al alcance de todos.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 6,
-      "isRequired": true,
-      "contentFile": "lessons/07-07-video-y-audio-narrativas-audiovisuales-accesibles.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 755
+      "orderIndex": 6
     },
     {
-      "seoTitle": "Redes Sociales: Micro-Narrativas que Conectan | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Adaptar el storytelling a los formatos y lógicas de las redes sociales.",
-      "searchSummary": "Adaptar el storytelling a los formatos y lógicas de las redes sociales.",
-      "indexable": true,
       "key": "08-redes-sociales-micro-narrativas-que-conectan",
       "title": "Redes Sociales: Micro-Narrativas que Conectan",
       "description": "Adaptar el storytelling a los formatos y lógicas de las redes sociales.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 7,
-      "isRequired": true,
-      "contentFile": "lessons/08-08-redes-sociales-micro-narrativas-que-conectan.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 756
+      "orderIndex": 7
     },
     {
-      "seoTitle": "Campañas Narrativas: De la Historia a la Acción Colectiva | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Diseñar campañas de comunicación que usen el storytelling para generar cambio.",
-      "searchSummary": "Diseñar campañas de comunicación que usen el storytelling para generar cambio.",
-      "indexable": true,
       "key": "09-campanas-narrativas-de-la-historia-a-la-accion-colectiva",
       "title": "Campañas Narrativas: De la Historia a la Acción Colectiva",
       "description": "Diseñar campañas de comunicación que usen el storytelling para generar cambio.",
-      "type": "text",
       "duration": 4,
-      "orderIndex": 8,
-      "isRequired": true,
-      "contentFile": "lessons/09-09-campanas-narrativas-de-la-historia-a-la-accion-colectiva.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 757
+      "orderIndex": 8
     },
     {
-      "seoTitle": "Ética Narrativa: El Poder y la Responsabilidad | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Los límites éticos del storytelling para el cambio social.",
-      "searchSummary": "Los límites éticos del storytelling para el cambio social.",
-      "indexable": true,
       "key": "10-etica-narrativa-el-poder-y-la-responsabilidad",
       "title": "Ética Narrativa: El Poder y la Responsabilidad",
       "description": "Los límites éticos del storytelling para el cambio social.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 9,
-      "isRequired": true,
-      "contentFile": "lessons/10-10-etica-narrativa-el-poder-y-la-responsabilidad.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 758
+      "orderIndex": 9
     },
     {
-      "seoTitle": "Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
-      "searchSummary": "Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
-      "indexable": true,
       "key": "11-tu-proyecto-narrativo-crear-tu-primera-historia-de-impacto",
       "title": "Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto",
       "description": "Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
-      "type": "text",
       "duration": 2,
-      "orderIndex": 10,
-      "isRequired": true,
-      "contentFile": "lessons/11-11-tu-proyecto-narrativo-crear-tu-primera-historia-de-impacto.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 759
+      "orderIndex": 10
     },
     {
-      "seoTitle": "Escribir Bajo Presión: Crónica Urgente | Narrativas que Transforman: Contar Historias que Mueven",
-      "seoDescription": "El perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas.",
-      "searchSummary": "El perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas.",
-      "indexable": true,
       "key": "12-escribir-bajo-presion-cronica-urgente",
       "title": "Escribir Bajo Presión: Crónica Urgente",
       "description": "El perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas.",
-      "type": "text",
       "duration": 5,
-      "orderIndex": 11,
-      "isRequired": true,
-      "contentFile": "lessons/12-12-escribir-bajo-presion-cronica-urgente.md",
-      "videoUrl": null,
-      "documentUrl": null,
-      "legacyLessonId": 760
+      "orderIndex": 11
+    }
+  ],
+  "promesa": [
+    "Encontrar una tensión narrativa sin fabricar héroes, villanos ni resultados.",
+    "Elegir escena, voz, soporte y llamado a la acción según la audiencia.",
+    "Editar una historia con consentimiento, precisión y prueba de lectura."
+  ],
+  "noCubre": [
+    "No autoriza apropiarse del dolor ajeno ni publicar testimonios sin consentimiento.",
+    "No promete viralidad ni reemplaza estrategia, investigación o verificación."
+  ],
+  "paraQuien": "Para organizaciones, creadores y ciudadanos que necesitan mover atención sin manipular.",
+  "productoFinal": "Una historia de impacto lista para publicar, con guion, piezas derivadas y checklist ético.",
+  "prerrequisitos": [
+    "Un caso real, una audiencia definida y permiso para narrarlo."
+  ],
+  "coverImage": "/course-art/comunicacion.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.unesco.org/mil4teachers/en/introduction",
+      "titulo": "UNESCO · currículo de alfabetización mediática e informacional",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949/texto",
+      "titulo": "Ley 27.275 · Derecho de Acceso a la Información Pública",
+      "consultada": "2026-08-13"
     }
   ]
 }

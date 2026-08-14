@@ -1,11 +1,7 @@
 {
   "title": "Quiz: Diseño Idealizado de Sistemas Vivos",
   "description": "Evalúa tu comprensión de los principios de diseño idealizado y pensamiento sistémico.",
-  "passingScore": 75,
-  "timeLimit": 30,
   "allowRetakes": true,
-  "maxAttempts": 3,
-  "legacyQuizId": 5,
   "questions": [
     {
       "question": "¿Qué revela el flujo energético de un sistema?",
@@ -19,8 +15,7 @@
       "correctAnswer": 1,
       "explanation": "El flujo energético revela la salud y eficiencia del sistema. Un sistema saludable tiene energía que fluye libremente, mientras que uno enfermo la bloquea o fuga.",
       "points": 3,
-      "orderIndex": 1,
-      "legacyQuestionId": 41
+      "orderIndex": 1
     },
     {
       "question": "La entropía es siempre negativa y debe evitarse completamente.",
@@ -29,8 +24,7 @@
       "correctAnswer": false,
       "explanation": "La entropía es una señal de oportunidad de rediseño. Los sistemas ideales la usan como información para renovarse.",
       "points": 2,
-      "orderIndex": 2,
-      "legacyQuestionId": 42
+      "orderIndex": 2
     },
     {
       "question": "¿Cuál es el primer paso en el diseño idealizado?",
@@ -44,8 +38,7 @@
       "correctAnswer": 1,
       "explanation": "Primero se imagina el futuro ideal sin restricciones; luego se ajusta al contexto real.",
       "points": 3,
-      "orderIndex": 3,
-      "legacyQuestionId": 43
+      "orderIndex": 3
     },
     {
       "question": "La pregunta \"¿qué tendría que ser verdad?\" se utiliza para construir escenarios puente.",
@@ -54,8 +47,7 @@
       "correctAnswer": true,
       "explanation": "Este tipo de preguntas ayuda a identificar supuestos críticos y diseñar rutas desde el presente hacia el ideal.",
       "points": 1,
-      "orderIndex": 4,
-      "legacyQuestionId": 44
+      "orderIndex": 4
     },
     {
       "question": "Selecciona la definición correcta de blueprint vivo.",
@@ -69,8 +61,7 @@
       "correctAnswer": 1,
       "explanation": "El blueprint vivo es un mapa dinámico que se ajusta con feedback y datos en tiempo real.",
       "points": 2,
-      "orderIndex": 5,
-      "legacyQuestionId": 45
+      "orderIndex": 5
     },
     {
       "question": "¿Qué rol cumple el pulso energético semanal?",
@@ -84,8 +75,7 @@
       "correctAnswer": 1,
       "explanation": "El pulso energético permite monitorear dónde entra, se transforma y sale la energía para ajustar rápidamente.",
       "points": 2,
-      "orderIndex": 6,
-      "legacyQuestionId": 46
+      "orderIndex": 6
     },
     {
       "question": "Los principios de eliminación, simplificación, automatización y delegación se aplican en cascada.",
@@ -94,8 +84,7 @@
       "correctAnswer": true,
       "explanation": "Primero se elimina lo innecesario, luego se simplifica, después se automatiza y por último se delega.",
       "points": 1,
-      "orderIndex": 7,
-      "legacyQuestionId": 47
+      "orderIndex": 7
     },
     {
       "question": "¿Qué indicador muestra que un sistema ideal se está sosteniendo?",
@@ -109,8 +98,7 @@
       "correctAnswer": 1,
       "explanation": "Los sistemas ideales se mantienen porque aprenden y se corrigen solos, no por control centralizado.",
       "points": 3,
-      "orderIndex": 8,
-      "legacyQuestionId": 48
+      "orderIndex": 8
     },
     {
       "question": "El diseño idealizado se limita al plano conceptual y no llega a prototipos.",
@@ -119,8 +107,7 @@
       "correctAnswer": false,
       "explanation": "El curso propone sueños concretos que se aterrizan en prototipos, pilotos y hojas de ruta.",
       "points": 1,
-      "orderIndex": 9,
-      "legacyQuestionId": 49
+      "orderIndex": 9
     },
     {
       "question": "¿Qué práctica diaria recomienda el curso para sostener el estado de diseño ideal?",
@@ -134,8 +121,7 @@
       "correctAnswer": 1,
       "explanation": "El diseño idealizado se sostiene con micro-reflexiones y ajustes diarios que mantienen vivo el ideal.",
       "points": 2,
-      "orderIndex": 10,
-      "legacyQuestionId": 50
+      "orderIndex": 10
     }
   ]
 }
