@@ -105,14 +105,21 @@ export class AdhesionesRepository {
       .select({
         idPublico: senales.idPublico,
         total: sql<number>`count(${adhesiones.actorId})::int`,
-        mia: sql<boolean>`bool_or(${adhesiones.actorId} = ${actorId ?? -1})`,
+        /**
+         * `boolean | null` y no `boolean`: sobre un grupo sin adhesiones
+         * —el `leftJoin` no encontró ninguna— `bool_or` devuelve NULL. Anotarlo
+         * como `boolean` a secas le miente al compilador y al linter, que
+         * después marca el `??` de abajo como redundante cuando es el que
+         * evita que un `null` viaje a la pantalla como si fuera una respuesta.
+         */
+        mia: sql<boolean | null>`bool_or(${adhesiones.actorId} = ${actorId ?? -1})`,
       })
       .from(senales)
       .leftJoin(adhesiones, eq(adhesiones.senalId, senales.id))
       .where(inArray(senales.idPublico, [...idsPublicos]))
       .groupBy(senales.idPublico);
 
-    return new Map(filas.map((f) => [f.idPublico, { total: f.total, mia: f.mia === true }]));
+    return new Map(filas.map((f) => [f.idPublico, { total: f.total, mia: f.mia ?? false }]));
   }
 
   /**
