@@ -47,6 +47,14 @@ const ANON_ALLOWED: { method: string; path: string }[] = [
    * lado.
    */
   { method: 'POST', path: '/api/v1/civic/senales' },
+  /**
+   * Retirar una adhesión. Va exento por lo mismo que el POST de al lado —no hay
+   * sesión contra la que hacer el doble envío de cookie— y la protección real
+   * es otra: la cookie de actor es `sameSite: lax`, así que un sitio ajeno no
+   * la puede hacer viajar en un DELETE. Sin esta entrada, sacar un «yo también»
+   * daba 403 mientras ponerlo funcionaba.
+   */
+  { method: 'DELETE', path: '/api/v1/civic/senales' },
   { method: 'POST', path: '/api/semillas' },
   /**
    * Ingesta de campo del móvil (spec 4 §4). No hay cookie de sesión ni origen

@@ -9,7 +9,7 @@
  * credencial. Si el cliente pudiera declararlo, un script se diría `campo` y
  * lavaría spam de web como si fuera terreno recorrido.
  */
-import { SenalesRepository, getDb } from '@v2/db';
+import { AdhesionesRepository, SenalesRepository, getDb } from '@v2/db';
 import { senalSchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 
@@ -17,7 +17,7 @@ import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
 import { olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
 import { ingerirSenal } from './service.js';
-import { consultaDeSenalesSchema } from './validation.js';
+import { consultaDeSenalesSchema, respuestaSchema } from './validation.js';
 
 const router: RouterType = Router();
 
@@ -104,6 +104,103 @@ router.post('/actor/olvidar', async (req, res, next) => {
   try {
     const borrado = await olvidarActor(req, res);
     res.json({ data: { olvidado: borrado } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/* ── La adhesión ──────────────────────────────────────────────────────────── */
+
+/**
+ * «Yo también».
+ *
+ * Necesita actor —hay que saber que dos adhesiones son de dos personas— así que
+ * acá sí se crea si no existe, igual que en la ingesta. Un 409 pidiendo que
+ * primero se registre sería empujar a alguien a un trámite por el gesto más
+ * barato del producto.
+ *
+ * **No es un voto.** El contador que devuelve no mide quién gana: mide cuánta
+ * gente dice que eso también le pasa.
+ */
+router.post('/senales/:idPublico/adhesion', anonSubmitRateLimit(), async (req, res, next) => {
+  try {
+    const actor = await resolverActor(req);
+    if (actor.actorId === null) {
+      res.status(503).json({
+        error: {
+          code: 'SIN_ACTOR',
+          message: 'No pudimos guardar el identificador de este navegador. Probá de nuevo.',
+        },
+      });
+      return;
+    }
+    const id = typeof req.params.idPublico === 'string' ? req.params.idPublico : '';
+    const r = await new AdhesionesRepository(getDb()).adherir(id, actor.actorId);
+    if (r === null) {
+      res.status(404).json({ error: { code: 'NO_ESTA', message: 'No encontramos esa señal.' } });
+      return;
+    }
+    ponerCookieDeActor(res, actor.claveNueva);
+    res.status(201).json({ data: r });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete('/senales/:idPublico/adhesion', async (req, res, next) => {
+  try {
+    const actor = await resolverActor(req);
+    if (actor.actorId === null) {
+      res.json({ data: { total: 0, esNueva: false } });
+      return;
+    }
+    const id = typeof req.params.idPublico === 'string' ? req.params.idPublico : '';
+    const r = await new AdhesionesRepository(getDb()).retirar(id, actor.actorId);
+    if (r === null) {
+      res.status(404).json({ error: { code: 'NO_ESTA', message: 'No encontramos esa señal.' } });
+      return;
+    }
+    res.json({ data: r });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * Responder una pregunta con un hecho.
+ *
+ * Las dos clases están amarradas por CHECK: una `meta` se responde con un
+ * `hecho`, nunca con un deseo. Un sueño no afirma nada del mundo, así que no
+ * contesta nada.
+ */
+router.post('/senales/:idPublico/respuesta', anonSubmitRateLimit(), async (req, res, next) => {
+  try {
+    const cuerpo = respuestaSchema.parse(req.body);
+    const actor = await resolverActor(req);
+    // Express tipa el param como `string | string[] | undefined` cuando el
+    // handler también parsea cuerpo. Es siempre un string acá — la ruta lo
+    // declara— pero se estrecha en vez de castear.
+    const idPregunta = typeof req.params.idPublico === 'string' ? req.params.idPublico : '';
+    const r = await new AdhesionesRepository(getDb()).responder(
+      idPregunta,
+      cuerpo.senalId,
+      actor.actorId,
+    );
+    if (r === 'noExiste') {
+      res.status(404).json({ error: { code: 'NO_ESTA', message: 'Una de las dos señales no existe.' } });
+      return;
+    }
+    if (r === 'claseIncorrecta') {
+      res.status(400).json({
+        error: {
+          code: 'CLASE_INCORRECTA',
+          message: 'Una pregunta se responde con un hecho: algo que pasa en el mundo y se puede comprobar.',
+        },
+      });
+      return;
+    }
+    ponerCookieDeActor(res, actor.claveNueva);
+    res.status(201).json({ data: { yaEstaba: r === 'yaEstaba' } });
   } catch (err) {
     next(err);
   }

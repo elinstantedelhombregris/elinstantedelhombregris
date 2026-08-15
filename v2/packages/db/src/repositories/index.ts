@@ -95,3 +95,6 @@ export type {
 
 export { ActoresRepository } from './actores.js';
 export type { ActorVivo } from './actores.js';
+
+export { AdhesionesRepository } from './adhesiones.js';
+export type { ResultadoDeAdhesion } from './adhesiones.js';

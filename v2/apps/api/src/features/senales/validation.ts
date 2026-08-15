@@ -41,3 +41,9 @@ export const consultaDeSenalesSchema = z.object({
 });
 
 export type ConsultaDeSenales = z.infer<typeof consultaDeSenalesSchema>;
+
+/** El cuerpo de «esta señal responde esa pregunta». */
+export const respuestaSchema = z.object({
+  /** El id público del HECHO que contesta. La pregunta va en la ruta. */
+  senalId: z.string().uuid('El `senalId` tiene que ser el id público de una señal.'),
+});
