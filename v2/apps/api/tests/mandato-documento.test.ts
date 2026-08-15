@@ -11,18 +11,36 @@ import '../src/load-env.js';
 import supertest from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { dreams, eq, getDb, proposals, proposalVotes, pulseSignals, PulsoRepository } from '@v2/db';
+import { randomUUID } from 'node:crypto';
+
+// Antes de que `@v2/db` cachee el pool con lo que encuentre.
+const DESCARTABLE = process.env['DATABASE_URL_DESCARTABLE'];
+if (DESCARTABLE !== undefined && DESCARTABLE !== '') {
+  process.env['DATABASE_URL'] = DESCARTABLE;
+}
+
+import { eq, getDb, senales } from '@v2/db';
 
 import { createApp } from '../src/app.js';
 
 import { hasDatabaseUrl } from './helpers/index.js';
 
-const dsuite = hasDatabaseUrl ? describe : describe.skip;
+/**
+ * **Escribe filas en `senales`**, así que exige la rama descartable — el mismo
+ * patrón de D-065: un archivo que escribe no puede decidir su destino por «hay
+ * una URL», tiene que pedir la base descartable por nombre.
+ */
+const dsuite =
+  DESCARTABLE !== undefined && DESCARTABLE !== '' && hasDatabaseUrl ? describe : describe.skip;
 
 interface DocumentoBody {
   data: {
     generadoEl: string;
-    voces: { total: number; porTipo: { tipo: string | null; total: number }[] };
+    voces: {
+      total: number;
+      porTipo: { tipo: string | null; total: number }[];
+      porClase: { clase: string; total: number }[];
+    };
     recursos: { total: number; porProvincia: { provincia: string | null; total: number }[] };
     brechas: { provincia: string; piden: number; ofrecen: number }[];
     senales: {
@@ -31,7 +49,7 @@ interface DocumentoBody {
       temas: {
         tema: string;
         total: number;
-        ultima: { id: number; texto: string; provincia: string | null; fecha: string } | null;
+        ultima: { id: string; texto: string; provincia: string | null; fecha: string } | null;
       }[];
     };
     propuestas: { id: number; titulo: string; resumen: string; estado: string; votos: number; apoyo: number }[];
@@ -43,10 +61,8 @@ dsuite('GET /api/mandato/documento', () => {
   const request = supertest(app);
   const db = getDb();
   const marca = `mandato-doc-test-${String(Date.now())}`;
-  const insertedDreamIds: number[] = [];
-  const insertedSignalIds: number[] = [];
-  const insertedProposalIds: number[] = [];
   let provinceId: number;
+  const insertadas: number[] = [];
 
   beforeAll(async () => {
     // Provincia real del seed para el join de nombres.
@@ -57,45 +73,37 @@ dsuite('GET /api/mandato/documento', () => {
     if (!cordoba) throw new Error('Seed de provincias ausente en el branch de test');
     provinceId = cordoba.id;
 
-    // Voces del mapa: 2 necesidades + 1 recurso en Córdoba → brecha 'alta'.
-    const seedDreams = [
-      { body: `Falta pediatra de guardia (${marca})`, category: 'necesidad', provinceId, status: 'approved' },
-      { body: `Falta transporte nocturno (${marca})`, category: 'necesidad', provinceId, status: 'approved' },
-      { body: `Ofrezco taller de oficios (${marca})`, category: 'recurso', provinceId, status: 'approved' },
+    /**
+     * Todo se siembra en `senales`, que es de donde el documento lee desde que
+     * se tendió el puente. Antes esto sembraba `dreams`, `pulse_signals` y
+     * `proposals` — las tres tablas retiradas — y el test pasaba mientras el
+     * documento devolvía ceros para lo que la gente cargaba de verdad.
+     */
+    // `ubicacion_origen` NO puede quedarse en `'ninguna'` con provincia: el CHECK
+    // `senales_origen_provincia_chk` exige declarar de dónde salió la jerarquía.
+    // El default de la columna no sirve como valor — es el mismo principio que
+    // `procedencia` en la Simulación: un dato sin origen no se puede auditar.
+    const base = { origen: 'web' as const, provinceId, ubicacionOrigen: 'declarada' };
+    const aSembrar = [
+      { ...base, tipo: 'necesidad', clase: 'hecho', texto: `Falta pediatra de guardia (${marca})`, tema: 'salud', temaOrigen: 'declarado' },
+      { ...base, tipo: 'necesidad', clase: 'hecho', texto: `Falta transporte nocturno (${marca})` },
+      { ...base, tipo: 'recurso', clase: 'hecho', texto: `Ofrezco taller de oficios (${marca})` },
+      { ...base, tipo: 'sueño', clase: 'deseo', texto: `Que haya turnos en el día (${marca})` },
+      { ...base, tipo: 'propuesta', clase: 'deseo', titulo: `Red de turnos comunitarios (${marca})`, texto: 'Lista de espera paralela y auditable.' },
     ];
-    for (const d of seedDreams) {
-      const [row] = await db.insert(dreams).values(d).returning();
-      if (row) insertedDreamIds.push(row.id);
+
+    for (const fila of aSembrar) {
+      const [row] = await db
+        .insert(senales)
+        .values({ ...fila, idLocal: randomUUID() })
+        .returning({ id: senales.id });
+      if (row) insertadas.push(row.id);
     }
-
-    // Señal clasificada → tema del diagnóstico con cita.
-    const [signal] = await db
-      .insert(pulseSignals)
-      .values({ body: `Seis meses para un turno (${marca})`, theme: 'salud_publica', sentiment: -0.6, provinceId, source: 'mandato_form' })
-      .returning();
-    if (signal) insertedSignalIds.push(signal.id);
-
-    // Propuesta en votación → acciones.
-    const repo = new PulsoRepository(db);
-    const proposal = await repo.createProposal({
-      title: `Red de turnos comunitarios (${marca})`,
-      summary: 'Lista de espera paralela y auditable.',
-      status: 'voting',
-    });
-    insertedProposalIds.push(proposal.id);
   });
 
   afterAll(async () => {
-    // FK-safe, hijo → padre, ids explícitos (nunca deletes por rango).
-    for (const id of insertedProposalIds) {
-      await db.delete(proposalVotes).where(eq(proposalVotes.proposalId, id));
-      await db.delete(proposals).where(eq(proposals.id, id));
-    }
-    for (const id of insertedSignalIds) {
-      await db.delete(pulseSignals).where(eq(pulseSignals.id, id));
-    }
-    for (const id of insertedDreamIds) {
-      await db.delete(dreams).where(eq(dreams.id, id));
+    for (const id of insertadas) {
+      await db.delete(senales).where(eq(senales.id, id));
     }
   });
 
@@ -121,33 +129,44 @@ dsuite('GET /api/mandato/documento', () => {
     expect(brecha?.piden).toBeGreaterThanOrEqual(2);
     expect(brecha?.ofrecen).toBeGreaterThanOrEqual(1);
 
+    // La composición por clase: lo que se comprueba contra lo que se delibera.
+    // Un documento que dice «300 voces» sin esto no distingue 300 hechos de 300
+    // sueños, y son dos países distintos.
+    const hecho = data.voces.porClase.find((c) => c.clase === 'hecho');
+    const deseo = data.voces.porClase.find((c) => c.clase === 'deseo');
+    expect(hecho?.total).toBeGreaterThanOrEqual(3);
+    expect(deseo?.total).toBeGreaterThanOrEqual(2);
+    // Las CUATRO siempre, aunque estén en cero: una clase ausente se lee como
+    // «no aplica» y una en cero como «nadie dijo nada de eso».
+    expect(data.voces.porClase).toHaveLength(4);
+
     // Diagnóstico: el tema sembrado aparece con su última señal citable.
-    const tema = data.senales.temas.find((t) => t.tema === 'salud_publica');
+    const tema = data.senales.temas.find((t) => t.tema === 'salud');
     expect(tema).toBeDefined();
     expect(tema?.total).toBeGreaterThanOrEqual(1);
     expect(tema?.ultima).not.toBeNull();
     expect(data.senales.clasificadas).toBeGreaterThanOrEqual(1);
 
-    // Acciones: la propuesta sembrada, con votos/apoyo numéricos.
-    const accion = data.propuestas.find((p) => p.id === insertedProposalIds[0]);
-    expect(accion).toMatchObject({ estado: 'voting', votos: 0, apoyo: 0 });
+    // La propuesta sembrada. SIN votos ni apoyo: no hay votación, y un
+    // contador que se lea como resultado es lo que la regla 11 prohíbe.
+    const accion = data.propuestas.find((p) => p.titulo.includes(marca));
+    expect(accion).toBeDefined();
+    expect(accion).not.toHaveProperty('votos');
+    expect(accion).not.toHaveProperty('apoyo');
   });
 
-  it('excluye sin_clasificar del diagnóstico y respeta los topes (temas ≤ 8, propuestas ≤ 5)', async () => {
-    // Sembramos una señal 'sin_clasificar' explícita: sin esto, la
-    // aserción de exclusión pasaría igual aunque el filtro se rompiera
-    // (nadie en el branch tenía necesariamente ese tema puesto).
-    const [sinClasificar] = await db
-      .insert(pulseSignals)
-      .values({ body: `Señal sin tema todavía (${marca})`, theme: 'sin_clasificar', source: 'mandato_form' })
-      .returning();
-    if (sinClasificar) insertedSignalIds.push(sinClasificar.id);
-
+  it('respeta los topes: temas ≤ 8, propuestas ≤ 5', async () => {
+    /**
+     * `sin_clasificar` ya no existe como valor: era el sumidero de la tabla
+     * vieja. En `senales` el tema sale del catálogo cerrado de once o es NULL,
+     * y NULL se cuenta aparte en vez de plegarse a «otros» — por eso este test
+     * dejó de necesitar sembrar una señal con ese tema para probar que se
+     * excluye. No hay nada que excluir.
+     */
     const res = await request.get('/api/mandato/documento');
     const { data } = res.body as DocumentoBody;
-    expect(data.senales.temas.some((t) => t.tema === 'sin_clasificar')).toBe(false);
+    expect(data.senales.temas.every((t) => t.tema !== null)).toBe(true);
     expect(data.senales.temas.length).toBeLessThanOrEqual(8);
     expect(data.propuestas.length).toBeLessThanOrEqual(5);
-    expect(data.propuestas.every((p) => p.estado === 'voting')).toBe(true);
   });
 });

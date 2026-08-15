@@ -34,4 +34,5 @@ export * from './analisis.js';
 export * from './_catalogos.js';
 export * from './actores.js';
 export * from './senales.js';
+export * from './confirmaciones.js';
 export * from './adhesiones.js';

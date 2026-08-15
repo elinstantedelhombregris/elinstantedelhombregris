@@ -48,6 +48,7 @@ export default defineConfig({
     './src/schema/_catalogos.ts',
     './src/schema/actores.ts',
     './src/schema/senales.ts',
+    './src/schema/confirmaciones.ts',
     './src/schema/adhesiones.ts',
     // El esquema `simulacion` — la siembra sintética, físicamente aparte de
     // `public`. Va acá y NO en `schema/index.ts` a propósito: drizzle-kit tiene

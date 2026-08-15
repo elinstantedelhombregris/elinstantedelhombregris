@@ -33,6 +33,7 @@ import {
   claseDe,
   componerDireccion,
   encuadreDeUbicacion,
+  esVerificable,
   normalizedLocationLabel,
   prepareRecordLocation,
   techoDeTipo,
@@ -206,9 +207,39 @@ export async function ingerirSenal(
   const ahora = new Date();
   const relojes = calcularRelojes(tipo, ahora, cuerpo.comprometidoPara, cuerpo.diasDeVigencia);
 
+  /**
+   * `enviada → por_verificar`, en la MISMA sentencia del ingreso.
+   *
+   * La spec C §2.4 lo dice como una regla y no como una intención: una señal
+   * pasa a `por_verificar` cuando (a) tiene provincia resuelta del lado del
+   * servidor y (b) su evidencia terminó de procesarse, o no tiene evidencia.
+   * Como todavía no hay sistema de evidencia, (b) se cumple siempre y el caso
+   * normal es que las dos ya estén al llegar.
+   *
+   * **Sin esta línea toda señal nace y muere en `enviada`**, que es lo que
+   * pasaba: `verificables` cuenta sólo los estados publicados, así que con todo
+   * el país en `enviada` la nitidez de cada celda daba `inaplicable` y el mapa
+   * se dibujaba perfectamente nítido sin haber comprobado una sola cosa.
+   *
+   * Sin provincia se queda en `enviada` y es correcto: una señal que no cae en
+   * ningún lado no se le puede repartir a nadie para que la mire.
+   *
+   * **Y sólo avanzan los HECHOS y los ACTOS.** El catálogo `estados_senal` no
+   * siembra el par `('por_verificar','deseo')` ni `('por_verificar','meta')`, y
+   * eso no es un olvido: un deseo se delibera (regla 11) y una pregunta se
+   * responde — ninguna de las dos pasa por un segundo par de ojos. Avanzarlas
+   * igual reventaría contra la FK compuesta `(estado, clase)` con un 500 en cada
+   * sueño, cada propuesta y cada pregunta del país. `esVerificable` es el mismo
+   * predicado que decide quién entra al denominador de la nitidez, y tiene que
+   * ser el mismo: si divergen, el mapa mide una cosa y la máquina corre otra.
+   */
+  const estadoInicial =
+    esVerificable(clase) && jerarquia.provinceId !== null ? 'por_verificar' : 'enviada';
+
   const fila: NewSenal = {
     tipo,
     clase,
+    estado: estadoInicial,
     origen: contexto.origen,
     idLocal: cuerpo.idLocal,
     texto: cuerpo.texto,

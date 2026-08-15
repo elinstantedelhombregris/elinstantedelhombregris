@@ -72,6 +72,70 @@ function cuerpo(over: Record<string, unknown> = {}) {
   };
 }
 
+dsuite('Actor y estado', () => {
+  const request = supertest(createApp());
+  const creadas: string[] = [];
+
+  const soltar = async (body: Record<string, unknown>, cookie?: string) => {
+    const r = request.post(RUTA).send(body);
+    if (cookie !== undefined) void r.set('Cookie', cookie);
+    const res = await r;
+    if (res.status !== 201) {
+      throw new Error(`Esperaba 201 y vino ${String(res.status)}: ${JSON.stringify(res.body)}`);
+    }
+    creadas.push(res.body.data.idPublico);
+    return res;
+  };
+
+  afterAll(async () => {
+    if (creadas.length === 0) return;
+    const { getDb, inArray, senales } = await import('@v2/db');
+    await getDb().delete(senales).where(inArray(senales.idPublico, creadas));
+  });
+
+  it('la primera señal emite una cookie de actor y la segunda la reusa', async () => {
+    const primera = await soltar(cuerpo());
+    const set = primera.headers['set-cookie'] as unknown as string[] | undefined;
+    const galleta = (set ?? []).find((c) => c.startsWith('basta_actor='));
+
+    expect(galleta).toBeDefined();
+    // `httpOnly`: el JavaScript de la página no la puede leer. Es un
+    // identificador, no un dato que la página necesite.
+    expect(galleta).toMatch(/HttpOnly/i);
+
+    const valor = (galleta ?? '').split(';')[0] ?? '';
+    const segunda = await soltar(cuerpo(), valor);
+    // Ya tiene actor: no hace falta emitir otra.
+    const set2 = (segunda.headers['set-cookie'] as unknown as string[] | undefined) ?? [];
+    expect(set2.some((c) => c.startsWith('basta_actor='))).toBe(false);
+  });
+
+  it('un hecho con provincia queda listo para que otro lo mire', async () => {
+    const res = await soltar(cuerpo({ tipo: 'basta', provinceId: 6 }));
+    // Sin esto, toda señal nacía y moría en `enviada`, y la nitidez del país
+    // entero daba `inaplicable`.
+    expect(res.body.data.estado).toBe('por_verificar');
+  });
+
+  it('un DESEO no avanza, y ese es el punto', async () => {
+    // `estados_senal` no siembra `('por_verificar','deseo')`: un deseo se
+    // delibera, no se corrobora. Avanzarlo igual sería un 500 contra la FK
+    // compuesta en cada sueño del país.
+    const res = await soltar(cuerpo({ tipo: 'sueño', provinceId: 6 }));
+    expect(res.body.data.estado).toBe('enviada');
+  });
+
+  it('una PREGUNTA tampoco', async () => {
+    const res = await soltar(cuerpo({ tipo: 'pregunta', provinceId: 6 }));
+    expect(res.body.data.estado).toBe('enviada');
+  });
+
+  it('sin provincia se queda en enviada aunque sea un hecho', async () => {
+    const res = await soltar(cuerpo({ tipo: 'basta' }));
+    expect(res.body.data.estado).toBe('enviada');
+  });
+});
+
 dsuite('Defectos de la revisión adversaria', () => {
   const request = supertest(createApp());
   const creadas: string[] = [];
