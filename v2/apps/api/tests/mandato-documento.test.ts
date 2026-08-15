@@ -79,7 +79,11 @@ dsuite('GET /api/mandato/documento', () => {
      * `proposals` — las tres tablas retiradas — y el test pasaba mientras el
      * documento devolvía ceros para lo que la gente cargaba de verdad.
      */
-    const base = { origen: 'web' as const, provinceId };
+    // `ubicacion_origen` NO puede quedarse en `'ninguna'` con provincia: el CHECK
+    // `senales_origen_provincia_chk` exige declarar de dónde salió la jerarquía.
+    // El default de la columna no sirve como valor — es el mismo principio que
+    // `procedencia` en la Simulación: un dato sin origen no se puede auditar.
+    const base = { origen: 'web' as const, provinceId, ubicacionOrigen: 'declarada' };
     const aSembrar = [
       { ...base, tipo: 'necesidad', clase: 'hecho', texto: `Falta pediatra de guardia (${marca})`, tema: 'salud', temaOrigen: 'declarado' },
       { ...base, tipo: 'necesidad', clase: 'hecho', texto: `Falta transporte nocturno (${marca})` },

@@ -141,6 +141,13 @@
       "when": 1786670675697,
       "tag": "0022_senales",
       "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1786806777364,
+      "tag": "0023_corroboracion",
+      "breakpoints": true
     }
   ]
 }

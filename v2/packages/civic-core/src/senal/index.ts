@@ -2,3 +2,4 @@
 export * from './vocabulario.js';
 export * from './relojes.js';
 export * from './ubicacion.js';
+export * from './corroboracion.js';

@@ -101,3 +101,6 @@ export type { ResultadoDeAdhesion } from './adhesiones.js';
 
 export { LuzRepository, TOPE_VERIFICABLES_POR_ACTOR } from './senales.js';
 export type { ConteoDeProvincia } from './senales.js';
+
+export { ConfirmacionesRepository } from './confirmaciones.js';
+export type { Confirmada, EntradaDeConfirmacion, MotivoDeRechazo } from './confirmaciones.js';

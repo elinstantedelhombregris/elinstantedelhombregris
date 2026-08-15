@@ -11,6 +11,8 @@
  */
 import {
   brilloDeCelda,
+  metodoCuenta,
+  UMBRAL_CORROBORACION,
   focoDeNitidez,
   intensidadDeBrillo,
   nitidezDeCelda,
@@ -18,6 +20,7 @@ import {
 } from '@v2/civic-core';
 import {
   AdhesionesRepository,
+  ConfirmacionesRepository,
   GeographicRepository,
   LuzRepository,
   SenalesRepository,
@@ -29,8 +32,9 @@ import { Router, type Router as RouterType } from 'express';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
 import { olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
+import { barrerRelojes } from './relojes.js';
 import { ingerirSenal } from './service.js';
-import { consultaDeSenalesSchema, respuestaSchema } from './validation.js';
+import { confirmacionSchema, consultaDeSenalesSchema, respuestaSchema } from './validation.js';
 
 const router: RouterType = Router();
 
@@ -285,6 +289,112 @@ router.get('/map/luz', async (_req, res, next) => {
     });
 
     res.json({ data: { territorios } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/* ── La corroboración ─────────────────────────────────────────────────────── */
+
+const PORQUE: Record<string, { estado: number; mensaje: string }> = {
+  noExiste: { estado: 404, mensaje: 'No encontramos esa señal.' },
+  noSeVerifica: {
+    estado: 409,
+    mensaje: 'Esta señal no está pidiendo un segundo par de ojos ahora mismo.',
+  },
+  esTuya: {
+    estado: 409,
+    mensaje: 'No podés confirmar tu propia señal. Corroborar es que la mire otra persona.',
+  },
+  yaConfirmaste: { estado: 409, mensaje: 'Ya la miraste. Una mirada por persona.' },
+  sinActor: {
+    estado: 503,
+    mensaje: 'No pudimos guardar el identificador de este navegador, y sin eso no se puede saber que sos otra persona.',
+  },
+};
+
+/**
+ * El segundo par de ojos.
+ *
+ * **Dos confirmaciones independientes corroboran un hecho.** El umbral vive en
+ * `civic-core` con su razón al lado y se SELLA en cada fila: subirlo a tres
+ * mañana no reescribe lo que ya se juzgó con dos.
+ *
+ * Qué NO compra este endpoint, dicho para no inflar la garantía: la proximidad
+ * la declara quien confirma y el servidor no la puede atestar. Falsificar
+ * cuesta aparatos, no desplazamiento. Sybil no se impide — se encarece y se
+ * declara.
+ */
+router.post('/senales/:idPublico/confirmacion', anonSubmitRateLimit(), async (req, res, next) => {
+  try {
+    const cuerpo = confirmacionSchema.parse(req.body);
+    const actor = await resolverActor(req);
+    const id = typeof req.params.idPublico === 'string' ? req.params.idPublico : '';
+
+    const senal = await new SenalesRepository(getDb()).porIdPublico(id);
+    /**
+     * `cuenta` lo decide el SERVIDOR, no el cuerpo. Y depende de si la señal
+     * tiene punto: sin punto la presencia no significa nada —no hay a dónde
+     * ir— así que cualquier método salvo `cannot_verify` cuenta. Con punto,
+     * sólo los dos que afirman haber estado.
+     */
+    const hayPunto = senal !== null && senal.lat !== null;
+    const cuenta =
+      cuerpo.veredicto === 'confirm' && metodoCuenta(cuerpo.metodo as never, hayPunto);
+
+    const r = await new ConfirmacionesRepository(getDb()).confirmar({
+      idPublico: id,
+      actorId: actor.actorId,
+      veredicto: cuerpo.veredicto,
+      metodo: cuerpo.metodo,
+      proximidad: cuerpo.proximidad,
+      cuenta,
+      umbral: UMBRAL_CORROBORACION,
+      nota: cuerpo.nota,
+    });
+
+    if (!r.ok) {
+      const porque = PORQUE[r.motivo] ?? { estado: 400, mensaje: 'No se pudo registrar.' };
+      res.status(porque.estado).json({
+        error: { code: r.motivo.toUpperCase(), message: porque.mensaje },
+      });
+      return;
+    }
+
+    ponerCookieDeActor(res, actor.claveNueva);
+    res.status(201).json({ data: r });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/** Las confirmaciones de una señal, para su ficha. **Nunca sale quién.** */
+router.get('/senales/:idPublico/confirmaciones', async (req, res, next) => {
+  try {
+    const id = typeof req.params.idPublico === 'string' ? req.params.idPublico : '';
+    const confirmaciones = await new ConfirmacionesRepository(getDb()).deSenal(id);
+    res.json({ data: { confirmaciones, umbral: UMBRAL_CORROBORACION } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * El barrido de relojes, disparable por cron.
+ *
+ * Va protegido por `CRON_SECRET` como el resto de los crons del sistema: es una
+ * ruta que ESCRIBE sobre todo el corpus, así que abierta sería un botón para
+ * envejecer el país entero.
+ */
+router.post('/relojes/barrer', async (req, res, next) => {
+  try {
+    const esperado = process.env.CRON_SECRET;
+    const dado = req.get('authorization');
+    if (esperado === undefined || esperado === '' || dado !== `Bearer ${esperado}`) {
+      res.status(401).json({ error: { code: 'NO_AUTORIZADO', message: 'Esta ruta la corre el cron.' } });
+      return;
+    }
+    res.json({ data: await barrerRelojes() });
   } catch (err) {
     next(err);
   }
