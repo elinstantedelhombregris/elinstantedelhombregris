@@ -109,7 +109,7 @@
   "paraQuien": "Para grupos que ya tienen una idea comunitaria y necesitan convertirla en un proyecto gobernable.",
   "productoFinal": "Un canvas de proyecto comunitario con alcance, cronograma, presupuesto, riesgos, aliados e indicadores.",
   "prerrequisitos": ["Una idea concreta y al menos otra persona con quien contrastarla."],
-  "coverImage": "/course-art/action.webp",
+  "coverImage": "/course-art/entrenamientos/gestion-proyectos-comunitarios.webp",
   "fuentesBase": [
     {
       "url": "https://ctb.ku.edu/en/get-started",

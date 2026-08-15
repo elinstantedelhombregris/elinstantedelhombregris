@@ -95,7 +95,7 @@
   "paraQuien": "Para vecinos, organizaciones y periodistas ciudadanos que quieren controlar actos públicos con método y cuidado.",
   "productoFinal": "Un plan de auditoría ciudadana de treinta días con expediente, cronología y matriz de evidencia.",
   "prerrequisitos": ["Elegir un tema público acotado y una jurisdicción concreta."],
-  "coverImage": "/course-art/civica.webp",
+  "coverImage": "/course-art/entrenamientos/ciudadano-auditor-control-ciudadano.webp",
   "fuentesBase": [
     {
       "url": "https://www.argentina.gob.ar/normativa/nacional/ley-24430-804/texto",

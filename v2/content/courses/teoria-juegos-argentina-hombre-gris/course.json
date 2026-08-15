@@ -95,7 +95,7 @@
   "paraQuien": "Para diseñadores institucionales y líderes comunitarios que quieren pensar cooperación bajo incentivos reales.",
   "productoFinal": "Un laboratorio de juego territorial con reglas, simulación, métricas, fallas y versión revisada.",
   "prerrequisitos": ["Comodidad con tablas simples y razonamiento por escenarios."],
-  "coverImage": "/course-art/hombre-gris.webp",
+  "coverImage": "/course-art/entrenamientos/teoria-juegos-argentina-hombre-gris.webp",
   "fuentesBase": [
     {
       "url": "https://plato.stanford.edu/entries/game-theory/",

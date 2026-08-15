@@ -109,7 +109,7 @@
   "paraQuien": "Para personas que necesitan recuperar control operativo de sus finanzas en un contexto volátil.",
   "productoFinal": "Un plan financiero personal de seis meses con tablero, fondo, deuda, protección y fechas de revisión.",
   "prerrequisitos": ["Reunir movimientos aproximados de los últimos dos meses."],
-  "coverImage": "/course-art/economia.webp",
+  "coverImage": "/course-art/entrenamientos/sobrevivir-prosperar-economia-argentina.webp",
   "fuentesBase": [
     {
       "url": "https://www.argentina.gob.ar/economia/inclusion-financiera",

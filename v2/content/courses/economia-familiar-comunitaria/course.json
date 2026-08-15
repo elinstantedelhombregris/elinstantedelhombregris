@@ -109,7 +109,7 @@
   "paraQuien": "Para hogares y redes cercanas que quieren coordinar recursos sin ocultar tensiones ni cargar todo en una persona.",
   "productoFinal": "Un tablero económico familiar-comunitario con flujos, acuerdos, riesgos y protocolo de crisis.",
   "prerrequisitos": ["Usar números aproximados reales del hogar, sin compartirlos públicamente."],
-  "coverImage": "/course-art/economia.webp",
+  "coverImage": "/course-art/entrenamientos/economia-familiar-comunitaria.webp",
   "fuentesBase": [
     {
       "url": "https://www.argentina.gob.ar/economia/inclusion-financiera",

@@ -71,6 +71,14 @@ describe('CURSOS registry — forma de cada entrada', () => {
     expect(orden).toEqual([...orden].sort((a, b) => a - b));
   });
 
+  it('cada entrenamiento tiene una portada propia derivada de su slug', () => {
+    const portadas = CURSOS.map((curso) => curso.coverImage);
+    expect(new Set(portadas).size).toBe(CANON_CURSOS);
+    for (const curso of CURSOS) {
+      expect(curso.coverImage).toBe(`/course-art/entrenamientos/${curso.slug}.webp`);
+    }
+  });
+
   it('las lecciones de cada curso vienen ordenadas por su orden y sin slugs repetidos', () => {
     for (const c of CURSOS) {
       const ordenes = c.lecciones.map((l) => l.orden);
