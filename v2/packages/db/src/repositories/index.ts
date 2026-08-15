@@ -98,3 +98,6 @@ export type { ActorVivo } from './actores.js';
 
 export { AdhesionesRepository } from './adhesiones.js';
 export type { ResultadoDeAdhesion } from './adhesiones.js';
+
+export { LuzRepository, TOPE_VERIFICABLES_POR_ACTOR } from './senales.js';
+export type { ConteoDeProvincia } from './senales.js';

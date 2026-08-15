@@ -151,3 +151,76 @@ dsuite('Adhesión y respuestas', () => {
     });
   });
 });
+
+dsuite('La luz del país', () => {
+  const request = supertest(createApp());
+  const creadas: string[] = [];
+
+  const soltar = async (body: Record<string, unknown>) => {
+    const res = await request.post(RUTA).send(body);
+    if (res.status !== 201) {
+      throw new Error(`Esperaba 201 y vino ${String(res.status)}: ${JSON.stringify(res.body)}`);
+    }
+    creadas.push(res.body.data.idPublico);
+    return res;
+  };
+
+  afterAll(async () => {
+    if (creadas.length === 0) return;
+    const { getDb, inArray, senales } = await import('@v2/db');
+    await getDb().delete(senales).where(inArray(senales.idPublico, creadas));
+  });
+
+  interface Territorio {
+    provinceId: number;
+    provincia: string | null;
+    vocesDistintas: number;
+    verificables: number;
+    confirmaciones: number;
+    brillo: { tipo: string; participacion?: number };
+    nitidez: { tipo: string; fraccion?: number };
+    intensidad: number | null;
+    foco: number;
+  }
+
+  const luzDe = async (provinceId: number): Promise<Territorio | undefined> => {
+    const res = await request.get('/api/v1/civic/map/luz');
+    expect(res.status).toBe(200);
+    return (res.body.data.territorios as Territorio[]).find((t) => t.provinceId === provinceId);
+  };
+
+  it('un hecho enciende su provincia y la deja pendiente de comprobar', async () => {
+    await soltar(cuerpo({ tipo: 'basta', provinceId: 6 }));
+    const t = await luzDe(6);
+
+    expect(t).toBeDefined();
+    expect(t?.vocesDistintas).toBeGreaterThan(0);
+    // Está publicada y sin confirmar: entra al denominador y no al numerador.
+    expect(t?.verificables).toBeGreaterThan(0);
+    expect(t?.nitidez.tipo).toBe('valor');
+    expect(t?.nitidez.fraccion).toBe(0);
+  });
+
+  it('el brillo sale de habitantes reales, no de un cero', async () => {
+    const t = await luzDe(6);
+    expect(t?.brillo.tipo).toBe('valor');
+    // Una voz entre millones es un número chiquísimo, y tiene que serlo.
+    expect(t?.brillo.participacion).toBeGreaterThan(0);
+    expect(t?.brillo.participacion).toBeLessThan(0.001);
+    expect(t?.intensidad).not.toBeNull();
+  });
+
+  it('una provincia de puros deseos se dibuja encendida y NÍTIDA', async () => {
+    await soltar(cuerpo({ tipo: 'sueño', provinceId: 22, texto: 'Que haya tren de nuevo.' }));
+    const t = await luzDe(22);
+
+    expect(t).toBeDefined();
+    expect(t?.vocesDistintas).toBeGreaterThan(0);
+    // Cero verificables no es nitidez cero: cero significa «hay hechos sin
+    // comprobar», y acá no hay ningún hecho pendiente. La ausencia de pregunta
+    // no se pinta como mala respuesta.
+    expect(t?.verificables).toBe(0);
+    expect(t?.nitidez.tipo).toBe('inaplicable');
+    expect(t?.foco).toBe(1);
+  });
+});

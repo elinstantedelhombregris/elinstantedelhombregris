@@ -309,3 +309,152 @@ function normalizar(fila: {
 }
 
 export type { Senal, NewSenal };
+
+/* -------------------------------------------------------------------------- */
+/*  La luz de un territorio                                                    */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * El conteo crudo de una provincia, con la forma exacta que pide `ConteoCelda`
+ * de `civic-core/brillo.ts`.
+ *
+ * Los cinco campos y sus definiciones salen de la spec C §2.8, y no se
+ * reinterpretan acá: este repositorio los CUENTA, y `brilloDeCelda` /
+ * `nitidezDeCelda` los convierten en los dos números. Que el cálculo viva en el
+ * núcleo y el conteo en la base es lo que impide que la web y el teléfono
+ * midan distinto.
+ */
+export interface ConteoDeProvincia {
+  readonly provinceId: number;
+  readonly vocesDistintas: number;
+  readonly senalesSinActor: number;
+  readonly verificables: number;
+  readonly confirmaciones: number;
+}
+
+/** El tope de §2.8: más de veinte hechos de un actor en un territorio no cuentan. */
+export const TOPE_VERIFICABLES_POR_ACTOR = 20;
+
+/** Los estados en que una señal está publicada y por lo tanto es verificable. */
+const ESTADOS_PUBLICADOS = ['por_verificar', 'corroborada', 'resuelta', 'desactualizada'];
+/** De esos, los que cuentan como confirmados. */
+const ESTADOS_CONFIRMADOS = ['corroborada', 'resuelta'];
+
+export class LuzRepository {
+  constructor(private readonly db: Db) {}
+
+  /**
+   * Los cuatro conteos por provincia, en una sola consulta.
+   *
+   * Tres decisiones que la spec fija y que son fáciles de escribir mal:
+   *
+   * 1. **`vocesDistintas` cuenta PERSONAS, no señales**, y suma dos conjuntos:
+   *    quien escribió algo en la provincia y quien adhirió a algo de la
+   *    provincia. La adhesión enciende la celda de la señal que apoya, no la de
+   *    quien adhiere — por eso el join va contra la provincia de la SEÑAL.
+   * 2. **`senalesSinActor` va aparte y no se pliega a cero.** «No sé quién» no
+   *    es «nadie», y plegarlo sesgaría justo contra lo que carga la app de
+   *    campo, que es donde más falta la cookie.
+   * 3. **El tope de veinte por actor** existe porque `verificables` es el
+   *    denominador de la nitidez y cargar señales no cuesta nada: cien hechos
+   *    de una sola persona apagarían la nitidez de su provincia a casi cero.
+   *    Sin el tope, el denominador es el diario de alguien.
+   */
+  async conteosPorProvincia(): Promise<ConteoDeProvincia[]> {
+    const crudo = await this.db.execute<{
+      province_id: number;
+      voces: number;
+      sin_actor: number;
+      verificables: number;
+      confirmaciones: number;
+    }>(sql`
+      with publicadas as (
+        select s.id, s.province_id, s.actor_id, s.clase, s.estado,
+               row_number() over (
+                 partition by s.province_id, s.actor_id order by s.creada_en
+               ) as orden_por_actor
+        from senales s
+        where s.retenida_en is null
+          and s.province_id is not null
+          and s.clase in ('hecho','acto')
+          and s.estado = any(${sql.raw(`array['${ESTADOS_PUBLICADOS.join("','")}']`)})
+      ),
+      topeadas as (
+        -- El tope sólo aplica a quien TIENE actor: sin actor no hay a quién topear.
+        select * from publicadas
+        where actor_id is null or orden_por_actor <= ${TOPE_VERIFICABLES_POR_ACTOR}
+      ),
+      escritoras as (
+        select province_id, actor_id from senales
+        where retenida_en is null and province_id is not null and actor_id is not null
+      ),
+      adherentes as (
+        select s.province_id, a.actor_id from adhesiones a
+        join senales s on s.id = a.senal_id
+        where s.retenida_en is null and s.province_id is not null
+      ),
+      personas as (
+        select province_id, actor_id from escritoras
+        union
+        select province_id, actor_id from adherentes
+      )
+      select
+        p.province_id,
+        coalesce((select count(*) from personas x where x.province_id = p.province_id), 0)::int as voces,
+        coalesce((select count(*) from senales y
+                  where y.province_id = p.province_id and y.retenida_en is null
+                    and y.actor_id is null), 0)::int as sin_actor,
+        count(*)::int as verificables,
+        count(*) filter (
+          where t.estado = any(${sql.raw(`array['${ESTADOS_CONFIRMADOS.join("','")}']`)})
+        )::int as confirmaciones
+      from topeadas t
+      join (select distinct province_id from topeadas) p on p.province_id = t.province_id
+      group by p.province_id
+    `);
+
+    // `neon-http` devuelve `{ rows }`, no un array pelado.
+    const filas = crudo.rows;
+    const listadas: ConteoDeProvincia[] = filas.map((f) => ({
+      provinceId: f.province_id,
+      vocesDistintas: f.voces,
+      senalesSinActor: f.sin_actor,
+      verificables: f.verificables,
+      confirmaciones: f.confirmaciones,
+    }));
+
+    /**
+     * Las provincias que sólo tienen deseos o preguntas no aparecen en
+     * `topeadas` —no hay verificables— y sin embargo **tienen brillo**: alguien
+     * habló ahí. Se completan aparte para que no desaparezcan del mapa: una
+     * provincia con cien sueños y ningún hecho tiene que dibujarse encendida y
+     * nítida, no oscura.
+     */
+    const conVerificables = new Set(listadas.map((l) => l.provinceId));
+    const crudoDeseos = await this.db.execute<{
+      province_id: number;
+      voces: number;
+      sin_actor: number;
+    }>(sql`
+      select s.province_id,
+             count(distinct s.actor_id)::int as voces,
+             count(*) filter (where s.actor_id is null)::int as sin_actor
+      from senales s
+      where s.retenida_en is null and s.province_id is not null
+      group by s.province_id
+    `);
+
+    for (const f of crudoDeseos.rows) {
+      if (conVerificables.has(f.province_id)) continue;
+      listadas.push({
+        provinceId: f.province_id,
+        vocesDistintas: f.voces,
+        senalesSinActor: f.sin_actor,
+        verificables: 0,
+        confirmaciones: 0,
+      });
+    }
+
+    return listadas;
+  }
+}

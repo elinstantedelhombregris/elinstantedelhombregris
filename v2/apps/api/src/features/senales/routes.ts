@@ -9,7 +9,20 @@
  * credencial. Si el cliente pudiera declararlo, un script se diría `campo` y
  * lavaría spam de web como si fuera terreno recorrido.
  */
-import { AdhesionesRepository, SenalesRepository, getDb } from '@v2/db';
+import {
+  brilloDeCelda,
+  focoDeNitidez,
+  intensidadDeBrillo,
+  nitidezDeCelda,
+  PROVINCIAS_REF,
+} from '@v2/civic-core';
+import {
+  AdhesionesRepository,
+  GeographicRepository,
+  LuzRepository,
+  SenalesRepository,
+  getDb,
+} from '@v2/db';
 import { senalSchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 
@@ -201,6 +214,77 @@ router.post('/senales/:idPublico/respuesta', anonSubmitRateLimit(), async (req, 
     }
     ponerCookieDeActor(res, actor.claveNueva);
     res.status(201).json({ data: { yaEstaba: r === 'yaEstaba' } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/* ── La luz del país ──────────────────────────────────────────────────────── */
+
+/**
+ * Brillo y nitidez, por provincia.
+ *
+ * Las dos fórmulas viven en `civic-core` y **están escritas y testeadas desde
+ * hace tiempo** — lo que faltaba era que la web las pudiera pedir: hasta hoy
+ * sólo las consumía la app de campo, sobre la base del propio teléfono. Sin
+ * este endpoint, el mapa de la web dibujaba puntos y ningún territorio.
+ *
+ * La unidad es la PROVINCIA y no una grilla arbitraria. Es una unidad
+ * territorial real, tiene población conocida —`PROVINCIAS_REF`, que ya
+ * existía— y es el nivel al que trabaja la regla del mandato. Una grilla fina
+ * necesita el plan de cobertura y un cron que la recalcule; eso es otra
+ * rebanada y no hace falta para que el país se encienda.
+ *
+ * El conteo lo hace la base y el CÁLCULO lo hace el núcleo. Que estén separados
+ * es lo que impide que la web y el teléfono midan distinto la misma cosa.
+ */
+router.get('/map/luz', async (_req, res, next) => {
+  try {
+    const [conteos, provincias] = await Promise.all([
+      new LuzRepository(getDb()).conteosPorProvincia(),
+      new GeographicRepository(getDb()).listProvinces(),
+    ]);
+
+    const nombrePorId = new Map(provincias.map((p) => [p.id, p.name]));
+
+    const territorios = conteos.map((c) => {
+      const nombre = nombrePorId.get(c.provinceId) ?? null;
+      const ref = nombre === null ? undefined : PROVINCIAS_REF[nombre];
+
+      /**
+       * `habitantes: null` y no `0` cuando la provincia no está en la tabla de
+       * referencia. Un cero acá haría que el brillo dividiera por cero; el null
+       * hace que `brilloDeCelda` devuelva `sinDenominador` con su razón, y
+       * quien dibuja tiene que elegir el gris de «no sé» — nunca el oscuro, que
+       * ya significa «acá no habló nadie».
+       */
+      const conteo = {
+        cellId: `provincia:${String(c.provinceId)}`,
+        vocesDistintas: c.vocesDistintas,
+        senalesSinActor: c.senalesSinActor,
+        verificables: c.verificables,
+        confirmaciones: c.confirmaciones,
+        habitantes: ref === undefined ? null : ref.pob * 1000,
+      };
+
+      const brillo = brilloDeCelda(conteo);
+      const nitidez = nitidezDeCelda(conteo);
+
+      return {
+        provinceId: c.provinceId,
+        provincia: nombre,
+        vocesDistintas: c.vocesDistintas,
+        senalesSinActor: c.senalesSinActor,
+        verificables: c.verificables,
+        confirmaciones: c.confirmaciones,
+        brillo,
+        nitidez,
+        intensidad: intensidadDeBrillo(brillo),
+        foco: focoDeNitidez(nitidez),
+      };
+    });
+
+    res.json({ data: { territorios } });
   } catch (err) {
     next(err);
   }
