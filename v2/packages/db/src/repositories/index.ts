@@ -92,3 +92,6 @@ export type {
   Senal,
   SenalPublica,
 } from './senales.js';
+
+export { ActoresRepository } from './actores.js';
+export type { ActorVivo } from './actores.js';

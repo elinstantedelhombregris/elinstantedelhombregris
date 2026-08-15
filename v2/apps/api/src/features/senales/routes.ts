@@ -15,6 +15,7 @@ import { Router, type Router as RouterType } from 'express';
 
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
+import { olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
 import { ingerirSenal } from './service.js';
 import { consultaDeSenalesSchema } from './validation.js';
 
@@ -31,7 +32,17 @@ const router: RouterType = Router();
 router.post('/senales', anonSubmitRateLimit(), async (req, res, next) => {
   try {
     const cuerpo = senalSchema.parse(req.body);
-    const recibo = await ingerirSenal(cuerpo, { origen: 'web' });
+
+    /**
+     * El actor se resuelve ACÁ y no en un endpoint aparte: un round-trip previo
+     * agrega un modo de falla —la señal llega, el actor no— que deja filas
+     * huérfanas sin que nadie lo note. Si algo sale mal, `actorId` vuelve nulo
+     * y la señal se escribe igual: nadie pierde su voz porque el navegador
+     * rechace una cookie.
+     */
+    const actor = await resolverActor(req);
+    const recibo = await ingerirSenal(cuerpo, { origen: 'web', actorId: actor.actorId });
+    ponerCookieDeActor(res, actor.claveNueva);
     res.status(201).json({ data: recibo });
   } catch (err) {
     next(err);
@@ -76,6 +87,23 @@ router.get('/senales/:idPublico', async (req, res, next) => {
       return;
     }
     res.json({ data: { senal } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * Olvidar el actor de este navegador.
+ *
+ * Borra el hash de la base y la cookie. Después de esto la persona es
+ * irrecuperable incluso para el sistema: nadie puede volver a atar esa clave a
+ * esa fila. Sus señales quedan, sin dueño — es un archivo público, no se borran
+ * porque alguien se vaya.
+ */
+router.post('/actor/olvidar', async (req, res, next) => {
+  try {
+    const borrado = await olvidarActor(req, res);
+    res.json({ data: { olvidado: borrado } });
   } catch (err) {
     next(err);
   }
