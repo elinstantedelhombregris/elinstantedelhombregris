@@ -52,6 +52,10 @@ const PAPEL_PREFIXES = [
   '/entrenamientos/',
   // La ficha de una falta: `/lo-que-falta/:idPublico`.
   '/lo-que-falta/',
+  // La ficha de una señal: `/senal/:idPublico`. Es la superficie que hace que
+  // una voz pueda circular —un link para mandarle a un vecino— y donde viven
+  // el «yo también» y el segundo par de ojos.
+  '/senal/',
 ];
 
 /**

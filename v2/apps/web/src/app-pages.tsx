@@ -81,6 +81,16 @@ export const LaRadiografia = lazy(async () => {
  * conviene que lo sea: se lleva el motor entero de `civic-core/simulacion` y el
  * worker del barrido, que nadie necesita para leer la portada.
  */
+/**
+ * La página de una señal. Es lo que hace que una voz pueda circular: un link
+ * para mandarle a un vecino, y la única superficie donde se puede adherir o
+ * poner el segundo par de ojos.
+ */
+export const Senal = lazy(async () => {
+  const m = await import('~/pages/Senal');
+  return { default: m.Senal };
+});
+
 export const LaSimulacion = lazy(async () => {
   const m = await import('~/pages/LaSimulacion');
   return { default: m.LaSimulacion };

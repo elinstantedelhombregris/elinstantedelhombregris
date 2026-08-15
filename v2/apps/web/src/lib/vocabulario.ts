@@ -174,3 +174,90 @@ export function colorDeClase(clase: string | null): string | null {
   const c = CLASES_SENAL.find((x) => x === clase.trim().toLowerCase().normalize('NFC'));
   return c === undefined ? null : CLASE_COLOR_OSCURO[c];
 }
+
+/* -------------------------------------------------------------------------- */
+/*  La corroboración, en castellano                                            */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Los cinco métodos, con la consecuencia dicha.
+ *
+ * `pesa` es lo que hace honesta a esta pantalla: dos de los cinco cuentan para
+ * el umbral cuando la señal tiene punto, y los otros dos se registran igual
+ * pero no suman. Ocultarlo haría que alguien eligiera «conozco el lugar»
+ * creyendo que corrobora, y descubriera después que su gesto no movió nada.
+ */
+export const METODOS_EN_CASTELLANO: readonly {
+  clave: string;
+  rotulo: string;
+  glosa: string;
+  /** Si suma al umbral cuando la señal tiene punto. */
+  pesa: boolean;
+}[] = [
+  {
+    clave: 'saw_now',
+    rotulo: 'Lo estoy viendo',
+    glosa: 'Estás ahí ahora, o pasaste hace un rato.',
+    pesa: true,
+  },
+  {
+    clave: 'field_visit',
+    rotulo: 'Fui a mirar',
+    glosa: 'Te acercaste especialmente a comprobarlo.',
+    pesa: true,
+  },
+  {
+    clave: 'know_place',
+    rotulo: 'Conozco el lugar',
+    glosa: 'Vivís o trabajás ahí. Se registra, pero no cuenta para el umbral.',
+    pesa: false,
+  },
+  {
+    clave: 'checked_source',
+    rotulo: 'Chequeé una fuente',
+    glosa: 'Un parte, una nota, alguien que sabe. Se registra, no cuenta.',
+    pesa: false,
+  },
+  {
+    clave: 'cannot_verify',
+    rotulo: 'No puedo comprobarlo',
+    glosa: 'Lo leíste y no tenés cómo saber. Es una respuesta válida.',
+    pesa: false,
+  },
+];
+
+/** Los seis veredictos, con su consecuencia. */
+export const VEREDICTOS_EN_CASTELLANO: readonly {
+  clave: string;
+  rotulo: string;
+  glosa: string;
+}[] = [
+  { clave: 'confirm', rotulo: 'Sí, está así', glosa: 'Lo que dice sigue siendo cierto.' },
+  { clave: 'correct', rotulo: 'Está, pero no así', glosa: 'Hay algo que corregir. Contá qué.' },
+  { clave: 'stale', rotulo: 'Ya no está', glosa: 'Se resolvió, o cambió. La señal envejeció.' },
+  { clave: 'duplicate', rotulo: 'Ya estaba dicho', glosa: 'Hay otra señal igual.' },
+  { clave: 'unsafe', rotulo: 'Esto expone a alguien', glosa: 'Se retira de la vista mientras se mira.' },
+  { clave: 'cannot_verify', rotulo: 'No puedo comprobarlo', glosa: 'No tenés cómo saber.' },
+];
+
+/** Qué tan cerca estabas. **Declarada, nunca atestada.** */
+export const PROXIMIDADES_EN_CASTELLANO: readonly { clave: string; rotulo: string }[] = [
+  { clave: 'en_el_lugar', rotulo: 'En el lugar' },
+  { clave: 'cerca', rotulo: 'Cerca' },
+  { clave: 'lejos', rotulo: 'Lejos' },
+  { clave: 'sin_declarar', rotulo: 'Prefiero no decir' },
+];
+
+/** Los estados, en palabras que se entienden sin leer una spec. */
+export const ESTADO_EN_CASTELLANO: Readonly<Record<string, string>> = {
+  enviada: 'Recibida',
+  por_verificar: 'Pide otra mirada',
+  corroborada: 'Comprobada por dos personas',
+  resuelta: 'Resuelta',
+  desactualizada: 'Ya no está así',
+  no_cumplida: 'No se cumplió',
+  retirada: 'Retirada',
+};
+
+/** Cuáles se dibujan con el color del estado ruidoso. */
+export const ESTADO_RUIDOSO = new Set(['desactualizada', 'no_cumplida', 'retirada']);

@@ -1,3 +1,4 @@
+import { ColaDeVerificacion } from './ElMapa/sections/ColaDeVerificacion';
 import { FeedVoces } from './ElMapa/sections/FeedVoces';
 import { PanelSoltarVoz } from './ElMapa/sections/PanelSoltarVoz';
 import { PortadaMapa } from './ElMapa/sections/PortadaMapa';
@@ -28,6 +29,11 @@ export function ElMapa() {
         <PanelSoltarVoz />
         <FeedVoces />
       </section>
+
+      {/* Va justo después de cargar: el momento en que alguien está más
+          dispuesto a mirar algo ajeno es apenas terminó de escribir lo
+          propio. */}
+      <ColaDeVerificacion />
 
       <SeccionInstrumento />
     </main>

@@ -168,6 +168,58 @@ dsuite('La corroboración', () => {
     expect(res.body.error.code).toBe('NOSEVERIFICA');
   });
 
+  it('la cola trae lo que pide otra mirada, y NO lo tuyo', async () => {
+    const { id, galleta } = await soltar({ texto: 'Vereda rota en la esquina del club.' });
+
+    // Con la galleta del AUTOR: su propia señal no puede estar en su cola.
+    const mia = await request.get(`${RUTA}/cola`).set('Cookie', galleta);
+    expect(mia.status).toBe(200);
+    expect((mia.body.data.senales as { idPublico: string }[]).map((s) => s.idPublico)).not.toContain(id);
+
+    // Con la galleta de OTRA persona: sí aparece.
+    const otra = await request.post(RUTA).send(cuerpo());
+    const suya = await request.get(`${RUTA}/cola`).set('Cookie', galletaDe(otra));
+    creadas.push(otra.body.data.idPublico);
+    expect((suya.body.data.senales as { idPublico: string }[]).map((s) => s.idPublico)).toContain(id);
+  });
+
+  it('`/cola` no se confunde con una señal llamada «cola»', async () => {
+    // Express matchea por orden: con la ruta paramétrica arriba, esto entraría
+    // como `idPublico = 'cola'` y devolvería 404. Es el clásico que no ve el
+    // type-check ni el lint — sólo la primera persona que abre la pantalla.
+    const res = await request.get(`${RUTA}/cola`);
+    expect(res.status).toBe(200);
+    expect(res.body.data).toHaveProperty('senales');
+  });
+
+  it('sin actor la cola va vacía CON su razón, no con tareas que van a fallar', async () => {
+    const res = await request.get(`${RUTA}/cola`);
+    expect(res.body.data.senales).toEqual([]);
+    expect(res.body.data.razon).toMatch(/identificador/i);
+  });
+
+  it('la ficha trae señal, adhesiones y confirmaciones en UNA llamada', async () => {
+    const { id } = await soltar();
+    await confirmar(id, '');
+
+    const res = await request.get(`${RUTA}/${id}`);
+    expect(res.status).toBe(200);
+    expect(res.body.data.senal.idPublico).toBe(id);
+    expect(res.body.data.adhesiones).toEqual({ total: 0, mia: false });
+    expect(res.body.data.confirmaciones).toHaveLength(1);
+    expect(res.body.data.umbral).toBe(2);
+    expect(res.body.data.seVerifica).toBe(true);
+  });
+
+  it('mirar una señal NO planta una cookie', async () => {
+    const { id } = await soltar();
+    const res = await request.get(`${RUTA}/${id}`);
+    // El identificador se pide donde se usa —al cargar, al adherir, al
+    // confirmar— y no por pasar por una página.
+    const set = (res.headers['set-cookie'] as unknown as string[] | undefined) ?? [];
+    expect(set.some((c) => c.startsWith('basta_actor='))).toBe(false);
+  });
+
   it('la ficha de confirmaciones NUNCA dice quién', async () => {
     const { id } = await soltar();
     await confirmar(id, '');

@@ -30,6 +30,7 @@ import {
   LaIdea,
   LaRadiografia,
   LaSimulacion,
+  Senal,
   Leaderboard,
   LeccionDetail,
   LifeAreaDetail,
@@ -102,6 +103,7 @@ export function AppRoutes() {
           mapa (spec 2026-08-13 §2.9 — un barrido con tornado, nube y tabla no
           es «un conjunto de capas sobre la misma instancia de mapa», que es la
           definición de modo que `instrumento/modos/tipos.ts` defiende). */}
+      <Route path="/senal/:id" component={Senal} />
       <Route path="/la-simulacion" component={LaSimulacion} />
       <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
       <Route path="/kit-de-prensa" component={KitDePrensa} />

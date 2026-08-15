@@ -10,8 +10,16 @@ import {
   useVocesAbiertas,
   useVocesPorProvincia,
 } from '~/lib/queries/open-data';
+import { useCola } from '~/lib/queries/senales';
 
 vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: vi.fn() }));
+/**
+ * La cola del «¿sigue así?» entró a esta página con la rebanada de la vuelta.
+ * Se mockea acá porque el test compone la página entera: sin esto,
+ * `ColaDeVerificacion` sale a pedir de verdad y el archivo falla con un
+ * ECONNREFUSED que no habla de nada de lo que este test cuida.
+ */
+vi.mock('~/lib/queries/senales', () => ({ useCola: vi.fn() }));
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: vi.fn(),
   useSoltarVoz: vi.fn(),
@@ -29,6 +37,10 @@ describe('ElMapa (página papel 2.2)', () => {
     // `data: []` infiere `never[]`, que no alcanza (ni por asignabilidad ni
     // por comparabilidad) a ninguna variante de UseQueryResult<T[], Error> —
     // mismo puente `unknown` que ya usa el mock de useSoltarVoz debajo.
+    vi.mocked(useCola).mockReturnValue({
+      data: { senales: [], razon: null },
+      isLoading: false,
+    } as unknown as ReturnType<typeof useCola>);
     vi.mocked(useProvincias).mockReturnValue({ data: [], isLoading: false } as unknown as ReturnType<typeof useProvincias>);
     vi.mocked(useVocesAbiertas).mockReturnValue({ data: [], isLoading: false, isError: false } as unknown as ReturnType<typeof useVocesAbiertas>);
     vi.mocked(useVocesPorProvincia).mockReturnValue({ data: [], isLoading: false } as unknown as ReturnType<typeof useVocesPorProvincia>);

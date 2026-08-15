@@ -41,7 +41,19 @@ export function FeedVoces() {
             // conserva su nombre crudo, en vez de disfrazarse de otro tipo.
             const clase = claseDeCategoria(voz.category);
             return (
-              <article key={voz.id} className="bg-papel px-[18px] py-4">
+              /**
+               * Cada voz del feed es un LINK a su ficha.
+               *
+               * Sin esto el feed es un muro que se lee y se olvida: no hay
+               * forma de mandarle una voz a un vecino, ni de adherir, ni de
+               * poner el segundo par de ojos. Un link es lo mínimo que
+               * necesita algo para salir de la pantalla donde nació.
+               *
+               * Las viejas de `dreams` tienen id numérico y NO tienen ficha —
+               * la ruta espera un uuid— así que sólo se enlazan las nuevas.
+               */
+              <article key={voz.id} className="bg-papel">
+                <Envoltorio id={voz.id}>
                 <div className="font-space mb-2 flex justify-between gap-3 text-[10px] uppercase tracking-[0.12em]">
                   <span className={cn('font-bold', clase === null ? 'text-tinta-50' : TEXTO_CLASE[clase])}>{voz.category}</span>
                   <span className="text-tinta-30">
@@ -51,6 +63,7 @@ export function FeedVoces() {
                   </span>
                 </div>
                 <p className="text-tinta-90 text-sm leading-normal">«{voz.body}»</p>
+                </Envoltorio>
               </article>
             );
           })}
@@ -64,5 +77,22 @@ export function FeedVoces() {
         — el país pedido por escrito.
       </p>
     </section>
+  );
+}
+
+/**
+ * Envuelve una voz en un link cuando tiene ficha, y en un `div` cuando no.
+ *
+ * Las filas viejas de `dreams` llevan ordinal numérico y no tienen página: la
+ * ruta `/senal/:id` espera un uuid. Enlazarlas igual daría un 404 al tocarlas,
+ * que es peor que no ofrecer el link — prometer una puerta que no abre.
+ */
+function Envoltorio({ id, children }: { id: string | number; children: React.ReactNode }) {
+  const tieneFicha = typeof id === 'string' && id.includes('-');
+  if (!tieneFicha) return <div className="px-[18px] py-4">{children}</div>;
+  return (
+    <Link href={`/senal/${id}`} className="hover:bg-papel-presionado block px-[18px] py-4 transition-colors">
+      {children}
+    </Link>
   );
 }

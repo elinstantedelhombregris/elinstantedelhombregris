@@ -19,6 +19,7 @@ import {
   PROVINCIAS_REF,
 } from '@v2/civic-core';
 import {
+  ActoresRepository,
   AdhesionesRepository,
   ConfirmacionesRepository,
   GeographicRepository,
@@ -31,7 +32,7 @@ import { Router, type Router as RouterType } from 'express';
 
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
-import { olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
+import { COOKIE_ACTOR, hashDeClave, olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
 import { barrerRelojes } from './relojes.js';
 import { ingerirSenal } from './service.js';
 import { confirmacionSchema, consultaDeSenalesSchema, respuestaSchema } from './validation.js';
@@ -94,16 +95,44 @@ router.get('/senales/conteo', async (_req, res, next) => {
   }
 });
 
-router.get('/senales/:idPublico', async (req, res, next) => {
+/**
+ * La cola del «¿sigue así?» — lo que pide un segundo par de ojos.
+ *
+ * Es la única pantalla que le da algo que HACER a alguien que no quiere
+ * escribir, y la que convierte al que pasaba en el que confirma. Sin ella el
+ * umbral de dos confirmaciones tiene techo real cero: los endpoints existen y
+ * nadie llega.
+ *
+ * Excluye lo propio con `IS DISTINCT FROM` del lado de la base, así que una
+ * señal sin autor atribuible tampoco entra — no se puede saber si quien la mira
+ * es otra persona.
+ *
+ * **Va declarada ANTES de `/senales/:idPublico`, y el orden es funcional.**
+ * Express matchea por orden de registro: con la paramétrica arriba, un GET a
+ * `/senales/cola` entra como `idPublico = 'cola'`, falla el uuid y devuelve 404.
+ * Es el clásico que no se ve en el type-check ni en el lint — sólo en la
+ * primera vez que alguien abre la pantalla.
+ */
+router.get('/senales/cola', async (req, res, next) => {
   try {
-    const senal = await new SenalesRepository(getDb()).porIdPublico(req.params.idPublico);
-    if (senal === null) {
-      res.status(404).json({
-        error: { code: 'NO_ESTA', message: 'No encontramos esa señal.' },
+    const actorId = await actorSiExiste(req);
+    if (actorId === null) {
+      /**
+       * Sin actor la cola va VACÍA y con su razón, no con señales que después
+       * no se van a poder confirmar. Mostrar tareas que fallan al tocarlas es
+       * peor que no mostrar ninguna.
+       */
+      res.json({
+        data: {
+          senales: [],
+          razon:
+            'Todavía no tenemos un identificador de este navegador. Soltá una voz o adherí a una, y la cola se llena.',
+        },
       });
       return;
     }
-    res.json({ data: { senal } });
+    const senales = await new SenalesRepository(getDb()).corroborablesPor(actorId, 20);
+    res.json({ data: { senales, razon: null, umbral: UMBRAL_CORROBORACION } });
   } catch (err) {
     next(err);
   }
@@ -121,6 +150,60 @@ router.post('/actor/olvidar', async (req, res, next) => {
   try {
     const borrado = await olvidarActor(req, res);
     res.json({ data: { olvidado: borrado } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * La ficha de una señal, entera, en UNA llamada.
+ *
+ * La página necesita las tres cosas a la vez —la señal, sus adhesiones, sus
+ * confirmaciones— y pedirlas en tres requests haría que la pantalla se arme por
+ * partes: primero un texto solo, después un contador que aparece, después una
+ * lista. Eso se ve como una página rota aunque no lo esté.
+ *
+ * `mia` sale del actor de la cookie, así que el botón nace en el estado
+ * correcto en vez de parpadear de «adherir» a «ya adheriste» después del primer
+ * render.
+ */
+router.get('/senales/:idPublico', async (req, res, next) => {
+  try {
+    const id = typeof req.params.idPublico === 'string' ? req.params.idPublico : '';
+    const db = getDb();
+    const senal = await new SenalesRepository(db).porIdPublico(id);
+    if (senal === null) {
+      res.status(404).json({
+        error: { code: 'NO_ESTA', message: 'No encontramos esa señal.' },
+      });
+      return;
+    }
+
+    /**
+     * Se LEE el actor pero no se crea: mirar una señal no puede plantar una
+     * cookie. El identificador se pide donde se usa —al cargar, al adherir, al
+     * confirmar— y no por pasar por una página.
+     */
+    const actorId = await actorSiExiste(req);
+    const adh = new AdhesionesRepository(db);
+    const [porSenal, confirmaciones, respuestas] = await Promise.all([
+      adh.porSenales([id], actorId),
+      new ConfirmacionesRepository(db).deSenal(id),
+      senal.clase === 'meta' ? adh.respuestasDe(id) : Promise.resolve([]),
+    ]);
+
+    const adhesion = porSenal.get(id) ?? { total: 0, mia: false };
+    res.json({
+      data: {
+        senal,
+        adhesiones: adhesion,
+        confirmaciones,
+        respuestas,
+        umbral: UMBRAL_CORROBORACION,
+        /** Si esta señal admite un segundo par de ojos ahora mismo. */
+        seVerifica: senal.estado === 'por_verificar',
+      },
+    });
   } catch (err) {
     next(err);
   }
@@ -295,6 +378,22 @@ router.get('/map/luz', async (_req, res, next) => {
 });
 
 /* ── La corroboración ─────────────────────────────────────────────────────── */
+
+/**
+ * El actor de la request, **sin crearlo si no está**.
+ *
+ * `resolverActor` crea uno cuando falta, y eso está bien en las rutas que
+ * escriben — el permiso se pide donde se usa. En las de LECTURA sería plantar
+ * una cookie por mirar, que es exactamente lo que la regla 9 no quiere.
+ */
+async function actorSiExiste(req: Parameters<typeof resolverActor>[0]): Promise<number | null> {
+  const cookies: unknown = (req as { cookies?: unknown }).cookies;
+  if (typeof cookies !== 'object' || cookies === null) return null;
+  const clave: unknown = (cookies as Record<string, unknown>)[COOKIE_ACTOR];
+  if (typeof clave !== 'string') return null;
+  const previo = await new ActoresRepository(getDb()).porHash(hashDeClave(clave));
+  return previo?.id ?? null;
+}
 
 const PORQUE: Record<string, { estado: number; mensaje: string }> = {
   noExiste: { estado: 404, mensaje: 'No encontramos esa señal.' },
