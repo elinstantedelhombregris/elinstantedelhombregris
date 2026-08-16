@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 
-import { SECCIONES_BIBLIOTECA, type PapelNavItem } from './papel-nav';
+import { type PapelNavItem } from './papel-nav';
 
 import type { FocusEvent, KeyboardEvent, MouseEvent } from 'react';
 
@@ -28,7 +28,18 @@ function esLaActual(location: string, href: string): boolean {
  * disparador sigue siendo un link real al hub — el panel agrega caminos, no
  * los reemplaza, así que nadie queda sin poder llegar a `/biblioteca`.
  */
-export function MenuBiblioteca({ item, activa }: { item: PapelNavItem; activa: boolean }) {
+export function MenuBiblioteca({
+  item,
+  activa,
+  secciones,
+}: {
+  item: PapelNavItem;
+  activa: boolean;
+  /** Los hijos que despliega. Entran por prop desde `SUBSECCIONES`: el
+   *  componente dejó de saber cuál es la entrada con estantes el día que hubo
+   *  una segunda (La Radiografía cuelga de «El mapa»). */
+  secciones: readonly PapelNavItem[];
+}) {
   const [location] = useLocation();
   const [abierto, setAbierto] = useState(false);
 
@@ -88,7 +99,7 @@ export function MenuBiblioteca({ item, activa }: { item: PapelNavItem; activa: b
           id={ID_PANEL}
           className="border-tinta bg-papel absolute left-0 top-full z-50 -mt-px flex w-[264px] flex-col border"
         >
-          {SECCIONES_BIBLIOTECA.map((seccion) => {
+          {secciones.map((seccion) => {
             const aca = esLaActual(location, seccion.href);
             return (
               <Link

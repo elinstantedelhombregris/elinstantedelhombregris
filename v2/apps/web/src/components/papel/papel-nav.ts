@@ -22,6 +22,31 @@ export const PAPEL_NAV: readonly PapelNavItem[] = [
 
 export const BIBLIOTECA_HREF = '/biblioteca';
 
+export const MAPA_HREF = '/el-mapa';
+
+/**
+ * Lo que cuelga de «El mapa».
+ *
+ * **La Radiografía es la cuarta superficie de la constitución de producto**
+ * —«lectura pública de datos agregados, calificados por cobertura y protegidos
+ * por privacidad»— y hasta hoy no estaba enlazada desde ningún lado: existía en
+ * `app-routes.tsx` y en `PAPEL_ROUTES` y no había forma de llegar.
+ *
+ * Cuelga del mapa y no del recorrido porque lee **el mismo corpus que el mapa
+ * dibuja**, y contesta la pregunta que al mapa le falta: el mapa dice dónde y
+ * cuándo se habló, la Radiografía dice sobre qué, y si eso que se dijo se
+ * parece. Colgarla acá tampoco renumera el recorrido, que va de 01 a 06 y no
+ * tiene lugar libre.
+ *
+ * El enlace se agregó **después** de repuntar la página a `senales`, no antes:
+ * hasta ese día leía una tabla retirada y habría dicho «todavía no habló nadie»
+ * con el país entero adentro. Una página inalcanzable que mentiría es mejor que
+ * una alcanzable que miente.
+ */
+export const SECCIONES_MAPA: readonly PapelNavItem[] = [
+  { href: '/la-radiografia', label: 'La radiografía', num: '02.1' },
+];
+
 /**
  * Los cinco estantes de la biblioteca, en el mismo orden en que aparecen en
  * el hub. El header los despliega al pasar el mouse por «La biblioteca»:
@@ -84,3 +109,16 @@ export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   ...PAPEL_NAV,
   { href: SEMBRAR_HREF, label: 'Sembrar', num: '06' },
 ];
+
+/**
+ * Las entradas del recorrido que despliegan hijos, por href.
+ *
+ * Era un `if (item.href === BIBLIOTECA_HREF)` hardcodeado en el header, en dos
+ * lugares —el menú grande y el chico—. Con el segundo caso ese `if` se vuelve
+ * una escalera, así que la relación pasa a ser dato: agregar una tercera
+ * entrada con hijos es una línea acá y ninguna en el header.
+ */
+export const SUBSECCIONES: Readonly<Record<string, readonly PapelNavItem[]>> = {
+  [BIBLIOTECA_HREF]: SECCIONES_BIBLIOTECA,
+  [MAPA_HREF]: SECCIONES_MAPA,
+};

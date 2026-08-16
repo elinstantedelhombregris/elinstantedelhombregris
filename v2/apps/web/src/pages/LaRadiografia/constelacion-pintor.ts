@@ -2,11 +2,7 @@ import { type Tema } from './radiografia-data';
 
 import type { AristaDeConvergencia } from '~/lib/queries/radiografia';
 
-import {
-  FONDO_DEL_TEMA,
-  PESO_MINIMO_EN_FOCO,
-  TINTA_DEL_TEMA,
-} from '~/components/mapa/pintor-senales';
+import { FONDO_DEL_TEMA, TINTA_DEL_TEMA } from '~/components/mapa/pintor-senales';
 
 /**
  * El pintor de la constelación — la proyección y el trazo, sin React.
@@ -19,8 +15,8 @@ import {
  * canvas no se puede leer en un test**. Acá adentro todo es una función pura
  * que recibe un contexto 2D, así que se le puede pasar uno falso y verificar
  * lo que dibuja: que una arista declarada nunca lleve el trazo de una medida,
- * que lo de atrás se vaya al fondo del tema, que dos nodos distintos caigan en
- * dos puntos distintos de la pantalla.
+ * que **la clase se lea igual al fondo que al frente**, que dos nodos distintos
+ * caigan en dos puntos distintos de la pantalla.
  *
  * **Canvas-2D y no WebGL**: la ADR 0003 tiene `three` en *Defer*, y su gatillo
  * pide que el dato **no pueda** servirse en 2D a la fidelidad buscada. Con el
@@ -96,10 +92,15 @@ export function proyectar(
 /**
  * Mezcla `color` con el fondo del tema. `peso` 1 = color pleno, 0 = fondo.
  *
- * Esto es **el** gesto de la superficie: la profundidad no se resuelve con
- * opacidad ni con niebla, se resuelve con tinta que se acaba hacia el papel en
- * claro y hacia `oscuro.barra` en nocturno. Sin eso, esto se ve como cualquier
- * gráfico de nodos de cualquier tablero.
+ * Tinta que se acaba hacia el papel en claro y hacia `oscuro.barra` en
+ * nocturno, en vez de opacidad o niebla: es lo que hace que esto no se vea como
+ * cualquier gráfico de nodos de cualquier tablero.
+ *
+ * **Lo usa `atenuacion()` y ya NO la profundidad.** Apagar el resto del cielo
+ * cuando el lector enfoca un núcleo es una decisión suya y momentánea; hundir
+ * la clase de una señal porque la rotación la mandó atrás no lo es. La
+ * distinción no es filosófica: mezclar hacia el fondo cuesta contraste, y acá
+ * el color codifica la clase. Ver `pesoDeProfundidad`.
  */
 export function haciaElFondo(color: string, fondo: string, peso: number): string {
   const c = aRgb(color);
@@ -119,18 +120,29 @@ export function aRgb(hex: string): [number, number, number] {
 }
 
 /**
- * Cuánta de su tinta conserva un nodo por su profundidad. `frente` 1 al frente,
- * 0 al fondo.
+ * Cuánta de su tinta conserva un nodo por su profundidad.
  *
- * El piso es el del pintor de señales —`PESO_MINIMO_EN_FOCO`, el 72 %— y por el
- * mismo motivo escrito allá: el escalonado existe para que quinientos nodos
- * encimados no se fundan en un disco opaco, **no** para decir que las últimas
- * voces valen menos. Estuvo en 0,28, y con ese piso un `deseo` al fondo del
- * cielo nocturno caía a 1,13:1 contra el fondo: la clase, que es la primera
- * lectura de la regla 11, dejaba de verse justo donde hay más nodos juntos.
+ * **Devuelve 1 siempre: la profundidad ya no se cobra en el color.**
+ *
+ * Se intentó dos veces con el color y las dos fallaron por la misma razón. Con
+ * el piso en 0,28 un `deseo` al fondo del cielo nocturno daba **1,13:1** contra
+ * el fondo; subiéndolo a 0,72 mejoró a **2,17:1** y siguió por debajo del 3:1
+ * que WCAG pide para un objeto gráfico. No hay piso que arregle esto: mezclar
+ * hacia el fondo *es* perder contraste, y el color acá **codifica la clase**,
+ * que es la primera lectura de la regla 11. Un escalonado que decide cuánto se
+ * ve la clase de una señal según dónde cayó en una rotación arbitraria es un
+ * gradiente de importancia que nadie diseñó.
+ *
+ * La profundidad se dice con el **radio** —`escala`, que sale de la proyección
+ * en perspectiva y ya estaba— y con el orden de pintado. Un nodo lejano es más
+ * chico y queda debajo; su clase se sigue leyendo. Es la misma información con
+ * el mismo dibujo, cobrada donde no cuesta legibilidad.
+ *
+ * Queda como función y no se borra porque `atenuacion()` sí modula la tinta, y
+ * las dos se multiplican en el mismo lugar: el día que alguien quiera volver a
+ * escalonar por profundidad, este docstring es lo que se va a encontrar.
  */
-export const pesoDeProfundidad = (frente: number): number =>
-  PESO_MINIMO_EN_FOCO + Math.max(0, Math.min(1, frente)) * (1 - PESO_MINIMO_EN_FOCO);
+export const pesoDeProfundidad = (_frente: number): number => 1;
 
 /** Con un núcleo enfocado, el resto del cielo se va hacia el fondo (§5.4). */
 export function atenuacion(escena: Escena, nodo: NodoDibujable): number {

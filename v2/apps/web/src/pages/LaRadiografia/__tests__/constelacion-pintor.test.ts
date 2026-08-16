@@ -137,16 +137,37 @@ describe('la profundidad se desvanece hacia el fondo del tema (§5.1)', () => {
     expect(haciaElFondo(COLOR_DE_CLASE.deseo, FONDO_DEL_TEMA.nocturno, 0)).toBe('rgb(36, 31, 23)');
   });
 
-  it('lo que está atrás se dibuja más cerca del fondo que lo que está adelante', () => {
+  /**
+   * Este test afirmaba lo contrario —que lo de atrás se dibuja más cerca del
+   * fondo— y esa era exactamente la falla: mezclar hacia el fondo es perder
+   * contraste, y acá el color codifica la **clase**. Un `deseo` al fondo del
+   * cielo nocturno daba 1,13:1, y con el piso subido a 0,72 seguía en 2,17:1,
+   * los dos por debajo del 3:1 que WCAG pide para un objeto gráfico.
+   *
+   * La profundidad se dice ahora con el radio. El invariante que sí queremos:
+   * **la clase de una señal se lee igual esté donde esté**.
+   */
+  it('la clase se lee igual al fondo que al frente: el color no paga la profundidad', () => {
     const { ctx, rellenos } = pincelFalso();
     pintar(ctx, { width: 800, height: 500, dpr: 1 }, escena(), 0, 0);
-    // Se pintan del fondo hacia el frente: el primero es el más lejano.
+
     expect(rellenos).toHaveLength(2);
     const [atras, adelante] = rellenos;
-    expect(atras?.color).not.toBe(adelante?.color);
-    expect(distanciaAlFondo(atras?.color ?? '')).toBeLessThan(
+    expect(atras?.color).toBe(adelante?.color);
+    // Y es el color pleno de la clase, no una versión lavada de él.
+    expect(distanciaAlFondo(atras?.color ?? '')).toBe(
       distanciaAlFondo(adelante?.color ?? ''),
     );
+  });
+
+  it('la profundidad se dice con el radio, que es donde no cuesta legibilidad', () => {
+    const { ctx, rellenos } = pincelFalso();
+    pintar(ctx, { width: 800, height: 500, dpr: 1 }, escena(), 0, 0);
+
+    // Se pintan del fondo hacia el frente: el primero es el más lejano y el
+    // más chico. Si esto se rompe, la profundidad dejó de leerse.
+    const [atras, adelante] = rellenos;
+    expect(atras?.radio).toBeLessThan(adelante?.radio ?? 0);
   });
 });
 

@@ -3,10 +3,9 @@ import { Link, useLocation } from 'wouter';
 
 import { MenuBiblioteca } from './MenuBiblioteca';
 import {
-  BIBLIOTECA_HREF,
   PAPEL_NAV,
   PAPEL_NAV_ALL,
-  SECCIONES_BIBLIOTECA,
+  SUBSECCIONES,
   SEMBRAR_HREF,
 } from './papel-nav';
 
@@ -72,13 +71,15 @@ export function PapelHeader() {
 
           <nav className="hidden items-center gap-1.5 min-[1141px]:flex" aria-label="Recorrido">
             {PAPEL_NAV.map((item) =>
-              // La biblioteca es la única entrada con estantes propios: se
-              // despliegan en vez de obligar a pasar por el hub.
-              item.href === BIBLIOTECA_HREF ? (
+              // Las entradas con hijos los despliegan en vez de obligar a
+              // pasar por el hub. Cuáles son es dato (`SUBSECCIONES`) y no un
+              // `if` por href: hoy son dos, la biblioteca y el mapa.
+              SUBSECCIONES[item.href] ? (
                 <MenuBiblioteca
                   key={item.href}
                   item={item}
                   activa={esActiva(location, item.href)}
+                  secciones={SUBSECCIONES[item.href] ?? []}
                 />
               ) : (
                 <Link
@@ -137,24 +138,22 @@ export function PapelHeader() {
                 {item.label}
                 <span className="font-space text-violeta text-xs">{item.num}</span>
               </Link>
-              {/* Los estantes de la biblioteca también se abren acá: el menú
-                  chico no puede ofrecer menos caminos que el grande. */}
-              {item.href === BIBLIOTECA_HREF
-                ? SECCIONES_BIBLIOTECA.map((seccion) => (
-                    <Link
-                      key={seccion.href}
-                      href={seccion.href}
-                      className="border-papel-borde font-space text-tinta-75 flex min-h-11 items-center justify-between border-b pl-5 text-xs uppercase tracking-[0.06em]"
-                      onClick={(evento) => {
-                        if (saltarSiEsLaMismaPagina(seccion.href, location)) evento.preventDefault();
-                        setMenuOpen(false);
-                      }}
-                    >
-                      {seccion.label}
-                      <span className="font-space text-tinta-30 text-[10px]">{seccion.num}</span>
-                    </Link>
-                  ))
-                : null}
+              {/* Los hijos de una entrada también se abren acá: el menú chico
+                  no puede ofrecer menos caminos que el grande. */}
+              {(SUBSECCIONES[item.href] ?? []).map((seccion) => (
+                <Link
+                  key={seccion.href}
+                  href={seccion.href}
+                  className="border-papel-borde font-space text-tinta-75 flex min-h-11 items-center justify-between border-b pl-5 text-xs uppercase tracking-[0.06em]"
+                  onClick={(evento) => {
+                    if (saltarSiEsLaMismaPagina(seccion.href, location)) evento.preventDefault();
+                    setMenuOpen(false);
+                  }}
+                >
+                  {seccion.label}
+                  <span className="font-space text-tinta-30 text-[10px]">{seccion.num}</span>
+                </Link>
+              ))}
             </Fragment>
           ))}
         </nav>
