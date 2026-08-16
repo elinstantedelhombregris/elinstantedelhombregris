@@ -138,7 +138,7 @@ export function ListaDeNucleos({
                       </span>
                       <span
                         className="font-space mt-1 block text-[11px] font-bold uppercase tracking-[0.1em]"
-                        style={{ color: mixto ? undefined : colorDeClase(clase ?? '') }}
+                        style={{ color: mixto ? undefined : colorDeClase(clase ?? '', tema) }}
                       >
                         <span aria-hidden className="mr-2 inline-block">
                           {mixto ? '◐' : '●'}
@@ -160,7 +160,7 @@ export function ListaDeNucleos({
                           key={c}
                           title={c}
                           className="inline-block h-3 w-3 rounded-full"
-                          style={{ backgroundColor: colorDeClase(c) }}
+                          style={{ backgroundColor: colorDeClase(c, tema) }}
                         />
                       ))}
                       <span className="sr-only">{Object.keys(nucleo.clases).join(', ')}</span>

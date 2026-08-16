@@ -12,12 +12,15 @@
  * ensamblado no sabe de dónde salieron las filas, y ésa es exactamente la
  * propiedad que hace que estos tests sean baratos.
  */
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
 import { EmbebedorFalso, haversineKm } from '@v2/civic-core';
+import { MOTIVO_TEXTO_OMITIDO } from '@v2/shared';
 import { describe, expect, it } from 'vitest';
 
-import { claseProvisional } from '../clase-provisional.js';
 import { PISO_DE_PUBLICACION, puntoPublicable } from '../punto.js';
-import { construirRadiografia, TEXTO_OMITIDO } from '../service.js';
+import { construirRadiografia } from '../service.js';
 import { consultaRadiografiaSchema, K_POR_DEFECTO, UMBRAL_POR_DEFECTO } from '../validation.js';
 
 import type { CorridaDeAnalisis, FuenteDeRadiografia, VozDelCorpus } from '../lectura.js';
@@ -35,6 +38,7 @@ interface Guion {
 
 /** Una fuente de mentira, construida desde textos que se embeben al vuelo. */
 const fuenteDeGuion = (guion: Guion): FuenteDeRadiografia => ({
+  corpus: 'guion',
   corrida: () =>
     Promise.resolve(
       guion.corrida === undefined
@@ -50,9 +54,16 @@ const fuenteDeGuion = (guion: Guion): FuenteDeRadiografia => ({
   },
 });
 
+/**
+ * Una voz **sin cesión** por defecto: la ausencia de cesión es el estado
+ * normal, y un default al revés dejaría pasar un servicio que ignora la
+ * columna.
+ */
 const voz = (id: string, extra: Partial<VozDelCorpus> = {}): VozDelCorpus => ({
   id,
   clase: 'hecho',
+  texto: 'algo que alguien dijo',
+  cesionLicencia: false,
   provinciaId: null,
   punto: null,
   ...extra,
@@ -121,21 +132,71 @@ describe('La Radiografía · el conteo', () => {
 });
 
 describe('La Radiografía · la cesión de licencia', () => {
-  it('ningún núcleo lleva frase, y cada uno dice por qué', async () => {
-    const textos = new Map([
-      ['voz:1', 'no llega el agua al barrio'],
-      ['voz:2', 'no llega el agua al barrio'],
-    ]);
+  const FRASE = 'no llega el agua al barrio';
+  const textosDelNucleo = new Map([
+    ['voz:1', FRASE],
+    ['voz:2', FRASE],
+  ]);
+
+  it('una señal SIN cesión no presta su frase, y el núcleo dice por qué', async () => {
     const radiografia = await construirRadiografia(
-      fuenteDeGuion({ textos, voces: [voz('voz:1'), voz('voz:2')] }),
+      fuenteDeGuion({
+        textos: textosDelNucleo,
+        voces: [
+          voz('voz:1', { texto: FRASE, cesionLicencia: false }),
+          voz('voz:2', { texto: FRASE, cesionLicencia: false }),
+        ],
+      }),
       CONSULTA,
     );
 
     expect(radiografia.nucleos).toHaveLength(1);
     for (const nucleo of radiografia.nucleos) {
       expect(nucleo.frase).toBeNull();
-      expect(nucleo.textoOmitido).toBe(TEXTO_OMITIDO);
+      // El motivo es el compartido de `@v2/shared`, no una copia local: dos
+      // superficies que omiten lo mismo por la misma razón lo dicen igual.
+      expect(nucleo.textoOmitido).toBe(MOTIVO_TEXTO_OMITIDO);
     }
+  });
+
+  it('una señal CON cesión sí presta su frase, y es la suya palabra por palabra', async () => {
+    const radiografia = await construirRadiografia(
+      fuenteDeGuion({
+        textos: textosDelNucleo,
+        voces: [
+          voz('voz:1', { texto: FRASE, cesionLicencia: false }),
+          voz('voz:2', { texto: FRASE, cesionLicencia: true }),
+        ],
+      }),
+      CONSULTA,
+    );
+
+    const nucleo = radiografia.nucleos[0];
+    // La única que cedió es la que etiqueta, aunque las dos estén igual de
+    // cerca del centroide: la cesión manda sobre la centralidad.
+    expect(nucleo?.frase).toEqual({ id: 'voz:2', texto: FRASE });
+    expect(nucleo?.textoOmitido).toBeNull();
+  });
+
+  it('la frase es la señal real y nunca un resumen', async () => {
+    const textos = new Map([
+      ['voz:1', 'se cortó la luz otra vez en el barrio'],
+      ['voz:2', 'se cortó la luz otra vez en el barrio'],
+    ]);
+    const radiografia = await construirRadiografia(
+      fuenteDeGuion({
+        textos,
+        voces: [
+          voz('voz:1', { texto: 'se cortó la luz otra vez en el barrio', cesionLicencia: true }),
+          voz('voz:2', { texto: 'se cortó la luz otra vez en el barrio', cesionLicencia: true }),
+        ],
+      }),
+      CONSULTA,
+    );
+
+    const frase = radiografia.nucleos[0]?.frase;
+    expect(frase?.texto).toBe('se cortó la luz otra vez en el barrio');
+    expect(['voz:1', 'voz:2']).toContain(frase?.id);
   });
 
   it('el núcleo existe, se cuenta y se mide igual sin etiqueta', async () => {
@@ -297,34 +358,130 @@ describe('La Radiografía · el borde', () => {
   });
 });
 
-describe('La Radiografía · la clase, mientras no exista el vocabulario', () => {
-  it('mapea los seis tipos de voz a las cuatro clases', () => {
-    expect(claseProvisional('basta')).toBe('hecho');
-    expect(claseProvisional('necesidad')).toBe('hecho');
-    expect(claseProvisional('recurso')).toBe('hecho');
-    expect(claseProvisional('sueño')).toBe('deseo');
-    expect(claseProvisional('compromiso')).toBe('acto');
-    expect(claseProvisional('valor')).toBe('meta');
+/**
+ * El bloque que había acá —«la clase, mientras no exista el vocabulario»—
+ * probaba `claseProvisional`, el mapa de `dreams.category` a las cuatro clases.
+ * Se borró con su archivo, y con razón escrita: la cabecera de
+ * `clase-provisional.ts` decía «este archivo se BORRA entero el día que exista
+ * `vocabulario.ts`», que existe desde el 13/8/2026. La clase ya no se infiere:
+ * sale de `senales.clase`, que es `notNull` y está atornillada por dos FK
+ * compuestas contra `tipos_senal` y `estados_senal`. Lo que aquellos tests
+ * verificaban lo verifica ahora Postgres, y `packages/db/tests/senales-imposibles.test.ts`
+ * lo prueba contra la base. De paso murió el mapeo de `valor`, un tipo que salió
+ * del canon.
+ */
+/**
+ * La guarda se lee del ARCHIVO y no importando `lectura.ts`, y no es pereza:
+ * ese módulo arrastra el logger, el logger arrastra `config`, y `config` exige
+ * `DATABASE_URL` y los dos secretos. Un test unitario que necesita entorno deja
+ * de correr donde tiene que correr — y el `--passWithNoTests` de esta suite hace
+ * que eso se vea como verde.
+ */
+describe('La Radiografía · el corpus, por su nombre', () => {
+  const lectura = readFileSync(fileURLToPath(new URL('../lectura.ts', import.meta.url)), 'utf8');
+  const sinComentarios = lectura.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+
+  /**
+   * El rótulo vale `'senales'` **y vive en un solo lugar**.
+   *
+   * La primera versión de esta guarda afirmaba la grafía —`export const FUENTE
+   * = 'senales'`— y por eso se puso roja el día que el literal se mudó a
+   * `@v2/db`, que es adonde tenía que mudarse: el job de embebido escribe esa
+   * misma columna y no puede importar de `apps/api`. Una guarda que fija cómo
+   * se escribe algo en vez de cuánto vale se opone a la mejora que debería
+   * dejar pasar.
+   *
+   * Se verifica la cadena entera sin importar nada, porque `lectura.ts`
+   * arrastra el logger y con él `DATABASE_URL`: un unit test con entorno deja
+   * de correr donde tiene que correr.
+   */
+  it('el rótulo de la fuente es `senales`, y sale de un solo lugar', () => {
+    expect(sinComentarios).toMatch(/export const FUENTE = FUENTE_VIVA;/);
+    expect(sinComentarios).toMatch(/FUENTE_VIVA[^;]*from '@v2\/db'/);
+
+    const analisis = readFileSync(
+      fileURLToPath(new URL('../../../../../../packages/db/src/repositories/analisis.ts', import.meta.url)),
+      'utf8',
+    );
+    expect(analisis.replace(/\/\*[\s\S]*?\*\//g, '')).toMatch(
+      /export const FUENTE_VIVA = 'senales';/,
+    );
   });
 
-  it('no pierde la clase por un acento ni por una mayúscula', () => {
-    expect(claseProvisional('sueno')).toBe('deseo');
-    expect(claseProvisional('  Sueño ')).toBe('deseo');
-    expect(claseProvisional('BASTA')).toBe('hecho');
+  /**
+   * La guarda que faltaba el 16/8/2026: `dreams` está retirada desde la
+   * migración 0022 y este archivo la leía igual. Nada fallaba —163 tests en
+   * verde— porque el vacío diseñado de la página tapaba el caño desconectado.
+   * Esto es lo que hace que volver a apuntar ahí se note.
+   */
+  it('la lectura NO nombra la tabla retirada, se escriba como se escriba', () => {
+    // Ni el símbolo de drizzle, ni la tabla en un `sql` crudo. El comentario
+    // que cuenta la historia se descarta antes de mirar.
+    expect(sinComentarios).not.toMatch(/\bdreams\b/);
+    expect(sinComentarios).toMatch(/\bsenales\b/);
   });
 
-  it('lo que no sabe clasificar NUNCA lo anuncia como hecho corroborable', () => {
-    // Regla 11. La clase no es una tarea que le asignamos a la voz: es una
-    // afirmación sobre qué tipo de cosa es, y la página la publica como tal
-    // («esto se corrobora»). Decir eso de una voz que no supimos clasificar
-    // es afirmar algo que no medimos. `meta` es la clase de lo que no afirma
-    // nada del mundo, que es exactamente lo que sabemos de ella.
-    expect(claseProvisional(null)).toBe('meta');
-    expect(claseProvisional('')).toBe('meta');
-    expect(claseProvisional('lo que sea')).toBe('meta');
-    // El camino real: `dreams.category` es `text` sin CHECK y el borde acepta
-    // cualquier cadena de 60 caracteres, así que un sueño con la categoría mal
-    // tipeada entraba como hecho.
-    expect(claseProvisional('sueños')).toBe('meta');
+  it('el corpus viaja en la respuesta, al lado del modelo', async () => {
+    const radiografia = await construirRadiografia(
+      fuenteDeGuion({ textos: new Map(), voces: [] }),
+      CONSULTA,
+    );
+    expect(radiografia.corpus).toBe('guion');
+  });
+});
+
+describe('La Radiografía · el régimen degenerado', () => {
+  const conNVoces = async (n: number, k: number) => {
+    const textos = new Map(
+      Array.from({ length: n }, (_, i) => [`voz:${String(i)}`, `frase distinta número ${String(i)}`]),
+    );
+    return construirRadiografia(
+      fuenteDeGuion({ textos, voces: [...textos.keys()].map((id) => voz(id)) }),
+      consultaRadiografiaSchema.parse({ k: String(k) }),
+    );
+  };
+
+  it('con n ≤ k+1 lo declara, porque el grafo es completo por construcción', async () => {
+    const radiografia = await conNVoces(4, 3);
+    expect(radiografia.regimenDegenerado).toEqual({ n: 4, k: 3 });
+  });
+
+  it('con n > k+1 no lo declara: ahí la partición sí depende del texto', async () => {
+    const radiografia = await conNVoces(6, 3);
+    expect(radiografia.regimenDegenerado).toBeNull();
+  });
+
+  it('cuenta las que ENTRARON al grafo, no el corpus entero', async () => {
+    // Cinco voces, dos sin vector: el grafo tiene tres nodos. Con k=12 eso es
+    // degenerado aunque el total no lo diga.
+    const textos = new Map([
+      ['voz:1', 'no llega el agua al barrio'],
+      ['voz:2', 'ojalá vuelva el tren'],
+      ['voz:3', 'se cortó la luz'],
+    ]);
+    const radiografia = await construirRadiografia(
+      fuenteDeGuion({
+        textos,
+        voces: ['voz:1', 'voz:2', 'voz:3', 'voz:4', 'voz:5'].map((id) => voz(id)),
+      }),
+      CONSULTA,
+    );
+    expect(radiografia.total).toBe(5);
+    expect(radiografia.analizadas).toBe(3);
+    expect(radiografia.regimenDegenerado).toEqual({ n: 3, k: K_POR_DEFECTO });
+  });
+
+  it('el cielo vacío y la voz sola no lo declaran: no hay ningún par que medir', async () => {
+    const vacio = await construirRadiografia(
+      fuenteDeGuion({ textos: new Map(), voces: [] }),
+      CONSULTA,
+    );
+    expect(vacio.regimenDegenerado).toBeNull();
+
+    const una = await construirRadiografia(
+      fuenteDeGuion({ textos: new Map([['voz:1', 'algo']]), voces: [voz('voz:1')] }),
+      CONSULTA,
+    );
+    expect(una.regimenDegenerado).toBeNull();
   });
 });

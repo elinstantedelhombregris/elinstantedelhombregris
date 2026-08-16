@@ -19,9 +19,10 @@
  *    `puntoPublicable` en `lectura.ts`, que es la única puerta por la que sale
  *    una coordenada; acá ya no hay coordenada cruda que usar mal.
  * 3. **La frase de un núcleo sólo puede salir de una fila con cesión de
- *    licencia** (§4.5.4). Hoy ninguna la tiene, y el resultado es honesto y
- *    feo: los núcleos existen, se cuentan, se miden y se ordenan, y donde va
- *    la frase va el motivo por el que no está.
+ *    licencia** (§4.5.4). Quién puede prestarla no lo decide este archivo: lo
+ *    decide `textoPublicable()` de `@v2/shared`, la misma regla ejecutable que
+ *    gobierna el volcado del registro público. Donde no hay cesión no hay
+ *    frase, y en su lugar va el motivo por el que no está.
  */
 import {
   PROVINCIAS_CANONICAS,
@@ -30,41 +31,30 @@ import {
   fraseDelNucleo,
   nucleosAlUmbral,
 } from '@v2/civic-core';
+import { MOTIVO_TEXTO_OMITIDO, textoPublicable } from '@v2/shared';
 
 import { centrosDelCielo, miembrosDelNucleo, puntoDeVozSola } from './constelacion.js';
 
-import type { ClaseProvisional } from './clase-provisional.js';
 import type { FuenteDeRadiografia, VozDelCorpus } from './lectura.js';
 import type { ConsultaRadiografia } from './validation.js';
 import type { Punto3, SenalParaNucleo } from '@v2/civic-core';
 
 /**
- * El motivo, palabra por palabra, con el que el volcado del registro público
- * omite un texto (`docs/specs/2026-08-11-d-el-registro-publico.md` §2.8). Se
- * repite acá **el mismo string** a propósito: dos superficies que omiten lo
- * mismo por la misma razón tienen que decirlo igual.
- *
- * TODO: cuando la spec B escriba la columna de cesión sobre la tabla de texto
- * y D exporte `texto`, `textoDeLaSenal` deja de ser `null` y estos núcleos
- * empiezan a tener etiqueta. Hasta entonces esto no es un bug.
- * Ver `docs/specs/2026-08-12-la-radiografia.md` §4.5.4 y §8.
- */
-export const TEXTO_OMITIDO = 'sin cesión de licencia';
-
-/**
  * El texto que una voz puede prestar como etiqueta de núcleo.
  *
- * Devuelve `null` para **toda** fila, porque la columna de cesión de licencia
- * todavía no existe en el corpus de hoy y una fila sin cesión no presta su
- * frase aunque sea la más cercana al centroide. Es una función y no un literal
- * pegado en el `map` para que el día que la columna exista se cambie un cuerpo
- * de una línea y no se salga a buscar dónde estaba el `null`.
+ * **No hay una segunda redacción de la regla acá.** `textoPublicable` es la
+ * versión ejecutable de §2.8 del registro público, y llamarla es lo que impide
+ * que dos superficies que omiten lo mismo por la misma razón lo decidan con dos
+ * condiciones escritas a mano que un día divergen. Una fila sin cesión no
+ * presta su frase aunque sea la más cercana al centroide.
  */
-const textoDeLaSenal = (_voz: VozDelCorpus): string | null => null;
+const textoDeLaSenal = (voz: VozDelCorpus): string | null =>
+  textoPublicable({ texto: voz.texto, cesionLicencia: voz.cesionLicencia }).texto;
 
 export interface MiembroPublico {
   id: string;
-  clase: ClaseProvisional;
+  /** La clase tal cual la columna. Ver `VozDelCorpus.clase` en `lectura.ts`. */
+  clase: string;
   x: number;
   y: number;
   z: number;
@@ -95,7 +85,40 @@ export interface AristaPublica {
   tipo: 'medida' | 'declarada';
 }
 
+/**
+ * Cuando `n <= k + 1` el grafo k-NN es COMPLETO POR CONSTRUCCIÓN: cada señal
+ * es vecina de todas las demás, así que la partición en núcleos no depende del
+ * contenido. Publicarla como medición sin decirlo es la regla 11 rota por
+ * álgebra. `null` cuando no aplica.
+ */
+export interface RegimenDegenerado {
+  readonly n: number;
+  readonly k: number;
+}
+
+/**
+ * El aviso, cuando corresponde.
+ *
+ * `n` son las señales que **entraron al grafo** —las que tienen vector—, no el
+ * total del corpus: las que esperan análisis no tienen vecinas ni pueden
+ * tenerlas.
+ *
+ * El piso de `n >= 2` no está de adorno y es la única parte que no se lee
+ * directo del contrato: con cero o una señal no hay ningún par cuya adyacencia
+ * pudiera haber dependido del contenido, no hay partición publicada y la
+ * pantalla ya muestra el vacío diseñado. Declarar «el grafo es completo» sobre
+ * un cielo sin estrellas sería un aviso verdadero sobre nada, encima del único
+ * lugar de la página donde el silencio ya es el dato.
+ */
+const regimenDegenerado = (n: number, k: number): RegimenDegenerado | null =>
+  n >= 2 && n <= k + 1 ? { n, k } : null;
+
 export interface RadiografiaPublica {
+  /**
+   * De qué tabla salió esto, por su nombre. Se declara al lado del modelo y
+   * por el mismo motivo (R4): una constelación sin procedencia es un dibujo.
+   */
+  corpus: string;
   /** El corte de la última corrida del job. Única fuente de frescura (R4). */
   corte: string | null;
   modelo: string | null;
@@ -104,6 +127,8 @@ export interface RadiografiaPublica {
   total: number;
   provinciasSinSenal: number;
   umbral: number;
+  /** Ver `RegimenDegenerado`. `null` cuando la partición sí depende del texto. */
+  regimenDegenerado: RegimenDegenerado | null;
   nucleos: NucleoPublico[];
   solas: MiembroPublico[];
   aristas: AristaPublica[];
@@ -181,28 +206,30 @@ export async function construirRadiografia(
       // lector estaba mirando.
       id: `nucleo:${nucleo.ids[0] ?? String(i)}`,
       frase,
-      textoOmitido: frase === null ? TEXTO_OMITIDO : null,
+      textoOmitido: frase === null ? MOTIVO_TEXTO_OMITIDO : null,
       senales: nucleo.ids.length,
       clases: contarClases(vocesDelNucleo),
       provincias: contarProvincias(vocesDelNucleo),
       distancia: dosMasLejanos(senales),
-      miembros: nucleo.ids.map((id, j) => {
+      // Los miembros salen de las VOCES y no de los ids: así la clase es la
+      // que trajo la fila, sin un `?? 'hecho'` que le inventara una clase
+      // —«esto se corrobora»— a una voz que no encontramos. `vocesDelNucleo`
+      // conserva el orden de `nucleo.ids` y tiene su mismo largo, porque todo
+      // id de la partición salió de una voz con vector.
+      miembros: vocesDelNucleo.map((voz, j) => {
         const lugar = lugares[j] ?? centro;
-        return {
-          id,
-          clase: porId.get(id)?.clase ?? 'hecho',
-          x: lugar.x,
-          y: lugar.y,
-          z: lugar.z,
-        };
+        return { id: voz.id, clase: voz.clase, x: lugar.x, y: lugar.y, z: lugar.z };
       }),
     };
   });
 
-  const solas: MiembroPublico[] = particion.solas.map((id, j) => {
-    const lugar = puntoDeVozSola(centros[particion.nucleos.length + j] ?? ORIGEN);
-    return { id, clase: porId.get(id)?.clase ?? 'hecho', x: lugar.x, y: lugar.y, z: lugar.z };
-  });
+  const solas: MiembroPublico[] = particion.solas
+    .map((id) => porId.get(id))
+    .filter((voz): voz is VozDelCorpus => voz !== undefined)
+    .map((voz, j) => {
+      const lugar = puntoDeVozSola(centros[particion.nucleos.length + j] ?? ORIGEN);
+      return { id: voz.id, clase: voz.clase, x: lugar.x, y: lugar.y, z: lugar.z };
+    });
 
   /*
    * Sólo las aristas VISIBLES al umbral que el lector eligió. Devolver también
@@ -221,6 +248,7 @@ export async function construirRadiografia(
     .sort((p, q) => q.similitud - p.similitud || p.a.localeCompare(q.a) || p.b.localeCompare(q.b));
 
   return {
+    corpus: fuente.corpus,
     corte: corrida?.corte ?? null,
     modelo: corrida?.modelo ?? null,
     analizadas: conVector.length,
@@ -231,6 +259,7 @@ export async function construirRadiografia(
     total: voces.length,
     provinciasSinSenal: Math.max(0, PROVINCIAS_CANONICAS.length - contarProvincias(voces)),
     umbral,
+    regimenDegenerado: regimenDegenerado(conVector.length, k),
     nucleos,
     solas,
     aristas,

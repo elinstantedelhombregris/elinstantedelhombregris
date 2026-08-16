@@ -8,6 +8,7 @@ import { Constelacion } from './LaRadiografia/sections/Constelacion';
 import { DeslizadorUmbral } from './LaRadiografia/sections/DeslizadorUmbral';
 import { FichaDeNucleo } from './LaRadiografia/sections/FichaDeNucleo';
 import { ListaDeNucleos } from './LaRadiografia/sections/ListaDeNucleos';
+import { RegimenDegenerado } from './LaRadiografia/sections/RegimenDegenerado';
 
 import { Kicker, RitoTinta } from '~/components/papel/primitives';
 import { UMBRAL_INICIAL, useRadiografia } from '~/lib/queries/radiografia';
@@ -94,9 +95,11 @@ export function LaRadiografia() {
               }`}
               style={{ animationDelay: '0.9s' }}
             >
-              El mapa dice dónde se habló y cuándo. Esto dice sobre qué, y quiénes dijeron casi lo
-              mismo sin conocerse. Converger no es corroborar: que muchas personas escriban lo mismo
-              es evidencia de que muchas personas escribieron lo mismo, y ya es mucho.
+              El mapa dice dónde se habló y cuándo. Esto dice sobre qué, y qué se dijo casi igual en
+              dos puntas del país sin que nadie se pusiera de acuerdo. Converger no es corroborar:
+              que muchas señales digan lo mismo es evidencia de que muchas señales dicen lo mismo, y
+              ya es mucho. Son <strong className="font-semibold">señales</strong> y no personas: acá
+              se cuentan filas, y una sola persona puede haber cargado veinte.
             </p>
           </div>
 
@@ -122,6 +125,12 @@ export function LaRadiografia() {
           />
         ) : (
           <>
+            {/* Antes de la imagen y no después: si con este corpus los núcleos
+                son aritmética del método, el lector tiene que saberlo antes de
+                sacar la conclusión, no en un pie. Se dibuja solo cuando el
+                servidor lo declara, y desaparece solo cuando deja de valer. */}
+            <RegimenDegenerado regimen={data?.regimenDegenerado ?? null} tema={tema} />
+
             {/* φ y sólo acá: 1,618fr de constelación a 1fr de ficha (§5.6.5).
                 Nada de φ entra en el umbral ni en un número publicado (R10). */}
             <div className="grid gap-0 lg:grid-cols-[1.618fr_1fr]">

@@ -1,6 +1,12 @@
-import { FONDO_DE_TEMA, TINTA_DE_TEMA, type Tema } from './radiografia-data';
+import { type Tema } from './radiografia-data';
 
 import type { AristaDeConvergencia } from '~/lib/queries/radiografia';
+
+import {
+  FONDO_DEL_TEMA,
+  PESO_MINIMO_EN_FOCO,
+  TINTA_DEL_TEMA,
+} from '~/components/mapa/pintor-senales';
 
 /**
  * El pintor de la constelación — la proyección y el trazo, sin React.
@@ -112,6 +118,20 @@ export function aRgb(hex: string): [number, number, number] {
   ];
 }
 
+/**
+ * Cuánta de su tinta conserva un nodo por su profundidad. `frente` 1 al frente,
+ * 0 al fondo.
+ *
+ * El piso es el del pintor de señales —`PESO_MINIMO_EN_FOCO`, el 72 %— y por el
+ * mismo motivo escrito allá: el escalonado existe para que quinientos nodos
+ * encimados no se fundan en un disco opaco, **no** para decir que las últimas
+ * voces valen menos. Estuvo en 0,28, y con ese piso un `deseo` al fondo del
+ * cielo nocturno caía a 1,13:1 contra el fondo: la clase, que es la primera
+ * lectura de la regla 11, dejaba de verse justo donde hay más nodos juntos.
+ */
+export const pesoDeProfundidad = (frente: number): number =>
+  PESO_MINIMO_EN_FOCO + Math.max(0, Math.min(1, frente)) * (1 - PESO_MINIMO_EN_FOCO);
+
 /** Con un núcleo enfocado, el resto del cielo se va hacia el fondo (§5.4). */
 export function atenuacion(escena: Escena, nodo: NodoDibujable): number {
   if (escena.enfocado === null) return 1;
@@ -168,8 +188,8 @@ export function pintar(
   if (ancho === 0 || alto === 0) return;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  const fondo = FONDO_DE_TEMA[escena.tema];
-  const tinta = TINTA_DE_TEMA[escena.tema];
+  const fondo = FONDO_DEL_TEMA[escena.tema];
+  const tinta = TINTA_DEL_TEMA[escena.tema];
   ctx.fillStyle = fondo;
   ctx.fillRect(0, 0, ancho, alto);
 
@@ -205,7 +225,7 @@ export function pintar(
 
   const ordenados = [...porId.values()].sort((p, q) => p.p.frente - q.p.frente);
   for (const { nodo, p } of ordenados) {
-    const peso = (0.28 + p.frente * 0.72) * atenuacion(escena, nodo);
+    const peso = pesoDeProfundidad(p.frente) * atenuacion(escena, nodo);
     ctx.fillStyle = haciaElFondo(nodo.color, fondo, peso);
     ctx.beginPath();
     ctx.arc(p.sx, p.sy, Math.max(1.2, nodo.radio * p.escala), 0, Math.PI * 2);

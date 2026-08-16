@@ -79,6 +79,13 @@ export interface RadiografiaPublica {
   /** Las voces solas. No es un residuo: es una voz que nadie repitió (§6). */
   solas: MiembroDeNucleo[];
   aristas: AristaDeConvergencia[];
+  /**
+   * Cuando `n <= k + 1` el grafo k-NN es COMPLETO POR CONSTRUCCIÓN: cada señal
+   * es vecina de todas las demás, así que la partición en núcleos no depende del
+   * contenido. Publicarla como medición sin decirlo es la regla 11 rota por
+   * álgebra. `null` cuando no aplica.
+   */
+  readonly regimenDegenerado: { readonly n: number; readonly k: number } | null;
 }
 
 /**

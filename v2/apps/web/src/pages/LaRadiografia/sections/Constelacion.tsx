@@ -1,15 +1,11 @@
 import { useEffect, useRef } from 'react';
 
 import { golpear, pintar, type Escena } from '../constelacion-pintor';
-import {
-  colorDeClase,
-  FONDO_DE_TEMA,
-  radioDeNodo,
-  type NucleoEnPantalla,
-  type Tema,
-} from '../radiografia-data';
+import { colorDeClase, radioDeNodo, type NucleoEnPantalla, type Tema } from '../radiografia-data';
 
 import type { AristaDeConvergencia, MiembroDeNucleo } from '~/lib/queries/radiografia';
+
+import { FONDO_DEL_TEMA } from '~/components/mapa/pintor-senales';
 
 /**
  * § La constelación — niveles 0 y 1 (spec §5.1, §5.4).
@@ -77,7 +73,7 @@ export function Constelacion({
             x: m.x,
             y: m.y,
             z: m.z,
-            color: colorDeClase(m.clase),
+            color: colorDeClase(m.clase, tema),
             radio: radioDeNodo(nucleo.senales),
           })),
         ),
@@ -87,7 +83,7 @@ export function Constelacion({
           x: m.x,
           y: m.y,
           z: m.z,
-          color: colorDeClase(m.clase),
+          color: colorDeClase(m.clase, tema),
           // Una voz sola no se dibuja más chica por estar sola: se dibuja sola.
           radio: radioDeNodo(1),
         })),
@@ -201,7 +197,7 @@ export function Constelacion({
       aria-hidden
       data-testid="constelacion"
       className="block h-full w-full cursor-grab touch-none active:cursor-grabbing"
-      style={{ background: FONDO_DE_TEMA[tema] }}
+      style={{ background: FONDO_DEL_TEMA[tema] }}
     />
   );
 }

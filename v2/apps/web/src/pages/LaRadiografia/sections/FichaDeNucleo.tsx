@@ -12,9 +12,15 @@ import {
  * § La ficha del núcleo — nivel 1 (spec §5.4).
  *
  * Lo primero que dice **no es el tamaño: es la composición por clase** y qué
- * se hace con eso (§3.1). Que treinta personas hayan escrito casi lo mismo es
- * evidencia de que treinta personas escribieron casi lo mismo, y nada más —
- * ya es mucho, y no es una corroboración.
+ * se hace con eso (§3.1). Que treinta señales digan casi lo mismo es evidencia
+ * de que treinta señales dicen casi lo mismo, y nada más — ya es mucho, y no
+ * es una corroboración.
+ *
+ * **Señales y no personas.** Todo lo que esta ficha cuenta son filas: el
+ * número grande, la composición, los dos extremos de la distancia. Una persona
+ * puede haber cargado veinte, y esta página no sabe cuántas personas hay
+ * detrás — `senales` no trae actor. Decir «personas» acá sería afirmar algo
+ * que no medimos, que es exactamente lo que la regla 5 prohíbe.
  *
  * La frase es una frase **real**, la de la señal más cercana al centro entre
  * las que cedieron licencia (R8). Nunca un resumen generado: la máquina elige
@@ -38,7 +44,7 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
       <aside aria-live="polite" className={`border-l ${borde} h-full p-6`}>
         <p className={`text-[15px] leading-[1.6] ${meta}`}>
           Clickeá un núcleo del cielo —o una fila de la lista— y acá se abre lo que dice, de qué
-          clase es, y a cuántos kilómetros están las dos personas más lejanas que lo dijeron.
+          clase es, y a cuántos kilómetros están las dos señales más lejanas que lo dicen.
         </p>
       </aside>
     );
@@ -51,7 +57,7 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
       <div className="mb-4 flex items-start justify-between gap-3">
         <span
           className="font-space text-[11px] font-bold uppercase tracking-[0.12em]"
-          style={{ color: mixto ? undefined : colorDeClase(clase ?? '') }}
+          style={{ color: mixto ? undefined : colorDeClase(clase ?? '', tema) }}
         >
           {rotulo}
         </span>
@@ -97,7 +103,7 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
             <span
               aria-hidden
               className="inline-block h-3 w-3 rounded-full"
-              style={{ backgroundColor: colorDeClase(c) }}
+              style={{ backgroundColor: colorDeClase(c, tema) }}
             />
             {etiquetaDeClase(c)} · {cuantas}
           </li>
@@ -109,7 +115,7 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
       <p className={`mt-5 text-[13px] leading-[1.55] ${meta}`}>
         {mixto
           ? 'Es un núcleo mixto y no se resuelve por mayoría: lo que es hecho sigue necesitando corroboración, y lo que es deseo sigue necesitando deliberarse.'
-          : 'Converger no es corroborar. Que varias personas hayan escrito casi lo mismo es evidencia de eso y de nada más.'}
+          : 'Converger no es corroborar. Que varias señales digan casi lo mismo es evidencia de eso y de nada más. Son señales, no personas: una sola persona puede haber cargado varias.'}
       </p>
     </aside>
   );

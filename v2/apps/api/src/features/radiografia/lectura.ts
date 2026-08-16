@@ -4,33 +4,53 @@
  *
  * Spec: `docs/specs/2026-08-12-la-radiografia.md` §4.3, §4.4, §7, R4, R13.
  *
- * El puerto existe por dos razones concretas, no por gusto de abstraer:
+ * ## El corpus, dicho por su nombre
  *
- * 1. **La fuente de texto va a cambiar de nombre.** Hoy el corpus es `dreams`;
- *    mañana es `senales` (spec `2026-08-11-b-la-senal.md`). La tabla de
- *    vectores está desacoplada de la de texto justamente para que esa
- *    migración no la toque —`analisis_vectores` guarda `(fuente, fuente_id)` y
- *    no una columna adentro de `dreams`—, y este puerto es dónde se cambia el
- *    literal `'dreams'` por `'senales'` sin tocar el servicio ni la ruta.
+ * **La tabla es `senales`.** No es un detalle de implementación escondido acá
+ * abajo: viaja en la respuesta como `corpus` y la cabecera de la página lo
+ * publica al lado del modelo, porque quien mira una constelación tiene que
+ * poder saber de qué tabla salió lo que ve.
+ *
+ * Hasta el 16/8/2026 este archivo leía `dreams`, y `dreams` está **retirada
+ * desde la migración 0022**: no recibe escrituras y toda señal vive en
+ * `senales` (ver la cabecera de `packages/db/src/schema/dreams.ts`). O sea que
+ * una voz cargada hoy no llegaba nunca a esta página, y el vacío de la pantalla
+ * —que la spec diseñó como pieza— era en realidad un caño desconectado que se
+ * le parecía. Nada fallaba, y ése era el problema.
+ *
+ * El puerto sigue existiendo por dos razones concretas, no por gusto de
+ * abstraer:
+ *
+ * 1. **La tabla de vectores está desacoplada de la del texto.**
+ *    `analisis_vectores` guarda `(fuente, fuente_id)` y no una columna adentro
+ *    del corpus, y esa previsión de la migración 0020 es lo que hizo que
+ *    repuntar de `dreams` a `senales` costara este archivo y no una migración.
  * 2. **El servicio se prueba sin base.** El motor de `@v2/civic-core` ya corre
  *    sin red ni disco; que el ensamblado también lo haga es lo que permite
  *    afirmar el invariante del conteo (spec §11) en un test unitario.
  */
-import { desc, dreams, eq, sql } from '@v2/db';
+import { and, desc, senales, sql, FUENTE_VIVA } from '@v2/db';
 
 import { logger } from '../../lib/logger.js';
 
-import { claseProvisional, type ClaseProvisional } from './clase-provisional.js';
 import { puntoPublicable } from './punto.js';
 
 import type { GeoPoint } from '@v2/civic-core';
 import type { Db } from '@v2/db';
 
 /**
- * La fuente de texto de hoy. Es el valor de la columna `fuente` de
- * `analisis_vectores`, y es el literal que se cambia cuando exista `senales`.
+ * La fuente de texto: el valor de la columna `fuente` de `analisis_vectores`
+ * **y** el nombre de la tabla de la que sale el corpus. Los dos tienen que
+ * decir lo mismo o la página lee vectores de un corpus y textos de otro.
+ *
+ * **Se reexporta desde `@v2/db` y no se escribe de nuevo acá.** El job que
+ * escribe esos vectores (`pnpm radiografia:embeber`) no puede importar de
+ * `apps/api` —`scripts/` no es workspace de pnpm—, así que el único lugar al
+ * que llegan las dos puntas es el paquete de base. Dos literales iguales en dos
+ * archivos es exactamente el defecto que dejó a esta página leyendo una tabla
+ * retirada sin que nada fallara.
  */
-export const FUENTE = 'dreams';
+export const FUENTE = FUENTE_VIVA;
 
 /**
  * El techo de filas que entran a una corrida de lectura.
@@ -51,9 +71,27 @@ export const TOPE_DE_CORPUS = 500;
 
 /** Una voz del corpus, ya reducida a lo que el motor necesita. */
 export interface VozDelCorpus {
-  /** `"voz:412"` — la misma convención de id que `/api/v1/civic/map/signals`. */
+  /** `"voz:<id_publico>"` — la misma convención de id que `/api/v1/civic/map/signals`. */
   readonly id: string;
-  readonly clase: ClaseProvisional;
+  /**
+   * La clase, **tal cual la columna**. No se infiere de nada.
+   *
+   * `senales.clase` es `notNull` y la atornillan dos FK compuestas contra
+   * `tipos_senal` y `estados_senal`: insertar `('sueño','hecho')` es imposible
+   * porque ese par no existe en el catálogo. La regla 11 la hace cumplir
+   * Postgres, no un mapa de este lado — el que había (`clase-provisional.ts`)
+   * está borrado, y con él el mapeo de `valor`, un tipo que salió del canon.
+   *
+   * Es `string` y no la unión de cuatro **a propósito**: el día que el catálogo
+   * gane una quinta clase, la señal tiene que seguir contándose y dibujándose
+   * con su nombre en vez de plegarse a una clase que no es. Es la misma
+   * decisión que ya tomó el contrato de la web (`lib/queries/radiografia.ts`).
+   */
+  readonly clase: string;
+  /** El texto crudo. **Sale a pantalla sólo por `textoPublicable`** (§4.5.4). */
+  readonly texto: string;
+  /** La cesión de licencia de esa fila. Sin ella, su frase no se presta. */
+  readonly cesionLicencia: boolean;
   readonly provinciaId: number | null;
   /** **Engrosado**, nunca el crudo. Ver `punto.ts`. */
   readonly punto: GeoPoint | null;
@@ -68,6 +106,8 @@ export interface CorridaDeAnalisis {
 }
 
 export interface FuenteDeRadiografia {
+  /** El nombre del corpus, para que la página lo declare. Ver `FUENTE`. */
+  readonly corpus: string;
   /** `null` cuando el job nunca corrió, o cuando el sustrato todavía no existe. */
   corrida(): Promise<CorridaDeAnalisis | null>;
   voces(): Promise<readonly VozDelCorpus[]>;
@@ -127,6 +167,8 @@ interface FilaDeVector extends Record<string, unknown> {
 
 /** La fuente real: la base de v2. */
 export const fuenteDeBase = (db: Db): FuenteDeRadiografia => ({
+  corpus: FUENTE,
+
   async corrida(): Promise<CorridaDeAnalisis | null> {
     try {
       const { rows } = await db.execute<FilaDeCorrida>(
@@ -151,19 +193,55 @@ export const fuenteDeBase = (db: Db): FuenteDeRadiografia => ({
     }
   },
 
+  /**
+   * El corpus publicable de `senales`.
+   *
+   * El predicado es el mismo que el de `CivicMapRepository.vocesDeSenales` y el
+   * mismo que el de `AnalisisRepository.faltanPorEmbeber`, y esa coincidencia
+   * no es estética: si el job embebiera un conjunto y la página leyera otro, el
+   * invariante del conteo de §11 —analizadas + esperando = total— dejaría de
+   * cerrar sin que nada avise.
+   *
+   * - `retenida_en is null` — la retención de cuidado es **visibilidad y no
+   *   calidad**, no toca `estado`, y sale de toda superficie pública;
+   * - `estado <> 'retirada'` — una retirada conserva la fila para la cobertura
+   *   pero su texto está vacío por CHECK, y una estrella sin texto en el cielo
+   *   es un punto que no dice nada.
+   *
+   * El id que sale es `id_publico` y **nunca el ordinal**: un entero en la
+   * respuesta deja enumerar el corpus entero y emparejar dos señales de la
+   * misma sesión. Eso gobierna también qué guarda `analisis_vectores.fuente_id`
+   * para esta fuente — el mismo `id_publico`, o los vectores no aparean.
+   */
   async voces(): Promise<readonly VozDelCorpus[]> {
     const filas = await db
       .select({
-        id: dreams.id,
-        categoria: dreams.category,
-        lat: dreams.lat,
-        lng: dreams.lng,
-        precision: dreams.precision,
-        provinciaId: dreams.provinceId,
+        idPublico: senales.idPublico,
+        clase: senales.clase,
+        texto: senales.texto,
+        cesionLicencia: senales.cesionLicencia,
+        lat: senales.lat,
+        lng: senales.lng,
+        precision: senales.precision,
+        provinciaId: senales.provinceId,
       })
-      .from(dreams)
-      .where(eq(dreams.status, 'approved'))
-      .orderBy(desc(dreams.createdAt))
+      .from(senales)
+      .where(
+        and(
+          sql`${senales.retenidaEn} is null`,
+          sql`${senales.estado} <> 'retirada'`,
+          /*
+           * El texto en blanco se excluye acá porque `faltanPorEmbeber` lo
+           * excluye allá. Sin esta línea el docstring de arriba era falso y
+           * había una fila condenada: una señal con texto vacío entraba al
+           * `total`, quedaba contada como «esperando análisis», y ningún job
+           * podía embeberla nunca — esperando para siempre un análisis que
+           * nadie iba a poder hacerle.
+           */
+          sql`length(btrim(${senales.texto})) > 0`,
+        ),
+      )
+      .orderBy(desc(senales.creadaEn))
       // Una de más, sólo para poder decir que hubo recorte.
       .limit(TOPE_DE_CORPUS + 1);
 
@@ -175,8 +253,10 @@ export const fuenteDeBase = (db: Db): FuenteDeRadiografia => ({
     }
 
     return filas.slice(0, TOPE_DE_CORPUS).map((fila) => ({
-      id: `voz:${String(fila.id)}`,
-      clase: claseProvisional(fila.categoria),
+      id: `voz:${fila.idPublico}`,
+      clase: fila.clase,
+      texto: fila.texto,
+      cesionLicencia: fila.cesionLicencia,
       provinciaId: fila.provinciaId,
       punto: puntoPublicable(fila.lat, fila.lng, fila.precision),
     }));

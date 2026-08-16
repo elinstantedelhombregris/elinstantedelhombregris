@@ -3,10 +3,11 @@
  *
  * Spec: `docs/specs/2026-08-12-la-radiografia.md` §4.3.
  *
- *   pnpm radiografia:embeber                       # dreams, desde la base
+ *   pnpm radiografia:embeber                       # senales, desde la base
  *   pnpm radiografia:embeber corpus.jsonl          # un JSONL de {id, texto}
  *   pnpm radiografia:embeber --seco                # dice qué haría, no toca nada
- *   pnpm radiografia:embeber corpus.jsonl --fuente senales --tanda 32 --limite 500
+ *   pnpm radiografia:embeber --fuente dreams       # el corpus retirado, si hiciera falta
+ *   pnpm radiografia:embeber corpus.jsonl --tanda 32 --limite 500
  *
  * ## Fuera de banda, y a mano
  *
@@ -29,9 +30,11 @@
  * ## El corpus de archivo
  *
  * Con una ruta como argumento, la fuente es un JSONL en vez de la base. Es lo
- * que permite probar esto HOY —con `senales` sin escribir y la base en cero
- * (`D-002`)— y lo que va a permitir correr el análisis contra el volcado
- * público el día que convenga, sin que la página se entere (§4.3).
+ * que permite probar esto con la base casi en cero (`D-002`) y lo que va a
+ * permitir correr el análisis contra el volcado público el día que convenga,
+ * sin que la página se entere (§4.3). Ojo con el `--fuente` que se le pase: el
+ * rótulo con el que se guarda tiene que ser el que la página lee, y los ids del
+ * archivo tienen que ser los mismos que publica el lector.
  *
  * Combinado con `--seco`, un archivo hace que la corrida no toque **ni la base
  * ni Ollama**: lee, cuenta y dice qué haría.
@@ -39,7 +42,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { AnalisisRepository, getDb, type VectorParaGuardar } from '@v2/db';
+import { AnalisisRepository, FUENTE_VIVA, getDb, type VectorParaGuardar } from '@v2/db';
 import { config } from 'dotenv';
 
 import { enTandas, leerJsonl, type FilaDeCorpus } from './corpus.js';
@@ -47,8 +50,19 @@ import { EmbebedorOllama } from './embebedor-ollama.js';
 
 config({ path: new URL('../../.env', import.meta.url).pathname });
 
-/** La fuente por defecto. Cuando exista `senales`, se pasa `--fuente senales`. */
-const FUENTE_POR_DEFECTO = 'dreams';
+/**
+ * La fuente por defecto: la tabla viva.
+ *
+ * Es el mismo literal que `FUENTE` en
+ * `apps/api/src/features/radiografia/lectura.ts`, y tienen que coincidir: el
+ * job escribe `analisis_vectores.fuente` con esto y la página lee filtrando por
+ * eso. Con `dreams` acá —como estuvo hasta el 16/8/2026— el job embebía la
+ * tabla retirada y la página no veía nada.
+ *
+ * Las fuentes que el repositorio sabe leer de la base son `FUENTES_LEGIBLES`;
+ * cualquier otra se planta en vez de escribir filas invisibles.
+ */
+const FUENTE_POR_DEFECTO = FUENTE_VIVA;
 
 /**
  * Cuántos textos por viaje a Ollama.

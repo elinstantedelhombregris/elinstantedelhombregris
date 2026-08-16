@@ -20,6 +20,7 @@ import { ListaDeNucleos } from '../sections/ListaDeNucleos';
 
 import type * as ConsultasDeRadiografia from '~/lib/queries/radiografia';
 
+import { GRIS_DEL_TEMA } from '~/components/mapa/pintor-senales';
 import { esRutaPapel } from '~/layouts/papel-routes';
 
 type MiembroDeNucleo = ConsultasDeRadiografia.MiembroDeNucleo;
@@ -102,10 +103,10 @@ describe('converger no es corroborar — regla 11 (§3.1)', () => {
     expect(rotuloDeNucleo({ hecho: 30 }).rotulo).toBe('esto se corrobora');
   });
 
-  it('los dos no se pueden ver igual: el color de clase difiere', () => {
-    expect(colorDeClase('deseo')).toBe('#5227CC');
-    expect(colorDeClase('hecho')).toBe('#A16C00');
-    expect(colorDeClase('deseo')).not.toBe(colorDeClase('hecho'));
+  it('los dos no se pueden ver igual: el color de clase difiere, en los dos temas', () => {
+    for (const tema of ['papel', 'nocturno'] as const) {
+      expect(colorDeClase('deseo', tema)).not.toBe(colorDeClase('hecho', tema));
+    }
   });
 
   /**
@@ -144,7 +145,12 @@ describe('converger no es corroborar — regla 11 (§3.1)', () => {
   });
 
   it('una clase que este código no conoce no se disfraza de una que sí', () => {
-    expect(colorDeClase('quimera')).toBe('#7A756A');
+    for (const tema of ['papel', 'nocturno'] as const) {
+      expect(colorDeClase('quimera', tema)).toBe(GRIS_DEL_TEMA[tema]);
+      for (const clase of ['hecho', 'deseo', 'acto', 'meta']) {
+        expect(colorDeClase('quimera', tema)).not.toBe(colorDeClase(clase, tema));
+      }
+    }
     // Y arrastra al núcleo a mixto, que es el lado seguro para fallar.
     expect(rotuloDeNucleo({ quimera: 5, deseo: 1 }).mixto).toBe(true);
   });
@@ -162,6 +168,7 @@ describe('la cabecera de procedencia — regla 5 (§3.2)', () => {
     nucleos: [],
     solas: [],
     aristas: [],
+    regimenDegenerado: null,
   };
 
   it('dice el corte, el modelo, lo que espera análisis y las provincias mudas', () => {
@@ -327,6 +334,7 @@ describe('el umbral recalcula con el mismo motor que usó el servidor (R5, R7)',
       { a: 's3', b: 's4', similitud: 0.86, tipo: 'medida' },
       { a: 's2', b: 's3', similitud: 0.64, tipo: 'medida' },
     ],
+    regimenDegenerado: null,
   };
 
   it('al umbral que midió el servidor devuelve su partición tal cual', () => {
@@ -561,6 +569,7 @@ describe('la página, de punta a punta', () => {
       { a: 'd2', b: 'd3', similitud: 0.79, tipo: 'medida' },
       { a: 'h1', b: 'h2', similitud: 0.83, tipo: 'medida' },
     ],
+    regimenDegenerado: null,
   };
 
   it('dibuja la cabecera, la constelación, el deslizador y la lista juntos', () => {
@@ -612,5 +621,148 @@ describe('la página, de punta a punta', () => {
     fireEvent.click(screen.getByText('Ver de noche'));
     expect(leerTema()).toBe('nocturno');
     expect(screen.getByText('Ver en papel')).toBeInTheDocument();
+  });
+
+  /**
+   * La falsedad que estuvo publicada: la página decía «personas» sobre un
+   * conteo de FILAS. Son señales — una sola persona puede haber cargado
+   * veinte, y `senales` no trae actor, así que la página no sabe cuántas
+   * personas hay detrás y no puede decirlo.
+   */
+  it('cuenta señales y NUNCA personas', () => {
+    respuesta = { data: CORPUS, isLoading: false, isError: false };
+    const { container } = envolver(<LaRadiografia />);
+    const texto = container.textContent;
+
+    expect(texto).toMatch(/muchas señales digan lo mismo/);
+    expect(texto).toContain('Son señales y no personas');
+    // Las cuatro formas exactas que estuvieron en pantalla.
+    expect(texto).not.toMatch(/muchas personas|treinta personas|varias personas/i);
+    expect(texto).not.toMatch(/\d+\s+personas\b/);
+  });
+
+  it('la ficha mide distancia entre señales, no entre personas', () => {
+    const { container } = envolver(<FichaDeNucleo nucleo={null} tema="papel" onCerrar={vi.fn()} />);
+    expect(container.textContent).toContain('las dos señales más lejanas');
+    expect(container.textContent).not.toMatch(/personas más lejanas/);
+  });
+
+  it('la ficha de un núcleo dice que son señales y no personas', () => {
+    const { container } = envolver(
+      <FichaDeNucleo nucleo={nucleo('n1', { deseo: 12 })} tema="papel" onCerrar={vi.fn()} />,
+    );
+    expect(container.textContent).toContain('Son señales, no personas');
+  });
+});
+
+/**
+ * El régimen degenerado — la advertencia que sostiene todo lo demás.
+ *
+ * Con `n ≤ k + 1` el grafo k-NN es completo por construcción: cada señal es
+ * vecina de todas las demás y la partición en núcleos no depende del
+ * contenido. Publicarla como medición sin decirlo es la regla 11 rota por
+ * álgebra, y el arreglo no cuesta un dato nuevo: el servicio ya tiene `n` y `k`.
+ */
+describe('el régimen degenerado', () => {
+  const CORPUS_CHICO: RadiografiaPublica = {
+    corte: '2026-08-16T04:12:00.000Z',
+    modelo: 'bge-m3',
+    analizadas: 8,
+    sinVector: 0,
+    total: 8,
+    provinciasSinSenal: 22,
+    umbral: 0.72,
+    nucleos: [
+      {
+        id: 'uno',
+        frase: { id: 'a1', texto: 'No llego a fin de mes' },
+        textoOmitido: null,
+        senales: 4,
+        clases: { deseo: 4 },
+        provincias: 2,
+        distancia: null,
+        miembros: [
+          nodo('a1', 'deseo'),
+          nodo('a2', 'deseo'),
+          nodo('a3', 'deseo'),
+          nodo('a4', 'deseo'),
+        ],
+      },
+    ],
+    solas: [nodo('b1', 'hecho')],
+    aristas: [{ a: 'a1', b: 'a2', similitud: 0.9, tipo: 'medida' }],
+    regimenDegenerado: { n: 8, k: 12 },
+  };
+
+  it('lo dice con PALABRAS: los núcleos no dependen de lo que dijo nadie', () => {
+    respuesta = { data: CORPUS_CHICO, isLoading: false, isError: false };
+    const { container } = envolver(<LaRadiografia />);
+    const texto = container.textContent;
+    expect(texto).toContain('no dependen de lo que dijo nadie');
+    expect(texto).toContain('El grafo queda completo antes de leer una sola frase');
+    // Los dos números que lo fundamentan, dichos y no escondidos.
+    expect(texto).toContain('8 señales');
+    expect(texto).toContain('12 vecinas');
+  });
+
+  it('no suena a error de sistema: dice que es el límite del instrumento', () => {
+    respuesta = { data: CORPUS_CHICO, isLoading: false, isError: false };
+    const { container } = envolver(<LaRadiografia />);
+    const texto = container.textContent;
+    expect(texto).toContain('Esto no es un error');
+    expect(texto).toMatch(/hasta dónde llega el instrumento/);
+    expect(texto).not.toMatch(/error interno|falló|inténtalo|intentá de nuevo/i);
+  });
+
+  /** Y dice cuándo deja de valer: `n ≥ k + 2`, con el número puesto. */
+  it('declara solo cuándo se desarma', () => {
+    respuesta = { data: CORPUS_CHICO, isLoading: false, isError: false };
+    const { container } = envolver(<LaRadiografia />);
+    expect(container.textContent).toContain('desde las 14 señales analizadas');
+  });
+
+  /**
+   * Va donde el lector saca la conclusión, no en un pie: el aviso tiene que
+   * estar en el DOM **antes** del lienzo y de la tabla.
+   */
+  it('sale ANTES de la constelación y de la lista, no después', () => {
+    respuesta = { data: CORPUS_CHICO, isLoading: false, isError: false };
+    const { container } = envolver(<LaRadiografia />);
+    const aviso = container.querySelector('section[aria-label="Hasta dónde llega este corte"]');
+    const lienzo = screen.getByTestId('constelacion');
+    const tabla = container.querySelector('table');
+    if (!aviso || !tabla) throw new Error('falta el aviso o la lista');
+    // `querySelectorAll('*')` devuelve en orden de documento: comparar índices
+    // es leer el orden real en el que el lector se los encuentra.
+    const enOrden = [...container.querySelectorAll('*')];
+    expect(enOrden.indexOf(aviso)).toBeGreaterThanOrEqual(0);
+    expect(enOrden.indexOf(aviso)).toBeLessThan(enOrden.indexOf(lienzo));
+    expect(enOrden.indexOf(aviso)).toBeLessThan(enOrden.indexOf(tabla));
+  });
+
+  it('con `null` no dice nada: el aviso es una afirmación, no un adorno', () => {
+    respuesta = {
+      data: { ...CORPUS_CHICO, regimenDegenerado: null },
+      isLoading: false,
+      isError: false,
+    };
+    const { container } = envolver(<LaRadiografia />);
+    expect(
+      container.querySelector('section[aria-label="Hasta dónde llega este corte"]'),
+    ).toBeNull();
+    expect(container.textContent).not.toContain('no dependen de lo que dijo nadie');
+  });
+
+  it('con una sola señal y una sola vecina lo dice en singular', () => {
+    respuesta = {
+      data: { ...CORPUS_CHICO, regimenDegenerado: { n: 1, k: 1 } },
+      isLoading: false,
+      isError: false,
+    };
+    const { container } = envolver(<LaRadiografia />);
+    const texto = container.textContent;
+    expect(texto).toContain('1 señal analizada');
+    expect(texto).toContain('1 vecina');
+    expect(texto).not.toContain('1 señales');
   });
 });

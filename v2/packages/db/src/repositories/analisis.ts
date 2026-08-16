@@ -10,9 +10,10 @@
  * escrituras— y ninguna devuelve la fila entera de `analisis_vectores`: nadie
  * necesita `creadoEn` ni `dimensiones` al lado de cada vector.
  *
- * **Nada de acá conoce `dreams` salvo `faltanPorEmbeber`**, y esa es toda la
- * costura que la migración a `senales` va a tener que tocar. El resto habla de
- * `fuente` como un rótulo y le da igual de qué tabla salió.
+ * **Nada de acá conoce una tabla de texto salvo `faltanPorEmbeber`**, que es
+ * la única costura donde `fuente` deja de ser un rótulo y pasa a nombrar una
+ * tabla. El resto habla de `fuente` como un rótulo y le da igual de qué tabla
+ * salió.
  *
  * **Sin `db.transaction()`.** El driver es `neon-http` y no las soporta (ver
  * `client.ts`). Cada lote de vectores es un `INSERT … ON CONFLICT` que se basta
@@ -24,6 +25,7 @@ import { and, desc, eq, notExists, sql } from 'drizzle-orm';
 
 import { analisisCorridas, analisisVectores } from '../schema/analisis.js';
 import { dreams } from '../schema/dreams.js';
+import { senales } from '../schema/senales.js';
 
 import { correrConTecho } from './_lectura.js';
 
@@ -63,8 +65,34 @@ export interface TextoParaEmbeber {
   texto: string;
 }
 
+/**
+ * Las fuentes que este repositorio **sabe leer**, por nombre de tabla.
+ *
+ * `senales` es el corpus vivo (migración 0022); `dreams` está retirada y sigue
+ * acá sólo para poder re-embeber lo viejo si alguna vez hiciera falta.
+ */
+/**
+ * El corpus vivo: de acá salen las voces que la gente carga hoy.
+ *
+ * Vive en `@v2/db` y no en la feature de la API porque es el único lugar que
+ * **las dos puntas pueden importar**: la página lo usa para filtrar
+ * `analisis_vectores.fuente`, y el job de `scripts/` —que no es workspace de
+ * pnpm y no resuelve `apps/api`— lo usa para escribir esa misma columna.
+ *
+ * Duplicar el literal es exactamente el defecto que costó esta reparación: el
+ * job escribía bajo un rótulo y la página leía otro, sin un solo error.
+ */
+export const FUENTE_VIVA = 'senales';
+
+export const FUENTES_LEGIBLES = [FUENTE_VIVA, 'dreams'] as const;
+
+export type FuenteLegible = (typeof FUENTES_LEGIBLES)[number];
+
+export const esFuenteLegible = (fuente: string): fuente is FuenteLegible =>
+  (FUENTES_LEGIBLES as readonly string[]).includes(fuente);
+
 export interface ConsultaDeFaltantes {
-  /** El rótulo con el que se van a guardar. Hoy `'dreams'`. */
+  /** El rótulo con el que se van a guardar, **y** la tabla de la que se lee. */
   fuente: string;
   modelo: string;
   /** Techo de filas. El job lo usa para cortar una corrida larga en tandas. */
@@ -75,7 +103,8 @@ export interface ConsultaDeFaltantes {
  * Un texto en blanco no se embebe: no dice nada, y su vector sería ruido con
  * la misma norma 1 que el de una frase.
  */
-const TEXTO_NO_VACIO = sql`length(btrim(${dreams.body})) > 0`;
+const TEXTO_NO_VACIO_DREAMS = sql`length(btrim(${dreams.body})) > 0`;
+const TEXTO_NO_VACIO_SENALES = sql`length(btrim(${senales.texto})) > 0`;
 
 export class AnalisisRepository {
   constructor(private readonly db: Db) {}
@@ -168,27 +197,75 @@ export class AnalisisRepository {
   }
 
   /**
-   * Lo que falta embeber de `dreams`.
+   * Lo que falta embeber de una fuente.
    *
-   * **Es el único método que conoce la tabla del texto**, y por eso es el único
-   * que la migración a `senales` va a tener que tocar.
+   * **Es el único método que conoce la tabla del texto.** Hasta el 16/8/2026
+   * leía `.from(dreams)` SIEMPRE y `fuente` sólo filtraba `analisis_vectores`:
+   * `--fuente senales` corría sin error, embebía los textos de la tabla
+   * retirada y los guardaba bajo un rótulo que la página iba a buscar contra
+   * `id_publico` — filas escritas, cero filas visibles, ningún error.
    *
-   * Se filtra por `status = 'approved'` — el mismo filtro que usan
-   * `DreamsRepository.countApproved` y el endpoint del mapa. Embeber una fila
-   * rechazada la metería en un núcleo que la página no puede mostrar, y el
-   * conteo de la cabecera («entraron tantas, faltan tantas», §3.2 de la spec)
-   * dejaría de cerrar.
+   * **La fuente gobierna de qué tabla se lee, y una fuente que no sabemos leer
+   * revienta.** Se eligió reventar y no caer en un default porque el modo de
+   * falla del default es justamente el que hubo: escribir en silencio algo que
+   * nadie puede leer. Un job que se planta cuesta un mensaje de error; uno que
+   * escribe filas invisibles cuesta descubrirlo tres semanas después.
+   *
+   * El predicado de cada tabla es **el mismo que usa quien después lee**:
+   *
+   * - `senales`: `retenida_en is null and estado <> 'retirada'`, igual que
+   *   `fuenteDeBase.voces()` en la API y que `CivicMapRepository`. El id que se
+   *   guarda es **`id_publico`** y no el ordinal, porque es el que sale a la
+   *   respuesta y el que el lector usa para aparear vector con voz;
+   * - `dreams`: `status = 'approved'`, igual que `DreamsRepository.countApproved`.
+   *
+   * Si el job embebiera un conjunto y la página leyera otro, el conteo de la
+   * cabecera («entraron tantas, faltan tantas», §3.2) dejaría de cerrar.
    *
    * `NOT EXISTS` y no `LEFT JOIN … IS NULL`: con la PK de `analisis_vectores`
    * el planificador corta apenas encuentra la fila, y no hay forma de que un
    * duplicado del lado derecho multiplique el resultado.
    *
-   * El cast de `dreams.id` a texto es el precio de que `fuenteId` sirva para
-   * cualquier fuente (ver la cabecera del schema). Es un cast por fila sobre
-   * una tabla que hoy tiene cero filas reales (`D-002`).
+   * El cast a texto es el precio de que `fuenteId` sirva para cualquier fuente
+   * (ver la cabecera del schema).
    */
   async faltanPorEmbeber(consulta: ConsultaDeFaltantes): Promise<TextoParaEmbeber[]> {
     const { fuente, modelo, limite } = consulta;
+
+    if (!esFuenteLegible(fuente)) {
+      throw new Error(
+        `No sé leer la fuente «${fuente}». Las que puedo leer de la base: ` +
+          `${FUENTES_LEGIBLES.join(', ')}. Si el corpus es un archivo, pasale la ruta al job.`,
+      );
+    }
+
+    if (fuente === 'senales') {
+      const yaTiene = this.db
+        .select({ uno: sql`1` })
+        .from(analisisVectores)
+        .where(
+          and(
+            eq(analisisVectores.fuente, fuente),
+            eq(analisisVectores.modelo, modelo),
+            eq(analisisVectores.fuenteId, sql`${senales.idPublico}::text`),
+          ),
+        );
+
+      const base = this.db
+        .select({ id: sql<string>`${senales.idPublico}::text`, texto: senales.texto })
+        .from(senales)
+        .where(
+          and(
+            sql`${senales.retenidaEn} is null`,
+            sql`${senales.estado} <> 'retirada'`,
+            TEXTO_NO_VACIO_SENALES,
+            notExists(yaTiene),
+          ),
+        )
+        .orderBy(senales.id);
+
+      return limite === undefined ? base : base.limit(limite);
+    }
 
     const yaTiene = this.db
       .select({ uno: sql`1` })
@@ -204,7 +281,7 @@ export class AnalisisRepository {
     const base = this.db
       .select({ id: sql<string>`${dreams.id}::text`, texto: dreams.body })
       .from(dreams)
-      .where(and(eq(dreams.status, 'approved'), TEXTO_NO_VACIO, notExists(yaTiene)))
+      .where(and(eq(dreams.status, 'approved'), TEXTO_NO_VACIO_DREAMS, notExists(yaTiene)))
       .orderBy(dreams.id);
 
     return limite === undefined ? base : base.limit(limite);

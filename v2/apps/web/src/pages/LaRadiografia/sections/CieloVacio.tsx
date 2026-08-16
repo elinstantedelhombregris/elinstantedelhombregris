@@ -1,6 +1,8 @@
 import { Link } from 'wouter';
 
-import { FONDO_DE_TEMA, TINTA_DE_TEMA, type Tema } from '../radiografia-data';
+import { type Tema } from '../radiografia-data';
+
+import { FONDO_DEL_TEMA, TINTA_DEL_TEMA } from '~/components/mapa/pintor-senales';
 
 /**
  * § El vacío, que es lo que se ve hoy (spec §6, y V2/V3/V4 de
@@ -28,8 +30,8 @@ export interface CieloVacioProps {
 }
 
 export function CieloVacio({ analizadas, sinVector, tema }: CieloVacioProps) {
-  const fondo = FONDO_DE_TEMA[tema];
-  const tinta = TINTA_DE_TEMA[tema];
+  const fondo = FONDO_DEL_TEMA[tema];
+  const tinta = TINTA_DEL_TEMA[tema];
   const nocturno = tema === 'nocturno';
   const meta = nocturno ? 'text-oscuro-meta' : 'text-tinta-50';
   const texto = nocturno ? 'text-oscuro-texto' : 'text-tinta';

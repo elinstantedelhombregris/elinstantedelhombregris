@@ -10,7 +10,8 @@ import {
   type NodoDibujable,
   type Pincel,
 } from '../constelacion-pintor';
-import { COLOR_DE_CLASE, FONDO_DE_TEMA } from '../radiografia-data';
+
+import { COLOR_DE_CLASE, FONDO_DEL_TEMA } from '~/components/mapa/pintor-senales';
 
 /**
  * El pintor de la constelación.
@@ -128,12 +129,12 @@ describe('la proyección', () => {
 
 describe('la profundidad se desvanece hacia el fondo del tema (§5.1)', () => {
   it('con peso 0 el color ES el fondo, y con peso 1 es el color pleno', () => {
-    expect(haciaElFondo(COLOR_DE_CLASE.deseo, FONDO_DE_TEMA.papel, 0)).toBe('rgb(242, 239, 231)');
-    expect(haciaElFondo(COLOR_DE_CLASE.deseo, FONDO_DE_TEMA.papel, 1)).toBe('rgb(82, 39, 204)');
+    expect(haciaElFondo(COLOR_DE_CLASE.deseo, FONDO_DEL_TEMA.papel, 0)).toBe('rgb(242, 239, 231)');
+    expect(haciaElFondo(COLOR_DE_CLASE.deseo, FONDO_DEL_TEMA.papel, 1)).toBe('rgb(82, 39, 204)');
   });
 
   it('en nocturno se va a `oscuro.barra` y no al papel', () => {
-    expect(haciaElFondo(COLOR_DE_CLASE.deseo, FONDO_DE_TEMA.nocturno, 0)).toBe('rgb(36, 31, 23)');
+    expect(haciaElFondo(COLOR_DE_CLASE.deseo, FONDO_DEL_TEMA.nocturno, 0)).toBe('rgb(36, 31, 23)');
   });
 
   it('lo que está atrás se dibuja más cerca del fondo que lo que está adelante', () => {

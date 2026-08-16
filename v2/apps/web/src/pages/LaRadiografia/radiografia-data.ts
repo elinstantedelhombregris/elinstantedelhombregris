@@ -1,38 +1,47 @@
-import { escalaModular } from '@v2/civic-core';
+import { CLASES_SENAL, escalaModular, type ClaseSenal } from '@v2/civic-core';
 
-import type { ClaseSenal, NucleoPublico } from '~/lib/queries/radiografia';
+import type { NucleoPublico } from '~/lib/queries/radiografia';
+
+import {
+  colorDeClase as colorDeClaseDelPintor,
+  GRIS_DEL_TEMA,
+  type TemaDelMapa,
+} from '~/components/mapa/pintor-senales';
 
 /**
  * La Radiografía — el vocabulario visual y el recálculo en el navegador.
  *
  * Spec: `docs/specs/2026-08-12-la-radiografia.md` §3.1, §5.2, §5.6.
  *
- * Acá NO hay ninguna tabla de color por tipo. El color codifica la **clase**
- * (§5.2): nueve colores distinguibles en AA a seis píxeles no existen, y la
- * lectura que importa es la regla 11 de la constitución de producto. El día
- * que exista `civic-core/src/senal/vocabulario.ts` (task 8 del plan de la
- * señal) esta tabla se borra y se importa de ahí.
+ * **Esta página no crea ninguna tabla de color propia** (§5.2), y eso es
+ * literal: acá no hay un solo hexadecimal. El color codifica la **clase** —
+ * cuatro y no nueve, porque nueve colores distinguibles en AA a seis píxeles
+ * no existen— y sale entero de `~/components/mapa/pintor-senales`, que es
+ * donde el repo ya resolvió el problema: una regla que corre cada token hacia
+ * la tinta del tema lo mínimo necesario para cruzar 3:1 contra su fondo.
+ *
+ * Hubo una tabla propia acá, de un solo valor por clase y sin parámetro de
+ * tema, escrita mientras `civic-core/src/senal/vocabulario.ts` no existía.
+ * Existe. Sobre el fondo nocturno esa tabla daba `deseo` a 1,96:1 y `meta` a
+ * 2,72:1 — o sea que la primera lectura de la regla 11, «de qué clase es
+ * esto», no se veía. Se borró en vez de corregirse a mano: una tercera paleta
+ * escrita a mano vuelve a desincronizarse el día que cambie un token.
  */
 
-export const CLASES: readonly ClaseSenal[] = ['hecho', 'deseo', 'acto', 'meta'];
-
 export function esClase(valor: string): valor is ClaseSenal {
-  return (CLASES as readonly string[]).includes(valor);
+  return (CLASES_SENAL as readonly string[]).includes(valor);
 }
 
-/** Los cuatro tokens de `tailwind.config.ts`. Ni un hex inventado (§5.3). */
-export const COLOR_DE_CLASE: Readonly<Record<ClaseSenal, string>> = {
-  hecho: '#A16C00', // ambar
-  deseo: '#5227CC', // violeta
-  acto: '#1A7A4A', // verde
-  meta: '#0F6B8A', // cian
-};
-
-/** Una clase que este código todavía no conoce se dibuja y se cuenta igual. */
-export const COLOR_DESCONOCIDO = '#7A756A'; // tinta-50
-
-export function colorDeClase(clase: string): string {
-  return esClase(clase) ? COLOR_DE_CLASE[clase] : COLOR_DESCONOCIDO;
+/**
+ * El color de una clase, en el tema activo. No hay versión sin tema: el mismo
+ * violeta que contrasta sobre papel se hunde en el fondo nocturno, y un color
+ * que no se distingue del fondo no codifica nada.
+ *
+ * Una clase que este código todavía no conoce se dibuja y se cuenta igual, en
+ * el gris del tema — que también cruza 3:1 y hay un test que lo mide.
+ */
+export function colorDeClase(clase: string, tema: Tema): string {
+  return esClase(clase) ? colorDeClaseDelPintor(clase, tema) : GRIS_DEL_TEMA[tema];
 }
 
 export const NOMBRE_DE_CLASE: Readonly<Record<ClaseSenal, string>> = {
@@ -44,8 +53,10 @@ export const NOMBRE_DE_CLASE: Readonly<Record<ClaseSenal, string>> = {
 
 /**
  * Qué se hace con lo que dice un núcleo — regla 11, y el motivo por el que
- * esta spec existe. Converger no es corroborar: que treinta personas escriban
- * lo mismo es evidencia de que treinta personas escribieron lo mismo.
+ * esta spec existe. Converger no es corroborar: que treinta señales digan lo
+ * mismo es evidencia de que treinta señales dicen lo mismo. **Treinta señales
+ * no son treinta personas**: acá se cuentan filas, y una persona puede haber
+ * cargado veinte.
  */
 const QUE_SE_HACE: Readonly<Record<ClaseSenal, string>> = {
   hecho: 'esto se corrobora',
@@ -120,20 +131,14 @@ export function etiquetaDeClase(clase: string): string {
 
 /* ── El tema: papel o nocturno, elección del lector y persistida (R12) ───── */
 
-export type Tema = 'papel' | 'nocturno';
+/**
+ * El mismo tema del pintor de señales, no uno paralelo: los dos fondos, las
+ * dos tintas y los cuatro colores viven en un solo lugar, y el día que cambie
+ * un token cambia para las dos superficies a la vez.
+ */
+export type Tema = TemaDelMapa;
 
 const CLAVE_DE_TEMA = 'basta_radiografia_tema';
-
-/** Las dos paletas ya están en `tailwind.config.ts`. No se inventa un color. */
-export const FONDO_DE_TEMA: Readonly<Record<Tema, string>> = {
-  papel: '#F2EFE7',
-  nocturno: '#241F17', // oscuro.barra
-};
-
-export const TINTA_DE_TEMA: Readonly<Record<Tema, string>> = {
-  papel: '#16130E',
-  nocturno: '#F2EFE7',
-};
 
 export function leerTema(): Tema {
   try {
