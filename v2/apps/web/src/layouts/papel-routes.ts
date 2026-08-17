@@ -9,6 +9,11 @@ const PAPEL_ROUTES = new Set([
   // La cuarta superficie (spec 2026-08-12-la-radiografia.md). Nace papel: su
   // interruptor nocturno gobierna la constelación, no el chrome del sitio.
   '/la-radiografia',
+  // El ejemplo de voces inventadas, en ruta propia (enmienda
+  // 2026-08-16-enmienda-v1-los-ejemplos.md §3). Va como ruta exacta y NO como
+  // prefijo `/la-radiografia/`: la enmienda autoriza **un** ejemplo, y un
+  // prefijo le dejaría la puerta abierta a los que vengan sin pasar por acá.
+  '/la-radiografia/ejemplo',
   // El instrumento de análisis (spec 2026-08-13-el-modulo-de-simulacion.md).
   // Nace papel, y fuera del recorrido: es una herramienta de trabajo, no una
   // de las cinco puertas del sitio.
@@ -73,5 +78,7 @@ const SIN_PAPEL = new Set(['/blog/escribir']);
  */
 export function esRutaPapel(location: string): boolean {
   if (SIN_PAPEL.has(location)) return false;
-  return PAPEL_ROUTES.has(location) || PAPEL_PREFIXES.some((prefijo) => location.startsWith(prefijo));
+  return (
+    PAPEL_ROUTES.has(location) || PAPEL_PREFIXES.some((prefijo) => location.startsWith(prefijo))
+  );
 }

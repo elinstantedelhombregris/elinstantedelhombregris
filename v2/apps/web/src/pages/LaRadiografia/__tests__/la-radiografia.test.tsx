@@ -504,6 +504,7 @@ describe('la constelación pinta sin esperar un cuadro', () => {
         tema="papel"
         enfocado={null}
         onEnfocar={vi.fn()}
+        origen="corpus"
       />,
     );
     // Un cuadro ya, sin un solo `requestAnimationFrame`, y sobre papel.
@@ -517,6 +518,7 @@ describe('la constelación pinta sin esperar un cuadro', () => {
         tema="nocturno"
         enfocado={null}
         onEnfocar={vi.fn()}
+        origen="corpus"
       />,
     );
     // Y el cielo se fue a `oscuro.barra` sin esperar a que alguien mire.
@@ -607,6 +609,53 @@ describe('la página, de punta a punta', () => {
     expect(screen.queryByTestId('constelacion')).toBeNull();
   });
 
+  /**
+   * **El ejemplo no se monta acá.** Vive en `/la-radiografia/ejemplo`, con su
+   * propia ruta, su propio título y su propio sello adentro del lienzo
+   * (enmienda `2026-08-16-enmienda-v1-los-ejemplos.md` §3, E5: el modo es
+   * excluyente). Esta página ofrece un link y nada más — el link sale con el
+   * cielo lleno y con el cielo vacío, porque con la base en 12 filas de demo
+   * —`D-002`— es lo único que queda explicando qué hace el instrumento.
+   *
+   * La guarda que importa es la de abajo: **ni una sola voz inventada en esta
+   * pantalla**. Si alguien vuelve a montar la sección acá, esto se pone rojo.
+   */
+  it('NO monta el ejemplo: ofrece un link a su ruta propia', () => {
+    respuesta = {
+      data: { ...CORPUS, analizadas: 0, sinVector: 0, total: 0, nucleos: [], aristas: [] },
+      isLoading: false,
+      isError: false,
+    };
+    const { container } = envolver(<LaRadiografia />);
+
+    expect(screen.queryByTestId('constelacion-del-ejemplo')).toBeNull();
+    expect(container.querySelector('section[aria-labelledby="los-tres-ejemplos"]')).toBeNull();
+    // La frase del sello sólo puede estar arriba de voces inventadas.
+    expect(screen.queryByText('Nadie dijo ninguna de estas cosas.')).toBeNull();
+
+    const link = screen.getByRole('link', { name: /Ver un ejemplo, con voces inventadas/ });
+    expect(link).toHaveAttribute('href', '/la-radiografia/ejemplo');
+  });
+
+  it('el link al ejemplo también está cuando el cielo está lleno', () => {
+    respuesta = { data: CORPUS, isLoading: false, isError: false };
+    envolver(<LaRadiografia />);
+    expect(
+      screen.getByRole('link', { name: /Ver un ejemplo, con voces inventadas/ }),
+    ).toHaveAttribute('href', '/la-radiografia/ejemplo');
+  });
+
+  /**
+   * El cielo del corpus vivo **no se sella**. Sellar lo que dijo la gente sería
+   * afirmar que es inventado, que es la mentira simétrica de la que el sello
+   * del ejemplo existe para evitar.
+   */
+  it('el cielo de esta página declara que es el corpus vivo, y por eso no se sella', () => {
+    respuesta = { data: CORPUS, isLoading: false, isError: false };
+    envolver(<LaRadiografia />);
+    expect(screen.getByTestId('constelacion')).toHaveAttribute('data-origen', 'corpus');
+  });
+
   it('si el pedido falla NO afirma que no habló nadie: dice que no pudo leer', () => {
     respuesta = { data: undefined, isLoading: false, isError: true };
     const { container } = envolver(<LaRadiografia />);
@@ -628,6 +677,15 @@ describe('la página, de punta a punta', () => {
    * conteo de FILAS. Son señales — una sola persona puede haber cargado
    * veinte, y `senales` no trae actor, así que la página no sabe cuántas
    * personas hay detrás y no puede decirlo.
+   *
+   * La regla se verifica **sobre el corpus vivo**, que es donde rige. El
+   * ejemplo de los tres escenarios sí cuenta personas, y tiene que hacerlo: su
+   * padrón declara quién habló, y la lección que enseña es justamente que sus
+   * 63 señales son 44 personas. Lo que no puede hacer ninguno de los dos es
+   * contar filas y llamarlas personas.
+   *
+   * Desde que el ejemplo se mudó a `/la-radiografia/ejemplo` ya no hace falta
+   * recortarlo del árbol antes de leerlo: acá no hay una sola voz inventada.
    */
   it('cuenta señales y NUNCA personas', () => {
     respuesta = { data: CORPUS, isLoading: false, isError: false };

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'wouter';
 
 import { guardarTema, leerTema, type Orden, type Tema } from './LaRadiografia/radiografia-data';
 import { construirVista } from './LaRadiografia/radiografia-vista';
@@ -7,6 +8,7 @@ import { CieloVacio } from './LaRadiografia/sections/CieloVacio';
 import { Constelacion } from './LaRadiografia/sections/Constelacion';
 import { DeslizadorUmbral } from './LaRadiografia/sections/DeslizadorUmbral';
 import { FichaDeNucleo } from './LaRadiografia/sections/FichaDeNucleo';
+import { InterruptorDeTema } from './LaRadiografia/sections/InterruptorDeTema';
 import { ListaDeNucleos } from './LaRadiografia/sections/ListaDeNucleos';
 import { RegimenDegenerado } from './LaRadiografia/sections/RegimenDegenerado';
 
@@ -28,6 +30,13 @@ import { UMBRAL_INICIAL, useRadiografia } from '~/lib/queries/radiografia';
  *  2. la **constelación** y su **deslizador**, que es el mando (R7);
  *  3. la **lista**, que es el camino accesible al mismo estado (R11) y **sale
  *     junto con la constelación, nunca después** (§10, rebanada 4).
+ *
+ * **Acá no se monta el ejemplo.** Los tres escenarios inventados viven en
+ * `/la-radiografia/ejemplo`, con su propia ruta, su propio título y su propio
+ * sello adentro del lienzo — enmienda `2026-08-16-enmienda-v1-los-ejemplos.md`
+ * §3 y E5: el modo es excluyente, o mirás el ejemplo o mirás el país. Mezclar
+ * las dos cosas en un mismo scroll es fabricar la captura que la enmienda §4
+ * existe para prevenir. Desde acá va un link, y nada más que un link.
  */
 
 /** Espera antes de repedirle al servidor. El navegador ya recalculó mientras. */
@@ -142,6 +151,9 @@ export function LaRadiografia() {
                   tema={tema}
                   enfocado={enfocado}
                   onEnfocar={enfocar}
+                  // El corpus vivo. Un cielo `corpus` NO se sella: sellarlo
+                  // sería afirmar que lo que dijo la gente es inventado.
+                  origen="corpus"
                 />
               </div>
               <FichaDeNucleo
@@ -174,28 +186,36 @@ export function LaRadiografia() {
             />
           </>
         )}
+
+        {/* Fuera del condicional a propósito: con la base casi vacía —`D-002`—
+            el cielo de arriba puede estar vacío, y entonces este link es lo
+            único que queda para entender qué hace el instrumento y qué no. Es
+            un link y no una sección: el ejemplo no se monta acá (E5). */}
+        <nav
+          aria-label="El ejemplo de La Radiografía"
+          className={`mt-16 border-t-2 pt-8 ${nocturno ? 'border-oscuro-borde' : 'border-tinta'}`}
+        >
+          <Kicker className="mb-3">Todavía no se ve nada, o se ve poco</Kicker>
+          <Link
+            href="/la-radiografia/ejemplo"
+            className={`font-anton block max-w-[70ch] text-[clamp(24px,2.8vw,34px)] leading-[1.08] underline decoration-1 underline-offset-[6px] hover:opacity-70 ${
+              nocturno ? 'text-oscuro-texto' : 'text-tinta'
+            }`}
+          >
+            Ver un ejemplo, con voces inventadas →
+          </Link>
+          <p
+            className={`mt-3 max-w-[70ch] text-[15px] leading-[1.55] ${
+              nocturno ? 'text-oscuro-meta' : 'text-tinta-50'
+            }`}
+          >
+            Tres corpus escritos a mano para mostrar qué hace este instrumento y qué no hace. Vive
+            en otra pantalla a propósito: <strong className="font-semibold">nadie dijo</strong>{' '}
+            ninguna de esas frases, y no se mezclan jamás con lo que dijo la gente.
+          </p>
+        </nav>
       </div>
     </main>
-  );
-}
-
-function InterruptorDeTema({ tema, onCambiar }: { tema: Tema; onCambiar: (t: Tema) => void }) {
-  const nocturno = tema === 'nocturno';
-  return (
-    <button
-      type="button"
-      aria-pressed={nocturno}
-      onClick={() => {
-        onCambiar(nocturno ? 'papel' : 'nocturno');
-      }}
-      className={`font-space border px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] transition-colors ${
-        nocturno
-          ? 'border-oscuro-borde text-oscuro-secundario hover:text-oscuro-texto'
-          : 'border-tinta text-tinta hover:bg-papel-presionado'
-      }`}
-    >
-      {nocturno ? 'Ver en papel' : 'Ver de noche'}
-    </button>
   );
 }
 

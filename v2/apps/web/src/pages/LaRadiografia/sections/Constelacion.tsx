@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { golpear, pintar, type Escena } from '../constelacion-pintor';
+import { golpear, pintar, type Escena, type OrigenDelCielo } from '../constelacion-pintor';
 import { colorDeClase, radioDeNodo, type NucleoEnPantalla, type Tema } from '../radiografia-data';
 
 import type { AristaDeConvergencia, MiembroDeNucleo } from '~/lib/queries/radiografia';
@@ -33,6 +33,26 @@ export interface ConstelacionProps {
   tema: Tema;
   enfocado: string | null;
   onEnfocar: (nucleoId: string | null) => void;
+  /**
+   * De qué corpus es este cielo. **Obligatorio y sin valor por defecto.**
+   *
+   * Es lo que decide si el lienzo se sella por dentro con «Nadie dijo ninguna
+   * de estas cosas · ejemplo» (`SELLO_DEL_LIENZO`). No hay una prop que apague
+   * el sello ni una que cambie su texto: lo único que se declara acá es un
+   * hecho —de dónde salieron estas voces— y el pintor decide solo. Un default
+   * volvería el sello opcional por olvido, que es exactamente el riesgo que la
+   * enmienda §4 existe para cubrir.
+   */
+  origen: OrigenDelCielo;
+  /**
+   * Con qué nombre se la busca en un test.
+   *
+   * El sitio monta **dos** cielos —el del corpus vivo en `/la-radiografia` y el
+   * de los tres escenarios en `/la-radiografia/ejemplo`—, y aunque hoy viven en
+   * dos rutas distintas, un test que pide «la constelación» tiene que poder
+   * decir cuál.
+   */
+  testId?: string;
 }
 
 /** Radianes por cuadro de la rotación automática: una vuelta cada ~70 s. */
@@ -45,9 +65,18 @@ export function Constelacion({
   tema,
   enfocado,
   onEnfocar,
+  origen,
+  testId = 'constelacion',
 }: ConstelacionProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const escenaRef = useRef<Escena>({ nodos: [], aristas: [], tema, enfocado: null, onEnfocar });
+  const escenaRef = useRef<Escena>({
+    nodos: [],
+    aristas: [],
+    tema,
+    enfocado: null,
+    onEnfocar,
+    origen,
+  });
   /**
    * Pintar un cuadro **ya**, sin esperar al `requestAnimationFrame`. Lo instala
    * el bucle de abajo y lo usa el efecto de la escena: el navegador no programa
@@ -92,9 +121,10 @@ export function Constelacion({
       tema,
       enfocado,
       onEnfocar,
+      origen,
     };
     pintarYaRef.current();
-  }, [nucleos, solas, aristas, tema, enfocado, onEnfocar]);
+  }, [nucleos, solas, aristas, tema, enfocado, onEnfocar, origen]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -195,7 +225,12 @@ export function Constelacion({
     <canvas
       ref={canvasRef}
       aria-hidden
-      data-testid="constelacion"
+      data-testid={testId}
+      // El origen queda escrito en el DOM para que una guarda pueda leerlo: el
+      // sello del lienzo no se puede verificar desde afuera —no hay contexto 2D
+      // en un test de componente— pero sí se puede verificar que la página del
+      // ejemplo declara que su cielo es el del ejemplo.
+      data-origen={origen}
       className="block h-full w-full cursor-grab touch-none active:cursor-grabbing"
       style={{ background: FONDO_DEL_TEMA[tema] }}
     />

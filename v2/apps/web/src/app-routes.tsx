@@ -29,6 +29,7 @@ import {
   KitDePrensa,
   LaIdea,
   LaRadiografia,
+  LaRadiografiaEjemplo,
   LaSimulacion,
   Senal,
   Leaderboard,
@@ -95,6 +96,12 @@ export function AppRoutes() {
         <Redirect to="/la-idea" replace />
       </Route>
       <Route path="/el-mapa" component={ElMapa} />
+      {/* El ejemplo de voces inventadas: ruta propia, ANTES de la landing —
+          `Switch` toma el primer match y no hay anidado en wouter (enmienda
+          2026-08-16-enmienda-v1-los-ejemplos.md §3: «un ejemplo en el cliente,
+          en su propia ruta»). Que la URL lo diga es la mitad de la defensa: la
+          otra mitad es el sello adentro del lienzo, que sobrevive a un recorte. */}
+      <Route path="/la-radiografia/ejemplo" component={LaRadiografiaEjemplo} />
       {/* La cuarta superficie: página propia y no una sexta lente del mapa
           (spec 2026-08-12-la-radiografia.md §12, y la respuesta a su pregunta
           abierta 4 — el nombre viene de la constitución de producto). */}

@@ -1,4 +1,5 @@
 import { MOTIVO_TEXTO_OMITIDO } from '@v2/shared';
+import { useId } from 'react';
 
 import {
   colorDeClase,
@@ -49,11 +50,15 @@ export function ListaDeNucleos({
   const meta = nocturno ? 'text-oscuro-meta' : 'text-tinta-50';
   const texto = nocturno ? 'text-oscuro-texto' : 'text-tinta';
   const ordenados = ordenarNucleos(nucleos, orden);
+  // La página monta esta lista dos veces —el corpus vivo y el ejemplo de los
+  // tres escenarios— y dos `id="titulo-lista"` en un mismo documento hacen que
+  // el `aria-labelledby` de la segunda apunte al título de la primera.
+  const idDelTitulo = `${useId()}-titulo-lista`;
 
   return (
-    <section aria-labelledby="titulo-lista" className="mt-12">
+    <section aria-labelledby={idDelTitulo} className="mt-12">
       <h2
-        id="titulo-lista"
+        id={idDelTitulo}
         className={`font-space mb-4 text-[11px] font-bold uppercase tracking-[0.14em] ${meta}`}
       >
         Los núcleos, uno por uno

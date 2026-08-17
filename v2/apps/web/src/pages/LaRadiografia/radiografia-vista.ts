@@ -35,8 +35,13 @@ import type { MiembroDeNucleo, NucleoPublico, RadiografiaPublica } from '~/lib/q
  *   las tiene. Recalcular acá daría **más islas de las que hay**, o sea una
  *   afirmación falsa presentada como medición. Se muestra lo último medido y
  *   se dice que se está esperando.
+ * - **`exacto`** — no hay servidor en el medio. Es el estado del ejemplo de los
+ *   tres escenarios (`ejemplos-vista.ts`), que trae el grafo k-NN **entero** en
+ *   un artefacto commiteado: subir y bajar el umbral se calcula igual de bien,
+ *   porque no falta ninguna arista. `construirVista` no lo devuelve nunca y no
+ *   puede: el corpus vivo llega por HTTP y recortado.
  */
-export type OrigenDeLaVista = 'medido' | 'recalculado' | 'esperando';
+export type OrigenDeLaVista = 'medido' | 'recalculado' | 'esperando' | 'exacto';
 
 export interface VistaDeRadiografia {
   nucleos: NucleoEnPantalla[];
@@ -134,8 +139,17 @@ export function construirVista(
   return { nucleos, solas, origen: 'recalculado' };
 }
 
-/** Dos vectores unitarios perpendiculares a `n`, para el disco del núcleo. */
-function tangentes(n: {
+/**
+ * Dos vectores unitarios perpendiculares a `n`, para el disco del núcleo.
+ *
+ * Exportada porque el ejemplo de los tres escenarios (`ejemplos-vista.ts`)
+ * acomoda su propio cielo sin pasar por el servidor y necesita **este mismo**
+ * plano tangente. Sin esto habría una tercera copia de la misma trigonometría
+ * en el repo —ya hay dos, ésta y la de `apps/api/.../constelacion.ts`— y tres
+ * copias de una base ortonormal es como se consigue que dos constelaciones del
+ * mismo dato se dibujen distinto.
+ */
+export function tangentes(n: {
   x: number;
   y: number;
   z: number;

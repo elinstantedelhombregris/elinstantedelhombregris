@@ -36,12 +36,23 @@ export interface NodoDibujable {
   radio: number;
 }
 
+/**
+ * De qué corpus es este cielo.
+ *
+ * **No es un interruptor: es un hecho.** El campo es obligatorio y su tipo es
+ * una unión cerrada, así que ningún llamador puede omitirlo ni apagarlo — a lo
+ * sumo puede mentir, y mentir tiene otro nombre y otra guarda (`data-origen` en
+ * el lienzo, verificado en `__tests__/sello-del-lienzo.test.ts`).
+ */
+export type OrigenDelCielo = 'corpus' | 'ejemplo';
+
 export interface Escena {
   nodos: NodoDibujable[];
   aristas: readonly AristaDeConvergencia[];
   tema: Tema;
   enfocado: string | null;
   onEnfocar: (nucleoId: string | null) => void;
+  origen: OrigenDelCielo;
 }
 
 export interface Caja {
@@ -183,11 +194,94 @@ export type Pincel = Pick<
   | 'arc'
   | 'fill'
   | 'setLineDash'
+  | 'fillText'
+  | 'measureText'
+  | 'font'
+  | 'textAlign'
+  | 'textBaseline'
   | 'fillStyle'
   | 'strokeStyle'
   | 'lineWidth'
   | 'globalAlpha'
 >;
+
+/* ── El sello, adentro del lienzo ────────────────────────────────────────── */
+
+/**
+ * Lo que dice el cielo del ejemplo, **escrito adentro del área que se captura**.
+ *
+ * Enmienda `docs/specs/2026-08-16-enmienda-v1-los-ejemplos.md` §4.1: un aviso
+ * al costado de la constelación no sirve, porque se recorta. El riesgo que la
+ * enmienda existe para cubrir no es que alguien se confunda navegando — es que
+ * **alguien saque una captura del ejemplo y la publique como si fuera el
+ * país**, y una captura no se lleva el HTML de alrededor.
+ *
+ * Tres decisiones, y ninguna es decorativa:
+ *
+ *  1. **La frase es una constante del módulo, no una prop.** No hay forma de
+ *     pasarle otro texto ni de pasarle `null`: lo único que viaja por la escena
+ *     es `origen`, que es de qué corpus es el cielo, y eso es un hecho y no un
+ *     interruptor.
+ *  2. **Va tres veces y no una.** Una sola línea al pie se recorta con el
+ *     gesto más barato que hay. A 22 %, 50 % y 78 % del alto, la banda entre
+ *     dos sellos mide poco más de un cuarto del lienzo: cualquier recorte que
+ *     se lleve estrellas se lleva una de las tres, y llevarse las estrellas sin
+ *     ninguna es un acto deliberado y no un descuido. Eso es exactamente lo que
+ *     §4 pide y todo lo que puede pedir: reduce el riesgo, no lo elimina.
+ *  3. **Va con la tinta del tema sobre una plancha del fondo del tema**, o sea
+ *     con el mismo contraste que el texto de la página. No es una marca de agua
+ *     al 10 %: es texto legible, y se dibuja **último**, arriba de los nodos,
+ *     para que ningún dato lo tape.
+ */
+export const SELLO_DEL_LIENZO = 'Nadie dijo ninguna de estas cosas · ejemplo';
+
+/** A qué alturas del lienzo se repite el sello (fracción del alto). */
+export const ALTURAS_DEL_SELLO: readonly number[] = [0.22, 0.5, 0.78];
+
+/** Opacidad de la plancha de fondo. El texto va siempre pleno. */
+const PLANCHA = 0.78;
+
+/** El tipo del sello, en píxeles. Nunca la letra chica de un contrato. */
+const tipografia = (cuerpo: number): string =>
+  `600 ${String(cuerpo)}px "Space Mono", ui-monospace, monospace`;
+
+function sellar(ctx: Pincel, ancho: number, alto: number, fondo: string, tinta: string): void {
+  // Entre 11 y 17 px: abajo de 11 deja de leerse en una captura reescalada y
+  // arriba de 17 tapa el cielo en un lienzo angosto.
+  let cuerpo = Math.round(Math.max(11, Math.min(17, ancho * 0.019)));
+  ctx.font = tipografia(cuerpo);
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  // Si con la fuente que le tocó al navegador la frase se sale del lienzo, se
+  // achica hasta que entre. Un sello cortado por el borde es un sello que se
+  // puede alegar que no se leía.
+  let anchoDelTexto = ctx.measureText(SELLO_DEL_LIENZO).width;
+  const disponible = ancho * 0.92;
+  if (anchoDelTexto > disponible && anchoDelTexto > 0) {
+    cuerpo = Math.max(9, Math.floor((cuerpo * disponible) / anchoDelTexto));
+    ctx.font = tipografia(cuerpo);
+    anchoDelTexto = ctx.measureText(SELLO_DEL_LIENZO).width;
+  }
+
+  const margen = cuerpo * 0.7;
+  const altoDeLaPlancha = cuerpo * 1.9;
+
+  for (const fraccion of ALTURAS_DEL_SELLO) {
+    const y = alto * fraccion;
+    ctx.globalAlpha = PLANCHA;
+    ctx.fillStyle = fondo;
+    ctx.fillRect(
+      ancho / 2 - anchoDelTexto / 2 - margen,
+      y - altoDeLaPlancha / 2,
+      anchoDelTexto + margen * 2,
+      altoDeLaPlancha,
+    );
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = tinta;
+    ctx.fillText(SELLO_DEL_LIENZO, ancho / 2, y);
+  }
+}
 
 export function pintar(
   ctx: Pincel,
@@ -243,4 +337,8 @@ export function pintar(
     ctx.arc(p.sx, p.sy, Math.max(1.2, nodo.radio * p.escala), 0, Math.PI * 2);
     ctx.fill();
   }
+
+  // Último, arriba de todo y sin manera de saltearlo: si este cielo es el del
+  // ejemplo, lo dice adentro del lienzo. Ver `SELLO_DEL_LIENZO`.
+  if (escena.origen === 'ejemplo') sellar(ctx, ancho, alto, fondo, tinta);
 }

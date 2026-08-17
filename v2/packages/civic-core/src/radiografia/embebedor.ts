@@ -43,13 +43,31 @@ const VACIAS = new Set([
   'cuando', 'donde', 'porque', 'tiene', 'tengo', 'hace', 'ver', 'ir', 'da',
 ]);
 
-const normalizar = (texto: string): string[] =>
+/**
+ * Los tokens de contenido de un texto: minúsculas, sin tildes, sin `VACIAS`.
+ *
+ * **Se exporta porque hay guardas que necesitan contar exactamente lo que el
+ * embebedor cuenta.** El ejemplo de La Radiografía tiene una prueba que falla
+ * si un token de contenido aparece en más del 35 % de las frases **del corpus
+ * de la bronca** —la guarda contra fabricar ahí la convergencia repitiendo una
+ * palabra—, y esa prueba sólo dice la verdad si recorta las palabras vacías con
+ * **esta** lista y no con una copia pegada al lado, que se desincroniza el día
+ * que la lista cambie.
+ *
+ * El techo rige sobre un solo corpus a propósito: en los otros dos un token
+ * compartido no es una muleta sino la precisión misma —«2026» está en el 57 %
+ * de las frases del dato porque un reclamo preciso lleva fecha—. Esos dos se
+ * miden y se declaran, no se gatean.
+ */
+export const tokensDeContenido = (texto: string): string[] =>
   texto
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .split(/[^a-z0-9ñ]+/)
     .filter((p) => p.length > 0 && !VACIAS.has(p));
+
+const normalizar = tokensDeContenido;
 
 /**
  * Embebedor determinista para tests: una bolsa de palabras proyectada por

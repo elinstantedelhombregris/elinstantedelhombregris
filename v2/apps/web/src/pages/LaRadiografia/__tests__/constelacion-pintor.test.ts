@@ -53,11 +53,18 @@ function pincelFalso(): { ctx: Pincel; trazos: Trazo[]; rellenos: Relleno[] } {
     strokeStyle: '',
     lineWidth: 0,
     globalAlpha: 1,
+    font: '',
+    textAlign: 'start' as CanvasTextAlign,
+    textBaseline: 'alphabetic' as CanvasTextBaseline,
     setTransform: vi.fn(),
     fillRect: vi.fn(),
     beginPath: vi.fn(),
     moveTo: vi.fn(),
     lineTo: vi.fn(),
+    // Un `TextMetrics` de mentira: lo único que el pintor le pregunta es el
+    // ancho, y ocho píxeles por carácter alcanza para calcular una plancha.
+    measureText: vi.fn((texto: string) => ({ width: texto.length * 8 }) as TextMetrics),
+    fillText: vi.fn(),
     arc: vi.fn((_x: number, _y: number, r: number) => {
       radio = r;
     }),
@@ -100,6 +107,9 @@ const escena = (extra: Partial<Escena> = {}): Escena => ({
   tema: 'papel',
   enfocado: null,
   onEnfocar: vi.fn(),
+  // Por defecto el corpus vivo: así estos tests miden el trazo del dato y no
+  // el del sello. El sello tiene su propio archivo, `sello-del-lienzo.test.ts`.
+  origen: 'corpus',
   ...extra,
 });
 
@@ -155,9 +165,7 @@ describe('la profundidad se desvanece hacia el fondo del tema (§5.1)', () => {
     const [atras, adelante] = rellenos;
     expect(atras?.color).toBe(adelante?.color);
     // Y es el color pleno de la clase, no una versión lavada de él.
-    expect(distanciaAlFondo(atras?.color ?? '')).toBe(
-      distanciaAlFondo(adelante?.color ?? ''),
-    );
+    expect(distanciaAlFondo(atras?.color ?? '')).toBe(distanciaAlFondo(adelante?.color ?? ''));
   });
 
   it('la profundidad se dice con el radio, que es donde no cuesta legibilidad', () => {

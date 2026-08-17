@@ -77,6 +77,16 @@ export const LaRadiografia = lazy(async () => {
   return { default: m.LaRadiografia };
 });
 /**
+ * El ejemplo de La Radiografía, en **su propia ruta** (enmienda
+ * `docs/specs/2026-08-16-enmienda-v1-los-ejemplos.md` §3). Chunk propio y no
+ * el de `/la-radiografia`: el artefacto de vectores commiteado son ~180 frases
+ * embebidas, y quien entra a ver el corpus vivo no tiene por qué bajarlas.
+ */
+export const LaRadiografiaEjemplo = lazy(async () => {
+  const m = await import('~/pages/LaRadiografiaEjemplo');
+  return { default: m.LaRadiografiaEjemplo };
+});
+/**
  * La Simulación — un módulo con dos modos (spec 2026-08-13). Chunk propio, y
  * conviene que lo sea: se lleva el motor entero de `civic-core/simulacion` y el
  * worker del barrido, que nadie necesita para leer la portada.
