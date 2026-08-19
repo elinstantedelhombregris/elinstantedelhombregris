@@ -18,10 +18,14 @@ import type { Tema } from '../radiografia-data';
  *     decimal. No es una casualidad del corpus: `retratoMedido` recibe por voz
  *     un territorio, una fecha y un tipo, y **no lee el texto**. Como los tres
  *     escenarios comparten el padrón entero, esta mitad es la misma por álgebra.
- *  2. **La forma de la constelación**, donde la bronca gana. Gana de verdad: su
- *     parecido mediano casi triplica al de los otros dos, y su mancha aguanta el
- *     doble de umbral. **La imagen más impresionante es la de la columna que no
- *     habilita nada.**
+ *  2. **La forma de la constelación**, donde la bronca gana — y las dos primeras
+ *     filas cuentan *por qué* gana, que no es lo que uno esperaría. La bronca es
+ *     la **menos** tejida de las tres: su voz mediana comparte vocabulario con
+ *     cuatro de las otras sesenta y dos, contra cuarenta y una en el dato. Lo
+ *     que la hace ganar es que **cuando dos broncas se tocan, se tocan casi
+ *     enteras** — 0,500 contra 0,167 y 0,107. Pocos vínculos, casi calcados, y
+ *     de ahí sale la mancha de 31. **La imagen más impresionante es la de la
+ *     columna que no habilita nada.**
  *  3. **Lo que se puede hacer**, donde la bronca queda en cero y el dato tiene
  *     45 señales corroboradas por dos personas distintas o más.
  *
@@ -49,7 +53,6 @@ export interface TablaDeLosTresProps {
 
 const entero = (n: number): string => n.toLocaleString('es-AR');
 const decimal = (n: number, digitos = 2): string => n.toFixed(digitos).replace('.', ',');
-const umbralLegible = (n: number | null): string => (n === null ? '—' : decimal(n));
 
 interface Fila {
   readonly rotulo: string;
@@ -105,9 +108,16 @@ const filasDeLegitimidad = (columnas: readonly ColumnaDeLosTres[]): readonly Fil
 
 const filasDeForma = (columnas: readonly ColumnaDeLosTres[]): readonly Fila[] => [
   {
-    rotulo: 'Parecido mediano',
-    glosa: 'Entre vecinas del grafo. Es la única cifra de acá que no depende del deslizador.',
-    valores: columnas.map((c) => decimal(c.medida.medianaDeParecido, 3)),
+    rotulo: 'Con cuántas comparte algo',
+    glosa:
+      'De las otras 62, la voz mediana. Se mide todos contra todos, así que no depende del deslizador ni del k del grafo. Acá la bronca queda última: es la MENOS tejida de las tres, y aun así es la que da la mancha más grande.',
+    valores: columnas.map((c) => entero(c.medida.vecindadMediana)),
+  },
+  {
+    rotulo: 'Parecido al tocarse',
+    glosa:
+      'Cuánto se parecen dos voces cuando comparten al menos una palabra. Es la fila donde la bronca gana de verdad: pocos vínculos y casi calcados. La del dato es la más baja — todos se tocan un poco y nadie se toca fuerte.',
+    valores: columnas.map((c) => decimal(c.medida.parecidoAlTocarse, 3)),
     fuerte: true,
   },
   {
@@ -132,11 +142,6 @@ const filasDeForma = (columnas: readonly ColumnaDeLosTres[]): readonly Fila[] =>
       'Nadie repitió lo que dijeron. No es un residuo: cuanto más preciso el corpus, más gente queda hablando sola, y eso aguanta el mando entero.',
     valores: columnas.map((c) => entero(c.corte.solas.length)),
     fuerte: true,
-  },
-  {
-    rotulo: 'La mancha aguanta hasta',
-    glosa: 'El umbral más alto al que la mitad del corpus sigue en un solo núcleo.',
-    valores: columnas.map((c) => umbralLegible(c.medida.umbralDeLaMancha)),
   },
 ];
 

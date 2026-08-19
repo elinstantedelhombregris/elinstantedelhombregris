@@ -178,34 +178,45 @@ describe('las formas que promete la tesis', () => {
 
 describe('la bronca converge más que la precisión', () => {
   /*
-   * **`medianaDeParecido` y `umbralDeLaMancha` dejaron de discriminar el
-   * 17/8/2026, y este bloque lo fija en vez de esconderlo.**
+   * **Por qué converge, que no es lo que uno esperaría.**
    *
-   * Las dos cifras medían la muleta. `medianaDeParecido` es la mediana sobre
-   * TODAS las aristas del k-NN, y con «nada» en 58 de 63 frases no había una
-   * sola arista en cero: daba 0,45 contra 0,17 y 0,18. Sin la muleta el
-   * escenario 1 tiene 19 voces que no comparten una palabra con nadie, sus 12
-   * vecinas valen cero, y la mediana se va a **0,000** — o sea, ahora la cifra
-   * dice lo contrario de lo que la sección afirma arriba de ella. Con
-   * `umbralDeLaMancha` pasa parecido: era 0,61 contra 0,33 y 0,31, y ahora los
-   * tres empatan abajo.
+   * Hasta el 17/8/2026 la tabla decía esto con `medianaDeParecido` —la mediana
+   * sobre TODAS las aristas del k-NN— y con `umbralDeLaMancha`. Las dos medían
+   * la muleta: mientras el escenario 1 repetía «nada» en 58 de sus 63 frases no
+   * había una sola arista en cero y la mediana daba 0,45 contra 0,17 y 0,18.
+   * Reescrito el corpus sin muleta, el 76,8 % de las aristas del k-NN de la
+   * bronca son relleno de cupo y valen cero, la mediana se iba a 0,000 y la
+   * fila decía lo contrario de la sección que encabezaba.
    *
-   * No se borra el dato ni se retoca el corpus para que vuelva a dar lindo: se
-   * mide y se deja escrito que **estas dos filas de `TablaDeLosTres` ya no
-   * sostienen la lección**, y que la cifra que sí la sostiene es el tamaño del
-   * núcleo mayor en la banda medida. Cambiar el estadístico de la tabla es
-   * trabajo de quien la mantiene, y esta prueba se va a poner roja el día que
-   * lo cambie — que es exactamente cuando hay que volver a leer esto.
+   * Se reemplazaron por dos cifras que **no dependen del `k`** —se miden todos
+   * contra todos— y que juntas dicen el mecanismo en vez de afirmarlo. Los dos
+   * tests de abajo son las dos mitades, y la primera es la incómoda: **la
+   * bronca es la menos tejida de las tres.** Esa mitad va a la pantalla igual
+   * que la otra, en la fila de al lado.
    */
-  it('la mediana del parecido YA NO discrimina: mide vocabulario repartido, no convergencia', () => {
-    expect(medidaDe(BRONCA).medianaDeParecido).toBe(0);
-    expect(medidaDe(RECLAMO).medianaDeParecido).toBeGreaterThan(0);
-    expect(medidaDe(DATO).medianaDeParecido).toBeGreaterThan(0);
+  it('la bronca es la MENOS tejida: su voz mediana comparte algo con menos que ninguna', () => {
+    expect(medidaDe(BRONCA).vecindadMediana).toBeLessThan(medidaDe(RECLAMO).vecindadMediana);
+    expect(medidaDe(RECLAMO).vecindadMediana).toBeLessThan(medidaDe(DATO).vecindadMediana);
   });
 
-  it('el umbral de la mancha tampoco: los tres empatan dentro de un paso', () => {
-    const umbrales = [BRONCA, RECLAMO, DATO].map((e) => medidaDe(e).umbralDeLaMancha ?? 0);
-    expect(Math.max(...umbrales) - Math.min(...umbrales)).toBeLessThan(0.03);
+  it('y aun así gana, porque cuando dos broncas se tocan se tocan casi enteras', () => {
+    const alTocarse = (e: Escenario): number => medidaDe(e).parecidoAlTocarse;
+    expect(alTocarse(BRONCA)).toBeGreaterThan(alTocarse(RECLAMO));
+    expect(alTocarse(RECLAMO)).toBeGreaterThan(alTocarse(DATO));
+    // Y por lejos: más del doble del reclamo. Si esto se acercara, la
+    // explicación del mecanismo —pocos vínculos, casi calcados— dejaría de
+    // sostenerse y la tabla estaría contando un cuento.
+    expect(alTocarse(BRONCA)).toBeGreaterThan(2 * alTocarse(RECLAMO));
+  });
+
+  it('las dos cifras no heredan el k del artefacto: salen de todos contra todos', () => {
+    // La prueba de que no dependen del grafo es que el grafo no entra en su
+    // cuenta: con k=1 —un grafo casi vacío— las dos dan exactamente lo mismo.
+    for (const escenario of LOS_TRES_ESCENARIOS) {
+      const conUno = medirEscenario(escenario, { ...ARTEFACTO_DE_VECTORES, k: 1 });
+      expect(conUno.vecindadMediana).toBe(medidaDe(escenario).vecindadMediana);
+      expect(conUno.parecidoAlTocarse).toBe(medidaDe(escenario).parecidoAlTocarse);
+    }
   });
 
   it('la cifra que sí sostiene la lección es el núcleo mayor, y triplica al del reclamo', () => {
@@ -270,6 +281,26 @@ describe('la sección en pantalla', () => {
     fireEvent.click(screen.getByRole('button', { name: /El dato/ }));
     expect(filas()).toBe(corteA(DATO).nucleos.length + 1);
     expect(corteA(DATO).nucleos.length).toBeGreaterThan(corteA(BRONCA).nucleos.length);
+  });
+
+  /**
+   * Las dos filas que cuentan **por qué** converge la bronca, en pantalla.
+   *
+   * Van fijadas por valor y no por orden relativo porque el defecto que
+   * reemplazaron era exactamente ése: las cifras se calculaban bien y en la
+   * pantalla no decían nada —una daba 0,000 y la otra empataba—. Un test que
+   * sólo pidiera «que discriminen» las habría dejado pasar el día que dejaran
+   * de hacerlo por un decimal.
+   */
+  it('la tabla cuenta el mecanismo: la bronca es la menos tejida y la que más se toca', () => {
+    render(<LosTresEjemplos tema="papel" />);
+    const celdas = (nombre: RegExp): string[] =>
+      within(screen.getByRole('row', { name: nombre }))
+        .getAllByRole('cell')
+        .map((c) => c.textContent);
+
+    expect(celdas(/Con cuántas comparte algo/)).toEqual(['4', '19', '41']);
+    expect(celdas(/Parecido al tocarse/)).toEqual(['0,500', '0,167', '0,107']);
   });
 
   it('la tabla muestra la MISMA legitimidad en las tres columnas', () => {

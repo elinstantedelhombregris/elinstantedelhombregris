@@ -4,6 +4,7 @@ import {
   espiralAurea,
   fraseDelNucleo,
   nucleosAlUmbral,
+  similitudCoseno,
 } from '@v2/civic-core';
 
 import { vectoresDelEscenario } from './ejemplos/artefacto';
@@ -79,37 +80,52 @@ export interface MedidaDelEscenario {
   readonly aristas: readonly AristaMedida[];
   readonly vectores: ReadonlyMap<string, readonly number[]>;
   /**
-   * La mediana del parecido entre vecinas del grafo.
+   * Con cuántas de las otras comparte **al menos una palabra** la voz mediana.
    *
-   * **Dejó de sostener la tesis el 17/8/2026 y hay que reemplazarla.** Cuando
-   * el escenario 1 repetía «nada» en 58 de sus 63 frases no existía una sola
-   * arista en cero y esta cifra daba 0,45 contra 0,17 y 0,18 — o sea, medía la
-   * muleta. Reescrito el corpus sin muleta, la bronca tiene 19 voces que no
-   * comparten una palabra con nadie, sus doce vecinas valen cero, y la mediana
-   * cae a **0,000**: la cifra ahora dice lo contrario de lo que la sección
-   * afirma arriba de ella.
+   * Se mide todos contra todos y **no sobre el grafo k-NN**, a propósito: el
+   * k-NN le da a cada voz exactamente `k` vecinas aunque no tenga ninguna
+   * —rellena el cupo con parecido cero—, así que cualquier estadístico sacado
+   * de sus aristas mide en parte el `k` que eligió el artefacto. Éste no
+   * depende de `k` ni del deslizador: es una propiedad del corpus.
    *
-   * Se deja calculada y se deja dicho, porque borrarla en silencio sería el
-   * mismo pecado que inflarla. Lo que sí sostiene la tesis es el **tamaño del
-   * núcleo mayor** dentro de la banda medida (0,34–0,50), y eso está fijado en
-   * `__tests__/los-tres-ejemplos.test.tsx`. Cambiar el estadístico que muestra
-   * `TablaDeLosTres` es trabajo pendiente, y ese test se pone rojo el día que
-   * se haga, que es cuando hay que volver a leer esto.
+   * Medido: **4** en la bronca, **19** en el reclamo, **41** en el dato, sobre
+   * las otras 62. Y ahí está la sorpresa que esta cifra existe para mostrar:
+   * **la bronca es la MENOS tejida de las tres.** Cada bronca comparte
+   * vocabulario con cuatro de las otras sesenta y dos; cada dato, con cuarenta
+   * y una, porque todos escribieron «2026» y todos escribieron un mes.
    */
-  readonly medianaDeParecido: number;
+  readonly vecindadMediana: number;
   /**
-   * El umbral más alto al que **la mitad del corpus sigue en un solo núcleo**.
+   * Cuánto se parecen dos voces **cuando se tocan** — la mediana sobre los
+   * pares que comparten al menos una palabra, no sobre todos los pares.
    *
-   * `null` si ni siquiera al mínimo del deslizador la hay. Es la forma honesta
-   * de decir «esta constelación no se rompe»: no «siempre es un núcleo» —que es
-   * falso para los tres, arriba de todo se rompe todo— sino hasta dónde
-   * aguanta la mancha grande.
+   * Es la otra mitad de la misma pregunta, y la que sí le da la razón a la
+   * sección: **0,500** en la bronca contra **0,167** y **0,107**. Cuando dos
+   * broncas se tocan se tocan casi enteras, y de ese puñado de enlaces casi
+   * calcados sale la mancha de 31.
    *
-   * **Y tampoco discrimina ya**, por lo mismo: era 0,61 contra 0,33 y 0,31 con
-   * la muleta puesta, y ahora los tres empatan abajo (0,31 y 0,33). Vale la
-   * misma nota que la mediana.
+   * Leídas juntas, las dos cifras dicen el mecanismo entero: **la bronca no
+   * converge por tejido sino por repetición.** Pocos vínculos, casi copias. El
+   * dato es lo contrario —mucho vínculo flojo, ninguno que aguante el umbral—
+   * y por eso su constelación se desgrana.
+   *
+   * **Esto reemplazó a `medianaDeParecido` y a `umbralDeLaMancha` el 18/8/2026,
+   * y no por cosmética.** La primera era la mediana sobre TODAS las aristas del
+   * k-NN: mientras el escenario 1 repetía «nada» en 58 de sus 63 frases daba
+   * 0,45 contra 0,17 y 0,18, o sea medía la muleta, y sacada la muleta el
+   * 76,8 % de esas aristas son de cupo y valen cero, la mediana se iba a 0,000
+   * y la fila decía lo contrario de lo que la sección afirma. La segunda era el
+   * umbral más alto al que el mayor todavía tenía la mitad del corpus, y con la
+   * mancha en 31 sobre 63 —una voz por debajo de la mitad— los tres escenarios
+   * empataban abajo: la cifra dependía de una constante que había quedado justo
+   * del lado equivocado.
+   *
+   * Condicionar a los pares que sí comparten algo **no es elegir el número que
+   * queda lindo**: en una bolsa de palabras, parecido cero no es evidencia
+   * débil, es ausencia de evidencia. Y la mitad incómoda —que la bronca es la
+   * menos tejida— se publica en la fila de al lado, no se guarda.
    */
-  readonly umbralDeLaMancha: number | null;
+  readonly parecidoAlTocarse: number;
   /** Ids del artefacto que faltan. Con más de cero, la pantalla lo dice. */
   readonly faltantes: readonly string[];
 }
@@ -120,43 +136,55 @@ export function medirEscenario(
 ): MedidaDelEscenario {
   const ids = escenario.voces.map((v) => v.id);
   const { vectores, faltantes } = vectoresDelEscenario(artefacto, escenario.id, ids);
-  const aristas = aristasMedidas(vectores, artefacto.k);
-
-  const parecidos = aristas.map((a) => a.similitud).sort((p, q) => p - q);
-  const medio = parecidos[Math.floor(parecidos.length / 2)] ?? 0;
 
   return {
     escenario,
-    aristas,
+    aristas: aristasMedidas(vectores, artefacto.k),
     vectores,
-    medianaDeParecido: medio,
-    umbralDeLaMancha: barrerLaMancha(ids, aristas),
+    ...formaDelTejido(ids, vectores),
     faltantes,
   };
 }
 
 /**
- * Barre el rango del deslizador y devuelve el último umbral al que el núcleo
- * mayor todavía tiene la mitad del corpus.
+ * Todos contra todos: con cuántas comparte cada voz, y cuánto cuando comparte.
  *
- * Se barre y no se deduce: el tamaño del mayor no crece cuando sube el umbral
- * —más umbral es menos aristas y componentes más chicas— pero eso es un
- * argumento, y un argumento no es una medición. Cuarenta y un cortes de
- * union-find sobre quinientas aristas cuestan menos que un cuadro de la
- * constelación.
+ * Son 1.953 pares por escenario sobre vectores de 1.024 dimensiones — seis
+ * millones de multiplicaciones para los tres, una sola vez, cuando monta la
+ * sección. Cuesta menos que un cuadro de la constelación, y a cambio ninguna de
+ * las dos cifras hereda el `k` del artefacto.
  */
-function barrerLaMancha(ids: readonly string[], aristas: readonly AristaMedida[]): number | null {
-  const mitad = Math.ceil(ids.length / 2);
-  const desde = Math.round(UMBRAL_MINIMO / PASO_DEL_UMBRAL);
-  const hasta = Math.round(UMBRAL_MAXIMO / PASO_DEL_UMBRAL);
+function formaDelTejido(
+  ids: readonly string[],
+  vectores: ReadonlyMap<string, readonly number[]>,
+): Pick<MedidaDelEscenario, 'vecindadMediana' | 'parecidoAlTocarse'> {
+  const vecinas = new Array<number>(ids.length).fill(0);
+  const alTocarse: number[] = [];
 
-  let ultimo: number | null = null;
-  for (let paso = desde; paso <= hasta; paso++) {
-    const umbral = paso * PASO_DEL_UMBRAL;
-    if (mayorDe(nucleosAlUmbral(ids, aristas, umbral)) >= mitad) ultimo = umbral;
+  for (let i = 0; i < ids.length; i++) {
+    for (let j = i + 1; j < ids.length; j++) {
+      const similitud = similitudCoseno(
+        vectores.get(ids[i] ?? '') ?? [],
+        vectores.get(ids[j] ?? '') ?? [],
+      );
+      // Cero no es «se parecen poco»: es que no comparten un solo token de
+      // contenido. No entra ni al grado ni a la mediana condicionada.
+      if (similitud <= 0) continue;
+      vecinas[i] = (vecinas[i] ?? 0) + 1;
+      vecinas[j] = (vecinas[j] ?? 0) + 1;
+      alTocarse.push(similitud);
+    }
   }
-  return ultimo;
+
+  return { vecindadMediana: mediana(vecinas), parecidoAlTocarse: mediana(alTocarse) };
 }
+
+/** La mediana de una lista, o 0 si está vacía. Ordena una copia, no el original. */
+const mediana = (xs: readonly number[]): number => {
+  if (xs.length === 0) return 0;
+  const ordenados = [...xs].sort((a, b) => a - b);
+  return ordenados[Math.floor(ordenados.length / 2)] ?? 0;
+};
 
 export const mayorDe = (particion: Particion): number =>
   Math.max(0, ...particion.nucleos.map((n) => n.ids.length));
