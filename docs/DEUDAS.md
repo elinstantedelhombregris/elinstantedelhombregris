@@ -69,6 +69,23 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo) | La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo | Baja | Abierta |
 | [D-060](#d-060--la-suite-de-integración-de-la-api-no-la-linta-nadie) | La suite de integración de la API no la linta nadie | Baja | Abierta |
 | [D-061](#d-061--153-lecciones-usan-encabezados-más-profundos-que-los-dos-que-el-plan-permite) | 153 lecciones usan encabezados más profundos que los dos que el plan permite | Baja | Abierta |
+| [D-025](#d-025--tsc-de-la-app-de-campo-está-en-rojo-por-una-fuga-de-typesreact18) | tsc de la app de campo está en rojo por una fuga de @types/react@18 | Baja | **Resuelta** |
+| [D-026](#d-026--no-hay-población-por-celda-así-que-el-brillo-del-mapa-no-se-puede-normalizar-todavía) | No hay población por celda, así que el brillo del mapa no se puede normalizar todavía | Media | Abierta |
+| [D-027](#d-027--dos-librerías-de-mapa-en-v2-contra-la-regla-de-una-sola-de-cada-cosa) | Dos librerías de mapa en v2, contra la regla de una sola de cada cosa | Media | Abierta |
+| [D-029](#d-029--los-paquetes-del-workspace-publican-typescript-así-que-nada-compilado-de-v2-arranca-en-node) | Los paquetes del workspace publican TypeScript, así que nada compilado de v2 arranca en Node | Alta | **Resuelta** |
+| [D-030](#d-030--las-misiones-de-relevamiento-y-las-campañas-cívicas-perdieron-su-captura-guiada-por-celda) | Las misiones de relevamiento y las campañas cívicas perdieron su captura guiada por celda | Media | Abierta |
+| [D-031](#d-031--cabos-sueltos-menores-del-borrado-del-juego-r2-task-5) | Cabos sueltos menores del borrado del juego (R2 Task 5) | Baja | Abierta |
+| [D-062](#d-062--post-apiopen-datadreams-dejaba-que-el-cliente-eligiera-cuánta-protección-quería) | POST /api/open-data/dreams dejaba que el cliente eligiera cuánta protección quería | Alta | **Resuelta** |
+| [D-063](#d-063--las-capturas-de-campo-entran-a-la-radiografía-mal-clasificadas) | Las capturas de campo entran a La Radiografía mal clasificadas | Media | Abierta |
+| [D-064](#d-064--la-capa-voz-del-mapa-lee-dos-tablas-y-eso-es-transitorio) | La capa voz del mapa lee dos tablas, y eso es transitorio | Baja | Abierta |
+| [D-065](#d-065--un-test-de-integración-escribía-en-la-base-real-y-dejó-filas-visibles-en-el-mapa) | Un test de integración escribía en la base real y dejó filas visibles en el mapa | Media | **Resuelta** |
+| [D-066](#d-066--engrosado_rechazado-comprobaba-una-de-las-dos-condiciones-de-su-check) | engrosado_rechazado comprobaba una de las dos condiciones de su CHECK | Alta | **Resuelta** |
+| [D-067](#d-067--el-recibo-de-un-reintento-describía-la-fila-que-llegó-no-la-guardada) | El recibo de un reintento describía la fila que llegó, no la guardada | Media | **Resuelta** |
+| [D-068](#d-068--la-radiografía-leía-una-tabla-retirada-y-los-163-tests-estaban-en-verde) | La Radiografía leía una tabla retirada, y los 163 tests estaban en verde | Alta | **Resuelta** |
+| [D-069](#d-069--el-techo-de-adhesiones-por-actor-no-se-ve-en-ninguna-pantalla-y-no-es-el-techo-que-hace-falta) | El techo de adhesiones por actor no se ve en ninguna pantalla, y no es el techo que hace falta | Media | Abierta |
+| [D-070](#d-070--el-canon-de-la-señal-vive-en-tres-tablas-que-la-aplicación-puede-escribir) | El canon de la señal vive en tres tablas que la aplicación puede escribir | Media | Abierta |
+| [D-071](#d-071--el-techo-de-20-altas-de-actor-por-hora-existe-en-un-comentario-y-en-ninguna-línea-de-código) | El techo de 20 altas de actor por hora existe en un comentario y en ninguna línea de código | Alta | Abierta |
+| [D-072](#d-072--dos-cifras-de-la-tabla-del-ejemplo-dejaron-de-decir-nada-y-siguieron-en-pantalla) | Dos cifras de la tabla del ejemplo dejaron de decir nada y siguieron en pantalla | Media | **Resuelta** |
 
 ---
 
@@ -903,9 +920,15 @@ La causa de que nadie lo note es de tubería, no de disciplina. El workflow de C
 
 Se descubrió de rebote: el importador de `docs/DEUDAS.md` a `faltas` contó 33 entradas contra 27 filas de índice, y la diferencia llevó a correr la guardia a mano.
 
-**Por qué no se arregla acá:** agregar seis filas al índice es trivial, pero mover la guardia de árbol es una decisión sobre el CI de los dos proyectos, y el archivo tiene sesiones concurrentes escribiéndolo (ver [D-010](#d-010--sesiones-concurrentes-se-tragan-los-cambios-de-otras)).
+**Por qué no se arregló entero de una:** agregar las filas al índice es trivial, pero mover la guardia de árbol es una decisión sobre el CI de los dos proyectos, y el archivo tiene sesiones concurrentes escribiéndolo (ver [D-010](#d-010--sesiones-concurrentes-se-tragan-los-cambios-de-otras)).
 
-**Qué haría falta:** las seis filas de índice, y después mover la guardia a `v2/scripts/content/` con su propio paso de CI —o agregar `docs/DEUDAS.md` a los `paths` del workflow existente— para que la escriba quien la escriba, alguien la mida.
+**Hecho el 2026-08-18:** el índice quedó completo. Faltaban diecisiete filas y no seis —a las de D-025 a D-031 se les habían sumado las de D-062 a D-067, escritas por otra sesión sin pasar por el índice, que es la forma en que este defecto se reproduce solo—. Se generaron leyendo título, severidad y estado del cuerpo, no a mano. **Cinco de las seis comprobaciones de la guardia están en verde.**
+
+**Lo que queda, y es lo que de verdad importa:**
+
+1. **`D-028` sigue nombrando dos deficiencias distintas**, y es la única comprobación en rojo. Renombrar la segunda —«El brillo dibujado es invertible»— a un id libre no es editar una línea: hay **once remisiones a esa entrada en cinco documentos ajenos** (`specs/2026-08-11-c-la-corroboracion.md`, `-b-la-senal.md`, `specs/2026-08-04-el-registro.md`, `plans/2026-08-11-tierra-senal-corroboracion-registro.md`) más dos a la primera y una ambigua en `specs/2026-08-12-lo-que-falta.md`, varias escritas como «D-028 (la segunda entrada con ese id, `docs/DEUDAS.md:677`)» — o sea que el renombre tiene que arrastrar las remisiones o las deja colgadas. Es trabajo de quien tenga esos documentos en la mano.
+2. **La guardia sigue detrás del filtro de rutas equivocado**, que es la causa y no el síntoma: mientras corra sólo sobre `SocialJusticeHub/**`, el árbol que más escribe este archivo es el que no la dispara, y el índice se va a volver a desincronizar. Mover la guardia a `v2/scripts/content/` con su propio paso de CI —o agregar `docs/DEUDAS.md` a los `paths` del workflow existente— sigue siendo lo que cierra esta entrada.
+3. De paso: varias specs de la corroboración dan por **resuelta** a la segunda D-028 («D-028 (la segunda) resuelta por §2.9») y la entrada de acá sigue diciendo `abierta`. No se tocó desde esta sesión porque el diseño que la cerraría es de otra, pero alguien tiene que reconciliarlo.
 
 ---
 
@@ -1263,3 +1286,74 @@ Con el mismo `idLocal` y un cuerpo distinto, el servidor confirmaba una publicac
 La web no lo disparaba —genera un uuid nuevo por envío— pero el contrato dice que `idLocal` **es** la clave de idempotencia del outbox, y el endpoint es público y sin auth.
 
 **Cómo se cerró:** cuando `yaExistia`, se relee la fila y se contesta lo que hay. Si el cuerpo difiere, un aviso lo dice con todas las letras: «ya estaba cargada con ese identificador y NO se sobrescribió».
+
+### D-068 · La Radiografía leía una tabla retirada, y los 163 tests estaban en verde
+
+**Dónde:** `v2/apps/api/src/features/radiografia/lectura.ts`
+**Encontrada:** 2026-08-16, buscando por qué la página no mostraba ninguna de las señales nuevas
+**Severidad:** alta
+**Estado:** RESUELTA 2026-08-16, commit `0c39d557`
+
+La página de convergencia leía `dreams` —la tabla de v1— mientras el resto del sistema escribía en `senales`. El instrumento que existe para mostrar lo que la gente dice estaba mirando la tabla en la que ya no dice nada.
+
+Lo grave no es el puntero viejo: es que **la suite entera estaba verde mientras tanto**. Los tests del motor reciben vectores a mano; los de la página, un fixture. Ninguno preguntaba de qué tabla salen los vectores en producción, porque «de qué tabla» no era un dato que nadie mirara — era una constante adentro de un módulo, y una constante no se testea, se cree.
+
+**Cómo se cerró:** el puntero pasó a `packages/db/src/repositories/analisis.ts` como `FUENTE_VIVA = 'senales'`, con `FUENTES_LEGIBLES` dejando `dreams` legible-pero-no-viva mientras queden filas viejas. Ahora vive en el repositorio, que es el único lugar donde alguien lo va a ir a buscar.
+
+**Lo que queda es la lección, no el arreglo:** un test verde sobre un fixture no dice nada sobre a qué tabla apunta la producción. Es el mismo hueco de [D-063](#d-063--las-capturas-de-campo-entran-a-la-radiografía-mal-clasificadas) y [D-064](#d-064--la-capa-voz-del-mapa-lee-dos-tablas-y-eso-es-transitorio), tres veces en la misma semana.
+
+### D-069 · El techo de adhesiones por actor no se ve en ninguna pantalla, y no es el techo que hace falta
+
+**Dónde:** `v2/packages/civic-core/src/radiografia/grafo.ts`, `TECHO_ADHESIONES_POR_ACTOR`
+**Encontrada:** 2026-08-18, escribiendo el modelo de ataque del grafo declarado
+**Severidad:** media
+**Estado:** abierta
+
+`aristasDeclaradas` corta en 200 las adhesiones con que un actor contribuye al grafo, porque sin techo 4.000 adhesiones de una sola cuenta generan 7.998.000 aristas y ~3,6 GB de heap — medido, no estimado. El techo está bien y hay un test que lo fija. Faltan dos cosas.
+
+**Primero, no se declara.** Un actor por encima del techo aporta sus primeras 200 señales ordenadas por id y ninguna más. La constelación que se dibuja no es la que el dato produce sino la que el techo dejó pasar, y eso es exactamente el recorte que la regla 5 de la Constitución de producto obliga a mostrar. El dato existe adentro de la función —cuántos actores lo tocaron, cuántas adhesiones quedaron afuera— y no sale.
+
+**Segundo, y peor: el techo protege la máquina, no la medición.** La arista declarada cuenta **actores distintos**, así que un actor con 300 adhesiones vale 1 en cada par; pero 200 actores con 2 adhesiones cada uno valen 200. El costo de inflar una arista declarada no es adherir más, es tener más cuentas — y una cuenta es un identificador al azar en un navegador, sin verificación y hoy sin límite ([D-071](#d-071--el-techo-de-20-altas-de-actor-por-hora-existe-en-un-comentario-y-en-ninguna-línea-de-código)).
+
+**Qué haría falta:** que la cabecera de la sección declare el recorte, y que se resuelva D-071 — sin eso, ningún techo del lado del grafo mide lo que promete.
+
+### D-070 · El canon de la señal vive en tres tablas que la aplicación puede escribir
+
+**Dónde:** `v2/packages/db/migrations/0022_senales.sql` — `tipos_senal`, `estados_senal`, `temas`
+**Encontrada:** 2026-08-18, revisando qué sostiene las claves foráneas compuestas de `senales`
+**Severidad:** media
+**Estado:** abierta
+
+Los nueve tipos, las cuatro clases y los estados no son un enum: son filas sembradas por la migración, y las FK compuestas `(tipo, clase)` y `(estado, clase)` de `senales` las usan como fuente de verdad. La elección está bien —agregar un tipo es una migración y no un deploy— pero nada las protege: no hay un solo `GRANT` ni un `REVOKE` en `packages/db/migrations/`, y la API se conecta con el rol dueño.
+
+O sea que el mismo rol que inserta una señal puede correr `UPDATE tipos_senal SET clase = 'hecho' WHERE tipo = 'sueño'`. La regla 11 del canon —los hechos se corroboran, los deseos se deliberan— quedaría invertida en la base y las FK compuestas seguirían verdes, porque el catálogo **es** lo que ellas comprueban. No hace falta un ataque: alcanza con un script de mantenimiento apurado.
+
+**Qué haría falta:** un rol de aplicación con `SELECT` sobre los tres catálogos y sin `INSERT/UPDATE/DELETE`, y las migraciones corriendo con el dueño. Es una migración de permisos más un cambio en la cadena de conexión de producción, así que no se hace de paso.
+
+### D-071 · El techo de 20 altas de actor por hora existe en un comentario y en ninguna línea de código
+
+**Dónde:** `v2/packages/db/src/schema/actores.ts` (tabla `actores_por_origen`) y `v2/packages/db/src/repositories/actores.ts` (`resolverOCrear`)
+**Encontrada:** 2026-08-18, siguiendo el modelo de ataque de D-069 hasta su raíz
+**Severidad:** alta
+**Estado:** abierta
+
+La tabla `actores_por_origen` está pensada en serio: PK compuesta `(hora, bucket)` para poder upsertear —sin clave, cada alta insertaría una fila nueva y el `where creados >= 20` no encontraría nunca nada—, `bucket` como HMAC con pepper del prefijo de red (/32 en IPv4, /64 en IPv6) para que ninguna fila permita reconstruir desde qué red se habló, y cero referencias a `actor_id`. Su docblock explica incluso por qué es tabla y no memoria: la API corre serverless, y un contador en proceso cuenta por instancia.
+
+**No hay una sola línea que la lea o la escriba.** `resolverOCrear` hace `SELECT` por hash e `INSERT`, y nunca mira el bucket. Buscada la cadena `actores_por_origen` en `apps/`, `packages/` y `scripts/`: aparece en la migración, en el esquema y en los tipos compilados. En ningún repositorio, en ninguna ruta, en ningún cron.
+
+Por qué pesa más de lo que parece: un actor es un identificador al azar que vive en el navegador, sin cuenta y sin verificación, y **todo el sistema cuenta actores distintos para no contar dos veces a la misma persona** — el brillo, `UMBRAL_CORROBORACION`, las aristas declaradas de La Radiografía. Si crear actores es gratis e ilimitado, «actores distintos» deja de significar «personas distintas» en las tres máquinas a la vez. Este techo era lo único que iba a hacer que costara algo.
+
+**Qué haría falta:** el upsert que la tabla fue diseñada para recibir, en la misma transacción que crea el actor y con `creados >= 20` como candado; el barrido de filas viejas que el docblock promete, porque sin barrido la tabla es un registro perpetuo de desde qué redes se habló y eso es lo que la regla 3 prohíbe; y una decisión sobre qué contesta la API cuando el techo pega, que no es obvia — un 429 le enseña a quien prueba dónde está el límite.
+
+### D-072 · Dos cifras de la tabla del ejemplo dejaron de decir nada y siguieron en pantalla
+
+**Dónde:** `v2/apps/web/src/pages/LaRadiografia/ejemplos-vista.ts` y `sections/TablaDeLosTres.tsx`
+**Encontrada:** 2026-08-17, al reescribir el corpus del ejemplo sin la muleta que lo inflaba
+**Severidad:** media
+**Estado:** RESUELTA 2026-08-18, commit `ea4a76b5`
+
+`medianaDeParecido` y `umbralDeLaMancha` sostenían en pantalla la afirmación «acá gana la bronca». Las dos medían la muleta del corpus viejo: mientras el escenario 1 repetía «nada» en 58 de sus 63 frases, la mediana daba 0,45 contra 0,17 y 0,18. Reescrito el corpus, el 76,8 % de las aristas de su k-NN son relleno de cupo y valen cero, la mediana se fue a **0,000** —la fila decía lo contrario del título que encabezaba— y la otra empató en los tres, porque su constante (la mitad del corpus) había quedado una voz por encima de la mancha.
+
+El defecto no es que las cifras cambiaran: es que **cambiaron sin ponerse rojas**. Los tests fijaban la forma de la constelación, no lo que la tabla afirma con ella, así que la pantalla siguió publicando dos números que ya no sostenían nada durante un día entero.
+
+**Cómo se cerró:** las reemplazaron dos cifras medidas todos contra todos, que no heredan el `k` del artefacto —con cuántas de las otras 62 comparte al menos una palabra la voz mediana (4 / 19 / 41) y cuánto se parecen dos voces cuando se tocan (0,500 / 0,167 / 0,107)—, y **los tres valores de cada fila quedaron fijados en un test de pantalla**, no sólo su orden. Una cifra que se calcula bien y no dice nada es indistinguible de una que miente, y el orden relativo no alcanza para notar la diferencia.

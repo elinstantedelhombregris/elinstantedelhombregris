@@ -109,9 +109,9 @@ El parche fija la versión exacta.
   });
 
   it('un «Cómo se arregló» en pasado sí cierra, pero pierde contra un Estado abierta', () => {
-    expect(
-      leerDeudas('### D-040 · Algo\n\n**Cómo se arregló:** se hizo así\n')[0]?.resuelta,
-    ).toBe(true);
+    expect(leerDeudas('### D-040 · Algo\n\n**Cómo se arregló:** se hizo así\n')[0]?.resuelta).toBe(
+      true,
+    );
     expect(
       leerDeudas('### D-041 · Algo\n\n**Estado:** abierta\n**Cómo se arregló:** parte de esto\n')[0]
         ?.resuelta,
@@ -188,12 +188,16 @@ describe('fusionar', () => {
   });
 
   it('la copia de «Resueltas» sola ya cuenta como resuelta, sin línea de estado', () => {
-    const [deuda] = leerDeudas('### D-010 · Otra\n\n**Resuelta:** 2026-08-02\n**Cómo:** se borró\n');
+    const [deuda] = leerDeudas(
+      '### D-010 · Otra\n\n**Resuelta:** 2026-08-02\n**Cómo:** se borró\n',
+    );
     expect(deuda?.resuelta).toBe(true);
   });
 
   it('no toca las que aparecen una sola vez', () => {
-    const unicas = fusionar(leerDeudas('### D-011 · Sola\n\n**Severidad:** baja\n**Estado:** abierta\n'));
+    const unicas = fusionar(
+      leerDeudas('### D-011 · Sola\n\n**Severidad:** baja\n**Estado:** abierta\n'),
+    );
     expect(unicas).toHaveLength(1);
     expect(unicas[0]?.resuelta).toBe(false);
     expect(unicas[0]?.severidad).toBe('baja');
@@ -250,7 +254,20 @@ describe('contra el docs/DEUDAS.md real', () => {
     expect(estado('D-029'), 'abierta (…, no resuelta)').toBe(false);
   });
 
-  it('las resueltas del archivo son exactamente estas doce', () => {
+  /**
+   * **La lista se escribe a mano y por eso se pone vieja sola.**
+   *
+   * Estuvo en rojo desde el 2026-08-14 hasta el 2026-08-18 sin que nadie lo
+   * viera: otra sesión cerró D-062, D-065, D-066 y D-067 y no pasó por acá. Es
+   * la forma de [D-013](../../../../docs/DEUDAS.md) —un total a mano que se
+   * rompe cada vez— aplicada a un registro que crece todas las semanas.
+   *
+   * Se deja a mano igual, y a propósito: un test que contara `filter(resuelta)`
+   * contra sí mismo no comprobaría nada. Lo que esta lista compra es que cerrar
+   * una deuda **obligue a tocar dos archivos**, y el segundo es el que hace
+   * mirar si de verdad está cerrada.
+   */
+  it('las resueltas del archivo son exactamente estas dieciséis', () => {
     expect(
       deudas
         .filter((d) => d.resuelta)
@@ -272,6 +289,19 @@ describe('contra el docs/DEUDAS.md real', () => {
       // minutaje pasó a calcularse del cuerpo y los 31 `course.json` bajaron de
       // 3.163 minutos a 957.
       'D-053',
+      // Las cuatro siguientes las cerró la sesión de `senales` entre el 13 y el
+      // 14 de agosto de 2026, y ninguna pasó por esta lista: el endpoint que
+      // dejaba elegir la protección, el test que escribía en la base real, el
+      // CHECK a medio comprobar y el recibo que describía la fila que llegó.
+      'D-062',
+      'D-065',
+      'D-066',
+      'D-067',
+      // Cerradas el 16 y el 18 de agosto de 2026 en La Radiografía: la página
+      // leía `dreams`, una tabla retirada (`0c39d557`), y dos cifras de la
+      // tabla del ejemplo seguían en pantalla sin decir nada (`ea4a76b5`).
+      'D-068',
+      'D-072',
     ]);
   });
 });
