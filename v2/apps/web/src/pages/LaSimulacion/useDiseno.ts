@@ -114,26 +114,26 @@ export function useDiseno(pais: Pais): MesaDeDiseno {
         ? previo.claves.filter((c) => c !== clave)
         : [...previo.claves, clave],
     }));
-  }, []);
+  }, [editar]);
 
   const fijarVariable = useCallback((clave: ClaveVariable, valor: number) => {
     // Pasa por `conVariable`, que acota al dominio declarado y renormaliza la
     // composición: la mesa no puede escribir un escenario que el motor no
     // podría haber producido por su cuenta.
     editar((previo) => ({ ...previo, base: conVariable(previo.base, clave, valor) }));
-  }, []);
+  }, [editar]);
 
   const cambiarMetodo = useCallback((metodo: Metodo) => {
     editar((previo) => ({ ...previo, metodo }));
-  }, []);
+  }, [editar]);
 
   const cambiarObjetivo = useCallback((objetivo: Objetivo) => {
     editar((previo) => ({ ...previo, objetivo }));
-  }, []);
+  }, [editar]);
 
   const cambiarSemilla = useCallback((semilla: number) => {
     editar((previo) => ({ ...previo, base: { ...previo.base, semilla: Math.trunc(semilla) } }));
-  }, []);
+  }, [editar]);
 
   /**
    * Cambiar de modo cambia el escenario, no sólo la etiqueta.
@@ -156,7 +156,7 @@ export function useDiseno(pais: Pais): MesaDeDiseno {
             : null,
       },
     }));
-  }, []);
+  }, [editar]);
 
   return {
     diseno,

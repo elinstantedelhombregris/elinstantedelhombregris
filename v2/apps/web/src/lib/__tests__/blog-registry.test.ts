@@ -95,7 +95,13 @@ describe('BLOG_POSTS registry', () => {
       expect(post.coverImageAlt.length).toBeGreaterThan(20);
       expect(post.coverImageCaption.length).toBeGreaterThan(10);
       expect(post.coverImageCredit.length).toBeGreaterThan(5);
-      expect(post.updatedAt).toBe('2026-08-14T00:00:00Z');
+      /**
+       * En la fecha del despliegue de portadas o después, nunca antes: lo que
+       * garantiza es que la tanda no se salteó ningún artículo. La igualdad
+       * exacta que había acá decía eso mismo y además prohibía volver a tocar
+       * un post — se puso roja un día después, cuando uno se editó de nuevo.
+       */
+      expect(post.updatedAt >= '2026-08-14T00:00:00Z').toBe(true);
     }
   });
 });
