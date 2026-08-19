@@ -89,6 +89,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-073](#d-073--brillo-y-nitidez-se-calculan-por-provincia-y-ninguna-pantalla-los-pide) | Brillo y nitidez se calculan por provincia y ninguna pantalla los pide | Media | Abierta |
 | [D-074](#d-074--los-relojes-de-vigencia-están-escritos-y-no-los-llama-nadie) | Los relojes de vigencia están escritos y no los llama nadie | Alta | Abierta |
 | [D-075](#d-075--una-pregunta-se-puede-cargar-y-no-se-puede-responder) | Una pregunta se puede cargar y no se puede responder | Media | Abierta |
+| [D-076](#d-076--el-taller-de-planpuerta-y-su-mdx-dejaron-de-coincidir-y-la-guardia-está-rota-en-el-tronco) | El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está rota en el tronco | Media | Abierta |
 
 ---
 
@@ -1401,3 +1402,18 @@ Es más grave que la falta de `CRON_SECRET` que anota [D-058](#d-058--un-cron-qu
 `pregunta` queda así como **la única de las cuatro clases sin ningún gesto disponible**: un hecho se confirma, un deseo junta adhesiones, un acto tiene fecha, y una pregunta cargada hoy no lleva a ninguna parte. Es también la clase de la que depende el mandato más barato de todos —la agenda territorial de lo que no se sabe—, así que el callejón sin salida se paga dos veces.
 
 **Qué haría falta:** mostrar las respuestas en la ficha y un campo para agregar una, con la misma regla que el resto: se publica qué se respondió, nunca quién.
+
+### D-076 · El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está roja en el tronco
+
+**Dónde:** `Iniciativas Estratégicas/` y `v2/content/planes/PLANPUERTA.mdx`
+**Encontrada:** 2026-08-19, corriendo las guardias de CI antes de un push
+**Severidad:** media
+**Estado:** abierta
+
+`pnpm planes:check` re-deriva cada `.mdx` desde el taller y lo compara con lo commiteado. PLANPUERTA no coincide: *«¿se editó uno de los dos sin re-derivar?»*.
+
+Los dos lados se tocaron por última vez en commits que ya están en `origin/main` —`e799962a` del lado del taller, `53b248f7` del lado del canon—, así que **la guardia viene fallando en el tronco**, no la rompió un cambio nuevo. Y como `planes:check` es un paso del workflow de v2, todo push que toque `v2/**` sale con CI en rojo por esta causa.
+
+No se arregló acá a propósito: el remedio (`pnpm planes:migrar`) reescribe el `.mdx` canónico de un PLAN de 27.000 palabras, y cuál de los dos lados es el bueno es una decisión de contenido, no una corrección mecánica.
+
+**Qué haría falta:** correr la migración, leer el diff completo, y confirmar que lo que gana es el taller y no una edición manual del canon que se perdería. Si fuera al revés, lo que hay que corregir es el taller.
