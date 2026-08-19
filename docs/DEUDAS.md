@@ -86,6 +86,9 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-070](#d-070--el-canon-de-la-señal-vive-en-tres-tablas-que-la-aplicación-puede-escribir) | El canon de la señal vive en tres tablas que la aplicación puede escribir | Media | Abierta |
 | [D-071](#d-071--el-techo-de-20-altas-de-actor-por-hora-existe-en-un-comentario-y-en-ninguna-línea-de-código) | El techo de 20 altas de actor por hora existe en un comentario y en ninguna línea de código | Alta | Abierta |
 | [D-072](#d-072--dos-cifras-de-la-tabla-del-ejemplo-dejaron-de-decir-nada-y-siguieron-en-pantalla) | Dos cifras de la tabla del ejemplo dejaron de decir nada y siguieron en pantalla | Media | **Resuelta** |
+| [D-073](#d-073--brillo-y-nitidez-se-calculan-por-provincia-y-ninguna-pantalla-los-pide) | Brillo y nitidez se calculan por provincia y ninguna pantalla los pide | Media | Abierta |
+| [D-074](#d-074--los-relojes-de-vigencia-están-escritos-y-no-los-llama-nadie) | Los relojes de vigencia están escritos y no los llama nadie | Alta | Abierta |
+| [D-075](#d-075--una-pregunta-se-puede-cargar-y-no-se-puede-responder) | Una pregunta se puede cargar y no se puede responder | Media | Abierta |
 
 ---
 
@@ -1357,3 +1360,44 @@ Por qué pesa más de lo que parece: un actor es un identificador al azar que vi
 El defecto no es que las cifras cambiaran: es que **cambiaron sin ponerse rojas**. Los tests fijaban la forma de la constelación, no lo que la tabla afirma con ella, así que la pantalla siguió publicando dos números que ya no sostenían nada durante un día entero.
 
 **Cómo se cerró:** las reemplazaron dos cifras medidas todos contra todos, que no heredan el `k` del artefacto —con cuántas de las otras 62 comparte al menos una palabra la voz mediana (4 / 19 / 41) y cuánto se parecen dos voces cuando se tocan (0,500 / 0,167 / 0,107)—, y **los tres valores de cada fila quedaron fijados en un test de pantalla**, no sólo su orden. Una cifra que se calcula bien y no dice nada es indistinguible de una que miente, y el orden relativo no alcanza para notar la diferencia.
+
+### D-073 · Brillo y nitidez se calculan por provincia y ninguna pantalla los pide
+
+**Dónde:** `v2/apps/api/src/features/senales/routes.ts` (`GET /map/luz`) y toda `v2/apps/web/src`
+**Encontrada:** 2026-08-18, auditando el documento «De la voz al mandato» contra el código
+**Severidad:** media
+**Estado:** abierta
+
+El endpoint existe, responde 200 en producción y devuelve las dos métricas por provincia con su población de referencia y su `sinDenominador` cuando no la hay. **Ningún cliente lo consume.** La única aparición de la palabra `luz` en la web es la *invalidación* de la clave `['senales','luz']` después de confirmar: se invalida una consulta que nunca se hace.
+
+El efecto es que el mapa dibuja puntos y manchas provinciales y **no dibuja ningún territorio encendido**, que es lo que el endpoint se construyó para permitir. Desde el lado del servidor la pieza se ve terminada, y por eso es fácil darla por hecha: no hay test que falle, ni tipo que se queje, ni error en consola.
+
+**Qué haría falta:** una consulta que lo pida y una capa que lo pinte, con el gris de «no sé» separado del oscuro de «acá no habló nadie» — la distinción ya viene resuelta en la respuesta y se perdería si quien dibuja la colapsa.
+
+### D-074 · Los relojes de vigencia están escritos y no los llama nadie
+
+**Dónde:** `v2/apps/api/src/features/senales/relojes.ts`, `v2/vercel.json`
+**Encontrada:** 2026-08-18, misma auditoría
+**Severidad:** alta
+**Estado:** abierta
+
+`POST /relojes/barrer` existe, está protegido con `CRON_SECRET` y hace lo que promete: manda a revisión los hechos pasados de `vence_el_revision` y marca `vencido` —nunca `no_cumplida`, porque un proceso automático no puede acusar a nadie— los compromisos pasados de fecha.
+
+No hay ninguna entrada que lo invoque: `vercel.json` sólo agenda `rankings` y `sesiones`, no existe un handler en `api/cron/`, y ningún workflow lo llama. **Nada envejece.** Un hecho corroborado se queda corroborado para siempre y una promesa vencida nunca se marca vencida, así que la mitad derecha de la máquina de estados —la que depende del tiempo— está congelada.
+
+Es más grave que la falta de `CRON_SECRET` que anota [D-058](#d-058--un-cron-que-falla-no-le-avisa-a-nadie-y-ahora-uno-de-ellos-sostiene-una-promesa-legal): ahí un cron agendado fallaba en silencio; acá no hay cron.
+
+**Qué haría falta:** el handler, su entrada en `crons`, y la variable en el entorno de producción. Y que su resultado se vea en algún lado — un barrido que corre y no le avisa a nadie vuelve a caer en D-058.
+
+### D-075 · Una pregunta se puede cargar y no se puede responder
+
+**Dónde:** `v2/apps/web/src/pages/Senal.tsx`
+**Encontrada:** 2026-08-18, misma auditoría
+**Severidad:** media
+**Estado:** abierta
+
+`POST /senales/:idPublico/respuesta` existe, y el detalle de una señal ya devuelve sus `respuestas`. La página de la señal no las muestra ni ofrece dónde escribir una.
+
+`pregunta` queda así como **la única de las cuatro clases sin ningún gesto disponible**: un hecho se confirma, un deseo junta adhesiones, un acto tiene fecha, y una pregunta cargada hoy no lleva a ninguna parte. Es también la clase de la que depende el mandato más barato de todos —la agenda territorial de lo que no se sabe—, así que el callejón sin salida se paga dos veces.
+
+**Qué haría falta:** mostrar las respuestas en la ficha y un campo para agregar una, con la misma regla que el resto: se publica qué se respondió, nunca quién.
