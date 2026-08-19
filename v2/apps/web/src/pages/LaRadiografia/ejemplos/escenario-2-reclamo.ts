@@ -46,7 +46,7 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
     texto: 'En El Timbó compramos agua en bidones. De la canilla no sale nada.',
     tipo: 'basta',
   },
-  v03: { texto: 'Acá en El Timbó el agua llega a la madrugada un rato y nada más.', tipo: 'basta' },
+  v03: { texto: 'aca en el timbo el agua llega a la madrugada un rato y nada mas', tipo: 'basta' },
   v04: {
     texto: 'Necesitamos el camión de agua en El Timbó, aunque sea día por medio.',
     tipo: 'necesidad',
@@ -61,7 +61,7 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
     texto: 'Sueño con abrir la canilla en El Timbó y que salga agua. Nada más que eso.',
     tipo: 'sueño',
   },
-  v08: { texto: 'Che, en El Timbó seguimos sin agua. Van seis meses.', tipo: 'basta' },
+  v08: { texto: 'Che, en El Timbó seguimos sin agua… van seis meses.', tipo: 'basta' },
   // t1 · la salita
   v09: { texto: 'La salita del barrio no abre a la tarde. Cierra a las dos.', tipo: 'basta' },
   v10: { texto: 'En la salita del barrio no hay pediatra. Te mandan al hospital.', tipo: 'basta' },
@@ -77,16 +77,16 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
     tipo: 'necesidad',
   },
   // t2 · Los Tarcos (Tucumán) — la salita ← falso amigo, lado A
-  v15: { texto: 'La salita del barrio no abre a la tarde.', tipo: 'basta' },
+  v15: { texto: 'la salita del barrio no abre a la tarde', tipo: 'basta' },
   v16: { texto: 'En la salita dan cuatro turnos por día y a las siete ya no hay.', tipo: 'basta' },
-  v17: { texto: 'Fui tres veces a la salita del barrio y estaba cerrada las tres.', tipo: 'basta' },
+  v17: { texto: 'Fui TRES VECES a la salita del barrio y estaba cerrada las tres.', tipo: 'basta' },
   v18: { texto: 'Necesitamos que la salita del barrio abra el fin de semana.', tipo: 'necesidad' },
-  v19: { texto: 'En la salita no hay ni ibuprofeno. Te mandan a la farmacia.', tipo: 'basta' },
+  v19: { texto: 'en la salita no hay ni ibuprofeno te mandan a la farmacia', tipo: 'basta' },
   v20: { texto: 'Ojalá la salita del barrio abra como corresponde alguna vez.', tipo: 'sueño' },
   // t2 · la luz
   v21: { texto: 'Se corta la luz todos los días a la siesta, en pleno enero.', tipo: 'basta' },
   v22: {
-    texto: 'Se cortó la luz seis veces en una semana. Se me quemó la heladera.',
+    texto: '¡Se cortó la luz seis veces en una semana! Se me quemó la heladera.',
     tipo: 'basta',
   },
   v23: {
@@ -98,14 +98,14 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
     texto: 'Acá el agua no sube al tanque. Sube hasta la primera casa y listo.',
     tipo: 'basta',
   },
-  v25: { texto: 'El agua sale marrón cuando sale.', tipo: 'basta' },
+  v25: { texto: 'el agua sale marron cuando sale', tipo: 'basta' },
   // t3 · Los Ceibos del Oeste (Buenos Aires) — el colectivo
   v26: { texto: 'El 60 no pasa después de las ocho de la noche.', tipo: 'basta' },
   v27: {
     texto: 'Espero el colectivo cincuenta minutos para ir a laburar. Todos los días.',
     tipo: 'basta',
   },
-  v28: { texto: 'Del centro al barrio de noche no volvés: no pasa el colectivo.', tipo: 'basta' },
+  v28: { texto: '¿Del centro al barrio de noche? No volvés: no pasa el colectivo.', tipo: 'basta' },
   v29: { texto: 'Necesitamos que el colectivo pase los domingos al barrio.', tipo: 'necesidad' },
   v30: { texto: 'El 60 entraba al barrio y ahora te deja a doce cuadras.', tipo: 'basta' },
   v31: {
@@ -126,7 +126,7 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
     texto: 'Hace tres semanas que no pasa el camión de la basura por el barrio.',
     tipo: 'basta',
   },
-  v35: { texto: 'Tiraron escombros en el terreno de la esquina y nadie hace nada.', tipo: 'basta' },
+  v35: { texto: 'tiraron escombros en el terreno de la esquina y nadie hace nada', tipo: 'basta' },
   v36: {
     texto: 'Necesitamos contenedores de basura en las esquinas del barrio.',
     tipo: 'necesidad',
@@ -142,7 +142,7 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
   },
   // t4 · La Cañada Vieja (Santa Fe) — la salita de 4 ← falso amigo, lado B
   v39: { texto: 'En la salita de 4 del barrio no hay vacantes. Quedamos afuera.', tipo: 'basta' },
-  v40: { texto: 'Mi nena quedó sin sala de 4 este año. No entró nadie del barrio.', tipo: 'basta' },
+  v40: { texto: 'mi nena quedo sin sala de 4 este año no entro nadie del barrio', tipo: 'basta' },
   v41: { texto: 'La salita de 4 del barrio no abre desde marzo.', tipo: 'basta' },
   v42: {
     texto: 'Necesitamos otra sala de 4: hay treinta anotados y veinte lugares.',
@@ -165,7 +165,7 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
   },
   v47: { texto: 'Necesitamos que limpien el zanjón. Está tapado hace años.', tipo: 'necesidad' },
   // t5 · Alto de la Cruz (Córdoba) — la luz
-  v48: { texto: 'Se corta la luz cada vez que llueve. Siempre.', tipo: 'basta' },
+  v48: { texto: 'Se corta la luz cada vez que llueve. SIEMPRE.', tipo: 'basta' },
   v49: { texto: 'Estuvimos dos días sin luz y se echó a perder toda la comida.', tipo: 'basta' },
   v50: { texto: 'Se cae la tensión y titilan las lámparas. La luz no da abasto.', tipo: 'basta' },
   v51: {
@@ -178,7 +178,7 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
     tipo: 'basta',
   },
   // t5 · la changa
-  v53: { texto: 'Acá el que labura, labura de changa. Laburo fijo no hay.', tipo: 'basta' },
+  v53: { texto: 'aca el que labura labura de changa laburo fijo no hay', tipo: 'basta' },
   v54: {
     texto: 'Necesitamos que abran la bolsa de trabajo del municipio. Está cerrada.',
     tipo: 'necesidad',
@@ -203,7 +203,7 @@ export const DICHOS_RECLAMO: Readonly<Record<IdDeVoz, Dicho>> = {
     tipo: 'sueño',
   },
   // t7 · El Zanjón (Salta) — la luz
-  v60: { texto: 'Acá se corta la luz seguido y nadie avisa nada.', tipo: 'basta' },
+  v60: { texto: 'aca se corta la luz seguido y nadie avisa nada', tipo: 'basta' },
   v61: {
     texto: 'Tenemos un solo poste de luz para toda la manzana. Colgados como podemos.',
     tipo: 'basta',

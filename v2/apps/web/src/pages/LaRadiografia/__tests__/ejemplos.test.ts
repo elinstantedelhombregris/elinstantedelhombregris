@@ -272,6 +272,110 @@ describe('la bronca converge sin muleta', () => {
   });
 });
 
+/**
+ * Que el corpus **se lea como un formulario y no como un molde**.
+ *
+ * Hasta el 18/8/2026 la cabecera del escenario 1 prometía «quien escribe en
+ * minúscula y sin tildes, quien pregunta al aire, quien grita en mayúscula», y
+ * eso era, contado, **una** frase en minúscula, **una** pregunta y **cero**
+ * gritos: 60 de las 63 empezaban con mayúscula y terminaban con punto. La
+ * variedad estaba en el comentario, no en el corpus.
+ *
+ * La reescritura tocó **sólo mayúsculas, tildes y puntuación** en 47 de las 189
+ * frases, y eso no es una promesa: el artefacto de vectores se regeneró y
+ * cambió **un solo campo**, el digesto del corpus. Los 43.897 bytes de vectores
+ * salieron idénticos byte por byte, así que no se movió un número de la página
+ * — ni un núcleo, ni una voz sola, ni un decimal de parecido.
+ *
+ * Que salieran idénticos no fue suerte: es una propiedad del instrumento, y la
+ * primera prueba de acá la fija en vez de confiar en ella. `tokensDeContenido`
+ * baja todo a minúscula, le saca las tildes y parte por cualquier cosa que no
+ * sea letra o número, así que **la máquina no ve cómo escribís: ve qué palabras
+ * usás.** Tiene un lado bueno y uno feo y los dos hay que decirlos. El bueno:
+ * nadie paga por escribir mal, y por eso varios de los reclamos más precisos
+ * del escenario 3 están tipeados a las apuradas y en minúscula, a propósito. El
+ * feo: un grito y un susurro llegan iguales, y quien lea la convergencia como
+ * si midiera intensidad se va a equivocar.
+ */
+describe('el corpus se lee como un formulario, no como un molde', () => {
+  /** La misma frase escrita por otra mano: en mayúscula, sin tildes, sin puntuación. */
+  const otraCaligrafia = (texto: string): string =>
+    texto
+      .toUpperCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^\p{L}\p{N}]+/gu, ' ');
+
+  /** La forma de manual: arranca en mayúscula, cierra con punto, sin gritos. */
+  const formaCanonica = (texto: string): boolean =>
+    /^[A-ZÁÉÍÓÚÑ¿¡]/u.test(texto) &&
+    texto.trim().endsWith('.') &&
+    !texto.includes('?') &&
+    !texto.includes('!') &&
+    !texto.includes('…');
+
+  const sinTildesNiMayusculas = (texto: string): boolean =>
+    /^[a-zñ]/u.test(texto) && !/[áéíóúÁÉÍÓÚÑ]/u.test(texto);
+
+  it('la máquina no ve cómo escribís: mayúsculas, tildes y puntuación no mueven el vector', async () => {
+    const embebedorPropio = new EmbebedorFalso();
+    for (const escenario of LOS_TRES_ESCENARIOS) {
+      const textos = escenario.voces.map((v) => v.texto);
+      const [comoEstan, comoLasEscribiriaOtro] = await Promise.all([
+        embebedorPropio.embeber(textos),
+        embebedorPropio.embeber(textos.map(otraCaligrafia)),
+      ]);
+      expect(comoLasEscribiriaOtro).toEqual(comoEstan);
+    }
+  });
+
+  /**
+   * El techo va **sobre la bronca**, y los otros dos se declaran — la misma
+   * regla que el techo de token de más arriba, por la misma razón. El escenario
+   * 3 son partes escritas con dirección, fecha y testigo: que la mayoría esté
+   * bien redactada **es** el corpus, no un molde. Lo que sí tiene que ser cierto
+   * en los tres es que haya alguien que escribió como se escribe en un teléfono.
+   */
+  it('la bronca no es un molde: menos de dos tercios tienen la forma de manual', () => {
+    const textos = ESCENARIO_BRONCA.voces.map((v) => v.texto);
+    const canonicas = textos.filter(formaCanonica).length;
+    expect([canonicas, canonicas / textos.length < 0.66]).toEqual([canonicas, true]);
+  });
+
+  it('los otros dos declaran su proporción, sin techo', () => {
+    const proporcion = (escenario: Escenario): number => {
+      const textos = escenario.voces.map((v) => v.texto);
+      return Math.round((textos.filter(formaCanonica).length / textos.length) * 100);
+    };
+    // Medido el 18/8/2026. Sólo se pone rojo si EMPEORA: la declaración no
+    // envejece en silencio, y nadie tiene que acordarse de volver a mirar.
+    expect(proporcion(ESCENARIO_RECLAMO)).toBeLessThanOrEqual(81);
+    expect(proporcion(ESCENARIO_DATO)).toBeLessThanOrEqual(90);
+  });
+
+  it('en los tres hay alguien que escribió como se escribe en un teléfono', () => {
+    for (const escenario of LOS_TRES_ESCENARIOS) {
+      const textos = escenario.voces.map((v) => v.texto);
+      expect([escenario.id, textos.some(sinTildesNiMayusculas)]).toEqual([escenario.id, true]);
+      expect([escenario.id, textos.some((t) => t.includes('?'))]).toEqual([escenario.id, true]);
+    }
+  });
+
+  /**
+   * Y que el escenario 3 no confunda **escribir bien** con **informar bien**,
+   * que es media lección de la página. Las frases mal tipeadas de ese corpus
+   * traen calle, número y fecha igual que las prolijas.
+   */
+  it('en el dato, lo mal escrito informa igual: trae número y año', () => {
+    const mal = ESCENARIO_DATO.voces.filter((v) => sinTildesNiMayusculas(v.texto));
+    expect(mal.length).toBeGreaterThanOrEqual(4);
+    for (const voz of mal) {
+      expect([voz.id, /\d/u.test(voz.texto)]).toEqual([voz.id, true]);
+      expect([voz.id, /\b20\d{2}\b/u.test(voz.texto)]).toEqual([voz.id, true]);
+    }
+  });
+});
+
 describe('el instrumento se equivoca, y se ve', () => {
   it('el falso amigo se junta en el escenario 2', () => {
     const porId = vectores.get(ESCENARIO_RECLAMO.id);

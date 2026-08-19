@@ -61,10 +61,31 @@ import type { Dicho, Escenario, MandatoDelEscenario } from './tipos';
  * el núcleo más compacto del ejemplo es el que no se puede corroborar.
  *
  * Las frases las escribió una persona a mano, en castellano rioplatense, y son
- * de gente distinta a propósito: hay quien contesta en tres palabras, quien
- * escribe en minúscula y sin tildes, quien explica su vida en dos renglones,
- * quien pregunta al aire, quien grita en mayúscula. **Nadie dijo ninguna de
- * estas cosas.**
+ * de gente distinta a propósito. **Hasta el 18 de agosto de 2026 eso era una
+ * promesa del comentario y no una propiedad del corpus.** Esta cabecera decía
+ * «quien escribe en minúscula y sin tildes, quien pregunta al aire, quien grita
+ * en mayúscula», y había, contadas, **una** frase en minúscula, **una** pregunta
+ * y **ningún** grito: sesenta de las sesenta y tres arrancaban en mayúscula y
+ * cerraban con punto. Era un molde, no un formulario.
+ *
+ * Contadas ahora: **14 en minúscula y sin una sola tilde**, 14 sin puntuación
+ * final, 6 con signos de exclamación, 4 preguntas, 5 con puntos suspensivos y 4
+ * con una palabra gritada en mayúscula. Treinta y cuatro conservan la forma de
+ * manual, que es lo que corresponde: en un formulario de verdad también hay
+ * gente que escribe prolijo.
+ *
+ * **Y la reescritura de superficie no movió un solo número — probado, no
+ * argumentado.** Se tocaron mayúsculas, tildes y puntuación; nunca una palabra.
+ * Se regeneró el artefacto de vectores y cambió **un** campo: el digesto del
+ * corpus. Los 43.897 bytes de vectores salieron idénticos byte por byte. La
+ * razón es una propiedad del instrumento que la página ahora dice en voz alta:
+ * `tokensDeContenido` baja todo a minúscula, le saca las tildes y parte por
+ * cualquier cosa que no sea letra o número, así que **la máquina no ve cómo
+ * escribís: ve qué palabras usás.** Eso tiene un lado bueno —nadie paga por
+ * escribir mal— y uno feo —un grito y un susurro llegan iguales—, y los dos
+ * están dichos en `BolsaDePalabras` y fijados en `__tests__/ejemplos.test.ts`.
+ *
+ * **Nadie dijo ninguna de estas cosas.**
  */
 
 /**
@@ -82,8 +103,8 @@ import type { Dicho, Escenario, MandatoDelEscenario } from './tipos';
  * de 60 a 31 podría atribuirse a la mezcla de clases y no al vocabulario.
  */
 export const DICHOS_BRONCA: Readonly<Record<IdDeVoz, Dicho>> = {
-  v01: { texto: 'Ya está. Basta. Harto.', tipo: 'basta' },
-  v02: { texto: 'Harto y podrido.', tipo: 'basta' },
+  v01: { texto: '¡Ya está! ¡BASTA! Harto.', tipo: 'basta' },
+  v02: { texto: 'harto y podrido', tipo: 'basta' },
   v03: { texto: 'Podrido. Y con bronca.', tipo: 'basta' },
   v04: { texto: 'Necesitamos respirar.', tipo: 'necesidad' },
   v05: {
@@ -91,84 +112,84 @@ export const DICHOS_BRONCA: Readonly<Record<IdDeVoz, Dicho>> = {
     tipo: 'basta',
   },
   v06: {
-    texto: 'Propongo que nos juntemos entre nosotros y dejemos de esperar que baje algo.',
+    texto: 'propongo que nos juntemos entre nosotros y dejemos de esperar que baje algo',
     tipo: 'propuesta',
   },
   v07: { texto: 'Sueño con vivir tranquilo.', tipo: 'sueño' },
-  v08: { texto: 'No aguanto más. BASTA.', tipo: 'basta' },
-  v09: { texto: 'Podrido del verso.', tipo: 'basta' },
-  v10: { texto: 'Son todos iguales.', tipo: 'basta' },
+  v08: { texto: '¡No aguanto más! ¡BASTA!', tipo: 'basta' },
+  v09: { texto: 'podrido del verso', tipo: 'basta' },
+  v10: { texto: '¿Son todos iguales?', tipo: 'basta' },
   v11: { texto: 'Lo que necesitamos es que la plata alcance.', tipo: 'necesidad' },
   v12: { texto: 'Verso y vergüenza.', tipo: 'basta' },
   v13: { texto: 'no doy mas. harto', tipo: 'basta' },
   v14: { texto: 'Hace falta que alguien escuche.', tipo: 'necesidad' },
-  v15: { texto: 'Mienten y se ríen.', tipo: 'basta' },
+  v15: { texto: 'Mienten y se ríen…', tipo: 'basta' },
   v16: { texto: 'El sueldo no alcanza.', tipo: 'basta' },
   v17: {
-    texto: 'Fui, esperé, volví con las manos vacías y encima me trataron mal.',
+    texto: 'fui espere volvi con las manos vacias y encima me trataron mal',
     tipo: 'basta',
   },
   v18: { texto: 'Falta que escuchen alguna vez.', tipo: 'necesidad' },
-  v19: { texto: 'Bronca. Una bronca que no se explica.', tipo: 'basta' },
+  v19: { texto: 'Bronca… una bronca que no se explica.', tipo: 'basta' },
   v20: { texto: 'Ojalá algún día esto se enderece.', tipo: 'sueño' },
-  v21: { texto: 'Chorros. Roban y roban.', tipo: 'basta' },
+  v21: { texto: '¡Chorros! Roban y roban.', tipo: 'basta' },
   v22: {
     texto: 'Estamos en el horno y todavía nos dicen que estamos mejor que antes.',
     tipo: 'basta',
   },
   v23: { texto: 'Hace falta cambiar esto de raíz.', tipo: 'necesidad' },
-  v24: { texto: 'Basta de verso.', tipo: 'basta' },
-  v25: { texto: 'Mienten sin vergüenza.', tipo: 'basta' },
+  v24: { texto: '¡BASTA DE VERSO!', tipo: 'basta' },
+  v25: { texto: 'mienten sin verguenza', tipo: 'basta' },
   v26: { texto: 'Todo lo que prometen es verso.', tipo: 'basta' },
-  v27: { texto: 'Perdés media vida esperando.', tipo: 'basta' },
-  v28: { texto: 'A nadie le importa.', tipo: 'basta' },
+  v27: { texto: 'perdes media vida esperando', tipo: 'basta' },
+  v28: { texto: '¿A nadie le importa?', tipo: 'basta' },
   v29: { texto: 'Que se acuerden de nosotros: necesitamos eso.', tipo: 'necesidad' },
-  v30: { texto: 'No alcanza. Qué bronca.', tipo: 'basta' },
+  v30: { texto: 'No alcanza… qué bronca.', tipo: 'basta' },
   v31: {
     texto: 'Mi hija me preguntó si nos íbamos del país y no supe qué decirle.',
     tipo: 'basta',
   },
   v32: { texto: '¿Nadie más está harto?', tipo: 'pregunta' },
-  v33: { texto: 'Todos chorros.', tipo: 'basta' },
+  v33: { texto: 'TODOS CHORROS.', tipo: 'basta' },
   v34: { texto: 'Da vergüenza y da bronca.', tipo: 'basta' },
   v35: {
-    texto: 'Acá cada uno se arregla como puede, y el que no puede se hunde.',
+    texto: 'aca cada uno se arregla como puede y el que no puede se hunde',
     tipo: 'basta',
   },
   v36: { texto: 'Algo que funcione, necesitamos.', tipo: 'necesidad' },
   v37: { texto: 'Solos y con bronca.', tipo: 'basta' },
   v38: { texto: 'Pagamos todo y no alcanza.', tipo: 'basta' },
-  v39: { texto: 'Siempre los mismos.', tipo: 'basta' },
+  v39: { texto: 'siempre los mismos', tipo: 'basta' },
   v40: {
     texto: 'Mi nena va a crecer viendo esto y a mí me hierve la sangre.',
     tipo: 'basta',
   },
-  v41: { texto: 'Harto. No alcanza.', tipo: 'basta' },
+  v41: { texto: '¡Harto! No alcanza.', tipo: 'basta' },
   v42: { texto: 'Un respiro, aunque sea.', tipo: 'necesidad' },
-  v43: { texto: 'Nadie se hace cargo.', tipo: 'basta' },
-  v44: { texto: 'No me alcanza la guita.', tipo: 'basta' },
+  v43: { texto: '¿Nadie se hace cargo?', tipo: 'basta' },
+  v44: { texto: 'no me alcanza la guita', tipo: 'basta' },
   v45: { texto: 'Ojalá los pibes se puedan quedar.', tipo: 'sueño' },
   v46: { texto: 'Pagamos los mismos.', tipo: 'basta' },
   v47: { texto: 'Falta que devuelvan lo que se llevaron.', tipo: 'necesidad' },
   v48: { texto: 'Roban y pagamos.', tipo: 'basta' },
   v49: {
-    texto: 'Perdí lo poco que tenía y nadie me dio una explicación.',
+    texto: 'perdi lo poco que tenia y nadie me dio una explicacion',
     tipo: 'basta',
   },
   v50: { texto: 'Nos roban y nos mienten.', tipo: 'basta' },
   v51: { texto: 'Que inviertan en serio, hace falta.', tipo: 'necesidad' },
-  v52: { texto: 'Los que roban, zafan.', tipo: 'basta' },
-  v53: { texto: 'Cobro y no me alcanza.', tipo: 'basta' },
+  v52: { texto: 'Los que roban… zafan.', tipo: 'basta' },
+  v53: { texto: 'cobro y no me alcanza', tipo: 'basta' },
   v54: { texto: 'Necesitamos laburo.', tipo: 'necesidad' },
   v55: { texto: 'Acá estamos lejos de todo y se nota.', tipo: 'basta' },
-  v56: { texto: 'Solos, y a nadie le importa.', tipo: 'basta' },
+  v56: { texto: 'solos y a nadie le importa', tipo: 'basta' },
   v57: { texto: 'Falta que alguien venga a ver cómo vivimos.', tipo: 'necesidad' },
   v58: { texto: 'Los pibes arrancan perdiendo.', tipo: 'basta' },
-  v59: { texto: 'Algún día vamos a respirar tranquilos.', tipo: 'sueño' },
-  v60: { texto: 'Con este sueldo, podrido.', tipo: 'basta' },
+  v59: { texto: 'Algún día vamos a respirar tranquilos…', tipo: 'sueño' },
+  v60: { texto: 'con este sueldo podrido', tipo: 'basta' },
   v61: { texto: 'Nos arreglamos entre nosotros.', tipo: 'basta' },
   v62: { texto: 'Acá falta lo básico.', tipo: 'necesidad' },
-  v63: { texto: 'Que hagan algo, por favor. Falta eso.', tipo: 'necesidad' },
+  v63: { texto: '¡Que hagan algo, por favor! Falta eso.', tipo: 'necesidad' },
 };
 
 /**

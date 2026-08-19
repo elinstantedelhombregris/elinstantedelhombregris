@@ -12,7 +12,13 @@ import type { Tema } from '../radiografia-data';
  * ejemplo los hizo `EmbebedorFalso`, que es una **bolsa de palabras**: cuenta
  * palabras, las proyecta por hash y normaliza. No sabe que «guita» y «plata»
  * son lo mismo, ni que «no sale agua» y «estamos sin suministro» dicen una sola
- * cosa.
+ * cosa. Y tampoco ve **cómo** está escrito lo que cuenta: baja a minúscula,
+ * saca las tildes y parte por cualquier cosa que no sea letra o número, así que
+ * un grito y un mensaje tipeado a las apuradas llegan iguales que un párrafo
+ * prolijo. Eso está medido en `__tests__/ejemplos.test.ts` —47 frases del
+ * ejemplo se reescribieron de superficie y los 43.897 bytes de vectores
+ * salieron idénticos— y va a la pantalla porque tiene las dos caras: nadie paga
+ * por escribir mal, y la convergencia no mide intensidad.
  *
  * De ahí se sigue algo que la pantalla tiene que decir con todas las letras y
  * no dejar que el lector deduzca: **toda convergencia que se vea acá es léxica
@@ -74,6 +80,17 @@ export function BolsaDePalabras({ artefacto, tema }: BolsaDePalabrasProps) {
         cierto: qué hace el instrumento cuando la gente escribe vago y qué hace cuando escribe
         preciso. Eso es, antes que nada, una diferencia de vocabulario — y el vocabulario es
         justamente lo único que una bolsa de palabras sabe leer.
+      </p>
+
+      <p className={`mb-3 max-w-[70ch] text-pretty text-[16px] leading-[1.6] ${texto}`}>
+        Tampoco ve <strong className="font-semibold">cómo</strong> escribís. Antes de contar, baja
+        todo a minúscula, le saca las tildes y parte por cualquier cosa que no sea letra o número:
+        un grito en mayúscula, un mensaje tipeado a las apuradas sin una sola tilde y un párrafo
+        prolijo con punto final llegan exactamente iguales.{' '}
+        <strong className="font-semibold">Nadie paga por escribir mal</strong> —varios de los
+        reclamos más útiles de la tercera columna están escritos así a propósito, y traen calle,
+        número y fecha igual— y ése es el lado bueno. El feo es el mismo hecho al revés: la
+        convergencia no mide cuánto le importa a alguien lo que dijo.
       </p>
 
       <p className={`max-w-[70ch] text-[14px] leading-[1.55] ${meta}`}>

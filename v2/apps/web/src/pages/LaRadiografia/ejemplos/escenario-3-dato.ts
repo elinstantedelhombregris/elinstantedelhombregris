@@ -129,7 +129,7 @@ export const DICHOS_DATO: Readonly<Record<IdDeVoz, DichoConFecha>> = {
   },
   v13: {
     texto:
-      'El 21 de junio de 2026 la ambulancia no pudo entrar a Los Timbóes al 350 por el barro y la paciente salió caminando 300 metros hasta la esquina.',
+      'el 21 de junio de 2026 la ambulancia no pudo entrar a los timboes al 350 por el barro y la paciente salio caminando 300 metros hasta la esquina',
     tipo: 'basta',
     cuando: '2026-06-21',
   },
@@ -183,7 +183,7 @@ export const DICHOS_DATO: Readonly<Record<IdDeVoz, DichoConFecha>> = {
   },
   v22: {
     texto:
-      'Seis cortes en la semana del 8 de junio de 2026 en Av. Perú al 2100. Se quemó la heladera; tengo el presupuesto del service.',
+      'seis cortes en la semana del 8 de junio de 2026 en av peru al 2100 se quemo la heladera tengo el presupuesto del service',
     tipo: 'basta',
     cuando: '2026-06-08',
   },
@@ -240,7 +240,7 @@ export const DICHOS_DATO: Readonly<Record<IdDeVoz, DichoConFecha>> = {
   },
   v31: {
     texto:
-      'Mi hija sale de la Escuela 47 a las 22:10 los martes y jueves y camina 1,4 km hasta casa porque no hay servicio. Desde el 1 de octubre de 2025.',
+      'mi hija sale de la escuela 47 a las 22:10 los martes y jueves y camina 1,4 km hasta casa porque no hay servicio desde el 1 de octubre de 2025',
     tipo: 'basta',
     cuando: '2025-10-01',
   },
@@ -283,7 +283,7 @@ export const DICHOS_DATO: Readonly<Record<IdDeVoz, DichoConFecha>> = {
   },
   v38: {
     texto:
-      'Sin alumbrado público en las cuatro cuadras de la Escuela 47 desde el 11 de julio de 2026.',
+      'SIN ALUMBRADO PÚBLICO en las cuatro cuadras de la Escuela 47 desde el 11 de julio de 2026.',
     tipo: 'basta',
     cuando: '2026-07-11',
   },
@@ -297,7 +297,7 @@ export const DICHOS_DATO: Readonly<Record<IdDeVoz, DichoConFecha>> = {
   },
   v40: {
     texto:
-      'Mi hija, 4 años, quedó fuera de la sala de 4 de la Escuela N.º 1123 el 10 de noviembre de 2025. Tengo el comprobante de inscripción.',
+      'mi hija 4 años quedo fuera de la sala de 4 de la escuela n 1123 el 10 de noviembre de 2025 tengo el comprobante de inscripcion',
     tipo: 'basta',
     cuando: '2025-11-10',
   },
@@ -398,7 +398,7 @@ export const DICHOS_DATO: Readonly<Record<IdDeVoz, DichoConFecha>> = {
   },
   v56: {
     texto:
-      'El 15 de octubre de 2025 la ambulancia quedó empantanada en el kilómetro 4 del camino vecinal y el traslado demoró 2 horas 40.',
+      'el 15 de octubre de 2025 la ambulancia quedo empantanada en el kilometro 4 del camino vecinal y el traslado demoro 2 horas 40',
     tipo: 'basta',
     cuando: '2025-10-15',
   },

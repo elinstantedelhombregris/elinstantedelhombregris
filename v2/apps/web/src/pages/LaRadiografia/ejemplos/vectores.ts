@@ -17,7 +17,7 @@ export const ARTEFACTO_DE_VECTORES: ArtefactoDeVectores = {
   modelo: 'falso',
   dimensiones: 1024,
   k: 12,
-  digesto: '4105c53b',
+  digesto: 'd079d994',
   escenarios: {
     bronca: {
       v01: '249:-0.7071067811865475\u0000654:0.7071067811865475',
