@@ -58,7 +58,7 @@ export const NOMBRE_DE_CLASE: Readonly<Record<ClaseSenal, string>> = {
  * no son treinta personas**: acá se cuentan filas, y una persona puede haber
  * cargado veinte.
  */
-const QUE_SE_HACE: Readonly<Record<ClaseSenal, string>> = {
+export const QUE_SE_HACE: Readonly<Record<ClaseSenal, string>> = {
   hecho: 'esto se corrobora',
   deseo: 'esto se delibera',
   acto: 'esto se cumple o no se cumple',

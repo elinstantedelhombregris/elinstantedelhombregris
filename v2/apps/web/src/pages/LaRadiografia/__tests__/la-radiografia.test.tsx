@@ -693,7 +693,9 @@ describe('la página, de punta a punta', () => {
     const texto = container.textContent;
 
     expect(texto).toMatch(/muchas señales digan lo mismo/);
-    expect(texto).toContain('Son señales y no personas');
+    // La bajada del 19/8 lo dice en dos tiempos —«son señales, no personas»—
+    // pero la afirmación es la misma y sigue siendo obligatoria en pantalla.
+    expect(texto).toMatch(/son señales, no personas/i);
     // Las cuatro formas exactas que estuvieron en pantalla.
     expect(texto).not.toMatch(/muchas personas|treinta personas|varias personas/i);
     expect(texto).not.toMatch(/\d+\s+personas\b/);

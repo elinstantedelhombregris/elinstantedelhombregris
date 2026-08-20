@@ -5,6 +5,7 @@ import { guardarTema, leerTema, type Orden, type Tema } from './LaRadiografia/ra
 import { construirVista } from './LaRadiografia/radiografia-vista';
 import { CabeceraProcedencia } from './LaRadiografia/sections/CabeceraProcedencia';
 import { CieloVacio } from './LaRadiografia/sections/CieloVacio';
+import { ComoLeerElCielo } from './LaRadiografia/sections/ComoLeerElCielo';
 import { Constelacion } from './LaRadiografia/sections/Constelacion';
 import { DeslizadorUmbral } from './LaRadiografia/sections/DeslizadorUmbral';
 import { FichaDeNucleo } from './LaRadiografia/sections/FichaDeNucleo';
@@ -91,7 +92,7 @@ export function LaRadiografia() {
       <div className="mx-auto max-w-[1180px] px-10 py-[72px] max-[560px]:px-5">
         <div className="mb-8 flex flex-wrap items-start justify-between gap-6">
           <div>
-            <Kicker className="anim-fadeup mb-4">La cuarta superficie</Kicker>
+            <Kicker className="anim-fadeup mb-4">Sobre qué habla el país</Kicker>
             <h1
               aria-label="La Radiografía."
               className="font-anton riso-hover mb-5 text-[clamp(44px,6vw,84px)] leading-[0.98]"
@@ -104,11 +105,24 @@ export function LaRadiografia() {
               }`}
               style={{ animationDelay: '0.9s' }}
             >
-              El mapa dice dónde se habló y cuándo. Esto dice sobre qué, y qué se dijo casi igual en
-              dos puntas del país sin que nadie se pusiera de acuerdo. Converger no es corroborar:
-              que muchas señales digan lo mismo es evidencia de que muchas señales dicen lo mismo, y
-              ya es mucho. Son <strong className="font-semibold">señales</strong> y no personas: acá
-              se cuentan filas, y una sola persona puede haber cargado veinte.
+              El mapa dice dónde se habló y cuándo. Esto dice{' '}
+              <strong className="font-semibold">sobre qué</strong> — y qué se dijo casi igual en dos
+              puntas del país sin que nadie se pusiera de acuerdo.
+            </p>
+            {/* Las dos advertencias epistemológicas, separadas de la tesis: la
+                bajada vieja metía cuatro ideas en un párrafo y la revisión del
+                19/8 lo midió como el primero de tres muros de texto antes de
+                la imagen. No se pierde nada: se respira. */}
+            <p
+              className={`anim-fadeup mt-3 max-w-[640px] text-pretty text-[15px] leading-[1.55] ${
+                nocturno ? 'text-oscuro-meta' : 'text-tinta-50'
+              }`}
+              style={{ animationDelay: '1.1s' }}
+            >
+              Dos cosas antes de mirar. Converger no es corroborar: que muchas señales digan lo
+              mismo es evidencia de eso y de nada más — y ya es mucho. Y son{' '}
+              <strong className="font-semibold">señales</strong>, no personas: acá se cuentan filas,
+              y una sola persona puede haber cargado veinte.
             </p>
           </div>
 
@@ -139,6 +153,12 @@ export function LaRadiografia() {
                 sacar la conclusión, no en un pie. Se dibuja solo cuando el
                 servidor lo declara, y desaparece solo cuando deja de valer. */}
             <RegimenDegenerado regimen={data?.regimenDegenerado ?? null} tema={tema} />
+
+            {/* La leyenda antes de la imagen: qué es un punto, qué es un
+                núcleo, qué dice cada color y qué se puede tocar. Sin esto, la
+                única leyenda vivía adentro de la ficha — que sólo aparece
+                después de clickear lo que la leyenda explica. */}
+            <ComoLeerElCielo tema={tema} />
 
             {/* φ y sólo acá: 1,618fr de constelación a 1fr de ficha (§5.6.5).
                 Nada de φ entra en el umbral ni en un número publicado (R10). */}

@@ -22,6 +22,7 @@ import {
 
 import { BolsaDePalabras } from './BolsaDePalabras';
 import { CoberturaDelEjemplo } from './CoberturaDelEjemplo';
+import { ComoLeerElCielo } from './ComoLeerElCielo';
 import { Constelacion } from './Constelacion';
 import { DeQueCuelgaLaLeccion } from './DeQueCuelgaLaLeccion';
 import { DeslizadorUmbral } from './DeslizadorUmbral';
@@ -143,6 +144,7 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
 
       <SelloSintetico
         sello={SELLO_DEL_EJEMPLO.sello}
+        sinModelo={SELLO_DEL_EJEMPLO.sinModelo}
         huella={SELLO_DEL_EJEMPLO.huella}
         personas={SELLO_DEL_EJEMPLO.personas}
         advertencia={SELLO_DEL_EJEMPLO.advertencia}
@@ -154,11 +156,17 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
       <BolsaDePalabras artefacto={ARTEFACTO_DE_VECTORES} tema={tema} />
 
       {artefactoAlDia && faltantes === 0 ? null : (
+        // Primero lo que le pasa al lector, después la instrucción de taller:
+        // la versión vieja abría con «los vectores commiteados» y cerraba con
+        // un comando pnpm, que es un mensaje de desarrollador en la pantalla
+        // de un lector.
         <p className={`border-violeta mb-6 border-l-2 pl-4 text-[15px] leading-[1.55] ${texto}`}>
-          Los vectores commiteados no corresponden a este corpus
-          {faltantes > 0 ? ` (faltan ${String(faltantes)} voces)` : ''}. Lo que se dibuja abajo
-          puede no ser lo que dicen estas frases: hay que correr{' '}
-          <code>pnpm radiografia:ejemplos</code>.
+          Este ejemplo quedó desfasado de sus propias frases
+          {faltantes > 0 ? ` (faltan ${String(faltantes)} voces)` : ''}: lo que se dibuja abajo
+          puede no corresponder a lo que dicen. Sirve para mirar, no para citar.{' '}
+          <span className={meta}>
+            Para quien mantiene el sitio: se regenera con <code>pnpm radiografia:ejemplos</code>.
+          </span>
         </p>
       )}
 
@@ -205,6 +213,11 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
         )}
         {columna.escenario.loQueSeVe}
       </p>
+
+      {/* La misma leyenda que la página viva: qué es un punto, qué es un
+          núcleo, qué dice cada color. Acá importa el doble — este cielo es el
+          primero que muchos van a ver. */}
+      <ComoLeerElCielo tema={tema} />
 
       {/* φ y sólo acá: 1,618fr de constelación a 1fr de ficha (§5.6.5). */}
       <div className="grid gap-0 lg:grid-cols-[1.618fr_1fr]">

@@ -85,16 +85,15 @@ export const UMBRAL_DEL_EJEMPLO = 0.4;
  * **Se reusa ese componente, no se escribe uno nuevo.** La frase del centro es
  * la misma de siempre y no se negocia: «Nadie dijo ninguna de estas cosas.»
  *
- * `sello: null` porque acá no hubo modelo. Ojo con eso: el componente, con
- * `null`, imprime «escrito por una regla determinista, sin modelo», y **este
- * corpus tampoco lo escribió una regla — lo escribió una persona a mano**. Por
- * eso la `advertencia` lo dice con todas las letras, que es el único campo
- * libre que el componente ofrece. El pie del sello queda impreciso hasta que
- * `SelloDelModelo` admita una procedencia «escrita a mano», y eso se toca en el
- * archivo de la Simulación, no acá.
+ * `sello: null` porque acá no hubo modelo. Y `sinModelo` porque tampoco hubo
+ * regla: **este corpus lo escribió una persona a mano**, y el pie del sello lo
+ * dice desde el 19/8 — antes decía «escrito por una regla determinista» porque
+ * el componente no admitía otra procedencia sin modelo, y un sello que existe
+ * para decir la procedencia no puede decirla mal.
  */
 export const SELLO_DEL_EJEMPLO = {
   sello: null,
+  sinModelo: 'escrito a mano por una persona, sin modelo y sin regla',
   huella: 'ejemplo-3x63',
   personas: new Set(PADRON.map((p) => p.actor)).size,
   advertencia:

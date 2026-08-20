@@ -74,33 +74,48 @@ export function BolsaDePalabras({ artefacto, tema }: BolsaDePalabrasProps) {
         : dos frases se juntan porque comparten palabras, no porque digan lo mismo.
       </p>
 
-      <p className={`mb-3 max-w-[70ch] text-pretty text-[16px] leading-[1.6] ${texto}`}>
-        Con este motor <strong className="font-semibold">no se puede demostrar</strong> una tesis
-        sobre significado, y acá no se demuestra ninguna. Lo que el ejemplo enseña es más chico y es
-        cierto: qué hace el instrumento cuando la gente escribe vago y qué hace cuando escribe
-        preciso. Eso es, antes que nada, una diferencia de vocabulario — y el vocabulario es
-        justamente lo único que una bolsa de palabras sabe leer.
-      </p>
+      {/* La declaración —qué motor es y qué implica— queda siempre a la
+          vista, arriba: es procedencia y se declara antes de la imagen. El
+          desarrollo se pliega: la revisión del 19/8 midió ~350 palabras de
+          ensayo metodológico entre el título del ejemplo y su primera imagen,
+          y el que quiere el detalle lo abre acá sin que el que no lo quiere
+          pague el peaje. El contenido plegado sigue en el DOM: los tests que
+          lo leen, lo encuentran. */}
+      <details className="max-w-[70ch]">
+        <summary
+          className={`cursor-pointer text-[14px] font-semibold underline decoration-1 underline-offset-4 ${texto}`}
+        >
+          Qué se puede concluir con este motor, y qué no
+        </summary>
 
-      <p className={`mb-3 max-w-[70ch] text-pretty text-[16px] leading-[1.6] ${texto}`}>
-        Tampoco ve <strong className="font-semibold">cómo</strong> escribís. Antes de contar, baja
-        todo a minúscula, le saca las tildes y parte por cualquier cosa que no sea letra o número:
-        un grito en mayúscula, un mensaje tipeado a las apuradas sin una sola tilde y un párrafo
-        prolijo con punto final llegan exactamente iguales.{' '}
-        <strong className="font-semibold">Nadie paga por escribir mal</strong> —varios de los
-        reclamos más útiles de la tercera columna están escritos así a propósito, y traen calle,
-        número y fecha igual— y ése es el lado bueno. El feo es el mismo hecho al revés: la
-        convergencia no mide cuánto le importa a alguien lo que dijo.
-      </p>
+        <p className={`mb-3 mt-3 max-w-[70ch] text-pretty text-[16px] leading-[1.6] ${texto}`}>
+          Con este motor <strong className="font-semibold">no se puede demostrar</strong> una tesis
+          sobre significado, y acá no se demuestra ninguna. Lo que el ejemplo enseña es más chico y
+          es cierto: qué hace el instrumento cuando la gente escribe vago y qué hace cuando escribe
+          preciso. Eso es, antes que nada, una diferencia de vocabulario — y el vocabulario es
+          justamente lo único que una bolsa de palabras sabe leer.
+        </p>
 
-      <p className={`max-w-[70ch] text-[14px] leading-[1.55] ${meta}`}>
-        El día que estos vectores salgan de un modelo de verdad —«bge-m3» por Ollama, que es lo que
-        embebe el corpus vivo— los números de esta página van a cambiar y se van a{' '}
-        <strong className={`font-semibold ${texto}`}>volver a medir</strong>: el umbral se recalibra
-        midiendo, no heredando. Hasta entonces esto se lee como lo que es. Va acá arriba y no en un
-        pie por el mismo motivo que el corte y el modelo van en la cabecera de la página viva: la
-        procedencia se declara antes de la imagen, no después de la conclusión.
-      </p>
+        <p className={`mb-3 max-w-[70ch] text-pretty text-[16px] leading-[1.6] ${texto}`}>
+          Tampoco ve <strong className="font-semibold">cómo</strong> escribís. Antes de contar, baja
+          todo a minúscula, le saca las tildes y parte por cualquier cosa que no sea letra o número:
+          un grito en mayúscula, un mensaje tipeado a las apuradas sin una sola tilde y un párrafo
+          prolijo con punto final llegan exactamente iguales.{' '}
+          <strong className="font-semibold">Nadie paga por escribir mal</strong> —varios de los
+          reclamos más útiles de la tercera columna están escritos así a propósito, y traen calle,
+          número y fecha igual— y ése es el lado bueno. El feo es el mismo hecho al revés: la
+          convergencia no mide cuánto le importa a alguien lo que dijo.
+        </p>
+
+        <p className={`max-w-[70ch] text-[14px] leading-[1.55] ${meta}`}>
+          El día que estos vectores salgan de un modelo de verdad —«bge-m3» por Ollama, que es lo
+          que embebe el corpus vivo— los números de esta página van a cambiar y se van a{' '}
+          <strong className={`font-semibold ${texto}`}>volver a medir</strong>: el umbral se
+          recalibra midiendo, no heredando. Hasta entonces esto se lee como lo que es. Va acá arriba
+          y no en un pie por el mismo motivo que el corte y el modelo van en la cabecera de la
+          página viva: la procedencia se declara antes de la imagen, no después de la conclusión.
+        </p>
+      </details>
     </section>
   );
 }

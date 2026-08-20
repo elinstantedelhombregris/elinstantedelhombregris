@@ -33,9 +33,23 @@ export interface SelloSinteticoProps {
   readonly huella: string;
   readonly personas: number;
   readonly advertencia: string;
+  /**
+   * Cómo se escribió el corpus cuando NO hubo modelo. Por defecto, la regla
+   * determinista — que es lo que son los elencos fabricados de la Simulación.
+   * El ejemplo de La Radiografía lo escribió una persona a mano, y su pie
+   * decía «escrito por una regla» porque este campo no existía: un sello que
+   * existe para decir la procedencia no puede decirla mal.
+   */
+  readonly sinModelo?: string;
 }
 
-export function SelloSintetico({ sello, huella, personas, advertencia }: SelloSinteticoProps) {
+export function SelloSintetico({
+  sello,
+  huella,
+  personas,
+  advertencia,
+  sinModelo = 'escrito por una regla determinista, sin modelo',
+}: SelloSinteticoProps) {
   return (
     <section
       aria-label="De dónde salen estas voces"
@@ -52,7 +66,7 @@ export function SelloSintetico({ sello, huella, personas, advertencia }: SelloSi
           <p className="font-space text-tinta-50 mt-3 text-[11px] uppercase tracking-[0.1em]">
             {personas.toLocaleString('es-AR')} personas · elenco {huella} ·{' '}
             {sello === null
-              ? 'escrito por una regla determinista, sin modelo'
+              ? sinModelo
               : `escrito por ${sello.modelo} (${sello.digest.slice(0, 12)}) a temperatura ${String(
                   sello.temperatura,
                 )}`}
