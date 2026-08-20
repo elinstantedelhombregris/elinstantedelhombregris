@@ -87,11 +87,10 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     expect(screen.queryByText(/datos de demostración/i)).not.toBeInTheDocument();
   });
 
-  it('los estantes rediseñados abren con la gramática § 0N — nombre', () => {
+  it('los cinco estantes abren con la gramática § 0N — nombre', () => {
     render(<Biblioteca />);
 
-    // El estante de ensayos adopta la gramática en la task de la estantería.
-    for (const estante of ESTANTES.filter((e) => e.ancla !== 'ensayos')) {
+    for (const estante of ESTANTES) {
       expect(
         screen.getByRole('heading', { level: 2, name: `§ ${estante.num} — ${estante.nombre}` }),
       ).toBeInTheDocument();
