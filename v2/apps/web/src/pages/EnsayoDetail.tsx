@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import { Link, useRoute } from 'wouter';
 
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { BotonPapel, Kicker, RitoTinta, Sello } from '~/components/papel/primitives';
 import { findEnsayoBySlug } from '~/lib/ensayos-registry';
+import { guardarSenalador } from '~/lib/senalador';
 import { fechaLarga, ubicarEnsayo, type Vecino } from '~/pages/Biblioteca/biblioteca-data';
 
 /** 404 §5: el expediente extraviado, sobre papel (el lector es editorial). */
@@ -50,8 +52,18 @@ function Eslabon({ vecino, lado }: { vecino: Vecino; lado: 'anterior' | 'siguien
  */
 export function EnsayoDetail() {
   const [match, params] = useRoute<{ slug: string }>('/ensayos/:slug');
+  const ensayo = match ? findEnsayoBySlug(params.slug) : undefined;
+
+  // El señalador (spec 2026-08-20 §5): el hub retoma desde el último ensayo
+  // abierto. Se guarda el slug crudo; el que lee valida contra el registry.
+  // El efecto corre antes de los early-returns para no romper las reglas de
+  // hooks; con slug inexistente no toca nada.
+  const slugAbierto = ensayo?.slug;
+  useEffect(() => {
+    if (slugAbierto !== undefined) guardarSenalador(slugAbierto);
+  }, [slugAbierto]);
+
   if (!match) return null;
-  const ensayo = findEnsayoBySlug(params.slug);
   const ubicacion = ensayo ? ubicarEnsayo(ensayo.slug) : null;
   if (!ensayo || !ubicacion) return <EnsayoExtraviado />;
 

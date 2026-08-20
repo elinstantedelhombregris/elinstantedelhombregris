@@ -218,3 +218,24 @@ describe('EnsayoDetail (página papel 3.2 — lector de ensayo)', () => {
     expect(container.innerHTML).not.toMatch(/MdxContent/);
   });
 });
+
+describe('EnsayoDetail — el señalador (spec 2026-08-20 §5)', () => {
+  it('abrir un ensayo deja el señalador en su slug', () => {
+    window.localStorage.clear();
+    const ensayo = ORDEN_DE_LECTURA[0];
+    expect(ensayo).toBeDefined();
+    if (!ensayo) return;
+
+    renderAt(`/ensayos/${ensayo.slug}`);
+
+    expect(window.localStorage.getItem('basta_senalador')).toBe(ensayo.slug);
+  });
+
+  it('un slug inexistente no pisa el señalador', () => {
+    window.localStorage.setItem('basta_senalador', 'lo-que-estaba');
+
+    renderAt('/ensayos/esto-no-existe-seguro');
+
+    expect(window.localStorage.getItem('basta_senalador')).toBe('lo-que-estaba');
+  });
+});
