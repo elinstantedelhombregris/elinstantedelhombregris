@@ -8,9 +8,10 @@
   Qué es: un HTML autónomo en docs/demos/, hermano de «sentir el mapa» (misma
   fecha) y del «mapa cargado» del 11/8. Muestra el gesto entero de La
   Simulación —la cortina entre el país medido y el país simulado— más la parte
-  que la app real todavía no construyó: las campañas como unidad de trabajo, y
-  la lectura cultural del lado simulado (qué diría el país, por región, y qué
-  PLAN contesta cada tema).
+  que la app real todavía no construyó: las campañas como unidad de trabajo,
+  las actas de mandato (cinco ejemplos, uno por clase de señal), y la lectura
+  cultural del lado simulado (qué diría el país, por región, y qué PLAN
+  contesta cada tema).
 
   Qué respeta, sin excepción:
   - El lado izquierdo (medido) está en CERO y ese cero es verdadero. Es la
@@ -106,11 +107,34 @@
   .leyenda-temas { display:flex; flex-wrap:wrap; gap:10px 16px; font-size:12.5px; margin-top:6px; }
   .leyenda-temas span::before { content:'■ '; }
 
+  .mandatos { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  @media (max-width:980px){ .mandatos { grid-template-columns:1fr; } }
+  .mandato { border:1px solid var(--line); border-left:5px solid var(--drain); background:var(--panel); padding:14px 16px; position:relative; }
+  /* el sello sobrevive al recorte: una captura de UNA tarjeta sola también lo lleva */
+  .mandato::after { content:'ejemplo inventado'; position:absolute; top:10px; right:12px;
+    font-family:var(--mono); font-size:9.5px; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--sello); border:1px solid var(--sello); padding:1px 6px;
+    transform:rotate(2deg); }
+  .mandato.hecho { border-left-color:var(--hecho); }
+  .mandato.deseo { border-left-color:var(--deseo); }
+  .mandato.acto { border-left-color:var(--acto); }
+  .mandato.meta { border-left-color:var(--meta-c); }
+  .mandato .tipo { font-family:var(--mono); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); }
+  .mandato h3 { font-family:var(--display); font-weight:400; font-size:24px; line-height:1.05; margin:6px 0 2px; }
+  .mandato .lugar { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin:0 0 8px; }
+  .mandato p { font-size:13.5px; margin:0 0 7px; }
+  .mandato .estado { display:inline-block; font-family:var(--mono); font-size:10px; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.08em; border:1px solid var(--line); color:var(--text-3); padding:2px 8px; margin-bottom:8px; }
+  .mandato .estado.vigente { border-color:var(--acto); color:var(--acto); }
+  .mandato .plan-pie { font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin:0; }
+
   table { border-collapse:collapse; font-size:14px; }
   th, td { text-align:left; padding:6px 16px 6px 0; border-bottom:1px solid var(--line); vertical-align:top; }
   th { font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); }
 
   .pie-de-pagina { border-top:2px solid var(--text); padding-top:16px; }
+  .solo-lector { position:absolute; width:1px; height:1px; overflow:hidden;
+    clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; }
 </style>
 
 <main class="hoja">
@@ -158,9 +182,11 @@
       <div><div class="n" id="m-mandatos">0</div><div class="t">territorios con mandato</div></div>
     </div>
     <p class="meta" style="margin-top:8px">Las cinco magnitudes describen el lado derecho — el
-      izquierdo tiene una sola: <strong>cero</strong>. Fórmulas del juguete: voces = población ×
-      participación; señales = voces × (1 + constancia); nitidez = comprobable × constancia;
-      mandato = participación ≥ 1% sostenida. Ninguna proyecta nada.</p>
+      izquierdo tiene una sola: <strong>cero</strong>. Fórmulas del juguete, completas: voces =
+      población × participación; señales = voces × (1 + constancia); cobertura = provincias con
+      más de 500 voces ÷ 24; nitidez = comprobable × constancia — y con la campaña corriendo,
+      + 1,6 × el peso de «salud» en la composición de su región (las barras de abajo); mandato =
+      participación ≥ 1% sostenida. Ninguna proyecta nada.</p>
   </section>
 
   <section>
@@ -213,10 +239,122 @@
           horario real no cubre a la población, queda un reclamo con datos, lugar y plazo.</p></div>
       </div>
       <button class="accion" id="btn-campana" aria-pressed="false">Correr la campaña sobre el mapa</button>
-      <p class="meta" id="campana-nota" style="margin-top:8px">Al correrla, las provincias donde
-        «salud» pesa más en la composición cultural ganan nitidez y el conteo de mandatos cambia.
-        Todo inventado, todo a la vista.</p>
+      <p class="meta" id="campana-nota" style="margin-top:8px">Al correrla, cada provincia gana
+        nitidez en proporción al peso de «salud» en la composición de su región — las barras de
+        más abajo son exactamente el dato que la mueve. El brillo y los mandatos no se tocan: una
+        campaña afila lo que ya se dijo, no fabrica participación. Todo inventado, todo a la vista.</p>
     </div>
+  </section>
+
+  <section>
+    <h2>Los mandatos que se podrían crear</h2>
+    <p class="dos" style="max-width:880px">
+      El mandato es el destino de todo el circuito. No es una señal ni una ley: es una
+      <strong>lectura agregada del territorio</strong> — participación sostenida arriba de un piso —
+      convertida en una exigencia con lugar, datos, plazo y forma de comprobación. Y cada clase de
+      señal habilita un tipo distinto, que es la regla 11 hecha instrumento: lo que se corrobora
+      <em>repara</em>, lo que falta <em>se provee</em>, lo que se delibera <em>marca agenda</em>,
+      lo que se promete <em>se sigue</em>, y lo que se pregunta <em>se contesta</em>.
+    </p>
+    <p class="meta" style="margin-bottom:14px">
+      El estado de cada acta responde a las palancas de arriba: movélas y mirá qué territorios
+      sostienen el piso. En este juguete el piso se evalúa a escala provincia — la misma del
+      motor real, que evalúa el mandato por territorio; las celdas son la capa de la luz, no la
+      unidad del mandato. Los números de las actas son inventados, como todo en esta página.
+    </p>
+
+    <div class="mandatos">
+      <article class="mandato hecho" aria-label="Mandato de reparación (ejemplo inventado)">
+        <span class="tipo">Mandato de reparación · nace de hechos corroborados</span>
+        <h3>El agua de red vuelve a las últimas tres cuadras</h3>
+        <p class="lugar">Barrio La Ribera · Resistencia, Chaco</p>
+        <span class="estado" data-mandato-prov="Chaco">—</span>
+        <p><strong>Respaldo:</strong> 214 señales de 163 personas distintas (9 sin actor, contadas
+          aparte) · 61% corroborado en la puerta · sostenido 5 meses. Quién falta, dicho acá y no
+          en un pie: la zona rural del distrito está muda, y este mandato no habla por ella.</p>
+        <p><strong>La exigencia:</strong> la prestadora restituye la presión de red en las cuadras
+          relevadas dentro de los 45 días corridos desde la publicación del acta.</p>
+        <p><strong>Cómo se comprueba:</strong> tres vecinos distintos confirman «ya no está» sobre
+          la señal madre. La celda sube de nitidez y el acta pasa a <em>resuelta</em>.</p>
+        <p class="plan-pie">Desde el diseño idealizado: PLANAGUA · PLANTER</p>
+      </article>
+
+      <article class="mandato hecho" aria-label="Mandato de provisión (ejemplo inventado)">
+        <span class="tipo">Mandato de provisión · nace de necesidades corroboradas</span>
+        <h3>Pediatra después de las 14 en la salita</h3>
+        <p class="lugar">Villa Los Tarcos · San Miguel de Tucumán</p>
+        <span class="estado" data-mandato-prov="Tucumán">—</span>
+        <p><strong>Respaldo:</strong> 187 señales de 141 personas distintas · el horario real de
+          atención, verificado en la puerta 11 veces en 4 semanas · sostenido 6 meses.</p>
+        <p><strong>La exigencia:</strong> la provincia cubre el cargo vespertino dentro de los 90
+          días. Una necesidad se corrobora yendo a mirar la ausencia — y acá la ausencia tiene
+          horario, fecha y puerta cerrada.</p>
+        <p><strong>Cómo se comprueba:</strong> el horario publicado contra el horario verificado,
+          salita por salita — la campaña de arriba es exactamente este instrumento.</p>
+        <p class="plan-pie">Desde el diseño idealizado: PLANSAL · PLANCUIDADO</p>
+      </article>
+
+      <article class="mandato deseo" aria-label="Mandato de agenda (ejemplo inventado)">
+        <span class="tipo">Mandato de agenda · nace de deseos convergentes</span>
+        <h3>La tecnicatura se discute en Oberá, con la gente adentro</h3>
+        <p class="lugar">Oberá · Misiones</p>
+        <span class="estado" data-mandato-prov="Misiones">—</span>
+        <p><strong>Respaldo:</strong> 96 sueños y propuestas de 88 personas distintas que dicen
+          casi lo mismo: estudiar no puede ser sinónimo de mudarse. <strong>Esto no afirma una
+          verdad</strong> — converger no es corroborar —: registra una dirección querida, que es
+          todo lo que un deseo puede dar y no es poco.</p>
+        <p><strong>La exigencia:</strong> municipio y provincia abren la mesa dentro de los 90
+          días y responden por escrito en el registro público. La respuesta puede ser «no», con
+          razones: lo que no puede ser es silencio.</p>
+        <p><strong>Cómo se comprueba:</strong> la respuesta existe y está fechada, o no existe.</p>
+        <p class="plan-pie">Desde el diseño idealizado: PLANEDU · PLANARCO</p>
+      </article>
+
+      <article class="mandato acto" aria-label="Mandato de cumplimiento (ejemplo inventado)">
+        <span class="tipo">Mandato de cumplimiento · nace de un compromiso con fecha</span>
+        <h3>El acceso a Colonia Barón, antes de las lluvias</h3>
+        <p class="lugar">Colonia Barón · La Pampa</p>
+        <span class="estado" data-mandato-prov="La Pampa">—</span>
+        <p><strong>Respaldo:</strong> la cooperativa vial lo prometió con fecha; 52 personas
+          distintas adhirieron y el estado de la obra se confirma cada semana.</p>
+        <p><strong>La exigencia:</strong> la que el propio compromiso declaró — terminar antes del
+          15 de octubre. El registro no agrega nada: recuerda.</p>
+        <p><strong>Cómo se comprueba:</strong> al vencer la fecha, el reloj lo marca solo: el
+          desenlace pasa a <em>vencido</em> y la señal a <em>desactualizada</em>. <em>No
+          cumplida</em> sólo lo puede decir una persona que fue a mirar — un proceso automático
+          no acusa a nadie.</p>
+        <p class="plan-pie">Desde el diseño idealizado: PLANMOV · PLANTER</p>
+      </article>
+
+      <article class="mandato meta" aria-label="Mandato de información (ejemplo inventado)">
+        <span class="tipo">Mandato de información · nace de una pregunta sin respuesta</span>
+        <h3>¿Cuánto de la regalía queda donde se saca?</h3>
+        <p class="lugar">Añelo y alrededores · Neuquén</p>
+        <span class="estado" data-mandato-prov="Neuquén">—</span>
+        <p><strong>Respaldo:</strong> 74 personas distintas hicieron la misma pregunta, con
+          variantes que un lector junta solo. Nadie pide una opinión: piden un número con fuente.</p>
+        <p><strong>La exigencia:</strong> el dato se publica, con fuente y período, dentro de los
+          60 días. La agenda territorial de lo que no se sabe es el mandato más barato de
+          conceder — y el que más cuesta seguir negando.</p>
+        <p><strong>Cómo se comprueba:</strong> la respuesta entra al registro como un
+          <em>saber</em> con fuente, se corrobora como cualquier hecho, y la pregunta pasa a
+          <em>resuelta</em>.</p>
+        <p class="plan-pie">Desde el diseño idealizado: PLANREP · PLAN24CN</p>
+      </article>
+    </div>
+
+    <!-- El cambio de estado de las cinco actas, anunciado UNA vez y no cinco:
+         una región viva resumida, invisible para el ojo, audible para el
+         lector de pantalla. Los spans .estado quedan como texto plano. -->
+    <p class="solo-lector" role="status" id="actas-estado"></p>
+
+    <p class="meta" style="margin-top:12px; max-width:880px">
+      <strong>Qué NO es un mandato:</strong> no es una orden judicial ni una ley, y no tiene más
+      fuerza que la que tiene ser <em>verificable y público</em>: una exigencia con datos citables
+      detrás, que queda en el registro cumplida o incumplida. Los conteos son de personas
+      distintas y nunca de filas; ningún acta produce un ranking de personas; y un territorio por
+      debajo del piso de supresión no publica acta alguna — el instrumento protege antes de exigir.
+    </p>
   </section>
 
   <section>
@@ -254,8 +392,8 @@
     <p class="meta" style="max-width:880px">
       Hoy: <code>/la-simulacion</code> corre el motor real en tu navegador (modo forma completo;
       modo gente cargando un elenco a mano), y la cortina vive en <code>/el-mapa</code>. Lo que
-      esta página agrega es lo que falta construir —las campañas, la lectura cultural del lado
-      simulado— mostrado como diseño, con datos inventados y sellados. El ejercicio de sentir el
+      esta página agrega es lo que falta construir —las campañas, las actas de mandato, la
+      lectura cultural del lado simulado— mostrado como diseño, con datos inventados y sellados. El ejercicio de sentir el
       mapa, mes a mes, está en <code>2026-08-20-sentir-el-mapa.html</code>. Y la regla que nada de
       esto puede romper: <strong>el lado medido queda en cero hasta que hable una persona.</strong>
     </p>
@@ -293,18 +431,32 @@
 (() => {
   'use strict';
 
-  /* población de referencia (censo 2022, miles), peso regional del interior, y
-     peso del tema salud (para la campaña). Inventado y declarado. */
+  /* población de referencia (censo 2022, miles) y peso regional del interior.
+     Inventado y declarado. El efecto de la campaña NO tiene columna propia:
+     sale del peso de «salud» en REGIONES —las barras que la página muestra—
+     para que «todo a la vista» sea literalmente cierto. */
   const PROVINCIAS = {
-    'Buenos Aires': [17569, 0.8, 0.30], 'Ciudad Autónoma de Buenos Aires': [3121, 0.7, 0.25],
-    'Córdoba': [3979, 1.0, 0.30], 'Santa Fe': [3556, 1.0, 0.30], 'Mendoza': [2014, 1.1, 0.30],
-    'Tucumán': [1703, 1.1, 0.55], 'Entre Ríos': [1426, 1.2, 0.35], 'Salta': [1441, 1.1, 0.50],
-    'Misiones': [1281, 1.2, 0.50], 'Chaco': [1143, 1.2, 0.55], 'Corrientes': [1197, 1.1, 0.45],
-    'Santiago del Estero': [1054, 1.0, 0.50], 'San Juan': [818, 1.1, 0.35], 'Jujuy': [798, 1.2, 0.50],
-    'Río Negro': [762, 1.3, 0.35], 'Neuquén': [726, 1.3, 0.30], 'Formosa': [607, 1.1, 0.60],
-    'Chubut': [603, 1.2, 0.35], 'San Luis': [540, 1.1, 0.35], 'Catamarca': [429, 1.0, 0.45],
-    'La Rioja': [384, 1.1, 0.45], 'La Pampa': [366, 1.4, 0.35], 'Santa Cruz': [333, 1.2, 0.40],
-    'Tierra del Fuego': [190, 1.4, 0.30],
+    'Buenos Aires': [17569, 0.8], 'Ciudad Autónoma de Buenos Aires': [3121, 0.7],
+    'Córdoba': [3979, 1.0], 'Santa Fe': [3556, 1.0], 'Mendoza': [2014, 1.1],
+    'Tucumán': [1703, 1.1], 'Entre Ríos': [1426, 1.2], 'Salta': [1441, 1.1],
+    'Misiones': [1281, 1.2], 'Chaco': [1143, 1.2], 'Corrientes': [1197, 1.1],
+    'Santiago del Estero': [1054, 1.0], 'San Juan': [818, 1.1], 'Jujuy': [798, 1.2],
+    'Río Negro': [762, 1.3], 'Neuquén': [726, 1.3], 'Formosa': [607, 1.1],
+    'Chubut': [603, 1.2], 'San Luis': [540, 1.1], 'Catamarca': [429, 1.0],
+    'La Rioja': [384, 1.1], 'La Pampa': [366, 1.4], 'Santa Cruz': [333, 1.2],
+    'Tierra del Fuego': [190, 1.4],
+  };
+
+  /* a qué región de las barras pertenece cada provincia. La provincia de
+     Buenos Aires entera va a «PBA interior»: el juguete es provincial y no
+     puede partir el conurbano — dicho acá para que nadie lo lea como dato. */
+  const REGION_DE = {
+    'Jujuy':'NOA','Salta':'NOA','Tucumán':'NOA','Catamarca':'NOA','La Rioja':'NOA','Santiago del Estero':'NOA',
+    'Formosa':'NEA','Chaco':'NEA','Corrientes':'NEA','Misiones':'NEA',
+    'Mendoza':'Cuyo','San Juan':'Cuyo','San Luis':'Cuyo',
+    'Neuquén':'Patagonia','Río Negro':'Patagonia','Chubut':'Patagonia','Santa Cruz':'Patagonia','Tierra del Fuego':'Patagonia',
+    'Córdoba':'Centro','Santa Fe':'Centro','Entre Ríos':'Centro','La Pampa':'Centro',
+    'Ciudad Autónoma de Buenos Aires':'AMBA','Buenos Aires':'PBA interior',
   };
 
   /* composición por región: fracciones por tema, del análisis §3/§4. Suman 1. */
@@ -326,11 +478,15 @@
   const est = { part: 0.008, cons: 0.5, hecho: 0.55, hor: 12, campana: false, corte: 0.5 };
 
   function porProvincia(nombre) {
-    const [pobK, w, salud] = PROVINCIAS[nombre];
+    const [pobK, w] = PROVINCIAS[nombre];
     const part = Math.min(0.06, est.part * w);
     const voces = part * pobK * 1000;
     let nit = est.hecho * est.cons;
-    if (est.campana) nit = Math.min(1, nit + 0.25 * salud);
+    if (est.campana) {
+      /* el dato que decide está en las barras: el peso de «salud» de la región */
+      const salud = REGIONES[REGION_DE[nombre]][TEMAS_ORDEN.indexOf('salud')];
+      nit = Math.min(1, nit + 1.6 * salud);
+    }
     const sostiene = est.cons >= 0.4 && est.hor >= 6;
     const mandato = part >= PISO && sostiene;
     const brillo = part <= 0 ? 0 : Math.min(1, Math.pow(part / PLENA, CURVA));
@@ -443,6 +599,22 @@
     $('v-cons').textContent = est.cons.toFixed(2).replace('.', ',');
     $('v-hecho').textContent = Math.round(est.hecho * 100) + '%';
     $('v-hor').textContent = est.hor + ' meses';
+
+    /* las actas de ejemplo responden a las mismas palancas que el mapa */
+    const habilitadas = [];
+    document.querySelectorAll('[data-mandato-prov]').forEach((el) => {
+      const prov = el.getAttribute('data-mandato-prov');
+      const r = porProvincia(prov);
+      el.textContent = r.mandato ? 'habilitado a estas palancas' : 'aún sin piso a estas palancas';
+      el.classList.toggle('vigente', r.mandato);
+      if (r.mandato) habilitadas.push(prov);
+    });
+    const resumen = habilitadas.length === 0
+      ? 'A estas palancas, ninguna de las cinco actas sostiene el piso.'
+      : 'A estas palancas, ' + String(habilitadas.length) + ' de 5 actas sostienen el piso: ' +
+        habilitadas.join(', ') + '.';
+    const region = $('actas-estado');
+    if (region.textContent !== resumen) region.textContent = resumen;
   }
 
   /* la manija de la cortina */
@@ -478,8 +650,8 @@
     e.target.setAttribute('aria-pressed', String(est.campana));
     e.target.textContent = est.campana ? 'Campaña corriendo — sacarla del mapa' : 'Correr la campaña sobre el mapa';
     $('campana-nota').textContent = est.campana
-      ? 'Corriendo: las provincias donde «salud» pesa más ganaron nitidez, y donde el horario real no alcanza queda un reclamo con lugar, datos y 30 días de plazo. Todo inventado, todo a la vista.'
-      : 'Al correrla, las provincias donde «salud» pesa más en la composición cultural ganan nitidez y el conteo de mandatos cambia. Todo inventado, todo a la vista.';
+      ? 'Corriendo: la nitidez subió en proporción al peso de «salud» en las barras de más abajo, y donde el horario real no alcanza queda un reclamo con lugar, datos y 30 días de plazo. El brillo y los mandatos no se movieron: una campaña afila lo que ya se dijo. Todo inventado, todo a la vista.'
+      : 'Al correrla, cada provincia gana nitidez en proporción al peso de «salud» en la composición de su región — las barras de más abajo son exactamente el dato que la mueve. El brillo y los mandatos no se tocan: una campaña afila lo que ya se dijo, no fabrica participación. Todo inventado, todo a la vista.';
     pintar();
   });
 
