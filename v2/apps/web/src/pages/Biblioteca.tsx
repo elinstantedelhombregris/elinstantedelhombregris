@@ -5,20 +5,21 @@ import { EntrenamientosCurados } from './Biblioteca/sections/EntrenamientosCurad
 import { IndiceEnsayos } from './Biblioteca/sections/IndiceEnsayos';
 import { ManifiestoDestacado } from './Biblioteca/sections/ManifiestoDestacado';
 import { PortadaBiblioteca } from './Biblioteca/sections/PortadaBiblioteca';
+import { PuertaDeHoy } from './Biblioteca/sections/PuertaDeHoy';
 
 /**
- * La biblioteca — página 3.1 «Papel y Tinta»
- * (docs/specs/2026-07-24-la-biblioteca-papel-y-tinta.md). Manifiesto,
- * ensayos por ciclo, la vidriera de entrenamientos, la crónica del país que
- * viene (D9, spec 3.6) y bitácora: las cinco secciones con destino vivo. La
- * vidriera queda montada por 3.5 («§5 — Entrenamientos», el catálogo
- * completo vive detrás en /entrenamientos). El chrome papel lo pone
+ * La biblioteca — página 3.1 «Papel y Tinta», rediseñada por «el catálogo
+ * vivo» (docs/specs/2026-08-20-el-catalogo-vivo-biblioteca.md). Portada con
+ * catálogo, la puerta de hoy (con señalador), y los cinco estantes § 01–05:
+ * manifiesto, la estantería de ciclos, la vidriera de entrenamientos, la
+ * crónica del país que viene (D9) y la bitácora. El chrome papel lo pone
  * RootLayout.
  */
 export function Biblioteca() {
   return (
     <main>
       <PortadaBiblioteca />
+      <PuertaDeHoy />
       <ManifiestoDestacado />
       <IndiceEnsayos />
       <EntrenamientosCurados />
