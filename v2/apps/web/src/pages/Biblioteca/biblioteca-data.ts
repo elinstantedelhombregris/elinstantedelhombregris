@@ -1,5 +1,7 @@
+import { SECCIONES_BIBLIOTECA } from '~/components/papel/papel-nav';
 import { BLOG_POSTS } from '~/lib/blog-registry';
-import { CURSOS } from '~/lib/courses-registry';
+import { CURSOS, CURSO_COUNT } from '~/lib/courses-registry';
+import { CRONICA_CHAPTERS } from '~/lib/cronica-registry';
 import { ENSAYOS, type EnsayoEntry } from '~/lib/ensayos-registry';
 
 /**
@@ -166,3 +168,67 @@ export const ULTIMAS_CRONICAS = BLOG_POSTS.slice(0, CRONICAS_EN_EL_HUB);
 const DESTACADOS_EN_EL_HUB = 6;
 /** Curación real del contenido: `isFeatured` + el recorrido del autor (`orderIndex`). */
 export const CURSOS_DESTACADOS = CURSOS.filter((c) => c.isFeatured).slice(0, DESTACADOS_EN_EL_HUB);
+
+/* ── El catálogo vivo (spec 2026-08-20) ─────────────────────────────────── */
+
+/** «1 entrega» / «5 entregas» — toda cifra visible viaja con su sustantivo. */
+export function contar(n: number, singular: string, plural: string): string {
+  return `${String(n)} ${n === 1 ? singular : plural}`;
+}
+
+function minutosDe(ensayos: readonly EnsayoEntry[]): number {
+  return ensayos.reduce((total, e) => total + (e.readingMinutes > 0 ? e.readingMinutes : 0), 0);
+}
+
+/** Minutos reales de lectura de un ciclo — 0 cuando ninguno declara. */
+export function minutosDeCiclo(ciclo: Ciclo): number {
+  return minutosDe(ciclo.ensayos);
+}
+
+export const MINUTOS_TOTALES = minutosDe(ORDEN_DE_LECTURA);
+export const ENTREGA_COUNT = CRONICA_CHAPTERS.length;
+export const PRIMER_ENSAYO: EnsayoEntry | null = ORDEN_DE_LECTURA[0] ?? null;
+
+/** La bitácora del hub con jerarquía: la más reciente entera, el resto slim. */
+export const BITACORA_DESTACADA = ULTIMAS_CRONICAS[0] ?? null;
+export const BITACORA_RESTO = ULTIMAS_CRONICAS.slice(1);
+
+/**
+ * Los cinco estantes del hub. `ancla` son los ids que el header ya linkea
+ * (`/biblioteca#ensayos`) — no cambian. Los nombres se leen de
+ * SECCIONES_BIBLIOTECA para que header, fichero y página digan lo mismo; el
+ * inventario del catálogo sale entero de registries (cifra sin dato ⇒
+ * fragmento verbal, §5 de la ley).
+ */
+export interface Estante {
+  num: string;
+  ancla: string;
+  nombre: string;
+  inventario: string;
+}
+
+const ANCLAS_ESTANTES = ['manifiesto', 'ensayos', 'entrenamientos', 'cronica', 'bitacora'] as const;
+
+function inventarioDelEstante(ancla: string): string {
+  switch (ancla) {
+    case 'ensayos': {
+      const base = `${contar(ENSAYO_COUNT, 'ensayo', 'ensayos')} · ${contar(CICLO_COUNT, 'ciclo', 'ciclos')}`;
+      return MINUTOS_TOTALES > 0 ? `${base} · ${String(MINUTOS_TOTALES)} min` : base;
+    }
+    case 'entrenamientos':
+      return contar(CURSO_COUNT, 'entrenamiento', 'entrenamientos');
+    case 'cronica':
+      return ENTREGA_COUNT > 0 ? contar(ENTREGA_COUNT, 'entrega', 'entregas') : 'ficción especulativa';
+    case 'bitacora':
+      return CRONICA_COUNT > 0 ? contar(CRONICA_COUNT, 'crónica', 'crónicas') : 'lo que va pasando';
+    default:
+      return 'documento fundacional';
+  }
+}
+
+export const ESTANTES: readonly Estante[] = ANCLAS_ESTANTES.map((ancla, i) => ({
+  num: String(i + 1).padStart(2, '0'),
+  ancla,
+  nombre: SECCIONES_BIBLIOTECA[i]?.label ?? ancla,
+  inventario: inventarioDelEstante(ancla),
+}));

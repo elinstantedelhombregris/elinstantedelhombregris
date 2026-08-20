@@ -1,22 +1,31 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  BITACORA_DESTACADA,
+  BITACORA_RESTO,
   CICLO_COUNT,
   CICLOS,
   CRONICA_COUNT,
   CURSOS_DESTACADOS,
   ENSAYO_COUNT,
+  ENTREGA_COUNT,
+  ESTANTES,
   HREF_BITACORA,
   HREF_MANIFIESTO,
+  MINUTOS_TOTALES,
   ORDEN_DE_LECTURA,
+  PRIMER_ENSAYO,
   ULTIMAS_CRONICAS,
+  contar,
   fechaLarga,
   hrefCronica,
+  minutosDeCiclo,
   numeroDeFila,
   rotuloDeCiclo,
   ubicarEnsayo,
 } from '../biblioteca-data';
 
+import { SECCIONES_BIBLIOTECA } from '~/components/papel/papel-nav';
 import { BLOG_POSTS } from '~/lib/blog-registry';
 import { CURSOS } from '~/lib/courses-registry';
 import { ENSAYOS, type EnsayoEntry } from '~/lib/ensayos-registry';
@@ -243,6 +252,52 @@ describe('hrefs de fase', () => {
   it('HREF_MANIFIESTO y HREF_BITACORA apuntan a las superficies vivas de hoy', () => {
     expect(HREF_MANIFIESTO).toBe('/manifiesto');
     expect(HREF_BITACORA).toBe('/bitacora');
+  });
+});
+
+describe('el catálogo vivo — derivaciones (spec 2026-08-20)', () => {
+  it('contar pluraliza', () => {
+    expect(contar(1, 'entrega', 'entregas')).toBe('1 entrega');
+    expect(contar(5, 'entrega', 'entregas')).toBe('5 entregas');
+  });
+
+  it('minutosDeCiclo suma los readingMinutes del ciclo y MINUTOS_TOTALES suma todos', () => {
+    let total = 0;
+    for (const ciclo of CICLOS) {
+      const esperado = ciclo.ensayos.reduce(
+        (acc, e) => acc + (e.readingMinutes > 0 ? e.readingMinutes : 0),
+        0,
+      );
+      expect(minutosDeCiclo(ciclo)).toBe(esperado);
+      total += esperado;
+    }
+    expect(MINUTOS_TOTALES).toBe(total);
+  });
+
+  it('ENTREGA_COUNT y PRIMER_ENSAYO salen de los registries', () => {
+    expect(ENTREGA_COUNT).toBeGreaterThan(0);
+    expect(PRIMER_ENSAYO?.slug).toBe(ORDEN_DE_LECTURA[0]?.slug);
+  });
+
+  it('la bitácora se parte en destacada + resto sin perder crónicas', () => {
+    expect(BITACORA_DESTACADA?.slug).toBe(ULTIMAS_CRONICAS[0]?.slug);
+    expect(BITACORA_RESTO).toHaveLength(Math.max(0, ULTIMAS_CRONICAS.length - 1));
+  });
+
+  it('ESTANTES: cinco, anclas estables, nombres = labels del header, cifras interpoladas', () => {
+    expect(ESTANTES.map((e) => e.ancla)).toEqual([
+      'manifiesto',
+      'ensayos',
+      'entrenamientos',
+      'cronica',
+      'bitacora',
+    ]);
+    expect(ESTANTES.map((e) => e.nombre)).toEqual(SECCIONES_BIBLIOTECA.map((s) => s.label));
+    expect(ESTANTES.map((e) => e.num)).toEqual(['01', '02', '03', '04', '05']);
+    const ensayos = ESTANTES[1];
+    expect(ensayos?.inventario).toContain(contar(ENSAYO_COUNT, 'ensayo', 'ensayos'));
+    expect(ensayos?.inventario).toContain(contar(CICLO_COUNT, 'ciclo', 'ciclos'));
+    expect(ESTANTES[0]?.inventario).toBe('documento fundacional');
   });
 });
 
