@@ -17,7 +17,7 @@ function tapaDe(rotulo: string): HTMLElement {
     .find(
       (b) =>
         b.getAttribute('aria-controls') === 'panel-ciclo-abierto' &&
-        (b.textContent ?? '').includes(rotulo),
+        b.textContent.includes(rotulo),
     );
   expect(tapa).toBeDefined();
   if (!tapa) throw new Error(`sin tapa para ${rotulo}`);

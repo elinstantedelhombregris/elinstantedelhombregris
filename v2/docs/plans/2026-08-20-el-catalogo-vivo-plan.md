@@ -40,7 +40,7 @@ export interface Estante { num: string; ancla: string; nombre: string; inventari
 export const ESTANTES: readonly Estante[];        // 5, en el orden del hub
 ```
 
-- [ ] **Step 1: Test que falla** — agregar al final de `biblioteca-data.test.ts`:
+- [x] **Step 1: Test que falla** — agregar al final de `biblioteca-data.test.ts`:
 
 ```ts
 describe('el catálogo vivo — derivaciones (spec 2026-08-20)', () => {
@@ -88,9 +88,9 @@ describe('el catálogo vivo — derivaciones (spec 2026-08-20)', () => {
 
 Imports nuevos del test: `contar, minutosDeCiclo, MINUTOS_TOTALES, ENTREGA_COUNT, PRIMER_ENSAYO, BITACORA_DESTACADA, BITACORA_RESTO, ESTANTES` desde `../biblioteca-data`, y `SECCIONES_BIBLIOTECA` desde `~/components/papel/papel-nav`.
 
-- [ ] **Step 2: Verificar que falla** — `cd v2/apps/web && pnpm test:unit src/pages/Biblioteca/__tests__/biblioteca-data.test.ts` → FAIL (exports inexistentes).
+- [x] **Step 2: Verificar que falla** — `cd v2/apps/web && pnpm test:unit src/pages/Biblioteca/__tests__/biblioteca-data.test.ts` → FAIL (exports inexistentes).
 
-- [ ] **Step 3: Implementar** — al final de `biblioteca-data.ts` (nuevos imports arriba: `CRONICA_CHAPTERS` de `~/lib/cronica-registry`, `CURSO_COUNT` de `~/lib/courses-registry`, `SECCIONES_BIBLIOTECA` de `~/components/papel/papel-nav`):
+- [x] **Step 3: Implementar** — al final de `biblioteca-data.ts` (nuevos imports arriba: `CRONICA_CHAPTERS` de `~/lib/cronica-registry`, `CURSO_COUNT` de `~/lib/courses-registry`, `SECCIONES_BIBLIOTECA` de `~/components/papel/papel-nav`):
 
 ```ts
 /** «1 entrega» / «5 entregas» — toda cifra visible viaja con su sustantivo. */
@@ -156,8 +156,8 @@ export const ESTANTES: readonly Estante[] = ANCLAS_ESTANTES.map((ancla, i) => ({
 }));
 ```
 
-- [ ] **Step 4: Verificar que pasa** — mismo comando → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/biblioteca-data.ts v2/apps/web/src/pages/Biblioteca/__tests__/biblioteca-data.test.ts && git commit -m "feat(web): derivaciones del catálogo vivo en biblioteca-data"`
+- [x] **Step 4: Verificar que pasa** — mismo comando → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/biblioteca-data.ts v2/apps/web/src/pages/Biblioteca/__tests__/biblioteca-data.test.ts && git commit -m "feat(web): derivaciones del catálogo vivo en biblioteca-data"`
 
 ---
 
@@ -173,7 +173,7 @@ export function guardarSenalador(slug: string): void;
 export function leerSenalador(): string | null;
 ```
 
-- [ ] **Step 1: Test que falla** — `senalador.test.ts`:
+- [x] **Step 1: Test que falla** — `senalador.test.ts`:
 
 ```ts
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -211,8 +211,8 @@ describe('senalador — el último ensayo abierto', () => {
 });
 ```
 
-- [ ] **Step 2: Verificar que falla** — `pnpm test:unit src/lib/senalador.test.ts` → FAIL (módulo inexistente).
-- [ ] **Step 3: Implementar** — `senalador.ts`:
+- [x] **Step 2: Verificar que falla** — `pnpm test:unit src/lib/senalador.test.ts` → FAIL (módulo inexistente).
+- [x] **Step 3: Implementar** — `senalador.ts`:
 
 ```ts
 /**
@@ -242,8 +242,8 @@ export function leerSenalador(): string | null {
 }
 ```
 
-- [ ] **Step 4: Verificar que pasa** → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/lib/senalador.ts v2/apps/web/src/lib/senalador.test.ts && git commit -m "feat(web): lib del señalador — el último ensayo abierto, solo en el dispositivo"`
+- [x] **Step 4: Verificar que pasa** → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/lib/senalador.ts v2/apps/web/src/lib/senalador.test.ts && git commit -m "feat(web): lib del señalador — el último ensayo abierto, solo en el dispositivo"`
 
 ---
 
@@ -264,7 +264,7 @@ export interface EncabezadoEstanteProps {
 export function EncabezadoEstante(props: EncabezadoEstanteProps): JSX.Element;
 ```
 
-- [ ] **Step 1: Test que falla**:
+- [x] **Step 1: Test que falla**:
 
 ```tsx
 import { render, screen } from '@testing-library/react';
@@ -287,8 +287,8 @@ describe('EncabezadoEstante — § 0N, la gramática única de los estantes', ()
 });
 ```
 
-- [ ] **Step 2: Verificar que falla** → FAIL.
-- [ ] **Step 3: Implementar**:
+- [x] **Step 2: Verificar que falla** → FAIL.
+- [x] **Step 3: Implementar**:
 
 ```tsx
 import { Link } from 'wouter';
@@ -331,8 +331,8 @@ export function EncabezadoEstante({ num, nombre, verTodo, children }: Encabezado
 }
 ```
 
-- [ ] **Step 4: Verificar que pasa** → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/EncabezadoEstante.tsx v2/apps/web/src/pages/Biblioteca/__tests__/EncabezadoEstante.test.tsx && git commit -m "feat(web): EncabezadoEstante — la gramática única § 0N de la biblioteca"`
+- [x] **Step 4: Verificar que pasa** → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/EncabezadoEstante.tsx v2/apps/web/src/pages/Biblioteca/__tests__/EncabezadoEstante.test.tsx && git commit -m "feat(web): EncabezadoEstante — la gramática única § 0N de la biblioteca"`
 
 ---
 
@@ -597,7 +597,7 @@ export function BitacoraReciente() {
 }
 ```
 
-- [ ] **Step 1:** Actualizar `Biblioteca.test.tsx` primero (test que falla): en el bloque del manifiesto, `getByRole('heading', { name: 'El manifiesto del hombre gris' })` sigue (ahora h3 — el query por name no fija nivel, agregar `level: 3`); agregar asserts de gramática:
+- [x] **Step 1:** Actualizar `Biblioteca.test.tsx` primero (test que falla): en el bloque del manifiesto, `getByRole('heading', { name: 'El manifiesto del hombre gris' })` sigue (ahora h3 — el query por name no fija nivel, agregar `level: 3`); agregar asserts de gramática:
 
 ```ts
 it('los cinco estantes abren con la gramática § 0N — nombre', () => {
@@ -632,10 +632,10 @@ it('la bitácora jerarquiza: la primera entera con resumen, el resto filas slim'
 
 (Los asserts viejos que contradicen — p. ej. summary visible para TODAS las crónicas, o «Ensayos · N ciclos · tocá para abrir» — se ajustan en su task; acá solo lo que estos cuatro archivos rompen. NOTA de ejecución: este task toca el §02 solo en el test si hiciera falta — el `IndiceEnsayos` real se rehace en Task 5, así que el assert de gramática para el estante `ensayos` va a fallar hasta esa task; para mantener verde, el loop de gramática de arriba se agrega recién en Task 5 o se limita acá a los cuatro estantes tocados: usar `ESTANTES.filter((e) => e.ancla !== 'ensayos')` y quitar el filtro en Task 5.)
 
-- [ ] **Step 2:** `pnpm test:unit src/pages/__tests__/Biblioteca.test.tsx` → FAIL.
-- [ ] **Step 3:** Aplicar los cuatro archivos de arriba.
-- [ ] **Step 4:** `pnpm test:unit src/pages/__tests__/Biblioteca.test.tsx src/pages/Biblioteca` → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/ManifiestoDestacado.tsx v2/apps/web/src/pages/Biblioteca/sections/CronicaDestacada.tsx v2/apps/web/src/pages/Biblioteca/sections/EntrenamientosCurados.tsx v2/apps/web/src/pages/Biblioteca/sections/BitacoraReciente.tsx v2/apps/web/src/pages/__tests__/Biblioteca.test.tsx && git commit -m "feat(web): los cuatro estantes adoptan la gramática § 0N; la crónica se divorcia de su gemela"`
+- [x] **Step 2:** `pnpm test:unit src/pages/__tests__/Biblioteca.test.tsx` → FAIL.
+- [x] **Step 3:** Aplicar los cuatro archivos de arriba.
+- [x] **Step 4:** `pnpm test:unit src/pages/__tests__/Biblioteca.test.tsx src/pages/Biblioteca` → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/ManifiestoDestacado.tsx v2/apps/web/src/pages/Biblioteca/sections/CronicaDestacada.tsx v2/apps/web/src/pages/Biblioteca/sections/EntrenamientosCurados.tsx v2/apps/web/src/pages/Biblioteca/sections/BitacoraReciente.tsx v2/apps/web/src/pages/__tests__/Biblioteca.test.tsx && git commit -m "feat(web): los cuatro estantes adoptan la gramática § 0N; la crónica se divorcia de su gemela"`
 
 ---
 
@@ -650,7 +650,7 @@ it('la bitácora jerarquiza: la primera entera con resumen, el resto filas slim'
 
 Comportamiento: grilla 2×2 de tapas (botones `aria-expanded` + `aria-controls="panel-ciclo-abierto"`); un ciclo abierto por vez (default: el del señalador si su slug está en `CICLOS`, si no el primero); tocar la tapa abierta cierra; abrir desliza hasta el panel (guardado para jsdom); el panel conserva el bloque de encabezado del ciclo (mono + h3, sin descripción — vive en la tapa) y las filas `FilaIndiceExpandible` con su apertura única actual.
 
-- [ ] **Step 1:** Reescribir `IndiceEnsayos.test.tsx`:
+- [x] **Step 1:** Reescribir `IndiceEnsayos.test.tsx`:
 
 ```tsx
 import { fireEvent, render, screen, within } from '@testing-library/react';
@@ -757,8 +757,8 @@ describe('IndiceEnsayos — el acordeón', () => {
 });
 ```
 
-- [ ] **Step 2:** `pnpm test:unit src/pages/Biblioteca/__tests__/IndiceEnsayos.test.tsx` → FAIL.
-- [ ] **Step 3:** Reescribir `IndiceEnsayos.tsx`:
+- [x] **Step 2:** `pnpm test:unit src/pages/Biblioteca/__tests__/IndiceEnsayos.test.tsx` → FAIL.
+- [x] **Step 3:** Reescribir `IndiceEnsayos.tsx`:
 
 ```tsx
 import { useState } from 'react';
@@ -946,8 +946,8 @@ export function IndiceEnsayos() {
 }
 ```
 
-- [ ] **Step 4:** En `Biblioteca.test.tsx` quitar el filtro `!== 'ensayos'` del loop de gramática. Correr `pnpm test:unit src/pages` → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/IndiceEnsayos.tsx v2/apps/web/src/pages/Biblioteca/__tests__/IndiceEnsayos.test.tsx v2/apps/web/src/pages/__tests__/Biblioteca.test.tsx && git commit -m "feat(web): la estantería de ciclos — tapas 2×2 y acordeón de un ciclo por vez"`
+- [x] **Step 4:** En `Biblioteca.test.tsx` quitar el filtro `!== 'ensayos'` del loop de gramática. Correr `pnpm test:unit src/pages` → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/IndiceEnsayos.tsx v2/apps/web/src/pages/Biblioteca/__tests__/IndiceEnsayos.test.tsx v2/apps/web/src/pages/__tests__/Biblioteca.test.tsx && git commit -m "feat(web): la estantería de ciclos — tapas 2×2 y acordeón de un ciclo por vez"`
 
 ---
 
@@ -960,7 +960,7 @@ export function IndiceEnsayos() {
 
 **Interfaces (Consumes):** `ESTANTES` (T1), `saltarASeccion`.
 
-- [ ] **Step 1:** En `Biblioteca.test.tsx`, reemplazar el assert del lead viejo (`{N} ensayos en {C} ciclos`) por:
+- [x] **Step 1:** En `Biblioteca.test.tsx`, reemplazar el assert del lead viejo (`{N} ensayos en {C} ciclos`) por:
 
 ```ts
 it('la portada es catálogo: una fila por estante con su inventario real', () => {
@@ -975,8 +975,8 @@ it('la portada es catálogo: una fila por estante con su inventario real', () =>
 });
 ```
 
-- [ ] **Step 2:** → FAIL.
-- [ ] **Step 3:** Crear `CatalogoIndice.tsx`:
+- [x] **Step 2:** → FAIL.
+- [x] **Step 3:** Crear `CatalogoIndice.tsx`:
 
 ```tsx
 import { ESTANTES } from '../biblioteca-data';
@@ -1052,8 +1052,8 @@ export function PortadaBiblioteca() {
 }
 ```
 
-- [ ] **Step 4:** `pnpm test:unit src/pages/__tests__/Biblioteca.test.tsx` → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/CatalogoIndice.tsx v2/apps/web/src/pages/Biblioteca/sections/PortadaBiblioteca.tsx v2/apps/web/src/pages/__tests__/Biblioteca.test.tsx && git commit -m "feat(web): el catálogo en la portada — el inventario hecho índice con leaders"`
+- [x] **Step 4:** `pnpm test:unit src/pages/__tests__/Biblioteca.test.tsx` → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/CatalogoIndice.tsx v2/apps/web/src/pages/Biblioteca/sections/PortadaBiblioteca.tsx v2/apps/web/src/pages/__tests__/Biblioteca.test.tsx && git commit -m "feat(web): el catálogo en la portada — el inventario hecho índice con leaders"`
 
 ---
 
@@ -1066,7 +1066,7 @@ export function PortadaBiblioteca() {
 
 **Interfaces (Consumes):** `PRIMER_ENSAYO`, `ubicarEnsayo`, `fechaLarga`, `HREF_MANIFIESTO`, `HREF_BITACORA`, `BITACORA_DESTACADA`… ojo: la última crónica del sitio es `ULTIMAS_CRONICAS[0]` = `BITACORA_DESTACADA` (misma constante, T1); `leerSenalador` (T2); `findEnsayoBySlug` de `~/lib/ensayos-registry`.
 
-- [ ] **Step 1:** `PuertaDeHoy.test.tsx`:
+- [x] **Step 1:** `PuertaDeHoy.test.tsx`:
 
 ```tsx
 import { render, screen } from '@testing-library/react';
@@ -1134,8 +1134,8 @@ describe('PuertaDeHoy — las tres puertas', () => {
 });
 ```
 
-- [ ] **Step 2:** → FAIL.
-- [ ] **Step 3:** `PuertaDeHoy.tsx`:
+- [x] **Step 2:** → FAIL.
+- [x] **Step 3:** `PuertaDeHoy.tsx`:
 
 ```tsx
 import { Link } from 'wouter';
@@ -1243,8 +1243,8 @@ export function PuertaDeHoy() {
 
 En `Biblioteca.tsx`, agregar `<PuertaDeHoy />` entre `<PortadaBiblioteca />` y `<ManifiestoDestacado />` (import arriba, orden alfabético del grupo).
 
-- [ ] **Step 4:** `pnpm test:unit src/pages` → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/PuertaDeHoy.tsx v2/apps/web/src/pages/Biblioteca/__tests__/PuertaDeHoy.test.tsx v2/apps/web/src/pages/Biblioteca.tsx && git commit -m "feat(web): la puerta de hoy — tres perfiles de entrada y el señalador que retoma"`
+- [x] **Step 4:** `pnpm test:unit src/pages` → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/PuertaDeHoy.tsx v2/apps/web/src/pages/Biblioteca/__tests__/PuertaDeHoy.test.tsx v2/apps/web/src/pages/Biblioteca.tsx && git commit -m "feat(web): la puerta de hoy — tres perfiles de entrada y el señalador que retoma"`
 
 ---
 
@@ -1257,7 +1257,7 @@ En `Biblioteca.tsx`, agregar `<PuertaDeHoy />` entre `<PortadaBiblioteca />` y `
 
 **Interfaces (Consumes):** `ESTANTES` (T1), `saltarASeccion`.
 
-- [ ] **Step 1:** `FicheroBiblioteca.test.tsx`:
+- [x] **Step 1:** `FicheroBiblioteca.test.tsx`:
 
 ```tsx
 import { render, screen } from '@testing-library/react';
@@ -1327,8 +1327,8 @@ describe('FicheroBiblioteca — la franja fija', () => {
 
 (Nota jsdom: las secciones se agregan a `document.body` ANTES de `render` para que el efecto las encuentre; el `render` de testing-library monta en un contenedor aparte del mismo body. Los callbacks que actualizan estado se envuelven en `act` si vitest lo pide — usar `fireEvent`-less `act(() => { callback(...) })` de `@testing-library/react`.)
 
-- [ ] **Step 2:** → FAIL.
-- [ ] **Step 3:** `FicheroBiblioteca.tsx`:
+- [x] **Step 2:** → FAIL.
+- [x] **Step 3:** `FicheroBiblioteca.tsx`:
 
 ```tsx
 import { useEffect, useState } from 'react';
@@ -1422,8 +1422,8 @@ export function FicheroBiblioteca() {
 
 En `Biblioteca.tsx`, `<FicheroBiblioteca />` como primer hijo de `<main>`; actualizar el doc-comment del composer (siete secciones + fichero + puertas, spec 2026-08-20).
 
-- [ ] **Step 4:** `pnpm test:unit src/pages` → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/FicheroBiblioteca.tsx v2/apps/web/src/pages/Biblioteca/__tests__/FicheroBiblioteca.test.tsx v2/apps/web/src/pages/Biblioteca.tsx && git commit -m "feat(web): el fichero — franja fija con scroll-spy sobre los cinco estantes"`
+- [x] **Step 4:** `pnpm test:unit src/pages` → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/Biblioteca/sections/FicheroBiblioteca.tsx v2/apps/web/src/pages/Biblioteca/__tests__/FicheroBiblioteca.test.tsx v2/apps/web/src/pages/Biblioteca.tsx && git commit -m "feat(web): el fichero — franja fija con scroll-spy sobre los cinco estantes"`
 
 ---
 
@@ -1435,7 +1435,7 @@ En `Biblioteca.tsx`, `<FicheroBiblioteca />` como primer hijo de `<main>`; actua
 
 **Interfaces (Consumes):** `guardarSenalador` (T2).
 
-- [ ] **Step 1:** Test (en el archivo de EnsayoDetail que exista; si no hay, crear uno mínimo que monte la ruta con `memoryLocation` de wouter — mirar cómo lo hacen los tests existentes de páginas con `useRoute`; si ninguno lo hace, montar con `<Router hook={memoryLocation({ path: '/ensayos/<slug>' }).hook}>`):
+- [x] **Step 1:** Test (en el archivo de EnsayoDetail que exista; si no hay, crear uno mínimo que monte la ruta con `memoryLocation` de wouter — mirar cómo lo hacen los tests existentes de páginas con `useRoute`; si ninguno lo hace, montar con `<Router hook={memoryLocation({ path: '/ensayos/<slug>' }).hook}>`):
 
 ```tsx
 it('abrir un ensayo deja el señalador en el slug', () => {
@@ -1453,8 +1453,8 @@ it('abrir un ensayo deja el señalador en el slug', () => {
 });
 ```
 
-- [ ] **Step 2:** → FAIL.
-- [ ] **Step 3:** En `EnsayoDetail.tsx` — mover la resolución del ensayo ANTES de los early-returns para no romper las reglas de hooks, y agregar el efecto:
+- [x] **Step 2:** → FAIL.
+- [x] **Step 3:** En `EnsayoDetail.tsx` — mover la resolución del ensayo ANTES de los early-returns para no romper las reglas de hooks, y agregar el efecto:
 
 ```tsx
 export function EnsayoDetail() {
@@ -1476,17 +1476,17 @@ export function EnsayoDetail() {
 
 (Imports nuevos: `useEffect` de react, `guardarSenalador` de `~/lib/senalador`.)
 
-- [ ] **Step 4:** `pnpm test:unit src/pages/__tests__/EnsayoDetail.test.tsx` → PASS.
-- [ ] **Step 5: Commit** — `git add v2/apps/web/src/pages/EnsayoDetail.tsx v2/apps/web/src/pages/__tests__/EnsayoDetail.test.tsx && git commit -m "feat(web): el lector deja el señalador — el hub retoma la lectura"`
+- [x] **Step 4:** `pnpm test:unit src/pages/__tests__/EnsayoDetail.test.tsx` → PASS.
+- [x] **Step 5: Commit** — `git add v2/apps/web/src/pages/EnsayoDetail.tsx v2/apps/web/src/pages/__tests__/EnsayoDetail.test.tsx && git commit -m "feat(web): el lector deja el señalador — el hub retoma la lectura"`
 
 ---
 
 ### Task 10: Verificación completa y prueba visual
 
-- [ ] **Step 1:** `cd v2/apps/web && pnpm lint && pnpm type-check && pnpm test:unit && pnpm build` → todo verde. Arreglar lo que salga (imports ordenados por el lint de imports, tipos exactos, etc.).
-- [ ] **Step 2:** Levantar `v2-web`, abrir `/biblioteca` y verificar en el navegador: fichero fijo y entintado al scrollear; saltos del catálogo; acordeón; señalador (abrir un ensayo, volver al hub, ver «Estabas leyendo»); móvil 375px (fichero scrolleable, catálogo legible, tapas en 1 columna). Capturas de escritorio y móvil.
-- [ ] **Step 3:** Si algo del ojo pide ajuste fino (alineación de leaders, altura de tapas), ajustar y correr de nuevo `pnpm test:unit src/pages`.
-- [ ] **Step 4:** Commit final de ajustes visuales si los hubo, con rutas explícitas.
+- [x] **Step 1:** `cd v2/apps/web && pnpm lint && pnpm type-check && pnpm test:unit && pnpm build` → todo verde. Arreglar lo que salga (imports ordenados por el lint de imports, tipos exactos, etc.).
+- [x] **Step 2:** Levantar `v2-web`, abrir `/biblioteca` y verificar en el navegador: fichero fijo y entintado al scrollear; saltos del catálogo; acordeón; señalador (abrir un ensayo, volver al hub, ver «Estabas leyendo»); móvil 375px (fichero scrolleable, catálogo legible, tapas en 1 columna). Capturas de escritorio y móvil.
+- [x] **Step 3:** Si algo del ojo pide ajuste fino (alineación de leaders, altura de tapas), ajustar y correr de nuevo `pnpm test:unit src/pages`.
+- [x] **Step 4:** Commit final de ajustes visuales si los hubo, con rutas explícitas.
 
 ## Self-review del plan
 

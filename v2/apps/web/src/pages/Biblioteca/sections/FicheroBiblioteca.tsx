@@ -45,9 +45,12 @@ export function FicheroBiblioteca() {
         // conserva la anterior — y arriba de todo «la anterior» es ninguna.
         setActiva((previa) => candidata ?? previa);
       },
-      // Ventana de lectura: descuenta header (64) + franja (40) arriba y el
-      // 40% inferior — la sección se activa cuando la estás leyendo.
-      { rootMargin: '-104px 0px -40% 0px' },
+      // Ventana de lectura: el borde superior queda en 132px — abajo de
+      // header (64) + franja (40) y APENAS abajo del scroll-mt-32 (128) de
+      // los estantes, para que saltar a una sección la active a ella y no
+      // deje viva a la anterior por el pixel de borde que comparten. El 40%
+      // inferior se descuenta para que «visible» signifique «leyéndola».
+      { rootMargin: '-132px 0px -40% 0px' },
     );
     for (const el of secciones) observador.observe(el);
     return () => {

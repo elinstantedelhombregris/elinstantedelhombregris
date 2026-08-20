@@ -152,7 +152,7 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
       `Leer la crónica · ${contar(ENTREGA_COUNT, 'entrega', 'entregas')} →`,
     );
 
-    const encabezados = [...container.querySelectorAll('h2')].map((h) => h.textContent ?? '');
+    const encabezados = [...container.querySelectorAll('h2')].map((h) => h.textContent);
     const indiceEntrenamientos = encabezados.findIndex((t) => t.includes('Los entrenamientos'));
     const indiceCronica = encabezados.findIndex((t) => t.includes('La crónica del país que viene'));
     const indiceBitacora = encabezados.findIndex((t) => t.includes('La bitácora'));
