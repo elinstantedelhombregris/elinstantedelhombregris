@@ -8,11 +8,9 @@ import { CURSO_COUNT } from '~/lib/courses-registry';
 import {
   BITACORA_DESTACADA,
   BITACORA_RESTO,
-  CICLO_COUNT,
   contar,
   CRONICA_COUNT,
   CURSOS_DESTACADOS,
-  ENSAYO_COUNT,
   ENTREGA_COUNT,
   ESTANTES,
   HREF_BITACORA,
@@ -27,17 +25,25 @@ import { rotuloNivel } from '~/pages/Entrenamientos/entrenamientos-data';
  * que consume el composer (patrón de Planes.test.tsx).
  */
 describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
-  it('abre con el kicker, el H1 con rito de la tinta y el lead con los conteos derivados', () => {
+  it('abre con el kicker, el H1 con rito de la tinta y el lead corto', () => {
     render(<Biblioteca />);
 
     expect(screen.getByText('La biblioteca · leer también es hacer')).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { level: 1, name: 'Papel, tinta y método.' }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(new RegExp(`${String(ENSAYO_COUNT)} ensayos en ${String(CICLO_COUNT)} ciclos`)),
-    ).toBeInTheDocument();
     expect(screen.getByText(/Robate todo\.$/)).toBeInTheDocument();
+  });
+
+  it('la portada es catálogo: una fila por estante con ancla e inventario real', () => {
+    render(<Biblioteca />);
+
+    const catalogo = screen.getByRole('navigation', { name: 'Catálogo de la biblioteca' });
+    for (const estante of ESTANTES) {
+      const fila = within(catalogo).getByText(estante.nombre).closest('a');
+      expect(fila).toHaveAttribute('href', `#${estante.ancla}`);
+      expect(fila).toHaveTextContent(estante.inventario);
+    }
   });
 
   it('destaca el manifiesto sin cifras, con link entero a /manifiesto', () => {
@@ -129,8 +135,6 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
       name: `Ver los ${String(CURSO_COUNT)} entrenamientos →`,
     });
     expect(verTodos).toHaveAttribute('href', '/entrenamientos');
-
-    expect(screen.getByText(/los entrenamientos/)).toBeInTheDocument();
   });
 
   it('abre la puerta a la crónica del país que viene: card clara con entregas reales, entre entrenamientos y bitácora (D9)', () => {
@@ -180,15 +184,13 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     }
   });
 
-  it('la portada nombra los cinco estantes — incluida la crónica', () => {
+  it('la portada nombra los cinco estantes — el catálogo los lista todos', () => {
     render(<Biblioteca />);
 
-    const lead = screen.getByText(/Todo lo que el movimiento piensa está publicado entero/);
-    expect(lead).toHaveTextContent('el manifiesto');
-    expect(lead).toHaveTextContent(`${String(ENSAYO_COUNT)} ensayos en ${String(CICLO_COUNT)} ciclos`);
-    expect(lead).toHaveTextContent('los entrenamientos');
-    expect(lead).toHaveTextContent('la crónica del país que viene');
-    expect(lead).toHaveTextContent('la bitácora');
+    const catalogo = screen.getByRole('navigation', { name: 'Catálogo de la biblioteca' });
+    for (const estante of ESTANTES) {
+      expect(within(catalogo).getByText(estante.nombre)).toBeInTheDocument();
+    }
   });
 
   it('mata el chrome v1-port: sin header serif viejo, sin glass/gradient-text/iris-violet/font-serif', () => {
