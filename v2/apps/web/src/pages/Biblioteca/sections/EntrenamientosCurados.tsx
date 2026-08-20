@@ -1,28 +1,37 @@
 import { Link } from 'wouter';
 
-import { CURSOS_DESTACADOS } from '../biblioteca-data';
+import { contar, CURSOS_DESTACADOS, ESTANTES } from '../biblioteca-data';
 
-import { Kicker } from '~/components/papel/primitives';
+import { EncabezadoEstante } from './EncabezadoEstante';
+
 import { CURSO_COUNT } from '~/lib/courses-registry';
 import { rotuloNivel } from '~/pages/Entrenamientos/entrenamientos-data';
 
 /**
- * § 5 de la spec de la biblioteca (docs/specs/2026-07-24-la-biblioteca-papel-y-tinta.md)
- * — la vidriera de entrenamientos, montada como última tarea de 3.5. Curación
- * real (`isFeatured` + `orderIndex`, `CURSOS_DESTACADOS`); el catálogo
- * entero con los {CURSO_COUNT} vive detrás, en /entrenamientos — la curación
- * afecta el display de este hub, nunca la disponibilidad.
+ * § 5 de la spec madre + gramática única (spec 2026-08-20 §3). Curación real
+ * (`isFeatured` + `orderIndex`, `CURSOS_DESTACADOS`); el catálogo entero con
+ * los {CURSO_COUNT} vive detrás, en /entrenamientos — y ahora se llega desde
+ * el encabezado del estante, no desde un link suelto al pie.
  */
+const ESTANTE = ESTANTES.find((e) => e.ancla === 'entrenamientos');
+
 export function EntrenamientosCurados() {
   return (
-    <section id="entrenamientos" className="scroll-mt-20 border-tinta bg-papel-crudo border-y">
+    <section id="entrenamientos" className="scroll-mt-32 border-tinta bg-papel-crudo border-y">
       <div className="mx-auto max-w-[1100px] px-10 py-14 max-[560px]:px-5">
-        <Kicker className="mb-4">Entrenamiento · el ojo se educa</Kicker>
-        <h2 className="font-anton mb-5 text-[clamp(30px,3.6vw,48px)] leading-[1.05]">
+        <EncabezadoEstante
+          num={ESTANTE?.num ?? '03'}
+          nombre={ESTANTE?.nombre ?? 'Los entrenamientos'}
+          verTodo={{
+            href: '/entrenamientos',
+            label: `Ver los ${contar(CURSO_COUNT, 'entrenamiento', 'entrenamientos')}`,
+          }}
+        />
+        <h3 className="font-anton mb-5 mt-6 text-[clamp(30px,3.6vw,48px)] leading-[1.05]">
           Para diseñar un país,
           <br />
           primero entrená la mirada.
-        </h2>
+        </h3>
         <p className="text-tinta-50 mb-8 max-w-[560px] text-pretty text-[15px] leading-[1.6]">
           Guías cortas, en criollo, sin jerga. Cada una termina en algo que podés hacer esta
           semana.
@@ -49,13 +58,6 @@ export function EntrenamientosCurados() {
             </Link>
           ))}
         </div>
-
-        <Link
-          href="/entrenamientos"
-          className="font-space text-violeta mt-8 inline-block text-xs font-bold uppercase tracking-[0.1em]"
-        >
-          Ver los {CURSO_COUNT} entrenamientos →
-        </Link>
       </div>
     </section>
   );

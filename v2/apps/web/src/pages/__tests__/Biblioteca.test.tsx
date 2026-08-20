@@ -6,14 +6,18 @@ import { Biblioteca } from '../Biblioteca';
 import { SECCIONES_BIBLIOTECA } from '~/components/papel/papel-nav';
 import { CURSO_COUNT } from '~/lib/courses-registry';
 import {
+  BITACORA_DESTACADA,
+  BITACORA_RESTO,
   CICLO_COUNT,
+  contar,
   CRONICA_COUNT,
   CURSOS_DESTACADOS,
   ENSAYO_COUNT,
+  ENTREGA_COUNT,
+  ESTANTES,
   HREF_BITACORA,
   HREF_CRONICA_PAIS_QUE_VIENE,
   hrefCronica,
-  ULTIMAS_CRONICAS,
 } from '~/pages/Biblioteca/biblioteca-data';
 import { rotuloNivel } from '~/pages/Entrenamientos/entrenamientos-data';
 
@@ -54,26 +58,44 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     expect(screen.queryByText(/seis partes|cinco minutos/i)).not.toBeInTheDocument();
   });
 
-  it('presenta la bitácora real: últimas crónicas, categorías reales y link al total, sin asterisco de demo', () => {
+  it('presenta la bitácora con jerarquía: la primera entera, el resto filas slim, sin asterisco de demo', () => {
     render(<Biblioteca />);
 
-    expect(screen.getByText('Bitácora · lo que va pasando')).toBeInTheDocument();
-
     const verEntera = screen.getByRole('link', {
-      name: `Ver la bitácora entera · ${String(CRONICA_COUNT)} crónicas →`,
+      name: `Ver la bitácora entera · ${contar(CRONICA_COUNT, 'crónica', 'crónicas')} →`,
     });
     expect(verEntera).toHaveAttribute('href', HREF_BITACORA);
 
-    for (const post of ULTIMAS_CRONICAS) {
-      const titulo = screen.getByText(post.title);
+    expect(BITACORA_DESTACADA).not.toBeNull();
+    if (BITACORA_DESTACADA) {
+      const titulo = screen.getByText(BITACORA_DESTACADA.title);
       const enlace = titulo.closest('a');
-      expect(enlace).toHaveAttribute('href', hrefCronica(post.slug));
-      if (enlace && post.category !== '') {
-        expect(within(enlace).getByText(post.category)).toBeInTheDocument();
+      expect(enlace).toHaveAttribute('href', hrefCronica(BITACORA_DESTACADA.slug));
+      if (enlace && BITACORA_DESTACADA.category !== '') {
+        expect(within(enlace).getByText(BITACORA_DESTACADA.category)).toBeInTheDocument();
+      }
+      if (enlace && BITACORA_DESTACADA.summary !== '') {
+        expect(within(enlace).getByText(BITACORA_DESTACADA.summary)).toBeInTheDocument();
       }
     }
 
+    for (const post of BITACORA_RESTO) {
+      const enlace = screen.getByText(post.title).closest('a');
+      expect(enlace).toHaveAttribute('href', hrefCronica(post.slug));
+    }
+
     expect(screen.queryByText(/datos de demostración/i)).not.toBeInTheDocument();
+  });
+
+  it('los estantes rediseñados abren con la gramática § 0N — nombre', () => {
+    render(<Biblioteca />);
+
+    // El estante de ensayos adopta la gramática en la task de la estantería.
+    for (const estante of ESTANTES.filter((e) => e.ancla !== 'ensayos')) {
+      expect(
+        screen.getByRole('heading', { level: 2, name: `§ ${estante.num} — ${estante.nombre}` }),
+      ).toBeInTheDocument();
+    }
   });
 
   it('cierra con la banda que manda al mapa', () => {
@@ -87,7 +109,6 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
   it('monta la vidriera de entrenamientos: curados reales, catálogo completo detrás', () => {
     render(<Biblioteca />);
 
-    expect(screen.getByText('Entrenamiento · el ojo se educa')).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { name: 'Para diseñar un país, primero entrená la mirada.' }),
     ).toBeInTheDocument();
@@ -113,21 +134,25 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     expect(screen.getByText(/los entrenamientos/)).toBeInTheDocument();
   });
 
-  it('abre la puerta a la crónica del país que viene, entre entrenamientos y bitácora (D9)', () => {
+  it('abre la puerta a la crónica del país que viene: card clara con entregas reales, entre entrenamientos y bitácora (D9)', () => {
     const { container } = render(<Biblioteca />);
 
-    const link = screen.getByText('La crónica del país que viene').closest('a');
+    const link = screen
+      .getByRole('heading', { level: 3, name: 'La crónica del país que viene' })
+      .closest('a');
     expect(link).toHaveAttribute('href', HREF_CRONICA_PAIS_QUE_VIENE);
     expect(link).toHaveTextContent('Ficción especulativa');
     expect(link).toHaveTextContent(
       'No es una predicción. Es un ejercicio para ver que otro camino es posible.',
     );
-    expect(link).toHaveTextContent('Leer la crónica →');
+    expect(link).toHaveTextContent(
+      `Leer la crónica · ${contar(ENTREGA_COUNT, 'entrega', 'entregas')} →`,
+    );
 
-    const encabezados = [...container.querySelectorAll('h2')].map((h) => h.textContent);
-    const indiceEntrenamientos = encabezados.findIndex((t) => t.includes('Para diseñar un país,'));
+    const encabezados = [...container.querySelectorAll('h2')].map((h) => h.textContent ?? '');
+    const indiceEntrenamientos = encabezados.findIndex((t) => t.includes('Los entrenamientos'));
     const indiceCronica = encabezados.findIndex((t) => t.includes('La crónica del país que viene'));
-    const indiceBitacora = encabezados.findIndex((t) => t.includes('Bitácora · lo que va pasando'));
+    const indiceBitacora = encabezados.findIndex((t) => t.includes('La bitácora'));
 
     expect(indiceEntrenamientos).toBeGreaterThanOrEqual(0);
     expect(indiceCronica).toBeGreaterThan(indiceEntrenamientos);
@@ -151,8 +176,8 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     for (const ancla of ['manifiesto', 'ensayos', 'entrenamientos', 'cronica', 'bitacora']) {
       const seccion = container.querySelector(`#${ancla}`);
       expect(seccion).not.toBeNull();
-      // Sin esto el header sticky tapa el título del estante al saltar.
-      expect(seccion?.className).toMatch(/scroll-mt-20/);
+      // Sin esto el header sticky + el fichero tapan el título al saltar.
+      expect(seccion?.className).toMatch(/scroll-mt-32/);
     }
   });
 

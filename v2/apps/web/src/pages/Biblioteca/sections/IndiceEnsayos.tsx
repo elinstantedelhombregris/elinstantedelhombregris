@@ -74,7 +74,7 @@ export function IndiceEnsayos() {
   );
 
   return (
-    <section id="ensayos" className="scroll-mt-20 anim-fadeup mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5">
+    <section id="ensayos" className="scroll-mt-32 anim-fadeup mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5">
       <h2 className="font-space text-tinta-50 mb-5 text-[11px] uppercase tracking-[0.16em]">
         Ensayos · {CICLO_COUNT} ciclos · tocá para abrir
       </h2>
