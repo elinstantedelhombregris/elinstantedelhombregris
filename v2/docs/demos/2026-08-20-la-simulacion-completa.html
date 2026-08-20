@@ -1,0 +1,502 @@
+<title>La simulación completa — demostración</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--
+  La simulación completa — demostración.
+
+  Qué es: un HTML autónomo en docs/demos/, hermano de «sentir el mapa» (misma
+  fecha) y del «mapa cargado» del 11/8. Muestra el gesto entero de La
+  Simulación —la cortina entre el país medido y el país simulado— más la parte
+  que la app real todavía no construyó: las campañas como unidad de trabajo, y
+  la lectura cultural del lado simulado (qué diría el país, por región, y qué
+  PLAN contesta cada tema).
+
+  Qué respeta, sin excepción:
+  - El lado izquierdo (medido) está en CERO y ese cero es verdadero. Es la
+    decisión V1 de `el-vacio-como-pieza` y es lo que hace que el gesto valga.
+  - El lado derecho es una hipótesis sintética, sellada por dentro del lienzo.
+  - Nada de esto toca la base, la API ni el bundle de la app.
+
+  El motor de acá es un modelo de juguete declarado (fórmulas inventadas para
+  la demostración); el motor real vive en packages/civic-core/src/simulacion y
+  corre en /la-simulacion, en tu navegador, con 163+ tests.
+
+  El trabajo de plausibilidad: docs/2026-08-19-la-argentina-plausible.md
+-->
+
+<style>
+  :root {
+    --papel: #F2EFE7; --papel-crudo: #FBFAF4; --papel-mapa: #E4E0D3; --papel-borde: #D8D4C8;
+    --tinta: #16130E; --tinta-75: #4A463D; --tinta-50: #7A756A; --tinta-30: #B5B1A8;
+    --hecho: #A16C00; --deseo: #5227CC; --acto: #1A7A4A; --meta-c: #0F6B8A; --sello: #C23B22;
+    --plata: #7E8894; --plata-viva: #AEB9C6;
+    --ground: var(--papel); --plate: var(--papel-mapa); --panel: var(--papel-crudo);
+    --line: var(--papel-borde); --text: var(--tinta); --text-2: var(--tinta-75);
+    --text-3: var(--tinta-50); --drain: var(--tinta-30);
+    --display: "Haettenschweiler", "Arial Narrow Bold", "Arial Narrow", Impact, "Franklin Gothic Bold", ui-sans-serif, sans-serif;
+    --body: "Archivo", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono: "Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root {
+    --ground:#1B1710; --plate:#241F17; --panel:#201B14; --line:#3A362D; --text:#F2EFE7;
+    --text-2:#C9C5BA; --text-3:#8E8A82; --drain:#5C594F;
+    --hecho:#D69A22; --deseo:#9D85E8; --acto:#3FA877; --meta-c:#46A2C4; --sello:#E06148;
+    --plata:#9AA6B4; --plata-viva:#D6DEE8;
+  } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--ground); color:var(--text); font-family:var(--body);
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .hoja { max-width:1360px; margin:0 auto; padding:32px 22px 72px; display:flex; flex-direction:column; gap:26px; }
+  .kicker { font-family:var(--mono); font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.14em; color:var(--text-3); margin:0; }
+  .cabecera { display:flex; flex-direction:column; gap:10px; border-bottom:2px solid var(--text); padding-bottom:18px; }
+  h1 { font-family:var(--display); font-weight:400; font-size:clamp(44px,7vw,92px); line-height:0.95; margin:0; }
+  h2 { font-family:var(--display); font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.02; margin:0 0 10px; }
+  h3 { font-size:16px; margin:0 0 6px; }
+  p { margin:0 0 10px; max-width:76ch; }
+  .meta { color:var(--text-3); font-size:13.5px; }
+  .dos { color:var(--text-2); }
+  code { font-family:var(--mono); font-size:13px; }
+
+  .honestidad { border:2px dashed var(--sello); padding:14px 18px; max-width:900px; }
+  .honestidad strong.titulo { color:var(--sello); font-family:var(--mono); font-size:12px;
+    text-transform:uppercase; letter-spacing:0.12em; display:block; margin-bottom:6px; }
+
+  .cortina-caja { position:relative; background:var(--plate); border:1px solid var(--line); user-select:none; }
+  .cortina-caja canvas { display:block; width:100%; height:auto; }
+  .manija { position:absolute; top:0; bottom:0; width:26px; margin-left:-13px; cursor:col-resize; z-index:5; }
+  .manija::before { content:''; position:absolute; top:0; bottom:0; left:12px; width:2px; background:var(--text); }
+  .manija::after { content:'◂ ▸'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    font-size:11px; font-family:var(--mono); background:var(--text); color:var(--ground); padding:4px 6px; white-space:nowrap; }
+  .rotulo-lado { position:absolute; top:10px; font-family:var(--mono); font-size:11px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase; background:var(--ground); border:1px solid var(--line); padding:4px 8px; z-index:4;}
+  .rotulo-lado.izq { left:10px; }
+  .rotulo-lado.der { right:10px; }
+
+  .palancas { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  @media (max-width:900px){ .palancas { grid-template-columns:1fr; } }
+  .palanca { background:var(--panel); border:1px solid var(--line); padding:14px 16px; }
+  .palanca label { font-family:var(--mono); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; display:flex; justify-content:space-between; }
+  .palanca input { width:100%; accent-color:var(--deseo); margin:8px 0 6px; }
+  .palanca .razon { font-size:13px; color:var(--text-3); margin:0; }
+
+  .magnitudes { display:grid; grid-template-columns:repeat(5,1fr); gap:0; border:1px solid var(--line); background:var(--panel); }
+  .magnitudes > div { padding:10px 12px; border-right:1px solid var(--line); }
+  .magnitudes > div:last-child { border-right:0; }
+  .magnitudes .n { font-family:var(--display); font-size:28px; line-height:1; }
+  .magnitudes .t { font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); }
+  @media (max-width:900px){ .magnitudes { grid-template-columns:repeat(2,1fr); } .magnitudes>div{border-bottom:1px solid var(--line);} }
+
+  .campana { border:1px solid var(--line); background:var(--panel); padding:18px 20px; }
+  .etapas { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:12px 0; }
+  @media (max-width:900px){ .etapas { grid-template-columns:repeat(2,1fr); } }
+  .etapa { border:1px solid var(--line); padding:10px 12px; background:var(--ground); }
+  .etapa .num { font-family:var(--display); font-size:26px; color:var(--text-3); line-height:1; }
+  .etapa p { font-size:13px; margin:4px 0 0; }
+  .accion { font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    background:var(--text); color:var(--ground); border:0; padding:10px 16px; cursor:pointer; }
+  .accion[aria-pressed="true"] { background:var(--acto); }
+
+  .composicion { display:flex; flex-direction:column; gap:8px; max-width:900px; }
+  .region { display:grid; grid-template-columns:150px 1fr; gap:10px; align-items:center; }
+  .region .nombre { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; }
+  .apilada { display:flex; height:22px; border:1px solid var(--line); overflow:hidden; }
+  .apilada i { display:block; height:100%; }
+  .leyenda-temas { display:flex; flex-wrap:wrap; gap:10px 16px; font-size:12.5px; margin-top:6px; }
+  .leyenda-temas span::before { content:'■ '; }
+
+  table { border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:6px 16px 6px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); }
+
+  .pie-de-pagina { border-top:2px solid var(--text); padding-top:16px; }
+</style>
+
+<main class="hoja">
+  <header class="cabecera">
+    <p class="kicker">Demostración · población sintética · 20 de agosto de 2026</p>
+    <h1>La simulación, completa.</h1>
+    <p class="dos" style="max-width:880px">
+      El argumento entero de la plataforma cabe en un gesto: <strong>arrastrás la cortina y ves,
+      de la nada, al país</strong>. A la izquierda lo medido — hoy, nadie, y ese cero es
+      verdadero. A la derecha una hipótesis: qué pasaría si hablara el país que el análisis
+      cultural dice que existe. Esta página muestra el gesto completo, con las palancas, una
+      campaña —la pieza que la app todavía no construyó— y la lectura desde el diseño
+      idealizado: qué PLAN contesta cada cosa que el país diría.
+    </p>
+  </header>
+
+  <section class="honestidad" aria-label="De dónde sale esto">
+    <strong class="titulo">Población sintética</strong>
+    <p style="margin-bottom:6px">
+      <strong>Nadie dijo ninguna de estas cosas.</strong> El lado derecho es una población
+      inventada sobre el análisis de <code>docs/2026-08-19-la-argentina-plausible.md</code>; el
+      motor de esta página es un modelo de juguete con fórmulas declaradas abajo — el motor real
+      vive en <code>packages/civic-core/src/simulacion</code> y corre en <code>/la-simulacion</code>.
+      El lado izquierdo está en cero <em>y ese cero no es parte del truco</em>: las tablas cívicas
+      están vacías por decisión, hasta que hable una persona.
+    </p>
+    <p class="meta" style="margin:0">El sello vive adentro del lienzo, del lado simulado. No se puede recortar sin que se note.</p>
+  </section>
+
+  <section>
+    <h2>La cortina</h2>
+    <p class="dos">Arrastrá la manija. Izquierda: el país medido, hoy. Derecha: la hipótesis bajo
+      las palancas de abajo.</p>
+    <div class="cortina-caja" id="cortina-caja">
+      <span class="rotulo-lado izq">Hoy · nadie</span>
+      <span class="rotulo-lado der">Si hablaran</span>
+      <canvas id="lienzo" width="1200" height="1000"></canvas>
+      <div class="manija" id="manija" role="slider" aria-label="Cortina entre el país medido y el país simulado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0"></div>
+    </div>
+    <div class="magnitudes" style="margin-top:14px" aria-label="Las cinco magnitudes del lado simulado">
+      <div><div class="n" id="m-voces">0</div><div class="t">voces distintas</div></div>
+      <div><div class="n" id="m-senales">0</div><div class="t">señales</div></div>
+      <div><div class="n" id="m-cobertura">0%</div><div class="t">cobertura territorial</div></div>
+      <div><div class="n" id="m-nitidez">0%</div><div class="t">nitidez media</div></div>
+      <div><div class="n" id="m-mandatos">0</div><div class="t">territorios con mandato</div></div>
+    </div>
+    <p class="meta" style="margin-top:8px">Las cinco magnitudes describen el lado derecho — el
+      izquierdo tiene una sola: <strong>cero</strong>. Fórmulas del juguete: voces = población ×
+      participación; señales = voces × (1 + constancia); nitidez = comprobable × constancia;
+      mandato = participación ≥ 1% sostenida. Ninguna proyecta nada.</p>
+  </section>
+
+  <section>
+    <h2>Las palancas</h2>
+    <p class="dos">Cuatro perillas del modelo de juguete — parientes declaradas de las 18 variables
+      del motor real, cada una con su razón escrita.</p>
+    <div class="palancas">
+      <div class="palanca">
+        <label>Participación <span id="v-part">0,8%</span></label>
+        <input type="range" id="p-part" min="0.0005" max="0.05" step="0.0005" value="0.008" />
+        <p class="razon">Qué fracción de la gente deja al menos una voz. La participación real
+          vive en el extremo bajo: 5% de un barrio es un fenómeno extraordinario.</p>
+      </div>
+      <div class="palanca">
+        <label>Constancia <span id="v-cons">0,50</span></label>
+        <input type="range" id="p-cons" min="0.1" max="1" step="0.05" value="0.5" />
+        <p class="razon">Cuánto vuelve la gente después de la primera vez. La constancia separa
+          un estallido de un registro: sin ella no hay persistencia ni mandato.</p>
+      </div>
+      <div class="palanca">
+        <label>Cuánto es comprobable <span id="v-hecho">55%</span></label>
+        <input type="range" id="p-hecho" min="0.2" max="0.9" step="0.05" value="0.55" />
+        <p class="razon">La mezcla de clases: hechos y actos se corroboran, deseos se deliberan.
+          Un país que sólo sueña no gana nitidez; uno que sólo reporta no dice hacia dónde.</p>
+      </div>
+      <div class="palanca">
+        <label>Horizonte <span id="v-hor">12 meses</span></label>
+        <input type="range" id="p-hor" min="3" max="36" step="1" value="12" />
+        <p class="razon">Cuánto tiempo se sostiene el ejercicio. El mandato pide meses seguidos,
+          no un pico: el tiempo es una palanca, no un decorado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Una campaña: «La salita cerrada»</h2>
+    <div class="campana">
+      <p style="max-width:78ch"><strong>La campaña es la unidad de trabajo que falta construir</strong> —
+        la spec la trae desde agosto de 2026 y la app todavía no la tiene. No es una consigna: es una
+        pregunta verificable, repartida en el territorio, con fecha de cierre. Ésta pregunta:
+        <em>¿a qué hora atiende de verdad cada centro de salud del país?</em></p>
+      <div class="etapas">
+        <div class="etapa"><div class="num">1</div><p><strong>La pregunta</strong> se abre con
+          señal tipo <em>saber</em>: horario real, verificado en la puerta, con fecha y hora.</p></div>
+        <div class="etapa"><div class="num">2</div><p><strong>La cosecha</strong>: 30 días de
+          capturas. Cada una pide dos segundos de un vecino: «¿sigue así?».</p></div>
+        <div class="etapa"><div class="num">3</div><p><strong>La corroboración</strong> sube la
+          nitidez: horario declarado contra horario comprobado, salita por salita.</p></div>
+        <div class="etapa"><div class="num">4</div><p><strong>El mandato</strong>: donde el
+          horario real no cubre a la población, queda un reclamo con datos, lugar y plazo.</p></div>
+      </div>
+      <button class="accion" id="btn-campana" aria-pressed="false">Correr la campaña sobre el mapa</button>
+      <p class="meta" id="campana-nota" style="margin-top:8px">Al correrla, las provincias donde
+        «salud» pesa más en la composición cultural ganan nitidez y el conteo de mandatos cambia.
+        Todo inventado, todo a la vista.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Qué diría el país — y qué PLAN lo contesta</h2>
+    <p class="dos" style="max-width:880px">La composición del lado simulado no es pareja porque el
+      país no es parejo. Sale de las diez corrientes del análisis cultural, region por región. Y la
+      lectura del diseño idealizado es la conversión que la plataforma existe para hacer: cada tema
+      que el país cargaría tiene un PLAN que lo contesta.</p>
+
+    <div class="composicion" id="composicion"></div>
+    <div class="leyenda-temas" id="leyenda-temas"></div>
+
+    <table style="margin-top:22px" aria-label="Cada tema y el PLAN que lo contesta">
+      <thead><tr><th>Tema del canon</th><th>La corriente cultural que lo carga</th><th>Desde el diseño idealizado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>trabajo</strong></td><td>la economía del rebusque; el éxodo y el arraigo</td><td>PLANEB · PLANMON · PLANPACTO</td></tr>
+        <tr><td><strong>vivienda</strong></td><td>el alquiler como angustia; el sueldo petrolero que desplaza</td><td>PLANVIV · PLANTER</td></tr>
+        <tr><td><strong>salud</strong></td><td>la salita, los turnos, la salud mental que se destapó</td><td>PLANSAL · PLANSUS · PLANCUIDADO</td></tr>
+        <tr><td><strong>educación</strong></td><td>la escuela pública como mito fundante; la vacante que falta</td><td>PLANEDU · PLANPREGUNTA</td></tr>
+        <tr><td><strong>ambiente</strong></td><td>el clima como experiencia: dengue, sequía, creciente, fuego</td><td>PLANAGUA · PLANEN · PLANGEO</td></tr>
+        <tr><td><strong>movilidad</strong></td><td>el transporte como segunda jornada; la ruta que separa</td><td>PLANMOV · PLANTER</td></tr>
+        <tr><td><strong>seguridad</strong></td><td>la conversación diaria; el club abierto como respuesta</td><td>PLANSEG · PLANJUS</td></tr>
+        <tr><td><strong>alimento</strong></td><td>el comedor profesionalizado a la fuerza; la compra comunitaria</td><td>PLANMESA · PLANEB</td></tr>
+        <tr><td><strong>cuidado</strong></td><td>la hermana que siempre cuida; la ronda de cuidadoras</td><td>PLANCUIDADO · PLANARCO</td></tr>
+        <tr><td><strong>cultura</strong></td><td>el orgullo local: la fiesta, la murga, el club que asciende</td><td>PLANCUL · PLANMEMORIA</td></tr>
+        <tr><td><strong>democracia</strong></td><td>el cansancio político buscando instrumento y no consigna</td><td>PLANREP · PLANFOCO · PLAN24CN</td></tr>
+      </tbody>
+    </table>
+    <p class="meta" style="margin-top:10px">Los PLANes son diseño idealizado: muestran hacia dónde
+      podría apuntar el país, no compromisos. El canon vive en <code>content/planes/</code>.</p>
+  </section>
+
+  <section class="pie-de-pagina">
+    <p class="kicker" style="margin-bottom:8px">Qué existe hoy de verdad, y qué muestra esta página</p>
+    <p class="meta" style="max-width:880px">
+      Hoy: <code>/la-simulacion</code> corre el motor real en tu navegador (modo forma completo;
+      modo gente cargando un elenco a mano), y la cortina vive en <code>/el-mapa</code>. Lo que
+      esta página agrega es lo que falta construir —las campañas, la lectura cultural del lado
+      simulado— mostrado como diseño, con datos inventados y sellados. El ejercicio de sentir el
+      mapa, mes a mes, está en <code>2026-08-20-sentir-el-mapa.html</code>. Y la regla que nada de
+      esto puede romper: <strong>el lado medido queda en cero hasta que hable una persona.</strong>
+    </p>
+  </section>
+</main>
+
+<script id="geo" type="application/json">{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.446971,-34.00694],[-58.549387,-33.683038],[-58.383168,-33.075453],[-58.146799,-33.049981],[-58.220082,-32.489516],[-58.101591,-32.31136],[-58.168615,-31.846014],[-57.986818,-31.554145],[-57.808659,-30.747331],[-58.260754,-30.230713],[-58.629749,-30.152268],[-59.004998,-30.204099],[-59.241314,-30.343471],[-59.661521,-30.336908],[-59.660642,-30.736056],[-60.094027,-31.353693],[-60.41411,-31.673519],[-60.647765,-31.716048],[-60.765665,-32.541063],[-60.495423,-33.122061],[-60.294092,-33.256574],[-59.640618,-33.671019],[-59.26232,-33.724246],[-58.679798,-34.031204],[-58.446971,-34.00694]]]},"properties":{"name":"Entre Ríos"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-67.251329,-23.733091],[-67.362369,-24.030367],[-68.244486,-24.385384],[-68.572373,-24.769856],[-68.496468,-25.159997],[-67.806863,-25.283211],[-66.60102,-25.269103],[-66.512498,-25.63089],[-66.806821,-25.725044],[-66.781732,-25.894905],[-66.41979,-26.376684],[-66.224815,-26.17096],[-66.053818,-26.253488],[-65.711823,-26.295397],[-65.66534,-26.074791],[-64.966442,-26.268836],[-64.486343,-26.220208],[-64.211605,-25.603657],[-63.398579,-25.659364],[-62.334381,-24.402903],[-62.339213,-24.120646],[-62.341357,-22.472261],[-62.632684,-22.295951],[-62.804353,-22.004082],[-63.947591,-22.007596],[-64.293978,-22.690862],[-64.58688,-22.212752],[-65.190478,-22.098474],[-65.334327,-22.502347],[-65.268414,-22.843722],[-65.039306,-23.002265],[-65.042898,-23.251449],[-64.815935,-23.504612],[-64.438283,-23.619592],[-64.181064,-23.54156],[-64.158766,-24.18364],[-64.31488,-24.414013],[-64.625481,-24.613226],[-65.174647,-24.454683],[-65.587102,-24.402593],[-66.025964,-23.84764],[-65.986819,-23.543317],[-66.352198,-23.367824],[-66.351991,-24.041375],[-66.67533,-24.199143],[-67.251329,-23.733091]]]},"properties":{"name":"Salta"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-67.251329,-23.733091],[-66.67533,-24.199143],[-66.351991,-24.041375],[-66.352198,-23.367824],[-65.986819,-23.543317],[-66.025964,-23.84764],[-65.587102,-24.402593],[-65.174647,-24.454683],[-64.625481,-24.613226],[-64.31488,-24.414013],[-64.158766,-24.18364],[-64.181064,-23.54156],[-64.438283,-23.619592],[-64.815935,-23.504612],[-65.042898,-23.251449],[-65.039306,-23.002265],[-65.268414,-22.843722],[-65.334327,-22.502347],[-65.190478,-22.098474],[-65.744613,-22.11405],[-66.240009,-21.792415],[-66.377468,-22.127072],[-66.735896,-22.225051],[-66.796461,-22.434857],[-67.032725,-22.524567],[-67.193904,-22.822223],[-67.013967,-23.000714],[-67.251329,-23.733091]]]},"properties":{"name":"Jujuy"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.341357,-22.472261],[-62.339213,-24.120646],[-61.775707,-24.341718],[-61.451101,-24.619376],[-61.19874,-24.674928],[-61.034254,-24.897963],[-60.499661,-25.209572],[-60.178053,-25.6651],[-60.03341,-25.701222],[-59.413138,-26.190081],[-59.146798,-26.29948],[-58.351275,-26.885812],[-58.086501,-26.12719],[-57.556921,-25.45984],[-57.754067,-25.180891],[-58.224064,-24.941216],[-58.809196,-24.776781],[-59.340973,-24.4876],[-59.459725,-24.358512],[-60.033669,-24.007009],[-60.328018,-24.017964],[-61.006349,-23.805471],[-61.109857,-23.606982],[-61.491849,-23.413195],[-61.956446,-23.034407],[-62.341357,-22.472261]]]},"properties":{"name":"Formosa"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-55.623042,-28.14435],[-55.329874,-27.928113],[-55.02581,-27.84016],[-54.827527,-27.545088],[-53.819217,-27.139738],[-53.66672,-26.219174],[-53.826193,-25.972677],[-53.90996,-25.629236],[-54.2148,-25.531464],[-54.643146,-25.68794],[-54.638288,-26.196953],[-54.706475,-26.441796],[-54.97527,-26.787821],[-55.414003,-26.979851],[-55.754732,-27.443698],[-55.966094,-27.331723],[-56.017325,-27.451554],[-55.838627,-27.906617],[-55.623042,-28.14435]]]},"properties":{"name":"Misiones"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.351275,-26.885812],[-59.146798,-26.29948],[-59.413138,-26.190081],[-60.03341,-25.701222],[-60.178053,-25.6651],[-60.499661,-25.209572],[-61.034254,-24.897963],[-61.19874,-24.674928],[-61.451101,-24.619376],[-61.775707,-24.341718],[-62.339213,-24.120646],[-62.334381,-24.402903],[-63.398579,-25.659364],[-61.753874,-25.661431],[-61.70938,-26.793816],[-61.709949,-28.000409],[-60.041317,-28.000099],[-58.864748,-27.999324],[-58.886529,-27.478943],[-58.604196,-27.316264],[-58.653289,-27.156274],[-58.351275,-26.885812]]]},"properties":{"name":"Chaco"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-55.966094,-27.331723],[-56.771155,-27.506744],[-57.180097,-27.487313],[-58.021958,-27.259834],[-58.604196,-27.316264],[-58.886529,-27.478943],[-58.864748,-27.999324],[-59.081375,-28.157557],[-59.0991,-28.664193],[-59.197441,-29.022053],[-59.511272,-29.207571],[-59.664802,-29.878331],[-59.661521,-30.336908],[-59.241314,-30.343471],[-59.004998,-30.204099],[-58.629749,-30.152268],[-58.260754,-30.230713],[-57.808659,-30.747331],[-57.849617,-30.48527],[-57.642466,-30.193092],[-57.325153,-29.981011],[-56.415751,-29.051352],[-56.184705,-28.744188],[-55.623042,-28.14435],[-55.838627,-27.906617],[-56.017325,-27.451554],[-55.966094,-27.331723]]]},"properties":{"name":"Corrientes"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-68.496468,-25.159997],[-68.605963,-25.436999],[-68.419876,-26.179279],[-68.575164,-26.30351],[-68.570151,-26.550626],[-68.32014,-26.87009],[-68.330476,-27.044963],[-68.585861,-27.162785],[-68.801093,-27.112763],[-69.13406,-27.772344],[-68.435016,-27.746626],[-68.447264,-27.979377],[-67.704156,-28.339252],[-67.260127,-28.35832],[-66.976165,-28.267422],[-66.584354,-28.404157],[-66.121824,-28.970634],[-65.792439,-29.250101],[-65.729497,-29.502178],[-65.401894,-30.140175],[-64.943395,-29.878331],[-64.882468,-29.55711],[-65.03543,-29.292682],[-65.102248,-28.694889],[-65.079097,-28.274605],[-65.169092,-27.909666],[-65.333423,-27.86357],[-65.570695,-28.050226],[-65.929329,-27.654332],[-65.986845,-27.429953],[-66.191148,-27.30903],[-65.87233,-26.916445],[-65.85352,-26.723175],[-66.155517,-26.497194],[-66.053818,-26.253488],[-66.224815,-26.17096],[-66.41979,-26.376684],[-66.781732,-25.894905],[-66.806821,-25.725044],[-66.512498,-25.63089],[-66.60102,-25.269103],[-67.806863,-25.283211],[-68.496468,-25.159997]]]},"properties":{"name":"Catamarca"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-69.13406,-27.772344],[-69.420306,-28.212644],[-69.654045,-28.400994],[-69.19019,-28.594017],[-68.921136,-28.989548],[-69.022035,-29.611681],[-68.327994,-29.692503],[-67.634522,-30.247869],[-67.080706,-30.905503],[-67.103935,-31.354262],[-66.730521,-31.876555],[-66.217167,-31.925441],[-65.75965,-31.885495],[-65.767272,-31.096241],[-65.401894,-30.140175],[-65.729497,-29.502178],[-65.792439,-29.250101],[-66.121824,-28.970634],[-66.584354,-28.404157],[-66.976165,-28.267422],[-67.260127,-28.35832],[-67.704156,-28.339252],[-68.447264,-27.979377],[-68.435016,-27.746626],[-69.13406,-27.772344]]]},"properties":{"name":"La Rioja"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-69.654045,-28.400994],[-69.803926,-29.098688],[-70.042619,-29.363064],[-69.929086,-29.718288],[-69.975621,-30.058629],[-69.902809,-30.312671],[-70.217105,-30.515139],[-70.339785,-31.041722],[-70.479802,-31.096705],[-70.591371,-31.549598],[-70.256119,-32.314278],[-69.631687,-32.233536],[-69.612567,-32.123362],[-69.145102,-31.961873],[-68.6896,-32.33508],[-68.393701,-32.15013],[-68.020726,-32.06905],[-67.831849,-32.239169],[-67.393013,-32.262165],[-67.344385,-31.846841],[-66.730521,-31.876555],[-67.103935,-31.354262],[-67.080706,-30.905503],[-67.634522,-30.247869],[-68.327994,-29.692503],[-69.022035,-29.611681],[-68.921136,-28.989548],[-69.19019,-28.594017],[-69.654045,-28.400994]]]},"properties":{"name":"San Juan"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-70.256119,-32.314278],[-70.140029,-32.768283],[-70.000219,-32.876597],[-70.100833,-33.186862],[-69.787674,-33.379408],[-69.895367,-33.662285],[-69.832761,-34.243232],[-70.040345,-34.277028],[-70.227828,-34.58533],[-70.386629,-35.16669],[-70.430748,-36.129402],[-70.175427,-36.568104],[-69.790127,-36.863228],[-69.623471,-37.152564],[-69.260366,-37.152564],[-68.98506,-37.363817],[-68.756676,-37.371672],[-68.249394,-37.557035],[-68.24632,-35.999301],[-66.617169,-35.999921],[-66.506607,-35.141472],[-66.737962,-34.615406],[-66.821368,-34.22928],[-66.747057,-34.064174],[-67.142589,-33.452015],[-67.192121,-32.761101],[-67.393013,-32.262165],[-67.831849,-32.239169],[-68.020726,-32.06905],[-68.393701,-32.15013],[-68.6896,-32.33508],[-69.145102,-31.961873],[-69.612567,-32.123362],[-69.631687,-32.233536],[-70.256119,-32.314278]]]},"properties":{"name":"Mendoza"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-70.430748,-36.129402],[-70.71865,-36.414572],[-71.043282,-36.484335],[-71.145343,-36.68825],[-71.12307,-37.443243],[-71.18503,-37.706069],[-71.009976,-38.065531],[-70.873835,-38.691436],[-71.415765,-38.935348],[-71.401968,-39.236002],[-71.624848,-39.93105],[-71.823751,-40.210103],[-71.955577,-40.720356],[-71.867402,-41.010235],[-71.359282,-41.089688],[-71.031085,-40.928768],[-70.971502,-40.640361],[-70.084631,-40.420582],[-69.966473,-39.973064],[-69.54022,-39.825889],[-69.265172,-39.59841],[-68.962219,-39.4887],[-68.574465,-39.107638],[-68.320915,-38.961808],[-68.252133,-38.659294],[-68.249394,-37.557035],[-68.756676,-37.371672],[-68.98506,-37.363817],[-69.260366,-37.152564],[-69.623471,-37.152564],[-69.790127,-36.863228],[-70.175427,-36.568104],[-70.430748,-36.129402]]]},"properties":{"name":"Neuquén"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.76926,-41.999607],[-72.124714,-42.263311],[-72.148537,-42.998718],[-71.742981,-43.190127],[-71.937336,-43.456881],[-71.723757,-43.594754],[-71.659885,-43.92631],[-71.858736,-44.107798],[-71.822045,-44.40318],[-71.209783,-44.427571],[-71.122657,-44.530304],[-71.588726,-44.978132],[-71.311534,-45.299456],[-71.798533,-45.739946],[-71.649163,-45.999414],[-69.633289,-45.999621],[-67.581662,-46.00003],[-67.331925,-45.613491],[-66.868921,-45.235597],[-66.523997,-45.216097],[-66.200367,-44.992919],[-65.602643,-45.027687],[-65.685539,-44.71253],[-65.216885,-44.36641],[-65.334055,-43.672621],[-64.513051,-42.936293],[-64.997141,-42.784845],[-64.614858,-42.515313],[-64.322621,-42.542413],[-64.1079,-42.883722],[-63.620269,-42.751235],[-63.590484,-42.341241],[-63.80996,-42.070174],[-64.16218,-42.209405],[-64.127553,-42.432712],[-64.566274,-42.435968],[-64.531484,-42.244236],[-64.857289,-42.193617],[-65.054596,-42.010675],[-66.883845,-41.999193],[-69.399686,-41.999607],[-71.76926,-41.999607]]]},"properties":{"name":"Chubut"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.76926,-41.999607],[-69.399686,-41.999607],[-66.883845,-41.999193],[-65.054596,-42.010675],[-64.993276,-41.552992],[-65.17512,-41.010186],[-64.946523,-40.711358],[-63.779408,-41.158787],[-63.099517,-41.15488],[-62.801625,-41.041681],[-63.117796,-40.746143],[-63.387417,-40.709091],[-63.38858,-39.325765],[-63.99446,-39.009815],[-64.471486,-38.8537],[-65.3674,-38.838353],[-66.561952,-38.701565],[-66.647942,-38.557388],[-67.069828,-38.408973],[-67.176592,-38.222628],[-67.554088,-38.261747],[-67.844897,-38.056902],[-67.710513,-37.780019],[-67.850323,-37.600237],[-68.249394,-37.557035],[-68.252133,-38.659294],[-68.320915,-38.961808],[-68.574465,-39.107638],[-68.962219,-39.4887],[-69.265172,-39.59841],[-69.54022,-39.825889],[-69.966473,-39.973064],[-70.084631,-40.420582],[-70.971502,-40.640361],[-71.031085,-40.928768],[-71.359282,-41.089688],[-71.867402,-41.010235],[-71.925967,-41.622936],[-71.76926,-41.999607]]]},"properties":{"name":"Río Negro"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.649163,-45.999414],[-71.770162,-46.112636],[-71.68717,-46.690069],[-71.934132,-46.79952],[-72.009838,-47.198152],[-72.543914,-47.9148],[-72.325632,-48.285527],[-72.57678,-48.452132],[-72.592334,-48.791129],[-73.009725,-48.990394],[-73.183151,-49.239061],[-73.059745,-49.554971],[-73.465098,-49.759959],[-73.530572,-50.140814],[-73.322936,-50.268352],[-73.096076,-50.770647],[-72.778421,-50.619648],[-72.302843,-50.648897],[-72.382218,-51.160597],[-72.281139,-51.701494],[-71.917699,-51.990055],[-69.952754,-52.007419],[-68.365611,-52.306204],[-68.935928,-51.645516],[-69.167778,-50.978225],[-69.076519,-50.560172],[-68.876429,-50.330572],[-68.07635,-50.087268],[-67.732012,-49.781302],[-67.556549,-49.015817],[-67.114348,-48.67375],[-66.46849,-48.400275],[-65.847068,-47.944417],[-65.744902,-47.204164],[-66.786448,-47.006606],[-67.42322,-46.567419],[-67.622467,-46.163751],[-67.581662,-46.00003],[-69.633289,-45.999621],[-71.649163,-45.999414]]]},"properties":{"name":"Santa Cruz"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-68.641882,-54.782971],[-67.030995,-54.905206],[-66.540508,-55.051046],[-65.966225,-54.902073],[-65.332265,-54.913832],[-65.155588,-54.640558],[-65.844228,-54.647393],[-66.482213,-54.4658],[-66.766582,-54.249842],[-67.29776,-54.053806],[-67.983632,-53.601332],[-68.111402,-53.343802],[-68.451351,-53.297717],[-68.265981,-52.980645],[-68.627617,-52.639572],[-68.641882,-54.782971]]]},"properties":{"name":"Tierra del Fuego"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.801625,-41.041681],[-62.337799,-40.872735],[-62.25064,-40.622247],[-62.484202,-40.28753],[-62.314565,-39.869399],[-62.164174,-39.858819],[-62.055776,-39.451918],[-62.357818,-39.102227],[-62.026723,-38.937595],[-61.518056,-39.011489],[-60.865712,-38.975681],[-59.063222,-38.69378],[-58.15567,-38.430108],[-57.593577,-38.152765],[-57.511871,-37.872328],[-57.055898,-37.412693],[-56.664866,-36.851007],[-56.697621,-36.396173],[-57.248036,-36.170343],[-57.352625,-35.727524],[-57.144909,-35.4842],[-57.248769,-35.248793],[-57.522032,-35.013154],[-58.315031,-34.657195],[-58.541631,-34.710347],[-58.474192,-34.52158],[-58.37857,-34.188246],[-58.446971,-34.00694],[-58.679798,-34.031204],[-59.26232,-33.724246],[-59.640618,-33.671019],[-60.294092,-33.256574],[-60.46682,-33.612005],[-60.910463,-33.563739],[-60.963069,-33.677221],[-61.710517,-34.376816],[-62.853807,-34.382139],[-63.373594,-34.41361],[-63.384058,-35.002101],[-63.388813,-35.984573],[-63.387831,-37.779399],[-63.38858,-39.325765],[-63.387417,-40.709091],[-63.117796,-40.746143],[-62.801625,-41.041681]]]},"properties":{"name":"Buenos Aires"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.474192,-34.52158],[-58.541631,-34.710347],[-58.315031,-34.657195],[-58.474192,-34.52158]]]},"properties":{"name":"Ciudad Autónoma de Buenos Aires"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.864748,-27.999324],[-60.041317,-28.000099],[-61.709949,-28.000409],[-62.087135,-30.156609],[-62.125324,-30.457675],[-61.865805,-30.788766],[-62.121551,-31.608561],[-62.22276,-31.706798],[-62.218574,-32.138503],[-61.914122,-32.462928],[-61.732971,-32.827453],[-62.853807,-34.382139],[-61.710517,-34.376816],[-60.963069,-33.677221],[-60.910463,-33.563739],[-60.46682,-33.612005],[-60.294092,-33.256574],[-60.495423,-33.122061],[-60.765665,-32.541063],[-60.647765,-31.716048],[-60.41411,-31.673519],[-60.094027,-31.353693],[-59.660642,-30.736056],[-59.661521,-30.336908],[-59.664802,-29.878331],[-59.511272,-29.207571],[-59.197441,-29.022053],[-59.0991,-28.664193],[-59.081375,-28.157557],[-58.864748,-27.999324]]]},"properties":{"name":"Santa Fe"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.486343,-26.220208],[-64.966442,-26.268836],[-65.66534,-26.074791],[-65.711823,-26.295397],[-66.053818,-26.253488],[-66.155517,-26.497194],[-65.85352,-26.723175],[-65.87233,-26.916445],[-66.191148,-27.30903],[-65.986845,-27.429953],[-65.929329,-27.654332],[-65.570695,-28.050226],[-65.333423,-27.86357],[-65.169092,-27.909666],[-65.00104,-27.764093],[-65.063594,-27.47238],[-64.879833,-27.309185],[-64.674367,-26.804823],[-64.50554,-26.683487],[-64.486343,-26.220208]]]},"properties":{"name":"Tucumán"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-63.398579,-25.659364],[-64.211605,-25.603657],[-64.486343,-26.220208],[-64.50554,-26.683487],[-64.674367,-26.804823],[-64.879833,-27.309185],[-65.063594,-27.47238],[-65.00104,-27.764093],[-65.169092,-27.909666],[-65.079097,-28.274605],[-65.102248,-28.694889],[-65.03543,-29.292682],[-64.882468,-29.55711],[-64.29408,-29.425129],[-63.80765,-29.649766],[-63.46271,-29.655244],[-63.362819,-29.77348],[-62.288156,-29.776735],[-62.087135,-30.156609],[-61.709949,-28.000409],[-61.70938,-26.793816],[-61.753874,-25.661431],[-63.398579,-25.659364]]]},"properties":{"name":"Santiago del Estero"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-65.086616,-35.001791],[-65.0869,-33.962371],[-65.131704,-33.205466],[-64.875311,-32.544111],[-64.945023,-32.290483],[-65.75965,-31.885495],[-66.217167,-31.925441],[-66.730521,-31.876555],[-67.344385,-31.846841],[-67.393013,-32.262165],[-67.192121,-32.761101],[-67.142589,-33.452015],[-66.747057,-34.064174],[-66.821368,-34.22928],[-66.737962,-34.615406],[-66.506607,-35.141472],[-66.617169,-35.999921],[-65.087779,-35.998784],[-65.086616,-35.001791]]]},"properties":{"name":"San Luis"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-65.086616,-35.001791],[-65.087779,-35.998784],[-66.617169,-35.999921],[-68.24632,-35.999301],[-68.249394,-37.557035],[-67.850323,-37.600237],[-67.710513,-37.780019],[-67.844897,-38.056902],[-67.554088,-38.261747],[-67.176592,-38.222628],[-67.069828,-38.408973],[-66.647942,-38.557388],[-66.561952,-38.701565],[-65.3674,-38.838353],[-64.471486,-38.8537],[-63.99446,-39.009815],[-63.38858,-39.325765],[-63.387831,-37.779399],[-63.388813,-35.984573],[-63.384058,-35.002101],[-65.086616,-35.001791]]]},"properties":{"name":"La Pampa"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.087135,-30.156609],[-62.288156,-29.776735],[-63.362819,-29.77348],[-63.46271,-29.655244],[-63.80765,-29.649766],[-64.29408,-29.425129],[-64.882468,-29.55711],[-64.943395,-29.878331],[-65.401894,-30.140175],[-65.767272,-31.096241],[-65.75965,-31.885495],[-64.945023,-32.290483],[-64.875311,-32.544111],[-65.131704,-33.205466],[-65.0869,-33.962371],[-65.086616,-35.001791],[-63.384058,-35.002101],[-63.373594,-34.41361],[-62.853807,-34.382139],[-61.732971,-32.827453],[-61.914122,-32.462928],[-62.218574,-32.138503],[-62.22276,-31.706798],[-62.121551,-31.608561],[-61.865805,-30.788766],[-62.125324,-30.457675],[-62.087135,-30.156609]]]},"properties":{"name":"Córdoba"}}
+]}</script>
+
+<script>
+(() => {
+  'use strict';
+
+  /* población de referencia (censo 2022, miles), peso regional del interior, y
+     peso del tema salud (para la campaña). Inventado y declarado. */
+  const PROVINCIAS = {
+    'Buenos Aires': [17569, 0.8, 0.30], 'Ciudad Autónoma de Buenos Aires': [3121, 0.7, 0.25],
+    'Córdoba': [3979, 1.0, 0.30], 'Santa Fe': [3556, 1.0, 0.30], 'Mendoza': [2014, 1.1, 0.30],
+    'Tucumán': [1703, 1.1, 0.55], 'Entre Ríos': [1426, 1.2, 0.35], 'Salta': [1441, 1.1, 0.50],
+    'Misiones': [1281, 1.2, 0.50], 'Chaco': [1143, 1.2, 0.55], 'Corrientes': [1197, 1.1, 0.45],
+    'Santiago del Estero': [1054, 1.0, 0.50], 'San Juan': [818, 1.1, 0.35], 'Jujuy': [798, 1.2, 0.50],
+    'Río Negro': [762, 1.3, 0.35], 'Neuquén': [726, 1.3, 0.30], 'Formosa': [607, 1.1, 0.60],
+    'Chubut': [603, 1.2, 0.35], 'San Luis': [540, 1.1, 0.35], 'Catamarca': [429, 1.0, 0.45],
+    'La Rioja': [384, 1.1, 0.45], 'La Pampa': [366, 1.4, 0.35], 'Santa Cruz': [333, 1.2, 0.40],
+    'Tierra del Fuego': [190, 1.4, 0.30],
+  };
+
+  /* composición por región: fracciones por tema, del análisis §3/§4. Suman 1. */
+  const TEMAS_ORDEN = ['trabajo','vivienda','salud','educación','ambiente','movilidad','seguridad','alimento','cuidado','cultura','democracia'];
+  const TEMA_COLOR = ['#A16C00','#5227CC','#C23B22','#0F6B8A','#1A7A4A','#7E8894','#8a3a5c','#b0812a','#4a6d8c','#6d4ac2','#3d3d3d'];
+  const REGIONES = {
+    'NOA':        [0.16,0.05,0.13,0.09,0.20,0.07,0.04,0.06,0.05,0.12,0.03],
+    'NEA':        [0.15,0.05,0.15,0.08,0.22,0.07,0.04,0.09,0.05,0.07,0.03],
+    'Cuyo':       [0.16,0.07,0.09,0.08,0.26,0.08,0.04,0.05,0.05,0.08,0.04],
+    'Patagonia':  [0.18,0.20,0.08,0.07,0.15,0.10,0.03,0.04,0.04,0.06,0.05],
+    'Centro':     [0.20,0.07,0.09,0.09,0.16,0.08,0.10,0.06,0.05,0.07,0.03],
+    'AMBA':       [0.16,0.18,0.10,0.08,0.06,0.16,0.10,0.06,0.05,0.03,0.02],
+    'PBA interior':[0.17,0.07,0.10,0.10,0.14,0.14,0.06,0.06,0.05,0.08,0.03],
+  };
+
+  const PLENA = 0.05, CURVA = 0.35, PISO = 0.01;
+
+  /* estado */
+  const est = { part: 0.008, cons: 0.5, hecho: 0.55, hor: 12, campana: false, corte: 0.5 };
+
+  function porProvincia(nombre) {
+    const [pobK, w, salud] = PROVINCIAS[nombre];
+    const part = Math.min(0.06, est.part * w);
+    const voces = part * pobK * 1000;
+    let nit = est.hecho * est.cons;
+    if (est.campana) nit = Math.min(1, nit + 0.25 * salud);
+    const sostiene = est.cons >= 0.4 && est.hor >= 6;
+    const mandato = part >= PISO && sostiene;
+    const brillo = part <= 0 ? 0 : Math.min(1, Math.pow(part / PLENA, CURVA));
+    return { voces, nit, mandato, brillo, part };
+  }
+
+  function magnitudes() {
+    let voces = 0, conVoz = 0, mandatos = 0, nitAcc = 0;
+    for (const nombre of Object.keys(PROVINCIAS)) {
+      const r = porProvincia(nombre);
+      voces += r.voces; nitAcc += r.nit;
+      if (r.voces > 500) conVoz++;
+      if (r.mandato) mandatos++;
+    }
+    return {
+      voces: Math.round(voces),
+      senales: Math.round(voces * (1 + est.cons)),
+      cobertura: Math.round((conVoz / 24) * 100),
+      nitidez: Math.round((nitAcc / 24) * 100),
+      mandatos,
+    };
+  }
+
+  /* ── mapa con cortina ── */
+  const GEO = JSON.parse(document.getElementById('geo').textContent);
+  const lienzo = document.getElementById('lienzo');
+  const ctx = lienzo.getContext('2d');
+  const LON = [-73.8, -53.4], LAT = [-55.3, -21.6];
+  const K = Math.cos((-38 * Math.PI) / 180);
+  function proyectar(lon, lat) {
+    const w = lienzo.width, h = lienzo.height, m = 26;
+    const dx = (LON[1] - LON[0]) * K, dy = LAT[1] - LAT[0];
+    const esc = Math.min((w / 2 - 2 * m) / dx, (h - 2 * m) / dy);
+    return [m + (lon - LON[0]) * K * esc, (h - dy * esc) / 2 + (LAT[1] - lat) * esc, esc];
+  }
+  /* dos países: el mismo trazado, corrido medio lienzo */
+  const caminos = GEO.features.map((f) => {
+    const anillos = f.geometry.type === 'Polygon' ? f.geometry.coordinates : f.geometry.coordinates.flat();
+    const izq = new Path2D(), der = new Path2D();
+    const offset = lienzo.width / 2;
+    for (const anillo of anillos) {
+      anillo.forEach(([lon, lat], i) => {
+        const [x, y] = proyectar(lon, lat);
+        if (i === 0) { izq.moveTo(x, y); der.moveTo(x + offset, y); }
+        else { izq.lineTo(x, y); der.lineTo(x + offset, y); }
+      });
+      izq.closePath(); der.closePath();
+    }
+    return { nombre: f.properties.name, izq, der };
+  });
+
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  function mezclar(a, b, t) {
+    const pa = a.match(/\w\w/g).map((x) => parseInt(x, 16));
+    const pb = b.match(/\w\w/g).map((x) => parseInt(x, 16));
+    return '#' + pa.map((x, i) => Math.round(x + (pb[i] - x) * t).toString(16).padStart(2, '0')).join('');
+  }
+
+  function dibujar() {
+    const w = lienzo.width, h = lienzo.height;
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = css('--plate'); ctx.fillRect(0, 0, w, h);
+    const base = css('--ground'), plata = css('--plata'), viva = css('--plata-viva'), linea = css('--line');
+    const corteX = w * est.corte;
+
+    /* lado izquierdo: el país medido. Gris entero, y es verdad. */
+    ctx.save();
+    ctx.beginPath(); ctx.rect(0, 0, corteX, h); ctx.clip();
+    for (const c of caminos) { ctx.fillStyle = base; ctx.fill(c.izq); ctx.strokeStyle = linea; ctx.stroke(c.izq); }
+    ctx.font = '700 13px ' + css('--mono');
+    ctx.fillStyle = css('--text-3');
+    ctx.fillText('0 voces — y este cero es verdadero', 20, h - 24);
+    ctx.restore();
+
+    /* lado derecho: la hipótesis, sellada */
+    ctx.save();
+    ctx.beginPath(); ctx.rect(corteX, 0, w - corteX, h); ctx.clip();
+    for (const c of caminos) {
+      const r = porProvincia(c.nombre);
+      ctx.fillStyle = r.brillo <= 0 ? base : mezclar(mezclar(base, plata, 0.25 + 0.75 * r.brillo), viva, 0.5 * r.brillo * r.nit);
+      ctx.fill(c.der);
+      ctx.strokeStyle = r.brillo > 0 ? mezclar('#7E8894', '#AEB9C6', r.nit) : linea;
+      ctx.lineWidth = 1 + r.nit; ctx.stroke(c.der);
+      if (r.mandato) {
+        /* el mandato se marca en el centro aproximado del path derecho */
+        ctx.fillStyle = css('--acto');
+      }
+    }
+    ctx.font = '700 14px ' + css('--mono');
+    ctx.fillStyle = css('--text');
+    ctx.globalAlpha = 0.6;
+    ctx.textAlign = 'center';
+    const cx = corteX + (w - corteX) / 2;
+    for (const fy of [0.14, 0.5, 0.86]) ctx.fillText('NADIE DIJO NINGUNA DE ESTAS COSAS', Math.max(cx, corteX + 170), h * fy);
+    ctx.restore();
+  }
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => n.toLocaleString('es-AR');
+
+  function pintar() {
+    dibujar();
+    const m = magnitudes();
+    $('m-voces').textContent = fmt(m.voces);
+    $('m-senales').textContent = fmt(m.senales);
+    $('m-cobertura').textContent = m.cobertura + '%';
+    $('m-nitidez').textContent = m.nitidez + '%';
+    $('m-mandatos').textContent = String(m.mandatos);
+    $('v-part').textContent = (est.part * 100).toFixed(2).replace('.', ',') + '%';
+    $('v-cons').textContent = est.cons.toFixed(2).replace('.', ',');
+    $('v-hecho').textContent = Math.round(est.hecho * 100) + '%';
+    $('v-hor').textContent = est.hor + ' meses';
+  }
+
+  /* la manija de la cortina */
+  const caja = $('cortina-caja'), manija = $('manija');
+  function moverCortina(clientX) {
+    const r = caja.getBoundingClientRect();
+    est.corte = Math.min(0.92, Math.max(0.08, (clientX - r.left) / r.width));
+    manija.style.left = (est.corte * 100) + '%';
+    manija.setAttribute('aria-valuenow', String(Math.round(est.corte * 100)));
+    dibujar();
+  }
+  manija.style.left = '50%';
+  let arrastrando = false;
+  manija.addEventListener('pointerdown', (e) => { arrastrando = true; manija.setPointerCapture(e.pointerId); });
+  manija.addEventListener('pointermove', (e) => { if (arrastrando) moverCortina(e.clientX); });
+  manija.addEventListener('pointerup', () => { arrastrando = false; });
+  manija.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { est.corte = Math.max(0.08, est.corte - 0.04); }
+    else if (e.key === 'ArrowRight') { est.corte = Math.min(0.92, est.corte + 0.04); }
+    else return;
+    manija.style.left = (est.corte * 100) + '%'; dibujar();
+  });
+
+  /* palancas */
+  $('p-part').addEventListener('input', (e) => { est.part = Number(e.target.value); pintar(); });
+  $('p-cons').addEventListener('input', (e) => { est.cons = Number(e.target.value); pintar(); });
+  $('p-hecho').addEventListener('input', (e) => { est.hecho = Number(e.target.value); pintar(); });
+  $('p-hor').addEventListener('input', (e) => { est.hor = Number(e.target.value); pintar(); });
+
+  /* campaña */
+  $('btn-campana').addEventListener('click', (e) => {
+    est.campana = !est.campana;
+    e.target.setAttribute('aria-pressed', String(est.campana));
+    e.target.textContent = est.campana ? 'Campaña corriendo — sacarla del mapa' : 'Correr la campaña sobre el mapa';
+    $('campana-nota').textContent = est.campana
+      ? 'Corriendo: las provincias donde «salud» pesa más ganaron nitidez, y donde el horario real no alcanza queda un reclamo con lugar, datos y 30 días de plazo. Todo inventado, todo a la vista.'
+      : 'Al correrla, las provincias donde «salud» pesa más en la composición cultural ganan nitidez y el conteo de mandatos cambia. Todo inventado, todo a la vista.';
+    pintar();
+  });
+
+  /* composición cultural por región */
+  const comp = $('composicion');
+  for (const [region, pesos] of Object.entries(REGIONES)) {
+    const fila = document.createElement('div');
+    fila.className = 'region';
+    const barra = pesos.map((p, i) =>
+      '<i style="width:' + (p * 100).toFixed(1) + '%;background:' + TEMA_COLOR[i] + '" title="' +
+      TEMAS_ORDEN[i] + ' ' + Math.round(p * 100) + '%"></i>').join('');
+    fila.innerHTML = '<span class="nombre">' + region + '</span><span class="apilada">' + barra + '</span>';
+    comp.appendChild(fila);
+  }
+  $('leyenda-temas').innerHTML = TEMAS_ORDEN.map((t, i) =>
+    '<span style="color:' + TEMA_COLOR[i] + '">' + t + '</span>').join('');
+
+  pintar();
+})();
+</script>

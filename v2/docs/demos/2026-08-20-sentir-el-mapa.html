@@ -1,0 +1,826 @@
+<title>Sentir el mapa — demostración</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--
+  Sentir el mapa — demostración del ejercicio.
+
+  Qué es: un HTML autónomo, hermano de `2026-08-11-el-mapa-cargado.html`.
+  Aquél mostraba el peso del sistema con 10.000 filas sintéticas; éste muestra
+  la EXPERIENCIA: el país encendiéndose en plata a medida que la gente habla,
+  mes a mes, y los tres verbos del Registro (mirar · aportar · confirmar).
+
+  Qué no es: no toca la base, no llama a ninguna API, no entra al bundle de la
+  app, no alimenta ningún conteo. Las 91 frases del costado están escritas a
+  mano (el trabajo de plausibilidad está en `docs/2026-08-19-la-argentina-plausible.md`);
+  los números que encienden el mapa son inventados y coherentes con ellas.
+
+  La frase que gobierna todo, adentro del lienzo: «Nadie dijo ninguna de estas
+  cosas.» Igual que el SelloSintetico de La Simulación.
+-->
+
+<style>
+  :root {
+    --papel: #F2EFE7; --papel-crudo: #FBFAF4; --papel-mapa: #E4E0D3; --papel-borde: #D8D4C8;
+    --tinta: #16130E; --tinta-75: #4A463D; --tinta-50: #7A756A; --tinta-30: #B5B1A8;
+    --hecho: #A16C00; --deseo: #5227CC; --acto: #1A7A4A; --meta-c: #0F6B8A; --sello: #C23B22;
+    --plata: #7E8894; --plata-viva: #AEB9C6;
+    --ground: var(--papel); --plate: var(--papel-mapa); --panel: var(--papel-crudo);
+    --line: var(--papel-borde); --text: var(--tinta); --text-2: var(--tinta-75);
+    --text-3: var(--tinta-50); --drain: var(--tinta-30); --rule: rgba(22,19,14,0.22);
+    --display: "Haettenschweiler", "Arial Narrow Bold", "Arial Narrow", Impact, "Franklin Gothic Bold", ui-sans-serif, sans-serif;
+    --body: "Archivo", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono: "Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root {
+    --ground:#1B1710; --plate:#241F17; --panel:#201B14; --line:#3A362D; --text:#F2EFE7;
+    --text-2:#C9C5BA; --text-3:#8E8A82; --drain:#5C594F; --rule:rgba(242,239,231,0.2);
+    --hecho:#D69A22; --deseo:#9D85E8; --acto:#3FA877; --meta-c:#46A2C4; --sello:#E06148;
+    --plata:#9AA6B4; --plata-viva:#D6DEE8;
+  } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--ground); color:var(--text); font-family:var(--body);
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .hoja { max-width:1360px; margin:0 auto; padding:32px 22px 72px; display:flex; flex-direction:column; gap:26px; }
+  .kicker { font-family:var(--mono); font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.14em; color:var(--text-3); margin:0; }
+  .cabecera { display:flex; flex-direction:column; gap:10px; border-bottom:2px solid var(--text); padding-bottom:18px; }
+  h1 { font-family:var(--display); font-weight:400; font-size:clamp(44px,7vw,92px); line-height:0.95;
+    margin:0; letter-spacing:0.01em; text-transform:none; }
+  h2 { font-family:var(--display); font-weight:400; font-size:clamp(26px,3.4vw,40px); line-height:1.02; margin:0 0 10px; }
+  h3 { font-size:17px; margin:0 0 6px; }
+  p { margin:0 0 10px; max-width:76ch; }
+  .meta { color:var(--text-3); font-size:13.5px; }
+  .dos { color:var(--text-2); }
+  code { font-family:var(--mono); font-size:13px; }
+
+  .honestidad { border:2px dashed var(--sello); padding:14px 18px; max-width:900px; }
+  .honestidad strong.titulo { color:var(--sello); font-family:var(--mono); font-size:12px;
+    text-transform:uppercase; letter-spacing:0.12em; display:block; margin-bottom:6px; }
+
+  /* ── El instrumento ── */
+  .instrumento { display:grid; grid-template-columns: 1.55fr 1fr; gap:18px; align-items:start; }
+  @media (max-width: 980px) { .instrumento { grid-template-columns:1fr; } }
+  .lienzo-caja { background:var(--plate); border:1px solid var(--line); position:relative; }
+  canvas { display:block; width:100%; height:auto; cursor:crosshair; }
+
+  .mando { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:10px 0 2px; }
+  .mando button { font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:0.08em;
+    text-transform:uppercase; background:var(--text); color:var(--ground); border:0; padding:9px 16px; cursor:pointer; }
+  .mando button.quieto { background:transparent; color:var(--text); border:1px solid var(--text); }
+  .mando input[type="range"] { flex:1; min-width:160px; accent-color: var(--deseo); }
+  .mes-actual { font-family:var(--mono); font-size:13px; font-weight:700; min-width:120px; }
+  .fase { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); }
+  .hito { font-size:13.5px; color:var(--text-2); min-height:20px; }
+
+  .cifras { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--line); background:var(--panel); }
+  .cifras > div { padding:10px 12px; border-right:1px solid var(--line); }
+  .cifras > div:last-child { border-right:0; }
+  .cifras .n { font-family:var(--display); font-size:30px; line-height:1; }
+  .cifras .t { font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); }
+  @media (max-width:700px){ .cifras { grid-template-columns:repeat(2,1fr); } .cifras > div { border-bottom:1px solid var(--line);} }
+
+  /* feed */
+  .feed { background:var(--panel); border:1px solid var(--line); max-height:560px; overflow-y:auto; }
+  .feed-titulo { position:sticky; top:0; background:var(--panel); padding:10px 14px 8px; border-bottom:1px solid var(--line); z-index:2; }
+  .voz { padding:10px 14px; border-bottom:1px solid var(--line); border-left:4px solid var(--drain); }
+  .voz p { margin:0 0 4px; font-size:14.5px; }
+  .voz .pie { font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); }
+  .voz.hecho { border-left-color: var(--hecho); }
+  .voz.deseo { border-left-color: var(--deseo); }
+  .voz.acto { border-left-color: var(--acto); }
+  .voz.meta { border-left-color: var(--meta-c); }
+  .voz.tuya { background: color-mix(in srgb, var(--deseo) 8%, var(--panel)); }
+  .estado-chip { display:inline-block; font-family:var(--mono); font-size:10px; padding:1px 6px;
+    border:1px solid var(--line); color:var(--text-2); text-transform:uppercase; letter-spacing:0.05em; }
+
+  /* ficha provincia */
+  .ficha { background:var(--panel); border:1px solid var(--line); padding:14px 16px; margin-top:14px; }
+  .ficha h3 { font-family:var(--display); font-size:26px; font-weight:400; }
+  .barra { height:10px; background:var(--plate); border:1px solid var(--line); position:relative; margin:4px 0 10px; }
+  .barra i { position:absolute; inset:0; background:linear-gradient(90deg, var(--plata), var(--plata-viva)); transform-origin:left; }
+
+  /* verbos */
+  .verbos { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media (max-width: 980px){ .verbos { grid-template-columns:1fr; } }
+  .verbo { background:var(--panel); border:1px solid var(--line); padding:16px 18px; display:flex; flex-direction:column; gap:8px; }
+  .verbo .num { font-family:var(--display); font-size:38px; line-height:1; color:var(--text-3); }
+  .verbo select, .verbo textarea { width:100%; font-family:var(--body); font-size:14px; background:var(--ground);
+    color:var(--text); border:1px solid var(--line); padding:8px; }
+  .verbo textarea { resize:vertical; min-height:64px; }
+  .verbo .accion { font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    background:var(--text); color:var(--ground); border:0; padding:10px 14px; cursor:pointer; }
+  .verbo .accion.secundaria { background:transparent; color:var(--text); border:1px solid var(--text); }
+  .vuelta { border-left:4px solid var(--acto); background:var(--ground); padding:10px 12px; font-size:14px; }
+  .vuelta.apagada { display:none; }
+
+  .lecciones { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media (max-width: 980px){ .lecciones { grid-template-columns:1fr; } }
+  .leccion { border:1px solid var(--line); background:var(--panel); padding:14px 16px; }
+  .leccion .rotulo { font-family:var(--mono); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); margin-bottom:6px; }
+
+  table { border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:6px 14px 6px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-3); }
+
+  .pie-de-pagina { border-top:2px solid var(--text); padding-top:16px; }
+  a { color:inherit; }
+</style>
+
+<main class="hoja">
+  <header class="cabecera">
+    <p class="kicker">Demostración · voces inventadas · 20 de agosto de 2026</p>
+    <h1>Sentir el mapa.</h1>
+    <p class="dos" style="max-width:860px">
+      El Registro tiene una tesis física: <strong>el país se enciende en plata a medida que la
+      gente habla</strong> — gris es <em>todavía no habló nadie</em>, plata tenue es <em>habló
+      gente</em>, plata nítida es <em>y otros fueron a mirar</em>. Esta página simula el
+      ejercicio completo sobre un primer año imaginado: apretá <strong>reproducir</strong> y
+      mirá al país despertarse; después bajá y probá los tres verbos vos.
+    </p>
+  </header>
+
+  <section class="honestidad" aria-label="De dónde sale esto">
+    <strong class="titulo">Ninguna de estas voces es real</strong>
+    <p style="margin-bottom:6px">
+      <strong>Nadie dijo ninguna de estas cosas.</strong> Las frases del costado las escribimos a
+      mano para que el ejercicio se pueda ver — el trabajo de plausibilidad detrás de cada una
+      está en <code>docs/2026-08-19-la-argentina-plausible.md</code> —, y los números que
+      encienden las provincias son inventados y coherentes con ellas. La geografía sí es real.
+      Esta página no toca la base, no llama a ninguna API y no entra a ningún conteo: el mapa de
+      verdad, que hoy está en silencio, vive en <code>/el-mapa</code>.
+    </p>
+    <p class="meta" style="margin:0">
+      El sello de adentro del lienzo no se puede apagar: cualquier recorte que muestre al país
+      encendido muestra también que es un ejemplo.
+    </p>
+  </section>
+
+  <section>
+    <h2>Un año imaginado, mes a mes</h2>
+    <div class="mando">
+      <button id="play">Reproducir</button>
+      <span class="mes-actual" id="mes-actual">sep 2026</span>
+      <input type="range" id="scrub" min="0" max="13" step="1" value="0" aria-label="Mes de la simulación" />
+      <span class="fase" id="fase">Fase 1 · El arranque</span>
+    </div>
+    <p class="hito" id="hito"></p>
+
+    <div class="instrumento">
+      <div>
+        <div class="lienzo-caja"><canvas id="lienzo" width="920" height="1040"></canvas></div>
+        <div class="cifras" style="margin-top:14px" aria-label="Los agregados del mes">
+          <div><div class="n" id="c-voces">0</div><div class="t">voces distintas</div></div>
+          <div><div class="n" id="c-senales">0</div><div class="t">señales</div></div>
+          <div><div class="n" id="c-conf">0</div><div class="t">confirmaciones</div></div>
+          <div><div class="n" id="c-prov">0<span style="font-size:16px">/24</span></div><div class="t">provincias con voz</div></div>
+        </div>
+        <div class="ficha" id="ficha" hidden></div>
+      </div>
+
+      <aside class="feed" id="feed" aria-label="Las últimas voces del mes">
+        <div class="feed-titulo">
+          <span class="kicker">Las últimas voces</span>
+          <p class="meta" style="margin:4px 0 0">Aparecen a medida que avanza el año. El color es la clase:
+            <span style="color:var(--hecho)">■</span> hecho ·
+            <span style="color:var(--deseo)">■</span> deseo ·
+            <span style="color:var(--acto)">■</span> acto ·
+            <span style="color:var(--meta-c)">■</span> pregunta.</p>
+        </div>
+        <div id="feed-cuerpo"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <h2>El ejercicio, en tres verbos</h2>
+    <p class="dos">Todo el Registro cuelga de tres gestos. Probalos: lo que hagas queda en tu
+      navegador y en ningún otro lado.</p>
+    <div class="verbos">
+      <div class="verbo">
+        <span class="num">1</span>
+        <h3>Mirar</h3>
+        <p style="font-size:14px">Tocá una provincia del mapa y se abre su ficha: cuánta gente
+          habló, qué tan comprobado está lo que dijo, de qué habla. El silencio también se mira —
+          una provincia gris es una tarea, no un error.</p>
+        <button class="accion secundaria" id="mirar-azar">Llevame a una provincia</button>
+      </div>
+      <div class="verbo">
+        <span class="num">2</span>
+        <h3>Aportar</h3>
+        <p style="font-size:14px">Una voz entra donde fue dicha y su celda se enciende un poco.
+          Escribí la tuya (de mentira) y mirá el mapa.</p>
+        <select id="aportar-prov" aria-label="Provincia de tu voz"></select>
+        <textarea id="aportar-texto" placeholder="Qué dirías de tu lugar — un hecho que se pueda ir a mirar, o un deseo…"></textarea>
+        <button class="accion" id="aportar-btn">Soltar tu voz (demo)</button>
+        <div class="vuelta apagada" id="aportar-vuelta"></div>
+      </div>
+      <div class="verbo">
+        <span class="num">3</span>
+        <h3>Confirmar</h3>
+        <p style="font-size:14px">La acción de todos los días no es cargar: es contestar
+          <em>«¿sigue así?»</em> sobre lo que otro cargó cerca tuyo. Dos segundos, y es lo que
+          convierte una anécdota en evidencia.</p>
+        <div id="confirmar-caja"></div>
+        <div class="vuelta apagada" id="confirmar-vuelta"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lo que el año enseña</h2>
+    <div class="lecciones">
+      <div class="leccion">
+        <div class="rotulo">La normalización es la tesis</div>
+        <p style="font-size:14px">En agosto de 2027, CABA junta <strong>7.900 voces</strong> y La Pampa
+          <strong>4.400</strong>. En el mapa, La Pampa brilla más: allá habló el
+          <strong>1,2%</strong> de la gente y en CABA el <strong>0,25%</strong>. Sin el
+          denominador, el mapa dibujaría densidad de población — el microcentro siempre
+          ganándole a un pueblo donde habló casi la mitad del club.</p>
+      </div>
+      <div class="leccion">
+        <div class="rotulo">El brillo no alcanza: hace falta nitidez</div>
+        <p style="font-size:14px">Una provincia puede hablar mucho y comprobar poco — se dibuja
+          encendida pero borrosa. La nitidez sube cuando los vecinos van a mirar lo que otro
+          reportó. Es la parte del ejercicio que no tiene atajo, y por eso el verbo del día a
+          día es <strong>confirmar</strong>, no cargar.</p>
+      </div>
+      <div class="leccion">
+        <div class="rotulo">El silencio es un dato</div>
+        <p style="font-size:14px"><strong>Catamarca está muda a propósito</strong> durante todo
+          el año simulado. No porque no tenga qué decir — porque el mapa real va a tener
+          provincias así durante meses, y un demo donde hablan las 24 miente sobre el arranque.
+          El gris no se disculpa: dice «la tarea está acá».</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>De dónde salen estas voces</h2>
+    <p class="dos" style="max-width:860px">
+      Cada frase sale de una corriente cultural observable —la economía del rebusque, el éxodo y
+      el arraigo, la infraestructura afectiva del club y el comedor, el clima como experiencia,
+      el orgullo local— aterrizada en una provincia concreta y convertida en el tipo de señal
+      que sería. El análisis completo, con las diez corrientes y su lectura desde el diseño
+      idealizado, está en <code>docs/2026-08-19-la-argentina-plausible.md</code>.
+    </p>
+    <table aria-label="El error fabricado a propósito">
+      <thead><tr><th>El falso amigo, a propósito</th><th>Por qué está</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>«Acá <strong>falta agua</strong>: la red no llega a las últimas tres cuadras» (Chaco, hecho)<br/>
+              «Otro año que <strong>falta agua</strong> y el lote rinde la mitad» (La Pampa, necesidad)</td>
+          <td>Un coseno las junta; una persona no. Un ejemplo que sólo muestra los aciertos del
+              instrumento enseña a confiar de más — éste muestra también el error.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="pie-de-pagina">
+    <p class="kicker" style="margin-bottom:8px">Qué es esto y qué no</p>
+    <p class="meta" style="max-width:860px">
+      Un HTML autónomo en <code>docs/demos/</code>, hermano del «mapa cargado» del 11 de agosto.
+      No escribe una fila en ninguna tabla, no llama a ninguna API, no entra al bundle de la app
+      y no alimenta el lado medido de La Simulación, que sigue en cero por decisión (V1). La
+      simulación completa —la cortina, las palancas, una campaña— está en
+      <code>2026-08-20-la-simulacion-completa.html</code>. Cuando entre la primera voz real,
+      esta página pasa a ser historia del diseño: el ejercicio deja de simularse y empieza.
+    </p>
+  </section>
+</main>
+
+<script id="geo" type="application/json">{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.446971,-34.00694],[-58.549387,-33.683038],[-58.383168,-33.075453],[-58.146799,-33.049981],[-58.220082,-32.489516],[-58.101591,-32.31136],[-58.168615,-31.846014],[-57.986818,-31.554145],[-57.808659,-30.747331],[-58.260754,-30.230713],[-58.629749,-30.152268],[-59.004998,-30.204099],[-59.241314,-30.343471],[-59.661521,-30.336908],[-59.660642,-30.736056],[-60.094027,-31.353693],[-60.41411,-31.673519],[-60.647765,-31.716048],[-60.765665,-32.541063],[-60.495423,-33.122061],[-60.294092,-33.256574],[-59.640618,-33.671019],[-59.26232,-33.724246],[-58.679798,-34.031204],[-58.446971,-34.00694]]]},"properties":{"name":"Entre Ríos"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-67.251329,-23.733091],[-67.362369,-24.030367],[-68.244486,-24.385384],[-68.572373,-24.769856],[-68.496468,-25.159997],[-67.806863,-25.283211],[-66.60102,-25.269103],[-66.512498,-25.63089],[-66.806821,-25.725044],[-66.781732,-25.894905],[-66.41979,-26.376684],[-66.224815,-26.17096],[-66.053818,-26.253488],[-65.711823,-26.295397],[-65.66534,-26.074791],[-64.966442,-26.268836],[-64.486343,-26.220208],[-64.211605,-25.603657],[-63.398579,-25.659364],[-62.334381,-24.402903],[-62.339213,-24.120646],[-62.341357,-22.472261],[-62.632684,-22.295951],[-62.804353,-22.004082],[-63.947591,-22.007596],[-64.293978,-22.690862],[-64.58688,-22.212752],[-65.190478,-22.098474],[-65.334327,-22.502347],[-65.268414,-22.843722],[-65.039306,-23.002265],[-65.042898,-23.251449],[-64.815935,-23.504612],[-64.438283,-23.619592],[-64.181064,-23.54156],[-64.158766,-24.18364],[-64.31488,-24.414013],[-64.625481,-24.613226],[-65.174647,-24.454683],[-65.587102,-24.402593],[-66.025964,-23.84764],[-65.986819,-23.543317],[-66.352198,-23.367824],[-66.351991,-24.041375],[-66.67533,-24.199143],[-67.251329,-23.733091]]]},"properties":{"name":"Salta"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-67.251329,-23.733091],[-66.67533,-24.199143],[-66.351991,-24.041375],[-66.352198,-23.367824],[-65.986819,-23.543317],[-66.025964,-23.84764],[-65.587102,-24.402593],[-65.174647,-24.454683],[-64.625481,-24.613226],[-64.31488,-24.414013],[-64.158766,-24.18364],[-64.181064,-23.54156],[-64.438283,-23.619592],[-64.815935,-23.504612],[-65.042898,-23.251449],[-65.039306,-23.002265],[-65.268414,-22.843722],[-65.334327,-22.502347],[-65.190478,-22.098474],[-65.744613,-22.11405],[-66.240009,-21.792415],[-66.377468,-22.127072],[-66.735896,-22.225051],[-66.796461,-22.434857],[-67.032725,-22.524567],[-67.193904,-22.822223],[-67.013967,-23.000714],[-67.251329,-23.733091]]]},"properties":{"name":"Jujuy"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.341357,-22.472261],[-62.339213,-24.120646],[-61.775707,-24.341718],[-61.451101,-24.619376],[-61.19874,-24.674928],[-61.034254,-24.897963],[-60.499661,-25.209572],[-60.178053,-25.6651],[-60.03341,-25.701222],[-59.413138,-26.190081],[-59.146798,-26.29948],[-58.351275,-26.885812],[-58.086501,-26.12719],[-57.556921,-25.45984],[-57.754067,-25.180891],[-58.224064,-24.941216],[-58.809196,-24.776781],[-59.340973,-24.4876],[-59.459725,-24.358512],[-60.033669,-24.007009],[-60.328018,-24.017964],[-61.006349,-23.805471],[-61.109857,-23.606982],[-61.491849,-23.413195],[-61.956446,-23.034407],[-62.341357,-22.472261]]]},"properties":{"name":"Formosa"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-55.623042,-28.14435],[-55.329874,-27.928113],[-55.02581,-27.84016],[-54.827527,-27.545088],[-53.819217,-27.139738],[-53.66672,-26.219174],[-53.826193,-25.972677],[-53.90996,-25.629236],[-54.2148,-25.531464],[-54.643146,-25.68794],[-54.638288,-26.196953],[-54.706475,-26.441796],[-54.97527,-26.787821],[-55.414003,-26.979851],[-55.754732,-27.443698],[-55.966094,-27.331723],[-56.017325,-27.451554],[-55.838627,-27.906617],[-55.623042,-28.14435]]]},"properties":{"name":"Misiones"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.351275,-26.885812],[-59.146798,-26.29948],[-59.413138,-26.190081],[-60.03341,-25.701222],[-60.178053,-25.6651],[-60.499661,-25.209572],[-61.034254,-24.897963],[-61.19874,-24.674928],[-61.451101,-24.619376],[-61.775707,-24.341718],[-62.339213,-24.120646],[-62.334381,-24.402903],[-63.398579,-25.659364],[-61.753874,-25.661431],[-61.70938,-26.793816],[-61.709949,-28.000409],[-60.041317,-28.000099],[-58.864748,-27.999324],[-58.886529,-27.478943],[-58.604196,-27.316264],[-58.653289,-27.156274],[-58.351275,-26.885812]]]},"properties":{"name":"Chaco"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-55.966094,-27.331723],[-56.771155,-27.506744],[-57.180097,-27.487313],[-58.021958,-27.259834],[-58.604196,-27.316264],[-58.886529,-27.478943],[-58.864748,-27.999324],[-59.081375,-28.157557],[-59.0991,-28.664193],[-59.197441,-29.022053],[-59.511272,-29.207571],[-59.664802,-29.878331],[-59.661521,-30.336908],[-59.241314,-30.343471],[-59.004998,-30.204099],[-58.629749,-30.152268],[-58.260754,-30.230713],[-57.808659,-30.747331],[-57.849617,-30.48527],[-57.642466,-30.193092],[-57.325153,-29.981011],[-56.415751,-29.051352],[-56.184705,-28.744188],[-55.623042,-28.14435],[-55.838627,-27.906617],[-56.017325,-27.451554],[-55.966094,-27.331723]]]},"properties":{"name":"Corrientes"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-68.496468,-25.159997],[-68.605963,-25.436999],[-68.419876,-26.179279],[-68.575164,-26.30351],[-68.570151,-26.550626],[-68.32014,-26.87009],[-68.330476,-27.044963],[-68.585861,-27.162785],[-68.801093,-27.112763],[-69.13406,-27.772344],[-68.435016,-27.746626],[-68.447264,-27.979377],[-67.704156,-28.339252],[-67.260127,-28.35832],[-66.976165,-28.267422],[-66.584354,-28.404157],[-66.121824,-28.970634],[-65.792439,-29.250101],[-65.729497,-29.502178],[-65.401894,-30.140175],[-64.943395,-29.878331],[-64.882468,-29.55711],[-65.03543,-29.292682],[-65.102248,-28.694889],[-65.079097,-28.274605],[-65.169092,-27.909666],[-65.333423,-27.86357],[-65.570695,-28.050226],[-65.929329,-27.654332],[-65.986845,-27.429953],[-66.191148,-27.30903],[-65.87233,-26.916445],[-65.85352,-26.723175],[-66.155517,-26.497194],[-66.053818,-26.253488],[-66.224815,-26.17096],[-66.41979,-26.376684],[-66.781732,-25.894905],[-66.806821,-25.725044],[-66.512498,-25.63089],[-66.60102,-25.269103],[-67.806863,-25.283211],[-68.496468,-25.159997]]]},"properties":{"name":"Catamarca"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-69.13406,-27.772344],[-69.420306,-28.212644],[-69.654045,-28.400994],[-69.19019,-28.594017],[-68.921136,-28.989548],[-69.022035,-29.611681],[-68.327994,-29.692503],[-67.634522,-30.247869],[-67.080706,-30.905503],[-67.103935,-31.354262],[-66.730521,-31.876555],[-66.217167,-31.925441],[-65.75965,-31.885495],[-65.767272,-31.096241],[-65.401894,-30.140175],[-65.729497,-29.502178],[-65.792439,-29.250101],[-66.121824,-28.970634],[-66.584354,-28.404157],[-66.976165,-28.267422],[-67.260127,-28.35832],[-67.704156,-28.339252],[-68.447264,-27.979377],[-68.435016,-27.746626],[-69.13406,-27.772344]]]},"properties":{"name":"La Rioja"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-69.654045,-28.400994],[-69.803926,-29.098688],[-70.042619,-29.363064],[-69.929086,-29.718288],[-69.975621,-30.058629],[-69.902809,-30.312671],[-70.217105,-30.515139],[-70.339785,-31.041722],[-70.479802,-31.096705],[-70.591371,-31.549598],[-70.256119,-32.314278],[-69.631687,-32.233536],[-69.612567,-32.123362],[-69.145102,-31.961873],[-68.6896,-32.33508],[-68.393701,-32.15013],[-68.020726,-32.06905],[-67.831849,-32.239169],[-67.393013,-32.262165],[-67.344385,-31.846841],[-66.730521,-31.876555],[-67.103935,-31.354262],[-67.080706,-30.905503],[-67.634522,-30.247869],[-68.327994,-29.692503],[-69.022035,-29.611681],[-68.921136,-28.989548],[-69.19019,-28.594017],[-69.654045,-28.400994]]]},"properties":{"name":"San Juan"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-70.256119,-32.314278],[-70.140029,-32.768283],[-70.000219,-32.876597],[-70.100833,-33.186862],[-69.787674,-33.379408],[-69.895367,-33.662285],[-69.832761,-34.243232],[-70.040345,-34.277028],[-70.227828,-34.58533],[-70.386629,-35.16669],[-70.430748,-36.129402],[-70.175427,-36.568104],[-69.790127,-36.863228],[-69.623471,-37.152564],[-69.260366,-37.152564],[-68.98506,-37.363817],[-68.756676,-37.371672],[-68.249394,-37.557035],[-68.24632,-35.999301],[-66.617169,-35.999921],[-66.506607,-35.141472],[-66.737962,-34.615406],[-66.821368,-34.22928],[-66.747057,-34.064174],[-67.142589,-33.452015],[-67.192121,-32.761101],[-67.393013,-32.262165],[-67.831849,-32.239169],[-68.020726,-32.06905],[-68.393701,-32.15013],[-68.6896,-32.33508],[-69.145102,-31.961873],[-69.612567,-32.123362],[-69.631687,-32.233536],[-70.256119,-32.314278]]]},"properties":{"name":"Mendoza"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-70.430748,-36.129402],[-70.71865,-36.414572],[-71.043282,-36.484335],[-71.145343,-36.68825],[-71.12307,-37.443243],[-71.18503,-37.706069],[-71.009976,-38.065531],[-70.873835,-38.691436],[-71.415765,-38.935348],[-71.401968,-39.236002],[-71.624848,-39.93105],[-71.823751,-40.210103],[-71.955577,-40.720356],[-71.867402,-41.010235],[-71.359282,-41.089688],[-71.031085,-40.928768],[-70.971502,-40.640361],[-70.084631,-40.420582],[-69.966473,-39.973064],[-69.54022,-39.825889],[-69.265172,-39.59841],[-68.962219,-39.4887],[-68.574465,-39.107638],[-68.320915,-38.961808],[-68.252133,-38.659294],[-68.249394,-37.557035],[-68.756676,-37.371672],[-68.98506,-37.363817],[-69.260366,-37.152564],[-69.623471,-37.152564],[-69.790127,-36.863228],[-70.175427,-36.568104],[-70.430748,-36.129402]]]},"properties":{"name":"Neuquén"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.76926,-41.999607],[-72.124714,-42.263311],[-72.148537,-42.998718],[-71.742981,-43.190127],[-71.937336,-43.456881],[-71.723757,-43.594754],[-71.659885,-43.92631],[-71.858736,-44.107798],[-71.822045,-44.40318],[-71.209783,-44.427571],[-71.122657,-44.530304],[-71.588726,-44.978132],[-71.311534,-45.299456],[-71.798533,-45.739946],[-71.649163,-45.999414],[-69.633289,-45.999621],[-67.581662,-46.00003],[-67.331925,-45.613491],[-66.868921,-45.235597],[-66.523997,-45.216097],[-66.200367,-44.992919],[-65.602643,-45.027687],[-65.685539,-44.71253],[-65.216885,-44.36641],[-65.334055,-43.672621],[-64.513051,-42.936293],[-64.997141,-42.784845],[-64.614858,-42.515313],[-64.322621,-42.542413],[-64.1079,-42.883722],[-63.620269,-42.751235],[-63.590484,-42.341241],[-63.80996,-42.070174],[-64.16218,-42.209405],[-64.127553,-42.432712],[-64.566274,-42.435968],[-64.531484,-42.244236],[-64.857289,-42.193617],[-65.054596,-42.010675],[-66.883845,-41.999193],[-69.399686,-41.999607],[-71.76926,-41.999607]]]},"properties":{"name":"Chubut"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.76926,-41.999607],[-69.399686,-41.999607],[-66.883845,-41.999193],[-65.054596,-42.010675],[-64.993276,-41.552992],[-65.17512,-41.010186],[-64.946523,-40.711358],[-63.779408,-41.158787],[-63.099517,-41.15488],[-62.801625,-41.041681],[-63.117796,-40.746143],[-63.387417,-40.709091],[-63.38858,-39.325765],[-63.99446,-39.009815],[-64.471486,-38.8537],[-65.3674,-38.838353],[-66.561952,-38.701565],[-66.647942,-38.557388],[-67.069828,-38.408973],[-67.176592,-38.222628],[-67.554088,-38.261747],[-67.844897,-38.056902],[-67.710513,-37.780019],[-67.850323,-37.600237],[-68.249394,-37.557035],[-68.252133,-38.659294],[-68.320915,-38.961808],[-68.574465,-39.107638],[-68.962219,-39.4887],[-69.265172,-39.59841],[-69.54022,-39.825889],[-69.966473,-39.973064],[-70.084631,-40.420582],[-70.971502,-40.640361],[-71.031085,-40.928768],[-71.359282,-41.089688],[-71.867402,-41.010235],[-71.925967,-41.622936],[-71.76926,-41.999607]]]},"properties":{"name":"Río Negro"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.649163,-45.999414],[-71.770162,-46.112636],[-71.68717,-46.690069],[-71.934132,-46.79952],[-72.009838,-47.198152],[-72.543914,-47.9148],[-72.325632,-48.285527],[-72.57678,-48.452132],[-72.592334,-48.791129],[-73.009725,-48.990394],[-73.183151,-49.239061],[-73.059745,-49.554971],[-73.465098,-49.759959],[-73.530572,-50.140814],[-73.322936,-50.268352],[-73.096076,-50.770647],[-72.778421,-50.619648],[-72.302843,-50.648897],[-72.382218,-51.160597],[-72.281139,-51.701494],[-71.917699,-51.990055],[-69.952754,-52.007419],[-68.365611,-52.306204],[-68.935928,-51.645516],[-69.167778,-50.978225],[-69.076519,-50.560172],[-68.876429,-50.330572],[-68.07635,-50.087268],[-67.732012,-49.781302],[-67.556549,-49.015817],[-67.114348,-48.67375],[-66.46849,-48.400275],[-65.847068,-47.944417],[-65.744902,-47.204164],[-66.786448,-47.006606],[-67.42322,-46.567419],[-67.622467,-46.163751],[-67.581662,-46.00003],[-69.633289,-45.999621],[-71.649163,-45.999414]]]},"properties":{"name":"Santa Cruz"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-68.641882,-54.782971],[-67.030995,-54.905206],[-66.540508,-55.051046],[-65.966225,-54.902073],[-65.332265,-54.913832],[-65.155588,-54.640558],[-65.844228,-54.647393],[-66.482213,-54.4658],[-66.766582,-54.249842],[-67.29776,-54.053806],[-67.983632,-53.601332],[-68.111402,-53.343802],[-68.451351,-53.297717],[-68.265981,-52.980645],[-68.627617,-52.639572],[-68.641882,-54.782971]]]},"properties":{"name":"Tierra del Fuego"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.801625,-41.041681],[-62.337799,-40.872735],[-62.25064,-40.622247],[-62.484202,-40.28753],[-62.314565,-39.869399],[-62.164174,-39.858819],[-62.055776,-39.451918],[-62.357818,-39.102227],[-62.026723,-38.937595],[-61.518056,-39.011489],[-60.865712,-38.975681],[-59.063222,-38.69378],[-58.15567,-38.430108],[-57.593577,-38.152765],[-57.511871,-37.872328],[-57.055898,-37.412693],[-56.664866,-36.851007],[-56.697621,-36.396173],[-57.248036,-36.170343],[-57.352625,-35.727524],[-57.144909,-35.4842],[-57.248769,-35.248793],[-57.522032,-35.013154],[-58.315031,-34.657195],[-58.541631,-34.710347],[-58.474192,-34.52158],[-58.37857,-34.188246],[-58.446971,-34.00694],[-58.679798,-34.031204],[-59.26232,-33.724246],[-59.640618,-33.671019],[-60.294092,-33.256574],[-60.46682,-33.612005],[-60.910463,-33.563739],[-60.963069,-33.677221],[-61.710517,-34.376816],[-62.853807,-34.382139],[-63.373594,-34.41361],[-63.384058,-35.002101],[-63.388813,-35.984573],[-63.387831,-37.779399],[-63.38858,-39.325765],[-63.387417,-40.709091],[-63.117796,-40.746143],[-62.801625,-41.041681]]]},"properties":{"name":"Buenos Aires"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.474192,-34.52158],[-58.541631,-34.710347],[-58.315031,-34.657195],[-58.474192,-34.52158]]]},"properties":{"name":"Ciudad Autónoma de Buenos Aires"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.864748,-27.999324],[-60.041317,-28.000099],[-61.709949,-28.000409],[-62.087135,-30.156609],[-62.125324,-30.457675],[-61.865805,-30.788766],[-62.121551,-31.608561],[-62.22276,-31.706798],[-62.218574,-32.138503],[-61.914122,-32.462928],[-61.732971,-32.827453],[-62.853807,-34.382139],[-61.710517,-34.376816],[-60.963069,-33.677221],[-60.910463,-33.563739],[-60.46682,-33.612005],[-60.294092,-33.256574],[-60.495423,-33.122061],[-60.765665,-32.541063],[-60.647765,-31.716048],[-60.41411,-31.673519],[-60.094027,-31.353693],[-59.660642,-30.736056],[-59.661521,-30.336908],[-59.664802,-29.878331],[-59.511272,-29.207571],[-59.197441,-29.022053],[-59.0991,-28.664193],[-59.081375,-28.157557],[-58.864748,-27.999324]]]},"properties":{"name":"Santa Fe"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.486343,-26.220208],[-64.966442,-26.268836],[-65.66534,-26.074791],[-65.711823,-26.295397],[-66.053818,-26.253488],[-66.155517,-26.497194],[-65.85352,-26.723175],[-65.87233,-26.916445],[-66.191148,-27.30903],[-65.986845,-27.429953],[-65.929329,-27.654332],[-65.570695,-28.050226],[-65.333423,-27.86357],[-65.169092,-27.909666],[-65.00104,-27.764093],[-65.063594,-27.47238],[-64.879833,-27.309185],[-64.674367,-26.804823],[-64.50554,-26.683487],[-64.486343,-26.220208]]]},"properties":{"name":"Tucumán"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-63.398579,-25.659364],[-64.211605,-25.603657],[-64.486343,-26.220208],[-64.50554,-26.683487],[-64.674367,-26.804823],[-64.879833,-27.309185],[-65.063594,-27.47238],[-65.00104,-27.764093],[-65.169092,-27.909666],[-65.079097,-28.274605],[-65.102248,-28.694889],[-65.03543,-29.292682],[-64.882468,-29.55711],[-64.29408,-29.425129],[-63.80765,-29.649766],[-63.46271,-29.655244],[-63.362819,-29.77348],[-62.288156,-29.776735],[-62.087135,-30.156609],[-61.709949,-28.000409],[-61.70938,-26.793816],[-61.753874,-25.661431],[-63.398579,-25.659364]]]},"properties":{"name":"Santiago del Estero"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-65.086616,-35.001791],[-65.0869,-33.962371],[-65.131704,-33.205466],[-64.875311,-32.544111],[-64.945023,-32.290483],[-65.75965,-31.885495],[-66.217167,-31.925441],[-66.730521,-31.876555],[-67.344385,-31.846841],[-67.393013,-32.262165],[-67.192121,-32.761101],[-67.142589,-33.452015],[-66.747057,-34.064174],[-66.821368,-34.22928],[-66.737962,-34.615406],[-66.506607,-35.141472],[-66.617169,-35.999921],[-65.087779,-35.998784],[-65.086616,-35.001791]]]},"properties":{"name":"San Luis"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-65.086616,-35.001791],[-65.087779,-35.998784],[-66.617169,-35.999921],[-68.24632,-35.999301],[-68.249394,-37.557035],[-67.850323,-37.600237],[-67.710513,-37.780019],[-67.844897,-38.056902],[-67.554088,-38.261747],[-67.176592,-38.222628],[-67.069828,-38.408973],[-66.647942,-38.557388],[-66.561952,-38.701565],[-65.3674,-38.838353],[-64.471486,-38.8537],[-63.99446,-39.009815],[-63.38858,-39.325765],[-63.387831,-37.779399],[-63.388813,-35.984573],[-63.384058,-35.002101],[-65.086616,-35.001791]]]},"properties":{"name":"La Pampa"}},
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.087135,-30.156609],[-62.288156,-29.776735],[-63.362819,-29.77348],[-63.46271,-29.655244],[-63.80765,-29.649766],[-64.29408,-29.425129],[-64.882468,-29.55711],[-64.943395,-29.878331],[-65.401894,-30.140175],[-65.767272,-31.096241],[-65.75965,-31.885495],[-64.945023,-32.290483],[-64.875311,-32.544111],[-65.131704,-33.205466],[-65.0869,-33.962371],[-65.086616,-35.001791],[-63.384058,-35.002101],[-63.373594,-34.41361],[-62.853807,-34.382139],[-61.732971,-32.827453],[-61.914122,-32.462928],[-62.218574,-32.138503],[-62.22276,-31.706798],[-62.121551,-31.608561],[-61.865805,-30.788766],[-62.125324,-30.457675],[-62.087135,-30.156609]]]},"properties":{"name":"Córdoba"}}
+]}</script>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ── Los datos ──────────────────────────────────────────────────────────
+     Todo inventado, todo declarado. Población de referencia: censo 2022,
+     redondeado a miles. La participación final (pf) es la fracción de
+     habitantes que habló al mes 13; el arranque (s) es el mes en que la
+     provincia dice su primera voz. La nitidez final (nf) es cuánto de lo
+     verificable quedó confirmado. */
+
+  const MESES = ['sep 2026','oct 2026','nov 2026','dic 2026','ene 2027','feb 2027','mar 2027',
+                 'abr 2027','may 2027','jun 2027','jul 2027','ago 2027','sep 2027','oct 2027'];
+  const FASES = [
+    [0, 'Fase 1 · El arranque'], [3, 'Fase 2 · Los pulsos'],
+    [7, 'Fase 3 · La corroboración'], [11, 'Fase 4 · El primer umbral'],
+  ];
+  const HITOS = {
+    0: 'La primera voz la carga alguien del proyecto — un mapa con una voz cuenta que empezó.',
+    1: 'Fiestas patronales en el interior: el orgullo local carga recursos y prácticas.',
+    3: 'Ola de calor y cortes de luz: el verano escribe solo.',
+    5: 'Dengue en el norte: el desagüe tapado de siempre junta confirmaciones.',
+    6: 'Vuelta a clases: vacantes, comedores y transporte escolar.',
+    7: 'Creciente en el litoral: los que saben dónde se inunda primero lo dicen.',
+    9: 'Helada tardía en los valles: el campo carga pérdidas y saberes.',
+    10: 'Las confirmaciones superan a las señales nuevas por primera vez.',
+    11: 'La Pampa sostiene tres meses arriba del piso: primer mandato territorial del demo.',
+    13: 'Fin del año imaginado. El de verdad arranca con una voz.',
+  };
+
+  /* nombre → [pob en miles, mes de arranque, participación final, nitidez final] */
+  const PROVINCIAS = {
+    'Buenos Aires':                    [17569, 0, 0.0006, 0.42],
+    'Ciudad Autónoma de Buenos Aires': [3121, 0, 0.0025, 0.38],
+    'Córdoba':                         [3979, 1, 0.0021, 0.51],
+    'Santa Fe':                        [3556, 1, 0.0019, 0.47],
+    'Mendoza':                         [2014, 2, 0.0028, 0.55],
+    'Tucumán':                         [1703, 2, 0.0024, 0.44],
+    'Entre Ríos':                      [1426, 2, 0.0031, 0.58],
+    'Salta':                           [1441, 3, 0.0022, 0.40],
+    'Misiones':                        [1281, 3, 0.0026, 0.49],
+    'Chaco':                           [1143, 2, 0.0033, 0.52],
+    'Corrientes':                      [1197, 4, 0.0024, 0.45],
+    'Santiago del Estero':             [1054, 5, 0.0017, 0.36],
+    'San Juan':                        [818, 4, 0.0027, 0.53],
+    'Jujuy':                           [798, 3, 0.0035, 0.48],
+    'Río Negro':                       [762, 2, 0.0042, 0.57],
+    'Neuquén':                         [726, 3, 0.0044, 0.50],
+    'Formosa':                         [607, 6, 0.0021, 0.34],
+    'Chubut':                          [603, 4, 0.0038, 0.46],
+    'San Luis':                        [540, 5, 0.0029, 0.44],
+    'Catamarca':                       [429, 99, 0, 0],        /* muda a propósito */
+    'La Rioja':                        [384, 6, 0.0026, 0.41],
+    'La Pampa':                        [366, 1, 0.0120, 0.66], /* la lección de la normalización */
+    'Santa Cruz':                      [333, 5, 0.0036, 0.43],
+    'Tierra del Fuego':                [190, 4, 0.0083, 0.60],
+  };
+
+  /* De qué habla cada provincia — 3 temas dominantes, del análisis §4. */
+  const TEMAS = {
+    'Buenos Aires': 'movilidad · vivienda · trabajo',
+    'Ciudad Autónoma de Buenos Aires': 'vivienda · movilidad · cultura',
+    'Córdoba': 'trabajo · ambiente · cultura',
+    'Santa Fe': 'seguridad · trabajo · ambiente',
+    'Mendoza': 'ambiente · trabajo · movilidad',
+    'Tucumán': 'salud · trabajo · educación',
+    'Entre Ríos': 'ambiente · trabajo · cultura',
+    'Salta': 'ambiente · salud · cultura',
+    'Misiones': 'trabajo · ambiente · salud',
+    'Chaco': 'ambiente · alimento · trabajo',
+    'Corrientes': 'ambiente · cultura · trabajo',
+    'Santiago del Estero': 'trabajo · ambiente · educación',
+    'San Juan': 'ambiente · trabajo · vivienda',
+    'Jujuy': 'ambiente · cultura · trabajo',
+    'Río Negro': 'vivienda · trabajo · ambiente',
+    'Neuquén': 'vivienda · trabajo · movilidad',
+    'Formosa': 'ambiente · alimento · salud',
+    'Chubut': 'trabajo · vivienda · ambiente',
+    'San Luis': 'movilidad · trabajo · educación',
+    'Catamarca': '— (muda a propósito)',
+    'La Rioja': 'trabajo · ambiente · movilidad',
+    'La Pampa': 'ambiente · movilidad · cultura',
+    'Santa Cruz': 'vivienda · trabajo · movilidad',
+    'Tierra del Fuego': 'vivienda · movilidad · trabajo',
+  };
+
+  /* ── Las voces — escritas a mano, una por una ───────────────────────────
+     [mes, provincia, tipo, tema, texto, estado]
+     tipo ∈ los nueve del canon · estado ∈ enviada | por_verificar | corroborada | resuelta */
+  const CLASE = { basta:'hecho', necesidad:'hecho', 'práctica':'hecho', recurso:'hecho', saber:'hecho',
+                  'sueño':'deseo', propuesta:'deseo', compromiso:'acto', pregunta:'meta' };
+  const VOCES = [
+    [0,'Ciudad Autónoma de Buenos Aires','sueño','vivienda','Sueño con firmar un contrato de alquiler que no me dé miedo leer.','enviada'],
+    [0,'Buenos Aires','basta','movilidad','El paso bajo nivel de la estación se inunda con cada lluvia y quedamos partidos en dos.','por_verificar'],
+    [0,'La Pampa','práctica','cultura','El club social presta el salón para los cumpleaños de todo el pueblo. Funciona hace cuarenta años.','corroborada'],
+    [1,'Córdoba','recurso','trabajo','Tengo un torno y las tardes libres. Puedo enseñar a tres pibes por vez.','enviada'],
+    [1,'La Pampa','basta','movilidad','La ruta 14 entre Quemú y el cruce está intransitable: el colectivo dejó de entrar.','corroborada'],
+    [1,'Santa Fe','basta','seguridad','A la salida de la escuela 375 no hay ni un móvil desde marzo. Los chicos salen solos.','por_verificar'],
+    [1,'Córdoba','práctica','alimento','La cooperativa del barrio compra verdura al productor los martes: 30% menos que la verdulería.','corroborada'],
+    [2,'Mendoza','saber','ambiente','La acequia de la calle Belgrano se tapa siempre en el mismo codo. Lo sé porque la limpio yo desde 2011.','corroborada'],
+    [2,'Entre Ríos','recurso','cultura','Somos tres que sabemos encuadernar. Ofrecemos taller gratis si alguien pone el lugar.','enviada'],
+    [2,'Tucumán','necesidad','salud','En el barrio no hay pediatra después de las 14. La guardia más cercana queda a 40 minutos.','por_verificar'],
+    [2,'Río Negro','basta','vivienda','En Cipolletti un dos ambientes pide el doble que hace un año. Los sueldos del petróleo marcan el precio para todos.','enviada'],
+    [2,'Chaco','basta','ambiente','Acá falta agua: la red no llega a las últimas tres cuadras del barrio y compramos bidones.','corroborada'],
+    [3,'Neuquén','basta','vivienda','Alquilar en Añelo cuesta como en Palermo. El que no es petrolero se va.','por_verificar'],
+    [3,'Ciudad Autónoma de Buenos Aires','basta','movilidad','La rampa del subte de mi estación está rota hace cuatro meses. Mi vieja no puede salir sola.','corroborada'],
+    [3,'Salta','práctica','cultura','La peña del mercado junta plata para el comedor todos los viernes. Nunca falló.','corroborada'],
+    [3,'Jujuy','basta','ambiente','En el cerro el agua llega dos horas por día. Las mujeres bajan con bidones desde las seis.','corroborada'],
+    [3,'Buenos Aires','necesidad','cuidado','No hay vacante de jardín en tres barrios a la redonda. Mi hermana dejó el trabajo para cuidar.','enviada'],
+    [3,'Misiones','basta','trabajo','La yerba se paga al productor menos que el año pasado y los insumos el doble.','por_verificar'],
+    [4,'Ciudad Autónoma de Buenos Aires','pregunta','democracia','¿Cuánta plata entró por la tasa de alumbrado y cuánto alumbrado se arregló? Quiero el número.','enviada'],
+    [4,'Buenos Aires','basta','trabajo','El galpón de la textil está cerrado hace dos años. Adentro quedaron las máquinas.','enviada'],
+    [4,'Corrientes','saber','ambiente','Cuando el río toca los 6 metros en el puerto, el barrio Bañado se inunda a los tres días. Siempre.','corroborada'],
+    [4,'Chubut','basta','trabajo','La lana está en el galpón desde la esquila. No hay precio ni comprador.','enviada'],
+    [4,'Tierra del Fuego','basta','vivienda','En Ushuaia hay familias viviendo en contenedores. El alquiler se lleva un sueldo entero.','por_verificar'],
+    [4,'San Juan','saber','ambiente','Después del sismo del 21 quedaron grietas en la escuela vieja. Está a la vista, nadie fue.','por_verificar'],
+    [4,'Mendoza','basta','ambiente','El granizo se llevó medio parral y el seguro no cubre ni los alambres.','enviada'],
+    [5,'Chaco','basta','salud','El desagüe de la 9 está tapado desde el verano pasado: agua estancada y mosquitos criándose.','corroborada'],
+    [5,'Formosa','necesidad','salud','No hay repelente en las farmacias del barrio desde hace dos semanas.','por_verificar'],
+    [5,'Tucumán','basta','salud','La salita atiende hasta las 13 y el turno se saca a las 6. La cola arranca de noche.','corroborada'],
+    [5,'Santiago del Estero','basta','ambiente','Siguen desmontando al costado de la ruta 16. Se escuchan las topadoras de noche.','enviada'],
+    [5,'Misiones','práctica','salud','Los promotores de salud del barrio pasan casa por casa con el descacharrado. Bajamos los casos el año pasado.','corroborada'],
+    [5,'Santa Cruz','basta','movilidad','El único colectivo a la zona de chacras pasa dos veces por día. Perdés el turno del hospital, perdés el día.','enviada'],
+    [6,'Buenos Aires','basta','educación','En la 43 quedaron 18 pibes sin vacante de primer grado. Las aulas están, faltan cargos.','por_verificar'],
+    [6,'Córdoba','necesidad','educación','El comedor de la escuela corta en verano. Febrero es el mes más difícil del año.','corroborada'],
+    [6,'Santa Fe','pregunta','educación','¿Cuántos chicos del barrio terminaron la secundaria el año pasado? Nadie tiene el número.','enviada'],
+    [6,'La Rioja','basta','movilidad','El boleto interurbano subió tres veces este año. Ir a trabajar a la capital se come el jornal.','enviada'],
+    [6,'San Luis','necesidad','educación','No hay conectividad en la escuela rural del paraje. Los chicos hacen la tarea en el teléfono de la madre.','por_verificar'],
+    [6,'Entre Ríos','compromiso','cultura','La comisión del club se compromete a reabrir la biblioteca popular antes de fin de año.','por_verificar'],
+    [7,'Corrientes','basta','ambiente','La creciente entró otra vez al Bañado Norte. Tercera vez en cinco años, mismas diez cuadras.','corroborada'],
+    [7,'Entre Ríos','saber','ambiente','El arroyo Las Tunas avisa: cuando tapa el puente viejo, a las 12 horas está en las casas.','corroborada'],
+    [7,'Chaco','recurso','alimento','La huerta comunitaria de la 11 tiene verdura de más. La cambiamos por leche o la damos.','corroborada'],
+    [7,'Formosa','saber','ambiente','Los del barrio sabemos qué canal hay que abrir antes de la creciente. Lo hacemos a pala desde siempre.','por_verificar'],
+    [7,'Neuquén','práctica','trabajo','La feria de productores de Plottier funciona todos los sábados, con 40 puestos. Sin intermediarios.','corroborada'],
+    [7,'Ciudad Autónoma de Buenos Aires','propuesta','cultura','Que los centros culturales de la ciudad abran los feriados: es cuando la gente puede ir.','enviada'],
+    [8,'Río Negro','saber','trabajo','La helada tardía se anuncia dos días antes por el viento norte. Los viejos del Alto Valle lo saben de memoria.','corroborada'],
+    [8,'Mendoza','compromiso','ambiente','La cámara de productores se compromete a limpiar los cauces del distrito antes de agosto.','por_verificar'],
+    [8,'Buenos Aires','práctica','seguridad','El grupo de WhatsApp de la cuadra avisa y acompaña: nadie vuelve solo de la parada después de las 22.','corroborada'],
+    [8,'Salta','necesidad','trabajo','En el pueblo el único empleador es el municipio. Los pibes terminan la escuela y se van.','enviada'],
+    [8,'Jujuy','práctica','cultura','El carnaval se organiza en asamblea desde noviembre. Todo el pueblo tiene un rol.','corroborada'],
+    [8,'Tierra del Fuego','pregunta','trabajo','¿Cuántos de los que vinimos por el régimen industrial seguimos si se cae? Nadie lo dice.','enviada'],
+    [9,'Mendoza','basta','ambiente','La helada de anoche quemó los brotes de todo el este. Otro año que arrancamos abajo.','corroborada'],
+    [9,'Río Negro','basta','trabajo','La fruta quedó en la planta: el precio no paga ni la cosecha. Otra vez.','por_verificar'],
+    [9,'San Juan','necesidad','vivienda','Los barrios nuevos no tienen gas de red. La garrafa en invierno vale doble.','corroborada'],
+    [9,'La Pampa','necesidad','ambiente','Otro año que falta agua y el lote rinde la mitad. Las napas están cada vez más abajo.','enviada'],
+    [9,'Córdoba','sueño','trabajo','Sueño con que mi hijo pueda laburar de lo suyo acá, sin tener que irse a Córdoba capital.','enviada'],
+    [9,'Chubut','práctica','ambiente','La brigada de vecinos de la comarca hace picadas cortafuego cada otoño. Somos 60.','corroborada'],
+    [10,'Santa Fe','basta','trabajo','La autopartista suspendió otra vez. Mil doscientas familias a media máquina.','por_verificar'],
+    [10,'Tucumán','compromiso','salud','El centro vecinal se compromete a sostener la posta de vacunación los sábados de invierno.','corroborada'],
+    [10,'Santiago del Estero','práctica','cuidado','Las cuidadoras del barrio armamos una ronda: ninguna abuela pasa el invierno sola.','corroborada'],
+    [10,'Buenos Aires','pregunta','salud','¿Cuántas ambulancias tiene el SAME de mi municipio y cuántas andan? Pregunto porque anoche tardó una hora.','enviada'],
+    [10,'Misiones','sueño','educación','Sueño con una tecnicatura acá en Oberá, para que estudiar no sea sinónimo de mudarse.','enviada'],
+    [10,'La Rioja','recurso','trabajo','El taller de la escuela técnica está equipado y cerrado a la tarde. Ofrezco abrirlo: soy el preceptor.','enviada'],
+    [11,'La Pampa','compromiso','movilidad','La cooperativa vial se compromete a reparar el acceso a Colonia Barón antes de las lluvias.','por_verificar'],
+    [11,'La Pampa','basta','cultura','El cine del pueblo está cerrado hace seis años. El proyector funciona: lo probamos en marzo.','corroborada'],
+    [11,'Ciudad Autónoma de Buenos Aires','basta','vivienda','Tres edificios de mi cuadra están vacíos, enteros, hace años. Los contamos: 74 departamentos.','por_verificar'],
+    [11,'Neuquén','pregunta','democracia','¿Cuánto de la regalía petrolera queda en el pueblo donde se saca? Quiero verlo en un número.','enviada'],
+    [11,'Corrientes','sueño','ambiente','Sueño con que mis nietos vean el estero como lo vi yo, lleno de bichos y sin alambrar.','enviada'],
+    [11,'Salta','recurso','salud','Soy enfermera jubilada. Ofrezco dos mañanas por semana en la salita del barrio.','enviada'],
+    [12,'Buenos Aires','compromiso','educación','Los egresados de la técnica nos comprometemos a reparar los bancos de las aulas del turno noche.','por_verificar'],
+    [12,'Chaco','sueño','alimento','Sueño con que ningún pibe del barrio conozca la palabra «olla» antes que la palabra «cocina».','enviada'],
+    [12,'Entre Ríos','práctica','trabajo','El astillero chico de la costa toma un aprendiz por año desde 1998. Todos quedaron en el oficio.','corroborada'],
+    [12,'Santa Cruz','necesidad','vivienda','En Caleta hay lista de espera de años para un lote con servicios. Los pibes viven de prestado.','enviada'],
+    [12,'Formosa','práctica','alimento','Las artesanas qom venden juntas en la feria del centro. Precio justo, sin acopiador.','corroborada'],
+    [12,'Tierra del Fuego','saber','movilidad','Cuando el viento pasa los 100, el paso a Chile cierra. Acá se sabe mirar el cielo antes de cargar el auto.','corroborada'],
+    [2,'Santiago del Estero','sueño','trabajo','Sueño con que el algodón se hile acá, y no viajar mil kilómetros detrás de nuestro propio trabajo.','enviada'],
+    [3,'Corrientes','compromiso','cultura','La comparsa se compromete a dar taller de percusión gratis en las dos escuelas del barrio.','corroborada'],
+    [4,'San Luis','sueño','movilidad','Sueño con volver del trabajo con luz de día. El colectivo de las 19 cambiaría mi vida entera.','enviada'],
+    [5,'Chubut','sueño','trabajo','Sueño con que la lana de acá salga hilada de acá. El galpón está, las manos están.','enviada'],
+    [6,'Salta','compromiso','educación','Los estudiantes del profesorado nos comprometemos a dar apoyo escolar en la biblioteca, todo el año.','corroborada'],
+    [7,'Santa Cruz','sueño','vivienda','Sueño con que mis hijos no tengan que elegir entre techo propio y quedarse en Caleta.','enviada'],
+    [8,'Formosa','sueño','salud','Sueño con una ambulancia que no tenga que pensarlo dos veces por el estado del camino.','enviada'],
+    [8,'La Rioja','propuesta','trabajo','Que las horas de la escuela técnica cuenten como pasantía en las pymes del parque: ya hablamos con dos.','enviada'],
+    [9,'Tucumán','propuesta','salud','Que la salita publique sus horarios reales en la puerta y en el grupo del barrio. Es gratis y cambia todo.','enviada'],
+    [10,'Entre Ríos','sueño','ambiente','Sueño con bajar a pescar al río sin mirar antes qué color trae el agua.','enviada'],
+    [11,'Misiones','compromiso','ambiente','El vivero municipal se compromete a entregar mil plantines nativos para las costas del arroyo.','por_verificar'],
+    [12,'Neuquén','sueño','democracia','Sueño con que la discusión del presupuesto del pueblo se haga en el gimnasio, con la gente adentro.','enviada'],
+    [13,'Córdoba','basta','ambiente','El basural a cielo abierto de la ruta E-53 sigue creciendo. Se ve desde la loma, se huele desde antes.','corroborada'],
+    [13,'Jujuy','pregunta','ambiente','¿Cuánta agua usa la minera arriba y cuánta baja al pueblo? Que alguien publique el caudal.','enviada'],
+    [13,'San Juan','propuesta','ambiente','Que el canon minero financie las cisternas de los parajes: la plata sale del agua, que vuelva en agua.','enviada'],
+    [13,'Mendoza','sueño','ambiente','Sueño con acequias llenas y veredas con sombra, como cuando la ciudad se pensaba con el agua.','enviada'],
+    [13,'Buenos Aires','sueño','trabajo','Sueño con no tener que elegir entre changuear cerca o laburar en blanco a dos horas.','enviada'],
+    [13,'Santa Fe','propuesta','seguridad','Que cada club de barrio abierto de noche cuente como política de seguridad, porque lo es.','enviada'],
+  ];
+
+  /* ── El motor del demo — determinista, sin reloj y sin azar ───────────── */
+
+  const PLENA = 0.05;   /* participación de referencia: celda plenamente encendida */
+  const CURVA = 0.35;   /* levanta la parte baja: la participación real vive ahí */
+  const PISO_MANDATO = 0.01; /* piso demo: 1% sostenido tres meses */
+
+  const suave = (x) => { const t = Math.max(0, Math.min(1, x)); return t * t * (3 - 2 * t); };
+
+  function vocesDe(nombre, mes) {
+    const [pobK, s, pf] = PROVINCIAS[nombre];
+    if (mes < s) return 0;
+    const t = suave((mes - s + 1) / (14 - s));
+    return Math.round(pf * Math.pow(t, 1.4) * pobK * 1000);
+  }
+  function participacionDe(nombre, mes) {
+    const [pobK] = PROVINCIAS[nombre];
+    return vocesDe(nombre, mes) / (pobK * 1000);
+  }
+  function brilloDe(nombre, mes) {
+    const p = participacionDe(nombre, mes);
+    if (p <= 0) return 0;
+    return Math.min(1, Math.pow(p / PLENA, CURVA));
+  }
+  function nitidezDe(nombre, mes) {
+    const [, s, , nf] = PROVINCIAS[nombre];
+    if (mes < s) return 0;
+    return nf * suave((mes - s) / 11);
+  }
+  function mandatoDe(nombre, mes) {
+    let seguidos = 0;
+    for (let m = 0; m <= mes; m++) {
+      seguidos = participacionDe(nombre, m) >= PISO_MANDATO ? seguidos + 1 : 0;
+    }
+    return seguidos >= 3;
+  }
+
+  /* ── El mapa ───────────────────────────────────────────────────────────── */
+
+  const GEO = JSON.parse(document.getElementById('geo').textContent);
+  const lienzo = document.getElementById('lienzo');
+  const ctx = lienzo.getContext('2d');
+
+  const LON = [-73.8, -53.4], LAT = [-55.3, -21.6];
+  const K = Math.cos((-38 * Math.PI) / 180);
+  function proyectar(lon, lat) {
+    const w = lienzo.width, h = lienzo.height, m = 30;
+    const dx = (LON[1] - LON[0]) * K, dy = LAT[1] - LAT[0];
+    const esc = Math.min((w - 2 * m) / dx, (h - 2 * m) / dy);
+    const ox = (w - dx * esc) / 2, oy = (h - dy * esc) / 2;
+    return [ox + (lon - LON[0]) * K * esc, oy + (LAT[1] - lat) * esc];
+  }
+
+  const caminos = GEO.features.map((f) => {
+    const anillos = f.geometry.type === 'Polygon' ? f.geometry.coordinates : f.geometry.coordinates.flat();
+    const p = new Path2D();
+    let cx = 0, cy = 0, n = 0;
+    for (const anillo of anillos) {
+      anillo.forEach(([lon, lat], i) => {
+        const [x, y] = proyectar(lon, lat);
+        if (i === 0) p.moveTo(x, y); else p.lineTo(x, y);
+        cx += x; cy += y; n++;
+      });
+      p.closePath();
+    }
+    return { nombre: f.properties.name, path: p, centro: [cx / n, cy / n] };
+  });
+
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  function mezclar(a, b, t) {
+    const pa = a.match(/\w\w/g).map((x) => parseInt(x, 16));
+    const pb = b.match(/\w\w/g).map((x) => parseInt(x, 16));
+    return '#' + pa.map((x, i) => Math.round(x + (pb[i] - x) * t).toString(16).padStart(2, '0')).join('');
+  }
+
+  let mes = 0;
+  let elegida = null;
+  let tuProvincia = null; /* dónde soltaste tu voz */
+
+  function dibujar() {
+    const w = lienzo.width, h = lienzo.height;
+    ctx.clearRect(0, 0, w, h);
+    const fondo = css('--plate'), linea = css('--line');
+    const base = css('--ground'), plata = css('--plata'), viva = css('--plata-viva');
+    ctx.fillStyle = fondo; ctx.fillRect(0, 0, w, h);
+
+    for (const c of caminos) {
+      const b = brilloDe(c.nombre, mes);
+      const ni = nitidezDe(c.nombre, mes);
+      if (b <= 0) {
+        ctx.fillStyle = base;
+      } else {
+        /* plata tenue → viva por brillo; la nitidez le sube la definición */
+        ctx.fillStyle = mezclar(mezclar(base.slice(0,7).length===7?base:'#F2EFE7', plata, 0.25 + 0.75 * b),
+                                viva, 0.55 * b * ni);
+      }
+      ctx.fill(c.path);
+      /* borde: borroso si hay voz sin confirmación, firme si hay nitidez */
+      ctx.strokeStyle = linea;
+      ctx.lineWidth = 1;
+      if (b > 0) {
+        ctx.save();
+        ctx.shadowColor = viva;
+        ctx.shadowBlur = 18 * b * (1 - ni);
+        ctx.strokeStyle = mezclar('#7E8894', viva.slice(0,7).length===7?viva:'#AEB9C6', ni);
+        ctx.lineWidth = 1 + 1.5 * ni;
+        ctx.stroke(c.path);
+        ctx.restore();
+      } else {
+        ctx.stroke(c.path);
+      }
+      if (c.nombre === elegida) {
+        ctx.strokeStyle = css('--deseo'); ctx.lineWidth = 2.5; ctx.stroke(c.path);
+      }
+      if (mandatoDe(c.nombre, mes)) {
+        const [x, y] = c.centro;
+        ctx.fillStyle = css('--acto');
+        ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
+        ctx.font = '700 12px ' + css('--mono');
+        ctx.fillStyle = css('--text');
+        ctx.fillText('mandato', x + 12, y + 4);
+      }
+      if (c.nombre === tuProvincia) {
+        const [x, y] = c.centro;
+        ctx.strokeStyle = css('--deseo'); ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(x, y, 11, 0, Math.PI * 2); ctx.stroke();
+      }
+    }
+
+    /* El sello, adentro del área que se captura. No se puede apagar. */
+    ctx.save();
+    ctx.font = '700 15px ' + css('--mono');
+    ctx.fillStyle = css('--text');
+    ctx.globalAlpha = 0.55;
+    ctx.textAlign = 'center';
+    for (const fy of [0.16, 0.5, 0.84]) {
+      ctx.fillText('NADIE DIJO NINGUNA DE ESTAS COSAS · DEMO', w / 2, h * fy);
+    }
+    ctx.restore();
+  }
+
+  /* ── La superficie ─────────────────────────────────────────────────────── */
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => n.toLocaleString('es-AR');
+
+  function totales() {
+    let voces = 0, prov = 0;
+    for (const nombre of Object.keys(PROVINCIAS)) {
+      const v = vocesDe(nombre, mes);
+      voces += v; if (v > 0) prov++;
+    }
+    /* señales ≈ 1,6 por voz; confirmaciones desde la nitidez media — inventado y dicho */
+    const senales = Math.round(voces * 1.6);
+    let conf = 0;
+    for (const nombre of Object.keys(PROVINCIAS)) {
+      conf += Math.round(vocesDe(nombre, mes) * 1.6 * 0.55 * nitidezDe(nombre, mes));
+    }
+    return { voces, senales, conf, prov };
+  }
+
+  function pintarCifras() {
+    const t = totales();
+    $('c-voces').textContent = fmt(t.voces);
+    $('c-senales').textContent = fmt(t.senales);
+    $('c-conf').textContent = fmt(t.conf);
+    $('c-prov').innerHTML = String(t.prov) + '<span style="font-size:16px">/24</span>';
+  }
+
+  function pintarFeed() {
+    const cuerpo = $('feed-cuerpo');
+    cuerpo.innerHTML = '';
+    const visibles = VOCES.filter((v) => v[0] <= mes).slice().reverse();
+    for (const [m, prov, tipo, tema, texto, estado] of visibles) {
+      const clase = CLASE[tipo];
+      const el = document.createElement('article');
+      el.className = 'voz ' + clase;
+      el.innerHTML = '<p>«' + texto + '»</p><span class="pie">' + tipo + ' · ' + tema + ' · ' +
+        prov + ' · ' + MESES[m] + '</span> <span class="estado-chip">' + estado.replace('_', ' ') + '</span>';
+      cuerpo.appendChild(el);
+    }
+    if (tuVoz && tuVoz.mes <= mes) {
+      const el = document.createElement('article');
+      el.className = 'voz deseo tuya';
+      el.innerHTML = '<p>«' + tuVoz.texto + '»</p><span class="pie">tu voz · ' + tuVoz.prov +
+        ' · demo — queda en tu navegador</span>';
+      cuerpo.prepend(el);
+    }
+  }
+
+  function pintarFicha() {
+    const ficha = $('ficha');
+    if (!elegida) { ficha.hidden = true; return; }
+    ficha.hidden = false;
+    const [pobK] = PROVINCIAS[elegida];
+    const v = vocesDe(elegida, mes);
+    const p = participacionDe(elegida, mes);
+    const b = brilloDe(elegida, mes);
+    const ni = nitidezDe(elegida, mes);
+    const muda = PROVINCIAS[elegida][1] > 13;
+    const dichas = VOCES.filter((x) => x[1] === elegida && x[0] <= mes);
+    const ultima = dichas[dichas.length - 1];
+    ficha.innerHTML =
+      '<h3>' + elegida + '</h3>' +
+      (muda
+        ? '<p><strong>Todavía no habló nadie.</strong> El gris no es un error: es la tarea. ' +
+          'En el mapa real, la primera voz de una provincia así vale el viaje entero.</p>'
+        : '<p class="meta">' + fmt(pobK * 1000) + ' habitantes de referencia (censo 2022, redondeado)</p>' +
+          '<p><strong>' + fmt(v) + ' voces distintas</strong> — el ' + (p * 100).toFixed(2).replace('.', ',') +
+          '% de la gente. Habla de: ' + TEMAS[elegida] + '.</p>' +
+          '<div class="meta">brillo</div><div class="barra"><i style="transform:scaleX(' + b.toFixed(3) + ')"></i></div>' +
+          '<div class="meta">nitidez — cuánto de lo verificable se confirmó</div>' +
+          '<div class="barra"><i style="transform:scaleX(' + ni.toFixed(3) + ')"></i></div>' +
+          (mandatoDe(elegida, mes)
+            ? '<p><strong style="color:var(--acto)">Mandato territorial (demo):</strong> tres meses sostenidos arriba del piso del 1%.</p>'
+            : '') +
+          (ultima
+            ? '<p class="meta" style="margin-top:8px">Última voz: «' + ultima[4] + '»</p>'
+            : '<p class="meta" style="margin-top:8px">Las frases de esta provincia todavía no llegaron en el año simulado.</p>'));
+  }
+
+  function pintarTodo() {
+    $('mes-actual').textContent = MESES[mes];
+    $('scrub').value = String(mes);
+    let fase = FASES[0][1];
+    for (const [desde, nombre] of FASES) if (mes >= desde) fase = nombre;
+    $('fase').textContent = fase;
+    $('hito').textContent = HITOS[mes] || '';
+    dibujar();
+    pintarCifras();
+    pintarFeed();
+    pintarFicha();
+    pintarConfirmar();
+  }
+
+  /* reproducir / pausar */
+  let reloj = null;
+  $('play').addEventListener('click', () => {
+    if (reloj) {
+      clearInterval(reloj); reloj = null;
+      $('play').textContent = 'Reproducir';
+      return;
+    }
+    if (mes >= 13) mes = 0;
+    $('play').textContent = 'Pausar';
+    reloj = setInterval(() => {
+      mes++;
+      if (mes >= 13) { mes = 13; clearInterval(reloj); reloj = null; $('play').textContent = 'Reproducir'; }
+      pintarTodo();
+    }, 1600);
+    pintarTodo();
+  });
+  $('scrub').addEventListener('input', (e) => { mes = Number(e.target.value); pintarTodo(); });
+
+  /* mirar: click en el mapa */
+  lienzo.addEventListener('click', (e) => {
+    const r = lienzo.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * lienzo.width;
+    const y = ((e.clientY - r.top) / r.height) * lienzo.height;
+    let tocada = null;
+    for (const c of caminos) if (ctx.isPointInPath(c.path, x, y)) tocada = c.nombre;
+    elegida = tocada;
+    pintarTodo();
+    if (tocada) $('ficha').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+  $('mirar-azar').addEventListener('click', () => {
+    /* determinista: recorre en orden, sin azar */
+    const nombres = caminos.map((c) => c.nombre);
+    const i = elegida ? (nombres.indexOf(elegida) + 1) % nombres.length : 0;
+    elegida = nombres[i];
+    pintarTodo();
+    $('ficha').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  /* aportar */
+  let tuVoz = null;
+  const sel = $('aportar-prov');
+  for (const nombre of Object.keys(PROVINCIAS)) {
+    const o = document.createElement('option');
+    o.value = nombre; o.textContent = nombre;
+    sel.appendChild(o);
+  }
+  $('aportar-btn').addEventListener('click', () => {
+    const texto = $('aportar-texto').value.trim() || 'Mi primera voz de prueba.';
+    tuProvincia = sel.value;
+    tuVoz = { prov: sel.value, texto, mes };
+    const v = $('aportar-vuelta');
+    v.classList.remove('apagada');
+    v.innerHTML = '<strong>La vuelta:</strong> tu voz entró en ' + sel.value +
+      ' y su celda se encendió un poco más. En la app real, además, te llega qué pasó con ella: ' +
+      'quién dijo casi lo mismo, quién la confirmó, qué se movió. Hablar tiene eco o no es registro.';
+    pintarTodo();
+  });
+
+  /* confirmar */
+  let confirmada = false;
+  function pintarConfirmar() {
+    const caja = $('confirmar-caja');
+    const pendientes = VOCES.filter((v) => v[0] <= mes && v[5] === 'por_verificar');
+    const p = pendientes[pendientes.length - 1];
+    if (!p) { caja.innerHTML = '<p class="meta">Todavía no hay nada verificable cerca en el año simulado.</p>'; return; }
+    caja.innerHTML =
+      '<p style="font-size:14px;margin-bottom:6px">Cerca tuyo (' + p[1] + '):<br/>«' + p[4] + '»</p>' +
+      '<p style="font-size:14px;font-weight:700;margin-bottom:6px">¿Sigue así?</p>' +
+      '<div style="display:flex;gap:8px">' +
+      '<button class="accion" id="conf-si">Sigue así</button>' +
+      '<button class="accion secundaria" id="conf-no">Ya no está</button></div>';
+    const listo = (queDijiste) => {
+      confirmada = true;
+      const v = $('confirmar-vuelta');
+      v.classList.remove('apagada');
+      v.innerHTML = '<strong>Eso fue todo.</strong> Dijiste «' + queDijiste + '» y la nitidez de ' + p[1] +
+        ' subió un poco: lo que era la palabra de uno ahora son dos pares de ojos. ' +
+        'Este gesto de dos segundos es el 80% del ejercicio, la mayoría de los días.';
+    };
+    caja.querySelector('#conf-si').addEventListener('click', () => listo('sigue así'));
+    caja.querySelector('#conf-no').addEventListener('click', () => listo('ya no está'));
+  }
+
+  /* arranque */
+  pintarTodo();
+})();
+</script>
