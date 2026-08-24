@@ -20,7 +20,7 @@ Y hay un argumento que el primero no tenía: **estas actas ya existen y ya pasar
 
 ## 2 · Qué se autoriza, exactamente
 
-**Un ejemplo en el cliente, en su propia ruta**, `/mandato-vivo/ejemplo`: cinco actas de mandato inventadas, una por clase de señal (dos de hecho —reparación y provisión—, una de deseo —agenda—, una de acto —cumplimiento—, una de pregunta —información—). Texto escrito a mano, números inventados y declarados, ningún dato de la base.
+**Un ejemplo en el cliente, en su propia ruta**, `/mandato-vivo/ejemplo`: cinco actas de mandato inventadas, una por clase de señal (dos de hecho —reparación y provisión—, una de deseo —agenda—, una de acto —cumplimiento—, una de pregunta —información—). Texto **generado** para la demostración — y la pantalla lo declara con esa palabra, por decisión del dueño del 24/8: es la precisa —, números inventados y declarados, ningún dato de la base.
 
 Las obligaciones E1–E5 del 16/8 §3.1 rigen idénticas, con estas concreciones:
 
@@ -38,7 +38,7 @@ Las obligaciones E1–E5 del 16/8 §3.1 rigen idénticas, con estas concreciones
 
 - Todo lo del 16/8 §5 que no toca esta enmienda: sembrar, branches de demo, alimentar el lado medido, contar o exportar el ejemplo, flags de demo.
 - **Un tercer ejemplo.** Necesita su propia enmienda, y el argumento «ya hicimos dos» va a alcanzar todavía menos.
-- Generar actas con un modelo o con el motor de la Simulación. Éstas están escritas a mano y así se quedan.
+- Generar actas **con el motor de la Simulación** (nueve moldes → consenso fabricado) o generarlas en masa. Éstas son cinco, curadas una por una, revisadas adversarialmente, y así se quedan: la palabra «generadas» declara la procedencia, no abre una canilla.
 - Interactividad que simule medición (palancas, contadores vivos): eso vive en el demo de `docs/demos/`, fuera de la app. En el cliente las actas son **texto que enseña**, no un instrumento que aparenta medir.
 
 ## 4 · Cómo se sabe que esto se rompió

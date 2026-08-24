@@ -5,9 +5,10 @@ import type { ClaseSenal } from '@v2/civic-core';
  *
  * Enmienda: `docs/specs/2026-08-20-enmienda-los-ejemplos-ii-las-actas.md` §2.
  *
- * Escritas a mano el 20/8 para el demo de `docs/demos/`, pasadas por revisión
- * adversarial (tres lentes con refutadores) y movidas acá con las
- * correcciones de canon adentro:
+ * Generadas el 20/8 para el demo de `docs/demos/` — y la pantalla lo dice
+ * así, «generadas», por decisión del dueño del 24/8: es la palabra precisa —,
+ * pasadas por revisión adversarial (tres lentes con refutadores) y movidas
+ * acá con las correcciones de canon adentro:
  *
  *  - el reloj de un compromiso vencido marca **desenlace `vencido` y señal
  *    `desactualizada`** — no manda a revisión, y `no cumplida` sólo lo puede
@@ -116,4 +117,4 @@ export const ACTAS_DE_EJEMPLO: readonly ActaDeEjemplo[] = [
 
 /** La advertencia del sello, en el mismo registro que la de la Simulación. */
 export const ADVERTENCIA_DE_LAS_ACTAS =
-  'Las cinco actas de esta página las escribió una persona a mano para mostrar en qué termina el circuito: qué tipo de exigencia habilita cada clase de señal. Los barrios, los respaldos y los plazos son inventados; las provincias son reales porque la lección necesita un mapa cierto. Ningún número de acá existe en ninguna tabla, y el mandato de verdad — el documento que lee lo que la gente carga — vive en la otra pantalla.';
+  'Las cinco actas de esta página fueron generadas para mostrar en qué termina el circuito: qué tipo de exigencia habilita cada clase de señal. Los barrios, los respaldos y los plazos son inventados; las provincias son reales porque la lección necesita un mapa cierto. Ningún número de acá existe en ninguna tabla, y el mandato de verdad — el documento que lee lo que la gente carga — vive en la otra pantalla.';

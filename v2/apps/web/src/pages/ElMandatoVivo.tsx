@@ -61,7 +61,7 @@ export function ElMandatoVivo() {
           Ver un ejemplo de actas, con casos inventados →
         </Link>
         <p className="text-oscuro-meta mt-3 max-w-[70ch] text-[15px] leading-[1.55]">
-          Cinco actas escritas a mano — una por clase de señal — para mostrar en qué termina el
+          Cinco actas generadas — una por clase de señal — para mostrar en qué termina el
           circuito. Viven en otra pantalla a propósito:{' '}
           <strong className="text-oscuro-secundario font-semibold">nadie dijo</strong> ninguna de
           esas cosas, y no se mezclan jamás con el documento del país.
