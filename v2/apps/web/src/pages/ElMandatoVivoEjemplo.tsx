@@ -51,20 +51,19 @@ export function ElMandatoVivoEjemplo() {
         <Kicker className="anim-fadeup mb-4">Un ejemplo, no el país</Kicker>
         <h1
           aria-label="El mandato: un ejemplo."
-          className="font-anton riso-hover mb-5 text-[clamp(40px,5.4vw,76px)] leading-[0.98]"
+          className="font-anton riso-hover text-oscuro-texto mb-5 text-[clamp(40px,5.4vw,76px)] leading-[0.98]"
         >
-          <RitoTinta lineas={['El mandato:', 'un ejemplo.']} />
+          <RitoTinta lineas={['El mandato:', 'un ejemplo.']} tono="claro" />
         </h1>
+        {/* La bajada NO repite la advertencia — de eso se encarga el sello,
+            dos dedos más abajo. Acá va lo único que el sello no dice: qué
+            enseña esta página, y la exclusividad del modo (E5). */}
         <p
           className="anim-fadeup text-oscuro-secundario max-w-[640px] text-pretty text-[18px] leading-[1.6]"
           style={{ animationDelay: '0.9s' }}
         >
-          <strong className="text-oscuro-texto font-semibold">
-            Nadie dijo ninguna de estas cosas.
-          </strong>{' '}
-          Las cinco actas de esta página las escribió una persona a mano para mostrar en qué
-          termina el circuito. No salieron de la base, no las votó nadie y no las generó un
-          modelo. El mandato de verdad se mira en{' '}
+          Cinco actas inventadas — una por clase de señal — para mostrar en qué termina el
+          circuito. El mandato de verdad se mira en{' '}
           <Link
             href="/mandato-vivo"
             className="underline decoration-1 underline-offset-4 hover:opacity-70"
