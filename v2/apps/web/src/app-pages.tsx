@@ -189,6 +189,17 @@ export const WeeklyCheckin = lazy(async () => {
   const m = await import('~/pages/WeeklyCheckin');
   return { default: m.WeeklyCheckin };
 });
+/**
+ * El ejemplo del mandato — chunk propio, como el de La Radiografía: cinco
+ * actas inventadas que la página viva no tiene por qué cargar (enmienda
+ * `2026-08-20-enmienda-los-ejemplos-ii-las-actas.md`, E5: el modo es
+ * excluyente, también en el bundle).
+ */
+export const ElMandatoVivoEjemplo = lazy(async () => {
+  const m = await import('~/pages/ElMandatoVivoEjemplo');
+  return { default: m.ElMandatoVivoEjemplo };
+});
+
 export const ElMandatoVivo = lazy(async () => {
   const m = await import('~/pages/ElMandatoVivo');
   return { default: m.ElMandatoVivo };

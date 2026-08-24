@@ -15,6 +15,7 @@ import {
   Desafios,
   DetallesCalculoCostoHumano,
   ElMandatoVivo,
+  ElMandatoVivoEjemplo,
   ElMapa,
   EnsayoDetail,
   EntrenamientoDetail,
@@ -132,6 +133,9 @@ export function AppRoutes() {
       <Route path="/coaching" component={CoachingChat} />
 
       {/* Mandato Vivo — detail routes MUST come before the bare landing. */}
+      {/* El segundo ejemplo autorizado, con su enmienda propia
+          (2026-08-20-enmienda-los-ejemplos-ii-las-actas.md). */}
+      <Route path="/mandato-vivo/ejemplo" component={ElMandatoVivoEjemplo} />
       <Route path="/mandato-vivo/pulso/:id" component={PulsoDetail} />
       <Route path="/mandato-vivo/propuesta/:id" component={PropuestaDetail} />
       <Route path="/mandato-vivo" component={ElMandatoVivo} />
