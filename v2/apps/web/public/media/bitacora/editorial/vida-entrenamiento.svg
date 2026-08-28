@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">La vida como entrenamiento: la horizontal de la queja y la vertical del esfuerzo</title><desc id="desc">Comparación entre la queja, que oscila sobre una línea horizontal sin cambiar de altura, y el entrenamiento, que sube por una escalera de niveles: ideas nuevas, estados nuevos, relaciones más sabias, un solo sistema.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#17131d"/></marker>
+    <marker id="arrowRed" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#a72c35"/></marker>
+    <marker id="arrowCream" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#f2eadb"/></marker>
+  </defs>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <text x="60" y="76" fill="#17131d" font-family="Arial,sans-serif" font-size="35" font-weight="700">ENTRENAR VIENE DE ARRASTRAR.</text>
+  <text x="60" y="112" fill="#525a61" font-family="Arial,sans-serif" font-size="20">La queja recorre kilómetros a la misma altura. El entrenamiento avanza de a centímetros, pero hacia arriba.</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="60" y="160" width="470" height="400" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/>
+    <text x="95" y="208" fill="#a72c35" font-size="22" font-weight="700">LA HORIZONTAL · LA QUEJA</text>
+    <line x1="105" y1="370" x2="485" y2="370" stroke="#17131d" stroke-width="8"/>
+    <circle cx="295" cy="370" r="24" fill="#a72c35"/>
+    <path d="M295 342Q205 250 125 322" fill="none" stroke="#525a61" stroke-width="5" marker-end="url(#arrow)"/>
+    <path d="M295 342Q385 250 465 322" fill="none" stroke="#525a61" stroke-width="5" marker-end="url(#arrow)"/>
+    <text x="130" y="248" fill="#17131d" font-size="19" font-weight="700">queja</text>
+    <text x="270" y="230" fill="#17131d" font-size="19" font-weight="700">crítica</text>
+    <text x="405" y="248" fill="#17131d" font-size="19" font-weight="700">opinión</text>
+    <text x="295" y="425" text-anchor="middle" fill="#525a61" font-size="18">los años pasan · la altura no cambia</text>
+    <text x="295" y="520" text-anchor="middle" fill="#17131d" font-size="20" font-weight="700">mucho movimiento · cero elevación</text>
+    <rect x="590" y="160" width="550" height="400" fill="#17131d"/>
+    <text x="625" y="208" fill="#f2eadb" font-size="22" font-weight="700">LA VERTICAL · EL ENTRENAMIENTO</text>
+    <path d="M625 505 H725 V435 H825 V365 H925 V295 H1025 V240 H1105" fill="none" stroke="#f2eadb" stroke-width="6"/>
+    <circle cx="650" cy="490" r="15" fill="#a72c35"/>
+    <text x="650" y="535" text-anchor="middle" fill="#d6d8d7" font-size="15">vos, hoy</text>
+    <path d="M672 470 985 235" fill="none" stroke="#a72c35" stroke-width="6" marker-end="url(#arrowRed)"/>
+    <text x="735" y="425" fill="#f2eadb" font-size="17" font-weight="700">ideas nuevas</text>
+    <text x="835" y="355" fill="#f2eadb" font-size="17" font-weight="700">estados nuevos</text>
+    <text x="1120" y="285" text-anchor="end" fill="#f2eadb" font-size="17" font-weight="700">relaciones más sabias</text>
+    <text x="1120" y="225" text-anchor="end" fill="#f2eadb" font-size="17" font-weight="700">un solo sistema</text>
+    <text x="865" y="520" text-anchor="middle" fill="#d6d8d7" font-size="18">esfuerzo chico · repetido · en un rumbo</text>
+  </g>
+  <text x="60" y="632" fill="#17131d" font-family="Arial,sans-serif" font-size="21" font-weight="700">trahere → traîner → entraîner → entrenar: arrastrar(se) en una dirección.</text>
+  <text x="60" y="664" fill="#525a61" font-family="Arial,sans-serif" font-size="18">Nadie viene a levantarte. Empujás el piso — y el que sube sos vos.</text>
+</svg>
