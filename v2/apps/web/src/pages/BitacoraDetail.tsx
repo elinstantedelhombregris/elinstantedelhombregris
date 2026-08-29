@@ -110,7 +110,7 @@ export function BitacoraDetail() {
         <div className="border-tinta border-t-2 pt-7">
           <MdxPapel raw={post.body} className="max-w-[680px] [&>*:first-child]:mt-0" />
         </div>
-        <p className="font-space text-tinta-50 mt-9 text-xs">— El hombre gris</p>
+        <p className="font-space text-tinta-50 mt-9 text-xs">— Un hombre gris</p>
       </article>
 
       <nav className="border-tinta mt-11 flex flex-wrap justify-between gap-5 border-t pt-[22px] print:hidden">

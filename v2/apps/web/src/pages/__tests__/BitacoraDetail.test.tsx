@@ -82,7 +82,7 @@ describe('BitacoraDetail (página papel 3.4 — el lector de crónica)', () => {
     }
     const fragmento = fragmentoDelCuerpo(medio.body);
     expect(screen.getByText(new RegExp(escapeRegExp(fragmento)))).toBeInTheDocument();
-    expect(screen.getByText('— El hombre gris')).toBeInTheDocument();
+    expect(screen.getByText('— Un hombre gris')).toBeInTheDocument();
 
     const backlink = screen.getByRole('link', { name: '← La bitácora' });
     expect(backlink).toHaveAttribute('href', '/bitacora');

@@ -1417,3 +1417,16 @@ Los dos lados se tocaron por última vez en commits que ya están en `origin/mai
 No se arregló acá a propósito: el remedio (`pnpm planes:migrar`) reescribe el `.mdx` canónico de un PLAN de 27.000 palabras, y cuál de los dos lados es el bueno es una decisión de contenido, no una corrección mecánica.
 
 **Qué haría falta:** correr la migración, leer el diff completo, y confirmar que lo que gana es el taller y no una edición manual del canon que se perdería. Si fuera al revés, lo que hay que corregir es el taller.
+
+### D-077 · El test del lector de crónica se corta antes de la firma
+
+**Dónde:** `v2/apps/web/src/pages/__tests__/BitacoraDetail.test.tsx:84`
+**Encontrada:** 2026-08-29, cambiando la firma de la bitácora
+**Severidad:** baja
+**Estado:** abierta
+
+El primer `it` del archivo busca un fragmento del cuerpo de la crónica del medio con `getByText` y una regexp, y encuentra **más de un nodo**: la prueba muere ahí con *«found multiple elements»*. Es una falla del tronco, no la trajo un cambio nuevo — está igual en `origin/main`.
+
+Lo caro no es la falla: es que todas las aserciones que vienen **después** de esa línea (la firma de autor y el backlink `← La bitácora`) nunca se ejecutan. El test aparenta cubrir la cabecera entera del lector y en realidad cubre hasta el cuerpo. Se verificó a mano que la firma renderiza, comentando esa línea.
+
+**Qué haría falta:** que `fragmentoDelCuerpo` devuelva un tramo que aparezca una sola vez, o que la búsqueda se acote al contenedor del cuerpo en vez de a todo el documento.
