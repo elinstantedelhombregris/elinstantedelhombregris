@@ -46,10 +46,10 @@ export function FilaFalta({ falta, propia }: FilaFaltaProps) {
         >
           {estado.etiqueta}
         </span>
-        <span className="font-space text-tinta-30 text-[11px] uppercase tracking-[0.08em]">
+        <span className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.08em]">
           {etiquetaDeSuperficie(falta.superficie)}
         </span>
-        <span className="font-space text-tinta-30 text-[11px] uppercase tracking-[0.08em]">
+        <span className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.08em]">
           {falta.origen === 'adentro' ? 'la encontré yo' : 'la dejó alguien'}
         </span>
         {propia ? (
@@ -71,7 +71,7 @@ export function FilaFalta({ falta, propia }: FilaFaltaProps) {
         </p>
       )}
 
-      <div className="font-space text-tinta-30 mt-2.5 flex flex-wrap gap-x-4 text-[11px]">
+      <div className="font-space text-tinta-50 mt-2.5 flex flex-wrap gap-x-4 text-[11px]">
         <span>{fechaLarga(falta.creadaEn)}</span>
         {falta.firmas > 0 ? (
           <span>

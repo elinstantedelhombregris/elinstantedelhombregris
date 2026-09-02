@@ -190,7 +190,7 @@ export function PanelDejarFalta({
                 placeholder="El mapa no dice cuántas señales quedaron afuera del recorte"
                 className="border-tinta bg-papel text-tinta placeholder:text-tinta-30 w-full border px-4 py-3 text-[16px] outline-none focus:border-violeta"
               />
-              <span className="font-space text-tinta-30 mt-1.5 block text-right text-[11px]">
+              <span className="font-space text-tinta-50 mt-1.5 block text-right text-[11px]">
                 {String(titulo.length)}/{String(LARGO_MAXIMO_TITULO)}
               </span>
             </label>
@@ -209,7 +209,7 @@ export function PanelDejarFalta({
                 placeholder="Qué pasó, qué esperabas, y por qué te parece que importa."
                 className="border-tinta bg-papel text-tinta placeholder:text-tinta-30 w-full resize-y border px-4 py-3 text-[16px] leading-relaxed outline-none focus:border-violeta"
               />
-              <span className="font-space text-tinta-30 mt-1.5 block text-right text-[11px]">
+              <span className="font-space text-tinta-50 mt-1.5 block text-right text-[11px]">
                 {String(cuerpo.length)}/{String(LARGO_MAXIMO_CUERPO)}
               </span>
             </label>

@@ -79,7 +79,7 @@ export function CamposPorTipo(p: CamposPorTipoProps) {
             placeholder="Lo vi, me lo dijeron, lo leí en…"
             className={campo}
           />
-          <p className="font-space text-tinta-50 mt-1.5 text-[10px]">
+          <p className="font-archivo text-tinta-75 mt-1.5 text-[13px] leading-snug">
             Un saber sin procedencia es un rumor. No hace falta que sea oficial: alcanza con que se
             pueda seguir.
           </p>
@@ -103,7 +103,7 @@ export function CamposPorTipo(p: CamposPorTipoProps) {
             }}
             className={campo}
           />
-          <p className="font-space text-tinta-50 mt-1.5 text-[10px]">
+          <p className="font-archivo text-tinta-75 mt-1.5 text-[13px] leading-snug">
             Sin fecha, un compromiso es un sueño con otro nombre. Prometé poco y que se pueda ver.
           </p>
         </>
@@ -137,7 +137,7 @@ export function CamposPorTipo(p: CamposPorTipoProps) {
               ▾
             </span>
           </div>
-          <p className="font-space text-tinta-50 mt-1.5 text-[10px]">
+          <p className="font-archivo text-tinta-75 mt-1.5 text-[13px] leading-snug">
             El horario exacto ponelo arriba, en el texto: ahí lo va a leer una persona.
           </p>
 

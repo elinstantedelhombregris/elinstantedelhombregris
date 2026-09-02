@@ -42,8 +42,8 @@ export function PlanesTeaser() {
             href={`/planes/${plan.slug}`}
             className="bg-papel text-tinta hover:bg-papel-crudo flex min-h-[230px] flex-col gap-3.5 p-[26px] pt-[30px] transition-colors duration-200"
           >
-            <div className="font-space text-tinta-50 flex w-full items-center justify-between gap-3 text-[11px] uppercase tracking-[0.1em]">
-              <span className="truncate">{plan.title}</span>
+            <div className="font-space text-tinta-50 flex w-full items-start justify-between gap-3 text-[11px] uppercase tracking-[0.1em]">
+              <span className="line-clamp-2 leading-snug">{plan.title}</span>
               <span className="shrink-0">
                 {String(i + 1).padStart(2, '0')}/{PLAN_COUNT}
               </span>

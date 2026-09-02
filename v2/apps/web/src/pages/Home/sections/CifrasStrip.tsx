@@ -17,8 +17,20 @@ interface CifraTile {
  * Valor de una cifra: skeleton papel-presionado (§5) mientras carga o
  * si la consulta falló — nunca un número inventado. `role="status"`
  * para que el estado de carga sea anunciado a lectores de pantalla.
+ *
+ * Con cero real el slot habla en vez de numerar (§5 «Cifra sin dato»):
+ * cuatro «0» en Anton gigante leían como sitio muerto, y el resto del
+ * sitio ya decía «todavía no» con palabras. Las cuatro cifras vivas son
+ * femeninas, así que la misma frase sirve para todas.
  */
 function CifraValor({ value, isLoading }: { value: number | undefined; isLoading: boolean }) {
+  if (value === 0) {
+    return (
+      <div className="flex h-[46px] items-end">
+        <span className="font-anton text-tinta-75 text-[26px] leading-none">Todavía ninguna.</span>
+      </div>
+    );
+  }
   if (isLoading || value === undefined) {
     return (
       <div

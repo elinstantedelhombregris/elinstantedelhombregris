@@ -56,7 +56,7 @@ export function FeedVoces() {
                 <Envoltorio id={voz.id}>
                 <div className="font-space mb-2 flex justify-between gap-3 text-[10px] uppercase tracking-[0.12em]">
                   <span className={cn('font-bold', clase === null ? 'text-tinta-50' : TEXTO_CLASE[clase])}>{voz.category}</span>
-                  <span className="text-tinta-30">
+                  <span className="text-tinta-50">
                     {voz.provinceId === null
                       ? 'Argentina'
                       : (nombrePorId.get(voz.provinceId) ?? 'Argentina')}

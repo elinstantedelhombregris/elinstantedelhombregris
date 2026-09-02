@@ -27,7 +27,7 @@ const config: Config = {
           DEFAULT: '#16130E',
           90: '#33302A',
           75: '#4A463D',
-          50: '#7A756A',
+          50: '#6B665C',
           30: '#B5B1A8',
         },
         oscuro: {

@@ -82,7 +82,7 @@ export function DocumentoMandato() {
 
       <div className="bg-papel text-tinta relative p-[52px_56px] shadow-[0_24px_60px_rgba(0,0,0,0.45)] max-[560px]:p-6">
         {esEjemplo ? (
-          <div className="absolute right-9 top-[30px]">
+          <div className="absolute right-9 top-[30px] max-[560px]:static max-[560px]:mb-4">
             <Sello color="rojo" rotate={6}>
               Ejemplo
             </Sello>
@@ -124,7 +124,7 @@ export function DocumentoMandato() {
           </div>
         ) : null}
 
-        <p className="font-space text-tinta-30 border-papel-borde mt-8 border-t pt-4 text-[10px] uppercase tracking-[0.1em]">
+        <p className="font-space text-tinta-50 border-papel-borde mt-8 border-t pt-4 text-[10px] uppercase tracking-[0.1em]">
           Fuentes: {data.voces.total.toLocaleString('es-AR')} voces del mapa ·{' '}
           {data.senales.clasificadas.toLocaleString('es-AR')} señales clasificadas ·{' '}
           {data.propuestas.length.toLocaleString('es-AR')} propuestas en votación · generado {fecha}

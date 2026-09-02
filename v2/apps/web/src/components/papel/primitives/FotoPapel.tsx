@@ -71,7 +71,7 @@ export function FotoPapel({
             PROPORCION_CLASSES[proporcion],
           )}
         >
-          <span className="font-space text-tinta-30 text-[10px] uppercase tracking-[0.16em]">
+          <span className="font-space text-tinta-50 text-[10px] uppercase tracking-[0.16em]">
             hueco reservado
           </span>
           <span className="font-space text-tinta-50 text-xs">{archivo}</span>

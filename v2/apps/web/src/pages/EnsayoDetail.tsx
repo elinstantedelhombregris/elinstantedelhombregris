@@ -34,7 +34,7 @@ function Eslabon({ vecino, lado }: { vecino: Vecino; lado: 'anterior' | 'siguien
       }`}
     >
       {vecino.cruzaCiclo ? (
-        <span className="text-tinta-30 block text-[10px] tracking-[0.1em]">
+        <span className="text-tinta-50 block text-[10px] tracking-[0.1em]">
           Ciclo {vecino.ciclo.romano} — {vecino.ciclo.rotulo}
         </span>
       ) : null}

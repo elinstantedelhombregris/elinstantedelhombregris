@@ -40,14 +40,14 @@ export function FilaIndiceExpandible({
         aria-expanded={abierta}
         aria-controls={idPanel}
         onClick={onToggle}
-        className="hover:bg-papel-presionado text-tinta grid w-full grid-cols-[56px_1fr_40px] items-baseline gap-5 px-2 py-4 text-left transition-colors duration-150 max-[560px]:grid-cols-[44px_1fr_32px]"
+        className="group hover:bg-papel-presionado text-tinta grid w-full grid-cols-[56px_1fr_40px] items-baseline gap-5 px-2 py-4 text-left transition-colors duration-150 max-[560px]:grid-cols-[44px_1fr_32px]"
       >
         <span className="font-space text-tinta-30 text-sm">{num}</span>
         <span className="min-w-0">{encabezado}</span>
         <span
           aria-hidden
           className={cn(
-            'font-space justify-self-end text-lg',
+            'font-space justify-self-end text-lg transition-colors group-hover:text-violeta',
             abierta ? 'text-violeta' : 'text-tinta-50',
           )}
         >

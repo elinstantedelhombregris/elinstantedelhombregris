@@ -85,6 +85,9 @@ describe('CifrasStrip', () => {
     expect(screen.queryByText(/círculos activos/)).not.toBeInTheDocument();
     // Exactly 5 tiles: voces, semillas, propuestas, señales, planes.
     expect(screen.getAllByRole('link')).toHaveLength(5);
+    // Con cero real el slot habla (§5): nunca un «0» gigante en la portada.
+    expect(screen.getAllByText('Todavía ninguna.')).toHaveLength(4);
+    expect(screen.queryByText('0')).not.toBeInTheDocument();
   });
 
   it('never shows the demo-data asterisk note — nothing demo remains in this strip', () => {

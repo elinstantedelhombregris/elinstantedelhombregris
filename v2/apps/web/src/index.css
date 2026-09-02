@@ -274,6 +274,21 @@
   }
 }
 
+/* El rito corre entero una vez por pestaña (spec 2026-09-01 §9). Con la
+   clase `rito-visto` en <html> las animaciones de ENTRADA llegan en su estado
+   final; las de interacción (stampin, dropin, growbar, fadeup-rapido) siguen
+   igual — solo el sello del hero pierde su espera de dos segundos. */
+.rito-visto .anim-inkfill,
+.rito-visto .anim-inkfill-claro,
+.rito-visto .anim-vpop,
+.rito-visto .anim-fadeup {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
+.rito-visto .anim-stampin {
+  animation-delay: 0s !important;
+}
+
 /* Edición impresa §10.8 — la serifa del sistema existe SOLO acá (D1).
    Primera implementación: el lector de planes (spec 2.4). Cada lector
    aplica .edicion-impresa a su documento y define su folio. */

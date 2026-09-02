@@ -74,7 +74,7 @@ export function PanelArea({ conteo, senales, cobertura, enlace, onLimpiar, oscur
 
       {porCapa.length > 0 ? (
         <section className="mb-5">
-          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>
+          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>
             Composición
           </h4>
           <ul className="space-y-1.5">
@@ -103,14 +103,14 @@ export function PanelArea({ conteo, senales, cobertura, enlace, onLimpiar, oscur
 
       {cobertura ? (
         <section className="mb-5">
-          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>
+          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>
             El mapa del silencio
           </h4>
           <p className={cn('text-[14px] leading-snug', oscuro ? 'text-oscuro-secundario' : 'text-tinta')}>
             De las {cobertura.total} celdas de esta área,{' '}
             <strong>{cobertura.mudas} están mudas</strong>. Nadie dijo nada ahí todavía.
           </p>
-          <p className={cn('font-space mt-1 text-[10px]', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>
+          <p className={cn('font-space mt-1 text-[10px]', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>
             Celdas de {cobertura.ladoMetros} m de lado.
           </p>
         </section>
@@ -118,7 +118,7 @@ export function PanelArea({ conteo, senales, cobertura, enlace, onLimpiar, oscur
 
       {temas.length > 0 ? (
         <section className="mb-5">
-          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>
+          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>
             Temas
           </h4>
           <ul className="flex flex-wrap gap-1.5">
@@ -131,20 +131,20 @@ export function PanelArea({ conteo, senales, cobertura, enlace, onLimpiar, oscur
               </li>
             ))}
           </ul>
-          <p className={cn('font-space mt-2 text-[10px]', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>{AVISO_TEMAS}</p>
+          <p className={cn('font-space mt-2 text-[10px]', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>{AVISO_TEMAS}</p>
         </section>
       ) : null}
 
       {contadas.length > 0 ? (
         <section className="mb-5">
-          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>
+          <h4 className={cn('font-space mb-2 text-[10px] uppercase tracking-[0.12em]', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>
             Lo que se dijo
           </h4>
           <ul className="max-h-[320px] space-y-2 overflow-y-auto">
             {contadas.slice(0, 200).map((senal) => (
               <li key={senal.id} className={cn('border-l-2 pl-3', oscuro ? 'border-oscuro-borde' : 'border-tinta/20')}>
                 <p className={cn('text-[14px] leading-snug', oscuro ? 'text-oscuro-secundario' : 'text-tinta')}>{senal.texto}</p>
-                <p className={cn('font-space mt-0.5 text-[10px] uppercase', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>
+                <p className={cn('font-space mt-0.5 text-[10px] uppercase', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>
                   {NOMBRE_CAPA[senal.capa]}
                   {senal.tipo ? ` · ${senal.tipo}` : ''}
                 </p>
@@ -152,7 +152,7 @@ export function PanelArea({ conteo, senales, cobertura, enlace, onLimpiar, oscur
             ))}
           </ul>
           {contadas.length > 200 ? (
-            <p className={cn('font-space mt-2 text-[10px]', oscuro ? 'text-oscuro-meta' : 'text-tinta-30')}>
+            <p className={cn('font-space mt-2 text-[10px]', oscuro ? 'text-oscuro-meta' : 'text-tinta-50')}>
               Se listan las primeras 200 de {contadas.length}. El conteo de arriba las incluye a
               todas.
             </p>
@@ -174,7 +174,7 @@ export function PanelArea({ conteo, senales, cobertura, enlace, onLimpiar, oscur
         <button
           type="button"
           onClick={onLimpiar}
-          className={cn('font-space text-[11px] uppercase tracking-[0.08em]', oscuro ? 'text-oscuro-meta hover:text-oscuro-texto' : 'text-tinta-30 hover:text-tinta')}
+          className={cn('font-space text-[11px] uppercase tracking-[0.08em]', oscuro ? 'text-oscuro-meta hover:text-oscuro-texto' : 'text-tinta-50 hover:text-tinta')}
         >
           borrar el área
         </button>

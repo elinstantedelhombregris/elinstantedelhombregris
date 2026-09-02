@@ -9,7 +9,9 @@ import { useVocesCount } from '~/lib/queries/analytics';
 /**
  * Capítulo III — sin líder, sin partido, sin excusas. Sección oscura.
  * Única métrica viva de la página: el conteo real de voces; si carga o
- * falla, la línea no se renderiza (regla de datos reales de la spec).
+ * falla, la línea no se renderiza (regla de datos reales de la spec). Con
+ * cero real la línea habla con las palabras del header (§5): un «0 voces»
+ * es un número que nadie dijo.
  */
 export function CapituloSinLider() {
   const vocesQuery = useVocesCount();
@@ -45,8 +47,9 @@ export function CapituloSinLider() {
             </p>
             {vocesQuery.data ? (
               <p className="font-space text-oscuro-meta mt-3 text-[11px] uppercase tracking-[0.12em]">
-                {vocesQuery.data.total.toLocaleString('es-AR')} voces ya están en el mapa.
-                Falta la tuya.
+                {vocesQuery.data.total === 0
+                  ? 'Nadie habló todavía. Empezá vos.'
+                  : `${vocesQuery.data.total.toLocaleString('es-AR')} voces ya están en el mapa. Falta la tuya.`}
               </p>
             ) : null}
           </div>

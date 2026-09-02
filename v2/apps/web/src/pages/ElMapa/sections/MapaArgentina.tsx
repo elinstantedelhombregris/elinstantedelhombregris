@@ -179,7 +179,7 @@ export function MapaArgentina() {
         />
       ) : null}
 
-      <p className="font-space text-tinta-30 mt-4 text-[10px] uppercase tracking-[0.12em]">
+      <p className="font-space text-tinta-50 mt-4 text-[10px] uppercase tracking-[0.12em]">
         {leyenda}
       </p>
     </div>

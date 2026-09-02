@@ -13,7 +13,7 @@ export function HombreGrisBand() {
     <section className="bg-oscuro-meta text-tinta">
       <div className="mx-auto grid max-w-[1440px] grid-cols-2 items-center gap-14 px-5 py-[72px] max-[960px]:grid-cols-1 min-[961px]:px-10">
         <div>
-          <Kicker color="papel" className="mb-5">
+          <Kicker color="tinta" className="text-tinta mb-5">
             § 02 — El origen
           </Kicker>
           <h2 className="font-anton mb-5 text-[clamp(40px,4.4vw,64px)] leading-[1.02]">
@@ -47,7 +47,7 @@ export function HombreGrisBand() {
               />
             ))}
           </div>
-          <div className="font-space text-papel text-[11px] uppercase tracking-[0.1em]">
+          <div className="font-space text-tinta text-[11px] uppercase tracking-[0.1em]">
             45 millones de grises. Alcanza uno que despierte por día.
           </div>
         </div>

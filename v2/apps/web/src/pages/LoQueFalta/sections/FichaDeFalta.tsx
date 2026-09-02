@@ -59,7 +59,7 @@ export function FichaDeFalta({ falta }: FichaDeFaltaProps) {
         {bajada ? 'Contenido retirado' : comoTextoPlano(falta.titulo)}
       </h1>
 
-      <div className="font-space text-tinta-30 mb-8 flex flex-wrap gap-x-5 gap-y-1 text-[11px] uppercase tracking-[0.08em]">
+      <div className="font-space text-tinta-50 mb-8 flex flex-wrap gap-x-5 gap-y-1 text-[11px] uppercase tracking-[0.08em]">
         <span>{etiquetaDeSuperficie(falta.superficie)}</span>
         <span>{falta.origen === 'adentro' ? 'la encontré yo' : 'la dejó alguien'}</span>
         <span>{fechaLarga(falta.creadaEn)}</span>

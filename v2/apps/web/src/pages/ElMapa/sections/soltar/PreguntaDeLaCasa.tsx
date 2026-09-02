@@ -63,7 +63,7 @@ export function PreguntaDeLaCasa({ valor, onCambio }: PreguntaDeLaCasaProps) {
             />
             <span>
               <span className="font-space text-tinta text-[13px] font-bold">{texto}</span>{' '}
-              <span className="font-space text-tinta-50 text-[11px]">{glosa}</span>
+              <span className="font-archivo text-tinta-75 text-[13px]">{glosa}</span>
             </span>
           </label>
         ))}

@@ -21,7 +21,7 @@ export function MigaDePan({ altitud, provincia, onVolver }: MigaDePanProps) {
   return (
     <nav
       aria-label="Dónde estás en el mapa"
-      className="font-space text-tinta-30 mb-3 flex items-center gap-2 text-[11px] uppercase tracking-[0.12em]"
+      className="font-space text-tinta-50 mb-3 flex items-center gap-2 text-[11px] uppercase tracking-[0.12em]"
     >
       {enPais ? (
         <span aria-current="page">Argentina</span>

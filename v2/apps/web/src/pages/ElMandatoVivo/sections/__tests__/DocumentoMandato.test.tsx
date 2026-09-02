@@ -175,6 +175,16 @@ describe('DocumentoMandato', () => {
     expect(screen.queryByText(/%/)).not.toBeInTheDocument();
   });
 
+  it('el sello EJEMPLO sale del flujo absoluto bajo 560px: en línea arriba del título, no encima (D-079)', () => {
+    armarMock(docVacio());
+    render(<DocumentoMandato />);
+
+    const marco = screen.getByText('Ejemplo').closest('div');
+    expect(marco).toHaveClass('absolute');
+    expect(marco).toHaveClass('max-[560px]:static');
+    expect(marco).toHaveClass('max-[560px]:mb-4');
+  });
+
   it('N chico (docChico N=16/M=3/P=1): EJEMPLO con su línea, régimen palitos y links reales', () => {
     armarMock(docChico());
     render(<DocumentoMandato />);

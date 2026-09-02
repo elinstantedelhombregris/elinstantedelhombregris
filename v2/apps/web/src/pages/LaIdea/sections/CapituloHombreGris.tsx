@@ -52,7 +52,7 @@ export function CapituloHombreGris() {
         </div>
 
         <aside className="border-tinta mt-10 max-w-[720px] border-l-2 pl-6">
-          <p className="font-space mb-3 text-[11px] uppercase tracking-[0.16em]">
+          <p className="font-space text-tinta mb-3 text-[11px] uppercase tracking-[0.16em]">
             Por qué el nombre largo
           </p>
           <p className="mb-3 text-pretty text-[15px] leading-relaxed">

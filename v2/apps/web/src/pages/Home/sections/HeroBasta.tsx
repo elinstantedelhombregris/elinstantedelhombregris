@@ -48,7 +48,7 @@ export function HeroBasta() {
         </div>
       ) : null}
 
-      <div className="border-tinta mt-5 grid grid-cols-[1.1fr_0.9fr] items-end gap-10 border-t pb-12 pt-7 max-[960px]:grid-cols-1">
+      <div className="border-tinta mt-5 flex flex-col gap-8 border-t pb-12 pt-7">
         <p
           className="anim-fadeup max-w-[560px] text-pretty text-[clamp(20px,2vw,27px)] font-medium leading-[1.35]"
           style={{ animationDelay: '1.1s' }}
@@ -60,7 +60,7 @@ export function HeroBasta() {
           </span>
         </p>
         <div
-          className="anim-fadeup flex flex-wrap justify-end gap-3 max-[960px]:justify-start"
+          className="anim-fadeup flex flex-wrap gap-3"
           style={{ animationDelay: '1.3s' }}
         >
           <BotonPapel asChild variant="violeta">

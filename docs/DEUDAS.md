@@ -1430,3 +1430,63 @@ El primer `it` del archivo busca un fragmento del cuerpo de la crónica del medi
 Lo caro no es la falla: es que todas las aserciones que vienen **después** de esa línea (la firma de autor y el backlink `← La bitácora`) nunca se ejecutan. El test aparenta cubrir la cabecera entera del lector y en realidad cubre hasta el cuerpo. Se verificó a mano que la firma renderiza, comentando esa línea.
 
 **Qué haría falta:** que `fragmentoDelCuerpo` devuelva un tramo que aparezca una sola vez, o que la búsqueda se acote al contenedor del cuerpo en vez de a todo el documento.
+
+### D-078 · El mapa se desborda en móvil: la barra de modos no cabe y la página entera scrollea de costado
+
+**Dónde:** `v2/apps/web/src/pages/ElMapa/instrumento/Chrome.tsx`
+**Encontrada:** 2026-09-01, auditoría de diseño y lectura del sitio en producción
+**Severidad:** alta
+**Estado:** resuelta
+**Resuelta:** 2026-09-01 — la barra de modos tiene `overflow-x-auto` y botones `shrink-0 whitespace-nowrap` (`Chrome.tsx`); a 390px el documento mide 390px. Test: `instrumento/__tests__/Chrome.test.tsx`.
+
+La fila de modos del instrumento —Mapa · Análisis · Línea de tiempo · Cobertura · Simulación— es una hilera fija de botones mono con padding ancho. A 390px de ancho no entra: el último botón queda afuera del viewport y estira el documento a 506px. El resultado no se queda en el mapa: **toda la página de El mapa scrollea horizontal en el teléfono**, el hero y el formulario incluidos, y el navegador dibuja el zoom inicial más chico para que quepa. Es la pantalla de conversión primaria del sitio y en móvil se ve rota antes de llegar al formulario.
+
+**Qué haría falta:** que la fila permita scroll horizontal propio (`overflow-x:auto`) o pase a dos líneas en el breakpoint móvil, y un test que mida `document.documentElement.scrollWidth` contra el viewport en 390px para que no vuelva.
+
+### D-079 · El sello EJEMPLO pisa el título del documento del mandato en móvil
+
+**Dónde:** `v2/apps/web/src/pages/ElMandatoVivo/sections/DocumentoMandato.tsx`
+**Encontrada:** 2026-09-01, misma auditoría
+**Severidad:** media
+**Estado:** resuelta
+**Resuelta:** 2026-09-01 — bajo 560px el sello sale del flujo absoluto y va en línea arriba del título, como en el lector de PLANes. Test en `DocumentoMandato.test.tsx`.
+
+El sello rojo va en posición absoluta arriba a la derecha del papel. En escritorio flota sobre el margen; a 390px cae encima de la línea de revisión y de la primera línea de «Mandato ciudadano — Argentina», y las dos cosas dejan de leerse. Es el primer documento que se ve en la página oscura, y el sello que dice «esto es un ejemplo» tapa justamente el título del ejemplo.
+
+**Qué haría falta:** en móvil, sacar el sello del flujo absoluto y ponerlo en línea arriba del título (como ya hace el lector de PLANes en `PlanDetail`, que en 390px lo muestra encima sin pisar nada).
+
+### D-080 · La portada dice «0» cinco veces, y el régimen de cifras dice que con cero se habla, no se numera
+
+**Dónde:** `v2/apps/web/src/pages/Home/sections/CifrasStrip.tsx` · `v2/apps/web/src/pages/LaIdea/` (cierre del capítulo III)
+**Encontrada:** 2026-09-01, misma auditoría
+**Severidad:** media
+**Estado:** resuelta
+**Resuelta:** 2026-09-01 — con cero real la franja dice «Todavía ninguna.» y el cierre de La idea «Nadie habló todavía. Empezá vos.» (las palabras del header). El «27» de planes se queda: es contenido, no participación.
+
+La franja de cifras de Inicio muestra cuatro «0» en Anton gigante (voces, semillas, propuestas, señales) al lado de un «27» en violeta. En móvil los cuatro ceros ocupan una pantalla entera. El capítulo III de La idea remata con «0 voces ya están en el mapa». El sistema de diseño (§5, «Cifra sin dato») es explícito: cuando la cifra es cero real, *el slot dice lo que pasa y nunca un número*. El resto del sitio ya cumple —el hero dice «Todavía no hay voces acá», el mapa dice «Todavía no habló nadie»— y la franja lo contradice en la misma pantalla. Un visitante nuevo lee cuatro ceros y un sello de «Prototipo · todavía sin voces» y concluye que el sitio está muerto, que es lo contrario de lo que el régimen quiere decir.
+
+**Qué haría falta:** pasar los tiles por `voces-regimen` como el resto: con cero, el tile dice en palabras que falta la primera; con dato, muestra el número. Y decidir si el «27» —que es un conteo de contenido en disco, no de participación— pertenece a la misma franja.
+
+### D-081 · Las notas al pie de los ensayos se ven crudas: «¡BASTA![^1]»
+
+**Dónde:** `v2/content/ensayos/arquitectura.mdx` (dos ocurrencias) y el pipeline MDX de `v2/apps/web`
+**Encontrada:** 2026-09-01, misma auditoría
+**Severidad:** baja
+**Estado:** resuelta
+**Resuelta:** 2026-09-01 — `renderMarkdown` entiende `[^id]` / `[^id]: texto`: superíndice con link y lista de notas al final con vuelta al texto. Test: `lib/__tests__/markdown.test.ts`.
+
+El ensayo «Una arquitectura para el hombre gris» usa la sintaxis de notas al pie de GFM (`[^1]`). El lector no la procesa, así que el marcador aparece literal en el cuerpo del texto y la nota no se renderiza en ninguna parte. Hay que revisar si otros `.mdx` del corpus lo usan antes de elegir el arreglo.
+
+**Qué haría falta:** o se habilita el soporte de notas al pie en el pipeline MDX (`remark-gfm` con `footnotes`), o se convierten las dos notas a paréntesis o a una sección «Notas» al final del ensayo.
+
+### D-082 · El lector de PLANes entrega 68.000 palabras en una sola página sin índice ni posición
+
+**Dónde:** `v2/apps/web/src/pages/PlanDetail.tsx`
+**Encontrada:** 2026-09-01, misma auditoría
+**Severidad:** media
+**Estado:** resuelta
+**Resuelta:** 2026-09-01 — `renderMarkdown` pone id a cada encabezado y `IndiceLector` (`components/papel/IndiceLector.tsx`) lista los h2 con scroll-spy: columna fija a la izquierda del papel en ≥1141px, `<details>` arriba del documento en angosto, «Sección n de N» como brújula, ancla en la URL al saltar.
+
+PLANAGUA renderizado mide 264.000 píxeles de alto: 31 secciones, 182 subtítulos y 119 tablas en un papel de 780px sobre fondo oscuro, y la única navegación es el header del sitio. No hay índice de secciones, no hay «dónde estoy», no hay salto a la siguiente sección, no hay ancla que se pueda compartir. El manifiesto sí tiene su fichero de 8 partes y la biblioteca su fichero scroll-spy: el PLAN, que es el documento más largo del sitio, es el único lector largo sin él. Un lector que quiere ir a «Modelo financiero» tiene que scrollear el equivalente a 290 pantallas.
+
+**Qué haría falta:** reutilizar el fichero scroll-spy de la biblioteca como índice lateral (fijo en escritorio, plegable en móvil) generado desde los `h2` del `.mdx`, con anclas por sección y la línea mono «Sección {n} de {total}» que el sistema ya usa en el stepper.

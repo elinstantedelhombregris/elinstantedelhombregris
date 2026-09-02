@@ -39,7 +39,7 @@ function Eslabon({ post, lado }: { post: BlogPost; lado: 'reciente' | 'antigua' 
           : 'text-tinta-50 hover:text-tinta'
       }`}
     >
-      <span className="text-tinta-30 block text-[10px] tracking-[0.1em]">
+      <span className="text-tinta-50 block text-[10px] tracking-[0.1em]">
         {antigua ? 'más antigua' : 'más reciente'}
       </span>
       {antigua ? `${post.title} →` : `← ${post.title}`}

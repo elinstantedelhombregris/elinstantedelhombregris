@@ -23,7 +23,7 @@ export function IndicePlanes() {
       encabezado={
         <span className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
           <span
-            className={`font-anton text-2xl tracking-[0.01em] ${abierto === plan.slug ? 'text-violeta' : 'text-tinta'}`}
+            className={`font-anton text-2xl tracking-[0.01em] transition-colors group-hover:text-violeta ${abierto === plan.slug ? 'text-violeta' : 'text-tinta'}`}
           >
             {plan.code}
           </span>
@@ -63,7 +63,7 @@ export function IndicePlanes() {
             El plan meta · fuera de la cuenta
           </h2>
           <div className="border-tinta border-t">{fila(PLAN_META, '00')}</div>
-          <p className="font-space text-tinta-30 mt-3 text-[10px] uppercase tracking-[0.12em]">
+          <p className="font-space text-tinta-50 mt-3 text-[10px] uppercase tracking-[0.12em]">
             PLANRUTA no es un plan más: es el manual de cómo arrancar los otros {PLAN_COUNT}.
           </p>
         </>

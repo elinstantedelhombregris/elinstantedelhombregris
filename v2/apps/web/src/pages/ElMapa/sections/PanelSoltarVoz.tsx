@@ -173,7 +173,7 @@ export function PanelSoltarVoz() {
             prometer una deliberación que no está construida sería peor que el
             silencio. */}
         {deliberacion === null ? null : (
-          <p className="border-violeta/40 text-tinta-75 mt-2.5 border-l-2 py-1 pl-3 text-[12px] leading-relaxed">
+          <p className="border-violeta/40 text-tinta-75 mt-2.5 border-l-2 py-1 pl-3 text-[13px] leading-relaxed">
             {deliberacion}
           </p>
         )}
@@ -219,7 +219,7 @@ export function PanelSoltarVoz() {
             ▾
           </span>
         </div>
-        <p className="font-space text-tinta-50 mt-1.5 text-[10px]">
+        <p className="font-archivo text-tinta-75 mt-1.5 text-[13px] leading-snug">
           Sin provincia tu voz cuenta igual, pero no cae en el mapa.
         </p>
 
@@ -240,7 +240,7 @@ export function PanelSoltarVoz() {
             }}
             className="mt-0.5 shrink-0"
           />
-          <span className="font-space text-tinta-75 text-[11px] leading-relaxed">
+          <span className="font-archivo text-tinta-75 text-[14px] leading-relaxed">
             {/* Las tres líneas van en su orden: de lo reversible a lo
                 irreversible. Importadas, nunca transcritas. */}
             {CONSENTIMIENTO_ANTES_DE_ENVIAR.map((linea) => (

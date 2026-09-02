@@ -45,7 +45,7 @@ export function SelectorDeTipo({ valor, onElegir }: SelectorDeTipoProps) {
             <span className="font-space text-tinta text-[11px] font-bold uppercase tracking-[0.14em]">
               {CLASE_ROTULO[clase]}
             </span>
-            <span className="font-space text-tinta-50 text-[10px]">{CLASE_GLOSA[clase]}</span>
+            <span className="font-archivo text-tinta-75 text-[13px]">{CLASE_GLOSA[clase]}</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {TIPOS_DE_CLASE[clase].map((tipo) => (
@@ -66,7 +66,7 @@ export function SelectorDeTipo({ valor, onElegir }: SelectorDeTipoProps) {
       ))}
 
       {valor === null ? null : (
-        <p className="font-space text-tinta-50 mt-1 text-[11px] leading-relaxed">
+        <p className="font-archivo text-tinta-75 mt-1 text-[13px] leading-relaxed">
           <span className="text-tinta-75 font-bold">{CLASE_ROTULO[claseDe(valor)]}.</span>{' '}
           {CUANDO_NO_ES[valor]}
         </p>

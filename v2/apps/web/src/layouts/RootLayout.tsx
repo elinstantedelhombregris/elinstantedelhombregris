@@ -11,6 +11,7 @@ import { PapelFooter } from '~/components/papel/PapelFooter';
 import { PapelHeader } from '~/components/papel/PapelHeader';
 import { PaperGrain } from '~/components/papel/PaperGrain';
 import { useIrAlPrincipio } from '~/lib/ir-al-principio';
+import { useRitoUnaVezPorSesion } from '~/lib/rito';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -22,11 +23,14 @@ interface RootLayoutProps {
  * resto conserva el chrome v1 hasta que le toque el rediseño.
  *
  * Acá vive el scroll de toda navegación (`useIrAlPrincipio`): es el único
- * componente que envuelve a las dos superficies, papel y v1.
+ * componente que envuelve a las dos superficies, papel y v1. Y acá se decide
+ * si el rito de la tinta corre o no (`useRitoUnaVezPorSesion`): una vez por
+ * pestaña, después la página llega leída.
  */
 export function RootLayout({ children }: RootLayoutProps) {
   const [location] = useLocation();
   useIrAlPrincipio();
+  useRitoUnaVezPorSesion();
 
   if (esRutaPapel(location)) {
     return (

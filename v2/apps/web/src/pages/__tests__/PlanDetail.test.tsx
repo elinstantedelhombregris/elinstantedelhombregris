@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Router } from 'wouter';
 import { memoryLocation } from 'wouter/memory-location';
@@ -100,6 +100,39 @@ describe('PlanDetail (página papel 2.4 — El ejemplo, el lector)', () => {
 
     const sello = screen.getByText('Ejemplo');
     expect(sello.className).not.toMatch(/print:hidden/);
+  });
+
+  it('índice del expediente (D-082): dos navs (columna ancha + plegado angosto) con un ancla por sección h2, y cada ancla existe', async () => {
+    renderAt('/planes/planjus');
+    await screen.findByRole('heading', {
+      name: 'PREÁMBULO — EL DERECHO A UNA JUSTICIA QUE FUNCIONE',
+    });
+
+    const indices = screen.getAllByRole('navigation', { name: 'Índice del expediente' });
+    expect(indices).toHaveLength(2);
+    const [columna, plegado] = indices;
+    if (!columna || !plegado) throw new Error('faltan índices');
+
+    const links = within(columna).getAllByRole('link');
+    expect(links.length).toBeGreaterThan(3);
+    expect(within(plegado).getAllByRole('link')).toHaveLength(links.length);
+    for (const link of links) {
+      const href = link.getAttribute('href') ?? '';
+      expect(href).toMatch(/^#./);
+      const destino = document.getElementById(href.slice(1));
+      expect(destino?.tagName).toBe('H2');
+    }
+    expect(within(columna).getByText(`${String(links.length)} secciones`)).toBeInTheDocument();
+    // El plegado entra cerrado y no se imprime.
+    expect(plegado.querySelector('details')?.open).toBe(false);
+    expect(plegado).toHaveClass('print:hidden');
+  });
+
+  it('mientras el cuerpo carga no hay índice: nada que listar todavía', () => {
+    renderAt('/planes/planjus');
+
+    expect(screen.getByText('Abriendo el expediente…')).toBeInTheDocument();
+    expect(screen.queryByRole('navigation', { name: 'Índice del expediente' })).not.toBeInTheDocument();
   });
 
   it('404 expediente: kicker, título Anton, sello Extraviado y CTA de vuelta', () => {

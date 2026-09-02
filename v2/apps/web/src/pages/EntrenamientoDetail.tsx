@@ -41,7 +41,7 @@ function Eslabon({ vecino, lado }: { vecino: VecinoCurso; lado: 'anterior' | 'si
       }`}
     >
       {vecino.cruzaGrupo ? (
-        <span className="text-tinta-30 block text-[10px] tracking-[0.1em]">
+        <span className="text-tinta-50 block text-[10px] tracking-[0.1em]">
           {vecino.grupo.rotulo}
         </span>
       ) : null}

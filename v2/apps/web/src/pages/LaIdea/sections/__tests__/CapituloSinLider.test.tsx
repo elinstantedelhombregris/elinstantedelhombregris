@@ -49,6 +49,18 @@ describe('CapituloSinLider', () => {
     expect(window.localStorage.getItem('basta_despierto')).toBe('1');
   });
 
+  it('con cero voces la línea habla con las palabras del header, nunca «0 voces» (D-080)', () => {
+    mockedUseVocesCount.mockReturnValue({
+      data: { total: 0 },
+      isLoading: false,
+      isError: false,
+    } as ReturnType<typeof useVocesCount>);
+    render(<CapituloSinLider />);
+
+    expect(screen.getByText('Nadie habló todavía. Empezá vos.')).toBeInTheDocument();
+    expect(screen.queryByText(/0 voces/)).not.toBeInTheDocument();
+  });
+
   it('si el conteo carga o falló, la línea no aparece — jamás un número inventado', () => {
     mockedUseVocesCount.mockReturnValue({
       data: undefined,

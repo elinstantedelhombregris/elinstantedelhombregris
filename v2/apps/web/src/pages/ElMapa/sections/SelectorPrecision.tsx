@@ -115,7 +115,7 @@ export function SelectorPrecision({ valor, onCambio }: SelectorPrecisionProps) {
         </button>
       )}
 
-      <p className="font-space text-tinta-50 mt-1.5 text-[10px] leading-relaxed">
+      <p className="font-archivo text-tinta-75 mt-1.5 text-[13px] leading-relaxed">
         {gps === 'negado'
           ? 'No nos diste permiso, y está perfecto. Tu voz cae igual en tu provincia.'
           : gps === 'sin-soporte'

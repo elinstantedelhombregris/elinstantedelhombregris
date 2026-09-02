@@ -22,7 +22,7 @@ export function BarraModos({ activo, onCambiar }: { activo: Modo; onCambiar: (m:
   return (
     <nav
       aria-label="Modos del instrumento"
-      className="border-oscuro-borde bg-oscuro-barra flex items-stretch gap-0 border-b"
+      className="border-oscuro-borde bg-oscuro-barra flex items-stretch gap-0 overflow-x-auto border-b"
     >
       {MODOS.map((modo) => (
         <button
@@ -33,7 +33,7 @@ export function BarraModos({ activo, onCambiar }: { activo: Modo; onCambiar: (m:
             onCambiar(modo.id);
           }}
           className={cn(
-            'font-space relative px-5 py-3.5 text-[11px] uppercase tracking-[0.14em] transition-colors',
+            'font-space relative shrink-0 whitespace-nowrap px-5 py-3.5 text-[11px] uppercase tracking-[0.14em] transition-colors max-[560px]:px-4',
             'focus-visible:ring-violeta-claro outline-none focus-visible:ring-2',
             activo === modo.id
               ? 'text-oscuro-texto'

@@ -27,8 +27,8 @@ Tinta (texto sobre claro)
 - `#16130E` tinta — títulos, texto principal, bordes duros, botones oscuros
 - `#33302A` tinta 90 — cuerpo de lectura
 - `#4A463D` tinta 75 — cuerpo secundario
-- `#7A756A` tinta 50 — metadatos, kickers neutros
-- `#B5B1A8` tinta 30 — numeración, notas al pie, deshabilitado
+- `#6B665C` tinta 50 — metadatos, kickers neutros (4,97:1 sobre papel: AA para texto chico; antes `#7A756A`, que no llegaba)
+- `#B5B1A8` tinta 30 — numeración y deshabilitado. Es decorativo (1,9:1): nunca para texto que haya que leer, ni siquiera metadatos
 
 Página oscura (El mandato, bandas CTA, footer)
 - fondo `#16130E` · texto `#F2EFE7` · secundario `#C9C5BA` · meta `#8E8A82` · tenue `#5C594F` · bordes `#3A362D` · barras vacías `#241F17`
@@ -172,7 +172,7 @@ Páginas de error
 ## 6. Motion
 
 Keyframes canónicos (en `<helmet><style>`): `inkfill` (letras que se entintan), `inkfill-claro` (variante de `inkfill` para páginas oscuras, gris tenue `#5C594F` → papel `#F2EFE7`), `vpop`, `fadeup`, `marquee`, `pulse-dot` (puntos del mapa), `dropin`, `growbar`, `blink-cursor` (cursor ▌), `stampin`, `semgrow`+`leafpop` (semilla). En la app los nombres canónicos son los de `index.css`; los especímenes `.dc.html` conservan los nombres viejos. En página oscura el rito entinta hacia papel (`inkfill-claro`); los signos ¡ ! caen en violeta-claro.
-Presupuesto: **una interacción firma por página**; el resto entra con `fadeup` escalonado (delays .1–.3s). Nada de parallax, 3D ni gradientes animados. El recurso narrativo maestro: **gris → color** (grayscale que se llena de color al despertar).
+Presupuesto: **una interacción firma por página**; el resto entra con `fadeup` escalonado (delays .1–.3s). Las entradas (`inkfill`, `vpop`, `fadeup`) corren enteras **una vez por pestaña**: desde la siguiente navegación la clase `rito-visto` en `<html>` las lleva a duración cero y la página llega leída (`lib/rito.ts`). Nada de parallax, 3D ni gradientes animados. El recurso narrativo maestro: **gris → color** (grayscale que se llena de color al despertar).
 
 ## 7. Voz y contenido
 
