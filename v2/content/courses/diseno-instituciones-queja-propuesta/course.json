@@ -1,11 +1,11 @@
 {
   "slug": "diseno-instituciones-queja-propuesta",
   "title": "Diseño de Instituciones: De la Queja a la Propuesta",
-  "description": "Pasa de quejarte del sistema a proponer mejoras concretas. Aprendé a redactar proyectos legislativos, organizar audiencias públicas, construir coaliciones transversales, y usar mecanismos de democracia directa.",
+  "description": "Pasá de quejarte del sistema a proponer mejoras concretas. Aprendé a redactar proyectos legislativos, organizar audiencias públicas, construir coaliciones transversales, y usar mecanismos de democracia directa.",
   "excerpt": "Aprendé a diseñar y proponer mejoras institucionales concretas.",
   "category": "civica",
   "level": "advanced",
-  "duration": 20,
+  "duration": 33,
   "orderIndex": 25,
   "isPublished": true,
   "isFeatured": false,
@@ -16,70 +16,70 @@
       "key": "02-de-quejarse-a-proponer-el-cambio-de-mentalidad",
       "title": "De Quejarse a Proponer: El Cambio de Mentalidad",
       "description": "Pasar de la queja al diseño de soluciones institucionales.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-analisis-institucional-diagnosticar-antes-de-proponer",
       "title": "Análisis Institucional: Diagnosticar Antes de Proponer",
       "description": "Herramientas para analizar por qué una institución no funciona.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-diseno-de-politicas-publicas-los-fundamentos",
       "title": "Diseño de Políticas Públicas: Los Fundamentos",
       "description": "Principios básicos para diseñar políticas públicas efectivas.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 3
     },
     {
       "key": "05-redaccion-de-proyectos-legislativos",
       "title": "Redacción de Proyectos Legislativos",
       "description": "Cómo se estructura y redacta un proyecto de ley u ordenanza.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-coaliciones-transversales-construir-poder-sin-partido",
       "title": "Coaliciones Transversales: Construir Poder sin Partido",
       "description": "Cómo construir alianzas amplias para impulsar cambios institucionales.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 5
     },
     {
       "key": "07-iniciativa-popular-proyectos-de-ley-ciudadanos",
       "title": "Iniciativa Popular: Proyectos de Ley Ciudadanos",
       "description": "Cómo usar el mecanismo constitucional de iniciativa popular.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 6
     },
     {
       "key": "08-presupuesto-participativo-disenar-la-inversion-local",
       "title": "Presupuesto Participativo: Diseñar la Inversión Local",
       "description": "Cómo funciona y cómo implementar el presupuesto participativo.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 7
     },
     {
       "key": "09-tecnologia-civica-herramientas-digitales-para-el-cambio",
       "title": "Tecnología Cívica: Herramientas Digitales para el Cambio",
       "description": "Plataformas y herramientas digitales para la participación y el control.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-comunicar-tu-propuesta-de-la-idea-al-apoyo-publico",
       "title": "Comunicar Tu Propuesta: De la Idea al Apoyo Público",
       "description": "Cómo comunicar propuestas institucionales para generar apoyo.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-tu-propuesta-institucional-proyecto-final",
       "title": "Tu Propuesta Institucional: Proyecto Final",
       "description": "Diseñar una propuesta institucional concreta y un plan para implementarla.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     }
   ],

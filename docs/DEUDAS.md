@@ -59,16 +59,16 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | **Resuelta** |
 | [D-050](#d-050--el-borde-del-recorte-de-teselas-se-ve-en-el-agua) | El borde del recorte de teselas se ve en el agua | Baja | Abierta |
 | [D-051](#d-051--el-pmtiles-de-12-gb-no-está-publicado-en-ningún-lado) | El `.pmtiles` de 1,2 GB no está publicado en ningún lado | Alta | Abierta |
-| [D-052](#d-052--el-37-del-corpus-de-entrenamientos-es-texto-generado-y-repetido) | El 37% del corpus de entrenamientos es texto generado y repetido | Alta | Abierta |
+| [D-052](#d-052--el-37-del-corpus-de-entrenamientos-es-texto-generado-y-repetido) | El 37% del corpus de entrenamientos es texto generado y repetido | Alta | **Resuelta** |
 | [D-053](#d-053--el-catálogo-anunciaba-53-horas-de-entrenamiento-y-se-lee-en-16--resuelta) | El catálogo anunciaba 53 horas de entrenamiento y se lee en 16 | Alta | **Resuelta** |
-| [D-054](#d-054--la-mitad-de-las-lecciones-está-escrita-en-tuteo-y-no-en-rioplatense) | La mitad de las lecciones está escrita en tuteo, y no en rioplatense | Media | **Parcial** |
-| [D-055](#d-055--contentfile-no-resuelve-en-ninguna-de-las-329-lecciones-y-el-schema-lo-exige) | `contentFile` no resuelve en ninguna de las 329 lecciones, y el schema lo exige | Media | Abierta |
-| [D-056](#d-056--ninguna-lección-cita-una-fuente-ni-nombra-un-plan) | Ninguna lección cita una fuente ni nombra un PLAN | Alta | Abierta |
+| [D-054](#d-054--la-mitad-de-las-lecciones-está-escrita-en-tuteo-y-no-en-rioplatense) | La mitad de las lecciones está escrita en tuteo, y no en rioplatense | Media | **Resuelta** |
+| [D-055](#d-055--contentfile-no-resuelve-en-ninguna-de-las-329-lecciones-y-el-schema-lo-exige) | `contentFile` no resuelve en ninguna de las 329 lecciones, y el schema lo exige | Media | **Resuelta** |
+| [D-056](#d-056--ninguna-lección-cita-una-fuente-ni-nombra-un-plan) | Ninguna lección cita una fuente ni nombra un PLAN | Alta | **Resuelta** |
 | [D-057](#d-057--la-política-de-privacidad-espera-tres-datos-que-sólo-puede-dar-el-dueño) | La política de privacidad espera tres datos que sólo puede dar el dueño | Media | Abierta |
 | [D-058](#d-058--un-cron-que-falla-no-le-avisa-a-nadie-y-ahora-uno-de-ellos-sostiene-una-promesa-legal) | Un cron que falla no le avisa a nadie, y ahora uno de ellos sostiene una promesa legal | Media | Abierta |
 | [D-059](#d-059--la-csp-del-documento-necesita-unsafe-inline-en-los-estilos-y-el-hosting-estático-no-deja-sacarlo) | La CSP del documento necesita `'unsafe-inline'` en los estilos, y el hosting estático no deja sacarlo | Baja | Abierta |
 | [D-060](#d-060--la-suite-de-integración-de-la-api-no-la-linta-nadie) | La suite de integración de la API no la linta nadie | Baja | Abierta |
-| [D-061](#d-061--153-lecciones-usan-encabezados-más-profundos-que-los-dos-que-el-plan-permite) | 153 lecciones usan encabezados más profundos que los dos que el plan permite | Baja | Abierta |
+| [D-061](#d-061--153-lecciones-usan-encabezados-más-profundos-que-los-dos-que-el-plan-permite) | 153 lecciones usan encabezados más profundos que los dos que el plan permite | Baja | **Resuelta** |
 | [D-025](#d-025--tsc-de-la-app-de-campo-está-en-rojo-por-una-fuga-de-typesreact18) | tsc de la app de campo está en rojo por una fuga de @types/react@18 | Baja | **Resuelta** |
 | [D-026](#d-026--no-hay-población-por-celda-así-que-el-brillo-del-mapa-no-se-puede-normalizar-todavía) | No hay población por celda, así que el brillo del mapa no se puede normalizar todavía | Media | Abierta |
 | [D-027](#d-027--dos-librerías-de-mapa-en-v2-contra-la-regla-de-una-sola-de-cada-cosa) | Dos librerías de mapa en v2, contra la regla de una sola de cada cosa | Media | Abierta |
@@ -104,6 +104,10 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-088](#d-088--el-brillo-dibujado-es-invertible-delata-cuánta-gente-habló-en-una-celda) | El brillo dibujado es invertible: delata cuánta gente habló en una celda | Alta | Abierta |
 | [D-089](#d-089--el-nivel-departamento-del-modo-análisis-sigue-apagado-aunque-la-geometría-ya-está) | El nivel departamento del modo Análisis sigue apagado aunque la geometría ya está | Media | Abierta |
 | [D-090](#d-090--las-voces-resueltas-por-punto-antes-del-cambio-de-geometría-conservan-la-provincia-vieja) | Las voces resueltas por punto antes del cambio de geometría conservan la provincia vieja | Media | Abierta |
+| [D-091](#d-091--los-cuerpos-de-las-lecciones-traen-cifras-sin-fuente-e-historias-reales-que-nadie-puede-verificar) | Los cuerpos de las lecciones traen cifras sin fuente e «historias reales» que nadie puede verificar | Alta | Abierta |
+| [D-092](#d-092--cinco-planes-afirman-datos-que-sus-fuentes-contradicen) | Cinco PLANes afirman datos que sus fuentes contradicen | Media | Abierta |
+| [D-093](#d-093--la-voz-editorial-del-curso-contradice-lo-que-el-curso-enseña) | La voz editorial del curso contradice lo que el curso enseña | Baja | Abierta |
+| [D-094](#d-094--entrenamientosminutaje---escribir-reescribe-todo-el-corpus-aunque-cambie-una-lección) | `entrenamientos:minutaje --escribir` reescribe todo el corpus aunque cambie una lección | Baja | Abierta |
 
 ---
 
@@ -364,6 +368,56 @@ Lo que corresponde es un branch de Neon efímero por corrida, o al menos una bas
 Lo que sí funcionó el 22/9, sin integrarlo todavía: un Postgres local descartable (`initdb` + las migraciones de `packages/db`) y un `setupFile` de vitest que le pasa al driver `neon-http` un `fetchFunction` hacia `pg`. Con eso la suite entera corre local (277 verdes). Integrarlo como `pnpm test:integration:local` es lo que cerraría esta deuda.
 
 ---
+
+### D-091 · Los cuerpos de las lecciones traen cifras sin fuente e «historias reales» que nadie puede verificar
+
+**Dónde:** `v2/content/courses/*/*.mdx`, el cuerpo (no los cierres)
+**Encontrada:** 2026-09-22, por los 31 agentes que escribieron los cierres del Ciclo 1, que tenían orden de reportar y no reescribir
+**Severidad:** alta
+**Estado:** abierta
+
+El Ciclo 1 le puso fuente al cierre; el cuerpo quedó como vino de v1. Los errores de hecho que se pudieron comprobar se corrigieron el mismo día (Gabino Ezeiza era payador; Punto Final es anterior a los carapintadas; el cepo terminó para personas en abril de 2025; ABSA no abastece Quilmes; Fowler no es de Harvard; los equilibrios de Nash de `teoria-juegos` módulo 2 estaban mal calculados; «defeca» por «defecta»; la inflación de 2023 fue 211,4% y no 150%; y unas cuarenta más). Queda lo que no se puede corregir sin investigar:
+
+- **«Historia Real» sin fuente, presentadas como testimonio:** Marta Sánchez, Ramiro Gutiérrez y Graciela Mendoza (`caja-herramientas`); la maestra de Villa Lugano y la asamblea de Mendoza (`liderazgo-distribuido`); Jorge, María y Graciela (`resiliencia-y-proposito`); la familia Romero, cuyas edades no cierran (`la-metamorfosis`); Lucía Ferreyra, Diego Romero y Estela Giménez (`gestion-proyectos`); la periodista de Corrientes (`narrativas`); los casos «Bahía Confianza», «Consorcio Ruta 3» y el laboratorio de crédito de Santa Fe (`teoria-juegos`). O se consigue la fuente, o se reescriben como ejemplos declarados («imaginá a…»).
+- **Cifras sin fuente escritas como hechos:** «menos del 20% confía en la mayoría» (`comunicar-sin-polarizar`), «el analfabetismo cayó del 77% al 35%» y «YPF, la primera petrolera estatal del mundo» (`argentina-1810-1945`), «más de 160 impuestos», «3,5 millones de empleados públicos», «más unicornios per cápita» (`sistemas-economicos`), «la economía social es el 10% del PBI», «25.000 cooperativas» (`economia-familiar`), «el 80% cierra antes de los 3 años» (`emprendimiento`), los porcentajes por plataforma (`narrativas`), «más de 50 municipios con presupuesto participativo» (`diseno-instituciones`), «300.000 niños sin transporte escolar» (`narrativas`), y los porcentajes de productividad de casos anónimos (`diseno-idealizado`).
+- **Datos que envejecieron:** «Defensoría vacante desde 2009» (en 2025 se abrió la selección); Télam como medio público; las PASO como obligatorias; la Corte con «5 miembros»; «tasas del 150%»; montos en pesos sin fecha (`sobrevivir-prosperar`, `emprendimiento`).
+
+**Qué haría falta:** una pasada por curso con el mismo método del Ciclo 1 —abrir la fuente o sacar la afirmación— empezando por las «historias reales», que son las que más confianza piden y menos tienen.
+
+### D-092 · Cinco PLANes afirman datos que sus fuentes contradicen
+
+**Dónde:** `v2/content/planes/` (y su taller en `Iniciativas Estratégicas/`)
+**Encontrada:** 2026-09-22, por los agentes del Ciclo 1 al verificar los puentes
+**Severidad:** media
+**Estado:** abierta
+
+- `PLANVIV.mdx:158`: el RENABAP fue «creado en 2018 por ley 27.453». Lo creó el Decreto 358/2017; la ley es de 2018.
+- `PLANTER.mdx`: sigue hablando de la emergencia de la Ley 26.160 sin decir que el Decreto 1083/2024 la dio por terminada.
+- `PLAN24CN.mdx:149`: La Plata «diseñada por Pedro Benoit». La página oficial del monumento dice que atribuírsela sólo a él es un error: el trazado fue del Departamento de Ingenieros y las diagonales de Juan Martín Burgos.
+- `PLANSAL.mdx:197`: 64,9% de actividad física insuficiente «según la ENFR 2018/2019». La ENFR 2018 del INDEC da 44,2% (54,7% en 2013).
+- `PLANMON.mdx:47`: el corralito «se firmó el 3/12/2001». El Decreto 1570/2001 es del 1/12/2001.
+
+No se tocaron acá porque los `.mdx` de los PLANes se derivan del taller y editarlos a mano rompe `planes:check` (D-076). Se corrigen en el taller y se re-deriva.
+
+### D-093 · La voz editorial del curso contradice lo que el curso enseña
+
+**Dónde:** `argentina-sistema-viviente-primeros-principios`, `niveles-superiores-pensamiento-conciencia`, `la-vision-de-transformacion`, `inteligencia-emocional-tiempos-turbulentos`
+**Encontrada:** 2026-09-22, Ciclo 1
+**Severidad:** baja
+**Estado:** abierta
+
+- **Frases del Hombre Gris en tuteo** («Optimiza tu barrio, y contribuyes…», «No cambies personas, cambia sistemas»): van entre comillas y la regla de voseo no toca citas, pero no son citas de nadie — son la voz de la casa.
+- **Niveles como rangos:** tres lecciones de `niveles-superiores` hablan de «salto cuántico» y «avance en la evolución de la conciencia» cuando el curso dice que las perspectivas son lentes, no escalones.
+- **Neurociencia de manual de autoayuda:** «el cerebro no distingue entre vivir y visualizar», «la visión programa tu RAS», «pensar a cinco años desactiva la amígdala», el cerebro reptiliano, oxitocina y cortisol como interruptores. Se corrigieron las afirmaciones con cita equivocada (Walker, Blumenthal, Duhigg/Clear); las demás piden reescritura con fuente, no un parche.
+
+### D-094 · `entrenamientos:minutaje --escribir` reescribe todo el corpus aunque cambie una lección
+
+**Dónde:** `v2/scripts/content/entrenamientos-minutaje.ts`
+**Encontrada:** 2026-09-22, corriendo el Ciclo 1 con 20 agentes editando lecciones en paralelo
+**Severidad:** baja
+**Estado:** abierta
+
+Reescribe las 329 `.mdx` (para sacar `estimatedMinutes`, que ya no existe en ninguna) y los 31 `course.json` con `JSON.stringify`, que no es el formato de prettier: cada corrida deja diez archivos cambiados sólo de forma, y con otros editando al mismo tiempo puede pisar una escritura en vuelo. Se evitó con un script temporal limitado a los cursos terminados. **Qué haría falta:** que acepte cursos como argumento, que no toque las `.mdx` y que formatee con prettier.
 
 ## Resueltas
 
@@ -1061,7 +1115,9 @@ Es también la que traba a [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-
 **Dónde:** `v2/content/courses/*/*.mdx` — 320 de las 329 lecciones
 **Encontrada:** 2026-08-12, midiendo el corpus antes de proponer mejoras de contenido
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** La cola de las cinco secciones se borró el 13/8 (`893421ee`). Lo que quedaba —el párrafo repetido hasta cuatro veces en siete lecciones de `teoria-juegos`, el `### Nuevo SVG` sin SVG, encabezados vacíos y párrafos duplicados sueltos en otros cursos— se limpió en el Ciclo 1 (22/9), curso por curso. `entrenamientos:check` vigila las dos huellas de la cola.
 
 Las lecciones terminan con las mismas cinco secciones —«Aplicación práctica», «Cómo se ve en el territorio», «Errores comunes», «Ejercicio guiado», «Idea fuerza»— copiadas casi textualmente, con una sola variable rellenada (el ámbito del curso: «tu municipio, tu provincia» o «tu hogar, tus ingresos») y el `summary` de la lección pegado al principio. Hay **tres generaciones** distintas del mismo relleno: una con encabezados `###` en 205 lecciones, otra con `##` en 108, y una tercera en 7 lecciones de `teoria-juegos` (`Aplicación argentina` / `Errores comunes` / `Ejercicio de aplicación` / `Cierre`, con el `Cierre` byte-idéntico en las 7). La tercera apareció recién al construir el detector: la primera versión veía dos, y en esas 7 lecciones un «Errores comunes» de la tercera tapaba la cola de la primera.
 
@@ -1097,7 +1153,9 @@ Verificado en pantalla, que es lo único que demuestra que cambió lo que ve una
 **Dónde:** `v2/content/courses/*/*.mdx` — 151 lecciones
 **Encontrada:** 2026-08-12, en la misma medición del corpus
 **Severidad:** media
-**Estado:** **parcialmente resuelta 2026-08-13** — la lista dura ya corrió sobre todo el corpus; la blanda queda reportada para revisión humana
+**Estado:** ~~a medias~~ → **resuelta 2026-09-22**
+
+**Resolución.** La lista blanda se adjudicó a mano, curso por curso, en el Ciclo 1: de 1.870 casos quedan 380 coincidencias y todas son tercera persona («el sistema cambia», «la ley establece») o citas. Los `summary` tuteados de cinco cursos pasaron a voseo. Lo que sigue abierto es de otra naturaleza —frases del Hombre Gris escritas en tuteo— y está en D-093.
 
 775 apariciones de formas verbales e imperativos de tuteo («tienes», «puedes», «identifica», «resume», «elige») en 151 lecciones, y **90 lecciones mezclan tú y vos en el mismo cuerpo**. El `CLAUDE.md` pide rioplatense en todo el texto de cara al usuario. Buena parte viene del relleno de [D-052](#d-052--el-37-del-corpus-de-entrenamientos-es-texto-generado-y-repetido), que está íntegramente en tuteo neutro, pero no todo: quedan cuerpos propios mezclados.
 
@@ -1130,7 +1188,7 @@ Una porción grande de esos 1.870 —no medida con precisión, pero visiblemente
 **Dónde:** `v2/content/courses/*/course.json`, `packages/shared/src/content/courses.ts:25`
 **Encontrada:** 2026-08-12, verificando qué campos de la fuente tienen lector
 **Severidad:** media
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta** (verificado 2026-09-22) — `contentFile` salió de los 31 `course.json` en `c6ab351e`; nadie había marcado la entrada.
 
 Las 329 entradas de `lessons[]` declaran `contentFile: "lessons/NN-NN-….md"`, rutas del árbol de v1 que en v2 **no existen** — los cuerpos están en la raíz del directorio del curso y son `.mdx`. El campo está declarado como requerido en el schema Zod, así que v2 valida un dato que apunta a la nada en el 100% de los casos. La página funciona porque el registry deriva el slug de `key` y nunca abre `contentFile`.
 
@@ -1143,7 +1201,9 @@ Sus únicos lectores son `scripts/content/migrate-courses-v1-to-v2.ts` y `script
 **Dónde:** `v2/content/courses/*/*.mdx` — las 329
 **Encontrada:** 2026-08-12, buscando enlaces y citas en el corpus
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** Ciclo 1, tareas 13 a 15: las 329 lecciones tienen cierre (190 completos, 139 sólo puente) y ninguna queda `pendiente`. **Las 329 enlazan un PLAN o un ensayo** que dice lo que el puente afirma —se leyó el destino antes de enlazar—. **248 lecciones citan fuentes**: 492 citas, 386 URLs distintas, todas abiertas antes de citarse (InfoLeg, Boletín Oficial, INDEC, BCRA, CSJN, argentina.gob.ar, diarios nacionales), y 50 llevan `revisarAntesDe` por datos perecederos. El lector muestra las fuentes bajo el cuerpo (`FuentesDeLeccion`). Las 81 lecciones sin fuentes son las que sólo llevan puente porque ya cerraban con su propio ejercicio: su cierre no afirma datos, pero su **cuerpo** sí puede — eso es D-091.
 
 En 329 lecciones y 174.073 palabras propias: **cero links** (internos o externos, salvo dos SVG), **cero menciones a un PLAN**, y sólo **10 lecciones** nombran una ley, un artículo o al INDEC. El corpus más grande del proyecto no toca el corpus doctrinal —26 PLANes, cuatro ciclos de ensayos, la crónica, la Radiografía— y no ofrece una sola manera de verificar lo que afirma.
 
@@ -1227,7 +1287,7 @@ Medido con `npx eslint tests` desde `apps/api`: **293 errores en 23 de 28 archiv
 **Dónde:** `v2/content/courses/` — 153 de las 329 lecciones
 **Encontrada:** 2026-08-13, en la revisión del borrado de la cola generada (Tarea 5 del Ciclo 1). Salió de contar encabezados en el corpus ya cortado, no de leer el plan
 **Severidad:** baja
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta** (verificado 2026-09-22) — cero encabezados por debajo de `###` desde la poda estructural (`cfdca231`), y `entrenamientos:check` lo vigila.
 
 El plan del Ciclo 1 de entrenamientos fija que el cuerpo de una lección usa `##` y `###`, y nada más. Medido sobre el corpus después del corte: **153 lecciones tienen encabezados `####` o más profundos, y 13 usan `#`**, que compite con el `<h1>` que la página ya pone con el título de la lección.
 

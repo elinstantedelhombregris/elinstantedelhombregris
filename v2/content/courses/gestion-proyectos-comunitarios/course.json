@@ -5,7 +5,7 @@
   "excerpt": "Gestiona proyectos comunitarios con profesionalismo y corazón.",
   "category": "action",
   "level": "intermediate",
-  "duration": 36,
+  "duration": 51,
   "orderIndex": 21,
   "isPublished": true,
   "isFeatured": false,
@@ -16,42 +16,42 @@
       "key": "02-anatomia-de-un-proyecto-del-sueno-al-plan",
       "title": "Anatomía de un Proyecto: Del Sueño al Plan",
       "description": "Los componentes esenciales de un proyecto comunitario bien diseñado.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-presupuestos-comunitarios-cuanto-cuesta-cambiar-el-mundo",
       "title": "Presupuestos Comunitarios: Cuánto Cuesta Cambiar el Mundo",
       "description": "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 2
     },
     {
       "key": "04-coordinacion-de-voluntarios-liderar-sin-mandar",
       "title": "Coordinación de Voluntarios: Liderar Sin Mandar",
       "description": "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-escritura-de-propuestas-para-fondos",
       "title": "Escritura de Propuestas para Fondos",
       "description": "Cómo redactar propuestas que consigan financiamiento.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-estructuras-legales-formalizar-sin-burocratizarse",
       "title": "Estructuras Legales: Formalizar Sin Burocratizarse",
       "description": "Opciones legales para dar marco institucional a tu proyecto comunitario.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-comunicacion-del-proyecto-contar-tu-historia",
       "title": "Comunicación del Proyecto: Contar Tu Historia",
       "description": "Cómo comunicar tu proyecto para atraer aliados, fondos y visibilidad.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -65,21 +65,21 @@
       "key": "09-alianzas-estrategicas-no-reinventes-la-rueda",
       "title": "Alianzas Estratégicas: No Reinventes la Rueda",
       "description": "Cómo articular con otros actores para multiplicar el impacto.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 8
     },
     {
       "key": "10-sostenibilidad-que-tu-proyecto-sobreviva-a-tu-entusiasmo",
       "title": "Sostenibilidad: Que Tu Proyecto Sobreviva a Tu Entusiasmo",
       "description": "Cómo hacer que un proyecto comunitario perdure más allá de sus fundadores.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-tu-proyecto-empieza-hoy-de-la-leccion-a-la-accion",
       "title": "Tu Proyecto Empieza Hoy: De la Lección a la Acción",
       "description": "Integrar todo lo aprendido en el diseño de tu propio proyecto comunitario.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     },
     {

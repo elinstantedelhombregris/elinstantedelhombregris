@@ -5,7 +5,7 @@
   "excerpt": "Construí resiliencia económica desde tu familia y tu barrio.",
   "category": "economia",
   "level": "intermediate",
-  "duration": 40,
+  "duration": 49,
   "orderIndex": 15,
   "isPublished": true,
   "isFeatured": false,
@@ -16,21 +16,21 @@
       "key": "02-la-economia-invisible-lo-que-pasa-dentro-de-tu-casa",
       "title": "La Economía Invisible: Lo Que Pasa Dentro de Tu Casa",
       "description": "Descubrir que tu hogar es una economía completa con producción, distribución y decisiones estratégicas.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 1
     },
     {
       "key": "03-ahorrar-en-argentina-el-arte-de-lo-imposible",
       "title": "Ahorrar en Argentina: El Arte de lo \"Imposible\"",
       "description": "Estrategias reales de ahorro adaptadas a la inflación y la volatilidad argentina.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 2
     },
     {
       "key": "04-deuda-inteligente-vs-deuda-toxica",
       "title": "Deuda Inteligente vs. Deuda Tóxica",
       "description": "Entender la diferencia entre deuda que te construye y deuda que te destruye.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 3
     },
     {
@@ -44,14 +44,14 @@
       "key": "06-circulos-de-ahorro-y-credito-finanzas-entre-vecinos",
       "title": "Círculos de Ahorro y Crédito: Finanzas entre Vecinos",
       "description": "El poder ancestral de las tandas, roscas y círculos de ahorro comunitario.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 5
     },
     {
       "key": "07-cooperativismo-la-empresa-democratica",
       "title": "Cooperativismo: La Empresa Democrática",
       "description": "El modelo cooperativo como alternativa económica real en Argentina.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 6
     },
     {
@@ -65,21 +65,21 @@
       "key": "09-educacion-financiera-para-toda-la-familia",
       "title": "Educación Financiera para Toda la Familia",
       "description": "Cómo enseñar a niños y adolescentes a manejar dinero en un país inestable.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-monedas-complementarias-y-economia-social-solidaria",
       "title": "Monedas Complementarias y Economía Social Solidaria",
       "description": "Sistemas económicos alternativos que funcionan en paralelo a la economía formal.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 9
     },
     {
       "key": "11-tu-plan-de-resiliencia-economica-familiar",
       "title": "Tu Plan de Resiliencia Económica Familiar",
       "description": "Integrar todo lo aprendido en un plan concreto para tu familia y tu comunidad.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     },
     {

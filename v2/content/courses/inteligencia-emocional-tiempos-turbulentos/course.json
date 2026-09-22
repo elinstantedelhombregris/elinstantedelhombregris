@@ -5,7 +5,7 @@
   "excerpt": "Ganale margen a la reacción: prácticas situadas de regulación, cuidado y conversación para tiempos inciertos.",
   "category": "reflection",
   "level": "beginner",
-  "duration": 28,
+  "duration": 37,
   "orderIndex": 16,
   "isPublished": true,
   "isFeatured": true,
@@ -16,42 +16,42 @@
       "key": "02-que-son-las-emociones-y-como-funcionan-en-tu-cuerpo",
       "title": "¿Qué Son las Emociones y Cómo Funcionan en Tu Cuerpo?",
       "description": "Diferenciá sensación, emoción, interpretación e impulso sin reducirlos a una sola causa cerebral.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-la-respuesta-de-estres-en-una-economia-cronicamente-inestable",
       "title": "La Respuesta de Estrés en una Economía Crónicamente Inestable",
       "description": "Observá cómo la incertidumbre económica puede afectar cuerpo y decisiones sin convertir el contexto en diagnóstico.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-autoconciencia-el-primer-paso-de-la-inteligencia-emocional",
       "title": "Autoconciencia: El Primer Paso de la Inteligencia Emocional",
       "description": "Desarrollá la capacidad de observar tus estados internos sin reaccionar automáticamente.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-regulacion-emocional-del-modo-reactivo-al-modo-responsivo",
       "title": "Regulación Emocional: Del Modo Reactivo al Modo Responsivo",
       "description": "Ensayá pausas y anclajes para ganar margen entre una activación intensa y la respuesta que elegís.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-tus-gatillos-emocionales-dinero-politica-y-familia",
       "title": "Tus Gatillos Emocionales: Dinero, Política y Familia",
       "description": "Identificá gatillos vinculados con dinero, política y familia sin atribuirlos a toda persona argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-autocompasion-en-una-cultura-del-aguante",
       "title": "Autocompasión en una Cultura del \"Aguante\"",
       "description": "Descubrí por qué tratarte con compasión no es debilidad sino la base del cambio sostenible.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -65,21 +65,21 @@
       "key": "09-comunicacion-emocional-inteligente",
       "title": "Comunicación Emocional Inteligente",
       "description": "Aprendé a expresar lo que sentís de manera que construya puentes en vez de muros.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-habitos-emocionales-reprogramar-tu-sistema-nervioso",
       "title": "Hábitos Emocionales: Entrenar Respuestas sin Promesas Mágicas",
       "description": "Diseñá rutinas pequeñas, voluntarias y revisables para ampliar tu repertorio de cuidado.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-tu-plan-de-bienestar-emocional",
       "title": "Tu Plan de Bienestar Emocional",
       "description": "Integrá lo aprendido en un plan personal de cuidado, límites, apoyos y señales para pedir ayuda.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 10
     }
   ],

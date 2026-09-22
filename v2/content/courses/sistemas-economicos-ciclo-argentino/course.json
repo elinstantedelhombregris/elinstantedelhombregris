@@ -5,7 +5,7 @@
   "excerpt": "Entendé los ciclos económicos argentinos como sistemas de retroalimentación.",
   "category": "economia",
   "level": "intermediate",
-  "duration": 20,
+  "duration": 31,
   "orderIndex": 13,
   "isPublished": true,
   "isFeatured": false,
@@ -16,70 +16,70 @@
       "key": "02-la-economia-como-sistema-deja-de-mirar-numeros-empeza-a-ver-conexiones",
       "title": "La Economía como Sistema: Dejá de Mirar Números, Empezá a Ver Conexiones",
       "description": "Introducción al pensamiento sistémico aplicado a la economía argentina.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 1
     },
     {
       "key": "03-inflacion-la-fiebre-cronica-de-argentina",
       "title": "Inflación: La Fiebre Crónica de Argentina",
       "description": "Entender la inflación como fenómeno sistémico multicausal.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-el-dolar-la-obsesion-argentina",
       "title": "El Dólar: La Obsesión Argentina",
       "description": "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 3
     },
     {
       "key": "05-el-ciclo-stop-go-la-montana-rusa-que-no-para",
       "title": "El Ciclo Stop-Go: La Montaña Rusa que No Para",
       "description": "El patrón económico central de Argentina analizado en profundidad.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-commodities-y-el-sindrome-holandes-la-maldicion-de-la-riqueza-facil",
       "title": "Commodities y el Síndrome Holandés: La Maldición de la Riqueza Fácil",
       "description": "Cómo la dependencia de materias primas condiciona toda la economía.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 5
     },
     {
       "key": "07-el-estado-en-la-economia-mucho-o-poco",
       "title": "El Estado en la Economía: ¿Mucho o Poco?",
       "description": "El rol del Estado argentino en la economía: más allá de la falsa dicotomía.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 6
     },
     {
       "key": "08-deuda-externa-la-soga-al-cuello",
       "title": "Deuda Externa: La Soga al Cuello",
       "description": "La historia de la deuda argentina como patrón sistémico recurrente.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-impuestos-quien-paga-y-quien-no",
       "title": "Impuestos: Quién Paga y Quién No",
       "description": "El sistema impositivo argentino y sus distorsiones sistémicas.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-economia-del-conocimiento-el-sector-que-puede-romper-el-ciclo",
       "title": "Economía del Conocimiento: El Sector Que Puede Romper el Ciclo",
       "description": "Cómo la economía del conocimiento puede transformar el modelo argentino.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 9
     },
     {
       "key": "11-disenar-la-salida-que-deberia-hacer-argentina",
       "title": "Diseñar la Salida: Qué Debería Hacer Argentina",
       "description": "Síntesis de intervenciones sistémicas para transformar la economía argentina.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     }
   ],
@@ -94,9 +94,7 @@
   ],
   "paraQuien": "Para ciudadanos que quieren discutir economía argentina con mecanismos y límites, no solo consignas.",
   "productoFinal": "Un mapa del ciclo económico argentino con variables, demoras, ganadores, perdedores y tres escenarios.",
-  "prerrequisitos": [
-    "No hace falta matemática avanzada; sí disposición a comparar supuestos."
-  ],
+  "prerrequisitos": ["No hace falta matemática avanzada; sí disposición a comparar supuestos."],
   "coverImage": "/course-art/entrenamientos/sistemas-economicos-ciclo-argentino.webp",
   "fuentesBase": [
     {

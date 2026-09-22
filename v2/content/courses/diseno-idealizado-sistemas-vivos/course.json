@@ -5,7 +5,7 @@
   "excerpt": "Aprendé a diseñar sistemas ideales que transforman la realidad. Descubrí cómo imaginar futuros potentes y crear las condiciones para que emergan, desde tu vida personal hasta sistemas nacionales.",
   "category": "hombre-gris",
   "level": "advanced",
-  "duration": 27,
+  "duration": 36,
   "orderIndex": 5,
   "isPublished": true,
   "isFeatured": true,
@@ -16,7 +16,7 @@
       "key": "02-el-pulso-energetico-de-todo-sistema",
       "title": "El Pulso Energético de Todo Sistema",
       "description": "Descubrí cómo la energía disponible y su flujo revelan la salud de cualquier sistema. Aprendé a identificar si un sistema está ganando, perdiendo o manteniendo energía.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 1
     },
     {
@@ -37,42 +37,42 @@
       "key": "05-bucles-que-te-impulsan-o-frenan",
       "title": "Bucles que Te Impulsan o Frenan",
       "description": "Descubrí los bucles de retroalimentación invisibles que moldean la realidad. Aprendé a identificar bucles reforzadores (positivos y negativos) y compensadores.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-mapas-causales-con-alma",
       "title": "Mapas Causales con Alma",
       "description": "Aprendé a leer patrones profundos que explican eventos aparentemente aislados. Descubrí cómo crear mapas causales que revelan la estructura oculta de los sistemas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-disenar-limites-que-potencian",
       "title": "Diseñar Límites que Potencian",
       "description": "Comprendé cómo definir fronteras porosas que protegen y conectan simultáneamente. Aprendé a decidir qué incluir y qué excluir para comprender y transformar sistemas.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 6
     },
     {
       "key": "08-partir-de-la-hoja-en-blanco",
       "title": "Partir de la Hoja en Blanco",
       "description": "Descubrí por qué imaginar el futuro ideal requiere suspender temporalmente las limitaciones del pasado. Aprendé la disciplina de soñar sin legado.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-tres-filtros-para-el-futuro",
       "title": "Tres Filtros para el Futuro",
       "description": "Aprendé a evaluar futuros posibles usando tres criterios esenciales: deseabilidad, viabilidad y factibilidad. Descubrí cómo equilibrar estos filtros.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-macrofunciones-que-sostienen-el-ideal",
       "title": "Macrofunciones que Sostienen el Ideal",
       "description": "Identificá las capacidades esenciales que debe tener un sistema para sostener su diseño ideal. Aprendé a diseñar funciones que habiliten el propósito superior.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 9
     }
   ],

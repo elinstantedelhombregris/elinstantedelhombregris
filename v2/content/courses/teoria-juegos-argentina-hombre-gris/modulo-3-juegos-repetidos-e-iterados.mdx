@@ -2,9 +2,10 @@
 slug: modulo-3-juegos-repetidos-e-iterados
 courseSlug: teoria-juegos-argentina-hombre-gris
 title: Módulo 3 · Juegos repetidos e iterados
-summary: 'Explora cómo la repetición, el descuento y la memoria cambian los incentivos.'
+summary: 'Explorá cómo la repetición, el descuento y la memoria cambian los incentivos.'
 orderIndex: 3
 draft: false
+cierre: puente
 ---
 Módulo 3 · Juegos repetidos e iterados
 
@@ -16,7 +17,7 @@ Las partidas argentinas rara vez son únicas. Los mismos actores se cruzan en m�
 
 El factor de descuento δ representa cuánto valoran los jugadores el futuro. Va de 0 (no me importa mañana) a 1 (valoro el futuro tanto como el presente). Cuando δ es alto, cooperar se vuelve atractivo porque las recompensas futuras pesan.
 
-**Visualización:** Si δ ≥ 0.5 en un juego tipo Prisionero, es posible sostener cooperación con estrategias condicionales. En Argentina, sectores con contrato a largo plazo (energía, agro, infraestructura) suelen tener δ alto; en cambio, programas asistenciales de corta duración tienen δ bajo, lo que incentiva el oportunismo.
+**Visualización:** Con los pagos típicos del Prisionero, un δ alto —por ejemplo, 0,5 o más— hace posible sostener cooperación con estrategias condicionales. En Argentina, sectores con contrato a largo plazo (energía, agro, infraestructura) suelen tener δ alto; en cambio, programas asistenciales de corta duración tienen δ bajo, lo que incentiva el oportunismo.
 
 **Ejemplo:** Un municipio ofrece un contrato de residuos por 5 años. Si el adjudicatario valora la renovación (δ≈0.8), preferirá cooperar para no perder reputación. Si el contrato dura 6 meses (δ≈0.2), la tentación de capturar todo al inicio es mayor. Diseñar acuerdos con horizonte mínimo y renovaciones condicionadas aumenta δ.
 
@@ -32,7 +33,7 @@ Funciona bien cuando hay poca información y se necesita construir confianza rá
 
 ### Grim Trigger
 
-Coopera hasta que el otro defeque; luego castiga para siempre. Es efectivo si el castigo perpetuo es creíble, pero en Argentina suele disparar espirales de venganza. Lo usamos sólo en contratos donde la expulsión definitiva es factible (ej. licitaciones con cláusula anticorrupción).
+Coopera hasta que el otro defecte; luego castiga para siempre. Es efectivo si el castigo perpetuo es creíble, pero en Argentina suele disparar espirales de venganza. Lo usamos sólo en contratos donde la expulsión definitiva es factible (ej. licitaciones con cláusula anticorrupción).
 
 ### Generous TFT
 
@@ -58,18 +59,18 @@ En la práctica, muchos defectos son ruido: faltan datos, alguien olvidó enviar
 
 **Protocolo “Ruido controlado”:**
 
-1. Clasifica defectos en *error* (sin intención) o *abuso*.
-2. Define pruebas objetivas (capturas del sistema, actas firmadas).
-3. Permite un margen de error (ej. 1 defecto cada 5 rondas) antes de castigar.
-4. Comunica públicamente cuándo se activa el castigo para evitar sospechas.
+1. Clasificá defectos en *error* (sin intención) o *abuso*.
+2. Definí pruebas objetivas (capturas del sistema, actas firmadas).
+3. Permití un margen de error (ej. 1 defecto cada 5 rondas) antes de castigar.
+4. Comunicá públicamente cuándo se activa el castigo para evitar sospechas.
 
 ## 5. Memoria pública y tableros
 
-Sin registro, los juegos repetidos se degradan a juegos simultáneos (todos especulan). Necesitamos tableros que muestren quién coopera y quién defeca.
+Sin registro, los juegos repetidos se degradan a juegos simultáneos (todos especulan). Necesitamos tableros que muestren quién coopera y quién defecta.
 
 ![Curvas de pago estratégico acumulado](/course-graphics/hombre-gris/evolucion-pago-estrategico.svg)
 
-*El tablero debe mostrar la curva acumulada para cooperación vs defecto. Si la curva cooperativa no domina, rediseña los incentivos.*
+*El tablero debe mostrar la curva acumulada para cooperación vs defecto. Si la curva cooperativa no domina, rediseñá los incentivos.*
 
 Herramientas:
 
@@ -96,7 +97,7 @@ Contexto: banco público y asociación de productores rurales en Santa Fe. Se re
 
 ## 7. Caso contraejemplo · Mesa de transporte urbano
 
-Jugadores: Nación, provincias, empresas de transporte. Se intentó un esquema iterado, pero δ era bajo porque los contratos se renovaban cada 60 días y el financiamiento llegaba tarde. Resultado: todos defecan (no se respetan frecuencias, Nación demora giros, provincias no auditan). Lecciones:
+Jugadores: Nación, provincias, empresas de transporte. Se intentó un esquema iterado, pero δ era bajo porque los contratos se renovaban cada 60 días y el financiamiento llegaba tarde. Resultado: todos defectan (no se respetan frecuencias, Nación demora giros, provincias no auditan). Lecciones:
 
 - Sin horizonte razonable, las estrategias cooperativas no tienen tiempo de florecer.
 - La ausencia de memoria pública permitió narrativas contradictorias.
@@ -106,37 +107,35 @@ Jugadores: Nación, provincias, empresas de transporte. Se intentó un esquema i
 
 ### 8.1 Valor presente de cooperación
 
-Calcula si cooperar es rentable:
-            `V = rac{R}{1 - δ}`
-            donde R es el pago estratégico cooperativo por ronda. Si V supera el pago estratégico de defectar una vez, la cooperación es racional.
+Calculá si cooperar es rentable. Cooperar para siempre vale `R / (1 − δ)`, donde R es el pago de cada ronda cooperativa y δ cuánto pesa el futuro. Defectar hoy vale la tentación T de esta ronda más el castigo P de todas las que siguen: `T + δ·P / (1 − δ)`. La cooperación es racional cuando el primer número supera al segundo.
 
 ### 8.2 Matriz de transición
 
-Registra probabilidades de pasar de cooperación a defecto, y viceversa. Permite visualizar en qué punto la relación se degrada y qué señales la recuperan.
+Registrá probabilidades de pasar de cooperación a defecto, y viceversa. Permite visualizar en qué punto la relación se degrada y qué señales la recuperan.
 
 ### 8.3 Índice de resiliencia
 
-Define cuánto castigo puede soportar la relación antes de romperse. Se mide con encuestas rápidas + datos duros (tiempo sin cooperación). Sirve para decidir cuán agresivo puede ser el castigo.
+Mide cuánto castigo puede soportar la relación antes de romperse. Se mide con encuestas rápidas + datos duros (tiempo sin cooperación). Sirve para decidir cuán agresivo puede ser el castigo.
 
 ## 9. Ejercicios
 
-### Ejercicio 1 · Calcula δ
+### Ejercicio 1 · Calculá δ
 
-1. Elige un acuerdo actual.
-2. Estima cuánto valora cada actor la renovación (0-1).
-3. Identifica qué variables podés modificar para subir δ (duración, reputación, beneficios futuros).
+1. Elegí un acuerdo actual.
+2. Estimá cuánto valora cada actor la renovación (0-1).
+3. Identificá qué variables podés modificar para subir δ (duración, reputación, beneficios futuros).
 
-### Ejercicio 2 · Diseña una estrategia condicional
+### Ejercicio 2 · Diseñá una estrategia condicional
 
-1. Define una regla tipo TFT, Generous TFT o Pavlov para tu relación.
-2. Escribe el protocolo de castigo y de perdón.
-3. Comparte el documento con el actor contraparte para alinear expectativas.
+1. Definí una regla tipo TFT, Generous TFT o Pavlov para tu relación.
+2. Escribí el protocolo de castigo y de perdón.
+3. Compartí el documento con el actor contraparte para alinear expectativas.
 
 ### Ejercicio 3 · Tablero semanal
 
-1. Diseña una tabla con columnas: ronda, jugada A, jugada B, pago estratégico, notas.
-2. Compártela públicamente o en un canal común.
-3. Define un emoji o color para cada estado (cooperó, ruido, defectó).
+1. Diseñá una tabla con columnas: ronda, jugada A, jugada B, pago estratégico, notas.
+2. Compartila públicamente o en un canal común.
+3. Definí un emoji o color para cada estado (cooperó, ruido, defectó).
 
 ## 10. Checklist del módulo
 
@@ -145,8 +144,12 @@ Define cuánto castigo puede soportar la relación antes de romperse. Se mide co
 - ¿Diseñaste un tablero de memoria pública?
 - ¿Clasificaste los defectos en ruido vs abuso?
 
-            **Entrega sugerida:** sube un informe breve con tu estrategia condicional, los valores estimados de δ y el prototipo de tablero. Recibirás feedback para mejorar la resiliencia antes de escalarlo.
+            **Entrega sugerida:** subí un informe breve con tu estrategia condicional, los valores estimados de δ y el prototipo de tablero. Recibirás feedback para mejorar la resiliencia antes de escalarlo.
 
 ## 11. Preparación para el Módulo 4
 
-El siguiente módulo abordará señales, información y reputación pública. Trae el tablero que diseñaste y la clasificación de errores vs abusos: los usaremos para definir señales creíbles y mecanismos de filtrado que sostengan tus acuerdos iterados.
+El siguiente módulo abordará señales, información y reputación pública. Traé el tablero que diseñaste y la clasificación de errores vs abusos: los usaremos para definir señales creíbles y mecanismos de filtrado que sostengan tus acuerdos iterados.
+
+### El puente
+
+El factor de descuento mide cuánto pesa el futuro. [Qué es una nación](/ensayos/que-es-una-nacion) describe el juego con el horizonte más largo que existe: un acuerdo que se sostiene cada mañana y pasa de los que mueren a los que nacen.

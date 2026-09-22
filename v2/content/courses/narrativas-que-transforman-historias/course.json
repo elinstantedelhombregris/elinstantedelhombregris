@@ -5,7 +5,7 @@
   "excerpt": "Cuenta historias que muevan a la acción y transformen realidades.",
   "category": "comunicacion",
   "level": "advanced",
-  "duration": 29,
+  "duration": 41,
   "orderIndex": 28,
   "isPublished": true,
   "isFeatured": false,
@@ -16,35 +16,35 @@
       "key": "02-el-poder-de-las-historias-por-que-los-datos-no-alcanzan",
       "title": "El Poder de las Historias: Por Qué los Datos No Alcanzan",
       "description": "Por qué las historias transforman más que los argumentos racionales.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-storytelling-para-el-cambio-social-los-principios",
       "title": "Storytelling para el Cambio Social: Los Principios",
       "description": "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-tu-historia-personal-como-herramienta-de-cambio",
       "title": "Tu Historia Personal como Herramienta de Cambio",
       "description": "Descubrir y contar tu propia historia para conectar e inspirar.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 3
     },
     {
       "key": "05-historias-de-comunidad-narrar-lo-colectivo",
       "title": "Historias de Comunidad: Narrar lo Colectivo",
       "description": "Contar historias que reflejen la fuerza de lo comunitario.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-escritura-de-impacto-del-texto-al-corazon",
       "title": "Escritura de Impacto: Del Texto al Corazón",
       "description": "Técnicas de escritura para comunicar con claridad, emoción y poder.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 5
     },
     {
@@ -58,28 +58,28 @@
       "key": "08-redes-sociales-micro-narrativas-que-conectan",
       "title": "Redes Sociales: Micro-Narrativas que Conectan",
       "description": "Adaptar el storytelling a los formatos y lógicas de las redes sociales.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-campanas-narrativas-de-la-historia-a-la-accion-colectiva",
       "title": "Campañas Narrativas: De la Historia a la Acción Colectiva",
       "description": "Diseñar campañas de comunicación que usen el storytelling para generar cambio.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 8
     },
     {
       "key": "10-etica-narrativa-el-poder-y-la-responsabilidad",
       "title": "Ética Narrativa: El Poder y la Responsabilidad",
       "description": "Los límites éticos del storytelling para el cambio social.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-tu-proyecto-narrativo-crear-tu-primera-historia-de-impacto",
       "title": "Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto",
       "description": "Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     },
     {
@@ -101,9 +101,7 @@
   ],
   "paraQuien": "Para organizaciones, creadores y ciudadanos que necesitan mover atención sin manipular.",
   "productoFinal": "Una historia de impacto lista para publicar, con guion, piezas derivadas y checklist ético.",
-  "prerrequisitos": [
-    "Un caso real, una audiencia definida y permiso para narrarlo."
-  ],
+  "prerrequisitos": ["Un caso real, una audiencia definida y permiso para narrarlo."],
   "coverImage": "/course-art/entrenamientos/narrativas-que-transforman-historias.webp",
   "fuentesBase": [
     {

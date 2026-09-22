@@ -293,7 +293,16 @@ describe('contra el docs/DEUDAS.md real', () => {
       // Cerrada el 2026-08-13 por la Tarea 6 del Ciclo 1 de entrenamientos: el
       // minutaje pasó a calcularse del cuerpo y los 31 `course.json` bajaron de
       // 3.163 minutos a 957.
+      // D-052, D-054, D-055, D-056 y D-061: cerradas el 22/9/2026 por el Ciclo 1
+      // de los entrenamientos (cola y texto repetido, voseo adjudicado a mano,
+      // fuentes y puentes en las 329 lecciones); D-055 y D-061 ya estaban
+      // resueltas en el corpus y nadie las había marcado.
+      'D-052',
       'D-053',
+      'D-054',
+      'D-055',
+      'D-056',
+      'D-061',
       // Las cuatro siguientes las cerró la sesión de `senales` entre el 13 y el
       // 14 de agosto de 2026, y ninguna pasó por esta lista: el endpoint que
       // dejaba elegir la protección, el test que escribía en la base real, el

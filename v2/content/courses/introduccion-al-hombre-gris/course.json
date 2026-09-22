@@ -5,7 +5,7 @@
   "excerpt": "De la tierra al brillo: etimología, humanidad y el coraje de ser gris en un mundo blanco y negro.",
   "category": "hombre-gris",
   "level": "beginner",
-  "duration": 34,
+  "duration": 40,
   "orderIndex": 1,
   "isPublished": true,
   "isFeatured": true,
@@ -16,28 +16,28 @@
       "key": "02-homo-humus-humildad-que-significa-ser-hombre",
       "title": "Homo, Humus, Humildad — ¿Qué significa ser Hombre?",
       "description": "Un viaje a la raíz de lo que somos: de la tierra que nos nombra a la humanidad que nos define.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-gris-el-color-que-guarda-todos-los-colores",
       "title": "Gris — El color que guarda todos los colores",
       "description": "Etimología del gris, la rebeldía de lo complejo, y por qué negarse a elegir bando es el acto más libre.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 2
     },
     {
       "key": "04-plata-que-se-refina-el-proceso-de-brillar",
       "title": "Plata que se refina — El proceso de brillar",
       "description": "El fuego como transformador: de la metalurgia antigua a la crisis argentina, el brillo se conquista pasando por el dolor.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 3
     },
     {
       "key": "05-las-psicografias-de-parravicini-el-gris-profetizado",
       "title": "Las Psicografías de Parravicini — El gris profetizado",
       "description": "Quién fue Parravicini, qué vio sobre el Hombre Gris, y por qué su visión no es un destino sino una invitación.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 4
     },
     {
@@ -51,14 +51,14 @@
       "key": "07-los-pilares-del-movimiento-profundizacion",
       "title": "Los Pilares del Movimiento — Profundización",
       "description": "Los cinco pilares que sostienen al Hombre Gris, cada uno conectado con la metáfora de la plata que se refina.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 6
     },
     {
       "key": "08-abrir-la-mente-abrir-el-corazon",
       "title": "Abrir la mente, abrir el corazón",
       "description": "La mente cerrada como impureza, la vulnerabilidad como fortaleza, y las historias que nos devuelven la humanidad.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 7
     },
     {

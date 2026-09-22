@@ -5,7 +5,7 @@
   "excerpt": "Construí una visión que transforme tu vida y tu comunidad. 10 lecciones profundas con neurociencia, psicología y estrategia.",
   "category": "vision",
   "level": "intermediate",
-  "duration": 44,
+  "duration": 50,
   "orderIndex": 2,
   "isPublished": true,
   "isFeatured": true,
@@ -16,7 +16,7 @@
       "key": "02-el-poder-oculto-de-una-vision",
       "title": "El Poder Oculto de una Visión",
       "description": "Por qué la visión es la tecnología más poderosa del ser humano. Neurociencia, Frankl, y la diferencia entre fantasía, sueño y visión.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 1
     },
     {
@@ -37,7 +37,7 @@
       "key": "05-los-enemigos-internos-de-la-vision",
       "title": "Los Enemigos Internos de la Visión",
       "description": "Creencias limitantes, síndrome del impostor, zona de confort y distorsiones cognitivas. Cómo identificar y desactivar lo que te frena.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 4
     },
     {
@@ -51,28 +51,28 @@
       "key": "07-de-la-vision-individual-a-la-colectiva",
       "title": "De la Visión Individual a la Colectiva",
       "description": "Peter Senge, movimientos sociales y el proceso paso a paso para construir una visión compartida auténtica.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 6
     },
     {
       "key": "08-narrativas-transformadoras-contar-el-futuro",
       "title": "Narrativas Transformadoras: Contar el Futuro",
       "description": "Marshall Ganz, el viaje del héroe y el arte de comunicar tu visión de forma que mueva a otros a la acción.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 7
     },
     {
       "key": "09-planificacion-estrategica-con-alma",
       "title": "Planificación Estratégica con Alma",
       "description": "Teoría del Cambio, backcasting, OKRs con propósito y pensamiento sistémico para transformar visión en acción.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 8
     },
     {
       "key": "10-resiliencia-y-adaptacion-sostener-la-vision-en-la-tormenta",
       "title": "Resiliencia y Adaptación: Sostener la Visión en la Tormenta",
       "description": "La Curva J, Teoría U de Scharmer, crecimiento postraumático y prácticas concretas de resiliencia visionaria.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 9
     },
     {

@@ -2,9 +2,10 @@
 slug: modulo-2-juegos-estaticos-y-estrategias-dominantes
 courseSlug: teoria-juegos-argentina-hombre-gris
 title: Módulo 2 · Juegos estáticos y estrategias dominantes
-summary: 'Analiza juegos simultáneos clásicos (Prisionero, Coordinación, Chicken) y aterrízalos en políticas públicas.'
+summary: 'Analizá juegos simultáneos clásicos (Prisionero, Coordinación, Chicken) y aterrizalos en políticas públicas.'
 orderIndex: 2
 draft: false
+cierre: puente
 ---
 Módulo 2 · Juegos estáticos y estrategias dominantes
 
@@ -41,8 +42,10 @@ Interpretación:
 
 Para identificar el equilibrio debemos analizar mejor respuesta:
 
-- **Mejor respuesta de D:** Si el Estado sostiene subsidios (S), invertir (I) da pago estratégico +4 vs +1; si ajusta (A), invertir da +2 vs -1. Por lo tanto, **I domina a R**.
-- **Mejor respuesta de E:** Si D invierte (I), ajustar (A) ofrece +4 vs +3 ⇒ preferencia por A. Si D reduce (R), sostener (S) ofrece +2 vs +5 (pero +5 es para D, no E). Para el Estado, S da +2 vs A con +1. Entonces la mejor respuesta es S. Resultado: equilibrio (S,I).
+En cada celda, el primer número es el pago de D y el segundo el de E.
+
+- **Mejor respuesta de D:** Si el Estado sostiene subsidios (S), invertir (I) le da +3 contra +2 de reducir. Si ajusta (A), reducir (R) le da +5 contra +4. D **no tiene estrategia dominante**: lo que le conviene depende de lo que haga el Estado.
+- **Mejor respuesta de E:** Si D invierte, sostener le da +4 contra +2 de ajustar; si D reduce, sostener le da +1 contra -1. Para el Estado, **S domina a A**. Anticipando que el Estado sostiene, D invierte. Resultado: equilibrio (S,I).
 
 Este equilibrio parece razonable pero no óptimo. El objetivo del Hombre Gris es rediseñar la matriz para que (A,I) sea más atractivo (por ejemplo aumentando la recompensa política del ajuste mediante una tarifa social automática y tableros que expliquen el destino de los fondos).
 
@@ -60,11 +63,13 @@ Confrontación (C)     | -1 / 0                     | +1 / +1                   
 
 Aquí el **Gobierno** busca elegir la columna que maximiza su resultado, considerando la estrategia sindical:
 
-- Si el sindicato es moderado (M), la mejor respuesta del Gobierno es AE (pago estratégico +4).
-- Si hay presión alta (P), la mejor respuesta es CR (+4).
-- Si hay confrontación (C), la mejor respuesta es BG (+1) para evitar daño.
+En cada celda, el primer número es el pago del sindicato y el segundo el del Gobierno.
 
-El sindicato analiza fila por fila. Si el Gobierno elige AE, M domina (pago estratégico +3). Si elige BG, M gana con +4. Si elige CR, P gana con 0 > -2. Conclusión: (AE, M) es un equilibrio de Nash, pero no siempre alcanzable porque los jugadores no observan la decisión del otro antes de realizarla. Por eso se recurre a preacuerdos (actas) que reducen la simultaneidad o instalan señales públicas.
+- Si el sindicato es moderado (M), la mejor respuesta del Gobierno es CR (+5).
+- Si hay presión alta (P), la mejor respuesta es CR (+4).
+- Si hay confrontación (C), la mejor respuesta es CR (+3). En esta matriz, **congelar domina** para el Gobierno.
+
+El sindicato analiza fila por fila. Si el Gobierno elige AE, M gana con +3. Si elige BG, M gana con +4. Si elige CR, M gana con +2, contra 0 de presionar y -2 de confrontar. Conclusión: (CR, M) es el equilibrio de Nash — el Gobierno congela y el sindicato se modera. (AE, M) le daría al sindicato +3 en vez de +2, pero el Gobierno no tiene por qué ir ahí: con estos pagos, congelar siempre le conviene más. Por eso se recurre a preacuerdos (actas) y a señales públicas que cambian los pagos.
 
             **Insight:** los sindicatos moderados necesitan una garantía creíble de que sus concesiones serán recompensadas. Diseñar un mecanismo donde los aumentos escalonados se activen automáticamente ante métricas de inflación genera un incentivo a permanecer en la estrategia M.
 
@@ -90,8 +95,8 @@ La **mejor respuesta** es la estrategia óptima dada una elección del rival. Lo
 
 Se dan cuando cada jugador elige una estrategia concreta que es mejor respuesta al otro. Muchos conflictos argentinos tienen equilibrios puros malos (ej. informalidad generalizada). Para salir de ellos debemos alterar la matriz. Ejemplos:
 
-- **Informalidad laboral:** (Patrón defeca, Estado defeca) es un equilibrio puro. Introducir inspecciones inteligentes + beneficios para las pymes que formalizan cambia la estructura.
-- **Residuos urbanos:** (Vecino defeca, Municipio defeca) es equilibrio puro. Microacuerdos con recompensas por reciclaje y penalización automática rompen esa estabilidad.
+- **Informalidad laboral:** (Patrón defecta, Estado defecta) es un equilibrio puro. Introducir inspecciones inteligentes + beneficios para las pymes que formalizan cambia la estructura.
+- **Residuos urbanos:** (Vecino defecta, Municipio defecta) es equilibrio puro. Microacuerdos con recompensas por reciclaje y penalización automática rompen esa estabilidad.
 
 ### 6.2 Equilibrios mixtos
 
@@ -109,11 +114,11 @@ Supongamos una licitación provincial con empresas A y B. Cada una puede elegir:
 <pre>
 B \ A | Honesta (H)                 | Maquillada (M)
 ------------------------------------------------------------
-Honesta (H) | +4 / +4 (obra eficiente, reputación alta) | +1 / +5 (B captura, A queda fuera)
-Maquillada (M) | +5 / +1 (A captura)                | +2 / +2 (sobreprecio, sanciones leves)
+Honesta (H) | +4 / +4 (obra eficiente, reputación alta) | +1 / +5 (A captura, B queda fuera)
+Maquillada (M) | +5 / +1 (B captura)                | +2 / +2 (sobreprecio, sanciones leves)
           </pre>
 
-Sin controles, (M,M) puede ser equilibrio porque ambos temen quedar afuera si cooperan. ¿Cómo lo cambiamos?
+Sin controles, (M,M) es el equilibrio: maquillar le conviene a cada uno haga lo que haga el otro (+5 contra +4, y +2 contra +1), porque nadie quiere quedar afuera por ser el único honesto. ¿Cómo lo cambiamos?
 
 1. Instalando **auditoría previa obligatoria**, el pago estratégico de (M,·) cae por riesgo de sanción.
 2. Otorgando **bonos de reputación** canjeables por créditos baratos, (H,H) se vuelve más atractivo.
@@ -141,19 +146,19 @@ Guion para presentar la matriz a los actores sin generar resistencia. Incluye pr
 
 ### Ejercicio A · Paritaria local
 
-1. Define las tres principales estrategias del sindicato y del gobierno municipal.
-2. Construye la matriz 3x3 e identifica el equilibrio actual.
-3. Propone un cambio (incentivo, sanción, señal) que altere los pagos estratégicos.
+1. Definí las tres principales estrategias del sindicato y del gobierno municipal.
+2. Construí la matriz 3x3 e identificá el equilibrio actual.
+3. Proponé un cambio (incentivo, sanción, señal) que altere los pagos estratégicos.
 
 ### Ejercicio B · Licitación de servicios urbanos
 
-1. Modela las estrategias (servicio premium vs básico, transparencia vs captura).
-2. Calcula mejor respuesta para cada empresa.
-3. Diseña un mecanismo para que cooperar sea dominante (ej. reputación, incentivos financieros, exclusiones).
+1. Modelá las estrategias (servicio premium vs básico, transparencia vs captura).
+2. Calculá mejor respuesta para cada empresa.
+3. Diseñá un mecanismo para que cooperar sea dominante (ej. reputación, incentivos financieros, exclusiones).
 
 ### Ejercicio C · Juego ciudadano
 
-Elige una interacción cotidiana (ej. pago de expensas, cuidado de un barrio). Construye una matriz 2x2 entre “vecinos organizados” y “administración”. Diagnostica el equilibrio y planifica la primera señal para moverlo.
+Elegí una interacción cotidiana (ej. pago de expensas, cuidado de un barrio). Construí una matriz 2x2 entre “vecinos organizados” y “administración”. Diagnosticá el equilibrio y planificá la primera señal para moverlo.
 
 ## 10. Casos argentinos destacados
 
@@ -172,8 +177,12 @@ Empresas constructoras y cooperativas se aliaron para presentar propuestas conju
 - ¿Diseñaste al menos una intervención para modificar pagos estratégicos?
 - ¿Compartiste tu matriz con los actores relevantes?
 
-            **Entrega sugerida:** publica tus matrices y el plan de intervención en el foro. Incluye un audio o video corto explicando cómo piensas mover el equilibrio. Recibirás comentarios para afinarlo antes del módulo 3.
+            **Entrega sugerida:** publicá tus matrices y el plan de intervención en el foro. Incluí un audio o video corto explicando cómo pensás mover el equilibrio. Recibirás comentarios para afinarlo antes del módulo 3.
 
 ## 12. Preparación para el Módulo 3
 
-Ahora que dominas los juegos simultáneos, daremos un salto a los juegos repetidos e iterados, donde la reputación y el tiempo cambian todo. Trae tus matrices: las convertiremos en series temporales y mediremos qué sucede cuando los jugadores tienen memoria y expectativas de futuro.
+Ahora que dominás los juegos simultáneos, daremos un salto a los juegos repetidos e iterados, donde la reputación y el tiempo cambian todo. Traé tus matrices: las convertiremos en series temporales y mediremos qué sucede cuando los jugadores tienen memoria y expectativas de futuro.
+
+### El puente
+
+Cambiar la matriz en lugar de pedir buena conducta es la apuesta de [PLANEB](/planes/planeb): una empresa al costo que publica cada peso funciona como referencia de precio y disciplina a todo el sector, aunque cada cliente no la use.

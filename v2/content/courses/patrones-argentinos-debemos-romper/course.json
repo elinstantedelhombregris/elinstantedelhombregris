@@ -5,7 +5,7 @@
   "excerpt": "Identificá y diseña intervenciones para romper los patrones que Argentina repite.",
   "category": "hombre-gris",
   "level": "advanced",
-  "duration": 24,
+  "duration": 37,
   "orderIndex": 31,
   "isPublished": true,
   "isFeatured": false,
@@ -16,84 +16,84 @@
       "key": "02-pensamiento-sistemico-ver-patrones-no-eventos",
       "title": "Pensamiento Sistémico: Ver Patrones, No Eventos",
       "description": "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 1
     },
     {
       "key": "03-el-ciclo-stop-go-expansion-crisis-ajuste-repetir",
       "title": "El Ciclo Stop-Go: Expansión, Crisis, Ajuste, Repetir",
       "description": "El patrón económico más persistente de Argentina.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-el-patron-caudillista-salvadores-y-dependencia",
       "title": "El Patrón Caudillista: Salvadores y Dependencia",
       "description": "La búsqueda recurrente de un líder mesiánico que lo resuelva todo.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 3
     },
     {
       "key": "05-buenos-aires-vs-interior-la-grieta-territorial",
       "title": "Buenos Aires vs. Interior: La Grieta Territorial",
       "description": "La concentración en Buenos Aires como desequilibrio sistémico fundacional.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-la-fuga-de-cerebros-exportar-talento-importar-frustracion",
       "title": "La Fuga de Cerebros: Exportar Talento, Importar Frustración",
       "description": "El patrón de emigración de talento como síntoma y causa de deterioro sistémico.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 5
     },
     {
       "key": "07-el-patron-inflacionario-la-droga-argentina",
       "title": "El Patrón Inflacionario: La Droga Argentina",
       "description": "La inflación crónica como adicción sistémica y sus efectos devastadores.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 6
     },
     {
       "key": "08-el-pendulo-politico-de-un-extremo-al-otro",
       "title": "El Péndulo Político: De un Extremo al Otro",
       "description": "La oscilación permanente entre modelos opuestos que impide las políticas de Estado.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 7
     },
     {
       "key": "09-la-cultura-del-atajo-viveza-criolla-como-bug-sistemico",
       "title": "La Cultura del Atajo: Viveza Criolla como Bug Sistémico",
       "description": "La viveza criolla analizada como patrón cultural que destruye la confianza social.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-el-estado-como-botin-captura-institucional",
       "title": "El Estado como Botín: Captura Institucional",
       "description": "Cómo los intereses privados capturan las instituciones públicas.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 9
     },
     {
       "key": "11-el-patron-de-la-queja-sin-accion",
       "title": "El Patrón de la Queja sin Acción",
       "description": "La cultura del lamento como mecanismo de descarga que reemplaza la acción.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     },
     {
       "key": "12-puntos-de-apalancamiento-donde-intervenir",
       "title": "Puntos de Apalancamiento: Dónde Intervenir",
       "description": "Los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 11
     },
     {
       "key": "13-diseno-idealizado-la-argentina-que-podemos-construir",
       "title": "Diseño Idealizado: La Argentina que Podemos Construir",
       "description": "Ejercicio de diseño idealizado: si pudieras diseñar Argentina desde cero, ¿cómo sería?",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 12
     }
   ],
@@ -108,9 +108,7 @@
   ],
   "paraQuien": "Para quienes reconocen ciclos repetidos pero no quieren quedar atrapados en cinismo o simplificación.",
   "productoFinal": "Un atlas de patrones con mecanismo, evidencia, contraejemplo, escala y palanca local.",
-  "prerrequisitos": [
-    "Pensamiento sistémico básico recomendado."
-  ],
+  "prerrequisitos": ["Pensamiento sistémico básico recomendado."],
   "coverImage": "/course-art/entrenamientos/patrones-argentinos-debemos-romper.webp",
   "fuentesBase": [
     {
