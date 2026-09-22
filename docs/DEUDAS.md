@@ -53,7 +53,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-032](#d-032--los-ensayos-del-ciclo-i-glosan-planmesa-como-soberanía-alimentaria-y-hace-meses-que-no-lo-es) | Los ensayos del Ciclo I glosan PLANMESA como soberanía alimentaria | Media | Abierta |
 | [D-033](#d-033--pnpm-formatcheck-falla-en-564-archivos-preexistentes-scriptscontent-incluido) | `pnpm format:check` falla en 564 archivos preexistentes, `scripts/content/` incluido | Baja | Abierta |
 | [D-045](#d-045--platform_feedback-es-una-tabla-muerta-que-modela-lo-contrario-del-canal-de-escucha) | `platform_feedback` es una tabla muerta que modela lo contrario del canal de escucha | Media | Abierta |
-| [D-046](#d-046--la-guardia-de-este-mismo-archivo-está-en-rojo-y-nadie-la-corre) | La guardia de este mismo archivo está en rojo y nadie la corre | Alta | Abierta |
+| [D-046](#d-046--la-guardia-de-este-mismo-archivo-está-en-rojo-y-nadie-la-corre) | La guardia de este mismo archivo está en rojo y nadie la corre | Alta | **Resuelta** |
 | [D-047](#d-047--el-basemap-se-congela-en-la-fecha-en-que-se-extrajo-y-nadie-se-entera) | El basemap se congela en la fecha en que se extrajo y nadie se entera | Baja | Abierta |
 | [D-048](#d-048--la-csp-viaja-sólo-en-las-respuestas-de-api-y-nunca-llega-al-documento) | La CSP viaja sólo en las respuestas de `/api/` y nunca llega al documento | Alta | **Resuelta** |
 | [D-049](#d-049--las-tipografías-de-la-interfaz-salen-de-google-fonts-en-todas-las-páginas) | Las tipografías de la interfaz salen de Google Fonts en todas las páginas | Media | **Resuelta** |
@@ -90,11 +90,18 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-074](#d-074--los-relojes-de-vigencia-están-escritos-y-no-los-llama-nadie) | Los relojes de vigencia están escritos y no los llama nadie | Alta | Abierta |
 | [D-075](#d-075--una-pregunta-se-puede-cargar-y-no-se-puede-responder) | Una pregunta se puede cargar y no se puede responder | Media | Abierta |
 | [D-076](#d-076--el-taller-de-planpuerta-y-su-mdx-dejaron-de-coincidir-y-la-guardia-está-rota-en-el-tronco) | El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está rota en el tronco | Media | Abierta |
+| [D-077](#d-077--el-test-del-lector-de-crónica-se-corta-antes-de-la-firma) | El test del lector de crónica se corta antes de la firma | Baja | Abierta |
+| [D-078](#d-078--el-mapa-se-desborda-en-móvil-la-barra-de-modos-no-cabe-y-la-página-entera-scrollea-de-costado) | El mapa se desborda en móvil: la barra de modos no cabe y la página entera scrollea de costado | Alta | **Resuelta** |
+| [D-079](#d-079--el-sello-ejemplo-pisa-el-título-del-documento-del-mandato-en-móvil) | El sello EJEMPLO pisa el título del documento del mandato en móvil | Media | **Resuelta** |
+| [D-080](#d-080--la-portada-dice-0-cinco-veces-y-el-régimen-de-cifras-dice-que-con-cero-se-habla-no-se-numera) | La portada dice «0» cinco veces, y el régimen de cifras dice que con cero se habla, no se numera | Media | **Resuelta** |
+| [D-081](#d-081--las-notas-al-pie-de-los-ensayos-se-ven-crudas-basta1) | Las notas al pie de los ensayos se ven crudas | Baja | **Resuelta** |
+| [D-082](#d-082--el-lector-de-planes-entrega-68000-palabras-en-una-sola-página-sin-índice-ni-posición) | El lector de PLANes entrega 68.000 palabras en una sola página sin índice ni posición | Media | **Resuelta** |
 | [D-083](#d-083--el-instrumento-interpreta-un-fallo-de-consulta-como-ausencia-de-voces) | El instrumento interpreta un fallo de consulta como ausencia de voces | Alta | **Resuelta** |
 | [D-084](#d-084--los-modos-analíticos-tratan-una-consulta-limitada-como-el-corpus-completo) | Los modos analíticos tratan una consulta limitada como el corpus completo | Alta | **Resuelta** |
 | [D-085](#d-085--el-mandato-presenta-equivalencia-entre-necesidades-y-recursos-sin-comprobar-compatibilidad) | El mandato presenta equivalencia entre necesidades y recursos sin comprobar compatibilidad | Alta | **Resuelta** |
 | [D-086](#d-086--el-sello-de-documento-auditado-se-activa-al-entrar-la-firma-en-pantalla) | El sello de documento auditado se activa al entrar la firma en pantalla | Media | **Resuelta** |
 | [D-087](#d-087--el-formulario-exige-una-cesión-que-su-consentimiento-presenta-como-opcional) | El formulario exige una cesión que su consentimiento presenta como opcional | Media | **Resuelta** |
+| [D-088](#d-088--el-brillo-dibujado-es-invertible-delata-cuánta-gente-habló-en-una-celda) | El brillo dibujado es invertible: delata cuánta gente habló en una celda | Alta | Abierta |
 
 ---
 
@@ -799,7 +806,9 @@ ERR_MODULE_NOT_FOUND: Cannot find module '.../packages/db/src/client.js'
 
 ---
 
-### D-028 · El brillo dibujado es invertible: delata cuánta gente habló en una celda
+### D-088 · El brillo dibujado es invertible: delata cuánta gente habló en una celda
+
+> **Renumerada 2026-09-22.** Nació como D-028, el mismo id que ya tenía «Editar la portada de un PLAN corre todas sus anclas» (D-046). Las remisiones de las specs de la tierra, la señal, la corroboración y el registro se corrieron a D-088 en el mismo commit.
 
 **Dónde:** `v2/packages/civic-core/src/brillo.ts` (`intensidadDeBrillo`) junto con `v2/packages/civic-core/src/coeficientes-luz.ts`, que el barril exporta
 **Encontrada:** 2026-08-04, en la revisión final de la rebanada 1 de El Registro
@@ -924,7 +933,9 @@ No es sólo que esté muerta: modela lo contrario de lo que la plataforma decidi
 **Dónde:** `SocialJusticeHub/tests/unit/deudas-registro.test.ts`, contra `docs/DEUDAS.md`
 **Encontrada:** 2026-08-12, escribiendo el importador de este archivo al registro público de `/lo-que-falta`
 **Severidad:** alta — el archivo es la memoria del proyecto y su única verificación automática lleva semanas fallando sin que nadie lo vea
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** La segunda D-028 pasó a ser **D-088**, con sus remisiones corridas en las cinco specs y planes que la citaban (las que citaban la primera, la de PLANGEO, quedaron como estaban), y el índice ganó las filas que le faltaban (D-077 a D-082, D-088). `tests/unit/deudas-registro.test.ts` pasa entero por primera vez. Queda abierta la pregunta que la entrada hacía de paso: la corroboración da por resuelta a D-088 y la entrada sigue diciendo `abierta` — no se cambió porque nadie verificó el endpoint de celdas contra el diseño.
 
 La guardia que pidió [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) existe y está bien escrita: verifica que un id no nombre dos deficiencias distintas y que el índice y el cuerpo se cubran **en las dos direcciones**. Corrida hoy, falla: **seis entradas del cuerpo no tienen fila en el índice** — D-025, D-026, D-027, D-029, D-030 y D-031. Son 6 de 33.
 

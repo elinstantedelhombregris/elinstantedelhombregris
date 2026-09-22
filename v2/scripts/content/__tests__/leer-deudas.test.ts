@@ -283,6 +283,8 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-019',
       'D-020',
       'D-025',
+      // Cerrada el 22/9/2026: la segunda D-028 pasó a D-088 y la guardia de v1 volvió a verde.
+      'D-046',
       'D-048',
       'D-049',
       // Cerrada el 2026-08-13 por la Tarea 6 del Ciclo 1 de entrenamientos: el

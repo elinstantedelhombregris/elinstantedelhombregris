@@ -6,7 +6,7 @@
 **Deudas que abre:** D-041, D-042, D-043
 **Alcance:** `packages/db` (esquema y repositorios) · `apps/api` (`features/civic-map`, `features/evidencia`, cron de vigencia) · `packages/civic-core` (coeficientes, canonicalización, redondeo) · `apps/mobile` (el gesto de confirmar) · `apps/web` (el estado en la ficha y en el mapa)
 **Documento vinculante:** `apps/mobile/docs/PRODUCT_CONSTITUTION.md` — reglas 2, 3, 4, 5, 6, 7, 8, 9, 11 y la métrica norte
-**Se apoya en:** `docs/specs/2026-08-11-b-la-senal.md` §2.7 (la tabla `senales`), §3.1 (los catálogos `tipos_senal` y `estados_senal`) y §3.2 (la tabla `actores`) · `docs/specs/2026-08-04-el-registro.md` §4, §6 y §7 · `docs/specs/2026-07-26-mapa-2-la-verdad-de-la-ubicacion.md` §3 · `docs/DEUDAS.md` D-014, D-026, D-028 (la segunda entrada con ese id)
+**Se apoya en:** `docs/specs/2026-08-11-b-la-senal.md` §2.7 (la tabla `senales`), §3.1 (los catálogos `tipos_senal` y `estados_senal`) y §3.2 (la tabla `actores`) · `docs/specs/2026-08-04-el-registro.md` §4, §6 y §7 · `docs/specs/2026-07-26-mapa-2-la-verdad-de-la-ubicacion.md` §3 · `docs/DEUDAS.md` D-014, D-026, D-088 (antes la segunda D-028)
 **Naturaleza:** spec de producto y de datos. Necesita plan de implementación antes de tocar código.
 
 > **Qué resuelve.** Cómo un dicho se vuelve un hecho comprobado: quién confirma, cuántos hacen falta, qué cuenta como independiente, dónde vive la evidencia, cómo envejece un hecho, cómo se conecta con lo que podría resolverlo, cómo se cierra una necesidad, y cómo queda escrito todo eso de manera que se pueda auditar sin exponer a nadie. Al terminar esto, `verificables` y `confirmaciones` —los dos números que `brillo.ts` pide desde julio y que ninguna tabla sabe producir— existen en la base y se consultan por celda, y la métrica norte pasa de ser una frase a ser una consulta.
@@ -224,7 +224,7 @@ Los **30 días** de espera del autor: es la ventana más chica que sobrevive a p
 
 `ConteoCelda` **gana un quinto campo, `senalesSinActor`**, y ni la fórmula ni las variantes de `Brillo` cambian una línea. Se descartó el «cuatro campos siguen siendo cuatro campos»: `brilloDeCelda` sólo lee `vocesDistintas` y `habitantes`, así que una celda con cincuenta señales sin actor daba `participacion: 0` e `intensidad: 0` —el `0` que significa «nadie habló», que es el pecado que el módulo existe para prohibir— y encima sesgado justo contra las celdas que cubrió la app de campo. El campo es un cambio rompedor de interfaz y se toma ahora, entero, porque el número tiene que viajar: `celda_luz` ya lo guarda (§3.7), o sea que esta spec lo necesitaba y lo negaba en la interfaz.
 
-Lo que sigue en pie es **dónde va la distinción**: en `CeldaPublicada`, el tipo del endpoint (§2.9), y no como cuarta variante de `Brillo`. La supresión corre **antes** de `luzDeCeldas`, así que `brilloDeCelda` nunca se invoca sobre una celda con `vocesDistintas === 0 && senalesSinActor > 0`, y meter la variante adentro rompería una unión que dos apps importan sin comprar nada — que es la advertencia literal de D-028.
+Lo que sigue en pie es **dónde va la distinción**: en `CeldaPublicada`, el tipo del endpoint (§2.9), y no como cuarta variante de `Brillo`. La supresión corre **antes** de `luzDeCeldas`, así que `brilloDeCelda` nunca se invoca sobre una celda con `vocesDistintas === 0 && senalesSinActor > 0`, y meter la variante adentro rompería una unión que dos apps importan sin comprar nada — que es la advertencia literal de D-088.
 
 Y esta spec agrega la definición exacta de cada campo, que hoy falta:
 
@@ -246,7 +246,7 @@ Y esta spec agrega la definición exacta de cada campo, que hoy falta:
 
 ### 2.9 La supresión va antes de la luz, y son cuatro estados
 
-D-028 (la segunda entrada con ese id, `docs/DEUDAS.md:677`) está verificada numéricamente: con los coeficientes públicos, `voces = habitantes × PARTICIPACION_PLENA × intensidad^(1/CURVA)`, y una intensidad de 0,1720 sobre 1.000 habitantes despeja exactamente **1 voz**. El dibujo delata a la persona.
+D-088 (antes la segunda D-028) está verificada numéricamente: con los coeficientes públicos, `voces = habitantes × PARTICIPACION_PLENA × intensidad^(1/CURVA)`, y una intensidad de 0,1720 sobre 1.000 habitantes despeja exactamente **1 voz**. El dibujo delata a la persona.
 
 La supresión se aplica **sobre los `ConteoCelda` que entran**, nunca sobre las `LuzCelda` que salen:
 
@@ -920,7 +920,7 @@ Cada pasada es una sentencia con `returning`, y el conteo de lo que hizo se logu
 | `apps/mobile/src/civic/conteos.ts:22-26,47-52` | `confirmada` pasa a «estado ∈ {corroborada, resuelta}»; `verificable` lo determina la clase que trae la señal; `vocesDistintas` suma adherentes | La lista de tres del comentario es del mundo de seis tipos, y la adhesión enciende la celda (§2.8) |
 | `apps/web/src/components/papel/primitives/ChipEstado.tsx` | **Lo define B** con el vocabulario de `estados_senal`; esta spec lo consume tal cual | Un chip con tres juegos de valores distintos escritos por tres specs es el defecto de origen otra vez |
 | `apps/web/src/pages/ElMapa/instrumento/useVistaMapa.ts:73` | La derivación de tipo trae también el estado | — |
-| `docs/DEUDAS.md` | D-028 (la segunda, `:677`) **resuelta** por §2.9. Entran **D-041** (`quality.ts:20` devuelve `confidence: 0` para decir «no evaluada»), **D-042** (`useModoMapa.tsx:30` duplica a mano el halo que `publicLocationUncertaintyKm` ya calcula) y **D-043** (k = 5 sobre celda fija suprime estructuralmente la baja densidad; §2.9 lo acota con el `422` y lo declara en `sesgo`, no lo elimina) | Los ordinales están repartidos por spec: A D-034/D-035, B D-036 a D-040, C D-041 a D-043. Tres entradas con el mismo id pasan la guarda de CI, que mide por título, y dejan el registro inservible |
+| `docs/DEUDAS.md` | D-088 (antes la segunda D-028) **resuelta** por §2.9. Entran **D-041** (`quality.ts:20` devuelve `confidence: 0` para decir «no evaluada»), **D-042** (`useModoMapa.tsx:30` duplica a mano el halo que `publicLocationUncertaintyKm` ya calcula) y **D-043** (k = 5 sobre celda fija suprime estructuralmente la baja densidad; §2.9 lo acota con el `422` y lo declara en `sesgo`, no lo elimina) | Los ordinales están repartidos por spec: A D-034/D-035, B D-036 a D-040, C D-041 a D-043. Tres entradas con el mismo id pasan la guarda de CI, que mide por título, y dejan el registro inservible |
 
 **Lo que NO se toca:** la fórmula de `brillo.ts`, `location-policy.ts`, `poblacion.ts`, `geo.ts` y los 18 archivos de test de civic-core. Y **nada de `pulso.ts`**: `proposals` y `pulse_signals` dejan de recibir escrituras con B, así que arreglar `castVote` habría sido reparar una puerta de una casa que se demuele.
 
@@ -1010,7 +1010,7 @@ Con la misma redacción de frase-afirmación de `packages/civic-core/src/__tests
 | «una adhesión enciende la celda de la señal que apoya, no la del adherente» | La palanca principal del producto en el único canal visual |
 | «cien hechos de una sola persona en una celda no apagan su nitidez» | El tope por actor en el denominador |
 | «una celda con todos sus hechos desactualizados no se dibuja igual que una de puros sueños» | Que `desactualizada` esté en el denominador |
-| «con 4 voces sale suprimida; con 0 y sin señales, silencio; con 0 y señales sin actor, `sin_actor_conocido`; con 5, luz» | D-028, los cuatro estados, y que `senalesSinActor` viaje |
+| «con 4 voces sale suprimida; con 0 y sin señales, silencio; con 0 y señales sin actor, `sin_actor_conocido`; con 5, luz» | D-088, los cuatro estados, y que `senalesSinActor` viaje |
 | «el endpoint de celdas no devuelve identificadores de persona, y declara su sesgo» | La razón por la que existe, y la regla 5 entera |
 | «una escritura cívica web sin consentimiento no planta el identificador; retirar un actor corta el vínculo y no mueve un conteo» | Regla 9: el momento del sí y que «revocable» sea cierto |
 | «ni `actor_hash` ni `actor_key` ni `deviceSecret` aparecen en ninguna línea de log ni en la respuesta del rastro, y `submitted_as` no sale por `/api/open-data/dreams`» | Recorrido del objeto serializado y del logger, no inspección del tipo |
@@ -1123,7 +1123,7 @@ group by 1, 2;
 9. Un `unsafe` deja la señal fuera del volcado del día siguiente, verificado sobre el archivo y no sobre el endpoint.
 10. Una conexión `recurso → necesidad` se propone, se acepta de los dos lados, y aparece como enlace disponible al proponer la resolución sin haberla disparado.
 11. Retirar un actor deja el `actor_hash` en `null` y **no mueve un solo conteo por celda**.
-12. D-028 (la segunda) está marcada resuelta con su diseño citado, y D-041, D-042 y D-043 están anotadas en su rango.
+12. D-088 (antes la segunda D-028) está marcada resuelta con su diseño citado, y D-041, D-042 y D-043 están anotadas en su rango.
 
 ---
 

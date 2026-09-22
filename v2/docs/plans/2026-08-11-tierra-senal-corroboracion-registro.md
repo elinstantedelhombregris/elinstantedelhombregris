@@ -803,7 +803,7 @@ git commit -m "feat(civic-core): la clase de una señal decide qué se le puede 
 **Resolución de contradicción (`ConteoCelda` y `Brillo`), partida en dos porque las dos mitades tienen razón:**
 
 1. **Gana B en que el número tiene que viajar.** `ConteoCelda` gana `senalesSinActor`. `brilloDeCelda` sólo lee `vocesDistintas` y `habitantes`: sin el campo, una celda con cincuenta señales sin actor da `participacion: 0` e `intensidad: 0`, que el comentario de esa misma función define como «nadie habló» — el pecado que el módulo existe para prohibir, y encima sesgado justo contra las celdas que cubrió la app de campo. C lo necesita y lo niega: su propia tabla `celda_luz` tiene la columna `senales_sin_actor`.
-2. **Ganan C y D en la ubicación: la variante NO entra a `Brillo`.** La supresión corre **antes** de `luzDeCeldas` —las tres specs coinciden—, así que `brilloDeCelda` nunca se invoca sobre una celda con `vocesDistintas===0 && senalesSinActor>0`. Meter la variante adentro rompe una unión que dos apps importan sin comprar nada, que es la advertencia literal de D-028.
+2. **Ganan C y D en la ubicación: la variante NO entra a `Brillo`.** La supresión corre **antes** de `luzDeCeldas` —las tres specs coinciden—, así que `brilloDeCelda` nunca se invoca sobre una celda con `vocesDistintas===0 && senalesSinActor>0`. Meter la variante adentro rompe una unión que dos apps importan sin comprar nada, que es la advertencia literal de D-088.
 3. **Nombres: los cuatro estados de C, con `silencio` y no `muda`.** `muda` de D pierde porque D tiene tres estados y le falta el que distingue «no sé quién» de «nadie».
 4. **`VOCES_MINIMAS_POR_CELDA` no se crea.** El 5 se declara **una** vez, en `coeficientes-corroboracion.ts` (Task 20), como `UMBRAL_SUPRESION`. Dos constantes con el mismo valor en dos archivos para la misma decisión es cómo empieza toda deriva: dentro de seis meses alguien sube una y el mapa suprime distinto según qué superficie pregunte.
 
@@ -2145,7 +2145,7 @@ git commit -am "feat(api): la métrica norte deja de ser una frase y pasa a ser 
 
 - [ ] **Step 1: La supresión sobre lo que ENTRA, nunca sobre lo que sale**
 
-D-028 está verificada numéricamente: con los coeficientes públicos, `voces = habitantes × PARTICIPACION_PLENA × intensidad^(1/CURVA)`, y **una intensidad de 0,1720 sobre 1.000 habitantes despeja exactamente 1 voz**. El dibujo delata a la persona.
+D-088 está verificada numéricamente: con los coeficientes públicos, `voces = habitantes × PARTICIPACION_PLENA × intensidad^(1/CURVA)`, y **una intensidad de 0,1720 sobre 1.000 habitantes despeja exactamente 1 voz**. El dibujo delata a la persona.
 
 - `vocesDistintas === 0` y ninguna señal sin actor → `silencio`.
 - `vocesDistintas === 0` y hay señales sin actor → **`sin_actor_conocido`**. `count(distinct)` ignora los NULL, así que una celda de cincuenta voces anónimas daría cero y se pintaría «nadie habló acá»: el pecado exacto que `brillo.ts` existe para prohibir, **por la puerta de atrás del agregado**.
@@ -2879,7 +2879,7 @@ git commit -am "chore(db): mueren las seis tablas que quedaron vacías y sin esc
 1. **D-004** pasa a «Falta la **geometría** de departamentos» y suma una línea: las filas existen desde la rebanada 1. Severidad media, sin cambio.
 2. **D-005** pasa a «Falta la **geometría** de municipios» y **baja de media a baja**, con las dos condiciones escritas en la entrada: no hay población por municipio (`poblacion.ts` sólo tiene `PROVINCIAS_REF`, así que `brillo` devuelve `sinDenominador` y no un número) y la supresión de grupo chico tiene que correr antes de pintar nada. **Agrupar no es publicar**, y publicar hoy un ranking municipal sería la regla 7 por la puerta de atrás: con 2.082 municipios y las tablas en cero, la cabeza sería un municipio donde habló una sola persona.
 3. **D-011** suma la frase que la hace medible: `where ubicacion_origen = 'punto'` es el conjunto **exacto** de filas cuya provincia puede estar mal, y es exacto de verdad porque `senales_origen_provincia_chk` impide la fila con provincia y sin origen. **Cuando entre geometría del IGN, ese `where` es el backfill.**
-4. **D-028** (la segunda entrada con ese id, `docs/DEUDAS.md:677`) se marca **resuelta** con su diseño citado: los cuatro estados de celda y la supresión sobre lo que entra. **Y de paso hay que arreglar el índice:** D-028 nombra dos deficiencias distintas y el índice sólo lista la primera, así que la segunda —la que importa para el endpoint— es invisible desde arriba del archivo. Es exactamente la colisión que D-016 documentó para D-013 y que la guarda `deudas-registro.test.ts` fue escrita para cazar, midiendo por título y no por conteo.
+4. **D-088** (antes la segunda D-028) se marca **resuelta** con su diseño citado: los cuatro estados de celda y la supresión sobre lo que entra. **Y de paso hay que arreglar el índice:** D-028 nombraba dos deficiencias distintas (la segunda es hoy D-088) y el índice sólo lista la primera, así que la segunda —la que importa para el endpoint— es invisible desde arriba del archivo. Es exactamente la colisión que D-016 documentó para D-013 y que la guarda `deudas-registro.test.ts` fue escrita para cazar, midiendo por título y no por conteo.
 
 - [ ] **Step 3: Escribir las trece entradas nuevas**
 
