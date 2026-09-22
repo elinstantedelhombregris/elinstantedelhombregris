@@ -277,7 +277,10 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-001',
       'D-002',
       'D-003',
+      // Cerradas el 22/9/2026 con las capas de límites del IGN; D-005 quedó parcial (la unión municipal no está verificada).
+      'D-004',
       'D-009',
+      'D-011',
       'D-012',
       'D-016',
       'D-019',

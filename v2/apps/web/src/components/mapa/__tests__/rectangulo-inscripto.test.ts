@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import GEOJSON from '../../../../public/geo/provincias.geojson?raw';
 import {
   anillosDeGeometria,
+  enLaFigura,
   rectanguloInscripto,
   RESOLUCION_INSCRIPTA,
 } from '../rectangulo-inscripto';
@@ -155,22 +156,31 @@ describe('el rectángulo inscripto sobre las 24 provincias reales', () => {
 
   it('0,0 % de la superficie sembrada cae afuera de su provincia', () => {
     const conFuga = mediciones.filter((m) => m.afuera > 0).map((m) => `${m.nombre}: ${m.afuera}`);
-    expect(conFuga, `\nFuga por provincia (${LADO_DE_MEDICION}×${LADO_DE_MEDICION}):\n${tabla}\n`).toEqual(
-      [],
-    );
+    expect(
+      conFuga,
+      `\nFuga por provincia (${LADO_DE_MEDICION}×${LADO_DE_MEDICION}):\n${tabla}\n`,
+    ).toEqual([]);
   });
 
-  it('lo que queda adentro es dibujable: la más apretada es Formosa, y cubre más de la quinta parte', () => {
+  it('lo que queda adentro es dibujable: la más apretada es Tierra del Fuego, y cubre más de un octavo', () => {
     const flaca = [...mediciones].sort((a, b) => a.cobertura - b.cobertura)[0];
-    expect(flaca?.nombre).toBe('Formosa');
+    expect(flaca?.nombre).toBe('Tierra del Fuego');
     /*
-      Tripwire, no objetivo: hoy Formosa cubre el 21,5 % de su polígono y es la
-      peor de las veinticuatro. Si alguna cae por debajo de la quinta parte hay
-      que mirarla —puede seguir siendo honesta y estar dibujando en un pañuelo—,
-      pero el arreglo NUNCA es aflojar la contención.
+      Tripwire, no objetivo. Con la geometría de Natural Earth la peor era
+      Formosa con 21,5 % y el piso era un quinto. Se miró al bajar, el 22/9/2026,
+      y las dos caídas son honestas:
+        - Tierra del Fuego (12,9 %): la capa del IGN le suma Malvinas y la Isla
+          de los Estados, y el rectángulo vive en la Isla Grande. El área que
+          divide creció; el lugar donde dibujar no se achicó.
+        - Formosa (18,9 %): la contención pasó a exigir que ningún lado cruce
+          una celda, no sólo que su centro caiga adentro. Con la geometría
+          vieja y la regla nueva ya daba 18,3 %: el 21,5 % se conseguía
+          dejando que el rectángulo rozara Paraguay.
+      Si alguna cae por debajo de un octavo hay que mirarla, pero el arreglo
+      NUNCA es aflojar la contención.
     */
-    expect(flaca?.cobertura).toBeGreaterThan(0.2);
-    for (const m of mediciones) expect(m.cobertura).toBeGreaterThan(0.2);
+    expect(flaca?.cobertura).toBeGreaterThan(0.125);
+    for (const m of mediciones) expect(m.cobertura).toBeGreaterThan(0.125);
   });
 });
 
@@ -284,23 +294,89 @@ describe('anillosDeGeometria', () => {
     [0, 0],
   ];
 
-  it('lee un Polygon y un MultiPolygon, y se queda con los anillos exteriores', () => {
+  it('lee un Polygon y un MultiPolygon, con sus huecos', () => {
     expect(anillosDeGeometria({ type: 'Polygon', coordinates: [anillo] })).toHaveLength(1);
     expect(
       anillosDeGeometria({ type: 'MultiPolygon', coordinates: [[anillo], [anillo]] }),
     ).toHaveLength(2);
-    // El hueco de un Polygon se ignora: el archivo de hoy no trae ninguno.
-    expect(anillosDeGeometria({ type: 'Polygon', coordinates: [anillo, anillo] })).toHaveLength(1);
+    // Desde la geometría del IGN hay huecos (islas ajenas en Entre Ríos y
+    // Corrientes), y un hueco ignorado agranda la figura: vienen en la lista.
+    expect(anillosDeGeometria({ type: 'Polygon', coordinates: [anillo, anillo] })).toHaveLength(2);
+  });
+
+  it('el hueco se resta: ni el punto ni el rectángulo caen en él', () => {
+    const exterior = [
+      [0, 0],
+      [10, 0],
+      [10, 10],
+      [0, 10],
+      [0, 0],
+    ];
+    // Un hueco que parte la figura casi al medio: el rectángulo más grande que
+    // lo ignora ocuparía todo el cuadrado.
+    const hueco = [
+      [4, 1],
+      [4, 9],
+      [6, 9],
+      [6, 1],
+      [4, 1],
+    ];
+    const anillos = anillosDeGeometria({ type: 'Polygon', coordinates: [exterior, hueco] });
+    expect(enLaFigura(anillos, 5, 5)).toBe(false);
+    expect(enLaFigura(anillos, 2, 5)).toBe(true);
+
+    const rectangulo = rectanguloInscripto(anillos);
+    expect(rectangulo).not.toBeNull();
+    if (rectangulo === null) return;
+    expect(puntosAfuera(anillos, rectangulo)).toBe(0);
+  });
+
+  it('un hueco ilegible se lleva el polígono entero, no se descarta solo', () => {
+    // Quedarse con el exterior sin su hueco convertiría territorio ajeno en
+    // propio. Perder el polígono sólo puede achicar la figura.
+    expect(
+      anillosDeGeometria({
+        type: 'Polygon',
+        coordinates: [
+          anillo,
+          [
+            [0, 0],
+            ['x', 1],
+            [1, 1],
+            [0, 0],
+          ],
+        ],
+      }),
+    ).toEqual([]);
   });
 
   it('un anillo con un punto ilegible se descarta entero, no se cose', () => {
     // Saltear el punto malo devolvería un polígono con una cuerda donde había
     // una costa, y el rectángulo que salga de esa figura ya no promete nada.
     expect(
-      anillosDeGeometria({ type: 'Polygon', coordinates: [[[0, 0], ['x', 1], [1, 1], [0, 0]]] }),
+      anillosDeGeometria({
+        type: 'Polygon',
+        coordinates: [
+          [
+            [0, 0],
+            ['x', 1],
+            [1, 1],
+            [0, 0],
+          ],
+        ],
+      }),
     ).toEqual([]);
     expect(
-      anillosDeGeometria({ type: 'Polygon', coordinates: [[[0, 0], [1, Number.NaN], [1, 1]]] }),
+      anillosDeGeometria({
+        type: 'Polygon',
+        coordinates: [
+          [
+            [0, 0],
+            [1, Number.NaN],
+            [1, 1],
+          ],
+        ],
+      }),
     ).toEqual([]);
   });
 
@@ -308,6 +384,16 @@ describe('anillosDeGeometria', () => {
     expect(anillosDeGeometria(null)).toEqual([]);
     expect(anillosDeGeometria({ type: 'Point', coordinates: [0, 0] })).toEqual([]);
     expect(anillosDeGeometria({ type: 'Polygon' })).toEqual([]);
-    expect(anillosDeGeometria({ type: 'Polygon', coordinates: [[[0, 0], [1, 1]]] })).toEqual([]);
+    expect(
+      anillosDeGeometria({
+        type: 'Polygon',
+        coordinates: [
+          [
+            [0, 0],
+            [1, 1],
+          ],
+        ],
+      }),
+    ).toEqual([]);
   });
 });

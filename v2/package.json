@@ -27,6 +27,7 @@
     "api:bundle": "tsx scripts/build/bundle-api.ts",
     "planes:migrar": "tsx scripts/content/migrate-planes-v1-to-v2.ts",
     "geo:provincias": "tsx scripts/build/geo/generar-provincias-api.ts",
+    "geo:ign": "tsx scripts/build/geo/importar-ign.ts",
     "mapa:estilo": "tsx scripts/build/mapa/generar-estilo.ts",
     "csp:generar": "tsx scripts/build/seguridad/generar-csp-vercel.ts",
     "tipografias:bajar": "tsx scripts/build/tipografias/bajar-tipografias.ts",

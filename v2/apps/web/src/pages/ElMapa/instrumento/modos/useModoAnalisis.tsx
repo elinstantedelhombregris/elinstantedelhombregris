@@ -23,8 +23,13 @@ import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
  * dejar leer el contenido convierte a la gente en una métrica, que es
  * exactamente lo contrario de lo que esta plataforma existe para hacer.
  *
- * DEPARTAMENTOS: falta la capa del IGN (~530 unidades). El nivel se muestra
- * deshabilitado con su razón en vez de esconderse.
+ * DEPARTAMENTOS: la geometría ya está (`public/geo/departamentos.geojson`, IGN,
+ * 528 unidades con su código INDEC — D-004), pero el nivel sigue deshabilitado
+ * con su razón a la vista, porque pintarlo hoy mentiría de tres maneras: el
+ * resumen del mapa sólo agrega por provincia (sumar la página cargada daría un
+ * número que no es el total), no hay población ni superficie por departamento
+ * para las otras dos métricas, y falta la supresión de grupos chicos (D-088):
+ * un departamento encendido por una sola voz la señala.
  */
 
 type Metrica = 'total' | 'porHabitante' | 'densidad';
@@ -211,8 +216,9 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
           />
           {nivel === 'departamento' ? (
             <p className="text-oscuro-meta mt-2 text-[11px] leading-relaxed">
-              Todavía no está: falta la capa de departamentos del IGN. Se muestra igual porque el
-              nivel existe y va a llegar.
+              Todavía no está. El mapa de departamentos ya lo tenemos; falta contar las voces por
+              departamento en el servidor y no mostrar los lugares donde habló tan poca gente que se
+              la podría reconocer. Se muestra igual porque el nivel existe y va a llegar.
             </p>
           ) : null}
         </Control>

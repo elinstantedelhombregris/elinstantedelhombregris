@@ -28,14 +28,14 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-001](#d-001--no-hay-resolución-geográfica-en-el-servidor) | No hay resolución geográfica en el servidor | Bloqueante | **Resuelta** |
 | [D-002](#d-002--la-base-de-v2-tiene-12-filas-y-las-12-son-de-demostración) | La base de v2 tiene 12 filas, y las 12 son de demostración | Alta | **Resuelta** |
 | [D-003](#d-003--glyphs-y-teselas-del-mapa-salen-de-cdn-de-terceros) | Glyphs y teselas del mapa salen de CDN de terceros | Media | **Resuelta** |
-| [D-004](#d-004--falta-la-capa-de-departamentos) | Falta la capa de departamentos | Media | Abierta |
-| [D-005](#d-005--falta-la-capa-de-municipios) | Falta la capa de municipios | Media | Abierta |
+| [D-004](#d-004--falta-la-capa-de-departamentos) | Falta la capa de departamentos | Media | **Resuelta** |
+| [D-005](#d-005--falta-la-capa-de-municipios) | Falta la capa de municipios | Media | **Parcial** |
 | [D-006](#d-006--las-73-dependencias-entre-planes-viven-solo-en-v1) | Las dependencias entre PLANes viven solo en v1 (ya son 208) | Media | Abierta |
 | [D-007](#d-007--dos-majors-de-typesreact-conviven-por-parche-de-pnpm) | Dos majors de `@types/react` conviven por parche de pnpm | Media | Abierta |
 | [D-008](#d-008--los-parches-de-dependencias-están-atados-a-versión-exacta) | Los parches de dependencias están atados a versión exacta | Baja | Abierta |
 | [D-009](#d-009--tres-planes-del-corpus-fuente-no-están-migrados-a-v2) | Tres PLANes del corpus fuente no están migrados a v2 | Alta | **Resuelta** |
 | [D-010](#d-010--sesiones-concurrentes-se-tragan-los-cambios-de-otras) | Sesiones concurrentes se tragan los cambios de otras | Media | Abierta |
-| [D-011](#d-011--la-geometría-de-provincias-erra-en-los-bordes) | La geometría de provincias erra en los bordes | Alta | Abierta |
+| [D-011](#d-011--la-geometría-de-provincias-erra-en-los-bordes) | La geometría de provincias erra en los bordes | Alta | **Resuelta** |
 | [D-012](#d-012--el-geojson-usaba-un-nombre-no-canónico-para-caba) | El GeoJSON usaba un nombre no canónico para CABA | Alta | **Resuelta** |
 | [D-013](#d-013--el-test-del-corpus-de-planes-tiene-el-total-a-mano-y-se-rompe-cada-vez) | El test del corpus de PLANes tiene el total a mano y se rompe cada vez | Media | Abierta |
 | [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | Parcial |
@@ -102,6 +102,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-086](#d-086--el-sello-de-documento-auditado-se-activa-al-entrar-la-firma-en-pantalla) | El sello de documento auditado se activa al entrar la firma en pantalla | Media | **Resuelta** |
 | [D-087](#d-087--el-formulario-exige-una-cesión-que-su-consentimiento-presenta-como-opcional) | El formulario exige una cesión que su consentimiento presenta como opcional | Media | **Resuelta** |
 | [D-088](#d-088--el-brillo-dibujado-es-invertible-delata-cuánta-gente-habló-en-una-celda) | El brillo dibujado es invertible: delata cuánta gente habló en una celda | Alta | Abierta |
+| [D-089](#d-089--el-nivel-departamento-del-modo-análisis-sigue-apagado-aunque-la-geometría-ya-está) | El nivel departamento del modo Análisis sigue apagado aunque la geometría ya está | Media | Abierta |
+| [D-090](#d-090--las-voces-resueltas-por-punto-antes-del-cambio-de-geometría-conservan-la-provincia-vieja) | Las voces resueltas por punto antes del cambio de geometría conservan la provincia vieja | Media | Abierta |
 
 ---
 
@@ -165,7 +167,9 @@ Se hizo porque auto-hospedar teselas vectoriales de todo el país es impracticab
 **Dónde:** `v2/apps/web/public/geo/` — solo hay `provincias.geojson`
 **Encontrada:** 2026-07-26, spec del instrumento
 **Severidad:** media
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** `v2/apps/web/public/geo/departamentos.geojson`: la capa `ign:departamento` del WFS del IGN, simplificada con Douglas-Peucker topológico a 500 m (5.100.430 vértices → 39.790, 856 KB). Son 528 de los 529: «Antártida Argentina» (94028) queda fuera del marco que se dibuja. Cada rasgo trae `georefId`, el código INDEC de 5 dígitos que es también el id de georef y de `geographic_locations.georef_id`; coinciden en cantidad (529) y en forma (las comunas de CABA son `02007`…`02105`), pero no se cotejaron fila por fila contra la base porque eso pedía leer producción. Lo genera `pnpm geo:ign` (`v2/scripts/build/geo/importar-ign.ts`); procedencia, fecha y licencia en `v2/scripts/build/data/README.md`. **El nivel «departamento» del modo Análisis sigue apagado**, y ya no por la geometría: es [D-089](#d-089--el-nivel-departamento-del-modo-análisis-sigue-apagado-aunque-la-geometría-ya-está).
 
 Las ~530 unidades del IGN no están. El modo Análisis muestra el nivel «departamento» deshabilitado con su razón a la vista, que es lo correcto, pero el análisis se queda en el escalón más grueso que existe.
 
@@ -178,7 +182,9 @@ Necesita un extracto de Geofabrik (~1,2 GB) procesado con osmium, o la capa del 
 **Dónde:** ídem D-004
 **Encontrada:** 2026-08-01, escribiendo la spec de la Simulación
 **Severidad:** media
-**Estado:** abierta
+**Estado:** **parcialmente resuelta 2026-09-22** — la geometría existe; la unión con la base no está verificada
+
+**Resolución parcial.** `v2/apps/web/public/geo/municipios.geojson`: la capa `ign:municipio` del IGN a Douglas-Peucker 400 m (2.292.600 vértices → 68.798, 1.677 KB), con `georefId` = código INDEC de 6 dígitos. Lo que falta es la unión: el IGN trae 2.114 rasgos con 2.105 códigos distintos y la base tiene 2.082 municipios, así que **al menos 23 códigos del IGN no pueden estar en `geographic_locations`**, y no se cotejaron. Diez rasgos salen sin código: ocho que la fuente trae en blanco, más El Rabón y Hardy, que comparten el 822784 y no se adivina cuál lo tiene bien. Tampoco cubre el territorio entero: en varias provincias el municipio es un ejido y no una partición. Queda abierta hasta que alguien cruce los códigos contra la base y diga cuáles unen y cuáles no. Las dos condiciones del ranking municipal (población por municipio, supresión de grupos chicos) siguen siendo las de la spec de la tierra §7.4.
 
 Los rankings de la Simulación (§7.3) piden municipios y el esquema los soporta, pero la geometría no existe. Hasta que esté, el ranking municipal solo puede armarse con los municipios que tengan señales geo-resueltas — lo cual hoy, por D-001, son cero.
 
@@ -269,7 +275,11 @@ El commit quedó con un mensaje que no menciona nada de eso. Dentro de un mes, `
 **Dónde:** `apps/web/public/geo/provincias.geojson` → `apps/api/src/features/geographic/provincias.generated.ts`
 **Encontrada:** 2026-08-01, arreglando D-001 — un test que esperaba Neuquén devolvió Río Negro
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** La geometría es la capa `ign:provincia` del WFS del IGN, bajada el 22/9/2026 y simplificada con Douglas-Peucker topológico a 200 m: 4.051.161 vértices → 29.820 (eran 684), 18 KB → 579 KB. Topológico quiere decir que dos provincias vecinas comparten el mismo borde simplificado — 100.000 puntos sorteados a unos 300 m de un borde no cayeron nunca en dos. CABA pasó de 3 vértices a más de 50. El nombre sale del canon por código INDEC, no del IGN. Se recorta al marco continental: Malvinas entra (y resuelve Tierra del Fuego), el sector antártico y las Georgias quedan afuera. Lo hace `pnpm geo:ign`, que al final corre el `pnpm geo:provincias` de siempre; procedencia y licencia en `v2/scripts/build/data/README.md`. `apps/api/tests/geo-provincias.test.ts` dejó de fijar el error: ahora afirma 22 puntos de borde —entre ellos Neuquén capital, Plottier y Cipolletti; Viedma y Carmen de Patagones; Resistencia y Corrientes; Posadas; Liniers, Villa Lugano, Núñez, Retiro, la Reserva y Aeroparque en CABA, Ciudadela y Dock Sud en provincia; Puerto Argentino— y que Salto y Encarnación no son de nadie. Contra la geometría vieja fallaban 11 de esos 24. De paso, el rectángulo inscripto de la web dejó de escaparse por los bordes finos (Corrientes se metía en Paraguay) y aprendió a restar huecos, que el IGN trae.
+
+**Lo que dejó atrás:** [D-090](#d-090--las-voces-resueltas-por-punto-antes-del-cambio-de-geometría-conservan-la-provincia-vieja) — las filas que ya estaban guardadas no se tocaron. Y el mapa SVG precomputado (`apps/web/src/geo/pais.generated.ts`) sigue dibujando Natural Earth, pero su único consumidor, `MapaArgentina`, no lo monta ninguna página.
 
 La geometría que tenemos promedia **29 vértices por provincia**. Alcanza para el interior y no alcanza para un límite que sigue un río.
 
@@ -1578,3 +1588,29 @@ Un `IntersectionObserver` con umbral 0,6 activa `visto` y el texto «Documento a
 El consentimiento dice que, si no se autoriza reutilizar el texto, se publica el resto sin texto. Sin embargo, el formulario añade una falta cuando `!cede` y deshabilita enviar. La alternativa ofrecida por el texto no se puede elegir desde esta pantalla. La misma casilla reúne explicaciones del identificador de navegador, licencia y registro público.
 
 **Qué haría falta:** alinear elección y comportamiento, distinguiendo autorizaciones opcionales de requisitos del envío y conservando los textos compartidos. No se evaluó cumplimiento legal; se registra la contradicción de interfaz.
+
+### D-089 · El nivel departamento del modo Análisis sigue apagado aunque la geometría ya está
+
+**Dónde:** `v2/apps/web/src/pages/ElMapa/instrumento/modos/useModoAnalisis.tsx`, `v2/packages/db/src/repositories/mapa-lectura.ts`
+**Encontrada:** 2026-09-22, al cerrar D-004
+**Severidad:** media
+**Estado:** abierta
+
+D-004 trajo `departamentos.geojson` y el nivel «departamento» sigue deshabilitado con su razón a la vista. Encenderlo hoy mentiría de tres maneras:
+
+1. **El resumen del mapa sólo agrega por provincia.** `MapaLecturaRepository` devuelve `porProvincia` sobre el corpus entero; no hay `porDepartamento`. Sumar la página de señales cargada daría un número que no es el total, que es exactamente lo que D-084 cerró. Hace falta agregar por `department_id` —y por el departamento de `city_id` para las fuentes que no lo guardan— y decir cuántas filas no tienen departamento.
+2. **No hay población ni superficie por departamento.** Las métricas «por habitante» y «por territorio» sólo existen para las 24 provincias (`PROVINCIAS_REF`).
+3. **No hay supresión de grupos chicos** ([D-088](#d-088--el-brillo-dibujado-es-invertible-delata-cuánta-gente-habló-en-una-celda)). Con 529 departamentos y la base casi vacía, un departamento encendido por una sola voz la señala.
+
+El texto de la pantalla ya no dice que falta la capa: dice lo que falta de verdad.
+
+### D-090 · Las voces resueltas por punto antes del cambio de geometría conservan la provincia vieja
+
+**Dónde:** filas de `senales` con `ubicacion_origen = 'punto'` y filas de `dreams` resueltas por `pnpm geo:backfill`
+**Encontrada:** 2026-09-22, al cerrar D-011
+**Severidad:** media
+**Estado:** abierta
+
+D-011 cambió la geometría con la que se resuelve un punto, pero no volvió a resolver lo que ya estaba guardado: eso es escribir en producción, y se deja para que lo decida quien la opera. Toda fila con provincia sacada del polígono de 29 vértices puede tener la provincia de enfrente (Neuquén capital en Río Negro, Dock Sud en CABA) o ninguna (Retiro, Posadas). No se contó cuántas son.
+
+`pnpm geo:backfill` no alcanza: sólo toca filas **sin** provincia. Hace falta un re-resolver para `where ubicacion_origen = 'punto'` —el conjunto exacto que la spec de la tierra preparó para este día— que muestre en seco qué cambiaría y escriba sólo con `--aplicar`.

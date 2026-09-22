@@ -16,9 +16,10 @@
  * fila inventada no se distingue después de una medida.
  *
  * El efecto colateral que vale por sí solo: `where ubicacion_origen = 'punto'`
- * es, por primera vez, el conjunto EXACTO de filas cuya provincia sale del
- * polígono de 29 vértices de D-011. El daño de esa deuda deja de ser anécdota y
- * pasa a ser una consulta.
+ * es, por primera vez, el conjunto EXACTO de filas cuya provincia sale de un
+ * polígono. Hasta el 22/9/2026 era el de 29 vértices de D-011; desde entonces es
+ * la capa del IGN simplificada a 200 m, y las filas escritas antes son las que
+ * hay que volver a resolver.
  */
 import { NIVELES_DE_LOCALIDAD, GeoCallesRepository, GeographicRepository } from '@v2/db';
 
