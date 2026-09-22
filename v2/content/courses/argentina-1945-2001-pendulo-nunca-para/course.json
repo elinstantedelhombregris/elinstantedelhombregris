@@ -5,7 +5,7 @@
   "excerpt": "Medio siglo de péndulos, golpes y crisis vistos como patrones sistémicos.",
   "category": "hombre-gris",
   "level": "intermediate",
-  "duration": 29,
+  "duration": 45,
   "orderIndex": 30,
   "isPublished": true,
   "isFeatured": false,
@@ -16,84 +16,84 @@
       "key": "02-peron-1946-1955-el-modelo-que-dividio-argentina",
       "title": "Perón 1946-1955: El Modelo que Dividió Argentina",
       "description": "El peronismo como transformación del sistema y origen de la polarización permanente.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-la-revolucion-libertadora-el-primer-pendulo-violento",
       "title": "La Revolución Libertadora: El Primer Péndulo Violento",
       "description": "El golpe de 1955 como inicio del ciclo pendular peronismo/antiperonismo.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 2
     },
     {
       "key": "04-frondizi-e-illia-la-democracia-vigilada",
       "title": "Frondizi e Illia: La Democracia Vigilada",
       "description": "Los intentos democráticos bajo tutela militar y la proscripción peronista.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 3
     },
     {
       "key": "05-ongania-y-la-revolucion-argentina-el-autoritarismo-modernizador",
       "title": "Onganía y la Revolución Argentina: El Autoritarismo Modernizador",
       "description": "La dictadura de Onganía y el intento de modernización desde arriba.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-el-retorno-de-peron-esperanza-y-tragedia",
       "title": "El Retorno de Perón: Esperanza y Tragedia",
       "description": "La vuelta de Perón como solución imposible a una crisis sistémica.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 5
     },
     {
       "key": "07-1976-1983-la-dictadura-el-abismo",
       "title": "1976-1983: La Dictadura — El Abismo",
       "description": "El terrorismo de Estado como la peor expresión de los patrones argentinos.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 6
     },
     {
       "key": "08-alfonsin-1983-1989-la-primavera-democratica",
       "title": "Alfonsín 1983-1989: La Primavera Democrática",
       "description": "La reconstrucción democrática, el Juicio a las Juntas y las limitaciones del sistema.",
-      "duration": 3,
+      "duration": 5,
       "orderIndex": 7
     },
     {
       "key": "09-menem-1989-1999-la-fiesta-y-la-resaca",
       "title": "Menem 1989-1999: La Fiesta y la Resaca",
       "description": "La convertibilidad como parche sistémico y las reformas neoliberales.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 8
     },
     {
       "key": "10-la-crisis-de-2001-el-colapso-sistemico",
       "title": "La Crisis de 2001: El Colapso Sistémico",
       "description": "El estallido de diciembre de 2001 como falla sistémica total.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 9
     },
     {
       "key": "11-los-patrones-del-pendulo-el-ciclo-que-se-repite",
       "title": "Los Patrones del Péndulo: El Ciclo que Se Repite",
       "description": "Análisis sistémico de los patrones recurrentes en la historia 1945-2001.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     },
     {
       "key": "12-economia-y-sociedad-lo-que-los-numeros-no-dicen",
       "title": "Economía y Sociedad: Lo Que los Números No Dicen",
       "description": "Cómo los indicadores económicos ocultan realidades humanas en cada período.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 11
     },
     {
       "key": "13-lecciones-para-el-futuro-lo-que-este-medio-siglo-nos-ensena",
       "title": "Lecciones para el Futuro: Lo Que Este Medio Siglo Nos Enseña",
       "description": "Síntesis de aprendizajes sistémicos para construir una Argentina diferente.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 12
     }
   ],
@@ -108,9 +108,7 @@
   ],
   "paraQuien": "Para quienes heredaron relatos enfrentados sobre 1945–2001 y quieren armar una lectura comparativa propia.",
   "productoFinal": "Una matriz del péndulo argentino: apertura, cierre, coaliciones, restricciones y resultados por período.",
-  "prerrequisitos": [
-    "Conviene recorrer antes “Argentina 1810–1945”, aunque no es obligatorio."
-  ],
+  "prerrequisitos": ["Conviene recorrer antes “Argentina 1810–1945”, aunque no es obligatorio."],
   "coverImage": "/course-art/entrenamientos/argentina-1945-2001-pendulo-nunca-para.webp",
   "fuentesBase": [
     {

@@ -5,7 +5,7 @@
   "excerpt": "La historia argentina desde la independencia hasta Perón, vista como dinámica de sistemas.",
   "category": "hombre-gris",
   "level": "intermediate",
-  "duration": 29,
+  "duration": 48,
   "orderIndex": 29,
   "isPublished": true,
   "isFeatured": true,
@@ -16,84 +16,84 @@
       "key": "02-la-revolucion-de-mayo-cuando-el-sistema-cambio-de-manos",
       "title": "La Revolución de Mayo: Cuando el Sistema Cambió de Manos",
       "description": "La independencia como cambio de régimen analizada desde el pensamiento sistémico.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-las-guerras-de-independencia-el-precio-de-nacer",
       "title": "Las Guerras de Independencia: El Precio de Nacer",
       "description": "Los costos humanos, económicos y políticos de forjar una nación por las armas.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-la-anarquia-y-los-caudillos-fragmentacion-como-patron",
       "title": "La Anarquía y los Caudillos: Fragmentación como Patrón",
       "description": "La era de los caudillos provinciales vista como fragmentación sistémica.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-rosas-y-la-confederacion-el-primer-orden-autoritario",
       "title": "Rosas y la Confederación: El Primer Orden Autoritario",
       "description": "Juan Manuel de Rosas como modelo de concentración de poder y sus consecuencias.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-caseros-y-la-organizacion-nacional-disenar-un-pais",
       "title": "Caseros y la Organización Nacional: Diseñar un País",
       "description": "La Constitución de 1853 como intento de diseño institucional racional.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-la-generacion-del-80-la-maquina-agroexportadora",
       "title": "La Generación del 80: La Máquina Agroexportadora",
       "description": "El modelo de la Generación del 80 como sistema diseñado con bugs incorporados.",
-      "duration": 3,
+      "duration": 5,
       "orderIndex": 6
     },
     {
       "key": "08-la-inmigracion-masiva-el-pais-que-decidimos-ser",
       "title": "La Inmigración Masiva: El País que Decidimos Ser",
       "description": "Cómo 6 millones de inmigrantes transformaron el sistema argentino.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 7
     },
     {
       "key": "09-1912-la-ley-saenz-pena-y-el-nacimiento-de-la-democracia",
       "title": "1912: La Ley Sáenz Peña y el Nacimiento de la Democracia",
       "description": "El voto secreto y obligatorio como transformación del sistema político.",
-      "duration": 3,
+      "duration": 5,
       "orderIndex": 8
     },
     {
       "key": "10-yrigoyen-y-el-radicalismo-la-primera-democracia-popular",
       "title": "Yrigoyen y el Radicalismo: La Primera Democracia Popular",
       "description": "El primer gobierno democrático real y sus contradicciones sistémicas.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-el-golpe-de-1930-el-primer-cortocircuito",
       "title": "El Golpe de 1930: El Primer Cortocircuito",
       "description": "El primer golpe militar como ruptura del sistema democrático y precedente fatal.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 10
     },
     {
       "key": "12-la-decada-infame-fraude-dependencia-y-exclusion",
       "title": "La Década Infame: Fraude, Dependencia y Exclusión",
       "description": "Los años 30 como laboratorio de todos los vicios del sistema argentino.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 11
     },
     {
       "key": "13-1943-1945-el-huevo-de-la-serpiente-los-origenes-de-peron",
       "title": "1943-1945: El Huevo de la Serpiente — Los Orígenes de Perón",
       "description": "El surgimiento de Perón como producto del sistema y punto de inflexión histórico.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 12
     }
   ],

@@ -1,11 +1,11 @@
 {
   "slug": "datos-para-bien-comun",
   "title": "Datos para el Bien Común",
-  "description": "Usa datos como herramienta de transformación. Recolección y análisis de datos comunitarios, datos.gob.ar e INDEC, visualización, ciencia ciudadana y rendición de cuentas basada en datos.",
+  "description": "Usá datos como herramienta de transformación. Recolección y análisis de datos comunitarios, datos.gob.ar e INDEC, visualización, ciencia ciudadana y rendición de cuentas basada en datos.",
   "excerpt": "Convertí datos en herramientas de justicia y rendición de cuentas.",
   "category": "action",
   "level": "advanced",
-  "duration": 20,
+  "duration": 35,
   "orderIndex": 22,
   "isPublished": true,
   "isFeatured": false,
@@ -16,70 +16,70 @@
       "key": "02-datos-como-arma-ciudadana-ver-lo-que-el-poder-quiere-esconder",
       "title": "Datos como Arma Ciudadana: Ver lo que el Poder Quiere Esconder",
       "description": "Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 1
     },
     {
       "key": "03-recoleccion-de-datos-comunitarios-tu-barrio-en-numeros",
       "title": "Recolección de Datos Comunitarios: Tu Barrio en Números",
       "description": "Métodos prácticos para relevar datos que no existen en fuentes oficiales.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 2
     },
     {
       "key": "04-analisis-de-datos-con-herramientas-gratuitas",
       "title": "Análisis de Datos con Herramientas Gratuitas",
       "description": "Cómo transformar datos crudos en información útil usando hojas de cálculo.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-visualizacion-convertir-datos-en-historias-visuales",
       "title": "Visualización: Convertir Datos en Historias Visuales",
       "description": "Cómo hacer gráficos, mapas e infografías que comuniquen datos con impacto.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-presupuesto-publico-segui-la-plata",
       "title": "Presupuesto Público: Seguí la Plata",
       "description": "Cómo leer el presupuesto público y detectar inconsistencias.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-ciencia-ciudadana-cuando-la-comunidad-investiga",
       "title": "Ciencia Ciudadana: Cuando la Comunidad Investiga",
       "description": "Proyectos donde ciudadanos comunes generan datos científicos de valor.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 6
     },
     {
       "key": "08-periodismo-de-datos-contar-historias-con-evidencia",
       "title": "Periodismo de Datos: Contar Historias con Evidencia",
       "description": "Técnicas básicas de periodismo de datos aplicadas a la acción ciudadana.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-inteligencia-artificial-y-datos-ciudadanos",
       "title": "Inteligencia Artificial y Datos Ciudadanos",
       "description": "Cómo usar IA para potenciar el análisis de datos comunitarios.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-rendicion-de-cuentas-basada-en-datos",
       "title": "Rendición de Cuentas Basada en Datos",
       "description": "Cómo usar datos para exigir transparencia y combatir la corrupción.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-tu-proyecto-de-datos-de-este-curso-a-la-transformacion",
       "title": "Tu Proyecto de Datos: De Este Curso a la Transformación",
       "description": "Diseñar y ejecutar tu primer proyecto de datos para el bien común.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     }
   ],

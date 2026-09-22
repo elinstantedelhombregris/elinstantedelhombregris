@@ -5,7 +5,7 @@
   "excerpt": "Dominá conversaciones valientes con método, práctica deliberada y autorreflexión profunda.",
   "category": "comunicacion",
   "level": "beginner",
-  "duration": 34,
+  "duration": 45,
   "orderIndex": 26,
   "isPublished": true,
   "isFeatured": true,
@@ -16,42 +16,42 @@
       "key": "02-por-que-dejamos-de-hablar-la-anatomia-de-la-polarizacion",
       "title": "Por Qué Dejamos de Hablar: La Anatomía de la Polarización",
       "description": "Entender los mecanismos sistémicos que destruyen el diálogo en Argentina.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-comunicacion-no-violenta-para-argentinos",
       "title": "Comunicación No Violenta para Argentinos",
       "description": "Adaptar los principios de la CNV de Marshall Rosenberg al contexto cultural argentino.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 2
     },
     {
       "key": "04-escuchar-como-acto-radical",
       "title": "Escuchar Como Acto Radical",
       "description": "Desarrollar la capacidad de escucha profunda en una cultura que premia hablar.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 3
     },
     {
       "key": "05-la-conversacion-politica-en-el-asado-familiar",
       "title": "La Conversación Política en el Asado Familiar",
       "description": "Estrategias concretas para las discusiones políticas en reuniones familiares.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 4
     },
     {
       "key": "06-amabilidad-radical-ser-firme-sin-ser-cruel",
       "title": "Amabilidad Radical: Ser Firme Sin Ser Cruel",
       "description": "El concepto de amabilidad radical como herramienta de transformación social.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 5
     },
     {
       "key": "07-preguntas-que-abren-vs-preguntas-que-cierran",
       "title": "Preguntas Que Abren vs. Preguntas Que Cierran",
       "description": "El poder de las preguntas para transformar conversaciones.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 6
     },
     {
@@ -65,7 +65,7 @@
       "key": "09-redes-sociales-comunicar-sin-caer-en-la-grieta",
       "title": "Redes Sociales: Comunicar Sin Caer en la Grieta",
       "description": "Navegar redes sociales como herramienta de comunicación constructiva.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 8
     },
     {
@@ -79,14 +79,14 @@
       "key": "11-tu-protocolo-personal-de-conversacion-valiente",
       "title": "Tu Protocolo Personal de Conversación Valiente",
       "description": "Crear tu propio sistema para abordar conversaciones difíciles.",
-      "duration": 2,
+      "duration": 3,
       "orderIndex": 10
     },
     {
       "key": "12-historia-real-tres-anos-para-hablar-con-mi-padre",
       "title": "Historia Real: Tres Años para Hablar con Mi Padre",
       "description": "Una narrativa en primera persona sobre reconstruir una relación destruida por la diferencia política.",
-      "duration": 6,
+      "duration": 7,
       "orderIndex": 11
     }
   ],

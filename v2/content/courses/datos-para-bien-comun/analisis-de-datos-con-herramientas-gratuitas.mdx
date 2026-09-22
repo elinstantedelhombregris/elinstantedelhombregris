@@ -5,6 +5,11 @@ title: Análisis de Datos con Herramientas Gratuitas
 summary: Cómo transformar datos crudos en información útil usando hojas de cálculo.
 orderIndex: 3
 draft: false
+cierre: completo
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/ingresos1trim26536C8EDD3E.pdf
+    titulo: 'INDEC — Evolución de la distribución del ingreso (EPH). Primer trimestre de 2026'
+    consultada: '2026-09-22'
 ---
 
 ## De Números Sueltos a Información Que Habla
@@ -36,4 +41,22 @@ Google Sheets (o Excel) es la herramienta más accesible para analizar datos. Gr
 - **Ignorar el contexto:** "En nuestro barrio la pobreza es del 30%." ¿Es más o menos que el promedio de la ciudad? Sin comparación, el dato flota.
 - **Cherry-picking:** Elegir solo los datos que confirman tu argumento. Si querés credibilidad, mostrá TODOS los datos, incluso los incómodos.
 
+
+### Limpiar antes de contar
+
+CONTAR.SI cuenta exactamente lo que le pedís. Si en la columna del barrio un vecino escribió «San Martín», otro «Gral. San Martín» y otro «san martin», la fórmula ve tres barrios distintos y tu ranking sale mal sin avisarte. Antes de cualquier análisis, ordená cada columna de la A a la Z y recorrela con la vista: las variantes aparecen una debajo de la otra. Unificalas, anotá en una hoja aparte qué cambiaste y por qué, y guardá una copia del archivo original sin tocar. Esa hoja es la mitad de tu nota metodológica.
+
 > "No necesitás un posgrado en estadística para analizar datos. Necesitás curiosidad, una planilla de cálculo, y la honestidad de dejar que los datos hablen — incluso cuando dicen algo que no querías escuchar."
+
+### El caso
+
+El 25 de junio de 2026 el INDEC publicó la distribución del ingreso del primer trimestre en los 31 aglomerados urbanos que releva la Encuesta Permanente de Hogares. El ingreso per cápita familiar promedio fue de $728.008 por mes; la mediana, de $500.000. Las dos cifras son ciertas y dicen cosas distintas: la mitad de las personas vive con $500.000 o menos por cabeza, y el promedio queda más arriba porque unos pocos ingresos muy altos lo arrastran. El mismo informe mide la distancia entre la mediana del décimo más rico y la del décimo más pobre: 15 veces. Quien diga «el argentino promedio tiene $728.000» usa un dato oficial para describir a alguien que la mayoría no es. El INDEC publica las dos cifras juntas; el que cita una sola está eligiendo.
+
+### La palanca
+
+Abrí la planilla de tu relevamiento y, al lado de cada PROMEDIO, calculá la MEDIANA de la misma columna. Si se separan mucho, tu dato tiene una cola: pocos casos extremos que tiran del número. Contá cuántos son, mirá cuáles son y decidí antes de escribir cuál de las dos describe mejor a tu barrio. Después poné las dos en el informe, como hace el cuadro 2.1 del INDEC.
+Compará promedio y mediana en tu columna más importante antes de escribir una sola conclusión.
+
+### El puente
+
+[PLANARCO](/planes/planarco) acompaña cada indicador con una columna que dice cómo se lo falsea sin mentir y qué dato va al lado para impedirlo: el denominador, las dos series, la mediana de días.

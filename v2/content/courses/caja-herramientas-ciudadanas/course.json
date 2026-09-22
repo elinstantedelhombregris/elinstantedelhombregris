@@ -5,7 +5,7 @@
   "excerpt": "Las herramientas prácticas esenciales para pasar de la idea a la acción ciudadana.",
   "category": "action",
   "level": "beginner",
-  "duration": 31,
+  "duration": 38,
   "orderIndex": 20,
   "isPublished": true,
   "isFeatured": true,
@@ -16,14 +16,14 @@
       "key": "02-de-la-indignacion-a-la-accion-tu-primera-herramienta-sos-vos",
       "title": "De la Indignación a la Acción: Tu Primera Herramienta Sos Vos",
       "description": "Pasar de quejarse a actuar requiere herramientas concretas, no solo voluntad.",
-      "duration": 2,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-reuniones-que-funcionan-el-arte-de-no-perder-el-tiempo",
       "title": "Reuniones que Funcionan: El Arte de No Perder el Tiempo",
       "description": "Cómo organizar y facilitar reuniones productivas en contextos comunitarios.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 2
     },
     {
@@ -37,7 +37,7 @@
       "key": "05-redaccion-de-propuestas-y-notas-formales",
       "title": "Redacción de Propuestas y Notas Formales",
       "description": "Cómo escribir documentos que abran puertas en vez de cerrarlas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
@@ -51,7 +51,7 @@
       "key": "07-herramientas-digitales-para-la-accion-ciudadana",
       "title": "Herramientas Digitales para la Acción Ciudadana",
       "description": "Tecnología gratuita para organizar, comunicar y amplificar tu impacto.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -65,7 +65,7 @@
       "key": "09-mapeo-comunitario-conocer-tu-territorio",
       "title": "Mapeo Comunitario: Conocer Tu Territorio",
       "description": "Técnicas para diagnosticar tu barrio y detectar recursos, problemas y oportunidades.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {
@@ -79,7 +79,7 @@
       "key": "11-tu-plan-de-accion-ciudadana-de-este-curso-a-tu-barrio",
       "title": "Tu Plan de Acción Ciudadana: De Este Curso a Tu Barrio",
       "description": "Integrar todas las herramientas en un plan concreto de acción para tu comunidad.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 10
     }
   ],
