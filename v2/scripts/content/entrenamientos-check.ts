@@ -8,6 +8,7 @@ import {
   derivarSlugDeLeccion,
   detectarCola,
   detectarTuteo,
+  fuentesDeFrontmatter,
   jaccard,
   lessonFrontmatterSchema,
   minutosDeLectura,
@@ -120,6 +121,11 @@ export async function revisarCorpus(raiz: string): Promise<string[]> {
       const cierre = parsearCierre(cuerpo);
       const estadoCierre = frontmatter.cierre ?? 'pendiente';
       const fuentes = frontmatter.fuentes ?? [];
+      // El lector del navegador lee las fuentes sin YAML (fuentes-frontmatter.ts):
+      // si su lectura se aparta de la de gray-matter, la lección mostraría otras.
+      const crudo = readFileSync(join(cursoDir, file), 'utf-8');
+      if (JSON.stringify(fuentesDeFrontmatter(crudo)) !== JSON.stringify(fuentes))
+        errores.push(`${id}: el lector del sitio no lee las fuentes igual que el YAML`);
       const planes = frontmatter.planes ?? [];
       const ensayos = frontmatter.ensayos ?? [];
       for (const problema of validarCierre(cierre, estadoCierre, {

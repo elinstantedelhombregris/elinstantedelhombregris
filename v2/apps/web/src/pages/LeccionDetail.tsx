@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link, useRoute } from 'wouter';
 
+import type { Fuente } from '@v2/shared';
+
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { BotonPapel, Kicker, RitoTinta, Sello } from '~/components/papel/primitives';
 import { visualParaCurso, type CourseVisual } from '~/lib/course-visuals';
-import { cargarLeccion, findCursoBySlug } from '~/lib/courses-registry';
+import { cargarLeccionConFuentes, findCursoBySlug } from '~/lib/courses-registry';
 import { fechaLarga } from '~/pages/Biblioteca/biblioteca-data';
 import { ubicarLeccion } from '~/pages/Entrenamientos/entrenamientos-data';
+import { FuentesDeLeccion } from '~/pages/Entrenamientos/sections/FuentesDeLeccion';
+
 
 /**
  * Quita el primer bloque `# …` SOLO cuando repite el título del frontmatter
@@ -23,7 +27,10 @@ export function sinTituloDuplicado(cuerpo: string, titulo: string): string {
     : cuerpo;
 }
 
-type EstadoCuerpo = { fase: 'cargando' } | { fase: 'listo'; cuerpo: string } | { fase: 'error' };
+type EstadoCuerpo =
+  | { fase: 'cargando' }
+  | { fase: 'listo'; cuerpo: string; fuentes: Fuente[] }
+  | { fase: 'error' };
 
 type Tramo = 'observar' | 'ensayar' | 'integrar';
 
@@ -165,13 +172,17 @@ function useCuerpoDeLeccion(cursoSlug: string, leccionSlug: string, titulo: stri
   useEffect(() => {
     let vivo = true;
     setEstado({ fase: 'cargando' });
-    cargarLeccion(cursoSlug, leccionSlug)
-      .then((crudo) => {
+    cargarLeccionConFuentes(cursoSlug, leccionSlug)
+      .then((leccion) => {
         if (!vivo) return;
         setEstado(
-          crudo === null
+          leccion === null
             ? { fase: 'error' }
-            : { fase: 'listo', cuerpo: sinTituloDuplicado(crudo, titulo) },
+            : {
+                fase: 'listo',
+                cuerpo: sinTituloDuplicado(leccion.cuerpo, titulo),
+                fuentes: leccion.fuentes,
+              },
         );
       })
       .catch(() => {
@@ -320,6 +331,7 @@ export function LeccionDetail() {
             <div className="border-tinta overflow-x-auto border-t-2 pt-7">
               <MdxPapel raw={estado.cuerpo} className={CLASE_CUERPO} />
             </div>
+            <FuentesDeLeccion fuentes={estado.fuentes} />
             <LaboratorioLeccion
               cursoSlug={cursoSlug}
               leccionSlug={leccion.slug}

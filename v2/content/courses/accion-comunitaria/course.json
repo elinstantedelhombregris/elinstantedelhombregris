@@ -5,7 +5,7 @@
   "excerpt": "Dejá de opinar y empezá a hacer: herramientas reales para transformar tu barrio, tu comunidad y tu país desde hoy.",
   "category": "action",
   "level": "intermediate",
-  "duration": 31,
+  "duration": 35,
   "orderIndex": 3,
   "isPublished": true,
   "isFeatured": false,
@@ -16,7 +16,7 @@
       "key": "02-agere-la-etimologia-de-la-accion",
       "title": "Agere — La etimología de la acción",
       "description": "De dónde viene la palabra \"acción\", qué significa ser agente, y por qué reaccionar no es lo mismo que actuar.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 1
     },
     {
@@ -37,7 +37,7 @@
       "key": "05-mapear-para-actuar-los-tesoros-ocultos-de-tu-comunidad",
       "title": "Mapear para actuar — Los tesoros ocultos de tu comunidad",
       "description": "El enfoque de activos: antes de pedir lo que falta, descubrí lo que ya tenés. Cada barrio es más rico de lo que cree.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 4
     },
     {
@@ -51,7 +51,7 @@
       "key": "07-el-arte-de-convocar-mover-gente-sin-manipularla",
       "title": "El arte de convocar — Mover gente sin manipularla",
       "description": "La diferencia entre convocar y manipular, por qué la gente se suma (y no se suma), y cómo inspirar sin mentir.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 6
     },
     {
@@ -65,7 +65,7 @@
       "key": "09-de-tu-vereda-al-pais-la-accion-distribuida-del-hombre-gris",
       "title": "De tu vereda al país — La acción distribuida del Hombre Gris",
       "description": "Cómo las acciones locales se convierten en transformación nacional, el poder de la red, y la invitación final a actuar.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 8
     }
   ],

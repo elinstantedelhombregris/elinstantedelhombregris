@@ -10,6 +10,7 @@
 import {
   courseJsonSchema,
   derivarSlugDeLeccion,
+  fuentesDeFrontmatter,
   normalizarPregunta,
   quizJsonSchema,
   type Fuente,
@@ -121,6 +122,21 @@ export async function cargarLeccion(
   const cargar = cuerpos[`${RAIZ}/${cursoSlug}/${leccionSlug}.mdx`];
   if (!cargar) return null;
   return stripFrontmatter(await cargar());
+}
+
+/**
+ * Cuerpo + las `fuentes:` del frontmatter, en una sola bajada. Las fuentes son
+ * las de *El caso* del cierre (Ciclo 1): si la lección las declara, el lector
+ * las muestra — una fuente que el sitio dice tener y no muestra no sirve.
+ */
+export async function cargarLeccionConFuentes(
+  cursoSlug: string,
+  leccionSlug: string,
+): Promise<{ cuerpo: string; fuentes: Fuente[] } | null> {
+  const cargar = cuerpos[`${RAIZ}/${cursoSlug}/${leccionSlug}.mdx`];
+  if (!cargar) return null;
+  const crudo = await cargar();
+  return { cuerpo: stripFrontmatter(crudo), fuentes: fuentesDeFrontmatter(crudo) };
 }
 
 export interface PracticaEntry {

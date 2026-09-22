@@ -8,6 +8,7 @@ export * from './cola-generada.js';
 export * from './voseo.js';
 export * from './similitud.js';
 export * from './cierre.js';
+export * from './fuentes-frontmatter.js';
 
 // `loader.js` imports node:fs/promises and is server-only. It is
 // available as a separate subpath export `@v2/shared/content/loader`
