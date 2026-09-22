@@ -1,11 +1,24 @@
+import { readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
+
 import { slugCanonico } from '@v2/shared/content';
 import { describe, expect, it } from 'vitest';
 
 import { BLOG_POSTS, findBlogPost, findBlogPostByLegacySlug } from '../blog-registry';
 
+/**
+ * El total sale del directorio y no de un número escrito a mano: el número a
+ * mano se rompía con cada post nuevo (la misma deuda que D-013 en los PLANes).
+ * Lo que la guardia cuida sigue igual: que ningún `.mdx` se quede afuera.
+ */
+const ARCHIVOS_MDX = readdirSync(resolve(process.cwd(), '../../content/blog')).filter((f) =>
+  f.endsWith('.mdx'),
+).length;
+
 describe('BLOG_POSTS registry', () => {
-  it('loads 22 posts', () => {
-    expect(BLOG_POSTS).toHaveLength(22);
+  it('carga un post por cada .mdx de content/blog', () => {
+    expect(ARCHIVOS_MDX).toBeGreaterThanOrEqual(22);
+    expect(BLOG_POSTS).toHaveLength(ARCHIVOS_MDX);
   });
 
   it('every entry has non-empty slug/title/summary/body and type blog', () => {
@@ -78,8 +91,7 @@ describe('BLOG_POSTS registry', () => {
     expect(findBlogPostByLegacySlug('no-existe')).toBeUndefined();
   });
 
-  it('still has 22 posts, all with non-empty bodies', () => {
-    expect(BLOG_POSTS).toHaveLength(22);
+  it('ningún post llega con el cuerpo vacío', () => {
     for (const p of BLOG_POSTS) {
       expect(p.body.length).toBeGreaterThan(0);
     }
@@ -87,11 +99,15 @@ describe('BLOG_POSTS registry', () => {
 
   it('todos los artículos tienen una portada editorial accesible y acreditada', () => {
     const conPortada = BLOG_POSTS.filter((post) => post.coverImageUrl !== '');
-    expect(conPortada).toHaveLength(22);
+    expect(conPortada).toHaveLength(ARCHIVOS_MDX);
     expect(conPortada.filter((post) => post.coverImageUrl.includes('/pilotos/'))).toHaveLength(6);
-    expect(conPortada.filter((post) => post.coverImageUrl.includes('/editorial/'))).toHaveLength(16);
+    expect(conPortada.filter((post) => post.coverImageUrl.includes('/editorial/'))).toHaveLength(
+      ARCHIVOS_MDX - 6,
+    );
     for (const post of conPortada) {
-      expect(post.coverImageUrl).toMatch(/^\/media\/bitacora\/(?:pilotos|editorial)\/.+\.webp$/);
+      expect(post.coverImageUrl).toMatch(
+        /^\/media\/bitacora\/(?:pilotos|editorial)\/.+\.(?:webp|svg)$/,
+      );
       expect(post.coverImageAlt.length).toBeGreaterThan(20);
       expect(post.coverImageCaption.length).toBeGreaterThan(10);
       expect(post.coverImageCredit.length).toBeGreaterThan(5);

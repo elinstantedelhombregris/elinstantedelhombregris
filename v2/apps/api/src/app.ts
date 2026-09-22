@@ -25,6 +25,7 @@ import { openDataRouter } from './features/open-data/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
 import { radiografiaRouter } from './features/radiografia/routes.js';
 import { semillasRouter } from './features/semillas/routes.js';
+import { gestionSenalesRouter } from './features/senales/gestion-routes.js';
 import { senalesRouter } from './features/senales/routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
@@ -89,6 +90,7 @@ export function createApp(): Express {
    * evita que un `/senales/:id` futuro capture algo que no le toca.
    */
   app.use('/api/v1/civic', senalesRouter);
+  app.use('/api/v1/civic', gestionSenalesRouter);
   // La Radiografía comparte el prefijo cívico y NO el router del mapa: no es
   // una sexta lente de `/el-mapa`, es una página propia con su propio estado
   // (spec `docs/specs/2026-08-12-la-radiografia.md` §12).

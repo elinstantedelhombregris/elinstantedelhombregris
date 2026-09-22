@@ -4,7 +4,12 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { PanelSoltarVoz } from '../PanelSoltarVoz';
 
 import { ApiError } from '~/lib/api';
-import { useProvincias, useSoltarVoz, type SoltarVozInput, type VozSoltada } from '~/lib/queries/open-data';
+import {
+  useProvincias,
+  useSoltarVoz,
+  type SoltarVozInput,
+  type VozSoltada,
+} from '~/lib/queries/open-data';
 
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: vi.fn(),
@@ -77,7 +82,7 @@ describe('PanelSoltarVoz', () => {
     expect(screen.getByRole('button', { name: 'Soltar la voz →' })).toBeDisabled();
   });
 
-  it('sin marcar la cesión el botón sigue deshabilitado', () => {
+  it('sin confirmar publicación el botón sigue deshabilitado', () => {
     render(<PanelSoltarVoz />);
     fireEvent.click(screen.getByRole('button', { name: 'sueño' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Trenes que lleguen.' } });
@@ -91,9 +96,12 @@ describe('PanelSoltarVoz', () => {
     render(<PanelSoltarVoz />);
 
     fireEvent.click(screen.getByRole('button', { name: 'sueño' }));
-    fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: '  Trenes que lleguen. ' } });
+    fireEvent.change(screen.getByLabelText('Tu voz'), {
+      target: { value: '  Trenes que lleguen. ' },
+    });
     fireEvent.change(screen.getByLabelText('¿Desde dónde? (opcional)'), { target: { value: '6' } });
-    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
+    fireEvent.click(screen.getByLabelText(/Quiero publicar esta voz/i));
+    fireEvent.click(screen.getByLabelText(/cedo el texto para que se pueda citar/i));
     fireEvent.click(screen.getByRole('button', { name: 'Soltar la voz →' }));
 
     expect(mutate).toHaveBeenCalledWith(
@@ -119,7 +127,8 @@ describe('PanelSoltarVoz', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'basta' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Basta.' } });
-    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
+    fireEvent.click(screen.getByLabelText(/Quiero publicar esta voz/i));
+    fireEvent.click(screen.getByLabelText(/cedo el texto para que se pueda citar/i));
 
     fireEvent.submit(form);
     expect(mutate).toHaveBeenCalledTimes(1);
@@ -144,12 +153,13 @@ describe('PanelSoltarVoz', () => {
     fireEvent.click(screen.getByRole('button', { name: 'sueño' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Trenes que lleguen.' } });
     fireEvent.change(screen.getByLabelText('¿Desde dónde? (opcional)'), { target: { value: '6' } });
-    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
+    fireEvent.click(screen.getByLabelText(/Quiero publicar esta voz/i));
+    fireEvent.click(screen.getByLabelText(/cedo el texto para que se pueda citar/i));
     fireEvent.click(screen.getByRole('button', { name: 'Soltar la voz →' }));
 
     expect(screen.getByText('Recibida')).toBeInTheDocument();
     expect(
-      screen.getByText('Tu voz cayó en Córdoba. Ya está en el mapa, a la vista de todos.'),
+      screen.getByText('Tu voz cayó en Córdoba. Desde su página la seguís o la retirás.'),
     ).toBeInTheDocument();
     expect(window.localStorage.getItem('basta_despierto')).toBe('1');
     expect(screen.getByLabelText('Tu voz')).toHaveValue('');
@@ -163,7 +173,8 @@ describe('PanelSoltarVoz', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'basta' }));
     fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Basta.' } });
-    fireEvent.click(screen.getByLabelText(/identificador al azar/i));
+    fireEvent.click(screen.getByLabelText(/Quiero publicar esta voz/i));
+    fireEvent.click(screen.getByLabelText(/cedo el texto para que se pueda citar/i));
     fireEvent.click(screen.getByRole('button', { name: 'Soltar la voz →' }));
 
     expect(
@@ -174,7 +185,11 @@ describe('PanelSoltarVoz', () => {
   it('rate limit muestra el mensaje del server; otros errores, la línea §10.9', () => {
     armarMutacion({
       isError: true,
-      error: new ApiError(429, 'RATE_LIMITED', 'Demasiadas solicitudes. Intentá de nuevo en un momento.'),
+      error: new ApiError(
+        429,
+        'RATE_LIMITED',
+        'Demasiadas solicitudes. Intentá de nuevo en un momento.',
+      ),
     });
     render(<PanelSoltarVoz />);
     expect(screen.getByRole('alert')).toHaveTextContent(
@@ -183,8 +198,25 @@ describe('PanelSoltarVoz', () => {
 
     armarMutacion({ isError: true, error: new ApiError(500, 'INTERNAL', 'boom') });
     render(<PanelSoltarVoz />);
-    expect(
-      screen.getAllByRole('alert').at(-1),
-    ).toHaveTextContent('Esto se rompió. Lo decimos porque publicamos todo. Probá de nuevo.');
+    expect(screen.getAllByRole('alert').at(-1)).toHaveTextContent(
+      'Esto se rompió. Lo decimos porque publicamos todo. Probá de nuevo.',
+    );
+  });
+  it('permite no licenciar el texto y conserva el identificador al reintentar el mismo envío', () => {
+    mutate.mockReset();
+    render(<PanelSoltarVoz />);
+    fireEvent.click(screen.getByRole('button', { name: 'sueño' }));
+    fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Agua accesible.' } });
+    fireEvent.click(screen.getByLabelText(/Quiero publicar esta voz/i));
+    const enviar = screen.getByRole('button', { name: 'Soltar la voz →' });
+    fireEvent.click(enviar);
+    fireEvent.click(enviar);
+    const primero = mutate.mock.calls[0]?.[0];
+    const segundo = mutate.mock.calls[1]?.[0];
+    expect(primero?.cedeLicencia).toBe(false);
+    expect(segundo?.idLocal).toBe(primero?.idLocal);
+    fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Otro aporte.' } });
+    fireEvent.click(enviar);
+    expect(mutate.mock.calls[2]?.[0].idLocal).not.toBe(primero?.idLocal);
   });
 });

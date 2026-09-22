@@ -1,5 +1,7 @@
 import { Suspense, lazy } from 'react';
 
+import type { LugarMapa } from '../instrumento/BusquedaTerritorial';
+
 /**
  * El instrumento, debajo del panel de carga (§ pedido de rediseño).
  *
@@ -14,19 +16,24 @@ const Instrumento = lazy(() =>
   import('../instrumento/Instrumento').then((m) => ({ default: m.Instrumento })),
 );
 
-export function SeccionInstrumento() {
+export function SeccionInstrumento({
+  onAportar,
+}: {
+  onAportar?: (lugar: LugarMapa | null) => void;
+}) {
   return (
-    <section id="instrumento" aria-labelledby="instrumento-titulo" className="mt-10">
-      <div className="mx-auto mb-5 max-w-[1440px] px-5 min-[961px]:px-10">
-        <h2
-          id="instrumento-titulo"
-          className="font-anton text-tinta text-[clamp(24px,3.5vw,38px)] leading-[1.05]"
-        >
+    <section id="instrumento" aria-labelledby="instrumento-titulo" className="mt-2">
+      <div className="mx-auto mb-4 max-w-[1440px] px-5 min-[961px]:px-10">
+        {/* El título queda para los lectores de pantalla: a la vista, la portada
+            ya lo dice, y dos titulares apilados empujaban el mapa fuera de la
+            primera pantalla del teléfono. */}
+        <h2 id="instrumento-titulo" className="sr-only">
           El país, cuadra por cuadra.
         </h2>
-        <p className="text-tinta mt-2 max-w-[62ch] text-[16px] leading-relaxed">
-          Movete por el mapa y el contador te contesta. Cambiá de lente arriba: dónde se dijo cada
-          cosa, qué provincia habla más, cómo se fue llenando, y dónde todavía no habló nadie.
+        <p className="text-tinta-75 max-w-[62ch] text-[15px] leading-relaxed max-[639px]:sr-only">
+          Buscá tu lugar o recorré el país. Cambiá de lente: dónde se dijo cada cosa, qué provincia
+          habla más, cómo se fue llenando y dónde todavía no habló nadie. Se cuentan registros, no
+          personas.
         </p>
       </div>
 
@@ -39,7 +46,7 @@ export function SeccionInstrumento() {
           </div>
         }
       >
-        <Instrumento />
+        <Instrumento {...(onAportar ? { onAportar } : {})} />
       </Suspense>
     </section>
   );

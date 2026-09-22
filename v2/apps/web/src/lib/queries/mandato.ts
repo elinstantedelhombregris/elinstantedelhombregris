@@ -70,10 +70,10 @@ export interface DocumentoMandato {
     temas: {
       tema: string;
       total: number;
-      ultima: { id: number; texto: string; provincia: string | null; fecha: string } | null;
+      ultima: { id: string; texto: string; provincia: string | null; fecha: string } | null;
     }[];
   };
-  propuestas: { id: number; titulo: string; resumen: string; estado: string; votos: number; apoyo: number }[];
+  propuestas: { id: string; titulo: string; resumen: string; estado: string }[];
 }
 
 /** El agregado completo detrás del documento del mandato (spec 2.3). */

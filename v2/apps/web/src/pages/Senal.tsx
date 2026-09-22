@@ -3,6 +3,7 @@ import { Link, useRoute } from 'wouter';
 import { BotonAdherir } from './Senal/BotonAdherir';
 import { FichaDeConfirmaciones } from './Senal/FichaDeConfirmaciones';
 import { PanelConfirmar } from './Senal/PanelConfirmar';
+import { RetirarAporte } from './Senal/RetirarAporte';
 
 import { ChipTipo, Kicker } from '~/components/papel/primitives';
 import { useSenal } from '~/lib/queries/senales';
@@ -62,10 +63,13 @@ export function Senal() {
       <main className="mx-auto max-w-[760px] px-10 py-[72px] max-[560px]:px-5">
         <h1 className="font-anton text-tinta text-[36px] leading-tight">No encontramos esa voz.</h1>
         <p className="text-tinta-75 mt-3 max-w-[60ch] text-[16px] leading-relaxed">
-          Puede que el link esté mal, o que quien la escribió la haya retirado. Retirar deja la
-          fila para que la cuenta del territorio no cambie, pero saca el texto de la vista.
+          Puede que el link esté mal, o que quien la escribió la haya retirado. Retirar deja una
+          fila vacía —para que se sepa que hubo algo— y saca la voz de todo lo que el mapa cuenta.
         </p>
-        <Link href="/el-mapa" className="font-space text-violeta mt-6 inline-block text-[13px] underline">
+        <Link
+          href="/el-mapa"
+          className="font-space text-violeta mt-6 inline-block text-[13px] underline"
+        >
           Volver al mapa
         </Link>
       </main>
@@ -79,7 +83,10 @@ export function Senal() {
 
   return (
     <main className="mx-auto max-w-[760px] px-10 py-[72px] max-[560px]:px-5">
-      <Link href="/el-mapa" className="font-space text-tinta-50 hover:text-tinta text-[11px] uppercase tracking-[0.14em]">
+      <Link
+        href="/el-mapa"
+        className="font-space text-tinta-50 hover:text-tinta text-[11px] uppercase tracking-[0.14em]"
+      >
         ← El mapa
       </Link>
 
@@ -125,9 +132,7 @@ export function Senal() {
 
       {/* ── Dónde y con qué grano ───────────────────────────────────────── */}
       <dl className="border-tinta mt-8 border-t-2">
-        {senal.direccionTexto === null ? null : (
-          <Fila rotulo="Dónde">{senal.direccionTexto}</Fila>
-        )}
+        {senal.direccionTexto === null ? null : <Fila rotulo="Dónde">{senal.direccionTexto}</Fila>}
         <Fila rotulo="Se publicó con">
           {PRECISION_EN_PALABRAS[senal.precision] ?? senal.precision}
         </Fila>
@@ -140,7 +145,9 @@ export function Senal() {
             })}
           </Fila>
         )}
-        {senal.periodicidad === null ? null : <Fila rotulo="Cada cuánto">{senal.periodicidad}</Fila>}
+        {senal.periodicidad === null ? null : (
+          <Fila rotulo="Cada cuánto">{senal.periodicidad}</Fila>
+        )}
         <Fila rotulo="Cargada">
           {new Date(senal.creadaEn).toLocaleDateString('es-AR', {
             day: 'numeric',
@@ -176,6 +183,7 @@ export function Senal() {
           <FichaDeConfirmaciones confirmaciones={confirmaciones} />
         </section>
       ) : null}
+      {data.esPropia && senal.estado !== 'retirada' ? <RetirarAporte id={senal.idPublico} /> : null}
     </main>
   );
 }

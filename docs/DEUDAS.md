@@ -90,6 +90,11 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-074](#d-074--los-relojes-de-vigencia-están-escritos-y-no-los-llama-nadie) | Los relojes de vigencia están escritos y no los llama nadie | Alta | Abierta |
 | [D-075](#d-075--una-pregunta-se-puede-cargar-y-no-se-puede-responder) | Una pregunta se puede cargar y no se puede responder | Media | Abierta |
 | [D-076](#d-076--el-taller-de-planpuerta-y-su-mdx-dejaron-de-coincidir-y-la-guardia-está-rota-en-el-tronco) | El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está rota en el tronco | Media | Abierta |
+| [D-083](#d-083--el-instrumento-interpreta-un-fallo-de-consulta-como-ausencia-de-voces) | El instrumento interpreta un fallo de consulta como ausencia de voces | Alta | **Resuelta** |
+| [D-084](#d-084--los-modos-analíticos-tratan-una-consulta-limitada-como-el-corpus-completo) | Los modos analíticos tratan una consulta limitada como el corpus completo | Alta | **Resuelta** |
+| [D-085](#d-085--el-mandato-presenta-equivalencia-entre-necesidades-y-recursos-sin-comprobar-compatibilidad) | El mandato presenta equivalencia entre necesidades y recursos sin comprobar compatibilidad | Alta | **Resuelta** |
+| [D-086](#d-086--el-sello-de-documento-auditado-se-activa-al-entrar-la-firma-en-pantalla) | El sello de documento auditado se activa al entrar la firma en pantalla | Media | **Resuelta** |
+| [D-087](#d-087--el-formulario-exige-una-cesión-que-su-consentimiento-presenta-como-opcional) | El formulario exige una cesión que su consentimiento presenta como opcional | Media | **Resuelta** |
 
 ---
 
@@ -335,6 +340,11 @@ Verificado: se borraron las cuatro, se corrieron los dos archivos completos, y `
 **Lo que falta, y es lo que importa.** Los tests siguen corriendo **contra la misma base que sirve el sitio**. El barrido por texto es un parche: solo limpia lo que un archivo sabe que escribió, y solo la próxima vez que ese archivo corra entero. Un test nuevo que olvide el patrón vuelve a ensuciar el mapa público, y nadie se entera hasta que alguien mira.
 
 Lo que corresponde es un branch de Neon efímero por corrida, o al menos una base aparte. **Queda pendiente por decisión: no se integra ahora.**
+
+
+**Actualización 2026-09-22.** Sigue igual de vigente, y peor dicho de lo que parecía: `v2/.env` apunta a `ep-flat-art`, que es el **branch `main` de `cool-bird-63087148` — la base de producción**, no una de desarrollo. Correr `vitest` en `apps/api` desde una máquina con ese `.env` escribe filas de prueba en la base que sirve el dominio (el 22/9 se corrió una vez así, por error; las filas se borraron solas en el `afterAll` y `senales` volvió a 0). Y hay residuo viejo: los **13 usuarios** de la tabla `users` de producción son cuentas `@test.local` de corridas del 8 y 12/5 (`vitest_…`, `flow_rot_…`, `pulso_…`). No hay ni un usuario real.
+
+Lo que sí funcionó el 22/9, sin integrarlo todavía: un Postgres local descartable (`initdb` + las migraciones de `packages/db`) y un `setupFile` de vitest que le pasa al driver `neon-http` un `fetchFunction` hacia `pg`. Con eso la suite entera corre local (277 verdes). Integrarlo como `pnpm test:integration:local` es lo que cerraría esta deuda.
 
 ---
 
@@ -1418,6 +1428,8 @@ No se arregló acá a propósito: el remedio (`pnpm planes:migrar`) reescribe el
 
 **Qué haría falta:** correr la migración, leer el diff completo, y confirmar que lo que gana es el taller y no una edición manual del canon que se perdería. Si fuera al revés, lo que hay que corregir es el taller.
 
+**Actualización 2026-09-22.** Ya no es sólo PLANPUERTA: la guardia también marca **PLANGEO**, y el diff de `pnpm planes:migrar` dice por qué. El taller tiene PLANGEO **v1.2 «bloque MECANISMOS, agosto 2026»** —unas 440 líneas nuevas: Cláusula del Buitre (26.2-26.3), Registro de Presión (27.5), repositorio antártico (27.6), la doctrina del erizo en ciberdefensa (28.6), la línea naval reasignada a cobertura satelital— y el canon publicado sigue en v1.1. Lo de PLANPUERTA son sólo dos remisiones `PLANGEO:425 → 427` y `1148-1149 → 1153-1154` que se corren con ese bloque. O sea: **publicar PLANGEO v1.2 cierra las dos**, y es una decisión de contenido. Se corrió la migración para medir y se revirtió sin commitear.
+
 ### D-077 · El test del lector de crónica se corta antes de la firma
 
 **Dónde:** `v2/apps/web/src/pages/__tests__/BitacoraDetail.test.tsx:84`
@@ -1490,3 +1502,68 @@ El ensayo «Una arquitectura para el hombre gris» usa la sintaxis de notas al p
 PLANAGUA renderizado mide 264.000 píxeles de alto: 31 secciones, 182 subtítulos y 119 tablas en un papel de 780px sobre fondo oscuro, y la única navegación es el header del sitio. No hay índice de secciones, no hay «dónde estoy», no hay salto a la siguiente sección, no hay ancla que se pueda compartir. El manifiesto sí tiene su fichero de 8 partes y la biblioteca su fichero scroll-spy: el PLAN, que es el documento más largo del sitio, es el único lector largo sin él. Un lector que quiere ir a «Modelo financiero» tiene que scrollear el equivalente a 290 pantallas.
 
 **Qué haría falta:** reutilizar el fichero scroll-spy de la biblioteca como índice lateral (fijo en escritorio, plegable en móvil) generado desde los `h2` del `.mdx`, con anclas por sección y la línea mono «Sección {n} de {total}» que el sistema ya usa en el stepper.
+
+### D-083 · El instrumento interpreta un fallo de consulta como ausencia de voces
+
+**Dónde:** `v2/apps/web/src/pages/ElMapa/instrumento/Instrumento.tsx`, `modos/useModoMapa.tsx`, `modos/useModoCobertura.tsx`
+**Encontrada:** 2026-09-08, revisión de código y navegador local con API no disponible
+**Severidad:** alta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** `EstadoConsulta` separa cargando, error sin datos y error con una lectura anterior; con la consulta caída el instrumento no dibuja modos ni contadores y dice «No pudimos cargar los datos. No sabemos cuántos registros hay en este territorio.». Verificado en navegador con la API local apagada: ningún texto de silencio ni cero en pantalla.
+
+`consulta.data ?? []` se pasa a los modos, pero no se transmite `consulta.isError`. Después del fallo el mapa muestra «Todavía no habló nadie», el contador indica cero y Cobertura informa 100% de silencio. En la misma página el feed sí muestra error. Se verificó este comportamiento local; no se afirma una caída de producción.
+
+**Qué haría falta:** distinguir error, vacío confirmado, datos parciales y datos anteriores; no publicar conclusiones territoriales cuando la consulta no se pudo obtener. Verificar con una respuesta fallida del endpoint de señales.
+
+### D-084 · Los modos analíticos tratan una consulta limitada como el corpus completo
+
+**Dónde:** `v2/packages/db/src/repositories/civic-map.ts`, `v2/apps/api/src/features/civic-map/routes.ts`, `v2/apps/web/src/lib/queries/civic-map.ts`, `v2/apps/web/src/pages/ElMapa/instrumento/Instrumento.tsx`
+**Encontrada:** 2026-09-08, trazado del pedido desde el instrumento hasta el repositorio
+**Severidad:** alta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** `GET /api/v1/civic/map/lectura` (`MapaLecturaRepository`) calcula total, por provincia, por día y sin punto sobre el conjunto elegible completo, y pagina el dibujo con cursor estable (`fecha, id`) atado a la huella de los filtros. La respuesta dice `total`, `entregados` y `completa`; Cobertura, Tiempo y Simulación se niegan a calcular sobre una página recortada, y Análisis colorea con el total. `apps/api/tests/mapa-lectura.test.ts` lo prueba con más registros que el límite sobre Postgres local.
+
+El cliente solicita todas las capas y todo el tiempo, sin paginación ni límite explícito. El repositorio aplica por defecto 500 filas por consulta de origen, ordenadas por fecha descendente. La capa voz reúne dos consultas limitadas de forma independiente. La respuesta solo contiene `signals`; no informa truncamiento ni total coincidente. Los modos llaman `todas` a ese resultado y calculan análisis, cobertura, tiempo y estado medido sobre él. Cuando un origen supera el techo, datos anteriores pueden desaparecer de esas lecturas sin aviso. Hallazgo por código; no se midió el tamaño actual de la base.
+
+**Qué haría falta:** agregados completos para las métricas, carga acotada de puntos para dibujo y metadatos de completitud. Probar con más registros que el límite y verificar que las métricas nacionales no cambien por paginar el dibujo.
+
+### D-085 · El mandato presenta equivalencia entre necesidades y recursos sin comprobar compatibilidad
+
+**Dónde:** `v2/apps/api/src/features/mandato/service.ts`, `v2/apps/web/src/pages/ElMandatoVivo/mandato-regimen.ts`, `sections/DocumentoSecciones.tsx`
+**Encontrada:** 2026-09-08, revisión de la fórmula y de su etiqueta pública
+**Severidad:** alta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** Salen `urgenciaDeBrecha` y «cubierta si se organiza». La sección III muestra necesidades y recursos declarados por provincia, en orden alfabético y sin restar uno del otro, y dice por qué no se compensan. Recursos cuenta «recursos declarados», no personas.
+
+Se cuentan filas de tipo necesidad y recurso por provincia. `urgenciaDeBrecha` etiqueta «cubierta si se organiza» cuando los recursos alcanzan las necesidades. No hay correspondencia temática, unidad, capacidad, alcance territorial ni disponibilidad en ese cálculo. Una oferta de herramientas puede compensar aritméticamente una necesidad de agua. Además, Recursos traduce un conteo de filas a «personas» sin deduplicación de personas en esta consulta.
+
+**Qué haría falta:** publicar conteos declarados como tales; reservar cobertura de necesidades para correspondencias verificables con unidades compatibles. Separar registros, actores y personas.
+
+### D-086 · El sello de documento auditado se activa al entrar la firma en pantalla
+
+**Dónde:** `v2/apps/web/src/pages/ElMandatoVivo/sections/DocumentoMandato.tsx`
+**Encontrada:** 2026-09-08, revisión del disparador del sello
+**Severidad:** media
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** El sello dice «Visto — Lo leíste hasta el final.». La palabra auditoría no aparece en la página.
+
+Un `IntersectionObserver` con umbral 0,6 activa `visto` y el texto «Documento auditado. Ahora sos testigo». La visibilidad del bloque no verifica revisión de fuentes, conformidad ni auditoría.
+
+**Qué haría falta:** nombrar el evento real —por ejemplo «Llegaste al final»— y reservar auditoría para una revisión explícita con alcance y resultado.
+
+### D-087 · El formulario exige una cesión que su consentimiento presenta como opcional
+
+**Dónde:** `v2/apps/web/src/pages/ElMapa/sections/PanelSoltarVoz.tsx`, `v2/packages/shared/src/open-data/consentimiento.ts`
+**Encontrada:** 2026-09-08, lectura del formulario en navegador y de su validación
+**Severidad:** media
+**Estado:** ~~abierta~~ → **resuelta 2026-09-22**
+
+**Resolución.** Dos casillas: publicar (requisito) y ceder el texto (opcional). Sin cesión la voz se publica y el texto sale reservado en todas las lecturas públicas (`textoDeSenalPublica`). Reintentar el mismo borrador conserva `idLocal`; un borrador nuevo lo cambia.
+
+El consentimiento dice que, si no se autoriza reutilizar el texto, se publica el resto sin texto. Sin embargo, el formulario añade una falta cuando `!cede` y deshabilita enviar. La alternativa ofrecida por el texto no se puede elegir desde esta pantalla. La misma casilla reúne explicaciones del identificador de navegador, licencia y registro público.
+
+**Qué haría falta:** alinear elección y comportamiento, distinguiendo autorizaciones opcionales de requisitos del envío y conservando los textos compartidos. No se evaluó cumplimiento legal; se registra la contradicción de interfaz.

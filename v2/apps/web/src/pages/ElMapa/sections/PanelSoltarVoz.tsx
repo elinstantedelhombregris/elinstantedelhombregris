@@ -1,13 +1,15 @@
-import { CONSENTIMIENTO_ANTES_DE_ENVIAR, declaracionDeliberacionDe } from '@v2/shared';
-import { useState, type FormEvent } from 'react';
+import { declaracionDeliberacionDe } from '@v2/shared';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 
 import { PLACEHOLDER_NEUTRO, PLACEHOLDER_TIPO } from '../el-mapa-data';
 
 import { SelectorPrecision, type PrecisionElegida } from './SelectorPrecision';
 import { CamposPorTipo } from './soltar/CamposPorTipo';
+import { ConsentimientoVoz } from './soltar/ConsentimientoVoz';
 import { PreguntaDeLaCasa } from './soltar/PreguntaDeLaCasa';
 import { SelectorDeTipo } from './soltar/SelectorDeTipo';
 
+import type { LugarMapa } from '../instrumento/BusquedaTerritorial';
 import type { RespuestaDeVivienda } from '@v2/civic-core';
 
 import { BotonPapel, Sello } from '~/components/papel/primitives';
@@ -16,36 +18,24 @@ import { despertar } from '~/lib/despertar';
 import { useProvincias, useSoltarVoz, type SoltarVozInput } from '~/lib/queries/open-data';
 import { claseDe, type TipoSenal } from '~/lib/vocabulario';
 
-/**
- * Panel «Soltá tu voz» — la conversión primaria del sitio.
- *
- * Anónimo por diseño (sin campo de nombre); provincia opcional y honesta.
- *
- * ## Qué cambió respecto de la versión de seis tipos
- *
- * Los seis de `TIPOS_VOZ` eran «los que la web sabía dibujar», no el canon. Son
- * **nueve en cuatro clases**, `valor` salió —un valor no tiene coordenada— y
- * con eso entran tres campos que la base exige y que ningún default puede
- * inventar: la pregunta de la casa (que habilita guardar dirección), la cesión
- * de licencia (sin ella el volcado publica la fila sin `texto`) y, según el
- * tipo, la fecha del compromiso, la fuente del saber o la periodicidad de la
- * práctica.
- *
- * ## Los textos de consentimiento se IMPORTAN
- *
- * `CONSENTIMIENTO_ANTES_DE_ENVIAR` y `declaracionDeliberacionDe` vienen de
- * `@v2/shared`. Copiarlos a mano acá rompe la guarda de
- * `consentimiento.test.ts`, que recorre las apps buscando fragmentos escritos a
- * mano y falla nombrando el archivo — y con razón: tres specs escribieron tres
- * redacciones del mismo permiso, y dos redacciones que pueden divergir van a
- * divergir.
- */
-export function PanelSoltarVoz() {
+/** Aporte canónico: publicación explícita, licencia opcional y reintento estable. */
+export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
+  const [localidad, setLocalidad] = useState<LugarMapa | null>(null);
   const [tipo, setTipo] = useState<TipoSenal | null>(null);
   const [texto, setTexto] = useState('');
   const [provinciaId, setProvinciaId] = useState('');
+  useEffect(() => {
+    if (!contexto) return;
+    setProvinciaId(String(contexto.provinceId));
+    setLocalidad(
+      contexto.level === 'locality' || contexto.level === 'settlement' ? contexto : null,
+    );
+  }, [contexto]);
   const [casa, setCasa] = useState<RespuestaDeVivienda>('sinRespuesta');
   const [cede, setCede] = useState(false);
+  const [publicar, setPublicar] = useState(false);
+  const intento = useRef<{ cuerpo: string; id: string } | null>(null);
+  const [reciboId, setReciboId] = useState<string | null>(null);
   const [extra, setExtra] = useState({
     titulo: '',
     fuente: '',
@@ -75,7 +65,7 @@ export function PanelSoltarVoz() {
   const falta: string[] = [];
   if (tipo === null) falta.push('elegí de qué estás hablando');
   if (texto.trim().length === 0) falta.push('escribí algo');
-  if (!cede) falta.push('marcá que cedés la licencia del texto');
+  if (!publicar) falta.push('marcá que querés publicarla');
   if (tipo !== null && claseDe(tipo) === 'acto' && extra.comprometidoPara === '') {
     falta.push('poné para cuándo');
   }
@@ -100,6 +90,7 @@ export function PanelSoltarVoz() {
       cedeLicencia: cede,
     };
     if (provinciaId !== '') input.provinceId = Number(provinciaId);
+    if (localidad) input.cityId = localidad.id;
     if (extra.titulo.trim() !== '') input.titulo = extra.titulo.trim();
     if (extra.fuente.trim() !== '') input.fuente = extra.fuente.trim();
     if (extra.comprometidoPara !== '') input.comprometidoPara = extra.comprometidoPara;
@@ -110,10 +101,17 @@ export function PanelSoltarVoz() {
       input.precisionPedida = ubicacion.precision;
     }
 
+    const cuerpo = JSON.stringify({ ...input, idLocal: undefined });
+    if (intento.current?.cuerpo === cuerpo) input.idLocal = intento.current.id;
+    else intento.current = { cuerpo, id: input.idLocal };
+
     soltar.mutate(input, {
       onSuccess: (respuesta) => {
         despertar();
-        const nombre = (provincias.data ?? []).find((p) => String(p.id) === provinciaId)?.name ?? '';
+        intento.current = null;
+        setReciboId(respuesta.idPublico);
+        const nombre =
+          (provincias.data ?? []).find((p) => String(p.id) === provinciaId)?.name ?? '';
         setRecibida(nombre);
         setEngrosado(respuesta.engrosado ?? respuesta.direccionRetirada ?? null);
         setTexto('');
@@ -147,7 +145,7 @@ export function PanelSoltarVoz() {
           Soltá tu voz
         </h2>
         <span className="font-space text-violeta text-[11px] font-bold uppercase tracking-[0.14em]">
-          30 segundos
+          A tu ritmo
         </span>
       </div>
       <form onSubmit={onSubmit} className="p-[22px]" noValidate>
@@ -202,6 +200,7 @@ export function PanelSoltarVoz() {
             value={provinciaId}
             onChange={(e) => {
               setProvinciaId(e.target.value);
+              setLocalidad(null);
             }}
             className="border-tinta bg-papel-crudo text-tinta font-space w-full appearance-none border p-3.5 text-[13px]"
           >
@@ -223,33 +222,30 @@ export function PanelSoltarVoz() {
           Sin provincia tu voz cuenta igual, pero no cae en el mapa.
         </p>
 
+        {localidad ? (
+          <p className="my-3 text-sm">
+            Localidad del aporte: {localidad.name}.{' '}
+            <button
+              type="button"
+              className="min-h-11 underline"
+              onClick={() => {
+                setLocalidad(null);
+              }}
+            >
+              Usar solo provincia
+            </button>
+          </p>
+        ) : null}
         <SelectorPrecision valor={ubicacion} onCambio={setUbicacion} />
 
         <PreguntaDeLaCasa valor={casa} onCambio={setCasa} />
 
-        <label
-          htmlFor="voz-cesion"
-          className="border-papel-borde mt-4 flex cursor-pointer items-start gap-2.5 border-t pt-3.5"
-        >
-          <input
-            id="voz-cesion"
-            type="checkbox"
-            checked={cede}
-            onChange={(e) => {
-              setCede(e.target.checked);
-            }}
-            className="mt-0.5 shrink-0"
-          />
-          <span className="font-archivo text-tinta-75 text-[14px] leading-relaxed">
-            {/* Las tres líneas van en su orden: de lo reversible a lo
-                irreversible. Importadas, nunca transcritas. */}
-            {CONSENTIMIENTO_ANTES_DE_ENVIAR.map((linea) => (
-              <span key={linea} className="mb-1.5 block">
-                {linea}
-              </span>
-            ))}
-          </span>
-        </label>
+        <ConsentimientoVoz
+          publicar={publicar}
+          cede={cede}
+          setPublicar={setPublicar}
+          setCede={setCede}
+        />
 
         <BotonPapel
           type="submit"
@@ -273,6 +269,11 @@ export function PanelSoltarVoz() {
           </p>
         ) : null}
 
+        {reciboId ? (
+          <a className="mt-4 block min-h-11 underline" href={`/senal/${reciboId}`}>
+            Ver mi voz y cómo sigue →
+          </a>
+        ) : null}
         {recibida !== null ? (
           <div role="status" className="mt-4 flex flex-wrap items-center gap-3.5">
             <Sello
@@ -285,7 +286,7 @@ export function PanelSoltarVoz() {
             <span className="font-space text-tinta-75 text-xs">
               {recibida === ''
                 ? 'Tu voz quedó registrada. Ya cuenta con todas las demás.'
-                : `Tu voz cayó en ${recibida}. Ya está en el mapa, a la vista de todos.`}
+                : `Tu voz cayó en ${recibida}. Desde su página la seguís o la retirás.`}
             </span>
             {/* Si el servidor engrosó la precisión o retiró parte de la
                 dirección, se dice acá y no después: nadie se entera más tarde

@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
 
 import { api } from '~/lib/api';
 
@@ -35,12 +36,41 @@ export interface SenalMapa {
   provinceId: number | null;
   cityId: number | null;
   createdAt: string;
+  estado?: string | null;
+  tema?: string | null;
 }
 
 export interface FiltrosSenales {
   capas: readonly CapaMapa[];
   /** '7d' | '30d' | 'todo' */
   rango: '7d' | '30d' | 'todo';
+  provinceId?: number;
+  cityId?: number;
+  cursor?: string;
+  lugarId?: number;
+  tipo?: string;
+  clase?: string;
+  tema?: string;
+  estado?: string;
+}
+
+export interface LecturaMapa {
+  signals: SenalMapa[];
+  metadata: {
+    total: number;
+    entregados: number;
+    completa: boolean;
+    hasta: string;
+    siguiente: string | null;
+    unidad: 'registros';
+    sinPunto: number;
+    porProvincia: {
+      provinceId: number | null;
+      total: number;
+      tipos: { tipo: string | null; total: number }[];
+    }[];
+    porDia: { dia: string; total: number }[];
+  };
 }
 
 const DIAS: Record<'7d' | '30d', number> = { '7d': 7, '30d': 30 };
@@ -55,19 +85,38 @@ function desdeDe(rango: FiltrosSenales['rango'], ahora: number): string | null {
  * sección no se monta, la query no existe y no se pide un solo byte.
  */
 export function useSenalesMapa(filtros: FiltrosSenales, habilitado: boolean) {
-  const desde = desdeDe(filtros.rango, Date.now());
+  const desde = useMemo(() => desdeDe(filtros.rango, Date.now()), [filtros.rango]);
   const capas = [...filtros.capas].sort().join(',');
 
   return useQuery({
-    queryKey: ['civic-map', 'signals', capas, filtros.rango],
+    queryKey: [
+      'civic-map',
+      'signals',
+      capas,
+      filtros.rango,
+      filtros.provinceId,
+      filtros.cityId,
+      filtros.cursor,
+      filtros.lugarId,
+      filtros.tipo,
+      filtros.clase,
+      filtros.tema,
+      filtros.estado,
+    ],
     enabled: habilitado,
-    queryFn: () => {
+    queryFn: ({ signal }) => {
       const params = new URLSearchParams();
       if (capas) params.set('capas', capas);
       if (desde) params.set('desde', desde);
-      return api.get<{ signals: SenalMapa[] }>(`/api/v1/civic/map/signals?${params.toString()}`);
+      if (filtros.provinceId !== undefined) params.set('provinceId', String(filtros.provinceId));
+      if (filtros.cityId !== undefined) params.set('cityId', String(filtros.cityId));
+      for (const clave of ['lugarId', 'tipo', 'clase', 'tema', 'estado'] as const) {
+        const valor = filtros[clave];
+        if (valor !== undefined && valor !== '') params.set(clave, String(valor));
+      }
+      if (filtros.cursor) params.set('cursor', filtros.cursor);
+      return api.get<LecturaMapa>(`/api/v1/civic/map/lectura?${params.toString()}`, { signal });
     },
-    select: (d) => d.signals,
   });
 }
 

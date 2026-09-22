@@ -17,12 +17,21 @@ import { Router, type Router as RouterType } from 'express';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
 import { ingerirCaptura } from './capturas.js';
+import { leerMapa } from './lectura.js';
 import { capturaSchema, consultaSenalesSchema } from './validation.js';
 
 import type { ConsultaSenales } from '@v2/db';
 
-
 const router: RouterType = Router();
+
+router.get('/map/lectura', async (req, res, next) => {
+  try {
+    res.setHeader('Cache-Control', 'no-store');
+    res.json({ data: await leerMapa(req.query) });
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.get('/map/signals', async (req, res, next) => {
   try {

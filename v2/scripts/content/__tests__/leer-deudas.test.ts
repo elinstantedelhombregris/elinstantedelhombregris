@@ -267,7 +267,7 @@ describe('contra el docs/DEUDAS.md real', () => {
    * una deuda **obligue a tocar dos archivos**, y el segundo es el que hace
    * mirar si de verdad está cerrada.
    */
-  it('las resueltas del archivo son exactamente estas dieciséis', () => {
+  it('las resueltas del archivo son exactamente estas', () => {
     expect(
       deudas
         .filter((d) => d.resuelta)
@@ -302,6 +302,23 @@ describe('contra el docs/DEUDAS.md real', () => {
       // tabla del ejemplo seguían en pantalla sin decir nada (`ea4a76b5`).
       'D-068',
       'D-072',
+      // Cerradas el 2 de septiembre de 2026 por los arreglos de la auditoría de
+      // diseño (`114e07ca`) — y tampoco pasaron por acá: CI estaba en rojo en
+      // los tests de la web y este paso ni llegaba a correr.
+      'D-078',
+      'D-079',
+      'D-080',
+      'D-081',
+      'D-082',
+      // Cerradas el 22 de septiembre de 2026: el mapa distingue un fallo de un
+      // vacío, cuenta sobre el corpus entero y no sobre una página, el mandato
+      // no compensa necesidades con recursos, el sello no dice «auditado» y
+      // publicar ya no exige ceder el texto.
+      'D-083',
+      'D-084',
+      'D-085',
+      'D-086',
+      'D-087',
     ]);
   });
 });

@@ -91,6 +91,7 @@ export interface SoltarVozInput {
   periodicidad?: string | null;
   sostenidaPor?: string | null;
   provinceId?: number;
+  cityId?: number;
   punto?: { lat: number; lng: number };
   precisionPedida?: string;
   aceptaEngrosado?: boolean;
@@ -128,6 +129,8 @@ export function useSoltarVoz() {
         queryClient.invalidateQueries({ queryKey: ['open-data'] }),
         queryClient.invalidateQueries({ queryKey: ['analytics'] }),
         queryClient.invalidateQueries({ queryKey: ['senales'] }),
+        queryClient.invalidateQueries({ queryKey: ['civic-map'] }),
+        queryClient.invalidateQueries({ queryKey: ['mandato'] }),
       ]);
     },
   });

@@ -16,7 +16,10 @@ export function FeedVoces() {
 
   return (
     <section aria-labelledby="feed-titulo">
-      <h2 id="feed-titulo" className="font-space text-tinta-50 mb-3 text-[11px] uppercase tracking-[0.14em]">
+      <h2
+        id="feed-titulo"
+        className="font-space text-tinta-50 mb-3 text-[11px] uppercase tracking-[0.14em]"
+      >
         Últimas voces
       </h2>
       {voces.isLoading ? (
@@ -54,15 +57,22 @@ export function FeedVoces() {
                */
               <article key={voz.id} className="bg-papel">
                 <Envoltorio id={voz.id}>
-                <div className="font-space mb-2 flex justify-between gap-3 text-[10px] uppercase tracking-[0.12em]">
-                  <span className={cn('font-bold', clase === null ? 'text-tinta-50' : TEXTO_CLASE[clase])}>{voz.category}</span>
-                  <span className="text-tinta-50">
-                    {voz.provinceId === null
-                      ? 'Argentina'
-                      : (nombrePorId.get(voz.provinceId) ?? 'Argentina')}
-                  </span>
-                </div>
-                <p className="text-tinta-90 text-sm leading-normal">«{voz.body}»</p>
+                  <div className="font-space mb-2 flex justify-between gap-3 text-[10px] uppercase tracking-[0.12em]">
+                    <span
+                      className={cn(
+                        'font-bold',
+                        clase === null ? 'text-tinta-50' : TEXTO_CLASE[clase],
+                      )}
+                    >
+                      {voz.category}
+                    </span>
+                    <span className="text-tinta-50">
+                      {voz.provinceId === null
+                        ? 'Argentina'
+                        : (nombrePorId.get(voz.provinceId) ?? 'Argentina')}
+                    </span>
+                  </div>
+                  <p className="text-tinta-90 text-sm leading-normal">«{voz.body}»</p>
                 </Envoltorio>
               </article>
             );
@@ -70,11 +80,15 @@ export function FeedVoces() {
         </div>
       )}
       <p className="border-tinta text-tinta-50 mt-6 border-t pt-4 text-sm leading-relaxed">
-        Cada voz queda pública: cualquiera la puede leer, contar y auditar. De acá sale{' '}
-        <Link href="/mandato-vivo" className="text-tinta font-semibold underline-offset-2 hover:underline">
+        Cada voz queda pública: cualquiera la puede leer, contar y auditar — el texto, sólo si quien
+        la escribió lo autorizó. De acá sale{' '}
+        <Link
+          href="/mandato-vivo"
+          className="text-tinta font-semibold underline-offset-2 hover:underline"
+        >
           El mandato
         </Link>{' '}
-        — el país pedido por escrito.
+        — lo que el mapa lleva escrito hasta hoy.
       </p>
     </section>
   );
@@ -91,7 +105,10 @@ function Envoltorio({ id, children }: { id: string | number; children: React.Rea
   const tieneFicha = typeof id === 'string' && id.includes('-');
   if (!tieneFicha) return <div className="px-[18px] py-4">{children}</div>;
   return (
-    <Link href={`/senal/${id}`} className="hover:bg-papel-presionado block px-[18px] py-4 transition-colors">
+    <Link
+      href={`/senal/${id}`}
+      className="hover:bg-papel-presionado block px-[18px] py-4 transition-colors"
+    >
       {children}
     </Link>
   );

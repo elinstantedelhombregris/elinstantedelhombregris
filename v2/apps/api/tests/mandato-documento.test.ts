@@ -52,7 +52,14 @@ interface DocumentoBody {
         ultima: { id: string; texto: string; provincia: string | null; fecha: string } | null;
       }[];
     };
-    propuestas: { id: number; titulo: string; resumen: string; estado: string; votos: number; apoyo: number }[];
+    propuestas: {
+      id: number;
+      titulo: string;
+      resumen: string;
+      estado: string;
+      votos: number;
+      apoyo: number;
+    }[];
   };
 }
 
@@ -83,13 +90,38 @@ dsuite('GET /api/mandato/documento', () => {
     // `senales_origen_provincia_chk` exige declarar de dónde salió la jerarquía.
     // El default de la columna no sirve como valor — es el mismo principio que
     // `procedencia` en la Simulación: un dato sin origen no se puede auditar.
-    const base = { origen: 'web' as const, provinceId, ubicacionOrigen: 'declarada' };
+    // Con cesión: sin ella título y texto salen reservados (D-087), y este
+    // test los busca por la marca. La propuesta sin cesión de abajo prueba eso.
+    const cesion = { cesionLicencia: true, cesionEn: new Date(), cesionVersion: 1 };
+    const base = { origen: 'web' as const, provinceId, ubicacionOrigen: 'declarada', ...cesion };
     const aSembrar = [
-      { ...base, tipo: 'necesidad', clase: 'hecho', texto: `Falta pediatra de guardia (${marca})`, tema: 'salud', temaOrigen: 'declarado' },
+      {
+        ...base,
+        tipo: 'necesidad',
+        clase: 'hecho',
+        texto: `Falta pediatra de guardia (${marca})`,
+        tema: 'salud',
+        temaOrigen: 'declarado',
+      },
       { ...base, tipo: 'necesidad', clase: 'hecho', texto: `Falta transporte nocturno (${marca})` },
       { ...base, tipo: 'recurso', clase: 'hecho', texto: `Ofrezco taller de oficios (${marca})` },
       { ...base, tipo: 'sueño', clase: 'deseo', texto: `Que haya turnos en el día (${marca})` },
-      { ...base, tipo: 'propuesta', clase: 'deseo', titulo: `Red de turnos comunitarios (${marca})`, texto: 'Lista de espera paralela y auditable.' },
+      {
+        ...base,
+        tipo: 'propuesta',
+        clase: 'deseo',
+        titulo: `Red de turnos comunitarios (${marca})`,
+        texto: 'Lista de espera paralela y auditable.',
+      },
+      {
+        origen: 'web' as const,
+        provinceId,
+        ubicacionOrigen: 'declarada',
+        tipo: 'propuesta',
+        clase: 'deseo',
+        titulo: `Propuesta sin cesión (${marca})`,
+        texto: `Texto que no se cedió (${marca})`,
+      },
     ];
 
     for (const fila of aSembrar) {
@@ -153,6 +185,11 @@ dsuite('GET /api/mandato/documento', () => {
     expect(accion).toBeDefined();
     expect(accion).not.toHaveProperty('votos');
     expect(accion).not.toHaveProperty('apoyo');
+
+    // Sin cesión, ni el título ni el texto salen en el documento (D-087).
+    const cuerpo = JSON.stringify(data);
+    expect(cuerpo).not.toContain('Propuesta sin cesión');
+    expect(cuerpo).not.toContain('Texto que no se cedió');
   });
 
   it('respeta los topes: temas ≤ 8, propuestas ≤ 5', async () => {

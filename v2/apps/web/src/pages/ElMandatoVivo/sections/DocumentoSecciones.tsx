@@ -1,13 +1,12 @@
 import { Link } from 'wouter';
 
-import { CLASE_URGENCIA, ESTADO_PROPUESTA } from '../el-mandato-data';
-import { formatoPorcentaje, humanizarTema, regimenDe, topeBrechas, urgenciaDeBrecha } from '../mandato-regimen';
+import { ESTADO_PROPUESTA } from '../el-mandato-data';
+import { formatoPorcentaje, humanizarTema, regimenDe, topeBrechas } from '../mandato-regimen';
 
 import type { RefObject } from 'react';
 import type { DocumentoMandato } from '~/lib/queries/mandato';
 
 import { Palitos } from '~/components/papel/primitives';
-import { cn } from '~/lib/utils';
 
 const LABEL = 'font-space text-violeta mb-4 text-[11px] font-bold uppercase tracking-[0.12em]';
 const VACIO = 'text-tinta-75 text-[15px] leading-relaxed';
@@ -19,8 +18,8 @@ function Diagnostico({ data }: { data: DocumentoMandato }) {
       <h3 className={LABEL}>I. Diagnóstico — lo que más pesa</h3>
       {regimen === 'cero' ? (
         <p className={VACIO}>
-          Acá va el diagnóstico del país, tema por tema, con porcentaje y todo. Todavía no hay señales clasificadas
-          para escribirlo — y no lo vamos a inventar.
+          Acá va el diagnóstico del país, tema por tema, con porcentaje y todo. Todavía no hay
+          señales clasificadas para escribirlo — y no lo vamos a inventar.
         </p>
       ) : (
         <div className="flex flex-col gap-6">
@@ -31,7 +30,7 @@ function Diagnostico({ data }: { data: DocumentoMandato }) {
                 <p className="text-[16px] font-bold">{humanizarTema(tema.tema)}</p>
                 {tema.ultima ? (
                   <Link
-                    href={`/mandato-vivo/pulso/${String(tema.ultima.id)}`}
+                    href={`/senal/${tema.ultima.id}`}
                     className="text-tinta-50 mt-1 block text-[14px] italic hover:underline"
                   >
                     «{tema.ultima.texto}» — {tema.ultima.provincia ?? 'Argentina'}
@@ -45,7 +44,9 @@ function Diagnostico({ data }: { data: DocumentoMandato }) {
                     : tema.total.toLocaleString('es-AR')}
                 </p>
                 <p className="font-space text-tinta-50 mt-1 text-[10px] uppercase tracking-[0.1em]">
-                  {regimen === 'porcentaje' ? `${tema.total.toLocaleString('es-AR')} señales` : 'señales'}
+                  {regimen === 'porcentaje'
+                    ? `${tema.total.toLocaleString('es-AR')} señales`
+                    : 'señales'}
                 </p>
                 {regimen === 'palitos' ? (
                   <div className="mt-1 flex justify-end">
@@ -78,12 +79,16 @@ function Recursos({ data }: { data: DocumentoMandato }) {
             ))}
           </div>
           <p className="font-space text-tinta-50 mt-3 text-[13px]">
-            = {data.recursos.total.toLocaleString('es-AR')} {data.recursos.total === 1 ? 'persona' : 'personas'} que
-            ofrecieron algo concreto
+            = {data.recursos.total.toLocaleString('es-AR')}{' '}
+            {data.recursos.total === 1 ? 'recurso declarado' : 'recursos declarados'}. Una persona
+            puede ofrecer más de uno.
           </p>
         </>
       ) : (
-        <p className={VACIO}>Nadie ofreció nada todavía. Los recursos entran por el mapa, con una voz de tipo «recurso».</p>
+        <p className={VACIO}>
+          Nadie ofreció nada todavía. Los recursos entran por el mapa, con una voz de tipo
+          «recurso».
+        </p>
       )}
     </div>
   );
@@ -93,11 +98,15 @@ function Brechas({ data }: { data: DocumentoMandato }) {
   const filas = topeBrechas(data.brechas);
   return (
     <div className="mt-10">
-      <h3 className={LABEL}>III. Brechas críticas — donde la necesidad supera lo ofrecido</h3>
+      <h3 className={LABEL}>III. Necesidades y recursos declarados</h3>
+      <p className="text-tinta-75 mb-4 text-[14px] leading-relaxed">
+        Son conteos de registros, no unidades que se compensen: diez ofertas de herramientas no
+        tapan un pedido de agua. Para decir que algo está cubierto hace falta ver que lo ofrecido
+        sirve para lo pedido, alcanza y está disponible — y eso todavía no se mide.
+      </p>
       {filas.length > 0 ? (
         <div className="flex flex-col gap-3">
           {filas.map((brecha) => {
-            const urgencia = urgenciaDeBrecha(brecha.piden, brecha.ofrecen);
             return (
               <div
                 key={brecha.provincia}
@@ -105,22 +114,17 @@ function Brechas({ data }: { data: DocumentoMandato }) {
               >
                 <span className="text-[15px] font-bold">{brecha.provincia}</span>
                 <span className="font-space text-tinta-50 text-[12px]">
-                  piden {brecha.piden.toLocaleString('es-AR')} · ofrecen {brecha.ofrecen.toLocaleString('es-AR')}
-                </span>
-                <span
-                  className={cn(
-                    'font-space border px-2 py-1 text-[10px] uppercase tracking-[0.08em]',
-                    CLASE_URGENCIA[urgencia],
-                  )}
-                >
-                  {urgencia}
+                  necesidades {brecha.piden.toLocaleString('es-AR')} · recursos{' '}
+                  {brecha.ofrecen.toLocaleString('es-AR')}
                 </span>
               </div>
             );
           })}
         </div>
       ) : (
-        <p className={VACIO}>Sin necesidades y recursos declarados no hay brechas que medir. Eso también es un dato.</p>
+        <p className={VACIO}>
+          Todavía nadie declaró necesidades ni recursos. Eso también es un dato.
+        </p>
       )}
     </div>
   );
@@ -129,7 +133,7 @@ function Brechas({ data }: { data: DocumentoMandato }) {
 function Acciones({ data }: { data: DocumentoMandato }) {
   return (
     <div className="mt-10">
-      <h3 className={LABEL}>IV. Acciones en votación</h3>
+      <h3 className={LABEL}>IV. Propuestas registradas</h3>
       {data.propuestas.length >= 1 ? (
         <div className="flex flex-col gap-5">
           {data.propuestas.map((p, i) => (
@@ -137,23 +141,19 @@ function Acciones({ data }: { data: DocumentoMandato }) {
               <span className="font-space text-tinta-30 text-[13px]">A{i + 1}</span>
               <div>
                 <Link
-                  href={`/mandato-vivo/propuesta/${String(p.id)}`}
+                  href={`/senal/${p.id}`}
                   className="text-[16px] font-bold hover:underline"
                   aria-label={`${p.titulo} — propuesta ${ESTADO_PROPUESTA[p.estado] ?? p.estado}`}
                 >
                   {p.titulo}
                 </Link>
                 <p className="text-tinta-75 mt-1 text-[14px]">{p.resumen}</p>
-                <p className="font-space text-violeta mt-1 text-[11px]">
-                  {p.votos.toLocaleString('es-AR')} votos · apoyo {p.apoyo >= 0 ? '+' : ''}
-                  {p.apoyo.toLocaleString('es-AR')}
-                </p>
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <p className={VACIO}>Ninguna propuesta en votación todavía.</p>
+        <p className={VACIO}>Ninguna propuesta registrada todavía.</p>
       )}
       <p className="font-space text-tinta-50 mt-6 text-[13px]">
         La siguiente la escribís vos <span className="text-violeta anim-blink-cursor">▌</span>
@@ -162,20 +162,32 @@ function Acciones({ data }: { data: DocumentoMandato }) {
   );
 }
 
-function VigenciaYFirma({ data, firmaRef }: { data: DocumentoMandato; firmaRef: RefObject<HTMLDivElement> }) {
+function VigenciaYFirma({
+  data,
+  firmaRef,
+}: {
+  data: DocumentoMandato;
+  firmaRef: RefObject<HTMLDivElement>;
+}) {
   const n = data.voces.total;
   return (
-    <div ref={firmaRef} className="border-tinta mt-10 flex flex-wrap items-end justify-between gap-6 border-t-2 pt-8">
+    <div
+      ref={firmaRef}
+      className="border-tinta mt-10 flex flex-wrap items-end justify-between gap-6 border-t-2 pt-8"
+    >
       <div className="max-w-[420px]">
-        <h3 className={LABEL}>Vigencia y firma</h3>
+        <h3 className={LABEL}>Vigencia</h3>
         <p className="text-tinta-75 text-[14px] leading-relaxed">
-          Este mandato se reescribe con cada voz nueva. No tiene dueño, no tiene vencimiento: tiene revisiones.
+          Este mandato se reescribe con cada voz nueva. No tiene dueño ni vencimiento: tiene
+          revisiones. Que una voz esté acá no quiere decir que quien la dejó firme el resto.
         </p>
       </div>
       <div className="text-right">
         {n >= 1 ? (
           <>
-            <p className="font-anton text-[26px] leading-none">Las {n.toLocaleString('es-AR')} voces</p>
+            <p className="font-anton text-[26px] leading-none">
+              Las {n.toLocaleString('es-AR')} voces
+            </p>
             <p className="font-space text-tinta-50 mt-1 text-[11px]">— y las que faltan.</p>
           </>
         ) : (

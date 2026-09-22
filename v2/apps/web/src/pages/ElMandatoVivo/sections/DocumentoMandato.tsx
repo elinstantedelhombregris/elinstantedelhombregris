@@ -32,7 +32,10 @@ export function DocumentoMandato() {
 
   if (documento.isLoading) {
     return (
-      <section aria-label={ENCABEZADO_SECCION} className="mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5">
+      <section
+        aria-label={ENCABEZADO_SECCION}
+        className="mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5"
+      >
         <h2 className="font-space text-oscuro-meta mb-6 text-[11px] uppercase tracking-[0.16em]">
           {ENCABEZADO_SECCION}
         </h2>
@@ -46,7 +49,10 @@ export function DocumentoMandato() {
 
   if (documento.isError) {
     return (
-      <section aria-label={ENCABEZADO_SECCION} className="mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5">
+      <section
+        aria-label={ENCABEZADO_SECCION}
+        className="mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5"
+      >
         <h2 className="font-space text-oscuro-meta mb-6 text-[11px] uppercase tracking-[0.16em]">
           {ENCABEZADO_SECCION}
         </h2>
@@ -77,8 +83,13 @@ export function DocumentoMandato() {
   });
 
   return (
-    <section aria-labelledby="documento-titulo" className="mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5">
-      <h2 className="font-space text-oscuro-meta mb-6 text-[11px] uppercase tracking-[0.16em]">{ENCABEZADO_SECCION}</h2>
+    <section
+      aria-labelledby="documento-titulo"
+      className="mx-auto max-w-[1100px] px-10 pb-[72px] max-[560px]:px-5"
+    >
+      <h2 className="font-space text-oscuro-meta mb-6 text-[11px] uppercase tracking-[0.16em]">
+        {ENCABEZADO_SECCION}
+      </h2>
 
       <div className="bg-papel text-tinta relative p-[52px_56px] shadow-[0_24px_60px_rgba(0,0,0,0.45)] max-[560px]:p-6">
         {esEjemplo ? (
@@ -91,25 +102,33 @@ export function DocumentoMandato() {
 
         <p className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.12em]">
           Revisión continua · {fecha} ·{' '}
-          {data.voces.total >= 1 ? `Exp. ${data.voces.total.toLocaleString('es-AR')} voces` : 'Exp. sin voces todavía'}
+          {data.voces.total >= 1
+            ? `Exp. ${data.voces.total.toLocaleString('es-AR')} voces`
+            : 'Exp. sin voces todavía'}
         </p>
-        <h2 id="documento-titulo" className="font-anton mt-2 text-[clamp(30px,4.4vw,52px)] leading-none">
+        <h2
+          id="documento-titulo"
+          className="font-anton mt-2 text-[clamp(30px,4.4vw,52px)] leading-none"
+        >
           Mandato ciudadano — Argentina
         </h2>
         {esEjemplo ? (
           <p className="font-space text-tinta-50 mt-3 text-[11px] uppercase tracking-[0.12em]">
-            Con {data.voces.total.toLocaleString('es-AR')} voces esto es el formato del mandato, no el mandato. El de
-            verdad se escribe con la tuya.
+            Con {data.voces.total.toLocaleString('es-AR')} voces esto es el formato del mandato, no
+            el mandato. El de verdad se escribe con la tuya.
           </p>
         ) : null}
 
         <div className="border-tinta mt-8 border-t-2 pt-6">
-          <p className="font-space text-violeta mb-3 text-[11px] font-bold uppercase tracking-[0.12em]">Preámbulo</p>
+          <p className="font-space text-violeta mb-3 text-[11px] font-bold uppercase tracking-[0.12em]">
+            Preámbulo
+          </p>
           <p className="text-[16px] leading-relaxed">
-            Las voces reunidas en el mapa constituyen el presente mandato. No es un programa de gobierno ni una
-            plataforma electoral: es el país ordenado por urgencia, redactado por su gente y de cumplimiento
-            verificable. Quien aspire a administrar o ejecutar lo público en nombre de estas voces adhiere a este
-            documento completo — o explica, en público, por qué no.
+            Este documento junta lo que la gente dejó en el mapa y dice de dónde sale cada cosa. Los
+            números cuentan registros, no personas: una misma persona puede dejar varios. Un hecho
+            vale cuando alguien lo corrobora; un objetivo, cuando se discutió en un proceso que se
+            pueda nombrar. No habla por todo el país ni obliga a nadie: es lo que está escrito hasta
+            hoy, a la vista de cualquiera.
           </p>
         </div>
 
@@ -120,14 +139,14 @@ export function DocumentoMandato() {
             <Sello color="verde" rotate={-4}>
               Visto
             </Sello>
-            <span className="font-space text-tinta-50 text-[12px]">Documento auditado. Ahora sos testigo.</span>
+            <span className="font-space text-tinta-50 text-[12px]">Lo leíste hasta el final.</span>
           </div>
         ) : null}
 
         <p className="font-space text-tinta-50 border-papel-borde mt-8 border-t pt-4 text-[10px] uppercase tracking-[0.1em]">
           Fuentes: {data.voces.total.toLocaleString('es-AR')} voces del mapa ·{' '}
           {data.senales.clasificadas.toLocaleString('es-AR')} señales clasificadas ·{' '}
-          {data.propuestas.length.toLocaleString('es-AR')} propuestas en votación · generado {fecha}
+          {data.propuestas.length.toLocaleString('es-AR')} propuestas registradas · generado {fecha}
         </p>
       </div>
     </section>

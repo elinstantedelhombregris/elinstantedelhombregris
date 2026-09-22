@@ -1,16 +1,20 @@
-import { Fragment, useRef, useState } from 'react';
+import { useEffect, Fragment, useRef, useState } from 'react';
 
 import { BarraModos, ContadorEnVista, PanelLateral } from './Chrome';
+import { EstadoConsulta } from './EstadoConsulta';
+import { useExploracion, type Exploracion } from './exploracion-url';
+import { FiltrosExploracion } from './FiltrosExploracion';
+import { ListaRegistros } from './ListaRegistros';
 import { MapaBase } from './MapaBase';
 import { useModoAnalisis } from './modos/useModoAnalisis';
 import { useModoCobertura } from './modos/useModoCobertura';
 import { useModoMapa } from './modos/useModoMapa';
 import { useModoSimulacion } from './modos/useModoSimulacion';
 import { useModoTiempo } from './modos/useModoTiempo';
+import { ProcedenciaConsulta } from './ProcedenciaConsulta';
 import { useSenalesEnVista, useVistaMapa } from './useVistaMapa';
 
-
-import type { Modo } from './catalogo-modos';
+import type { LugarMapa } from './BusquedaTerritorial';
 import type { ContextoModo } from './modos/tipos';
 import type { Recuadro } from './useVistaMapa';
 import type { MapRef } from 'react-map-gl/maplibre';
@@ -29,15 +33,41 @@ import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
  * Los cuatro modos comparten señales y viewport; cada uno aporta sus capas,
  * sus controles y su leyenda (ver `modos/tipos.ts`).
  */
-export function Instrumento() {
-  const [modo, setModo] = useState<Modo>('mapa');
+export function Instrumento({ onAportar }: { onAportar?: (lugar: LugarMapa | null) => void }) {
+  const [lugarElegido, setLugarElegido] = useState<LugarMapa | null>(null);
+  const [exploracion, setExploracion] = useExploracion();
+  const { modo, rango } = exploracion;
+  const [soloLista, setSoloLista] = useState(false);
+  const [seleccionada, setSeleccionada] = useState<string | null>(null);
+  const [falloMapa, setFalloMapa] = useState(false);
+  const [cursor, setCursor] = useState<string | undefined>();
   const [panelFalta, setPanelFalta] = useState(false);
   const mapaRef = useRef<MapRef>(null);
   const { recuadro, alMover } = useVistaMapa();
 
-  const consulta = useSenalesMapa({ capas: CAPAS, rango: 'todo' }, true);
-  const todas = useSenalesEnVista(consulta.data ?? [], null);
-  const enVista = useSenalesEnVista(consulta.data ?? [], recuadro);
+  const cambiar = (valor: Exploracion) => {
+    setCursor(undefined);
+    setExploracion(valor);
+  };
+  useEffect(() => {
+    setCursor(undefined);
+  }, [exploracion]);
+  const elegir = (lugar: LugarMapa) => {
+    setLugarElegido(lugar);
+    cambiar({ ...exploracion, lugarId: lugar.id, lugarNombre: lugar.name });
+    if (lugar.latitude !== null && lugar.longitude !== null)
+      mapaRef.current?.flyTo({
+        center: [Number(lugar.longitude), Number(lugar.latitude)],
+        zoom: lugar.level === 'province' ? 5 : 10,
+        essential: false,
+      });
+  };
+  const consulta = useSenalesMapa(
+    { capas: CAPAS, ...exploracion, ...(cursor ? { cursor } : {}) },
+    true,
+  );
+  const todas = useSenalesEnVista(consulta.data?.signals ?? [], null);
+  const enVista = useSenalesEnVista(consulta.data?.signals ?? [], recuadro);
 
   const ctx: ContextoModo = {
     senales: enVista,
@@ -45,6 +75,12 @@ export function Instrumento() {
     mapaRef,
     recuadro,
     cargando: consulta.isLoading,
+    rango,
+    cambiarRango: (valor) => {
+      cambiar({ ...exploracion, rango: valor });
+    },
+    seleccionar: setSeleccionada,
+    ...(consulta.data ? { resumen: consulta.data.metadata } : {}),
   };
 
   // Los cuatro se llaman siempre: son hooks, y llamarlos condicionalmente
@@ -57,39 +93,97 @@ export function Instrumento() {
     simulacion: useModoSimulacion(ctx),
   };
   const activo = resultados[modo];
+  const parcial = consulta.data?.metadata.completa === false;
+  const necesitaCorpus = parcial && ['cobertura', 'tiempo', 'simulacion'].includes(modo);
+  const tieneDatos = consulta.data !== undefined;
+  const siguientePagina = consulta.data?.metadata.siguiente ?? undefined;
 
   return (
-    <section
-      aria-label="Instrumento territorial"
-      className="border-oscuro-borde bg-tinta border-y"
-    >
-      <BarraModos activo={modo} onCambiar={setModo} />
+    <section aria-label="Instrumento territorial" className="border-oscuro-borde bg-tinta border-y">
+      <FiltrosExploracion valor={exploracion} cambiar={cambiar} elegir={elegir} />
+      <div className="text-oscuro-texto flex flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm">
+        <button
+          type="button"
+          className="min-h-11 underline"
+          aria-pressed={soloLista}
+          onClick={() => {
+            setSoloLista(!soloLista);
+          }}
+        >
+          {soloLista ? 'Mostrar mapa y lista' : 'Usar solo la lista'}
+        </button>
+        <a
+          className="inline-flex min-h-11 items-center underline"
+          href="#aportar"
+          onClick={() => {
+            onAportar?.(lugarElegido?.id === exploracion.lugarId ? lugarElegido : null);
+          }}
+        >
+          Aportar a esta lectura →
+        </a>
+      </div>
+      {!soloLista ? (
+        <BarraModos
+          activo={modo}
+          onCambiar={(valor) => {
+            cambiar({ ...exploracion, modo: valor });
+          }}
+        />
+      ) : null}
+      <EstadoConsulta
+        cargando={consulta.isLoading}
+        fallo={consulta.isError}
+        tieneDatos={tieneDatos}
+        actualizadoEn={consulta.dataUpdatedAt}
+        reintentar={() => {
+          void consulta.refetch();
+        }}
+      />
+      {consulta.data ? (
+        <ProcedenciaConsulta
+          datos={consulta.data.metadata}
+          siguiente={() => {
+            setCursor(siguientePagina);
+          }}
+          inicio={() => {
+            setCursor(undefined);
+          }}
+        />
+      ) : null}
+      {soloLista ? null : necesitaCorpus ? (
+        <p role="status" className="text-oscuro-texto px-5 py-10">
+          Esta lente necesita todos los registros, y la consulta trae más de una página. Para los
+          totales completos por provincia usá Análisis: no calculamos silencio ni escenarios sobre
+          una muestra recortada.
+        </p>
+      ) : tieneDatos ? (
+        <div className="grid min-h-[520px] grid-cols-[300px_minmax(0,1fr)] max-[900px]:grid-cols-1">
+          <div className="max-h-[520px] overflow-auto max-[900px]:order-2 max-[900px]:max-h-64">
+            <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
+              {activo.panel}
+            </PanelLateral>
+          </div>
 
-      <div className="grid h-[min(78vh,760px)] grid-cols-[340px_1fr] max-[900px]:grid-cols-1 max-[900px]:grid-rows-[auto_1fr]">
-        <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
-          {consulta.isLoading ? (
-            <p className="font-space text-oscuro-meta text-[11px] uppercase tracking-[0.12em]">
-              Cargando las voces…
-            </p>
-          ) : null}
-          {activo.panel}
-        </PanelLateral>
-
-        <div className="relative">
-          {activo.superficie ? (
-            /* La Simulación trae su propia superficie: la cortina son dos
+          <div className="relative h-[520px] min-w-0 max-[900px]:order-1 max-[900px]:h-[440px]">
+            {activo.superficie ? (
+              /* La Simulación trae su propia superficie: la cortina son dos
                instancias de mapa y no se puede recortar una capa por posición
                de pantalla. La `key` la aísla igual que a las capas. */
-            <Fragment key={modo}>{activo.superficie}</Fragment>
-          ) : (
-          <MapaBase
-            mapaRef={mapaRef}
-            onMover={alMover}
-            arrastreHabilitado={activo.arrastreHabilitado ?? true}
-            {...(activo.capasInteractivas ? { capasInteractivas: activo.capasInteractivas } : {})}
-            {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
-          >
-            {/*
+              <Fragment key={modo}>{activo.superficie}</Fragment>
+            ) : (
+              <MapaBase
+                mapaRef={mapaRef}
+                onFallo={() => {
+                  setFalloMapa(true);
+                }}
+                onMover={alMover}
+                arrastreHabilitado={activo.arrastreHabilitado ?? true}
+                {...(activo.capasInteractivas
+                  ? { capasInteractivas: activo.capasInteractivas }
+                  : {})}
+                {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
+              >
+                {/*
               La `key` por modo es obligatoria, no cosmética: sin ella React
               reconcilia las capas del modo saliente con las del entrante en la
               misma posición del árbol, y `<Source>` de react-map-gl explota con
@@ -97,25 +191,50 @@ export function Instrumento() {
               Con la key se desmonta un modo y se monta el otro, que es lo que
               corresponde — el mapa NO se remonta, solo sus capas.
             */}
-            <Fragment key={modo}>{activo.capas}</Fragment>
-          </MapaBase>
-          )}
+                <Fragment key={modo}>{activo.capas}</Fragment>
+              </MapaBase>
+            )}
 
-          {/* El contador flota arriba a la derecha y responde al encuadre:
+            {/* El contador flota arriba a la derecha y responde al encuadre:
               arrastrás sobre una provincia y el número contesta. */}
-          <div className="pointer-events-none absolute right-4 top-4 z-10">
-            <ContadorEnVista senales={enVista} />
-          </div>
-
-          {activo.leyenda ? (
-            <div className="pointer-events-none absolute bottom-14 left-4 z-10">
-              {activo.leyenda}
+            <div className="pointer-events-none absolute right-4 top-4 z-10">
+              <ContadorEnVista senales={enVista} />
             </div>
-          ) : null}
 
-          {activo.sobreMapa}
+            {activo.leyenda ? (
+              <div className="pointer-events-none absolute bottom-14 left-4 z-10">
+                {activo.leyenda}
+              </div>
+            ) : null}
+
+            {activo.sobreMapa}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="h-40" aria-hidden="true" />
+      )}
+
+      {falloMapa ? (
+        <p role="alert" className="text-oscuro-texto p-4">
+          Parte del mapa no pudo cargarse. Los registros siguen disponibles en la lista.
+        </p>
+      ) : null}
+      {consulta.data ? (
+        <ListaRegistros
+          datos={consulta.data}
+          seleccionada={seleccionada}
+          seleccionar={(senal) => {
+            setSeleccionada(senal.id);
+            setSoloLista(false);
+            if (senal.lng !== null && senal.lat !== null)
+              mapaRef.current?.flyTo({
+                center: [senal.lng, senal.lat],
+                zoom: 12,
+                essential: false,
+              });
+          }}
+        />
+      ) : null}
 
       <div className="font-space text-oscuro-tenue border-oscuro-borde flex flex-wrap items-center justify-between gap-3 border-t px-4 py-2 text-[10px]">
         {/* Los datos son de OpenStreetMap y la ODbL obliga a decirlo; las
@@ -131,7 +250,7 @@ export function Instrumento() {
           onClick={() => {
             setPanelFalta(true);
           }}
-          className="hover:text-papel underline uppercase tracking-[0.1em] transition-colors"
+          className="hover:text-papel uppercase tracking-[0.1em] underline transition-colors"
         >
           Algo le falta a este mapa
         </button>

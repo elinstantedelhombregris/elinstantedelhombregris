@@ -19,7 +19,7 @@ import {
   PROVINCIAS_REF,
 } from '@v2/civic-core';
 import {
-  ActoresRepository,
+  GestionSenalesRepository,
   AdhesionesRepository,
   ConfirmacionesRepository,
   GeographicRepository,
@@ -32,7 +32,7 @@ import { Router, type Router as RouterType } from 'express';
 
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
-import { COOKIE_ACTOR, hashDeClave, olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
+import { actorSiExiste, olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
 import { barrerRelojes } from './relojes.js';
 import { ingerirSenal } from './service.js';
 import { confirmacionSchema, consultaDeSenalesSchema, respuestaSchema } from './validation.js';
@@ -192,10 +192,12 @@ router.get('/senales/:idPublico', async (req, res, next) => {
       senal.clase === 'meta' ? adh.respuestasDe(id) : Promise.resolve([]),
     ]);
 
+    res.setHeader('Cache-Control', 'no-store');
     const adhesion = porSenal.get(id) ?? { total: 0, mia: false };
     res.json({
       data: {
         senal,
+        esPropia: await new GestionSenalesRepository(db).esPropia(id, actorId),
         adhesiones: adhesion,
         confirmaciones,
         respuestas,
@@ -287,14 +289,17 @@ router.post('/senales/:idPublico/respuesta', anonSubmitRateLimit(), async (req, 
       actor.actorId,
     );
     if (r === 'noExiste') {
-      res.status(404).json({ error: { code: 'NO_ESTA', message: 'Una de las dos señales no existe.' } });
+      res
+        .status(404)
+        .json({ error: { code: 'NO_ESTA', message: 'Una de las dos señales no existe.' } });
       return;
     }
     if (r === 'claseIncorrecta') {
       res.status(400).json({
         error: {
           code: 'CLASE_INCORRECTA',
-          message: 'Una pregunta se responde con un hecho: algo que pasa en el mundo y se puede comprobar.',
+          message:
+            'Una pregunta se responde con un hecho: algo que pasa en el mundo y se puede comprobar.',
         },
       });
       return;
@@ -386,14 +391,6 @@ router.get('/map/luz', async (_req, res, next) => {
  * escriben — el permiso se pide donde se usa. En las de LECTURA sería plantar
  * una cookie por mirar, que es exactamente lo que la regla 9 no quiere.
  */
-async function actorSiExiste(req: Parameters<typeof resolverActor>[0]): Promise<number | null> {
-  const cookies: unknown = (req as { cookies?: unknown }).cookies;
-  if (typeof cookies !== 'object' || cookies === null) return null;
-  const clave: unknown = (cookies as Record<string, unknown>)[COOKIE_ACTOR];
-  if (typeof clave !== 'string') return null;
-  const previo = await new ActoresRepository(getDb()).porHash(hashDeClave(clave));
-  return previo?.id ?? null;
-}
 
 const PORQUE: Record<string, { estado: number; mensaje: string }> = {
   noExiste: { estado: 404, mensaje: 'No encontramos esa señal.' },
@@ -408,7 +405,8 @@ const PORQUE: Record<string, { estado: number; mensaje: string }> = {
   yaConfirmaste: { estado: 409, mensaje: 'Ya la miraste. Una mirada por persona.' },
   sinActor: {
     estado: 503,
-    mensaje: 'No pudimos guardar el identificador de este navegador, y sin eso no se puede saber que sos otra persona.',
+    mensaje:
+      'No pudimos guardar el identificador de este navegador, y sin eso no se puede saber que sos otra persona.',
   },
 };
 
@@ -438,8 +436,7 @@ router.post('/senales/:idPublico/confirmacion', anonSubmitRateLimit(), async (re
      * sólo los dos que afirman haber estado.
      */
     const hayPunto = senal !== null && senal.lat !== null;
-    const cuenta =
-      cuerpo.veredicto === 'confirm' && metodoCuenta(cuerpo.metodo as never, hayPunto);
+    const cuenta = cuerpo.veredicto === 'confirm' && metodoCuenta(cuerpo.metodo as never, hayPunto);
 
     const r = await new ConfirmacionesRepository(getDb()).confirmar({
       idPublico: id,
@@ -490,7 +487,9 @@ router.post('/relojes/barrer', async (req, res, next) => {
     const esperado = process.env.CRON_SECRET;
     const dado = req.get('authorization');
     if (esperado === undefined || esperado === '' || dado !== `Bearer ${esperado}`) {
-      res.status(401).json({ error: { code: 'NO_AUTORIZADO', message: 'Esta ruta la corre el cron.' } });
+      res
+        .status(401)
+        .json({ error: { code: 'NO_AUTORIZADO', message: 'Esta ruta la corre el cron.' } });
       return;
     }
     res.json({ data: await barrerRelojes() });

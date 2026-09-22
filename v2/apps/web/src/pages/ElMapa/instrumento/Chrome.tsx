@@ -9,7 +9,6 @@ import type { ReactNode } from 'react';
 import { cn } from '~/lib/utils';
 import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
 
-
 /**
  * El chrome del instrumento: la barra de modos, el panel lateral y las piezas
  * que flotan sobre el mapa.
@@ -134,9 +133,9 @@ export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] 
     <div className="border-oscuro-borde bg-oscuro-barra/95 w-[260px] border p-4 backdrop-blur">
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-space text-oscuro-meta text-[10px] uppercase tracking-[0.14em]">
-          Voces en vista
+          Registros cargados en vista
         </span>
-        <span className="font-anton text-violeta-claro text-[26px] leading-none tabular-nums">
+        <span className="font-anton text-violeta-claro text-[26px] tabular-nums leading-none">
           {total.toLocaleString('es-AR')}
         </span>
       </div>
@@ -151,7 +150,10 @@ export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] 
             {composicion.map(({ clase, n }) => (
               <span
                 key={clase}
-                style={{ width: `${String((n / total) * 100)}%`, backgroundColor: COLOR_CLASE[clase] }}
+                style={{
+                  width: `${String((n / total) * 100)}%`,
+                  backgroundColor: COLOR_CLASE[clase],
+                }}
               />
             ))}
           </div>
@@ -209,7 +211,9 @@ export function FiltroClases({
             }}
             className={cn(
               'font-space flex items-center gap-1.5 border px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] transition-opacity',
-              activo ? 'border-oscuro-borde text-oscuro-texto' : 'border-oscuro-borde/50 text-oscuro-tenue',
+              activo
+                ? 'border-oscuro-borde text-oscuro-texto'
+                : 'border-oscuro-borde/50 text-oscuro-tenue',
             )}
           >
             <span

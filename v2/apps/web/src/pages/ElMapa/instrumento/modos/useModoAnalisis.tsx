@@ -2,6 +2,7 @@ import { PROVINCIAS_REF } from '@v2/civic-core';
 import { useEffect, useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
+import { claseDeCategoria } from '../../el-mapa-data';
 import { Control, FiltroClases, LeyendaRampa, Segmentado } from '../Chrome';
 import { COLOR_CLASE, RAMPAS } from '../paleta';
 import { AVISO_TEMAS, temasDe } from '../temas';
@@ -9,7 +10,6 @@ import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 import type { SenalConTipo } from '../useVistaMapa';
-
 
 import { useProvincias } from '~/lib/queries/open-data';
 import { cn } from '~/lib/utils';
@@ -38,21 +38,21 @@ const METRICAS: { id: Metrica; etiqueta: string; explica: string; unidad: string
     id: 'total',
     etiqueta: 'Total',
     explica:
-      'El total crudo. Buenos Aires siempre gana porque tiene 17 millones de personas — sirve para saber dónde hay volumen, no dónde hay intensidad.',
-    unidad: 'voces',
+      'Cantidad de registros recibidos por provincia. Una persona puede aportar varios; no mide adhesión ni representatividad.',
+    unidad: 'registros',
   },
   {
     id: 'porHabitante',
     etiqueta: 'Por habitante',
     explica:
-      'Voces cada 100.000 habitantes. Acá una provincia chica que habla mucho deja de desaparecer detrás del conurbano.',
+      'Registros cada 100.000 habitantes, con población de referencia. Describe participación registrada, no la opinión de toda la población.',
     unidad: 'cada 100 mil hab.',
   },
   {
     id: 'densidad',
     etiqueta: 'Por territorio',
     explica:
-      'Voces cada 1.000 km². Muestra concentración geográfica: Santa Cruz y CABA dicen cosas muy distintas con el mismo total.',
+      'Registros cada 1.000 km². Muestra concentración geográfica: Santa Cruz y CABA dicen cosas muy distintas con el mismo total.',
     unidad: 'cada 1.000 km²',
   },
 ];
@@ -60,7 +60,9 @@ const METRICAS: { id: Metrica; etiqueta: string; explica: string; unidad: string
 export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
   const [nivel, setNivel] = useState<NivelGeo>('provincia');
   const [metrica, setMetrica] = useState<Metrica>('total');
-  const [rango, setRango] = useState<Rango>('todo');
+  const [rangoLocal, setRangoLocal] = useState<Rango>('todo');
+  const rango = ctx.rango ?? rangoLocal;
+  const setRango = ctx.cambiarRango ?? setRangoLocal;
   const [clases, setClases] = useState<Set<ClaseSenal>>(
     () => new Set(Object.keys(COLOR_CLASE) as ClaseSenal[]),
   );
@@ -110,11 +112,27 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
     return cuenta;
   }, [filtradas, provincias.data]);
 
+  const totales = useMemo(() => {
+    if (!ctx.resumen)
+      return new Map([...porNombre].map(([nombre, lista]) => [nombre, lista.length]));
+    const nombres = new Map((provincias.data ?? []).map((p) => [p.id, p.name]));
+    return new Map(
+      ctx.resumen.porProvincia.flatMap((p) => {
+        const nombre = p.provinceId === null ? undefined : nombres.get(p.provinceId);
+        const total = p.tipos.reduce((n, t) => {
+          const clase = claseDeCategoria(t.tipo);
+          return n + (clase === null || clases.has(clase) ? t.total : 0);
+        }, 0);
+        return nombre ? [[nombre, total] as const] : [];
+      }),
+    );
+  }, [ctx.resumen, provincias.data, clases, porNombre]);
+
   const conValores = useMemo(() => {
     if (!geometria || typeof geometria !== 'object') return null;
     const col = geometria as { features: { properties: { name: string } }[] };
     const calcular = (nombre: string): number => {
-      const total = porNombre.get(nombre)?.length ?? 0;
+      const total = totales.get(nombre) ?? 0;
       const ref = PROVINCIAS_REF[nombre];
       if (metrica === 'total' || !ref) return total;
       if (metrica === 'porHabitante') return ref.pob > 0 ? (total / ref.pob) * 100 : 0;
@@ -131,7 +149,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         },
       })),
     };
-  }, [geometria, porNombre, metrica, seleccionada]);
+  }, [geometria, totales, metrica, seleccionada]);
 
   const maximo = useMemo(() => {
     if (!conValores) return 1;
@@ -154,12 +172,13 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
       conValores?.features.find((f) => f.properties.name === seleccionada)?.properties.valor ?? 0;
     return {
       nombre: seleccionada,
+      total: totales.get(seleccionada) ?? 0,
       lista,
       valor,
       porClase: [...porClase.entries()].sort((a, b) => b[1] - a[1]),
       temas: temasDe(lista.map((s) => s.texto)),
     };
-  }, [seleccionada, porNombre, conValores]);
+  }, [seleccionada, porNombre, conValores, totales]);
 
   const alternarClase = (clase: ClaseSenal) => {
     setClases((previo) => {
@@ -239,7 +258,8 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         <Control etiqueta="Tipos de voz">
           <FiltroClases activos={clases} onAlternar={alternarClase} />
           <p className="text-oscuro-meta mt-2 text-[11px]">
-            {filtradas.length.toLocaleString('es-AR')} voces pasan los filtros.
+            {filtradas.length.toLocaleString('es-AR')} registros cargados pasan los filtros. Los
+            colores usan el total de la consulta.
           </p>
         </Control>
 
@@ -303,7 +323,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
               </button>
             </div>
 
-            <p className="font-space text-violeta-claro mt-2 text-[22px] leading-none tabular-nums">
+            <p className="font-space text-violeta-claro mt-2 text-[22px] tabular-nums leading-none">
               {detalle.valor.toLocaleString('es-AR', {
                 maximumFractionDigits: metrica === 'total' ? 0 : 1,
               })}
@@ -312,13 +332,17 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
               </span>
             </p>
 
-            {detalle.lista.length === 0 ? (
+            {detalle.total === 0 ? (
               <p className="text-oscuro-secundario mt-3 text-[13px] leading-relaxed">
-                Nadie dijo nada acá todavía, al menos con estos filtros. Que una provincia esté en
-                silencio también es información.
+                Con estos filtros, nadie habló desde esta provincia. Eso no dice qué necesita ni qué
+                piensa su gente.
               </p>
             ) : (
               <>
+                <p className="text-oscuro-meta mt-3 text-[11px]">
+                  Detalle de {detalle.lista.length} registros cargados de {detalle.total}{' '}
+                  coincidentes. Las clases y los temas de abajo describen esa página.
+                </p>
                 <ul className="mt-3 space-y-1">
                   {detalle.porClase.map(([clase, n]) => (
                     <li key={clase} className="flex items-center gap-2">
@@ -364,7 +388,9 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
                     <li
                       key={s.id}
                       className="border-l-2 pl-2.5"
-                      style={{ borderColor: s.claseSenal === null ? '#8E8A82' : COLOR_CLASE[s.claseSenal] }}
+                      style={{
+                        borderColor: s.claseSenal === null ? '#8E8A82' : COLOR_CLASE[s.claseSenal],
+                      }}
                     >
                       <p className="text-oscuro-secundario text-[12px] leading-snug">«{s.texto}»</p>
                     </li>
@@ -389,8 +415,8 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
     sobreMapa:
       ctx.todas.length === 0 && !ctx.cargando ? (
         <Vacio
-          titulo="Ninguna provincia tiene todavía con qué hablar."
-          cuerpo="Cuando entren las primeras voces esto se llena de intensidades: quién habla más, por habitante, por territorio. Tocá una provincia para ver cuántas voces necesita."
+          titulo="No hay registros para esta consulta."
+          cuerpo="Probá otro período o lugar. Que no haya voces no dice cómo se vive ahí."
         />
       ) : null,
 
@@ -434,7 +460,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         colores={colores}
         bajo="Menos"
         alto="Más"
-        titulo={`Voces · ${metricaActiva?.unidad ?? ''}`}
+        titulo={`Registros · ${metricaActiva?.unidad ?? ''}`}
       />
     ),
   };

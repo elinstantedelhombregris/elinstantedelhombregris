@@ -1,3 +1,4 @@
+import { CLASES_SENAL } from '@v2/civic-core';
 /**
  * El documento del mandato — el país pedido por escrito.
  *
@@ -20,8 +21,7 @@
  * `senales`, `propuestas`— porque la página del mandato ya la consume. Lo que
  * cambia es de dónde sale y qué gana: `porClase` es nuevo.
  */
-import { CLASES_SENAL } from '@v2/civic-core';
-import { desc, eq, sql } from '@v2/db';
+import { desc, eq, sql, textoDeSenalPublica, tituloDeSenalPublica } from '@v2/db';
 import { geographicLocations, senales } from '@v2/db/schema';
 
 import type { Db } from '@v2/db';
@@ -169,7 +169,7 @@ export async function buildDocumento(db: Db): Promise<DocumentoMandato> {
           const [ultima] = await db
             .select({
               idPublico: senales.idPublico,
-              texto: senales.texto,
+              texto: textoDeSenalPublica,
               provincia: geographicLocations.name,
               fecha: senales.creadaEn,
             })
@@ -207,8 +207,8 @@ export async function buildDocumento(db: Db): Promise<DocumentoMandato> {
   const propuestasCrudas = await db
     .select({
       idPublico: senales.idPublico,
-      titulo: senales.titulo,
-      texto: senales.texto,
+      titulo: tituloDeSenalPublica,
+      texto: textoDeSenalPublica,
       estado: senales.estado,
     })
     .from(senales)

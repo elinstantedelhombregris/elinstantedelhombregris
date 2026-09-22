@@ -1,6 +1,7 @@
 import type { Recuadro, SenalConTipo } from '../useVistaMapa';
 import type { ReactNode } from 'react';
 import type { MapRef } from 'react-map-gl/maplibre';
+import type { LecturaMapa } from '~/lib/queries/civic-map';
 
 /**
  * El contrato de un modo.
@@ -20,6 +21,10 @@ export interface ContextoModo {
   /** El encuadre actual, para los modos que miden sobre lo que se está viendo. */
   recuadro: Recuadro | null;
   cargando: boolean;
+  seleccionar?: (id: string) => void;
+  rango?: '7d' | '30d' | 'todo';
+  cambiarRango?: (rango: '7d' | '30d' | 'todo') => void;
+  resumen?: LecturaMapa['metadata'];
 }
 
 export interface ResultadoModo {

@@ -158,3 +158,14 @@ export async function olvidarActor(req: Request, res: Response): Promise<boolean
 export function mismoHash(a: Buffer, b: Buffer): boolean {
   return a.length === b.length && timingSafeEqual(a, b);
 }
+
+export async function actorSiExiste(
+  req: Parameters<typeof resolverActor>[0],
+): Promise<number | null> {
+  const cookies: unknown = (req as { cookies?: unknown }).cookies;
+  if (typeof cookies !== 'object' || cookies === null) return null;
+  const clave: unknown = (cookies as Record<string, unknown>)[COOKIE_ACTOR];
+  if (typeof clave !== 'string') return null;
+  const previo = await new ActoresRepository(getDb()).porHash(hashDeClave(clave));
+  return previo?.id ?? null;
+}

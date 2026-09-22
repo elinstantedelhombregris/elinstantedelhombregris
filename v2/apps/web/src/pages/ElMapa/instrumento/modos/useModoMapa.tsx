@@ -61,6 +61,7 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
       features: conPunto.map((s) => ({
         type: 'Feature' as const,
         properties: {
+          id: s.id,
           color: s.claseSenal === null ? '#8E8A82' : COLOR_CLASE[s.claseSenal],
           halo: METROS_POR_PRECISION[s.precision] ?? 0,
           nitido: s.precision === 'exact' ? 1 : 0,
@@ -132,6 +133,10 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
 
   return {
     titulo: 'Mapa',
+    capasInteractivas: ['senales-punto'],
+    onClickCapa: (_capa, props) => {
+      if (typeof props.id === 'string') ctx.seleccionar?.(props.id);
+    },
     descripcion: 'Cada voz donde fue dicha. Dibujá un área para leer lo que pasa adentro.',
     arrastreHabilitado: !lazoActivo,
 
@@ -142,6 +147,10 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
         </Control>
 
         <Control etiqueta="Herramienta">
+          <p className="text-oscuro-meta mb-2 text-xs">
+            El lazo cuenta solo registros cargados. Las áreas sin puntos no permiten inferir
+            ausencia de necesidades.
+          </p>
           <button
             type="button"
             onClick={() => {
@@ -192,7 +201,11 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
             type="fill"
             paint={{ 'fill-color': '#9D85E8', 'fill-opacity': 0.12 }}
           />
-          <Layer id="area-borde" type="line" paint={{ 'line-color': '#9D85E8', 'line-width': 1.5 }} />
+          <Layer
+            id="area-borde"
+            type="line"
+            paint={{ 'line-color': '#9D85E8', 'line-width': 1.5 }}
+          />
         </Source>
 
         <Source id="senales" type="geojson" data={geojson}>
@@ -231,24 +244,25 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
       </>
     ),
 
-    sobreMapa: ctx.todas.length === 0 && !ctx.cargando ? (
-      <Vacio
-        titulo="Todavía no habló nadie."
-        cuerpo="La primera voz del mapa puede ser la tuya."
-        accion={{ href: '#instrumento', etiqueta: 'Soltar la primera voz' }}
-      />
-    ) : lazoActivo ? (
-      <LazoOverlay
-        viewBox={{ x: 0, y: 0, ancho: 0, alto: 0 }}
-        desproyectarPixel={desproyectar}
-        onCompletar={(nuevo) => {
-          setLazoActivo(false);
-          if (nuevo) setPoligono(nuevo);
-        }}
-        onCancelar={() => {
-          setLazoActivo(false);
-        }}
-      />
-    ) : null,
+    sobreMapa:
+      ctx.todas.length === 0 && !ctx.cargando ? (
+        <Vacio
+          titulo="Todavía no habló nadie."
+          cuerpo="La primera voz del mapa puede ser la tuya."
+          accion={{ href: '#instrumento', etiqueta: 'Soltar la primera voz' }}
+        />
+      ) : lazoActivo ? (
+        <LazoOverlay
+          viewBox={{ x: 0, y: 0, ancho: 0, alto: 0 }}
+          desproyectarPixel={desproyectar}
+          onCompletar={(nuevo) => {
+            setLazoActivo(false);
+            if (nuevo) setPoligono(nuevo);
+          }}
+          onCancelar={() => {
+            setLazoActivo(false);
+          }}
+        />
+      ) : null,
   };
 }

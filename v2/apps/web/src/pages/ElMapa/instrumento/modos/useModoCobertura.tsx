@@ -90,14 +90,18 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
   return {
     titulo: 'Cobertura',
     descripcion:
-      'Dónde todavía no habló nadie. El silencio no es falta de dato: es el dato que dice dónde ir.',
+      'Presencia de puntos publicados en una grilla. No mide población representada ni ausencia de problemas.',
 
     panel: (
       <>
+        <p className="text-oscuro-meta mb-3 text-xs">
+          Las ubicaciones aproximadas solo señalan presencia declarada; no verifican una celda. Sin
+          datos sobre zonas habitadas, esta grilla incluye áreas sin población.
+        </p>
         <Control etiqueta="En este encuadre">
           {total > 0 ? (
             <>
-              <p className="font-anton text-violeta-claro text-[30px] leading-none tabular-nums">
+              <p className="font-anton text-violeta-claro text-[30px] tabular-nums leading-none">
                 {porcentaje}%
               </p>
               {/* Con TODO en silencio el conteo se lee como afirmación y no
@@ -107,12 +111,12 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
                 {mudas === total ? (
                   <>
                     <strong>{total.toLocaleString('es-AR')} celdas.</strong> Las{' '}
-                    {total.toLocaleString('es-AR')} en silencio.
+                    {total.toLocaleString('es-AR')} sin puntos publicados.
                   </>
                 ) : (
                   <>
                     <strong>{mudas.toLocaleString('es-AR')}</strong> de{' '}
-                    {total.toLocaleString('es-AR')} celdas sin una sola voz.
+                    {total.toLocaleString('es-AR')} celdas sin puntos publicados.
                   </>
                 )}
               </p>
@@ -121,7 +125,9 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
               </p>
             </>
           ) : (
-            <p className="text-oscuro-secundario text-[13px]">Movete por el mapa para medir un área.</p>
+            <p className="text-oscuro-secundario text-[13px]">
+              Movete por el mapa para medir un área.
+            </p>
           )}
         </Control>
 
@@ -132,9 +138,9 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
             opciones={RESOLUCIONES.map((r) => ({ id: r.id, etiqueta: r.etiqueta }))}
           />
           <p className="text-oscuro-meta mt-2 text-[11px] leading-relaxed">
-            Cuanto más fina la grilla, más celdas mudas — y no porque haya menos voces, sino porque
-            la pregunta se hace más chica. El porcentaje se lee junto al tamaño de celda, nunca
-            solo.
+            Cuanto más fina la grilla, más celdas sin puntos — y no porque haya menos voces, sino
+            porque la pregunta se hace más chica. El porcentaje se lee junto al tamaño de celda,
+            nunca solo.
           </p>
         </Control>
 
@@ -143,7 +149,7 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
             valor={mostrar}
             onCambiar={setMostrar}
             opciones={[
-              { id: 'mudas', etiqueta: 'Solo el silencio' },
+              { id: 'mudas', etiqueta: 'Sin puntos publicados' },
               { id: 'todas', etiqueta: 'Todas las celdas' },
             ]}
           />

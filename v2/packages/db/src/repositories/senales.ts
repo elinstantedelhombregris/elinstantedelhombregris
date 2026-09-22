@@ -31,6 +31,8 @@ import { and, desc, eq, gte, inArray, isNotNull, lte, sql } from 'drizzle-orm';
 
 import { senales } from '../schema/senales.js';
 
+import { textoDeSenalPublica, tituloDeSenalPublica } from './senal-publicacion.js';
+
 import type { Db } from '../client.js';
 import type { NewSenal, Senal } from '../schema/senales.js';
 import type { SQL } from 'drizzle-orm';
@@ -88,9 +90,11 @@ const COLUMNAS_PUBLICAS = {
   tipo: senales.tipo,
   clase: senales.clase,
   tema: senales.tema,
-  titulo: senales.titulo,
-  texto: senales.texto,
-  fuente: senales.fuente,
+  titulo: tituloDeSenalPublica,
+  texto: textoDeSenalPublica,
+  fuente: sql<
+    string | null
+  >`case when ${senales.estado} <> 'retirada' then ${senales.fuente} else null end`,
   firma: senales.firma,
   estado: senales.estado,
   lat: senales.lat,

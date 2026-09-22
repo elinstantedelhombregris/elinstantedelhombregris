@@ -1,5 +1,3 @@
-import type { Urgencia } from './mandato-regimen';
-
 import { claseDe, type ClaseSenal, type TipoSenal } from '~/lib/vocabulario';
 
 /**
@@ -20,13 +18,6 @@ export const RELLENO_CLASE_OSCURO: Record<ClaseSenal, string> = {
 /** El relleno que le toca a un tipo, vía su clase. */
 export const rellenoDeTipo = (tipo: TipoSenal): string => RELLENO_CLASE_OSCURO[claseDe(tipo)];
 
-/** Borde + texto del tag de urgencia (sobre papel). */
-export const CLASE_URGENCIA: Record<Urgencia, string> = {
-  crítica: 'border-sello text-sello',
-  alta: 'border-ambar text-ambar',
-  'cubierta si se organiza': 'border-verde text-verde',
-};
-
 export const ORIGEN_SENAL: Record<string, string> = {
   mandato_form: 'formulario del mandato',
   community_post: 'publicación de la comunidad',
@@ -46,18 +37,21 @@ export const PASOS_CONVERGENCIA = [
   {
     num: '01',
     titulo: 'La voz entra por el mapa',
-    cuerpo: 'Alguien suelta lo que no aguanta, lo que sueña o lo que ofrece. Queda pública desde el primer segundo.',
+    cuerpo:
+      'Alguien suelta lo que no aguanta, lo que sueña o lo que ofrece. Queda pública desde el primer segundo.',
     link: { href: '/el-mapa', etiqueta: 'El mapa →' },
   },
   {
     num: '02',
     titulo: 'Una máquina la lee',
-    cuerpo: 'Un clasificador la suma a su tema y le mide el peso. Sin mesa chica: nadie elige a mano qué pesa.',
+    cuerpo:
+      'Un clasificador la suma a su tema y le mide el peso. Sin mesa chica: nadie elige a mano qué pesa.',
   },
   {
     num: '03',
     titulo: 'El documento se reescribe',
-    cuerpo: 'Cada voz nueva recalcula el registro, las brechas y el diagnóstico. Esta página es siempre la última revisión.',
+    cuerpo:
+      'Cada voz nueva recalcula el registro, las brechas y el diagnóstico. Esta página es siempre la última revisión.',
   },
 ] as const;
 
@@ -74,6 +68,7 @@ export const COMO_SE_USA = [
   },
   {
     titulo: 'Se recuerda',
-    cuerpo: 'Las voces quedan públicas y el documento a la vista. Lo dicho, dicho está: la memoria es la sanción.',
+    cuerpo:
+      'Las voces quedan públicas y el documento a la vista. Lo dicho, dicho está: la memoria es la sanción.',
   },
 ] as const;

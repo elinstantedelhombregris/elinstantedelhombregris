@@ -51,10 +51,15 @@ dsuite('Civic map flows', () => {
     const db = getDb();
     // La capa `voz` salió de `dreams` y ahora sale de `senales`. Lo que este
     // archivo prueba —bbox, capas, conteo— no cambió; sí cambió de dónde lee.
+    // Con cesión: sin ella el texto sale reservado (D-087) y estos tests
+    // buscan las señales por su texto.
     const base = {
       tipo: 'basta' as const,
       clase: 'hecho' as const,
       origen: 'web' as const,
+      cesionLicencia: true,
+      cesionEn: new Date(),
+      cesionVersion: 1,
     };
     const filas = await db
       .insert(senales)

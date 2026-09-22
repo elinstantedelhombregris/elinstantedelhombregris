@@ -80,8 +80,13 @@ describe('BitacoraDetail (página papel 3.4 — el lector de crónica)', () => {
     if (medio.summary !== '') {
       expect(screen.getByText(medio.summary)).toBeInTheDocument();
     }
+    // La bajada puede abrir con la misma oración que el cuerpo: se busca la
+    // coincidencia que NO es la bajada, que es la que prueba el cuerpo verbatim.
     const fragmento = fragmentoDelCuerpo(medio.body);
-    expect(screen.getByText(new RegExp(escapeRegExp(fragmento)))).toBeInTheDocument();
+    const enCuerpo = screen
+      .getAllByText(new RegExp(escapeRegExp(fragmento)))
+      .filter((el) => el.textContent !== medio.summary);
+    expect(enCuerpo.length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText('— Un hombre gris')).toBeInTheDocument();
 
     const backlink = screen.getByRole('link', { name: '← La bitácora' });

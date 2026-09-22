@@ -77,7 +77,7 @@ function docChico(): Documento {
           tema: 'salud_publica',
           total: 3,
           ultima: {
-            id: 42,
+            id: '00000000-0000-4000-8000-000000000042',
             texto: 'Seis meses para un turno',
             provincia: 'Córdoba',
             fecha: '2026-07-10T00:00:00Z',
@@ -87,12 +87,10 @@ function docChico(): Documento {
     },
     propuestas: [
       {
-        id: 7,
+        id: '00000000-0000-4000-8000-000000000007',
         titulo: 'Red de turnos comunitarios',
         resumen: 'Lista de espera paralela y auditable.',
         estado: 'voting',
-        votos: 4,
-        apoyo: 1,
       },
     ],
   });
@@ -112,7 +110,7 @@ function docRico(): Documento {
           tema: 'salud_publica',
           total: 92,
           ultima: {
-            id: 99,
+            id: '00000000-0000-4000-8000-000000000099',
             texto: 'Seis meses para un turno',
             provincia: 'Córdoba',
             fecha: '2026-07-10T00:00:00Z',
@@ -120,7 +118,14 @@ function docRico(): Documento {
         },
       ],
     },
-    propuestas: [{ id: 3, titulo: 'Red nacional de turnos', resumen: 'Resumen real.', estado: 'voting', votos: 500, apoyo: 400 }],
+    propuestas: [
+      {
+        id: '00000000-0000-4000-8000-000000000003',
+        titulo: 'Red nacional de turnos',
+        resumen: 'Resumen real.',
+        estado: 'voting',
+      },
+    ],
   });
 }
 
@@ -156,7 +161,9 @@ describe('DocumentoMandato', () => {
     armarMock(undefined, { isError: true, refetch });
     render(<DocumentoMandato />);
 
-    expect(screen.getByText('Esto se rompió. Lo decimos porque publicamos todo.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Esto se rompió. Lo decimos porque publicamos todo.'),
+    ).toBeInTheDocument();
     const boton = screen.getByRole('button', { name: 'Probar de nuevo ↺' });
     fireEvent.click(boton);
     expect(refetch).toHaveBeenCalledTimes(1);
@@ -191,7 +198,9 @@ describe('DocumentoMandato', () => {
 
     // La cabecera es h2 (spec a11y: «h2 por sección … y cabecera del
     // documento») — padre de las secciones romanas h3. Pin contra regresión.
-    expect(screen.getByRole('heading', { level: 2, name: 'Mandato ciudadano — Argentina' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Mandato ciudadano — Argentina' }),
+    ).toBeInTheDocument();
 
     expect(screen.getByText('Ejemplo')).toBeInTheDocument();
     expect(
@@ -204,13 +213,14 @@ describe('DocumentoMandato', () => {
     expect(screen.getByText('señales')).toBeInTheDocument();
     expect(screen.queryByText(/%/)).not.toBeInTheDocument();
 
-    expect(screen.getByText('crítica')).toBeInTheDocument();
+    expect(screen.queryByText('crítica')).not.toBeInTheDocument();
+    expect(screen.queryByText('cubierta si se organiza')).not.toBeInTheDocument();
 
     const linkAccion = screen.getByRole('link', { name: /Red de turnos comunitarios/ });
-    expect(linkAccion).toHaveAttribute('href', '/mandato-vivo/propuesta/7');
+    expect(linkAccion).toHaveAttribute('href', '/senal/00000000-0000-4000-8000-000000000007');
 
     const linkCita = screen.getByRole('link', { name: /Seis meses para un turno/ });
-    expect(linkCita).toHaveAttribute('href', '/mandato-vivo/pulso/42');
+    expect(linkCita).toHaveAttribute('href', '/senal/00000000-0000-4000-8000-000000000042');
   });
 
   it('N rico (docRico N=1000/M=500): sin sello EJEMPLO, % es-AR del tema top y pie con las tres poblaciones', () => {
@@ -228,7 +238,7 @@ describe('DocumentoMandato', () => {
     expect(screen.getByText('18,4%')).toBeInTheDocument();
     expect(
       screen.getByText(
-        `Fuentes: 1.000 voces del mapa · 500 señales clasificadas · 1 propuestas en votación · generado ${fecha}`,
+        `Fuentes: 1.000 voces del mapa · 500 señales clasificadas · 1 propuestas registradas · generado ${fecha}`,
       ),
     ).toBeInTheDocument();
   });
@@ -248,7 +258,7 @@ describe('DocumentoMandato', () => {
     });
 
     const estado = screen.getByRole('status');
-    expect(estado).toHaveTextContent('Documento auditado. Ahora sos testigo.');
+    expect(estado).toHaveTextContent('Lo leíste hasta el final.');
     expect(screen.getAllByText('Visto')).toHaveLength(1);
     // El cambio `visto: false → true` re-ejecuta el efecto; React corre el
     // cleanup de la instancia vieja antes — pin contra refactors que rompan

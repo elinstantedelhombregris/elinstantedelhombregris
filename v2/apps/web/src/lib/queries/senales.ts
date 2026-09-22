@@ -13,7 +13,6 @@ import type { ClaseSenal, TipoSenal } from '~/lib/vocabulario';
 
 import { api } from '~/lib/api';
 
-
 export interface SenalDetallada {
   idPublico: string;
   tipo: TipoSenal;
@@ -47,6 +46,7 @@ export interface ConfirmacionPublica {
 
 export interface FichaDeSenal {
   senal: SenalDetallada;
+  esPropia?: boolean;
   adhesiones: { total: number; mia: boolean };
   confirmaciones: ConfirmacionPublica[];
   respuestas: string[];
@@ -144,6 +144,20 @@ export function useConfirmar(idPublico: string) {
         qc.invalidateQueries({ queryKey: ['senales', 'cola'] }),
         qc.invalidateQueries({ queryKey: ['senales', 'luz'] }),
       ]);
+    },
+  });
+}
+
+export function useRetirarSenal(id: string) {
+  const cliente = useQueryClient();
+  return useMutation({
+    mutationFn: () => api.del<{ retirada: true }>(`/api/v1/civic/senales/${id}`),
+    onSuccess: async () => {
+      await Promise.all(
+        ['senales', 'civic-map', 'mandato', 'open-data', 'analytics'].map((clave) =>
+          cliente.invalidateQueries({ queryKey: [clave] }),
+        ),
+      );
     },
   });
 }

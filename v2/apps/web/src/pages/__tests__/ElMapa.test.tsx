@@ -41,9 +41,19 @@ describe('ElMapa (página papel 2.2)', () => {
       data: { senales: [], razon: null },
       isLoading: false,
     } as unknown as ReturnType<typeof useCola>);
-    vi.mocked(useProvincias).mockReturnValue({ data: [], isLoading: false } as unknown as ReturnType<typeof useProvincias>);
-    vi.mocked(useVocesAbiertas).mockReturnValue({ data: [], isLoading: false, isError: false } as unknown as ReturnType<typeof useVocesAbiertas>);
-    vi.mocked(useVocesPorProvincia).mockReturnValue({ data: [], isLoading: false } as unknown as ReturnType<typeof useVocesPorProvincia>);
+    vi.mocked(useProvincias).mockReturnValue({
+      data: [],
+      isLoading: false,
+    } as unknown as ReturnType<typeof useProvincias>);
+    vi.mocked(useVocesAbiertas).mockReturnValue({
+      data: [],
+      isLoading: false,
+      isError: false,
+    } as unknown as ReturnType<typeof useVocesAbiertas>);
+    vi.mocked(useVocesPorProvincia).mockReturnValue({
+      data: [],
+      isLoading: false,
+    } as unknown as ReturnType<typeof useVocesPorProvincia>);
     vi.mocked(useSoltarVoz).mockReturnValue({
       mutate: vi.fn(),
       isPending: false,
@@ -52,42 +62,37 @@ describe('ElMapa (página papel 2.2)', () => {
     } as unknown as ReturnType<typeof useSoltarVoz>);
   });
 
-  it('abre con el rito de la tinta y la cifra real formateada es-AR', () => {
+  it('abre con una cabecera corta, sin cifra gigante (D-080)', () => {
     render(<ElMapa />);
 
     expect(
       screen.getByRole('heading', { level: 1, name: 'El país, dicho por su gente.' }),
     ).toBeInTheDocument();
     expect(screen.getByText('El mapa de las voces')).toBeInTheDocument();
-    expect(screen.getByText('12.496')).toBeInTheDocument();
-    expect(screen.getByText('voces en el mapa')).toBeInTheDocument();
-  });
-
-  it('si la cifra carga o falló, el bloque no aparece — jamás un número inventado', () => {
-    vi.mocked(useVocesCount).mockReturnValue({
-      data: undefined,
-      isLoading: true,
-      isError: false,
-    } as ReturnType<typeof useVocesCount>);
-    render(<ElMapa />);
-
+    // La cifra salió de la portada: el contador del instrumento la dice con
+    // su alcance, y un «0» a 52px era justo lo que D-080 pedía no mostrar.
     expect(screen.queryByText('voces en el mapa')).not.toBeInTheDocument();
   });
 
   /**
-   * El orden cambió con el rediseño: el panel para soltar la voz y el feed van
-   * ARRIBA, y el instrumento ocupa el ancho completo debajo. Antes el mapa
-   * estaba encajonado al costado del panel — este test afirmaba esa estructura
-   * y por eso se reescribió, no porque se hubiera roto.
+   * El orden cambió otra vez (análisis del 8/9): el instrumento va PRIMERO,
+   * para que el mapa entre en la primera pantalla, y el panel para soltar la
+   * voz y el feed quedan debajo, en el ancla `#aportar`. Antes había que
+   * hablar antes de ver para qué.
    */
-  it('compone panel + feed arriba, e instrumento debajo', () => {
-    render(<ElMapa />);
+  it('compone instrumento arriba, y panel + feed debajo', () => {
+    const { container } = render(<ElMapa />);
 
-    expect(screen.getByRole('heading', { level: 2, name: 'Soltá tu voz' })).toBeInTheDocument();
+    const instrumento = screen.getByRole('heading', {
+      level: 2,
+      name: 'El país, cuadra por cuadra.',
+    });
+    const panel = screen.getByRole('heading', { level: 2, name: 'Soltá tu voz' });
     expect(screen.getByRole('heading', { level: 2, name: 'Últimas voces' })).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { level: 2, name: 'El país, cuadra por cuadra.' }),
-    ).toBeInTheDocument();
+      instrumento.compareDocumentPosition(panel) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(container.querySelector('#aportar')).not.toBeNull();
   });
 
   it('el instrumento tiene su ancla profunda', () => {

@@ -24,6 +24,7 @@ const ESTILO = '/maps/oscuro.json';
 
 export interface MapaBaseProps {
   children?: ReactNode;
+  onFallo?: () => void;
   /** Se llama al terminar cada movimiento, con el mapa ya quieto. */
   onMover?: (mapa: MapRef | null) => void;
   /** Mientras se dibuja un área, arrastrar traza en vez de mover el mapa. */
@@ -48,6 +49,7 @@ export interface MapaBaseProps {
 
 export function MapaBase({
   children,
+  onFallo,
   onMover,
   arrastreHabilitado = true,
   mapaRef,
@@ -66,6 +68,9 @@ export function MapaBase({
   return (
     <MapaGL
       ref={ref}
+      onError={() => {
+        onFallo?.();
+      }}
       initialViewState={VISTA_INICIAL}
       mapStyle={ESTILO}
       dragPan={arrastreHabilitado}

@@ -110,4 +110,8 @@ export { LuzRepository, TOPE_VERIFICABLES_POR_ACTOR } from './senales.js';
 export type { ConteoDeProvincia } from './senales.js';
 
 export { ConfirmacionesRepository } from './confirmaciones.js';
+export { MapaLecturaRepository } from './mapa-lectura.js';
+export { textoDeSenalPublica, tituloDeSenalPublica } from './senal-publicacion.js';
+export type { ConsultaMapa, LecturaMapa, ResumenProvincia } from './mapa-lectura.js';
 export type { Confirmada, EntradaDeConfirmacion, MotivoDeRechazo } from './confirmaciones.js';
+export { GestionSenalesRepository } from './gestion-senales.js';

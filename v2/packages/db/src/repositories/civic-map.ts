@@ -18,6 +18,8 @@ import { territoryMandates } from '../schema/mandato.js';
 import { proposals, pulseSignals } from '../schema/pulso.js';
 import { senales } from '../schema/senales.js';
 
+import { textoDeSenalPublica } from './senal-publicacion.js';
+
 import type { Db } from '../client.js';
 import type { SQL } from 'drizzle-orm';
 
@@ -162,10 +164,7 @@ export class CivicMapRepository {
     return [...nuevas, ...viejas];
   }
 
-  private async vocesDeSenales(
-    consulta: ConsultaSenales,
-    limite: number,
-  ): Promise<SenalMapa[]> {
+  private async vocesDeSenales(consulta: ConsultaSenales, limite: number): Promise<SenalMapa[]> {
     const filtros: SQL[] = [
       sql`${senales.retenidaEn} is null`,
       sql`${senales.estado} <> 'retirada'`,
@@ -185,7 +184,7 @@ export class CivicMapRepository {
     const filas = await this.db
       .select({
         id: senales.idPublico,
-        texto: senales.texto,
+        texto: textoDeSenalPublica,
         tipo: senales.tipo,
         clase: senales.clase,
         lat: senales.lat,
