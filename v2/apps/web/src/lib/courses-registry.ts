@@ -8,6 +8,7 @@
  * respuesta es pereza, no backend (spec 3.5, Decisión 4).
  */
 import {
+  barajarOpciones,
   courseJsonSchema,
   derivarSlugDeLeccion,
   fuentesDeFrontmatter,
@@ -154,6 +155,7 @@ export async function cargarPractica(cursoSlug: string): Promise<PracticaEntry |
     .slice()
     .sort((a, b) => a.orderIndex - b.orderIndex)
     .map(normalizarPregunta)
-    .filter((p): p is PreguntaNormalizada => p !== null);
+    .filter((p): p is PreguntaNormalizada => p !== null)
+    .map(barajarOpciones);
   return { descripcion: parsed.data.description, preguntas };
 }

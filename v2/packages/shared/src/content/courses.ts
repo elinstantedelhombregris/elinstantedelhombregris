@@ -143,3 +143,33 @@ export function normalizarPregunta(q: QuizQuestionJson): PreguntaNormalizada | n
 export function derivarSlugDeLeccion(key: string): string {
   return key.replace(/^\d+-/, '');
 }
+
+/**
+ * Baraja las opciones de una pregunta de opción múltiple con un orden fijo
+ * derivado del enunciado. Existe porque el banco heredado de v1 pone la
+ * correcta en la segunda posición en 145 de 254 preguntas (D-095): quien
+ * contesta «la B» a ciegas aprueba. El orden es determinista —la misma
+ * pregunta se ve igual en cada visita, en el prerender y en los tests— y
+ * Verdadero/Falso no se toca.
+ */
+export function barajarOpciones(p: PreguntaNormalizada): PreguntaNormalizada {
+  if (p.opciones.length < 3) return p;
+  let semilla = 2166136261;
+  for (const c of p.enunciado) semilla = Math.imul(semilla ^ c.charCodeAt(0), 16777619) >>> 0;
+  // mulberry32: un LCG crudo repetía posiciones con enunciados parecidos.
+  const siguiente = () => {
+    semilla = (semilla + 0x6d2b79f5) >>> 0;
+    let t = semilla;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 2 ** 32;
+  };
+  const barajadas = p.opciones
+    .map((opcion, i) => ({ opcion, i, clave: siguiente() }))
+    .sort((a, b) => a.clave - b.clave);
+  return {
+    ...p,
+    opciones: barajadas.map((x) => x.opcion),
+    correcta: barajadas.findIndex((x) => x.i === p.correcta),
+  };
+}
