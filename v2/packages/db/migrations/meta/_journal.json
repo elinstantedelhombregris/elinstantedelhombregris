@@ -148,6 +148,13 @@
       "when": 1786806777364,
       "tag": "0023_corroboracion",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1788970810475,
+      "tag": "0024_fichas_futuro",
+      "breakpoints": true
     }
   ]
 }

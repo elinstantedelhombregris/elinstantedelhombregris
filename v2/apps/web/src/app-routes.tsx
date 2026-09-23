@@ -21,6 +21,7 @@ import {
   EntrenamientoDetail,
   Entrenamientos,
   FaltaDetail,
+  Fichas,
   ForgotPassword,
   Goals,
   Home,
@@ -97,6 +98,9 @@ export function AppRoutes() {
         <Redirect to="/la-idea" replace />
       </Route>
       <Route path="/el-mapa" component={ElMapa} />
+      <Route path="/fichas/nueva" component={Fichas} />
+      <Route path="/fichas/:id" component={Fichas} />
+      <Route path="/fichas" component={Fichas} />
       {/* El ejemplo de voces inventadas: ruta propia, ANTES de la landing —
           `Switch` toma el primer match y no hay anidado en wouter (enmienda
           2026-08-16-enmienda-v1-los-ejemplos.md §3: «un ejemplo en el cliente,

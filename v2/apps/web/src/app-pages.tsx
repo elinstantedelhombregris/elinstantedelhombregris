@@ -264,3 +264,8 @@ export const PoliticaPrivacidad = lazy(async () => {
  * orden — solo movidos a su propio módulo para que `App.tsx` vuelva a
  * quedar bajo el límite.
  */
+
+export const Fichas = lazy(async () => {
+  const m = await import('~/pages/Fichas');
+  return { default: m.Fichas };
+});

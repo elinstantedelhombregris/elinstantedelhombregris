@@ -115,3 +115,4 @@ export { textoDeSenalPublica, tituloDeSenalPublica } from './senal-publicacion.j
 export type { ConsultaMapa, LecturaMapa, ResumenProvincia } from './mapa-lectura.js';
 export type { Confirmada, EntradaDeConfirmacion, MotivoDeRechazo } from './confirmaciones.js';
 export { GestionSenalesRepository } from './gestion-senales.js';
+export { FichasRepository } from './fichas.js';

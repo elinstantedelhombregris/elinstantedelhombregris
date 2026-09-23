@@ -19,6 +19,7 @@ export default defineConfig({
   // are introduced.
   schema: [
     './src/schema/users.ts',
+    './src/schema/fichas.ts',
     './src/schema/auth.ts',
     './src/schema/notifications.ts',
     './src/schema/geographic.ts',

@@ -9,3 +9,12 @@ export {
   cursorMapaSchema,
   type ConsultaSenalesQuery,
 } from './mapa-lectura.js';
+export {
+  contenidoFichaSchema,
+  crearFichaSchema,
+  editarFichaSchema,
+  consultaFichasSchema,
+  idFichaSchema,
+  type ContenidoFicha,
+  type FichaFuturo,
+} from './fichas.js';

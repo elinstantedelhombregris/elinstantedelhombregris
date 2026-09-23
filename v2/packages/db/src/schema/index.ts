@@ -36,3 +36,4 @@ export * from './actores.js';
 export * from './senales.js';
 export * from './confirmaciones.js';
 export * from './adhesiones.js';
+export * from './fichas.js';
