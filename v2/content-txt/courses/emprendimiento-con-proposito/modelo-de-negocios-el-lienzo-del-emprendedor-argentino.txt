@@ -1,0 +1,60 @@
+---
+slug: modelo-de-negocios-el-lienzo-del-emprendedor-argentino
+courseSlug: emprendimiento-con-proposito
+title: 'Modelo de Negocios: El Lienzo del Emprendedor Argentino'
+summary: Adaptar el Business Model Canvas a la realidad argentina de alta incertidumbre.
+orderIndex: 3
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/norma-335538/texto
+    titulo: 'Ley 27.545 — Ley de Góndolas, texto original (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/decreto-70-2023-395521/texto
+    titulo: 'Decreto 70/2023 — Bases para la Reconstrucción de la Economía Argentina (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+
+## El Canvas, Versión Argentina
+
+El Business Model Canvas de Alexander Osterwalder es una herramienta universal. Pero en Argentina necesita **adaptaciones** que ningún libro de Stanford te va a enseñar.
+
+### Los 9 Bloques (con Realidad Argentina)
+
+1. **Propuesta de valor:** ¿Qué problema resolvés y por qué lo resolvés mejor? En Argentina, la confianza ES parte de la propuesta de valor. "Te cumplo lo que prometo" ya es diferenciador.
+2. **Segmento de clientes:** ¿A quién le vendés? Cuidado con la segmentación por ingreso en Argentina: la clase media se expande y contrae cada 5 años. Mejor segmentá por *comportamiento*.
+3. **Canales:** ¿Cómo llegás al cliente? WhatsApp es el canal de ventas más poderoso de Argentina. Instagram y MercadoLibre le siguen. Los canales tradicionales murieron.
+4. **Relación con clientes:** En una sociedad de baja confianza, la relación personal es CLAVE. La recomendación boca a boca vale 10 veces más que cualquier publicidad.
+5. **Fuentes de ingreso:** ¿Cómo cobrás? En Argentina, considerar: ¿en pesos o dólares? ¿con inflación, cómo ajustás? ¿cuotas? ¿efectivo o digital?
+6. **Recursos clave:** ¿Qué necesitás para operar? Minimizá los recursos en dólares. Maximizá el talento humano (abundante y relativamente barato en Argentina).
+7. **Actividades clave:** ¿Qué tenés que hacer todos los días? En Argentina, sumá: gestión de precios con inflación, adaptación a cambios regulatorios, y manejo de stock con escasez.
+8. **Socios clave:** ¿Con quién te aliás? En Argentina, los socios de confianza son ORO. Un buen contador, un proveedor confiable, un socio complementario pueden definir tu supervivencia.
+9. **Estructura de costos:** ¿Cuánto te cuesta operar? Atención: en Argentina tus costos cambian TODOS LOS MESES. Necesitás una estructura que absorba variaciones del 5-10% mensual.
+
+### El Bloque 10: El Blindaje Anti-Argentina
+
+Agregá un décimo bloque que ningún manual incluye: **¿Cómo sobrevivís a la Argentina?**
+
+- ¿Tu negocio resiste una devaluación del 50%?
+- ¿Podés operar con cepo cambiario?
+- ¿Qué pasa si cambian la regulación de tu sector?
+- ¿Tenés un "plan B" si tu proveedor principal cierra?
+
+### MVP: Mínimo Producto Viable, Máxima Velocidad
+
+No gastes 6 meses planificando. Salí al mercado en **30 días** con algo básico que funcione. En Argentina, la ventana de oportunidad se cierra rápido. Más vale un producto imperfecto en la calle que uno perfecto en tu cabeza.
+
+> "El plan de negocios perfecto no existe en un país donde la realidad cambia más rápido que cualquier planilla de Excel. Tu mejor plan es tu capacidad de adaptación. El canvas te da el marco; la calle te da los datos."
+
+### El caso
+
+En febrero de 2020 el Congreso sancionó la Ley 27.545, llamada de Góndolas. Su artículo 7 obligaba a las grandes superficies comerciales a reservar el 25% del espacio disponible para cada tipo de producto, en la góndola y en la tienda virtual, a mercadería de micro y pequeñas empresas, cooperativas y mutuales, más un 5% adicional para la agricultura familiar, campesina o indígena. Para una pyme de alimentos, eso era un canal con piso garantizado. El 20 de diciembre de 2023, el artículo 7 del Decreto de Necesidad y Urgencia 70/2023 lo resolvió en una línea: «Derógase la Ley N° 27.545». El que había armado su bloque de canales y su proyección de ventas sobre ese 25% se quedó sin piso de un día para el otro, sin que nada cambiara en su producto ni en sus clientes.
+
+### La palanca
+
+Sentate una hora con tu canvas y marcá, bloque por bloque, qué depende de una norma: un beneficio impositivo, un cupo, una habilitación, un arancel, un régimen de promoción. Al lado de cada una anotá el número de la ley o del decreto, y buscalo en InfoLeg para ver si sigue vigente y qué lo modificó. Si un bloque sostiene más de la mitad de tus ventas y cuelga de una sola norma, eso no es un canal: es una apuesta.
+Armá para ese bloque un plan B con fecha, antes de necesitarlo.
+
+### El puente
+
+Que una regla dure menos que una inversión no es mala suerte: [PLANMEMORIA](/planes/planmemoria) sostiene que el gobierno siguiente revierte más del 40% de las políticas públicas estructurales, y propone una memoria operativa para que al menos se sepa qué se probó y por qué se cayó.

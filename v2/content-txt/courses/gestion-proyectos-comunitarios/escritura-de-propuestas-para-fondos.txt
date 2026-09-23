@@ -1,0 +1,65 @@
+---
+slug: escritura-de-propuestas-para-fondos
+courseSlug: gestion-proyectos-comunitarios
+title: Escritura de Propuestas para Fondos
+summary: Cómo redactar propuestas que consigan financiamiento.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/noticias/abrio-la-convocatoria-2023-de-puntos-de-cultura
+    titulo: 'Abrió la convocatoria 2023 de Puntos de Cultura (Ministerio de Cultura de la Nación)'
+    consultada: '2026-09-22'
+---
+
+## El Arte de Pedir (Bien)
+
+Hay dinero disponible para proyectos comunitarios. Mucho más del que la mayoría imagina. Subsidios municipales, programas nacionales, fondos internacionales, fundaciones empresariales. El problema es que muchos proyectos excelentes **nunca acceden a ese dinero** porque no saben escribir una propuesta que convenza.
+
+### La Estructura de una Propuesta Ganadora
+
+1. **Resumen ejecutivo (1 página):** Qué hacés, para quién, dónde, cuánto cuesta, qué impacto esperás. Es lo primero que leen y a veces lo único. Tiene que ser impecable.
+2. **Diagnóstico del problema (1-2 páginas):** Describí el problema con datos. No solo anécdotas — datos del INDEC, del municipio, de tu propio relevamiento. Mostrá que entendés el problema a fondo.
+3. **Propuesta de intervención (2-3 páginas):** Tu solución. Qué vas a hacer, cómo, con quién, en qué plazos. Sé específico: no "vamos a mejorar la educación" sino "vamos a dar 240 clases de apoyo a 60 chicos durante 8 meses."
+4. **Metodología:** ¿Cómo vas a hacer lo que prometés? El evaluador quiere saber que tenés un plan realista, no solo buenas intenciones.
+5. **Equipo (1 página):** ¿Quiénes son? ¿Qué experiencia tienen? Incluí CVs breves. No es vanidad — es demostrar capacidad.
+6. **Presupuesto detallado:** Rubro por rubro, justificado. Si pedís $50.000 para capacitación, detallá: 2 jornadas de 4 horas, facilitador especializado, materiales, refrigerio.
+7. **Cronograma:** Mes a mes, qué se hace.
+8. **Evaluación:** ¿Cómo vas a medir si funcionó? Indicadores concretos.
+9. **Sostenibilidad:** ¿Qué pasa cuando se termina el financiamiento? ¿El proyecto continúa? ¿Cómo?
+
+### Las 3 Preguntas del Evaluador
+
+Toda persona que evalúa una propuesta se hace 3 preguntas:
+
+- **¿El problema es real?** ¿Hay evidencia? ¿Afecta a mucha gente?
+- **¿La solución es viable?** ¿Es realista? ¿El equipo puede hacerlo?
+- **¿Vale la inversión?** ¿El impacto justifica el costo?
+
+Si tu propuesta responde SÍ a las tres con evidencia, tenés altas chances.
+
+### Dónde Buscar Convocatorias
+
+- **Argentina.gob.ar:** Programas nacionales de desarrollo social, cultura, medio ambiente.
+- **Tu municipio:** Presupuesto participativo, subsidios a organizaciones, programas específicos.
+- **Fundaciones y redes:** Fundación Avina, Ashoka, Socialab.
+- **Cooperación internacional:** Unión Europea, embajadas (especialmente Canadá, Alemania, países nórdicos).
+
+### El relato y los números tienen que decir lo mismo
+
+El error que más propuestas deja afuera no es de redacción: es de coherencia. Si el diagnóstico habla de sesenta chicos, el presupuesto no puede tener útiles para ochenta; si el cronograma dice ocho meses, la merienda no puede estar calculada para cuatro. Quien evalúa lee el texto en diagonal y los números en detalle, y cada contradicción la toma como señal de que el equipo no sabe bien lo que va a hacer. Antes de mandar nada, dale la propuesta a alguien que no la escribió y pedile que busque tres cosas: una cifra que no coincida entre secciones, una actividad sin plata asignada y un gasto sin actividad que lo justifique.
+
+> "Una propuesta bien escrita es un puente entre tu sueño y los recursos para realizarlo. No subestimes el poder de la palabra escrita: la propuesta que ganó el financiamiento cambió un barrio entero."
+
+### El caso
+
+En abril de 2023 el Ministerio de Cultura de la Nación abrió la IX convocatoria de Puntos de Cultura, un programa que desde 2011 había apoyado más de 2.452 proyectos comunitarios. Las bases muestran lo que se revisa antes de leer una sola línea de la propuesta: al menos dos años de trabajo en el territorio, una sede propia, alquilada o cedida (o un espacio público donde se hagan las actividades), la inscripción previa en el Registro Federal de Cultura y un único proyecto encuadrado en una de diez líneas. El tope era de $700.000 para organizaciones con personería y de $400.000 para las de base, que se presentaban a través de una persona. Y las que ya integraban la red no podían volver a presentarse sin la rendición financiera del subsidio anterior aprobada.
+
+### La palanca
+
+Antes de escribir la próxima propuesta, juntá lo que la vuelve admisible: actas o fotos fechadas que prueben cuánto tiempo llevás en el barrio, la constancia del lugar donde funcionan, notas de apoyo de la escuela o del centro de salud, y la rendición de cualquier plata que hayas recibido antes. Con eso en la mano, recorré las convocatorias del Ministerio de Cultura, de tu provincia y de tu municipio, y quedate con las que piden requisitos que ya cumplís.
+Armá esta semana esa carpeta, aunque todavía no haya ninguna convocatoria abierta.
+
+### El puente
+
+El diagnóstico va antes que la solución por una razón que excede a los subsidios. [PLANPREGUNTA](/planes/planpregunta) organiza el conocimiento público alrededor del enunciado de una falta: primero la Pregunta, y el financiamiento como consecuencia.

@@ -1,0 +1,104 @@
+---
+slug: sexta-persona-la-conciencia-pura
+courseSlug: niveles-superiores-pensamiento-conciencia
+title: 'Sexta Persona: La Metáfora de la Conciencia Pura'
+summary: 'Explorar la experiencia de presencia como metáfora contemplativa, sin presentarla como rango ni hecho demostrado.'
+orderIndex: 7
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/19429/texact.htm
+    titulo: 'Ley 17.132 — Ejercicio de la medicina, odontología y actividades de colaboración, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+La sexta perspectiva explora una expresión contemplativa: **"conciencia pura"**. Algunas tradiciones la usan para describir momentos de presencia sin una narración dominante. En este curso funciona como metáfora y experiencia subjetiva posible, no como el nivel más alto ni como una afirmación científica sobre lo que sos.
+
+### La Realización Final
+
+Podés ensayar la pregunta "¿qué noto cuando no sigo cada pensamiento?" y describir la experiencia. Una respuesta como "simplemente ser" pertenece al registro fenomenológico: puede ser significativa sin obligar a convertirla en una verdad universal.
+
+### Del Observador al Ser
+
+### Quinta Persona
+
+"Observo mis pensamientos"
+
+"Soy el observador"
+
+"Puedo observar todo"
+
+Hay un observador y lo observado
+
+### Sexta Persona
+
+"Simplemente soy"
+
+"Soy conciencia"
+
+"Todo ocurre en mí"
+
+Solo hay ser, solo hay conciencia
+
+<svg width="100%" height="350" viewBox="0 0 800 350">
+              <!-- Conciencia pura (fondo) -->
+              <rect x="0" y="0" width="800" height="350" fill="#0F6B8A" opacity="0.3"/>
+              <!-- El "Yo" central -->
+              <circle cx="400" cy="175" r="100" fill="#0F6B8A" stroke="#16130E" stroke-width="4"/>
+              <text x="400" y="170" text-anchor="middle" font-size="24" font-weight="bold" fill="#F2EFE7">YO</text>
+              <text x="400" y="195" text-anchor="middle" font-size="16" fill="#F2EFE7">Conciencia Pura</text>
+              <!-- Todo dentro de la conciencia -->
+              <text x="400" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#16130E">Todo Ocurre Dentro de la Conciencia</text>
+              <!-- Elementos dentro de la conciencia -->
+              <circle cx="250" cy="120" r="30" fill="#A16C00" opacity="0.5"/>
+              <text x="250" y="127" text-anchor="middle" font-size="10" fill="#16130E">Pensamientos</text>
+              <circle cx="550" cy="120" r="30" fill="#C23B22" opacity="0.5"/>
+              <text x="550" y="127" text-anchor="middle" font-size="10" fill="#16130E">Emociones</text>
+              <circle cx="250" cy="230" r="30" fill="#1A7A4A" opacity="0.5"/>
+              <text x="250" y="237" text-anchor="middle" font-size="10" fill="#16130E">Formas</text>
+              <circle cx="550" cy="230" r="30" fill="#5227CC" opacity="0.5"/>
+              <text x="550" y="237" text-anchor="middle" font-size="10" fill="#16130E">Mundo</text>
+              <text x="400" y="310" text-anchor="middle" font-size="14" fill="#4A463D">No hay separación - Todo es Uno</text>
+            </svg>
+
+### Una afirmación y su límite
+
+Decir que la conciencia es omnipresente o fundamento de todo es una posición metafísica, no un resultado que esta práctica pueda demostrar. La investigación sobre conciencia combina reportes subjetivos, conducta y modelos neurocognitivos; ninguno vuelve infalible a la introspección.
+
+### La Metáfora del Flashlight
+
+Imaginá que la conciencia es como una linterna en una habitación oscura:
+
+- **Podés dirigir la atención:** Como apuntar la linterna a diferentes objetos
+- **La oscuridad siempre está:** Incluso cuando no apuntás la linterna, la habitación existe
+- **La luz es la conciencia:** Permite que todo sea visible
+- **En sexta persona:** Te das cuenta de que VOS sos la luz misma, no lo que iluminás
+
+### Práctica: observar sin forzar una conclusión
+
+1. **Elegí una postura y ojos abiertos o cerrados** que te resulten seguros.
+2. **Notá una referencia del entorno** y después la respiración, sin modificarla.
+3. **Nombrá un pensamiento** como pensamiento, no como orden ni hecho.
+4. **Preguntá:** "¿Qué estoy experimentando y qué estoy interpretando?"
+5. **Volvé al entorno** y anotá dos líneas sin buscar una experiencia especial.
+
+No hay un estado correcto que debas alcanzar. Si aumenta el malestar o la desconexión, frená, orientate al entorno y elegí otra práctica o apoyo.
+
+### Sobre el pensamiento y el silencio
+
+No existe un porcentaje universal de pensamiento "innecesario". Pensar, sentir, percibir y actuar cumplen funciones distintas. El objetivo práctico es ganar flexibilidad: poder notar rumiación, concentrarte cuando hace falta y descansar sin tratar de suprimir la mente.
+
+### Contar una experiencia no es prometer una cura
+
+La Ley 17.132, que desde 1967 regula el ejercicio de la medicina en la Capital Federal, le prohíbe a quien la ejerce "anunciar o prometer la curación fijando plazos" y "prometer el alivio o la curación por medio de procedimientos secretos o misteriosos" (artículo 20, incisos 1 y 3). Ni un médico matriculado puede ofrecer lo que tantas veces se ofrece en nombre de la conciencia pura.
+
+La norma traza la frontera que esta lección pide cuidar. De un lado queda la experiencia: "cuando dejé de seguir cada pensamiento noté una quietud que no conocía" es un reporte en primera persona, y nadie tiene por qué discutirlo. Del otro lado queda la promesa: "en tres semanas se te va la ansiedad" o "esta técnica te conecta con la conciencia universal y sana el cuerpo" son afirmaciones sobre el mundo, y a esas se les puede pedir lo que a cualquier afirmación sobre el mundo: que no se escondan en un procedimiento misterioso ni se aten a un plazo inventado.
+
+Si alguien te ofrece una práctica contemplativa con fecha de curación, la experiencia que describe puede ser genuina y la oferta, igual, estar mal hecha. Lo que se puede compartir de la sexta perspectiva es un relato de lo vivido, no un resultado garantizado.
+
+### Integración
+
+Esta perspectiva no certifica una realización ni una identidad superior. La siguiente lección la integra con cuerpo, vínculos, decisiones y evidencia compartida.
+
+### El puente
+
+[El miedo y el devenir](/ensayos/miedo-y-devenir) termina donde termina esta práctica: estar acá, ahora, no se vende, no se importa y no se anuncia; se hace.

@@ -1,0 +1,56 @@
+---
+slug: seguros-y-proteccion-patrimonial-basica
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: Seguros y Protección Patrimonial Básica
+summary: Entender qué seguros necesitás y cuáles son un gasto innecesario.
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/818/texact.htm
+    titulo: 'Ley 24.449 de Tránsito, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/superintendencia-de-seguros
+    titulo: 'Superintendencia de Seguros de la Nación — servicios para asegurados'
+    consultada: '2026-09-22'
+---
+
+## El Paraguas Antes de la Tormenta
+
+Los seguros son la herramienta financiera más subestimada en Argentina. La mayoría los ve como un gasto innecesario hasta que pasa algo. Un accidente, un robo, una enfermedad pueden destruir en un día lo que construiste en años.
+
+### Los Seguros Que Realmente Necesitás
+
+- **Obra social o prepaga:** La salud es prioridad número uno. Si sos monotributista, ya tenés obra social incluida. Evaluá si necesitás un plan adicional.
+- **Seguro del auto/moto (si tenés):** Es obligatorio por ley, pero asegurate de que la cobertura sea adecuada, no solo el mínimo legal.
+- **Seguro del hogar:** Protege contra robo, incendio e inundación. Es barato y evita catástrofes.
+- **Seguro de vida (si tenés familia que depende de vos):** No es morboso: es responsable.
+
+### Los Seguros Que Probablemente NO Necesitás
+
+- Garantías extendidas de electrodomésticos (generalmente son un mal negocio)
+- Seguros de cancelación de viaje (salvo viajes muy caros)
+- Seguros de celular (el costo de la prima suele ser desproporcionado)
+
+La prueba para decidir es simple: ¿podrías pagar la pérdida de tu bolsillo sin romper el mes? Si la respuesta es sí —un celular, una pava eléctrica—, el seguro suele costar más de lo que protege, y conviene cubrirlo con tu propio fondo de emergencia. Si la respuesta es no —la casa, la responsabilidad por un choque, el ingreso de quien sostiene a la familia—, ahí el seguro vale cada peso que cuesta.
+
+### La Suma Asegurada Envejece
+
+Un seguro del hogar o del auto cubre hasta un monto —la suma asegurada— que se fija al contratar. Con precios que suben todos los meses, ese número queda viejo rápido: la heladera que en la póliza vale una cosa, en el negocio vale otra. Si la póliza no se actualiza, el día del siniestro cobrás hasta ese tope, no lo que cuesta reponer. Por eso, al renovar, no alcanza con mirar cuánto sale la cuota: hay que mirar qué cubre, por cuánto y con qué franquicia, que es la parte del daño que pagás vos. Una prima barata con una suma asegurada desactualizada no es un ahorro: es un seguro que no está.
+
+### El Fondo de Emergencia: Tu Mejor Seguro
+
+Antes de cualquier seguro, tu prioridad debería ser un **fondo de emergencia** de 3 meses de gastos esenciales, en un instrumento líquido (FCI money market o cuenta remunerada). Este fondo te protege de lo más probable: una reparación urgente, un mes sin trabajo, un gasto médico inesperado.
+
+### El caso
+
+La Ley de Tránsito 24.449 lo dice en su artículo 68: todo automotor, acoplado o semiacoplado debe estar cubierto por un seguro que cubra los daños causados a terceros, transportados o no. Eso es lo obligatorio, y es todo lo obligatorio. La responsabilidad civil que exige la ley paga lo que le rompés a otro; no paga tu propio auto si lo chocás, si te lo roban o si se incendia. Mucha gente contrata el mínimo creyendo que tiene seguro y descubre el día del choque que lo que tenía era una obligación cumplida, no una protección. La ley fija el piso pensando en el tercero; cuidar lo tuyo queda a tu cargo.
+
+### La palanca
+
+Sacá hoy la póliza del auto, de la moto o de la casa y leé tres datos: qué riesgos cubre, cuál es la suma asegurada y cuánto es la franquicia. Si alguno no se entiende, preguntale al productor por escrito. Si tenés un reclamo que la compañía no contesta, la Superintendencia de Seguros de la Nación lo recibe por Trámites a Distancia.
+Fijate en el listado de Sujetos Habilitados de la SSN que tu aseguradora y tu productor figuren.
+
+### El puente
+
+Un seguro repone cosas; no llega a la persona que se cae sola en su casa. [PLANCUIDADO](/planes/plancuidado) diseña esa otra cobertura, con un Pacto de Cuidado Registrado para que nadie viva ni muera solo.

@@ -1,0 +1,132 @@
+{
+  "title": "Quiz: Ciudadano Auditor",
+  "description": "Evaluá tu conocimiento de las herramientas de control ciudadano.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "¿Qué ley regula el acceso a la información pública en el ámbito nacional?",
+      "type": "multiple_choice",
+      "options": [
+        "Ley 25.326 de Datos Personales",
+        "Ley 27.275 de Acceso a la Información Pública",
+        "Ley 24.240 de Defensa del Consumidor",
+        "Ley 25.675 General del Ambiente"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Ley 27.275 rige para los sujetos obligados de su ámbito y parte del principio de máxima divulgación, con excepciones legales. Provincias y municipios pueden tener sus propios regímenes.",
+      "points": 2,
+      "orderIndex": 1
+    },
+    {
+      "question": "Para hacer un pedido de información pública necesitás ser abogado.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "No hace falta patrocinio jurídico. El pedido debe identificar a quien solicita, describir con claridad la información y aportar datos de contacto según el canal aplicable.",
+      "points": 1,
+      "orderIndex": 2
+    },
+    {
+      "question": "Encontrás que una proporción alta del presupuesto municipal va a personal. ¿Cuál es el siguiente paso serio?",
+      "type": "multiple_choice",
+      "options": [
+        "Denunciar corrupción sólo con ese porcentaje",
+        "Comparar funciones, planta, servicios, ejecución y años equivalentes antes de formular una hipótesis",
+        "Suponer que todo gasto salarial es improductivo",
+        "Ignorar el dato porque el presupuesto fue aprobado"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Un porcentaje aislado es un indicio, no una conclusión. Hay que conocer competencias, servicios intensivos en trabajo, ejecución, composición de la planta y comparables antes de evaluar riesgos.",
+      "points": 2,
+      "orderIndex": 3
+    },
+    {
+      "question": "¿Qué es el amparo colectivo?",
+      "type": "multiple_choice",
+      "options": [
+        "Un seguro de salud grupal",
+        "Una acción judicial que protege derechos de un grupo de personas",
+        "Un tipo de protesta legal",
+        "Un beneficio para jubilados"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El amparo colectivo permite proteger derechos de grupos enteros con una sola acción judicial.",
+      "points": 2,
+      "orderIndex": 4
+    },
+    {
+      "question": "La falta de titular definitivo en la Defensoría del Pueblo demuestra, por sí sola, que no recibe actuaciones ni produce informes.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La vacancia y la actividad institucional son dimensiones distintas. Para evaluar capacidad y límites hay que verificar autoridades, canales, actuaciones e informes actuales, además del marco legal.",
+      "points": 1,
+      "orderIndex": 5
+    },
+    {
+      "question": "¿Qué organismo está constitucionalmente dirigido por la oposición?",
+      "type": "multiple_choice",
+      "options": [
+        "SIGEN",
+        "Oficina Anticorrupción",
+        "AGN (Auditoría General de la Nación)",
+        "Defensoría del Pueblo"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La Constitución establece que la AGN es presidida por un miembro de la primera minoría parlamentaria.",
+      "points": 2,
+      "orderIndex": 6
+    },
+    {
+      "question": "Antes de impugnar un cambio tarifario por falta de audiencia pública, ¿qué deberías verificar?",
+      "type": "multiple_choice",
+      "options": [
+        "Sólo si el porcentaje del aumento parece alto",
+        "El servicio, la jurisdicción, el marco regulatorio, el tipo de decisión y los antecedentes judiciales aplicables",
+        "Si la empresa publicó el cambio en redes sociales",
+        "Si hubo una audiencia en cualquier otra provincia"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La exigencia y los efectos de una audiencia dependen del régimen, la jurisdicción y la decisión concreta. Una auditoría responsable identifica primero la norma y el procedimiento aplicables.",
+      "points": 1,
+      "orderIndex": 7
+    },
+    {
+      "question": "¿Qué portal permite ver las compras del Estado nacional?",
+      "type": "multiple_choice",
+      "options": ["mercadolibre.com.ar", "comprar.gob.ar", "datos.gob.ar", "afip.gob.ar"],
+      "correctAnswer": 1,
+      "explanation": "COMPR.AR permite buscar procesos y documentación de contrataciones tramitadas en el sistema nacional. Hay que revisar alcance, organismo, modalidad, estado y documentos; no equivale a un universo sin excepciones.",
+      "points": 2,
+      "orderIndex": 8
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Periodismo Ciudadano y Denuncia Efectiva» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 9
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan de Auditoría: 30 Días de Control Ciudadano» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Un plan práctico de 30 días para ejercer control ciudadano real.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 10
+    }
+  ]
+}

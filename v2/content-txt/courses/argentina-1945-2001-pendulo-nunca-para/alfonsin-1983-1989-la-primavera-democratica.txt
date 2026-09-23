@@ -1,0 +1,76 @@
+---
+slug: alfonsin-1983-1989-la-primavera-democratica
+courseSlug: argentina-1945-2001-pendulo-nunca-para
+title: 'Alfonsín 1983-1989: La Primavera Democrática'
+summary: 'La reconstrucción democrática, el Juicio a las Juntas y las limitaciones del sistema.'
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/21864/norma.htm
+    titulo: 'Ley 23.492 — Punto Final (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/21746/norma.htm
+    titulo: 'Ley 23.521 — Obediencia Debida (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/85000-89999/88140/norma.htm
+    titulo: 'Ley 25.779 — Nulidad de las leyes 23.492 y 23.521 (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.fiscales.gob.ar/lesa-humanidad/crimenes-de-lesa-humanidad-1-208-personas-fueron-condenadas-y-247-resultaron-absueltas-desde-que-se-reiniciaron-los-juicios-en-2006/
+    titulo: 'Crímenes de lesa humanidad: 1.208 personas fueron condenadas y 247 resultaron absueltas desde que se reiniciaron los juicios en 2006 (Fiscales.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://consejomagistratura.gov.ar/index.php/2026/07/21/cronograma-de-juicios-de-lesa-humanidad/
+    titulo: 'Cronograma de juicios de lesa humanidad (Consejo de la Magistratura de la Nación)'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+## Reconstruir un País Desde los Escombros
+
+El 10 de diciembre de 1983, Raúl Alfonsín asumió como presidente. Argentina volvía a la democracia después del período más traumático de su historia. Alfonsín tenía una misión que parecía imposible: **reconstruir la república, hacer justicia por los crímenes de la dictadura y estabilizar una economía en crisis**. Todo al mismo tiempo.
+
+### El Juicio a las Juntas (1985)
+
+El acto más valiente de la democracia argentina. Fue uno de los primeros casos en el mundo en que un gobierno democrático **juzgó y condenó a los comandantes de su propia dictadura** en un tribunal civil. No fue un tribunal revolucionario ni un linchamiento: fue justicia con todas las garantías.
+
+- Videla y Massera: prisión perpetua
+- Viola: 17 años de prisión
+- Otros comandantes: diversas penas
+
+El fiscal Julio César Strassera cerró su alegato con una frase que quedó en la memoria colectiva: **"Señores jueces: Nunca Más."**
+
+### La CONADEP y el "Nunca Más"
+
+La Comisión Nacional sobre la Desaparición de Personas, presidida por Ernesto Sabato, investigó y documentó los crímenes de la dictadura. El informe "Nunca Más" se convirtió en el bestseller más vendido de la historia argentina y en un documento fundamental de los derechos humanos mundiales.
+
+### Las Limitaciones
+
+- **Presión militar:** La Ley de Punto Final (diciembre de 1986) puso plazo a las denuncias, y el levantamiento carapintada de Semana Santa de 1987 forzó la de Obediencia Debida. Las dos limitaron los juicios. Un retroceso doloroso.
+- **Crisis económica:** La deuda heredada, la caída del precio de las exportaciones y la resistencia de los poderes económicos impidieron estabilizar la economía.
+- **Hiperinflación (1989):** Los precios subían varias veces por día. Los supermercados eran saqueados. Alfonsín tuvo que entregar el poder el 8 de julio de 1989, casi cinco meses antes de lo previsto.
+
+### Voces Silenciadas: La Democracia Vista desde la Villa — Los Olvidados de la Primavera
+
+Mientras la clase media celebraba el regreso de la democracia y el rock nacional llenaba estadios, en las villas miseria de Buenos Aires, Rosario y Córdoba la "primavera democrática" llegaba con cuentagotas. Para los habitantes de la **Villa 31 de Retiro**, la Villa 1-11-14 del Bajo Flores o la Villa La Cava de San Isidro, la transición democrática significaba otra cosa.
+
+**Alberto "Lito" Ibarra**, referente comunitario de Villa 31 durante los 80, describía la paradoja: *"Ahora podemos votar, pero seguimos sin cloacas, sin agua potable, sin títulos de propiedad. La democracia nos devolvió la palabra, pero no el techo."* En 1984, las villas de Capital Federal albergaban a unas **52.000 personas** — muchas de ellas sobrevivientes del plan de erradicación de villas ejecutado por la dictadura, que entre 1977 y 1981 demolió viviendas y expulsó a 200.000 personas con topadoras.
+
+La hiperinflación de 1989 golpeó desproporcionadamente a los villeros. Sin ahorros bancarios que proteger, sin empleo formal, dependientes de changas y del mercado informal, cada salto del dólar significaba hambre literal. Los saqueos de mayo de 1989 no empezaron en los barrios de clase media: empezaron en los **cordones del Gran Buenos Aires** — San Miguel, Moreno, Quilmes — donde familias enteras llevaban meses sin poder comprar lo básico.
+
+La Pastoral Villera, con curas como **Carlos Mugica** (asesinado en 1974) como referente fundacional, y sus continuadores en los 80 como el padre Daniel de la Sierra, sostenían redes de comedores, guarderías y apoyo escolar que funcionaban como un Estado paralelo. La democracia formal coexistía con una **democracia de la supervivencia** donde las organizaciones de base hacían lo que las instituciones no podían o no querían.
+
+El Hombre Gris sabe que la democracia tiene temperaturas diferentes según dónde vivís. La primavera de unos fue el otoño de otros. Medir una época solo por sus logros institucionales es ignorar a quienes esos logros no alcanzaron.
+
+> "Alfonsín demostró que la democracia puede juzgar a sus verdugos. Pero también demostró que la justicia sin estabilidad económica es frágil, y que los poderes fácticos (militares, grupos económicos) pueden limitar incluso al gobierno más valiente. La democracia necesita más que buenas intenciones: necesita poder real."
+
+### El caso
+
+La Ley 23.492 de Punto Final, sancionada el 23 de diciembre de 1986, extinguía la acción penal contra cualquier acusado que no hubiera sido citado a indagatoria dentro de los sesenta días corridos desde su promulgación. El 4 de junio de 1987 se sancionó la Ley 23.521 de Obediencia Debida. Las dos parecían cerrar la historia. En 1998 la Ley 24.952 las derogó, y el 21 de agosto de 2003 la Ley 25.779 las declaró «insanablemente nulas». Desde la reapertura de los juicios en 2006 hubo 357 sentencias, con 1.208 personas condenadas y 247 absueltas, según la Procuraduría de Crímenes contra la Humanidad en diciembre de 2025. Lo que el Juicio a las Juntas abrió en 1985 no se deshizo con las leyes que lo frenaron: quedó como precedente, esperando que la relación de fuerzas cambiara.
+
+### La palanca
+
+Los juicios siguen, y casi nadie los mira. El Consejo de la Magistratura de la Nación publica el cronograma de audiencias de los juicios de lesa humanidad, y muchas se transmiten en vivo por YouTube. Elegí una audiencia de tu provincia o de la más cercana y seguila completa, aunque sea una jornada de testimonios sin titulares. Registrá qué se juzga, cuántos años pasaron desde los hechos y cuántas personas había en la sala.
+Mirá una audiencia entera esta semana, del principio al fin.
+
+### El puente
+
+Alfonsín ocupaba la presidencia y aun así tuvo que retroceder; los juicios volvieron cuando cambió la trama, no cuando alguien se sentó mejor en la silla. [La falacia del poder mismo](/ensayos/poder) explica por qué: el poder no es un objeto que se tiene sino una relación entre los que actúan.

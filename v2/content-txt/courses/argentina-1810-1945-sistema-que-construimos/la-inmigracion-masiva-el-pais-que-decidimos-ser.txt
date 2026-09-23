@@ -1,0 +1,74 @@
+---
+slug: la-inmigracion-masiva-el-pais-que-decidimos-ser
+courseSlug: argentina-1810-1945-sistema-que-construimos
+title: 'La Inmigración Masiva: El País que Decidimos Ser'
+summary: Cómo 6 millones de inmigrantes transformaron el sistema argentino.
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina — texto oficial (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://faa.com.ar/index.php/institucional/
+    titulo: 'Federación Agraria Argentina — La génesis de la Federación Agraria Argentina'
+    consultada: '2026-09-22'
+  - url: https://agroperfiles.com.ar/a-109-anos-del-grito-de-alcorta-que-dio-origen-a-la-federacion-agraria-argentina/
+    titulo: 'Agroperfiles — A 109 años del Grito de Alcorta, que dio origen a la Federación Agraria Argentina'
+    consultada: '2026-09-22'
+---
+## La Mayor Transformación Demográfica del Hemisferio Sur
+
+Entre 1880 y 1930, Argentina recibió aproximadamente **6 millones de inmigrantes**, principalmente italianos y españoles, pero también polacos, rusos, sirios, libaneses, judíos y muchos más. En proporción a su población, fue una de las migraciones más masivas de la historia mundial.
+
+### El Diseño: "Gobernar Es Poblar"
+
+La Constitución de 1853 (Art. 25) mandaba al gobierno federal a fomentar la inmigración europea. La Ley Avellaneda (1876) creó un sistema de atracción: pasajes subsidiados, Hotel de Inmigrantes, colonias agrícolas. El **diseño era explícito**: traer europeos para "civilizar" el territorio, proveer mano de obra y transformar la cultura.
+
+### La Realidad vs. El Plan
+
+- **Se esperaban granjeros;** llegaron también obreros urbanos que se quedaron en Buenos Aires y Rosario.
+- **Se esperaba que se integraran pasivamente;** trajeron ideas anarquistas, socialistas y sindicalistas que transformaron la política.
+- **Se esperaban "nórdicos";** la mayoría fueron italianos del sur y españoles pobres, lo que generó desprecio en la élite.
+- **Se esperaba que ocuparan el campo;** como la tierra ya estaba concentrada en pocas manos, muchos no pudieron acceder a la propiedad y quedaron como arrendatarios o peones.
+
+### Lo Que Construyeron
+
+Los inmigrantes no solo aportaron mano de obra. Transformaron Argentina:
+
+1. **El idioma:** El lunfardo, el castellano rioplatense, las expresiones italianas que usamos sin pensar.
+2. **La comida:** La pizza, la pasta, las empanadas, la milanesa: toda nuestra gastronomía es mestiza.
+3. **La clase media:** Los hijos de inmigrantes construyeron la clase media argentina a través de la educación pública y el esfuerzo. El ascenso social como promesa.
+4. **El movimiento obrero:** Las primeras huelgas, los primeros sindicatos, las primeras leyes laborales fueron impulsadas por inmigrantes.
+5. **Las cooperativas:** Clubes, mutuales, sociedades de fomento: la trama asociativa argentina nació aquí.
+
+### Lo Que Se Perdió
+
+La ola inmigratoria también tuvo costos. Los pueblos originarios fueron invisibilizados aún más. Los afroargentinos, que habían sido un porcentaje significativo de la población, fueron borrados de la narrativa nacional. La identidad argentina se construyó como "europea" negando sus raíces mestizas e indígenas.
+
+### Voces Silenciadas: Los Que Ya Estaban — Desplazamiento Indígena y Borrado Afroargentino
+
+Cuando te cuentan la historia de la inmigración como un relato de "crisol de razas", te están ocultando una pregunta fundamental: **¿qué pasó con los que ya estaban ahí?**
+
+Los pueblos originarios que sobrevivieron a la Conquista del Desierto fueron empujados a los márgenes del nuevo orden. Comunidades Qom, Wichí y Mocoví en el Chaco fueron sometidas a trabajo forzado en los ingenios azucareros y obrajes madereros. En 1924, la **Masacre de Napalpí** dejó al menos 200 hombres, mujeres y niños Qom y Mocoví asesinados por la policía y colonos en la reducción de Napalpí, Chaco, por reclamar condiciones de trabajo dignas. El gobernador Fernando Centeno lo ocultó. Los diarios apenas lo mencionaron. Pasaron casi 100 años hasta que la justicia argentina reconoció los hechos como crimen de lesa humanidad (2022).
+
+Y los afroargentinos — que en el censo de 1778 representaban el **30% de la población** de Buenos Aires y hasta el 50% en provincias como Santiago del Estero y Catamarca — fueron borrados de la narrativa nacional. No "desaparecieron" como dice el mito: fueron invisibilizados. Muchos murieron desproporcionadamente en las guerras de independencia y en la epidemia de fiebre amarilla de 1871, pero sus comunidades sobrevivieron. El payador afroargentino **Gabino Ezeiza** (1858-1916), uno de los más grandes de la payada, llenaba teatros en plena era de inmigración europea, pero casi nunca aparece en los libros escolares.
+
+El relato de que "los argentinos bajamos de los barcos" es una operación de borrado. Cada vez que repetís esa frase, estás participando de la invisibilización de los pueblos originarios y las comunidades afrodescendientes que **siguen acá**, exigiendo reconocimiento.
+
+El Hombre Gris no acepta narrativas incompletas. Si tu identidad se construye borrando a otro, no es identidad: es amnesia deliberada.
+
+> "Somos todos hijos o nietos de inmigrantes, pero olvidamos que ellos también fueron rechazados, explotados y discriminados. Recordar eso nos conecta con cualquier persona que hoy busca una vida mejor lejos de su tierra."
+
+### El caso
+
+El artículo 25 de la Constitución, con su texto de 1853 intacto, prohíbe restringir o gravar la entrada de los extranjeros que vengan a «labrar la tierra». Vinieron a labrarla. Pero la tierra de la pampa ya tenía dueño, y muchos de los que la trabajaban pagaban por usarla. El 25 de junio de 1912, en Alcorta, al sur de Santa Fe, los chacareros arrendatarios —en su mayoría inmigrantes, sobre todo italianos y españoles— declararon la huelga: se negaron a arar hasta que cambiaran las condiciones. Pedían arriendos uniformes, contratos más largos y porcentajes menores para el propietario. El 15 de agosto de ese año fundaron en Rosario la Federación Agraria Argentina. La Constitución los había invitado a trabajar la tierra; no les había dicho nada sobre quedársela.
+
+### La palanca
+
+Si en tu familia hay un apellido que llegó en barco, buscalo. El Museo de la Inmigración, sobre la avenida Antártida Argentina, en Puerto Madero, ofrece la consulta gratuita de su base de las personas que llegaron al país entre 1882 y 1960, y el CEMLA tiene un buscador de arribos del mismo período. En los registros del CEMLA figura, entre otras cosas, la profesión declarada al llegar. Ponela al lado de lo que tu antepasado terminó haciendo: si dijo «agricultor» y terminó alquilando una chacra o en un taller de la ciudad, la historia de esta lección está en tu familia.
+Preguntá esta semana al pariente más grande el nombre completo y el año de llegada, y buscalo.
+
+### El puente
+
+Los de Alcorta llegaron, trabajaron y no pudieron quedarse con la tierra. [PLANPUERTA](/planes/planpuerta) mide la inmigración por arraigo a diez años y no por llegadas, y pone en el paquete de bienvenida tierra con obligación de uso.

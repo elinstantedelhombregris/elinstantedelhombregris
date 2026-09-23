@@ -1,0 +1,66 @@
+---
+slug: tu-proyecto-empieza-hoy-de-la-leccion-a-la-accion
+courseSlug: gestion-proyectos-comunitarios
+title: 'Tu Proyecto Empieza Hoy: De la Lección a la Acción'
+summary: Integrar todo lo aprendido en el diseño de tu propio proyecto comunitario.
+orderIndex: 10
+draft: false
+cierre: puente
+fuentes:
+  - url: https://www.argentina.gob.ar/noticias/abrio-la-convocatoria-2023-de-puntos-de-cultura
+    titulo: 'Abrió la convocatoria 2023 de Puntos de Cultura (Ministerio de Cultura de la Nación)'
+    consultada: '2026-09-22'
+---
+
+## El Momento Es Ahora
+
+Llegaste al final de este curso con todas las herramientas de gestión que necesitás. Pero las herramientas sin uso son chatarra. Esta última lección te guía para diseñar tu primer proyecto comunitario (o mejorar el que ya tenés).
+
+### Ejercicio Final: Tu Proyecto en Una Página
+
+Completá esta hoja y tendrás el esqueleto de un proyecto listo para implementar:
+
+| Campo | Guía |
+| --- | --- |
+| **Nombre del proyecto** | |
+| **Problema que resuelve** | (con datos) |
+| **Objetivo** | (medible, en un plazo) |
+| **Beneficiarios** | (cuántos, dónde, quiénes) |
+| **3 actividades principales** | |
+| **Equipo necesario** | (# voluntarios, roles) |
+| **Presupuesto estimado** | |
+| **Cómo mido el éxito** | (indicador SMART) |
+| **Primer paso concreto** | (lo que hago esta semana) |
+
+### Tu Línea de Tiempo
+
+- **Esta semana:** Completá la hoja de proyecto. Hablá con 3 personas sobre tu idea.
+- **Mes 1:** Armá el equipo mínimo (3-5 personas). Hacé la primera reunión con agenda.
+- **Mes 2:** Ejecutá una actividad piloto. Algo chico, manejable, que te permita aprender.
+- **Mes 3:** Evaluá el piloto. ¿Funcionó? ¿Qué ajustás? Rediseñá si es necesario.
+- **Mes 4-6:** Escalá. Más beneficiarios, más voluntarios, primera búsqueda de fondos.
+- **Mes 6-12:** Consolidá. Medí impacto, escribí tu informe, buscá alianzas, formalizá si necesitás.
+
+### La primera reunión
+
+La reunión del mes 1 marca el tono de todo lo que sigue, así que conviene diseñarla. Tres puntos en un papel —qué problema vemos, qué queremos lograr este año, qué hacemos primero—, cuarenta y cinco minutos de reloj y un cierre que nadie se saltea: cada tarea con un nombre y una fecha, leídas en voz alta antes de irse. Si alguien se va sin saber qué le toca, la reunión no terminó. Ese mismo día mandá un mensaje con lo acordado: es la primera acta del proyecto.
+
+### El piloto, con la vara puesta antes
+
+Para el mes 2 elegí una actividad que se pueda hacer con lo que ya tienen y que deje un número: diez chicos una tarde, una jornada de limpieza, una feria chica. Antes de hacerla, escribí qué resultado te haría seguir igual y cuál te haría cambiar. Si el criterio se decide después, cualquier resultado parece un éxito y el mes 3 no tiene nada que evaluar.
+
+### Por qué el piloto va antes que la plata
+
+Muchos fondos no financian ideas: financian trayectoria. La IX convocatoria de Puntos de Cultura, que el Ministerio de Cultura de la Nación abrió en abril de 2023, pedía al menos dos años de trabajo en el territorio para poder presentarse. Un grupo que arranca hoy no califica para ese tipo de fondos hasta dentro de dos años, pero puede usar ese tiempo para fabricar la prueba que le van a pedir. Desde el primer mes guardá todo con fecha: la asistencia de cada actividad, las fotos, las actas, las notas que mandaste y las respuestas que recibiste. Esa carpeta, más que cualquier texto bien escrito, es lo que convierte al piloto del mes 2 en el antecedente de la propuesta que vas a presentar después.
+
+### Los 3 Enemigos del Primer Paso
+
+1. **"No estoy preparado/a":** Nadie lo está. Se aprende haciendo. Ese es todo el punto de este curso.
+2. **"No tengo tiempo":** 3 horas por semana alcanzan para arrancar. ¿Cuántas horas por semana mirás el celular?
+3. **"No va a servir de nada":** Un chico que aprendió a leer, una cuadra con luz, una plaza limpia: eso NO es "nada". Cada pequeño cambio es una victoria enorme.
+
+> "No necesitás permiso para cambiar tu barrio. No necesitás un título para gestionar un proyecto. No necesitás plata para empezar. Necesitás lo que ya tenés: indignación ante lo injusto, compasión por los demás, y la voluntad de hacer algo al respecto. El resto se aprende en el camino."
+
+### El puente
+
+No hace falta esperar a nadie para arrancar. [La práctica del tejido](/ensayos/la-practica-del-tejido) lo dice sin vueltas: la escala mínima del cambio es uno, vos, mañana, y la primera práctica no es hacer sino ver el mapa de los hilos que ya te sostienen.

@@ -1,0 +1,66 @@
+---
+slug: el-monotributo-y-tu-primera-estructura-fiscal
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: El Monotributo y Tu Primera Estructura Fiscal
+summary: Guía práctica para formalizarse como monotributista en Argentina.
+orderIndex: 5
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.arca.gob.ar/monotributo/categorias.asp
+    titulo: 'ARCA — Monotributo: categorías, topes y cuotas vigentes desde el 1/08/2026'
+    consultada: '2026-09-22'
+  - url: https://www.afip.gob.ar/monotributo/ayuda/recategorizacion.asp
+    titulo: 'ARCA — Recategorización, ayuda sobre el monotributo'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-02-01'
+---
+
+## Formalizarse Sin Morirse en el Intento
+
+Millones de argentinos trabajan en la informalidad, no por elección sino porque el sistema tributario parece diseñado para expulsar. Pero estar informal tiene costos reales: no podés facturar, no tenés obra social, no aportás jubilación, no podés acceder a crédito.
+
+### El Monotributo: Tu Primer Paso
+
+El monotributo es el **régimen simplificado** para pequeños contribuyentes. Pagás una cuota fija mensual que incluye:
+
+- **Impuesto integrado:** Tu aporte impositivo
+- **SIPA:** Tu aporte jubilatorio
+- **Obra social:** Cobertura de salud para vos; cada familiar que sumes paga su propio aporte
+
+### Categorías y Cómo Elegir
+
+Las categorías van de la A (menor facturación) a la K (mayor). Tu categoría depende de cuánto facturás por año. Empezá por la A si estás arrancando: es la cuota más baja y podés recategorizarte después.
+
+Ojo con elegir por la cuota y no por la facturación: la categoría la define lo que vas a facturar en doce meses, no lo que te gustaría pagar. Si arrancás con clientes fijos, sumá lo que te van a pagar en el año y buscá la categoría cuyo tope te quede arriba con margen; si estás justo en el borde, un solo cliente nuevo te empuja a la siguiente.
+
+### Cuándo Recategorizarte
+
+Según la ayuda de ARCA, la recategorización se hace dos veces por año, en febrero y en agosto, hasta el día 5, mirando los últimos 12 meses de actividad. Si seguís en la misma categoría no tenés que hacer nada, y si todavía no cumpliste seis meses de actividad tampoco. El error caro no es quedarte en una categoría baja por prudencia: es pasarte del tope sin darte cuenta, porque cada factura electrónica que emitís queda registrada, y ARCA tiene el total de doce meses tan a mano como vos. Llevá la suma al día, mes por mes, y la recategorización deja de ser una sorpresa.
+
+### Paso a Paso para Inscribirte
+
+1. Sacá tu CUIT en ARCA, la ex AFIP (si no la tenés, con DNI en cualquier oficina)
+2. Entrá a la sección Monotributo del sitio de ARCA (arca.gob.ar)
+3. Elegí tu categoría según facturación estimada
+4. Asociá una obra social
+5. Empezá a facturar electrónicamente desde la app "Mi Monotributo"
+
+### Errores Comunes
+
+- **No recategorizarse:** Cada 6 meses debés verificar si tu categoría sigue siendo correcta
+- **No emitir factura:** Aunque el cliente no la pida, debés emitirla
+- **No pagar en fecha:** Los intereses son altos y se acumulan rápido
+
+### El caso
+
+ARCA publica la tabla vigente desde el 1 de agosto de 2026. En la categoría A, la más baja, el tope es de $12.009.410,45 de ingresos brutos por año y la cuota mensual para servicios es de $49.527,18. Lo interesante es cómo se parte: $5.585,77 son impuesto integrado, $18.246,86 van al SIPA —tu jubilación— y $25.694,55 a la obra social. Poco más de un peso de cada nueve es impuesto; el resto es tu vejez y tu salud. Y la obra social cubre a una sola persona: por cada familiar adherente se paga otra vez ese mismo importe. Quien dice que no se formaliza para no pagar impuestos está rechazando, sobre todo, sus propios aportes.
+
+### La palanca
+
+Si ya sos monotributista, sumá lo que facturaste en los últimos doce meses y ubicalo en la tabla vigente: si te cambió la categoría, la próxima ventana es febrero. Si todavía trabajás sin facturar, calculá cuánto te sale por mes la categoría A frente a lo que hoy pagás de prepaga y a lo que no estás aportando para jubilarte. Con ese número, la decisión deja de ser un miedo y pasa a ser una cuenta.
+Entrá al portal de Monotributo de ARCA y compará tu facturación con la tabla de categorías.
+
+### El puente
+
+La cuota que junta impuesto, jubilación y obra social en un solo número es el punto de partida de [PLANPACTO](/planes/planpacto): su Recibo del Estado le mostraría a cada monotributista qué parte de lo que paga es tributo y qué parte es su propia vejez.

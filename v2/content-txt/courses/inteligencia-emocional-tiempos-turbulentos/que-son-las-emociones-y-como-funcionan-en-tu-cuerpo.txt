@@ -1,0 +1,65 @@
+---
+slug: que-son-las-emociones-y-como-funcionan-en-tu-cuerpo
+courseSlug: inteligencia-emocional-tiempos-turbulentos
+title: ¿Qué Son las Emociones y Cómo Funcionan en Tu Cuerpo?
+summary: Comprendé la base neurofisiológica de las emociones y por qué tu cuerpo reacciona antes que tu mente.
+orderIndex: 1
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm
+    titulo: 'Ley 26.657 — Derecho a la Protección de la Salud Mental (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## Las Emociones: Tu Sistema de Navegación Interior
+
+Antes de poder gestionar tus emociones, necesitás entender qué son realmente. Las emociones no son caprichos ni debilidades: son **señales biológicas** que tu cuerpo produce para ayudarte a sobrevivir y prosperar. Son tan reales como el hambre o la sed, y negarlas tiene consecuencias tan graves como ignorar el dolor físico.
+
+### La Neurociencia Básica de las Emociones
+
+Tu cerebro tiene tres capas principales que interactúan constantemente:
+
+- **El cerebro reptiliano (tronco encefálico):** Controla las funciones básicas de supervivencia. Es el que te hace saltar cuando escuchás un ruido fuerte. En Argentina, es el que se activa cada vez que escuchás "devaluación" o "corralito".
+- **El cerebro emocional (sistema límbico):** La amígdala, el hipocampo y otras estructuras procesan tus experiencias emocionales. Aquí se almacenan las memorias cargadas de emoción, desde la alegría de un gol de la selección hasta el terror de una crisis económica.
+- **La corteza prefrontal:** Es tu capacidad de reflexión, planificación y regulación. Es la parte que puede decir "esperá, no reacciones todavía". Pero bajo estrés crónico, esta parte se *apaga parcialmente*.
+
+> "El Hombre Gris no niega sus emociones: las integra. La metamorfosis del Camello al León comienza cuando dejamos de cargar con emociones que no hemos procesado." — Filosofía del Hombre Gris
+
+### El Mapa Corporal de las Emociones
+
+Investigaciones de la Universidad de Aalto demostraron que las emociones tienen **firmas corporales universales**:
+
+- **La ira** se siente como calor en el pecho, los brazos y la cabeza. Las manos se cierran, la mandíbula se tensa.
+- **El miedo** genera un nudo en el estómago, las piernas se debilitan, el corazón se acelera.
+- **La tristeza** produce una sensación de pesadez en el pecho, los hombros caen, la energía baja.
+- **La alegría** se expande por todo el cuerpo, hay ligereza, el pecho se abre.
+- **La ansiedad** crea tensión en el cuello, hombros y mandíbula, con un zumbido constante de energía nerviosa.
+
+### Ejercicio Práctico: El Escaneo Corporal de 5 Minutos
+
+Este ejercicio es la base de toda inteligencia emocional. Practicalo una vez al día durante esta semana:
+
+1. Sentate cómodo y elegí ojos abiertos o cerrados.
+2. Recorré tu cuerpo desde los pies hasta la cabeza.
+3. En cada zona, preguntate: "¿Qué siento aquí? ¿Tensión? ¿Calor? ¿Nada?"
+4. No intentes cambiar nada. Sólo observá y nombrá.
+5. Cuando termines, preguntate: "¿Qué emoción podría estar conectada con estas sensaciones?"
+
+### ¿Por Qué Importa Esto en Argentina?
+
+Vivir en un país con **inestabilidad crónica** significa que tu sistema nervioso está sometido a un estrés que la mayoría de los manuales de psicología no contemplan. No es el estrés de un examen o una mudanza: es el estrés de no saber si tu sueldo va a alcanzar el mes que viene, de ver cómo tus ahorros se evaporan, de sentir que las reglas del juego cambian cada pocos años.
+
+Este tipo de estrés *crónico y sistémico* altera literalmente la estructura de tu cerebro. La amígdala se agranda (más reactividad), la corteza prefrontal se adelgaza (menos capacidad de regulación). Por eso no es "debilidad" sentirte abrumado: es **biología**.
+
+La buena noticia: el cerebro es plástico. Puede cambiar. Y las herramientas que vas a aprender en este curso están diseñadas para esa realidad específica.
+
+### Lo que dice la ley sobre cuerpo y contexto
+
+La Ley 26.657 de Salud Mental, sancionada el 25 de noviembre de 2010, no reduce el malestar al cerebro. Su artículo 3 define la salud mental como «un proceso determinado por componentes históricos, socio-económicos, culturales, biológicos y psicológicos». Y fija un límite concreto: en ningún caso puede hacerse un diagnóstico sobre la base exclusiva del «status político, socio-económico» de una persona.
+
+Es un buen contrapeso para esta lección. Que el cuerpo registre una devaluación no convierte esa reacción en un trastorno, y que la biología participe no quiere decir que todo se explique por ella. Las sensaciones que aprendés a leer en el escaneo son datos; el contexto que las dispara, también.
+
+### El puente
+
+Leer lo que pasa en el cuerpo necesita ratos sin ruido. [La sensibilidad como infraestructura](/ensayos/sensibilidad-como-infraestructura) sostiene que percibir exige «espacios sin estímulo», y que en la Argentina casi no quedan.

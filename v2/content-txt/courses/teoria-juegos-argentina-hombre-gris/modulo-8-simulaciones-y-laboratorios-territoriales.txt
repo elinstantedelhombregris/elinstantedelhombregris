@@ -1,0 +1,57 @@
+---
+slug: modulo-8-simulaciones-y-laboratorios-territoriales
+courseSlug: teoria-juegos-argentina-hombre-gris
+title: Módulo 8 · Simulaciones y laboratorios territoriales
+summary: Creá experimentos controlados para testear reglas antes de escalarlas.
+orderIndex: 8
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.cippec.org/publicacion/cambios-en-la-forma-de-votar-la-experiencia-de-la-boleta-unica-en-santa-fe/
+    titulo: 'Cambios en la forma de votar. La experiencia de la boleta única en Santa Fe (CIPPEC)'
+    consultada: '2026-09-22'
+  - url: https://www.airedesantafe.com.ar/politica/debuta-la-boleta-unica-las-elecciones-nacionales-las-diferencias-la-santa-fe-n625723
+    titulo: 'Debuta la Boleta Única en las elecciones de octubre: cómo se usará y en qué se diferencia con la de Santa Fe (Aire de Santa Fe)'
+    consultada: '2026-09-22'
+  - url: https://www.lanacion.com.ar/politica/el-gobierno-promulgo-la-ley-de-la-boleta-unica-de-papel-y-sera-estrenada-en-las-legislativas-de-2025-nid18102024/
+    titulo: 'El Gobierno promulgó la ley de la boleta única de papel y será estrenada en las legislativas de 2025 (La Nación)'
+    consultada: '2026-09-22'
+---
+Creá experimentos controlados para testear reglas antes de escalarlas. En Teoría de Juegos Aplicada a Argentina: La Partida del Hombre Gris, esta lección cumple una función clave: convertir un concepto estratégico en una herramienta concreta para leer situaciones reales, ordenar decisiones y construir mejores acuerdos.
+
+### Objetivos de la lección
+
+- Montar simulaciones digitales (spreadsheet + código)
+- Dirigir roleplays multi actor
+- Definir métricas y paneles para laboratorios de 90 días
+
+### Por qué importa
+
+Cuando una comunidad, una organización o un actor público no entiende el mecanismo que tiene delante, suele reaccionar tarde o reaccionar mal. Estudiá este tema para evitar respuestas impulsivas, reconocer qué incentivos están operando y diseñar intervenciones que produzcan cooperación, claridad o aprendizaje acumulable. En vez de mirar solo el evento visible, esta lección te entrena para mirar la estructura que lo sostiene.
+
+Este punto exige pasar de la definición a la lógica práctica: qué actor interviene, qué incentivo aparece, qué información falta y qué decisión mejora cuando comprendemos el mecanismo. Si podés reconocer este patrón en tu vida, tu comunidad y la transformación argentina, entonces la lección ya se volvió una herramienta de trabajo y no solo una explicación.
+
+### Una simulación en una planilla
+
+Antes de probar una regla con personas, se puede probar con números. Una planilla con una fila por ronda y una columna por jugador alcanza. Se escribe la estrategia de cada uno —cooperar siempre, copiar al otro, perdonar uno de cada tres errores—, se agrega un porcentaje de ruido, es decir, jugadas que salen al revés de lo que se quiso, y se suman los pagos. Correr cien rondas con distintos niveles de ruido muestra en qué punto una regla que parecía sólida se desarma. Quien sepa programar puede hacer lo mismo con un script corto y correrlo mil veces; la lógica no cambia.
+
+### El juego de roles
+
+Los números no negocian. Un juego de roles con cinco o seis actores —el municipio, los vecinos, un comerciante, una cooperativa, el concejo— muestra lo que la planilla esconde: quién se enoja, quién no entiende la regla, quién encuentra el atajo. Cada participante recibe por escrito lo que gana con cada resultado, pero no lo que ganan los demás. Al terminar se compara lo que pasó con lo que la simulación había anticipado, y las diferencias son el material de trabajo.
+
+### Noventa días con métricas fijadas antes
+
+Un laboratorio territorial es una prueba acotada en un lugar chico. Lo que lo separa de una experiencia cualquiera es que las métricas, la fecha de corte y el criterio para escalar o abandonar se escriben antes de empezar. Si se definen después, cualquier resultado se puede leer como un éxito, y el laboratorio deja de enseñar.
+
+### El caso
+
+Santa Fe votó por primera vez con boleta única en las primarias del 22 de mayo de 2011 y la volvió a usar en las generales del 24 de julio, bajo la Ley provincial 13.156. Durante catorce años fue un laboratorio a la vista del país: una boleta por categoría, cada una con su color y su urna. En octubre de 2024 el Congreso aprobó la Ley 27.781, promulgada por el Decreto 915/2024, y la Boleta Única de Papel se estrenó a nivel nacional en las legislativas del 26 de octubre de 2025. Escalar no fue copiar: la versión nacional reunió todas las categorías en una sola hoja y una sola urna, un diseño distinto del que se había probado en la provincia.
+
+### La palanca
+
+Elegí una regla que tu sociedad de fomento, tu junta vecinal o tu cooperativa quiera adoptar —un turno rotativo para limpiar la plaza, un fondo común para arreglos, un horario de silencio— y proponé probarla noventa días en una sola cuadra o un solo grupo. Antes de arrancar, escribí en una hoja la métrica que va a decidir, quién la mide y qué número hace que se amplíe o se abandone. Pegala donde todos la vean.
+Definí la métrica y la fecha de corte antes del primer día de prueba.
+
+### El puente
+
+Probar antes de escalar es la fase que [PLANMESA](/planes/planmesa) llama Experimentar: cada propuesta de una Mesa Civil pasa por un piloto acotado de 60 a 180 días antes de que se decida si escala.

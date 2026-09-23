@@ -1,0 +1,58 @@
+---
+slug: la-economia-como-sistema-deja-de-mirar-numeros-empeza-a-ver-conexiones
+courseSlug: sistemas-economicos-ciclo-argentino
+title: 'La Economía como Sistema: Dejá de Mirar Números, Empezá a Ver Conexiones'
+summary: Introducción al pensamiento sistémico aplicado a la economía argentina.
+orderIndex: 1
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.bcr.com.ar/es/mercados/investigacion-y-desarrollo/informativo-semanal/noticias-informativo-semanal/por-la-3
+    titulo: 'Bolsa de Comercio de Rosario — Por la sequía, las exportaciones agro cayeron más de un 41% en 2023'
+    consultada: '2026-09-22'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/ica_01_2432F21717CB.pdf
+    titulo: 'INDEC — Intercambio comercial argentino. Cifras estimadas de diciembre de 2023'
+    consultada: '2026-09-22'
+---
+
+## Más Allá de los Titulares
+
+El noticiero te dice: "el dólar subió", "la inflación fue del 5%", "cayó el empleo". Cada dato se presenta como un evento aislado, como si la economía fuera una colección de números sueltos. Pero la economía es un **sistema**: un conjunto de partes interconectadas donde todo afecta a todo.
+
+Cuando entendés la economía como sistema, dejás de sorprenderte por las crisis y empezás a **anticiparlas**. No porque seas adivino, sino porque ves los patrones que otros no ven.
+
+### ¿Qué Es un Sistema Económico?
+
+Imaginá la economía como una red de cañerías donde fluye agua (dinero). Las canillas (producción) agregan agua. Los desagotes (importaciones, fuga de capitales) la sacan. Las bombas (Banco Central, gasto público) regulan la presión. Cuando alguna cañería se tapa o alguna bomba falla, el agua se desborda por algún lado inesperado.
+
+### Los Componentes del Sistema Argentino
+
+- **Producción:** Lo que Argentina crea. Agro, industria, servicios, tecnología. Es el motor que genera riqueza real.
+- **Moneda:** Los pesos que circulan. Cuántos hay, cuánto valen, quién los quiere.
+- **Sector externo:** La relación con el mundo. Exportaciones, importaciones, deuda, inversión extranjera.
+- **Estado:** Lo que recauda (impuestos) y lo que gasta (servicios, transferencias, obra pública, sueldos).
+- **Expectativas:** Lo que la gente CREE que va a pasar. En Argentina, las expectativas son tan poderosas como la realidad.
+
+### El Concepto Clave: Bucles de Retroalimentación
+
+Un bucle de retroalimentación es cuando A causa B y B refuerza A:
+
+- **Bucle positivo (amplificador):** La inflación genera expectativas de más inflación → la gente remarca precios preventivamente → hay más inflación. Se auto-amplifica.
+- **Bucle negativo (estabilizador):** Si la economía se recalienta, el Banco Central sube la tasa de interés → menos crédito → menos consumo → la economía se enfría. Se auto-regula.
+
+El problema de Argentina es que los bucles amplificadores son muy fuertes y los estabilizadores muy débiles.
+
+> "El argentino promedio entiende más de economía que el promedio mundial — porque la economía nos obliga a aprenderla por supervivencia. Este curso te da el marco teórico para organizar lo que tu instinto ya sabe."
+
+### El caso
+
+En 2023 el dato que más movió la economía argentina no salió de un ministerio: salió del cielo. La Bolsa de Comercio de Rosario calculó que la cosecha de granos cayó de 133,5 millones de toneladas en la campaña 2021/22 a unos 83 millones en la 2022/23, y que la liquidación de divisas del agro bajó 51% en el año, el valor más bajo en quince. El INDEC registró la otra punta de la cañería: las exportaciones de 2023 sumaron 66.788 millones de dólares, 24,5% menos que en 2022, y el saldo comercial pasó de un superávit de 6.923 millones a un déficit de 6.926. Un problema de lluvias en la pampa húmeda se volvió un problema de dólares para todo el país. Mirado de a uno, ninguno de esos números se entiende.
+
+### La palanca
+
+Esta semana elegí un dato económico que te haya llegado suelto —el dólar del día, la inflación del mes, una suba de tarifa— y armá su mapa en una hoja: tres flechas hacia atrás (qué lo empujó) y tres hacia adelante (a qué empuja). Donde no sepas qué va, dejá el casillero vacío: eso es lo que te falta aprender, no lo que te sobra. El INDEC publica un calendario con la fecha de cada informe; el de intercambio comercial sale todos los meses.
+Dibujá el mapa del dato y guardalo: en la lección de inflación lo vas a volver a usar.
+
+### El puente
+
+La primera herramienta de [El bisturí de 1816](/ensayos/el-bisturi-de-1816) es la de esta lección: el sistema no está en las partes, está en las interacciones. El ensayo la usa para leer la independencia como un mapa de flujos.

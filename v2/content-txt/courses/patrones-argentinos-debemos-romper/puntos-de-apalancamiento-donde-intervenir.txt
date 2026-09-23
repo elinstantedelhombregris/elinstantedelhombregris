@@ -1,0 +1,53 @@
+---
+slug: puntos-de-apalancamiento-donde-intervenir
+courseSlug: patrones-argentinos-debemos-romper
+title: 'Puntos de Apalancamiento: Dónde Intervenir'
+summary: Los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios.
+orderIndex: 11
+draft: false
+cierre: completo
+fuentes:
+  - url: https://chequeado.com/el-explicador/el-senado-trata-la-boleta-unica-de-papel-que-es-y-que-dice-el-proyecto/
+    titulo: 'La Cámara de Diputados aprobó la Boleta Única de Papel: qué es y qué dice el texto sancionado (Chequeado)'
+    consultada: '2026-09-22'
+  - url: https://www.cronista.com/economia-politica/la-participacion-electoral-cayo-al-66-cuanto-bajo-respecto-de-comicios-anteriores/
+    titulo: 'La participación electoral cayó al 68%: cuánto bajó respecto de comicios anteriores (El Cronista)'
+    consultada: '2026-09-22'
+---
+
+## No Todo Tiene el Mismo Efecto
+
+Donella Meadows, una de las pensadoras sistémicas más importantes del siglo XX, identificó **12 niveles de intervención** en un sistema, ordenados de menor a mayor impacto. Acá los agrupamos en siete. Vamos a aplicar su framework a Argentina.
+
+### Los Niveles (de menor a mayor impacto)
+
+1. **Parámetros:** Cambiar números (ej: subir o bajar impuestos). Es lo más fácil y lo menos efectivo. Todos los gobiernos lo hacen.
+2. **Stocks y flujos:** Cambiar la infraestructura física (ej: construir rutas, hospitales). Importante pero lento.
+3. **Flujos de información:** Hacer visible lo que estaba oculto (ej: datos abiertos de gasto público). MUY poderoso. La transparencia cambia comportamientos.
+4. **Reglas:** Cambiar las reglas del sistema —incentivos, castigos, restricciones— (ej: ley de financiamiento de partidos). Más impacto que la información, pero depende de la implementación.
+5. **Estructura del sistema:** Cambiar quién decide qué (ej: descentralización real). Difícil pero transformador.
+6. **Objetivos del sistema:** Cambiar para qué existe el sistema (ej: el Estado existe para servir al ciudadano, no al revés).
+7. **Modelos mentales:** Cambiar las creencias profundas que sostienen el sistema (ej: "el Estado es de todos, no del gobierno de turno"). El nivel más difícil y más transformador.
+
+### Intervenciones de Alto Apalancamiento para Argentina
+
+- **Transparencia radical:** Hacer que toda información pública sea accesible en tiempo real. Cuando la gente ve a dónde va su plata, exige rendición de cuentas.
+- **Educación cívica real:** No la del manual aburrido, sino la que enseña a leer un presupuesto, hacer un pedido de información, participar en una audiencia pública.
+- **Servicio civil meritocrático:** Un Estado donde los funcionarios sean profesionales que se quedan cuando cambia el gobierno.
+- **Justicia rápida y accesible:** Un sistema judicial que resuelva conflictos en meses, no en décadas.
+- **Conectividad del interior:** Internet de alta velocidad en todo el territorio para descentralizar la economía del conocimiento.
+
+> "No necesitás cambiar todo. Necesitás encontrar las palancas correctas. Una ley de transparencia bien implementada puede tener más impacto que 100 promesas de campaña."
+
+### El caso
+
+El 2 de octubre de 2024, la Cámara de Diputados aprobó la Boleta Única de Papel: en lugar de boletas impresas y repartidas por cada partido, un solo papel con toda la oferta electoral del distrito, donde el votante marca un casillero por categoría. En la escala de esta lección es un cambio de reglas, y apuntó a problemas concretos: el robo de boletas en el cuarto oscuro y un costo de impresión que ponía en desventaja a los partidos chicos. Se usó en las elecciones legislativas nacionales del 26 de octubre de 2025. Ese día votó el 68% del padrón, la participación más baja desde el retorno de la democracia, por debajo del 71,7% de 2021. La regla mejoró cómo se vota. No tocó por qué cada vez más gente no va a votar, y esa causa vive varios niveles más arriba: en los objetivos del sistema y en los modelos mentales.
+
+### La palanca
+
+Tomá un problema de tu barrio y escribí tres intervenciones, una por nivel: un número que se podría cambiar, una regla que se podría votar y una información que hoy no se publica. La tercera suele ser la más barata y la que nadie pide. Un ejemplo: saber cómo votó cada concejal en cada ordenanza. Algunos concejos deliberantes publican las votaciones nominales; otros, sólo el resultado. Si el tuyo no las publica, esa es una palanca de flujo de información al alcance de un vecino: pedirlo no cuesta nada y cambia cómo vota quien sabe que lo miran.
+Preguntá en tu Concejo Deliberante si publica cómo votó cada concejal y, si no lo hace, pedilo por nota.
+
+### El puente
+
+[La falacia de la democracia](/ensayos/democracia) sube un nivel más: el voto es necesario y radicalmente insuficiente, y lo que falta es la deliberación antes de que se decida.

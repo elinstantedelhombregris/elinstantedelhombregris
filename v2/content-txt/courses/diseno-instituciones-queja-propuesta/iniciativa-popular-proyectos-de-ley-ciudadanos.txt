@@ -1,0 +1,72 @@
+---
+slug: iniciativa-popular-proyectos-de-ley-ciudadanos
+courseSlug: diseno-instituciones-queja-propuesta
+title: 'Iniciativa Popular: Proyectos de Ley Ciudadanos'
+summary: Cómo usar el mecanismo constitucional de iniciativa popular.
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-24747-41025/texto
+    titulo: 'Ley 24.747 — Iniciativa Legislativa Popular (texto oficial)'
+    consultada: '2026-09-22'
+  - url: https://www.lanacion.com.ar/sociedad/la-camara-alta-convirtio-en-ley-el-proyecto-el-hambre-mas-urgente-nid461921/
+    titulo: 'La Cámara alta convirtió en ley el proyecto «El hambre más urgente» — La Nación'
+    consultada: '2026-09-22'
+  - url: https://igualdad.cepal.org/es/repository-of-policies-and-strategies/iniciativa-popular-el-hambre-mas-urgente-argentina
+    titulo: 'Iniciativa popular «El hambre más urgente» — Argentina (CEPAL)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/80000-84999/81446/norma.htm
+    titulo: 'Ley 25.724 — Programa Nacional de Nutrición y Alimentación (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## El Congreso Es Tuyo: Usalo
+
+El artículo 39 de la Constitución establece la **iniciativa popular**: los ciudadanos pueden presentar proyectos de ley al Congreso Nacional. El Congreso está obligado a tratarlos dentro de los 12 meses. Es el mecanismo más directo de legislación ciudadana y casi nadie lo usa.
+
+### Cómo Funciona
+
+1. **Redactar el proyecto:** Con articulado y fundamentos (como vimos en la lección 4).
+2. **Juntar firmas:** Se necesita el 1.5% del padrón electoral nacional (aproximadamente 500.000 firmas). Las firmas deben representar al menos 6 distritos electorales.
+3. **Presentar ante la Cámara de Diputados:** Con las firmas verificadas por la Justicia Electoral.
+4. **Tratamiento obligatorio:** El Congreso tiene 12 meses para tratarlo.
+
+### Limitaciones
+
+- No se pueden presentar proyectos sobre reforma constitucional, tratados internacionales, tributos, presupuesto ni materia penal.
+- 500.000 firmas es un número alto (aunque campañas digitales lo hacen más alcanzable).
+- El Congreso debe tratarlo pero no está obligado a aprobarlo.
+
+### A Nivel Municipal: Más Accesible
+
+Muchos municipios tienen mecanismos de iniciativa popular con **requisitos mucho menores**. En algunos municipios, con unos cientos de firmas podés presentar un proyecto al Concejo Deliberante. Investigá las reglas de tu municipio.
+
+### Pausa para Reflexionar
+
+Si tuvieras que juntar firmas en tu barrio para una iniciativa popular municipal, ¿qué tema elegirías que genere consenso amplio entre vecinos de distintas edades y orientaciones políticas? ¿Dónde juntarías las firmas: en la plaza, en el club, en la puerta de una escuela?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Casos Exitosos
+
+- **«El hambre más urgente», que terminó en la Ley 25.724 (2002):** Una iniciativa popular impulsó legislación alimentaria después de la crisis de 2001.
+- **Iniciativas municipales:** Decenas de ordenanzas sobre ambiente, transparencia y participación nacieron de iniciativas vecinales.
+
+### El Valor Más Allá del Resultado
+
+Incluso si tu proyecto no se aprueba, el proceso de juntar firmas **construye comunidad, visibiliza el tema y presiona a los legisladores**. La iniciativa popular es tanto herramienta legislativa como herramienta de organización ciudadana.
+
+> "La Constitución te dio el derecho de legislar. No como diputado: como ciudadano. Cada firma es un voto de confianza en la democracia directa. Usá ese derecho."
+
+### El caso
+
+La Ley 24.747, de 1996, reglamenta el artículo 39: la iniciativa necesita firmas de al menos el 1,5% del padrón, repartidas en seis distritos como mínimo; la Justicia Electoral verifica una muestra en veinte días y, si el 5% o más resulta falso, el proyecto se desestima. A comienzos de 2002, en plena crisis, equipos técnicos de centros de estudio redactaron un proyecto contra el hambre infantil, y lo sostuvieron junto con el Defensor del Pueblo, sindicatos, iglesias y universidades. Con la campaña de La Nación juntaron más de un millón de firmas, el doble de las 500.000 que hacían falta. El 27 de diciembre de ese año el Senado lo aprobó por unanimidad: es la Ley 25.724, que creó el Programa Nacional de Nutrición y Alimentación, con prioridad para embarazadas y menores de cinco años. El proyecto se llamaba «El hambre más urgente».
+
+### La palanca
+
+Averiguá si tu municipio o tu provincia tienen iniciativa popular y cuántas firmas piden. Suele estar en la carta orgánica municipal, en la ley orgánica de municipios o en la constitución provincial; si no lo encontrás, preguntalo por nota en la mesa de entradas del Concejo Deliberante. Anotá tres números: firmas necesarias, plazo para juntarlas y plazo que tiene el cuerpo para tratar el proyecto.
+Pedí esta semana el reglamento completo.
+
+### El puente
+
+La iniciativa popular es de las pocas puertas que abren la decisión entre elección y elección: [Democracia](/ensayos/democracia) pregunta por qué la que heredamos se parece más a un ritual cada cuatro años que a una conversación entre iguales.

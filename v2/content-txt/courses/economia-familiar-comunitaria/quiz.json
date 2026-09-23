@@ -1,0 +1,165 @@
+{
+  "title": "Quiz: Economía Familiar y Comunitaria",
+  "description": "Evaluá tu comprensión de la economía familiar, barrial y solidaria.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "Un informe oficial publicado en 2020 estimó el trabajo doméstico y de cuidados no remunerado en 15,9% del PIB. ¿Cómo usás ese dato correctamente?",
+      "type": "multiple_choice",
+      "options": [
+        "Como porcentaje fijo para cualquier año",
+        "Como una estimación situada, citando año, fuentes y metodología antes de compararla",
+        "Como prueba de que todas las tareas de cuidado tienen el mismo valor",
+        "Como salario que efectivamente recibieron los hogares"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El 15,9% surge de una estimación oficial publicada en 2020 con fuentes y supuestos específicos. Hace visible una contribución enorme, pero no es una cifra automática, actual ni un ingreso efectivamente pagado.",
+      "points": 2,
+      "orderIndex": 1
+    },
+    {
+      "question": "Un hogar no logra generar margen mensual. ¿Cuál es el primer diagnóstico útil?",
+      "type": "multiple_choice",
+      "options": [
+        "Fijar un porcentaje de ahorro obligatorio aunque falten gastos esenciales",
+        "Reconstruir ingresos, gastos esenciales, deudas, ayudas y variaciones antes de definir una meta posible",
+        "Suponer que el problema es falta de voluntad",
+        "Tomar deuda para que la cuenta muestre saldo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La capacidad de ahorro depende del margen real y puede ser nula durante una crisis. El primer paso es hacer visible el flujo y proteger necesidades esenciales; recién después se fija una meta gradual.",
+      "points": 1,
+      "orderIndex": 2
+    },
+    {
+      "question": "¿Qué análisis evita llamar \"inteligente\" a una deuda sólo porque financia una herramienta o capacitación?",
+      "type": "multiple_choice",
+      "options": [
+        "Comparar costo financiero total, flujo de cuotas, riesgos y retorno plausible del uso financiado",
+        "Mirar sólo el monto solicitado",
+        "Confirmar que la deuda sea en pesos",
+        "Elegir la oferta que se aprueba más rápido"
+      ],
+      "correctAnswer": 0,
+      "explanation": "El destino no vuelve buena a una deuda. Hay que contrastar costo total, calendario de pagos, variabilidad del ingreso, escenarios adversos y un retorno plausible sin presentarlo como garantía.",
+      "points": 2,
+      "orderIndex": 3
+    },
+    {
+      "question": "Antes de participar en un círculo de ahorro informal, ¿qué diseño conviene exigir?",
+      "type": "multiple_choice",
+      "options": [
+        "Sólo confianza verbal entre participantes",
+        "Reglas escritas sobre aportes, turnos, mora, custodia, salida, registros y resolución de conflictos",
+        "Que una sola persona controle el dinero y la información",
+        "Promesa de rendimiento sin explicar de dónde sale"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los círculos adoptan formas distintas y también tienen riesgos. La confianza necesita reglas, trazabilidad y un plan para atrasos, salidas y custodia; esto no reemplaza revisar su encuadre legal.",
+      "points": 1,
+      "orderIndex": 4
+    },
+    {
+      "question": "¿Qué principio cooperativo establece \"un socio = un voto\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Membresía abierta",
+        "Control democrático",
+        "Participación económica",
+        "Autonomía"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El control democrático (un socio, un voto) es el segundo principio cooperativo, sin importar el capital aportado.",
+      "points": 2,
+      "orderIndex": 5
+    },
+    {
+      "question": "¿Qué explicación es más rigurosa para la crisis de muchos clubes de trueque alrededor de 2001-2002?",
+      "type": "multiple_choice",
+      "options": [
+        "Una sola causa: la idea del intercambio era inviable",
+        "Una combinación que puede incluir escala, emisión y falsificación de créditos, confianza, gobernanza y contexto económico",
+        "Una sola causa: faltó publicidad",
+        "Que todos los clubes siguieron el mismo diseño y tuvieron el mismo resultado"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Una experiencia heterogénea no admite una explicación monocausal. Conviene distinguir redes, reglas y momentos, y separar evidencia histórica de la evaluación normativa del trueque.",
+      "points": 1,
+      "orderIndex": 6
+    },
+    {
+      "question": "¿Qué es un banco de tiempo?",
+      "type": "multiple_choice",
+      "options": [
+        "Un banco que abre solo en ciertos horarios",
+        "Un sistema donde una hora de trabajo de cualquier persona vale lo mismo",
+        "Un ahorro a plazo fijo",
+        "Una app de productividad"
+      ],
+      "correctAnswer": 1,
+      "explanation": "En un banco de tiempo, una hora de plomería = una hora de inglés = una hora de diseño. Elimina la desigualdad en la valoración del trabajo.",
+      "points": 2,
+      "orderIndex": 7
+    },
+    {
+      "question": "¿Qué muestra el indicador \"meses de cobertura\" y qué deja afuera?",
+      "type": "multiple_choice",
+      "options": [
+        "Muestra toda la riqueza y no deja nada afuera",
+        "Aproxima liquidez frente a gastos, pero no resume ingresos futuros, deudas, redes, coberturas ni bienestar",
+        "Mide únicamente el sueldo mensual",
+        "Garantiza superar cualquier crisis si es mayor que tres"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los meses de cobertura son una señal útil de liquidez, no una definición total de riqueza o resiliencia. Deben leerse junto con obligaciones, estabilidad, protección y apoyos disponibles.",
+      "points": 1,
+      "orderIndex": 8
+    },
+    {
+      "question": "¿Qué diseño protege mejor la liquidez de una compra comunitaria?",
+      "type": "multiple_choice",
+      "options": [
+        "Tener un local propio desde el primer día",
+        "Acordar anticipos, reservas, fechas de cierre, comprobantes y qué ocurre ante faltantes o mora",
+        "Depender de una app profesional",
+        "Concentrar caja y decisiones en una persona"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El cobro anticipado puede reducir riesgo, pero necesita reglas para excepciones, devoluciones, faltantes y rendición. La protección surge del sistema completo y no de una consigna universal.",
+      "points": 2,
+      "orderIndex": 9
+    },
+    {
+      "question": "Las cooperativas de consumo solo funcionan en barrios de bajos recursos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Las cooperativas de consumo funcionan en cualquier contexto socioeconómico. El principio de compra colectiva beneficia a cualquier familia que quiera ahorrar comprando en volumen.",
+      "points": 1,
+      "orderIndex": 10
+    },
+    {
+      "question": "¿Qué es lo primero que hay que hacer en las primeras 6 horas de una crisis económica?",
+      "type": "multiple_choice",
+      "options": [
+        "Comprar dólares",
+        "Hacer un diagnóstico rápido de cuánto tenés, cuánto debés y cuánto necesitás",
+        "Llamar al banco para cancelar cuentas",
+        "Buscar un segundo trabajo inmediatamente"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El diagnóstico rápido (posición financiera, deudas, número de supervivencia) es el primer paso porque todas las decisiones posteriores dependen de ese dato.",
+      "points": 2,
+      "orderIndex": 11
+    },
+    {
+      "question": "En una crisis económica, aislarse y resolver todo solo es más efectivo que pedir ayuda a la comunidad.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El aislamiento es uno de los mayores peligros en una crisis. Compartir recursos, información y apoyo emocional con la comunidad multiplica las chances de supervivencia.",
+      "points": 1,
+      "orderIndex": 12
+    }
+  ]
+}

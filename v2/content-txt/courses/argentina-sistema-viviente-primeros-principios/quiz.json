@@ -1,0 +1,231 @@
+{
+  "title": "Quiz: Argentina como Sistema Viviente",
+  "description": "Evaluá si podés transferir el recorrido sistémico desde los primeros principios hasta una aplicación territorial en Argentina.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Energía y entropía: las dos leyes que ordenan todo sistema» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Comprendé cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 1
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Conservación, exponenciales y acumulación» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Aprendé a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 2
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Información, señales y comunicación efectiva» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Estudiá cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 3
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Flujos, entradas y bucles de retroalimentación» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Mapeá las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 4
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Emergencia, mantenimiento y efectos de red» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Descubrí cómo emergen propiedades nuevas, cómo se sostienen los sistemas en el tiempo y por qué la conectividad puede multiplicar o degradar resultados.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 5
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Teoría de control, cibernética y sistemas vivos» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Integrá principios de control, cibernética y biología para dirigir sistemas con propósito sin caer en microgestión, rigidez ni desgaste innecesario.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 6
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Psicología, vínculos y hábitos en sistemas humanos» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Aplicá la mirada sistémica a la mente, las relaciones y los hábitos para entender cómo se forman patrones estables y cómo modificarlos sin violencia.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 7
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Economía, incentivos y teoría de juegos» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Conectá recursos, costos de oportunidad, incentivos y estrategias interdependientes para diseñar mejores decisiones personales, comunitarias y nacionales."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 8
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Ciencia de la complejidad y transiciones de fase» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Explorá cómo los sistemas complejos se autoorganizan, acumulan tensiones y atraviesan transiciones abruptas que cambian las reglas del juego.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 9
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Gestión de energía personal y salud sistémica» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Traducí los principios sistémicos al cuerpo y la vida cotidiana para cuidar energía, salud y sostenibilidad personal.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 10
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Aprendizaje, habilidades y pensamiento estratégico» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Aprendé a diseñar procesos de aprendizaje y toma de decisiones que acumulen capacidad real en vez de solo información dispersa.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 11
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Recursos, riqueza y diseño de objetivos» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Ordená tu relación con los recursos y los objetivos para construir riqueza, foco y sistemas de ejecución que sostengan resultados."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 12
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «La familia: el sistema base de toda transformación» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Analizá la familia como el primer sistema donde se aprenden reglas, límites, cooperación y reparación; allí comienza cualquier transformación duradera.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 13
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Barrio y municipio: donde la coordinación se vuelve visible» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Llevá los primeros principios al territorio inmediato para entender cómo se coordinan familias, organizaciones y Estado local en problemas concretos.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 14
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Provincia y nación: Argentina como sistema multinivel» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Integrá escalas territoriales para leer a Argentina como un sistema complejo donde las decisiones provinciales y nacionales se condicionan mutuamente.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 15
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «La clave maestra: mejorar relaciones para mejorar rendimiento» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Cerrá el curso sintetizando la idea central: cuando mejoran las relaciones entre las partes, mejora el rendimiento del sistema completo."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 2,
+      "orderIndex": 16
+    }
+  ]
+}

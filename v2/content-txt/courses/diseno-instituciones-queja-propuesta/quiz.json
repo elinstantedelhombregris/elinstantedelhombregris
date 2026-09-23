@@ -1,0 +1,132 @@
+{
+  "title": "Quiz: Diseño de Instituciones",
+  "description": "Evaluá tu capacidad para diseñar propuestas institucionales.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "¿Cuál es el primer paso del framework del diseñador institucional?",
+      "type": "multiple_choice",
+      "options": [
+        "Proponer una solución",
+        "Diagnosticar el problema",
+        "Juntar firmas",
+        "Comunicar la propuesta"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El diagnóstico riguroso es la base de toda propuesta efectiva.",
+      "points": 2,
+      "orderIndex": 1
+    },
+    {
+      "question": "La mayoría de los problemas institucionales se deben a personas malas, no a incentivos mal diseñados.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Los problemas institucionales suelen ser resultado de incentivos mal diseñados que producen malos comportamientos.",
+      "points": 1,
+      "orderIndex": 2
+    },
+    {
+      "question": "¿Qué es una coalición transversal?",
+      "type": "multiple_choice",
+      "options": [
+        "Un partido político",
+        "Una alianza de actores diversos unidos por un objetivo concreto",
+        "Un sindicato",
+        "Una organización gubernamental"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La coalición transversal une actores diversos que pueden no estar de acuerdo en todo pero sí en un objetivo específico.",
+      "points": 2,
+      "orderIndex": 3
+    },
+    {
+      "question": "¿Cómo calcula la Ley 24.747 el apoyo para una iniciativa popular nacional?",
+      "type": "multiple_choice",
+      "options": [
+        "Con un número fijo de 500.000 firmas",
+        "Con al menos 1,5% del padrón usado en la última elección de diputados y representación de seis distritos, salvo el supuesto regional",
+        "Con mayoría simple de la Cámara de Diputados",
+        "Con 3% de la población total estimada"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La ley usa un porcentaje de un padrón electoral concreto, por eso un número absoluto envejece. También establece distribución territorial y materias excluidas que deben verificarse.",
+      "points": 2,
+      "orderIndex": 4
+    },
+    {
+      "question": "Todos los presupuestos participativos dan a la ciudadanía la misma capacidad vinculante de decisión.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El grado de decisión, el monto, la elegibilidad y la ejecución dependen del diseño y la normativa local. Hay que leer las reglas antes de llamar vinculante a una instancia.",
+      "points": 1,
+      "orderIndex": 5
+    },
+    {
+      "question": "¿Qué conjunto vuelve implementable una propuesta normativa?",
+      "type": "multiple_choice",
+      "options": [
+        "Un título creativo y una campaña",
+        "Responsabilidades, recursos, plazos, procedimiento, control e indicadores coherentes con el problema",
+        "La mayor cantidad posible de artículos",
+        "Copiar sanciones de otra jurisdicción"
+      ],
+      "correctAnswer": 1,
+      "explanation": "No toda norma necesita el mismo tipo de sanción, pero sí un mecanismo congruente: quién hace qué, con qué recursos, en qué plazo y cómo se controla y corrige.",
+      "points": 2,
+      "orderIndex": 6
+    },
+    {
+      "question": "DemocracyOS es una plataforma argentina de civic tech para deliberación online.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "DemocracyOS fue creada en Argentina por el Partido de la Red para permitir deliberación ciudadana sobre proyectos de ley.",
+      "points": 1,
+      "orderIndex": 7
+    },
+    {
+      "question": "¿Cuál es la diferencia clave entre quejarse y proponer?",
+      "type": "multiple_choice",
+      "options": [
+        "Quejarse es más fácil",
+        "Proponer requiere diagnóstico, diseño, validación y un plan de implementación",
+        "Proponer requiere título universitario",
+        "No hay diferencia real"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Proponer requiere un proceso riguroso de diagnóstico, investigación, diseño y planificación.",
+      "points": 2,
+      "orderIndex": 8
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Comunicar Tu Propuesta: De la Idea al Apoyo Público» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Cómo comunicar propuestas institucionales para generar apoyo.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 9
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Propuesta Institucional: Proyecto Final» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Diseñar una propuesta institucional concreta y un plan para implementarla.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 10
+    }
+  ]
+}

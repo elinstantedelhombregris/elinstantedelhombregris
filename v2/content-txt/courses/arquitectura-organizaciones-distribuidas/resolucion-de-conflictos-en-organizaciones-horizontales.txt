@@ -1,0 +1,61 @@
+---
+slug: resolucion-de-conflictos-en-organizaciones-horizontales
+courseSlug: arquitectura-organizaciones-distribuidas
+title: Resolución de Conflictos en Organizaciones Horizontales
+summary: Manejar conflictos cuando no hay un jefe que decida.
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/165000-169999/166999/norma.htm
+    titulo: 'Ley 26.589 — Mediación y Conciliación (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/justicia/afianzar/caj/mediacion-comunitaria
+    titulo: 'Centros de Acceso a Justicia — Mediación comunitaria (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+## Sin Jefe Que Decida: Resolver Conflictos Entre Iguales
+
+En una organización jerárquica, cuando hay conflicto el jefe decide. En una organización horizontal, necesitás **protocolos** porque no hay autoridad final. Esto es más difícil pero produce resoluciones más duraderas.
+
+### Niveles de Intervención
+
+1. **Nivel 1 - Conversación directa:** Las dos personas hablan solas. La mayoría de los conflictos se resuelven acá si hay buena voluntad.
+2. **Nivel 2 - Mediación:** Si la conversación directa falla, una tercera persona neutral facilita el diálogo.
+3. **Nivel 3 - Panel:** Si la mediación falla, un grupo de 3 personas escucha ambas partes y propone una solución.
+4. **Nivel 4 - Decisión grupal:** Si nada funciona, el grupo completo debate y decide por votación.
+
+### Herramientas de Mediación Práctica
+
+- **La silla vacía:** Cada persona se sienta en la silla del otro y expresa lo que cree que el otro siente. Genera empatía instantánea.
+- **Los intereses detrás de las posiciones:** "Vos querés X, pero ¿qué necesitás realmente?" A menudo dos posiciones opuestas comparten el mismo interés de fondo.
+- **El acuerdo parcial:** "¿En qué sí estamos de acuerdo?" Empezar por lo compartido cambia el tono de la conversación.
+
+### Pausa para Reflexionar
+
+Recordá un conflicto reciente en algún grupo del que participás. ¿En qué nivel de los cuatro se resolvió (conversación directa, mediación, panel, decisión grupal)? ¿Habría sido mejor abordarlo en un nivel diferente? ¿Qué herramienta de mediación de las mencionadas podrías haber usado?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Cuando Alguien Debe Irse
+
+A veces, a pesar de todos los esfuerzos, alguien no encaja en el grupo o genera daño sistemático. Tener un **proceso claro de desvinculación** protege tanto al grupo como a la persona. Nunca debe ser una decisión unilateral.
+
+### El protocolo se escribe antes del conflicto
+
+Los cuatro niveles sirven si están acordados antes de que alguien se pelee. Discutir el procedimiento en medio del conflicto convierte al procedimiento en otra pelea: cada parte va a proponer el camino que más le conviene. Conviene dejar escrito quién puede pedir una mediación, quiénes pueden mediar —idealmente dos o tres personas que se formaron para eso y no tienen roles de conducción—, cuánto tiempo tiene cada nivel antes de pasar al siguiente y qué pasa con los roles de las partes mientras dura el proceso. Un plazo por nivel evita que el conflicto se congele sin resolverse y que el grupo se acostumbre a convivir con él.
+
+> *"El conflicto no es el enemigo de la comunidad. El silencio ante la injusticia sí lo es. Jugamos el mismo juego cuando nos atrevemos a hablar con honestidad y escuchar con respeto."*
+
+### El caso
+
+Desde 2010, la Ley 26.589 establece la mediación obligatoria antes de todo proceso judicial en su ámbito, con excepciones como las causas penales, los amparos o las sucesiones: para presentar la demanda hay que acompañar el acta expedida y firmada por el mediador. La mediación dura hasta sesenta días corridos desde la última notificación a la otra parte, y se puede prorrogar si las dos lo acuerdan. La ley no obliga a ponerse de acuerdo; obliga a sentarse. Entre sus principios enumera la imparcialidad del mediador, la confidencialidad y la promoción de la comunicación directa. Es el nivel 2 de esta lección convertido en requisito: antes de que decida un tercero, las partes tienen que haber intentado hablar con alguien neutral en el medio.
+
+### La palanca
+
+Si tu grupo arrastra un conflicto que ya no se resuelve hablando entre las partes, no hace falta esperar a que escale. Los Centros de Acceso a Justicia del Ministerio de Justicia de la Nación ofrecen mediación comunitaria: un espacio de diálogo voluntario para conflictos entre vecinos, familiares u otras personas, donde nadie le delega la decisión a un tercero.
+Andá al Centro de Acceso a Justicia más cercano a tu domicilio y preguntá cómo se pide un turno.
+
+### El puente
+
+[PLANJUS](/planes/planjus) parte de la mediación obligatoria de la Ley 26.589, que según el plan funciona solo en parte, y propone paneles ciudadanos por sorteo que resuelven los conflictos vecinales en quince días.

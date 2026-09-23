@@ -1,0 +1,56 @@
+---
+slug: el-estado-en-la-economia-mucho-o-poco
+courseSlug: sistemas-economicos-ciclo-argentino
+title: 'El Estado en la Economía: ¿Mucho o Poco?'
+summary: 'El rol del Estado argentino en la economía: más allá de la falsa dicotomía.'
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina, artículo 85 (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.agn.gob.ar/
+    titulo: 'Auditoría General de la Nación — sitio oficial y buscador de informes'
+    consultada: '2026-09-22'
+---
+
+## La Pregunta Mal Formulada
+
+"¿El Estado tiene que intervenir más o menos en la economía?" Es la pregunta más repetida en los debates argentinos. Y es la pregunta equivocada. La pregunta correcta es: **¿Cómo interviene y para qué?**
+
+### Lo Que el Estado Argentino Hace (Bien y Mal)
+
+- **Recauda impuestos:** La presión fiscal formal es alta (~30% del PIB), pero la evasión es enorme. Los que pagan, pagan mucho. Los que evaden, no pagan nada. El sistema es injusto por donde lo mires.
+- **Redistribuye:** AUH, jubilaciones, pensiones, programas sociales. La red de seguridad social es extensa pero mal focalizada y con fugas.
+- **Regula:** Controles de precios, regulación bancaria, normas laborales. A veces necesarias, a veces contraproducentes, muchas veces cambiantes.
+- **Produce:** Empresas públicas (YPF, Aerolíneas, medios). Debate eterno sobre su eficiencia.
+- **Emplea:** Más de 3.5 millones de empleados públicos (nación + provincias + municipios). El Estado es el principal empleador del país.
+
+### El Problema No Es el Tamaño sino la Calidad
+
+Dinamarca tiene un Estado más grande que Argentina (en proporción al PIB) y funciona perfectamente. Haití tiene un Estado más chico y es un desastre. El tamaño del Estado no predice nada. Lo que importa es:
+
+1. **¿Genera valor público?** ¿Los ciudadanos reciben servicios de calidad a cambio de sus impuestos?
+2. **¿Es eficiente?** ¿Logra sus objetivos con los recursos disponibles?
+3. **¿Es transparente?** ¿Se puede auditar cómo se gasta?
+4. **¿Es predecible?** ¿Las reglas se mantienen en el tiempo?
+
+### Más Allá de la Grieta Ideológica
+
+En Argentina, la discusión Estado grande vs. Estado chico está cargada ideológicamente. El Hombre Gris propone salir de esa falsa dicotomía: el objetivo no es más Estado ni menos Estado sino **mejor Estado**. Un Estado que funcione, que sea transparente, que genere valor y que no cambie las reglas cada 4 años.
+
+> "No necesitamos un Estado que haga todo ni uno que no haga nada. Necesitamos uno que haga bien lo que tiene que hacer y deje de hacer lo que no sabe hacer. Esa distinción es más útil que todo el debate ideológico junto."
+
+### El caso
+
+La reforma constitucional de 1994 contestó en el artículo 85 una pregunta sobre la calidad del Estado, no sobre su tamaño: quién lo controla. El control externo del sector público nacional quedó como atribución propia del Congreso, con la Auditoría General de la Nación como su brazo técnico, y el presidente de la AGN se designa a propuesta del partido de oposición con más legisladores. La Auditoría interviene necesariamente en la aprobación o el rechazo de las cuentas de percepción e inversión de los fondos públicos. Su sitio informa más de 4.800 informes publicados desde 1992, con un buscador abierto a cualquiera. El diseño está: el que gasta no es el que se controla. Lo que queda por averiguar, informe por informe, es qué se hizo con cada observación.
+
+### La palanca
+
+Entrá esta semana al buscador de informes de la AGN y elegí un organismo que te toque de cerca: ANSES, tu universidad nacional, un hospital nacional, un ente regulador de un servicio que pagás todos los meses. No leas el informe entero: andá a las conclusiones, que es donde el auditor deja sus observaciones. Anotá las dos que te parezcan más graves y fijate si el documento incluye el descargo del organismo auditado.
+Buscá el informe más reciente sobre el organismo que elegiste y leé sus conclusiones.
+
+### El puente
+
+[PLANREP](/planes/planrep) parte de la misma distinción que esta lección: los 3,5 millones de empleados públicos no son el escándalo en sí; el problema es cuántos están en puestos que no generan valor, y el plan propone reconvertirlos en lugar de echarlos.

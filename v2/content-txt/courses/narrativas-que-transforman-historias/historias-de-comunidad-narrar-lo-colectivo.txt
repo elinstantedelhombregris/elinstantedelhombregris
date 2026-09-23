@@ -1,0 +1,62 @@
+---
+slug: historias-de-comunidad-narrar-lo-colectivo
+courseSlug: narrativas-que-transforman-historias
+title: 'Historias de Comunidad: Narrar lo Colectivo'
+summary: Contar historias que reflejen la fuerza de lo comunitario.
+orderIndex: 4
+draft: false
+cierre: puente
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-26684-183856/texto
+    titulo: 'Ley 26.684 — Concursos y quiebras, modificación de la Ley 24.522 (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+
+## Del "Yo" al "Nosotros"
+
+Las historias individuales conectan. Las historias comunitarias **movilizan**. Cuando una comunidad tiene una narrativa compartida —un relato de quiénes somos, de dónde venimos y hacia dónde vamos— tiene poder colectivo.
+
+### ¿Qué Es una Narrativa Comunitaria?
+
+No es un eslogan. Es la **historia viva** de una comunidad: cómo se formó, qué desafíos enfrentó, qué logró, qué valores la definen. Es lo que responde a la pregunta "¿por qué nos importa esto?"
+
+### Ejemplos Argentinos
+
+- **Las Madres de Plaza de Mayo:** Su narrativa —madres que no se rinden— es una de las más poderosas del siglo XX. No cuentan números de desaparecidos: cuentan la historia de buscar a sus hijos.
+- **Cooperativas de fábricas recuperadas:** "Los patrones se fueron y nosotros la pusimos a andar." Una narrativa de dignidad y capacidad obrera que desafía la victimización.
+- **Movimientos barriales:** En cada barrio hay historias de vecinos que se organizaron para resolver algo que el Estado no podía: una plaza, una ambulancia, un comedor.
+
+### Cómo Construir una Narrativa Comunitaria
+
+1. **Recopilar historias:** Entrevistar a miembros de la comunidad. ¿Cuándo llegaron? ¿Qué los trajo? ¿Qué momentos recuerdan?
+2. **Encontrar los hilos comunes:** ¿Qué valores aparecen una y otra vez? ¿Qué experiencias comparten?
+3. **Construir el arco narrativo:** ¿De dónde venimos? ¿Qué enfrentamos? ¿Qué logramos? ¿Hacia dónde vamos?
+4. **Hacer que todos se vean:** La narrativa comunitaria debe incluir voces diversas, no solo las de los líderes.
+
+### Cuando el Relato Llega a la Ley: las Fábricas Recuperadas
+
+La frase «los patrones se fueron y nosotros la pusimos a andar» no se quedó en las asambleas. En 2011 tuvo su versión en el texto de una ley.
+
+La Ley 26.684, sancionada el 1 de junio de 2011 y publicada en el Boletín Oficial el 30 de junio, modificó la Ley de Concursos y Quiebras (24.522). Algunos de los cambios:
+
+- Las dos terceras partes del personal en actividad o de los acreedores laborales, organizados en cooperativa, pueden pedir la continuación inmediata de la explotación de la empresa quebrada (artículo 189).
+- Durante ese período, los trabajadores actúan bajo la forma de una cooperativa de trabajo, y tienen veinte días para presentar un proyecto (artículo 190).
+- La cooperativa puede hacer una oferta y pedir que le adjudiquen la empresa al valor de tasación (artículo 205), y compensar el precio con los créditos laborales que los trabajadores le ceden (artículo 203 bis).
+
+Fijate en lo que hay detrás. Una fábrica recuperada se puede contar de dos maneras: como una toma, gente ocupando algo que no es suyo, o como trabajadores que sostienen una fuente de trabajo que el dueño abandonó. Durante años las cooperativas insistieron con la segunda versión, en asambleas, documentales y audiencias. La ley de 2011 adopta esa mirada: trata a los trabajadores organizados como sujetos que pueden continuar la empresa, con plazos y derechos propios.
+
+Por eso una narrativa comunitaria no es decoración. Cuando está hecha con voces diversas, hilos comunes y un arco que va de dónde venimos a hacia dónde vamos, puede cambiar la manera en que el Estado mira un problema.
+
+### Ejercicio: Tu Comunidad en 3 Historias
+
+Elegí una comunidad a la que pertenecés (barrio, club, organización, grupo de amigos) y contá:
+
+- La historia de origen: ¿cómo empezó?
+- La historia de crisis: ¿cuál fue el momento más difícil y cómo se superó?
+- La historia de esperanza: ¿cuál es la mejor versión de esta comunidad y cómo llegar?
+
+> "Las comunidades que tienen una historia compartida tienen identidad. Las que tienen identidad tienen fuerza. Las que tienen fuerza pueden cambiar las cosas."
+
+### El puente
+
+Una comunidad existe mientras sus miembros sostienen el relato compartido: [¿De qué está hecha una nación?](/ensayos/que-es-una-nacion) lleva esa idea a escala de país y define a la nación como un acuerdo sostenido por millones de mentes.

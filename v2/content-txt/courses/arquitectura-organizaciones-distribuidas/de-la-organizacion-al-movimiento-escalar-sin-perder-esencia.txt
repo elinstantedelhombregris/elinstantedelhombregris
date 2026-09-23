@@ -1,0 +1,53 @@
+---
+slug: de-la-organizacion-al-movimiento-escalar-sin-perder-esencia
+courseSlug: arquitectura-organizaciones-distribuidas
+title: 'De la Organización al Movimiento: Escalar Sin Perder Esencia'
+summary: Cómo crecer manteniendo los valores y la estructura distribuida.
+orderIndex: 12
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/18462/texact.htm
+    titulo: 'Ley 20.337 — Ley de Cooperativas, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Crecer Sin Traicionarse
+
+Llega un momento donde tu organización barrial funciona bien y aparece la tentación (o la necesidad) de crecer. Más barrios, más proyectos, más personas. Este es el momento más peligroso: donde muchas organizaciones horizontales se vuelven verticales "por necesidad".
+
+### Los 3 Modelos de Crecimiento
+
+1. **Replicación:** No agrandás tu organización sino que ayudás a que surjan otras iguales en otros barrios. Les compartís el modelo, las herramientas, la experiencia. Cada una es autónoma.
+2. **Federación:** Varias organizaciones barriales se asocian en una red que comparte recursos y coordina acciones, pero cada una mantiene su autonomía interna.
+3. **Escalamiento fractal:** La misma estructura de círculos se replica a nivel supra-barrial. Círculos barriales que envían representantes a un círculo zonal, que envía al municipal.
+
+### Las Trampas del Crecimiento
+
+- **La trampa de la formalización excesiva:** Más papeles, más burocracia, menos agilidad
+- **La trampa del financiamiento:** El dinero externo puede distorsionar las prioridades
+- **La trampa de la profesionalización:** Cuando los voluntarios se vuelven empleados, cambia la dinámica
+- **La trampa de la visibilidad:** La atención mediática puede generar egos y conflictos
+
+### Pausa para Reflexionar
+
+De los 3 modelos de crecimiento (replicación, federación, escalamiento fractal), ¿cuál se adaptaría mejor a tu contexto territorial? Pensá en las organizaciones que ya existen en barrios vecinos al tuyo. ¿Cuál sería el primer paso concreto para conectarte con ellas?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### La federación con reglas escritas
+
+La Ley de Cooperativas, 20.337, tiene resuelto el problema de la federación desde 1973. Las cooperativas pueden integrarse en cooperativas de grado superior, con un mínimo de siete (artículo 85), y el estatuto de esa federación tiene que fijar cómo se representa y cómo vota cada una. El voto puede ser proporcional a la cantidad de asociados, al volumen de operaciones o a ambos, pero con un mínimo y un máximo que aseguren la participación de todas e impidan el predominio excluyente de alguna. Es una trampa del crecimiento resuelta con una cláusula: la organización grande pesa más, pero no puede decidir sola. Si tu red de barrios se federa, esa es la primera regla que conviene copiar.
+
+### Replicar no es franquiciar
+
+La replicación funciona cuando lo que se comparte es el método y no la marca. Un barrio que copia el modelo de otro necesita tres cosas: los documentos (el acuerdo fundacional, las descripciones de roles, el protocolo de conflictos), alguien que ya lo hizo y atienda el teléfono los primeros meses, y permiso explícito para cambiar lo que no le sirve. Si la organización de origen exige aprobar cada cambio, lo que creció no es una red sino una sucursal, y va a depender del centro igual que un grupo depende de su referente. La prueba de que la replicación salió bien es que el grupo nuevo, al año, hace algo que el original no hacía, y el original se lo copia. Para que eso pase, alguien tiene que contar qué funcionó y qué no: un encuentro anual entre los grupos, o una carpeta común donde cada uno deja por escrito lo que probó, alcanza para que las mejoras circulen en las dos direcciones.
+
+### Tu Proyecto: Diseñá la Arquitectura de Tu Organización
+
+Como ejercicio final de este curso, diseñá la estructura completa de una organización distribuida para tu barrio: círculos, roles, protocolos de decisión, flujos de comunicación y mecanismos anti-concentración. Este diseño será tu guía de implementación.
+
+> "El movimiento del Hombre Gris no crece sumando seguidores. Crece multiplicando organizadores."
+
+### El puente
+
+[PLANGEO](/planes/plangeo) aplica la misma regla a escala de país: cada módulo que la Argentina ofrezca al mundo tiene que ser abierto y modificable, sin crear dependencia, porque crearla sería reproducir lo que ¡BASTA! denuncia.

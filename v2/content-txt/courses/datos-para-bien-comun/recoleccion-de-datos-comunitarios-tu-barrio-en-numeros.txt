@@ -1,0 +1,74 @@
+---
+slug: recoleccion-de-datos-comunitarios-tu-barrio-en-numeros
+courseSlug: datos-para-bien-comun
+title: 'Recolección de Datos Comunitarios: Tu Barrio en Números'
+summary: Métodos prácticos para relevar datos que no existen en fuentes oficiales.
+orderIndex: 2
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.redalyc.org/journal/3517/351757994007/html/
+    titulo: 'Integración urbana y políticas públicas: el caso del Registro Nacional de Barrios Populares de Argentina, Decreto 358/2017 (Redalyc)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-27453-315739
+    titulo: 'Ley 27.453 — Régimen de regularización dominial para la integración socio urbana (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/desarrollosocial/renabap
+    titulo: 'Registro Nacional de Barrios Populares (ReNaBaP) — Argentina.gob.ar'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm
+    titulo: 'Ley 25.326 — Protección de los Datos Personales, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Cuando los Datos Oficiales No Alcanzan
+
+Los datos del INDEC te dicen cuánta pobreza hay en el país. Pero no te dicen cuántos baches hay en tu cuadra, cuánto tarda la ambulancia en llegar a tu barrio, o cuántos chicos de tu manzana no van a la escuela. Esos datos los tenés que generar **vos**.
+
+### Métodos de Recolección
+
+### 1. La Encuesta Vecinal
+
+- **Diseño:** Máximo 10 preguntas. Claras, cerradas (opciones), sin jerga. Google Forms es ideal.
+- **Muestra:** No necesitás encuestar a todo el barrio. 50-100 hogares bien seleccionados te dan un panorama confiable.
+- **Distribución:** Puerta a puerta es lo más confiable. WhatsApp funciona pero sesga (solo llega a los conectados).
+- **Ejemplo:** "¿Cuántas veces por semana sale agua por la canilla?" "¿A qué hora pasa el último colectivo?" "¿Su hijo/a asiste a apoyo escolar?"
+
+### 2. La Observación Sistemática
+
+- Caminá la misma ruta 3 veces en diferentes horarios.
+- Registrá: luminarias rotas, veredas en mal estado, basurales, esquinas inseguras.
+- Sacá fotos geolocalizadas.
+- Volcá todo en un mapa (Google My Maps).
+
+### 3. El Registro Ciudadano
+
+- Pedí a vecinos que registren un dato durante 30 días. Ejemplo: "Anotá cada vez que se corta la luz, la hora y cuánto dura."
+- Al final del mes, consolidá los datos.
+- 30 vecinos registrando cortes de luz = un informe demoledor sobre calidad del servicio eléctrico.
+
+### Calidad de los Datos
+
+- **Consistencia:** Todos registramos lo mismo, de la misma manera.
+- **Temporalidad:** Los datos tienen fecha. "Relevado entre el 1 y el 30 de marzo de 2025."
+- **Representatividad:** ¿Cubrimos todo el barrio o solo una zona? Aclaralo.
+- **Transparencia:** Publicá la metodología. "Encuestamos 80 hogares seleccionados al azar en 10 manzanas del barrio X."
+
+
+### Los datos de tus vecinos no son tuyos
+
+Relevar un barrio es juntar datos personales, y eso tiene reglas. La Ley 25.326 de Protección de Datos Personales dice que tratar datos sin el consentimiento «libre, expreso e informado» del titular es ilícito, y que antes de preguntar hay que avisar para qué se van a usar los datos, quién los va a ver y si responder es obligatorio o voluntario. En la práctica: una línea al principio de la encuesta que diga todo eso, ninguna pregunta cuyo dato no vayas a usar, y los nombres separados de las respuestas desde el primer día.
+
+> "El dato que vos generás tiene un valor que ningún censo nacional puede reemplazar: es hiperlocal, es actual, y es tuyo. Cuando le mostrás al funcionario que vos tenés LOS DATOS de su barrio, la conversación cambia por completo."
+
+### El caso
+
+El Registro Nacional de Barrios Populares no nació en una oficina. En 2016 un grupo de organizaciones —la CTEP, la Corriente Clasista y Combativa, Barrios de Pie y TECHO, entre otras— acordó con el Estado un primer relevamiento, con la metodología que TECHO aplicaba desde 2012. La definición se podía verificar caminando: al menos ocho viviendas contiguas, donde la mitad de las familias no tiene título de propiedad y le faltan dos de los tres servicios básicos. Las primeras etapas contaron más de 4.000 barrios, 460 mil familias y un millón y medio de personas encuestadas. En 2017 el Decreto 358 convirtió ese conteo en registro, y la Ley 27.453, sancionada el 10 de octubre de 2018, declaró de interés público la integración de esos barrios. Un dato levantado en la calle terminó siendo la base de una ley.
+
+### La palanca
+
+Antes de diseñar tu encuesta, escribí la definición de lo que vas a contar con la misma dureza que la del registro: qué cuenta como corte de luz, desde cuántos minutos, quién lo anota y dónde. Probala con tres vecinos que no estuvieron en la reunión; si cada uno la entiende distinto, está mal escrita. Y fijate si tu barrio ya figura entre los 6.467 del RENABAP: puede ahorrarte relevar lo que otro ya contó.
+Definí por escrito la unidad y el criterio antes de golpear la primera puerta.
+
+### El puente
+
+Ese registro es una de las fuentes con las que [PLANVIV](/planes/planviv) dimensiona el déficit habitacional y ordena la urbanización de los asentamientos: sin el conteo, no hay plan que sepa cuánto falta.

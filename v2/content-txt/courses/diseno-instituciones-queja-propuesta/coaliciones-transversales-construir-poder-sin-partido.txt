@@ -1,0 +1,73 @@
+---
+slug: coaliciones-transversales-construir-poder-sin-partido
+courseSlug: diseno-instituciones-queja-propuesta
+title: 'Coaliciones Transversales: Construir Poder sin Partido'
+summary: Cómo construir alianzas amplias para impulsar cambios institucionales.
+orderIndex: 5
+draft: false
+cierre: completo
+fuentes:
+  - url: https://fundeps.org/etiquetado-frontal-media-sancion/
+    titulo: '«Contiene» media sanción la ley de etiquetado frontal de alimentos — Fundeps'
+    consultada: '2026-09-22'
+  - url: https://www.infobae.com/politica/2021/10/27/diputados-aprobo-la-ley-de-etiquetado-frontal/
+    titulo: 'Etiquetado frontal: aprobaron la ley que obliga a empresas a informar sobre el contenido de los alimentos — Infobae'
+    consultada: '2026-09-22'
+  - url: https://www.eldiarioar.com/economia/diputados-convirtio-en-ley-el-etiquetado-frontal-de-alimentos_1_8433747.html
+    titulo: 'Diputados convirtió en ley el etiquetado frontal de alimentos — elDiarioAR'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/360000-364999/362577/norma.htm
+    titulo: 'Decreto 151/2022 — Reglamentación de la Ley 27.642 de Promoción de la Alimentación Saludable (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Solo No Podés, Pero No Necesitás un Partido
+
+Una propuesta ciudadana individual es fácil de ignorar. Una propuesta respaldada por una **coalición amplia y diversa** es un hecho político que nadie puede descartar. Construir coaliciones es el arte de juntar gente que puede no estar de acuerdo en todo pero sí en algo específico.
+
+### ¿Qué Es una Coalición Transversal?
+
+Una alianza de actores diversos (ONGs, gremios, empresas, universidades, medios, vecinos, legisladores) que se unen alrededor de un **objetivo concreto y limitado**. No es un partido político. No es un frente electoral. Es una alianza de propósito.
+
+### Cómo Construirla
+
+1. **Definí el objetivo concreto:** "Aprobar la ordenanza de presupuesto participativo en nuestra ciudad." Cuanto más específico, más fácil sumar aliados.
+2. **Mapeá aliados potenciales:** ¿A quién le conviene este cambio? Vecinos, comerciantes, organizaciones, medios locales, concejales de diferentes partidos.
+3. **Buscá el "mínimo común":** No necesitás que todos estén de acuerdo en todo. Solo en el objetivo específico.
+4. **Asigná roles:** Alguien comunica, alguien hace lobby legislativo, alguien moviliza vecinos, alguien aporta expertise técnica.
+5. **Mantené la cohesión:** Reuniones regulares, comunicación clara, celebración de logros parciales.
+
+### Aliados Inesperados
+
+Las coaliciones más efectivas incluyen aliados que **sorprenden**:
+
+- Un empresario local que quiere transparencia en las contrataciones (porque le ganaron licitaciones con fraude).
+- Un concejal de la oposición que busca un logro para mostrar.
+- Un medio local que necesita contenido y le interesa cubrir la campaña.
+- Una universidad que puede aportar datos y análisis técnico.
+
+### Pausa para Reflexionar
+
+Elegí una causa que te importe en tu comunidad (puede ser una plaza, más seguridad, transparencia municipal). Listá 5 aliados potenciales de sectores distintos: ¿un comerciante? ¿un docente? ¿un medio local? ¿un concejal? ¿Cuál sería el "mínimo común" que los una a todos?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Errores a Evitar
+
+- **Partidizar:** Si la propuesta se identifica con un partido, los otros se oponen automáticamente.
+- **Personalizar:** La coalición es más grande que cualquier líder individual.
+- **Maximizar:** Mejor un cambio pequeño logrado que un cambio enorme bloqueado.
+
+> "El poder ciudadano no está en un individuo brillante sino en una red de personas comprometidas con un objetivo común. La coalición transversal es la herramienta del Hombre Gris: construir poder sin necesitar un partido."
+
+### El caso
+
+El etiquetado frontal de alimentos tuvo media sanción del Senado el 29 de octubre de 2020, por 64 votos contra 3. Después pasó nueve meses esperando en Diputados: en agosto y a principios de octubre de 2021 se cayeron sesiones especiales por falta de quórum, y el proyecto estaba por perder estado parlamentario en diciembre. En contra estaban las grandes alimentarias, la COPAL y representantes de las provincias azucareras. Afuera del Congreso, organizaciones como Fundeps, SANAR y Consciente Colectivo sostuvieron la presión hasta el final. A fines de octubre de 2021 la Cámara votó: 200 a favor, 22 en contra y 16 abstenciones. Es la Ley 27.642. El objetivo era uno solo y entraba en una frase: advertir en el frente del paquete los excesos de azúcares, sodio y grasas.
+
+### La palanca
+
+Escribí el objetivo de tu causa en una sola oración, con verbo y fecha, del tipo «que el Concejo apruebe tal cosa antes de diciembre». Después hacé una lista de diez personas con nombre y apellido: dos vecinos, un comerciante, alguien de una escuela, alguien de una universidad o un colegio profesional, un periodista local y un concejal de cada bloque. Al lado de cada nombre anotá qué gana si el objetivo se cumple. Si no encontrás qué gana, sacalo de la lista.
+Llamá esta semana a los tres primeros.
+
+### El puente
+
+Una coalición no tiene poder guardado en ningún lado: lo ejerce mientras sus miembros actúan juntos. [Poder](/ensayos/poder) desarma la idea de que el poder es una cosa que se posee y lo piensa como un verbo.

@@ -1,0 +1,119 @@
+{
+  "slug": "datos-para-bien-comun",
+  "title": "Datos para el Bien Común",
+  "description": "Usá datos como herramienta de transformación. Recolección y análisis de datos comunitarios, datos.gob.ar e INDEC, visualización, ciencia ciudadana y rendición de cuentas basada en datos.",
+  "excerpt": "Convertí datos en herramientas de justicia y rendición de cuentas.",
+  "category": "action",
+  "level": "advanced",
+  "duration": 35,
+  "orderIndex": 22,
+  "isPublished": true,
+  "isFeatured": false,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-datos-como-arma-ciudadana-ver-lo-que-el-poder-quiere-esconder",
+      "title": "Datos como Arma Ciudadana: Ver lo que el Poder Quiere Esconder",
+      "description": "Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.",
+      "duration": 3,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-recoleccion-de-datos-comunitarios-tu-barrio-en-numeros",
+      "title": "Recolección de Datos Comunitarios: Tu Barrio en Números",
+      "description": "Métodos prácticos para relevar datos que no existen en fuentes oficiales.",
+      "duration": 4,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-analisis-de-datos-con-herramientas-gratuitas",
+      "title": "Análisis de Datos con Herramientas Gratuitas",
+      "description": "Cómo transformar datos crudos en información útil usando hojas de cálculo.",
+      "duration": 4,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-visualizacion-convertir-datos-en-historias-visuales",
+      "title": "Visualización: Convertir Datos en Historias Visuales",
+      "description": "Cómo hacer gráficos, mapas e infografías que comuniquen datos con impacto.",
+      "duration": 3,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-presupuesto-publico-segui-la-plata",
+      "title": "Presupuesto Público: Seguí la Plata",
+      "description": "Cómo leer el presupuesto público y detectar inconsistencias.",
+      "duration": 4,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-ciencia-ciudadana-cuando-la-comunidad-investiga",
+      "title": "Ciencia Ciudadana: Cuando la Comunidad Investiga",
+      "description": "Proyectos donde ciudadanos comunes generan datos científicos de valor.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-periodismo-de-datos-contar-historias-con-evidencia",
+      "title": "Periodismo de Datos: Contar Historias con Evidencia",
+      "description": "Técnicas básicas de periodismo de datos aplicadas a la acción ciudadana.",
+      "duration": 4,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-inteligencia-artificial-y-datos-ciudadanos",
+      "title": "Inteligencia Artificial y Datos Ciudadanos",
+      "description": "Cómo usar IA para potenciar el análisis de datos comunitarios.",
+      "duration": 3,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-rendicion-de-cuentas-basada-en-datos",
+      "title": "Rendición de Cuentas Basada en Datos",
+      "description": "Cómo usar datos para exigir transparencia y combatir la corrupción.",
+      "duration": 4,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-tu-proyecto-de-datos-de-este-curso-a-la-transformacion",
+      "title": "Tu Proyecto de Datos: De Este Curso a la Transformación",
+      "description": "Diseñar y ejecutar tu primer proyecto de datos para el bien común.",
+      "duration": 3,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Convertir una inquietud comunitaria en una pregunta que pueda responderse con datos.",
+    "Diseñar una recolección mínima con diccionario, controles y resguardo de información sensible.",
+    "Comunicar un hallazgo con una visualización honesta y una recomendación proporcionada."
+  ],
+  "noCubre": [
+    "No enseña estadística avanzada ni convierte correlaciones en causalidad.",
+    "No habilita recolectar datos personales sin consentimiento, necesidad y protección."
+  ],
+  "paraQuien": "Para equipos ciudadanos con un problema verificable y voluntad de documentar cómo obtienen sus conclusiones.",
+  "productoFinal": "Un proyecto de datos reproducible: pregunta, diccionario, muestra, análisis, gráfico y nota metodológica.",
+  "prerrequisitos": [
+    "Manejo básico de una planilla de cálculo.",
+    "Un problema comunitario delimitado."
+  ],
+  "coverImage": "/course-art/entrenamientos/datos-para-bien-comun.webp",
+  "fuentesBase": [
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/datos-abiertos/portal",
+      "titulo": "Portal Nacional de Datos Públicos",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949/actualizacion",
+      "titulo": "Ley 27.275 actualizada · alcance, excepciones y plazos",
+      "consultada": "2026-08-14"
+    }
+  ]
+}

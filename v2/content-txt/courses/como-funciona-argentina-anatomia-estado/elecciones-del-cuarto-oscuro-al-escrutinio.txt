@@ -1,0 +1,63 @@
+---
+slug: elecciones-del-cuarto-oscuro-al-escrutinio
+courseSlug: como-funciona-argentina-anatomia-estado
+title: 'Elecciones: Del Cuarto Oscuro al Escrutinio'
+summary: Cómo funciona el sistema electoral argentino y cómo participar más allá del voto.
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.boletinoficial.gob.ar/detalleAviso/primera/322209/20250307
+    titulo: 'Ley 27.783 — Suspensión de las PASO durante 2025 (Boletín Oficial)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/interior/observatorioelectoral/boleta-unica-papel-bup
+    titulo: 'Boleta Única Papel (BUP) — Observatorio Electoral, Ministerio del Interior'
+    consultada: '2026-09-22'
+  - url: https://www.electoral.gob.ar/nuevo/paginas/btn/cyee/cyee_am.php
+    titulo: 'Cámara Nacional Electoral — Autoridades de mesa: requisitos y registro de postulantes'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-01'
+---
+
+## El Acto Electoral: Más Allá de Meter un Sobre
+
+Votar es un derecho y una obligación en Argentina. Pero el sistema electoral tiene muchas capas que la mayoría no conoce, y hay formas de participación electoral mucho más profundas que elegir un candidato cada dos años.
+
+### El Sistema Electoral Argentino
+
+- **PASO (Primarias Abiertas):** Elecciones primarias obligatorias donde todos los partidos eligen candidatos. También sirven como "encuesta" nacional.
+- **Generales:** La elección definitiva. Presidente se elige con ballotage (segunda vuelta si nadie supera el 45% o 40% con 10 puntos de diferencia).
+- **Sistema proporcional (D'Hondt):** Para diputados. Favorece a los partidos más grandes.
+- **Senado:** 3 senadores por provincia: 2 para la mayoría, 1 para la primera minoría.
+
+### Formas de Participar
+
+1. **Fiscal de mesa:** Controlás el proceso electoral en la mesa de votación. Es un servicio cívico fundamental.
+2. **Fiscal general de escuela:** Coordinás los fiscales de un establecimiento.
+3. **Observador electoral:** ONGs como Poder Ciudadano forman observadores.
+4. **Candidato:** Cualquier ciudadano puede ser candidato a concejal, diputado, etc.
+
+### El Escrutinio
+
+El escrutinio provisorio (la noche de la elección) lo hace correo con supervisión de fiscales. El escrutinio definitivo lo hace la justicia electoral y tarda semanas. Ambos procesos son controlables por la ciudadanía.
+
+### La mesa por dentro
+
+Cada mesa tiene un presidente y un suplente que no son militantes: son ciudadanos designados por la justicia electoral. Para serlo hay que tener entre 18 y 70 años, vivir en la sección electoral donde se vota, saber leer y escribir, estar en el padrón y no estar afiliado a ningún partido. Quien cumple con eso puede anotarse de manera voluntaria en el Registro Público de Postulantes a Autoridades de Mesa, y cobra un viático por la jornada.
+
+Al lado de la autoridad de mesa están los fiscales, que sí representan a un partido. Los dos roles se controlan entre sí: la autoridad conduce el acto y firma el acta; el fiscal mira, objeta y se lleva su certificado del resultado. Cuando falta uno de los dos, el control de la mesa queda en una sola mano.
+
+> *"Votar es el acto mínimo de ciudadanía. Ser fiscal, observar, exigir transparencia: eso es jugar el mismo juego que juegan los que manejan el poder electoral."*
+
+### El caso
+
+En 2025 se votaron diputados y senadores nacionales con dos reglas nuevas. La Ley 27.783, publicada en el Boletín Oficial el 7 de marzo, suspendió las PASO durante ese año: no hubo primarias. Y la Ley 27.781, que la Cámara de Diputados sancionó el 1 de octubre de 2024, reemplazó las boletas partidarias por la Boleta Única de Papel, que se usó por primera vez en una elección nacional en las legislativas de 2025. Con una sola papeleta que trae a todas las listas, desaparecen el robo de boletas en el cuarto oscuro y el trabajo de reponerlas, y el control se desplaza al conteo y al acta. Las reglas del juego electoral cambiaron dos veces en menos de un año, y las dos por ley del Congreso.
+
+### La palanca
+
+Si no estás afiliado a ningún partido, entrá a electoral.gob.ar, sección Autoridades de Mesa, y anotate en el Registro Público de Postulantes para la próxima elección nacional. Si militás o simpatizás con una fuerza, pedile a su apoderado en tu distrito que te sume como fiscal de mesa y que te capacite antes del día de la votación.
+Elegí uno de los dos roles esta semana y dejá hecha la inscripción o el pedido.
+
+### El puente
+
+Contar bien los votos es una condición, no el punto de llegada. [PLANMESA](/planes/planmesa) sostiene que la república no se decide sólo en la urna sino en mesas donde la silla se gana con trabajo verificable.

@@ -1,0 +1,68 @@
+---
+slug: comunicar-tu-propuesta-de-la-idea-al-apoyo-publico
+courseSlug: diseno-instituciones-queja-propuesta
+title: 'Comunicar Tu Propuesta: De la Idea al Apoyo Público'
+summary: Cómo comunicar propuestas institucionales para generar apoyo.
+orderIndex: 9
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.lanacion.com.ar/lifestyle/viven-justina-ano-record-donacion-organos-nueva-nid2203630/
+    titulo: 'Viven por Justina: un año récord en donación de órganos tras la nueva ley — La Nación'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/noticias/ley-justina-una-esperanza-para-quienes-aguardan-un-trasplante
+    titulo: 'Ley Justina: una esperanza para quienes aguardan un trasplante — Argentina.gob.ar'
+    consultada: '2026-09-22'
+  - url: https://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1851-96012014000100002
+    titulo: 'Pinillos y Signorelli, Notas sobre participación y representación en el presupuesto participativo de Rosario (2002-2012) — Postdata'
+    consultada: '2026-09-22'
+---
+## La Mejor Propuesta del Mundo No Sirve Si Nadie la Conoce
+
+Podés tener la propuesta más brillante, técnicamente perfecta y constitucionalmente impecable. Si no sabés **comunicarla de manera que la gente la entienda y la apoye**, va a morir en un cajón. Comunicar la propuesta es tan importante como diseñarla.
+
+### El Elevator Pitch de Tu Propuesta
+
+Necesitás poder explicar tu propuesta en **30 segundos**. Formato:
+
+1. **El problema:** "¿Sabías que el municipio gasta $X en publicidad pero no tiene ambulancia?"
+2. **La solución:** "Queremos que los vecinos decidan en qué se gasta el 10% del presupuesto."
+3. **El pedido:** "¿Nos firmás el apoyo para que se trate en el Concejo?"
+
+### Adaptá el Mensaje a la Audiencia
+
+- **Para vecinos:** Beneficios concretos y cercanos. "Vos vas a poder elegir si se arregla tu calle o se hace una plaza."
+- **Para concejales:** Viabilidad legal y precedentes exitosos. "53 municipios argentinos ya lo implementaron con éxito."
+- **Para medios:** La historia humana detrás de la propuesta. "Marta juntó 500 firmas porque quiere que sus nietos tengan una plaza."
+- **Para empresarios:** Eficiencia y transparencia. "El presupuesto participativo reduce la corrupción y mejora la asignación de recursos."
+
+Un detalle sobre los números: el que usás en el pitch tiene que resistir que alguien lo busque. «53 municipios» suena preciso, pero si no sabés de dónde sale, el primer concejal que pregunte te desarma. Sirve más un dato con fuente, aunque sea menos redondo: un estudio sobre Rosario publicado en la revista Postdata en 2014 registra que en 2010 uno de cada cuatro habitantes de la Argentina vivía en un municipio con presupuesto participativo. Tené a mano la fuente de cada cifra que digas.
+
+### Pausa para Reflexionar
+
+Elegí una propuesta que te interese (puede ser presupuesto participativo, transparencia, o cualquier mejora local). Ahora escribí tu "elevator pitch" de 30 segundos usando el formato problema-solución-pedido. ¿Podrías convencer a un vecino desinteresado en la cola del supermercado?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Canales de Comunicación
+
+1. **Redes sociales:** Contenido visual, historias personales, datos impactantes.
+2. **Medios locales:** Nota de prensa, entrevistas, columna de opinión.
+3. **Puerta a puerta:** En el barrio, la conversación cara a cara sigue siendo lo más efectivo.
+4. **Eventos públicos:** Charlas, debates, presentaciones en clubes y sociedades de fomento.
+5. **Lobby directo:** Reuniones con concejales y funcionarios. Uno a uno, con datos en mano.
+
+> "Una propuesta sin comunicación es un árbol que cae en el bosque sin que nadie lo escuche. Aprendé a comunicar con la misma rigurosidad con la que diseñás."
+
+### El caso
+
+Justina Lo Cane tenía 12 años cuando murió, el 22 de noviembre de 2017, esperando un trasplante de corazón. Su familia había armado una campaña con un mensaje que entraba en un renglón: «Multiplicate x 7», porque el día que te vas, si sos donante, tu vida se multiplica por siete. El problema, la solución y el pedido estaban adentro de esa cifra. En julio de 2018 Diputados aprobó por unanimidad la Ley 27.447, que considera donante a toda persona mayor de 18 años salvo que haya dejado constancia en contrario. Ese año la Argentina tuvo 633 donantes de órganos, un récord que superó los 630 de 2012. Una ley técnica sobre registros y consentimiento se ganó con una frase que cualquiera podía repetir en la fila del supermercado.
+
+### La palanca
+
+Escribí tu propuesta en una frase de menos de diez palabras que tenga un número adentro. Probala con cinco personas que no estén en el tema —el kiosquero, una vecina, alguien del club— y pediles al día siguiente que te la repitan. Si nadie la recuerda, el problema no es la gente: es la frase. Reescribila hasta que vuelva sola.
+Probá la frase con esas cinco personas antes del domingo.
+
+### El puente
+
+Una campaña ciudadana compite hoy contra la pauta oficial, que decide a qué medio le llega plata: [PLANFOCO](/planes/planfoco) propone extinguirla en cinco años y darle a cualquiera que la pida una dotación de canal propio, La Antena.

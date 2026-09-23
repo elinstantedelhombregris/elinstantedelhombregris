@@ -1,0 +1,97 @@
+{
+  "slug": "introduccion-al-hombre-gris",
+  "title": "Introducción al Hombre Gris",
+  "description": "Un viaje desde la raíz etimológica de lo humano hasta el brillo de la plata refinada. Este curso explora qué significa ser hombre, por qué gris no es ausencia sino síntesis, cómo las crisis nos refinan como plata en el fuego, y por qué romper la polarización es el acto más valiente de nuestro tiempo. Basado en etimología, historia, las psicografías de Parravicini y una invitación a transformarte — ahora.",
+  "excerpt": "De la tierra al brillo: etimología, humanidad y el coraje de ser gris en un mundo blanco y negro.",
+  "category": "hombre-gris",
+  "level": "beginner",
+  "duration": 40,
+  "orderIndex": 1,
+  "isPublished": true,
+  "isFeatured": true,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-homo-humus-humildad-que-significa-ser-hombre",
+      "title": "Homo, Humus, Humildad — ¿Qué significa ser Hombre?",
+      "description": "Un viaje a la raíz de lo que somos: de la tierra que nos nombra a la humanidad que nos define.",
+      "duration": 4,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-gris-el-color-que-guarda-todos-los-colores",
+      "title": "Gris — El color que guarda todos los colores",
+      "description": "Etimología del gris, la rebeldía de lo complejo, y por qué negarse a elegir bando es el acto más libre.",
+      "duration": 5,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-plata-que-se-refina-el-proceso-de-brillar",
+      "title": "Plata que se refina — El proceso de brillar",
+      "description": "El fuego como transformador: de la metalurgia antigua a la crisis argentina, el brillo se conquista pasando por el dolor.",
+      "duration": 5,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-las-psicografias-de-parravicini-el-gris-profetizado",
+      "title": "Las Psicografías de Parravicini — El gris profetizado",
+      "description": "Quién fue Parravicini, qué vio sobre el Hombre Gris, y por qué su visión no es un destino sino una invitación.",
+      "duration": 5,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-la-humanidad-como-puente-romper-la-polarizacion",
+      "title": "La humanidad como puente — Romper la polarización",
+      "description": "Cómo funciona la polarización, qué nos roba, y por qué la humanidad compartida es el puente más fuerte.",
+      "duration": 5,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-los-pilares-del-movimiento-profundizacion",
+      "title": "Los Pilares del Movimiento — Profundización",
+      "description": "Los cinco pilares que sostienen al Hombre Gris, cada uno conectado con la metáfora de la plata que se refina.",
+      "duration": 6,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-abrir-la-mente-abrir-el-corazon",
+      "title": "Abrir la mente, abrir el corazón",
+      "description": "La mente cerrada como impureza, la vulnerabilidad como fortaleza, y las historias que nos devuelven la humanidad.",
+      "duration": 5,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-tu-instante-aplicacion-y-compromiso",
+      "title": "Tu instante — Aplicación y compromiso",
+      "description": "El instante como decisión, tu arqueología personal, el desafío de 7 días, y la invitación que lo cambia todo.",
+      "duration": 5,
+      "orderIndex": 8
+    }
+  ],
+  "promesa": [
+    "Distinguir símbolo, interpretación y propuesta ética dentro de la idea del Hombre Gris.",
+    "Explorar humildad, pluralidad y transformación sin exigir adhesión mística.",
+    "Convertir una intuición personal en un compromiso pequeño y observable."
+  ],
+  "noCubre": [
+    "No demuestra profecías ni presenta interpretaciones simbólicas como hechos históricos.",
+    "No construye un culto, una identidad partidaria ni una figura salvadora."
+  ],
+  "paraQuien": "Para personas curiosas por el marco del Hombre Gris, incluidas las que llegan con escepticismo.",
+  "productoFinal": "Una declaración personal de principios y una acción de siete días coherente con ella.",
+  "prerrequisitos": [],
+  "coverImage": "/course-art/entrenamientos/introduccion-al-hombre-gris.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.oecd.org/en/publications/systemic-thinking-for-policy-making_879c4f7a-en/full-report.html",
+      "titulo": "OCDE e IIASA · pensamiento sistémico para políticas públicas",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/interior/archivo-general-de-la-nacion",
+      "titulo": "Archivo General de la Nación · fondos y servicios documentales",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

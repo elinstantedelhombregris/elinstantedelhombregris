@@ -1,0 +1,63 @@
+---
+slug: visualizacion-convertir-datos-en-historias-visuales
+courseSlug: datos-para-bien-comun
+title: 'Visualización: Convertir Datos en Historias Visuales'
+summary: 'Cómo hacer gráficos, mapas e infografías que comuniquen datos con impacto.'
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://chequeado.com/ultimas-noticias/es-enganoso-el-grafico-sobre-la-evolucion-de-la-deuda-que-compartio-javier-milei-en-x/
+    titulo: 'Es engañoso el gráfico sobre la evolución de la deuda que compartió Javier Milei en X (Chequeado)'
+    consultada: '2026-09-22'
+---
+
+## Una Imagen Vale Más que Mil Filas de Excel
+
+Un concejal no va a leer tu planilla de 500 filas. Pero si le mostrás un **gráfico claro** donde se ve que los cortes de luz se multiplicaron por 3 en un año, lo entiende en 5 segundos. La visualización de datos es el puente entre tu análisis y la acción.
+
+### ¿Qué Tipo de Gráfico Uso?
+
+| Lo que querés mostrar | Tipo de gráfico | Ejemplo |
+| --- | --- | --- |
+| Comparación entre categorías | Barras | Problemas del barrio por frecuencia |
+| Evolución en el tiempo | Líneas | Cortes de luz mes a mes |
+| Partes de un todo | Torta / dona | En qué gasta el municipio |
+| Distribución geográfica | Mapa | Luminarias rotas por cuadra |
+| Relación entre variables | Dispersión | Ingreso vs. acceso a servicios |
+
+### Herramientas Gratuitas de Visualización
+
+- **Google Sheets:** Gráficos básicos directamente desde tu planilla. Alcanza para el 80% de los casos.
+- **Canva:** Infografías profesionales con plantillas. Ideal para redes sociales y presentaciones.
+- **Datawrapper (gratis para uso básico):** Gráficos interactivos de calidad periodística. Usado por medios como The Guardian.
+- **Google My Maps:** Mapas temáticos con puntos, áreas y rutas. Perfecto para datos georreferenciados.
+- **Flourish:** Visualizaciones animadas e interactivas. Gratis para uso público.
+
+### Los 5 Mandamientos del Buen Gráfico
+
+1. **Un mensaje por gráfico:** Si tu gráfico necesita explicación, es un mal gráfico.
+2. **Título claro:** No "Gráfico 1" sino "Los cortes de luz se triplicaron en 12 meses."
+3. **Fuente visible:** Siempre indicá de dónde vienen los datos.
+4. **Sin adornos innecesarios:** 3D, sombras, efectos — todo eso distrae. Simplicidad.
+5. **Accesible:** Colores contrastantes, texto legible, formato adaptable a celular.
+
+
+### El mapa que confunde cantidad con proporción
+
+El error más común con mapas es pintar números absolutos. Si coloreás cada zona por la cantidad de reclamos, el mapa te muestra dónde vive más gente, no dónde el servicio es peor: cien reclamos en una zona de dos mil hogares no es lo mismo que cien en una de doscientos. Antes de pintar, dividí cada cifra por la cantidad de hogares relevados en esa zona y mostrá la tasa. Y en la leyenda escribí qué se dividió por qué, para que nadie tenga que adivinarlo.
+
+> "El dato sin visualización es potencial sin realizar. El gráfico correcto transforma una tabla aburrida en un argumento irrefutable. Aprendé a visualizar y tus datos se convertirán en historias que mueven voluntades."
+
+### El caso
+
+El 30 de julio de 2025 Chequeado calificó de engañoso un gráfico sobre la deuda pública que el presidente Javier Milei había compartido en X. La imagen decía que la deuda había bajado al 42,2% del PBI, 57,2 puntos menos. La trampa no estaba en la deuda sino en el denominador: con la devaluación de diciembre de 2023 y el atraso cambiario que vino después, el cociente se mueve aunque la deuda casi no cambie. Un economista consultado lo dijo sin vueltas: tomar el promedio móvil de doce meses del PBI nominal con mucha inflación «tergiversa el gráfico». Medida en dólares, la deuda pasó de US$ 290 mil millones en noviembre de 2023 a US$ 282 mil millones en junio de 2025. Bajó, pero bastante menos de lo que la imagen hacía ver.
+
+### La palanca
+
+Tomá el gráfico central de tu proyecto y escribí debajo, en una línea, qué hay en el denominador y por qué elegiste eso. Si el eje vertical no arranca en cero, avisalo en el título o hacelo arrancar en cero. Después mostráselo cinco segundos a alguien que no conoce el tema y pedile que te diga qué entendió; si dice otra cosa que tu título, el gráfico miente aunque los números sean ciertos.
+Probá el gráfico con alguien de afuera antes de publicarlo.
+
+### El puente
+
+El Desmontaje de [PLANFOCO](/planes/planfoco) le hace cinco preguntas verificables a cualquier pieza de comunicación, y una es con qué técnica está hecha: ahí entra la elección del eje en un gráfico.

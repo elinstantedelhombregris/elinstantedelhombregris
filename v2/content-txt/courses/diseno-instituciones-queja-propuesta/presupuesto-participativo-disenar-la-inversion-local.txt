@@ -1,0 +1,73 @@
+---
+slug: presupuesto-participativo-disenar-la-inversion-local
+courseSlug: diseno-instituciones-queja-propuesta
+title: 'Presupuesto Participativo: Diseñar la Inversión Local'
+summary: Cómo funciona y cómo implementar el presupuesto participativo.
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.rosario.gob.ar/mr/normativa/otras-normas/ordenanzas/ordenanza-7326-2002
+    titulo: 'Ordenanza 7326/2002 — Presupuesto Participativo (Municipalidad de Rosario)'
+    consultada: '2026-09-22'
+  - url: https://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1851-96012014000100002
+    titulo: 'Pinillos y Signorelli, Notas sobre participación y representación en el presupuesto participativo de Rosario (2002-2012) — Postdata'
+    consultada: '2026-09-22'
+  - url: https://buenosaires.gob.ar/areas/hacienda/pp/introduccion.php?menu_id=6784
+    titulo: 'Presupuesto Participativo — Gobierno de la Ciudad de Buenos Aires'
+    consultada: '2026-09-22'
+---
+## Los Vecinos Deciden En Qué Se Gasta
+
+El **presupuesto participativo** es un mecanismo donde los vecinos deciden directamente en qué se invierte una parte del presupuesto municipal. No opinan: **deciden**. Es una de las innovaciones democráticas más exitosas del mundo, nacida en Porto Alegre (Brasil) en 1989.
+
+### Cómo Funciona
+
+1. **El municipio asigna una porción del presupuesto** (usualmente 5-15%) para que los vecinos decidan.
+2. **Los vecinos proponen proyectos:** En asambleas barriales o plataformas digitales. "Queremos una plaza en la esquina de X." "Necesitamos semáforos en tal cruce."
+3. **Los proyectos se evalúan técnicamente:** El municipio verifica viabilidad y costo.
+4. **Los vecinos votan:** Cada vecino elige qué proyectos priorizar.
+5. **Los proyectos ganadores se ejecutan:** Con seguimiento ciudadano.
+
+### ¿Funciona en Argentina?
+
+Sí. Más de 50 municipios argentinos tienen alguna forma de presupuesto participativo. La Ciudad de Buenos Aires lo implementa desde 2002 (con vaivenes). Rosario fue pionera. Muchos municipios del interior lo usan exitosamente.
+
+En la Ciudad de Buenos Aires no depende sólo de la voluntad de un gobierno: el artículo 52 de su Constitución establece el carácter participativo del presupuesto, y el proceso arrancó en 2002 apoyado en ese artículo y en la Ley 70, con foros barriales que fijaban prioridades y delegados que después las negociaban con los funcionarios. Cuando el mecanismo está escrito en la norma de más arriba, sacarlo cuesta más que dejarlo.
+
+### Pausa para Reflexionar
+
+Si tu municipio te diera $50 millones para invertir en tu barrio y los vecinos tuvieran que votar entre 5 proyectos, ¿cuáles propondrías vos? ¿Cómo harías para que participen vecinos que normalmente no se involucran en nada comunitario?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Los Beneficios
+
+- **Decisiones mejores:** Los vecinos saben mejor que nadie qué necesita su barrio.
+- **Transparencia:** Cuando los vecinos deciden, controlan. Saben exactamente cuánto se asignó y qué se hizo.
+- **Educación cívica:** Participar en el presupuesto enseña cómo funciona el Estado.
+- **Legitimidad:** Las obras decididas por los vecinos no generan rechazo.
+
+### Si Tu Municipio No Lo Tiene
+
+Podés impulsar su implementación:
+
+1. Investigá experiencias exitosas en municipios similares al tuyo.
+2. Redactá un proyecto de ordenanza (o adaptá uno existente).
+3. Construí una coalición de vecinos, organizaciones y concejales.
+4. Presentalo al Concejo Deliberante.
+
+> "El presupuesto participativo es la prueba de que la democracia directa funciona. No es utopía: funciona en decenas de ciudades argentinas. Si en tu ciudad no existe, podés ser vos quien lo implemente."
+
+### El caso
+
+Rosario sancionó la Ordenanza 7.326 el 9 de mayo de 2002, en medio de la crisis, y organizó el presupuesto participativo en sus seis distritos. Entre 2003 y 2007 cada distrito recibió lo mismo: cinco millones de pesos. El reparto igualitario tenía un defecto de diseño, porque el distrito con más carencias recibía igual que el más acomodado. La Ordenanza 7.869, de 2005, introdujo un índice de carencia: la mitad del fondo se reparte en partes iguales y la otra mitad en proporción al grado de marginación urbana de cada distrito, lo que favorece al Oeste, al Noroeste y al Sudoeste. Entre 2002 y 2012 participaron 208.403 personas, y 181.231 votaron proyectos en la segunda ronda. La corrección también fue parte del diseño.
+
+### La palanca
+
+Averiguá si tu municipio tiene presupuesto participativo y, si lo tiene, cuántos de los proyectos votados el año pasado están terminados: la cifra que importa no es la votada sino la ejecutada. Buscalo en la web de la municipalidad o pedilo por nota a la Secretaría de Hacienda. Si no existe, pedí en el Concejo Deliberante los proyectos de ordenanza sobre el tema que perdieron estado parlamentario: alguien ya empezó ese camino.
+Compará lo votado con lo ejecutado y anotá la diferencia.
+
+### El puente
+
+[PLAN24CN](/planes/plan24cn) lleva el mecanismo al extremo: en sus ciudades nuevas los vecinos deciden directamente el 30% del presupuesto total, y no el porcentaje chico que suelen manejar las experiencias argentinas.

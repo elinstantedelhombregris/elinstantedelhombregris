@@ -1,0 +1,113 @@
+---
+slug: practicas-de-desarrollo-meditacion-y-mindfulness
+courseSlug: niveles-superiores-pensamiento-conciencia
+title: 'Prácticas de Desarrollo: Meditación y Mindfulness'
+summary: Prácticas breves de atención para ensayar perspectivas, registrar efectos y pausar cuando no ayudan.
+orderIndex: 9
+draft: false
+cierre: puente
+fuentes:
+  - url: https://www.argentina.gob.ar/noticias/la-linea-nacional-de-orientacion-y-apoyo-en-la-urgencia-de-salud-mental-funciona-las-24
+    titulo: 'Ministerio de Salud — La Línea Nacional de Orientación y Apoyo en la Urgencia de Salud Mental funciona las 24 horas'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/noticias/vizzotti-puso-en-marcha-la-nueva-linea-telefonica-nacional-y-gratuita-para-la-orientacion-y
+    titulo: 'Ministerio de Salud — Nueva línea telefónica nacional y gratuita para la orientación y apoyo en la urgencia de salud mental'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+Cambiar de perspectiva mejora con **práctica deliberada**, pero no exige intensidad, obediencia ni una experiencia especial. Vas a probar consignas breves, registrar efectos y usar la metáfora de la linterna con sus límites.
+
+### Técnicas por perspectiva
+
+### Perspectivas 1-2: reconocer interioridad
+
+**Práctica: Diálogo Interno**
+
+1. Cuando tengas un conflicto, escribí una hipótesis sobre la perspectiva del otro
+2. Preguntate: "¿Qué está pensando esta persona? ¿Por qué?"
+3. Practicá reconocer que otros tienen interioridad
+
+### Perspectiva 3: hipótesis empática
+
+**Práctica: Pensar sobre Pensamientos**
+
+1. En conversaciones, preguntá: "¿Qué podría estar pensando y cómo puedo comprobarlo?"
+2. Practicá formular una hipótesis sin apropiarte de la experiencia ajena
+3. Buscá soluciones que satisfagan a ambas partes
+
+### Perspectiva 4: metacognición
+
+**Práctica: Reflexión sobre el Pensamiento**
+
+1. Diario de pensamientos: ¿Por qué pienso lo que pienso?
+2. Mapeo de posibles "yoes": ¿Qué diferentes versiones de mí existen?
+3. Elección consciente: ¿Qué versión quiero ser?
+
+### Perspectiva 5: observación
+
+**Práctica: Meditación de Observación**
+
+1. Sentate y observá tu respiración
+2. Cuando surja un pensamiento, observalo pasar sin seguirlo
+3. Cuando surja una emoción, reconocela pero no te identifiques
+4. Preguntá: "¿Quién está observando?"
+5. Descansá en el observador
+
+### Perspectiva 6: presencia como metáfora
+
+**Práctica: Ser sin Observar**
+
+1. Notá una referencia concreta del entorno
+2. Observá respiración, sensación o sonido sin exigir calma
+3. Distinguí experiencia de interpretación
+4. Cerrá la práctica volviendo al entorno y anotando su efecto
+
+### La Metáfora del Flashlight
+
+La atención puede compararse con una linterna: selecciona algo y deja otras cosas fuera del foco. La metáfora simplifica procesos corporales, automáticos y sociales; no demuestra que controles toda tu atención ni explica por sí sola la conciencia.
+
+<svg width="100%" height="250" viewBox="0 0 800 250">
+                <!-- Habitación oscura -->
+                <rect x="0" y="0" width="800" height="250" fill="#16130E" opacity="0.8"/>
+                <!-- Linterna (conciencia) -->
+                <circle cx="400" cy="200" r="15" fill="#F2EFE7"/>
+                <rect x="390" y="200" width="20" height="30" fill="#C9C5BA" opacity="0.7"/>
+                <!-- Haz de luz -->
+                <path d="M 400 200 L 500 100 L 600 100 L 500 100 Z" fill="#F2EFE7" opacity="0.4"/>
+                <!-- Objetos en la habitación -->
+                <circle cx="550" cy="120" r="20" fill="#0F6B8A" opacity="0.6"/>
+                <text x="550" y="127" text-anchor="middle" font-size="10" fill="#F2EFE7">Pensamiento</text>
+                <circle cx="300" cy="80" r="20" fill="#C23B22" opacity="0.3"/>
+                <text x="300" y="87" text-anchor="middle" font-size="10" fill="#C9C5BA">Emoción</text>
+                <circle cx="650" cy="150" r="20" fill="#1A7A4A" opacity="0.3"/>
+                <text x="650" y="157" text-anchor="middle" font-size="10" fill="#C9C5BA">Sensación</text>
+                <!-- Texto -->
+                <text x="400" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#F2EFE7">La Conciencia como Linterna</text>
+                <text x="400" y="50" text-anchor="middle" font-size="12" fill="#C9C5BA">Podés dirigirla, pero siempre está presente</text>
+              </svg>
+
+### Ejercicio: práctica revisable de 14 días
+
+**Diseñá una práctica de 14 días:**
+
+1. **Elegí una práctica breve:** Entre dos y diez minutos es suficiente para probarla
+2. **Definí una señal de pausa:** Malestar intenso, desconexión o deterioro del funcionamiento
+3. **Cada día:** Anotá contexto, práctica y efecto, incluso cuando no ayude
+4. **Día 7:** Revisá duración, accesibilidad y sentido
+5. **Día 14:** Decidí con evidencia propia si continuar, adaptar o abandonar
+
+              **Criterio:** No existe un plazo universal en el que "se forma un hábito". El objetivo es aprender de un registro breve, no prometer automatización.
+
+### Adónde llamar si aparece la señal de pausa
+
+El ejercicio pide definir una señal de pausa antes de empezar. Conviene definir también adónde se va después, porque una señal sin destino deja a la persona sola con el malestar. En la Argentina funciona la Línea Nacional de Orientación y Apoyo en la Urgencia de Salud Mental, 0800-999-0091: gratuita, confidencial, de alcance nacional y abierta las 24 horas, los 365 días del año. La atienden equipos profesionales del Ministerio de Salud de la Nación, que escuchan, evalúan la situación y el riesgo y, si hace falta, activan la emergencia o derivan a un servicio cercano.
+
+La línea no es para consultar si una meditación salió bien. Es para cuando lo que apareció —una angustia que no baja, una desconexión que dura, ideas que asustan— supera lo que la práctica puede sostener, en vos o en alguien de tu familia. Anotar ese número en el mismo papel donde registrás los catorce días no es dramatizar. Es completar el diseño: una práctica revisable tiene un plan para el día en que no ayuda, igual que tiene uno para el día en que sí.
+
+### La Práctica es el Camino
+
+Cambiar de perspectiva es una capacidad situada, no un rango que se conquista. La lección final lleva el registro a una conversación o decisión que otra persona pueda contrastar.
+
+### El puente
+
+[PLANSAL](/planes/plansal) traza el mismo límite para sus Centros de Vitalidad: no son salas de salud mental, y lo que sí tienen es un protocolo claro de derivación a servicios especializados.

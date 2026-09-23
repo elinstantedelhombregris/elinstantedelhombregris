@@ -1,0 +1,60 @@
+---
+slug: sociocracia-101-decisiones-por-consentimiento
+courseSlug: arquitectura-organizaciones-distribuidas
+title: 'Sociocracia 101: Decisiones por Consentimiento'
+summary: Introducción al modelo sociocrático de gobernanza y toma de decisiones.
+orderIndex: 2
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/75000-79999/79980/norma.htm
+    titulo: 'Ley 25.675 — Ley General del Ambiente (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Sociocracia: El Sistema de los Círculos
+
+La sociocracia es un **sistema de gobernanza** desarrollado en los Países Bajos que permite a las organizaciones tomar decisiones efectivas sin concentrar el poder en una sola persona. Es especialmente útil para organizaciones comunitarias porque respeta la diversidad de voces.
+
+### Los 4 Principios Fundamentales
+
+1. **Decisión por consentimiento:** No se busca que todos digan "sí". Se busca que nadie diga "tengo una objeción razonada". Es más rápido que el consenso y más inclusivo que la votación.
+2. **Organización en círculos:** Cada equipo es un círculo con autoridad para tomar decisiones en su dominio. No hay pirámide: hay red de círculos.
+3. **Doble enlace:** Cada círculo envía dos representantes al círculo superior: uno elegido por el círculo superior y otro elegido por el propio círculo. Esto garantiza comunicación bidireccional.
+4. **Elección sin candidatos:** Los roles se asignan mediante un proceso de nominación abierta donde cada persona explica por qué propone a alguien.
+
+### El Proceso de Consentimiento en la Práctica
+
+- **Presentación:** Alguien presenta una propuesta
+- **Preguntas de clarificación:** Solo para entender, no para debatir
+- **Ronda de reacciones:** Cada persona comparte su primera impresión
+- **Enmiendas:** Se ajusta la propuesta según las reacciones
+- **Ronda de consentimiento:** "¿Tenés alguna objeción razonada?" Si nadie objeta, se aprueba
+
+### Pausa para Reflexionar
+
+Pensá en la última decisión grupal en la que participaste (en el trabajo, en un grupo de amigos, en tu familia). ¿Se usó votación, consenso, o decidió una sola persona? ¿Cómo habría cambiado el resultado si se hubiera usado el proceso de consentimiento que acabás de leer?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Adaptación al Contexto Argentino
+
+La sociocracia pura puede ser demasiado formal para un grupo barrial. Lo esencial es adoptar el **principio de consentimiento** y la **organización en círculos**, adaptando la formalidad al nivel del grupo.
+
+### La objeción que obliga a responder
+
+Una objeción razonada no es un veto por gusto. Tiene que explicar qué daño concreto produce la propuesta o qué riesgo no se está viendo, y quien objeta queda comprometido a ayudar a reformularla. La diferencia con la votación es que la minoría no pierde en silencio: su argumento queda sobre la mesa y la propuesta tiene que hacerse cargo de él. En grupos chicos conviene anotar cada objeción en el acta, con el nombre de quien la hizo y cómo se resolvió. Seis meses después, ese registro dice más sobre la calidad de las decisiones del grupo que cualquier conteo de votos.
+
+> *"El Hombre Gris no impone su visión: facilita que la visión emerja del círculo. Jugamos el mismo juego cuando cada voz cuenta igual."*
+
+### El caso
+
+La Ley General del Ambiente, 25.675, sancionada en noviembre de 2002, obliga a las autoridades a hacer consultas o audiencias públicas antes de autorizar actividades que puedan tener efectos negativos y significativos sobre el ambiente (artículo 20). La opinión u objeción de quienes participan no es vinculante: la autoridad puede decidir otra cosa. Pero si decide en contra de lo que surgió de la audiencia, tiene que fundamentarlo y hacerlo público. Es una versión estatal y a medias del consentimiento: la objeción no frena, pero obliga a responder por escrito. Una objeción que nadie presenta, en cambio, no obliga a nadie a nada.
+
+### La palanca
+
+Averiguá si en tu municipio o tu provincia hay una audiencia pública convocada para los próximos meses: una obra, un loteo, una planta industrial, una tarifa. Las convocatorias salen en el boletín oficial y en el sitio del organismo que la llama. Inscribite como participante y llevá una objeción razonada: el daño concreto que ves y lo que propondrías cambiar.
+Buscá la convocatoria en el boletín oficial de tu provincia antes del viernes.
+
+### El puente
+
+[PLANMESA](/planes/planmesa) lleva la objeción un paso más allá: cuando una Mesa no llega a los dos tercios, resuelve igual, pero con los disensos firmados e inscriptos con el mismo peso que la posición mayoritaria.

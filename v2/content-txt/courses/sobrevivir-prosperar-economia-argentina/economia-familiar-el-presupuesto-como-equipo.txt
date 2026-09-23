@@ -1,0 +1,54 @@
+---
+slug: economia-familiar-el-presupuesto-como-equipo
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: 'Economía Familiar: El Presupuesto Como Equipo'
+summary: Gestionar las finanzas familiares como un equipo coordinado.
+orderIndex: 9
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/235000-239999/235975/norma.htm
+    titulo: 'Código Civil y Comercial de la Nación, Ley 26.994 — artículos 446, 448, 449, 455, 463 y 520 (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## La Plata en Familia: Del Tabú a la Estrategia
+
+En la mayoría de las familias argentinas, el dinero es un tema tabú. No se habla, no se planifica, no se decide junto. Y después llegan los conflictos: "¿En qué se fue la plata este mes?" Gestionar las finanzas en familia requiere **comunicación, reglas claras y objetivos compartidos**.
+
+### La Reunión Financiera Mensual
+
+Una vez al mes, toda la familia (pareja, o incluso hijos adolescentes) se sienta 30 minutos a:
+
+1. **Revisar:** ¿Cómo nos fue este mes? ¿Gastamos más o menos de lo planificado?
+2. **Planificar:** ¿Qué gastos vienen el mes que viene? ¿Hay gastos extraordinarios?
+3. **Soñar:** ¿Cómo vamos con nuestros objetivos? (vacaciones, arreglo de la casa, educación)
+
+### Modelos de Finanzas en Pareja
+
+- **Todo junto:** Un solo fondo familiar. Funciona bien cuando hay confianza total y transparencia.
+- **Proporcional:** Cada uno aporta al fondo común un porcentaje proporcional a su ingreso. El resto es personal.
+- **Separado + gastos compartidos:** Cada uno maneja su plata, pero dividen gastos comunes. Funciona al principio de una relación.
+
+### Lo Que la Ley Ya Decidió
+
+Si están casados y no firmaron nada antes del casamiento, rige la comunidad de ganancias: el Código Civil y Comercial la aplica por defecto (artículo 463). Se puede optar por la separación de bienes con una convención hecha por escritura pública antes de casarse (artículos 446 y 448), o cambiar de régimen después de un año de aplicación, también por escritura (artículo 449). El modelo «separado + gastos compartidos» es una forma de administrar la plata del día a día; el régimen patrimonial es otra cosa, y decide qué es de quién si la pareja se termina. Conviene saber cuál rige en tu casa antes de que haga falta.
+
+### Enseñar Finanzas a los Hijos
+
+La educación financiera empieza en casa. Desde chicos podés enseñar conceptos como ahorro (alcancía), elección (no podés tener todo), y valor (el dinero se gana con trabajo). Con adolescentes, incluirlos en la planificación familiar les da herramientas que la escuela no les va a dar.
+
+Con los más chicos, la mesada funciona mejor como práctica que como premio: un monto fijo por semana, que administran ellos, con la regla de que si se termina el martes no hay más hasta el lunes. Aprenden en el cuerpo lo que ningún sermón enseña: que la plata tiene un ritmo y que elegir una cosa es dejar otra.
+
+### El caso
+
+El artículo 455 del Código Civil y Comercial obliga a los cónyuges a contribuir a su propio sostenimiento, al del hogar y al de los hijos comunes «en proporción a sus recursos», y agrega que el trabajo en el hogar es computable como contribución a las cargas. El artículo 520 extiende la misma obligación a las uniones convivenciales. O sea: el modelo proporcional de esta lección no es sólo una preferencia de pareja moderna, es el criterio que la ley ya usa. Y la segunda mitad del artículo pesa tanto como la primera: quien cocina, lleva a los chicos y sostiene la casa está aportando, aunque no transfiera un peso al fondo común.
+
+### La palanca
+
+Armá la primera reunión financiera de tu casa este fin de semana: media hora, una hoja, el ingreso de cada uno y los gastos fijos. Antes de repartir, anoten también cuántas horas de trabajo doméstico pone cada uno por semana; si el reparto de la plata ignora ese trabajo, no es proporcional aunque los porcentajes cierren. Si hay adolescentes, que estén sentados y que sean ellos los que lleven la hoja.
+Definí la fecha de la segunda reunión antes de levantarte de la mesa.
+
+### El puente
+
+[Lo que el chico mira](/ensayos/lo-que-el-chico-mira) entra en la casa donde no se habla de plata para proteger a los chicos, y muestra que igual saben todo: aprenden de lo que ven hacer, no de lo que se les explica.

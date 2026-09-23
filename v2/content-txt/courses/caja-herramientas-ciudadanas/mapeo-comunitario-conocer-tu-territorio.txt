@@ -1,0 +1,73 @@
+---
+slug: mapeo-comunitario-conocer-tu-territorio
+courseSlug: caja-herramientas-ciudadanas
+title: 'Mapeo Comunitario: Conocer Tu Territorio'
+summary: 'Técnicas para diagnosticar tu barrio y detectar recursos, problemas y oportunidades.'
+orderIndex: 8
+draft: false
+cierre: puente
+fuentes:
+  - url: https://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1852-45082022000100020
+    titulo: '«No me ignores». La lucha por la vivienda digna: el caso del RENABAP (SciELO Argentina)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/315000-319999/315739/norma.htm
+    titulo: 'Ley 27.453 — Régimen de Regularización Dominial para la Integración Socio Urbana (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/habitat/renabap
+    titulo: 'Registro Nacional de Barrios Populares (RENABAP) — Argentina.gob.ar'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-09-22'
+---
+### Por qué importa
+
+Caminás por tu barrio todos los días, pero hay una diferencia enorme entre pasar y observar. Cuando un funcionario te dice "no sabíamos que había un problema ahí", está contando con que nadie tiene un registro ordenado de la realidad del territorio. El mapeo comunitario es la herramienta que transforma tu conocimiento cotidiano — los baches que esquivás, las esquinas oscuras, el terreno abandonado que podría ser plaza — en evidencia organizada que ningún funcionario puede negar. Un barrio que se mapea a sí mismo deja de ser invisible.
+
+## Antes de Actuar, Conocé Tu Territorio
+
+No podés transformar lo que no conocés. El mapeo comunitario es una herramienta para **ver tu barrio con ojos nuevos**: identificar problemas que nadie registra, descubrir recursos que nadie aprovecha, y entender las relaciones de poder que determinan qué pasa y qué no pasa.
+
+### El Paseo Diagnóstico
+
+Caminá tu barrio con una libreta (o el celular) y registrá:
+
+- **Infraestructura:** Estado de las calles, veredas, iluminación, plazas, espacios públicos. ¿Qué funciona? ¿Qué está roto?
+- **Servicios:** ¿Hay escuelas? ¿Centros de salud? ¿Transporte? ¿Conectividad? ¿Qué falta?
+- **Comercio:** ¿Qué se vende? ¿Qué no se consigue? ¿Dónde va la gente a comprar?
+- **Espacios de encuentro:** ¿Dónde se junta la gente? Plazas, clubes, parroquias, esquinas.
+- **Problemas visibles:** Basurales, terrenos abandonados, contaminación, inseguridad.
+- **Recursos ocultos:** Gente con habilidades, espacios sin usar, organizaciones activas.
+
+### Mapa de Actores
+
+¿Quién tiene poder en tu barrio? No solo el poder formal (delegado, concejal) sino el real:
+
+| Actor | Poder | Actitud |
+| --- | --- | --- |
+| Junta vecinal | Convocatoria, legitimidad | ¿A favor? ¿En contra? |
+| Club del barrio | Espacio, red social | ¿Aliado potencial? |
+| Comerciantes | Recursos, influencia | ¿Qué les interesa? |
+| Referente político | Conexiones, recursos | ¿Condiciones? |
+
+### Mapa Digital Colaborativo
+
+Usá **Google My Maps** (gratis) para crear un mapa compartido del barrio. Cada vecino puede agregar puntos: "Bache peligroso", "Luminaria rota", "Espacio abandonado que podría ser huerta", "Vecina que da clases de apoyo." El mapa se vuelve un **documento vivo** que muestra la realidad que ningún funcionario puede negar.
+
+### Un mapa que se volvió ley
+
+En agosto de 2016, organizaciones sociales —la CTEP, Barrios de Pie, la Corriente Clasista y Combativa y Techo— salieron a relevar los barrios populares del país. En barrios como El Chaparral, el censo lo hicieron vecinas del propio barrio, organizadas en el MTE. Contaron cada agrupamiento de al menos ocho viviendas donde la mitad o más de las familias no tiene título de propiedad y le faltan al menos dos de los tres servicios básicos. El resultado: 4.416 barrios populares, donde vivían unas 925.000 familias.
+
+En mayo de 2017 el Decreto 358 convirtió ese relevamiento en el Registro Nacional de Barrios Populares (RENABAP). En octubre de 2018 el Congreso sancionó la Ley 27.453, que declara de interés público la integración socio urbana de los barrios identificados en el registro. Hoy el RENABAP reúne 6.467 barrios, y más de 865.000 familias tienen el Certificado de Vivienda Familiar que emite la ANSES, con el que acreditan domicilio para pedir la conexión de agua, luz o gas.
+
+Primero fue un mapa hecho a pie. Después fue una ley.
+
+### Paso Siguiente Concreto
+
+1. **Hoy:** Salí a caminar 10 cuadras de tu barrio con el celular en la mano. Sacá fotos de 5 problemas que veas (bache, luminaria rota, basura, vereda destruida, espacio abandonado). Guardalas en una carpeta llamada "Mapeo barrio".
+2. **Hoy:** Hacé una lista de 5 personas o instituciones que tienen poder real en tu barrio (no solo el delegado: pensá en el dueño del supermercado, la directora de la escuela, el cura de la parroquia, la referente del merendero). Anotá al lado de cada uno: ¿es aliado potencial o posible obstáculo?
+3. **Hoy:** Abrí Google My Maps y creá un mapa con las 5 fotos que sacaste. Compartilo con al menos 2 vecinos y pediles que agreguen sus propios puntos. Un mapa colaborativo se vuelve más poderoso con cada vecino que participa.
+
+> "El poder siempre contó con la desmemoria y la desorganización del barrio para hacer lo que quiere. Un mapa comunitario rompe esa ventaja. Cuando 30 vecinos documentan 47 problemas con fotos, fechas y coordenadas GPS, el funcionario pierde la excusa del 'no sabíamos'. El territorio deja de ser su escenario y se convierte en tu evidencia. El conocimiento del territorio es poder ciudadano."
+
+### El puente
+
+Los barrios que registró el RENABAP son la base sobre la que [PLANVIV](/planes/planviv) propone urbanizar los asentamientos en quince años sin mudar a nadie: agua, luz, calles con nombre, números de dirección y títulos.

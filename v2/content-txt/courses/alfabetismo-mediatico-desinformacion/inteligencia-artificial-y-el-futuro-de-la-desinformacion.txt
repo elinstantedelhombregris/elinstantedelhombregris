@@ -1,0 +1,59 @@
+---
+slug: inteligencia-artificial-y-el-futuro-de-la-desinformacion
+courseSlug: alfabetismo-mediatico-desinformacion
+title: Inteligencia Artificial y el Futuro de la Desinformación
+summary: Cómo la IA está transformando la creación y detección de contenido falso.
+orderIndex: 9
+draft: false
+cierre: completo
+fuentes:
+  - url: https://noticias.perfil.com/noticias/politica/el-pro-denuncio-un-video-deepfake-con-ia-contra-macri.phtml
+    titulo: 'El PRO denunció un video deepfake con IA contra Macri (Noticias, Perfil)'
+    consultada: '2026-09-22'
+  - url: https://www.infobae.com/politica/2025/07/16/para-la-camara-electoral-el-uso-de-videos-falsos-durante-la-campana-es-un-delito/
+    titulo: 'Para la Cámara Electoral, el uso de videos falsos durante la campaña es un delito (Infobae)'
+    consultada: '2026-09-22'
+  - url: https://chequeado.com/ultimas-noticias/los-videos-falsos-de-politicos-hechos-con-ia-fueron-protagonistas-en-las-elecciones-2025/
+    titulo: 'Los videos falsos de políticos hechos con IA fueron protagonistas en las elecciones 2025 (Chequeado)'
+    consultada: '2026-09-22'
+---
+
+## La Próxima Ola Ya Está Aquí
+
+Todo lo que aprendiste hasta ahora está a punto de complicarse exponencialmente. La inteligencia artificial generativa permite crear **texto, imagen, audio y video falsos que son virtualmente indistinguibles de los reales**. Esto cambia las reglas del juego de la desinformación.
+
+### Lo Que la IA Ya Puede Hacer
+
+- **Texto:** Generar artículos de noticias completos, comentarios en redes y mensajes de WhatsApp que parecen escritos por humanos. A un costo casi nulo y a escala masiva.
+- **Imagen:** Crear fotos hiperrealistas de eventos que nunca ocurrieron. Un presidente firmando un documento, una protesta que no existió, un desastre natural inventado.
+- **Audio:** Clonar la voz de cualquier persona con apenas minutos de audio de referencia. Imaginate recibir un audio de WhatsApp con la voz de un político diciendo algo que nunca dijo.
+- **Video:** Los deepfakes de video aún no son perfectos, pero mejoran cada mes. Pronto será imposible distinguir un video real de uno fabricado a simple vista.
+
+### Escenarios de Riesgo para Argentina
+
+1. **Elecciones:** Deepfakes de candidatos distribuidos masivamente 48 horas antes de una elección, sin tiempo para verificar.
+2. **Crisis financiera:** Audios falsos de funcionarios del Banco Central provocando corridas bancarias.
+3. **Conflicto social:** Videos fabricados de violencia policial o saqueos que inflamen tensiones reales.
+4. **Operaciones de influencia extranjera:** Países con capacidad tecnológica interviniendo en la política argentina a través de contenido generado por IA.
+
+### Cómo Defenderte
+
+- **Verificá la fuente antes que el contenido:** ¿Quién publicó esto originalmente? ¿Es una fuente confiable?
+- **Buscá el mismo evento en múltiples fuentes:** Si solo existe en una fuente o en redes, sospechá.
+- **Usá herramientas de detección:** Hive Moderation, AI or Not, y otras herramientas gratuitas detectan contenido generado por IA.
+- **Contexto sobre contenido:** Un video puede ser real pero sacado de contexto (otra fecha, otro país). Verificá el contexto, no solo el contenido.
+
+> "En un mundo donde ver ya no es creer, la verificación no es paranoia: es higiene mental. El Hombre Gris del siglo XXI necesita alfabetismo digital tanto como necesitó alfabetismo textual en el siglo XX."
+
+### El caso
+
+El 17 de mayo de 2025, en plena veda y a horas de la elección legislativa porteña, circuló en X un video hecho con inteligencia artificial en el que Mauricio Macri parecía retirarle el apoyo a la lista de Silvia Lospennato y mandar los votos hacia la de Manuel Adorni. Era falso, y el PRO lo denunció ante la justicia electoral. Dos meses después, en otra causa, la Cámara Nacional Electoral sostuvo que difundir videos falsos en campaña encuadra en el artículo 140 del Código Electoral —inducir con engaño a votar de cierta manera o a abstenerse—, con prisión de dos meses a dos años. En la elección nacional de octubre, Chequeado registró dos videos fabricados más: uno de Jorge Taiana bajando su candidatura y otro de Macri apoyando a Provincias Unidas. El escenario uno de esta lección ya no es un escenario.
+
+### La palanca
+
+El audio clonado de un familiar que pide plata con urgencia es la versión doméstica del mismo truco, y la defensa se arma antes de que llegue el mensaje. En la próxima comida familiar, acordá con los tuyos una palabra clave que sólo ustedes conozcan y que nunca se escriba en el chat. Si llega un audio apurado con la voz de alguien de la casa, se pide la palabra antes de hacer nada; si no la sabe, se corta y se llama al número de siempre.
+Definí la palabra clave con tu familia antes del domingo.
+
+### El puente
+
+[PLANFOCO](/planes/planfoco) no propone un árbitro de la verdad sino una firma: todo material hecho con plata pública sale con procedencia criptográfica, y cualquiera puede verificar de dónde salió sin pedirle permiso a nadie.

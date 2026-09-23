@@ -1,0 +1,102 @@
+---
+slug: bucles-que-te-impulsan-o-frenan
+courseSlug: diseno-idealizado-sistemas-vivos
+title: Bucles que Te Impulsan o Frenan
+summary: Descubrí los bucles de retroalimentación invisibles que moldean la realidad. Aprendé a identificar bucles reforzadores (positivos y negativos) y compensadores.
+orderIndex: 4
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/70000-74999/70355/norma.htm
+    titulo: 'Decreto 1570/2001 — Sistema financiero, restricción a los retiros en efectivo (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Los Bucles Invisibles que Moldean la Realidad
+
+¿Por qué algunos problemas se agravan solos? ¿Por qué algunos éxitos se multiplican? La respuesta está en los bucles de retroalimentación. Estos bucles invisibles moldean la realidad más de lo que imaginás. Cuando los entendés, podés diseñar sistemas que se potencian a sí mismos.
+
+## Tipos de Bucles de Retroalimentación
+
+**Los bucles de retroalimentación son ciclos donde el resultado influye en la causa.** Hay dos tipos principales: bucles reforzadores (que amplifican) y bucles compensadores (que equilibran).
+
+### Bucles Reforzadores: Crecimiento Exponencial
+
+Los bucles reforzadores amplifican lo que está pasando:
+
+### Bucle Reforzador Positivo
+
+**Ejemplo:** Más clientes → Más ingresos → Mejor servicio → Más clientes
+
+El éxito genera más éxito. El crecimiento se acelera.
+
+### Bucle Reforzador Negativo
+
+**Ejemplo:** Menos clientes → Menos ingresos → Peor servicio → Menos clientes
+
+El problema genera más problemas. La caída se acelera.
+
+### Bucles Compensadores: Equilibrio y Estabilidad
+
+Los bucles compensadores mantienen el equilibrio:
+
+**Ejemplo de bucle compensador:**
+
+Más hambre → Comés más → Menos hambre → Comés menos → Más hambre
+
+Este bucle mantiene el equilibrio. Sin él, te morirías de hambre o comerías sin parar.
+
+### Revelación
+
+Los bucles reforzadores crean crecimiento exponencial (positivo o negativo). Los bucles compensadores mantienen estabilidad. Un sistema ideal tiene bucles reforzadores positivos para crecimiento y bucles compensadores para evitar excesos.
+
+### Cómo Identificar Bucles en Sistemas Complejos
+
+Técnicas para mapear bucles:
+
+### 1. Buscá Patrones
+
+¿Qué se repite? ¿Qué se amplifica? ¿Qué se equilibra?
+
+### 2. Trazá Conexiones
+
+¿Cómo A afecta B? ¿Cómo B afecta A? ¿Hay un ciclo?
+
+### 3. Identificá Tipo
+
+¿Es reforzador (amplifica) o compensador (equilibra)?
+
+### Intervención Estratégica en Bucles
+
+Una vez identificados, podés intervenir:
+
+### Estrategias de Intervención
+
+- **Reforzar bucles positivos:** Identificá bucles que generan crecimiento y amplificalos
+- **Romper bucles negativos:** Interrumpí ciclos que generan problemas
+- **Crear bucles compensadores:** Diseñá mecanismos que eviten excesos
+- **Diseñar bucles ideales:** Imaginá qué bucles tendría un sistema perfecto
+
+### Caso argentino: el bucle que el corralito quiso cortar
+
+El 1 de diciembre de 2001 el Poder Ejecutivo firmó el Decreto 1570, el que la calle bautizó «corralito». Sus considerandos dejan escrito el contexto: una caída del nivel total de depósitos que venía desde febrero de ese año. Ahí hay un bucle reforzador negativo de manual. Cada ahorrista que retiraba su plata por miedo a que el banco no pudiera devolverla dejaba al banco un poco más débil, y un banco más débil le daba a cualquier otro ahorrista una razón más para ir a retirar la suya. Nadie tenía que actuar de mala fe para que el ciclo se acelerara: alcanzaba con que cada uno hiciera lo que le parecía prudente.
+
+El decreto metió un bucle compensador por la fuerza: prohibió los retiros en efectivo de más de 250 pesos o 250 dólares por semana (artículo 2). Frenó la salida de plata, pero no tocó la variable que alimentaba el ciclo, que era la desconfianza. La convirtió en certeza —«no me dejan sacar lo mío»—, y la certeza también se retroalimenta.
+
+La enseñanza sirve para cualquier sistema. Cortar un bucle en su resultado (la plata que se va) y no en la variable que lo empuja (la confianza) lo detiene un tiempo y lo vuelve a escribir con otro signo. Cuando mapees un bucle, buscá primero qué variable lo alimenta y quién puede moverla.
+
+### Ejercicio: Mapear Bucles
+
+**Mapeá los bucles en un sistema que conocés:**
+
+1. ¿Qué bucles reforzadores identificás? (positivos y negativos)
+2. ¿Qué bucles compensadores existen?
+3. ¿Qué bucles querrías reforzar o romper?
+4. ¿Qué bucles ideales diseñarías para un sistema perfecto?
+
+### ¿Entendiste?
+
+Los bucles de retroalimentación moldean la realidad. Los bucles reforzadores amplifican (positivo o negativo). Los bucles compensadores equilibran. Un sistema ideal tiene bucles reforzadores positivos para crecimiento y bucles compensadores para estabilidad. Identificar y diseñar bucles es clave para el diseño idealizado.
+
+### El puente
+
+[PLANCUL](/planes/plancul) nombra su propio ciclo virtuoso —sentido, participación, comunidad, más sentido— y le dedica una sección entera a los bucles de balance que lo frenan: la saturación, la rutina, la gentrificación. Diseña con los dos tipos de bucle a la vista.

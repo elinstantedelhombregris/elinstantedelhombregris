@@ -1,0 +1,61 @@
+---
+slug: rendicion-de-cuentas-basada-en-datos
+courseSlug: datos-para-bien-comun
+title: Rendición de Cuentas Basada en Datos
+summary: Cómo usar datos para exigir transparencia y combatir la corrupción.
+orderIndex: 9
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/215000-219999/215002/norma.htm
+    titulo: 'Ley 26.857 — Declaraciones juradas patrimoniales integrales de carácter público (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/servicio/consultar-declaraciones-juradas-de-funcionarios-publicos
+    titulo: 'Consultar declaraciones juradas de funcionarios públicos — Argentina.gob.ar'
+    consultada: '2026-09-22'
+---
+
+## Datos Contra la Impunidad
+
+La corrupción prospera en la oscuridad. Los datos son luz. Cuando un ciudadano armado con datos demuestra que una obra pública costó el doble de lo que debería, que un funcionario tiene un patrimonio inexplicable, o que los fondos de un programa social nunca llegaron a los beneficiarios, la impunidad retrocede.
+
+### Herramientas de Rendición de Cuentas
+
+1. **Declaraciones juradas:** Los funcionarios públicos están obligados a declarar su patrimonio. Están disponibles en la Oficina Anticorrupción. Compará año a año: si el patrimonio crece más rápido que el sueldo, algo no cierra.
+2. **Boletín Oficial:** Todos los decretos, resoluciones y designaciones se publican en el Boletín Oficial. Es público y buscable. Ahí se esconden las decisiones que no quieren que veas.
+3. **Licitaciones públicas:** Comparar precios de licitaciones similares. Si el mismo tipo de obra cuesta 3 veces más en un municipio que en el vecino, hay que preguntar por qué.
+4. **Ejecución presupuestaria:** Comparar lo presupuestado con lo ejecutado y lo pagado. Si se ejecutó el 100% de publicidad pero solo el 30% de escuelas, las prioridades están claras.
+
+### Cómo Presentar una Denuncia Basada en Datos
+
+- **Documentá exhaustivamente:** Capturas de pantalla, links, descargas. Los datos online pueden desaparecer.
+- **Contextualizá:** No alcanza con mostrar un número sospechoso. Mostrá POR QUÉ es sospechoso: comparación con precios de mercado, con otros municipios, con años anteriores.
+- **Presentá formalmente:** Oficina Anticorrupción, fiscalía, Defensoría del Pueblo, organismos de control provincial. Por escrito, con evidencia adjunta.
+- **Difundí públicamente:** Si la denuncia formal no avanza, la presión pública a veces sí. Medios, redes, organizaciones aliadas.
+
+### Organizaciones Aliadas
+
+- **Poder Ciudadano:** Capítulo argentino de Transparency International.
+- **ACIJ:** Asociación Civil por la Igualdad y la Justicia.
+- **Directorio Legislativo:** Monitoreo parlamentario con datos.
+- **CIPPEC:** Centro de políticas públicas con investigaciones basadas en datos.
+
+
+### Leer una declaración jurada sin equivocarse
+
+Una declaración jurada no es un extracto bancario. Los bienes pueden figurar valuados con un criterio que no coincide con el precio de mercado, así que una casa puede aparecer por mucho menos de lo que vale sin que haya nada raro. Por eso conviene comparar primero cantidades —cuántos inmuebles, cuántos autos, cuántas cuentas— y después montos. Y siempre contra el mismo funcionario en años distintos, no contra otro: el patrimonio de alguien que llegó al cargo con una empresa familiar no se parece al de alguien que llegó con un sueldo.
+
+> "La corrupción le teme a los datos como el vampiro a la luz. Cada dataset que analizás, cada inconsistencia que detectás, cada informe que publicás es un acto de justicia. No necesitás ser fiscal para combatir la corrupción: necesitás datos y el coraje de mostrarlos."
+
+### El caso
+
+Desde la Ley 26.857, sancionada el 8 de mayo de 2013, las declaraciones juradas patrimoniales de los funcionarios son «de carácter público, de libre accesibilidad» y se consultan gratis por internet. La ley fue más lejos: la declaración pública tiene que ser igual a la que se presenta ante el fisco, sin secreto fiscal. Lo que queda afuera es un anexo reservado con datos personales y patrimoniales del declarante, su cónyuge o conviviente y sus hijos menores. La Oficina Anticorrupción ofrece un buscador por apellido, CUIT o cargo con las declaraciones desde 2012. El instrumento sólo funciona si alguien lo usa año contra año: una declaración suelta no dice casi nada; dos, puestas lado a lado, muestran cuánto creció un patrimonio y contra qué ingresos.
+
+### La palanca
+
+Elegí un funcionario del Ejecutivo nacional cuyo cargo toque tu tema —el titular del organismo que maneja lo que te importa— y bajá del buscador de la Oficina Anticorrupción sus declaraciones de dos años distintos. Anotá en una planilla el patrimonio de cada año, la diferencia y los ingresos declarados. Si la cuenta no cierra, todavía no publiques nada: buscá primero las explicaciones legítimas, como una herencia o una venta, y recién después preguntá.
+Compará dos declaraciones del mismo funcionario esta semana.
+
+### El puente
+
+Entre los diez mecanismos anti-captura de [PLANMESA](/planes/planmesa) está la declaración pública de conflicto de interés con excusación obligatoria: quien decide muestra antes qué lo ata.

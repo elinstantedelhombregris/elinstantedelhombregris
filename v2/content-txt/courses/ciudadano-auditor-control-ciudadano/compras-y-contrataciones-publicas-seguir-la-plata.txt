@@ -1,0 +1,57 @@
+---
+slug: compras-y-contrataciones-publicas-seguir-la-plata
+courseSlug: ciudadano-auditor-control-ciudadano
+title: 'Compras y Contrataciones Públicas: Seguir la Plata'
+summary: Cómo auditar las compras que hace el Estado con tu plata.
+orderIndex: 5
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/65000-69999/68396/texact.htm
+    titulo: 'Decreto 1023/2001 — Régimen de Contrataciones de la Administración Nacional, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## Seguir la Plata: La Forma Más Efectiva de Control
+
+La corrupción más común en Argentina no es la coima espectacular del escándalo mediático. Es la **sobrefacturación cotidiana**: el Estado paga el doble por insumos hospitalarios, el triple por una obra de pavimentación, contratos dirigidos a empresas amigas. Seguir la plata es la auditoría más efectiva.
+
+### Cómo Compra el Estado
+
+- **Licitación pública:** Para montos grandes. Se publica el llamado, las empresas ofertan, se elige la mejor oferta. En teoría, competitivo y transparente.
+- **Licitación privada:** Se invita a un número limitado de empresas. Menos transparente.
+- **Contratación directa:** Se elige al proveedor sin competencia. Permitida solo en casos excepcionales (urgencia, proveedor único). En la práctica, se abusa.
+- **Convenio marco:** Acuerdos pre-establecidos con proveedores a precios pactados.
+
+### Red Flags en Contrataciones
+
+1. **Exceso de contrataciones directas:** Si un organismo compra todo por contratación directa "por urgencia", la urgencia es sospechosa.
+2. **Proveedor recurrente:** Si la misma empresa gana todas las licitaciones, hay que investigar.
+3. **Pliegos a medida:** Requisitos técnicos tan específicos que solo un proveedor puede cumplir.
+4. **Precios inflados:** Compará los precios que paga el Estado con precios de mercado. Si la diferencia es mayor al 20-30%, algo anda mal.
+5. **Empresas fantasma:** Proveedores sin historia, sin empleados, creados poco antes de ganar un contrato.
+
+### Herramientas de Auditoría
+
+- **COMPR.AR (comprar.gob.ar):** Todas las compras del Estado nacional publicadas online.
+- **Boletín Oficial:** Los contratos se publican aquí. Buscable en boletinoficial.gob.ar.
+- **Registro de proveedores:** Para verificar la existencia y antecedentes de los proveedores.
+- **ARCA, ex AFIP (constancia de inscripción):** Para verificar que una empresa existe realmente.
+
+### La regla, y por qué importa la excepción
+
+El régimen de contrataciones de la Administración Nacional es el Decreto 1023/2001, y su artículo 24 fija la regla: el proveedor se elige «por regla general mediante licitación pública o concurso público». Todo lo demás es excepción, y la excepción tiene que estar fundada por escrito. La contratación directa por urgencia, por ejemplo, sólo corre cuando «probadas razones de urgencia o emergencia que respondan a circunstancias objetivas» impiden hacer otro procedimiento a tiempo (artículo 25, inciso d, apartado 5).
+
+Eso te da una pregunta precisa. En vez de preguntar «¿por qué contrataron directo?», pedí la parte del expediente donde se prueba la urgencia y cuáles fueron esas circunstancias objetivas. Si la urgencia se repite todos los meses para el mismo rubro, ya no es urgencia: es falta de planificación, o algo peor.
+
+El mismo decreto enumera los principios que rigen toda compra —razonabilidad y eficiencia, promoción de la competencia, transparencia, publicidad y difusión, responsabilidad de los funcionarios que la autorizan, igualdad de trato (artículo 3)— y manda que la contratación se desarrolle «en todas sus etapas en un contexto de transparencia», con acceso público a la información y participación de la comunidad para el control social (artículo 9). Que puedas mirar no es una concesión del funcionario de turno: es la letra de la norma. Ojo con la jurisdicción, eso sí: el 1023 rige para el Estado nacional; provincias y municipios tienen su propio régimen de compras, y conviene leerlo antes de reclamar con el artículo equivocado.
+
+### Ejercicio
+
+Entrá a comprar.gob.ar y buscá las últimas 10 contrataciones de un organismo que te interese. ¿Cuántas fueron licitación pública y cuántas contratación directa? ¿Se repite algún proveedor? ¿Los montos te parecen razonables?
+
+> "La corrupción no sobrevive a la luz del sol. Cada ciudadano que mira una licitación, que compara un precio, que pregunta por qué ese proveedor, es un antibiótico contra la infección de la corrupción."
+
+### El puente
+
+El ejercicio de esta lección se hace a mano, licitación por licitación. El Tablero de Transparencia Municipal de [PLAN24CN](/planes/plan24cn) lo vuelve el estado normal: cada licitación, cada oferta recibida, cada adjudicación y el beneficiario final de cada contratista, a la vista de cualquiera.

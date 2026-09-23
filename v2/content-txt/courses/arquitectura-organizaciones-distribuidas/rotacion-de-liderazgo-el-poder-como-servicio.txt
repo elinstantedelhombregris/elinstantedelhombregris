@@ -1,0 +1,68 @@
+---
+slug: rotacion-de-liderazgo-el-poder-como-servicio
+courseSlug: arquitectura-organizaciones-distribuidas
+title: 'Rotación de Liderazgo: El Poder como Servicio'
+summary: Implementar sistemas de rotación que distribuyan el poder efectivamente.
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.congreso.gob.ar/constituciones/MENDOZA.pdf
+    titulo: 'Constitución de la Provincia de Mendoza (Congreso de la Nación)'
+    consultada: '2026-09-22'
+  - url: https://www.losandes.com.ar/columnistas/mendoza-defiende-lo-que-el-resto-olvido-la-importancia-la-alternancia-el-poder-n5945840
+    titulo: 'Mendoza defiende lo que el resto olvidó: la importancia de la alternancia en el poder (Los Andes)'
+    consultada: '2026-09-22'
+  - url: https://www.infobae.com/politica/2025/09/10/santa-fe-aprobo-por-amplia-mayoria-el-texto-definitivo-de-la-nueva-constitucion/
+    titulo: 'Santa Fe aprobó por amplia mayoría la nueva Constitución que habilita la reelección de Maximiliano Pullaro en 2027 (Infobae)'
+    consultada: '2026-09-22'
+---
+## El Poder Que Rota No Se Corrompe
+
+La rotación de liderazgo no es solo una buena idea democrática: es una **tecnología organizacional** que previene la concentración de poder, desarrolla capacidades en más personas y renueva la energía del grupo.
+
+### Qué Rota y Qué No
+
+- **Rota mensualmente:** Facilitación de reuniones, moderación de WhatsApp
+- **Rota trimestralmente:** Comunicación externa, coordinación de proyectos
+- **Rota semestralmente:** Tesorería (con período de transición), representación institucional
+- **No rota (pero se renueva anualmente):** Roles que requieren relaciones de largo plazo con instituciones
+
+### El Protocolo de Transición
+
+La rotación sin transición es un desastre. Cada cambio de rol debe incluir:
+
+1. **Documentación:** La persona saliente escribe qué hizo, qué queda pendiente, qué contactos clave hay
+2. **Acompañamiento:** Un mes donde ambas personas (saliente y entrante) están activas
+3. **Retrospectiva:** ¿Qué funcionó? ¿Qué cambiarías? ¿Qué aprendiste?
+
+### Pausa para Reflexionar
+
+Pensá en un rol que hoy concentrás vos (o alguien de tu grupo). Escribí los 3 pasos concretos del protocolo de transición que usarías para pasarlo a otra persona en los próximos 30 días. ¿Qué documentarías primero?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Resistencias Comunes y Cómo Manejarlas
+
+- **"Pero yo lo hago mejor":** Probablemente sí, porque tuviste más práctica. Dejá que otros practiquen.
+- **"Nadie quiere asumir":** Empezá con roles pequeños y bien definidos. La confianza se construye con éxitos chicos.
+- **"Es ineficiente":** A corto plazo sí. A largo plazo, una organización con 10 personas capaces es infinitamente más eficiente que una con 1.
+
+### La rotación también se esquiva
+
+Toda regla de rotación genera su atajo. El que no puede seguir en la tesorería pasa a la secretaría y la tesorería la ocupa su pareja; el que terminó su mandato sigue decidiendo desde afuera, por teléfono. Por eso una regla de rotación seria no dice solo cuánto dura el rol: dice también a qué otros roles no se puede saltar enseguida y quiénes no pueden heredarlo. Y necesita un período de enfriamiento: alguien que dejó un rol puede volver, pero no en el turno siguiente. Si la regla no cierra esas puertas, la rotación es un cambio de silla dentro de la misma mesa. Estas reglas cuestan poco de escribir cuando nadie ocupa el rol y muchísimo cuando alguien ya se acostumbró a ocuparlo; por eso van en el acuerdo fundacional y no en la reunión en que surge el problema.
+
+> "El verdadero líder es el que trabaja para volverse innecesario."
+
+### El caso
+
+La Constitución de Mendoza, reformada en 1916, fija mandatos de cuatro años para gobernador y vicegobernador (artículo 114) y en el 115 prohíbe que sean reelegidos para el período siguiente. También cierra los atajos: el gobernador no puede ser nombrado vice ni el vice gobernador, y los parientes de los salientes hasta el segundo grado no pueden ser electos para ninguno de los dos cargos. En 1983 ninguna provincia permitía reelegir al gobernador; veinte años después, solo cinco mantenían la prohibición. En septiembre de 2025 Santa Fe aprobó una constitución que habilita un único mandato consecutivo, y Mendoza quedó como la única provincia que la sostiene.
+
+### La palanca
+
+Revisá los roles de tu grupo con la vara mendocina: para cada uno, cuánto dura, si se puede renovar en el turno siguiente, a qué otro rol no se puede saltar y quién no puede heredarlo. Escribí las respuestas en cuatro columnas y proponé en la próxima reunión la regla que falte, empezando por el rol que maneja la plata.
+Armá esa lista esta semana con los roles que existen hoy, no con los ideales.
+
+### El puente
+
+En [La falacia del poder mismo](/ensayos/poder), un presidente no tiene poder: tiene un permiso temporal que se puede retirar, recortar o anular. La rotación escrita es la forma de que ese permiso se note.

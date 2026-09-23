@@ -1,0 +1,64 @@
+---
+slug: modulo-10-plan-de-accion-metricas-y-escalamiento
+courseSlug: teoria-juegos-argentina-hombre-gris
+title: 'Módulo 10 · Plan de acción, métricas y escalamiento'
+summary: 'Cerrá con un plan integral: roadmap de 180 días, KPIs y compromisos públicos.'
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/110000-114999/112976/norma.htm
+    titulo: 'Ley 26.075 — Financiamiento Educativo (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://chequeado.com/hilando-fino/educacion-en-la-ultima-decada-solo-en-2015-se-cumplio-con-la-inversion-establecida-por-ley/
+    titulo: 'Educación: en la última década sólo en 2015 se cumplió con la inversión establecida por ley (Chequeado)'
+    consultada: '2026-09-22'
+---
+Cerrá con un plan integral: roadmap de 180 días, KPIs y compromisos públicos. En Teoría de Juegos Aplicada a Argentina: La Partida del Hombre Gris, esta lección cumple una función clave: convertir un concepto estratégico en una herramienta concreta para leer situaciones reales, ordenar decisiones y construir mejores acuerdos.
+
+### Objetivos de la lección
+
+- Diseñar un acta pública Tit for Tat
+- Definir KPIs multi actor y tablero de control
+- Planificar escalamiento regional/nacional con hitos
+- Plantilla de acta
+
+### Por qué importa
+
+Cuando una comunidad, una organización o un actor público no entiende el mecanismo que tiene delante, suele reaccionar tarde o reaccionar mal. Estudiá este tema para evitar respuestas impulsivas, reconocer qué incentivos están operando y diseñar intervenciones que produzcan cooperación, claridad o aprendizaje acumulable. En vez de mirar solo el evento visible, esta lección te entrena para mirar la estructura que lo sostiene.
+
+Este punto exige pasar de la definición a la lógica práctica: qué actor interviene, qué incentivo aparece, qué información falta y qué decisión mejora cuando comprendemos el mecanismo. Si podés reconocer este patrón en tu vida, tu comunidad y la transformación argentina, entonces la lección ya se volvió una herramienta de trabajo y no solo una explicación.
+
+### El acta como primera jugada
+
+Un acta pública Tit for Tat es un compromiso escrito que hace lo que la estrategia hace sola: empieza cooperando, dice qué va a responder cada parte si la otra falla y explica cómo se vuelve a cooperar. Firmarla y publicarla es la primera jugada. Lo que la vuelve creíble es que la respuesta al incumplimiento no dependa del ánimo de nadie el día que haga falta aplicarla.
+
+### Indicadores que miden a todos
+
+Un indicador multiactor mide lo que hace cada parte, no sólo el resultado final. Si el indicador es «la plaza está limpia», nadie sabe quién falló. Si son tres —el municipio retiró los residuos los martes, los vecinos sacaron las bolsas en horario, la cooperativa barrió dos veces por semana—, cada falla tiene dueño. El tablero de control muestra esos indicadores con fecha y con la fuente de cada dato, y guarda la historia en vez de mostrar sólo el último valor.
+
+### Escalar con hitos
+
+Escalar no es replicar en todos lados al mismo tiempo. Es pasar de una cuadra a un barrio y de un barrio a un municipio sólo cuando el hito anterior se cumplió, con el mismo formato de acta, para que los resultados de cada escala se puedan comparar con los de la anterior.
+
+### Plantilla de acta
+
+- Partes que firman y quién representa a cada una.
+- Primera jugada cooperativa de cada parte, con fecha.
+- Tres indicadores: qué se mide, quién lo mide, cada cuánto y dónde se publica.
+- Respuesta ante el incumplimiento: qué pasa, sin que nadie tenga que decidirlo, si un indicador no se alcanza.
+- Reparación y regreso: qué tiene que hacer quien falló para volver a la cooperación plena.
+- Revisión: fecha en que el acta se evalúa y criterio para ampliarla, corregirla o cerrarla.
+
+### El caso
+
+La Ley 26.075 de Financiamiento Educativo, sancionada el 21 de diciembre de 2005, es un acta con metas bien escritas. Fijó que el gasto consolidado en educación, ciencia y tecnología llegara al 6% del PBI en 2010, repartió el esfuerzo adicional en 40% para la Nación y 60% para las provincias, ordenó convenios bilaterales con metas anuales y exigió difundir resultados y evaluaciones. Después, el artículo 9 de la Ley 26.206 convirtió el 6% en un piso permanente para educación. Según un relevamiento de Chequeado publicado en 2020, en la década anterior ese piso se cumplió sólo en 2015. Había número, fecha y publicación; faltaba lo que pasa cuando el número no se alcanza.
+
+### La palanca
+
+Tomá un acuerdo que ya exista en tu organización o en tu barrio —con el municipio, con otra organización, entre vecinos— y reescribilo con la plantilla de esta lección. La pieza que casi siempre falta es la cuarta: qué pasa si un indicador no se cumple. Llevalo firmado a la próxima reunión y publicalo donde lo puedan leer también los que no firmaron.
+Armá el acta con tres indicadores y una consecuencia escrita para cada uno.
+
+### El puente
+
+[PLANEDU](/planes/planedu) lee la Ley 26.206 como una ley razonable que quedó sin implementación porque le faltaron institucionalidad, presupuesto protegido y rendición de cuentas; su respuesta es una agencia autónoma con piso presupuestario.

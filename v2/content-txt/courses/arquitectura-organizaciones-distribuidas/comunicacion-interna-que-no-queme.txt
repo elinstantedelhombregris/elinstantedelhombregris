@@ -1,0 +1,62 @@
+---
+slug: comunicacion-interna-que-no-queme
+courseSlug: arquitectura-organizaciones-distribuidas
+title: Comunicación Interna Que No Queme
+summary: Diseñar flujos de comunicación que informen sin saturar.
+orderIndex: 11
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/235000-239999/235975/norma.htm
+    titulo: 'Código Civil y Comercial de la Nación — Ley 26.994 (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Comunicar Sin Saturar: El Arte del Flujo Interno
+
+La mala comunicación interna mata más organizaciones que la falta de recursos. Demasiados mensajes, poca claridad, información que no llega a quien la necesita. Diseñar el **flujo de comunicación** es tan importante como diseñar la estructura.
+
+### Los Tres Flujos
+
+- **Flujo informativo:** Lo que todos necesitan saber. Formato: resumen semanal breve. Canal: grupo general (solo lectura excepto admins).
+- **Flujo operativo:** Lo que cada equipo necesita coordinar. Formato: mensajes directos en subcírculos. Canal: grupo de cada proyecto.
+- **Flujo social:** Lo que mantiene el vínculo humano. Formato: libre. Canal: grupo social separado.
+
+### La Reunión de 15 Minutos
+
+Cada semana, una reunión breve (presencial o virtual) con formato fijo:
+
+1. **3 minutos:** Cada círculo reporta en una oración qué hizo y qué necesita
+2. **5 minutos:** Anuncios y coordinación
+3. **5 minutos:** Problemas urgentes
+4. **2 minutos:** Próximos pasos claros
+
+### Pausa para Reflexionar
+
+Mirá el grupo de WhatsApp de tu barrio, trabajo o comunidad. ¿Están mezclados los tres flujos (informativo, operativo, social)? Diseñá en un papel cómo separarías la comunicación en canales diferenciados. ¿Qué reglas pondrías desde el día 1?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Documentación Viva
+
+Todo lo que se decide debe quedar escrito en un lugar accesible. No en un chat que se pierde, sino en un documento compartido (Google Doc, Notion, o incluso un cuaderno físico en el local) que funcione como la **memoria del grupo**.
+
+La regla: si no está escrito, no se decidió.
+
+### El chat no es el archivo
+
+Un grupo de WhatsApp sirve para avisar, no para recordar. Los mensajes se entierran en horas, quienes entran después no ven lo anterior y las decisiones quedan mezcladas con saludos, fotos y audios de cuatro minutos. La práctica que ordena es separar el lugar donde se conversa del lugar donde se registra: cada decisión tomada en el chat pasa ese mismo día al documento de acuerdos, con fecha, quién la propuso y quién la ejecuta. Un audio largo puede servir para explicar, pero lo que se decidió tiene que poder leerse en treinta segundos, sin haber estado. Quien se suma al grupo en marzo no tiene por qué scrollear hasta enero para entender por qué la feria se hace los sábados: tiene que poder leerlo en una línea, con la fecha en que se acordó.
+
+> *"La información compartida es poder compartido. Cuando todos saben lo mismo, jugamos el mismo juego."*
+
+### El caso
+
+A falta de una regla propia en el estatuto, el Código Civil y Comercial permite que los miembros de una persona jurídica —una asociación, una fundación, una cooperativa— participen de una asamblea o reunión del órgano de gobierno a distancia, si todos los que deben participar lo consienten y el medio les permite comunicarse simultáneamente (artículo 158). La habilitación viene con obligaciones de registro: el acta la firman el presidente y otro administrador, tiene que indicar la modalidad adoptada y hay que guardar las constancias según el medio usado. La ley acepta que la reunión sea por videollamada; lo que no acepta es que la decisión quede sin papel. Es la regla de esta lección escrita en el código.
+
+### La palanca
+
+Abrí hoy un documento compartido que se llame «Acuerdos». Cada entrada lleva fecha, decisión, responsable y plazo. Designá a una persona por mes para que pase ahí lo que se decide en el chat y en las reuniones, y leé los acuerdos del mes al empezar la reunión siguiente, antes que cualquier tema nuevo.
+Guardá el enlace del documento en la descripción del grupo antes del domingo.
+
+### El puente
+
+[PLANMEMORIA](/planes/planmemoria) sostiene que la Argentina olvida lo que intentó y lo que falló porque no tiene un archivo consultable de precedentes; un grupo sin documento de acuerdos repite esa falla a escala de barrio.

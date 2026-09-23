@@ -1,0 +1,106 @@
+---
+slug: disenar-limites-que-potencian
+courseSlug: diseno-idealizado-sistemas-vivos
+title: Diseñar Límites que Potencian
+summary: Comprendé cómo definir fronteras porosas que protegen y conectan simultáneamente. Aprendé a decidir qué incluir y qué excluir para comprender y transformar sistemas.
+orderIndex: 6
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/90000-94999/92016/texact.htm
+    titulo: 'Ley 25.871 — Ley de Migraciones, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Límites: La Frontera que Define
+
+¿Qué pertenece al sistema y qué no? ¿Dónde termina tu responsabilidad y comienza la de otro? Los límites definen qué es el sistema. Pero los límites pueden ser rígidos (que aíslan) o porosos (que protegen y conectan). Un sistema ideal tiene límites inteligentes.
+
+## Límites Rígidos vs. Límites Porosos
+
+**Los límites definen qué está dentro y qué está fuera del sistema.** Pero la forma de los límites determina si el sistema puede evolucionar o se estanca.
+
+### Límites Rígidos
+
+**Características:** Cerrados, impermeables, aislantes
+
+Problema: El sistema se aísla, no puede evolucionar, se vuelve obsoleto
+
+**Ejemplo:** Organización que rechaza ideas externas
+
+### Límites Porosos
+
+**Características:** Permeables, selectivos, adaptativos
+
+Ventaja: El sistema puede recibir inputs valiosos y mantener identidad
+
+**Ejemplo:** Equipo que aprende de otros pero mantiene cultura propia
+
+### Cómo Definir Límites Útiles
+
+Los límites útiles tienen tres características:
+
+**Principios de límites inteligentes:**
+
+- **Protegen la identidad:** Definen qué es esencial del sistema
+- **Permiten conexión:** Dejan entrar lo valioso, salen lo que sirve
+- **Se adaptan:** Cambian según necesidades del sistema
+
+### La Paradoja de los Límites
+
+Un sistema necesita límites para tener identidad, pero límites demasiado rígidos lo matan. Un sistema ideal tiene límites que protegen lo esencial pero permiten evolución. Es como una membrana celular: selectivamente permeable.
+
+### Límites que Protegen sin Aislar
+
+Ejemplos de límites inteligentes:
+
+### LÍMITES PERSONALES
+
+**Qué protegen:** Tu energía, valores, tiempo
+
+**Qué permiten:** Conexiones valiosas, aprendizaje, crecimiento
+
+Ejemplo: Decir "no" a lo que no alinea, "sí" a lo que suma
+
+### LÍMITES ORGANIZACIONALES
+
+**Qué protegen:** Cultura, propósito, valores
+
+**Qué permiten:** Innovación externa, talento diverso, colaboración
+
+Ejemplo: Cultura fuerte que integra ideas nuevas
+
+### Rediseño de Límites para Optimizar Sistemas
+
+Cuando rediseñás límites, transformás el sistema:
+
+### Estrategias de Rediseño
+
+- **Evaluá límites actuales:** ¿Son demasiado rígidos o demasiado porosos?
+- **Definí qué proteger:** ¿Qué es esencial del sistema?
+- **Definí qué permitir:** ¿Qué inputs valiosos faltan?
+- **Diseñá límites adaptativos:** ¿Cómo cambiarían según contexto?
+
+### Caso argentino: una frontera escrita como membrana
+
+La Ley de Migraciones 25.871, sancionada el 17 de diciembre de 2003, arranca por un lugar poco habitual para una norma sobre fronteras. Su artículo 4 dice que el derecho a la migración es esencial e inalienable de la persona, y que la República lo garantiza sobre la base de la igualdad y la universalidad. El artículo 6 obliga al Estado, en todas sus jurisdicciones, a asegurar a los inmigrantes el acceso igualitario a salud, educación, justicia, trabajo y seguridad social. Y el artículo 23, inciso l, abre una residencia temporaria para los nativos de los Estados del MERCOSUR, Chile y Bolivia: dos años, prorrogables, con entradas y salidas múltiples.
+
+Leída con las categorías de esta lección, la ley no borra el límite: sigue definiendo quién reside, con qué categoría y por cuánto tiempo. Lo que cambia es el criterio del poro. En lugar de filtrar por miedo a lo que entra, filtra por pertenencia a una región con la que el país ya comparte historia, mercado y trabajo, y después se ocupa de lo que pasa adentro: que quien llegó entre a la escuela y al hospital en las mismas condiciones que un nacional. Es una membrana en sentido estricto, selectiva en la entrada y atenta al intercambio que ocurre una vez cruzada.
+
+La pregunta de diseño que deja el caso vale para cualquier sistema: tus límites, ¿están pensados para frenar lo que llega o para que lo que llega pueda funcionar adentro?
+
+### Ejercicio: Diseñar Límites Ideales
+
+**Diseñá límites ideales para un sistema:**
+
+1. ¿Qué límites tiene el sistema actualmente?
+2. ¿Qué protegen esos límites? ¿Qué impiden?
+3. ¿Cómo serían límites ideales? (¿qué protegerían? ¿qué permitirían?)
+4. ¿Cómo rediseñarías los límites para optimizar el sistema?
+
+### ¿Entendiste?
+
+Los límites definen qué es el sistema. Límites rígidos aíslan y estancan. Límites porosos protegen lo esencial pero permiten evolución. Un sistema ideal tiene límites inteligentes que se adaptan según necesidades. Rediseñar límites es una forma poderosa de transformar sistemas.
+
+### El puente
+
+[PLANPUERTA](/planes/planpuerta) se define como la piel del país y prohíbe pensarse como su sistema inmune: no mide cuántos entran sino cuántos siguen acá a los diez años, y deja intacto el Acuerdo de Residencia del MERCOSUR.

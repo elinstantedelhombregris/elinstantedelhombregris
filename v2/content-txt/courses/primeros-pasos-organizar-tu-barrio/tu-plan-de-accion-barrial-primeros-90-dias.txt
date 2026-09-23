@@ -1,0 +1,63 @@
+---
+slug: tu-plan-de-accion-barrial-primeros-90-dias
+courseSlug: primeros-pasos-organizar-tu-barrio
+title: 'Tu Plan de Acción Barrial: Primeros 90 Días'
+summary: Crear un plan concreto de organización barrial para los próximos tres meses.
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/235000-239999/235975/norma.htm
+    titulo: 'Código Civil y Comercial de la Nación, artículos 187 a 192 — Simples asociaciones (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## De la Teoría a la Calle: Tu Plan de 90 Días
+
+Llegaste al final del curso con herramientas concretas. Ahora es momento de armar tu **plan de acción personal** para los próximos 90 días. No necesitás hacer todo: necesitás empezar.
+
+### Mes 1: Explorar y Conectar
+
+- **Semana 1-2:** Completá tu mapeo de activos barriales. Caminá el barrio, hablá con comerciantes, identificá los conectores naturales.
+- **Semana 3:** Invitá personalmente a 5-10 personas a un mate en la plaza. Usá la estrategia de convocatoria de tres capas.
+- **Semana 4:** Realizá tu primer encuentro. No busques resultados concretos: buscá que la gente se conozca y tenga ganas de volver.
+
+### Mes 2: Visión y Primer Proyecto
+
+- **Semana 5-6:** Facilitá la dinámica de "futuros deseados". Identificá las 3 prioridades del grupo.
+- **Semana 7:** Elegí tu primer proyecto usando los criterios (pequeño, visible, participativo, exitoso).
+- **Semana 8:** Planificá la ejecución con responsables y fechas claras.
+
+### Mes 3: Ejecutar y Celebrar
+
+- **Semana 9-10:** Ejecutá el proyecto. Documentá con fotos y videos.
+- **Semana 11:** Celebrá el logro. Invitá a nuevos vecinos a la celebración.
+- **Semana 12:** Reflexioná con el grupo: ¿Qué aprendimos? ¿Qué sigue?
+
+### Si el Plan Se Atrasa
+
+El plan se va a atrasar. Alguien se enferma, llueve tres sábados seguidos, el municipio no contesta. La regla es simple: se mueven las fechas, no el orden. Si en la semana 8 todavía no hay cinco personas que vuelvan, no arranques el proyecto con dos: repetí la convocatoria del mes 1, con otra franja horaria o en otro lugar. Un proyecto lanzado sin grupo termina hecho por una sola persona, y esa persona se quema antes del día 90. Es preferible llegar al día 120 con un grupo que al día 90 con un héroe cansado.
+
+### Indicadores de Éxito
+
+Al final de los 90 días, si podés responder "sí" a estas preguntas, vas muy bien:
+
+1. ¿Tengo un grupo de al menos 5 personas que se juntan regularmente?
+2. ¿Completamos al menos un proyecto concreto?
+3. ¿Hay al menos un ritual de encuentro establecido?
+4. ¿Tenemos una forma de comunicación que funciona?
+
+> "El instante del Hombre Gris no es un momento lejano. Es cada vez que un vecino golpea la puerta de al lado y dice: '¿Qué podemos hacer juntos?'"
+
+### El caso
+
+Al terminar los 90 días, muchos grupos se preguntan si tienen que formalizarse. El Código Civil y Comercial ofrece una figura liviana: la simple asociación. Su acto constitutivo puede hacerse por instrumento privado con firma certificada por escribano, y el nombre tiene que llevar el agregado «simple asociación» o «asociación simple» (artículo 187). Existe como persona jurídica desde la fecha de ese acto (artículo 189) y, si tiene menos de 20 asociados, puede prescindir del órgano de fiscalización, aunque sigue obligada a certificar sus estados contables (artículo 190). El costo está en otro lado: si los bienes de la asociación no alcanzan, quien la administra responde solidariamente por las deudas que surjan de las decisiones que firmó (artículo 191). Formalizarse no es un premio: es asumir obligaciones que un grupo de mate no tiene.
+
+### La palanca
+
+No decidas la forma jurídica en el día 90: decidí primero para qué la necesitarían. Si el grupo va a manejar plata de terceros, firmar un préstamo de uso por un salón o pedir un subsidio, la formalización puede hacer falta; si sólo se junta y organiza jornadas, probablemente todavía no. Llevá la pregunta a la reflexión de la semana 12 y, si la respuesta es sí, consultá en el organismo de personas jurídicas de tu provincia qué pide para inscribir una simple asociación.
+Compará esos requisitos con lo que el grupo ya tiene antes de pedir turno con un escribano.
+
+### El puente
+
+[Soberanía](/ensayos/soberania) cierra con un plan parecido a este, día por día, y llega al mismo lugar: todo empieza con tres o cuatro personas en una cocina que deciden tomarse en serio su calle.

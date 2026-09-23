@@ -1,0 +1,111 @@
+{
+  "slug": "primeros-pasos-organizar-tu-barrio",
+  "title": "Primeros Pasos: Cómo Organizar tu Barrio",
+  "description": "Aprendé las bases prácticas para organizar a tu comunidad barrial. Desde convocar la primera reunión hasta mapear recursos locales, este curso te da las herramientas para dar el primer paso hacia la transformación desde tu cuadra.",
+  "excerpt": "Herramientas prácticas para organizar tu barrio desde cero.",
+  "category": "community",
+  "level": "beginner",
+  "duration": 33,
+  "orderIndex": 9,
+  "isPublished": true,
+  "isFeatured": true,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-por-que-organizar-tu-barrio-la-arquitectura-invisible",
+      "title": "Por Qué Organizar tu Barrio: La Arquitectura Invisible",
+      "description": "Comprender por qué la organización barrial es la unidad mínima de transformación.",
+      "duration": 4,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-el-mapeo-de-activos-descubriendo-lo-que-ya-tenes",
+      "title": "El Mapeo de Activos: Descubriendo Lo Que Ya Tenés",
+      "description": "Técnica de mapeo de recursos y activos comunitarios existentes en tu barrio.",
+      "duration": 3,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-la-primera-reunion-como-convocar-y-que-vengan",
+      "title": "La Primera Reunión: Cómo Convocar y Que Vengan",
+      "description": "Estrategias probadas para convocar a vecinos a una primera reunión comunitaria.",
+      "duration": 4,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-construir-vision-compartida-sin-un-solo-lider",
+      "title": "Construir Visión Compartida Sin un Solo Líder",
+      "description": "Facilitar la creación de una visión colectiva sin depender de liderazgo único.",
+      "duration": 4,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-whatsapp-y-herramientas-digitales-que-no-se-vuelvan-caos",
+      "title": "WhatsApp y Herramientas Digitales Que No Se Vuelvan Caos",
+      "description": "Gestionar comunicación digital barrial sin que se convierta en fuente de conflicto.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-la-conversacion-valiente-hablar-de-lo-que-importa",
+      "title": "La Conversación Valiente: Hablar de Lo Que Importa",
+      "description": "Técnicas para facilitar conversaciones honestas sobre temas difíciles en comunidad.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-de-la-queja-al-proyecto-transformar-frustracion-en-accion",
+      "title": "De la Queja al Proyecto: Transformar Frustración en Acción",
+      "description": "Metodología para convertir las quejas barriales recurrentes en proyectos concretos.",
+      "duration": 3,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-gestion-de-conflictos-en-el-grupo-inicial",
+      "title": "Gestión de Conflictos en el Grupo Inicial",
+      "description": "Cómo manejar los conflictos inevitables que surgen en grupos barriales.",
+      "duration": 3,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-rituales-y-espacios-de-encuentro",
+      "title": "Rituales y Espacios de Encuentro",
+      "description": "Crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo.",
+      "duration": 3,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-tu-plan-de-accion-barrial-primeros-90-dias",
+      "title": "Tu Plan de Acción Barrial: Primeros 90 Días",
+      "description": "Crear un plan concreto de organización barrial para los próximos tres meses.",
+      "duration": 3,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Mapear capacidades existentes antes de convocar alrededor de carencias.",
+    "Diseñar una primera reunión con cuidado, foco y una decisión pequeña.",
+    "Acordar canales, roles y un plan barrial de noventa días que no queme al grupo."
+  ],
+  "noCubre": [
+    "No supone que toda persona vecina puede participar con el mismo tiempo o seguridad.",
+    "No reemplaza protocolos municipales, mediación especializada o respuesta de emergencias."
+  ],
+  "paraQuien": "Para vecinos que comparten una preocupación y todavía no cuentan con organización estable.",
+  "productoFinal": "Un kit de arranque barrial: mapa de activos, convocatoria, agenda, acuerdos y plan de noventa días.",
+  "prerrequisitos": ["Un territorio pequeño y un problema inicial sobre el cual escuchar."],
+  "coverImage": "/course-art/entrenamientos/primeros-pasos-organizar-tu-barrio.webp",
+  "fuentesBase": [
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/",
+      "titulo": "Elinor Ostrom · gobernanza policéntrica más allá de mercados y Estados",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

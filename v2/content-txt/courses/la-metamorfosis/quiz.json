@@ -1,0 +1,137 @@
+{
+  "title": "Evaluación Final: La Metamorfosis",
+  "description": "Reflexioná sobre tu recorrido de transformación personal y tu comprensión del camino del Hombre Gris.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "En la metáfora de Nietzsche, ¿qué representa el Camello?",
+      "type": "multiple_choice",
+      "options": [
+        "La rebeldía contra el sistema",
+        "La creatividad libre e inocente",
+        "El espíritu que carga los pesos y mandatos impuestos diciendo \"yo puedo\"",
+        "La sabiduría del líder experimentado"
+      ],
+      "correctAnswer": "El espíritu que carga los pesos y mandatos impuestos diciendo \"yo puedo\"",
+      "explanation": "El Camello es la primera transformación: el espíritu que busca las cargas más pesadas — mandatos familiares, culturales, económicos — y las lleva por el desierto sin cuestionarlas.",
+      "points": 1,
+      "orderIndex": 1
+    },
+    {
+      "question": "Según el curso, la transformación del Camello al León al Niño es un proceso lineal donde se abandona cada etapa al pasar a la siguiente.",
+      "type": "true_false",
+      "options": ["Verdadero", "Falso"],
+      "correctAnswer": "Falso",
+      "explanation": "La persona madura integra las tres transformaciones simultáneamente: sabe cuándo cargar (Camello), cuándo poner límites (León) y cuándo crear (Niño). No es lineal sino integrador.",
+      "points": 1,
+      "orderIndex": 2
+    },
+    {
+      "question": "¿Qué es el \"Gran Dragón\" en la metáfora de Nietzsche y cómo se manifiesta en la vida real?",
+      "type": "multiple_choice",
+      "options": [
+        "Es un monstruo literal que hay que derrotar con fuerza",
+        "Son los mandatos, expectativas y \"debes\" internalizados que confundimos con nuestra propia voz",
+        "Es la sociedad entera que hay que destruir para ser libre",
+        "Es el miedo a la muerte que todos enfrentamos"
+      ],
+      "correctAnswer": "Son los mandatos, expectativas y \"debes\" internalizados que confundimos con nuestra propia voz",
+      "explanation": "El Gran Dragón tiene escamas donde dice \"tú debes\" — son los mandatos familiares, culturales y económicos que asumimos como propios sin cuestionarlos.",
+      "points": 1,
+      "orderIndex": 3
+    },
+    {
+      "question": "¿Por qué el curso advierte que el León tiene un peligro?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque puede volverse violento físicamente",
+        "Porque puede quedarse atrapado en la destrucción y la rebeldía permanente sin nunca crear",
+        "Porque puede asustar a las demás personas",
+        "Porque el rugido desgasta la voz"
+      ],
+      "correctAnswer": "Porque puede quedarse atrapado en la destrucción y la rebeldía permanente sin nunca crear",
+      "explanation": "El León que solo dice \"no\" y nunca crea es tan esclavo como el Camello — su cadena es la rebeldía permanente. El León es una etapa necesaria pero transitoria.",
+      "points": 1,
+      "orderIndex": 4
+    },
+    {
+      "question": "¿Qué precaución exige afirmar que un comportamiento se \"propaga\" en una red social?",
+      "type": "multiple_choice",
+      "options": [
+        "Tratar toda asociación como contagio causal",
+        "Distinguir influencia, homofilia, entorno compartido, diseño del estudio y límites de generalización",
+        "Suponer que tres grados es una ley universal",
+        "Ignorar cómo se construyó la red analizada"
+      ],
+      "correctAnswer": "Distinguir influencia, homofilia, entorno compartido, diseño del estudio y límites de generalización",
+      "explanation": "Las asociaciones en redes pueden ser sugerentes, pero separar contagio, selección de vínculos y contexto compartido es difícil. La metáfora no debe presentarse como una ley causal universal.",
+      "points": 1,
+      "orderIndex": 5
+    },
+    {
+      "question": "¿Qué significa la estrategia \"Tit for Tat\" aplicada como filosofía de vida del Hombre Gris?",
+      "type": "multiple_choice",
+      "options": [
+        "Vengarse de quien te hizo daño",
+        "Empezar siempre cooperando, responder a la reciprocidad y perdonar rápido cuando el otro vuelve a cooperar",
+        "No confiar en nadie hasta que demuestren ser confiables",
+        "Hacer exactamente lo mismo que hacen los demás"
+      ],
+      "correctAnswer": "Empezar siempre cooperando, responder a la reciprocidad y perdonar rápido cuando el otro vuelve a cooperar",
+      "explanation": "Tit for Tat como filosofía del Hombre Gris significa dar el primer paso de confianza, responder a la cooperación con cooperación, poner límites si hay traición, pero perdonar rápido si el otro vuelve a cooperar.",
+      "points": 1,
+      "orderIndex": 6
+    },
+    {
+      "question": "¿Cómo conviene usar el hallazgo experimental de un umbral cercano al 25% estudiado por Damon Centola y colaboradores?",
+      "type": "multiple_choice",
+      "options": [
+        "Como ley universal para cualquier sociedad y comportamiento",
+        "Como evidencia de un experimento específico que inspira hipótesis, no como receta automática",
+        "Como garantía de cambio cuando se alcanza exactamente ese número",
+        "Como reemplazo del análisis de poder, red y contexto"
+      ],
+      "correctAnswer": "Como evidencia de un experimento específico que inspira hipótesis, no como receta automática",
+      "explanation": "El estudio encontró un umbral en condiciones experimentales determinadas. Escala, topología de red, comportamiento, poder y contexto pueden cambiar el resultado fuera del laboratorio.",
+      "points": 1,
+      "orderIndex": 7
+    },
+    {
+      "question": "El \"Instante del Hombre Gris\" es un evento espectacular y único que sucede una sola vez en la vida.",
+      "type": "true_false",
+      "options": ["Verdadero", "Falso"],
+      "correctAnswer": "Falso",
+      "explanation": "El Instante del Hombre Gris no es un evento espectacular sino una práctica diaria: elegir cada día quién ser, qué cargar, qué soltar, qué crear. Cada instante es una elección.",
+      "points": 1,
+      "orderIndex": 8
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Argentina Como Laboratorio» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Las crisis repetidas como invitaciones permanentes a transformarse.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 9
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Instante del Hombre Gris» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Síntesis final: tu rol, tu compromiso, tu manifiesto personal.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 10
+    }
+  ]
+}

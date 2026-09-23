@@ -1,0 +1,71 @@
+---
+slug: datos-abiertos-el-tesoro-que-nadie-busca
+courseSlug: ciudadano-auditor-control-ciudadano
+title: 'Datos Abiertos: El Tesoro Que Nadie Busca'
+summary: Usar datos.gob.ar y otras fuentes de datos abiertos para control ciudadano.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/257755/texto
+    titulo: 'Decreto 117/2016 — Plan de Apertura de Datos, texto original (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/255000-259999/257755/norma.htm
+    titulo: 'Decreto 117/2016 — Plan de Apertura de Datos (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://datos.gob.ar/
+    titulo: 'Datos Argentina — Portal Nacional de Datos Públicos'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## La Información Está Ahí, Gratis
+
+Argentina tiene uno de los portales de datos abiertos más completos de América Latina. En **datos.gob.ar** hay miles de datasets con información que va desde el gasto público hasta las estadísticas de salud, pasando por contrataciones, empleo público y mucho más. El problema no es la falta de datos: es que casi nadie los mira.
+
+### ¿Qué Son los Datos Abiertos?
+
+Son datos producidos por el Estado que se publican en **formatos legibles por máquina** (CSV, JSON, XML) para que cualquier ciudadano pueda descargarlos, analizarlos y usarlos. No son PDFs bonitos: son tablas de datos crudos que permiten análisis profundo.
+
+### Fuentes Clave de Datos
+
+- **datos.gob.ar:** Portal central del Estado nacional. Miles de datasets.
+- **presupuestoabierto.gob.ar:** Ejecución presupuestaria en tiempo real.
+- **datos.arba.gob.ar:** Datos de la provincia de Buenos Aires.
+- **BA Data (data.buenosaires.gob.ar):** Datos de la Ciudad de Buenos Aires.
+- **INDEC (indec.gob.ar):** Estadísticas oficiales: pobreza, empleo, inflación, comercio exterior.
+- **Comprar (comprar.gob.ar):** Todas las compras y contrataciones del Estado nacional.
+- **Mapa de inversiones (mapainversiones.mecon.gob.ar):** Obras públicas georeferenciadas.
+
+### Qué Podés Hacer con Datos Abiertos
+
+1. **Comparar:** ¿Cuánto gasta tu provincia en salud vs. otras provincias similares?
+2. **Rastrear tendencias:** ¿La pobreza está subiendo o bajando? ¿Cuánto creció el empleo público?
+3. **Detectar anomalías:** Contratos con montos inusualmente altos, proveedores que ganan todas las licitaciones.
+4. **Visualizar:** Convertir datos en gráficos que la gente pueda entender.
+
+### Herramientas Básicas
+
+- **Google Sheets / Excel:** Para abrir y filtrar archivos CSV.
+- **Datawrapper (datawrapper.de):** Herramienta gratuita para crear gráficos profesionales sin saber programar.
+- **Flourish:** Visualizaciones interactivas gratuitas.
+- **OpenRefine:** Para limpiar datos desordenados.
+
+### Antes de creerle a un dataset
+
+Un conjunto de datos abiertos trae, además de la tabla, su ficha: quién lo publica, cada cuánto se actualiza, cuándo se tocó por última vez y qué significa cada columna. Leé la ficha antes que la tabla. Tres preguntas alcanzan para no equivocarte: ¿el período cubre lo que querés comparar?, ¿las unidades son las mismas en todas las filas (pesos corrientes o constantes, miles o millones)?, ¿la última actualización es de este año? Un gráfico que mezcla pesos de 2019 con pesos de 2025 no muestra un aumento: muestra la inflación.
+
+> "Los datos abiertos son el equivalente digital de abrir las ventanas del Estado. El aire fresco de la transparencia desinfecta. Pero solo funciona si alguien mira adentro."
+
+### El caso
+
+El 12 de enero de 2016 el Poder Ejecutivo firmó el Decreto 117, que les dio a los ministerios, secretarías y organismos que dependen de él un plazo de 180 días para presentar un Plan de Apertura de Datos con su inventario y su cronograma de publicación. El artículo 2 fue más rápido: en no más de 90 días había que publicar, y mantener actualizados en el Portal Nacional de Datos Públicos, la estructura orgánica, la nómina de autoridades, el personal contratado, las escalas salariales, los créditos presupuestarios, las contrataciones, las solicitudes de acceso a la información y las audiencias de gestión de intereses. Esa lista de ocho es una vara que cualquiera puede usar. Hoy datos.gob.ar muestra 1.287 conjuntos de datos de 45 organismos: la pregunta no es cuántos hay, sino cuáles de esos ocho faltan o dejaron de actualizarse.
+
+### La palanca
+
+Elegí un organismo nacional que te toque —el de tu obra social, tus trenes, tu universidad— y buscalo en datos.gob.ar. Hacé una lista con las ocho categorías del artículo 2 del decreto y, al lado de cada una, poné si aparece, en qué formato y con qué fecha de última actualización. Una planilla de sueldos de hace seis años no es transparencia: es un archivo olvidado.
+Marcá cada hueco con la fecha en que lo encontraste.
+
+### El puente
+
+[PLANISV](/planes/planisv) usa los datos abiertos como blindaje: su Tablero Nacional de Salud del Suelo publica todo para que cualquiera pueda verificar si el plan funciona sin tener que creerle a nadie.

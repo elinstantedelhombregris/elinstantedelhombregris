@@ -1,0 +1,54 @@
+---
+slug: storytelling-para-el-cambio-social-los-principios
+courseSlug: narrativas-que-transforman-historias
+title: 'Storytelling para el Cambio Social: Los Principios'
+summary: Los fundamentos del storytelling aplicado a causas sociales y cívicas.
+orderIndex: 2
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/315000-319999/318666/norma.htm
+    titulo: 'Ley 27.499 — Ley Micaela de capacitación obligatoria en género para los tres poderes del Estado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## Contar Historias Con Propósito
+
+El storytelling para el cambio social no es manipulación emocional. Es el arte de usar **historias verdaderas** para hacer visible lo invisible, dar voz a quien no la tiene, y mover a la acción a quienes pueden cambiar las cosas.
+
+### Los 5 Principios del Storytelling Transformador
+
+1. **Verdad radical:** Tu historia debe ser verdadera. No embellecida, no exagerada, no manipulada. La verdad es tu activo más valioso. Si te descubren mintiendo, perdés toda credibilidad.
+2. **Dignidad del protagonista:** Las personas de tu historia no son "pobrecitos". Son seres humanos con agencia, inteligencia y dignidad. La lástima paraliza; la admiración inspira.
+3. **Especificidad:** Lo universal está en lo específico. No cuentes "la pobreza"; contá a Juan, que tiene 45 años, vive en Florencio Varela y se levanta a las 4 de la mañana para llegar al trabajo.
+4. **Tensión y resolución:** Toda buena historia tiene un conflicto. ¿Qué obstáculo enfrenta el protagonista? ¿Cómo lo supera (o no)? Sin tensión no hay historia, hay descripción.
+5. **Llamado a la acción:** Una buena historia para el cambio social no termina en "qué triste". Termina en "¿y vos qué vas a hacer?" Debe haber un camino claro de la emoción a la acción.
+
+### La Diferencia entre Propaganda y Storytelling
+
+- **Propaganda:** Simplifica, manipula, oculta. Divide en buenos y malos. Te dice qué pensar.
+- **Storytelling transformador:** Complejiza, revela, incluye. Muestra humanidad en todos los personajes. Te invita a sentir y decidir.
+
+Una prueba rápida para saber de qué lado estás: contale tu historia a alguien que piense distinto que vos. Si lo único que puede hacer es enojarse o aplaudir, se parece a propaganda. Si puede reconocer a alguien de los que aparecen —incluso al que no le cae bien— y quedarse pensando, estás contando una historia.
+
+### Estructuras Narrativas Clásicas
+
+- **El viaje del héroe:** Persona común → desafío → transformación → regreso con conocimiento. Funciona para historias de superación.
+- **Antes/Después:** Cómo era la vida antes de la intervención y cómo es ahora. Simple y poderoso para mostrar impacto.
+- **El testigo:** Alguien cuenta lo que vio. Funciona para denuncias y visibilización.
+- **La pregunta:** Planteás un misterio o problema y vas desentrañándolo con el lector/espectador.
+
+> "La diferencia entre una historia que conmueve y una que transforma es la misma diferencia entre quejarse y proponer: la primera te deja donde estabas, la segunda te mueve a un lugar nuevo."
+
+### El caso
+
+La Ley 27.499, sancionada el 19 de diciembre de 2018, obliga a capacitarse en género y violencia contra las mujeres a todas las personas que trabajan en la función pública de los poderes Ejecutivo, Legislativo y Judicial de la Nación, en todos sus niveles y jerarquías. Casi nadie la nombra por su número: es la Ley Micaela, por Micaela García. Lleva en la letra dos de los principios de esta lección. La especificidad, porque un nombre propio reemplaza a una categoría. Y el llamado a la acción, porque no termina en «qué triste»: las capacitaciones tenían que empezar dentro del año (artículo 4), la autoridad de aplicación debe difundir en su web el grado de cumplimiento de cada organismo (artículo 7) y negarse sin causa es falta grave (artículo 8).
+
+### La palanca
+
+Tomá el pedido que tu grupo le viene haciendo al Concejo Deliberante de tu municipio y reescribilo con la estructura de esa ley: una persona concreta que le dé cara al problema —con su permiso—, una obligación precisa, un plazo y una forma pública de saber si se cumplió. Si el pedido no entra en una oración con verbo, plazo y responsable, todavía es una queja.
+Escribí esa oración y leela en voz alta en la próxima reunión.
+
+### El puente
+
+Contar a alguien con agencia y no como víctima pasiva tiene una base: [La falacia del poder mismo](/ensayos/poder) sostiene que el poder no es una sustancia que alguien tiene, sino un verbo, una relación viva entre los que actúan.

@@ -1,0 +1,160 @@
+{
+  "title": "Quiz: Gestión de Proyectos Comunitarios",
+  "description": "Evaluá tu capacidad para gestionar proyectos de impacto.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "¿Cuáles son los 7 componentes de todo proyecto comunitario?",
+      "type": "multiple_choice",
+      "options": [
+        "Idea, equipo, plata, oficina, logo, web, redes",
+        "Problema, objetivo, beneficiarios, actividades, recursos, cronograma, evaluación",
+        "Visión, misión, valores, estrategia, táctica, operación, balance",
+        "Planificar, ejecutar, controlar, cerrar, evaluar, comunicar, celebrar"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los 7 componentes esenciales son: problema, objetivo, beneficiarios, actividades, recursos, cronograma y evaluación.",
+      "points": 2,
+      "orderIndex": 1
+    },
+    {
+      "question": "Los costos de contingencia no son necesarios en el presupuesto si se planifica bien.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Todo presupuesto necesita identificar incertidumbres y definir reservas o respuestas proporcionadas. El porcentaje depende del tipo de proyecto, los precios, contratos, riesgos y reglas del financiador; 10-15% es sólo una referencia posible.",
+      "points": 1,
+      "orderIndex": 2
+    },
+    {
+      "question": "¿Cuál es la principal razón por la que los voluntarios abandonan un proyecto?",
+      "type": "multiple_choice",
+      "options": [
+        "Falta de pago",
+        "Desorganización, no saber qué hacer y sentirse ignorados",
+        "Distancia al lugar de trabajo",
+        "Falta de experiencia"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La desorganización, la falta de tareas claras y sentirse ignorados son los principales \"asesinos\" del voluntariado.",
+      "points": 2,
+      "orderIndex": 3
+    },
+    {
+      "question": "Una propuesta de fondos exitosa solo necesita describir el problema, no proponer indicadores de medición.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Los evaluadores necesitan saber cómo medirás si funcionó. Los indicadores de medición son esenciales.",
+      "points": 1,
+      "orderIndex": 4
+    },
+    {
+      "question": "¿Cuál es la diferencia entre \"resultados\" e \"impacto\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Son lo mismo",
+        "Los resultados son lo que producís; el impacto es el cambio que generás",
+        "Los resultados son cualitativos; el impacto es cuantitativo",
+        "El impacto es más fácil de medir que los resultados"
+      ],
+      "correctAnswer": 1,
+      "explanation": "\"120 chicos asisten\" es resultado. \"La tasa de repetición bajó del 40% al 15%\" es impacto.",
+      "points": 2,
+      "orderIndex": 5
+    },
+    {
+      "question": "Para recibir financiamiento externo, siempre es necesario tener personería jurídica propia.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Podés operar bajo el \"paraguas\" de una organización existente (parroquia, club, ONG) que administre los fondos.",
+      "points": 1,
+      "orderIndex": 6
+    },
+    {
+      "question": "¿Qué significa sostenibilidad institucional en un proyecto comunitario?",
+      "type": "multiple_choice",
+      "options": [
+        "Tener un edificio propio",
+        "Que el proyecto funcione sin depender de una sola persona",
+        "Tener presupuesto para 10 años",
+        "Estar registrado en el gobierno"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La sostenibilidad institucional significa distribuir liderazgo y capacidades para que el proyecto funcione sin depender de un individuo.",
+      "points": 2,
+      "orderIndex": 7
+    },
+    {
+      "question": "¿Qué diagnóstico ayuda más cuando una alianza entre organizaciones se traba?",
+      "type": "multiple_choice",
+      "options": [
+        "Atribuir todo al ego de las personas",
+        "Revisar incentivos, poder, costos, confianza, recursos, mandatos y reglas de decisión antes de personalizar",
+        "Pedir compromiso público sin aclarar responsabilidades",
+        "Eliminar las diferencias para evitar conflicto"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El protagonismo puede influir, pero rara vez explica todo. Un diagnóstico sistémico observa intereses, riesgos, asimetrías y reglas para diseñar compromisos verificables.",
+      "points": 1,
+      "orderIndex": 8
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Sostenibilidad: Que Tu Proyecto Sobreviva a Tu Entusiasmo» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Cómo hacer que un proyecto comunitario perdure más allá de sus fundadores.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 9
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto Empieza Hoy: De la Lección a la Acción» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Integrar todo lo aprendido en el diseño de tu propio proyecto comunitario.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 10
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Historia Completa: La Huerta Comunitaria de Flores» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un caso real trabajado con este foco: Una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 11
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Historia Completa: El Grupo de WhatsApp que Cambió el Barrio» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
+        "Un caso real trabajado con este foco: Cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 12
+    }
+  ]
+}

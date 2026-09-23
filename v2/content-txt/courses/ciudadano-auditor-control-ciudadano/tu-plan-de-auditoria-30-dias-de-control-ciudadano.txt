@@ -1,0 +1,63 @@
+---
+slug: tu-plan-de-auditoria-30-dias-de-control-ciudadano
+courseSlug: ciudadano-auditor-control-ciudadano
+title: 'Tu Plan de Auditoría: 30 Días de Control Ciudadano'
+summary: Un plan práctico de 30 días para ejercer control ciudadano real.
+orderIndex: 10
+draft: false
+cierre: puente
+fuentes:
+  - url: https://www.argentina.gob.ar/solicitar-informacion-publica
+    titulo: 'Solicitar información pública — Argentina.gob.ar'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/provincial/ley-104-123456789-0abc-defg-401-0000xvorpyel/actualizacion
+    titulo: 'Ley 104 de la Ciudad de Buenos Aires — Acceso a la información pública, texto actualizado (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+## De la Teoría a Tu Primera Auditoría
+
+Ahora tenés las herramientas. Tenés el marco legal, sabés leer un presupuesto, conocés los organismos de control, podés hacer pedidos de información y presentar denuncias. **¿Qué vas a hacer con todo esto?**
+
+### Tu Plan de 30 Días
+
+### Semana 1: Mapear
+
+- **Día 1-2:** Investigá quiénes son tus representantes locales: intendente, concejales, legisladores provinciales. Nombres, caras, partidos.
+- **Día 3-4:** Encontrá el presupuesto de tu municipio online. Si no está, eso ya es un hallazgo.
+- **Día 5-7:** Identificá un tema que te importa (salud, educación, seguridad, obra pública, ambiente) y buscá datos sobre ese tema en tu municipio.
+
+### Semana 2: Preguntar
+
+- **Día 8-10:** Hacé tu primer pedido de acceso a la información (Ley 27.275). Pedí algo específico: gastos en publicidad, detalle de una obra, contratos de un área.
+- **Día 11-12:** Entrá a comprar.gob.ar y mirá las últimas contrataciones del organismo que elegiste.
+- **Día 13-14:** Buscá si hay audiencias públicas o sesiones del Concejo Deliberante próximas e inscribite.
+
+### Semana 3: Participar
+
+- **Día 15-17:** Asistí a una sesión del Concejo Deliberante o a una audiencia pública. Solo mirá y tomá notas.
+- **Día 18-19:** Buscá si hay organizaciones en tu ciudad que hacen control ciudadano (ONGs, observatorios, grupos vecinales). Contactalas.
+- **Día 20-21:** Revisá la respuesta a tu pedido de información (si ya llegó). Si no llegó, preparate para reclamar.
+
+### Semana 4: Actuar
+
+- **Día 22-24:** Con lo que encontraste, escribí un breve análisis. ¿Qué descubriste? ¿Qué preguntas tenés?
+- **Día 25-27:** Compartí tus hallazgos: en redes, con vecinos, en un medio local. Convertí datos en historia.
+- **Día 28-30:** Planificá tu próximo paso: ¿qué vas a auditar el mes que viene? ¿Con quiénes te vas a aliar?
+
+### La cuenta que el calendario no hace
+
+El plan pone el pedido de información en los días 8 a 10 y la respuesta en los días 20 y 21. La ley no da para tanto apuro. En la Nación, el organismo tiene 15 días hábiles para contestar y puede pedir otros 15 si lo justifica; en la Ciudad de Buenos Aires, la Ley 104 fija 15 días hábiles con una única prórroga excepcional de 10 (artículo 10). Quince días hábiles son tres semanas corridas, y más si en el medio cae un feriado: un pedido del día 8 vence, en el mejor caso, cerca del día 29. Con prórroga, la respuesta cae fuera de los treinta días.
+
+Por eso conviene adelantar el pedido a la semana 1, apenas elegido el tema, y usar la semana 3 para otra cosa: controlar si el organismo pidió prórroga y con qué fundamento. Si tu tema es municipal o provincial, averiguá antes qué norma de acceso rige ahí, porque los plazos y la autoridad ante la que se reclama cambian de una jurisdicción a otra.
+
+### Tres columnas
+
+Lo que juntes en treinta días va a mezclar cosas de distinto peso. Separalas desde el primer día en tres columnas: lo que consta (un documento, con fecha y fuente), lo que inferís de eso (tu lectura, que puede estar equivocada) y lo que denunciarías (sólo lo que las dos primeras columnas sostienen juntas). Una denuncia que mezcla la segunda columna con la primera le regala al denunciado la forma de desacreditarla entera.
+
+### Tu Compromiso
+
+> "El control ciudadano no es un hobby ni un acto heroico. Es higiene democrática. Así como te lavás los dientes todos los días para prevenir caries, auditás a tu gobierno regularmente para prevenir corrupción. No necesitás ser experto. Necesitás ser constante. Un ciudadano que pregunta, mira y exige es más poderoso de lo que imagina."
+
+### El puente
+
+Treinta días de una persona sola, sin esperar permiso de nadie: es la escala que propone [La práctica del tejido](/ensayos/la-practica-del-tejido), gestos al alcance de uno que empiezan mañana y no esperan a ningún Congreso.

@@ -1,0 +1,71 @@
+---
+slug: los-patrones-del-pendulo-el-ciclo-que-se-repite
+courseSlug: argentina-1945-2001-pendulo-nunca-para
+title: 'Los Patrones del Péndulo: El Ciclo que Se Repite'
+summary: Análisis sistémico de los patrones recurrentes en la historia 1945-2001.
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=98
+    titulo: 'Ley 23.696 — Reforma del Estado, ficha y normas que la complementan o modifican (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/norma-114865/texto
+    titulo: 'Decreto 303/2006 — Rescisión del contrato de concesión de Aguas Argentinas (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/norma-114866/texto
+    titulo: 'Decreto 304/2006 — Constitución de Agua y Saneamientos Argentinos S.A. (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/400000-404999/401266/norma.htm
+    titulo: 'Ley 27.742 — Bases y Puntos de Partida para la Libertad de los Argentinos (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://votaciones.hcdn.gob.ar/
+    titulo: 'Consulta de votaciones nominales (Cámara de Diputados de la Nación)'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## El Mismo Ciclo, Diferentes Actores
+
+Si mirás la historia argentina de 1945 a 2001 desde arriba, ves un **patrón que se repite con variaciones**. No son los mismos actores ni las mismas circunstancias, pero la dinámica subyacente es asombrosamente similar.
+
+### El Ciclo del Péndulo Argentino
+
+1. **Fase 1 — Crisis:** El modelo vigente se agota. Crisis económica, descontento social, pérdida de legitimidad del gobierno.
+2. **Fase 2 — Ruptura:** Un nuevo gobierno (elegido o impuesto) llega con la promesa de cambiar todo. Se presenta como la antítesis del anterior.
+3. **Fase 3 — Refundación:** El nuevo gobierno intenta rehacer todo desde cero. Descarta lo anterior, incluso lo que funcionaba.
+4. **Fase 4 — Luna de miel:** El entusiasmo inicial genera resultados positivos (o la ilusión de ellos).
+5. **Fase 5 — Agotamiento:** Las contradicciones internas del nuevo modelo empiezan a manifestarse. Los problemas que se patearon vuelven.
+6. **Fase 6 — Crisis:** Volvemos al paso 1, pero con más deuda, más desconfianza y menos capacidad institucional.
+
+### Los Patrones Específicos
+
+- **Patrón de gasto:** Cada gobierno gasta más de lo que recauda para mantener el apoyo popular. La diferencia se cubre con emisión o deuda. Cuando ya no se puede, crisis.
+- **Patrón de polarización:** Cada gobierno construye su legitimidad en contra del anterior. No hay continuidad de políticas de Estado.
+- **Patrón militar:** Hasta 1983, los militares intervenían cada vez que el sistema civil fallaba. Eran el "reset button" del sistema.
+- **Patrón de dependencia:** Argentina siempre necesitó un "socio mayor" (Gran Bretaña, EEUU, FMI) para sostener su modelo. Esa dependencia limita la autonomía.
+- **Patrón de amnesia:** Cada generación repite errores que la anterior ya cometió, porque no hay transmisión efectiva de aprendizaje institucional.
+
+### ¿Se Puede Romper el Ciclo?
+
+Romper un ciclo requiere:
+
+1. **Reconocerlo:** Saber que estás en un bucle es el primer paso. Este curso es un intento de eso.
+2. **Políticas de Estado:** Acuerdos mínimos que sobrevivan a los cambios de gobierno.
+3. **Instituciones fuertes:** Reglas que nadie pueda romper impunemente.
+4. **Memoria activa:** No olvidar los errores, no repetir los patrones.
+
+> "Argentina no tiene mala suerte. Tiene malos patrones. Y los patrones se pueden cambiar cuando se los ve con claridad. Esa es la esperanza del Hombre Gris."
+
+### El caso
+
+El agua del área metropolitana recorrió el ciclo entero en tres décadas. En 1990 el Decreto 2074 puso en marcha la privatización de Obras Sanitarias de la Nación bajo la Ley 23.696 de Reforma del Estado, y en 1993 la concesión quedó en manos de Aguas Argentinas. En marzo de 2006 el Decreto 303 rescindió el contrato «por culpa del concesionario», con niveles de nitrato en el agua por encima del límite legal, y el Decreto 304 creó AySA: 90% del Estado nacional, 10% de ex trabajadores de Obras Sanitarias. En julio de 2024 la Ley 27.742 declaró a AySA «sujeta a privatización» en los términos de la misma Ley 23.696. Ese marco de 1989 acumula 278 normas que lo complementan o modifican, según InfoLeg. Cada fase se presentó como la corrección de la anterior, y todas usaron la misma herramienta.
+
+### La palanca
+
+El patrón de polarización se puede medir con datos públicos. Entrá al sitio de votaciones nominales de la Cámara de Diputados, elegí una materia que te importe y abrí dos votaciones sobre ese tema en gobiernos de signo distinto: ahí figura el voto de cada diputado y de cada bloque. Fijate si los bloques cambiaron de posición cuando cambiaron de lado del mostrador. Si el voto se da vuelta con el gobierno, no hay política de Estado.
+Marcá en una hoja qué bloques votaron igual las dos veces.
+
+### El puente
+
+[PLANPACTO](/planes/planpacto) mira el reverso del péndulo, la norma provisoria que nadie se anima a reemplazar: la Ley 23.548 de coparticipación se sancionó para durar dos años y lleva treinta y ocho.

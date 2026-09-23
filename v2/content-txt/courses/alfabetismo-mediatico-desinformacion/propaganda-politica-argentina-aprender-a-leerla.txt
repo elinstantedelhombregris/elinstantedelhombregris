@@ -1,0 +1,63 @@
+---
+slug: propaganda-politica-argentina-aprender-a-leerla
+courseSlug: alfabetismo-mediatico-desinformacion
+title: 'Propaganda Política Argentina: Aprender a Leerla'
+summary: Reconocer las técnicas de propaganda usadas por todos los sectores políticos.
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://chequeado.com/el-explicador/que-fue-la-intervencion-del-indec-y-como-impacto-en-los-datos/
+    titulo: '¿Qué fue la intervención del INDEC y cómo impactó en los datos? (Chequeado)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/255000-259999/257615/norma.htm
+    titulo: 'Decreto 55/2016 — Emergencia administrativa del Sistema Estadístico Nacional y del INDEC (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## Todos Hacen Propaganda (Incluyendo Tu Lado)
+
+La propaganda no es exclusiva de un partido o sector. **Todos los actores políticos argentinos usan técnicas de propaganda.** La diferencia entre un ciudadano manipulado y uno informado es la capacidad de reconocer estas técnicas sin importar quién las use.
+
+### Técnicas Clásicas de Propaganda
+
+- **Nosotros vs. Ellos:** Dividir el mundo en dos bandos irreconciliables. "O estás con nosotros o estás con la corrupción/la pobreza/el imperio." No deja espacio para matices.
+- **Apelación al miedo:** "Si ganan ellos, va a pasar X terrible." Funciona porque el cerebro procesa las amenazas antes que las oportunidades.
+- **Cherry-picking de datos:** Mostrar solo los datos que convienen e ignorar los que no. "La pobreza bajó" (en un mes específico, comparado con el peor mes del gobierno anterior).
+- **Whataboutism:** Ante una crítica, responder con "¿y lo que hicieron ustedes?" Desvía la conversación sin responder la pregunta original.
+- **Repetición:** Repetir algo tantas veces que se convierte en "verdad" por familiaridad. Los eslóganes políticos funcionan así.
+- **Apelación a la emoción:** Historias personales conmovedoras usadas para justificar políticas complejas sin analizar si la política realmente funciona.
+- **Ataque ad hominem:** En vez de debatir la idea, atacar a la persona. "¿Quién es este para opinar? Si ni siquiera..."
+
+### Propaganda de Datos
+
+La forma más sofisticada de propaganda usa **datos reales de manera engañosa**:
+
+1. **Período de comparación:** Comparo con el peor momento del otro para parecer mejor, o con el mejor momento propio para demostrar progreso.
+2. **Indicador selectivo:** Uso el indicador que me conviene e ignoro los demás. "Creció el empleo" (pero cayó el salario real).
+3. **Escala del gráfico:** Un mismo dato puede parecer un cambio enorme o insignificante según cómo escales el eje Y del gráfico.
+4. **Correlación vs. causalidad:** "Desde que gobernamos, bajó X." Pero ¿bajó por lo que hicieron o por otras razones?
+
+### Tu Escudo Anti-Propaganda
+
+Cada vez que un político, medio o influencer te presente un argumento, hacete estas preguntas:
+
+1. ¿Qué emoción quiere generarme? ¿Miedo? ¿Indignación? ¿Esperanza?
+2. ¿Qué datos omite?
+3. ¿Usaría esta misma técnica para defender al "otro lado"?
+4. ¿Hay una versión más matizada de este argumento?
+
+> "El ciudadano que sabe leer propaganda de TODOS los lados es el ciudadano más libre. No porque no tenga opinión, sino porque su opinión está basada en análisis, no en manipulación."
+
+### El caso
+
+A principios de 2007 el gobierno nacional cambió la conducción del INDEC y, desde entonces, el índice de precios al consumidor oficial subestimó sistemáticamente la inflación. Como la canasta de la pobreza se actualiza por precios, el daño se propagó: en 2013 el instituto dejó de publicar la pobreza. El 7 de enero de 2016, el Decreto 55/2016 declaró en emergencia administrativa al Sistema Estadístico Nacional y al INDEC, y ese mismo año el organismo dispuso que las series publicadas entre el primer trimestre de 2007 y el cuarto de 2015 se consideraran con reservas. Es la propaganda de datos llevada al extremo: ya no se elige qué dato mostrar, se fabrica el dato. Y el costo no lo pagó sólo un gobierno sino la comparación misma: nueve años de estadística que hoy nadie puede usar sin asterisco.
+
+### La palanca
+
+La próxima vez que un funcionario o un opositor diga que la pobreza subió o bajó, andá a la fuente antes de tomar partido. El INDEC publica la incidencia de la pobreza por semestre. Fijate qué dos períodos compara la frase: si elige el peor momento del otro, si saltea un semestre, si mezcla un dato de medio año con uno anual. Y aplicale el mismo examen a la frase del dirigente que te cae bien, que es la parte difícil.
+Buscá el último informe de pobreza del INDEC y compará los semestres que usó la última declaración que escuchaste.
+
+### El puente
+
+El INDEC intervenido dejó una serie partida en dos. [PLANPREGUNTA](/planes/planpregunta) parte de ese diagnóstico —una serie con un corte deja de ser una serie— y pide que la medición larga quede fuera del alcance de los incentivos de corto plazo.

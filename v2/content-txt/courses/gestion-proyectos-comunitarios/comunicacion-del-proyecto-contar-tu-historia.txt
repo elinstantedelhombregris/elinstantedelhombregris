@@ -1,0 +1,59 @@
+---
+slug: comunicacion-del-proyecto-contar-tu-historia
+courseSlug: gestion-proyectos-comunitarios
+title: 'Comunicación del Proyecto: Contar Tu Historia'
+summary: 'Cómo comunicar tu proyecto para atraer aliados, fondos y visibilidad.'
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/mautic_05_25FD0D0C4A71.pdf
+    titulo: 'INDEC — Acceso y uso de tecnologías de la información y la comunicación. EPH, cuarto trimestre de 2024'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-09-22'
+---
+
+## Si No Lo Contás, No Existe
+
+Podés tener el mejor proyecto del mundo, pero si nadie se entera, no vas a conseguir voluntarios, fondos, aliados ni beneficiarios. La comunicación no es un "extra" — es parte esencial de la gestión.
+
+### Tu Historia en 60 Segundos (Elevator Pitch)
+
+Si alguien te pregunta "¿qué hacen?", tenés que poder contestar en 60 segundos:
+
+1. **El problema (15 seg):** "En nuestro barrio, 120 chicos no tienen apoyo escolar y el 40% repite."
+2. **La solución (15 seg):** "Nosotros organizamos clases gratuitas los sábados con voluntarios capacitados."
+3. **El impacto (15 seg):** "En 2 años, la tasa de repetición bajó al 15% entre nuestros chicos."
+4. **El pedido (15 seg):** "Estamos buscando 5 voluntarios más y un espacio para el segundo turno."
+
+### Comunicación Digital Básica
+
+- **Instagram del proyecto:** Publicá mínimo 2 veces por semana. Fotos reales (no stock), historias del día a día, testimonios de beneficiarios (con permiso). Usá Canva para diseño.
+- **WhatsApp Status:** Compartí novedades en tu estado. Muchos de tus contactos no saben lo que hacés.
+- **Videos cortos:** 60 segundos mostrando la actividad. Un chico leyendo por primera vez, un vecino agradeciendo, un antes y después. El video emociona más que el texto.
+- **Newsletter simple:** Un mail mensual a tu base de contactos. Qué hicieron, qué lograron, qué necesitan. Google Forms te permite armar la lista.
+
+### Relación con Medios Locales
+
+- **Gacetilla de prensa:** Un texto breve (1 página) que cuente la noticia. "Proyecto X del barrio Y cumple 100 chicos atendidos." Enviala al mail de redacción del diario y la radio local.
+- **Invitá a periodistas:** A tus eventos, talleres, entregas. Ver con sus propios ojos es más poderoso que leer.
+- **Sé fuente:** Cuando un medio busque hablar del tema (educación, pobreza, barrios), que te conozcan como referente.
+
+### Un canal para cada público
+
+Antes de elegir redes, preguntate a quién le tenés que llegar y por dónde mira esa persona. Según el INDEC, en el cuarto trimestre de 2024 el 90,5% de las personas de 4 años y más de los 31 aglomerados urbanos usaba celular, y sólo el 37,1% usaba computadora. Traducido: el newsletter por mail y la página web llegan a menos gente de la que parece, y todo lo que publiques tiene que leerse bien en una pantalla chica. El volante tampoco murió: pegado en la sala de espera del centro de salud, en el almacén y en la puerta de la escuela, le llega a quien no sigue a nadie. Y vale la pena preguntarle a la radio de la zona si tiene un espacio para las organizaciones del barrio.
+
+> "Contar tu historia no es vanidad: es responsabilidad. Cada historia de impacto que compartís inspira a otro vecino a hacer algo. La comunicación es la semilla del efecto multiplicador."
+
+### El caso
+
+La misma encuesta del INDEC muestra dónde se corta la señal. En el cuarto trimestre de 2024, en los 31 aglomerados urbanos, el 89,7% de las personas de 4 años y más usaba internet; entre los mayores de 65, el 74,2%. Uno de cada cuatro adultos mayores no está en la red. En ese grupo el celular llega a más gente que internet (85,1%) y la computadora apenas al 17,8%. Para un proyecto que convoca voluntarios jubilados, que acompaña a personas mayores que viven solas o que necesita a las abuelas que crían a sus nietos, una estrategia hecha sólo de Instagram deja afuera a una cuarta parte de ese público antes de publicar la primera foto.
+
+### La palanca
+
+Hacé la lista de los tres públicos que tu proyecto necesita —quienes reciben, quienes ayudan, quienes pueden financiar— y al lado de cada uno anotá por dónde se entera hoy de lo que pasa en el barrio. Si algún público no aparece en tus canales actuales, sumá uno pensado para él: un cartel con fecha y lugar en la sala de espera del centro de salud, una salida en la radio local, un mensaje en el grupo de familias de la escuela.
+Preguntá esta semana en el centro de salud y en el almacén de la esquina si te dejan pegar el cartel de la próxima actividad.
+
+### El puente
+
+Un cartel con fecha y lugar en una pared que todos miran vale más de lo que parece. [PLANFOCO](/planes/planfoco) propone la Cartelera: una superficie donde cualquiera anuncia lo que va a pasar en su territorio, ordenada sólo por fecha y cercanía, que funciona también en papel.

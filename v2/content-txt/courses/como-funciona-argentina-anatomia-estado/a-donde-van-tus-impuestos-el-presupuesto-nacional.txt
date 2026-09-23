@@ -1,0 +1,73 @@
+---
+slug: a-donde-van-tus-impuestos-el-presupuesto-nacional
+courseSlug: como-funciona-argentina-anatomia-estado
+title: 'A Dónde Van Tus Impuestos: El Presupuesto Nacional'
+summary: Leer el presupuesto nacional como ciudadano y entender a dónde va tu plata.
+orderIndex: 5
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/554/texact.htm
+    titulo: 'Ley 24.156 — Administración Financiera, texto actualizado, artículos 26 y 27 (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.boletinoficial.gob.ar/detalleAviso/primera/318933/20241230
+    titulo: 'Decreto 1131/2024 — Prórroga del Presupuesto 2023 para el ejercicio 2025 (Boletín Oficial)'
+    consultada: '2026-09-22'
+  - url: https://chequeado.com/el-explicador/el-senado-aprobo-el-presupuesto-2026-el-primero-de-la-presidencia-de-javier-milei/
+    titulo: 'El Senado sancionó el Presupuesto 2026, el primero de la presidencia de Javier Milei (Chequeado)'
+    consultada: '2026-09-22'
+---
+
+## Seguir la Plata: Tu Derecho Como Contribuyente
+
+Cada peso que pagás de impuestos (IVA, Ganancias, monotributo, ABL) va a un gran fondo común que se reparte según el **Presupuesto Nacional**. Entender este documento es entender las prioridades reales del gobierno (no las que dice en los discursos).
+
+### ¿Cuánto Pagás Realmente?
+
+Aunque no lo notes, pagás impuestos todo el tiempo:
+
+- **IVA (21%):** En cada compra. Es el impuesto más regresivo: el pobre y el rico pagan lo mismo.
+- **Ganancias:** Si sos empleado en relación de dependencia, te lo descuentan automáticamente.
+- **Impuesto al cheque:** Cada vez que movés plata por banco.
+- **Ingresos brutos (provincial):** Se traslada al precio de todo lo que comprás.
+- **Tasas municipales:** ABL, alumbrado, barrido, limpieza.
+
+### ¿A Dónde Va?
+
+Las principales partidas del presupuesto nacional son:
+
+1. **Seguridad social (jubilaciones, AUH):** Más del 40% del presupuesto
+2. **Servicios de la deuda:** Pagar lo que debemos
+3. **Educación y cultura:** Incluyendo universidades nacionales
+4. **Defensa y seguridad**
+5. **Salud**
+6. **Obra pública:** Rutas, viviendas, infraestructura
+
+### Herramienta: Presupuesto Abierto
+
+El sitio **presupuestoabierto.gob.ar** te permite ver en tiempo real cómo se ejecuta el presupuesto. ¿Cuánto se asignó a educación? ¿Cuánto se gastó realmente? ¿Qué partidas están subejecutadas? Esta herramienta es oro puro para el ciudadano auditor.
+
+### Tres números para leer cualquier partida
+
+El presupuesto no se lee con un solo número. Para cada programa hay por lo menos tres:
+
+- **Crédito inicial:** lo que aprobó la ley de presupuesto.
+- **Crédito vigente:** lo que queda después de las modificaciones que se hacen durante el año. Puede ser bastante más o bastante menos que el inicial.
+- **Devengado:** lo que efectivamente se gastó, es decir, la obligación de pago ya reconocida.
+
+La distancia entre el vigente y el devengado es la subejecución: plata asignada que no se usó. La distancia entre el inicial y el vigente muestra cuánto se movió la plata después de que el Congreso votó. Y el calendario también está escrito: la Ley 24.156 obliga al Poder Ejecutivo a mandar el proyecto a la Cámara de Diputados antes del 15 de septiembre de cada año. Entre esa fecha y fin de año es cuando la discusión está abierta.
+
+> *"Seguir la plata es la forma más honesta de entender el poder. El discurso miente, el presupuesto no. Jugamos el mismo juego, y el tablero está hecho de pesos."*
+
+### El caso
+
+El artículo 27 de la Ley 24.156 de Administración Financiera dice qué pasa si el año empieza sin presupuesto aprobado: rige el del año anterior, con ajustes. Esa válvula de emergencia se volvió rutina. El presupuesto de 2023, la Ley 27.701, se prorrogó para 2024 por el Decreto 88/2023 y otra vez para 2025 por el Decreto 1131/2024, publicado el 30 de diciembre. Dos años seguidos el país gastó sobre una ley votada para otra realidad. Recién el 26 de diciembre de 2025 el Senado sancionó el Presupuesto 2026, por 46 votos contra 25 y una abstención, con gastos totales por 148 billones de pesos. Cuando no hay presupuesto votado, el gasto no desaparece: desaparece la discusión pública sobre él.
+
+### La palanca
+
+Entrá a presupuestoabierto.gob.ar y buscá un programa que conozcas de cerca: la universidad nacional de tu zona, un hospital nacional, una obra vial. Mirá cuánto tiene asignado y cuánto lleva gastado en lo que va del año. Si a esta altura la brecha es grande, esa brecha es una pregunta concreta para los diputados de tu provincia.
+Compará el crédito vigente con el devengado y anotá la diferencia en pesos y en porcentaje.
+
+### El puente
+
+El artículo 27 existe porque el presupuesto se puede no votar. [PLANPACTO](/planes/planpacto) propone reformar esa misma Ley 24.156 para que el Libro Mayor Abierto sea obligación: cada peso trazable desde el tributo que lo financió hasta el pago final.

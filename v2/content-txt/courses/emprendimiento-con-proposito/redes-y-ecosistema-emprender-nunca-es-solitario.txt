@@ -1,0 +1,73 @@
+---
+slug: redes-y-ecosistema-emprender-nunca-es-solitario
+courseSlug: emprendimiento-con-proposito
+title: 'Redes y Ecosistema: Emprender Nunca Es Solitario'
+summary: El ecosistema emprendedor argentino y cómo conectarte para crecer.
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/270000-274999/273567/norma.htm
+    titulo: 'Ley 27.349 — Apoyo al Capital Emprendedor (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.cnv.gov.ar/SitioWeb/Prensa/Post/1209/1209cnv-reglamenta-el-sistema-de-financiamiento-colectivo
+    titulo: 'CNV — La CNV reglamenta el Sistema de Financiamiento Colectivo'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/servicio/inscribirse-como-plataforma-de-financiamiento-colectivo-pfc
+    titulo: 'Argentina.gob.ar — Inscribirse como Plataforma de Financiamiento Colectivo (PFC)'
+    consultada: '2026-09-22'
+---
+## Nadie Escala Solo
+
+El mito del emprendedor solitario que "se hizo solo" es exactamente eso: un mito. Detrás de cada emprendimiento que creció hay una **red de relaciones**: mentores, socios, clientes que dieron feedback, proveedores que dieron crédito, pares que compartieron conocimiento.
+
+Argentina tiene un ecosistema emprendedor sorprendentemente rico. El problema es que muchos emprendedores no saben que existe o no saben cómo acceder.
+
+### El Mapa del Ecosistema
+
+### Aceleradoras e Incubadoras
+
+- **INCUBA (UBA):** Incubadora de la Universidad de Buenos Aires. Acceso gratuito, mentoreo y espacio de trabajo.
+- **Wayra (Telefónica):** Aceleradora corporativa enfocada en startups tecnológicas.
+- **NXTP Labs:** Inversión y aceleración para emprendimientos de alto impacto en Latinoamérica.
+- **Incubadoras universitarias:** Casi toda universidad tiene una. Son gratuitas y poco conocidas. Investigá la de tu ciudad.
+
+### Financiamiento
+
+- **Fondo Semilla (Min. de Producción):** Capital no reembolsable para emprendimientos en etapa temprana.
+- **Ley de Economía del Conocimiento:** Beneficios impositivos para empresas de software, biotecnología, industrias creativas.
+- **Clubes de inversores ángeles:** IAE Angels, Buenos Aires Angels Club. Inversores que ponen capital y experiencia.
+- **Crowdfunding:** Plataformas como Ideame o Panal de Ideas para financiar proyectos con aportes de la comunidad.
+
+### Comunidades
+
+- **Meetups sectoriales:** Product School, StartupBA, agro-tech, fintech. Cada sector tiene su comunidad.
+- **Cámaras y asociaciones:** CACE (comercio electrónico), CESSI (software), tu cámara local de comercio.
+- **Redes de emprendedores B:** Sistema B Argentina conecta emprendedores con propósito.
+
+### El Arte del Networking con Propósito
+
+Networking no es juntar tarjetas. Es construir relaciones basadas en **dar antes de pedir**:
+
+1. **Antes del evento:** Investigá quién va. Identificá 2-3 personas con las que querés hablar.
+2. **Durante:** Hacé preguntas genuinas. "¿Qué es lo más difícil de lo que hacés?" genera mejores conexiones que "¿a qué te dedicás?"
+3. **Después:** Hacé seguimiento en 48 horas. Ofrecé algo de valor: un contacto, un artículo, una idea.
+
+### Mentores: El Atajo Legal
+
+Un buen mentor no te dice qué hacer — te ayuda a **ver lo que no ves**. Te ahorra los errores que ya cometió. Te da perspectiva cuando estás demasiado metido en el día a día.
+
+> "Tu red de contactos no es un recurso: es tu sistema inmunológico empresarial. Cuando venga la crisis (y en Argentina siempre viene), lo que te va a salvar no es tu plan de negocios sino la gente que te rodea."
+
+### El caso
+
+La Ley 27.349, de 2017, además de crear la SAS, armó en su Título II un sistema de financiamiento colectivo para emprendimientos, y la Comisión Nacional de Valores lo reglamentó en enero de 2018 con la Resolución General 717. Cuando mucha gente pone plata en un proyecto a cambio de acciones, deuda convertible o participación en un fideicomiso, la ley prevé que se haga por medio de una Plataforma de Financiamiento Colectivo inscripta ante la CNV, que tiene que ser una sociedad anónima constituida en el país. Otra cosa es la preventa o el aporte a cambio de una recompensa, que no convierte a nadie en socio. La diferencia pesa cuando la red empieza a financiarte: sumar a vecinos y amigos como inversores tiene reglas, y la CNV existe para proteger a quien pone la plata.
+
+### La palanca
+
+Hacé una lista de las diez personas que más te ayudaron este año: un cliente que te recomendó, un proveedor que te esperó, alguien que te pasó un contacto. Al lado de cada nombre, anotá qué le diste vos. Si la columna está vacía, ahí tenés la tarea: un dato útil, una presentación, una compra. Si pensás pedirle plata a tu red, antes buscá en el sitio de la CNV qué plataformas están inscriptas.
+Mandá esta semana un mensaje a tres de esas personas ofreciendo algo concreto, sin pedir nada.
+
+### El puente
+
+Esa lista es la primera práctica de [La práctica del tejido](/ensayos/la-practica-del-tejido): trazar los propios hilos y aprender los nombres, porque una hebra sin nombre no se puede convocar el día que hace falta.

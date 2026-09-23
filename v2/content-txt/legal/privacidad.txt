@@ -1,0 +1,233 @@
+---
+slug: privacidad
+title: Política de Privacidad
+updatedAt: 2026-08-12
+version: 4
+---
+
+Esta política explica qué datos tuyos guardamos, por qué, dónde viven y cómo los sacás.
+Está escrita para que se entienda, no para que no se entienda. Si algo no queda claro,
+escribinos y lo corregimos.
+
+Rige la **Ley 25.326 de Protección de Datos Personales** de la República Argentina.
+
+## Quién es responsable
+
+Acá no hay una estructura anónima: quién está detrás de El Instante del Hombre Gris está
+publicado, con nombre y con cara, en [Quién está detrás](/quien-esta-detras).
+
+Lo que todavía no está publicado es la **identificación legal del responsable de la base de
+datos** — la figura jurídica bajo la que queda inscripta y su domicilio legal. **Ese trámite
+está abierto.** Cuando termine, los datos se escriben acá, en esta misma sección, y quedan
+anotados abajo en el registro de cambios. No los adelantamos: en un documento como éste, un
+dato verosímil pero inventado hace más daño que un dato que falta, porque quien lo lee no
+tiene manera de saber cuál de los dos está leyendo.
+
+Que el trámite esté abierto no te deja sin interlocutor ni te suspende ningún derecho. El
+canal es real y funciona hoy: **privacidad@elinstantedelhombregris.com**. Escribís desde el
+correo de tu cuenta y corren los plazos que están más abajo, en «Tus derechos»: 10 días
+corridos para el acceso, 5 días hábiles para rectificar, actualizar o suprimir.
+
+## Qué datos guardamos
+
+**Para tener una cuenta** (obligatorio): nombre de usuario, nombre, correo electrónico
+y una contraseña, que se guarda hasheada con bcrypt — no la almacenamos en texto plano
+y nadie del equipo puede leerla.
+
+**Para que la sesión funcione**: cada vez que iniciás sesión guardamos la fecha, tu
+dirección IP y el navegador desde el que entraste. Sirve para que puedas cerrar sesiones
+abiertas en otros dispositivos y para detectar accesos indebidos.
+
+**Si vos los cargás** (todo opcional, y podés usar la plataforma sin cargar nada de esto):
+
+- Perfil: ubicación declarada, biografía, foto.
+- Segundo factor de autenticación, si lo activás.
+- Lo que publicás o respondés: pulsos, propuestas, votos a propuestas, sueños, semillas,
+  posteos y mensajes de comunidad, objetivos, la auto-evaluación cívica, las áreas de
+  vida y las conversaciones con el asistente.
+
+## Datos sensibles: leelo aunque saltees el resto
+
+La ley considera **datos sensibles** los que revelan opiniones políticas o información
+sobre tu salud. Buena parte de lo que esta plataforma existe para hacer cae ahí:
+
+- Tus **pulsos, propuestas y votos** revelan tu opinión política.
+- La **auto-evaluación cívica** construye un perfil cívico tuyo.
+- El área de vida **salud** guarda cómo evaluás tu propia salud.
+- Las conversaciones con el **asistente** pueden contener lo que se te ocurra escribir.
+
+Ninguno de esos datos es obligatorio. Podés tener una cuenta activa sin cargar uno solo.
+Si los cargás, es porque elegiste hacerlo, y podés borrarlos cuando quieras. Nadie está
+obligado a proporcionar datos sensibles (art. 7 inc. 1, Ley 25.326).
+
+## Para qué los usamos
+
+Para que la plataforma haga lo que promete y para nada más: mostrarte tu progreso, ubicar
+tus señales en el mapa territorial, alimentar el Mandato Vivo, calcular tu posición en la
+clasificación cívica y responderte en el asistente.
+
+**No vendemos tus datos. No los cedemos a terceros con fines comerciales. No hacemos
+publicidad ni perfilado publicitario. No hay pixels de redes sociales ni Google Analytics.**
+
+## Qué es público y qué no
+
+Tu correo, tu contraseña, tus IPs de sesión y tus respuestas individuales de
+auto-evaluación y áreas de vida **nunca son públicos**.
+
+Lo que publicás en pulsos, propuestas y comunidad **sí** es visible para otras personas,
+con tu nombre de usuario.
+
+Sobre la ubicación: cada señal territorial guarda una precisión declarada. Por defecto es
+**provincial**. El punto exacto sólo se publica si vos elegiste esa precisión. La
+plataforma está diseñada para que el mapa muestre agregados, no domicilios.
+
+## Dónde viven tus datos, y qué sale del país
+
+Esto es lo que la versión anterior de esta política decía mal, y lo corregimos.
+
+Nuestros servidores no están en Argentina. Tus datos se alojan y procesan en **Estados
+Unidos**, que la autoridad argentina **no** considera un país con nivel de protección
+adecuado. Los proveedores son:
+
+| Proveedor | Qué recibe |
+|---|---|
+| Neon | la base de datos completa |
+| Vercel | el alojamiento y todo el tráfico del sitio |
+| Resend | tu correo, para mandarte verificación y recupero de contraseña |
+| Groq / Anthropic | el texto de tus conversaciones con el asistente |
+
+Además están los pedidos que hace tu navegador por su cuenta, sin pasar por nosotros.
+**Hoy no queda ninguno.** Todo lo que tu navegador baja para dibujar una página —el código,
+las imágenes, las tipografías, los mosaicos del Mapa— sale de nuestro propio servidor.
+Ningún tercero ve tu dirección IP por abrir el sitio.
+
+Hasta hace poco quedaban dos, y los dos se cerraron. **Las tipografías de la interfaz** se
+le pedían a Google (`fonts.googleapis.com` y `fonts.gstatic.com`) en todas las páginas;
+ahora viajan con el sitio. **El Mapa** le pedía los mosaicos a CARTO y sus tipografías a
+openmaptiles.org; ahora se dibuja con un archivo de mosaicos propio y tipografías propias.
+Si en algún momento algo de eso pasa a alojarse en un proveedor externo, lo vamos a decir
+acá con nombre, como el resto de la tabla.
+
+Al crear una cuenta prestás consentimiento para esta transferencia internacional
+(art. 12, Ley 25.326). Si no querés que tus conversaciones salgan del país, no uses el
+asistente — el resto de la plataforma funciona igual.
+
+Estamos trabajando para alojar la base en Argentina. Cuando pase, actualizamos esta
+política y te avisamos.
+
+## Quién puede verlos adentro del equipo
+
+El equipo de desarrollo accede a datos personales sólo cuando es indispensable para
+arreglar un problema concreto. Todas las personas con acceso están alcanzadas por el
+deber de confidencialidad del art. 10 de la Ley 25.326, que sigue vigente incluso después
+de que dejen de trabajar en el proyecto.
+
+## Cuánto tiempo los guardamos
+
+| Dato | Cuánto |
+|---|---|
+| Cuenta y contenido que cargaste | mientras la cuenta exista |
+| Sesiones (IP y navegador) | 90 días desde que la sesión vence |
+| Tokens de recupero y verificación | hasta usarse o vencer, lo que pase primero |
+| Todo lo anterior, tras pedir la baja | se elimina en el plazo de abajo |
+
+El plazo de las sesiones no es una intención: **hay una tarea automática que corre todos los
+días y borra toda sesión que haya vencido hace más de 90 días.** No las marca como viejas —
+borra la fila, y con la fila se van la dirección IP y el navegador. El reloj arranca cuando
+la sesión vence, no cuando la abriste: lo que el plazo mide es cuánto sobrevive el dato
+después de dejar de servir para algo.
+
+Cuando un dato deja de ser necesario para la finalidad por la que se recolectó, se
+elimina (art. 4 inc. 7, Ley 25.326).
+
+## Tus derechos
+
+Tenés derecho a **acceder** a tus datos, **rectificarlos** si están mal, **actualizarlos**
+y **suprimirlos**. Se ejercen escribiendo a **privacidad@elinstantedelhombregris.com**
+desde el correo de tu cuenta.
+
+- **Acceso**: respondemos dentro de los **10 días corridos** (art. 14).
+- **Rectificación, actualización o supresión**: dentro de los **5 días hábiles** (art. 16).
+
+El ejercicio del derecho de acceso es **gratuito** a intervalos no inferiores a seis meses,
+salvo que acredites un interés legítimo, conforme el art. 14 inc. 3 de la Ley 25.326.
+
+Cuando pedís la baja, borramos tu cuenta y los datos personales asociados. **Las señales
+que hayas publicado quedan en el mapa desvinculadas de vos**: se conservan como dato
+agregado y anónimo, que es lo que sostiene el sentido del mapa, pero deja de existir el
+vínculo entre esa señal y tu persona.
+
+La **Agencia de Acceso a la Información Pública**, en su carácter de órgano de control de
+la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan
+quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en
+materia de protección de datos personales.
+
+## Seguridad
+
+Las contraseñas se hashean con bcrypt. Las sesiones viajan en cookies `httpOnly`, que el
+navegador manda pero JavaScript no puede leer, con protección CSRF de doble cookie. Podés
+activar segundo factor. En producción las cookies van marcadas `Secure` y todo el tráfico
+es HTTPS.
+
+Ningún sistema es infalible. Si detectamos un incidente que afecte tus datos, te lo
+comunicamos.
+
+## Menores
+
+**La edad mínima para tener cuenta todavía no está fijada, y no la vamos a inventar en esta
+página.** No es un trámite pendiente: es una decisión de fondo. Acá se guarda opinión
+política, que la ley trata como dato sensible, y desde qué edad alguien puede consentir eso
+por sí mismo —y desde cuál hace falta que lo acompañe quien lo tiene a cargo— no es un
+número que se elija de apuro para no dejar el renglón vacío. Cuando esté decidida se escribe
+acá y se anuncia en el registro de cambios.
+
+Mientras tanto, dicho sin vueltas: **hoy el registro no pide la edad ni la verifica.** Este
+párrafo no te está autorizando nada; te está diciendo que la regla está por escribirse. Si
+sos madre, padre o tutor y querés que demos de baja la cuenta de alguien a tu cargo,
+escribinos a **privacidad@elinstantedelhombregris.com** y la damos de baja, con los mismos
+plazos que el resto.
+
+## Cambios
+
+Si cambiamos esta política, cambiamos la fecha de arriba y explicamos qué se modificó.
+Si el cambio afecta para qué usamos tus datos, te lo avisamos antes.
+
+### Versión 4 — 2026-08-12
+
+Reemplaza a la versión 3, del mismo día. La 3 salió publicada con tres renglones marcados
+para completar después, y se leían tal cual desde la calle. Esta versión los cierra:
+
+- **Quién es responsable.** Donde tenía que ir la razón social y el domicilio había una
+  marca de redacción. Ahora dice lo que efectivamente pasa —la identificación legal está en
+  trámite— y dice cuál es el canal que sí funciona mientras tanto.
+- **Menores.** Lo mismo con la edad mínima: está por decidirse, y ahora el documento lo dice
+  en vez de fingir que hay un número. Se agrega el dato que faltaba y que importa: hoy el
+  registro no pide la edad.
+- **Sesiones.** El plazo de 90 días estaba escrito con un «confirmar» al lado, y con razón:
+  no había nada que borrara nada, así que la dirección IP de cada inicio de sesión se
+  guardaba **para siempre**. Ahora hay un barrido diario que las borra, y recién por eso el
+  plazo se puede afirmar.
+
+### Versión 3 — 2026-08-12
+
+Reemplaza la versión 2 del 2026-05-13. Qué cambió:
+
+- **Corregimos una afirmación falsa.** La versión anterior decía que nuestros datos "no
+  salen de nuestros servidores". No era cierto: la base, el alojamiento, el correo y el
+  asistente están en Estados Unidos. Ahora está dicho, con nombre y propósito de cada
+  proveedor.
+- **Corregimos el plazo de borrado.** Decía 30 días. La ley da 5 días hábiles y ese es el
+  plazo que rige.
+- **Corregimos el correo de contacto**, que apuntaba a un dominio que no usamos.
+- Agregamos qué datos son sensibles y por qué, la sección de derechos con los plazos
+  legales, los plazos de conservación, el responsable de la base y la vía de reclamo ante
+  la AAIP.
+- **El mapa dejó de pedirle nada a terceros.** Los mosaicos y las tipografías del mapa
+  salían de CARTO y de openmaptiles.org, que veían tu dirección IP cada vez que lo abrías.
+  Ahora salen de nuestro propio servidor. Queda dicho lo que **todavía** sale: las
+  tipografías de la interfaz, que las pide tu navegador a Google en todas las páginas.
+
+### Versión 2 — 2026-05-13
+
+- Migración de JWT en localStorage a cookies httpOnly + CSRF doble cookie.
+- Eliminación de scripts de terceros.

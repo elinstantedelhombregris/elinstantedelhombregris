@@ -1,0 +1,111 @@
+{
+  "slug": "teoria-juegos-argentina-hombre-gris",
+  "title": "Teoría de Juegos Aplicada a Argentina: La Partida del Hombre Gris",
+  "description": "Masterclass inmersiva para rediseñar Argentina como un juego iterado de suma positiva. Profundizá en teoría de juegos, microacuerdos, laboratorios Tit for Tat y métricas vivas para sostener cooperación real.",
+  "excerpt": "Masterclass Hombre Gris: teoría de juegos aplicada, gráficos, ejercicios guiados y toolkit completo para convertir el país en una partida cooperativa.",
+  "category": "hombre-gris",
+  "level": "advanced",
+  "duration": 50,
+  "orderIndex": 7,
+  "isPublished": true,
+  "isFeatured": true,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-modulo-1-fundamentos-y-lenguaje-comun",
+      "title": "Módulo 1 · Fundamentos y lenguaje común",
+      "description": "Instala definiciones, tipos de juegos, supuestos racionales y por qué Argentina debe pensarse como una partida iterada.",
+      "duration": 8,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-modulo-2-juegos-estaticos-y-estrategias-dominantes",
+      "title": "Módulo 2 · Juegos estáticos y estrategias dominantes",
+      "description": "Analizá juegos simultáneos clásicos (Prisionero, Coordinación, Chicken) y aterrizalos en políticas públicas.",
+      "duration": 8,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-modulo-3-juegos-repetidos-e-iterados",
+      "title": "Módulo 3 · Juegos repetidos e iterados",
+      "description": "Explorá cómo la repetición, el descuento y la memoria cambian los incentivos.",
+      "duration": 6,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-modulo-4-senales-informacion-y-reputacion-publica",
+      "title": "Módulo 4 · Señales, información y reputación pública",
+      "description": "Diseñá señales creíbles y tableros que sostienen la confianza.",
+      "duration": 4,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-modulo-5-coordinacion-y-diseno-de-mecanismos",
+      "title": "Módulo 5 · Coordinación y diseño de mecanismos",
+      "description": "Construí reglas que alinean incentivos en redes complejas.",
+      "duration": 4,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-modulo-6-tit-for-tat-avanzado-y-repertorio-de-estrategias",
+      "title": "Módulo 6 · Tit for Tat avanzado y repertorio de estrategias",
+      "description": "Profundizá en TFT, variantes con perdón, ruidos y adaptación territorial.",
+      "duration": 4,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-modulo-7-estrategias-argentinas-casos-y-contraejemplos",
+      "title": "Módulo 7 · Estrategias argentinas: casos y contraejemplos",
+      "description": "Revisión profunda de políticas, empresas y pactos sociales que ilustran diferentes estrategias.",
+      "duration": 4,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-modulo-8-simulaciones-y-laboratorios-territoriales",
+      "title": "Módulo 8 · Simulaciones y laboratorios territoriales",
+      "description": "Creá experimentos controlados para testear reglas antes de escalarlas.",
+      "duration": 4,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-modulo-9-diseno-institucional-y-enforcement-cooperativo",
+      "title": "Módulo 9 · Diseño institucional y cumplimiento cooperativo",
+      "description": "Traducí aprendizajes en reformas legales, contratos y órganos de control.",
+      "duration": 4,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-modulo-10-plan-de-accion-metricas-y-escalamiento",
+      "title": "Módulo 10 · Plan de acción, métricas y escalamiento",
+      "description": "Cerrá con un plan integral: roadmap de 180 días, KPIs y compromisos públicos.",
+      "duration": 4,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Modelar decisiones estratégicas con jugadores, acciones, información, pagos y repetición.",
+    "Detectar cuándo un problema pide confianza, verificación, sanción o rediseño del juego.",
+    "Probar un mecanismo cooperativo en una simulación territorial pequeña."
+  ],
+  "noCubre": [
+    "No reduce motivaciones humanas a pagos ni trata un modelo como descripción completa.",
+    "No prueba que una estrategia funcione fuera de las condiciones declaradas."
+  ],
+  "paraQuien": "Para diseñadores institucionales y líderes comunitarios que quieren pensar cooperación bajo incentivos reales.",
+  "productoFinal": "Un laboratorio de juego territorial con reglas, simulación, métricas, fallas y versión revisada.",
+  "prerrequisitos": ["Comodidad con tablas simples y razonamiento por escenarios."],
+  "coverImage": "/course-art/entrenamientos/teoria-juegos-argentina-hombre-gris.webp",
+  "fuentesBase": [
+    {
+      "url": "https://plato.stanford.edu/entries/game-theory/",
+      "titulo": "Stanford Encyclopedia of Philosophy · teoría de juegos",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/",
+      "titulo": "Elinor Ostrom · gobernanza policéntrica más allá de mercados y Estados",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

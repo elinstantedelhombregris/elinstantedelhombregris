@@ -1,0 +1,59 @@
+---
+slug: medios-y-poder-la-relacion-que-no-se-ensena
+courseSlug: como-funciona-argentina-anatomia-estado
+title: 'Medios y Poder: La Relación Que No Se Enseña'
+summary: Entender la relación entre medios de comunicación y poder político en Argentina.
+orderIndex: 11
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.perfil.com/noticias/politica/el-caso-testigo-editorial-rio-negro-c-neuquen-provincia-20070905-0073.phtml
+    titulo: 'El caso testigo: Editorial Río Negro c/ Neuquén, provincia (Perfil, 5/9/2007)'
+    consultada: '2026-09-22'
+  - url: https://www.csjn.gov.ar/archivo-cij/nota-6305-La-Corte-volvi--a-garantizar-el-equilibrio-en-la-distribuci-n-a-la-prensa-de-la-pauta-oficial.html
+    titulo: 'La Corte volvió a garantizar el equilibrio en la distribución a la prensa de la pauta oficial (CIJ, 2/3/2011)'
+    consultada: '2026-09-22'
+---
+
+## El Cuarto Poder Argentino
+
+Los medios de comunicación no son observadores neutrales de la política: son **actores de poder** con intereses propios, modelos de negocio que los condicionan, y relaciones complejas con el poder político.
+
+### El Mapa de Medios Argentino
+
+- **Grupo Clarín:** El conglomerado mediático más grande. Diario, cable (Cablevisión), TV (Canal 13, TN), radio, internet.
+- **Grupo América:** Canal América, A24, radio La Red.
+- **Medios públicos:** TV Pública, Radio Nacional, Télam. Cambian de línea editorial con cada gobierno.
+- **Medios digitales:** Infobae, El Destape, Cenital, y cientos de medios independientes.
+
+### La Relación Medios-Gobierno
+
+Cada gobierno argentino ha tenido una relación compleja con los medios: la pauta publicitaria oficial es una herramienta de presión (financiás a los amigos, ahogás a los críticos). La Ley de Medios del 2009 intentó regular la concentración pero fue parcialmente derogada después.
+
+### Cómo Leer Medios Críticamente
+
+1. Siempre preguntá: **¿quién es dueño** de este medio?
+2. ¿Cuál es su **modelo de negocio**? (publicidad, suscripción, pauta oficial)
+3. ¿Qué noticias **no cubre**? La omisión dice tanto como la publicación.
+4. Contrastá siempre con **al menos 3 fuentes** de diferentes orientaciones.
+
+### La regla que fijó la Corte
+
+En 2011 la discusión llegó al Estado nacional. Editorial Perfil demandó a la Jefatura de Gabinete por la forma en que se le asignaba la publicidad oficial, y el 2 de marzo de ese año la Corte Suprema confirmó por unanimidad que el Gobierno tenía que distribuirla con un equilibrio razonable y sin criterios discriminatorios.
+
+De esos fallos sale una regla que sirve para cualquier nivel de gobierno, del nacional al municipal. Ningún medio tiene derecho a recibir un monto determinado de pauta. Pero si el Estado decide darla, no puede usar criterios discriminatorios. Y si se la quita o se la corta a un medio, es el Estado el que tiene que demostrar que tuvo motivos suficientes. La carga de la prueba está del lado del que paga, no del que publica. Ninguno de los dos fallos le dice al Estado cuánto gastar; los dos le exigen explicar a quién y por qué.
+
+> *"Los medios no te informan: te enmarcan. Jugamos el mismo juego que los dueños de los medios, los anunciantes y los políticos. La diferencia es que el ciudadano informado elige conscientemente qué marco aceptar."*
+
+### El caso
+
+El 8 de diciembre de 2002 el diario *Río Negro* publicó que un legislador neuquino había ofrecido dinero a un ex diputado para asegurar el quórum de una sesión que votaba designaciones judiciales impulsadas por el gobernador Jorge Sobisch. Después de esa nota, la provincia de Neuquén le retiró la publicidad oficial. El diario fue a la justicia, y el 5 de septiembre de 2007 la Corte Suprema le dio la razón: el Estado tiene libertad para asignar sus recursos, pero no puede usarlos como una vía indirecta para limitar la libertad de expresión. Ordenó a la provincia dejar de discriminar y presentar en 30 días un plan de distribución que respetara esas reglas. Castigar a un diario con la billetera pública quedó nombrado por su nombre.
+
+### La palanca
+
+Buscá el presupuesto de tu municipio o de tu provincia y encontrá la partida de publicidad y propaganda. Después pedí por escrito, por mesa de entradas, el detalle del último año: qué medios cobraron, cuánto y con qué criterio se los eligió. Si tu provincia tiene ley de acceso a la información pública, citala en el pedido.
+Compará esa lista con lo que esos mismos medios publican sobre el gobierno que les paga.
+
+### El puente
+
+La Corte le prohibió al Estado premiar y castigar con la pauta; [PLANFOCO](/planes/planfoco) va más lejos con la Pauta Ciega: le quita al Estado la capacidad de elegir a qué medio le da un peso y extingue la publicidad oficial en cinco años.

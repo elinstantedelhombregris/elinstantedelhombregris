@@ -1,0 +1,59 @@
+---
+slug: finanzas-del-emprendedor-sobrevivir-la-montana-rusa
+courseSlug: emprendimiento-con-proposito
+title: 'Finanzas del Emprendedor: Sobrevivir la Montaña Rusa'
+summary: Gestión financiera en un contexto de alta inflación e incertidumbre cambiaria.
+orderIndex: 5
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_24DBD5D8158C.pdf
+    titulo: 'INDEC — Índice de precios al consumidor, diciembre de 2023'
+    consultada: '2026-09-22'
+---
+
+## El Dinero en un País que Cambia de Reglas
+
+Manejar las finanzas de un emprendimiento en Argentina requiere habilidades que no enseñan en ninguna escuela de negocios del mundo. Porque ningún otro país combina: inflación de tres dígitos, brecha cambiaria, congelamiento de precios, cambios impositivos trimestrales y crisis cíclicas.
+
+### La Regla de Oro: Pensá en Dólares, Operá en Pesos
+
+Tu planilla interna de costos y márgenes debería estar en dólares (o en UVAs, o en alguna unidad de cuenta estable). Pero tu operación diaria es en pesos. Esta doble contabilidad mental es agotadora pero necesaria.
+
+### Gestión de Precios con Inflación
+
+- **Costeo por reposición:** No calculés tu ganancia sobre lo que PAGASTE por el stock, sino sobre lo que te va a COSTAR REPONER. Si compraste a $1.000 y vendés a $1.500, pero reponer sale $1.800, estás perdiendo plata.
+- **Frecuencia de ajuste:** Revisá precios al menos una vez por mes. Si tus competidores ajustan cada 15 días, vos también.
+- **Comunicación al cliente:** Sé transparente. "Ajustamos precios porque nuestros costos subieron un X%" genera más confianza que remarcar silenciosamente.
+
+### El Flujo de Caja es Rey
+
+En Argentina, la rentabilidad es menos importante que el **flujo de caja**. Podés ser "rentable" en papel pero fundir porque:
+
+1. Te pagan a 60 días pero a tus proveedores les pagás a 30.
+2. La inflación licúa lo que te deben entre que facturás y cobrás.
+3. Tus clientes te pagan en cuotas fijas mientras tus costos suben.
+
+**Regla práctica:** Mantené un colchón de al menos 3 meses de costos fijos. En Argentina ideal son 6 meses. Sí, es mucho. Y sí, es la diferencia entre sobrevivir y cerrar en la próxima crisis.
+
+### Herramientas Financieras Clave
+
+- **Factura electrónica de ARCA:** Obligatoria y gratuita. Usala para todo.
+- **Cuentas comitentes:** Si tenés excedente, poné la plata a trabajar en FCI money market o plazo fijo UVA. Los pesos quietos se derriten.
+- **Créditos a tasa subsidiada:** Banco Nación y BICE ofrecen líneas para emprendedores. Investigá antes de ir al banco comercial.
+- **Descuento de cheques:** Si recibís cheques a 30-60-90 días, podés descontarlos en SGR (Sociedades de Garantía Recíproca) para tener la plata antes.
+
+> "En Argentina, un emprendedor que domina las finanzas tiene más ventaja competitiva que uno que tiene el mejor producto. Porque el mejor producto del mundo no sirve si te quedaste sin caja."
+
+### El caso
+
+El 11 de enero de 2024 el INDEC informó que el Índice de Precios al Consumidor había subido 25,5% en diciembre de 2023 y 211,4% en todo el año. Con esos números, las reglas de esta lección dejan de ser teoría. Un comerciante que a principios de diciembre vendió a treinta días cobró pesos que compraban un 20% menos que el día de la venta. Y el que calculó su margen sobre lo que había pagado por la mercadería, y no sobre lo que costaba reponerla, podía cerrar el año con ganancia en los papeles y el depósito vacío: si en enero compró algo a 1.000 y lo vendió a 1.500, en diciembre reponerlo le costaba más de 3.000, el doble de lo que había cobrado.
+
+### La palanca
+
+Esta semana armá una planilla con los diez productos o servicios que más vendés. Para cada uno, tres columnas: lo que te costó, lo que cuesta reponerlo hoy y tu precio de venta. Para la segunda, llamá a tu proveedor y pedile el precio del día. Si esa columna ya se come tu margen, estás financiando a tus clientes con tu capital. Sumá una cuarta con el precio expresado en la unidad estable que elijas, y no la cambies.
+Revisá la planilla el día que el INDEC publica el IPC de cada mes, que figura en su calendario.
+
+### El puente
+
+Planificar en una unidad estable mientras se opera en la moneda que se derrite es lo que hizo la URV brasileña de 1994, y es el mecanismo que [PLANMON](/planes/planmon) propone con el peso-canasta: contratos que dejan de indexarse a la inflación pasada.

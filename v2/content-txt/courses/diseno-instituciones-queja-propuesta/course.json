@@ -1,0 +1,122 @@
+{
+  "slug": "diseno-instituciones-queja-propuesta",
+  "title": "Diseño de Instituciones: De la Queja a la Propuesta",
+  "description": "Pasá de quejarte del sistema a proponer mejoras concretas. Aprendé a redactar proyectos legislativos, organizar audiencias públicas, construir coaliciones transversales, y usar mecanismos de democracia directa.",
+  "excerpt": "Aprendé a diseñar y proponer mejoras institucionales concretas.",
+  "category": "civica",
+  "level": "advanced",
+  "duration": 33,
+  "orderIndex": 25,
+  "isPublished": true,
+  "isFeatured": false,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-de-quejarse-a-proponer-el-cambio-de-mentalidad",
+      "title": "De Quejarse a Proponer: El Cambio de Mentalidad",
+      "description": "Pasar de la queja al diseño de soluciones institucionales.",
+      "duration": 4,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-analisis-institucional-diagnosticar-antes-de-proponer",
+      "title": "Análisis Institucional: Diagnosticar Antes de Proponer",
+      "description": "Herramientas para analizar por qué una institución no funciona.",
+      "duration": 3,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-diseno-de-politicas-publicas-los-fundamentos",
+      "title": "Diseño de Políticas Públicas: Los Fundamentos",
+      "description": "Principios básicos para diseñar políticas públicas efectivas.",
+      "duration": 3,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-redaccion-de-proyectos-legislativos",
+      "title": "Redacción de Proyectos Legislativos",
+      "description": "Cómo se estructura y redacta un proyecto de ley u ordenanza.",
+      "duration": 4,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-coaliciones-transversales-construir-poder-sin-partido",
+      "title": "Coaliciones Transversales: Construir Poder sin Partido",
+      "description": "Cómo construir alianzas amplias para impulsar cambios institucionales.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-iniciativa-popular-proyectos-de-ley-ciudadanos",
+      "title": "Iniciativa Popular: Proyectos de Ley Ciudadanos",
+      "description": "Cómo usar el mecanismo constitucional de iniciativa popular.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-presupuesto-participativo-disenar-la-inversion-local",
+      "title": "Presupuesto Participativo: Diseñar la Inversión Local",
+      "description": "Cómo funciona y cómo implementar el presupuesto participativo.",
+      "duration": 3,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-tecnologia-civica-herramientas-digitales-para-el-cambio",
+      "title": "Tecnología Cívica: Herramientas Digitales para el Cambio",
+      "description": "Plataformas y herramientas digitales para la participación y el control.",
+      "duration": 3,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-comunicar-tu-propuesta-de-la-idea-al-apoyo-publico",
+      "title": "Comunicar Tu Propuesta: De la Idea al Apoyo Público",
+      "description": "Cómo comunicar propuestas institucionales para generar apoyo.",
+      "duration": 4,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-tu-propuesta-institucional-proyecto-final",
+      "title": "Tu Propuesta Institucional: Proyecto Final",
+      "description": "Diseñar una propuesta institucional concreta y un plan para implementarla.",
+      "duration": 3,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Diagnosticar una falla institucional antes de saltar a una solución favorita.",
+    "Escribir una propuesta con mecanismo, autoridad, recursos, incentivos y control.",
+    "Diseñar una coalición y una prueba pública para mejorarla antes de escalar."
+  ],
+  "noCubre": [
+    "No reemplaza técnica legislativa profesional ni análisis de constitucionalidad.",
+    "No garantiza viabilidad política: obliga a hacer visibles actores, vetos y costos."
+  ],
+  "paraQuien": "Para organizaciones y ciudadanos que quieren transformar una demanda legítima en una propuesta examinable.",
+  "productoFinal": "Una ficha institucional completa: diagnóstico, articulado mínimo, implementación, presupuesto y control.",
+  "prerrequisitos": ["Conocer un problema público concreto y a quiénes afecta."],
+  "coverImage": "/course-art/entrenamientos/diseno-instituciones-queja-propuesta.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-24430-804/texto",
+      "titulo": "Constitución de la Nación Argentina · texto oficial",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27275-265949/texto",
+      "titulo": "Ley 27.275 · Derecho de Acceso a la Información Pública",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/economia/onp/presupuesto-ciudadano-2026/datos-abiertos",
+      "titulo": "Presupuesto Ciudadano · datos abiertos e históricos",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/ley-24747-41025/texto",
+      "titulo": "Ley 24.747 · iniciativa legislativa popular",
+      "consultada": "2026-08-14"
+    }
+  ],
+  "revisarAntesDe": "2026-11-13"
+}

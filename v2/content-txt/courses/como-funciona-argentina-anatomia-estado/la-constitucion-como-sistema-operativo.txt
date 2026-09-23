@@ -1,0 +1,63 @@
+---
+slug: la-constitucion-como-sistema-operativo
+courseSlug: como-funciona-argentina-anatomia-estado
+title: La Constitución Como Sistema Operativo
+summary: Entender la Constitución Nacional como el código fuente del sistema argentino.
+orderIndex: 8
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.boletinoficial.gob.ar/detalleAviso/primera/276785/20221130
+    titulo: 'Ley 27.700 — Jerarquía constitucional de la Convención Interamericana sobre Protección de Derechos Humanos de las Personas Mayores (Boletín Oficial)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-27360-275347/texto
+    titulo: 'Ley 27.360 — Aprobación de la Convención Interamericana sobre Protección de los Derechos Humanos de las Personas Mayores'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina — artículos 30 y 75, inciso 22 (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## El Código Fuente de Argentina
+
+Si Argentina fuera una computadora, la Constitución sería su **sistema operativo**. Define las reglas básicas: quién puede hacer qué, cómo se toman las decisiones, qué derechos tenés y cómo se protegen.
+
+### Los Derechos Que Ya Tenés (y Probablemente No Usás)
+
+- **Artículo 14bis:** Derecho a condiciones dignas de trabajo, salario mínimo vital y móvil, protección contra despido arbitrario.
+- **Artículo 41:** Derecho a un ambiente sano. Podés demandar si contaminan tu barrio.
+- **Artículo 42:** Derechos como consumidor. Protección contra publicidad engañosa y servicios deficientes.
+- **Artículo 43:** El amparo. Si el Estado o un particular viola tus derechos, podés pedir protección judicial urgente.
+- **Artículo 75 inc. 22:** Los tratados internacionales de derechos humanos tienen rango constitucional.
+
+### Las Herramientas de Democracia Directa
+
+La reforma de 1994 incorporó mecanismos de participación directa que casi nadie usa:
+
+1. **Iniciativa popular (Art. 39):** Los ciudadanos pueden presentar proyectos de ley al Congreso con firmas.
+2. **Consulta popular (Art. 40):** El Congreso o el presidente pueden someter decisiones a votación popular.
+
+### Los Bugs del Sistema
+
+La Constitución también tiene **problemas de diseño**: el hiperpresidencialismo, la coparticipación nunca reglamentada como ordenó la reforma del 94, la Defensoría del Pueblo vacante, el Consejo de la Magistratura en disputa permanente. Estos bugs son oportunidades de mejora institucional.
+
+### Cómo se actualiza el código sin reescribirlo
+
+Hay dos maneras de cambiar la Constitución, y una es mucho más fácil que la otra. La reforma propiamente dicha exige que el Congreso declare la necesidad con el voto de al menos dos tercios de sus miembros, y que después una Convención convocada para eso haga los cambios (artículo 30). Es un procedimiento pesado a propósito: la última vez fue en 1994.
+
+La otra puerta está en el artículo 75, inciso 22. Los tratados y convenciones de derechos humanos que el Congreso ya aprobó pueden recibir jerarquía constitucional si los votan las dos terceras partes de la totalidad de los miembros de cada cámara. No hace falta convención ni elección. Es la forma en que el código fuente recibe módulos nuevos sin tocar el núcleo, y por eso conviene saber qué módulos se agregaron después de 1994.
+
+> *"La Constitución es tu código fuente. Tiene bugs, sí, pero también tiene funciones poderosas que nadie ejecuta. Jugamos el mismo juego: aprendé a leer el código y vas a encontrar herramientas que ni sabías que existían."*
+
+### El caso
+
+En 2017 la Ley 27.360 aprobó la Convención Interamericana sobre la Protección de los Derechos Humanos de las Personas Mayores, adoptada en la OEA en 2015. El 9 de noviembre de 2022 el Congreso fue un paso más allá: la Ley 27.700 le otorgó jerarquía constitucional en los términos del artículo 75, inciso 22. Desde entonces esa convención tiene el mismo rango que la Constitución, sin que se haya tocado una coma del texto de 1994. Para un jubilado que discute con su obra social o para una familia que pelea por el trato que recibe su madre en una residencia, la diferencia es concreta: el derecho que invocan ya no está en una ley que otra ley puede modificar, sino en la cima del sistema.
+
+### La palanca
+
+Pensá en una persona mayor de tu entorno que hoy tenga un problema con un servicio: un turno que no llega, una prestación negada, un trato indigno. Buscá en argentina.gob.ar/normativa la Ley 27.360, abrí el anexo con el texto de la Convención y encontrá el artículo que describe ese derecho. Un reclamo que cita una norma de rango constitucional se contesta distinto que uno que sólo cuenta lo que pasó.
+Marcá ese artículo y copialo textual en el próximo reclamo por escrito.
+
+### El puente
+
+La convención dice qué se le debe a una persona mayor; [PLANARCO](/planes/planarco) diseña lo que hoy falta para cumplirlo, como la Casa de Arco entre la familia y el geriátrico.

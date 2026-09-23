@@ -1,0 +1,326 @@
+---
+slug: quien-tiene-el-timon
+title: '¿Quién tiene el timón?'
+summary: 'El Gobierno anunció un "gemelo digital social" y después negó que existiera un proyecto en curso. Más allá del episodio, la pregunta decisiva sigue abierta: ¿quién controla la infraestructura que convierte nuestros datos en decisiones?'
+type: blog
+category: tecnologia
+publishedAt: 2026-05-25T00:00:00Z
+readingMinutes: 24
+updatedAt: 2026-08-14T00:00:00Z
+coverImageUrl: /media/bitacora/pilotos/quien-tiene-el-timon-gris-plata.webp
+coverImageAlt: 'Un timón disputado entre el Cabildo de 1810 y una red contemporánea de datos, servidores y ciudadanía.'
+coverImageCaption: 'El timón del siglo XXI está en la arquitectura de datos, modelos y decisiones.'
+coverImageCredit: 'Ilustración editorial · IA + dirección humana'
+legacySlugs:
+  - quin-tiene-el-timn
+tags:
+  - 25-de-mayo
+  - soberania-digital
+  - gemelo-digital
+  - diseno-idealizado
+  - plandig
+draft: false
+---
+
+Te confieso algo: el 25 de Mayo es mi fecha patria preferida.
+
+No por el desfile ni por el locro —aunque el locro ayuda. La prefiero porque no celebra una batalla ni a un hombre: celebra el día en que un grupo de personas se organizó. El 25 de mayo de 1810 no nació un país terminado; se alcanzó un hito en el largo proceso de organizarnos, y se plantó la semilla que seis años más tarde, en 1816, daría el fruto de la independencia. Fue el día en que se formó el **Primer Gobierno Patrio**.
+
+Detené la mirada en esas tres palabras, porque cada una guarda un secreto.
+
+- **Primer** —del latín *primarius*, de *primus*: "el que va delante". No el mejor: el que abre. El que se anima a caminar cuando todavía no hay camino, y al hacerlo lo abre para los que vienen detrás.
+- **Gobierno** —del latín *gubernare*, "pilotar un barco", tomado del griego *kybernáo*: manejar el timón. Gobernar nunca quiso decir mandar desde un trono. Quiso decir, desde el principio, llevar el timón de algo que se mueve. Acordate de esta palabra: vamos a volver a ella.
+- **Patrio** —de *patria*, "la tierra de los padres". No la tierra que poseemos, sino la que heredamos y la que les debemos a los que todavía no nacieron. Patria es una deuda hacia adelante.
+
+Eso fue 1810: gente común que se organizó, que creó una estructura nueva donde antes no había nada, que aceptó que el deseo de fundar una nación —con todo lo que eso significaba— valía el esfuerzo. Y valía también el riesgo: en el camino murió gente. La libertad que hoy tenemos se pagó con sangre.
+
+Por eso existe El Instante del Hombre Gris. Para que la próxima refundación la podamos ver suceder **sin sangre en la calle** —o, al menos, sin sangre de inocentes. No venimos a repetir la batalla: venimos a hacer obsoleta la necesidad de pelearla. La revolución que proponemos se libra con diseño, con código y con organización. No con muertos.
+
+Hoy es 25 de mayo otra vez. Y hay algo que tenemos que mirar de frente, porque el timón —ese del que habla la palabra "gobierno"— cambió de lugar.
+
+Ya no está en una plaza. No está en un balcón. Está en los protocolos que usamos para hablarnos, en los pagos que cruzan nuestras manos, en las nubes donde guardamos la memoria, en las inteligencias artificiales que empiezan a pensar por nosotros. Y mientras seguimos discutiendo quién será la próxima cara en el balcón, alguien ya puso la mano en el timón nuevo.
+
+Voy a adelantar la tesis, porque es incómoda y conviene decirla temprano: **el paralelo con 1810 existe, pero está invertido.** En 1810, Argentina rompió una dependencia con un centro de poder remoto. En 2026, como todas las sociedades conectadas, está definiendo cuánto dependerá de infraestructura de datos, modelos y plataformas que no controla. El anuncio —y su posterior negación— volvió visible el riesgo de entregar soberanía cognitiva bajo el nombre de modernización. El desenlace no está escrito.
+
+> **Actualización editorial · 14 de agosto de 2026.** Este texto nació frente al anuncio difundido el 22 de mayo. El 8 de julio, la Fundación Vía Libre publicó la respuesta formal del Ministerio de Capital Humano: afirmó que no existía un proyecto en curso ni en diseño con ese nombre. Corregimos abajo el estado del caso y conservamos la pregunta de fondo, que no depende de que ese proyecto exista: ¿qué garantías debería tener cualquier sistema público que integre datos y use modelos para orientar decisiones?
+
+Hay una verdad que pocos quieren mirar de frente: mientras esperamos permiso para gobernarnos, otros ya nos están gobernando. No con tanques. No con decretos. Con protocolos diseñados en otra parte, para otros fines, en otro idioma, bajo otra lógica.
+
+> El vacío no se queda vacío. Esa es la primera ley.
+
+## La casa de muñecas
+
+Te lo voy a explicar como se lo explicaría a un chico de cinco años, porque las cosas importantes se entienden mejor así.
+
+Imaginate que alguien construye una casa de muñecas gigante. Pero no es cualquier casa: es una copia en miniatura de todo el país. Y adentro hay un muñequito por cada persona. Uno de esos muñequitos sos vos: con tus datos, tu plata, tu salud, tu escuela, tu trabajo, tu barrio.
+
+El que tiene la casa de muñecas puede mover los muñequitos. Puede probar qué pasa si a este grupo le saca algo, si a aquel le da otra cosa, si los empuja para acá o para allá. Lo ensaya primero en los muñequitos y después lo aplica sobre las personas de verdad.
+
+Suena práctico. Y en parte lo es. El problema no es la casa de muñecas.
+
+> El problema es de quién es la casa de muñecas. Porque el que mueve los muñequitos, te mueve a vos.
+
+No es una metáfora lejana: la capacidad técnica existe y ya se comercializa. Lo que pasó en Argentina fue más extraño —hubo un anuncio y luego una negación oficial—, así que conviene separar el episodio de la arquitectura que este habilitó a discutir.
+
+## Separemos la señal del ruido
+
+Un texto que pide rigor tiene que empezar por el suyo. Así que separemos lo que está confirmado de lo que es inferencia, porque acá la diferencia importa muchísimo.
+
+**Lo confirmado, con documentos:**
+
+- El 22 de mayo de 2026 se difundió desde el Ministerio de Capital Humano una presentación titulada **"Gemelo Digital Social"**. El documento describía una capacidad para integrar información y pasar de análisis descriptivos a recomendaciones prescriptivas.
+- El 24 de mayo, la [Fundación Vía Libre presentó un pedido de acceso a la información](https://www.vialibre.org.ar/presentamos-un-pedido-de-acceso-a-la-informacion-por-el-gemelo-digital-social/) sobre normativa, datos, organismos, proveedores y garantías.
+- El 8 de julio, Vía Libre publicó la [respuesta del Ministerio](https://www.vialibre.org.ar/el-gobierno-anuncio-el-gemelo-digital-social-por-redes-sociales-ahora-dice-que-nunca-existio/): según esa contestación formal, **no había un proyecto en curso ni en diseño** con ese nombre.
+- Un *digital twin* es una capacidad real ofrecida por distintas plataformas. [Palantir Foundry](https://www.palantir.com/platforms/foundry/digital-twin/), por ejemplo, la presenta como una representación operativa que conecta datos, lógica y acciones.
+
+**Lo que no puede afirmarse con la evidencia disponible:**
+
+- Que exista hoy un "gemelo digital social" operativo en el Estado argentino.
+- Que Palantir —o cualquier otro proveedor— haya sido contratada para construirlo.
+- Que exista una arquitectura técnica publicada sobre la cual evaluar centralización, seguridad o mecanismos de apelación.
+
+> El riesgo real no necesita que Palantir esté contratada hoy. El riesgo es estructural, no nominal: no depende de un nombre, depende de una arquitectura. Vamos a eso.
+
+![Comparación entre una arquitectura de datos centralizada y opaca y otra federada, auditable y con control ciudadano.](/media/bitacora/pilotos/diagramas/timon-arquitecturas.svg "La tecnología no determina por sí sola quién gobierna: lo hacen las reglas, los límites, la auditoría y el derecho efectivo a apelar.")
+
+## Qué es de verdad —y por qué el peligro no depende de quién la maneje
+
+Despojado del marketing: un gemelo digital social es una **representación computacional unificada de una población**, armada cruzando las bases de datos administrativas del Estado —ANSES, ARCA, salud, educación, registro civil, y eventualmente las telefónicas y bancarias— sobre las que se corren modelos que predicen comportamiento. Es, exactamente, la casa de muñecas, con el nombre técnico puesto.
+
+Y acá está lo que casi nadie dice: un gemelo digital tiene tres propiedades estructurales que existen *al margen* de las intenciones de quien lo maneje —sea bueno o malo, argentino o extranjero, público o privado:
+
+- **Centralización.** Hoy cada base de datos pública vive en su silo. Eso no es solo desorden: la fragmentación es un cortafuegos contra el abuso. Que ANSES no hable en automático con salud, y salud con tu banco, te protege. El gemelo digital es, por diseño, una herramienta para *derribar ese cortafuegos*.
+- **Asimetría informacional.** El que opera el gemelo sabe más sobre la población que la población sobre sí misma —y muchísimo más de lo que la población sabe sobre él. Esa asimetría es la materia prima del poder moderno: comercial, electoral y, llegado el caso, coercitivo.
+- **Opacidad algorítmica.** Las decisiones que salen del modelo no son auditables por quienes las sufren. "Lo dijo el algoritmo" se vuelve una autoridad sin contraparte: sin apelación, sin rostro.
+
+Leé esto despacio: esas tres propiedades redistribuyen poder **por sí solas**. Discutir las intenciones del operador es discutir lo secundario. La arquitectura es el mensaje.
+
+## Gobernar es llevar el timón
+
+Pará un segundo conmigo, porque acá hay una palabra que guarda un secreto.
+
+**Gobernar** viene del latín *gubernare*: pilotar un barco. Y el latín lo tomó del griego *kybernáo* (κυβερνάω), que significaba exactamente eso —manejar el timón. Al que llevaba el timón lo llamaban *kybernétes*: el piloto.
+
+¿Te suena esa raíz? *Kyber*. De ahí sale la palabra **cibernética**: la ciencia de cómo se controla y se dirige un sistema. Gobernar y cibernética no son primas: son la misma palabra. Las dos significan, desde hace tres mil años, lo mismo —tener la mano en el timón.
+
+Encendé esa linterna y mirá de nuevo el "Gemelo Digital Social":
+
+> Una inteligencia artificial que te describe, te predice y te *prescribe* no es una herramienta administrativa. Es, en el sentido más antiguo y más exacto de la palabra, una máquina de gobernar.
+
+Entonces la discusión deja de ser solamente técnica y se vuelve política. Si un país decide construir capacidades para integrar datos, modelar escenarios o recomendar políticas, necesita poder verse sin convertir a sus habitantes en objetos sin voz. La pregunta no es solo si usará esas herramientas, sino bajo qué reglas y con qué controles.
+
+La pregunta es otra, y es una sola: ¿el timón lo lleva el ciudadano, o lo llevan por él?
+
+## El futuro no se predice. Se construye.
+
+Fijate en para qué se construye la casa de muñecas. Para *predecir*. Para *prescribir*. Para saber, antes que vos, qué vas a hacer —y empujarte hacia donde a otros les conviene que vayas.
+
+Y ahí está la grieta filosófica que lo cambia todo.
+
+> El futuro no se predice. Se construye.
+
+El que te predice, te administra. Te trata como materia prima a procesar, como muñequito a mover. El que se construye, manda. Esa es la diferencia entre ser objeto y ser fuente, entre ser administrado y ser soberano.
+
+Por eso hay dos fuerzas avanzando sobre el espacio que dejamos libre, y las dos comparten la misma premisa.
+
+- **Una es externa:** corporaciones que no le rinden cuentas a nadie, que extraen el valor argentino y lo procesan en otro continente.
+- **La otra es interna y más sutil:** la casta que se atribuye el derecho a gobernarte no porque la hayas elegido, sino porque "entiende". Porque tiene los títulos. Porque maneja la complejidad. Porque vos no.
+
+Las dos te ven igual: como un dato, no como un dueño. Y esto no es izquierda contra derecha, ni de un gobierno contra otro. El conflicto real es más viejo y más simple: es entre quienes crean valor y quienes viven de extraerlo, entre quienes construyen caminos y quienes administran atajos. No es contra una persona. Es contra un diseño.
+
+## El espejo invertido: 1810 y 2026
+
+En mayo de 1810 había varios vectores empujando a la vez: un nodo central vacío (España ocupada), milicias criollas ya operativas, una doctrina jurídica que daba legitimidad —la retroversión de la soberanía al pueblo—, intereses económicos desalineados con la metrópoli, y una noticia de afuera que ofició de detonante. ¿El resultado? El poder volvió a lo local: al Cabildo.
+
+Hoy los mismos vectores están dados vuelta:
+
+| Vector | 1810 | 2026 |
+| --- | --- | --- |
+| Nodo central | España (vacío) | Plataformas globales de datos e IA (en expansión) |
+| Recurso crítico | Comercio marítimo | Datos ciudadanos |
+| Doctrina que legitima | Retroversión de la soberanía | "Eficiencia", "modernización", "evidencia" |
+| Capacidad local | Milicias criollas | Limitada: no hay industria de IA soberana comparable |
+| Detonante | Caída de la Junta de Sevilla | Anuncio público sin gobernanza explicada |
+| Dirección del poder | Periferia → centro local | Periferia → centro extranjero |
+
+> El 25 de mayo de 1810 fue una relocalización del poder hacia abajo, hacia lo nuestro. El 25 de mayo de 2026 puede ser exactamente lo contrario: una transferencia del timón hacia un centro nuevo, y más lejos que España. Esa es la simetría invertida.
+
+Ese espejo nos obliga a ver cinco cosas —en orden de importancia, no de comodidad:
+
+**1. El problema no es Thiel. Es la arquitectura.** Si ponemos el foco en una persona, el día que el contrato lo gane Microsoft, una empresa china o una startup local, el argumento se desinfla. Aunque Palantir no firme nunca, si la herramienta se construye con centralización, opacidad y asimetría, el daño estructural ya está hecho. Y las herramientas de vigilancia *nunca* se desarman: cambian de operador. El próximo gobierno —del signo que sea— la hereda. Pasó con el aparato de inteligencia en cada cambio desde 1983: todos prometieron reformarlo, todos terminaron usándolo.
+
+**2. La pregunta no es "¿qué van a hacer con los datos?".** Esa pregunta tiene respuestas tranquilizadoras ("políticas sociales más justas"). La pregunta de verdad es: **¿qué arquitectura de poder estamos construyendo?** Y esa no tiene respuesta tranquilizadora, porque una arquitectura tiene propiedades que emergen solas, más allá del uso que le den el primer día.
+
+**3. La soberanía del siglo XXI se juega en tres capas, no en una.**
+
+- Capa física: el territorio. La vieja soberanía —Malvinas, recursos.
+- Capa energética: quién opera la red, el gas, el litio —Vaca Muerta, lo nuclear.
+- **Capa cognitiva: quién opera los datos, los modelos y la inferencia.**
+
+Tenemos vocabulario para discutir las dos primeras. La tercera todavía no tiene palabras en la conversación pública. El gemelo digital es, justamente, el evento que está obligando a ese vocabulario a nacer. Que nazca.
+
+**4. El envoltorio es el mecanismo de adopción.** En 1810, la doctrina de la retroversión hizo que una ruptura revolucionaria *pareciera conservadora*. En 2026, las palabras "eficiencia", "evidencia" y "modernización" hacen que entregar soberanía cognitiva *parezca un trámite técnico*. Cuidado: **cuando una decisión política se disfraza de decisión técnica, ese disfraz ya es la decisión política.**
+
+**5. La ventana de intervención es ahora —antes de la infraestructura, no después.** Una vez que las bases se integran, los modelos se entrenan, los contratos se firman y las dependencias técnicas se acumulan, dar marcha atrás se vuelve carísimo. Es como la deuda: lo decisivo no es el día del pago, es el día de la firma.
+
+## El gemelo es necesario. El dueño es el problema.
+
+Repitámoslo, porque es el corazón de todo: **el peligro no es la tecnología. Es de quién es la llave.**
+
+El mismo gemelo digital puede ser dos cosas opuestas según quién lo controle.
+
+- Si lo controla una empresa de afuera o un puñado de funcionarios, es una **correa**: una máquina para anticipar y dirigir tu conducta sin que te des cuenta.
+- Si lo controlan los ciudadanos, repartido, sin un único dueño, es un **servicio público**: una utilidad común, como el agua o las rutas. Una herramienta para que un pueblo se vea a sí mismo y decida sobre sí mismo, con las manos en su propio timón.
+
+La misma tecnología. Centralizada, te dirige. Distribuida, te sirve. El liderazgo que no se estanca en una sola mano es el mismo principio llevado al código: poder que fluye, timón que rota, llave que es de todos.
+
+El Hombre Gris no le tiene miedo a la herramienta. No vino a prohibir el fuego: vino a discutir de quién es la fogata.
+
+## No nos equivoquemos de pelea
+
+Si vamos a dar esta discusión, démosla bien. Estos son los cinco errores que harían fracasar la crítica —y cómo no caer en ellos:
+
+- **"Todo es Palantir."** Si colgamos todo de Thiel, el día que gane otro proveedor el argumento se cae. Hay que pelear sobre la arquitectura, no sobre los actores.
+- **"Tecnofobia."** Un gemelo digital también puede mejorar de verdad las políticas: focalizar transferencias, detectar fraude. Negarlo nos quita credibilidad. Hay que separar la tecnología de su gobernanza.
+- **"Total, ya estamos vigilados."** Sí, el Estado ya tiene tus datos. Pero hay una diferencia de categoría entre *tener bases separadas* y *operar inferencias cruzadas en tiempo real*. No es más de lo mismo: es un cambio de fase.
+- **"Purismo."** Exigir cero gemelo digital es perder. Hay que pelear por arquitectura federada, código abierto, auditoría independiente y cláusulas de caducidad —no por la prohibición.
+- **"Polarización."** Esto se va a querer leer como "kirchnerismo contra libertarios". Si se queda ahí, pierde. Es un tema de **soberanía nacional**, y la soberanía, en Argentina, históricamente convoca a izquierda y a derecha por igual.
+
+Lo dije antes y lo repito: no es contra una persona ni contra un gobierno. Es a favor de una arquitectura —y de quién tiene la llave.
+
+¿Y cómo sabés si la cosa va por buen o mal camino? No hace falta ser técnico. Alcanza con cinco preguntas que cualquier ciudadano debería poder hacer —y que merecen respuesta:
+
+- ¿Hay licitación pública con criterios técnicos publicados? *(Si no, mala señal.)*
+- ¿El código y los modelos los puede auditar un tercero independiente? *(Si no, mala señal.)*
+- ¿Los datos viven en infraestructura bajo jurisdicción argentina, con cláusulas de no transferencia? *(Si no, señal de riesgo crítico.)*
+- ¿Hay una ley votada en el Congreso, con revisión periódica? *(Si no, la herramienta vive sin contrapeso democrático.)*
+- ¿Puede una persona impugnar una decisión que el algoritmo tomó sobre ella? *(Si no, no hay debido proceso.)*
+
+## Por qué la bronca no alcanza
+
+Llegados acá aparece la tentación de siempre: indignarse, marchar, esperar al salvador de turno. Durante décadas nos enseñaron a resistir. Pero nada de eso frena una casa de muñecas: no se frena con una marcha ni con un tuit indignado.
+
+Pensalo como las tres metamorfosis del que despierta. Primero fuimos **camello**: cargamos en silencio con la inflación como castigo y la corrupción como destino. Después rugimos como **león**: dijimos ¡BASTA! y pateamos los ídolos. Y está bien rugir —pero rugir es apenas el primer paso. El que de verdad transforma es el **niño**: el que vuelve a mirar con ojos frescos y se sienta a *crear*.
+
+> No se vence un sistema atacándolo. Se vuelve obsoleto construyendo algo mejor, que la gente prefiera.
+
+Esa es la diferencia entre la revuelta y la refundación. La revuelta quema. La refundación construye. A la casa de muñecas centralizada no se le gana rompiéndola: se le gana levantando una que sea de todos, y que nadie —ni de afuera ni de arriba— pueda usar para movernos como fichas.
+
+## Diseñar es marcar el destino
+
+¿Y cómo se construye algo así? Empieza por una palabra que cierra el círculo.
+
+**Diseñar** viene del latín *designare*: *de-* más *signare*, "marcar con un signo". De *signum* —la señal, la marca. Diseñar, en su raíz, es **señalar hacia dónde**. Marcar el destino antes de dar el primer paso. Trazar el rumbo de lo que algo va a llegar a ser.
+
+Y ahí las dos palabras se abrazan. Si **gobernar** es llevar el timón, **diseñar** es marcar el rumbo hacia el que ese timón apunta. El que dibuja el mapa y sostiene el timón, gobierna. Siempre. Por eso la batalla de fondo es por quién dibuja el mapa.
+
+No venimos a administrar ruinas. Venimos a estrenar país.
+
+## El mapa: el paso cero
+
+Acá entra esta plataforma, y conviene ser honesto sobre lo que es y lo que todavía no es.
+
+El mapa de *El Instante del Hombre Gris* **no es la solución**. No es la infraestructura terminada. No es todavía el gemelo digital soberano.
+
+Es el **paso cero**.
+
+Antes de construir cualquier cosa hay que hacer lo que dice la palabra *diseñar*: marcar el destino. Hacer visible lo invisible. Y para eso necesitás un mapa —un lugar donde mirar dónde estamos, qué se decide sobre nuestra vida, y sobre todo la pregunta que casi ningún sistema se anima a hacer:
+
+> ¿Qué tipo de experiencia humana queremos diseñar?
+
+Casi todo lo que usamos fue diseñado por alguien que ya decidió por vos qué clase de vida deberías querer. El mapa invierte eso. Empieza por la pregunta antes que por la respuesta. Y de esa pregunta nace una paradoja que lo ordena todo: la soberanía tiene que hacer dos cosas a la vez.
+
+- Tiene que **expandirse** —llegar a todos los rincones donde se decide algo sobre tu vida. No alcanza con un voto cada cuatro años; la soberanía tiene que vivir en lo económico, en lo digital, en lo informativo, en lo cotidiano.
+- Y tiene que **unificarse** —converger sobre el individuo. Porque la soberanía repartida en pedazos es soberanía capturable: si tu poder político vive en una institución, el económico en otra y el digital en una tercera, cada pedazo puede caer por separado, porque ninguno sos vos. El único punto que nadie puede capturar sin tu permiso sos vos mismo.
+
+Esto no es individualismo. Es arquitectura. Sos un pozo tallado en tiempo, lleno de todo lo vivido, y sos el nodo donde todas las soberanías se reúnen y se sostienen. Desde ahí, la coordinación voluntaria construye lo demás: la familia, el barrio, la comunidad, la región, la nación. Pero el que carga el peso, siempre, sos vos. Sin ciudadano soberano hay gestión, hay administración, hay tecnocracia. República, no.
+
+## En 1810 era el Cabildo. Hoy es la infraestructura.
+
+Volvamos al principio, porque ahora se ve claro.
+
+En 1810, caminar hasta el Cabildo era lo más sensato del mundo. ¿Por qué ahí? Porque ahí estaba el timón. El poder de decidir sobre lo común pasaba por ese edificio, por esa asamblea de vecinos. Ir al Cabildo era ir a donde se gobernaba.
+
+Hoy el timón no está en ningún edificio. Está en la infraestructura digital: en quién controla la identidad, los pagos, la información, la coordinación, los modelos de inteligencia artificial que empiezan a prescribir cómo vivimos.
+
+Entonces, ¿cuál es el acto patrio de nuestra generación?
+
+> No es marchar a una plaza. No es esperar la próxima elección. Es construir infraestructura digital soberana.
+
+El Cabildo de hoy no se inaugura: se programa. Es abierto, es federado, es del ciudadano. Y se levanta igual que aquel —con un grupo de personas que se cansaron de esperar permiso.
+
+## Qué construimos, concretamente
+
+¿Y de qué está hecho ese Cabildo nuevo? De piezas reales. No de metáforas ni de declaraciones. Piezas:
+
+- Una capa de **coordinación cívica** que no dependa de las plataformas de Silicon Valley.
+- Una capa de **intercambio económico** que no dependa de rieles de pago extranjeros ni de intermediarios que solo extraen.
+- Una capa de **identidad** que controle el ciudadano. No el Estado. No Google. No Meta.
+- Una capa de **información** donde podamos hablar, escuchar y decidir, sin que un algoritmo diseñado afuera module qué le llega a quién.
+- Una capa **real**: hubs comunitarios, redes de formación entre pares, infraestructura física que convierta la soberanía digital en vida cotidiana concreta.
+
+Eso no son apps. Eso es infraestructura constitucional. Es el ágora nueva. Y se construye con código, con concreto, y con vínculos entre ciudadanos que decidieron dejar de esperar.
+
+## Lo que podemos hacer ya
+
+Construir lleva tiempo, pero hay palancas que se accionan ahora. En orden de impacto sobre tiempo:
+
+**En las próximas semanas:**
+
+- Exigir transparencia documental: qué bases se integran, bajo qué marco legal, con qué proveedores, con qué auditoría. Sumarse a —o citar— el pedido de información de la Fundación Vía Libre.
+- Reclamar una evaluación de impacto en los derechos fundamentales *antes* de implementar, no después.
+
+**En los próximos meses:**
+
+- Pedir un marco legal específico —ley votada, no decreto— con cláusulas de caducidad y participación ciudadana.
+- Pedir que las capacidades críticas (los modelos, el cómputo, las claves criptográficas) residan en soberanía argentina. No por nacionalismo: por prudencia, como quien no pone todos los huevos en una canasta ajena.
+
+**Y de fondo, lo estructural:**
+
+- Empujar un debate público sobre **soberanía cognitiva**, tan en serio como el que ya damos sobre soberanía energética. Es el debate del siglo, y llegamos tarde si no lo empezamos hoy.
+
+Y hay que hacerlo rápido.
+
+## La ventana del debate está abierta
+
+La respuesta oficial dice que no hay un proyecto en curso. Eso cambia el estado del caso, pero no vuelve irrelevante la pregunta: al contrario, permite discutir garantías **antes** de una licitación, una integración de bases o un modelo entrenado. Cuando la dependencia técnica ya está acumulada, corregir una arquitectura cuesta mucho más.
+
+En 1810, los criollos vieron una ventana estructural y actuaron a tiempo. La pregunta de hoy es si vamos a definir nuestras reglas digitales antes de necesitarlas con urgencia, o si las improvisaremos cuando la infraestructura ya esté decidida.
+
+El mapa es el paso cero: el lugar donde marcamos el destino. Falta lo otro —la arquitectura completa de la soberanía digital—, y esto es clave: **la tenemos que diseñar entre todos**. No la baja una empresa, no la baja un ministerio, no la baja un iluminado. La construye un pueblo, como en 1810.
+
+Para no arrancar de una hoja en blanco, te comparto un borrador: junté un montón de ideas en un plan que puede servir de inspiración —un ejemplo de cómo se *podría* armar la arquitectura completa de soberanía digital, capa por capa. No es la verdad revelada. Es un punto de partida para discutir, romper y mejorar entre todos.
+
+**[Mirá el PLANDIG — un borrador del Plan Nacional de Soberanía Digital, para construir entre todos →](/planes/plandig)**
+
+## Auditoría ciudadana en diez minutos
+
+Frente a cualquier anuncio que mezcle datos públicos e inteligencia artificial, armá una hoja con estas seis filas. No completes con intuiciones: escribí **sí**, **no** o **sin evidencia**, y pegá el enlace que respalda cada respuesta.
+
+![Auditoría ciudadana de seis preguntas sobre propósito, datos, operación, decisiones, auditoría y apelación.](/media/bitacora/pilotos/diagramas/auditoria-datos.svg "La soberanía digital se vuelve evaluable cuando cada poder tiene un límite, una evidencia pública y una vía efectiva de apelación.")
+
+| Pregunta | Evidencia mínima |
+| --- | --- |
+| ¿Qué problema público resuelve? | Objetivo, población alcanzada y métrica de éxito |
+| ¿Qué datos usa y con qué base legal? | Inventario, finalidad y plazo de conservación |
+| ¿Quién opera cada capa? | Organismos, proveedores y jurisdicción |
+| ¿Qué decisiones puede recomendar o ejecutar? | Límites explícitos y supervisión humana |
+| ¿Cómo se audita? | Código, modelo, registros y auditor independiente |
+| ¿Cómo apela una persona? | Canal, plazo, responsable y reparación posible |
+
+Si una respuesta es “sin evidencia”, eso no prueba abuso. Prueba algo más preciso y accionable: **falta información pública para evaluar el riesgo**.
+
+## Fuentes y documentos
+
+- [Pedido de acceso a la información de Fundación Vía Libre, 24 de mayo de 2026](https://www.vialibre.org.ar/presentamos-un-pedido-de-acceso-a-la-informacion-por-el-gemelo-digital-social/)
+- [Respuesta oficial publicada por Fundación Vía Libre, 8 de julio de 2026](https://www.vialibre.org.ar/el-gobierno-anuncio-el-gemelo-digital-social-por-redes-sociales-ahora-dice-que-nunca-existio/)
+- [Documento de trabajo “El Estado de los datos”, Fundación Vía Libre](https://www.vialibre.org.ar/wp-content/uploads/2026/06/FVL_El-Estado-de-los-datos_2026.pdf)
+- [Descripción de Digital Twin en Palantir Foundry](https://www.palantir.com/platforms/foundry/digital-twin/)
+
+Los vecinos del 25 de mayo de 1810 entendieron algo que estamos a tiempo de recordar: el Primer Gobierno Patrio no fue un hombre en un balcón. Fue un pueblo que se organizó y decidió agarrar el timón. Ese timón lo pagaron con esfuerzo, y a veces con sangre.
+
+Nosotros tenemos una oportunidad que ellos no tuvieron: hacer la próxima refundación con diseño, con código y con organización. Verla suceder sin sangre en la calle. Esa es, exactamente, la razón por la que existe El Instante del Hombre Gris.
+
+Vos no necesitás permiso para volverte soberano. Lo sos por origen. Lo único que te falta son las herramientas —y las herramientas se construyen.
+
+> Construir o ser construidos. No hay opción intermedia. Y la decisión, como toda decisión soberana, la tomamos nosotros. Hoy.

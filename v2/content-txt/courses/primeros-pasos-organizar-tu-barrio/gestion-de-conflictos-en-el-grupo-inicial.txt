@@ -1,0 +1,59 @@
+---
+slug: gestion-de-conflictos-en-el-grupo-inicial
+courseSlug: primeros-pasos-organizar-tu-barrio
+title: Gestión de Conflictos en el Grupo Inicial
+summary: Cómo manejar los conflictos inevitables que surgen en grupos barriales.
+orderIndex: 8
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/justicia/afianzar/caj/mediacion-comunitaria
+    titulo: 'Mediación comunitaria — Centros de Acceso a la Justicia (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/justicia/afianzar/caj
+    titulo: 'Centros de Acceso a la Justicia (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## El Conflicto Va a Llegar: Preparate
+
+Si tu grupo barrial no tiene conflictos, probablemente no está haciendo nada importante. El conflicto es señal de que hay **diversidad de opiniones y pasión genuina**. El problema no es el conflicto sino cómo lo manejamos.
+
+### Los 4 Conflictos Más Comunes en Grupos Barriales
+
+1. **El que quiere mandar:** Alguien que empieza a tomar decisiones solo, sin consultar. Solución: recordar los acuerdos de funcionamiento y rotar roles.
+2. **El que critica todo pero no hace nada:** Tiene opinión sobre todo pero nunca se ofrece a hacer algo. Solución: "¿Vos qué proponés? ¿Te animás a encargarte?"
+3. **La pelea política:** Alguien mete la grieta partidaria en el grupo. Solución: recordar que en el grupo somos vecinos, no militantes.
+4. **El abandono silencioso:** Gente que deja de venir sin decir por qué. Solución: llamar personalmente y preguntar con genuina curiosidad.
+
+### Protocolo Básico de Resolución
+
+- **Paso 1:** Nombrar el conflicto. "Parece que hay un desacuerdo sobre X. ¿Podemos hablarlo?"
+- **Paso 2:** Escuchar ambas partes sin interrumpir. Usar un objeto que se pasa (el que tiene el objeto, habla).
+- **Paso 3:** Buscar la necesidad detrás de la posición. "¿Qué necesitás realmente?"
+- **Paso 4:** Proponer soluciones que atiendan ambas necesidades.
+- **Paso 5:** Si no hay acuerdo, votar. La mayoría decide, la minoría acepta.
+
+### La Regla de las 24 Horas
+
+Cuando un conflicto se pone caliente: nadie responde en el momento. Esperá 24 horas. Lo que parece urgente hoy, mañana se ve distinto. Esta regla aplica especialmente a los grupos de WhatsApp, donde los conflictos escalan en segundos.
+
+### Después del Conflicto
+
+Un conflicto resuelto deja algo que conviene guardar: el acuerdo nuevo. Si el grupo se peleó porque alguien compró materiales sin consultar, la salida no es sólo la disculpa; es una regla que diga, por ejemplo, que todo gasto de más de cierto monto se consulta antes en el grupo. Escribila, sumala a los acuerdos de funcionamiento y leela en voz alta en el encuentro siguiente. Los conflictos que vuelven una y otra vez casi siempre señalan una regla que falta, no una persona que sobra.
+
+Y una cosa más: después de una pelea fuerte, alguien del grupo tiene que llamar a cada una de las partes por separado durante esa semana. No para reabrir la discusión, sino para preguntar cómo quedó. Ese llamado es lo que evita el abandono silencioso.
+
+### El caso
+
+Cuando un conflicto se enquista, no hace falta un abogado. Los Centros de Acceso a la Justicia (CAJ) del Ministerio de Justicia ofrecen mediación comunitaria gratuita: una instancia de diálogo voluntario donde las partes llegan a un acuerdo sin delegar su poder de decisión en un tercero. Los equipos combinan abogados, psicólogos, mediadores y trabajadores sociales. Según el ministerio, el 18% de las mediaciones son por temas de vivienda, entre ellos los conflictos vecinales, y el servicio creció rápido: 18 CAJ lo ofrecían en agosto de 2016 y 70 en junio de 2019. El mediador no decide por nadie. Sostiene, desde afuera, el mismo protocolo de esta lección —turnos, escucha, necesidades detrás de las posiciones— cuando el grupo ya no puede sostenerlo solo.
+
+### La palanca
+
+Buscá dónde queda el CAJ más cercano a tu barrio antes de necesitarlo, en el mapa del sitio oficial, y guardá la dirección y el horario en el mensaje fijado del grupo, junto con los acuerdos de funcionamiento. Si un conflicto ya pasó por los cinco pasos y sigue trabado —o si es entre vecinos y no dentro del grupo, como una medianera o un ruido—, proponé ir a mediación antes de que alguien deje de venir.
+Preguntá en el CAJ qué hace falta para pedir una mediación comunitaria.
+
+### El puente
+
+[PLANJUS](/planes/planjus) diseña una justicia popular que ofrece la mediación restaurativa como primera opción, antes de que el conflicto llegue a un panel de ciudadanos.

@@ -1,0 +1,89 @@
+---
+slug: tu-plan-de-bienestar-emocional
+courseSlug: inteligencia-emocional-tiempos-turbulentos
+title: Tu Plan de Bienestar Emocional
+summary: Integrá lo aprendido en un plan personal de cuidado, límites, apoyos y señales para pedir ayuda.
+orderIndex: 10
+draft: false
+cierre: puente
+fuentes:
+  - url: https://www.argentina.gob.ar/noticias/la-linea-nacional-de-orientacion-y-apoyo-en-la-urgencia-de-salud-mental-funciona-las-24
+    titulo: 'Ministerio de Salud — La Línea Nacional de Orientación y Apoyo en la Urgencia de Salud Mental funciona las 24 horas'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm
+    titulo: 'Ley 26.657 — Derecho a la Protección de la Salud Mental (InfoLeg)'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## De la Teoría a Tu Vida: El Plan Integrado
+
+Llegaste al final de este curso con un arsenal de herramientas emocionales. Ahora el desafío es el más importante: **integrar todo en un plan que funcione para tu vida real**, no para una vida idealizada.
+
+### Paso 1: Tu registro emocional actual
+
+Respondé con honestidad:
+
+- ¿Qué situaciones aumentan o reducen mi margen de respuesta?
+- ¿Cuáles son mis tres principales gatillos emocionales?
+- ¿Cómo es mi diálogo interior habitual? (crítico / compasivo / ausente)
+- ¿Cómo afectan mis emociones a mis relaciones más cercanas?
+- ¿Qué hábitos emocionales tengo actualmente? (buenos y malos)
+
+### Paso 2: Tu Visión de Bienestar Emocional
+
+No se trata de "no sentir emociones negativas". Se trata de:
+
+1. **Sentir todo el espectro** sin quedarte atrapado en ningún extremo
+2. **Responder en vez de reaccionar** la mayor parte del tiempo
+3. **Mantener relaciones** donde la comunicación emocional sea fluida
+4. **Tener energía** para el servicio y la acción sin quemarte
+5. **Registrar funcionamiento:** sueño, alimentación, concentración y energía sin convertirlos en un diagnóstico casero
+
+> "El Hombre Gris emocionalmente maduro no es el que nunca se enoja, llora o teme. Es el que hace algo útil con cada emoción. Cada emoción es combustible: la pregunta es para qué motor."
+
+### Paso 3: Tu Kit de Emergencia Emocional
+
+Creá una tarjeta (física o digital) con opciones para momentos difíciles. No la uses para reemplazar una urgencia o atención profesional:
+
+- **Si noto mucha activación:** Alejarme de la escena, respiración cómoda o grounding si me ayuda
+- **Si noto desconexión:** Orientarme al entorno, movimiento suave o contacto con alguien seguro
+- **Si estoy rumiando:** Escribir durante 10 minutos sin parar + salir a caminar
+- **Si estoy a punto de explotar:** Una pausa posible + la pregunta "¿qué quiero proteger y cuál es el paso menos dañino?"
+- **Si me siento solo/a:** Llamar a una persona de mi red de confianza (tenerla definida de antemano)
+
+### Un número para la tarjeta
+
+La tarjeta del Paso 3 necesita una línea que no dependa de nadie de tu red. La Línea Nacional de Orientación y Apoyo en la Urgencia de Salud Mental, del Ministerio de Salud de la Nación, atiende en el 0800-999-0091, gratis, las 24 horas, los 365 días del año. La atienden equipos profesionales y recibe crisis emocionales, angustia intensa, ideas de muerte o de lastimarse, consumos, violencias y situaciones traumáticas. Es una puerta de entrada al sistema de salud, no un reemplazo de la guardia: si hay riesgo inmediato, corresponde la emergencia.
+
+El respaldo está en la Ley 26.657, cuyo artículo 7 reconoce a las personas con padecimiento mental el derecho a una atención «integral y humanizada», con acceso gratuito, igualitario y equitativo. Anotá el número hoy, mientras estás bien. En una crisis nadie se pone a buscarlo.
+
+### Paso 4: Tu Red de Apoyo Emocional
+
+Identificá personas o espacios con los que puedas ser emocionalmente honesto:
+
+1. Alguien que te escuche sin juzgar
+2. Alguien que te diga verdades con amor
+3. Alguien con quien puedas reír y soltar
+
+Si no tenés estas tres personas, este curso te da permiso para buscarlas activamente. No es debilidad: es estrategia de supervivencia emocional.
+
+### Paso 5: Indicadores de Progreso
+
+¿Cómo saber si estás avanzando? Revisá mensualmente:
+
+- ¿Cuánto tiempo tardo en recuperar margen después de una situación difícil? ¿Qué contexto influye?
+- ¿Qué respuestas automáticas aparecieron y qué alternativa pude ensayar?
+- ¿Cómo está mi calidad de sueño? (indicador fisiológico clave)
+- ¿Mis relaciones cercanas están mejorando, empeorando o igual?
+- ¿Tengo energía para mis proyectos o estoy crónicamente agotado?
+
+### Compromiso Final
+
+Escribí un compromiso concreto y revisable. Por ejemplo: "Durante dos semanas voy a registrar una situación difícil, probar una pausa que me resulte segura y revisar el efecto cada domingo".
+
+Firmalo. Ponele fecha. Y compartilo con al menos una persona de tu red de apoyo. **El cambio emocional sostenible requiere testigos.**
+
+### El puente
+
+El Paso 4 es un mapa chico de vínculos. [La práctica del tejido](/ensayos/la-practica-del-tejido) lo agranda: trazar los propios hilos, nombrar las hebras y tejer las que faltan antes de necesitarlas.

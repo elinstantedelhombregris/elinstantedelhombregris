@@ -1,0 +1,111 @@
+{
+  "slug": "caja-herramientas-ciudadanas",
+  "title": "Caja de Herramientas Ciudadanas",
+  "description": "Las habilidades prácticas que todo ciudadano activo necesita. Gestión de proyectos, reuniones productivas, alfabetismo de datos, herramientas digitales, oratoria básica y redacción de propuestas.",
+  "excerpt": "Las herramientas prácticas esenciales para pasar de la idea a la acción ciudadana.",
+  "category": "action",
+  "level": "beginner",
+  "duration": 38,
+  "orderIndex": 20,
+  "isPublished": true,
+  "isFeatured": true,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-de-la-indignacion-a-la-accion-tu-primera-herramienta-sos-vos",
+      "title": "De la Indignación a la Acción: Tu Primera Herramienta Sos Vos",
+      "description": "Pasar de quejarse a actuar requiere herramientas concretas, no solo voluntad.",
+      "duration": 4,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-reuniones-que-funcionan-el-arte-de-no-perder-el-tiempo",
+      "title": "Reuniones que Funcionan: El Arte de No Perder el Tiempo",
+      "description": "Cómo organizar y facilitar reuniones productivas en contextos comunitarios.",
+      "duration": 4,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-oratoria-ciudadana-hablar-para-que-te-escuchen",
+      "title": "Oratoria Ciudadana: Hablar para que Te Escuchen",
+      "description": "Técnicas básicas de comunicación oral para asambleas, audiencias públicas y medios.",
+      "duration": 4,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-redaccion-de-propuestas-y-notas-formales",
+      "title": "Redacción de Propuestas y Notas Formales",
+      "description": "Cómo escribir documentos que abran puertas en vez de cerrarlas.",
+      "duration": 4,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-alfabetismo-de-datos-leer-los-numeros-que-gobiernan-tu-vida",
+      "title": "Alfabetismo de Datos: Leer los Números que Gobiernan Tu Vida",
+      "description": "Entender estadísticas, gráficos y datos públicos para argumentar con evidencia.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-herramientas-digitales-para-la-accion-ciudadana",
+      "title": "Herramientas Digitales para la Acción Ciudadana",
+      "description": "Tecnología gratuita para organizar, comunicar y amplificar tu impacto.",
+      "duration": 4,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-negociacion-ciudadana-conseguir-sin-pelear",
+      "title": "Negociación Ciudadana: Conseguir Sin Pelear",
+      "description": "Técnicas de negociación para tratar con funcionarios, vecinos y actores diversos.",
+      "duration": 3,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-mapeo-comunitario-conocer-tu-territorio",
+      "title": "Mapeo Comunitario: Conocer Tu Territorio",
+      "description": "Técnicas para diagnosticar tu barrio y detectar recursos, problemas y oportunidades.",
+      "duration": 4,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-documentar-y-sistematizar-que-nada-se-pierda",
+      "title": "Documentar y Sistematizar: Que Nada Se Pierda",
+      "description": "Cómo registrar tu experiencia para que otros puedan replicarla.",
+      "duration": 4,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-tu-plan-de-accion-ciudadana-de-este-curso-a-tu-barrio",
+      "title": "Tu Plan de Acción Ciudadana: De Este Curso a Tu Barrio",
+      "description": "Integrar todas las herramientas en un plan concreto de acción para tu comunidad.",
+      "duration": 4,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Preparar una reunión breve con propósito, agenda, roles y cierre verificable.",
+    "Redactar una nota formal y sostener una conversación de negociación.",
+    "Registrar datos, actores y próximos pasos sin depender de memoria o chats caóticos."
+  ],
+  "noCubre": [
+    "No reemplaza formación jurídica ni garantiza respuesta de una institución.",
+    "No propone una herramienta digital como solución para un problema de organización."
+  ],
+  "paraQuien": "Para cualquier persona que quiera participar y todavía no tenga un método práctico para hacerlo.",
+  "productoFinal": "Una carpeta ciudadana reutilizable: agenda, nota, mapa, registro de acuerdos y plan de treinta días.",
+  "prerrequisitos": [],
+  "coverImage": "/course-art/entrenamientos/caja-herramientas-ciudadanas.webp",
+  "fuentesBase": [
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/datos-abiertos/portal",
+      "titulo": "Portal Nacional de Datos Públicos",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

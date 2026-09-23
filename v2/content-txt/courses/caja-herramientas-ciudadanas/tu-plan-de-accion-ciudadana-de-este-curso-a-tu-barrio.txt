@@ -1,0 +1,74 @@
+---
+slug: tu-plan-de-accion-ciudadana-de-este-curso-a-tu-barrio
+courseSlug: caja-herramientas-ciudadanas
+title: 'Tu Plan de Acción Ciudadana: De Este Curso a Tu Barrio'
+summary: Integrar todas las herramientas en un plan concreto de acción para tu comunidad.
+orderIndex: 10
+draft: false
+cierre: puente
+fuentes:
+  - url: https://data.buenosaires.gob.ar/dataset/sistema-unico-atencion-ciudadana
+    titulo: 'Sistema Único de Atención Ciudadana (BA 147) — Buenos Aires Data'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+### Por qué importa
+
+Llegaste hasta acá. Aprendiste a facilitar reuniones, a hablar en público, a redactar notas, a leer datos, a usar tecnología, a negociar, a mapear tu barrio y a documentar experiencias. Pero si todo esto queda en la pantalla y no baja a la calle, fue entretenimiento, no educación. Esta lección existe para que no te pase lo que le pasa al 90% de la gente que hace un curso online: terminar, sentirse inspirado 48 horas, y después volver a la vida exactamente igual. Hoy diseñás tu primer plan de acción. Hoy la teoría se convierte en tu barrio.
+
+## Las Herramientas Sin Uso Son Chatarra
+
+Leíste 9 lecciones. Aprendiste herramientas de reuniones, oratoria, redacción, datos, tecnología, negociación, mapeo y documentación. Pero si esto queda en la teoría, no sirvió de nada. Esta última lección te guía para crear tu **Plan de Acción Ciudadana**: un proyecto concreto que uses para practicar TODO lo aprendido.
+
+### Paso 1: Elegí UN Problema (15 min)
+
+No intentes arreglar el mundo. Elegí UN problema de tu barrio que te importe personalmente. Cuanto más específico, mejor.
+
+- Malo: "La inseguridad del barrio"
+- Mejor: "La esquina de X y Y no tiene iluminación y hubo 3 robos este mes"
+- Excelente: "Necesitamos que el municipio instale 2 luminarias LED en la esquina de X y Y"
+
+### Paso 2: Investigá (1 semana)
+
+- Hacé el mapeo del problema: ¿desde cuándo? ¿a quién afecta? ¿quién es responsable?
+- Buscá datos: ¿hay registros de reclamos anteriores? ¿estadísticas relevantes?
+- Identificá actores: ¿quién decide? ¿quién puede ayudar? ¿quién se opone?
+
+### Un atajo para el Paso 2
+
+Antes de escribir tu nota, fijate si alguien ya reclamó lo mismo. En la Ciudad de Buenos Aires, el portal de datos abiertos publica los contactos que recibe el sistema de atención ciudadana (BA 147): cada reclamo con fecha, concepto y referencia geográfica, desde 2011, actualizado cada seis meses. Filtrás por tu barrio y por el tema —una luminaria, un bache, un árbol caído— y tenés un número que tu nota no podría inventar: cuántas veces se pidió lo mismo y desde cuándo. Si vivís en otro municipio, pedí esa información por escrito. Una nota que dice «es el reclamo número doce desde 2023» pesa distinto que una que dice «hace mucho que está roto».
+
+### Paso 3: Organizá un Grupo (1 semana)
+
+- Encontrá 3-5 vecinos que compartan tu preocupación.
+- Hacé una primera reunión con agenda (Lección 2).
+- Definí roles: quién redacta, quién habla, quién documenta.
+
+### Paso 4: Actuá (2 semanas)
+
+- Escribí la nota al funcionario (Lección 4).
+- Pedí una reunión (Lección 7).
+- Documentá todo (Lección 9).
+- Si no contestan: escalá (medios, redes, Concejo Deliberante).
+
+### Paso 5: Evaluá y Compartí (1 semana)
+
+- ¿Funcionó? ¿Qué aprendiste? ¿Qué harías diferente?
+- Sistematizá la experiencia.
+- Compartila: un posteo, una charla en el club, una nota en el grupo vecinal.
+
+### El Efecto Dominó
+
+Un vecino que resuelve UN problema se convierte en referencia. Otros vecinos le piden ayuda. Se arma un grupo más grande. Abordan problemas más complejos. En 2 años, un barrio organizado puede transformar más que 10 años de promesas electorales.
+
+### Paso Siguiente Concreto
+
+1. **Hoy:** Completá la hoja de proyecto de esta lección. No tiene que ser perfecta — tiene que estar escrita. Abrí un Google Doc, copiá la tabla, y llená cada celda con lo que se te ocurra ahora. Podés mejorarla después.
+2. **Hoy:** Mandá un mensaje a 3 personas contándoles tu idea de proyecto en 3 oraciones. No les pidas compromiso — solo preguntales: "¿Qué te parece? ¿Te interesaría ser parte?" La primera conversación es el primer paso real.
+3. **Hoy:** Poné una alarma en tu celular para dentro de 7 días con el texto: "¿Hice algo con mi plan de acción ciudadana?" La alarma te va a recordar que este curso no era para consumir — era para actuar.
+
+> "No esperes al líder perfecto, al gobierno ideal, al momento oportuno. Empezá hoy, con lo que tenés, donde estás. Un problema pequeño bien resuelto genera más cambio que mil planes grandiosos que nunca arrancan. La caja de herramientas ya es tuya. Ahora usala."
+
+### El puente
+
+Tu plan de treinta días es la pregunta de [PLANRUTA](/planes/planruta) en escala de cuadra: cómo se arranca sin presupuesto estatal, sin mayoría legislativa y sin permiso, con un grupo de vecinos y papeles en regla.

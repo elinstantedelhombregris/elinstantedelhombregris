@@ -1,0 +1,70 @@
+---
+slug: formalizacion-sin-morir-en-el-intento
+courseSlug: emprendimiento-con-proposito
+title: Formalización Sin Morir en el Intento
+summary: Guía práctica de estructuras legales y fiscales para emprender en Argentina.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/270000-274999/273567/norma.htm
+    titulo: 'Ley 27.349 — Apoyo al Capital Emprendedor (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.infobae.com/economia/2020/02/28/cruce-entre-el-gobierno-y-los-emprendedores-por-la-suspension-por-180-dias-del-registro-que-permitia-abrir-empresas-online-y-en-solo-un-dia/
+    titulo: 'Infobae — Cruce entre el Gobierno y los emprendedores por la suspensión por 180 días del registro que permitía abrir empresas online'
+    consultada: '2026-09-22'
+  - url: https://www.ambito.com/politica/emprendedores/suspenden-resoluciones-la-igj-que-limitaban-las-sas-n5133715
+    titulo: 'Ámbito — Suspenden resoluciones de la IGJ que limitaban a las SAS'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## El Laberinto Legal Argentino (con Mapa)
+
+El 40% de la economía argentina es informal. ¿Por qué? Porque formalizarse parece imposible: trámites interminables, impuestos asfixiantes, burocracia kafkiana. Pero la informalidad tiene un costo enorme: no podés crecer, no podés exportar, no podés acceder a crédito, no podés proteger tus activos.
+
+Este capítulo te da el **mapa de la formalización**: qué opciones tenés, cuánto cuestan realmente, y cuál te conviene según tu situación.
+
+### Las 5 Formas Jurídicas
+
+| Forma | Para quién | Costo mensual aprox. | Ventaja clave |
+| --- | --- | --- | --- |
+| **Monotributo** | Arrancando solo/a | $15.000 - $40.000 | Simplicidad total |
+| **Responsable Inscripto** | Facturás mucho | Variable (21% IVA + Ganancias) | Sin techo de facturación |
+| **SAS** | 2+ socios, crecer rápido | $50.000+ | Patrimonio separado, rapidez |
+| **SRL** | Tradición, varios socios | $80.000+ | Estructura conocida |
+| **Cooperativa** | Proyecto comunitario | Variable | Beneficios impositivos, democracia |
+
+### Monotributo: Tu Primer Paso
+
+El monotributo es la puerta de entrada a la formalidad. Con un solo pago mensual cubrís: impuestos, obra social y jubilación. Hay categorías (A a K) según tu facturación.
+
+- **Trámite:** Se hace 100% online en el sitio de ARCA (arca.gob.ar). Necesitás CUIL y clave fiscal nivel 3.
+- **Tiempo:** 1-2 horas si tenés todo listo.
+- **Costo real:** Depende de la categoría, pero arranca en valores accesibles.
+- **Facturación:** Factura C electrónica desde la app o la web de ARCA.
+
+### La SAS: La Revolución Silenciosa
+
+La Sociedad por Acciones Simplificada (SAS) fue creada en 2017 para que emprendedores puedan tener una sociedad formal sin los costos y la burocracia de una SRL o SA. Se constituye en 24 horas de forma digital, requiere capital mínimo de 2 salarios mínimos, y puede tener un solo socio.
+
+### ¿Cuándo Dar el Salto?
+
+1. **De informal a monotributo:** Cuando empezás a tener clientes recurrentes que necesitan factura.
+2. **De monotributo a SAS/SRL:** Cuando te acercás al tope de facturación, cuando necesitás separar patrimonio personal del comercial, o cuando sumás socios.
+3. **De SAS a SA:** Cuando necesitás inversores institucionales o querés cotizar en bolsa (esto es para muy pocos).
+
+> "La formalidad no es un gasto, es una inversión. Cada peso que ponés en estar en blanco te vuelve en acceso a crédito, clientes corporativos, exportación y tranquilidad. El costo de la informalidad es invisible pero enorme."
+
+### El caso
+
+La Ley 27.349, de 2017, creó la Sociedad por Acciones Simplificada con una promesa medible: su artículo 38 obliga al registro público a inscribirla dentro de las 24 horas si se usa el modelo tipo de estatuto, y el artículo 60 le da derecho a obtener la CUIT en otras 24. A comienzos de 2020 ya había más de 20.000 SAS. El 26 de febrero de ese año la Inspección General de Justicia, que lleva el registro de sociedades de la Ciudad de Buenos Aires, suspendió por 180 días la inscripción digital de SAS, y en los meses siguientes sumó otras resoluciones que endurecieron los requisitos. La Asociación de Emprendedores de Argentina fue a la Justicia, y el 17 de septiembre de 2020 el juez comercial Horacio Robledo suspendió esas resoluciones de manera cautelar. La ley decía 24 horas; durante meses, la ventanilla dijo otra cosa.
+
+### La palanca
+
+Si estás pensando en pasar de monotributo a sociedad, no elijas la figura por lo que promete la ley sino por lo que hace hoy el registro de tu provincia. Preguntale a tu contador o a un escribano cuánto tardó la última SAS o SRL que inscribió ahí, cuánto costó en total y qué le observaron. Si seguís como monotributista, controlá que tu categoría coincida con lo que facturaste en los últimos doce meses.
+Entrá al sitio de ARCA y compará tu facturación con la tabla de categorías vigente.
+
+### El puente
+
+El monotributo junta impuesto, jubilación y obra social en una sola cuota, y quien la paga no sabe qué parte es qué. [PLANPACTO](/planes/planpacto) propone un Recibo del Estado que la muestre partida.

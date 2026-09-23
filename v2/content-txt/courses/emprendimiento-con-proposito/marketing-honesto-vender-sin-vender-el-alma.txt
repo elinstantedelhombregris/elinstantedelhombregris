@@ -1,0 +1,59 @@
+---
+slug: marketing-honesto-vender-sin-vender-el-alma
+courseSlug: emprendimiento-con-proposito
+title: 'Marketing Honesto: Vender Sin Vender el Alma'
+summary: 'Estrategias de marketing y ventas basadas en confianza, no en manipulación.'
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.infobae.com/economia/2022/05/03/la-secretaria-de-comercio-sancionara-a-mercado-libre-por-publicidad-enganosa-sobre-cuotas/
+    titulo: 'Infobae — La Secretaría de Comercio sancionará a Mercado Libre por publicidad engañosa sobre cuotas'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/638/texact.htm
+    titulo: 'Ley 24.240 — Defensa del Consumidor, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## El Fin del Marketing de la Mentira
+
+Argentina tiene una larga tradición de marketing agresivo, promesas infladas y letra chica. "Sin interés" (que tiene interés). "Natural" (que tiene químicos). "Artesanal" (que sale de una fábrica). Los consumidores argentinos son **los más escépticos de Latinoamérica** — y con razón.
+
+Pero esa misma desconfianza genera una oportunidad enorme: el que es genuinamente honesto **se destaca como un faro en la niebla**.
+
+### Los 3 Pilares del Marketing con Propósito
+
+1. **Autenticidad radical:** Mostrá quién sos, cómo producís, cuánto cuesta realmente. Las marcas que abren sus cocinas ganan la confianza que las que las esconden pierden.
+2. **Comunidad antes que audiencia:** No querés "seguidores" — querés *cómplices*. Gente que comparte tu propósito y te recomienda porque cree en lo que hacés.
+3. **Contenido que educa:** En vez de "comprá mi producto", enseñá algo útil. El emprendimiento que educa se posiciona como autoridad y genera confianza.
+
+### Canales que Funcionan en Argentina (2024-2025)
+
+- **WhatsApp Business:** El canal de ventas más poderoso. Catálogo de productos, respuestas automáticas, grupos de clientes. GRATIS.
+- **Instagram:** Ideal para productos visuales. Reels cortos (15-30 segundos) superan a cualquier publicidad paga.
+- **MercadoLibre:** Si vendés productos físicos, es tu plaza virtual. La reputación ahí construida vale oro.
+- **Ferias y eventos locales:** Lo presencial sigue siendo poderoso. Una feria en tu barrio puede darte tus primeros 50 clientes fieles.
+- **Boca a boca estructurado:** Pedí reseñas a tus mejores clientes. Ofrecé descuentos por referidos. Hacé que recomendar tu producto sea fácil.
+
+### El Precio Justo en un País con Inflación
+
+La estrategia de precios en Argentina es un arte:
+
+- **Nunca compitas solo por precio:** Siempre va a haber alguien más barato (y probablemente informal). Competí por valor, confianza y experiencia.
+- **Comunicá el valor, no el costo:** "Este producto te dura 5 años" vale más que "este producto cuesta $X".
+- **Ofrecé opciones:** Tres versiones (básica, estándar, premium) permiten que cada cliente elija según su presupuesto.
+
+> "El mejor marketing que existe es un cliente satisfecho que te recomienda. Y el mejor camino a un cliente satisfecho es cumplir exactamente lo que prometiste. Ni más, ni menos. En Argentina, eso te convierte en leyenda."
+
+### El caso
+
+En mayo de 2022 la Dirección Nacional de Defensa del Consumidor, de la Secretaría de Comercio, le abrió un procedimiento a Mercado Libre y a 16 vendedores de la plataforma. En febrero y marzo había encontrado productos publicados «en cuotas sin interés» a un precio más alto que el mismo producto pagado al contado: el interés estaba, escondido en el precio. La base fue la Ley 24.240 de Defensa del Consumidor, que en su artículo 4 obliga al proveedor a informar de forma cierta, clara y detallada, y en su artículo 8 establece que lo que se dice en la publicidad se tiene por incluido en el contrato y obliga al que lo ofrece. La multa en juego llegaba a cinco millones de pesos. Es el «sin interés que tiene interés» de esta lección, con organismo, ley y fecha.
+
+### La palanca
+
+Juntá tus últimas diez publicaciones, en Instagram, en tu catálogo de WhatsApp o en Mercado Libre, y leelas como las leería un inspector. Marcá cada promesa: «sin interés», «natural», «hecho a mano», «el mejor precio», «envío en 24 horas». Para cada una, preguntate si hoy podrías probarla con un papel. La que no puedas probar, cambiala o sacala; la que sí, dejala y sumale el dato que la respalda.
+Escribí el precio en cuotas y el de contado uno al lado del otro en cada publicación.
+
+### El puente
+
+El marketing honesto de una empresa chica es la versión en miniatura de lo que [PLANEB](/planes/planeb) plantea para los servicios esenciales: la opacidad sobre cuánto cuesta proveer algo es el mecanismo de la extracción, y mostrar el costo real disciplina al resto del mercado.

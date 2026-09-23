@@ -1,0 +1,65 @@
+---
+slug: coordinacion-de-voluntarios-liderar-sin-mandar
+courseSlug: gestion-proyectos-comunitarios
+title: 'Coordinación de Voluntarios: Liderar Sin Mandar'
+summary: 'Cómo motivar, organizar y retener voluntarios en proyectos comunitarios.'
+orderIndex: 3
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/90000-94999/91604/norma.htm
+    titulo: 'Ley 25.855 — Voluntariado Social (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## El Recurso Más Valioso (y Más Frágil)
+
+Los voluntarios son el corazón de cualquier proyecto comunitario. Pero a diferencia de los empleados, **no están obligados a quedarse**. No les pagás sueldo. No podés darles órdenes. Si se aburren, se frustran o se sienten ignorados, simplemente dejan de venir. Coordinar voluntarios es un arte.
+
+### ¿Por Qué la Gente Dona Su Tiempo?
+
+- **Propósito:** Quieren sentir que hacen algo que importa.
+- **Pertenencia:** Quieren ser parte de algo más grande que ellos mismos.
+- **Aprendizaje:** Quieren adquirir habilidades y experiencias nuevas.
+- **Reconocimiento:** Quieren sentirse valorados y visibles.
+- **Diversión:** Sí, el voluntariado puede (y debe) ser disfrutable.
+
+### El Ciclo del Voluntario
+
+1. **Convocatoria:** Sé claro sobre qué necesitás. "Buscamos 5 personas que puedan dar 3 horas los sábados durante 4 meses para dar apoyo escolar a chicos de primaria." Cuanto más específico, mejor. La gente se suma a lo concreto.
+2. **Inducción:** El primer día es clave. Presentá el proyecto, el equipo, las reglas, las expectativas. Un voluntario que no entiende qué se espera se frustra rápido.
+3. **Asignación de tareas:** Cada persona tiene habilidades diferentes. Preguntá: "¿Qué sabés hacer? ¿Qué te gustaría aprender?" Asigná tareas que combinen ambas cosas.
+4. **Acompañamiento:** Chequeá regularmente. "¿Cómo te sentís? ¿Necesitás algo? ¿Tenés alguna idea?" El voluntario que se siente acompañado se queda.
+5. **Reconocimiento:** Agradecé públicamente. Un certificado, una mención en redes, un asado de cierre. El reconocimiento no cuesta dinero pero vale millones.
+6. **Feedback y cierre:** Al terminar el ciclo, hacé una evaluación conjunta. ¿Qué aprendimos? ¿Qué mejorar? ¿Quieren seguir?
+
+### Historia Real
+
+Lucía Ferreyra coordina un programa de apoyo escolar en Córdoba Capital desde 2021. El primer año arranca con 22 voluntarios universitarios entusiasmados. Para junio, le quedan 6. ¿Qué pasó? Los voluntarios llegaban los sábados y nadie les decía qué hacer. Algunos se sentaban a esperar. Otros improvisaban actividades que no conectaban con nada. No había feedback, no había agradecimiento, no había sentido de equipo. Lucía decide cambiar todo: crea una ficha de ingreso donde cada voluntario cuenta qué sabe hacer y qué quiere aprender. Arma parejas de voluntarios nuevos con experimentados. Manda un WhatsApp de agradecimiento cada lunes con una foto y un resultado concreto. Organiza un asado de cierre cada trimestre. En 2023, no solo retiene a 18 de 20 voluntarios — sino que los propios voluntarios traen nuevos. "El secreto no fue exigir más compromiso", dice Lucía. "Fue cuidar mejor a la gente que ya estaba."
+
+### Los 5 Asesinos del Voluntariado
+
+- **Desorganización:** Si el voluntario viene y no sabe qué hacer, no vuelve.
+- **Sobrecarga:** Si le pedís que haga todo, se quema. Respetá los límites que puso.
+- **Falta de impacto visible:** Si no ve resultados, pierde motivación. Mostrá avances.
+- **Conflictos no resueltos:** Tensiones entre voluntarios que nadie aborda destruyen equipos.
+- **Liderazgo autoritario:** "Acá mando yo" no funciona con voluntarios. Liderar es servir, no mandar.
+
+### Lo que dice la ley del voluntariado
+
+Desde diciembre de 2003 la Argentina tiene una Ley de Voluntariado Social, la 25.855, y convierte en obligación varias cosas que esta lección recomienda por sentido común. El voluntario tiene derecho a recibir información sobre los objetivos de la organización y capacitación para su tarea (artículo 6). El acuerdo entre las partes va por escrito y antes de empezar, con las actividades, el tiempo de dedicación comprometido, las fechas de inicio y fin y la forma de desvincularse de cada lado (artículo 8), y la organización lleva un registro escrito de altas y bajas (artículo 9). La ley alcanza a las organizaciones con forma jurídica y deja afuera la ayuda esporádica entre vecinos o amigos (artículos 2 y 3). Aun si tu grupo todavía no tiene personería, la ficha de ingreso que armó Lucía es el mejor punto de partida: sumale esos campos y el acuerdo queda hecho desde el primer sábado.
+
+### Pausa para Reflexionar
+
+Si coordinás o participás en un proyecto con voluntarios, respondé estas preguntas:
+
+- ¿Cada voluntario sabe exactamente qué se espera de él o ella al llegar?
+- ¿Cuándo fue la última vez que le agradeciste públicamente a un voluntario?
+- Si un voluntario dejara de venir, ¿sabrías por qué? ¿Le preguntarías?
+
+Si alguna respuesta es "no" o "no sé", ahí tenés tu próxima acción concreta.
+
+> "Un buen coordinador de voluntarios no es el que sabe más: es el que hace sentir a cada persona que su aporte es indispensable. Porque lo es."
+
+### El puente
+
+Liderar sin mandar tiene un fundamento más hondo que la buena educación. El ensayo [Poder](/ensayos/poder) sostiene que el poder no se posee: es una relación viva que dura mientras otros la sostienen, y un voluntario la retira el sábado que deja de venir.

@@ -1,0 +1,125 @@
+{
+  "slug": "arquitectura-organizaciones-distribuidas",
+  "title": "Arquitectura de Organizaciones Distribuidas",
+  "description": "Diseñá organizaciones que no dependan de un solo líder. Sociocracia, holacracia y modelos distribuidos adaptados a la realidad argentina, con protocolos de decisión, rotación de roles y prevención del agotamiento.",
+  "excerpt": "Diseñá organizaciones resilientes que sobrevivan a sus fundadores.",
+  "category": "community",
+  "level": "intermediate",
+  "duration": 37,
+  "orderIndex": 10,
+  "isPublished": true,
+  "isFeatured": false,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-el-problema-del-lider-insustituible",
+      "title": "El Problema del Líder Insustituible",
+      "description": "Por qué las organizaciones que dependen de una sola persona están condenadas a morir.",
+      "duration": 3,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-sociocracia-101-decisiones-por-consentimiento",
+      "title": "Sociocracia 101: Decisiones por Consentimiento",
+      "description": "Introducción al modelo sociocrático de gobernanza y toma de decisiones.",
+      "duration": 3,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-holacracia-adaptada-roles-no-personas",
+      "title": "Holacracia Adaptada: Roles, No Personas",
+      "description": "Separar los roles de las personas para crear organizaciones más flexibles.",
+      "duration": 3,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-el-circulo-como-estructura-base",
+      "title": "El Círculo como Estructura Base",
+      "description": "Implementar la estructura circular como unidad organizativa fundamental.",
+      "duration": 3,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-protocolos-de-decision-para-contexto-argentino",
+      "title": "Protocolos de Decisión para Contexto Argentino",
+      "description": "Adaptar modelos internacionales de decisión al estilo cultural argentino.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-rotacion-de-liderazgo-el-poder-como-servicio",
+      "title": "Rotación de Liderazgo: El Poder como Servicio",
+      "description": "Implementar sistemas de rotación que distribuyan el poder efectivamente.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-resolucion-de-conflictos-en-organizaciones-horizontales",
+      "title": "Resolución de Conflictos en Organizaciones Horizontales",
+      "description": "Manejar conflictos cuando no hay un jefe que decida.",
+      "duration": 4,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-prevencion-del-burnout-en-voluntarios",
+      "title": "Prevención del agotamiento en Voluntarios",
+      "description": "Estrategias para prevenir el agotamiento en activistas y voluntarios comunitarios.",
+      "duration": 3,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-estatutos-que-previenen-la-concentracion-de-poder",
+      "title": "Estatutos Que Previenen la Concentración de Poder",
+      "description": "Diseñar documentos fundacionales que distribuyan el poder desde el inicio.",
+      "duration": 3,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-finanzas-transparentes-y-rendicion-de-cuentas",
+      "title": "Finanzas Transparentes y Rendición de Cuentas",
+      "description": "Gestionar el dinero comunitario con total transparencia.",
+      "duration": 3,
+      "orderIndex": 10
+    },
+    {
+      "key": "12-comunicacion-interna-que-no-queme",
+      "title": "Comunicación Interna Que No Queme",
+      "description": "Diseñar flujos de comunicación que informen sin saturar.",
+      "duration": 3,
+      "orderIndex": 11
+    },
+    {
+      "key": "13-de-la-organizacion-al-movimiento-escalar-sin-perder-esencia",
+      "title": "De la Organización al Movimiento: Escalar Sin Perder Esencia",
+      "description": "Cómo crecer manteniendo los valores y la estructura distribuida.",
+      "duration": 3,
+      "orderIndex": 12
+    }
+  ],
+  "promesa": [
+    "Diseñar roles y dominios que no dependan de una persona insustituible.",
+    "Elegir protocolos de consentimiento, consejo o delegación según el tipo de decisión.",
+    "Instalar salvaguardas para conflictos, dinero, rotación y agotamiento."
+  ],
+  "noCubre": [
+    "No vende horizontalidad sin responsabilidades ni elimina la necesidad de autoridad contextual.",
+    "No reemplaza asesoramiento contable, laboral o societario para una organización formal."
+  ],
+  "paraQuien": "Para cooperativas, asociaciones, colectivos y equipos que crecieron más rápido que sus acuerdos internos.",
+  "productoFinal": "Una constitución mínima de equipo con círculos, roles, decisiones, rendición y protocolo de conflicto.",
+  "prerrequisitos": ["Tener un equipo real o un caso concreto sobre el cual diseñar."],
+  "coverImage": "/course-art/entrenamientos/arquitectura-organizaciones-distribuidas.webp",
+  "fuentesBase": [
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/",
+      "titulo": "Elinor Ostrom · gobernanza policéntrica más allá de mercados y Estados",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+---
+slug: trampas-mentales-financieras-del-argentino
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: Trampas Mentales Financieras del Argentino
+summary: Sesgos cognitivos específicos que afectan las decisiones financieras en Argentina.
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/salarios_02_261ECBDA5C7A.pdf
+    titulo: 'INDEC — Índice de salarios, diciembre de 2025'
+    consultada: '2026-09-22'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_266741F036E8.pdf
+    titulo: 'INDEC — Índice de precios al consumidor (IPC), diciembre de 2025'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## Tu Cerebro Te Miente Sobre la Plata
+
+Todos tenemos **sesgos cognitivos** que distorsionan nuestras decisiones financieras. En Argentina, estos sesgos están amplificados por décadas de inestabilidad.
+
+### Las 7 Trampas Mentales Más Comunes
+
+1. **Sesgo del presente:** "Mejor gastar hoy porque mañana quién sabe." Te impide ahorrar incluso cuando podrías.
+2. **Ilusión monetaria:** "Me aumentaron el 50%!" Sí, pero la inflación fue del 100%. Tu poder de compra bajó.
+3. **Anclaje al dólar:** "El dólar está a X, está caro/barato." Juzgamos el precio del dólar comparando con un momento arbitrario del pasado.
+4. **Aversión a la pérdida:** Perder $1.000 duele más que la alegría de ganar $1.000. Esto te hace mantener inversiones perdedoras demasiado tiempo.
+5. **Efecto manada:** "Todo el mundo compra dólares, yo también." Las corridas son profecías autocumplidas.
+6. **Sesgo de confirmación:** Solo leés las noticias que confirman lo que ya pensás sobre la economía.
+7. **La falacia del costo hundido:** "Ya invertí mucho en esto, no puedo abandonar." Sí podés, y a veces debés.
+
+### Por Qué Acá Pesan Más
+
+En un país con precios quietos, el número de un sueldo dice algo por sí solo. Acá no: todos los números suben siempre, y cualquier cifra nominal parece una buena noticia si no se la compara con nada. Un aumento se siente como aumento aunque llegue tarde, y el dólar se juzga contra el último precio que uno recuerda, no contra lo que uno gana. Por eso la defensa no puede depender de la fuerza de voluntad: tiene que ser un procedimiento. Cada vez que aparezca un número —sueldo, alquiler, cotización, rendimiento—, la pregunta es «comparado con qué y en qué período», y casi siempre la respuesta está en una estadística pública.
+
+### Cómo Protegerte de Tus Propios Sesgos
+
+- **Automatizá:** Ahorro automático el día de cobro. No le des a tu cerebro la oportunidad de elegir.
+- **Regla de las 48 horas:** Para compras no esenciales, esperá 48 horas. Si seguís queriéndolo, compralo.
+- **Pensá en términos reales:** Siempre ajustá por inflación. El número nominal no significa nada.
+
+Un procedimiento más, para las decisiones grandes: antes de comprar dólares, cancelar un plazo fijo o tomar un crédito, escribí en una línea por qué lo hacés y qué tendría que pasar para que estés equivocado. Releerlo un mes después es la forma más barata de descubrir qué sesgo te estaba manejando.
+
+### El caso
+
+El INDEC informó que en 2025 el índice de salarios subió 38,2%, contra una inflación de 31,5%. Leído así, los sueldos le ganaron a los precios. Pero el promedio lo empujó el sector privado no registrado, con 87,9%, un componente que el propio INDEC aclara que se mide con cinco meses de rezago. Los asalariados privados registrados tuvieron 28,7% y los del sector público, 28,9%: los dos por debajo de la inflación. Quien cobra en blanco y leyó sólo el titular pudo sentirse mejor mientras su sueldo compraba, en diciembre, alrededor de un 2% menos que un año antes. Es la ilusión monetaria con un agravante: el dato que la desarmaba estaba en el mismo informe.
+
+### La palanca
+
+Buscá tus recibos de sueldo de hoy y de hace doce meses, o tus facturas si trabajás por tu cuenta. Calculá cuánto subió tu ingreso y ponelo al lado de la inflación del mismo período. Si tu número es menor, tu aumento fue una pérdida más lenta, y eso cambia qué pedís en la próxima negociación y cuánto podés comprometer en cuotas.
+Compará tu aumento con el IPC del INDEC antes de tu próxima conversación salarial.
+
+### El puente
+
+Ver el sesgo mientras actúa, y no explicarlo después, es lo que [Conocerse sin espejo](/ensayos/conocerse-sin-espejo) distingue como observarse en lugar de analizarse.

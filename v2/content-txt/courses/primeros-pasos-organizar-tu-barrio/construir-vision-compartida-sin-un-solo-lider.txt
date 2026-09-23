@@ -1,0 +1,61 @@
+---
+slug: construir-vision-compartida-sin-un-solo-lider
+courseSlug: primeros-pasos-organizar-tu-barrio
+title: Construir Visión Compartida Sin un Solo Líder
+summary: Facilitar la creación de una visión colectiva sin depender de liderazgo único.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.rosario.gob.ar/ArchivosWeb/biblioteca_pp/pp_caso_rosario.pdf
+    titulo: 'Pablo Gorbán — El Presupuesto Participativo como instrumento para el proceso de formación de políticas públicas. El caso Rosario (Biblioteca PP, Municipalidad de Rosario)'
+    consultada: '2026-09-22'
+---
+
+## La Visión No Viene de Arriba: Se Teje Entre Todos
+
+Uno de los patrones más destructivos de la cultura argentina es la **dependencia del líder carismático**. Esperamos a que alguien nos diga qué hacer, y cuando esa persona falla (o se corrompe), el grupo se disuelve.
+
+La organización distribuida propone algo distinto: una visión que emerge de la conversación colectiva y que no depende de ninguna persona individual para sobrevivir.
+
+### La Dinámica de "Futuros Deseados"
+
+En tu segunda o tercera reunión, facilitá este ejercicio:
+
+1. **Pregunta generadora:** "Si mañana te despertaras y este barrio fuera exactamente como vos soñás, ¿qué verías de diferente?"
+2. Cada persona comparte su imagen. No se critica ni se debate: se escucha.
+3. Anotá todo en un papel grande visible para todos.
+4. Buscá los temas comunes. Van a aparecer: seguridad, limpieza, espacios verdes, actividades para jóvenes, solidaridad.
+5. Votá los 3 temas prioritarios con puntos adhesivos o marcas.
+
+### De la Visión a los Principios
+
+Una vez que tenés los temas prioritarios, necesitás traducirlos en **principios de funcionamiento**:
+
+- "Decidimos juntos" — nadie toma decisiones por el grupo sin consultar
+- "Empezamos chico" — mejor un proyecto pequeño exitoso que uno grande fracasado
+- "Rotamos roles" — nadie es imprescindible, todos aprendemos a hacer todo
+- "Celebramos los logros" — reconocer el avance mantiene la energía
+
+### La Trampa del Consenso Perfecto
+
+No busques que todos estén 100% de acuerdo en todo. Buscá **consentimiento**: "¿Alguien tiene una objeción seria a esta dirección?" Si nadie objeta fuertemente, avanzá. El consenso perfecto es el enemigo de la acción.
+
+### Cómo Se Pide el Consentimiento
+
+El consentimiento tiene un procedimiento, y conviene hacerlo explícito la primera vez. Quien propone lee la propuesta en voz alta. Después se hace una ronda y cada persona dice una de dos cosas: «puedo vivir con esto» o «tengo una objeción». Una objeción no es una preferencia: tiene que explicar qué daño concreto le haría la propuesta al grupo o a alguien del barrio. Si aparece una, no se vota encima de ella: se ajusta la propuesta para resolverla y se vuelve a hacer la ronda. Si en la segunda vuelta nadie objeta, está decidido, y se anota en el cuaderno del grupo con la fecha. Así las decisiones no dependen de quién habla más fuerte ni de quién se quedó hasta el final.
+
+> "El Hombre Gris no es un líder que guía al rebaño. Es la fibra invisible que conecta a individuos libres en un tejido más fuerte que cualquier caudillo."
+
+### El caso
+
+Rosario convirtió esta dinámica en política pública en 2002, en plena crisis, con el Presupuesto Participativo, regulado por la Ordenanza 7.326/02. El ciclo arranca con asambleas barriales donde los vecinos hacen un primer diagnóstico de su barrio y eligen consejeros; los consejeros trabajan durante meses en los Consejos Participativos de cada uno de los seis distritos, convirtiendo esos problemas en proyectos con costo calculado; en una segunda ronda se decide qué proyectos entran al presupuesto del año siguiente, sabiendo cuánta plata hay. En el ejercicio 2005 se repartieron 25 millones de pesos en partes iguales entre los distritos y se ejecutaron 171 proyectos. La visión no la dicta un intendente iluminado ni el vecino que más habla: sale de un procedimiento con etapas fijas que cualquier vecino puede recorrer.
+
+### La palanca
+
+En la próxima reunión, antes de votar prioridades, hacé lo que hace Rosario entre la primera y la segunda ronda: poné el costo arriba de la mesa. Para cada uno de los tres temas elegidos, alguien del grupo averigua qué haría falta —plata, permisos, horas de trabajo— y lo trae escrito al encuentro siguiente. Recién ahí se prioriza. Una visión que no conoce su propio costo termina siendo la del que tiene más tiempo libre para empujarla.
+Definí hoy quién averigua cada tema y para qué fecha.
+
+### El puente
+
+Cambiar al salvador por un procedimiento es la salida que plantea [El caudillo y el camino sin camino](/ensayos/caudillo-camino-sin-camino): la trampa no es elegir mal al líder, es seguir preguntando quién nos va a salvar.

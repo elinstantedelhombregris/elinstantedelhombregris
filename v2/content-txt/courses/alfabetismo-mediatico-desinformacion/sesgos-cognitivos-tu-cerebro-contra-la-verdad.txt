@@ -1,0 +1,62 @@
+---
+slug: sesgos-cognitivos-tu-cerebro-contra-la-verdad
+courseSlug: alfabetismo-mediatico-desinformacion
+title: 'Sesgos Cognitivos: Tu Cerebro Contra la Verdad'
+summary: Los atajos mentales que te hacen vulnerable a la desinformación.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://defensadelpublico.gob.ar/wp-content/uploads/2024/07/defe-informe-genero-2023.pdf
+    titulo: 'Monitoreo de noticieros televisivos de canales de aire de la Ciudad Autónoma de Buenos Aires, 2023 (Defensoría del Público)'
+    consultada: '2026-09-22'
+  - url: https://cloud-snic.minseg.gob.ar/Informes/SAT/SAT_HD/Informe_Homicidios-Dolosos_2024.pdf
+    titulo: 'Sistema Nacional de Información Criminal — Homicidios dolosos, años 2017-2024 (Ministerio de Seguridad Nacional)'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-06-30'
+---
+
+## Tu Peor Enemigo No Es el Troll: Es Tu Propio Cerebro
+
+Los sesgos cognitivos son **atajos mentales** que nuestro cerebro usa para procesar información rápidamente. En la mayoría de las situaciones son útiles. Pero en el ecosistema mediático actual, son **vulnerabilidades** que la desinformación explota.
+
+### Los Sesgos Que Más Te Afectan
+
+- **Sesgo de confirmación:** Tendés a creer información que confirma lo que ya pensás y a descartar la que lo contradice. Si creés que el gobierno es corrupto, cualquier noticia de corrupción te parece obvia y cualquier defensa te parece mentira.
+- **Efecto de anclaje:** La primera información que recibís sobre un tema "ancla" tu percepción. Si la primera versión de una noticia es falsa, corregirla después es muy difícil porque ya formaste una opinión.
+- **Sesgo de disponibilidad:** Creés que lo que más ves es lo más frecuente. Si los medios cubren violencia todo el día, pensás que la violencia es mayor de lo que realmente es.
+- **Efecto manada:** Si mucha gente cree algo, tendés a creerlo también. Las redes sociales amplifican este efecto porque ves a cientos de personas compartiendo la misma opinión.
+- **Sesgo de autoridad:** Tendés a creer a figuras de autoridad sin verificar. "Lo dijo un doctor/periodista/profesor" se convierte en prueba suficiente.
+- **Efecto Dunning-Kruger:** Cuanto menos sabés de un tema, más seguro estás de tu opinión. Los expertos reales expresan dudas; los opinólogos expresan certezas.
+
+### Cómo la Desinformación Explota Tus Sesgos
+
+La desinformación no necesita convencerte de algo nuevo. Solo necesita **activar tus sesgos**:
+
+1. Apunta a tus creencias existentes (sesgo de confirmación).
+2. Te da la "primicia" para que ancles en su versión.
+3. Te muestra que "todos" piensan así (efecto manada).
+4. Cita a una "autoridad" (sesgo de autoridad).
+5. Te hace sentir experto (Dunning-Kruger).
+
+### Defensas Anti-Sesgo
+
+- **Buscá activamente la contra-evidencia:** Antes de compartir algo, buscá si hay fuentes que digan lo contrario.
+- **Preguntate: "¿Creo esto porque es verdad o porque quiero que sea verdad?"**
+- **Desconfiá de la certeza absoluta:** La realidad es compleja. Si algo parece simple y definitivo, probablemente está simplificado.
+- **Esperá antes de reaccionar:** El sesgo se activa en los primeros segundos. Dale tiempo a tu cerebro racional.
+
+> "No sos vulnerable a la desinformación porque seas tonto. Sos vulnerable porque sos humano. Conocer tus sesgos no los elimina, pero te da una chance de neutralizarlos."
+
+### El caso
+
+En 2023, la Defensoría del Público monitoreó los noticieros de los cinco canales de aire porteños —América, El Nueve, El Trece, Telefe y la TV Pública— durante la primera semana de cada mes par: 15.870 noticias. El tema que más se repitió fue Policiales e «inseguridad», con 4.402, más de una de cada cuatro. Al año siguiente, el Sistema Nacional de Información Criminal registró 1.802 homicidios dolosos en todo el país, una tasa de 3,8 cada 100.000 habitantes: la más baja de la serie que arranca en 2001. Las dos cifras no se contradicen, y ahí está el sesgo de disponibilidad funcionando: la cantidad de veces que un hecho aparece en pantalla no mide cuántas veces pasa. El que mira el noticiero todas las noches tiene a mano cien ejemplos y ninguna tasa.
+
+### La palanca
+
+Elegí el delito que más te preocupa y buscá su número. El Ministerio de Seguridad Nacional publica los informes del Sistema Nacional de Información Criminal, con tasas por año y por provincia. Antes de abrir el informe, escribí en un papel cuántos homicidios creés que hubo el año pasado en tu provincia; después compará. No se trata de decir que no hay problema —3,8 no es cero—, sino de medir la distancia entre lo que ves y lo que pasa. Esa distancia es el tamaño de tu sesgo.
+Anotá tu estimación antes de abrir el informe, así no te hacés trampa.
+
+### El puente
+
+Lo que uno cree antes de mirar casi nunca lo eligió: [Libertad de lo conocido](/ensayos/libertad-de-lo-conocido) pregunta cuánto de lo que pensás sobre la Argentina lo pensaste vos y cuánto te lo pensaron antes.

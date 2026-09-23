@@ -1,0 +1,64 @@
+---
+slug: fact-checking-herramientas-para-verificar-informacion
+courseSlug: alfabetismo-mediatico-desinformacion
+title: 'Fact-Checking: Herramientas para Verificar Información'
+summary: Técnicas y herramientas prácticas para verificar noticias y contenido.
+orderIndex: 5
+draft: false
+cierre: puente
+fuentes:
+  - url: https://chequeado.com/nace-reverso-informacion-contra-la-desinformacion/
+    titulo: 'Nace Reverso: información contra la desinformación (Chequeado)'
+    consultada: '2026-09-22'
+  - url: https://www.infobae.com/america/agencias/2024/08/16/meta-asegura-que-su-biblioteca-de-contenido-cumple-los-requisitos-de-transparencia-ante-el-cierre-de-crowdtangle/
+    titulo: 'Meta asegura que su Biblioteca de contenido cumple los requisitos de transparencia, ante el cierre de CrowdTangle (Infobae)'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-09-22'
+---
+
+## El Kit del Verificador Ciudadano
+
+No necesitás ser periodista para verificar información. Con herramientas simples y un método básico, podés chequear la mayoría del contenido que te llega. El método se llama **SIFT** (por sus siglas en inglés).
+
+### El Método SIFT
+
+1. **S — Stop (Pará):** Antes de compartir o reaccionar, pará. No hagas nada por 30 segundos.
+2. **I — Investigate the source (Investigá la fuente):** ¿Quién publicó esto? ¿Es un medio reconocido? ¿Es una cuenta real o falsa?
+3. **F — Find better coverage (Buscá mejor cobertura):** Buscá el mismo tema en otros medios. ¿Dicen lo mismo? ¿Lo cubre algún medio serio?
+4. **T — Trace claims (Rastreá las afirmaciones):** ¿De dónde sale el dato original? ¿Hay un estudio, un documento, una declaración verificable?
+
+### Herramientas Gratuitas
+
+- **Chequeado.com:** El principal medio de fact-checking de Argentina. Verifica declaraciones de políticos, noticias virales y datos públicos.
+- **Google Reverse Image Search:** Subí una imagen y Google te dice dónde apareció antes. Perfecto para detectar fotos viejas usadas como si fueran nuevas.
+- **TinEye:** Similar a Google pero especializado en búsqueda inversa de imágenes.
+- **Wayback Machine (archive.org):** Permite ver versiones anteriores de sitios web. Útil si alguien borró una nota o cambió un artículo.
+- **InVID/WeVerify:** Plugin de navegador para verificar videos. Detecta manipulaciones y te da el contexto original.
+- **CrowdTangle/Social Searcher:** Para rastrear cómo se difundió un contenido en redes sociales.
+
+### Casos Prácticos Argentinos
+
+Ejemplos reales de desinformación verificada en Argentina:
+
+- Cadenas de WhatsApp sobre cambios legales que no existen.
+- Fotos de manifestaciones de otro país presentadas como argentinas.
+- Estadísticas sacadas de contexto para apoyar una narrativa política.
+- Capturas de pantalla de tweets fabricados atribuidos a figuras públicas.
+
+### Verificar entre muchos: Reverso
+
+Hay desinformación que ningún verificador alcanza a chequear solo, porque circula por más canales de los que un medio puede cubrir. En la campaña presidencial de 2019 la Argentina probó otra escala. El 16 de mayo de ese año nació Reverso, una alianza coordinada por Chequeado, AFP Factual, First Draft y Pop-Up Newsroom, a la que se sumaron en el lanzamiento más de 80 medios y empresas de tecnología. Funcionaba como una redacción descentralizada con una mesa central en Chequeado: la mesa rastreaba lo que se viralizaba, lo verificaba, y los aliados publicaban la verificación al mismo tiempo. Las publicaciones corrieron del 11 de junio al 11 de diciembre de 2019.
+
+La lógica es la del paso F del método llevada a escala. Si un contenido falso circula por cien canales, la corrección tiene que circular por cien canales también: una desmentida que publica un solo medio le llega a su audiencia y a nadie más. Por eso, cuando verificás algo, el trabajo no termina en saber; termina en devolverlo al mismo grupo por donde te llegó.
+
+### Una herramienta que ya no está
+
+La lista de arriba nombra a CrowdTangle. Meta la cerró el 14 de agosto de 2024 y puso en su lugar la Biblioteca de contenido de Meta, a la que se accede con una solicitud que se revisa caso por caso. Para rastrear cómo se difundió algo en Facebook o Instagram, un ciudadano sin credencial de investigador tiene hoy menos herramientas abiertas que antes. Las herramientas cambian con las decisiones de las empresas que las controlan; el método de las cuatro letras no depende de nadie.
+
+### La Regla de Oro
+
+> "Si algo te genera una emoción intensa y tenés ganas de compartirlo inmediatamente, esa es exactamente la señal de que necesitás verificarlo antes. La desinformación apunta al corazón, no al cerebro."
+
+### El puente
+
+El paso T del método es la quinta pregunta del Desmontaje que [PLANEDU](/planes/planedu) lleva al aula: no «¿es cierto?», sino qué dato habría que ir a buscar y en qué lugar concreto está.

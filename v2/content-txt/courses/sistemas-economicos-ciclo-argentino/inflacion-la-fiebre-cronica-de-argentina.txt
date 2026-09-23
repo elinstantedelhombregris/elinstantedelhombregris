@@ -1,0 +1,51 @@
+---
+slug: inflacion-la-fiebre-cronica-de-argentina
+courseSlug: sistemas-economicos-ciclo-argentino
+title: 'Inflación: La Fiebre Crónica de Argentina'
+summary: Entender la inflación como fenómeno sistémico multicausal.
+orderIndex: 2
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/328/texact.htm
+    titulo: 'Ley 23.928 — Convertibilidad del Austral, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## No Es Solo "Imprimir Billetes"
+
+Argentina ha convivido con inflación alta durante la mayor parte de su historia moderna. Tuvimos hiperinflación en 1989-90 (5.000% anual), deflación durante la convertibilidad, y vuelta a inflación de tres dígitos en años recientes. Para entenderla, hay que ir más allá de la explicación simplista.
+
+### Las Múltiples Causas de la Inflación Argentina
+
+1. **Monetaria (emisión):** Cuando el Estado gasta más de lo que recauda y financia la diferencia imprimiendo pesos, hay más pesos persiguiendo los mismos bienes. Los precios suben. Es real y medible.
+2. **De costos (push):** Si sube el dólar, suben los insumos importados, suben los costos de producción, suben los precios. Si suben los salarios más rápido que la productividad, las empresas trasladan el costo al precio.
+3. **Inercial (expectativas):** La más difícil de romper. Si todos ESPERAN 5% mensual de inflación, remarcan 5%, piden paritarias del 5%, y la inflación es 5%. Se auto-cumple.
+4. **Estructural (oligopolios):** Mercados concentrados donde pocas empresas pueden subir precios sin perder clientes (alimentos, combustibles, telecomunicaciones).
+5. **Cambiaria:** Cuando el peso se devalúa, todo lo importado (y todo lo que compite con importaciones) sube de precio. En Argentina, una devaluación se traslada rápidamente a precios.
+
+### El Bucle Infernal
+
+Lo que hace a la inflación argentina tan persistente es que estas causas se **retroalimentan**:
+
+Emisión → inflación → expectativas de más inflación → fuga al dólar → suba del dólar → más inflación → el Estado recauda menos en términos reales → más déficit → más emisión.
+
+### ¿Quién Gana y Quién Pierde?
+
+- **Pierden:** Los que cobran un sueldo fijo (asalariados, jubilados). Los que ahorran en pesos. Los que no pueden ajustar sus precios rápido (almaceneros vs. supermercados).
+- **Ganan:** Los que tienen activos en dólares o bienes reales. Los que pueden remarcar rápido. Los deudores en pesos (la inflación licúa la deuda). El propio Estado (cobra impuestos sobre precios inflados).
+
+> "La inflación es un impuesto invisible que no vota nadie, que pagan más los que menos tienen, y que beneficia a los que más saben protegerse. Entender este mecanismo es el primer paso para exigir que se detenga."
+
+### El caso
+
+El 27 de marzo de 1991 el Congreso sancionó la Ley 23.928 de Convertibilidad. Además de fijar la paridad con el dólar, la ley fue directo contra la inflación inercial: su artículo 10 derogó, desde el 1 de abril de 1991, todas las normas que autorizaban indexar precios, actualizar montos o repotenciar deudas, y aclaró que ninguna cláusula de un contrato, ni siquiera de un convenio colectivo de trabajo, podía invocarse para ajustar lo que se debía en pesos. El artículo 7 prohibió la actualización monetaria de las deudas de dinero. En 2002 la Ley 25.561 derogó el artículo 1, el de la paridad. Los artículos 7 y 10 siguen vigentes: la convertibilidad se cayó y la prohibición de indexar quedó en pie. Cortar la inercia por ley fue posible; sostener lo demás, no.
+
+### La palanca
+
+Armá esta semana tu propia canasta: diez productos que comprás siempre, con precio, fecha y comercio. Dentro de un mes volvé a relevarlos y compará tu variación con la del informe del Índice de Precios al Consumidor del INDEC, que abre el número por región y por división, como «Alimentos y bebidas no alcohólicas». Si tu cifra y la oficial se separan, no concluyas enseguida que alguien miente: fijate primero qué pesa en tu canasta que no pesa en la del índice.
+Anotá los diez precios hoy, antes de la próxima remarcación.
+
+### El puente
+
+[La silla vacía](/ensayos/la-silla-vacia) le cobra a la inflación una factura que esta lección no llega a cobrar: correr atrás de un precio que se mueve se paga en horas, y las horas salen de la mesa familiar.

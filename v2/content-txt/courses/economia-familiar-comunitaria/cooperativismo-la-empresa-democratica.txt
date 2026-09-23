@@ -1,0 +1,61 @@
+---
+slug: cooperativismo-la-empresa-democratica
+courseSlug: economia-familiar-comunitaria
+title: 'Cooperativismo: La Empresa Democrática'
+summary: El modelo cooperativo como alternativa económica real en Argentina.
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/18462/texact.htm
+    titulo: 'Ley 20.337 — Cooperativas, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.boletinoficial.gob.ar/detalleAviso/primera/319553/20250114
+    titulo: 'INAES — Resolución 3208/2024 (Boletín Oficial, 14/1/2025)'
+    consultada: '2026-09-22'
+---
+
+## ¿Y Si la Empresa Fuera de Todos?
+
+Argentina tiene más de **25.000 cooperativas** que emplean a más de 1 millón de personas. Generan el 10% del PBI. Sin embargo, para la mayoría, las cooperativas son invisibles o están asociadas solo a la provisión de servicios públicos (electricidad, agua, teléfono en pueblos del interior).
+
+El cooperativismo es mucho más que eso: es un **modelo empresarial alternativo** donde los trabajadores son los dueños, las decisiones se toman democráticamente, y las ganancias se distribuyen equitativamente.
+
+### Los 7 Principios Cooperativos
+
+1. **Membresía abierta y voluntaria:** Cualquiera puede entrar (y salir) sin discriminación.
+2. **Control democrático:** Un socio = un voto. No importa cuánto capital tengas.
+3. **Participación económica:** Los socios contribuyen equitativamente al capital y comparten los excedentes.
+4. **Autonomía e independencia:** Las cooperativas son organizaciones autónomas controladas por sus miembros.
+5. **Educación y formación:** Se comprometen a educar a sus miembros, directivos y comunidad.
+6. **Cooperación entre cooperativas:** Trabajan juntas en redes locales, nacionales e internacionales.
+7. **Compromiso con la comunidad:** Trabajan por el desarrollo sostenible de sus comunidades.
+
+### Tipos de Cooperativas en Argentina
+
+- **De trabajo:** Los socios son los trabajadores. Ejemplo: una cooperativa de programadores, albañiles o diseñadores que comparten proyectos y ganancias.
+- **De consumo:** Los socios son los compradores. Ejemplo: supermercados cooperativos donde los clientes son dueños y compran a precio de costo.
+- **De servicios públicos:** Proveen electricidad, agua, gas, internet en pueblos y ciudades donde las empresas privadas no llegan.
+- **Agropecuarias:** Productores rurales que se juntan para comercializar, comprar insumos y acceder a tecnología.
+- **De crédito:** Cajas de crédito cooperativas que dan préstamos a tasas más bajas que los bancos comerciales.
+
+### Casos Inspiradores
+
+- **Mondragon (País Vasco):** La cooperativa más grande del mundo. 80.000 trabajadores-socios, facturación de 12 mil millones de euros. Prueba de que el modelo escala.
+- **Cooperativas de servicios del interior argentino:** Pueblos donde la cooperativa provee electricidad, internet, TV, agua y hasta créditos. Son el Estado de bienestar donde el Estado no llega.
+- **Empresas recuperadas:** Fábricas cerradas por sus dueños que fueron tomadas y gestionadas exitosamente por sus trabajadores.
+
+> "La cooperativa es la demostración de que la democracia no es solo para votar presidentes cada 4 años. Es para decidir colectivamente cómo trabajamos, cómo producimos y cómo distribuimos la riqueza que creamos."
+
+### El caso
+
+La Ley 20.337 de Cooperativas, de 1973, escribe el principio de esta lección con todas las letras: cada asociado tiene un solo voto, cualquiera sea el número de sus cuotas sociales, y hacen falta al menos diez asociados para fundar una. También fija cuándo se ejerce ese voto: la asamblea ordinaria va dentro de los cuatro meses del cierre del ejercicio, con la memoria y el balance a disposición de los socios. En diciembre de 2024, la Resolución 3208/2024 del INAES suspendió la autorización para funcionar de «un importante número» de cooperativas y mutuales que no habían presentado estados contables ni actas de asamblea entre febrero de 2017 y septiembre de 2024. Un voto por cabeza no vale nada si la asamblea no se hace.
+
+### La palanca
+
+Si sos asociado de una cooperativa, sea la eléctrica o la de agua del pueblo, una caja de crédito o la de vivienda, pedí en la sede la memoria y el balance del último ejercicio: la ley dice que tienen que estar a disposición de los asociados antes de la asamblea. Fijate en qué mes cierra el ejercicio y sumale cuatro: ésa es la fecha límite de la asamblea ordinaria. Si pasa y nadie convoca, preguntá por qué en la administración.
+Andá a la próxima asamblea con el balance leído.
+
+### El puente
+
+[PLANEB](/planes/planeb) toma en serio la falla que muestra el caso, asambleas con baja participación y dirigentes que se perpetúan, y por eso propone otra forma: paneles por sorteo y rotación obligatoria en empresas que no tienen dueño.

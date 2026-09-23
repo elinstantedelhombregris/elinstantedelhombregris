@@ -1,0 +1,55 @@
+---
+slug: impuestos-quien-paga-y-quien-no
+courseSlug: sistemas-economicos-ciclo-argentino
+title: 'Impuestos: Quién Paga y Quién No'
+summary: El sistema impositivo argentino y sus distorsiones sistémicas.
+orderIndex: 8
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicioscf.afip.gob.ar/publico/sitio/contenido/novedad/ver.aspx?id=4709
+    titulo: 'ARCA — Transparencia fiscal al consumidor: todas las facturas deben detallar el IVA'
+    consultada: '2026-09-22'
+  - url: https://www.lanacion.com.ar/economia/desde-hoy-los-tickets-deben-mostrar-los-impuestos-que-se-cobran-a-los-consumidores-nid01012025/
+    titulo: 'La Nación — Desde hoy, los tickets deben mostrar los impuestos que se cobran a los consumidores'
+    consultada: '2026-09-22'
+---
+
+## Un Sistema Diseñado para la Injusticia
+
+El sistema impositivo argentino es uno de los más distorsionados del mundo. Tiene más de 160 impuestos entre nación, provincias y municipios. Es complejo, injusto y desincentiva la producción. Y aun así, **no recauda lo suficiente** para cubrir el gasto público.
+
+### Los Impuestos que Pagás (y No Sabés)
+
+- **IVA (21%):** En cada compra. El impuesto más recaudador y el más regresivo: el pobre y el rico pagan lo mismo por un litro de leche.
+- **Ganancias:** Impuesto a los ingresos. En teoría progresivo (quien más gana, más paga). En la práctica, recae desproporcionadamente sobre asalariados porque los ricos tienen más formas de eludir.
+- **Ingresos Brutos (provincial):** Impuesto en cascada que se acumula en cada etapa de producción. Se traslada al precio final. Es como pagar IVA sobre IVA.
+- **Impuesto al cheque:** Cada movimiento bancario tiene un impuesto. Desincentiva el uso del sistema financiero formal.
+- **Retenciones:** Impuesto a las exportaciones agrícolas. Captura parte de la renta del campo para el Estado.
+- **Tasas municipales:** ABL, alumbrado, barrido, limpieza, contribución por mejoras, etc.
+
+### Lo Que Está Roto
+
+1. **Regresividad:** Los impuestos al consumo (IVA, Ingresos Brutos) representan más del 50% de la recaudación. Estos impuestos golpean más a los que menos tienen.
+2. **Evasión masiva:** Se estima que la economía informal es del 35-40%. Eso significa que un tercio de la economía no paga impuestos. Los que pagan, subsidian a los que no.
+3. **Complejidad:** Cumplir con las obligaciones fiscales requiere un contador. Para una PyME, los costos administrativos de cumplir son enormes.
+4. **Superposición:** Nación, provincia y municipio cobran impuestos similares sobre la misma base. Triple imposición.
+
+### ¿Cómo Debería Ser?
+
+Un sistema impositivo bien diseñado debería ser: **simple** (pocos impuestos, fáciles de cumplir), **progresivo** (quien más tiene, más paga), **eficiente** (no distorsiona las decisiones económicas), y **transparente** (sabés a dónde va tu plata).
+
+> "El sistema impositivo argentino castiga al que produce, al que cumple y al que más necesita. Reformarlo no es un tema técnico: es un tema de justicia. Y la justicia fiscal es la base de cualquier contrato social funcional."
+
+### El caso
+
+Desde el 1 de enero de 2025 para las grandes empresas, y desde el 1 de abril de 2025 para el resto de los comercios, el ticket tiene que mostrar, bajo el título «Régimen de Transparencia Fiscal al Consumidor (Ley 27.743)», el IVA contenido en el precio y, en otra línea, los otros impuestos nacionales indirectos. En el ejemplo que publicó La Nación el día que arrancó el régimen, una compra de $3.000 llevaba $520,66 de IVA y $150 de otros impuestos nacionales: alrededor del 22% del precio. Pero la obligación alcanza sólo a los impuestos nacionales. A las provincias y a la Ciudad se las invitó a hacer lo mismo con Ingresos Brutos y las tasas locales, que son justamente los impuestos en cascada que esta lección señala.
+
+### La palanca
+
+Guardá los tickets de tus compras de esta semana. En cada uno buscá la línea del IVA contenido y la de otros impuestos nacionales indirectos, sumalas y dividí por el total: ésa es la parte del precio que el ticket te deja ver. Lo que no aparece —Ingresos Brutos, tasas municipales— también lo pagaste. Después preguntá en la agencia de recaudación de tu provincia si ya muestra su parte en los comprobantes.
+Hacé la cuenta con el ticket del supermercado y anotá el porcentaje.
+
+### El puente
+
+[PLANPACTO](/planes/planpacto) propone el Recibo del Estado: que cada persona vea doce meses de su propio aporte discriminado por nivel de gobierno, con el IVA, la retención bancaria y la tasa municipal a la vista. El ticket de esta lección es su primer renglón.

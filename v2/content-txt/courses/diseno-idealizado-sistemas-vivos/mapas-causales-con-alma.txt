@@ -1,0 +1,116 @@
+---
+slug: mapas-causales-con-alma
+courseSlug: diseno-idealizado-sistemas-vivos
+title: Mapas Causales con Alma
+summary: Aprendé a leer patrones profundos que explican eventos aparentemente aislados. Descubrí cómo crear mapas causales que revelan la estructura oculta de los sistemas.
+orderIndex: 5
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/140000-144999/140098/norma.htm
+    titulo: 'Ley 26.363 — Tránsito y Seguridad Vial, creación de la Agencia Nacional de Seguridad Vial (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Ver Más Allá de los Eventos
+
+¿Por qué los problemas parecen surgir de la nada? ¿Por qué las soluciones simples no funcionan? La respuesta está en que estamos viendo eventos aislados, no patrones sistémicos. Los mapas causales revelan la estructura oculta que conecta todo. Cuando los creás, ves el sistema completo.
+
+## Del Evento Aislado al Patrón Sistémico
+
+**Los eventos son síntomas, no causas.** Un mapa causal revela las conexiones profundas entre causas y efectos. Te permite ver la estructura oculta del sistema.
+
+### Niveles de Análisis
+
+Hay tres niveles para entender sistemas:
+
+### Nivel 1: Eventos
+
+**Qué ves:** Problemas aislados, síntomas
+
+Ejemplo: "El equipo no cumple plazos"
+
+Limitación: Solo ves síntomas, no causas
+
+### Nivel 2: Patrones
+
+**Qué ves:** Tendencias, ciclos, patrones que se repiten
+
+Ejemplo: "El equipo siempre retrasa proyectos complejos"
+
+Mejora: Ves patrones, pero no estructura
+
+### Nivel 3: Estructura
+
+**Qué ves:** Causas raíz, conexiones, estructura sistémica
+
+Ejemplo: "Falta de claridad en objetivos → Confusión → Retrasos → Presión → Más confusión"
+
+Poder: Ves la estructura completa, podés intervenir efectivamente
+
+### Cómo Construir Mapas Causales
+
+Pasos para crear un mapa causal:
+
+**Proceso paso a paso:**
+
+1. **Identificá el problema central:** ¿Qué querés entender?
+2. **Listá factores relacionados:** ¿Qué influye en el problema?
+3. **Conectá causas y efectos:** ¿Cómo se relacionan?
+4. **Buscá bucles:** ¿Hay ciclos de retroalimentación?
+5. **Identificá palancas:** ¿Dónde podés intervenir para máximo impacto?
+
+### El Poder del Mapa
+
+Un mapa causal bien hecho revela dónde intervenir. Te muestra que el problema "A" no se soluciona atacando "A", sino interviniendo en "B" o "C" que son causas más profundas. Este es el poder del pensamiento sistémico: ver conexiones invisibles.
+
+### Identificación de Causas Raíz
+
+Técnicas para encontrar causas profundas:
+
+### ¿Por qué? (x5)
+
+Preguntá "¿por qué?" cinco veces para llegar a la causa raíz.
+
+### Buscá Bucles
+
+Los bucles revelan causas que se refuerzan mutuamente.
+
+### Identificá Palancas
+
+Las causas que influyen en muchas otras son palancas estratégicas.
+
+### Mapas como Herramientas de Diseño
+
+Los mapas causales no solo explican, también diseñan:
+
+### Usando Mapas para Diseñar
+
+- **Mapeá el sistema actual:** Entendé cómo funciona ahora
+- **Diseñá el sistema ideal:** Imaginá cómo funcionaría perfectamente
+- **Identificá la brecha:** ¿Qué cambia entre actual e ideal?
+- **Encontrá palancas:** ¿Dónde intervenir para cerrar la brecha?
+
+### Caso argentino: de contar choques a mirar la estructura
+
+Un choque en la ruta es un evento: sale en el noticiero, se lamenta y se olvida hasta el próximo. La Ley 26.363, sancionada el 9 de abril de 2008, está escrita en otro nivel. Crea la Agencia Nacional de Seguridad Vial con una misión formulada como tasa y no como episodio: la reducción de la tasa de siniestralidad en el territorio nacional (artículo 1). Y entre sus funciones (artículo 4) le asigna piezas que sólo tienen sentido dentro de un mapa causal: una licencia de conducir nacional, un sistema de puntos aplicable a esa licencia, el Registro Nacional de Antecedentes de Tránsito y un Observatorio Permanente en Seguridad Vial.
+
+Cada pieza apunta a una conexión, no a un choque. El registro junta en una sola base la historia de quien maneja. El sistema de puntos convierte esa historia en una consecuencia para la persona. El observatorio mira patrones en vez de casos sueltos. Es la operación de esta lección aplicada a un problema del país: el evento no se resuelve atacando el evento, sino la estructura que lo vuelve probable. Si querés medir si una política ve estructura, fijate si su meta está escrita como tasa o como titular.
+
+### Ejercicio: Construir tu Mapa Causal
+
+**Creá un mapa causal de un problema que quieras resolver:**
+
+1. Identificá el problema central
+2. Listá factores relacionados (causas y efectos)
+3. Conectá las relaciones (dibujá flechas)
+4. Buscá bucles de retroalimentación
+5. Identificá causas raíz y palancas estratégicas
+6. Diseñá cómo sería el mapa del sistema ideal
+
+### ¿Entendiste?
+
+Los mapas causales revelan la estructura oculta de los sistemas. Te permiten ver más allá de eventos aislados hacia patrones y estructuras profundas. Un mapa bien hecho muestra dónde intervenir para máximo impacto. Los mapas son herramientas esenciales para el diseño idealizado.
+
+### El puente
+
+[PLANMON](/planes/planmon) hace esta misma operación con la inflación: en vez de quedarse en el evento —los precios suben—, describe cinco componentes que se retroalimentan y sostiene que tratarlos por separado no funciona.

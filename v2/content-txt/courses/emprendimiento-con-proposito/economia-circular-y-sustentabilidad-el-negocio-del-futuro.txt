@@ -1,0 +1,61 @@
+---
+slug: economia-circular-y-sustentabilidad-el-negocio-del-futuro
+courseSlug: emprendimiento-con-proposito
+title: 'Economía Circular y Sustentabilidad: El Negocio del Futuro'
+summary: 'Integrar la sustentabilidad como ventaja competitiva, no como costo.'
+orderIndex: 8
+draft: false
+cierre: completo
+fuentes:
+  - url: https://boletinoficial.buenosaires.gob.ar/normativaba/norma/81508
+    titulo: 'Ley 1.854 de la Ciudad de Buenos Aires — Gestión Integral de Residuos Sólidos Urbanos (Boletín Oficial CABA)'
+    consultada: '2026-09-22'
+  - url: https://e-legis-ar.msal.gov.ar/htdocs/legisalud/migration/pdf/31230.pdf
+    titulo: 'Ley 5.966 de la Ciudad de Buenos Aires — Basura Cero, modificación de la Ley 1.854'
+    consultada: '2026-09-22'
+  - url: https://www.greenpeace.org/argentina/participa/involucrate/con-incineracion-no-hay-basura-cero/ley-de-basura-cero-mas-de-14-anos-de-metas-incumplidas/
+    titulo: 'Greenpeace Argentina — Ley de Basura Cero: más de 14 años de metas incumplidas'
+    consultada: '2026-09-22'
+---
+
+## Ganar Plata Mientras Cuidás el Planeta
+
+La sustentabilidad no es un lujo de países ricos. En Argentina, donde los recursos son escasos y cada peso cuenta, la **economía circular** no es idealismo: es la estrategia de negocios más inteligente que existe.
+
+### ¿Qué Es la Economía Circular?
+
+La economía lineal funciona así: extraer → producir → usar → tirar. La circular funciona así: cada "residuo" es el **insumo** de otro proceso. Nada se pierde.
+
+### Casos Argentinos Reales
+
+- **Cervecerías artesanales:** El grano usado (bagazo) se dona a granjas como alimento animal. La granja produce leche. La leche hace queso. El queso se vende en la cervecería. Ciclo cerrado.
+- **Cooperativas de reciclado:** Los cartoneros fueron los pioneros de la economía circular en Argentina. Hoy cooperativas como El Álamo transforman residuos en productos de diseño.
+- **Ropa de segunda mano:** Apps como Reusá y Vigga generan un mercado de moda circular que crece 40% anual.
+- **Construcción sustentable:** Ecoladrillos hechos con botellas PET, casas con pallets reciclados, aislamiento con papel de diario triturado.
+- **Agricultura regenerativa:** Productores que restauran el suelo en vez de agotarlo, generando más productividad a largo plazo con menos insumos.
+
+### Cómo Integrar Circularidad a Tu Emprendimiento
+
+1. **Auditoría de residuos:** ¿Qué tirás? Cada cosa que tirás es dinero que perdés. Hacé una lista de todos tus "desechos" y pensá quién podría usarlos.
+2. **Diseño para la durabilidad:** Un producto que dura más se puede cobrar más. Y genera clientes fieles que saben que lo que comprás les va a durar.
+3. **Sistemas de devolución:** "Traé el envase y te doy un descuento." Reducís costos de empaque y generás visitas recurrentes.
+4. **Compartir recursos:** ¿Necesitás una herramienta 2 horas por semana? Compartila con otros emprendedores en vez de comprar una cada uno.
+
+### El Sello B: Certificar Tu Propósito
+
+Las Empresas B son una nueva categoría de empresas que buscan ser "las mejores PARA el mundo" y no solo "las mejores DEL mundo". Argentina tiene más de 200 empresas B certificadas. La certificación te abre puertas comerciales, atrae talento comprometido y te conecta con una red de emprendedores con valores compartidos.
+
+> "La economía circular no es una moda ecologista: es la lógica del que no tiene recursos para desperdiciar. Argentina es el lugar perfecto para innovar en esto, porque llevamos décadas practicando el arte de hacer mucho con poco."
+
+### El caso
+
+En noviembre de 2005 la Legislatura porteña sancionó la Ley 1.854, de Basura Cero: la Ciudad debía reducir lo que enterraba en los rellenos del CEAMSE un 30% para 2010, un 50% para 2012 y un 75% para 2017, contra los niveles de 2004. En 2017, según Greenpeace, la reducción era del 26%. En mayo de 2018 la Ley 5.966 reescribió el cronograma: 50% para 2021, 65% para 2025 y 80% para 2030, ahora contra 2012, y corrió a 2028 la prohibición de enterrar reciclables. En el mismo texto habilitó la combustión con recuperación de energía y dejó la recolección diferenciada, con exclusividad, en manos de los recuperadores urbanos. Trece años de metas corridas muestran que una ley no cierra un ciclo: lo cierra alguien que compra lo que otro tira.
+
+### La palanca
+
+Durante una semana, contá o pesá lo que tira tu emprendimiento: cajas, recortes, envases, restos de producción. Anotá cada cosa con cantidad y frecuencia. Después buscá quién puede usarla como insumo: una cooperativa de recuperadores, una huerta que hace compost, otro emprendedor del barrio. Si estás en la Ciudad de Buenos Aires, averiguá qué cooperativa de recuperadores cubre tu zona.
+Registrá esa lista y mandásela a quien pueda aprovechar lo que te sobra.
+
+### El puente
+
+[PLAN24CN](/planes/plan24cn) diseña sus ciudades nuevas con cero residuos al relleno sanitario como regla y una meta de menos de 50 kilos de residuo final por persona al año, contra unos 400 del promedio argentino.

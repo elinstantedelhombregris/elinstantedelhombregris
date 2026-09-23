@@ -1,0 +1,62 @@
+---
+slug: whatsapp-y-herramientas-digitales-que-no-se-vuelvan-caos
+courseSlug: primeros-pasos-organizar-tu-barrio
+title: WhatsApp y Herramientas Digitales Que No Se Vuelvan Caos
+summary: Gestionar comunicación digital barrial sin que se convierta en fuente de conflicto.
+orderIndex: 5
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/mautic_05_25FD0D0C4A71.pdf
+    titulo: 'INDEC — Acceso y uso de tecnologías de la información y la comunicación. EPH. Cuarto trimestre de 2024'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-06-30'
+---
+
+## El Grupo de WhatsApp: Tu Mejor Herramienta o Tu Peor Pesadilla
+
+Todo grupo barrial termina en un grupo de WhatsApp. Y todo grupo de WhatsApp barrial tiende al caos: cadenas de noticias falsas, audios interminables, discusiones políticas, memes, y eventualmente alguien se ofende y se va.
+
+Pero bien gestionado, WhatsApp es la herramienta de comunicación más poderosa que tenés. La mayoría de tus vecinos ya lo usa. No necesitás enseñar nada nuevo.
+
+### Reglas Básicas del Grupo (Ponerlas Desde el Día 1)
+
+- **El grupo es para coordinar acciones del barrio.** No es para cadenas, noticias ni memes.
+- **Horario de mensajes:** de 9 a 21 hs. Fuera de ese horario, solo urgencias reales.
+- **Audios de máximo 1 minuto.** Si necesitás más, escribí o llamá.
+- **Política partidaria: afuera.** Acá somos vecinos, no militantes.
+- **Dos admins rotativos** que se ocupan de moderar.
+
+### La Estructura de Canales
+
+Si el grupo crece más de 20 personas, creá subgrupos:
+
+1. **General:** Anuncios importantes solamente (solo admins publican)
+2. **Coordinación:** Para quienes participan activamente en proyectos
+3. **Social:** Para el mate virtual, los memes y la charla libre
+
+### Lo Que No Puede Quedar Enterrado en el Chat
+
+En un grupo activo, una decisión tomada el martes queda sepultada bajo doscientos mensajes para el viernes. Por eso conviene separar la conversación de la memoria. Fijá un mensaje arriba de todo con lo que está vigente: los acuerdos de funcionamiento, la fecha del próximo encuentro, quién está a cargo de qué. Actualizalo después de cada reunión y borrá lo que ya pasó. Ese mensaje es la tarea más importante de los admins, más que moderar. Y antes de sumar a alguien al grupo, preguntale: su número de teléfono es suyo, y un vecino agregado sin aviso suele ser el primero en salirse.
+
+### Otras Herramientas Útiles
+
+- **Google Forms:** Para encuestas rápidas al barrio
+- **Google Calendar compartido:** Para coordinar actividades
+- **Trello o Notion:** Si el grupo es más tech-savvy, para gestionar proyectos
+- **Canva:** Para hacer flyers de convocatoria
+
+Pero recordá: **lo digital nunca reemplaza lo presencial**. El grupo de WhatsApp es la herramienta de coordinación, no el espacio de encuentro. El encuentro real sucede en la plaza, en la vereda, tomando mate.
+
+### El caso
+
+El módulo de tecnologías de la Encuesta Permanente de Hogares del INDEC, con datos del cuarto trimestre de 2024 en 31 aglomerados urbanos, muestra que el 90,5% de las personas de 4 años y más usa celular y el 89,7% usa internet. Parece que están todos. Pero entre los mayores de 65 años el 25,7% no usa internet y el 14,7% no usa celular, y en ese grupo el uso del celular supera en 10,9 puntos al de internet. Traducido a una cuadra: uno de cada cuatro vecinos de más de 65 probablemente no esté en el grupo, y varios de los que están no leen lo que se escribe ahí. Un grupo que decide todo por chat, sin avisar de otra forma, los deja afuera sin que nadie lo haya decidido.
+
+### La palanca
+
+Nombrá a alguien del grupo para que haga de puente con los que no están en el chat. Cada vez que se decide una fecha o una tarea, esa persona la pasa en papel: un cartel en el almacén, una nota por debajo de la puerta, un llamado al vecino de ochenta años que no tiene WhatsApp. Sumá a las reglas del día uno una más: nada se da por avisado si sólo se avisó por el grupo.
+Hacé la lista de los vecinos que no están en el grupo y repartila entre dos personas.
+
+### El puente
+
+Que la coordinación del barrio viva en una plataforma ajena es el problema que [PLANDIG](/planes/plandig) plantea a escala de país: la infraestructura con que se coordina la democracia argentina pertenece a corporaciones extranjeras.

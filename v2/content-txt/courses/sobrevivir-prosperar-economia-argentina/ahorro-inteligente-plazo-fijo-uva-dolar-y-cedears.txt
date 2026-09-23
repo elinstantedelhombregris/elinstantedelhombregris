@@ -1,0 +1,60 @@
+---
+slug: ahorro-inteligente-plazo-fijo-uva-dolar-y-cedears
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: 'Ahorro Inteligente: Plazo Fijo, UVA, Dólar y CEDEARs'
+summary: Comparativa práctica de los instrumentos de ahorro disponibles en Argentina.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.bcra.gob.ar/archivos/Pdfs/comytexord/A8226.pdf
+    titulo: 'BCRA — Comunicación A 8226, Exterior y Cambios. Adecuaciones (11/04/2025)'
+    consultada: '2026-09-22'
+  - url: https://www.bcra.gob.ar/archivos/Pdfs/comytexord/A8336.pdf
+    titulo: 'BCRA — Comunicación A 8336, Exterior y Cambios. Adecuaciones (26/09/2025)'
+    consultada: '2026-09-22'
+  - url: https://www.bcra.gob.ar/pdfs/comytexord/A7929.pdf
+    titulo: 'BCRA — Comunicación A 7929, Depósitos e inversiones a plazo. Adecuaciones (28/12/2023)'
+    consultada: '2026-09-22'
+  - url: https://www.bcra.gob.ar/archivos/Pdfs/texord/t-depinv.pdf
+    titulo: 'BCRA — Texto ordenado de Depósitos e inversiones a plazo'
+    consultada: '2026-09-22'
+revisarAntesDe: '2026-12-22'
+---
+
+## Dónde Poner Tu Plata: Guía Práctica
+
+El argentino promedio conoce dos opciones: guardar dólares en el colchón o gastar todo antes de que pierda valor. Pero hay un **abanico de instrumentos** entre esos dos extremos que pueden proteger tu patrimonio.
+
+### Comparativa de Instrumentos
+
+- **Plazo fijo tradicional:** El más conocido. Depositás pesos, te devuelven pesos + interés. Problema: si la inflación supera la tasa, perdés plata. Útil solo para fondos de corto plazo (menos de 30 días).
+- **Plazo fijo UVA:** Ajusta por inflación (CER). Te garantiza no perder contra la inflación. Requiere 90 días mínimo. Ideal para ahorro de mediano plazo.
+- **Dólar (oficial, MEP, blue):** La reserva de valor tradicional argentina. Dólar MEP es legal y accesible a través de cualquier broker. El blue es más accesible pero con riesgo legal y spread alto.
+- **CEDEARs:** Certificados que representan acciones de empresas internacionales (Apple, Google, etc.) cotizadas en pesos pero atadas al dólar. Combinan protección cambiaria con potencial de ganancia.
+- **FCI (Fondos Comunes de Inversión):** Permiten diversificar con montos chicos. Hay de renta fija (más conservadores) y renta variable (más riesgo, más potencial).
+
+### El UVA Tiene Dos Versiones
+
+Conviene saber cuál te ofrecen. El plazo fijo UVA común ajusta por CER y pide un mínimo de 90 días, sin salida antes. Desde la Comunicación A 7929 del BCRA, del 28 de diciembre de 2023, existe además el UVA precancelable para personas humanas: plazo mínimo de 180 días, pero con la opción de retirarlo a partir de los 30, y los bancos están obligados a tomarlo por hasta $5 millones por cliente. Si lo vas a usar como capa de protección y no sabés si vas a necesitar la plata antes, el precancelable te deja una puerta; antes de firmar, pedí que te muestren qué tasa pagan si la usás.
+
+### La Estrategia por Capas
+
+1. **Capa 1 - Emergencia (1-3 meses de gastos):** En cuenta remunerada o FCI money market. Liquidez inmediata.
+2. **Capa 2 - Protección (3-12 meses):** Plazo fijo UVA o dólar MEP.
+3. **Capa 3 - Crecimiento (más de 1 año):** CEDEARs, FCI de renta variable, o inversión productiva.
+
+**Regla clave:** nunca pongas todo en un solo instrumento. La diversificación es tu mejor defensa en un país donde las reglas cambian.
+
+### El caso
+
+El 11 de abril de 2025 el BCRA publicó la Comunicación A 8226: desde el lunes 14, las personas humanas podían comprar dólares en el mercado oficial para ahorro sin conformidad previa del Banco Central, con débito en su cuenta; con efectivo, hasta el equivalente a 100 dólares por mes. Cinco meses y medio después, la Comunicación A 8336, vigente desde el 26 de septiembre de 2025, sumó una condición: quien compra en el oficial firma que no va a comprar títulos con liquidación en moneda extranjera durante los 90 días siguientes. El dólar oficial siguió disponible y el MEP también, pero combinarlos dejó de ser libre de un día para el otro. Quien tenía el ahorro repartido en capas pudo seguir; quien había armado todo sobre ese cruce tuvo que empezar de nuevo.
+
+### La palanca
+
+Mirá dónde está hoy cada peso que ahorraste y ponele una etiqueta: emergencia, protección o crecimiento. Si todo cae en una sola capa, ya sabés qué mover primero. Antes de mover, preguntá en tu banco, por escrito, qué plazo fijo UVA ofrecen —el común o el precancelable— y qué restricción te genera hoy comprar dólares en el oficial si además operás con un broker.
+Revisá las condiciones cambiarias vigentes en el sitio del BCRA antes de cada compra grande.
+
+### El puente
+
+Que una circular del Banco Central cambie en un día lo que podés hacer con tus dólares es lo que [Soberanía](/ensayos/soberania) llama perder soberanía sin que nadie cruce la frontera: tu plata vive en una infraestructura que no es tuya.

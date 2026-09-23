@@ -1,0 +1,136 @@
+{
+  "slug": "economia-familiar-comunitaria",
+  "title": "Economía Familiar y Comunitaria",
+  "description": "Fortalecé la resiliencia económica desde la familia y el barrio. Círculos de ahorro, economía cooperativa, recursos compartidos y la economía de la confianza a nivel vecinal.",
+  "excerpt": "Construí resiliencia económica desde tu familia y tu barrio.",
+  "category": "economia",
+  "level": "intermediate",
+  "duration": 49,
+  "orderIndex": 15,
+  "isPublished": true,
+  "isFeatured": false,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-la-economia-invisible-lo-que-pasa-dentro-de-tu-casa",
+      "title": "La Economía Invisible: Lo Que Pasa Dentro de Tu Casa",
+      "description": "Descubrir que tu hogar es una economía completa con producción, distribución y decisiones estratégicas.",
+      "duration": 5,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-ahorrar-en-argentina-el-arte-de-lo-imposible",
+      "title": "Ahorrar en Argentina: El Arte de lo \"Imposible\"",
+      "description": "Estrategias reales de ahorro adaptadas a la inflación y la volatilidad argentina.",
+      "duration": 4,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-deuda-inteligente-vs-deuda-toxica",
+      "title": "Deuda Inteligente vs. Deuda Tóxica",
+      "description": "Entender la diferencia entre deuda que te construye y deuda que te destruye.",
+      "duration": 3,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-la-economia-del-barrio-tu-comunidad-como-red-economica",
+      "title": "La Economía del Barrio: Tu Comunidad como Red Económica",
+      "description": "Redescubrir el barrio como espacio de intercambio económico y resiliencia colectiva.",
+      "duration": 4,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-circulos-de-ahorro-y-credito-finanzas-entre-vecinos",
+      "title": "Círculos de Ahorro y Crédito: Finanzas entre Vecinos",
+      "description": "El poder ancestral de las tandas, roscas y círculos de ahorro comunitario.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-cooperativismo-la-empresa-democratica",
+      "title": "Cooperativismo: La Empresa Democrática",
+      "description": "El modelo cooperativo como alternativa económica real en Argentina.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-consumo-consciente-votar-con-el-bolsillo",
+      "title": "Consumo Consciente: Votar con el Bolsillo",
+      "description": "Cómo cada decisión de compra es un voto por el mundo que querés.",
+      "duration": 4,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-educacion-financiera-para-toda-la-familia",
+      "title": "Educación Financiera para Toda la Familia",
+      "description": "Cómo enseñar a niños y adolescentes a manejar dinero en un país inestable.",
+      "duration": 3,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-monedas-complementarias-y-economia-social-solidaria",
+      "title": "Monedas Complementarias y Economía Social Solidaria",
+      "description": "Sistemas económicos alternativos que funcionan en paralelo a la economía formal.",
+      "duration": 3,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-tu-plan-de-resiliencia-economica-familiar",
+      "title": "Tu Plan de Resiliencia Económica Familiar",
+      "description": "Integrar todo lo aprendido en un plan concreto para tu familia y tu comunidad.",
+      "duration": 3,
+      "orderIndex": 10
+    },
+    {
+      "key": "12-cooperativas-de-consumo-comprar-juntos-para-vivir-mejor",
+      "title": "Cooperativas de Consumo: Comprar Juntos para Vivir Mejor",
+      "description": "Guía paso a paso para armar una cooperativa de compras comunitarias y abaratar costos sin sacrificar calidad.",
+      "duration": 6,
+      "orderIndex": 11
+    },
+    {
+      "key": "13-el-presupuesto-en-crisis-cuando-todo-cambia-de-golpe",
+      "title": "El Presupuesto en Crisis: Cuando Todo Cambia de Golpe",
+      "description": "Protocolos de emergencia económica para devaluaciones, pérdida de empleo y crisis imprevistas, con caso real de una familia rosarina en 2023.",
+      "duration": 8,
+      "orderIndex": 12
+    }
+  ],
+  "promesa": [
+    "Hacer visible el trabajo, el dinero y los riesgos que circulan dentro del hogar.",
+    "Diseñar acuerdos familiares y comunitarios para comprar, ahorrar o cuidarse mejor.",
+    "Preparar un protocolo de crisis que priorice liquidez, necesidades y conversación."
+  ],
+  "noCubre": [
+    "No recomienda activos ni promete rendimientos en un contexto económico cambiante.",
+    "No reemplaza asesoramiento financiero, impositivo o legal personalizado."
+  ],
+  "paraQuien": "Para hogares y redes cercanas que quieren coordinar recursos sin ocultar tensiones ni cargar todo en una persona.",
+  "productoFinal": "Un tablero económico familiar-comunitario con flujos, acuerdos, riesgos y protocolo de crisis.",
+  "prerrequisitos": ["Usar números aproximados reales del hogar, sin compartirlos públicamente."],
+  "coverImage": "/course-art/entrenamientos/economia-familiar-comunitaria.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.argentina.gob.ar/economia/inclusion-financiera",
+      "titulo": "Inclusión financiera · herramientas y protección",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/inaes/constitucion-de-cooperativas",
+      "titulo": "INAES · constitución y responsabilidades de una cooperativa",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/cnv/proteccion-al-publico-inversor",
+      "titulo": "CNV · protección y educación para el público inversor",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/economia/igualdadygenero/los-cuidados-un-sector-economico-estrategico/aporte-al-pib",
+      "titulo": "Economía, Igualdad y Género · metodología del aporte del cuidado al PIB",
+      "consultada": "2026-08-14"
+    }
+  ],
+  "revisarAntesDe": "2026-11-13"
+}

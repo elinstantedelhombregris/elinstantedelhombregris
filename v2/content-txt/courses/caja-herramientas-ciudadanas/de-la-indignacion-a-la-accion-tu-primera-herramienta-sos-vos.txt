@@ -1,0 +1,62 @@
+---
+slug: de-la-indignacion-a-la-accion-tu-primera-herramienta-sos-vos
+courseSlug: caja-herramientas-ciudadanas
+title: 'De la Indignación a la Acción: Tu Primera Herramienta Sos Vos'
+summary: 'Pasar de quejarse a actuar requiere herramientas concretas, no solo voluntad.'
+orderIndex: 1
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina — artículos 14, 39 y 86 (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/40000-44999/41025/norma.htm
+    titulo: 'Ley 24.747 — Iniciativa Legislativa Popular (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.lanacion.com.ar/sociedad/la-camara-alta-convirtio-en-ley-el-proyecto-el-hambre-mas-urgente-nid461921/
+    titulo: 'La Cámara alta convirtió en ley el proyecto «El hambre más urgente» (La Nación, 27/12/2002)'
+    consultada: '2026-09-22'
+---
+### Por qué importa
+
+Vivís en un país donde cada crisis te enseñó a sobrevivir pero nadie te enseñó a incidir. Sabés pagar impuestos, hacer colas interminables y esquivar baches, pero nunca te explicaron cómo escribir una nota al municipio que realmente alguien lea, ni cómo pararte frente a un concejal y hablar sin que te tiemble la voz. Esta lección existe porque la democracia te prometió participación pero nunca te dio las herramientas para ejercerla. Hoy eso cambia: cada herramienta que aprendas acá es un pedazo de poder que recuperás.
+
+## El Abismo Entre Querer y Hacer
+
+Todos conocemos a alguien que dice "este país no tiene arreglo" y no hace nada. Pero también conocemos a alguien que dice "hay que hacer algo" y tampoco hace nada. La diferencia entre la indignación estéril y la acción transformadora no es la voluntad — son las **herramientas**.
+
+Este curso te da las herramientas prácticas que la escuela nunca te enseñó: cómo organizar una reunión productiva, cómo escribir una propuesta, cómo hablar en público, cómo leer datos, cómo usar la tecnología para multiplicar tu impacto.
+
+### El Ciudadano Equipado vs. El Ciudadano Desarmado
+
+- **Sin herramientas:** Ves un bache en tu calle → te quejás en Twitter → nada pasa → te frustrás → dejás de intentar.
+- **Con herramientas:** Ves un bache → sabés a qué oficina reclamar → escribís una nota formal → juntás firmas del barrio → hacés seguimiento → el bache se arregla (o al menos dejás registro de la negligencia).
+
+### Las 6 Herramientas del Ciudadano Activo
+
+1. **Comunicación:** Saber hablar, escribir y escuchar con efectividad.
+2. **Organización:** Saber planificar proyectos, coordinar personas y gestionar tiempo.
+3. **Datos:** Saber leer, interpretar y usar información para argumentar.
+4. **Tecnología:** Saber usar herramientas digitales para multiplicar tu alcance.
+5. **Negociación:** Saber dialogar con autoridades, vecinos y actores diversos.
+6. **Documentación:** Saber registrar, sistematizar y compartir lo aprendido.
+
+### Lo que la Constitución ya te dio
+
+Antes de cualquier técnica, hay un piso que nadie te puede sacar. El artículo 14 de la Constitución Nacional garantiza el derecho de «peticionar a las autoridades»: pedir por escrito no es un favor que te hacen, es un derecho que ejercés. El artículo 86 crea el Defensor del Pueblo, un órgano independiente que funciona en el ámbito del Congreso. Y el artículo 39 abre una puerta que casi nadie usa: la iniciativa popular, que les permite a los ciudadanos presentar proyectos de ley en la Cámara de Diputados.
+
+La Ley 24.747 reglamentó esa puerta en 1996. Pide las firmas de al menos el 1,5% del padrón electoral, repartidas en por lo menos seis distritos (artículo 4), y obliga al Congreso a darle tratamiento expreso dentro de los doce meses (artículo 11). Quedan afuera la reforma constitucional, los tratados internacionales, los tributos, el presupuesto y la materia penal (artículo 3).
+
+No es teoría. En 2002, la campaña «El hambre más urgente» juntó más de un millón de firmas, y en diciembre de ese año el Senado aprobó por unanimidad el Programa Nacional de Nutrición. La indignación ya estaba en todas partes; la diferencia la hizo una herramienta.
+
+### Paso Siguiente Concreto
+
+1. **Hoy:** Elegí UN problema concreto de tu cuadra o barrio que te moleste cada vez que lo ves. Escribilo en una hoja: qué es, desde cuándo existe, a quién afecta.
+2. **Hoy:** Buscá en Google el nombre de tu municipio + "mesa de atención vecinal" o "defensoría del pueblo". Guardá el teléfono y la dirección.
+3. **Hoy:** Mandá un mensaje a un vecino o amigo que sepas que comparte tu bronca y decile: "Estoy haciendo un curso de herramientas ciudadanas. ¿Querés que hagamos algo juntos con [el problema]?"
+
+> "La ciudadanía activa no es un talento natural — es un oficio que se aprende. Y como todo oficio, requiere herramientas. Este curso es tu caja de herramientas."
+
+### El puente
+
+Las seis herramientas empiezan en una persona sola y no le piden permiso a nadie. [La práctica del tejido](/ensayos/la-practica-del-tejido) propone lo mismo como método: ver el mapa de los propios hilos y tejer los que faltan, sin esperar a ningún Congreso.

@@ -1,0 +1,111 @@
+{
+  "slug": "fundamentos-pensamiento-comprension-aprendizaje",
+  "title": "Fundamentos de Pensamiento, Comprensión y Aprendizaje",
+  "description": "Un curso esencial para desarrollar capacidades de pensamiento sistémico, comprensión profunda y aprendizaje continuo. Este curso proporciona las herramientas conceptuales y prácticas necesarias para participar efectivamente en procesos de transformación.",
+  "excerpt": "Desarrollá tu capacidad de pensar sistémicamente, comprender profundamente y aprender continuamente.",
+  "category": "reflection",
+  "level": "beginner",
+  "duration": 45,
+  "orderIndex": 8,
+  "isPublished": true,
+  "isFeatured": true,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-la-jerarquia-del-contenido-mental",
+      "title": "La Jerarquía del Contenido Mental",
+      "description": "Aprendé sobre los diferentes niveles de contenido mental: desde los datos hasta la sabiduría, y por qué es crucial entender esta jerarquía para tomar mejores decisiones.",
+      "duration": 4,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-introduccion-al-pensamiento-sistemico",
+      "title": "Introducción al Pensamiento Sistémico",
+      "description": "Aprendé a ver el mundo como sistemas interconectados en lugar de partes aisladas. Descubrí cómo el pensamiento sistémico transforma tu capacidad de entender y resolver problemas complejos.",
+      "duration": 6,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-crecimiento-vs-desarrollo",
+      "title": "Crecimiento vs. Desarrollo",
+      "description": "Aprendé la diferencia crucial entre crecer (aumentar de tamaño) y desarrollarse (aumentar capacidades). Descubrí por qué Argentina ha crecido sin desarrollarse, y qué significa realmente el desarrollo.",
+      "duration": 5,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-gestion-de-messes-sistemas-de-problemas",
+      "title": "Gestión de Messes: Sistemas de Problemas",
+      "description": "Aprendé por qué resolver problemas individualmente falla, y cómo trabajar con sistemas de problemas interconectados. Descubrí cómo gestionar la complejidad real de los desafíos que enfrentamos.",
+      "duration": 5,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-aprendiendo-de-los-errores",
+      "title": "Aprendiendo de los Errores",
+      "description": "Descubrí por qué aprendemos más de los errores que de los aciertos, y cómo crear una cultura que aproveche esto. Transformá los errores en tu mayor fuente de aprendizaje.",
+      "duration": 5,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-planificacion-interactiva",
+      "title": "Planificación Interactiva",
+      "description": "Aprendé a planificar desde el futuro deseado hacia el presente, en lugar de extrapolar el presente hacia el futuro. Diseñá el futuro que querés, no solo adaptate al que viene.",
+      "duration": 4,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-diseno-idealizado",
+      "title": "Diseño Idealizado",
+      "description": "Aprendé a diseñar sistemas ideales sin restricciones, y luego trabajar hacia atrás para hacerlos realidad. Liberá tu creatividad y descubrí posibilidades que no habías considerado.",
+      "duration": 4,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-toma-de-decisiones-participativa",
+      "title": "Toma de Decisiones Participativa",
+      "description": "Aprendé los principios de la toma de decisiones participativa y cómo crear estructuras donde todos puedan contribuir efectivamente. Descubrí cómo la participación mejora la calidad y legitimidad de las decisiones.",
+      "duration": 4,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-automatizacion-y-trabajo-humano",
+      "title": "Automatización y Trabajo Humano",
+      "description": "Aprendé sobre la relación entre tecnología, automatización y desarrollo humano. Descubrí cómo usar la tecnología para amplificar capacidades humanas en lugar de reemplazarlas.",
+      "duration": 4,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-integracion-y-aplicacion-practica",
+      "title": "Integración y Aplicación Práctica",
+      "description": "Integrá todos los conceptos aprendidos y aplicálos a un caso de estudio completo. Creá tu propio plan de acción para transformar la realidad.",
+      "duration": 4,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Distinguir datos, información, conocimiento, comprensión e ideal sin mezclarlos.",
+    "Representar un problema como sistema y no como una colección de síntomas.",
+    "Diseñar un ciclo de decisión, error y aprendizaje aplicable a un desafío propio."
+  ],
+  "noCubre": [
+    "No mide inteligencia ni promete una técnica universal de aprendizaje.",
+    "No sustituye práctica deliberada, feedback ni conocimiento del dominio."
+  ],
+  "paraQuien": "Para personas que aprenden mucho, conectan poco y quieren pensar con más estructura.",
+  "productoFinal": "Un cuaderno de comprensión con jerarquía mental, mapa de sistema y ciclo semanal de aprendizaje.",
+  "prerrequisitos": [],
+  "coverImage": "/course-art/entrenamientos/fundamentos-pensamiento-comprension-aprendizaje.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.oecd.org/en/publications/systemic-thinking-for-policy-making_879c4f7a-en/full-report.html",
+      "titulo": "OCDE e IIASA · pensamiento sistémico para políticas públicas",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

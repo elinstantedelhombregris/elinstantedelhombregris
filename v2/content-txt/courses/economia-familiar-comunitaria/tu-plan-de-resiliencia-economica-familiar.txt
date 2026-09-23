@@ -1,0 +1,78 @@
+---
+slug: tu-plan-de-resiliencia-economica-familiar
+courseSlug: economia-familiar-comunitaria
+title: Tu Plan de Resiliencia Económica Familiar
+summary: Integrar todo lo aprendido en un plan concreto para tu familia y tu comunidad.
+orderIndex: 10
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/412/texact.htm
+    titulo: 'Ley 24.013 — Empleo, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## De la Teoría a Tu Mesa
+
+Este curso te dio herramientas. Ahora es momento de armar tu **plan de resiliencia económica**: un sistema de protección para tu familia y tu comunidad que funcione hoy, en la próxima crisis, y en cualquier escenario que Argentina invente.
+
+### El Plan de 4 Anillos
+
+### Anillo 1: Tu persona (inmediato)
+
+- Registro de gastos durante 30 días
+- Presupuesto familiar escrito
+- Regla del 10% de ahorro automático
+- Eliminar deudas tóxicas (tarjeta, préstamos de consumo)
+- Colchón de emergencia de 1-3 meses
+
+### Anillo 2: Tu hogar (1-3 meses)
+
+- Conversar sobre finanzas en familia (romper el tabú)
+- Implementar educación financiera con tus hijos
+- Revisar todos los servicios: ¿estás pagando de más?
+- Evaluar oportunidades de ingreso adicional
+- Diversificar ahorros en las 4 capas
+
+### Anillo 3: Tu barrio (3-6 meses)
+
+- Identificar vecinos con complementariedad económica
+- Organizar una compra colectiva (empezá con frutas y verduras)
+- Crear un grupo de WhatsApp de intercambio vecinal
+- Evaluar un círculo de ahorro con personas de confianza
+- Participar en la feria o mercado más cercano
+
+### Anillo 4: Tu comunidad (6-12 meses)
+
+- Explorar el modelo cooperativo para tu sector
+- Conectar con redes de economía social en tu zona
+- Promover educación financiera en tu escuela / club / parroquia
+- Impulsar un banco de tiempo o moneda complementaria local
+- Incentivar el consumo consciente en tu red
+
+### La Hoja de Resiliencia
+
+Completá esta hoja y colgala en tu heladera:
+
+| Indicador | Hoy | Meta 6 meses |
+| --- | --- | --- |
+| Ahorro mensual | $\_\_\_ | $\_\_\_ |
+| Deuda total | $\_\_\_ | $\_\_\_ |
+| Meses de colchón | \_\_\_ | \_\_\_ |
+| % ingreso en ahorro | \_\_\_ | 10% |
+| Vecinos en mi red económica | \_\_\_ | \_\_\_ |
+
+### El Verdadero Indicador de Riqueza
+
+La verdadera riqueza no es cuánta plata tenés en el banco. Es **cuánto tiempo podés mantener tu nivel de vida sin ingresos**. Si perdés tu trabajo hoy, ¿cuántos meses sobrevivís? Ese número es tu indicador real de resiliencia. Trabajá para aumentarlo.
+
+### Los meses que la ley ya te da
+
+Antes de llenar el renglón «meses de colchón», fijate si te corresponde la prestación por desempleo. La Ley 24.013 de Empleo se la da a quien queda sin trabajo y cotizó al Fondo Nacional del Empleo al menos seis meses en los tres años anteriores (artículo 113). Cuánto dura depende de lo que aportaste: con 6 a 11 meses de cotización, dos meses de prestación; con 12 a 23, cuatro; con 24 a 35, ocho; con 36, doce (artículo 117). Hay un plazo que se pierde fácil: la solicitud va dentro de los 90 días del cese, y los días de demora se descuentan del total (artículo 115). Seis meses es un umbral bajo: alcanza con medio año de empleo registrado dentro de los últimos tres. Conviene saber cuántos meses de aportes tenés antes de necesitarlo, no el día después del despido, cuando el plazo ya empezó a correr.
+
+Eso cambia la cuenta de la hoja. Un hogar con un ingreso registrado y tres años de aportes no arranca en cero meses: tiene un piso que corre mientras la familia se reacomoda. Un hogar que vive de changas, sin aportes al Fondo, no tiene ese piso, y por eso necesita un colchón propio más grueso y una red de vecinos más densa. Anotá en la hoja cuál de los dos es el tuyo y cuántos meses de prestación te tocarían hoy.
+
+> "La economía familiar y comunitaria no es una segunda opción para los que no pudieron con la economía 'de verdad'. Es la economía de verdad: la que te alimenta, te cuida, te sostiene y te conecta. El PBI no te va a salvar en una crisis. Tu familia y tu comunidad sí."
+
+### El puente
+
+La hoja cuenta vecinos en tu red. [La mesa, hacia atrás y hacia adelante](/ensayos/la-mesa) pone esa cuenta en su Acuerdo: en la mesa se sienta también la gente que aparecería mañana si esto se pusiera feo, tenga o no papel que lo diga.

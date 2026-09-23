@@ -1,0 +1,56 @@
+---
+slug: disenar-la-salida-que-deberia-hacer-argentina
+courseSlug: sistemas-economicos-ciclo-argentino
+title: 'Diseñar la Salida: Qué Debería Hacer Argentina'
+summary: Síntesis de intervenciones sistémicas para transformar la economía argentina.
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-24144-542/texto
+    titulo: 'Ley 24.144 — Carta Orgánica del Banco Central, texto original (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/195000-199999/195621/norma.htm
+    titulo: 'Ley 26.739 — Modificación de la Carta Orgánica del BCRA (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## El Mapa de la Transformación Económica
+
+Después de entender los ciclos, los bucles y las trampas del sistema económico argentino, la pregunta es: **¿qué se hace?** No hay soluciones mágicas, pero sí hay un conjunto de intervenciones que, aplicadas con consistencia, podrían romper los patrones.
+
+### Las 7 Transformaciones Necesarias
+
+1. **Estabilidad monetaria creíble:** Un Banco Central genuinamente independiente (no al servicio del presidente de turno) con mandato constitucional de mantener la estabilidad de precios. No es ideología: es ingeniería institucional.
+2. **Reforma fiscal integral:** Simplificar el sistema, hacerlo progresivo, eliminar la superposición. Menos impuestos pero mejor diseñados y más difíciles de evadir. Ampliar la base: que paguen todos, no solo los que cumplen.
+3. **Diversificación exportadora:** Políticas activas para desarrollar exportaciones de alto valor: tecnología, servicios, manufactura avanzada, biotecnología. El agro como base, no como techo.
+4. **Fondo contracíclico:** Ahorrar en las buenas para gastar en las malas. Chile lo hace con el cobre. Argentina podría hacerlo con la soja y los hidrocarburos. Requiere una ley con candados que impidan a los gobiernos gastar el fondo.
+5. **Integración inteligente al mundo:** No cerrarse ni abrirse ciegamente. Acuerdos comerciales que protejan industrias estratégicas mientras abren mercados para lo que Argentina hace bien.
+6. **Inversión en capital humano:** Educación de calidad (no solo acceso, sino resultados), ciencia y tecnología como política de Estado, retención de talento.
+7. **Reglas del juego estables:** La inversión (nacional y extranjera) necesita previsibilidad. Nadie invierte en un país donde las reglas cambian con cada gobierno.
+
+### ¿Por Qué No Se Hace?
+
+Cada una de estas transformaciones tiene **beneficiarios a largo plazo y perdedores a corto plazo**. Los perdedores a corto plazo gritan; los beneficiarios a largo plazo todavía no existen. Y las elecciones son cada 2 años.
+
+### El Rol del Ciudadano
+
+- **Exigir consistencia:** Dejar de pedirle al gobierno que gaste más HOY y empezar a pedir que planifique para MAÑANA.
+- **Votar con información:** Evaluar propuestas económicas con las herramientas de este curso, no con el estómago.
+- **Emprender:** Cada emprendimiento que produce valor es una contribución al cambio de modelo.
+- **Educar:** Compartir este conocimiento. Un pueblo que entiende su economía es más difícil de manipular.
+
+> "Argentina no necesita un milagro económico. Necesita 20 años de coherencia. Eso suena aburrido comparado con las promesas de los candidatos, pero es la pura verdad. Y el Hombre Gris prefiere verdades aburridas a mentiras emocionantes."
+
+### El caso
+
+La Ley 24.144, sancionada el 13 de octubre de 1992, le dio al Banco Central una carta orgánica con un mandato único: «Es misión primaria y fundamental del Banco Central de la República Argentina preservar el valor de la moneda». También establecía que, al formular y ejecutar la política monetaria y financiera, el Banco no estaría sujeto a órdenes, indicaciones o instrucciones del Poder Ejecutivo. El 22 de marzo de 2012 la Ley 26.739 reemplazó ese artículo 3 por un mandato múltiple —estabilidad monetaria, estabilidad financiera, empleo y desarrollo económico con equidad social— a promover «en el marco de las políticas establecidas por el gobierno nacional». La primera transformación de esta lección ya estuvo escrita en una ley durante veinte años. Escribirla no alcanzó: el péndulo también reescribe las leyes.
+
+### La palanca
+
+Elegí una de las siete transformaciones de esta lección y rastreala esta semana en el buscador de proyectos de la Cámara de Diputados, que cubre desde 1983. Poné una palabra clave —«fondo anticíclico», «carta orgánica», «coparticipación»— y mirá cuántos proyectos hay, quién los firmó y en qué comisión quedaron. Vas a ver la distancia entre proponer y sostener.
+Escribí un mail al diputado de tu provincia que firmó el proyecto más reciente y preguntale en qué estado está.
+
+### El puente
+
+[Carta al nieto](/ensayos/carta-al-nieto) está escrita desde el otro lado de los veinte años de coherencia que pide esta lección: por qué construir importa más que ganar elecciones.

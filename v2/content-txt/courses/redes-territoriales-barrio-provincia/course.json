@@ -1,0 +1,111 @@
+{
+  "slug": "redes-territoriales-barrio-provincia",
+  "title": "Redes Territoriales: Del Barrio a la Provincia",
+  "description": "Conectá organizaciones barriales en redes más amplias. Aprendé a construir coaliciones, articular con gobierno local y escalar iniciativas exitosas. Incluye análisis de las asambleas del 2001.",
+  "excerpt": "Escala tu impacto conectando barrios en redes de cambio territorial.",
+  "category": "community",
+  "level": "advanced",
+  "duration": 30,
+  "orderIndex": 11,
+  "isPublished": true,
+  "isFeatured": false,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-de-la-isla-al-archipielago-por-que-conectar-organizaciones",
+      "title": "De la Isla al Archipiélago: Por Qué Conectar Organizaciones",
+      "description": "La lógica sistémica de conectar organizaciones barriales en redes territoriales.",
+      "duration": 3,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-mapeo-de-actores-y-analisis-de-poder-territorial",
+      "title": "Mapeo de Actores y Análisis de Poder Territorial",
+      "description": "Identificar quiénes tienen poder en tu territorio y cómo interactúan.",
+      "duration": 3,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-construccion-de-coaliciones-el-arte-de-la-alianza",
+      "title": "Construcción de Coaliciones: El Arte de la Alianza",
+      "description": "Estrategias para construir alianzas entre organizaciones diversas.",
+      "duration": 3,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-articulacion-con-gobierno-local-sin-cooptacion",
+      "title": "Articulación con Gobierno Local Sin Cooptación",
+      "description": "Cómo trabajar con el municipio sin perder independencia ni ser cooptados.",
+      "duration": 3,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-advocacy-efectivo-cambiar-politicas-desde-abajo",
+      "title": "Advocacy Efectivo: Cambiar Políticas Desde Abajo",
+      "description": "Herramientas de incidencia para que las organizaciones barriales influyan en políticas públicas.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-las-asambleas-del-2001-lecciones-de-lo-que-funciono-y-lo-que-no",
+      "title": "Las Asambleas del 2001: Lecciones de Lo Que Funcionó y Lo Que No",
+      "description": "Análisis sistémico del movimiento asambleario argentino post-crisis 2001.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-comunicacion-entre-nodos-protocolos-de-red",
+      "title": "Comunicación Entre Nodos: Protocolos de Red",
+      "description": "Diseñar sistemas de comunicación eficientes entre organizaciones de una red.",
+      "duration": 3,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-recursos-compartidos-economia-de-red-territorial",
+      "title": "Recursos Compartidos: Economía de Red Territorial",
+      "description": "Crear sistemas de recursos compartidos entre organizaciones barriales.",
+      "duration": 3,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-gestion-de-la-diversidad-ideologica-en-coaliciones",
+      "title": "Gestión de la Diversidad Ideológica en Coaliciones",
+      "description": "Manejar las diferencias políticas e ideológicas dentro de una red territorial.",
+      "duration": 3,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-tu-proyecto-capstone-disenar-una-red-territorial",
+      "title": "Tu Proyecto Capstone: Diseñar una Red Territorial",
+      "description": "Ejercicio integrador: diseñar una red territorial para tu zona.",
+      "duration": 3,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Mapear organizaciones, intereses, poder, recursos y vacíos de una red territorial.",
+    "Diseñar acuerdos entre nodos que preserven autonomía y hagan posible coordinar.",
+    "Preparar una estrategia de incidencia con objetivo, contraparte y escalamiento."
+  ],
+  "noCubre": [
+    "No confunde sumar logos con construir una coalición operativa.",
+    "No garantiza acceso a autoridades ni evita por sí solo cooptación y conflicto."
+  ],
+  "paraQuien": "Para organizaciones con trabajo local que necesitan cooperar a escala municipal o provincial.",
+  "productoFinal": "Un diseño de red territorial con nodos, gobernanza, protocolo de comunicación e iniciativa compartida.",
+  "prerrequisitos": ["Experiencia en una organización o iniciativa territorial real."],
+  "coverImage": "/course-art/entrenamientos/redes-territoriales-barrio-provincia.webp",
+  "fuentesBase": [
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/",
+      "titulo": "Elinor Ostrom · gobernanza policéntrica más allá de mercados y Estados",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

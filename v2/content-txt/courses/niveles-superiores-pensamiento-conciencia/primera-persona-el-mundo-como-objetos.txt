@@ -1,0 +1,114 @@
+---
+slug: primera-persona-el-mundo-como-objetos
+courseSlug: niveles-superiores-pensamiento-conciencia
+title: 'Primera Persona: El Mundo como Objetos'
+summary: 'Cómo detectar una mirada reducida que convierte a otras personas en obstáculos, etiquetas o funciones.'
+orderIndex: 2
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/20465/texact.htm
+    titulo: 'Ley 23.592 — Actos discriminatorios, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+La primera perspectiva nombra un recorte frecuente: mirar a otra persona sólo por la función que cumple para vos. No describe una clase de persona ni un estadio inferior. Aparece bajo presión, apuro, miedo o polarización, y se puede revisar.
+
+### Características del Pensamiento de Primera Persona
+
+- **Interioridad omitida:** Actuás como si sólo importara la conducta visible
+- **Juicios inmediatos:** Evaluás con información incompleta
+- **Enemigos vs aliados:** Clasificás a otros como "a favor" o "en contra"
+- **Sin empatía:** No podés entender por qué otros actúan como lo hacen
+
+### El Ejemplo de Juan y Leandro
+
+Imaginá esta situación: **Juan** quiere fumar en la casa de **Leandro**. Leandro le dice: "No, no podés fumar en mi casa. No me gusta eso. Por favor no fumes en mi casa."
+
+<svg width="100%" height="300" viewBox="0 0 800 300">
+              <!-- Juan -->
+              <circle cx="200" cy="150" r="60" fill="#FBFAF4" stroke="#A16C00" stroke-width="3"/>
+              <text x="200" y="145" text-anchor="middle" fill="#16130E" font-size="16" font-weight="bold">Juan</text>
+              <text x="200" y="160" text-anchor="middle" fill="#4A463D" font-size="12">Quiere fumar</text>
+              <!-- Leandro -->
+              <circle cx="600" cy="150" r="60" fill="#FBFAF4" stroke="#0F6B8A" stroke-width="3"/>
+              <text x="600" y="145" text-anchor="middle" fill="#16130E" font-size="16" font-weight="bold">Leandro</text>
+              <text x="600" y="160" text-anchor="middle" fill="#4A463D" font-size="12">No quiere</text>
+              <!-- Flecha de conflicto -->
+              <line x1="260" y1="150" x2="540" y2="150" stroke="#C23B22" stroke-width="4" marker-end="url(#arrowhead)"/>
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                  <polygon points="0 0, 10 3, 0 6" fill="#C23B22"/>
+                </marker>
+              </defs>
+              <!-- Pensamiento de Juan (Primera Persona) -->
+              <rect x="50" y="50" width="200" height="80" fill="#ECE8DC" stroke="#C23B22" stroke-width="2" rx="8"/>
+              <text x="150" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#16130E">Pensamiento de Juan</text>
+              <text x="150" y="95" text-anchor="middle" font-size="10" fill="#33302A">"Leandro es molesto"</text>
+              <text x="150" y="110" text-anchor="middle" font-size="10" fill="#33302A">"Leandro está mal"</text>
+              <text x="150" y="125" text-anchor="middle" font-size="10" fill="#33302A">"Leandro es mi enemigo"</text>
+              <!-- Pensamiento de Leandro (Primera Persona) -->
+              <rect x="550" y="50" width="200" height="80" fill="#ECE8DC" stroke="#C23B22" stroke-width="2" rx="8"/>
+              <text x="650" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#16130E">Pensamiento de Leandro</text>
+              <text x="650" y="95" text-anchor="middle" font-size="10" fill="#33302A">"Juan es molesto"</text>
+              <text x="650" y="110" text-anchor="middle" font-size="10" fill="#33302A">"Juan rompe reglas"</text>
+              <text x="650" y="125" text-anchor="middle" font-size="10" fill="#33302A">"Juan es mi enemigo"</text>
+              <!-- Líneas de conexión -->
+              <line x1="150" y1="130" x2="200" y2="90" stroke="#C23B22" stroke-width="2" stroke-dasharray="5,5"/>
+              <line x1="650" y1="130" x2="600" y2="90" stroke="#C23B22" stroke-width="2" stroke-dasharray="5,5"/>
+            </svg>
+
+Si Juan está operando desde **primera persona**, simplemente ve a Leandro como:
+
+- **Molesto** - Un obstáculo en su camino
+- **Incorrecto** - Porque no está de acuerdo con él
+- **Enemigo** - Alguien que se opone a lo que quiere
+
+Juan **no entiende** que Leandro tiene sus propias razones, pensamientos o emociones. Para Juan, Leandro es como un muro de ladrillos que le impide caminar: simplemente está ahí, bloqueando su camino, sin más profundidad.
+
+### La Limitación Fundamental
+
+Cuando este recorte domina, se achica el espacio para diálogo, comprensión y acuerdos. La intervención no es diagnosticar al otro: es recuperar preguntas, límites y contexto sin justificar daño.
+
+### ¿Dónde Aparece el Pensamiento de Primera Persona?
+
+### Tráfico
+
+"Ese conductor es un idiota" (sin considerar sus razones)
+
+### Trabajo
+
+"Mi jefe es injusto" (sin entender sus presiones)
+
+### Política
+
+"Los del otro partido son malos" (sin considerar sus valores)
+
+### Familia
+
+"Mi familiar es tóxico" (sin ver su dolor)
+
+### Cuando el recorte se vuelve acto
+
+"Los del otro partido son malos" es un pensamiento, y ninguna ley argentina lo persigue. Lo que la Ley 23.592, de 1988, sí alcanza es el paso siguiente. Su artículo 1 obliga a quien "arbitrariamente impida, obstruya, restrinja o de algún modo menoscabe" el ejercicio igualitario de un derecho a dejar sin efecto el acto discriminatorio y a reparar el daño moral y material, a pedido del damnificado. Entre los motivos que el artículo manda considerar en particular están la ideología y la opinión política o gremial, junto con la raza, la religión, la nacionalidad, el sexo, la posición económica, la condición social y los caracteres físicos.
+
+La norma describe, sin proponérselo, el recorrido de esta lección. Primero alguien deja de ver razones y ve una etiqueta. Después la etiqueta decide por él: no le alquila, no lo contrata, no lo deja entrar. La ley no puede meterse en el primer paso; llega recién en el segundo, cuando ya hay alguien perjudicado.
+
+La práctica de la primera perspectiva trabaja antes. Detectar el recorte mientras todavía es un pensamiento cuesta una pregunta. Deshacerlo cuando ya se volvió una decisión sobre otra persona puede costar un reclamo judicial y un daño que no se devuelve.
+
+### Ejercicio: Identificar Primera Persona en Tu Vida
+
+**Reflexioná sobre estas situaciones:**
+
+1. Pensá en un conflicto reciente que tuviste con alguien. ¿Viste a esa persona como un obstáculo o como alguien con sus propias razones?
+2. Recordá una vez que juzgaste rápidamente a alguien. ¿Qué información sobre su interioridad ignoraste?
+3. Identificá 3 situaciones esta semana donde usaste este recorte. ¿Qué habría cambiado si reconocías la interioridad del otro?
+
+              **Nota:** No uses esta lente para ordenar personas entre "básicas" y "evolucionadas". Usala para revisar una escena y agregar la información que falta.
+
+### El Próximo Paso
+
+Reconocer el recorte es el primer paso. La siguiente perspectiva agrega algo decisivo: la otra persona tiene experiencia propia, pero sólo ella puede corregir lo que imaginamos sobre esa experiencia.
+
+### El puente
+
+[Conocerse sin espejo](/ensayos/conocerse-sin-espejo) llega por otro camino al mismo punto: sólo el que se mira sin etiqueta puede mirar al otro sin etiqueta.

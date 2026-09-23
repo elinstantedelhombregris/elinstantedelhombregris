@@ -1,0 +1,67 @@
+---
+slug: datos-como-arma-ciudadana-ver-lo-que-el-poder-quiere-esconder
+courseSlug: datos-para-bien-comun
+title: 'Datos como Arma Ciudadana: Ver lo que el Poder Quiere Esconder'
+summary: Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.
+orderIndex: 1
+draft: false
+cierre: completo
+revisarAntesDe: '2027-03-22'
+fuentes:
+  - url: https://www.boletinoficial.gob.ar/detalleAviso/primera/313139/20240902
+    titulo: 'Decreto 780/2024 — Derecho de Acceso a la Información Pública (Boletín Oficial)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/solicitar-informacion-publica
+    titulo: 'Solicitar información pública — Argentina.gob.ar'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/servicio/reclamar-por-incumplimiento-de-una-solicitud-de-acceso-la-informacion-publica
+    titulo: 'Reclamar por incumplimiento de una solicitud de acceso a la información pública — Argentina.gob.ar'
+    consultada: '2026-09-22'
+---
+
+## La Información Es Poder — Literalmente
+
+Cuando un funcionario dice "estamos invirtiendo mucho en educación", ¿cómo sabés si es verdad? Cuando un candidato promete "bajar la pobreza", ¿cómo medís si cumplió? Cuando tu municipio dice "no hay presupuesto para arreglar esa calle", ¿cómo verificás?
+
+Con **datos**. Los datos públicos son tu derecho constitucional (Ley 27.275 de Acceso a la Información Pública) y tu herramienta más poderosa para exigir rendición de cuentas.
+
+### ¿Qué Son los Datos Abiertos?
+
+Son datos que el gobierno produce y que cualquier ciudadano puede acceder, descargar, usar y redistribuir **sin restricciones**. No son un favor del gobierno — son una obligación democrática. Incluyen:
+
+- Presupuestos (cuánto recauda y en qué gasta el Estado)
+- Contrataciones públicas (a quién le compra y por cuánto)
+- Estadísticas sociales (pobreza, empleo, salud, educación)
+- Datos geográficos (mapas, infraestructura, transporte)
+- Declaraciones juradas de funcionarios
+
+### El Ecosistema de Datos en Argentina
+
+- **datos.gob.ar:** El portal nacional. Miles de datasets de todos los ministerios.
+- **INDEC:** El instituto de estadísticas. Censos, pobreza, empleo, precios.
+- **Presupuesto Abierto:** Cada peso que gasta el Estado nacional, desglosado.
+- **data.buenosaires.gob.ar:** Datos de CABA. Transporte, servicios, demografía.
+- **Argentina Compra:** Todas las licitaciones y contrataciones públicas.
+
+### Tu Derecho de Acceso
+
+La Ley 27.275 te da derecho a pedir CUALQUIER información que tenga el Estado. El trámite es gratuito y el Estado tiene 15 días hábiles para responder. Si no responde, podés reclamar ante la Agencia de Acceso a la Información Pública.
+
+### Cuando el Estado no contesta
+
+El silencio no cierra el trámite: lo abre. Si pasan los 15 días hábiles sin respuesta y sin que el organismo haya pedido la prórroga de otros 15, tenés 40 días hábiles para reclamar ante la Agencia. El mismo plazo corre si la respuesta llegó incompleta o con datos erróneos, contado desde que la recibiste. El reclamo se hace por Trámites a Distancia, adjuntando tu pedido original y lo que te hayan contestado, o en papel en la sede de la Agencia. No cuesta nada. Por eso importa guardar todo desde el primer día: el número de trámite y la fecha del pedido son la prueba de que el plazo venció.
+
+> "Los datos son la democracia en estado puro. Cuando un ciudadano armado con datos le muestra a un funcionario que su discurso no coincide con la realidad, eso es rendición de cuentas. Eso es república."
+
+### El caso
+
+El 2 de septiembre de 2024 el Boletín Oficial publicó el Decreto 780/2024, que cambió la reglamentación de la Ley 27.275 sin tocar una coma de la ley. Agregó que no es información pública la que contiene «datos de naturaleza privada», que el concepto deja afuera lo que hace «al ámbito privado del funcionario o magistrado», y que la Agencia de Acceso a la Información Pública va a llevar estadística de las solicitudes «reiterativas» o que configuren «un abuso» del derecho. El derecho quedó escrito igual; lo que se movió es la puerta por la que un organismo puede decir que no. Por eso el pedido que resiste es el que pregunta por un acto de gestión —un contrato, un pago, un expediente— y no deja margen para leerlo como curiosidad sobre la vida de alguien.
+
+### La palanca
+
+Elegí una sola pregunta sobre plata u obra del Estado nacional que te afecte —cuánto se pagó por un contrato, en qué etapa está una licitación— y redactala para que hable de la gestión y no de una persona. Guardá el número de trámite y anotá la fecha en que vence el plazo: si llega sin respuesta, o la respuesta viene incompleta, el reclamo ante la Agencia también es gratuito.
+Presentá el pedido esta semana por Trámites a Distancia, en el trámite «Acceso a la Información Pública».
+
+### El puente
+
+Una denegatoria sin fundamento es un conflicto entre una persona y el Estado por un acto concreto. [PLANJUS](/planes/planjus) propone que esos conflictos los resuelva la justicia ciudadana, con el Estado sentado como una parte más, sin privilegios procesales.

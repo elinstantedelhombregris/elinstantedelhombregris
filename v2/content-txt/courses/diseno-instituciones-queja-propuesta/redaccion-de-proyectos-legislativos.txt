@@ -1,0 +1,70 @@
+---
+slug: redaccion-de-proyectos-legislativos
+courseSlug: diseno-instituciones-queja-propuesta
+title: Redacción de Proyectos Legislativos
+summary: Cómo se estructura y redacta un proyecto de ley u ordenanza.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/315000-319999/318666/norma.htm
+    titulo: 'Ley 27.499 — Ley Micaela de capacitación obligatoria en género (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.gba.gob.ar/mujeres/ley_micaela
+    titulo: 'Ley Micaela — Provincia de Buenos Aires'
+    consultada: '2026-09-22'
+---
+## Escribir la Regla del Juego
+
+Una ley no es un deseo. Es un **instrumento técnico** que crea derechos, obligaciones, procedimientos e instituciones. Redactar un proyecto de ley (o de ordenanza municipal) requiere precisión, conocimiento del marco legal existente, y la capacidad de anticipar cómo se va a aplicar en la práctica.
+
+### Estructura de un Proyecto de Ley
+
+1. **Título:** Nombre corto y descriptivo. "Proyecto de Ley de Presupuesto Participativo Municipal."
+2. **Fundamentos:** La exposición de motivos. ¿Por qué es necesaria esta ley? Datos, argumentos, referencias a legislación comparada. Es la parte narrativa que convence.
+3. **Articulado:** El cuerpo de la ley, dividido en artículos. Cada artículo es una disposición específica.
+4. **Disposiciones transitorias:** Cómo se implementa la transición del sistema actual al nuevo.
+5. **Cláusula de vigencia:** Cuándo empieza a regir.
+
+### Tips para Redacción
+
+- **Sé específico:** "El municipio deberá publicar su presupuesto" es vago. "El municipio deberá publicar su presupuesto en formato de datos abiertos en su sitio web oficial dentro de los 30 días de aprobado" es preciso.
+- **Definí términos:** Si usás conceptos técnicos, definilos en un artículo de definiciones.
+- **Establecé autoridad de aplicación:** ¿Quién hace cumplir la ley? Sin autoridad de aplicación, la ley es decorativa.
+- **Incluí sanciones:** ¿Qué pasa si no se cumple? Sin sanciones, la ley es una sugerencia.
+- **Revisá la constitucionalidad:** Tu proyecto no puede contradecir la Constitución ni leyes de rango superior.
+
+### Pausa para Reflexionar
+
+Pensá en un problema de tu barrio o municipio que podría resolverse con una ordenanza (falta de iluminación, basurales, falta de rampas de accesibilidad). Intentá redactar mentalmente los primeros 3 artículos: ¿qué se obliga a hacer, quién es la autoridad de aplicación, y qué pasa si no se cumple?
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### ¿Necesitás Ser Abogado?
+
+Para la redacción técnica final, conviene tener asesoramiento legal. Pero el **diseño conceptual** puede (y debe) venir de los ciudadanos. Muchas organizaciones civiles tienen abogados que ayudan a traducir propuestas ciudadanas en texto legal.
+
+### Ejemplo: Proyecto de Ordenanza de Transparencia Municipal
+
+> Art. 1: Todo acto administrativo del municipio de [nombre] será publicado en el sitio web oficial dentro de las 48hs de su emisión.
+>
+> Art. 2: El presupuesto municipal y su ejecución serán publicados mensualmente en formato de datos abiertos.
+>
+> Art. 3: Toda contratación superior a [monto] será publicada con 15 días de anticipación para observaciones ciudadanas.
+>
+> Art. 4: El incumplimiento constituirá falta grave del funcionario responsable.
+
+> "Cada ciudadano que escribe un proyecto de ley, por imperfecto que sea, está ejerciendo soberanía. No necesitás ser legislador para legislar. Necesitás una idea, método y el coraje de proponerla."
+
+### El caso
+
+La Ley 27.499, conocida como Ley Micaela, es corta, y en sus artículos está casi toda esta lección. Lleva el nombre de Micaela García, víctima de femicidio a los 21 años en Gualeguay, en 2017, y se sancionó el 19 de diciembre de 2018. El artículo 1 dice qué se obliga: capacitación en género y violencia contra las mujeres para toda persona que trabaje en los tres poderes del Estado nacional. El artículo 3 nombra la autoridad de aplicación, que entonces era el Instituto Nacional de las Mujeres. El 4 pone plazo: un año para que las máximas autoridades garanticen la implementación. El 8 dice qué pasa si alguien se niega sin justa causa: falta grave, sanción disciplinaria y la posibilidad de hacer pública la negativa. El 10 invita a las provincias a adherir; Buenos Aires sancionó su propia versión, la Ley 15.134, en marzo de 2019.
+
+### La palanca
+
+Tomá el borrador de ordenanza que pensaste en la pausa de esta lección y pasalo por cuatro preguntas: ¿qué se obliga?, ¿quién lo hace cumplir?, ¿en qué plazo?, ¿qué pasa si no se cumple? Donde falte una respuesta, falta un artículo. Antes de escribirlo, buscá en el digesto de tu municipio o en la web del Concejo Deliberante si ya hay una ordenanza vigente sobre el mismo tema: si existe y no se cumple, lo que tenés que redactar es otra cosa.
+Escribí los artículos que falten antes del viernes.
+
+### El puente
+
+La cláusula de vigencia no es un trámite: [PLANPACTO](/planes/planpacto) parte de la Ley 23.548, que se sancionó con vigencia declarada de dos años y ya lleva treinta y ocho.

@@ -1,0 +1,111 @@
+{
+  "slug": "liderazgo-distribuido",
+  "title": "Liderazgo Distribuido: El Cambio que Convocás",
+  "description": "Del caudillo al equipo. Un curso que desmonta el mito del líder carismático y enseña a construir influencia real desde donde estés: tu familia, tu barrio, tu trabajo. Herramientas de facilitación, feedback, gestión de conflictos y mentoría adaptadas a la cultura argentina.",
+  "excerpt": "El cambio no necesita un héroe. Necesita a muchos como vos.",
+  "category": "action",
+  "level": "intermediate",
+  "duration": 38,
+  "orderIndex": 18,
+  "isPublished": true,
+  "isFeatured": false,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-el-mito-del-lider-carismatico",
+      "title": "El Mito del Líder Carismático",
+      "description": "Por qué la cultura del caudillo sigue arruinando todo y qué alternativa existe.",
+      "duration": 4,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-tu-zona-de-influencia",
+      "title": "Tu Zona de Influencia",
+      "description": "Descubrir dónde ya tenés poder real y cómo expandirlo estratégicamente.",
+      "duration": 4,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-la-credibilidad-como-capital",
+      "title": "La Credibilidad Como Capital",
+      "description": "Construir confianza real en una sociedad que aprendió a desconfiar de todo.",
+      "duration": 5,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-facilitar-vs-controlar",
+      "title": "Facilitar vs. Controlar",
+      "description": "Pasar de \"yo tengo las respuestas\" a \"construyamos respuestas juntos\".",
+      "duration": 4,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-como-dar-feedback-que-cambia",
+      "title": "Cómo Dar Feedback que Cambia",
+      "description": "El arte de decir la verdad sin destruir relaciones — adaptado a la cultura argentina.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-conflicto-como-informacion",
+      "title": "Conflicto Como Información",
+      "description": "Leer el conflicto como dato del sistema en vez de tomarlo como ataque personal.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-el-liderazgo-del-que-no-esta",
+      "title": "El Liderazgo del Que No Está",
+      "description": "La verdadera prueba del liderazgo distribuido: construir sistemas que funcionen sin vos.",
+      "duration": 4,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-mentoreo-y-acompanamiento",
+      "title": "Mentoreo y Acompañamiento",
+      "description": "Acompañar el crecimiento de otros como el Hombre Gris acompaña al lector.",
+      "duration": 4,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-liderar-en-crisis",
+      "title": "Liderar en Crisis",
+      "description": "Mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina.",
+      "duration": 3,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-tu-proyecto-de-liderazgo",
+      "title": "Tu Proyecto de Liderazgo",
+      "description": "Diseñar tu experimento de liderazgo distribuido de 90 días.",
+      "duration": 4,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Definir tu zona de influencia sin inflar autoridad ni descargar responsabilidad.",
+    "Facilitar acuerdos, feedback y conflicto con estructuras que otros puedan repetir.",
+    "Diseñar una función que siga viva cuando vos no estés."
+  ],
+  "noCubre": [
+    "No elimina jerarquías de responsabilidad ni convierte toda decisión en asamblea.",
+    "No reemplaza protocolos profesionales ante acoso, fraude o riesgos de seguridad."
+  ],
+  "paraQuien": "Para coordinadores formales e informales que quieren aumentar capacidad colectiva, no dependencia personal.",
+  "productoFinal": "Un experimento de liderazgo distribuido con delegación, feedback, métricas y prueba de ausencia.",
+  "prerrequisitos": ["Un equipo, proyecto o comunidad donde puedas ensayar una delegación real."],
+  "coverImage": "/course-art/entrenamientos/liderazgo-distribuido.webp",
+  "fuentesBase": [
+    {
+      "url": "https://ctb.ku.edu/en/get-started",
+      "titulo": "Community Tool Box · modelo para evaluar, planificar, actuar y sostener",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/datos-abiertos/portal",
+      "titulo": "Portal Nacional de Datos Públicos",
+      "consultada": "2026-08-13"
+    }
+  ]
+}

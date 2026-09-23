@@ -1,0 +1,77 @@
+---
+slug: ley-de-acceso-a-la-informacion-publica-27-275
+courseSlug: ciudadano-auditor-control-ciudadano
+title: Ley de Acceso a la Información Pública (27.275)
+summary: Cómo usar la ley de acceso a la información para obtener datos del Estado.
+orderIndex: 2
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/400000-404999/403572/norma.htm
+    titulo: 'Decreto 780/2024 — Derecho de Acceso a la Información Pública, reglamentación (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.boletinoficial.gov.ar/detalleAviso/primera/313139/20240902
+    titulo: 'Boletín Oficial, 2 de septiembre de 2024 — Decreto 780/2024'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/solicitar-informacion-publica
+    titulo: 'Solicitar información pública — Argentina.gob.ar'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/servicio/reclamar-por-incumplimiento-de-una-solicitud-de-acceso-la-informacion-publica
+    titulo: 'Reclamar por incumplimiento de una solicitud de acceso a la información pública — Argentina.gob.ar'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## Tu Herramienta Más Poderosa
+
+La Ley 27.275 de Acceso a la Información Pública (2016) es probablemente la herramienta de control ciudadano **más poderosa y menos utilizada** de Argentina. Te permite pedir cualquier información que cualquier organismo del Estado tenga, sin dar explicaciones de por qué la querés.
+
+### ¿Qué Podés Pedir?
+
+Literalmente **cualquier cosa** que el Estado produzca, obtenga o controle:
+
+- Contratos de obra pública y sus montos
+- Sueldos de funcionarios públicos
+- Actas de reuniones de organismos
+- Informes técnicos sobre cualquier tema
+- Gastos de publicidad oficial
+- Licitaciones y sus adjudicaciones
+- Estadísticas de gestión (tiempos de espera, causas judiciales, etc.)
+
+### ¿A Quién Le Podés Pedir?
+
+A todos los organismos del Estado nacional: ministerios, secretarías, entes autónomos (ARCA, ANSES, BCRA), empresas públicas, universidades nacionales, el Congreso, la Justicia, e incluso a organizaciones privadas que reciban fondos públicos.
+
+### Cómo Hacer un Pedido — Paso a Paso
+
+1. **Entrá a** la plataforma de Acceso a la Información Pública (según el organismo, puede ser por web, mail o nota escrita).
+2. **Identificate:** Nombre, DNI, mail. Nada más.
+3. **Describí lo que pedís:** Sé lo más específico posible. "Quiero el detalle de gastos en publicidad oficial del Ministerio X durante 2024" es mejor que "quiero saber sobre publicidad".
+4. **Enviá y esperá:** El organismo tiene 15 días hábiles para responder (prorrogables por 15 más).
+5. **Si no responden:** Podés reclamar ante la Agencia de Acceso a la Información Pública o presentar un amparo judicial.
+
+### Tips para Pedidos Efectivos
+
+- Pedí datos estructurados (planillas, bases de datos), no solo documentos PDF.
+- Sé específico en el período temporal: "entre enero y diciembre de 2024".
+- Si el organismo dice que no tiene la info, pedí que te deriven al organismo correcto.
+- Guardá todo: el pedido, la respuesta, los plazos. Es tu evidencia.
+
+### El reclamo tiene su propio reloj
+
+El paso 5 tiene letra chica que conviene saber antes de enviar el pedido. El reclamo ante la Agencia de Acceso a la Información Pública se presenta dentro de los 40 días hábiles contados desde la fecha en que tendrías que haber recibido la respuesta, o desde que recibiste una respuesta incompleta o equivocada. Se hace por Trámites a Distancia, buscando «Reclamo de Acceso a la Información Pública», y hay que adjuntar el pedido original y lo que te hayan contestado. Por eso guardar todo no es prolijidad: sin el pedido original no hay reclamo.
+
+> "Cada pedido de información que hacés es un acto de ciudadanía. No importa si sos el primero o el millonésimo. Cada pedido le recuerda al Estado que alguien está mirando."
+
+### El caso
+
+La Ley 27.275 no cambió desde 2016, pero lo que se consigue con ella sí. El 30 de agosto de 2024 el Poder Ejecutivo firmó el Decreto 780/2024, publicado en el Boletín Oficial el 2 de septiembre, que modificó su reglamentación. Desde entonces «las deliberaciones preparatorias y papeles de trabajo, o el examen preliminar de un asunto» no se consideran documentos públicos; tampoco es información pública la que contenga datos de naturaleza privada; y la violación de la buena fe por cualquiera de las partes se encuadra en el abuso del derecho del artículo 10 del Código Civil y Comercial. Un pedido que dice «mándenme todo lo que tengan sobre la obra» hoy le ofrece al organismo la excusa del borrador. Uno que pide la resolución firmada, el contrato y la planilla de pagos, no.
+
+### La palanca
+
+Tomá el pedido que tengas en mente y reescribilo contra el decreto. Donde dice «información sobre», poné el nombre del documento terminado: la resolución, el contrato, el acta, la orden de pago, con número o fecha si los conocés. Pedí el formato de planilla, no el escaneo. Después cargalo en Trámites a Distancia con tu DNI o tu clave fiscal, buscando «Acceso a la Información Pública», y seleccioná el organismo destinatario.
+Guardá el número de trámite el mismo día que lo enviás.
+
+### El puente
+
+[PLANDIG](/planes/plandig) describe el problema desde el otro lado: un Estado que publica para «cumplir con la ley de acceso a la información» sin hacerla accesible. Su Capa 1 de datos abiertos es la que se propone operacionalizar la Ley 27.275.

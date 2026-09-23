@@ -1,0 +1,60 @@
+---
+slug: mapeo-de-actores-y-analisis-de-poder-territorial
+courseSlug: redes-territoriales-barrio-provincia
+title: Mapeo de Actores y Análisis de Poder Territorial
+summary: Identificar quiénes tienen poder en tu territorio y cómo interactúan.
+orderIndex: 2
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/decreto-1172-2003-90763/actualizacion
+    titulo: 'Decreto 1172/2003 — Anexo III, Publicidad de la Gestión de Intereses (texto actualizado)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/interior/secretaria-de-interior/subsecretaria-de-asuntos-politicos/registro-unico-de-audiencias-de
+    titulo: 'Registro Único de Audiencias de Gestión de Intereses (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+## ¿Quién Manda Acá? El Mapa del Poder Real
+
+Antes de construir una red, necesitás entender el **ecosistema de poder** de tu territorio. No el poder formal (el intendente, el concejal), sino el poder real: quién decide, quién bloquea, quién facilita, quién tiene recursos.
+
+### Los Cuatro Cuadrantes del Poder
+
+1. **Poder formal + visible:** Gobierno municipal, concejo deliberante, jueces. Tienen autoridad legal y son visibles.
+2. **Poder formal + invisible:** Burocracia municipal, directores de área, secretarios. Tienen poder real pero no aparecen en los medios.
+3. **Poder informal + visible:** Referentes barriales, líderes religiosos, periodistas locales. No tienen cargo pero tienen influencia.
+4. **Poder informal + invisible:** Empresarios locales, redes de favores, estructuras clientelares. El poder que nadie nombra pero todos conocen.
+
+El segundo cuadrante es el que más se subestima y el más fácil de mapear. El intendente firma, pero el expediente lo mueve un director de área que casi nadie conoce por su nombre. El organigrama del municipio y, donde existe, su boletín oficial dicen quién ocupa cada dirección y desde cuándo. Con esos nombres a mano, una organización deja de pedir «hablar con el municipio» y empieza a pedir una reunión con la persona que efectivamente tiene el expediente sobre el escritorio.
+
+### Cómo Hacer el Mapeo
+
+- Dibujá un mapa grande con los cuatro cuadrantes
+- Con tu grupo, ubicá a cada actor relevante en su cuadrante
+- Dibujá flechas entre actores que tienen relación (alianza, conflicto, dependencia)
+- Identificá: ¿quiénes son potenciales aliados? ¿quiénes son obstáculos? ¿quiénes son neutrales que podrían sumarse?
+
+### Pausa para Reflexionar
+
+Dibujá rápidamente los cuatro cuadrantes del poder en tu municipio o localidad. Ubicá al menos 2 actores en cada cuadrante. ¿Quién está en el cuadrante "informal + invisible" que afecta a tu barrio pero nadie nombra? Ese es el poder que más necesitás entender.
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### La Regla del Interés
+
+Cada actor se mueve por intereses. Antes de acercarte a alguien, preguntate: **¿qué gana esta persona si colabora con nosotros?** Si no podés responder esa pregunta, tu propuesta de alianza va a fracasar.
+
+> *"El Hombre Gris ve lo que otros no ven: las conexiones invisibles de poder. Jugamos el mismo juego cuando entendemos las reglas reales, no solo las escritas."*
+
+### El caso
+
+Desde el Decreto 1172 del 3 de diciembre de 2003, el cuadrante «formal + invisible» del Estado nacional tiene una ventana. Su Anexo III obliga a los funcionarios con rango de director general o superior, de ministros a subsecretarios, a registrar cada audiencia en la que alguien intenta influir en sus decisiones: quién la pidió, qué interés invocó, quiénes participaron, dónde, cuándo y para qué (artículo 6). El artículo 7 establece que esa información es pública y que debe actualizarse a diario y difundirse por internet. Hoy se centraliza en el Registro Único de Audiencias de Gestión de Intereses. Para una parte del poder nacional, las flechas que esta lección te pide dibujar a mano ya están cargadas, con fecha y hora, por los mismos funcionarios.
+
+### La palanca
+
+Elegí el tema de tu mapa —una obra, un permiso, un subsidio— y el organismo nacional que lo decide. Entrá a audiencias.mininterior.gob.ar y fijate quién pidió audiencia con sus funcionarios en el último año y en nombre de qué intereses. Cada nombre que aparezca va a uno de tus cuatro cuadrantes, con una flecha hacia el funcionario. Si el tema es municipal, preguntá en la mesa de entradas de la municipalidad si existe un registro equivalente: si no existe, ese vacío también es un dato del mapa.
+Anotá al menos tres nombres que no sabías que estaban sentados a esa mesa.
+
+### El puente
+
+[La falacia del poder mismo](/ensayos/poder) sostiene que el poder no es una cosa que alguien tiene sino una relación entre los que actúan: por eso el mapa se dibuja con flechas y no con nombres sueltos.

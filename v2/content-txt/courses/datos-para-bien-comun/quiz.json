@@ -1,0 +1,122 @@
+{
+  "title": "Quiz: Datos para el Bien Común",
+  "description": "Evaluá tu capacidad para usar datos como herramienta de transformación.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "¿Qué ley argentina garantiza el acceso a información pública?",
+      "type": "multiple_choice",
+      "options": [
+        "Ley de Medios",
+        "Ley 27.275 de Acceso a la Información Pública",
+        "Ley de Datos Personales",
+        "Ley de Transparencia Fiscal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Ley 27.275 regula el derecho ante sujetos obligados de alcance nacional. Prevé 15 días hábiles y una prórroga excepcional fundada; jurisdicciones locales pueden tener otros regímenes.",
+      "points": 2,
+      "orderIndex": 1
+    },
+    {
+      "question": "Un gráfico de barras es el mejor tipo para mostrar la evolución de un indicador en el tiempo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Para evolución temporal, el gráfico de líneas es más apropiado. Las barras son mejores para comparar categorías.",
+      "points": 1,
+      "orderIndex": 2
+    },
+    {
+      "question": "¿Qué es la ciencia ciudadana?",
+      "type": "multiple_choice",
+      "options": [
+        "Ciencia financiada por los ciudadanos",
+        "Proyectos donde ciudadanos comunes contribuyen a investigaciones científicas con datos",
+        "Ciencia aplicada a problemas urbanos",
+        "Un programa del CONICET"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La ciencia ciudadana involucra a ciudadanos comunes en la recolección de datos científicos, como observar aves o medir calidad del agua.",
+      "points": 2,
+      "orderIndex": 3
+    },
+    {
+      "question": "Si el presupuesto de salud subió un 50% pero la inflación fue del 100%, el presupuesto real de salud aumentó.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Bajo esos supuestos comparables, 1,5 dividido 2 equivale a 0,75: una caída real de 25%. La comparación debe explicitar período, índice, base, etapa presupuestaria y fecha de corte.",
+      "points": 1,
+      "orderIndex": 4
+    },
+    {
+      "question": "¿Cuál es el primer paso del periodismo de datos?",
+      "type": "multiple_choice",
+      "options": [
+        "Descargar datos",
+        "Formular una pregunta concreta",
+        "Hacer gráficos",
+        "Publicar en redes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Todo análisis de datos empieza con una pregunta concreta que guía la búsqueda y el análisis.",
+      "points": 2,
+      "orderIndex": 5
+    },
+    {
+      "question": "Los outputs de inteligencia artificial siempre deben verificarse con fuentes originales.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La IA puede equivocarse o inventar datos. Todo resultado debe verificarse con las fuentes originales.",
+      "points": 1,
+      "orderIndex": 6
+    },
+    {
+      "question": "¿Qué herramienta permite crear mapas temáticos gratuitos con datos geolocalizados?",
+      "type": "multiple_choice",
+      "options": ["Excel", "Google My Maps", "PowerPoint", "WhatsApp"],
+      "correctAnswer": 1,
+      "explanation": "Google My Maps permite crear mapas colaborativos gratuitos con puntos, áreas y datos asociados.",
+      "points": 2,
+      "orderIndex": 7
+    },
+    {
+      "question": "Toda la información contenida en una declaración jurada patrimonial puede publicarse sin límites.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Existe información pública y también resguardos sobre datos sensibles o reservados. Hay que verificar el régimen, el universo de funcionarios, el período y el canal oficial aplicable.",
+      "points": 1,
+      "orderIndex": 8
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Rendición de Cuentas Basada en Datos» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Un caso real trabajado con este foco: Cómo usar datos para exigir transparencia y combatir la corrupción.",
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 9
+    },
+    {
+      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto de Datos: De Este Curso a la Transformación» a una situación real?",
+      "type": "multiple_choice",
+      "options": [
+        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
+        "Un caso real trabajado con este foco: Diseñar y ejecutar tu primer proyecto de datos para el bien común.",
+        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
+        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "points": 1,
+      "orderIndex": 10
+    }
+  ]
+}

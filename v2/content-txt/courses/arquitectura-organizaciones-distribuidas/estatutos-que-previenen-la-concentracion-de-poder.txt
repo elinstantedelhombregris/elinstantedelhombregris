@@ -1,0 +1,63 @@
+---
+slug: estatutos-que-previenen-la-concentracion-de-poder
+courseSlug: arquitectura-organizaciones-distribuidas
+title: Estatutos Que Previenen la Concentración de Poder
+summary: Diseñar documentos fundacionales que distribuyan el poder desde el inicio.
+orderIndex: 9
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/18462/texact.htm
+    titulo: 'Ley 20.337 — Ley de Cooperativas, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## Escribir las Reglas Antes de Que Hagan Falta
+
+Los estatutos no son burocracia: son el **sistema operativo** de tu organización. Las reglas que escribás hoy van a determinar cómo se resuelven los conflictos de mañana. Y es mucho más fácil escribirlas cuando todos se llevan bien.
+
+### Elementos Anti-Concentración Esenciales
+
+- **Mandatos limitados:** Ningún cargo dura más de 2 años. Sin posibilidad de reelección inmediata.
+- **Firmas conjuntas:** Todo movimiento de dinero requiere al menos 2 firmas de personas diferentes.
+- **Transparencia obligatoria:** Las finanzas se publican mensualmente y cualquier miembro puede auditarlas.
+- **Quórum de decisiones:** Las decisiones importantes requieren al menos 2/3 de los miembros activos.
+- **Mecanismo de revocación:** Si un número definido de miembros lo pide, cualquier cargo se somete a revisión.
+
+### Lo Que Debe Incluir el Documento Fundacional
+
+1. Propósito y valores del grupo
+2. Quiénes pueden ser miembros y cómo se ingresa
+3. Estructura de círculos y roles
+4. Cómo se toman decisiones (qué método para qué tipo)
+5. Cómo se manejan las finanzas
+6. Cómo se resuelven conflictos
+7. Cómo se modifican estos acuerdos
+
+### Pausa para Reflexionar
+
+Agarrá una hoja y escribí un borrador de 5 reglas fundacionales para tu organización barrial (real o imaginaria). ¿Incluiste mandatos limitados? ¿Firmas conjuntas? ¿Mecanismo de revocación? Revisá tu lista contra los elementos anti-concentración de esta lección.
+
+*Tomá 3 minutos para anotarlo antes de continuar.*
+
+### Consejo Práctico
+
+No hace falta un abogado ni lenguaje formal. Un documento claro, en lenguaje simple, que todos entiendan, es mejor que un estatuto legal que nadie leyó. Podés formalizarlo después si el grupo crece hacia una asociación civil.
+
+### Lo que el estatuto calla, lo decide el más fuerte
+
+Los modelos de estatuto que circulan por internet suelen ser el mínimo legal, no el diseño que el grupo necesita. Antes de copiar uno, leelo buscando las preguntas de esta lección: cuánto dura cada cargo, si se puede reelegir, quién controla a quien maneja la plata, cómo se revoca un mandato y cómo se cambia el propio estatuto. Cada pregunta sin respuesta es una decisión que se va a tomar igual, llegado el día, y la va a tomar quien tenga más poder en ese momento. Un estatuto escrito cuando todos se llevan bien es la única oportunidad de que esas respuestas las dé el grupo entero.
+
+> *"Las buenas reglas no limitan la libertad: la protegen. Jugamos el mismo juego cuando las reglas son claras y valen para todos por igual."*
+
+### El caso
+
+En la Ley de Cooperativas, 20.337, el límite de los mandatos está escrito con una asimetría que conviene conocer. El artículo 63 dice que la duración del cargo de consejero no puede exceder de tres ejercicios, y agrega que los consejeros son reelegibles salvo prohibición expresa del estatuto. El artículo 76 pone la fiscalización en manos de uno o más síndicos elegidos por la asamblea, también por no más de tres ejercicios, pero reelegibles solo si el estatuto lo autoriza. La diferencia es fina y decisiva: para el consejo, la reelección es la regla y hay que prohibirla por escrito; para el síndico, es la excepción y hay que habilitarla. Un estatuto que no dice nada deja abierta la puerta a un consejo eterno.
+
+### La palanca
+
+Si tu organización tiene estatuto, buscá el artículo que fija la duración de los cargos y mirá qué dice sobre la reelección. Si calla, redactá una reforma de una línea —por ejemplo, un solo período consecutivo— y proponela para la próxima asamblea extraordinaria. Si todavía no tienen estatuto, que esa línea esté en el borrador desde el primer día.
+Fijate hoy qué dice tu estatuto sobre la reelección y anotá el número de artículo.
+
+### El puente
+
+El ensayo [Una arquitectura para el hombre gris](/ensayos/arquitectura) pone los límites de mandato duros y las cláusulas de caducidad entre los mecanismos anti-captura que no se negocian.

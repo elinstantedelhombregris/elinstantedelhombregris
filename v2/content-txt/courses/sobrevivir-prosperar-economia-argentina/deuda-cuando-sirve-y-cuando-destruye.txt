@@ -1,0 +1,55 @@
+---
+slug: deuda-cuando-sirve-y-cuando-destruye
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: 'Deuda: Cuándo Sirve y Cuándo Destruye'
+summary: Entender la deuda como herramienta y sus peligros en contexto inflacionario.
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/335000-339999/335938/norma.htm
+    titulo: 'Decreto 319/2020 — Congelamiento de cuotas de créditos hipotecarios y prendarios UVA (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_266741F036E8.pdf
+    titulo: 'INDEC — Índice de precios al consumidor (IPC), diciembre de 2025'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## La Deuda No Es Mala. La Deuda Mal Usada Es Mala.
+
+En Argentina la deuda tiene un estigma emocional enorme. "No debas nada a nadie" es casi un mandamiento familiar. Pero la realidad es más compleja: en un contexto inflacionario, **la deuda en pesos a tasa fija puede ser una de tus mejores herramientas**.
+
+### Deuda Buena vs. Deuda Mala
+
+- **Deuda buena:** Financia algo que genera ingresos o se valoriza. Un préstamo para una herramienta de trabajo, para un curso que mejore tu empleabilidad, o para un emprendimiento con modelo viable.
+- **Deuda mala:** Financia consumo que se deprecia. Tarjeta de crédito en cuotas para un celular que en 6 meses vale la mitad.
+- **Deuda peligrosa:** Deuda en dólares o a tasa variable sin cobertura. Si sube el dólar o la tasa, tu cuota se dispara.
+
+### La Matemática de la Inflación y la Deuda
+
+Si tomás un préstamo a tasa fija del 80% anual y la inflación es del 120%, en términos reales **estás ganando plata**. La cuota fija que hoy te duele, en 6 meses pesa un tercio menos en tu bolsillo, porque los precios y —con suerte— tu sueldo subieron y ella no. Esto no es magia: es cómo funciona la deuda en un contexto inflacionario.
+
+### La Cuenta Que Hay Que Hacer
+
+La tasa que importa es la real: cuánto pagás por encima de la inflación. Se saca así: uno más la tasa, dividido uno más la inflación, menos uno. Con los números de arriba, 1,80 dividido 2,20 da 0,82, o sea un costo real de 18% negativo. Pero la cuenta se da vuelta sola cuando la inflación baja. El INDEC midió 31,5% para todo 2025: un préstamo a tasa fija del 80% tomado a fines de 2024 costó ese año alrededor de 37% real, y lo que parecía licuación terminó siendo una carga. Antes de celebrar que una deuda se licúa, mirá qué inflación esperás para el plazo que te falta pagar, no la del año que ya pasó.
+
+### Reglas de Oro Para Endeudarte
+
+1. Nunca debas más del 30% de tus ingresos mensuales en cuotas
+2. Evitá deuda en dólares si cobrás en pesos
+3. Leé la letra chica: ¿la tasa es fija o variable? ¿Hay cláusula de ajuste?
+4. Tené siempre un plan B: ¿qué pasa si perdés el trabajo?
+
+### El caso
+
+El 29 de marzo de 2020, con la cuarentena recién empezada, el Decreto 319 congeló hasta el 30 de septiembre las cuotas de los créditos hipotecarios sobre vivienda única y de los prendarios actualizados por UVA: ninguna podía superar la de marzo. La diferencia no se perdonó; el artículo 6 dispuso que se pagara después, en al menos tres cuotas sin intereses. Los considerandos explican el motivo: las restricciones de la pandemia habían reducido los ingresos de los hogares. Es el retrato exacto de la deuda peligrosa de esta lección, una cuota atada a un índice que sigue subiendo mientras el ingreso de quien la paga se frena. Sin plan B propio, hizo falta un decreto.
+
+### La palanca
+
+Hacé la lista de todas tus deudas con cuatro columnas: saldo, cuota, tasa y cómo ajusta —fija, variable, UVA o en dólares—. Las que suben con un índice o con el dólar mientras tu ingreso no sube igual son las primeras a cancelar o refinanciar. Para cada una, pedile al banco o a la tarjeta el costo financiero total por escrito: es el número que compara de verdad, no la tasa del folleto.
+Pedí el CFT de tu deuda más cara antes del viernes.
+
+### El puente
+
+[PLANVIV](/planes/planviv) cuenta la otra punta de esta historia: las líneas hipotecarias UVA indexaron por inflación, eso protegió al banco, y el costo lo absorbió el deudor cuando los salarios quedaron atrás.

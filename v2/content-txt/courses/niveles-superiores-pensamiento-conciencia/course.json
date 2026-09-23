@@ -1,0 +1,121 @@
+{
+  "slug": "niveles-superiores-pensamiento-conciencia",
+  "title": "Perspectivas, Metacognición y Conciencia",
+  "description": "Un laboratorio de seis perspectivas para observar experiencia, vínculos y pensamiento. Usá el modelo como una serie de lentes —no como una escala de superioridad— y contrastá introspección, inferencia y evidencia.",
+  "excerpt": "Practicá seis perspectivas para observar tu pensamiento sin convertirlas en etiquetas ni jerarquías humanas.",
+  "category": "reflection",
+  "level": "advanced",
+  "duration": 34,
+  "orderIndex": 6,
+  "isPublished": true,
+  "isFeatured": true,
+  "requiresAuth": false,
+  "quizFile": "quiz.json",
+  "lessons": [
+    {
+      "key": "02-introduccion-los-niveles-de-conciencia",
+      "title": "Introducción: Seis Perspectivas de Conciencia",
+      "description": "Una introducción a seis perspectivas de pensamiento, sus usos y los límites de ordenarlas como niveles.",
+      "duration": 3,
+      "orderIndex": 1
+    },
+    {
+      "key": "03-primera-persona-el-mundo-como-objetos",
+      "title": "Primera Persona: El Mundo como Objetos",
+      "description": "Explorá qué podés reportar desde tu experiencia y dónde empiezan la interpretación y el sesgo.",
+      "duration": 3,
+      "orderIndex": 2
+    },
+    {
+      "key": "04-segunda-persona-reconociendo-la-interioridad-del-otro",
+      "title": "Segunda Persona: Reconociendo la Interioridad del Otro",
+      "description": "Reconocé que otras personas tienen experiencia propia sin adjudicarles una etapa de desarrollo.",
+      "duration": 4,
+      "orderIndex": 3
+    },
+    {
+      "key": "05-tercera-persona-el-nacimiento-de-la-empatia",
+      "title": "Tercera Persona: El Nacimiento de la Empatía",
+      "description": "Ensayá hipótesis sobre la perspectiva de otra persona sin confundir empatía con lectura de mente.",
+      "duration": 4,
+      "orderIndex": 4
+    },
+    {
+      "key": "06-cuarta-persona-la-puerta-a-la-metacognicion",
+      "title": "Cuarta Persona: La Puerta a la Metacognición",
+      "description": "Observá tu propio pensamiento, sus límites y el margen de elección sobre identidad y valores.",
+      "duration": 3,
+      "orderIndex": 5
+    },
+    {
+      "key": "07-quinta-persona-el-observador",
+      "title": "Quinta Persona: El Observador",
+      "description": "Practicá distancia frente a pensamientos y emociones sin negar su efecto ni convertir al observador en una identidad superior.",
+      "duration": 3,
+      "orderIndex": 6
+    },
+    {
+      "key": "08-sexta-persona-la-conciencia-pura",
+      "title": "Sexta Persona: La Metáfora de la Conciencia Pura",
+      "description": "Explorá la experiencia de presencia como una metáfora contemplativa, no como rango, diagnóstico ni hecho demostrado.",
+      "duration": 3,
+      "orderIndex": 7
+    },
+    {
+      "key": "09-integracion-vivir-desde-los-niveles-superiores",
+      "title": "Integración: Cambiar de Perspectiva sin Escapar",
+      "description": "Integrá las perspectivas en la vida diaria y equilibrá observación, cuerpo, vínculo y participación.",
+      "duration": 4,
+      "orderIndex": 8
+    },
+    {
+      "key": "10-practicas-de-desarrollo-meditacion-y-mindfulness",
+      "title": "Prácticas de Desarrollo: Meditación y Mindfulness",
+      "description": "Probá prácticas breves de atención con criterios de seguridad, registro y pausa si aparece malestar.",
+      "duration": 3,
+      "orderIndex": 9
+    },
+    {
+      "key": "11-transformacion-personal-y-colectiva",
+      "title": "Transformación Personal y Colectiva",
+      "description": "Convertí perspectiva y metacognición en una conversación o decisión que otra persona pueda contrastar.",
+      "duration": 4,
+      "orderIndex": 10
+    }
+  ],
+  "promesa": [
+    "Explorar perspectivas de primera a sexta persona como ejercicios de atención.",
+    "Distinguir experiencia subjetiva, inferencia sobre otros y afirmación verificable.",
+    "Construir una práctica breve de observación y metacognición sin jerarquizar personas."
+  ],
+  "noCubre": [
+    "No diagnostica niveles de conciencia ni demuestra superioridad espiritual.",
+    "No sustituye psicoterapia, atención psiquiátrica ni formación contemplativa acompañada."
+  ],
+  "paraQuien": "Para personas con práctica reflexiva que quieren ampliar perspectiva sin escapar del cuerpo ni del mundo.",
+  "productoFinal": "Un diario de seis perspectivas con registros, sesgos detectados y una práctica personal de catorce días.",
+  "prerrequisitos": ["Capacidad de pausar la práctica si produce malestar intenso."],
+  "coverImage": "/course-art/entrenamientos/niveles-superiores-pensamiento-conciencia.webp",
+  "fuentesBase": [
+    {
+      "url": "https://www.who.int/publications/i/item/9789240003927",
+      "titulo": "OMS · En tiempos de estrés, hacé lo que importa",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://plato.stanford.edu/entries/nietzsche/",
+      "titulo": "Stanford Encyclopedia of Philosophy · Friedrich Nietzsche",
+      "consultada": "2026-08-13"
+    },
+    {
+      "url": "https://plato.stanford.edu/entries/consciousness-neuroscience/",
+      "titulo": "Stanford Encyclopedia of Philosophy · conciencia, introspección y límites metodológicos",
+      "consultada": "2026-08-14"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33593124/",
+      "titulo": "Revisión de 44 metaanálisis · evidencia y límites del mindfulness",
+      "consultada": "2026-08-14"
+    }
+  ]
+}

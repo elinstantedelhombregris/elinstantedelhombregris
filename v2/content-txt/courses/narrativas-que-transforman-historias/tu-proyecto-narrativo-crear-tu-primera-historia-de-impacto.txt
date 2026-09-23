@@ -1,0 +1,77 @@
+---
+slug: tu-proyecto-narrativo-crear-tu-primera-historia-de-impacto
+courseSlug: narrativas-que-transforman-historias
+title: 'Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto'
+summary: 'Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.'
+orderIndex: 10
+draft: false
+cierre: puente
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_03_269225CA3217.pdf
+    titulo: 'INDEC — Incidencia de la pobreza y la indigencia en 31 aglomerados urbanos, segundo semestre de 2025'
+    consultada: '2026-09-22'
+revisarAntesDe: '2026-10-15'
+---
+
+## De la Teoría a la Práctica: Tu Historia, Tu Voz, Tu Impacto
+
+Llegó el momento de poner todo en práctica. Este ejercicio final te guía paso a paso para crear **tu primera historia de impacto**: una pieza narrativa real que puedas publicar y que tenga potencial de generar cambio.
+
+### Paso 1: Elegí Tu Tema
+
+¿Qué tema te importa lo suficiente como para invertir tiempo y energía? Puede ser:
+
+- Un problema de tu barrio que nadie está contando.
+- Una persona o grupo de tu comunidad que está haciendo algo extraordinario.
+- Una injusticia que querés hacer visible.
+- Una solución que funciona y merece ser replicada.
+
+### Paso 2: Investigá
+
+- Hablá con personas afectadas. Escuchá sus historias.
+- Buscá datos que den contexto: ¿cuánta gente está afectada? ¿Cuánto cuesta?
+- Encontrá la historia específica dentro del tema general.
+
+### Dónde Buscar el Dato que Dimensiona
+
+El paso 2 pide datos, y la tentación es sacarlos de un posteo que alguien compartió. No hace falta: la fuente oficial es pública y se lee sin ser especialista.
+
+Para pobreza, el INDEC publica dos veces por año el informe *Incidencia de la pobreza y la indigencia en 31 aglomerados urbanos*, que sale de la Encuesta Permanente de Hogares. El del segundo semestre de 2025, publicado en marzo de 2026, midió un 28,2% de personas bajo la línea de pobreza en el total de los 31 aglomerados: 8,5 millones de personas sobre un universo de 30 millones. Pero el mismo informe trae un cuadro por aglomerado, y ahí la foto cambia: 22,3% en Gran Rosario, 49,9% en Concordia. Para tu historia sirve más el número de tu aglomerado que el promedio del país.
+
+Tres reglas para usar el dato sin traicionar la historia:
+
+1. **Citá la fuente y el período en la misma frase:** «según el INDEC, segundo semestre de 2025».
+2. **No mezcles escalas:** si tu protagonista vive en Concordia, no le pongas al lado el promedio nacional como si fuera el suyo.
+3. **El dato va después de la persona:** primero la persona con nombre, después el número que muestra que no está sola.
+
+### Paso 3: Elegí Tu Formato
+
+- **Texto:** Un artículo de 500-800 palabras para publicar en redes o enviar a un medio.
+- **Video corto:** 60-90 segundos con testimonio directo para Instagram/TikTok.
+- **Audio:** Episodio de podcast de 5-10 minutos.
+- **Hilo de redes:** 5-10 publicaciones encadenadas contando la historia.
+
+### Paso 4: Escribí/Filmá/Grabá
+
+Aplicá todo lo que aprendiste:
+
+1. Gancho poderoso en las primeras líneas/segundos.
+2. Un protagonista con nombre y cara.
+3. Tensión: ¿cuál es el desafío?
+4. Humanidad: detalles específicos que generen empatía.
+5. Contexto: datos que dimensionen el problema.
+6. Cierre con acción: ¿qué puede hacer quien lee/ve/escucha?
+
+### Paso 5: Publicá y Medí
+
+Publicá tu historia. Compartila. Medí el impacto no en likes sino en conversaciones generadas, acciones tomadas, y —lo más importante— en si le hiciste justicia a la historia que contaste.
+
+Antes de publicar, anotá en una línea qué esperás que pase: «que tres vecinos vengan a la reunión del jueves», «que el Concejo conteste el pedido». A las dos semanas, compará lo que anotaste con lo que pasó. Sin esa línea escrita antes, cualquier resultado parece un éxito y no aprendés nada para la próxima historia.
+
+### Tu Compromiso como Narrador del Hombre Gris
+
+> "A partir de hoy, tenés herramientas para contar historias que importan. No son herramientas técnicas solamente: son herramientas de poder ciudadano. Cada historia bien contada es un acto de justicia, un puente de empatía, una semilla de cambio. Usá ese poder con verdad, con respeto y con valentía. El mundo necesita más narradores que iluminen y menos que polaricen."
+
+### El puente
+
+Publicar y medir es la mitad del trabajo: el ciclo que [PLANMESA](/planes/planmesa) le exige a toda intervención termina en analizar la evidencia y decidir qué escala, qué sigue en prueba y qué se descarta con su motivo.

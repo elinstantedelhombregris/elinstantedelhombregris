@@ -1,0 +1,58 @@
+---
+slug: anatomia-de-la-desinformacion-fake-news-propaganda-y-astroturfing
+courseSlug: alfabetismo-mediatico-desinformacion
+title: 'Anatomía de la Desinformación: Fake News, Propaganda y Astroturfing'
+summary: Diferenciar tipos de desinformación y entender cómo se fabrican.
+orderIndex: 3
+draft: false
+cierre: completo
+fuentes:
+  - url: https://about.fb.com/ltam/news/2021/01/informe-de-comportamiento-inautentico-coordinado-de-america-latina-diciembre-de-2020/
+    titulo: 'Informe de Comportamiento Inauténtico Coordinado de América Latina, diciembre de 2020 (Meta)'
+    consultada: '2026-09-22'
+---
+
+## No Todas las Mentiras Son Iguales
+
+La "desinformación" es un término paraguas que cubre fenómenos muy diferentes. Para defenderte, necesitás distinguir **qué tipo de engaño** estás enfrentando.
+
+### Los Tipos de Desinformación
+
+- **Misinformación:** Información falsa compartida sin intención de engañar. Tu tía que reenvía un audio de WhatsApp creyendo que es verdad. Es la más común y la más difícil de combatir porque viene de gente que confiás.
+- **Desinformación:** Información falsa creada deliberadamente para engañar. Granjas de contenido que fabrican noticias falsas para generar clicks (y dinero publicitario) o para manipular opinión.
+- **Propaganda:** Información sesgada diseñada para promover una agenda. No siempre es falsa: puede ser verdadera pero presentada de manera manipuladora (contexto omitido, datos cherry-picked, framing emocional).
+- **Astroturfing:** Crear la ilusión de movimiento espontáneo que en realidad es fabricado. Ejércitos de cuentas falsas que simulan "indignación popular" o "apoyo masivo". En Argentina, todos los partidos lo hacen.
+- **Deepfakes:** Contenido audiovisual manipulado con IA. Videos de políticos diciendo cosas que nunca dijeron. Todavía incipiente en Argentina pero creciendo rápidamente.
+
+### Cómo Se Fabrican
+
+Una operación de desinformación típica:
+
+1. **Se crea un contenido falso o distorsionado.** Puede ser un artículo en un sitio "noticioso" trucho, un video editado, una captura de pantalla fabricada.
+2. **Se amplifica con cuentas coordinadas.** Decenas de cuentas falsas comparten el contenido simultáneamente para que el algoritmo lo detecte como "trending".
+3. **Un influencer o medio lo levanta.** Al ver que "es tendencia", alguien con audiencia real lo comparte.
+4. **La audiencia real lo multiplica.** La gente común lo comparte sin verificar, especialmente si confirma sus creencias previas.
+5. **Se convierte en "verdad" por repetición.** Después de ser compartido miles de veces, muchos lo dan por cierto.
+
+### Red Flags de Desinformación
+
+- Genera una emoción intensa (indignación, miedo, rabia) antes de darte datos.
+- No cita fuentes específicas o cita fuentes que no podés verificar.
+- Usa lenguaje absolutista: "todos", "siempre", "nunca", "destruye".
+- Te presiona a compartir rápido: "compartí antes de que lo censuren".
+- Viene de una fuente que no conocés o de un sitio que imita a uno conocido.
+
+> "En la era de la información, la desinformación es una industria. No es un error: es un negocio y una herramienta de poder. Aprender a reconocerla es tan importante como aprender a leer."
+
+### El caso
+
+En enero de 2021, Facebook —hoy Meta— publicó su informe de comportamiento inauténtico coordinado de diciembre de 2020. Ahí contó que había dado de baja una red originada en la Argentina y dirigida al público local: 663 cuentas de Facebook y 388 de Instagram, seguidas por unas 10.000 cuentas en esta última. Su tarea era amplificar publicaciones y noticias sobre Sergio Berni, ministro de Seguridad bonaerense: publicaban, ponían me gusta y comentaban para que ese contenido pareciera más popular de lo que era. Para pasar por personas, los perfiles ficticios también posteaban sobre hobbies, animales y cocina. La empresa llegó a la red a partir de lo que había publicado un investigador independiente. Es el paso dos de esta lección en estado puro: nadie necesitó inventar un dato falso, alcanzó con fabricar la sensación de que mucha gente aplaudía.
+
+### La palanca
+
+La próxima vez que un tema aparezca de golpe en tendencia, no empieces por el contenido: empezá por quién lo empuja. Abrí los perfiles de las diez cuentas que más lo comparten y anotá tres cosas de cada una: cuándo se creó, si publica algo más que política y si su vida personal parece de una persona o de un catálogo —la mascota, la receta, el paisaje, siempre en el mismo tono—. Diez perfiles alcanzan para ver si hay un patrón.
+Anotá lo que encontraste antes de decidir si lo compartís.
+
+### El puente
+
+Una red que fabrica aplauso trabaja sobre lo que [Conocerse sin espejo](/ensayos/conocerse-sin-espejo) llama la nube de opiniones automatizadas: el ruido prestado que tapa la voz propia y que sólo se distingue con tiempo a solas.

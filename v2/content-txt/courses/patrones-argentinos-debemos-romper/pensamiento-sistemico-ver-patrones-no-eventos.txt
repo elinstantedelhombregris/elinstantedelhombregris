@@ -1,0 +1,56 @@
+---
+slug: pensamiento-sistemico-ver-patrones-no-eventos
+courseSlug: patrones-argentinos-debemos-romper
+title: 'Pensamiento Sistémico: Ver Patrones, No Eventos'
+summary: Introducción al pensamiento sistémico aplicado a la realidad argentina.
+orderIndex: 1
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/70000-74999/70355/norma.htm
+    titulo: 'Decreto 1570/2001 — Entidades financieras (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## De los Titulares a los Patrones
+
+Los noticieros te muestran **eventos**: un dólar que sube, un presidente que decreta, una protesta, un escándalo. Pero los eventos son la superficie. Debajo hay **patrones**: dinámicas que se repiten cíclicamente. Y debajo de los patrones hay **estructuras**: las reglas del juego que generan esos patrones.
+
+Este curso te va a enseñar a ver Argentina con ojos sistémicos: no para predecir el futuro, sino para entender por qué ciertos resultados se repiten y dónde intervenir para cambiarlos.
+
+### Los Tres Niveles de Comprensión
+
+1. **Nivel 1 — Eventos:** "El dólar subió hoy." Reacción emocional. Quejarse en Twitter.
+2. **Nivel 2 — Patrones:** "El dólar sube cada vez que hay déficit fiscal y emisión monetaria." Comprensión de tendencias.
+3. **Nivel 3 — Estructuras:** "El sistema político incentiva el gasto público excesivo porque los beneficios son inmediatos y visibles, mientras los costos son futuros y difusos." Comprensión profunda que permite diseñar intervenciones.
+
+### Herramientas Sistémicas
+
+- **Bucles de retroalimentación:** Cuando A causa B y B refuerza A, tenés un bucle que se amplifica. La inflación genera expectativas de inflación que generan más inflación.
+- **Puntos de apalancamiento:** Lugares del sistema donde una pequeña intervención produce grandes cambios. Donella Meadows identificó 12 niveles de intervención sistémica.
+- **Efectos retardados:** Las consecuencias de muchas decisiones no se ven inmediatamente. El endeudamiento de los 90 explotó en 2001. El daño educativo de una década se ve 20 años después.
+- **Modelo mental:** Las creencias compartidas sobre cómo funciona el mundo. "En Argentina no se puede ahorrar en pesos" es un modelo mental que genera comportamientos que confirman el modelo.
+
+### Aplicación a Argentina
+
+En las siguientes lecciones, vamos a analizar los principales patrones argentinos usando estas herramientas. Para cada patrón identificaremos:
+
+1. Cómo se manifiesta (los eventos que vemos)
+2. La dinámica subyacente (el bucle que lo sostiene)
+3. La causa raíz estructural
+4. Los puntos de apalancamiento para romperlo
+
+> "El pesimista argentino dice 'este país no tiene arreglo'. El optimista ingenuo dice 'con el próximo gobierno se arregla'. El pensador sistémico dice 'estos son los patrones, estas son las palancas, y así se interviene'. El Hombre Gris piensa sistémicamente."
+
+### El caso
+
+El 1 de diciembre de 2001, el Decreto 1570 limitó los retiros en efectivo a 250 pesos o 250 dólares por semana por titular en cada banco, y prohibió las transferencias al exterior salvo las de comercio exterior y algunos gastos con tarjeta. Su propio artículo 9 lo presentaba como transitorio: regía hasta que se cerrara el canje de deuda previsto en otro decreto. Como evento, el corralito duró meses. Como estructura, dejó otra cosa: quien tenía un plazo fijo aprendió esa semana que el banco puede no devolver lo que guardó, y ese aprendizaje se volvió modelo mental. El comportamiento que ese modelo produce —sacar la plata del sistema ante la primera duda— es el mismo que vuelve frágiles a los bancos. El decreto se terminó; el bucle que dejó no necesita decreto para seguir funcionando.
+
+### La palanca
+
+Tomá un titular económico de esta semana —el dólar, una tasa, un anuncio— y bajalo por los tres niveles de la lección. Primero el evento, en una línea. Después buscá si ya pasó antes: las series estadísticas del BCRA y del INDEC tienen décadas de tipo de cambio, depósitos y precios, y casi todo titular tiene un antecedente. Por último, escribí qué regla o qué incentivo hace que se repita. Si no te sale la tercera línea, todavía estás mirando el evento.
+Anotá las tres líneas en un papel y guardalo: dentro de un año vas a poder comprobar cuál acertó.
+
+### El puente
+
+[El bisturí de 1816](/ensayos/el-bisturi-de-1816) hace esta misma lectura sobre la independencia: separa el evento, que se declara en una tarde, del metabolismo, que se construye en generaciones.

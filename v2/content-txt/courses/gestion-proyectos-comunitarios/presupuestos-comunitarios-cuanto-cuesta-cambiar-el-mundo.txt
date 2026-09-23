@@ -1,0 +1,63 @@
+---
+slug: presupuestos-comunitarios-cuanto-cuesta-cambiar-el-mundo
+courseSlug: gestion-proyectos-comunitarios
+title: 'Presupuestos Comunitarios: Cuánto Cuesta Cambiar el Mundo'
+summary: Cómo armar un presupuesto realista para un proyecto sin fines de lucro.
+orderIndex: 2
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_24DBD5D8158C.pdf
+    titulo: 'INDEC — Índice de precios al consumidor, diciembre de 2023'
+    consultada: '2026-09-22'
+---
+
+## El Dinero No Es Todo (Pero Sin Plata No Arrancás)
+
+Uno de los errores más comunes de los proyectos comunitarios es subestimar cuánto cuestan. "Lo hacemos a pulmón" funciona un mes. Después, la gente se cansa, los materiales se acaban, y el proyecto muere. Un **presupuesto honesto** es la columna vertebral de un proyecto sostenible.
+
+### Tipos de Costos
+
+- **Costos directos:** Lo que gastás específicamente en el proyecto. Materiales, transporte, impresiones, refrigerios, honorarios de talleristas.
+- **Costos indirectos:** Los que sostienen la organización. Internet, teléfono, espacio, contador, seguros.
+- **Costos ocultos:** Los que nadie presupuesta. El tiempo de los voluntarios (que aunque no cobren, tiene valor), el desgaste de equipos personales, las comidas durante jornadas largas.
+- **Costos de contingencia:** Siempre sumá un 10-15% para imprevistos. En Argentina, los imprevistos son la regla.
+
+### Modelo de Presupuesto
+
+| Rubro | Detalle | Cantidad | Costo unitario | Total |
+|---|---|---:|---:|---:|
+| Materiales | Útiles escolares | 60 kits | $5.000 | $300.000 |
+| Merienda | Leche + galletitas | 120 días | $8.000 | $960.000 |
+| Capacitación | Taller para voluntarios | 2 jornadas | $50.000 | $100.000 |
+| Contingencia | 10% | — | — | $136.000 |
+| **Total del ejemplo** |  |  |  | **$1.496.000** |
+
+> Cifras ilustrativas: no son precios vigentes ni una cotización. Reemplazalas con tres presupuestos fechados de tu localidad antes de tomar una decisión.
+
+### Fuentes de Financiamiento
+
+- **Autofinanciamiento:** Rifas, eventos, venta de productos. Genera autonomía pero requiere esfuerzo.
+- **Donaciones:** Comercios del barrio, profesionales, ex-alumnos. Pedí cosas concretas: "Necesitamos 60 carpetas" en vez de "necesitamos plata."
+- **Subsidios públicos:** Municipio, provincia, nación. Hay programas para casi todo — el desafío es enterarte y postularte.
+- **Fondos de cooperación:** Embajadas, organizaciones internacionales, empresas con programas de RSE.
+- **Crowdfunding:** Plataformas como Ideame. Funcionan mejor si tenés buena comunicación visual.
+
+### Cada rubro, con su fecha y su índice
+
+Un presupuesto argentino sin fecha es una foto sin epígrafe: nadie sabe de cuándo es. Al lado de cada rubro anotá el día en que conseguiste el precio y quién te lo dio. Y cuando lo actualices, no uses el mismo número para todo, porque los precios no suben parejo. En diciembre de 2023, el mes en que el nivel general del IPC subió 25,5%, Alimentos y bebidas no alcohólicas subió 29,7% y Educación, 6,2%. En el modelo de arriba, la merienda y los útiles viven en esas dos divisiones: aplicarles el mismo ajuste habría dejado la merienda corta y los útiles sobrados. El INDEC publica el índice por división y por región justamente para eso: usá la que le corresponde a cada rubro.
+
+> "Un presupuesto no es una planilla aburrida: es la traducción de tu sueño al idioma de la realidad. Cuando sabés cuánto cuesta, podés empezar a buscar cómo financiarlo."
+
+### El caso
+
+El informe del INDEC sobre diciembre de 2023 cerró el año con los precios al consumidor 211,4% por encima de doce meses antes, y 25,5% por encima de noviembre. Llevalo al modelo de esta lección: si sus rubros hubieran seguido el promedio, los $1.496.000 cotizados a fines de 2022 habrían necesitado cerca de $4.660.000 para comprar lo mismo a fines de 2023. Y la contingencia del 10%, que en un año tranquilo cubre una rotura o un faltante, a un ritmo de 25,5% mensual se consume en menos de dos semanas. Un proyecto que ese año presupuestó en pesos de enero y gastó en pesos de diciembre no se quedó sin plata: se quedó sin fecha.
+
+### La palanca
+
+Abrí la planilla del proyecto y sumale dos columnas: fecha de la cotización y división del IPC que le corresponde a cada rubro. Todo precio con más de treinta días se vuelve a pedir antes de comprometer una compra o de mandárselo a un financiador. Si pedís un subsidio, dejá escrito en la propuesta cómo vas a actualizar los montos entre la presentación y el cobro: quien evalúa sabe que ese plazo existe.
+Entrá a indec.gob.ar, bajá el último informe del IPC y anotá la variación mensual de las divisiones que pesan en tu presupuesto.
+
+### El puente
+
+Un presupuesto honesto también se muestra. [PLANSAL](/planes/plansal) le pide a cada Centro de Vitalidad publicar todos los meses, en una cartelera física, ingresos, gastos y saldo, y que cualquier vecino pueda pedir explicación de cualquier gasto.

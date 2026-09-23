@@ -1,0 +1,58 @@
+---
+slug: herramientas-digitales-de-gestion-financiera
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: Herramientas Digitales de Gestión Financiera
+summary: Apps y herramientas para gestionar tus finanzas en Argentina.
+orderIndex: 11
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.bcra.gob.ar/regimen-de-transparencia/
+    titulo: 'BCRA — Régimen de Transparencia: productos financieros para comparar'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## Tu Celular: Tu Mejor Asesor Financiero
+
+No necesitás un contador para llevar tus finanzas en orden. Con las herramientas digitales adecuadas, podés tener **control total de tu plata** desde el celular.
+
+### Apps de Presupuesto y Gastos
+
+- **Wallet by BudgetBakers:** Categoriza gastos, sincroniza con cuentas bancarias, muestra gráficos claros
+- **Monefy:** Súper simple. Registrás cada gasto en 5 segundos. Ideal para empezar.
+- **Google Sheets:** Si preferís armar tu propio sistema, una planilla compartida (con tu pareja o familia) es imbatible.
+
+### Apps de Inversión (Brokers Online)
+
+- **IOL (InvertirOnline):** El más usado. Interfaz clara, comisiones razonables, buen servicio al cliente.
+- **Bull Market:** Interfaz moderna, FCI propios, ideal para principiantes.
+- **Balanz:** Buena oferta de CEDEARs y bonos. Interfaz intuitiva.
+
+### Herramientas de Información
+
+- **DolarHoy:** Cotizaciones en tiempo real de todas las variantes del dólar
+- **App de ARCA:** Para monotributistas, facturación electrónica desde el celular
+
+### Antes de Darle Tus Datos a una App
+
+Una app que sincroniza con tus cuentas necesita ver tus movimientos, y a veces te pide las claves. Antes de instalarla, fijate tres cosas: quién la hace y dónde guarda lo que carga, si podés exportar tus datos para no quedar atado a ella, y si te pide la clave del home banking. Una clave compartida con un tercero es una puerta que ya no controlás, y el día que algo sale mal, reclamar se vuelve cuesta arriba. Para empezar alcanza con una planilla propia o una app que no se conecte a nada: el valor no está en la sincronización automática, está en que mires tus números una vez por semana.
+
+### El Hábito Más Importante
+
+La herramienta no importa si no la usás. El hábito que necesitás construir: **registrar cada gasto, todos los días**. Tardás 30 segundos. Después de un mes de registro, vas a ver por primera vez a dónde va realmente tu plata. Y ese conocimiento es poder.
+
+Un truco que funciona: registrá en el momento, no a la noche. El gasto que se anota después se olvida, y los que se olvidan son siempre los chicos —el café, la carga de la SUBE, la propina—, que sumados a fin de mes pesan más de lo que uno cree. Una vez por semana, diez minutos, mirá el total por categoría y comparalo con la semana anterior. Ahí aparecen los patrones que ninguna app te va a marcar sola.
+
+### El caso
+
+El BCRA publica, en el sitio de su Régimen de Transparencia, la información que las entidades financieras le reportan sobre 7 productos: cajas de ahorros, paquetes, plazos fijos, préstamos hipotecarios para vivienda, personales, prendarios y tarjetas de crédito. Se descarga en planillas y sirve para comparar tasas, características y condiciones de todos los bancos lado a lado. No es una app, no se instala y no vende nada: es el dato que los bancos informan al regulador. Frente a una aplicación que te muestra el producto que más le conviene a quien la hizo, es la comparación sin intermediarios, con los números que cada banco le informó al Banco Central.
+
+### La palanca
+
+Elegí el producto financiero que más usás —casi siempre la tarjeta de crédito o la caja de ahorros— y bajá la planilla correspondiente del Régimen de Transparencia. Buscá tu banco y otros dos, y poné en una columna lo que cobra cada uno. Si pagás mantenimiento por un paquete que no usás, esa diferencia es plata que se te va todos los meses sin que la registres.
+Entrá al sitio del BCRA y bajá la planilla de tu producto antes del fin de semana.
+
+### El puente
+
+Cada app que registra tus gastos guarda en algún servidor un retrato de tu vida. [PLANDIG](/planes/plandig) parte de ese dato a escala país —los datos argentinos viven en servidores extranjeros— y propone construir un sistema digital soberano.

@@ -1,0 +1,56 @@
+---
+slug: la-decada-infame-fraude-dependencia-y-exclusion
+courseSlug: argentina-1810-1945-sistema-que-construimos
+title: 'La Década Infame: Fraude, Dependencia y Exclusión'
+summary: Los años 30 como laboratorio de todos los vicios del sistema argentino.
+orderIndex: 11
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.infobae.com/sociedad/2022/07/23/el-asesinato-de-enzo-bordabehere-en-el-senado-dos-balas-por-la-espalda-y-la-lucha-en-soledad-de-de-la-torre/
+    titulo: 'Infobae — El asesinato de Enzo Bordabehere en el Senado: dos balas por la espalda y la lucha en soledad de De la Torre'
+    consultada: '2026-09-22'
+  - url: https://www.cancilleria.gob.ar/es/institucional/patrimonio/archivo-historico-de-cancilleria/las-penas-y-las-vaquitas-90-anos-del
+    titulo: 'Cancillería argentina, Archivo Histórico — Las penas y las vaquitas. A 90 años del tratado Roca-Runciman'
+    consultada: '2026-09-22'
+---
+
+## El Nombre Lo Dice Todo
+
+El período 1930-1943 es conocido como la **"Década Infame"**. No porque todo haya sido malo (hubo crecimiento industrial, modernización urbana, una edad de oro cultural), sino porque el sistema político se basó en el **fraude sistemático**, la corrupción estructural y la subordinación a los intereses británicos.
+
+### El "Fraude Patriótico"
+
+Los conservadores que volvieron al poder después del golpe de 1930 sabían que no podían ganar elecciones limpias. Entonces inventaron el concepto de **"fraude patriótico"**: hacer trampa electoral estaba justificado para evitar que los radicales (el pueblo) volvieran al poder. Es un ejemplo perfecto de cómo las élites racionalizan la corrupción del sistema.
+
+- Urnas rellenas antes de abrir las mesas
+- Votantes muertos que aparecían en los padrones
+- Punteros armados intimidando en los comicios
+- Jueces cómplices que avalaban resultados fraudulentos
+
+### El Pacto Roca-Runciman (1933)
+
+Este tratado comercial con Gran Bretaña es el símbolo de la dependencia económica. A cambio de mantener las cuotas de carne, Argentina concedió un trato preferencial a los productos y empresas británicas. El senador Lisandro de la Torre denunció el negociado de las carnes y casi fue asesinado en el recinto del Senado (su colega Enzo Bordabehere murió en su lugar).
+
+El texto tenía letra chica. Se firmó en Londres el 1 de mayo de 1933, entre Julio A. Roca (hijo) y Walter Runciman. Fijaba un máximo del 15 % de la distribución de la cuota de carnes para los frigoríficos argentinos: el resto quedaba en manos de frigoríficos extranjeros. Y comprometía las libras que el país ganaba exportando al Reino Unido a cubrir las remesas de las empresas británicas. No hizo falta ocupar ningún territorio: alcanzó con decidir quién faenaba y a quién se le pagaba primero.
+
+### La Industrialización por Sustitución
+
+Paradójicamente, la crisis mundial y la Segunda Guerra Mundial forzaron una **transformación positiva**: como Argentina no podía importar manufacturas de Europa, empezó a fabricarlas. Nacieron industrias textiles, alimenticias, metalúrgicas. Surgió una **clase obrera industrial** en el Gran Buenos Aires que sería decisiva en la historia posterior.
+
+### La Lección de la Década Infame
+
+> "Cuando la democracia es una fachada, el sistema genera anticuerpos. La clase obrera que creció en los márgenes del fraude conservador fue la base social que llevó a Perón al poder. Los sistemas excluidos no desaparecen: acumulan energía hasta que encuentran un canal de expresión."
+
+### El caso
+
+El 23 de julio de 1935, a las 16:30, en el recinto del Senado, Ramón Valdez Cora —ex comisario, pistolero al servicio del conservadurismo— disparó contra el grupo que rodeaba a Lisandro de la Torre. De la Torre venía denunciando la evasión de los frigoríficos y la complicidad del Estado en el negocio de las carnes, con los ministros Luis Duhau y Federico Pinedo sentados enfrente para rebatirlo. Las balas le dieron a Enzo Bordabehere, senador electo por Santa Fe, que se había interpuesto para cubrir a su compañero: dos en la espalda y una en el pecho. Murió esa misma tarde en el Hospital Ramos Mejía. Valdez Cora fue condenado a veinte años y salió en 1953. De la Torre renunció a su banca en enero de 1937.
+
+### La palanca
+
+El fraude patriótico necesitaba gente en cada eslabón: el que rellenaba la urna, el que miraba, el juez que firmaba. La defensa también es gente. La Justicia Nacional Electoral tiene un portal para autoridades de mesa donde podés inscribirte como postulante voluntario y hacer la capacitación virtual. Si no te convocan, igual aprendiste cómo se abre, se cuida y se cierra una mesa, y la próxima vez que votes vas a mirar el acta con otros ojos.
+Sumate como postulante en el portal de autoridades de mesa de padron.gob.ar antes de la próxima elección.
+
+### El puente
+
+Roca-Runciman no movió una sola frontera y aun así decidió quién ganaba con la carne argentina. [Soberanía](/ensayos/soberania) hace esa cuenta para hoy, con la identidad, la plata y la memoria.

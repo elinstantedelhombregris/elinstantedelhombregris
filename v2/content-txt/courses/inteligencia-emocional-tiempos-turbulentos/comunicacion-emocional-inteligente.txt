@@ -1,0 +1,68 @@
+---
+slug: comunicacion-emocional-inteligente
+courseSlug: inteligencia-emocional-tiempos-turbulentos
+title: Comunicación Emocional Inteligente
+summary: Aprendé a expresar lo que sentís de manera que construya puentes en vez de muros.
+orderIndex: 8
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/165000-169999/166999/texact.htm
+    titulo: 'Ley 26.589 — Mediación y Conciliación, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## Decir lo que Sentís Sin Destruir Relaciones
+
+La comunicación emocional es el puente entre tu mundo interior y el mundo exterior. En Argentina, donde la comunicación tiende a ser **apasionada, indirecta y cargada de sobreentendidos**, aprender a comunicar emociones con claridad es un superpoder.
+
+### El Modelo de Comunicación No Violenta (CNV)
+
+Marshall Rosenberg desarrolló un modelo de cuatro pasos que transforma la comunicación:
+
+1. **Observación (sin juicio):** Describir lo que pasó como lo haría una cámara de video. "Cuando llegaste 40 minutos tarde..." (no "Cuando siempre llegás tarde como un irresponsable...")
+2. **Sentimiento:** Expresar la emoción que eso generó en vos. "Me sentí preocupado y frustrado..." (no "Me hiciste enojar...")
+3. **Necesidad:** Conectar esa emoción con una necesidad no satisfecha. "...porque necesito sentir que mi tiempo es respetado..."
+4. **Pedido (no exigencia):** Hacer un pedido concreto y realizable. "¿Podríamos acordar avisarnos si vamos a llegar tarde?"
+
+> "La comunicación del Hombre Gris no busca ganar discusiones sino construir entendimiento. En un país acostumbrado al grito, hablar con precisión emocional es un acto de coraje."
+
+### Errores Comunicacionales Típicos Argentinos
+
+- **El sarcasmo como escudo:** Usar el humor para decir verdades dolorosas sin hacerse cargo. "No, está todo bien..." (cuando nada está bien).
+- **La generalización:** "Siempre hacés lo mismo" o "Nunca me escuchás". Esto activa la defensiva del otro inmediatamente.
+- **El "vos-mensaje":** "Vos sos un insensible" en vez de "yo me sentí ignorado". El primero ataca, el segundo informa.
+- **El tratamiento silencioso:** Dejar de hablar como castigo. Es una forma de violencia emocional pasiva.
+- **La escalada competitiva:** "¿A vos te fue mal? ¡A mí me fue peor!" Competir por el sufrimiento destruye la conexión.
+
+### Comunicación en Contextos Difíciles
+
+**En la mesa familiar con tema político:**
+
+- Antes de hablar, preguntate: "¿Quiero convencer o quiero conectar?"
+- Usá "yo pienso" en vez de "la realidad es". Nadie tiene el monopolio de la realidad.
+- Validá antes de diferir: "Entiendo por qué pensás así. Mi experiencia me lleva a ver algo diferente."
+
+**En el trabajo con un jefe difícil:**
+
+- Separá el problema de la persona: "El proceso tiene una dificultad" vs "Vos creaste un problema".
+- Ofrecé alternativas, no solo quejas: "Vi este problema y se me ocurren dos posibles soluciones."
+
+**En la pareja:**
+
+- La investigación de John Gottman muestra que las parejas exitosas tienen una proporción de 5 interacciones positivas por cada 1 negativa.
+- Evitá los "cuatro jinetes del apocalipsis relacional": crítica, desprecio, defensividad y obstrucción.
+
+### Cuando la ley obliga a sentarse a hablar
+
+La Ley 26.589, sancionada el 15 de abril de 2010, establece «con carácter obligatorio la mediación previa a todo proceso judicial», y no deja iniciar la demanda sin el acta firmada por el mediador. El artículo 1 dice para qué: el procedimiento «promoverá la comunicación directa entre las partes». Entre sus principios figuran la imparcialidad del mediador y la libertad de las partes para participar.
+
+La ley no puede obligar a nadie a ponerse de acuerdo. Lo que hace es interponer una conversación con reglas entre el conflicto y la sentencia, con alguien neutral y un espacio para decir qué pasó antes de que decida un juez. Es la lógica de la comunicación no violenta llevada a un expediente. Si el sistema judicial se da un paso así antes de pelear, una mesa familiar también puede dárselo: describir el hecho, decir lo que sentiste y pedir algo concreto antes de que la discusión escale.
+
+### Ejercicio: Reformulá Tres Frases
+
+Tomá tres cosas que dijiste (o pensaste) esta semana que generaron conflicto y reformulalas usando el modelo CNV de cuatro pasos. Notá cómo cambia la energía de la comunicación cuando pasás del ataque a la expresión vulnerable.
+
+### El puente
+
+[La mesa, hacia atrás y hacia adelante](/ensayos/la-mesa) propone un acuerdo escrito para la mesa familiar: se pelea de frente y se repara antes de dormir. Es la versión doméstica de lo que esta lección entrena: decir las cosas de frente en vez de mandarlas por el sarcasmo o el silencio.

@@ -1,0 +1,68 @@
+---
+slug: tu-historia-personal-como-herramienta-de-cambio
+courseSlug: narrativas-que-transforman-historias
+title: Tu Historia Personal como Herramienta de Cambio
+summary: Descubrir y contar tu propia historia para conectar e inspirar.
+orderIndex: 3
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/310000-314999/312715/norma.htm
+    titulo: 'Ley 27.447 — Trasplante de órganos, tejidos y células (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/noticias/ley-justina-una-esperanza-para-quienes-aguardan-un-trasplante
+    titulo: 'Ley Justina: una esperanza para quienes aguardan un trasplante (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+
+## La Historia Más Poderosa Es la Tuya
+
+No necesitás ir a buscar historias lejos. La historia más **auténtica, creíble y poderosa** que podés contar es la tuya propia. Tu experiencia de vida, los momentos que te marcaron, los obstáculos que enfrentaste, las cosas que aprendiste.
+
+### La "Story of Self" (Historia de Uno Mismo)
+
+Marshall Ganz, profesor de Harvard y organizador social, desarrolló un framework de tres historias para la acción colectiva:
+
+1. **Story of Self:** ¿Qué experiencias de tu vida te llevaron a involucrarte en esta causa? ¿Qué momento fue el punto de inflexión?
+2. **Story of Us:** ¿Qué valores compartimos como comunidad? ¿Qué experiencias colectivas nos definen?
+3. **Story of Now:** ¿Por qué es urgente actuar ahora? ¿Qué está en juego si no actuamos?
+
+### Ejercicio: Encontrar Tu Historia
+
+Respondé estas preguntas por escrito (sin filtro, sin editar, solo escribí):
+
+- ¿Cuándo fue la primera vez que sentiste que algo era profundamente injusto?
+- ¿Hubo un momento en que alguien cambió tu vida con una acción simple?
+- ¿Qué te hizo enojar tanto que decidiste hacer algo?
+- ¿Quién es la persona que más admirás y por qué?
+- ¿Cuál fue el momento más difícil de tu vida y qué aprendiste?
+
+En esas respuestas hay material para una historia poderosa. No necesitás haber vivido algo extraordinario. Las historias más transformadoras son las más **humanas y universales**.
+
+### Cómo Contar Tu Historia
+
+1. **Empezá por un momento concreto:** No "siempre me importó la justicia social". Sí: "Tenía 12 años y vi cómo desalojaban a la familia de mi compañero de escuela."
+2. **Mostrá vulnerabilidad:** No sos un superhéroe. Mostrá tus dudas, tus miedos, tus errores. La vulnerabilidad genera conexión.
+3. **Conectá con lo universal:** Tu historia personal es la puerta de entrada a un tema que afecta a muchos.
+
+### Tres Historias en una Ley: el Caso Justina
+
+El marco de Ganz no es teoría de aula. En la Argentina tiene un ejemplo con número de ley.
+
+Justina Lo Cane tenía 12 años y murió el 22 de noviembre de 2017 esperando un trasplante de corazón. Mientras esperaba, su padre, Ezequiel Lo Cane, encabezó una campaña que se llamó «Multiplicate x Siete»: la idea era que un donante se multiplica por siete al momento de partir.
+
+Mirala con las tres historias:
+
+- **Story of Self:** una familia que cuenta lo que le está pasando, con nombre y apellido, sin esconder el miedo.
+- **Story of Us:** el siete convierte un drama privado en una cuenta que incluye a quien lee. Cualquiera puede ser el que dona o el que espera.
+- **Story of Now:** la espera tiene plazo, y el plazo es el de una chica internada.
+
+La Ley 27.447 de trasplante de órganos, tejidos y células se sancionó el 4 de julio de 2018 y se promulgó el 26 de julio. Su artículo 33 establece que toda persona mayor de 18 años puede ser donante después de su muerte salvo que haya dejado constancia expresa de su oposición, y el artículo 32 fija dónde se deja esa constancia: el INCUCAI, el RENAPER, los registros del estado civil, las autoridades sanitarias de cada jurisdicción o el Correo Oficial. Antes de esa ley pesaba el consentimiento de los familiares, que tenían que decidir en el peor momento posible.
+
+Lo que te sirve de este caso no es el tamaño del resultado sino el mecanismo. La historia no pidió lástima: pidió una acción que cualquiera podía hacer. Y la historia de una sola familia fue la puerta de entrada a un problema que toca a todos los que están en una lista de espera.
+
+> "Tu historia no necesita ser espectacular. Necesita ser verdadera. La autenticidad se siente, y en un mundo de marketing y propaganda, la verdad es revolucionaria."
+
+### El puente
+
+Contar la propia historia empieza por mirar un momento, no por repetir un relato ya armado: [Conocerse sin espejo](/ensayos/conocerse-sin-espejo) distingue entre analizarse, que es construir un relato sobre uno mismo, y observarse, que es ver antes de explicar.

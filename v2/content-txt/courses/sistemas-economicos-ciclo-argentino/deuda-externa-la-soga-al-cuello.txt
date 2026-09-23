@@ -1,0 +1,64 @@
+---
+slug: deuda-externa-la-soga-al-cuello
+courseSlug: sistemas-economicos-ciclo-argentino
+title: 'Deuda Externa: La Soga al Cuello'
+summary: La historia de la deuda argentina como patrón sistémico recurrente.
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/345000-349999/347532/norma.htm
+    titulo: 'Ley 27.612 — Fortalecimiento de la Sostenibilidad de la Deuda Pública (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.boletinoficial.gob.ar/detalleAviso/primera/322325/20250311
+    titulo: 'Boletín Oficial — Decreto 179/2025'
+    consultada: '2026-09-22'
+  - url: https://www.hcdn.gob.ar/prensa/noticia/LA-CAMARA-DE-DIPUTADOS-APROBO-EL-DNU-SOBRE-EL-ACUERDO-CON-EL-FONDO-MONETARIO-INTERNACIONAL/
+    titulo: 'Cámara de Diputados — La Cámara aprobó el DNU sobre el acuerdo con el FMI'
+    consultada: '2026-09-22'
+---
+
+## 200 Años Debiendo
+
+El primer préstamo externo de Argentina fue en 1824 (Baring Brothers). Tardamos 80 años en pagarlo. Desde entonces, el ciclo de endeudamiento-crisis-reestructuración se repitió tantas veces que podríamos enseñarlo como un bucle de programación: `while(true) { endeudar(); crisis(); reestructurar(); }`
+
+### El Ciclo de la Deuda
+
+1. **Fase de acceso:** Argentina tiene "buen crédito". Los mercados prestan alegremente. Los gobiernos se endeudan porque es más fácil que ajustar o recaudar.
+2. **Fase de acumulación:** La deuda crece más rápido que la economía. Los intereses se pagan con más deuda. La bola de nieve crece.
+3. **Fase de desconfianza:** Los prestamistas empiezan a dudar de la capacidad de pago. Suben la tasa de interés. La deuda se encarece.
+4. **Fase de crisis:** Argentina no puede pagar. Default, devaluación, crisis social.
+5. **Fase de reestructuración:** Se negocia con los acreedores una quita y extensión de plazos. Argentina recupera acceso al crédito.
+6. **Vuelta al paso 1.**
+
+### Los Defaults Argentinos
+
+- **1890:** Crisis de la banca Baring. Argentina casi quiebra al sistema financiero británico.
+- **1982:** La deuda de la dictadura militar. Se estataliza la deuda privada (los contribuyentes pagan la deuda de las empresas).
+- **2001:** El default más grande de la historia mundial hasta ese momento (~100.000 millones de dólares).
+- **2005 y 2010:** Canjes de la deuda en default.
+- **2014:** Default selectivo, tras el fallo del juez Griesa a favor de los fondos que no entraron al canje.
+- **2020:** Nueva reestructuración, bajo otro gobierno.
+
+### Deber en una Moneda que No Emitís
+
+Hay una diferencia que el ciclo esconde: no es lo mismo deber pesos que deber dólares. Una deuda en pesos el Estado la puede pagar, en el peor de los casos, emitiendo, con el costo en inflación que viste en otra lección. Una deuda en dólares sólo se paga con dólares, y los dólares salen de exportar más de lo que se importa, de que entren capitales o de pedir prestado otra vez. Por eso la deuda externa y el stop-go son el mismo bucle mirado desde dos lados: cuando la fase go agota las divisas, los vencimientos en moneda extranjera llegan justo cuando no hay con qué pagarlos, y la reestructuración deja de ser una opción para ser la única salida.
+
+### ¿Es Siempre Mala la Deuda?
+
+No. Endeudarse para invertir en infraestructura, educación o tecnología que aumenten la capacidad productiva puede ser excelente. El problema es endeudarse para **financiar gasto corriente** (sueldos, subsidios) que no genera capacidad de repago.
+
+> "Endeudarte para construir una ruta que conecte una zona productiva con el puerto es inversión. Endeudarte para pagar sueldos este mes es posponer el problema al mes que viene. Argentina hizo mucho más de lo segundo que de lo primero."
+
+### El caso
+
+En febrero de 2021 el Congreso sancionó la Ley 27.612 para frenar el paso 1 del ciclo de esta lección. Su artículo 2 exige que todo programa de financiamiento con el FMI tenga una ley del Congreso que lo apruebe expresamente; su artículo 3 prohíbe usar esa deuda para pagar gastos primarios corrientes, salvo los extraordinarios. Cuatro años después, el Boletín Oficial del 11 de marzo de 2025 publicó el Decreto de Necesidad y Urgencia 179/2025, que aprobó las operaciones de crédito del nuevo Programa de Facilidades Extendidas con el Fondo sin fijar un monto en su artículo 1. El 19 de marzo Diputados lo convalidó con 129 votos a favor, 108 en contra y 6 abstenciones. La ley pedía una ley; lo que llegó fue un decreto convalidado por una votación de Diputados.
+
+### La palanca
+
+Entrá a la página de Datos trimestrales de la deuda del Ministerio de Economía y abrí el informe gráfico del último trimestre publicado. Buscá tres números: cuánto se le debe a organismos internacionales, qué parte de la deuda está en moneda extranjera y qué parte bajo legislación extranjera. Son exactamente los tres frentes que la Ley 27.612 quiso poner bajo la mirada del Congreso.
+Guardá el informe y compará esos tres números con los del mismo trimestre del año anterior.
+
+### El puente
+
+El primero de los reyes sin retrato que censa [La independencia ficticia](/ensayos/la-independencia-ficticia) es el acreedor: un país endeudado en moneda ajena tiene sus decisiones de fondo condicionadas desde afuera.

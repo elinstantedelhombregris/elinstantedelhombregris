@@ -1,0 +1,56 @@
+---
+slug: el-ciclo-stop-go-la-montana-rusa-que-no-para
+courseSlug: sistemas-economicos-ciclo-argentino
+title: 'El Ciclo Stop-Go: La Montaña Rusa que No Para'
+summary: El patrón económico central de Argentina analizado en profundidad.
+orderIndex: 4
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-25152-60039/texto
+    titulo: 'Ley 25.152 — Administración federal de los recursos públicos, texto original (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-25152-60039/actualizacion
+    titulo: 'Ley 25.152 — texto actualizado, con las suspensiones del Fondo Anticíclico Fiscal (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+
+## 70 Años Subiendo y Bajando
+
+Desde mediados del siglo XX, Argentina repite un ciclo económico que los economistas llaman **stop-go**: fases de expansión (go) seguidas inevitablemente de crisis y ajuste (stop). El ciclo tiene una regularidad casi mecánica.
+
+### El Ciclo en Detalle
+
+1. **Fase GO — Expansión:** El gobierno aumenta el gasto público (subsidios, obra pública, empleo estatal). Suben los salarios reales. Crece el consumo. Cae el desempleo. Todos contentos. Los indicadores sociales mejoran.
+2. **Fase de tensión:** El consumo creciente demanda más importaciones (insumos, energía, bienes de consumo). Argentina necesita más dólares para importar, pero la producción exportable no creció al mismo ritmo.
+3. **Fase de crisis:** Las reservas de dólares se agotan. El peso se devalúa. Los precios se disparan. Los salarios reales caen. Aumenta la pobreza. La política del "bienestar" se convierte en crisis.
+4. **Fase STOP — Ajuste:** Se reduce el gasto, se sube la tasa de interés, se devalúa (más). La economía se enfría. Hay recesión y desempleo.
+5. **Fase de recuperación:** Con la economía enfriada, los precios se estabilizan, las cuentas externas mejoran, se acumulan reservas. Y un nuevo gobierno (o el mismo presionado) vuelve a expandir...
+
+### ¿Por Qué Argentina Específicamente?
+
+El stop-go es más intenso en Argentina que en otros países por razones estructurales:
+
+- **Restricción externa:** Argentina exporta commodities (soja, trigo, carne) pero necesita importar energía, tecnología e insumos. Cuando crece, se le acaban los dólares más rápido de lo que los genera.
+- **Baja complejidad exportadora:** Exportar soja no requiere innovación ni empleo masivo. Sin diversificación, el crecimiento genera más importaciones que exportaciones.
+- **Incentivos políticos:** Ganar elecciones requiere mostrar resultados económicos inmediatos. La expansión da votos; el ajuste no.
+- **Ausencia de estabilizadores automáticos:** Otros países tienen fondos contracíclicos que ahorran en bonanza y gastan en crisis. Argentina gasta en ambos momentos.
+
+### Romper el Ciclo
+
+La única salida conocida es **cambiar la estructura productiva**: exportar más cosas de mayor valor para que el crecimiento no agote los dólares. Esto requiere inversión en educación, ciencia, tecnología e infraestructura sostenida durante décadas. Exactamente lo que el péndulo político impide.
+
+> "El ciclo stop-go no es mala suerte ni incompetencia: es el resultado predecible de una estructura económica que nadie se atreve a transformar de fondo porque la transformación tarda más que un mandato presidencial."
+
+### El caso
+
+En agosto de 1999 el Congreso sancionó la Ley 25.152, y su artículo 9 creó el Fondo Anticíclico Fiscal: la mitad de lo recaudado por privatizaciones y concesiones, más una porción de los superávits de cada año, guardada para gastar cuando el ciclo se diera vuelta. Es el estabilizador que esta lección echa de menos, escrito con número de ley. El texto actualizado registra qué pasó después: la integración del fondo se dejó sin efecto ejercicio tras ejercicio, por decreto o por ley de presupuesto. La Ley 27.591 lo suspendió para 2021, la 27.701 para 2023 y la 27.798, publicada el 2 de enero de 2026, para 2026. El candado existe desde hace veintisiete años; la llave la tiene cada presupuesto, y la usa.
+
+### La palanca
+
+Durante cuatro viernes seguidos entrá a la página de Principales variables del Banco Central y anotá el dato de Reservas Internacionales, junto con el tipo de cambio mayorista del mismo día. Con cuatro puntos no se predice nada, pero se aprende a mirar el tanque del que depende la fase go: si las reservas bajan mientras el consumo sube, estás viendo la fase de tensión de esta lección con tus propios ojos.
+Anotá el primer par de números este viernes, con la fecha al lado.
+
+### El puente
+
+[PLANEN](/planes/planen) marca la misma falta en la energía: la renta de Vaca Muerta se gasta en el año en que se genera, sin ningún mecanismo de ahorro entre generaciones.

@@ -1,0 +1,61 @@
+---
+slug: el-derecho-a-saber-fundamentos-del-control-ciudadano
+courseSlug: ciudadano-auditor-control-ciudadano
+title: 'El Derecho a Saber: Fundamentos del Control Ciudadano'
+summary: Por qué el control ciudadano es un derecho y un deber cívico.
+orderIndex: 1
+draft: false
+cierre: completo
+fuentes:
+  - url: https://aldiaargentina.microjuris.com/2012/12/12/se-condeno-al-pami-a-brindar-informacion-sobre-su-presupuesto-en-concepto-de-publicidad-oficial/
+    titulo: 'Se condenó al PAMI a brindar información sobre su presupuesto en concepto de publicidad oficial (Microjuris, 12/12/2012)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/economia/onp/presupuesto-ciudadano-2026
+    titulo: 'Presupuesto Ciudadano 2026 — Oficina Nacional de Presupuesto'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## Tu Plata, Tu Derecho a Preguntar
+
+Cada peso que pagás en impuestos (y pagás muchos: IVA en cada compra, Ganancias, monotributo, ingresos brutos, tasas municipales) va a un fondo que el Estado administra en tu nombre. Tenés **derecho constitucional** a saber cómo se gasta, quién decide y por qué.
+
+El control ciudadano no es desconfianza: es **democracia en acción**. Los países con más control ciudadano son los que menos corrupción tienen, mejor calidad de servicios públicos ofrecen y mayor confianza institucional generan.
+
+### El Marco Legal
+
+- **Constitución Nacional, Art. 1:** Argentina es una república representativa. "República" viene del latín "res publica" = cosa pública. Lo público es de todos.
+- **Art. 36:** Atentado contra el sistema democrático. La corrupción de los funcionarios es un delito constitucional.
+- **Art. 42:** Derechos de consumidores y usuarios de servicios públicos.
+- **Ley 27.275 (2016):** Acceso a la Información Pública. Tu derecho a pedir cualquier información que el Estado tenga.
+- **Convención Interamericana contra la Corrupción:** Tratado internacional ratificado por Argentina.
+
+### ¿Por Qué Tan Pocos Lo Ejercen?
+
+1. **Desconocimiento:** La mayoría no sabe que tiene estas herramientas.
+2. **Complejidad:** El lenguaje burocrático y legal intimida.
+3. **Impunidad percibida:** "Para qué, si no pasa nada." (Spoiler: sí pasa cuando muchos lo hacen.)
+4. **Miedo:** En algunos contextos locales, pedir cuentas tiene costos sociales o incluso riesgos.
+
+### El Ciudadano Auditor
+
+Este curso te va a dar las herramientas para ser un **auditor de tu propio Estado**. No necesitás ser abogado ni contador. Necesitás saber hacer las preguntas correctas a las personas correctas usando los canales correctos.
+
+### Preguntar deja rastro
+
+Una queja en la puerta de la municipalidad se evapora. Una pregunta por escrito, no: entra por mesa de entradas, recibe un número de expediente, cae en el escritorio de alguien con nombre y cargo, y empieza a correr un plazo. Esa mecánica es lo que separa el control ciudadano de la bronca. El funcionario que contesta mal deja una respuesta firmada; el que no contesta deja un silencio con fecha. Las dos cosas sirven después: para reclamar, para comparar, para mostrarle a un concejal o a un periodista que el problema no es una impresión tuya sino un papel.
+
+> "El Estado le teme al ciudadano informado. No porque el ciudadano sea un enemigo, sino porque la transparencia es la mejor vacuna contra la corrupción. Un Estado que sabe que lo miran se comporta mejor."
+
+### El caso
+
+En 2009 la Asociación por los Derechos Civiles (ADC) le preguntó al PAMI cuánto presupuesto tenía para publicidad oficial ese año y cómo había repartido la pauta entre medios en mayo y junio. El PAMI se negó: dijo que no era un organismo estatal y que el Decreto 1172/2003, la norma de acceso a la información de entonces, no lo alcanzaba. La ADC fue a la Justicia con un amparo, y el 4 de diciembre de 2012 la Corte Suprema confirmó la condena: el acceso a la información es un derecho humano que se apoya en la Constitución y en los tratados internacionales, y quien pregunta no tiene que acreditar ningún interés propio. Faltaban casi cuatro años para la Ley 27.275. El derecho ya existía; lo que hizo falta fue alguien que lo empujara hasta el final.
+
+### La palanca
+
+Hacé tu primer ejercicio de auditor sin pedirle nada a nadie. Abrí el Presupuesto Ciudadano 2026 que publica la Oficina Nacional de Presupuesto en argentina.gob.ar y entrá a «El Presupuesto en cifras». Elegí un rubro que te toque de cerca —jubilaciones, universidades, rutas— y buscá cuánto se le asignó. Ese número es el punto de partida de cualquier pregunta que hagas en el resto del curso.
+Anotá la cifra y la fecha de consulta en un cuaderno que va a ser tu expediente.
+
+### El puente
+
+La pregunta de la ADC era a qué medios les pagaba el PAMI. [PLANFOCO](/planes/planfoco) la ataca de raíz: con la Pauta Ciega, el Estado pierde la capacidad de elegir a qué medio le da un peso.

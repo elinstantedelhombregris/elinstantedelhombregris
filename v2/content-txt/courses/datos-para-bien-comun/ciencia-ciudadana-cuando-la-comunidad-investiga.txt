@@ -1,0 +1,60 @@
+---
+slug: ciencia-ciudadana-cuando-la-comunidad-investiga
+courseSlug: datos-para-bien-comun
+title: 'Ciencia Ciudadana: Cuando la Comunidad Investiga'
+summary: Proyectos donde ciudadanos comunes generan datos científicos de valor.
+orderIndex: 6
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1667-782X2018000300008&lng=es&nrm=iso&tlng=es
+    titulo: 'AppEAR: una aplicación móvil de ciencia ciudadana para mapear la calidad de los hábitats acuáticos continentales (Ecología Austral, 2018)'
+    consultada: '2026-09-22'
+  - url: https://www.conicet.gov.ar/appear-una-aplicacion-para-estudiar-ambientes-acuaticos-con-colaboracion-ciudadana/
+    titulo: 'AppEAR: una aplicación para estudiar ambientes acuáticos con colaboración ciudadana (CONICET)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/noticias/100-iniciativas-de-ciencia-ciudadana
+    titulo: '100 iniciativas de Ciencia Ciudadana — Mapeo Nacional (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+
+## No Necesitás un Doctorado para Hacer Ciencia
+
+La ciencia ciudadana es un movimiento global donde personas comunes contribuyen a la investigación científica: observando aves, midiendo la calidad del aire, monitoreando ríos, contando árboles. No son científicos profesionales — son **ciudadanos curiosos con método**.
+
+### Casos en Argentina
+
+- **eBird Argentina:** Miles de observadores de aves registran avistamientos que alimentan bases de datos científicas globales. Argentina tiene más de 1.000 especies de aves y necesita ojos en todo el territorio.
+- **AppEAR:** Aplicación del CONICET para evaluar la calidad de ambientes acuáticos. Quienes participan responden un cuestionario y sacan fotos para reportar el estado de ríos, arroyos y lagunas.
+- **Monitoreo de mosquitos:** Proyectos donde vecinos cuentan criaderos de Aedes aegypti y reportan datos que ayudan a prevenir dengue.
+- **Calidad del aire:** Sensores de bajo costo que vecinos instalan en sus casas para medir contaminación. Los datos se comparan con las mediciones oficiales (cuando existen).
+- **Mapeo de biodiversidad:** iNaturalist permite fotografiar plantas y animales que un algoritmo de IA identifica. Cada foto es un dato científico georreferenciado.
+
+### ¿Por Qué Importa?
+
+- **Escala:** Los científicos no pueden estar en todos lados. Miles de voluntarios cubriendo todo el territorio generan datos imposibles de obtener de otro modo.
+- **Frecuencia:** Un investigador visita un sitio 1-2 veces al año. Un vecino observa TODOS los días.
+- **Conocimiento local:** El vecino conoce el río, el bosque, el barrio. Sabe cuándo algo cambió.
+- **Empoderamiento:** Cuando medís la calidad del aire de tu barrio y descubrís que supera los límites, tenés un argumento que ningún funcionario puede ignorar.
+
+### Cómo Participar
+
+1. **Elegí un proyecto:** Buscá proyectos de ciencia ciudadana activos en Argentina (Ciencia Ciudadana Argentina, SciStarter, Zooniverse).
+2. **Capacitate:** La mayoría ofrece tutoriales gratuitos. Aprendé el método antes de empezar a recolectar.
+3. **Contribuí datos:** Seguí el protocolo. La consistencia es clave: datos mal tomados son peor que no tener datos.
+4. **Conectá con tu comunidad:** Armá un grupo de ciencia ciudadana en tu barrio. Es educativo, es divertido, y genera datos de valor.
+
+> "La ciencia ciudadana demuestra algo profundo: el conocimiento no es exclusivo de las universidades. Cuando un vecino mide la calidad del agua de su arroyo con método y rigor, está haciendo ciencia. Y está protegiendo a su comunidad con datos."
+
+### El caso
+
+AppEAR, la aplicación que Joaquín Cochero desarrolló en el Instituto de Limnología de La Plata (CONICET-UNLP), no le pide a nadie que junte agua en un frasco: le pide que se acerque a un arroyo, saque unas fotos y responda un cuestionario sobre el estado de la orilla. Esa renuncia es la que la hizo funcionar. En su primer año, unos 460 usuarios aportaron información de 131 sitios de todo el país, y los resultados salieron publicados en la revista Ecología Austral en 2018. Los problemas que más marcaron los participantes fueron el uso del suelo alrededor del sitio, el estado de la vegetación de ribera y la basura. Un protocolo que cualquiera puede seguir rinde más que uno perfecto que nadie completa.
+
+### La palanca
+
+Elegí un curso de agua a menos de veinte cuadras —un arroyo, un canal, la orilla de una laguna— y fijá qué vas a mirar siempre igual: basura visible, color del agua, si la orilla tiene plantas o está pelada. Sacá la misma foto desde el mismo punto una vez por semana durante un mes. Antes de inventar tu propio método, revisá el Mapeo Nacional de iniciativas de ciencia ciudadana: si hay un proyecto trabajando cerca, sumarte vale más que empezar de cero.
+Registrá la primera observación este fin de semana, con fecha, hora y foto.
+
+### El puente
+
+[PLANAGUA](/planes/planagua) propone llevar esto a escala: cien mil kits de ciencia ciudadana cuyos datos alimenten el Tablero Nacional del Agua junto con los sensores oficiales.

@@ -1,0 +1,70 @@
+---
+slug: comunicacion-no-violenta-para-argentinos
+courseSlug: comunicar-sin-polarizar-conversacion-valiente
+title: Comunicación No Violenta para Argentinos
+summary: Adaptar los principios de la CNV de Marshall Rosenberg al contexto cultural argentino.
+orderIndex: 2
+draft: false
+cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/165000-169999/166999/norma.htm
+    titulo: 'Ley 26.589 — Mediación y conciliación (InfoLeg)'
+    consultada: '2026-09-22'
+---
+## CNV: No Es Ser Buenito, Es Ser Preciso
+
+La Comunicación No Violenta (CNV) de Marshall Rosenberg suena "demasiado suave" para la cultura argentina. Pero en realidad es una **herramienta de precisión**: dice exactamente lo que pasa, lo que sentís y lo que necesitás, sin acusar ni agredir.
+
+### Los 4 Pasos de la CNV
+
+1. **Observación (sin juicio):** "Cuando me dijiste que soy un boludo por votar a X..." (no: "Siempre me faltás el respeto")
+2. **Sentimiento:** "Me sentí herido y enojado..." (no: "Me hacés enojar" — nadie te "hace" sentir)
+3. **Necesidad:** "Porque necesito que respetes mis decisiones aunque no estés de acuerdo..." (la necesidad detrás del sentimiento)
+4. **Pedido concreto:** "¿Podrías expresar tu desacuerdo sin insultarme?" (no: "Dejá de ser así")
+
+### Adaptación Argentina
+
+En Argentina somos directos, emocionales e hiperbólicos. La CNV pura puede sonar artificial. La adaptación:
+
+- **Mantené tu estilo:** No tenés que hablar como un libro de autoayuda. Usá tu vocabulario.
+- **El principio, no la fórmula:** Lo importante es separar observación de juicio, sentimiento de acusación, necesidad de exigencia.
+- **El humor ayuda:** En Argentina, el humor bien usado baja tensiones. "Mirá, si seguimos así vamos a terminar como la selección del 2002."
+
+### Ejercicio: Traducí al Argentino
+
+Tomá un conflicto reciente que hayas tenido. Escribí lo que dijiste (o pensaste). Ahora reescribilo separando: hechos, sentimientos, necesidades, pedido. ¿Cambia algo?
+
+### La CNV ya está en la ley, aunque no se llame así
+
+Hay un lugar en la Argentina donde hablar preciso antes de pelear es obligatorio. La Ley 26.589, sancionada el 15 de abril de 2010, establece la mediación previa a todo proceso judicial: antes de demandar hay que sentarse con un mediador, que tiene quince días corridos desde que lo designan para fijar la primera audiencia. Entre los principios que el artículo 7 le impone está promover la comunicación directa entre las partes en busca de una solución creativa, con confidencialidad sobre lo que se dice en la mesa.
+
+Lo que hace un buen mediador en esa audiencia se parece mucho a los cuatro pasos de esta lección: separar lo que pasó de lo que cada uno opina que pasó, dejar que aparezca lo que a cada parte le importa y convertir la exigencia en algo que el otro pueda aceptar o contraofertar. La ley no le pide a nadie que sea amable; le pide que hable claro antes de litigar. También deja mucho afuera: el artículo 5 excluye, entre otras, las causas penales, las laborales y buena parte de los asuntos de familia.
+
+### Laboratorio de Profundización
+
+**Marco avanzado:** La CNV aplicada con rigor separa datos observables de juicios y convierte demanda implícita en pedido negociable.
+
+### Errores frecuentes que escalan la grieta
+
+- Presentar opiniones como hechos incuestionables.
+- Usar el formato CNV como técnica de manipulación para imponer resultados.
+- Nombrar sentimientos vagos ("mal", "raro") sin identificar la necesidad asociada.
+
+### Preguntas de autorreflexión
+
+1. ¿Qué juicio repetís como si fuera observación objetiva?
+2. ¿Qué necesidad propia te cuesta admitir por miedo a parecer vulnerable?
+3. ¿Cómo cambia tu mensaje cuando pedís en vez de exigir?
+4. ¿Qué conversación concreta mejorarías si usaras CNV durante 10 minutos?
+
+### Práctica deliberada (7 días)
+
+1. Elegí 3 frases conflictivas tuyas y traducilas al formato observación-sentimiento-necesidad-pedido.
+2. Probá una conversación breve aplicando ese formato sin sonar acartonado.
+3. Anotá qué parte del proceso te resultó más difícil y por qué.
+
+**Evidencia de progreso:** Podés expresar un límite firme con lenguaje claro y sin descalificar a la persona.
+
+### El puente
+
+[PLANJUS](/planes/planjus) parte de la mediación de la Ley 26.589 y anota su límite: tiene tantas excepciones que la mayoría de los casos van igual a juicio. Propone ofrecer mediación restaurativa como primera opción, antes del panel.

@@ -1,0 +1,132 @@
+{
+  "title": "Quiz: Inteligencia Emocional para Tiempos Turbulentos",
+  "description": "Evaluá si podés usar herramientas de regulación emocional sin convertirlas en diagnósticos ni recetas universales.",
+  "allowRetakes": true,
+  "questions": [
+    {
+      "question": "Alguien afirma que toda emoción debería desaparecer en 90 segundos. ¿Cuál es la respuesta más responsable?",
+      "type": "multiple_choice",
+      "options": [
+        "Es una ley neuroquímica aplicable a todas las personas",
+        "Es una regla popular, no un cronómetro clínico: duración e intensidad dependen de emoción, contexto, cuerpo e interpretación",
+        "Si dura más, la persona eligió sostenerla",
+        "Sólo las emociones positivas duran más"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La idea de los 90 segundos puede servir como invitación a pausar, pero no debe enseñarse como una ley ni usarse para culpabilizar. Las respuestas emocionales tienen múltiples componentes y tiempos.",
+      "points": 1,
+      "orderIndex": 1
+    },
+    {
+      "question": "¿Cómo conviene presentar la teoría polivagal en un curso introductorio?",
+      "type": "multiple_choice",
+      "options": [
+        "Como diagnóstico neurológico que la persona puede aplicarse sola",
+        "Como un marco popular para nombrar experiencias, aclarando sus límites y sin confundirlo con consenso clínico",
+        "Como prueba de que cada emoción pertenece a un estado fijo",
+        "Como reemplazo de una evaluación profesional"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El vocabulario de seguridad, movilización y desconexión puede ayudar a observar patrones, pero no habilita autodiagnóstico ni demuestra por sí solo un mecanismo fisiológico concreto.",
+      "points": 1,
+      "orderIndex": 2
+    },
+    {
+      "question": "¿Cuáles son los tres componentes de la autocompasión según Kristin Neff?",
+      "type": "multiple_choice",
+      "options": [
+        "Autoestima, confianza y optimismo",
+        "Amabilidad hacia uno mismo, humanidad compartida y atención plena",
+        "Perdón, aceptación y gratitud",
+        "Fortaleza, disciplina y perseverancia"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Kristin Neff define la autocompasión con tres componentes: amabilidad hacia uno mismo (vs autocrítica), humanidad compartida (vs aislamiento) y atención plena (vs sobreidentificación).",
+      "points": 1,
+      "orderIndex": 3
+    },
+    {
+      "question": "La autocompasión te vuelve pasivo y reduce tu motivación para actuar.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La autocompasión no equivale a resignación. La evidencia sugiere beneficios posibles en distintos contextos, pero no garantiza motivación, resiliencia ni un resultado clínico para cada persona.",
+      "points": 1,
+      "orderIndex": 4
+    },
+    {
+      "question": "¿Cuál es el orden correcto de los pasos de la Comunicación No Violenta?",
+      "type": "multiple_choice",
+      "options": [
+        "Sentimiento, pedido, observación, necesidad",
+        "Observación, sentimiento, necesidad, pedido",
+        "Necesidad, observación, sentimiento, pedido",
+        "Pedido, necesidad, sentimiento, observación"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El modelo CNV de Marshall Rosenberg sigue el orden: Observación (sin juicio), Sentimiento, Necesidad y Pedido concreto.",
+      "points": 1,
+      "orderIndex": 5
+    },
+    {
+      "question": "¿Cuál es el propósito realista de un ejercicio breve de grounding?",
+      "type": "multiple_choice",
+      "options": [
+        "Eliminar de inmediato toda emoción difícil",
+        "Orientar la atención al presente y recuperar margen para elegir el próximo paso",
+        "Demostrar que el peligro nunca es real",
+        "Reemplazar apoyo médico o psicológico"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La OMS presenta el grounding como una práctica para atravesar tormentas emocionales, no para hacerlas desaparecer. Puede adaptarse o interrumpirse si aumenta el malestar.",
+      "points": 1,
+      "orderIndex": 6
+    },
+    {
+      "question": "¿Cómo evaluás el impacto emocional de la incertidumbre económica sin estereotipar?",
+      "type": "multiple_choice",
+      "options": [
+        "Suponiendo que afecta a toda persona argentina del mismo modo",
+        "Observando exposición, recursos, historia, red de apoyo, responsabilidades y señales concretas de esa persona",
+        "Explicándolo sólo por una característica cultural",
+        "Midiéndolo únicamente por el ingreso"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La precariedad y la incertidumbre pueden pesar mucho, pero su impacto no es uniforme. Un registro situado evita convertir contexto, herencia o nacionalidad en un diagnóstico.",
+      "points": 1,
+      "orderIndex": 7
+    },
+    {
+      "question": "En la filosofía del Hombre Gris, ¿qué metamorfosis se relaciona con la presencia y observación sin juicio?",
+      "type": "multiple_choice",
+      "options": ["El Camello", "El León", "El Niño", "El Águila"],
+      "correctAnswer": 2,
+      "explanation": "El Niño es la tercera metamorfosis y representa la presencia pura, la observación sin juicio y la capacidad de crear desde la inocencia recuperada.",
+      "points": 1,
+      "orderIndex": 8
+    },
+    {
+      "question": "La \"ventana de tolerancia\" es una medida clínica exacta e idéntica para todas las personas.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Es una metáfora útil para registrar cuándo aumenta o cae el margen de respuesta, no una escala exacta. Cambia con el contexto y no reemplaza evaluación clínica.",
+      "points": 1,
+      "orderIndex": 9
+    },
+    {
+      "question": "¿Cómo usarías la conocida relación \"5 a 1\" asociada a estudios de parejas?",
+      "type": "multiple_choice",
+      "options": [
+        "Como test exacto para decidir si una relación es exitosa",
+        "Como recordatorio contextual sobre el clima relacional, no como diagnóstico, cuota diaria ni garantía",
+        "Como permiso para compensar una agresión con cinco elogios",
+        "Como regla aplicable sin conocer población ni método"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Una relación estadística observada bajo ciertas definiciones no es una ley individual. No minimiza violencia, no sustituye seguridad y no convierte un conteo en calidad de vínculo.",
+      "points": 1,
+      "orderIndex": 10
+    }
+  ]
+}

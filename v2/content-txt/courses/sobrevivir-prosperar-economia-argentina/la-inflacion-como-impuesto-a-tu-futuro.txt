@@ -1,0 +1,52 @@
+---
+slug: la-inflacion-como-impuesto-a-tu-futuro
+courseSlug: sobrevivir-prosperar-economia-argentina
+title: La Inflación Como Impuesto a Tu Futuro
+summary: 'Entender qué es la inflación, cómo te afecta y por qué Argentina la sufre crónicamente.'
+orderIndex: 1
+draft: false
+cierre: completo
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/ipc_01_266741F036E8.pdf
+    titulo: 'INDEC — Índice de precios al consumidor (IPC), diciembre de 2025'
+    consultada: '2026-09-22'
+revisarAntesDe: '2027-03-22'
+---
+
+## El Impuesto Que No Votaste
+
+La inflación no es un fenómeno abstracto que les pasa a los economistas. Es un **impuesto invisible** que pagás todos los días cuando el sueldo no alcanza, cuando los precios cambian entre que entrás y salís del supermercado, cuando tus ahorros en pesos pierden valor mientras dormís.
+
+### ¿Qué Es Realmente la Inflación?
+
+En términos simples, inflación es el **aumento sostenido del nivel general de precios**. No es que las cosas valgan más: es que tu dinero vale menos. Si en enero un kilo de pan cuesta $500 y en diciembre cuesta $1.500, tu billete de $500 no cambió pero ahora compra un tercio de lo que compraba.
+
+### Por Qué Argentina Es Campeona de Inflación
+
+- **Emisión monetaria:** Cuando el Estado gasta más de lo que recauda, el BCRA emite pesos para cubrir la diferencia. Más pesos persiguiendo la misma cantidad de bienes = precios suben.
+- **Expectativas:** En Argentina, todos esperamos inflación, entonces remarcamos precios preventivamente. La inflación se autoalimenta.
+- **Inercia:** Contratos, alquileres, salarios se ajustan por inflación pasada, proyectándola al futuro.
+- **Tipo de cambio:** Cuando sube el dólar, suben los precios de todo lo importado, y por arrastre, de lo nacional también.
+
+### El Costo Real en Tu Vida
+
+Si la inflación es del 100% anual, lo que ahorraste durante un año **perdió la mitad de su valor**. Es como si alguien entrara a tu casa y se llevara la mitad de tus ahorros. Entender esto es el primer paso para protegerte.
+
+### Quién Paga Más
+
+Este impuesto no se reparte parejo. Lo paga, sobre todo, quien tiene pesos quietos: el efectivo en la billetera, el saldo de una cuenta que no paga interés, el sueldo que se cobra el 5 y se va gastando hasta el 30. Quien puede mover su plata a algo que ajuste —un plazo fijo, un fondo, una moneda más estable— se defiende; quien vive al día no tiene adónde moverla. Por eso la inflación castiga más abajo que arriba: no es que los que menos tienen elijan mal, es que tienen menos puertas de salida. Y como no figura en ninguna ley, es el único impuesto que sube sin que nadie lo discuta en el Congreso.
+
+> "No podés controlar la inflación. Pero podés dejar de ser su víctima pasiva."
+
+### El caso
+
+El INDEC informó que en 2025 el nivel general de precios subió 31,5%, con un 2,8% sólo en diciembre. Traducido a una casa: un millón de pesos guardados en un cajón a fines de 2024 compraba, doce meses después, lo que antes se conseguía con unos 760.000. Casi un cuarto se evaporó sin que nadie firmara nada. El mismo informe muestra que el impuesto tampoco pesa igual según en qué se te va la plata: en diciembre, Transporte subió 4,0% y Vivienda, agua, electricidad y gas, 3,4%, mientras Educación subió 0,4%. Una familia que gasta sobre todo en colectivo y tarifas pagó ese mes una inflación más alta que la del titular.
+
+### La palanca
+
+Ponele un número a tu propio impuesto. Sumá cuánta plata tuviste en pesos sin rendimiento el mes pasado —efectivo, saldo de la cuenta sueldo, lo que quedó quieto en la billetera virtual— y multiplicalo por la inflación mensual que publica el INDEC. Ese resultado es lo que pagaste sin recibo. Repetilo tres meses seguidos y vas a saber cuánto vale mover esa plata.
+Anotá el número en la primera hoja de tu planilla y dejalo a la vista.
+
+### El puente
+
+La inflación que se come un ahorro en un año es la versión corta de una historia larga: [PLANMON](/planes/planmon) cuenta cinco monedas destruidas en cincuenta años y trece ceros borrados, y propone una moneda que no emita el Banco Central.

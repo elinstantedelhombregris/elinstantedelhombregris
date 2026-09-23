@@ -1,0 +1,62 @@
+---
+slug: el-golpe-de-1930-el-primer-cortocircuito
+courseSlug: argentina-1810-1945-sistema-que-construimos
+title: 'El Golpe de 1930: El Primer Cortocircuito'
+summary: El primer golpe militar como ruptura del sistema democrático y precedente fatal.
+orderIndex: 10
+draft: false
+cierre: completo
+fuentes:
+  - url: https://yrigoyeneano.cultura.gob.ar/noticia/la-corte-y-el-proceso-de-desconstitucionalizacion/
+    titulo: 'Instituto Nacional Yrigoyeneano — La Corte y el proceso de desconstitucionalización'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina — texto oficial (InfoLeg)'
+    consultada: '2026-09-22'
+---
+
+## El Día que Argentina Rompió sus Propias Reglas
+
+El 6 de septiembre de 1930, el general José Félix Uriburu derrocó a Yrigoyen. Fue el **primer golpe de Estado exitoso** contra un gobierno constitucional en Argentina. Y fue mucho más que un cambio de gobierno: fue la creación de un **precedente** que contaminaría los siguientes 53 años.
+
+### ¿Por Qué Se Pudo?
+
+- **Crisis económica mundial:** La Gran Depresión de 1929 destruyó los precios de las exportaciones argentinas. Desempleo, caída del salario real, malestar social.
+- **Debilidad del gobierno:** Yrigoyen, viejo y enfermo, no gobernaba. La percepción era de vacío de poder.
+- **Conspiración abierta:** Los diarios publicaban rumores de golpe como si fueran noticias deportivas. La sociedad lo naturalizó.
+- **Validación judicial:** La Corte Suprema avaló el golpe con la doctrina de los "gobiernos de facto", dándole legitimidad legal a lo ilegal. Este fallo es uno de los momentos más graves de la historia institucional argentina.
+
+### Lo Que Firmó la Corte
+
+El 10 de septiembre de 1930, cuatro días después del golpe, los jueces de la Corte Suprema José Figueroa Alcorta, Roberto Repetto, Ricardo Guido Lavalle y Antonio Sagarna firmaron una acordada en respuesta a la comunicación de Uriburu. Reconocieron al nuevo poder como gobierno de facto y dieron por válidos los actos de sus funcionarios, invocando «razones de policía y de necesidad». No hubo un juicio ni una parte que discutiera: fue la respuesta a una nota. Con esa respuesta, lo que había sido fuerza pasó a ser doctrina, y la doctrina quedó disponible para el siguiente que la quisiera usar.
+
+### El Mecanismo del Golpe
+
+Un golpe no es solo militares marchando. Es un **sistema de complicidades**:
+
+1. La élite económica que financia y presiona
+2. La prensa que instala el "caos" como narrativa
+3. Los militares que ejecutan
+4. La justicia que legitima
+5. Una parte de la sociedad que aplaude (o mira para otro lado)
+
+### El Precedente Mortal
+
+Argentina tuvo **6 golpes militares** entre 1930 y 1976. El primero no fue el peor, pero fue el que demostró que se podía: que las Fuerzas Armadas podían derrocar gobiernos electos, que la justicia los iba a avalar, y que una parte de la sociedad lo iba a celebrar.
+
+### Reflexión Sistémica
+
+> "Un sistema que permite que se rompan las reglas sin consecuencias está enseñando que las reglas no importan. El golpe de 1930 enseñó a Argentina que la democracia era optativa. Costó 53 años, 30.000 desaparecidos y una guerra perdida aprender que no lo es."
+
+### El caso
+
+Sesenta y cuatro años después, la reforma de 1994 escribió la respuesta que la Corte de 1930 no dio. El artículo 36 dice que la Constitución «mantendrá su imperio aun cuando se interrumpiere su observancia por actos de fuerza contra el orden institucional y el sistema democrático», y que esos actos serán «insanablemente nulos». Sus autores quedan inhabilitados a perpetuidad para ocupar cargos públicos y excluidos del indulto y la conmutación de penas; las mismas sanciones alcanzan a quienes usurpen funciones como consecuencia de esos actos, y las acciones son imprescriptibles. El artículo cierra reconociendo a todos los ciudadanos el derecho de resistencia. Es la acordada dada vuelta: en 1930 la necesidad convalidaba al que había llegado por la fuerza; desde 1994 la Constitución dice que ninguna necesidad lo convalida.
+
+### La palanca
+
+De los cinco eslabones de la lista, el último —la parte de la sociedad que aplaude o mira para otro lado— es el único que está en tu casa. Buscá a alguien de más de setenta años y preguntale cómo se enteró del golpe de 1966 o del de 1976, y qué dijeron los adultos que tenía alrededor. No le discutas: anotá. Lo que buscás no es una opinión sobre el pasado sino el mecanismo: quién aplaudió, quién calló, quién tuvo miedo, quién no se enteró.
+Conversá con esa persona esta semana y anotá tres frases textuales.
+
+### El puente
+
+La acordada de 1930 quedó registrada como precedente y el artículo 36 tardó sesenta y cuatro años en contestarla. [PLANMEMORIA](/planes/planmemoria) trabaja sobre esa misma ley: lo que no se graba se repite, y lo que se graba con protocolo se vuelve inapelable.

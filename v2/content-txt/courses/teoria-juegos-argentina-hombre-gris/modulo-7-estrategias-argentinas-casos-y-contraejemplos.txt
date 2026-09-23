@@ -1,0 +1,59 @@
+---
+slug: modulo-7-estrategias-argentinas-casos-y-contraejemplos
+courseSlug: teoria-juegos-argentina-hombre-gris
+title: 'Módulo 7 · Estrategias argentinas: casos y contraejemplos'
+summary: 'Revisión profunda de políticas, empresas y pactos sociales que ilustran diferentes estrategias.'
+orderIndex: 7
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/21108/texact.htm
+    titulo: 'Ley 23.548 — Coparticipación Federal de Recursos Fiscales, texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina — artículo 75 inciso 2 y disposición transitoria sexta (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/economia/sechacienda/asuntosprovinciales/ron
+    titulo: 'Coparticipación Federal — Dirección Nacional de Asuntos Provinciales (Argentina.gob.ar)'
+    consultada: '2026-09-22'
+---
+Revisión profunda de políticas, empresas y pactos sociales que ilustran diferentes estrategias. En Teoría de Juegos Aplicada a Argentina: La Partida del Hombre Gris, esta lección cumple una función clave: convertir un concepto estratégico en una herramienta concreta para leer situaciones reales, ordenar decisiones y construir mejores acuerdos.
+
+### Objetivos de la lección
+
+- Documentar al menos 6 casos cooperativos y 6 defectivos
+- Extraer principios de diseño local
+- Construir un ranking de estrategias según métricas Hombre Gris
+
+### Por qué importa
+
+Cuando una comunidad, una organización o un actor público no entiende el mecanismo que tiene delante, suele reaccionar tarde o reaccionar mal. Estudiá este tema para evitar respuestas impulsivas, reconocer qué incentivos están operando y diseñar intervenciones que produzcan cooperación, claridad o aprendizaje acumulable. En vez de mirar solo el evento visible, esta lección te entrena para mirar la estructura que lo sostiene.
+
+Este punto exige pasar de la definición a la lógica práctica: qué actor interviene, qué incentivo aparece, qué información falta y qué decisión mejora cuando comprendemos el mecanismo. Si podés reconocer este patrón en tu vida, tu comunidad y la transformación argentina, entonces la lección ya se volvió una herramienta de trabajo y no solo una explicación.
+
+### Cómo se documenta un caso
+
+Un caso sirve si otra persona puede revisarlo. Por eso cada ficha lleva los mismos campos: quiénes jugaron, qué podía hacer cada uno, qué ganaba o perdía con cada jugada, cuántas veces se repitió la partida y qué quedó registrado. Y uno más, el que casi siempre falta: la fuente. Un caso sin fuente es una anécdota, y las anécdotas sólo convencen a quien ya estaba convencido.
+
+Los contraejemplos pesan tanto como los éxitos. Una regla que funcionó en un lugar y falló en otro enseña más que diez éxitos parecidos, porque obliga a nombrar la condición que cambió entre uno y otro.
+
+### Principios que se repiten
+
+Cuando se ponen lado a lado los casos cooperativos y los defectivos aparecen patrones. Los acuerdos que duran suelen tener plazo y revisión con fecha. Los que se pudren suelen tener una cláusula que se prorroga sola, un reparto que depende de la voluntad de una de las partes o una sanción que nadie está obligado a aplicar. Ninguno de estos principios es una ley natural: son hipótesis para poner a prueba en el caso siguiente.
+
+### Un ranking honesto
+
+Ordenar estrategias por resultados tienta a premiar lo que salió bien por suerte. Un ranking honesto mira tres cosas por separado: si hubo cooperación sostenida, si sobrevivió a un cambio de autoridades y si se pudo copiar en otro territorio. Una estrategia que sólo funciona con las mismas personas en los mismos cargos no es una estrategia: es un vínculo, y los vínculos no se exportan por decreto.
+
+### El caso
+
+La Ley 23.548, sancionada el 7 de enero de 1988, se llama a sí misma Régimen Transitorio de Distribución de Recursos Fiscales. Su artículo 15 le dio vigencia hasta el 31 de diciembre de 1989 y agregó que se prorrogaría sola si no existía un régimen sustitutivo. La reforma de 1994 ordenó en el artículo 75 inciso 2 dictar una ley convenio nueva, con el Senado como cámara de origen, que no puede modificarse unilateralmente y que deben aprobar las provincias; la disposición transitoria sexta fijó el plazo: antes de que terminara 1996. Esa ley no se dictó. La prórroga automática hizo que no cambiar fuera siempre la jugada más barata, y la aprobación de cada provincia le dio a cada una la llave para trabar la salida.
+
+### La palanca
+
+La Dirección Nacional de Asuntos Provinciales del Ministerio de Economía publica los montos diarios que la Nación le transfiere a cada jurisdicción por coparticipación y la serie de Recursos de Origen Nacional desde 2003. Bajá el archivo del último mes, buscá la fila de tu provincia y compará con el mismo mes de hace cinco años en la serie. Con ese número adelante, la discusión sobre el reparto deja de ser una cuestión de opinión.
+Buscá la planilla de tu provincia en la página de Coparticipación Federal y guardala.
+
+### El puente
+
+[PLANPACTO](/planes/planpacto) arranca por este mismo caso, el régimen transitorio prorrogado y el mandato del artículo 75 inciso 2 que nunca se cumplió, y propone el acuerdo previo a cualquier reforma tributaria.

@@ -94,3 +94,19 @@ apps/api/dist-bundle/
 # es irreversible. El script es la fuente de verdad, no el archivo.
 apps/web/public/tiles/
 apps/web/tiles-local/
+
+# content-txt/ guarda copias en texto plano del contenido. Los insumos de
+# producción de video que viven al lado (mp4, imágenes, audio, bases sqlite
+# del editor) no van a git: pesan más de un giga y en git serían para siempre.
+content-txt/**/*.mp4
+content-txt/**/*.mp3
+content-txt/**/*.png
+content-txt/**/*.jpg
+content-txt/**/*.srt
+content-txt/**/*.ass
+content-txt/**/*.marker
+content-txt/**/*.sqlite
+content-txt/**/*.sqlite-*
+content-txt/cronica/*.json
+content-txt/**/.hilo/
+content-txt/*.mp4

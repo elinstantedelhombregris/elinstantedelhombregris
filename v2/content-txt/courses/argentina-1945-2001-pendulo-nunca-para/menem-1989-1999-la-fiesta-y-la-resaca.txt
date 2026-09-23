@@ -1,0 +1,78 @@
+---
+slug: menem-1989-1999-la-fiesta-y-la-resaca
+courseSlug: argentina-1945-2001-pendulo-nunca-para
+title: 'Menem 1989-1999: La Fiesta y la Resaca'
+summary: La convertibilidad como parche sistémico y las reformas neoliberales.
+orderIndex: 8
+draft: false
+cierre: completo
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/328/norma.htm
+    titulo: 'Ley 23.928 — Convertibilidad del austral, texto original (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/328/texact.htm
+    titulo: 'Ley 23.928 — texto actualizado (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=328
+    titulo: 'Ley 23.928 — ficha y normas que la complementan o modifican (InfoLeg)'
+    consultada: '2026-09-22'
+  - url: https://mepriv.mecon.gob.ar/
+    titulo: 'Memoria de las Privatizaciones (Ministerio de Economía)'
+    consultada: '2026-09-22'
+---
+
+## Pizza con Champagne
+
+Carlos Menem llegó al poder prometiendo "revolución productiva" y "salariazo". Hizo exactamente lo contrario: implementó el programa de reformas neoliberales más profundo de la historia argentina. Y, durante un tiempo, **funcionó**. Eso es lo que lo hace tan interesante desde el pensamiento sistémico.
+
+### La Convertibilidad: El Parche Que Parecía Cura
+
+Domingo Cavallo, ministro de Economía, ató el peso al dólar: 1 peso = 1 dólar, por ley. El efecto fue mágico:
+
+- La inflación cayó de 5.000% anual a casi cero.
+- Los argentinos pudieron planificar, ahorrar, sacar créditos.
+- Llegó inversión extranjera masiva.
+- Se podía viajar al exterior "barato". Miami era un shopping.
+
+Pero la convertibilidad tenía **bugs fatales** que se activarían más tarde.
+
+### El Candado Escrito en la Ley
+
+La convertibilidad no era una promesa del ministro: era un candado legal. El artículo 4 de la Ley 23.928 exigía que las reservas del Banco Central cubrieran al menos el 100% de la base monetaria, así que el Estado no podía emitir un peso sin un dólar detrás. El artículo 12 declaraba al austral convertible «una nueva moneda» y habilitaba a cambiarle el nombre, que es como llegó el peso. El candado funcionó contra la inflación y dejó al país sin herramienta cuando los dólares dejaron de entrar.
+
+### Las Reformas Estructurales
+
+1. **Privatizaciones:** YPF, Aerolíneas, Entel, Gas del Estado, ferrocarriles. Vendidas a precios bajos, muchas a empresas que luego desinvirtieron.
+2. **Apertura comercial:** Se eliminaron protecciones a la industria. Miles de fábricas cerraron.
+3. **Flexibilización laboral:** Debilitamiento de convenios colectivos y derechos laborales.
+4. **Deuda externa:** Se endeudó masivamente para financiar el déficit y mantener la convertibilidad.
+
+### La Otra Cara
+
+- **Desempleo:** Pasó del 6% al 18%. El desempleo masivo era un fenómeno nuevo en Argentina.
+- **Pobreza:** Los indicadores de pobreza crecieron dramáticamente, especialmente en el interior.
+- **Corrupción:** Los escándalos de corrupción eran cotidianos. "Pizza con champagne" describía a una élite que se enriquecía mientras el país se endeudaba.
+- **Concentración económica:** Los grandes grupos se hicieron más grandes. La clase media se precarizó.
+
+### Los Bugs de la Convertibilidad
+
+Un peso sobrevaluado significaba que:
+
+1. Era barato importar y caro exportar → se destruía la industria local.
+2. Para mantener el tipo de cambio fijo se necesitaban dólares → se pedía deuda.
+3. La deuda crecía pero la capacidad de pagar no → la bomba de tiempo se agrandaba.
+
+> "La convertibilidad enseñó que un parche brillante puede esconder una enfermedad terminal. Argentina eligió la anestesia del dólar barato en vez de la cirugía de reformas reales. Cuando la anestesia se acabó, el dolor fue insoportable."
+
+### El caso
+
+La Ley 23.928 se sancionó y se promulgó el mismo día, el 27 de marzo de 1991. Su artículo 1 fijaba diez mil australes por dólar a partir del 1 de abril; el artículo 4 obligaba al Banco Central a tener reservas por al menos el 100% de la base monetaria; los artículos 7 y 10 prohibían actualizar deudas, precios o tarifas por cualquier índice. Once años después, la Ley 25.561, publicada el 7 de enero de 2002, derogó el artículo 1 y la paridad se terminó. Los artículos 7 y 10, en cambio, siguen en pie, sustituidos y con una lista de excepciones agregadas; InfoLeg cuenta 76 normas que complementan o modifican la ley. La anestesia se retiró hace veinticuatro años, y la prohibición de indexar que la acompañaba todavía rige las deudas en pesos.
+
+### La palanca
+
+Las reformas de esta década te siguen llegando a casa todos los meses, adentro de una boleta. Agarrá la última factura de luz, gas o agua y fijate qué empresa te cobra. Después entrá a la Memoria de las Privatizaciones del Ministerio de Economía y rastreá qué empresa estatal daba ese servicio antes, qué norma la privatizó y en qué año. Anotá quién la compró y quién la controla hoy.
+Revisá una boleta de tu casa y seguile el rastro hasta 1990.
+
+### El puente
+
+La convertibilidad fue un capítulo de una serie que [PLANMON](/planes/planmon) cuenta desde adentro de un plazo fijo: cinco monedas destruidas en cincuenta años y trece ceros borrados.

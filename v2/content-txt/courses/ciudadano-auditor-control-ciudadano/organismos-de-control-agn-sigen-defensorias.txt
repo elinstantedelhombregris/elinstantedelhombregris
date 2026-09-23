@@ -1,0 +1,59 @@
+---
+slug: organismos-de-control-agn-sigen-defensorias
+courseSlug: ciudadano-auditor-control-ciudadano
+title: 'Organismos de Control: AGN, SIGEN, Defensorías'
+summary: Los organismos que deberían controlar al Estado y cómo interactuar con ellos.
+orderIndex: 8
+draft: false
+cierre: completo
+fuentes:
+  - url: https://elauditor.info/actualidad/a-10-anos-de-la-tragedia-de-once--entre-la-memoria-y-la-justicia_a620fc5c0825fc3199d1cbf98
+    titulo: 'A 10 años de la tragedia de Once: entre la memoria y la justicia (El Auditor)'
+    consultada: '2026-09-22'
+  - url: https://www.lanacion.com.ar/sociedad/tragedia-de-once-que-ocurrio-aquel-dia-y-en-que-estado-esta-la-causa-nid22022023/
+    titulo: 'Tragedia de Once: qué ocurrió aquel día y en qué estado está la causa (La Nación, 22/2/2023)'
+    consultada: '2026-09-22'
+---
+
+## Los Guardianes del Sistema (Que a Veces Duermen)
+
+Argentina tiene organismos diseñados específicamente para controlar al Estado. Algunos funcionan bien, otros están capturados por el poder político, y otros directamente están vacantes. Conocerlos te permite usarlos como aliados en tu rol de ciudadano auditor.
+
+### Los Organismos Clave
+
+- **AGN (Auditoría General de la Nación):** Controla las cuentas del Estado nacional. Dirigida constitucionalmente por un miembro de la primera minoría parlamentaria (la oposición). Publica informes detallados que casi nadie lee pero que son oro para el control ciudadano.
+- **SIGEN (Sindicatura General de la Nación):** Control interno del Poder Ejecutivo. Depende del presidente, lo que limita su independencia, pero produce auditorías internas valiosas.
+- **Defensoría del Pueblo de la Nación:** Debería defender los derechos de los ciudadanos frente al Estado. Está vacante desde 2009 (sí, más de 15 años). Un escándalo institucional.
+- **Defensorías provinciales y municipales:** Muchas funcionan mejor que la nacional. Investigá si la tuya existe y está activa.
+- **Oficina Anticorrupción:** Investiga y previene corrupción en el Poder Ejecutivo. Su efectividad depende de la voluntad política del gobierno.
+- **Fiscalías especializadas:** PROCELAC (delitos económicos), PROTEX (trata de personas), UFI-AMIA, etc.
+
+### Cómo Usar Estos Organismos
+
+1. **Leé sus informes:** La AGN publica informes de auditoría en agn.gob.ar. Son técnicos pero reveladores.
+2. **Presentá denuncias:** Si detectás irregularidades, podés hacer denuncias formales ante la Oficina Anticorrupción o las fiscalías.
+3. **Acudí a la Defensoría:** Si tenés un problema con un servicio público o un derecho vulnerado, la Defensoría provincial o municipal puede intervenir.
+4. **Exigí que funcionen:** Si tu Defensoría está vacante o inactiva, eso en sí mismo es un tema de auditoría ciudadana.
+
+### Cómo leer un informe de auditoría
+
+Un informe de la AGN no se lee de corrido. Buscá primero el objeto (qué se auditó y qué período cubre), después las observaciones (lo que el auditor encontró mal) y al final las recomendaciones (lo que pidió corregir). La pregunta ciudadana vive en el hueco entre un informe y el siguiente sobre el mismo organismo: si una observación reaparece, el auditado no hizo nada con la primera. Señalar ese hueco no requiere ser contador; requiere leer dos informes y compararlos.
+
+### Cuando el Control Falla
+
+Cuando los organismos de control no funcionan, el control ciudadano directo se vuelve aún más importante. ONGs como Poder Ciudadano, ACIJ, CIPPEC y Directorio Legislativo hacen parte del trabajo que los organismos estatales no hacen.
+
+> "Los organismos de control son como alarmas contra incendios: necesitás que funcionen ANTES del incendio. Si tu alarma está rota, tu responsabilidad como ciudadano es mayor, no menor."
+
+### El caso
+
+Durante 2008 la Auditoría General de la Nación advirtió sobre el estado «deplorable» de los frenos del tren Sarmiento, que operaba la concesionaria Trenes de Buenos Aires (TBA). El 22 de febrero de 2012 una formación de la línea Sarmiento embistió el paragolpes del andén 2 de la terminal de Once: murieron 52 personas y hubo más de 700 heridos. Un mes después la AGN publicó otro informe, sobre los controles que la CNRT y la Secretaría de Transporte habían hecho de las obligaciones de TBA entre 2007 y 2009: encontró incumplimientos de hasta el 100% en el mantenimiento, el control y la reparación de frenos, ruedas y ejes. La alarma había sonado años antes. Lo que faltó fue alguien del otro lado que leyera el informe y exigiera que se cumpliera.
+
+### La palanca
+
+Entrá a agn.gob.ar y buscá los informes sobre un servicio que usás todos los días: tu línea de tren, un hospital nacional cerca de tu casa, la ruta que te lleva al trabajo. Quedate con el más reciente, copiá sus observaciones y fijate si un informe anterior ya las había hecho. Si se repiten, mandales el número de informe y la observación repetida a los diputados y senadores de tu provincia.
+Compartí el hallazgo con otra persona que use el mismo servicio.
+
+### El puente
+
+[PLANAGUA](/planes/planagua) parte de la misma herida: una Auditoría General cuya titularidad «se repartió como botín político». Por eso diseña su agencia del agua contra la captura, con parte del Directorio elegido por sorteo ciudadano.
