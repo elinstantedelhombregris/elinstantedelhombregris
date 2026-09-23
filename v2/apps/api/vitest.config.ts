@@ -21,6 +21,8 @@ export default defineConfig({
      * en `faltas-flows.test.ts` que lo afirma.
      */
     env: { FALTAS_POR_HORA: '500' },
+    /** La guardia de D-014 y el puente a Postgres local: `tests/setup/base-de-prueba.ts`. */
+    setupFiles: ['./tests/setup/base-de-prueba.ts'],
     testTimeout: 15_000,
     hookTimeout: 15_000,
     coverage: {

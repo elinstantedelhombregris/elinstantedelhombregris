@@ -22,6 +22,7 @@
     "test": "pnpm test:unit && pnpm test:scripts && pnpm test:integration",
     "test:unit": "pnpm -r --parallel test:unit",
     "test:integration": "pnpm -r --parallel test:integration",
+    "test:integration:local": "bash scripts/test/integracion-local.sh",
     "test:e2e": "playwright test",
     "test:scripts": "vitest run --config scripts/vitest.config.ts",
     "api:bundle": "tsx scripts/build/bundle-api.ts",

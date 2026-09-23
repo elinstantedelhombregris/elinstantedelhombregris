@@ -22,5 +22,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     fileParallelism: false,
+    /** La guardia de D-014 y el puente a Postgres local. */
+    setupFiles: ['./tests/setup/base-de-prueba.ts'],
   },
 });

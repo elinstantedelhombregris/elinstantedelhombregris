@@ -282,6 +282,7 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-009',
       'D-011',
       'D-012',
+      'D-014', // 23/9/2026: la guardia de base remota y la suite contra Postgres descartable.
       'D-016',
       'D-019',
       'D-020',

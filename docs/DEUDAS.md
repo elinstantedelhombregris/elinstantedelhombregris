@@ -38,7 +38,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-011](#d-011--la-geometría-de-provincias-erra-en-los-bordes) | La geometría de provincias erra en los bordes | Alta | **Resuelta** |
 | [D-012](#d-012--el-geojson-usaba-un-nombre-no-canónico-para-caba) | El GeoJSON usaba un nombre no canónico para CABA | Alta | **Resuelta** |
 | [D-013](#d-013--el-test-del-corpus-de-planes-tiene-el-total-a-mano-y-se-rompe-cada-vez) | El test del corpus de PLANes tiene el total a mano y se rompe cada vez | Media | Abierta |
-| [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | Parcial |
+| [D-014](#d-014--los-tests-de-integración-ensucian-el-mapa-que-el-sitio-sirve) | Los tests de integración ensucian el mapa que el sitio sirve | Alta | **Resuelta** |
 | [D-015](#d-015--las-cifras-del-bloque-de-atracción-de-plansus-no-tenían-fuente-externa--resuelta-parcial) | Las cifras del bloque de atracción de PLANSUS no tenían fuente externa | Media | **Parcial** |
 | [D-016](#d-016--este-mismo-archivo-usa-el-id-d-013-dos-veces) | Este mismo archivo usa el id D-013 dos veces | Media | **Resuelta** |
 | [D-017](#d-017--plangeo-promete-secciones-interno-que-no-existen) | PLANGEO promete secciones `[INTERNO]` que no existen | Media | Abierta |
@@ -331,7 +331,7 @@ Es de otra sesión y estaba en vuelo cuando se encontró: no se tocó.
 **Dónde:** `v2/apps/api/tests/pulso-flows.test.ts` · `v2/apps/api/tests/gamification-hooks.test.ts`
 **Encontrada:** 2026-08-02, cuando los estados vacíos no aparecían con la base supuestamente en cero
 **Severidad:** alta
-**Estado:** **parcialmente resuelta 2026-08-02** — las fugas conocidas están tapadas; la causa de fondo sigue
+**Estado:** ~~parcialmente resuelta~~ → **resuelta 2026-09-23** — los tests de integración ya no pueden correr contra una base remota: la guardia de `packages/db/tests/helpers/neon-local.ts` los frena salvo `PERMITIR_BASE_REMOTA_EN_TESTS=1`. `pnpm test:integration:local` levanta un Postgres descartable, migra, siembra y corre las dos suites (544 tests verdes); el CI hace lo mismo con un contenedor, sin secretos. El puente `neon-http` → `pg` es el que se probó a mano el 22/9.
 
 > **Corrección.** La primera versión de esta entrada decía que `pulso-flows.test.ts` «limpia proposals y proposalVotes y no pulseSignals». **Eso era falso**: sí las limpia, por id. El problema era otro y más fino, y está abajo.
 

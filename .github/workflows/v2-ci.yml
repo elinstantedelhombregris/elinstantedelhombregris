@@ -82,10 +82,36 @@ jobs:
         run: pnpm size
 
   integration-tests:
-    name: integration tests (api ↔ Neon)
+    name: integration tests (api ↔ Postgres descartable)
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    timeout-minutes: 20
+    # Corre en cada push y cada PR: ya no necesita secretos, porque la base es
+    # un contenedor que nace y muere con el job. Antes apuntaba a una rama de
+    # Neon (secrets.V2_DATABASE_URL) que quedó archivada, y el job fallaba
+    # desde agosto sin probar nada. La app habla con Neon por HTTP; el puente
+    # de `packages/db/tests/helpers/neon-local.ts` le hace hablar con este
+    # Postgres, y la guardia de D-014 impide que un test escriba en otra base.
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: basta_integracion_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/basta_integracion_test
+      DATABASE_URL_UNPOOLED: postgresql://postgres:postgres@localhost:5432/basta_integracion_test
+      DATABASE_URL_DESCARTABLE: postgresql://postgres:postgres@localhost:5432/basta_descartable_test
+      MAPA_TEST_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/basta_descartable_test
+      JWT_SECRET: ci_jwt_secret_placeholder_at_least_32_chars_xxxxxxxxxxxx
+      SESSION_SECRET: ci_session_secret_placeholder_at_least_32_chars_xxxxxxxxxxxx
 
     steps:
       - name: Checkout
@@ -107,38 +133,19 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Apply migrations to ci-test branch
-        env:
-          DATABASE_URL: ${{ secrets.V2_DATABASE_URL }}
-          DATABASE_URL_UNPOOLED: ${{ secrets.V2_DATABASE_URL_UNPOOLED }}
-        run: pnpm --filter @v2/db db:migrate
+      # Dos bases en el mismo servidor: las suites que escriben se niegan a
+      # correr sobre la base que lee la app (`packages/db/src/base-descartable.ts`).
+      - name: Crear la base descartable
+        run: PGPASSWORD=postgres psql -h localhost -U postgres -c 'CREATE DATABASE basta_descartable_test'
 
-      # La 0013 agrega `name_norm` y `georef_id` VACÍAS, y la búsqueda de
-      # provincia por nombre pasa a ir por `name_norm`. Los dos comandos de acá
-      # abajo son la otra mitad de esa migración: sin ellos `findProvinceByName`
-      # devuelve `undefined` para las 24, toda señal nueva se guarda sin
-      # provincia (D-001) y el `georef_id SET NOT NULL` de la Task 6 no se puede
-      # aplicar. Los dos son idempotentes: el seed saltea las filas que ya
-      # existen y el relleno sólo emite UPDATE para las que difieren.
-      - name: Sembrar y reconciliar las 24 provincias
-        env:
-          DATABASE_URL: ${{ secrets.V2_DATABASE_URL }}
-          DATABASE_URL_UNPOOLED: ${{ secrets.V2_DATABASE_URL_UNPOOLED }}
+      # Migraciones + las 24 provincias (con su relleno de la 0013), insignias,
+      # desafíos y áreas de vida, en las dos bases.
+      - name: Migrar y sembrar
         run: |
-          pnpm --filter @v2/db db:seed-provinces
-          pnpm --filter @v2/db geo:rellenar-provincias --aplicar
+          bash scripts/test/sembrar-base-de-prueba.sh
+          DATABASE_URL="$DATABASE_URL_DESCARTABLE" DATABASE_URL_UNPOOLED="$DATABASE_URL_DESCARTABLE" bash scripts/test/sembrar-base-de-prueba.sh
 
-      # `DATABASE_URL_DESCARTABLE` NO se define acá a propósito, y no cae a
-      # `DATABASE_URL`: la suite de `migracion-0013.test.ts` que prueba «sobre
-      # base vacía» crea un esquema, lo llena y lo tira. Se saltea con un
-      # mensaje mientras esta rama no esté declarada descartable. Declararla es
-      # una decisión sobre la rama, no sobre el test.
       - name: Run integration tests
-        env:
-          DATABASE_URL: ${{ secrets.V2_DATABASE_URL }}
-          DATABASE_URL_UNPOOLED: ${{ secrets.V2_DATABASE_URL_UNPOOLED }}
-          JWT_SECRET: ${{ secrets.V2_JWT_SECRET }}
-          SESSION_SECRET: ${{ secrets.V2_SESSION_SECRET }}
         run: pnpm test:integration
 
   e2e-tests:
