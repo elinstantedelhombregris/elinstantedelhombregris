@@ -48,7 +48,13 @@ import {
   timestamp,
 } from 'drizzle-orm/pg-core';
 
-import { CLASES_ENSAYADAS, enLista, RADIOS_DE_ATENCION, simulacion, TIPOS_ENSAYADOS } from './simulacion-esquema';
+import {
+  CLASES_ENSAYADAS,
+  enLista,
+  RADIOS_DE_ATENCION,
+  simulacion,
+  TIPOS_ENSAYADOS,
+} from './simulacion-esquema';
 
 /**
  * Un elenco congelado. Una fila por población, y la fila **es** el sello.
@@ -148,7 +154,20 @@ export const simPersonas = simulacion.table(
     umbralAdhesion: doublePrecision('umbral_adhesion').notNull(),
     umbralCorroboracion: doublePrecision('umbral_corroboracion').notNull(),
     radioAtencion: text('radio_atencion').notNull(),
-    /** `Record<TipoSenal, number>`, suma 1. Qué tiende a decir esta persona. */
+    /**
+     * `Record<TipoSenal, number>`, suma 1. Qué tiende a decir esta persona.
+     *
+     * `jsonb` y no `json`: se consulta y se indexa. El precio es que **no
+     * conserva el orden de inserción** —reordena por (longitud en bytes,
+     * después bytes)—, así que estas nueve claves entran
+     * `basta, necesidad, recurso, práctica, saber, sueño, propuesta, compromiso, pregunta`
+     * y salen
+     * `basta, saber, sueño, recurso, pregunta, necesidad, propuesta, práctica, compromiso`.
+     * Eso no se arregla acá y no hace falta: `huellaDePoblacion` las toma en el
+     * orden canónico de `TIPOS_SENAL`, así que un elenco escrito y leído de
+     * vuelta conserva su huella. Antes no la conservaba, y el worker abortaba
+     * con «Alguien editó el archivo» sobre un elenco que nadie tocó.
+     */
     mezclaTipos: jsonb('mezcla_tipos').$type<Record<string, number>>().notNull(),
     /** Índices de otras personas del mismo elenco. El contagio corre por acá. */
     vinculos: jsonb('vinculos').$type<number[]>().notNull(),

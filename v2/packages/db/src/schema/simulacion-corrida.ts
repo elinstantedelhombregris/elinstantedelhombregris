@@ -182,9 +182,19 @@ export const simCorridas = simulacion.table(
 
     /** Las cinco Magnitudes, cada una con su procedencia. Nunca un número pelado. */
     resumen: jsonb('resumen').$type<Record<string, unknown>>().notNull(),
-    /** La forma que se pidió. */
+    /** La forma que se pidió: cuatro números declarados, tal como se movieron. */
     pedido: jsonb('pedido').$type<Record<string, unknown>>().notNull(),
-    /** La forma que salió, vía `medirForma()`. En modo forma coinciden, y se muestra. */
+    /**
+     * La forma que salió, vía `medirFormaConProcedencia()`. En modo forma
+     * coincide con `pedido`, y se muestra.
+     *
+     * **No es simétrico con `pedido` y por eso no guarda lo mismo.** `pedido`
+     * son números declarados; esto lo calcula el motor sobre la cosecha, así
+     * que cada campo viaja como `Magnitud` con su fórmula y, en modo gente,
+     * envuelto en `hipotesis` con el sello del modelo. Guardarlo como cuatro
+     * números pelados —como se guardaba— dejaba la salida estrella del modo
+     * gente indistinguible de un dato medido para cualquiera que lea la tabla.
+     */
     logrado: jsonb('logrado').$type<Record<string, unknown>>().notNull(),
     /** Cobertura y sesgo. Regla 5: obligatoria en toda síntesis, también acá. */
     cobertura: jsonb('cobertura').$type<Record<string, unknown>>().notNull(),
@@ -198,7 +208,12 @@ export const simCorridas = simulacion.table(
   },
   (t) => [
     /** El mismo punto del diseño no se guarda dos veces. */
-    uniqueIndex('sim_corridas_punto_uidx').on(t.escenarioHuella, t.modo, t.semilla, t.cosechaHuella),
+    uniqueIndex('sim_corridas_punto_uidx').on(
+      t.escenarioHuella,
+      t.modo,
+      t.semilla,
+      t.cosechaHuella,
+    ),
     index('sim_corridas_funcion_idx').on(t.funcionId),
 
     check('sim_corridas_modo_chk', enLista(t.modo, MODOS)),

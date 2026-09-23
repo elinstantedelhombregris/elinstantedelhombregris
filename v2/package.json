@@ -44,6 +44,7 @@
     "entrenamientos:check": "tsx scripts/content/entrenamientos-check.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
     "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",
+    "radiografia:ejemplos": "tsx scripts/radiografia/ejemplos-vectores.ts",
     "simulacion:calibrar": "tsx scripts/simulacion/calibrar.ts",
     "simulacion:elenco": "tsx scripts/simulacion/elenco-ollama.ts",
     "deps:check": "tsx scripts/build/deps-check.ts",
