@@ -26,7 +26,7 @@ El periodismo de datos no es solo para periodistas. Es una **forma de pensar**: 
 
 ### Técnicas de Investigación con Datos
 
-- **Cruce de bases:** Cruzar la lista de funcionarios con la lista de titulares de empresas contratistas. Si coinciden, hay conflicto de interés.
+- **Cruce de bases:** Cruzar la lista de funcionarios con la lista de titulares de empresas contratistas. Si coinciden, hay un posible conflicto de interés que investigar: un homónimo o un vínculo ya declarado pueden explicarlo.
 - **Análisis temporal:** ¿Las contrataciones aumentan antes de las elecciones? ¿La obra pública se concentra en ciertos barrios?
 - **Comparación:** ¿Mi municipio gasta más per cápita en publicidad que otros similares? ¿Por qué?
 - **Outliers:** ¿Hay una licitación que costó 10 veces más que las similares? Investigá.

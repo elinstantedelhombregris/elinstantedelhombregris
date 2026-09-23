@@ -41,11 +41,11 @@
       "orderIndex": 3
     },
     {
-      "question": "En Argentina, WhatsApp Business es el canal de ventas más poderoso para emprendedores.",
+      "question": "WhatsApp Business se puede descargar gratis y ofrece catálogo de productos, respuestas rápidas y etiquetas para organizar clientes.",
       "type": "true_false",
       "options": null,
       "correctAnswer": true,
-      "explanation": "WhatsApp es la plataforma de comunicación dominante en Argentina y su versión Business ofrece herramientas gratuitas de venta.",
+      "explanation": "La app es gratis, con algunas funciones pagas, y trae herramientas de venta que para muchos emprendimientos chicos la vuelven el canal central.",
       "points": 1,
       "orderIndex": 4
     },
@@ -54,17 +54,17 @@
       "type": "multiple_choice",
       "options": [
         "Una sociedad anónima grande",
-        "Una forma societaria ágil creada en 2017 que se constituye digitalmente en 24h",
+        "Una forma societaria creada en 2017 que la ley prevé inscribir en 24 horas con el estatuto modelo",
         "Una cooperativa de trabajo",
         "Un tipo de monotributo avanzado"
       ],
       "correctAnswer": 1,
-      "explanation": "La SAS fue diseñada para emprendedores: se constituye digitalmente, en 24 horas, con capital mínimo y puede tener un solo socio.",
+      "explanation": "La SAS fue diseñada para emprendedores: la Ley 27.349 prevé su inscripción digital en 24 horas con el estatuto modelo, pide un capital mínimo de dos salarios mínimos y permite un solo socio. En la práctica, el registro puede tardar más.",
       "points": 2,
       "orderIndex": 5
     },
     {
-      "question": "Las Empresas B buscan ser \"las mejores PARA el mundo\" y no solo \"las mejores DEL mundo\".",
+      "question": "Una Empresa B certifica que genera impacto social y ambiental positivo, no sólo ganancia.",
       "type": "true_false",
       "options": null,
       "correctAnswer": true,
@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tecnología Accesible: Digitalizar Sin Complicar» a una situación real?",
+      "question": "Según el caso de «Tecnología Accesible», con los datos del INDEC de fines de 2024, ¿qué conclusión saca la lección para un emprendimiento?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Herramientas digitales gratuitas o baratas para potenciar tu emprendimiento.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que conviene priorizar una tienda pensada para computadora, porque ahí se concretan las compras más grandes.",
+        "Que el freno principal es la conexión: menos de la mitad de los hogares urbanos tiene acceso a internet.",
+        "Que el cliente te va a encontrar, comprar y pagar desde el celular, que usa mucha más gente que la computadora.",
+        "Que la diferencia entre ciudades es chica, así que el mismo diseño de escritorio sirve en todo el país."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "El caso cita al INDEC: el 93,7% de los hogares urbanos tenía internet, pero el 90,5% de las personas usaba celular y sólo el 37,1% computadora. Por eso la lección concluye que una tienda que sólo funciona en pantalla grande le cierra la puerta a la mayoría.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Redes y Ecosistema: Emprender Nunca Es Solitario» a una situación real?",
+      "question": "Querés que vecinos y amigos pongan plata en tu emprendimiento. Según el caso de «Redes y Ecosistema», ¿cuándo la Ley 27.349 pide hacerlo por medio de una Plataforma de Financiamiento Colectivo inscripta ante la CNV?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: El ecosistema emprendedor argentino y cómo conectarte para crecer.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Cuando les ofrecés una preventa del producto, con descuento por pagar antes de que esté listo.",
+        "Cuando lo que juntás supera el tope de facturación de tu categoría de monotributo.",
+        "Cuando les das a cambio una recompensa, como una muestra del producto o un agradecimiento público.",
+        "Cuando les das a cambio acciones, deuda convertible o una participación en un fideicomiso."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La lección distingue: si a cambio de la plata se entrega una parte de la empresa (acciones, deuda convertible, participación en un fideicomiso), la ley exige una plataforma inscripta ante la CNV; la preventa o la recompensa no convierten a nadie en socio.",
       "points": 1,
       "orderIndex": 10
     }

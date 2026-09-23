@@ -10,6 +10,18 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
     titulo: 'Constitución de la Nación Argentina — texto oficial (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.etymonline.com/word/human
+    titulo: 'human — Online Etymology Dictionary (del latín humanus y la raíz indoeuropea *dhghem-, «tierra»)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/humble
+    titulo: 'humble — Online Etymology Dictionary (del latín humilis, «pegado al suelo», de humus)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/culture
+    titulo: 'culture — Online Etymology Dictionary (del latín cultura, de colere, «cultivar»)'
+    consultada: '2026-09-23'
+  - url: https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Gellius/13*.html
+    titulo: 'Aulo Gelio, Noches áticas, libro XIII, cap. 17: sobre el sentido de humanitas (LacusCurtius, Universidad de Chicago)'
+    consultada: '2026-09-23'
 ---
 
 ## La palabra que nos nombra
@@ -20,7 +32,7 @@ La respuesta está escondida en la propia palabra.
 
 ### Homo: el que viene de la tierra
 
-*Homo*, la palabra latina que nos nombra, no viene de un lugar de grandeza. Viene de ***humus***: tierra, suelo, barro. El ser humano es, literalmente, *el que viene de la tierra*. No del cielo, no de las estrellas, no de un trono. Del barro.
+*Homo*, la palabra latina que nos nombra, no viene de un lugar de grandeza. Es pariente de ***humus***: tierra, suelo, barro. Las dos salen de la misma raíz indoeuropea, que quería decir «tierra». El ser humano es, literalmente, *el terrestre*, el que viene de la tierra. No del cielo, no de las estrellas, no de un trono. Del barro.
 
 De esa misma raíz nacen tres palabras que deberían ir siempre juntas:
 
@@ -30,11 +42,11 @@ De esa misma raíz nacen tres palabras que deberían ir siempre juntas:
 
 > Ser humano, ser humilde y ser parte de la humanidad no son tres cosas distintas. Son la misma cosa dicha tres veces.
 
-Los romanos lo entendían. Para ellos, *humanitas* no significaba solo "la especie humana". Significaba la capacidad de sentir compasión, de cultivarse, de reconocer en el otro a un igual. Perder la *humanitas* era volverse bestia — no por ser débil, sino por olvidar que todos venimos del mismo suelo.
+Los romanos lo entendían. Para ellos, *humanitas* no significaba solo "la especie humana". Aulo Gelio, en sus *Noches áticas*, anotaba dos sentidos: el del habla común, una buena disposición hacia todos los hombres sin distinción, y el de los que hablaban el latín más cuidado, la educación en las buenas artes. Sentir compasión, cultivarse, reconocer en el otro a un igual. Perder la *humanitas* era volverse bestia — no por ser débil, sino por olvidar que todos venimos del mismo suelo.
 
 ### La paradoja del barro y la grandeza
 
-Acá está lo extraordinario: somos tierra que piensa. Polvo que sueña. Barro que escribe poesía, que construye puentes, que mira el cielo y se pregunta qué hay más allá. No hay nada más asombroso en el universo conocido que un puñado de átomos de carbono y agua que un día se levantó, miró alrededor y dijo: *"¿Qué significa todo esto?"*
+Acá está lo extraordinario: somos tierra que piensa. Polvo que sueña. Barro que escribe poesía, que construye puentes, que mira el cielo y se pregunta qué hay más allá. No hay nada más asombroso en el universo conocido que un puñado de carbono y agua que un día se levantó, miró alrededor y dijo: *"¿Qué significa todo esto?"*
 
 Pero esa grandeza no nos eleva por encima de la tierra — nos conecta más profundamente con ella. El ser humano más brillante de la historia comparte el mismo barro original que el más anónimo. No hay jerarquía en el *humus*. La tierra no distingue entre los huesos de un rey y los de un campesino.
 

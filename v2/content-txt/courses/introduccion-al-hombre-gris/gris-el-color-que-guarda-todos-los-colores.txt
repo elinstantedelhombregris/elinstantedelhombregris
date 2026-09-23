@@ -13,6 +13,21 @@ fuentes:
   - url: https://www.lanacion.com.ar/politica/resultados-de-las-elecciones-2023-asi-fueron-los-numeros-del-balotaje-milei-massa-nid09122023/
     titulo: 'Resultados de las elecciones 2023: así fueron los números del balotaje Milei-Massa (La Nación)'
     consultada: '2026-09-22'
+  - url: https://www.etymonline.com/word/gray
+    titulo: 'gray — Online Etymology Dictionary (el gris francés, castellano e italiano como préstamo germánico; graybeard, siglo XVI)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/grizzle
+    titulo: 'grizzle / grizzled — Online Etymology Dictionary (del francés antiguo grisel, diminutivo de gris)'
+    consultada: '2026-09-23'
+  - url: https://es.wikipedia.org/wiki/Gris
+    titulo: 'Gris — Wikipedia (acromático; luz de intensidad moderada con todas las longitudes de onda; del germánico por el provenzal y el latín medieval griseus)'
+    consultada: '2026-09-23'
+  - url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8256037/
+    titulo: 'Rathje, Van Bavel y van der Linden, «Out-group animosity drives engagement on social media» (PNAS, 2021)'
+    consultada: '2026-09-23'
+  - url: https://www.osti.gov/servlets/purl/15005391
+    titulo: 'N. Thomas y J. Wolfe, «High Reflectivity of Silver Extended Down to 200 nm» (Lawrence Livermore National Laboratory, 2001): la plata, el metal de mayor reflectancia, se empaña con sulfuros y cloruros'
+    consultada: '2026-09-23'
 ---
 
 ## El color que nadie elige — y que lo contiene todo
@@ -21,13 +36,13 @@ Si le pedís a alguien su color favorito, nadie dice gris. El gris no tiene hinc
 
 ### De dónde viene la palabra
 
-La palabra *gris* llegó al castellano desde el francés antiguo *gris*, que a su vez viene del fráncico (germánico antiguo) ***grīs***. En las lenguas germánicas, la raíz está emparentada con *grizzled* — el pelo que mezcla colores, las canas que aparecen con los años. En inglés antiguo, *grey* se asociaba con la sabiduría del que ya vivió suficiente como para ver matices donde otros ven absolutos.
+La palabra *gris* no es latina. El castellano la tomó, como el francés y el italiano, de una lengua germánica: detrás de todas hay una voz como el fráncico ***grīs***, que el latín medieval adaptó como *griseus* y que al castellano llegó por las lenguas romances vecinas. Del *gris* francés salió en inglés *grizzled* — el pelo que mezcla colores, las canas que aparecen con los años. Y el inglés ya llamaba *graybeard*, «barba gris», al hombre viejo en el siglo XVI. El gris quedó pegado a la edad: al que vivió lo suficiente como para ver matices donde otros ven absolutos.
 
 > El gris, en su origen, no es el color del aburrimiento. Es el color de la experiencia. De quien ya aprendió que la vida no viene en blanco y negro.
 
 ### Gris no es ausencia — es síntesis
 
-Hay un malentendido enorme con el gris. Se lo asocia con lo neutro, lo tibio, lo que no se define. Pero pensalo desde la física: **el gris es lo que ocurre cuando todas las longitudes de onda de la luz se mezclan en partes iguales**. No es que no tenga color. *Los tiene todos.*
+Hay un malentendido enorme con el gris. Se lo asocia con lo neutro, lo tibio, lo que no se define. Pero pensalo desde la física: **el gris es luz hecha de todas las longitudes de onda del espectro visible, en las mismas proporciones que el blanco, sólo que con menos intensidad**. No es que no tenga color. *Los tiene todos.*
 
 Mezclar blanco y negro no anula nada. Crea algo nuevo que contiene a ambos. El gris no elimina los extremos — los integra. Los abraza. Los trasciende.
 
@@ -35,7 +50,7 @@ Y esto no es solo física. Es filosofía. Es política. Es vida.
 
 ### El mundo te quiere en blanco o negro
 
-Vivimos en una época que nos empuja a elegir bando con la urgencia de quien te pide que saltes de un edificio en llamas. ¿Derecha o izquierda? ¿Patria o colonia? ¿Conmigo o contra mí? Las redes sociales premian el extremo — un tuit moderado no se viraliza, una indignación sí. Los medios monetizan el conflicto — la grieta vende, el matiz aburre.
+Vivimos en una época que nos empuja a elegir bando con la urgencia de quien te pide que saltes de un edificio en llamas. ¿Derecha o izquierda? ¿Patria o colonia? ¿Conmigo o contra mí? Las redes sociales premian el extremo — en un estudio sobre 2,7 millones de publicaciones de Facebook y Twitter, las que hablaban del grupo político contrario se compartían más o menos el doble que las que hablaban del propio. Los medios monetizan el conflicto — la grieta vende, el matiz aburre.
 
 Y así, sin darnos cuenta, vamos pintando al mundo en dos colores. Y a cualquiera que se resista a elegir le decimos: *"Tibio. No te definís. Sos parte del problema."*
 
@@ -52,7 +67,7 @@ El gris no es cobardía. Es el coraje de sostener la complejidad cuando todos a 
 Mirá dónde aparece el gris en el mundo natural y decime si te parece un color menor:
 
 - **El amanecer**, antes de que salga el sol — ese momento en que el cielo no es ni noche ni día, sino pura posibilidad
-- **La ceniza**, que fertiliza la tierra después del fuego — de la destrucción nace el nutriente más rico
+- **La ceniza**, que fertiliza la tierra después del fuego — de la destrucción nace el nutriente
 - **La nube de lluvia**, que parece amenaza y es la que riega el campo
 - **La materia gris** del cerebro, donde nacen todas las ideas que alguna vez cambiaron el mundo
 - **La piedra**, que es la memoria de la tierra, capas y capas de historia comprimida
@@ -62,7 +77,7 @@ El gris no es triste. **El gris es potencial.**
 
 ### La plata antes de ser plata
 
-Esto es lo que más importa de todo: un lingote de plata recién extraído de la mina no brilla. Es un pedazo de metal gris, opaco, cubierto de impurezas. Si lo vieras tirado en el suelo, no le darías importancia. No parece nada especial.
+Esto es lo que más importa de todo: un pedazo de plata recién sacado de la mina no brilla. La plata es el metal que mejor refleja la luz, pero se empaña con los sulfuros y los cloruros que la rodean. Es un pedazo de metal gris, opaco, cubierto de impurezas. Si lo vieras tirado en el suelo, no le darías importancia. No parece nada especial.
 
 Pero adentro de ese metal gris está toda la capacidad de brillar. Toda la potencia de reflejar la luz. Toda la belleza que alguna vez viste en una pieza de plata pulida. **Ya está ahí**. Solo necesita el proceso de refinamiento.
 

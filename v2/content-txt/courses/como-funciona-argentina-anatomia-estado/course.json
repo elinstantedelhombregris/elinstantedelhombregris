@@ -5,7 +5,7 @@
   "excerpt": "Descubrí cómo funciona realmente el Estado argentino más allá del manual de cívica.",
   "category": "civica",
   "level": "beginner",
-  "duration": 36,
+  "duration": 48,
   "orderIndex": 23,
   "isPublished": true,
   "isFeatured": true,
@@ -16,84 +16,84 @@
       "key": "02-el-estado-argentino-la-maquina-que-nadie-te-explico",
       "title": "El Estado Argentino: La Máquina Que Nadie Te Explicó",
       "description": "Visión general del Estado como sistema: qué es, qué hace y por qué importa entenderlo.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 1
     },
     {
       "key": "03-poder-ejecutivo-mas-alla-del-presidente",
       "title": "Poder Ejecutivo: Más Allá del Presidente",
       "description": "Cómo funciona realmente el Poder Ejecutivo y su estructura de decisión.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 2
     },
     {
       "key": "04-congreso-nacional-como-un-proyecto-realmente-se-convierte-en-ley",
       "title": "Congreso Nacional: Cómo un Proyecto Realmente Se Convierte en Ley",
       "description": "El proceso legislativo real, más allá del esquema del manual escolar.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-poder-judicial-la-justicia-como-sistema",
       "title": "Poder Judicial: La Justicia Como Sistema",
       "description": "Cómo funciona el sistema judicial argentino y por qué es tan lento.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-a-donde-van-tus-impuestos-el-presupuesto-nacional",
       "title": "A Dónde Van Tus Impuestos: El Presupuesto Nacional",
       "description": "Leer el presupuesto nacional como ciudadano y entender a dónde va tu plata.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-provincias-y-municipios-el-federalismo-real",
       "title": "Provincias y Municipios: El Federalismo Real",
       "description": "Cómo funciona la distribución de poder entre Nación, provincias y municipios.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
       "key": "08-los-entes-autonomos-la-capa-invisible-del-estado",
       "title": "Los Entes Autónomos: La Capa Invisible del Estado",
       "description": "Los organismos que controlan aspectos cruciales de tu vida y casi nadie conoce.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-la-constitucion-como-sistema-operativo",
       "title": "La Constitución Como Sistema Operativo",
       "description": "Entender la Constitución Nacional como el código fuente del sistema argentino.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {
       "key": "10-partidos-politicos-como-funciona-el-poder-real",
       "title": "Partidos Políticos: Cómo Funciona el Poder Real",
       "description": "Entender los partidos como sistemas de poder, no como ideas abstractas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-elecciones-del-cuarto-oscuro-al-escrutinio",
       "title": "Elecciones: Del Cuarto Oscuro al Escrutinio",
       "description": "Cómo funciona el sistema electoral argentino y cómo participar más allá del voto.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 10
     },
     {
       "key": "12-medios-y-poder-la-relacion-que-no-se-ensena",
       "title": "Medios y Poder: La Relación Que No Se Enseña",
       "description": "Entender la relación entre medios de comunicación y poder político en Argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 11
     },
     {
       "key": "13-tu-mapa-del-poder-diagnostico-de-tu-territorio",
       "title": "Tu Mapa del Poder: Diagnóstico de Tu Territorio",
       "description": "Ejercicio integrador: mapear la estructura de poder en tu territorio local.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 12
     }
   ],

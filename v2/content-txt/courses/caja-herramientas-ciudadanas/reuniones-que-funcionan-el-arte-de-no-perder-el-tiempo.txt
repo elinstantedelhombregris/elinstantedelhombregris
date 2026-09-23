@@ -23,7 +23,7 @@ Las reuniones son la herramienta más usada y más odiada de la participación c
 
 - **¿Es necesaria?** No toda comunicación requiere reunión. Si es informativo, mandá un mensaje. Si es una decisión simple, usá una encuesta. Reuní solo cuando necesitás deliberación real.
 - **Agenda clara:** Escribí los temas a tratar, el tiempo para cada uno, y el resultado esperado. Compartila antes. Sin agenda = sin reunión.
-- **Invitá solo a quien necesitás:** Cada persona adicional multiplica la complejidad. 5-7 personas es ideal para decidir. Más de 12 es una asamblea, no una reunión.
+- **Invitá solo a quien necesitás:** Cada persona adicional suma complejidad. Como regla práctica, un grupo de 5 a 7 personas decide con más agilidad; con más de 12 ya tenés una asamblea, no una reunión.
 - **Logística:** Lugar accesible, hora conveniente, duración definida (máximo 90 minutos). Si es virtual: link enviado con anticipación.
 
 ### Durante la Reunión: Facilitación
@@ -51,7 +51,7 @@ La ley no lo pide por formalismo. Sin orden del día, el que no fue no sabe qué
 2. **Hoy:** Descargá una plantilla de minuta de reunión (buscá "plantilla minuta reunión" en Google Docs) y tenela lista en tu celular para la próxima vez.
 3. **Hoy:** Elegí una persona en tu grupo o entorno que hable poco en las reuniones. En la próxima reunión, hacele una pregunta directa: "¿Vos qué opinás de esto?" Practicá ser facilitador antes de necesitarlo.
 
-> "Una reunión bien facilitada de 45 minutos logra más que 5 reuniones caóticas de 3 horas. El secreto no es reunirse más — es reunirse mejor."
+> "Una reunión bien facilitada de 45 minutos puede lograr más que varias reuniones caóticas de 3 horas. El secreto no es reunirse más — es reunirse mejor."
 
 ### El puente
 

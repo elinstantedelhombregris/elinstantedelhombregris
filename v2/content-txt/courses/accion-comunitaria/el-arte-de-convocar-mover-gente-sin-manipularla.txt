@@ -13,6 +13,12 @@ fuentes:
   - url: https://www.argentina.gob.ar/aaip/accesoalainformacion
     titulo: 'Agencia de Acceso a la Información Pública — Acceso a la información'
     consultada: '2026-09-22'
+  - url: https://www.hks.harvard.edu/faculty/marshall-ganz
+    titulo: 'Marshall Ganz — Harvard Kennedy School'
+    consultada: '2026-09-23'
+  - url: https://dash.harvard.edu/server/api/core/bitstreams/7312037d-c817-6bd4-e053-0100007fdf3b/content
+    titulo: 'Marshall Ganz — What Is Public Narrative: Self, Us & Now (Public Narrative Worksheet, 2009)'
+    consultada: '2026-09-23'
 ---
 
 ## La convocatoria que funciona (y la que no)
@@ -39,7 +45,7 @@ La manipulación puede funcionar una vez. Pero destruye la confianza. Y cuando l
 
 ### La fórmula de la convocatoria auténtica
 
-Hay tres pasos que funcionan consistentemente, en cualquier contexto, con cualquier tipo de personas:
+Hay tres pasos que funcionan en muchos contextos y con gente muy distinta. No son un invento de esta casa: se parecen mucho a lo que Marshall Ganz —que pasó dieciséis años organizando con el sindicato de trabajadores rurales de California, la United Farm Workers, y hoy enseña liderazgo y organización en la Escuela Kennedy de Harvard— llama *narrativa pública*: la historia de uno, la historia de nosotros y la historia de ahora.
 
 1. **Contá tu historia personal:**
 
@@ -51,12 +57,14 @@ Hay tres pasos que funcionan consistentemente, en cualquier contexto, con cualqu
 
     *"Resulta que a los dos nos preocupa lo mismo. ¿Y si hacemos algo juntos?"* No le estás pidiendo un favor. No le estás asignando una tarea. Le estás proponiendo una alianza entre iguales con una preocupación compartida. Eso se siente muy diferente a "necesito que me ayudes".
 
+En la hoja de trabajo que Ganz usa con sus alumnos hay dos advertencias que conviene llevarse. La primera: la narrativa pública no es expresarse, es un ejercicio de liderazgo para que otros se sumen a la acción por un propósito compartido — y no se aprende escribiendo un guion sino contándola, escuchando y volviéndola a contar. La segunda marca la frontera con lo que esta lección llama manipular: la historia de ahora es urgente, pero su urgencia nace de una amenaza o de una oportunidad que existen de verdad. El «ahora o nunca» inventado para apurar a alguien es otra cosa.
+
 ### Lo que espanta a la gente
 
 Si la gente no se suma, antes de pensar "la gente no quiere participar", revisá si estás haciendo alguna de estas cosas:
 
 - **Reuniones eternas sin acción:** Si la gente viene a reunirse, habla 2 horas, y se va sin haber decidido nada concreto, no va a volver. Las reuniones son para decidir y asignar, no para debatir infinitamente.
-- **Un solo liderazgo que habla todo el tiempo:** Si vos hablás el 80% de la reunión, la gente se siente espectadora, no protagonista. El arte es hablar menos del 30% del tiempo.
+- **Un solo liderazgo que habla todo el tiempo:** Si vos hablás la mayor parte de la reunión, la gente se siente espectadora, no protagonista. Una regla práctica: si coordinás, que tu voz ocupe bastante menos de un tercio del tiempo.
 - **Falta de reconocimiento:** Si alguien aporta algo y nadie lo registra, si alguien se esfuerza y nadie lo agradece — esa persona se va. El reconocimiento no cuesta nada y vale todo.
 - **Falta de transparencia:** Si hay decisiones que se toman a puertas cerradas, si no se comparten los problemas sino solo los logros, la gente desconfía. Y la desconfianza es el veneno de la acción comunitaria.
 

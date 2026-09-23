@@ -10,6 +10,9 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/70000-74999/70355/norma.htm
     titulo: 'Decreto 1570/2001 — Entidades financieras (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/
+    titulo: 'Donella Meadows — Leverage Points: Places to Intervene in a System (Donella Meadows Project)'
+    consultada: '2026-09-23'
 ---
 
 ## De los Titulares a los Patrones
@@ -20,14 +23,14 @@ Este curso te va a enseñar a ver Argentina con ojos sistémicos: no para predec
 
 ### Los Tres Niveles de Comprensión
 
-1. **Nivel 1 — Eventos:** "El dólar subió hoy." Reacción emocional. Quejarse en Twitter.
+1. **Nivel 1 — Eventos:** "El dólar subió hoy." Reacción emocional. Quejarse en las redes.
 2. **Nivel 2 — Patrones:** "El dólar sube cada vez que hay déficit fiscal y emisión monetaria." Comprensión de tendencias.
 3. **Nivel 3 — Estructuras:** "El sistema político incentiva el gasto público excesivo porque los beneficios son inmediatos y visibles, mientras los costos son futuros y difusos." Comprensión profunda que permite diseñar intervenciones.
 
 ### Herramientas Sistémicas
 
 - **Bucles de retroalimentación:** Cuando A causa B y B refuerza A, tenés un bucle que se amplifica. La inflación genera expectativas de inflación que generan más inflación.
-- **Puntos de apalancamiento:** Lugares del sistema donde una pequeña intervención produce grandes cambios. Donella Meadows identificó 12 niveles de intervención sistémica.
+- **Puntos de apalancamiento:** Lugares del sistema donde una pequeña intervención produce grandes cambios. Donella Meadows ordenó doce lugares donde intervenir en un sistema, del que menos mueve al que más.
 - **Efectos retardados:** Las consecuencias de muchas decisiones no se ven inmediatamente. El endeudamiento de los 90 explotó en 2001. El daño educativo de una década se ve 20 años después.
 - **Modelo mental:** Las creencias compartidas sobre cómo funciona el mundo. "En Argentina no se puede ahorrar en pesos" es un modelo mental que genera comportamientos que confirman el modelo.
 

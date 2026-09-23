@@ -13,16 +13,40 @@ fuentes:
   - url: https://www.cultura.gob.ar/23-de-septiembre-de-1947-asi-se-promulgo-la-ley-del-voto-femenino_6501/
     titulo: 'El recorrido hacia el voto femenino en Argentina (Secretaría de Cultura de la Nación)'
     consultada: '2026-09-22'
+  - url: https://perio.unlp.edu.ar/2021/02/01/24-de-febrero-de-1946-una-eleccion-presidencial-trascendente/
+    titulo: '24 de febrero de 1946: una elección presidencial trascendente (Facultad de Periodismo y Comunicación Social, UNLP)'
+    consultada: '2026-09-23'
+  - url: https://labancaria.org/20-de-diciembre-de-1945-peron-promulgo-el-decreto-33-302-45-instaurando-aguinaldo-vacaciones-pagas-e-indemnizacion-por-despidos-injustificados-2/
+    titulo: '20 de diciembre de 1945: Perón promulgó el decreto 33.302/45 (La Bancaria)'
+    consultada: '2026-09-23'
+  - url: https://perio.unlp.edu.ar/2020/02/13/la-nacionalizacion-de-los-ferrocarriles-ya-son-nuestros/
+    titulo: 'La nacionalización de los ferrocarriles: «Ya son nuestros» (Facultad de Periodismo y Comunicación Social, UNLP)'
+    consultada: '2026-09-23'
+  - url: https://iigg.sociales.uba.ar/iapi-auge-y-decadencia/
+    titulo: 'IAPI: auge y decadencia. El comercio exterior durante el primer peronismo (Instituto Gino Germani, UBA)'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/opinion/2021/02/18/la-expropiacion-de-la-prensa-un-error-del-que-peron-se-arrepintio-mucho-tiempo-despues/
+    titulo: 'La expropiación de La Prensa, un error del que Perón se arrepintió mucho tiempo después (Infobae)'
+    consultada: '2026-09-23'
+  - url: https://elhistoriador.com.ar/constitucion-de-la-nacion-argentina-1949/
+    titulo: 'Constitución de la Nación Argentina (1949), texto (El Historiador)'
+    consultada: '2026-09-23'
+  - url: https://www.ellitoral.com/opinion/revolucion-libertadora-derogacion-constitucion-1949-gobierno-facto-argentina-junta-consultiva-nacional-pedro-eugenio-aramburu-convencion-constituyente-1957-reforma-constitucional-argentina-ucrp-ucri-derechos-trabajador-argentina-articulo-14-bis_0_fC8JcDUCJD.html
+    titulo: 'Apuntes sobre la reforma constitucional de 1957 (El Litoral)'
+    consultada: '2026-09-23'
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-23264-96343/normas-modificadas
+    titulo: 'Ley 23.264 — Filiación y patria potestad, ficha de sanción y publicación (Argentina.gob.ar)'
+    consultada: '2026-09-23'
 ---
 
 ## El Sistema que Cambió Todas las Reglas
 
-Juan Domingo Perón ganó las elecciones de 1946 con el 56% de los votos. Lo que construyó en los siguientes 9 años fue mucho más que un gobierno: fue un **nuevo sistema operativo** para Argentina. Un sistema tan potente que, 80 años después, sigue definiendo la política del país.
+Juan Domingo Perón ganó las elecciones del 24 de febrero de 1946 con el 52,8% de los votos. Lo que construyó en los siguientes 9 años fue mucho más que un gobierno: fue un **nuevo sistema operativo** para Argentina. Un sistema tan potente que, 80 años después, sigue definiendo la política del país.
 
 ### Las Tres Banderas
 
-- **Justicia social:** Derechos laborales, vacaciones pagas, aguinaldo, jubilación universal. Millones de personas que habían sido invisibles accedieron por primera vez a una vida digna.
-- **Independencia económica:** Nacionalización de ferrocarriles, gas, teléfonos. Industrialización dirigida por el Estado. El IAPI controlaba el comercio exterior.
+- **Justicia social:** Derechos laborales: el aguinaldo y las vacaciones pagas, que Perón había impuesto en 1945 desde la Secretaría de Trabajo y Previsión, se volvieron ley de todos los días. Muchísimas personas que habían sido invisibles accedieron por primera vez a una vida digna.
+- **Independencia económica:** Nacionalización de los ferrocarriles en 1948 y de otros servicios públicos. Industrialización dirigida por el Estado. Desde 1946, el IAPI puso en manos del Estado buena parte del comercio exterior.
 - **Soberanía política:** "Tercera posición" entre EEUU y la URSS. Argentina como país no alineado.
 
 ### Eva Perón: El Corazón del Sistema
@@ -31,14 +55,14 @@ Eva Duarte de Perón fue mucho más que "la esposa del presidente". Fue una **in
 
 ### Los Costos del Modelo
 
-- **Autoritarismo creciente:** Persecución a opositores, cierre de diarios (La Prensa), control de la justicia, reforma constitucional para permitir la reelección.
+- **Autoritarismo creciente:** Persecución a opositores, expropiación de La Prensa en 1951, que quedó en manos de la CGT, control de la justicia, reforma constitucional de 1949 para permitir la reelección.
 - **Culto a la personalidad:** Perón y Evita en los manuales escolares, en las calles, en todo el espacio público.
 - **Agotamiento económico:** El modelo redistributivo funcionó mientras hubo reservas acumuladas durante la guerra. Cuando se acabaron, la economía empezó a crujir.
 - **Polarización fundacional:** Argentina se dividió en peronistas y antiperonistas con una intensidad que no tenía precedente. Familias, amistades, instituciones: todo se partió en dos.
 
 ### Lo Que el Péndulo Se Llevó
 
-Algunas conquistas de la década no sobrevivieron al período que vino después. Los golpes que siguieron dejaron sin efecto cientos de derechos obtenidos en esos años. La patria potestad compartida entre madre y padre, reconocida en 1949, recién se restableció en 1985, con la democracia de vuelta. El voto femenino, en cambio, nunca se revocó: cada vez que volvieron las urnas, las mujeres volvieron con ellas. La diferencia enseña algo: lo que se inscribe en la vida cotidiana de millones resiste mejor que lo que depende de quién gobierna.
+Algunas conquistas de la década no sobrevivieron al período que vino después. La Constitución de 1949 garantizaba «la igualdad jurídica de los cónyuges y la patria potestad»; el 27 de abril de 1956, una proclama del gobierno de facto la dejó sin efecto y repuso la de 1853. La patria potestad compartida entre madre y padre recién llegó por ley en 1985, con la democracia de vuelta. El voto femenino, en cambio, nunca se revocó: cada vez que volvieron las urnas, las mujeres volvieron con ellas. La diferencia enseña algo: lo que se inscribe en la vida cotidiana de millones resiste mejor que lo que depende de quién gobierna.
 
 ### La Lección Sistémica
 

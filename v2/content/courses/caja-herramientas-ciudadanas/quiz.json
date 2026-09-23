@@ -4,7 +4,7 @@
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿Cuál es el error más común en las reuniones comunitarias?",
+      "question": "Según la lección de reuniones, ¿qué hace que una reunión comunitaria termine siendo «un café social», una conversación sin resultado?",
       "type": "multiple_choice",
       "options": [
         "Empezar puntual",
@@ -13,7 +13,7 @@
         "Usar tecnología"
       ],
       "correctAnswer": 1,
-      "explanation": "Sin agenda clara y sin acciones concretas asignadas al final, las reuniones son conversaciones sin resultado.",
+      "explanation": "La lección pide agenda compartida de antemano («sin agenda = sin reunión») y un cierre con quién hace qué y para cuándo: si no hay acciones claras, la reunión fue un café social.",
       "points": 2,
       "orderIndex": 1
     },
@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Documentar y Sistematizar: Que Nada Se Pierda» a una situación real?",
+      "question": "De las cuatro cosas que la lección propone documentar (decisiones, procesos, resultados y aprendizajes), ¿cuál describe como el conocimiento más valioso y, a la vez, el menos documentado?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo registrar tu experiencia para que otros puedan replicarla.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Las decisiones, porque las actas son el registro que nadie lleva",
+        "Los resultados, porque las fotos del antes y después casi nunca se guardan",
+        "Los procesos, porque sin los pasos nadie puede replicar lo hecho",
+        "Los aprendizajes: qué funcionó, qué no y qué harían diferente"
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La lección dice de los aprendizajes que son «el conocimiento más valioso y el menos documentado». Las actas de decisiones son, en cambio, el registro más básico, el que sí suele existir.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan de Acción Ciudadana: De Este Curso a Tu Barrio» a una situación real?",
+      "question": "En el Paso 1 del plan de acción, el problema «mejor» es «La esquina de X y Y no tiene iluminación y hubo 3 robos este mes». ¿Qué agrega la versión «excelente»?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Integrar todas las herramientas en un plan concreto de acción para tu comunidad.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Un dato que prueba la gravedad, como la cantidad de robos",
+        "El nombre exacto de la esquina donde pasa el problema",
+        "Un pedido concreto, dirigido a quien puede resolverlo",
+        "Un alcance mayor, para que el problema abarque a más vecinos del barrio"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "La versión excelente («Necesitamos que el municipio instale 2 luminarias LED en la esquina de X y Y») convierte la descripción del problema en un pedido concreto dirigido al responsable. La esquina y los robos ya estaban en la versión «mejor».",
       "points": 1,
       "orderIndex": 10
     }

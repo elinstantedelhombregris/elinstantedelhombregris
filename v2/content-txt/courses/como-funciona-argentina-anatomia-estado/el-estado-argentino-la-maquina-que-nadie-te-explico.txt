@@ -13,6 +13,9 @@ fuentes:
   - url: https://www.boletinoficial.gob.ar/detalleAviso/primera/300727/20231211
     titulo: 'Decreto 8/2023 — Modificación de la Ley de Ministerios (Boletín Oficial)'
     consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina — artículos 50 y 90 (InfoLeg)'
+    consultada: '2026-09-23'
 ---
 
 ## Más Allá del Manual de Cívica
@@ -23,14 +26,14 @@ Este curso no es un manual de educación cívica. Es una **radiografía del Esta
 
 ### ¿Qué Es el Estado?
 
-El Estado no es "el gobierno". El gobierno cambia cada 4 años. El Estado es la **infraestructura permanente** que administra un territorio: las leyes, las instituciones, los empleados públicos, los procedimientos. Un presidente pasa; el Estado queda.
+El Estado no es "el gobierno". El gobierno puede cambiar cada cuatro años, que es lo que dura un mandato presidencial. El Estado es la **infraestructura permanente** que administra un territorio: las leyes, las instituciones, los empleados públicos, los procedimientos. Un presidente pasa; el Estado queda.
 
 ### ¿Por Qué Entenderlo?
 
 - **No podés cambiar lo que no entendés:** Si querés mejorar tu barrio, tu ciudad, tu país, necesitás saber dónde están las palancas.
 - **Dejar de ser víctima:** Cuando entendés el sistema, dejás de quejarte y empezás a intervenir.
 - **Proteger tus derechos:** Hay herramientas legales poderosas que la mayoría desconoce.
-- **Ejercer ciudadanía real:** Votar cada 4 años no es ciudadanía. Es el mínimo.
+- **Ejercer ciudadanía real:** Votar cada dos años, cuando se renueva la mitad de la Cámara de Diputados, no es toda la ciudadanía. Es el mínimo.
 
 ### El Estado como Sistema
 

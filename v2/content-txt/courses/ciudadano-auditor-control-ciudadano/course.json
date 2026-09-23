@@ -5,7 +5,7 @@
   "excerpt": "Las herramientas legales y prácticas para auditar a tu gobierno.",
   "category": "civica",
   "level": "intermediate",
-  "duration": 33,
+  "duration": 39,
   "orderIndex": 24,
   "isPublished": true,
   "isFeatured": false,
@@ -16,7 +16,7 @@
       "key": "02-el-derecho-a-saber-fundamentos-del-control-ciudadano",
       "title": "El Derecho a Saber: Fundamentos del Control Ciudadano",
       "description": "Por qué el control ciudadano es un derecho y un deber cívico.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 1
     },
     {
@@ -30,28 +30,28 @@
       "key": "04-presupuesto-municipal-leer-la-plata-de-tu-ciudad",
       "title": "Presupuesto Municipal: Leer la Plata de Tu Ciudad",
       "description": "Cómo leer e interpretar un presupuesto municipal.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-datos-abiertos-el-tesoro-que-nadie-busca",
       "title": "Datos Abiertos: El Tesoro Que Nadie Busca",
       "description": "Usar datos.gob.ar y otras fuentes de datos abiertos para control ciudadano.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-compras-y-contrataciones-publicas-seguir-la-plata",
       "title": "Compras y Contrataciones Públicas: Seguir la Plata",
       "description": "Cómo auditar las compras que hace el Estado con tu plata.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-el-amparo-tu-arma-legal-contra-el-abuso",
       "title": "El Amparo: Tu Arma Legal Contra el Abuso",
       "description": "Cómo funciona el amparo como herramienta de protección de derechos.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -72,7 +72,7 @@
       "key": "10-periodismo-ciudadano-y-denuncia-efectiva",
       "title": "Periodismo Ciudadano y Denuncia Efectiva",
       "description": "Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {

@@ -4,226 +4,221 @@
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Energía y entropía: las dos leyes que ordenan todo sistema» a una situación real?",
+      "question": "Según la lección, la entropía de un sistema aislado nunca disminuye. ¿Por qué, entonces, una familia o un país pueden sostener orden?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Comprendé cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Porque la primera ley garantiza que la energía no se pierde, y con ella tampoco se pierde el orden ya alcanzado.",
+        "Porque son sistemas abiertos: sostienen el orden sólo si importan energía y la invierten en mantenerlo.",
+        "Porque la segunda ley rige para la materia, pero no para los sistemas formados por personas.",
+        "Porque tienen recursos abundantes, y la entropía sólo crece donde faltan entradas de energía."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 1,
+      "explanation": "La lección distingue el sistema aislado, donde el desorden nunca baja, de los sistemas abiertos —un cuerpo, una familia, un país—, que sostienen orden importando energía e invirtiéndola en mantenimiento. Por eso la Argentina puede tener entradas poderosas y, a la vez, alta entropía institucional.",
       "points": 2,
       "orderIndex": 1
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Conservación, exponenciales y acumulación» a una situación real?",
+      "question": "¿Cómo presenta la lección la llamada regla del 80/20?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Aprendé a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Como una regla empírica: una minoría de causas explica la mayoría de los efectos, en proporción variable.",
+        "Como una ley matemática: en todo sistema, exactamente el 20% de las causas produce siempre el 80% de los efectos.",
+        "Como un caso de crecimiento exponencial: cada causa nueva duplica los efectos de la anterior.",
+        "Como una ley de conservación: el total de efectos se mantiene y sólo cambia de manos entre las causas."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección aclara que el principio de Pareto es una regla empírica y no una ley: las proporciones reales cambian de un caso a otro, y el 80/20 es sólo la forma de recordarla.",
       "points": 2,
       "orderIndex": 2
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Información, señales y comunicación efectiva» a una situación real?",
+      "question": "La lección analiza la emergencia administrativa del INDEC que declaró el Decreto 55/2016. Según su lectura, ¿cuál es el daño sistémico cuando un índice de precios pierde crédito?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Estudiá cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que la gente deja de necesitar una medida de precios y negocia sueldos y alquileres sin referencia.",
+        "Sólo el dato equivocado: alcanza con corregir el número para que el sistema vuelva a coordinar.",
+        "Que cada actor fabrica su estimación y la señal compartida se parte en muchas que no coinciden.",
+        "Un ruido semántico: la misma palabra, «inflación», pasa a significar cosas distintas para cada uno."
       ],
       "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección dice que la necesidad de medir no desaparece: cada actor arma su propia estimación y el sistema pasa de una señal compartida a muchas. El daño no es sólo el dato equivocado, sino que la conversación se vuelve imposible porque nadie arranca del mismo número.",
       "points": 2,
       "orderIndex": 3
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Flujos, entradas y bucles de retroalimentación» a una situación real?",
+      "question": "En la lección, el ciclo «corrupción → desconfianza → más corrupción» es un ejemplo de...",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Mapeá las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse."
+        "Un bucle de retroalimentación negativo, porque lo que produce es un resultado malo para el sistema.",
+        "Un bucle de retroalimentación negativo, porque corrige una desviación y estabiliza el sistema.",
+        "Un bloqueo de flujo por falta de entrada, y no un bucle de retroalimentación.",
+        "Un bucle de retroalimentación positivo, porque amplifica el cambio aunque el cambio sea dañino."
       ],
       "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "En la lección, «positivo» y «negativo» no quieren decir bueno y malo: el bucle positivo amplifica y el negativo corrige desviaciones. Por eso este ciclo aparece como feedback positivo destructivo.",
       "points": 2,
       "orderIndex": 4
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Emergencia, mantenimiento y efectos de red» a una situación real?",
+      "question": "La lección cita la ley de Metcalfe y la objeción que le hicieron Briscoe, Odlyzko y Tilly en 2006. ¿Qué objetaron?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Descubrí cómo emergen propiedades nuevas, cómo se sostienen los sistemas en el tiempo y por qué la conectividad puede multiplicar o degradar resultados.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que no todas las conexiones se usan igual, y por eso el valor crece más modestamente, como n × log(n).",
+        "Que el valor de una red crece de forma exponencial, todavía más rápido que el cuadrado de los usuarios.",
+        "Que las conexiones posibles entre N nodos no son N × (N − 1) / 2, sino apenas el doble de los nodos.",
+        "Que el efecto de red sólo existe en las redes indirectas, como los sistemas operativos, y no en la telefonía."
       ],
       "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "Según la lección, la crítica se apoya en que no todas las conexiones se usan con la misma intensidad, y propone un crecimiento de n × log(n) en lugar del cuadrado. La lección aclara además que crecer con el cuadrado no es crecer de forma exponencial.",
       "points": 2,
       "orderIndex": 5
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Teoría de control, cibernética y sistemas vivos» a una situación real?",
+      "question": "Un equipo de trabajo rinde mal y su coordinadora quiere dirigirlo como propone la lección de cibernética. ¿Qué hace?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Integrá principios de control, cibernética y biología para dirigir sistemas con propósito sin caer en microgestión, rigidez ni desgaste innecesario.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Fija un objetivo claro y además detalla cada procedimiento, para que nadie se desvíe del camino.",
+        "Deja que el equipo se organice sin objetivo ni medición, porque el mejor control es el que no se nota.",
+        "Fija el resultado buscado, mide para ajustar y diseña la estructura, dejando el cómo al equipo.",
+        "Sigue cada acción en tiempo real y la corrige en persona apenas se aparta de lo previsto."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "La lección propone dirigir sin controlar: objetivos claros (el qué, no el cómo), bucles de retroalimentación y una estructura adecuada, y recién sobre eso confiar en la auto-organización. Sin objetivo ni medición no hay dirección; con cada paso dictado, hay microgestión.",
       "points": 2,
       "orderIndex": 6
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Psicología, vínculos y hábitos en sistemas humanos» a una situación real?",
+      "question": "La lección cita la revisión de Jussim y Harber (2005) sobre las expectativas docentes. ¿Qué concluyeron?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Aplicá la mirada sistémica a la mente, las relaciones y los hábitos para entender cómo se forman patrones estables y cómo modificarlos sin violencia.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que el efecto no existe: sólo aparecía cuando los experimentadores esperaban encontrarlo.",
+        "Que existe pero suele ser chico, y que a menudo las expectativas predicen resultados porque aciertan.",
+        "Que es fuerte y se acumula año a año, sobre todo en los estudiantes que ya rendían mejor.",
+        "Que es grande y constante en todos los grupos: alcanza con que el docente espere éxito para que el estudiante lo logre."
       ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 1,
+      "explanation": "Según la lección, concluyeron que esas profecías existen pero suelen ser chicas y no se acumulan mucho, y que muchas veces las expectativas predicen los resultados porque son acertadas, no porque los causen. Lo del experimentador que esperaba el efecto es otra cosa: la réplica de Doyen sobre la activación previa.",
       "points": 2,
       "orderIndex": 7
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Economía, incentivos y teoría de juegos» a una situación real?",
+      "question": "Según la lección, ¿por qué en el dilema del prisionero que ambos cooperen no es un equilibrio de Nash?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Conectá recursos, costos de oportunidad, incentivos y estrategias interdependientes para diseñar mejores decisiones personales, comunitarias y nacionales."
+        "Porque si ambos cooperan obtienen el peor resultado posible para los dos.",
+        "Porque un equilibrio de Nash exige que cada parte obtenga el máximo resultado posible.",
+        "Porque sólo hay equilibrios de Nash en los juegos de coordinación, como manejar por la derecha.",
+        "Porque cada uno mejora pasándose a competir, y el único equilibrio es que compitan los dos."
       ],
       "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "El equilibrio de Nash es el punto donde nadie mejora cambiando solo su estrategia. En el dilema, cooperar no lo es porque a cada uno le conviene confesar haga lo que haga el otro; por eso la lección dice que hay que rediseñar el juego y no sólo pedir buena voluntad.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Ciencia de la complejidad y transiciones de fase» a una situación real?",
+      "question": "La lección explica las transiciones de fase con el agua que hierve. ¿Qué muestra el dato de que a 1.500 metros de altura hierve cerca de los 95 °C?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Explorá cómo los sistemas complejos se autoorganizan, acumulan tensiones y atraviesan transiciones abruptas que cambian las reglas del juego.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que el umbral depende del contexto: con menos presión, el cambio de estado llega antes.",
+        "Que las transiciones de fase son graduales: el agua pasa a gas de a un grado por vez.",
+        "Que a mayor altura el agua necesita más calor para cruzar el umbral y hervir.",
+        "Que un cambio pequeño nunca alcanza para cruzar un umbral si el contexto es desfavorable."
       ],
       "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección usa el ejemplo para dos cosas: un cambio chico (de 99 a 100 °C a nivel del mar) cambia el estado, y el umbral no es fijo, porque a 1.500 metros la presión es menor y el agua hierve antes.",
       "points": 2,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Gestión de energía personal y salud sistémica» a una situación real?",
+      "question": "En la parte sobre hormesis, ¿cómo trata la lección la exposición al frío y el ayuno intermitente?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Traducí los principios sistémicos al cuerpo y la vida cotidiana para cuidar energía, salud y sostenibilidad personal.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Como la forma más segura de estrés agudo, que conviene sumar a diario para fortalecer el cuerpo.",
+        "Como ejemplos de estrés crónico: prolongado, sin recuperación, que termina debilitando.",
+        "Como prácticas que se estudian con resultados todavía discutidos, que no son una receta.",
+        "Como entradas de energía emocional, del mismo tipo que la gratitud o las relaciones significativas."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "El único ejemplo de estrés agudo que la lección da sin reservas es el ejercicio intenso con descanso después; del frío y del ayuno dice que se estudian con resultados todavía discutidos y que no son una receta.",
       "points": 2,
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Aprendizaje, habilidades y pensamiento estratégico» a una situación real?",
+      "question": "La lección cita los números de Ebbinghaus: a los 20 minutos el ahorro había caído al 58%, al día quedaba un 33,5% y a los seis días un 22,6%. ¿Qué conclusión saca?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Aprendé a diseñar procesos de aprendizaje y toma de decisiones que acumulen capacidad real en vez de solo información dispersa.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que de cualquier material estudiado se olvidan dos tercios en un día, y hay que planificar con ese dato.",
+        "Que el olvido es lineal: se pierde más o menos la misma proporción cada día que pasa.",
+        "Que los números no sirven, porque Ebbinghaus fue su único sujeto y nadie pudo replicarlos.",
+        "Que lo que vale es la forma de la curva, mucha pérdida al principio y poca después, no los porcentajes."
       ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "Como eran sílabas sin sentido, la lección advierte que los porcentajes no se trasladan tal cual a lo que estudiás; lo que sirve es la forma de la curva, que una réplica de 2015 confirmó en lo esencial. De ahí la repetición espaciada.",
       "points": 2,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Recursos, riqueza y diseño de objetivos» a una situación real?",
+      "question": "En el ejemplo de interés compuesto de la lección ($1.000 al 10% anual, $2.594 al año 10), ¿qué condición pone para que la cuenta valga?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Ordená tu relación con los recursos y los objetivos para construir riqueza, foco y sistemas de ejecución que sostengan resultados."
+        "Que el 10% sea nominal, porque la inflación ya viene descontada del rendimiento.",
+        "Que el 10% sea real, es decir, por encima de la inflación.",
+        "Que la ganancia se retire cada año para reinvertirla en otro instrumento.",
+        "Que se invierta todo de una vez al principio y nunca con aportes periódicos."
       ],
-      "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 1,
+      "explanation": "La lección aclara que el 10% tiene que ser real, porque en la Argentina un 10% nominal puede ser una pérdida: la acumulación compuesta sólo multiplica si el rendimiento le gana a la inflación.",
       "points": 2,
       "orderIndex": 12
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «La familia: el sistema base de toda transformación» a una situación real?",
+      "question": "Según la lección, ¿qué se puede hacer con propiedades emergentes de la familia como el amor familiar o la identidad compartida?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Analizá la familia como el primer sistema donde se aprenden reglas, límites, cooperación y reparación; allí comienza cualquier transformación duradera.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Crear las condiciones para que emerjan, que son las buenas relaciones entre sus miembros.",
+        "Construirlas directamente, sumando el afecto que cada miembro aporta por separado.",
+        "Nada: se heredan de las generaciones anteriores y no dependen de cómo se relacionen sus miembros hoy.",
+        "Instalarlas con reglas claras y roles fijos, que son lo que las produce."
       ],
       "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección dice que no podés crear amor familiar directamente, pero sí las condiciones —buenas relaciones— para que emerja: las propiedades emergentes no están en ningún miembro solo, surgen de cómo se relacionan.",
       "points": 2,
       "orderIndex": 13
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Barrio y municipio: donde la coordinación se vuelve visible» a una situación real?",
+      "question": "La lección sobre barrio y municipio cuenta que 10 familias conectadas tienen 45 conexiones posibles. ¿Qué pasa si se conectan 20?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Llevá los primeros principios al territorio inmediato para entender cómo se coordinan familias, organizaciones y Estado local en problemas concretos.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Hay 90: con el doble de familias, el doble de conexiones.",
+        "Hay 1.024, porque las conexiones crecen de forma exponencial.",
+        "Hay 190: con el doble de familias, más del cuádruple de conexiones.",
+        "Hay 400, porque cada familia se conecta con todas, incluida ella misma."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "Con N × (N − 1) / 2, 20 familias dan 190 conexiones posibles. La lección lo usa para mostrar que las conexiones crecen con el cuadrado, mucho más rápido que las familias.",
       "points": 2,
       "orderIndex": 14
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Provincia y nación: Argentina como sistema multinivel» a una situación real?",
-      "type": "multiple_choice",
-      "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Integrá escalas territoriales para leer a Argentina como un sistema complejo donde las decisiones provinciales y nacionales se condicionan mutuamente.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
-      ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "question": "Según la lección, cuando mejoran las relaciones entre provincias, municipios, barrios y familias, la Argentina mejora con seguridad, porque el sistema se optimiza solo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La lección lo matiza: el sistema no se optimiza solo, porque la emergencia no se controla. Mejorar las relaciones es la palanca más accesible y vuelve mucho más probables los buenos resultados, pero no los garantiza.",
       "points": 2,
       "orderIndex": 15
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «La clave maestra: mejorar relaciones para mejorar rendimiento» a una situación real?",
+      "question": "En «Tu próximo paso», la lección escalona la aplicación en el tiempo: hoy, esta semana, este mes y este año. ¿Qué corresponde a este mes?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Cerrá el curso sintetizando la idea central: cuando mejoran las relaciones entre las partes, mejora el rendimiento del sistema completo."
+        "Elegir un sistema de tu vida y mapear sus relaciones.",
+        "Tomar una acción concreta para mejorar una relación.",
+        "Extender el trabajo a otros sistemas: barrio, municipio, provincia.",
+        "Medir resultados: ver si el sistema mejoró y qué ajustarías."
       ],
       "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La secuencia de la lección es mapear hoy, actuar esta semana, medir este mes y extender este año: el mes cierra el bucle de retroalimentación antes de ampliar el alcance.",
       "points": 2,
       "orderIndex": 16
     }

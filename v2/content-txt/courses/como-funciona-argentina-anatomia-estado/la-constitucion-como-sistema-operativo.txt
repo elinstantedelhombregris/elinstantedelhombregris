@@ -16,6 +16,12 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
     titulo: 'Constitución de la Nación Argentina — artículos 30 y 75, inciso 22 (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/ley-24747-41025/texto
+    titulo: 'Ley 24.747 — Iniciativa Legislativa Popular, texto original'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/politica/2026/04/17/defensores-del-pueblo-provinciales-y-municipales-pidieron-que-se-cubra-la-vacante-de-ese-cargo-a-nivel-nacional/
+    titulo: 'Defensores del pueblo provinciales y municipales pidieron que se cubra la vacante nacional (Infobae, 17/4/2026)'
+    consultada: '2026-09-23'
 ---
 
 ## El Código Fuente de Argentina
@@ -34,12 +40,12 @@ Si Argentina fuera una computadora, la Constitución sería su **sistema operati
 
 La reforma de 1994 incorporó mecanismos de participación directa que casi nadie usa:
 
-1. **Iniciativa popular (Art. 39):** Los ciudadanos pueden presentar proyectos de ley al Congreso con firmas.
-2. **Consulta popular (Art. 40):** El Congreso o el presidente pueden someter decisiones a votación popular.
+1. **Iniciativa popular (Art. 39):** Los ciudadanos pueden presentar proyectos de ley al Congreso con firmas. La Ley 24.747 pide al menos el 1,5% del padrón, repartido en seis distritos como mínimo, y deja afuera la reforma constitucional, los tratados, los tributos, el presupuesto y la materia penal.
+2. **Consulta popular (Art. 40):** El Congreso, a iniciativa de Diputados, puede someter un proyecto de ley a consulta popular vinculante; el Congreso o el presidente pueden convocar a una consulta no vinculante.
 
 ### Los Bugs del Sistema
 
-La Constitución también tiene **problemas de diseño**: el hiperpresidencialismo, la coparticipación nunca reglamentada como ordenó la reforma del 94, la Defensoría del Pueblo vacante, el Consejo de la Magistratura en disputa permanente. Estos bugs son oportunidades de mejora institucional.
+La Constitución también tiene **problemas de diseño**: el hiperpresidencialismo, la coparticipación nunca reglamentada como ordenó la reforma del 94, la Defensoría del Pueblo sin titular desde 2009, el Consejo de la Magistratura en disputa permanente. Estos bugs son oportunidades de mejora institucional.
 
 ### Cómo se actualiza el código sin reescribirlo
 

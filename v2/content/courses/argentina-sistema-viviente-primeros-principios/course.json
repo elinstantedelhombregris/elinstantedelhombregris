@@ -5,7 +5,7 @@
   "excerpt": "Comprendé cómo funcionan los sistemas y usá esa mirada para intervenir mejor en tu vida, tu barrio y Argentina.",
   "category": "hombre-gris",
   "level": "intermediate",
-  "duration": 114,
+  "duration": 118,
   "orderIndex": 4,
   "isPublished": true,
   "isFeatured": true,
@@ -23,7 +23,7 @@
       "key": "02-conservacion-exponenciales-y-acumulacion",
       "title": "Conservación, exponenciales y acumulación",
       "description": "Aprendé a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 1
     },
     {
@@ -44,21 +44,21 @@
       "key": "05-emergencia-mantenimiento-y-efectos-de-red",
       "title": "Emergencia, mantenimiento y efectos de red",
       "description": "Descubrí cómo emergen propiedades nuevas, cómo se sostienen los sistemas en el tiempo y por qué la conectividad puede multiplicar o degradar resultados.",
-      "duration": 11,
+      "duration": 12,
       "orderIndex": 4
     },
     {
       "key": "06-teoria-de-control-cibernetica-y-sistemas-vivos",
       "title": "Teoría de control, cibernética y sistemas vivos",
       "description": "Integrá principios de control, cibernética y biología para dirigir sistemas con propósito sin caer en microgestión, rigidez ni desgaste innecesario.",
-      "duration": 8,
+      "duration": 9,
       "orderIndex": 5
     },
     {
       "key": "07-psicologia-vinculos-y-habitos-en-sistemas-humanos",
       "title": "Psicología, vínculos y hábitos en sistemas humanos",
       "description": "Aplicá la mirada sistémica a la mente, las relaciones y los hábitos para entender cómo se forman patrones estables y cómo modificarlos sin violencia.",
-      "duration": 11,
+      "duration": 12,
       "orderIndex": 6
     },
     {

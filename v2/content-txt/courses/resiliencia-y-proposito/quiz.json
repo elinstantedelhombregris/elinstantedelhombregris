@@ -18,25 +18,25 @@
       "orderIndex": 1
     },
     {
-      "question": "Según Frankl, el crecimiento postraumático es automático: todo sufrimiento genera fortaleza.",
+      "question": "El crecimiento postraumático que midieron Tedeschi y Calhoun es automático: con el tiempo, todo sufrimiento termina generando fortaleza.",
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "El crecimiento requiere condiciones: tiempo, reflexión, apoyo social, narrativa y acción. No es automático ni obligatorio.",
+      "explanation": "La lección «Del Trauma al Sentido» dice que no es automático: requiere tiempo, reflexión deliberada, apoyo social, narrativa y acción. Y la revisión de 2019 que cita encontró crecimiento moderado o alto en alrededor de la mitad de las personas; la otra mitad, no.",
       "points": 1,
       "orderIndex": 2
     },
     {
-      "question": "¿Cuáles son los 3 pilares de la resiliencia según Cyrulnik?",
+      "question": "En el estudio de Emmy Werner en Kauai, ¿qué habían tenido los chicos con cuatro o más factores de riesgo que llegaron a adultos competentes y capaces de cuidar a otros?",
       "type": "multiple_choice",
       "options": [
-        "Fuerza física, inteligencia y dinero",
-        "Vínculo seguro, narrativa con sentido y acción con propósito",
-        "Meditación, ejercicio y dieta",
-        "Educación, trabajo y familia"
+        "Una relación estrecha con al menos uno de sus padres, que compensaba la pobreza y las peleas en casa",
+        "Una crianza sin divorcio ni conflictos crónicos, aunque hubiera pobreza",
+        "Un vínculo estrecho, desde temprano, con al menos una persona competente y estable, muchas veces un abuelo, una tía o un hermano mayor",
+        "La costumbre de arreglárselas solos desde chicos, sin depender de ningún adulto"
       ],
-      "correctAnswer": 1,
-      "explanation": "Cyrulnik identificó el vínculo seguro, la capacidad de narrar la experiencia, y la acción con propósito como los 3 pilares fundamentales.",
+      "correctAnswer": 2,
+      "explanation": "La lección «¿Qué Es la Resiliencia Real?» usa el estudio de Werner para ilustrar el primer pilar, el vínculo seguro: esos chicos habían tenido al menos una persona competente y emocionalmente estable cerca, y muchas veces no eran los padres.",
       "points": 2,
       "orderIndex": 3
     },
@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «El Duelo Como Portal: Llorar lo que Pudo Ser» a una situación real?",
+      "question": "¿Por qué la lección sobre el duelo se detiene en el Plan Bonex de 1990 y en el Decreto 1570/2001 al contar la historia de Graciela?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Procesar el duelo colectivo argentino como paso necesario hacia la transformación.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Para mostrar que ahorrar en dólares fue el error que le costó a Graciela la segunda pérdida",
+        "Para probar que el duelo económico es el más doloroso de los cinco duelos del argentino",
+        "Para que el duelo se cierre identificando a los responsables y discutiendo quién tuvo la culpa",
+        "Porque la mala suerte no se puede llorar, y una pérdida con número, fecha y firma sí se puede nombrar"
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La lección dice que la mala suerte no tiene nombre y no se puede llorar, mientras que una pérdida con número, fecha y firma se puede nombrar, y nombrarla es el primer paso para procesar el duelo. No busca culpables: la palanca pide escuchar, no discutir quién tuvo la culpa.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Manifiesto Personal: El Fuego que No Se Apaga» a una situación real?",
+      "question": "Según la lección «Tu Manifiesto Personal», ¿en qué se diferencia un manifiesto de un plan?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Integrar todo lo aprendido en una declaración personal de propósito y resiliencia.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Los planes cambian; el manifiesto es un norte que permanece cuando los planes se rompen",
+        "El manifiesto, una vez leído ante un testigo, queda cerrado y no se vuelve a tocar",
+        "El manifiesto sólo vale si la persona que hace de testigo lo aprueba",
+        "El manifiesto es un plan de acción detallado, con metas y plazos para cada área de la vida"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección lo define así: «No es un plan — los planes cambian. Es un norte que permanece cuando los planes se rompen». Igual es un documento vivo que se actualiza, y el testigo no lo aprueba: lo presencia.",
       "points": 1,
       "orderIndex": 10
     }

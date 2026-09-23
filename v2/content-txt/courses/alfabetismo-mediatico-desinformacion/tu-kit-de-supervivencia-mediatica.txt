@@ -13,6 +13,9 @@ fuentes:
   - url: https://www.csjn.gov.ar/novedades/detalle/7293
     titulo: 'Elecciones 2023: Compromiso Ético Digital (Corte Suprema de Justicia de la Nación)'
     consultada: '2026-09-22'
+  - url: https://pubmed.ncbi.nlm.nih.gov/24324161/
+    titulo: 'Holman, Garfin y Silver, Media’s role in broadcasting acute stress following the Boston Marathon bombings, PNAS, 2014 (registro en Europe PMC)'
+    consultada: '2026-09-23'
 ---
 
 ## Tu Protocolo de Ciudadano Mediático
@@ -30,7 +33,7 @@ A lo largo de este curso desarrollaste herramientas para entender el ecosistema 
 
 - **Mañana:** Leé un resumen de noticias de una fuente confiable. No te informes por redes sociales.
 - **Día:** Si ves algo impactante en redes, aplicá el protocolo GRIS antes de compartir.
-- **Noche:** Desconectá. La ansiedad informativa es real y afecta tu salud mental.
+- **Noche:** Desconectá. Mirar malas noticias sin parar también se paga: después del atentado del maratón de Boston, en 2013, seguir la cobertura seis horas o más por día durante la semana siguiente se asoció con más estrés agudo que la exposición directa al atentado (Holman, Garfin y Silver, PNAS, 2014).
 - **Semana:** Leé al menos un artículo de un medio con perspectiva opuesta a la tuya.
 - **Mes:** Revisá tu "dieta informativa". ¿Estás en burbuja? ¿Necesitás diversificar?
 

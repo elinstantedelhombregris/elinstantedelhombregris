@@ -16,18 +16,24 @@ fuentes:
   - url: https://chequeado.com/ultimas-noticias/los-videos-falsos-de-politicos-hechos-con-ia-fueron-protagonistas-en-las-elecciones-2025/
     titulo: 'Los videos falsos de políticos hechos con IA fueron protagonistas en las elecciones 2025 (Chequeado)'
     consultada: '2026-09-22'
+  - url: https://pubmed.ncbi.nlm.nih.gov/35165187/
+    titulo: 'Nightingale y Farid, AI-synthesized faces are indistinguishable from real faces and more trustworthy, PNAS, 2022 (registro en Europe PMC)'
+    consultada: '2026-09-23'
+  - url: https://arxiv.org/abs/2301.02111
+    titulo: 'Wang y otros (Microsoft), Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers, enero de 2023 (arXiv)'
+    consultada: '2026-09-23'
 ---
 
 ## La Próxima Ola Ya Está Aquí
 
-Todo lo que aprendiste hasta ahora está a punto de complicarse exponencialmente. La inteligencia artificial generativa permite crear **texto, imagen, audio y video falsos que son virtualmente indistinguibles de los reales**. Esto cambia las reglas del juego de la desinformación.
+Todo lo que aprendiste hasta ahora está a punto de complicarse exponencialmente. La inteligencia artificial generativa permite crear **texto, imagen, audio y video falsos cada vez más difíciles de distinguir de los reales**. En las caras ya pasó: en 2022, un estudio publicado en PNAS mostró que los rostros sintetizados por IA resultaban indistinguibles de los reales y que a la gente, encima, le parecían más confiables (Nightingale y Farid). Esto cambia las reglas del juego de la desinformación.
 
 ### Lo Que la IA Ya Puede Hacer
 
 - **Texto:** Generar artículos de noticias completos, comentarios en redes y mensajes de WhatsApp que parecen escritos por humanos. A un costo casi nulo y a escala masiva.
 - **Imagen:** Crear fotos hiperrealistas de eventos que nunca ocurrieron. Un presidente firmando un documento, una protesta que no existió, un desastre natural inventado.
-- **Audio:** Clonar la voz de cualquier persona con apenas minutos de audio de referencia. Imaginate recibir un audio de WhatsApp con la voz de un político diciendo algo que nunca dijo.
-- **Video:** Los deepfakes de video aún no son perfectos, pero mejoran cada mes. Pronto será imposible distinguir un video real de uno fabricado a simple vista.
+- **Audio:** Clonar la voz de cualquier persona con muy poco audio de referencia: en enero de 2023, investigadores de Microsoft presentaron VALL-E, un modelo que imitaba una voz a partir de una grabación de tres segundos. Imaginate recibir un audio de WhatsApp con la voz de un político diciendo algo que nunca dijo.
+- **Video:** Los deepfakes de video aún no son perfectos, pero mejoran rápido. Cada vez es más difícil distinguir a simple vista un video real de uno fabricado.
 
 ### Escenarios de Riesgo para Argentina
 
@@ -40,7 +46,7 @@ Todo lo que aprendiste hasta ahora está a punto de complicarse exponencialmente
 
 - **Verificá la fuente antes que el contenido:** ¿Quién publicó esto originalmente? ¿Es una fuente confiable?
 - **Buscá el mismo evento en múltiples fuentes:** Si solo existe en una fuente o en redes, sospechá.
-- **Usá herramientas de detección:** Hive Moderation, AI or Not, y otras herramientas gratuitas detectan contenido generado por IA.
+- **Usá herramientas de detección, pero como pista y no como veredicto:** Hive Moderation, AI or Not y otras herramientas gratuitas intentan detectar contenido generado por IA, y pueden equivocarse para los dos lados. Un «probablemente real» no cierra la pregunta.
 - **Contexto sobre contenido:** Un video puede ser real pero sacado de contexto (otra fecha, otro país). Verificá el contexto, no solo el contenido.
 
 > "En un mundo donde ver ya no es creer, la verificación no es paranoia: es higiene mental. El Hombre Gris del siglo XXI necesita alfabetismo digital tanto como necesitó alfabetismo textual en el siglo XX."

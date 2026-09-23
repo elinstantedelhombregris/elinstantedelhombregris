@@ -5,7 +5,7 @@
   "excerpt": "Navegá el ecosistema mediático argentino con ojo crítico y herramientas concretas.",
   "category": "comunicacion",
   "level": "intermediate",
-  "duration": 32,
+  "duration": 39,
   "orderIndex": 27,
   "isPublished": true,
   "isFeatured": false,
@@ -16,7 +16,7 @@
       "key": "02-el-ecosistema-mediatico-argentino-quien-es-quien",
       "title": "El Ecosistema Mediático Argentino: Quién Es Quién",
       "description": "Mapear el paisaje de medios argentinos y entender quién es dueño de qué.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 1
     },
     {
@@ -30,21 +30,21 @@
       "key": "04-anatomia-de-la-desinformacion-fake-news-propaganda-y-astroturfing",
       "title": "Anatomía de la Desinformación: Fake News, Propaganda y Astroturfing",
       "description": "Diferenciar tipos de desinformación y entender cómo se fabrican.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-sesgos-cognitivos-tu-cerebro-contra-la-verdad",
       "title": "Sesgos Cognitivos: Tu Cerebro Contra la Verdad",
       "description": "Los atajos mentales que te hacen vulnerable a la desinformación.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-fact-checking-herramientas-para-verificar-informacion",
       "title": "Fact-Checking: Herramientas para Verificar Información",
       "description": "Técnicas y herramientas prácticas para verificar noticias y contenido.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
@@ -58,21 +58,21 @@
       "key": "08-redes-sociales-como-campo-de-batalla-informativo",
       "title": "Redes Sociales como Campo de Batalla Informativo",
       "description": "Entender las estrategias de influencia en redes sociales argentinas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-medios-comunitarios-y-periodismo-independiente",
       "title": "Medios Comunitarios y Periodismo Independiente",
       "description": "Alternativas al ecosistema mediático corporativo y político.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {
       "key": "10-inteligencia-artificial-y-el-futuro-de-la-desinformacion",
       "title": "Inteligencia Artificial y el Futuro de la Desinformación",
       "description": "Cómo la IA está transformando la creación y detección de contenido falso.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {

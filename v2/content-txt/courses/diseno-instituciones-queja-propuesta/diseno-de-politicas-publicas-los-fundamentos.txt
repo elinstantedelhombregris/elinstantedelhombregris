@@ -13,6 +13,10 @@ fuentes:
   - url: https://www.cedlas.econo.unlp.edu.ar/wp/en/el-impacto-de-la-auh-en-la-educacion-mas-alla-de-la-asistencia-escolar/
     titulo: 'El impacto de la AUH en la educación: más allá de la asistencia escolar — CEDLAS (UNLP)'
     consultada: '2026-09-22'
+  - url: https://www.cippec.org/textual/en-argentina-la-evaluacion-de-los-resultados-e-impactos-que-tienen-las-politicas-publicas-depende-de-la-voluntad-de-los-funcionarios/
+    titulo: 'En Argentina la evaluación de los resultados e impactos de las políticas públicas depende de la voluntad de los funcionarios — CIPPEC'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-09-23'
 ---
 ## No Es Magia: Es Diseño
 
@@ -45,7 +49,7 @@ Pensá en la AUH (Asignación Universal por Hijo) o en algún plan social que co
 
 Identificación del problema → Diseño de alternativas → Selección → Implementación → Evaluación → Ajuste → Vuelta al inicio.
 
-En Argentina, el ciclo suele romperse en la evaluación: se implementan políticas y nunca se evalúan. O se evalúan y se ignoran los resultados porque cambió el gobierno.
+En Argentina, el ciclo suele romperse en la evaluación. CIPPEC lo resume así: como el país no tiene una política nacional de evaluación que ordene el monitoreo de lo que hace el Estado, que un programa se evalúe o no depende de la voluntad de los funcionarios de turno, y las capacidades cambian mucho entre ministerios, provincias y municipios. Así, hay políticas que se implementan y nunca se evalúan, y evaluaciones que quedan en un cajón cuando cambia el gobierno.
 
 > "Una buena política pública se parece más a un experimento científico que a un discurso político: tiene hipótesis, tiene método, se mide y se ajusta. Lo contrario es tirar plata al aire y rezar."
 

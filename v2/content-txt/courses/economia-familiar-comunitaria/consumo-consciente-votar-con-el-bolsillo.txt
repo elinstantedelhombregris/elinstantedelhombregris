@@ -6,6 +6,13 @@ summary: Cómo cada decisión de compra es un voto por el mundo que querés.
 orderIndex: 7
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.redcame.org.ar/novedades/14151/del-productor-al-consumidor-los-precios-de-los-agroalimentos-se-multiplicaron-por-38-en-febrero
+    titulo: 'Del productor al consumidor, los precios de los agroalimentos se multiplicaron por 3,8 en febrero (CAME, IPOD, 16/3/2025)'
+    consultada: '2026-09-23'
+  - url: https://amiba.net/local-multiplier/
+    titulo: 'The Local Multiplier Effect — resumen de los estudios de Civic Economics (American Independent Business Alliance)'
+    consultada: '2026-09-23'
 ---
 ## Cada Compra Es un Voto
 
@@ -17,7 +24,7 @@ Detrás de cada producto hay una cadena que casi nunca vemos:
 
 - **Una remera de $5.000:** ¿Quién cosió esa remera? ¿En qué condiciones? ¿Cuánto le pagaron? ¿De dónde viene la tela? ¿Qué químicos se usaron? ¿Adónde va cuando la tirás?
 - **Un kilo de carne:** ¿Cómo fue criado el animal? ¿Se usaron antibióticos? ¿El frigorífico cumple normas sanitarias? ¿Los trabajadores están en blanco?
-- **Un café:** ¿De qué país viene el grano? ¿El productor recibió un precio justo? ¿O una multinacional se quedó con el 95% del valor?
+- **Un café:** ¿De qué país viene el grano? ¿El productor recibió un precio justo? ¿Qué parte del precio final le llegó a él?
 
 ### 5 Estrategias de Consumo Consciente
 
@@ -32,7 +39,7 @@ Detrás de cada producto hay una cadena que casi nunca vemos:
 Abrí tu billetera, tu app de homebanking o tu resumen de tarjeta del último mes. Elegí las últimas 10 compras que hiciste y hacé este ejercicio con cada una:
 
 1. **¿Sabés quién lo produjo?** Si compraste en un almacén del barrio, probablemente sí. Si compraste en una cadena multinacional, probablemente no. No es para juzgar — es para observar.
-2. **¿Cuántos intermediarios creés que hubo entre el productor y vos?** Un tomate en la feria tiene 0-1 intermediarios. Un tomate en el supermercado tiene 3-5. Cada intermediario agrega costo sin agregar valor al producto.
+2. **¿Cuántos intermediarios creés que hubo entre el productor y vos?** Un tomate en la feria puede no tener ninguno, o uno. Un tomate en el supermercado pasa por varias manos. Cada intermediario agrega un costo; algunos agregan también un servicio (el flete, la cámara de frío), otros sólo una comisión. En febrero de 2025, según el índice de precios en origen y destino de CAME, las frutas y verduras de su canasta costaban en góndola 6,2 veces lo que había cobrado el productor.
 3. **¿Podrías haber conseguido lo mismo de un productor local?** Pensá en la feria de tu barrio, en el almacén de la esquina, en algún vecino que produzca algo. No se trata de eliminar el super de tu vida — se trata de redistribuir al menos una parte de tus compras.
 4. **De las 10 compras, ¿cuántas fueron necesidades reales y cuántas fueron impulsos?** No te castigues si la mayoría fueron impulsos. Ese es el punto de partida normal. Lo importante es que ahora lo ves.
 
@@ -42,17 +49,17 @@ Si te animás, durante una semana llevá una marca al lado de cada compra: "L" s
 
 El movimiento de comercio justo busca que los productores reciban un precio digno por su trabajo. En Argentina tenemos:
 
-- **Red de Comercio Justo:** Conecta productores campesinos e indígenas con consumidores urbanos.
+- **Redes de comercio justo:** Conectan productores campesinos e indígenas con consumidores urbanos.
 - **Almacenes cooperativos:** Espacios donde se venden productos de cooperativas y emprendedores sociales.
-- **Sellos:** Fair Trade, Economía Social, productos orgánicos certificados.
+- **Sellos:** Comercio justo (Fair Trade), productos orgánicos certificados.
 
 ### El Efecto Multiplicador Local
 
-Cuando gastás $1.000 en un supermercado de cadena, aproximadamente $150 quedan en tu comunidad (sueldos de empleados locales). El resto se va a proveedores centralizados, alquileres corporativos, accionistas en otro país. Cuando gastás $1.000 en el almacén del barrio, entre $450 y $600 quedan circulando en tu comunidad: el almacenero le compra al verdulero, el verdulero le paga al flete local, el fletero gasta en el kiosco. Ese efecto multiplicador es la razón por la cual los barrios con comercio local fuerte son más resilientes a las crisis. No es romanticismo — es matemática económica.
+La consultora Civic Economics midió en varias ciudades de Estados Unidos adónde va la plata que entra a un comercio. Promediando sus estudios, de cada compra en un comercio independiente vuelve a circular en la economía local el 52,9%; en una cadena, menos del 13,6%. La diferencia sale de a quién le compra y a quién le paga cada uno. La cadena manda buena parte de lo que cobra a proveedores centralizados, alquileres corporativos y accionistas de otro lado. El almacén del barrio le compra al verdulero, el verdulero le paga al flete local, el fletero gasta en el kiosco. No conocemos una medición así para barrios argentinos, así que los porcentajes no se trasladan tal cual, pero el mecanismo es el mismo. No es romanticismo — es contabilidad: la plata que se queda circulando en el barrio vuelve a pasar por tus vecinos.
 
 ### Consumo Consciente en Tiempos de Inflación
 
-El argumento más fuerte contra el consumo consciente en Argentina es: "No puedo elegir lo ético, tengo que elegir lo más barato." Es entendible. Pero muchas veces lo local Y lo directo es también lo más barato. El bolsón de verduras directo del productor cuesta un 30-40% menos que el supermercado. La feria del barrio tiene precios que compiten con (y a menudo ganan) los de cualquier cadena. Comprar local no siempre es más caro — a veces es la opción más inteligente para tu bolsillo y para tu comunidad al mismo tiempo.
+El argumento más fuerte contra el consumo consciente en Argentina es: "No puedo elegir lo ético, tengo que elegir lo más barato." Es entendible. Pero muchas veces lo local Y lo directo es también lo más barato. El bolsón de verduras directo del productor muchas veces sale menos que lo mismo en el supermercado, y la feria del barrio suele tener precios que compiten con los de cualquier cadena. Hacé la prueba: compará durante un mes y sacá tu propia cuenta. Comprar local no siempre es más caro — a veces es la opción más inteligente para tu bolsillo y para tu comunidad al mismo tiempo.
 
 > "No te pido que cambies el mundo con cada compra. Te pido que seas CONSCIENTE de cada compra. Que sepas que cuando elegís al productor local sobre la multinacional, cuando elegís calidad sobre descarte, estás construyendo la economía que querés."
 

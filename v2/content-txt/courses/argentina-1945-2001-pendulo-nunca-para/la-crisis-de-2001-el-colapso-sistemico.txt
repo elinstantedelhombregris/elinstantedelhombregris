@@ -13,6 +13,36 @@ fuentes:
   - url: https://www2.inaes.gob.ar/Webinaes/BusquedaEntidades/Index
     titulo: 'Búsqueda de entidades — padrón de cooperativas y mutuales (INAES)'
     consultada: '2026-09-22'
+  - url: https://www.economicas.uba.ar/wp-content/uploads/2016/03/Documento-de-Trabajo-N%C2%B0-3-CESPA-1.pdf
+    titulo: 'Ricardo Aronskind, «La larga recesión argentina (1998/2002)», CESPA, Facultad de Ciencias Económicas, UBA'
+    consultada: '2026-09-23'
+  - url: https://www.indec.gob.ar/ftp/cuadros/menusuperior/archivo/shempleo1.xls
+    titulo: 'Evolución de las tasas de actividad, empleo, desocupación y subocupación, total de aglomerados urbanos desde 1974 (INDEC, EPH)'
+    consultada: '2026-09-23'
+  - url: https://www.argentina.gob.ar/noticias/20-anos-de-la-masacre-del-19-y-20-de-diciembre-de-2001
+    titulo: 'A 20 años de la Masacre del 19 y 20 de diciembre de 2001 (Argentina.gob.ar)'
+    consultada: '2026-09-23'
+  - url: https://www.pagina12.com.ar/389232-crisis-del-2001-en-argentina-los-5-presidentes-que-hubo-en-1/
+    titulo: 'Crisis del 2001 en Argentina: los 5 presidentes que hubo en 11 días (Página/12)'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/sociedad/2023/01/01/lealtades-y-traiciones-en-los-doce-dias-que-hubo-cinco-presidentes-del-final-de-de-la-rua-a-la-jura-de-duhalde/
+    titulo: 'Lealtades y traiciones en los doce días que hubo cinco presidentes (Infobae), del 20 de diciembre de 2001 al 1 de enero de 2002'
+    consultada: '2026-09-23'
+  - url: https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1665-05652006000300005
+    titulo: 'La izquierda y la emergencia del movimiento piquetero en la Argentina: análisis de un caso testigo (SciELO)'
+    consultada: '2026-09-23'
+  - url: https://latfem.org/ellas-en-el-estallido/
+    titulo: 'Ellas en el estallido (LatFem)'
+    consultada: '2026-09-23'
+  - url: https://www.pagina12.com.ar/diario/elpais/1-296688-2016-04-11.html
+    titulo: 'El techo y el trabajo (Página/12)'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/politica/2022/12/15/la-corte-suprema-confirmo-una-condena-a-13-anos-de-prision-contra-milagro-sala/
+    titulo: 'La Corte Suprema confirmó una condena a 13 años de prisión contra Milagro Sala (Infobae)'
+    consultada: '2026-09-23'
+  - url: https://www.pagina12.com.ar/563030-neka-jara-piquetera-a-mucha-honra
+    titulo: 'Neka Jara, piquetera a mucha honra (Página/12)'
+    consultada: '2026-09-23'
 ---
 ## Cuando Todo el Sistema Falla a la Vez
 
@@ -20,12 +50,12 @@ Diciembre de 2001 no fue una crisis económica. No fue una crisis política. No 
 
 ### La Secuencia del Colapso
 
-1. **La recesión (1998-2001):** Tres años consecutivos de caída del PIB. Desempleo por encima del 20%. Pobreza creciente.
+1. **La recesión (1998-2001):** Tres años consecutivos de caída del PIB: 1999, 2000 y 2001. El desempleo llegó al 18,3% en octubre de 2001, y al 21,5% en mayo de 2002. Pobreza creciente.
 2. **El "corralito" (diciembre 2001):** El gobierno de De la Rúa congeló los depósitos bancarios. Los argentinos no podían sacar su propia plata del banco. Fue el equivalente a que el sistema operativo del país diera "pantalla azul".
 3. **Los saqueos:** En todo el país, la gente saqueó supermercados. Mezcla de hambre real y desesperación.
-4. **La represión:** El gobierno declaró estado de sitio. La policía mató a 39 personas en las protestas.
+4. **La represión:** El gobierno declaró estado de sitio. La represión del 19 y 20 de diciembre dejó 39 muertos y unos 500 heridos en todo el país.
 5. **La renuncia:** De la Rúa renunció y se fue de la Casa Rosada en helicóptero. Imagen que simboliza el abandono del poder.
-6. **5 presidentes en 10 días:** El sistema institucional estaba tan roto que no podía producir un sucesor estable.
+6. **5 presidentes en 12 días:** El sistema institucional estaba tan roto que no podía producir un sucesor estable.
 
 ### "Que Se Vayan Todos"
 
@@ -40,13 +70,13 @@ El grito de las cacerolas no era solo contra De la Rúa o la convertibilidad. Er
 
 ### Voces Silenciadas: Las Piqueteras — Cuando las Mujeres Sostuvieron la Rebelión
 
-La imagen icónica del 2001 es el cacerolazo de clase media en Plaza de Mayo. Pero la crisis ya había empezado mucho antes en los barrios del conurbano, y quienes la sostuvieron día a día fueron, en su inmensa mayoría, **mujeres**.
+La imagen icónica del 2001 es el cacerolazo de clase media en Plaza de Mayo. Pero la crisis ya había empezado mucho antes en los barrios del conurbano, y quienes la sostuvieron día a día fueron, en buena medida, **mujeres**.
 
-El movimiento piquetero nació en los cortes de ruta de Cutral-Có (Neuquén, 1996) y General Mosconi (Salta, 1997), pueblos devastados por la privatización de YPF. Pero fue en el Gran Buenos Aires donde se convirtió en un movimiento de masas, y ahí el 70% de quienes sostenían los piquetes, los comedores y las asambleas eran mujeres. No era casualidad: cuando el hombre pierde el trabajo, muchas veces se quiebra. Las mujeres se organizan.
+El movimiento piquetero nació en los cortes de ruta de Cutral-Có (Neuquén, 1996) y General Mosconi (Salta, 1997), pueblos petroleros devastados por la privatización de YPF. Pero fue en el Gran Buenos Aires donde se convirtió en un movimiento de masas, y ahí, como lo contaron después sus propias militantes, las mujeres eran mayoría, aunque las voces que hablaban por el movimiento solían ser de varones. Una hipótesis para pensarlo: el desempleo les quitó a muchos hombres el lugar de proveedores, y muchas mujeres, que ya sostenían la casa, llevaron esa tarea al barrio.
 
-**Milagro Sala** en Jujuy construyó la organización Tupac Amaru desde una cooperativa de 16 personas hasta un movimiento que edificó barrios enteros con piletas, escuelas y fábricas textiles. **Neka Jara**, del MTD (Movimiento de Trabajadores Desocupados) de Solano, describía su tarea cotidiana: *"Acá los compañeros vienen a la asamblea, pero las que armamos el comedor, las que llevamos a los pibes al hospital, las que peleamos el plan social en la municipalidad, somos nosotras."*
+**Milagro Sala** llevó a la Tupac Amaru de Jujuy de los comedores y las copas de leche de los noventa a construir viviendas —unas 8.000 en la provincia—, con fábricas de bloques, textiles y metalúrgicas para abastecer las obras. Años después, la Justicia de Jujuy la condenó por asociación ilícita y defraudación con fondos de esos programas de vivienda, y la Corte Suprema dejó firme la condena en 2022. **Neka Jara** fue una de las fundadoras del MTD (Movimiento de Trabajadores Desocupados) de Solano. Una compañera de cualquiera de esos movimientos podría haber descripto así la tarea cotidiana: *"Acá los compañeros vienen a la asamblea, pero las que armamos el comedor, las que llevamos a los pibes al hospital, las que peleamos el plan social en la municipalidad, somos nosotras."*
 
-En La Matanza, **Soledad Bordegaray** y otras mujeres del MTD Aníbal Verón organizaron guarderías populares para que las madres pudieran participar en los cortes de ruta. Inventaron una **infraestructura de cuidado comunitario** que el Estado había abandonado. Los comedores piqueteros alimentaban a 2 millones de personas durante lo peor de la crisis. Cada olla popular era un acto político sostenido por manos de mujer.
+En muchos barrios, las mujeres de los movimientos de desocupados organizaron guarderías populares para que las madres pudieran participar en los cortes de ruta. Inventaron una **infraestructura de cuidado comunitario** que el Estado había abandonado. Los comedores piqueteros les dieron de comer a muchísimas familias durante lo peor de la crisis. Cada olla popular era un acto político sostenido por manos de mujer.
 
 Cuando leés sobre el 2001, generalmente te muestran a De la Rúa en helicóptero o a Duhalde asumiendo la presidencia. Pero el verdadero poder constituyente de esos años estaba en las asambleas de barrio, en los comedores, en las fábricas recuperadas — y en cada uno de esos espacios, las mujeres eran **la columna vertebral** invisible.
 

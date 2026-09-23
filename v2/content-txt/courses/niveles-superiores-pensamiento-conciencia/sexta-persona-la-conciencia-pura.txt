@@ -13,11 +13,13 @@ fuentes:
 ---
 La sexta perspectiva explora una expresión contemplativa: **"conciencia pura"**. Algunas tradiciones la usan para describir momentos de presencia sin una narración dominante. En este curso funciona como metáfora y experiencia subjetiva posible, no como el nivel más alto ni como una afirmación científica sobre lo que sos.
 
-### La Realización Final
+### Una pregunta para explorar
 
 Podés ensayar la pregunta "¿qué noto cuando no sigo cada pensamiento?" y describir la experiencia. Una respuesta como "simplemente ser" pertenece al registro fenomenológico: puede ser significativa sin obligar a convertirla en una verdad universal.
 
 ### Del Observador al Ser
+
+Estas son frases con las que algunas tradiciones describen la experiencia. Leelas como reportes posibles, no como verdades que tengas que suscribir ni como una meta que tengas que alcanzar.
 
 ### Quinta Persona
 
@@ -47,7 +49,7 @@ Solo hay ser, solo hay conciencia
               <text x="400" y="170" text-anchor="middle" font-size="24" font-weight="bold" fill="#F2EFE7">YO</text>
               <text x="400" y="195" text-anchor="middle" font-size="16" fill="#F2EFE7">Conciencia Pura</text>
               <!-- Todo dentro de la conciencia -->
-              <text x="400" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#16130E">Todo Ocurre Dentro de la Conciencia</text>
+              <text x="400" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#16130E">Una imagen contemplativa: todo aparece en la conciencia</text>
               <!-- Elementos dentro de la conciencia -->
               <circle cx="250" cy="120" r="30" fill="#A16C00" opacity="0.5"/>
               <text x="250" y="127" text-anchor="middle" font-size="10" fill="#16130E">Pensamientos</text>
@@ -57,7 +59,7 @@ Solo hay ser, solo hay conciencia
               <text x="250" y="237" text-anchor="middle" font-size="10" fill="#16130E">Formas</text>
               <circle cx="550" cy="230" r="30" fill="#5227CC" opacity="0.5"/>
               <text x="550" y="237" text-anchor="middle" font-size="10" fill="#16130E">Mundo</text>
-              <text x="400" y="310" text-anchor="middle" font-size="14" fill="#4A463D">No hay separación - Todo es Uno</text>
+              <text x="400" y="310" text-anchor="middle" font-size="14" fill="#4A463D">Una metáfora para explorar, no una afirmación sobre el mundo</text>
             </svg>
 
 ### Una afirmación y su límite
@@ -71,7 +73,7 @@ Imaginá que la conciencia es como una linterna en una habitación oscura:
 - **Podés dirigir la atención:** Como apuntar la linterna a diferentes objetos
 - **La oscuridad siempre está:** Incluso cuando no apuntás la linterna, la habitación existe
 - **La luz es la conciencia:** Permite que todo sea visible
-- **En sexta persona:** Te das cuenta de que VOS sos la luz misma, no lo que iluminás
+- **En la sexta perspectiva:** Algunas tradiciones proponen identificarse con la luz y no con lo que ilumina. Tomalo como una imagen para explorar, no como un dato sobre lo que sos
 
 ### Práctica: observar sin forzar una conclusión
 

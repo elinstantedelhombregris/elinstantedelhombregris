@@ -35,9 +35,9 @@ Un buen indicador es:
 - **Fotos antes/después:** Documentá el estado inicial y el cambio. Un espacio abandonado transformado en huerta habla por sí solo.
 - **Datos secundarios:** Notas escolares, datos del centro de salud, estadísticas municipales. Compará "antes de tu intervención" vs. "después."
 
-### Historia Real
+### Un caso para pensar: el taller de Diego
 
-Diego Romero coordina un taller de oficios para jóvenes en el barrio Güemes de Salta. Durante dos años, Diego mide solo asistencia: "Vienen 40 pibes por semana." Cuando un financiador le pregunta "¿qué impacto tienen?", Diego no sabe qué contestar. ¿Los pibes consiguen trabajo después? ¿Mejoran sus ingresos? No tiene idea. Decide implementar tres mediciones simples: una encuesta de entrada (situación laboral al inscribirse), seguimiento a los 6 meses (¿consiguieron trabajo o emprendimiento?), y un grupo de WhatsApp de egresados donde comparten logros. Los resultados lo sorprenden: el 62% de los egresados encuentra trabajo o arranca un emprendimiento dentro de los 8 meses posteriores al taller. Ese dato cambia todo. Se lo muestra a la Cámara de Comercio local y consigue que 5 empresas apadrinen becas. "Medir no era burocracia", dice Diego. "Era descubrir que lo que hacíamos funcionaba de verdad."
+Imaginá a Diego Romero, que coordina un taller de oficios para jóvenes en un barrio de Salta. Durante dos años mide solo asistencia: "Vienen 40 pibes por semana." Cuando un financiador le pregunta "¿qué impacto tienen?", Diego no sabe qué contestar. ¿Los pibes consiguen trabajo después? ¿Mejoran sus ingresos? No tiene idea. Decide implementar tres mediciones simples: una encuesta de entrada (situación laboral al inscribirse), seguimiento a los 6 meses (¿consiguieron trabajo o arrancaron un emprendimiento?), y un grupo de WhatsApp de egresados donde comparten logros. Fijate que cualquiera de los resultados le sirve. Si una buena parte de los egresados consigue trabajo, Diego tiene por primera vez un argumento para golpear la puerta de la cámara de comercio local y pedir que algunas empresas apadrinen becas. Si casi nadie lo consigue, se entera a tiempo de que el taller enseña oficios que el barrio no demanda, y puede cambiarlos antes de que el financiador se vaya. "Medir no es burocracia", diría Diego. "Es enterarte de si lo que hacés funciona de verdad."
 
 ### Informe de Impacto Anual
 
@@ -56,7 +56,7 @@ Pensá en un proyecto comunitario que conozcas (propio o ajeno) y respondé:
 - ¿Qué resultados producen? (Números concretos: cuántos beneficiarios, cuántas actividades.)
 - ¿Qué impacto generan? (¿Cambió algo en la vida de las personas? ¿Cómo lo sabés?)
 
-Si la tercera pregunta te cuesta, no te preocupes — le cuesta al 80% de los proyectos. Pero ahora sabés que tenés que medir eso.
+Si la tercera pregunta te cuesta, no te preocupes: es la difícil, justamente porque exige haber medido antes. Ahora sabés que tenés que medir eso, y que conviene empezar por el dato de entrada, porque sin el "antes" no hay forma de mostrar el "después".
 
 > "Medir impacto no es una exigencia burocrática: es un acto de respeto. Respeto por los beneficiarios, que merecen saber si el proyecto les sirve. Respeto por los voluntarios, que merecen saber si su esfuerzo vale. Y respeto por vos mismo, que merecés saber si vas por buen camino."
 

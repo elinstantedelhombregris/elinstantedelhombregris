@@ -19,6 +19,9 @@ fuentes:
   - url: https://www.conabip.gob.ar/buscador_bp
     titulo: 'Buscador de bibliotecas populares (CONABIP)'
     consultada: '2026-09-22'
+  - url: https://www.infobae.com/sociedad/2021/11/22/le-quitaron-un-rosario-de-las-manos-y-lo-secuestraron-el-calvario-del-cadaver-de-eva-peron/
+    titulo: 'Le quitaron un rosario de las manos y lo secuestraron: el calvario del cadáver de Eva Perón (Infobae)'
+    consultada: '2026-09-23'
 ---
 
 ## Cuando el Péndulo Empieza a Oscilar
@@ -31,10 +34,10 @@ Los sectores que derrocaron a Perón (militares, Iglesia Católica, partidos opo
 
 ### La Desperonización
 
-- **Prohibición del peronismo:** Se prohibió el partido peronista, nombrar a Perón o a Evita, tener símbolos peronistas. Hasta silbar la marcha peronista era delito.
+- **Prohibición del peronismo:** Se prohibió el partido peronista, nombrar a Perón o a Evita, tener símbolos peronistas. Hasta cantar en público la marcha peronista era delito.
 - **Intervención de sindicatos:** Se purgaron los sindicatos, se encarcelaron dirigentes, se intentó desmantelar la estructura gremial.
 - **Fusilamientos de 1956:** Se fusiló a militares y civiles peronistas que intentaron un contragolpe. Un acto de violencia estatal sin juicio previo que radicalizó la resistencia.
-- **Robo del cadáver de Eva:** El cuerpo embalsamado de Eva Perón fue secuestrado y enviado a Italia clandestinamente. Un acto de crueldad simbólica que habla del odio visceral que generaba el peronismo en sus adversarios.
+- **Robo del cadáver de Eva:** El 22 de noviembre de 1955, el Servicio de Inteligencia del Ejército se llevó de la CGT el cuerpo embalsamado de Eva Perón. En 1957 lo enterraron en secreto en Milán, con el nombre falso de María Maggi de Magistris. Un acto de crueldad simbólica que habla del odio visceral que generaba el peronismo en sus adversarios.
 
 ### La Ley Que Todavía No Regía
 

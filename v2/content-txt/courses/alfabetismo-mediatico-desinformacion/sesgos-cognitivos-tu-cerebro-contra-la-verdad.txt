@@ -13,6 +13,15 @@ fuentes:
   - url: https://cloud-snic.minseg.gob.ar/Informes/SAT/SAT_HD/Informe_Homicidios-Dolosos_2024.pdf
     titulo: 'Sistema Nacional de Información Criminal — Homicidios dolosos, años 2017-2024 (Ministerio de Seguridad Nacional)'
     consultada: '2026-09-22'
+  - url: https://pubmed.ncbi.nlm.nih.gov/17835457/
+    titulo: 'Tversky y Kahneman, Judgment under Uncertainty: Heuristics and Biases, Science, 1974 (registro en Europe PMC)'
+    consultada: '2026-09-23'
+  - url: https://pubmed.ncbi.nlm.nih.gov/26173286/
+    titulo: 'Lewandowsky y otros, Misinformation and Its Correction: Continued Influence and Successful Debiasing, Psychological Science in the Public Interest, 2012 (Europe PMC)'
+    consultada: '2026-09-23'
+  - url: https://pubmed.ncbi.nlm.nih.gov/10626367/
+    titulo: 'Kruger y Dunning, Unskilled and unaware of it, Journal of Personality and Social Psychology, 1999 (registro en Europe PMC)'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-06-30'
 ---
 
@@ -23,11 +32,11 @@ Los sesgos cognitivos son **atajos mentales** que nuestro cerebro usa para proce
 ### Los Sesgos Que Más Te Afectan
 
 - **Sesgo de confirmación:** Tendés a creer información que confirma lo que ya pensás y a descartar la que lo contradice. Si creés que el gobierno es corrupto, cualquier noticia de corrupción te parece obvia y cualquier defensa te parece mentira.
-- **Efecto de anclaje:** La primera información que recibís sobre un tema "ancla" tu percepción. Si la primera versión de una noticia es falsa, corregirla después es muy difícil porque ya formaste una opinión.
-- **Sesgo de disponibilidad:** Creés que lo que más ves es lo más frecuente. Si los medios cubren violencia todo el día, pensás que la violencia es mayor de lo que realmente es.
+- **Efecto de anclaje:** La primera cifra que escuchás sobre un tema se vuelve el punto de partida de tus estimaciones, y después ajustás poco desde ahí (Tversky y Kahneman lo describieron en 1974). Tiene un pariente que a la desinformación le sirve todavía más: el *efecto de influencia continua*. Una información falsa sigue pesando en cómo razonás aun después de que alguien la corrigió, y a veces la desmentida mal hecha la refuerza (Lewandowsky y otros, 2012). Por eso llegar primero importa tanto.
+- **Sesgo de disponibilidad:** Creés que lo que más fácil te viene a la memoria es lo más frecuente, y lo que más ves es lo que más fácil te viene. Si los medios cubren violencia todo el día, pensás que la violencia es mayor de lo que realmente es.
 - **Efecto manada:** Si mucha gente cree algo, tendés a creerlo también. Las redes sociales amplifican este efecto porque ves a cientos de personas compartiendo la misma opinión.
 - **Sesgo de autoridad:** Tendés a creer a figuras de autoridad sin verificar. "Lo dijo un doctor/periodista/profesor" se convierte en prueba suficiente.
-- **Efecto Dunning-Kruger:** Cuanto menos sabés de un tema, más seguro estás de tu opinión. Los expertos reales expresan dudas; los opinólogos expresan certezas.
+- **Efecto Dunning-Kruger:** Quien menos sabe de un tema tiende a sobreestimar cuánto sabe, porque le falta justo lo que haría falta para darse cuenta de sus errores. En los estudios originales, los que quedaron en el cuarto más bajo de pruebas de lógica, gramática y humor estaban en promedio en el percentil 12 y se ubicaron solos en el 62 (Kruger y Dunning, 1999). El efecto es esa distancia entre dónde están y dónde se ven.
 
 ### Cómo la Desinformación Explota Tus Sesgos
 
@@ -44,7 +53,7 @@ La desinformación no necesita convencerte de algo nuevo. Solo necesita **activa
 - **Buscá activamente la contra-evidencia:** Antes de compartir algo, buscá si hay fuentes que digan lo contrario.
 - **Preguntate: "¿Creo esto porque es verdad o porque quiero que sea verdad?"**
 - **Desconfiá de la certeza absoluta:** La realidad es compleja. Si algo parece simple y definitivo, probablemente está simplificado.
-- **Esperá antes de reaccionar:** El sesgo se activa en los primeros segundos. Dale tiempo a tu cerebro racional.
+- **Esperá antes de reaccionar:** Los atajos trabajan en la reacción rápida. Unos segundos de pausa le dan lugar a la pregunta lenta.
 
 > "No sos vulnerable a la desinformación porque seas tonto. Sos vulnerable porque sos humano. Conocer tus sesgos no los elimina, pero te da una chance de neutralizarlos."
 

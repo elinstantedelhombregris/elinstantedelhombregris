@@ -5,7 +5,7 @@
   "excerpt": "Herramientas prácticas para organizar tu barrio desde cero.",
   "category": "community",
   "level": "beginner",
-  "duration": 33,
+  "duration": 35,
   "orderIndex": 9,
   "isPublished": true,
   "isFeatured": true,
@@ -23,7 +23,7 @@
       "key": "03-el-mapeo-de-activos-descubriendo-lo-que-ya-tenes",
       "title": "El Mapeo de Activos: Descubriendo Lo Que Ya Tenés",
       "description": "Técnica de mapeo de recursos y activos comunitarios existentes en tu barrio.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 2
     },
     {
@@ -65,7 +65,7 @@
       "key": "09-gestion-de-conflictos-en-el-grupo-inicial",
       "title": "Gestión de Conflictos en el Grupo Inicial",
       "description": "Cómo manejar los conflictos inevitables que surgen en grupos barriales.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {

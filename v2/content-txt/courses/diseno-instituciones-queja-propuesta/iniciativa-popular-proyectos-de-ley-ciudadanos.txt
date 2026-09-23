@@ -19,6 +19,13 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/80000-84999/81446/norma.htm
     titulo: 'Ley 25.724 — Programa Nacional de Nutrición y Alimentación (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/noticias/elecciones-legislativas-2025-el-proceso-electoral-en-numeros
+    titulo: 'Elecciones Legislativas 2025: el proceso electoral, en números — Argentina.gob.ar'
+    consultada: '2026-09-23'
+  - url: https://pdba.georgetown.edu/Decen/Argentina/cordoba.html
+    titulo: 'Ley 8102 — Ley Orgánica de Municipios de la Provincia de Córdoba (Political Database of the Americas, Georgetown)'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-10-01'
 ---
 ## El Congreso Es Tuyo: Usalo
 
@@ -27,19 +34,19 @@ El artículo 39 de la Constitución establece la **iniciativa popular**: los ciu
 ### Cómo Funciona
 
 1. **Redactar el proyecto:** Con articulado y fundamentos (como vimos en la lección 4).
-2. **Juntar firmas:** Se necesita el 1.5% del padrón electoral nacional (aproximadamente 500.000 firmas). Las firmas deben representar al menos 6 distritos electorales.
-3. **Presentar ante la Cámara de Diputados:** Con las firmas verificadas por la Justicia Electoral.
+2. **Juntar firmas:** Se necesita el 1,5% del padrón usado en la última elección de diputados nacionales. En la de octubre de 2025 el padrón fue de 35.987.634 electores, así que hoy son unas 540.000 firmas. Tienen que representar al menos 6 distritos electorales.
+3. **Presentar ante la Cámara de Diputados:** Por mesa de entradas. Antes de que el proyecto empiece a tratarse, la Justicia Electoral verifica las firmas por muestreo.
 4. **Tratamiento obligatorio:** El Congreso tiene 12 meses para tratarlo.
 
 ### Limitaciones
 
 - No se pueden presentar proyectos sobre reforma constitucional, tratados internacionales, tributos, presupuesto ni materia penal.
-- 500.000 firmas es un número alto (aunque campañas digitales lo hacen más alcanzable).
+- Más de medio millón de firmas es un número alto (aunque campañas digitales lo hacen más alcanzable).
 - El Congreso debe tratarlo pero no está obligado a aprobarlo.
 
 ### A Nivel Municipal: Más Accesible
 
-Muchos municipios tienen mecanismos de iniciativa popular con **requisitos mucho menores**. En algunos municipios, con unos cientos de firmas podés presentar un proyecto al Concejo Deliberante. Investigá las reglas de tu municipio.
+Muchos municipios tienen mecanismos de iniciativa popular con **requisitos mucho más alcanzables**. En Córdoba, por ejemplo, la Ley Orgánica Municipal 8102 (artículo 146) le permite proponer ordenanzas al Concejo Deliberante a un número de electores no inferior al 1,5% del padrón usado en la última elección municipal. Es el mismo porcentaje que a nivel nacional, pero sobre un padrón mucho más chico: en una localidad de 4.000 electores son 60 firmas. Investigá las reglas de tu municipio.
 
 ### Pausa para Reflexionar
 
@@ -47,10 +54,10 @@ Si tuvieras que juntar firmas en tu barrio para una iniciativa popular municipal
 
 *Tomá 3 minutos para anotarlo antes de continuar.*
 
-### Casos Exitosos
+### Dónde Funcionó y Dónde Puede Funcionar
 
 - **«El hambre más urgente», que terminó en la Ley 25.724 (2002):** Una iniciativa popular impulsó legislación alimentaria después de la crisis de 2001.
-- **Iniciativas municipales:** Decenas de ordenanzas sobre ambiente, transparencia y participación nacieron de iniciativas vecinales.
+- **A escala municipal:** donde el mecanismo existe, sirve para llevar al Concejo una ordenanza sobre ambiente, transparencia o participación sin depender de que un concejal la haga suya.
 
 ### El Valor Más Allá del Resultado
 

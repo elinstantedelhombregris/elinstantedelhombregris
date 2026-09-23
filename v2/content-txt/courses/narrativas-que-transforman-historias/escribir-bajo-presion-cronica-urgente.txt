@@ -15,7 +15,7 @@ La crónica urgente es el formato del narrador que está ahí cuando las cosas p
 
 ### El Perfil de 30 Minutos: Tu Entrenamiento de Combate Narrativo
 
-Los corresponsales de guerra, los cronistas de catástrofes, los periodistas de calle tienen una habilidad que parece magia pero es puro entrenamiento: pueden producir una pieza narrativa coherente, emotiva y precisa en minutos. Vos también podés aprenderlo.
+Los corresponsales de guerra, los cronistas de catástrofes, los periodistas de calle tienen una habilidad que parece magia pero es entrenamiento: producir una pieza narrativa coherente, emotiva y precisa con el reloj en contra. Vos también podés aprenderlo.
 
 El ejercicio del perfil de 30 minutos funciona así:
 
@@ -32,14 +32,13 @@ Poné un timer de 30 minutos en tu celular. No lo pares hasta que termine.
 2. **Minutos 1-8:** Anotá todo lo que ves, escuchás, olés. Detalles concretos. El color de una pared. El sonido de un colectivo. La forma en que camina una persona mayor. Un cartel roto. Un perro durmiendo.
 3. **Minutos 8-12:** Si podés, hablá con alguien. El kiosquero, una vecina, alguien en la parada del colectivo. Preguntá: "¿Cómo está el barrio hoy?" Anotá lo que diga, con sus palabras exactas.
 4. **Minutos 12-25:** Escribí una crónica de máximo 250 palabras sobre lo que acabás de observar. Usá esta estructura:
+   - Primera línea: el detalle más sorprendente o revelador.
+   - Segundo párrafo: qué está pasando, dónde, cuándo.
+   - Tercer párrafo: la voz de alguien (cita textual).
+   - Cierre: una reflexión de una oración o una pregunta abierta.
+5. **Minutos 25-30:** Leé en voz alta. Corregí lo que suene raro. Listo.
 
-                Primera línea: el detalle más sorprendente o revelador
-5. Segundo párrafo: qué está pasando, dónde, cuándo
-6. Tercer párrafo: la voz de alguien (cita textual)
-7. Cierre: una reflexión de una oración o una pregunta abierta
-8. **Minutos 25-30:** Leé en voz alta. Corregí lo que suene raro. Listo.
-
-**Importante:** Este ejercicio no se trata de escribir algo "bueno". Se trata de **entrenar tu capacidad de producir bajo presión**. Cuantas más veces lo hagas, mejor te va a salir. Los cronistas profesionales hacen versiones de este ejercicio todos los días.
+**Importante:** Este ejercicio no se trata de escribir algo "bueno". Se trata de **entrenar tu capacidad de producir bajo presión**. Cuantas más veces lo hagas, mejor te va a salir: es el mismo músculo que usa cualquier cronista de calle cuando tiene que entregar antes del cierre.
 
 ### Formatos de Crónica Urgente para Redes
 
@@ -48,7 +47,7 @@ Tu crónica de 30 minutos puede tomar varios formatos según la plataforma:
 - **Hilo de WhatsApp (3-5 audios de 60 segundos):** Contá lo que estás viendo como si le hablaras a un amigo. Primer audio: el gancho. Últimos audios: qué se necesita.
 - **Hilo de Twitter/X (5-8 tweets):** Cada tweet una escena. Intercalá texto con fotos del lugar. Último tweet: contexto y llamado a acción.
 - **Story de Instagram (5-7 stories):** Combiná video del lugar + texto sobre la imagen + encuesta o pregunta en la última story.
-- **Post largo de Facebook:** La crónica completa de 250-300 palabras con 2-3 fotos. Funcioná especialmente bien en grupos de barrio.
+- **Post largo de Facebook:** La crónica completa de 250-300 palabras con 2-3 fotos. Funciona especialmente bien en grupos de barrio.
 
 ### Las 5 Preguntas de la Crónica Urgente
 

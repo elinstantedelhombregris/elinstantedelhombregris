@@ -13,24 +13,43 @@ fuentes:
   - url: https://www.congreso.gob.ar/constitucionDispTransitorias.php
     titulo: 'Constitución Nacional — Disposiciones transitorias (Congreso de la Nación)'
     consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/pais/territorio/extension
+    titulo: 'Extensión del territorio argentino (argentina.gob.ar)'
+    consultada: '2026-09-23'
+  - url: https://www.indec.gob.ar/ftp/cuadros/poblacion/cnphv2022_resultados_provisionales.pdf
+    titulo: 'Censo 2022 — Resultados provisionales, población por jurisdicción (INDEC)'
+    consultada: '2026-09-23'
+  - url: https://buenosaires.gob.ar/la-cuarta-parte-del-mundo/buenos-aires-capital-del-virreinato
+    titulo: 'Buenos Aires: capital del virreinato (Gobierno de la Ciudad de Buenos Aires)'
+    consultada: '2026-09-23'
+  - url: https://buenosaires.gob.ar/areas/educacion/adultos2000/guias/historia/hist3-02.pdf
+    titulo: 'La consolidación del Estado nacional: entre el acuerdo y la coerción (Ministerio de Educación de la Ciudad, guía de Historia)'
+    consultada: '2026-09-23'
+  - url: https://sedici.unlp.edu.ar/bitstream/handle/10915/182728/Documento_completo.pdf?sequence=1
+    titulo: 'Guillermo Curtit — La época de la fundación de La Plata. Apuntes sobre la Argentina agroexportadora (FAU-UNLP, SEDICI)'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/politica/2025/10/05/el-padron-electoral-argentino-suma-634000-nuevos-votantes-pero-caba-sigue-en-descenso/
+    titulo: 'El padrón electoral argentino suma 634.000 nuevos votantes (Infobae, con datos de la Cámara Nacional Electoral)'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-09-23'
 ---
 
 ## Un País con Cabeza de Goliat
 
-Argentina es un país enorme (el octavo del mundo en superficie) donde **un tercio de la población vive en el 0.1% del territorio** (el AMBA: Ciudad y Gran Buenos Aires). Esta macrocefalia no es casualidad: es el resultado de 200 años de decisiones que concentraron poder, recursos e infraestructura en un solo punto.
+Argentina es un país enorme (el octavo del mundo en superficie) donde **casi un tercio de la población vive en una mancha mínima del mapa**: la Ciudad de Buenos Aires y los 24 partidos que la rodean. Según el Censo 2022, ahí viven unos 14 millones de los 46 millones de habitantes del país. Esta macrocefalia no es casualidad: es el resultado de 200 años de decisiones que concentraron poder, recursos e infraestructura en un solo punto.
 
 ### Cómo Se Construyó el Desequilibrio
 
-- **1580-1810:** Buenos Aires controla el puerto, único punto de contacto con el mundo.
-- **1810-1880:** Las guerras civiles se ganan desde Buenos Aires porque tiene los recursos del comercio exterior.
-- **1880-1930:** Los ferrocarriles van del campo al puerto, no conectan provincias entre sí. Toda la producción converge en Buenos Aires.
+- **1580-1810:** Buenos Aires crece alrededor del puerto. Durante buena parte de la Colonia es una ruta alternativa por donde entra mercadería extranjera y sale plata de contrabando; en 1776, capital del nuevo virreinato, esa posición se vuelve oficial.
+- **1810-1880:** Las guerras civiles giran en buena parte alrededor de las rentas de la aduana del puerto, que Buenos Aires monopoliza y se resiste a repartir. El conflicto termina de cerrarse en 1880, cuando la ciudad se convierte en Capital Federal y queda separada de la provincia.
+- **1880-1930:** Los ferrocarriles se trazan para llevar la producción del campo a los puertos, en un esquema radial que converge en Buenos Aires. Conectar provincias entre sí no era el objetivo.
 - **1930-presente:** La industrialización se concentra en el cordón industrial del GBA. La gente migra del interior a Buenos Aires buscando trabajo.
 
 ### Los Costos del Desequilibrio
 
-1. **Vaciamiento del interior:** Provincias con potencial enorme se despueblan. Jóvenes que se van a Buenos Aires a estudiar y no vuelven.
+1. **Vaciamiento del interior:** Pueblos con potencial enorme pierden a sus jóvenes, que se van a estudiar a Buenos Aires o a las grandes ciudades y no vuelven.
 2. **Conurbano insostenible:** El Gran Buenos Aires crece sin planificación, sin infraestructura suficiente, con barrios precarios cada vez más extensos.
-3. **Distorsión política:** La provincia de Buenos Aires tiene el 38% del padrón electoral. Ningún candidato puede ganar sin el conurbano. Esto distorsiona toda la agenda política.
+3. **Distorsión política:** La provincia de Buenos Aires tiene el 37% del padrón electoral nacional, según los datos de la Cámara Nacional Electoral para 2025. Ninguna campaña nacional puede darse el lujo de ignorar el conurbano, y eso inclina toda la agenda política.
 4. **Feudos provinciales:** Las provincias chicas dependen de transferencias nacionales y se convierten en feudos donde un gobernador controla todo.
 
 ### Puntos de Apalancamiento

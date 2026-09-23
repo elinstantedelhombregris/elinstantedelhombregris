@@ -10,11 +10,21 @@ fuentes:
   - url: https://www.argentina.gob.ar/noticias/abrio-la-convocatoria-2023-de-puntos-de-cultura
     titulo: 'Abrió la convocatoria 2023 de Puntos de Cultura (Ministerio de Cultura de la Nación)'
     consultada: '2026-09-22'
+  - url: https://www.international.gc.ca/world-monde/funding-financement/cfli-fcil/argentina-argentine.aspx?lang=spa
+    titulo: 'Fondo Canadá para Iniciativas Locales — Argentina (2026) (Gobierno de Canadá)'
+    consultada: '2026-09-23'
+  - url: https://raci.org.ar/sistema/fondo-para-iniciativas-locales-2026-27/
+    titulo: 'RACI — Fondo para Iniciativas Locales 2026-27 (Australia, Canadá y Nueva Zelanda)'
+    consultada: '2026-09-23'
+  - url: https://buenos-aires.diplo.de/ar-es/alemanie-y-argentina/proyectos/kleinstprojekte-1826134
+    titulo: 'Embajada de Alemania en Buenos Aires — Microproyectos: financiación para iniciativas locales'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-01'
 ---
 
 ## El Arte de Pedir (Bien)
 
-Hay dinero disponible para proyectos comunitarios. Mucho más del que la mayoría imagina. Subsidios municipales, programas nacionales, fondos internacionales, fundaciones empresariales. El problema es que muchos proyectos excelentes **nunca acceden a ese dinero** porque no saben escribir una propuesta que convenza.
+Hay dinero disponible para proyectos comunitarios: subsidios municipales, programas nacionales, fondos internacionales, fundaciones empresariales. El problema es que muchos proyectos excelentes **nunca acceden a ese dinero** porque no saben escribir una propuesta que convenza.
 
 ### La Estructura de una Propuesta Ganadora
 
@@ -23,7 +33,7 @@ Hay dinero disponible para proyectos comunitarios. Mucho más del que la mayorí
 3. **Propuesta de intervención (2-3 páginas):** Tu solución. Qué vas a hacer, cómo, con quién, en qué plazos. Sé específico: no "vamos a mejorar la educación" sino "vamos a dar 240 clases de apoyo a 60 chicos durante 8 meses."
 4. **Metodología:** ¿Cómo vas a hacer lo que prometés? El evaluador quiere saber que tenés un plan realista, no solo buenas intenciones.
 5. **Equipo (1 página):** ¿Quiénes son? ¿Qué experiencia tienen? Incluí CVs breves. No es vanidad — es demostrar capacidad.
-6. **Presupuesto detallado:** Rubro por rubro, justificado. Si pedís $50.000 para capacitación, detallá: 2 jornadas de 4 horas, facilitador especializado, materiales, refrigerio.
+6. **Presupuesto detallado:** Rubro por rubro, justificado. Si pedís plata para capacitación, detallá: 2 jornadas de 4 horas, facilitador especializado, materiales, refrigerio, cada cosa con su precio y la fecha en que lo cotizaste.
 7. **Cronograma:** Mes a mes, qué se hace.
 8. **Evaluación:** ¿Cómo vas a medir si funcionó? Indicadores concretos.
 9. **Sostenibilidad:** ¿Qué pasa cuando se termina el financiamiento? ¿El proyecto continúa? ¿Cómo?
@@ -42,8 +52,8 @@ Si tu propuesta responde SÍ a las tres con evidencia, tenés altas chances.
 
 - **Argentina.gob.ar:** Programas nacionales de desarrollo social, cultura, medio ambiente.
 - **Tu municipio:** Presupuesto participativo, subsidios a organizaciones, programas específicos.
-- **Fundaciones y redes:** Fundación Avina, Ashoka, Socialab.
-- **Cooperación internacional:** Unión Europea, embajadas (especialmente Canadá, Alemania, países nórdicos).
+- **Fundaciones y redes:** fundaciones empresariales con fondos propios, y la RACI (Red Argentina para la Cooperación Internacional), que difunde convocatorias y coordina algunas.
+- **Cooperación internacional:** algunas embajadas tienen fondos anuales para organizaciones locales. Las de Australia, Canadá y Nueva Zelanda abren uno en conjunto, coordinado por la RACI, con proyectos de alrededor de 20.000 dólares; la de Alemania financia microproyectos de hasta 25.000 euros que se ejecutan dentro del mismo año. Montos y fechas cambian cada convocatoria: revisalos antes de escribir.
 
 ### El relato y los números tienen que decir lo mismo
 

@@ -19,6 +19,21 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/90000-94999/90763/texact.htm
     titulo: 'Decreto 1172/2003 — Reglamentos generales de audiencias públicas y participación, texto actualizado (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://es.wikisource.org/wiki/Acta_de_la_Revoluci%C3%B3n_Argentina
+    titulo: 'Acta de la Revolución Argentina, 28 de junio de 1966, texto (Wikisource)'
+    consultada: '2026-09-23'
+  - url: https://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1851-95042012000100004
+    titulo: 'La CGT de los Argentinos, un proyecto trunco de renovación sindical (1968-1969) (SciELO Argentina)'
+    consultada: '2026-09-23'
+  - url: https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1405-22532022000300004
+    titulo: 'La política económica de Krieger Vasena y su participación en el ingreso de las empresas tabacaleras extranjeras (1967-1969) (SciELO)'
+    consultada: '2026-09-23'
+  - url: https://medios.unt.edu.ar/2026/08/26/el-cierre-de-los-ingenios-que-cambio-tucuman/
+    titulo: 'El cierre de los ingenios que cambió Tucumán (Medios UNT)'
+    consultada: '2026-09-23'
+  - url: https://www.cultura.gob.ar/29-de-mayo-1969-arranca-el-cordobazo-10560/
+    titulo: '29 de mayo de 1969: comienza el Cordobazo (Ministerio de Cultura de la Nación)'
+    consultada: '2026-09-23'
 ---
 
 ## El Orden Sin Política
@@ -27,9 +42,9 @@ El general Juan Carlos Onganía llegó al poder en junio de 1966 con un plan amb
 
 ### Lo Que Hizo
 
-- **La Noche de los Bastones Largos (1966):** La Policía Federal irrumpió en las universidades y golpeó a profesores y estudiantes. Argentina perdió una generación de científicos e investigadores que emigraron. Un daño incalculable al sistema científico.
-- **Prohibición de partidos:** Todos los partidos políticos fueron disueltos. Los sindicatos fueron intervenidos.
-- **Krieger Vasena:** Su ministro de economía estabilizó la moneda y atrajo inversión, pero a costa de congelar salarios y cerrar las economías regionales. Las provincias del interior se empobrecieron dramáticamente.
+- **La Noche de los Bastones Largos (1966):** La Policía Federal irrumpió en las universidades y golpeó a profesores y estudiantes. Cientos de docentes renunciaron y muchos científicos e investigadores emigraron. Un daño difícil de medir para el sistema científico.
+- **Prohibición de partidos:** El Acta de la Revolución Argentina, firmada el día del golpe, disolvió todos los partidos políticos, el Congreso y las legislaturas provinciales. Cuando la CGT lanzó su plan de acción en 1967, el gobierno le congeló fondos sindicales y retiró la personería gremial a varios sindicatos.
+- **Krieger Vasena:** Su ministro de economía, desde 1967, apuntó a bajar la inflación y atraer inversión, con una devaluación de alrededor del 40%, un tope a los salarios y la supresión de los convenios colectivos de trabajo. Las economías regionales ya venían pagando su parte: en agosto de 1966 el gobierno intervino los ingenios azucareros de Tucumán y terminó cerrando once de los veintisiete, casi el 40% de la industria azucarera de la provincia.
 
 El general Mario Fonseca, al mando de la Guardia de Infantería de la Policía Federal que entró a las facultades, bautizó el operativo «Operación Escarmiento». El nombre dice cuál era el objetivo: no ordenar la universidad, sino enseñarle quién mandaba.
 
@@ -37,11 +52,11 @@ El general Mario Fonseca, al mando de la Guardia de Infantería de la Policía F
 
 El 29 de mayo de 1969, obreros y estudiantes de Córdoba se levantaron en una insurrección popular que tomó la ciudad durante horas. El **Cordobazo** fue un terremoto que resquebrajó la dictadura y demostró que no se puede modernizar un país sin la gente.
 
-No fue el único: el Rosariazo, el Tucumanazo, el Mendozazo. Toda la Argentina del interior explotó contra un modelo que la ignoraba.
+No fue el único: dos semanas antes, en Corrientes, una protesta estudiantil había terminado con la muerte de Juan José Cabral, y en los años siguientes otras puebladas sacudieron ciudades del interior. La Argentina de provincia se levantaba contra un modelo que la ignoraba.
 
 ### La Radicalización
 
-La violencia estatal de los 60 radicalizó a una generación. Nacieron las organizaciones armadas: Montoneros (peronistas), ERP (marxistas), FAR, FAP. Miles de jóvenes que habían empezado pidiendo democracia terminaron tomando las armas. Es un ejemplo de cómo **la represión del sistema produce sus propios antagonistas radicalizados**.
+La violencia estatal de los 60 radicalizó a una generación. Nacieron las organizaciones armadas: Montoneros (peronistas), ERP (marxistas), FAR, FAP. Muchos jóvenes que habían empezado pidiendo democracia terminaron tomando las armas. Es un ejemplo de cómo **la represión del sistema produce sus propios antagonistas radicalizados**.
 
 ### La Caída de Onganía
 

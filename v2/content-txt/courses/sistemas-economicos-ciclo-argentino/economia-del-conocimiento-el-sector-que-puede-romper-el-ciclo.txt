@@ -19,6 +19,22 @@ fuentes:
   - url: https://www.argentina.gob.ar/servicio/acceder-los-beneficios-del-regimen-de-promocion-de-la-economia-del-conocimiento
     titulo: 'Argentina.gob.ar — Acceder a los beneficios del Régimen de Promoción de la Economía del Conocimiento'
     consultada: '2026-09-22'
+  - url: https://expansion.mx/tecnologia/2025/12/31/como-mercado-libre-se-convirtio-empresa-mas-valiosa-latinoamerica
+    titulo: 'Expansión — Cómo Mercado Libre pasó de un garage en Argentina a ser la empresa más valiosa de Latinoamérica'
+    consultada: '2026-09-23'
+  - url: https://www.adlatina.com/marketing/los-paises-latinos-con-mayor-cantidad-de-unicornios-brasil-60-argentina-17-y-mexico-11
+    titulo: 'Adlatina — Los países latinos con mayor cantidad de unicornios: Brasil, 60%; la Argentina, 17%; y México, 11%'
+    consultada: '2026-09-23'
+  - url: https://www.argentina.gob.ar/noticias/las-exportaciones-de-servicios-de-la-economia-del-conocimiento-registraron-un-crecimiento
+    titulo: 'Argentina.gob.ar — Las exportaciones de servicios de la Economía del Conocimiento registraron un crecimiento récord en 2025'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/250000-254999/254825/norma.htm
+    titulo: 'Ley 27.204 — Implementación efectiva de la responsabilidad del Estado en el nivel de educación superior (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://chequeado.com/el-explicador/cronologia-del-cepo-cambiario-como-vario-entre-2011-y-2020/
+    titulo: 'Chequeado — Cronología del cepo cambiario entre 2011 y 2025'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-06-30'
 ---
 
 ## El Futuro que Argentina Ya Tiene
@@ -40,15 +56,15 @@ Acordate de la restricción externa del stop-go: cuando el país crece, las impo
 
 ### Argentina ya Es Potencia
 
-- **Mercado Libre:** La empresa más valiosa de América Latina nació en un garage argentino.
-- **Unicornios:** Argentina tiene más "unicornios" (startups valuadas en más de 1.000 millones) per cápita que cualquier país de la región.
-- **Exportación de servicios:** Argentina exporta más de 7.000 millones de dólares anuales en servicios basados en conocimiento.
-- **Capital humano:** El sistema educativo (universidad pública gratuita) produce profesionales de alta calidad a bajo costo.
+- **Mercado Libre:** Nació en 1999 en un garaje de Buenos Aires y a fines de 2025 era, según la revista Expansión, la empresa más valiosa de América Latina, con unos 102.000 millones de dólares.
+- **Unicornios:** Argentina es el segundo país de América Latina con más "unicornios" (startups valuadas en más de 1.000 millones de dólares), detrás de Brasil: un estudio de Human Connections Media publicado en 2022 le asignaba el 17% de los de la región, contra el 60% de Brasil.
+- **Exportación de servicios:** Con datos del INDEC, en 2025 Argentina exportó 9.600 millones de dólares en servicios basados en conocimiento, un récord y más de la mitad de todos los servicios que le vende al mundo.
+- **Capital humano:** El sistema educativo produce profesionales de alta calidad a bajo costo; la Ley 27.204 garantiza que las carreras de grado en las universidades públicas sean gratuitas.
 
 ### Los Obstáculos
 
 1. **Presión impositiva:** Las empresas de conocimiento enfrentan impuestos diseñados para empresas industriales del siglo XX.
-2. **Brecha cambiaria:** Los profesionales que cobran en dólares pierden poder adquisitivo al pesificar al tipo de cambio oficial.
+2. **Brecha cambiaria:** Cuando hay cepo y brecha, como entre 2019 y abril de 2025, los profesionales que cobran en dólares pierden poder adquisitivo al pesificar al tipo de cambio oficial.
 3. **Fuga de talento:** Los mejores se van a países que les ofrecen estabilidad y mejores condiciones.
 4. **Conectividad:** Internet de calidad no llega a todo el territorio.
 

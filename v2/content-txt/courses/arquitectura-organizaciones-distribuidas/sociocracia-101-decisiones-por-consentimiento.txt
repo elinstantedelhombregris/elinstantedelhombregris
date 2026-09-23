@@ -10,16 +10,22 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/75000-79999/79980/norma.htm
     titulo: 'Ley 25.675 — Ley General del Ambiente (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://en.wikipedia.org/wiki/Sociocracy
+    titulo: 'Sociocracy (Wikipedia en inglés)'
+    consultada: '2026-09-23'
+  - url: https://rolebase.io/en/blog/sociocracy-intro
+    titulo: 'Sociocracy: the 4 principles, the history, the limits (Rolebase)'
+    consultada: '2026-09-23'
 ---
 ## Sociocracia: El Sistema de los Círculos
 
-La sociocracia es un **sistema de gobernanza** desarrollado en los Países Bajos que permite a las organizaciones tomar decisiones efectivas sin concentrar el poder en una sola persona. Es especialmente útil para organizaciones comunitarias porque respeta la diversidad de voces.
+La sociocracia es un **sistema de gobernanza** desarrollado en los Países Bajos: el educador Kees Boeke la puso en práctica en una escuela de Bilthoven que fundó con su esposa en 1926, y el ingeniero Gerard Endenburg la convirtió en método en la empresa eléctrica que dirigía en Rotterdam, entre fines de los sesenta y los setenta. Permite a las organizaciones tomar decisiones efectivas sin concentrar el poder en una sola persona. Es especialmente útil para organizaciones comunitarias porque respeta la diversidad de voces.
 
 ### Los 4 Principios Fundamentales
 
-1. **Decisión por consentimiento:** No se busca que todos digan "sí". Se busca que nadie diga "tengo una objeción razonada". Es más rápido que el consenso y más inclusivo que la votación.
+1. **Decisión por consentimiento:** No se busca que todos digan "sí". Se busca que nadie diga "tengo una objeción razonada". Busca ser más ágil que el consenso y más inclusivo que la votación.
 2. **Organización en círculos:** Cada equipo es un círculo con autoridad para tomar decisiones en su dominio. No hay pirámide: hay red de círculos.
-3. **Doble enlace:** Cada círculo envía dos representantes al círculo superior: uno elegido por el círculo superior y otro elegido por el propio círculo. Esto garantiza comunicación bidireccional.
+3. **Doble enlace:** Cada círculo queda unido al superior por dos personas: quien lo coordina, designada por el círculo superior, y un delegado elegido por el propio círculo, que participa del círculo de arriba con el mismo peso que cualquier otro miembro. Esto garantiza comunicación bidireccional.
 4. **Elección sin candidatos:** Los roles se asignan mediante un proceso de nominación abierta donde cada persona explica por qué propone a alguien.
 
 ### El Proceso de Consentimiento en la Práctica

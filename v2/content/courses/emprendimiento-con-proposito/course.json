@@ -5,7 +5,7 @@
   "excerpt": "Creá un emprendimiento que genere valor real para vos y tu comunidad.",
   "category": "economia",
   "level": "advanced",
-  "duration": 33,
+  "duration": 39,
   "orderIndex": 14,
   "isPublished": true,
   "isFeatured": false,
@@ -37,21 +37,21 @@
       "key": "05-formalizacion-sin-morir-en-el-intento",
       "title": "Formalización Sin Morir en el Intento",
       "description": "Guía práctica de estructuras legales y fiscales para emprender en Argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-finanzas-del-emprendedor-sobrevivir-la-montana-rusa",
       "title": "Finanzas del Emprendedor: Sobrevivir la Montaña Rusa",
       "description": "Gestión financiera en un contexto de alta inflación e incertidumbre cambiaria.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-capital-humano-liderar-un-equipo-con-proposito",
       "title": "Capital Humano: Liderar un Equipo con Propósito",
       "description": "Cómo construir equipos en un contexto de alta rotación y desconfianza sistémica.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -65,21 +65,21 @@
       "key": "09-economia-circular-y-sustentabilidad-el-negocio-del-futuro",
       "title": "Economía Circular y Sustentabilidad: El Negocio del Futuro",
       "description": "Integrar la sustentabilidad como ventaja competitiva, no como costo.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {
       "key": "10-tecnologia-accesible-digitalizar-sin-complicar",
       "title": "Tecnología Accesible: Digitalizar Sin Complicar",
       "description": "Herramientas digitales gratuitas o baratas para potenciar tu emprendimiento.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-redes-y-ecosistema-emprender-nunca-es-solitario",
       "title": "Redes y Ecosistema: Emprender Nunca Es Solitario",
       "description": "El ecosistema emprendedor argentino y cómo conectarte para crecer.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 10
     }
   ],

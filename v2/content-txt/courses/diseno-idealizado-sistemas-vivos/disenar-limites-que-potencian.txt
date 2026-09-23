@@ -42,7 +42,7 @@ Los límites útiles tienen tres características:
 **Principios de límites inteligentes:**
 
 - **Protegen la identidad:** Definen qué es esencial del sistema
-- **Permiten conexión:** Dejan entrar lo valioso, salen lo que sirve
+- **Permiten conexión:** Dejan entrar lo valioso y salir lo que sirve
 - **Se adaptan:** Cambian según necesidades del sistema
 
 ### La Paradoja de los Límites

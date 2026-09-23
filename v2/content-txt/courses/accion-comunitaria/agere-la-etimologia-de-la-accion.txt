@@ -10,6 +10,27 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/90000-94999/90763/norma.htm
     titulo: 'Decreto 1172/2003 — Reglamento General de Audiencias Públicas (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.etymonline.com/word/action
+    titulo: 'Online Etymology Dictionary — action (del latín actio, de agere)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/agent
+    titulo: 'Online Etymology Dictionary — agent (agere: poner en movimiento, empujar hacia adelante, hacer)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/agenda
+    titulo: 'Online Etymology Dictionary — agenda (literalmente «cosas que deben hacerse»)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/agitate
+    titulo: 'Online Etymology Dictionary — agitate (agitare, frecuentativo de agere)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/act
+    titulo: 'Online Etymology Dictionary — act (actus, actum, de agere)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/reaction
+    titulo: 'Online Etymology Dictionary — reaction (re- «hacia atrás» + action)'
+    consultada: '2026-09-23'
+  - url: https://www.etymonline.com/word/protagonist
+    titulo: 'Online Etymology Dictionary — protagonist (prōtagōnistēs, de agōn y agein)'
+    consultada: '2026-09-23'
 ---
 
 ## La palabra que mueve el mundo
@@ -20,12 +41,12 @@ Hay palabras que cuando las decís, no pasa nada. Y hay palabras que cuando las 
 
 La palabra *acción* viene del latín ***actio***, que a su vez viene del verbo ***agere***. Y *agere* no significa simplemente "hacer". Significa **mover, conducir, llevar adelante, poner en marcha**. Es un verbo con dirección, con fuerza, con intención.
 
-De esa raíz nacen palabras que deberían darte un escalofrío cuando las entendés juntas:
+De esa raíz —y de su prima griega— nacen palabras que deberían darte un escalofrío cuando las entendés juntas:
 
 - ***Agente*** — el que actúa, el que hace, el que mueve las cosas. No el que mira. No el que opina. El que *hace*.
 - ***Agenda*** — literalmente, "las cosas que deben hacerse". No las cosas que hay que pensar o discutir. Las que hay que *hacer*.
 - ***Agitar*** — poner en movimiento lo que está quieto. Sacudir lo estancado.
-- ***Protagonista*** — del griego *proto* (primero) + *agonistes* (el que actúa). El protagonista no es el más importante — es el **primero en actuar**.
+- ***Protagonista*** — del griego *prōtos* (primero) + *agōnistḗs* (el que compite, el actor). No viene de *agere* sino de su prima griega, *agein*, que también quería decir mover y conducir: las dos salen de la misma raíz indoeuropea. En el teatro griego, el protagonista era el actor del papel principal. No el más famoso: **el que cargaba con la acción**.
 - ***Acto*** — una unidad de acción con sentido. En el teatro, cada acto cambia la historia. En la vida, también.
 
 > Ser agente no es un título. Es una decisión: la decisión de dejar de ser movido por las circunstancias y empezar a mover las circunstancias.

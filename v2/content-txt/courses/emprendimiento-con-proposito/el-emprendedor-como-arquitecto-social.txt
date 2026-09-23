@@ -10,19 +10,22 @@ fuentes:
   - url: https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_1trim269E33A05E47.pdf
     titulo: 'INDEC — Mercado de trabajo. Tasas e indicadores socioeconómicos (EPH), primer trimestre de 2026'
     consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/sites/default/files/2021/10/dt_7_-_estructura_y_dinamica_mipyme.pdf
+    titulo: 'CEP XXI, Ministerio de Desarrollo Productivo — Estructura y dinámica reciente de las mipymes empleadoras (documento N° 7, septiembre de 2022)'
+    consultada: '2026-09-23'
 ---
 
 ## Emprender No Es Lo Que Te Dijeron
 
 La imagen del emprendedor exitoso que nos vende la cultura popular es la de alguien que "se hizo solo", que se saltó las reglas, que tuvo una idea genial y se hizo millonario. Pero esa imagen es una **trampa**, especialmente en Argentina.
 
-En un país donde la confianza interpersonal es baja, donde más de cuatro de cada diez ocupados trabajan en la informalidad, y donde las reglas cambian cada 4 años, emprender con propósito significa algo radicalmente diferente: **ser un arquitecto de confianza en un territorio de desconfianza**.
+En un país donde la confianza interpersonal es baja, donde más de cuatro de cada diez ocupados trabajan en la informalidad, y donde las reglas cambian con cada gobierno, emprender con propósito significa algo radicalmente diferente: **ser un arquitecto de confianza en un territorio de desconfianza**.
 
 ### La Paradoja del Emprendimiento Argentino
 
-Argentina produce más emprendedores per cápita que casi cualquier país latinoamericano. Tenemos Mercado Libre, Globant, Auth0, Ualá, Tiendanube. Pero al mismo tiempo, el 80% de los emprendimientos cierran antes de los 3 años. ¿Por qué?
+De la Argentina salieron Mercado Libre, Globant, Auth0, Ualá, Tiendanube. Pero al mismo tiempo, las empresas jóvenes son las que más cierran. Un estudio del Centro de Estudios para la Producción (CEP XXI) sobre las micro, pequeñas y medianas empresas con empleados registrados lo muestra por el lado de las que quedan: en 2021, el 85,7% tenía más de cinco años de vida y las de menos de cinco eran apenas el 14,3%. De las 22.000 empleadoras de menos de dos años, el 93,6% eran microempresas: los emprendimientos nacen chicos y se juegan la vida en los primeros años. ¿Por qué tantos no pasan de ahí?
 
-- **Emprender por necesidad vs. por oportunidad:** Muchos emprenden porque no consiguen empleo, no porque descubrieron un problema que resolver. El emprendimiento por necesidad tiene tasas de supervivencia mucho más bajas.
+- **Emprender por necesidad vs. por oportunidad:** Muchos emprenden porque no consiguen empleo, no porque descubrieron un problema que resolver. El que emprende por necesidad arranca con menos margen: sin ahorro, sin tiempo para probar y con la urgencia de facturar desde el primer mes.
 - **El mito del llanero solitario:** El emprendedor argentino tiende a hacer todo solo porque "no confía en nadie". Pero los emprendimientos que sobreviven son los que construyen equipos y redes.
 - **Innovación de supervivencia:** La inestabilidad argentina nos hace innovadores... pero de un tipo particular: somos geniales en "atar con alambre" soluciones de emergencia, no tanto en construir sistemas sostenibles.
 

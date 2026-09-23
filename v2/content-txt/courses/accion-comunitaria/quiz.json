@@ -13,7 +13,7 @@
         "Sentire (sentir)"
       ],
       "correctAnswer": 1,
-      "explanation": "Acción viene de actio, que a su vez viene de agere: hacer, mover, conducir. De la misma raíz nacen agente, agenda, agitar y protagonista.",
+      "explanation": "Acción viene de actio, que a su vez viene de agere: hacer, mover, conducir. De la misma raíz nacen agente, agenda, agitar y acto; protagonista viene de su prima griega, agein.",
       "points": 2,
       "orderIndex": 1
     },
@@ -36,7 +36,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "El activismo digital genera la ilusión de acción (dopamina, validación) pero no cambia nada en el mundo real. La indignación online no es acción — es reacción.",
+      "explanation": "El activismo digital genera la ilusión de acción (la satisfacción de haber dicho algo, el reconocimiento) pero no cambia nada en el mundo real. La indignación online no es acción — es reacción.",
       "points": 1,
       "orderIndex": 3
     },
@@ -50,7 +50,7 @@
         "Limitar los proyectos a un radio de 3 metros"
       ],
       "correctAnswer": 1,
-      "explanation": "La regla de los 3 metros dice: mirá lo que está inmediatamente a tu alrededor y mejoralo. Si 45 millones de personas mejoran sus 3 metros, el país entero se transforma.",
+      "explanation": "La regla de los 3 metros dice: mirá lo que está inmediatamente a tu alrededor y mejoralo. Si más de 46 millones de personas mejoran sus 3 metros, el país entero se transforma.",
       "points": 2,
       "orderIndex": 4
     },

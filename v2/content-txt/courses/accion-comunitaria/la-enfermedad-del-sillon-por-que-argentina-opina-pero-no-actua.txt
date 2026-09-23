@@ -6,13 +6,23 @@ summary: 'Diagnóstico honesto de por qué sabemos qué hay que hacer y no lo ha
 orderIndex: 2
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.perfil.com/noticias/sociedad/resultados-definitivos-del-censo-2022.phtml
+    titulo: 'Resultados definitivos del Censo 2022: hay 46.234.830 habitantes en Argentina (Perfil, 21/11/2023)'
+    consultada: '2026-09-23'
+  - url: https://academic.oup.com/jcr/article-abstract/40/6/1149/2907521
+    titulo: 'Kristofferson, White y Peloza — The Nature of Slacktivism (Journal of Consumer Research, 2014)'
+    consultada: '2026-09-23'
+  - url: https://www.eurekalert.org/news-releases/500872
+    titulo: 'Slackers unite: How fundraisers convert social supporters into socially active citizens (EurekAlert!)'
+    consultada: '2026-09-23'
 ---
 
-## El país de los 45 millones de directores técnicos
+## El país de los 46 millones de directores técnicos
 
-Hay un chiste que dice que en Argentina todos somos directores técnicos de la selección, economistas y presidentes. Desde el bar, desde el asado, desde Twitter — **sabemos exactamente qué hay que hacer**. El problema es que nadie lo hace.
+Hay un chiste que dice que en Argentina todos somos directores técnicos de la selección, economistas y presidentes. Desde el bar, desde el asado, desde las redes — **sabemos exactamente qué hay que hacer**. El problema es que nadie lo hace.
 
-Esto no es un defecto argentino. Es un mecanismo psicológico universal. Pero en Argentina tiene una intensidad especial, alimentada por décadas de frustraciones acumuladas que crearon una cultura donde **opinar reemplazó a actuar**.
+Esto no es un defecto exclusivamente argentino: pasa en todas partes. Pero en Argentina tiene una intensidad especial, alimentada por décadas de frustraciones acumuladas que crearon una cultura donde **opinar reemplazó a actuar**.
 
 ### El activismo de sofá
 
@@ -20,7 +30,9 @@ Año 2026. Agarrás el teléfono a la mañana. Leés una noticia indignante. Te 
 
 **¿Qué cambió en el mundo real?** Nada. Absolutamente nada.
 
-Pero tu cerebro registró algo parecido a la acción. La indignación genera adrenalina. El posteo genera dopamina. El "me gusta" genera validación. Tu sistema nervioso *cree* que hiciste algo. Es la **ilusión de acción sin acción real**. Y es adictiva — porque te da la satisfacción del compromiso sin el costo del compromiso.
+Pero te quedó la sensación de haber hecho algo. La indignación te aceleró, el posteo te dio el alivio de haber dicho lo tuyo, el "me gusta" te devolvió un poco de reconocimiento. Es la **ilusión de acción sin acción real**. Y engancha, porque te da la satisfacción del compromiso sin el costo del compromiso.
+
+Hay un estudio que lo muestra con más precisión que cualquier frase. En 2014, Kirk Kristofferson, Katherine White y John Peloza publicaron en el *Journal of Consumer Research* una serie de cinco estudios: primero se le pedía a la gente un gesto chico de apoyo a una causa y después algo más exigente para la misma causa. Cuando el primer gesto había sido público, a la vista de otros, la gente se comprometía menos con el segundo pedido que cuando el gesto había sido privado. Para quien busca, sobre todo, que lo vean comprometido, mostrarse alcanza. El gesto público puede ser el final de la acción en vez del principio.
 
 ### Las 5 excusas que matan la acción
 

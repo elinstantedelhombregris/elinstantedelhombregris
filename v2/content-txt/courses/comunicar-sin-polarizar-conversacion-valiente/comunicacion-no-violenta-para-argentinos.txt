@@ -10,6 +10,9 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/165000-169999/166999/norma.htm
     titulo: 'Ley 26.589 — Mediación y conciliación (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.cnvc.org/store/nonviolent-communication-online-training-course
+    titulo: 'Center for Nonviolent Communication — curso de Marshall Rosenberg sobre el proceso de cuatro pasos: observaciones, sentimientos, necesidades y pedidos'
+    consultada: '2026-09-23'
 ---
 ## CNV: No Es Ser Buenito, Es Ser Preciso
 

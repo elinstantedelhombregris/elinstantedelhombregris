@@ -5,7 +5,7 @@
   "excerpt": "Escala tu impacto conectando barrios en redes de cambio territorial.",
   "category": "community",
   "level": "advanced",
-  "duration": 30,
+  "duration": 32,
   "orderIndex": 11,
   "isPublished": true,
   "isFeatured": false,
@@ -30,7 +30,7 @@
       "key": "04-construccion-de-coaliciones-el-arte-de-la-alianza",
       "title": "Construcción de Coaliciones: El Arte de la Alianza",
       "description": "Estrategias para construir alianzas entre organizaciones diversas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
@@ -51,7 +51,7 @@
       "key": "07-las-asambleas-del-2001-lecciones-de-lo-que-funciono-y-lo-que-no",
       "title": "Las Asambleas del 2001: Lecciones de Lo Que Funcionó y Lo Que No",
       "description": "Análisis sistémico del movimiento asambleario argentino post-crisis 2001.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {

@@ -5,7 +5,7 @@
   "excerpt": "Entendé los ciclos económicos argentinos como sistemas de retroalimentación.",
   "category": "economia",
   "level": "intermediate",
-  "duration": 31,
+  "duration": 39,
   "orderIndex": 13,
   "isPublished": true,
   "isFeatured": false,
@@ -23,35 +23,35 @@
       "key": "03-inflacion-la-fiebre-cronica-de-argentina",
       "title": "Inflación: La Fiebre Crónica de Argentina",
       "description": "Entender la inflación como fenómeno sistémico multicausal.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 2
     },
     {
       "key": "04-el-dolar-la-obsesion-argentina",
       "title": "El Dólar: La Obsesión Argentina",
       "description": "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-el-ciclo-stop-go-la-montana-rusa-que-no-para",
       "title": "El Ciclo Stop-Go: La Montaña Rusa que No Para",
       "description": "El patrón económico central de Argentina analizado en profundidad.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-commodities-y-el-sindrome-holandes-la-maldicion-de-la-riqueza-facil",
       "title": "Commodities y el Síndrome Holandés: La Maldición de la Riqueza Fácil",
       "description": "Cómo la dependencia de materias primas condiciona toda la economía.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-el-estado-en-la-economia-mucho-o-poco",
       "title": "El Estado en la Economía: ¿Mucho o Poco?",
       "description": "El rol del Estado argentino en la economía: más allá de la falsa dicotomía.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -65,21 +65,21 @@
       "key": "09-impuestos-quien-paga-y-quien-no",
       "title": "Impuestos: Quién Paga y Quién No",
       "description": "El sistema impositivo argentino y sus distorsiones sistémicas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {
       "key": "10-economia-del-conocimiento-el-sector-que-puede-romper-el-ciclo",
       "title": "Economía del Conocimiento: El Sector Que Puede Romper el Ciclo",
       "description": "Cómo la economía del conocimiento puede transformar el modelo argentino.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {
       "key": "11-disenar-la-salida-que-deberia-hacer-argentina",
       "title": "Diseñar la Salida: Qué Debería Hacer Argentina",
       "description": "Síntesis de intervenciones sistémicas para transformar la economía argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 10
     }
   ],

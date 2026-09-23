@@ -25,7 +25,7 @@ Llegaste al final del curso con conocimiento que la mayoría de los argentinos n
 
 ### Mes 3-4: Estructura
 
-- Implementá tu presupuesto adaptativo (60-20-20 o tu variante).
+- Implementá tu presupuesto adaptativo (las franjas de la lección de presupuesto, ajustadas a tu caso).
 - Abrí una cuenta en un broker online (IOL, Bull Market, etc.).
 - Empezá tu fondo de emergencia: meta = 1 mes de gastos.
 - Automatizá lo que puedas: débito automático de servicios, ahorro automático.

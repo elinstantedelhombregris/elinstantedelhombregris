@@ -13,6 +13,18 @@ fuentes:
   - url: https://www.argentina.gob.ar/normativa/nacional/norma-422858/texto
     titulo: 'Resolución 11/2026 del Ente Nacional de Comunicaciones — Reglamento General del FOPROA (Argentina.gob.ar)'
     consultada: '2026-09-22'
+  - url: https://agencia.farco.org.ar/2019/10/10/se-presento-en-cordoba-el-relevamiento-nacional-del-mapa-de-medios-comunitarios-del-sector-audiovisual/
+    titulo: 'Se presentó en Córdoba el relevamiento nacional del mapa de medios comunitarios del sector audiovisual (Agencia FARCO)'
+    consultada: '2026-09-23'
+  - url: https://riccap.com.ar/wp-content/uploads/2020/12/RICCAP-Informe-Final.pdf
+    titulo: 'Relevamiento de los servicios de comunicación audiovisual comunitarios, populares, alternativos, cooperativos y de pueblos originarios en Argentina. Resultados generales 2019 (RICCAP)'
+    consultada: '2026-09-23'
+  - url: https://chequeado.com/financiamiento
+    titulo: 'Financiamiento (Chequeado)'
+    consultada: '2026-09-23'
+  - url: https://www.ciperchile.cl/nosotros/
+    titulo: 'Nosotros (CIPER Chile)'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-09-22'
 ---
 
@@ -22,11 +34,11 @@ Si los grandes medios tienen intereses corporativos y los medios públicos cambi
 
 ### Medios Comunitarios
 
-Argentina tiene más de 1.500 medios comunitarios: radios barriales, canales comunitarios de TV, portales digitales locales. Nacieron de la Ley de Servicios de Comunicación Audiovisual (2009) que reservó un tercio del espectro para medios sin fines de lucro.
+La Argentina tiene una red amplia de medios comunitarios: radios barriales, canales comunitarios de TV, portales digitales locales. No nacieron de una ley. Un relevamiento de la Red Interuniversitaria de Comunicación Comunitaria, Alternativa y Popular (RICCAP), hecho en 2018 y 2019, encontró 289 radios y televisoras comunitarias, populares, alternativas, cooperativas e indígenas en actividad, y ubicó el comienzo del sector a mediados de los años ochenta, con el fin de la dictadura. Lo que hizo la Ley de Servicios de Comunicación Audiovisual de 2009 fue reconocerlos y reservarles un tercio del espectro: desde su discusión, en 2008, el sector creció como nunca. Aun así, el mismo relevamiento encontró que sólo el 31% estaba en plena legalidad y que el 30% no tenía ningún tipo de reconocimiento.
 
 - **Fortaleza:** Cubren temas que los grandes medios ignoran: realidad barrial, problemas locales, voces marginadas.
 - **Debilidad:** Recursos limitados, calidad técnica desigual, a veces sesgo ideológico propio.
-- **Valor:** Son la única fuente de información sobre lo que pasa en miles de barrios que para los grandes medios no existen.
+- **Valor:** Muchas veces son la única fuente de información sobre lo que pasa en barrios y pueblos que para los grandes medios no existen.
 
 ### Lo que la ley reservó y lo que se sostuvo
 
@@ -40,9 +52,9 @@ Ese es el punto débil que la lista de arriba llama «recursos limitados», vist
 
 ### Periodismo de Investigación Independiente
 
-- **Chequeado:** Fact-checking riguroso, financiado por fundaciones y lectores.
-- **CIPER (Chile) como modelo:** Centro de investigación periodística financiado independientemente que ha destapado escándalos de corrupción.
-- **Datos Concepción, Aperturas, y otros:** Medios especializados en periodismo de datos que cruzan bases de datos públicas para encontrar historias.
+- **Chequeado:** Verificación de datos, hecha por una fundación sin fines de lucro que se financia con donantes individuales, empresas, cooperación internacional y actividades propias.
+- **CIPER (Chile) como modelo:** Centro de investigación periodística fundado en 2007 que hoy se financia principalmente con sus socios: periodismo de investigación sostenido por quienes lo leen.
+- **Equipos de periodismo de datos:** Redacciones o secciones especializadas que cruzan bases de datos públicas para encontrar historias. Buscá cuáles trabajan sobre tu provincia.
 
 ### Tu Dieta Informativa Ideal
 

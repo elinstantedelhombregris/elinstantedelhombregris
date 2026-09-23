@@ -13,6 +13,13 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/135000-139999/136125/norma.htm
     titulo: 'Ley 26.331 — Presupuestos Mínimos de Protección Ambiental de los Bosques Nativos (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://doi.org/10.21527/2237-6453.2018.43.234-262
+    titulo: 'El Presupuesto Participativo en Argentina: innovación en términos político-institucionales y de participación ciudadana (Couto y Carmona, Desenvolvimento em Questão, 2018)'
+    consultada: '2026-09-23'
+  - url: https://www.rosario.gob.ar/inicio/votar-proyectos-para-el-presupuesto-participativo
+    titulo: 'Votar proyectos para el Presupuesto Participativo (Municipalidad de Rosario)'
+    consultada: '2026-09-23'
+    revisarAntesDe: '2027-09-23'
 ---
 ## Tu Voz en la Política Pública
 
@@ -40,9 +47,9 @@ Elegí un cambio concreto que quisieras lograr en tu municipio (un semáforo, un
 
 ### Caso Práctico: Presupuesto Participativo
 
-Muchos municipios argentinos tienen mecanismos de presupuesto participativo. Es una oportunidad concreta para que tu red territorial priorice proyectos y los haga realidad con fondos públicos. Investigá si tu municipio lo tiene y cómo participar.
+Muchos municipios argentinos tienen mecanismos de presupuesto participativo. Las primeras experiencias datan de 2002; en 2008 ya eran veintiún municipios, y en 2013 uno de cada tres argentinos vivía en un municipio con presupuesto participativo. Es una oportunidad concreta para que tu red territorial priorice proyectos y los haga realidad con fondos públicos. Investigá si tu municipio lo tiene y cómo participar.
 
-Ahí una red tiene ventaja sobre una organización suelta. Donde los proyectos se votan por zona, diez organizaciones que acuerdan un proyecto común dejan de competir entre sí por los mismos votos y llegan a la votación con el trabajo de coalición ya hecho.
+Ahí una red tiene ventaja sobre una organización suelta. Donde los proyectos se votan por zona, como en Rosario, donde cada distrito elige los suyos, diez organizaciones que acuerdan un proyecto común dejan de competir entre sí por los mismos votos y llegan a la votación con el trabajo de coalición ya hecho.
 
 > *"La democracia no se agota en el voto cada cuatro años. Jugamos el mismo juego todos los días, cada vez que un ciudadano organizado le exige a su gobierno que cumpla."*
 

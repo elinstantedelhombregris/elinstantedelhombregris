@@ -16,6 +16,25 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/405666/norma.htm
     titulo: 'Decreto 953/2024 — Disolución de la AFIP y creación de ARCA (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina — artículos 85 y 86 (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/554/texact.htm
+    titulo: 'Ley 24.156 — Administración Financiera, artículos 96, 97 y 116 (SIGEN y AGN), texto actualizado (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://www.argentina.gob.ar/normativa/nacional/decreto-55-2016-257615/texto
+    titulo: 'Decreto 55/2016 — Emergencia administrativa del Sistema Estadístico Nacional y del INDEC'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/politica/2026/04/17/defensores-del-pueblo-provinciales-y-municipales-pidieron-que-se-cubra-la-vacante-de-ese-cargo-a-nivel-nacional/
+    titulo: 'Defensores del pueblo provinciales y municipales pidieron que se cubra la vacante nacional (Infobae, 17/4/2026)'
+    consultada: '2026-09-23'
+  - url: https://www.perfil.com/noticias/politica/el-congreso-iniciara-la-designacion-de-autoridades-de-la-defensoria-del-pueblo-tras-16-anos-de-vacancia.phtml
+    titulo: 'El Congreso comienza a designar autoridades de la Defensoría del Pueblo tras 16 años de vacancia (Perfil, 10/9/2025)'
+    consultada: '2026-09-23'
+  - url: https://www.dpn.gob.ar/
+    titulo: 'Defensoría del Pueblo de la Nación — sitio oficial, novedades e informes de 2026'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-01'
 ---
 
 ## El Estado Que No Ves
@@ -25,12 +44,12 @@ Detrás de los tres poderes visibles hay una **capa de organismos** que tienen p
 ### Los Organismos Clave
 
 - **BCRA (Banco Central):** Controla la emisión de dinero, la tasa de interés y el tipo de cambio. Sus decisiones determinan si tu sueldo alcanza o no.
-- **AFIP:** Recauda impuestos y controla aduanas. Tiene más poder de investigación que cualquier otro organismo.
-- **ANSES:** Administra jubilaciones, AUH, pensiones. Maneja uno de los fondos más grandes del país (FGS).
-- **INDEC:** Produce las estadísticas oficiales. Cuando se interviene políticamente (como en 2007-2015), perdemos la capacidad de medir la realidad.
-- **AGN (Auditoría General de la Nación):** Controla las cuentas del Estado. Es dirigida por la oposición (el segundo candidato más votado).
-- **SIGEN:** Control interno del Poder Ejecutivo. Depende del presidente, lo que limita su independencia.
-- **Defensoría del Pueblo:** Defiende los derechos de los ciudadanos frente al Estado. Está vacante desde 2009.
+- **ARCA (la ex AFIP):** Recauda impuestos y controla aduanas. Tiene amplias facultades para pedir información y fiscalizar a contribuyentes.
+- **ANSES:** Administra jubilaciones, AUH, pensiones. Maneja además el Fondo de Garantía de Sustentabilidad (FGS), la reserva del sistema previsional.
+- **INDEC:** Produce las estadísticas oficiales. Cuando se lo interviene políticamente, perdemos la capacidad de medir la realidad: en 2016 el Decreto 55/2016 declaró la emergencia del sistema estadístico y reconoció una administración irregular del organismo desde 2006, que le impidió dar información confiable sobre precios, PBI y comercio exterior.
+- **AGN (Auditoría General de la Nación):** Controla las cuentas del Estado y depende del Congreso. Su presidente lo propone el partido de oposición con mayor número de legisladores en el Congreso (artículo 85 de la Constitución).
+- **SIGEN:** Control interno del Poder Ejecutivo. La Ley 24.156 la hace depender del Presidente de la Nación, lo que limita su independencia.
+- **Defensoría del Pueblo:** Defiende los derechos de los ciudadanos frente al Estado. La institución funciona, pero el cargo de Defensor titular está vacante desde 2009, cuando renunció Eduardo Mondino. Para cubrirlo hacen falta los dos tercios de los presentes en cada cámara; en 2025 el Congreso abrió un proceso de selección y en 2026 el cargo sigue sin titular.
 
 ### ¿Por Qué Importa?
 
@@ -38,7 +57,7 @@ Estos organismos toman decisiones diarias que afectan tu bolsillo, tus derechos 
 
 ### Una actualización: la AFIP ya no existe
 
-La lista de arriba tiene una sigla vieja. El 24 de octubre de 2024 el Decreto 953/2024 disolvió la AFIP y creó en su lugar la Agencia de Recaudación y Control Aduanero (ARCA), un ente autárquico en el ámbito del Ministerio de Economía, conducido por un director ejecutivo que designa el Poder Ejecutivo por cuatro años. El Gobierno lo hizo con las facultades delegadas que le había dado la Ley 27.742 para reorganizar o disolver organismos. El personal y las funciones pasaron al organismo nuevo.
+La sigla ARCA es nueva. El 24 de octubre de 2024 el Decreto 953/2024 disolvió la AFIP y creó en su lugar la Agencia de Recaudación y Control Aduanero (ARCA), un ente autárquico en el ámbito del Ministerio de Economía, conducido por un director ejecutivo que designa el Poder Ejecutivo por cuatro años. El Gobierno lo hizo con las facultades delegadas que le había dado la Ley 27.742 para reorganizar o disolver organismos. El personal y las funciones pasaron al organismo nuevo.
 
 El dato sirve para entender la palabra *autónomo*. Un ente autárquico maneja su presupuesto y su personal, pero su existencia misma depende de una norma que otro puede cambiar. Cuanto más bajo el rango de esa norma, más fácil es rehacer el organismo, y más depende su independencia de la voluntad del gobierno de turno.
 

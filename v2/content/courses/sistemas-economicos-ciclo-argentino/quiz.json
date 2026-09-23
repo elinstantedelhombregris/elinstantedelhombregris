@@ -41,11 +41,11 @@
       "orderIndex": 3
     },
     {
-      "question": "Noruega y Venezuela tuvieron petróleo. Noruega creó un fondo soberano; Venezuela gastó todo.",
+      "question": "Noruega y Venezuela tuvieron petróleo. Noruega creó un fondo soberano; Venezuela usó la renta para financiar gasto corriente.",
       "type": "true_false",
       "options": null,
       "correctAnswer": true,
-      "explanation": "Noruega ahorró la renta petrolera en un fondo que hoy vale 1.5 billones de dólares, mientras Venezuela colapsó.",
+      "explanation": "La lección lo cuenta así: la regla fiscal noruega le permite gastar cada año sólo el equivalente al rendimiento real esperado del fondo, en torno al 3%, y nunca el capital; Venezuela financió gasto corriente y su economía se achicó un 75% entre 2014 y 2020.",
       "points": 1,
       "orderIndex": 4
     },
@@ -96,30 +96,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Economía del Conocimiento: El Sector Que Puede Romper el Ciclo» a una situación real?",
+      "question": "Según la lección de economía del conocimiento, ¿qué le pasó al régimen de promoción del sector en 2020?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo la economía del conocimiento puede transformar el modelo argentino.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "La Ley 27.506 se derogó y el sector volvió al régimen de software de la Ley 25.922, prorrogado hasta 2025.",
+        "El Congreso rechazó la Ley 27.506 en octubre y el sector quedó sin beneficios hasta la apertura del cepo en 2025.",
+        "La Resolución 30/2020 frenó su reglamentación y el sector pasó casi nueve meses sin régimen vigente.",
+        "La Ley 27.506 entró en vigor el 1 de enero sin cambios y amplió el bono de crédito fiscal al 100% de las contribuciones patronales."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "El caso de la lección: en enero de 2020 la Resolución 30/2020 frenó la reglamentación y las adhesiones de la Ley 27.506, y recién el 7 de octubre la Ley 27.570 la modificó; el sector que podría romper el stop-go pasó casi nueve meses sin saber qué reglas tenía.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Diseñar la Salida: Qué Debería Hacer Argentina» a una situación real?",
+      "question": "La primera transformación de «Diseñar la Salida» es un Banco Central con mandato de estabilidad e independiente del Ejecutivo. ¿Qué muestra el caso de la lección sobre esa idea?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Síntesis de intervenciones sistémicas para transformar la economía argentina.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que la reforma constitucional de 1994 le dio rango constitucional, pero nunca se reglamentó con una carta orgánica.",
+        "Que la Ley de Convertibilidad de 1991 la incluyó junto con la paridad, y las dos cayeron con la Ley 25.561 en 2002.",
+        "Que se propuso varias veces en el Congreso desde 1983, pero ningún proyecto llegó a sancionarse.",
+        "Que la Ley 24.144 de 1992 la fijó por ley y en 2012 la Ley 26.739 la cambió por un mandato múltiple."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La carta orgánica de 1992 fijó como misión primaria preservar el valor de la moneda, sin órdenes del Poder Ejecutivo; la Ley 26.739 cambió ese artículo 3 en 2012. La lección concluye que escribirla no alcanzó: el péndulo también reescribe las leyes.",
       "points": 1,
       "orderIndex": 10
     }

@@ -24,6 +24,8 @@ const CAMPOS_MUERTOS =
   /"(?:seoTitle|seoDescription|searchSummary|ogImageUrl|thumbnailUrl|videoUrl|legacyCourseId|legacyLessonId|contentFile|passingScore|timeLimit|maxAttempts)"\s*:/;
 const PREGUNTA_DE_RECONOCIMIENTO =
   /¿Cuál es (?:el foco principal|la idea central) de la lección|La lección se (?:centra|concentra) en/iu;
+/** La plantilla que reemplazó a la de arriba: la correcta es la única que dice «un caso real». */
+const PREGUNTA_PLANTILLA = 'Qué evidencia mostraría mejor que podés transferir';
 
 function slugsValidos(raiz: string): Set<string> {
   const set = new Set<string>();
@@ -67,6 +69,10 @@ export async function revisarCorpus(raiz: string): Promise<string[]> {
       errores.push(`${curso.name}: quiz.json conserva campos sin lector`);
     if (PREGUNTA_DE_RECONOCIMIENTO.test(quizRaw))
       errores.push(`${curso.name}: quiz conserva una pregunta que sólo repite el tema`);
+    if (quizRaw.includes(PREGUNTA_PLANTILLA))
+      errores.push(
+        `${curso.name}: quiz conserva una pregunta plantilla que se contesta sin leer (D-095)`,
+      );
     const declarados = new Map(
       indice.lessons.map((l) => [derivarSlugDeLeccion(l.key), l.duration] as const),
     );

@@ -22,21 +22,21 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Una persona puede tener varios roles, y un rol puede rotar entre personas.",
+      "explanation": "La holacracia define los roles alrededor del trabajo: una persona puede tener varios, incluso en distintos círculos, y un mismo rol puede estar a cargo de más de una persona. Que el rol rote es lo que le suma la adaptación que propone la lección.",
       "points": 1,
       "orderIndex": 2
     },
     {
-      "question": "¿Cuándo es razonable intentar una conversación directa antes de escalar un conflicto?",
+      "question": "Según el protocolo de niveles de la lección sobre conflictos, si la mediación con una tercera persona neutral no resuelve un conflicto, ¿cuál es el paso siguiente?",
       "type": "multiple_choice",
       "options": [
-        "En todos los casos, incluso con violencia o represalias",
-        "Cuando hay condiciones de seguridad y poder suficientes; si no, se activa apoyo, mediación o protocolo",
-        "Sólo después de una votación grupal",
-        "Nunca: todo conflicto debe hacerse público"
+        "El grupo completo debate el conflicto y decide por votación",
+        "Las partes vuelven a hablar solas, esta vez con un plazo fijo",
+        "Un panel de tres personas escucha a ambas partes y propone una solución",
+        "Se abre el proceso de desvinculación de quien generó el conflicto"
       ],
-      "correctAnswer": 1,
-      "explanation": "La conversación directa puede ser útil, pero no es obligatoria ante violencia, acoso, represalias o asimetrías graves. Una arquitectura cuidadosa ofrece rutas seguras y no descarga todo en quien reporta.",
+      "correctAnswer": 2,
+      "explanation": "Después de la conversación directa y la mediación viene el nivel 3, el panel de tres personas. La decisión grupal por votación es el nivel 4 y se usa sólo si el panel también falla.",
       "points": 2,
       "orderIndex": 3
     },
@@ -67,13 +67,13 @@
       "question": "¿Qué es el \"doble enlace\" en la sociocracia?",
       "type": "multiple_choice",
       "options": [
-        "Dos personas comparten un rol",
-        "Cada círculo envía dos representantes al nivel superior",
-        "Se toman dos votaciones",
-        "Se necesitan dos reuniones para decidir"
+        "El círculo se une al superior por quien lo coordina, designado desde arriba, y por un delegado propio",
+        "Cada círculo elige a dos de sus miembros para que lo representen en el círculo superior",
+        "Dos personas comparten cada rol, para que ninguna se vuelva insustituible en el círculo",
+        "Cada decisión se aprueba primero en el círculo y después se ratifica en el círculo superior"
       ],
-      "correctAnswer": 1,
-      "explanation": "El doble enlace garantiza comunicación bidireccional entre niveles de la organización.",
+      "correctAnswer": 0,
+      "explanation": "Según la lección, el círculo queda unido al superior por dos personas: quien lo coordina, designada por el círculo superior, y un delegado elegido por el propio círculo, que arriba pesa lo mismo que cualquier otro miembro. Así la comunicación va en las dos direcciones.",
       "points": 2,
       "orderIndex": 6
     },
@@ -96,16 +96,16 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Cómo conviene definir la rotación de la facilitación?",
+      "question": "Según la lección sobre rotación de liderazgo, además de cuánto dura cada rol, ¿qué tiene que fijar una regla de rotación para que no se la esquive?",
       "type": "multiple_choice",
       "options": [
-        "Mensualmente para cualquier equipo",
-        "Según cadencia, complejidad, accesibilidad y aprendizaje, con suplencia y revisión explícitas",
-        "Sólo cuando renuncia quien facilita",
-        "Sin documentar el criterio para conservar flexibilidad"
+        "Qué mayoría hace falta para renovar en el cargo a quien lo está haciendo bien",
+        "Qué evaluación de desempeño tiene que aprobar quien deja el rol antes de irse",
+        "Quién elige a la persona que reemplaza y con cuánta anticipación se la anuncia",
+        "A qué roles no se puede saltar, quién no puede heredarlo y cuándo se puede volver"
       ],
-      "correctAnswer": 1,
-      "explanation": "Rotar puede distribuir capacidad y poder, pero la frecuencia depende del contexto. Lo importante es evitar dependencia, preparar relevos y cuidar continuidad y accesibilidad.",
+      "correctAnswer": 3,
+      "explanation": "La lección advierte que toda regla de rotación genera su atajo: saltar a otro rol, dejarle el lugar a la pareja, seguir decidiendo desde afuera. Por eso tiene que cerrar esas puertas y fijar un enfriamiento: se puede volver, pero no en el turno siguiente.",
       "points": 2,
       "orderIndex": 9
     },
@@ -119,30 +119,30 @@
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Comunicación Interna Que No Queme» a una situación real?",
+      "question": "En el único grupo de WhatsApp de tu organización se mezclan el resumen de la semana, la coordinación de la huerta y los saludos de cumpleaños. ¿Qué propone la lección sobre comunicación interna?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Diseñar flujos de comunicación que informen sin saturar.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Fijar franjas horarias para cada tipo de mensaje, dentro del mismo grupo",
+        "Separar los flujos informativo, operativo y social en canales distintos",
+        "Reemplazar el grupo por una reunión semanal de quince minutos con formato fijo",
+        "Dejar que sólo quienes administran el grupo puedan escribir en él"
       ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 1,
+      "explanation": "La lección distingue tres flujos con formato y canal propios: el informativo va a un grupo general de sola lectura salvo para quienes lo administran, el operativo al grupo de cada proyecto y el social a un grupo aparte.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «De la Organización al Movimiento: Escalar Sin Perder Esencia» a una situación real?",
+      "question": "Si tu red de barrios se federa, ¿qué regla de la Ley de Cooperativas propone copiar la lección para el voto de cada organización?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Cómo crecer manteniendo los valores y la estructura distribuida."
+        "Un voto por organización, sin importar cuántos asociados tenga cada una",
+        "Un voto proporcional a los asociados, para que cada barrio pese lo que mide",
+        "Un voto proporcional con un mínimo y un máximo, para que ninguna decida sola",
+        "Unanimidad de las federadas para toda decisión que afecte a más de un barrio"
       ],
-      "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "Según la lección, el voto en la federación puede ser proporcional a los asociados o a las operaciones, pero con un mínimo y un máximo que aseguren la participación de todas e impidan el predominio excluyente de alguna: la organización grande pesa más, pero no puede decidir sola.",
       "points": 1,
       "orderIndex": 12
     }

@@ -13,6 +13,9 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/345000-349999/346325/norma.htm
     titulo: 'Decreto 27/2021 — Reglamentación de la Ley 27.555 de Teletrabajo (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.gutenberg.org/files/1998/1998-h/1998-h.htm
+    titulo: 'Friedrich Nietzsche — Thus Spake Zarathustra, «The Three Metamorphoses» (Project Gutenberg)'
+    consultada: '2026-09-23'
 ---
 La segunda transformación de Nietzsche es la más feroz. En el desierto, el camello se convierte en león. Y la primera palabra que aprende el león es **"NO"**. No a lo que otros esperan. No a lo que la cultura impone. No al "así se hace" que nunca cuestionaste. El león no crea todavía — primero tiene que destruir las jaulas. Tiene que conquistar el derecho a ser libre diciendo el *no* más sagrado que existe: el no a quien le dijeron quién ser.
 
@@ -20,7 +23,7 @@ La segunda transformación de Nietzsche es la más feroz. En el desierto, el cam
 
 En la lección del Camello identificaste lo que cargás sin haber elegido. En el Desierto te sentaste con el vacío. Ahora viene la parte más difícil y más necesaria: **empezar a soltar**.
 
-Nietzsche lo describe como la batalla contra el "Gran Dragón", una criatura cubierta de escamas doradas, y en cada escama está escrito: *"Tú debes"*. "Debes ser exitoso". "Debes ganar bien". "Debes tener hijos". "Debes bancar todo en silencio". El león enfrenta al dragón y dice: *"Yo quiero"*.
+Nietzsche lo describe como la batalla contra el "Gran Dragón", una criatura cubierta de escamas doradas, y en cada escama está escrito: *"Tú debés"*. "Debés ser exitoso". "Debés ganar bien". "Debés tener hijos". "Debés bancar todo en silencio". El león enfrenta al dragón y dice: *"Yo quiero"*.
 
 En la vida real, esto se traduce en algo concreto: **aprender a poner límites**. No los límites que se ponen con bronca o agresión, sino los que se ponen con claridad y amor propio. El "no" que no ataca al otro sino que protege lo tuyo.
 
@@ -50,7 +53,7 @@ El "no" del león no es capricho. Es **la condición de posibilidad de todo lo q
 
 Una advertencia: el león tiene un riesgo. Puede quedarse atrapado en la destrucción. Hay personas que descubren el "no" y se vuelven adictas al conflicto. Dicen no a todo, pelean con todos, rompen todo. El león que solo destruye y nunca crea es tan esclavo como el camello — solo que su cadena es la rebeldía permanente en vez de la obediencia permanente.
 
-El león es una etapa, no un destino. Es necesario pero transitorio. Necesitás rugir para descubrir tu propia voz. Pero eventualmente, esa voz tiene que empezar a cantar, no solo a gritar. Esa es la tercera transformación que viene más adelante.
+El león no es un destino. Es necesario, pero no puede quedarse a vivir en el centro de tu vida: es una fuerza que se usa y se guarda. Necesitás rugir para descubrir tu propia voz. Pero eventualmente, esa voz tiene que empezar a cantar, no solo a gritar. Esa es la tercera transformación que viene más adelante.
 
 > *"El Hombre Gris aprendió a rugir antes de aprender a crear. Dijo 'no' a lo que el sistema esperaba de él. Y en ese 'no' encontró el primer 'sí' verdadero de su vida."*
 

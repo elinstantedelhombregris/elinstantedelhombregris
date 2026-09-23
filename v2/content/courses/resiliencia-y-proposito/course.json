@@ -5,7 +5,7 @@
   "excerpt": "Transformá la adversidad argentina en tu mayor fortaleza interior.",
   "category": "reflection",
   "level": "intermediate",
-  "duration": 36,
+  "duration": 42,
   "orderIndex": 17,
   "isPublished": true,
   "isFeatured": false,
@@ -16,7 +16,7 @@
       "key": "02-que-es-la-resiliencia-real-no-es-lo-que-te-dijeron",
       "title": "¿Qué Es la Resiliencia Real? (No Es lo que Te Dijeron)",
       "description": "Distinguir la resiliencia genuina de la cultura del aguante que enferma.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 1
     },
     {
@@ -30,7 +30,7 @@
       "key": "04-el-proposito-como-ancla-encontrar-tu-para-que",
       "title": "El Propósito Como Ancla: Encontrar Tu \"Para Qué\"",
       "description": "Viktor Frankl y la búsqueda de sentido aplicada a la inestabilidad crónica argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
@@ -44,14 +44,14 @@
       "key": "06-la-comunidad-como-sistema-de-resiliencia",
       "title": "La Comunidad Como Sistema de Resiliencia",
       "description": "Por qué la resiliencia individual no alcanza y cómo la comunidad multiplica tu fuerza.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-del-trauma-al-sentido-crecimiento-postraumatico",
       "title": "Del Trauma al Sentido: Crecimiento Postraumático",
       "description": "La ciencia del crecimiento después del dolor y cómo activarlo conscientemente.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -65,7 +65,7 @@
       "key": "09-construir-habitos-de-resiliencia-la-arquitectura-del-dia-a-dia",
       "title": "Construir Hábitos de Resiliencia: La Arquitectura del Día a Día",
       "description": "Prácticas diarias concretas para fortalecer tu capacidad de resistir y transformar.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 8
     },
     {
@@ -79,7 +79,7 @@
       "key": "11-tu-manifiesto-personal-el-fuego-que-no-se-apaga",
       "title": "Tu Manifiesto Personal: El Fuego que No Se Apaga",
       "description": "Integrar todo lo aprendido en una declaración personal de propósito y resiliencia.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 10
     }
   ],

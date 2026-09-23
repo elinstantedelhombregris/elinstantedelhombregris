@@ -13,14 +13,29 @@ fuentes:
   - url: https://sitioanterior.indec.gob.ar/informacion-de-archivo.asp
     titulo: 'INDEC — Información de archivo (advertencia sobre las series 2007-2015)'
     consultada: '2026-09-22'
+  - url: https://www.imf.org/external/pubs/ft/seminar/1999/reforms/fukuyama.htm
+    titulo: 'Francis Fukuyama, «Social Capital and Civil Society» (FMI, 1999)'
+    consultada: '2026-09-23'
+  - url: https://ourworldindata.org/trust
+    titulo: 'Our World in Data — Trust (Encuesta Mundial de Valores)'
+    consultada: '2026-09-23'
+  - url: https://www.franklincovey.com/blog/the-4-cores-of-credibility/
+    titulo: 'FranklinCovey — The 4 Cores of Credibility'
+    consultada: '2026-09-23'
+  - url: https://speedoftrust.com/
+    titulo: 'The Speed of Trust — Stephen M. R. Covey'
+    consultada: '2026-09-23'
+  - url: https://en.wikipedia.org/wiki/Stephen_Covey
+    titulo: 'Stephen Covey — Wikipedia (hijos, entre ellos Stephen M. R. Covey)'
+    consultada: '2026-09-23'
 ---
 En Argentina, la confianza es la moneda más escasa. Más que el dólar. Décadas de promesas rotas — de políticos, de instituciones, de vecinos, hasta de familiares — crearon una sociedad donde la sospecha es el modo por defecto. Pero acá está la paradoja: sin confianza, nada funciona. Ni una cooperativa, ni un emprendimiento, ni una familia. Entonces, ¿cómo se construye credibilidad en un país que aprendió a no creer en nada?
 
 ### La Economía de la Confianza
 
-El politólogo Francis Fukuyama llamó **"radio de confianza"** a hasta dónde se extiende la confianza de una persona. En los países nórdicos, la gente confía en desconocidos. En Argentina, el radio es cortísimo: confiamos en la familia cercana (a veces) y sospechamos de todos los demás.
+El politólogo Francis Fukuyama llamó **"radio de confianza"** al círculo de personas entre las que rigen las normas de cooperación: hasta dónde se extiende la confianza. En Noruega y Suecia, más del 60% de los encuestados por la Encuesta Mundial de Valores dice que se puede confiar en la mayoría de la gente. De buena parte de América Latina, Fukuyama escribió que el capital social vive sobre todo en la familia y en un círculo chico de amigos. Es fácil reconocernos ahí: confiamos en la familia cercana (a veces) y sospechamos de todos los demás.
 
-Esto tiene un costo económico brutal. Cada vez que un cliente paga en efectivo porque no confía en el sistema, cada vez que hacemos un contrato de 47 páginas para una operación simple, cada vez que un vecino pone una reja más alta — eso es **el impuesto invisible de la desconfianza**. Se estima que las sociedades de baja confianza pierden entre un 5% y un 15% de su PBI en "costos de transacción" — es decir, en energía gastada en protegerse unos de otros en vez de colaborar.
+Esto tiene un costo económico brutal. Cada vez que un cliente paga en efectivo porque no confía en el sistema, cada vez que hacemos un contrato de 47 páginas para una operación simple, cada vez que un vecino pone una reja más alta — eso es **el impuesto invisible de la desconfianza**. Fukuyama lo dice en términos económicos: la función del capital social es bajar los "costos de transacción" de los contratos, las jerarquías y las reglas burocráticas. Donde falta confianza, hay que pagar más de todo eso — es decir, gastar energía en protegerse unos de otros en vez de colaborar.
 
 ### Pausa para Reflexionar
 

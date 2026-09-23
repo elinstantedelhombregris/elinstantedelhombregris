@@ -10,6 +10,12 @@ fuentes:
   - url: https://www.indec.gob.ar/ftp/cuadros/sociedad/enut_2021_resultados_definitivos.pdf
     titulo: 'INDEC — Encuesta Nacional de Uso del Tiempo 2021. Resultados definitivos (octubre de 2022)'
     consultada: '2026-09-22'
+  - url: https://doi.org/10.2307/2585837
+    titulo: 'Alan S. Gerber y Donald P. Green — The Effects of Canvassing, Telephone Calls, and Direct Mail on Voter Turnout: A Field Experiment (American Political Science Review 94(3), 2000)'
+    consultada: '2026-09-23'
+  - url: https://www.povertyactionlab.org/evaluation/effects-canvassing-phone-calls-and-direct-mail-voter-turnout-united-states
+    titulo: 'J-PAL — The Effects of Canvassing, Phone Calls, and Direct Mail on Voter Turnout in the United States'
+    consultada: '2026-09-23'
 ---
 
 ## El Arte de la Convocatoria
@@ -26,13 +32,15 @@ La palabra "reunión" genera rechazo automático. Probá con:
 
 ### Estrategia de Convocatoria en 3 Capas
 
-1. **Capa personal (la más efectiva):** Hablá cara a cara con 5-10 personas. Tocá el timbre, charlá en el almacén, aprovechá cuando te cruzás. La invitación personal tiene 10 veces más poder que un cartel.
+1. **Capa personal (la más efectiva):** Hablá cara a cara con 5-10 personas. Tocá el timbre, charlá en el almacén, aprovechá cuando te cruzás. La invitación personal pesa mucho más que un cartel.
 2. **Capa digital:** Grupo de WhatsApp del barrio (si existe), Facebook del barrio, Instagram. Pero ojo: lo digital sin lo personal no funciona.
 3. **Capa pública:** Un cartel en el almacén, en la panadería, en la puerta de la escuela. Simple, con fecha, hora y lugar claros.
 
+El orden de las capas no es un capricho. El experimento más citado sobre cómo se moviliza a la gente se hizo en New Haven, Estados Unidos, antes de las elecciones de 1998: Alan Gerber y Donald Green repartieron al azar a unos 30.000 votantes entre visitas cara a cara, cartas por correo y llamadas telefónicas. La visita subió la participación 8,7 puntos; cada carta, medio punto; las llamadas, nada. Era para ir a votar y no para un mate en la plaza, pero la lección se traslada: lo impreso avisa, el contacto cara a cara convoca.
+
 ### Logística Que Marca la Diferencia
 
-- **Horario:** Sábado a la mañana o domingo al mediodía funcionan mejor. Evitá horarios laborales.
+- **Horario:** Fuera del horario laboral, y preguntando antes de fijarlo (la palanca de esta lección explica por qué). El fin de semana a la mañana suele ser un buen punto de partida, pero quien cuida chicos o trabaja por turnos puede necesitar otra franja.
 - **Lugar:** La plaza es ideal porque es neutral. Si llueve, un salón comunitario o la puerta de un comercio.
 - **Comida:** Nunca subestimes el poder de unas facturas y un termo de mate. La comida baja defensas.
 - **Duración:** Prometé 45 minutos máximo. Y cumplí. Nada espanta más que una reunión interminable.
@@ -43,7 +51,7 @@ La primera reunión no termina cuando se levantan las sillas. Termina con el men
 
 ### ¿Cuánta Gente Es Suficiente?
 
-Si vienen 5 personas, es un éxito. En serio. No necesitás multitudes. Necesitás **5 personas comprometidas** que estén dispuestas a volver. De esas 5, van a surgir las 15 del mes siguiente.
+Si vienen 5 personas, es un éxito. En serio. No necesitás multitudes. Necesitás **5 personas comprometidas** que estén dispuestas a volver. Esas 5 son las que van a traer a las próximas.
 
 > "No cuentes cuántos vinieron. Contá cuántos se fueron con ganas de volver."
 

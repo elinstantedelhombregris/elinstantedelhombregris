@@ -6,6 +6,16 @@ summary: 'Analizá juegos simultáneos clásicos (Prisionero, Coordinación, Chi
 orderIndex: 2
 draft: false
 cierre: puente
+fuentes:
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/310000-314999/310241/norma.htm
+    titulo: 'Ley 27.442 — Defensa de la Competencia (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://www.perfil.com/noticias/economia/como-funciona-la-app-de-precios-justos.phtml
+    titulo: 'Precios Justos: cómo usar la app para controlar en los supermercados (Perfil)'
+    consultada: '2026-09-23'
+  - url: https://www.eldestapeweb.com/economia/precios-justos/comercio-sanciono-en-mas-de-2-000-millones-los-incumplimientos-al-programa-precios-justos-202352710190
+    titulo: 'Comercio sancionó en más de $2.000 millones los incumplimientos al programa Precios Justos (El Destape)'
+    consultada: '2026-09-23'
 ---
 Módulo 2 · Juegos estáticos y estrategias dominantes
 
@@ -51,7 +61,7 @@ Este equilibrio parece razonable pero no óptimo. El objetivo del Hombre Gris es
 
 ## 3. Matrices 3x3: paritarias nacionales
 
-En las negociaciones salariales participan **Gobierno (G)**, **Sindicatos (S)** y **Empresas (E)**. Podemos reducir el análisis a un juego G-S donde las empresas responden con inversión o no. Sin embargo, cuando las tres partes actúan simultáneamente, necesitamos una matriz 3x3 (simplificada aquí a dos jugadores con tres estrategias cada uno para visualizar la lógica).
+En las negociaciones salariales participan **Gobierno (G)**, **Sindicatos (S)** y **Empresas (E)**. Podemos reducir el análisis a un juego G-S donde las empresas responden con inversión o no. Con las tres partes actuando a la vez, el juego tiene tres jugadores y no entra en una tabla plana; acá lo simplificamos a dos jugadores con tres estrategias cada uno, que es lo que da una matriz 3x3.
 
 <pre>
 Sindicato \ Gobierno | Aumentos escalonados (AE) | Bono + cláusula gatillo (BG) | Congelar con revisión (CR)
@@ -87,7 +97,7 @@ Una **estrategia dominante** produce un pago estratégico igual o superior al re
 
 La **mejor respuesta** es la estrategia óptima dada una elección del rival. Los diagramas de reacción (best-response) nos permiten visualizar cómo se intersectan las mejores respuestas para encontrar equilibrios.
 
-**Aplicación:** fijación de precios entre dos cadenas de supermercados en el AMBA. Cada una decide precio alto (H) o bajo (L). El diagrama de mejor respuesta muestra que si una elige L, la otra también responde con L para no perder mercado. Resultado: equilibrio (L,L), es decir, guerra de precios. Para moverlo, el Estado debe modificar la matriz (por ejemplo, con incentivos fiscales condicionales a acuerdos de precios + abastecimiento). Así, el pago estratégico de (H,H) aumenta, generando un nuevo equilibrio cooperativo.
+**Aplicación:** fijación de precios entre dos cadenas de supermercados en el AMBA. Cada una decide precio alto (H) o bajo (L). El diagrama de mejor respuesta muestra que si una elige L, la otra también responde con L para no perder mercado. Resultado: equilibrio (L,L), es decir, guerra de precios. Para las cadenas es un dilema, porque las dos ganarían más en (H,H). Pero acá conviene preguntar quién queda afuera de la matriz. La «cooperación» de dos competidores para sostener precios altos la pagan los clientes, y la Ley 27.442 de Defensa de la Competencia prohíbe concertar en forma directa o indirecta el precio de venta de bienes o servicios. No toda cooperación es deseable: antes de rediseñar un juego para que dos jugadores cooperen, mirá a quién le cobra ese acuerdo. En este caso, el trabajo del Estado es el inverso: cuidar que la guerra de precios no se convierta en pacto.
 
 ## 6. Equilibrios puros y mixtos
 
@@ -130,7 +140,7 @@ Este caso demuestra que no basta con pedir “ofertas honestas”; hay que redis
 
 ### 8.1 Plantilla de matriz
 
-Incluye instrucciones para: definir estrategias, calcular pagos estratégicos (económicos, reputacionales, regulatorios) y señalar equilibrios con íconos. Disponible en la carpeta de recursos.
+Armala en tres pasos: definí las estrategias de cada jugador, calculá los pagos estratégicos (económicos, reputacionales, regulatorios) y marcá en cada celda qué jugador está en su mejor respuesta. Donde coinciden las dos marcas, hay equilibrio.
 
 ### 8.2 Checklist de dominancia
 
@@ -140,7 +150,7 @@ Incluye instrucciones para: definir estrategias, calcular pagos estratégicos (e
 
 ### 8.3 Script de conversación
 
-Guion para presentar la matriz a los actores sin generar resistencia. Incluye preguntas abiertas (“¿Qué necesitarías para moverte hacia esta celda cooperativa?”) y protocolos para documentar compromisos.
+Prepará un guion para presentar la matriz a los actores sin generar resistencia: preguntas abiertas (“¿Qué necesitarías para moverte hacia esta celda cooperativa?”) y una forma acordada de documentar los compromisos.
 
 ## 9. Ejercicios prácticos
 
@@ -160,15 +170,15 @@ Guion para presentar la matriz a los actores sin generar resistencia. Incluye pr
 
 Elegí una interacción cotidiana (ej. pago de expensas, cuidado de un barrio). Construí una matriz 2x2 entre “vecinos organizados” y “administración”. Diagnosticá el equilibrio y planificá la primera señal para moverlo.
 
-## 10. Casos argentinos destacados
+## 10. Un caso documentado y uno para pensar
 
 ### Caso · Programa Precios Justos
 
-Juego simultáneo entre supermercados y Gobierno. Sin cumplimiento digital, el equilibrio derivó en trampas. La introducción de verificadores ciudadanos y apps de denuncia modificó pagos estratégicos, pero el castigo siguió siendo débil. La lección: sin sanción automática, la estrategia dominante sigue siendo defraudar.
+Juego simultáneo entre supermercados y Gobierno: cada cadena decide si cumple con los precios y el abastecimiento acordados sin saber si la van a controlar. En noviembre de 2022 la Secretaría de Comercio sumó una aplicación con la que cualquier consumidor podía verificar si un producto estaba en el programa y denunciar incumplimientos: más ojos suben la probabilidad de que defraudar se detecte. En mayo de 2023 la Secretaría informaba multas por más de 2.000 millones de pesos por faltantes, falta de señalización y aumentos por encima de lo pactado. Que hubiera multas de ese tamaño dice que el incumplimiento siguió siendo una jugada que muchos probaron. La lección: la denuncia ciudadana cambia la probabilidad de ser detectado, pero el pago de defraudar depende también de cuán seguro y cuán rápido llega el castigo.
 
-### Caso · Consorcio Ruta 3
+### Un caso para pensar · Un consorcio vial
 
-Empresas constructoras y cooperativas se aliaron para presentar propuestas conjuntas. Al compartir información, construyeron una matriz donde la cooperación les daba acceso a financiamiento del BID, volviendo dominante la estrategia honesta. Resultado: obra ejecutada con 15% menos de costos y reputación elevada.
+Imaginá que empresas constructoras y cooperativas de una región se alían para presentar propuestas conjuntas a una licitación vial. Si compartir información de costos les abre un financiamiento que exige transparencia, la estrategia honesta puede volverse dominante. Lo que habría que medir es doble: si la obra cuesta menos que otras comparables y si la reputación del consorcio le abre la licitación siguiente.
 
 ## 11. Checklist de salida
 
@@ -177,7 +187,7 @@ Empresas constructoras y cooperativas se aliaron para presentar propuestas conju
 - ¿Diseñaste al menos una intervención para modificar pagos estratégicos?
 - ¿Compartiste tu matriz con los actores relevantes?
 
-            **Entrega sugerida:** publicá tus matrices y el plan de intervención en el foro. Incluí un audio o video corto explicando cómo pensás mover el equilibrio. Recibirás comentarios para afinarlo antes del módulo 3.
+**Entrega sugerida:** guardá tus matrices y el plan de intervención, y grabá un audio corto explicando cómo pensás mover el equilibrio. Mostráselo a alguien que conozca el conflicto: si no entiende la matriz en dos minutos, simplificala antes del Módulo 3.
 
 ## 12. Preparación para el Módulo 3
 

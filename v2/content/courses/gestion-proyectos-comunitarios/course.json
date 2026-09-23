@@ -5,7 +5,7 @@
   "excerpt": "Gestiona proyectos comunitarios con profesionalismo y corazón.",
   "category": "action",
   "level": "intermediate",
-  "duration": 51,
+  "duration": 52,
   "orderIndex": 21,
   "isPublished": true,
   "isFeatured": false,
@@ -58,7 +58,7 @@
       "key": "08-medicion-de-impacto-estamos-logrando-algo",
       "title": "Medición de Impacto: ¿Estamos Logrando Algo?",
       "description": "Cómo medir resultados reales para mejorar tu proyecto y rendir cuentas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 7
     },
     {
@@ -85,14 +85,14 @@
     {
       "key": "12-historia-completa-la-huerta-comunitaria-de-flores",
       "title": "Historia Completa: La Huerta Comunitaria de Flores",
-      "description": "Una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.",
+      "description": "Un caso construido para ver cómo una vecina puede usar cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.",
       "duration": 6,
       "orderIndex": 11
     },
     {
       "key": "13-historia-completa-el-grupo-de-whatsapp-que-cambio-el-barrio",
       "title": "Historia Completa: El Grupo de WhatsApp que Cambió el Barrio",
-      "description": "Cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años.",
+      "description": "Un caso construido para pensar cómo un simple grupo de mensajería puede transformarse en una organización formal que resuelve problemas concretos.",
       "duration": 7,
       "orderIndex": 12
     }

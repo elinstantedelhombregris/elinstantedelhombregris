@@ -51,7 +51,7 @@ Cuando separás la realidad en problemas individuales y resolvés cada uno por s
 
 **Solución:** Transferencias de dinero
 
-**Resultado:** Puede crear dependencia, no desarrolla capacidades, no resuelve causas raíz
+**Resultado:** Alivia la urgencia, que no es poco, pero sola no toca la escuela, la salud, el trabajo ni la vivienda que sostienen la pobreza: no resuelve causas raíz
 
 ### Gestión de Mess
 
@@ -204,7 +204,7 @@ Después de formular tu mess, respondé:
 - ¿Qué problemas no habías considerado antes de mapear el mess?
 - ¿Qué interconexiones te sorprendieron?
 - ¿Dónde están los puntos de apalancamiento que podrías usar?
-- ¿Qué intervenciones lineales has intentado que fallaron? ¿Por qué fallaron desde una perspectiva de mess?
+- ¿Qué intervenciones lineales intentaste que fallaron? ¿Por qué fallaron desde una perspectiva de mess?
 - ¿Cómo cambiaría tu estrategia ahora que ves el mess completo?
 
 ### Próximo Paso

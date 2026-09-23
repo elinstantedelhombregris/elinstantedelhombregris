@@ -5,7 +5,7 @@
   "excerpt": "Medio siglo de péndulos, golpes y crisis vistos como patrones sistémicos.",
   "category": "hombre-gris",
   "level": "intermediate",
-  "duration": 45,
+  "duration": 48,
   "orderIndex": 30,
   "isPublished": true,
   "isFeatured": false,
@@ -30,14 +30,14 @@
       "key": "04-frondizi-e-illia-la-democracia-vigilada",
       "title": "Frondizi e Illia: La Democracia Vigilada",
       "description": "Los intentos democráticos bajo tutela militar y la proscripción peronista.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-ongania-y-la-revolucion-argentina-el-autoritarismo-modernizador",
       "title": "Onganía y la Revolución Argentina: El Autoritarismo Modernizador",
       "description": "La dictadura de Onganía y el intento de modernización desde arriba.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
@@ -86,7 +86,7 @@
       "key": "12-economia-y-sociedad-lo-que-los-numeros-no-dicen",
       "title": "Economía y Sociedad: Lo Que los Números No Dicen",
       "description": "Cómo los indicadores económicos ocultan realidades humanas en cada período.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 11
     },
     {

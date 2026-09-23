@@ -16,6 +16,15 @@ fuentes:
   - url: https://www.presupuestoabierto.gob.ar/sici/quien-gasta
     titulo: 'Presupuesto Abierto — ¿Quién gasta?'
     consultada: '2026-09-22'
+  - url: https://www.presupuestoabierto.gob.ar/sici/pdf/glosario.pdf
+    titulo: 'Glosario de Presupuesto Abierto — Ministerio de Economía'
+    consultada: '2026-09-23'
+  - url: https://www.argentina.gob.ar/comprar/soy-proveedor/compras-electronicas
+    titulo: 'Compras electrónicas (COMPR.AR) — Oficina Nacional de Contrataciones, Argentina.gob.ar'
+    consultada: '2026-09-23'
+  - url: https://contratar.gob.ar/
+    titulo: 'CONTRAT.AR — Portal electrónico de contratación de obra pública'
+    consultada: '2026-09-23'
 ---
 
 ## Follow the Money: El Mandamiento Democrático
@@ -41,7 +50,7 @@ El presupuesto tiene dos caras:
 
 - **presupuestoabierto.gob.ar:** Presupuesto nacional desglosado. Buscá por ministerio, programa, actividad.
 - **Presupuestos municipales:** Muchos municipios publican sus presupuestos en sus webs. Si no lo hacen, pedilo por Ley 27.275.
-- **Compras públicas:** comprar.gob.ar muestra todas las contrataciones nacionales. ¿A quién le compra el Estado? ¿A qué precio?
+- **Compras públicas:** comprar.gob.ar muestra las compras y contrataciones de la Administración Pública Nacional, y contratar.gob.ar la obra pública nacional. ¿A quién le compra el Estado? ¿A qué precio?
 
 ### El Ajuste por Inflación: El Truco Más Viejo
 
@@ -52,7 +61,7 @@ El truco favorito de los gobiernos con inflación alta: "Aumentamos el presupues
 
 ### Las columnas que importan
 
-En cualquier cuadro de ejecución vas a ver varias cifras para la misma partida, y cada una cuenta un momento distinto. El crédito inicial es lo que se votó. El vigente es lo que quedó después de las modificaciones del año. El devengado es lo que el Estado ya se obligó a pagar porque recibió el bien o el servicio. El pagado es lo que efectivamente salió de la caja. La distancia entre vigente y devengado muestra lo que no se hizo; entre devengado y pagado, lo que se debe.
+En cualquier cuadro de ejecución vas a ver varias cifras para la misma partida, y cada una cuenta un momento distinto. El crédito inicial es lo que aprobó el Congreso en la ley de presupuesto. El vigente es lo que quedó después de las modificaciones del año. El devengado es lo que el Estado ya se obligó a pagar porque recibió el bien o el servicio. El pagado es lo que efectivamente salió de la caja. La distancia entre vigente y devengado muestra lo que no se hizo; entre devengado y pagado, lo que se debe.
 
 > "El presupuesto público es la declaración jurada de un gobierno. Dice en qué cree realmente, más allá de lo que proclame. Un ciudadano que sabe leer el presupuesto es un ciudadano que no se deja engañar."
 

@@ -13,6 +13,22 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/400000-404999/401268/norma.htm
     titulo: 'Ley 27.743 — Medidas fiscales paliativas y relevantes (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://doi.org/10.1162/003355300555475
+    titulo: 'Knack y Keefer — Does Social Capital Have an Economic Payoff? A Cross-Country Investigation (Quarterly Journal of Economics, 1997)'
+    consultada: '2026-09-23'
+  - url: https://ourworldindata.org/grapher/self-reported-trust-attitudes
+    titulo: 'Proporción que dice que se puede confiar en la mayoría de las personas — Integrated Values Surveys (Our World in Data)'
+    consultada: '2026-09-23'
+  - url: https://www.perfil.com/noticias/economia/la-evasion-del-iva-se-redujo-por-segundo-ano-pero-sigue-teniendo-peso-enorme-en-el-pbi.phtml
+    titulo: 'La evasión del IVA se redujo por segundo año, según el CET de la Universidad Austral (Perfil, 2025)'
+    consultada: '2026-09-23'
+  - url: https://www.argentina.gob.ar/sites/default/files/2018/12/informe_preliminar_de_siniestralidad_fatal_2024_31_marzo_2025.pdf
+    titulo: 'Informe de siniestralidad vial fatal 2024, datos preliminares (Agencia Nacional de Seguridad Vial)'
+    consultada: '2026-09-23'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/informalidad_laboral_eph_04_2529DEBE4DBB.pdf
+    titulo: 'Mercado de trabajo. Indicadores de informalidad laboral (EPH), cuarto trimestre de 2024 (INDEC)'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-23'
 ---
 
 ## El Costo Invisible de "Ser Vivo"
@@ -21,9 +37,9 @@ La "viveza criolla" es celebrada culturalmente como astucia, como la capacidad d
 
 ### La Economía de la Confianza
 
-La confianza social es un **recurso económico** medible. Los países con alta confianza (Dinamarca, Noruega, Japón) tienen menores costos de transacción: no necesitan 47 sellos para cada trámite, no necesitan escribir contratos de 200 páginas, la gente cumple su palabra porque el sistema funciona.
+La confianza social es un **recurso económico** medible. Stephen Knack y Philip Keefer compararon 29 economías de mercado y encontraron que la confianza y las normas cívicas se asocian con mejor desempeño económico. Donde la confianza es alta, como en Dinamarca o Noruega, hacen falta menos sellos, menos controles y menos cláusulas, porque cada uno espera que el otro cumpla.
 
-Argentina tiene uno de los niveles de **confianza interpersonal más bajos del mundo**. Eso no es "carácter nacional": es el resultado de un sistema que premia el atajo y castiga al que cumple las reglas.
+Argentina tiene un nivel de **confianza interpersonal bajo**: en los datos de 2022 de la Encuesta Mundial de Valores que compila Our World in Data, el 19% dijo que se puede confiar en la mayoría de las personas, contra más del 70% en Dinamarca y Noruega. No es de los más bajos del mundo —Brasil, Chile y Uruguay quedan por debajo—, pero en 1984 era casi el 25%. Eso no es "carácter nacional": es el resultado de un sistema que premia el atajo y castiga al que cumple las reglas. El mismo estudio de Knack y Keefer encontró más confianza donde las instituciones limitan la arbitrariedad de quien gobierna.
 
 ### El Bucle de la Desconfianza
 
@@ -35,10 +51,10 @@ Argentina tiene uno de los niveles de **confianza interpersonal más bajos del m
 
 ### Ejemplos Cotidianos
 
-- **Impuestos:** La evasión fiscal se estima en más del 30% de la recaudación potencial. El que paga subsidia al que evade.
-- **Tránsito:** Las normas de tránsito se cumplen selectivamente. El resultado: Argentina tiene tasas de accidentes viales altísimas.
+- **Impuestos:** El Centro de Estudios Tributarios de la Universidad Austral estimó que en 2023 se evadió el 42% del IVA, el valor más bajo de su serie, que empieza en 2004. El que paga subsidia al que evade.
+- **Tránsito:** Las normas de tránsito se cumplen selectivamente, y el costo se cuenta en vidas: según datos preliminares de la Agencia Nacional de Seguridad Vial, en 2024 murieron 3.894 personas en siniestros viales, sin contar la Ciudad de Buenos Aires.
 - **Trámites:** La burocracia excesiva nace de la desconfianza del Estado hacia el ciudadano. Y la desconfianza es mutua.
-- **Trabajo en negro:** Más del 35% del empleo es informal. Trabajadores sin derechos, Estado sin ingresos.
+- **Trabajo en negro:** Según el INDEC, a fines de 2024 el 42% de los ocupados de los 31 aglomerados urbanos que releva la EPH tenía un empleo informal. Trabajadores sin derechos, Estado sin ingresos.
 
 ### Romper el Patrón
 

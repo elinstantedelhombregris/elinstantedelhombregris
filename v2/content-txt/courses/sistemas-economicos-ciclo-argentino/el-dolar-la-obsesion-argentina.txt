@@ -13,19 +13,50 @@ fuentes:
   - url: https://www.bcra.gob.ar/archivos/Pdfs/texord/t-seggar.pdf
     titulo: 'BCRA — Aplicación del sistema de seguro de garantía de los depósitos (texto ordenado)'
     consultada: '2026-09-22'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/bal_06_26F22D340551.pdf
+    titulo: 'INDEC — Balanza de pagos, posición de inversión internacional y deuda externa. Primer trimestre de 2026'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/economia/2025/06/04/a-50-anos-del-rodrigazo-claves-para-entender-el-plan-economico-que-marco-a-fuego-la-historia-argentina/
+    titulo: 'Infobae — A 50 años del Rodrigazo: claves para entender el plan económico'
+    consultada: '2026-09-23'
+  - url: https://www.lanacion.com.ar/politica/la-tablita-cambiaria-la-medida-mas-recordada-de-alfredo-martinez-de-hoz-nid1563917/
+    titulo: 'La Nación — La tablita cambiaria, la medida más recordada de Alfredo Martínez de Hoz'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/70000-74999/70355/norma.htm
+    titulo: 'Decreto 1570/2001 — Entidades financieras, restricciones al retiro de efectivo (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://chequeado.com/el-explicador/cronologia-del-cepo-cambiario-como-vario-entre-2011-y-2020/
+    titulo: 'Chequeado — Cronología del cepo cambiario entre 2011 y 2025'
+    consultada: '2026-09-23'
+  - url: https://www.bcra.gob.ar/archivos/Pdfs/comytexord/A8226.pdf
+    titulo: 'BCRA — Comunicación «A» 8226 (11/4/2025), acceso de personas humanas al mercado de cambios'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/328/texact.htm
+    titulo: 'Ley 23.928 — Convertibilidad del Austral, texto actualizado con las derogaciones de la Ley 25.561 (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://doi.org/10.3386/w23061
+    titulo: 'Razin — Israel’s Triumph over Inflation: The Long and Winding Road, NBER Working Paper 23061, 2017'
+    consultada: '2026-09-23'
+  - url: https://www.imf.org/external/pubs/nft/op/202/
+    titulo: 'Schaechter, Stone y Zelmer — Adopting Inflation Targeting: Practical Issues for Emerging Market Countries, FMI, Occasional Paper 202, 2000'
+    consultada: '2026-09-23'
+  - url: https://argendata.fund.ar/topico/inflacion/
+    titulo: 'Argendata (Fundar) — Inflación: serie histórica con datos del IPC del INDEC'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-31'
 ---
 
 ## ¿Por Qué un País Piensa en Otra Moneda?
 
-Ningún otro país del mundo tiene con el dólar la relación que tiene Argentina. Los brasileños no miran el tipo de cambio todos los días. Los chilenos no ahorran en dólares bajo el colchón. Pero para los argentinos, el dólar es **termómetro, refugio, obsesión y trauma**.
+Pocos países tienen con el dólar la relación que tiene Argentina. Según el INDEC, al 31 de marzo de 2026 los residentes argentinos tenían 268.808 millones de dólares en billetes de moneda extranjera y en depósitos fuera del país: más de seis veces los 42.052 millones de reservas del Banco Central. Para los argentinos, el dólar es **termómetro, refugio, obsesión y trauma**.
 
 ### La Historia en 5 Traumas
 
-1. **Rodrigazo (1975):** Devaluación masiva que destruyó el salario real. Primera lección: los pesos pierden valor de golpe.
-2. **Tablita de Martínez de Hoz (1978-1981):** Dólar artificialmente barato seguido de crisis. Lección: el dólar barato no dura.
+1. **Rodrigazo (1975):** En junio, el ministro Celestino Rodrigo devaluó el peso 160% y subió tarifas y combustibles mucho más de lo que dejó subir los salarios; la inflación de ese año llegó a 335%. Primera lección: los pesos pierden valor de golpe.
+2. **Tablita de Martínez de Hoz (1978-1981):** Un cronograma de devaluaciones anunciado de antemano, más lento que la inflación, abarató el dólar; cuando se abandonó, en 1981, vino una espiral de devaluaciones. Lección: el dólar barato no dura.
 3. **Hiperinflación (1989):** Los pesos dejaron de valer. La gente corría al supermercado antes de que remarquen. Lección: los pesos pueden valer NADA.
-4. **Corralito (2001):** Los dólares del banco se convirtieron en pesos devaluados por decreto. Lección: ni el banco es seguro.
-5. **Cepo (2011-2015, 2019-2025):** El Estado te prohíbe comprar dólares libremente. Desde abril de 2025 las personas vuelven a comprar sin autorización previa (Comunicación «A» 8226 del BCRA). Lección: el Estado puede impedirte protegerte.
+4. **Corralito y pesificación (2001-2002):** En diciembre de 2001 el Decreto 1570 limitó los retiros a 250 pesos o dólares por semana; en febrero de 2002 los dólares del banco se convirtieron en pesos devaluados por decreto. Lección: ni el banco es seguro.
+5. **Cepo (2011-2015, 2019-2025):** El Estado te prohibía comprar dólares libremente. Desde abril de 2025 las personas vuelven a comprar sin autorización previa (Comunicación «A» 8226 del BCRA). Lección: el Estado puede impedirte protegerte.
 
 ### El Dólar como Sistema de Información
 
@@ -37,11 +68,11 @@ El tipo de cambio no es solo un precio. Es un **sistema de señales**:
 
 ### El Bucle del Dólar
 
-La desconfianza en el peso → compra de dólares → sube el dólar → suben los precios → más desconfianza en el peso → más compra de dólares. Este bucle solo se rompe con **confianza sostenida en el tiempo**, algo que ningún gobierno argentino logró mantener más de una década.
+La desconfianza en el peso → compra de dólares → sube el dólar → suben los precios → más desconfianza en el peso → más compra de dólares. Este bucle solo se rompe con **confianza sostenida en el tiempo**, algo que en Argentina ningún esquema sostuvo mucho más de una década: la convertibilidad, la que más duró, fue de 1991 a 2002.
 
 ### ¿Tiene Solución?
 
-Sí, pero requiere lo que Argentina más le cuesta: **consistencia**. Países como Israel, Chile y Polonia tuvieron problemas similares y los resolvieron con bancos centrales independientes, metas de inflación creíbles y disciplina fiscal sostenida durante décadas (no durante un mandato).
+Sí, pero requiere lo que Argentina más le cuesta: **consistencia**. Israel, que en 1984 tuvo 445% de inflación, Chile y Polonia pasaron de a poco de un tipo de cambio administrado a metas de inflación. Un estudio del FMI del año 2000 saca de esos tres casos una conclusión: la transición gradual es posible si la política económica y la fiscal acompañan. Es un trabajo de décadas, no de un mandato.
 
 > "El dólar no es el problema: es el síntoma. Argentina no necesita menos dólares: necesita un peso en el que confíe. Y la confianza no se decreta: se construye con años de coherencia."
 

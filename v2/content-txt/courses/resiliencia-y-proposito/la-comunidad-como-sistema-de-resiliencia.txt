@@ -6,23 +6,32 @@ summary: Por qué la resiliencia individual no alcanza y cómo la comunidad mult
 orderIndex: 5
 draft: false
 cierre: puente
+fuentes:
+  - url: https://pubmed.ncbi.nlm.nih.gov/18157631/
+    titulo: 'Norris y otros, «Community resilience as a metaphor, theory, set of capacities, and strategy for disaster readiness» (American Journal of Community Psychology, 2008)'
+    consultada: '2026-09-23'
+  - url: https://www.sociohistorica.fahce.unlp.edu.ar/article/download/SHn25a06/1693/2490
+    titulo: 'D''Amico y Pinedo, «Debates y derivas en investigaciones sobre los piqueteros» (Sociohistórica 25, UNLP, 2009)'
+    consultada: '2026-09-23'
 ---
 ## Nadie Se Salva Solo
 
-La psicología positiva del primer mundo te dice: "medita, hacé ejercicio, escribí un diario de gratitud." Y son consejos útiles. Pero en un país donde la amenaza no es un jefe estresante sino un sistema que se cae cada 10 años, **la resiliencia individual es necesaria pero insuficiente**. Lo que realmente salva a los argentinos en las crisis no son las técnicas de respiración — son los vecinos.
+La psicología positiva del primer mundo te dice: "medita, hacé ejercicio, escribí un diario de gratitud." Y son consejos útiles. Pero en un país donde la amenaza no es un jefe estresante sino un sistema que se cae una y otra vez, **la resiliencia individual es necesaria pero insuficiente**. Lo que realmente salva a los argentinos en las crisis no son las técnicas de respiración — son los vecinos.
 
 ### La Ciencia de la Resiliencia Comunitaria
 
-Las investigaciones de Fran Norris y otros psicólogos comunitarios demuestran que las comunidades más resilientes comparten 4 características:
+En 2008, Fran Norris y un equipo de psicólogos comunitarios revisaron la literatura de varias disciplinas sobre cómo se recuperan las comunidades después de un desastre. No encontraron una receta sino cuatro conjuntos de capacidades que, juntas, hacen que una comunidad se adapte en vez de romperse. Su teoría es un modelo, no una ley, pero ordena bien lo que en Argentina conocemos de memoria:
 
 1. **Capital social:** Gente que se conoce, se ayuda y confía entre sí. En Argentina: el vecino que te fía, la comadre que te cuida a los chicos, el grupo de WhatsApp que avisa si hay un problema.
-2. **Recursos compartidos:** Infraestructura, espacios, herramientas, información que circulan. No es solo plata — es acceso.
+2. **Recursos y equidad:** Norris lo llama desarrollo económico: que haya recursos, que sean variados y que no queden concentrados en pocas manos. Infraestructura, espacios, herramientas. No es solo plata — es acceso.
 3. **Comunicación efectiva:** La capacidad de transmitir información rápidamente y sin distorsión. En crisis, la comunicación es supervivencia.
 4. **Competencias comunitarias:** Gente que sabe hacer cosas útiles: cocinar para muchos, reparar cosas, organizar, curar, enseñar, mediar conflictos.
 
-### Historia Real
+### Un caso para pensar: la olla de La Matanza
 
-**Las mujeres piqueteras de La Matanza, 2001-2003.** Cuando la crisis del 2001 dejó a barrios enteros sin trabajo ni comida, no fueron los políticos ni las ONGs quienes sostuvieron la vida cotidiana. Fueron las mujeres. Organizaron ollas populares que alimentaban a 200 familias. Armaron redes de cuidado infantil rotativo para que las madres pudieran ir a buscar trabajo. Crearon sistemas de trueque de ropa y medicamentos. María, referente de un comedor en Gregorio de Laferrère, lo explica: "Los hombres salían a cortar la ruta. Nosotras nos quedábamos sosteniendo todo. Sin esa red, los chicos no comían. Así de simple." Lo que estas mujeres construyeron no fue caridad. Fue un **sistema de resiliencia comunitaria** que funcionó mejor que cualquier programa estatal.
+La Matanza fue, entre 2001 y 2002, uno de los centros del movimiento piquetero. Una revisión de las investigaciones sobre esos años, publicada por María Victoria D'Amico y Jerónimo Pinedo (UNLP-CONICET) en 2009, advierte algo que las crónicas del corte de ruta suelen perder: el trabajo cotidiano de muchos participantes, entre ellos muchas mujeres, en la gestión colectiva de la comida y el reparto de mercadería.
+
+Ahora imaginá a María —no es un testimonio, es un ejemplo—, referente de un comedor en Gregorio de Laferrère. Organiza una olla popular con otras vecinas. Arman un turno rotativo para cuidar a los chicos mientras las madres salen a buscar changas. Hacen trueque de ropa y remedios. "Los hombres salían a cortar la ruta", podría decir. "Nosotras nos quedábamos sosteniendo todo. Sin esa red, los chicos no comían. Así de simple." Lo que una red así construye no es caridad. Es un **sistema de resiliencia comunitaria**, con las cuatro capacidades de Norris funcionando a la vez: vínculos, recursos puestos en común, información que circula y gente que sabe hacer.
 
 ### Tu Red de Resiliencia: ¿A Quién Llamás?
 
@@ -49,7 +58,7 @@ Si te mudaste, si estás aislado/a, si tu red se rompió — no estás condenado
 - **Paso 1:** Conocé a 3 vecinos por su nombre. No hacen falta grandes gestos: "Hola, soy [nombre], vivo en el 3B."
 - **Paso 2:** Ofrecé algo (sin esperar nada): un mate, una herramienta prestada, avisar si hay un paquete.
 - **Paso 3:** Participá en algo colectivo: la reunión de consorcio, la feria del barrio, el chat de padres del colegio.
-- **Paso 4:** Cuando necesites algo, pedílo. Pedir ayuda no es debilidad — es el acto que construye reciprocidad.
+- **Paso 4:** Cuando necesites algo, pedilo. Pedir ayuda no es debilidad — es el acto que construye reciprocidad.
 
 > "La resiliencia más poderosa no está en tu cabeza — está en tu red. Un argentino solo contra la crisis es un héroe trágico. Un barrio organizado contra la crisis es una fuerza imparable. Elegí ser parte de algo más grande que tu miedo."
 

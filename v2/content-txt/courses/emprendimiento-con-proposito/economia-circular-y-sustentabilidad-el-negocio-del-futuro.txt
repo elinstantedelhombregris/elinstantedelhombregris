@@ -16,6 +16,19 @@ fuentes:
   - url: https://www.greenpeace.org/argentina/participa/involucrate/con-incineracion-no-hay-basura-cero/ley-de-basura-cero-mas-de-14-anos-de-metas-incumplidas/
     titulo: 'Greenpeace Argentina — Ley de Basura Cero: más de 14 años de metas incumplidas'
     consultada: '2026-09-22'
+  - url: https://elbarriopueyrredon.com.ar/recoleccion-de-reciclables-en-villa-pueyrredon-devoto-parque-chas-y-agronomia/
+    titulo: 'El Barrio Pueyrredón — Recolección de reciclables de la Cooperativa El Álamo en Villa Pueyrredón, Devoto, Parque Chás y Agronomía'
+    consultada: '2026-09-23'
+  - url: https://www.conicet.gov.ar/el-conicet-firma-un-convenio-de-licencia-de-tecnologia-desarrollada-por-el-ceve/
+    titulo: 'CONICET — El CONICET firma un convenio de licencia de tecnología desarrollada por el CEVE (ladrillos de PET)'
+    consultada: '2026-09-23'
+  - url: https://www.sistemab.org/argentina/hay-300-empresas-b-en-argentina-el-segundo-pais-de-latinoamerica-con-mas-companias-certificadas/
+    titulo: 'Sistema B Argentina — Hay 300 Empresas B en Argentina, el segundo país de Latinoamérica con más compañías certificadas'
+    consultada: '2026-09-23'
+  - url: https://www.sistemab.org/argentina/
+    titulo: 'Sistema B Argentina'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-23'
 ---
 
 ## Ganar Plata Mientras Cuidás el Planeta
@@ -26,13 +39,13 @@ La sustentabilidad no es un lujo de países ricos. En Argentina, donde los recur
 
 La economía lineal funciona así: extraer → producir → usar → tirar. La circular funciona así: cada "residuo" es el **insumo** de otro proceso. Nada se pierde.
 
-### Casos Argentinos Reales
+### Cómo Se Ve en la Argentina
 
-- **Cervecerías artesanales:** El grano usado (bagazo) se dona a granjas como alimento animal. La granja produce leche. La leche hace queso. El queso se vende en la cervecería. Ciclo cerrado.
-- **Cooperativas de reciclado:** Los cartoneros fueron los pioneros de la economía circular en Argentina. Hoy cooperativas como El Álamo transforman residuos en productos de diseño.
-- **Ropa de segunda mano:** Apps como Reusá y Vigga generan un mercado de moda circular que crece 40% anual.
-- **Construcción sustentable:** Ecoladrillos hechos con botellas PET, casas con pallets reciclados, aislamiento con papel de diario triturado.
-- **Agricultura regenerativa:** Productores que restauran el suelo en vez de agotarlo, generando más productividad a largo plazo con menos insumos.
+- **Cervecerías artesanales (un ejemplo para pensar):** El grano usado, el bagazo, puede ir a un tambo como alimento animal. El tambo produce leche, la leche se hace queso y el queso se vende en la cervecería. Si cada eslabón está a pocos kilómetros, el ciclo se cierra.
+- **Cooperativas de recuperadores:** Los cartoneros fueron los pioneros de la economía circular en Argentina. La Cooperativa El Álamo, por ejemplo, recolecta desde 2003 materiales reciclables en Villa Pueyrredón, Villa Devoto, Agronomía y Parque Chás, y los devuelve a la industria como insumo.
+- **Ropa de segunda mano:** Las plataformas de venta de ropa usada arman un mercado de moda circular: la prenda que uno ya no usa es el stock de otro.
+- **Construcción sustentable:** El Centro Experimental de la Vivienda Económica (CEVE), de Córdoba, desarrolló con el CONICET una tecnología para fabricar ladrillos con botellas de PET recicladas. En 2019 el CONICET licenció esa tecnología a la Fundación Ecoinclusión, que la produce en una planta de Alta Gracia. El residuo que iba al basural vuelve como material de obra.
+- **Agricultura regenerativa:** Productores que buscan restaurar el suelo en vez de agotarlo, para sostener la productividad a largo plazo con menos insumos.
 
 ### Cómo Integrar Circularidad a Tu Emprendimiento
 
@@ -43,7 +56,7 @@ La economía lineal funciona así: extraer → producir → usar → tirar. La c
 
 ### El Sello B: Certificar Tu Propósito
 
-Las Empresas B son una nueva categoría de empresas que buscan ser "las mejores PARA el mundo" y no solo "las mejores DEL mundo". Argentina tiene más de 200 empresas B certificadas. La certificación te abre puertas comerciales, atrae talento comprometido y te conecta con una red de emprendedores con valores compartidos.
+Las Empresas B son compañías que certifican que generan impacto social y ambiental positivo además de ganancia: no les alcanza con ser buenas en lo suyo, quieren que el mundo quede mejor por lo que hacen. En agosto de 2026, según Sistema B Argentina, el país llegó a 300 Empresas B certificadas, el segundo de Latinoamérica después de Brasil. La certificación puede abrirte puertas comerciales, atraer talento comprometido y conectarte con una red de emprendedores con valores compartidos.
 
 > "La economía circular no es una moda ecologista: es la lógica del que no tiene recursos para desperdiciar. Argentina es el lugar perfecto para innovar en esto, porque llevamos décadas practicando el arte de hacer mucho con poco."
 

@@ -2,10 +2,10 @@
   "slug": "patrones-argentinos-debemos-romper",
   "title": "Patrones Argentinos que Debemos Romper",
   "description": "Meta-análisis de los patrones que Argentina repite. El ciclo stop-go, el patrón caudillista, Buenos Aires vs Interior, la fuga de cerebros. Para cada uno: causa raíz, puntos de apalancamiento y diseño idealizado.",
-  "excerpt": "Identificá y diseña intervenciones para romper los patrones que Argentina repite.",
+  "excerpt": "Identificá y diseñá intervenciones para romper los patrones que Argentina repite.",
   "category": "hombre-gris",
   "level": "advanced",
-  "duration": 37,
+  "duration": 42,
   "orderIndex": 31,
   "isPublished": true,
   "isFeatured": false,
@@ -23,7 +23,7 @@
       "key": "03-el-ciclo-stop-go-expansion-crisis-ajuste-repetir",
       "title": "El Ciclo Stop-Go: Expansión, Crisis, Ajuste, Repetir",
       "description": "El patrón económico más persistente de Argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 2
     },
     {
@@ -37,14 +37,14 @@
       "key": "05-buenos-aires-vs-interior-la-grieta-territorial",
       "title": "Buenos Aires vs. Interior: La Grieta Territorial",
       "description": "La concentración en Buenos Aires como desequilibrio sistémico fundacional.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
       "key": "06-la-fuga-de-cerebros-exportar-talento-importar-frustracion",
       "title": "La Fuga de Cerebros: Exportar Talento, Importar Frustración",
       "description": "El patrón de emigración de talento como síntoma y causa de deterioro sistémico.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
@@ -58,14 +58,14 @@
       "key": "08-el-pendulo-politico-de-un-extremo-al-otro",
       "title": "El Péndulo Político: De un Extremo al Otro",
       "description": "La oscilación permanente entre modelos opuestos que impide las políticas de Estado.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-la-cultura-del-atajo-viveza-criolla-como-bug-sistemico",
       "title": "La Cultura del Atajo: Viveza Criolla como Bug Sistémico",
       "description": "La viveza criolla analizada como patrón cultural que destruye la confianza social.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {

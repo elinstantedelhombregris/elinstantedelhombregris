@@ -10,6 +10,12 @@ fuentes:
   - url: https://www.rosario.gob.ar/ArchivosWeb/biblioteca_pp/pp_caso_rosario.pdf
     titulo: 'Pablo Gorbán — El Presupuesto Participativo como instrumento para el proceso de formación de políticas públicas. El caso Rosario (Municipalidad de Rosario)'
     consultada: '2026-09-22'
+  - url: https://www.asystemicbits.com/p/shared-vision-the-fifth-discipline
+    titulo: 'A Systemic Bits — Shared Vision: The Fifth Discipline (las actitudes frente a una visión según Senge)'
+    consultada: '2026-09-23'
+  - url: https://research.vu.nl/en/publications/toward-an-integrative-social-identity-model-of-collective-action-/
+    titulo: 'van Zomeren, Postmes y Spears (2008) — Toward an integrative social identity model of collective action (Psychological Bulletin)'
+    consultada: '2026-09-23'
 ---
 Hasta ahora trabajamos tu visión personal. Pero hay algo que necesitás entender profundamente: **ninguna transformación significativa en la historia fue obra de una sola persona**. Siempre fue obra de una visión compartida que se encarnó en un grupo.
 
@@ -21,7 +27,7 @@ La pregunta entonces no es solo "¿qué visión tengo para mi vida?" sino "¿qu�
 
 Peter Senge, en "La Quinta Disciplina", argumenta que una visión compartida no es simplemente la visión de un líder que otros siguen. **Una verdadera visión compartida emerge cuando las personas descubren que su visión personal está conectada con algo más grande**.
 
-Hay tres formas en que los grupos se relacionan con una visión:
+Senge distingue siete actitudes posibles frente a una visión, desde la apatía y el rechazo, pasando por varios grados de acatamiento, hasta el compromiso. Simplificadas en tres:
 
 1. **Acatamiento**: "Lo hago porque me lo piden" — genera obediencia pero no compromiso
 2. **Alineamiento**: "Entiendo la visión y estoy de acuerdo" — genera cooperación pero no pasión
@@ -35,7 +41,7 @@ La diferencia entre estos niveles es la diferencia entre una organización que f
 
 ### Cómo nacen los movimientos
 
-Estudios sobre movimientos sociales exitosos revelan patrones comunes:
+La psicología de la acción colectiva tiene una síntesis grande: Martijn van Zomeren, Tom Postmes y Russell Spears (2008) reunieron 182 efectos de estudios previos y encontraron que tres cosas predicen, con efectos medianos, que la gente actúe en conjunto: sentir una injusticia, creer que el grupo puede cambiarla e identificarse con el grupo. Los puntos 1, 3 y 4 de esta lista se apoyan ahí; el 2 y el 5 vienen de la experiencia de quienes organizan:
 
 1. **Un diagnóstico compartido del problema**: no alcanza con que todos sientan que algo está mal. Necesitan nombrar el mismo problema de manera similar.
 

@@ -22,7 +22,7 @@
       "type": "true_false",
       "options": ["Verdadero", "Falso"],
       "correctAnswer": "Falso",
-      "explanation": "El radio de confianza en Argentina es cortísimo: tendemos a confiar solo en la familia cercana y sospechar de todos los demás, lo que genera enormes costos de transacción.",
+      "explanation": "La lección, con Fukuyama, ubica el capital social de buena parte de América Latina en la familia y un círculo chico de amigos, y nos reconoce ahí: confiamos en la familia cercana (a veces) y sospechamos de todos los demás. Esa desconfianza es el impuesto invisible que sube los costos de transacción.",
       "points": 1,
       "orderIndex": 2
     },
@@ -101,30 +101,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Liderar en Crisis» a una situación real?",
+      "question": "Según la distinción de Ronald Heifetz que usa la lección «Liderar en Crisis», ¿qué convierte a una crisis en un desafío adaptativo y no en un problema técnico?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que no alcanza con aplicar una solución conocida: las personas tienen que cambiar cómo funcionan",
+        "Que es más grave y más urgente, y por eso hay que decidir antes de terminar el diagnóstico",
+        "Que viene de afuera del grupo, como una devaluación o un corte de financiamiento",
+        "Que el grupo reacciona buscando un líder fuerte y aferrándose a lo conocido"
       ],
       "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "Para Heifetz, los problemas técnicos tienen solución conocida y los desafíos adaptativos requieren que las personas cambien; por eso la lección dice que en una crisis hay que reimaginar cómo funcionar con las nuevas reglas. Que venga de afuera o que el grupo busque un líder fuerte describe la crisis, pero no la vuelve adaptativa.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto de Liderazgo» a una situación real?",
+      "question": "Armaste un grupo de ocho vecinos para recuperar la plaza. Van cinco semanas: los roles están repartidos y hay reglas para decidir, pero nadie ve avances y la gente empieza a faltar. Según la Fase 2 de la guía de «Tu Proyecto de Liderazgo», ¿qué te faltó?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Diseñar tu experimento de liderazgo distribuido de 90 días.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Un protocolo de crisis que diga qué pasa si alguien se va del grupo",
+        "Indicadores para saber si lo que están haciendo funciona",
+        "Más gente: con ocho personas no alcanza para repartir los roles",
+        "Una victoria chica que se pudiera conseguir en las primeras cuatro semanas"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La Fase 2 (semanas 3 a 6) pide, además de roles y reglas de juego, un pequeño logro rápido en las primeras cuatro semanas para generar impulso. El protocolo de crisis y los indicadores de evaluación son de la Fase 3, y ocho personas entran en el rango de 3 a 10 que propone la lección para empezar.",
       "points": 1,
       "orderIndex": 10
     }

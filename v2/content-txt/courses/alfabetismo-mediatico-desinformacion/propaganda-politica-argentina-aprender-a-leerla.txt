@@ -22,8 +22,8 @@ La propaganda no es exclusiva de un partido o sector. **Todos los actores polít
 ### Técnicas Clásicas de Propaganda
 
 - **Nosotros vs. Ellos:** Dividir el mundo en dos bandos irreconciliables. "O estás con nosotros o estás con la corrupción/la pobreza/el imperio." No deja espacio para matices.
-- **Apelación al miedo:** "Si ganan ellos, va a pasar X terrible." Funciona porque el cerebro procesa las amenazas antes que las oportunidades.
-- **Cherry-picking de datos:** Mostrar solo los datos que convienen e ignorar los que no. "La pobreza bajó" (en un mes específico, comparado con el peor mes del gobierno anterior).
+- **Apelación al miedo:** "Si ganan ellos, va a pasar X terrible." Funciona porque una amenaza moviliza más rápido que una promesa.
+- **Cherry-picking de datos:** Mostrar solo los datos que convienen e ignorar los que no. "La pobreza bajó" (en un semestre elegido a dedo, comparado con el peor semestre del gobierno anterior).
 - **Whataboutism:** Ante una crítica, responder con "¿y lo que hicieron ustedes?" Desvía la conversación sin responder la pregunta original.
 - **Repetición:** Repetir algo tantas veces que se convierte en "verdad" por familiaridad. Los eslóganes políticos funcionan así.
 - **Apelación a la emoción:** Historias personales conmovedoras usadas para justificar políticas complejas sin analizar si la política realmente funciona.

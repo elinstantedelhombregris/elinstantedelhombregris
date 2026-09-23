@@ -10,6 +10,9 @@ fuentes:
   - url: https://about.fb.com/ltam/news/2021/01/informe-de-comportamiento-inautentico-coordinado-de-america-latina-diciembre-de-2020/
     titulo: 'Informe de Comportamiento Inauténtico Coordinado de América Latina, diciembre de 2020 (Meta)'
     consultada: '2026-09-22'
+  - url: https://chequeado.com/ultimas-noticias/los-videos-falsos-de-politicos-hechos-con-ia-fueron-protagonistas-en-las-elecciones-2025/
+    titulo: 'Los videos falsos de políticos hechos con IA fueron protagonistas en las elecciones 2025 (Chequeado)'
+    consultada: '2026-09-23'
 ---
 
 ## No Todas las Mentiras Son Iguales
@@ -18,11 +21,11 @@ La "desinformación" es un término paraguas que cubre fenómenos muy diferentes
 
 ### Los Tipos de Desinformación
 
-- **Misinformación:** Información falsa compartida sin intención de engañar. Tu tía que reenvía un audio de WhatsApp creyendo que es verdad. Es la más común y la más difícil de combatir porque viene de gente que confiás.
+- **Misinformación:** Información falsa compartida sin intención de engañar. Tu tía que reenvía un audio de WhatsApp creyendo que es verdad. Es de las más difíciles de combatir porque viene de gente en la que confiás.
 - **Desinformación:** Información falsa creada deliberadamente para engañar. Granjas de contenido que fabrican noticias falsas para generar clicks (y dinero publicitario) o para manipular opinión.
 - **Propaganda:** Información sesgada diseñada para promover una agenda. No siempre es falsa: puede ser verdadera pero presentada de manera manipuladora (contexto omitido, datos cherry-picked, framing emocional).
-- **Astroturfing:** Crear la ilusión de movimiento espontáneo que en realidad es fabricado. Ejércitos de cuentas falsas que simulan "indignación popular" o "apoyo masivo". En Argentina, todos los partidos lo hacen.
-- **Deepfakes:** Contenido audiovisual manipulado con IA. Videos de políticos diciendo cosas que nunca dijeron. Todavía incipiente en Argentina pero creciendo rápidamente.
+- **Astroturfing:** Crear la ilusión de movimiento espontáneo que en realidad es fabricado. Ejércitos de cuentas falsas que simulan "indignación popular" o "apoyo masivo". En la Argentina hay redes documentadas: la del caso de esta lección es una.
+- **Deepfakes:** Contenido audiovisual manipulado con IA. Videos de políticos diciendo cosas que nunca dijeron. En la Argentina ya no es una amenaza futura: en las elecciones de 2025 circularon videos fabricados de Mauricio Macri, Silvia Lospennato y Jorge Taiana bajando candidaturas o apoyando a otros, y la lección sobre inteligencia artificial vuelve sobre eso.
 
 ### Cómo Se Fabrican
 

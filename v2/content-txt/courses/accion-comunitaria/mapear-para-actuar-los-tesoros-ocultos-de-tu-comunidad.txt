@@ -6,6 +6,13 @@ summary: 'El enfoque de activos: antes de pedir lo que falta, descubrí lo que y
 orderIndex: 4
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.ipr.northwestern.edu/news/2024/remembering-john-mcknight.html
+    titulo: 'Remembering John McKnight — Institute for Policy Research, Northwestern University'
+    consultada: '2026-09-23'
+  - url: https://www.nurturedevelopment.org/abcd-institute/
+    titulo: 'ABCD Institute — Nurture Development'
+    consultada: '2026-09-23'
 ---
 
 ## El error que arruina la mayoría de los proyectos
@@ -20,7 +27,7 @@ Hay otro enfoque — más inteligente, más potente, y curiosamente más esperan
 
 ### El enfoque de activos comunitarios (ABCD)
 
-En los años 90, dos investigadores de la Universidad de Northwestern — John McKnight y Jody Kretzmann — estudiaron comunidades que habían logrado transformarse a pesar de la pobreza y la falta de recursos externos. Descubrieron algo revelador: **las comunidades que prosperaban no eran las que recibían más ayuda de afuera, sino las que mejor conocían y usaban lo que ya tenían adentro**.
+A fines de los años 80, dos investigadores de la Universidad de Northwestern — John McKnight y Jody Kretzmann — salieron con un equipo a recorrer más de 300 barrios en 20 ciudades de Norteamérica. Querían entender cómo se sostenían la comunidad y la participación en barrios pobres. En 1993 lo contaron en un libro, *Building Communities from the Inside Out* («construir comunidades desde adentro hacia afuera»), y en 1995 fundaron un instituto para difundir el enfoque. Lo que sostuvieron se puede decir en una línea: **toda comunidad tiene fortalezas y recursos propios, y el cambio que dura se apoya en ellos, no en la lista de carencias**.
 
 Le pusieron nombre: **Asset-Based Community Development** (Desarrollo Comunitario Basado en Activos). La idea central es simple pero revolucionaria:
 
@@ -41,7 +48,7 @@ Cuando mapeás tu barrio, buscá estos cinco tipos de tesoros ocultos:
     Plazas, terrenos baldíos, salones comunitarios, patios de escuelas fuera del horario escolar, veredas anchas, estacionamientos vacíos los fines de semana. **El espacio para actuar ya existe — solo necesita una función.**
 4. **Redes y relaciones**
 
-    El grupo de WhatsApp del barrio. La vecina que conoce a todos. El comerciante que sabe quién necesita trabajo. Las amistades cruzadas entre cuadras. **Las redes informales son infraestructura invisible** — más poderosa que cualquier institución formal.
+    El grupo de WhatsApp del barrio. La vecina que conoce a todos. El comerciante que sabe quién necesita trabajo. Las amistades cruzadas entre cuadras. **Las redes informales son infraestructura invisible** — a veces más poderosa que una institución formal.
 5. **Historias y tradiciones**
 
     Lo que une emocionalmente al barrio: el recuerdo de cuando todos se ayudaron en una inundación, la fiesta que se hacía antes, el orgullo por algo local, los personajes queridos. **Las historias son el pegamento emocional de la comunidad** — y cuando las recuperás, la gente se vuelve a conectar.

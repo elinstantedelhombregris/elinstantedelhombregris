@@ -21,7 +21,7 @@ cierre: puente
 
 ### Sistema Coherente
 
-**Señales:** Propósito claro compartido, decisiones rápidas, acción coordinada, energía fluyendo, resultados exponenciales
+**Señales:** Propósito claro compartido, decisiones rápidas, acción coordinada, energía fluyendo, resultados que rinden más que la suma de los esfuerzos
 
 Ejemplo: Equipo que logra objetivos imposibles porque todos reman en la misma dirección.
 
@@ -37,7 +37,7 @@ Ejemplo: Organización donde departamentos trabajan en direcciones opuestas.
 | --- | --- | --- |
 | **Propósito** | Claro y compartido por todos | Confuso o conflictivo |
 | **Decisiones** | Rápidas y alineadas | Lentas y fragmentadas |
-| **Energía** | Se multiplica (1+1=10) | Se desperdicia (1+1=0.5) |
+| **Energía** | Se suma y se potencia | Se desperdicia en fricción |
 | **Resultados** | Exponenciales | Limitados |
 
 ### Test Rápido de Coherencia (5 preguntas)
@@ -67,7 +67,7 @@ La coherencia comienza con alineación:
 
 ### El Efecto Multiplicador
 
-Cuando un sistema es coherente, 1+1 no es 2, es 10. La energía se multiplica porque no hay fricción, no hay desperdicio, no hay conflicto. Todo fluye en la misma dirección. Este es el poder del diseño idealizado: crear sistemas donde la coherencia es natural.
+Cuando un sistema es coherente, el esfuerzo de cada parte no se pierde peleando contra el de las otras: hay menos fricción, menos desperdicio, menos conflicto. No hay una fórmula que diga cuánto rinde de más; lo que se ve es que el mismo grupo, con los mismos recursos, llega más lejos. Todo fluye en la misma dirección. Este es el poder del diseño idealizado: crear sistemas donde la coherencia es natural.
 
 ### Coherencia en Sistemas Personales y Colectivos
 
@@ -81,7 +81,7 @@ Resultado: Vivís con propósito, sin conflicto interno, con energía fluyendo
 
 **Qué:** El equipo u organización tiene propósito y valores compartidos
 
-Resultado: Acción coordinada, energía multiplicada, resultados exponenciales
+Resultado: Acción coordinada, energía que no se pierde en fricción, resultados que se acumulan
 
 ### Técnicas para Aumentar Coherencia
 
@@ -90,16 +90,16 @@ Resultado: Acción coordinada, energía multiplicada, resultados exponenciales
 - **Comunicar propósito constantemente:** Asegura que todos sepan hacia dónde van
 - **Crear espacios de alineación:** Reuniones donde se refuerza el propósito
 - **Diseñar procesos coherentes:** Sistemas que naturalmente alinean acciones
-- **bucles de retroalimentación de coherencia:** Mecanismos que detectan desalineación y corrigen
+- **Bucles de retroalimentación de coherencia:** Mecanismos que detectan desalineación y corrigen
 - **Métricas de coherencia:** Indicadores que miden alineación
 
-### Caso de Estudio: El Equipo que Multiplicó su Impacto
+### Un caso para pensar: el equipo que alineó su impacto
 
-**El Problema:** Un equipo de desarrollo tenía talento individual excelente pero resultados mediocres. Cada desarrollador trabajaba bien, pero juntos no lograban objetivos ambiciosos. La energía se desperdiciaba en conflictos y desalineación.
+**El Problema:** Imaginá un equipo de desarrollo con talento individual excelente pero resultados mediocres. Cada desarrollador trabaja bien, pero juntos no logran objetivos ambiciosos. La energía se desperdicia en conflictos y desalineación.
 
-**El Diagnóstico:** Identificaron descoherencia en tres niveles: propósito (cada uno tenía su propia visión del objetivo), valores (prioridades diferentes), y acciones (trabajaban en paralelo sin coordinación).
+**El Diagnóstico:** Supongamos que identifican descoherencia en tres niveles: propósito (cada uno tiene su propia visión del objetivo), valores (prioridades diferentes), y acciones (trabajan en paralelo sin coordinación).
 
-**La Solución:** Rediseñaron para crear coherencia: sesión de alineación de propósito (todos definieron juntos el objetivo), valores compartidos escritos y visibles, y reuniones diarias de 15 min para coordinar acciones. En 2 meses, la productividad aumentó 60% y lograron objetivos que antes parecían imposibles.
+**La Solución:** Rediseñan para crear coherencia: sesión de alineación de propósito (todos definen juntos el objetivo), valores compartidos escritos y visibles, y reuniones diarias de 15 min para coordinar acciones. Si el rediseño prende, lo primero que cambia no es un indicador sino las conversaciones: menos tiempo discutiendo qué hay que hacer, más tiempo haciéndolo, y objetivos que antes parecían fuera de alcance empiezan a estar sobre la mesa. Si después de unas semanas nada de eso pasa, la descoherencia estaba en otro nivel del que diagnosticaron.
 
 ### Ejercicio: Evaluar y Aumentar Coherencia
 

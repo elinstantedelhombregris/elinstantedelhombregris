@@ -4,7 +4,7 @@
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿De qué palabra latina proviene \"hombre\" (homo)?",
+      "question": "¿Con qué palabra latina comparte raíz \"hombre\" (homo)?",
       "type": "multiple_choice",
       "options": [
         "Honos (honor)",
@@ -13,7 +13,7 @@
         "Fortis (fuerte)"
       ],
       "correctAnswer": 1,
-      "explanation": "Homo viene de humus (tierra, suelo). El ser humano es, etimológicamente, \"el que viene de la tierra\". De la misma raíz nacen humanidad y humildad.",
+      "explanation": "Homo y humus (tierra, suelo) salen de la misma raíz indoeuropea, que quería decir tierra. El ser humano es, etimológicamente, \"el terrestre\", el que viene de la tierra. De esa raíz vienen también humanidad y humildad.",
       "points": 2,
       "orderIndex": 1
     },
@@ -27,12 +27,12 @@
         "La ausencia de posición política"
       ],
       "correctAnswer": 2,
-      "explanation": "El gris no es ausencia ni neutralidad. Es lo que ocurre cuando todas las longitudes de onda se mezclan: contiene todos los colores. Representa la síntesis de la complejidad humana.",
+      "explanation": "El gris no es ausencia ni neutralidad. Es luz de todas las longitudes de onda, en las mismas proporciones que el blanco y con menos intensidad: contiene todos los colores. Representa la síntesis de la complejidad humana.",
       "points": 2,
       "orderIndex": 2
     },
     {
-      "question": "¿Cómo sabía el orfebre antiguo que la plata estaba completamente refinada?",
+      "question": "Según la historia que el curso lee como parábola, ¿cuándo estaba lista la plata?",
       "type": "multiple_choice",
       "options": [
         "Cuando el metal cambiaba de color a dorado",
@@ -41,7 +41,7 @@
         "Cuando el metal dejaba de hacer burbujas"
       ],
       "correctAnswer": 1,
-      "explanation": "La plata estaba lista cuando el orfebre podía ver su propio reflejo en ella. Mientras hubiera impurezas, la superficie era turbia. La pureza se mide por la capacidad de reflejar.",
+      "explanation": "La historia, que circula en sermones alrededor de Malaquías 3:3 y no es un dato de taller, dice que la plata estaba lista cuando el orfebre podía ver su propio reflejo en ella. Mientras hubiera impurezas, la superficie era turbia. La pureza se mide por la capacidad de reflejar.",
       "points": 2,
       "orderIndex": 3
     },
@@ -64,7 +64,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Identificar al Hombre Gris con un solo individuo o candidato político reduce una visión colectiva a una narrativa de caudillismo. Las psicografías apuntan a una transformación de conciencia, no a un liderazgo individual.",
+      "explanation": "Identificar al Hombre Gris con un solo individuo o candidato político reduce una visión colectiva a una narrativa de caudillismo. Leerlas como el anuncio de un líder es una elección del lector, no del texto; el curso las lee como invitación colectiva.",
       "points": 2,
       "orderIndex": 5
     },

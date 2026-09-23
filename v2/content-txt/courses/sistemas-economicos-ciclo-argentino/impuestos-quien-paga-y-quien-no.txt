@@ -13,25 +13,41 @@ fuentes:
   - url: https://www.lanacion.com.ar/economia/desde-hoy-los-tickets-deben-mostrar-los-impuestos-que-se-cobran-a-los-consumidores-nid01012025/
     titulo: 'La Nación — Desde hoy, los tickets deben mostrar los impuestos que se cobran a los consumidores'
     consultada: '2026-09-22'
+  - url: https://www.infobae.com/economia/2026/06/14/infierno-tributario-los-150-impuestos-tasas-y-contribuciones-vigentes-en-la-argentina-quien-los-cobra-cuales-recaudan-mas-y-donde-son-mas-numerosos/
+    titulo: 'Infobae — Los 150 impuestos, tasas y contribuciones vigentes en la Argentina (Vademécum Tributario 2026 del IARAF)'
+    consultada: '2026-09-23'
+  - url: https://www.lanacion.com.ar/economia/los-argentinos-aun-afrontan-150-impuestos-tasas-y-contribuciones-nid14062026/
+    titulo: 'La Nación — Los argentinos aún afrontan 150 impuestos, tasas y contribuciones'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/40000-44999/42701/texact.htm
+    titulo: 'Ley de Impuesto al Valor Agregado, texto ordenado por Decreto 280/97, artículo 7 inciso f (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://www.iprofesional.com/impuestos/374830-cuanto-es-el-iva-en-argentina-productos-con-el-21-27-y-105
+    titulo: 'iProfesional — Cuánto es el IVA en Argentina: productos con el 21%, 27% y 10,5%'
+    consultada: '2026-09-23'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_1trim269E33A05E47.pdf
+    titulo: 'INDEC — Mercado de trabajo. Tasas e indicadores socioeconómicos (EPH). Primer trimestre de 2026'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-31'
 ---
 
 ## Un Sistema Diseñado para la Injusticia
 
-El sistema impositivo argentino es uno de los más distorsionados del mundo. Tiene más de 160 impuestos entre nación, provincias y municipios. Es complejo, injusto y desincentiva la producción. Y aun así, **no recauda lo suficiente** para cubrir el gasto público.
+El sistema impositivo argentino es un laberinto. El Instituto Argentino de Análisis Fiscal (IARAF) contó para 2026 150 impuestos, tasas y contribuciones vigentes: 40 nacionales, 28 provinciales y 82 municipales. Es complejo, injusto y desincentiva la producción. Y aun así, **seis de esos tributos explican el 85% de lo que se recauda**; los otros 144 se reparten el 15% restante.
 
 ### Los Impuestos que Pagás (y No Sabés)
 
-- **IVA (21%):** En cada compra. El impuesto más recaudador y el más regresivo: el pobre y el rico pagan lo mismo por un litro de leche.
-- **Ganancias:** Impuesto a los ingresos. En teoría progresivo (quien más gana, más paga). En la práctica, recae desproporcionadamente sobre asalariados porque los ricos tienen más formas de eludir.
-- **Ingresos Brutos (provincial):** Impuesto en cascada que se acumula en cada etapa de producción. Se traslada al precio final. Es como pagar IVA sobre IVA.
+- **IVA (21% la tasa general, 10,5% la reducida):** En cada compra. El que más recauda, un cuarto de todo lo que cobran Nación, provincias y municipios, y regresivo: el pobre y el rico pagan la misma alícuota por el mismo producto, que al pobre le pesa más sobre lo que gana. (La leche no sirve de ejemplo: la ley exime la leche fluida o en polvo sin aditivos cuando la compra un consumidor final.)
+- **Ganancias:** Impuesto a los ingresos. En teoría progresivo (quien más gana, más paga). En la práctica, al asalariado registrado se le retiene del sueldo antes de cobrarlo, mientras que quien vive de rentas o de un negocio propio tiene más margen para planificar o eludir.
+- **Ingresos Brutos (provincial):** Impuesto en cascada que se acumula en cada etapa de producción. Se traslada al precio final. Es impuesto sobre impuesto: a diferencia del IVA, no descuenta lo que ya se pagó en la etapa anterior.
 - **Impuesto al cheque:** Cada movimiento bancario tiene un impuesto. Desincentiva el uso del sistema financiero formal.
 - **Retenciones:** Impuesto a las exportaciones agrícolas. Captura parte de la renta del campo para el Estado.
 - **Tasas municipales:** ABL, alumbrado, barrido, limpieza, contribución por mejoras, etc.
 
 ### Lo Que Está Roto
 
-1. **Regresividad:** Los impuestos al consumo (IVA, Ingresos Brutos) representan más del 50% de la recaudación. Estos impuestos golpean más a los que menos tienen.
-2. **Evasión masiva:** Se estima que la economía informal es del 35-40%. Eso significa que un tercio de la economía no paga impuestos. Los que pagan, subsidian a los que no.
+1. **Regresividad:** El IVA y los Ingresos Brutos explican casi el 40% de lo que recaudan juntos Nación, provincias y municipios (25% y 14,7% en la proyección del IARAF para 2026), más que Ganancias (18,1%). Estos impuestos golpean más a los que menos tienen.
+2. **Evasión e informalidad:** Según el INDEC, a comienzos de 2026 el 37,9% de los asalariados trabajaba sin descuento jubilatorio. Ese trabajo no aporta a la seguridad social ni paga Ganancias, aunque sí paga el IVA de lo que compra. Los que están registrados cargan con una parte mayor del sistema.
 3. **Complejidad:** Cumplir con las obligaciones fiscales requiere un contador. Para una PyME, los costos administrativos de cumplir son enormes.
 4. **Superposición:** Nación, provincia y municipio cobran impuestos similares sobre la misma base. Triple imposición.
 

@@ -2,18 +2,22 @@
 slug: historia-completa-la-huerta-comunitaria-de-flores
 courseSlug: gestion-proyectos-comunitarios
 title: 'Historia Completa: La Huerta Comunitaria de Flores'
-summary: Una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.
+summary: Un caso construido para ver cómo una vecina puede usar cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.
 orderIndex: 11
 draft: false
 cierre: puente
+fuentes:
+  - url: https://buenosaires.gob.ar/gcaba_historico/gobierno/gestion-comunal/comunas/comuna-7/junta-comunal
+    titulo: 'Junta Comunal 7 (Gobierno de la Ciudad de Buenos Aires)'
+    consultada: '2026-09-23'
 ---
 ### Por qué importa
 
-Las lecciones anteriores te dieron herramientas una por una: presupuestos, voluntarios, propuestas, medición, alianzas, sostenibilidad. Pero en la vida real, esas herramientas no se usan por separado — se usan todas juntas, desordenadas, en medio del barro y la incertidumbre. Esta historia te muestra cómo se ve eso en la práctica: una persona real, en un barrio real, usando cada herramienta del curso en secuencia para convertir una idea en un proyecto que lleva tres años funcionando.
+Las lecciones anteriores te dieron herramientas una por una: presupuestos, voluntarios, propuestas, medición, alianzas, sostenibilidad. Pero en la vida real, esas herramientas no se usan por separado — se usan todas juntas, desordenadas, en medio del barro y la incertidumbre. Esta historia te muestra cómo se ve eso en la práctica: una vecina, en un barrio de la Ciudad, usando cada herramienta del curso en secuencia para convertir una idea en un proyecto que dura. Silvia y su huerta son un ejemplo armado para el curso, no una crónica: los nombres y los números están para que puedas seguir el razonamiento, no para probar que funciona. Lo que sí existe es cada pieza que usa, del ProHuerta del INTA a la nota con número de expediente.
 
 ## Silvia y el Terreno Baldío
 
-Silvia Domínguez tiene 45 años y trabaja como empleada doméstica en el barrio de Flores, Ciudad de Buenos Aires. Todos los días pasa por un terreno baldío de 400 metros cuadrados en la esquina de Directorio y Bonorino. El terreno pertenece al Gobierno de la Ciudad, está abandonado desde 2018, y se convirtió en basural informal. Los vecinos tiran escombros, los perros callejeros se refugian ahí, y cada vez que llueve el agua estancada cría mosquitos. Los chicos de la escuela de enfrente pasan caminando al lado de la basura todos los días.
+Imaginá a Silvia Domínguez: tiene 45 años y trabaja como empleada doméstica en el barrio de Flores, Ciudad de Buenos Aires. Todos los días pasa por un terreno baldío de 400 metros cuadrados en una esquina del barrio. El terreno pertenece al Gobierno de la Ciudad, lleva años abandonado y se convirtió en basural informal. Los vecinos tiran escombros, los perros callejeros se refugian ahí, y cada vez que llueve el agua estancada cría mosquitos. Los chicos de la escuela de enfrente pasan caminando al lado de la basura todos los días.
 
 En marzo de 2023, Silvia ve un documental sobre huertas urbanas en Rosario. Al día siguiente, parada frente al terreno, piensa: "¿Y si hacemos una huerta acá?"
 
@@ -26,7 +30,7 @@ Silvia no empieza con la pala. Empieza con un cuaderno. Escribe:
 - **Beneficiarios:** 120 familias del barrio + 280 alumnos de la escuela.
 - **Actividades:** Limpiar terreno, preparar suelo, construir canteros, plantar, capacitar vecinos, cosechar y distribuir.
 
-No es una propuesta perfecta. Pero está escrita. Y eso la separa del 90% de las buenas ideas que mueren en la charla del café.
+No es una propuesta perfecta. Pero está escrita. Y eso la separa de tantas buenas ideas que mueren en la charla del café.
 
 ### Fase 2: Armar el Equipo (Herramienta: Coordinación de Voluntarios)
 
@@ -36,7 +40,7 @@ En la segunda reunión, ya son 8. Silvia crea un grupo de WhatsApp con reglas cl
 
 ### Fase 3: Conseguir el Espacio (Herramienta: Negociación + Redacción Formal)
 
-El terreno es del Gobierno de la Ciudad. Silvia necesita un permiso de uso. Escribe una nota formal al Director de Espacios Verdes de la Comuna 7, siguiendo el modelo que aprendió: quién es, qué propone, qué problema resuelve, qué pide. Adjunta fotos del basural, un croquis de la huerta, y la firma de 47 vecinos que juntó en un Google Form.
+El terreno es del Gobierno de la Ciudad. Silvia necesita un permiso de uso. Escribe una nota formal a la Junta Comunal de la Comuna 7, que abarca Flores, siguiendo el modelo que aprendió: quién es, qué propone, qué problema resuelve, qué pide. Adjunta fotos del basural, un croquis de la huerta, y la firma de 47 vecinos que juntó en un Google Form.
 
 La primera respuesta es el silencio. Silvia manda la nota de nuevo por correo certificado — ahora tiene número de expediente. Después pide una reunión formal. Va acompañada de Claudia (que aporta credencial técnica del INTA) y de una mamá de la escuela que es periodista en un medio local. No amenaza — negocia. Plantea intereses comunes: "Ustedes necesitan un terreno mantenido, nosotros necesitamos un espacio para la huerta. Ganamos todos."
 
@@ -50,7 +54,7 @@ Consigue financiamiento de tres fuentes:
 
 - La escuela dona $80.000 de su cooperadora.
 - La ferretería del barrio dona herramientas a cambio de un cartel con su nombre en la huerta.
-- Silvia se presenta al programa "Buenos Aires Produce" del Gobierno de la Ciudad y gana un subsidio de $300.000.
+- Silvia se presenta a una convocatoria de subsidios para iniciativas barriales del Gobierno de la Ciudad y gana $300.000.
 
 La propuesta que presenta tiene todo: diagnóstico con datos, marco lógico simplificado, cronograma mes a mes, presupuesto desglosado, y cartas de apoyo de la escuela y la junta vecinal.
 
@@ -69,7 +73,7 @@ Silvia entiende que el proyecto no puede depender solo de ella y del subsidio. A
 - Un restaurante del barrio compra aromáticas y verduras de estación a precio justo.
 - Tres voluntarias se capacitan como líderes de cantero: si Silvia no puede venir, la huerta funciona igual.
 
-En 2025, la huerta tiene cuenta propia (operan bajo el paraguas de la cooperadora escolar), ingresos por venta de aromáticas que cubren el 40% de los costos, y un equipo de 12 voluntarios estables con roles rotativos.
+Dos años después de aquella primera idea, la huerta tiene cuenta propia (operan bajo el paraguas de la cooperadora escolar), ingresos por venta de aromáticas que cubren el 40% de los costos, y un equipo de 12 voluntarios estables con roles rotativos.
 
 ### Los Aprendizajes de Silvia
 

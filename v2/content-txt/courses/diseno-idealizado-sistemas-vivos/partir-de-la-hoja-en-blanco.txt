@@ -13,6 +13,9 @@ fuentes:
   - url: https://www.argentina.gob.ar/capital-humano/cultura/monumentos/la-plata-casco-urbano-fundacional
     titulo: 'La Plata — Casco Urbano Fundacional (argentina.gob.ar)'
     consultada: '2026-09-22'
+  - url: https://knowledge.wharton.upenn.edu/article/idealized-design-how-bell-labs-imagined-and-created-the-telephone-system-of-the-future/
+    titulo: 'Idealized Design: How Bell Labs Imagined — and Created — the Telephone System of the Future (Knowledge at Wharton, extracto de Ackoff, Magidson y Addison)'
+    consultada: '2026-09-23'
 ---
 ## La Libertad de Soñar
 
@@ -49,7 +52,7 @@ Esta pregunta abre posibilidades infinitas.
 
 ### Suspendé "No Puedo"
 
-**Temporalmente ignorá:** Recursos limitados, restricciones políticas, miedos
+**Temporalmente ignorá:** Recursos limitados, resistencias, miedos
 
 Primero imaginá, luego ajustá.
 
@@ -58,6 +61,12 @@ Primero imaginá, luego ajustá.
 **Imaginá:** Cómo se vería, sentiría, funcionaría perfectamente
 
 Los detalles hacen el ideal tangible.
+
+### Lo que la Hoja en Blanco No Suspende
+
+El método tiene autor: Russell Ackoff lo llamó diseño idealizado, y en el libro que escribió con Jason Magidson y Herbert Addison cuenta de dónde viene. En 1951, el vicepresidente de los Bell Labs reunió a sus jefes de sección y les anunció que el sistema telefónico de Estados Unidos había sido destruido la noche anterior. No era cierto: era el ejercicio. Armó equipos para diseñar desde cero el sistema que pondrían en su lugar, con sólo dos condiciones. La primera, factibilidad tecnológica: nada que no se pudiera hacer con el conocimiento disponible, nada de ciencia ficción. La segunda, viabilidad operativa: el sistema tenía que poder funcionar y sobrevivir en el entorno de ese momento. Ese trabajo anticipó buena parte de lo que vino después en telefonía, como el teclado de tonos, la llamada en espera y el identificador de llamadas.
+
+Soñar sin legado no es soñar sin física. Lo que se suspende es el «siempre se hizo así», no lo posible.
 
 ### El Poder de la Pregunta "¿Qué Sería Ideal?"
 

@@ -59,7 +59,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Estudios del MIT muestran que las noticias falsas se comparten 6 veces más rápido que las verdaderas.",
+      "explanation": "Un equipo del MIT que siguió unas 126.000 cadenas en Twitter encontró que las falsas tenían un 70% más de probabilidad de ser retuiteadas y que las verdaderas tardaban unas seis veces más en llegar a 1.500 personas (Vosoughi, Roy y Aral, 2018).",
       "points": 1,
       "orderIndex": 5
     },
@@ -101,30 +101,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Inteligencia Artificial y el Futuro de la Desinformación» a una situación real?",
+      "question": "Para el audio clonado de un familiar que pide plata con urgencia, ¿qué defensa propone la lección sobre inteligencia artificial?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo la IA está transformando la creación y detección de contenido falso.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Pasar el audio por un detector como AI or Not y responder sólo si sale «probablemente real».",
+        "Pedirle por el mismo chat que mande otro audio diciendo la fecha de hoy.",
+        "Buscar si ese mismo audio circula en otras fuentes antes de contestar.",
+        "Acordar de antemano una palabra clave que nunca se escriba en el chat, y pedirla."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La palanca de la lección arma la defensa antes de que llegue el mensaje: una palabra que sólo conoce la familia y nunca pasa por el chat; si no la sabe, se corta y se llama al número de siempre. Un detector puede equivocarse para los dos lados y un clon puede grabar otro audio.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Kit de Supervivencia Mediática» a una situación real?",
+      "question": "La última lección cuenta que en 2019 partidos, plataformas y entidades periodísticas firmaron el Compromiso Ético Digital. ¿Qué conclusión saca de eso para tu protocolo?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Protocolo personal para navegar el ecosistema informativo con inteligencia.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que desde 2019 las plataformas están obligadas por ley a frenar lo falso, y el protocolo cubre lo que se les escapa.",
+        "Que conviene informarse sobre todo en medios y plataformas firmantes, porque se comprometieron a mitigar la desinformación.",
+        "Que es un compromiso y no una ley: vale lo que valga la conducta de quien firmó, y tu protocolo no puede depender de eso.",
+        "Que la verificación quedó en manos de la Cámara Nacional Electoral, y a vos te toca no reenviar nada en campaña."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "La lección subraya la forma: es un compromiso, no una ley, y vale lo que valga la conducta de quien lo firmó. Por eso el protocolo GRIS no depende de que partidos o plataformas cumplan: si no cumplen, la última barrera sos vos.",
       "points": 1,
       "orderIndex": 10
     }

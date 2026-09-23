@@ -13,6 +13,12 @@ fuentes:
   - url: https://www.argentina.gob.ar/servicio/denunciar-un-hecho-de-corrupcion
     titulo: 'Denunciar un hecho de corrupción — Oficina Anticorrupción (Argentina.gob.ar)'
     consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/60847/texact.htm
+    titulo: 'Ley 25.188 — Ética en el Ejercicio de la Función Pública, texto actualizado (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/383/texact.htm
+    titulo: 'Ley 23.984 — Código Procesal Penal de la Nación, texto actualizado (InfoLeg)'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-03-22'
 ---
 
@@ -47,7 +53,7 @@ Antes de publicar, mandale la pregunta por escrito al organismo o a la persona s
 
 ### Protección Legal del Denunciante
 
-Argentina tiene protección limitada para denunciantes ("whistleblowers"). La Ley de Ética Pública establece la obligación de denunciar irregularidades, pero la protección práctica es débil. Esto está cambiando lentamente con presión de organizaciones civiles.
+La Ley de Ética Pública (25.188) fija los deberes de los funcionarios —honestidad, transparencia, fundar sus actos—, y el Código Procesal Penal de la Nación obliga a los funcionarios y empleados públicos a denunciar los delitos que conozcan en el ejercicio de sus funciones (artículo 177). Pero la obligación de denunciar no trae consigo un escudo para quien denuncia (el «whistleblower» de la literatura en inglés): antes de hacerlo, averiguá qué protección concreta te da el canal que elegís. Por eso importan las modalidades de denuncia que vas a ver al final de esta lección, y por eso el paso 5 del proceso no es un detalle.
 
 > "Denunciar no es ser quilombero. Es ejercer el derecho y el deber cívico de exigir que el Estado funcione como debe. Cada denuncia bien hecha, con evidencia y método, es un ladrillo en la construcción de un país más transparente."
 

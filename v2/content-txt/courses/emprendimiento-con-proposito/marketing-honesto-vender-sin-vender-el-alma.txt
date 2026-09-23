@@ -13,11 +13,14 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/638/texact.htm
     titulo: 'Ley 24.240 — Defensa del Consumidor, texto actualizado (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://apps.apple.com/es/app/whatsapp-business/id1386412985
+    titulo: 'App Store — WhatsApp Business (gratis, con funciones pagas)'
+    consultada: '2026-09-23'
 ---
 
 ## El Fin del Marketing de la Mentira
 
-Argentina tiene una larga tradición de marketing agresivo, promesas infladas y letra chica. "Sin interés" (que tiene interés). "Natural" (que tiene químicos). "Artesanal" (que sale de una fábrica). Los consumidores argentinos son **los más escépticos de Latinoamérica** — y con razón.
+Argentina tiene una larga tradición de marketing agresivo, promesas infladas y letra chica. "Sin interés" (que tiene interés). "Natural" (que tiene químicos). "Artesanal" (que sale de una fábrica). Los consumidores argentinos **desconfían** — y con razón.
 
 Pero esa misma desconfianza genera una oportunidad enorme: el que es genuinamente honesto **se destaca como un faro en la niebla**.
 
@@ -27,12 +30,12 @@ Pero esa misma desconfianza genera una oportunidad enorme: el que es genuinament
 2. **Comunidad antes que audiencia:** No querés "seguidores" — querés *cómplices*. Gente que comparte tu propósito y te recomienda porque cree en lo que hacés.
 3. **Contenido que educa:** En vez de "comprá mi producto", enseñá algo útil. El emprendimiento que educa se posiciona como autoridad y genera confianza.
 
-### Canales que Funcionan en Argentina (2024-2025)
+### Canales que Funcionan en Argentina
 
-- **WhatsApp Business:** El canal de ventas más poderoso. Catálogo de productos, respuestas automáticas, grupos de clientes. GRATIS.
-- **Instagram:** Ideal para productos visuales. Reels cortos (15-30 segundos) superan a cualquier publicidad paga.
+- **WhatsApp Business:** Para muchos emprendimientos chicos, el canal de ventas central. Catálogo de productos, respuestas automáticas, etiquetas para organizar a los clientes. La app es gratis, con algunas funciones pagas.
+- **Instagram:** Ideal para productos visuales. Un video corto que muestra cómo hacés lo que vendés puede rendir más que una publicidad paga; probalo y medilo antes de pagar.
 - **MercadoLibre:** Si vendés productos físicos, es tu plaza virtual. La reputación ahí construida vale oro.
-- **Ferias y eventos locales:** Lo presencial sigue siendo poderoso. Una feria en tu barrio puede darte tus primeros 50 clientes fieles.
+- **Ferias y eventos locales:** Lo presencial sigue siendo poderoso. Una feria en tu barrio puede darte tus primeros clientes fieles.
 - **Boca a boca estructurado:** Pedí reseñas a tus mejores clientes. Ofrecé descuentos por referidos. Hacé que recomendar tu producto sea fácil.
 
 ### El Precio Justo en un País con Inflación

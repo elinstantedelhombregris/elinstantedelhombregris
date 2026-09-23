@@ -6,6 +6,13 @@ summary: 'Proceso guiado para crear tu visión. Ikigai adaptado, declaración de
 orderIndex: 3
 draft: false
 cierre: puente
+fuentes:
+  - url: https://theviewinside.me/ikigai
+    titulo: 'Marc Winn — Ikigai: where the four circle venn diagram came from (The View Inside Me)'
+    consultada: '2026-09-23'
+  - url: https://pure.ul.ie/en/publications/does-mental-practice-still-enhance-performance-a-24-year-follow-u/
+    titulo: 'Toth y otros (2020) — Does mental practice still enhance performance? A 24 year follow-up and meta-analytic replication (Psychology of Sport and Exercise)'
+    consultada: '2026-09-23'
 ---
 Ahora que empezaste el trabajo de conocerte, es momento de construir. Pero ojo: construir una visión personal no es escribir una lista de metas. Es algo mucho más profundo. Es darle forma a una imagen del futuro que sea lo suficientemente poderosa como para reorganizar tu presente.
 
@@ -26,7 +33,7 @@ La meta es un indicador. La visión es la experiencia completa de vida que quer�
 
 ### El Ikigai adaptado: cuatro fuerzas que deben converger
 
-El concepto japonés de **Ikigai** sugiere que la razón de vivir emerge de la intersección de cuatro dimensiones. Lo vamos a adaptar para construir tu visión:
+**Ikigai** es una palabra japonesa para aquello que te da una razón para levantarte a la mañana; en Japón suele ser algo chico y doméstico, una caminata, un nieto, una huerta. El diagrama de cuatro círculos que circula con ese nombre no viene de Japón: lo armó en 2014 Marc Winn en su blog, poniéndole la palabra «ikigai» al centro de un diagrama sobre el propósito que había dibujado Andrés Zuzunaga. No es sabiduría oriental, pero como herramienta sirve, y la vamos a adaptar para construir tu visión:
 
 1. **Lo que amás** (tu pasión): ¿qué actividades te hacen perder la noción del tiempo? ¿En qué podrías sumergirte horas sin que nadie te pague?
 
@@ -78,7 +85,7 @@ Una visión escrita en un papel puede olvidarse. Una visión sentida en el cuerp
 5. Quedate ahí 3-5 minutos. Dejá que la emoción crezca.
 6. Abrí los ojos. Escribí lo que sentiste. Esa sensación es tu brújula.
 
-Repetí este ejercicio al menos 3 veces por semana durante el primer mes. Los atletas de élite lo hacen todos los días. Vos también podés.
+Repetí este ejercicio al menos 3 veces por semana durante el primer mes. Muchos deportistas usan la práctica mental como parte del entrenamiento, y los estudios que la midieron encuentran que ayuda, aunque menos que practicar de verdad: acompaña a la acción, no la reemplaza.
 
 > Recordá: tu visión no se graba en la mente con letras. Se graba en el cuerpo con emociones.
 

@@ -5,7 +5,7 @@
   "excerpt": "El cambio no necesita un héroe. Necesita a muchos como vos.",
   "category": "action",
   "level": "intermediate",
-  "duration": 38,
+  "duration": 42,
   "orderIndex": 18,
   "isPublished": true,
   "isFeatured": false,
@@ -37,21 +37,21 @@
       "key": "05-facilitar-vs-controlar",
       "title": "Facilitar vs. Controlar",
       "description": "Pasar de \"yo tengo las respuestas\" a \"construyamos respuestas juntos\".",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 4
     },
     {
       "key": "06-como-dar-feedback-que-cambia",
       "title": "Cómo Dar Feedback que Cambia",
       "description": "El arte de decir la verdad sin destruir relaciones — adaptado a la cultura argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-conflicto-como-informacion",
       "title": "Conflicto Como Información",
       "description": "Leer el conflicto como dato del sistema en vez de tomarlo como ataque personal.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
@@ -72,7 +72,7 @@
       "key": "10-liderar-en-crisis",
       "title": "Liderar en Crisis",
       "description": "Mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {

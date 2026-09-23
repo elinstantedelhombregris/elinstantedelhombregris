@@ -6,12 +6,16 @@ summary: 'Explorá cómo los sistemas complejos se autoorganizan, acumulan tensi
 orderIndex: 8
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.usgs.gov/water-science-school/science/facts-about-water
+    titulo: 'Facts About Water — punto de ebullición y altitud (U.S. Geological Survey)'
+    consultada: '2026-09-23'
 ---
 ### Ciencia de la complejidad: Auto-Organización y Transiciones de Fase
 
-¿Cómo un hormiguero se organiza sin un líder? ¿Cómo un cerebro genera consciencia sin un controlador central? ¿Cómo puede Argentina transformarse sin un plan maestro detallado? Los sistemas complejos se auto-organizan. Aprendé cómo facilitar esta auto-organización para generar transformación.
+¿Cómo un hormiguero se organiza sin un líder? ¿Cómo funciona un cerebro sin un controlador central? ¿Cómo puede Argentina transformarse sin un plan maestro detallado? Los sistemas complejos se auto-organizan. Aprendé cómo facilitar esta auto-organización para generar transformación.
 
-### ciencia de la complejidad: La Ciencia de los Sistemas Auto-Organizados
+### Ciencia de la complejidad: La Ciencia de los Sistemas Auto-Organizados
 
 **Los sistemas complejos:** Tienen muchas partes que interactúan de formas no lineales. No podés predecir el comportamiento del sistema completo analizando las partes individualmente. El orden emerge espontáneamente de las interacciones. Esto es auto-organización.
 
@@ -25,7 +29,7 @@ No hay jefe. Cada hormiga sigue reglas simples. El orden emerge de las interacci
 
 ### Cerebro
 
-No hay controlador central. Cada neurona sigue reglas simples. La consciencia emerge de las interacciones. El cerebro se auto-organiza.
+No se encontró un controlador central. Cada neurona responde a las señales que recibe. Cómo surge la consciencia sigue siendo una pregunta abierta; una de las hipótesis más discutidas es que emerge de las interacciones. El cerebro se auto-organiza.
 
 ### Internet
 
@@ -41,7 +45,7 @@ Los sistemas complejos cambian de estado abruptamente, no gradualmente:
 
 ### Transiciones de Fase
 
-**Ejemplo del agua:** A 99°C es líquido. A 100°C es gas. Un pequeño cambio (1°C) genera cambio masivo (líquido → gas).
+**Ejemplo del agua:** A nivel del mar, el agua hierve a 100 °C; a 99 °C sigue líquida. Un pequeño cambio (1 °C) cruza el umbral y cambia el estado (líquido → gas). Y el umbral depende del contexto: a 1.500 metros de altura, el agua ya hierve cerca de los 95 °C, porque la presión es menor.
 
 **En sistemas sociales:** Pequeños cambios pueden generar transiciones masivas. Un pequeño aumento en conectividad puede generar cambio revolucionario.
 
@@ -67,7 +71,7 @@ Propiedades nuevas surgen de interacciones complejas:
 
 - **Agua:** H₂O no es húmedo. La humedad emerge de la interacción de muchas moléculas
 - **Música:** Las notas no son música. La música emerge de la interacción de notas
-- **Consciencia:** Las neuronas no son conscientes. La consciencia emerge de la interacción de neuronas
+- **Consciencia:** Las neuronas, de a una, no son conscientes. Todavía se discute cómo surge la consciencia, y la emergencia es una de las respuestas candidatas
 - **Ciudad:** Los edificios no son una ciudad. La ciudad emerge de la interacción de edificios, personas, sistemas
 
 La emergencia no se puede predecir analizando las partes. Surge de las relaciones entre partes. Cultivá relaciones, no controles partes.
@@ -94,7 +98,7 @@ Estos principios aplican a proyectos, equipos, comunidades:
 - **Facilitá la emergencia:** Creá condiciones donde emergencia positiva sea probable
 - **Preparate para las transiciones:** Los sistemas cambian abruptamente
 
-### ciencia de la complejidad en Argentina: La Oportunidad de Auto-Organización
+### Ciencia de la complejidad en Argentina: La Oportunidad de Auto-Organización
 
 Argentina puede transformarse mediante auto-organización:
 
@@ -111,13 +115,13 @@ Argentina puede transformarse mediante auto-organización:
 Argentina necesita:
 
 - **Objetivos claros compartidos:** Visión nacional clara, no procesos detallados
-- **Mejorar conectividad:** Facilita que provincias, municipios, comunidades se conecten
-- **Cultivar relaciones:** Invierte en confianza, colaboración, comunicación
-- **Identificar puntos de inflexión:** Encuentra cambios pequeños que generan grandes resultados
-- **Permitir emergencia:** Crea condiciones donde nuevas soluciones puedan emerger
+- **Mejorar conectividad:** Facilitar que provincias, municipios y comunidades se conecten
+- **Cultivar relaciones:** Invertir en confianza, colaboración, comunicación
+- **Identificar puntos de inflexión:** Encontrar cambios pequeños que generan grandes resultados
+- **Permitir emergencia:** Crear condiciones donde nuevas soluciones puedan emerger
 - **Liderazgo facilitador:** Líderes que facilitan, no controlan
 
-Como dice el Hombre Gris: *"No busca seguidores sino co-creadores. Su objetivo no es acumular poder sino multiplicar líderes."* La ciencia de la complejidad muestra que facilitar auto-organización genera transformación más efectiva que control centralizado.
+Del Hombre Gris se dice que *"no busca seguidores sino co-creadores"*, y que su objetivo *"no es acumular poder sino multiplicar líderes"*. La ciencia de la complejidad muestra que facilitar auto-organización genera transformación más efectiva que control centralizado.
 
 ### Ejercicio Práctico: Facilitar Auto-Organización
 

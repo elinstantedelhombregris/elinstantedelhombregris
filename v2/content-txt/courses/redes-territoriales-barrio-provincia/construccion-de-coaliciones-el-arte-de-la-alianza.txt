@@ -13,6 +13,9 @@ fuentes:
   - url: https://www.lanacion.com.ar/sociedad/la-camara-alta-convirtio-en-ley-el-proyecto-el-hambre-mas-urgente-nid461921/
     titulo: 'La Cámara alta convirtió en ley el proyecto «El hambre más urgente» (La Nación, 2002)'
     consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/18462/texact.htm
+    titulo: 'Ley 20.337 — Cooperativas (texto actualizado, InfoLeg)'
+    consultada: '2026-09-23'
 ---
 ## Aliados Improbables: El Poder de la Coalición
 
@@ -36,7 +39,7 @@ Elegí un problema concreto de tu zona (por ejemplo, una esquina peligrosa, un b
 
 - **Cada organización mantiene su identidad.** La coalición no reemplaza a nadie.
 - **Se trabaja sobre acuerdos mínimos.** No hace falta estar de acuerdo en todo.
-- **Representación proporcional.** Cada organización tiene voz, independientemente de su tamaño.
+- **Representación con piso y techo.** Cada organización tiene voz, independientemente de su tamaño, y ninguna puede imponerse sola. La Ley 20.337 de Cooperativas lo exige para las federaciones: el voto puede ser proporcional, pero con un mínimo y un máximo que impidan «el predominio excluyente» de una asociada (artículo 85).
 - **Comunicación unificada hacia afuera** pero diversa hacia adentro.
 
 Todo esto entra en una sola carilla, y conviene que entre. El acuerdo fundacional dice cuál es el tema, qué aporta cada organización, quién habla en nombre de todas y, lo que casi nadie escribe, cuándo se disuelve la coalición: al lograr el objetivo, a los seis meses sin avances o cuando cualquiera de las partes lo pida. Una alianza que sabe cómo termina se anima a empezar.

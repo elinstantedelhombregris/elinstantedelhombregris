@@ -91,30 +91,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Rendición de Cuentas Basada en Datos» a una situación real?",
+      "question": "Querés saber si el patrimonio de un funcionario creció más de lo que sus ingresos explican. ¿Cómo propone la lección leer sus declaraciones juradas?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo usar datos para exigir transparencia y combatir la corrupción.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Poner su declaración al lado de la de otro funcionario del mismo rango y comparar los montos de cada una.",
+        "Tomar la valuación de cada inmueble declarado como su precio de mercado y sumar todas.",
+        "Mirar su última declaración y ver si el total supera lo que cobró de sueldo ese año.",
+        "Poner dos declaraciones suyas de años distintos lado a lado: primero cantidades, después montos."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "«Rendición de Cuentas Basada en Datos» pide comparar siempre al mismo funcionario en años distintos, y contar inmuebles, autos y cuentas antes que montos, porque los bienes pueden figurar valuados por debajo del mercado sin que haya nada raro. Una declaración suelta no dice casi nada.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto de Datos: De Este Curso a la Transformación» a una situación real?",
+      "question": "La nota metodológica de tu proyecto tiene que responder seis cosas. ¿Cuál es, según la lección, la que más protege al informe?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Diseñar y ejecutar tu primer proyecto de datos para el bien común.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "De dónde salieron los datos y en qué fechas se tomaron.",
+        "Cuántos casos hay y cómo los elegiste.",
+        "Qué no podés afirmar con lo que tenés.",
+        "Qué cambiaste al limpiar los datos."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "«Tu Proyecto de Datos» dice que la última de las seis, qué no podés afirmar con lo que tenés, es la que más protege: un informe que dice sus límites es mucho más difícil de desacreditar que uno que promete todo.",
       "points": 1,
       "orderIndex": 10
     }

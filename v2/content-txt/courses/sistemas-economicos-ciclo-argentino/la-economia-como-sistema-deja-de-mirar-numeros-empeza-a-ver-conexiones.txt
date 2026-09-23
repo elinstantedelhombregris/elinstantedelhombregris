@@ -13,6 +13,9 @@ fuentes:
   - url: https://www.indec.gob.ar/uploads/informesdeprensa/ica_01_2432F21717CB.pdf
     titulo: 'INDEC — Intercambio comercial argentino. Cifras estimadas de diciembre de 2023'
     consultada: '2026-09-22'
+  - url: https://gflec.org/wp-content/uploads/2015/11/Finlit_paper_16_F2_singles.pdf
+    titulo: 'Klapper, Lusardi y van Oudheusden — Financial Literacy Around the World: Insights from the S&P Global FinLit Survey (2015)'
+    consultada: '2026-09-23'
 ---
 
 ## Más Allá de los Titulares
@@ -42,7 +45,7 @@ Un bucle de retroalimentación es cuando A causa B y B refuerza A:
 
 El problema de Argentina es que los bucles amplificadores son muy fuertes y los estabilizadores muy débiles.
 
-> "El argentino promedio entiende más de economía que el promedio mundial — porque la economía nos obliga a aprenderla por supervivencia. Este curso te da el marco teórico para organizar lo que tu instinto ya sabe."
+> "El argentino aprende economía por supervivencia, y eso se nota en algunas cosas y no en otras. En la encuesta mundial de alfabetización financiera de S&P de 2014, el 65% de los adultos argentinos entendía la inflación, más que el promedio del mundo; pero sólo el 28% respondía bien el conjunto de las preguntas básicas, contra un 33% mundial. Este curso te da el marco para organizar lo que tu instinto ya sabe y para completar lo que el instinto no enseña."
 
 ### El caso
 

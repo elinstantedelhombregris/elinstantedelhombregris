@@ -13,6 +13,9 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/70000-74999/70355/norma.htm
     titulo: 'Decreto 1570/2001 — Entidades financieras (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/70000-74999/72017/norma.htm
+    titulo: 'Decreto 214/2002 — Reordenamiento del sistema financiero (InfoLeg)'
+    consultada: '2026-09-23'
 ---
 ## Antes de Construir, Hay que Llorar
 
@@ -28,9 +31,9 @@ Este duelo colectivo, no procesado, se transforma en dos cosas igualmente tóxic
 4. **El duelo de la confianza:** La pérdida de la confianza en el otro, en el sistema, en el futuro. Cuando te estafaron tantas veces, confiar se vuelve un acto de coraje.
 5. **El duelo del potencial:** Lo que Argentina podría ser y no es. Este es quizás el duelo más doloroso: saber que tenemos todo para ser un gran país y no lograrlo.
 
-### Historia Real
+### Un caso para pensar: Graciela
 
-**Graciela, 67 años, maestra jubilada, Paraná, Entre Ríos.** "Ahorré toda mi vida. Toda. Desde los 22 años cuando empecé a trabajar. Puse plata en plazo fijo en el '89 y la hiperinflación se la comió. Ahorré de nuevo, y en el 2001 el corralito me dejó con la mitad. Volví a ahorrar, en dólares esta vez, y el cepo me obligó a vender al oficial. La tercera vez que perdí todo, algo se rompió adentro. No era bronca — era un vacío. Me llevó 3 años entender que lo que sentía era duelo. Duelo por la vida que planifiqué y que nunca pude vivir. Cuando por fin lloré — lloré de verdad, con el cuerpo, no solo con la cabeza — fue como si se abriera una puerta. No recuperé la plata. Pero recuperé algo más importante: las ganas de seguir intentando."
+**Imaginá a Graciela, 67 años, maestra jubilada, Paraná, Entre Ríos.** No es un testimonio sino un ejemplo, pero cada fecha de su historia es real. "Ahorré toda mi vida. Toda. Desde los 22 años, cuando empecé a trabajar. A fines del '89 tenía la plata en un plazo fijo, y en enero me la devolvieron en bonos a diez años. Ahorré de nuevo, en dólares esta vez, para que no me pasara lo mismo. En diciembre de 2001 el corralito me la encerró, y en febrero de 2002 la pesificación me la convirtió a un peso con cuarenta por dólar, mientras afuera el dólar se iba para arriba. La segunda vez que perdí todo, algo se rompió adentro. No era bronca — era un vacío. Me llevó años entender que lo que sentía era duelo. Duelo por la vida que planifiqué y que nunca pude vivir. Cuando por fin lloré — lloré de verdad, con el cuerpo, no solo con la cabeza — fue como si se abriera una puerta. No recuperé la plata. Pero recuperé algo más importante: las ganas de seguir intentando."
 
 ### Cómo Procesar el Duelo (Sin Quedarse Atrapado)
 
@@ -41,7 +44,7 @@ Este duelo colectivo, no procesado, se transforma en dos cosas igualmente tóxic
 
 ### Pausa para Reflexionar
 
-¿Cuál de los 5 duelos te pega más fuerte? ¿Lo procesaste o lo escondiste? No hace falta responder ahora — simplemente permitíte sentir lo que aparece.
+¿Cuál de los 5 duelos te pega más fuerte? ¿Lo procesaste o lo escondiste? No hace falta responder ahora — simplemente permitite sentir lo que aparece.
 
 *Tomá 3 minutos de silencio.*
 
@@ -49,7 +52,7 @@ Este duelo colectivo, no procesado, se transforma en dos cosas igualmente tóxic
 
 El duelo no es un punto final — es un **portal**. Del otro lado del duelo está la capacidad de soñar de nuevo. De imaginar un futuro que no sea solo "sobrevivir." De construir sin la carga de lo no llorado.
 
-> "Argentina necesita llorar antes de sanar. No de bronca — de tristeza. Llorar los 30.000 desaparecidos, el millón de emigrados, los sueños rotos, las jubilaciones miserables, las instituciones vaciadas. No para quedarnos en el llanto, sino para limpiarnos. Porque después del llanto viene la claridad. Y de la claridad nace la acción."
+> "Argentina necesita llorar antes de sanar. No de bronca — de tristeza. Llorar a los desaparecidos, a los que se fueron, los sueños rotos, las jubilaciones miserables, las instituciones vaciadas. No para quedarnos en el llanto, sino para limpiarnos. Porque después del llanto viene la claridad. Y de la claridad nace la acción."
 
 ### El caso
 

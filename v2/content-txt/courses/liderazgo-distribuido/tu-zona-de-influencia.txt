@@ -6,6 +6,10 @@ summary: Descubrir dónde ya tenés poder real y cómo expandirlo estratégicame
 orderIndex: 2
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.franklincovey.com/courses/the-7-habits/habit-1/
+    titulo: 'FranklinCovey — Habit 1: Be Proactive (Círculo de Influencia y Círculo de Preocupación)'
+    consultada: '2026-09-23'
 ---
 La mayoría de las personas que quieren cambiar algo cometen el mismo error: apuntan demasiado lejos. Se frustran porque no pueden cambiar "el sistema", "la política" o "el país". Es como querer mover un barco empujando desde la costa. Pero si te parás dentro del barco, cerca del timón, con un pequeño giro cambiás la dirección de todo. Stephen Covey lo formalizó como los Círculos de Influencia y Preocupación. Hoy lo vamos a adaptar a la realidad argentina.
 
@@ -33,7 +37,7 @@ Tu zona de influencia no es abstracta. Tiene nombres y apellidos. Dibujá tres c
 2. **Segundo anillo (20-50 personas):** conocidos activos. Compañeros de trabajo, vecinos que saludás, padres del colegio de tus hijos, grupo del club. Podés proponerles cosas.
 3. **Tercer anillo (100-200 personas):** tu red extendida. Contactos de WhatsApp, seguidores reales en redes, ex compañeros, gente del barrio. Podés llegar a ellos con un mensaje.
 
-Si tenés 10 personas en tu centro y cada una de ellas tiene otras 10 en su centro, tu red de segundo grado es de **100 personas**. Si cada una de esas 100 tiene 10, tu alcance potencial es de **1.000 personas**. Esto no es fantasía — es cómo funcionó cada cambio social real en la historia. Los grandes movimientos no empezaron con un líder hablándole a millones. Empezaron con **alguien convenciendo a diez personas** que convencieron a diez más.
+Si tenés 10 personas en tu centro y cada una de ellas tiene otras 10 en su centro, tu red de segundo grado es de **100 personas**. Si cada una de esas 100 tiene 10, tu alcance potencial es de **1.000 personas**. Es aritmética, no una promesa: las redes se superponen y no todos se suman. Pero la idea de fondo se sostiene: muchos movimientos no empezaron con un líder hablándole a millones, sino con **alguien convenciendo a unas pocas personas** que convencieron a otras.
 
 ### La Regla del 10-10-10
 

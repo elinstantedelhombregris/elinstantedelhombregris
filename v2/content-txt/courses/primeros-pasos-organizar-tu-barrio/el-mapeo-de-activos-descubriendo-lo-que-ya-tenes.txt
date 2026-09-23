@@ -13,6 +13,12 @@ fuentes:
   - url: https://www.argentina.gob.ar/obras-publicas/sisu/renabap
     titulo: 'ReNaBaP — Registro Nacional de Barrios Populares (Argentina.gob.ar)'
     consultada: '2026-09-22'
+  - url: https://participedia.net/method/asset-based-community-development
+    titulo: 'Asset-Based Community Development — método (Participedia)'
+    consultada: '2026-09-23'
+  - url: https://www.ipr.northwestern.edu/news/2024/remembering-john-mcknight.html
+    titulo: 'Remembering John McKnight — Institute for Policy Research, Northwestern University'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-09-22'
 ---
 
@@ -20,7 +26,7 @@ revisarAntesDe: '2027-09-22'
 
 El primer error que comete la mayoría cuando quiere organizar su barrio es empezar por los **problemas**: la inseguridad, la basura, las calles rotas. Pero si empezás por los problemas, te vas a deprimir antes de empezar.
 
-El **mapeo de activos** (Asset-Based Community Development) propone lo contrario: empezá por lo que ya funciona, por lo que ya existe, por las fortalezas que tu barrio ya tiene.
+El **mapeo de activos** —lo que en inglés se llama Asset-Based Community Development, el enfoque que John McKnight y Jody Kretzmann formalizaron en 1993 en el manual *Building Communities from the Inside Out*— propone lo contrario: empezá por lo que ya funciona, por lo que ya existe, por las fortalezas que tu barrio ya tiene.
 
 ### Los Cinco Tipos de Activos Barriales
 
@@ -35,7 +41,7 @@ El **mapeo de activos** (Asset-Based Community Development) propone lo contrario
 Salí a caminar tu barrio con ojos nuevos. Llevá un cuaderno o usá el celular. Anotá todo lo que veas:
 
 1. Caminá las calles principales y las laterales. Observá: ¿qué lugares están vivos? ¿dónde se junta la gente?
-2. Hablá con los comerciantes. Ellos conocen al barrio mejor que nadie.
+2. Hablá con los comerciantes. Ven pasar al barrio entero todos los días y lo conocen como pocos.
 3. Visitá las instituciones. Preguntá: ¿qué actividades hacen? ¿tienen espacio disponible?
 4. Identificá a los "conectores naturales": esas personas que conocen a todo el mundo.
 
@@ -53,7 +59,7 @@ Un mapa guardado en un cajón no sirve. Llevalo a la primera reunión, pegalo en
 
 Dibujá un mapa simple de tu barrio (a mano, en una hoja grande). Marcá con colores distintos: personas clave (rojo), organizaciones (azul), espacios (verde), comercios (amarillo). Este mapa va a ser tu herramienta fundamental durante todo el curso.
 
-> "No se trata de lo que le falta al barrio. Se trata de lo que el barrio ya tiene y todavía no sabe que tiene." — Principio del mapeo de activos
+> "No se trata de lo que le falta al barrio. Se trata de lo que el barrio ya tiene y todavía no sabe que tiene."
 
 ### El puente
 

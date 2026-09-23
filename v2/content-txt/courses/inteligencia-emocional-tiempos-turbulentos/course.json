@@ -5,7 +5,7 @@
   "excerpt": "Ganale margen a la reacción: prácticas situadas de regulación, cuidado y conversación para tiempos inciertos.",
   "category": "reflection",
   "level": "beginner",
-  "duration": 37,
+  "duration": 41,
   "orderIndex": 16,
   "isPublished": true,
   "isFeatured": true,
@@ -16,7 +16,7 @@
       "key": "02-que-son-las-emociones-y-como-funcionan-en-tu-cuerpo",
       "title": "¿Qué Son las Emociones y Cómo Funcionan en Tu Cuerpo?",
       "description": "Diferenciá sensación, emoción, interpretación e impulso sin reducirlos a una sola causa cerebral.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 1
     },
     {
@@ -44,7 +44,7 @@
       "key": "06-tus-gatillos-emocionales-dinero-politica-y-familia",
       "title": "Tus Gatillos Emocionales: Dinero, Política y Familia",
       "description": "Identificá gatillos vinculados con dinero, política y familia sin atribuirlos a toda persona argentina.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 5
     },
     {
@@ -58,14 +58,14 @@
       "key": "08-empatia-practica-entender-al-otro-sin-perderte",
       "title": "Empatía Práctica: Entender al Otro sin Perderte",
       "description": "Desarrollá empatía genuina sin caer en la sobreidentificación ni el agotamiento emocional.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 7
     },
     {
       "key": "09-comunicacion-emocional-inteligente",
       "title": "Comunicación Emocional Inteligente",
       "description": "Aprendé a expresar lo que sentís de manera que construya puentes en vez de muros.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {

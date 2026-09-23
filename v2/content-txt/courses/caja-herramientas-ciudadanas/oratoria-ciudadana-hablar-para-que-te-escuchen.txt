@@ -6,6 +6,10 @@ summary: 'Técnicas básicas de comunicación oral para asambleas, audiencias p�
 orderIndex: 3
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.argentina.gob.ar/normativa/nacional/90763/texto
+    titulo: 'Decreto 1172/2003, Anexo I — Reglamento General de Audiencias Públicas para el Poder Ejecutivo Nacional, artículos 11 y 21 (Argentina.gob.ar)'
+    consultada: '2026-09-23'
 ---
 ### Por qué importa
 
@@ -19,13 +23,13 @@ No necesitás ser Perón para hablar en público. No necesitás carisma sobrenat
 
 Todo discurso ciudadano efectivo tiene 3 partes:
 
-1. **Gancho (30 seg):** Arrancá con algo que capture la atención. Un dato impactante, una pregunta, una historia personal breve. "¿Sabían que en este barrio hay 200 chicos sin vacante escolar?"
+1. **Gancho (30 seg):** Arrancá con algo que capture la atención. Un dato impactante (que puedas mostrar de dónde sale), una pregunta, una historia personal breve. "¿Sabían que en este barrio hay 200 chicos sin vacante escolar?"
 2. **Cuerpo (2-4 min):** Tu argumento. Máximo 3 puntos. No intentes decir todo — decí lo esencial. Usá ejemplos concretos, datos verificables, historias reales.
 3. **Cierre (30 seg):** ¿Qué querés que hagan después de escucharte? Pedí algo concreto: "Necesitamos que el Concejo vote este proyecto antes del 30 de junio."
 
-### Historia Real
+### Un caso para pensar: la portera que pidió la palabra
 
-Graciela Mendoza tiene 58 años y es portera de una escuela en Moreno, provincia de Buenos Aires. En 2023, cuando el municipio anuncia que va a cerrar el comedor escolar de su escuela, Graciela decide hablar en la audiencia pública del Concejo Deliberante. Nunca habló en público en su vida. Se prepara durante una semana: escribe tres puntos en una tarjeta, practica frente al espejo del baño, y le pide a su hija que la cronometre. El día de la audiencia, le tiemblan las manos. Pero arranca con un dato: "Yo sirvo 340 platos de comida por día. Para 86 de esos chicos, es la única comida caliente del día. Los conozco por nombre." Habla 2 minutos y 40 segundos. Tres concejales lloran. El cierre del comedor se frena. Un periodista local filma su discurso y se viraliza. Graciela no es oradora — es auténtica. Y eso es más poderoso que cualquier técnica retórica.
+Imaginá a Graciela, 58 años, portera de una escuela del conurbano bonaerense. Un día se entera de que el comedor de su escuela va a cerrar y decide anotarse para hablar en la audiencia pública del Concejo Deliberante. Nunca habló en público en su vida. Se prepara durante una semana: escribe tres puntos en una tarjeta, practica frente al espejo del baño y le pide a su hija que la cronometre. El día de la audiencia le tiemblan las manos. Pero arranca con un dato que nadie en la sala conoce mejor que ella: "Yo sirvo 340 platos de comida por día. Para 86 de esos chicos, es la única comida caliente del día. Los conozco por nombre." Habla menos de tres minutos. Que eso alcance para frenar el cierre depende de muchas cosas que ella no controla. Pero algo ya cambió: nadie en ese Concejo puede decir que no sabía a quién afectaba la decisión, y lo que dijo queda en el registro de la sesión. Graciela no es oradora: habla de lo que conoce. Y eso pesa más que cualquier técnica retórica.
 
 ### Los 5 Errores Más Comunes
 
@@ -37,7 +41,7 @@ Graciela Mendoza tiene 58 años y es portera de una escuela en Moreno, provincia
 
 ### Hablar en Contextos Específicos
 
-- **Audiencia pública:** Tenés 3-5 minutos. Sé preciso, citá datos, dejá tu presentación por escrito.
+- **Audiencia pública:** El tiempo lo fija el reglamento de cada audiencia. En las que convoca el Poder Ejecutivo Nacional, el reglamento del Decreto 1172/2003 dice que puede participar toda persona que invoque un derecho o interés relacionado con el tema (artículo 11) y te garantiza una intervención oral de por lo menos cinco minutos (artículo 21). En concejos deliberantes y legislaturas, fijate el reglamento local. Sé preciso, citá datos, dejá tu presentación por escrito.
 - **Asamblea vecinal:** Sé propositivo. No solo señales el problema — traé una propuesta de solución.
 - **Medios de comunicación:** Preparate 2-3 frases clave (sound bites). Los medios te van a editar — asegurate de que lo que quede sea lo esencial.
 - **Redes sociales:** Video corto (60 seg), mirando a cámara, bien iluminado. Hablá como le hablarías a un amigo.

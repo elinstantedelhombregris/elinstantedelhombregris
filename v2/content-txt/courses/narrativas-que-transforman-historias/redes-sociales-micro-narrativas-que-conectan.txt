@@ -13,6 +13,10 @@ fuentes:
   - url: https://www.csjn.gov.ar/archivo-cij/nota-19113-La-Corte-Suprema-presenta-el-Primer-Registro-Nacional-de-Femicidios-de-la-Justicia-Argentina.html
     titulo: 'La Corte Suprema presenta el primer Registro Nacional de Femicidios de la Justicia Argentina (CIJ)'
     consultada: '2026-09-22'
+  - url: https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/argentina
+    titulo: 'Digital News Report 2025 — Argentina (Reuters Institute, Universidad de Oxford)'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-06-30'
 ---
 
 ## Contar Historias en 280 Caracteres
@@ -25,26 +29,28 @@ Las redes sociales no son enemigas de las buenas historias. Son un **formato dif
 - **Instagram:** Visual primero. La imagen o video debe impactar antes de que lean el caption. Reels de 30-60 segundos con una sola historia. Carruseles para narrativas paso a paso.
 - **TikTok:** Autenticidad sobre producción. El formato "mirá lo que descubrí" o "te cuento algo que nadie te dice" funciona para temas sociales.
 - **Facebook:** Publicaciones más largas, grupos temáticos. Funciona para comunidades específicas y audiencias de mayor edad.
-- **WhatsApp:** El boca a boca digital. Un audio de 1 minuto con una historia personal puede ser más viral que cualquier post.
+- **WhatsApp:** El boca a boca digital. Un audio de 1 minuto con una historia personal puede circular más que muchos posts.
 
 ### Reglas de Oro para Redes
 
 1. **Una idea por publicación.** No intentes decir todo en un post.
-2. **Gancho en las primeras palabras.** En redes, tenés 1 segundo para captar atención.
+2. **Gancho en las primeras palabras.** En redes, quien lee decide en un instante si sigue o pasa de largo.
 3. **Lo personal supera lo abstracto.** "Hoy vi algo en el colectivo que me hizo pensar" > "La situación social es preocupante."
-4. **Invitá a la conversación.** Las publicaciones que terminan con una pregunta genuina generan más engagement que las que terminan con una afirmación.
+4. **Invitá a la conversación.** Una publicación que termina con una pregunta genuina deja una puerta abierta para responder; una que termina con una afirmación, no.
 5. **Constancia sobre viralidad.** Mejor publicar 3 veces por semana consistentemente que buscar el viral del año.
 
-### Demografía de Plataformas en Argentina: Dónde Está Tu Audiencia
+### Dónde Está Tu Audiencia en Argentina
 
-No todas las plataformas son iguales en Argentina. Conocer **quién está dónde** te permite elegir el canal correcto para tu historia:
+No todas las plataformas son iguales, y no todas sirven para lo mismo. Conviene desconfiar de los rankings de «penetración» que circulan sin fuente: cambian de un año a otro y casi nunca dicen a quién le preguntaron. Un dato medido sirve más. El *Digital News Report 2025* del Reuters Institute de la Universidad de Oxford encontró que en la Argentina seis de cada diez encuestados se informan por redes sociales; casi cuatro de cada diez usan Facebook para noticias, el 35% Instagram y apenas el 12% X. El mismo informe registra que WhatsApp perdió peso como fuente de información. Con eso en la mano, una guía de uso:
 
-- **WhatsApp (95% de penetración):** La red dominante. Todas las edades, todos los niveles socioeconómicos. Los grupos de WhatsApp son el verdadero espacio público argentino. Un audio de 1 minuto en un grupo de vecinos tiene más alcance real que un post viral en Twitter. *Ideal para:* historias en formato audio, cadenas de texto con datos concretos, videos cortos (menos de 1 minuto).
-- **Instagram (78% de usuarios de internet):** Dominante en 18-45 años. Nivel socioeconómico medio-alto predominante pero creciendo en todos los segmentos. Reels es el formato rey: el algoritmo favorece contenido local. *Ideal para:* Reels de 30-60 segundos, carruseles informativos, Stories con encuestas.
-- **TikTok (62% de usuarios de internet):** Explosión en 16-35 años, pero crecimiento acelerado en mayores de 40. Un video sin seguidores puede llegar a mucha gente si conecta. *Ideal para:* contenido crudo y auténtico, formato «te cuento algo», humor con mensaje social.
-- **Facebook (67% de usuarios de internet):** Audiencia mayoritaria de más de 35 años. Los grupos temáticos siguen siendo poderosos: grupos de barrio, de profesiones, de intereses. *Ideal para:* textos más largos, compartir artículos, movilizar comunidades específicas.
-- **Twitter/X (25% de usuarios de internet):** Audiencia pequeña pero influyente: periodistas, políticos, formadores de opinión. *Ideal para:* hilos con datos, denuncias con evidencia, debates con personas de influencia.
-- **YouTube (85% de usuarios de internet):** La plataforma de contenido largo. Todas las edades. *Ideal para:* documentales cortos (5-15 minutos), tutoriales, entrevistas en profundidad.
+- **WhatsApp:** El canal de los grupos de vecinos, de la escuela, de la familia. Lo que llega por ahí lo manda alguien con nombre, y eso pesa. Un audio de 1 minuto en un grupo de vecinos puede llegar más lejos, entre la gente que te importa, que un posteo que nadie del barrio ve. *Ideal para:* historias en formato audio, textos cortos con datos concretos y su fuente, videos de menos de 1 minuto.
+- **Instagram:** Visual primero; Reels, carruseles y Stories. El 35% de los encuestados del Reuters Institute se informa por ahí. *Ideal para:* Reels de 30-60 segundos, carruseles informativos, Stories con encuestas.
+- **TikTok:** Premia lo crudo y lo auténtico, y un video de una cuenta sin seguidores puede llegar lejos si conecta. *Ideal para:* contenido directo, formato «te cuento algo», humor con mensaje social.
+- **Facebook:** Casi cuatro de cada diez encuestados dicen informarse por ahí, y sus grupos temáticos —de barrio, de profesiones, de intereses— siguen vivos. *Ideal para:* textos más largos, compartir artículos, movilizar comunidades específicas.
+- **Twitter/X:** Audiencia chica pero con periodistas, políticos y formadores de opinión. *Ideal para:* hilos con datos, denuncias con evidencia, debates con personas de influencia.
+- **YouTube:** La plataforma del contenido largo. *Ideal para:* documentales cortos (5-15 minutos), tutoriales, entrevistas en profundidad.
+
+Antes de elegir, preguntá. Hacé una encuesta de dos preguntas en tu grupo o tu barrio —«¿por dónde te enterás de lo que pasa acá?» y «¿qué fue lo último que reenviaste?»— y dejá que las respuestas elijan el canal.
 
 > "Las redes sociales son el espacio público más grande que jamás existió. Podés usarlas para quejarte, para consumir, o para contar historias que muevan a la gente. Elegí contar."
 

@@ -13,13 +13,19 @@ fuentes:
   - url: https://www.argentina.gob.ar/noticias/la-linea-nacional-de-orientacion-y-apoyo-en-la-urgencia-de-salud-mental-funciona-las-24
     titulo: 'Argentina.gob.ar — La Línea Nacional de Orientación y Apoyo en la Urgencia de Salud Mental funciona las 24 horas'
     consultada: '2026-09-22'
+  - url: https://plato.stanford.edu/entries/heidegger/
+    titulo: 'Stanford Encyclopedia of Philosophy — Martin Heidegger'
+    consultada: '2026-09-23'
+  - url: https://speakingofjung.com/blog/2021/9/12/the-middle-passage
+    titulo: 'Speaking of Jung — The Middle Passage, con James Hollis'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-09-22'
 ---
 Hay un momento — a veces llega a los 25, a veces a los 40, a veces a los 60 — en que algo se quiebra adentro. No es una crisis espectacular. Es una sensación quieta de que **lo que estabas haciendo ya no tiene sentido**. El trabajo que antes te llenaba ahora te vacía. Las relaciones que mantenías por inercia se sienten como actuación. La persona que ves en el espejo se parece a vos pero no termina de ser vos. Bienvenido al desierto interior.
 
 ### El Momento del Quiebre
 
-El filósofo Martin Heidegger hablaba de la **angustia**: el momento en que de golpe todo lo familiar se vuelve extraño. No es depresión (aunque se le parece). Es la señal de que el camello llegó al centro del desierto y **el peso que cargaba ya no lo sostiene — lo aplasta**.
+El filósofo Martin Heidegger hablaba de la **angustia**: el momento en que de golpe todo lo familiar se vuelve extraño. Las cosas siguen ahí, pero dejan de importar, y el mundo que funcionaba solo se muestra como lo que es: algo que sostenías vos. No es depresión (aunque se le parece). Es la señal de que el camello llegó al centro del desierto y **el peso que cargaba ya no lo sostiene — lo aplasta**.
 
 En Argentina este momento tiene detonantes propios: la enésima crisis económica que te quita lo que construiste, el trabajo que perdiste después de darlo todo, el momento en que tu hijo te pregunta "¿para qué estudiás si igual no alcanza?". O simplemente un domingo a la tarde, mirando el techo, con la sensación de que *tiene que haber algo más que esto*.
 
@@ -35,7 +41,7 @@ La reacción automática frente al desierto interior es **huir**. Llenarnos de r
 
 Acá está la paradoja que la cultura del "siempre ocupado" no quiere que sepas: **el vacío es necesario**. Sin el desierto, el camello nunca se preguntaría por qué carga lo que carga. Sin la crisis, no hay transformación. Sin el silencio, no hay espacio para lo nuevo.
 
-El psicólogo James Hollis lo llama **"la pregunta del mediodía"**: a mitad de la vida (literal o metafórica), la persona descubre que el guión que estaba siguiendo no era el suyo. Y tiene dos opciones: volver a llenarse de ruido y seguir como estaba, o **quedarse en el desierto el tiempo suficiente como para escuchar su propia voz**.
+El analista junguiano James Hollis llama a este tramo **"el Pasaje del Medio"** (*The Middle Passage*) y le pone una pregunta: *"¿Quién soy, aparte de mi historia y de los roles que desempeñé?"*. A mitad de la vida (literal o metafórica), la persona descubre que el guión que estaba siguiendo no era el suyo: que venía viviendo una adultez provisoria, armada con expectativas ajenas. Y tiene dos opciones: volver a llenarse de ruido y seguir como estaba, o **quedarse en el desierto el tiempo suficiente como para escuchar su propia voz**.
 
 Es como un vaso que está lleno de agua sucia. Para llenarlo con agua limpia, primero tenés que vaciarlo. El vacío no es el problema — es la **condición necesaria para lo que viene**.
 

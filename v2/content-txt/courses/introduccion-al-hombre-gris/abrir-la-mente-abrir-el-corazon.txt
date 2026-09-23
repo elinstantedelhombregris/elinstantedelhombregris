@@ -6,6 +6,16 @@ summary: 'La mente cerrada como impureza, la vulnerabilidad como fortaleza, y la
 orderIndex: 7
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.momat.go.jp/craft-museum/en/exhibitions/571
+    titulo: 'Kintsugi — National Crafts Museum (Museo Nacional de Arte Moderno de Tokio)'
+    consultada: '2026-09-23'
+  - url: https://www.0221.com.ar/la-plata/asi-fue-la-tormenta-que-la-plata-causo-la-inundacion-del-2-abril-2013-y-causo-al-menos-89-muertes-n125608
+    titulo: 'Así fue la tormenta que en La Plata causó la inundación del 2 de abril de 2013 y causó al menos 89 muertes (0221)'
+    consultada: '2026-09-23'
+  - url: https://www.pagina12.com.ar/diario/elpais/1-217438-2013-04-06.html
+    titulo: 'La solidaridad, en todo el país (Página/12, 6/4/2013)'
+    consultada: '2026-09-23'
 ---
 
 ## La escoria más difícil de remover
@@ -38,7 +48,7 @@ Ahora preguntate: *"¿Qué siento cuando pienso en esta persona como un ser huma
 
 ### Vulnerabilidad: la grieta que deja entrar la luz
 
-Existe en Japón un arte llamado ***kintsugi***: el arte de reparar cerámica rota con oro. En vez de esconder la rotura, la celebra. La grieta reparada con oro se convierte en la parte más bella de la pieza. El objeto no es valioso *a pesar* de haberse roto — es valioso *porque* se rompió y fue reparado con algo precioso.
+Existe en Japón un arte llamado ***kintsugi***: el arte de reparar las grietas y las roturas de la cerámica con laca y polvo de oro. En vez de esconder la rotura, la celebra. La grieta reparada con oro se convierte en la parte más bella de la pieza. El objeto no es valioso *a pesar* de haberse roto — es valioso *porque* se rompió y fue reparado con algo precioso.
 
 El Hombre Gris practica un *kintsugi* argentino: **soldar con luz lo que se rompió con oscuridad**. No se trata de esconder las heridas, las contradicciones, los errores. Se trata de mostrarlos — y de repararlos con honestidad, con comunidad, con amor.
 
@@ -46,13 +56,13 @@ Mostrar las grietas no es debilidad. Es autenticidad. Y la autenticidad es magn�
 
 ### Historias que abren
 
-El cambio no empieza con teorías. Empieza con historias. Historias de personas reales que eligieron abrir cuando todo les decía que cerraran:
+El cambio no empieza con teorías. Empieza con historias. Una que está en los diarios y dos para imaginar, aunque cualquiera que viva en este país conoce alguna parecida — historias de gente que eligió abrir cuando todo le decía que cerrara:
 
-**La inundación de La Plata, 2013.** En medio del agua, del barro y del desastre, desaparecieron las camisetas de fútbol, las banderas partidarias y las grietas ideológicas. El vecino kirchnerista le pasó una soga al vecino macrista. La señora del country cocinó para la familia de la villa. Nadie preguntó a quién votaba el otro antes de sacarle la cabeza del agua. **En el momento de máxima crisis, la humanidad compartida fue más fuerte que cualquier polarización.**
+**La inundación de La Plata, 2013.** El 2 de abril cayeron 392 milímetros en un día, más de 300 en cuatro horas, y murieron al menos 89 personas. Tres días después, *Página/12* contaba que llegaban camiones con donaciones desde distintos puntos del país y que el reparto lo organizaban voluntarios de organizaciones sociales, sindicatos y partidos políticos, «y también sin ninguna pertenencia orgánica». En medio del agua, del barro y del desastre, las camisetas de fútbol y las banderas partidarias pesaron menos que una soga. La crónica no pregunta a quién votaba el que ayudaba ni a quién el que recibía, y justamente por eso. **En el momento de máxima crisis, la humanidad compartida pudo más que la polarización.**
 
-**El comedor de Don Héctor.** En un barrio del conurbano, un jubilado que cobra la mínima abre su casa tres veces por semana para darle de comer a 40 pibes. Cuando le preguntan por qué, no habla de política ni de ideología. Dice: *"Porque me acuerdo de cuando yo tenía hambre y alguien me dio un plato."* La cadena de humanidad no necesita explicaciones teóricas.
+**Imaginá el comedor de Don Héctor.** En un barrio del conurbano, un jubilado que cobra la mínima abre su casa tres veces por semana para darle de comer a 40 pibes. Cuando le preguntan por qué, no habla de política ni de ideología. Dice: *"Porque me acuerdo de cuando yo tenía hambre y alguien me dio un plato."* La cadena de humanidad no necesita explicaciones teóricas.
 
-**El mate en la plaza.** Dos desconocidos en una plaza de Córdoba. Uno con gorra de Milei, otro con remera del Che. Se sientan en el mismo banco porque no hay otro. Uno ofrece mate. El otro acepta. Dos horas después se están riendo de las mismas cosas, descubriendo que sus hijos van a la misma escuela, que comparten el mismo miedo de no llegar a fin de mes. **La etiqueta decía "enemigos". La humanidad dijo "prójimos".**
+**Imaginá el mate en la plaza.** Dos desconocidos en una plaza de Córdoba. Uno con gorra de Milei, otro con remera del Che. Se sientan en el mismo banco porque no hay otro. Uno ofrece mate. El otro acepta. Dos horas después se están riendo de las mismas cosas, descubriendo que sus hijos van a la misma escuela, que comparten el mismo miedo de no llegar a fin de mes. **La etiqueta decía "enemigos". La humanidad dijo "prójimos".**
 
 ---
 

@@ -55,11 +55,11 @@
       "orderIndex": 4
     },
     {
-      "question": "La falta de titular definitivo en la Defensoría del Pueblo demuestra, por sí sola, que no recibe actuaciones ni produce informes.",
+      "question": "Para designar al Defensor del Pueblo de la Nación alcanza con la mayoría simple de cada Cámara del Congreso.",
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "La vacancia y la actividad institucional son dimensiones distintas. Para evaluar capacidad y límites hay que verificar autoridades, canales, actuaciones e informes actuales, además del marco legal.",
+      "explanation": "Falso. El artículo 86 de la Constitución pide los dos tercios de los presentes en cada Cámara, y ese acuerdo no apareció desde 2009: por eso la Defensoría nacional sigue sin titular, como cuenta la lección «Organismos de Control».",
       "points": 1,
       "orderIndex": 5
     },
@@ -73,7 +73,7 @@
         "Defensoría del Pueblo"
       ],
       "correctAnswer": 2,
-      "explanation": "La Constitución establece que la AGN es presidida por un miembro de la primera minoría parlamentaria.",
+      "explanation": "La Constitución (artículo 85) establece que el presidente de la AGN se designa a propuesta del partido político de oposición con mayor número de legisladores en el Congreso.",
       "points": 2,
       "orderIndex": 6
     },
@@ -101,30 +101,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Periodismo Ciudadano y Denuncia Efectiva» a una situación real?",
+      "question": "Vas a denunciar ante la Oficina Anticorrupción una irregularidad en un organismo nacional y querés poder seguir el estado del trámite. Según la lección, ¿qué modalidad elegís?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Anónima, porque el formulario web te da un número para consultar el avance",
+        "Con identidad reservada, porque tu nombre queda protegido incluso ante el juez",
+        "Con identificación, porque es la única de las tres que permite seguir el trámite",
+        "Cualquiera de las tres, porque el seguimiento depende del canal y no de la modalidad"
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "La lección «Periodismo Ciudadano y Denuncia Efectiva» lo dice: sólo quien se identifica puede seguir el estado del trámite. La identidad reservada protege tu nombre en el ámbito administrativo, pero el juez que intervenga puede pedirlo.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan de Auditoría: 30 Días de Control Ciudadano» a una situación real?",
+      "question": "El plan de 30 días pone el pedido de acceso a la información en los días 8 a 10 y la respuesta en los días 20 y 21. ¿Qué problema le encuentra la lección a ese calendario?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Un plan práctico de 30 días para ejercer control ciudadano real.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Con 15 días hábiles, un pedido del día 8 vence cerca del día 29: conviene pedirlo en la semana 1",
+        "Ninguno: 15 días hábiles equivalen a dos semanas corridas, así que la respuesta llega a tiempo",
+        "El pedido tendría que esperar a la semana 4, cuando ya tengas escrito tu análisis de lo encontrado",
+        "Si el organismo no contesta en 15 días hábiles, hay que volver a presentar el pedido desde cero"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección «Tu Plan de Auditoría» hace la cuenta: quince días hábiles son tres semanas corridas, más si cae un feriado, y con prórroga la respuesta queda fuera de los treinta días. Por eso propone adelantar el pedido a la semana 1 y usar la semana 3 para controlar si el organismo pidió prórroga.",
       "points": 1,
       "orderIndex": 10
     }

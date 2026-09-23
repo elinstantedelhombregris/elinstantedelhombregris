@@ -20,7 +20,7 @@ revisarAntesDe: '2027-03-22'
 
 Si tu grupo barrial no tiene conflictos, probablemente no está haciendo nada importante. El conflicto es señal de que hay **diversidad de opiniones y pasión genuina**. El problema no es el conflicto sino cómo lo manejamos.
 
-### Los 4 Conflictos Más Comunes en Grupos Barriales
+### Cuatro Conflictos Que Aparecen Seguido en Grupos Barriales
 
 1. **El que quiere mandar:** Alguien que empieza a tomar decisiones solo, sin consultar. Solución: recordar los acuerdos de funcionamiento y rotar roles.
 2. **El que critica todo pero no hace nada:** Tiene opinión sobre todo pero nunca se ofrece a hacer algo. Solución: "¿Vos qué proponés? ¿Te animás a encargarte?"
@@ -33,7 +33,7 @@ Si tu grupo barrial no tiene conflictos, probablemente no está haciendo nada im
 - **Paso 2:** Escuchar ambas partes sin interrumpir. Usar un objeto que se pasa (el que tiene el objeto, habla).
 - **Paso 3:** Buscar la necesidad detrás de la posición. "¿Qué necesitás realmente?"
 - **Paso 4:** Proponer soluciones que atiendan ambas necesidades.
-- **Paso 5:** Si no hay acuerdo, votar. La mayoría decide, la minoría acepta.
+- **Paso 5:** Si no hay acuerdo, llevar la propuesta ajustada a la ronda de consentimiento que el grupo ya usa: nadie tiene que estar entusiasmado, pero nadie puede quedar con una objeción seria sin resolver. Si después de dos rondas sigue trabado, no se resuelve por mayoría a las apuradas: se pospone al encuentro siguiente o se busca a alguien de afuera que medie.
 
 ### La Regla de las 24 Horas
 

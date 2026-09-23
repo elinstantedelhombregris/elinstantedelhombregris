@@ -27,7 +27,7 @@
       "orderIndex": 2
     },
     {
-      "question": "¿Qué nivel de intervención sistémica tiene mayor impacto según Donella Meadows?",
+      "question": "Entre estas opciones, ¿cuál tiene mayor impacto en la escala de Donella Meadows que usa la lección?",
       "type": "multiple_choice",
       "options": [
         "Cambiar parámetros (impuestos, tasas)",
@@ -36,7 +36,7 @@
         "Modificar regulaciones"
       ],
       "correctAnswer": 2,
-      "explanation": "Los modelos mentales y los objetivos del sistema son los niveles más profundos y transformadores de intervención.",
+      "explanation": "En «Puntos de Apalancamiento» los objetivos del sistema y los modelos mentales son los niveles 6 y 7, los más transformadores de esa lista. En la lista original, Meadows pone uno más arriba todavía: la capacidad de no quedar atado a ningún paradigma.",
       "points": 2,
       "orderIndex": 3
     },
@@ -96,58 +96,58 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «El Estado como Botín: Captura Institucional» a una situación real?",
+      "question": "En «El Estado como Botín», ¿qué muestra lo que pasó con el Decreto 93/2018, que prohibía designar a parientes de los altos funcionarios?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo los intereses privados capturan las instituciones públicas.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que la prohibición fracasó porque dejaba afuera a los cónyuges de los funcionarios alcanzados.",
+        "Que la Justicia la anuló por invadir la facultad del presidente de nombrar a sus funcionarios.",
+        "Que era demasiado amplia, porque alcanzaba incluso a quienes habían entrado por concurso.",
+        "Que una regla escrita por decreto la achica otro decreto, firmado por el poder que debía controlar."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "El Decreto 12 de diciembre de 2023, del gobierno que asumía ese día, acotó la prohibición. La lección concluye que una regla contra la captura que depende de la firma de quien debería quedar controlado dura lo que dura esa firma.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «El Patrón de la Queja sin Acción» a una situación real?",
+      "question": "Según «El Patrón de la Queja sin Acción», ¿qué exige la Ley 24.747 para que un proyecto de iniciativa popular obligue al Congreso a tratarlo?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: La cultura del lamento como mecanismo de descarga que reemplaza la acción.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Las firmas de al menos el 1,5% del padrón de la última elección de diputados, repartidas en al menos seis distritos.",
+        "Las firmas de al menos el 3% del padrón nacional, sin importar en cuántos distritos se junten.",
+        "El 1,5% del padrón y, además, el aval de un bloque de diputados que presente el proyecto.",
+        "Un millón de firmas, que es lo que reunió «El hambre más urgente» en 2002."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección explica que la ley pide el 1,5% del padrón repartido en al menos seis distritos, y que entonces el Congreso debe tratarlo dentro de los doce meses. El millón de firmas fue lo que juntó esa campaña, no el requisito.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Puntos de Apalancamiento: Dónde Intervenir» a una situación real?",
+      "question": "En «Puntos de Apalancamiento», ¿qué enseña el caso de la Boleta Única de Papel usada en las legislativas de 2025?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que fue un cambio de parámetros, el nivel más bajo de la escala, y por eso no mejoró nada del voto.",
+        "Que al cambiar quién decide qué, subió la participación a su mejor nivel desde 1983.",
+        "Que un cambio de reglas mejoró cómo se vota pero no por qué menos gente va a votar, causa de niveles más altos.",
+        "Que demostró que las reglas son el nivel de mayor impacto, por encima de los modelos mentales."
       ],
       "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección la ubica como cambio de reglas: atacó el robo de boletas y el costo de impresión. Pero ese día votó el 68% del padrón, la participación más baja desde 1983, y la causa vive en los objetivos del sistema y los modelos mentales.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Diseño Idealizado: La Argentina que Podemos Construir» a una situación real?",
+      "question": "Según «Diseño Idealizado», ¿qué límites le pone Russell Ackoff al ejercicio?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Ejercicio de diseño idealizado: si pudieras diseñar Argentina desde cero, ¿cómo sería?."
+        "Que use sólo recursos que el presupuesto de hoy pueda pagar y que se pueda implementar ya.",
+        "Que use tecnología que ya se sabe factible y pueda sobrevivir en el entorno actual, aunque todavía no se implemente.",
+        "Ninguno: si el sistema se destruyó anoche, vale imaginar cualquier cosa, incluso ciencia ficción.",
+        "Que conserve las instituciones que hoy funcionan y reemplace sólo las que fallan."
       ],
-      "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 1,
+      "explanation": "La lección dice que Ackoff pone sólo dos límites: tecnología factible, para que no sea ciencia ficción, y viabilidad en el entorno actual aunque todavía no se pueda implementar. Suma un requisito: que el diseño pueda aprender y adaptarse rápido.",
       "points": 1,
       "orderIndex": 12
     }

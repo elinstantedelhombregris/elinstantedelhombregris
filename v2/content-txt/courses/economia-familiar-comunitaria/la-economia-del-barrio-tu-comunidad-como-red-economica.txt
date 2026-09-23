@@ -6,6 +6,13 @@ summary: Redescubrir el barrio como espacio de intercambio económico y resilien
 orderIndex: 4
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.redcame.org.ar/novedades/14151/del-productor-al-consumidor-los-precios-de-los-agroalimentos-se-multiplicaron-por-38-en-febrero
+    titulo: 'Del productor al consumidor, los precios de los agroalimentos se multiplicaron por 3,8 en febrero (CAME, IPOD, 16/3/2025)'
+    consultada: '2026-09-23'
+  - url: https://www.lanacion.com.ar/economia/la-hiper-le-gano-la-pulseada-al-trueque-nid519948/
+    titulo: 'La híper le ganó la pulseada al trueque (La Nación, 17/8/2003)'
+    consultada: '2026-09-23'
 ---
 ## El Barrio: La Economía que el Economista No Ve
 
@@ -16,14 +23,14 @@ Antes del supermercado existía el almacén. Antes de Rappi existía "el pibe qu
 En tu barrio circula una moneda que no imprime el Banco Central: la **confianza**. "Te fío hasta el viernes". "Te cuido al nene mientras vas al médico". "Te presto la escalera". Cada uno de estos actos es una transacción económica real que no aparece en ningún PBI pero sostiene la vida de millones de argentinos.
 
 - **Redes de reciprocidad:** "Yo te hago el pan, vos me arreglás el caño." No es trueque (no es simultáneo ni equivalente): es una red de favores basada en la confianza de que eventualmente "se devuelve".
-- **Compras colectivas:** 10 familias que se juntan para comprar directo al mayorista. Cada familia ahorra 20-30%. Requiere organización, pero el beneficio es enorme.
+- **Compras colectivas:** 10 familias que se juntan para comprar directo al mayorista. Cada familia paga menos que comprando sola; cuánto, depende del producto y del mayorista. Requiere organización, pero el beneficio se nota.
 - **Compartir recursos:** ¿Para qué tener 10 cortadoras de pasto en una cuadra si con 2 alcanza? Herramientas, vehículos, espacios: compartir es la forma más eficiente de usar recursos escasos.
 
 ### Ferias y Mercados Populares
 
 Las ferias barriales son mucho más que un lugar para comprar verdura barata:
 
-- **Circuito corto:** Del productor al consumidor, sin intermediarios que se quedan con el 60% del precio.
+- **Circuito corto:** Del productor al consumidor, con menos escalas en el medio. En febrero de 2025, según el índice de precios en origen y destino de CAME, el productor se quedó en promedio con el 24,4% de lo que pagó el consumidor por los alimentos de su canasta; el resto se lo repartieron flete, mayoristas, comercios e impuestos.
 - **Empleo local:** Cada puesto de feria es un microemprendimiento que sostiene una familia.
 - **Tejido social:** La feria es donde te encontrás con el vecino, charlás, te enterás de las novedades. Es plaza pública y mercado al mismo tiempo.
 - **Seguridad alimentaria:** Acceso a alimentos frescos a precios accesibles, especialmente en barrios donde no llegan los supermercados.
@@ -39,13 +46,13 @@ Hacé un mapeo rápido de tu red económica barrial. Dibujá un círculo en el c
 
 Este mapa es el punto de partida de tu economía barrial. Guardalo. Vas a volver a él al final del curso cuando armes tu plan de resiliencia completo.
 
-### Ejemplo Real: La Red del Barrio Güemes, Córdoba
+### Un Caso para Pensar: Una Red en Barrio Güemes, Córdoba
 
-En el barrio Güemes de Córdoba, un grupo de 25 familias armó un sistema que combina varias de estas estrategias. Los sábados organizan una "ronda de intercambios": alguien trae verduras de su quinta, otro ofrece cortes de pelo, otra enseña apoyo escolar. No usan dinero — usan una planilla compartida de Google donde anotan los intercambios. "No es que no tengamos pesos", explica Mirta, la coordinadora. "Es que para muchas cosas los pesos son innecesarios. Mi vecina me ayuda con las cuentas de la luz y yo le cuido a los chicos. ¿Para qué meter plata en el medio?" En 2023, con la inflación más alta en décadas, las familias del grupo reportaron que lograron cubrir entre un 15% y un 20% de sus necesidades mensuales **sin gastar un peso**, solo con intercambios vecinales.
+Imaginá a 25 familias del barrio Güemes, en Córdoba, que arman un sistema que combina varias de estas estrategias. Los sábados organizan una "ronda de intercambios": alguien trae verduras de su quinta, otro ofrece cortes de pelo, otra enseña apoyo escolar. No usan dinero — usan una planilla compartida de Google donde anotan los intercambios. "No es que no tengamos pesos", podría explicar Mirta, la coordinadora. "Es que para muchas cosas los pesos son innecesarios. Mi vecina me ayuda con las cuentas de la luz y yo le cuido a los chicos. ¿Para qué meter plata en el medio?" Cada necesidad del mes que una red así cubre con intercambios es una parte de la vida de esas familias que **deja de depender de la inflación**.
 
 ### Clubes de Trueque 2.0
 
-Los clubes de trueque del 2001 fracasaron por la falsificación de créditos y la falta de regulación. Pero el concepto era brillante. Hoy, con tecnología, se pueden crear **redes de intercambio digitales** mucho más robustas:
+Los clubes de trueque del 2001 fracasaron por la falsificación de créditos y por emitir sin respaldo: en 2003 circulaban diez créditos falsos por cada uno legítimo. Pero el concepto era brillante. Hoy, con tecnología, se pueden crear **redes de intercambio digitales** mucho más robustas:
 
 - Apps de intercambio de servicios entre vecinos
 - Bancos de tiempo donde una hora de tu trabajo vale una hora del mío
@@ -55,7 +62,7 @@ Los clubes de trueque del 2001 fracasaron por la falsificación de créditos y l
 
 No necesitás un sistema formal ni una app para arrancar. El primer paso es **hablar con tus vecinos**. Golpeá la puerta, escribí por WhatsApp, aprovechá el próximo encuentro en la vereda. Preguntá: "¿Necesitás algo que yo pueda ofrecerte? ¿Tenés algo que me pueda servir?" Esa simple pregunta, repetida suficientes veces, crea una red. Y esa red, cuando llega la próxima crisis — porque siempre llega —, es la diferencia entre hundirse solo o flotar juntos.
 
-> "La economía más resiliente del mundo no está en Silicon Valley ni en Wall Street. Está en el barrio argentino que sobrevivió a 5 crisis sin que nadie le diera un préstamo del FMI. Esa inteligencia colectiva es tu mayor activo económico."
+> "La economía más resiliente del mundo no está en Silicon Valley ni en Wall Street. Está en el barrio argentino que sobrevivió a una crisis tras otra sin que nadie le diera un préstamo del FMI. Esa inteligencia colectiva es tu mayor activo económico."
 
 ### El puente
 

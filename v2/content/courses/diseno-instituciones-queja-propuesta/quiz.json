@@ -45,7 +45,7 @@
       "type": "multiple_choice",
       "options": [
         "Con un número fijo de 500.000 firmas",
-        "Con al menos 1,5% del padrón usado en la última elección de diputados y representación de seis distritos, salvo el supuesto regional",
+        "Con al menos 1,5% del padrón usado en la última elección de diputados, repartido en seis distritos como mínimo",
         "Con mayoría simple de la Cámara de Diputados",
         "Con 3% de la población total estimada"
       ],
@@ -82,7 +82,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": true,
-      "explanation": "DemocracyOS fue creada en Argentina por el Partido de la Red para permitir deliberación ciudadana sobre proyectos de ley.",
+      "explanation": "DemocracyOS la lanzó en Buenos Aires, en 2012, el mismo grupo que un año después fundó el Partido de la Red, para permitir deliberación ciudadana sobre proyectos de ley. Hoy la desarrolla la ONG Democracia en Red.",
       "points": 1,
       "orderIndex": 7
     },
@@ -101,30 +101,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Comunicar Tu Propuesta: De la Idea al Apoyo Público» a una situación real?",
+      "question": "Según «Comunicar Tu Propuesta», cuando le presentás la propuesta a un concejal, ¿en qué conviene poner el acento?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo comunicar propuestas institucionales para generar apoyo.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "En los beneficios concretos y cercanos que va a notar en su calle",
+        "En la historia humana de quien empezó a juntar las firmas",
+        "En la viabilidad legal y en los precedentes que ya existen",
+        "En la eficiencia y en que cada peso de la obra quede a la vista"
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "La lección adapta el mensaje a cada audiencia: al concejal le habla la viabilidad legal y los precedentes; los beneficios cercanos son para vecinos, la historia humana para medios y la eficiencia para empresarios.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Propuesta Institucional: Proyecto Final» a una situación real?",
+      "question": "En el caso de las tarifas de gas de 2016 que cuenta el proyecto final, ¿qué ganó el CEPIS ante la Corte Suprema?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Diseñar una propuesta institucional concreta y un plan para implementarla.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que se anularan las resoluciones para usuarios residenciales porque faltó la audiencia pública que exige la ley",
+        "Que la Corte declarara injusto el monto del aumento y fijara una tarifa nueva para todos los usuarios",
+        "Que el Congreso quedara obligado a tratar en doce meses un proyecto ciudadano sobre tarifas",
+        "Que el Ministerio sometiera el aumento a una consulta popular vinculante antes de aplicarlo"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección lo presenta como un caso de canal, no de monto: la Ley 24.076 exige audiencia pública antes de fijar tarifas y no la hubo. Si el aumento era justo quedó abierto; lo que se ganó fue que nadie pudiera saltearse la audiencia.",
       "points": 1,
       "orderIndex": 10
     }

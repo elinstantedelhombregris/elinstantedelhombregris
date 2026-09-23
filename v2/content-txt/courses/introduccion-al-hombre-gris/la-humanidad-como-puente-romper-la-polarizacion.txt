@@ -6,6 +6,13 @@ summary: 'Cómo funciona la polarización, qué nos roba, y por qué la humanida
 orderIndex: 5
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.scientificamerican.com/article/experiments-in-intergroup-discrimin/
+    titulo: 'Henri Tajfel, «Experiments in Intergroup Discrimination» (Scientific American, noviembre de 1970)'
+    consultada: '2026-09-23'
+  - url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8256037/
+    titulo: 'Rathje, Van Bavel y van der Linden, «Out-group animosity drives engagement on social media» (PNAS, 2021)'
+    consultada: '2026-09-23'
 ---
 
 ## El mecanismo que nos parte al medio
@@ -14,13 +21,13 @@ Antes de intentar romper la polarización, necesitamos entender cómo funciona. 
 
 ### El cerebro que simplifica
 
-El cerebro humano evolucionó para sobrevivir, no para ser justo. Y una de sus herramientas de supervivencia más poderosas es la **categorización binaria**: amigo o enemigo, seguro o peligroso, nosotros o ellos. En la sabana africana, dividir el mundo en dos categorías rápidas podía salvarte la vida. No tenías tiempo para matices cuando un león te perseguía.
+La mente humana se formó para sobrevivir, no para ser justa. Y una de sus herramientas más rápidas es la **categorización binaria**: amigo o enemigo, seguro o peligroso, nosotros o ellos. La explicación que se suele dar es evolutiva, y conviene tomarla como hipótesis: en la sabana africana, dividir el mundo en dos categorías rápidas podía salvarte la vida. No tenías tiempo para matices cuando un león te perseguía.
 
-El problema es que ese mismo mecanismo, diseñado para una amenaza física inmediata, **se activa hoy frente a ideas, opiniones y personas que no representan ningún peligro real**. Alguien que vota distinto a vos no es un león. Pero tu cerebro, si no estás atento, lo procesa como si lo fuera.
+Lo que sí está medido es lo poco que hace falta para que el mecanismo arranque. En 1970, el psicólogo Henri Tajfel contó en *Scientific American* una serie de experimentos que lo llevaron a una conclusión incómoda: no hace falta un conflicto ni una historia de hostilidad; la mera división en grupos alcanza para disparar la discriminación. El problema es que ese mecanismo **se activa hoy frente a ideas, opiniones y personas que no representan ningún peligro real**. Alguien que vota distinto a vos no es un león. Pero la reacción, si no estás atento, se le parece.
 
 ### El amplificador digital
 
-Las redes sociales no inventaron la polarización — la pusieron en esteroides. Los algoritmos aprenden que **la indignación genera más clics que la reflexión**. Un posteo moderado y matizado pasa desapercibido. Uno furioso y extremo se viraliza. Y así, sin que nadie lo planifique conscientemente, las plataformas nos van empujando hacia versiones cada vez más extremas de nosotros mismos.
+Las redes sociales no inventaron la polarización — la pusieron en esteroides. **La animosidad contra el otro bando genera más interacción que la reflexión**: un estudio publicado en *PNAS* en 2021 analizó 2,7 millones de publicaciones de Facebook y Twitter y encontró que cada término referido al grupo político contrario aumentaba un 67% las chances de que la publicación se compartiera. Un posteo moderado y matizado pasa desapercibido. Uno furioso y extremo se viraliza. Y así, sin que nadie lo planifique conscientemente, las plataformas nos van empujando hacia versiones cada vez más extremas de nosotros mismos.
 
 Los medios de comunicación hacen lo mismo: **la grieta vende**. Un debate donde dos personas se escuchan y encuentran puntos en común no da rating. Dos personas gritándose, sí. Y así nos vamos acostumbrando a un mundo donde ganar una discusión importa más que encontrar la verdad.
 
@@ -51,8 +58,8 @@ Ser Hombre Gris en una discusión polarizada implica:
 La anti-polarización no es solo una idea bonita. Requiere **técnicas concretas** que se pueden practicar:
 
 1. **Preguntá "¿qué te preocupa?" antes de "¿qué opinás?"** — Las opiniones dividen. Las preocupaciones conectan. Atrás de toda posición política hay un miedo legítimo: miedo a la pobreza, a la inseguridad, a perder la identidad, a la injusticia. Cuando llegás al miedo, encontrás al humano.
-2. **Buscá el 10% en que coincidís** — Incluso con la persona más opuesta a vos en todo, hay un 10% de terreno común. Encontralo. Nombralo. Construí desde ahí.
-3. **Repetí lo que el otro dijo antes de responder** — "Si te entiendo bien, lo que decís es..." Esta técnica simple desarma el 80% de los conflictos, porque la mayoría de las peleas ocurren porque nadie se siente escuchado.
+2. **Buscá el pedazo en que coincidís** — Incluso con la persona más opuesta a vos en todo, hay algo de terreno común. Encontralo. Nombralo. Construí desde ahí.
+3. **Repetí lo que el otro dijo antes de responder** — "Si te entiendo bien, lo que decís es..." Esta técnica simple desarma muchos conflictos, porque muchas peleas empiezan cuando nadie se siente escuchado.
 4. **Distinguí entre la persona y el sistema** — Mucha gente sostiene posiciones extremas no por maldad sino por un ecosistema informativo que la empuja a eso. Enojarte con la persona es como enojarte con un pez por nadar en agua contaminada.
 
 ### La humanidad compartida: el puente más fuerte

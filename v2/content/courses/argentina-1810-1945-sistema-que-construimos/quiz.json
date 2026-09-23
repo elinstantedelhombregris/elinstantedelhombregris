@@ -41,7 +41,7 @@
       "orderIndex": 3
     },
     {
-      "question": "¿Cuál fue el principal \"bug de diseño\" del modelo de la Generación del 80?",
+      "question": "¿Cuál de estos rasgos figura en la lección entre los «bugs del diseño» del modelo de la Generación del 80?",
       "type": "multiple_choice",
       "options": [
         "La educación pública",
@@ -96,63 +96,63 @@
         "El golpe de 1943"
       ],
       "correctAnswer": 2,
-      "explanation": "El 17 de octubre de 1945, cientos de miles de trabajadores marcharon espontáneamente a Plaza de Mayo, marcando la irrupción de las masas en la política argentina.",
+      "explanation": "El 17 de octubre de 1945, una multitud de trabajadores, movida por la red sindical y por sus propias bases, llenó la Plaza de Mayo, marcando la irrupción de las masas en la política argentina.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Yrigoyen y el Radicalismo: La Primera Democracia Popular» a una situación real?",
+      "question": "La lección sobre Yrigoyen describe al radicalismo como «un partido con una sola llave». ¿Por qué ese diseño puede parecer eficaz y aun así colapsar?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: El primer gobierno democrático real y sus contradicciones sistémicas.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Porque premiar a los militantes con empleos públicos crea lealtades que se rompen cuando el Estado deja de pagar.",
+        "Porque intervenir las provincias opositoras debilita el federalismo y deja al partido sin apoyos en el interior.",
+        "Porque la neutralidad en la Primera Guerra le ganó enemigos en la élite que tarde o temprano iban a derrocarlo.",
+        "Porque si todo pasa por el líder nada se traba mientras él tiene energía, pero cuando le falta no hay otra puerta."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La lección lo plantea como un problema de diseño y no de villanos: si cada decisión espera turno en la misma puerta, el sistema anda mientras el líder puede y se queda sin salida cuando no puede. Por eso el radicalismo cayó con Yrigoyen y la Reforma de 1918, que era una regla, le sobrevivió.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «El Golpe de 1930: El Primer Cortocircuito» a una situación real?",
+      "question": "La reforma de 1994 contestó la acordada de 1930 con el artículo 36. Según la lección, ¿qué dice ese artículo sobre los actos de fuerza contra el orden institucional?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: El primer golpe militar como ruptura del sistema democrático y precedente fatal.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que un gobierno surgido de un acto de fuerza sólo es válido si el Congreso lo ratifica dentro de un plazo fijo.",
+        "Que son insanablemente nulos, y que sus autores quedan inhabilitados a perpetuidad y excluidos del indulto.",
+        "Que son nulos, pero que los actos de sus funcionarios valen por razones de policía y de necesidad.",
+        "Que la Corte ya no puede responder con acordadas y sólo puede pronunciarse en juicios con partes."
       ],
       "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "El artículo 36 dice que la Constitución mantiene su imperio aunque se interrumpa por la fuerza, declara esos actos «insanablemente nulos» e inhabilita a perpetuidad a sus autores, sin indulto ni conmutación. Es la acordada dada vuelta: las «razones de policía y de necesidad» que en 1930 convalidaban ya no convalidan nada.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «La Década Infame: Fraude, Dependencia y Exclusión» a una situación real?",
+      "question": "Según la lección sobre la Década Infame, ¿qué fijaba la letra chica del Pacto Roca-Runciman sobre la cuota de carnes?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Los años 30 como laboratorio de todos los vicios del sistema argentino.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que los frigoríficos argentinos distribuían como máximo el 15 % de la cuota y el resto quedaba para los extranjeros.",
+        "Que Gran Bretaña se comprometía a comprar al menos el 15 % de la carne argentina y el resto se vendía libremente.",
+        "Que cada embarque de carne a Gran Bretaña pagaba un derecho del 15 % a favor de los frigoríficos británicos.",
+        "Que el 15 % de las libras ganadas con la carne se destinaba a terminar de pagar el préstamo de la Baring Brothers."
       ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "El pacto, firmado en Londres el 1 de mayo de 1933, dejaba a los frigoríficos argentinos un máximo del 15 % de la cuota y comprometía las libras de la exportación a cubrir las remesas de las empresas británicas. La lección lo resume así: no hizo falta ocupar territorio para decidir quién faenaba y a quién se le pagaba primero.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «1943-1945: El Huevo de la Serpiente — Los Orígenes de Perón» a una situación real?",
+      "question": "Según la lección sobre los orígenes de Perón, ¿de qué norma nace el aguinaldo y cómo se consolidó?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: El surgimiento de Perón como producto del sistema y punto de inflexión histórico."
+        "De una ley del Congreso de 1944, impulsada por la Secretaría de Trabajo, que Perón reglamentó al llegar a la presidencia.",
+        "De la huelga general de la CGT del 18 de octubre, que lo arrancó como conquista, y de un decreto de 1946 que lo formalizó.",
+        "De un decreto del gobierno de facto de Farrell, de diciembre de 1945, que una ley del Congreso ratificó en 1947.",
+        "De un decreto de 1934 para los empleados de comercio, que en 1945 se extendió al resto de los trabajadores."
       ],
-      "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "El Decreto 33.302, del 20 de diciembre de 1945, obligó a pagar el sueldo anual complementario, y la Ley 12.921 lo ratificó en 1947: nació de un gobierno militar y le sobrevivió a Farrell, a Perón y al golpe de 1955. Lo de 1934 eran las vacaciones pagas de los empleados de comercio, no el aguinaldo.",
       "points": 1,
       "orderIndex": 12
     }

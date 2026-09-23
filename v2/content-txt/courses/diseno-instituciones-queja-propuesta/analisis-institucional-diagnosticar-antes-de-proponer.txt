@@ -35,7 +35,7 @@ La mayoría de los problemas institucionales no son de "gente mala" sino de **in
 - ¿Qué pierde si lo hace mal?
 - ¿Es más fácil/rentable/seguro hacer las cosas bien o mal?
 
-**Ejemplo:** Un juez no tiene incentivo para resolver causas rápido. Más causas abiertas = más presupuesto pedido. No hay penalización por demora. El sistema premia la lentitud. El problema no es "los jueces son vagos" sino que el diseño institucional no premia la eficiencia.
+**Ejemplo:** Pensá en un juzgado donde resolver rápido no le trae al juez ningún reconocimiento y demorar no le trae ninguna consecuencia concreta. En ese diseño, la lentitud no necesita jueces vagos para aparecer: alcanza con que nada la castigue ni nada premie lo contrario. El diagnóstico no es "los jueces son vagos" sino que el diseño institucional no premia la eficiencia.
 
 ### Pausa para Reflexionar
 

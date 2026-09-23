@@ -16,23 +16,48 @@ fuentes:
   - url: https://www.presupuestoabierto.gob.ar/sici/
     titulo: 'Presupuesto Abierto — Gobierno nacional'
     consultada: '2026-09-22'
+  - url: https://www.americasquarterly.org/fulltextarticle/partido-de-la-red-and-democracyos/
+    titulo: 'Partido de la Red and DemocracyOS — Americas Quarterly'
+    consultada: '2026-09-23'
+  - url: https://democraciaenred.org/
+    titulo: 'Democracia en Red — Participación ciudadana'
+    consultada: '2026-09-23'
+  - url: https://consuldemocracy.org/
+    titulo: 'CONSUL DEMOCRACY — software libre de participación ciudadana'
+    consultada: '2026-09-23'
+  - url: https://decidim.org/
+    titulo: 'Decidim — plataforma de participación democrática'
+    consultada: '2026-09-23'
+  - url: https://cargografias.org/
+    titulo: 'Cargografías'
+    consultada: '2026-09-23'
+  - url: https://directoriolegislativo.org/
+    titulo: 'Directorio Legislativo'
+    consultada: '2026-09-23'
+  - url: https://votaciones.hcdn.gob.ar/
+    titulo: 'Votaciones nominales — Honorable Cámara de Diputados de la Nación'
+    consultada: '2026-09-23'
+  - url: https://www.ushahidi.com/
+    titulo: 'Ushahidi — crowdsourcing and mapping platform'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-23'
 ---
 ## La Tecnología al Servicio de la Democracia
 
-La tecnología cívica ("civic tech") es el uso de herramientas digitales para **mejorar la participación ciudadana, la transparencia y la rendición de cuentas**. Argentina tiene un ecosistema de civic tech creciente que está creando herramientas poderosas.
+La tecnología cívica ("civic tech") es el uso de herramientas digitales para **mejorar la participación ciudadana, la transparencia y la rendición de cuentas**. En Argentina hay organizaciones que hacen esto desde hace años: Directorio Legislativo nació en el país en 2000, y DemocracyOS, en 2012.
 
 ### Plataformas de Participación
 
-- **Consul/Decidim:** Plataformas de código abierto usadas por muchos municipios para presupuesto participativo, propuestas ciudadanas y consultas. Buenos Aires usa Consul.
+- **Consul/Decidim:** Plataformas de software libre pensadas para presupuesto participativo, propuestas ciudadanas y consultas: cualquier municipio puede usarlas y modificarlas sin pagar licencia.
 - **Change.org / Avaaz:** Plataformas de peticiones online. No son vinculantes pero generan presión pública.
-- **DemocracyOS:** Plataforma argentina (creada por el Partido de la Red) para deliberación online sobre proyectos de ley.
+- **DemocracyOS:** Plataforma argentina de código abierto para deliberación online sobre proyectos de ley. La lanzó en 2012 un grupo de activistas y programadores de Buenos Aires que un año después fundó el Partido de la Red; hoy la desarrolla la ONG Democracia en Red, cuyas herramientas usaron Rosario, Vicente López, el Gobierno de la Ciudad y la Cámara de Diputados.
 
 ### Herramientas de Control
 
-- **Cargografías (cargografias.org):** Mapea las trayectorias de funcionarios públicos. ¿De dónde viene tu intendente? ¿Qué cargos tuvo?
-- **Directorio Legislativo:** Seguimiento de actividad parlamentaria. Qué votan tus legisladores, cuánto trabajan.
+- **Cargografías (cargografias.org):** Una línea de tiempo con los cargos públicos que ocupó cada funcionario a lo largo de su vida. ¿De dónde viene tu intendente? ¿Qué cargos tuvo? Hoy su equipo la está reconstruyendo.
+- **Directorio Legislativo:** Directorio de legisladores y seguimiento de la actividad parlamentaria en Argentina y en la región.
+- **Votaciones de la Cámara de Diputados (votaciones.hcdn.gob.ar):** El registro oficial de cómo votó cada diputado, con actas, videos y una base histórica que se puede exportar.
 - **Chequeado:** Verificación de datos y declaraciones de funcionarios.
-- **Dónde van mis impuestos (CIPPEC):** Visualización del presupuesto nacional.
 
 ### Datos que Ya Están Abiertos
 
@@ -40,7 +65,7 @@ Antes de construir una herramienta, fijate qué publica el Estado. Presupuesto A
 
 ### Pausa para Reflexionar
 
-Entrá mentalmente a cargografias.org o a Directorio Legislativo. ¿Sabés quién es tu diputado nacional? ¿Y tu senador? ¿Y tus concejales? Si no lo sabés, anotá buscarlo apenas termines esta lección. Es el primer paso del control ciudadano digital.
+Pensá en Directorio Legislativo o en el sitio de votaciones de la Cámara. ¿Sabés quién es tu diputado nacional? ¿Y tu senador? ¿Y tus concejales? Si no lo sabés, anotá buscarlo apenas termines esta lección. Es el primer paso del control ciudadano digital.
 
 *Tomá 3 minutos para anotarlo antes de continuar.*
 
@@ -49,7 +74,7 @@ Entrá mentalmente a cargografias.org o a Directorio Legislativo. ¿Sabés quié
 - **Datawrapper:** Crear visualizaciones de datos sin programar.
 - **Canva:** Diseño gráfico accesible para campañas.
 - **Google Forms:** Encuestas y recolección de datos barriales.
-- **Ushahidi:** Mapeo colaborativo de problemas o incidentes.
+- **Ushahidi:** Plataforma de mapeo colaborativo: la gente reporta, el mapa junta y ordena los reportes.
 
 ### Construir Tu Propia Herramienta
 

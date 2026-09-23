@@ -5,7 +5,7 @@
   "excerpt": "Desarrollá tu capacidad de pensar sistémicamente, comprender profundamente y aprender continuamente.",
   "category": "reflection",
   "level": "beginner",
-  "duration": 45,
+  "duration": 49,
   "orderIndex": 8,
   "isPublished": true,
   "isFeatured": true,
@@ -16,7 +16,7 @@
       "key": "02-la-jerarquia-del-contenido-mental",
       "title": "La Jerarquía del Contenido Mental",
       "description": "Aprendé sobre los diferentes niveles de contenido mental: desde los datos hasta la sabiduría, y por qué es crucial entender esta jerarquía para tomar mejores decisiones.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 1
     },
     {
@@ -30,7 +30,7 @@
       "key": "04-crecimiento-vs-desarrollo",
       "title": "Crecimiento vs. Desarrollo",
       "description": "Aprendé la diferencia crucial entre crecer (aumentar de tamaño) y desarrollarse (aumentar capacidades). Descubrí por qué Argentina ha crecido sin desarrollarse, y qué significa realmente el desarrollo.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 3
     },
     {
@@ -44,7 +44,7 @@
       "key": "06-aprendiendo-de-los-errores",
       "title": "Aprendiendo de los Errores",
       "description": "Descubrí por qué aprendemos más de los errores que de los aciertos, y cómo crear una cultura que aproveche esto. Transformá los errores en tu mayor fuente de aprendizaje.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 5
     },
     {
@@ -65,7 +65,7 @@
       "key": "09-toma-de-decisiones-participativa",
       "title": "Toma de Decisiones Participativa",
       "description": "Aprendé los principios de la toma de decisiones participativa y cómo crear estructuras donde todos puedan contribuir efectivamente. Descubrí cómo la participación mejora la calidad y legitimidad de las decisiones.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 8
     },
     {

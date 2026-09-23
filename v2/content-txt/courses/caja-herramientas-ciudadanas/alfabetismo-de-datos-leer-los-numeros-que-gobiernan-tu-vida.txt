@@ -6,6 +6,23 @@ summary: 'Entender estadísticas, gráficos y datos públicos para argumentar co
 orderIndex: 5
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_09_25D162CC7BFB.pdf
+    titulo: 'Incidencia de la pobreza y la indigencia en 31 aglomerados urbanos. Primer semestre de 2025 (INDEC)'
+    consultada: '2026-09-23'
+  - url: https://datos.gob.ar/
+    titulo: 'datos.gob.ar — Portal Nacional de Datos Públicos'
+    consultada: '2026-09-23'
+  - url: https://www.presupuestoabierto.gob.ar/sici/
+    titulo: 'Presupuesto Abierto — Gobierno de la República Argentina'
+    consultada: '2026-09-23'
+  - url: https://www.centrocifra.org.ar/
+    titulo: 'CIFRA — Centro de Investigación y Formación de la República Argentina (CTA)'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/21108/texact.htm
+    titulo: 'Ley 23.548 de Coparticipación Federal de Recursos Fiscales, texto actualizado — artículo 15 (InfoLeg)'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-23'
 ---
 ### Por qué importa
 
@@ -18,23 +35,23 @@ Vivimos bombardeados por datos: la inflación fue del X%, el desempleo del Y%, l
 ### Las 4 Trampas Estadísticas Más Comunes
 
 1. **Eje manipulado:** Un gráfico que empieza en 95% en vez de 0% hace que una variación del 2% parezca enorme. Siempre mirá la escala.
-2. **Correlación ≠ Causa:** "Los países con más heladerías tienen más ahogados." ¿Las heladerías causan ahogamientos? No: ambos se correlacionan con el calor. Que dos cosas se muevan juntas no significa que una cause la otra.
+2. **Correlación ≠ Causa:** "Los días en que más helado se vende, más gente se ahoga." ¿El helado causa ahogamientos? No: las dos cosas suben con el calor. Que dos cosas se muevan juntas no significa que una cause la otra.
 3. **Promedio engañoso:** Si Bill Gates entra a un bar con 9 desempleados, el "ingreso promedio" del bar es de millones. El promedio esconde la distribución. Siempre preguntá por la mediana.
 4. **Muestra sesgada:** "El 80% está de acuerdo" — ¿el 80% de quién? ¿De 10 personas que el periodista eligió? ¿O de 1.500 seleccionadas aleatoriamente?
 
 ### Fuentes de Datos Públicos en Argentina
 
 - **INDEC (indec.gob.ar):** Instituto Nacional de Estadística. Censo, pobreza, empleo, comercio exterior, precios. Es LA fuente oficial.
-- **datos.gob.ar:** Portal de datos abiertos del gobierno nacional. Miles de datasets descargables sobre transporte, salud, educación, presupuesto.
-- **Presupuesto abierto:** presupuestoabierto.gob.ar muestra en qué gasta el Estado cada peso.
+- **datos.gob.ar:** Portal Nacional de Datos Públicos. Más de mil conjuntos de datos descargables sobre transporte, salud, educación, presupuesto.
+- **Presupuesto abierto:** presupuestoabierto.gob.ar muestra en qué gasta el Estado nacional: por jurisdicción, por finalidad y por ubicación geográfica (la sección «¿Dónde se gasta?»).
 - **Datos municipales:** Muchos municipios tienen sus propios portales. CABA: data.buenosaires.gob.ar.
 - **Universidades y centros de investigación:** CONICET, CIFRA (CTA), IDAES (UNSAM) producen datos alternativos valiosos.
 
 ### Cómo Usar Datos en Tu Argumento
 
-1. **Contextualizá:** "La pobreza es del 40%" es un dato. "La pobreza subió del 30% al 40% en un año" es un argumento.
+1. **Contextualizá:** "La pobreza es del 31,6%" es un dato. "La pobreza bajó del 52,9% al 31,6% de las personas entre el primer semestre de 2024 y el primer semestre de 2025, según la Encuesta Permanente de Hogares del INDEC" es un argumento, y abre las preguntas que importan: dónde se mide (en 31 aglomerados urbanos, no en todo el país), cómo (ingresos del hogar contra el costo de una canasta básica) y qué pasó en el medio.
 2. **Compará:** "Gastamos $X en publicidad oficial" no dice nada. "Gastamos $X en publicidad y $X/10 en escuelas" dice todo.
-3. **Humanizá:** "45% de pobreza infantil" son estadísticas. "En esta cuadra, de cada 10 chicos, 4 no comen bien" es una historia.
+3. **Humanizá:** Un porcentaje de pobreza infantil es una estadística. "En esta cuadra, de cada 10 chicos, 4 no comen bien" es una historia.
 4. **Citá la fuente:** "Según el INDEC, censo 2022..." te da credibilidad. "Dicen que..." te la quita.
 
 ### Paso Siguiente Concreto

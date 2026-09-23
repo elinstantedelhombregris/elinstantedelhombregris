@@ -64,16 +64,11 @@
       "orderIndex": 5
     },
     {
-      "question": "¿Cuál es la primera herramienta de incidencia (advocacy) más efectiva?",
+      "question": "En el caso de la Ley de Bosques, ¿cuál de las cuatro herramientas de incidencia fue el dato de 300.000 hectáreas desmontadas por año, «40 canchas de fútbol por hora»?",
       "type": "multiple_choice",
-      "options": [
-        "Protesta masiva",
-        "Evidencia concreta con datos",
-        "Publicar en redes sociales",
-        "Contratar un lobbista"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Los datos concretos son la base de toda incidencia: hacen medible y demostrable el problema.",
+      "options": ["Historias", "Presión", "Evidencia", "Alianzas"],
+      "correctAnswer": 2,
+      "explanation": "La lección define la evidencia como datos concretos sobre el problema, y en la Ley de Bosques ese papel lo cumplió la cifra del desmonte. León Gieco puso la historia, las más de cien organizaciones la alianza y la campaña de firmas la presión.",
       "points": 2,
       "orderIndex": 6
     },
@@ -87,44 +82,44 @@
       "orderIndex": 7
     },
     {
-      "question": "¿Cuál es la señal más clara de que una organización está siendo cooptada por el gobierno?",
+      "question": "Una organización recibe fondos municipales, se reúne seguido con funcionarios y participa del presupuesto participativo. Según la lección, ¿cuál de estos hechos nuevos sí sería una señal de cooptación?",
       "type": "multiple_choice",
       "options": [
-        "Recibe fondos municipales",
-        "Pierde la capacidad de criticar públicamente",
-        "Tiene reuniones con funcionarios",
-        "Participa en presupuesto participativo"
+        "Que las reuniones con funcionarios pasen a ser semanales",
+        "Que gane el proyecto que presentó al presupuesto participativo",
+        "Que el municipio por fin le arregle la calle que venía reclamando",
+        "Que sus tiempos empiecen a coincidir con los tiempos electorales"
       ],
-      "correctAnswer": 1,
-      "explanation": "Perder la capacidad de crítica a cambio de recursos es la señal definitiva de cooptación.",
+      "correctAnswer": 3,
+      "explanation": "Trabajar con el municipio es colaboración crítica, no cooptación; que los tiempos de la organización coincidan con los electorales es una de las cuatro señales que lista la lección. Y el arreglo de la calle no es un favor: es una obligación del municipio.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Gestión de la Diversidad Ideológica en Coaliciones» a una situación real?",
+      "question": "En una red con diversidad ideológica, ¿sobre qué habla la red en público según la regla de voz de la lección?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Manejar las diferencias políticas e ideológicas dentro de una red territorial.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Sólo sobre su mínimo común; el resto lo dice cada organización con su nombre",
+        "Sobre cualquier tema que apruebe la mayoría de las organizaciones de la red",
+        "Sobre ningún tema político, para que la grieta no entre a la red",
+        "Sobre su mínimo común y sobre candidatos, siempre que haya unanimidad"
       ],
       "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección de diversidad ideológica fija que la red habla en público sólo sobre los temas de su mínimo común y que nadie le pide adhesiones a candidatos o partidos. La diferencia no desaparece: queda del lado de cada organización.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto Capstone: Diseñar una Red Territorial» a una situación real?",
+      "question": "Una red se constituye como simple asociación. Si sus bienes no alcanzan para pagar una deuda, ¿quién responde, según la lección del capstone?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Ejercicio integrador: diseñar una red territorial para tu zona.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Todos los asociados por partes iguales, hayan administrado o no",
+        "Nadie más: como persona jurídica, responde sólo con sus bienes",
+        "Quienes la administran, solidariamente; el resto, hasta la cuota prometida",
+        "Sólo quien firmó cada deuda, sea o no parte de la administración"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "La lección cita el Código Civil y Comercial: quienes administran responden solidariamente por las deudas que firmaron y quien no administró, sólo hasta la cuota que prometió. Por eso concentrar la administración en pocas manos también concentra el riesgo.",
       "points": 1,
       "orderIndex": 10
     }

@@ -10,10 +10,16 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/90000-94999/91604/norma.htm
     titulo: 'Ley 25.855 — Voluntariado Social (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://academic.oup.com/jhrp/article-abstract/7/3/366/2412085
+    titulo: 'Cher Weixia Chen y Paul C. Gorski — Burnout in Social Justice and Human Rights Activists: Symptoms, Causes and Implications (Journal of Human Rights Practice, 2015)'
+    consultada: '2026-09-23'
+  - url: https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases
+    titulo: 'Burn-out an occupational phenomenon: International Classification of Diseases (Organización Mundial de la Salud)'
+    consultada: '2026-09-23'
 ---
 ## El Fuego Que Se Apaga: Prevenir el Agotamiento
 
-El agotamiento activista es una epidemia silenciosa. Las personas más comprometidas con el cambio son las que más se queman. Y cuando se van, se llevan consigo conocimiento, contactos y energía que el grupo tarda años en reconstruir.
+El agotamiento activista es silencioso: nadie lo anuncia. Un estudio de 2015 con veintidós activistas de derechos humanos y justicia social en Estados Unidos, de Cher Weixia Chen y Paul Gorski, parte de una observación: cualquier trabajo, pago o voluntario, puede quemar, pero quienes hacen activismo parecen especialmente expuestos, por los desafíos propios de su tarea. Y cuando alguien se quema y se va, se lleva consigo conocimiento, contactos y energía que al grupo le cuesta reconstruir.
 
 ### Señales de agotamiento Comunitario
 
@@ -25,7 +31,7 @@ El agotamiento activista es una epidemia silenciosa. Las personas más compromet
 
 ### Causas Estructurales (No Individuales)
 
-El agotamiento no es un problema personal: es un **problema de diseño organizacional**:
+El agotamiento no es sólo un problema personal: es un **problema de diseño organizacional**. La Organización Mundial de la Salud lo define, para el mundo del trabajo, como el resultado de un estrés crónico que no se supo manejar, con tres rasgos: agotamiento, distancia o cinismo frente a la tarea y menor eficacia. Y el estudio de Chen y Gorski encontró causas adentro de los propios movimientos, como una cultura del martirio que hace del sacrificio una virtud. Las causas más comunes:
 
 1. **Concentración de tareas:** Pocos hacen mucho, muchos hacen poco
 2. **Falta de límites:** No hay horarios, no hay "vacaciones" del voluntariado
@@ -40,7 +46,7 @@ Hacé un chequeo honesto: ¿cuántas de las señales de agotamiento que leíste 
 
 ### Protocolos de Protección
 
-- **Regla del 70%:** Nunca uses más del 70% de tu capacidad. Dejá margen para imprevistos y para tu vida personal.
+- **Regla del 70%:** Un criterio práctico, no una medida científica: no te comprometas con más de lo que podés sostener en una semana mala. Dejá margen para imprevistos y para tu vida personal.
 - **Rotación obligatoria:** Nadie hace lo mismo más de 6 meses seguidos.
 - **Check-in emocional:** Cada reunión empieza con "¿Cómo estás?" y se escucha la respuesta real.
 - **Celebración regular:** Reconocer públicamente el aporte de cada persona.

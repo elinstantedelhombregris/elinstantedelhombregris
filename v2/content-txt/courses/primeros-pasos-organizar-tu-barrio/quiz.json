@@ -36,7 +36,7 @@
       "orderIndex": 3
     },
     {
-      "question": "¿Cuál es el criterio más importante para elegir el primer proyecto comunitario?",
+      "question": "Según «De la Queja al Proyecto», ¿qué condiciones tiene que cumplir el primer proyecto comunitario?",
       "type": "multiple_choice",
       "options": [
         "Que sea el más urgente",
@@ -45,7 +45,7 @@
         "Que sea innovador"
       ],
       "correctAnswer": 1,
-      "explanation": "El primer éxito genera confianza, que es el recurso más escaso. Por eso debe ser pequeño y exitoso.",
+      "explanation": "El primer éxito genera confianza, que es lo primero que le falta a un grupo que recién arranca. Por eso debe ser pequeño y con altas chances de salir bien.",
       "points": 2,
       "orderIndex": 4
     },
@@ -96,35 +96,35 @@
         "Enviar un email masivo"
       ],
       "correctAnswer": 2,
-      "explanation": "La invitación personal tiene 10 veces más poder que cualquier otro medio de convocatoria.",
+      "explanation": "La invitación cara a cara convoca; el cartel y el mensaje avisan. En el experimento de Gerber y Green, la visita personal movilizó mucho más que las cartas, y las llamadas no movieron nada.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Rituales y Espacios de Encuentro» a una situación real?",
+      "question": "El grupo quiere que el mate de los sábados en la plaza se vuelva costumbre. ¿Qué hace nacer un ritual, según «Rituales y Espacios de Encuentro»?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Aprobarlo en la asamblea mensual y sumarlo por escrito a los acuerdos de funcionamiento",
+        "Convocarlo cuando haya un tema importante, para que cada encuentro tenga una razón",
+        "Esperar a tener un salón propio, porque sin territorio el grupo no genera identidad",
+        "Repetirlo el mismo día, hora y lugar, con alguien ahí aunque no venga nadie"
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La lección dice que un ritual no se decreta: se repite hasta que existe, con alguien presente aunque no venga nadie, sobre todo en las primeras seis u ocho veces. El lugar puede ser simbólico, y juntarse sólo cuando hay algo importante lleva a juntarse sólo para las crisis.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan de Acción Barrial: Primeros 90 Días» a una situación real?",
+      "question": "Llegás a la semana 8 del plan de 90 días y a los encuentros sólo vuelven dos personas. ¿Qué indica la lección «Tu Plan de Acción Barrial»?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Crear un plan concreto de organización barrial para los próximos tres meses.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Correr las fechas y repetir la convocatoria del mes 1, en otra franja u otro lugar",
+        "Arrancar el proyecto con los dos que vienen, para no perder el impulso del plan",
+        "Achicar el proyecto hasta que lo puedan hacer dos personas y llegar al día 90",
+        "Adelantar la celebración de la semana 11 e invitar ahí a vecinos nuevos"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La regla de la lección es que se mueven las fechas, no el orden: sin cinco personas que vuelvan no se arranca el proyecto, se repite la convocatoria. Un proyecto lanzado sin grupo lo termina haciendo una sola persona, que se quema antes del día 90.",
       "points": 1,
       "orderIndex": 10
     }

@@ -16,11 +16,23 @@ fuentes:
   - url: https://www.hcdn.gob.ar/prensa/noticia/LA-CAMARA-DE-DIPUTADOS-APROBO-EL-DNU-SOBRE-EL-ACUERDO-CON-EL-FONDO-MONETARIO-INTERNACIONAL/
     titulo: 'Cámara de Diputados — La Cámara aprobó el DNU sobre el acuerdo con el FMI'
     consultada: '2026-09-22'
+  - url: https://www.ambito.com/economia/la-deuda-externa-la-baring-brothers-fue-1824-y-se-cancelo-80-anos-despues-n3262094
+    titulo: 'Ámbito — La deuda externa con la Baring Brothers fue de 1824 y se canceló 80 años después'
+    consultada: '2026-09-23'
+  - url: https://doi.org/10.3386/w13403
+    titulo: 'Mitchener y Weidenmier — The Baring Crisis and the Great Latin American Meltdown of the 1890s, NBER Working Paper 13403, 2007'
+    consultada: '2026-09-23'
+  - url: https://www.lanacion.com.ar/opinion/la-deuda-eterna-nid210224/
+    titulo: 'La Nación — La deuda eterna (avales, seguros de cambio y estatización de la deuda privada)'
+    consultada: '2026-09-23'
+  - url: https://www.lanacion.com.ar/economia/desde-2001-hasta-ahora-el-largo-camino-de-la-argentina-para-salir-del-default-nid20042026/
+    titulo: 'La Nación — Desde 2001 hasta ahora: el largo camino de la Argentina para salir del default'
+    consultada: '2026-09-23'
 ---
 
 ## 200 Años Debiendo
 
-El primer préstamo externo de Argentina fue en 1824 (Baring Brothers). Tardamos 80 años en pagarlo. Desde entonces, el ciclo de endeudamiento-crisis-reestructuración se repitió tantas veces que podríamos enseñarlo como un bucle de programación: `while(true) { endeudar(); crisis(); reestructurar(); }`
+El primer préstamo externo fue en 1824: un millón de libras que la provincia de Buenos Aires tomó con la casa Baring Brothers, de las que llegaron unas 560.000. Se terminó de pagar en 1904, ochenta años después. Desde entonces, el ciclo de endeudamiento-crisis-reestructuración se repitió tantas veces que podríamos enseñarlo como un bucle de programación: `while(true) { endeudar(); crisis(); reestructurar(); }`
 
 ### El Ciclo de la Deuda
 
@@ -33,11 +45,11 @@ El primer préstamo externo de Argentina fue en 1824 (Baring Brothers). Tardamos
 
 ### Los Defaults Argentinos
 
-- **1890:** Crisis de la banca Baring. Argentina casi quiebra al sistema financiero británico.
-- **1982:** La deuda de la dictadura militar. Se estataliza la deuda privada (los contribuyentes pagan la deuda de las empresas).
-- **2001:** El default más grande de la historia mundial hasta ese momento (~100.000 millones de dólares).
+- **1890:** Crisis Baring. La casa que había colocado la mayor parte de la deuda argentina quedó al borde de la quiebra, y el Banco de Inglaterra armó un fondo de rescate, con aportes de los bancos centrales de Francia y Rusia y de instituciones británicas, para que no arrastrara a los mercados británicos.
+- **1982:** La deuda de la dictadura militar. El Estado se hace cargo de la deuda externa de las empresas, primero con avales, después con seguros de cambio y, en 1985, con su estatización: los contribuyentes pagan la deuda de las empresas.
+- **2001:** El 23 de diciembre se declara el mayor default de la historia hasta ese momento: La Nación lo calcula en 144.279 millones de dólares, el 53,8% del PBI de entonces.
 - **2005 y 2010:** Canjes de la deuda en default.
-- **2014:** Default selectivo, tras el fallo del juez Griesa a favor de los fondos que no entraron al canje.
+- **2014:** Default técnico: el juez Thomas Griesa, de Nueva York, impidió pagarles a los bonistas que habían entrado a los canjes mientras no se les pagara a los fondos que no entraron.
 - **2020:** Nueva reestructuración, bajo otro gobierno.
 
 ### Deber en una Moneda que No Emitís

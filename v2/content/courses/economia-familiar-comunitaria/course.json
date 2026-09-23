@@ -5,7 +5,7 @@
   "excerpt": "Construí resiliencia económica desde tu familia y tu barrio.",
   "category": "economia",
   "level": "intermediate",
-  "duration": 49,
+  "duration": 57,
   "orderIndex": 15,
   "isPublished": true,
   "isFeatured": false,
@@ -30,49 +30,49 @@
       "key": "04-deuda-inteligente-vs-deuda-toxica",
       "title": "Deuda Inteligente vs. Deuda Tóxica",
       "description": "Entender la diferencia entre deuda que te construye y deuda que te destruye.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 3
     },
     {
       "key": "05-la-economia-del-barrio-tu-comunidad-como-red-economica",
       "title": "La Economía del Barrio: Tu Comunidad como Red Económica",
       "description": "Redescubrir el barrio como espacio de intercambio económico y resiliencia colectiva.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 4
     },
     {
       "key": "06-circulos-de-ahorro-y-credito-finanzas-entre-vecinos",
       "title": "Círculos de Ahorro y Crédito: Finanzas entre Vecinos",
       "description": "El poder ancestral de las tandas, roscas y círculos de ahorro comunitario.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 5
     },
     {
       "key": "07-cooperativismo-la-empresa-democratica",
       "title": "Cooperativismo: La Empresa Democrática",
       "description": "El modelo cooperativo como alternativa económica real en Argentina.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {
       "key": "08-consumo-consciente-votar-con-el-bolsillo",
       "title": "Consumo Consciente: Votar con el Bolsillo",
       "description": "Cómo cada decisión de compra es un voto por el mundo que querés.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 7
     },
     {
       "key": "09-educacion-financiera-para-toda-la-familia",
       "title": "Educación Financiera para Toda la Familia",
       "description": "Cómo enseñar a niños y adolescentes a manejar dinero en un país inestable.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 8
     },
     {
       "key": "10-monedas-complementarias-y-economia-social-solidaria",
       "title": "Monedas Complementarias y Economía Social Solidaria",
       "description": "Sistemas económicos alternativos que funcionan en paralelo a la economía formal.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 9
     },
     {
@@ -93,7 +93,7 @@
       "key": "13-el-presupuesto-en-crisis-cuando-todo-cambia-de-golpe",
       "title": "El Presupuesto en Crisis: Cuando Todo Cambia de Golpe",
       "description": "Protocolos de emergencia económica para devaluaciones, pérdida de empleo y crisis imprevistas, con caso real de una familia rosarina en 2023.",
-      "duration": 8,
+      "duration": 9,
       "orderIndex": 12
     }
   ],

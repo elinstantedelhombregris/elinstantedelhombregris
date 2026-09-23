@@ -13,6 +13,15 @@ fuentes:
   - url: https://ipsnoticias.net/2002/11/argentina-auge-y-caida-del-trueque/
     titulo: 'Argentina: auge y caída del trueque (IPS, 4/11/2002)'
     consultada: '2026-09-22'
+  - url: https://recuperadasdoc.com.ar/INFORMES/Informe%20ERT%202025%20Programa%20Facultad%20Abierta%20UBA.pdf
+    titulo: 'Las empresas recuperadas en el gobierno de Milei. Informe 2025 (Programa Facultad Abierta, FFyL-UBA)'
+    consultada: '2026-09-23'
+  - url: https://ica.coop/en/cooperatives/facts-and-figures
+    titulo: 'Facts and figures (Alianza Cooperativa Internacional)'
+    consultada: '2026-09-23'
+  - url: https://www.aeaweb.org/articles?id=10.1257/app.20140287
+    titulo: 'Banerjee, Karlan y Zinman, «Six Randomized Evaluations of Microcredit: Introduction and Further Steps» (American Economic Journal: Applied Economics, 2015)'
+    consultada: '2026-09-23'
 ---
 
 ## Más Allá del Peso y el Dólar
@@ -32,18 +41,17 @@ Una moneda complementaria no reemplaza al peso. Lo **complementa**. Funciona den
 La ESS es un movimiento global que propone una economía centrada en las personas, no en las ganancias. En Argentina tiene expresiones concretas:
 
 - **Ferias de la agricultura familiar:** Productores que venden directo sin intermediarios. Precio justo para ambas partes.
-- **Empresas recuperadas:** Más de 400 fábricas en Argentina fueron recuperadas por sus trabajadores cuando los dueños las abandonaron.
-- **Microcrédito:** Organizaciones que dan préstamos pequeños (desde $10.000) a personas que ningún banco aceptaría, con acompañamiento y tasas accesibles.
+- **Empresas recuperadas:** Empresas que quebraron o que sus dueños abandonaron, y que sus trabajadores volvieron a poner en marcha.
+- **Microcrédito:** Organizaciones que dan préstamos pequeños a personas que ningún banco aceptaría, con acompañamiento y tasas accesibles.
 - **Huertas comunitarias:** Producción de alimentos en espacios urbanos ociosos. Seguridad alimentaria + comunidad + educación.
 
 ### ¿Utopía o Realidad?
 
-Los escépticos dicen que la economía social es idealismo. Los datos dicen otra cosa:
+Los escépticos dicen que la economía social es idealismo. Los datos dicen algo más interesante que un sí o un no:
 
-- Las cooperativas emplean más personas a nivel mundial que todas las multinacionales juntas.
-- Los bancos de tiempo funcionan exitosamente en más de 35 países.
-- El microcrédito ha sacado de la pobreza a más de 200 millones de personas globalmente.
-- En Argentina, la economía social genera el 10% del PBI y es más resiliente a las crisis que el sector privado tradicional.
+- Según la Alianza Cooperativa Internacional, las cooperativas dan trabajo u oportunidades de trabajo al 10% de la población ocupada del mundo, unos 280 millones de personas.
+- En la Argentina, a julio de 2025 funcionaban 398 empresas recuperadas con 13.812 trabajadores, según el relevamiento del Programa Facultad Abierta de la UBA: casi las mismas que en 2019 (393), después de una pandemia y de dos cambios de gobierno.
+- Del microcrédito se repitió durante años que iba a sacar de la pobreza a cientos de millones de personas. Seis evaluaciones aleatorizadas en seis países, publicadas juntas en 2015 por Banerjee, Karlan y Zinman, encontraron efectos «modestamente positivos, pero no transformadores». Sirve, y no es magia: la economía social también se mide.
 
 > "La economía social solidaria no es 'la economía de los pobres'. Es la economía de los que entienden que la riqueza real no se acumula — se comparte. Y que una comunidad fuerte es el mejor seguro contra cualquier crisis."
 

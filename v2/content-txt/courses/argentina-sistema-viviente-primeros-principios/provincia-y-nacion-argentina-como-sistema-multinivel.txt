@@ -6,6 +6,10 @@ summary: Integrá escalas territoriales para leer a Argentina como un sistema co
 orderIndex: 14
 draft: false
 cierre: puente
+fuentes:
+  - url: https://www.argentina.gob.ar/pais/provincias
+    titulo: 'Provincias — 23 provincias y la Ciudad Autónoma de Buenos Aires (argentina.gob.ar)'
+    consultada: '2026-09-23'
 ---
 ### La Provincia: Sistema de Municipios
 
@@ -53,7 +57,7 @@ Los procesos provinciales transforman municipios en desarrollo regional:
 - **Planificación regional:** Estrategias que benefician a toda la provincia. La planificación crea dirección.
 - **Desarrollo:** Proyectos de infraestructura, economía, educación a escala provincial. El desarrollo crea prosperidad.
 - **Políticas públicas:** Regulaciones, incentivos, programas provinciales. Las políticas facilitan desarrollo.
-- **bucles de retroalimentación:** Comunicación constante, evaluación de políticas, ajuste de estrategias.
+- **Bucles de retroalimentación:** Comunicación constante, evaluación de políticas, ajuste de estrategias.
 
 ### 3. Outputs Provinciales: Lo Que Produce el Sistema
 
@@ -75,7 +79,7 @@ La coordinación entre municipios multiplica valor:
 
 **Municipios desconectados:** Cada municipio trabaja solo → Competencia, desperdicio, desarrollo limitado
 
-**Municipios conectados:** Municipios colaboran → Sinergia, eficiencia, desarrollo exponencial
+**Municipios conectados:** Municipios colaboran → Sinergia, eficiencia, más desarrollo que la suma de las partes
 
 **Ejemplo:** 10 municipios coordinados pueden lograr más que 10 municipios desconectados. La coordinación multiplica valor.
 
@@ -91,7 +95,7 @@ Estrategias para optimizar la provincia como sistema:
 - **Planificación regional:** Estrategias que benefician a toda la provincia, no solo municipios individuales
 - **Comunicación:** Canales de comunicación inter-municipal, información compartida
 - **Desarrollo compartido:** Proyectos que benefician múltiples municipios, recursos compartidos
-- **bucles de retroalimentación:** Evaluación de políticas provinciales, ajuste de estrategias
+- **Bucles de retroalimentación:** Evaluación de políticas provinciales, ajuste de estrategias
 - **Control cibernético:** Objetivos provinciales claros, estructura, auto-organización municipal
 
 ### 6. Aplicación a Argentina: Provincias que Transforman
@@ -105,7 +109,7 @@ Las provincias son la cuarta capa de transformación:
 - **Efecto cascada:** Provincias optimizadas → nación optimizada
 - **Modelo:** Provincias exitosas sirven como modelos para otras provincias
 
-Como dice el Hombre Gris: *"La transformación de Argentina se construye provincia por provincia. Optimiza tu provincia, y contribuyes a la transformación nacional."*
+Como dice el Hombre Gris: *"La transformación de Argentina se construye provincia por provincia. Optimizá tu provincia y contribuís a la transformación nacional."*
 
 ### Momento de Revelación
 
@@ -174,7 +178,7 @@ Los procesos nacionales transforman inputs en outputs:
 - **Cultura:** Valores, tradiciones, identidad, narrativas. La cultura cohesiva une y motiva.
 - **Economía:** Producción, distribución, consumo, inversión. La economía saludable crea prosperidad.
 - **Coordinación:** Sincronización entre provincias, sectores, actores. La coordinación crea sinergia.
-- **bucles de retroalimentación:** Comunicación constante, evaluación de políticas, ajuste de estrategias.
+- **Bucles de retroalimentación:** Comunicación constante, evaluación de políticas, ajuste de estrategias.
 
 ### 3. Outputs Nacionales: Lo Que Produce el Sistema
 
@@ -220,7 +224,7 @@ Mejorar las relaciones entre las partes del sistema mejora el rendimiento del si
 
 Cuando las provincias se relacionan mejor, cuando los municipios coordinan, cuando los barrios colaboran, cuando las familias se comunican, Argentina se transforma.
 
-No necesitás cambiar todo el sistema. Solo necesitás mejorar las relaciones entre las partes. El sistema se optimiza solo cuando las relaciones mejoran.
+No necesitás cambiar todo el sistema de una vez. Mejorar las relaciones entre las partes es la palanca más accesible. El sistema no se optimiza solo —la emergencia no se controla—, pero cuando las relaciones mejoran, los buenos resultados se vuelven mucho más probables.
 
 ### 6. Optimización Sistémica de Argentina
 
@@ -232,14 +236,14 @@ Estrategias para optimizar Argentina como sistema:
 - **Transparencia radical:** Toda información pública, procesos visibles, decisiones auditables
 - **Comunicación clara:** Información fluye entre todos los niveles, feedback constante
 - **Alineación de objetivos:** Objetivos nacionales compartidos, provincias alineadas
-- **bucles de retroalimentación:** Evaluación constante de políticas, ajuste de estrategias
+- **Bucles de retroalimentación:** Evaluación constante de políticas, ajuste de estrategias
 - **Control cibernético:** Objetivos nacionales claros, estructura, auto-organización provincial
 
 ### 7. El Hombre Gris: La Visión de Transformación
 
 El Hombre Gris nos enseña a ver Argentina como sistema:
 
-Como dice el Hombre Gris:
+Del Hombre Gris se dice que:
 
 *"Ve el mundo como una vasta red de procesos interconectados donde cada acción genera consecuencias en cascada."*
 

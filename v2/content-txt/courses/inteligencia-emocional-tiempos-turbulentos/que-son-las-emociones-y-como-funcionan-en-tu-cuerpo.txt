@@ -10,31 +10,40 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm
     titulo: 'Ley 26.657 — Derecho a la Protección de la Salud Mental (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://par.nsf.gov/biblio/10323786-your-brain-onion-tiny-reptile-inside
+    titulo: 'Cesario, Johnson y Eisthen — Your Brain Is Not an Onion With a Tiny Reptile Inside (Current Directions in Psychological Science, 2020)'
+    consultada: '2026-09-23'
+  - url: https://emotion.utu.fi/wp-content/uploads/2016/11/Nummenmaa_et_al_PNAS_2014.pdf
+    titulo: 'Nummenmaa, Glerean, Hari y Hietanen — Bodily maps of emotions (PNAS, 2014)'
+    consultada: '2026-09-23'
+  - url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2907136/
+    titulo: 'Arnsten — Stress signalling pathways that impair prefrontal cortex structure and function (Nature Reviews Neuroscience, 2009)'
+    consultada: '2026-09-23'
 ---
 
 ## Las Emociones: Tu Sistema de Navegación Interior
 
-Antes de poder gestionar tus emociones, necesitás entender qué son realmente. Las emociones no son caprichos ni debilidades: son **señales biológicas** que tu cuerpo produce para ayudarte a sobrevivir y prosperar. Son tan reales como el hambre o la sed, y negarlas tiene consecuencias tan graves como ignorar el dolor físico.
+Antes de poder gestionar tus emociones, necesitás entender qué son realmente. Las emociones no son caprichos ni debilidades: son **señales biológicas** que tu cuerpo produce para ayudarte a sobrevivir y prosperar. Son tan reales como el hambre o la sed, y negarlas también tiene costos.
 
 ### La Neurociencia Básica de las Emociones
 
-Tu cerebro tiene tres capas principales que interactúan constantemente:
+Durante décadas se enseñó que el cerebro tiene tres capas apiladas: un «cerebro reptiliano» para sobrevivir, uno límbico para sentir y una corteza para pensar. Es una imagen cómoda, y está mal. En 2020, Joseph Cesario, David Johnson y Heather Eisthen recordaron en *Current Directions in Psychological Science* que los neurobiólogos la descartaron hace mucho: el cerebro no evolucionó sumando capas nuevas encima de otras viejas. Lo que sí se sostiene es una idea más modesta: muchas regiones trabajan juntas todo el tiempo, y algunas pesan más en ciertas tareas.
 
-- **El cerebro reptiliano (tronco encefálico):** Controla las funciones básicas de supervivencia. Es el que te hace saltar cuando escuchás un ruido fuerte. En Argentina, es el que se activa cada vez que escuchás "devaluación" o "corralito".
-- **El cerebro emocional (sistema límbico):** La amígdala, el hipocampo y otras estructuras procesan tus experiencias emocionales. Aquí se almacenan las memorias cargadas de emoción, desde la alegría de un gol de la selección hasta el terror de una crisis económica.
-- **La corteza prefrontal:** Es tu capacidad de reflexión, planificación y regulación. Es la parte que puede decir "esperá, no reacciones todavía". Pero bajo estrés crónico, esta parte se *apaga parcialmente*.
+- **El tronco encefálico** regula funciones básicas como la respiración, el ritmo cardíaco y el sobresalto: participa de ese salto que das ante un ruido fuerte, antes de saber qué fue.
+- **La amígdala, el hipocampo y otras estructuras** participan en detectar lo que importa y en fijar los recuerdos cargados de emoción, desde la alegría de un gol de la selección hasta el día en que cerraron los bancos.
+- **La corteza prefrontal** sostiene la planificación, la memoria de trabajo y la capacidad de frenar un impulso. Es la parte que puede decir "esperá, no reacciones todavía". Bajo estrés rinde peor, como vas a ver más abajo.
 
 > "El Hombre Gris no niega sus emociones: las integra. La metamorfosis del Camello al León comienza cuando dejamos de cargar con emociones que no hemos procesado." — Filosofía del Hombre Gris
 
 ### El Mapa Corporal de las Emociones
 
-Investigaciones de la Universidad de Aalto demostraron que las emociones tienen **firmas corporales universales**:
+En 2014, un equipo encabezado por Lauri Nummenmaa, de la Universidad Aalto, en Finlandia, publicó en *PNAS* un experimento sencillo. A 701 personas les mostraron dos siluetas y les pidieron pintar dónde sentían que la actividad del cuerpo aumentaba o bajaba mientras leían palabras, escuchaban historias o miraban películas con carga emocional. Los mapas se parecieron entre participantes de Finlandia, Suecia y Taiwán, y los autores los leen como **sensaciones corporales culturalmente universales**. Es autorreporte: muestra lo que la gente siente, no una medición fisiológica. Algunos patrones:
 
-- **La ira** se siente como calor en el pecho, los brazos y la cabeza. Las manos se cierran, la mandíbula se tensa.
-- **El miedo** genera un nudo en el estómago, las piernas se debilitan, el corazón se acelera.
-- **La tristeza** produce una sensación de pesadez en el pecho, los hombros caen, la energía baja.
-- **La alegría** se expande por todo el cuerpo, hay ligereza, el pecho se abre.
-- **La ansiedad** crea tensión en el cuello, hombros y mandíbula, con un zumbido constante de energía nerviosa.
+- **La ira y el miedo** se concentraron en la parte alta del pecho, que los autores asocian con cambios en la respiración y el ritmo cardíaco. En la ira, además, se encendieron los brazos y las manos.
+- **La tristeza** se definió por lo contrario: la sensación de menos actividad en brazos y piernas.
+- **La alegría** fue la única emoción que se sintió más activa en todo el cuerpo.
+- **La cabeza** apareció en todas, probablemente por los cambios en la cara y en lo que se piensa.
+- **La ansiedad** formó grupo con la vergüenza, aparte de la ira y el miedo: se parecen, pero el cuerpo no las marca igual.
 
 ### Ejercicio Práctico: El Escaneo Corporal de 5 Minutos
 
@@ -48,11 +57,11 @@ Este ejercicio es la base de toda inteligencia emocional. Practicalo una vez al 
 
 ### ¿Por Qué Importa Esto en Argentina?
 
-Vivir en un país con **inestabilidad crónica** significa que tu sistema nervioso está sometido a un estrés que la mayoría de los manuales de psicología no contemplan. No es el estrés de un examen o una mudanza: es el estrés de no saber si tu sueldo va a alcanzar el mes que viene, de ver cómo tus ahorros se evaporan, de sentir que las reglas del juego cambian cada pocos años.
+Vivir en un país con **inestabilidad crónica** significa que tu sistema nervioso está sometido a un estrés que los ejemplos de manual no suelen contemplar. No es el estrés de un examen o una mudanza: es el estrés de no saber si tu sueldo va a alcanzar el mes que viene, de ver cómo tus ahorros se evaporan, de sentir que las reglas del juego cambian cada pocos años.
 
-Este tipo de estrés *crónico y sistémico* altera literalmente la estructura de tu cerebro. La amígdala se agranda (más reactividad), la corteza prefrontal se adelgaza (menos capacidad de regulación). Por eso no es "debilidad" sentirte abrumado: es **biología**.
+¿Qué le hace ese estrés sostenido al cerebro? La revisión que Amy Arnsten publicó en 2009 en *Nature Reviews Neuroscience* junta dos hallazgos. El primero: hasta un estrés agudo leve, si no se puede controlar, deteriora rápido las tareas que dependen de la corteza prefrontal, como la memoria de trabajo. El segundo viene de estudios con ratas y monos: con estrés crónico, las dendritas de las neuronas prefrontales se acortan y pierden ramas, mientras que las de la amígdala se expanden. No es que la amígdala entera "se agrande", y son datos de animales: llevarlos a una persona concreta es una extrapolación. Pero alcanzan para una conclusión prudente: sentirte abrumado no es "debilidad"; el cuerpo participa.
 
-La buena noticia: el cerebro es plástico. Puede cambiar. Y las herramientas que vas a aprender en este curso están diseñadas para esa realidad específica.
+La buena noticia sale del mismo trabajo: en esos animales, los cambios prefrontales se revierten de a poco cuando el estrés cede. El cerebro es plástico. Las herramientas de este curso no prometen revertir nada, pero apuntan en esa dirección: ganar margen donde el contexto lo permite.
 
 ### Lo que dice la ley sobre cuerpo y contexto
 

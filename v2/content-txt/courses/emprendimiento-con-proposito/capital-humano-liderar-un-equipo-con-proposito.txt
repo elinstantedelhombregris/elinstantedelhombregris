@@ -25,10 +25,10 @@ En Argentina, la tecnología se copia, los productos se imitan, los precios se i
 
 ### El Dilema del Empleo en Argentina
 
-Contratar un empleado en Argentina cuesta aproximadamente **el doble del sueldo de bolsillo** cuando sumás cargas sociales, ART, seguro, vacaciones, aguinaldo y contribuciones. Esto genera un sistema perverso:
+Contratar un empleado en Argentina cuesta **bastante más que el sueldo de bolsillo**: a lo que cobra se suman los aportes que se le descuentan, las contribuciones patronales, la ART, el seguro, el aguinaldo y las vacaciones. Cuánto más depende del convenio, de la actividad y del tamaño de la empresa, y por eso conviene pedir la cuenta con números reales antes de decidir. Esa distancia genera un sistema perverso:
 
 - Las empresas evitan contratar formalmente → hay más informalidad.
-- Los empleados en negro no tienen derechos → hay más rotación.
+- Los empleados sin registrar no tienen aportes ni cobertura → hay más rotación.
 - La alta rotación reduce la productividad → las empresas ganan menos → contratan menos formalmente.
 
 Romper este ciclo es un acto de emprendimiento con propósito.

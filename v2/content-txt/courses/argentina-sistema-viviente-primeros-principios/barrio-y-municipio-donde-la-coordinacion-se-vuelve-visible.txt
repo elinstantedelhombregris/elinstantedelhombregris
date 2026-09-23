@@ -53,7 +53,7 @@ Los procesos barriales transforman familias en comunidad:
 - **Organización:** Estructuras que facilitan coordinación (juntas vecinales, comités, grupos). La organización reduce fricción.
 - **Acción comunitaria:** Proyectos que benefician al barrio completo. La acción crea resultados.
 - **Resolución de problemas:** Manejo de conflictos, problemas comunes, necesidades. La resolución mantiene salud.
-- **bucles de retroalimentación:** Comunicación constante, evaluación de acciones, ajuste de estrategias.
+- **Bucles de retroalimentación:** Comunicación constante, evaluación de acciones, ajuste de estrategias.
 
 ### 3. Outputs Barriales: Lo Que Produce el Sistema
 
@@ -77,7 +77,7 @@ Las conexiones entre familias multiplican valor:
 
 **Más conexiones = Más valor:** Cada nueva conexión entre familias hace que todas las conexiones existentes sean más valiosas.
 
-**Ejemplo:** Si 10 familias están conectadas, hay 45 conexiones posibles. Si 20 familias están conectadas, hay 190 conexiones posibles. El valor crece exponencialmente.
+**Ejemplo:** Si 10 familias están conectadas, hay 45 conexiones posibles. Si 20 familias están conectadas, hay 190 conexiones posibles. Con el doble de familias, más del cuádruple de conexiones: crecen con el cuadrado, mucho más rápido que las familias.
 
 **La clave:** Conectar familias estratégicamente. Cada conexión crea valor para todo el barrio.
 
@@ -114,7 +114,7 @@ Estrategias para optimizar el barrio como sistema:
 - **Organizá:** Creá estructuras (juntas vecinales, comités) que faciliten coordinación
 - **Acción comunitaria:** Iniciá proyectos que beneficien al barrio (limpieza, seguridad, mejoras)
 - **Cultivá la confianza:** Construí confianza entre familias mediante consistencia, transparencia, reciprocidad
-- **bucles de retroalimentación:** Evaluá acciones, ajustá estrategias, mejorá continuamente
+- **Bucles de retroalimentación:** Evaluá acciones, ajustá estrategias, mejorá continuamente
 
 ### 7. Aplicación a Argentina: Barrios que Transforman
 
@@ -127,7 +127,7 @@ Los barrios son la segunda capa de transformación:
 - **Efecto cascada:** Barrios optimizados → municipios optimizados → provincias optimizadas → nación optimizada
 - **Resiliencia:** Barrios organizados son más resilientes a crisis y más capaces de prosperar
 
-Como dice el Hombre Gris: *"La transformación de Argentina se construye barrio por barrio. Optimiza tu barrio, y contribuyes a la transformación nacional."*
+Como dice el Hombre Gris: *"La transformación de Argentina se construye barrio por barrio. Optimizá tu barrio y contribuís a la transformación nacional."*
 
 ### Momento de Revelación
 
@@ -195,8 +195,8 @@ Los procesos municipales transforman inputs en outputs:
 - **Gobernanza:** Toma de decisiones, políticas, regulaciones. La gobernanza efectiva crea orden.
 - **Coordinación:** Sincronización entre barrios, departamentos, proyectos. La coordinación reduce desperdicio.
 - **Planificación:** Estrategias, planes, proyectos. La planificación crea dirección.
-- **Servicios públicos:** Educación, salud, seguridad, infraestructura. Los servicios satisfacen necesidades.
-- **bucles de retroalimentación:** Comunicación gobierno-comunidad, evaluación, ajuste.
+- **Servicios públicos:** Los que le tocan al municipio —que varían según la provincia— y la coordinación con los que dependen de la provincia o de la Nación. Los servicios satisfacen necesidades.
+- **Bucles de retroalimentación:** Comunicación gobierno-comunidad, evaluación, ajuste.
 
 ### 3. Outputs Municipales: Lo Que Produce el Sistema
 
@@ -204,13 +204,13 @@ Los outputs del sistema municipal:
 
 ### Outputs del Sistema Municipal
 
-- **Servicios públicos:** Educación, salud, seguridad, infraestructura de calidad
+- **Servicios públicos:** Los que le tocan al municipio, de calidad, y bien coordinados con los provinciales
 - **Infraestructura:** Calles, espacios públicos, conectividad, servicios básicos
 - **Orden:** Regulación, organización, planificación urbana
 - **Desarrollo local:** Crecimiento económico, oportunidades, prosperidad
 - **Bienestar:** Calidad de vida, satisfacción ciudadana, felicidad
 
-### 4. teoría de control Aplicado: Dirigir sin Microgestionar
+### 4. Teoría de control Aplicado: Dirigir sin Microgestionar
 
 Aplicá principios de cibernética a la gobernanza municipal:
 
@@ -248,7 +248,7 @@ Estrategias para optimizar el municipio como sistema:
 - **Participación ciudadana:** Ciudadanos involucrados en decisiones, feedback constante
 - **Coordinación efectiva:** Sincronización entre barrios, departamentos, proyectos
 - **Planificación estratégica:** Objetivos claros, estrategias, planes de acción
-- **bucles de retroalimentación:** Comunicación constante gobierno-comunidad, evaluación, ajuste
+- **Bucles de retroalimentación:** Comunicación constante gobierno-comunidad, evaluación, ajuste
 - **Control cibernético:** Objetivos claros, estructura, auto-organización
 
 ### 7. Aplicación a Argentina: Municipios que Transforman
@@ -262,7 +262,7 @@ Los municipios son la tercera capa de transformación:
 - **Efecto cascada:** Municipios optimizados → provincias optimizadas → nación optimizada
 - **Modelo:** Municipios exitosos sirven como modelos para otros
 
-Como dice el Hombre Gris: *"La transformación de Argentina se construye municipio por municipio. Optimiza tu municipio, y contribuyes a la transformación nacional."*
+Como dice el Hombre Gris: *"La transformación de Argentina se construye municipio por municipio. Optimizá tu municipio y contribuís a la transformación nacional."*
 
 ### Momento de Revelación
 

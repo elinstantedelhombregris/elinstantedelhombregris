@@ -13,6 +13,21 @@ fuentes:
   - url: https://www.argentina.gob.ar/noticias/la-linea-nacional-de-orientacion-y-apoyo-en-la-urgencia-de-salud-mental-funciona-las-24
     titulo: 'Ministerio de Salud — La Línea Nacional de Orientación y Apoyo en la Urgencia de Salud Mental funciona las 24 horas'
     consultada: '2026-09-22'
+  - url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7174434/
+    titulo: 'Bravata y otros (2020) — Prevalence, Predictors, and Treatment of Impostor Syndrome: a Systematic Review (Journal of General Internal Medicine)'
+    consultada: '2026-09-23'
+  - url: https://impostorsyndrome.com/articles/5-types-of-impostor-syndrome/
+    titulo: 'Impostor Syndrome Institute (Valerie Young) — 5 Types of Impostor Syndrome'
+    consultada: '2026-09-23'
+  - url: https://research-portal.uu.nl/en/publications/a-multilab-preregistered-replication-of-the-ego-depletion-effect/
+    titulo: 'Hagger y otros (2016) — A multilab preregistered replication of the ego-depletion effect (Perspectives on Psychological Science)'
+    consultada: '2026-09-23'
+  - url: https://beckinstitute.org/about/dr-aaron-t-beck/
+    titulo: 'Beck Institute — Dr. Aaron T. Beck'
+    consultada: '2026-09-23'
+  - url: https://feelinggood.com/2014/01/06/secrets-of-self-esteem-2-negative-and-positive-distortions/
+    titulo: 'David D. Burns — Secrets of Self-Esteem #2: Negative and Positive Distortions'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-09-22'
 ---
 Tenés una visión. La escribiste. La sentiste. Y ahora viene lo más difícil: **mantenerla viva frente a las fuerzas internas que van a intentar destruirla**.
@@ -35,7 +50,7 @@ Ejemplos clásicos:
 - "No merezco tener éxito"
 - "Primero tengo que terminar X antes de poder empezar Y" (la trampa del prerequisito infinito)
 
-**¿De dónde vienen?** La mayoría se forman antes de los 12 años. Las absorbés de tus padres, maestros, compañeros y experiencias tempranas. Un padre que te dijo "sos un desastre" una sola vez puede haber instalado una creencia que te limita 30 años después.
+**¿De dónde vienen?** Muchas se forman en la infancia. Las absorbés de tus padres, maestros, compañeros y experiencias tempranas. Un padre que te dijo "sos un desastre" una sola vez puede haber instalado una creencia que te limita 30 años después.
 
 **Cómo trabajarlas:**
 
@@ -50,11 +65,11 @@ Ejemplos clásicos:
 
 ### Enemigo 2: El Síndrome del Impostor
 
-El síndrome del impostor es la sensación persistente de que no merecés tus logros, de que en cualquier momento van a "descubrirte" como fraude. Afecta al 70% de las personas en algún momento de su vida, incluyendo a personas extraordinariamente exitosas.
+El síndrome del impostor es la sensación persistente de que no merecés tus logros, de que en cualquier momento van a "descubrirte" como fraude. Las psicólogas Pauline Clance y Suzanne Imes lo describieron en 1978. ¿A cuántos les pasa? Depende de cómo se mida: una revisión de 62 estudios con más de 14.000 participantes encontró cifras que van del 9% al 82% según el cuestionario y el punto de corte, en hombres y mujeres, de adolescentes a profesionales de carrera larga. Lo seguro es que no te pasa sólo a vos.
 
 Lo peligroso del impostor no es que te haga sentir mal — es que **te impide perseguir tu visión porque creés que no tenés derecho a ella**.
 
-Variantes del impostor:
+Variantes del impostor, según la clasificación de Valerie Young, que estudia el fenómeno hace casi cuarenta años:
 
 - **El perfeccionista**: "Si no puedo hacerlo perfecto, no lo hago"
 - **El experto**: "Necesito saber todo antes de empezar"
@@ -66,26 +81,26 @@ Variantes del impostor:
 
 ---
 
-### Enemigo 3: La Zona de Confort y el Cerebro que Resiste el Cambio
+### Enemigo 3: La Zona de Confort y la Resistencia al Cambio
 
-Tu cerebro tiene un diseño evolutivo claro: **minimizar amenazas y conservar energía**. Cualquier cambio significativo — incluso uno positivo — es percibido como amenaza por tu sistema nervioso.
+Lo conocido sale barato: ya sabés hacerlo, ya sabés qué esperar, no te expone a fallar. Lo nuevo cuesta atención, esfuerzo e incertidumbre. Por eso cualquier cambio significativo — incluso uno positivo — se siente, al principio, como una amenaza.
 
-Cuando decidís cambiar tu vida, tu cerebro activa la **amígdala** (centro del miedo) y produce una serie de sensaciones diseñadas para que vuelvas a lo conocido: ansiedad, duda, procrastinación, fatiga inexplicable, hambre repentina.
+Cuando decidís cambiar tu vida, es común que aparezca una serie de sensaciones que empujan de vuelta a lo conocido: ansiedad, duda, procrastinación, un cansancio que no sabés de dónde sale.
 
-**No es que seas débil. Es que tu biología está diseñada para resistir el cambio.**
+**No es que seas débil. Es que lo conocido siempre juega de local.**
 
-La solución no es "fuerza de voluntad" (recurso limitado). La solución es:
+La solución no es apretar los dientes con más "fuerza de voluntad". La idea tan citada de que la voluntad es un tanque que se vacía con el uso no resistió una réplica hecha en 23 laboratorios con 2.141 participantes: el efecto dio prácticamente cero. Lo que sí sirve es cambiar las condiciones:
 
 1. **Cambios incrementales**: tu cerebro acepta mejor pequeños pasos que saltos enormes. La regla del 1%: mejorá un 1% cada día
 2. **Ambiente diseñado**: modificá tu entorno para que el camino de menor resistencia sea el alineado con tu visión (ej: si querés leer más, dejá libros en todas las superficies de tu casa)
-3. **Aliados de visión**: rodeate de personas que compartan tu dirección — tu cerebro social copia el comportamiento del grupo
-4. **Celebración de pequeños avances**: cada logro, por mínimo que sea, libera dopamina y refuerza el nuevo camino neural
+3. **Aliados de visión**: rodeate de personas que compartan tu dirección — tendemos a copiar lo que hace el grupo en el que estamos
+4. **Celebración de pequeños avances**: reconocer cada logro, por mínimo que sea, le da premio al esfuerzo hoy y no sólo al final, y lo que tiene premio se repite
 
 ---
 
 ### Enemigo 4: Las Distorsiones Cognitivas
 
-Aaron Beck, padre de la terapia cognitiva, identificó patrones de pensamiento distorsionado que todos tenemos. Estos patrones envenenan tu visión desde adentro:
+Aaron Beck, padre de la terapia cognitivo-conductual, mostró que ciertos patrones de pensamiento distorsionado sostienen el malestar. El psiquiatra David Burns los ordenó en una lista de diez en su libro *Feeling Good* (1980), que es la que circula hoy. Todos caemos en ellos, y envenenan tu visión desde adentro. Algunos, con los nombres que se usan en castellano:
 
 - **Pensamiento todo-o-nada**: "Si no puedo hacer todo, no hago nada"
 - **Catastrofismo**: "Si esto sale mal, mi vida se arruina"

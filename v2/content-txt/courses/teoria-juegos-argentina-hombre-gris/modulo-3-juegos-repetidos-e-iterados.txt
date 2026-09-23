@@ -6,6 +6,10 @@ summary: 'Explorá cómo la repetición, el descuento y la memoria cambian los i
 orderIndex: 3
 draft: false
 cierre: puente
+fuentes:
+  - url: https://plato.stanford.edu/entries/prisoner-dilemma/
+    titulo: 'Prisoner''s Dilemma — Stanford Encyclopedia of Philosophy'
+    consultada: '2026-09-23'
 ---
 Módulo 3 · Juegos repetidos e iterados
 
@@ -17,7 +21,7 @@ Las partidas argentinas rara vez son únicas. Los mismos actores se cruzan en m�
 
 El factor de descuento δ representa cuánto valoran los jugadores el futuro. Va de 0 (no me importa mañana) a 1 (valoro el futuro tanto como el presente). Cuando δ es alto, cooperar se vuelve atractivo porque las recompensas futuras pesan.
 
-**Visualización:** Con los pagos típicos del Prisionero, un δ alto —por ejemplo, 0,5 o más— hace posible sostener cooperación con estrategias condicionales. En Argentina, sectores con contrato a largo plazo (energía, agro, infraestructura) suelen tener δ alto; en cambio, programas asistenciales de corta duración tienen δ bajo, lo que incentiva el oportunismo.
+**Visualización:** Con los pagos que usó Axelrod en sus torneos (tentación 5, cooperación mutua 3, castigo mutuo 1, víctima 0), la cuenta de la sección 8.1 da que una estrategia condicional como Grim Trigger sostiene la cooperación con un δ de 0,5 o más. Lo que alarga o acorta el horizonte es el diseño del acuerdo: un contrato a veinte años, como los de la subasta RenovAr que vas a ver en el Módulo 5, le da al futuro mucho más peso que un convenio que se renegocia cada pocos meses.
 
 **Ejemplo:** Un municipio ofrece un contrato de residuos por 5 años. Si el adjudicatario valora la renovación (δ≈0.8), preferirá cooperar para no perder reputación. Si el contrato dura 6 meses (δ≈0.2), la tentación de capturar todo al inicio es mayor. Diseñar acuerdos con horizonte mínimo y renovaciones condicionadas aumenta δ.
 
@@ -33,7 +37,7 @@ Funciona bien cuando hay poca información y se necesita construir confianza rá
 
 ### Grim Trigger
 
-Coopera hasta que el otro defecte; luego castiga para siempre. Es efectivo si el castigo perpetuo es creíble, pero en Argentina suele disparar espirales de venganza. Lo usamos sólo en contratos donde la expulsión definitiva es factible (ej. licitaciones con cláusula anticorrupción).
+Coopera hasta que el otro defecte; luego castiga para siempre. Es efectivo si el castigo perpetuo es creíble, pero no perdona nada: con ruido, un solo error lo condena a castigar para siempre, y la relación se queda sin camino de regreso. Lo usamos sólo en contratos donde la expulsión definitiva es factible (ej. licitaciones con cláusula anticorrupción).
 
 ### Generous TFT
 
@@ -74,13 +78,13 @@ Sin registro, los juegos repetidos se degradan a juegos simultáneos (todos espe
 
 Herramientas:
 
-- **tableros públicos:** actualizados cada semana, con indicadores clave (cumplimiento, tiempo de respuesta, compromisos).
+- **Tableros públicos:** actualizados cada semana, con indicadores clave (cumplimiento, tiempo de respuesta, compromisos).
 - **Bitácoras compartidas:** actas digitales firmadas después de cada ronda.
 - **Semáforos reputacionales:** verde (cooperó), amarillo (ruido), rojo (defecto intencional).
 
-## 6. Caso completo · Laboratorio de crédito cooperativo
+## 6. Un caso para pensar · Laboratorio de crédito cooperativo
 
-Contexto: banco público y asociación de productores rurales en Santa Fe. Se repetían renegociaciones cada campaña. Se decidió montar un juego iterado explícito.
+Este caso es un ejemplo armado para el curso, no una experiencia documentada. Imaginá un banco público y una asociación de productores rurales que renegocian el crédito en cada campaña, y que deciden montar un juego iterado explícito.
 
 ### Diseño
 
@@ -89,25 +93,25 @@ Contexto: banco público y asociación de productores rurales en Santa Fe. Se re
 - Estrategia productores: Pavlov (si la interacción fue positiva, replican; si hubo problema, ajustan la entrega).
 - Memoria: tablero público con pagos, entregas y notas de visitas técnicas.
 
-### Resultados
+### Qué mirar para saber si funciona
 
-- Cooperación sostenida (C,C) 85% de las rondas.
-- Reducción de atrasos del 28% al 9%.
-- Escalamiento a otras regiones gracias a reputación compartida.
+- Qué proporción de las rondas termina en (C,C), y si esa proporción sube de una campaña a la siguiente.
+- Si los atrasos bajan, y cuántos de los que quedan se explican con documentación (ruido) y cuántos no (abuso).
+- Si otra región puede copiar el diseño con las mismas cláusulas, o si dependía de las personas que lo armaron.
 
-## 7. Caso contraejemplo · Mesa de transporte urbano
+## 7. Un contraejemplo para pensar · Mesa de transporte urbano
 
-Jugadores: Nación, provincias, empresas de transporte. Se intentó un esquema iterado, pero δ era bajo porque los contratos se renovaban cada 60 días y el financiamiento llegaba tarde. Resultado: todos defectan (no se respetan frecuencias, Nación demora giros, provincias no auditan). Lecciones:
+También es un ejemplo armado. Jugadores: Nación, provincias, empresas de transporte. Imaginá que intentan un esquema iterado, pero δ es bajo porque los contratos se renuevan cada pocos meses y el financiamiento llega tarde. El resultado previsible es que todos defecten: no se respetan frecuencias, la Nación demora giros, las provincias no auditan. Lecciones:
 
 - Sin horizonte razonable, las estrategias cooperativas no tienen tiempo de florecer.
-- La ausencia de memoria pública permitió narrativas contradictorias.
+- La ausencia de memoria pública deja crecer narrativas contradictorias.
 - Solución propuesta: contrato anual con pagos mensuales automáticos y tableros de frecuencias alimentados por GPS.
 
 ## 8. Herramientas cuantitativas
 
 ### 8.1 Valor presente de cooperación
 
-Calculá si cooperar es rentable. Cooperar para siempre vale `R / (1 − δ)`, donde R es el pago de cada ronda cooperativa y δ cuánto pesa el futuro. Defectar hoy vale la tentación T de esta ronda más el castigo P de todas las que siguen: `T + δ·P / (1 − δ)`. La cooperación es racional cuando el primer número supera al segundo.
+Calculá si cooperar es rentable. Cooperar para siempre vale `R / (1 − δ)`, donde R es el pago de cada ronda cooperativa y δ cuánto pesa el futuro. Defectar hoy vale la tentación T de esta ronda más el castigo P de todas las que siguen: `T + δ·P / (1 − δ)`. La cooperación es racional cuando el primer número supera al segundo. Despejando, eso pasa cuando δ ≥ (T − R) / (T − P): con T = 5, R = 3 y P = 1, δ tiene que valer 0,5 o más.
 
 ### 8.2 Matriz de transición
 
@@ -144,7 +148,7 @@ Mide cuánto castigo puede soportar la relación antes de romperse. Se mide con 
 - ¿Diseñaste un tablero de memoria pública?
 - ¿Clasificaste los defectos en ruido vs abuso?
 
-            **Entrega sugerida:** subí un informe breve con tu estrategia condicional, los valores estimados de δ y el prototipo de tablero. Recibirás feedback para mejorar la resiliencia antes de escalarlo.
+**Entrega sugerida:** escribí un informe breve con tu estrategia condicional, los valores estimados de δ y el prototipo de tablero. Antes de escalarlo, pasáselo a la contraparte y pedile que marque cuáles de los defectos que clasificaste como ruido leería como abuso.
 
 ## 11. Preparación para el Módulo 4
 

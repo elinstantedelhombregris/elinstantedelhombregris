@@ -124,30 +124,30 @@
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Medios y Poder: La Relación Que No Se Enseña» a una situación real?",
+      "question": "Un gobierno provincial le corta la publicidad oficial a un diario que venía publicando notas críticas. Según la regla que fijó la Corte Suprema sobre la pauta, ¿qué pasa?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Entender la relación entre medios de comunicación y poder político en Argentina.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "El diario tiene derecho a seguir cobrando el mismo monto, porque la pauta ya asignada no se puede quitar.",
+        "El diario tiene que probar que el corte fue una represalia por lo que publicó para que el Estado deba explicarse.",
+        "El Estado tiene que demostrar que tuvo motivos suficientes para cortarla: la carga de la prueba está del lado del que paga.",
+        "Nada: el Estado es libre de asignar sus recursos, así que puede dar o quitar pauta sin dar explicaciones."
       ],
       "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección «Medios y Poder» resume los fallos Río Negro (2007) y Perfil (2011): ningún medio tiene derecho a un monto determinado, pero el Estado no puede discriminar, y si le quita la pauta a un medio es él quien tiene que demostrar que tuvo motivos suficientes.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Mapa del Poder: Diagnóstico de Tu Territorio» a una situación real?",
+      "question": "Armando tu mapa del poder local, anotás a un empresario que financia la fiesta del pueblo y consigue que el intendente lo atienda cuando quiere, pero que no ocupa ningún cargo. ¿Qué te indica eso, según la lección?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Ejercicio integrador: mapear la estructura de poder en tu territorio local."
+        "Una herramienta que nadie usa: alguien con influencia a quien los vecinos todavía no le reclaman nada.",
+        "Un error del mapa: si no figura en ninguna norma, no forma parte del poder que hay que mapear.",
+        "Que hay que pasarlo a la capa formal, porque todo el que influye en las decisiones termina teniendo un cargo.",
+        "Poder sin rendición de cuentas: aparece en la capa informal del mapa y no en la formal."
       ],
       "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección «Tu Mapa del Poder» pide dibujar dos capas: donde alguien aparece en la informal y no en la formal hay poder sin rendición de cuentas; la «herramienta que nadie usa» es el caso inverso, un cargo formal que nadie nombra en la informal.",
       "points": 1,
       "orderIndex": 12
     }

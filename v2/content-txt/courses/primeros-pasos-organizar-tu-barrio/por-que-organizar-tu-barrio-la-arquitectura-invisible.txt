@@ -10,13 +10,16 @@ fuentes:
   - url: https://juristeca.jusbaires.gob.ar/compilacion-normativa-juristeca/ley-1777/
     titulo: 'Ley 1.777 — Ley Orgánica de Comunas de la Ciudad de Buenos Aires (Juristeca, Poder Judicial CABA)'
     consultada: '2026-09-22'
+  - url: https://www.pagina12.com.ar/468296-a-20-anos-de-la-crisis-del-2001-que-eran-las-asambleas-barri/
+    titulo: 'A 20 años de la crisis del 2001: qué eran las asambleas barriales que nacieron tras el estallido (Página/12)'
+    consultada: '2026-09-23'
 ---
 
 ## La Comunidad No Es un Sentimiento: Es una Arquitectura
 
 Cuando hablamos de "comunidad", la mayoría piensa en un sentimiento cálido de pertenencia. Pero la comunidad real es algo mucho más concreto: es una **estructura de relaciones** que permite a un grupo de personas resolver problemas juntas que no podrían resolver solas.
 
-Argentina tiene una tradición profunda de organización barrial: los clubes de barrio, las sociedades de fomento, las asambleas populares del 2001. Pero esa tradición se ha debilitado. Los barrios se han atomizado, cada familia encerrada en su casa, conectada a pantallas pero desconectada de sus vecinos.
+Argentina tiene una tradición profunda de organización barrial: los clubes de barrio, las sociedades de fomento, las asambleas barriales que nacieron en las esquinas y las plazas después del estallido de diciembre de 2001. Pero esa tradición no se sostiene sola. En muchos barrios cada familia vive encerrada en su casa, conectada a pantallas pero desconectada de sus vecinos.
 
 ### ¿Por Qué el Barrio?
 

@@ -5,7 +5,7 @@
   "excerpt": "Masterclass Hombre Gris: teoría de juegos aplicada, gráficos, ejercicios guiados y toolkit completo para convertir el país en una partida cooperativa.",
   "category": "hombre-gris",
   "level": "advanced",
-  "duration": 50,
+  "duration": 49,
   "orderIndex": 7,
   "isPublished": true,
   "isFeatured": true,
@@ -16,28 +16,28 @@
       "key": "02-modulo-1-fundamentos-y-lenguaje-comun",
       "title": "Módulo 1 · Fundamentos y lenguaje común",
       "description": "Instala definiciones, tipos de juegos, supuestos racionales y por qué Argentina debe pensarse como una partida iterada.",
-      "duration": 8,
+      "duration": 10,
       "orderIndex": 1
     },
     {
       "key": "03-modulo-2-juegos-estaticos-y-estrategias-dominantes",
       "title": "Módulo 2 · Juegos estáticos y estrategias dominantes",
       "description": "Analizá juegos simultáneos clásicos (Prisionero, Coordinación, Chicken) y aterrizalos en políticas públicas.",
-      "duration": 8,
+      "duration": 9,
       "orderIndex": 2
     },
     {
       "key": "04-modulo-3-juegos-repetidos-e-iterados",
       "title": "Módulo 3 · Juegos repetidos e iterados",
       "description": "Explorá cómo la repetición, el descuento y la memoria cambian los incentivos.",
-      "duration": 6,
+      "duration": 7,
       "orderIndex": 3
     },
     {
       "key": "05-modulo-4-senales-informacion-y-reputacion-publica",
       "title": "Módulo 4 · Señales, información y reputación pública",
       "description": "Diseñá señales creíbles y tableros que sostienen la confianza.",
-      "duration": 4,
+      "duration": 3,
       "orderIndex": 4
     },
     {
@@ -58,28 +58,28 @@
       "key": "08-modulo-7-estrategias-argentinas-casos-y-contraejemplos",
       "title": "Módulo 7 · Estrategias argentinas: casos y contraejemplos",
       "description": "Revisión profunda de políticas, empresas y pactos sociales que ilustran diferentes estrategias.",
-      "duration": 4,
+      "duration": 3,
       "orderIndex": 7
     },
     {
       "key": "09-modulo-8-simulaciones-y-laboratorios-territoriales",
       "title": "Módulo 8 · Simulaciones y laboratorios territoriales",
       "description": "Creá experimentos controlados para testear reglas antes de escalarlas.",
-      "duration": 4,
+      "duration": 3,
       "orderIndex": 8
     },
     {
       "key": "10-modulo-9-diseno-institucional-y-enforcement-cooperativo",
       "title": "Módulo 9 · Diseño institucional y cumplimiento cooperativo",
       "description": "Traducí aprendizajes en reformas legales, contratos y órganos de control.",
-      "duration": 4,
+      "duration": 3,
       "orderIndex": 9
     },
     {
       "key": "11-modulo-10-plan-de-accion-metricas-y-escalamiento",
       "title": "Módulo 10 · Plan de acción, métricas y escalamiento",
       "description": "Cerrá con un plan integral: roadmap de 180 días, KPIs y compromisos públicos.",
-      "duration": 4,
+      "duration": 3,
       "orderIndex": 10
     }
   ],

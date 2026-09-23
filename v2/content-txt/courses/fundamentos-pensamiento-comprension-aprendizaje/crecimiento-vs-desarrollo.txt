@@ -6,6 +6,13 @@ summary: 'Aprendé la diferencia crucial entre crecer (aumentar de tamaño) y de
 orderIndex: 3
 draft: false
 cierre: puente
+fuentes:
+  - url: http://users.econ.umn.edu/~tkehoe/papers/argentina.pdf
+    titulo: 'Timothy J. Kehoe — What Can We Learn from the 1998–2002 Depression in Argentina? (2007)'
+    consultada: '2026-09-23'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/complejos_03_25442CB3F0B0.pdf
+    titulo: 'INDEC — Complejos exportadores, año 2024'
+    consultada: '2026-09-23'
 ---
 Estos dos conceptos suelen confundirse, pero son fundamentalmente diferentes. Entender esta diferencia transforma cómo evaluás el progreso, tanto personal como organizacional y nacional.
 
@@ -113,21 +120,21 @@ El desarrollo se mide por la capacidad de crear valor con los recursos disponibl
 
 ### Crecimiento (Lo que pasó)
 
-- PIB creció significativamente
+- El PIB creció fuerte: entre 1990 y 1998, salvo el bache de 1995 por la crisis del Tequila, el producto por persona en edad de trabajar subió cerca de 37%
 - Inflación controlada (convertibilidad)
 - Consumo masivo de bienes importados
 - Privatizaciones generaron ingresos
 - Inversión extranjera aumentó
 
-### Desarrollo (Lo que NO pasó)
+### Desarrollo (Lo que los números del crecimiento no mostraban)
 
-- No se desarrolló capacidad productiva nacional
-- No se mejoró la educación de calidad
-- No se fortalecieron las instituciones
-- No se desarrolló innovación tecnológica
-- No se construyó cohesión social
+- Si se estaba formando capacidad productiva propia, o si el consumo se apoyaba en lo importado
+- Si la educación estaba desarrollando las capacidades que el país iba a necesitar
+- Si las instituciones se fortalecían, o si todo dependía de una sola ancla: el uno a uno
+- Si había innovación tecnológica propia
+- Si la cohesión social aguantaba el ajuste
 
-**Resultado:** Cuando el crecimiento se detuvo (crisis 2001), no había desarrollo que sostuviera al país. El crecimiento era frágil porque no estaba basado en desarrollo real.
+**Resultado:** Cuando el crecimiento se detuvo —la recesión empezó en 1998 y para 2002 el producto por persona en edad de trabajar había caído alrededor de 23%—, lo que se había ganado no alcanzó para sostener al país. El crecimiento resultó frágil porque no descansaba sobre capacidades que sobrevivieran al cambio de viento.
 
 ### Caso Actual: La Paradoja de los Recursos
 
@@ -137,7 +144,7 @@ Argentina tiene recursos extraordinarios pero no los desarrolla efectivamente:
 - **Problema:** Los exportamos como commodities (crecimiento)
 - **Solución:** Desarrollar capacidad de agregar valor (desarrollo)
 
-Ejemplo: Exportamos soja cruda (crecimiento) en lugar de desarrollar capacidad para exportar alimentos procesados, biotecnología, conocimiento agrícola (desarrollo).
+Ejemplo: la soja es el primer complejo exportador del país —en 2024 fue el 24,6% de todo lo que se vendió afuera, según el INDEC—. Sólo una décima parte sale como poroto: más de la mitad se va como harina y pellets, y casi un tercio como aceite. Es decir, la molemos, pero lo que despachamos es sobre todo insumo, que otros países convierten en carne y alimentos terminados (crecimiento). Desarrollo sería sumar, sobre esa base, la capacidad de exportar alimentos terminados, biotecnología y conocimiento agrícola.
 
 ## ¿Por Qué el Desarrollo Requiere Diferentes Inversiones?
 

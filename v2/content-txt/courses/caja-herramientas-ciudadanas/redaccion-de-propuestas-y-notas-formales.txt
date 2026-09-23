@@ -10,6 +10,12 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/22363/texact.htm
     titulo: 'Ley 19.549 de Procedimientos Administrativos, texto actualizado — artículos 10 y 28 (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.indec.gob.ar/micro_sitios/webcenso/aquisecuenta/aqui7.pdf
+    titulo: 'Mapa de necesidades básicas insatisfechas 2001 — Aquí se cuenta n.º 7 (INDEC, 2003)'
+    consultada: '2026-09-23'
+  - url: https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_09_25D162CC7BFB.pdf
+    titulo: 'Incidencia de la pobreza y la indigencia en 31 aglomerados urbanos. Primer semestre de 2025 (INDEC)'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-09-22'
 ---
 ### Por qué importa
@@ -58,7 +64,7 @@ Sin otro particular, saludo a Ud. atentamente.
 Si querés presentar un proyecto para financiamiento o apoyo, necesita estos componentes:
 
 1. **Título:** Claro y descriptivo. "Huertas Escolares Villa Lugano" — no "Proyecto de Seguridad Alimentaria Integral para la Zona Sur."
-2. **Problema:** ¿Qué problema resolvés? Con datos. "El 40% de los chicos del barrio no accede a verduras frescas."
+2. **Problema:** ¿Qué problema resolvés? Con datos, y diciendo de dónde salen. Algo como "El 40% de los chicos del barrio no accede a verduras frescas, según la encuesta que hicimos puerta a puerta en marzo", con tu número real.
 3. **Solución:** ¿Qué proponés hacer? Concreto y alcanzable.
 4. **Beneficiarios:** ¿A quiénes ayuda? ¿Cuántos?
 5. **Actividades:** ¿Qué vas a hacer, paso a paso?
@@ -69,7 +75,7 @@ Si querés presentar un proyecto para financiamiento o apoyo, necesita estos com
 ### Errores Que Matan Propuestas
 
 - **Lenguaje inflado:** "Paradigma sinérgico de empoderamiento holístico." Escribí claro o no te van a leer.
-- **Sin datos:** "Hay mucha pobreza" no es un argumento. "El 35% de los hogares del barrio está bajo la línea de pobreza según el censo" sí lo es.
+- **Sin datos:** "Hay mucha pobreza" no es un argumento. "El 35% de los hogares del barrio tiene necesidades básicas insatisfechas según el censo" sí lo es. Ojo con la fuente que elegís: el censo del INDEC mide necesidades básicas insatisfechas (hacinamiento, vivienda precaria, falta de baño, chicos que no van a la escuela) y se puede consultar hasta el nivel de barrio; la pobreza por ingresos la mide la Encuesta Permanente de Hogares, que cubre 31 aglomerados urbanos y no da cifras por barrio. Si tu nota dice "pobreza según el censo", el funcionario que conoce la diferencia deja de leer ahí.
 - **Pedir sin ofrecer:** No solo pidas plata — mostrá qué ponés vos: tiempo, voluntarios, espacio, conocimiento.
 - **Mala ortografía/formato:** Parece injusto, pero una nota con errores pierde credibilidad. Pedile a alguien que revise antes de enviar.
 

@@ -1,11 +1,11 @@
 {
   "slug": "diseno-idealizado-sistemas-vivos",
   "title": "Diseño Idealizado de Sistemas Vivos: De la Visión al Futuro Transformado",
-  "description": "Un curso transformador que te enseñará a diseñar sistemas ideales desde cero, sin limitaciones del pasado. Aprendé a imaginar futuros potentes y crear las condiciones para que emergan. Desde fundamentos energéticos hasta implementación práctica en todos los niveles de la vida.",
-  "excerpt": "Aprendé a diseñar sistemas ideales que transforman la realidad. Descubrí cómo imaginar futuros potentes y crear las condiciones para que emergan, desde tu vida personal hasta sistemas nacionales.",
+  "description": "Un curso transformador que te enseñará a diseñar sistemas ideales desde cero, sin limitaciones del pasado. Aprendé a imaginar futuros potentes y crear las condiciones para que emerjan. Desde fundamentos energéticos hasta implementación práctica en todos los niveles de la vida.",
+  "excerpt": "Aprendé a diseñar sistemas ideales que transforman la realidad. Descubrí cómo imaginar futuros potentes y crear las condiciones para que emerjan, desde tu vida personal hasta sistemas nacionales.",
   "category": "hombre-gris",
   "level": "advanced",
-  "duration": 36,
+  "duration": 38,
   "orderIndex": 5,
   "isPublished": true,
   "isFeatured": true,
@@ -23,7 +23,7 @@
       "key": "03-entropia-y-orden-inteligente",
       "title": "Entropía y Orden Inteligente",
       "description": "Comprendé cómo la tendencia natural al desorden puede convertirse en motor de rediseño. Aprendé a usar la entropía como señal de necesidad de transformación.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 2
     },
     {
@@ -37,7 +37,7 @@
       "key": "05-bucles-que-te-impulsan-o-frenan",
       "title": "Bucles que Te Impulsan o Frenan",
       "description": "Descubrí los bucles de retroalimentación invisibles que moldean la realidad. Aprendé a identificar bucles reforzadores (positivos y negativos) y compensadores.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {

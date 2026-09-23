@@ -20,14 +20,14 @@ En una organización jerárquica, cuando hay conflicto el jefe decide. En una or
 
 ### Niveles de Intervención
 
-1. **Nivel 1 - Conversación directa:** Las dos personas hablan solas. La mayoría de los conflictos se resuelven acá si hay buena voluntad.
+1. **Nivel 1 - Conversación directa:** Las dos personas hablan solas. Muchos conflictos se resuelven acá si hay buena voluntad. Pero este paso se saltea cuando hay violencia, acoso, miedo a represalias o mucha diferencia de poder entre las partes: ahí nadie tiene que sentarse a solas con quien lo daña, y el caso va directo a quien la organización haya designado para recibirlo.
 2. **Nivel 2 - Mediación:** Si la conversación directa falla, una tercera persona neutral facilita el diálogo.
 3. **Nivel 3 - Panel:** Si la mediación falla, un grupo de 3 personas escucha ambas partes y propone una solución.
 4. **Nivel 4 - Decisión grupal:** Si nada funciona, el grupo completo debate y decide por votación.
 
 ### Herramientas de Mediación Práctica
 
-- **La silla vacía:** Cada persona se sienta en la silla del otro y expresa lo que cree que el otro siente. Genera empatía instantánea.
+- **El cambio de silla:** Cada persona se sienta en la silla del otro y expresa lo que cree que el otro siente. No garantiza la empatía, pero obliga a mirar el conflicto desde el otro lado, y la otra parte puede corregir lo que se dijo en su nombre.
 - **Los intereses detrás de las posiciones:** "Vos querés X, pero ¿qué necesitás realmente?" A menudo dos posiciones opuestas comparten el mismo interés de fondo.
 - **El acuerdo parcial:** "¿En qué sí estamos de acuerdo?" Empezar por lo compartido cambia el tono de la conversación.
 

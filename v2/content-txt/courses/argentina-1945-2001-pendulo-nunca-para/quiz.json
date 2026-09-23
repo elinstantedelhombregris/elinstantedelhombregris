@@ -40,12 +40,12 @@
       "type": "multiple_choice",
       "options": [
         "Un juicio militar interno",
-        "Primera vez que un gobierno democrático juzgó a su propia dictadura en tribunal civil",
+        "Primera vez que el país llevó a los comandantes de su propia dictadura ante jueces civiles",
         "Un juicio internacional como Núremberg",
         "Una amnistía general"
       ],
       "correctAnswer": 1,
-      "explanation": "Argentina fue pionera mundial al juzgar y condenar a los comandantes de su dictadura en tribunales civiles.",
+      "explanation": "Por primera vez, la Argentina juzgó y condenó ante jueces civiles a los comandantes de su propia dictadura: no fue un tribunal revolucionario ni una amnistía, sino justicia con todas las garantías.",
       "points": 2,
       "orderIndex": 4
     },
@@ -59,11 +59,11 @@
       "orderIndex": 5
     },
     {
-      "question": "¿Cuántos presidentes tuvo Argentina en los 10 días posteriores a la renuncia de De la Rúa?",
+      "question": "Según la lección sobre la crisis de 2001, ¿cuántos presidentes tuvo Argentina en 12 días?",
       "type": "multiple_choice",
       "options": ["2", "3", "5", "7"],
       "correctAnswer": 2,
-      "explanation": "Argentina tuvo 5 presidentes en 10 días, reflejando el colapso institucional total.",
+      "explanation": "La lección lo resume como 5 presidentes en 12 días: el sistema institucional estaba tan roto que no podía producir un sucesor estable.",
       "points": 2,
       "orderIndex": 6
     },
@@ -91,58 +91,58 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «La Crisis de 2001: El Colapso Sistémico» a una situación real?",
+      "question": "Según la lección sobre la crisis de 2001, ¿por qué el Decreto 1570/2001, el corralito, es un ejemplo de manual de falla sistémica?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: El estallido de diciembre de 2001 como falla sistémica total.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Porque prohibió retirar un solo peso en efectivo y paralizó de un día para otro toda la economía informal.",
+        "Porque fijó diez mil australes por dólar y dejó al Banco Central sin reservas para respaldar los depósitos.",
+        "Porque una norma escrita para proteger los depósitos terminó de romper la confianza que debía cuidar.",
+        "Porque lo firmó Duhalde después de la renuncia de De la Rúa, cuando ya nadie reconocía su autoridad."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "El decreto limitaba los retiros a 250 pesos o dólares por semana y prometía que la restricción duraría «un breve período»; en vez de cuidar los depósitos, terminó de romper la confianza, y en veinte días la crisis bancaria se volvió crisis política.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Los Patrones del Péndulo: El Ciclo que Se Repite» a una situación real?",
+      "question": "En «Los Patrones del Péndulo», ¿qué muestra el caso del agua del área metropolitana entre 1990 y 2024?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Análisis sistémico de los patrones recurrentes en la historia 1945-2001.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que cada fase se presentó como corrección de la anterior, y las privatizaciones de 1990 y 2024 usaron la Ley 23.696.",
+        "Que la concesión a Aguas Argentinas funcionaba bien y el Estado la rescindió en 2006 por motivos puramente ideológicos.",
+        "Que AySA nació en 2006 como empresa 100% estatal y una ley posterior prohibió volver a privatizarla.",
+        "Que cada gobierno tuvo que sancionar una ley marco de Reforma del Estado nueva para justificar su giro."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección recorre el ciclo entero con el agua: privatización en 1990 bajo la Ley 23.696, rescisión «por culpa del concesionario» en 2006 y AySA declarada «sujeta a privatización» en 2024 bajo esa misma ley. Cada fase se presentó como corrección de la anterior, y las dos privatizaciones se apoyaron en la misma ley.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Economía y Sociedad: Lo Que los Números No Dicen» a una situación real?",
+      "question": "En mayo de 2003 el INDEC midió 54,7% de pobreza en el total urbano. ¿Qué muestra «Economía y Sociedad» cuando abre ese promedio?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Cómo los indicadores económicos ocultan realidades humanas en cada período.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que la pobreza era bastante pareja: rondaba la mitad de la población en casi todos los aglomerados.",
+        "Que el número subía tanto porque la encuesta sumaba por primera vez a la población rural del país.",
+        "Que la Ciudad de Buenos Aires superaba al Conurbano por el peso de los nuevos pobres de clase media.",
+        "Que escondía un país partido: 21,7% en la Ciudad y 61,3% en los partidos del Conurbano bonaerense."
       ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "El promedio escondía extremos: 21,7% en la Ciudad, 61,3% en el Conurbano y más del 73% en Concordia y Corrientes. Y la Encuesta Permanente de Hogares es una muestra urbana: lo que pasa fuera de las ciudades encuestadas no entra en el número.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Lecciones para el Futuro: Lo Que Este Medio Siglo Nos Enseña» a una situación real?",
+      "question": "En «Lecciones para el Futuro», ¿por qué la Ley 25.633 de 2002 aparece como la décima lección convertida en norma?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Síntesis de aprendizajes sistémicos para construir una Argentina diferente."
+        "Porque declaró insanablemente nulas las leyes de Punto Final y Obediencia Debida y reabrió los juicios.",
+        "Porque instituyó el 24 de marzo y lo ató a los calendarios escolares, fuera del humor de cada gobierno.",
+        "Porque creó el Banco Nacional de Datos Genéticos para guardar las muestras de las familias que buscan nietos.",
+        "Porque obligó a los Concejos Deliberantes a publicar cómo vota cada concejal en sesiones abiertas."
       ],
-      "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 1,
+      "explanation": "La Ley 25.633 instituyó el Día Nacional de la Memoria por la Verdad y la Justicia y, en su artículo 2, mandó acordar jornadas en los calendarios escolares: la memoria quedó atada a la escuela y no al gobierno de turno. La nulidad de las leyes de impunidad fue otra norma, la Ley 25.779 de 2003.",
       "points": 1,
       "orderIndex": 12
     }

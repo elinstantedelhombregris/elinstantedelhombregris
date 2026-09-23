@@ -5,7 +5,7 @@
   "excerpt": "De la tierra al brillo: etimología, humanidad y el coraje de ser gris en un mundo blanco y negro.",
   "category": "hombre-gris",
   "level": "beginner",
-  "duration": 40,
+  "duration": 43,
   "orderIndex": 1,
   "isPublished": true,
   "isFeatured": true,
@@ -16,7 +16,7 @@
       "key": "02-homo-humus-humildad-que-significa-ser-hombre",
       "title": "Homo, Humus, Humildad — ¿Qué significa ser Hombre?",
       "description": "Un viaje a la raíz de lo que somos: de la tierra que nos nombra a la humanidad que nos define.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 1
     },
     {
@@ -37,14 +37,14 @@
       "key": "05-las-psicografias-de-parravicini-el-gris-profetizado",
       "title": "Las Psicografías de Parravicini — El gris profetizado",
       "description": "Quién fue Parravicini, qué vio sobre el Hombre Gris, y por qué su visión no es un destino sino una invitación.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 4
     },
     {
       "key": "06-la-humanidad-como-puente-romper-la-polarizacion",
       "title": "La humanidad como puente — Romper la polarización",
       "description": "Cómo funciona la polarización, qué nos roba, y por qué la humanidad compartida es el puente más fuerte.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 5
     },
     {

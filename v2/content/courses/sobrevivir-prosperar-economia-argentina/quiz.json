@@ -32,30 +32,30 @@
       "orderIndex": 2
     },
     {
-      "question": "¿Qué describe mejor a un plazo fijo UVA?",
+      "question": "Según la lección de ahorro, ¿qué distingue al plazo fijo UVA precancelable del UVA común?",
       "type": "multiple_choice",
       "options": [
-        "Garantiza conservar poder de compra en cualquier escenario",
-        "Ajusta el capital por CER bajo condiciones de plazo, tasa y cancelación que deben verificarse",
-        "Replica el dólar sin riesgo de mercado",
-        "Permite retirar todo el dinero en cualquier momento sin condiciones"
+        "Pide 90 días de plazo y no admite retirarlo antes del vencimiento",
+        "No pide plazo mínimo, pero el banco puede negarse a tomarlo",
+        "Pide 30 días de plazo y ajusta por tasa fija en vez de CER",
+        "Pide 180 días de plazo, pero admite retirarlo desde el día 30"
       ],
-      "correctAnswer": 1,
-      "explanation": "El ajuste por CER busca acompañar una medida de inflación, pero no constituye una garantía universal de poder de compra: importan plazo, tasa, liquidez, impuestos, reglas vigentes y tu canasta real.",
+      "correctAnswer": 3,
+      "explanation": "La Comunicación A 7929 del BCRA creó el UVA precancelable para personas humanas: plazo mínimo de 180 días con opción de retirarlo a partir de los 30, y los bancos deben tomarlo por hasta $5 millones por cliente. El UVA común pide 90 días y no tiene salida antes.",
       "points": 2,
       "orderIndex": 3
     },
     {
-      "question": "¿Cómo definís una meta razonable para tu fondo de emergencia?",
+      "question": "Según la lección de inversión para principiantes, ¿por qué el fondo de emergencia va antes de la primera inversión?",
       "type": "multiple_choice",
       "options": [
-        "Usando tres meses como mínimo universal",
-        "Según gastos esenciales, estabilidad de ingresos, personas a cargo, coberturas y acceso real a liquidez",
-        "Eligiendo la cifra más alta que recomiende una red social",
-        "Invirtiendo todo para maximizar rendimiento"
+        "Porque evita vender en mal momento para pagar una urgencia",
+        "Porque cubre lo que pierdas si la inversión termina cayendo",
+        "Porque su rendimiento financia las primeras compras de la cartera",
+        "Porque los brokers lo piden antes de habilitar tu cuenta"
       ],
-      "correctAnswer": 1,
-      "explanation": "No existe un número mínimo válido para todas las personas. La primera meta puede ser pequeña y crecer por etapas; debe ser líquida, alcanzable y proporcional a riesgos y gastos esenciales propios.",
+      "correctAnswer": 0,
+      "explanation": "La lección lo dice así: el fondo de emergencia va antes porque es lo que evita que tengas que vender en el peor momento para pagar una urgencia. No compensa las pérdidas de la inversión ni es un requisito del broker.",
       "points": 2,
       "orderIndex": 4
     },
@@ -97,25 +97,25 @@
       "orderIndex": 7
     },
     {
-      "question": "¿Cómo evaluás si una carga mensual de deuda es sostenible?",
+      "question": "En la lista de deudas que propone la lección de deuda, ¿cuáles son las primeras a cancelar o refinanciar?",
       "type": "multiple_choice",
       "options": [
-        "Aplicando 30% como límite seguro para cualquier hogar",
-        "Midiendo cuotas y costo total contra ingreso disponible, gastos esenciales, variabilidad, reservas y escenarios adversos",
-        "Mirando sólo el valor de la primera cuota",
-        "Sumando deuda mientras el banco mantenga una oferta disponible"
+        "Las de saldo más alto, sin importar cómo se ajusten",
+        "Las de tasa fija en pesos, porque la inflación las encarece",
+        "Las que suben con un índice o el dólar más que tu ingreso",
+        "Las de cuota más baja, para sacarlas rápido de la lista"
       ],
-      "correctAnswer": 1,
-      "explanation": "Un porcentaje orientativo no reemplaza el flujo de fondos. La sostenibilidad depende del ingreso disponible, su estabilidad, los gastos esenciales, la moneda, la tasa, el plazo y el colchón ante imprevistos.",
+      "correctAnswer": 2,
+      "explanation": "La palanca de la lección lo dice: las deudas que suben con un índice o con el dólar mientras tu ingreso no sube igual son las primeras a cancelar o refinanciar. La deuda en pesos a tasa fija, en cambio, es la que puede licuarse si la inflación supera la tasa.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "La cuota del monotributo siempre incluye los mismos componentes para todas las personas.",
+      "question": "En la categoría A del monotributo, la mayor parte de la cuota mensual para servicios es impuesto integrado.",
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "La composición puede incluir impuesto integrado, aporte jubilatorio y obra social, pero existen situaciones y excepciones. Verificá categoría, condición personal y reglas vigentes en ARCA antes de decidir.",
+      "explanation": "Según la tabla de ARCA vigente desde el 1 de agosto de 2026 que cita la lección, de $49.527,18 sólo $5.585,77 son impuesto integrado: $18.246,86 van al SIPA y $25.694,55 a la obra social. Poco más de un peso de cada nueve es impuesto.",
       "points": 1,
       "orderIndex": 9
     },
@@ -134,30 +134,30 @@
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Herramientas Digitales de Gestión Financiera» a una situación real?",
+      "question": "¿Qué ofrece el Régimen de Transparencia del BCRA que presenta la lección de herramientas digitales?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Apps y herramientas para gestionar tus finanzas en Argentina.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Una app oficial que sincroniza tus cuentas y ordena tus gastos",
+        "Un ranking del BCRA que recomienda el banco que más te conviene",
+        "Un registro de las apps financieras que el BCRA habilitó",
+        "Planillas con lo que los bancos informan sobre 7 productos"
       ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "Es la información que las entidades le reportan al BCRA sobre 7 productos, de cajas de ahorros a tarjetas de crédito, en planillas descargables para comparar bancos lado a lado. No es una app, no se instala y no recomienda nada.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Plan Financiero Personal: Primeros 6 Meses» a una situación real?",
+      "question": "Si el informe de la Central de Deudores del BCRA muestra una deuda mal cargada, ¿a quién le pedís que la corrija?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Crear un plan financiero personal adaptado a la realidad argentina."
+        "A la entidad que informó esa deuda",
+        "Al BCRA, que es quien publica el informe",
+        "A ARCA, porque el informe se saca por CUIT",
+        "A la CNV, que supervisa a quienes dan crédito"
       ],
-      "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección de tu plan de seis meses aclara que la información la cargan las propias entidades: si algo figura mal, la corrección se le pide a quien lo informó. El BCRA consolida lo que ellas reportan.",
       "points": 1,
       "orderIndex": 12
     }

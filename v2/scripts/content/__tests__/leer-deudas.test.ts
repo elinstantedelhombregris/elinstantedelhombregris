@@ -337,8 +337,12 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-085',
       'D-086',
       'D-087',
+      // D-091 y D-093: el cuerpo de las 329 lecciones, verificado curso por curso (23/9/2026).
+      'D-091',
       'D-092',
+      'D-093',
       'D-094', // 23/9/2026: el minutaje toca sólo lo que cambia.
+      'D-095', // 23/9/2026: ninguna pregunta de quiz se contesta sin leer la lección.
     ]);
   });
 });

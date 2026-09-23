@@ -4,16 +4,16 @@
   "allowRetakes": true,
   "questions": [
     {
-      "question": "¿Por qué las historias son más efectivas que los datos para generar acción?",
+      "question": "Según el estudio de Speer, Reynolds, Swallow y Zacks (2009) que cita la primera lección, ¿qué pasa en el cerebro mientras alguien lee un relato?",
       "type": "multiple_choice",
       "options": [
-        "Porque la gente no entiende datos",
-        "Porque activan áreas emocionales, sensoriales y motoras del cerebro",
-        "Porque son más fáciles de inventar",
-        "Porque los datos siempre mienten"
+        "Se libera oxitocina y quien lee queda más dispuesto a donar o a actuar.",
+        "Se comprueba que las cifras no mueven a nadie y que decide sólo la emoción.",
+        "Se activan regiones que siguen lo que pasa en el relato, las mismas que usamos para percibir y hacer esas acciones.",
+        "Se activan sólo las áreas del lenguaje, igual que cuando se lee una tabla de datos."
       ],
-      "correctAnswer": 1,
-      "explanation": "Las historias activan múltiples áreas del cerebro simultáneamente, incluyendo empatía y respuesta motora, generando mayor impacto.",
+      "correctAnswer": 2,
+      "explanation": "La lección resume el estudio así: leer una historia es, en parte, simularla. Y aclara que eso no prueba que un dato no mueva a nadie; por eso propone combinar la persona con la cifra, no elegir entre las dos.",
       "points": 2,
       "orderIndex": 1
     },
@@ -96,44 +96,44 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Ética Narrativa: El Poder y la Responsabilidad» a una situación real?",
+      "question": "Una organización publica la foto de un chico en el comedor del barrio, con la cara pixelada, y al pie pone el nombre del comedor y de la cuadra, sin haberles pedido permiso a sus padres. Según la lección de ética narrativa, ¿qué problema tiene la pieza?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Los límites éticos del storytelling para el cambio social.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Ninguno: pixelar la cara ya alcanza para cumplir con la ley.",
+        "Ninguno, porque la foto se sacó en un lugar abierto al público.",
+        "Que muestra pobreza, algo que estaría mal aunque nadie pudiera reconocer al chico.",
+        "Que el chico se puede identificar indirectamente, y tapar la cara no alcanza si el texto dice dónde está."
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "El artículo 22 de la Ley 26.061, que cita la lección, prohíbe difundir datos o imágenes que permitan identificar a un chico directa o indirectamente contra su voluntad y la de sus padres. La palabra que pesa es «indirectamente»: el comedor y la cuadra al pie lo identifican aunque la cara esté tapada.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto» a una situación real?",
+      "question": "Tu protagonista vive en Concordia. Según la lección del proyecto narrativo, ¿qué dato de pobreza del INDEC (segundo semestre de 2025) le ponés al lado?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "El 49,9% de Concordia, con la fuente y el período en la misma frase, después de presentar a la persona.",
+        "El 28,2% del total de los 31 aglomerados, porque es la cifra oficial y la que más se reconoce.",
+        "El 28,2% de los 31 aglomerados al principio, para dar contexto antes de presentar a la persona.",
+        "Ninguno: si la historia es verdadera, un dato de pobreza le quita fuerza al relato."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección da tres reglas: citar fuente y período en la misma frase, no mezclar escalas (a quien vive en Concordia no le va el promedio nacional) y poner el dato después de la persona.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Escribir Bajo Presión: Crónica Urgente» a una situación real?",
+      "question": "Revisás tu crónica urgente con las 5 preguntas de la lección y ves que le faltan una o dos respuestas. ¿Qué te propone la lección?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: El perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Esperar a tener las cinco respuestas antes de publicar, aunque se pierda el momento.",
+        "Completar lo que falta con lo más probable, para que la pieza salga entera.",
+        "Publicarla igual y agregar lo que falta en un post de seguimiento.",
+        "Reemplazar la voz directa que falta por la cita de un medio que cubrió el tema."
       ],
       "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La lección dice que si la crónica responde las cinco es publicable, y que si le faltan una o dos se agrega lo que falta en un post de seguimiento: lo importante es que la historia salga. Lo que no se sabe no se inventa; se aclara con «según lo que pude ver».",
       "points": 1,
       "orderIndex": 11
     }

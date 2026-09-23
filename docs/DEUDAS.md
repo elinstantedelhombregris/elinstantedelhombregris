@@ -104,10 +104,12 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-088](#d-088--el-brillo-dibujado-es-invertible-delata-cuánta-gente-habló-en-una-celda) | El brillo dibujado es invertible: delata cuánta gente habló en una celda | Alta | Abierta |
 | [D-089](#d-089--el-nivel-departamento-del-modo-análisis-sigue-apagado-aunque-la-geometría-ya-está) | El nivel departamento del modo Análisis sigue apagado aunque la geometría ya está | Media | Abierta |
 | [D-090](#d-090--las-voces-resueltas-por-punto-antes-del-cambio-de-geometría-conservan-la-provincia-vieja) | Las voces resueltas por punto antes del cambio de geometría conservan la provincia vieja | Media | Abierta |
-| [D-091](#d-091--los-cuerpos-de-las-lecciones-traen-cifras-sin-fuente-e-historias-reales-que-nadie-puede-verificar) | Los cuerpos de las lecciones traen cifras sin fuente e «historias reales» que nadie puede verificar | Alta | Abierta |
+| [D-091](#d-091--los-cuerpos-de-las-lecciones-traen-cifras-sin-fuente-e-historias-reales-que-nadie-puede-verificar) | Los cuerpos de las lecciones traen cifras sin fuente e «historias reales» que nadie puede verificar | Alta | **Resuelta** |
 | [D-092](#d-092--cinco-planes-afirman-datos-que-sus-fuentes-contradicen) | Cinco PLANes afirman datos que sus fuentes contradicen | Media | **Resuelta** |
-| [D-093](#d-093--la-voz-editorial-del-curso-contradice-lo-que-el-curso-enseña) | La voz editorial del curso contradice lo que el curso enseña | Baja | Abierta |
+| [D-093](#d-093--la-voz-editorial-del-curso-contradice-lo-que-el-curso-enseña) | La voz editorial del curso contradice lo que el curso enseña | Baja | **Resuelta** |
 | [D-094](#d-094--entrenamientosminutaje---escribir-reescribe-todo-el-corpus-aunque-cambie-una-lección) | `entrenamientos:minutaje --escribir` reescribe todo el corpus aunque cambie una lección | Baja | **Resuelta** |
+| [D-095](#d-095--65-preguntas-de-quiz-se-contestan-sin-haber-leído-la-lección) | 65 preguntas de quiz se contestan sin haber leído la lección | Media | **Resuelta** |
+| [D-096](#d-096--en-la-mitad-de-las-preguntas-de-opción-múltiple-la-correcta-es-la-opción-más-larga) | En la mitad de las preguntas de opción múltiple, la correcta es la opción más larga | Media | Abierta |
 
 ---
 
@@ -374,7 +376,7 @@ Lo que sí funcionó el 22/9, sin integrarlo todavía: un Postgres local descart
 **Dónde:** `v2/content/courses/*/*.mdx`, el cuerpo (no los cierres)
 **Encontrada:** 2026-09-22, por los 31 agentes que escribieron los cierres del Ciclo 1, que tenían orden de reportar y no reescribir
 **Severidad:** alta
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-23** — un agente por curso, los 31, con un prompt versionado (`v2/scripts/content/agentes/prompt-cuerpo.md`): cada cifra y cada hecho del cuerpo quedó con una fuente abierta antes de citarse, corregido con lo que dice la fuente, o afuera. Las citas del corpus pasaron de 492 a 1.046, y 83 lecciones llevan `revisarAntesDe` (antes 50). No queda ninguna «Historia Real»: las que no tenían fuente pública pasaron a «Un caso para pensar» o «Imaginá…», sin las cifras que funcionaban como prueba (23 casos). Los informes de los agentes trajeron además errores que corrigió el orquestador —«5 presidentes en 12 días» unificado en todo el corpus con su fuente; el agua del AMBA, que no usó una sola ley en sus tres fases; los módulos de `teoria-juegos` que repetían el mismo párrafo de relleno—.
 
 El Ciclo 1 le puso fuente al cierre; el cuerpo quedó como vino de v1. Los errores de hecho que se pudieron comprobar se corrigieron el mismo día (Gabino Ezeiza era payador; Punto Final es anterior a los carapintadas; el cepo terminó para personas en abril de 2025; ABSA no abastece Quilmes; Fowler no es de Harvard; los equilibrios de Nash de `teoria-juegos` módulo 2 estaban mal calculados; «defeca» por «defecta»; la inflación de 2023 fue 211,4% y no 150%; y unas cuarenta más). Queda lo que no se puede corregir sin investigar:
 
@@ -404,7 +406,7 @@ No se tocaron acá porque los `.mdx` de los PLANes se derivan del taller y edita
 **Dónde:** `argentina-sistema-viviente-primeros-principios`, `niveles-superiores-pensamiento-conciencia`, `la-vision-de-transformacion`, `inteligencia-emocional-tiempos-turbulentos`
 **Encontrada:** 2026-09-22, Ciclo 1
 **Severidad:** baja
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-23** — en la misma pasada que D-091: las frases del Hombre Gris pasaron a voseo, los «saltos cuánticos» de `niveles-superiores` se alinearon con la tesis de las lentes, y la neurociencia de manual quedó con fuente seria o dicha como metáfora. También salieron el «1+1=10» de `diseno-idealizado`, la «ley de la entropía» sin el matiz de sistema aislado y la promesa de «10 lecciones basadas en neurociencia» de `la-vision-de-transformacion`.
 
 - **Frases del Hombre Gris en tuteo** («Optimiza tu barrio, y contribuyes…», «No cambies personas, cambia sistemas»): van entre comillas y la regla de voseo no toca citas, pero no son citas de nadie — son la voz de la casa.
 - **Niveles como rangos:** tres lecciones de `niveles-superiores` hablan de «salto cuántico» y «avance en la evolución de la conciencia» cuando el curso dice que las perspectivas son lentes, no escalones.
@@ -418,6 +420,30 @@ No se tocaron acá porque los `.mdx` de los PLANes se derivan del taller y edita
 **Estado:** ~~abierta~~ → **resuelta 2026-09-23** — acepta cursos como argumento, reescribe una `.mdx` sólo si todavía trae `estimatedMinutes` y un `course.json` sólo si su minutaje cambió, formateado con prettier. Corrido sobre el corpus entero no toca ningún archivo.
 
 Reescribe las 329 `.mdx` (para sacar `estimatedMinutes`, que ya no existe en ninguna) y los 31 `course.json` con `JSON.stringify`, que no es el formato de prettier: cada corrida deja diez archivos cambiados sólo de forma, y con otros editando al mismo tiempo puede pisar una escritura en vuelo. Se evitó con un script temporal limitado a los cursos terminados. **Qué haría falta:** que acepte cursos como argumento, que no toque las `.mdx` y que formatee con prettier.
+
+### D-095 · 65 preguntas de quiz se contestan sin haber leído la lección
+
+**Dónde:** `v2/content/courses/*/quiz.json`, 21 cursos
+**Encontrada:** 2026-09-23, auditando los cuerpos (D-091)
+**Severidad:** media
+**Estado:** ~~abierta~~ → **resuelta 2026-09-23** — 23 agentes, uno por curso, con `v2/scripts/content/agentes/prompt-quiz.md`: las 65 plantillas se reescribieron sobre su lección, y se corrigieron además las preguntas que evaluaban lo no enseñado, las que pedían «la más efectiva» sin ranking y las que contradecían una cifra corregida. `entrenamientos:check` rompe si la plantilla vuelve. Y como el banco de v1 ponía la correcta en la segunda posición en 145 de 254 preguntas, el lector baraja las opciones con un orden fijo por pregunta (`barajarOpciones`, `@v2/shared`). Lo que queda —la correcta suele ser la opción más larga— es D-096.
+
+Una pasada anterior (`scripts/content/entrenamientos-mejorar-quizzes.ts`) reemplazó las preguntas que pedían reconocer el título de una lección por una plantilla: «¿Qué evidencia mostraría mejor que podés transferir «…» a una situación real?». La correcta es siempre la única opción que dice «un caso real»: se contesta sin leer. Quedan 65, en 21 cursos (16 sólo en `argentina-sistema-viviente`). La guardia dejó de ver la plantilla vieja y no aprendió a ver la nueva.
+
+Además, algunas preguntas evalúan lo que el curso no enseña o piden «la más efectiva» cuando la lección no ordena nada: `teoria-juegos` 8 a 10, `resiliencia` 2 y 3, `redes-territoriales` 6 y 8, `diseno-idealizado`, `primeros-pasos` 9 y 10. Y después de D-091 algunas respuestas pueden contradecir la cifra corregida en la lección.
+
+**Qué haría falta:** una pasada por curso con prompt versionado (`v2/scripts/content/agentes/prompt-quiz.md`) que reescriba cada plantilla sobre su lección, y que `entrenamientos:check` rompa si la plantilla vuelve.
+
+### D-096 · En la mitad de las preguntas de opción múltiple, la correcta es la opción más larga
+
+**Dónde:** `v2/content/courses/*/quiz.json`, 30 cursos
+**Encontrada:** 2026-09-23, cerrando D-095
+**Severidad:** media
+**Estado:** abierta
+
+En 129 de las 254 preguntas de opción múltiple la correcta es la opción más larga por más de un 30% sobre la siguiente, y muchas veces es la única con matices mientras los distractores son absurdos («Empezar puntual», «Saludo + queja + despedida»). Barajar las opciones (D-095) le saca la pista de la posición, no la del largo: quien elige siempre la más larga sigue aprobando sin leer.
+
+**Qué haría falta:** una pasada por curso que reescriba los distractores —errores plausibles de quien leyó a medias, del mismo largo que la correcta— sin tocar la correcta ni la explicación, y una guardia en `entrenamientos:check` que mida la proporción.
 
 ## Resueltas
 

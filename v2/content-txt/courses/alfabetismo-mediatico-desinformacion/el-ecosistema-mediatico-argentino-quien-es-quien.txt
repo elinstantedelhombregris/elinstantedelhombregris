@@ -13,6 +13,12 @@ fuentes:
   - url: https://www.argentina.gob.ar/normativa/nacional/norma-400961/texto
     titulo: 'Decreto 548/2024 — Transformación de Télam Sociedad del Estado en Agencia de Publicidad del Estado S.A.U. (Argentina.gob.ar)'
     consultada: '2026-09-22'
+  - url: https://www.lanacion.com.ar/economia/grupo-clarin-anuncio-la-separacion-de-sus-negocios-de-medios-y-telecomunicaciones-nid1928770/
+    titulo: 'Grupo Clarín anunció la separación de sus negocios de medios y telecomunicaciones (La Nación)'
+    consultada: '2026-09-23'
+  - url: https://www.ambito.com/edicion-impresa/cablevision-holding-controlara-telecom-cuando-se-fusionen-n3995525
+    titulo: 'Cablevisión Holding controlará Telecom cuando se fusionen (Ámbito)'
+    consultada: '2026-09-23'
 ---
 
 ## No Podés Navegar Lo Que No Mapeaste
@@ -21,10 +27,10 @@ Antes de aprender a detectar desinformación, necesitás entender **quién te ha
 
 ### Los Grandes Grupos
 
-- **Grupo Clarín:** El conglomerado mediático más grande de Argentina y uno de los más grandes de Latinoamérica. Incluye Clarín (diario más leído), TN (canal de noticias más visto), Canal 13, Radio Mitre, Cablevisión, Fibertel/Flow (internet), Artear, AGEA, y decenas de medios más. Su posición dominante le da poder de agenda sin precedentes.
-- **Grupo Indalo / La Nación / Otros:** Cada grupo mediático tiene su historia, sus alianzas políticas y sus intereses económicos. La Nación representa históricamente a los sectores conservadores y agroexportadores. Página/12 al progresismo. Infobae busca un perfil más "neutral" digital.
-- **Medios públicos:** TV Pública, Radio Nacional, Télam/agencia oficial. Cambian de línea editorial con cada gobierno, lo que los deslegitima como servicio público.
-- **Medios digitales nativos:** Cenital, El Destape, Letra P, Chequeado, Red/Acción. Modelos de negocio basados en suscripción, con menor dependencia de pauta oficial.
+- **Grupo Clarín:** Diarios (Clarín, Olé, La Voz del Interior), televisión (El Trece y TN), Radio Mitre y medios digitales. Hasta 2017 también tenía Cablevisión y Fibertel: ese año separó el negocio de telecomunicaciones en una empresa aparte, Cablevisión Holding, con los mismos accionistas de control, que después pasó a controlar Telecom. Diarios, pantalla, radio y, por la vía de sus accionistas, el cable por el que llega todo eso: esa combinación le da un poder de agenda que pocos pueden igualar.
+- **La Nación, Página/12, Infobae y otros:** Cada grupo mediático tiene su historia, sus alianzas políticas y sus intereses económicos. La Nación representa históricamente a los sectores conservadores y agroexportadores. Página/12 al progresismo. Infobae busca un perfil más "neutral" digital.
+- **Medios públicos:** TV Pública, Radio Nacional y, hasta 2024, la agencia de noticias Télam (más abajo vas a ver qué pasó con ella). Cambian de línea editorial con cada gobierno, lo que los deslegitima como servicio público.
+- **Medios digitales nativos:** Cenital, El Destape, Letra P, Chequeado, Red/Acción. Modelos de negocio variados —suscripciones, membresías, donaciones, aportes de fundaciones—, en general con menor dependencia de pauta oficial.
 
 ### El Modelo de Negocio Determina el Contenido
 

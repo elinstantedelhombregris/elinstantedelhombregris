@@ -16,13 +16,19 @@ fuentes:
   - url: https://www.rionegro.com.ar/redes/el-hombre-gris-y-otras-predicciones-de-solari-parravicini-que-vinculan-a-javier-milei-3304095/
     titulo: '«El hombre gris» y otras predicciones de Solari Parravicini que vinculan a Javier Milei (Río Negro, 10/12/2023)'
     consultada: '2026-09-22'
+  - url: https://museomig.org/obras_muestras/artistas.php?ida=377&a=Solari-Parravicini-Benjamin&pag=1
+    titulo: 'Solari Parravicini, Benjamín — ficha biográfica (Museo de la Ilustración Gráfica)'
+    consultada: '2026-09-23'
+  - url: https://www.infobae.com/sociedad/2023/09/05/la-historia-de-solari-parravicini-el-nostradamus-argentino-sus-profecias-y-el-dia-que-viajo-en-un-plato-volador/
+    titulo: 'La historia de Solari Parravicini, el Nostradamus argentino (Infobae, 5/9/2023)'
+    consultada: '2026-09-23'
 ---
 
 ## El hombre que dibujaba el futuro
 
-Benjamín Solari Parravicini nació en Buenos Aires el 8 de agosto de 1898 y murió el 13 de diciembre de 1974. Fue artista plástico, escultor y, durante décadas, un hombre profundamente común. Trabajó en el Museo de Bellas Artes. Vivió sin ostentación. No buscó fama ni seguidores.
+Benjamín Solari Parravicini nació en Buenos Aires el 8 de agosto de 1898 y murió el 13 de diciembre de 1974. Fue artista plástico, escultor y, durante décadas, un hombre de oficio. Dio clases en el Liceo de España y trabajó para la ciudad: estuvo a cargo del Departamento de Artes del Banco Municipal y de la galería de exhibición de la Municipalidad de Buenos Aires. Como artista tuvo premios, incluida una medalla de oro en Lieja.
 
-Pero desde joven, algo particular le ocurría: entraba en estados de semi-consciencia en los que su mano dibujaba y escribía, aparentemente sin su control voluntario. Él los llamaba **"psicografías"** — dibujos del alma. Muchos de estos dibujos, realizados décadas antes de los eventos que describían, resultaron ser descripciones asombrosamente precisas de acontecimientos futuros.
+Pero desde fines de la década de 1930, ya cerca de los cuarenta años, algo particular le ocurría. Según contaba él mismo, su mano era movida por una fuerza que no era la suya, y escuchaba una voz que le dictaba lo que escribía. Hizo así unos mil dibujos con frases, que él llamaba **"psicografías"** — escritura del alma. Sus lectores sostienen que muchos de ellos, hechos décadas antes, describen acontecimientos que ocurrieron después.
 
 ### Por qué se lo sigue leyendo
 
@@ -32,32 +38,32 @@ Lo que sí es un hecho es que la imagen del Hombre Gris sobrevivió ochenta año
 
 ### El Hombre Gris en las psicografías
 
-En varias de sus psicografías, Parravicini hace referencia a una figura que llama **"el hombre gris"** o variaciones cercanas, siempre vinculada con Argentina y con un momento de transformación profunda. Las ideas centrales que se repiten son:
+En varias de sus psicografías, Parravicini hace referencia a una figura que llama **"el hombre gris"** o variaciones cercanas, siempre vinculada con Argentina y con un momento de transformación profunda. «Llega ya el hombre gris», dice una de 1973. Leídas juntas, las frases que más se citan dicen, más o menos, esto:
 
 - **Argentina atravesará un período de enorme dificultad** — crisis económica, moral y social — que funcionará como un crisol de purificación
-- **De esa crisis emergerá una figura o fuerza "gris"** — no asociada a ningún partido, ideología o grupo de poder establecido
-- **Esa fuerza traerá una transformación que irradiará más allá de Argentina** — lo que ocurra acá tendrá impacto continental y mundial
-- **La transformación no será violenta sino espiritual** — un cambio de conciencia más que de sistema político
+- **De esa crisis emergerá una figura o fuerza "gris"** — que sus lectores entienden por fuera de todo partido, ideología o grupo de poder establecido
+- **Esa fuerza traerá una transformación que irradiará más allá de Argentina** — «La clase media salva a la Argentina. Su triunfo será en el ¡mundo!», dice una de 1941
+- **La alternativa a esa transformación es la violencia** — «La Argentina tendrá su revolución francesa, en triunfo, puede ver sangre en las calles si no ve el instante del hombre gris». Ahí aparece, palabra por palabra, el nombre de este proyecto
 
-> En las psicografías, el Hombre Gris no llega con un ejército. Llega con una forma distinta de ver, de sentir y de construir. No derrota enemigos — disuelve la enemistad misma.
+> En la lectura de este curso, el Hombre Gris no llega con un ejército. Llega con una forma distinta de ver, de sentir y de construir. No derrota enemigos — disuelve la enemistad misma.
 
 ### Leyendo las psicografías con ojos etimológicos
 
 Ahora que sabemos lo que vimos en las lecciones anteriores, podemos releer a Parravicini con ojos nuevos:
 
-Si ***hombre*** viene de *humus* (tierra), el Hombre Gris es **alguien que emerge desde abajo** — no desde el poder, no desde la élite, no desde una cúpula. Desde el suelo. Desde la gente común.
+Si ***hombre*** comparte raíz con *humus* (tierra), el Hombre Gris es **alguien que emerge desde abajo** — no desde el poder, no desde la élite, no desde una cúpula. Desde el suelo. Desde la gente común.
 
 Si ***gris*** es el color que contiene todos los colores, el Hombre Gris **no pertenece a un bando** — los integra a todos. No es de derecha ni de izquierda, no es peronista ni antiperonista, no es del campo ni de la ciudad. Es la síntesis de todas las experiencias argentinas.
 
 Y si la **plata** es el metal que brilla para reflejar al otro, entonces el Hombre Gris es **plata sin pulir que está siendo refinada por el fuego de la crisis** — y cuando el refinamiento termine, lo que brille no será un líder, sino *un pueblo entero que aprendió a verse con otros ojos*.
 
-### Lo que Parravicini NO dijo
+### Lo que no hay que hacerle decir
 
-Tan importante como lo que las psicografías dicen es lo que **no** dicen. Y hay lecturas distorsionadas que es necesario desactivar:
+Tan importante como lo que las psicografías dicen es lo que se les hace decir. Y hay lecturas distorsionadas que es necesario desactivar:
 
-- **No dijo que el Hombre Gris es un solo individuo político**. Identificarlo con un presidente, candidato o líder específico es reducir una visión colectiva a una narrativa de caudillismo — exactamente lo que Argentina necesita superar.
-- **No dijo que debemos esperar pasivamente**. Interpretar la profecía como "sentémonos a esperar que llegue el Hombre Gris" es convertir una invitación en una excusa para la inacción.
-- **No dijo que será mágico o instantáneo**. El proceso de refinamiento de plata lleva tiempo, atención y fuego sostenido. No hay atajos.
+- **Leer al Hombre Gris como un solo individuo político es una elección del lector, no del texto**. Identificarlo con un presidente, candidato o líder específico es reducir una visión colectiva a una narrativa de caudillismo — exactamente lo que Argentina necesita superar.
+- **Nada en las frases del hombre gris manda esperar pasivamente**. Interpretar la profecía como "sentémonos a esperar que llegue el Hombre Gris" es convertir una invitación en una excusa para la inacción.
+- **Nada en ellas promete algo mágico o instantáneo**. El proceso de refinamiento de plata lleva tiempo, atención y fuego sostenido. No hay atajos.
 
 ### La profecía como espejo
 

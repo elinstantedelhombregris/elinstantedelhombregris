@@ -18,7 +18,7 @@ Tener datos es el primer paso. Pero una planilla con 500 filas no le dice nada a
 
 ### Google Sheets: Tu Laboratorio de Datos
 
-Google Sheets (o Excel) es la herramienta más accesible para analizar datos. Gratuita, online, colaborativa. Las funciones que necesitás son pocas:
+Google Sheets (o Excel) es la herramienta más accesible para analizar datos. Gratuita, online, colaborativa. Las funciones que necesitás son pocas (según la configuración regional de tu planilla, los argumentos se separan con coma o con punto y coma):
 
 - **CONTAR.SI:** ¿Cuántos vecinos respondieron "sí"? `=CONTAR.SI(B2:B100,"sí")`
 - **PROMEDIO:** ¿Cuál es el ingreso promedio? `=PROMEDIO(C2:C100)`
@@ -37,7 +37,7 @@ Google Sheets (o Excel) es la herramienta más accesible para analizar datos. Gr
 ### Errores Comunes en el Análisis
 
 - **Confundir promedio con realidad:** "El promedio de ingresos es $500.000" puede esconder que la mitad gana $200.000 y un vecino gana $3.000.000.
-- **Porcentajes sin base:** "Subió un 50%." ¿De cuánto a cuánto? El 50% de 2 es 3 — no impresiona.
+- **Porcentajes sin base:** "Subió un 50%." ¿De cuánto a cuánto? Si pasó de 2 a 3, subió un 50% — y no impresiona.
 - **Ignorar el contexto:** "En nuestro barrio la pobreza es del 30%." ¿Es más o menos que el promedio de la ciudad? Sin comparación, el dato flota.
 - **Cherry-picking:** Elegir solo los datos que confirman tu argumento. Si querés credibilidad, mostrá TODOS los datos, incluso los incómodos.
 

@@ -6,6 +6,10 @@ summary: 'Conectá recursos, costos de oportunidad, incentivos y estrategias int
 orderIndex: 7
 draft: false
 cierre: puente
+fuentes:
+  - url: https://plato.stanford.edu/entries/prisoner-dilemma/
+    titulo: 'Prisoner''s Dilemma (Stanford Encyclopedia of Philosophy)'
+    consultada: '2026-09-23'
 ---
 ### Economía: Sistemas de Recursos y Decisiones
 
@@ -145,11 +149,11 @@ La economía es un sistema de asignación de recursos. Los recursos son limitado
 
 ### Teoría de juegos: Estrategia en Sistemas Interconectados
 
-¿Por qué cooperan algunas personas y otras no? ¿Por qué algunos sistemas fomentan colaboración y otros competencia destructiva? Cuando partes interactúan estratégicamente, teoría de juegos explica sus decisiones. Aprendé a diseñar "juegos" (sistemas de interacción) que generen mejores resultados para todos.
+¿Por qué cooperan algunas personas y otras no? ¿Por qué algunos sistemas fomentan colaboración y otros competencia destructiva? Cuando las partes interactúan estratégicamente, la teoría de juegos explica sus decisiones. Aprendé a diseñar "juegos" (sistemas de interacción) que generen mejores resultados para todos.
 
-### teoría de juegos: La Ciencia de las Interacciones Estratégicas
+### Teoría de juegos: La Ciencia de las Interacciones Estratégicas
 
-**teoría de juegos estudia:** Cómo las personas (o sistemas) toman decisiones cuando el resultado depende de las decisiones de otros. No decidís solo: decidís en un contexto donde otros también deciden. Diseñar este contexto bien puede cambiar completamente los resultados.
+**La teoría de juegos estudia:** Cómo las personas (o sistemas) toman decisiones cuando el resultado depende de las decisiones de otros. No decidís solo: decidís en un contexto donde otros también deciden. Diseñar este contexto bien puede cambiar completamente los resultados.
 
 ### 1. Interacciones Estratégicas: No Decidís Solo
 
@@ -167,7 +171,7 @@ Resultado: Ganancia mutua
 
 Resultado: Pérdida mutua
 
-### Estrategia Mixta
+### Uno Coopera, el Otro Compite
 
 **Si uno coopera y otro compite:** El que compite gana a corto plazo, el que coopera pierde
 
@@ -185,7 +189,7 @@ El equilibrio de Nash es el punto donde nadie puede mejorar cambiando sola su es
 
 **Definición:** Situación donde cada parte está haciendo lo mejor que puede, dadas las decisiones de las otras partes. Nadie puede mejorar cambiando sola.
 
-**Ejemplo positivo:** Si todos cooperan, nadie puede mejorar compitiendo (todos pierden si alguien cambia).
+**Ejemplo positivo:** En un juego de coordinación —que todos manejen por la derecha—, si todos cooperan, nadie gana desviándose sola. Ojo: no siempre es así. En el dilema del prisionero que viene enseguida, que ambos cooperen **no** es un equilibrio de Nash, porque cada uno mejora pasándose a competir; el único equilibrio es que los dos compitan. Por eso hay que rediseñar el juego, no sólo pedir buena voluntad.
 
 **Ejemplo negativo:** Si todos compiten, nadie puede mejorar cooperando sola (sería explotada).
 
@@ -236,7 +240,7 @@ Estos principios aplican a relaciones, trabajo, negociación:
 - **Señales de cooperación:** Mostrá buena voluntad primero para generar reciprocidad
 - **Mecanismos de compromiso:** Creá formas de garantizar que ambos cumplan acuerdos
 
-### teoría de juegos en Argentina: El Problema de los Incentivos Desalineados
+### Teoría de juegos en Argentina: El Problema de los Incentivos Desalineados
 
 Argentina tiene sistemas donde competir es más beneficioso que cooperar:
 
@@ -258,7 +262,7 @@ Argentina necesita cambiar el "juego":
 - **Alinear incentivos:** Hacer que lo mejor para el individuo sea lo mejor para el sistema
 - **Mecanismos de compromiso:** Crear formas de garantizar cumplimiento de acuerdos
 
-Como dice el Hombre Gris: *"No cambies personas, cambia sistemas. Cuando cambias el juego, las estrategias cambian automáticamente."* teoría de juegos muestra que rediseñar sistemas puede generar cooperación espontánea.
+Como dice el Hombre Gris: *"No cambies personas, cambiá sistemas. Cuando cambiás el juego, las estrategias cambian automáticamente."* La teoría de juegos muestra que rediseñar sistemas puede generar cooperación espontánea.
 
 ### Ejercicio Práctico: Diseñá un Juego de Cooperación
 
@@ -275,7 +279,7 @@ Recordá: No necesitás cambiar personas. Necesitás cambiar el juego. Cuando ca
 
 ### ¿Entendiste?
 
-teoría de juegos explica cómo las personas deciden cuando el resultado depende de decisiones de otros. El equilibrio de Nash es donde nadie puede mejorar cambiando sola. El dilema del prisionero muestra que la mejor estrategia individual puede no ser la mejor colectiva. La solución: diseñar sistemas donde cooperar sea más beneficioso que competir. Alinear incentivos individuales con resultados colectivos. Argentina necesita rediseñar el "juego" para generar cooperación espontánea.
+La teoría de juegos explica cómo las personas deciden cuando el resultado depende de decisiones de otros. El equilibrio de Nash es donde nadie puede mejorar cambiando sola. El dilema del prisionero muestra que la mejor estrategia individual puede no ser la mejor colectiva. La solución: diseñar sistemas donde cooperar sea más beneficioso que competir. Alinear incentivos individuales con resultados colectivos. Argentina necesita rediseñar el "juego" para generar cooperación espontánea.
 
 ### El puente
 

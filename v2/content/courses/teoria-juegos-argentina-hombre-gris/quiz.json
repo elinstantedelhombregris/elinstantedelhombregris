@@ -64,16 +64,16 @@
       "orderIndex": 5
     },
     {
-      "question": "¿Qué estrategia genera espirales de venganza interminables?",
+      "question": "En los torneos de Axelrod ganó Tit for Tat. Según el Módulo 6, ¿en qué situación aparece su debilidad?",
       "type": "multiple_choice",
       "options": [
-        "Tit for Tat + reputación",
-        "Rencor perpetuo",
-        "Cooperación radical con métricas",
-        "Microacuerdos territoriales"
+        "Contra un rival que coopera siempre, porque no sabe sacarle ventaja a su buena fe",
+        "Cuando la partida es muy larga, porque el peso del futuro termina favoreciendo al que defecta",
+        "Contra un rival que defecta a propósito, porque vuelve a cooperar antes de exigir reparación",
+        "Cuando hay ruido: si un error se lee como traición, los dos terminan castigándose por turnos"
       ],
-      "correctAnswer": 1,
-      "explanation": "El rencor perpetuo impide reingresar a la cooperación y congela políticas.",
+      "correctAnswer": 3,
+      "explanation": "El Módulo 6 ubica la debilidad de TFT en el ruido: dos jugadores que se copian convierten un error en una cadena de revanchas que ninguno decidió. Para eso existen Generous TFT, Contrite TFT y Pavlov.",
       "points": 2,
       "orderIndex": 6
     },
@@ -92,39 +92,39 @@
       "orderIndex": 7
     },
     {
-      "question": "Selecciona la característica esencial de un laboratorio territorial Hombre Gris.",
+      "question": "Según el Módulo 8, ¿qué separa a un laboratorio territorial de una experiencia cualquiera?",
       "type": "multiple_choice",
       "options": [
-        "Duración limitada, métricas claras y recompensas tempranas",
-        "Ejecución secreta sin reportes",
-        "Depender de una sola autoridad nacional",
-        "Castigos permanentes sin revisión"
+        "Que dura noventa días y se prueba en una sola cuadra o un solo grupo, nunca en un barrio entero",
+        "Que arranca con un juego de roles entre los actores y recién después pasa a la planilla de rondas",
+        "Que la métrica, la fecha de corte y el criterio para escalar o abandonar quedan escritos antes de empezar",
+        "Que los indicadores se eligen al cierre, cuando ya se sabe qué conviene mirar para evaluar lo que pasó"
       ],
-      "correctAnswer": 0,
-      "explanation": "Los laboratorios son pilotos medibles que permiten iterar antes de escalar.",
+      "correctAnswer": 2,
+      "explanation": "El Módulo 8 lo dice así: lo que separa un laboratorio de una experiencia cualquiera es fijar métricas, fecha de corte y criterio para escalar o abandonar antes de arrancar; si se definen después, cualquier resultado se puede leer como un éxito. Los noventa días son el ejemplo de la palanca, no la definición.",
       "points": 2,
       "orderIndex": 8
     },
     {
-      "question": "El heatmap territorial presentado en la masterclass sirve para…",
+      "question": "Un tablero de reputación corrige sus números reemplazando el valor anterior sin dejar rastro. Según el Módulo 4, ¿cuál de sus reglas está rompiendo?",
       "type": "multiple_choice",
       "options": [
-        "Mostrar niveles de cooperación entre actores en pilotos reales",
-        "Reemplazar todas las mediciones económicas",
-        "Definir presupuestos nacionales",
-        "Seleccionar autoridades locales"
+        "Que cada dato diga de qué fuente sale",
+        "Que alguien ajeno al medido pueda repetir la cuenta",
+        "Que se actualice cada semana con los indicadores clave",
+        "Que las correcciones queden a la vista, con fecha"
       ],
-      "correctAnswer": 0,
-      "explanation": "Visualiza cómo Estado, ciudadanía, empresas y territorio cooperan en cada piloto.",
+      "correctAnswer": 3,
+      "explanation": "El Módulo 4 pide que las correcciones queden a la vista con fecha en vez de pisar el número anterior: un tablero que cambia sin dejar rastro enseña a desconfiar de todos los tableros.",
       "points": 2,
       "orderIndex": 9
     },
     {
-      "question": "Los microacuerdos deben incluir recompensas inmediatas.",
+      "question": "Según el Módulo 9, un microacuerdo puede prescindir del indicador y de la consecuencia: al ser chico, alcanza con nombrar las partes, las obligaciones y el plazo.",
       "type": "true_false",
       "options": null,
-      "correctAnswer": true,
-      "explanation": "El curso insiste en beneficios tangibles tempranos para sostener motivación.",
+      "correctAnswer": false,
+      "explanation": "Falso. El Módulo 9 define el microacuerdo como un contrato chico con las mismas cláusulas que uno grande —partes, obligaciones, plazo, indicador y consecuencia—; por eso, si falla, se sabe en qué cláusula falló.",
       "points": 1,
       "orderIndex": 10
     },

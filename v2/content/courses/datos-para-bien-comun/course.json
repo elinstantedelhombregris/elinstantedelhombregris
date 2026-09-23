@@ -5,7 +5,7 @@
   "excerpt": "Convertí datos en herramientas de justicia y rendición de cuentas.",
   "category": "action",
   "level": "advanced",
-  "duration": 35,
+  "duration": 38,
   "orderIndex": 22,
   "isPublished": true,
   "isFeatured": false,
@@ -16,7 +16,7 @@
       "key": "02-datos-como-arma-ciudadana-ver-lo-que-el-poder-quiere-esconder",
       "title": "Datos como Arma Ciudadana: Ver lo que el Poder Quiere Esconder",
       "description": "Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 1
     },
     {
@@ -37,7 +37,7 @@
       "key": "05-visualizacion-convertir-datos-en-historias-visuales",
       "title": "Visualización: Convertir Datos en Historias Visuales",
       "description": "Cómo hacer gráficos, mapas e infografías que comuniquen datos con impacto.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 4
     },
     {
@@ -51,7 +51,7 @@
       "key": "07-ciencia-ciudadana-cuando-la-comunidad-investiga",
       "title": "Ciencia Ciudadana: Cuando la Comunidad Investiga",
       "description": "Proyectos donde ciudadanos comunes generan datos científicos de valor.",
-      "duration": 3,
+      "duration": 4,
       "orderIndex": 6
     },
     {

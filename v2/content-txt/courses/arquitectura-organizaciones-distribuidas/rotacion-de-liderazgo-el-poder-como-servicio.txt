@@ -17,7 +17,7 @@ fuentes:
     titulo: 'Santa Fe aprobó por amplia mayoría la nueva Constitución que habilita la reelección de Maximiliano Pullaro en 2027 (Infobae)'
     consultada: '2026-09-22'
 ---
-## El Poder Que Rota No Se Corrompe
+## El Poder Que Rota Se Corrompe Menos
 
 La rotación de liderazgo no es solo una buena idea democrática: es una **tecnología organizacional** que previene la concentración de poder, desarrolla capacidades en más personas y renueva la energía del grupo.
 
@@ -46,7 +46,7 @@ Pensá en un rol que hoy concentrás vos (o alguien de tu grupo). Escribí los 3
 
 - **"Pero yo lo hago mejor":** Probablemente sí, porque tuviste más práctica. Dejá que otros practiquen.
 - **"Nadie quiere asumir":** Empezá con roles pequeños y bien definidos. La confianza se construye con éxitos chicos.
-- **"Es ineficiente":** A corto plazo sí. A largo plazo, una organización con 10 personas capaces es infinitamente más eficiente que una con 1.
+- **"Es ineficiente":** A corto plazo sí. A largo plazo, una organización con 10 personas capaces resiste mucho más que una con 1.
 
 ### La rotación también se esquiva
 

@@ -16,36 +16,46 @@ fuentes:
   - url: https://chequeado.com/el-explicador/el-senado-aprobo-el-presupuesto-2026-el-primero-de-la-presidencia-de-javier-milei/
     titulo: 'El Senado sancionó el Presupuesto 2026, el primero de la presidencia de Javier Milei (Chequeado)'
     consultada: '2026-09-22'
+  - url: https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/texto
+    titulo: 'Ley de Impuesto al Valor Agregado, texto ordenado por Decreto 280/1997 — artículo 28, alícuota general'
+    consultada: '2026-09-23'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/65000-69999/66533/texact.htm
+    titulo: 'Ley 25.413 — Impuesto sobre los créditos y débitos en cuentas bancarias, texto actualizado (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://www.argentina.gob.ar/economia/onp/presupuesto-ciudadano-2026/seguridad-social
+    titulo: 'Presupuesto Ciudadano 2026 — Seguridad Social (Oficina Nacional de Presupuesto)'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-01-15'
 ---
 
 ## Seguir la Plata: Tu Derecho Como Contribuyente
 
-Cada peso que pagás de impuestos (IVA, Ganancias, monotributo, ABL) va a un gran fondo común que se reparte según el **Presupuesto Nacional**. Entender este documento es entender las prioridades reales del gobierno (no las que dice en los discursos).
+Cada peso que pagás de impuestos nacionales (IVA, Ganancias, monotributo) va a un gran fondo común: una parte se coparticipa a las provincias y el resto se gasta según el **Presupuesto Nacional**. Las tasas municipales, como el ABL, siguen otro camino: van a tu municipio. Entender este documento es entender las prioridades reales del gobierno (no las que dice en los discursos).
 
 ### ¿Cuánto Pagás Realmente?
 
 Aunque no lo notes, pagás impuestos todo el tiempo:
 
-- **IVA (21%):** En cada compra. Es el impuesto más regresivo: el pobre y el rico pagan lo mismo.
-- **Ganancias:** Si sos empleado en relación de dependencia, te lo descuentan automáticamente.
-- **Impuesto al cheque:** Cada vez que movés plata por banco.
+- **IVA (21% la alícuota general):** En cada compra. Es regresivo: la tasa es la misma para todos, pero quien gasta todo lo que gana paga en IVA una parte mayor de su ingreso que quien puede ahorrar.
+- **Ganancias:** Si sos empleado en relación de dependencia y tu sueldo supera el mínimo, te lo retienen automáticamente.
+- **Impuesto al cheque:** Grava los créditos y débitos en cuentas bancarias; las acreditaciones de sueldos y jubilaciones están exentas.
 - **Ingresos brutos (provincial):** Se traslada al precio de todo lo que comprás.
 - **Tasas municipales:** ABL, alumbrado, barrido, limpieza.
 
 ### ¿A Dónde Va?
 
-Las principales partidas del presupuesto nacional son:
+Las grandes partidas del presupuesto nacional son:
 
-1. **Seguridad social (jubilaciones, AUH):** Más del 40% del presupuesto
-2. **Servicios de la deuda:** Pagar lo que debemos
-3. **Educación y cultura:** Incluyendo universidades nacionales
-4. **Defensa y seguridad**
-5. **Salud**
-6. **Obra pública:** Rutas, viviendas, infraestructura
+- **Seguridad social (jubilaciones, pensiones, AUH):** la más grande por lejos. En el Presupuesto 2026 es el 56,4% del gasto total.
+- **Servicios de la deuda:** los intereses de lo que el Estado debe.
+- **Educación y cultura:** incluyendo universidades nacionales.
+- **Defensa y seguridad.**
+- **Salud.**
+- **Obra pública:** rutas, viviendas, infraestructura.
 
 ### Herramienta: Presupuesto Abierto
 
-El sitio **presupuestoabierto.gob.ar** te permite ver en tiempo real cómo se ejecuta el presupuesto. ¿Cuánto se asignó a educación? ¿Cuánto se gastó realmente? ¿Qué partidas están subejecutadas? Esta herramienta es oro puro para el ciudadano auditor.
+El sitio **presupuestoabierto.gob.ar** te permite ver cómo se ejecuta el presupuesto, con datos que se actualizan en forma periódica: anotá siempre la fecha de corte. ¿Cuánto se asignó a educación? ¿Cuánto se gastó realmente? ¿Qué partidas están subejecutadas? Esta herramienta es oro puro para el ciudadano auditor.
 
 ### Tres números para leer cualquier partida
 

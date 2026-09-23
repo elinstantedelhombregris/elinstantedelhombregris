@@ -9,10 +9,10 @@
       "options": [
         "La rebeldía contra el sistema",
         "La creatividad libre e inocente",
-        "El espíritu que carga los pesos y mandatos impuestos diciendo \"yo puedo\"",
+        "El espíritu que se arrodilla para cargar los pesos y mandatos impuestos, preguntando qué es lo más pesado",
         "La sabiduría del líder experimentado"
       ],
-      "correctAnswer": "El espíritu que carga los pesos y mandatos impuestos diciendo \"yo puedo\"",
+      "correctAnswer": "El espíritu que se arrodilla para cargar los pesos y mandatos impuestos, preguntando qué es lo más pesado",
       "explanation": "El Camello es la primera transformación: el espíritu que busca las cargas más pesadas — mandatos familiares, culturales, económicos — y las lleva por el desierto sin cuestionarlas.",
       "points": 1,
       "orderIndex": 1
@@ -50,7 +50,7 @@
         "Porque el rugido desgasta la voz"
       ],
       "correctAnswer": "Porque puede quedarse atrapado en la destrucción y la rebeldía permanente sin nunca crear",
-      "explanation": "El León que solo dice \"no\" y nunca crea es tan esclavo como el Camello — su cadena es la rebeldía permanente. El León es una etapa necesaria pero transitoria.",
+      "explanation": "El León que solo dice \"no\" y nunca crea es tan esclavo como el Camello — su cadena es la rebeldía permanente. La lección lo dice así: el León no es un destino; es necesario, pero es una fuerza que se usa y se guarda, no un lugar donde quedarse a vivir.",
       "points": 1,
       "orderIndex": 4
     },
@@ -106,30 +106,30 @@
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Argentina Como Laboratorio» a una situación real?",
+      "question": "En «Argentina Como Laboratorio», ¿qué habilita la Ley 26.684 de 2011 cuando una empresa quiebra?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Las crisis repetidas como invitaciones permanentes a transformarse.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Que el Estado la expropie y se la entregue en comodato a quienes trabajaban ahí",
+        "Que el personal cobre sus indemnizaciones antes que cualquier otro acreedor, sin más trámite",
+        "Que la mitad más uno del personal reciba la planta en propiedad sin pagar nada por ella",
+        "Que una cooperativa del personal pida seguir con la explotación y use sus indemnizaciones en la compra"
       ],
-      "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "La lección cuenta que la ley reformó Concursos y Quiebras: si dos terceras partes del personal en actividad o de los acreedores laborales se organizan en cooperativa, pueden pedir que la explotación continúe en sus manos, y el artículo 203 bis les deja usar lo que se les debe por indemnizaciones como parte del pago de la planta. No hay expropiación ni cesión gratuita.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Instante del Hombre Gris» a una situación real?",
+      "question": "En «Tu Instante del Hombre Gris», ¿para qué se le lee el manifiesto a una persona de confianza?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Síntesis final: tu rol, tu compromiso, tu manifiesto personal.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Para que lo presencie y en tres meses te pregunte si lo estás viviendo",
+        "Para que lo apruebe y te marque qué partes conviene corregir",
+        "Para que lo firme con vos y el compromiso quede repartido entre dos",
+        "Para que lo difunda y arranque tu cascada de influencia de tres grados"
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "La lección distingue al testigo del juez: no se le lee el manifiesto para que lo apruebe sino para que lo presencie, y para que dentro de tres meses te pueda preguntar «¿Estás viviendo lo que declaraste?». Un manifiesto que nadie escucha es un diario; con testigos, es un compromiso.",
       "points": 1,
       "orderIndex": 10
     }

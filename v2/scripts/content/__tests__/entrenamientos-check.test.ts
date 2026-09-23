@@ -93,4 +93,22 @@ describe('revisarCorpus', () => {
         )
       ).join(' '),
     ).toMatch(/sólo repite el tema/i));
+  it('rechaza la pregunta plantilla que se contesta sin leer (D-095)', async () =>
+    expect(
+      (
+        await revisarCorpus(
+          corpus('Prosa.', '', {
+            title: 'Práctica',
+            description: 'Descripción',
+            questions: [
+              {
+                question:
+                  '¿Qué evidencia mostraría mejor que podés transferir «Lección uno» a una situación real?',
+                explanation: 'Transferir no es reconocer el tema.',
+              },
+            ],
+          }),
+        )
+      ).join(' '),
+    ).toMatch(/plantilla/i));
 });

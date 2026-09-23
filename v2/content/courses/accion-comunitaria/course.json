@@ -5,7 +5,7 @@
   "excerpt": "Dejá de opinar y empezá a hacer: herramientas reales para transformar tu barrio, tu comunidad y tu país desde hoy.",
   "category": "action",
   "level": "intermediate",
-  "duration": 35,
+  "duration": 37,
   "orderIndex": 3,
   "isPublished": true,
   "isFeatured": false,
@@ -51,14 +51,14 @@
       "key": "07-el-arte-de-convocar-mover-gente-sin-manipularla",
       "title": "El arte de convocar — Mover gente sin manipularla",
       "description": "La diferencia entre convocar y manipular, por qué la gente se suma (y no se suma), y cómo inspirar sin mentir.",
-      "duration": 5,
+      "duration": 6,
       "orderIndex": 6
     },
     {
       "key": "08-medir-aprender-iterar-la-reflexion-en-la-accion",
       "title": "Medir, aprender, iterar — La reflexión en la acción",
       "description": "Sin medición no hay aprendizaje. 3 preguntas simples para evaluar cualquier proyecto y la bitácora como herramienta.",
-      "duration": 4,
+      "duration": 5,
       "orderIndex": 7
     },
     {

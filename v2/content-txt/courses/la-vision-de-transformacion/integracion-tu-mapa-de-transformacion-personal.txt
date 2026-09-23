@@ -6,6 +6,10 @@ summary: 'Poné todo junto en un mapa personal de 7 componentes. Ritual de compr
 orderIndex: 10
 draft: false
 cierre: puente
+fuentes:
+  - url: https://kops.uni-konstanz.de/handle/123456789/10973
+    titulo: 'Gollwitzer y Sheeran (2006) — Implementation intentions and goal achievement: a meta-analysis of effects and processes (KOPS, Universidad de Konstanz)'
+    consultada: '2026-09-23'
 ---
 Llegamos al final de este viaje — que en realidad es un comienzo. A lo largo de 9 lecciones hiciste un trabajo enorme: te conociste más profundamente, construiste una visión personal, enfrentaste tus enemigos internos, conectaste con tu propósito, aprendiste a construir visión colectiva, a narrarla, a planificarla, y a sostenerla.
 
@@ -46,12 +50,10 @@ Las 3-5 prácticas que vas a usar cuando la visión se tambalee.
 
 En muchas tradiciones, los compromisos importantes se sellan con algún tipo de ritual. No porque el ritual tenga poder mágico, sino porque **el acto de comprometerse públicamente cambia tu relación con la promesa**.
 
-La investigación sobre compromisos muestra que:
+La investigación respalda con fuerza una de estas prácticas y con menos fuerza las demás:
 
-- Los compromisos escritos se cumplen más que los pensados
-- Los compromisos compartidos se cumplen más que los privados
-- Los compromisos con fecha se cumplen más que los abiertos
-- Los compromisos con consecuencias se cumplen más que los sin consecuencias
+- **Los compromisos que dicen cuándo, dónde y cómo se cumplen más que los abiertos.** La psicología los llama «intenciones de implementación» («si es martes a las 7, salgo a caminar antes del desayuno»). Un metaanálisis de Peter Gollwitzer y Paschal Sheeran (2006) sobre 94 pruebas independientes encontró un efecto de tamaño mediano a grande sobre el logro de metas.
+- Escribirlos, compartirlos con alguien y atarles una consecuencia son prácticas razonables, con apoyo más disperso. Tomalas como herramientas que vale la pena probar, no como leyes.
 
 **Tu ritual puede ser simple:**
 

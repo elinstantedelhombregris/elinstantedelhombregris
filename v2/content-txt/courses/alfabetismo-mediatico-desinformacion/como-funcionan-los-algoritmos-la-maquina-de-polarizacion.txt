@@ -13,12 +13,18 @@ fuentes:
   - url: https://about.fb.com/ltam/news/2022/05/damos-mas-transparencia-a-los-anuncios-de-temas-sociales-electorales-y-politicos/
     titulo: 'Damos más transparencia a los anuncios de temas sociales, electorales y políticos (Meta)'
     consultada: '2026-09-22'
+  - url: https://news.mit.edu/2018/study-twitter-false-news-travels-faster-true-stories-0308
+    titulo: 'Study: On Twitter, false news travels faster than true stories (MIT News, sobre Vosoughi, Roy y Aral, Science, 2018)'
+    consultada: '2026-09-23'
+  - url: https://pubmed.ncbi.nlm.nih.gov/28652356/
+    titulo: 'Brady, Wills, Jost, Tucker y Van Bavel, Emotion shapes the diffusion of moralized content in social networks, PNAS, 2017 (registro en Europe PMC)'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-09-22'
 ---
 
 ## Tu Feed No Es la Realidad
 
-Cada vez que abrís Instagram, Twitter/X, TikTok o Facebook, un **algoritmo** decide qué ves y qué no ves. Ese algoritmo no tiene como objetivo informarte: tiene como objetivo **mantenerte mirando la pantalla el mayor tiempo posible**. Y descubrió que la mejor manera de lograrlo es indignarte.
+Cada vez que abrís Instagram, Twitter/X, TikTok o Facebook, un **algoritmo** decide qué ves y qué no ves. Ese algoritmo no tiene como objetivo informarte: tiene como objetivo **mantenerte mirando la pantalla el mayor tiempo posible**. Y lo que más reacción genera suele ser lo que indigna.
 
 ### Cómo Funciona el Algoritmo
 
@@ -29,9 +35,9 @@ Cada vez que abrís Instagram, Twitter/X, TikTok o Facebook, un **algoritmo** de
 
 ### El Efecto en la Política Argentina
 
-- **Amplificación de extremos:** Las posiciones moderadas no generan engagement. Los extremos sí. El algoritmo favorece a los que gritan más fuerte.
+- **Amplificación de extremos:** Un sistema que premia la reacción favorece a los mensajes que más reacción provocan, y esos suelen ser los que gritan más fuerte. En un estudio sobre más de 560.000 mensajes en redes acerca de temas políticos polarizantes, cada palabra con carga moral y emocional aumentó la difusión del mensaje en torno a un 20%; y el efecto era más fuerte adentro de cada bando que entre bandos (Brady y otros, PNAS, 2017).
 - **Micro-targeting político:** Los partidos pueden mostrar mensajes diferentes a diferentes audiencias. A los jubilados les prometen una cosa; a los jóvenes otra. Nadie ve el panorama completo.
-- **Viralización de la mentira:** Las noticias falsas se comparten 6 veces más rápido que las verdaderas (estudio MIT). Porque generan emociones más intensas.
+- **Viralización de la mentira:** Un equipo del MIT siguió unas 126.000 cadenas de noticias en Twitter entre 2006 y 2017. Las falsas tenían un 70% más de probabilidad de ser retuiteadas, y las verdaderas tardaban unas seis veces más en llegar a 1.500 personas (Vosoughi, Roy y Aral, *Science*, 2018). La explicación que propusieron los autores es la novedad: lo falso sorprende más, y las respuestas que despertaba mostraban más sorpresa y asco. Y no eran los bots: sacándolos del análisis, la diferencia seguía.
 - **Tribalización:** Cada grupo vive en su propia realidad informativa. No comparten hechos ni fuentes con el "otro bando".
 
 ### Cómo Hackear Tu Propio Algoritmo

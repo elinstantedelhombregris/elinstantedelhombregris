@@ -13,11 +13,14 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/70000-74999/71477/norma.htm
     titulo: 'Ley 25.561 — Emergencia pública y reforma del régimen cambiario (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://www.infobae.com/economia/2018/07/16/de-peron-a-macri-un-recorrido-por-la-historia-de-la-inflacion-en-argentina/
+    titulo: 'De Perón a Macri: un recorrido por la historia de la inflación en Argentina (Infobae, 2018)'
+    consultada: '2026-09-23'
 ---
 
 ## La Enfermedad que No Podemos Curar
 
-Argentina ha tenido inflación de dos dígitos o más durante la mayor parte de su historia moderna. Tuvo hiperinflación en 1989-90. Tuvo la convertibilidad como "tratamiento de shock". Y volvió a tener inflación alta en el siglo XXI. Es como una **adicción**: todos saben que es destructiva, pero el sistema sigue generándola.
+Argentina tuvo inflación de dos dígitos o más durante la mayor parte de su historia moderna: de las 26 presidencias que van de 1944 a 2018, sólo cinco tuvieron subas de precios menores a los dos dígitos. Tuvo hiperinflación en 1989-90; sólo en 1989, los precios subieron 3.079%. Tuvo la convertibilidad como "tratamiento de shock". Y volvió a tener inflación alta en el siglo XXI. Es como una **adicción**: todos saben que es destructiva, pero el sistema sigue generándola.
 
 ### Cómo Funciona el Bucle Inflacionario
 
@@ -31,13 +34,13 @@ Argentina ha tenido inflación de dos dígitos o más durante la mayor parte de 
 
 - **El ahorro:** No se puede ahorrar en una moneda que pierde valor. Sin ahorro no hay inversión. Sin inversión no hay crecimiento.
 - **La planificación:** ¿Cómo hacés un plan de negocios si no sabés cuánto van a costar las cosas en 6 meses?
-- **La equidad:** La inflación es el impuesto más regresivo: golpea más a los que menos tienen porque no pueden protegerse.
+- **La equidad:** La inflación funciona como un impuesto regresivo: golpea más a los que menos tienen porque no pueden protegerse.
 - **La confianza:** Cada billete que pierde valor es una promesa rota del Estado al ciudadano.
 - **Los vínculos sociales:** La discusión por "el precio justo" envenena la relación entre vecinos, entre empleador y empleado, entre consumidor y comerciante.
 
 ### ¿Tiene Solución?
 
-Decenas de países tuvieron inflación crónica y la resolvieron. No es un misterio técnico: requiere equilibrio fiscal sostenido, banco central independiente, y tiempo para reconstruir la confianza. Lo difícil no es el "qué" sino el "cómo" político: ¿quién paga el costo del ajuste? ¿Cómo se sostiene la política en el tiempo cuando los costos son inmediatos y los beneficios tardan años?
+Otros países tuvieron inflación crónica y la resolvieron. No es un misterio técnico: requiere equilibrio fiscal sostenido, banco central independiente, y tiempo para reconstruir la confianza. Lo difícil no es el "qué" sino el "cómo" político: ¿quién paga el costo del ajuste? ¿Cómo se sostiene la política en el tiempo cuando los costos son inmediatos y los beneficios tardan años?
 
 > "La inflación es el síntoma. La causa es un sistema político que no puede decir que no: no al gasto, no a las presiones sectoriales, no a la tentación de emitir. Curar la inflación sin curar la adicción al gasto es como sacarle la botella a un alcohólico sin tratar el alcoholismo."
 

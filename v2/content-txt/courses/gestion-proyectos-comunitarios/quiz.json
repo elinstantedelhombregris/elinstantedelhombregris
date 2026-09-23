@@ -22,12 +22,12 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Todo presupuesto necesita identificar incertidumbres y definir reservas o respuestas proporcionadas. El porcentaje depende del tipo de proyecto, los precios, contratos, riesgos y reglas del financiador; 10-15% es sólo una referencia posible.",
+      "explanation": "La lección pide sumar siempre un 10-15% para imprevistos, porque en Argentina los imprevistos son la regla. Y el caso de diciembre de 2023 muestra que, con inflación alta, ni siquiera ese margen alcanza si el presupuesto no tiene fecha.",
       "points": 1,
       "orderIndex": 2
     },
     {
-      "question": "¿Cuál es la principal razón por la que los voluntarios abandonan un proyecto?",
+      "question": "Según la lección, ¿cuál de estas situaciones hace que un voluntario deje de venir?",
       "type": "multiple_choice",
       "options": [
         "Falta de pago",
@@ -36,7 +36,7 @@
         "Falta de experiencia"
       ],
       "correctAnswer": 1,
-      "explanation": "La desorganización, la falta de tareas claras y sentirse ignorados son los principales \"asesinos\" del voluntariado.",
+      "explanation": "La desorganización encabeza los «5 asesinos del voluntariado» (si viene y no sabe qué hacer, no vuelve), y la lección arranca recordando que quien se siente ignorado simplemente deja de venir. No cobrar es parte del acuerdo, no la causa del abandono.",
       "points": 2,
       "orderIndex": 3
     },
@@ -87,72 +87,72 @@
       "orderIndex": 7
     },
     {
-      "question": "¿Qué diagnóstico ayuda más cuando una alianza entre organizaciones se traba?",
+      "question": "Según «Alianzas estratégicas», ¿para qué sirve escribir un acuerdo de una carilla antes de arrancar algo con otra organización?",
       "type": "multiple_choice",
       "options": [
-        "Atribuir todo al ego de las personas",
-        "Revisar incentivos, poder, costos, confianza, recursos, mandatos y reglas de decisión antes de personalizar",
-        "Pedir compromiso público sin aclarar responsabilidades",
-        "Eliminar las diferencias para evitar conflicto"
+        "Para que la alianza tenga validez legal, porque sin un convenio redactado por abogados el intercambio no obliga a nadie.",
+        "Para dejar establecido cuál de las dos organizaciones toma las decisiones cuando el proyecto es conjunto.",
+        "Para cumplir con el municipio, que exige un convenio formal antes de autorizar cualquier intercambio entre organizaciones.",
+        "Para evitar malentendidos: deja escrito qué pone cada uno, quién es el contacto, cómo se usa el nombre, cuándo se revisa y cómo se sale."
       ],
-      "correctAnswer": 1,
-      "explanation": "El protagonismo puede influir, pero rara vez explica todo. Un diagnóstico sistémico observa intereses, riesgos, asimetrías y reglas para diseñar compromisos verificables.",
+      "correctAnswer": 3,
+      "explanation": "La lección dice que las alianzas se rompen menos por mala fe que por malentendidos, y que esa carilla —explícitamente «no un convenio de abogados»— ahorra la discusión sobre quién había prometido qué. Cada organización conserva su autonomía.",
       "points": 1,
       "orderIndex": 8
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Sostenibilidad: Que Tu Proyecto Sobreviva a Tu Entusiasmo» a una situación real?",
+      "question": "En «Sostenibilidad», ¿para qué propone la lección que quien coordina se tome, una vez por año, dos semanas sin atender el teléfono del proyecto?",
       "type": "multiple_choice",
       "options": [
-        "Un caso real trabajado con este foco: Cómo hacer que un proyecto comunitario perdure más allá de sus fundadores.",
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Para que todo lo que se trabe en esas dos semanas muestre qué falta documentar o delegar.",
+        "Para descansar y no quemarse, ya que el cansancio del fundador es lo que más proyectos cierra.",
+        "Para probar si los voluntarios sostienen el proyecto solos, sin nadie a cargo durante la ausencia.",
+        "Para que el equipo elija, mientras tanto, quién va a ser el «número 2» del plan de sucesión."
       ],
       "correctAnswer": 0,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "explanation": "La «ausencia planeada» es una prueba barata: avisada y con un reemplazo ya nombrado, deja a la vista la lista exacta de lo que falta documentar o delegar, antes de que lo descubra una enfermedad como la de Estela.",
       "points": 1,
       "orderIndex": 9
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Tu Proyecto Empieza Hoy: De la Lección a la Acción» a una situación real?",
+      "question": "Según «Tu proyecto empieza hoy», ¿qué conviene dejar escrito antes de hacer la actividad piloto del mes 2?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Un caso real trabajado con este foco: Integrar todo lo aprendido en el diseño de tu propio proyecto comunitario.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "La propuesta de fondos completa, para presentar el piloto como primera etapa del proyecto financiado.",
+        "El estatuto del grupo, para que el piloto quede registrado a nombre de una organización formal.",
+        "Qué resultado te haría seguir igual y cuál te haría cambiar, para que el mes 3 tenga algo que evaluar.",
+        "La lista completa de voluntarios con sus horarios, porque sin el equipo armado no conviene arrancar."
       ],
-      "correctAnswer": 1,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 2,
+      "explanation": "La lección pide poner la vara antes: si el criterio se decide después, cualquier resultado parece un éxito y la evaluación del mes 3 queda vacía. La plata y la formalización vienen más adelante en la línea de tiempo.",
       "points": 1,
       "orderIndex": 10
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Historia Completa: La Huerta Comunitaria de Flores» a una situación real?",
+      "question": "En la historia de la huerta de Flores, ¿qué hace Silvia cuando la Junta Comunal no contesta su primera nota?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un caso real trabajado con este foco: Una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo."
+        "Le pide a la mamá periodista que publique una nota sobre el basural para presionar a la Comuna.",
+        "Organiza la jornada de limpieza igual, para demostrar que el proyecto funciona antes del permiso.",
+        "Se presenta a la convocatoria de subsidios de la Ciudad para que el Gobierno conozca el proyecto.",
+        "La reenvía por correo certificado, con lo que consigue número de expediente, y pide una reunión formal."
       ],
-      "correctAnswer": 2,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 3,
+      "explanation": "Ante el silencio, Silvia vuelve a mandar la nota por correo certificado —ahora con número de expediente— y pide una reunión, a la que va con Claudia y con la mamá periodista. La limpieza y el subsidio llegan después del permiso, que tarda tres meses.",
       "points": 1,
       "orderIndex": 11
     },
     {
-      "question": "¿Qué evidencia mostraría mejor que podés transferir «Historia Completa: El Grupo de WhatsApp que Cambió el Barrio» a una situación real?",
+      "question": "En la historia del grupo de WhatsApp, ¿qué mostró el mapa de los 87 hogares que no mostraban las quejas sueltas?",
       "type": "multiple_choice",
       "options": [
-        "Una repetición de la definición, sin elegir un caso ni tomar una decisión.",
-        "Una opinión general que no distingue hechos, supuestos ni evidencia faltante.",
-        "Un resumen de otra lección para demostrar que se recorrió el curso completo.",
-        "Un caso real trabajado con este foco: Cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años."
+        "Que los casos se amontonaban en la zona sur del barrio, lo que apuntaba a un tramo de la red.",
+        "Que el problema afectaba a todo el barrio por igual, y por eso AySA ya no podía ignorarlo.",
+        "Que la mayoría de los vecinos nunca había reclamado, y por eso AySA no conocía el problema.",
+        "Que el agua marrón venía de los tanques de cada casa y no de la red que administra AySA."
       ],
-      "correctAnswer": 3,
-      "explanation": "Transferir no es reconocer el tema: es aplicarlo a un caso concreto, explicitar una decisión y dejar evidencia que otra persona pueda revisar.",
+      "correctAnswer": 0,
+      "explanation": "El mapa convirtió quejas individuales en un patrón: los puntos se concentraban en la zona sur y casi no aparecían en la norte. «Eso ya no es mala suerte de algunos vecinos: es un tramo de la red», dice la lección, y AySA terminó reconociendo el problema en la cañería troncal.",
       "points": 1,
       "orderIndex": 12
     }

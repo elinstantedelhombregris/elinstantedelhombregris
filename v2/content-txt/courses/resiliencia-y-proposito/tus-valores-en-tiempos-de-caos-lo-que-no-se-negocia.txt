@@ -10,12 +10,15 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/295000-299999/296846/norma.htm
     titulo: 'Ley 27.401 — Responsabilidad Penal de las Personas Jurídicas (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://contextualscience.org/about_act
+    titulo: 'About ACT (Association for Contextual Behavioral Science)'
+    consultada: '2026-09-23'
 ---
 ## Cuando el Piso Desaparece, ¿Qué Queda?
 
 En la vida cotidiana, raramente pensamos en nuestros valores. Los damos por sentados. Pero cuando llega la crisis — una devaluación que destruye tus planes, un despido inesperado, una enfermedad, una traición — tus valores son lo único que queda para tomar decisiones. Y si no los tenés claros, la crisis decide por vos.
 
-La Terapia de Aceptación y Compromiso (ACT) propone algo radical: en vez de intentar controlar lo que sentís, enfocáte en **actuar según tus valores** independientemente de cómo te sientas. No esperés a sentirte motivado para actuar bien. Actuá bien y la motivación vendrá después.
+La Terapia de Aceptación y Compromiso (ACT) propone algo radical: pelear para eliminar los pensamientos y sentimientos difíciles suele ser contraproducente. En vez de intentar controlar lo que sentís, enfocate en **actuar según tus valores** aunque el malestar siga ahí. Valores elegidos y acción comprometida son, para ACT, dos de los procesos centrales. No esperés a sentirte motivado para actuar bien. Muchas veces la motivación llega después.
 
 ### Valores vs. Metas vs. Reglas
 

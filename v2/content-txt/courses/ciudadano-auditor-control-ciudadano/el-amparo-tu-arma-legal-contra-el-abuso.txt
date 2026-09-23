@@ -16,6 +16,19 @@ fuentes:
   - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/45000-49999/46871/norma.htm
     titulo: 'Ley 16.986 — Acción de amparo (InfoLeg)'
     consultada: '2026-09-22'
+  - url: https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/804/norma.htm
+    titulo: 'Constitución de la Nación Argentina (InfoLeg)'
+    consultada: '2026-09-23'
+  - url: https://www.acumar.gob.ar/institucional/causa-mendoza/
+    titulo: 'Causa Mendoza — ACUMAR'
+    consultada: '2026-09-23'
+  - url: https://www.diariojudicial.com/news-99048-punto-final-a-la-causa-mendoza
+    titulo: 'Punto final a la causa Mendoza (Diario Judicial, 22/10/2024)'
+    consultada: '2026-09-23'
+  - url: https://www.parlamentario.com/2026/05/06/kroneberger-fue-ratificado-al-mando-de-la-bicameral-de-defensoria-del-pueblo/
+    titulo: 'Kroneberger fue ratificado al mando de la Bicameral de Defensoría del Pueblo (Parlamentario, 6/5/2026)'
+    consultada: '2026-09-23'
+revisarAntesDe: '2027-03-23'
 ---
 
 ## La Herramienta Legal Que Equilibra el Poder
@@ -24,7 +37,7 @@ El **amparo** es una acción judicial rápida que podés presentar cuando el Est
 
 ### ¿Qué Es un Amparo?
 
-El artículo 43 de la Constitución dice: toda persona puede interponer acción de amparo cuando un acto u omisión de autoridades públicas o particulares lesione, restrinja, altere o amenace derechos reconocidos por la Constitución, un tratado o una ley.
+El artículo 43 de la Constitución dice: toda persona puede interponer una acción «expedita y rápida» de amparo contra un acto u omisión de autoridades públicas o de particulares que, en forma actual o inminente, lesione, restrinja, altere o amenace derechos reconocidos por la Constitución, un tratado o una ley. Tiene dos condiciones que conviene saber antes de ir: que no exista otro medio judicial más idóneo, y que la arbitrariedad o la ilegalidad sean manifiestas, es decir, que se vean sin necesidad de una larga prueba.
 
 ### ¿Cuándo Se Puede Usar?
 
@@ -45,17 +58,17 @@ El artículo 43 de la Constitución dice: toda persona puede interponer acción 
 
 Necesitás un abogado, pero hay opciones gratuitas:
 
-- **Defensoría del Pueblo:** Puede presentar amparos en tu nombre.
-- **Consultorios jurídicos gratuitos:** Las facultades de Derecho tienen consultorios que toman casos pro bono.
+- **Defensoría del Pueblo:** La Constitución la habilita a presentar amparos por discriminación, ambiente, usuarios y consumidores y derechos de incidencia colectiva (artículo 43), no a llevar tu caso individual. La nacional está sin titular desde 2009; las provinciales y municipales pueden orientarte según su propia ley.
+- **Consultorios jurídicos gratuitos:** Muchas facultades de Derecho tienen consultorios que toman casos sin cobrar.
 - **ONGs:** Organizaciones como ACIJ, FARN, ADC presentan amparos colectivos sobre temas de interés público.
 - **Ministerio Público de la Defensa:** Si no tenés recursos para un abogado.
 
 ### Casos Emblemáticos
 
-Amparos que cambiaron la realidad en Argentina:
+Causas colectivas que cambiaron la realidad en Argentina:
 
-- **Caso Mendoza (Riachuelo):** Un amparo colectivo obligó al Estado a sanear el Riachuelo. Es la causa ambiental más importante del país.
-- **Amparos de salud:** Miles de familias obtuvieron cobertura de tratamientos médicos que sus obras sociales negaban.
+- **Caso Mendoza (Riachuelo):** No fue un amparo sino una demanda por daños que vecinos de Dock Sud presentaron en 2004 contra la Nación, la Provincia, la Ciudad y 44 empresas. El 8 de julio de 2008 la Corte Suprema declaró responsables a los tres Estados del deterioro de la cuenca y les ordenó un plan de saneamiento, que ejecuta la Autoridad de Cuenca Matanza Riachuelo (ACUMAR). En octubre de 2024 la Corte dio por terminada su supervisión y dejó la ejecución en manos de ACUMAR. Muestra lo que puede un reclamo colectivo, y también lo largo que es el camino entre una sentencia y un río limpio.
+- **Amparos de salud:** Muchas familias obtuvieron por esta vía la cobertura de tratamientos médicos que sus obras sociales negaban.
 
 > "El amparo es la democracia en acción judicial. Es el ciudadano diciéndole al poder: 'esto no podés hacerlo, y tengo la Constitución para probarlo.' No te dejes intimidar por el sistema: el sistema tiene herramientas a tu favor."
 

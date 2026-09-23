@@ -13,23 +13,35 @@ fuentes:
   - url: https://www.infobae.com/historia/2025/04/13/el-dia-que-se-creo-la-primera-moneda-propia-escudo-sol-incaico-y-la-necesidad-de-terminar-con-las-falsificaciones/
     titulo: 'El día que se creó la primera moneda propia: escudo, sol incaico y la necesidad de terminar con las falsificaciones (Infobae, 13/4/2025)'
     consultada: '2026-09-22'
+  - url: https://dialnet.unirioja.es/descarga/articulo/635830.pdf
+    titulo: 'Rocío Izquierdo de Montes, «Sobre la copelación de la plata en el mundo tartésico» (SPAL 6, 1997)'
+    consultada: '2026-09-23'
+  - url: https://www.biblegateway.com/passage/?search=Malaqu%C3%ADas+3%3A3&version=LBLA
+    titulo: 'Malaquías 3:3 — La Biblia de las Américas (Bible Gateway)'
+    consultada: '2026-09-23'
+  - url: https://www.ign.gob.ar/NuestrasActividades/Geografia/DatosArgentina/OrigenDelNombre
+    titulo: 'Origen del nombre: ¿Por qué Argentina? (Instituto Geográfico Nacional)'
+    consultada: '2026-09-23'
+  - url: https://www.osti.gov/servlets/purl/15005391
+    titulo: 'N. Thomas y J. Wolfe, «High Reflectivity of Silver Extended Down to 200 nm» (Lawrence Livermore National Laboratory, 2001)'
+    consultada: '2026-09-23'
 ---
 
 ## El orfebre y su fuego
 
-En el mundo antiguo, refinar plata era un oficio sagrado. No cualquiera podía hacerlo. Requería paciencia extrema, conocimiento profundo del fuego, y una sensibilidad que pocas artes exigían.
+En el mundo antiguo, refinar plata era un oficio delicado. Requería paciencia extrema, conocimiento profundo del fuego, y una sensibilidad que pocas artes exigían.
 
-El proceso se llamaba **copelación**. El orfebre colocaba la plata en bruto — gris, opaca, mezclada con plomo, cobre y otras impurezas — en un crisol de hueso o ceniza. Después encendía el fuego. No un fuego cualquiera: un fuego controlado, sostenido, que debía alcanzar exactamente la temperatura necesaria para que las impurezas se separaran del metal noble sin destruirlo.
+El proceso se llamaba **copelación**. El orfebre colocaba la plata en bruto — gris, opaca, mezclada con plomo, cobre y otras impurezas — en un crisol de hueso o ceniza, la copela. Después encendía el fuego. No un fuego cualquiera: un fuego controlado, sostenido, que debía alcanzar exactamente la temperatura necesaria para que las impurezas se separaran del metal noble sin destruirlo. El plomo, que en la fundición había atrapado a los metales nobles, se oxidaba con el fuego: una parte se iba al aire y otra quedaba pegada a las paredes de la copela como litargirio.
 
 El orfebre no podía irse. No podía distraerse. **Tenía que quedarse mirando el fuego**, observando cómo la escoria subía a la superficie y el metal se iba purificando. Si el fuego era demasiado bajo, las impurezas no salían. Si era demasiado alto, la plata se arruinaba. El arte estaba en sostener la temperatura justa — y en esperar.
 
 ### El momento en que la plata está lista
 
-¿Y cómo sabía el orfebre que el refinamiento había terminado? Hay un texto antiguo que lo describe con una imagen que, una vez que la escuchás, no se te olvida más:
+¿Y cómo sabía el orfebre que el refinamiento había terminado? Hay un texto antiguo que usa el oficio como imagen:
 
-> *"Se sentará como refinador y purificador de plata; purificará a los hijos y los afinará como oro y como plata."* — Malaquías 3:3
+> *"Y Él se sentará como fundidor y purificador de plata, y purificará a los hijos de Leví y los acrisolará como a oro y como a plata."* — Malaquías 3:3 (La Biblia de las Américas)
 
-La tradición de los orfebres antiguos dice que **la plata estaba lista cuando el orfebre podía ver su propio reflejo en el metal líquido**. Mientras hubiera impurezas, la superficie era turbia, opaca, distorsionada. Pero cuando la última escoria era removida, el metal se volvía tan puro, tan transparente, que funcionaba como un espejo.
+Alrededor de ese versículo circula una historia que se repite en sermones y que conviene leer como parábola, no como dato de taller. Pero una vez que la escuchás, no se te olvida más: **la plata estaba lista cuando el orfebre podía ver su propio reflejo en el metal líquido**. Mientras hubiera impurezas, la superficie era turbia, opaca, distorsionada. Pero cuando la última escoria era removida, el metal se volvía tan puro, tan transparente, que funcionaba como un espejo.
 
 Pensalo un segundo: **el propósito del refinamiento no era hacer brillar la plata para que la admiren. Era convertirla en un espejo — algo donde otros pudieran verse reflejados.**
 
@@ -37,7 +49,7 @@ Pensalo un segundo: **el propósito del refinamiento no era hacer brillar la pla
 
 Ahora bien. ¿Sabés de dónde viene el nombre *Argentina*?
 
-Del latín ***argentum***, que significa plata. *Argentina* es, literalmente, **"Tierra de la Plata"**. El Río de la Plata, la puerta de entrada al país, lleva el nombre del metal más reflexivo que existe. No es oro — que acumula y ostenta. No es bronce — que endurece y resiste. Es plata: **el metal que brilla para reflejar al otro**.
+Del latín ***argentum***, que significa plata. *Argentina* es, literalmente, **"Tierra de la Plata"**: en 1554 un mapa del portugués Lopo Homem ya rotulaba la región *Terra Argentea*, y en 1602 Martín del Barco Centenera tituló *Argentina* su poema sobre el Río de la Plata. El río, la puerta de entrada al país, lleva el nombre del metal más reflexivo que existe: ningún otro refleja tanta luz. No es oro — que acumula y ostenta. No es bronce — que endurece y resiste. Es plata: **el metal que brilla para reflejar al otro**.
 
 ¿Casualidad? Quizás. Pero las casualidades a veces tienen la textura de las profecías. Un país entero que lleva en su nombre la vocación de brillar — no para sí mismo, sino para ser espejo del mundo.
 

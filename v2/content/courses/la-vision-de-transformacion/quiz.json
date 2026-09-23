@@ -22,7 +22,7 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "Frankl observó que los que sobrevivían no eran los más fuertes físicamente, sino los que tenían un sentido, una razón, una visión de futuro. De ahí nace la logoterapia.",
+      "explanation": "Frankl observó que los que sobrevivían no eran los más fuertes físicamente, sino los que tenían un sentido, una razón, una visión de futuro. Los campos pusieron a prueba la logoterapia, que venía desarrollando desde antes de la guerra.",
       "points": 2,
       "orderIndex": 2
     },
@@ -50,16 +50,16 @@
       "orderIndex": 4
     },
     {
-      "question": "¿Por qué una visión vaga como \"quiero estar mejor\" no funciona según la neurociencia?",
+      "question": "¿Por qué una visión vaga como \"quiero estar mejor\" no funciona?",
       "type": "multiple_choice",
       "options": [
         "Porque suena poco profesional",
-        "Porque el cerebro necesita especificidad para activar el Sistema Reticular y la dopamina anticipatoria",
+        "Porque no le da a tu atención nada concreto para buscar ni al esfuerzo un lugar hacia dónde ir",
         "Porque las visiones siempre deben tener números exactos",
         "Porque otras personas no la van a entender"
       ],
       "correctAnswer": 1,
-      "explanation": "El Sistema Reticular Activador filtra la información que llega a tu consciencia. Una visión específica y vívida lo programa para detectar oportunidades alineadas. Una visión vaga no activa nada.",
+      "explanation": "Vemos sobre todo lo que estamos buscando: en el experimento de Simons y Chabris, casi la mitad de los observadores concentrados en otra tarea no vio al gorila. Una visión específica te dice qué buscar; una vaga no señala nada. (El Sistema Reticular Activador, al que se le suele atribuir este filtro, regula la vigilia y el alerta, no las metas.)",
       "points": 2,
       "orderIndex": 5
     },
@@ -73,7 +73,7 @@
         "Tenés todo lo necesario"
       ],
       "correctAnswer": 0,
-      "explanation": "Sin la dimensión de habilidades desarrolladas, tenés buenas intenciones y pasión pero careces de la capacidad de ejecutar efectivamente tu visión.",
+      "explanation": "Sin la dimensión de habilidades desarrolladas, tenés buenas intenciones y pasión pero te falta la capacidad de ejecutar efectivamente tu visión.",
       "points": 2,
       "orderIndex": 6
     },
@@ -110,7 +110,7 @@
         "Delegación: dejar que un líder decida"
       ],
       "correctAnswer": 2,
-      "explanation": "Senge distingue entre acatamiento (obediencia), alineamiento (cooperación) y compromiso genuino (la visión como parte de la identidad). Solo el compromiso genuino genera la energía que transforma.",
+      "explanation": "Senge distingue varias actitudes frente a una visión, desde la apatía y el acatamiento hasta el compromiso genuino (la visión como parte de la identidad). Solo el compromiso genuino genera la energía que transforma.",
       "points": 2,
       "orderIndex": 9
     },
@@ -170,7 +170,7 @@
         "Una fase que solo afecta a personas sin preparación"
       ],
       "correctAnswer": 1,
-      "explanation": "El valle de la desilusión es el punto 2 de la Curva J: la fase más difícil donde la mayoría abandona. Es el momento donde tu propósito y tu comunidad marcan la diferencia entre rendirse y seguir.",
+      "explanation": "El valle de la desilusión es el punto 2 de la Curva J: la fase más difícil, donde más fácil resulta abandonar. Es el momento donde tu propósito y tu comunidad marcan la diferencia entre rendirse y seguir.",
       "points": 2,
       "orderIndex": 14
     },
@@ -193,21 +193,21 @@
       "type": "true_false",
       "options": null,
       "correctAnswer": false,
-      "explanation": "La resiliencia no es aguante pasivo. Es la capacidad de usar la adversidad como combustible de crecimiento. Tedeschi y Calhoun demostraron que la adversidad puede generar crecimiento en posibilidades, relaciones, fortaleza, espiritualidad y apreciación de la vida.",
+      "explanation": "La resiliencia no es aguante pasivo. Es la capacidad de usar la adversidad como combustible de crecimiento. Tedeschi y Calhoun documentaron que muchas personas reportan, después de una adversidad, crecimiento en posibilidades, relaciones, fortaleza, espiritualidad y apreciación de la vida.",
       "points": 2,
       "orderIndex": 16
     },
     {
-      "question": "¿Por qué la fuerza de voluntad sola no funciona para sostener el cambio?",
+      "question": "¿Por qué la lección no confía en la fuerza de voluntad para sostener el cambio?",
       "type": "multiple_choice",
       "options": [
-        "Porque es un mito que no existe",
-        "Porque es un recurso limitado y el cerebro está diseñado evolutivamente para resistir el cambio",
+        "Porque la voluntad es innata: se tiene o no se tiene",
+        "Porque apretar los dientes no cambia las condiciones que hacen difícil el cambio: sirve más dar pasos chicos, diseñar el entorno y sumar aliados",
         "Porque solo funciona en personas excepcionales",
         "Porque requiere meditación diaria para activarse"
       ],
       "correctAnswer": 1,
-      "explanation": "La fuerza de voluntad es un recurso limitado. El cerebro está diseñado para minimizar amenazas y conservar energía, por lo que resiste cualquier cambio (incluso positivo). La solución está en cambios incrementales, diseño de ambiente, aliados y celebración.",
+      "explanation": "Lo conocido siempre juega de local: cuesta menos que lo nuevo. En vez de exigirte más voluntad (la idea de que es un tanque que se vacía no resistió una réplica en 23 laboratorios), conviene cambiar las condiciones: cambios incrementales, diseño de ambiente, aliados y celebración.",
       "points": 2,
       "orderIndex": 17
     },
@@ -226,11 +226,11 @@
       "orderIndex": 18
     },
     {
-      "question": "Los compromisos escritos y compartidos públicamente se cumplen más que los que solo se piensan.",
+      "question": "Un compromiso que dice cuándo, dónde y cómo lo vas a cumplir tiene más chances de cumplirse que uno abierto.",
       "type": "true_false",
       "options": null,
       "correctAnswer": true,
-      "explanation": "La investigación sobre compromisos muestra consistentemente que escribirlos, compartirlos, ponerles fecha y asociarles consecuencias aumenta dramáticamente su cumplimiento.",
+      "explanation": "Es lo que la psicología llama intenciones de implementación: un metaanálisis de Gollwitzer y Sheeran (2006) sobre 94 pruebas encontró un efecto mediano a grande sobre el logro de metas. Escribirlos, compartirlos y atarles consecuencias son prácticas razonables, con apoyo más disperso.",
       "points": 1,
       "orderIndex": 19
     },

@@ -16,36 +16,45 @@ fuentes:
   - url: https://www.argentina.gob.ar/normativa/nacional/ley-26684-183856/texto
     titulo: 'Ley 26.684 — Reforma de la Ley de Concursos y Quiebras (texto original)'
     consultada: '2026-09-22'
+  - url: https://www.memoria.fahce.unlp.edu.ar/trab_eventos/ev.6914/ev.6914.pdf
+    titulo: 'Las asambleas barriales en el contexto de la Argentina actual (Galletti y González, III Jornadas de Sociología de la UNLP, 2003)'
+    consultada: '2026-09-23'
+  - url: https://huelladelsur.ar/2011/04/11/las-asambleas-populares-del-2001-2002-la-primavera-de-la-autoactividad-de-las-masas/
+    titulo: 'Las Asambleas Populares del 2001-2002: la primavera de la autoactividad de las masas (Sergio Barrera, Herramienta)'
+    consultada: '2026-09-23'
+  - url: https://www.pagina12.com.ar/diario/elpais/1-20301-2003-05-19.html
+    titulo: 'Informe sobre la historia de Brukman (Página/12, 2003)'
+    consultada: '2026-09-23'
 ---
 ## 2001: Cuando los Barrios se Levantaron
 
-En diciembre de 2001, tras el estallido económico y social, surgieron más de **300 asambleas barriales** en todo el país, más de cien sólo en la Ciudad de Buenos Aires. Fue la expresión más potente de organización territorial espontánea en la historia reciente argentina. Y en menos de dos años, la gran mayoría había desaparecido.
+Después del estallido económico y social de diciembre de 2001 surgieron asambleas barriales en todo el país: en agosto de 2002, en su punto más alto, eran más de **300**, más de cien sólo en la Ciudad de Buenos Aires. Fue una de las expresiones más potentes de organización territorial espontánea de la historia reciente argentina. Y duró poco: según el Centro de Estudios Nueva Mayoría, de las 112 asambleas que funcionaban en la Ciudad en marzo de 2002 quedaban 51 en octubre de 2003.
 
 ### Lo Que Funcionó
 
-- **Horizontalidad genuina:** Las asambleas no tenían líderes formales. Cualquiera podía hablar.
+- **Horizontalidad genuina:** Las asambleas no tenían líderes formales ni autoridades que las representaran, y muchas rotaban a sus voceros. Cualquiera podía hablar.
 - **Territorialidad:** Cada asamblea estaba anclada en una esquina, una plaza, un barrio concreto.
-- **Acción directa:** No esperaban al gobierno: armaban ollas populares y comedores, huertas, ferias y trueque, y acompañaban a los trabajadores que recuperaban sus fábricas.
-- **Transversalidad:** En la misma asamblea podía haber un profesional, una ama de casa, un jubilado y un pibe del barrio.
+- **Acción directa:** No esperaban al gobierno: armaban ollas populares, huertas, ferias, trueque, revistas barriales y festivales, y en 2003 vecinos de las asambleas se plantaron en la puerta de Brukman para repudiar el desalojo de sus trabajadoras.
+- **Transversalidad:** En la misma asamblea podía haber un profesional, una ama de casa, un desocupado, un jubilado y un estudiante.
 
 ### Lo Que No Funcionó
 
-- **Falta de estructura:** La horizontalidad sin protocolos se volvió caótica. Reuniones de 4 horas sin conclusiones.
-- **Infiltración partidaria:** Partidos políticos infiltraron militantes que pusieron sus agendas por sobre las del barrio.
-- **Agotamiento:** Sin rotación ni cuidado, los más activos se quemaron.
-- **Falta de institucionalización:** Cuando la crisis amainó, no había estructura que sostuviera lo construido.
+- **Falta de estructura:** La horizontalidad sin protocolos se volvió caótica. Reuniones de varias horas en las que se discutía todo y se acordaba poco.
+- **Disputa partidaria:** Militantes de partidos de izquierda usaron algunas asambleas para hacer propaganda y captar adeptos, y unas pocas terminaron funcionando como brazo de un partido.
+- **Agotamiento:** Con los meses quedaban siempre los mismos pocos, y los más activos se quemaron.
+- **Falta de institucionalización:** Cuando la crisis amainó y la política volvió a las urnas, no había estructura que sostuviera lo construido.
 
-La horizontalidad y la estructura no se oponen. Una asamblea puede seguir sin jefes y tener protocolo: coordinación que rota en cada reunión, orden del día con tiempos escritos al lado de cada tema, y una regla de cierre simple, que ningún tema vuelve a discutirse si no llega con una propuesta por escrito. Son tres decisiones baratas que en 2002 casi ninguna asamblea tomó a tiempo.
+La horizontalidad y la estructura no se oponen. Una asamblea puede seguir sin jefes y tener protocolo: coordinación que rota en cada reunión, orden del día con tiempos escritos al lado de cada tema, y una regla de cierre simple, que ningún tema vuelve a discutirse si no llega con una propuesta por escrito. Son tres decisiones baratas, y cada una ataca un punto de la lista de arriba.
 
 ### Pausa para Reflexionar
 
-Si en tu barrio se armara una asamblea mañana como las del 2001, ¿qué harías diferente sabiendo lo que aprendiste en este curso? Anotá 3 mecanismos concretos que implementarías desde el primer día para evitar que se repitan los errores (infiltración, agotamiento, falta de estructura).
+Si en tu barrio se armara una asamblea mañana como las del 2001, ¿qué harías diferente sabiendo lo que aprendiste en este curso? Anotá 3 mecanismos concretos que implementarías desde el primer día para evitar que se repitan los errores (disputa partidaria, agotamiento, falta de estructura).
 
 *Tomá 3 minutos para anotarlo antes de continuar.*
 
 ### Lecciones para Hoy
 
-Las asambleas del 2001 demostraron que **la capacidad de auto-organización existe** en la sociedad argentina. Lo que faltó fue la infraestructura organizativa para sostenerla en el tiempo. Todo lo que aprendiste en este curso — roles, protocolos, rotación, estatutos — es la respuesta a ese vacío.
+Las asambleas del 2001 demostraron que **la capacidad de auto-organización existe** en la sociedad argentina. Lo que faltó fue la infraestructura organizativa para sostenerla en el tiempo. Todo lo que aprendiste en este curso — roles, protocolos, rotación de las tareas y no sólo de la palabra, estatutos — es la respuesta a ese vacío.
 
 > "2001 no fracasó. Fue un ensayo general. La próxima vez que los barrios se levanten, estaremos mejor preparados."
 

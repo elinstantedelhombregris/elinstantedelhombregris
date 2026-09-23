@@ -16,6 +16,15 @@ fuentes:
   - url: https://www.argentina.gob.ar/trabajo/casasparticulares/empleador/remuneracionesyrecibos/aguinaldo
     titulo: 'Argentina.gob.ar — Aguinaldo (personal de casas particulares)'
     consultada: '2026-09-22'
+  - url: https://www.memoria.fahce.unlp.edu.ar/art_revistas/pr.6721/pr.6721.pdf
+    titulo: 'Luciani, M. P. — La etapa formativa de la Secretaría de Trabajo y Previsión (1943-1946) (Anuario del Instituto de Historia Argentina, UNLP, 2014)'
+    consultada: '2026-09-23'
+  - url: https://sedici.unlp.edu.ar/handle/10915/148424
+    titulo: 'SEDICI (UNLP) — Disputas obrero patronales en torno a la ley 11.729'
+    consultada: '2026-09-23'
+  - url: https://www.utdt.edu/ver_nota_prensa.php?id_nota_prensa=18919&id_item_menu=6
+    titulo: 'Universidad Torcuato Di Tella — 17 de octubre: cinco preguntas para entender qué pasó el día fundacional del peronismo'
+    consultada: '2026-09-23'
 revisarAntesDe: '2027-09-22'
 ---
 
@@ -29,22 +38,22 @@ El Grupo de Oficiales Unidos (GOU) era una logia militar nacionalista. Querían 
 
 ### La Jugada Maestra: La Secretaría de Trabajo
 
-Perón pidió un puesto que nadie quería: la Secretaría de Trabajo y Previsión. Desde ahí:
+A fines de octubre de 1943, Perón quedó al frente del Departamento Nacional del Trabajo, una repartición del Ministerio del Interior que la Unión Ferroviaria llamaba «totalmente inoperante». En un mes la convirtió en otra cosa: el decreto 15.074, del 27 de noviembre, creó la Secretaría de Trabajo y Previsión y le dio lo que andaba disperso por toda la administración. Desde ahí:
 
 - **Recibió a cada sindicato:** Escuchó demandas que llevaban décadas acumulándose.
-- **Impulsó leyes laborales:** Vacaciones pagas, aguinaldo, jubilación, estatuto del peón rural. Derechos que hoy nos parecen básicos y que antes no existían.
+- **Impulsó normas laborales:** Vacaciones pagas, jubilaciones, estatuto del peón rural; el aguinaldo llegó en diciembre de 1945. Derechos que hoy nos parecen básicos y que hasta entonces alcanzaban a pocos: las vacaciones pagas, por ejemplo, las tenían por ley desde 1934 los empleados de comercio.
 - **Construyó una base de poder:** Cada decreto favorable a los trabajadores sumaba lealtad. Los sindicatos pasaron de ser enemigos del Estado a ser aliados del coronel.
 - **Mostró eficacia:** Mientras otros militares debatían ideología, Perón resolvía problemas concretos de la gente.
 
 ### El 17 de Octubre de 1945
 
-Cuando sus rivales militares lo encarcelaron, ocurrió algo sin precedentes: **cientos de miles de trabajadores marcharon espontáneamente a Plaza de Mayo** pidiendo su liberación. Era la clase obrera que había nacido en la Década Infame, que había sido ignorada por todos los partidos, que ahora tenía nombre y demanda.
+Cuando sus rivales militares lo detuvieron y lo mandaron a la isla Martín García, ocurrió algo sin precedentes: **una multitud de trabajadores llenó la Plaza de Mayo** pidiendo su liberación. La CGT había convocado una huelga general para el 18; los sindicatos y las bases se adelantaron un día. Cuánta gente fue no se sabe con precisión, y cuánto hubo de espontáneo y cuánto de red sindical todavía se discute: el historiador Juan Carlos Torre mostró el peso de esa red. Era la clase obrera que había nacido en la Década Infame, que había sido ignorada por todos los partidos, que ahora tenía nombre y demanda.
 
 Perón fue liberado. Habló desde el balcón de la Casa Rosada. Y la historia argentina cambió para siempre.
 
 ### Lo que el 17 de Octubre Reveló
 
-1. Existía una Argentina invisible: millones de trabajadores del interior y del conurbano que el sistema político no registraba.
+1. Existía una Argentina invisible: los trabajadores del interior y del conurbano que el sistema político no registraba.
 2. La lealtad se construye con hechos concretos, no con discursos.
 3. Un líder que conecta con las necesidades reales de la gente puede cambiar las reglas del juego.
 
