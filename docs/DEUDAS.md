@@ -89,7 +89,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-073](#d-073--brillo-y-nitidez-se-calculan-por-provincia-y-ninguna-pantalla-los-pide) | Brillo y nitidez se calculan por provincia y ninguna pantalla los pide | Media | Abierta |
 | [D-074](#d-074--los-relojes-de-vigencia-están-escritos-y-no-los-llama-nadie) | Los relojes de vigencia están escritos y no los llama nadie | Alta | Abierta |
 | [D-075](#d-075--una-pregunta-se-puede-cargar-y-no-se-puede-responder) | Una pregunta se puede cargar y no se puede responder | Media | Abierta |
-| [D-076](#d-076--el-taller-de-planpuerta-y-su-mdx-dejaron-de-coincidir-y-la-guardia-está-rota-en-el-tronco) | El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está rota en el tronco | Media | Abierta |
+| [D-076](#d-076--el-taller-de-planpuerta-y-su-mdx-dejaron-de-coincidir-y-la-guardia-está-rota-en-el-tronco) | El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está rota en el tronco | Media | **Resuelta** |
 | [D-077](#d-077--el-test-del-lector-de-crónica-se-corta-antes-de-la-firma) | El test del lector de crónica se corta antes de la firma | Baja | Abierta |
 | [D-078](#d-078--el-mapa-se-desborda-en-móvil-la-barra-de-modos-no-cabe-y-la-página-entera-scrollea-de-costado) | El mapa se desborda en móvil: la barra de modos no cabe y la página entera scrollea de costado | Alta | **Resuelta** |
 | [D-079](#d-079--el-sello-ejemplo-pisa-el-título-del-documento-del-mandato-en-móvil) | El sello EJEMPLO pisa el título del documento del mandato en móvil | Media | **Resuelta** |
@@ -105,7 +105,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-089](#d-089--el-nivel-departamento-del-modo-análisis-sigue-apagado-aunque-la-geometría-ya-está) | El nivel departamento del modo Análisis sigue apagado aunque la geometría ya está | Media | Abierta |
 | [D-090](#d-090--las-voces-resueltas-por-punto-antes-del-cambio-de-geometría-conservan-la-provincia-vieja) | Las voces resueltas por punto antes del cambio de geometría conservan la provincia vieja | Media | Abierta |
 | [D-091](#d-091--los-cuerpos-de-las-lecciones-traen-cifras-sin-fuente-e-historias-reales-que-nadie-puede-verificar) | Los cuerpos de las lecciones traen cifras sin fuente e «historias reales» que nadie puede verificar | Alta | Abierta |
-| [D-092](#d-092--cinco-planes-afirman-datos-que-sus-fuentes-contradicen) | Cinco PLANes afirman datos que sus fuentes contradicen | Media | Abierta |
+| [D-092](#d-092--cinco-planes-afirman-datos-que-sus-fuentes-contradicen) | Cinco PLANes afirman datos que sus fuentes contradicen | Media | **Resuelta** |
 | [D-093](#d-093--la-voz-editorial-del-curso-contradice-lo-que-el-curso-enseña) | La voz editorial del curso contradice lo que el curso enseña | Baja | Abierta |
 | [D-094](#d-094--entrenamientosminutaje---escribir-reescribe-todo-el-corpus-aunque-cambie-una-lección) | `entrenamientos:minutaje --escribir` reescribe todo el corpus aunque cambie una lección | Baja | Abierta |
 
@@ -389,7 +389,7 @@ El Ciclo 1 le puso fuente al cierre; el cuerpo quedó como vino de v1. Los error
 **Dónde:** `v2/content/planes/` (y su taller en `Iniciativas Estratégicas/`)
 **Encontrada:** 2026-09-22, por los agentes del Ciclo 1 al verificar los puentes
 **Severidad:** media
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-23** — las cinco se corrigieron en el taller, cada una en su misma línea para no correr remisiones, y se re-derivaron los `.mdx` y las copias públicas de v1. PLANSAL: con la línea de base real (44,2%) la meta de -40% queda en ~27%, y la de la tabla de salud pasa de <50% (que ya se cumplía) a <30%.
 
 - `PLANVIV.mdx:158`: el RENABAP fue «creado en 2018 por ley 27.453». Lo creó el Decreto 358/2017; la ley es de 2018.
 - `PLANTER.mdx`: sigue hablando de la emergencia de la Ley 26.160 sin decir que el Decreto 1083/2024 la dio por terminada.
@@ -1499,7 +1499,7 @@ Es más grave que la falta de `CRON_SECRET` que anota [D-058](#d-058--un-cron-qu
 **Dónde:** `Iniciativas Estratégicas/` y `v2/content/planes/PLANPUERTA.mdx`
 **Encontrada:** 2026-08-19, corriendo las guardias de CI antes de un push
 **Severidad:** media
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-23** — el dueño decidió publicar PLANGEO v1.2 (bloque MECANISMOS). `pnpm planes:migrar` re-derivó PLANGEO y PLANPUERTA (las dos remisiones corridas) y `planes:check` pasa: 28 entradas coinciden. `verificar-plangeo` y `verificar-remisiones` (842 citas) siguen en verde.
 
 `pnpm planes:check` re-deriva cada `.mdx` desde el taller y lo compara con lo commiteado. PLANPUERTA no coincide: *«¿se editó uno de los dos sin re-derivar?»*.
 

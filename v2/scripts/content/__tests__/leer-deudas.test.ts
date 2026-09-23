@@ -316,6 +316,8 @@ describe('contra el docs/DEUDAS.md real', () => {
       // tabla del ejemplo seguían en pantalla sin decir nada (`ea4a76b5`).
       'D-068',
       'D-072',
+      // D-076 y D-092: PLANGEO v1.2 publicado y cinco datos de PLANes corregidos en el taller (23/9/2026).
+      'D-076',
       // Cerradas el 2 de septiembre de 2026 por los arreglos de la auditoría de
       // diseño (`114e07ca`) — y tampoco pasaron por acá: CI estaba en rojo en
       // los tests de la web y este paso ni llegaba a correr.
@@ -333,6 +335,7 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-085',
       'D-086',
       'D-087',
+      'D-092',
     ]);
   });
 });

@@ -188,7 +188,7 @@ Argentina tiene 1,7 millones de hogares con hacinamiento — más de tres person
 
 ### 1.3 Los 1.800 Asentamientos: La Argentina Que No Tiene Dirección
 
-El Registro Nacional de Barrios Populares (RENABAP) — creado en 2018 por ley 27.453 — identificó más de 5.600 barrios populares en toda la Argentina. De esos, los 1.800 más grandes concentran más de 4 millones de residentes. Son villas, asentamientos, núcleos habitacionales transitorios que se volvieron permanentes, loteos clandestinos que nadie regularizó.
+El Registro Nacional de Barrios Populares (RENABAP) — creado en 2017 por el Decreto 358/2017 y con rango de ley desde 2018 (ley 27.453) — identificó más de 5.600 barrios populares en toda la Argentina. De esos, los 1.800 más grandes concentran más de 4 millones de residentes. Son villas, asentamientos, núcleos habitacionales transitorios que se volvieron permanentes, loteos clandestinos que nadie regularizó.
 
 **Características comunes:**
 
@@ -1016,7 +1016,7 @@ Los 1.800 asentamientos del RENABAP son, en su mayoría, los mismos barrios que 
 
 La regularización de la tenencia de la tierra en los asentamientos es un proceso legal complejo que en Argentina puede demorar 10-20 años por vía judicial. PLANVIV propone una vía administrativa acelerada:
 
-1. **Ley Nacional de Regularización Dominial de Barrios Populares** (extensión de la ley 27.453 que creó el RENABAP) — establece un procedimiento administrativo de regularización que no pasa por los juzgados sino por ANVIV, con control judicial posterior.
+1. **Ley Nacional de Regularización Dominial de Barrios Populares** (extensión de la ley 27.453, que le dio rango de ley al RENABAP) — establece un procedimiento administrativo de regularización que no pasa por los juzgados sino por ANVIV, con control judicial posterior.
 2. **Plazo máximo de 24 meses** desde el inicio del relevamiento catastral hasta la entrega del título.
 3. **Presunción de buena fe** para familias con más de 5 años de ocupación continua y pacífica.
 4. **Gratuidad total** del trámite — no hay costo de escrituración, no hay honorarios de escribano, no hay tasa judicial. El Estado regularizó mal — el costo de regularizar bien lo pone el Estado.

@@ -194,7 +194,7 @@ PLANSAL sostiene que la salud no es una dimensión de la vida — es el resultad
 
 **Raíz 1 · Salud Física: el cuerpo que dejamos de habitar**
 
-El 64,9% de los argentinos adultos tiene un nivel de actividad física insuficiente según la última Encuesta Nacional de Factores de Riesgo (ENFR, 2018/2019). No es pereza — es arquitectura. Es un país diseñado para que no te muevas: barrios sin veredas transitables, ciudades sin bicisendas, jornadas laborales que no dejan tiempo, parques públicos insuficientes o inseguros. Las enfermedades cardiovasculares son la primera causa de muerte en la Argentina — matan más que el cáncer, más que los accidentes, más que la violencia. Son responsables de aproximadamente 100.000 muertes por año (DEIS/Ministerio de Salud). Cien mil corazones que se detienen, la mayoría de ellos después de décadas de inmovilidad, estrés y alimentación industrial.
+El 44,2% de los argentinos adultos tiene un nivel de actividad física bajo según la última Encuesta Nacional de Factores de Riesgo (ENFR 2018); en 2013 era el 54,7%. No es pereza — es arquitectura. Es un país diseñado para que no te muevas: barrios sin veredas transitables, ciudades sin bicisendas, jornadas laborales que no dejan tiempo, parques públicos insuficientes o inseguros. Las enfermedades cardiovasculares son la primera causa de muerte en la Argentina — matan más que el cáncer, más que los accidentes, más que la violencia. Son responsables de aproximadamente 100.000 muertes por año (DEIS/Ministerio de Salud). Cien mil corazones que se detienen, la mayoría de ellos después de décadas de inmovilidad, estrés y alimentación industrial.
 
 Osvaldo tiene 52 años y es colectivero de la línea 86 en Capital Federal. Pasa diez horas sentado en un asiento que le destruye la espalda, respirando el humo del tránsito, comiendo lo que puede en los diez minutos del corte. Tiene 30 kilos de sobrepeso. Le duelen las rodillas. Hace tres años que no hace nada que se parezca a ejercicio. El cardiólogo le dijo que tiene que "moverse más." Osvaldo se rió — la misma risa que Silvia Ramírez cuando le preguntaron si estaba estresada. ¿Moverse cuándo? ¿Con qué cuerpo? ¿Hacia dónde? El sistema le pide al individuo lo que el sistema le hace imposible.
 
@@ -769,7 +769,7 @@ Lo que sigue es el mapa de las soluciones. Raíz por raíz, mostramos tres cosas
 
 | Métrica | Línea de base (2026) | Meta a 5 años |
 |---|---|---|
-| Sedentarismo adulto (actividad insuficiente) | ~64,9% (ENFR) | <50% |
+| Sedentarismo adulto (actividad insuficiente) | 44,2% (ENFR 2018) | <30% |
 | Minutos promedio de movimiento diario | <30 min [est.] | >45 min |
 | Muertes cardiovasculares evitables/año | ~100.000 (DEIS) | Reducción del 15% |
 
@@ -1404,7 +1404,7 @@ PLANSAL mide vitalidad. Mide lo que el sistema *produce*, no lo que el sistema *
 | Familia | Conflicto familiar como fuente de estrés | ~65% [est.] | ~39% (-40%) |
 | Comunidad | Índice de soledad percibida | [línea base a establecer en tranche-1 (2026-2027)] | -50% |
 | Adicciones | Consumo problemático de sustancias | [línea base a establecer en tranche-1 (2026-2027)] | -35% |
-| Movimiento | Sedentarismo en adultos | ~64,9% (ENFR 2018) | ~39% (-40%) |
+| Movimiento | Sedentarismo en adultos | 44,2% (ENFR 2018) | ~27% (-40%) |
 | Sistema médico | Consultas por enfermedad crónica prevenible | [línea base a establecer en tranche-1 (2026-2027)] | -60% |
 | Gasto | Gasto en medicamentos crónicos per cápita | [línea base a establecer en tranche-1 (2026-2027)] | -50% |
 | Satisfacción | Satisfacción ciudadana con la salud propia | <40% [est.] | >70% |
