@@ -75,7 +75,7 @@
   ],
   "rewrites": [
     { "source": "/api/((?!cron/).*)", "destination": "/api/index?__ruta=$1" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/((?!api/|assets/).*)", "destination": "/index.html" }
   ],
   "functions": {
     "api/cron/rankings.mjs": { "maxDuration": 60 },
