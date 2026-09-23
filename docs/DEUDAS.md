@@ -331,7 +331,7 @@ Es de otra sesión y estaba en vuelo cuando se encontró: no se tocó.
 **Dónde:** `v2/apps/api/tests/pulso-flows.test.ts` · `v2/apps/api/tests/gamification-hooks.test.ts`
 **Encontrada:** 2026-08-02, cuando los estados vacíos no aparecían con la base supuestamente en cero
 **Severidad:** alta
-**Estado:** ~~parcialmente resuelta~~ → **resuelta 2026-09-23** — los tests de integración ya no pueden correr contra una base remota: la guardia de `packages/db/tests/helpers/neon-local.ts` los frena salvo `PERMITIR_BASE_REMOTA_EN_TESTS=1`. `pnpm test:integration:local` levanta un Postgres descartable, migra, siembra y corre las dos suites (544 tests verdes); el CI hace lo mismo con un contenedor, sin secretos. El puente `neon-http` → `pg` es el que se probó a mano el 22/9.
+**Estado:** ~~a medias~~ → **resuelta 2026-09-23** — los tests de integración ya no pueden correr contra una base remota: la guardia de `packages/db/tests/helpers/neon-local.ts` los frena salvo `PERMITIR_BASE_REMOTA_EN_TESTS=1`. `pnpm test:integration:local` levanta un Postgres descartable, migra, siembra y corre las dos suites (544 tests verdes); el CI hace lo mismo con un contenedor, sin secretos. El puente `neon-http` → `pg` es el que se probó a mano el 22/9.
 
 > **Corrección.** La primera versión de esta entrada decía que `pulso-flows.test.ts` «limpia proposals y proposalVotes y no pulseSignals». **Eso era falso**: sí las limpia, por id. El problema era otro y más fino, y está abajo.
 
