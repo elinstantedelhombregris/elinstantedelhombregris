@@ -107,7 +107,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-091](#d-091--los-cuerpos-de-las-lecciones-traen-cifras-sin-fuente-e-historias-reales-que-nadie-puede-verificar) | Los cuerpos de las lecciones traen cifras sin fuente e «historias reales» que nadie puede verificar | Alta | Abierta |
 | [D-092](#d-092--cinco-planes-afirman-datos-que-sus-fuentes-contradicen) | Cinco PLANes afirman datos que sus fuentes contradicen | Media | **Resuelta** |
 | [D-093](#d-093--la-voz-editorial-del-curso-contradice-lo-que-el-curso-enseña) | La voz editorial del curso contradice lo que el curso enseña | Baja | Abierta |
-| [D-094](#d-094--entrenamientosminutaje---escribir-reescribe-todo-el-corpus-aunque-cambie-una-lección) | `entrenamientos:minutaje --escribir` reescribe todo el corpus aunque cambie una lección | Baja | Abierta |
+| [D-094](#d-094--entrenamientosminutaje---escribir-reescribe-todo-el-corpus-aunque-cambie-una-lección) | `entrenamientos:minutaje --escribir` reescribe todo el corpus aunque cambie una lección | Baja | **Resuelta** |
 
 ---
 
@@ -415,7 +415,7 @@ No se tocaron acá porque los `.mdx` de los PLANes se derivan del taller y edita
 **Dónde:** `v2/scripts/content/entrenamientos-minutaje.ts`
 **Encontrada:** 2026-09-22, corriendo el Ciclo 1 con 20 agentes editando lecciones en paralelo
 **Severidad:** baja
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-09-23** — acepta cursos como argumento, reescribe una `.mdx` sólo si todavía trae `estimatedMinutes` y un `course.json` sólo si su minutaje cambió, formateado con prettier. Corrido sobre el corpus entero no toca ningún archivo.
 
 Reescribe las 329 `.mdx` (para sacar `estimatedMinutes`, que ya no existe en ninguna) y los 31 `course.json` con `JSON.stringify`, que no es el formato de prettier: cada corrida deja diez archivos cambiados sólo de forma, y con otros editando al mismo tiempo puede pisar una escritura en vuelo. Se evitó con un script temporal limitado a los cursos terminados. **Qué haría falta:** que acepte cursos como argumento, que no toque las `.mdx` y que formatee con prettier.
 

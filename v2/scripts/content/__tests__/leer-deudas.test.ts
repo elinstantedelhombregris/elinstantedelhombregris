@@ -338,6 +338,7 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-086',
       'D-087',
       'D-092',
+      'D-094', // 23/9/2026: el minutaje toca sólo lo que cambia.
     ]);
   });
 });
