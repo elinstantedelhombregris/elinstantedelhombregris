@@ -250,7 +250,8 @@ describe('contra el docs/DEUDAS.md real', () => {
     const estado = (id: string) => deudas.find((d) => d.idPublico === id)?.resuelta;
     expect(estado('D-001'), 'tachada → resuelta').toBe(true);
     expect(estado('D-012'), 'campo «Encontrada y resuelta»').toBe(true);
-    expect(estado('D-014'), 'parcialmente resuelta = abierta').toBe(false);
+    // D-014 fue el ejemplo hasta que se cerró (23/9/2026); D-005 tiene hoy la misma forma.
+    expect(estado('D-005'), 'parcialmente resuelta = abierta').toBe(false);
     expect(estado('D-029'), 'abierta (…, no resuelta)').toBe(false);
   });
 
