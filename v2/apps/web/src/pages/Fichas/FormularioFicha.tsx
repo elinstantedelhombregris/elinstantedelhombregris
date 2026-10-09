@@ -25,6 +25,12 @@ const RELACIONES: Record<ContenidoFicha['vinculos'][number]['relacion'], string>
   capacidad: 'Aporta una capacidad',
   inspira: 'Inspira el futuro deseado',
 };
+const LARGO_EXTRACTO = 140;
+/** Un aporte en una línea: el texto de la señal, no su identificador. */
+function extracto(texto: string) {
+  const limpio = texto.replace(/\s+/g, ' ').trim();
+  return limpio.length > LARGO_EXTRACTO ? `${limpio.slice(0, LARGO_EXTRACTO).trimEnd()}…` : limpio;
+}
 export function FormularioFicha({ inicial, nombreTerritorio, ficha, guardada }: Props) {
   const [contenido, setContenido] = useState(inicial);
   const [condicionesTexto, setCondicionesTexto] = useState((inicial.condiciones ?? []).join('\n'));
@@ -212,25 +218,48 @@ export function FormularioFicha({ inicial, nombreTerritorio, ficha, guardada }: 
           Agregar vínculo
         </button>
         <ul>
-          {contenido.vinculos.map((v, i) => (
-            <li key={`${v.senalId}-${v.relacion}-${i}`} className="border-t py-2 text-sm">
-              <a className="break-all underline" href={`/senal/${v.senalId}`}>
-                {RELACIONES[v.relacion]} · {v.senalId}
-              </a>
-              <button
-                type="button"
-                className="ml-3 min-h-11 underline"
-                onClick={() => {
-                  actualizar(
-                    'vinculos',
-                    contenido.vinculos.filter((_, posicion) => posicion !== i),
-                  );
-                }}
-              >
-                Quitar vínculo {i + 1}
-              </button>
-            </li>
-          ))}
+          {contenido.vinculos.map((v, i) => {
+            // Sólo se conoce el texto de lo que la ficha ya tenía guardado; no se pide nada más.
+            const aporte = ficha?.aportes.find((a) => a.senalId === v.senalId);
+            return (
+              <li key={`${v.senalId}-${v.relacion}-${i}`} className="border-t py-2 text-sm">
+                <p className="font-bold">{RELACIONES[v.relacion]}</p>
+                {aporte ? (
+                  <p className="my-1 break-words">
+                    {!aporte.disponible
+                      ? 'Este aporte dejó de estar disponible.'
+                      : aporte.texto
+                        ? `«${extracto(aporte.texto)}»`
+                        : 'Texto reservado por su autor.'}
+                  </p>
+                ) : (
+                  <p className="text-tinta-75 my-1 break-all">{v.senalId}</p>
+                )}
+                {aporte?.disponible === false ? null : (
+                  <a
+                    className="underline"
+                    href={`/senal/${v.senalId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver el aporte (se abre en otra pestaña)
+                  </a>
+                )}
+                <button
+                  type="button"
+                  className="ml-3 min-h-11 underline"
+                  onClick={() => {
+                    actualizar(
+                      'vinculos',
+                      contenido.vinculos.filter((_, posicion) => posicion !== i),
+                    );
+                  }}
+                >
+                  Quitar vínculo {i + 1}
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </fieldset>
       {!ficha ? (
