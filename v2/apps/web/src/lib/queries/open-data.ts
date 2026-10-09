@@ -19,55 +19,6 @@ export function useProvincias() {
   });
 }
 
-export interface VozAbierta {
-  /**
-   * Dos espacios de identidad conviviendo: un **uuid** para lo que vive en
-   * `senales`, y el ordinal numérico de lo que todavía escribe la app de campo
-   * en `dreams`. No se unifican a string a propósito — el 201 de la ruta vieja
-   * devuelve un número y quien lo guardó lo va a comparar con `===`.
-   *
-   * Como clave de React sirven los dos. Lo que NO hay que hacer es aritmética
-   * con esto ni asumir orden.
-   */
-  id: string | number;
-  body: string;
-  category: string | null;
-  /** La clase de la señal. `null` en lo viejo: sus tipos no son del canon. */
-  clase?: string | null;
-  provinceId: number | null;
-  submittedAs: string | null;
-  createdAt: string;
-  /** El punto publicado, o null cuando la voz solo sabe su provincia. */
-  lat: number | null;
-  lng: number | null;
-  /** `LocationPrecision` — con qué precisión se publicó. Ver spec 1 §5. */
-  precision: string;
-}
-
-export const VOCES_MAPA_LIMIT = 500;
-
-/** Voces aprobadas, más nuevas primero — un solo fetch para puntos del mapa Y feed. */
-export function useVocesAbiertas() {
-  return useQuery({
-    queryKey: ['open-data', 'voces', VOCES_MAPA_LIMIT],
-    queryFn: () => api.get<VozAbierta[]>(`/api/open-data/dreams?limit=${String(VOCES_MAPA_LIMIT)}`),
-  });
-}
-
-export interface ConteoProvincia {
-  provinceId: number | null;
-  count: number;
-}
-
-/** Conteo autoritativo por provincia — numera los clusters más allá del cap de la lista. */
-export function useVocesPorProvincia() {
-  return useQuery({
-    queryKey: ['open-data', 'voces-por-provincia'],
-    queryFn: () => api.get<{ byProvince: ConteoProvincia[] }>('/api/open-data/dreams/by-province'),
-    select: (d) => d.byProvince,
-  });
-}
-
 /**
  * El cuerpo del contrato `basta-senal/v1`.
  *
