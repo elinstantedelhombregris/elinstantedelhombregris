@@ -26,10 +26,12 @@ describe('Respuestas explícitas y estructura exploratoria', () => {
     );
     expect(a.estado).toBe('exploratorio');
     expect(a.grupos.map((g) => g.cuentas)).toEqual([6, 6]);
+    expect(a.grupos.map((g) => g.nombre)).toEqual(['Grupo A', 'Grupo B']);
     const comun = a.condiciones.find((x) => x.afirmacion === 'f0');
     if (!comun) throw new Error('Falta condición común');
     expect(comun.apoyo).toBeGreaterThan(0.7);
     expect(comun.grupos.map((g) => g.acuerdos)).toEqual([6, 6]);
+    expect(comun.grupos.map((g) => g.nombre)).toEqual(['Grupo A', 'Grupo B']);
     expect(JSON.stringify(a)).not.toContain('p0');
   });
   it('el paso entra en el denominador sin volverse desacuerdo; faltantes permanecen faltantes', () => {

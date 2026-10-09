@@ -1,11 +1,20 @@
 import { z } from 'zod';
 
-const frase = (min: number, max: number) =>
+/**
+ * Un texto libre con piso y techo. `donde` completa «Escribí al menos N
+ * caracteres …»: por defecto «en este campo», y quien conozca el motivo de ese
+ * campo lo dice con sus palabras.
+ */
+const frase = (min: number, max: number, donde = 'en este campo') =>
   z
     .string()
     .trim()
-    .min(min, `Escribí al menos ${min} caracteres para que la pregunta tenga contexto.`)
+    .min(min, `Escribí al menos ${min === 1 ? 'un carácter' : `${min} caracteres`} ${donde}.`)
     .max(max, `El límite es ${max} caracteres.`);
+/** Una fecha `AAAA-MM-DD`. Vacía o ausente, el esquema lo dice en castellano y no como «Invalid date». */
+const fecha = z
+  .string({ required_error: 'Elegí una fecha.', invalid_type_error: 'Elegí una fecha.' })
+  .date('Elegí una fecha.');
 /**
  * La campaña nacional permanente «Mi Argentina ideal». Todo aporte que no elige
  * otra campaña entra acá, para que alguien responda por él con una devolución.
@@ -23,16 +32,16 @@ export const estadosCampana = [
 ] as const;
 export const estadoCampanaSchema = z.enum(estadosCampana);
 export const faseCampanaSchema = z
-  .object({ nombre: frase(3, 100), salida: frase(8, 500), fecha: z.string().date() })
+  .object({ nombre: frase(3, 100), salida: frase(8, 500), fecha })
   .strict();
 export const USO_DATOS_CONTRATO_ANTERIOR =
-  'El contrato anterior no detalló el uso de los datos. Los permisos elegidos por cada autor siguen vigentes; el equipo debe aclarar cualquier uso adicional antes de convocar otra edición.';
+  'Las reglas anteriores de la campaña no detallaron el uso de los datos. Los permisos elegidos por cada autor siguen vigentes; el equipo debe aclarar cualquier uso adicional antes de convocar otra edición.';
 export const METODO_LECTURA_CONTRATO_ANTERIOR =
-  'El contrato anterior no declaró un método de lectura. Sus aportes no constituyen por sí solos un acuerdo; el equipo debe publicar cómo los interpretará y cómo podrán corregir esa lectura.';
+  'Las reglas anteriores de la campaña no declararon un método de lectura. Sus aportes no constituyen por sí solos un acuerdo; el equipo debe publicar cómo los interpretará y cómo podrán corregir esa lectura.';
 export const contratoCampanaSchema = z
   .object({
     titulo: frase(8, 160),
-    pregunta: frase(10, 500),
+    pregunta: frase(10, 500, 'para que la pregunta tenga contexto'),
     proposito: frase(20, 2500),
     territorios: z
       .array(z.number().int().positive())
@@ -47,7 +56,7 @@ export const contratoCampanaSchema = z
       .min(1, 'Este campo necesita un poco más de contexto.'),
     responsable: frase(3, 150),
     devolucion: frase(15, 1500),
-    fechaDevolucion: z.string().date(),
+    fechaDevolucion: fecha,
     efecto: frase(15, 1500),
     usoDatos: frase(20, 2500).default(USO_DATOS_CONTRATO_ANTERIOR),
     metodoLectura: frase(20, 2500).default(METODO_LECTURA_CONTRATO_ANTERIOR),
@@ -63,19 +72,19 @@ export const contratoCampanaSchema = z
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['territorios'],
-        message: 'Un lugar alcanza una vez. Revisá los territorios repetidos.',
+        message: 'Un lugar alcanza una vez. Revisá los lugares repetidos.',
       });
     if (v.fases.some((f, i) => i > 0 && f.fecha < (v.fases[i - 1]?.fecha ?? '')))
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['fases'],
-        message: 'Las fechas de las fases deben seguir su recorrido.',
+        message: 'Las fechas de las etapas deben seguir su recorrido.',
       });
     if ((v.fases.at(-1)?.fecha ?? '') > v.fechaDevolucion)
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['fechaDevolucion'],
-        message: 'La devolución tiene que llegar después de las fases previstas.',
+        message: 'La devolución tiene que llegar después de las etapas previstas.',
       });
   });
 export const crearCampanaSchema = z

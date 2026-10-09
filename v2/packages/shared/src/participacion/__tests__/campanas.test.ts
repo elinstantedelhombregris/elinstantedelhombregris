@@ -34,3 +34,56 @@ describe('Contrato de campaña con uso de datos y método declarado', () => {
     expect(contratoCampanaSchema.safeParse({ ...anterior, institucion: 'Una institución', institucionAcepto: true }).success).toBe(false);
   });
 });
+
+describe('Los mensajes del esquema de campaña, en castellano y con las palabras del glosario', () => {
+  const mensajesDe = (entrada: unknown) => {
+    const r = contratoCampanaSchema.safeParse(entrada);
+    return r.success
+      ? {}
+      : Object.fromEntries(r.error.issues.map((i) => [i.path.join('.'), i.message]));
+  };
+
+  it('lo que se aclara de las reglas anteriores dice «reglas de la campaña» y no «contrato»', () => {
+    expect(USO_DATOS_CONTRATO_ANTERIOR).toContain('reglas anteriores de la campaña');
+    expect(METODO_LECTURA_CONTRATO_ANTERIOR).toContain('reglas anteriores de la campaña');
+    expect(`${USO_DATOS_CONTRATO_ANTERIOR} ${METODO_LECTURA_CONTRATO_ANTERIOR}`).not.toMatch(
+      /contrato/i,
+    );
+  });
+
+  it('una fecha vacía o ausente pide elegir una fecha, no dice «Invalid date» ni «Required»', () => {
+    const sinFecha: Partial<typeof anterior> = { ...anterior };
+    delete sinFecha.fechaDevolucion;
+    const m = mensajesDe({
+      ...anterior,
+      fechaDevolucion: '',
+      fases: [{ ...anterior.fases[0], fecha: '' }],
+    });
+    expect(m.fechaDevolucion).toBe('Elegí una fecha.');
+    expect(m['fases.0.fecha']).toBe('Elegí una fecha.');
+    expect(mensajesDe(sinFecha).fechaDevolucion).toBe('Elegí una fecha.');
+  });
+
+  it('un campo corto no dice que «la pregunta» necesita contexto, salvo el de la pregunta', () => {
+    const m = mensajesDe({ ...anterior, titulo: 'Corto', pregunta: 'Corta' });
+    expect(m.titulo).toBe('Escribí al menos 8 caracteres en este campo.');
+    expect(m.pregunta).toBe('Escribí al menos 10 caracteres para que la pregunta tenga contexto.');
+  });
+
+  it('las etapas fuera de orden y los lugares repetidos hablan de etapas y lugares', () => {
+    const m = mensajesDe({
+      ...anterior,
+      territorios: [2, 2],
+      fases: [
+        {
+          nombre: 'Imaginar',
+          salida: 'Relatos revisados por quienes participan.',
+          fecha: '2099-12-10',
+        },
+        { nombre: 'Leer', salida: 'Una lectura abierta para revisar.', fecha: '2099-12-01' },
+      ],
+    });
+    expect(m.territorios).toBe('Un lugar alcanza una vez. Revisá los lugares repetidos.');
+    expect(m.fases).toBe('Las fechas de las etapas deben seguir su recorrido.');
+  });
+});

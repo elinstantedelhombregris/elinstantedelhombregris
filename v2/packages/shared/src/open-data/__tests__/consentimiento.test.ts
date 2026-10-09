@@ -50,6 +50,15 @@ describe('los textos del consentimiento', () => {
     expect(texto.normalize('NFC')).toBe(texto);
   });
 
+  // El glosario del dueño: lo publicado es un «aporte». Estas palabras nombraban
+  // lo mismo con otro nombre y no vuelven a las pantallas de consentimiento.
+  it.each([...todos, ['LICENCIAS', JSON.stringify(LICENCIAS)] as const])(
+    '%s no usa las palabras que el glosario retiró',
+    (_nombre, texto) => {
+      expect(texto).not.toMatch(/\b(voz|voces|posibilidad(es)?|señal(es)?|mirada(s)?)\b/iu);
+    },
+  );
+
   it('el consentimiento previo al envío son los tres, de lo reversible a lo irreversible', () => {
     expect(CONSENTIMIENTO_ANTES_DE_ENVIAR).toEqual([
       TEXTO_CONSENTIMIENTO_ACTOR,
@@ -76,7 +85,7 @@ describe('los textos del consentimiento', () => {
     'la declaración de %s distingue adhesiones y conversación en fichas',
     (tipo) => {
       const frase = DECLARACION_DELIBERACION[tipo];
-      expect(frase.startsWith('Esta voz no es una votación.')).toBe(true);
+      expect(frase.startsWith('Este aporte no es una votación.')).toBe(true);
       expect(frase).toContain('ficha');
       // Lo único que evita que «yo también» se lea como voto.
       expect(frase).toContain('adhesiones');
@@ -122,7 +131,7 @@ describe('las dos licencias', () => {
   // El proyecto es custodio, no titular. Si esta línea dijera que la otorga el
   // proyecto, el archivo entero estaría estampando una licencia inventada.
   it('la de los textos la otorga quien escribió, no el proyecto', () => {
-    expect(LICENCIAS.textos.otorgadaPor).toBe('quien escribió cada señal');
+    expect(LICENCIAS.textos.otorgadaPor).toBe('quien escribió cada aporte');
     expect(LICENCIAS.textos.nota).toContain('textoOmitido');
   });
 
@@ -191,7 +200,7 @@ const FRAGMENTOS: readonly { readonly constante: string; readonly fragmento: str
     constante: 'TEXTO_PUBLICACION_IRREVOCABLE',
     fragmento: 'un registro público que se descarga entero en un archivo',
   },
-  { constante: 'DECLARACION_DELIBERACION', fragmento: 'Esta voz no es una votación' },
+  { constante: 'DECLARACION_DELIBERACION', fragmento: 'Este aporte no es una votación' },
 ];
 
 const TEXTO_DE: Readonly<Record<string, string>> = {

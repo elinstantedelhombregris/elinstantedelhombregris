@@ -150,7 +150,7 @@ export const PLANES_SOURCES: readonly FuentePlan[] = [
     slug: 'plangeo',
     title: "El mundo que tenemos no es el mundo que merecemos",
     nombreInstitucional: "Plan Nacional de Posicionamiento Geopolítico y Plataforma de Soberanía Exportable",
-    summary: "Argentina con ¡BASTA! no es una anomalía aislada — son 22 PLANes simultáneos (al 23 de abril de 2026). PLANGEO es el plan que hace que los demás PLANes lleguen al mundo sin que el mundo los destruya. Propone una estrategia de doble capa (diplomacia convencional + infraestructura paralela) y una Plataforma de Soberanía Exportable: siete Stacks open-source que empaquetan cada herramienta ¡BASTA! como infraestructura adoptable por cualquier país. La Red Soberana — una comunidad de países y ciudades que comparten estos Stacks — convierte a Argentina en un nodo demasiado útil para sancionar, demasiado interconectado para aislar y demasiado transparente para difamar.",
+    summary: "Argentina con ¡BASTA! no es una anomalía aislada: son muchos PLANes en marcha al mismo tiempo. PLANGEO es el plan que hace que los demás PLANes lleguen al mundo sin que el mundo los destruya. Propone una estrategia de doble capa (diplomacia convencional + infraestructura paralela) y una Plataforma de Soberanía Exportable: siete Stacks open-source que empaquetan cada herramienta ¡BASTA! como infraestructura adoptable por cualquier país. La Red Soberana — una comunidad de países y ciudades que comparten estos Stacks — convierte a Argentina en un nodo demasiado útil para sancionar, demasiado interconectado para aislar y demasiado transparente para difamar.",
     orderIndex: 12,
     isMeta: false,
     archivoFuente: 'PLANGEO_Argentina_ES.md',

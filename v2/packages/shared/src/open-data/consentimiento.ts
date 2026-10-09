@@ -128,9 +128,9 @@ type ClaveDeseo = 'sueño' | 'propuesta';
  */
 export const DECLARACION_DELIBERACION = {
   sueño:
-    'Esta voz no es una votación. Expresa una posibilidad; las adhesiones —«yo también»— no forman un acuerdo colectivo. La conversación puede continuar en una ficha con condiciones, diferencias y diseños alternativos.',
+    'Este aporte no es una votación. Expresa un deseo; las adhesiones —«yo también»— no forman un acuerdo colectivo. La conversación puede continuar en una ficha con condiciones, diferencias y diseños alternativos.',
   propuesta:
-    'Esta voz no es una votación. Las adhesiones no aprueban ni rechazan este diseño. Podés desarrollar sus condiciones y contrastarlo con otras alternativas en una ficha de futuro.',
+    'Este aporte no es una votación. Las adhesiones no aprueban ni rechazan este diseño. Podés desarrollar sus condiciones y contrastarlo con otras alternativas en una ficha de futuro.',
 } as const satisfies Record<ClaveDeseo, string>;
 
 const DECLARACION_POR_TIPO: ReadonlyMap<string, string> = new Map(
@@ -199,7 +199,7 @@ export const LICENCIAS = {
    */
   textos: {
     id: 'CC-BY-4.0',
-    otorgadaPor: 'quien escribió cada señal',
+    otorgadaPor: 'quien escribió cada aporte',
     nota: 'Sólo las filas con cesión traen `texto`; las demás traen `textoOmitido`.',
   },
 } as const;
