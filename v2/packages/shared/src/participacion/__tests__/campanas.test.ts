@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { contratoCampanaSchema, USO_DATOS_CONTRATO_ANTERIOR, METODO_LECTURA_CONTRATO_ANTERIOR } from '../campanas.js';
+import { MAX_TEMAS } from '../temas.js';
 
 const anterior = {
   titulo: 'Aprender cerca de quienes queremos',
@@ -85,5 +86,40 @@ describe('Los mensajes del esquema de campaña, en castellano y con las palabras
     });
     expect(m.territorios).toBe('Un lugar alcanza una vez. Revisá los lugares repetidos.');
     expect(m.fases).toBe('Las fechas de las etapas deben seguir su recorrido.');
+  });
+});
+
+describe('El tope de temas de una campaña es el catálogo entero', () => {
+  const conTemas = (n: number) => ({
+    ...anterior,
+    temas: Array.from({ length: n }, (_, i) => `tema-${i}`),
+  });
+
+  it('el tope es trece', () => {
+    expect(MAX_TEMAS).toBe(13);
+  });
+
+  it('trece temas se aceptan', () => {
+    const r = contratoCampanaSchema.safeParse(conTemas(13));
+    expect(r.success).toBe(true);
+  });
+
+  it('catorce temas se rechazan, con el mensaje de siempre y en el campo de temas', () => {
+    const r = contratoCampanaSchema.safeParse(conTemas(14));
+    expect(r.success).toBe(false);
+    if (!r.success) {
+      const tema = r.error.issues.find((i) => i.path.join('.') === 'temas');
+      expect(tema?.message).toBe('Acortá este campo sin perder su sentido.');
+    }
+  });
+
+  it('un contrato guardado con ocho temas sigue siendo legible', () => {
+    expect(contratoCampanaSchema.safeParse(conTemas(8)).success).toBe(true);
+  });
+
+  it('el tope de etapas no cambió: sigue siendo ocho', () => {
+    const fase = anterior.fases[0];
+    const nueve = Array.from({ length: 9 }, () => fase);
+    expect(contratoCampanaSchema.safeParse({ ...anterior, fases: nueve }).success).toBe(false);
   });
 });

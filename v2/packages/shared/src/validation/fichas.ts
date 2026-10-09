@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { MAX_TEMAS } from '../participacion/temas.js';
+
 export const relacionFichaSchema = z.enum([
   'describe',
   'contradice',
@@ -15,7 +17,7 @@ export const contenidoFichaSchema = z
       .min(8, 'Poné una pregunta o título de al menos 8 caracteres.')
       .max(180),
     territorioId: z.number().int().positive().nullable(),
-    temas: z.array(z.string().trim().min(1).max(60)).max(8),
+    temas: z.array(z.string().trim().min(1).max(60)).max(MAX_TEMAS),
     situacion: z.string().trim().max(4000),
     futuro: z.string().trim().max(4000),
     proximaTarea: z.string().trim().max(2000),

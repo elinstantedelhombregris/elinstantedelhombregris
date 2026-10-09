@@ -16,4 +16,5 @@ export * from './participacion/diseno.js';
 
 export * from './participacion/equipo.js';
 export * from './participacion/exportaciones.js';
+export * from './participacion/temas.js';
 export * from './participacion/texto-reservado.js';
