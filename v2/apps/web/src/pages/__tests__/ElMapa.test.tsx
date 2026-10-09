@@ -128,9 +128,14 @@ describe('ElMapa (página papel 2.2)', () => {
     montar();
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'El país, dicho por su gente.' }),
+      screen.getByRole('heading', { level: 1, name: 'Qué dice la gente, dónde y cuándo' }),
     ).toBeInTheDocument();
-    expect(screen.getByText('El mapa de las voces')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Cada punto es un aporte: un problema, un deseo, algo que ya funciona. Buscá tu zona o sumá el tuyo.',
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByText('El mapa de los aportes')).toBeInTheDocument();
     // La cifra salió de la portada: el contador del instrumento la dice con
     // su alcance, y un «0» a 52px era justo lo que D-080 pedía no mostrar.
     expect(screen.queryByText('voces en el mapa')).not.toBeInTheDocument();
