@@ -48,7 +48,7 @@ export function TwoFactorChallenge() {
     e.preventDefault();
     setErrorMessage(null);
     if (!ticket) {
-      setErrorMessage('Falta el ticket. Volvé a iniciar sesión.');
+      setErrorMessage('Falta el ticket. Volvé a ingresar.');
       return;
     }
     if (code.trim().length < 6) {
