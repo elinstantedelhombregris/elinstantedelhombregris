@@ -1,21 +1,34 @@
 import { useState } from 'react';
 
+import { EnlaceAccion } from '~/components/participacion/Elementos';
+import { useAuth } from '~/lib/auth/use-auth';
+import { hrefIngresar } from '~/lib/auth/volver';
 import { useRetirarSenal } from '~/lib/queries/senales';
 
 export function RetirarAporte({ id }: { id: string }) {
+  const auth = useAuth();
   const [confirmando, setConfirmando] = useState(false);
   const retirar = useRetirarSenal(id);
   return (
-    <section className="mt-8 border-t pt-6" aria-label="Administrar mi aporte">
-      <p className="text-sm">
-        Este navegador sabe que la escribiste vos. Si borrás su identificador, ya no vamos a poder
-        reconocerla.
-      </p>
+    <section className="mt-8 border-t pt-6" aria-label="Retirar mi aporte">
+      {auth.user ? null : (
+        <div className="text-sm leading-relaxed">
+          <p>
+            Este navegador sabe que lo escribiste vos. Si borrás los datos de este navegador antes
+            de crear tu cuenta, no vamos a poder devolverte este aporte.
+          </p>
+          <div className="mt-3">
+            <EnlaceAccion secundario href={hrefIngresar(undefined, '/registrarse')}>
+              Crear mi cuenta
+            </EnlaceAccion>
+          </div>
+        </div>
+      )}
       {confirmando ? (
         <>
           <p className="my-3">
-            El texto deja de mostrarse y la voz sale de todas las cuentas del mapa. Lo que otros ya
-            descargaron no se puede recuperar.
+            El texto deja de mostrarse y el aporte sale de todas las cuentas del mapa. Lo que otras
+            personas ya descargaron no se puede recuperar.
           </p>
           <button
             type="button"
@@ -45,7 +58,7 @@ export function RetirarAporte({ id }: { id: string }) {
             setConfirmando(true);
           }}
         >
-          Retirar mi voz
+          Retirar mi aporte
         </button>
       )}
       {retirar.isError ? (
