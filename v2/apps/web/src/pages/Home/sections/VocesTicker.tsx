@@ -1,13 +1,8 @@
+import { TEXTO_RESERVADO } from '@v2/shared';
+
 import { useVocesRecientes } from '~/lib/queries/analytics';
 import { cn } from '~/lib/utils';
 import { CLASE_TEXTO, claseDe, leerTipoSenal } from '~/lib/vocabulario';
-
-/**
- * Lo que dice el servidor cuando el aporte existe pero su texto quedó reservado
- * (lo escribe `packages/db/src/repositories/senal-publicacion.ts`). Un aviso así
- * no es una cita de nadie, así que no entra a la cinta.
- */
-const TEXTO_RESERVADO = 'Texto reservado por su autoría.';
 
 /**
  * Los últimos aportes publicados, en una cinta.

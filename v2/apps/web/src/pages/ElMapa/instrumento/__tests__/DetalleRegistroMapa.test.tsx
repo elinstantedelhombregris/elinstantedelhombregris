@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { TEXTO_RESERVADO } from '@v2/shared';
 import { describe, expect, it, vi } from 'vitest';
 
 import { DetalleRegistroMapa } from '../DetalleRegistroMapa';
@@ -35,7 +36,7 @@ describe('Leer un aporte dentro del mapa', () => {
   it('un texto reservado no se cita como si lo hubiera dicho su autor', () => {
     const { container } = render(
       <DetalleRegistroMapa
-        senal={{ ...senal, texto: 'Texto reservado por su autoría.' }}
+        senal={{ ...senal, texto: TEXTO_RESERVADO }}
         cerrar={vi.fn()}
       />,
     );

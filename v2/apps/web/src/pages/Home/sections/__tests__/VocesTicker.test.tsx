@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
+import { TEXTO_RESERVADO } from '@v2/shared';
 import { describe, expect, it, vi } from 'vitest';
 
 import { VocesTicker } from '../VocesTicker';
@@ -100,14 +101,14 @@ describe('VocesTicker', () => {
       data: [
         {
           id: '00000000-0000-4000-8000-000000000003',
-          texto: 'Texto reservado por su autoría.',
+          texto: TEXTO_RESERVADO,
           categoria: 'sueno',
         },
       ],
       isLoading: false,
     } as ReturnType<typeof useVocesRecientes>);
     renderTicker();
-    expect(screen.queryByText('«Texto reservado por su autoría.»')).not.toBeInTheDocument();
+    expect(screen.queryByText(`«${TEXTO_RESERVADO}»`)).not.toBeInTheDocument();
     // Hubo quien publicó, así que no se dice que nadie lo hizo.
     expect(screen.queryByText('Todavía nadie publicó un aporte.')).not.toBeInTheDocument();
     expect(screen.getByText(/tienen el texto reservado/)).toBeInTheDocument();
