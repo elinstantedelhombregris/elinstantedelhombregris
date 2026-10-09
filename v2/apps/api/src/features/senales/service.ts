@@ -51,8 +51,13 @@ import { resolverUbicacion } from '../geo/resolver.js';
 
 import type { CuerpoDeSenal } from '@v2/shared';
 
-/** La versión del texto de cesión que firmó esta fila. Sube cuando cambia la pantalla. */
-export const VERSION_DE_CESION = 1;
+/**
+ * La versión del texto de cesión que firmó esta fila. Sube cuando cambia la pantalla.
+ *
+ * 1: la primera redacción (y su retoque del recorrido de Argentina ideal, que no la subió).
+ * 2: el glosario del 9/10/2026 — «aporte» en la declaración que acompaña al consentimiento.
+ */
+export const VERSION_DE_CESION = 2;
 
 export interface OrigenDeIngesta {
   /** Lo decide la ruta y la credencial. Nunca el cuerpo. */
