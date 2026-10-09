@@ -1,14 +1,19 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { FormularioFicha } from '../Fichas/FormularioFicha';
 
 import type { ContenidoFicha, FichaFuturo } from '@v2/shared';
 
+const modelo = vi.hoisted(() => ({ mutate: vi.fn(), useGuardarFicha: vi.fn() }));
 vi.mock('~/lib/queries/fichas', () => ({
-  useGuardarFicha: () => ({ isPending: false, isError: false, error: null, mutate: vi.fn() }),
+  useGuardarFicha: (...argumentos: unknown[]) => {
+    modelo.useGuardarFicha(...argumentos);
+    return { isPending: false, isError: false, error: null, mutate: modelo.mutate };
+  },
 }));
 vi.mock('../Fichas/SeleccionarFuentes', () => ({ SeleccionarFuentes: () => null }));
+vi.mock('../Fichas/TemasDeLaFicha', () => ({ TemasDeLaFicha: () => null }));
 vi.mock('../ElMapa/instrumento/BusquedaTerritorial', () => ({ BusquedaTerritorial: () => null }));
 
 const A = '11111111-1111-4111-8111-111111111111';
@@ -48,7 +53,11 @@ const ficha: FichaFuturo = {
 
 const fila = (texto: RegExp) => screen.getByText(texto).closest('li') as HTMLElement;
 
-describe('Ficha de futuro: aportes enlazados en el formulario', () => {
+describe('Ficha: aportes enlazados en el formulario', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('el enlace al aporte se abre en otra pestaña para no perder la ficha sin guardar', () => {
     render(
       <FormularioFicha
@@ -113,10 +122,10 @@ describe('Ficha de futuro: aportes enlazados en el formulario', () => {
         guardada={vi.fn()}
       />,
     );
-    fireEvent.change(screen.getByLabelText('Enlace o identificador del aporte'), {
+    fireEvent.change(screen.getByLabelText('Enlace del aporte'), {
       target: { value: `https://basta.example/senal/${NUEVA}` },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'Agregar vínculo' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Vincular este enlace' }));
     const item = fila(new RegExp(NUEVA));
     const enlace = within(item).getByRole('link', {
       name: 'Ver el aporte (se abre en otra pestaña)',
@@ -143,5 +152,81 @@ describe('Ficha de futuro: aportes enlazados en el formulario', () => {
     expect(screen.getByLabelText(/Pregunta o título/)).toHaveValue(
       'Un título que todavía no se guardó',
     );
+  });
+});
+
+describe('Ficha: formulario', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('un error de validación aparece junto a su campo, lo marca inválido y lleva el foco ahí', () => {
+    render(
+      <FormularioFicha
+        inicial={{ ...base, titulo: 'corto', vinculos: [] }}
+        nombreTerritorio="Argentina"
+        ficha={ficha}
+        guardada={vi.fn()}
+      />,
+    );
+    const titulo = screen.getByLabelText(/Pregunta o título/);
+    fireEvent.click(screen.getByRole('button', { name: 'Guardar versión 2' }));
+    const alerta = screen.getByRole('alert');
+    expect(alerta).toHaveTextContent('Poné una pregunta o título de al menos 8 caracteres.');
+    expect(titulo).toHaveAttribute('aria-invalid', 'true');
+    expect(titulo.getAttribute('aria-describedby')).toContain(alerta.id);
+    expect(titulo).toHaveFocus();
+    expect(modelo.mutate).not.toHaveBeenCalled();
+  });
+
+  it('al editar se sigue pidiendo guardar sobre la versión que se abrió', () => {
+    render(
+      <FormularioFicha
+        inicial={base}
+        nombreTerritorio="Argentina"
+        ficha={ficha}
+        guardada={vi.fn()}
+      />,
+    );
+    expect(modelo.useGuardarFicha).toHaveBeenCalledWith(ficha.id, ficha.revision);
+    fireEvent.click(screen.getByRole('button', { name: 'Guardar versión 2' }));
+    expect(modelo.mutate).toHaveBeenCalledTimes(1);
+    const pedido: unknown = modelo.mutate.mock.calls[0]?.[0];
+    expect(pedido).toMatchObject({ contenido: { titulo: base.titulo } });
+  });
+
+  it('crear una ficha dice por qué todavía no se puede y avisa que cualquiera la va a leer', () => {
+    render(
+      <FormularioFicha
+        inicial={{ ...base, vinculos: [] }}
+        nombreTerritorio="Argentina"
+        guardada={vi.fn()}
+      />,
+    );
+    const crear = screen.getByRole('button', { name: 'Crear ficha' });
+    expect(crear).toHaveAttribute('aria-disabled', 'true');
+    expect(screen.getByText('Marcá la casilla de arriba para poder crear la ficha.')).toBeVisible();
+    fireEvent.click(crear);
+    expect(modelo.mutate).not.toHaveBeenCalled();
+    fireEvent.click(
+      screen.getByLabelText(
+        'Entiendo que cualquiera puede leer esta ficha y que es una propuesta para discutir.',
+      ),
+    );
+    expect(crear).not.toHaveAttribute('aria-disabled');
+    fireEvent.click(crear);
+    expect(modelo.mutate).toHaveBeenCalledTimes(1);
+  });
+
+  it('muestra el lugar por su nombre, nunca por su número de catálogo', () => {
+    render(
+      <FormularioFicha
+        inicial={{ ...base, territorioId: 7000, vinculos: [] }}
+        nombreTerritorio="Tupungato"
+        guardada={vi.fn()}
+      />,
+    );
+    expect(screen.getByText('Lugar: Tupungato.')).toBeInTheDocument();
+    expect(screen.queryByText(/7000|Catálogo/)).toBeNull();
   });
 });

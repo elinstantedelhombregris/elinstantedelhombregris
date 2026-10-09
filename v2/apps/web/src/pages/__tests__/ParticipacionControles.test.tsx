@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { useState } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Colaborar } from '../Colaborar';
@@ -70,19 +71,35 @@ describe('Controles del registro y la continuidad', () => {
     expect(cambiar).toHaveBeenCalledWith('educación');
     expect(screen.getByRole('option', { name: 'Dejar el tema abierto' })).toBeInTheDocument();
   });
-  it('vincular una fuente reservada no inventa ni expone su texto', async () => {
+  it('vincular un aporte reservado no inventa ni expone su texto', async () => {
     modelo.get.mockResolvedValue({
       registros: [{ id: 'fuente', tipo: 'sueño', texto: null }],
       siguiente: null,
       total: 1,
     });
     const elegir = vi.fn();
-    montar(<SeleccionarFuentes campana={null} elegir={elegir} />);
+    function Selector() {
+      const [vinculados, setVinculados] = useState<string[]>([]);
+      return (
+        <SeleccionarFuentes
+          campana={null}
+          relacion="inspira"
+          vinculados={vinculados}
+          elegir={(id, texto) => {
+            elegir(id, texto);
+            setVinculados((v) => [...v, id]);
+          }}
+        />
+      );
+    }
+    montar(<Selector />);
     await screen.findByText(/Texto reservado/);
-    fireEvent.click(screen.getByRole('button', { name: 'Agregar esta voz' }));
-    expect(elegir).toHaveBeenCalledWith('fuente');
-    expect(screen.getByRole('button', { name: 'Vínculo agregado' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Vincular este aporte' }));
+    expect(elegir).toHaveBeenCalledWith('fuente', null);
+    expect(screen.getByText('Vinculado: Inspira el futuro deseado')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Vincular este aporte' })).toBeNull();
   });
+
   it('Mi espacio permite volver a las fichas y campañas a cargo sin un perfil público', () => {
     montar(
       <MisProcesos
