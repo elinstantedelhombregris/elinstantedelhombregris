@@ -3,10 +3,9 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'wouter';
 import { z } from 'zod';
 
-import { Button } from '~/components/ui/button';
-import { FieldError } from '~/components/ui/field-error';
-import { Input } from '~/components/ui/input';
-import { Label } from '~/components/ui/label';
+import { CampoPapel } from '~/components/auth/CampoPapel';
+import { BotonPapel } from '~/components/papel/primitives';
+import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth';
 import { volverTrasIngresar } from '~/lib/auth/volver';
 
@@ -45,48 +44,40 @@ export function Login() {
   return (
     <main className="container mx-auto flex min-h-[80vh] max-w-md flex-col justify-center px-4 py-16">
       <div className="border-tinta bg-papel-crudo border p-8">
-        <h1 className="font-anton text-tinta mb-2 text-4xl">Iniciá sesión</h1>
+        <h1 className="font-anton text-tinta mb-2 text-4xl">Ingresar</h1>
         <p className="text-tinta-75 mb-6 text-sm">
-          ¿Sin cuenta?{' '}
+          ¿No tenés cuenta?{' '}
           <Link
             href={`/registrarse?volver=${encodeURIComponent(volverTrasIngresar(window.location.search))}`}
-            className="text-violeta hover:underline"
+            className="text-violeta underline"
           >
-            Crear una
+            Crear mi cuenta
           </Link>
         </p>
         <form onSubmit={onSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="identifier">Email o usuario</Label>
-            <Input
-              id="identifier"
-              type="text"
-              autoComplete="username"
-              {...register('identifier')}
-            />
-            <FieldError message={errors.identifier?.message} />
-          </div>
-          <div>
-            <Label htmlFor="password">Contraseña</Label>
-            <Input
-              id="password"
-              type="password"
-              autoComplete="current-password"
-              {...register('password')}
-            />
-            <FieldError message={errors.password?.message} />
-          </div>
-          {errors.root ? (
-            <p role="alert" className="text-sm text-red-400">
-              {errors.root.message}
-            </p>
-          ) : null}
-          <Button type="submit" disabled={isSubmitting} className="w-full">
-            {isSubmitting ? 'Entrando…' : 'Iniciar sesión'}
-          </Button>
+          <CampoPapel
+            id="identifier"
+            etiqueta="Email o usuario"
+            type="text"
+            autoComplete="username"
+            error={errors.identifier?.message}
+            {...register('identifier')}
+          />
+          <CampoPapel
+            id="password"
+            etiqueta="Contraseña"
+            type="password"
+            autoComplete="current-password"
+            error={errors.password?.message}
+            {...register('password')}
+          />
+          <ErrorOperacion mensaje={errors.root?.message} />
+          <BotonPapel type="submit" loading={isSubmitting} className="w-full">
+            Ingresar
+          </BotonPapel>
         </form>
         <p className="text-tinta-75 mt-6 text-center text-sm">
-          <Link href="/recuperar-contrasena" className="hover:text-foreground">
+          <Link href="/recuperar-contrasena" className="hover:text-violeta underline">
             ¿Olvidaste la contraseña?
           </Link>
         </p>

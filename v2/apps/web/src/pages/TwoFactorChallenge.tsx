@@ -5,14 +5,14 @@
  */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { useLocation, useSearch } from 'wouter';
+import { Link, useLocation, useSearch } from 'wouter';
 
 import type { ApiError } from '~/lib/api';
 import type { AuthenticatedUser } from '~/lib/auth/types';
 
-import { Button } from '~/components/ui/button';
-import { Input } from '~/components/ui/input';
-import { Label } from '~/components/ui/label';
+import { CampoPapel } from '~/components/auth/CampoPapel';
+import { BotonPapel } from '~/components/papel/primitives';
+import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth';
 import { adoptarSesion } from '~/lib/auth/sesion';
@@ -66,30 +66,35 @@ export function TwoFactorChallenge() {
           Ingresá el código de seis dígitos de tu app de autenticación, o un código de respaldo.
         </p>
         <form onSubmit={submit} className="space-y-4">
-          <div>
-            <Label htmlFor="code">Código</Label>
-            <Input
-              id="code"
-              type="text"
-              inputMode="numeric"
-              autoComplete="one-time-code"
-              value={code}
-              onChange={(e) => {
-                setCode(e.target.value);
-              }}
-              placeholder="123456"
-              maxLength={20}
-              autoFocus
-            />
-          </div>
+          <CampoPapel
+            id="code"
+            etiqueta="Código"
+            type="text"
+            // Los códigos de respaldo son alfanuméricos (XXXXX-XXXXX): un teclado numérico no los deja tipear.
+            inputMode="text"
+            autoComplete="one-time-code"
+            value={code}
+            onChange={(e) => {
+              setCode(e.target.value);
+            }}
+            placeholder="123456"
+            maxLength={20}
+            autoFocus
+          />
+          <ErrorOperacion mensaje={errorMessage} />
           {errorMessage ? (
-            <p role="alert" className="text-sm text-red-400">
-              {errorMessage}
+            <p className="text-tinta-75 text-sm">
+              <Link
+                href={`/ingresar?volver=${encodeURIComponent(volverTrasIngresar(window.location.search))}`}
+                className="text-violeta underline"
+              >
+                Volver a ingresar
+              </Link>
             </p>
           ) : null}
-          <Button type="submit" disabled={verifyMutation.isPending} className="w-full">
-            {verifyMutation.isPending ? 'Verificando…' : 'Verificar'}
-          </Button>
+          <BotonPapel type="submit" loading={verifyMutation.isPending} className="w-full">
+            Verificar
+          </BotonPapel>
         </form>
       </div>
     </main>
