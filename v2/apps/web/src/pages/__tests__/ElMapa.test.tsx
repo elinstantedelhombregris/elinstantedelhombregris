@@ -66,7 +66,7 @@ vi.mock('../ElMapa/sections/ParticiparEnMapa', () => ({
 
 import { api } from '~/lib/api';
 import { useVocesCount } from '~/lib/queries/analytics';
-import { useProvincias, useVocesAbiertas, useVocesPorProvincia } from '~/lib/queries/open-data';
+import { useProvincias } from '~/lib/queries/open-data';
 import { useCola } from '~/lib/queries/senales';
 
 vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: vi.fn() }));
@@ -79,8 +79,6 @@ vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: vi.fn() }));
 vi.mock('~/lib/queries/senales', () => ({ useCola: vi.fn() }));
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: vi.fn(),
-  useVocesAbiertas: vi.fn(),
-  useVocesPorProvincia: vi.fn(),
 }));
 
 vi.mock('~/lib/queries/participacion', () => ({ useCampanas: () => ({ data: [] }) }));
@@ -113,15 +111,6 @@ describe('ElMapa (página papel 2.2)', () => {
       data: [],
       isLoading: false,
     } as unknown as ReturnType<typeof useProvincias>);
-    vi.mocked(useVocesAbiertas).mockReturnValue({
-      data: [],
-      isLoading: false,
-      isError: false,
-    } as unknown as ReturnType<typeof useVocesAbiertas>);
-    vi.mocked(useVocesPorProvincia).mockReturnValue({
-      data: [],
-      isLoading: false,
-    } as unknown as ReturnType<typeof useVocesPorProvincia>);
   });
 
   it('abre con una cabecera corta, sin cifra gigante (D-080)', () => {

@@ -172,7 +172,7 @@ export const buildSafeMapPointCard = (
     if (needsVerification && point.canVerify) {
       actions.push({
         kind: 'verify',
-        label: 'Aportar otra mirada',
+        label: 'Sumar otro aporte',
         href: { pathname: '/verificar', params: { focus: ref.entityId } },
       });
     }

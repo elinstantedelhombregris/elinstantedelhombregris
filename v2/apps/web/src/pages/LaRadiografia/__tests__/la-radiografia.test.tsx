@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { LaRadiografia } from '../../LaRadiografia';
 import {
@@ -88,6 +88,14 @@ beforeEach(() => {
   window.localStorage.clear();
   vi.clearAllMocks();
   respuesta = { data: undefined, isLoading: false, isError: false };
+  // «Acuerdos y diferencias» pide las fichas al montarse, y acá no hay servidor:
+  // sin esto el pedido salía de verdad a :3000 y llenaba la salida con errores de
+  // red que no hablan de nada de lo que se prueba.
+  vi.stubGlobal('fetch', () => Promise.reject(new Error('sin red en el test')));
+});
+
+afterEach(() => {
+  vi.unstubAllGlobals();
 });
 
 describe('converger no es corroborar — regla 11 (§3.1)', () => {
@@ -685,6 +693,25 @@ describe('la página, de punta a punta', () => {
     fireEvent.click(screen.getByText('Ver de noche'));
     expect(leerTema()).toBe('nocturno');
     expect(screen.getByText('Ver en papel')).toBeInTheDocument();
+  });
+
+  /**
+   * El título se entinta hacia `tinta` (casi negro): sobre el fondo nocturno
+   * quedaba oscuro sobre oscuro. En nocturno usa el tono claro; en papel, el
+   * de siempre.
+   */
+  it('el título se entinta en claro de noche y en tinta sobre papel', () => {
+    respuesta = { data: CORPUS, isLoading: false, isError: false };
+    envolver(<LaRadiografia />);
+    const titulo = screen.getByRole('heading', { level: 1, name: 'La Radiografía.' });
+    expect(titulo.querySelectorAll('.anim-inkfill').length).toBeGreaterThan(0);
+    expect(titulo.querySelectorAll('.anim-inkfill-claro')).toHaveLength(0);
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    const nocturno = screen.getByRole('heading', { level: 1, name: 'La Radiografía.' });
+    expect(nocturno.querySelectorAll('.anim-inkfill-claro').length).toBeGreaterThan(0);
+    expect(nocturno.querySelectorAll('.anim-inkfill')).toHaveLength(0);
   });
 
   /**

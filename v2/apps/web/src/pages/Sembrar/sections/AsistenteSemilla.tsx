@@ -74,7 +74,7 @@ export function AsistenteSemilla({ onPlantada }: AsistenteSemillaProps) {
   const errorMensaje = plantar.isError
     ? plantar.error instanceof ApiError && plantar.error.code === 'RATE_LIMITED'
       ? plantar.error.message
-      : 'Esto se rompió. Lo decimos porque publicamos todo. Probá de nuevo.'
+      : 'No pudimos guardar esto. Probá de nuevo en un rato.'
     : null;
 
   return (

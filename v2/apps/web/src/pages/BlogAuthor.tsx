@@ -70,7 +70,7 @@ export function BlogAuthor() {
   if (!user) {
     return (
       <main className="container mx-auto max-w-2xl px-4 py-16 text-center">
-        <h1 className="font-serif text-2xl font-semibold">Necesitás iniciar sesión.</h1>
+        <h1 className="font-serif text-2xl font-semibold">Necesitás ingresar.</h1>
       </main>
     );
   }

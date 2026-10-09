@@ -22,6 +22,7 @@ import type { ReactNode } from 'react';
 import type { MapRef } from 'react-map-gl/maplibre';
 
 import { PanelDejarFalta } from '~/components/papel/PanelDejarFalta';
+import { BotonPapel } from '~/components/papel/primitives';
 import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
 import { cn } from '~/lib/utils';
 
@@ -138,18 +139,19 @@ export function Instrumento({
         >
           {soloLista ? 'Mostrar mapa y lista' : 'Usar solo la lista'}
         </button>
-        <button
+        <BotonPapel
           type="button"
+          variant="violeta"
+          surface="oscuro"
           data-abrir-aporte
           aria-expanded={participando}
           aria-controls="aportar"
-          className="font-space bg-violeta-claro text-tinta inline-flex min-h-11 items-center px-5 py-3 text-xs uppercase tracking-wide"
           onClick={() => {
             onAportar?.(lugarElegido?.id === exploracion.lugarId ? lugarElegido : null);
           }}
         >
           {participando ? 'Tu aporte está en elaboración' : 'Sumá tu aporte →'}
-        </button>
+        </BotonPapel>
       </div>
       {!soloLista ? (
         <BarraModos

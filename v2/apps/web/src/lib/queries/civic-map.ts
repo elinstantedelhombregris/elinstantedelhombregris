@@ -17,13 +17,6 @@ export type CapaMapa = 'voz' | 'pulso' | 'propuesta' | 'mandato';
 
 export const CAPAS: readonly CapaMapa[] = ['voz', 'pulso', 'propuesta', 'mandato'];
 
-export const NOMBRE_CAPA: Record<CapaMapa, string> = {
-  voz: 'voces',
-  pulso: 'pulso',
-  propuesta: 'propuestas',
-  mandato: 'mandato',
-};
-
 export interface SenalMapa {
   id: string;
   capa: CapaMapa;

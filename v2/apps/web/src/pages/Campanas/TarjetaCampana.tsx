@@ -12,6 +12,7 @@ import {
 import type { CampanaCatalogo } from './filtrar-catalogo';
 
 import { rotuloDeEstado } from '~/components/participacion/constantes';
+import { EnlaceAccion } from '~/components/participacion/Elementos';
 
 export function TarjetaCampana({
   campana: c,
@@ -84,13 +85,13 @@ export function TarjetaCampana({
         </div>
       </div>
       <div className="border-tinta/25 mt-7 flex flex-wrap items-center gap-5 border-t pt-5">
-        <Link
+        <EnlaceAccion
           href={abierta ? enlaceParticiparCampana(c) : `/campanas/${c.slug}`}
-          className="font-space bg-violeta text-papel inline-flex min-h-11 items-center justify-between gap-5 px-5 py-3 text-xs uppercase tracking-wide"
+          className="min-h-11 justify-between gap-5"
         >
           {abierta ? 'Sumar mi aporte' : ejemplo ? 'Explorar el ejemplo' : 'Conocer esta campaña'}
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-        </Link>
+        </EnlaceAccion>
         {abierta ? (
           <Link href={`/campanas/${c.slug}`} className="text-sm underline underline-offset-4">
             Leer las reglas de la campaña

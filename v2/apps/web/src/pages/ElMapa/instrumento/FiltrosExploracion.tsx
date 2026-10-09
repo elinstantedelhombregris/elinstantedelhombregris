@@ -4,6 +4,7 @@ import { BusquedaTerritorial, type LugarMapa } from './BusquedaTerritorial';
 
 import type { Exploracion } from './exploracion-url';
 
+import { BotonPapel } from '~/components/papel/primitives';
 import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
 import { ESTADO_EN_CASTELLANO, TIPOS_SENAL } from '~/lib/vocabulario';
 
@@ -27,17 +28,18 @@ export function FiltrosExploracion({
     <div className="text-oscuro-texto border-oscuro-borde border-b p-4">
       <div className="flex flex-wrap items-end gap-4">
         <BusquedaTerritorial onElegir={elegir} />
-        <button
+        <BotonPapel
           type="button"
+          variant="fantasma"
+          surface="oscuro"
           aria-expanded={abiertos}
           aria-controls="filtros-exploracion"
           onClick={() => {
             setAbiertos(!abiertos);
           }}
-          className="font-space border-oscuro-borde min-h-11 border px-4 text-xs uppercase tracking-wide"
         >
           {abiertos ? 'Ocultar filtros' : activos > 0 ? `Filtros (${String(activos)})` : 'Filtros'}
-        </button>
+        </BotonPapel>
         <div
           id="filtros-exploracion"
           className={`${abiertos ? 'flex' : 'hidden'} basis-full flex-wrap items-end gap-4`}

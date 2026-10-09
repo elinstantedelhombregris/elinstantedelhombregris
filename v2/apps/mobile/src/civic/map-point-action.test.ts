@@ -31,7 +31,7 @@ describe('selección segura y accionable de puntos del mapa', () => {
 
     expect(card?.actions[0]).toEqual({
       kind: 'verify',
-      label: 'Aportar otra mirada',
+      label: 'Sumar otro aporte',
       href: { pathname: '/verificar', params: { focus: 'obs-1' } },
     });
     expect(selectedMapPointFirst([{ id: 'other' }, { id: 'obs-1' }], 'obs-1'))
