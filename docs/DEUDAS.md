@@ -135,6 +135,10 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-119](#d-119--la-guía-pdf-del-sistema-quedó-desactualizada-y-sus-negritas-no-salen) | La guía PDF del sistema quedó desactualizada y sus negritas no salen | Media | Abierta |
 | [D-120](#d-120--no-está-verificado-que-los-dos-más-lejanos-de-un-grupo-no-mida-entre-centros-de-provincia) | No está verificado que «los dos más lejanos» de un grupo no mida entre centros de provincia | Baja | Abierta |
 | [D-121](#d-121--la-campaña-nacional-todavía-no-existe-en-producción) | La campaña nacional todavía no existe en producción | Alta | Abierta |
+| [D-122](#d-122--los-scripts-de-migración-y-siembra-leen-v2env-aunque-se-les-pase-otra-base) | Los scripts de migración y siembra leen `v2/.env` aunque se les pase otra base | Media | Abierta |
+| [D-123](#d-123--mi-perfil-sigue-con-la-plantilla-vieja) | Mi perfil sigue con la plantilla vieja | Baja | Abierta |
+| [D-124](#d-124--el-sello-de-los-ejemplos-del-mandato-se-lee-poco-de-noche) | El sello de los ejemplos del Mandato se lee poco de noche | Baja | Abierta |
+| [D-125](#d-125--la-campaña-de-ejemplo-cuenta-aportes-sintéticos-como-publicados) | La campaña de ejemplo cuenta aportes sintéticos como publicados | Baja | Abierta |
 
 ---
 
@@ -2043,3 +2047,47 @@ El 9/10/2026 se decidió que todo aporte que no elija otra campaña vaya a una c
 Hasta entonces, todo aporte se publica sin campaña. El recibo lo dice como es: «Por ahora no está en ninguna campaña, así que nadie se comprometió a responderlo». Es honesto, pero el sitio invita a aportar a una campaña que todavía no existe. El procedimiento no dice qué pasa con los aportes publicados antes de la siembra.
 
 **Qué haría falta:** hacer los cuatro pasos, abrir `/campanas/mi-argentina-ideal` y comprobar que muestre la edición 1 y el estado abierta; y decidir qué se hace con los aportes que hayan entrado sin campaña mientras tanto.
+
+### D-122 · Los scripts de migración y siembra leen `v2/.env` aunque se les pase otra base
+
+**Dónde:** `v2/packages/db/scripts/migrate.ts`, los scripts de siembra de `v2/packages/db/scripts/` que llaman a `dotenv`
+**Encontrada:** 2026-10-09, revisión visual después del pulido de Argentina ideal (`v2/docs/analisis/2026-10-09-pulido-argentina-ideal/h-revision-visual-despues.md`)
+**Severidad:** media
+**Estado:** abierta
+
+`v2/.env` apunta a la base de producción. Estos scripts cargan ese archivo con `dotenv` al arrancar. Si quien los corre fija `DATABASE_URL` a una base local, `dotenv` no la pisa y la escritura va a la base local, que es lo que pasó en la revisión del 9/10/2026. Pero el resto de las claves de producción quedan cargadas en el proceso, y un script corrido sin fijar la variable escribe en producción sin que nadie lo haya decidido (es el mismo riesgo de D-014). La siembra de la campaña nacional ya no lee `v2/.env`: exige `--url` y, para una base remota, `--produccion`.
+
+**Qué haría falta:** que todos los scripts que escriben en una base pidan la dirección de forma explícita, como la siembra nacional, y dejen de leer `v2/.env`.
+
+### D-123 · Mi perfil sigue con la plantilla vieja
+
+**Dónde:** `v2/apps/web/src/pages/` (la página de `/mi-perfil`)
+**Encontrada:** 2026-10-09, revisión visual después del pulido de Argentina ideal (`v2/docs/analisis/2026-10-09-pulido-argentina-ideal/h-revision-visual-despues.md`)
+**Severidad:** baja
+**Estado:** abierta
+
+La página ya usa el diseño de papel, pero conserva la estructura de v1: muestra «0 XP» y «Racha de 0 días», con el número cero en dígitos y un sistema de puntos que el resto del sitio no usa, y su columna tiene otro ancho que las demás páginas.
+
+**Qué haría falta:** decidir qué tiene que mostrar el perfil en v2 y llevarlo a la misma plantilla que Mi espacio, o fundirlo con Mi espacio.
+
+### D-124 · El sello de los ejemplos del Mandato se lee poco de noche
+
+**Dónde:** `v2/apps/web/src/pages/ElMandatoVivo/` (página de ejemplo)
+**Encontrada:** 2026-10-09, revisión visual después del pulido de Argentina ideal (`v2/docs/analisis/2026-10-09-pulido-argentina-ideal/h-revision-visual-despues.md`)
+**Severidad:** baja
+**Estado:** abierta
+
+El sello rojo que marca un ejemplo mide entre 3,07:1 y 3,48:1 de contraste sobre el fondo oscuro, en letra de 10 px. Para texto chico hace falta 4,5:1. Es justamente el aviso que dice que lo que se ve no es real.
+
+**Qué haría falta:** un rojo más claro para el registro de noche, o un sello más grande; respetando la guardia de colores de esas páginas.
+
+### D-125 · La campaña de ejemplo cuenta aportes sintéticos como publicados
+
+**Dónde:** `v2/packages/db/scripts/preparar-demo-campanas.ts`, `v2/packages/db/scripts/demo-campanas-aportes.ts`, detalle de campaña
+**Encontrada:** 2026-10-09, revisión visual después del pulido de Argentina ideal (`v2/docs/analisis/2026-10-09-pulido-argentina-ideal/h-revision-visual-despues.md`)
+**Severidad:** baja
+**Estado:** abierta
+
+En la demo local, la campaña de ejemplo dice «3 aportes publicados» al lado de «sin participantes». Los tres son sintéticos. Solo pasa en bases locales de demostración, pero confunde a quien revisa el sitio con esos datos.
+
+**Qué haría falta:** que el conteo excluya los aportes marcados como demostración, o que la demo lo diga junto al número.
