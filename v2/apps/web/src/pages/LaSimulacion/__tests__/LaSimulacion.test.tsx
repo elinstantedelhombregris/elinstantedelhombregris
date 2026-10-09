@@ -480,11 +480,20 @@ class WorkerFalso {
   }
 }
 
+/**
+ * La página pide los contornos del país al montarse y acá no hay servidor: sin
+ * esto el pedido salía de verdad a :3000 y llenaba la salida con errores de
+ * red que no hablan de nada de lo que se prueba. La sección ya sabe rendirse
+ * sin contorno: el conteo por provincia se muestra igual.
+ */
+const SIN_RED = () => Promise.reject(new Error('sin red en el test'));
+
 describe('la página', () => {
   beforeEach(() => {
     WorkerFalso.ultima = null;
     WorkerFalso.creados = 0;
     vi.stubGlobal('Worker', WorkerFalso);
+    vi.stubGlobal('fetch', SIN_RED);
     window.location.hash = '';
   });
 
@@ -578,6 +587,7 @@ describe('recargar y compartir', () => {
     WorkerFalso.ultima = null;
     WorkerFalso.creados = 0;
     vi.stubGlobal('Worker', WorkerFalso);
+    vi.stubGlobal('fetch', SIN_RED);
     window.location.hash = '';
   });
 

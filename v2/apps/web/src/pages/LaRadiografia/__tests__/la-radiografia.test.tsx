@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { LaRadiografia } from '../../LaRadiografia';
 import {
@@ -88,6 +88,14 @@ beforeEach(() => {
   window.localStorage.clear();
   vi.clearAllMocks();
   respuesta = { data: undefined, isLoading: false, isError: false };
+  // «Acuerdos y diferencias» pide las fichas al montarse, y acá no hay servidor:
+  // sin esto el pedido salía de verdad a :3000 y llenaba la salida con errores de
+  // red que no hablan de nada de lo que se prueba.
+  vi.stubGlobal('fetch', () => Promise.reject(new Error('sin red en el test')));
+});
+
+afterEach(() => {
+  vi.unstubAllGlobals();
 });
 
 describe('converger no es corroborar — regla 11 (§3.1)', () => {
