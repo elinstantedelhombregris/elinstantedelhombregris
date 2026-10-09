@@ -4,9 +4,12 @@ import { VolverALasFichas } from './VolverALasFichas';
 
 import { MarcoParticipacion } from '~/components/participacion/Elementos';
 import { useFicha } from '~/lib/queries/fichas';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function DetalleFicha({ id }: { id: string }) {
   const detalle = useFicha(id);
+  // La pestaña lleva el título de la ficha; mientras carga (o si falla) dice «Ficha».
+  useTituloDePagina(detalle.data?.contenido.titulo ?? 'Ficha');
   if (detalle.data) return <LecturaFicha ficha={detalle.data} />;
   return (
     <MarcoParticipacion titulo="Ficha" entrada={LEAD_FICHA} kicker="La ciudadanía diseña · Fichas">

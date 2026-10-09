@@ -8,6 +8,7 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth';
 import { volverTrasIngresar } from '~/lib/auth/volver';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 const schema = z.object({
   identifier: z.string().min(1, 'Ingresá tu email o usuario.'),
@@ -17,6 +18,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export function Login() {
+  useTituloDePagina('Ingresar');
   const { login } = useAuth();
   const [, navigate] = useLocation();
   const {

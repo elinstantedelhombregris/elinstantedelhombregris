@@ -2,8 +2,10 @@ import privacidadRaw from '../../../../content/legal/privacidad.mdx?raw';
 
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { Kicker } from '~/components/papel/primitives';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function PoliticaPrivacidad() {
+  useTituloDePagina('Política de privacidad');
   return (
     <main className="mx-auto w-full max-w-[860px] px-5 py-14 min-[961px]:px-10">
       <header className="mb-10">

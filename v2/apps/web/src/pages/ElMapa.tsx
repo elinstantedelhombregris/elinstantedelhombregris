@@ -13,8 +13,10 @@ import type { ModoAporte } from './ElMapa/sections/ParticiparEnMapa';
 
 import { api } from '~/lib/api';
 import { leerPedidoAportar } from '~/lib/participacion/aportar';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function ElMapa() {
+  useTituloDePagina('El mapa');
   const [contexto, setContexto] = useState<LugarMapa | null>(null);
   const search = useSearch();
   // `participar=aportar|directo` (y sus alias) o el ancla `#aportar` abren el panel.

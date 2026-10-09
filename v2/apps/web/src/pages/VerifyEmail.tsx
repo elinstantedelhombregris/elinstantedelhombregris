@@ -5,6 +5,7 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 type Status = 'pending' | 'success' | 'error';
 
@@ -14,6 +15,7 @@ function readTokenFromQuery(): string {
 }
 
 export function VerifyEmail() {
+  useTituloDePagina('Verificación de email');
   const [status, setStatus] = useState<Status>('pending');
   const [errorMsg, setErrorMsg] = useState('');
 

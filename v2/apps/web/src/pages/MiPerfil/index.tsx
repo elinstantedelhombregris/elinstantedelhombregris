@@ -6,8 +6,10 @@ import { HeaderSection } from './sections/HeaderSection';
 
 import { useAuth } from '~/lib/auth';
 import { useGamificationMe } from '~/lib/queries/gamification';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function MiPerfil() {
+  useTituloDePagina('Mi perfil');
   const { user, isLoading } = useAuth();
   const { data, isLoading: meLoading } = useGamificationMe(Boolean(user));
 

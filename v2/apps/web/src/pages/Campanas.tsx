@@ -19,8 +19,10 @@ import { api } from '~/lib/api';
 import { useAuth } from '~/lib/auth/use-auth';
 import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { useCampanas } from '~/lib/queries/participacion';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function Campanas() {
+  useTituloDePagina('Campañas');
   const auth = useAuth();
   const esAdmin = auth.user?.esAdmin === true;
   const consulta = useCampanas();

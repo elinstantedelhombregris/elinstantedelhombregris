@@ -38,6 +38,14 @@ describe('Crear mi cuenta (página papel)', () => {
     expect(screen.queryByText(/Iniciar sesión|Crear cuenta\b/)).toBeNull();
   });
 
+  it('la pestaña dice «Crear mi cuenta» y devuelve el título al salir', () => {
+    document.title = 'antes';
+    const { unmount } = render(<Register />);
+    expect(document.title).toBe('Crear mi cuenta · ¡BASTA!');
+    unmount();
+    expect(document.title).toBe('antes');
+  });
+
   it('el enlace a ingresar dice «Ingresar» y conserva el retorno', () => {
     ir('/registrarse?volver=%2Ffichas%2Fnueva');
     render(<Register />);

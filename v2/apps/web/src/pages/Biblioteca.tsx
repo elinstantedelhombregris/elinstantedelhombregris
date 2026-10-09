@@ -8,6 +8,8 @@ import { ManifiestoDestacado } from './Biblioteca/sections/ManifiestoDestacado';
 import { PortadaBiblioteca } from './Biblioteca/sections/PortadaBiblioteca';
 import { PuertaDeHoy } from './Biblioteca/sections/PuertaDeHoy';
 
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
+
 /**
  * La biblioteca — página 3.1 «Papel y Tinta», rediseñada por «el catálogo
  * vivo» (docs/specs/2026-08-20-el-catalogo-vivo-biblioteca.md). Portada con
@@ -17,6 +19,7 @@ import { PuertaDeHoy } from './Biblioteca/sections/PuertaDeHoy';
  * RootLayout.
  */
 export function Biblioteca() {
+  useTituloDePagina('Biblioteca');
   return (
     <main>
       <FicheroBiblioteca />

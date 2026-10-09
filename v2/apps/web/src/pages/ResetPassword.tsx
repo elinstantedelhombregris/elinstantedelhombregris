@@ -9,6 +9,7 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 const schema = z.object({
   newPassword: z.string().min(12, 'Tiene que tener al menos 12 caracteres.').max(128),
@@ -21,6 +22,7 @@ function readTokenFromQuery(): string {
 }
 
 export function ResetPassword() {
+  useTituloDePagina('Crear contraseña nueva');
   const [, navigate] = useLocation();
   const [token, setToken] = useState('');
   const [done, setDone] = useState(false);

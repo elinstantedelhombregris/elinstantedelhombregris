@@ -9,6 +9,7 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 const schema = z.object({
   email: z.string().email('Ingresá un email válido.'),
@@ -16,6 +17,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export function ForgotPassword() {
+  useTituloDePagina('Recuperar contraseña');
   const [submitted, setSubmitted] = useState(false);
   const {
     register,

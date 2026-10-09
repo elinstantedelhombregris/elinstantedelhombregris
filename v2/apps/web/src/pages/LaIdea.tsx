@@ -3,6 +3,8 @@ import { CapituloMetodo } from './LaIdea/sections/CapituloMetodo';
 import { CapituloSinLider } from './LaIdea/sections/CapituloSinLider';
 import { PortadaIdea } from './LaIdea/sections/PortadaIdea';
 
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
+
 /**
  * La idea — página 2.1 «Papel y Tinta»
  * (docs/specs/2026-07-22-la-idea-papel-y-tinta.md). Fusiona las v1
@@ -10,6 +12,7 @@ import { PortadaIdea } from './LaIdea/sections/PortadaIdea';
  * capítulos. El chrome papel (header/footer/grano/velo) lo pone RootLayout.
  */
 export function LaIdea() {
+  useTituloDePagina('La idea');
   return (
     <main>
       <PortadaIdea />

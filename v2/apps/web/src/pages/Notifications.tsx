@@ -5,6 +5,7 @@ import { Kicker } from '~/components/papel/primitives';
 import { BotonAccion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { readCsrfToken, RequireAuth } from '~/lib/auth';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 import { cn } from '~/lib/utils';
 
 interface Notification {
@@ -22,6 +23,7 @@ interface ListResponse {
 }
 
 function NotificationsInner() {
+  useTituloDePagina('Notificaciones');
   const queryClient = useQueryClient();
   const listQuery = useQuery<ListResponse>({
     queryKey: ['notifications'],

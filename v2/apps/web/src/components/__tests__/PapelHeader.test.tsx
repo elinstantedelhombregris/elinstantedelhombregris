@@ -135,6 +135,56 @@ describe('PapelHeader', () => {
   });
 });
 
+describe('PapelHeader — el menú móvil bloquea el scroll de atrás', () => {
+  const sinCifra = () => {
+    mockedUseVocesCount.mockReturnValue({
+      data: undefined,
+      isLoading: true,
+      isError: false,
+    } as ReturnType<typeof useVocesCount>);
+  };
+  afterEach(() => {
+    document.body.style.overflow = '';
+  });
+
+  it('al abrirlo bloquea el scroll y al cerrarlo devuelve el valor que había', () => {
+    sinCifra();
+    document.body.style.overflow = 'scroll';
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    expect(document.body.style.overflow).toBe('hidden');
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar menú' }));
+    // No un '' a ciegas: lo que había antes de abrir.
+    expect(document.body.style.overflow).toBe('scroll');
+  });
+
+  it('si el header se desmonta con el menú abierto, el scroll vuelve', () => {
+    sinCifra();
+    document.body.style.overflow = 'auto';
+    const { unmount } = renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    expect(document.body.style.overflow).toBe('hidden');
+    unmount();
+    expect(document.body.style.overflow).toBe('auto');
+  });
+
+  it('Escape también lo suelta', () => {
+    sinCifra();
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    expect(document.body.style.overflow).toBe('hidden');
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(document.body.style.overflow).toBe('');
+  });
+
+  it('con el menú cerrado no toca el scroll', () => {
+    sinCifra();
+    document.body.style.overflow = 'scroll';
+    renderHeader();
+    expect(document.body.style.overflow).toBe('scroll');
+  });
+});
+
 describe('PapelHeader — la puerta de la cuenta', () => {
   const sinCifra = () => {
     mockedUseVocesCount.mockReturnValue({
@@ -214,7 +264,9 @@ describe('PapelHeader — la puerta de la cuenta', () => {
       'href',
       '/el-mapa?participar=aportar#instrumento',
     );
-    expect(within(menu).queryByRole('link', { name: /^Imaginar\b(?! mi)/ })).not.toBeInTheDocument();
+    expect(
+      within(menu).queryByRole('link', { name: /^Imaginar\b(?! mi)/ }),
+    ).not.toBeInTheDocument();
   });
 
   it('Escape cierra el menú móvil y el foco vuelve al botón que lo abrió', () => {
