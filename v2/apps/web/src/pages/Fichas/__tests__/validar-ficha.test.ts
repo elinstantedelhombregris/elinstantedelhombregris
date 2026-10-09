@@ -38,9 +38,11 @@ describe('Fichas: validación en castellano, un mensaje por campo', () => {
     );
   });
 
-  it('más de ocho temas pide elegir menos', () => {
-    const temas = Array.from({ length: 9 }, (_, i) => `tema-${i}`);
-    expect(errores({ ...valida, temas }).temas).toBe('Elegí hasta 8 temas.');
+  it('trece temas, todo el catálogo, pasan; catorce piden elegir menos', () => {
+    const trece = Array.from({ length: 13 }, (_, i) => `tema-${i}`);
+    expect(validarFicha({ ...valida, temas: trece })).toHaveProperty('datos');
+    const temas = Array.from({ length: 14 }, (_, i) => `tema-${i}`);
+    expect(errores({ ...valida, temas }).temas).toBe('Elegí hasta 13 temas.');
   });
 
   it('el mismo aporte con la misma relación dos veces se avisa en el campo de vínculos', () => {
@@ -56,7 +58,7 @@ describe('Fichas: validación en castellano, un mensaje por campo', () => {
         ...valida,
         titulo: 'x',
         condiciones: ['ab'],
-        temas: Array.from({ length: 9 }, (_, i) => `t${i}`),
+        temas: Array.from({ length: 14 }, (_, i) => `t${i}`),
       }),
     );
     for (const mensaje of todos) expect(mensaje).not.toMatch(/String must|Invalid|Array must/);

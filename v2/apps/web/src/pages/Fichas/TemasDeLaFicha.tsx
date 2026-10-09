@@ -1,11 +1,9 @@
+import { MAX_TEMAS } from '@v2/shared';
 import { useId } from 'react';
 
 import { useTemasDelCatalogo } from './consultas';
 
 import { cn } from '~/lib/utils';
-
-/** El esquema de la ficha admite hasta ocho temas. */
-export const MAX_TEMAS = 8;
 
 const CHIP = 'font-space min-h-11 border px-4 py-2 text-xs transition-colors';
 

@@ -7,7 +7,7 @@ import { TemasDeLaFicha } from '../TemasDeLaFicha';
 const modelo = vi.hoisted(() => ({ get: vi.fn<() => Promise<unknown>>() }));
 vi.mock('~/lib/api', () => ({ api: { get: modelo.get } }));
 
-const catalogo = Array.from({ length: 10 }, (_, i) => ({
+const catalogo = Array.from({ length: 14 }, (_, i) => ({
   clave: `tema-${i}`,
   etiqueta: `Tema número ${i}`,
 }));
@@ -40,17 +40,23 @@ describe('Temas de la ficha', () => {
     expect(cambiar).toHaveBeenLastCalledWith([]);
   });
 
-  it('al llegar a ocho, los no elegidos se bloquean y se dice por qué', async () => {
-    const ocho = catalogo.slice(0, 8).map((t) => t.clave);
-    montar(ocho);
-    const libre = await screen.findByRole('button', { name: 'Tema número 9' });
+  it('al llegar a trece, los no elegidos se bloquean y se dice por qué', async () => {
+    const trece = catalogo.slice(0, 13).map((t) => t.clave);
+    montar(trece);
+    const libre = await screen.findByRole('button', { name: 'Tema número 13' });
     expect(libre).toBeDisabled();
-    expect(screen.getByText('Elegiste 8 temas, el máximo.')).toBeVisible();
+    expect(screen.getByText('Elegiste 13 temas, el máximo.')).toBeVisible();
     expect(libre.getAttribute('aria-describedby')).toBe(
-      screen.getByText('Elegiste 8 temas, el máximo.').id,
+      screen.getByText('Elegiste 13 temas, el máximo.').id,
     );
     // Lo ya elegido sigue pudiéndose quitar.
     expect(screen.getByRole('button', { name: 'Tema número 0' })).toBeEnabled();
+  });
+
+  it('con doce elegidos todavía cabe uno más y no hay motivo que mostrar', async () => {
+    montar(catalogo.slice(0, 12).map((t) => t.clave));
+    expect(await screen.findByRole('button', { name: 'Tema número 12' })).toBeEnabled();
+    expect(screen.queryByText(/el máximo/)).toBeNull();
   });
 
   it('antes del máximo no hay motivo que mostrar', async () => {
@@ -58,6 +64,11 @@ describe('Temas de la ficha', () => {
     await screen.findByRole('button', { name: 'Tema número 9' });
     expect(screen.queryByText(/el máximo/)).toBeNull();
     expect(screen.getByRole('button', { name: 'Tema número 9' })).toBeEnabled();
+  });
+
+  it('dice cuántos temas se pueden elegir', async () => {
+    montar([]);
+    expect(await screen.findByText(/Elegí hasta 13 temas/)).toBeVisible();
   });
 
   it('un tema escrito a mano en una ficha vieja se conserva con su texto y se puede quitar', async () => {
