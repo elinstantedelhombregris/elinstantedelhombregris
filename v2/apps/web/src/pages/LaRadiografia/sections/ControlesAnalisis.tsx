@@ -68,6 +68,7 @@ export function ControlesAnalisis({
         <div>
           <p className="mb-2">Lugar</p>
           <BusquedaTerritorial
+            superficie="papel"
             onElegir={(l) => {
               editar('territorio', String(l.id));
             }}

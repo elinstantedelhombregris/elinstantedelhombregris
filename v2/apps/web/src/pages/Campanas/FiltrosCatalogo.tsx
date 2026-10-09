@@ -69,6 +69,7 @@ export function FiltrosCatalogo({
               <h2 className="font-anton text-2xl">Lugar</h2>
               <div className="mt-4">
                 <BusquedaTerritorial
+                  superficie="papel"
                   onElegir={(l) => {
                     editar('territorio', String(l.id));
                   }}

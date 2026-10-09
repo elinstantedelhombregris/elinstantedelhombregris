@@ -163,6 +163,7 @@ export function FormularioCampana({
           elige quien lo escribe.
         </p>
         <BusquedaTerritorial
+          superficie="papel"
           onElegir={(l) => {
             if (!c.territorios.includes(l.id)) actualizar('territorios', [...c.territorios, l.id]);
             setNombres((p) => ({ ...p, [l.id]: l.name }));
