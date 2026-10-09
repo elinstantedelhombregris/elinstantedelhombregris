@@ -1,14 +1,9 @@
 import { Link, useLocation, useSearch } from 'wouter';
 
-import { useLugar } from './consultas';
-import {
-  LEAD_FICHA,
-  cantidadDe,
-  esUuid,
-  etiquetaVersion,
-  fechaDeFicha,
-  numeroDeLugar,
-} from './presentacion';
+import { useLugar, useTemasDelCatalogo } from './consultas';
+import { LEAD_FICHA, cantidadDe, esUuid, fechaDeFicha, numeroDeLugar } from './presentacion';
+
+import type { FichaDeLista } from '~/lib/queries/fichas';
 
 import { BotonPapel } from '~/components/papel/primitives';
 import { MarcoParticipacion, Nota } from '~/components/participacion/Elementos';
@@ -25,6 +20,54 @@ function Filtro({ rotulo, quitar }: { rotulo: string; quitar: () => void }) {
     >
       {rotulo} <span aria-hidden="true">×</span>
     </button>
+  );
+}
+
+/**
+ * Los temas de la tarjeta con el nombre que ve quien lee. Una clave que el catálogo no
+ * conoce (un tema escrito a mano en una ficha vieja) se muestra tal cual. Mientras el
+ * catálogo carga no se muestra nada, para que las claves crudas no parpadeen.
+ */
+function TemasDeLaTarjeta({ temas }: { temas: readonly string[] }) {
+  const catalogo = useTemasDelCatalogo();
+  if (temas.length === 0 || catalogo.isLoading) return null;
+  const etiquetas = new Map((catalogo.data?.temas ?? []).map((t) => [t.clave, t.etiqueta]));
+  return (
+    <div className="mt-4 flex flex-wrap gap-2">
+      <span className="sr-only">Temas:</span>
+      {temas.map((tema) => (
+        <span key={tema} className="border-tinta/25 border px-3 py-1 text-sm">
+          {etiquetas.get(tema) ?? tema}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+/** «Lugar · versión n · actualizada el día», y las afirmaciones solo si hay alguna. */
+function lineaDeLaFicha(f: FichaDeLista): string {
+  return [
+    f.territorioNombre ?? 'Todo el país',
+    `versión ${f.revision}`,
+    `actualizada el ${fechaDeFicha(f.actualizadaEn)}`,
+    ...(f.afirmaciones > 0 ? [cantidadDe(f.afirmaciones, 'afirmación', 'afirmaciones')] : []),
+  ].join(' · ');
+}
+
+function TarjetaFicha({ f }: { f: FichaDeLista }) {
+  return (
+    <li className="border-tinta bg-papel border p-6">
+      <h2 className="font-anton text-3xl leading-[1.1]">
+        <Link href={`/fichas/${f.id}`} className="hover:text-violeta focus-visible:underline">
+          {f.titulo}
+        </Link>
+      </h2>
+      {f.extracto ? (
+        <p className="mt-3 max-w-[720px] text-base leading-relaxed">{f.extracto}</p>
+      ) : null}
+      <TemasDeLaTarjeta temas={f.temas} />
+      <p className="text-tinta-75 mt-4 text-sm">{lineaDeLaFicha(f)}</p>
+    </li>
   );
 }
 
@@ -103,23 +146,7 @@ export function ListaFichas() {
             </p>
             <ul className="space-y-4">
               {fichas.map((f) => (
-                <li key={f.id} className="border-tinta bg-papel border p-6">
-                  <p className="font-space text-violeta text-[10px] uppercase tracking-[.12em]">
-                    {etiquetaVersion(f.revision)}
-                  </p>
-                  <h2 className="font-anton mt-3 text-3xl leading-[1.1]">
-                    <Link
-                      href={`/fichas/${f.id}`}
-                      className="hover:text-violeta focus-visible:underline"
-                    >
-                      {f.titulo}
-                    </Link>
-                  </h2>
-                  <p className="text-tinta-75 mt-3 text-sm">
-                    {f.territorioNombre ?? 'Todo el país'} · Actualizada el{' '}
-                    {fechaDeFicha(f.actualizadaEn)}
-                  </p>
-                </li>
+                <TarjetaFicha key={f.id} f={f} />
               ))}
             </ul>
           </>
