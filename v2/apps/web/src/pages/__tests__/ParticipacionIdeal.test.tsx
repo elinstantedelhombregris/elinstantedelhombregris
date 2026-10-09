@@ -382,7 +382,7 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
         cambiar={cambiar}
       />,
     );
-    fireEvent.click(screen.getByRole('button', { name: /Añadir/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Agregar etapa' }));
     expect(cambiar).toHaveBeenCalledWith(
       expect.arrayContaining([expect.objectContaining({ fecha: '2099-12-20' })]),
     );
@@ -395,12 +395,17 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
   it('pedir revisión necesita permiso público separado del texto', () => {
     modelo.user = { id: 1 };
     montar(<RevisarDevolucion id={id} responsable={false} />);
-    expect(screen.getByRole('button', { name: 'Pedir una revisión' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Pedir una revisión' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
     fireEvent.change(screen.getByLabelText('Qué entendieron distinto o qué falta'), {
       target: { value: 'Falta el tiempo de cuidar y aprender sin elegir uno.' },
     });
     fireEvent.click(screen.getByRole('checkbox'));
-    expect(screen.getByRole('button', { name: 'Pedir una revisión' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Pedir una revisión' })).not.toHaveAttribute(
+      'aria-disabled',
+    );
   });
   it('los filtros de Radiografía guardan un análisis y no una copia de relatos', () => {
     modelo.user = { id: 1 };

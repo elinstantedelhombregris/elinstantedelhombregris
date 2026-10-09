@@ -1,11 +1,20 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
+import { Link } from 'wouter';
 
+import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { CAMPO } from '~/components/participacion/constantes';
-import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
+import { ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { useAuth } from '~/lib/auth/use-auth';
+import { hrefIngresar } from '~/lib/auth/volver';
 import { escribir } from '~/lib/queries/participacion';
+
+const MINIMO_REVISION = 15;
+const MINIMO_RESPUESTA = 15;
+
+const caracteres = (n: number) => `${n} ${n === 1 ? 'carácter' : 'caracteres'}`;
+
 export function RevisarDevolucion({ id, responsable }: { id: string; responsable: boolean }) {
   const auth = useAuth();
   const qc = useQueryClient();
@@ -13,6 +22,7 @@ export function RevisarDevolucion({ id, responsable }: { id: string; responsable
   const [texto, setTexto] = useState('');
   const [confirma, setConfirma] = useState(false);
   const [error, setError] = useState('');
+  const [publicada, setPublicada] = useState(false);
   const q = useQuery({
     queryKey: ['devolucion-revisiones', id],
     queryFn: () =>
@@ -21,6 +31,8 @@ export function RevisarDevolucion({ id, responsable }: { id: string; responsable
       ),
   });
   const publicar = async () => {
+    setError('');
+    setPublicada(false);
     try {
       await escribir('post', `/api/v1/equipo/campanas/${id}/revisiones`, {
         idLocal: envio.current,
@@ -29,18 +41,20 @@ export function RevisarDevolucion({ id, responsable }: { id: string; responsable
       });
       setTexto('');
       setConfirma(false);
+      setPublicada(true);
       envio.current = crypto.randomUUID();
       void qc.invalidateQueries({ queryKey: ['devolucion-revisiones', id] });
     } catch (e) {
       setError(e instanceof Error ? e.message : 'No pudimos registrar tu revisión.');
     }
   };
+  const faltan = MINIMO_REVISION - texto.trim().length;
   return (
     <section className="mt-8 border-t pt-6">
-      <h3 className="font-anton text-3xl">¿Tu voz conserva su sentido?</h3>
+      <h3 className="font-anton text-3xl">Pedir una revisión de la devolución</h3>
       <p className="mt-3 leading-relaxed">
         Quienes participaron pueden señalar una omisión o una lectura que necesita corregirse. El
-        equipo responde acá; la diferencia queda visible.
+        equipo responde acá y la diferencia queda visible.
       </p>
       <ul className="mt-5 space-y-4">
         {q.data?.map((v) => (
@@ -56,7 +70,7 @@ export function RevisarDevolucion({ id, responsable }: { id: string; responsable
           </li>
         ))}
       </ul>
-      {auth.user && (
+      {auth.user ? (
         <form
           className="mt-5 border p-5"
           onSubmit={(e) => {
@@ -86,18 +100,37 @@ export function RevisarDevolucion({ id, responsable }: { id: string; responsable
             />
             Autorizo publicar esta revisión, sin datos de mi cuenta.
           </label>
-          <BotonAccion
-            className="mt-4"
-            type="submit"
-            disabled={!confirma || texto.trim().length < 15}
-          >
-            Pedir una revisión
-          </BotonAccion>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <BotonConMotivo
+              type="submit"
+              motivo={
+                faltan > 0
+                  ? `Faltan ${caracteres(faltan)} en lo que escribiste (mínimo ${MINIMO_REVISION}).`
+                  : confirma
+                    ? null
+                    : 'Marcá la casilla para autorizar que se publique tu revisión.'
+              }
+            >
+              Pedir una revisión
+            </BotonConMotivo>
+          </div>
+          <p role="status" className="mt-3 text-sm">
+            {publicada
+              ? 'Tu pedido de revisión quedó publicado. El equipo va a responder acá.'
+              : ''}
+          </p>
           <Nota>
             La cuenta debe tener un aporte asociado a esta campaña. Si participaste sin cuenta,
             recuperalo primero en Mi espacio.
           </Nota>
         </form>
+      ) : (
+        <Nota>
+          Para pedir una revisión necesitás ingresar con la cuenta desde la que participaste.{' '}
+          <Link href={hrefIngresar()} className="text-violeta underline underline-offset-4">
+            Ingresar
+          </Link>
+        </Nota>
       )}
       <ErrorOperacion mensaje={error || q.error?.message} />
     </section>
@@ -107,6 +140,7 @@ function Responder({ campana, revision }: { campana: string; revision: string })
   const [texto, setTexto] = useState('');
   const [error, setError] = useState('');
   const qc = useQueryClient();
+  const faltan = MINIMO_RESPUESTA - texto.trim().length;
   return (
     <form
       className="mt-4"
@@ -124,7 +158,7 @@ function Responder({ campana, revision }: { campana: string; revision: string })
       }}
     >
       <label>
-        Cómo incorporamos esta mirada
+        Cómo incorporamos esta revisión
         <textarea
           className={CAMPO}
           rows={2}
@@ -135,9 +169,18 @@ function Responder({ campana, revision }: { campana: string; revision: string })
           }}
         />
       </label>
-      <BotonAccion type="submit" className="mt-3" disabled={texto.trim().length < 15}>
-        Publicar respuesta
-      </BotonAccion>
+      <div className="mt-3 flex flex-wrap items-center gap-3">
+        <BotonConMotivo
+          type="submit"
+          motivo={
+            faltan > 0
+              ? `Faltan ${caracteres(faltan)} en la respuesta (mínimo ${MINIMO_RESPUESTA}).`
+              : null
+          }
+        >
+          Publicar respuesta
+        </BotonConMotivo>
+      </div>
       <ErrorOperacion mensaje={error} />
     </form>
   );
