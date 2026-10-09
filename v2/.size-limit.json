@@ -23,7 +23,7 @@
   },
   {
     "name": "plans registry (gzipped)",
-    "path": "apps/web/dist/assets/plans-registry-*.js",
+    "path": "apps/web/dist/assets/la-prueba-data-*.js",
     "limit": "20 KB",
     "gzip": true
   },
