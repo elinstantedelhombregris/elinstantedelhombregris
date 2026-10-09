@@ -45,7 +45,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-018](#d-018--budget_class-del-registro-no-es-monótono-en-dólares) | `budget_class` del registro no ordena por presupuesto | Media | Abierta |
 | [D-019](#d-019--v-fin-05-suma-el-piso-sustitutivo-a-los-pisos-que-sustituye--resuelta) | V-FIN-05 suma el piso sustitutivo a los pisos que sustituye | Media | **Resuelta** |
 | [D-020](#d-020--el-conteo-canónico-vive-hardcodeado-en-siete-lugares-y-ninguno-avisa-cuando-queda-viejo--resuelta) | El conteo canónico vive hardcodeado en siete lugares y ninguno avisa cuando queda viejo | Media | **Resuelta** |
-| [D-021](#d-021--quedan-conteos-viejos-en-la-prosa-publicada-y-ninguna-guardia-los-mira) | Quedan conteos viejos en la prosa publicada, y ninguna guardia los mira | Baja | Abierta |
+| [D-021](#d-021--quedan-conteos-viejos-en-la-prosa-publicada-y-ninguna-guardia-los-mira) | Quedan conteos viejos en la prosa publicada, y ninguna guardia los mira | Baja | **Parcial** |
 | [D-022](#d-022--los-cuatro-planes-de-julio-nunca-entraron-a-presupuesto_consolidado_bastamd) | Los cuatro PLANes de julio nunca entraron a `PRESUPUESTO_CONSOLIDADO_BASTA.md` | Media | Abierta |
 | [D-023](#d-023--la-sección-9-de-planpuerta-se-pasó-248-palabras-del-techo-y-nadie-lo-vio) | La SECCIÓN 9 de PLANPUERTA se pasó 248 palabras del techo | Baja | Abierta |
 | [D-024](#d-024--hay-dos-suites-de-tests-en-el-repo-y-sólo-una-corre-en-ci) | Hay dos suites de tests en el repo y sólo una corre en CI | Media | Abierta |
@@ -118,6 +118,23 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-101](#d-101--radiografía-recorta-a-500-señales-y-no-declara-ese-recorte-en-su-contrato-público) | Radiografía recorta a 500 señales y no declara ese recorte en su contrato público | Alta | **Resuelta** |
 | [D-097](#d-097--la-convergencia-de-v1-mide-coincidencia-temática-entre-tipos-de-señal) | La convergencia de v1 mide coincidencia temática entre tipos de señal | Alta | Abierta |
 | [D-098](#d-098--planpregunta-usa-un-relato-de-visión-2040-como-precedente-que-ya-dio-resultados) | PLANPREGUNTA usa un relato de Visión 2040 como precedente que ya dio resultados | Alta | Abierta |
+| [D-105](#d-105--la-app-móvil-no-tiene-las-tres-preguntas-ni-la-elección-de-lugar) | La app móvil no tiene las tres preguntas ni la elección de lugar | Media | Abierta |
+| [D-106](#d-106--corregir-un-aporte-con-cesión-registra-la-versión-1-y-un-texto-propio) | Corregir un aporte con cesión registra la versión 1 y un texto propio | Media | Abierta |
+| [D-107](#d-107--mi-espacio-no-muestra-los-aportes-de-un-navegador-sin-cuenta) | Mi espacio no muestra los aportes de un navegador sin cuenta | Media | Abierta |
+| [D-108](#d-108--ver-y-gestionar-mi-aporte-en-la-app-puede-no-reconocer-la-autoría) | «Ver y gestionar mi aporte» en la app puede no reconocer la autoría | Baja | Abierta |
+| [D-109](#d-109--la-app-no-guarda-solo-el-texto-mientras-escribís) | La app no guarda solo el texto mientras escribís | Baja | Abierta |
+| [D-110](#d-110--el-recibo-no-puede-decir-si-hay-aportes-parecidos) | El recibo no puede decir si hay aportes parecidos | Baja | Abierta |
+| [D-111](#d-111--la-web-compara-textos-literales-con-mensajes-de-la-api) | La web compara textos literales con mensajes de la API | Baja | Abierta |
+| [D-112](#d-112--fichas-alternativas-y-pruebas-sin-comparación-ni-autoría-y-una-ficha-no-se-puede-compartir) | Fichas: alternativas y pruebas sin comparación ni autoría, y una ficha no se puede compartir | Media | Abierta |
+| [D-113](#d-113--las-campañas-nuevas-tienen-direcciones-ilegibles) | Las campañas nuevas tienen direcciones ilegibles | Baja | Abierta |
+| [D-114](#d-114--los-pasos-de-una-campaña-están-escritos-dos-veces) | Los pasos de una campaña están escritos dos veces | Baja | Abierta |
+| [D-115](#d-115--en-el-plan-gratuito-de-vercel-un-archivo-grande-solo-avanza-con-la-página-abierta) | En el plan gratuito de Vercel, un archivo grande solo avanza con la página abierta | Baja | Abierta |
+| [D-116](#d-116--dos-variables-para-la-dirección-de-la-api-en-la-app) | Dos variables para la dirección de la API en la app | Baja | Abierta |
+| [D-117](#d-117--los-códigos-de-respaldo-de-dos-pasos-distinguen-mayúsculas) | Los códigos de respaldo de dos pasos distinguen mayúsculas | Baja | Abierta |
+| [D-118](#d-118--páginas-que-siguen-con-el-diseño-viejo-oscuro) | Páginas que siguen con el diseño viejo oscuro | Baja | Abierta |
+| [D-119](#d-119--la-guía-pdf-del-sistema-quedó-desactualizada-y-sus-negritas-no-salen) | La guía PDF del sistema quedó desactualizada y sus negritas no salen | Media | Abierta |
+| [D-120](#d-120--no-está-verificado-que-los-dos-más-lejanos-de-un-grupo-no-mida-entre-centros-de-provincia) | No está verificado que «los dos más lejanos» de un grupo no mida entre centros de provincia | Baja | Abierta |
+| [D-121](#d-121--la-campaña-nacional-todavía-no-existe-en-producción) | La campaña nacional todavía no existe en producción | Alta | Abierta |
 
 ---
 
@@ -754,13 +771,17 @@ La autoridad del conteo es `Iniciativas Estratégicas/PLAN_REGISTRY.yml` (`thema
 **Dónde:** `SocialJusticeHub/shared/strategic-initiatives.ts:1786`, `:1844`, `:2919`; `SocialJusticeHub/client/src/pages/UnaRutaParaArgentina.tsx:1093`; `SocialJusticeHub/client/src/content/ensayos.generated.ts:437` y `:536`; `SocialJusticeHub/client/src/components/arquitecto/PlanEditor.tsx:16`
 **Encontrada:** 2026-08-02, barriendo conteos viejos durante la migración a 27 (ver D-020)
 **Severidad:** baja
-**Estado:** abierta
+**Estado:** **parcialmente resuelta 2026-10-09** — el resumen de PLANGEO ya no fija un número; las demás filas siguen
 
-Además de las siete copias estructurales de D-020, **el número viejo sobrevive en la prosa que se le muestra al lector**. Todos estos siguen diciendo 22:
+**Resolución parcial, 2026-10-09 (rama `codex/argentina-ideal`).** La primera fila de la tabla quedó resuelta: el resumen de PLANGEO (`strategic-initiatives.ts:1786`) ya no dice «son 22 PLANes simultáneos (al 23 de abril de 2026)» sino «son muchos PLANes en marcha al mismo tiempo», sin fijar un número que el canon ya cambió. Se corrigió en la fuente y en sus copias (`v2/scripts/content/planes-sources.ts`, la ficha del plan y el índice que alimenta el listado), que un test exige que coincidan. Aparte, en v2 la web pública dejó de escribir «22» a mano: `Bienvenida`, `UnaRutaParaArgentina` y `PlanesGrid` dicen ahora el número que da el registro. Esas líneas no eran filas de esta tabla, que lista solo v1.
+
+**Siguen abiertas** las demás filas (`:1844`, `:2919`, `UnaRutaParaArgentina.tsx:1093` de v1, los dos casos de `ensayos.generated.ts` y el historial de `PlanEditor.tsx`), y falta el chequeo de repo que las busque. Además, `strategic-initiatives.ts:1794` —un párrafo del mismo PLANGEO que dice «propone 22 PLANes simultáneos (al 23 de abril de 2026)»— no estaba en la tabla original y sigue diciendo 22.
+
+Además de las siete copias estructurales de D-020, **el número viejo sobrevive en la prosa que se le muestra al lector**. Todos estos decían 22 y, salvo el primero (resuelto el 2026-10-09), lo siguen diciendo:
 
 | Dónde | Qué dice | Qué es |
 |---|---|---|
-| `strategic-initiatives.ts:1786` | «son 22 PLANes simultáneos (al 23 de abril de 2026)» | `summary` de PLANGEO — se publica |
+| `strategic-initiatives.ts:1786` | «son 22 PLANes simultáneos (al 23 de abril de 2026)» | `summary` de PLANGEO — se publica. **Resuelto 2026-10-09** |
 | `strategic-initiatives.ts:1844`, `:2919` | «los 22 PLANes», «de 22 PLANes» | prosa de secciones de iniciativa |
 | `UnaRutaParaArgentina.tsx:1093` | «22 mandatos» | copy de página pública |
 | `ensayos.generated.ts:437`, `:536` | «los 22 PLANes» | generado desde `Ensayos/` |
@@ -1806,3 +1827,219 @@ La adaptación tiene contratos, pruebas de persistencia y reintento, renovación
 Las suites creaban propietarios, campañas y fichas públicas con UUID nuevos y no limpiaban al terminar. La conservación legítima de ediciones anteriores hacía visibles también campañas que preparaban un borrador nuevo. La vista local acumuló veinte campañas y quince fichas de fixture con títulos repetidos. Ocultarlas por título habría escondido procesos distintos y dejado intacta la causa.
 
 **Resolución:** cada suite registra sus objetos y limpia únicamente sus IDs en `afterAll`. Las guardas rechazan cuentas ajenas y contribuciones anónimas cuyos identificadores no se acreditaron, también dentro de la transacción. El saneamiento operado en la base local descartable preservó el aporte manual y dejó una única demostración identificada y pausada. No se modificaron bases remotas. El [procedimiento y las evidencias](../v2/docs/operations/demo-campanas-local.md) describen la selección y la conservación de datos; las pruebas negativas verifican que una participación independiente impide borrarla como fixture.
+
+### D-105 · La app móvil no tiene las tres preguntas ni la elección de lugar
+
+**Dónde:** `v2/apps/mobile/src/app/imaginar.tsx`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** media
+**Estado:** abierta
+
+En la web, imaginar tu Argentina ideal es una conversación guiada: tres preguntas, una revisión de la frase que se va a publicar y la elección del lugar al que se refiere el aporte. En la app hay un solo campo de texto y ninguna forma de decir dónde, así que todo aporte queda en «Argentina», aunque las campañas se abren por zona y por tema. Quien escribe sobre su barrio desde el teléfono publica algo que el mapa ubica en todo el país.
+
+Tampoco están en la app:
+
+- compartir las tres respuestas originales junto con la frase, como ofrece la web;
+- seguir una campaña para recibir avisos;
+- «Proponer un futuro» a partir de un aporte ya publicado;
+- una salida cuando la campaña elegida ya cerró: hoy la app deja reintentar o seguir con la edición vigente, pero no mandar el aporte a la campaña nacional.
+
+**Qué haría falta:** llevar a la app los mismos tres pasos y el mismo selector de lugar que la web, con los textos tomados de `@v2/shared` para no escribirlos dos veces; después, las acciones del recibo (seguir, proponer un futuro). Hasta entonces, un aporte hecho desde la app es válido pero llega sin lugar.
+
+### D-106 · Corregir un aporte con cesión registra la versión 1 y un texto propio
+
+**Dónde:** `v2/packages/db/src/repositories/mi-espacio.ts:114` (`corregir`), `v2/apps/web/src/pages/Senal/EditarAporte.tsx:113`, `v2/apps/api/src/features/senales/service.ts:60` (`VERSION_DE_CESION`)
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** media
+**Estado:** abierta
+
+Cuando alguien publica un aporte y cede su texto bajo licencia CC BY 4.0, el servidor anota qué versión del texto de cesión leyó. Desde el 9/10/2026 esa versión es la 2. Pero cuando la persona corrige después ese aporte y deja tildada la cesión, el repositorio escribe siempre la versión 1, fijada en el código, y la pantalla de corrección muestra una redacción propia, distinta de la que se ve al publicar.
+
+El resultado es un registro que dice que la persona aceptó un texto que no es el que vio, y dos aportes con la misma licencia firmados con versiones distintas según por dónde entraron. La versión existe para poder demostrar qué se aceptó; si no identifica el texto que la persona realmente leyó, deja de servir para eso.
+
+**Qué haría falta:** que la corrección use el mismo texto y la misma constante que el flujo principal, o que su propio texto tenga una versión numerada y registrada; y una prueba que falle si las dos pantallas divergen sin subir la versión. Las filas ya corregidas conservan el número viejo: conviene contarlas antes de decidir qué hacer con ellas.
+
+### D-107 · Mi espacio no muestra los aportes de un navegador sin cuenta
+
+**Dónde:** `v2/apps/api/src/features/mi-espacio/routes.ts` (`/recuperables`), `v2/apps/web/src/pages/MiEspacio/EspacioSinCuenta.tsx`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** media
+**Estado:** abierta
+
+Quien publica sin cuenta conserva la autoría en una cookie que el navegador guarda y que el código de la página no puede leer (es a propósito: así ningún script puede copiarla). Por eso Mi espacio, para quien no ingresó, solo muestra los borradores guardados en el dispositivo; los aportes ya publicados no aparecen. La única lista que lee esa cookie, `/api/v1/mi-espacio/recuperables`, exige una sesión iniciada.
+
+La persona sigue pudiendo corregir o retirar su aporte desde el recibo, pero solo si guardó ese enlace. Si lo perdió, no tiene dónde ver lo que publicó, y la pantalla se limita a prometer lo que sí pasa: al crear la cuenta se ofrece sumar esos aportes.
+
+**Qué haría falta:** un endpoint que liste los aportes según la cookie de actor, sin pedir sesión, con las mismas reservas que ya tiene la gestión de un aporte (nada de lo retirado, nada de otras personas), y la pestaña correspondiente en la vista sin cuenta. Hay que decidir también qué se muestra cuando un navegador acumula muchos aportes.
+
+### D-108 · «Ver y gestionar mi aporte» en la app puede no reconocer la autoría
+
+**Dónde:** `v2/apps/mobile/src/app/imaginar.tsx:266`, `v2/apps/mobile/src/app/espacio-ideal.tsx:109` (`openBrowserAsync`)
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta — sin verificar
+
+Después de compartir un aporte, la app ofrece «Ver y gestionar mi aporte», que abre la página web del aporte en el navegador integrado del sistema. Quien publicó sin cuenta tiene la autoría guardada en una cookie del navegador. La sospecha es que, en iOS, ese navegador integrado no comparte cookies con la app: la página se abriría sin reconocer a su autor y no ofrecería corregir ni retirar.
+
+No se probó en un teléfono. Se infiere de cómo suele funcionar esa pieza del sistema, no de haber visto el fallo.
+
+**Qué haría falta:** probarlo en un iPhone y en un Android reales (es parte de [D-103](#d-103--la-adaptación-móvil-necesita-verificación-en-dispositivos-físicos)). Si falla, hay que resolver la gestión dentro de la app o abrir la web con un vínculo de un solo uso; no conviene depender de una cookie que quizá no viaja.
+
+### D-109 · La app no guarda solo el texto mientras escribís
+
+**Dónde:** `v2/apps/mobile/src/app/imaginar.tsx` (botón «Guardar en este teléfono»)
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+El texto que se escribe en Imaginar solo se conserva si se aprieta «Guardar en este teléfono». Si la persona sale de la pantalla con el botón de volver, con el gesto del sistema o cerrando la app, lo escrito se pierde sin aviso. El botón equivalente de la web funciona igual, pero en un teléfono es más fácil salir sin querer.
+
+**Qué haría falta:** guardar en el teléfono con una pequeña demora mientras se escribe, o preguntar antes de salir si hay texto sin guardar. El borrador sigue siendo local y sin cifrado propio de la app, como ya registra [D-103](#d-103--la-adaptación-móvil-necesita-verificación-en-dispositivos-físicos); guardar solo no cambia eso, pero conviene que el aviso de la pantalla siga diciéndolo.
+
+### D-110 · El recibo no puede decir si hay aportes parecidos
+
+**Dónde:** `v2/apps/web/src/pages/Imaginar/Recibo.tsx` (propiedad `otrosParecidos`), recibo que devuelve la API al publicar
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+El recibo que se muestra al publicar tiene una frase preparada, «Todavía no hay otros aportes como el tuyo en este lugar», pensada para cuando no hay aportes parecidos. Esa frase depende de un dato (`otrosParecidos`) que ningún código le pasa: solo lo pasan las pruebas, porque el recibo que devuelve la API no incluye cuántos aportes parecidos hay. El resultado es que el recibo nunca dice ni que hay otros ni que no los hay, y quien publica no sabe si lo suyo se repite.
+
+**Qué haría falta:** decidir qué cuenta como «parecido» (mismo lugar y mismo tema, o cercanía de texto como en la Radiografía), calcularlo en el servidor y devolverlo en el recibo, con el mismo cuidado que la Radiografía: se cuentan aportes y no personas, y que varios digan lo mismo no prueba que sea cierto.
+
+### D-111 · La web compara textos literales con mensajes de la API
+
+**Dónde:** `v2/apps/web/src/pages/Imaginar/Recibo.tsx:15` y `:72`, `v2/apps/api/src/features/geo/resolver.ts:244`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+Cuando un aporte se publica sin ninguna ubicación, el servidor agrega un aviso técnico («No llegó ni calle, ni localidad, ni provincia, ni punto.»). El recibo de la web lo reconoce comparando el texto, letra por letra, con una copia escrita en `Recibo.tsx`, y lo reemplaza por una frase pensada para personas. Si alguien reformula el aviso en el servidor, aunque sea con una coma, la comparación deja de coincidir y quien publica ve el texto técnico tal cual. Nada obliga a que las dos copias coincidan.
+
+**Qué haría falta:** que el servidor mande un código estable junto con el mensaje (por ejemplo `SIN_UBICACION`) y que la web elija la frase según ese código. El mensaje queda como respaldo. El mismo cuidado vale para cualquier otro aviso que la web reescriba.
+
+### D-112 · Fichas: alternativas y pruebas sin comparación ni autoría, y una ficha no se puede compartir
+
+**Dónde:** `v2/apps/web/src/pages/Fichas/Alternativas.tsx`, `Pruebas.tsx`, `DetalleFicha.tsx`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** media
+**Estado:** abierta
+
+Una ficha de futuro reúne afirmaciones, alternativas y pruebas. Las alternativas y las pruebas se listan una debajo de otra: no hay una vista que permita compararlas entre sí (qué necesita cada una, qué haría frenar la prueba) y no se ve quién propuso cada una. Importa porque el sentido de tener varias alternativas es poder contrastarlas, y de quién viene cada una es parte de ese contraste.
+
+Además, una ficha no se puede compartir. El botón de compartir que ya tienen las campañas (`CompartirProceso`) no se usa en las fichas, así que quien arma una ficha tiene que copiar la dirección a mano.
+
+**Qué haría falta:** decidir qué significa «comparar» (por ejemplo, una tabla con los mismos campos para cada alternativa); mostrar quién propuso cada alternativa y cada prueba, resolviendo antes cómo se muestra la autoría sin exponer a quien no quiso aparecer; y reutilizar el botón de compartir en la ficha.
+
+### D-113 · Las campañas nuevas tienen direcciones ilegibles
+
+**Dónde:** `v2/packages/db/src/repositories/campanas.ts:153`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+Cada campaña nueva recibe la dirección `campana-<identificador largo>`, así que el enlace que se comparte es una cadena que nadie puede recordar, decir en voz alta ni reconocer. La campaña nacional es la excepción: tiene una dirección fija y legible (`mi-argentina-ideal`).
+
+**Qué haría falta:** generar la dirección a partir del título cuando se crea la campaña, con un sufijo si ya existe otra igual. La dirección tiene que quedar estable aunque el título cambie en una edición posterior, y las direcciones `campana-<identificador>` ya compartidas tienen que seguir funcionando.
+
+### D-114 · Los pasos de una campaña están escritos dos veces
+
+**Dónde:** `PASOS` en `v2/apps/api/src/features/campanas/routes.ts:24`, `PASOS_CAMPANA` en `v2/apps/web/src/components/participacion/constantes.ts:21`, prueba en `v2/apps/web/src/pages/Campanas/__tests__/gestion-fase.test.tsx:88`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+Una campaña pasa por etapas (borrador, programada, abierta, pausada, en devolución, cerrada) y solo algunos pasos entre una y otra están permitidos. Esa tabla de pasos está escrita en el servidor, que es quien manda, y copiada a mano en la web, para mostrar solo los botones que sirven. Para que no se desincronicen, una prueba de la web lee el archivo del servidor como texto y lo interpreta con una expresión regular. Funciona, pero es frágil: reformatear la tabla en el servidor puede romper la prueba sin que haya ningún error real.
+
+**Qué haría falta:** mover la tabla a `@v2/shared`, que ya comparten ambos lados, e importarla desde los dos. La prueba entonces se reduce a verificar una sola fuente.
+
+### D-115 · En el plan gratuito de Vercel, un archivo grande solo avanza con la página abierta
+
+**Dónde:** `v2/vercel.json` (bloque `crons`), `v2/apps/api/src/features/exportaciones/`, [el procedimiento operativo](../v2/docs/operations/exportaciones-publicas.md)
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+Las descargas grandes de Datos abiertos se arman por partes. El plan gratuito de Vercel solo admite tareas programadas una vez por día, y no se sabe todavía en qué plan va a correr el sitio. Por eso el armado avanza cuando alguien consulta cómo va su archivo: cada consulta hace un tramo corto (hasta 20 pasos o 10 segundos) antes de responder. La tarea programada, `/api/cron/exportaciones`, corre una vez por día (6 de la mañana UTC, 3 en Argentina) y sirve de respaldo: retoma lo que nadie volvió a consultar.
+
+En la práctica, si la persona cierra la página, un archivo grande espera hasta la corrida del día siguiente, y como el archivo vence a las 24 horas de pedido, un trabajo largo puede no llegar a terminarse. La pantalla ya lo avisa (el archivo se prepara con la página abierta), así que no promete de más; pero es una mala experiencia para quien pide un conjunto grande y se va.
+
+**Qué haría falta:** definir el plan. Con uno que admita tareas frecuentes, volver a programar el cron cada pocos minutos. Con el gratuito, un programador externo que ejecute `pnpm --filter @v2/api exportaciones:once`, o un trabajo en segundo plano de verdad. Relacionada con [D-102](#d-102--cálculos-y-archivos-de-gran-volumen-necesitan-trabajos-desacoplados).
+
+### D-116 · Dos variables para la dirección de la API en la app
+
+**Dónde:** `v2/apps/mobile/src/civic/ideal.ts:9` (`EXPO_PUBLIC_BASTA_V2_URL`), `v2/apps/mobile/src/civic/config.ts:46` (`EXPO_PUBLIC_CIVIC_API_URL`), `v2/apps/mobile/.env.example`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+La app lee a qué servidor hablarle de dos variables. Según el ejemplo de configuración, `EXPO_PUBLIC_CIVIC_API_URL` apunta a la API cívica de v1 y `EXPO_PUBLIC_BASTA_V2_URL` a la API de v2, que usan las pantallas de Imaginar, campañas y Mi espacio. Las dos están documentadas, pero siguen siendo dos: un build con una sola configurada deja la otra mitad de la app sin conexión, y el mensaje («La conexión todavía no está configurada en esta instalación») no dice cuál falta. Como el dominio sirve v2 desde el 4/8/2026 y v1 está archivado, tampoco está claro que la API de v1 siga existiendo donde la app la busca.
+
+**Qué haría falta:** decidir si las pantallas que usan la variable vieja pasan a la API de v2, de modo que quede una sola variable; o, si v1 sigue en pie para algo, escribir para qué. Después, que el mensaje de error nombre la variable que falta y que la documentación de la app diga lo mismo en todos lados.
+
+### D-117 · Los códigos de respaldo de dos pasos distinguen mayúsculas
+
+**Dónde:** `v2/apps/api/src/features/auth/two-factor-routes.ts:73` (`generateBackupCodes`) y `:210` (verificación)
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+Los códigos de respaldo de la verificación en dos pasos se generan en mayúsculas, con la forma `XXXXX-XXXXX`, y el servidor guarda solo una huella de cada uno, que no se puede leer. Al ingresar, lo que la persona escribe se compara tal cual contra esas huellas. Quien lo tipea en minúsculas, o lo copia de un papel sin respetar las mayúsculas, recibe «Código inválido», el mismo mensaje que si se hubiera equivocado de código, sin ninguna pista. Es justo la situación en la que alguien ya perdió el acceso a su aplicación de autenticación y necesita que el respaldo funcione a la primera.
+
+**Qué haría falta:** normalizar lo que se escribe antes de comparar (pasar a mayúsculas, sacar espacios, aceptar el código sin el guion y volver a ponerlo). Los códigos ya emitidos siguen sirviendo, porque la normalización produce exactamente la forma que se cifró.
+
+### D-118 · Páginas que siguen con el diseño viejo oscuro
+
+**Dónde:** `/bienvenida`, `/apoyo`, `/kit-de-prensa`, `/comunidad` (`v2/apps/web/src/app-routes.tsx`); la lista de páginas ya migradas es `v2/apps/web/src/layouts/papel-routes.ts`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta
+
+Cuatro páginas siguen con el diseño oscuro de la versión anterior mientras el resto del sitio está en papel y tinta. Dos de ellas, «Apoyá al movimiento» y el kit de prensa, se enlazan desde el pie de todas las páginas, así que quien las abre cambia de aspecto de golpe.
+
+**Qué haría falta:** rediseñarlas con el kit de papel y sumarlas a la lista de páginas migradas; antes, decidir si las cuatro siguen haciendo falta.
+
+### D-119 · La guía PDF del sistema quedó desactualizada y sus negritas no salen
+
+**Dónde:** `output/pdf/basta-pais-en-comun-guia-del-sistema.pdf`, fuente en `output/pdf/basta-pais-en-comun-source/` (`build_pdf.py`, `fonts/`)
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** media
+**Estado:** abierta
+
+La guía del sistema («Mi Argentina ideal», 47 páginas, versión del 8/10/2026) es el documento que se le puede pasar a alguien de afuera para explicarle el diseño completo. Tiene cuatro problemas:
+
+- **Quedó desactualizada el mismo día.** Dice que las páginas de la plataforma no se cambiaron, y se cambiaron: Imaginar, campañas, fichas y Mi espacio ya existen. Lo que presenta como capas por construir en parte ya está.
+- **Las negritas no salen.** Los dos archivos de la tipografía Archivo (`Archivo-Regular.ttf` y `Archivo-Bold.ttf`) declaran el mismo nombre interno, `ArchivoSemiBold-Regular`, y el PDF incrustó uno solo. Los títulos de las tarjetas, los términos destacados y los códigos de referencia salen en peso normal, y la jerarquía queda plana.
+- **Llama «propuesta» a cosas que el sitio ya tiene,** como la entrada de aportes y las campañas.
+- **Usa palabras con otro sentido que el sitio.** «Relato» (18 veces), que el glosario del sitio retiró; «contrato», donde el sitio dice ahora «reglas de la campaña»; y «lentes» para cinco etapas que en el sitio son los modos del mapa, algo distinto de las lentes de la Radiografía.
+
+**Qué haría falta:** regenerar el PDF con una negrita real (otro archivo o un nombre interno distinto) y comprobar con `pdffonts` que se incrustan las dos; reescribir las partes que describen el estado del sitio contra el sitio actual, con fecha; y alinear el vocabulario con el glosario del sitio. La auditoría de maquetación (`layout-audit.json`) no mide fuentes ni contraste, y por eso no vio el defecto.
+
+### D-120 · No está verificado que «los dos más lejanos» de un grupo no mida entre centros de provincia
+
+**Dónde:** `v2/apps/web/src/pages/LaRadiografia/sections/FichaDeNucleo.tsx:95`, `v2/packages/civic-core/src/radiografia/nucleos.ts:140` (`dosMasLejanos`)
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** baja
+**Estado:** abierta — sin verificar
+
+La ficha de un grupo de la Radiografía muestra «Los dos más lejanos»: la distancia, redondeada a la decena de kilómetros, entre los dos aportes más separados del grupo. Se calcula entre los puntos guardados de cada aporte, con la precisión pública (500 metros o más gruesa). No se verificó qué punto queda guardado cuando alguien elige el lugar por nombre (una provincia, una localidad) en lugar de marcar un punto en el mapa. Si en esos casos el punto es el centro del lugar, la cifra mide la distancia entre centros de provincia y no entre las personas, y se presenta como si fuera lo segundo.
+
+**Qué haría falta:** mirar, con datos de prueba, qué coordenadas guardan los aportes con lugar elegido por nombre. Si son centros, excluir de ese cálculo a los aportes cuya precisión sea más gruesa que una localidad, o rotular la cifra como distancia entre los lugares elegidos.
+
+### D-121 · La campaña nacional todavía no existe en producción
+
+**Dónde:** `v2/docs/operations/campana-nacional.md`, `v2/packages/db/scripts/campana-nacional/` (script `db:seed-campana-nacional`), `v2/apps/web/src/pages/Imaginar/FraseCampana.tsx`
+**Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
+**Severidad:** alta
+**Estado:** abierta
+
+El 9/10/2026 se decidió que todo aporte que no elija otra campaña vaya a una campaña nacional y permanente, «Mi Argentina ideal», que coordina Juan Bravin y cuya primera devolución está prevista para el 15/3/2027. El código ya sabe sembrarla y ya reserva la apertura de campañas a la administración, pero en producción la campaña no existe. Sembrarla es un paso humano que exige, en este orden:
+
+1. aplicar las migraciones 0025 a 0030 a la base de producción;
+2. que exista la cuenta de Juan en v2, activa y con el correo verificado;
+3. cargar su nombre de usuario en `ADMIN_USERNAMES`, la lista de quienes pueden administrar campañas, después de crear la cuenta y no antes, para que nadie pueda registrarse con ese nombre y quedar como administración;
+4. correr el script de siembra, primero en seco y después con `--aplicar`.
+
+Hasta entonces, todo aporte se publica sin campaña. El recibo lo dice como es: «Por ahora no está en ninguna campaña, así que nadie se comprometió a responderlo». Es honesto, pero el sitio invita a aportar a una campaña que todavía no existe. El procedimiento no dice qué pasa con los aportes publicados antes de la siembra.
+
+**Qué haría falta:** hacer los cuatro pasos, abrir `/campanas/mi-argentina-ideal` y comprobar que muestre la edición 1 y el estado abierta; y decidir qué se hace con los aportes que hayan entrado sin campaña mientras tanto.
