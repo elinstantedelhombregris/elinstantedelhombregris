@@ -134,7 +134,7 @@ describe('AsistenteSemilla', () => {
     armarMutacion({ isError: true, error: new ApiError(500, 'INTERNAL', 'boom') });
     render(<AsistenteSemilla onPlantada={vi.fn()} />);
     expect(screen.getByRole('alert')).toHaveTextContent(
-      'Esto se rompió. Lo decimos porque publicamos todo. Probá de nuevo.',
+      'No pudimos guardar esto. Probá de nuevo en un rato.',
     );
   });
 

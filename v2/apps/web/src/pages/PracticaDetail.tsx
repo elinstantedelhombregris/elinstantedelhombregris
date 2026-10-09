@@ -51,7 +51,7 @@ function PracticaRota({ cursoSlug }: { cursoSlug: string }) {
   return (
     <div className="mt-10">
       <p className="font-archivo text-tinta-75 text-[15px] leading-relaxed">
-        Esto se rompió. Lo decimos porque publicamos todo.
+        No pudimos cargar esto. Probá de nuevo en un rato.
       </p>
       <Link
         href={`/entrenamientos/${cursoSlug}`}

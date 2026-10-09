@@ -252,7 +252,7 @@ export function PanelConfirmar({ idPublico, hayPunto, umbral, yaCuentan }: Panel
         <p role="alert" className="font-space text-sello mt-3 max-w-[58ch] text-[12px] leading-relaxed">
           {confirmar.error instanceof ApiError
             ? confirmar.error.message
-            : 'Esto se rompió. Lo decimos porque publicamos todo. Probá de nuevo.'}
+            : 'No pudimos guardar esto. Probá de nuevo en un rato.'}
         </p>
       ) : null}
     </div>
