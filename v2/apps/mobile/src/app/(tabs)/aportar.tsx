@@ -57,7 +57,7 @@ export default function Aportar() {
       : context.attributionMode !== 'anonymous' && context.attributionName.trim().length < 2
         ? 'Falta completar el alias o nombre que querés mostrar.'
         : !publish
-          ? 'Último paso: marcá “Autorizo publicar este aporte”.'
+          ? 'Último paso: marcá “Autorizo publicar este recurso”.'
           : null;
 
   const save = async () => {
@@ -167,7 +167,7 @@ export default function Aportar() {
             </Text>
 
             <Kicker tono="neutro" className="mt-8">
-              Tipo de aporte
+              Tipo de recurso
             </Kicker>
             <View className="mt-3 flex-row flex-wrap gap-2">
               {CATEGORIES.map(([key, label]) => (
@@ -271,7 +271,7 @@ export default function Aportar() {
               />
               <View className="flex-1">
                 <Text className="font-archivo-bold text-tinta text-sm">
-                  Autorizo publicar este aporte
+                  Autorizo publicar este recurso
                 </Text>
                 <Text className="font-archivo text-tinta-75 mt-1 text-xs leading-5">
                   Se comparte la proyección elegida, el nombre del lugar y la firma que viste en el
