@@ -4,6 +4,8 @@ const esquema = z.object({
   fecha: z.string(),
   frases: z.array(z.string()).length(3),
   campanaId: z.string().nullable(),
+  /** La edición de la campaña con la que se empezó; los borradores viejos no la traen. */
+  edicion: z.number().int().positive().nullable().optional(),
 });
 export type BorradorIdeal = z.infer<typeof esquema>;
 function base(): Promise<IDBDatabase> {
