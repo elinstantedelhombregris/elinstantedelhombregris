@@ -22,8 +22,8 @@
 - [x] **U5 barrido de copy** — partido en U5a entrada-cuenta, U5b lectura, U5c fichas (mergeadas) (Home, Mi espacio, nav/footer, Fichas, Radiografía, Mandato, Datos abiertos): glosario, H1 que nombran, enums traducidos (un solo mapa por concepto en `lib/vocabulario.ts`), plurales, ceros en palabras, `volver` en los cinco enlaces a ingresar.
 
 ## Ola 3
-- [ ] **U6 guardia del glosario**: test AST con lista permitida y línea de base que solo baja (modelo: `packages/shared/src/open-data/__tests__/consentimiento.test.ts`).
-- [ ] **U7 sistema de diseño**: `participacion/Elementos.tsx` → kit Papel; bordes con token; contraste del pie y del mapa; plantilla única de página (Fichas).
+- [x] **U6 guardia del glosario** (U6a textos legales + U6b guardia, mergeadas): test AST con lista permitida y línea de base que solo baja (modelo: `packages/shared/src/open-data/__tests__/consentimiento.test.ts`).
+- [x] **U7 sistema de diseño** (mergeada): `participacion/Elementos.tsx` → kit Papel; bordes con token; contraste del pie y del mapa; plantilla única de página (Fichas).
 - [x] **U8 app móvil** (mergeada; faltan las tres preguntas y la elección de lugar): glosario, campaña nacional por defecto, elección de lugar, pantalla de éxito, avisos de publicación.
 
 ## Después
@@ -35,3 +35,4 @@
 - Ola 2 en curso: U4 campañas-web (55461), U5a entrada-cuenta (55462), U5b lectura — mapa, Radiografía, Mandato (55463), U5c fichas (55464). U8 móvil adelantada (sin base).
 - Ola 2 mergeada (U4, U5a, U5b, U5c) + U8, U9 (lista de fichas con extracto, temas y afirmaciones) y U6a (glosario en textos legales, `VERSION_DE_CESION` = 2, grupos «Grupo A/B», PLANGEO sin «22»). Verificación completa en verde: unit web 1506, integración api 412 + db 210, build, planes:check.
 - Ola 3: U7 diseño en curso (55467). Después: U6b guardia del glosario, registro en DEUDAS, capturas de control.
+- Ola 3 mergeada: U7 diseño, U6b guardia, U10 remates, U11 deudas (D-105…D-121). Verificación final en verde: lint, type-check, unit (web 1552, civic-core 495, shared 170, db 65, api 37), scripts 244, integración api 414 + db 210, build, planes, entrenamientos, móvil tsc + 333 tests. Capturas de control en curso.
