@@ -25,7 +25,6 @@ import {
   ForgotPassword,
   Goals,
   Home,
-  Imaginar,
   Campanas,
   CampanaDetail,
   GestionCampanas,
@@ -64,6 +63,7 @@ import {
   VerifyEmail,
   WeeklyCheckin,
 } from '~/app-pages';
+import { RedirigirAAportar } from '~/pages/Imaginar/RedirigirAAportar';
 
 export function AppRoutes() {
   return (
@@ -103,12 +103,12 @@ export function AppRoutes() {
       <Route path="/una-ruta-para-argentina">
         <Redirect to="/la-idea" replace />
       </Route>
-      <Route path="/imaginar" component={Imaginar} />
+      <Route path="/imaginar">{() => <RedirigirAAportar />}</Route>
       <Route path="/colaborar" component={Colaborar} />
       <Route path="/mi-espacio" component={MiEspacio} />
       <Route path="/gestion/campanas" component={GestionCampanas} />
       <Route path="/campanas/:slug/participar">
-        {(params) => <Redirect to={`/imaginar?campana=${params.slug}`} replace />}
+        {(params) => <RedirigirAAportar campana={params.slug} />}
       </Route>
       <Route path="/campanas/:slug/devolucion" component={CampanaDetail} />
       <Route path="/campanas/:slug" component={CampanaDetail} />

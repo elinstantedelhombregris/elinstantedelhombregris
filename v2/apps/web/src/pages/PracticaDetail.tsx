@@ -13,6 +13,7 @@ import {
   Sello,
 } from '~/components/papel/primitives';
 import { cargarPractica, findCursoBySlug, type PracticaEntry } from '~/lib/courses-registry';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { cn } from '~/lib/utils';
 
 /** 404 §5: el expediente extraviado, sobre papel — mismo texto que la portada del curso (spec, «Estados mudos»: no hay copy propio de práctica para el curso inexistente). */
@@ -253,7 +254,7 @@ export function PracticaDetail() {
               Ya lo pensaste. Ahora decilo.
             </h2>
             <BotonPapel asChild variant="violeta" surface="oscuro">
-              <Link href="/el-mapa">Soltar mi voz en el mapa →</Link>
+              <Link href={APORTAR_HREF}>Imaginar mi Argentina →</Link>
             </BotonPapel>
           </div>
         </BandaCta>

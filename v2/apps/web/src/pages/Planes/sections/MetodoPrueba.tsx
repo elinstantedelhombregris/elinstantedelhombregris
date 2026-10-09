@@ -5,6 +5,7 @@ import { PLAN_COUNT } from '../la-prueba-data';
 import type { ReactNode } from 'react';
 
 import { BotonPapel } from '~/components/papel/primitives';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 interface MetodoCard {
   titulo: string;
@@ -19,8 +20,8 @@ export function MetodoPrueba() {
       body: (
         <>
           Seguro: son {PLAN_COUNT} y el país es infinito. Marcá el hueco —{' '}
-          <Link href="/el-mapa" className="text-violeta font-semibold">
-            soltá tu urgencia en el mapa
+          <Link href={APORTAR_HREF} className="text-violeta font-semibold">
+            sumá tu aporte en el mapa
           </Link>{' '}
           y el próximo lo escribís vos.
         </>
@@ -50,7 +51,7 @@ export function MetodoPrueba() {
 
         <div className="mt-14 flex justify-center">
           <BotonPapel asChild variant="violeta">
-            <Link href="/el-mapa">Soltá tu urgencia en el mapa →</Link>
+            <Link href={APORTAR_HREF}>Imaginar mi Argentina →</Link>
           </BotonPapel>
         </div>
       </div>

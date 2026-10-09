@@ -276,15 +276,15 @@ describe('PracticaDetail (página papel 3.5 — la práctica)', () => {
     expect(screen.getByRole('button', { name: 'Descargar bitácora .md ↓' })).toBeInTheDocument();
   });
 
-  it('cierre: "Ya lo pensaste. Ahora decilo." + link "Soltar mi voz en el mapa →"', async () => {
+  it('cierre: "Ya lo pensaste. Ahora decilo." + link "Imaginar mi Argentina →"', async () => {
     const { curso } = await buscarCursoConMenosPreguntas();
     renderAt(`/entrenamientos/${curso.slug}/practica`);
 
     expect(
       await screen.findByRole('heading', { level: 2, name: 'Ya lo pensaste. Ahora decilo.' }),
     ).toBeInTheDocument();
-    const cta = screen.getByRole('link', { name: 'Soltar mi voz en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('backlink al entrenamiento', async () => {

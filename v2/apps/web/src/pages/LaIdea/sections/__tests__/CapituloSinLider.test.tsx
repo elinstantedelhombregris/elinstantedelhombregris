@@ -35,16 +35,16 @@ describe('CapituloSinLider', () => {
     render(<CapituloSinLider />);
 
     expect(screen.getByText(/12\.496 voces ya están en el mapa/)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Dejar mi voz →' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Imaginar mi Argentina →' })).toHaveAttribute(
       'href',
-      '/el-mapa',
+      '/el-mapa?participar=aportar#instrumento',
     );
   });
 
-  it('al hacer click en el CTA «Dejar mi voz» despierta el sitio', () => {
+  it('al hacer click en el CTA «Imaginar mi Argentina» despierta el sitio', () => {
     render(<CapituloSinLider />);
 
-    fireEvent.click(screen.getByRole('link', { name: 'Dejar mi voz →' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Imaginar mi Argentina →' }));
 
     expect(window.localStorage.getItem('basta_despierto')).toBe('1');
   });

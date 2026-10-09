@@ -111,8 +111,8 @@ describe('Cronica (página papel 3.6 — el lector, composer)', () => {
     render(<Cronica />);
 
     expect(screen.getByText('Esto es ficción. Lo que sigue, no.')).toBeInTheDocument();
-    const cta = screen.getByRole('link', { name: 'Soltar mi voz en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('edición impresa: el article lleva edicion-impresa, el folio se imprime, backlink/sumario/cierre no', () => {

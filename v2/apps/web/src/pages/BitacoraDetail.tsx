@@ -3,6 +3,7 @@ import { Link, Redirect, useRoute } from 'wouter';
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { BotonPapel, Kicker, RitoTinta, Sello } from '~/components/papel/primitives';
 import { type BlogPost } from '~/lib/blog-registry';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import {
   categoriaVisible,
   fechaLarga,
@@ -123,7 +124,7 @@ export function BitacoraDetail() {
           Esto ya pasó. Lo que sigue lo escribís vos.
         </span>
         <BotonPapel asChild variant="violeta" surface="oscuro">
-          <Link href="/el-mapa">Decir la mía →</Link>
+          <Link href={APORTAR_HREF}>Imaginar mi Argentina →</Link>
         </BotonPapel>
       </div>
     </main>

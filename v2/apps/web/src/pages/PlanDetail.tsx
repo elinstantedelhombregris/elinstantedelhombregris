@@ -5,6 +5,7 @@ import { IndiceLector, type SeccionDelIndice } from '~/components/papel/IndiceLe
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { BotonPapel, Kicker, Sello } from '~/components/papel/primitives';
 import { extraerEncabezados } from '~/lib/markdown';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import {
   cargarCuerpoPlan,
   findPlanBySlug,
@@ -198,8 +199,11 @@ function LectorDelPlan({ plan }: { plan: PlanRegistryEntry }) {
           <footer className="border-papel-borde mt-12 border-t pt-6">
             <p className="font-space text-tinta-50 text-[13px] print:hidden">
               ¿Lo podés mejorar? Esa es la idea.{' '}
-              <Link href="/el-mapa" className="text-violeta font-bold uppercase tracking-[0.08em]">
-                Soltá tu voz en el mapa →
+              <Link
+                href={APORTAR_HREF}
+                className="text-violeta font-bold uppercase tracking-[0.08em]"
+              >
+                Imaginar mi Argentina →
               </Link>
             </p>
             <p className="font-space text-tinta-50 mt-4 text-right text-xs">— El hombre gris</p>

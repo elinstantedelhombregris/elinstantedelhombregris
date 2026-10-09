@@ -4,6 +4,7 @@ import { Link, useRoute } from 'wouter';
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { BotonPapel, Kicker, RitoTinta, Sello } from '~/components/papel/primitives';
 import { findEnsayoBySlug } from '~/lib/ensayos-registry';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { guardarSenalador } from '~/lib/senalador';
 import { fechaLarga, ubicarEnsayo, type Vecino } from '~/pages/Biblioteca/biblioteca-data';
 
@@ -113,7 +114,7 @@ export function EnsayoDetail() {
       <div className="bg-tinta text-papel mt-11 flex flex-wrap items-center justify-between gap-5 px-8 py-7 print:hidden">
         <span className="font-anton text-[22px] leading-tight">¿Te resonó? No lo dejes en lectura.</span>
         <BotonPapel asChild variant="violeta" surface="oscuro">
-          <Link href="/el-mapa">Decir la mía →</Link>
+          <Link href={APORTAR_HREF}>Imaginar mi Argentina →</Link>
         </BotonPapel>
       </div>
     </main>

@@ -111,8 +111,8 @@ describe('Manifiesto (página papel 3.3 — el lector, composer)', () => {
       screen.getByText('El manifiesto no te pide que lo firmes. Te pide que lo hagas.'),
     ).toBeInTheDocument();
 
-    const cta = screen.getByRole('link', { name: 'Soltar mi voz en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('edición impresa: el article lleva edicion-impresa, el folio se imprime, la navegación y el cierre no', () => {

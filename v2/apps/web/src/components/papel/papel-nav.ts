@@ -5,6 +5,8 @@
  * v2 existentes hasta que cada página se rediseñe (ver spec
  * docs/specs/2026-07-21-landing-papel-y-tinta.md).
  */
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
+
 export interface PapelNavItem {
   href: string;
   label: string;
@@ -67,7 +69,6 @@ export const SECCIONES_BIBLIOTECA: readonly PapelNavItem[] = [
 ];
 
 export const SEMBRAR_HREF = '/sembrar';
-export const IMAGINAR_HREF = '/el-mapa?participar=imaginar#instrumento';
 
 /**
  * «Quién está detrás» — la única página del sitio con entrada única, y
@@ -108,7 +109,7 @@ export const SIMULACION_LABEL = 'La simulación';
 export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   { href: '/', label: 'Inicio', num: '00' },
   ...PAPEL_NAV,
-  { href: IMAGINAR_HREF, label: 'Imaginar', num: '06' },
+  { href: APORTAR_HREF, label: 'Imaginar', num: '06' },
   { href: '/mi-espacio', label: 'Mi espacio', num: '07' },
   { href: '/datos-abiertos', label: 'Datos abiertos', num: '08' },
 ];

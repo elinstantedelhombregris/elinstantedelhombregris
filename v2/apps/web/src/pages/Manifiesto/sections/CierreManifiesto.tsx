@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 
 import { BotonPapel } from '~/components/papel/primitives';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 /**
  * Cierre del manifiesto (spec 3.3) — card oscura dentro de la columna,
@@ -15,7 +16,7 @@ export function CierreManifiesto() {
         El manifiesto no te pide que lo firmes. Te pide que lo hagas.
       </span>
       <BotonPapel asChild variant="violeta" surface="oscuro">
-        <Link href="/el-mapa">Soltar mi voz en el mapa →</Link>
+        <Link href={APORTAR_HREF}>Imaginar mi Argentina →</Link>
       </BotonPapel>
     </div>
   );

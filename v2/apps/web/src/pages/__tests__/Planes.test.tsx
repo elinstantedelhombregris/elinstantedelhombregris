@@ -17,13 +17,13 @@ describe('Planes (página papel 2.4 — El ejemplo, composer)', () => {
     ).toBeInTheDocument();
   });
 
-  it('presenta el callout «No es doctrina» con el link a las voces del mapa', () => {
+  it('presenta el callout «No es doctrina» con el link a los aportes del mapa', () => {
     render(<Planes />);
 
     expect(screen.getByText(/Nada de esto se firma ni se obedece/)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'voces del mapa' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'aportes del mapa' })).toHaveAttribute(
       'href',
-      '/el-mapa',
+      '/el-mapa?participar=aportar#instrumento',
     );
   });
 
@@ -34,8 +34,8 @@ describe('Planes (página papel 2.4 — El ejemplo, composer)', () => {
     expect(screen.getByRole('heading', { name: 'Diseño idealizado' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Hechos para ser superados' })).toBeInTheDocument();
 
-    const cta = screen.getByRole('link', { name: 'Soltá tu urgencia en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('mata el chrome v1-port: sin header serif viejo, sin glass ni gradient-text', () => {

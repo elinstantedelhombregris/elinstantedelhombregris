@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import { type SemillaGuardada } from '../sembrar-data';
 
 import { BotonPapel, Sello } from '~/components/papel/primitives';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 /** La semilla del certificado — tallo semgrow + hojas leafpop (§6, ya en el toolkit). */
 function SemillaSvg() {
@@ -150,10 +151,10 @@ export function CertificadoSemilla({ semilla, onPlantarOtra }: CertificadoSemill
           Guardala. Es tu contrato con vos. Cuando el movimiento te pese, volvé a leerla.
         </p>
         <Link
-          href="/el-mapa"
+          href={APORTAR_HREF}
           className="font-space text-violeta mt-3 inline-block text-xs font-bold uppercase tracking-[0.1em]"
         >
-          Ahora soltá tu voz en el mapa →
+          Imaginar mi Argentina →
         </Link>
       </div>
     </div>

@@ -60,7 +60,7 @@ describe('ElMandatoVivo (composer, página papel 2.3)', () => {
   it('invita a imaginar sin atribuir apoyo al mandato por publicar una voz', () => {
     render(<ElMandatoVivo />);
     const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(cta).toHaveAttribute('href', '/imaginar');
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
     // Jerarquía de la spec: h2 por sección §2–§6 — la del CTA es sr-only,
     // mismo patrón que ComoSeEscribe/ComoSeUsa.
     expect(screen.getByRole('heading', { level: 2, name: 'Imaginá el país que querés vivir' })).toBeInTheDocument();

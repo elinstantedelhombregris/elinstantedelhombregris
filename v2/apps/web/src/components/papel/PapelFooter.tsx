@@ -6,10 +6,11 @@ import {
   PAPEL_NAV_ALL,
   QUIEN_HREF,
   QUIEN_LABEL,
-  IMAGINAR_HREF,
   SIMULACION_HREF,
   SIMULACION_LABEL,
 } from './papel-nav';
+
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 const PRINCIPIOS = [
   'Abierto y auditable',
@@ -78,7 +79,7 @@ export function PapelFooter() {
               Una vida imaginada puede abrir un diseño compartido.
             </p>
             <Link
-              href={IMAGINAR_HREF}
+              href={APORTAR_HREF}
               className="bg-violeta font-space text-papel hover:bg-papel hover:text-tinta block w-full px-4 py-[15px] text-center text-xs font-bold uppercase tracking-[0.1em] transition-colors"
             >
               Imaginar mi Argentina

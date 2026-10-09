@@ -1,3 +1,4 @@
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { claseDe, type ClaseSenal, type TipoSenal } from '~/lib/vocabulario';
 
 /**
@@ -39,7 +40,7 @@ export const PASOS_CONVERGENCIA = [
     titulo: 'Imaginamos una vida posible',
     cuerpo:
       'Cada persona cuenta lo que quiere hacer posible. Revisa su aporte y elige qué compartir, con qué permiso y en qué ámbito.',
-    link: { href: '/imaginar', etiqueta: 'Imaginar →' },
+    link: { href: APORTAR_HREF, etiqueta: 'Imaginar →' },
   },
   {
     num: '02',

@@ -123,8 +123,8 @@ describe('Entrenamientos (página papel 3.5 — el catálogo, composer)', () => 
     render(<Entrenamientos />);
 
     expect(screen.getByRole('heading', { name: 'Entrenaste. Ahora usalo.' })).toBeInTheDocument();
-    const cta = screen.getByRole('link', { name: 'Soltar mi voz en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('honestidad: sin certificado/progreso/inscripción, sin datos de demostración, sin chrome v1-port', () => {

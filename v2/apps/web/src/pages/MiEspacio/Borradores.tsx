@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
 
 import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
+import { aportarHref } from '~/lib/participacion/aportar';
 import { leerBorradores, borrarBorrador, type BorradorIdeal } from '~/lib/participacion/borradores';
 
 export function BorradoresLocales() {
@@ -36,7 +37,11 @@ export function BorradoresLocales() {
               <div className="mt-4 flex flex-wrap gap-4">
                 <Link
                   className="text-violeta inline-flex min-h-11 items-center underline"
-                  href={`/imaginar?borrador=${b.id}${b.campanaId ? `&campana=${b.campanaId}` : ''}`}
+                  href={aportarHref({
+                    borrador: b.id,
+                    ...(b.campanaId ? { campana: b.campanaId } : {}),
+                    ...(b.edicion ? { edicion: b.edicion } : {}),
+                  })}
                 >
                   Retomar
                 </Link>
