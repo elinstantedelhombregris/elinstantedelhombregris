@@ -66,7 +66,7 @@ describe('PapelHeader', () => {
     } as ReturnType<typeof useVocesCount>);
     renderHeader();
 
-    expect(screen.getByText('la primera voz todavía puede ser la tuya')).toBeInTheDocument();
+    expect(screen.getByText('el primer aporte todavía puede ser el tuyo')).toBeInTheDocument();
   });
 
   it('con una sola voz vuelve a contar, sin que nadie apague nada', () => {

@@ -40,7 +40,7 @@ const VACIO: ContratoCampana = {
   fases: [
     {
       nombre: 'Imaginar',
-      salida: 'Relatos revisados por quienes participan.',
+      salida: 'Aportes revisados por quienes participan.',
       fecha: futuroDia(14),
     },
     {

@@ -155,17 +155,17 @@ export function PintorDeSenales({
             style={{ color: tinta }}
             data-testid="celdas-saturadas"
           >
-            Donde no entra un punto por voz, se dice cuántas faltan:{' '}
+            Donde no entra un punto por aporte, se dice cuántos faltan:{' '}
             {saturadas.map((c) => `${c.nombre} ${c.leyenda}`).join(' · ')}
           </p>
         )}
       </div>
 
       <ul className="sr-only" data-testid="conteos-por-celda">
-        <li>{`${conSeparadorDeMiles(voces)} voces en ${conSeparadorDeMiles(celdas.length)} celdas.`}</li>
+        <li>{`${conSeparadorDeMiles(voces)} aportes en ${conSeparadorDeMiles(celdas.length)} celdas.`}</li>
         {celdas.map((celda) => (
           <li key={`${celda.id}|${celda.clase}`}>
-            {`${celda.nombre}: ${conSeparadorDeMiles(celda.voces)} voces de clase ${celda.clase}.`}
+            {`${celda.nombre}: ${conSeparadorDeMiles(celda.voces)} aportes de clase ${celda.clase}.`}
           </li>
         ))}
       </ul>

@@ -56,7 +56,7 @@ export function PapelHeader() {
     total === undefined
       ? null
       : total === 0
-        ? 'la primera voz todavía puede ser la tuya'
+        ? 'el primer aporte todavía puede ser el tuyo'
         : `${total.toLocaleString('es-AR')} ${total === 1 ? 'aporte' : 'aportes'} en el registro`;
 
   // Escape cierra el menú de pantalla completa y devuelve el foco al botón que

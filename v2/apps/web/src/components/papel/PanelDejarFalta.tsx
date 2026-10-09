@@ -187,7 +187,7 @@ export function PanelDejarFalta({
                 onChange={(e) => {
                   setTitulo(e.target.value);
                 }}
-                placeholder="El mapa no dice cuántas señales quedaron afuera del recorte"
+                placeholder="El mapa no dice cuántos aportes quedaron afuera del recorte"
                 className="border-tinta bg-papel text-tinta placeholder:text-tinta-30 w-full border px-4 py-3 text-[16px] outline-none focus:border-violeta"
               />
               <span className="font-space text-tinta-50 mt-1.5 block text-right text-[11px]">
