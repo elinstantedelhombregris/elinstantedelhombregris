@@ -131,10 +131,10 @@ dsuite('sembrar la campaña nacional', () => {
     for (const id of usuarios) await db.execute(sql`delete from users where id = ${id}`);
   });
 
-  it('los ocho temas del contrato existen en el catálogo cerrado de aportes', async () => {
-    const r = await db.execute<{ clave: string }>(sql`select clave from temas`);
-    const claves = new Set(r.rows.map((f) => f.clave));
-    for (const tema of TEMAS_CAMPANA_NACIONAL) expect(claves.has(tema)).toBe(true);
+  it('los trece temas del contrato son exactamente los del catálogo cerrado de aportes', async () => {
+    const r = await db.execute<{ clave: string }>(sql`select clave from temas order by orden`);
+    const claves = r.rows.map((f) => f.clave);
+    expect(claves).toEqual([...TEMAS_CAMPANA_NACIONAL]);
   });
 
   it('en seco no escribe nada y dice qué crearía', async () => {
