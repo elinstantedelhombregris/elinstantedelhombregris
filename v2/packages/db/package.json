@@ -31,6 +31,7 @@
     "geo:rellenar-provincias": "tsx scripts/rellenar-provincias.ts",
     "geo:seed-callejero": "tsx scripts/seed-callejero.ts",
     "db:seed-callejero": "tsx scripts/seed-callejero.ts",
+    "db:seed-campana-nacional": "tsx scripts/seed-campana-nacional.ts",
     "geo:verificar-callejero": "tsx scripts/verificar-callejero.ts",
     "simulacion:tirar": "tsx scripts/simulacion-tirar.ts",
     "test": "pnpm test:unit && pnpm test:integration",
