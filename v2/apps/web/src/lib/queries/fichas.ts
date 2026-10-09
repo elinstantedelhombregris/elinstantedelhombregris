@@ -12,20 +12,26 @@ export function useFicha(id: string | undefined) {
     queryFn: ({ signal }) => api.get<FichaFuturo>(`/api/v1/fichas/${id ?? ''}`, { signal }),
   });
 }
+/** Lo que la lista dice de cada ficha sin abrirla. */
+export interface FichaDeLista {
+  id: string;
+  titulo: string;
+  revision: number;
+  territorioId: number | null;
+  territorioNombre: string | null;
+  actualizadaEn: string;
+  /** El comienzo del futuro deseado; vacío si la ficha no lo tiene. */
+  extracto: string;
+  /** Claves del catálogo de temas; una ficha vieja puede traer texto escrito a mano. */
+  temas: string[];
+  /** Afirmaciones vigentes de la ficha. */
+  afirmaciones: number;
+}
 export function useFichas(territorioId?: number, campanaId?: string) {
   return useQuery({
     queryKey: ['fichas', 'lista', territorioId, campanaId],
     queryFn: ({ signal }) =>
-      api.get<{
-        fichas: {
-          id: string;
-          titulo: string;
-          revision: number;
-          territorioNombre: string | null;
-          actualizadaEn: string;
-        }[];
-        total: number;
-      }>(
+      api.get<{ fichas: FichaDeLista[]; total: number }>(
         `/api/v1/fichas?${new URLSearchParams({ ...(territorioId ? { territorioId: String(territorioId) } : {}), ...(campanaId ? { campanaId } : {}) }).toString()}`,
         { signal },
       ),

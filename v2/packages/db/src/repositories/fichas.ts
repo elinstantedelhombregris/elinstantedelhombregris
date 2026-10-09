@@ -1,5 +1,6 @@
 import { and, desc, eq, inArray, sql } from 'drizzle-orm';
 
+import { fichaAfirmaciones } from '../schema/diseno.js';
 import { fichasFuturo, fichasRevisiones } from '../schema/fichas.js';
 import { geographicLocations } from '../schema/geographic.js';
 import { senales } from '../schema/senales.js';
@@ -10,10 +11,58 @@ import { textoDeSenalPublica } from './senal-publicacion.js';
 import type { Db } from '../client.js';
 import type { ContenidoFicha, FichaFuturo } from '@v2/shared';
 
+/** Cuánto del futuro deseado entra en la tarjeta de la lista. */
+const LARGO_EXTRACTO = 180;
+
+/**
+ * El comienzo del futuro deseado, para que la lista diga de qué trata cada ficha.
+ *
+ * Junta los espacios y saltos de línea, corta en el borde de una palabra y marca el
+ * corte con «…». Una ficha vieja puede no tener `futuro` o tenerlo con otra forma:
+ * en ese caso no hay extracto y devuelve `''`.
+ */
+export function extractoDeFuturo(futuro: unknown): string {
+  if (typeof futuro !== 'string') return '';
+  const texto = futuro.replace(/\s+/g, ' ').trim();
+  if (texto.length <= LARGO_EXTRACTO) return texto;
+  const borde =
+    texto[LARGO_EXTRACTO] === ' ' ? LARGO_EXTRACTO : texto.lastIndexOf(' ', LARGO_EXTRACTO);
+  const corte = borde > LARGO_EXTRACTO / 2 ? borde : LARGO_EXTRACTO;
+  const cabeza = texto.slice(0, corte).replace(/[\s,;:.–—-]+$/u, '');
+  // Un corte duro no parte un carácter fuera del plano básico por la mitad.
+  return `${/[\uD800-\uDBFF]$/.test(cabeza) ? cabeza.slice(0, -1) : cabeza}…`;
+}
+
+/** Las claves de tema de una ficha: sin repetidas ni textos vacíos, y `[]` si la forma es otra. */
+export function temasDeLaFicha(temas: unknown): string[] {
+  if (!Array.isArray(temas)) return [];
+  const claves = temas.filter((t): t is string => typeof t === 'string' && t.trim() !== '');
+  return [...new Set(claves)];
+}
+
+/** Lo que la lista muestra de cada ficha, sin abrirla. */
+export interface FichaDeLista {
+  id: string;
+  revision: number;
+  titulo: string;
+  territorioId: number | null;
+  territorioNombre: string | null;
+  actualizadaEn: Date;
+  /** El comienzo del futuro deseado; `''` si la ficha no lo tiene. */
+  extracto: string;
+  /** Claves del catálogo de temas (una ficha vieja puede traer texto escrito a mano). */
+  temas: string[];
+  /** Afirmaciones vigentes: las mismas que lista el diseño de la ficha (sin las retiradas). */
+  afirmaciones: number;
+}
+
 export class FichasRepository {
   constructor(private readonly db: Db) {}
 
-  async listar(territorioId?: number, campanaId?: string) {
+  async listar(
+    territorioId?: number,
+    campanaId?: string,
+  ): Promise<{ fichas: FichaDeLista[]; total: number }> {
     const filtro =
       territorioId === undefined ? undefined : eq(fichasFuturo.territorioId, territorioId);
     const filas = await this.db
@@ -24,6 +73,9 @@ export class FichasRepository {
         territorioId: fichasFuturo.territorioId,
         territorioNombre: geographicLocations.name,
         actualizadaEn: fichasFuturo.actualizadaEn,
+        futuro: sql<unknown>`${fichasFuturo.contenido}->'futuro'`,
+        temas: sql<unknown>`${fichasFuturo.contenido}->'temas'`,
+        afirmaciones: sql<number>`(select count(*)::int from ${fichaAfirmaciones} where ${fichaAfirmaciones.fichaId} = ${fichasFuturo.id} and ${fichaAfirmaciones.retiradaEn} is null)`,
         total: sql<number>`count(*) over()::int`,
       })
       .from(fichasFuturo)
@@ -36,7 +88,14 @@ export class FichasRepository {
       )
       .orderBy(desc(fichasFuturo.actualizadaEn), fichasFuturo.id)
       .limit(50);
-    return { fichas: filas.map(({ total: _total, ...f }) => f), total: filas[0]?.total ?? 0 };
+    return {
+      fichas: filas.map(({ total: _total, futuro, temas, ...f }) => ({
+        ...f,
+        extracto: extractoDeFuturo(futuro),
+        temas: temasDeLaFicha(temas),
+      })),
+      total: filas[0]?.total ?? 0,
+    };
   }
 
   async porId(id: string, usuarioId?: number): Promise<FichaFuturo | null> {

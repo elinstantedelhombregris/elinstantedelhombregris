@@ -7,22 +7,16 @@ import { Fichas } from '../../Fichas';
 import { requerido } from './ayudas';
 
 import type { FichaFuturo } from '@v2/shared';
+import type { FichaDeLista } from '~/lib/queries/fichas';
 
 const A = '11111111-1111-4111-8111-111111111111';
 const B = '22222222-2222-4222-8222-222222222222';
 const CAMPANA = '3718dc73-9774-4d3b-b23d-8bf290ffec30';
 const ID = '99999999-9999-4999-8999-999999999999';
 
-interface TarjetaDeLista {
-  id: string;
-  titulo: string;
-  revision: number;
-  territorioNombre: string | null;
-  actualizadaEn: string;
-}
 interface Modelo {
   user: null | { id: number };
-  lista: { fichas: TarjetaDeLista[]; total: number };
+  lista: { fichas: FichaDeLista[]; total: number };
   ficha: FichaFuturo | undefined;
   useFichas: ReturnType<typeof vi.fn>;
   mutate: ReturnType<typeof vi.fn>;
@@ -100,12 +94,16 @@ const ficha: FichaFuturo = {
     { senalId: B, relacion: 'inspira', disponible: false, texto: null, estado: null },
   ],
 };
-const tarjeta = (n: number, extra = {}) => ({
+const tarjeta = (n: number, extra: Partial<FichaDeLista> = {}): FichaDeLista => ({
   id: `00000000-0000-4000-8000-00000000000${n}`,
   titulo: `Ficha número ${n}`,
   revision: 3,
+  territorioId: null,
   territorioNombre: null,
   actualizadaEn: '2026-10-15T12:00:00.000Z',
+  extracto: '',
+  temas: [],
+  afirmaciones: 0,
   ...extra,
 });
 
@@ -167,22 +165,68 @@ describe('Fichas: la lista', () => {
     expect(screen.getByText('Mostramos las 2 fichas más recientes, de 7.')).toBeInTheDocument();
   });
 
-  it('cada tarjeta dice versión, lugar y fecha en castellano, sin «Borrador»', () => {
+  it('cada tarjeta dice lugar, versión y fecha en castellano, sin «Borrador»', () => {
     modelo.lista = {
       fichas: [tarjeta(1), tarjeta(2, { territorioNombre: 'Mendoza' })],
       total: 2,
     };
     ir('/fichas');
     const [primera, segunda] = screen.getAllByRole('listitem');
-    expect(primera).toHaveTextContent('Ficha abierta · versión 3');
-    expect(primera).toHaveTextContent('Todo el país');
-    expect(primera).toHaveTextContent(/Actualizada el \d+ de octubre de 2026/);
-    expect(segunda).toHaveTextContent('Mendoza');
+    expect(primera).toHaveTextContent(
+      /^Ficha número 1Todo el país · versión 3 · actualizada el \d+ de octubre de 2026$/,
+    );
+    expect(segunda).toHaveTextContent(
+      /Mendoza · versión 3 · actualizada el \d+ de octubre de 2026$/,
+    );
     expect(within(requerido(primera)).getByRole('link')).toHaveAttribute(
       'href',
       '/fichas/00000000-0000-4000-8000-000000000001',
     );
-    expect(screen.queryByText(/Borrador/)).toBeNull();
+    expect(screen.queryByText(/Borrador|Ficha abierta/)).toBeNull();
+  });
+
+  it('la tarjeta muestra el extracto del futuro, los temas con su etiqueta y cuántas afirmaciones tiene', async () => {
+    modelo.lista = {
+      fichas: [
+        tarjeta(1, {
+          territorioNombre: 'Mendoza',
+          extracto: 'Aprendemos cerca de casa y compartimos saberes…',
+          temas: ['educacion', 'Salud mental'],
+          afirmaciones: 2,
+        }),
+      ],
+      total: 1,
+    };
+    ir('/fichas');
+    const tarjetaUno = requerido(screen.getAllByRole('listitem')[0]);
+    expect(
+      within(tarjetaUno).getByText('Aprendemos cerca de casa y compartimos saberes…'),
+    ).toBeVisible();
+    expect(await within(tarjetaUno).findByText('Educación')).toBeInTheDocument();
+    // La clave se traduce al nombre; un tema escrito a mano en una ficha vieja entra tal cual.
+    expect(within(tarjetaUno).queryByText('educacion')).toBeNull();
+    expect(within(tarjetaUno).getByText('Salud mental')).toBeInTheDocument();
+    expect(
+      within(tarjetaUno).getByText(/^Mendoza · versión 3 · actualizada el /),
+    ).toHaveTextContent(
+      /Mendoza · versión 3 · actualizada el \d+ de octubre de 2026 · 2 afirmaciones$/,
+    );
+  });
+
+  it('una sola afirmación va en singular; sin afirmaciones, sin extracto y sin temas, la tarjeta no inventa nada', () => {
+    modelo.lista = {
+      fichas: [tarjeta(1, { afirmaciones: 1 }), tarjeta(2)],
+      total: 2,
+    };
+    ir('/fichas');
+    const tarjetas = screen.getAllByRole('listitem');
+    const con = requerido(tarjetas[0]);
+    const sin = requerido(tarjetas[1]);
+    expect(con).toHaveTextContent(/ · 1 afirmación$/);
+    expect(sin).not.toHaveTextContent(/afirmaci/);
+    expect(sin).not.toHaveTextContent(/\b0\b/);
+    expect(within(sin).queryByText('Temas:')).toBeNull();
+    expect(sin.querySelectorAll('p')).toHaveLength(1);
   });
 
   it('el filtro activo se ve como una etiqueta que se quita, y se conserva el otro filtro', () => {

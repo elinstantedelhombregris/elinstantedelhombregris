@@ -154,5 +154,140 @@ describe.skipIf(!process.env['MAPA_TEST_DATABASE_URL'])(
       });
       expect(JSON.stringify(res.body)).not.toContain('Texto privado del aporte');
     });
+
+    type FilaDeLista = {
+      id: string;
+      titulo: string;
+      territorioId: number | null;
+      territorioNombre: string | null;
+      extracto: string;
+      temas: string[];
+      afirmaciones: number;
+    };
+    const insertarFicha = async (contenidoCrudo: object, territorioId: number | null = null) => {
+      const r = await local.pool.query<{ id: string }>(
+        `insert into fichas_futuro(creador_id,id_local,territorio_id,contenido)
+         values ($1,gen_random_uuid(),$2,$3::jsonb) returning id`,
+        [usuario, territorioId, JSON.stringify(contenidoCrudo)],
+      );
+      return r.rows[0]?.id ?? '';
+    };
+    const insertarAfirmacion = (fichaId: string, texto: string, retirada = false) =>
+      local.pool.query(
+        `insert into ficha_afirmaciones(ficha_id,creador_id,id_local,texto,retirada_en)
+         values ($1,$2,gen_random_uuid(),$3,$4)`,
+        [fichaId, usuario, texto, retirada ? new Date() : null],
+      );
+    const listar = async (consulta = '') =>
+      (await request.get(`/api/v1/fichas${consulta}`).expect(200)).body.data as {
+        fichas: FilaDeLista[];
+        total: number;
+      };
+
+    it('la lista dice de qué trata cada ficha: extracto, temas y afirmaciones vigentes', async () => {
+      const futuroLargo =
+        'Aprendemos cerca de casa y compartimos saberes entre generaciones. '.repeat(5);
+      const creada = await post({
+        idLocal: randomUUID(),
+        aceptaPublicar: true,
+        contenido: {
+          ...contenido,
+          titulo: '¿Cómo aprendemos cerca de casa?',
+          futuro: futuroLargo,
+          temas: ['agua', 'educacion'],
+          vinculos: [],
+        },
+      }).expect(201);
+      const conAfirmaciones = creada.body.data.id as string;
+      await insertarAfirmacion(
+        conAfirmaciones,
+        'Aprender cerca permite cuidar a quienes queremos.',
+      );
+      await insertarAfirmacion(conAfirmaciones, 'La escuela a pie no reemplaza al transporte.');
+      await insertarAfirmacion(conAfirmaciones, 'Esta frase ya se retiró.', true);
+      const sinNada = await insertarFicha({
+        titulo: 'Una ficha vieja sin futuro ni temas',
+        vinculos: [],
+      });
+      const deOtraForma = await insertarFicha({
+        titulo: 'Una ficha con el futuro y los temas mal formados',
+        futuro: 42,
+        temas: 'agua',
+        vinculos: [],
+      });
+
+      // Una sola consulta para toda la lista, sin una por ficha.
+      const consultas = vi.spyOn(local.pool, 'query');
+      const { fichas } = await listar();
+      expect(consultas).toHaveBeenCalledTimes(1);
+      consultas.mockRestore();
+
+      const de = (fichaId: string) => fichas.find((f) => f.id === fichaId);
+      const rica = de(conAfirmaciones);
+      expect(rica).toMatchObject({
+        titulo: '¿Cómo aprendemos cerca de casa?',
+        territorioId: null,
+        temas: ['agua', 'educacion'],
+        afirmaciones: 2,
+      });
+      expect(rica?.extracto.endsWith('…')).toBe(true);
+      expect(rica?.extracto.length).toBeLessThanOrEqual(181);
+      expect(futuroLargo.startsWith(rica?.extracto.slice(0, -1) ?? '¡')).toBe(true);
+      expect(rica?.extracto).toMatch(/^Aprendemos cerca de casa y compartimos saberes/);
+      // El texto de una afirmación no viaja en la lista, solo cuántas hay.
+      expect(JSON.stringify(fichas)).not.toContain('permite cuidar');
+      for (const fichaId of [sinNada, deOtraForma]) {
+        expect(de(fichaId)).toMatchObject({ extracto: '', temas: [], afirmaciones: 0 });
+      }
+    });
+
+    it('los filtros por campaña y por territorio siguen filtrando, con los mismos campos', async () => {
+      const campanaId = randomUUID();
+      const deLaCampana = await insertarFicha({
+        titulo: 'Una ficha dentro de una campaña',
+        futuro: 'Un barrio con agua todos los días.',
+        temas: ['agua'],
+        campanaId,
+        vinculos: [],
+      });
+      await insertarAfirmacion(deLaCampana, 'El agua llega a todas las casas.');
+      const porCampana = await listar(`?campanaId=${campanaId}`);
+      expect(porCampana.total).toBe(1);
+      expect(porCampana.fichas).toEqual([
+        expect.objectContaining({
+          id: deLaCampana,
+          extracto: 'Un barrio con agua todos los días.',
+          temas: ['agua'],
+          afirmaciones: 1,
+        }),
+      ]);
+
+      const provincia = (
+        await local.pool.query<{ id: number; name: string }>(
+          `select id, name from geographic_locations where level='province' order by id limit 1`,
+        )
+      ).rows[0];
+      if (!provincia) throw new Error('La base de prueba no tiene provincias sembradas.');
+      const delLugar = await insertarFicha(
+        {
+          titulo: 'Una ficha de una provincia',
+          futuro: 'Un futuro con lugar.',
+          temas: [],
+          vinculos: [],
+        },
+        provincia.id,
+      );
+      await insertarAfirmacion(delLugar, 'Esto vale para toda la provincia.');
+      await insertarAfirmacion(delLugar, 'Esto también.');
+      const porLugar = await listar(`?territorioId=${provincia.id}`);
+      expect(porLugar.fichas.map((f) => f.id)).toContain(delLugar);
+      expect(porLugar.fichas.map((f) => f.id)).not.toContain(deLaCampana);
+      expect(porLugar.fichas.every((f) => f.territorioId === provincia.id)).toBe(true);
+      expect(porLugar.fichas.find((f) => f.id === delLugar)).toMatchObject({
+        territorioNombre: provincia.name,
+        extracto: 'Un futuro con lugar.',
+        afirmaciones: 2,
+      });
+    });
   },
 );
