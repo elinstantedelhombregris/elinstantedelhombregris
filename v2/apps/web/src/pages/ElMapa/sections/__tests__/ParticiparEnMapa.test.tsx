@@ -42,6 +42,26 @@ const lugar: LugarMapa = {
 };
 const base = { modo: 'guiado' as const, cerrar: vi.fn(), lugar, visible: true };
 
+describe('El título del panel recibe el foco sin dibujar un anillo', () => {
+  it('«Sumá tu aporte.» toma el foco al abrir y no pinta el anillo violeta del :focus-visible', () => {
+    render(<ParticiparEnMapa {...base} cambiar={vi.fn()} />);
+    const titulo = screen.getByRole('heading', { level: 2, name: 'Sumá tu aporte.' });
+    // Foco programático sobre un título que no es un control: el foco se mueve (lectores de
+    // pantalla, siguiente tabulación), pero el anillo de .papel-root :focus-visible no se ve.
+    expect(titulo).toHaveFocus();
+    expect(titulo).toHaveAttribute('tabindex', '-1');
+    expect(titulo).toHaveClass('focus:outline-none');
+  });
+});
+
+describe('El panel de aportes es papel dentro del instrumento de noche', () => {
+  it('declara el esquema claro: sin eso sus casillas heredarían el oscuro del instrumento', () => {
+    render(<ParticiparEnMapa {...base} cambiar={vi.fn()} />);
+    const panel = screen.getByRole('complementary', { name: 'Aportar desde el mapa' });
+    expect(panel).toHaveClass('[color-scheme:light]', 'accent-violeta', 'bg-papel');
+  });
+});
+
 describe('Un solo panel para aportar, dentro del mapa', () => {
   it('se llama «Sumá tu aporte» y abre con las tres preguntas; el aporte puntual queda fuera del teclado', async () => {
     render(<ParticiparEnMapa {...base} cambiar={vi.fn()} />);

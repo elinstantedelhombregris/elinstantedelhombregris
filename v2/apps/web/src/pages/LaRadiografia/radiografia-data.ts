@@ -7,6 +7,7 @@ import {
   GRIS_DEL_TEMA,
   type TemaDelMapa,
 } from '~/components/mapa/pintor-senales';
+import { REGISTRO_DE_NOCHE } from '~/components/papel/esquema';
 import { CLASE_ROTULO, cuantos } from '~/lib/vocabulario';
 
 /**
@@ -167,6 +168,14 @@ export function fraseCorta(texto: string, maximo = 80): string {
 export type Tema = TemaDelMapa;
 
 const CLAVE_DE_TEMA = 'basta_radiografia_tema';
+
+/**
+ * El contenedor de la página de noche. `color-scheme: dark` es lo que hace que los
+ * controles nativos de adentro (el select, el deslizador, la casilla) se dibujen
+ * oscuros sobre este fondo: el papel que lo rodea declara `light`. El acento es el
+ * violeta claro, el único que se distingue sobre este fondo.
+ */
+export const CLASES_DE_NOCHE = `bg-oscuro-barra text-oscuro-texto ${REGISTRO_DE_NOCHE}`;
 
 export function leerTema(): Tema {
   try {

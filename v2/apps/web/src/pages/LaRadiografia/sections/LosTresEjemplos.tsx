@@ -114,7 +114,12 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
         Cambiá el escenario y mirá cómo se agrupan.
       </p>
       <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-        <span className="font-space border-sello text-sello border-2 px-3 py-2 text-xs font-bold uppercase tracking-[0.12em]">
+        {/* El sello rojo se hunde sobre el fondo de noche (3,07:1): ahí va el sello claro. */}
+        <span
+          className={`font-space border-2 px-3 py-2 text-xs font-bold uppercase tracking-[0.12em] ${
+            nocturno ? 'border-sello-claro text-sello-claro' : 'border-sello text-sello'
+          }`}
+        >
           Ejemplo · voces inventadas
         </span>
         <details className="max-w-[840px]">

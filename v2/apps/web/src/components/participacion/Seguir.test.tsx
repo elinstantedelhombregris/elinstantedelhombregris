@@ -47,6 +47,11 @@ describe('Seguir', () => {
       cuerpo: { tipo, objeto: 'x' },
     });
   });
+  it('el botón toma las clases que le pase quien lo monta, para igualar el ancho de sus vecinos', () => {
+    modelo.user = { id: 1 };
+    render(<Seguir tipo="campana" objeto="c1" className="w-full" />);
+    expect(screen.getByRole('button', { name: 'Seguir esta campaña' })).toHaveClass('w-full');
+  });
   it('después de seguir avisa que ya la sigue y adónde le llegan las novedades', () => {
     modelo.user = { id: 1 };
     modelo.op = { isSuccess: true, variables: { metodo: 'post', ruta: '/x' } };

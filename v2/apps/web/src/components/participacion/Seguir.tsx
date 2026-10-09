@@ -17,7 +17,16 @@ const OBJETOS: Record<SeguimientoTipo, string> = {
   tema: 'este tema',
 };
 
-export function Seguir({ tipo, objeto }: { tipo: SeguimientoTipo; objeto: string }) {
+export function Seguir({
+  tipo,
+  objeto,
+  className,
+}: {
+  tipo: SeguimientoTipo;
+  objeto: string;
+  /** Clases del botón: para ponerlo del ancho de las acciones que lo rodean. */
+  className?: string;
+}) {
   const auth = useAuth();
   const espacio = useMiEspacio(auth.user?.id);
   const op = useOperacionPersonal();
@@ -39,6 +48,7 @@ export function Seguir({ tipo, objeto }: { tipo: SeguimientoTipo; objeto: string
       <BotonConMotivo
         tono="papel"
         motivo={null}
+        {...(className ? { className } : {})}
         ocupado={op.isPending || espacio.isLoading}
         onClick={() => {
           op.mutate(

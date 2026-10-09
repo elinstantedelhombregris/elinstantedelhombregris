@@ -2,7 +2,12 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { Link } from 'wouter';
 
 import { LOS_TRES_ESCENARIOS } from './LaRadiografia/ejemplos';
-import { guardarTema, leerTema, type Tema } from './LaRadiografia/radiografia-data';
+import {
+  CLASES_DE_NOCHE,
+  guardarTema,
+  leerTema,
+  type Tema,
+} from './LaRadiografia/radiografia-data';
 import { InterruptorDeTema } from './LaRadiografia/sections/InterruptorDeTema';
 import { LosTresEjemplos } from './LaRadiografia/sections/LosTresEjemplos';
 
@@ -98,13 +103,15 @@ export function LaRadiografiaEjemplo() {
 
   return (
     <main
-      className={nocturno ? 'bg-oscuro-barra text-oscuro-texto' : ''}
+      className={nocturno ? CLASES_DE_NOCHE : ''}
       style={nocturno ? { minHeight: '100vh' } : undefined}
     >
       <div className="mx-auto max-w-[1440px] px-10 py-6 max-[560px]:px-5">
         <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <Kicker className="mb-3">La Radiografía · ejemplo</Kicker>
+            <Kicker className={nocturno ? 'text-violeta-claro mb-3' : 'mb-3'}>
+              La Radiografía · ejemplo
+            </Kicker>
             <h1
               aria-label="Laboratorio: las mismas frases, escritas de tres maneras"
               className="font-anton riso-hover mb-3 text-[clamp(36px,4vw,60px)] leading-[1]"

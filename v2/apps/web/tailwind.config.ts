@@ -50,7 +50,10 @@ const config: Config = {
           hover: '#3D1BA3',
           claro: '#9D85E8', // violeta sobre fondo tinta
         },
-        sello: '#C23B22', // basta · urgencia · sellos
+        // basta · urgencia · sellos. `claro` es el sello sobre fondo tinta: el DEFAULT rinde
+        // 3,07:1 sobre `oscuro.barra`; el claro, 6,2:1 (el mismo #E8846F de la rampa «Sello»
+        // de `pages/ElMapa/instrumento/paleta.ts`).
+        sello: { DEFAULT: '#C23B22', claro: '#E8846F' },
         verde: '#1A7A4A', // compromiso · territorio
         // Necesidad · método. `DEFAULT` es el de TEXTO y de superficie sobre papel: 4,76:1 sobre
         // papel y 5,23:1 sobre papel-crudo (el #A16C00 anterior daba 3,92:1 y 4,31:1: no llegaba

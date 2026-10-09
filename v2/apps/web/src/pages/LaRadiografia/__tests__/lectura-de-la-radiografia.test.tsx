@@ -303,6 +303,14 @@ describe('iniciar sesión desde el análisis vuelve al análisis', () => {
     );
   });
 
+  it('es papel aunque la página esté de noche: declara el esquema claro para sus controles', () => {
+    montar(<ControlesAnalisis filtros={{}} cambiar={vi.fn()} corte={null} />);
+    expect(screen.getByLabelText('Elegir el alcance del análisis')).toHaveClass(
+      '[color-scheme:light]',
+      'accent-violeta',
+    );
+  });
+
   it('el filtro de tipo se llama tipo y el lugar se llama lugar', () => {
     montar(<ControlesAnalisis filtros={{}} cambiar={vi.fn()} corte={null} />);
     expect(screen.getByLabelText('Tipo de aporte')).toBeInTheDocument();

@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { FuturosTerritorio } from '../FuturosTerritorio';
@@ -19,6 +19,22 @@ describe('Futuros del territorio', () => {
     window.history.replaceState(null, '', `/el-mapa?campana=${id}`);
     render(<FuturosTerritorio lugar={null} />);
     expect(m.useFichas).toHaveBeenCalledWith(undefined, id);
+  });
+
+  it('una ficha tiene versiones: la lista dice «versión», no «revisión»', () => {
+    m.useFichas.mockReturnValue({
+      data: {
+        fichas: [
+          { id: 'f1', titulo: 'Educación en comunidad', territorioNombre: null, revision: 2 },
+        ],
+        total: 1,
+      },
+      isLoading: false,
+    });
+    window.history.replaceState(null, '', '/el-mapa');
+    const { container } = render(<FuturosTerritorio lugar={null} />);
+    expect(screen.getByText('Todo el país · versión 2')).toBeInTheDocument();
+    expect(container.textContent).not.toMatch(/revisión/i);
   });
 
   it('una campaña por slug —la que usa el panel de aportes— no filtra: las fichas se piden por id', () => {

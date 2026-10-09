@@ -75,6 +75,13 @@ export function Senal() {
   const clase = claseDe(senal.tipo);
   const ruidoso = ESTADO_RUIDOSO.has(senal.estado);
   const cuentan = confirmaciones.filter((c) => c.cuenta && c.veredicto === 'confirm').length;
+  // Sin provincia, sin punto y sin dirección, el aporte es de todo el país: la precisión que
+  // trae es el valor por defecto de la base, no una medida, y decirla sería inventar un lugar.
+  const hayLugar =
+    senal.provinceId !== null ||
+    senal.lat !== null ||
+    senal.lng !== null ||
+    senal.direccionTexto !== null;
 
   return (
     <main className="mx-auto max-w-[760px] px-10 py-[72px] max-[560px]:px-5">
@@ -107,7 +114,15 @@ export function Senal() {
         </h1>
       )}
 
-      <p className="text-tinta mt-4 max-w-[62ch] text-[19px] leading-[1.55]">{senal.texto}</p>
+      {/* Cada aporte tiene su H1. Con título, el título; sin título —el caso común—, el propio
+          texto del aporte, que es de lo que trata la página. Se ve igual que antes. */}
+      {senal.titulo === null ? (
+        <h1 className="text-tinta mt-4 max-w-[62ch] text-[19px] font-normal leading-[1.55]">
+          {senal.texto}
+        </h1>
+      ) : (
+        <p className="text-tinta mt-4 max-w-[62ch] text-[19px] leading-[1.55]">{senal.texto}</p>
+      )}
 
       {/* La firma NUNCA sale sola. Es el nombre que alguien eligió poner, no
           una identidad comprobada, y mostrarla pelada la haría pasar por lo
@@ -132,9 +147,13 @@ export function Senal() {
       {/* ── Dónde y con qué grano ───────────────────────────────────────── */}
       <dl className="border-tinta mt-8 border-t-2">
         {senal.direccionTexto === null ? null : <Fila rotulo="Dónde">{senal.direccionTexto}</Fila>}
-        <Fila rotulo="Precisión del lugar">
-          {etiquetaDePrecision(precisionValida(senal.precision))}
-        </Fila>
+        {hayLugar ? (
+          <Fila rotulo="Precisión del lugar">
+            {etiquetaDePrecision(precisionValida(senal.precision))}
+          </Fila>
+        ) : (
+          <Fila rotulo="Lugar">Todo el país</Fila>
+        )}
         {senal.comprometidoPara === null ? null : (
           <Fila rotulo="Prometido para">
             {new Date(`${senal.comprometidoPara}T00:00:00`).toLocaleDateString('es-AR', {

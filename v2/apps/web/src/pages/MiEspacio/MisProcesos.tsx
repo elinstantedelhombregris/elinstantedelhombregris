@@ -35,13 +35,16 @@ export function MisProcesos({
                 {p.titulo}
               </Link>
               <p className="text-tinta-50 mt-2 text-sm">
-                {p.tipo === 'ficha' ? 'Ficha' : 'Campaña'} · versión {p.revision}
+                {/* Una ficha tiene versiones; una campaña, ediciones. */}
+                {p.tipo === 'ficha' ? 'Ficha · versión' : 'Campaña · edición'} {p.revision}
               </p>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-tinta-50 mt-4 text-sm">Todavía no tenés fichas ni campañas a tu cargo.</p>
+        <p className="text-tinta-50 mt-4 text-sm">
+          Todavía no tenés fichas ni campañas a tu cargo.
+        </p>
       )}
       <div className="mt-5 flex flex-wrap gap-5">
         {puedeArmarFicha ? (

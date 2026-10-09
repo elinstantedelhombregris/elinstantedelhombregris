@@ -303,6 +303,21 @@ describe('El detalle de una campaña', () => {
       '/campanas/pregunta-de-la-comunidad?edicion=2',
     );
   });
+  it('los tres destinos de «Seguir construyendo» miden lo mismo: una columna de un solo ancho', () => {
+    abrir(campana());
+    const grupo = screen.getByRole('heading', {
+      name: 'Seguir construyendo esta campaña',
+    }).nextElementSibling;
+    const enlaces = Array.from(grupo?.querySelectorAll('a') ?? []);
+    expect(enlaces.map((a) => a.textContent)).toEqual([
+      'Ver las fichas de esta campaña',
+      'Ver lo escuchado en la Radiografía',
+      'Descargar estos datos',
+    ]);
+    // Mismo ancho en todos (w-full dentro de la misma columna), centrados.
+    for (const enlace of enlaces) expect(enlace).toHaveClass('w-full', 'justify-center');
+    expect(grupo).toHaveClass('flex-col');
+  });
   it('explica la devolución una sola vez y no numera los bloques', () => {
     abrir(campana());
     expect(

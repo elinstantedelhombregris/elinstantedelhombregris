@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { Router } from 'wouter';
 import { memoryLocation } from 'wouter/memory-location';
@@ -96,5 +96,37 @@ describe('el cielo de esta página se declara del ejemplo', () => {
       .getAllByRole('link')
       .filter((a) => a.getAttribute('href') === '/la-radiografia');
     expect(links.length).toBeGreaterThanOrEqual(2);
+  });
+});
+
+describe('el ejemplo de noche', () => {
+  it('declara color-scheme: dark en su contenedor al pasar a nocturno, y no en papel', () => {
+    window.localStorage.clear();
+    const { container } = envolver(<LaRadiografiaEjemplo />);
+    expect(container.querySelector('main')).not.toHaveClass('[color-scheme:dark]');
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    expect(container.querySelector('main')).toHaveClass('[color-scheme:dark]');
+    window.localStorage.clear();
+  });
+
+  it('de noche el rótulo y el sello del ejemplo usan los tonos claros, que se leen sobre el fondo', () => {
+    window.localStorage.clear();
+    envolver(<LaRadiografiaEjemplo />);
+    const rotulo = screen.getByText('La Radiografía · ejemplo');
+    const sello = screen.getByText('Ejemplo · voces inventadas');
+    expect(rotulo).toHaveClass('text-violeta');
+    expect(sello).toHaveClass('text-sello', 'border-sello');
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    expect(rotulo).toHaveClass('text-violeta-claro');
+    expect(rotulo).not.toHaveClass('text-violeta');
+    // El texto del sello no cambia («voces inventadas» está fijado por otro test).
+    expect(sello).toHaveTextContent('Ejemplo · voces inventadas');
+    expect(sello).toHaveClass('text-sello-claro', 'border-sello-claro');
+    expect(sello).not.toHaveClass('text-sello');
+    window.localStorage.clear();
   });
 });

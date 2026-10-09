@@ -21,6 +21,7 @@ import type { Recuadro } from './useVistaMapa';
 import type { ReactNode } from 'react';
 import type { MapRef } from 'react-map-gl/maplibre';
 
+import { REGISTRO_DE_NOCHE } from '~/components/papel/esquema';
 import { PanelDejarFalta } from '~/components/papel/PanelDejarFalta';
 import { BotonPapel } from '~/components/papel/primitives';
 import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
@@ -126,7 +127,10 @@ export function Instrumento({
   const mirada = consulta.data?.signals.find((s) => s.id === seleccionada);
 
   return (
-    <section aria-label="Instrumento territorial" className="border-oscuro-borde bg-tinta border-y">
+    <section
+      aria-label="Instrumento territorial"
+      className={cn('border-oscuro-borde bg-tinta border-y', REGISTRO_DE_NOCHE)}
+    >
       <FiltrosExploracion valor={exploracion} cambiar={cambiar} elegir={elegir} />
       <div className="text-oscuro-texto flex flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm">
         <button
@@ -150,7 +154,7 @@ export function Instrumento({
             onAportar?.(lugarElegido?.id === exploracion.lugarId ? lugarElegido : null);
           }}
         >
-          {participando ? 'Tu aporte está en elaboración' : 'Sumá tu aporte →'}
+          {participando ? 'Seguir con mi aporte' : 'Sumá tu aporte →'}
         </BotonPapel>
       </div>
       {!soloLista ? (
@@ -202,7 +206,15 @@ export function Instrumento({
           soloLista && !participando && 'hidden',
         )}
       >
-        <div className="max-h-[640px] overflow-auto max-[960px]:order-2 max-[960px]:max-h-none">
+        {/* El panel de aportes no tiene tope de alto: el formulario entero (976 px con la
+            revisión) crece con la página y el botón principal queda en la página, no adentro de
+            un scroll chico. Los paneles de lectura sí se recortan a la altura del mapa. */}
+        <div
+          className={cn(
+            'overflow-auto max-[960px]:order-2 max-[960px]:max-h-none',
+            !participando && 'max-h-[640px]',
+          )}
+        >
           <div hidden={participando}>
             <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
               {tieneDatos ? (
@@ -219,7 +231,12 @@ export function Instrumento({
 
         <div
           hidden={soloLista}
-          className="relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]"
+          className={cn(
+            'relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]',
+            // Con el panel de aportes largo, el mapa lo acompaña en vez de quedar arriba con un
+            // hueco debajo. 64 px es la altura del encabezado pegajoso.
+            participando && 'min-[961px]:sticky min-[961px]:top-16 min-[961px]:self-start',
+          )}
         >
           {activo.superficie ? (
             /* La Simulación trae su propia superficie: la cortina son dos

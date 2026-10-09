@@ -95,7 +95,12 @@ function montar(props: Parameters<typeof ConversacionIdeal>[0] = {}) {
     </QueryClientProvider>
   );
   const vista = render(dibujar(props));
-  return { ...vista, con: (p: typeof props) => { vista.rerender(dibujar(p)); } };
+  return {
+    ...vista,
+    con: (p: typeof props) => {
+      vista.rerender(dibujar(p));
+    },
+  };
 }
 const escribir = (valor: string) => {
   fireEvent.change(screen.getByRole('textbox'), { target: { value: valor } });
@@ -167,9 +172,10 @@ describe('Las tres preguntas: la primera pantalla', () => {
     escribir('Una escena.');
     pulsar('Seguir imaginando');
     expect(screen.getByText('Pregunta 2 de 3')).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: '¿Por qué eso es importante para vos?' }),
-    ).toHaveFocus();
+    const titulo = screen.getByRole('heading', { name: '¿Por qué eso es importante para vos?' });
+    expect(titulo).toHaveFocus();
+    // El foco se mueve, pero el título no dibuja el anillo de :focus-visible.
+    expect(titulo).toHaveClass('focus:outline-none');
   });
 
   it('la barra tiene tantos segmentos como preguntas', () => {
@@ -192,6 +198,22 @@ describe('Las tres preguntas: la primera pantalla', () => {
 });
 
 describe('Revisar antes de publicar', () => {
+  it('el campo «Mi aporte» crece con el texto: mínimo de cinco filas, tope antes de scrollear', () => {
+    montar();
+    escribir('Una escena.');
+    pulsar('Seguir imaginando');
+    pulsar('Seguir imaginando');
+    pulsar('Revisar lo que voy a compartir');
+
+    const campo = screen.getByLabelText<HTMLTextAreaElement>('Mi aporte');
+    expect(campo).toHaveAttribute('rows', '5');
+    expect(campo).toHaveClass('max-h-[28rem]', 'overflow-y-auto', 'resize-none');
+    // Las dos acciones de la revisión tienen un mismo ancho.
+    for (const nombre of ['Volver a mis respuestas', 'Publicar mi aporte']) {
+      expect(screen.getByRole('button', { name: nombre })).toHaveClass('w-full');
+    }
+  });
+
   it('con respuestas que juntas pasan el límite ofrece un texto recortado donde termina una frase', () => {
     montar();
     const larga = 'Quiero poder caminar tranquila por mi barrio. '.repeat(40).trim();
@@ -202,7 +224,9 @@ describe('Revisar antes de publicar', () => {
     escribir(larga);
     pulsar('Revisar lo que voy a compartir');
 
-    expect(screen.getByRole('heading', { name: 'Revisá lo que vas a compartir' })).toHaveFocus();
+    const revision = screen.getByRole('heading', { name: 'Revisá lo que vas a compartir' });
+    expect(revision).toHaveFocus();
+    expect(revision).toHaveClass('focus:outline-none');
     expect(
       screen.getByText('Esto es lo que se va a publicar. Podés cambiarlo o recortarlo.'),
     ).toBeInTheDocument();

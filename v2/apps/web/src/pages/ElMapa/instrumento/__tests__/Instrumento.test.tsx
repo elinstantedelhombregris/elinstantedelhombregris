@@ -102,3 +102,52 @@ describe('Instrumento — un mapa sin aportes lo dice una sola vez y en palabras
     expect(container.textContent).not.toMatch(/Nadie dijo|nadie habló|Todavía no habló nadie/i);
   });
 });
+
+describe('Instrumento — es un registro de noche dentro del papel', () => {
+  it('declara color-scheme: dark en su contenedor, para que sus controles nativos se dibujen oscuros', () => {
+    montar(false);
+    const instrumento = screen.getByRole('region', { name: 'Instrumento territorial' });
+    // El papel que lo rodea es `light`; sin esto el select y los deslizadores saldrían claros
+    // sobre el fondo de tinta.
+    expect(instrumento).toHaveClass('[color-scheme:dark]', 'bg-tinta');
+  });
+});
+
+describe('Instrumento — el panel de aportes crece con la página', () => {
+  const columna = () => screen.getByLabelText('Tu aporte').closest('.overflow-auto');
+
+  it('con el panel abierto no tiene tope de alto ni scroll propio en escritorio', () => {
+    montar(true);
+    expect(columna()).not.toBeNull();
+    expect(columna()).not.toHaveClass('max-h-[640px]');
+    // En el teléfono ya se apilaba sin tope, y sigue así.
+    expect(columna()).toHaveClass('max-[960px]:max-h-none');
+  });
+
+  it('con el panel cerrado, los paneles de lectura siguen recortados a la altura del mapa', () => {
+    montar(false);
+    expect(columna()).toHaveClass('max-h-[640px]');
+  });
+
+  it('con el panel abierto el mapa acompaña al panel largo en escritorio', () => {
+    const { container } = montar(true);
+    const mapa = container.querySelector('.relative.h-\\[640px\\]');
+    expect(mapa).toHaveClass('min-[961px]:sticky', 'min-[961px]:self-start');
+  });
+});
+
+describe('Instrumento — el botón del panel de aportes dice qué hace', () => {
+  it('cerrado invita a sumar el aporte', () => {
+    montar(false);
+    expect(screen.getByRole('button', { name: 'Sumá tu aporte →' })).toBeInTheDocument();
+  });
+
+  it('abierto es una acción —seguir con el aporte—, no un estado que parece un botón', () => {
+    montar(true);
+    expect(screen.getByRole('button', { name: 'Seguir con mi aporte' })).toHaveAttribute(
+      'aria-expanded',
+      'true',
+    );
+    expect(screen.queryByText(/en elaboración/)).not.toBeInTheDocument();
+  });
+});

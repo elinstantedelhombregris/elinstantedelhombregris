@@ -69,8 +69,8 @@ export function Colaborar() {
       {conEnlace ? null : <p className="text-tinta-75 mb-6 max-w-[720px]">{QUE_ES_ESTA_PAGINA}</p>}
       {!auth.user ? (
         <Nota>
-          Ingresá y volvé a este enlace. La invitación permanece en su fragmento privado; también
-          podés copiar el código para retomarla.{' '}
+          Ingresá y volvé a este enlace. La invitación sigue en la parte del enlace después de #,
+          que no llega al servidor; también podés copiar el código para retomarla.{' '}
           <Link href="/ingresar?volver=%2Fcolaborar" className="text-violeta underline">
             Ingresar
           </Link>

@@ -21,6 +21,15 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* El papel es claro: sin esto, casillas, radios y barras de scroll nativos se dibujan
+     oscuros sobre papel y una casilla SIN marcar parece marcada. Los registros de noche
+     que viven adentro (el instrumento del mapa, la Radiografía y el Mandato de noche)
+     vuelven a declarar `color-scheme: dark` en su propio contenedor. */
+  .papel-root {
+    color-scheme: light;
+    accent-color: theme('colors.violeta.DEFAULT');
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
   }

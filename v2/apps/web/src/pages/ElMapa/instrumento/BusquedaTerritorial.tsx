@@ -20,13 +20,41 @@ const NIVELES: Record<string, string> = {
   settlement: 'Asentamiento',
 };
 
+/**
+ * Sobre qué fondo vive el buscador. `noche` (el predeterminado) es el del instrumento del mapa,
+ * que es de tinta; `papel` es para los formularios de papel: sin él el buscador pintaba una lista
+ * de tinta que, en un formulario de papel, heredaba texto de tinta sobre tinta.
+ */
+export type SuperficieBusqueda = 'noche' | 'papel';
+
+const CLASES: Record<
+  SuperficieBusqueda,
+  { campo: string; lista: string; opcion: string; meta: string }
+> = {
+  noche: {
+    campo: 'bg-papel text-tinta border-oscuro-borde',
+    lista: 'bg-tinta border-oscuro-borde',
+    opcion: 'hover:bg-oscuro-borde',
+    meta: 'text-oscuro-meta',
+  },
+  papel: {
+    campo: 'bg-papel-crudo text-tinta border-tinta',
+    lista: 'bg-papel-crudo text-tinta border-tinta',
+    opcion: 'hover:bg-papel-presionado',
+    meta: 'text-tinta-75',
+  },
+};
+
 export function BusquedaTerritorial({
   onElegir,
   rotulo = 'Buscá provincia, municipio o localidad',
+  superficie = 'noche',
 }: {
   onElegir: (lugar: LugarMapa) => void;
   rotulo?: string;
+  superficie?: SuperficieBusqueda;
 }) {
+  const clases = CLASES[superficie];
   const id = useId();
   const [texto, setTexto] = useState('');
   const [busqueda, setBusqueda] = useState('');
@@ -61,12 +89,14 @@ export function BusquedaTerritorial({
         onChange={(e) => {
           setTexto(e.target.value);
         }}
-        className="bg-papel text-tinta border-oscuro-borde min-h-11 w-full border px-3"
+        className={`${clases.campo} min-h-11 w-full border px-3`}
         placeholder="Por ejemplo, San Martín"
         autoComplete="off"
       />
       {busqueda.length >= 2 ? (
-        <div className="bg-tinta border-oscuro-borde absolute z-30 mt-1 max-h-72 w-full overflow-auto border p-2">
+        <div
+          className={`${clases.lista} absolute z-30 mt-1 max-h-72 w-full overflow-auto border p-2`}
+        >
           {consulta.isFetching ? (
             <p role="status" className="p-2">
               Buscando lugares…
@@ -96,7 +126,7 @@ export function BusquedaTerritorial({
               <li key={lugar.id}>
                 <button
                   type="button"
-                  className="hover:bg-oscuro-borde min-h-11 w-full px-3 py-2 text-left"
+                  className={`${clases.opcion} min-h-11 w-full px-3 py-2 text-left`}
                   onClick={() => {
                     onElegir(lugar);
                     setTexto('');
@@ -104,7 +134,7 @@ export function BusquedaTerritorial({
                   }}
                 >
                   {lugar.name}
-                  <span className="text-oscuro-meta block text-xs">
+                  <span className={`${clases.meta} block text-xs`}>
                     {NIVELES[lugar.level] ?? lugar.level} ·{' '}
                     {nombres.get(lugar.provinceId) ?? `Provincia ${lugar.provinceId}`} · ID{' '}
                     {lugar.id}

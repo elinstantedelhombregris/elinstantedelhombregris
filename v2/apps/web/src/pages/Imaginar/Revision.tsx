@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import { BusquedaTerritorial } from '../ElMapa/instrumento/BusquedaTerritorial';
 import { ConsentimientoVoz } from '../ElMapa/sections/soltar/ConsentimientoVoz';
 
@@ -5,10 +7,11 @@ import type { LugarMapa } from '../ElMapa/instrumento/BusquedaTerritorial';
 import type { ReactNode } from 'react';
 
 import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
-import { CAMPO } from '~/components/participacion/constantes';
+import { ACCION_DE_PILA, CAMPO, PILA_DE_ACCIONES } from '~/components/participacion/constantes';
 import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
 import { LIMITE_APORTE } from '~/lib/participacion/texto-aporte';
+import { useAutoAltura } from '~/lib/participacion/useAutoAltura';
 
 interface Props {
   lectura: string;
@@ -48,9 +51,17 @@ function motivoDeBloqueo(p: Props): string | null {
 
 export function Revision(props: Props) {
   const exceso = props.lectura.length - LIMITE_APORTE;
+  const campo = useRef<HTMLTextAreaElement>(null);
+  // Lo que se va a publicar se ve entero: el campo crece con el texto, con un tope razonable.
+  useAutoAltura(campo, props.lectura);
   return (
     <section aria-labelledby="revision-titulo">
-      <h3 id="revision-titulo" tabIndex={-1} data-foco-paso className="font-anton text-3xl">
+      <h3
+        id="revision-titulo"
+        tabIndex={-1}
+        data-foco-paso
+        className="font-anton text-3xl focus:outline-none"
+      >
         Revisá lo que vas a compartir
       </h3>
       <p className="mt-3 max-w-[650px] leading-relaxed">
@@ -64,8 +75,9 @@ export function Revision(props: Props) {
       <label className="mt-5 block font-medium">
         Mi aporte
         <textarea
+          ref={campo}
           rows={5}
-          className={CAMPO}
+          className={`${CAMPO} max-h-[28rem] resize-none overflow-y-auto`}
           value={props.lectura}
           onChange={(e) => {
             props.cambiar(e.target.value);
@@ -109,7 +121,11 @@ export function Revision(props: Props) {
           Lugar: <strong>{props.lugar?.name ?? 'todo el país'}</strong>. Podés hablar de todo el
           país o de un lugar concreto.
         </p>
-        <BusquedaTerritorial onElegir={props.elegirLugar} rotulo="Buscá el lugar de tu aporte" />
+        <BusquedaTerritorial
+          onElegir={props.elegirLugar}
+          rotulo="Buscá el lugar de tu aporte"
+          superficie="papel"
+        />
         {props.lugar ? (
           <button
             type="button"
@@ -134,12 +150,13 @@ export function Revision(props: Props) {
         nombre no se publica.
       </Nota>
       <ErrorOperacion mensaje={props.error} />
-      <div className="flex flex-wrap items-center gap-3">
-        <BotonAccion type="button" tono="papel" onClick={props.volver}>
+      <div className={PILA_DE_ACCIONES}>
+        <BotonAccion type="button" tono="papel" className={ACCION_DE_PILA} onClick={props.volver}>
           Volver a mis respuestas
         </BotonAccion>
         <BotonConMotivo
           type="button"
+          className={ACCION_DE_PILA}
           motivo={motivoDeBloqueo(props)}
           ocupado={props.enviando}
           onClick={props.enviar}

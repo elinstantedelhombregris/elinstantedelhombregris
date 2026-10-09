@@ -4,6 +4,16 @@ import { ChipTipo, Kicker } from '~/components/papel/primitives';
 import { useCola } from '~/lib/queries/senales';
 
 /**
+ * El servidor explica con su propio texto por qué la cola va vacía cuando no reconoce el
+ * navegador, y lo hace con palabras que el sitio ya no usa. Se lo dice en el glosario: el aporte
+ * se llama «aporte» y el botón, «A mí también me pasa». Cualquier otra razón se muestra como
+ * llega. (El texto de origen está en `apps/api/src/features/senales/routes.ts`.)
+ */
+const SIN_IDENTIFICADOR = 'identificador de este navegador';
+const SIN_IDENTIFICADOR_EN_LLANO =
+  'Todavía no sabemos quién sos en este navegador. Sumá un aporte o decí «A mí también me pasa» en el de otra persona, y acá aparecen aportes para mirar.';
+
+/**
  * La cola del «¿sigue así?».
  *
  * Es la única pantalla que le da algo que **hacer** a alguien que no quiere
@@ -53,7 +63,7 @@ export function ColaDeVerificacion() {
 
       {razon !== null ? (
         <p className="border-tinta-30 text-tinta-75 mt-6 max-w-[62ch] border-l-2 py-1 pl-4 text-[15px] leading-relaxed">
-          {razon}
+          {razon.includes(SIN_IDENTIFICADOR) ? SIN_IDENTIFICADOR_EN_LLANO : razon}
         </p>
       ) : senales.length === 0 ? (
         <p className="border-tinta-30 text-tinta-75 mt-6 max-w-[62ch] border-l-2 py-1 pl-4 text-[15px] leading-relaxed">

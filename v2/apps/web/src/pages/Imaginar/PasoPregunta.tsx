@@ -23,7 +23,11 @@ export function PasoPregunta({
   const motivo = paso === 0 && !valor.trim() ? 'Escribí al menos una frase para seguir.' : null;
   return (
     <section className="border-tinta/20 border-y py-5">
-      <h3 tabIndex={-1} data-foco-paso className="font-anton text-[28px] leading-tight">
+      <h3
+        tabIndex={-1}
+        data-foco-paso
+        className="font-anton text-[28px] leading-tight focus:outline-none"
+      >
         {pregunta}
       </h3>
       <p className="text-tinta-75 mt-4 leading-relaxed">

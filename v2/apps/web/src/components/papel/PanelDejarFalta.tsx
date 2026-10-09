@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
+import { ISLA_DE_PAPEL } from './esquema';
 import { BotonPapel } from './primitives';
-
 
 import { ApiError } from '~/lib/api';
 import { useDejarFalta, type ContextoDeFalta, type SuperficieDeFalta } from '~/lib/queries/faltas';
+import { cn } from '~/lib/utils';
 import {
   guardarLlave,
   LARGO_MAXIMO_CUERPO,
@@ -130,7 +131,10 @@ export function PanelDejarFalta({
         role="dialog"
         aria-modal="true"
         aria-label="Dejar lo que falta"
-        className="bg-papel max-h-[92vh] w-full max-w-[680px] overflow-y-auto px-7 py-8 max-[560px]:px-5"
+        className={cn(
+          'bg-papel max-h-[92vh] w-full max-w-[680px] overflow-y-auto px-7 py-8 max-[560px]:px-5',
+          ISLA_DE_PAPEL,
+        )}
       >
         {dejada ? (
           <Recibo idPublico={dejada.idPublico} url={dejada.url} onCerrar={cerrarYLimpiar} />

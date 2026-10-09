@@ -65,3 +65,21 @@ describe('el ámbar', () => {
     expect(new Set(clases).size).toBe(4);
   });
 });
+
+describe('los rótulos y sellos sobre el fondo de noche', () => {
+  const noche = hex('oscuro', 'barra');
+  const AA_TEXTO = 4.5;
+
+  it('el violeta común se hunde sobre la noche; el violeta claro lee como texto', () => {
+    // Es el 1,96:1 de los rótulos de La Radiografía de noche.
+    expect(contraste(hex('violeta', 'DEFAULT'), noche)).toBeLessThan(3);
+    expect(contraste(hex('violeta', 'claro'), noche)).toBeGreaterThanOrEqual(AA_TEXTO);
+  });
+
+  it('el sello común no llega a texto sobre la noche; el sello claro sí, y sigue siendo rojo', () => {
+    expect(contraste(hex('sello', 'DEFAULT'), noche)).toBeLessThan(AA_TEXTO);
+    expect(contraste(hex('sello', 'claro'), noche)).toBeGreaterThanOrEqual(AA_TEXTO);
+    // Mismo token que antes para todo lo que ya usaba `sello`.
+    expect(hex('sello', 'DEFAULT')).toBe('#C23B22');
+  });
+});

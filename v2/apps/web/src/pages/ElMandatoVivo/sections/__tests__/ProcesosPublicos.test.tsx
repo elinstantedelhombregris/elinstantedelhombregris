@@ -156,7 +156,7 @@ describe('Procesos públicos del mandato', () => {
     } as unknown as ReturnType<typeof useFichas>);
     const { container } = render(<ProcesosPublicos />);
     expect(container.textContent).not.toMatch(/Mostramos/);
-    expect(container.textContent).toContain('Todo el país · revisión 1');
+    expect(container.textContent).toContain('Todo el país · versión 1');
   });
 
   it('el plural y la fecha salen en castellano: «1 devolución», «1 de noviembre de 2026»', () => {
