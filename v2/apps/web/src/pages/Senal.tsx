@@ -114,7 +114,15 @@ export function Senal() {
         </h1>
       )}
 
-      <p className="text-tinta mt-4 max-w-[62ch] text-[19px] leading-[1.55]">{senal.texto}</p>
+      {/* Cada aporte tiene su H1. Con título, el título; sin título —el caso común—, el propio
+          texto del aporte, que es de lo que trata la página. Se ve igual que antes. */}
+      {senal.titulo === null ? (
+        <h1 className="text-tinta mt-4 max-w-[62ch] text-[19px] font-normal leading-[1.55]">
+          {senal.texto}
+        </h1>
+      ) : (
+        <p className="text-tinta mt-4 max-w-[62ch] text-[19px] leading-[1.55]">{senal.texto}</p>
+      )}
 
       {/* La firma NUNCA sale sola. Es el nombre que alguien eligió poner, no
           una identidad comprobada, y mostrarla pelada la haría pasar por lo

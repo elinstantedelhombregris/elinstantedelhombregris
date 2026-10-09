@@ -6,6 +6,12 @@ import { RegistroDeFaltas } from './LoQueFalta/sections/RegistroDeFaltas';
 import { PanelDejarFalta } from '~/components/papel/PanelDejarFalta';
 import { useConteosDeFaltas } from '~/lib/queries/faltas';
 
+const DESCARGA_CSV = '/api/v1/faltas/descarga.csv';
+const DESCARGA_JSONL = '/api/v1/faltas/descarga.jsonl';
+/** Dos palabras sueltas eran un blanco de 26×18 px en el teléfono: acá miden lo que un dedo. */
+const ENLACE_DE_DESCARGA =
+  'text-violeta inline-flex min-h-11 min-w-11 items-center justify-center px-2 underline';
+
 /**
  * Lo que falta — el canal de escucha
  * (`docs/specs/2026-08-12-lo-que-falta.md`). Portada + registro + el panel.
@@ -35,11 +41,11 @@ export function LoQueFalta() {
           Se baja completo, con las mismas columnas que ve la API pública. Sin llaves, sin IPs, sin
           nada de nadie.
         </p>
-        <div className="font-space flex flex-wrap gap-5 text-[12px] uppercase tracking-[0.1em]">
-          <a href="/api/v1/faltas/descarga.csv" className="text-violeta underline">
+        <div className="font-space flex flex-wrap gap-x-3 text-[12px] uppercase tracking-[0.1em]">
+          <a href={DESCARGA_CSV} className={ENLACE_DE_DESCARGA}>
             CSV
           </a>
-          <a href="/api/v1/faltas/descarga.jsonl" className="text-violeta underline">
+          <a href={DESCARGA_JSONL} className={ENLACE_DE_DESCARGA}>
             JSONL
           </a>
         </div>

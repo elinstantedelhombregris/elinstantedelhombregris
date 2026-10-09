@@ -88,6 +88,29 @@ describe('La página de un aporte', () => {
     );
   });
 
+  it('un aporte sin título tiene su H1: el propio texto, que es de lo que trata la página', () => {
+    render(<Senal />);
+    const titulos = screen.getAllByRole('heading', { level: 1 });
+    expect(titulos).toHaveLength(1);
+    expect(titulos[0]).toHaveTextContent('Quiero una huerta en cada escuela.');
+    // El texto no se dice dos veces.
+    expect(screen.getAllByText('Quiero una huerta en cada escuela.')).toHaveLength(1);
+  });
+
+  it('un aporte con título lo tiene como H1, y el texto sigue siendo un párrafo', () => {
+    m.estado = {
+      data: ficha({}, { titulo: 'Una huerta en cada escuela' }),
+      isLoading: false,
+      isError: false,
+    };
+    render(<Senal />);
+    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Una huerta en cada escuela' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Quiero una huerta en cada escuela.').tagName).toBe('P');
+  });
+
   it('si es tuyo, un aviso arriba dice dónde corregirlo o retirarlo', () => {
     m.estado = { data: ficha({ esPropia: true }), isLoading: false, isError: false };
     render(<Senal />);
