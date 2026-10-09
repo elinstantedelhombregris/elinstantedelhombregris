@@ -16,4 +16,6 @@ export interface AuthenticatedUser {
   emailVerified: boolean;
   onboardingCompleted: boolean;
   createdAt: string;
+  /** La API lo calcula con `ADMIN_USERNAMES`. Quien no administra no ve los controles de administración. */
+  esAdmin: boolean;
 }

@@ -29,8 +29,7 @@ import { FaltasRepository, getDb, LIMITE_DE_PAGINA_MAXIMO, type FaltaPublica } f
 import { Router, type RequestHandler, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { getConfig } from '../../lib/config.js';
-import { authenticate } from '../../middleware/auth.js';
+import { authenticate, exigirAdmin } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { anonSubmitRateLimit, dejarFaltaRateLimit } from '../../middleware/rate-limit.js';
 
@@ -147,12 +146,6 @@ function exigirIdPublico(valor: unknown): string {
     throw new HttpError(400, 'ID_INVALIDO', 'Ese identificador no tiene forma de falta.');
   }
   return valor.trim().toUpperCase();
-}
-
-function exigirAdmin(username: string): void {
-  if (!new Set(getConfig().admin.usernames).has(username)) {
-    throw new HttpError(403, 'NOT_ADMIN', 'Esta acción requiere permisos de administrador.');
-  }
 }
 
 router.get('/', async (req, res, next) => {
@@ -299,10 +292,9 @@ router.delete('/:idPublico', anonSubmitRateLimit(), async (req, res, next) => {
  * que sí**: el `no va` sin razón muere acá con un 400 y un mensaje que dice
  * qué falta, no con un 500 del CHECK de la base.
  */
-router.patch('/:idPublico', authenticate, async (req, res, next) => {
+router.patch('/:idPublico', authenticate, exigirAdmin, async (req, res, next) => {
   try {
     if (!req.user) throw new HttpError(401, 'NO_AUTH', 'Ingresá para hacer eso.');
-    exigirAdmin(req.user.username);
 
     const idPublico = exigirIdPublico(req.params.idPublico);
     const patch = moverSchema.parse(req.body);

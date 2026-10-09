@@ -15,8 +15,7 @@ import { BlogRepository, GamificationRepository, getDb } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { getConfig } from '../../lib/config.js';
-import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
+import { authenticate, exigirAdmin, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { GamificationService, type XpEventPayload } from '../gamification/service.js';
 import { notifyBlogCommentPosted, notifyBlogPostLiked } from '../notifications/producers.js';
@@ -62,13 +61,6 @@ function parseId(idStr: string | string[] | undefined): number {
   const id = Number.parseInt(idStr, 10);
   if (Number.isNaN(id)) throw new HttpError(400, 'INVALID_ID', 'Id inválido.');
   return id;
-}
-
-function requireAdmin(username: string): void {
-  const allowed = new Set(getConfig().admin.usernames);
-  if (!allowed.has(username)) {
-    throw new HttpError(403, 'NOT_ADMIN', 'Esta acción requiere permisos de administrador.');
-  }
 }
 
 router.get('/posts', async (req, res, next) => {
@@ -216,10 +208,9 @@ router.post('/posts/:id/comments', authenticate, async (req, res, next) => {
   }
 });
 
-router.post('/posts', authenticate, async (req, res, next) => {
+router.post('/posts', authenticate, exigirAdmin, async (req, res, next) => {
   try {
     if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
-    requireAdmin(req.user.username);
     const input = createPostSchema.parse(req.body);
     const repo = new BlogRepository(getDb());
     const insertArgs: Parameters<typeof repo.create>[0] = {
@@ -238,10 +229,9 @@ router.post('/posts', authenticate, async (req, res, next) => {
   }
 });
 
-router.patch('/posts/:id', authenticate, async (req, res, next) => {
+router.patch('/posts/:id', authenticate, exigirAdmin, async (req, res, next) => {
   try {
     if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
-    requireAdmin(req.user.username);
     const id = parseId(req.params.id);
     const patch = updatePostSchema.parse(req.body);
     const repo = new BlogRepository(getDb());

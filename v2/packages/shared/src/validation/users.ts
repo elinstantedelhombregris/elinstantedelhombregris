@@ -57,6 +57,8 @@ export const userPublicSchema = z.object({
   emailVerified: z.boolean(),
   onboardingCompleted: z.boolean(),
   createdAt: z.string().datetime().or(z.date()),
+  /** ¿La cuenta está en `ADMIN_USERNAMES`? Lo decide la API; la web solo lo muestra. */
+  esAdmin: z.boolean(),
 });
 export type UserPublic = z.infer<typeof userPublicSchema>;
 

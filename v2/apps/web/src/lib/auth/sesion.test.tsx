@@ -26,6 +26,7 @@ const cuenta = (id: number): AuthenticatedUser => ({
   emailVerified: true,
   onboardingCompleted: true,
   createdAt: '2026-10-08',
+  esAdmin: false,
 });
 const privada = ['campanas', true];
 function preparar() {
