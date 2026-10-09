@@ -13,7 +13,7 @@ const CHANNELS: { title: string; body: string; cta: string; href: string }[] = [
   {
     title: 'Sumá tu pulso',
     body:
-      'Cada señal que registrás alimenta el mapa del Mandato Vivo. Lo que tu calle, tu escuela y tu hospital necesitan no aparece si no lo nombrás.',
+      'Cada aporte que registrás alimenta el mapa del Mandato Vivo. Lo que tu calle, tu escuela y tu hospital necesitan no aparece si no lo nombrás.',
     cta: 'Registrar un pulso',
     href: '/mandato-vivo',
   },

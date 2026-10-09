@@ -98,9 +98,9 @@ describe('PintorDeSenales', () => {
     );
     const lista = screen.getByTestId('conteos-por-celda');
     // El conteo entero, no el que entró en el dibujo.
-    expect(lista.textContent).toContain('Chaco: 1.200 voces');
-    expect(lista.textContent).toContain('Formosa: 30 voces');
-    expect(lista.textContent).toContain('1.230 voces en 2 celdas');
+    expect(lista.textContent).toContain('Chaco: 1.200 aportes');
+    expect(lista.textContent).toContain('Formosa: 30 aportes');
+    expect(lista.textContent).toContain('1.230 aportes en 2 celdas');
   });
 
   it('con foco, lo que queda afuera SIGUE contándose y rindiéndose', () => {
@@ -118,8 +118,8 @@ describe('PintorDeSenales', () => {
       />,
     );
     const lista = screen.getByTestId('conteos-por-celda');
-    expect(lista.textContent).toContain('Formosa: 80 voces');
-    expect(lista.textContent).toContain('180 voces en 2 celdas');
+    expect(lista.textContent).toContain('Formosa: 80 aportes');
+    expect(lista.textContent).toContain('180 aportes en 2 celdas');
   });
 
   it('hace lugar al sello de la página en vez de reescribir su frase', () => {

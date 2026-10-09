@@ -238,8 +238,8 @@ export const VEREDICTOS_EN_CASTELLANO: readonly {
 }[] = [
   { clave: 'confirm', rotulo: 'Sí, está así', glosa: 'Lo que dice sigue siendo cierto.' },
   { clave: 'correct', rotulo: 'Está, pero no así', glosa: 'Hay algo que corregir. Contá qué.' },
-  { clave: 'stale', rotulo: 'Ya no está', glosa: 'Se resolvió, o cambió. La señal envejeció.' },
-  { clave: 'duplicate', rotulo: 'Ya estaba dicho', glosa: 'Hay otra señal igual.' },
+  { clave: 'stale', rotulo: 'Ya no está', glosa: 'Se resolvió, o cambió. El aporte envejeció.' },
+  { clave: 'duplicate', rotulo: 'Ya estaba dicho', glosa: 'Hay otro aporte igual.' },
   {
     clave: 'unsafe',
     rotulo: 'Esto expone a alguien',
