@@ -31,6 +31,14 @@ function abrirZip(zip: Buffer) {
   }
   return archivos;
 }
+/**
+ * Esta suite supone que nadie más escribe en `senales`, `contribuciones`, `campanas` ni
+ * `fichas_futuro` mientras corre: cualquier UPDATE o DELETE sobre ellas, aunque no toque ninguna
+ * fila, sube `exportacion_revision` e invalida todo trabajo en vuelo («Cambió una fuente o su
+ * permiso»), y un INSERT anterior al corte también. Por eso `pnpm test:integration` corre un
+ * paquete por vez: en paralelo, la limpieza de otra suite sobre la misma base descartable dejaba
+ * el trabajo de «el propio pedido ya avanza un tramo» en `fallido` (CI, 9/10/2026).
+ */
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
   'Trabajos públicos, persistentes y paginados de exportación',
   () => {
