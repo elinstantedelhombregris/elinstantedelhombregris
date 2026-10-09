@@ -6,6 +6,7 @@ import type { ErroresContrato } from './errores-contrato';
 import type { ContratoCampana } from '@v2/shared';
 
 import { CAMPO } from '~/components/participacion/constantes';
+import { cn } from '~/lib/utils';
 
 type Clave =
   | 'titulo'
@@ -107,7 +108,7 @@ function Campo({
   const props = {
     id,
     value: valor,
-    className: CAMPO + (error ? ' border-sello' : ''),
+    className: cn(CAMPO, error && 'border-sello'),
     'aria-invalid': error ? (true as const) : undefined,
     'aria-describedby': error ? `${id}-error ${id}-ayuda` : `${id}-ayuda`,
     ...(maxLength ? { maxLength } : {}),

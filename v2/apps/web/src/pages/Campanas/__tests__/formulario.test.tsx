@@ -40,6 +40,9 @@ describe('El formulario de una campaña', () => {
     expect(alerta).not.toHaveTextContent(/titulo:|fechaDevolucion|metodoLectura/);
     const titulo = screen.getByLabelText('Nombre de la campaña');
     expect(titulo).toHaveAttribute('aria-invalid', 'true');
+    // El borde de error le gana al borde común del campo.
+    expect(titulo).toHaveClass('border-sello');
+    expect(titulo).not.toHaveClass('border-tinta');
     const idError = titulo.getAttribute('aria-describedby')?.split(' ')[0] ?? '';
     expect(document.getElementById(idError)).toHaveTextContent(/Escribí al menos 8 caracteres/);
     // Un campo sin error no se marca.

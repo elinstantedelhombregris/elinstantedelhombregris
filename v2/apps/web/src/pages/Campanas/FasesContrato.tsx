@@ -5,6 +5,7 @@ import type { ContratoCampana } from '@v2/shared';
 
 import { CAMPO } from '~/components/participacion/constantes';
 import { BotonAccion } from '~/components/participacion/Elementos';
+import { cn } from '~/lib/utils';
 
 const MAXIMO_ETAPAS = 8;
 
@@ -37,7 +38,7 @@ export function FasesContrato({
         const campo = (nombre: 'nombre' | 'fecha' | 'salida') =>
           errorDeCampo(errores, `fases.${i}.${nombre}`);
         const propiedades = (nombre: 'nombre' | 'fecha' | 'salida') => ({
-          className: CAMPO + (campo(nombre) ? ' border-sello' : ''),
+          className: cn(CAMPO, campo(nombre) && 'border-sello'),
           'aria-invalid': campo(nombre) ? (true as const) : undefined,
           'aria-describedby': campo(nombre) ? `etapa-${i}-${nombre}-error` : undefined,
         });

@@ -18,6 +18,7 @@ import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { CAMPO } from '~/components/participacion/constantes';
 import { ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { useGuardarCampana } from '~/lib/queries/participacion';
+import { cn } from '~/lib/utils';
 
 const futuroDia = (dias: number) =>
   new Date(Date.now() + dias * 86400000).toISOString().slice(0, 10);
@@ -141,7 +142,7 @@ export function FormularioCampana({
         </label>
         <input
           id="campana-temas"
-          className={CAMPO + (errorTemas ? ' border-sello' : '')}
+          className={cn(CAMPO, errorTemas && 'border-sello')}
           value={temas}
           aria-invalid={errorTemas ? true : undefined}
           aria-describedby={errorTemas ? 'campana-temas-error' : undefined}
@@ -224,7 +225,7 @@ export function FormularioCampana({
         </label>
         <input
           id="campana-fecha"
-          className={CAMPO + (errorFecha ? ' border-sello' : '')}
+          className={cn(CAMPO, errorFecha && 'border-sello')}
           type="date"
           value={c.fechaDevolucion}
           aria-invalid={errorFecha ? true : undefined}
