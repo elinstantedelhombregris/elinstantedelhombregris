@@ -7,6 +7,7 @@ import {
   GRIS_DEL_TEMA,
   type TemaDelMapa,
 } from '~/components/mapa/pintor-senales';
+import { CLASE_ROTULO, cuantos } from '~/lib/vocabulario';
 
 /**
  * La Radiografía — el vocabulario visual y el recálculo en el navegador.
@@ -44,12 +45,13 @@ export function colorDeClase(clase: string, tema: Tema): string {
   return esClase(clase) ? colorDeClaseDelPintor(clase, tema) : GRIS_DEL_TEMA[tema];
 }
 
-export const NOMBRE_DE_CLASE: Readonly<Record<ClaseSenal, string>> = {
-  hecho: 'Hecho',
-  deseo: 'Deseo',
-  acto: 'Acto',
-  meta: 'Meta',
-};
+/**
+ * Los nombres de las cuatro clases son los de TODO el sitio: `CLASE_ROTULO` de
+ * `lib/vocabulario.ts`, los mismos que usa el mapa. Hubo acá un juego propio
+ * («Hecho · Deseo · Acto · Meta») y la revisión del 9/10 encontró la misma
+ * clase con dos nombres según la pantalla.
+ */
+export const NOMBRE_DE_CLASE: Readonly<Record<ClaseSenal, string>> = CLASE_ROTULO;
 
 /**
  * Qué se hace con lo que dice un núcleo — regla 11, y el motivo por el que
@@ -66,7 +68,7 @@ export const QUE_SE_HACE: Readonly<Record<ClaseSenal, string>> = {
 };
 
 export interface RotuloDeNucleo {
-  /** `esto se delibera`, `esto se corrobora`, o el rótulo mixto. */
+  /** `esto se delibera`, `esto se corrobora`, o el rótulo del grupo mixto. */
   rotulo: string;
   /** La composición dicha con palabras, siempre antes que el tamaño (§3.1). */
   glosa: string;
@@ -89,8 +91,11 @@ export function rotuloDeNucleo(clases: Readonly<Record<string, number>>): Rotulo
     .filter(([, cuantas]) => cuantas > 0)
     .sort((p, q) => q[1] - p[1] || (p[0] < q[0] ? -1 : 1));
 
+  // «Lo que querés: 29 · Lo que hay: 1». Con los rótulos de clase del sitio una
+  // frase «29 de lo que querés» sonaba rara, y el número después del nombre se
+  // lee igual que en la leyenda.
   const glosa = presentes
-    .map(([clase, cuantas]) => `${String(cuantas)} de ${etiquetaDeClase(clase).toLowerCase()}`)
+    .map(([clase, cuantas]) => `${etiquetaDeClase(clase)}: ${String(cuantas)}`)
     .join(' · ');
 
   const primera = presentes[0];
@@ -107,7 +112,7 @@ export function rotuloDeNucleo(clases: Readonly<Record<string, number>>): Rotulo
 
   /*
    * Si NINGUNA de las clases presentes es conocida, el `join` de abajo devuelve
-   * cadena vacía y la ficha renderiza «núcleo mixto — » con la raya colgando.
+   * cadena vacía y la ficha renderiza «grupo mixto — » con la raya colgando.
    * El comentario de arriba de este archivo promete que una clase que este
    * código todavía no conoce «se dibuja y se cuenta igual»: se cuenta, pero no
    * puede prometer qué se hace con ella. Decir que no sabemos es la versión
@@ -118,7 +123,7 @@ export function rotuloDeNucleo(clases: Readonly<Record<string, number>>): Rotulo
   }
 
   return {
-    rotulo: `núcleo mixto — ${queHacer.join(', y ')}`,
+    rotulo: `grupo mixto — ${queHacer.join(', y ')}`,
     glosa,
     clase: null,
     mixto: true,
@@ -127,6 +132,29 @@ export function rotuloDeNucleo(clases: Readonly<Record<string, number>>): Rotulo
 
 export function etiquetaDeClase(clase: string): string {
   return esClase(clase) ? NOMBRE_DE_CLASE[clase] : clase;
+}
+
+/**
+ * «412 aportes · 9 grupos · 37 sin grupo». El resumen del cielo, con el cero en
+ * palabras y el plural que corresponde (nunca «1 grupos» ni un «0» suelto).
+ */
+export function resumenDelCielo(aportes: number, grupos: number, sinGrupo: number): string {
+  const aparte = sinGrupo > 0 ? sinGrupo.toLocaleString('es-AR') : 'ninguno';
+  return `${cuantos(aportes, 'aporte', 'aportes')} · ${cuantos(grupos, 'grupo', 'grupos')} · ${aparte} sin grupo`;
+}
+
+/**
+ * La frase del centro de un grupo, lista para un botón: entera si entra y, si
+ * no, cortada en la última palabra completa y con puntos suspensivos. Nunca se
+ * parafrasea: es una frase real de alguien, y lo único que se hace es acortarla.
+ */
+export function fraseCorta(texto: string, maximo = 80): string {
+  const limpio = texto.replace(/\s+/g, ' ').trim();
+  if (limpio.length <= maximo) return limpio;
+  const ventana = limpio.slice(0, maximo - 1);
+  const corte = ventana.lastIndexOf(' ');
+  const base = corte > maximo * 0.5 ? ventana.slice(0, corte) : ventana;
+  return `${base.replace(/[\s,;:.\-–—]+$/, '')}…`;
 }
 
 /* ── El tema: papel o nocturno, elección del lector y persistida (R12) ───── */
@@ -223,4 +251,27 @@ export function radioDeNodo(senalesDelNucleo: number): number {
   if (senalesDelNucleo >= 8) return escalaModular(2);
   if (senalesDelNucleo >= 2) return escalaModular(1);
   return escalaModular(0);
+}
+
+/* ── Porcentajes de respuestas: sin decimales cuando son pocas ─────────── */
+
+/**
+ * Con menos respuestas que esto, un porcentaje con decimales miente precisión:
+ * 3 de 5 es «60 %», no «60,0 %», y se avisa que son pocas respuestas.
+ */
+export const RESPUESTAS_MINIMAS_PARA_DECIMALES = 30;
+
+/**
+ * «60 %» o «60,0 %», con coma decimal también para el lector de pantalla.
+ * Se formatea una sola vez y se usa en la vista y en el `aria-label`: antes la
+ * vista decía «60,0» y el lector «60.0».
+ */
+export function porcentajeDe(parte: number, total: number): string {
+  if (total <= 0) return '—';
+  const valor = (parte * 100) / total;
+  const conDecimales = total >= RESPUESTAS_MINIMAS_PARA_DECIMALES;
+  return `${valor.toLocaleString('es-AR', {
+    minimumFractionDigits: conDecimales ? 1 : 0,
+    maximumFractionDigits: conDecimales ? 1 : 0,
+  })} %`;
 }

@@ -26,6 +26,11 @@ import { FONDO_DEL_TEMA } from '~/components/mapa/pintor-senales';
  * El lienzo es `aria-hidden`: es opaco para un lector de pantalla y para el
  * teclado. El camino accesible al MISMO dato es la tabla de abajo (R11), que
  * no es una versión de consuelo.
+ *
+ * **`touch-action: pan-y`, no `none`.** Con `none` un lienzo de 390 px ocupaba
+ * el ancho entero del teléfono y no había forma de scrollear la página con el
+ * dedo encima del cielo (revisión del 9/10). Con `pan-y` el scroll vertical
+ * sigue siendo de la página y el arrastre horizontal sigue siendo del cielo.
  */
 
 export interface ConstelacionProps {
@@ -130,7 +135,7 @@ export function Constelacion({
           y: m.y,
           z: m.z,
           color: colorDeClase(m.clase, tema),
-          // Una voz sola no se dibuja más chica por estar sola: se dibuja sola.
+          // Un aporte sin grupo no se dibuja más chico por estar solo: se dibuja solo.
           radio: 2.2,
         })),
       ],
@@ -170,7 +175,7 @@ export function Constelacion({
       // ejemplo declara que su cielo es el del ejemplo.
       data-origen={origen}
       data-lente={lente}
-      className="block h-full w-full cursor-grab touch-none active:cursor-grabbing"
+      className="block h-full w-full cursor-grab touch-pan-y active:cursor-grabbing"
       style={{ background: FONDO_DEL_TEMA[tema] }}
     />
   );

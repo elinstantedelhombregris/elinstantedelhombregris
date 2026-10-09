@@ -2,6 +2,8 @@ import { corteLegible, type Tema } from '../radiografia-data';
 
 import type { RadiografiaPublica } from '~/lib/queries/radiografia';
 
+import { cuantos } from '~/lib/vocabulario';
+
 /**
  * § La cabecera de procedencia — regla 5 de la constitución de producto.
  *
@@ -55,6 +57,13 @@ export function CabeceraProcedencia({
   const dato = (valor: number | undefined): string =>
     valor === undefined ? '—' : new Intl.NumberFormat('es-AR').format(valor);
 
+  // Sin ningún análisis corrido ni aportes esperando, las cuatro celdas de
+  // abajo dirían «todavía no corrió», «0 analizadas», «0 de 24»: el mismo vacío
+  // contado cuatro veces, justo encima del cielo vacío que ya lo cuenta una
+  // vez (revisión del 9/10). Queda la celda que nunca se va: qué mide esto.
+  const sinNadaQueDecir =
+    !cargando && !fallo && !!datos && !datos.corte && datos.analizadas === 0 && datos.total === 0;
+
   return (
     <section
       aria-label="De dónde sale lo que se ve acá"
@@ -63,64 +72,64 @@ export function CabeceraProcedencia({
       <div
         className={`grid gap-4 min-[561px]:grid-cols-2 ${compacto ? 'min-[961px]:grid-cols-5 [&>div>div:last-child]:text-sm' : 'min-[961px]:grid-cols-4'}`}
       >
-        <Celda rotulo="Último análisis" rotuloClase={rotulo} cifraClase={cifra}>
-          {cargando && !datos ? (
-            'Trayendo…'
-          ) : fallo && !datos ? (
-            <>
-              No se pudo leer
-              <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-                el análisis no contestó — recargá en un momento
-              </span>
-            </>
-          ) : datos?.corte ? (
-            <>
-              {corteLegible(datos.corte)}
-              <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-                modelo {datos.modelo ?? 'sin declarar'}
-              </span>
-            </>
-          ) : (
-            <>
-              Todavía no corrió
-              <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-                nadie midió nada todavía
-              </span>
-            </>
-          )}
-        </Celda>
+        {sinNadaQueDecir ? null : (
+          <>
+            <Celda rotulo="Último análisis" rotuloClase={rotulo} cifraClase={cifra}>
+              {cargando && !datos ? (
+                'Trayendo…'
+              ) : fallo && !datos ? (
+                <>
+                  No se pudo leer
+                  <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
+                    el análisis no contestó — probá de nuevo en un rato
+                  </span>
+                </>
+              ) : datos?.corte ? (
+                <>
+                  {corteLegible(datos.corte)}
+                  <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
+                    modelo {datos.modelo ?? 'sin declarar'}
+                  </span>
+                </>
+              ) : (
+                'Todavía no se corrió ninguno'
+              )}
+            </Celda>
 
-        <Celda rotulo="Señales" rotuloClase={rotulo} cifraClase={cifra}>
-          {dato(datos?.analizadas)} analizadas
-          <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-            {dato(datos?.sinVector)} esperando análisis · {dato(datos?.total)} incluidos en esta
-            lectura
-          </span>
-        </Celda>
+            <Celda rotulo="Aportes" rotuloClase={rotulo} cifraClase={cifra}>
+              {datos ? cuantos(datos.analizadas, 'aporte analizado', 'aportes analizados') : '—'}
+              <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
+                {datos
+                  ? `${cuantos(datos.sinVector, 'aporte espera', 'aportes esperan')} análisis · ${cuantos(datos.total, 'aporte incluido', 'aportes incluidos')} en esta lectura`
+                  : '—'}
+              </span>
+            </Celda>
 
-        {datos?.cobertura ? (
-          <Celda rotulo="Alcance de la lectura" rotuloClase={rotulo} cifraClase={cifra}>
-            {dato(datos.cobertura.elegibles)} elegibles
-            <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-              {datos.cobertura.completo
-                ? 'Conjunto completo para estos filtros.'
-                : `Selección limitada a ${datos.cobertura.limite} registros recientes. Lo que falta no es silencio del país.`}
-            </span>
-          </Celda>
-        ) : null}
-        <Celda rotulo="Provincias sin señal" rotuloClase={rotulo} cifraClase={cifra}>
-          {dato(datos?.provinciasSinSenal)} de 24
-          <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-            sin registro en este alcance
-          </span>
-        </Celda>
+            {datos?.cobertura ? (
+              <Celda rotulo="Alcance de la lectura" rotuloClase={rotulo} cifraClase={cifra}>
+                {dato(datos.cobertura.elegibles)} elegibles
+                <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
+                  {datos.cobertura.completo
+                    ? 'Conjunto completo para estos filtros.'
+                    : `Selección limitada a los ${dato(datos.cobertura.limite)} aportes más recientes. Lo que falta no es silencio del país.`}
+                </span>
+              </Celda>
+            ) : null}
+            <Celda rotulo="Provincias sin aportes" rotuloClase={rotulo} cifraClase={cifra}>
+              {dato(datos?.provinciasSinSenal)} de 24
+              <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
+                sin aportes en este alcance
+              </span>
+            </Celda>
+          </>
+        )}
 
         <Celda rotulo="Qué mide esto" rotuloClase={rotulo} cifraClase={cifra}>
           <span className="text-[15px] normal-case leading-[1.5]">
             A quien usó la plataforma.
             <span className={`block text-[13px] ${rotulo}`}>
-              No a quien vive acá. Quien habla no es quien vive, y una convergencia acá adentro no
-              es una mayoría del país.
+              No a quien vive acá. Quien habla no es quien vive, y que varios aportes coincidan acá
+              adentro no es una mayoría del país.
             </span>
           </span>
         </Celda>

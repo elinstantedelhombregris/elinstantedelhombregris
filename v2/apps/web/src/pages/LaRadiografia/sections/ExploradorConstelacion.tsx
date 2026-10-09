@@ -5,6 +5,7 @@ import { LENTES_DEL_CIELO, type LenteDelCielo } from '../lentes';
 import {
   colorDeClase,
   etiquetaDeClase,
+  resumenDelCielo,
   type NucleoEnPantalla,
   type Tema,
 } from '../radiografia-data';
@@ -83,51 +84,55 @@ export function ExploradorConstelacion({
     setSeleccion(m.id);
   };
   return (
-    <section aria-label="Explorador visual de señales" className={`border-2 ${borde}`}>
+    <section aria-label="Explorador visual de aportes" className={`border-2 ${borde}`}>
       <div
         className={`flex flex-wrap items-end justify-between gap-4 border-b ${borde} ${compacto ? 'px-4 py-3' : 'p-5'}`}
       >
         <div>
           <p className={`font-space text-xs uppercase tracking-[0.1em] ${meta}`}>
             {origen === 'ejemplo'
-              ? 'Laboratorio · voces inventadas'
-              : 'Registro vivo · señales publicables'}
+              ? 'Laboratorio · frases inventadas'
+              : 'Aportes publicados · lectura en vivo'}
           </p>
           <h2
             className={
               compacto ? 'sr-only' : 'font-anton mt-2 text-[clamp(26px,3vw,38px)] leading-tight'
             }
           >
-            El mismo registro. Otra mirada.
+            Los mismos aportes, de tres maneras
           </h2>
         </div>
         <p className={`font-space text-xs ${meta}`}>
-          {todos.length} señales dibujadas · {nucleos.length} núcleos · {solas.length} solas
+          {resumenDelCielo(todos.length, nucleos.length, solas.length)}
         </p>
       </div>
       <div
         className={`grid border-b ${borde} ${compacto ? 'grid-cols-3' : 'min-[561px]:grid-cols-3'}`}
         role="group"
-        aria-label="Lentes del registro"
+        aria-label="Cómo ver los aportes"
       >
         {LENTES_DEL_CIELO.map((l, i) => (
           <button
             key={l.id}
             type="button"
-            aria-label={l.titulo}
             aria-pressed={lente === l.id}
             onClick={() => {
               cambiarLente(l.id);
             }}
             className={`${compacto ? 'min-h-11 p-3' : 'min-h-16 p-4'} border-b text-left transition-colors min-[561px]:border-b-0 min-[561px]:border-r ${borde} ${lente === l.id ? 'bg-violeta text-papel' : 'hover:bg-papel-presionado hover:text-tinta'}`}
           >
-            <span className={`font-space text-xs ${compacto ? 'max-[560px]:hidden' : ''}`}>
+            {/* El número es decoración: el nombre accesible es el texto visible
+                («Líneas», «Grupos», «Por tipo») y nada más (WCAG 2.5.3). */}
+            <span
+              aria-hidden
+              className={`font-space text-xs ${compacto ? 'max-[560px]:hidden' : ''}`}
+            >
               0{i + 1}
             </span>
             <span
               className={`font-anton ${compacto ? 'text-lg min-[561px]:ml-3' : 'ml-3 text-xl'}`}
             >
-              {compacto ? ['Red de vínculos', 'Islas de sentido', 'Por clase'][i] : l.titulo}
+              {l.titulo}
             </span>
           </button>
         ))}
@@ -207,21 +212,23 @@ export function ExploradorConstelacion({
               onZoom={setZoom}
               {...(testId ? { testId } : {})}
             />
-            <div
-              className={`font-space pointer-events-none absolute bottom-4 left-4 right-4 flex flex-wrap justify-between gap-3 text-xs ${meta}`}
-            >
-              <span>
-                {hover
-                  ? `${etiquetaDeClase(hover.clase)} · ${hover.nucleoId ? 'dentro de un núcleo' : 'voz sola'}`
-                  : lente === 'vinculos'
-                    ? 'Arrastrá para girar. Tocá una señal.'
-                    : 'Arrastrá para desplazar. Tocá una señal.'}
-              </span>
-              <span>Posiciones de acomodo</span>
-            </div>
           </div>
+          {/* La pista de uso va DEBAJO del lienzo y no encima: en el teléfono la
+              leyenda flotante pisaba puntos del grafo. */}
+          <p
+            className={`font-space border-t ${borde} flex flex-wrap justify-between gap-x-4 gap-y-1 px-5 py-3 text-xs ${meta}`}
+          >
+            <span>
+              {hover
+                ? `${etiquetaDeClase(hover.clase)} · ${hover.nucleoId ? 'dentro de un grupo' : 'sin grupo'}`
+                : lente === 'vinculos'
+                  ? 'Arrastrá para girar. Tocá un aporte.'
+                  : 'Arrastrá para desplazar. Tocá un aporte.'}
+            </span>
+            <span>Las posiciones solo acomodan.</span>
+          </p>
           <ul
-            aria-label="Clases de las señales"
+            aria-label="Colores de los aportes, por tipo"
             className={`flex flex-wrap gap-x-5 gap-y-3 border-t ${borde} px-5 py-4 text-sm`}
           >
             {['deseo', 'hecho', 'acto', 'meta'].map((c) => (
@@ -235,14 +242,20 @@ export function ExploradorConstelacion({
               </li>
             ))}
           </ul>
+          <p className={`border-t ${borde} px-5 py-3 text-[13px] leading-relaxed ${meta}`}>
+            El tamaño marca cuántos aportes tiene el grupo, no cuánto importa.
+            {solas.length > 0
+              ? ' Los aportes que no se parecen a otros quedan afuera de los grupos: Sin grupo (la posición solo acomoda).'
+              : ''}
+          </p>
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 self-start">
           <div className={`border-b ${borde} p-5`}>
-            <p className="font-space text-xs uppercase tracking-[0.1em]">Volver a una voz</p>
+            <p className="font-space text-xs uppercase tracking-[0.1em]">Volver a un aporte</p>
             {fuente ? (
               <>
                 <p className="font-anton mt-3 text-2xl">
-                  {etiquetaDeClase(fuente.clase)} · {fuente.nucleoId ? 'en un núcleo' : 'voz sola'}
+                  {etiquetaDeClase(fuente.clase)} · {fuente.nucleoId ? 'en un grupo' : 'sin grupo'}
                 </p>
                 {origen === 'ejemplo' && textosEjemplo?.[fuente.id] ? (
                   <blockquote className="mt-3 text-lg leading-relaxed">
@@ -250,8 +263,8 @@ export function ExploradorConstelacion({
                   </blockquote>
                 ) : null}
                 <p className={`mt-3 text-sm leading-relaxed ${meta}`}>
-                  Una señal conserva su sentido aunque cambie de lugar en el dibujo. La selección no
-                  es un apoyo.
+                  Un aporte conserva su sentido aunque cambie de lugar en el dibujo. Elegirlo no es
+                  apoyarlo.
                 </p>
                 {origen === 'corpus' && /^voz:[0-9a-f-]{36}$/i.test(fuente.id) ? (
                   <Link
@@ -262,15 +275,12 @@ export function ExploradorConstelacion({
                   </Link>
                 ) : null}
                 {origen === 'ejemplo' ? (
-                  <p className="text-sello mt-3 text-sm">
-                    Voz inventada. No pertenece al registro público.
-                  </p>
+                  <p className="text-sello mt-3 text-sm">Frase inventada. No es un aporte real.</p>
                 ) : null}
               </>
             ) : (
               <p className={`mt-3 text-sm leading-relaxed ${meta}`}>
-                Elegí un punto o un núcleo. El gráfico abre preguntas; sus fuentes permiten
-                revisarlas.
+                Elegí un punto o un grupo para ver qué dice.
               </p>
             )}
           </div>

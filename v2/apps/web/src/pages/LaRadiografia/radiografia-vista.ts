@@ -123,7 +123,7 @@ export function construirVista(
     return {
       id: `recalculado:${nucleo.ids[0] ?? String(i)}`,
       frase,
-      textoOmitido: frase ? null : 'el servidor todavía no midió este corte',
+      textoOmitido: frase ? null : 'este corte todavía no se midió',
       senales: nucleo.ids.length,
       clases,
       provincias: null,

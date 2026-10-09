@@ -55,17 +55,17 @@ export interface DeslizadorUmbralProps {
  * esperando.
  */
 const GLOSA: Readonly<Record<OrigenDeLaVista, string>> = {
-  medido: 'Bajá el umbral y las islas se funden; subilo y se parten.',
+  medido: 'Bajá el nivel y los grupos se juntan; subilo y se separan.',
   recalculado:
-    'Recalculado acá mientras el servidor mide este corte: las provincias y los kilómetros llegan con su respuesta.',
-  esperando: 'Esto es todavía el corte anterior. El de abajo lo está midiendo el servidor.',
+    'Recalculado acá mientras se mide este corte: las provincias y los kilómetros llegan con la respuesta.',
+  esperando: 'Esto es todavía el corte anterior: el nuevo se está midiendo.',
   exacto:
-    'Este corte está calculado entero acá y en los dos sentidos: el ejemplo trae el grafo completo, así que no falta ninguna arista al bajar.',
+    'Este corte se calcula entero acá, en los dos sentidos: el ejemplo trae todas las relaciones, así que bajar el nivel no deja nada afuera.',
 };
 
 /** El pie de la página viva. El ejemplo pasa el suyo. */
 const NOTA_POR_DEFECTO =
-  'El valor inicial —0,72— es provisorio y está declarado como tal: no se puede calibrar sin corpus, y no sale de ninguna proporción bonita.';
+  'El valor inicial, 0,72, es provisorio: no se puede calibrar sin una cantidad suficiente de aportes.';
 
 export function DeslizadorUmbral({
   umbral,
@@ -122,11 +122,12 @@ export function DeslizadorUmbral({
       </div>
 
       <p id={idDeLaGlosa} className={`mt-3 text-[14px] leading-[1.55] ${rotulo}`}>
-        {/* El conteo de voces solas va en el MISMO renglón y con el mismo peso
-            que el de núcleos (§6). Una señal que nadie repitió no es un
-            fracaso del sistema: es una voz sola, y se muestra como tal. */}
-        <strong className={texto}>{nucleos}</strong> {nucleos === 1 ? 'núcleo' : 'núcleos'} ·{' '}
-        <strong className={texto}>{solas}</strong> {solas === 1 ? 'voz sola' : 'voces solas'}.{' '}
+        {/* El conteo de aportes sin grupo va en el MISMO renglón y con el mismo
+            peso que el de grupos (§6). Un aporte que nadie repitió no es un
+            fracaso del sistema: está solo, y se muestra como tal. */}
+        <strong className={texto}>{nucleos > 0 ? nucleos : 'Ningún'}</strong>{' '}
+        {nucleos > 1 ? 'grupos' : 'grupo'} ·{' '}
+        <strong className={texto}>{solas > 0 ? solas : 'ninguno'}</strong> sin grupo.{' '}
         {GLOSA[origen]}
       </p>
 

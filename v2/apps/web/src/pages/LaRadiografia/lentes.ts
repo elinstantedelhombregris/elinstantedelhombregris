@@ -1,27 +1,32 @@
 import type { NodoDibujable } from './constelacion-pintor';
 
 export type LenteDelCielo = 'vinculos' | 'nucleos' | 'clases';
+/**
+ * Las tres vistas del cielo. El título es lo que se ve en el botón y lo que
+ * anuncia el lector de pantalla: el mismo texto (WCAG 2.5.3). Los identificadores
+ * (`vinculos`, `nucleos`, `clases`) son de código y no se muestran.
+ */
 export const LENTES_DEL_CIELO = [
   {
     id: 'vinculos',
-    titulo: 'Red de vínculos',
-    entrada: 'Seguí las relaciones entre voces.',
+    titulo: 'Líneas',
+    entrada: 'Seguí qué aportes se parecen.',
     lectura:
-      'La línea continua representa semejanza medida; la punteada, un vínculo declarado. El giro cambia la vista, no el dato.',
+      'Una línea une dos aportes cuyo texto se parece; la punteada, un vínculo que declaró una persona. Girar el cielo cambia la vista, no el dato.',
   },
   {
     id: 'nucleos',
-    titulo: 'Islas de sentido',
-    entrada: 'Mirá qué permanece junto al cambiar el umbral.',
+    titulo: 'Grupos',
+    entrada: 'Mirá qué queda junto al cambiar el nivel de parecido.',
     lectura:
-      'Cada isla reúne una componente del grafo en este corte. La separación y el tamaño del espacio son acomodo visual, no una medida de distancia semántica.',
+      'Cada grupo junta aportes parecidos según el nivel de abajo. Dónde queda en pantalla no significa nada.',
   },
   {
     id: 'clases',
-    titulo: 'Hechos, deseos y acciones',
-    entrada: 'Separá lo que debemos comprobar de lo que queremos diseñar.',
+    titulo: 'Por tipo',
+    entrada: 'Separá lo que hay que comprobar de lo que queremos diseñar.',
     lectura:
-      'Las columnas ordenan por la clase declarada. Las relaciones siguen siendo las mismas: un deseo no se vuelve hecho porque se parezca a uno.',
+      'Cuatro columnas: lo que hay, lo que querés, lo que vas a hacer, lo que no sabés. Un deseo no se vuelve hecho porque se parezca a uno.',
   },
 ] as const;
 const CLASES = ['deseo', 'hecho', 'acto', 'meta'];
@@ -39,7 +44,7 @@ export function disponerNodos(
       solas.push(n);
       continue;
     }
-    const clave = lente === 'clases' ? (n.clase ?? 'desconocida') : (n.nucleoId ?? 'voces-solas');
+    const clave = lente === 'clases' ? (n.clase ?? 'desconocida') : (n.nucleoId ?? 'sin-grupo');
     grupos.set(clave, [...(grupos.get(clave) ?? []), n]);
   }
   const claves = [...grupos.keys()].sort((a, b) =>
@@ -74,7 +79,7 @@ export function disponerNodos(
         };
       });
   });
-  // Las voces sin núcleo quedan dispersas en el margen; nunca forman una isla ficticia.
+  // Los aportes sin grupo quedan dispersos en el margen; nunca forman un grupo ficticio.
   return [
     ...agrupados,
     ...solas.map((n, i) => {

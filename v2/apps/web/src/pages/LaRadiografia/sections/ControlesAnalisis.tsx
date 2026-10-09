@@ -8,6 +8,7 @@ import { CAMPO } from '~/components/participacion/constantes';
 import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
 import { useAuth } from '~/lib/auth/use-auth';
+import { hrefIngresar } from '~/lib/auth/volver';
 import { useCampanas, useOperacionPersonal } from '~/lib/queries/participacion';
 
 export function ControlesAnalisis({
@@ -47,7 +48,7 @@ export function ControlesAnalisis({
               editar('campana', e.target.value);
             }}
           >
-            <option value="">Todas las voces elegibles</option>
+            <option value="">Todos los aportes elegibles</option>
             {campanas.data?.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.contrato.titulo}
@@ -63,7 +64,7 @@ export function ControlesAnalisis({
           rotulo="Tema declarado"
         />
         <div>
-          <p className="mb-2">Ámbito territorial</p>
+          <p className="mb-2">Lugar</p>
           <BusquedaTerritorial
             onElegir={(l) => {
               editar('territorio', String(l.id));
@@ -77,12 +78,12 @@ export function ControlesAnalisis({
                 editar('territorio', '');
               }}
             >
-              Volver al alcance nacional
+              Volver a todo el país
             </button>
           ) : null}
         </div>
         <label>
-          Clase de aporte
+          Tipo de aporte
           <select
             className={CAMPO}
             value={filtros.tipo ?? ''}
@@ -193,7 +194,7 @@ export function ControlesAnalisis({
         </div>
       ) : (
         <Link
-          href="/ingresar?volver=%2Fmi-espacio"
+          href={hrefIngresar()}
           className="text-violeta mt-4 inline-flex min-h-11 items-center underline"
         >
           Ingresar para guardar análisis

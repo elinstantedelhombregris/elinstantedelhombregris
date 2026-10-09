@@ -49,9 +49,9 @@ describe('el explorador de Radiografía', () => {
   it('cambia lentes y cámara conservando el dato y declarando el acomodo visual', () => {
     render(<Montar />);
     expect(screen.getByTestId('constelacion')).toHaveAttribute('data-lente', 'nucleos');
-    fireEvent.click(screen.getByRole('button', { name: /Hechos, deseos y acciones/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Por tipo' }));
     expect(screen.getByTestId('constelacion')).toHaveAttribute('data-lente', 'clases');
-    expect(screen.getByText(/Las columnas ordenan por la clase declarada/)).toBeInTheDocument();
+    expect(screen.getByText(/Cuatro columnas: lo que hay, lo que querés/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Acercar la constelación' }));
     expect(screen.getByText('150 %')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Reencuadrar' }));
@@ -60,24 +60,25 @@ describe('el explorador de Radiografía', () => {
   });
   it('permite seleccionar una fuente con teclado y conserva su identidad al cambiar de lente', () => {
     render(<Montar />);
-    fireEvent.click(screen.getByRole('button', { name: /Núcleo: Aprender cerca/ }));
-    fireEvent.click(screen.getByRole('button', { name: 'Elegir una señal con teclado' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Deseo 1' }));
+    fireEvent.click(screen.getByRole('button', { name: /Grupo: Aprender cerca/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Elegir un aporte con el teclado' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Aporte 1 · lo que querés' }));
     const enlace = screen.getByRole('link', { name: 'Abrir el aporte y sus permisos →' });
     expect(enlace).toHaveAttribute('href', '/senal/' + id.slice(4));
-    fireEvent.click(screen.getByRole('button', { name: /Islas de sentido/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Grupos' }));
     expect(enlace).toHaveAttribute('href', '/senal/' + id.slice(4));
-    expect(screen.getByRole('button', { name: 'Deseo 1' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: 'Aporte 1 · lo que querés' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.queryByText(/Texto del laboratorio/)).toBeNull();
   });
   it('el ejemplo conserva el sello y sus fuentes nunca se enlazan al registro real', () => {
     render(<Montar origen="ejemplo" />);
-    fireEvent.click(screen.getByRole('button', { name: /Núcleo: Aprender cerca/ }));
-    fireEvent.click(screen.getByRole('button', { name: 'Elegir una señal con teclado' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Deseo 1' }));
-    expect(
-      screen.getByText('Voz inventada. No pertenece al registro público.'),
-    ).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /Grupo: Aprender cerca/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Elegir un aporte con el teclado' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Aporte 1 · lo que querés' }));
+    expect(screen.getByText('Frase inventada. No es un aporte real.')).toBeInTheDocument();
     expect(screen.getByText(/Texto del laboratorio/)).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /Abrir el aporte/ })).toBeNull();
     expect(screen.getByTestId('constelacion')).toHaveAttribute('data-origen', 'ejemplo');
@@ -85,7 +86,7 @@ describe('el explorador de Radiografía', () => {
   it('la búsqueda consulta frases públicas y explica un resultado vacío', () => {
     render(<Montar />);
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'no existe' } });
-    expect(screen.queryByRole('button', { name: /Núcleo: Aprender cerca/ })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Grupo: Aprender cerca/ })).toBeNull();
     expect(screen.getByText(/Los textos reservados no se buscan/)).toBeInTheDocument();
   });
 });

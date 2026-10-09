@@ -6,21 +6,21 @@ import { colorDeClase, NOMBRE_DE_CLASE, QUE_SE_HACE, type Tema } from '../radiog
  * § Cómo leer el cielo — la leyenda que faltaba.
  *
  * La revisión del 19/8 encontró el círculo cerrado: la única leyenda de color
- * vivía adentro de la ficha, y la ficha sólo aparece después de clickear un
- * núcleo — había que entender el dibujo para poder abrir la explicación del
- * dibujo. Y «núcleo», la palabra que organiza la página entera, no se definía
- * en ninguna superficie: aparecía por primera vez como un número, debajo del
- * deslizador.
+ * vivía adentro de la ficha, y la ficha sólo aparece después de tocar un
+ * grupo — había que entender el dibujo para poder abrir la explicación del
+ * dibujo. Se quitó en algún momento y la revisión del 9/10 la pidió de vuelta:
+ * «grupo», la palabra que organiza la página entera, volvía a no definirse en
+ * ninguna superficie.
  *
  * Esto es una leyenda, no un tutorial: qué es cada cosa que se ve, los cuatro
  * colores con su verbo, y qué se puede tocar. Va antes de la imagen por la
  * misma razón que la procedencia va en la cabecera: primero se sabe qué se
  * está mirando, después se mira.
  *
- * Los verbos salen de `QUE_SE_HACE` —la misma tabla que usa la ficha— con el
- * «esto» recortado: una fuente sola para el vocabulario, dos formas de
- * decirlo. Y ni un hexadecimal: el color sale entero de `colorDeClase`, que es
- * lo que la guarda del color verifica.
+ * Los nombres de las clases son los de todo el sitio (`CLASE_ROTULO`, vía
+ * `NOMBRE_DE_CLASE`) y los verbos salen de `QUE_SE_HACE` —la misma tabla que
+ * usa la ficha— con el «esto» recortado. Y ni un hexadecimal: el color sale
+ * entero de `colorDeClase`, que es lo que la guarda del color verifica.
  */
 
 export interface ComoLeerElCieloProps {
@@ -44,13 +44,16 @@ export function ComoLeerElCielo({ tema }: ComoLeerElCieloProps) {
       </p>
 
       <p className={`mb-3 max-w-[78ch] text-pretty text-[15px] leading-[1.55] ${texto}`}>
-        Cada punto es <strong className="font-semibold">una señal</strong>: una frase que alguien
-        cargó. Una línea une dos frases que se parecen. Un racimo de puntos es{' '}
-        <strong className="font-semibold">un núcleo</strong> — frases que dicen casi lo mismo,
-        cargadas por separado.
+        Cada punto es <strong className="font-semibold">un aporte</strong>: una frase que alguien
+        cargó. Una línea une dos aportes cuyo texto se parece. Los puntos que dicen casi lo mismo
+        forman <strong className="font-semibold">un grupo</strong>: aportes parecidos, cargados por
+        separado.
       </p>
 
-      <ul className="mb-3 flex flex-wrap gap-x-6 gap-y-1.5" aria-label="Los colores, por clase">
+      <ul
+        className="mb-3 flex flex-wrap gap-x-6 gap-y-1.5"
+        aria-label="Los colores, por tipo de aporte"
+      >
         {CLASES_SENAL.map((clase) => (
           <li key={clase} className={`flex items-center gap-2 text-[14px] ${texto}`}>
             <span
@@ -67,9 +70,9 @@ export function ComoLeerElCielo({ tema }: ComoLeerElCieloProps) {
       </ul>
 
       <p className={`max-w-[78ch] text-[13px] leading-[1.5] ${meta}`}>
-        El cielo gira solo y se puede arrastrar. Clickeá un racimo —o una fila de la lista de más
-        abajo— y se abre su ficha. El deslizador que está debajo del cielo decide qué tan parecido
-        tiene que ser «lo mismo»: movelo y el cielo se rearma.
+        El cielo gira solo y se puede arrastrar. Tocá un grupo, o una fila de la lista de más abajo,
+        y se abre lo que dice. El deslizador que está debajo del cielo decide qué tan parecido tiene
+        que ser «lo mismo»: movelo y el cielo se rearma.
       </p>
     </section>
   );
