@@ -6,6 +6,13 @@ const frase = (min: number, max: number) =>
     .trim()
     .min(min, `Escribí al menos ${min} caracteres para que la pregunta tenga contexto.`)
     .max(max, `El límite es ${max} caracteres.`);
+/**
+ * La campaña nacional permanente «Mi Argentina ideal». Todo aporte que no elige
+ * otra campaña entra acá, para que alguien responda por él con una devolución.
+ * La siembra `packages/db/scripts/seed-campana-nacional.ts` la crea con este slug.
+ */
+export const SLUG_CAMPANA_NACIONAL = 'mi-argentina-ideal';
+
 export const estadosCampana = [
   'borrador',
   'programada',
