@@ -85,6 +85,6 @@ export const COMO_SE_USA = [
   {
     titulo: 'Se recuerda',
     cuerpo:
-      'Los procesos conservan sus revisiones y el aprendizaje. Las publicaciones respetan permisos y retiros vigentes; una copia que alguien ya descargó no puede recuperarse desde la plataforma.',
+      'Los procesos conservan sus ediciones, sus versiones y el aprendizaje. Las publicaciones respetan permisos y retiros vigentes; una copia que alguien ya descargó no puede recuperarse desde la plataforma.',
   },
 ] as const;

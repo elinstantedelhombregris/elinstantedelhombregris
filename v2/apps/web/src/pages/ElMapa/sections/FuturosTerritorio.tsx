@@ -67,7 +67,7 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
                     {f.titulo}
                   </Link>
                   <p className="text-tinta-50 mt-2 text-sm">
-                    {f.territorioNombre ?? 'Todo el país'} · revisión {f.revision}
+                    {f.territorioNombre ?? 'Todo el país'} · versión {f.revision}
                   </p>
                 </li>
               ))}

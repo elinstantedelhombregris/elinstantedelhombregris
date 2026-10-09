@@ -105,7 +105,7 @@ export function ProcesosPublicos() {
                       {f.titulo}
                     </Link>
                     <p className="text-oscuro-meta mt-2 text-sm">
-                      {f.territorioNombre ?? 'Todo el país'} · revisión {f.revision}
+                      {f.territorioNombre ?? 'Todo el país'} · versión {f.revision}
                     </p>
                     <DisenoPublico id={f.id} />
                   </li>
