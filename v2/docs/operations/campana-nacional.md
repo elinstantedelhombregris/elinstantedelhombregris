@@ -18,6 +18,7 @@ La lista es `ADMIN_USERNAMES`: nombres de usuario separados por comas, tal como 
 1. **Las migraciones 0025 a 0030 tienen que estar aplicadas** en la base de destino. La siembra escribe en `campanas` y `campana_ediciones` y lee `users`; sin esas migraciones falla en el primer enunciado.
 2. **La cuenta de Juan tiene que existir en v2**, estar activa y **tener el correo verificado**. La siembra se niega si no (quien abre la campaña tiene que poder recibir los avisos de ella). También `POST /campanas/:id/estado` exige el correo verificado para abrir.
 3. **`ADMIN_USERNAMES` tiene que contener el nombre de usuario de Juan en v2** (en Vercel, y en `v2/.env` si se prueba en local). Si el nombre cambia, la lista queda desactualizada y nadie administra. Es el único paso que la siembra no revisa.
+   **El orden importa:** primero se crea y verifica la cuenta, después se carga el nombre en `ADMIN_USERNAMES`. Al revés, cualquiera podría registrarse con ese nombre antes que Juan y quedar como administración.
 4. Tener a mano la URL de la base. **El script no lee `v2/.env`**: `v2/.env` apunta a producción y un script que lo lee por costumbre escribe ahí sin que nadie lo haya decidido (D-014).
 
 ## Sembrar en local
