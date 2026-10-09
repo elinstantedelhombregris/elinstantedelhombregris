@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  fechaEnCastellano,
   formatoPorcentaje,
   humanizarTema,
   plegarTipos,
@@ -80,5 +81,16 @@ describe('orden territorial sin inferir cobertura de cantidades incompatibles', 
     expect(resultado).toHaveLength(8);
     expect(resultado.map((r) => r.provincia)).toEqual(['1', '2', '3', '4', '5', '6', '7', '8']);
     expect(filas[0]?.provincia).toBe('8');
+  });
+});
+
+describe('fechaEnCastellano', () => {
+  it('escribe la fecha de la API como se dice, sin guiones', () => {
+    expect(fechaEnCastellano('2026-11-01')).toBe('1 de noviembre de 2026');
+    expect(fechaEnCastellano('2026-02-15T03:00:00Z')).toBe('15 de febrero de 2026');
+  });
+
+  it('si no es una fecha, la devuelve tal cual: no se inventa una', () => {
+    expect(fechaEnCastellano('pronto')).toBe('pronto');
   });
 });

@@ -49,10 +49,8 @@ describe('ElMandatoVivo (composer, página papel 2.3)', () => {
     render(<ElMandatoVivo />);
     expect(screen.getByText('El mandato · una posibilidad por construir')).toBeInTheDocument();
     expect(screen.getByText('Imaginamos una vida posible')).toBeInTheDocument();
-    expect(
-      screen.getByText('El registro del mapa — lo que la gente vino a decir'),
-    ).toBeInTheDocument();
-    expect(screen.getByText('Registro de señales — Argentina')).toBeInTheDocument();
+    expect(screen.getByText(/Qué dijo la gente, por tipo/)).toBeInTheDocument();
+    expect(screen.getByText('Aportes del mapa — Argentina')).toBeInTheDocument();
     expect(screen.getByText('Se declara el efecto')).toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Procesos públicos reales' })).toBeInTheDocument();
   });

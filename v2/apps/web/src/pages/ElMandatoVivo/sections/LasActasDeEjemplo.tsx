@@ -1,4 +1,5 @@
 import { ACTAS_DE_EJEMPLO, ADVERTENCIA_DE_LAS_ACTAS } from '../actas-de-ejemplo';
+import { SELLO_ROJO_SOBRE_OSCURO } from '../el-mandato-data';
 
 import { colorDeClase } from '~/components/mapa/pintor-senales';
 import { Sello } from '~/components/papel/primitives';
@@ -31,10 +32,13 @@ import { NADIE_LO_DIJO } from '~/pages/LaSimulacion/simulacion-lectura';
 
 export function LasActasDeEjemplo() {
   return (
-    <section aria-labelledby="las-actas-titulo" className="mx-auto max-w-[1100px] px-10 pb-16 max-[560px]:px-5">
-      <div className="border-sello mb-10 border-y-2 border-dashed py-6">
+    <section
+      aria-labelledby="las-actas-titulo"
+      className="mx-auto max-w-[1100px] px-10 pb-16 max-[560px]:px-5"
+    >
+      <div className="border-oscuro-meta mb-10 border-y-2 border-dashed py-6">
         <div className="flex flex-wrap items-start gap-6">
-          <Sello color="rojo" rotate={-3}>
+          <Sello color="rojo" rotate={-3} className={SELLO_ROJO_SOBRE_OSCURO}>
             Ejemplo inventado
           </Sello>
           <div className="min-w-[260px] flex-1">
@@ -52,7 +56,7 @@ export function LasActasDeEjemplo() {
         id="las-actas-titulo"
         className="font-anton text-oscuro-texto mb-4 text-[clamp(30px,3.8vw,48px)] leading-[1.02]"
       >
-        Cada clase de señal habilita un mandato distinto.
+        Cada clase de aporte habilita un mandato distinto.
       </h2>
       <p className="text-oscuro-secundario mb-8 max-w-[76ch] text-pretty text-[17px] leading-[1.6]">
         Es la regla 11 hecha instrumento: lo que se corrobora <em>repara</em>, lo que falta{' '}
@@ -71,7 +75,7 @@ export function LasActasDeEjemplo() {
           >
             <span
               aria-hidden
-              className="border-sello text-sello font-space absolute right-3 top-3 rotate-2 border px-1.5 py-px text-[9.5px] font-bold uppercase tracking-[0.08em]"
+              className={`${SELLO_ROJO_SOBRE_OSCURO} border-sello text-sello font-space absolute right-3 top-3 rotate-2 border px-1.5 py-px text-[10px] font-bold uppercase tracking-[0.08em]`}
             >
               ejemplo inventado
             </span>
@@ -85,8 +89,7 @@ export function LasActasDeEjemplo() {
               {acta.lugar}
             </p>
             <p className="text-oscuro-secundario mb-2 text-[13.5px] leading-[1.55]">
-              <strong className="text-oscuro-texto font-semibold">Respaldo:</strong>{' '}
-              {acta.respaldo}
+              <strong className="text-oscuro-texto font-semibold">Respaldo:</strong> {acta.respaldo}
             </p>
             <p className="text-oscuro-secundario mb-2 text-[13.5px] leading-[1.55]">
               <strong className="text-oscuro-texto font-semibold">La exigencia:</strong>{' '}
@@ -106,10 +109,10 @@ export function LasActasDeEjemplo() {
       <p className="text-oscuro-meta mt-6 max-w-[76ch] text-[13.5px] leading-[1.55]">
         <strong className="text-oscuro-secundario font-semibold">Qué NO es un mandato:</strong> no
         es una orden judicial ni una ley, y no tiene más fuerza que la que tiene ser verificable y
-        público — una exigencia con datos citables detrás, que queda en el registro cumplida o
+        público — una exigencia con datos citables detrás, que queda a la vista cumplida o
         incumplida. Los conteos son de personas distintas y nunca de filas; ningún acta produce un
-        ranking de personas; y un territorio por debajo del piso de supresión no publica acta
-        alguna — el instrumento protege antes de exigir.
+        ranking de personas; y un territorio por debajo del piso de supresión no publica acta alguna
+        — el instrumento protege antes de exigir.
       </p>
     </section>
   );

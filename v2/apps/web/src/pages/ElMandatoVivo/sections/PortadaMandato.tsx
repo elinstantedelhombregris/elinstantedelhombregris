@@ -1,6 +1,6 @@
 import { Kicker, RitoTinta } from '~/components/papel/primitives';
 
-/** La portada presenta el proceso sin atribuir mandato a un número de registros. */
+/** La portada dice qué es un mandato y que hoy no hay ninguno; no lo atribuye a un número de aportes. */
 export function PortadaMandato() {
   return (
     <section className="mx-auto max-w-[1100px] px-10 pb-10 pt-16 max-[560px]:px-5">
@@ -9,7 +9,9 @@ export function PortadaMandato() {
         <span className="text-violeta-claro">Revisión continua</span>
       </div>
 
-      <Kicker className="mt-8 mb-4 text-violeta-claro">El mandato · una posibilidad por construir</Kicker>
+      <Kicker className="text-violeta-claro mb-4 mt-8">
+        El mandato · una posibilidad por construir
+      </Kicker>
 
       <h1
         aria-label="El mandato."
@@ -19,10 +21,8 @@ export function PortadaMandato() {
       </h1>
 
       <p className="font-archivo text-oscuro-secundario mt-6 max-w-[640px] text-[19px] leading-relaxed">
-        El país que queremos vivir puede empezar con una pregunta compartida. Acá podés seguir
-        convocatorias, diferencias, alternativas y resultados. Un mandato requiere un proceso con
-        participantes, responsabilidades y efecto declarado; no nace de sumar voces ni de encontrar
-        palabras parecidas.
+        Un mandato es una exigencia con fecha, responsables y forma de comprobarla. Hoy no hay
+        ninguno: acá ves qué se está armando y qué dijo la gente.
       </p>
     </section>
   );

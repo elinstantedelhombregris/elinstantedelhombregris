@@ -4,8 +4,9 @@ import { DocumentoSecciones } from './DocumentoSecciones';
 
 import { BotonPapel, Sello } from '~/components/papel/primitives';
 import { useMandatoDocumento } from '~/lib/queries/mandato';
+import { cuantos } from '~/lib/vocabulario';
 
-const ENCABEZADO_SECCION = 'Consulta de señales · lectura agregada';
+const ENCABEZADO_SECCION = 'Consulta de aportes · lectura agregada';
 
 /** §4 de la spec — el documento papel sobre oscuro (única sombra del sistema). */
 export function DocumentoMandato() {
@@ -55,7 +56,7 @@ export function DocumentoMandato() {
           {ENCABEZADO_SECCION}
         </h2>
         <p className="font-archivo text-oscuro-secundario text-[15px]">
-          Esto se rompió. Lo decimos porque publicamos todo.
+          No pudimos cargar esto. Probá de nuevo en un rato.
         </p>
         <BotonPapel
           variant="fantasma"
@@ -89,26 +90,31 @@ export function DocumentoMandato() {
       </h2>
 
       <div className="bg-papel text-tinta relative p-[52px_56px] shadow-[0_24px_60px_rgba(0,0,0,0.45)] max-[560px]:p-6">
-        <div className="absolute right-9 top-[30px] max-[560px]:static max-[560px]:mb-4">
-          <Sello color="rojo" rotate={6}>Registro</Sello>
+        {/* El sello va EN el flujo, a la derecha de la fecha y debajo de ella cuando
+            no entra (flex-wrap). Antes era absoluto y entre 561 y 960 px se
+            encimaba con la línea de la fecha. Y no es rojo: el rojo es de los
+            ejemplos, y esto es la lectura real. */}
+        <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
+          <p className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.12em]">
+            Revisión continua · {fecha} ·{' '}
+            {data.voces.total >= 1
+              ? cuantos(data.voces.total, 'aporte', 'aportes')
+              : 'todavía sin aportes'}
+          </p>
+          <Sello color="violeta" rotate={3}>
+            Consulta pública
+          </Sello>
         </div>
-
-        <p className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.12em]">
-          Revisión continua · {fecha} ·{' '}
-          {data.voces.total >= 1
-            ? `Exp. ${data.voces.total.toLocaleString('es-AR')} voces`
-            : 'Exp. sin voces todavía'}
-        </p>
         <h2
           id="documento-titulo"
           className="font-anton mt-2 text-[clamp(30px,4.4vw,52px)] leading-none"
         >
-          Registro de señales — Argentina
+          Aportes del mapa — Argentina
         </h2>
         <p className="text-tinta-50 mt-3 text-sm leading-relaxed">
-          Conservamos la forma del documento anterior, con señales y permisos actuales. Sus conteos no incluyen los
-          resultados de deliberación o pruebas que se leen arriba en cada proceso. Ningún volumen
-          de señales convierte esta consulta en un acuerdo ni en representación nacional.
+          Cuenta los aportes con sus permisos actuales. No incluye los resultados de deliberación ni
+          de pruebas que se leen arriba, en cada proceso. Ninguna cantidad de aportes convierte esta
+          consulta en un acuerdo ni en representación nacional.
         </p>
 
         <div className="border-tinta mt-8 border-t-2 pt-6">
@@ -117,7 +123,7 @@ export function DocumentoMandato() {
           </p>
           <p className="text-[16px] leading-relaxed">
             Este documento junta lo que la gente dejó en el mapa y dice de dónde sale cada cosa. Los
-            números cuentan registros, no personas: una misma persona puede dejar varios. Un hecho
+            números cuentan aportes, no personas: una misma persona puede dejar varios. Un hecho
             vale cuando alguien lo corrobora; un objetivo, cuando se discutió en un proceso que se
             pueda nombrar. No habla por todo el país ni obliga a nadie: es lo que está escrito hasta
             hoy, a la vista de cualquiera.
@@ -136,9 +142,9 @@ export function DocumentoMandato() {
         ) : null}
 
         <p className="font-space text-tinta-50 border-papel-borde mt-8 border-t pt-4 text-[10px] uppercase tracking-[0.1em]">
-          Fuentes: {data.voces.total.toLocaleString('es-AR')} voces del mapa ·{' '}
-          {data.senales.clasificadas.toLocaleString('es-AR')} señales clasificadas ·{' '}
-          {data.propuestas.length.toLocaleString('es-AR')} propuestas registradas · generado {fecha}
+          Fuentes: {cuantos(data.voces.total, 'aporte', 'aportes')} del mapa ·{' '}
+          {cuantos(data.senales.clasificadas, 'aporte clasificado', 'aportes clasificados')} ·{' '}
+          {cuantos(data.propuestas.length, 'propuesta', 'propuestas', true)} · generado {fecha}
         </p>
       </div>
     </section>

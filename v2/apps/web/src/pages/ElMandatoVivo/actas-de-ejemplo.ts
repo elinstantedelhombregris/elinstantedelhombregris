@@ -10,8 +10,8 @@ import type { ClaseSenal } from '@v2/civic-core';
  * pasadas por revisión adversarial (tres lentes con refutadores) y movidas
  * acá con las correcciones de canon adentro:
  *
- *  - el reloj de un compromiso vencido marca **desenlace `vencido` y señal
- *    `desactualizada`** — no manda a revisión, y `no cumplida` sólo lo puede
+ *  - el reloj de un compromiso vencido marca **desenlace `vencido` y aporte
+ *    `desactualizado`** — no manda a revisión, y `no cumplida` sólo lo puede
  *    decir una persona (D-074);
  *  - el piso del mandato se evalúa **por territorio**, nunca por celda;
  *  - los conteos son de **personas distintas**, jamás de filas.
@@ -47,11 +47,11 @@ export const ACTAS_DE_EJEMPLO: readonly ActaDeEjemplo[] = [
     titulo: 'El agua de red vuelve a las últimas tres cuadras',
     lugar: 'Barrio La Ribera · Resistencia, Chaco',
     respaldo:
-      '214 señales de 163 personas distintas (9 sin actor, contadas aparte) · 61% corroborado en la puerta · sostenido 5 meses. Quién falta, dicho acá y no en un pie: la zona rural del distrito está muda, y este mandato no habla por ella.',
+      '214 aportes de 163 personas distintas (9 sin actor, contadas aparte) · 61% corroborado en la puerta · sostenido 5 meses. Quién falta, dicho acá y no en un pie: la zona rural del distrito no tiene aportes, y este mandato no habla por ella.',
     exigencia:
       'La prestadora restituye la presión de red en las cuadras relevadas dentro de los 45 días corridos desde la publicación del acta.',
     comprobacion:
-      'Tres vecinos distintos confirman «ya no está» sobre la señal madre. La celda sube de nitidez y el acta pasa a resuelta.',
+      'Tres vecinos distintos confirman «ya no está» sobre el aporte original. La celda sube de nitidez y el acta pasa a resuelta.',
     planes: 'PLANAGUA · PLANTER',
   },
   {
@@ -62,11 +62,10 @@ export const ACTAS_DE_EJEMPLO: readonly ActaDeEjemplo[] = [
     titulo: 'Pediatra después de las 14 en la salita',
     lugar: 'Villa Los Tarcos · San Miguel de Tucumán',
     respaldo:
-      '187 señales de 141 personas distintas · el horario real de atención, verificado en la puerta 11 veces en 4 semanas · sostenido 6 meses.',
+      '187 aportes de 141 personas distintas · el horario real de atención, verificado en la puerta 11 veces en 4 semanas · sostenido 6 meses.',
     exigencia:
       'La provincia cubre el cargo vespertino dentro de los 90 días. Una necesidad se corrobora yendo a mirar la ausencia — y acá la ausencia tiene horario, fecha y puerta cerrada.',
-    comprobacion:
-      'El horario publicado contra el horario comprobado, salita por salita.',
+    comprobacion: 'El horario publicado contra el horario comprobado, salita por salita.',
     planes: 'PLANSAL · PLANCUIDADO',
   },
   {
@@ -93,9 +92,9 @@ export const ACTAS_DE_EJEMPLO: readonly ActaDeEjemplo[] = [
     respaldo:
       'La cooperativa vial lo prometió con fecha; 52 personas distintas adhirieron y el estado de la obra se confirma cada semana.',
     exigencia:
-      'La que el propio compromiso declaró — terminar antes del 15 de octubre. El registro no agrega nada: recuerda.',
+      'La que el propio compromiso declaró — terminar antes del 15 de octubre. El acta no agrega nada: recuerda.',
     comprobacion:
-      'Al vencer la fecha, el reloj lo marca solo: el desenlace pasa a vencido y la señal a desactualizada. No cumplida sólo lo puede decir una persona que fue a mirar — un proceso automático no acusa a nadie.',
+      'Al vencer la fecha, el reloj lo marca solo: el desenlace pasa a vencido y el aporte a desactualizado. No cumplida sólo lo puede decir una persona que fue a mirar — un proceso automático no acusa a nadie.',
     planes: 'PLANMOV · PLANTER',
   },
   {
@@ -110,11 +109,11 @@ export const ACTAS_DE_EJEMPLO: readonly ActaDeEjemplo[] = [
     exigencia:
       'El dato se publica, con fuente y período, dentro de los 60 días. La agenda territorial de lo que no se sabe es el mandato más barato de conceder — y el que más cuesta seguir negando.',
     comprobacion:
-      'La respuesta entra al registro como un saber con fuente, se corrobora como cualquier hecho, y la pregunta pasa a resuelta.',
+      'La respuesta se carga como un saber con fuente, se corrobora como cualquier hecho, y la pregunta pasa a resuelta.',
     planes: 'PLANREP · PLAN24CN',
   },
 ];
 
 /** La advertencia del sello, en el mismo registro que la de la Simulación. */
 export const ADVERTENCIA_DE_LAS_ACTAS =
-  'Las cinco actas de esta página fueron generadas para mostrar en qué termina el circuito: qué tipo de exigencia habilita cada clase de señal. Los barrios, los respaldos y los plazos son inventados; las provincias son reales porque la lección necesita un mapa cierto. Ningún número de acá existe en ninguna tabla, y el mandato de verdad — el documento que lee lo que la gente carga — vive en la otra pantalla.';
+  'Las cinco actas de esta página fueron generadas para mostrar en qué termina el circuito: qué tipo de exigencia habilita cada clase de aporte. Los barrios, los respaldos y los plazos son inventados; las provincias son reales porque la lección necesita un mapa cierto. Ningún número de acá existe en ninguna tabla, y el mandato de verdad — el documento que lee lo que la gente carga — vive en la otra pantalla.';
