@@ -1,6 +1,6 @@
 import { useVocesRecientes } from '~/lib/queries/analytics';
 import { cn } from '~/lib/utils';
-import { CLASE_TEXTO, claseDe, leerTipoSenal, type ClaseSenal } from '~/lib/vocabulario';
+import { CLASE_TEXTO, claseDe, leerTipoSenal } from '~/lib/vocabulario';
 
 /**
  * Lo que dice el servidor cuando el aporte existe pero su texto quedó reservado
@@ -8,19 +8,6 @@ import { CLASE_TEXTO, claseDe, leerTipoSenal, type ClaseSenal } from '~/lib/voca
  * no es una cita de nadie, así que no entra a la cinta.
  */
 const TEXTO_RESERVADO = 'Texto reservado por su autoría.';
-
-/**
- * El color de cada clase, para texto sobre `papel-crudo`.
- *
- * `text-ambar` (#A16C00) da 4,31:1 sobre ese fondo y el texto de la cinta mide
- * 13 px: no llega al 4,5:1 de AA. Los otros tres colores de clase sí llegan, así
- * que solo los hechos usan un ámbar más oscuro (5,2:1) que sigue leyéndose ámbar.
- * Si el token cambia, esta excepción sobra.
- */
-const TEXTO_DE_CLASE: Readonly<Record<ClaseSenal, string>> = {
-  ...CLASE_TEXTO,
-  hecho: 'text-[#8F6000]',
-};
 
 /**
  * Los últimos aportes publicados, en una cinta.
@@ -87,7 +74,7 @@ export function VocesTicker() {
                     key={`${copia}-${voz.id}`}
                     className={cn(
                       'font-space whitespace-nowrap px-[34px] text-[13px] motion-reduce:whitespace-normal motion-reduce:px-0 motion-reduce:py-1 motion-reduce:pr-8',
-                      lectura.reconocido ? TEXTO_DE_CLASE[claseDe(lectura.tipo)] : 'text-tinta-75',
+                      lectura.reconocido ? CLASE_TEXTO[claseDe(lectura.tipo)] : 'text-tinta-75',
                     )}
                   >
                     «{voz.texto}»

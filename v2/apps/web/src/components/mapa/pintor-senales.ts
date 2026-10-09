@@ -79,6 +79,11 @@ export const GRIS_DEL_TEMA: Readonly<Record<TemaDelMapa, string>> = {
 /**
  * Los cuatro colores de clase, en los tokens de `tailwind.config.ts`.
  *
+ * Una excepción conocida: el token `ambar` se oscureció a #8F6000 para que el TEXTO llegue
+ * a 4,5:1, y este `hecho` conserva el #A16C00 de antes (3,92:1 sobre papel: cruza el 3:1 de
+ * un objeto gráfico, que es lo que un punto del mapa es). `pintor-senales.test.ts` lo ancla;
+ * alinearlo con el token es una decisión aparte, con su guarda.
+ *
  * El `Record<ClaseSenal, string>` es lo que hace exhaustiva la tabla: agregar
  * una quinta clase al canon rompe la compilación acá en vez de pintarla de
  * cualquier cosa.

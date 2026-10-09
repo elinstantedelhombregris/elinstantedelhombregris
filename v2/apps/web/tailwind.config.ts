@@ -52,7 +52,12 @@ const config: Config = {
         },
         sello: '#C23B22', // basta · urgencia · sellos
         verde: '#1A7A4A', // compromiso · territorio
-        ambar: '#A16C00', // necesidad · método
+        // Necesidad · método. `DEFAULT` es el de TEXTO y de superficie sobre papel: 4,76:1 sobre
+        // papel y 5,23:1 sobre papel-crudo (el #A16C00 anterior daba 3,92:1 y 4,31:1: no llegaba
+        // al 4,5:1 de AA para texto). `claro` es el de superficie sobre fondo tinta —el mismo
+        // #A16C00 de antes—, como `violeta.claro`: oscurecer el DEFAULT hundiría las barras del
+        // mandato (3,63:1 → 2,99:1 sobre oscuro.barra).
+        ambar: { DEFAULT: '#8F6000', claro: '#A16C00' },
         cian: '#0F6B8A', // recurso
         // ¡BASTA! palette v1 — legado, se borra al terminar la migración papel.
         'iris-violet': '#7D5BDE',

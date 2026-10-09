@@ -27,7 +27,8 @@
   --violeta-claro: #9D85E8;    /* violeta sobre fondo tinta */
   --rojo-sello: #C23B22;       /* basta · urgencia · sellos */
   --verde: #1A7A4A;            /* compromiso · territorio */
-  --ambar: #A16C00;            /* necesidad · método */
+  --ambar: #8F6000;            /* necesidad · método — 4,76:1 sobre papel, 5,23:1 sobre crudo (AA para texto) */
+  --ambar-claro: #A16C00;      /* ámbar sobre fondo tinta */
   --cian: #0F6B8A;             /* recurso */
   /* tipografía */
   --font-display: 'Anton', sans-serif;

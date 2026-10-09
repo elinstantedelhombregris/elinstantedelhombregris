@@ -37,7 +37,7 @@ Acentos (con significado fijo — no mezclar)
 - `#5227CC` violeta = la marca, lo accionable, "sueño". Hover: `#3D1BA3`. En oscuro usar `#9D85E8`.
 - `#C23B22` rojo sello = urgencia, "basta", sellos NO ES DOCTRINA / EJEMPLO, crítica
 - `#1A7A4A` verde = "compromiso", territorio, logrado
-- `#A16C00` ámbar = "necesidad", método, advertencia media
+- `#8F6000` ámbar = "necesidad", método, advertencia media (4,76:1 sobre papel y 5,23:1 sobre papel crudo: sirve de texto). Sobre fondo tinta: `#A16C00` (`ambar-claro`)
 - `#0F6B8A` cian = "recurso"
 - Máximo 1–2 fondos de color por página. El violeta nunca es fondo de página entera, solo bandas CTA.
 
