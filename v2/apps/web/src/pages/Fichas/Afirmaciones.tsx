@@ -1,51 +1,84 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'wouter';
+
+import { LecturaDeRespuestas } from './LecturaDeRespuestas';
+import { faltanCaracteres, TITULOS_DE_DISENO } from './presentacion';
+import { TarjetaAfirmacion } from './TarjetaAfirmacion';
 
 import type { AnalisisOpiniones } from '@v2/civic-core';
 import type { DisenoFicha } from '@v2/shared';
 
+import { BotonPapel } from '~/components/papel/primitives';
+import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { CAMPO } from '~/components/participacion/constantes';
-import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
+import { ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth/use-auth';
-import { useOperacionPersonal, escribir } from '~/lib/queries/participacion';
+import { useOperacionPersonal } from '~/lib/queries/participacion';
+
+const MINIMO_DE_LA_AFIRMACION = 10;
 
 export function Afirmaciones({
   fichaId,
   datos,
+  hrefIngreso,
 }: {
   fichaId: string;
   datos: DisenoFicha & { analisisOpiniones: AnalisisOpiniones };
+  hrefIngreso: string;
 }) {
   const auth = useAuth();
   const [texto, setTexto] = useState('');
+  const [aviso, setAviso] = useState('');
   const idLocal = useRef(crypto.randomUUID());
   const op = useOperacionPersonal();
+  const analisis = datos.analisisOpiniones;
+  const hay = datos.afirmaciones.length > 0;
+  // El aviso y el registro de exposición salen de la misma condición: no se anota nada sin avisar.
+  const avisaExposicion = Boolean(auth.user) && hay;
+  const motivo = faltanCaracteres(texto.trim().length, MINIMO_DE_LA_AFIRMACION);
   return (
-    <section>
-      <h3 className="font-anton text-3xl">
-        Qué podemos compartir
-        <br />y dónde pensamos distinto.
+    <section aria-labelledby="afirmaciones-titulo">
+      <h3 id="afirmaciones-titulo" className="font-anton text-3xl">
+        {TITULOS_DE_DISENO.afirmaciones}
       </h3>
       <p className="mt-4 leading-relaxed">
-        Una afirmación contiene una idea. Las respuestas expresan acuerdo, desacuerdo o la elección
-        de pasar. No comprueban un hecho ni autorizan una política por sí solas.
+        Cada afirmación contiene una sola idea. Podés estar de acuerdo, no estarlo o pasar. Las
+        respuestas no comprueban un hecho ni autorizan una política por sí solas.
       </p>
-      <ul className="mt-6 space-y-5">
-        {datos.afirmaciones.map((a) => (
-          <Tarjeta key={a.id} afirmacion={a} />
-        ))}
-      </ul>
-      {!datos.afirmaciones.length ? (
+      {avisaExposicion ? (
         <Nota>
-          Todavía no hay afirmaciones. Podés proponer una condición de vida para que otros la
-          examinen.
+          Anotamos qué afirmaciones viste, sin tu nombre, para saber a cuántas personas llegaron.
         </Nota>
       ) : null}
+      <p
+        role="status"
+        className={aviso ? 'border-violeta my-4 border-l-2 pl-4 text-sm' : 'sr-only'}
+      >
+        {aviso}
+      </p>
+      {hay ? (
+        <ul className="mt-6 space-y-5">
+          {datos.afirmaciones.map((a) => (
+            <TarjetaAfirmacion
+              key={a.id}
+              afirmacion={a}
+              registraExposicion={avisaExposicion}
+              avisar={setAviso}
+            />
+          ))}
+        </ul>
+      ) : (
+        <Nota>
+          Todavía no hay afirmaciones.{' '}
+          {auth.user ? 'Podés proponer la primera.' : 'Ingresá para proponer la primera.'}
+        </Nota>
+      )}
       {auth.user ? (
         <form
-          className="mt-7 border p-5"
+          className="border-tinta mt-7 border p-5"
           onSubmit={(e) => {
             e.preventDefault();
+            if (motivo) return;
             op.mutate(
               {
                 metodo: 'post',
@@ -56,6 +89,7 @@ export function Afirmaciones({
                 onSuccess: () => {
                   setTexto('');
                   idLocal.current = crypto.randomUUID();
+                  setAviso('Publicamos tu afirmación.');
                 },
               },
             );
@@ -78,149 +112,18 @@ export function Afirmaciones({
             La afirmación se publica con esta ficha. Su autoría de cuenta permanece privada.
           </p>
           <ErrorOperacion mensaje={op.error?.message} />
-          <BotonAccion
-            type="submit"
-            className="mt-4"
-            disabled={texto.trim().length < 10 || op.isPending}
-          >
-            Proponer esta afirmación
-          </BotonAccion>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <BotonConMotivo type="submit" motivo={motivo} ocupado={op.isPending}>
+              Proponer esta afirmación
+            </BotonConMotivo>
+          </div>
         </form>
       ) : (
-        <Link
-          href="/ingresar?volver=%2Fmi-espacio"
-          className="text-violeta mt-4 inline-flex min-h-11 items-center underline"
-        >
-          Ingresar para responder o proponer
-        </Link>
+        <BotonPapel asChild variant="fantasma" className="mt-6 inline-block">
+          <Link href={hrefIngreso}>Ingresar para responder o proponer</Link>
+        </BotonPapel>
       )}
-      <section className="mt-9 border-t pt-6">
-        <h4 className="font-anton text-2xl">Lectura de las respuestas</h4>
-        <p className="mt-3 text-sm leading-relaxed">{datos.analisisOpiniones.motivo}</p>
-        <p className="text-tinta-50 mt-3 text-sm">
-          {datos.analisisOpiniones.participantes} cuentas con exposición o respuesta ·{' '}
-          {datos.analisisOpiniones.incluidos} incluidas en la proyección.
-        </p>
-        {datos.analisisOpiniones.grupos.length ? (
-          <>
-            <ul className="mt-4 flex flex-wrap gap-4">
-              {datos.analisisOpiniones.grupos.map((g) => (
-                <li key={g.nombre} className="border px-4 py-3">
-                  {g.nombre}: {g.cuentas} cuentas
-                </li>
-              ))}
-            </ul>
-            <ul className="mt-5 space-y-3">
-              {datos.analisisOpiniones.condiciones.map((c) => (
-                <li key={c.afirmacion} className="border p-4">
-                  <p>{datos.afirmaciones.find((a) => a.id === c.afirmacion)?.texto}</p>
-                  <p className="mt-2 text-sm">
-                    {c.grupos
-                      .map(
-                        (g) =>
-                          `${g.nombre}: ${g.acuerdos === null ? 'datos insuficientes' : `${g.acuerdos} acuerdos de ${g.respuestas ?? '—'} respuestas`}`,
-                      )
-                      .join(' · ')}
-                  </p>
-                  <p className="text-tinta-50 mt-2 text-sm">
-                    Indicador de apoyo distribuido:{' '}
-                    {c.apoyo === null ? 'pendiente' : c.apoyo.toFixed(3)}. Se compara dentro de esta
-                    lectura.
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </>
-        ) : null}
-        <details className="mt-4">
-          <summary className="min-h-11 cursor-pointer py-3 underline">Método y límites</summary>
-          <p className="text-tinta-75 mt-2 text-sm leading-relaxed">
-            {datos.analisisOpiniones.metodo} El pase cuenta como respuesta; la ausencia no se
-            interpreta como acuerdo. Los grupos son una hipótesis de esta ficha y no una identidad
-            política ni una representación del país.
-          </p>
-        </details>
-      </section>
+      {hay ? <LecturaDeRespuestas afirmaciones={datos.afirmaciones} analisis={analisis} /> : null}
     </section>
-  );
-}
-function Tarjeta({ afirmacion: a }: { afirmacion: DisenoFicha['afirmaciones'][number] }) {
-  const auth = useAuth();
-  const op = useOperacionPersonal();
-  const ref = useRef<HTMLLIElement>(null);
-  const registrada = useRef<string | null>(null);
-  useEffect(() => {
-    if (!auth.user || a.miExpuesta || !ref.current) return;
-    const clave = `${auth.user.id}:${a.id}`;
-    if (registrada.current === clave) return;
-    const registrar = () => {
-      registrada.current = clave;
-      void escribir('post', `/api/v1/fichas/afirmaciones/${a.id}/exposicion`).catch(() => {
-        registrada.current = null;
-      });
-    };
-    if (typeof IntersectionObserver === 'undefined') return;
-    const observador = new IntersectionObserver(
-      (entradas) => {
-        if (entradas.some((e) => e.isIntersecting)) {
-          registrar();
-          observador.disconnect();
-        }
-      },
-      { threshold: 0.6 },
-    );
-    observador.observe(ref.current);
-    return () => {
-      observador.disconnect();
-    };
-  }, [auth.user, a.id, a.miExpuesta]);
-  return (
-    <li ref={ref} className="bg-papel-crudo border p-5">
-      <p className="text-lg leading-relaxed">{a.texto}</p>
-      {auth.user ? (
-        <div className="mt-5 grid gap-2 sm:grid-cols-3">
-          {(
-            [
-              ['acuerdo', 'Estoy de acuerdo'],
-              ['desacuerdo', 'No estoy de acuerdo'],
-              ['paso', 'Prefiero pasar'],
-            ] as const
-          ).map(([valor, rotulo]) => (
-            <BotonAccion
-              key={valor}
-              tono={a.miRespuesta === valor ? 'violeta' : 'papel'}
-              disabled={op.isPending}
-              aria-pressed={a.miRespuesta === valor}
-              onClick={() => {
-                op.mutate({
-                  metodo: 'post',
-                  ruta: `/api/v1/fichas/afirmaciones/${a.id}/respuesta`,
-                  cuerpo: { valor },
-                });
-              }}
-            >
-              {rotulo}
-            </BotonAccion>
-          ))}
-        </div>
-      ) : null}
-      <p className="text-tinta-50 mt-4 text-sm">
-        {a.acuerdo === null
-          ? `${a.respuestas} respuestas; el desglose público espera al menos cinco.`
-          : `${a.acuerdo} acuerdos · ${a.desacuerdo ?? '—'} desacuerdos · ${a.paso ?? '—'} pases.`}
-      </p>
-      <ErrorOperacion mensaje={op.error?.message} />
-      {a.puedoRetirar ? (
-        <button
-          type="button"
-          className="text-sello mt-3 min-h-11 underline"
-          onClick={() => {
-            op.mutate({ metodo: 'delete', ruta: `/api/v1/fichas/afirmaciones/${a.id}` });
-          }}
-        >
-          Retirar mi afirmación
-        </button>
-      ) : null}
-    </li>
   );
 }

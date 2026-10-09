@@ -1,64 +1,81 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import { Link } from 'wouter';
+
+import { Campo } from './Campo';
+import { TITULOS_DE_DISENO } from './presentacion';
+import { TarjetaPrueba } from './TarjetaPrueba';
 
 import type { DisenoFicha } from '@v2/shared';
 
+import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { CAMPO } from '~/components/participacion/constantes';
-import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
+import { ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth/use-auth';
 import { useOperacionPersonal } from '~/lib/queries/participacion';
-const ROTULOS: Record<string, string> = {
-  propuesta: 'Prueba propuesta',
-  aceptada: 'Responsabilidad aceptada',
-  en_curso: 'En curso',
-  pausada: 'Pausada',
-  implementada: 'Implementación declarada',
-  resultado_observado: 'Resultado observado',
-  resultado_revisado: 'Revisión por otra cuenta registrada',
-};
-const SIGUIENTES: Record<string, string[]> = {
-  propuesta: ['aceptada'],
-  aceptada: ['en_curso', 'pausada'],
-  en_curso: ['implementada', 'pausada'],
-  pausada: ['en_curso'],
-  implementada: ['resultado_observado'],
-  resultado_observado: ['resultado_revisado'],
-  resultado_revisado: [],
-};
-export function Pruebas({ datos }: { datos: DisenoFicha }) {
+
+type Errores = Partial<Record<'a' | 'titulo' | 'alcance' | 'plazo', string>>;
+
+export function Pruebas({ datos, hrefIngreso }: { datos: DisenoFicha; hrefIngreso: string }) {
   const auth = useAuth();
   const idLocal = useRef(crypto.randomUUID());
   const op = useOperacionPersonal();
+  const formulario = useRef<HTMLFormElement>(null);
   const [a, setA] = useState('');
   const [titulo, setTitulo] = useState('');
   const [alcance, setAlcance] = useState('');
   const [plazo, setPlazo] = useState('');
+  const [errores, setErrores] = useState<Errores>({});
+  const [aviso, setAviso] = useState('');
   return (
-    <section>
-      <h3 className="font-anton text-3xl">
-        El diseño aprende
-        <br />
-        cuando toca la vida.
+    <section aria-labelledby="pruebas-titulo">
+      <h3 id="pruebas-titulo" className="font-anton text-3xl">
+        {TITULOS_DE_DISENO.pruebas}
       </h3>
       <p className="mt-4 leading-relaxed">
-        Una prueba acota alcance, responsabilidad y evidencia. Lo que sale mal también queda como
-        aprendizaje. Una declaración de ejecución todavía necesita observar su resultado.
+        Una prueba es un experimento acotado: tiene un lugar, personas a cargo y una fecha para
+        revisar qué pasó. Lo que sale mal también queda como aprendizaje. Declarar que algo se hizo
+        todavía necesita observar su resultado.
+      </p>
+      <p
+        role="status"
+        className={aviso ? 'border-violeta my-4 border-l-2 pl-4 text-sm' : 'sr-only'}
+      >
+        {aviso}
       </p>
       <div className="mt-6 space-y-6">
         {datos.pruebas.map((p) => (
-          <Prueba key={p.id} prueba={p} />
+          <TarjetaPrueba key={p.id} prueba={p} avisar={setAviso} />
         ))}
       </div>
       {!datos.pruebas.length ? (
         <Nota>
-          Todavía no hay pruebas propuestas. Primero hace falta una alternativa y un equipo
-          dispuesto a sostener una prueba pequeña.
+          Todavía no hay pruebas. Para proponer una, primero tiene que haber una alternativa.
         </Nota>
       ) : null}
       {auth.user && datos.alternativas.length ? (
         <form
-          className="mt-7 border p-5"
+          ref={formulario}
+          noValidate
+          className="border-tinta mt-7 border p-5"
           onSubmit={(e) => {
             e.preventDefault();
+            const problemas: Errores = {
+              ...(a ? {} : { a: 'Elegí la alternativa que se pondría a prueba.' }),
+              ...(titulo.trim().length >= 5
+                ? {}
+                : { titulo: 'Poné un nombre de al menos 5 caracteres.' }),
+              ...(alcance.trim().length >= 10
+                ? {}
+                : { alcance: 'Contá dónde, con quién y a qué escala, en al menos 10 caracteres.' }),
+              ...(plazo ? {} : { plazo: 'Elegí la fecha en que vamos a revisar qué pasó.' }),
+            };
+            setErrores(problemas);
+            if (Object.keys(problemas).length) {
+              requestAnimationFrame(() => {
+                formulario.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
+              });
+              return;
+            }
             op.mutate(
               {
                 metodo: 'post',
@@ -70,212 +87,101 @@ export function Pruebas({ datos }: { datos: DisenoFicha }) {
                   setTitulo('');
                   idLocal.current = crypto.randomUUID();
                   setAlcance('');
+                  setAviso('Registramos la propuesta de prueba.');
                 },
               },
             );
           }}
         >
-          <h4 className="font-anton text-2xl">Proponer una prueba acotada</h4>
-          <label className="mt-4 block">
-            Alternativa
-            <select
-              className={CAMPO}
-              value={a}
-              onChange={(e) => {
-                setA(e.target.value);
-              }}
-            >
-              <option value="">Elegí el diseño que se pondría a prueba</option>
-              {datos.alternativas.map((x) => (
-                <option key={x.id} value={x.id}>
-                  {x.titulo}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="mt-4 block">
-            Nombre
-            <input
-              className={CAMPO}
-              value={titulo}
-              onChange={(e) => {
-                setTitulo(e.target.value);
-              }}
-            />
-          </label>
-          <label className="mt-4 block">
-            Dónde, con quién y a qué escala
-            <textarea
-              className={CAMPO}
-              rows={3}
-              value={alcance}
-              onChange={(e) => {
-                setAlcance(e.target.value);
-              }}
-            />
-          </label>
-          <label className="mt-4 block">
-            Fecha de revisión
-            <input
-              className={CAMPO}
-              type="date"
-              value={plazo}
-              onChange={(e) => {
-                setPlazo(e.target.value);
-              }}
-            />
-          </label>
+          <h4 className="font-anton text-2xl">Proponer una prueba</h4>
+          <Campo etiqueta="Alternativa" className="mt-4" error={errores.a}>
+            {(atributos) => (
+              <select
+                {...atributos}
+                className={CAMPO}
+                value={a}
+                onChange={(e) => {
+                  setA(e.target.value);
+                }}
+              >
+                <option value="">Elegí la alternativa que se pondría a prueba</option>
+                {datos.alternativas.map((x) => (
+                  <option key={x.id} value={x.id}>
+                    {x.titulo}
+                  </option>
+                ))}
+              </select>
+            )}
+          </Campo>
+          <Campo etiqueta="Nombre" className="mt-4" error={errores.titulo}>
+            {(atributos) => (
+              <input
+                {...atributos}
+                className={CAMPO}
+                value={titulo}
+                maxLength={160}
+                onChange={(e) => {
+                  setTitulo(e.target.value);
+                }}
+              />
+            )}
+          </Campo>
+          <Campo
+            etiqueta="Dónde, con quién y a qué escala"
+            className="mt-4"
+            error={errores.alcance}
+          >
+            {(atributos) => (
+              <textarea
+                {...atributos}
+                className={CAMPO}
+                rows={3}
+                maxLength={2000}
+                value={alcance}
+                onChange={(e) => {
+                  setAlcance(e.target.value);
+                }}
+              />
+            )}
+          </Campo>
+          <Campo
+            etiqueta="Fecha de revisión"
+            className="mt-4"
+            error={errores.plazo}
+            ayuda="Cuando llegue esta fecha, revisamos qué aprendimos."
+          >
+            {(atributos) => (
+              <input
+                {...atributos}
+                className={CAMPO}
+                type="date"
+                value={plazo}
+                onChange={(e) => {
+                  setPlazo(e.target.value);
+                }}
+              />
+            )}
+          </Campo>
           <Nota>
             Proponer no obliga a otras personas ni instituciones. La responsabilidad se acepta
             explícitamente antes de avanzar.
           </Nota>
           <ErrorOperacion mensaje={op.error?.message} />
-          <BotonAccion type="submit" disabled={op.isPending || !a || !plazo}>
-            Registrar propuesta de prueba
-          </BotonAccion>
+          <div className="flex flex-wrap items-center gap-3">
+            <BotonConMotivo type="submit" motivo={null} ocupado={op.isPending}>
+              Registrar propuesta de prueba
+            </BotonConMotivo>
+          </div>
         </form>
+      ) : null}
+      {!auth.user ? (
+        <p className="mt-5">
+          <Link href={hrefIngreso} className="text-violeta underline">
+            Ingresá para proponer una prueba
+          </Link>
+          .
+        </p>
       ) : null}
     </section>
-  );
-}
-function Prueba({ prueba: p }: { prueba: DisenoFicha['pruebas'][number] }) {
-  const op = useOperacionPersonal();
-  const idLocal = useRef(crypto.randomUUID());
-  const [firma, setFirma] = useState('');
-  const [observacion, setObservacion] = useState('');
-  const [evidencia, setEvidencia] = useState('');
-  const [estado, setEstado] = useState(SIGUIENTES[p.estado]?.[0] ?? '');
-  useEffect(() => {
-    setEstado(SIGUIENTES[p.estado]?.[0] ?? '');
-  }, [p.estado]);
-  return (
-    <article className="bg-papel-crudo border p-5">
-      <p className="font-space text-violeta text-xs uppercase">{ROTULOS[p.estado]}</p>
-      <h4 className="font-anton mt-3 text-3xl">{p.titulo}</h4>
-      <p className="mt-3 leading-relaxed">{p.alcance}</p>
-      <p className="text-tinta-50 mt-3 text-sm">
-        Fecha prevista de revisión: {p.plazo} · versión {p.revision}
-      </p>
-      <p className="mt-3 text-sm">
-        Responsabilidad aceptada: {p.responsableNombre ?? 'Todavía pendiente.'} La firma elegida no
-        acredita representación institucional.
-      </p>
-      <ol className="mt-5 space-y-4">
-        {p.eventos.map((e, i) => (
-          <li key={`${e.fecha}-${i}`} className="border-t pt-4">
-            <h5 className="font-semibold">{ROTULOS[e.estado]}</h5>
-            <p className="mt-2 whitespace-pre-wrap leading-relaxed">{e.observacion}</p>
-            <ul className="mt-3 space-y-2">
-              {e.evidencia.map((url) => (
-                <li key={url}>
-                  <a
-                    className="text-violeta break-all underline"
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Consultar evidencia
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ol>
-      {(p.estado === 'resultado_observado' ? p.puedoRevisar : p.puedoGestionar) &&
-      SIGUIENTES[p.estado]?.length ? (
-        <form
-          className="mt-5 border-t pt-5"
-          onSubmit={(e) => {
-            e.preventDefault();
-            op.mutate(
-              {
-                metodo: 'post',
-                ruta: `/api/v1/fichas/pruebas/${p.id}/estado`,
-                cuerpo: {
-                  idLocal: idLocal.current,
-                  ...(estado === 'aceptada' ? { firma } : {}),
-                  revision: p.revision,
-                  estado,
-                  observacion,
-                  evidencia: evidencia.split(/\s+/).filter(Boolean),
-                },
-              },
-              {
-                onSuccess: () => {
-                  setObservacion('');
-                  idLocal.current = crypto.randomUUID();
-                  setEvidencia('');
-                },
-              },
-            );
-          }}
-        >
-          <label className="block">
-            Paso que vamos a registrar
-            <select
-              className={CAMPO}
-              value={estado}
-              onChange={(e) => {
-                setEstado(e.target.value);
-              }}
-            >
-              {SIGUIENTES[p.estado]?.map((x) => (
-                <option key={x} value={x}>
-                  {ROTULOS[x]}
-                </option>
-              ))}
-            </select>
-          </label>
-          {estado === 'aceptada' ? (
-            <label className="mt-4 block">
-              Firma pública de responsabilidad
-              <input
-                className={CAMPO}
-                value={firma}
-                onChange={(e) => {
-                  setFirma(e.target.value);
-                }}
-                maxLength={120}
-              />
-            </label>
-          ) : null}
-          <label className="mt-4 block">
-            Qué observamos y cómo lo sabemos
-            <textarea
-              className={CAMPO}
-              rows={3}
-              maxLength={4000}
-              value={observacion}
-              onChange={(e) => {
-                setObservacion(e.target.value);
-              }}
-            />
-          </label>
-          <label className="mt-4 block">
-            Enlaces de evidencia, separados por espacios
-            <input
-              className={CAMPO}
-              value={evidencia}
-              onChange={(e) => {
-                setEvidencia(e.target.value);
-              }}
-            />
-          </label>
-          <ErrorOperacion mensaje={op.error?.message} />
-          <BotonAccion
-            className="mt-4"
-            type="submit"
-            disabled={op.isPending || observacion.trim().length < 15}
-          >
-            Registrar este paso
-          </BotonAccion>
-        </form>
-      ) : null}
-      <p className="text-tinta-50 mt-4 text-sm">
-        La revisión viene de una cuenta distinta de la creadora y de la responsable. Eso no acredita
-        independencia personal, no equivale a una auditoría ni demuestra causalidad.
-      </p>
-    </article>
   );
 }

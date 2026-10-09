@@ -326,7 +326,11 @@ describe('La persona conserva el control de su voz', () => {
 describe('Diseñar y devolver sin fabricar acuerdos', () => {
   it('las afirmaciones distinguen responder de leer y suprimen grupos insuficientes', () => {
     montar(
-      <Afirmaciones fichaId={id} datos={{ ...datos, analisisOpiniones: analizarOpiniones([]) }} />,
+      <Afirmaciones
+        fichaId={id}
+        datos={{ ...datos, analisisOpiniones: analizarOpiniones([]) }}
+        hrefIngreso="/ingresar"
+      />,
     );
     expect(screen.getByText(/desglose público espera/)).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: 'De acuerdo' })).not.toBeInTheDocument();
@@ -334,7 +338,7 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
   });
   it('comparar diseños exige funcionamiento, prueba y criterio de pausa', () => {
     modelo.user = { id: 1 };
-    montar(<Alternativas fichaId={id} datos={datos} />);
+    montar(<Alternativas fichaId={id} datos={datos} hrefIngreso="/ingresar" />);
     fireEvent.click(screen.getByRole('button', { name: /Proponer/ }));
     expect(screen.getByLabelText('Cómo funcionaría')).toBeInTheDocument();
     expect(
@@ -356,7 +360,7 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
       puedoRevisar: false,
       eventos: [],
     };
-    montar(<Pruebas datos={{ ...datos, pruebas: [prueba] }} />);
+    montar(<Pruebas datos={{ ...datos, pruebas: [prueba] }} hrefIngreso="/ingresar" />);
     fireEvent.change(screen.getByLabelText('Firma pública de responsabilidad'), {
       target: { value: 'Equipo que acepta' },
     });
@@ -372,10 +376,12 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
   });
   it('el panel permite llegar a alternativas y seguimiento por teclado y botones reales', () => {
     montar(<PanelDiseno id={id} />);
-    fireEvent.click(screen.getByRole('button', { name: 'Diseños alternativos' }));
-    expect(screen.getByText(/posible una misma vida/)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'Pruebas y aprendizaje' }));
-    expect(screen.getByText(/El diseño aprende/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'Alternativas para comparar' }));
+    expect(screen.getByRole('heading', { name: 'Alternativas para comparar' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('link', { name: 'Pruebas chicas para aprender' }));
+    expect(
+      screen.getByRole('heading', { name: 'Pruebas chicas para aprender' }),
+    ).toBeInTheDocument();
   });
   it('un contrato incompleto no se publica ni se guarda como convocatoria lista', () => {
     montar(<FormularioCampana />);
