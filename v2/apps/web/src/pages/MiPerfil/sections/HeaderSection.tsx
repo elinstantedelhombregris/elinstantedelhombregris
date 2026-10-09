@@ -14,26 +14,30 @@ export function HeaderSection({ data, displayName }: Props) {
   const firstName = displayName.split(' ')[0] ?? displayName;
 
   return (
-    <section className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-      <h1 className="font-serif text-2xl font-semibold">Hola, {firstName}</h1>
+    <section className="border-tinta bg-papel-crudo border p-6">
+      <h1 className="font-anton text-tinta text-4xl">Hola, {firstName}</h1>
       <div className="mt-4 flex items-baseline gap-4">
-        <div className="text-sm text-muted-foreground">Nivel</div>
+        <div className="text-tinta-75 text-sm">Nivel</div>
         <div className="text-3xl font-semibold tabular-nums">{data.level}</div>
-        <div className="ml-auto font-mono text-2xl tabular-nums">{data.xp.toLocaleString('es-AR')} XP</div>
+        <div className="font-space ml-auto text-2xl tabular-nums">
+          {data.xp.toLocaleString('es-AR')} XP
+        </div>
       </div>
-      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/5">
+      <div className="bg-papel-presionado mt-3 h-2 w-full overflow-hidden">
         <div
-          className="h-full rounded-full bg-iris-violet"
+          className="bg-violeta h-full"
           style={{ width: `${String(pct)}%` }}
           aria-label={`${String(pct)}% al siguiente nivel`}
         />
       </div>
-      <div className="mt-2 text-xs text-muted-foreground">
+      <div className="text-tinta-75 mt-2 text-xs">
         {xpRemaining.toLocaleString('es-AR')} XP para nivel {data.level + 1}
       </div>
       <div className="mt-4 flex items-center gap-2 text-sm">
-        <Flame className="h-4 w-4 text-iris-violet" aria-hidden />
-        <span>Racha de {data.streakDays} días · Récord: {data.longestStreakDays}</span>
+        <Flame className="text-violeta h-4 w-4" aria-hidden />
+        <span>
+          Racha de {data.streakDays} días · Récord: {data.longestStreakDays}
+        </span>
       </div>
     </section>
   );

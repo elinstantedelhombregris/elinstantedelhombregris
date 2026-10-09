@@ -1,6 +1,5 @@
 import { Redirect } from 'wouter';
 
-
 import { ActivitySection } from './sections/ActivitySection';
 import { BadgesSection } from './sections/BadgesSection';
 import { HeaderSection } from './sections/HeaderSection';
@@ -13,11 +12,17 @@ export function MiPerfil() {
   const { data, isLoading: meLoading } = useGamificationMe(Boolean(user));
 
   if (isLoading || meLoading) {
-    return <div className="container mx-auto max-w-4xl px-4 py-10 text-sm text-muted-foreground">Cargando…</div>;
+    return (
+      <div className="text-tinta-75 container mx-auto max-w-4xl px-4 py-10 text-sm">Cargando…</div>
+    );
   }
   if (!user) return <Redirect to="/ingresar" />;
   if (!data) {
-    return <div className="container mx-auto max-w-4xl px-4 py-10 text-sm text-muted-foreground">No pudimos cargar tu perfil.</div>;
+    return (
+      <div className="text-tinta-75 container mx-auto max-w-4xl px-4 py-10 text-sm">
+        No pudimos cargar tu perfil.
+      </div>
+    );
   }
 
   return (

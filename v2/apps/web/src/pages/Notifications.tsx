@@ -1,9 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Link } from 'wouter';
 
-import { Button } from '~/components/ui/button';
+import { Kicker } from '~/components/papel/primitives';
+import { BotonAccion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { readCsrfToken, RequireAuth } from '~/lib/auth';
+import { cn } from '~/lib/utils';
 
 interface Notification {
   id: number;
@@ -27,14 +29,16 @@ function NotificationsInner() {
   });
 
   const markReadMutation = useMutation({
-    mutationFn: async (id: number) => api.post(`/api/notifications/${String(id)}/read`, undefined, { csrfToken: readCsrfToken() }),
+    mutationFn: async (id: number) =>
+      api.post(`/api/notifications/${String(id)}/read`, undefined, { csrfToken: readCsrfToken() }),
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: ['notifications'] });
     },
   });
 
   const markAllMutation = useMutation({
-    mutationFn: async () => api.post('/api/notifications/read-all', undefined, { csrfToken: readCsrfToken() }),
+    mutationFn: async () =>
+      api.post('/api/notifications/read-all', undefined, { csrfToken: readCsrfToken() }),
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: ['notifications'] });
     },
@@ -45,29 +49,31 @@ function NotificationsInner() {
 
   return (
     <main className="container mx-auto max-w-2xl px-4 py-16">
-      <header className="mb-8 flex items-baseline justify-between">
+      <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Notificaciones</p>
-          <h1 className="mt-2 font-serif text-3xl font-semibold">Tu actividad reciente</h1>
+          <Kicker>Notificaciones</Kicker>
+          <h1 className="font-anton text-tinta mt-2 text-4xl">Tu actividad reciente</h1>
         </div>
         {hasUnread ? (
-          <Button
-            size="sm"
-            variant="secondary"
-            disabled={markAllMutation.isPending}
+          <BotonAccion
+            type="button"
+            tono="papel"
+            ocupado={markAllMutation.isPending}
             onClick={() => {
               markAllMutation.mutate();
             }}
           >
             Marcar todas como leídas
-          </Button>
+          </BotonAccion>
         ) : null}
       </header>
 
       {listQuery.isLoading ? (
-        <p className="font-mono text-sm text-muted-foreground">cargando…</p>
+        <p role="status" className="font-space text-tinta-75 text-sm">
+          cargando…
+        </p>
       ) : notifications.length === 0 ? (
-        <p className="text-center text-muted-foreground">
+        <p className="text-tinta-75">
           Por ahora no tenés notificaciones. Cuando pase algo nuevo aparecerá acá.
         </p>
       ) : (
@@ -75,35 +81,39 @@ function NotificationsInner() {
           {notifications.map((n) => (
             <li
               key={n.id}
-              className={`glass rounded-xl p-4 transition-colors ${
-                n.readAt === null ? 'border-iris-violet/40 bg-iris-violet/5' : ''
-              }`}
+              className={cn(
+                'bg-papel-crudo border p-4',
+                n.readAt === null ? 'border-violeta' : 'border-papel-borde',
+              )}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <p className="font-mono text-xs uppercase tracking-widest text-iris-violet">{n.kind}</p>
+                  <Kicker>{n.kind}</Kicker>
                   {n.href ? (
-                    <Link href={n.href} className="block">
-                      <h3 className="mt-1 font-medium hover:underline">{n.title}</h3>
+                    <Link href={n.href} className="hover:text-violeta block">
+                      <h2 className="mt-1 font-medium underline-offset-4 hover:underline">
+                        {n.title}
+                      </h2>
                     </Link>
                   ) : (
-                    <h3 className="mt-1 font-medium">{n.title}</h3>
+                    <h2 className="mt-1 font-medium">{n.title}</h2>
                   )}
-                  {n.body ? <p className="mt-1 text-sm text-foreground/80">{n.body}</p> : null}
-                  <p className="mt-2 text-xs text-muted-foreground">
+                  {n.body ? <p className="text-tinta-75 mt-1 text-sm">{n.body}</p> : null}
+                  <p className="text-tinta-75 mt-2 text-xs">
                     {new Date(n.createdAt).toLocaleString('es-AR')}
                   </p>
                 </div>
                 {n.readAt === null ? (
-                  <Button
-                    size="sm"
-                    variant="ghost"
+                  <BotonAccion
+                    type="button"
+                    tono="papel"
+                    className="px-4 py-2"
                     onClick={() => {
                       markReadMutation.mutate(n.id);
                     }}
                   >
                     Marcar leída
-                  </Button>
+                  </BotonAccion>
                 ) : null}
               </div>
             </li>
@@ -116,7 +126,7 @@ function NotificationsInner() {
 
 export function Notifications() {
   return (
-    <RequireAuth>
+    <RequireAuth superficie="papel">
       <NotificationsInner />
     </RequireAuth>
   );
