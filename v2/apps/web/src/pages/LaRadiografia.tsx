@@ -5,6 +5,7 @@ import { guardarTema, leerTema, type Orden, type Tema } from './LaRadiografia/ra
 import { construirVista } from './LaRadiografia/radiografia-vista';
 import { CabeceraProcedencia } from './LaRadiografia/sections/CabeceraProcedencia';
 import { CieloVacio } from './LaRadiografia/sections/CieloVacio';
+import { ComoLeerElCielo } from './LaRadiografia/sections/ComoLeerElCielo';
 import { ControlesAnalisis } from './LaRadiografia/sections/ControlesAnalisis';
 import { DeslizadorUmbral } from './LaRadiografia/sections/DeslizadorUmbral';
 import { ExploradorConstelacion } from './LaRadiografia/sections/ExploradorConstelacion';
@@ -16,6 +17,7 @@ import { RegimenDegenerado } from './LaRadiografia/sections/RegimenDegenerado';
 import { Kicker, RitoTinta } from '~/components/papel/primitives';
 import { filtrosPublicos } from '~/lib/participacion/exportar';
 import { UMBRAL_INICIAL, useRadiografia } from '~/lib/queries/radiografia';
+import { cuantos } from '~/lib/vocabulario';
 
 function umbralInicial() {
   const n = Number(new URLSearchParams(window.location.search).get('umbral'));
@@ -79,26 +81,18 @@ export function LaRadiografia() {
   return (
     <main className={nocturno ? 'bg-oscuro-barra text-oscuro-texto' : ''}>
       <div className="mx-auto max-w-[1440px] px-10 py-10 max-[560px]:px-5">
-        <div className="flex flex-wrap items-start justify-between gap-6">
-          <div className="max-w-[780px]">
-            <Kicker className="mb-3">Un país se entiende cuando sus voces se encuentran</Kicker>
-            <h1
-              aria-label="La Radiografía."
-              className="font-anton mb-4 text-[clamp(44px,6vw,84px)] leading-[0.98]"
-            >
-              <RitoTinta lineas={['La Radiografía.']} />
-            </h1>
-            <p className={`max-w-[690px] text-lg leading-relaxed ${meta}`}>
-              Encontrá patrones. Separá diferencias. Volvé a lo que se dijo. Una pregunta bien
-              mirada puede abrir un futuro compartido.
-            </p>
-            <p className={`mt-3 max-w-[760px] text-sm leading-relaxed ${meta}`}>
-              Que muchas señales digan lo mismo no prueba que sea cierto ni que exista acuerdo. Son
-              señales, no personas: acá contamos registros, y una misma persona puede haber
-              compartido varios.
-            </p>
-          </div>
-          <InterruptorDeTema tema={tema} onCambiar={cambiarTema} />
+        <div className="max-w-[780px]">
+          <Kicker className="mb-3">Los aportes, agrupados por parecido</Kicker>
+          <h1
+            aria-label="La Radiografía."
+            className="font-anton mb-4 text-[clamp(44px,6vw,84px)] leading-[0.98]"
+          >
+            <RitoTinta lineas={['La Radiografía.']} />
+          </h1>
+          <p className={`max-w-[690px] text-lg leading-relaxed ${meta}`}>
+            La Radiografía agrupa los aportes según qué tan parecido es su texto. No es una encuesta
+            ni dice qué piensa el país.
+          </p>
         </div>
         <nav aria-label="Recorrido de Radiografía" className="my-6 flex flex-wrap gap-3">
           <a
@@ -119,14 +113,17 @@ export function LaRadiografia() {
           >
             Explorar un ejemplo →
           </Link>
+          {/* Después de los accesos de verdad: era el primer botón de la pantalla
+              en el teléfono, y es un gusto, no un camino. */}
+          <InterruptorDeTema tema={tema} onCambiar={cambiarTema} />
         </nav>
         <div
           className={`mb-5 flex flex-wrap items-center justify-between gap-4 border-y ${borde} py-3`}
         >
           <p className={`font-space text-xs ${meta}`}>
             {Object.keys(filtros).length
-              ? `${Object.keys(filtros).length} filtros elegidos`
-              : 'Alcance nacional · todos los registros elegibles'}
+              ? cuantos(Object.keys(filtros).length, 'filtro elegido', 'filtros elegidos')
+              : 'Todo el país · todos los aportes elegibles'}
           </p>
           <div className="flex flex-wrap gap-5">
             <button
@@ -165,31 +162,41 @@ export function LaRadiografia() {
           compacto
         />
         <div id="patrones" className="scroll-mt-24">
+          {/* El aviso que sostiene todo lo demás, arriba del primer gráfico y a la
+              vista en cualquier ancho: antes estaba en 14 px o escondido. */}
+          <p
+            className={`mb-5 border-l-4 py-1 pl-4 text-[17px] font-semibold leading-snug ${borde} ${nocturno ? 'text-oscuro-texto' : 'text-tinta'}`}
+          >
+            Que muchos aportes digan lo mismo no prueba que sea cierto. Contamos aportes, no
+            personas.
+          </p>
           {isError && !data ? (
             <p role="alert" className="border py-16 text-center">
-              No se pudo traer el análisis. Recargá en un momento.
+              No pudimos cargar el análisis. Probá de nuevo en un rato.
             </p>
           ) : isLoading ? (
             <p role="status" className="border py-20 text-center">
-              Reuniendo el registro para esta mirada…
+              Reuniendo los aportes…
             </p>
           ) : dibujables < 2 ? (
             <>
               <CieloVacio
                 analizadas={data?.analizadas ?? 0}
                 sinVector={data?.sinVector ?? 0}
+                corrio={Boolean(data?.corte)}
                 tema={tema}
               />
               <Link
                 href="/la-radiografia/ejemplo"
                 className="font-space mt-4 inline-flex min-h-11 items-center text-sm underline"
               >
-                Abrir el laboratorio con voces inventadas →
+                Abrir el laboratorio, con frases inventadas →
               </Link>
             </>
           ) : (
             <>
               <RegimenDegenerado regimen={data?.regimenDegenerado ?? null} tema={tema} />
+              <ComoLeerElCielo tema={tema} />
               <ExploradorConstelacion
                 nucleos={vista.nucleos}
                 solas={vista.solas}
@@ -225,17 +232,17 @@ export function LaRadiografia() {
           filtros={filtros}
         />
         <nav aria-label="El ejemplo de La Radiografía" className={`mt-12 border-t-2 ${borde} pt-8`}>
-          <Kicker className="mb-3">Aprender a mirar también es participar</Kicker>
+          <Kicker className="mb-3">El laboratorio</Kicker>
           <Link
             href="/la-radiografia/ejemplo"
             className="font-anton block text-[clamp(26px,3vw,40px)] underline underline-offset-4"
           >
-            Ver un ejemplo, con voces inventadas →
+            Ver un ejemplo, con frases inventadas →
           </Link>
           <p className={`mt-3 max-w-[750px] text-sm leading-relaxed ${meta}`}>
-            Tres escenarios permiten mover el instrumento y descubrir sus límites. Ninguna de esas
-            frases pertenece al registro: el laboratorio tiene su propia pantalla y un sello dentro
-            de la imagen.
+            Son las mismas frases escritas de tres maneras, para ver cómo cambia el resultado.
+            Ninguna es un aporte real: el laboratorio tiene su propia pantalla y un sello dentro de
+            la imagen.
           </p>
         </nav>
       </div>

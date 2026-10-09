@@ -368,8 +368,8 @@ export function cortarEscenario(medida: MedidaDelEscenario, umbral: number): Cor
       frase,
       // Acá no hay cesión que falte: todas las frases del ejemplo pueden
       // prestarse. Si igual no hay una, es que al artefacto le falta el vector
-      // de esa voz, y eso se dice en vez de dejar la ficha muda.
-      textoOmitido: frase ? null : 'al artefacto de vectores le falta esta voz',
+      // de esa frase, y eso se dice en vez de dejar la ficha muda.
+      textoOmitido: frase ? null : 'al ejemplo le falta el vector de esta frase',
       senales: nucleo.ids.length,
       clases,
       provincias: provincias.size,

@@ -1,3 +1,5 @@
+import { frasePorPagina } from './conteo';
+
 import type { LecturaMapa } from '~/lib/queries/civic-map';
 
 export function ProcedenciaConsulta({
@@ -14,18 +16,14 @@ export function ProcedenciaConsulta({
       className="border-oscuro-borde text-oscuro-texto flex flex-wrap items-center gap-x-6 gap-y-2 border-b px-5 py-3 text-sm"
       aria-label="Alcance de la lectura"
     >
-      <p>
-        <strong>{datos.total.toLocaleString('es-AR')}</strong>{' '}
-        {datos.total === 1 ? 'registro' : 'registros'} en la consulta ·{' '}
-        {datos.entregados.toLocaleString('es-AR')} en esta página.
-      </p>
+      <p>{frasePorPagina(datos.total, datos.entregados)}</p>
       <p className="text-xs">
-        Corte: {new Date(datos.hasta).toLocaleString('es-AR')}. Se cuentan registros, no personas.
+        Datos al {new Date(datos.hasta).toLocaleString('es-AR')}. Se cuentan aportes, no personas.
       </p>
       {!datos.completa ? (
         <p className="w-full">
-          El dibujo y el área trazada muestran solo esta página. Los totales por provincia incluyen
-          todos los registros de la consulta.
+          El mapa y el área que dibujes muestran solo esta página de aportes. Los totales por
+          provincia incluyen todos los que cumplen los filtros.
         </p>
       ) : null}
       {!datos.completa ? (

@@ -6,6 +6,7 @@ import {
   coberturaDe,
   COBERTURA_Y_SESGO,
   LOS_TRES_ESCENARIOS,
+  resumenDelCorpus,
   SELLO_DEL_EJEMPLO,
   UMBRAL_DEL_EJEMPLO,
 } from '../ejemplos';
@@ -85,6 +86,9 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
 
   if (!columna) return null;
 
+  // Cuántas frases, personas, lugares y meses hay: se cuentan, no se escriben.
+  const corpus = resumenDelCorpus(columna.escenario);
+
   // Un núcleo enfocado que ya no existe —porque cambió el escenario o el
   // umbral— apagaría el cielo entero sin que nada quede encendido. Se descarta
   // acá en vez de guardarse un efecto que lo limpie: el estado no miente, se lo
@@ -96,23 +100,35 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
 
   return (
     <section aria-labelledby="los-tres-ejemplos">
-      <h2 id="los-tres-ejemplos" className="sr-only">
-        Las mismas voces, escritas de tres maneras.
+      {/* Visible: era `sr-only`, y la frase que explica qué se hace acá no le
+          llegaba a quien mira (revisión del 9/10). */}
+      <h2
+        id="los-tres-ejemplos"
+        className={`font-anton mb-1 text-[clamp(22px,2.4vw,30px)] ${texto}`}
+      >
+        Elegí cómo están escritas las frases
       </h2>
+      <p className={`mb-4 max-w-[70ch] text-[15px] leading-[1.5] ${meta}`}>
+        Son {corpus.frases.toLocaleString('es-AR')} frases inventadas, escritas de{' '}
+        {LOS_TRES_ESCENARIOS.length === 3 ? 'tres' : String(LOS_TRES_ESCENARIOS.length)} maneras.
+        Cambiá el escenario y mirá cómo se agrupan.
+      </p>
       <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
         <span className="font-space border-sello text-sello border-2 px-3 py-2 text-xs font-bold uppercase tracking-[0.12em]">
           Ejemplo · voces inventadas
         </span>
         <details className="max-w-[840px]">
           <summary className={`min-h-11 cursor-pointer py-2 text-sm underline ${meta}`}>
-            Origen, padrón y método del ejemplo
+            De dónde salen las frases y cómo se armó el ejemplo
           </summary>
           <div className="py-4">
             <p className={`mb-5 text-sm leading-relaxed ${texto}`}>
-              Las mismas 63 señales, las mismas 44 personas, los mismos 8 territorios, los mismos 12
-              meses. Lo único que cambia entre los tres es qué escribieron. Por eso la legitimidad
-              no se puede mover: sale de alcance × persistencia, y el motor que la calcula no lee el
-              texto.
+              Las mismas {corpus.frases.toLocaleString('es-AR')} frases, las mismas{' '}
+              {corpus.personas.toLocaleString('es-AR')} personas, los mismos{' '}
+              {corpus.lugares.toLocaleString('es-AR')} lugares, los mismos{' '}
+              {corpus.meses.toLocaleString('es-AR')} meses. Lo único que cambia entre los tres es
+              qué escribieron. Por eso la legitimidad no se puede mover: sale de alcance ×
+              persistencia, y el motor que la calcula no lee el texto.
             </p>
             <div className="bg-papel text-tinta p-4">
               <SelloSintetico
@@ -129,17 +145,13 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
       </div>
 
       {artefactoAlDia && faltantes === 0 ? null : (
-        // Primero lo que le pasa al lector, después la instrucción de taller:
-        // la versión vieja abría con «los vectores commiteados» y cerraba con
-        // un comando pnpm, que es un mensaje de desarrollador en la pantalla
-        // de un lector.
+        // Sólo lo que le pasa a quien lee. La versión vieja cerraba con un
+        // comando de terminal, que es un mensaje de desarrollador en la pantalla
+        // de un lector; cómo se regenera el ejemplo vive en el README del script.
         <p className={`border-violeta mb-6 border-l-2 pl-4 text-[15px] leading-[1.55] ${texto}`}>
           Este ejemplo quedó desfasado de sus propias frases
-          {faltantes > 0 ? ` (faltan ${String(faltantes)} voces)` : ''}: lo que se dibuja abajo
-          puede no corresponder a lo que dicen. Sirve para mirar, no para citar.{' '}
-          <span className={meta}>
-            Para quien mantiene el sitio: se regenera con <code>pnpm radiografia:ejemplos</code>.
-          </span>
+          {faltantes > 0 ? ` (faltan ${String(faltantes)} frases)` : ''}: lo que se dibuja abajo
+          puede no corresponder a lo que dicen. Sirve para mirar, no para citar.
         </p>
       )}
 
@@ -149,7 +161,6 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
             key={escenario.id}
             type="button"
             aria-pressed={escenario.id === activo}
-            aria-label={`${i + 1} · ${escenario.titulo}`}
             onClick={() => {
               setActivo(escenario.id);
               setEnfocado(null);
@@ -162,7 +173,7 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
                   : 'border-tinta text-tinta hover:bg-papel-presionado'
             }`}
           >
-            {i + 1} · {['La bronca', 'El reclamo', 'El dato'][i]}
+            {i + 1} · {escenario.titulo}
           </button>
         ))}
       </div>
@@ -209,7 +220,7 @@ export function LosTresEjemplos({ tema }: LosTresEjemplosProps) {
           min={UMBRAL_MINIMO}
           max={UMBRAL_MAXIMO}
           etiqueta="Qué tan parecido es «lo mismo», en el ejemplo"
-          nota={`Este ejemplo mide parecido de palabras. Arranca en ${legible(UMBRAL_DEL_EJEMPLO)} y podés explorar de ${legible(UMBRAL_MINIMO)} a ${legible(UMBRAL_MAXIMO)}. Mover el umbral cambia los vínculos visibles; no crea un acuerdo.`}
+          nota={`Este ejemplo mide parecido de palabras. Arranca en ${legible(UMBRAL_DEL_EJEMPLO)} y podés explorar de ${legible(UMBRAL_MINIMO)} a ${legible(UMBRAL_MAXIMO)}. Mover el nivel cambia las líneas visibles; no crea un acuerdo.`}
         />
       </div>
 

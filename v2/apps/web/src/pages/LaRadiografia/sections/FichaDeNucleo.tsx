@@ -9,7 +9,7 @@ import {
 } from '../radiografia-data';
 
 /**
- * § La ficha del núcleo — nivel 1 (spec §5.4).
+ * § La ficha del grupo — nivel 1 (spec §5.4).
  *
  * Lo primero que dice **no es el tamaño: es la composición por clase** y qué
  * se hace con eso (§3.1). Que treinta señales digan casi lo mismo es evidencia
@@ -41,10 +41,10 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
 
   if (!nucleo) {
     return (
-      <aside aria-live="polite" className={`border-l ${borde} h-full p-6`}>
+      <aside aria-live="polite" className={`border-l ${borde} p-6`}>
         <p className={`text-[15px] leading-[1.6] ${meta}`}>
-          Clickeá un núcleo del cielo —o una fila de la lista— y acá se abre lo que dice, de qué
-          clase es, y a cuántos kilómetros están las dos señales más lejanas que lo dicen.
+          Tocá un grupo del cielo, o una fila de la lista, y acá se abre lo que dice y de qué tipo
+          es.
         </p>
       </aside>
     );
@@ -76,7 +76,7 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
         </blockquote>
       ) : (
         <p className={`mb-5 text-[15px] leading-[1.5] ${meta}`}>
-          Este núcleo existe, se cuenta y se mide, y no puede mostrar ninguna frase:{' '}
+          Este grupo existe, se cuenta y se mide, y no puede mostrar ninguna frase:{' '}
           {nucleo.textoOmitido ?? MOTIVO_TEXTO_OMITIDO}. El texto lo escribió una persona y el
           proyecto es custodio, no titular.
         </p>
@@ -86,7 +86,7 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
         <Campo rotulo="Composición" meta={meta} texto={texto}>
           {glosa || '—'}
         </Campo>
-        <Campo rotulo="Señales" meta={meta} texto={texto}>
+        <Campo rotulo="Aportes" meta={meta} texto={texto}>
           {nucleo.senales}
         </Campo>
         <Campo rotulo="Provincias" meta={meta} texto={texto}>
@@ -114,8 +114,8 @@ export function FichaDeNucleo({ nucleo, tema, onCerrar }: FichaDeNucleoProps) {
           motivo por el que la spec de esta página existe. */}
       <p className={`mt-5 text-[13px] leading-[1.55] ${meta}`}>
         {mixto
-          ? 'Es un núcleo mixto y no se resuelve por mayoría: lo que es hecho sigue necesitando corroboración, y lo que es deseo sigue necesitando deliberarse.'
-          : 'Converger no es corroborar. Que varias señales digan casi lo mismo es evidencia de eso y de nada más. Son señales, no personas: una sola persona puede haber cargado varias.'}
+          ? 'Es un grupo mixto y no se resuelve por mayoría: lo que es hecho sigue necesitando corroboración, y lo que es deseo sigue necesitando deliberarse.'
+          : 'Converger no es corroborar. Que varios aportes digan casi lo mismo es evidencia de eso y de nada más. Son aportes, no personas: una sola persona puede haber cargado varios.'}
       </p>
     </aside>
   );

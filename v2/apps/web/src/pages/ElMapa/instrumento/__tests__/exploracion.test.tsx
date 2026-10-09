@@ -80,7 +80,7 @@ describe('Explorar con alcance explícito', () => {
         reintentar={reintentar}
       />,
     );
-    expect(screen.getByRole('alert')).toHaveTextContent('No sabemos cuántos registros');
+    expect(screen.getByRole('alert')).toHaveTextContent('No sabemos cuántos aportes');
     fireEvent.click(screen.getByRole('button', { name: 'Volver a intentar' }));
     expect(reintentar).toHaveBeenCalledOnce();
     rerender(
@@ -94,7 +94,7 @@ describe('Explorar con alcance explícito', () => {
     );
     expect(screen.getByRole('alert')).toHaveTextContent('última lectura recibida');
   });
-  it('separa el total de la página y permite continuar sin ocultar los registros sin punto', () => {
+  it('separa el total de la página y permite continuar sin ocultar los aportes sin punto', () => {
     const siguiente = vi.fn();
     render(
       <>
@@ -102,8 +102,10 @@ describe('Explorar con alcance explícito', () => {
         <ListaRegistros datos={datos} seleccionada={null} seleccionar={vi.fn()} />
       </>,
     );
-    expect(screen.getByText(/1 registros cargados de 1201 coincidentes/)).toBeInTheDocument();
-    expect(screen.getByText(/Sin punto publicado/)).toBeInTheDocument();
+    expect(
+      screen.getByText('Mostramos 1 de 1.201 aportes que cumplen los filtros.'),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Sin punto en el mapa/)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Abrir aporte/ })).toHaveAttribute(
       'href',
       '/senal/00000000-0000-4000-8000-000000000042',
@@ -131,7 +133,7 @@ describe('Explorar con alcance explícito', () => {
     expect(elegir).toHaveBeenCalledWith(expect.objectContaining({ id: 15, provinceId: 6 }));
     expect(screen.getByRole('searchbox')).toHaveValue('');
   });
-  it('aplica el período elegido y limpia ámbito y filtros juntos', () => {
+  it('aplica el período elegido y limpia lugar y filtros juntos', () => {
     const cambiar = vi.fn();
     conQuery(
       <FiltrosExploracion

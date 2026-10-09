@@ -2,7 +2,7 @@ import { planTerritorialCoverage, pointInCoverageArea } from '@v2/civic-core';
 import { useCallback, useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
-import { AmbitosProvinciales } from '../AmbitosProvinciales';
+import { AmbitosProvinciales, LeyendaDelVelo } from '../AmbitosProvinciales';
 import { escribirAreaEnHash } from '../area-url';
 import { Control, FiltroClases } from '../Chrome';
 import { contarArea } from '../conteo';
@@ -19,7 +19,7 @@ import type { ClaseSenal } from '~/lib/vocabulario';
 import { cn } from '~/lib/utils';
 
 /**
- * Modo Mapa — cada voz donde fue dicha, y el lazo como herramienta.
+ * Modo Mapa — cada aporte donde fue ubicado, y el lazo como herramienta.
  *
  * El lazo dejó de ser un botón escondido: es una herramienta del modo, siempre
  * a un click. Mientras está activo el mapa no se arrastra, se traza.
@@ -154,19 +154,19 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
       if (typeof props.id === 'string') ctx.seleccionar?.(props.id);
     },
     descripcion:
-      'Tocá una provincia para conocer sus miradas. Los puntos conservan su precisión; el color señala ámbitos provinciales con aportes.',
+      'Tocá una provincia para ver sus aportes. Cada punto está donde quien lo cargó lo ubicó, con la precisión que eligió.',
     arrastreHabilitado: !lazoActivo,
 
     panel: (
       <>
-        <Control etiqueta="Tipos de voz">
+        <Control etiqueta="Qué aportes ver">
           <FiltroClases activos={clasesActivas} onAlternar={alternarClase} />
         </Control>
 
         <Control etiqueta="Herramienta">
           <p className="text-oscuro-meta mb-2 text-xs">
-            El lazo cuenta solo registros cargados. Las áreas sin puntos no permiten inferir
-            ausencia de necesidades.
+            Al dibujar un área se cuentan solo los aportes cargados con ubicación. Un área sin
+            puntos no prueba que no haya necesidades.
           </p>
           <button
             type="button"
@@ -262,11 +262,13 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
       </>
     ),
 
+    leyenda: ctx.resumen?.porProvincia.some((p) => p.total > 0) ? <LeyendaDelVelo /> : null,
+
     sobreMapa:
       ctx.todas.length === 0 && !ctx.cargando ? (
         <Vacio
-          titulo="Todavía no habló nadie."
-          cuerpo="La primera voz del mapa puede ser la tuya."
+          titulo="Todavía no hay aportes en el mapa."
+          cuerpo="El primero puede ser el tuyo."
           accion={{ href: '#aportar', etiqueta: 'Sumar el primer aporte' }}
         />
       ) : lazoActivo ? (

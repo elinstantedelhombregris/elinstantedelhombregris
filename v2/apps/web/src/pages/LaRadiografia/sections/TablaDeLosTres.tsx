@@ -1,4 +1,4 @@
-import { REGLA_DEL_MANDATO } from '../ejemplos';
+import { REGLA_DEL_MANDATO, resumenDelCorpus } from '../ejemplos';
 
 import type { CifrasDeCorroboracion, CifrasDeLegitimidad, Cobertura, Escenario } from '../ejemplos';
 import type { CorteDelEscenario, MedidaDelEscenario } from '../ejemplos-vista';
@@ -64,24 +64,24 @@ interface Fila {
 const filasDeLegitimidad = (columnas: readonly ColumnaDeLosTres[]): readonly Fila[] => {
   const primera = columnas[0];
   const mudas = primera
-    ? `Sobre ${entero(primera.cobertura.provinciasDelPais)}. De las otras ${entero(
+    ? `Sobre ${entero(primera.cobertura.provinciasDelPais)}. En las otras ${entero(
         primera.cobertura.provinciasDelPais - primera.cobertura.conVoz.length,
-      )} no habló nadie, y ${entero(primera.cobertura.fueraDelPadron.length)} ni siquiera están en el padrón: de ésas el ejemplo no puede decir nada, y «no dice nada» no es «no pasa nada».`
+      )} no hay ninguna frase, y ${entero(primera.cobertura.fueraDelPadron.length)} ni siquiera están en el padrón: de esas el ejemplo no puede decir nada, y «no dice nada» no es «no pasa nada».`
     : '';
 
   return [
     {
-      rotulo: 'Voces',
+      rotulo: 'Frases',
       glosa: 'Filas, no personas.',
       valores: columnas.map((c) => entero(c.legitimidad.voces)),
     },
     {
-      rotulo: 'Actores distintos',
-      glosa: 'Personas. Menos que las voces, y por eso la distinción importa.',
+      rotulo: 'Personas distintas',
+      glosa: 'Menos que las frases, y por eso la distinción importa.',
       valores: columnas.map((c) => entero(c.legitimidad.actores)),
     },
     {
-      rotulo: 'Provincias con voz',
+      rotulo: 'Provincias con frases',
       glosa: mudas,
       valores: columnas.map((c) => entero(c.legitimidad.provincias)),
     },
@@ -109,19 +109,18 @@ const filasDeLegitimidad = (columnas: readonly ColumnaDeLosTres[]): readonly Fil
 const filasDeForma = (columnas: readonly ColumnaDeLosTres[]): readonly Fila[] => [
   {
     rotulo: 'Con cuántas comparte algo',
-    glosa:
-      'De las otras 62, la voz mediana. Se mide todos contra todos, así que no depende del deslizador ni del k del grafo. Acá la bronca queda última: es la MENOS tejida de las tres, y aun así es la que da la mancha más grande.',
+    glosa: `De las otras ${String((columnas[0]?.legitimidad.voces ?? 1) - 1)}, la frase mediana. Se mide todas contra todas, así que no depende del deslizador. Acá la bronca queda última: es la MENOS tejida de las tres, y aun así es la que da la mancha más grande.`,
     valores: columnas.map((c) => entero(c.medida.vecindadMediana)),
   },
   {
     rotulo: 'Parecido al tocarse',
     glosa:
-      'Cuánto se parecen dos voces cuando comparten al menos una palabra. Es la fila donde la bronca gana de verdad: pocos vínculos y casi calcados. La del dato es la más baja — todos se tocan un poco y nadie se toca fuerte.',
+      'Cuánto se parecen dos frases cuando comparten al menos una palabra. Es la fila donde la bronca gana de verdad: pocos vínculos y casi calcados. La del dato es la más baja — todos se tocan un poco y nadie se toca fuerte.',
     valores: columnas.map((c) => decimal(c.medida.parecidoAlTocarse, 3)),
     fuerte: true,
   },
   {
-    rotulo: 'Núcleos',
+    rotulo: 'Grupos',
     // Va chico y con la advertencia al lado a propósito: es la única lectura
     // de esta tabla que se da vuelta cuando se mueve el deslizador, y la
     // lección NO cuelga de ella. El argumento está arriba, en «de qué cuelga
@@ -132,12 +131,12 @@ const filasDeForma = (columnas: readonly ColumnaDeLosTres[]): readonly Fila[] =>
   {
     rotulo: 'El mayor',
     glosa:
-      'Cuántas voces caen en el núcleo más grande. El de la bronca nunca es menor que el del dato, en ninguna posición del mando.',
+      'Cuántas frases caen en el grupo más grande. El de la bronca nunca es menor que el del dato, en ninguna posición del mando.',
     valores: columnas.map((c) => `${entero(c.corte.mayor)} de ${entero(c.legitimidad.voces)}`),
     fuerte: true,
   },
   {
-    rotulo: 'Voces solas',
+    rotulo: 'Frases sin grupo',
     glosa:
       'Nadie repitió lo que dijeron. No es un residuo: cuanto más preciso el corpus, más gente queda hablando sola, y eso aguanta el mando entero.',
     valores: columnas.map((c) => entero(c.corte.solas.length)),
@@ -159,13 +158,17 @@ const filasDeMandato = (columnas: readonly ColumnaDeLosTres[]): readonly Fila[] 
   },
   {
     rotulo: 'Desmentidas',
-    glosa: 'Alguien fue a mirar y no estaba. Se queda en el registro.',
+    glosa: 'Alguien fue a mirar y no estaba. Queda anotada como desmentida.',
     valores: columnas.map((c) => entero(c.corroboracion.desmentidas)),
   },
 ];
 
 export function TablaDeLosTres({ columnas, umbral, activo, tema }: TablaDeLosTresProps) {
   const nocturno = tema === 'nocturno';
+  // Los conteos del padrón se cuentan del corpus; escribirlos a mano dejó
+  // «63 personas» donde las personas son 44 (revisión del 9/10).
+  const primera = columnas[0];
+  const corpus = primera ? resumenDelCorpus(primera.escenario) : null;
   const meta = nocturno ? 'text-oscuro-meta' : 'text-tinta-50';
   const texto = nocturno ? 'text-oscuro-texto' : 'text-tinta';
   const borde = nocturno ? 'border-oscuro-borde' : 'border-papel-borde';
@@ -214,10 +217,11 @@ export function TablaDeLosTres({ columnas, umbral, activo, tema }: TablaDeLosTre
     <div className="mt-12 overflow-x-auto">
       <table className="w-full min-w-[760px] border-collapse text-left">
         <caption className={`mb-4 text-left text-[13px] leading-[1.5] ${meta}`}>
-          Las tres columnas son el mismo padrón: las mismas 63 voces, las mismas 44 personas, los
-          mismos 8 territorios, los mismos 12 meses. Lo único distinto es lo que esas personas
-          escribieron. Los números de «la forma» se recalculan con el deslizador, hoy en{' '}
-          <strong className={texto}>{decimal(umbral)}</strong>.
+          {corpus
+            ? `Las tres columnas son el mismo padrón: las mismas ${entero(corpus.frases)} frases, las mismas ${entero(corpus.personas)} personas, los mismos ${entero(corpus.lugares)} lugares, los mismos ${entero(corpus.meses)} meses. `
+            : ''}
+          Lo único distinto es lo que esas personas escribieron. Los números de «la forma» se
+          recalculan con el deslizador, hoy en <strong className={texto}>{decimal(umbral)}</strong>.
         </caption>
 
         <thead>
@@ -294,8 +298,9 @@ export function TablaDeLosTres({ columnas, umbral, activo, tema }: TablaDeLosTre
                 cuanto más precisa, útil y cierta es la información que se carga, mejor es el
                 mandato que se puede escribir
               </strong>
-              . Lo que no mejora —ni un decimal— es cuánto representan las 63 personas. Eso ya
-              estaba, y escribir mejor no lo compra.
+              . Lo que no mejora —ni un decimal— es cuánto representan{' '}
+              {corpus ? `las ${entero(corpus.personas)} personas` : 'las personas'}. Eso ya estaba,
+              y escribir mejor no lo compra.
             </td>
           </tr>
         </tfoot>

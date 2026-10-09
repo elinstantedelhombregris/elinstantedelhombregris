@@ -24,8 +24,8 @@ export function EstadoConsulta({
         {fallo
           ? tieneDatos
             ? 'No pudimos actualizar los datos. Estás viendo la última lectura recibida.'
-            : 'No pudimos cargar los datos. No sabemos cuántos registros hay en este territorio.'
-          : 'Cargando los registros del territorio…'}
+            : 'No pudimos cargar los datos. No sabemos cuántos aportes hay en este lugar.'
+          : 'Cargando los aportes del mapa…'}
       </p>
       {tieneDatos && actualizadoEn > 0 ? (
         <p className="mt-1 text-xs">

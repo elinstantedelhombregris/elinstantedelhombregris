@@ -3,6 +3,7 @@ import { useId } from 'react';
 
 import {
   colorDeClase,
+  etiquetaDeClase,
   ORDENES,
   ordenarNucleos,
   rotuloDeNucleo,
@@ -12,7 +13,7 @@ import {
 } from '../radiografia-data';
 
 /**
- * § La lista de núcleos — el camino accesible al MISMO dato (spec R11, §5.5).
+ * § La lista de grupos — el camino accesible al MISMO dato (spec R11, §5.5).
  *
  * Una `<table>` de verdad, con encabezados de verdad y botones que se
  * alcanzan con el tabulador. No es una versión de consuelo con menos
@@ -61,7 +62,7 @@ export function ListaDeNucleos({
         id={idDelTitulo}
         className={`font-space mb-4 text-[11px] font-bold uppercase tracking-[0.14em] ${meta}`}
       >
-        Los núcleos, uno por uno
+        Los grupos, uno por uno
       </h2>
 
       <div className="mb-5 flex flex-wrap items-center gap-2">
@@ -92,8 +93,8 @@ export function ListaDeNucleos({
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
           <caption className={`sr-only`}>
-            Los núcleos de convergencia al umbral elegido. Cada fila enfoca su núcleo en la
-            constelación.
+            Los grupos de aportes parecidos, al nivel de parecido elegido. Cada fila enfoca su grupo
+            en el cielo.
           </caption>
           <thead>
             <tr className={`border-b-2 ${nocturno ? 'border-oscuro-borde' : 'border-tinta'}`}>
@@ -101,10 +102,10 @@ export function ListaDeNucleos({
                 Frase del centro · qué se hace con esto
               </th>
               <th scope="col" className={`${cabecera(meta)} text-right`}>
-                Señales
+                Aportes
               </th>
               <th scope="col" className={cabecera(meta)}>
-                Clases
+                Tipos
               </th>
               <th scope="col" className={`${cabecera(meta)} text-right`}>
                 Provincias
@@ -163,12 +164,14 @@ export function ListaDeNucleos({
                       {Object.keys(nucleo.clases).map((c) => (
                         <span
                           key={c}
-                          title={c}
+                          title={etiquetaDeClase(c)}
                           className="inline-block h-3 w-3 rounded-full"
                           style={{ backgroundColor: colorDeClase(c, tema) }}
                         />
                       ))}
-                      <span className="sr-only">{Object.keys(nucleo.clases).join(', ')}</span>
+                      <span className="sr-only">
+                        {Object.keys(nucleo.clases).map(etiquetaDeClase).join(', ')}
+                      </span>
                     </span>
                   </td>
                   <td className={`py-4 pr-4 text-right align-top tabular-nums ${texto}`}>

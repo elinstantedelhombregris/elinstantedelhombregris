@@ -46,7 +46,7 @@ export function Cifra({
         {etiqueta}
       </p>
       <p className="text-papel font-anton text-[22px] leading-none">{formato(magnitud.valor)}</p>
-      <p className="text-oscuro-tenue mt-1 text-[10px] leading-snug">{explica}</p>
+      <p className="text-oscuro-meta mt-1 text-[10px] leading-snug">{explica}</p>
     </div>
   );
 }

@@ -138,7 +138,7 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
             opciones={RESOLUCIONES.map((r) => ({ id: r.id, etiqueta: r.etiqueta }))}
           />
           <p className="text-oscuro-meta mt-2 text-[11px] leading-relaxed">
-            Cuanto más fina la grilla, más celdas sin puntos — y no porque haya menos voces, sino
+            Cuanto más fina la grilla, más celdas sin puntos — y no porque haya menos aportes, sino
             porque la pregunta se hace más chica. El porcentaje se lee junto al tamaño de celda,
             nunca solo.
           </p>
@@ -178,8 +178,8 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
     leyenda: (
       <LeyendaRampa
         colores={[CON_VOZ, MUDA]}
-        bajo="Alguien habló"
-        alto="Nadie habló"
+        bajo="Con puntos publicados"
+        alto="Sin puntos publicados"
         titulo="Cobertura del encuadre"
       />
     ),

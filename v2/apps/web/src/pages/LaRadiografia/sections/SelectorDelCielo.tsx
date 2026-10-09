@@ -1,8 +1,20 @@
 import { useState } from 'react';
 
-import { etiquetaDeClase, type NucleoEnPantalla, type Tema } from '../radiografia-data';
+import { etiquetaDeClase, fraseCorta, type NucleoEnPantalla, type Tema } from '../radiografia-data';
 
 import type { MiembroDeNucleo } from '~/lib/queries/radiografia';
+
+import { cuantos } from '~/lib/vocabulario';
+
+/** Cuántos aportes y cuántas provincias tiene un grupo, sin rayas ni ceros sueltos. */
+function conteosDelGrupo(n: NucleoEnPantalla): string {
+  const aportes = cuantos(n.senales, 'aporte', 'aportes');
+  // En un corte recalculado en el navegador las provincias no se saben todavía:
+  // se omiten en vez de escribir «— provincias».
+  return n.provincias === null
+    ? aportes
+    : `${aportes} · ${cuantos(n.provincias, 'provincia', 'provincias', true)}`;
+}
 
 export function SelectorDelCielo({
   nucleos,
@@ -35,7 +47,7 @@ export function SelectorDelCielo({
   return (
     <div className={`border-t ${borde} p-5`}>
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <h3 className="font-anton text-2xl">Elegí un núcleo, seguí sus fuentes.</h3>
+        <h3 className="font-anton text-2xl">Elegí un grupo y leé sus aportes</h3>
         <button
           type="button"
           aria-expanded={verFuentes}
@@ -44,11 +56,11 @@ export function SelectorDelCielo({
           }}
           className="font-space min-h-11 text-xs underline"
         >
-          {verFuentes ? 'Cerrar selector de fuentes' : 'Elegir una señal con teclado'}
+          {verFuentes ? 'Cerrar la lista de aportes' : 'Elegir un aporte con el teclado'}
         </button>
       </div>
       <label className={`mt-4 block max-w-[480px] text-sm ${meta}`}>
-        Buscar en las frases públicas de los núcleos
+        Buscar en las frases públicas de los grupos
         <input
           type="search"
           value={buscar}
@@ -58,21 +70,27 @@ export function SelectorDelCielo({
           className={`mt-2 min-h-11 w-full border ${borde} bg-transparent px-3`}
         />
       </label>
-      <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Seleccionar núcleo">
-        {filtrados.map((n) => (
-          <button
-            key={n.id}
-            type="button"
-            aria-pressed={enfocado === n.id}
-            aria-label={`Núcleo: ${n.frase?.texto ?? 'texto reservado'} · ${n.senales} señales`}
-            onClick={() => {
-              elegirNucleo(n.id);
-            }}
-            className={`font-space min-h-11 border ${borde} px-4 text-xs ${enfocado === n.id ? 'bg-violeta text-papel' : ''}`}
-          >
-            {n.senales} señales · {n.provincias ?? '—'} provincias
-          </button>
-        ))}
+      <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Seleccionar grupo">
+        {filtrados.map((n) => {
+          const frase = n.frase ? fraseCorta(n.frase.texto) : null;
+          return (
+            <button
+              key={n.id}
+              type="button"
+              aria-pressed={enfocado === n.id}
+              aria-label={`Grupo: ${frase ?? 'texto reservado'} · ${conteosDelGrupo(n)}`}
+              onClick={() => {
+                elegirNucleo(n.id);
+              }}
+              className={`min-h-11 max-w-[320px] border ${borde} flex flex-col items-start gap-1 px-4 py-2 text-left ${enfocado === n.id ? 'bg-violeta text-papel' : ''}`}
+            >
+              <span className="text-[14px] leading-snug">
+                {frase ? `«${frase}»` : 'Texto reservado'}
+              </span>
+              <span className="font-space text-[11px] opacity-80">{conteosDelGrupo(n)}</span>
+            </button>
+          );
+        })}
         <button
           type="button"
           aria-pressed={!enfocado}
@@ -92,7 +110,7 @@ export function SelectorDelCielo({
       {verFuentes ? (
         <div className="mt-4 max-h-48 overflow-y-auto">
           <p className={`mb-3 text-sm ${meta}`}>
-            {abierto ? 'Señales del núcleo seleccionado' : 'Voces solas en este corte'}
+            {abierto ? 'Aportes del grupo elegido' : 'Aportes sin grupo en este corte'}
           </p>
           <div className="flex flex-wrap gap-2">
             {mostradas.map((m, i) => (
@@ -105,12 +123,12 @@ export function SelectorDelCielo({
                 }}
                 className={`font-space min-h-11 border ${borde} px-3 text-xs`}
               >
-                {etiquetaDeClase(m.clase)} {i + 1}
+                Aporte {i + 1} · {etiquetaDeClase(m.clase).toLowerCase()}
               </button>
             ))}
           </div>
           {!mostradas.length ? (
-            <p className="text-sm">Elegí un núcleo para recorrer sus señales.</p>
+            <p className="text-sm">Elegí un grupo para recorrer sus aportes.</p>
           ) : null}
         </div>
       ) : null}

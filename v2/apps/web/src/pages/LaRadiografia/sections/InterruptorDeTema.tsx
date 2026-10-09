@@ -27,7 +27,7 @@ export function InterruptorDeTema({ tema, onCambiar }: InterruptorDeTemaProps) {
       onClick={() => {
         onCambiar(nocturno ? 'papel' : 'nocturno');
       }}
-      className={`font-space border px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] transition-colors ${
+      className={`font-space min-h-11 border px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] transition-colors ${
         nocturno
           ? 'border-oscuro-borde text-oscuro-secundario hover:text-oscuro-texto'
           : 'border-tinta text-tinta hover:bg-papel-presionado'

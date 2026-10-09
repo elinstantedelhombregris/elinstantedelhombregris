@@ -34,25 +34,22 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
     >
       <header className="border-tinta mb-8 grid gap-5 border-b pb-8 min-[961px]:grid-cols-[1.3fr_1fr]">
         <h2 className="font-anton text-[clamp(32px,4vw,52px)] leading-tight">
-          Una mirada abre una pregunta.
-          <br />
-          <span className="text-violeta">Una pregunta puede cambiar un lugar.</span>
+          Qué se arma con estos aportes
         </h2>
         <p className="text-tinta-75 self-end text-base leading-relaxed">
-          Los aportes del mapa pueden convertirse en futuros compartidos. Acá se organizan las
-          preguntas, las diferencias y las formas de probar lo que imaginamos.
+          Los aportes del mapa pueden convertirse en fichas de futuro y en campañas abiertas.
         </p>
       </header>
       <div className="grid gap-10 min-[961px]:grid-cols-[1.3fr_1fr]">
         <section>
           <p className="font-space text-violeta text-xs uppercase">
-            Futuro · {lugar?.name ?? 'Argentina'}
+            Futuro · {lugar?.name ?? 'todo el país'}
           </p>
           <h2 id="futuros-territorio" className="font-anton mt-3 text-3xl">
             Preguntas que están tomando forma.
           </h2>
           <p className="mt-3 leading-relaxed">
-            El mapa ubica las voces. Las fichas desarrollan el futuro que imaginan, con fuentes,
+            El mapa ubica los aportes. Las fichas desarrollan el futuro que imaginan, con fuentes,
             diferencias y próximos pasos.
           </p>
           <ErrorOperacion mensaje={q.error?.message} />
@@ -79,7 +76,7 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
             <Nota>
               {q.isLoading
                 ? 'Buscando los futuros en elaboración…'
-                : 'Todavía no encontramos fichas para este ámbito. Podés abrir una pregunta o aportar tu mirada.'}
+                : 'Todavía no hay fichas para este lugar. Podés abrir una pregunta o sumar tu aporte.'}
             </Nota>
           )}
           <div className="mt-4 flex flex-wrap gap-5">
@@ -87,7 +84,7 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
               href={`/fichas?${new URLSearchParams({ ...(lugar ? { lugar: String(lugar.id) } : {}), ...(campana ? { campana } : {}) })}`}
               className="text-violeta inline-flex min-h-11 items-center underline"
             >
-              Ver todas las preguntas de este ámbito →
+              Ver todas las preguntas de este lugar →
             </Link>
             <Link
               href={`/fichas/nueva?${new URLSearchParams({ ...(lugar ? { lugar: String(lugar.id), nombre: lugar.name } : {}), ...(campana ? { campana } : {}) })}`}
@@ -115,13 +112,11 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
           ) : null}
         </section>
         <section>
-          <p className="font-space text-violeta text-xs uppercase">
-            Convocatorias · mismo territorio
-          </p>
-          <h2 className="font-anton mt-3 text-3xl">Campañas para encontrarnos.</h2>
+          <p className="font-space text-violeta text-xs uppercase">Campañas · mismo lugar</p>
+          <h2 className="font-anton mt-3 text-3xl">Campañas abiertas</h2>
           <p className="mt-3 leading-relaxed">
-            Una convocatoria pone una pregunta, un equipo y una fecha de devolución. Podés entrar
-            desde ella sin empezar por un mapa.
+            Una campaña pone una pregunta, un equipo y una fecha de devolución. Podés entrar desde
+            ella sin empezar por el mapa.
           </p>
           <ul className="mt-5 space-y-4">
             {convocatorias.slice(0, 3).map((c) => (
@@ -137,13 +132,13 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
           </ul>
           {campanas.isLoading ? (
             <p role="status" className="text-tinta-50 mt-4 text-sm">
-              Buscando convocatorias de este ámbito…
+              Buscando campañas de este lugar…
             </p>
           ) : null}
           <ErrorOperacion mensaje={campanas.error?.message} />
           {!campanas.isLoading && !campanas.isError && convocatorias.length === 0 ? (
             <p className="text-tinta-50 mt-4 text-sm">
-              Todavía no hay una convocatoria publicada acá. La próxima puede empezar con tu
+              Todavía no hay una campaña publicada para este lugar. La próxima puede empezar con tu
               pregunta.
             </p>
           ) : null}
@@ -151,7 +146,7 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
             href="/campanas"
             className="text-violeta mt-5 inline-flex min-h-11 items-center underline"
           >
-            Explorar todas las campañas →
+            Ver todas las campañas →
           </Link>
           <Nota>
             Las alternativas y las pruebas se consultan desde cada ficha. Una ubicación aproximada

@@ -9,8 +9,8 @@ import type { Tema } from '../radiografia-data';
  * El ejemplo afirma que **cuanto más preciso escribe la gente, peor se ve la
  * imagen**. Hay tres maneras de medir «peor se ve» y no dicen lo mismo cuando
  * se barre el mando entero. El argumento de por qué se eligió colgar la lección
- * del **tamaño del mayor** y de las **voces solas** —y no del conteo de
- * núcleos— está en `medirLaEscalera`, en `ejemplos-vista.ts`. Acá se imprime.
+ * del **tamaño del mayor** y de las **frases sin grupo** —y no del conteo de
+ * grupos— está en `medirLaEscalera`, en `ejemplos-vista.ts`. Acá se imprime.
  *
  * **Los tres números salen de barrer el mando, no de una nota.** Se recalculan
  * en cada carga con el motor de verdad, incluido el que le queda mal a la
@@ -54,7 +54,7 @@ export function DeQueCuelgaLaLeccion({ escalera, tema }: DeQueCuelgaLaLeccionPro
       rotulo: 'El tamaño del mayor',
       cuenta: de(extremos.mayor),
       sostiene: extremos.mayor === pasos,
-      glosa: `Cuántas voces caen en la mancha más grande. ${veredicto(
+      glosa: `Cuántas frases caen en la mancha más grande. ${veredicto(
         extremos.mayor,
         'La del corpus vago nunca es menor que la del preciso.',
         'La del corpus vago es casi siempre mayor que la del preciso.',
@@ -62,24 +62,24 @@ export function DeQueCuelgaLaLeccion({ escalera, tema }: DeQueCuelgaLaLeccionPro
     },
     {
       clave: 'solas',
-      rotulo: 'Las voces solas',
+      rotulo: 'Las frases sin grupo',
       cuenta: de(extremos.solas),
       sostiene: extremos.solas === pasos,
-      glosa: `Cuántas voces no repitió nadie. ${veredicto(
+      glosa: `Cuántas frases no repitió nadie. ${veredicto(
         extremos.solas,
-        'El corpus preciso nunca deja menos gente hablando sola que el vago.',
-        'El corpus preciso casi siempre deja más gente hablando sola que el vago.',
+        'El corpus preciso nunca deja menos frases sin grupo que el vago.',
+        'El corpus preciso casi siempre deja más frases sin grupo que el vago.',
       )} Ordenando los tres en fila, ${de(cadena.solas)}. Y no es un residuo: es el dato.`,
     },
     {
       clave: 'conteo',
-      rotulo: 'El conteo de núcleos',
+      rotulo: 'El conteo de grupos',
       cuenta: de(extremos.conteo),
       sostiene: extremos.conteo === pasos,
-      glosa: `Cuántos núcleos hay. ${veredicto(
+      glosa: `Cuántos grupos hay. ${veredicto(
         extremos.conteo,
-        'El corpus vago nunca muestra más núcleos que el preciso.',
-        'El corpus vago pasa a mostrar más núcleos que el preciso cuando sube el umbral: la mancha se desgrana en pedacitos y el preciso a esa altura casi no tiene ninguno.',
+        'El corpus vago nunca muestra más grupos que el preciso.',
+        'El corpus vago pasa a mostrar más grupos que el preciso cuando sube el nivel de parecido: la mancha se desgrana en pedacitos y el preciso a esa altura casi no tiene ninguno.',
       )} Ordenando los tres en fila, ${de(cadena.conteo)}${
         seDaVuelta === null ? '' : `, y se da vuelta desde ${legible(seDaVuelta)}`
       }.`,
@@ -94,17 +94,18 @@ export function DeQueCuelgaLaLeccion({ escalera, tema }: DeQueCuelgaLaLeccionPro
         id="de-que-cuelga"
         className={`font-anton mb-3 text-[clamp(22px,2.4vw,30px)] leading-[1.1] ${texto}`}
       >
-        La lección cuelga del tamaño de la mancha y de las voces solas. No del conteo de núcleos.
+        La lección cuelga del tamaño de la mancha y de las frases sin grupo, no del conteo de
+        grupos.
       </h3>
 
       <p className={`mb-6 max-w-[70ch] text-pretty text-[16px] leading-[1.6] ${texto}`}>
         Hay tres maneras de medir «se ve peor», y barriendo las {pasos} posiciones del deslizador
         una por una <strong className="font-semibold">no dicen lo mismo</strong>: {firmes} de las
         tres aguantan el mando entero y el resto se da vuelta en alguna parte. La lección no cuelga
-        del conteo de núcleos, y no porque el número quede feo — cuelga de las otras dos porque{' '}
-        <em>son</em> la lección: qué tan grande es la mancha y cuánta gente queda hablando sola. En
-        vez de elegir la banda del deslizador donde el conteo queda lindo, el ejemplo dejó de colgar
-        de él y lo muestra igual, con su número.
+        del conteo de grupos, y no porque el número quede feo: cuelga de las otras dos porque{' '}
+        <em>son</em> la lección, qué tan grande es la mancha y cuántas frases quedan sin grupo. En
+        vez de elegir la banda del deslizador donde el conteo queda lindo, el ejemplo no se apoya en
+        él y lo muestra igual, con su número.
       </p>
 
       <dl className="grid gap-0 sm:grid-cols-3">
@@ -129,11 +130,11 @@ export function DeQueCuelgaLaLeccion({ escalera, tema }: DeQueCuelgaLaLeccionPro
       </dl>
 
       <p className={`mt-6 max-w-[70ch] text-[14px] leading-[1.55] ${meta}`}>
-        Que el conteo se dé vuelta no es una anomalía de este corpus: es aritmética de un umbral
-        alto sobre un grafo denso, y le va a pasar a cualquier corpus vago. Por eso los números que
-        la tabla de abajo pone en grande son{' '}
-        <strong className={`font-semibold ${texto}`}>el mayor y las voces solas</strong>, y el de
-        núcleos va al lado, chico, con su advertencia. Los tres se recalculan en cada carga con el
+        Que el conteo se dé vuelta no es una anomalía de este corpus: es aritmética de un nivel de
+        parecido alto sobre una red densa de relaciones, y le va a pasar a cualquier corpus vago.
+        Por eso los números que la tabla de abajo pone en grande son{' '}
+        <strong className={`font-semibold ${texto}`}>el mayor y las frases sin grupo</strong>, y el
+        de grupos va al lado, chico, con su advertencia. Los tres se recalculan en cada carga con el
         motor de verdad: acá no hay una frase escrita al lado de un número que mide otra cosa.
       </p>
     </section>

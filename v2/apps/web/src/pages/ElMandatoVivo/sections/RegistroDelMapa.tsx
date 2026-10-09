@@ -4,8 +4,9 @@ import { formatoPorcentaje, plegarTipos, regimenDe } from '../mandato-regimen';
 import { Palitos } from '~/components/papel/primitives';
 import { useMandatoDocumento } from '~/lib/queries/mandato';
 import { cn } from '~/lib/utils';
+import { cuantos } from '~/lib/vocabulario';
 
-/** §3 de la spec — el registro del mapa: barras §13 en oscuro, por régimen N. */
+/** §3 de la spec — lo que dijo la gente en el mapa, por tipo: barras §13 en oscuro, por régimen N. */
 export function RegistroDelMapa() {
   const documento = useMandatoDocumento();
   if (documento.isLoading || documento.isError) return null; // la card papel (Task 4) es la dueña de carga/error
@@ -14,7 +15,6 @@ export function RegistroDelMapa() {
   if (!data) return null;
   const { porTipo: tipos, sinReconocer } = plegarTipos(data.voces.porTipo);
   const regimen = regimenDe(data.voces.total);
-  const maximo = tipos[0]?.total ?? 1;
   const fecha = new Date(data.generadoEl).toLocaleDateString('es-AR', {
     day: '2-digit',
     month: 'long',
@@ -22,14 +22,23 @@ export function RegistroDelMapa() {
   });
 
   return (
-    <section aria-labelledby="registro-titulo" className="mx-auto max-w-[1100px] px-10 pb-16 max-[560px]:px-5">
-      <h2 id="registro-titulo" className="font-space text-oscuro-meta mb-6 text-[11px] uppercase tracking-[0.16em]">
-        El registro del mapa — lo que la gente vino a decir
+    <section
+      aria-labelledby="registro-titulo"
+      className="mx-auto max-w-[1100px] px-10 pb-16 max-[560px]:px-5"
+    >
+      <h2
+        id="registro-titulo"
+        className="font-space text-oscuro-secundario mb-6 text-[13px] uppercase tracking-[0.12em]"
+      >
+        Qué dijo la gente, por tipo
+        {data.voces.total >= 1
+          ? ` (${cuantos(data.voces.total, 'aporte', 'aportes')}, ${fecha})`
+          : ''}
       </h2>
 
       {regimen === 'cero' ? (
         <p className="font-space text-oscuro-meta text-[13px]">
-          Todavía no hay voces en el mapa. El registro arranca con la primera — puede ser la tuya.
+          Todavía no hay aportes en el mapa.
         </p>
       ) : (
         <div className="flex flex-col gap-[18px]">
@@ -38,12 +47,19 @@ export function RegistroDelMapa() {
               key={tipo}
               className="grid grid-cols-[170px_1fr_auto] items-center gap-[18px] max-[560px]:grid-cols-[90px_1fr_auto]"
             >
-              <span className="font-space text-oscuro-texto text-[13px] uppercase tracking-[0.06em]">{tipo}</span>
+              <span className="font-space text-oscuro-texto text-[13px] uppercase tracking-[0.06em]">
+                {tipo}
+              </span>
               {regimen === 'porcentaje' ? (
                 <div aria-hidden className="bg-oscuro-barra relative h-[22px]">
                   <div
                     className={cn('anim-growbar absolute inset-y-0 left-0', rellenoDeTipo(tipo))}
-                    style={{ width: `${String((total / maximo) * 100)}%`, animationDelay: `${String(i * 0.08)}s` }}
+                    style={{
+                      // Escala al TOTAL de aportes, como dice el rótulo «% del total»:
+                      // normalizar al mayor hacía parecer 100 % a un tipo del 40 %.
+                      width: `${String((total / data.voces.total) * 100)}%`,
+                      animationDelay: `${String(i * 0.08)}s`,
+                    }}
                   />
                 </div>
               ) : (
@@ -66,16 +82,15 @@ export function RegistroDelMapa() {
       */}
       {sinReconocer > 0 ? (
         <p className="font-space text-oscuro-meta mt-4 text-[12px]">
-          Y {sinReconocer.toLocaleString('es-AR')}{' '}
-          {sinReconocer === 1 ? 'voz llegó' : 'voces llegaron'} con una categoría que este registro
-          todavía no sabe leer. No se cuentan como ningún tipo: contarlas ahí sería inventarles lo
-          que dijeron.
+          {sinReconocer === 1
+            ? 'Y 1 aporte llegó con una categoría que esta página todavía no sabe leer. No se cuenta como ningún tipo: contarlo ahí sería inventarle lo que dijo.'
+            : `Y ${sinReconocer.toLocaleString('es-AR')} aportes llegaron con una categoría que esta página todavía no sabe leer. No se cuentan como ningún tipo: contarlos ahí sería inventarles lo que dijeron.`}
         </p>
       ) : null}
 
       {data.voces.total >= 1 ? (
-        <p className="font-space text-oscuro-tenue mt-4 text-[10px] uppercase tracking-[0.12em]">
-          fuente: {data.voces.total.toLocaleString('es-AR')} voces del mapa · {fecha}
+        <p className="font-space text-oscuro-meta mt-4 text-[10px] uppercase tracking-[0.12em]">
+          fuente: {cuantos(data.voces.total, 'aporte', 'aportes')} del mapa · {fecha}
         </p>
       ) : null}
     </section>

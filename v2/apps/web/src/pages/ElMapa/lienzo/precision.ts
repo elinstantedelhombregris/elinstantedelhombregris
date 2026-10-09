@@ -105,6 +105,44 @@ export function etiquetaDePrecision(precision: LocationPrecision): string {
   return ETIQUETA[precision];
 }
 
+/**
+ * La precisión dicha para quien lee un aporte, en una oración entera.
+ *
+ * `etiquetaDePrecision` es el fragmento que cuelga de otra frase («… — en su
+ * barrio»). Esta es la frase sola, para la lista y el detalle del mapa: nadie
+ * tiene que ver `neighborhood` en inglés, y todas aclaran lo que importa, que
+ * una ubicación aproximada no es una dirección.
+ */
+const DESCRIPCION: Record<LocationPrecision, string> = {
+  exact: 'Punto exacto, tal como lo eligió quien lo cargó.',
+  '100m': 'Ubicación aproximada, a unos 100 metros. No es una dirección.',
+  '500m': 'Ubicación aproximada, a unos 500 metros. No es una dirección.',
+  neighborhood: 'Ubicación aproximada, en su barrio. No es una dirección.',
+  city: 'Ubicación aproximada, en el centro de su localidad. No es una dirección.',
+  province: 'Solo se sabe la provincia. No hay un punto en el mapa.',
+};
+
+export function descripcionDePrecision(precision: LocationPrecision): string {
+  return DESCRIPCION[precision];
+}
+
+/**
+ * Dónde queda un aporte, para la lista y el detalle del mapa.
+ *
+ * Sin coordenadas no se habla de precisión: no hay punto, y decir «en su
+ * barrio» de algo que no está dibujado sería inventarle un lugar.
+ */
+export function ubicacionDelAporte(senal: {
+  lat: number | null;
+  lng: number | null;
+  precision: string;
+}): string {
+  if (senal.lat === null || senal.lng === null) {
+    return 'Sin punto en el mapa; se conserva en esta lista.';
+  }
+  return DESCRIPCION[precisionValida(senal.precision)];
+}
+
 /** Toda precisión desconocida cae en la más gruesa: nunca se finge exactitud. */
 export function precisionValida(valor: string): LocationPrecision {
   return valor in ETIQUETA ? (valor as LocationPrecision) : 'province';

@@ -27,7 +27,7 @@ const DIALES: readonly Dial[] = [
     campo: 'participacion',
     etiqueta: 'Cuánta gente habla',
     explica:
-      'Voces cada 100.000 habitantes. Es la única variable que controlás en la vida real: se mueve cargándote vos al mapa.',
+      'Aportes cada 100.000 habitantes. Es la única variable que controlás en la vida real: se mueve cuando cargás tus aportes al mapa.',
     min: 0,
     max: 2000,
     paso: 10,
@@ -37,11 +37,12 @@ const DIALES: readonly Dial[] = [
     campo: 'dispersion',
     etiqueta: 'Dónde habla',
     explica:
-      'De todo amontonado en un lugar a repartido por el país. No crea voces: reparte las mismas. Amontonar cruza el piso en un lado y deja el resto mudo.',
+      'De todo amontonado en un lugar a repartido por el país. No crea aportes: reparte los mismos. Amontonar cruza el piso en un lado y deja el resto sin aportes.',
     min: 0,
     max: 1,
     paso: 0.05,
-    formato: (v) => (v < 0.2 ? 'Concentrado' : v > 0.8 ? 'Repartido' : `${Math.round(v * 100)}% repartido`),
+    formato: (v) =>
+      v < 0.2 ? 'Concentrado' : v > 0.8 ? 'Repartido' : `${Math.round(v * 100)}% repartido`,
   },
   {
     campo: 'constancia',
@@ -51,7 +52,8 @@ const DIALES: readonly Dial[] = [
     min: 0,
     max: 1,
     paso: 0.05,
-    formato: (v) => (v < 0.2 ? 'Estallido' : v > 0.8 ? 'Goteo sostenido' : `${Math.round(v * 100)}% sostenido`),
+    formato: (v) =>
+      v < 0.2 ? 'Estallido' : v > 0.8 ? 'Goteo sostenido' : `${Math.round(v * 100)}% sostenido`,
   },
   {
     campo: 'resistencia',
@@ -61,7 +63,8 @@ const DIALES: readonly Dial[] = [
     min: 0,
     max: 1,
     paso: 0.05,
-    formato: (v) => (v < 0.2 ? 'Colabora' : v > 0.8 ? 'Bloquea' : `${Math.round(v * 100)}% obstruye`),
+    formato: (v) =>
+      v < 0.2 ? 'Colabora' : v > 0.8 ? 'Bloquea' : `${Math.round(v * 100)}% obstruye`,
   },
   {
     campo: 'horizonte',
@@ -116,7 +119,7 @@ export function PanelPalancas({
 
       {PENDIENTES.map((p) => (
         <Control key={p.etiqueta} etiqueta={p.etiqueta}>
-          <p className="text-oscuro-tenue text-[11px] leading-snug">{p.razon}</p>
+          <p className="text-oscuro-meta text-[11px] leading-snug">{p.razon}</p>
         </Control>
       ))}
     </>

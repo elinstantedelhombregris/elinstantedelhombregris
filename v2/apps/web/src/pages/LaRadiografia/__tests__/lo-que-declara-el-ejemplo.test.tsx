@@ -146,8 +146,8 @@ describe('la pantalla no esconde el número que le queda mal', () => {
     render(<DeQueCuelgaLaLeccion escalera={inventada()} tema="papel" />);
     const titulo = screen.getByRole('heading', { name: /cuelga/i });
     expect(titulo.textContent).toMatch(/mancha|mayor/i);
-    expect(titulo.textContent).toMatch(/voces solas/i);
-    expect(titulo.textContent).toMatch(/No del conteo de núcleos/i);
+    expect(titulo.textContent).toMatch(/frases sin grupo/i);
+    expect(titulo.textContent).toMatch(/no del conteo de grupos/i);
   });
 
   /**

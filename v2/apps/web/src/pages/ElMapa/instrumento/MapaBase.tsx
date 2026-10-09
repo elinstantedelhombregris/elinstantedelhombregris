@@ -3,6 +3,7 @@ import { Map as MapaGL, NavigationControl, ScaleControl, type MapRef } from 'rea
 
 import { FONDO } from './paleta';
 import { registrarProtocoloPmtiles } from './protocolo-pmtiles';
+import { vistaInicial } from './vista-inicial';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
 
@@ -19,7 +20,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 // el componente se monte. Ver `protocolo-pmtiles.ts`.
 registrarProtocoloPmtiles();
 
-const VISTA_INICIAL = { longitude: -63.6, latitude: -38.4, zoom: 3.7 };
 const ESTILO = '/maps/oscuro.json';
 
 export interface MapaBaseProps {
@@ -29,6 +29,11 @@ export interface MapaBaseProps {
   onMover?: (mapa: MapRef | null) => void;
   /** Mientras se dibuja un área, arrastrar traza en vez de mover el mapa. */
   arrastreHabilitado?: boolean;
+  /**
+   * `true` cuando la dirección ya eligió un lugar (`?lugar=`). Entonces el mapa
+   * no se ajusta al país: arranca en el encuadre previo.
+   */
+  conLugar?: boolean;
   /** Se le pasa hacia arriba para que el lazo pueda desproyectar. */
   mapaRef?: React.RefObject<MapRef>;
   onClickCapa?: (idCapa: string, propiedades: Record<string, unknown>) => void;
@@ -57,6 +62,7 @@ export function MapaBase({
   capasInteractivas = [],
   onMoverContinuo,
   interactivo = true,
+  conLugar = false,
 }: MapaBaseProps) {
   const propio = useRef<MapRef>(null);
   const ref = mapaRef ?? propio;
@@ -71,7 +77,7 @@ export function MapaBase({
       onError={() => {
         onFallo?.();
       }}
-      initialViewState={VISTA_INICIAL}
+      initialViewState={vistaInicial(conLugar)}
       mapStyle={ESTILO}
       dragPan={arrastreHabilitado}
       dragRotate={false}

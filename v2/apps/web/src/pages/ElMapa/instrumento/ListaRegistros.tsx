@@ -1,3 +1,5 @@
+import { ubicacionDelAporte } from '../lienzo/precision';
+
 import { enlaceDeRegistro } from './enlace-registro';
 
 import type { LecturaMapa, SenalMapa } from '~/lib/queries/civic-map';
@@ -15,18 +17,17 @@ export function ListaRegistros({
 }) {
   return (
     <section
-      aria-label="Lista de registros"
+      aria-label="Lista de aportes"
       className="text-oscuro-texto border-oscuro-borde border-t p-4"
     >
-      <h3 className="font-anton text-[28px]">Conocé las miradas de este lugar.</h3>
+      <h3 className="font-anton text-[28px]">Los aportes, uno por uno</h3>
       <p className="text-oscuro-meta mb-4 mt-2 text-sm">
-        {datos.metadata.entregados} registros cargados de {datos.metadata.total} coincidentes. Cada
-        una es un hecho por corroborar, un deseo o una propuesta — ninguna es un acuerdo.
+        Cada aporte es un hecho por comprobar, un deseo o una propuesta; ninguno es un acuerdo.
       </p>
       {datos.metadata.total === 0 ? (
         <p role="status">
-          Con estos filtros no hay nada. Que nadie haya hablado no dice qué le pasa a la gente de
-          acá.
+          Ningún aporte cumple estos filtros. Que no haya no quiere decir que no pase nada: nadie lo
+          cargó acá.
         </p>
       ) : null}
       <ul className="grid max-h-[32rem] gap-3 overflow-auto md:grid-cols-2 xl:grid-cols-3">
@@ -45,11 +46,8 @@ export function ListaRegistros({
               </p>
               <p className="break-words text-sm leading-relaxed">{senal.texto}</p>
               <p className="text-oscuro-meta mt-3 text-xs">
-                {new Date(senal.createdAt).toLocaleDateString('es-AR')} · Precisión:{' '}
-                {senal.precision}.{' '}
-                {senal.lat === null || senal.lng === null
-                  ? 'Sin punto publicado; se conserva en esta lista.'
-                  : 'Ubicación publicada, que puede estar aproximada.'}
+                {new Date(senal.createdAt).toLocaleDateString('es-AR')} ·{' '}
+                {ubicacionDelAporte(senal)}
               </p>
               <div className="mt-2 flex flex-wrap gap-x-4 text-sm">
                 <button
@@ -61,7 +59,7 @@ export function ListaRegistros({
                 >
                   {senal.lat !== null && senal.lng !== null
                     ? 'Ubicar en el mapa'
-                    : 'Conocer esta mirada'}
+                    : 'Leer este aporte'}
                 </button>
                 {enlace ? (
                   <a className="inline-flex min-h-11 items-center underline" href={enlace}>
@@ -69,7 +67,7 @@ export function ListaRegistros({
                   </a>
                 ) : (
                   <span className="text-oscuro-meta py-3 text-xs">
-                    Registro anterior · {senal.id}
+                    Aporte anterior · {senal.id}
                   </span>
                 )}
               </div>

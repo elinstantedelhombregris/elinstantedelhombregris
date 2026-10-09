@@ -114,14 +114,14 @@ describe('converger no es corroborar — regla 11 (§3.1)', () => {
    * hecho. Resolver por mayoría diría «esto se delibera» y el hecho se
    * quedaría sin corroborar para siempre.
    */
-  it('un núcleo mixto se rotula mixto y NO se resuelve por mayoría', () => {
+  it('un grupo mixto se rotula mixto y NO se resuelve por mayoría', () => {
     const { rotulo, mixto, clase, glosa } = rotuloDeNucleo({ deseo: 29, hecho: 1 });
     expect(mixto).toBe(true);
     expect(clase).toBeNull();
-    expect(rotulo).toContain('mixto');
+    expect(rotulo).toContain('grupo mixto');
     expect(rotulo).toContain('esto se delibera');
     expect(rotulo).toContain('esto se corrobora');
-    expect(glosa).toBe('29 de deseo · 1 de hecho');
+    expect(glosa).toBe('Lo que querés: 29 · Lo que hay: 1');
   });
 
   it('la ficha de un núcleo de deseos no emite ninguna palabra de corroboración', () => {
@@ -176,8 +176,8 @@ describe('la cabecera de procedencia — regla 5 (§3.2)', () => {
       <CabeceraProcedencia datos={DATOS} cargando={false} fallo={false} tema="papel" />,
     );
     expect(container.textContent).toContain('bge-m3');
-    expect(container.textContent).toContain('1.840 analizadas');
-    expect(container.textContent).toContain('63 esperando análisis');
+    expect(container.textContent).toContain('1.840 aportes analizados');
+    expect(container.textContent).toContain('63 aportes esperan análisis');
     expect(container.textContent).toContain('7 de 24');
   });
 
@@ -202,7 +202,7 @@ describe('la cabecera de procedencia — regla 5 (§3.2)', () => {
         tema="papel"
       />,
     );
-    expect(container.textContent).toContain('Todavía no corrió');
+    expect(container.textContent).toContain('Todavía no se corrió ninguno');
   });
 
   it('no tiene ningún control para cerrarla', () => {
@@ -226,17 +226,28 @@ describe('el vacío (§6)', () => {
     expect(container.textContent).not.toMatch(/perdón|disculp|lo sentimos|próximamente/i);
   });
 
-  it('con una sola señal lo dice, y no finge una constelación', () => {
+  it('con un solo aporte lo dice, y no finge una constelación', () => {
     envolver(<CieloVacio analizadas={1} sinVector={0} tema="papel" />);
-    expect(screen.getByText('La primera. Todavía no hay con qué compararla.')).toBeVisible();
+    expect(
+      screen.getByText('Hay un solo aporte analizado. Todavía no hay con qué compararlo.'),
+    ).toBeVisible();
   });
 
-  it('con señales sin vector declara la falta de análisis disponible sin inventar el estado del worker', () => {
+  it('con aportes sin vector declara la falta de análisis disponible sin inventar el estado del worker', () => {
     const { container } = envolver(<CieloVacio analizadas={0} sinVector={12} tema="papel" />);
+    expect(screen.getByText('Hay aportes. Falta poder compararlos.')).toBeInTheDocument();
     expect(container.textContent).toContain(
-      '12 señales de esta consulta no tienen análisis disponible',
+      '12 aportes de esta consulta todavía no tienen análisis',
     );
     expect(container.textContent).not.toContain('todavía no corrió');
+  });
+
+  it('si todavía no corrió ningún análisis lo dice una vez y sin números', () => {
+    const { container } = envolver(
+      <CieloVacio analizadas={0} sinVector={0} corrio={false} tema="papel" />,
+    );
+    expect(screen.getByText('Todavía no hay un análisis.')).toBeVisible();
+    expect(container.textContent).not.toMatch(/\d/);
   });
 });
 
@@ -400,7 +411,7 @@ describe('el umbral recalcula con el mismo motor que usó el servidor (R5, R7)',
 
     const sinFrase = vista.nucleos.filter((n) => n.frase === null);
     expect(sinFrase).toHaveLength(1);
-    expect(sinFrase[0]?.textoOmitido).toBe('el servidor todavía no midió este corte');
+    expect(sinFrase[0]?.textoOmitido).toBe('este corte todavía no se midió');
   });
 
   /**
@@ -584,7 +595,7 @@ describe('la página, de punta a punta', () => {
 
     // La cabecera de procedencia, que no se puede cerrar.
     expect(container.textContent).toContain('bge-m3');
-    expect(container.textContent).toContain('2 esperando análisis');
+    expect(container.textContent).toContain('2 aportes esperan análisis');
     // El lienzo existe y la tabla también: la lista sale JUNTO con la
     // constelación, nunca después (§10, rebanada 4).
     expect(screen.getByTestId('constelacion')).toBeInTheDocument();
@@ -634,10 +645,10 @@ describe('la página, de punta a punta', () => {
 
     expect(screen.queryByTestId('constelacion-del-ejemplo')).toBeNull();
     expect(container.querySelector('section[aria-labelledby="los-tres-ejemplos"]')).toBeNull();
-    // La frase del sello sólo puede estar arriba de voces inventadas.
+    // La frase del sello sólo puede estar arriba de frases inventadas.
     expect(screen.queryByText('Nadie dijo ninguna de estas cosas.')).toBeNull();
 
-    const link = screen.getByRole('link', { name: /Ver un ejemplo, con voces inventadas/ });
+    const link = screen.getByRole('link', { name: /Ver un ejemplo, con frases inventadas/ });
     expect(link).toHaveAttribute('href', '/la-radiografia/ejemplo');
   });
 
@@ -645,7 +656,7 @@ describe('la página, de punta a punta', () => {
     respuesta = { data: CORPUS, isLoading: false, isError: false };
     envolver(<LaRadiografia />);
     expect(
-      screen.getByRole('link', { name: /Ver un ejemplo, con voces inventadas/ }),
+      screen.getByRole('link', { name: /Ver un ejemplo, con frases inventadas/ }),
     ).toHaveAttribute('href', '/la-radiografia/ejemplo');
   });
 
@@ -663,7 +674,7 @@ describe('la página, de punta a punta', () => {
   it('si el pedido falla NO afirma que no habló nadie: dice que no pudo leer', () => {
     respuesta = { data: undefined, isLoading: false, isError: true };
     const { container } = envolver(<LaRadiografia />);
-    expect(container.textContent).toContain('No se pudo traer el análisis');
+    expect(container.textContent).toContain('No pudimos cargar el análisis');
     expect(container.textContent).toContain('No se pudo leer');
     expect(screen.queryByText('Acá todavía no aparecen relaciones.')).toBeNull();
   });
@@ -696,26 +707,32 @@ describe('la página, de punta a punta', () => {
     const { container } = envolver(<LaRadiografia />);
     const texto = container.textContent;
 
-    expect(texto).toMatch(/muchas señales digan lo mismo/);
-    // La bajada del 19/8 lo dice en dos tiempos —«son señales, no personas»—
+    expect(texto).toMatch(/Que muchos aportes digan lo mismo no prueba que sea cierto/);
+    // El aviso del 9/10 lo dice en dos frases —«contamos aportes, no personas»—
     // pero la afirmación es la misma y sigue siendo obligatoria en pantalla.
-    expect(texto).toMatch(/son señales, no personas/i);
+    expect(texto).toMatch(/contamos aportes, no personas/i);
     // Las cuatro formas exactas que estuvieron en pantalla.
     expect(texto).not.toMatch(/muchas personas|treinta personas|varias personas/i);
     expect(texto).not.toMatch(/\d+\s+personas\b/);
   });
 
-  it('la ficha mide distancia entre señales, no entre personas', () => {
-    const { container } = envolver(<FichaDeNucleo nucleo={null} tema="papel" onCerrar={vi.fn()} />);
-    expect(container.textContent).toContain('las dos señales más lejanas');
+  it('la ficha mide distancia entre aportes, no entre personas', () => {
+    const { container } = envolver(
+      <FichaDeNucleo
+        nucleo={nucleo('n1', { deseo: 12, hecho: 0 })}
+        tema="papel"
+        onCerrar={vi.fn()}
+      />,
+    );
+    expect(container.textContent).toContain('Los dos más lejanos');
     expect(container.textContent).not.toMatch(/personas más lejanas/);
   });
 
-  it('la ficha de un núcleo dice que son señales y no personas', () => {
+  it('la ficha de un grupo dice que son aportes y no personas', () => {
     const { container } = envolver(
       <FichaDeNucleo nucleo={nucleo('n1', { deseo: 12 })} tema="papel" onCerrar={vi.fn()} />,
     );
-    expect(container.textContent).toContain('Son señales, no personas');
+    expect(container.textContent).toContain('Son aportes, no personas');
   });
 });
 
@@ -758,15 +775,15 @@ describe('el régimen degenerado', () => {
     regimenDegenerado: { n: 8, k: 12 },
   };
 
-  it('lo dice con PALABRAS: los núcleos no dependen de lo que dijo nadie', () => {
+  it('lo dice con PALABRAS: los grupos no dependen de lo que dijo nadie', () => {
     respuesta = { data: CORPUS_CHICO, isLoading: false, isError: false };
     const { container } = envolver(<LaRadiografia />);
     const texto = container.textContent;
     expect(texto).toContain('no dependen de lo que dijo nadie');
-    expect(texto).toContain('El grafo queda completo antes de leer una sola frase');
+    expect(texto).toContain('Las relaciones quedan completas antes de leer una sola frase');
     // Los dos números que lo fundamentan, dichos y no escondidos.
-    expect(texto).toContain('8 señales');
-    expect(texto).toContain('12 vecinas');
+    expect(texto).toContain('8 aportes');
+    expect(texto).toContain('12 vecinos');
   });
 
   it('no suena a error de sistema: dice que es el límite del instrumento', () => {
@@ -782,7 +799,7 @@ describe('el régimen degenerado', () => {
   it('declara solo cuándo se desarma', () => {
     respuesta = { data: CORPUS_CHICO, isLoading: false, isError: false };
     const { container } = envolver(<LaRadiografia />);
-    expect(container.textContent).toContain('desde las 14 señales analizadas');
+    expect(container.textContent).toContain('Desde 14 aportes analizados');
   });
 
   /**
@@ -817,7 +834,7 @@ describe('el régimen degenerado', () => {
     expect(container.textContent).not.toContain('no dependen de lo que dijo nadie');
   });
 
-  it('con una sola señal y una sola vecina lo dice en singular', () => {
+  it('con un solo aporte y un solo vecino lo dice en singular', () => {
     respuesta = {
       data: { ...CORPUS_CHICO, regimenDegenerado: { n: 1, k: 1 } },
       isLoading: false,
@@ -825,8 +842,8 @@ describe('el régimen degenerado', () => {
     };
     const { container } = envolver(<LaRadiografia />);
     const texto = container.textContent;
-    expect(texto).toContain('1 señal analizada');
-    expect(texto).toContain('1 vecina');
-    expect(texto).not.toContain('1 señales');
+    expect(texto).toContain('1 aporte analizado');
+    expect(texto).toContain('1 vecino');
+    expect(texto).not.toContain('1 aportes');
   });
 });

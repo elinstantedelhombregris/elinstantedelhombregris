@@ -36,9 +36,7 @@ export function useModoTiempo(ctx: ContextoModo): ResultadoModo {
 
   /** El rango real de los datos: desde la primera voz hasta la última. */
   const rango = useMemo(() => {
-    const tiempos = ctx.todas
-      .map((s) => Date.parse(s.createdAt))
-      .filter((t) => Number.isFinite(t));
+    const tiempos = ctx.todas.map((s) => Date.parse(s.createdAt)).filter((t) => Number.isFinite(t));
     if (tiempos.length === 0) return null;
     return { desde: Math.min(...tiempos), hasta: Math.max(...tiempos) };
   }, [ctx.todas]);
@@ -49,8 +47,7 @@ export function useModoTiempo(ctx: ContextoModo): ResultadoModo {
     if (rango && corte === null) setCorte(rango.hasta);
   }, [rango, corte]);
 
-  const diasPorSegundo =
-    VELOCIDADES.find((v) => v.id === velocidad)?.diasPorSegundo ?? 45;
+  const diasPorSegundo = VELOCIDADES.find((v) => v.id === velocidad)?.diasPorSegundo ?? 45;
 
   useEffect(() => {
     if (!corriendo || !rango) return;
@@ -113,7 +110,7 @@ export function useModoTiempo(ctx: ContextoModo): ResultadoModo {
 
   return {
     titulo: 'Línea de tiempo',
-    descripcion: 'Mirá aparecer las voces en el orden en que se dijeron.',
+    descripcion: 'Mirá aparecer los aportes en el orden en que se cargaron.',
 
     panel: (
       <>
@@ -142,17 +139,18 @@ export function useModoTiempo(ctx: ContextoModo): ResultadoModo {
 
         <Control etiqueta="Qué muestra la fecha">
           <p className="text-oscuro-secundario text-[13px] leading-relaxed">
-            La fecha en que la voz se <strong>cargó</strong>, no la del hecho. Alguien puede subir
-            hoy un reclamo de hace dos años: esta línea cuenta cuándo se dijo, no cuándo pasó.
+            La fecha en que el aporte se <strong>cargó</strong>, no la del hecho. Alguien puede
+            subir hoy un reclamo de hace dos años: esta línea cuenta cuándo se cargó, no cuándo
+            pasó.
           </p>
         </Control>
 
         <Control etiqueta="En pantalla">
-          <p className="font-anton text-violeta-claro text-[26px] leading-none tabular-nums">
-            {visibles.length.toLocaleString('es-AR')}
+          <p className="font-anton text-violeta-claro text-[26px] tabular-nums leading-none">
+            {visibles.length === 0 ? 'Ninguno' : visibles.length.toLocaleString('es-AR')}
           </p>
           <p className="font-space text-oscuro-meta mt-1 text-[10px] uppercase tracking-[0.12em]">
-            voces al {fecha}
+            {visibles.length === 1 ? 'aporte con punto' : 'aportes con punto'}, al {fecha}
           </p>
         </Control>
       </>
@@ -172,48 +170,49 @@ export function useModoTiempo(ctx: ContextoModo): ResultadoModo {
       </Source>
     ),
 
-    sobreMapa: ctx.todas.length === 0 && !ctx.cargando ? (
-      <Vacio
-        titulo="La línea arranca cuando alguien la arranque."
-        cuerpo="Acá va a verse el día que el mapa se despertó."
-      />
-    ) : rango ? (
-      <div className="pointer-events-auto absolute inset-x-4 bottom-4 z-10">
-        <div className="border-oscuro-borde bg-oscuro-barra/95 flex items-center gap-4 border px-4 py-3 backdrop-blur">
-          <button
-            type="button"
-            onClick={() => {
-              // Volver a arrancar desde el principio si ya terminó.
-              if (!corriendo && hasta >= rango.hasta) setCorte(rango.desde);
-              setCorriendo((v) => !v);
-            }}
-            aria-label={corriendo ? 'Pausar' : 'Reproducir'}
-            className="border-oscuro-borde text-oscuro-texto hover:border-violeta-claro hover:text-violeta-claro flex h-9 w-9 shrink-0 items-center justify-center border"
-          >
-            {corriendo ? '⏸' : '▶'}
-          </button>
+    sobreMapa:
+      ctx.todas.length === 0 && !ctx.cargando ? (
+        <Vacio
+          titulo="La línea empieza con el primer aporte."
+          cuerpo="Acá va a verse cuándo se cargó cada uno."
+        />
+      ) : rango ? (
+        <div className="pointer-events-auto absolute inset-x-4 bottom-4 z-10">
+          <div className="border-oscuro-borde bg-oscuro-barra/95 flex items-center gap-4 border px-4 py-3 backdrop-blur">
+            <button
+              type="button"
+              onClick={() => {
+                // Volver a arrancar desde el principio si ya terminó.
+                if (!corriendo && hasta >= rango.hasta) setCorte(rango.desde);
+                setCorriendo((v) => !v);
+              }}
+              aria-label={corriendo ? 'Pausar' : 'Reproducir'}
+              className="border-oscuro-borde text-oscuro-texto hover:border-violeta-claro hover:text-violeta-claro flex h-9 w-9 shrink-0 items-center justify-center border"
+            >
+              {corriendo ? '⏸' : '▶'}
+            </button>
 
-          <input
-            type="range"
-            min={rango.desde}
-            max={rango.hasta}
-            value={hasta}
-            onChange={(e) => {
-              setCorriendo(false);
-              setCorte(Number(e.target.value));
-            }}
-            aria-label="Momento de la línea de tiempo"
-            className="accent-violeta-claro flex-1"
-          />
+            <input
+              type="range"
+              min={rango.desde}
+              max={rango.hasta}
+              value={hasta}
+              onChange={(e) => {
+                setCorriendo(false);
+                setCorte(Number(e.target.value));
+              }}
+              aria-label="Momento de la línea de tiempo"
+              className="accent-violeta-claro flex-1"
+            />
 
-          <span className="font-space text-oscuro-texto shrink-0 text-[12px] tabular-nums">
-            {fecha}
-          </span>
-          <span className="font-space text-oscuro-meta shrink-0 text-[11px] tabular-nums">
-            {visibles.length.toLocaleString('es-AR')} · {Math.round(progreso)}%
-          </span>
+            <span className="font-space text-oscuro-texto shrink-0 text-[12px] tabular-nums">
+              {fecha}
+            </span>
+            <span className="font-space text-oscuro-meta shrink-0 text-[11px] tabular-nums">
+              {visibles.length.toLocaleString('es-AR')} · {Math.round(progreso)}%
+            </span>
+          </div>
         </div>
-      </div>
-    ) : null,
+      ) : null,
   };
 }

@@ -1,63 +1,52 @@
 import { useState } from 'react';
 
+import { porcentajeDe, RESPUESTAS_MINIMAS_PARA_DECIMALES } from '../radiografia-data';
+
 import type { DisenoFicha } from '@v2/shared';
 
-const METRICAS = [
-  { clave: 'acuerdo', titulo: 'Acuerdos' },
-  { clave: 'desacuerdo', titulo: 'Desacuerdos' },
-  { clave: 'paso', titulo: 'Pases' },
-] as const;
-type Metrica = (typeof METRICAS)[number]['clave'];
+import { cuantos } from '~/lib/vocabulario';
 
-/** Sólo agregados publicados. No reconstruye cuentas ni posiciones individuales. */
+type Afirmacion = DisenoFicha['afirmaciones'][number];
+
+/** Las tres respuestas posibles, si el desglose se puede publicar. */
+function desglose(f: Afirmacion) {
+  if (f.acuerdo === null || f.desacuerdo === null || f.paso === null) return null;
+  return [
+    { clave: 'acuerdo', rotulo: 'De acuerdo', n: f.acuerdo, relleno: 'bg-tinta' },
+    { clave: 'desacuerdo', rotulo: 'En desacuerdo', n: f.desacuerdo, relleno: 'bg-violeta' },
+    { clave: 'paso', rotulo: 'Pasaron', n: f.paso, relleno: 'bg-tinta-30' },
+  ] as const;
+}
+
+/**
+ * Cómo respondió la gente a cada afirmación: una barra apilada de acuerdo,
+ * desacuerdo y pase, con la cantidad de respuestas SIEMPRE a la vista.
+ *
+ * Sólo agregados publicados. No reconstruye cuentas ni posiciones individuales.
+ * Antes mostraba una medida por vez («Acuerdos» / «Desacuerdos» / «Pases») con
+ * «60,0 %» sobre cinco respuestas y sin el n a la vista (revisión del 9/10).
+ */
 export function BarrasOpiniones({ afirmaciones }: { afirmaciones: DisenoFicha['afirmaciones'] }) {
-  const [metrica, setMetrica] = useState<Metrica>('acuerdo');
-  const [porcentaje, setPorcentaje] = useState(true);
   const [ordenar, setOrdenar] = useState(false);
-  const valor = (f: DisenoFicha['afirmaciones'][number]) =>
-    f[metrica] === null
-      ? null
-      : porcentaje
-        ? ((f[metrica] ?? 0) * 100) / Math.max(1, f.respuestas)
-        : f[metrica];
   const filas = ordenar
-    ? [...afirmaciones].sort((a, b) => (valor(b) ?? -1) - (valor(a) ?? -1))
+    ? [...afirmaciones].sort(
+        (a, b) =>
+          (b.acuerdo === null ? -1 : b.acuerdo / Math.max(1, b.respuestas)) -
+          (a.acuerdo === null ? -1 : a.acuerdo / Math.max(1, a.respuestas)),
+      )
     : afirmaciones;
-  const maximo = porcentaje ? 100 : Math.max(1, ...afirmaciones.map((f) => f[metrica] ?? 0));
   return (
-    <section aria-label="Gráfico de respuestas explícitas" className="border-tinta mt-6 border-2">
-      <div className="border-tinta flex flex-wrap items-end justify-between gap-4 border-b p-5">
-        <div>
-          <p className="font-space text-xs uppercase tracking-[0.1em]">La respuesta es el dato</p>
-          <h3 className="font-anton mt-2 text-2xl">Una afirmación. Miradas distintas.</h3>
-        </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Medida de las respuestas">
-          {METRICAS.map((m) => (
-            <button
-              key={m.clave}
-              type="button"
-              aria-pressed={metrica === m.clave}
-              onClick={() => {
-                setMetrica(m.clave);
-              }}
-              className={`font-space border-tinta min-h-11 border px-3 text-xs ${metrica === m.clave ? 'bg-tinta text-papel' : ''}`}
-            >
-              {m.titulo}
-            </button>
-          ))}
-        </div>
+    <section aria-labelledby="barras-opiniones-titulo" className="border-tinta mt-6 border-2">
+      <div className="border-tinta border-b p-5">
+        <p className="font-space text-xs uppercase tracking-[0.1em]">La respuesta es el dato</p>
+        <h3 id="barras-opiniones-titulo" className="font-anton mt-2 text-2xl">
+          Cómo respondieron a cada afirmación
+        </h3>
+        <p className="text-tinta-75 mt-2 max-w-[70ch] text-[15px] leading-relaxed">
+          Más acuerdo no vuelve cierta una afirmación ni obliga a hacer nada.
+        </p>
       </div>
       <div className="flex flex-wrap items-center gap-5 p-5 text-sm">
-        <button
-          type="button"
-          aria-pressed={porcentaje}
-          onClick={() => {
-            setPorcentaje(!porcentaje);
-          }}
-          className="min-h-11 underline"
-        >
-          {porcentaje ? 'Ver cantidades' : 'Ver porcentaje de respuestas'}
-        </button>
         <button
           type="button"
           aria-pressed={ordenar}
@@ -66,44 +55,56 @@ export function BarrasOpiniones({ afirmaciones }: { afirmaciones: DisenoFicha['a
           }}
           className="min-h-11 underline"
         >
-          {ordenar ? 'Restaurar orden de la conversación' : 'Ordenar por esta medida'}
+          {ordenar ? 'Volver al orden de la conversación' : 'Ordenar por porcentaje de acuerdo'}
         </button>
-        <p className="text-tinta-50">
-          {porcentaje
-            ? 'Porcentaje de respuestas a cada afirmación; no de la población.'
-            : 'Cantidad de respuestas a cada afirmación; no personas verificadas.'}
-        </p>
+        <p className="text-tinta-50">Se cuentan respuestas, no personas verificadas.</p>
       </div>
       <ul className="divide-papel-borde divide-y border-t">
         {filas.map((f) => {
-          const medida = valor(f);
+          const partes = desglose(f);
+          const pocas = f.respuestas < RESPUESTAS_MINIMAS_PARA_DECIMALES;
           return (
             <li key={f.id} className="p-5">
               <p className="leading-relaxed">{f.texto}</p>
-              {medida === null ? (
+              {partes === null ? (
                 <p className="text-tinta-50 mt-3 text-sm">
-                  {f.respuestas} respuestas; el desglose público espera al menos cinco.
+                  {cuantos(f.respuestas, 'respuesta', 'respuestas', true)}; el desglose público
+                  espera al menos cinco.
                 </p>
               ) : (
                 <>
-                  <div className="mt-3 flex items-center gap-4">
-                    <div
-                      className="bg-papel-presionado border-papel-borde h-4 flex-1 border"
-                      role="img"
-                      aria-label={`${METRICAS.find((m) => m.clave === metrica)?.titulo ?? ''}: ${porcentaje ? medida.toFixed(1) + ' %' : String(medida)} de ${f.respuestas} respuestas`}
-                    >
+                  <div
+                    className="border-papel-borde bg-papel-presionado mt-3 flex h-4 w-full overflow-hidden border"
+                    role="img"
+                    aria-label={`${partes
+                      .map(
+                        (p) =>
+                          `${p.rotulo}: ${String(p.n)} de ${String(f.respuestas)} (${porcentajeDe(p.n, f.respuestas)})`,
+                      )
+                      .join('. ')}.`}
+                  >
+                    {partes.map((p) => (
                       <div
-                        className="bg-tinta h-full transition-[width] duration-300 motion-reduce:transition-none"
-                        style={{ width: `${Math.min(100, (medida * 100) / maximo)}%` }}
+                        key={p.clave}
+                        className={`${p.relleno} h-full transition-[width] duration-300 motion-reduce:transition-none`}
+                        style={{ width: `${String((p.n * 100) / Math.max(1, f.respuestas))}%` }}
                       />
-                    </div>
-                    <span className="font-space min-w-16 text-right text-sm">
-                      {porcentaje ? medida.toFixed(1).replace('.', ',') + ' %' : medida}
-                    </span>
+                    ))}
                   </div>
-                  <p className="text-tinta-50 mt-3 text-sm">
-                    {f.acuerdo} acuerdos · {f.desacuerdo ?? '—'} desacuerdos · {f.paso ?? '—'} pases
-                    · {f.respuestas} respuestas.
+                  <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                    {partes.map((p) => (
+                      <div key={p.clave} className="flex items-center gap-2">
+                        <span aria-hidden className={`${p.relleno} inline-block h-3 w-3`} />
+                        <dt className="text-tinta-75">{p.rotulo}</dt>
+                        <dd className="font-space">
+                          {p.n} · {porcentajeDe(p.n, f.respuestas)}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="text-tinta-50 mt-2 text-sm">
+                    {cuantos(f.respuestas, 'respuesta', 'respuestas', true)}
+                    {pocas ? ' · pocas respuestas: leé estos números con cuidado' : ''}.
                   </p>
                 </>
               )}

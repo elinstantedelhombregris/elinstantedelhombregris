@@ -208,25 +208,27 @@ export const DICHOS_BRONCA: Readonly<Record<IdDeVoz, Dicho>> = {
  *
  * La legitimidad de este escenario es **idéntica** a la de los otros dos. Eso
  * no es un error de la fórmula: es la fórmula diciendo lo que tiene que decir.
- * Estas 63 personas representan exactamente lo mismo que las 63 del escenario
- * 3. Lo que cambia no es cuánto pesan: es qué se puede hacer con lo que
- * escribieron.
+ * Estas frases, de las mismas personas, representan exactamente lo mismo que
+ * las del escenario 3. Lo que cambia no es cuánto pesan: es qué se puede hacer
+ * con lo que escribieron.
  */
+/** Las frases del escenario. Su cantidad se cuenta: la prosa de abajo la usa. */
+const VOCES_BRONCA = armarVoces({ dichos: DICHOS_BRONCA, corroboraciones: null });
+const CUANTAS = VOCES_BRONCA.length;
+
 export const MANDATO_BRONCA: MandatoDelEscenario = {
   hay: false,
   texto: 'Ninguno.',
-  porQue:
-    'Sin lugar no hay a quién reclamarle: no existe la oficina con competencia sobre «el país está mal». Sin cosa no hay qué arreglar: no hay un objeto que alguien pueda reparar y después mostrar reparado. Y sin fecha no hay plazo, así que no hay día en que se pueda decir «esto se venció». Las 63 voces son reales como bronca y verdaderas como estado de ánimo. Como mandato no alcanzan, y decirlo no es despreciarlas: es no usarlas para algo que no pueden sostener.',
+  porQue: `Sin lugar no hay a quién reclamarle: no existe la oficina con competencia sobre «el país está mal». Sin cosa no hay qué arreglar: no hay un objeto que alguien pueda reparar y después mostrar reparado. Y sin fecha no hay plazo, así que no hay día en que se pueda decir «esto se venció». Las ${String(CUANTAS)} frases son reales como bronca y verdaderas como estado de ánimo. Como mandato no alcanzan, y decirlo no es despreciarlas: es no usarlas para algo que no pueden sostener.`,
   comoSeVerifica: null,
 };
 
 export const ESCENARIO_BRONCA: Escenario = {
   id: 'bronca',
   titulo: 'La bronca',
-  resumen:
-    'Sesenta y tres voces de bronca. Sin lugar, sin cosa, sin fecha. Es el escenario que más converge y el único que no habilita nada.',
+  resumen: `${String(CUANTAS)} frases de bronca. Sin lugar, sin cosa, sin fecha. Es el escenario que más converge y el único que no habilita nada.`,
   loQueSeVe:
-    'Un núcleo de 31 voces —casi la mitad del corpus, casi el triple que el mayor del reclamo— y diecinueve voces solas alrededor. La bronca tiene un vocabulario chico y compartido, así que la máquina junta mucho; pero se junta por «harto», «podrido», «bronca», «roban», «alcanza», y ninguna de esas palabras dice dónde, qué ni cuándo. Que se vea antes de sacar la conclusión: converger no es corroborar.',
-  voces: armarVoces({ dichos: DICHOS_BRONCA, corroboraciones: null }),
+    'Un grupo de 31 frases —casi la mitad del corpus, casi el triple que el mayor del reclamo— y diecinueve frases sin grupo alrededor. La bronca tiene un vocabulario chico y compartido, así que la máquina junta mucho; pero se junta por «harto», «podrido», «bronca», «roban», «alcanza», y ninguna de esas palabras dice dónde, qué ni cuándo. Que se vea antes de sacar la conclusión: converger no es corroborar.',
+  voces: VOCES_BRONCA,
   mandato: MANDATO_BRONCA,
 };

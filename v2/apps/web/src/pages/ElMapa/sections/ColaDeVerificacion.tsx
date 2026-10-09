@@ -47,18 +47,18 @@ export function ColaDeVerificacion() {
         ¿Sigue así?
       </h2>
       <p className="text-tinta-75 mt-3 max-w-[62ch] text-[16px] leading-[1.55]">
-        Un hecho lo dice una persona; lo comprueban dos. Éstas piden una segunda mirada, y ninguna
-        es tuya. Mirar una cuesta menos que escribir una.
+        Un hecho lo dice una persona y lo comprueban dos. Estos aportes piden una segunda mirada, y
+        ninguno es tuyo. Mirar uno cuesta menos que escribirlo.
       </p>
 
       {razon !== null ? (
-        <p className="border-tinta-25 text-tinta-75 mt-6 max-w-[62ch] border-l-2 py-1 pl-4 text-[15px] leading-relaxed">
+        <p className="border-tinta-30 text-tinta-75 mt-6 max-w-[62ch] border-l-2 py-1 pl-4 text-[15px] leading-relaxed">
           {razon}
         </p>
       ) : senales.length === 0 ? (
-        <p className="border-tinta-25 text-tinta-75 mt-6 max-w-[62ch] border-l-2 py-1 pl-4 text-[15px] leading-relaxed">
-          No hay nada esperando una segunda mirada ahora mismo. Que la cola esté vacía también es
-          información: quiere decir que lo cargado o ya se miró, o todavía no salió a pedir ojos.
+        <p className="border-tinta-30 text-tinta-75 mt-6 max-w-[62ch] border-l-2 py-1 pl-4 text-[15px] leading-relaxed">
+          Ningún aporte espera una segunda mirada ahora. Puede ser que lo cargado ya se haya mirado,
+          o que todavía no haya salido a pedir ojos.
         </p>
       ) : (
         <ul className="border-tinta mt-6 border-t-2">

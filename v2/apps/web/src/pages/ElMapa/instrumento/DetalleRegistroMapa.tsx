@@ -1,8 +1,18 @@
 import { useEffect, useRef } from 'react';
 
+import { ubicacionDelAporte } from '../lienzo/precision';
+
 import { enlaceDeRegistro } from './enlace-registro';
 
 import type { SenalMapa } from '~/lib/queries/civic-map';
+
+/**
+ * El texto con que la API reemplaza lo que su autoría no cedió. La API lo arma
+ * en SQL (`packages/db/.../senal-publicacion.ts`) y no manda una marca aparte,
+ * así que acá se compara contra el literal; si cambia allá, hay que cambiarlo
+ * acá (deuda anotada en el informe: lo correcto es un campo `reservado`).
+ */
+export const TEXTO_RESERVADO_POR_LA_API = 'Texto reservado por su autoría.';
 
 export function DetalleRegistroMapa({ senal, cerrar }: { senal: SenalMapa; cerrar: () => void }) {
   const cierre = useRef<HTMLButtonElement>(null);
@@ -12,7 +22,7 @@ export function DetalleRegistroMapa({ senal, cerrar }: { senal: SenalMapa; cerra
   const enlace = enlaceDeRegistro(senal);
   return (
     <aside
-      aria-label="Mirada seleccionada"
+      aria-label="Aporte seleccionado"
       onKeyDown={(e) => {
         if (e.key === 'Escape') cerrar();
       }}
@@ -20,22 +30,22 @@ export function DetalleRegistroMapa({ senal, cerrar }: { senal: SenalMapa; cerra
     >
       <div className="flex items-start justify-between gap-3">
         <p className="font-space text-violeta text-[11px] uppercase tracking-wide">
-          {senal.tipo ?? 'Una mirada'} · {senal.tema ?? 'sin tema elegido'}
+          {senal.tipo ?? 'Un aporte'} · {senal.tema ?? 'sin tema elegido'}
         </p>
         <button
           ref={cierre}
           type="button"
           className="min-h-11 min-w-11 text-2xl"
-          aria-label="Cerrar mirada seleccionada"
+          aria-label="Cerrar el aporte seleccionado"
           onClick={cerrar}
         >
           ×
         </button>
       </div>
-      {senal.texto === 'Texto reservado por su autoría.' ? (
+      {senal.texto === TEXTO_RESERVADO_POR_LA_API ? (
         <p className="text-tinta-75 mt-2 text-sm leading-relaxed">
-          La autoría eligió conservar sus palabras reservadas. Podés consultar el tipo y el
-          recorrido de este aporte.
+          Quien lo cargó eligió reservar sus palabras. Podés consultar el tipo y el recorrido de
+          este aporte.
         </p>
       ) : (
         <blockquote className="mt-2 max-h-40 overflow-auto break-words text-base leading-relaxed">
@@ -43,17 +53,14 @@ export function DetalleRegistroMapa({ senal, cerrar }: { senal: SenalMapa; cerra
         </blockquote>
       )}
       <p className="text-tinta-50 mt-4 text-xs leading-relaxed">
-        {new Date(senal.createdAt).toLocaleDateString('es-AR')} ·{' '}
-        {senal.lat === null || senal.lng === null
-          ? 'Sin punto publicado. Su ámbito permanece en la consulta.'
-          : 'La ubicación respeta la precisión elegida.'}
+        {new Date(senal.createdAt).toLocaleDateString('es-AR')} · {ubicacionDelAporte(senal)}
       </p>
       {enlace ? (
         <a
           href={enlace}
           className="font-space text-violeta mt-3 inline-flex min-h-11 items-center text-xs uppercase underline"
         >
-          Conocer esta voz →
+          Leer este aporte →
         </a>
       ) : null}
     </aside>

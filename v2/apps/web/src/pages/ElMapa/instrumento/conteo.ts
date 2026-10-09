@@ -4,6 +4,7 @@ import { precisionValida } from '../lienzo/precision';
 
 import type { GeoPoint, LocationPrecision } from '@v2/civic-core';
 
+import { cuantos, mayuscula } from '~/lib/vocabulario';
 
 /**
  * El conteo honesto (spec 3 §4) — el requisito duro del instrumento.
@@ -13,7 +14,7 @@ import type { GeoPoint, LocationPrecision } from '@v2/civic-core';
  * del mismo polígono, y sumarlos produce un número que no significa nada.
  *
  * Cuatro clases, y la última es la que v1 no hacía: si el lazo roza La Matanza,
- * las 4.200 voces que solo dicen «Buenos Aires» NO son de La Matanza. Se
+ * los 4.200 aportes que solo dicen «Buenos Aires» NO son de La Matanza. Se
  * nombran y se dejan afuera.
  */
 
@@ -114,28 +115,81 @@ export function contarArea(
  */
 export function renglonesDeConteo(conteo: ConteoArea): string[] {
   const renglones: string[] = [];
-  const n = (cantidad: number, singular: string, plural: string): string =>
-    `${String(cantidad)} ${cantidad === 1 ? singular : plural}`;
 
   if (conteo.exactas.length > 0) {
-    renglones.push(n(conteo.exactas.length, 'con punto exacto', 'con punto exacto'));
+    renglones.push(
+      `${cuantos(conteo.exactas.length, 'aporte', 'aportes')} con punto exacto o casi exacto`,
+    );
   }
   if (conteo.aproximadas.length > 0) {
-    renglones.push(n(conteo.aproximadas.length, 'aproximada', 'aproximadas'));
+    renglones.push(
+      `${cuantos(conteo.aproximadas.length, 'aporte', 'aportes')} con ubicación aproximada (su barrio o hasta 500 m)`,
+    );
   }
   if (conteo.centroide.length > 0) {
     renglones.push(
-      n(conteo.centroide.length, 'por centro de localidad', 'por centro de localidad'),
+      `${cuantos(conteo.centroide.length, 'aporte', 'aportes')} ubicados en el centro de su localidad`,
     );
   }
   if (conteo.provinciasTocadas.length > 0 && conteo.provincialesSinContar > 0) {
-    renglones.push(
-      `${n(conteo.provinciasTocadas.length, 'provincia tocada', 'provincias tocadas')} — ` +
-        `sus ${String(conteo.provincialesSinContar)} señales no se cuentan acá, no sabemos si son de esta zona`,
+    const provincias = cuantos(
+      conteo.provinciasTocadas.length,
+      'provincia tocada',
+      'provincias tocadas',
+      true,
     );
+    const resto =
+      conteo.provincialesSinContar === 1
+        ? 'su aporte no se cuenta acá: no sabemos si es de esta zona'
+        : `sus ${conteo.provincialesSinContar.toLocaleString('es-AR')} aportes no se cuentan acá: no sabemos si son de esta zona`;
+    renglones.push(`${provincias}: ${resto}`);
   }
   return renglones;
 }
 
-/** Un área vacía también es información, y hay que decirlo así. */
-export const AREA_VACIA = 'No hay nada acá todavía. Que un área esté vacía también es información.';
+/**
+ * Un área sin aportes publicados. Dice lo que se sabe —no hay aportes con
+ * ubicación adentro— y no lo que no se sabe: que nadie haya dicho nada ahí.
+ */
+export const AREA_VACIA =
+  'No hay aportes publicados en esta área: nadie cargó nada, o lo cargó sin ubicación.';
+
+/**
+ * Cuántas celdas del área no tienen aportes publicados, sin afirmar silencio.
+ *
+ * Una celda sin puntos es una celda donde nadie cargó algo con ubicación, o
+ * donde lo que se cargó quedó a nivel provincia o localidad. No es una celda
+ * donde «nadie dijo nada» (revisión del 9/10, principio «nunca inventar
+ * puntos» al revés: tampoco inventar silencios).
+ */
+export function fraseDeCeldasSinAportes(sinAportes: number, total: number): string {
+  if (total <= 0) return '';
+  const causa = 'nadie cargó nada, o lo cargó sin ubicación';
+  if (total === 1) {
+    return sinAportes > 0
+      ? `En la única celda del área no hay aportes publicados: ${causa}.`
+      : 'La única celda del área tiene aportes publicados.';
+  }
+  const celdas = total.toLocaleString('es-AR');
+  if (sinAportes <= 0) return `Las ${celdas} celdas del área tienen aportes publicados.`;
+  if (sinAportes >= total) {
+    return `En las ${celdas} celdas del área no hay aportes publicados: ${causa}.`;
+  }
+  return `En ${sinAportes.toLocaleString('es-AR')} de ${celdas} celdas no hay aportes publicados: ${causa}.`;
+}
+
+/**
+ * Cuántos aportes cumplen los filtros y cuántos se muestran, en una sola frase.
+ *
+ * Antes eran tres renglones con el mismo número («4 en la consulta · 4 en esta
+ * página», «4 sin punto», «4 de 4 coincidentes»): la revisión del 9/10 contó
+ * el «4» cinco veces en una pantalla. Acá va una vez; lo que está sin punto lo
+ * dice el contador del mapa.
+ */
+export function frasePorPagina(total: number, entregados: number): string {
+  if (total <= 0) return `${mayuscula(cuantos(0, 'aporte', 'aportes'))} cumple los filtros.`;
+  if (entregados >= total) {
+    return `${mayuscula(cuantos(total, 'aporte', 'aportes'))} ${total === 1 ? 'cumple' : 'cumplen'} los filtros.`;
+  }
+  return `Mostramos ${entregados.toLocaleString('es-AR')} de ${total.toLocaleString('es-AR')} aportes que cumplen los filtros.`;
+}

@@ -21,7 +21,10 @@ export function ElMandatoVivo() {
       <DocumentoMandato />
       <ComoSeUsa />
 
-      <section aria-labelledby="cta-mandato-titulo" className="mx-auto max-w-[1100px] px-10 pb-16 text-center max-[560px]:px-5">
+      <section
+        aria-labelledby="cta-mandato-titulo"
+        className="mx-auto max-w-[1100px] px-10 pb-16 text-center max-[560px]:px-5"
+      >
         <h2 id="cta-mandato-titulo" className="sr-only">
           Imaginá el país que querés vivir
         </h2>
@@ -39,7 +42,7 @@ export function ElMandatoVivo() {
         className="border-oscuro-borde mx-auto max-w-[1100px] border-t-2 px-10 pb-24 pt-8 max-[560px]:px-5"
       >
         <p className="font-space text-oscuro-meta mb-3 text-[11px] font-bold uppercase tracking-[0.14em]">
-          Todavía no se ve nada, o se ve poco
+          Para ver en qué termina
         </p>
         <Link
           href="/mandato-vivo/ejemplo"
@@ -48,10 +51,10 @@ export function ElMandatoVivo() {
           Ver un ejemplo de actas, con casos inventados →
         </Link>
         <p className="text-oscuro-meta mt-3 max-w-[70ch] text-[15px] leading-[1.55]">
-          Cinco actas generadas — una por clase de señal — para mostrar en qué termina el
-          circuito. Viven en otra pantalla a propósito:{' '}
+          Cinco actas inventadas, una por clase de aporte, para mostrar en qué termina el circuito.
+          Viven en otra pantalla a propósito:{' '}
           <strong className="text-oscuro-secundario font-semibold">nadie dijo</strong> ninguna de
-          esas cosas, y no se mezclan jamás con el documento del país.
+          esas cosas, y no se mezclan con el documento del país.
         </p>
       </nav>
     </main>

@@ -95,13 +95,16 @@ describe('Acuerdos y diferencias en Radiografía', () => {
   });
   it('respeta supresión de grupos pequeños y no publica mi respuesta ni permisos de gestión', () => {
     render(<LecturaOpiniones filtros={{}} />);
-    expect(screen.getByText('Estructura insuficiente')).toBeInTheDocument();
+    expect(screen.getByText('Todavía no alcanza para distinguir grupos')).toBeInTheDocument();
     expect(
       screen.getByText(/3 respuestas; el desglose público espera al menos cinco/),
     ).toBeInTheDocument();
     expect(screen.queryByText('desacuerdo')).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Retirar/ })).not.toBeInTheDocument();
-    expect(screen.getByText(/un faltante no es acuerdo/)).toBeInTheDocument();
+    // Los límites están a la vista, no escondidos en un «Método y límites».
+    expect(screen.getByText(/un faltante no es acuerdo/)).toBeVisible();
+    expect(screen.getByText(/Las cuentas no acreditan personas únicas/)).toBeVisible();
+    expect(screen.getByText(/No representa a la población ni autoriza una política/)).toBeVisible();
   });
   it('lee apoyo entre grupos con su denominador y reserva un desglose insuficiente', () => {
     diseno.mockReturnValue({
@@ -131,8 +134,40 @@ describe('Acuerdos y diferencias en Radiografía', () => {
     } as unknown as ReturnType<typeof useDisenoFicha>);
     render(<LecturaOpiniones filtros={{}} />);
     expect(screen.getByText('Hipótesis exploratoria')).toBeInTheDocument();
-    expect(screen.getByText(/A: 5 acuerdos de 7 respuestas/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Cómo respondió cada grupo' })).toBeInTheDocument();
+    // Una barra por grupo, con su n a la vista; con 7 respuestas, sin decimales.
+    const barra = screen.getByRole('img', {
+      name: 'A: 5 de 7 respuestas de acuerdo (71 %)',
+    });
+    expect(barra).toBeInTheDocument();
+    expect(screen.getByText(/5 de 7 respuestas de acuerdo · 71 %/)).toBeInTheDocument();
+    expect(screen.getByText('Pocas respuestas.')).toBeInTheDocument();
     expect(screen.getByText(/B: desglose reservado por tamaño insuficiente/)).toBeInTheDocument();
+  });
+
+  it('abre con una frase llana: acá se ve si hay acuerdo con una afirmación concreta', () => {
+    render(<LecturaOpiniones filtros={{}} />);
+    expect(
+      screen.getByText(/Acá se ve si hay acuerdo con una afirmación concreta\./),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/ficha|exposición|proyección/i, { selector: 'p.mt-4' })).toBeNull();
+  });
+
+  it('una ficha sin ninguna respuesta es UN vacío, sin «estructura insuficiente» ni ceros', () => {
+    diseno.mockReturnValue({
+      data: {
+        ...lectura,
+        afirmaciones: [],
+        analisisOpiniones: { ...lectura.analisisOpiniones, participantes: 0, incluidos: 0 },
+      },
+      isLoading: false,
+      isError: false,
+    } as unknown as ReturnType<typeof useDisenoFicha>);
+    const { container } = render(<LecturaOpiniones filtros={{}} />);
+    expect(screen.getByText(/Esta ficha todavía no tiene respuestas/)).toBeInTheDocument();
+    expect(container.textContent).not.toMatch(/Estructura insuficiente|alcanza para distinguir/);
+    expect(container.textContent).not.toMatch(/(^|[^\d.,])0(?![\d.,])/);
+    expect(screen.getByRole('link', { name: /Abrir la ficha/ })).toBeInTheDocument();
   });
   it('distingue una consulta fallida de una conversación sin participantes', () => {
     fichas.mockReturnValue({ data: undefined, isLoading: false, isError: true } as ReturnType<

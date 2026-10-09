@@ -19,6 +19,21 @@ export function formatoPorcentaje(parte: number, total: number): string {
   return `${((parte / total) * 100).toLocaleString('es-AR', { maximumFractionDigits: 1 })}%`;
 }
 
+/**
+ * `2026-11-01` → `1 de noviembre de 2026`. La fecha cruda de la API se leía
+ * como un dato de base de datos en medio de una frase (revisión del 9/10). Si no
+ * se puede leer, se devuelve tal cual: nunca se inventa una fecha.
+ */
+export function fechaEnCastellano(iso: string): string {
+  const fecha = new Date(`${iso.slice(0, 10)}T12:00:00`);
+  if (Number.isNaN(fecha.getTime())) return iso;
+  return new Intl.DateTimeFormat('es-AR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(fecha);
+}
+
 export function humanizarTema(tema: string): string {
   return tema.replaceAll('_', ' ');
 }

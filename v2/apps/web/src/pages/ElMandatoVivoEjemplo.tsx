@@ -48,7 +48,8 @@ export function ElMandatoVivoEjemplo() {
   return (
     <main className="bg-tinta text-oscuro-texto min-h-screen">
       <div className="mx-auto max-w-[1100px] px-10 pb-4 pt-[72px] max-[560px]:px-5">
-        <Kicker className="anim-fadeup mb-4">Un ejemplo, no el país</Kicker>
+        {/* `text-violeta-claro`: el violeta común rinde 2,2:1 sobre este fondo. */}
+        <Kicker className="anim-fadeup text-violeta-claro mb-4">Un ejemplo, no el país</Kicker>
         <h1
           aria-label="El mandato: un ejemplo."
           className="font-anton riso-hover text-oscuro-texto mb-5 text-[clamp(40px,5.4vw,76px)] leading-[0.98]"
@@ -62,16 +63,16 @@ export function ElMandatoVivoEjemplo() {
           className="anim-fadeup text-oscuro-secundario max-w-[640px] text-pretty text-[18px] leading-[1.6]"
           style={{ animationDelay: '0.9s' }}
         >
-          Cinco actas inventadas — una por clase de señal — para mostrar en qué termina el
-          circuito. El mandato de verdad se mira en{' '}
+          Cinco actas inventadas, una por clase de aporte, para mostrar en qué termina el circuito.
+          El mandato de verdad se mira en{' '}
           <Link
             href="/mandato-vivo"
             className="underline decoration-1 underline-offset-4 hover:opacity-70"
           >
             El mandato
           </Link>
-          , que está en otra pantalla a propósito: o mirás el ejemplo o mirás el documento del
-          país, nunca los dos mezclados.
+          , que está en otra pantalla a propósito: o mirás el ejemplo o mirás el documento del país,
+          nunca los dos mezclados.
         </p>
       </div>
 
@@ -91,8 +92,8 @@ export function ElMandatoVivoEjemplo() {
         </Link>
         <p className="text-oscuro-meta mt-3 max-w-[70ch] text-[14px] leading-[1.55]">
           Allá el documento puede decir cero, y si lo dice es una afirmación: todavía no habló
-          nadie. Acá las actas están llenas, y eso es porque acá no habló nadie tampoco — sólo
-          que las escribimos nosotros.
+          nadie. Acá las actas están llenas, y eso es porque acá no habló nadie tampoco — sólo que
+          las escribimos nosotros.
         </p>
       </nav>
     </main>

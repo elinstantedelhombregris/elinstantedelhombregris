@@ -1,6 +1,6 @@
 import { COEFICIENTES, PROVINCIAS_CANONICAS, retratoMedido } from '@v2/civic-core';
 
-import { AHORA, TERRITORIOS } from './padron';
+import { AHORA, PADRON, TERRITORIOS } from './padron';
 import { estaCorroborada } from './tipos';
 
 import type { Escenario, Voz } from './tipos';
@@ -86,6 +86,36 @@ export function cifrasDeLegitimidad(escenario: Escenario): CifrasDeLegitimidad {
   };
 }
 
+/**
+ * Cuánto hay en el corpus, **contado**: ninguna pantalla del laboratorio escribe
+ * «63», «44», «8» ni «12» a mano. La tabla de los tres decía «las 63 personas»
+ * cuando las personas son 44 (revisión del 9/10), por la razón de siempre: un
+ * número escrito al lado de otro que cambia.
+ *
+ * Las personas salen del **padrón** —quién habló, dónde y cuándo—, que los tres
+ * escenarios comparten entero; frases, lugares y meses salen del escenario que
+ * se pasa. Un test afirma que los tres escenarios dan lo mismo.
+ */
+export interface ResumenDelCorpus {
+  /** Las frases de cada escenario. Son las mismas en los tres. */
+  readonly frases: number;
+  /** Personas distintas del padrón. Menos que las frases. */
+  readonly personas: number;
+  /** Territorios del padrón. */
+  readonly lugares: number;
+  /** Meses distintos que abarca. */
+  readonly meses: number;
+}
+
+export function resumenDelCorpus(escenario: Escenario): ResumenDelCorpus {
+  return {
+    frases: escenario.voces.length,
+    personas: new Set(PADRON.map((p) => p.actor)).size,
+    lugares: TERRITORIOS.length,
+    meses: cifrasDeLegitimidad(escenario).meses,
+  };
+}
+
 /* ── La mitad de lo que se puede hacer ────────────────────────────────────── */
 
 export interface CifrasDeCorroboracion {
@@ -157,5 +187,5 @@ export function coberturaDe(escenario: Escenario): Cobertura {
 export const REGLA_DEL_MANDATO = {
   pisoPorCienMil: COEFICIENTES.PISO_MANDATO,
   minimoPeriodos: COEFICIENTES.MINIMO_PERIODOS,
-  comoSeLee: `${String(COEFICIENTES.PISO_MANDATO)} voces cada 100.000 habitantes —una de cada mil— sostenidas al menos ${String(COEFICIENTES.MINIMO_PERIODOS)} meses. Cruzarlo una vez es un pico, y un pico no gobierna.`,
+  comoSeLee: `${String(COEFICIENTES.PISO_MANDATO)} aportes cada 100.000 habitantes —una de cada mil— sostenidas al menos ${String(COEFICIENTES.MINIMO_PERIODOS)} meses. Cruzarlo una vez es un pico, y un pico no gobierna.`,
 } as const;

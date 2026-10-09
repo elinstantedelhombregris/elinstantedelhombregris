@@ -13,10 +13,10 @@ import type { SenalConTipo } from '../useVistaMapa';
 
 import { useProvincias } from '~/lib/queries/open-data';
 import { cn } from '~/lib/utils';
-import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
+import { CLASE_ROTULO, cuantos, type ClaseSenal } from '~/lib/vocabulario';
 
 /**
- * Modo Análisis — qué provincia habla, cuánto, y QUÉ DICE.
+ * Modo Análisis — qué provincia tiene aportes, cuántos, y QUÉ DICEN.
  *
  * El coroplético solo contesta la primera mitad. Tocar una provincia contesta
  * la segunda: de qué está hecho ese color. Un mapa que pinta intensidades sin
@@ -29,7 +29,7 @@ import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
  * resumen del mapa sólo agrega por provincia (sumar la página cargada daría un
  * número que no es el total), no hay población ni superficie por departamento
  * para las otras dos métricas, y falta la supresión de grupos chicos (D-088):
- * un departamento encendido por una sola voz la señala.
+ * un departamento encendido por un solo aporte señala a quien lo cargó.
  */
 
 type Metrica = 'total' | 'porHabitante' | 'densidad';
@@ -43,21 +43,21 @@ const METRICAS: { id: Metrica; etiqueta: string; explica: string; unidad: string
     id: 'total',
     etiqueta: 'Total',
     explica:
-      'Cantidad de registros recibidos por provincia. Una persona puede aportar varios; no mide adhesión ni representatividad.',
-    unidad: 'registros',
+      'Cantidad de aportes recibidos por provincia. Una persona puede cargar varios; no mide adhesión ni representatividad.',
+    unidad: 'aportes',
   },
   {
     id: 'porHabitante',
     etiqueta: 'Por habitante',
     explica:
-      'Registros cada 100.000 habitantes, con población de referencia. Describe participación registrada, no la opinión de toda la población.',
+      'Aportes cada 100.000 habitantes, con población de referencia. Describe cuánta gente participó, no la opinión de toda la población.',
     unidad: 'cada 100 mil hab.',
   },
   {
     id: 'densidad',
     etiqueta: 'Por territorio',
     explica:
-      'Registros cada 1.000 km². Muestra concentración geográfica: Santa Cruz y CABA dicen cosas muy distintas con el mismo total.',
+      'Aportes cada 1.000 km². Muestra concentración geográfica: Santa Cruz y CABA dicen cosas muy distintas con el mismo total.',
     unidad: 'cada 1.000 km²',
   },
 ];
@@ -216,9 +216,9 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
           />
           {nivel === 'departamento' ? (
             <p className="text-oscuro-meta mt-2 text-[11px] leading-relaxed">
-              Todavía no está. El mapa de departamentos ya lo tenemos; falta contar las voces por
-              departamento en el servidor y no mostrar los lugares donde habló tan poca gente que se
-              la podría reconocer. Se muestra igual porque el nivel existe y va a llegar.
+              Todavía no está. Ya tenemos el mapa de departamentos; falta contar los aportes por
+              departamento y no mostrar los lugares donde hay tan pocos que se podría reconocer a
+              quien los cargó.
             </p>
           ) : null}
         </Control>
@@ -249,7 +249,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
           </p>
         </Control>
 
-        <Control etiqueta="Cuándo se dijo">
+        <Control etiqueta="Cuándo se cargó">
           <Segmentado
             valor={rango}
             onCambiar={setRango}
@@ -261,10 +261,10 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
           />
         </Control>
 
-        <Control etiqueta="Tipos de voz">
+        <Control etiqueta="Qué aportes ver">
           <FiltroClases activos={clases} onAlternar={alternarClase} />
           <p className="text-oscuro-meta mt-2 text-[11px]">
-            {filtradas.length.toLocaleString('es-AR')} registros cargados pasan los filtros. Los
+            En esta página: {cuantos(filtradas.length, 'aporte', 'aportes')} con estos filtros. Los
             colores usan el total de la consulta.
           </p>
         </Control>
@@ -288,7 +288,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
                   className="block h-3 w-full"
                   style={{ background: `linear-gradient(to right, ${r.colores.join(', ')})` }}
                 />
-                <span className="font-space text-oscuro-meta mt-1 block text-[9px] uppercase">
+                <span className="font-space text-oscuro-meta mt-1 block text-[10px] uppercase">
                   {r.nombre}
                 </span>
               </button>
@@ -340,14 +340,15 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
 
             {detalle.total === 0 ? (
               <p className="text-oscuro-secundario mt-3 text-[13px] leading-relaxed">
-                Con estos filtros, nadie habló desde esta provincia. Eso no dice qué necesita ni qué
+                Con estos filtros no hay aportes de esta provincia. Eso no dice qué necesita ni qué
                 piensa su gente.
               </p>
             ) : (
               <>
                 <p className="text-oscuro-meta mt-3 text-[11px]">
-                  Detalle de {detalle.lista.length} registros cargados de {detalle.total}{' '}
-                  coincidentes. Las clases y los temas de abajo describen esa página.
+                  Detalle de {detalle.lista.length} de {detalle.total.toLocaleString('es-AR')}{' '}
+                  {detalle.total === 1 ? 'aporte' : 'aportes'} de esta provincia. Las clases y los
+                  temas de abajo describen solo los que se muestran.
                 </p>
                 <ul className="mt-3 space-y-1">
                   {detalle.porClase.map(([clase, n]) => (
@@ -382,7 +383,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
                         </li>
                       ))}
                     </ul>
-                    <p className="font-space text-oscuro-tenue mt-1.5 text-[9px]">{AVISO_TEMAS}</p>
+                    <p className="font-space text-oscuro-meta mt-1.5 text-[10px]">{AVISO_TEMAS}</p>
                   </>
                 ) : null}
 
@@ -403,7 +404,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
                   ))}
                 </ul>
                 {detalle.lista.length > 40 ? (
-                  <p className="font-space text-oscuro-tenue mt-2 text-[9px]">
+                  <p className="font-space text-oscuro-meta mt-2 text-[10px]">
                     Se listan las primeras 40 de {detalle.lista.length}.
                   </p>
                 ) : null}
@@ -421,8 +422,8 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
     sobreMapa:
       ctx.todas.length === 0 && !ctx.cargando ? (
         <Vacio
-          titulo="No hay registros para esta consulta."
-          cuerpo="Probá otro período o lugar. Que no haya voces no dice cómo se vive ahí."
+          titulo="Ningún aporte cumple estos filtros."
+          cuerpo="Probá con otro período o lugar. Que no haya aportes no dice cómo se vive ahí."
         />
       ) : null,
 
@@ -466,7 +467,9 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
         colores={colores}
         bajo="Menos"
         alto="Más"
-        titulo={`Registros · ${metricaActiva?.unidad ?? ''}`}
+        titulo={
+          metrica === 'total' ? 'Aportes por provincia' : `Aportes ${metricaActiva?.unidad ?? ''}`
+        }
       />
     ),
   };
