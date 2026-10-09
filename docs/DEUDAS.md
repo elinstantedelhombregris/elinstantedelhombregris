@@ -112,6 +112,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-096](#d-096--en-la-mitad-de-las-preguntas-de-opción-múltiple-la-correcta-es-la-opción-más-larga) | En la mitad de las preguntas de opción múltiple, la correcta es la opción más larga | Media | Abierta |
 | [D-102](#d-102--cálculos-y-archivos-de-gran-volumen-necesitan-trabajos-desacoplados) | Cálculos y archivos de gran volumen necesitan trabajos desacoplados | Media | Abierta |
 | [D-103](#d-103--la-adaptación-móvil-necesita-verificación-en-dispositivos-físicos) | La adaptación móvil necesita verificación en dispositivos físicos | Media | Abierta |
+| [D-104](#d-104--las-pruebas-de-participación-dejan-campañas-y-fichas-públicas-repetidas) | Las pruebas de participación dejan campañas y fichas públicas repetidas | Media | **Resuelta** |
 | [D-099](#d-099--datos-abiertos-muestra-un-catálogo-pendiente-y-licencias-distintas-del-contrato-vigente) | Datos Abiertos muestra un catálogo pendiente y licencias distintas del contrato vigente | Media | **Resuelta** |
 | [D-100](#d-100--la-autoría-anónima-no-tiene-un-recorrido-de-recuperación-con-cuenta) | La autoría anónima no tiene un recorrido de recuperación con cuenta | Media | **Resuelta** |
 | [D-101](#d-101--radiografía-recorta-a-500-señales-y-no-declara-ese-recorte-en-su-contrato-público) | Radiografía recorta a 500 señales y no declara ese recorte en su contrato público | Alta | **Resuelta** |
@@ -1794,3 +1795,14 @@ La proyección de opiniones declara insuficiencia por encima de 400 cuentas o 10
 La adaptación tiene contratos, pruebas de persistencia y reintento, renovación de sesión y compilación de las plataformas. Falta comprobar en teléfonos modestos el ciclo real de cookies, reinicio, almacenamiento, conectividad intermitente, segundo factor y gestión entre superficies. La compilación no acredita esa prueba física. El almacenamiento local conserva el aviso de que no tiene cifrado propio de la app.
 
 **Qué haría falta:** matriz de dispositivos de Android e iOS y una tarea de campo autorizada; comprobar que un reinicio no duplica envíos, que el cambio de cuenta conserva la autoría, que corregir y retirar llega a las lecturas actualizadas, y que nada de la bitácora anterior se publica por la actualización.
+
+### D-104 · Las pruebas de participación dejan campañas y fichas públicas repetidas
+
+**Dónde:** `v2/apps/api/tests/participacion-ideal.test.ts`, `equipo-continuidad.test.ts`, `diseno-ideal.test.ts`
+**Encontrada:** 2026-10-08, revisión visual posterior a la implementación
+**Severidad:** media
+**Estado:** resuelta en código, 2026-10-08
+
+Las suites creaban propietarios, campañas y fichas públicas con UUID nuevos y no limpiaban al terminar. La conservación legítima de ediciones anteriores hacía visibles también campañas que preparaban un borrador nuevo. La vista local acumuló veinte campañas y quince fichas de fixture con títulos repetidos. Ocultarlas por título habría escondido procesos distintos y dejado intacta la causa.
+
+**Resolución:** cada suite registra sus objetos y limpia únicamente sus IDs en `afterAll`. Las guardas rechazan cuentas ajenas y contribuciones anónimas cuyos identificadores no se acreditaron, también dentro de la transacción. El saneamiento operado en la base local descartable preservó el aporte manual y dejó una única demostración identificada y pausada. No se modificaron bases remotas. El [procedimiento y las evidencias](../v2/docs/operations/demo-campanas-local.md) describen la selección y la conservación de datos; las pruebas negativas verifican que una participación independiente impide borrarla como fixture.

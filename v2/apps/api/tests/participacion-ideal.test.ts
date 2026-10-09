@@ -3,12 +3,18 @@ import { randomUUID } from 'node:crypto';
 import { getDb, sql } from '@v2/db';
 import { USO_DATOS_CONTRATO_ANTERIOR, METODO_LECTURA_CONTRATO_ANTERIOR } from '@v2/shared';
 import supertest from 'supertest';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
+import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
 import { createApp } from '../src/app.js';
 import { signAccessToken } from '../src/features/auth/tokens.js';
 
-import type { CampanaPublica, ContratoCampana, EspacioPersonal, DevolucionCampanaInput } from '@v2/shared';
+import type {
+  CampanaPublica,
+  ContratoCampana,
+  EspacioPersonal,
+  DevolucionCampanaInput,
+} from '@v2/shared';
 
 const habilitada = Boolean(process.env.DATABASE_URL_DESCARTABLE);
 describe.skipIf(!habilitada)(
@@ -19,6 +25,8 @@ describe.skipIf(!habilitada)(
     const marca = randomUUID();
     let usuario = 0;
     let otro = 0;
+    const usuariosFixture: number[] = [];
+    const idLocalesFixture = new Set<string>();
     let cookie = '';
     let cookieAjena = '';
     let invitado = '';
@@ -44,8 +52,10 @@ describe.skipIf(!habilitada)(
       devolucion: 'Una lectura pública para revisar lo que entendimos y lo que sigue abierto.',
       fechaDevolucion: '2099-12-20',
       efecto: 'Futuros en elaboración; todavía sin compromiso institucional.',
-      usoDatos: 'Leeremos aportes autorizados para formular condiciones de vida, respetando sus permisos.',
-      metodoLectura: 'El equipo contrastará las fuentes y publicará diferencias, ausencias y una lectura corregible.',
+      usoDatos:
+        'Leeremos aportes autorizados para formular condiciones de vida, respetando sus permisos.',
+      metodoLectura:
+        'El equipo contrastará las fuentes y publicará diferencias, ausencias y una lectura corregible.',
       institucion: '',
       fases: [
         {
@@ -55,23 +65,26 @@ describe.skipIf(!habilitada)(
         },
       ],
     };
-    const cuerpo = (idLocal = randomUUID()) => ({
-      senal: {
-        contrato: 'basta-senal/v1',
-        idLocal,
-        tipo: 'sueño',
-        texto: 'Podría aprender cerca de mi familia sin renunciar a mis oportunidades.',
-        cedeLicencia: true,
-        casa: 'no',
-      },
-      campanaId: campana,
-      edicion: revision,
-      fragmentos: [
-        { pregunta: '¿Qué sería posible?', respuesta: 'Aprender cerca de quienes quiero.' },
-      ],
-      interpretacionConfirmada: true,
-      aceptaPublicar: true,
-    });
+    const cuerpo = (idLocal = randomUUID()) => {
+      idLocalesFixture.add(idLocal);
+      return {
+        senal: {
+          contrato: 'basta-senal/v1',
+          idLocal,
+          tipo: 'sueño',
+          texto: 'Podría aprender cerca de mi familia sin renunciar a mis oportunidades.',
+          cedeLicencia: true,
+          casa: 'no',
+        },
+        campanaId: campana,
+        edicion: revision,
+        fragmentos: [
+          { pregunta: '¿Qué sería posible?', respuesta: 'Aprender cerca de quienes quiero.' },
+        ],
+        interpretacionConfirmada: true,
+        aceptaPublicar: true,
+      };
+    };
     const conCuenta = (metodo: 'post' | 'put' | 'delete' | 'patch', ruta: string, ajena = false) =>
       request[metodo](ruta)
         .set('Cookie', ajena ? cookieAjena : cookie)
@@ -80,6 +93,7 @@ describe.skipIf(!habilitada)(
       const r = await getDb().execute<{ id: number }>(
         sql`insert into users(username,email,name,password_hash,email_verified) values (${marca},${marca + '@test.local'},'Prueba','no-login',true),(${marca + 'b'},${marca + 'b@test.local'},'Otra','no-login',true) returning id`,
       );
+      usuariosFixture.push(...r.rows.map((u) => u.id));
       usuario = r.rows[0]!.id;
       otro = r.rows[1]!.id;
       const sesion = (id: number) =>
@@ -89,6 +103,9 @@ describe.skipIf(!habilitada)(
       const context = await request.get('/api/v1/contribuciones/contexto').expect(200);
       csrf = context.body.data.csrfToken as string;
       invitado = `eihg_csrf=${csrf}`;
+    });
+    afterAll(async () => {
+      await limpiarFixturesIdeales(getDb(), usuariosFixture, [...idLocalesFixture]);
     });
     it('la cuenta abre un borrador y nadie más puede verlo ni editarlo', async () => {
       const idLocal = randomUUID();
@@ -255,18 +272,33 @@ describe.skipIf(!habilitada)(
         .send({ revision, estado: 'cerrada', motivo: 'Cerramos esta ronda con una devolución.' })
         .expect(409);
       devolucionCuerpo = {
-          idLocal: devolucionId,
-          revision,
-          texto:
-            'Escuchamos el deseo de aprender cerca y conservar los vínculos. El diseño sigue abierto a otras miradas.',
-          limites: 'Esta ronda es de prueba. No representa a una localidad ni al país.',
-          senales: [aporte],
-        };
-      const simultaneas = await Promise.all([1, 2].map(() => conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`).send(devolucionCuerpo).expect(201)));
+        idLocal: devolucionId,
+        revision,
+        texto:
+          'Escuchamos el deseo de aprender cerca y conservar los vínculos. El diseño sigue abierto a otras miradas.',
+        limites: 'Esta ronda es de prueba. No representa a una localidad ni al país.',
+        senales: [aporte],
+      };
+      const simultaneas = await Promise.all(
+        [1, 2].map(() =>
+          conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`)
+            .send(devolucionCuerpo)
+            .expect(201),
+        ),
+      );
       expect(simultaneas.map((r) => r.body.data.id)).toEqual([devolucionId, devolucionId]);
-      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`).send({ ...devolucionCuerpo, texto: 'Otro contenido que no corresponde al mismo intento de devolución.' }).expect(409);
-      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`, true).send(devolucionCuerpo).expect(403);
-      const cuenta = await getDb().execute<{ n: number; avisos: number }>(sql`select (select count(*)::int from campana_devoluciones where id=${devolucionId}::uuid) n, (select count(*)::int from eventos_civicos where user_id=${usuario} and clave=${'devolucion:' + devolucionId}) avisos`);
+      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`)
+        .send({
+          ...devolucionCuerpo,
+          texto: 'Otro contenido que no corresponde al mismo intento de devolución.',
+        })
+        .expect(409);
+      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`, true)
+        .send(devolucionCuerpo)
+        .expect(403);
+      const cuenta = await getDb().execute<{ n: number; avisos: number }>(
+        sql`select (select count(*)::int from campana_devoluciones where id=${devolucionId}::uuid) n, (select count(*)::int from eventos_civicos where user_id=${usuario} and clave=${'devolucion:' + devolucionId}) avisos`,
+      );
       expect(cuenta.rows[0]).toEqual({ n: 1, avisos: 1 });
       const avisos = await request
         .get('/api/v1/mi-espacio/avisos')
@@ -285,7 +317,9 @@ describe.skipIf(!habilitada)(
         })
         .expect(200);
       revision++;
-      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`).send(devolucionCuerpo).expect(201);
+      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`)
+        .send(devolucionCuerpo)
+        .expect(201);
       await request
         .post('/api/v1/contribuciones')
         .set('Cookie', invitado)
@@ -313,7 +347,9 @@ describe.skipIf(!habilitada)(
         .set('Cookie', cookie)
         .expect(200);
       expect(propio.body.data.contrato.titulo).toBe(nuevo.titulo);
-      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`).send(devolucionCuerpo).expect(201);
+      await conCuenta('post', `/api/v1/campanas/${campana}/devoluciones`)
+        .send(devolucionCuerpo)
+        .expect(201);
     });
     it('descargar datos propios y gestionar preferencias no permite leer o retirar lo ajeno', async () => {
       await request.get('/api/v1/mi-espacio/aportes').expect(401);
@@ -353,19 +389,29 @@ describe.skipIf(!habilitada)(
       ), h as (insert into campana_ediciones(campana_id,revision,contrato,estado,motivo) select id,revision,contrato,estado,'Contrato anterior al nuevo formulario.' from c returning id)
       select id from c`);
       const id = r.rows[0]!.id;
-      const recuperado = await conCuenta('post', '/api/v1/campanas').send({ idLocal, contrato: anterior }).expect(201);
+      const recuperado = await conCuenta('post', '/api/v1/campanas')
+        .send({ idLocal, contrato: anterior })
+        .expect(201);
       expect(recuperado.body.data.id).toBe(id);
       await conCuenta('post', '/api/v1/campanas').send({ idLocal, contrato }).expect(409);
-      await conCuenta('post', `/api/v1/campanas/${id}/estado`).send({ revision: 1, estado: 'abierta', motivo: 'Abrimos la pregunta de prueba.' }).expect(200);
+      await conCuenta('post', `/api/v1/campanas/${id}/estado`)
+        .send({ revision: 1, estado: 'abierta', motivo: 'Abrimos la pregunta de prueba.' })
+        .expect(200);
       const publico = await request.get(`/api/v1/campanas/${id}`).expect(200);
       expect(publico.body.data.contrato.usoDatos).toBe(USO_DATOS_CONTRATO_ANTERIOR);
       expect(publico.body.data.contrato.metodoLectura).toBe(METODO_LECTURA_CONTRATO_ANTERIOR);
       expect(publico.body.data.contrato.institucion).toBe('');
       const catalogo = await request.get('/api/v1/campanas').expect(200);
-      expect(catalogo.body.data.find((c: { id: string }) => c.id === id).contrato.usoDatos).toBe(USO_DATOS_CONTRATO_ANTERIOR);
-      const almacenado = await getDb().execute<{ uso: boolean }>(sql`select contrato ? 'usoDatos' as uso from campana_ediciones where campana_id=${id}::uuid and revision=1`);
+      expect(catalogo.body.data.find((c: { id: string }) => c.id === id).contrato.usoDatos).toBe(
+        USO_DATOS_CONTRATO_ANTERIOR,
+      );
+      const almacenado = await getDb().execute<{ uso: boolean }>(
+        sql`select contrato ? 'usoDatos' as uso from campana_ediciones where campana_id=${id}::uuid and revision=1`,
+      );
       expect(almacenado.rows[0]?.uso).toBe(false);
-      await conCuenta('post', `/api/v1/campanas/${id}/devoluciones`).send({ ...devolucionCuerpo, revision: 2, senales: [] }).expect(409);
+      await conCuenta('post', `/api/v1/campanas/${id}/devoluciones`)
+        .send({ ...devolucionCuerpo, revision: 2, senales: [] })
+        .expect(409);
     });
   },
 );

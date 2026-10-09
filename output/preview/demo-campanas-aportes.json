@@ -1,0 +1,43 @@
+{
+  "base": "basta_descartable_test (local)",
+  "campana": "6e71cb0e-fb06-4605-8f0d-83489caa0f8f",
+  "ficha": "4eaa8cb4-ff48-40fa-9214-4759b77e4e9b",
+  "modo": "demostracion_local",
+  "ejemplos": [
+    {
+      "id": "b5e04e0e-9017-4e1b-a5eb-790a46852d53",
+      "tipo": "sueño",
+      "relacion": "inspira",
+      "sintetico": true,
+      "participanteReal": false,
+      "precision": "province",
+      "punto": false,
+      "vector": false
+    },
+    {
+      "id": "62ee0f64-56e1-4247-a3dd-d841b3c36254",
+      "tipo": "necesidad",
+      "relacion": "describe",
+      "sintetico": true,
+      "participanteReal": false,
+      "precision": "province",
+      "punto": false,
+      "vector": false
+    },
+    {
+      "id": "fd3b6e43-cd75-43d6-99a8-d266d60cecc8",
+      "tipo": "práctica",
+      "relacion": "capacidad",
+      "sintetico": true,
+      "participanteReal": false,
+      "precision": "province",
+      "punto": false,
+      "vector": false
+    }
+  ],
+  "aporteManual": [
+    {
+      "n": 1
+    }
+  ]
+}

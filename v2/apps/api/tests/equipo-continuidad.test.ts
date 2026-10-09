@@ -1,12 +1,15 @@
 import { randomUUID } from 'node:crypto';
 import { getDb, sql } from '@v2/db';
 import supertest from 'supertest';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
 import { createApp } from '../src/app';
 import { signAccessToken } from '../src/features/auth/tokens';
 import { hashPassword } from '../src/features/auth/password';
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Equipo, revisión y cuenta', () => {
   const r = supertest(createApp());
+  const usuariosFixture: number[] = [];
+  const idLocalesFixture: string[] = [];
   let cuenta = '';
   let otra = '';
   let uid = 0;
@@ -22,12 +25,16 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Equipo, revisión y c
     body: object = {},
     cookie = cuenta,
   ) => r[method](url).set('Cookie', cookie).set('X-CSRF-Token', 'equipo').send(body);
+  afterAll(async () => {
+    await limpiarFixturesIdeales(getDb(), usuariosFixture, idLocalesFixture);
+  });
   beforeAll(async () => {
     const m = randomUUID(),
       h = await hashPassword(password);
     const us = await getDb().execute<{ id: number }>(
       sql`insert into users(username,email,name,password_hash,email_verified) values(${m},${m + '@test.local'},'Cuenta',${h},true),(${m + 'b'},${m + 'b@test.local'},'Editor',${h},true) returning id`,
     );
+    usuariosFixture.push(...us.rows.map((u) => u.id));
     uid = us.rows[0]!.id;
     const cookie = (id: number) =>
       `eihg_access=${signAccessToken({ sub: id, username: 'equipo', email: 'equipo@test.local' })}; eihg_csrf=equipo`;
@@ -71,10 +78,12 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Equipo, revisión y c
       estado: 'abierta',
       motivo: 'Abrimos para probar el recorrido.',
     }).expect(200);
+    const idLocalAporte = randomUUID();
+    idLocalesFixture.push(idLocalAporte);
     await enviar('post', '/api/v1/contribuciones', {
       senal: {
         contrato: 'basta-senal/v1',
-        idLocal: randomUUID(),
+        idLocal: idLocalAporte,
         tipo: 'sueño',
         texto: 'En el país que imagino podría seguir aprendiendo cerca de casa.',
         casa: 'no',

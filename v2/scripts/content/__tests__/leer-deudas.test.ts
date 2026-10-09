@@ -345,7 +345,8 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-095',
       'D-099',
       'D-100',
-      'D-101', // 23/9/2026: ninguna pregunta de quiz se contesta sin leer la lección.
+      'D-101',
+      'D-104', // La limpieza de pruebas conserva datos ajenos y elimina sus propios procesos públicos.
     ]);
   });
 });

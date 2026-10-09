@@ -13,7 +13,8 @@
     "./schema": "./src/schema/index.ts",
     "./repositories": "./src/repositories/index.ts",
     "./testing": "./tests/helpers/postgres-local.ts",
-    "./testing/neon-local": "./tests/helpers/neon-local.ts"
+    "./testing/neon-local": "./tests/helpers/neon-local.ts",
+    "./testing/limpiar-fixtures-ideales": "./tests/helpers/limpiar-fixtures-ideales.ts"
   },
   "scripts": {
     "lint": "eslint src --max-warnings 0",

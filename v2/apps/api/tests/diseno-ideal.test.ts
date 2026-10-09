@@ -1,7 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import { getDb, sql } from '@v2/db';
 import supertest from 'supertest';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
 import { createApp } from '../src/app.js';
 import { signAccessToken } from '../src/features/auth/tokens.js';
 
@@ -9,6 +10,7 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
   'Diseños, respuestas y pruebas: permisos reales',
   () => {
     const r = supertest(createApp());
+    const usuariosFixture: number[] = [];
     let cookie = '';
     let otra = '';
     let ficha = '';
@@ -21,11 +23,15 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
         .set('Cookie', c)
         .set('X-CSRF-Token', 'diseno')
         .send(body);
+    afterAll(async () => {
+      await limpiarFixturesIdeales(getDb(), usuariosFixture);
+    });
     beforeAll(async () => {
       const marca = randomUUID();
       const users = await getDb().execute<{ id: number }>(
         sql`insert into users(username,email,name,password_hash,email_verified) values(${marca},${marca + '@test.local'},'Diseño','no-login',true),(${marca + 'b'},${marca + 'b@test.local'},'Revisión','no-login',true) returning id`,
       );
+      usuariosFixture.push(...users.rows.map((u) => u.id));
       const sesion = (id: number) =>
         `eihg_access=${signAccessToken({ sub: id, username: 'test', email: 'test@test.local' })}; eihg_csrf=diseno`;
       cookie = sesion(users.rows[0]!.id);
