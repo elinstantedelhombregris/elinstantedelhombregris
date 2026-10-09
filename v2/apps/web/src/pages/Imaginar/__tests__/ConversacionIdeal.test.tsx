@@ -208,6 +208,10 @@ describe('Revisar antes de publicar', () => {
     const campo = screen.getByLabelText<HTMLTextAreaElement>('Mi aporte');
     expect(campo).toHaveAttribute('rows', '5');
     expect(campo).toHaveClass('max-h-[28rem]', 'overflow-y-auto', 'resize-none');
+    // Las dos acciones de la revisión tienen un mismo ancho.
+    for (const nombre of ['Volver a mis respuestas', 'Publicar mi aporte']) {
+      expect(screen.getByRole('button', { name: nombre })).toHaveClass('w-full');
+    }
   });
 
   it('con respuestas que juntas pasan el límite ofrece un texto recortado donde termina una frase', () => {

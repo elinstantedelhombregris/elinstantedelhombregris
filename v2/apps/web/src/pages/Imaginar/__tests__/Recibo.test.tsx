@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Recibo } from '../Recibo';
@@ -208,5 +208,78 @@ describe('Recibo del aporte', () => {
     vista.rerender(<Recibo recibo={recibo} campana={null} textoVisible />);
     expect(screen.getByRole('link', { name: 'Volver a mi espacio' })).toBeInTheDocument();
     expect(screen.queryByText(/Este navegador conserva la autoría/)).not.toBeInTheDocument();
+  });
+});
+
+describe('Las acciones del recibo', () => {
+  const textos = (lista: HTMLElement) =>
+    Array.from(lista.querySelectorAll('a, button'), (el) => el.textContent);
+
+  it('hay una acción principal y tres secundarias, todas del mismo ancho', () => {
+    render(
+      <Recibo
+        recibo={recibo}
+        campana={null}
+        textoVisible={false}
+        alMapa={vi.fn()}
+        sumarOtro={vi.fn()}
+      />,
+    );
+    const pila = screen.getByRole('group', { name: 'Qué querés hacer ahora' });
+    expect(textos(pila)).toEqual([
+      'Ver y gestionar mi aporte',
+      'Sumar otro aporte',
+      'Verlo en el mapa',
+      'Ver la Radiografía',
+    ]);
+    const [principal, ...secundarias] = Array.from(pila.querySelectorAll('a, button'));
+    expect(principal).toHaveClass('bg-violeta');
+    expect(principal).toHaveAttribute('href', `/senal/${recibo.idPublico}`);
+    for (const secundaria of secundarias) expect(secundaria).not.toHaveClass('bg-violeta');
+    // Un solo ancho: ninguna acción es más chica ni más grande que las otras.
+    for (const accion of [principal, ...secundarias]) expect(accion).toHaveClass('w-full');
+  });
+
+  it('lo demás va en una fila de enlaces de texto, no en botones', () => {
+    render(<Recibo recibo={recibo} campana={null} textoVisible={false} />);
+    const enlaces = screen.getByRole('list', { name: 'Otros enlaces' });
+    expect(textos(enlaces)).toEqual(['Proponer un futuro', 'Guardar en mi espacio']);
+    for (const enlace of enlaces.querySelectorAll('a')) {
+      expect(enlace).toHaveClass('underline', 'min-h-11');
+      expect(enlace).not.toHaveClass('w-full');
+    }
+  });
+
+  it('con una campaña, seguirla ocupa el tercer lugar y la Radiografía pasa a los enlaces', () => {
+    render(
+      <Recibo
+        recibo={recibo}
+        campana={nacional}
+        textoVisible={false}
+        alMapa={vi.fn()}
+        sumarOtro={vi.fn()}
+      />,
+    );
+    const pila = screen.getByRole('group', { name: 'Qué querés hacer ahora' });
+    expect(textos(pila)).toEqual([
+      'Ver y gestionar mi aporte',
+      'Sumar otro aporte',
+      'Verlo en el mapa',
+    ]);
+    expect(within(pila).getByText(`Seguir ${nacional.id}`)).toBeInTheDocument();
+    const enlaces = screen.getByRole('list', { name: 'Otros enlaces' });
+    expect(textos(enlaces)).toEqual([
+      'Ver la Radiografía',
+      'Proponer un futuro',
+      'Guardar en mi espacio',
+      'Ver la campaña y su devolución',
+    ]);
+  });
+
+  it('quien ingresó ve «Volver a mi espacio» entre los enlaces', () => {
+    m.user = { id: 1 };
+    render(<Recibo recibo={recibo} campana={null} textoVisible={false} />);
+    const enlaces = screen.getByRole('list', { name: 'Otros enlaces' });
+    expect(textos(enlaces)).toEqual(['Proponer un futuro', 'Volver a mi espacio']);
   });
 });

@@ -5,6 +5,11 @@ import { FraseCampana, type CampanaDeAporte } from './FraseCampana';
 
 import type { ReciboParticipacion } from '~/lib/queries/participacion';
 
+import {
+  ACCION_DE_PILA,
+  ENLACE_DE_TEXTO,
+  PILA_DE_ACCIONES,
+} from '~/components/participacion/constantes';
 import { BotonAccion, EnlaceAccion, Nota } from '~/components/participacion/Elementos';
 import { Seguir } from '~/components/participacion/Seguir';
 import { useAuth } from '~/lib/auth/use-auth';
@@ -85,57 +90,76 @@ export function Recibo({
           ))}
         </ul>
       ) : null}
-      <div className="flex flex-wrap gap-3">
-        {alMapa ? (
-          <BotonAccion type="button" onClick={alMapa}>
-            Verlo en el mapa
-          </BotonAccion>
-        ) : (
-          <EnlaceAccion href="/el-mapa#instrumento">Verlo en el mapa</EnlaceAccion>
-        )}
-        <EnlaceAccion secundario href="/la-radiografia">
-          Ver la Radiografía
+      {/* Una acción principal y a lo sumo tres secundarias, todas del mismo ancho. Con una
+          campaña, seguirla ocupa el tercer lugar y la Radiografía pasa a los enlaces. */}
+      <div role="group" aria-label="Qué querés hacer ahora" className={PILA_DE_ACCIONES}>
+        <EnlaceAccion href={`/senal/${recibo.idPublico}`} className={ACCION_DE_PILA}>
+          Ver y gestionar mi aporte
         </EnlaceAccion>
         {sumarOtro ? (
-          <BotonAccion type="button" tono="papel" onClick={sumarOtro}>
+          <BotonAccion type="button" tono="papel" className={ACCION_DE_PILA} onClick={sumarOtro}>
             Sumar otro aporte
           </BotonAccion>
         ) : null}
-      </div>
-      <div className="mt-3 flex flex-wrap gap-3">
-        <EnlaceAccion secundario href={`/senal/${recibo.idPublico}`}>
-          Ver y gestionar mi aporte
-        </EnlaceAccion>
-        <EnlaceAccion secundario href={`/fichas/nueva?senal=${recibo.idPublico}`}>
-          Proponer un futuro
-        </EnlaceAccion>
-        {auth.user ? (
-          <EnlaceAccion secundario href="/mi-espacio">
-            Volver a mi espacio
-          </EnlaceAccion>
+        {alMapa ? (
+          <BotonAccion type="button" tono="papel" className={ACCION_DE_PILA} onClick={alMapa}>
+            Verlo en el mapa
+          </BotonAccion>
         ) : (
-          <EnlaceAccion secundario href={hrefIngresar('/mi-espacio')}>
-            Guardar en mi espacio
+          <EnlaceAccion secundario href="/el-mapa#instrumento" className={ACCION_DE_PILA}>
+            Verlo en el mapa
+          </EnlaceAccion>
+        )}
+        {campana ? (
+          <Seguir tipo="campana" objeto={campana.id} className={ACCION_DE_PILA} />
+        ) : (
+          <EnlaceAccion secundario href="/la-radiografia" className={ACCION_DE_PILA}>
+            Ver la Radiografía
           </EnlaceAccion>
         )}
       </div>
+      <ul aria-label="Otros enlaces" className="mt-4 flex flex-wrap gap-x-5">
+        {campana ? (
+          <li>
+            <Link href="/la-radiografia" className={ENLACE_DE_TEXTO}>
+              Ver la Radiografía
+            </Link>
+          </li>
+        ) : null}
+        <li>
+          <Link href={`/fichas/nueva?senal=${recibo.idPublico}`} className={ENLACE_DE_TEXTO}>
+            Proponer un futuro
+          </Link>
+        </li>
+        <li>
+          {auth.user ? (
+            <Link href="/mi-espacio" className={ENLACE_DE_TEXTO}>
+              Volver a mi espacio
+            </Link>
+          ) : (
+            <Link href={hrefIngresar('/mi-espacio')} className={ENLACE_DE_TEXTO}>
+              Guardar en mi espacio
+            </Link>
+          )}
+        </li>
+        {campana ? (
+          <li>
+            <Link
+              href={`/campanas/${campana.slug}?edicion=${campana.revision}`}
+              className={ENLACE_DE_TEXTO}
+            >
+              Ver la campaña y su devolución
+            </Link>
+          </li>
+        ) : null}
+      </ul>
       {!auth.user ? (
         <p className="mt-4 text-sm leading-relaxed">
           Este navegador conserva la autoría. Después de ingresar podés elegir vincularla con tu
           cuenta. Si borrás el identificador antes de hacerlo, no podemos prometer recuperarla.
         </p>
       ) : null}
-      {campana ? (
-        <div className="mt-7">
-          <Seguir tipo="campana" objeto={campana.id} />
-          <Link
-            href={`/campanas/${campana.slug}?edicion=${campana.revision}`}
-            className="text-violeta mt-3 inline-flex min-h-11 items-center underline"
-          >
-            Ver la campaña y su devolución
-          </Link>
-        </div>
-      ) : (
+      {campana ? null : (
         <p className="mt-7 text-sm leading-relaxed">
           Para seguir con otras personas,{' '}
           <Link href="/campanas" className="text-violeta underline">

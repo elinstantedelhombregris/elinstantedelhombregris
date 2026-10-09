@@ -7,7 +7,7 @@ import type { LugarMapa } from '../ElMapa/instrumento/BusquedaTerritorial';
 import type { ReactNode } from 'react';
 
 import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
-import { CAMPO } from '~/components/participacion/constantes';
+import { ACCION_DE_PILA, CAMPO, PILA_DE_ACCIONES } from '~/components/participacion/constantes';
 import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
 import { LIMITE_APORTE } from '~/lib/participacion/texto-aporte';
@@ -146,12 +146,13 @@ export function Revision(props: Props) {
         nombre no se publica.
       </Nota>
       <ErrorOperacion mensaje={props.error} />
-      <div className="flex flex-wrap items-center gap-3">
-        <BotonAccion type="button" tono="papel" onClick={props.volver}>
+      <div className={PILA_DE_ACCIONES}>
+        <BotonAccion type="button" tono="papel" className={ACCION_DE_PILA} onClick={props.volver}>
           Volver a mis respuestas
         </BotonAccion>
         <BotonConMotivo
           type="button"
+          className={ACCION_DE_PILA}
           motivo={motivoDeBloqueo(props)}
           ocupado={props.enviando}
           onClick={props.enviar}
