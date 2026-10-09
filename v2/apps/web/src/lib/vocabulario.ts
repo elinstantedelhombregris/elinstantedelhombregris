@@ -121,7 +121,8 @@ export const PROMPT_DE_TIPO: Readonly<Record<TipoSenal, string>> = {
   basta: '¿Qué hay roto donde vivís? Nombrá la cosa, no la bronca.',
   necesidad: '¿Qué falta donde vivís? Nombralo concreto.',
   recurso: '¿Qué sabés hacer, qué tenés para prestar? Ofrecelo.',
-  práctica: '¿Qué ya funciona acá? Un comedor, una huerta, una biblioteca: decí dónde y cuándo abre.',
+  práctica:
+    '¿Qué ya funciona acá? Un comedor, una huerta, una biblioteca: decí dónde y cuándo abre.',
   saber: '¿Qué sabés de este lugar que le sirva a otro? Decilo, y decí cómo lo sabés.',
   sueño: '¿Qué país te imaginás? Escribilo como si ya existiera.',
   propuesta: '¿Qué cambiarías, y qué haría falta para hacerlo? Una sola cosa, bien concreta.',
@@ -236,7 +237,11 @@ export const VEREDICTOS_EN_CASTELLANO: readonly {
   { clave: 'correct', rotulo: 'Está, pero no así', glosa: 'Hay algo que corregir. Contá qué.' },
   { clave: 'stale', rotulo: 'Ya no está', glosa: 'Se resolvió, o cambió. La señal envejeció.' },
   { clave: 'duplicate', rotulo: 'Ya estaba dicho', glosa: 'Hay otra señal igual.' },
-  { clave: 'unsafe', rotulo: 'Esto expone a alguien', glosa: 'Se retira de la vista mientras se mira.' },
+  {
+    clave: 'unsafe',
+    rotulo: 'Esto expone a alguien',
+    glosa: 'Se retira de la vista mientras se mira.',
+  },
   { clave: 'cannot_verify', rotulo: 'No puedo comprobarlo', glosa: 'No tenés cómo saber.' },
 ];
 
@@ -261,3 +266,25 @@ export const ESTADO_EN_CASTELLANO: Readonly<Record<string, string>> = {
 
 /** Cuáles se dibujan con el color del estado ruidoso. */
 export const ESTADO_RUIDOSO = new Set(['desactualizada', 'no_cumplida', 'retirada']);
+
+/* -------------------------------------------------------------------------- */
+/*  Cantidades, en castellano                                                  */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * «3 aportes», «1 aporte», «ningún aporte», «ninguna celda».
+ *
+ * El cero va en palabras y concuerda en género: un «0» suelto sobre una
+ * pantalla vacía se lee como un dato medido (D-080), y «0 celda» o «1 aportes»
+ * son errores que se repiten en cada contador que arma su plural a mano. Los
+ * miles salen con punto, como en el resto del sitio.
+ */
+export function cuantos(n: number, singular: string, plural: string, femenino = false): string {
+  if (!(n > 0)) return `${femenino ? 'ninguna' : 'ningún'} ${singular}`;
+  return `${n.toLocaleString('es-AR')} ${n === 1 ? singular : plural}`;
+}
+
+/** Primera letra en mayúscula, para abrir una oración con una cuenta. */
+export function mayuscula(texto: string): string {
+  return `${texto.charAt(0).toUpperCase()}${texto.slice(1)}`;
+}

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  descripcionDePrecision,
   dibujoDe,
   etiquetaDePrecision,
   haloVisible,
@@ -70,6 +71,30 @@ describe('render honesto de la precisión (spec 1 §5)', () => {
     expect(etiquetaDePrecision('exact')).toMatch(/exacto/);
     expect(etiquetaDePrecision('city')).toMatch(/localidad/);
     expect(etiquetaDePrecision('province')).toMatch(/provincia/);
+  });
+
+  it('cada precisión tiene su oración entera, sin una palabra en inglés', () => {
+    const todas: LocationPrecision[] = [
+      'exact',
+      '100m',
+      '500m',
+      'neighborhood',
+      'city',
+      'province',
+    ];
+    for (const p of todas) {
+      const frase = descripcionDePrecision(p);
+      expect(frase, p).not.toMatch(/neighborhood|exact\b|province|city/i);
+      expect(frase.endsWith('.'), p).toBe(true);
+    }
+    expect(descripcionDePrecision('neighborhood')).toBe(
+      'Ubicación aproximada, en su barrio. No es una dirección.',
+    );
+    // Ninguna ubicación aproximada se hace pasar por una dirección.
+    for (const p of ['100m', '500m', 'neighborhood', 'city'] as LocationPrecision[]) {
+      expect(descripcionDePrecision(p), p).toMatch(/No es una dirección/);
+    }
+    expect(descripcionDePrecision('province')).toMatch(/No hay un punto/);
   });
 
   it('una precisión desconocida cae en la más gruesa — nunca se finge exactitud', () => {
