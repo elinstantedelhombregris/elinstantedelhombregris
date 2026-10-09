@@ -13,9 +13,9 @@
 - Pruebas: nunca `pnpm verify`/`pnpm test` a secas (`v2/.env` es producción). Se corre `lint`, `type-check`, `test:unit`, `test:scripts`, `PUERTO_PRUEBA=<n> pnpm test:integration:local`, `build`. Los worktrees no llevan `v2/.env`.
 
 ## Ola 1 — en paralelo
-- [ ] **U1 campana-admin** (db, shared, api): siembra idempotente de la nacional; `exigirAdmin`; username desde la fila en `authenticate`; `esAdmin` en `/auth/me` y en `lib/auth/types.ts`; pruebas. Puerto 55451.
-- [ ] **U2 mapa-unido** (web): una entrada en el mapa; redirecciones; `lib/participacion/aportar.ts` (`APORTAR_HREF`, `aportarHref`); campaña por defecto = nacional; enlaces entrantes; arreglos B1–B5, consentimiento que no se resetea, borrador que no se borra; copy de esos archivos con el glosario. Puerto 55452.
-- [ ] **U3 bugs** (api exportaciones, auth web, fichas, colaborar, móvil): cron diario + avance al consultar; ingresar/registrarse/2FA en papel; enlace que recarga en la ficha; invitación que no se resetea; `.env.example` móvil; error de red que borra la sesión en móvil. Puerto 55453.
+- [x] **U1 campana-admin** (mergeada `63cf2897`) (db, shared, api): siembra idempotente de la nacional; `exigirAdmin`; username desde la fila en `authenticate`; `esAdmin` en `/auth/me` y en `lib/auth/types.ts`; pruebas. Puerto 55451.
+- [x] **U2 mapa-unido** (mergeada `ac068941`) (web): una entrada en el mapa; redirecciones; `lib/participacion/aportar.ts` (`APORTAR_HREF`, `aportarHref`); campaña por defecto = nacional; enlaces entrantes; arreglos B1–B5, consentimiento que no se resetea, borrador que no se borra; copy de esos archivos con el glosario. Puerto 55452.
+- [x] **U3 bugs** (mergeada `86cdd3a0`) (api exportaciones, auth web, fichas, colaborar, móvil): cron diario + avance al consultar; ingresar/registrarse/2FA en papel; enlace que recarga en la ficha; invitación que no se resetea; `.env.example` móvil; error de red que borra la sesión en móvil. Puerto 55453.
 
 ## Ola 2 — después de mergear la 1
 - [ ] **U4 campañas-web**: ocultar abrir campaña a no-admin (`esAdmin`); nacional fija arriba; enlaces con `aportarHref`; ejemplo por marca y no por slug; copy de Campañas con el glosario y los reemplazos del informe A.
@@ -29,3 +29,7 @@
 ## Después
 - Profundidad (leyenda de la Radiografía, gráficos con n, enlaces a PLANes, Mandato como embudo, Recibo con «qué sigue»), guía PDF regenerada, conteos de PLAN hardcodeados.
 - Producción, con confirmación: aplicar migraciones, cuenta de Juan verificada en v2, `ADMIN_USERNAMES` en Vercel, correr la siembra con `--produccion`.
+
+## Registro
+- 2026-10-09 — Ola 1 mergeada; verificación completa sobre la rama integrada en verde (lint, type-check, unit web 1173, scripts 205, integración api 412 + db 210, build). Se agregó `hrefIngresar` en `lib/auth/volver.ts` como contrato común de la Ola 2.
+- Ola 2 en curso: U4 campañas-web (55461), U5a entrada-cuenta (55462), U5b lectura — mapa, Radiografía, Mandato (55463), U5c fichas (55464). U8 móvil adelantada (sin base).
