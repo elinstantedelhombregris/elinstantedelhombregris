@@ -6,10 +6,15 @@ import { useCallback, useRef, useState } from 'react';
 import { ScrollView, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BotonTinta, Kicker, PapelCard, TituloAnton } from '@/components/papel';
-import { IDEAL_API, leerIdeal, escribirIdeal } from '@/civic/ideal';
+import { IDEAL_API, esErrorDeSesion, leerIdeal, escribirIdeal, mensajeDeRed } from '@/civic/ideal';
 
 type Cuenta = { id: number; name: string; email: string };
 type Aviso = { id: string; titulo: string; href: string; leidoEn: string | null };
+/**
+ * Qué se sabe de la sesión al abrir la pantalla. `sinSesion` es sólo un 401; una falla de red o un
+ * 5xx es `falla`: la sesión puede seguir vigente, así que no se la borra ni se pide ingresar de nuevo.
+ */
+type Lectura = 'cargando' | 'lista' | 'sinSesion' | 'falla';
 export default function EspacioIdeal() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -23,6 +28,7 @@ export default function EspacioIdeal() {
   const [codigo, setCodigo] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  const [lectura, setLectura] = useState<Lectura>('cargando');
   const limpiar = () => {
     setUser(null);
     setEspacio(null);
@@ -30,6 +36,7 @@ export default function EspacioIdeal() {
   };
   const cargar = useCallback(() => {
     const actual = ++generacion.current;
+    setLectura((l) => (l === 'lista' ? l : 'cargando'));
     void leerIdeal<{ user: Cuenta }>('/api/auth/me')
       .then(async (u) => {
         const [s, a, vigente] = await Promise.all([
@@ -37,14 +44,23 @@ export default function EspacioIdeal() {
           leerIdeal<Aviso[]>('/api/v1/mi-espacio/avisos'),
           leerIdeal<{ user: Cuenta }>('/api/auth/me'),
         ]);
-        if (actual === generacion.current && vigente.user.id === u.user.id) {
-          setUser(u.user);
-          setEspacio(s);
-          setAvisos(a);
+        if (actual !== generacion.current) return;
+        // La cuenta cambió entre una lectura y otra: no se muestra mezclada, se vuelve a leer.
+        if (vigente.user.id !== u.user.id) {
+          setLectura('falla');
+          return;
         }
+        setUser(u.user);
+        setEspacio(s);
+        setAvisos(a);
+        setLectura('lista');
       })
-      .catch(() => {
-        if (actual === generacion.current) limpiar();
+      .catch((e: unknown) => {
+        if (actual !== generacion.current) return;
+        if (esErrorDeSesion(e)) {
+          limpiar();
+          setLectura('sinSesion');
+        } else setLectura('falla');
       });
     return () => {
       generacion.current++;
@@ -68,7 +84,7 @@ export default function EspacioIdeal() {
       if (u.user) setUser(u.user);
       cargar();
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'No pudimos abrir tu cuenta.');
+      setError(mensajeDeRed(e));
     } finally {
       setBusy(false);
     }
@@ -95,6 +111,7 @@ export default function EspacioIdeal() {
     try {
       await escribirIdeal('/api/auth/logout', {});
       limpiar();
+      setLectura('sinSesion');
     } catch (e) {
       setError(e instanceof Error ? e.message : 'No pudimos cerrar la sesión.');
     }
@@ -129,6 +146,19 @@ export default function EspacioIdeal() {
         borradores de la app siguen locales; ingresar no publica ni vincula automáticamente la
         bitácora anterior.
       </Text>
+      {lectura === 'falla' && (
+        <PapelCard className="mt-6 gap-4 p-5">
+          <Text accessibilityRole="alert" className="font-archivo text-tinta text-sm leading-6">
+            No pudimos leer tu espacio. Revisá la conexión y probá de nuevo.
+          </Text>
+          <BotonTinta
+            etiqueta="Reintentar"
+            onPress={() => {
+              cargar();
+            }}
+          />
+        </PapelCard>
+      )}
       {user ? (
         <>
           <Text className="font-archivo-bold text-tinta mt-6 text-base">
@@ -209,7 +239,11 @@ export default function EspacioIdeal() {
             />
           </View>
         </>
-      ) : ticket ? (
+      ) : lectura === 'cargando' ? (
+        <Text accessibilityLiveRegion="polite" className="font-archivo text-tinta-75 mt-6 text-sm">
+          Abriendo tu espacio…
+        </Text>
+      ) : lectura === 'falla' ? null : ticket ? (
         <PapelCard className="mt-6 gap-4 p-5">
           <Text className="font-archivo-bold text-tinta text-base">
             El segundo paso cuida tu cuenta.
