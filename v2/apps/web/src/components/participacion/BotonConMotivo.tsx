@@ -1,8 +1,6 @@
-import { useId } from 'react';
+import { BotonAccion } from './Elementos';
 
-import type { ButtonHTMLAttributes, MouseEvent } from 'react';
-
-import { cn } from '~/lib/utils';
+import type { ButtonHTMLAttributes } from 'react';
 
 interface Props extends Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -25,50 +23,10 @@ interface Props extends Omit<
  * qué le falta. Acá el botón sigue enfocable (`aria-disabled`), el motivo está
  * siempre a la vista y el clic no hace nada mientras haya motivo — también se
  * ignora el envío del formulario.
+ *
+ * Es `BotonAccion` con el motivo obligatorio (aunque sea `null`): así quien
+ * bloquea un botón no se olvida de decidir qué le dice a la persona.
  */
-export function BotonConMotivo({
-  motivo,
-  ocupado = false,
-  tono = 'violeta',
-  className,
-  onClick,
-  children,
-  ...resto
-}: Props) {
-  const id = useId();
-  const bloqueado = motivo !== null || ocupado;
-  const alHacerClic = (e: MouseEvent<HTMLButtonElement>) => {
-    if (bloqueado) {
-      e.preventDefault();
-      return;
-    }
-    onClick?.(e);
-  };
-  return (
-    <>
-      <button
-        {...resto}
-        aria-disabled={bloqueado || undefined}
-        aria-busy={ocupado || undefined}
-        aria-describedby={motivo !== null ? id : undefined}
-        onClick={alHacerClic}
-        className={cn(
-          'font-space border-tinta min-h-11 border px-5 py-3 text-xs font-bold uppercase tracking-wide transition-colors',
-          bloqueado
-            ? 'border-tinta-30 bg-papel-presionado text-tinta-50 cursor-not-allowed'
-            : tono === 'violeta'
-              ? 'bg-violeta text-papel hover:bg-tinta'
-              : 'bg-papel text-tinta hover:bg-tinta hover:text-papel',
-          className,
-        )}
-      >
-        {children}
-      </button>
-      {motivo !== null ? (
-        <p id={id} className="font-space text-tinta-75 basis-full text-xs leading-relaxed">
-          {motivo}
-        </p>
-      ) : null}
-    </>
-  );
+export function BotonConMotivo({ motivo, ocupado = false, tono = 'violeta', ...resto }: Props) {
+  return <BotonAccion {...resto} motivo={motivo} ocupado={ocupado} tono={tono} />;
 }

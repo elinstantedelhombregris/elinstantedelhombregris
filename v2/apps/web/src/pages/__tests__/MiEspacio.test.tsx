@@ -312,7 +312,10 @@ describe('Mi espacio — Mis aportes', () => {
     });
     const mios = screen.getByRole('heading', { level: 2, name: 'Mis aportes' });
     expect(recuperar.compareDocumentPosition(mios) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(screen.getByRole('button', { name: 'Sumar a mi cuenta' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Sumar a mi cuenta' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
   });
 
   it('sin nada para recuperar no ocupa lugar', async () => {
@@ -348,7 +351,9 @@ describe('Mi espacio — Cuenta y datos', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Reenviar correo' }));
     expect(await screen.findByRole('alert')).toHaveTextContent('Demasiados pedidos. Probá más tarde.');
-    expect(screen.getByRole('button', { name: 'Reenviar correo' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Reenviar correo' })).not.toHaveAttribute(
+      'aria-disabled',
+    );
   });
 
   it('con el correo verificado no hay nada que reenviar', () => {

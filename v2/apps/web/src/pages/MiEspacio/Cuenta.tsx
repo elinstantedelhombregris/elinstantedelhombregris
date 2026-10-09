@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { OpcionesCuenta } from './OpcionesCuenta';
 import { ReenviarCorreo } from './VerificarCorreo';
 
+import { BotonPapel } from '~/components/papel/primitives';
 import { BotonAccion, EnlaceAccion, Nota } from '~/components/participacion/Elementos';
 
 export function Cuenta({
@@ -40,13 +41,11 @@ export function Cuenta({
         que podés leerlo.
       </Nota>
       <div className="flex flex-wrap gap-3">
-        <a
-          href="/api/v1/mi-espacio/mis-datos"
-          download="basta-mis-datos.json"
-          className="font-space bg-violeta text-papel hover:bg-tinta border-tinta inline-flex min-h-11 items-center border px-5 py-3 text-xs font-bold uppercase tracking-wide transition-colors"
-        >
-          Descargar mis datos
-        </a>
+        <BotonPapel asChild className="inline-flex items-center">
+          <a href="/api/v1/mi-espacio/mis-datos" download="basta-mis-datos.json">
+            Descargar mis datos
+          </a>
+        </BotonPapel>
         <EnlaceAccion secundario href="/mi-perfil">
           Datos y actividad de mi perfil
         </EnlaceAccion>

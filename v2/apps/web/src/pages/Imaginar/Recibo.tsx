@@ -5,7 +5,7 @@ import { FraseCampana, type CampanaDeAporte } from './FraseCampana';
 
 import type { ReciboParticipacion } from '~/lib/queries/participacion';
 
-import { EnlaceAccion, Nota } from '~/components/participacion/Elementos';
+import { BotonAccion, EnlaceAccion, Nota } from '~/components/participacion/Elementos';
 import { Seguir } from '~/components/participacion/Seguir';
 import { useAuth } from '~/lib/auth/use-auth';
 import { hrefIngresar } from '~/lib/auth/volver';
@@ -78,13 +78,9 @@ export function Recibo({
       ) : null}
       <div className="flex flex-wrap gap-3">
         {alMapa ? (
-          <button
-            type="button"
-            onClick={alMapa}
-            className="font-space bg-violeta text-papel border-tinta inline-flex min-h-11 items-center border px-5 py-3 text-xs uppercase tracking-wide"
-          >
+          <BotonAccion type="button" onClick={alMapa}>
             Verlo en el mapa
-          </button>
+          </BotonAccion>
         ) : (
           <EnlaceAccion href="/el-mapa#instrumento">Verlo en el mapa</EnlaceAccion>
         )}
@@ -92,13 +88,9 @@ export function Recibo({
           Ver la Radiografía
         </EnlaceAccion>
         {sumarOtro ? (
-          <button
-            type="button"
-            onClick={sumarOtro}
-            className="font-space text-tinta border-tinta inline-flex min-h-11 items-center border px-5 py-3 text-xs uppercase tracking-wide"
-          >
+          <BotonAccion type="button" tono="papel" onClick={sumarOtro}>
             Sumar otro aporte
-          </button>
+          </BotonAccion>
         ) : null}
       </div>
       <div className="mt-3 flex flex-wrap gap-3">
