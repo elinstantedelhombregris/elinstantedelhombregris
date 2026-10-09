@@ -4,6 +4,7 @@ import supertest from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createApp } from '../src/app.js';
 import { prepararExportaciones } from '../src/features/exportaciones/worker.js';
+import { resetConfig } from '../src/lib/config.js';
 import cron from '../src/vercel/cron-exportaciones.js';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 
@@ -39,6 +40,28 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
     let csrf = '';
     const trabajos: string[] = [];
     const cookie = () => `eihg_csrf=${csrf}`;
+    // `getConfig()` se cachea: cada cambio del flag lleva su `resetConfig()`.
+    const enPedido = (valor: '0' | '1') => {
+      process.env['EXPORTACIONES_EN_PEDIDO'] = valor;
+      resetConfig();
+    };
+    const enPedidoOriginal = process.env['EXPORTACIONES_EN_PEDIDO'];
+    const estadoDe = async (id: string) =>
+      (await r.get(`/api/v1/exportaciones/trabajos/${id}`).expect(200)).body.data as {
+        estado: string;
+        registros: number;
+        total: number;
+        archivoUrl: string | null;
+      };
+    /** Sondea como lo hace la página, con un tope: la cola se comparte y un trabajo más viejo se atiende primero. */
+    const sondearHastaDisponible = async (id: string) => {
+      let ultimo = await estadoDe(id);
+      for (let vuelta = 0; vuelta < 40 && ultimo.estado !== 'disponible'; vuelta++) {
+        expect(['solicitado', 'preparando']).toContain(ultimo.estado);
+        ultimo = await estadoDe(id);
+      }
+      return ultimo;
+    };
     const pedir = async (formato = 'jsonl', analisis?: { umbral: number; k: number }) => {
       const idSolicitud = randomUUID();
       const cuerpo = {
@@ -68,6 +91,8 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
           respuesta.on('error', callback);
         });
     beforeAll(async () => {
+      // Las pruebas de estado dependen de que sólo prepare el worker invocado a mano. El avance en pedido tiene sus propias pruebas, al final.
+      enPedido('0');
       await getDb()
         .execute(sql`insert into senales(tipo,clase,origen,id_local,texto,estado,cesion_licencia,cesion_en,cesion_version)
       select 'sueño','deseo','web',u::uuid,case when ord=1 then '=2+2' else 'Texto reservado para esta prueba' end,
@@ -76,6 +101,9 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       csrf = (await r.get('/api/v1/contribuciones/contexto')).body.data.csrfToken as string;
     });
     afterAll(async () => {
+      if (enPedidoOriginal === undefined) delete process.env['EXPORTACIONES_EN_PEDIDO'];
+      else process.env['EXPORTACIONES_EN_PEDIDO'] = enPedidoOriginal;
+      resetConfig();
       await getDb().execute(
         sql`delete from exportaciones where id in(select u::uuid from jsonb_array_elements_text(${JSON.stringify(trabajos)}::jsonb) u)`,
       );
@@ -318,6 +346,86 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       } finally {
         if (anterior === undefined) delete process.env['CRON_SECRET'];
         else process.env['CRON_SECRET'] = anterior;
+      }
+    });
+    it('apagado (EXPORTACIONES_EN_PEDIDO=0), consultar no prepara nada: el trabajo espera al cron', async () => {
+      const t = await pedir();
+      for (let i = 0; i < 3; i++) expect((await estadoDe(t.id)).estado).toBe('solicitado');
+      await prepararExportaciones();
+      expect((await estadoDe(t.id)).estado).toBe('disponible');
+    });
+    it('prendido, consultar el trabajo lo prepara hasta dejarlo disponible, sin cron, y el archivo se descarga', async () => {
+      const t = await pedir();
+      expect((await estadoDe(t.id)).estado).toBe('solicitado');
+      enPedido('1');
+      try {
+        const listo = await sondearHastaDisponible(t.id);
+        expect(listo.estado).toBe('disponible');
+        expect(listo.registros).toBe(listo.total);
+        expect(listo.archivoUrl).toBe(`/api/v1/exportaciones/trabajos/${t.id}/archivo`);
+        const zip = await descargar(t.id)
+          .expect(200)
+          .expect('Content-Type', /application\/zip/);
+        const archivos = abrirZip(zip.body as Buffer);
+        expect(Object.keys(archivos)).toEqual([
+          'senales.jsonl',
+          'procesos.json',
+          'manifest.json',
+          'LEEME.txt',
+        ]);
+        const filas = archivos['senales.jsonl']!.toString().trim().split('\n');
+        expect(filas).toHaveLength(listo.total);
+        expect(
+          (JSON.parse(archivos['manifest.json']!.toString()) as { completo: boolean }).completo,
+        ).toBe(true);
+      } finally {
+        enPedido('0');
+      }
+    });
+    it('prendido, el propio pedido ya avanza un tramo antes de responder', async () => {
+      enPedido('1');
+      try {
+        const idSolicitud = randomUUID();
+        const p = await r
+          .post('/api/v1/exportaciones/trabajos')
+          .set('Cookie', cookie())
+          .set('X-CSRF-Token', csrf)
+          .send({ idSolicitud, formato: 'jsonl', filtros: { desde } })
+          .expect(202);
+        trabajos.push(p.body.data.id as string);
+        expect(p.body.data.estado).not.toBe('solicitado');
+        const listo = await sondearHastaDisponible(p.body.data.id as string);
+        expect(listo.estado).toBe('disponible');
+      } finally {
+        enPedido('0');
+      }
+    });
+    it('prendido, consultas simultáneas del mismo trabajo no duplican ni saltean partes', async () => {
+      const t = await pedir('csv');
+      enPedido('1');
+      try {
+        const simultaneas = await Promise.all(
+          Array.from({ length: 6 }, () => r.get(`/api/v1/exportaciones/trabajos/${t.id}`)),
+        );
+        for (const respuesta of simultaneas) {
+          expect(respuesta.status).toBe(200);
+          expect(['solicitado', 'preparando', 'disponible']).toContain(respuesta.body.data.estado);
+        }
+        expect((await sondearHastaDisponible(t.id)).estado).toBe('disponible');
+        const partes = await getDb().execute<{ n: number; distintas: number; ultima: number }>(
+          sql`select count(*)::int n, count(distinct orden)::int distintas, max(orden)::int ultima
+          from exportacion_partes where trabajo_id=${t.id}::uuid`,
+        );
+        expect(partes.rows[0]?.n).toBeGreaterThan(0);
+        expect(partes.rows[0]?.n).toBe(partes.rows[0]?.distintas);
+        // Sin saltos: los órdenes van de 1 a n.
+        expect(partes.rows[0]?.ultima).toBe(partes.rows[0]?.n);
+        const archivos = abrirZip((await descargar(t.id).expect(200)).body as Buffer);
+        const filas = archivos['senales.csv']!.toString().trim().split('\n');
+        const unicas = new Set(filas);
+        expect(unicas.size).toBe(filas.length);
+      } finally {
+        enPedido('0');
       }
     });
   },

@@ -1,12 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerInputSchema } from '@v2/shared';
+import { passwordSchema, registerInputSchema } from '@v2/shared';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'wouter';
 
-import { Button } from '~/components/ui/button';
-import { FieldError } from '~/components/ui/field-error';
-import { Input } from '~/components/ui/input';
-import { Label } from '~/components/ui/label';
+import { CampoPapel } from '~/components/auth/CampoPapel';
+import { BotonPapel } from '~/components/papel/primitives';
+import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth';
 import { volverTrasIngresar } from '~/lib/auth/volver';
 
@@ -16,6 +15,10 @@ interface FormValues {
   name: string;
   password: string;
 }
+
+/** El mínimo sale del esquema que valida el servidor: si cambia, la pista cambia con él. */
+const AYUDA_CONTRASENA =
+  passwordSchema.minLength === null ? undefined : `Mínimo ${passwordSchema.minLength} caracteres.`;
 
 export function Register() {
   const { register: registerMutation } = useAuth();
@@ -39,50 +42,58 @@ export function Register() {
   return (
     <main className="container mx-auto flex min-h-[80vh] max-w-md flex-col justify-center px-4 py-16">
       <div className="border-tinta bg-papel-crudo border p-8">
-        <h1 className="font-anton text-tinta mb-2 text-4xl">Crear cuenta</h1>
+        <h1 className="font-anton text-tinta mb-2 text-4xl">Crear mi cuenta</h1>
+        <p className="text-tinta-75 mb-3 text-sm">
+          Con una cuenta, tus aportes te siguen a cualquier dispositivo. Para participar no hace
+          falta, y tu nombre no se publica.
+        </p>
         <p className="text-tinta-75 mb-6 text-sm">
-          ¿Ya tenés una?{' '}
+          ¿Ya tenés cuenta?{' '}
           <Link
             href={`/ingresar?volver=${encodeURIComponent(volverTrasIngresar(window.location.search))}`}
-            className="text-violeta hover:underline"
+            className="text-violeta underline"
           >
-            Iniciar sesión
+            Ingresar
           </Link>
         </p>
         <form onSubmit={onSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="name">Nombre</Label>
-            <Input id="name" type="text" autoComplete="name" {...register('name')} />
-            <FieldError message={errors.name?.message} />
-          </div>
-          <div>
-            <Label htmlFor="username">Usuario</Label>
-            <Input id="username" type="text" autoComplete="username" {...register('username')} />
-            <FieldError message={errors.username?.message} />
-          </div>
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" autoComplete="email" {...register('email')} />
-            <FieldError message={errors.email?.message} />
-          </div>
-          <div>
-            <Label htmlFor="password">Contraseña</Label>
-            <Input
-              id="password"
-              type="password"
-              autoComplete="new-password"
-              {...register('password')}
-            />
-            <FieldError message={errors.password?.message} />
-          </div>
-          {errors.root ? (
-            <p role="alert" className="text-sm text-red-400">
-              {errors.root.message}
-            </p>
-          ) : null}
-          <Button type="submit" disabled={isSubmitting} className="w-full">
-            {isSubmitting ? 'Creando cuenta…' : 'Crear cuenta'}
-          </Button>
+          <CampoPapel
+            id="name"
+            etiqueta="Nombre"
+            type="text"
+            autoComplete="name"
+            error={errors.name?.message}
+            {...register('name')}
+          />
+          <CampoPapel
+            id="username"
+            etiqueta="Usuario"
+            type="text"
+            autoComplete="username"
+            error={errors.username?.message}
+            {...register('username')}
+          />
+          <CampoPapel
+            id="email"
+            etiqueta="Email"
+            type="email"
+            autoComplete="email"
+            error={errors.email?.message}
+            {...register('email')}
+          />
+          <CampoPapel
+            id="password"
+            etiqueta="Contraseña"
+            type="password"
+            autoComplete="new-password"
+            ayuda={AYUDA_CONTRASENA}
+            error={errors.password?.message}
+            {...register('password')}
+          />
+          <ErrorOperacion mensaje={errors.root?.message} />
+          <BotonPapel type="submit" loading={isSubmitting} className="w-full">
+            Crear mi cuenta
+          </BotonPapel>
         </form>
       </div>
     </main>

@@ -148,13 +148,19 @@ async function paso(
   return null;
 }
 
-/** Una invocación acotada: progreso durable por fragmento. Un proceso muerto se retoma al vencer el lease. */
+/**
+ * Una invocación acotada: progreso durable por fragmento. Un proceso muerto se retoma al vencer el lease.
+ *
+ * `limpiar` (por defecto sí) corre el barrido de vencidos y fallidos antes de tomar un trabajo.
+ * El cron y el CLI lo dejan prendido; el avance en pedido (`en-pedido.ts`) lo apaga para que una
+ * consulta pública no pague, ni repita, un barrido que es de la operación.
+ */
 export async function prepararExportaciones(
-  opciones: { db?: Db; maxPasos?: number; presupuestoMs?: number } = {},
+  opciones: { db?: Db; maxPasos?: number; presupuestoMs?: number; limpiar?: boolean } = {},
 ) {
   const db = opciones.db ?? getDb();
   const repo = new ExportacionesRepository(db);
-  await repo.limpiar();
+  if (opciones.limpiar ?? true) await repo.limpiar();
   let f = await repo.tomar();
   if (!f) return { trabajo: null, pasos: 0 };
   const id = f.id;

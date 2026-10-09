@@ -76,6 +76,9 @@ describe('Descargas públicas desacopladas', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Descargar estos datos' }));
     const enlace = await screen.findByRole('link', { name: 'Descargar ZIP preparado' });
     expect(enlace).toHaveAttribute('href', `/api/v1/exportaciones/trabajos/${base.id}/archivo`);
+    // El aviso dice lo que el servidor hace de verdad: avanza mientras la página consulta.
+    expect(screen.getByText(/se prepara mientras tengas esta página abierta/)).toBeInTheDocument();
+    expect(screen.queryByText(/sigue aunque cierres/)).not.toBeInTheDocument();
     expect(mocks.escribir).toHaveBeenCalledWith(
       'post',
       '/api/v1/exportaciones/trabajos',

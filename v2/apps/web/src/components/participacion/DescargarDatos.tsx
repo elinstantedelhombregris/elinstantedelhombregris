@@ -285,8 +285,9 @@ export function DescargarDatos({
       ) : null}
       <ErrorOperacion mensaje={error} />
       <p className="text-tinta-50 mt-3 text-sm">
-        La preparación sigue aunque cierres esta pestaña. Incluye todas las páginas del alcance
-        elegido, permisos, omisiones y fecha de corte. No descarga la base interna.
+        El archivo se prepara mientras tengas esta página abierta. Si la cerrás, sigue cuando
+        vuelvas a consultarlo. Incluye todas las páginas del alcance elegido, permisos, omisiones y
+        fecha de corte. No descarga la base interna.
       </p>
       <p className="text-tinta-50 mt-2 text-sm">
         El servidor transmite el ZIP directamente. Si una fuente se corrige o se retira, pedí una

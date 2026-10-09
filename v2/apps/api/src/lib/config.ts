@@ -76,6 +76,17 @@ const ConfigSchema = z.object({
           .filter(Boolean),
       ),
   }),
+  /**
+   * Si consultar un archivo en preparación (`GET /exportaciones/trabajos/:id`,
+   * y el pedido que lo crea) avanza un tramo acotado del trabajo antes de
+   * responder. Es lo que hace que el archivo se prepare mientras la persona
+   * tiene la página abierta, sin depender de un cron por minuto que Vercel
+   * Hobby no admite (`docs/operations/exportaciones-publicas.md`).
+   *
+   * Prendido por defecto; `EXPORTACIONES_EN_PEDIDO=0` lo apaga y deja la
+   * preparación sólo al cron diario y al CLI `exportaciones:once`.
+   */
+  exportacionesEnPedido: truthy.default(true),
 });
 
 export type Config = z.infer<typeof ConfigSchema>;
@@ -85,6 +96,7 @@ let cached: Config | undefined;
 export function getConfig(): Config {
   if (cached) return cached;
 
+  const enPedido = process.env.EXPORTACIONES_EN_PEDIDO?.trim();
   const parsed = ConfigSchema.safeParse({
     env: process.env.NODE_ENV,
     api: {
@@ -120,6 +132,9 @@ export function getConfig(): Config {
     admin: {
       usernames: process.env.ADMIN_USERNAMES,
     },
+    // Vacío (`EXPORTACIONES_EN_PEDIDO=`) es «sin definir», no «apagado»:
+    // sólo un valor explícito como `0` lo apaga.
+    exportacionesEnPedido: enPedido === '' ? undefined : enPedido,
   });
 
   if (!parsed.success) {

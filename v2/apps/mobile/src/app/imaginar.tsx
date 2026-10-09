@@ -15,6 +15,7 @@ import {
   cuentaIdealActual,
   guardarIdeal,
   leerIdeal,
+  mensajeDeRed,
   publicarIdeal,
   type BorradorIdeal,
 } from '@/civic/ideal';
@@ -120,7 +121,7 @@ export default function ImaginarIdeal() {
       setB(recibo);
       setNota('Tu posibilidad quedó compartida. El recibo identifica el aporte real.');
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'No pudimos enviar. Tu borrador sigue acá.');
+      setError(mensajeDeRed(e));
     } finally {
       setBusy(false);
     }

@@ -126,6 +126,6 @@
   "crons": [
     { "path": "/api/cron/rankings", "schedule": "0 5 * * *" },
     { "path": "/api/cron/sesiones", "schedule": "30 5 * * *" },
-    { "path": "/api/cron/exportaciones", "schedule": "* * * * *" }
+    { "path": "/api/cron/exportaciones", "schedule": "0 6 * * *" }
   ]
 }
