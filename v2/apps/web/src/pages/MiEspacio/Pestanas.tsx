@@ -57,7 +57,7 @@ export function ListaDePestanas({
             onKeyDown={(evento) => {
               mover(evento, i);
             }}
-            className={`font-space min-h-11 border px-4 py-3 text-xs ${activa ? 'bg-tinta text-papel' : 'bg-papel text-tinta'}`}
+            className={`font-space border-tinta min-h-11 border px-4 py-3 text-xs ${activa ? 'bg-tinta text-papel' : 'bg-papel text-tinta'}`}
           >
             {p.nombre}
           </button>

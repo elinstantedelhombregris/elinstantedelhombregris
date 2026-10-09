@@ -171,11 +171,11 @@ export function LaRadiografia() {
             personas.
           </p>
           {isError && !data ? (
-            <p role="alert" className="border py-16 text-center">
+            <p role="alert" className={`border py-16 text-center ${nocturno ? 'border-oscuro-borde' : ''}`}>
               No pudimos cargar el análisis. Probá de nuevo en un rato.
             </p>
           ) : isLoading ? (
-            <p role="status" className="border py-20 text-center">
+            <p role="status" className={`border py-20 text-center ${nocturno ? 'border-oscuro-borde' : ''}`}>
               Reuniendo los aportes…
             </p>
           ) : dibujables < 2 ? (

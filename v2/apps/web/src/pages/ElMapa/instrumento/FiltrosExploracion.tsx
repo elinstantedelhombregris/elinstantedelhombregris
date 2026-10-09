@@ -52,7 +52,7 @@ export function FiltrosExploracion({
                 if (rango === '7d' || rango === '30d' || rango === 'todo')
                   cambiar({ ...valor, rango });
               }}
-              className="bg-papel text-tinta mt-1 block min-h-11 border px-3"
+              className="bg-papel text-tinta border-oscuro-borde mt-1 block min-h-11 border px-3"
             >
               <option value="todo">Todo el período</option>
               <option value="7d">Últimos 7 días</option>
@@ -75,7 +75,7 @@ export function FiltrosExploracion({
               onChange={(e) => {
                 cambiar({ ...valor, tipo: e.target.value });
               }}
-              className="bg-papel text-tinta mt-1 block min-h-11 border px-3"
+              className="bg-papel text-tinta border-oscuro-borde mt-1 block min-h-11 border px-3"
             >
               <option value="">Todos los tipos</option>
               {TIPOS_SENAL.map((tipo) => (
@@ -93,7 +93,7 @@ export function FiltrosExploracion({
               onChange={(e) => {
                 cambiar({ ...valor, estado: e.target.value });
               }}
-              className="bg-papel text-tinta mt-1 block min-h-11 border px-3"
+              className="bg-papel text-tinta border-oscuro-borde mt-1 block min-h-11 border px-3"
             >
               <option value="">Todos los estados</option>
               {Object.entries(ESTADO_EN_CASTELLANO)
