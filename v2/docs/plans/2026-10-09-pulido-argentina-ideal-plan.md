@@ -18,13 +18,13 @@
 - [x] **U3 bugs** (mergeada `86cdd3a0`) (api exportaciones, auth web, fichas, colaborar, móvil): cron diario + avance al consultar; ingresar/registrarse/2FA en papel; enlace que recarga en la ficha; invitación que no se resetea; `.env.example` móvil; error de red que borra la sesión en móvil. Puerto 55453.
 
 ## Ola 2 — después de mergear la 1
-- [ ] **U4 campañas-web**: ocultar abrir campaña a no-admin (`esAdmin`); nacional fija arriba; enlaces con `aportarHref`; ejemplo por marca y no por slug; copy de Campañas con el glosario y los reemplazos del informe A.
-- [ ] **U5 barrido de copy** (Home, Mi espacio, nav/footer, Fichas, Radiografía, Mandato, Datos abiertos): glosario, H1 que nombran, enums traducidos (un solo mapa por concepto en `lib/vocabulario.ts`), plurales, ceros en palabras, `volver` en los cinco enlaces a ingresar.
+- [x] **U4 campañas-web** (mergeada): ocultar abrir campaña a no-admin (`esAdmin`); nacional fija arriba; enlaces con `aportarHref`; ejemplo por marca y no por slug; copy de Campañas con el glosario y los reemplazos del informe A.
+- [x] **U5 barrido de copy** — partido en U5a entrada-cuenta, U5b lectura, U5c fichas (mergeadas) (Home, Mi espacio, nav/footer, Fichas, Radiografía, Mandato, Datos abiertos): glosario, H1 que nombran, enums traducidos (un solo mapa por concepto en `lib/vocabulario.ts`), plurales, ceros en palabras, `volver` en los cinco enlaces a ingresar.
 
 ## Ola 3
 - [ ] **U6 guardia del glosario**: test AST con lista permitida y línea de base que solo baja (modelo: `packages/shared/src/open-data/__tests__/consentimiento.test.ts`).
 - [ ] **U7 sistema de diseño**: `participacion/Elementos.tsx` → kit Papel; bordes con token; contraste del pie y del mapa; plantilla única de página (Fichas).
-- [ ] **U8 app móvil**: glosario, campaña nacional por defecto, elección de lugar, pantalla de éxito, avisos de publicación.
+- [x] **U8 app móvil** (mergeada; faltan las tres preguntas y la elección de lugar): glosario, campaña nacional por defecto, elección de lugar, pantalla de éxito, avisos de publicación.
 
 ## Después
 - Profundidad (leyenda de la Radiografía, gráficos con n, enlaces a PLANes, Mandato como embudo, Recibo con «qué sigue»), guía PDF regenerada, conteos de PLAN hardcodeados.
@@ -33,3 +33,5 @@
 ## Registro
 - 2026-10-09 — Ola 1 mergeada; verificación completa sobre la rama integrada en verde (lint, type-check, unit web 1173, scripts 205, integración api 412 + db 210, build). Se agregó `hrefIngresar` en `lib/auth/volver.ts` como contrato común de la Ola 2.
 - Ola 2 en curso: U4 campañas-web (55461), U5a entrada-cuenta (55462), U5b lectura — mapa, Radiografía, Mandato (55463), U5c fichas (55464). U8 móvil adelantada (sin base).
+- Ola 2 mergeada (U4, U5a, U5b, U5c) + U8, U9 (lista de fichas con extracto, temas y afirmaciones) y U6a (glosario en textos legales, `VERSION_DE_CESION` = 2, grupos «Grupo A/B», PLANGEO sin «22»). Verificación completa en verde: unit web 1506, integración api 412 + db 210, build, planes:check.
+- Ola 3: U7 diseño en curso (55467). Después: U6b guardia del glosario, registro en DEUDAS, capturas de control.
