@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'wouter';
+import { Link, useLocation, useSearch } from 'wouter';
 
 import { MenuBiblioteca } from './MenuBiblioteca';
 import { PAPEL_NAV, PAPEL_NAV_ALL, SUBSECCIONES } from './papel-nav';
@@ -34,6 +34,9 @@ const CLASE_ITEM =
  */
 export function PapelHeader() {
   const [location] = useLocation();
+  // «Ingresar» devuelve a la página donde se pidió, con su query: suscribirse a
+  // la búsqueda mantiene fresco ese enlace cuando solo cambian los filtros.
+  useSearch();
   const auth = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const botonMenu = useRef<HTMLButtonElement>(null);
