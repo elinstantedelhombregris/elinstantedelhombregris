@@ -1,3 +1,5 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+
 import { MODOS } from './catalogo-modos';
 import { COLOR_CLASE } from './paleta';
 import { componerPorClase } from './useVistaMapa';
@@ -17,35 +19,82 @@ import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
  * capas y sus controles.
  */
 
+/**
+ * Las pestañas de los modos, cada una con la pregunta que contesta.
+ *
+ * Una sola palabra («Cobertura», «Simulación») no dice para qué sirve: la
+ * revisión del 9/10 pidió que cada pestaña traiga su pregunta, y el catálogo ya
+ * la tenía escrita en `MODOS.descripcion` sin que nadie la mostrara.
+ *
+ * En un teléfono la fila no entra entera y se desliza por dentro. Para que se
+ * note, queda un borde que se desvanece mientras haya pestañas más allá, con
+ * una flecha, y las pestañas se detienen en su borde izquierdo al deslizar.
+ */
 export function BarraModos({ activo, onCambiar }: { activo: Modo; onCambiar: (m: Modo) => void }) {
+  const fila = useRef<HTMLElement>(null);
+  const [hayMasAdelante, setHayMasAdelante] = useState(false);
+  const medir = useCallback(() => {
+    const el = fila.current;
+    if (!el) return;
+    setHayMasAdelante(el.scrollWidth - el.clientWidth - el.scrollLeft > 4);
+  }, []);
+  useEffect(() => {
+    medir();
+    window.addEventListener('resize', medir);
+    return () => {
+      window.removeEventListener('resize', medir);
+    };
+  }, [medir]);
+
   return (
-    <nav
-      aria-label="Modos del instrumento"
-      className="border-oscuro-borde bg-oscuro-barra flex items-stretch gap-0 overflow-x-auto border-b"
-    >
-      {MODOS.map((modo) => (
-        <button
-          key={modo.id}
-          type="button"
-          aria-current={activo === modo.id ? 'page' : undefined}
-          onClick={() => {
-            onCambiar(modo.id);
-          }}
-          className={cn(
-            'font-space relative shrink-0 whitespace-nowrap px-5 py-3.5 text-[11px] uppercase tracking-[0.14em] transition-colors max-[560px]:px-4',
-            'focus-visible:ring-violeta-claro outline-none focus-visible:ring-2',
-            activo === modo.id
-              ? 'text-oscuro-texto'
-              : 'text-oscuro-meta hover:text-oscuro-secundario',
-          )}
+    <div className="relative">
+      <nav
+        ref={fila}
+        aria-label="Modos del instrumento"
+        onScroll={medir}
+        className="border-oscuro-borde bg-oscuro-barra flex snap-x items-stretch gap-0 overflow-x-auto border-b"
+      >
+        {MODOS.map((modo) => (
+          <button
+            key={modo.id}
+            type="button"
+            aria-current={activo === modo.id ? 'page' : undefined}
+            onClick={() => {
+              onCambiar(modo.id);
+            }}
+            className={cn(
+              'font-space relative shrink-0 snap-start whitespace-nowrap px-5 py-3 text-left transition-colors max-[560px]:px-4',
+              'focus-visible:ring-violeta-claro outline-none focus-visible:ring-2',
+              activo === modo.id
+                ? 'text-oscuro-texto'
+                : 'text-oscuro-meta hover:text-oscuro-secundario',
+            )}
+          >
+            <span className="block text-[11px] uppercase tracking-[0.14em]">{modo.etiqueta}</span>
+            <span
+              className={cn(
+                'mt-0.5 block text-[10px] normal-case tracking-normal',
+                activo === modo.id ? 'text-oscuro-secundario' : 'text-oscuro-meta',
+              )}
+            >
+              {modo.descripcion}
+            </span>
+            {activo === modo.id ? (
+              <span aria-hidden className="bg-violeta-claro absolute inset-x-4 bottom-0 h-0.5" />
+            ) : null}
+          </button>
+        ))}
+      </nav>
+      {hayMasAdelante ? (
+        <span
+          aria-hidden
+          data-indicador-de-desplazamiento
+          className="from-oscuro-barra text-oscuro-secundario pointer-events-none absolute inset-y-0 right-0 flex w-12 items-center justify-end bg-gradient-to-l to-transparent pr-2 text-lg"
         >
-          {modo.etiqueta}
-          {activo === modo.id ? (
-            <span aria-hidden className="bg-violeta-claro absolute inset-x-4 bottom-0 h-0.5" />
-          ) : null}
-        </button>
-      ))}
-    </nav>
+          ›
+        </span>
+      ) : null}
+    </div>
   );
 }
 
@@ -124,6 +173,11 @@ export function Segmentado<T extends string>({
  * Es la pieza que convierte navegar en medir: arrastrás sobre una provincia y
  * el número contesta. La barra apilada de abajo dice de qué está hecho ese
  * número sin que haya que abrir nada.
+ *
+ * Cuando no hay puntos en la vista no ocupa una tarjeta con un número grande:
+ * en el teléfono esa tarjeta tapaba casi la mitad del mapa (revisión del 9/10).
+ * Queda una línea que dice lo único que importa, cuántos aportes no tienen
+ * ubicación y dónde encontrarlos.
  */
 export function ContadorEnVista({
   senales,
@@ -135,65 +189,59 @@ export function ContadorEnVista({
   const composicion = componerPorClase(senales);
   const total = senales.length;
 
+  if (total === 0) {
+    return (
+      <p className="border-oscuro-borde bg-oscuro-barra/95 text-oscuro-secundario max-w-[min(300px,calc(100vw-5rem))] border px-3 py-2 text-[13px] leading-snug backdrop-blur">
+        {sinPunto > 0
+          ? `Sin ubicación en el mapa: ${sinPunto.toLocaleString('es-AR')}. ${sinPunto === 1 ? 'Está' : 'Están'} en la lista.`
+          : 'No hay aportes en esta vista.'}
+      </p>
+    );
+  }
+
   return (
-    <div className="border-oscuro-borde bg-oscuro-barra/95 w-[260px] border p-4 backdrop-blur">
+    <div className="border-oscuro-borde bg-oscuro-barra/95 w-[min(260px,calc(100vw-5rem))] border p-4 backdrop-blur">
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-space text-oscuro-meta text-[10px] uppercase tracking-[0.14em]">
-          {total === 0 && sinPunto > 0
-            ? 'Registros sin punto publicado'
-            : 'Registros cargados en vista'}
+          Aportes en esta vista
         </span>
         <span className="font-anton text-violeta-claro text-[26px] tabular-nums leading-none">
-          {total > 0
-            ? total.toLocaleString('es-AR')
-            : sinPunto > 0
-              ? sinPunto.toLocaleString('es-AR')
-              : '—'}
+          {total.toLocaleString('es-AR')}
         </span>
       </div>
 
-      {total > 0 ? (
-        <>
-          <div
-            className="mt-3 flex h-1.5 w-full overflow-hidden"
-            role="img"
-            aria-label={composicion.map((c) => `${c.clase}: ${String(c.n)}`).join(', ')}
-          >
-            {composicion.map(({ clase, n }) => (
-              <span
-                key={clase}
-                style={{
-                  width: `${String((n / total) * 100)}%`,
-                  backgroundColor: COLOR_CLASE[clase],
-                }}
-              />
-            ))}
-          </div>
-          <ul className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1">
-            {composicion.map(({ clase, n }) => (
-              <li key={clase} className="flex items-center gap-1.5">
-                <span
-                  aria-hidden
-                  className="h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ backgroundColor: COLOR_CLASE[clase] }}
-                />
-                <span className="font-space text-oscuro-secundario truncate text-[10px]">
-                  {CLASE_ROTULO[clase]}
-                </span>
-                <span className="font-space text-oscuro-meta ml-auto text-[10px] tabular-nums">
-                  {Math.round((n / total) * 100)}%
-                </span>
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
-        <p className="text-oscuro-secundario mt-2 text-[13px] leading-snug">
-          {sinPunto > 0
-            ? 'Sus miradas están en la lista. El mapa conserva ámbitos, sin inventar domicilios.'
-            : 'No hay puntos cargados en este encuadre. Recorré otro lugar o sumá tu mirada.'}
-        </p>
-      )}
+      <div
+        className="mt-3 flex h-1.5 w-full overflow-hidden"
+        role="img"
+        aria-label={composicion.map((c) => `${CLASE_ROTULO[c.clase]}: ${String(c.n)}`).join(', ')}
+      >
+        {composicion.map(({ clase, n }) => (
+          <span
+            key={clase}
+            style={{
+              width: `${String((n / total) * 100)}%`,
+              backgroundColor: COLOR_CLASE[clase],
+            }}
+          />
+        ))}
+      </div>
+      <ul className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1">
+        {composicion.map(({ clase, n }) => (
+          <li key={clase} className="flex items-center gap-1.5">
+            <span
+              aria-hidden
+              className="h-1.5 w-1.5 shrink-0 rounded-full"
+              style={{ backgroundColor: COLOR_CLASE[clase] }}
+            />
+            <span className="font-space text-oscuro-secundario truncate text-[10px]">
+              {CLASE_ROTULO[clase]}
+            </span>
+            <span className="font-space text-oscuro-meta ml-auto text-[10px] tabular-nums">
+              {Math.round((n / total) * 100)}%
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -227,7 +275,7 @@ export function FiltroClases({
               'font-space flex items-center gap-1.5 border px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] transition-opacity',
               activo
                 ? 'border-oscuro-borde text-oscuro-texto'
-                : 'border-oscuro-borde/50 text-oscuro-tenue',
+                : 'border-oscuro-borde/50 text-oscuro-meta',
             )}
           >
             <span

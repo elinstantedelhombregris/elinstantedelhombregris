@@ -23,6 +23,7 @@ import type { MapRef } from 'react-map-gl/maplibre';
 
 import { PanelDejarFalta } from '~/components/papel/PanelDejarFalta';
 import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
+import { cn } from '~/lib/utils';
 
 /**
  * El instrumento territorial.
@@ -180,53 +181,62 @@ export function Instrumento({
       ) : null}
       {necesitaCorpus ? (
         <p role="status" className="text-oscuro-texto px-5 py-10">
-          Esta lente necesita todos los registros, y la consulta trae más de una página. Para los
-          totales completos por provincia usá Análisis: no calculamos silencio ni escenarios sobre
-          una muestra recortada.
+          Esta vista necesita todos los aportes, y la consulta trae más de una página. Para ver los
+          totales completos por provincia usá Análisis: no calculamos zonas sin aportes ni
+          escenarios sobre una muestra recortada.
         </p>
       ) : null}
-      {soloLista && !participando ? null : (
-        <div
-          className={`grid min-h-[640px] max-[960px]:grid-cols-1 ${soloLista ? 'grid-cols-1' : participando ? 'grid-cols-[420px_minmax(0,1fr)]' : 'grid-cols-[300px_minmax(0,1fr)]'}`}
-        >
-          <div className="max-h-[640px] overflow-auto max-[960px]:order-2 max-[960px]:max-h-none">
-            <div hidden={participando}>
-              <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
-                {tieneDatos ? (
-                  activo.panel
-                ) : (
-                  <p className="text-oscuro-secundario text-sm leading-relaxed">
-                    La lectura está pendiente. Podés recorrer el territorio y preparar tu aporte.
-                  </p>
-                )}
-              </PanelLateral>
-            </div>
-            <div hidden={!participando}>{participacion}</div>
+      {/* Con «solo la lista» y el panel de aportes cerrado la grilla se oculta,
+          pero NO se desmonta: el panel vive adentro y lo que alguien ya escribió
+          en él se perdía al alternar la vista. */}
+      <div
+        className={cn(
+          'grid min-h-[640px] max-[960px]:grid-cols-1',
+          soloLista
+            ? 'grid-cols-1'
+            : participando
+              ? 'grid-cols-[420px_minmax(0,1fr)]'
+              : 'grid-cols-[300px_minmax(0,1fr)]',
+          soloLista && !participando && 'hidden',
+        )}
+      >
+        <div className="max-h-[640px] overflow-auto max-[960px]:order-2 max-[960px]:max-h-none">
+          <div hidden={participando}>
+            <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
+              {tieneDatos ? (
+                activo.panel
+              ) : (
+                <p className="text-oscuro-secundario text-sm leading-relaxed">
+                  La lectura todavía no llegó. Podés recorrer el lugar y preparar tu aporte.
+                </p>
+              )}
+            </PanelLateral>
           </div>
+          <div hidden={!participando}>{participacion}</div>
+        </div>
 
-          <div
-            hidden={soloLista}
-            className="relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]"
-          >
-            {activo.superficie ? (
-              /* La Simulación trae su propia superficie: la cortina son dos
+        <div
+          hidden={soloLista}
+          className="relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]"
+        >
+          {activo.superficie ? (
+            /* La Simulación trae su propia superficie: la cortina son dos
                instancias de mapa y no se puede recortar una capa por posición
                de pantalla. La `key` la aísla igual que a las capas. */
-              <Fragment key={modo}>{activo.superficie}</Fragment>
-            ) : (
-              <MapaBase
-                mapaRef={mapaRef}
-                onFallo={() => {
-                  setFalloMapa(true);
-                }}
-                onMover={alMover}
-                arrastreHabilitado={activo.arrastreHabilitado ?? true}
-                {...(activo.capasInteractivas
-                  ? { capasInteractivas: activo.capasInteractivas }
-                  : {})}
-                {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
-              >
-                {/*
+            <Fragment key={modo}>{activo.superficie}</Fragment>
+          ) : (
+            <MapaBase
+              mapaRef={mapaRef}
+              conLugar={exploracion.lugarId !== undefined}
+              onFallo={() => {
+                setFalloMapa(true);
+              }}
+              onMover={alMover}
+              arrastreHabilitado={activo.arrastreHabilitado ?? true}
+              {...(activo.capasInteractivas ? { capasInteractivas: activo.capasInteractivas } : {})}
+              {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
+            >
+              {/*
               La `key` por modo es obligatoria, no cosmética: sin ella React
               reconcilia las capas del modo saliente con las del entrante en la
               misma posición del árbol, y `<Source>` de react-map-gl explota con
@@ -234,40 +244,39 @@ export function Instrumento({
               Con la key se desmonta un modo y se monta el otro, que es lo que
               corresponde — el mapa NO se remonta, solo sus capas.
             */}
-                <Fragment key={modo}>{activo.capas}</Fragment>
-              </MapaBase>
-            )}
+              <Fragment key={modo}>{activo.capas}</Fragment>
+            </MapaBase>
+          )}
 
-            {/* El contador flota arriba a la derecha y responde al encuadre:
+          {/* El contador flota arriba a la derecha y responde al encuadre:
               arrastrás sobre una provincia y el número contesta. */}
-            {consulta.data ? (
-              <div className="pointer-events-none absolute right-4 top-4 z-10">
-                <ContadorEnVista senales={enVista} sinPunto={consulta.data.metadata.sinPunto} />
-              </div>
-            ) : null}
+          {consulta.data ? (
+            <div className="pointer-events-none absolute right-4 top-4 z-10">
+              <ContadorEnVista senales={enVista} sinPunto={consulta.data.metadata.sinPunto} />
+            </div>
+          ) : null}
 
-            {activo.leyenda ? (
-              <div className="pointer-events-none absolute bottom-14 left-4 z-10">
-                {activo.leyenda}
-              </div>
-            ) : null}
+          {activo.leyenda ? (
+            <div className="pointer-events-none absolute bottom-14 left-4 z-10">
+              {activo.leyenda}
+            </div>
+          ) : null}
 
-            {activo.sobreMapa}
-            {mirada ? (
-              <DetalleRegistroMapa
-                senal={mirada}
-                cerrar={() => {
-                  cerrarRegistro();
-                }}
-              />
-            ) : null}
-          </div>
+          {activo.sobreMapa}
+          {mirada ? (
+            <DetalleRegistroMapa
+              senal={mirada}
+              cerrar={() => {
+                cerrarRegistro();
+              }}
+            />
+          ) : null}
         </div>
-      )}
+      </div>
 
       {falloMapa ? (
         <p role="alert" className="text-oscuro-texto p-4">
-          Parte del mapa no pudo cargarse. Los registros siguen disponibles en la lista.
+          Parte del mapa no pudo cargarse. Los aportes siguen disponibles en la lista.
         </p>
       ) : null}
       {consulta.data ? (
@@ -287,7 +296,7 @@ export function Instrumento({
         />
       ) : null}
 
-      <div className="font-space text-oscuro-tenue border-oscuro-borde flex flex-wrap items-center justify-between gap-3 border-t px-4 py-2 text-[10px]">
+      <div className="font-space text-oscuro-meta border-oscuro-borde flex flex-wrap items-center justify-between gap-3 border-t px-4 py-2 text-[10px]">
         {/* Los datos son de OpenStreetMap y la ODbL obliga a decirlo; las
             teselas las arma Protomaps, que pide su línea. Carto se fue el
             12/8/2026 junto con las teselas que servía. */}
