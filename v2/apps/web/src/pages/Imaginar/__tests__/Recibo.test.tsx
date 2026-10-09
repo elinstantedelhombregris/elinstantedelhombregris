@@ -49,7 +49,9 @@ describe('Recibo del aporte', () => {
   it('abre con un solo titular, dice lo que se puede hacer y lo que no promete', () => {
     render(<Recibo recibo={recibo} campana={null} textoVisible={false} />);
     expect(screen.getAllByRole('heading')).toHaveLength(1);
-    expect(screen.getByRole('heading', { name: 'Tu aporte quedó publicado.' })).toHaveFocus();
+    const titulo = screen.getByRole('heading', { name: 'Tu aporte quedó publicado.' });
+    expect(titulo).toHaveFocus();
+    expect(titulo).toHaveClass('focus:outline-none');
     expect(
       screen.getByText(
         'Ya podés verlo, corregirlo o retirarlo. No es un acuerdo ni un compromiso de nadie.',

@@ -50,7 +50,12 @@ export function Revision(props: Props) {
   const exceso = props.lectura.length - LIMITE_APORTE;
   return (
     <section aria-labelledby="revision-titulo">
-      <h3 id="revision-titulo" tabIndex={-1} data-foco-paso className="font-anton text-3xl">
+      <h3
+        id="revision-titulo"
+        tabIndex={-1}
+        data-foco-paso
+        className="font-anton text-3xl focus:outline-none"
+      >
         Revisá lo que vas a compartir
       </h3>
       <p className="mt-3 max-w-[650px] leading-relaxed">

@@ -47,7 +47,12 @@ export function Recibo({
   }, []);
   return (
     <section aria-labelledby="recibo-titulo">
-      <h3 id="recibo-titulo" ref={titulo} tabIndex={-1} className="font-anton text-3xl">
+      <h3
+        id="recibo-titulo"
+        ref={titulo}
+        tabIndex={-1}
+        className="font-anton text-3xl focus:outline-none"
+      >
         Tu aporte quedó publicado.
       </h3>
       <p className="mt-3 max-w-[650px] leading-relaxed">
