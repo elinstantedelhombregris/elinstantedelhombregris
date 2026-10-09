@@ -44,6 +44,7 @@
     "entrenamientos:mejorar-quizzes": "tsx scripts/content/entrenamientos-mejorar-quizzes.ts",
     "entrenamientos:check": "tsx scripts/content/entrenamientos-check.ts",
     "deudas:importar": "tsx scripts/content/importar-deudas.ts",
+    "glosario:linea-de-base": "tsx scripts/content/glosario.ts --linea-de-base",
     "radiografia:embeber": "tsx scripts/radiografia/embeber.ts",
     "radiografia:ejemplos": "tsx scripts/radiografia/ejemplos-vectores.ts",
     "simulacion:calibrar": "tsx scripts/simulacion/calibrar.ts",

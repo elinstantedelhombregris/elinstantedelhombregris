@@ -1,0 +1,197 @@
+{
+  "apps/mobile/src/app/(tabs)/ajustes.tsx": {
+    "relato": 1
+  },
+  "apps/mobile/src/app/(tabs)/territorio.tsx": {
+    "señal": 3,
+    "voz": 3
+  },
+  "apps/mobile/src/app/campanas.tsx": {
+    "convocatoria": 1
+  },
+  "apps/mobile/src/app/circulos.tsx": {
+    "relato": 2,
+    "ronda": 2,
+    "señal": 4
+  },
+  "apps/mobile/src/app/escuchar.tsx": {
+    "relato": 6,
+    "ronda": 1,
+    "voz": 3
+  },
+  "apps/mobile/src/app/escuchar/necesidad/[id].tsx": {
+    "relato": 2
+  },
+  "apps/mobile/src/app/mis-datos.tsx": {
+    "señal": 1
+  },
+  "apps/mobile/src/app/misiones/[id].tsx": {
+    "convocatoria": 1
+  },
+  "apps/mobile/src/app/publicar.tsx": {
+    "señal": 1
+  },
+  "apps/mobile/src/app/territorio/inteligencia.tsx": {
+    "convocatoria": 1,
+    "señal": 7,
+    "voz": 1
+  },
+  "apps/mobile/src/app/territorio/mapa.tsx": {
+    "mirada": 1,
+    "relato": 1,
+    "señal": 2
+  },
+  "apps/mobile/src/app/territorio/misiones/[id].tsx": {
+    "mirada": 1
+  },
+  "apps/mobile/src/app/verificar.tsx": {
+    "mirada": 7,
+    "ronda": 4,
+    "señal": 6
+  },
+  "apps/mobile/src/civic/analytics.ts": {
+    "mirada": 1,
+    "posibilidad": 1,
+    "señal": 7
+  },
+  "apps/mobile/src/civic/campaigns.ts": {
+    "mirada": 1
+  },
+  "apps/mobile/src/civic/community-api.ts": {
+    "contrato": 1
+  },
+  "apps/mobile/src/civic/feed.ts": {
+    "señal": 1
+  },
+  "apps/mobile/src/civic/listening.ts": {
+    "relato": 1
+  },
+  "apps/mobile/src/civic/map-point-action.ts": {
+    "mirada": 2,
+    "señal": 1
+  },
+  "apps/mobile/src/civic/missions.ts": {
+    "mirada": 1,
+    "señal": 1
+  },
+  "apps/mobile/src/civic/public-intelligence.ts": {
+    "contrato": 3,
+    "señal": 1
+  },
+  "apps/mobile/src/civic/verification-provenance.ts": {
+    "mirada": 3,
+    "relato": 1,
+    "señal": 9
+  },
+  "apps/mobile/src/components/civic/CustodyExecutionCard.tsx": {
+    "relato": 1
+  },
+  "apps/mobile/src/components/civic/NeedAccessGrantPanel.tsx": {
+    "contrato": 1,
+    "relato": 3
+  },
+  "apps/mobile/src/components/civic/PublicIntelligencePanel.tsx": {
+    "contrato": 3,
+    "posibilidad": 1,
+    "señal": 1,
+    "voz": 1
+  },
+  "apps/mobile/src/content/expediciones.ts": {
+    "voz": 2
+  },
+  "apps/mobile/src/content/textos-ui.ts": {
+    "relato": 1
+  },
+  "apps/web/src/pages/InsightDashboard.tsx": {
+    "señal": 1
+  },
+  "apps/web/src/pages/LaIdea/la-idea-data.ts": {
+    "voz": 2
+  },
+  "apps/web/src/pages/LaIdea/sections/CapituloSinLider.tsx": {
+    "voz": 1
+  },
+  "apps/web/src/pages/LaRadiografia/ejemplos/escenario-3-corroboracion.ts": {
+    "señal": 3
+  },
+  "apps/web/src/pages/LaSimulacion/sections/CabeceraDelDiseno.tsx": {
+    "voz": 1
+  },
+  "apps/web/src/pages/LaSimulacion/sections/ElPaisCargado.tsx": {
+    "voz": 5
+  },
+  "apps/web/src/pages/LaSimulacion/sections/MesaDeVariables.tsx": {
+    "voz": 1
+  },
+  "apps/web/src/pages/LaSimulacion/sections/SelloSintetico.tsx": {
+    "voz": 1
+  },
+  "apps/web/src/pages/LaSimulacion/sections/TablaDeUmbrales.tsx": {
+    "voz": 2
+  },
+  "apps/web/src/pages/LaSimulacion/simulacion-lectura.ts": {
+    "voz": 2
+  },
+  "apps/web/src/pages/LaSimulacion/simulacion-pais.ts": {
+    "voz": 1
+  },
+  "apps/web/src/pages/LeccionDetail.tsx": {
+    "señal": 1
+  },
+  "apps/web/src/pages/Planes/sections/MetodoPrueba.tsx": {
+    "voz": 2
+  },
+  "apps/web/src/pages/PulsoDetail.tsx": {
+    "señal": 2
+  },
+  "apps/web/src/pages/QuienEstaDetras/quien-data.ts": {
+    "voz": 5
+  },
+  "apps/web/src/pages/Senal/PanelConfirmar.tsx": {
+    "mirada": 3,
+    "señal": 1
+  },
+  "packages/civic-core/src/brillo.ts": {
+    "señal": 1,
+    "voz": 1
+  },
+  "packages/civic-core/src/direcciones.ts": {
+    "señal": 7,
+    "ámbito": 1
+  },
+  "packages/civic-core/src/simulacion/elenco.ts": {
+    "voz": 2
+  },
+  "packages/civic-core/src/simulacion/espina/corrida.ts": {
+    "voz": 7
+  },
+  "packages/civic-core/src/simulacion/espina/forma.ts": {
+    "voz": 5
+  },
+  "packages/civic-core/src/simulacion/espina/metodos/umbral.ts": {
+    "voz": 3
+  },
+  "packages/civic-core/src/simulacion/espina/variables.ts": {
+    "señal": 1
+  },
+  "packages/civic-core/src/simulacion/modo-gente.ts": {
+    "ronda": 1,
+    "señal": 3,
+    "voz": 1
+  },
+  "packages/civic-core/src/simulacion/retrato.ts": {
+    "voz": 5
+  },
+  "packages/civic-core/src/simulacion/sembrado.ts": {
+    "voz": 1
+  },
+  "packages/civic-core/src/simulacion/simular.ts": {
+    "voz": 3
+  },
+  "packages/shared/src/datasets/index.ts": {
+    "señal": 1
+  },
+  "packages/shared/src/validation/senal.ts": {
+    "contrato": 1
+  }
+}
