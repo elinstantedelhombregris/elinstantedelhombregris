@@ -1,9 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { contribucionSchema, type ContribucionInput } from '@v2/shared';
+import { contribucionSchema, type CampanaPublica, type ContribucionInput } from '@v2/shared';
 import { resolveCivicApiUrl } from './config';
 import { fetchWithTimeout } from './http';
 
-// Un origen explícito evita enviar el ejercicio nuevo a la API histórica de v1.
+import type { LecturaCampana } from './ideal-aporte';
+
+// Un origen explícito: la app no adivina a qué servidor hablarle.
 export const IDEAL_API = resolveCivicApiUrl(process.env.EXPO_PUBLIC_BASTA_V2_URL, {
   allowLoopbackHttp: typeof __DEV__ !== 'undefined' && __DEV__,
 }).url;
@@ -26,6 +28,8 @@ export const esErrorDeSesion = (e: unknown): boolean => e instanceof ErrorIdeal 
 export const MENSAJE_SIN_CONEXION =
   'No hay conexión. Tu texto sigue guardado en este teléfono; probá de nuevo cuando tengas señal.';
 export const MENSAJE_DE_NUESTRO_LADO = 'Algo falló de nuestro lado. Probá de nuevo en un rato.';
+export const MENSAJE_SIN_CONFIGURAR =
+  'La conexión todavía no está configurada en esta instalación.';
 const FALLA_DE_RED = /network request failed|failed to fetch|network error|load failed|offline/i;
 function esSinConexion(e: unknown): boolean {
   if (typeof e !== 'object' || e === null) return false;
@@ -60,6 +64,19 @@ export function mensajeDeRed(e: unknown): string {
   if (e instanceof ErrorIdeal && (e.status === null || e.status < 500)) return e.message;
   return MENSAJE_DE_NUESTRO_LADO;
 }
+/**
+ * ¿Tiene sentido ofrecer «Cambiar el texto o el tema» después de este fallo al publicar? Sólo si el
+ * servidor no llegó a crear el aporte: lo rechazó (4xx) o el envío ni salió (una validación o un
+ * chequeo de cuenta nuestros). Con un corte de red o un 5xx la respuesta pudo perderse con el aporte
+ * ya publicado: ahí se reintenta el MISMO envío, que es idempotente, y no se lo cambia, porque otro
+ * `idLocal` publicaría un segundo aporte.
+ */
+export function rechazoEditable(e: unknown): boolean {
+  if (esSinConexion(e)) return false;
+  if (mensajesDeZod(e)) return true;
+  if (!(e instanceof ErrorIdeal)) return false;
+  return e.status === null || (e.status >= 400 && e.status < 500);
+}
 /** La respuesta de error del servidor como `ErrorIdeal`, aunque el cuerpo no sea JSON (un proxy caído, un 502). */
 async function errorDeRespuesta(r: Response, porDefecto: string): Promise<ErrorIdeal> {
   const cuerpo = (await r.json().catch(() => null)) as { error?: { message?: unknown } } | null;
@@ -77,10 +94,12 @@ export interface BorradorIdeal {
   envio: ContribucionInput | null;
   recibo: string | null;
   cuentaAlConfirmar?: number | null;
+  /** El aporte ya se retiró desde la app: la copia sigue en el teléfono pero no está publicada. */
+  retirado?: boolean;
 }
 const KEY = 'basta.ideal.borradores.v1';
 async function fetchIdeal(ruta: string, init: RequestInit = {}): Promise<Response> {
-  if (!IDEAL_API) throw new ErrorIdeal('La conexión con v2 todavía no está configurada.');
+  if (!IDEAL_API) throw new ErrorIdeal(MENSAJE_SIN_CONFIGURAR);
   const enviar = (opciones: RequestInit) =>
     fetchWithTimeout(IDEAL_API + ruta, { ...opciones, credentials: 'include' });
   let r = await enviar(init);
@@ -112,7 +131,7 @@ export async function borradoresIdeales(): Promise<BorradorIdeal[]> {
   const lista: unknown = JSON.parse(raw);
   if (!Array.isArray(lista))
     throw new ErrorIdeal(
-      'No pudimos leer los borradores. Conservá la copia local antes de reiniciar.',
+      'No pudimos leer los borradores de este teléfono. Conservá la copia antes de reiniciar la app.',
     );
   return lista as BorradorIdeal[];
 }
@@ -137,13 +156,26 @@ export function borrarIdeal(id: string): Promise<void> {
   return siguiente;
 }
 export async function leerIdeal<T>(ruta: string): Promise<T> {
-  if (!IDEAL_API)
-    throw new ErrorIdeal(
-      'La conexión con v2 todavía no está configurada. Podés guardar tu reflexión en este dispositivo.',
-    );
+  if (!IDEAL_API) throw new ErrorIdeal(MENSAJE_SIN_CONFIGURAR);
   const respuesta = await fetchIdeal(ruta);
   if (!respuesta.ok) throw await errorDeRespuesta(respuesta, 'No pudimos completar la lectura.');
   return ((await respuesta.json()) as { data: T }).data;
+}
+/**
+ * Lee una campaña por id o por slug y dice qué pasó, sin lanzar: que no exista (404) no es una
+ * falla —la campaña nacional puede no estar sembrada en este servidor—, y cualquier otra cosa
+ * (sin conexión, un 5xx) es una falla que la persona tiene que poder reintentar.
+ */
+export async function leerCampanaIdeal(clave: string): Promise<LecturaCampana> {
+  try {
+    const campana = await leerIdeal<CampanaPublica>(
+      '/api/v1/campanas/' + encodeURIComponent(clave),
+    );
+    return { tipo: 'ok', campana };
+  } catch (e) {
+    if (e instanceof ErrorIdeal && e.status === 404) return { tipo: 'no_existe' };
+    return { tipo: 'error', mensaje: mensajeDeRed(e) };
+  }
 }
 /** La sesión nueva vive en cookies httpOnly del transporte; no copiamos JWT al almacenamiento local. */
 export async function escribirIdeal<T>(
@@ -162,12 +194,12 @@ export async function escribirIdeal<T>(
   return ((await respuesta.json()) as { data: T }).data;
 }
 export async function cuentaIdealActual(): Promise<number | null> {
-  if (!IDEAL_API) throw new ErrorIdeal('La conexión con v2 todavía no está configurada.');
+  if (!IDEAL_API) throw new ErrorIdeal(MENSAJE_SIN_CONFIGURAR);
   const r = await fetchIdeal('/api/auth/me');
   if (r.status === 401) return null;
   if (!r.ok)
     throw new ErrorIdeal(
-      'No pudimos comprobar la cuenta actual. Tu reflexión sigue guardada.',
+      'No pudimos comprobar la cuenta actual. Tu texto sigue guardado.',
       r.status,
     );
   const b = (await r.json()) as { data: { user: { id: number } } };
@@ -176,10 +208,10 @@ export async function cuentaIdealActual(): Promise<number | null> {
   return b.data.user.id;
 }
 export async function publicarIdeal(b: BorradorIdeal): Promise<BorradorIdeal> {
-  if (!b.envio) throw new ErrorIdeal('Revisá y autorizá el aporte antes de enviarlo.');
+  if (!b.envio) throw new ErrorIdeal('Revisá y autorizá el aporte antes de publicarlo.');
   if (b.cuentaAlConfirmar === undefined)
     throw new ErrorIdeal(
-      'Este envío necesita una revisión de la cuenta antes de compartirse. Conservá el borrador y volvé a revisarlo.',
+      'Este envío necesita una revisión de la cuenta antes de publicarse. Conservá el borrador y volvé a revisarlo.',
     );
   if ((await cuentaIdealActual()) !== b.cuentaAlConfirmar)
     throw new ErrorIdeal(
@@ -202,7 +234,7 @@ export async function publicarIdeal(b: BorradorIdeal): Promise<BorradorIdeal> {
     throw new ErrorIdeal(
       typeof mensaje === 'string' && mensaje
         ? mensaje
-        : 'No llegó un recibo. Conservamos el mismo envío para reintentar.',
+        : 'No llegó la confirmación de la publicación. Conservamos el mismo envío para reintentar.',
       respuesta.status,
     );
   }

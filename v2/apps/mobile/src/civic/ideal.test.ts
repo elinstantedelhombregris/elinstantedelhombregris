@@ -7,12 +7,15 @@ import {
   ErrorIdeal,
   esErrorDeSesion,
   escribirIdeal,
+  leerCampanaIdeal,
   leerIdeal,
   mensajeDeRed,
+  rechazoEditable,
   MENSAJE_DE_NUESTRO_LADO,
   MENSAJE_SIN_CONEXION,
   type BorradorIdeal,
 } from './ideal';
+import { campanaDe } from './campana-de-prueba';
 import { fetchWithTimeout } from './http';
 const almacen = vi.hoisted(() => new Map<string, string>());
 vi.mock('@react-native-async-storage/async-storage', () => ({
@@ -303,8 +306,82 @@ describe('Sólo un 401 vale como «la sesión no está»', () => {
     const e = await publicarIdeal(pendiente).catch((x: unknown) => x);
     expect(e).toBeInstanceOf(ErrorIdeal);
     expect((e as ErrorIdeal).message).toBe(
-      'No llegó un recibo. Conservamos el mismo envío para reintentar.',
+      'No llegó la confirmación de la publicación. Conservamos el mismo envío para reintentar.',
     );
     expect(mensajeDeRed(e)).toBe(MENSAJE_DE_NUESTRO_LADO);
+  });
+});
+
+describe('Leer una campaña: existe, no existe o no se pudo leer', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('una campaña que existe llega con sus datos y se pide por slug codificado', async () => {
+    const c = campanaDe({ slug: 'mi-argentina-ideal' });
+    vi.mocked(fetchWithTimeout).mockResolvedValueOnce(respuesta({ data: c }));
+    expect(await leerCampanaIdeal('mi-argentina-ideal')).toEqual({ tipo: 'ok', campana: c });
+    expect(vi.mocked(fetchWithTimeout).mock.calls[0]?.[0]).toBe(
+      'https://v2.test/api/v1/campanas/mi-argentina-ideal',
+    );
+  });
+
+  it('un 404 es «no existe», no una falla: la nacional puede no estar sembrada en este servidor', async () => {
+    vi.mocked(fetchWithTimeout).mockResolvedValueOnce(
+      respuesta({ error: { message: 'Todavía no encontramos esa campaña.' } }, 404),
+    );
+    expect(await leerCampanaIdeal('mi-argentina-ideal')).toEqual({ tipo: 'no_existe' });
+  });
+
+  it('sin conexión o con un 5xx es una falla que se puede reintentar, con el mensaje para la persona', async () => {
+    vi.mocked(fetchWithTimeout).mockRejectedValueOnce(new TypeError('Network request failed'));
+    expect(await leerCampanaIdeal('x')).toEqual({ tipo: 'error', mensaje: MENSAJE_SIN_CONEXION });
+    vi.mocked(fetchWithTimeout).mockResolvedValueOnce(respuesta('<html>502</html>', 502));
+    expect(await leerCampanaIdeal('x')).toEqual({
+      tipo: 'error',
+      mensaje: MENSAJE_DE_NUESTRO_LADO,
+    });
+  });
+
+  it('un 403 no se confunde con «no existe»', async () => {
+    vi.mocked(fetchWithTimeout).mockResolvedValueOnce(
+      respuesta({ error: { message: 'No tenés permiso.' } }, 403),
+    );
+    expect(await leerCampanaIdeal('x')).toEqual({ tipo: 'error', mensaje: 'No tenés permiso.' });
+  });
+
+  it('nunca lanza: la pantalla siempre recibe un estado', async () => {
+    vi.mocked(fetchWithTimeout).mockRejectedValueOnce(new Error('undefined is not an object'));
+    await expect(leerCampanaIdeal('x')).resolves.toMatchObject({ tipo: 'error' });
+  });
+});
+
+describe('Cuándo se ofrece «Cambiar el texto o el tema»', () => {
+  it('cuando el servidor rechazó el envío (4xx): no se creó nada, se puede cambiar', () => {
+    expect(rechazoEditable(new ErrorIdeal('La campaña cambió.', 409))).toBe(true);
+    expect(rechazoEditable(new ErrorIdeal('Elegí uno de los temas del registro.', 400))).toBe(true);
+    expect(rechazoEditable(new ErrorIdeal('Ese identificador ya tiene otro aporte.', 409))).toBe(
+      true,
+    );
+  });
+
+  it('cuando el envío ni salió (un chequeo nuestro o una validación del contrato)', () => {
+    expect(
+      rechazoEditable(new ErrorIdeal('La cuenta cambió desde que autorizaste el envío.')),
+    ).toBe(true);
+    expect(rechazoEditable({ name: 'ZodError', issues: [{ message: 'Falta algo.' }] })).toBe(true);
+  });
+
+  it('NO cuando la respuesta pudo perderse con el aporte ya publicado: ahí se reintenta el mismo envío', () => {
+    expect(rechazoEditable(new TypeError('Network request failed'))).toBe(false);
+    expect(rechazoEditable(Object.assign(new Error('Aborted'), { name: 'AbortError' }))).toBe(
+      false,
+    );
+    expect(rechazoEditable(new ErrorIdeal('Internal Server Error', 500))).toBe(false);
+    expect(rechazoEditable(new ErrorIdeal('Bad Gateway', 502))).toBe(false);
+    // Un 2xx sin recibo es ambiguo: el servidor pudo haberlo creado.
+    expect(rechazoEditable(new ErrorIdeal('No llegó la confirmación.', 201))).toBe(false);
+    expect(rechazoEditable(new Error('undefined is not an object'))).toBe(false);
+    expect(rechazoEditable(null)).toBe(false);
   });
 });
