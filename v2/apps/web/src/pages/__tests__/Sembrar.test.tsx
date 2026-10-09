@@ -111,6 +111,55 @@ describe('Sembrar (composer, página papel 2.5)', () => {
     expect(window.localStorage.getItem('basta_semilla')).toBeNull();
   });
 
+  it('la acción va primero: el asistente queda antes que la explicación de ir más lejos', () => {
+    render(<Sembrar />);
+
+    const paso = screen.getByRole('heading', { level: 2, name: 'Tu basta' });
+    const masLejos = screen.getByRole('heading', {
+      level: 2,
+      name: '¿Querés llevar tu compromiso más lejos?',
+    });
+    expect(paso.compareDocumentPosition(masLejos) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(screen.queryByText(/Una voluntad puede sostener una prueba/)).not.toBeInTheDocument();
+  });
+
+  it('la explicación son dos frases simples y sus enlaces dicen adónde llevan', () => {
+    render(<Sembrar />);
+
+    expect(
+      screen.getByText(
+        'Tu semilla es un compromiso personal. Si querés probar algo con otras personas, elegí una ficha y sumate.',
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Encontrar una ficha para probar' })).toHaveAttribute(
+      'href',
+      '/fichas',
+    );
+    expect(screen.getByRole('link', { name: 'Volver a Mi espacio' })).toHaveAttribute(
+      'href',
+      '/mi-espacio',
+    );
+    expect(document.body.textContent).not.toMatch(/criterios de pausa|mis procesos/i);
+  });
+
+  it('también aparece después de plantar, debajo del certificado', () => {
+    window.localStorage.setItem(
+      'basta_semilla',
+      JSON.stringify({
+        id: 42,
+        fecha: '2026-07-01T00:00:00.000Z',
+        basta: 'Ya estaba.',
+        sueno: 'Ya estaba.',
+        compromiso: 'Ya estaba.',
+      }),
+    );
+    render(<Sembrar />);
+
+    const certificado = screen.getByText(/Semilla N° 42/);
+    const masLejos = screen.getByRole('heading', { name: '¿Querés llevar tu compromiso más lejos?' });
+    expect(certificado.compareDocumentPosition(masLejos) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
   it('mata el chrome v1-port: sin "Seis principios", sin glass ni gradient-text', () => {
     const { container } = render(<Sembrar />);
 
