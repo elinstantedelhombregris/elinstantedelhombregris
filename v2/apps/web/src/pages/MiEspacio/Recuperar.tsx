@@ -18,13 +18,18 @@ export function Recuperar() {
   const [elegidos, setElegidos] = useState<string[]>([]);
   const [control, setControl] = useState(false);
   const op = useOperacionPersonal();
-  if (q.data?.length === 0) return null;
+  // Mientras carga, o si no hay nada que recuperar, no ocupa lugar: solo sube a
+  // la cabeza de «Mis aportes» cuando hay algo que decidir.
+  if (q.isLoading || q.data?.length === 0) return null;
   return (
-    <section className="mt-8 border p-5">
-      <h2 className="font-anton text-2xl">Lo que conserva este navegador.</h2>
+    <section aria-labelledby="titulo-recuperar" className="mb-10 border p-5">
+      <h2 id="titulo-recuperar" className="font-anton text-2xl">
+        Aportes de este navegador para sumar a tu cuenta
+      </h2>
       <p className="mt-3 text-sm leading-relaxed">
-        No vamos a dar por hecho que todo es tuyo. Revisá los aportes y elegí cuáles querés poder
-        gestionar también desde tu cuenta. No se publicará tu identidad por vincularlos.
+        Estos aportes los publicaste desde este navegador, antes de tener cuenta o sin haber
+        ingresado. Elegí los que querés poder corregir y retirar desde acá. Tu nombre no se publica
+        por sumarlos.
       </p>
       <ErrorOperacion mensaje={q.error?.message ?? op.error?.message} />
       <ul className="mt-5 space-y-4">
@@ -58,8 +63,8 @@ export function Recuperar() {
         <span>Reconozco estos aportes como míos y elijo vincular su gestión con mi cuenta.</span>
       </label>
       <Nota>
-        Si el navegador ya no conserva su credencial y no había un vínculo previo, no podemos
-        recuperar autoría por una firma o por parecido del texto.
+        Si borrás los datos de este navegador antes de sumarlos, no vamos a poder devolvértelos:
+        no hay otra forma de comprobar que eran tuyos.
       </Nota>
       <BotonAccion
         disabled={!control || !elegidos.length || op.isPending}
@@ -79,7 +84,7 @@ export function Recuperar() {
           );
         }}
       >
-        Vincular la selección
+        Sumar a mi cuenta
       </BotonAccion>
     </section>
   );

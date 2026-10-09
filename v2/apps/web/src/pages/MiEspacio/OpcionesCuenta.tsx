@@ -48,9 +48,9 @@ export function OpcionesCuenta({ salir }: { salir: () => void }) {
         Recibir nuevos avisos dentro de Mi espacio
       </label>
       <p className="text-tinta-50 text-sm">
-        Los seguimientos son privados y no suman apoyo. Este recorrido no envía correos ni
-        notificaciones al teléfono. Al silenciar, los avisos anteriores permanecen y los procesos
-        siguen consultables.
+        Seguir es privado y no suma apoyo. No mandamos correos ni avisos al teléfono: las novedades
+        las ves acá. Si las silenciás, los avisos anteriores se conservan y lo que seguís sigue en
+        «Lo que sigo».
       </p>
       <BotonAccion
         tono="papel"
@@ -70,13 +70,22 @@ export function OpcionesCuenta({ salir }: { salir: () => void }) {
         >
           <h3 className="font-anton text-2xl">Antes de cerrar, llevate tu copia.</h3>
           <Nota>
-            La cuenta dejará de admitir sesiones. Se eliminan credenciales, identidad del perfil,
-            seguimientos, análisis guardados, avisos y respuestas individuales de este nuevo
-            recorrido. Tus publicaciones, fichas, campañas, firmas públicas y el archivo de
-            actividad histórica se conservan; las campañas abiertas bajo tu responsabilidad se
-            pausan y dejan constancia. Retiralas antes si eso es lo que querés. Los borradores
-            locales permanecen en el dispositivo. Esta operación no recupera archivos que otras
-            personas ya descargaron.
+            <p>Al cerrar tu cuenta:</p>
+            <ul className="mt-3 list-disc space-y-2 pl-5">
+              <li>
+                Se borran tu contraseña, tu perfil, lo que seguís, tus análisis guardados, tus
+                avisos y tus respuestas individuales.
+              </li>
+              <li>
+                Se conservan tus aportes, fichas, campañas y firmas públicas, y el archivo de
+                actividad anterior. Si no querés que queden, retiralos antes. Las campañas abiertas
+                a tu cargo se pausan y queda constancia.
+              </li>
+              <li>
+                Los borradores de este navegador siguen acá, y los archivos que otras personas ya
+                descargaron no se pueden recuperar.
+              </li>
+            </ul>
           </Nota>
           <label>
             Contraseña actual

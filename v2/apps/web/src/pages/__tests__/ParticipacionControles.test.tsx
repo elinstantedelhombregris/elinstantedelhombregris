@@ -56,7 +56,7 @@ describe('Controles del registro y la continuidad', () => {
     });
     montar(<EditarAporte id="fuente" />);
     expect(modelo.get).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByRole('button', { name: 'Revisar mi texto y permiso' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Corregir mi aporte' }));
     const texto = await screen.findByRole('textbox');
     expect(texto).toHaveValue('Una posibilidad que reservé.');
     expect(texto).toHaveAttribute('readonly');
@@ -89,6 +89,8 @@ describe('Controles del registro y la continuidad', () => {
         procesos={[
           { id: 'f', tipo: 'ficha', titulo: 'Aprender cerca', href: '/fichas/f', revision: 2 },
         ]}
+        puedeArmarFicha
+        esAdmin={false}
       />,
     );
     expect(screen.getByRole('link', { name: 'Aprender cerca' })).toHaveAttribute(
@@ -102,7 +104,9 @@ describe('Controles del registro y la continuidad', () => {
     expect(
       screen.getByRole('button', { name: 'Cerrar mi cuenta y revocar sesiones' }),
     ).toBeDisabled();
-    expect(screen.getByText(/Tus publicaciones, fichas, campañas/)).toBeInTheDocument();
+    // El aviso largo pasó a tres viñetas, una por consecuencia.
+    expect(screen.getAllByRole('listitem')).toHaveLength(3);
+    expect(screen.getByText(/Se conservan tus aportes, fichas, campañas/)).toBeInTheDocument();
     expect(modelo.escribir).not.toHaveBeenCalled();
   });
   it('una invitación se revisa antes de poder aceptarla', async () => {

@@ -1,13 +1,31 @@
 import { Link } from 'wouter';
 
 import type { EspacioPersonal } from '@v2/shared';
-export function MisProcesos({ procesos }: { procesos: NonNullable<EspacioPersonal['procesos']> }) {
+
+/**
+ * Las fichas y campañas que la persona abrió o donde aceptó colaborar.
+ *
+ * Armar una ficha es un paso avanzado: el enlace aparece recién cuando ya hay al
+ * menos un aporte. «Gestionar mis campañas» es solo de quien administra.
+ */
+export function MisProcesos({
+  procesos,
+  puedeArmarFicha,
+  esAdmin,
+}: {
+  procesos: NonNullable<EspacioPersonal['procesos']>;
+  puedeArmarFicha: boolean;
+  esAdmin: boolean;
+}) {
+  if (!procesos.length && !puedeArmarFicha && !esAdmin) return null;
   return (
-    <section className="mt-10 border-t pt-6">
-      <h3 className="font-anton text-3xl">Los diseños que estás cuidando.</h3>
+    <section aria-labelledby="titulo-procesos" className="mt-10 border-t pt-6">
+      <h3 id="titulo-procesos" className="font-anton text-3xl">
+        Fichas y campañas a mi cargo
+      </h3>
       <p className="mt-3 text-sm">
-        Fichas y campañas que abriste o donde aceptaste colaborar. Una invitación no te atribuye las
-        voces de otras personas.
+        Las que abriste vos o donde aceptaste colaborar. Una invitación no te atribuye los aportes
+        de otras personas.
       </p>
       {procesos.length ? (
         <ul className="mt-5 divide-y">
@@ -17,27 +35,31 @@ export function MisProcesos({ procesos }: { procesos: NonNullable<EspacioPersona
                 {p.titulo}
               </Link>
               <p className="text-tinta-50 mt-2 text-sm">
-                {p.tipo === 'ficha' ? 'Ficha de futuro' : 'Campaña'} · revisión {p.revision}
+                {p.tipo === 'ficha' ? 'Ficha' : 'Campaña'} · versión {p.revision}
               </p>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-tinta-50 mt-4 text-sm">Todavía no hay procesos a tu cargo.</p>
+        <p className="text-tinta-50 mt-4 text-sm">Todavía no tenés fichas ni campañas a tu cargo.</p>
       )}
       <div className="mt-5 flex flex-wrap gap-5">
-        <Link
-          className="text-violeta inline-flex min-h-11 items-center underline"
-          href="/fichas/nueva"
-        >
-          Abrir una ficha
-        </Link>
-        <Link
-          className="text-violeta inline-flex min-h-11 items-center underline"
-          href="/gestion/campanas"
-        >
-          Gestionar mis campañas
-        </Link>
+        {puedeArmarFicha ? (
+          <Link
+            className="text-violeta inline-flex min-h-11 items-center underline"
+            href="/fichas/nueva"
+          >
+            Armar una ficha nueva
+          </Link>
+        ) : null}
+        {esAdmin ? (
+          <Link
+            className="text-violeta inline-flex min-h-11 items-center underline"
+            href="/gestion/campanas"
+          >
+            Gestionar mis campañas
+          </Link>
+        ) : null}
       </div>
     </section>
   );
