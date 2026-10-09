@@ -17,6 +17,7 @@ import { BotonAccion, ErrorOperacion } from '~/components/participacion/Elemento
 import { api } from '~/lib/api';
 import { useAuth } from '~/lib/auth/use-auth';
 import { despertar } from '~/lib/despertar';
+import { quitarParametroDeLaUrl } from '~/lib/participacion/aportar';
 import { armarAporteGuiado, PREGUNTAS_GUIADAS } from '~/lib/participacion/armar-aporte';
 import { borrarBorrador, guardarBorrador, leerBorradores } from '~/lib/participacion/borradores';
 import { recortarEnFrase, unirRespuestas } from '~/lib/participacion/texto-aporte';
@@ -190,15 +191,7 @@ export function ConversacionIdeal({
     setIncluir(false);
     setNota('');
     setError('');
-    if (pedido.borrador) {
-      const q = new URLSearchParams(window.location.search);
-      q.delete('borrador');
-      window.history.replaceState(
-        null,
-        '',
-        `${window.location.pathname}${q.size ? `?${q.toString()}` : ''}${window.location.hash}`,
-      );
-    }
+    quitarParametroDeLaUrl('borrador');
   };
 
   if (publicado)

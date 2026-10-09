@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { APORTAR_HREF, aportarHref, leerPedidoAportar } from './aportar';
+import { APORTAR_HREF, aportarHref, leerPedidoAportar, quitarParametroDeLaUrl } from './aportar';
 
 describe('aportarHref', () => {
   it('sin opciones es la puerta canónica, y termina en #instrumento', () => {
@@ -96,5 +96,33 @@ describe('leerPedidoAportar', () => {
       borrador: 'b1',
       problema: null,
     });
+  });
+});
+
+describe('quitarParametroDeLaUrl', () => {
+  it('saca un parámetro y deja el resto, el camino y el ancla, sin sumar una entrada al historial', () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/el-mapa?participar=aportar&borrador=b-1&lugar=14#instrumento',
+    );
+    const antes = window.history.length;
+    quitarParametroDeLaUrl('borrador');
+    expect(window.location.pathname + window.location.search + window.location.hash).toBe(
+      '/el-mapa?participar=aportar&lugar=14#instrumento',
+    );
+    expect(window.history.length).toBe(antes);
+  });
+
+  it('si era el último parámetro no deja un signo de pregunta suelto, y si no está no toca nada', () => {
+    window.history.replaceState(null, '', '/el-mapa?borrador=b-1#aportar');
+    quitarParametroDeLaUrl('borrador');
+    expect(window.location.pathname + window.location.search + window.location.hash).toBe(
+      '/el-mapa#aportar',
+    );
+    quitarParametroDeLaUrl('borrador');
+    expect(window.location.pathname + window.location.search + window.location.hash).toBe(
+      '/el-mapa#aportar',
+    );
   });
 });

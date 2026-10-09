@@ -1,20 +1,19 @@
 import { declaracionDeliberacionDe } from '@v2/shared';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 
-import { FraseCampana } from '../../Imaginar/FraseCampana';
 import { PLACEHOLDER_NEUTRO, PLACEHOLDER_TIPO } from '../el-mapa-data';
 
 import { SelectorPrecision, type PrecisionElegida } from './SelectorPrecision';
 import { CamposPorTipo } from './soltar/CamposPorTipo';
 import { ConsentimientoVoz } from './soltar/ConsentimientoVoz';
 import { PreguntaDeLaCasa } from './soltar/PreguntaDeLaCasa';
+import { ReciboAporteDirecto } from './soltar/ReciboAporteDirecto';
 import { SelectorDeTipo } from './soltar/SelectorDeTipo';
 
 import type { CampanaDeAporte } from '../../Imaginar/FraseCampana';
 import type { LugarMapa } from '../instrumento/BusquedaTerritorial';
 import type { RespuestaDeVivienda } from '@v2/civic-core';
 
-import { Sello } from '~/components/papel/primitives';
 import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { despertar } from '~/lib/despertar';
 import { useProvincias, type SoltarVozInput, type VozSoltada } from '~/lib/queries/open-data';
@@ -287,32 +286,12 @@ export function PanelSoltarVoz({
         ) : null}
 
         {reciboId && recibida !== null ? (
-          <div role="status" className="mt-4 flex flex-wrap items-center gap-3.5">
-            <Sello
-              color="verde"
-              rotate={-6}
-              className="border-2 px-[11px] py-[7px] text-[11px] tracking-[0.14em]"
-            >
-              Recibido
-            </Sello>
-            <div className="font-space text-tinta-75 min-w-0 flex-1 text-xs leading-relaxed">
-              <FraseCampana campana={campanaRecibida} />
-              <p className="mt-2">
-                {recibida === ''
-                  ? 'No indicaste una provincia, así que cuenta pero no aparece en un lugar del mapa.'
-                  : `Quedó en ${recibida}. Desde su página lo seguís o lo retirás.`}
-              </p>
-            </div>
-            {/* El recibo explica los cambios de precisión autorizados. */}
-            {engrosado !== null ? (
-              <p className="font-space text-tinta-75 w-full text-[11px] leading-relaxed">
-                {engrosado}
-              </p>
-            ) : null}
-            <a className="block min-h-11 w-full underline" href={`/senal/${reciboId}`}>
-              Ver mi aporte y cómo sigue →
-            </a>
-          </div>
+          <ReciboAporteDirecto
+            idPublico={reciboId}
+            provincia={recibida}
+            engrosado={engrosado}
+            campana={campanaRecibida}
+          />
         ) : null}
       </form>
     </section>

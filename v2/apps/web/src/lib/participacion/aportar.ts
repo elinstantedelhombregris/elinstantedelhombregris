@@ -85,3 +85,16 @@ export function leerPedidoAportar(search: string): PedidoAportar {
   if (borrador) pedido.borrador = borrador;
   return pedido;
 }
+
+/** Saca un parámetro de la dirección actual sin recargar ni sumar una entrada al historial. */
+export function quitarParametroDeLaUrl(clave: string): void {
+  const q = new URLSearchParams(window.location.search);
+  if (!q.has(clave)) return;
+  q.delete(clave);
+  const consulta = q.size ? `?${q.toString()}` : '';
+  window.history.replaceState(
+    null,
+    '',
+    `${window.location.pathname}${consulta}${window.location.hash}`,
+  );
+}
