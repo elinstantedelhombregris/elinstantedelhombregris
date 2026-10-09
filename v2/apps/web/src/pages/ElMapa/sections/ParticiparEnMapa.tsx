@@ -5,7 +5,9 @@ import { AporteDirectoMapa } from './AporteDirectoMapa';
 import type { LugarMapa } from '../instrumento/BusquedaTerritorial';
 import type { ModoAportar } from '~/lib/participacion/aportar';
 
+import { ISLA_DE_PAPEL } from '~/components/papel/esquema';
 import { useLugarSincronizado } from '~/lib/participacion/useLugarSincronizado';
+import { cn } from '~/lib/utils';
 
 const ConversacionIdeal = lazy(() =>
   import('../../Imaginar/ConversacionIdeal').then((m) => ({ default: m.ConversacionIdeal })),
@@ -65,7 +67,7 @@ export function ParticiparEnMapa({
       ref={raiz}
       id="aportar"
       aria-label="Aportar desde el mapa"
-      className="bg-papel text-tinta h-full"
+      className={cn('bg-papel text-tinta h-full', ISLA_DE_PAPEL)}
     >
       <div className="border-tinta/20 flex items-start justify-between gap-4 border-b px-5 py-4">
         <div>

@@ -54,6 +54,14 @@ describe('El título del panel recibe el foco sin dibujar un anillo', () => {
   });
 });
 
+describe('El panel de aportes es papel dentro del instrumento de noche', () => {
+  it('declara el esquema claro: sin eso sus casillas heredarían el oscuro del instrumento', () => {
+    render(<ParticiparEnMapa {...base} cambiar={vi.fn()} />);
+    const panel = screen.getByRole('complementary', { name: 'Aportar desde el mapa' });
+    expect(panel).toHaveClass('[color-scheme:light]', 'accent-violeta', 'bg-papel');
+  });
+});
+
 describe('Un solo panel para aportar, dentro del mapa', () => {
   it('se llama «Sumá tu aporte» y abre con las tres preguntas; el aporte puntual queda fuera del teclado', async () => {
     render(<ParticiparEnMapa {...base} cambiar={vi.fn()} />);

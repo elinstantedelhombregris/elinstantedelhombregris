@@ -21,6 +21,7 @@ import type { Recuadro } from './useVistaMapa';
 import type { ReactNode } from 'react';
 import type { MapRef } from 'react-map-gl/maplibre';
 
+import { REGISTRO_DE_NOCHE } from '~/components/papel/esquema';
 import { PanelDejarFalta } from '~/components/papel/PanelDejarFalta';
 import { BotonPapel } from '~/components/papel/primitives';
 import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
@@ -128,7 +129,7 @@ export function Instrumento({
   return (
     <section
       aria-label="Instrumento territorial"
-      className="border-oscuro-borde bg-tinta accent-violeta-claro border-y [color-scheme:dark]"
+      className={cn('border-oscuro-borde bg-tinta border-y', REGISTRO_DE_NOCHE)}
     >
       <FiltrosExploracion valor={exploracion} cambiar={cambiar} elegir={elegir} />
       <div className="text-oscuro-texto flex flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm">

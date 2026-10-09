@@ -157,6 +157,11 @@ describe('el panel', () => {
     expect(screen.getByText(/al instante/i)).toBeInTheDocument();
   });
 
+  it('es papel aunque lo abra el mapa de noche: declara el esquema claro para sus campos', () => {
+    envolver(<PanelDejarFalta abierto onCerrar={vi.fn()} />);
+    expect(screen.getByRole('dialog')).toHaveClass('[color-scheme:light]', 'accent-violeta');
+  });
+
   it('no pide nombre, ni mail, ni cuenta', () => {
     const { container } = envolver(<PanelDejarFalta abierto onCerrar={vi.fn()} />);
     expect(container.querySelector('input[type="email"]')).toBeNull();

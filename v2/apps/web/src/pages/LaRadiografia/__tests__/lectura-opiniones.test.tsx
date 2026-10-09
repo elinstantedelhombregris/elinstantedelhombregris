@@ -84,6 +84,13 @@ describe('Acuerdos y diferencias en Radiografía', () => {
       '/fichas/f1',
     );
   });
+  it('es papel aunque la página esté de noche: declara el esquema claro para su selector', () => {
+    render(<LecturaOpiniones filtros={{}} />);
+    expect(screen.getByRole('region', { name: 'Acuerdos y diferencias' })).toHaveClass(
+      '[color-scheme:light]',
+      'accent-violeta',
+    );
+  });
   it('permite seleccionar otra conversación sin mezclar matrices', () => {
     render(<LecturaOpiniones filtros={{}} />);
     fireEvent.change(screen.getByRole('combobox'), { target: { value: 'f2' } });

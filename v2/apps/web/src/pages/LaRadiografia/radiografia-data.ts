@@ -7,6 +7,7 @@ import {
   GRIS_DEL_TEMA,
   type TemaDelMapa,
 } from '~/components/mapa/pintor-senales';
+import { REGISTRO_DE_NOCHE } from '~/components/papel/esquema';
 import { CLASE_ROTULO, cuantos } from '~/lib/vocabulario';
 
 /**
@@ -174,8 +175,7 @@ const CLAVE_DE_TEMA = 'basta_radiografia_tema';
  * oscuros sobre este fondo: el papel que lo rodea declara `light`. El acento es el
  * violeta claro, el único que se distingue sobre este fondo.
  */
-export const CLASES_DE_NOCHE =
-  'bg-oscuro-barra text-oscuro-texto accent-violeta-claro [color-scheme:dark]';
+export const CLASES_DE_NOCHE = `bg-oscuro-barra text-oscuro-texto ${REGISTRO_DE_NOCHE}`;
 
 export function leerTema(): Tema {
   try {

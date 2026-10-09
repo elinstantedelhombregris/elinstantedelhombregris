@@ -5,9 +5,11 @@ import { porcentajeDe, RESPUESTAS_MINIMAS_PARA_DECIMALES } from '../radiografia-
 
 import { BarrasOpiniones } from './BarrasOpiniones';
 
+import { ISLA_DE_PAPEL } from '~/components/papel/esquema';
 import { CAMPO } from '~/components/participacion/constantes';
 import { useFichas } from '~/lib/queries/fichas';
 import { useDisenoFicha } from '~/lib/queries/participacion';
+import { cn } from '~/lib/utils';
 import { cuantos } from '~/lib/vocabulario';
 
 export function LecturaOpiniones({ filtros }: { filtros: Record<string, string> }) {
@@ -23,7 +25,7 @@ export function LecturaOpiniones({ filtros }: { filtros: Record<string, string> 
     <section
       id="acuerdos"
       aria-labelledby="lectura-opiniones"
-      className="bg-papel text-tinta mt-12 border p-6"
+      className={cn('bg-papel text-tinta mt-12 border p-6', ISLA_DE_PAPEL)}
     >
       <h2 id="lectura-opiniones" className="font-anton text-4xl">
         Acuerdos y diferencias

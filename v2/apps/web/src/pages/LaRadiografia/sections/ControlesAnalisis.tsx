@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 
 import { BusquedaTerritorial } from '../../ElMapa/instrumento/BusquedaTerritorial';
 
+import { ISLA_DE_PAPEL } from '~/components/papel/esquema';
 import { CompartirProceso } from '~/components/participacion/CompartirProceso';
 import { CAMPO } from '~/components/participacion/constantes';
 import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
@@ -10,6 +11,7 @@ import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
 import { useAuth } from '~/lib/auth/use-auth';
 import { hrefIngresar } from '~/lib/auth/volver';
 import { useCampanas, useOperacionPersonal } from '~/lib/queries/participacion';
+import { cn } from '~/lib/utils';
 
 export function ControlesAnalisis({
   filtros,
@@ -35,7 +37,7 @@ export function ControlesAnalisis({
   };
   return (
     <section
-      className="bg-papel-crudo text-tinta mb-7 border p-5"
+      className={cn('bg-papel-crudo text-tinta mb-7 border p-5', ISLA_DE_PAPEL)}
       aria-label="Elegir el alcance del análisis"
     >
       <div className="grid gap-5 md:grid-cols-2">
