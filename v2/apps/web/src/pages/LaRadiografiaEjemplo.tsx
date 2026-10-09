@@ -109,7 +109,10 @@ export function LaRadiografiaEjemplo() {
               aria-label="Laboratorio: las mismas frases, escritas de tres maneras"
               className="font-anton riso-hover mb-3 text-[clamp(36px,4vw,60px)] leading-[1]"
             >
-              <RitoTinta lineas={['Laboratorio: las mismas frases,', 'escritas de tres maneras']} />
+              <RitoTinta
+                lineas={['Laboratorio: las mismas frases,', 'escritas de tres maneras']}
+                tono={nocturno ? 'claro' : 'tinta'}
+              />
             </h1>
             <p
               className={`max-w-[900px] text-pretty text-[16px] leading-[1.5] ${
