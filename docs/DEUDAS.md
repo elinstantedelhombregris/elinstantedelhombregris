@@ -139,6 +139,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-123](#d-123--mi-perfil-sigue-con-la-plantilla-vieja) | Mi perfil sigue con la plantilla vieja | Baja | Abierta |
 | [D-124](#d-124--el-sello-de-los-ejemplos-del-mandato-se-lee-poco-de-noche) | El sello de los ejemplos del Mandato se lee poco de noche | Baja | Abierta |
 | [D-125](#d-125--la-campaña-de-ejemplo-cuenta-aportes-sintéticos-como-publicados) | La campaña de ejemplo cuenta aportes sintéticos como publicados | Baja | Abierta |
+| [D-126](#d-126--cualquier-escritura-en-las-fuentes-invalida-los-archivos-de-exportación-en-preparación) | Cualquier escritura en las fuentes invalida los archivos de exportación en preparación | Media | Abierta |
+| [D-127](#d-127--las-pruebas-de-la-siembra-nacional-se-rompen-el-1-de-marzo-de-2027) | Las pruebas de la siembra nacional se rompen el 1 de marzo de 2027 | Media | Abierta |
 
 ---
 
@@ -2091,3 +2093,25 @@ El sello rojo que marca un ejemplo mide entre 3,07:1 y 3,48:1 de contraste sobre
 En la demo local, la campaña de ejemplo dice «3 aportes publicados» al lado de «sin participantes». Los tres son sintéticos. Solo pasa en bases locales de demostración, pero confunde a quien revisa el sitio con esos datos.
 
 **Qué haría falta:** que el conteo excluya los aportes marcados como demostración, o que la demo lo diga junto al número.
+
+### D-126 · Cualquier escritura en las fuentes invalida los archivos de exportación en preparación
+
+**Dónde:** `v2/packages/db/migrations/0030_exportaciones_durables.sql` (disparadores sobre `senales`, `contribuciones`, `campanas`, `fichas_futuro`), `v2/packages/db/src/repositories/exportaciones.ts` (`vigencia`)
+**Encontrada:** 2026-10-09, al investigar el CI rojo del despliegue del pulido de Argentina ideal (corrida 38004196171)
+**Severidad:** media
+**Estado:** abierta
+
+Un archivo de descarga se arma por tramos. Para no mezclar datos viejos con nuevos, cada `UPDATE` o `DELETE` sobre las cuatro tablas fuente sube un número de revisión, y todo archivo que se estaba preparando pasa a «fallido» con el motivo «Cambió una fuente o su permiso». El disparador es por sentencia, así que también lo sube un borrado que no borra nada. Con poca actividad no se nota. Con gente corrigiendo o retirando aportes mientras otra persona descarga, los archivos grandes pueden no terminar nunca. En las pruebas apareció así: una suite que borraba campañas hizo fallar la descarga de otra.
+
+**Qué haría falta:** subir la revisión solo cuando la sentencia toca filas (`REFERENCING OLD TABLE` y contar), y considerar que el archivo se arme sobre una foto consistente en lugar de invalidarse.
+
+### D-127 · Las pruebas de la siembra nacional se rompen el 1 de marzo de 2027
+
+**Dónde:** `v2/packages/db/scripts/campana-nacional/contrato.ts` (`CIERRE_RECEPCION = '2027-02-28'`), `v2/packages/db/tests/seed-campana-nacional.test.ts`
+**Encontrada:** 2026-10-09, al investigar el CI rojo del despliegue del pulido de Argentina ideal (corrida 38004196171)
+**Severidad:** media
+**Estado:** abierta
+
+La siembra se niega a crear la campaña si la fecha de hoy es posterior al cierre de recepción de la edición 1, y eso está bien. Pero las pruebas que lanzan el script usan el reloj real y esperan que termine sin error, así que desde el 1/3/2027 fallan y ponen el CI en rojo sin que nadie haya cambiado nada.
+
+**Qué haría falta:** que el script acepte una fecha de referencia para las pruebas (o que las pruebas fijen el reloj), y preparar antes de esa fecha cómo se abre la edición 2.
