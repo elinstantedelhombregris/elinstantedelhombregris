@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import type { TipoSenal } from '~/components/papel/primitives';
 
@@ -112,26 +112,4 @@ export interface VozSoltada {
   /** Qué se retiró de la dirección y por qué. */
   direccionRetirada?: string | null;
   avisos?: readonly string[];
-}
-
-/**
- * La conversión primaria del sitio. Endpoint anónimo (CSRF allow-listed,
- * rate limit del server como techo). Al 201 invalida open-data (puntos,
- * clusters, feed) y analytics (cifra de portada + contador FOMO del header):
- * toda la página confirma que la voz quedó.
- */
-export function useSoltarVoz() {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: (input: SoltarVozInput) => api.post<VozSoltada>('/api/v1/civic/senales', input),
-    onSuccess: async () => {
-      await Promise.all([
-        queryClient.invalidateQueries({ queryKey: ['open-data'] }),
-        queryClient.invalidateQueries({ queryKey: ['analytics'] }),
-        queryClient.invalidateQueries({ queryKey: ['senales'] }),
-        queryClient.invalidateQueries({ queryKey: ['civic-map'] }),
-        queryClient.invalidateQueries({ queryKey: ['mandato'] }),
-      ]);
-    },
-  });
 }

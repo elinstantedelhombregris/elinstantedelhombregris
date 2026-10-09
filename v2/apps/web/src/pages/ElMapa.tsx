@@ -12,14 +12,16 @@ import type { LugarMapa } from './ElMapa/instrumento/BusquedaTerritorial';
 import type { ModoAporte } from './ElMapa/sections/ParticiparEnMapa';
 
 import { api } from '~/lib/api';
+import { leerPedidoAportar } from '~/lib/participacion/aportar';
 
 export function ElMapa() {
   const [contexto, setContexto] = useState<LugarMapa | null>(null);
   const search = useSearch();
-  const pedido = new URLSearchParams(search).get('participar');
-  const [modoAporte, setModoAporte] = useState<ModoAporte>(pedido === 'voz' ? 'voz' : 'imaginar');
+  // `participar=aportar|directo` (y sus alias) o el ancla `#aportar` abren el panel.
+  const pedido = leerPedidoAportar(search).modo;
+  const [modoAporte, setModoAporte] = useState<ModoAporte>(pedido ?? 'guiado');
   const [participando, setParticipando] = useState(
-    pedido === 'imaginar' || pedido === 'voz' || window.location.hash === '#aportar',
+    pedido !== null || window.location.hash === '#aportar',
   );
   const [visitado, setVisitado] = useState(participando);
   const territorio = Number(new URLSearchParams(search).get('lugar'));
@@ -37,21 +39,35 @@ export function ElMapa() {
     setParticipando(true);
   };
   useEffect(() => {
-    if (pedido === 'imaginar' || pedido === 'voz') {
+    if (pedido) {
       setModoAporte(pedido);
       setVisitado(true);
       setParticipando(true);
     }
   }, [pedido]);
   useEffect(() => {
+    // El ancla `#aportar` (p. ej. la invitación del mapa vacío) abre las tres preguntas.
     const alAncla = () => {
-      if (window.location.hash === '#aportar') abrir(contexto);
+      if (window.location.hash !== '#aportar') return;
+      setModoAporte('guiado');
+      abrir(contexto);
     };
     window.addEventListener('hashchange', alAncla);
     return () => {
       window.removeEventListener('hashchange', alAncla);
     };
   }, [contexto]);
+  /** Cambiar de camino deja el enlace diciendo en cuál se está: se puede compartir o recargar. */
+  const cambiarModo = (modo: ModoAporte) => {
+    setModoAporte(modo);
+    const q = new URLSearchParams(window.location.search);
+    q.set('participar', modo === 'directo' ? 'directo' : 'aportar');
+    window.history.replaceState(
+      null,
+      '',
+      `${window.location.pathname}?${q}${window.location.hash}`,
+    );
+  };
   const cerrar = () => {
     setParticipando(false);
     const q = new URLSearchParams(window.location.search);
@@ -68,19 +84,15 @@ export function ElMapa() {
         participando={participando}
         participacion={
           visitado ? (
-            lugar.isLoading ? (
-              <p role="status" className="bg-papel text-tinta p-5">
-                Buscando el territorio de tu conversación…
-              </p>
-            ) : (
-              <ParticiparEnMapa
-                modo={modoAporte}
-                cambiar={setModoAporte}
-                lugar={contexto ?? lugar.data ?? null}
-                visible={participando}
-                cerrar={cerrar}
-              />
-            )
+            // El panel no se desmonta mientras carga el lugar: lo escrito se perdería.
+            <ParticiparEnMapa
+              modo={modoAporte}
+              cambiar={cambiarModo}
+              lugar={contexto ?? lugar.data ?? null}
+              cargandoLugar={lugar.isLoading}
+              visible={participando}
+              cerrar={cerrar}
+            />
           ) : null
         }
       />

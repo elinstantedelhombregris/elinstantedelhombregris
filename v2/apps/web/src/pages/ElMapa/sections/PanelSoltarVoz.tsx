@@ -1,6 +1,7 @@
 import { declaracionDeliberacionDe } from '@v2/shared';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 
+import { FraseCampana } from '../../Imaginar/FraseCampana';
 import { PLACEHOLDER_NEUTRO, PLACEHOLDER_TIPO } from '../el-mapa-data';
 
 import { SelectorPrecision, type PrecisionElegida } from './SelectorPrecision';
@@ -9,32 +10,57 @@ import { ConsentimientoVoz } from './soltar/ConsentimientoVoz';
 import { PreguntaDeLaCasa } from './soltar/PreguntaDeLaCasa';
 import { SelectorDeTipo } from './soltar/SelectorDeTipo';
 
+import type { CampanaDeAporte } from '../../Imaginar/FraseCampana';
 import type { LugarMapa } from '../instrumento/BusquedaTerritorial';
 import type { RespuestaDeVivienda } from '@v2/civic-core';
 
-import { BotonPapel, Sello } from '~/components/papel/primitives';
-import { ApiError } from '~/lib/api';
+import { Sello } from '~/components/papel/primitives';
+import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { despertar } from '~/lib/despertar';
-import { useProvincias, useSoltarVoz, type SoltarVozInput, type VozSoltada } from '~/lib/queries/open-data';
+import { useProvincias, type SoltarVozInput, type VozSoltada } from '~/lib/queries/open-data';
 import { claseDe, type TipoSenal } from '~/lib/vocabulario';
 
 export interface PublicacionVoz {
-  enviar: (input: SoltarVozInput, onSuccess: (respuesta: VozSoltada) => void) => void;
+  /** `campana` es aquella en la que entró el aporte, o `null` si entró sin campaña. */
+  enviar: (
+    input: SoltarVozInput,
+    onSuccess: (respuesta: VozSoltada, campana: CampanaDeAporte | null) => void,
+  ) => void;
   pendiente: boolean;
   error: string | null;
+  /** Por qué la campaña no recibe el aporte ahora; bloquea el botón y lo explica. */
+  bloqueo?: string | null;
 }
 
-/** El formulario y recibo son comunes; el instrumento puede aportar el contexto de campaña. */
-export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa | null; publicacion?: PublicacionVoz }) {
+/**
+ * El aporte puntual: nueve tipos, lugar y precisión. La publicación (campaña,
+ * cuenta, reintentos) la resuelve quien lo monta; acá viven el formulario y el
+ * recibo. El lugar sigue al que se mira en el mapa.
+ */
+export function PanelSoltarVoz({
+  contexto,
+  publicacion,
+}: {
+  contexto?: LugarMapa | null;
+  publicacion: PublicacionVoz;
+}) {
   const [localidad, setLocalidad] = useState<LugarMapa | null>(null);
   const [tipo, setTipo] = useState<TipoSenal | null>(null);
   const [texto, setTexto] = useState('');
   const [provinciaId, setProvinciaId] = useState('');
+  // Cuando el mapa pasa a otro lugar —o a ninguno—, el formulario lo toma. Se
+  // mira el id y no el objeto: el mismo lugar llega dos veces con identidades
+  // distintas, y un lugar que la persona eligió a mano no se pisa por eso.
+  const lugarAplicado = useRef<number | null>(null);
   useEffect(() => {
-    if (!contexto) return;
-    setProvinciaId(String(contexto.provinceId));
+    const id = contexto?.id ?? null;
+    if (id === lugarAplicado.current) return;
+    lugarAplicado.current = id;
+    setProvinciaId(contexto ? String(contexto.provinceId) : '');
     setLocalidad(
-      contexto.level === 'locality' || contexto.level === 'settlement' ? contexto : null,
+      contexto && (contexto.level === 'locality' || contexto.level === 'settlement')
+        ? contexto
+        : null,
     );
   }, [contexto]);
   const [casa, setCasa] = useState<RespuestaDeVivienda>('sinRespuesta');
@@ -55,9 +81,9 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
   });
   const [recibida, setRecibida] = useState<string | null>(null);
   const [engrosado, setEngrosado] = useState<string | null>(null);
+  const [campanaRecibida, setCampanaRecibida] = useState<CampanaDeAporte | null>(null);
   const provincias = useProvincias();
-  const soltar = useSoltarVoz();
-  const pendiente = publicacion?.pendiente ?? soltar.isPending;
+  const pendiente = publicacion.pendiente;
 
   const cambiarExtra = (campo: string, valor: string) => {
     setExtra((p) => ({ ...p, [campo]: valor }));
@@ -75,10 +101,12 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
   if (tipo === 'práctica' && extra.periodicidad === '') falta.push('decí cada cuánto');
 
   const valido = falta.length === 0;
+  const bloqueo = publicacion.bloqueo ?? null;
+  const motivo = valido ? bloqueo : `Falta: ${falta.join(' · ')}.`;
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (tipo === null || !valido || pendiente) return;
+    if (tipo === null || !valido || pendiente || bloqueo) return;
 
     const input: SoltarVozInput = {
       contrato: 'basta-senal/v1',
@@ -105,15 +133,22 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
     if (intento.current?.cuerpo === cuerpo) input.idLocal = intento.current.id;
     else intento.current = { cuerpo, id: input.idLocal };
 
-    const confirmar = (respuesta: VozSoltada) => {
+    const confirmar = (respuesta: VozSoltada, campana: CampanaDeAporte | null) => {
       despertar();
       intento.current = null;
       setReciboId(respuesta.idPublico);
-      const nombre =
-        (provincias.data ?? []).find((p) => String(p.id) === provinciaId)?.name ?? '';
+      const nombre = (provincias.data ?? []).find((p) => String(p.id) === provinciaId)?.name ?? '';
       setRecibida(nombre);
       setEngrosado(respuesta.engrosado ?? respuesta.direccionRetirada ?? null);
+      setCampanaRecibida(campana);
+      // Lo que ya salió no se arrastra al aporte siguiente: ni el texto, ni el
+      // tipo, ni la respuesta sobre la casa, ni —sobre todo— los permisos. La
+      // publicación es irrevocable hacia atrás y no puede quedar tildada de antemano.
       setTexto('');
+      setTipo(null);
+      setCasa('sinRespuesta');
+      setPublicar(false);
+      setCede(false);
       setExtra({
         titulo: '',
         fuente: '',
@@ -123,27 +158,22 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
       });
       setUbicacion({ punto: null, precision: 'province' });
     };
-    if (publicacion) publicacion.enviar(input, confirmar);
-    else soltar.mutate(input, { onSuccess: confirmar });
+    publicacion.enviar(input, confirmar);
   };
 
-  const errorMensaje = publicacion ? publicacion.error : soltar.isError
-    ? soltar.error instanceof ApiError && soltar.error.code === 'RATE_LIMITED'
-      ? soltar.error.message
-      : 'Esto se rompió. Lo decimos porque publicamos todo. Probá de nuevo.'
-    : null;
+  const errorMensaje = publicacion.error;
 
   const deliberacion = tipo === null ? null : declaracionDeliberacionDe(tipo);
 
   return (
     <section aria-labelledby="soltar-titulo" className="border-tinta bg-papel border">
       <div className="border-tinta flex items-baseline justify-between gap-3 border-b px-[22px] py-4">
-        <h2
+        <h3
           id="soltar-titulo"
           className="font-space text-[11px] font-bold uppercase tracking-[0.14em]"
         >
-          Soltá tu voz
-        </h2>
+          Un aporte puntual
+        </h3>
         <span className="font-space text-violeta text-[11px] font-bold uppercase tracking-[0.14em]">
           A tu ritmo
         </span>
@@ -152,7 +182,7 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
         <SelectorDeTipo valor={tipo} onElegir={setTipo} />
 
         <label htmlFor="voz-texto" className="sr-only">
-          Tu voz
+          Tu aporte
         </label>
         <textarea
           id="voz-texto"
@@ -166,7 +196,7 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
           className="border-tinta bg-papel-crudo text-tinta placeholder:text-tinta-50 w-full resize-y border p-3.5 text-[15px] leading-normal"
         />
 
-        {/* La declaración de cada tipo conserva la diferencia entre voz y acuerdo. */}
+        {/* La declaración de cada tipo conserva la diferencia entre aporte y acuerdo. */}
         {deliberacion === null ? null : (
           <p className="border-violeta/40 text-tinta-75 mt-2.5 border-l-2 py-1 pl-3 text-[13px] leading-relaxed">
             {deliberacion}
@@ -201,7 +231,7 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
             }}
             className="border-tinta bg-papel-crudo text-tinta font-space w-full appearance-none border p-3.5 text-[13px]"
           >
-            <option value="">Toda la Argentina</option>
+            <option value="">Todo el país</option>
             {(provincias.data ?? []).map((p) => (
               <option key={p.id} value={p.id}>
                 {p.name}
@@ -216,7 +246,7 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
           </span>
         </div>
         <p className="font-archivo text-tinta-75 mt-1.5 text-[13px] leading-snug">
-          Sin provincia tu voz cuenta igual, pero no cae en el mapa.
+          Sin provincia tu aporte cuenta igual, pero no cae en el mapa.
         </p>
 
         {localidad ? (
@@ -244,20 +274,11 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
           setCede={setCede}
         />
 
-        <BotonPapel
-          type="submit"
-          variant="violeta"
-          loading={pendiente}
-          disabled={!valido}
-          className="mt-3.5 w-full"
-        >
-          Soltar la voz →
-        </BotonPapel>
-
-        {/* Explicación del estado del botón antes del envío. */}
-        {valido || falta.length === 0 ? null : (
-          <p className="font-space text-tinta-50 mt-2 text-[11px]">Falta: {falta.join(' · ')}.</p>
-        )}
+        <div className="mt-3.5 flex flex-wrap gap-2">
+          <BotonConMotivo type="submit" motivo={motivo} ocupado={pendiente} className="w-full">
+            {pendiente ? 'Publicando tu aporte…' : 'Publicar mi aporte →'}
+          </BotonConMotivo>
+        </div>
 
         {errorMensaje ? (
           <p role="alert" className="font-space text-sello mt-3 text-[11px]">
@@ -265,31 +286,32 @@ export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa
           </p>
         ) : null}
 
-        {reciboId ? (
-          <a className="mt-4 block min-h-11 underline" href={`/senal/${reciboId}`}>
-            Ver mi voz y cómo sigue →
-          </a>
-        ) : null}
-        {recibida !== null ? (
+        {reciboId && recibida !== null ? (
           <div role="status" className="mt-4 flex flex-wrap items-center gap-3.5">
             <Sello
               color="verde"
               rotate={-6}
               className="border-2 px-[11px] py-[7px] text-[11px] tracking-[0.14em]"
             >
-              Recibida
+              Recibido
             </Sello>
-            <span className="font-space text-tinta-75 text-xs">
-              {recibida === ''
-                ? 'Tu voz quedó registrada. Ya cuenta con todas las demás.'
-                : `Tu voz cayó en ${recibida}. Desde su página la seguís o la retirás.`}
-            </span>
+            <div className="font-space text-tinta-75 min-w-0 flex-1 text-xs leading-relaxed">
+              <FraseCampana campana={campanaRecibida} />
+              <p className="mt-2">
+                {recibida === ''
+                  ? 'No indicaste una provincia, así que cuenta pero no aparece en un lugar del mapa.'
+                  : `Quedó en ${recibida}. Desde su página lo seguís o lo retirás.`}
+              </p>
+            </div>
             {/* El recibo explica los cambios de precisión autorizados. */}
             {engrosado !== null ? (
               <p className="font-space text-tinta-75 w-full text-[11px] leading-relaxed">
                 {engrosado}
               </p>
             ) : null}
+            <a className="block min-h-11 w-full underline" href={`/senal/${reciboId}`}>
+              Ver mi aporte y cómo sigue →
+            </a>
           </div>
         ) : null}
       </form>

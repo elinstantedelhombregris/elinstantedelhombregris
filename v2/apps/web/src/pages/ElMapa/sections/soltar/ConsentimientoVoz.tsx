@@ -26,7 +26,7 @@ export function ConsentimientoVoz({ publicar, cede, setPublicar, setCede }: Prop
           }}
           className="mt-1"
         />
-        <span>Quiero publicar esta voz. {TEXTO_PUBLICACION_IRREVOCABLE}</span>
+        <span>Quiero publicar este aporte. {TEXTO_PUBLICACION_IRREVOCABLE}</span>
       </label>
       <label className="mt-3 flex items-start gap-2.5" htmlFor={`${id}-cesion`}>
         <input
@@ -42,7 +42,7 @@ export function ConsentimientoVoz({ publicar, cede, setPublicar, setCede }: Prop
           Además, cedo el texto para que se pueda citar (opcional). {TEXTO_CESION_LICENCIA}
         </span>
       </label>
-      {!cede ? <p className="mt-2">Tu voz cuenta igual; el texto queda reservado.</p> : null}
+      {!cede ? <p className="mt-2">Tu aporte cuenta igual; el texto queda reservado.</p> : null}
     </div>
   );
 }

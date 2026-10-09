@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ElMapa } from '../ElMapa';
@@ -26,16 +26,37 @@ vi.mock('../ElMapa/sections/SeccionInstrumento', () => ({
           onAportar();
         }}
       >
-        Sumá tu mirada al mapa
+        Sumá tu aporte
       </button>
       <div hidden={!participando}>{participacion}</div>
     </section>
   ),
 }));
 vi.mock('../ElMapa/sections/ParticiparEnMapa', () => ({
-  ParticiparEnMapa: ({ cerrar }: { cerrar: () => void }) => (
-    <aside id="aportar" aria-label="Aportar desde el mapa">
-      <h2>Sumá tu mirada.</h2>
+  ParticiparEnMapa: ({
+    cerrar,
+    cambiar,
+    modo,
+    cargandoLugar,
+    lugar,
+  }: {
+    cerrar: () => void;
+    cambiar: (modo: 'guiado' | 'directo') => void;
+    modo: string;
+    cargandoLugar?: boolean;
+    lugar: { name: string } | null;
+  }) => (
+    <aside id="aportar" aria-label="Aportar desde el mapa" data-modo={modo}>
+      <h2>Sumá tu aporte.</h2>
+      <p>{cargandoLugar ? 'Buscando el lugar…' : (lugar?.name ?? 'Todo el país')}</p>
+      <button
+        type="button"
+        onClick={() => {
+          cambiar(modo === 'directo' ? 'guiado' : 'directo');
+        }}
+      >
+        Alternar camino
+      </button>
       <button type="button" onClick={cerrar}>
         Cerrar aporte y volver al mapa
       </button>
@@ -43,13 +64,9 @@ vi.mock('../ElMapa/sections/ParticiparEnMapa', () => ({
   ),
 }));
 
+import { api } from '~/lib/api';
 import { useVocesCount } from '~/lib/queries/analytics';
-import {
-  useProvincias,
-  useSoltarVoz,
-  useVocesAbiertas,
-  useVocesPorProvincia,
-} from '~/lib/queries/open-data';
+import { useProvincias, useVocesAbiertas, useVocesPorProvincia } from '~/lib/queries/open-data';
 import { useCola } from '~/lib/queries/senales';
 
 vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: vi.fn() }));
@@ -62,13 +79,14 @@ vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: vi.fn() }));
 vi.mock('~/lib/queries/senales', () => ({ useCola: vi.fn() }));
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: vi.fn(),
-  useSoltarVoz: vi.fn(),
   useVocesAbiertas: vi.fn(),
   useVocesPorProvincia: vi.fn(),
 }));
 
 vi.mock('~/lib/queries/participacion', () => ({ useCampanas: () => ({ data: [] }) }));
 vi.mock('~/lib/queries/fichas', () => ({ useFichas: () => ({ data: { fichas: [] } }) }));
+// Con un lugar elegido, «Futuros del territorio» ofrece seguirlo; acá no es lo que se prueba.
+vi.mock('~/components/participacion/Seguir', () => ({ Seguir: () => null }));
 const montar = () =>
   render(
     <QueryClientProvider client={new QueryClient()}>
@@ -104,12 +122,6 @@ describe('ElMapa (página papel 2.2)', () => {
       data: [],
       isLoading: false,
     } as unknown as ReturnType<typeof useVocesPorProvincia>);
-    vi.mocked(useSoltarVoz).mockReturnValue({
-      mutate: vi.fn(),
-      isPending: false,
-      isError: false,
-      error: null,
-    } as unknown as ReturnType<typeof useSoltarVoz>);
   });
 
   it('abre con una cabecera corta, sin cifra gigante (D-080)', () => {
@@ -135,7 +147,7 @@ describe('ElMapa (página papel 2.2)', () => {
     expect(
       screen.queryByRole('complementary', { name: 'Aportar desde el mapa' }),
     ).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'Sumá tu mirada al mapa' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Sumá tu aporte' }));
     const instrumento = screen.getByRole('region', { name: 'Instrumento territorial' });
     expect(
       within(instrumento).getByRole('complementary', { name: 'Aportar desde el mapa' }),
@@ -146,18 +158,96 @@ describe('ElMapa (página papel 2.2)', () => {
     expect(
       screen.queryByRole('complementary', { name: 'Aportar desde el mapa' }),
     ).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Sumá tu mirada al mapa' })).toHaveFocus();
+    expect(screen.getByRole('button', { name: 'Sumá tu aporte' })).toHaveFocus();
   });
 
-  it('la invitación idealizada abre el panel del mismo mapa desde un enlace público', () => {
-    window.history.replaceState(null, '', '/el-mapa?participar=imaginar#instrumento');
+  const panel = () => screen.queryByRole('complementary', { name: 'Aportar desde el mapa' });
+
+  it('abre con las tres preguntas cuando se pide desde un botón', () => {
+    montar();
+    fireEvent.click(screen.getByRole('button', { name: 'Sumá tu aporte' }));
+    expect(panel()).toHaveAttribute('data-modo', 'guiado');
+  });
+
+  it.each([
+    ['?participar=aportar#instrumento', 'guiado'],
+    ['?participar=imaginar#instrumento', 'guiado'],
+    ['?participar=guiado', 'guiado'],
+    ['?participar=directo', 'directo'],
+    ['?participar=voz', 'directo'],
+    ['#aportar', 'guiado'],
+  ])('el enlace %s abre el panel del mismo mapa en el camino «%s»', (enlace, modo) => {
+    window.history.replaceState(null, '', `/el-mapa${enlace}`);
     montar();
     expect(
       within(screen.getByRole('region', { name: 'Instrumento territorial' })).getByRole(
         'complementary',
         { name: 'Aportar desde el mapa' },
       ),
-    ).toBeInTheDocument();
+    ).toHaveAttribute('data-modo', modo);
+  });
+
+  it('el enlace sin pedido de aportar no abre el panel', () => {
+    window.history.replaceState(null, '', '/el-mapa?lente=mapa&participar=otra');
+    montar();
+    expect(panel()).not.toBeInTheDocument();
+  });
+
+  it('el ancla #aportar del mapa vacío abre las tres preguntas aunque el panel estuviera en el aporte puntual', () => {
+    window.history.replaceState(null, '', '/el-mapa?participar=directo');
+    montar();
+    expect(panel()).toHaveAttribute('data-modo', 'directo');
+    act(() => {
+      window.history.replaceState(null, '', '/el-mapa?participar=directo#aportar');
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+    });
+    expect(panel()).toHaveAttribute('data-modo', 'guiado');
+  });
+
+  it('cambiar de camino deja el enlace diciendo en cuál se está, y cerrar lo quita', () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/el-mapa?participar=aportar&campana=mi-campana#instrumento',
+    );
+    montar();
+    fireEvent.click(screen.getByRole('button', { name: 'Alternar camino' }));
+    expect(panel()).toHaveAttribute('data-modo', 'directo');
+    const q = new URLSearchParams(window.location.search);
+    expect(q.get('participar')).toBe('directo');
+    // Lo demás del enlace —la campaña— no se toca.
+    expect(q.get('campana')).toBe('mi-campana');
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar aporte y volver al mapa' }));
+    expect(new URLSearchParams(window.location.search).has('participar')).toBe(false);
+    expect(new URLSearchParams(window.location.search).get('campana')).toBe('mi-campana');
+  });
+
+  it('el panel no se desmonta mientras carga el lugar: lo dice en su línea del lugar', async () => {
+    let resolver: (lugar: unknown) => void = () => undefined;
+    vi.spyOn(api, 'get').mockImplementation(
+      () =>
+        new Promise((resolve) => {
+          resolver = resolve;
+        }),
+    );
+    window.history.replaceState(null, '', '/el-mapa?participar=aportar&lugar=14');
+    montar();
+    const aside = panel();
+    if (!aside) throw new Error('El panel tendría que estar abierto.');
+    expect(within(aside).getByText('Buscando el lugar…')).toBeInTheDocument();
+    act(() => {
+      resolver({
+        id: 14,
+        provinceId: 14,
+        name: 'Córdoba',
+        level: 'province',
+        latitude: null,
+        longitude: null,
+      });
+    });
+    expect(await within(aside).findByText('Córdoba')).toBeInTheDocument();
+    // El mismo nodo: no se volvió a montar, así que lo escrito adentro sigue ahí.
+    expect(panel()).toBe(aside);
   });
 
   it('el instrumento tiene su ancla profunda', () => {

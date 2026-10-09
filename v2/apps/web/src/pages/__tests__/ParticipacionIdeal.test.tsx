@@ -11,8 +11,8 @@ import { Afirmaciones } from '../Fichas/Afirmaciones';
 import { Alternativas } from '../Fichas/Alternativas';
 import { PanelDiseno } from '../Fichas/PanelDiseno';
 import { Pruebas } from '../Fichas/Pruebas';
-import { Imaginar } from '../Imaginar';
 import { Asistencia } from '../Imaginar/Asistencia';
+import { ConversacionIdeal } from '../Imaginar/ConversacionIdeal';
 import { Recibo } from '../Imaginar/Recibo';
 import { Revision } from '../Imaginar/Revision';
 import { ControlesAnalisis } from '../LaRadiografia/sections/ControlesAnalisis';
@@ -50,7 +50,9 @@ vi.mock('~/lib/queries/participacion', () => ({
   usePublicarAporte: () => ({ mutate: modelo.mutate, isPending: false }),
   useCampana: (id?: string, edicion?: number) => {
     modelo.parametrosCampana(id, edicion);
-    return { data: id ? modelo.campana : undefined };
+    // Como el servidor: la campaña responde por su id o por su slug; las demás, 404.
+    const encontrada = id && (id === modelo.campana?.id || id === modelo.campana?.slug);
+    return { data: encontrada ? modelo.campana : undefined };
   },
   useCampanas: () => ({ data: [] }),
   useMiEspacio: () => ({ data: { seguimientos: [] } }),
@@ -143,48 +145,53 @@ beforeEach(() => {
 describe('La persona conserva el control de su voz', () => {
   it('la conversación guiada conserva la edición del enlace del mapa al publicar', () => {
     modelo.campana = campana;
-    window.history.replaceState(null, '', `/el-mapa?campana=${id}&edicion=2&participar=imaginar`);
-    montar(<Imaginar />);
+    window.history.replaceState(null, '', `/el-mapa?campana=${id}&edicion=2&participar=aportar`);
+    montar(<ConversacionIdeal />);
     expect(modelo.parametrosCampana).toHaveBeenCalledWith(id, 2);
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Quiero aprender cerca.' } });
-    window.history.replaceState(null, '', '/el-mapa?participar=imaginar');
     fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
     fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
     fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    fireEvent.click(screen.getByLabelText('Esta frase refleja lo que quiero expresar.'));
-    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar esta voz/ }));
-    fireEvent.click(screen.getByRole('button', { name: 'Compartir mi Argentina ideal' }));
+    fireEvent.click(screen.getByLabelText('Este texto dice lo que quiero decir.'));
+    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar este aporte/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Publicar mi aporte' }));
     expect(modelo.mutate).toHaveBeenCalledWith(
       expect.objectContaining({ campanaId: id, edicion: 2 }),
+      expect.anything(),
     );
   });
-  it('una edición inválida no convierte la reflexión guiada en publicación nacional', () => {
-    window.history.replaceState(null, '', '/el-mapa?edicion=otra&participar=imaginar');
-    montar(<Imaginar />);
+  it('una edición inválida no convierte la conversación guiada en publicación nacional', () => {
+    window.history.replaceState(null, '', '/el-mapa?edicion=otra&participar=aportar');
+    montar(<ConversacionIdeal />);
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Quiero aprender cerca.' } });
     fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
     fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
     fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    fireEvent.click(screen.getByLabelText('Esta frase refleja lo que quiero expresar.'));
-    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar esta voz/ }));
-    expect(screen.getByRole('button', { name: 'Compartir mi Argentina ideal' })).toBeDisabled();
+    fireEvent.click(screen.getByLabelText('Este texto dice lo que quiero decir.'));
+    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar este aporte/ }));
+    const publicar = screen.getByRole('button', { name: 'Publicar mi aporte' });
+    expect(publicar).toHaveAttribute('aria-disabled', 'true');
+    expect(screen.getAllByText(/La edición del enlace no es válida/).length).toBeGreaterThan(0);
+    fireEvent.click(publicar);
     expect(modelo.mutate).not.toHaveBeenCalled();
-    expect(screen.getByLabelText('La voz que quiero compartir')).toHaveValue(
-      'Quiero aprender cerca.',
-    );
+    expect(screen.getByLabelText('Mi aporte')).toHaveValue('Quiero aprender cerca.');
   });
   it('Imaginar empieza sin cuenta, admite preguntas abiertas y no publica antes de revisión', () => {
-    montar(<Imaginar />);
+    montar(<ConversacionIdeal />);
     fireEvent.change(screen.getByRole('textbox'), {
       target: { value: 'No quiero renunciar a aprender cerca de quienes quiero.' },
     });
     fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
     fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
     fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    expect(screen.getByLabelText('La voz que quiero compartir')).toHaveValue(
+    expect(screen.getByLabelText('Mi aporte')).toHaveValue(
       'No quiero renunciar a aprender cerca de quienes quiero.',
     );
-    expect(screen.getByRole('button', { name: 'Compartir mi Argentina ideal' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Publicar mi aporte' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
+    expect(screen.getByText('Marcá las dos casillas para publicar.')).toBeInTheDocument();
     expect(modelo.mutate).not.toHaveBeenCalled();
   });
   it('la revisión exige fidelidad y permiso de publicación por separado', () => {
@@ -208,22 +215,37 @@ describe('La persona conserva el control de su voz', () => {
       enviando: false,
     };
     const r = montar(<Revision {...props} />);
-    expect(screen.getByRole('button', { name: 'Compartir mi Argentina ideal' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Publicar mi aporte' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
     r.rerender(
       <QueryClientProvider client={new QueryClient()}>
         <Revision {...props} confirmado />
       </QueryClientProvider>,
     );
-    expect(screen.getByRole('button', { name: 'Compartir mi Argentina ideal' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Publicar mi aporte' })).not.toHaveAttribute(
+      'aria-disabled',
+    );
   });
   it('la asistencia externa requiere autorización explícita', () => {
-    montar(<Asistencia texto="Quiero aprender cerca." proveedor="Groq" leer={vi.fn()} />);
+    montar(<Asistencia texto="Quiero aprender cerca." proveedor="Groq" usar={vi.fn()} />);
     const boton = screen.getByRole('button', { name: 'Pedir una lectura asistida' });
-    expect(boton).toBeDisabled();
+    expect(boton).toHaveAttribute('aria-disabled', 'true');
+    expect(screen.getByText('Marcá la casilla para autorizar el envío.')).toBeInTheDocument();
+    fireEvent.click(boton);
+    expect(modelo.mutate).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole('checkbox'));
     fireEvent.click(boton);
-    expect(modelo.mutate.mock.calls[0]?.[0]).toBe('Quiero aprender cerca.');
-    expect(modelo.mutate.mock.calls[0]?.[1]).toBeDefined();
+    expect(modelo.mutate).toHaveBeenCalledWith('Quiero aprender cerca.');
+    // Es un dato de infraestructura: no se le muestra a quien aporta.
+    expect(screen.queryByText(/Groq/)).not.toBeInTheDocument();
+  });
+  it('sin proveedor la asistencia no muestra nada', () => {
+    const { container } = montar(
+      <Asistencia texto="Quiero aprender cerca." proveedor={null} usar={vi.fn()} />,
+    );
+    expect(container).toBeEmptyDOMElement();
   });
   it('el recibo distingue reserva y recuperación sin exponer la cuenta', () => {
     montar(
@@ -236,7 +258,7 @@ describe('La persona conserva el control de su voz', () => {
           yaExistia: false,
           avisos: [],
         }}
-        campanaId={null}
+        campana={null}
         textoVisible={false}
       />,
     );

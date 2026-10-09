@@ -2,14 +2,19 @@ import { BusquedaTerritorial } from '../ElMapa/instrumento/BusquedaTerritorial';
 import { ConsentimientoVoz } from '../ElMapa/sections/soltar/ConsentimientoVoz';
 
 import type { LugarMapa } from '../ElMapa/instrumento/BusquedaTerritorial';
+import type { ReactNode } from 'react';
 
+import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { CAMPO } from '~/components/participacion/constantes';
 import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
+import { LIMITE_APORTE } from '~/lib/participacion/texto-aporte';
 
 interface Props {
   lectura: string;
   cambiar: (v: string) => void;
+  /** El texto se recortó para entrar en el límite. */
+  recortado?: boolean;
   tema: string;
   cambiarTema: (v: string) => void;
   lugar: LugarMapa | null;
@@ -25,24 +30,41 @@ interface Props {
   volver: () => void;
   enviar: () => void;
   enviando: boolean;
-  bloqueado?: boolean;
+  /** Por qué la campaña no recibe el aporte ahora, si no lo recibe. */
+  bloqueo?: string | null;
   error?: string;
+  /** A dónde va el aporte, justo antes de decidir publicarlo. */
+  destino?: ReactNode;
 }
+
+/** La razón visible por la que todavía no se puede publicar, o `null` si se puede. */
+function motivoDeBloqueo(p: Props): string | null {
+  if (p.bloqueo) return p.bloqueo;
+  if (!p.lectura.trim()) return 'Escribí al menos una frase para seguir.';
+  if (p.lectura.length > LIMITE_APORTE) return 'Acortá el texto para poder publicarlo.';
+  if (!p.confirmado || !p.publicar) return 'Marcá las dos casillas para publicar.';
+  return null;
+}
+
 export function Revision(props: Props) {
+  const exceso = props.lectura.length - LIMITE_APORTE;
   return (
     <section aria-labelledby="revision-titulo">
-      <h2 id="revision-titulo" className="font-anton text-4xl">
-        Que lo escrito siga siendo tuyo.
-      </h2>
-      <p className="mt-4 max-w-[650px] leading-relaxed">
-        Mirá la frase que va a entrar al registro. Cambiala hasta que diga lo que querés decir. La
-        compartimos como un sueño: una posibilidad que merece conversación.
+      <h3 id="revision-titulo" tabIndex={-1} data-foco-paso className="font-anton text-3xl">
+        Revisá lo que vas a compartir
+      </h3>
+      <p className="mt-3 max-w-[650px] leading-relaxed">
+        Esto es lo que se va a publicar. Podés cambiarlo o recortarlo.
       </p>
+      {props.recortado ? (
+        <p role="status" className="text-violeta mt-2 text-sm">
+          Lo recortamos para que entre: revisalo.
+        </p>
+      ) : null}
       <label className="mt-5 block font-medium">
-        La voz que quiero compartir
+        Mi aporte
         <textarea
           rows={5}
-          maxLength={2000}
           className={CAMPO}
           value={props.lectura}
           onChange={(e) => {
@@ -51,10 +73,10 @@ export function Revision(props: Props) {
         />
       </label>
       <p className="text-tinta-50 mt-2 text-sm">
-        {props.lectura.length} de 2000 caracteres.{' '}
-        {props.lectura.length > 2000
-          ? 'Elegí qué querés compartir en esta frase. El relato original sigue con vos.'
-          : ''}
+        {props.lectura.length} de {LIMITE_APORTE} caracteres.
+        {exceso > 0 ? (
+          <strong className="text-sello ml-1">Te pasás por {exceso} caracteres.</strong>
+        ) : null}
       </p>
       <TemaDelAporte valor={props.tema} cambiar={props.cambiarTema} />
       <label className="mt-5 flex items-start gap-3">
@@ -66,7 +88,7 @@ export function Revision(props: Props) {
           }}
           className="mt-1"
         />
-        <span>Esta frase refleja lo que quiero expresar.</span>
+        <span>Este texto dice lo que quiero decir.</span>
       </label>
       <label className="mt-4 flex items-start gap-3">
         <input
@@ -77,17 +99,17 @@ export function Revision(props: Props) {
           }}
           className="mt-1"
         />
-        <span>
-          Quiero compartir también las respuestas que escribí como origen de esta frase. Si no cedo
-          el texto, también quedan reservadas.
-        </span>
+        <span>Compartir también mis tres respuestas, para que se vea de dónde salió.</span>
       </label>
-      <div className="mt-6 border p-4">
+      <p className="text-tinta-50 ml-7 mt-1 text-sm">
+        Si no cedés el texto, esas respuestas también quedan reservadas.
+      </p>
+      <div className="border-tinta mt-6 border p-4">
         <p className="mb-3">
-          Ámbito elegido: <strong>{props.lugar?.name ?? 'Argentina'}</strong>. Podés hablar de todo
-          el país o de un lugar concreto.
+          Lugar: <strong>{props.lugar?.name ?? 'todo el país'}</strong>. Podés hablar de todo el
+          país o de un lugar concreto.
         </p>
-        <BusquedaTerritorial onElegir={props.elegirLugar} rotulo="Ubicación de mi aporte" />
+        <BusquedaTerritorial onElegir={props.elegirLugar} rotulo="Buscá el lugar de tu aporte" />
         {props.lugar ? (
           <button
             type="button"
@@ -96,10 +118,11 @@ export function Revision(props: Props) {
               props.elegirLugar(null);
             }}
           >
-            Usar alcance nacional
+            Usar todo el país
           </button>
         ) : null}
       </div>
+      {props.destino}
       <ConsentimientoVoz
         publicar={props.publicar}
         cede={props.cede}
@@ -107,27 +130,22 @@ export function Revision(props: Props) {
         setCede={props.setCede}
       />
       <Nota>
-        Tu cuenta, si ingresaste, permite recuperar y gestionar el aporte. No publica tu nombre ni
-        cambia tu firma. Una voz merece poder volver a sus manos.
+        Si ingresaste, el aporte queda en tu cuenta y lo podés editar o retirar desde Mi espacio. Tu
+        nombre no se publica.
       </Nota>
       <ErrorOperacion mensaje={props.error} />
-      <div className="flex flex-wrap gap-3">
-        <BotonAccion tono="papel" onClick={props.volver}>
-          Volver a mi reflexión
+      <div className="flex flex-wrap items-center gap-3">
+        <BotonAccion type="button" tono="papel" onClick={props.volver}>
+          Volver a mis respuestas
         </BotonAccion>
-        <BotonAccion
-          disabled={
-            !props.publicar ||
-            !props.confirmado ||
-            !props.lectura.trim() ||
-            props.lectura.length > 2000 ||
-            props.enviando ||
-            props.bloqueado
-          }
+        <BotonConMotivo
+          type="button"
+          motivo={motivoDeBloqueo(props)}
+          ocupado={props.enviando}
           onClick={props.enviar}
         >
-          {props.enviando ? 'Guardando tu voz…' : 'Compartir mi Argentina ideal'}
-        </BotonAccion>
+          {props.enviando ? 'Publicando tu aporte…' : 'Publicar mi aporte'}
+        </BotonConMotivo>
       </div>
     </section>
   );
