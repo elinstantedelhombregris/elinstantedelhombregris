@@ -275,7 +275,7 @@ describe('La persona conserva el control de su voz', () => {
   it('seguir es una preferencia y la escritura no contiene voto ni apoyo', () => {
     modelo.user = { id: 1 };
     montar(<Seguir tipo="campana" objeto={id} />);
-    fireEvent.click(screen.getByRole('button', { name: 'Seguir este proceso' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir esta campaña' }));
     expect(modelo.mutate).toHaveBeenCalledWith({
       metodo: 'post',
       ruta: '/api/v1/mi-espacio/seguimientos',

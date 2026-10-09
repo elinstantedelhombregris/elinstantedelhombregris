@@ -7,9 +7,9 @@ export function CompartirProceso({ href, titulo }: { href: string; titulo: strin
     const url = new URL(href, window.location.origin).toString();
     try {
       await navigator.clipboard.writeText(url);
-      setEstado('Enlace copiado. La pregunta puede llegar a otras voces.');
+      setEstado('Enlace copiado.');
     } catch {
-      setEstado('Copiá este enlace: ' + url);
+      setEstado('No pudimos copiarlo solo. Copiá este enlace: ' + url);
     }
   };
   return (
