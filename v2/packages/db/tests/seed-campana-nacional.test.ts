@@ -280,6 +280,13 @@ dsuite('el script seed-campana-nacional', () => {
   const db: Db = drizzle(neon(url ?? ''), { schema });
   const marca = randomUUID();
   const claveFalsa = `clave-${marca}`;
+  // Un rol propio de la corrida, con `claveFalsa` de clave de verdad. Si la
+  // prueba le pusiera esa clave al usuario de `DATABASE_URL_DESCARTABLE`, el
+  // script sólo conectaría contra un servidor que no mira la clave (el
+  // `--auth=trust` de `integracion-local.sh`); el Postgres del CI sí la mira y
+  // el script salía con «password authentication failed». Así la clave que no
+  // tiene que filtrarse es la que el servidor exige en las dos configuraciones.
+  const rol = `camp_nac_cli_${marca.replaceAll('-', '')}`;
   const usuarios: number[] = [];
   let urlConClave = '';
   let duenio = '';
@@ -301,7 +308,12 @@ dsuite('el script seed-campana-nacional', () => {
       sql`select count(*)::int n from campanas where slug = ${SLUG_CAMPANA_NACIONAL}`,
     );
     slugTomado = (previa.rows[0]?.n ?? 0) > 0;
+    // `marca` es un UUID: ni el rol ni la clave llevan nada que haya que escapar.
+    await db.execute(sql.raw(`create role "${rol}" login password '${claveFalsa}'`));
+    await db.execute(sql.raw(`grant all privileges on all tables in schema public to "${rol}"`));
+    await db.execute(sql.raw(`grant all privileges on all sequences in schema public to "${rol}"`));
     const base = new URL(url ?? '');
+    base.username = rol;
     base.password = claveFalsa;
     urlConClave = base.href;
     for (const sufijo of ['duenio', 'ajeno']) {
@@ -320,6 +332,11 @@ dsuite('el script seed-campana-nacional', () => {
     for (const id of usuarios) {
       await db.execute(sql`delete from campanas where slug = ${SLUG_CAMPANA_NACIONAL} and creador_id = ${id}`);
       await db.execute(sql`delete from users where id = ${id}`);
+    }
+    const rolCreado = await db.execute(sql`select 1 from pg_roles where rolname = ${rol}`);
+    if (rolCreado.rows.length > 0) {
+      await db.execute(sql.raw(`drop owned by "${rol}"`));
+      await db.execute(sql.raw(`drop role "${rol}"`));
     }
   });
 
@@ -343,7 +360,8 @@ dsuite('el script seed-campana-nacional', () => {
     if (slugTomado) ctx.skip();
     const r = correr(`--url=${urlConClave}`, `--owner-username=${duenio}`);
     expect(r.codigo).toBe(0);
-    expect(r.salida).toContain('127.0.0.1');
+    // El host de la base de la corrida: `127.0.0.1` en local, `localhost` en el CI.
+    expect(r.salida).toContain(new URL(url ?? '').hostname);
     expect(r.salida).toContain(duenio);
     expect(r.salida).toContain('en seco');
     expect(r.salida).toContain('"responsable": "Juan Bravin"');
