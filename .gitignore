@@ -85,3 +85,4 @@ __pycache__/
 /ASCII-Video-*/
 /v2/content-txt/**/*.mp4
 /v2/content-txt/**/*.mov
+.worktrees/
