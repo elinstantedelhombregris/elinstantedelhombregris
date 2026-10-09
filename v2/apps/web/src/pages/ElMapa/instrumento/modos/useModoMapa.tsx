@@ -159,7 +159,7 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
 
     panel: (
       <>
-        <Control etiqueta="Clase de aporte">
+        <Control etiqueta="Qué aportes ver">
           <FiltroClases activos={clasesActivas} onAlternar={alternarClase} />
         </Control>
 

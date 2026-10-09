@@ -261,7 +261,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
           />
         </Control>
 
-        <Control etiqueta="Clase de aporte">
+        <Control etiqueta="Qué aportes ver">
           <FiltroClases activos={clases} onAlternar={alternarClase} />
           <p className="text-oscuro-meta mt-2 text-[11px]">
             En esta página: {cuantos(filtradas.length, 'aporte', 'aportes')} con estos filtros. Los
