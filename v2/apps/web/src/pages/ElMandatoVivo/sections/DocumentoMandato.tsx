@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { UMBRAL_PORCENTAJE } from '../mandato-regimen';
-
 import { DocumentoSecciones } from './DocumentoSecciones';
 
 import { BotonPapel, Sello } from '~/components/papel/primitives';
 import { useMandatoDocumento } from '~/lib/queries/mandato';
 
-const ENCABEZADO_SECCION = 'El documento completo · la revisión vigente';
+const ENCABEZADO_SECCION = 'Consulta de señales · lectura agregada';
 
 /** §4 de la spec — el documento papel sobre oscuro (única sombra del sistema). */
 export function DocumentoMandato() {
@@ -75,7 +73,6 @@ export function DocumentoMandato() {
 
   const data = documento.data;
   if (!data) return null;
-  const esEjemplo = data.voces.total < UMBRAL_PORCENTAJE;
   const fecha = new Date(data.generadoEl).toLocaleDateString('es-AR', {
     day: '2-digit',
     month: 'long',
@@ -92,13 +89,9 @@ export function DocumentoMandato() {
       </h2>
 
       <div className="bg-papel text-tinta relative p-[52px_56px] shadow-[0_24px_60px_rgba(0,0,0,0.45)] max-[560px]:p-6">
-        {esEjemplo ? (
-          <div className="absolute right-9 top-[30px] max-[560px]:static max-[560px]:mb-4">
-            <Sello color="rojo" rotate={6}>
-              Ejemplo
-            </Sello>
-          </div>
-        ) : null}
+        <div className="absolute right-9 top-[30px] max-[560px]:static max-[560px]:mb-4">
+          <Sello color="rojo" rotate={6}>Registro</Sello>
+        </div>
 
         <p className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.12em]">
           Revisión continua · {fecha} ·{' '}
@@ -110,14 +103,13 @@ export function DocumentoMandato() {
           id="documento-titulo"
           className="font-anton mt-2 text-[clamp(30px,4.4vw,52px)] leading-none"
         >
-          Mandato ciudadano — Argentina
+          Registro de señales — Argentina
         </h2>
-        {esEjemplo ? (
-          <p className="font-space text-tinta-50 mt-3 text-[11px] uppercase tracking-[0.12em]">
-            Con {data.voces.total.toLocaleString('es-AR')} voces esto es el formato del mandato, no
-            el mandato. El de verdad se escribe con la tuya.
-          </p>
-        ) : null}
+        <p className="text-tinta-50 mt-3 text-sm leading-relaxed">
+          Conservamos la forma del documento anterior, con señales y permisos actuales. Sus conteos no incluyen los
+          resultados de deliberación o pruebas que se leen arriba en cada proceso. Ningún volumen
+          de señales convierte esta consulta en un acuerdo ni en representación nacional.
+        </p>
 
         <div className="border-tinta mt-8 border-t-2 pt-6">
           <p className="font-space text-violeta mb-3 text-[11px] font-bold uppercase tracking-[0.12em]">

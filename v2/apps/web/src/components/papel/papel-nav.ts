@@ -14,10 +14,10 @@ export interface PapelNavItem {
 
 export const PAPEL_NAV: readonly PapelNavItem[] = [
   { href: '/la-idea', label: 'La idea', num: '01' },
-  { href: '/el-mapa', label: 'El mapa', num: '02' },
-  { href: '/mandato-vivo', label: 'El mandato', num: '03' },
-  { href: '/planes', label: 'El ejemplo', num: '04' },
-  { href: '/biblioteca', label: 'La biblioteca', num: '05' },
+  { href: '/el-mapa', label: 'Mapa', num: '02' },
+  { href: '/campanas', label: 'Campañas', num: '03' },
+  { href: '/la-radiografia', label: 'Radiografía', num: '04' },
+  { href: '/biblioteca', label: 'Biblioteca', num: '05' },
 ];
 
 export const BIBLIOTECA_HREF = '/biblioteca';
@@ -67,6 +67,7 @@ export const SECCIONES_BIBLIOTECA: readonly PapelNavItem[] = [
 ];
 
 export const SEMBRAR_HREF = '/sembrar';
+export const IMAGINAR_HREF = '/imaginar';
 
 /**
  * «Quién está detrás» — la única página del sitio con entrada única, y
@@ -107,7 +108,9 @@ export const SIMULACION_LABEL = 'La simulación';
 export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   { href: '/', label: 'Inicio', num: '00' },
   ...PAPEL_NAV,
-  { href: SEMBRAR_HREF, label: 'Sembrar', num: '06' },
+  { href: IMAGINAR_HREF, label: 'Imaginar', num: '06' },
+  { href: '/mi-espacio', label: 'Mi espacio', num: '07' },
+  { href: '/datos-abiertos', label: 'Datos abiertos', num: '08' },
 ];
 
 /**

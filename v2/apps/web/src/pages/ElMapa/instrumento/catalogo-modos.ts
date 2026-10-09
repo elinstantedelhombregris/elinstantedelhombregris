@@ -8,9 +8,9 @@
 export type Modo = 'mapa' | 'analisis' | 'tiempo' | 'cobertura' | 'simulacion';
 
 export const MODOS: { id: Modo; etiqueta: string; descripcion: string }[] = [
-  { id: 'mapa', etiqueta: 'Mapa', descripcion: 'Cada voz donde fue dicha' },
+  { id: 'mapa', etiqueta: 'Mapa', descripcion: 'Aportes con ubicación declarada' },
   { id: 'analisis', etiqueta: 'Análisis', descripcion: 'Registros por provincia' },
-  { id: 'tiempo', etiqueta: 'Línea de tiempo', descripcion: 'Cómo se fue despertando' },
+  { id: 'tiempo', etiqueta: 'Línea de tiempo', descripcion: 'Cuándo llegaron los aportes' },
   { id: 'cobertura', etiqueta: 'Cobertura', descripcion: 'Presencia de puntos publicados' },
   { id: 'simulacion', etiqueta: 'Simulación', descripcion: 'Y si hablamos, qué cambia' },
 ];

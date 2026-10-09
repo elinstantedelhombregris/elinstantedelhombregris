@@ -14,7 +14,9 @@ import { fadeUp } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
 import { CIAN, TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
-const CATEGORIES = Object.entries(CIVIC_CATEGORY_LABELS).filter(([key]) => key !== 'red-comunitaria-alimentaria');
+const CATEGORIES = Object.entries(CIVIC_CATEGORY_LABELS).filter(
+  ([key]) => key !== 'red-comunitaria-alimentaria',
+);
 
 /** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
 const estiloInput = (enfocado: boolean): object => ({
@@ -37,10 +39,12 @@ export default function Aportar() {
   const [publish, setPublish] = useState(false);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
-  const [context, setContext] = useState(() => defaultRecordContextDraft({
-    sensitivity: 'low',
-    precision: '500m',
-  }));
+  const [context, setContext] = useState(() =>
+    defaultRecordContextDraft({
+      sensitivity: 'low',
+      precision: '500m',
+    }),
+  );
   const [enfocadoTitulo, setEnfocadoTitulo] = useState(false);
   const [enfocadoCantidad, setEnfocadoCantidad] = useState(false);
   const [enfocadoUnidad, setEnfocadoUnidad] = useState(false);
@@ -65,8 +69,17 @@ export default function Aportar() {
     setSaveError(null);
     setSaving(true);
     try {
-      recordConsent({ scope: 'publish', purpose: 'Publicar este recurso en el territorio para encontrar una necesidad compatible.', granted: true });
-      recordConsent({ scope: 'location', purpose: `Compartir una proyección ${context.sharedPrecision} del lugar confirmado.`, granted: true, version: 3 });
+      recordConsent({
+        scope: 'publish',
+        purpose: 'Publicar este recurso en el territorio para encontrar una necesidad compatible.',
+        granted: true,
+      });
+      recordConsent({
+        scope: 'location',
+        purpose: `Compartir una proyección ${context.sharedPrecision} del lugar confirmado.`,
+        granted: true,
+        version: 3,
+      });
       const resource = createResource({
         category,
         title: title.trim() || CIVIC_CATEGORY_LABELS[category] || 'Recurso disponible',
@@ -94,7 +107,9 @@ export default function Aportar() {
         params: { focus: `resource:${resource.id}`, published: 'resource' },
       });
     } catch {
-      setSaveError('No pudimos guardar el recurso. Tus datos siguen en esta pantalla: revisalos e intentá nuevamente.');
+      setSaveError(
+        'No pudimos guardar el recurso. Tus datos siguen en esta pantalla: revisalos e intentá nuevamente.',
+      );
     } finally {
       setSaving(false);
     }
@@ -103,7 +118,7 @@ export default function Aportar() {
   const volver = () => (router.canGoBack() ? router.back() : router.replace('/territorio'));
 
   return (
-    <View className="flex-1 bg-papel">
+    <View className="bg-papel flex-1">
       <GranoPapel />
       <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
         <Pressable97
@@ -112,24 +127,48 @@ export default function Aportar() {
           onPress={volver}
           className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
         >
-          <Text className="font-space text-2xl text-tinta">←</Text>
+          <Text className="font-space text-tinta text-2xl">←</Text>
         </Pressable97>
         <View className="mt-2">
           <Kicker>recurso concreto</Kicker>
-          <TituloAnton tamano="lg" className="mt-1">¿Qué podés poner en movimiento?</TituloAnton>
+          <TituloAnton tamano="lg" className="mt-1">
+            ¿Qué podés poner en movimiento?
+          </TituloAnton>
         </View>
       </View>
-      <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <KeyboardAvoidingView
+        className="flex-1"
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 36 }}
         >
+          <View className="border-tinta bg-papel-crudo mx-5 mb-6 gap-3 border p-5">
+            <Kicker>El país que queremos vivir</Kicker>
+            <TituloAnton tamano="md">Una vida imaginada abre un diseño.</TituloAnton>
+            <Text className="font-archivo text-tinta-75 text-sm leading-6">
+              Empezá por lo que sería posible en tu Argentina ideal. Tu relato permanece privado
+              hasta que lo revises y elijas compartirlo.
+            </Text>
+            <BotonTinta etiqueta="Imaginar mi Argentina" onPress={() => router.push('/imaginar')} />
+            <BotonTinta
+              etiqueta="Ver campañas abiertas"
+              variante="fantasma"
+              onPress={() => router.push('/campanas')}
+            />
+          </View>
+
           <Animated.View entering={fadeUp}>
-            <Text className="font-archivo text-sm leading-6 text-tinta-75">
-              Publicá disponibilidad real, con cantidad y radio. Cuando ambas partes aceptan, se abre una sala protegida para acordar la coordinación; los datos de contacto no se exponen.
+            <Text className="font-archivo text-tinta-75 text-sm leading-6">
+              Publicá disponibilidad real, con cantidad y radio. Cuando ambas partes aceptan, se
+              abre una sala protegida para acordar la coordinación; los datos de contacto no se
+              exponen.
             </Text>
 
-            <Kicker tono="neutro" className="mt-8">Tipo de aporte</Kicker>
+            <Kicker tono="neutro" className="mt-8">
+              Tipo de aporte
+            </Kicker>
             <View className="mt-3 flex-row flex-wrap gap-2">
               {CATEGORIES.map(([key, label]) => (
                 <ChipTipo
@@ -142,7 +181,9 @@ export default function Aportar() {
               ))}
             </View>
 
-            <Kicker tono="neutro" className="mt-6">Descripción breve</Kicker>
+            <Kicker tono="neutro" className="mt-6">
+              Descripción breve
+            </Kicker>
             <TextInput
               value={title}
               onChangeText={setTitle}
@@ -152,7 +193,7 @@ export default function Aportar() {
               placeholder="Ej. 20 kg de arroz disponibles esta semana"
               placeholderTextColor={TINTA_50}
               accessibilityLabel="Descripción breve del recurso"
-              className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-sm text-tinta"
+              className="bg-papel-crudo font-archivo text-tinta mt-2 px-5 py-4 text-sm"
               style={estiloInput(enfocadoTitulo)}
             />
 
@@ -168,7 +209,7 @@ export default function Aportar() {
                   placeholder="20"
                   placeholderTextColor={TINTA_50}
                   accessibilityLabel="Cantidad disponible"
-                  className="mt-2 bg-papel-crudo px-5 py-4 font-space text-sm text-tinta"
+                  className="bg-papel-crudo font-space text-tinta mt-2 px-5 py-4 text-sm"
                   style={estiloInput(enfocadoCantidad)}
                 />
               </View>
@@ -183,13 +224,15 @@ export default function Aportar() {
                   placeholder="kg, cajas…"
                   placeholderTextColor={TINTA_50}
                   accessibilityLabel="Unidad de medida"
-                  className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-sm text-tinta"
+                  className="bg-papel-crudo font-archivo text-tinta mt-2 px-5 py-4 text-sm"
                   style={estiloInput(enfocadoUnidad)}
                 />
               </View>
             </View>
 
-            <Kicker tono="neutro" className="mt-6">¿Hasta cuántos km puede moverse?</Kicker>
+            <Kicker tono="neutro" className="mt-6">
+              ¿Hasta cuántos km puede moverse?
+            </Kicker>
             <TextInput
               value={radius}
               onChangeText={setRadius}
@@ -199,7 +242,7 @@ export default function Aportar() {
               placeholder="5"
               placeholderTextColor={TINTA_50}
               accessibilityLabel="Radio en kilómetros"
-              className="mt-2 bg-papel-crudo px-5 py-4 font-space text-sm text-tinta"
+              className="bg-papel-crudo font-space text-tinta mt-2 px-5 py-4 text-sm"
               style={estiloInput(enfocadoRadio)}
             />
 
@@ -221,13 +264,18 @@ export default function Aportar() {
                 setSaveError(null);
                 setPublish((value) => !value);
               }}
-              className="mt-6 flex-row items-start gap-3 border border-tinta bg-papel-crudo p-4"
+              className="border-tinta bg-papel-crudo mt-6 flex-row items-start gap-3 border p-4"
             >
-              <View className={`mt-0.5 h-6 w-6 items-center justify-center border border-tinta ${publish ? 'bg-violeta' : 'bg-papel-presionado'}`} />
+              <View
+                className={`border-tinta mt-0.5 h-6 w-6 items-center justify-center border ${publish ? 'bg-violeta' : 'bg-papel-presionado'}`}
+              />
               <View className="flex-1">
-                <Text className="font-archivo-bold text-sm text-tinta">Autorizo publicar este aporte</Text>
-                <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">
-                  Se comparte la proyección elegida, el nombre del lugar y la firma que viste en el recibo. Nunca el punto exacto local ni datos de contacto.
+                <Text className="font-archivo-bold text-tinta text-sm">
+                  Autorizo publicar este aporte
+                </Text>
+                <Text className="font-archivo text-tinta-75 mt-1 text-xs leading-5">
+                  Se comparte la proyección elegida, el nombre del lugar y la firma que viste en el
+                  recibo. Nunca el punto exacto local ni datos de contacto.
                 </Text>
               </View>
             </Pressable97>
@@ -236,13 +284,18 @@ export default function Aportar() {
               accessibilityLiveRegion="polite"
               className={`mt-5 border px-4 py-3 ${publicationIssue || saveError ? 'border-ambar' : 'border-verde'}`}
             >
-              <Text className="font-archivo text-xs leading-5 text-tinta-90">
+              <Text className="font-archivo text-tinta-90 text-xs leading-5">
                 {saveError ?? publicationIssue ?? 'Todo listo. Ya podés ofrecer este recurso.'}
               </Text>
             </View>
 
             <View className="mt-8 items-center">
-              <BotonTinta etiqueta="Ofrecer este recurso" onPress={save} disabled={saving} cargando={saving} />
+              <BotonTinta
+                etiqueta="Ofrecer este recurso"
+                onPress={save}
+                disabled={saving}
+                cargando={saving}
+              />
             </View>
           </Animated.View>
         </ScrollView>

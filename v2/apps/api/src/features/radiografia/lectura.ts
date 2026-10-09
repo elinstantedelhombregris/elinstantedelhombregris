@@ -29,7 +29,7 @@
  *    sin red ni disco; que el ensamblado también lo haga es lo que permite
  *    afirmar el invariante del conteo (spec §11) en un test unitario.
  */
-import { and, desc, senales, sql, FUENTE_VIVA } from '@v2/db';
+import { and, desc, senales, sql, FUENTE_VIVA, condicionesParticipacion } from '@v2/db';
 
 import { logger } from '../../lib/logger.js';
 
@@ -37,6 +37,7 @@ import { puntoPublicable } from './punto.js';
 
 import type { GeoPoint } from '@v2/civic-core';
 import type { Db } from '@v2/db';
+import type { ConsultaParticipacion } from '@v2/shared';
 
 /**
  * La fuente de texto: el valor de la columna `fuente` de `analisis_vectores`
@@ -111,8 +112,17 @@ export interface FuenteDeRadiografia {
   /** `null` cuando el job nunca corrió, o cuando el sustrato todavía no existe. */
   corrida(): Promise<CorridaDeAnalisis | null>;
   voces(): Promise<readonly VozDelCorpus[]>;
+  cobertura?(): Promise<{
+    elegibles: number;
+    limite: number;
+    completo: boolean;
+    provincias?: number;
+  }>;
   /** Sólo los vectores de ese modelo: mezclar modelos mezcla dimensiones. */
-  vectores(modelo: string): Promise<ReadonlyMap<string, readonly number[]>>;
+  vectores(
+    modelo: string,
+    ids?: readonly string[],
+  ): Promise<ReadonlyMap<string, readonly number[]>>;
 }
 
 const CODIGO_TABLA_INEXISTENTE = '42P01';
@@ -166,7 +176,26 @@ interface FilaDeVector extends Record<string, unknown> {
 }
 
 /** La fuente real: la base de v2. */
-export const fuenteDeBase = (db: Db): FuenteDeRadiografia => ({
+export const fuenteDeBase = (
+  db: Db,
+  consulta: Partial<ConsultaParticipacion> = {},
+): FuenteDeRadiografia => ({
+  async cobertura() {
+    const [fila] = await db
+      .select({
+        n: sql<number>`count(*)::int`,
+        provincias: sql<number>`count(distinct ${senales.provinceId})::int`,
+      })
+      .from(senales)
+      .where(and(...condicionesParticipacion(consulta), sql`length(btrim(${senales.texto}))>0`));
+    const elegibles = fila?.n ?? 0;
+    return {
+      elegibles,
+      limite: TOPE_DE_CORPUS,
+      completo: elegibles <= TOPE_DE_CORPUS,
+      provincias: fila?.provincias ?? 0,
+    };
+  },
   corpus: FUENTE,
 
   async corrida(): Promise<CorridaDeAnalisis | null> {
@@ -239,6 +268,7 @@ export const fuenteDeBase = (db: Db): FuenteDeRadiografia => ({
            * nadie iba a poder hacerle.
            */
           sql`length(btrim(${senales.texto})) > 0`,
+          ...condicionesParticipacion(consulta),
         ),
       )
       .orderBy(desc(senales.creadaEn))
@@ -262,13 +292,18 @@ export const fuenteDeBase = (db: Db): FuenteDeRadiografia => ({
     }));
   },
 
-  async vectores(modelo: string): Promise<ReadonlyMap<string, readonly number[]>> {
+  async vectores(
+    modelo: string,
+    ids: readonly string[] = [],
+  ): Promise<ReadonlyMap<string, readonly number[]>> {
     const mapa = new Map<string, readonly number[]>();
+    if (!ids.length) return mapa;
+    const fuentes = ids.map((id) => id.replace(/^voz:/, ''));
     try {
       const { rows } = await db.execute<FilaDeVector>(
         sql`select fuente_id, vector
               from analisis_vectores
-             where fuente = ${FUENTE} and modelo = ${modelo}`,
+             where fuente = ${FUENTE} and modelo = ${modelo} and fuente_id in(select jsonb_array_elements_text(${JSON.stringify(fuentes)}::jsonb))`,
       );
       for (const fila of rows) {
         if (fila.fuente_id === null) continue;

@@ -205,6 +205,9 @@ importers:
       '@v2/civic-core':
         specifier: workspace:*
         version: link:../../packages/civic-core
+      '@v2/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       drizzle-orm:
         specifier: ^0.45.2
         version: 0.45.2(@neondatabase/serverless@0.10.4)(@types/pg@8.20.0)(expo-sqlite@57.0.0(patch_hash=d333fd25d4474e45641d8b20c42de55cd1f3cbda38071d0210ad7f156aaa957a)(expo@57.0.8)(react-native@0.86.0(@babel/core@7.29.0)(@react-native/metro-config@0.86.0(@babel/core@7.29.0))(@types/react@19.2.17)(react@19.2.3))(react@19.2.3))(gel@2.2.0)(pg@8.20.0)

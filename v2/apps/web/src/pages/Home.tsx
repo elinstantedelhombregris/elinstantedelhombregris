@@ -1,5 +1,5 @@
-import { CifrasStrip } from './Home/sections/CifrasStrip';
 import { CtaBand } from './Home/sections/CtaBand';
+import { EntradaIdeal } from './Home/sections/EntradaIdeal';
 import { HeroBasta } from './Home/sections/HeroBasta';
 import { HombreGrisBand } from './Home/sections/HombreGrisBand';
 import { IdeaEnTresLineas } from './Home/sections/IdeaEnTresLineas';
@@ -15,10 +15,10 @@ export function Home() {
   return (
     <main>
       <HeroBasta />
+      <EntradaIdeal />
       <VocesTicker />
       <IdeaEnTresLineas />
       <HombreGrisBand />
-      <CifrasStrip />
       <PlanesTeaser />
       <CtaBand />
     </main>

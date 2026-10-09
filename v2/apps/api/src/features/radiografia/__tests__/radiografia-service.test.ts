@@ -400,7 +400,9 @@ describe('La Radiografía · el corpus, por su nombre', () => {
     expect(sinComentarios).toMatch(/FUENTE_VIVA[^;]*from '@v2\/db'/);
 
     const analisis = readFileSync(
-      fileURLToPath(new URL('../../../../../../packages/db/src/repositories/analisis.ts', import.meta.url)),
+      fileURLToPath(
+        new URL('../../../../../../packages/db/src/repositories/analisis.ts', import.meta.url),
+      ),
       'utf8',
     );
     expect(analisis.replace(/\/\*[\s\S]*?\*\//g, '')).toMatch(
@@ -433,7 +435,10 @@ describe('La Radiografía · el corpus, por su nombre', () => {
 describe('La Radiografía · el régimen degenerado', () => {
   const conNVoces = async (n: number, k: number) => {
     const textos = new Map(
-      Array.from({ length: n }, (_, i) => [`voz:${String(i)}`, `frase distinta número ${String(i)}`]),
+      Array.from({ length: n }, (_, i) => [
+        `voz:${String(i)}`,
+        `frase distinta número ${String(i)}`,
+      ]),
     );
     return construirRadiografia(
       fuenteDeGuion({ textos, voces: [...textos.keys()].map((id) => voz(id)) }),

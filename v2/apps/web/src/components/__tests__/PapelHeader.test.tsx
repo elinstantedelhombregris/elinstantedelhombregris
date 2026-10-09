@@ -7,6 +7,8 @@ import { PapelHeader } from '../papel/PapelHeader';
 
 import { useVocesCount } from '~/lib/queries/analytics';
 
+vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: null }) }));
+
 vi.mock('~/lib/queries/analytics', () => ({
   useVocesCount: vi.fn(),
 }));
@@ -58,7 +60,7 @@ describe('PapelHeader', () => {
     } as ReturnType<typeof useVocesCount>);
     renderHeader();
 
-    expect(screen.getByText('nadie habló todavía · empezá vos')).toBeInTheDocument();
+    expect(screen.getByText('la primera voz todavía puede ser la tuya')).toBeInTheDocument();
   });
 
   it('con una sola voz vuelve a contar, sin que nadie apague nada', () => {
@@ -69,7 +71,7 @@ describe('PapelHeader', () => {
     } as ReturnType<typeof useVocesCount>);
     renderHeader();
 
-    expect(screen.getByText('1 voces · falta la tuya')).toBeInTheDocument();
+    expect(screen.getByText('1 aporte en el registro')).toBeInTheDocument();
   });
 
   it('renders the live total formatted es-AR once loaded', () => {
@@ -80,7 +82,7 @@ describe('PapelHeader', () => {
     } as ReturnType<typeof useVocesCount>);
     renderHeader();
 
-    expect(screen.getByText('12.496 voces · falta la tuya')).toBeInTheDocument();
+    expect(screen.getByText('12.496 aportes en el registro')).toBeInTheDocument();
   });
 
   it('renders the recorrido nav with the real v2 routes', () => {
@@ -94,7 +96,10 @@ describe('PapelHeader', () => {
     for (const item of PAPEL_NAV) {
       expect(screen.getByRole('link', { name: item.label })).toHaveAttribute('href', item.href);
     }
-    expect(screen.getByRole('link', { name: 'Sembrar tu voz' })).toHaveAttribute('href', '/sembrar');
+    expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
+      'href',
+      '/imaginar',
+    );
   });
 
   it('toggles the full-screen mobile menu', () => {

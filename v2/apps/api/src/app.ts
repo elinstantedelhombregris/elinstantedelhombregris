@@ -9,18 +9,26 @@ import { authEmailRouter } from './features/auth/email-routes.js';
 import { authRouter } from './features/auth/routes.js';
 import { twoFactorRouter } from './features/auth/two-factor-routes.js';
 import { blogRouter } from './features/blog/routes.js';
+import { equipoRouter } from './features/campanas/equipo-routes.js';
+import { campanasRouter } from './features/campanas/routes.js';
 import { civicAssessmentRouter } from './features/civic-assessment/routes.js';
 import { civicRouter } from './features/civic-map/routes.js';
 import { coachingRouter } from './features/coaching/routes.js';
 import { communityRouter } from './features/community/routes.js';
+import { contribucionesRouter } from './features/contribuciones/routes.js';
+import { exportacionesRouter } from './features/exportaciones/routes.js';
 import { faltasRouter } from './features/faltas/routes.js';
+import { disenoFichasRouter } from './features/fichas/diseno-routes.js';
 import { fichasRouter } from './features/fichas/routes.js';
 import { gamificationRouter } from './features/gamification/routes.js';
+import { lugarRouter } from './features/geo/lugar-routes.js';
 import { geoRouter } from './features/geo/routes.js';
 import { goalsRouter } from './features/goals/routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
 import { mandatoRouter } from './features/mandato/routes.js';
+import { cuentaCivicaRouter } from './features/mi-espacio/cuenta-routes.js';
+import { miEspacioRouter } from './features/mi-espacio/routes.js';
 import { notificationsRouter } from './features/notifications/routes.js';
 import { openDataRouter } from './features/open-data/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
@@ -98,6 +106,7 @@ export function createApp(): Express {
   app.use('/api/v1/civic/radiografia', radiografiaRouter);
   // El callejero del Estado, espejado. Mismo prefijo versionado y por la misma
   // razón: es contrato entre la web y la app de campo, no una vista de la web.
+  app.use('/api/v1/geo', lugarRouter);
   app.use('/api/v1/geo', geoRouter);
   app.use('/api', goalsRouter);
   app.use('/api/coaching', coachingRouter);
@@ -110,7 +119,14 @@ export function createApp(): Express {
   app.use('/api/mandato', mandatoRouter);
   app.use('/api/semillas', semillasRouter);
   app.use('/api/v1/faltas', faltasRouter);
+  app.use('/api/v1/fichas', disenoFichasRouter);
   app.use('/api/v1/fichas', fichasRouter);
+  app.use('/api/v1/campanas', campanasRouter);
+  app.use('/api/v1/contribuciones', contribucionesRouter);
+  app.use('/api/v1/equipo', equipoRouter);
+  app.use('/api/v1/mi-espacio', cuentaCivicaRouter);
+  app.use('/api/v1/mi-espacio', miEspacioRouter);
+  app.use('/api/v1/exportaciones', exportacionesRouter);
 
   // Tail middleware
   app.use(notFoundHandler());

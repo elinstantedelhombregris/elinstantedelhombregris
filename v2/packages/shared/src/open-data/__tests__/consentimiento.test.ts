@@ -67,17 +67,17 @@ describe('los textos del consentimiento', () => {
 
   it('la irrevocabilidad dice a la vez que se puede retirar y qué no se retira', () => {
     expect(TEXTO_PUBLICACION_IRREVOCABLE).toContain('retirarlo cuando quieras');
-    expect(TEXTO_PUBLICACION_IRREVOCABLE).toContain('archivos mensuales que ya se publicaron');
+    expect(TEXTO_PUBLICACION_IRREVOCABLE).toContain('las copias que otras personas ya descargaron');
   });
 
   // «Lo estamos construyendo» va al final y no al principio: lo primero que se
   // lee es la limitación, no el consuelo.
   it.each(['sueño', 'propuesta'] as const)(
-    'la declaración de %s abre con la limitación y cierra con la promesa',
+    'la declaración de %s distingue adhesiones y conversación en fichas',
     (tipo) => {
       const frase = DECLARACION_DELIBERACION[tipo];
-      expect(frase.startsWith('Todavía no se puede deliberar.')).toBe(true);
-      expect(frase.endsWith('Lo estamos construyendo.')).toBe(true);
+      expect(frase.startsWith('Esta voz no es una votación.')).toBe(true);
+      expect(frase).toContain('ficha');
       // Lo único que evita que «yo también» se lea como voto.
       expect(frase).toContain('adhesiones');
     },
@@ -191,7 +191,7 @@ const FRAGMENTOS: readonly { readonly constante: string; readonly fragmento: str
     constante: 'TEXTO_PUBLICACION_IRREVOCABLE',
     fragmento: 'un registro público que se descarga entero en un archivo',
   },
-  { constante: 'DECLARACION_DELIBERACION', fragmento: 'Todavía no se puede deliberar' },
+  { constante: 'DECLARACION_DELIBERACION', fragmento: 'Esta voz no es una votación' },
 ];
 
 const TEXTO_DE: Readonly<Record<string, string>> = {

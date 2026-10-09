@@ -12,9 +12,9 @@ export function useFicha(id: string | undefined) {
     queryFn: ({ signal }) => api.get<FichaFuturo>(`/api/v1/fichas/${id ?? ''}`, { signal }),
   });
 }
-export function useFichas(territorioId?: number) {
+export function useFichas(territorioId?: number, campanaId?: string) {
   return useQuery({
-    queryKey: ['fichas', 'lista', territorioId],
+    queryKey: ['fichas', 'lista', territorioId, campanaId],
     queryFn: ({ signal }) =>
       api.get<{
         fichas: {
@@ -25,7 +25,10 @@ export function useFichas(territorioId?: number) {
           actualizadaEn: string;
         }[];
         total: number;
-      }>(`/api/v1/fichas${territorioId ? `?territorioId=${territorioId}` : ''}`, { signal }),
+      }>(
+        `/api/v1/fichas?${new URLSearchParams({ ...(territorioId ? { territorioId: String(territorioId) } : {}), ...(campanaId ? { campanaId } : {}) }).toString()}`,
+        { signal },
+      ),
   });
 }
 export function useGuardarFicha(id?: string, revision?: number) {

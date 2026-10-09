@@ -44,6 +44,8 @@ export interface FiltrosSenales {
   capas: readonly CapaMapa[];
   /** '7d' | '30d' | 'todo' */
   rango: '7d' | '30d' | 'todo';
+  campana?: string;
+  edicion?: number;
   provinceId?: number;
   cityId?: number;
   cursor?: string;
@@ -102,6 +104,8 @@ export function useSenalesMapa(filtros: FiltrosSenales, habilitado: boolean) {
       filtros.clase,
       filtros.tema,
       filtros.estado,
+      filtros.campana,
+      filtros.edicion,
     ],
     enabled: habilitado,
     queryFn: ({ signal }) => {
@@ -110,7 +114,15 @@ export function useSenalesMapa(filtros: FiltrosSenales, habilitado: boolean) {
       if (desde) params.set('desde', desde);
       if (filtros.provinceId !== undefined) params.set('provinceId', String(filtros.provinceId));
       if (filtros.cityId !== undefined) params.set('cityId', String(filtros.cityId));
-      for (const clave of ['lugarId', 'tipo', 'clase', 'tema', 'estado'] as const) {
+      for (const clave of [
+        'lugarId',
+        'tipo',
+        'clase',
+        'tema',
+        'estado',
+        'campana',
+        'edicion',
+      ] as const) {
         const valor = filtros[clave];
         if (valor !== undefined && valor !== '') params.set(clave, String(valor));
       }

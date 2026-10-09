@@ -15,7 +15,9 @@ router.get('/', async (req, res, next) => {
   try {
     const consulta = consultaFichasSchema.parse(req.query);
     res.setHeader('Cache-Control', 'no-store');
-    res.json({ data: await new FichasRepository(getDb()).listar(consulta.territorioId) });
+    res.json({
+      data: await new FichasRepository(getDb()).listar(consulta.territorioId, consulta.campanaId),
+    });
   } catch (err) {
     next(err);
   }

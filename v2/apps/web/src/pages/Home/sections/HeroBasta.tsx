@@ -1,88 +1,49 @@
 import { Link } from 'wouter';
 
-import { BotonPapel, Sello } from '~/components/papel/primitives';
-import { despertar, useDespierto } from '~/lib/despertar';
-
-/** Letras del rito de la tinta: se entintan una por una (firma award §10.1). */
-const LETRAS: readonly { char: string; delay: string }[] = [
-  { char: 'B', delay: '0.15s' },
-  { char: 'A', delay: '0.35s' },
-  { char: 'S', delay: '0.55s' },
-  { char: 'T', delay: '0.75s' },
-  { char: 'A', delay: '0.95s' },
-];
+import { BotonPapel } from '~/components/papel/primitives';
+import { despertar } from '~/lib/despertar';
 
 export function HeroBasta() {
-  const despierto = useDespierto();
-
   return (
-    <section className="relative mx-auto max-w-[1440px] px-5 pt-14 min-[961px]:px-10">
-      <div className="border-tinta font-space text-tinta-50 flex items-start justify-between gap-6 border-b pb-3.5 text-[11px] uppercase tracking-[0.16em]">
-        <span>Argentina · 2026</span>
-        <span className="hidden min-[1141px]:inline">Sin líder · Sin partido · Sin excusas</span>
-        <span>Exp. ciudadano N° 001</span>
+    <section className="mx-auto max-w-[1100px] px-5 pb-10 pt-10 min-[961px]:px-10">
+      <div className="font-space text-tinta-50 flex flex-wrap justify-between gap-3 border-y py-3 text-[11px] uppercase tracking-[.12em]">
+        <span>Argentina · diseño ciudadano</span>
+        <span>Un ejercicio abierto de diseño idealizado</span>
       </div>
-
-      <h1
+      <p
         aria-label="¡BASTA!"
-        className="riso-hover font-anton mt-6 flex items-baseline justify-center text-[clamp(120px,17.5vw,300px)] leading-[0.94] tracking-[0.005em] max-[960px]:text-[21vw]"
+        className="font-anton mt-7 text-[clamp(70px,12vw,150px)] leading-none"
       >
-        <span aria-hidden className="contents">
-          <span className="anim-vpop text-violeta" style={{ animationDelay: '1.5s' }}>
-            ¡
-          </span>
-          {LETRAS.map(({ char, delay }, i) => (
-            <span key={`${char}-${i}`} className="anim-inkfill" style={{ animationDelay: delay }}>
-              {char}
-            </span>
-          ))}
-          <span className="anim-vpop text-violeta" style={{ animationDelay: '1.65s' }}>
-            !
-          </span>
-        </span>
+        <span className="text-violeta">¡</span>BASTA<span className="text-violeta">!</span>
+      </p>
+      <h1 className="font-anton mt-7 max-w-[900px] text-[clamp(38px,5.6vw,70px)] leading-[1.06]">
+        Diseñemos la Argentina
+        <br className="hidden sm:block" /> que queremos vivir.
       </h1>
-
-      {!despierto ? (
-        <div className="border-oscuro-meta font-space text-tinta-50 mt-[18px] border border-dashed px-4 py-2.5 text-center text-[11px] uppercase tracking-[0.14em]">
-          El sitio está en gris — se enciende con tu primera acción
-        </div>
-      ) : null}
-
-      <div className="border-tinta mt-5 flex flex-col gap-8 border-t pb-12 pt-7">
-        <p
-          className="anim-fadeup max-w-[560px] text-pretty text-[clamp(20px,2vw,27px)] font-medium leading-[1.35]"
-          style={{ animationDelay: '1.1s' }}
-        >
-          La palabra que millones de argentinos piensan en silencio. Dicha en voz alta, junta,
-          alcanza para diseñar un país nuevo.{' '}
-          <span className="text-tinta-50">
-            Acá no seguís a nadie: la ciudadanía diseña, el Estado administra, la política ejecuta.
-          </span>
-        </p>
-        <div
-          className="anim-fadeup flex flex-wrap gap-3"
-          style={{ animationDelay: '1.3s' }}
-        >
-          <BotonPapel asChild variant="violeta">
-            {/* Trigger canónico del despertar §10.7: primera acción real del usuario. */}
-            <Link href="/el-mapa" onClick={despertar}>
-              Dejar mi voz en el mapa
-            </Link>
-          </BotonPapel>
-          <BotonPapel asChild variant="fantasma">
-            <Link href="/la-vision">Entender la idea</Link>
-          </BotonPapel>
-        </div>
+      <p className="mt-6 max-w-[670px] text-[clamp(18px,2vw,23px)] leading-relaxed">
+        En tu Argentina ideal, ¿qué sería posible en tu vida?
+      </p>
+      <p className="text-tinta-75 mt-4 max-w-[670px] leading-relaxed">
+        Una frase alcanza para empezar. Después podemos encontrar las condiciones que la sostienen,
+        conversar con otros y poner los diseños a prueba. La ciudadanía tiene algo propio que decir
+        sobre su futuro.
+      </p>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <BotonPapel asChild variant="violeta">
+          <Link href="/imaginar" onClick={despertar}>
+            Imaginar mi Argentina
+          </Link>
+        </BotonPapel>
+        <BotonPapel asChild variant="fantasma">
+          <Link href="/el-mapa">Explorar el país</Link>
+        </BotonPapel>
       </div>
-
-      <Sello
-        color="rojo"
-        rotate={-8}
-        className="absolute right-16 top-24 max-[960px]:hidden"
-        style={{ animationDelay: '2s' }}
+      <Link
+        href="/la-idea"
+        className="text-violeta mt-4 inline-flex min-h-11 items-center underline"
       >
-        El instante es ahora
-      </Sello>
+        Cómo funciona el ejercicio →
+      </Link>
     </section>
   );
 }

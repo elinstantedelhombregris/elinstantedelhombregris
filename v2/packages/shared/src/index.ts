@@ -10,3 +10,9 @@ export * from './civic-assessment/index.js';
 export * from './datasets/index.js';
 export * from './open-data/index.js';
 export { xpForLevel, levelForXp, xpToNextLevel } from './gamification/levels.js';
+export * from './participacion/campanas.js';
+export * from './participacion/aportes.js';
+export * from './participacion/diseno.js';
+
+export * from './participacion/equipo.js';
+export * from './participacion/exportaciones.js';

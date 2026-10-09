@@ -3,6 +3,7 @@
  *
  * Spec: `docs/specs/2026-08-12-la-radiografia.md` §4.5, §4.6, R7.
  */
+import { consultaParticipacionSchema } from '@v2/shared';
 import { z } from 'zod';
 
 /**
@@ -35,22 +36,24 @@ const ausenteEs =
   (valor: unknown): unknown =>
     valor === undefined || valor === null || valor === '' ? defecto : valor;
 
-export const consultaRadiografiaSchema = z.object({
-  umbral: z.preprocess(
-    ausenteEs(UMBRAL_POR_DEFECTO),
-    z.coerce
-      .number()
-      .min(0, 'El umbral tiene que estar entre 0 y 1.')
-      .max(1, 'El umbral tiene que estar entre 0 y 1.'),
-  ),
-  k: z.preprocess(
-    ausenteEs(K_POR_DEFECTO),
-    z.coerce
-      .number()
-      .int('k tiene que ser un número entero.')
-      .min(1, `k tiene que estar entre 1 y ${String(K_MAXIMO)}.`)
-      .max(K_MAXIMO, `k tiene que estar entre 1 y ${String(K_MAXIMO)}.`),
-  ),
-});
+export const consultaRadiografiaSchema = z
+  .object({
+    umbral: z.preprocess(
+      ausenteEs(UMBRAL_POR_DEFECTO),
+      z.coerce
+        .number()
+        .min(0, 'El umbral tiene que estar entre 0 y 1.')
+        .max(1, 'El umbral tiene que estar entre 0 y 1.'),
+    ),
+    k: z.preprocess(
+      ausenteEs(K_POR_DEFECTO),
+      z.coerce
+        .number()
+        .int('k tiene que ser un número entero.')
+        .min(1, `k tiene que estar entre 1 y ${String(K_MAXIMO)}.`)
+        .max(K_MAXIMO, `k tiene que estar entre 1 y ${String(K_MAXIMO)}.`),
+    ),
+  })
+  .merge(consultaParticipacionSchema.innerType().omit({ cursor: true, limite: true }));
 
 export type ConsultaRadiografia = z.infer<typeof consultaRadiografiaSchema>;

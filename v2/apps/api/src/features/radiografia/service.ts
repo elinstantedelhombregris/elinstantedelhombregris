@@ -125,6 +125,7 @@ export interface RadiografiaPublica {
   analizadas: number;
   sinVector: number;
   total: number;
+  cobertura?: { elegibles: number; limite: number; completo: boolean };
   provinciasSinSenal: number;
   umbral: number;
   /** Ver `RegimenDegenerado`. `null` cuando la partición sí depende del texto. */
@@ -156,8 +157,12 @@ export async function construirRadiografia(
   // lo que muestra o no muestra nada (R4).
   const corrida = await fuente.corrida();
   const voces = await fuente.voces();
+  const cobertura = fuente.cobertura ? await fuente.cobertura() : undefined;
   const vectores = corrida
-    ? await fuente.vectores(corrida.modelo)
+    ? await fuente.vectores(
+        corrida.modelo,
+        voces.map((v) => v.id),
+      )
     : new Map<string, readonly number[]>();
 
   const porId = new Map(voces.map((voz) => [voz.id, voz]));
@@ -193,9 +198,7 @@ export async function construirRadiografia(
     const vocesDelNucleo = nucleo.ids
       .map((id) => porId.get(id))
       .filter((voz): voz is VozDelCorpus => voz !== undefined);
-    const senales = nucleo.ids
-      .map(senalParaNucleo)
-      .filter((s): s is SenalParaNucleo => s !== null);
+    const senales = nucleo.ids.map(senalParaNucleo).filter((s): s is SenalParaNucleo => s !== null);
 
     const frase = fraseDelNucleo(senales);
 
@@ -257,7 +260,11 @@ export async function construirRadiografia(
     // invariante para pasar a ser una esperanza.
     sinVector: voces.length - conVector.length,
     total: voces.length,
-    provinciasSinSenal: Math.max(0, PROVINCIAS_CANONICAS.length - contarProvincias(voces)),
+    ...(cobertura ? { cobertura } : {}),
+    provinciasSinSenal: Math.max(
+      0,
+      PROVINCIAS_CANONICAS.length - (cobertura?.provincias ?? contarProvincias(voces)),
+    ),
     umbral,
     regimenDegenerado: regimenDegenerado(conVector.length, k),
     nucleos,

@@ -20,6 +20,11 @@ export default defineConfig({
   schema: [
     './src/schema/users.ts',
     './src/schema/fichas.ts',
+    './src/schema/campanas.ts',
+    './src/schema/continuidad.ts',
+    './src/schema/colaboracion.ts',
+    './src/schema/diseno.ts',
+    './src/schema/exportaciones.ts',
     './src/schema/auth.ts',
     './src/schema/notifications.ts',
     './src/schema/geographic.ts',

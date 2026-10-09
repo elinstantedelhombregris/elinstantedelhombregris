@@ -35,12 +35,12 @@ const router: RouterType = Router();
  * el lector lo mueve. Cinco minutos absorben el barrido del deslizador sin
  * congelar una corrida nueva más allá de lo que alguien tolera.
  */
-const CACHE = 'public, max-age=300';
+const CACHE = 'no-store';
 
 router.get('/', async (req, res, next) => {
   try {
     const consulta = consultaRadiografiaSchema.parse(req.query);
-    const radiografia = await construirRadiografia(fuenteDeBase(getDb()), consulta);
+    const radiografia = await construirRadiografia(fuenteDeBase(getDb(), consulta), consulta);
     res.set('Cache-Control', CACHE);
     res.json({ data: radiografia });
   } catch (err) {

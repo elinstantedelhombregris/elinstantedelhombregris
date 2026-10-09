@@ -1,6 +1,12 @@
 import { z } from 'zod';
 
-export const relacionFichaSchema = z.enum(['describe', 'contradice', 'evidencia', 'capacidad']);
+export const relacionFichaSchema = z.enum([
+  'describe',
+  'contradice',
+  'evidencia',
+  'capacidad',
+  'inspira',
+]);
 export const contenidoFichaSchema = z
   .object({
     titulo: z
@@ -13,6 +19,8 @@ export const contenidoFichaSchema = z
     situacion: z.string().trim().max(4000),
     futuro: z.string().trim().max(4000),
     proximaTarea: z.string().trim().max(2000),
+    campanaId: z.string().uuid().nullable().optional(),
+    condiciones: z.array(z.string().trim().min(3).max(500)).max(12).optional(),
     vinculos: z
       .array(z.object({ senalId: z.string().uuid(), relacion: relacionFichaSchema }))
       .max(40),
@@ -37,6 +45,7 @@ export const editarFichaSchema = z
   .strict();
 export const consultaFichasSchema = z.object({
   territorioId: z.coerce.number().int().positive().optional(),
+  campanaId: z.string().uuid().optional(),
 });
 export const idFichaSchema = z.string().uuid();
 export type ContenidoFicha = z.infer<typeof contenidoFichaSchema>;
@@ -48,6 +57,7 @@ export interface FichaFuturo {
   actualizadaEn: string;
   territorioNombre: string | null;
   puedoEditar: boolean;
+  puedoInvitar?: boolean;
   historial: { revision: number; fecha: string; campos: string[] }[];
   aportes: {
     senalId: string;

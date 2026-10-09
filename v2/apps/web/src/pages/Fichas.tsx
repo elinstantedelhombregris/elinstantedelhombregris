@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { Link, useLocation, useRoute } from 'wouter';
 
 import { FormularioFicha } from './Fichas/FormularioFicha';
+import { PanelDiseno } from './Fichas/PanelDiseno';
 
 import type { ContenidoFicha, FichaFuturo } from '@v2/shared';
 
+import { Equipo } from '~/components/participacion/Equipo';
+import { Seguir } from '~/components/participacion/Seguir';
 import { useAuth } from '~/lib/auth/use-auth';
 import { useFicha, useFichas } from '~/lib/queries/fichas';
 
@@ -61,8 +64,8 @@ function Lectura({ ficha }: { ficha: FichaFuturo }) {
       ) : null}
       {(
         [
-          ['situacion', 'Situación actual'],
           ['futuro', 'Futuro deseado'],
+          ['situacion', 'Situación actual'],
           ['proximaTarea', 'Próxima tarea de investigación'],
         ] as const
       ).map(([campo, titulo]) => (
@@ -73,6 +76,16 @@ function Lectura({ ficha }: { ficha: FichaFuturo }) {
           </p>
         </section>
       ))}
+      {contenido.condiciones?.length ? (
+        <section className="mt-8">
+          <h2 className="font-anton text-2xl">Condiciones deseadas</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-5">
+            {contenido.condiciones.map((c, i) => (
+              <li key={`${i}-${c}`}>{c}</li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
       <section className="mt-8">
         <h2 className="font-anton text-2xl">Aportes vinculados</h2>
         <p className="my-3 text-sm">
@@ -106,6 +119,11 @@ function Lectura({ ficha }: { ficha: FichaFuturo }) {
           </ul>
         )}
       </section>
+      <div className="mt-6">
+        <Seguir tipo="ficha" objeto={ficha.id} />
+      </div>
+      {ficha.puedoInvitar ? <Equipo tipo="ficha" objeto={ficha.id} /> : null}
+      <PanelDiseno id={ficha.id} />
       <section className="mt-8">
         <h2 className="font-anton text-2xl">Historial</h2>
         <p className="my-3 text-sm">
@@ -133,7 +151,8 @@ export function Fichas() {
   const detalle = useFicha(id);
   const territorio = Number(new URLSearchParams(window.location.search).get('lugar'));
   const lugarId = Number.isSafeInteger(territorio) && territorio > 0 ? territorio : undefined;
-  const lista = useFichas(lugarId);
+  const campana = new URLSearchParams(window.location.search).get('campana') ?? undefined;
+  const lista = useFichas(lugarId, campana);
   const inicial: ContenidoFicha = {
     titulo: '',
     territorioId: lugarId ?? null,
@@ -141,7 +160,16 @@ export function Fichas() {
     situacion: '',
     futuro: '',
     proximaTarea: '',
-    vinculos: [],
+    campanaId: campana ?? null,
+    condiciones: [],
+    vinculos: new URLSearchParams(window.location.search).get('senal')
+      ? [
+          {
+            senalId: new URLSearchParams(window.location.search).get('senal') ?? '',
+            relacion: 'inspira',
+          },
+        ]
+      : [],
   };
   return (
     <main className="mx-auto max-w-[960px] px-5 py-10">
@@ -202,9 +230,9 @@ export function Fichas() {
         <>
           <h1 className="font-anton text-4xl">Fichas de futuro</h1>
           <p className="mt-4 leading-relaxed">
-            Situaciones, capacidades, preguntas y futuros deseados en un mismo documento revisable.
-            Por ahora son borradores. Los acuerdos, la deliberación y la comprobación de resultados
-            vienen después.
+            Un futuro deseado abre una pregunta compartida. En cada ficha podés revisar sus
+            fuentes, responder afirmaciones, comparar alternativas y seguir pruebas con resultados
+            a la vista. El diseño sigue abierto a lo que aprendamos.
           </p>
           <Link
             href={`/fichas/nueva${window.location.search}`}

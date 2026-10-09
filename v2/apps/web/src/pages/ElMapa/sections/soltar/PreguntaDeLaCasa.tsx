@@ -33,7 +33,11 @@ export interface PreguntaDeLaCasaProps {
 const OPCIONES: readonly { clave: RespuestaDeVivienda; texto: string; glosa: string }[] = [
   { clave: 'no', texto: 'No', glosa: 'Es la calle, una plaza, un edificio público.' },
   { clave: 'propia', texto: 'Sí, la mía', glosa: 'Vos decidís cuánto se publica.' },
-  { clave: 'ajena', texto: 'Sí, la de otro', glosa: 'La protegemos igual, y no se puede rechazar.' },
+  {
+    clave: 'ajena',
+    texto: 'Sí, la de otro',
+    glosa: 'La protegemos igual, y no se puede rechazar.',
+  },
   { clave: 'sinRespuesta', texto: 'Prefiero no decir', glosa: 'Protegemos de más, por las dudas.' },
 ];
 

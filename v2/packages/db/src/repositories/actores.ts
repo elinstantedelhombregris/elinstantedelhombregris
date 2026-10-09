@@ -68,7 +68,9 @@ export class ActoresRepository {
 
     const releido = await this.porHash(hash);
     if (releido === null) {
-      throw new Error('El actor no se pudo crear ni encontrar. Algo lo borró entre las dos sentencias.');
+      throw new Error(
+        'El actor no se pudo crear ni encontrar. Algo lo borró entre las dos sentencias.',
+      );
     }
     return { ...releido, esNuevo: false };
   }
@@ -116,6 +118,24 @@ export class ActoresRepository {
     return filas.length > 0;
   }
 
+  async porCuenta(userId: number): Promise<number | null> {
+    const [fila] = await this.db
+      .select({ id: actores.id })
+      .from(actores)
+      .where(and(eq(actores.userId, userId), isNull(actores.retiradoEn)))
+      .limit(1);
+    return fila?.id ?? null;
+  }
+  async crearDeCuenta(hash: Buffer, userId: number): Promise<number> {
+    const [fila] = await this.db
+      .insert(actores)
+      .values({ actorHash: hash, origen: 'web', userId, primerEventoEn: new Date() })
+      .onConflictDoNothing()
+      .returning({ id: actores.id });
+    const id = fila?.id ?? (await this.porCuenta(userId));
+    if (id === null) throw new Error('No pudimos recuperar la autoría de la cuenta.');
+    return id;
+  }
   async total(): Promise<number> {
     const [fila] = await this.db
       .select({ n: sql<number>`count(*)::int` })

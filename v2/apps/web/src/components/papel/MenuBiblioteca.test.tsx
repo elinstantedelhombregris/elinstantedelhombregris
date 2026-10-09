@@ -7,6 +7,9 @@ import { PapelHeader } from './PapelHeader';
 
 import type { ReactNode } from 'react';
 
+vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: null }) }));
+vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: () => ({ data: undefined }) }));
+
 /** PapelHeader dispara `useVocesCount` (react-query) — necesita su provider. */
 function ConQueryClient({ children }: { children: ReactNode }) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -29,7 +32,7 @@ function montarHeader() {
       <PapelHeader />
     </ConQueryClient>,
   );
-  return screen.getByRole('link', { name: /La biblioteca/ });
+  return screen.getByRole('link', { name: /Biblioteca/ });
 }
 
 describe('MenuBiblioteca — los cinco estantes se abren desde el header', () => {
@@ -50,10 +53,12 @@ describe('MenuBiblioteca — los cinco estantes se abren desde el header', () =>
     expect(panel).not.toBeNull();
 
     for (const seccion of SECCIONES_BIBLIOTECA) {
-      const link = within(exigir(panel, "el panel del menú")).getByRole('link', { name: seccion.label });
+      const link = within(exigir(panel, 'el panel del menú')).getByRole('link', {
+        name: seccion.label,
+      });
       expect(link).toHaveAttribute('href', seccion.href);
     }
-    expect(within(exigir(panel, "el panel del menú")).getAllByRole('link')).toHaveLength(
+    expect(within(exigir(panel, 'el panel del menú')).getAllByRole('link')).toHaveLength(
       SECCIONES_BIBLIOTECA.length,
     );
   });

@@ -22,8 +22,22 @@ describe('FeedVoces', () => {
     } as ReturnType<typeof useProvincias>);
     mockVoces.mockReturnValue({
       data: [
-        { id: 2, body: 'Trenes que lleguen.', category: 'sueño', provinceId: 6, submittedAs: null, createdAt: '2026-07-22T12:00:00Z' },
-        { id: 1, body: 'Basta.', category: 'basta', provinceId: null, submittedAs: null, createdAt: '2026-07-21T12:00:00Z' },
+        {
+          id: 2,
+          body: 'Trenes que lleguen.',
+          category: 'sueño',
+          provinceId: 6,
+          submittedAs: null,
+          createdAt: '2026-07-22T12:00:00Z',
+        },
+        {
+          id: 1,
+          body: 'Basta.',
+          category: 'basta',
+          provinceId: null,
+          submittedAs: null,
+          createdAt: '2026-07-21T12:00:00Z',
+        },
       ],
       isLoading: false,
       isError: false,
@@ -42,7 +56,10 @@ describe('FeedVoces', () => {
   it('cierra con el link real a El mandato', () => {
     render(<FeedVoces />);
 
-    expect(screen.getByRole('link', { name: 'El mandato' })).toHaveAttribute('href', '/mandato-vivo');
+    expect(screen.getByRole('link', { name: 'El mandato' })).toHaveAttribute(
+      'href',
+      '/mandato-vivo',
+    );
   });
 
   it('cargando habla (§10.9): skeleton §5 + microcopy', () => {

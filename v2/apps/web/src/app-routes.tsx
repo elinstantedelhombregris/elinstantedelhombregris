@@ -25,6 +25,12 @@ import {
   ForgotPassword,
   Goals,
   Home,
+  Imaginar,
+  Campanas,
+  CampanaDetail,
+  GestionCampanas,
+  MiEspacio,
+  Colaborar,
   IniciativaDetail,
   IniciativaDocumento,
   InsightDashboard,
@@ -97,6 +103,16 @@ export function AppRoutes() {
       <Route path="/una-ruta-para-argentina">
         <Redirect to="/la-idea" replace />
       </Route>
+      <Route path="/imaginar" component={Imaginar} />
+      <Route path="/colaborar" component={Colaborar} />
+      <Route path="/mi-espacio" component={MiEspacio} />
+      <Route path="/gestion/campanas" component={GestionCampanas} />
+      <Route path="/campanas/:slug/participar">
+        {(params) => <Redirect to={`/imaginar?campana=${params.slug}`} replace />}
+      </Route>
+      <Route path="/campanas/:slug/devolucion" component={CampanaDetail} />
+      <Route path="/campanas/:slug" component={CampanaDetail} />
+      <Route path="/campanas" component={Campanas} />
       <Route path="/el-mapa" component={ElMapa} />
       <Route path="/fichas/nueva" component={Fichas} />
       <Route path="/fichas/:id" component={Fichas} />

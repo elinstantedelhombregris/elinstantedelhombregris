@@ -61,12 +61,20 @@ export const confirmacionSchema = z
       errorMap: () => ({ message: 'Ese no es uno de los seis veredictos.' }),
     }),
     metodo: z.enum(METODOS as [string, ...string[]], {
-      errorMap: () => ({ message: 'Decí cómo lo sabés: lo viste, conocés el lugar, chequeaste una fuente, fuiste, o no podés.' }),
+      errorMap: () => ({
+        message:
+          'Decí cómo lo sabés: lo viste, conocés el lugar, chequeaste una fuente, fuiste, o no podés.',
+      }),
     }),
     /** Categoría, nunca un punto. La declara quien confirma y el servidor no la atesta. */
     proximidad: z.enum(PROXIMIDADES as [string, ...string[]]).default('sin_declarar'),
     /** Sólo con `correct`: qué habría que corregir. */
-    nota: z.string().trim().max(280).nullish().transform((v) => v ?? null),
+    nota: z
+      .string()
+      .trim()
+      .max(280)
+      .nullish()
+      .transform((v) => v ?? null),
   })
   .superRefine((v, ctx) => {
     // El mismo par imposible que el CHECK cruzado impide, dicho en castellano

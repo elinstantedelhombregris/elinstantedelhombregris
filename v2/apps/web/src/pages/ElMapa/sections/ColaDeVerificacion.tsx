@@ -40,7 +40,10 @@ export function ColaDeVerificacion() {
       className="mx-auto max-w-[1440px] px-5 py-14 min-[961px]:px-10"
     >
       <Kicker className="mb-2">El segundo par de ojos</Kicker>
-      <h2 id="cola-titulo" className="font-anton text-tinta text-[clamp(24px,3.4vw,38px)] leading-[1.08]">
+      <h2
+        id="cola-titulo"
+        className="font-anton text-tinta text-[clamp(24px,3.4vw,38px)] leading-[1.08]"
+      >
         ¿Sigue así?
       </h2>
       <p className="text-tinta-75 mt-3 max-w-[62ch] text-[16px] leading-[1.55]">

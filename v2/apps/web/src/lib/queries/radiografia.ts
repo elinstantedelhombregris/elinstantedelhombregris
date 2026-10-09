@@ -73,6 +73,7 @@ export interface RadiografiaPublica {
   analizadas: number;
   sinVector: number;
   total: number;
+  cobertura?: { elegibles: number; limite: number; completo: boolean };
   provinciasSinSenal: number;
   umbral: number;
   nucleos: NucleoPublico[];
@@ -100,6 +101,7 @@ export const K_VECINAS = 12;
 export interface PedidoDeRadiografia {
   umbral: number;
   k?: number;
+  filtros?: Record<string, string>;
 }
 
 /**
@@ -118,12 +120,12 @@ export interface PedidoDeRadiografia {
  * que llegaron—; bajarlo no se puede calcular sin volver a preguntar. Eso lo
  * resuelve `construirVista` con sus tres estados, y no este hook.
  */
-export function useRadiografia({ umbral, k = K_VECINAS }: PedidoDeRadiografia) {
+export function useRadiografia({ umbral, k = K_VECINAS, filtros = {} }: PedidoDeRadiografia) {
   return useQuery({
-    queryKey: ['radiografia', umbral, k],
+    queryKey: ['radiografia', umbral, k, filtros],
     queryFn: () =>
       api.get<RadiografiaPublica>(
-        `/api/v1/civic/radiografia?umbral=${umbral.toFixed(2)}&k=${String(k)}`,
+        `/api/v1/civic/radiografia?${new URLSearchParams({ ...filtros, umbral: umbral.toFixed(2), k: String(k) }).toString()}`,
       ),
     placeholderData: keepPreviousData,
   });

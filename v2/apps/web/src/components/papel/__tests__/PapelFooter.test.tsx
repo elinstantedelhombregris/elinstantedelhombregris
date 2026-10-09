@@ -41,6 +41,6 @@ describe('PapelFooter', () => {
     // demostración» prometía algo que dejó de existir.
     render(<PapelFooter />);
     expect(screen.queryByText(/datos de demostración/i)).not.toBeInTheDocument();
-    expect(screen.getByText('Prototipo · todavía sin voces')).toBeInTheDocument();
+    expect(screen.getByText('Diseño abierto · revisión continua')).toBeInTheDocument();
   });
 });

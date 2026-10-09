@@ -3,11 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { MapaArgentina } from '../MapaArgentina';
 
-import {
-  useProvincias,
-  useVocesAbiertas,
-  useVocesPorProvincia,
-} from '~/lib/queries/open-data';
+import { useProvincias, useVocesAbiertas, useVocesPorProvincia } from '~/lib/queries/open-data';
 
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: vi.fn(),
@@ -24,14 +20,34 @@ const PROVINCIAS = [
   { id: 21, name: 'Santa Fe', isoCode: 'AR-S' },
 ];
 const VOCES = [
-  { id: 2, body: 'Quiero trenes que lleguen.', category: 'sueño', provinceId: 6, submittedAs: null, createdAt: '2026-07-22T12:00:00Z' },
-  { id: 1, body: 'Basta de laburar para el alquiler.', category: 'basta', provinceId: 6, submittedAs: null, createdAt: '2026-07-21T12:00:00Z' },
+  {
+    id: 2,
+    body: 'Quiero trenes que lleguen.',
+    category: 'sueño',
+    provinceId: 6,
+    submittedAs: null,
+    createdAt: '2026-07-22T12:00:00Z',
+  },
+  {
+    id: 1,
+    body: 'Basta de laburar para el alquiler.',
+    category: 'basta',
+    provinceId: 6,
+    submittedAs: null,
+    createdAt: '2026-07-21T12:00:00Z',
+  },
 ];
 
 function armarMocks(voces = VOCES, conteos = [{ provinceId: 6, count: 2 }]) {
-  mockProvincias.mockReturnValue({ data: PROVINCIAS, isLoading: false } as ReturnType<typeof useProvincias>);
-  mockVoces.mockReturnValue({ data: voces, isLoading: false, isError: false } as ReturnType<typeof useVocesAbiertas>);
-  mockConteos.mockReturnValue({ data: conteos, isLoading: false } as ReturnType<typeof useVocesPorProvincia>);
+  mockProvincias.mockReturnValue({ data: PROVINCIAS, isLoading: false } as ReturnType<
+    typeof useProvincias
+  >);
+  mockVoces.mockReturnValue({ data: voces, isLoading: false, isError: false } as ReturnType<
+    typeof useVocesAbiertas
+  >);
+  mockConteos.mockReturnValue({ data: conteos, isLoading: false } as ReturnType<
+    typeof useVocesPorProvincia
+  >);
 }
 
 describe('MapaArgentina', () => {
@@ -79,7 +95,14 @@ describe('MapaArgentina', () => {
     armarMocks(
       [
         ...VOCES,
-        { id: 3, body: 'Más ferias de productores.', category: 'necesidad', provinceId: 21, submittedAs: null, createdAt: '2026-07-20T12:00:00Z' },
+        {
+          id: 3,
+          body: 'Más ferias de productores.',
+          category: 'necesidad',
+          provinceId: 21,
+          submittedAs: null,
+          createdAt: '2026-07-20T12:00:00Z',
+        },
       ],
       [
         { provinceId: 6, count: 2 },
@@ -102,9 +125,15 @@ describe('MapaArgentina', () => {
   });
 
   it('mientras carga, la leyenda del marco dice el estado (§10.9)', () => {
-    mockProvincias.mockReturnValue({ data: undefined, isLoading: true } as ReturnType<typeof useProvincias>);
-    mockVoces.mockReturnValue({ data: undefined, isLoading: true, isError: false } as ReturnType<typeof useVocesAbiertas>);
-    mockConteos.mockReturnValue({ data: undefined, isLoading: true } as ReturnType<typeof useVocesPorProvincia>);
+    mockProvincias.mockReturnValue({ data: undefined, isLoading: true } as ReturnType<
+      typeof useProvincias
+    >);
+    mockVoces.mockReturnValue({ data: undefined, isLoading: true, isError: false } as ReturnType<
+      typeof useVocesAbiertas
+    >);
+    mockConteos.mockReturnValue({ data: undefined, isLoading: true } as ReturnType<
+      typeof useVocesPorProvincia
+    >);
     render(<MapaArgentina />);
 
     expect(screen.getByText('Cargando — menos que un trámite.')).toBeInTheDocument();

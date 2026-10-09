@@ -1,0 +1,1 @@
+ALTER TABLE "contribuciones" ADD COLUMN "huella" text NOT NULL;

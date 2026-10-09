@@ -33,7 +33,8 @@ const PERIODICIDADES = [
   ['permanente', 'Siempre abierto'],
 ] as const;
 
-const rotulo = 'font-space text-tinta-75 mb-1.5 mt-3.5 block text-[11px] uppercase tracking-[0.12em]';
+const rotulo =
+  'font-space text-tinta-75 mb-1.5 mt-3.5 block text-[11px] uppercase tracking-[0.12em]';
 const campo =
   'border-tinta bg-papel-crudo text-tinta placeholder:text-tinta-50 w-full border p-3 text-[14px]';
 
@@ -56,7 +57,9 @@ export function CamposPorTipo(p: CamposPorTipoProps) {
               p.onCambio('titulo', e.target.value);
             }}
             placeholder={
-              p.tipo === 'práctica' ? 'El comedor de la esquina' : 'Un semáforo en Rivadavia y Boedo'
+              p.tipo === 'práctica'
+                ? 'El comedor de la esquina'
+                : 'Un semáforo en Rivadavia y Boedo'
             }
             className={campo}
           />

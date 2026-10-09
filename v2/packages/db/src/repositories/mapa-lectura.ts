@@ -17,6 +17,8 @@ export interface ConsultaMapa {
   hasta: Date;
   desde?: Date;
   bbox?: BBox;
+  campana?: string;
+  edicion?: number;
   provinceId?: number;
   cityId?: number;
   lugarId?: number;
@@ -104,6 +106,10 @@ export class MapaLecturaRepository {
       where ${geographicLocations.id} = ${q.lugarId} or ${geographicLocations.departmentId} = ${q.lugarId}
         or ${geographicLocations.municipalityId} = ${q.lugarId} or ${geographicLocations.parentId} = ${q.lugarId}
     ))`);
+    if (q.campana)
+      filtros.push(
+        sql`exists(select 1 from contribuciones c where 'voz:'||c.senal_id::text=fuentes.id and c.campana_id=${q.campana}::uuid ${q.edicion ? sql`and c.edicion=${q.edicion}` : sql``})`,
+      );
     if (q.tipo) filtros.push(sql`tipo = ${q.tipo}`);
     if (q.clase) filtros.push(sql`clase = ${q.clase}`);
     if (q.tema) filtros.push(sql`tema = ${q.tema}`);

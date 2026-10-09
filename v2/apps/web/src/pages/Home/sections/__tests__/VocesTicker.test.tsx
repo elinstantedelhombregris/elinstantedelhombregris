@@ -25,8 +25,16 @@ describe('VocesTicker', () => {
   it('pinta por CLASE, y lo que el canon no reconoce sale neutro', () => {
     mockedUseVocesRecientes.mockReturnValue({
       data: [
-        { id: 1, texto: 'Basta de rutas sin luz.', categoria: 'basta' },
-        { id: 2, texto: 'Una voz sin categoría reconocida.', categoria: 'inventado' },
+        {
+          id: '00000000-0000-4000-8000-000000000001',
+          texto: 'Basta de rutas sin luz.',
+          categoria: 'basta',
+        },
+        {
+          id: '00000000-0000-4000-8000-000000000002',
+          texto: 'Una voz sin categoría reconocida.',
+          categoria: 'inventado',
+        },
       ],
       isLoading: false,
     } as ReturnType<typeof useVocesRecientes>);
@@ -46,7 +54,13 @@ describe('VocesTicker', () => {
 
   it('loops the duplicated aria-hidden copy so the marquee has content even with few voces', () => {
     mockedUseVocesRecientes.mockReturnValue({
-      data: [{ id: 1, texto: 'Única voz disponible.', categoria: 'valor' }],
+      data: [
+        {
+          id: '00000000-0000-4000-8000-000000000001',
+          texto: 'Única voz disponible.',
+          categoria: 'valor',
+        },
+      ],
       isLoading: false,
     } as ReturnType<typeof useVocesRecientes>);
     renderTicker();
@@ -61,7 +75,11 @@ describe('VocesTicker', () => {
     } as ReturnType<typeof useVocesRecientes>);
     renderTicker();
 
-    expect(screen.getByText('Todavía no hay voces acá. Qué oportunidad.')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Todavía no hay textos compartidos en esta lectura. Las voces reservadas también cuentan.',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('shows neither the old demo voices nor the empty state while loading', () => {
@@ -74,6 +92,26 @@ describe('VocesTicker', () => {
     expect(
       screen.queryByText(/Basta de rutas sin luz donde ya murió gente/),
     ).not.toBeInTheDocument();
-    expect(screen.queryByText('Todavía no hay voces acá. Qué oportunidad.')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(
+        'Todavía no hay textos compartidos en esta lectura. Las voces reservadas también cuentan.',
+      ),
+    ).not.toBeInTheDocument();
+  });
+
+  it('no presenta el aviso de texto reservado como una cita de la ciudadanía', () => {
+    mockedUseVocesRecientes.mockReturnValue({
+      data: [
+        {
+          id: '00000000-0000-4000-8000-000000000003',
+          texto: 'Texto reservado por su autoría.',
+          categoria: 'sueno',
+        },
+      ],
+      isLoading: false,
+    } as ReturnType<typeof useVocesRecientes>);
+    renderTicker();
+    expect(screen.queryByText('«Texto reservado por su autoría.»')).not.toBeInTheDocument();
+    expect(screen.getByText(/Las voces reservadas también cuentan/)).toBeInTheDocument();
   });
 });

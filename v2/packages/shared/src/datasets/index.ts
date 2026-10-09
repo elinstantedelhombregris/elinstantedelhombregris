@@ -28,7 +28,7 @@ export const OPEN_DATASETS: OpenDataset[] = [
     description:
       'Cada sueño que la red registra, normalizado por provincia. Texto + categoría + fecha. Anonimizado.',
     format: 'JSON · CSV',
-    licenseHint: 'CC0 — uso libre con atribución apreciada.',
+    licenseHint: 'Compilación CC BY 4.0; textos según cesión de cada aporte.',
     available: false,
   },
   {
@@ -37,7 +37,7 @@ export const OPEN_DATASETS: OpenDataset[] = [
     description:
       'Statements espontáneos de la ciudadanía clasificados por sentimiento + tema (cuando aplica).',
     format: 'JSON',
-    licenseHint: 'CC0',
+    licenseHint: 'Compilación CC BY 4.0; textos según cesión',
     available: false,
   },
   {
@@ -46,16 +46,15 @@ export const OPEN_DATASETS: OpenDataset[] = [
     description:
       'Distribución de arquetipos cívicos por provincia + cohorte temporal. Sin datos personales.',
     format: 'JSON',
-    licenseHint: 'CC0',
+    licenseHint: 'Compilación CC BY 4.0; textos según cesión',
     available: false,
   },
   {
     id: 'iniciativas',
     title: 'Iniciativas activas',
-    description:
-      'Listado público de iniciativas, sus PLANs asociados y métricas de actividad.',
+    description: 'Listado público de iniciativas, sus PLANs asociados y métricas de actividad.',
     format: 'JSON',
-    licenseHint: 'CC0',
+    licenseHint: 'Compilación CC BY 4.0; textos según cesión',
     available: false,
   },
 ];

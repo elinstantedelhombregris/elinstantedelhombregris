@@ -166,8 +166,7 @@ dsuite('Radiografía flows', () => {
     const data = await traer();
     // Sin corrida de análisis, las tres entran por `sinVector` y ninguna se
     // dibuja. Eso no es un error: es el estado que la spec §6 pide declarar.
-    const dibujadas =
-      data.nucleos.reduce((n, nucleo) => n + nucleo.senales, 0) + data.solas.length;
+    const dibujadas = data.nucleos.reduce((n, nucleo) => n + nucleo.senales, 0) + data.solas.length;
     expect(dibujadas).toBe(data.analizadas);
   });
 
@@ -208,9 +207,9 @@ dsuite('Radiografía flows', () => {
     await request.get('/api/v1/civic/radiografia?k=0').expect(400);
   });
 
-  it('es cacheable y no pide CSRF: es lectura pública', async () => {
+  it('es lectura pública sin CSRF y evita conservar fuentes retiradas en caché', async () => {
     const res = await request.get('/api/v1/civic/radiografia');
     expect(res.status).toBe(200);
-    expect(res.headers['cache-control']).toContain('max-age');
+    expect(res.headers['cache-control']).toBe('no-store');
   });
 });

@@ -36,39 +36,39 @@ export const ESTADO_PROPUESTA: Record<string, string> = {
 export const PASOS_CONVERGENCIA = [
   {
     num: '01',
-    titulo: 'La voz entra por el mapa',
+    titulo: 'Imaginamos una vida posible',
     cuerpo:
-      'Alguien suelta lo que no aguanta, lo que sueña o lo que ofrece. Queda pública desde el primer segundo.',
-    link: { href: '/el-mapa', etiqueta: 'El mapa →' },
+      'Cada persona cuenta lo que quiere hacer posible. Revisa su aporte y elige qué compartir, con qué permiso y en qué ámbito.',
+    link: { href: '/imaginar', etiqueta: 'Imaginar →' },
   },
   {
     num: '02',
-    titulo: 'Una máquina la lee',
+    titulo: 'Examinamos lo que nos reúne',
     cuerpo:
-      'Un clasificador la suma a su tema y le mide el peso. Sin mesa chica: nadie elige a mano qué pesa.',
+      'Las semejanzas entre textos abren preguntas. Las respuestas explícitas muestran acuerdos y diferencias dentro de cada ficha; ninguna de estas lecturas habla por quienes faltan.',
   },
   {
     num: '03',
-    titulo: 'El documento se reescribe',
+    titulo: 'Probamos y devolvemos lo aprendido',
     cuerpo:
-      'Cada voz nueva recalcula el registro, las brechas y el diagnóstico. Esta página es siempre la última revisión.',
+      'Una alternativa puede convertirse en una prueba cuando alguien acepta sostenerla. El resultado, sus fuentes y sus límites vuelven a quienes participaron, para que puedan revisarlos.',
   },
 ] as const;
 
 export const COMO_SE_USA = [
   {
-    titulo: 'Se firma',
+    titulo: 'Se declara el efecto',
     cuerpo:
-      'Cualquiera que aspire a un cargo puede adherir al documento vigente, en público. La firma no se exige: se registra.',
+      'Cada campaña explica para qué escucha y qué devolución ofrece. Una responsabilidad o una respuesta institucional debe aceptarse de forma explícita; estar en el registro no obliga a nadie.',
   },
   {
     titulo: 'Se mide',
     cuerpo:
-      'Cada prioridad sale con su número al lado: cuántas voces, de dónde, desde cuándo. Lo que se mide no se relativiza.',
+      'Cada lectura identifica fuentes, alcance y denominadores. Contar aportes, responder una afirmación y revisar un resultado son operaciones distintas; una cifra no decide la prioridad del país.',
   },
   {
     titulo: 'Se recuerda',
     cuerpo:
-      'Las voces quedan públicas y el documento a la vista. Lo dicho, dicho está: la memoria es la sanción.',
+      'Los procesos conservan sus revisiones y el aprendizaje. Las publicaciones respetan permisos y retiros vigentes; una copia que alguien ya descargó no puede recuperarse desde la plataforma.',
   },
 ] as const;

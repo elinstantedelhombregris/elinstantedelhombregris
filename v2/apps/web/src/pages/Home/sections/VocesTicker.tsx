@@ -16,11 +16,12 @@ export function VocesTicker() {
     return <section className="border-tinta bg-papel-crudo h-[45px] border-y" aria-hidden="true" />;
   }
 
-  if (data.length === 0) {
+  const voces = data.filter((voz) => voz.texto !== 'Texto reservado por su autoría.');
+  if (voces.length === 0) {
     return (
       <section className="border-tinta bg-papel-crudo border-y px-5 py-[13px] text-center">
         <span className="font-space text-tinta-75 text-[13px]">
-          Todavía no hay voces acá. Qué oportunidad.
+          Todavía no hay textos compartidos en esta lectura. Las voces reservadas también cuentan.
         </span>
       </section>
     );
@@ -31,14 +32,14 @@ export function VocesTicker() {
       <div className="anim-marquee flex w-max py-[13px]">
         {[0, 1].map((copia) => (
           <div key={copia} aria-hidden={copia === 1} className="flex">
-            {data.map((voz) => {
+            {voces.map((voz) => {
               /**
                * Sin sumidero: lo que no está en el canon sale con el gris
                * neutro y no plegado contra un tipo real. Antes esto era
                * `?? 'valor'`, y por eso una voz de tipo «bastta» se pintaba
                * como si fuera algo.
                */
-              const lectura = leerTipoSenal(voz.categoria ?? '');
+              const lectura = leerTipoSenal(voz.categoria);
               return (
                 <span
                   key={`${copia}-${voz.id}`}

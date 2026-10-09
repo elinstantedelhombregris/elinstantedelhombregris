@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -26,6 +27,15 @@ vi.mock('~/lib/queries/open-data', () => ({
   useVocesAbiertas: vi.fn(),
   useVocesPorProvincia: vi.fn(),
 }));
+
+vi.mock('~/lib/queries/participacion', () => ({ useCampanas: () => ({ data: [] }) }));
+vi.mock('~/lib/queries/fichas', () => ({ useFichas: () => ({ data: { fichas: [] } }) }));
+const montar = () =>
+  render(
+    <QueryClientProvider client={new QueryClient()}>
+      <ElMapa />
+    </QueryClientProvider>,
+  );
 
 describe('ElMapa (página papel 2.2)', () => {
   beforeEach(() => {
@@ -63,7 +73,7 @@ describe('ElMapa (página papel 2.2)', () => {
   });
 
   it('abre con una cabecera corta, sin cifra gigante (D-080)', () => {
-    render(<ElMapa />);
+    montar();
 
     expect(
       screen.getByRole('heading', { level: 1, name: 'El país, dicho por su gente.' }),
@@ -81,7 +91,7 @@ describe('ElMapa (página papel 2.2)', () => {
    * hablar antes de ver para qué.
    */
   it('compone instrumento arriba, y panel + feed debajo', () => {
-    const { container } = render(<ElMapa />);
+    const { container } = montar();
 
     const instrumento = screen.getByRole('heading', {
       level: 2,
@@ -96,7 +106,7 @@ describe('ElMapa (página papel 2.2)', () => {
   });
 
   it('el instrumento tiene su ancla profunda', () => {
-    const { container } = render(<ElMapa />);
+    const { container } = montar();
     expect(container.querySelector('#instrumento')).not.toBeNull();
   });
 });

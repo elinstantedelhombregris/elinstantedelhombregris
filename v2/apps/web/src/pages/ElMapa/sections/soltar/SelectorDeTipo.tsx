@@ -9,7 +9,6 @@ import {
   type TipoSenal,
 } from '~/lib/vocabulario';
 
-
 /**
  * Los nueve tipos, agrupados por sus cuatro clases.
  *

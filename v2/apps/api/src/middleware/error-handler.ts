@@ -58,7 +58,15 @@ export function errorHandler() {
       return;
     }
 
-    logger.error({ err, requestId, path: req.path, method: req.method }, 'Unhandled error');
+    // Los errores de SQL pueden incluir params con relatos, correos y credenciales.
+    const errorName = err instanceof Error ? err.name : 'UnknownError';
+    const codigo = typeof err === 'object' && err !== null && 'code' in err ? err.code : undefined;
+    const errorCode =
+      typeof codigo === 'string' && /^[A-Z0-9_]{1,40}$/.test(codigo) ? codigo : undefined;
+    logger.error(
+      { errorName, errorCode, requestId, path: req.path, method: req.method },
+      'Unhandled error',
+    );
     res.status(500).json({
       error: {
         code: 'INTERNAL_ERROR',

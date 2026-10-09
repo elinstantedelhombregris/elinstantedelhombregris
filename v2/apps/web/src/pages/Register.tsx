@@ -8,6 +8,7 @@ import { FieldError } from '~/components/ui/field-error';
 import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
 import { useAuth } from '~/lib/auth';
+import { volverTrasIngresar } from '~/lib/auth/volver';
 
 interface FormValues {
   username: string;
@@ -29,7 +30,7 @@ export function Register() {
   const onSubmit = handleSubmit(async (values) => {
     try {
       await registerMutation.mutateAsync(values);
-      navigate('/');
+      navigate(volverTrasIngresar(window.location.search));
     } catch (err) {
       setError('root', { message: err instanceof Error ? err.message : 'Algo salió mal.' });
     }
@@ -37,11 +38,14 @@ export function Register() {
 
   return (
     <main className="container mx-auto flex min-h-[80vh] max-w-md flex-col justify-center px-4 py-16">
-      <div className="glass rounded-2xl p-8">
-        <h1 className="mb-2 font-serif text-3xl font-semibold">Crear cuenta</h1>
-        <p className="mb-6 text-sm text-muted-foreground">
+      <div className="border-tinta bg-papel-crudo border p-8">
+        <h1 className="font-anton text-tinta mb-2 text-4xl">Crear cuenta</h1>
+        <p className="text-tinta-75 mb-6 text-sm">
           ¿Ya tenés una?{' '}
-          <Link href="/ingresar" className="text-primary hover:underline">
+          <Link
+            href={`/ingresar?volver=${encodeURIComponent(volverTrasIngresar(window.location.search))}`}
+            className="text-violeta hover:underline"
+          >
             Iniciar sesión
           </Link>
         </p>
@@ -63,7 +67,12 @@ export function Register() {
           </div>
           <div>
             <Label htmlFor="password">Contraseña</Label>
-            <Input id="password" type="password" autoComplete="new-password" {...register('password')} />
+            <Input
+              id="password"
+              type="password"
+              autoComplete="new-password"
+              {...register('password')}
+            />
             <FieldError message={errors.password?.message} />
           </div>
           {errors.root ? (

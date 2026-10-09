@@ -8,6 +8,7 @@
  *
  * Override in tests via setAICompleter().
  */
+import { clavesIA } from '../config.js';
 import { logger } from '../logger.js';
 
 import { AnthropicCompleter } from './anthropic.js';
@@ -20,8 +21,7 @@ let cached: AICompleter | undefined;
 
 export function getAICompleter(): AICompleter {
   if (cached) return cached;
-  const groqKey = process.env.GROQ_API_KEY;
-  const anthropicKey = process.env.ANTHROPIC_API_KEY;
+  const { groq: groqKey, anthropic: anthropicKey } = clavesIA();
   if (groqKey) {
     cached = new GroqCompleter(groqKey);
     logger.info({ provider: 'groq' }, 'AICompleter ready');

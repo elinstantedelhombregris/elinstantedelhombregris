@@ -8,7 +8,9 @@ import { z } from 'zod';
 
 const truthy = z
   .union([z.boolean(), z.string()])
-  .transform((v) => (typeof v === 'boolean' ? v : ['1', 'true', 'yes', 'on'].includes(v.toLowerCase())));
+  .transform((v) =>
+    typeof v === 'boolean' ? v : ['1', 'true', 'yes', 'on'].includes(v.toLowerCase()),
+  );
 
 const ConfigSchema = z.object({
   env: z.enum(['development', 'test', 'production']).default('development'),
@@ -35,7 +37,12 @@ const ConfigSchema = z.object({
     origins: z
       .string()
       .default('http://localhost:5173')
-      .transform((v) => v.split(',').map((s) => s.trim()).filter(Boolean)),
+      .transform((v) =>
+        v
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean),
+      ),
   }),
   rateLimit: z.object({
     windowMs: z.coerce.number().int().positive().default(60_000),
@@ -62,7 +69,12 @@ const ConfigSchema = z.object({
     usernames: z
       .string()
       .default('')
-      .transform((v) => v.split(',').map((s) => s.trim()).filter(Boolean)),
+      .transform((v) =>
+        v
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean),
+      ),
   }),
 });
 
@@ -126,4 +138,13 @@ export function getConfig(): Config {
  */
 export function resetConfig(): void {
   cached = undefined;
+}
+
+/** Solo la configuración lee credenciales de proveedores. Nunca se incluyen en una respuesta pública. */
+export function clavesIA() {
+  return { groq: process.env.GROQ_API_KEY, anthropic: process.env.ANTHROPIC_API_KEY };
+}
+export function nombreProveedorIA(): string | null {
+  const c = clavesIA();
+  return c.groq ? 'Groq' : c.anthropic ? 'Anthropic' : null;
 }

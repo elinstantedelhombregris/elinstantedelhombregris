@@ -18,8 +18,10 @@ const Instrumento = lazy(() =>
 
 export function SeccionInstrumento({
   onAportar,
+  onTerritorio,
 }: {
   onAportar?: (lugar: LugarMapa | null) => void;
+  onTerritorio?: (lugar: LugarMapa | null) => void;
 }) {
   return (
     <section id="instrumento" aria-labelledby="instrumento-titulo" className="mt-2">
@@ -46,7 +48,10 @@ export function SeccionInstrumento({
           </div>
         }
       >
-        <Instrumento {...(onAportar ? { onAportar } : {})} />
+        <Instrumento
+          {...(onTerritorio ? { onTerritorio } : {})}
+          {...(onAportar ? { onAportar } : {})}
+        />
       </Suspense>
     </section>
   );

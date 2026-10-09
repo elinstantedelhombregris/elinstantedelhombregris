@@ -7,13 +7,16 @@ import { CabeceraProcedencia } from './LaRadiografia/sections/CabeceraProcedenci
 import { CieloVacio } from './LaRadiografia/sections/CieloVacio';
 import { ComoLeerElCielo } from './LaRadiografia/sections/ComoLeerElCielo';
 import { Constelacion } from './LaRadiografia/sections/Constelacion';
+import { ControlesAnalisis } from './LaRadiografia/sections/ControlesAnalisis';
 import { DeslizadorUmbral } from './LaRadiografia/sections/DeslizadorUmbral';
 import { FichaDeNucleo } from './LaRadiografia/sections/FichaDeNucleo';
 import { InterruptorDeTema } from './LaRadiografia/sections/InterruptorDeTema';
+import { LecturaOpiniones } from './LaRadiografia/sections/LecturaOpiniones';
 import { ListaDeNucleos } from './LaRadiografia/sections/ListaDeNucleos';
 import { RegimenDegenerado } from './LaRadiografia/sections/RegimenDegenerado';
 
 import { Kicker, RitoTinta } from '~/components/papel/primitives';
+import { filtrosPublicos } from '~/lib/participacion/exportar';
 import { UMBRAL_INICIAL, useRadiografia } from '~/lib/queries/radiografia';
 
 /**
@@ -44,7 +47,19 @@ import { UMBRAL_INICIAL, useRadiografia } from '~/lib/queries/radiografia';
 const ESPERA_DEL_PEDIDO = 350;
 
 export function LaRadiografia() {
-  const [umbral, setUmbral] = useState(UMBRAL_INICIAL);
+  const [filtros, setFiltros] = useState(() =>
+    filtrosPublicos(Object.fromEntries(new URLSearchParams(window.location.search))),
+  );
+  const cambiarFiltros = (f: Record<string, string>) => {
+    setFiltros(f);
+    setEnfocado(null);
+    const q = new URLSearchParams({ ...f, umbral: umbral.toFixed(2) });
+    window.history.replaceState(null, '', `/la-radiografia?${q.toString()}`);
+  };
+  const [umbral, setUmbral] = useState(() => {
+    const n = Number(new URLSearchParams(window.location.search).get('umbral'));
+    return n >= 0.1 && n <= 0.99 ? n : UMBRAL_INICIAL;
+  });
   const [umbralPedido, setUmbralPedido] = useState(UMBRAL_INICIAL);
   const [orden, setOrden] = useState<Orden>('tamano');
   const [enfocado, setEnfocado] = useState<string | null>(null);
@@ -60,13 +75,18 @@ export function LaRadiografia() {
   useEffect(() => {
     const reloj = setTimeout(() => {
       setUmbralPedido(umbral);
+      window.history.replaceState(
+        null,
+        '',
+        `/la-radiografia?${new URLSearchParams({ ...filtros, umbral: umbral.toFixed(2) }).toString()}`,
+      );
     }, ESPERA_DEL_PEDIDO);
     return () => {
       clearTimeout(reloj);
     };
-  }, [umbral]);
+  }, [umbral, filtros]);
 
-  const { data, isLoading, isError } = useRadiografia({ umbral: umbralPedido });
+  const { data, isLoading, isError } = useRadiografia({ umbral: umbralPedido, filtros });
   const vista = useMemo(() => construirVista(data, umbral), [data, umbral]);
 
   const cambiarTema = (nuevo: Tema) => {
@@ -129,7 +149,15 @@ export function LaRadiografia() {
           <InterruptorDeTema tema={tema} onCambiar={cambiarTema} />
         </div>
 
+        <ControlesAnalisis
+          filtros={{ ...filtros, umbral: umbral.toFixed(2) }}
+          cambiar={cambiarFiltros}
+          corte={data?.corte ?? null}
+        />
         <CabeceraProcedencia datos={data} cargando={isLoading} fallo={isError} tema={tema} />
+        <a href="#acuerdos" className="my-5 inline-flex min-h-11 items-center underline">
+          Leer acuerdos y diferencias de las fichas ↓
+        </a>
 
         {isError && !data ? (
           // El vacío es una pieza y una afirmación: «todavía no habló nadie».
@@ -206,6 +234,11 @@ export function LaRadiografia() {
             />
           </>
         )}
+
+        <LecturaOpiniones
+          key={`${filtros.campana ?? ''}:${filtros.territorio ?? ''}`}
+          filtros={filtros}
+        />
 
         {/* Fuera del condicional a propósito: con la base casi vacía —`D-002`—
             el cielo de arriba puede estar vacío, y entonces este link es lo

@@ -15,11 +15,11 @@ function Diagnostico({ data }: { data: DocumentoMandato }) {
   const regimen = regimenDe(data.senales.clasificadas);
   return (
     <div className="mt-10">
-      <h3 className={LABEL}>I. Diagnóstico — lo que más pesa</h3>
+      <h3 className={LABEL}>I. Temas declarados en el registro</h3>
       {regimen === 'cero' ? (
         <p className={VACIO}>
-          Acá va el diagnóstico del país, tema por tema, con porcentaje y todo. Todavía no hay
-          señales clasificadas para escribirlo — y no lo vamos a inventar.
+          Acá se consultan los temas declarados, con su denominador. Todavía no hay señales
+          clasificadas para esta lectura — y no lo vamos a inventar.
         </p>
       ) : (
         <div className="flex flex-col gap-6">
@@ -178,8 +178,9 @@ function VigenciaYFirma({
       <div className="max-w-[420px]">
         <h3 className={LABEL}>Vigencia</h3>
         <p className="text-tinta-75 text-[14px] leading-relaxed">
-          Este mandato se reescribe con cada voz nueva. No tiene dueño ni vencimiento: tiene
-          revisiones. Que una voz esté acá no quiere decir que quien la dejó firme el resto.
+          Esta consulta se actualiza con los permisos y estados vigentes. Que una voz esté acá no
+          quiere decir que quien la dejó apoye el resto. La fecha de consulta no convierte las
+          declaraciones en hechos comprobados.
         </p>
       </div>
       <div className="text-right">

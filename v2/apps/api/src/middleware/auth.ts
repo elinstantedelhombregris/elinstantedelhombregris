@@ -5,7 +5,11 @@
  *
  * The `req.user` typing is augmented in src/types/express.d.ts.
  */
+import { getDb, UsersRepository } from '@v2/db';
+
 import { COOKIE_ACCESS, verifyAccessToken } from '../features/auth/tokens.js';
+
+import { HttpError } from './error-handler.js';
 
 import type { NextFunction, Request, Response } from 'express';
 
@@ -15,7 +19,7 @@ export interface AuthUser {
   email: string;
 }
 
-export function authenticate(req: Request, res: Response, next: NextFunction): void {
+export async function authenticate(req: Request, res: Response, next: NextFunction): Promise<void> {
   const cookies = req.cookies as Record<string, string> | undefined;
   const token = cookies?.[COOKIE_ACCESS];
   if (!token) {
@@ -33,18 +37,45 @@ export function authenticate(req: Request, res: Response, next: NextFunction): v
     });
     return;
   }
-  req.user = { id: claims.sub, username: claims.username, email: claims.email };
-  next();
+  try {
+    const usuario = await new UsersRepository(getDb()).findById(claims.sub);
+    if (!usuario?.isActive) {
+      res
+        .status(401)
+        .json({ error: { code: 'ACCOUNT_INACTIVE', message: 'Esta cuenta ya no está activa.' } });
+      return;
+    }
+    req.user = { id: claims.sub, username: claims.username, email: claims.email };
+    next();
+  } catch (e) {
+    next(e);
+  }
 }
 
-export function optionalAuthenticate(req: Request, _res: Response, next: NextFunction): void {
+export async function optionalAuthenticate(
+  req: Request,
+  _res: Response,
+  next: NextFunction,
+): Promise<void> {
   const cookies = req.cookies as Record<string, string> | undefined;
   const token = cookies?.[COOKIE_ACCESS];
   if (token) {
     const claims = verifyAccessToken(token);
     if (claims) {
-      req.user = { id: claims.sub, username: claims.username, email: claims.email };
+      try {
+        const usuario = await new UsersRepository(getDb()).findById(claims.sub);
+        if (usuario?.isActive)
+          req.user = { id: claims.sub, username: claims.username, email: claims.email };
+      } catch (e) {
+        next(e);
+        return;
+      }
     }
   }
   next();
+}
+
+export function usuarioAutenticado(req: Request): AuthUser {
+  if (!req.user) throw new HttpError(401, 'SESION_REQUERIDA', 'Ingresá para continuar.');
+  return req.user;
 }

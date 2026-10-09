@@ -269,3 +269,23 @@ export const Fichas = lazy(async () => {
   const m = await import('~/pages/Fichas');
   return { default: m.Fichas };
 });
+
+export const Imaginar = lazy(async () => ({
+  default: (await import('~/pages/Imaginar')).Imaginar,
+}));
+export const Campanas = lazy(async () => ({
+  default: (await import('~/pages/Campanas')).Campanas,
+}));
+export const CampanaDetail = lazy(async () => ({
+  default: (await import('~/pages/CampanaDetail')).CampanaDetail,
+}));
+export const GestionCampanas = lazy(async () => ({
+  default: (await import('~/pages/GestionCampanas')).GestionCampanas,
+}));
+export const MiEspacio = lazy(async () => ({
+  default: (await import('~/pages/MiEspacio')).MiEspacio,
+}));
+
+export const Colaborar = lazy(() =>
+  import('./pages/Colaborar').then((m) => ({ default: m.Colaborar })),
+);

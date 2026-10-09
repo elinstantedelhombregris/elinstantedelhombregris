@@ -59,6 +59,8 @@ export type ConsultaSenalesQuery = z.infer<typeof consultaSenalesSchema>;
 
 export const lecturaMapaSchema = consultaSenalesSchema
   .extend({
+    campana: z.string().uuid().optional(),
+    edicion: z.coerce.number().int().positive().optional(),
     provinceId: z.coerce.number().int().positive().optional(),
     cityId: z.coerce.number().int().positive().optional(),
     lugarId: z.coerce.number().int().positive().optional(),

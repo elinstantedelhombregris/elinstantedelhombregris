@@ -1,21 +1,20 @@
-import { GestionSenalesRepository, getDb } from '@v2/db';
+import { MiEspacioRepository, getDb } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
+import { optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
-import { actorSiExiste } from './actor.js';
+import { actorDelNavegador } from './actor.js';
 
 const router: RouterType = Router();
+router.use(optionalAuthenticate);
 /** La cookie de actor conserva autoría sin enlazarla a una cuenta. */
 router.delete('/senales/:idPublico', async (req, res, next) => {
   try {
     const id = z.string().uuid().parse(req.params.idPublico);
-    const actorId = await actorSiExiste(req);
-    if (
-      actorId === null ||
-      !(await new GestionSenalesRepository(getDb()).retirarPropia(id, actorId))
-    ) {
+    const actorId = await actorDelNavegador(req);
+    if (!(await new MiEspacioRepository(getDb()).retirar(id, req.user?.id, actorId))) {
       throw new HttpError(
         403,
         'AUTORIA_NO_DISPONIBLE',

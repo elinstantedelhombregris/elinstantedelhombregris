@@ -37,3 +37,10 @@ export * from './senales.js';
 export * from './confirmaciones.js';
 export * from './adhesiones.js';
 export * from './fichas.js';
+
+export * from './campanas.js';
+export * from './continuidad.js';
+export * from './diseno.js';
+
+export * from './colaboracion.js';
+export * from './exportaciones.js';

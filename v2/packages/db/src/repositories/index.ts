@@ -6,6 +6,8 @@
  * test branch's client.
  */
 export { UsersRepository } from './users.js';
+export { ExportacionesRepository, MAX_BYTES_EXPORTACION, MAX_REGISTROS_EXPORTACION } from './exportaciones.js';
+export type { ExportacionFila } from './exportaciones.js';
 export { AuthRepository } from './auth.js';
 export { NotificationsRepository } from './notifications.js';
 export {
@@ -116,3 +118,15 @@ export type { ConsultaMapa, LecturaMapa, ResumenProvincia } from './mapa-lectura
 export type { Confirmada, EntradaDeConfirmacion, MotivoDeRechazo } from './confirmaciones.js';
 export { GestionSenalesRepository } from './gestion-senales.js';
 export { FichasRepository } from './fichas.js';
+
+export { CampanasRepository } from './campanas.js';
+export { ContribucionesRepository } from './contribuciones.js';
+export { MiEspacioRepository } from './mi-espacio.js';
+export { condicionesParticipacion, alcanceParticipacion } from './participacion-consulta.js';
+export { DatosParticipacionRepository } from './datos-participacion.js';
+export { DisenoFichaRepository } from './diseno-ficha.js';
+export { PruebasRepository } from './pruebas.js';
+
+export * from './colaboracion.js';
+
+export * from './cuenta-civica.js';

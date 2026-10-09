@@ -1,6 +1,7 @@
 import { Link, useRoute } from 'wouter';
 
 import { BotonAdherir } from './Senal/BotonAdherir';
+import { EditarAporte } from './Senal/EditarAporte';
 import { FichaDeConfirmaciones } from './Senal/FichaDeConfirmaciones';
 import { PanelConfirmar } from './Senal/PanelConfirmar';
 import { RetirarAporte } from './Senal/RetirarAporte';
@@ -183,7 +184,12 @@ export function Senal() {
           <FichaDeConfirmaciones confirmaciones={confirmaciones} />
         </section>
       ) : null}
-      {data.esPropia && senal.estado !== 'retirada' ? <RetirarAporte id={senal.idPublico} /> : null}
+      {data.esPropia && senal.estado !== 'retirada' ? (
+        <>
+          <EditarAporte id={senal.idPublico} />
+          <RetirarAporte id={senal.idPublico} />
+        </>
+      ) : null}
     </main>
   );
 }

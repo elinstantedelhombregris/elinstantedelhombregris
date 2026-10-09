@@ -21,14 +21,15 @@ export function CapituloMetodo() {
       </h2>
       <div className="text-tinta-75 max-w-[620px] text-[17px] leading-relaxed">
         <p className="mb-4 text-pretty">
-          La política argentina fracasa por un error de diseño: una sola casta hace los tres
-          trabajos. Decide qué país quiere, lo administra y se controla a sí misma. Acá los
-          tres roles se separan — y no se vuelven a mezclar.
+          Un país se diseña mejor cuando cada responsabilidad puede verse y discutirse. La
+          ciudadanía imagina la vida que quiere hacer posible; el Estado sostiene sus condiciones;
+          la política propone y ejecuta caminos que podamos evaluar.
         </p>
         <p className="mb-10 text-pretty">
-          El método tiene nombre: diseño idealizado. Cuando un sistema falla en todo, no se
-          lo emparcha — se lo dibuja de nuevo, como si empezara hoy. No prometemos arreglar
-          lo viejo: dibujamos lo nuevo hasta que volver atrás quede en ridículo.
+          El método tiene nombre: diseño idealizado. Empezamos por la vida deseada, hacemos
+          explícitas sus condiciones y comparamos alternativas. Después probamos algo acotado,
+          observamos lo que ocurre y revisamos el diseño. El ideal orienta; la experiencia nos
+          enseña cómo acercarnos.
         </p>
       </div>
 
@@ -70,9 +71,8 @@ export function CapituloMetodo() {
           <span className="font-space text-tinta-30 text-sm">↺</span>
         </div>
         <p className="text-tinta-50 mt-5 text-sm leading-relaxed">
-          El ciclo no tiene última vuelta: las voces nuevas ajustan el mandato, el mandato
-          ajusta los planes, y la ejecución se audita a la vista de todos. Después vuelve a
-          girar.
+          El ciclo no tiene última vuelta: las voces nuevas abren preguntas, las respuestas permiten
+          comparar diseños y las pruebas dejan resultados para revisar. Después vuelve a girar.
         </p>
       </div>
 

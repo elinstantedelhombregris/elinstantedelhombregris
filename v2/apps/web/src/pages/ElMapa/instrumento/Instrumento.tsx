@@ -33,7 +33,13 @@ import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
  * Los cuatro modos comparten señales y viewport; cada uno aporta sus capas,
  * sus controles y su leyenda (ver `modos/tipos.ts`).
  */
-export function Instrumento({ onAportar }: { onAportar?: (lugar: LugarMapa | null) => void }) {
+export function Instrumento({
+  onAportar,
+  onTerritorio,
+}: {
+  onAportar?: (lugar: LugarMapa | null) => void;
+  onTerritorio?: (lugar: LugarMapa | null) => void;
+}) {
   const [lugarElegido, setLugarElegido] = useState<LugarMapa | null>(null);
   const [exploracion, setExploracion] = useExploracion();
   const { modo, rango } = exploracion;
@@ -54,6 +60,7 @@ export function Instrumento({ onAportar }: { onAportar?: (lugar: LugarMapa | nul
   }, [exploracion]);
   const elegir = (lugar: LugarMapa) => {
     setLugarElegido(lugar);
+    onTerritorio?.(lugar);
     cambiar({ ...exploracion, lugarId: lugar.id, lugarNombre: lugar.name });
     if (lugar.latitude !== null && lugar.longitude !== null)
       mapaRef.current?.flyTo({

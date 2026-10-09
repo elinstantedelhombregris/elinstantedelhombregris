@@ -15,7 +15,8 @@ import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth';
-
+import { adoptarSesion } from '~/lib/auth/sesion';
+import { volverTrasIngresar } from '~/lib/auth/volver';
 
 interface VerifyResponse {
   user: AuthenticatedUser;
@@ -34,9 +35,9 @@ export function TwoFactorChallenge() {
   const verifyMutation = useMutation<VerifyResponse, ApiError, { ticket: string; code: string }>({
     mutationFn: async (vars) =>
       api.post<VerifyResponse>('/api/auth/2fa/verify', vars, { csrfToken: readCsrfToken() }),
-    onSuccess: (data) => {
-      queryClient.setQueryData(['auth', 'me'], data.user);
-      navigate('/');
+    onSuccess: async (data) => {
+      await adoptarSesion(queryClient, data.user);
+      navigate(volverTrasIngresar(window.location.search));
     },
     onError: (err) => {
       setErrorMessage(err.message);
@@ -59,9 +60,9 @@ export function TwoFactorChallenge() {
 
   return (
     <main className="container mx-auto flex min-h-[80vh] max-w-md flex-col justify-center px-4 py-16">
-      <div className="glass rounded-2xl p-8">
-        <h1 className="mb-2 font-serif text-3xl font-semibold">Verificación en dos pasos</h1>
-        <p className="mb-6 text-sm text-muted-foreground">
+      <div className="border-tinta bg-papel-crudo border p-8">
+        <h1 className="font-anton text-tinta mb-2 text-4xl">Verificación en dos pasos</h1>
+        <p className="text-tinta-75 mb-6 text-sm">
           Ingresá el código de seis dígitos de tu app de autenticación, o un código de respaldo.
         </p>
         <form onSubmit={submit} className="space-y-4">

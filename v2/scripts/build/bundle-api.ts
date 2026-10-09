@@ -57,6 +57,7 @@ const ENTRIES: readonly { readonly desde: readonly string[]; readonly hacia: str
   { desde: ['apps', 'api', 'src', 'vercel', 'handler.ts'], hacia: 'handler' },
   { desde: ['apps', 'api', 'src', 'vercel', 'cron-rankings.ts'], hacia: 'cron-rankings' },
   { desde: ['apps', 'api', 'src', 'vercel', 'cron-sesiones.ts'], hacia: 'cron-sesiones' },
+  { desde: ['apps', 'api', 'src', 'vercel', 'cron-exportaciones.ts'], hacia: 'cron-exportaciones' },
 ];
 
 async function main(): Promise<void> {

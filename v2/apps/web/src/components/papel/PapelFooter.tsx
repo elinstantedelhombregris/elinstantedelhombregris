@@ -6,7 +6,7 @@ import {
   PAPEL_NAV_ALL,
   QUIEN_HREF,
   QUIEN_LABEL,
-  SEMBRAR_HREF,
+  IMAGINAR_HREF,
   SIMULACION_HREF,
   SIMULACION_LABEL,
 } from './papel-nav';
@@ -75,20 +75,23 @@ export function PapelFooter() {
               El siguiente paso
             </div>
             <p className="text-oscuro-meta m-0 mb-4 text-sm leading-relaxed">
-              No te pedimos fe. Te pedimos tres frases.
+              Una vida imaginada puede abrir un diseño compartido.
             </p>
             <Link
-              href={SEMBRAR_HREF}
+              href={IMAGINAR_HREF}
               className="bg-violeta font-space text-papel hover:bg-papel hover:text-tinta block w-full px-4 py-[15px] text-center text-xs font-bold uppercase tracking-[0.1em] transition-colors"
             >
-              Sembrar mi voz
+              Imaginar mi Argentina
             </Link>
           </div>
         </div>
 
         <div className="font-space text-oscuro-tenue flex flex-wrap justify-between gap-4 pt-6 text-[11px] max-[560px]:flex-col">
           <span className="flex flex-wrap items-center gap-2">
-            © 2026 ¡BASTA! — El instante del hombre gris
+            <Link href="/datos-abiertos" className="hover:text-papel underline">
+              Datos abiertos
+            </Link>{' '}
+            · © 2026 ¡BASTA! — El instante del hombre gris
             <span aria-hidden>·</span>
             {/* Única puerta de entrada de toda la página: no está en el
                 recorrido ni en el header, a propósito. */}
@@ -112,7 +115,7 @@ export function PapelFooter() {
               {SIMULACION_LABEL}
             </Link>
           </span>
-          <span>Prototipo · todavía sin voces</span>
+          <span>Diseño abierto · revisión continua</span>
         </div>
       </div>
     </footer>

@@ -15,12 +15,7 @@ import { senales } from '../schema/senales.js';
 
 import type { Db } from '../client.js';
 
-export type MotivoDeRechazo =
-  | 'noExiste'
-  | 'noSeVerifica'
-  | 'esTuya'
-  | 'yaConfirmaste'
-  | 'sinActor';
+export type MotivoDeRechazo = 'noExiste' | 'noSeVerifica' | 'esTuya' | 'yaConfirmaste' | 'sinActor';
 
 export interface ResultadoDeConfirmacion {
   readonly ok: true;
@@ -34,7 +29,9 @@ export interface ResultadoDeConfirmacion {
   readonly corroboroAhora: boolean;
 }
 
-export type Confirmada = ResultadoDeConfirmacion | { readonly ok: false; readonly motivo: MotivoDeRechazo };
+export type Confirmada =
+  | ResultadoDeConfirmacion
+  | { readonly ok: false; readonly motivo: MotivoDeRechazo };
 
 export interface EntradaDeConfirmacion {
   readonly idPublico: string;
@@ -75,6 +72,7 @@ export class ConfirmacionesRepository {
         clase: senales.clase,
         ronda: senales.ronda,
         autor: senales.actorId,
+        usuario: senales.userId,
       })
       .from(senales)
       .where(and(eq(senales.idPublico, e.idPublico), sql`${senales.retenidaEn} is null`))
@@ -90,6 +88,12 @@ export class ConfirmacionesRepository {
      */
     if (senal.autor === null) return { ok: false, motivo: 'esTuya' };
     if (senal.autor === e.actorId) return { ok: false, motivo: 'esTuya' };
+    if (senal.usuario !== null) {
+      const identidad = await this.db.execute<{ id: number }>(
+        sql`select id from actores where id=${e.actorId} and user_id=${senal.usuario}`,
+      );
+      if (identidad.rows.length) return { ok: false, motivo: 'esTuya' };
+    }
 
     const escritas = await this.db
       .insert(confirmaciones)
@@ -119,7 +123,11 @@ export class ConfirmacionesRepository {
    * transición: si alguien dice que el dato está mal, contar sólo los «sí»
    * sería sordera con forma de algoritmo.
    */
-  private async recontar(senalId: number, ronda: number, umbral: number): Promise<ResultadoDeConfirmacion> {
+  private async recontar(
+    senalId: number,
+    ronda: number,
+    umbral: number,
+  ): Promise<ResultadoDeConfirmacion> {
     const [conteo] = await this.db
       .select({
         cuentan: sql<number>`count(*) filter (where ${confirmaciones.veredicto} = 'confirm' and ${confirmaciones.cuenta})::int`,
@@ -145,7 +153,9 @@ export class ConfirmacionesRepository {
   }
 
   /** Las confirmaciones de una señal, para su ficha. Sin actor: nunca sale quién. */
-  async deSenal(idPublico: string): Promise<
+  async deSenal(
+    idPublico: string,
+  ): Promise<
     { veredicto: string; metodo: string; proximidad: string; cuenta: boolean; creadaEn: string }[]
   > {
     const filas = await this.db

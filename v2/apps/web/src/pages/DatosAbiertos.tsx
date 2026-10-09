@@ -1,81 +1,82 @@
-import { OPEN_DATASETS } from '@v2/shared';
-import { Download } from 'lucide-react';
 import { Link } from 'wouter';
 
-
-import { Button } from '~/components/ui/button';
+import { DescargarDatos } from '~/components/participacion/DescargarDatos';
+import { MarcoParticipacion, Nota, EnlaceAccion } from '~/components/participacion/Elementos';
+import { filtrosPublicos } from '~/lib/participacion/exportar';
 
 export function DatosAbiertos() {
+  const consulta = filtrosPublicos(Object.fromEntries(new URLSearchParams(window.location.search)));
+  const filtrado = Object.keys(consulta).length > 0;
   return (
-    <main className="container mx-auto max-w-4xl px-4 py-20">
-      <header className="mb-12">
-        <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">Datos abiertos</p>
-        <h1 className="font-serif text-4xl font-semibold leading-tight md:text-5xl">
-          <span className="gradient-text">Lo que registra la red,</span><br />
-          <span className="gradient-text">disponible para todos.</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          Si los datos cuentan algo importante sobre nosotros, deberían estar abiertos. Acá publicamos lo
-          que la red genera — anonimizado, en formatos abiertos, bajo licencias claras.
-        </p>
-      </header>
-
-      <section className="space-y-4">
-        <h2 className="mb-2 font-serif text-2xl font-semibold">Datasets disponibles</h2>
-        <ul className="space-y-3">
-          {OPEN_DATASETS.map((d) => (
-            <li key={d.id} className="glass rounded-2xl p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <h3 className="font-serif text-xl font-semibold">{d.title}</h3>
-                  <p className="mt-2 text-sm text-foreground/80">{d.description}</p>
-                  <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
-                    <span className="rounded-full bg-iris-violet/10 px-3 py-0.5 text-iris-violet">{d.format}</span>
-                    <span>{d.licenseHint}</span>
-                  </div>
-                </div>
-                {d.available && d.downloadUrl ? (
-                  <Button asChild size="sm" variant="secondary">
-                    <a href={d.downloadUrl} download>
-                      <Download className="h-4 w-4" />
-                      <span>Descargar</span>
-                    </a>
-                  </Button>
-                ) : (
-                  <Button size="sm" variant="secondary" disabled>
-                    <Download className="h-4 w-4" />
-                    <span>Próximo</span>
-                  </Button>
-                )}
-              </div>
+    <MarcoParticipacion
+      titulo="Lo que sabemos debe poder revisarse."
+      entrada="Un dato abierto lleva su origen, sus límites y una forma de usarlo. Acá podés llevarte el registro público y el método para leerlo."
+      kicker="Datos abiertos"
+    >
+      {filtrado ? (
+        <Nota>
+          Descargás el alcance elegido:{' '}
+          {Object.entries(consulta)
+            .map(([k, v]) => `${k}: ${v}`)
+            .join(' · ')}
+          . Podés abrir también el registro completo.
+        </Nota>
+      ) : null}
+      <DescargarDatos
+        consulta={consulta}
+        titulo={filtrado ? 'Descargar estos datos' : 'Descargar el registro público'}
+      />
+      <section className="mt-10 grid gap-6 md:grid-cols-2">
+        <div>
+          <h2 className="font-anton text-3xl">Qué viene en el paquete</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-5 leading-relaxed">
+            <li>
+              Señales canónicas elegibles, con texto solo cuando su autoría cedió la licencia.
             </li>
-          ))}
-        </ul>
-        <p className="mt-4 text-xs text-muted-foreground">
-          Las descargas se publican cuando los datasets alcanzan masa crítica (~1000 registros agregados).
-          Mientras tanto, podés explorar la versión interactiva en{' '}
-          <Link href="/explorar-datos" className="text-iris-violet hover:underline">
-            /explorar-datos
-          </Link>
-          .
-        </p>
+            <li>Estructura pública de campañas y fichas, y vínculos a sus fuentes.</li>
+            <li>Manifiesto con corte, filtros, conteos, omisiones y licencias.</li>
+            <li>
+              Una guía para interpretar el archivo y distinguir registros, participantes y acuerdos.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 className="font-anton text-3xl">Qué permanece protegido</h2>
+          <p className="mt-4 leading-relaxed">
+            Datos de cuenta, claves de actor, relatos privados y ubicación sensible. Los vectores y
+            las respuestas individuales no se publican por asumir que son anónimos.
+          </p>
+          <p className="mt-4 leading-relaxed">
+            Una descarga previa no puede recuperarse. Una lectura vigente debe respetar
+            correcciones, retiros y permisos.
+          </p>
+        </div>
       </section>
-
-      <section className="mt-12 glass rounded-2xl p-6">
-        <h2 className="mb-3 font-serif text-xl font-semibold">Metodología</h2>
-        <p className="text-sm text-foreground/80">
-          Cada dataset ship con un changelog público + scripts de generación reproducibles. Si encontrás
-          un error en los datos o la metodología, abrí un feedback público; cada corrección queda en el
-          registro con tu nombre y fecha — los datos también necesitan curadores.
-        </p>
-        <p className="mt-3 text-sm">
-          <Link href="/detalles-calculo-costo-humano" className="text-iris-violet hover:underline">
-            Ver metodología del cálculo del costo humano →
-          </Link>
-        </p>
-      </section>
-    </main>
+      <Nota>
+        No pedimos cuenta para acceder a los datos públicos. Para descargar tus propios datos
+        privados, ingresá en Mi espacio. La protección depende del conjunto y sus permisos; no de un
+        número mágico de registros.
+      </Nota>
+      <div className="flex flex-wrap gap-4">
+        <EnlaceAccion secundario href="/la-radiografia">
+          Leer los patrones
+        </EnlaceAccion>
+        <EnlaceAccion secundario href="/mi-espacio">
+          Descargar mis datos
+        </EnlaceAccion>
+        {filtrado ? (
+          <EnlaceAccion secundario href="/datos-abiertos">
+            Ver el registro completo
+          </EnlaceAccion>
+        ) : null}
+      </div>
+      <p className="mt-6 text-sm">
+        La compilación y los textos cedidos se publican bajo CC BY 4.0 según sus contratos.{' '}
+        <Link href="/politica-privacidad" className="text-violeta underline">
+          Consultá el uso de la información.
+        </Link>
+      </p>
+    </MarcoParticipacion>
   );
 }
-
 export default DatosAbiertos;

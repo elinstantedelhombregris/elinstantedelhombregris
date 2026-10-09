@@ -23,3 +23,8 @@ export * from './faltas.js';
 export * from './senal/index.js';
 export * from './simulacion/index.js';
 export * from './radiografia/index.js';
+export {
+  analizarOpiniones,
+  type AnalisisOpiniones,
+  type RespuestaParaAnalisis,
+} from './deliberacion/opiniones.js';

@@ -1,0 +1,144 @@
+import { z } from 'zod';
+
+const frase = (min: number, max: number) =>
+  z
+    .string()
+    .trim()
+    .min(min, `Escribí al menos ${min} caracteres para que la pregunta tenga contexto.`)
+    .max(max, `El límite es ${max} caracteres.`);
+export const estadosCampana = [
+  'borrador',
+  'programada',
+  'abierta',
+  'pausada',
+  'en_devolucion',
+  'cerrada',
+] as const;
+export const estadoCampanaSchema = z.enum(estadosCampana);
+export const faseCampanaSchema = z
+  .object({ nombre: frase(3, 100), salida: frase(8, 500), fecha: z.string().date() })
+  .strict();
+export const USO_DATOS_CONTRATO_ANTERIOR =
+  'El contrato anterior no detalló el uso de los datos. Los permisos elegidos por cada autor siguen vigentes; el equipo debe aclarar cualquier uso adicional antes de convocar otra edición.';
+export const METODO_LECTURA_CONTRATO_ANTERIOR =
+  'El contrato anterior no declaró un método de lectura. Sus aportes no constituyen por sí solos un acuerdo; el equipo debe publicar cómo los interpretará y cómo podrán corregir esa lectura.';
+export const contratoCampanaSchema = z
+  .object({
+    titulo: frase(8, 160),
+    pregunta: frase(10, 500),
+    proposito: frase(20, 2500),
+    territorios: z
+      .array(z.number().int().positive())
+      .max(50, 'Acortá este campo sin perder su sentido.'),
+    temas: z
+      .array(frase(2, 60))
+      .min(1, 'Este campo necesita un poco más de contexto.')
+      .max(8, 'Acortá este campo sin perder su sentido.'),
+    participantes: frase(10, 1500),
+    canales: z
+      .array(z.enum(['web', 'encuentro', 'asistido']))
+      .min(1, 'Este campo necesita un poco más de contexto.'),
+    responsable: frase(3, 150),
+    devolucion: frase(15, 1500),
+    fechaDevolucion: z.string().date(),
+    efecto: frase(15, 1500),
+    usoDatos: frase(20, 2500).default(USO_DATOS_CONTRATO_ANTERIOR),
+    metodoLectura: frase(20, 2500).default(METODO_LECTURA_CONTRATO_ANTERIOR),
+    institucion: z.string().trim().max(200, 'Acortá el nombre de la institución.').default(''),
+    fases: z
+      .array(faseCampanaSchema)
+      .min(1, 'Este campo necesita un poco más de contexto.')
+      .max(8, 'Acortá este campo sin perder su sentido.'),
+  })
+  .strict()
+  .superRefine((v, ctx) => {
+    if (new Set(v.territorios).size !== v.territorios.length)
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['territorios'],
+        message: 'Un lugar alcanza una vez. Revisá los territorios repetidos.',
+      });
+    if (v.fases.some((f, i) => i > 0 && f.fecha < (v.fases[i - 1]?.fecha ?? '')))
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['fases'],
+        message: 'Las fechas de las fases deben seguir su recorrido.',
+      });
+    if ((v.fases.at(-1)?.fecha ?? '') > v.fechaDevolucion)
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['fechaDevolucion'],
+        message: 'La devolución tiene que llegar después de las fases previstas.',
+      });
+  });
+export const crearCampanaSchema = z
+  .object({ idLocal: z.string().uuid(), contrato: contratoCampanaSchema })
+  .strict();
+export const editarCampanaSchema = z
+  .object({ revision: z.number().int().positive(), contrato: contratoCampanaSchema })
+  .strict();
+export const cambiarCampanaSchema = z
+  .object({
+    revision: z.number().int().positive(),
+    estado: estadoCampanaSchema,
+    motivo: frase(10, 1000),
+  })
+  .strict();
+export const devolucionCampanaSchema = z
+  .object({
+    idLocal: z.string().uuid(),
+    revision: z.number().int().positive(),
+    texto: frase(30, 12000),
+    limites: frase(15, 3000),
+    senales: z.array(z.string().uuid()).max(100, 'Acortá este campo sin perder su sentido.'),
+  })
+  .strict();
+export const consultaParticipacionSchema = z
+  .object({
+    campana: z.string().uuid().optional(),
+    edicion: z.coerce.number().int().positive().optional(),
+    territorio: z.coerce.number().int().positive().optional(),
+    tema: frase(1, 60).optional(),
+    desde: z.string().datetime().optional(),
+    hasta: z.string().datetime().optional(),
+    tipo: frase(1, 30).optional(),
+    estado: frase(1, 30).optional(),
+    cursor: z.string().uuid().optional(),
+    limite: z.coerce
+      .number()
+      .int()
+      .min(1, 'Este campo necesita un poco más de contexto.')
+      .max(100, 'Acortá este campo sin perder su sentido.')
+      .default(30),
+  })
+  .strict()
+  .refine((q) => !q.edicion || Boolean(q.campana), {
+    message: 'Una edición necesita su campaña.',
+    path: ['edicion'],
+  });
+export type ContratoCampana = z.infer<typeof contratoCampanaSchema>;
+export type DevolucionCampanaInput = z.infer<typeof devolucionCampanaSchema>;
+export type EstadoCampana = z.infer<typeof estadoCampanaSchema>;
+export type ConsultaParticipacion = z.infer<typeof consultaParticipacionSchema>;
+export interface CampanaPublica {
+  id: string;
+  slug: string;
+  revision: number;
+  estado: EstadoCampana;
+  contrato: ContratoCampana;
+  creadaEn: string;
+  actualizadaEn: string;
+  puedoEditar: boolean;
+  puedoInvitar?: boolean;
+  puedoEditarContrato?: boolean;
+  aportes: number;
+  devoluciones: {
+    id: string;
+    edicion: number;
+    texto: string;
+    limites: string;
+    senales: string[];
+    fecha: string;
+  }[];
+  historial: { revision: number; estado: string; motivo: string; fecha: string }[];
+}

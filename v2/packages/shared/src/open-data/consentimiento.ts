@@ -54,8 +54,8 @@
  * tres superficies porque es la misma acción en las tres.
  */
 export const TEXTO_CONSENTIMIENTO_ACTOR =
-  'Para contar personas y no clicks, guardamos un identificador al azar en este ' +
-  'navegador. No lleva tu nombre, dura un año, y lo podés borrar cuando quieras.';
+  'Para recuperar tu aporte y evitar repeticiones, guardamos un identificador al azar en este ' +
+  'navegador. No lleva tu nombre, dura un año, y lo podés borrar cuando quieras. Un navegador no demuestra identidad ni equivale a una persona.';
 
 /**
  * La cesión de licencia sobre el texto propio.
@@ -72,15 +72,14 @@ export const TEXTO_CESION_LICENCIA =
  * La irrevocabilidad hacia atrás, dicha antes y no después.
  *
  * Retirar una señal la saca de la API en el acto y de todo corte posterior; lo
- * que ya salió en un corte mensual publicado no vuelve, porque quien lo bajó ya
- * lo tiene. Eso es una decisión a la vista, no un default heredado, y por eso
+ * que otras personas ya descargaron no vuelve. No se presume que haya un archivo mensual publicado. Eso es una decisión a la vista, no un default heredado, y por eso
  * se lee **antes** del envío y no sólo en `PROCEDENCIA.md`, que lo lee quien
  * baja el archivo y no quien escribe la señal.
  */
 export const TEXTO_PUBLICACION_IRREVOCABLE =
   'Esto entra a un registro público que se descarga entero en un archivo. Podés ' +
-  'retirarlo cuando quieras y desaparece en menos de 24 horas — menos de los ' +
-  'archivos mensuales que ya se publicaron, que quien los bajó ya los tiene.';
+  'retirarlo cuando quieras: deja de estar disponible en las lecturas actualizadas. No podemos recuperar ' +
+  'las copias que otras personas ya descargaron.';
 
 /**
  * Los tipos de la clase `deseo`, para llavear {@link DECLARACION_DELIBERACION}.
@@ -129,13 +128,9 @@ type ClaveDeseo = 'sueño' | 'propuesta';
  */
 export const DECLARACION_DELIBERACION = {
   sueño:
-    'Todavía no se puede deliberar. Por ahora un sueño sólo recibe adhesiones ' +
-    '—«yo también»—, y eso no es una votación ni un acuerdo: nadie está midiendo ' +
-    'quién gana. Lo estamos construyendo.',
+    'Esta voz no es una votación. Expresa una posibilidad; las adhesiones —«yo también»— no forman un acuerdo colectivo. La conversación puede continuar en una ficha con condiciones, diferencias y diseños alternativos.',
   propuesta:
-    'Todavía no se puede deliberar. Esta propuesta sólo recibe adhesiones ' +
-    '—«yo también»—: nadie está votando, y una adhesión no la aprueba ni la ' +
-    'rechaza. Lo estamos construyendo.',
+    'Esta voz no es una votación. Las adhesiones no aprueban ni rechazan este diseño. Podés desarrollar sus condiciones y contrastarlo con otras alternativas en una ficha de futuro.',
 } as const satisfies Record<ClaveDeseo, string>;
 
 const DECLARACION_POR_TIPO: ReadonlyMap<string, string> = new Map(

@@ -11,7 +11,7 @@ import {
 import { SpaceMono_400Regular, SpaceMono_700Bold } from '@expo-google-fonts/space-mono';
 import { migrate } from 'drizzle-orm/expo-sqlite/migrator';
 import { useFonts } from 'expo-font';
-import { Stack, usePathname, useRouter } from 'expo-router';
+import { Stack, usePathname } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { openDatabaseAsync, type SQLiteDatabase } from 'expo-sqlite';
 import { StatusBar } from 'expo-status-bar';
@@ -58,41 +58,45 @@ const GLOBAL_BOOTSTRAP_KEY = '__basta_database_bootstrap_v1__';
 const globalWithBootstrap = globalThis as typeof globalThis & {
   [GLOBAL_BOOTSTRAP_KEY]?: DatabaseBootstrapState;
 };
-const databaseBootstrap = globalWithBootstrap[GLOBAL_BOOTSTRAP_KEY] ??= {
+const databaseBootstrap = (globalWithBootstrap[GLOBAL_BOOTSTRAP_KEY] ??= {
   migration: null,
   warmup: null,
   warmupDatabase: null,
   webLock: null,
   releaseWebLock: null,
   pageHideListenerInstalled: false,
-};
+});
 
 const adquirirBloqueoWeb = (): Promise<void> => {
   if (Platform.OS !== 'web' || !navigator.locks) return Promise.resolve();
   if (databaseBootstrap.webLock) return databaseBootstrap.webLock;
   databaseBootstrap.webLock = new Promise<void>((resolve, reject) => {
-    void navigator.locks.request(
-      'basta-sqlite-indexeddb-v1',
-      { mode: 'exclusive', ifAvailable: true },
-      async (lock) => {
-        if (!lock) {
-          databaseBootstrap.webLock = null;
-          reject(new Error('basta_db_already_open'));
-          return;
-        }
-        if (!databaseBootstrap.pageHideListenerInstalled) {
-          window.addEventListener('pagehide', () => databaseBootstrap.releaseWebLock?.(), { once: true });
-          databaseBootstrap.pageHideListenerInstalled = true;
-        }
-        resolve();
-        await new Promise<void>((release) => {
-          databaseBootstrap.releaseWebLock = release;
-        });
-      },
-    ).catch((error: unknown) => {
-      databaseBootstrap.webLock = null;
-      reject(error);
-    });
+    void navigator.locks
+      .request(
+        'basta-sqlite-indexeddb-v1',
+        { mode: 'exclusive', ifAvailable: true },
+        async (lock) => {
+          if (!lock) {
+            databaseBootstrap.webLock = null;
+            reject(new Error('basta_db_already_open'));
+            return;
+          }
+          if (!databaseBootstrap.pageHideListenerInstalled) {
+            window.addEventListener('pagehide', () => databaseBootstrap.releaseWebLock?.(), {
+              once: true,
+            });
+            databaseBootstrap.pageHideListenerInstalled = true;
+          }
+          resolve();
+          await new Promise<void>((release) => {
+            databaseBootstrap.releaseWebLock = release;
+          });
+        },
+      )
+      .catch((error: unknown) => {
+        databaseBootstrap.webLock = null;
+        reject(error);
+      });
   });
   return databaseBootstrap.webLock;
 };
@@ -157,7 +161,12 @@ function DbGate({ onReintentar }: { onReintentar: () => void }) {
       })
       .catch((e: unknown) => {
         const error = e instanceof Error ? e : new Error(String(e));
-        console.error('[DbGate] migración falló:', error, 'causa:', (error as Error & { cause?: unknown }).cause);
+        console.error(
+          '[DbGate] migración falló:',
+          error,
+          'causa:',
+          (error as Error & { cause?: unknown }).cause,
+        );
         if (vivo) setEstado({ listo: false, error });
       });
     return () => {
@@ -172,12 +181,12 @@ function DbGate({ onReintentar }: { onReintentar: () => void }) {
   if (estado.error) {
     const alreadyOpen = estado.error.message.includes('basta_db_already_open');
     return (
-      <View className="flex-1 items-center justify-center bg-papel px-8">
+      <View className="bg-papel flex-1 items-center justify-center px-8">
         <PapelCard className="w-full items-center p-8">
           <TituloAnton tamano="md" className="text-center">
             {alreadyOpen ? 'La app ya está abierta' : 'El cielo no pudo abrirse'}
           </TituloAnton>
-          <Text className="mt-3 text-center font-archivo text-sm leading-6 text-tinta-75">
+          <Text className="font-archivo text-tinta-75 mt-3 text-center text-sm leading-6">
             {alreadyOpen
               ? 'Para proteger la base local, usá una sola pestaña a la vez. Cerrá la otra pestaña y probá de nuevo.'
               : 'Algo se trabó preparando tus datos. No se perdió nada: probá de nuevo.'}
@@ -216,16 +225,12 @@ function CivicApp() {
     const activo = document.activeElement as HTMLElement | null;
     if (!activo) return;
     const editable =
-      activo.tagName === 'INPUT'
-      || activo.tagName === 'TEXTAREA'
-      || activo.isContentEditable;
+      activo.tagName === 'INPUT' || activo.tagName === 'TEXTAREA' || activo.isContentEditable;
     if (!editable) activo.blur();
   }, [pathname]);
 
   return (
-    <Stack
-      screenOptions={{ headerShown: false, contentStyle: { backgroundColor: BG } }}
-    >
+    <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: BG } }}>
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="ftue" options={{ animation: 'fade', gestureEnabled: false }} />
       <Stack.Screen name="misiones/index" />
@@ -243,6 +248,9 @@ function CivicApp() {
       <Stack.Screen name="conectar" />
       <Stack.Screen name="publicar" />
       <Stack.Screen name="mis-datos" />
+      <Stack.Screen name="imaginar" />
+      <Stack.Screen name="campanas" />
+      <Stack.Screen name="espacio-ideal" />
       <Stack.Screen name="circulos" />
       <Stack.Screen name="tramas/[id]" />
     </Stack>
@@ -268,17 +276,19 @@ export default function RootLayout() {
     <View className="flex-1 items-center" style={{ backgroundColor: '#050507' }}>
       <View
         className="flex-1"
-        style={Platform.OS === 'web'
-          ? {
-              backgroundColor: BG,
-              width: '100%',
-              maxWidth: 520,
-              borderLeftWidth: 1,
-              borderRightWidth: 1,
-              borderColor: 'rgba(255,255,255,0.06)',
-              boxShadow: '0 0 80px rgba(125,91,222,0.10)',
-            }
-          : { backgroundColor: BG, width: '100%' }}
+        style={
+          Platform.OS === 'web'
+            ? {
+                backgroundColor: BG,
+                width: '100%',
+                maxWidth: 520,
+                borderLeftWidth: 1,
+                borderRightWidth: 1,
+                borderColor: 'rgba(255,255,255,0.06)',
+                boxShadow: '0 0 80px rgba(125,91,222,0.10)',
+              }
+            : { backgroundColor: BG, width: '100%' }
+        }
       >
         <StatusBar style="light" />
         <DbGate

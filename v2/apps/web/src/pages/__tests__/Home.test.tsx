@@ -7,6 +7,9 @@ import { PLAN_COUNT, PLANES_TEASER } from '../Home/landing-data';
 
 import { useCifras, useVocesCount, useVocesRecientes } from '~/lib/queries/analytics';
 
+vi.mock('~/lib/queries/participacion', () => ({ useCampanas: () => ({ data: [] }) }));
+vi.mock('~/lib/queries/fichas', () => ({ useFichas: () => ({ data: { fichas: [] } }) }));
+
 // La home ahora consume la API real (voces/cifras/voces-recientes) vía
 // react-query — se mockean los hooks para que el render sea determinista
 // y no dispare fetches de verdad en jsdom.
@@ -32,7 +35,13 @@ function renderHome() {
     isError: false,
   } as ReturnType<typeof useCifras>);
   mockedUseVocesRecientes.mockReturnValue({
-    data: [{ id: 1, texto: 'Basta de rutas sin luz donde ya murió gente.', categoria: 'basta' }],
+    data: [
+      {
+        id: '00000000-0000-4000-8000-000000000001',
+        texto: 'Basta de rutas sin luz donde ya murió gente.',
+        categoria: 'basta',
+      },
+    ],
     isLoading: false,
   } as ReturnType<typeof useVocesRecientes>);
 
@@ -48,23 +57,22 @@ describe('Home (landing Papel y Tinta)', () => {
   it('renders the hero with the ¡BASTA! ink rite and the demo notice', () => {
     renderHome();
 
-    expect(screen.getByRole('heading', { level: 1, name: '¡BASTA!' })).toBeInTheDocument();
     expect(
-      screen.getByText('El sitio está en gris — se enciende con tu primera acción'),
+      screen.getByRole('heading', { level: 1, name: /Diseñemos la Argentina/ }),
     ).toBeInTheDocument();
-    expect(screen.getByText('El instante es ahora')).toBeInTheDocument();
+    expect(screen.getByText(/En tu Argentina ideal/)).toBeInTheDocument();
   });
 
   it('points the hero CTAs at the map and the idea', () => {
     renderHome();
 
-    expect(screen.getByRole('link', { name: 'Dejar mi voz en el mapa' })).toHaveAttribute(
+    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })[0]).toHaveAttribute(
       'href',
-      '/el-mapa',
+      '/imaginar',
     );
-    expect(screen.getByRole('link', { name: 'Entender la idea' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Cómo funciona el ejercicio →' })).toHaveAttribute(
       'href',
-      '/la-vision',
+      '/la-idea',
     );
   });
 
@@ -76,7 +84,7 @@ describe('Home (landing Papel y Tinta)', () => {
         '* Datos de demostración — la plataforma real arranca en cero, y eso también está bien.',
       ),
     ).not.toBeInTheDocument();
-    expect(screen.getByText('12.496')).toBeInTheDocument();
+    expect(screen.queryByText('12.496')).not.toBeInTheDocument();
   });
 
   it('teases three real plans from the registry', () => {
@@ -98,12 +106,12 @@ describe('Home (landing Papel y Tinta)', () => {
     renderHome();
 
     expect(
-      screen.getByRole('heading', { name: 'Tu voz pesa. Soltala en el mapa.' }),
+      screen.getByRole('heading', { name: 'Una vida imaginada puede abrir un país.' }),
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Ir al mapa' })).toHaveAttribute('href', '/el-mapa');
-    expect(screen.getByRole('link', { name: 'Sembrar mi compromiso' })).toHaveAttribute(
+    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' }).at(-1)).toHaveAttribute(
       'href',
-      '/sembrar',
+      '/imaginar',
     );
   });
 });

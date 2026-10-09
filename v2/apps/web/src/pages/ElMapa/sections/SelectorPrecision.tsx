@@ -74,7 +74,11 @@ export function SelectorPrecision({ valor, onCambio }: SelectorPrecisionProps) {
 
       {hayPunto ? (
         <>
-          <div role="group" aria-label="Qué tan preciso se publica" className="flex flex-wrap gap-1.5">
+          <div
+            role="group"
+            aria-label="Qué tan preciso se publica"
+            className="flex flex-wrap gap-1.5"
+          >
             {OPCIONES.map(({ precision, etiqueta }) => (
               <button
                 key={precision}

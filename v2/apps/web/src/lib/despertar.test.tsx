@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { PapelHeader } from '../components/papel/PapelHeader';
 import { HeroBasta } from '../pages/Home/sections/HeroBasta';
@@ -8,6 +8,9 @@ import { HeroBasta } from '../pages/Home/sections/HeroBasta';
 import { estaDespierto, useDespierto } from './despertar';
 
 import type { ReactNode } from 'react';
+
+vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: null }) }));
+vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: () => ({ data: undefined }) }));
 
 const STORAGE_KEY = 'basta_despierto';
 
@@ -32,7 +35,7 @@ afterEach(() => {
 });
 
 describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
-  it('el CTA del hero «Dejar mi voz en el mapa» despierta el sitio', () => {
+  it('el CTA del hero «Imaginar mi Argentina» despierta el sitio', () => {
     render(
       <>
         <HeroBasta />
@@ -41,10 +44,9 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     );
 
     expect(estaDespierto()).toBe(false);
-    expect(screen.getByText('El sitio está en gris — se enciende con tu primera acción')).toBeInTheDocument();
     expect(screen.getByTestId('sonda')).toHaveTextContent('dormido');
 
-    fireEvent.click(screen.getByRole('link', { name: 'Dejar mi voz en el mapa' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Imaginar mi Argentina' }));
 
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
@@ -54,7 +56,7 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     ).not.toBeInTheDocument();
   });
 
-  it('el CTA del header «Sembrar tu voz» despierta el sitio', () => {
+  it('el CTA del header «Imaginar mi Argentina» despierta el sitio', () => {
     render(
       <ConQueryClient>
         <PapelHeader />
@@ -65,7 +67,7 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     expect(estaDespierto()).toBe(false);
     expect(screen.getByTestId('sonda')).toHaveTextContent('dormido');
 
-    fireEvent.click(screen.getByRole('link', { name: 'Sembrar tu voz' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Imaginar mi Argentina' }));
 
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
@@ -84,7 +86,7 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
     expect(estaDespierto()).toBe(false);
 
-    fireEvent.click(within(menu).getByRole('link', { name: /Sembrar/ }));
+    fireEvent.click(within(menu).getByRole('link', { name: /Imaginar/ }));
 
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
@@ -109,10 +111,10 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     expect(estaDespierto()).toBe(false);
   });
 
-  it('un CTA no canónico del hero («Entender la idea») no despierta el sitio', () => {
+  it('un CTA no canónico del hero («Cómo lo hacemos») no despierta el sitio', () => {
     render(<HeroBasta />);
 
-    fireEvent.click(screen.getByRole('link', { name: 'Entender la idea' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Cómo funciona el ejercicio →' }));
 
     expect(estaDespierto()).toBe(false);
   });

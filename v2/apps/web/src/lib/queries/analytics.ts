@@ -14,7 +14,7 @@ interface VocesCount {
 export function useVocesCount() {
   return useQuery({
     queryKey: ['analytics', 'voces-count'],
-    queryFn: () => api.get<VocesCount>('/api/analytics/voces-count'),
+    queryFn: () => api.get<VocesCount>('/api/v1/civic/senales/conteo'),
   });
 }
 
@@ -38,7 +38,7 @@ export function useCifras() {
 }
 
 export interface VozReciente {
-  id: number;
+  id: number | string;
   texto: string;
   categoria: string | null;
 }
@@ -50,11 +50,13 @@ export interface VozReciente {
 export function useVocesRecientes(limit?: number) {
   return useQuery({
     queryKey: ['analytics', 'voces-recientes', limit ?? 'default'],
-    queryFn: () =>
-      api.get<VozReciente[]>(
-        limit === undefined
-          ? '/api/analytics/voces-recientes'
-          : `/api/analytics/voces-recientes?limit=${String(limit)}`,
-      ),
+    queryFn: async () => {
+      const r = await api.get<{
+        senales: { idPublico: string; texto: string | null; tipo: string }[];
+      }>(`/api/v1/civic/senales?limite=${String(limit ?? 12)}`);
+      return r.senales
+        .filter((v) => v.texto?.trim())
+        .map((v) => ({ id: v.idPublico, texto: v.texto ?? '', categoria: v.tipo }));
+    },
   });
 }

@@ -71,7 +71,9 @@ export function PopoverVoz({
           ✕
         </button>
       </div>
-      <p className="mb-2.5 max-h-[220px] overflow-y-auto text-[15px] leading-normal">«{voz.body}»</p>
+      <p className="mb-2.5 max-h-[220px] overflow-y-auto text-[15px] leading-normal">
+        «{voz.body}»
+      </p>
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-space text-oscuro-meta text-[11px]">
           {provincia} · voz {idx + 1} de {voces.length}

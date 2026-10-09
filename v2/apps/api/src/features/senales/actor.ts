@@ -109,6 +109,13 @@ export interface ActorDeLaRequest {
  * personas para esa fila, se cuenta en `senalesSinActor`, y se sigue.
  */
 export async function resolverActor(req: Request): Promise<ActorDeLaRequest> {
+  if (req.user) {
+    const repo = new ActoresRepository(getDb());
+    const id =
+      (await repo.porCuenta(req.user.id)) ??
+      (await repo.crearDeCuenta(hashDeClave(nuevaClave()), req.user.id));
+    return { actorId: id, claveNueva: null };
+  }
   const previa = leerCookie(req, COOKIE_ACTOR);
 
   const clave = previa !== undefined && FORMA_DE_CLAVE.test(previa) ? previa : nuevaClave();
@@ -159,7 +166,7 @@ export function mismoHash(a: Buffer, b: Buffer): boolean {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
-export async function actorSiExiste(
+export async function actorDelNavegador(
   req: Parameters<typeof resolverActor>[0],
 ): Promise<number | null> {
   const cookies: unknown = (req as { cookies?: unknown }).cookies;
@@ -168,4 +175,12 @@ export async function actorSiExiste(
   if (typeof clave !== 'string') return null;
   const previo = await new ActoresRepository(getDb()).porHash(hashDeClave(clave));
   return previo?.id ?? null;
+}
+
+/** Cuenta canónica para operaciones nuevas; el navegador anterior solo se usa en recuperación explícita. */
+export async function actorSiExiste(
+  req: Parameters<typeof resolverActor>[0],
+): Promise<number | null> {
+  if (req.user) return new ActoresRepository(getDb()).porCuenta(req.user.id);
+  return actorDelNavegador(req);
 }

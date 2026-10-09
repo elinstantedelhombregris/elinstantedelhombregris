@@ -3,13 +3,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ElMandatoVivo } from '../ElMandatoVivo';
 
-import { useVocesCount } from '~/lib/queries/analytics';
 import { useMandatoDocumento, type DocumentoMandato } from '~/lib/queries/mandato';
 
-vi.mock('~/lib/queries/analytics', () => ({ useVocesCount: vi.fn() }));
 vi.mock('~/lib/queries/mandato', () => ({ useMandatoDocumento: vi.fn() }));
+vi.mock('../ElMandatoVivo/sections/ProcesosPublicos', () => ({
+  ProcesosPublicos: () => <section aria-label="Procesos públicos reales">Procesos públicos</section>,
+}));
 
-const mockVoces = vi.mocked(useVocesCount);
 const mockDocumento = vi.mocked(useMandatoDocumento);
 
 /** Documento base con todas las secciones vacías — cada test sobreescribe lo suyo (patrón de sections/__tests__). */
@@ -27,11 +27,6 @@ function documentoBase(overrides: Partial<DocumentoMandato> = {}): DocumentoMand
 
 describe('ElMandatoVivo (composer, página papel 2.3)', () => {
   beforeEach(() => {
-    mockVoces.mockReturnValue({
-      data: { total: 16 },
-      isLoading: false,
-      isError: false,
-    } as ReturnType<typeof useVocesCount>);
     mockDocumento.mockReturnValue({
       data: documentoBase({ voces: { total: 16, porTipo: [{ tipo: 'basta', total: 16 }] } }),
       isLoading: false,
@@ -47,27 +42,28 @@ describe('ElMandatoVivo (composer, página papel 2.3)', () => {
 
   it('la convergencia (§2) aparece UNA sola vez en toda la página', () => {
     render(<ElMandatoVivo />);
-    expect(screen.getAllByText('Una máquina la lee')).toHaveLength(1);
+    expect(screen.getAllByText('Examinamos lo que nos reúne')).toHaveLength(1);
   });
 
   it('compone las 5 secciones: portada, convergencia, registro, documento, cómo se usa', () => {
     render(<ElMandatoVivo />);
-    expect(screen.getByText('El mandato · documento vivo')).toBeInTheDocument();
-    expect(screen.getByText('La voz entra por el mapa')).toBeInTheDocument();
+    expect(screen.getByText('El mandato · una posibilidad por construir')).toBeInTheDocument();
+    expect(screen.getByText('Imaginamos una vida posible')).toBeInTheDocument();
     expect(
       screen.getByText('El registro del mapa — lo que la gente vino a decir'),
     ).toBeInTheDocument();
-    expect(screen.getByText('Mandato ciudadano — Argentina')).toBeInTheDocument();
-    expect(screen.getByText('Se firma')).toBeInTheDocument();
+    expect(screen.getByText('Registro de señales — Argentina')).toBeInTheDocument();
+    expect(screen.getByText('Se declara el efecto')).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Procesos públicos reales' })).toBeInTheDocument();
   });
 
-  it('el CTA final «Sumar mi voz al mandato →» navega a /el-mapa, bajo su h2 sr-only (§6)', () => {
+  it('invita a imaginar sin atribuir apoyo al mandato por publicar una voz', () => {
     render(<ElMandatoVivo />);
-    const cta = screen.getByRole('link', { name: 'Sumar mi voz al mandato →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/imaginar');
     // Jerarquía de la spec: h2 por sección §2–§6 — la del CTA es sr-only,
     // mismo patrón que ComoSeEscribe/ComoSeUsa.
-    expect(screen.getByRole('heading', { level: 2, name: 'Sumate al mandato' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: 'Imaginá el país que querés vivir' })).toBeInTheDocument();
   });
 
   it('el v1-port está muerto: sin form de señales ni feed de recientes', () => {

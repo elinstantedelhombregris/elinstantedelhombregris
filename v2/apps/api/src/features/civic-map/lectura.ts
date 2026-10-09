@@ -40,6 +40,8 @@ export async function leerMapa(query: unknown) {
     ...(q.provinceId === undefined ? {} : { provinceId: q.provinceId }),
     ...(q.cityId === undefined ? {} : { cityId: q.cityId }),
     ...(q.lugarId === undefined ? {} : { lugarId: q.lugarId }),
+    ...(q.campana ? { campana: q.campana } : {}),
+    ...(q.edicion ? { edicion: q.edicion } : {}),
     ...(q.tipo ? { tipo: q.tipo } : {}),
     ...(q.clase ? { clase: q.clase } : {}),
     ...(q.tema ? { tema: q.tema } : {}),

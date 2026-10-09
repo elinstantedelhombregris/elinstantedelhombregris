@@ -110,6 +110,13 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-094](#d-094--entrenamientosminutaje---escribir-reescribe-todo-el-corpus-aunque-cambie-una-lección) | `entrenamientos:minutaje --escribir` reescribe todo el corpus aunque cambie una lección | Baja | **Resuelta** |
 | [D-095](#d-095--65-preguntas-de-quiz-se-contestan-sin-haber-leído-la-lección) | 65 preguntas de quiz se contestan sin haber leído la lección | Media | **Resuelta** |
 | [D-096](#d-096--en-la-mitad-de-las-preguntas-de-opción-múltiple-la-correcta-es-la-opción-más-larga) | En la mitad de las preguntas de opción múltiple, la correcta es la opción más larga | Media | Abierta |
+| [D-102](#d-102--cálculos-y-archivos-de-gran-volumen-necesitan-trabajos-desacoplados) | Cálculos y archivos de gran volumen necesitan trabajos desacoplados | Media | Abierta |
+| [D-103](#d-103--la-adaptación-móvil-necesita-verificación-en-dispositivos-físicos) | La adaptación móvil necesita verificación en dispositivos físicos | Media | Abierta |
+| [D-099](#d-099--datos-abiertos-muestra-un-catálogo-pendiente-y-licencias-distintas-del-contrato-vigente) | Datos Abiertos muestra un catálogo pendiente y licencias distintas del contrato vigente | Media | **Resuelta** |
+| [D-100](#d-100--la-autoría-anónima-no-tiene-un-recorrido-de-recuperación-con-cuenta) | La autoría anónima no tiene un recorrido de recuperación con cuenta | Media | **Resuelta** |
+| [D-101](#d-101--radiografía-recorta-a-500-señales-y-no-declara-ese-recorte-en-su-contrato-público) | Radiografía recorta a 500 señales y no declara ese recorte en su contrato público | Alta | **Resuelta** |
+| [D-097](#d-097--la-convergencia-de-v1-mide-coincidencia-temática-entre-tipos-de-señal) | La convergencia de v1 mide coincidencia temática entre tipos de señal | Alta | Abierta |
+| [D-098](#d-098--planpregunta-usa-un-relato-de-visión-2040-como-precedente-que-ya-dio-resultados) | PLANPREGUNTA usa un relato de Visión 2040 como precedente que ya dio resultados | Alta | Abierta |
 
 ---
 
@@ -1700,3 +1707,90 @@ El texto de la pantalla ya no dice que falta la capa: dice lo que falta de verda
 D-011 cambió la geometría con la que se resuelve un punto, pero no volvió a resolver lo que ya estaba guardado: eso es escribir en producción, y se deja para que lo decida quien la opera. Toda fila con provincia sacada del polígono de 29 vértices puede tener la provincia de enfrente (Neuquén capital en Río Negro, Dock Sud en CABA) o ninguna (Retiro, Posadas). No se contó cuántas son.
 
 `pnpm geo:backfill` no alcanza: sólo toca filas **sin** provincia. Hace falta un re-resolver para `where ubicacion_origen = 'punto'` —el conjunto exacto que la spec de la tierra preparó para este día— que muestre en seco qué cambiaría y escriba sólo con `--aplicar`.
+
+### D-097 · La convergencia de v1 mide coincidencia temática entre tipos de señal
+
+**Dónde:** `SocialJusticeHub/client/src/hooks/useConvergenceAnalysis.ts`, `SocialJusticeHub/client/src/pages/ElMapa.tsx`
+**Encontrada:** 2026-10-08, estudio del contexto de v1 para el nuevo sistema de conversación y diseño idealizado
+**Severidad:** alta
+**Estado:** abierta
+
+`convergencePercentage` divide temas presentes en al menos dos tipos de señal por temas activos. La clasificación usa coincidencias con un diccionario de palabras; no compara opiniones de personas ni registra acuerdos explícitos. Además, la extracción descarta la negación «no». El hero publica el resultado como porcentaje de «convergencia», junto a un conteo de registros llamado «voces».
+
+Dos registros de tipos distintos que hablan de educación pueden producir 100% de coincidencia temática aunque sostengan posiciones opuestas. Ese porcentaje no mide consenso ciudadano y no debe usarse para fundar una visión compartida o un mandato.
+
+**Qué haría falta:** nombrar esta medida como coincidencia temática entre tipos de señal, distinguir registros de participantes y separar el análisis semántico del análisis de acuerdos explícitos. Conservar negaciones y contexto al interpretar relatos. Cualquier futura medida de convergencia de opiniones debe publicar sus participantes, respuestas, denominadores y límites.
+
+### D-098 · PLANPREGUNTA usa un relato de Visión 2040 como precedente que ya dio resultados
+
+**Dónde:** `Iniciativas Estratégicas/PLANPREGUNTA_Argentina_ES.md` §2.3 y §6.1; `Iniciativas Estratégicas/PLANISV_Argentina_ES.md` §26.4
+**Encontrada:** 2026-10-08, lectura cruzada de los planes y sus fundamentos
+**Severidad:** alta
+**Estado:** abierta
+
+PLANPREGUNTA presenta a la guardiana de semillas como «el precedente que sí dio» y deriva un plazo de adopción del relato de PLANISV. La fuente pertenece a la Visión 2040: narra registros en 2029, resultados en 2031 y exportaciones en 2035, todos posteriores a la fecha de esta lectura. Es un escenario del diseño idealizado, no un resultado observado. Verificar que una afirmación tiene domicilio en otro documento del corpus no verifica que ocurrió.
+
+**Qué haría falta:** mantener el relato identificado como escenario hipotético, retirar su uso como prueba empírica y fundamentar los parámetros del diseño con precedentes observados y fuentes externas, o declararlos como hipótesis pendientes de validación. Revisar las remisiones que reproducen ese resultado sin su condición de visión futura.
+
+### D-099 · Datos Abiertos muestra un catálogo pendiente y licencias distintas del contrato vigente
+
+**Dónde:** `v2/apps/web/src/pages/DatosAbiertos.tsx`, `v2/packages/shared/src/datasets/index.ts`, `v2/packages/shared/src/open-data/consentimiento.ts`
+**Encontrada:** 2026-10-08, ampliación de la propuesta hacia Radiografía y descarga
+**Severidad:** media
+**Estado:** **resuelta en código, 2026-10-08**
+
+Los cuatro elementos del catálogo están en `available: false`. La pantalla anuncia una habilitación por «masa crítica (~1000 registros agregados)» y el catálogo rotula CC0; el contrato vigente distingue compilación y texto con CC BY 4.0 y publica texto solo con cesión por señal. La pantalla no representa un catálogo operativo ni deriva disponibilidad y licencia de ese contrato. La spec de registro de agosto ya identifica el catálogo pendiente; se registra su persistencia en el código actual, sin atribuir estado a producción.
+
+**Qué haría falta:** catálogo de exportaciones disponibles y manifiestos con alcance, corte, completitud, omisiones y licencia desde la fuente vigente. Separar permisos y protección de grupos del volumen total; no usar un umbral genérico para publicar cualquier conjunto.
+
+**Resolución:** Catálogo operativo, exportación paginada y paquetes con manifiesto y licencias desde el contrato. `exportaciones-ideal.test.ts` verifica más de 500 filas, texto reservado, filtros, corte y metadatos; `exportar.test.ts` verifica CSV, ZIP y continuación.
+
+### D-100 · La autoría anónima no tiene un recorrido de recuperación con cuenta
+
+**Dónde:** `v2/packages/db/src/repositories/actores.ts`, `v2/apps/api/src/features/senales/actor.ts`, `v2/apps/api/src/features/senales/gestion-routes.ts`, `v2/apps/web/src/pages/MiPerfil/index.tsx`
+**Encontrada:** 2026-10-08, revisión de continuidad entre aporte y cuenta
+**Severidad:** media
+**Estado:** **resuelta en código, 2026-10-08**
+
+`atarACuenta` existe en el repositorio y no tiene llamadores encontrados en v2. La gestión de retiro comprueba la cookie de actor del navegador que publicó. Mi Perfil muestra gamificación y actividad, sin un listado de señales propias ni un flujo explícito para recuperar sus permisos desde una cuenta. Iniciar sesión no demuestra ni conecta por sí solo la autoría de aportes anteriores.
+
+**Qué haría falta:** confirmar titularidad en servidor, ofrecer vinculación explícita con sesión y credencial del actor, resolver conflictos de múltiples navegadores sin duplicar participación y crear lecturas y gestión de aportes propios. No recuperar por nombre, similitud textual ni ubicación; no subir borradores privados al iniciar sesión.
+
+**Resolución:** Autoría de cuenta y credencial original, vínculo voluntario idempotente, lectura propia protegida, gestión entre dispositivos y cierre de cuenta. `participacion-ideal.test.ts` y `equipo-continuidad.test.ts` verifican permisos, recuperación, conflictos y revocación de acceso.
+
+### D-101 · Radiografía recorta a 500 señales y no declara ese recorte en su contrato público
+
+**Dónde:** `v2/apps/api/src/features/radiografia/lectura.ts`, `service.ts`, `v2/apps/web/src/lib/queries/radiografia.ts`
+**Encontrada:** 2026-10-08, revisión del alcance necesario para analizar y exportar
+**Severidad:** alta
+**Estado:** **resuelta en código, 2026-10-08**
+
+La fuente lee hasta `TOPE_DE_CORPUS + 1` y devuelve las 500 señales más recientes. Detecta el recorte y lo registra en un warning interno, pero entrega al servicio solo el array reducido. El contrato público conserva `total`, `analizadas` y `sinVector` sin total elegible ni indicador de recorte. Si el registro elegible supera 500, la suma puede cerrar sobre la selección y seguir sin mostrar cuántas señales quedaron fuera. No se verificó si ese umbral se alcanza actualmente en producción.
+
+**Qué haría falta:** separar total elegible, seleccionado, analizado y dibujado, declarar completitud y política de selección, y conservar corte y filtros efectivos. Una descarga completa no puede usar este array limitado. Mover el cálculo pesado fuera del request o al índice adecuado cuando el volumen lo requiera, conservando límites y procedencia.
+
+**Resolución:** La respuesta publica elegibles, seleccionados, analizados, límite y completitud. El grafo carga únicamente los vectores seleccionados y el exportador no reutiliza su recorte. La prueba de 510 registros confirma un análisis de 500 y una descarga completa.
+
+### D-102 · Cálculos y archivos de gran volumen necesitan trabajos desacoplados
+
+**Dónde:** `v2/packages/civic-core/src/deliberacion/opiniones.ts`, `v2/apps/api/src/features/radiografia/`, `v2/apps/api/src/features/exportaciones/`
+**Encontrada:** 2026-10-08, implementación del nuevo recorrido
+**Severidad:** media
+**Estado:** abierta
+
+La proyección de opiniones declara insuficiencia por encima de 400 cuentas o 100 afirmaciones y conserva los conteos completos en SQL. Radiografía declara su selección de 500. Todavía no existen trabajos duraderos para calcular una matriz grande. Esto es una limitación explícita, no un resultado de análisis nacional.
+
+**Qué haría falta:** trabajo asíncrono con alcance y versión, control de permisos vigente, cancelación, recuperación, métricas y archivos temporales con vencimiento; evaluación de estabilidad y cobertura con el piloto antes de aumentar límites. No convertir semejanza, cuentas o un resultado exploratorio en mandato poblacional.
+
+**Resolución parcial, 2026-10-08:** las exportaciones públicas ya usan trabajos persistidos en Postgres, partes y cursor recuperables, cancelación, vencimiento y ZIP transmitido directamente desde el servidor. Las correcciones y retiros invalidan la preparación y la entrega. La migración 0030, las pruebas de `exportaciones-trabajos.test.ts` y [el procedimiento operativo](../v2/docs/operations/exportaciones-publicas.md) documentan el alcance. Los límites declarados de cálculo de opiniones y similitud siguen abiertos; ampliar esos límites requiere validar cobertura y estabilidad, no sólo subir una constante.
+
+### D-103 · La adaptación móvil necesita verificación en dispositivos físicos
+
+**Dónde:** `v2/apps/mobile/src/app/imaginar.tsx`, `campanas.tsx`, `espacio-ideal.tsx`, `src/civic/ideal.ts`
+**Encontrada:** 2026-10-08, adaptación de la app existente
+**Severidad:** media
+**Estado:** abierta
+
+La adaptación tiene contratos, pruebas de persistencia y reintento, renovación de sesión y compilación de las plataformas. Falta comprobar en teléfonos modestos el ciclo real de cookies, reinicio, almacenamiento, conectividad intermitente, segundo factor y gestión entre superficies. La compilación no acredita esa prueba física. El almacenamiento local conserva el aviso de que no tiene cifrado propio de la app.
+
+**Qué haría falta:** matriz de dispositivos de Android e iOS y una tarea de campo autorizada; comprobar que un reinicio no duplica envíos, que el cambio de cuenta conserva la autoría, que corregir y retirar llega a las lecturas actualizadas, y que nada de la bitácora anterior se publica por la actualización.

@@ -19,7 +19,7 @@ import {
   PROVINCIAS_REF,
 } from '@v2/civic-core';
 import {
-  GestionSenalesRepository,
+  MiEspacioRepository,
   AdhesionesRepository,
   ConfirmacionesRepository,
   GeographicRepository,
@@ -30,14 +30,22 @@ import {
 import { senalSchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 
+import { optionalAuthenticate } from '../../middleware/auth.js';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
-import { actorSiExiste, olvidarActor, ponerCookieDeActor, resolverActor } from './actor.js';
+import {
+  actorDelNavegador,
+  actorSiExiste,
+  olvidarActor,
+  ponerCookieDeActor,
+  resolverActor,
+} from './actor.js';
 import { barrerRelojes } from './relojes.js';
 import { ingerirSenal } from './service.js';
 import { confirmacionSchema, consultaDeSenalesSchema, respuestaSchema } from './validation.js';
 
 const router: RouterType = Router();
+router.use(optionalAuthenticate);
 
 /**
  * La ingesta.
@@ -59,7 +67,11 @@ router.post('/senales', anonSubmitRateLimit(), async (req, res, next) => {
      * rechace una cookie.
      */
     const actor = await resolverActor(req);
-    const recibo = await ingerirSenal(cuerpo, { origen: 'web', actorId: actor.actorId });
+    const recibo = await ingerirSenal(cuerpo, {
+      origen: 'web',
+      actorId: actor.actorId,
+      userId: req.user?.id ?? null,
+    });
     ponerCookieDeActor(res, actor.claveNueva);
     res.status(201).json({ data: recibo });
   } catch (err) {
@@ -197,7 +209,11 @@ router.get('/senales/:idPublico', async (req, res, next) => {
     res.json({
       data: {
         senal,
-        esPropia: await new GestionSenalesRepository(db).esPropia(id, actorId),
+        esPropia: await new MiEspacioRepository(db).esPropio(
+          id,
+          req.user?.id,
+          await actorDelNavegador(req),
+        ),
         adhesiones: adhesion,
         confirmaciones,
         respuestas,

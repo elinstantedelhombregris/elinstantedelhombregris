@@ -20,10 +20,10 @@ export function PlanesTeaser() {
             <span className="text-violeta">pensados de cero.</span>
           </h2>
           <p className="text-tinta-50 mt-4 max-w-[520px] text-pretty text-base leading-relaxed">
-            No son promesas ni programa: son ejemplos de lo que podríamos producir. Cada uno sale del
-            mismo proceso — primero el ideal, después el camino de vuelta — con presupuesto, métricas
-            y rendición de cuentas. Los publicamos para inspirar y para levantar la vara de la
-            discusión que estamos teniendo. No para que los sigas: para que la excusa de «no se
+            No son promesas ni programa: son ejemplos de lo que podríamos producir. Cada uno sale
+            del mismo proceso — primero el ideal, después el camino de vuelta — con presupuesto,
+            métricas y rendición de cuentas. Los publicamos para inspirar y para levantar la vara de
+            la discusión que estamos teniendo. No para que los sigas: para que la excusa de «no se
             puede» se quede sin trabajo.
           </p>
         </div>

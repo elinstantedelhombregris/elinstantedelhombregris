@@ -36,7 +36,7 @@ export function RootLayout({ children }: RootLayoutProps) {
     return (
       <div className="papel-root bg-papel font-archivo text-tinta flex min-h-screen flex-col antialiased">
         <PaperGrain />
-        <DespertarVeil />
+        {['/la-idea', '/cronica'].includes(location) ? <DespertarVeil /> : null}
         <PapelHeader />
         <div className="flex-1">{children}</div>
         <PapelFooter />

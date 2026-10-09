@@ -153,7 +153,7 @@ describe('DocumentoMandato', () => {
     render(<DocumentoMandato />);
 
     expect(screen.getByText('Cargando — menos que un trámite.')).toBeInTheDocument();
-    expect(screen.queryByText('Mandato ciudadano — Argentina')).not.toBeInTheDocument();
+    expect(screen.queryByText('Registro de señales — Argentina')).not.toBeInTheDocument();
   });
 
   it('error: la frase de honestidad + botón de reintento que llama a refetch', () => {
@@ -169,12 +169,12 @@ describe('DocumentoMandato', () => {
     expect(refetch).toHaveBeenCalledTimes(1);
   });
 
-  it('N=0 (docVacio): cabecera, EJEMPLO y ceros hablados por sección, sin ningún %', () => {
+  it('N=0: cabecera de registro y ceros hablados por sección, sin ningún %', () => {
     armarMock(docVacio());
     render(<DocumentoMandato />);
 
     expect(screen.getByText(/Exp\. sin voces todavía/)).toBeInTheDocument();
-    expect(screen.getByText('Ejemplo')).toBeInTheDocument();
+    expect(screen.getByText('Registro')).toBeInTheDocument();
     expect(screen.getByText(/no lo vamos a inventar\./)).toBeInTheDocument();
     expect(screen.getByText(/Nadie ofreció nada todavía/)).toBeInTheDocument();
     expect(screen.getByText(/Eso también es un dato\./)).toBeInTheDocument();
@@ -182,30 +182,30 @@ describe('DocumentoMandato', () => {
     expect(screen.queryByText(/%/)).not.toBeInTheDocument();
   });
 
-  it('el sello EJEMPLO sale del flujo absoluto bajo 560px: en línea arriba del título, no encima (D-079)', () => {
+  it('el sello de registro sale del flujo absoluto bajo 560px: en línea arriba del título, no encima (D-079)', () => {
     armarMock(docVacio());
     render(<DocumentoMandato />);
 
-    const marco = screen.getByText('Ejemplo').closest('div');
+    const marco = screen.getByText('Registro').closest('div');
     expect(marco).toHaveClass('absolute');
     expect(marco).toHaveClass('max-[560px]:static');
     expect(marco).toHaveClass('max-[560px]:mb-4');
   });
 
-  it('N chico (docChico N=16/M=3/P=1): EJEMPLO con su línea, régimen palitos y links reales', () => {
+  it('N chico: declara límites del registro, con palitos y links reales', () => {
     armarMock(docChico());
     render(<DocumentoMandato />);
 
     // La cabecera es h2 (spec a11y: «h2 por sección … y cabecera del
     // documento») — padre de las secciones romanas h3. Pin contra regresión.
     expect(
-      screen.getByRole('heading', { level: 2, name: 'Mandato ciudadano — Argentina' }),
+      screen.getByRole('heading', { level: 2, name: 'Registro de señales — Argentina' }),
     ).toBeInTheDocument();
 
-    expect(screen.getByText('Ejemplo')).toBeInTheDocument();
+    expect(screen.getByText('Registro')).toBeInTheDocument();
     expect(
       screen.getByText(
-        /Con 16 voces esto es el formato del mandato, no el mandato\. El de verdad se escribe con la tuya\./,
+        /Ningún volumen de señales convierte esta consulta en un acuerdo ni en representación nacional/,
       ),
     ).toBeInTheDocument();
 
@@ -223,7 +223,7 @@ describe('DocumentoMandato', () => {
     expect(linkCita).toHaveAttribute('href', '/senal/00000000-0000-4000-8000-000000000042');
   });
 
-  it('N rico (docRico N=1000/M=500): sin sello EJEMPLO, % es-AR del tema top y pie con las tres poblaciones', () => {
+  it('N rico: sigue siendo un registro, con porcentaje del tema y denominadores', () => {
     const documento = docRico();
     armarMock(documento);
     render(<DocumentoMandato />);
@@ -234,7 +234,7 @@ describe('DocumentoMandato', () => {
       year: 'numeric',
     });
 
-    expect(screen.queryByText('Ejemplo')).not.toBeInTheDocument();
+    expect(screen.getByText('Registro')).toBeInTheDocument();
     expect(screen.getByText('18,4%')).toBeInTheDocument();
     expect(
       screen.getByText(

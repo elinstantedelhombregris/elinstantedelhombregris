@@ -2,13 +2,9 @@ import { Fragment, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 
 import { MenuBiblioteca } from './MenuBiblioteca';
-import {
-  PAPEL_NAV,
-  PAPEL_NAV_ALL,
-  SUBSECCIONES,
-  SEMBRAR_HREF,
-} from './papel-nav';
+import { PAPEL_NAV, PAPEL_NAV_ALL, SUBSECCIONES, IMAGINAR_HREF } from './papel-nav';
 
+import { useAuth } from '~/lib/auth/use-auth';
 import { despertar } from '~/lib/despertar';
 import { saltarSiEsLaMismaPagina } from '~/lib/ir-al-principio';
 import { useVocesCount } from '~/lib/queries/analytics';
@@ -21,10 +17,11 @@ function esActiva(location: string, href: string): boolean {
 
 /**
  * Header papel: wordmark con signos en violeta, contador FOMO, nav mono
- * y CTA «Sembrar tu voz». Colapsa a menú de pantalla completa ≤1140px.
+ * y CTA «Imaginar mi Argentina». Colapsa a menú de pantalla completa ≤1140px.
  */
 export function PapelHeader() {
   const [location] = useLocation();
+  const auth = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const vocesQuery = useVocesCount();
   /**
@@ -42,8 +39,8 @@ export function PapelHeader() {
     total === undefined
       ? null
       : total === 0
-        ? 'nadie habló todavía · empezá vos'
-        : `${total.toLocaleString('es-AR')} voces · falta la tuya`;
+        ? 'la primera voz todavía puede ser la tuya'
+        : `${total.toLocaleString('es-AR')} ${total === 1 ? 'aporte' : 'aportes'} en el registro`;
 
   return (
     // El menú móvil vive FUERA del <header>: el backdrop-filter del header lo
@@ -63,13 +60,16 @@ export function PapelHeader() {
               <span className="text-violeta">¡</span>BASTA<span className="text-violeta">!</span>
             </span>
             {leyendaVoces === null ? null : (
-              <span className="font-space text-tinta-50 hidden text-[10px] uppercase tracking-[0.14em] min-[561px]:inline">
+              <span className="font-space text-tinta-50 hidden text-[10px] uppercase tracking-[0.14em] min-[1351px]:inline">
                 {leyendaVoces}
               </span>
             )}
           </Link>
 
-          <nav className="hidden items-center gap-1.5 min-[1141px]:flex" aria-label="Recorrido">
+          <nav
+            className="hidden shrink-0 items-center gap-1.5 whitespace-nowrap min-[1141px]:flex"
+            aria-label="Recorrido"
+          >
             {PAPEL_NAV.map((item) =>
               // Las entradas con hijos los despliegan en vez de obligar a
               // pasar por el hub. Cuáles son es dato (`SUBSECCIONES`) y no un
@@ -97,11 +97,17 @@ export function PapelHeader() {
               ),
             )}
             <Link
-              href={SEMBRAR_HREF}
+              href={auth.user ? '/mi-espacio' : '/ingresar?volver=%2Fmi-espacio'}
+              className="font-space min-h-11 px-3 py-3 text-xs underline"
+            >
+              {auth.user ? 'Mi espacio' : 'Ingresar'}
+            </Link>
+            <Link
+              href={IMAGINAR_HREF}
               className="bg-tinta font-space text-papel hover:bg-violeta ml-3.5 px-5 py-[11px] text-xs font-bold uppercase tracking-[0.08em] transition-colors"
               onClick={despertar}
             >
-              Sembrar tu voz
+              Imaginar mi Argentina
             </Link>
           </nav>
 
@@ -131,7 +137,7 @@ export function PapelHeader() {
                 className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
                 onClick={() => {
                   // En móvil, «Sembrar» es el mismo trigger canónico del despertar §10.7.
-                  if (item.href === SEMBRAR_HREF) despertar();
+                  if (item.href === IMAGINAR_HREF) despertar();
                   setMenuOpen(false);
                 }}
               >

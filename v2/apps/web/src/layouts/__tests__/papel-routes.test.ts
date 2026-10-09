@@ -66,7 +66,7 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
   });
 
   it('NO matchea rutas v1 sin migrar', () => {
-    expect(esRutaPapel('/ingresar')).toBe(false);
+    expect(esRutaPapel('/ingresar')).toBe(true);
     expect(esRutaPapel('/cuaderno')).toBe(false);
   });
 

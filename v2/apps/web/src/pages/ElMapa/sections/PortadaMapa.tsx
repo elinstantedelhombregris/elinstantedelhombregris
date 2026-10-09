@@ -14,7 +14,9 @@ export function PortadaMapa() {
   return (
     <header className="mx-auto max-w-[1440px] px-5 pb-3 pt-6 min-[961px]:px-10">
       <Kicker className="mb-2">El mapa de las voces</Kicker>
-      <h1 className="font-anton text-[clamp(30px,4vw,52px)] leading-tight">El país, dicho por su gente.</h1>
+      <h1 className="font-anton text-[clamp(30px,4vw,52px)] leading-tight">
+        El país, dicho por su gente.
+      </h1>
     </header>
   );
 }

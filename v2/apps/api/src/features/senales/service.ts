@@ -59,6 +59,9 @@ export interface OrigenDeIngesta {
   readonly origen: 'web' | 'campo' | 'campo-v1';
   readonly actorId?: number | null;
   readonly userId?: number | null;
+  readonly persistir?: (
+    fila: NewSenal,
+  ) => Promise<{ idPublico: string; estado: string; yaExistia: boolean }>;
 }
 
 /** El recibo. Lo que sale y, sobre todo, lo que no. */
@@ -300,7 +303,7 @@ export async function ingerirSenal(
   };
 
   const repo = new SenalesRepository(db);
-  const escrita = await repo.crear(fila);
+  const escrita = contexto.persistir ? await contexto.persistir(fila) : await repo.crear(fila);
 
   if (publicable.retirado !== null) avisos.push(publicable.retirado);
 

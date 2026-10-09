@@ -8,8 +8,8 @@
  */
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-
 import { readCsrfToken } from './csrf';
+import { adoptarSesion } from './sesion';
 
 import type { AuthenticatedUser } from './types';
 
@@ -71,25 +71,27 @@ export function useAuth() {
   const loginMutation = useMutation<LoginResponse, ApiError, LoginVars>({
     mutationFn: async (vars) =>
       api.post<LoginResponse>('/api/auth/login', vars, { csrfToken: readCsrfToken() }),
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       // 2FA challenges don't carry a user — leave the cache as-is.
-      if (data.user) queryClient.setQueryData(ME_KEY, data.user);
+      if (data.user) {
+        await adoptarSesion(queryClient, data.user);
+      }
     },
   });
 
   const registerMutation = useMutation<LoginSuccess, ApiError, RegisterVars>({
     mutationFn: async (vars) =>
       api.post<LoginSuccess>('/api/auth/register', vars, { csrfToken: readCsrfToken() }),
-    onSuccess: (data) => {
-      queryClient.setQueryData(ME_KEY, data.user);
+    onSuccess: async (data) => {
+      await adoptarSesion(queryClient, data.user);
     },
   });
 
   const logoutMutation = useMutation<{ ok: true }, ApiError>({
-    mutationFn: async () => api.post<{ ok: true }>('/api/auth/logout', undefined, { csrfToken: readCsrfToken() }),
-    onSuccess: () => {
-      queryClient.setQueryData(ME_KEY, null);
-      void queryClient.invalidateQueries({ queryKey: ['auth'] });
+    mutationFn: async () =>
+      api.post<{ ok: true }>('/api/auth/logout', undefined, { csrfToken: readCsrfToken() }),
+    onSuccess: async () => {
+      await adoptarSesion(queryClient, null);
     },
   });
 

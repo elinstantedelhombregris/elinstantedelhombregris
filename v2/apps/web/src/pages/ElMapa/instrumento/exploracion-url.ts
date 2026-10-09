@@ -5,6 +5,8 @@ import { MODOS, type Modo } from './catalogo-modos';
 export interface Exploracion {
   modo: Modo;
   rango: '7d' | '30d' | 'todo';
+  campana?: string;
+  edicion?: number;
   lugarId?: number;
   lugarNombre?: string;
   tipo?: string;
@@ -22,6 +24,11 @@ export function leerExploracion(search: string): Exploracion {
     rango: periodo === '7d' || periodo === '30d' ? periodo : 'todo',
   };
   if (Number.isSafeInteger(lugar) && lugar > 0) resultado.lugarId = lugar;
+  const campana = q.get('campana');
+  if (campana && /^[0-9a-f-]{36}$/i.test(campana)) resultado.campana = campana;
+  const edicion = Number(q.get('edicion'));
+  if (resultado.campana && Number.isSafeInteger(edicion) && edicion > 0)
+    resultado.edicion = edicion;
   const nombre = q.get('nombre');
   if (nombre) resultado.lugarNombre = nombre.slice(0, 150);
   for (const campo of ['tipo', 'estado', 'tema'] as const) {
@@ -35,6 +42,8 @@ export function urlExploracion(estado: Exploracion): string {
   const q = new URLSearchParams();
   q.set('lente', estado.modo);
   q.set('periodo', estado.rango);
+  if (estado.campana) q.set('campana', estado.campana);
+  if (estado.edicion) q.set('edicion', String(estado.edicion));
   if (estado.lugarId) q.set('lugar', String(estado.lugarId));
   if (estado.lugarNombre) q.set('nombre', estado.lugarNombre);
   for (const campo of ['tipo', 'estado', 'tema'] as const) {

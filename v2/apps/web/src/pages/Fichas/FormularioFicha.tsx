@@ -3,6 +3,8 @@ import { useRef, useState, type FormEvent } from 'react';
 
 import { BusquedaTerritorial } from '../ElMapa/instrumento/BusquedaTerritorial';
 
+import { SeleccionarFuentes } from './SeleccionarFuentes';
+
 import { useGuardarFicha } from '~/lib/queries/fichas';
 
 interface Props {
@@ -12,8 +14,8 @@ interface Props {
   guardada: (id: string) => void;
 }
 const CAMPOS = [
-  ['situacion', '¿Qué está pasando? Separá lo observado de lo que falta comprobar.'],
-  ['futuro', '¿Qué futuro queremos construir?'],
+  ['futuro', '¿Cómo sería la vida que queremos hacer posible?'],
+  ['situacion', '¿Qué sabemos del presente y qué falta comprobar?'],
   ['proximaTarea', '¿Qué necesitamos investigar o escuchar a continuación?'],
 ] as const;
 const RELACIONES: Record<ContenidoFicha['vinculos'][number]['relacion'], string> = {
@@ -21,9 +23,11 @@ const RELACIONES: Record<ContenidoFicha['vinculos'][number]['relacion'], string>
   contradice: 'Contradice la lectura',
   evidencia: 'Aporta evidencia',
   capacidad: 'Aporta una capacidad',
+  inspira: 'Inspira el futuro deseado',
 };
 export function FormularioFicha({ inicial, nombreTerritorio, ficha, guardada }: Props) {
   const [contenido, setContenido] = useState(inicial);
+  const [condicionesTexto, setCondicionesTexto] = useState((inicial.condiciones ?? []).join('\n'));
   const [temasTexto, setTemasTexto] = useState(inicial.temas.join(', '));
   const [nombre, setNombre] = useState(nombreTerritorio);
   const [acepta, setAcepta] = useState(false);
@@ -131,12 +135,37 @@ export function FormularioFicha({ inicial, nombreTerritorio, ficha, guardada }: 
           </span>
         </label>
       ))}
+      <label className="block font-bold">
+        Condiciones que harían posible ese futuro, una por línea
+        <textarea
+          rows={4}
+          className="bg-papel-crudo mt-2 w-full border p-3 font-normal"
+          value={condicionesTexto}
+          onChange={(e) => {
+            setCondicionesTexto(e.target.value);
+            actualizar(
+              'condiciones',
+              e.target.value.split('\n').filter((s) => s.trim()),
+            );
+          }}
+        />
+        <span className="text-tinta-50 mt-2 block text-sm font-normal">
+          Son formulaciones para revisar. Compartirlas todavía no significa que estén acordadas.
+        </span>
+      </label>
       <fieldset className="border p-4">
         <legend className="px-2 font-bold">Aportes que sostienen o cuestionan esta ficha</legend>
         <p className="text-sm">
           Pegá el enlace público de una señal. Vincularla como evidencia no cambia su estado de
           corroboración.
         </p>
+        <SeleccionarFuentes
+          campana={contenido.campanaId}
+          elegir={(id) => {
+            if (contenido.vinculos.some((v) => v.senalId === id && v.relacion === relacion)) return;
+            actualizar('vinculos', [...contenido.vinculos, { senalId: id, relacion }]);
+          }}
+        />
         <label className="mt-3 block text-sm">
           Enlace o identificador del aporte
           <input

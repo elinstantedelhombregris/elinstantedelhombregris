@@ -20,7 +20,7 @@ import type { RadiografiaPublica } from '~/lib/queries/radiografia';
  *  2. **cuántas entraron y cuántas esperan** — §6: una señal que existe y no
  *     se dibuja tiene que estar contada en alguna parte o la página miente
  *     por omisión;
- *  3. **cuántas provincias no aportaron ni una señal** — el mismo cálculo de
+ *  3. **cuántas provincias sin registro en este alcance señal** — el mismo cálculo de
  *     la lente Cobertura, que es la única fuente;
  *  4. **que quien habla no es quien vive** — esto mide a quien usó la
  *     plataforma, no al país.
@@ -84,14 +84,25 @@ export function CabeceraProcedencia({ datos, cargando, fallo, tema }: CabeceraPr
         <Celda rotulo="Señales" rotuloClase={rotulo} cifraClase={cifra}>
           {dato(datos?.analizadas)} analizadas
           <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-            {dato(datos?.sinVector)} esperando análisis · {dato(datos?.total)} en total
+            {dato(datos?.sinVector)} esperando análisis · {dato(datos?.total)} incluidos en esta
+            lectura
           </span>
         </Celda>
 
+        {datos?.cobertura ? (
+          <Celda rotulo="Alcance de la lectura" rotuloClase={rotulo} cifraClase={cifra}>
+            {dato(datos.cobertura.elegibles)} elegibles
+            <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
+              {datos.cobertura.completo
+                ? 'Conjunto completo para estos filtros.'
+                : `Selección limitada a ${datos.cobertura.limite} registros recientes. Lo que falta no es silencio del país.`}
+            </span>
+          </Celda>
+        ) : null}
         <Celda rotulo="Provincias sin señal" rotuloClase={rotulo} cifraClase={cifra}>
           {dato(datos?.provinciasSinSenal)} de 24
           <span className={`font-space block text-[12px] normal-case ${rotulo}`}>
-            no aportaron ni una
+            sin registro en este alcance
           </span>
         </Celda>
 
