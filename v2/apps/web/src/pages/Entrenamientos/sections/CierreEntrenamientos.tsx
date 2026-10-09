@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 
 import { BandaCta, BotonPapel } from '~/components/papel/primitives';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 /**
  * § 3 de la spec — cierre. El catálogo no compite con el mapa: entrenar
@@ -15,7 +16,7 @@ export function CierreEntrenamientos() {
           Entrenaste. Ahora usalo.
         </h2>
         <BotonPapel asChild variant="violeta" surface="oscuro">
-          <Link href="/el-mapa">Soltar mi voz en el mapa →</Link>
+          <Link href={APORTAR_HREF}>Imaginar mi Argentina →</Link>
         </BotonPapel>
       </div>
     </BandaCta>

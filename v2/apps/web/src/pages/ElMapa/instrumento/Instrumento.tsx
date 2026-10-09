@@ -147,7 +147,7 @@ export function Instrumento({
             onAportar?.(lugarElegido?.id === exploracion.lugarId ? lugarElegido : null);
           }}
         >
-          {participando ? 'Tu mirada está en elaboración' : 'Sumá tu mirada al mapa →'}
+          {participando ? 'Tu aporte está en elaboración' : 'Sumá tu aporte →'}
         </button>
       </div>
       {!soloLista ? (

@@ -4,6 +4,7 @@ import { SIN_LIDER } from '../la-idea-data';
 
 import { BotonPapel, Kicker, Sello } from '~/components/papel/primitives';
 import { despertar } from '~/lib/despertar';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { useVocesCount } from '~/lib/queries/analytics';
 
 /**
@@ -54,8 +55,8 @@ export function CapituloSinLider() {
             ) : null}
           </div>
           <BotonPapel asChild variant="violeta" surface="oscuro">
-            <Link href="/el-mapa" onClick={despertar}>
-              Dejar mi voz →
+            <Link href={APORTAR_HREF} onClick={despertar}>
+              Imaginar mi Argentina →
             </Link>
           </BotonPapel>
         </div>

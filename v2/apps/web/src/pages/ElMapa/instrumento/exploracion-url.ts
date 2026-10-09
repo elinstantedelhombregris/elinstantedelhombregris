@@ -38,7 +38,20 @@ export function leerExploracion(search: string): Exploracion {
   return resultado;
 }
 
-export function urlExploracion(estado: Exploracion): string {
+/**
+ * Lo que pide el panel de aportes. No es parte de la exploración —no cambia qué
+ * se ve en el mapa— pero viaja en la misma dirección, y reescribirla sin esto
+ * cerraba el panel o lo dejaba sin su campaña, su edición o su borrador cada
+ * vez que se elegía un lugar. `campana` puede ser un slug, que la exploración
+ * (que filtra por id) no entiende; por eso se conserva tal cual venía.
+ */
+const PARAMETROS_DE_APORTE = ['participar', 'campana', 'edicion', 'borrador'] as const;
+
+/**
+ * La dirección de una exploración. `actual` es la búsqueda vigente: de ahí se
+ * conservan los parámetros del panel de aportes que la exploración no maneja.
+ */
+export function urlExploracion(estado: Exploracion, actual = ''): string {
   const q = new URLSearchParams();
   q.set('lente', estado.modo);
   q.set('periodo', estado.rango);
@@ -48,6 +61,11 @@ export function urlExploracion(estado: Exploracion): string {
   if (estado.lugarNombre) q.set('nombre', estado.lugarNombre);
   for (const campo of ['tipo', 'estado', 'tema'] as const) {
     if (estado[campo]) q.set(campo, estado[campo]);
+  }
+  const vigente = new URLSearchParams(actual);
+  for (const clave of PARAMETROS_DE_APORTE) {
+    const valor = vigente.get(clave);
+    if (valor !== null && !q.has(clave)) q.set(clave, valor);
   }
   return `/el-mapa?${q.toString()}`;
 }
@@ -64,7 +82,11 @@ export function useExploracion() {
     };
   }, []);
   const cambiar = (siguiente: Exploracion) => {
-    window.history.pushState(null, '', urlExploracion(siguiente) + window.location.hash);
+    window.history.pushState(
+      null,
+      '',
+      urlExploracion(siguiente, window.location.search) + window.location.hash,
+    );
     setEstado(siguiente);
   };
   return [estado, cambiar] as const;

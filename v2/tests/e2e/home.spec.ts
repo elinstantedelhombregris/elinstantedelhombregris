@@ -3,17 +3,19 @@ import { expect, test } from '@playwright/test';
 test.describe('public home', () => {
   test('renders the ¡BASTA! hero', async ({ page }) => {
     await page.goto('/');
-    // El título es el de la landing «Papel y Tinta» (apps/web/index.html). Esta
-    // aserción esperaba «El Instante del Hombre Gris» y quedó vieja con ese
-    // rediseño; no se vio durante seis semanas porque el job de e2e quedaba
-    // «skipped» detrás de un lint en rojo.
+    // El título es el de la landing «Papel y Tinta» (apps/web/index.html).
     await expect(page).toHaveTitle(/¡BASTA!/i);
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/¡BASTA!/i);
-    // Los dos CTA de la landing. «Leer el manifiesto» y «Crear cuenta» eran los de
-    // la versión anterior y ya no existen: hoy la primera acción es dejar una voz
-    // en el mapa, no registrarse.
-    await expect(page.getByRole('main').getByRole('link', { name: /Dejar mi voz en el mapa/i }).first()).toBeVisible();
-    await expect(page.getByRole('main').getByRole('link', { name: /Entender la idea/i }).first()).toBeVisible();
+    // El h1 es la idea de la landing: la ciudadanía diseña, el Estado administra,
+    // la política ejecuta. «¡BASTA!» es el rótulo gigante de arriba, no el h1.
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/La ciudadanía diseña/i);
+    // Los dos enlaces de la primera pantalla: la invitación a imaginar (que abre el
+    // panel de aportes del mapa) y la explicación del ejercicio.
+    await expect(
+      page.getByRole('main').getByRole('link', { name: 'Imaginar mi Argentina' }).first(),
+    ).toBeVisible();
+    await expect(
+      page.getByRole('main').getByRole('link', { name: /Cómo funciona el ejercicio/i }).first(),
+    ).toBeVisible();
   });
 
   test('shows 404 page for unknown routes', async ({ page }) => {

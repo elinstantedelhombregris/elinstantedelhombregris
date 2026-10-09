@@ -221,7 +221,7 @@ describe('el vacío (§6)', () => {
       screen.getByText(/Que no se dibujen relaciones no significa que nadie haya participado/),
     ).toBeInTheDocument();
     expect(container.querySelector('a')?.getAttribute('href')).toBe(
-      '/el-mapa?participar=imaginar#instrumento',
+      '/el-mapa?participar=aportar#instrumento',
     );
     expect(container.textContent).not.toMatch(/perdón|disculp|lo sentimos|próximamente/i);
   });

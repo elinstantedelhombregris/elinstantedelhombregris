@@ -9,7 +9,10 @@ import { useCampanas } from '~/lib/queries/participacion';
 
 export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
   const search = useSearch();
-  const campana = new URLSearchParams(search).get('campana') ?? undefined;
+  // `campana` también puede ser un slug (lo usa el panel de aportes); las fichas
+  // y las campañas se filtran por id, así que un slug no filtra nada.
+  const pedida = new URLSearchParams(search).get('campana');
+  const campana = pedida && /^[0-9a-f-]{36}$/i.test(pedida) ? pedida : undefined;
   const q = useFichas(lugar?.id, campana);
   const campanas = useCampanas();
   const convocatorias = (campanas.data ?? []).filter(

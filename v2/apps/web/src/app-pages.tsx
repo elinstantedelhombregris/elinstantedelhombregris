@@ -270,9 +270,6 @@ export const Fichas = lazy(async () => {
   return { default: m.Fichas };
 });
 
-export const Imaginar = lazy(async () => ({
-  default: (await import('~/pages/Imaginar')).Imaginar,
-}));
 export const Campanas = lazy(async () => ({
   default: (await import('~/pages/Campanas')).Campanas,
 }));

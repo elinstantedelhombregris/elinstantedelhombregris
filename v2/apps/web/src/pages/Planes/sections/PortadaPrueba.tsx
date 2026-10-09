@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { PLAN_COUNT } from '../la-prueba-data';
 
 import { Kicker, RitoTinta, Sello } from '~/components/papel/primitives';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 /** § 1 — Portada + callout «No es doctrina» (spec 2.4). */
 export function PortadaPrueba() {
@@ -32,8 +33,8 @@ export function PortadaPrueba() {
           levantar la vara de la discusión que estamos teniendo. Son un punto de partida, no uno de
           llegada — leelos para criticarlos, mejorarlos o reemplazarlos. El programa real lo escriben
           las{' '}
-          <Link href="/el-mapa" className="text-violeta font-semibold">
-            voces del mapa
+          <Link href={APORTAR_HREF} className="text-violeta font-semibold">
+            aportes del mapa
           </Link>
           .
         </p>

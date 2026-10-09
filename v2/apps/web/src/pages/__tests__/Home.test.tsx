@@ -70,7 +70,7 @@ describe('Home (landing Papel y Tinta)', () => {
 
     expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })[0]).toHaveAttribute(
       'href',
-      '/el-mapa?participar=imaginar#instrumento',
+      '/el-mapa?participar=aportar#instrumento',
     );
     expect(screen.getByRole('link', { name: 'Cómo funciona el ejercicio →' })).toHaveAttribute(
       'href',
@@ -104,17 +104,20 @@ describe('Home (landing Papel y Tinta)', () => {
     ).toBeInTheDocument();
   });
 
-  it('cierra con una sola invitación a aportar dentro del mapa', () => {
+  it('cierra con la misma invitación a aportar dentro del mapa que abre la página', () => {
     renderHome();
 
     expect(
       screen.getByRole('heading', { name: 'El futuro necesita tu letra.' }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Escribir mi primera posibilidad' })).toHaveAttribute(
-      'href',
-      '/el-mapa?participar=imaginar#instrumento',
-    );
-    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })).toHaveLength(1);
+    // Una sola puerta con un solo nombre: el hero y el cierre dicen lo mismo y van al mismo panel.
+    const invitaciones = screen.getAllByRole('link', { name: 'Imaginar mi Argentina' });
+    expect(invitaciones).toHaveLength(2);
+    for (const invitacion of invitaciones)
+      expect(invitacion).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(
+      screen.queryByRole('link', { name: 'Escribir mi primera posibilidad' }),
+    ).not.toBeInTheDocument();
     expect(screen.queryByText(/45 millones/)).not.toBeInTheDocument();
   });
 });

@@ -66,8 +66,8 @@ describe('PlanDetail (página papel 2.4 — El ejemplo, el lector)', () => {
     expect(backlink).toHaveAttribute('href', '/planes');
 
     expect(screen.getByText(/¿Lo podés mejorar\? Esa es la idea\./)).toBeInTheDocument();
-    const cta = screen.getByRole('link', { name: 'Soltá tu voz en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
     expect(screen.getByText('— El hombre gris')).toBeInTheDocument();
   });
 

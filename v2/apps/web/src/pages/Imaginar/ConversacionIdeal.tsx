@@ -1,95 +1,119 @@
 import { useQuery } from '@tanstack/react-query';
-import { CONTRATO_SENAL, contribucionSchema } from '@v2/shared';
+import { contribucionSchema } from '@v2/shared';
 import { useEffect, useRef, useState } from 'react';
-import { useSearch } from 'wouter';
 
 import { Asistencia } from './Asistencia';
+import { DestinoDelAporte } from './DestinoDelAporte';
 import { MarcoConversacion } from './MarcoConversacion';
+import { PasoPregunta } from './PasoPregunta';
 import { Recibo } from './Recibo';
 import { Revision } from './Revision';
 
+import type { CampanaDeAporte } from './FraseCampana';
 import type { LugarMapa } from '../ElMapa/instrumento/BusquedaTerritorial';
+import type { ReciboParticipacion } from '~/lib/queries/participacion';
 
-import { CAMPO } from '~/components/participacion/constantes';
-import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
+import { BotonAccion, ErrorOperacion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { useAuth } from '~/lib/auth/use-auth';
-import { guardarBorrador, leerBorradores } from '~/lib/participacion/borradores';
-import { useCampana, usePublicarAporte } from '~/lib/queries/participacion';
+import { despertar } from '~/lib/despertar';
+import { quitarParametroDeLaUrl } from '~/lib/participacion/aportar';
+import { armarAporteGuiado, PREGUNTAS_GUIADAS } from '~/lib/participacion/armar-aporte';
+import { borrarBorrador, guardarBorrador, leerBorradores } from '~/lib/participacion/borradores';
+import { recortarEnFrase, unirRespuestas } from '~/lib/participacion/texto-aporte';
+import { useCampanaDeAporte } from '~/lib/participacion/useCampanaDeAporte';
+import { useLugarSincronizado } from '~/lib/participacion/useLugarSincronizado';
+import { usePublicarAporte } from '~/lib/queries/participacion';
 
-const PREGUNTAS = [
-  'En tu Argentina ideal, ¿qué sería posible en tu vida?',
-  '¿Por qué eso es importante para vos?',
-  '¿Qué tendría que funcionar para hacerlo posible?',
-];
+const ENTRADA =
+  'Contanos qué querrías que fuera posible en tu vida. Son tres preguntas, no necesitás cuenta y nada se publica hasta que lo revises.';
+
+interface Publicado {
+  recibo: ReciboParticipacion;
+  campana: CampanaDeAporte | null;
+  textoVisible: boolean;
+  territorio: string;
+}
+
+/**
+ * Las tres preguntas de «Imaginar mi Argentina», dentro del panel del mapa.
+ *
+ * La campaña, la edición y el borrador se leen EN VIVO del enlace; el lugar
+ * sigue al que se mira en el mapa. Publica siempre un `sueño`, y lo publicado
+ * se llama «aporte».
+ */
 export function ConversacionIdeal({
-  integrada = false,
   lugarInicial = null,
+  irADirecto,
+  alMapa,
 }: {
-  integrada?: boolean;
+  /** El lugar que se está mirando en el mapa. */
   lugarInicial?: LugarMapa | null;
+  irADirecto?: () => void;
+  alMapa?: () => void;
 }) {
   const auth = useAuth();
-  const search = useSearch();
-  const origen = useRef(new URLSearchParams(search));
-  const q = origen.current;
-  const campanaId = q.get('campana');
-  const edicion = Number(q.get('edicion'));
-  const edicionInvalida =
-    q.has('edicion') && (!campanaId || !Number.isSafeInteger(edicion) || edicion <= 0);
-  const [edicionElegida, fijarEdicion] = useState<number | undefined>(
-    Number.isSafeInteger(edicion) && edicion > 0 ? edicion : undefined,
-  );
-  const campana = useCampana(campanaId ?? undefined, edicionElegida);
-  useEffect(() => {
-    if (campanaId && !edicionInvalida && campana.data && edicionElegida === undefined)
-      fijarEdicion(campana.data.revision);
-  }, [campanaId, edicionInvalida, campana.data, edicionElegida]);
+  const campanaCtx = useCampanaDeAporte();
+  const { pedido, explicita, campana, destino, bloqueo } = campanaCtx;
   const [paso, setPaso] = useState(0);
   const [frases, setFrases] = useState(['', '', '']);
   const [lectura, setLectura] = useState('');
+  const [recortado, setRecortado] = useState(false);
   const [tema, setTema] = useState('');
-  const [lugar, setLugar] = useState<LugarMapa | null>(lugarInicial);
+  const { lugar, elegir: elegirLugar } = useLugarSincronizado(lugarInicial);
   const [publicar, setPublicar] = useState(false);
   const [cede, setCede] = useState(false);
   const [confirmado, setConfirmado] = useState(false);
   const [incluir, setIncluir] = useState(false);
   const [nota, setNota] = useState('');
   const [error, setError] = useState('');
+  const [publicado, setPublicado] = useState<Publicado | null>(null);
   const identidad = useRef<string>(crypto.randomUUID());
   const intento = useRef<{ contenido: string; id: string; cuenta: number | null } | null>(null);
-  const titulo = useRef<HTMLHeadingElement>(null);
+  const raiz = useRef<HTMLDivElement>(null);
   const enviar = usePublicarAporte();
-  const contexto = useQuery({
+  const servicio = useQuery({
     queryKey: ['contexto-participacion'],
     queryFn: () => api.get<{ proveedor: string | null }>('/api/v1/contribuciones/contexto'),
   });
+
+  // El borrador se carga una vez por identificador: que el enlace cambie por
+  // otra razón (mirar otro lugar del mapa) no vuelve a pisar lo que se escribió.
+  const borradorCargado = useRef<string | null>(null);
   useEffect(() => {
-    const id = new URLSearchParams(search).get('borrador');
-    if (!id) return;
+    const id = pedido.borrador;
+    if (!id || borradorCargado.current === id) return;
+    borradorCargado.current = id;
     void leerBorradores()
       .then((lista) => {
         const b = lista.find((v) => v.id === id);
-        if (b) {
-          setFrases(b.frases);
-          identidad.current = b.id;
-          setNota('Retomaste un borrador que estaba guardado solo en este dispositivo.');
-        }
+        if (!b) return;
+        setFrases(b.frases);
+        identidad.current = b.id;
+        setNota('Retomaste un borrador que estaba guardado solo en este dispositivo.');
       })
       .catch((e: unknown) => {
         setError(e instanceof Error ? e.message : 'No pudimos leer el borrador.');
       });
-  }, [search]);
+  }, [pedido.borrador]);
+
+  // El foco pasa al título del paso solo cuando el paso cambia, no al aparecer.
+  const pasoPrevio = useRef(paso);
   useEffect(() => {
-    titulo.current?.focus();
+    if (pasoPrevio.current === paso) return;
+    pasoPrevio.current = paso;
+    raiz.current?.querySelector<HTMLElement>('[data-foco-paso]')?.focus();
   }, [paso]);
-  const TituloPregunta = integrada ? 'h3' : 'h2';
-  const pregunta =
-    paso === 0 && campana.data ? campana.data.contrato.pregunta : (PREGUNTAS[paso] ?? '');
+
+  const preguntaDe = (i: number) =>
+    i === 0 && explicita && campana ? campana.contrato.pregunta : (PREGUNTAS_GUIADAS[i] ?? '');
   const avanzar = () => {
+    if (paso === 0 && !frases[0]?.trim()) return;
     if (paso === 2) {
       intento.current = null;
-      setLectura(frases.filter(Boolean).join('\n\n'));
+      const unido = recortarEnFrase(unirRespuestas(frases));
+      setLectura(unido.texto);
+      setRecortado(unido.recortado);
       setConfirmado(false);
     }
     setPaso(paso + 1);
@@ -100,238 +124,172 @@ export function ConversacionIdeal({
         id: identidad.current,
         fecha: new Date().toISOString(),
         frases,
-        campanaId,
+        campanaId: pedido.campana ?? null,
+        edicion: campana && explicita ? campana.revision : null,
       });
-      setNota('Tu reflexión quedó en este dispositivo. No se publicó ni se subió a una cuenta.');
+      setNota('Tu borrador quedó en este dispositivo. No se publicó ni se subió a una cuenta.');
     } catch (e) {
       setError(e instanceof Error ? e.message : 'No pudimos guardar el borrador.');
     }
   };
-  const publicarVoz = () => {
+  const publicarAporte = () => {
     setError('');
-    if (edicionInvalida) {
-      setError(
-        'La edición del enlace no es válida. Conservá tu reflexión y revisá el proceso antes de compartir.',
-      );
-      return;
-    }
-    const cuerpo = {
-      senal: {
-        contrato: CONTRATO_SENAL,
-        idLocal: intento.current?.id ?? crypto.randomUUID(),
-        tipo: 'sueño',
-        texto: lectura.trim(),
+    if (bloqueo) return;
+    const respuestas = incluir
+      ? frases
+          .map((respuesta, i) => ({ pregunta: preguntaDe(i) || 'Mi borrador', respuesta }))
+          .filter((f) => f.respuesta.trim())
+      : [];
+    const armar = (idLocal: string, cuenta: number | null) =>
+      armarAporteGuiado({
+        idLocal,
+        texto: lectura,
         cedeLicencia: cede,
-        sinTema: !tema.trim(),
-        casa: 'sinRespuesta',
-        tema: tema.trim() || null,
-        ...(lugar
-          ? {
-              provinceId: lugar.provinceId,
-              ...(['locality', 'settlement'].includes(lugar.level) ? { cityId: lugar.id } : {}),
-            }
-          : {}),
-      },
-      cuentaEsperada: intento.current?.cuenta ?? auth.user?.id ?? null,
-      campanaId: campana.data?.id ?? null,
-      edicion: campana.data?.revision ?? null,
-      fragmentos: incluir
-        ? frases
-            .map((respuesta, i) => ({
-              pregunta:
-                i === 0 && campana.data
-                  ? campana.data.contrato.pregunta
-                  : (PREGUNTAS[i] ?? 'Mi reflexión'),
-              respuesta,
-            }))
-            .filter((f) => f.respuesta.trim())
-        : [],
-      interpretacionConfirmada: true,
-      aceptaPublicar: true,
-    };
-    const contenido = JSON.stringify({
-      ...cuerpo,
-      cuentaEsperada: undefined,
-      senal: { ...cuerpo.senal, idLocal: undefined },
-    });
+        tema,
+        lugar,
+        cuentaEsperada: cuenta,
+        destino,
+        fragmentos: respuestas,
+      });
+    // El mismo contenido conserva el identificador al reintentar; otro contenido, uno nuevo.
+    const contenido = JSON.stringify(armar('', null));
     if (intento.current?.contenido !== contenido)
       intento.current = { contenido, id: crypto.randomUUID(), cuenta: auth.user?.id ?? null };
-    cuerpo.senal.idLocal = intento.current.id;
-    cuerpo.cuentaEsperada = intento.current.cuenta;
-    const validado = contribucionSchema.safeParse(cuerpo);
+    const validado = contribucionSchema.safeParse(
+      armar(intento.current.id, intento.current.cuenta),
+    );
     if (!validado.success) {
       setError(validado.error.issues.map((i) => i.message).join(' '));
       return;
     }
-    enviar.mutate(validado.data);
+    const aDestino = destino;
+    enviar.mutate(validado.data, {
+      onSuccess: (recibo) => {
+        despertar();
+        void borrarBorrador(identidad.current).catch(() => undefined);
+        setPublicado({
+          recibo,
+          campana: aDestino,
+          textoVisible: cede,
+          territorio: lugar?.name ?? 'todo el país',
+        });
+      },
+    });
   };
-  if (enviar.data)
+  const sumarOtro = () => {
+    identidad.current = crypto.randomUUID();
+    intento.current = null;
+    setPublicado(null);
+    setPaso(0);
+    setFrases(['', '', '']);
+    setLectura('');
+    setRecortado(false);
+    setTema('');
+    setPublicar(false);
+    setCede(false);
+    setConfirmado(false);
+    setIncluir(false);
+    setNota('');
+    setError('');
+    quitarParametroDeLaUrl('borrador');
+  };
+
+  if (publicado)
     return (
-      <MarcoConversacion
-        integrada={integrada}
-        titulo="Una posibilidad empieza a encontrarse con otras."
-        entrada="Una voz tiene valor cuando conserva su sentido y puede seguir su recorrido."
-      >
-        <Recibo
-          recibo={enviar.data}
-          campanaId={campana.data?.id ?? null}
-          textoVisible={cede}
-          territorio={lugar?.name ?? 'Argentina'}
-        />
+      <MarcoConversacion>
+        <Recibo {...publicado} {...(alMapa ? { alMapa } : {})} sumarOtro={sumarOtro} />
       </MarcoConversacion>
     );
-  const faseCerrada =
-    edicionInvalida || Boolean(campanaId && campana.data && campana.data.estado !== 'abierta');
+
   return (
-    <MarcoConversacion
-      integrada={integrada}
-      titulo="Mi Argentina ideal."
-      entrada="No hace falta tener un plan. Empecemos por la vida que querrías poder vivir. Después veremos qué condiciones la sostienen."
-    >
-      {edicionInvalida ? (
-        <Nota>
-          La edición del enlace no es válida. Tu reflexión sigue privada; revisá la convocatoria
-          antes de compartirla.
-        </Nota>
-      ) : null}
-      {campanaId ? (
-        <Nota>
-          {campana.isLoading ? (
-            'Buscando la campaña…'
-          ) : campana.isError ? (
-            'No pudimos leer la campaña. Tu texto sigue con vos; reintentá antes de publicarlo en ese proceso.'
-          ) : (
-            <>
-              Campaña: <strong>{campana.data?.contrato.titulo}</strong> · edición{' '}
-              {campana.data?.revision}.{' '}
-              {faseCerrada
-                ? 'Esta ronda no recibe aportes ahora. Podés guardar tu reflexión y volver cuando se abra.'
-                : 'Participás en esta edición después de revisar tu aporte.'}
-            </>
-          )}
-        </Nota>
-      ) : null}
-      <div aria-hidden className="mb-3 flex gap-2">
-        {[0, 1, 2, 3].map((i) => (
-          <span key={i} className={`h-1 flex-1 ${i <= paso ? 'bg-violeta' : 'bg-papel-borde'}`} />
-        ))}
-      </div>
-      <p className="font-space text-violeta mb-5 text-xs uppercase">
-        {paso < 3 ? `Tu reflexión · ${paso + 1} de 3` : 'Revisión y elección'}
-      </p>
-      {paso < 3 ? (
-        <section
-          className={
-            integrada
-              ? 'border-tinta/20 border-y py-5'
-              : 'border-tinta bg-papel-crudo border p-5 min-[961px]:p-8'
-          }
-        >
-          <TituloPregunta
-            ref={titulo}
-            tabIndex={-1}
-            className={`font-anton leading-tight ${integrada ? 'text-[28px]' : 'text-[clamp(26px,3vw,40px)]'}`}
-          >
-            {pregunta}
-          </TituloPregunta>
-          <p className="text-tinta-75 mt-4 leading-relaxed">
-            {paso === 0
-              ? 'Una escena alcanza para empezar. Qué harías, con quién, cómo sería un día tuyo.'
-              : 'Podés contestar, dejarlo abierto o seguir. El futuro no se diseña a la fuerza.'}
-          </p>
-          <textarea
-            aria-label={pregunta}
-            rows={integrada ? 4 : 6}
-            maxLength={2000}
-            value={frases[paso] ?? ''}
-            onChange={(e) => {
-              setFrases((prev) => prev.map((f, i) => (i === paso ? e.target.value : f)));
-            }}
-            className={CAMPO}
-            placeholder={paso === 0 ? 'En mi Argentina ideal…' : 'Lo que para mí importa…'}
-          />
-          <p className="text-tinta-50 mt-2 text-xs">
-            {(frases[paso] ?? '').length} de 2000 caracteres · todavía privado
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {paso > 0 ? (
-              <BotonAccion
-                tono="papel"
-                onClick={() => {
-                  setPaso(paso - 1);
-                }}
-              >
-                Volver
-              </BotonAccion>
-            ) : null}
-            <BotonAccion disabled={paso === 0 && !frases[0]?.trim()} onClick={avanzar}>
-              {paso === 2 ? 'Revisar lo que voy a compartir' : 'Seguir imaginando'}
-            </BotonAccion>
-            {paso > 0 ? (
-              <button type="button" className="min-h-11 underline" onClick={avanzar}>
-                Dejar esta pregunta abierta
-              </button>
-            ) : null}
-          </div>
-        </section>
-      ) : (
-        <>
-          <Asistencia
-            texto={frases.filter(Boolean).join('\n\n')}
-            proveedor={contexto.data?.proveedor ?? null}
-            leer={(v) => {
-              setLectura(v);
-              setConfirmado(false);
-            }}
-          />
-          <Revision
-            lectura={lectura}
+    <MarcoConversacion entrada={ENTRADA} {...(irADirecto ? { irADirecto } : {})}>
+      <div ref={raiz}>
+        <DestinoDelAporte contexto={campanaCtx} en="inicio" />
+        <div aria-hidden className="mb-3 flex gap-2">
+          {PREGUNTAS_GUIADAS.map((p, i) => (
+            <span key={p} className={`h-1 flex-1 ${i <= paso ? 'bg-violeta' : 'bg-papel-borde'}`} />
+          ))}
+        </div>
+        <p className="font-space text-violeta mb-5 text-xs uppercase">
+          {paso < 3 ? `Pregunta ${paso + 1} de 3` : 'Última parte: revisión'}
+        </p>
+        {paso < 3 ? (
+          <PasoPregunta
+            paso={paso}
+            pregunta={preguntaDe(paso)}
+            valor={frases[paso] ?? ''}
             cambiar={(v) => {
-              setLectura(v);
-              setConfirmado(false);
+              setFrases((prev) => prev.map((f, i) => (i === paso ? v : f)));
             }}
-            tema={tema}
-            cambiarTema={setTema}
-            lugar={lugar}
-            elegirLugar={setLugar}
-            publicar={publicar}
-            cede={cede}
-            setPublicar={setPublicar}
-            setCede={setCede}
-            confirmado={confirmado}
-            confirmar={setConfirmado}
-            incluirOrigen={incluir}
-            incluir={setIncluir}
             volver={() => {
-              setPaso(2);
+              setPaso(paso - 1);
             }}
-            enviar={publicarVoz}
-            enviando={enviar.isPending}
-            bloqueado={faseCerrada || Boolean(campanaId && !campana.data)}
-            {...(enviar.error ? { error: enviar.error.message } : {})}
+            seguir={avanzar}
           />
-        </>
-      )}
-      <div className="mt-7 flex flex-wrap items-center gap-4">
-        <BotonAccion
-          tono="papel"
-          onClick={() => {
-            void guardar();
-          }}
-        >
-          Guardar en este dispositivo
-        </BotonAccion>
-        <p className="text-tinta-50 max-w-[550px] text-sm">
-          Elegís guardarlo localmente. Otras personas que usen este navegador podrían leerlo; podés
-          borrarlo desde Mi espacio.
-        </p>
+        ) : (
+          <>
+            <Asistencia
+              texto={unirRespuestas(frases)}
+              proveedor={servicio.data?.proveedor ?? null}
+              usar={(v) => {
+                setLectura(v);
+                setRecortado(false);
+                setConfirmado(false);
+              }}
+            />
+            <Revision
+              lectura={lectura}
+              cambiar={(v) => {
+                setLectura(v);
+                setRecortado(false);
+                setConfirmado(false);
+              }}
+              recortado={recortado}
+              tema={tema}
+              cambiarTema={setTema}
+              lugar={lugar}
+              elegirLugar={elegirLugar}
+              publicar={publicar}
+              cede={cede}
+              setPublicar={setPublicar}
+              setCede={setCede}
+              confirmado={confirmado}
+              confirmar={setConfirmado}
+              incluirOrigen={incluir}
+              incluir={setIncluir}
+              volver={() => {
+                setPaso(2);
+              }}
+              enviar={publicarAporte}
+              enviando={enviar.isPending}
+              bloqueo={bloqueo}
+              destino={<DestinoDelAporte contexto={campanaCtx} en="revision" />}
+              {...(enviar.error ? { error: enviar.error.message } : {})}
+            />
+          </>
+        )}
+        <div className="mt-7 flex flex-wrap items-center gap-4">
+          <BotonAccion
+            type="button"
+            tono="papel"
+            onClick={() => {
+              void guardar();
+            }}
+          >
+            Guardar borrador en este dispositivo
+          </BotonAccion>
+          <p className="text-tinta-50 max-w-[550px] text-sm">
+            Se guarda solo en este navegador: otras personas que lo usen podrían leerlo. Podés
+            borrarlo desde Mi espacio.
+          </p>
+        </div>
+        <ErrorOperacion mensaje={error} />
+        {nota ? (
+          <p role="status" className="text-verde mt-4">
+            {nota}
+          </p>
+        ) : null}
       </div>
-      <ErrorOperacion mensaje={error} />
-      {nota ? (
-        <p role="status" className="text-verde mt-4">
-          {nota}
-        </p>
-      ) : null}
     </MarcoConversacion>
   );
 }

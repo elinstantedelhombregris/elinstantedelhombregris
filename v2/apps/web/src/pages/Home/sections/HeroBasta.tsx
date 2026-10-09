@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 
 import { BotonPapel, Kicker, RitoTinta } from '~/components/papel/primitives';
 import { despertar } from '~/lib/despertar';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 export function HeroBasta() {
   return (
@@ -38,7 +39,7 @@ export function HeroBasta() {
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
             <BotonPapel asChild variant="violeta" className="motion-reduce:transform-none">
-              <Link href="/el-mapa?participar=imaginar#instrumento" onClick={despertar}>Imaginar mi Argentina</Link>
+              <Link href={APORTAR_HREF} onClick={despertar}>Imaginar mi Argentina</Link>
             </BotonPapel>
             <Link href="/el-mapa" className="font-space text-tinta-75 inline-flex min-h-11 items-center text-xs underline underline-offset-4">Explorar el país ↗</Link>
           </div>

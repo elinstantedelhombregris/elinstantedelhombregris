@@ -121,8 +121,8 @@ describe('Bitacora (página papel 3.4 — el índice, composer)', () => {
     render(<Bitacora />);
 
     expect(screen.getByRole('heading', { name: '¿Y vos qué ves?' })).toBeInTheDocument();
-    const cta = screen.getByRole('link', { name: 'Soltar mi voz en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('mata el chrome v1-port: sin glass/gradient-text/iris-violet/font-serif ni el header viejo', () => {

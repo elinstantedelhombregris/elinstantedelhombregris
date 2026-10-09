@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, renderHook, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { BusquedaTerritorial } from '../BusquedaTerritorial';
 import { EstadoConsulta } from '../EstadoConsulta';
-import { leerExploracion, urlExploracion } from '../exploracion-url';
+import { leerExploracion, urlExploracion, useExploracion } from '../exploracion-url';
 import { FiltrosExploracion } from '../FiltrosExploracion';
 import { ListaRegistros } from '../ListaRegistros';
 import { ProcedenciaConsulta } from '../ProcedenciaConsulta';
@@ -145,5 +145,57 @@ describe('Explorar con alcance explícito', () => {
     expect(cambiar).toHaveBeenLastCalledWith({ modo: 'mapa', rango: '7d', lugarId: 6 });
     fireEvent.click(screen.getByRole('button', { name: 'Limpiar filtros' }));
     expect(cambiar).toHaveBeenLastCalledWith({ modo: 'mapa', rango: 'todo' });
+  });
+
+  it('al reescribir la exploración conserva lo que pide el panel de aportes: modo, campaña (aunque sea un slug), edición y borrador', () => {
+    const estado = leerExploracion('?lugar=14&nombre=Mendoza');
+    const actual =
+      '?participar=directo&campana=mi-argentina-ideal&edicion=2&borrador=b-1&lugar=6&otra=cosa';
+    const q = new URLSearchParams(urlExploracion(estado, actual).split('?')[1]);
+    expect(q.get('participar')).toBe('directo');
+    expect(q.get('campana')).toBe('mi-argentina-ideal');
+    expect(q.get('edicion')).toBe('2');
+    expect(q.get('borrador')).toBe('b-1');
+    // Lo de la exploración sale de su estado, no de la búsqueda vigente; lo ajeno no se arrastra.
+    expect(q.get('lugar')).toBe('14');
+    expect(q.has('otra')).toBe(false);
+  });
+
+  it('una campaña por id sigue siendo un filtro de la exploración y no se duplica', () => {
+    const id = 'af81507f-f3fb-4a80-99f3-28f0f2377947';
+    const estado = leerExploracion(`?campana=${id}&edicion=3`);
+    const url = urlExploracion(estado, `?campana=${id}&edicion=3&participar=aportar`);
+    const q = new URLSearchParams(url.split('?')[1]);
+    expect(q.getAll('campana')).toEqual([id]);
+    expect(q.get('participar')).toBe('aportar');
+    // Un slug no es un filtro: la exploración lo ignora pero la dirección lo conserva.
+    expect(leerExploracion('?campana=mi-argentina-ideal').campana).toBeUndefined();
+  });
+
+  it('elegir un lugar con el panel abierto no cierra el panel ni le saca su campaña o su borrador', () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/el-mapa?participar=aportar&campana=mi-argentina-ideal&borrador=b-1#aportar',
+    );
+    const { result } = renderHook(() => useExploracion());
+    act(() => {
+      result.current[1]({ ...result.current[0], lugarId: 14, lugarNombre: 'Córdoba' });
+    });
+    const q = new URLSearchParams(window.location.search);
+    expect(q.get('lugar')).toBe('14');
+    expect(q.get('participar')).toBe('aportar');
+    expect(q.get('campana')).toBe('mi-argentina-ideal');
+    expect(q.get('borrador')).toBe('b-1');
+    expect(window.location.hash).toBe('#aportar');
+  });
+
+  it('si el panel ya se cerró, cambiar la exploración no lo vuelve a abrir', () => {
+    window.history.replaceState(null, '', '/el-mapa?lente=mapa#instrumento');
+    const { result } = renderHook(() => useExploracion());
+    act(() => {
+      result.current[1]({ ...result.current[0], lugarId: 14 });
+    });
+    expect(new URLSearchParams(window.location.search).has('participar')).toBe(false);
   });
 });

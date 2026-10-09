@@ -8,6 +8,7 @@ import { ProcesosPublicos } from './ElMandatoVivo/sections/ProcesosPublicos';
 import { RegistroDelMapa } from './ElMandatoVivo/sections/RegistroDelMapa';
 
 import { BotonPapel } from '~/components/papel/primitives';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 /** Procesos revisables y consulta agregada, con denominadores y efectos separados. */
 export function ElMandatoVivo() {
@@ -25,7 +26,7 @@ export function ElMandatoVivo() {
           Imaginá el país que querés vivir
         </h2>
         <BotonPapel asChild variant="violeta" surface="oscuro">
-          <Link href="/imaginar">Imaginar mi Argentina →</Link>
+          <Link href={APORTAR_HREF}>Imaginar mi Argentina →</Link>
         </BotonPapel>
       </section>
 

@@ -107,8 +107,8 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
     render(<Biblioteca />);
 
     expect(screen.getByRole('heading', { name: 'Leíste. Ahora decí.' })).toBeInTheDocument();
-    const cta = screen.getByRole('link', { name: 'Soltar mi voz en el mapa →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa');
+    const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('monta la vidriera de entrenamientos: curados reales, catálogo completo detrás', () => {

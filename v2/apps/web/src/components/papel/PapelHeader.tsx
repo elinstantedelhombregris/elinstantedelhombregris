@@ -2,11 +2,12 @@ import { Fragment, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 
 import { MenuBiblioteca } from './MenuBiblioteca';
-import { PAPEL_NAV, PAPEL_NAV_ALL, SUBSECCIONES, IMAGINAR_HREF } from './papel-nav';
+import { PAPEL_NAV, PAPEL_NAV_ALL, SUBSECCIONES } from './papel-nav';
 
 import { useAuth } from '~/lib/auth/use-auth';
 import { despertar } from '~/lib/despertar';
 import { saltarSiEsLaMismaPagina } from '~/lib/ir-al-principio';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { useVocesCount } from '~/lib/queries/analytics';
 import { cn } from '~/lib/utils';
 
@@ -103,7 +104,7 @@ export function PapelHeader() {
               {auth.user ? 'Mi espacio' : 'Ingresar'}
             </Link>
             <Link
-              href={IMAGINAR_HREF}
+              href={APORTAR_HREF}
               className="bg-tinta font-space text-papel hover:bg-violeta ml-3.5 px-5 py-[11px] text-xs font-bold uppercase tracking-[0.08em] transition-colors"
               onClick={despertar}
             >
@@ -137,7 +138,7 @@ export function PapelHeader() {
                 className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
                 onClick={() => {
                   // En móvil, «Sembrar» es el mismo trigger canónico del despertar §10.7.
-                  if (item.href === IMAGINAR_HREF) despertar();
+                  if (item.href === APORTAR_HREF) despertar();
                   setMenuOpen(false);
                 }}
               >

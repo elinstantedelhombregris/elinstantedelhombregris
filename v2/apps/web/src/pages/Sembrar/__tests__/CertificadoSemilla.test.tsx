@@ -128,8 +128,8 @@ describe('CertificadoSemilla', () => {
       screen.getByText('Guardala. Es tu contrato con vos. Cuando el movimiento te pese, volvé a leerla.'),
     ).toBeInTheDocument();
 
-    const link = screen.getByRole('link', { name: 'Ahora soltá tu voz en el mapa →' });
-    expect(link).toHaveAttribute('href', '/el-mapa');
+    const link = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
+    expect(link).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
   });
 
   it('chrome muerto: sin glass, gradient-text, iris-violet ni font-serif', () => {

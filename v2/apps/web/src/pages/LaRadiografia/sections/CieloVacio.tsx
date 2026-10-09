@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { type Tema } from '../radiografia-data';
 
 import { FONDO_DEL_TEMA, TINTA_DEL_TEMA } from '~/components/mapa/pintor-senales';
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 /**
  * § El vacío, que es lo que se ve hoy (spec §6, y V2/V3/V4 de
@@ -64,7 +65,7 @@ export function CieloVacio({ analizadas, sinVector, tema }: CieloVacioProps) {
       <p className={`relative mt-5 max-w-[520px] text-[16px] leading-[1.6] ${meta}`}>{glosa}</p>
 
       <Link
-        href="/el-mapa?participar=imaginar#instrumento"
+        href={APORTAR_HREF}
         className="bg-violeta text-papel font-space hover:bg-tinta relative mt-8 px-7 py-[18px] text-[13px] font-bold uppercase tracking-[0.08em] transition-colors"
       >
         Dejá la tuya en el mapa

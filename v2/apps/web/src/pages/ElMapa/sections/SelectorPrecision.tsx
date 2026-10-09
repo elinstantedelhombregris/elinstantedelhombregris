@@ -121,12 +121,12 @@ export function SelectorPrecision({ valor, onCambio }: SelectorPrecisionProps) {
 
       <p className="font-archivo text-tinta-75 mt-1.5 text-[13px] leading-relaxed">
         {gps === 'negado'
-          ? 'No nos diste permiso, y está perfecto. Tu voz cae igual en tu provincia.'
+          ? 'No nos diste permiso, y está perfecto. Tu aporte cae igual en tu provincia.'
           : gps === 'sin-soporte'
-            ? 'Tu navegador no comparte ubicación. Tu voz cae igual en tu provincia.'
+            ? 'Tu navegador no comparte ubicación. Tu aporte cae igual en tu provincia.'
             : hayPunto
               ? 'Se publica con la precisión que elijas, ni más ni menos.'
-              : 'Sin esto tu voz cae en tu provincia, como siempre. Sirve para lo que necesita un lugar: un pozo, algo roto, un punto de encuentro.'}
+              : 'Sin esto tu aporte cae en tu provincia, como siempre. Sirve para lo que necesita un lugar: un pozo, algo roto, un punto de encuentro.'}
       </p>
     </div>
   );

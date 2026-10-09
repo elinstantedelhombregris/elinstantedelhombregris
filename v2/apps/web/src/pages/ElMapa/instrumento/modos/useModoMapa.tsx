@@ -267,7 +267,7 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
         <Vacio
           titulo="Todavía no habló nadie."
           cuerpo="La primera voz del mapa puede ser la tuya."
-          accion={{ href: '#aportar', etiqueta: 'Soltar la primera voz' }}
+          accion={{ href: '#aportar', etiqueta: 'Sumar el primer aporte' }}
         />
       ) : lazoActivo ? (
         <LazoOverlay
