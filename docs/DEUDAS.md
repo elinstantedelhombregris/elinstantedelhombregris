@@ -89,7 +89,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-073](#d-073--brillo-y-nitidez-se-calculan-por-provincia-y-ninguna-pantalla-los-pide) | Brillo y nitidez se calculan por provincia y ninguna pantalla los pide | Media | Abierta |
 | [D-074](#d-074--los-relojes-de-vigencia-están-escritos-y-no-los-llama-nadie) | Los relojes de vigencia están escritos y no los llama nadie | Alta | Abierta |
 | [D-075](#d-075--una-pregunta-se-puede-cargar-y-no-se-puede-responder) | Una pregunta se puede cargar y no se puede responder | Media | Abierta |
-| [D-076](#d-076--el-taller-de-planpuerta-y-su-mdx-dejaron-de-coincidir-y-la-guardia-está-rota-en-el-tronco) | El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está rota en el tronco | Media | **Resuelta** |
+| [D-076](#d-076--el-taller-de-planpuerta-y-su-mdx-dejaron-de-coincidir-y-la-guardia-está-roja-en-el-tronco) | El taller de PLANPUERTA y su `.mdx` dejaron de coincidir, y la guardia está roja en el tronco | Media | **Resuelta** |
 | [D-077](#d-077--el-test-del-lector-de-crónica-se-corta-antes-de-la-firma) | El test del lector de crónica se corta antes de la firma | Baja | Abierta |
 | [D-078](#d-078--el-mapa-se-desborda-en-móvil-la-barra-de-modos-no-cabe-y-la-página-entera-scrollea-de-costado) | El mapa se desborda en móvil: la barra de modos no cabe y la página entera scrollea de costado | Alta | **Resuelta** |
 | [D-079](#d-079--el-sello-ejemplo-pisa-el-título-del-documento-del-mandato-en-móvil) | El sello EJEMPLO pisa el título del documento del mandato en móvil | Media | **Resuelta** |
