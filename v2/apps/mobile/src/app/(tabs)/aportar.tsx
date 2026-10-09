@@ -144,12 +144,12 @@ export default function Aportar() {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 36 }}
         >
-          <View className="border-tinta bg-papel-crudo mx-5 mb-6 gap-3 border p-5">
+          <View className="border-tinta bg-papel-crudo mb-6 gap-3 border p-5">
             <Kicker>El país que queremos vivir</Kicker>
-            <TituloAnton tamano="md">Una vida imaginada abre un diseño.</TituloAnton>
+            <TituloAnton tamano="md">Imaginá tu Argentina ideal.</TituloAnton>
             <Text className="font-archivo text-tinta-75 text-sm leading-6">
-              Empezá por lo que sería posible en tu Argentina ideal. Tu relato permanece privado
-              hasta que lo revises y elijas compartirlo.
+              Empezá por lo que sería posible en tu vida. Lo que escribas queda en tu teléfono hasta
+              que decidas publicarlo como aporte.
             </Text>
             <BotonTinta etiqueta="Imaginar mi Argentina" onPress={() => router.push('/imaginar')} />
             <BotonTinta
