@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Text } from 'react-native';
 import { BotonTinta, PapelCard } from '@/components/papel';
 import { Eleccion } from './EleccionIdeal';
-import { leerIdeal, escribirIdeal } from '@/civic/ideal';
+import { leerIdeal, escribirIdeal, mensajeDeRed } from '@/civic/ideal';
 export function VincularAportesIdeales({
   usuario,
   actualizado,
@@ -21,9 +21,8 @@ export function VincularAportesIdeales({
       .then((x) => {
         if (vivo) setLista(x);
       })
-      .catch((e) => {
-        if (vivo)
-          setError(e instanceof Error ? e.message : 'No pudimos leer los aportes del dispositivo.');
+      .catch((e: unknown) => {
+        if (vivo) setError(mensajeDeRed(e));
       });
     return () => {
       vivo = false;
@@ -42,12 +41,13 @@ export function VincularAportesIdeales({
       setConfirma(false);
       actualizado();
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'No pudimos vincular la autoría.');
+      setError(mensajeDeRed(e));
     } finally {
       setBusy(false);
     }
   };
   if (!lista.length && !error) return null;
+  const sinElegir = !elegidos.length;
   return (
     <PapelCard className="mt-6 gap-4 p-5">
       <Text className="font-archivo-bold text-tinta text-base">
@@ -55,7 +55,7 @@ export function VincularAportesIdeales({
       </Text>
       <Text className="font-archivo text-tinta-75 text-xs leading-5">
         Elegí los aportes que reconocés como tuyos. Vincularlos permite gestionarlos desde esta
-        cuenta en otro dispositivo; no publica identidad ni sube la bitácora privada.
+        cuenta en otro dispositivo; no publica tu identidad.
       </Text>
       {lista.map((a) => (
         <Eleccion
@@ -73,11 +73,18 @@ export function VincularAportesIdeales({
       <BotonTinta
         etiqueta="Vincular la selección"
         cargando={busy}
-        disabled={!confirma || !elegidos.length}
+        disabled={!confirma || sinElegir}
         onPress={() => {
           void vincular();
         }}
       />
+      {(!confirma || sinElegir) && !!lista.length && (
+        <Text accessibilityLiveRegion="polite" className="font-archivo text-tinta-75 text-xs">
+          {sinElegir
+            ? 'Elegí al menos un aporte para vincularlo.'
+            : 'Marcá la casilla de arriba para confirmar que son tuyos.'}
+        </Text>
+      )}
       {!!error && (
         <Text accessibilityRole="alert" className="font-archivo text-sello text-sm">
           {error}

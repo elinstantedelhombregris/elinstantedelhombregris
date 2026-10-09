@@ -2,9 +2,17 @@ import { useState } from 'react';
 import { Alert, Text, TextInput } from 'react-native';
 import { BotonTinta, PapelCard } from '@/components/papel';
 import { Eleccion } from './EleccionIdeal';
-import { leerIdeal, escribirIdeal } from '@/civic/ideal';
+import { leerIdeal, escribirIdeal, mensajeDeRed } from '@/civic/ideal';
+import { TINTA_50 } from '@/theme/tokens';
 type Propio = { texto: string; revision: string; cedeLicencia: boolean; textoProtegido: boolean };
-export function GestionAporteIdeal({ id }: { id: string }) {
+export function GestionAporteIdeal({
+  id,
+  alRetirar,
+}: {
+  id: string;
+  /** Avisa a la pantalla que el aporte ya no está publicado, para que deje de decir que lo está. */
+  alRetirar?: () => void;
+}) {
   const [propio, setPropio] = useState<Propio | null>(null);
   const [texto, setTexto] = useState('');
   const [cede, setCede] = useState(false);
@@ -19,12 +27,13 @@ export function GestionAporteIdeal({ id }: { id: string }) {
       setTexto(p.texto);
       setCede(p.cedeLicencia);
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'No pudimos comprobar la autoría.');
+      setError(mensajeDeRed(e));
     }
   };
   const guardar = async () => {
     if (!propio || busy) return;
     setBusy(true);
+    setError('');
     try {
       await escribirIdeal(
         '/api/v1/contribuciones/' + id,
@@ -34,31 +43,30 @@ export function GestionAporteIdeal({ id }: { id: string }) {
       await leer();
       setNota('La revisión quedó guardada. Las descargas anteriores no pueden recuperarse.');
     } catch (e) {
-      setError(
-        e instanceof Error ? e.message : 'No pudimos guardar la revisión. Conservá tu texto.',
-      );
+      setError(mensajeDeRed(e));
     } finally {
       setBusy(false);
     }
   };
   const retirar = () =>
     Alert.alert(
-      'Retirar esta publicación',
-      'El texto deja las lecturas actualizadas. Las copias ya descargadas no vuelven; tu borrador local permanece hasta que lo borres.',
+      'Retirar este aporte',
+      'El texto deja las lecturas actualizadas. Las copias ya descargadas no vuelven; la copia de tu teléfono permanece hasta que la borres.',
       [
         { text: 'Conservar', style: 'cancel' },
         {
-          text: 'Retirar publicación',
+          text: 'Retirar aporte',
           style: 'destructive',
           onPress: () => {
             void escribirIdeal('/api/v1/contribuciones/' + id, {}, 'DELETE')
               .then(() => {
                 setPropio(null);
-                setNota('La publicación se retiró. El borrador local sigue bajo tu control.');
+                setNota(
+                  'El aporte se retiró. La copia de tu teléfono sigue ahí hasta que la borres.',
+                );
+                alRetirar?.();
               })
-              .catch((e) =>
-                setError(e instanceof Error ? e.message : 'No pudimos retirar el aporte.'),
-              );
+              .catch((e: unknown) => setError(mensajeDeRed(e)));
           },
         },
       ],
@@ -66,7 +74,7 @@ export function GestionAporteIdeal({ id }: { id: string }) {
   return (
     <PapelCard className="mt-6 gap-4 p-5">
       <BotonTinta
-        etiqueta="Revisar y gestionar este aporte acá"
+        etiqueta="Corregir o retirar acá"
         variante="fantasma"
         onPress={() => {
           void leer();
@@ -85,11 +93,12 @@ export function GestionAporteIdeal({ id }: { id: string }) {
             maxLength={2000}
             editable={!propio.textoProtegido}
             onChangeText={setTexto}
+            placeholderTextColor={TINTA_50}
             className="border-tinta font-archivo text-tinta min-h-32 border p-3"
           />
           {propio.textoProtegido && (
             <Text className="font-archivo text-tinta-75 text-xs leading-5">
-              El enunciado tiene adhesiones o evidencia. Para cambiarlo, compartí un aporte nuevo;
+              El enunciado tiene adhesiones o evidencia. Para cambiarlo, publicá un aporte nuevo;
               nadie queda apoyando palabras que no leyó.
             </Text>
           )}
@@ -102,7 +111,12 @@ export function GestionAporteIdeal({ id }: { id: string }) {
               void guardar();
             }}
           />
-          <BotonTinta etiqueta="Retirar publicación" variante="fantasma" onPress={retirar} />
+          {!texto.trim() && (
+            <Text accessibilityLiveRegion="polite" className="font-archivo text-tinta-75 text-xs">
+              Escribí al menos una frase para guardar la revisión.
+            </Text>
+          )}
+          <BotonTinta etiqueta="Retirar aporte" variante="fantasma" onPress={retirar} />
         </>
       )}
       {!!nota && (
