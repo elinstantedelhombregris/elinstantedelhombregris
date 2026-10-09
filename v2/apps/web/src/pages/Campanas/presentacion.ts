@@ -2,6 +2,8 @@ import { SLUG_CAMPANA_NACIONAL } from '@v2/shared';
 
 import type { CampanaPublica } from '@v2/shared';
 
+import { aportarHref } from '~/lib/participacion/aportar';
+
 export const SLUG_DEMO_CAMPANA = 'demo-local-aprender-mendoza';
 export const esEjemploLocal = (c: Pick<CampanaPublica, 'slug'>) => c.slug === SLUG_DEMO_CAMPANA;
 /** La campaña nacional permanente, adonde van los aportes que no eligen otra. */
@@ -13,8 +15,12 @@ export function fechaCampana(fecha: string) {
     ? fecha
     : valor.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
 }
-export function enlaceParticiparCampana(c: Pick<CampanaPublica, 'id' | 'revision'>) {
-  return `/el-mapa?campana=${c.id}&edicion=${c.revision}&participar=imaginar#instrumento`;
+/**
+ * El enlace para sumar un aporte a esta campaña. Lleva la edición vigente: con otra, el servidor
+ * rechaza el aporte por `CAMPANA_CAMBIADA`.
+ */
+export function enlaceParticiparCampana(c: Pick<CampanaPublica, 'slug' | 'revision'>) {
+  return aportarHref({ campana: c.slug, edicion: c.revision });
 }
 /** Cómo se puede participar, en palabras de quien lee. */
 export const CANALES_ROTULO: Record<string, string> = {

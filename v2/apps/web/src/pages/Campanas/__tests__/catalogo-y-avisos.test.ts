@@ -6,6 +6,7 @@ import { camposConError, errorDeCampo, erroresDelContrato } from '../errores-con
 import { ordenarCatalogo } from '../filtrar-catalogo';
 import {
   SLUG_DEMO_CAMPANA,
+  enlaceParticiparCampana,
   esEdicionAnterior,
   fechaCampana,
   textoAportes,
@@ -15,6 +16,7 @@ import {
 import type { CampanaPublica, EstadoCampana } from '@v2/shared';
 
 import { fechaDeRegistro } from '~/components/participacion/fechas';
+import { aportarHref } from '~/lib/participacion/aportar';
 
 const campana = (estado: EstadoCampana, cambios: Partial<CampanaPublica> = {}) =>
   ({
@@ -58,6 +60,12 @@ describe('ordenarCatalogo', () => {
 });
 
 describe('presentación de una campaña', () => {
+  it('el enlace para sumar un aporte lleva el slug y la edición vigente', () => {
+    expect(enlaceParticiparCampana({ slug: 'mi-argentina-ideal', revision: 4 })).toBe(
+      aportarHref({ campana: 'mi-argentina-ideal', edicion: 4 }),
+    );
+    expect(enlaceParticiparCampana({ slug: 'x', revision: 4 })).toContain('edicion=4');
+  });
   it('los aportes van en singular y plural, y sin ninguno lo dicen', () => {
     expect(textoAportes(0)).toBe('Todavía no llegaron aportes.');
     expect(textoAportes(1)).toBe('1 aporte publicado.');
