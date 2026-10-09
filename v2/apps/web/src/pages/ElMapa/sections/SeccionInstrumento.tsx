@@ -35,11 +35,12 @@ export function SeccionInstrumento({
             ya lo dice, y dos titulares apilados empujaban el mapa fuera de la
             primera pantalla del teléfono. */}
         <h2 id="instrumento-titulo" className="sr-only">
-          El país, cuadra por cuadra.
+          Mapa de aportes con ubicación
         </h2>
-        <p className="text-tinta-75 max-w-[62ch] text-[15px] leading-relaxed max-[639px]:sr-only">
-          Recorré las miradas de un lugar y sumá la tuya sin salir del mapa. Lo que soñamos,
-          observamos y sabemos comparte un territorio; después puede abrir un diseño común.
+        {/* El alcance del mapa se dice en todos los anchos. Antes estaba oculto
+            bajo 640 px, que es donde más gente lo mira sin saber qué cuenta. */}
+        <p className="text-tinta-75 max-w-[62ch] text-[15px] leading-relaxed">
+          Solo cuenta lo que la gente cargó con ubicación. No es toda la población.
         </p>
       </div>
 
@@ -47,7 +48,7 @@ export function SeccionInstrumento({
         fallback={
           <div className="bg-tinta border-oscuro-borde flex h-[min(78vh,760px)] items-center justify-center border-y">
             <p className="font-space text-oscuro-meta text-[11px] uppercase tracking-[0.14em]">
-              Cargando el instrumento…
+              Cargando el mapa…
             </p>
           </div>
         }

@@ -61,11 +61,7 @@ export function Cortina({
 
   return (
     <div ref={contenedor} className="relative h-full w-full overflow-hidden">
-      <MapaBase
-        mapaRef={mapaRef}
-        onMoverContinuo={seguir}
-        {...(onMover ? { onMover } : {})}
-      >
+      <MapaBase mapaRef={mapaRef} onMoverContinuo={seguir} {...(onMover ? { onMover } : {})}>
         {izquierda}
       </MapaBase>
 
@@ -107,7 +103,7 @@ export function Cortina({
         <div className="bg-papel absolute left-1/2 top-1/2 h-9 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full" />
       </div>
 
-      <div className="font-space text-oscuro-tenue pointer-events-none absolute inset-x-0 top-3 z-10 flex justify-between px-4 text-[10px] uppercase tracking-[0.16em]">
+      <div className="font-space text-oscuro-meta pointer-events-none absolute inset-x-0 top-3 z-10 flex justify-between px-4 text-[10px] uppercase tracking-[0.16em]">
         <span>{etiquetaIzquierda}</span>
         <span>{etiquetaDerecha}</span>
       </div>

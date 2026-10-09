@@ -106,19 +106,41 @@ describe('los renglones del panel', () => {
     // 1 exacta + 1 centroide + 1 provincial = 3. Ese número no puede aparecer
     // como si fuera el resultado: son tres cosas distintas.
     expect(renglones.join(' ')).not.toMatch(/\b3\b/);
-    expect(renglones.some((r) => r.includes('no se cuentan acá'))).toBe(true);
+    expect(renglones.some((r) => r.includes('no se cuenta acá'))).toBe(true);
   });
 
   it('las clases en cero no ocupan un renglón', () => {
-    const conteo = contarArea([senal({ id: 'a', ...ADENTRO, precision: 'exact' })], AREA, new Set());
+    const conteo = contarArea(
+      [senal({ id: 'a', ...ADENTRO, precision: 'exact' })],
+      AREA,
+      new Set(),
+    );
     const renglones = renglonesDeConteo(conteo);
     expect(renglones).toHaveLength(1);
-    expect(renglones[0]).toMatch(/1 con punto exacto/);
+    expect(renglones[0]).toMatch(/^1 aporte con punto exacto/);
   });
 
-  it('un área vacía se dice como información, no como error', () => {
+  it('un área sin aportes dice lo que se sabe, sin afirmar silencio ni consolarse', () => {
     const conteo = contarArea([], AREA, new Set());
     expect(renglonesDeConteo(conteo)).toHaveLength(0);
-    expect(AREA_VACIA).toMatch(/también es información/);
+    expect(AREA_VACIA).toMatch(/no hay aportes publicados/i);
+    expect(AREA_VACIA).toMatch(/lo cargó sin ubicación/);
+    expect(AREA_VACIA).not.toMatch(/información|nadie dijo|nadie habló/i);
+  });
+
+  it('los renglones concuerdan en número y llevan el sustantivo', () => {
+    const conteo = contarArea(
+      [
+        senal({ id: 'a', ...ADENTRO, precision: '500m' }),
+        senal({ id: 'b', ...ADENTRO, precision: 'neighborhood' }),
+        senal({ id: 'c', precision: 'province', provinceId: 2 }),
+        senal({ id: 'd', precision: 'province', provinceId: 2 }),
+      ],
+      AREA,
+      new Set([2]),
+    );
+    const renglones = renglonesDeConteo(conteo);
+    expect(renglones[0]).toMatch(/^2 aportes con ubicación aproximada/);
+    expect(renglones[1]).toMatch(/^1 provincia tocada: sus 2 aportes no se cuentan acá/);
   });
 });

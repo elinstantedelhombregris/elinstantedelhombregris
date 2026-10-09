@@ -33,7 +33,8 @@ type Vista = 'cortina' | 'diferencia';
 
 const RAMPA_DIFERENCIA = ['#241F17', '#3B2A66', '#5227CC', '#9D85E8'] as const;
 
-const porcentaje = (v: number): string => `${(v * 100).toLocaleString('es-AR', { maximumFractionDigits: 1 })}%`;
+const porcentaje = (v: number): string =>
+  `${(v * 100).toLocaleString('es-AR', { maximumFractionDigits: 1 })}%`;
 
 export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
   const [vista, setVista] = useState<Vista>('cortina');
@@ -106,7 +107,9 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
     const techo = Math.max(maximoDe(voz), maximoDe(silencio));
     const rampa = RAMPAS.violeta?.colores ?? RAMPA_DIFERENCIA;
     return {
-      izquierda: silencio ? <CapaProvincias id="sim-silencio" datos={silencio} maximo={techo} colores={rampa} /> : null,
+      izquierda: silencio ? (
+        <CapaProvincias id="sim-silencio" datos={silencio} maximo={techo} colores={rampa} />
+      ) : null,
       /*
         Del lado simulado el lavado se apaga y quedan los bordes: el coroplético
         y los puntos dicen la MISMA cifra, y su rampa violeta es el color de la
@@ -125,7 +128,14 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
           )}
         </>
       ) : null,
-      diferencia: dif ? <CapaProvincias id="sim-diferencia" datos={dif} maximo={maximoDe(dif)} colores={RAMPA_DIFERENCIA} /> : null,
+      diferencia: dif ? (
+        <CapaProvincias
+          id="sim-diferencia"
+          datos={dif}
+          maximo={maximoDe(dif)}
+          colores={RAMPA_DIFERENCIA}
+        />
+      ) : null,
     };
   }, [resultado, geometria, sembrado]);
 
@@ -146,8 +156,8 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
     titulo: 'Simulación',
     descripcion:
       vista === 'cortina'
-        ? 'Arrastrá la línea. A la izquierda el país que se calló; a la derecha, el que habló.'
-        : 'Solo lo que cambia: cuántas voces más, provincia por provincia.',
+        ? 'Arrastrá la línea. A la izquierda, el país de hoy; a la derecha, el país simulado con más aportes.'
+        : 'Solo lo que cambia: cuántos aportes más, provincia por provincia.',
     panel: (
       <div className="flex flex-col gap-4">
         <Control etiqueta="Cómo comparar">
@@ -168,7 +178,7 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
         <PanelPalancas palancas={palancas} onCambiar={setPalancas} />
 
         {resultado === null ? (
-          <p className="text-oscuro-tenue text-[11px]">
+          <p className="text-oscuro-meta text-[11px]">
             Faltan las provincias para poder simular. Recargá en un momento.
           </p>
         ) : (
@@ -201,16 +211,20 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
               <h4 className="font-space text-oscuro-meta mb-1 text-[10px] uppercase tracking-[0.16em]">
                 Si hablaran
               </h4>
-              <Cifra etiqueta="Legitimidad" magnitud={resultado.voz.legitimidad} formato={porcentaje} />
+              <Cifra
+                etiqueta="Legitimidad"
+                magnitud={resultado.voz.legitimidad}
+                formato={porcentaje}
+              />
               <Cifra etiqueta="Cobertura" magnitud={resultado.voz.cobertura} formato={porcentaje} />
               <Cifra
                 etiqueta="Territorios que ganan mandato"
                 magnitud={resultado.diferencia.territoriosQueGananMandato}
                 formato={(v) => String(Math.round(v))}
               />
-              <p className="text-oscuro-tenue mt-3 text-[10px] leading-snug">
-                Diseño idealizado, no pronóstico: muestra lo que sería posible, no lo que va a pasar.
-                El lado de hoy es medición y no se mueve con ninguna palanca.
+              <p className="text-oscuro-meta mt-3 text-[10px] leading-snug">
+                Diseño idealizado, no pronóstico: muestra lo que sería posible, no lo que va a
+                pasar. El lado de hoy es medición y no se mueve con ninguna palanca.
               </p>
             </section>
           </>

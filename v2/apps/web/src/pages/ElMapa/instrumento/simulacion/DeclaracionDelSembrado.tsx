@@ -46,14 +46,15 @@ export function DeclaracionDelSembrado({ sinDibujo }: { sinDibujo: readonly stri
       </p>
 
       <p className="text-oscuro-secundario mt-2 text-[13px] leading-[1.5]">
-        Cada punto de la derecha es una voz que el modelo cuenta, y su color es la clase que declara
-        la mezcla —hoy pareja entre las cuatro—. Ninguna cayó en una calle: acá no hay direcciones,
-        hay provincias. Dónde cae adentro de la provincia es dibujo; que caiga adentro de la
-        provincia, no: el rectángulo que las reparte está contenido en la figura del territorio.
+        Cada punto de la derecha es un aporte que el modelo cuenta, y su color es la clase que
+        declara la mezcla —hoy pareja entre las cuatro—. Ninguno cayó en una calle: acá no hay
+        direcciones, hay provincias. Dónde cae adentro de la provincia es dibujo; que caiga adentro
+        de la provincia, no: el rectángulo que las reparte está contenido en la figura del
+        territorio.
       </p>
 
       {sinDibujo.length > 0 ? (
-        <p className="text-oscuro-tenue mt-2 text-[11px] leading-snug">
+        <p className="text-oscuro-meta mt-2 text-[11px] leading-snug">
           El mapa no tiene dónde dibujar estos territorios sin salirse de su propia figura, así que
           se cuentan y no se dibujan: {sinDibujo.join(' · ')}.
         </p>

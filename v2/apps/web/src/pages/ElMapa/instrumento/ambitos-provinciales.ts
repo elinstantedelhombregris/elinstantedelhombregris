@@ -4,6 +4,19 @@ import type { LecturaMapa } from '~/lib/queries/civic-map';
 import type { ProvinciaApi } from '~/lib/queries/open-data';
 import type { ClaseSenal } from '~/lib/vocabulario';
 
+/**
+ * El sombreado de una provincia con aportes NO es un color de clase: pintarla
+ * del violeta de «deseo» le atribuía a toda la provincia un tipo de aporte que
+ * nadie declaró (revisión del 9/10). Es un velo neutro, el mismo para todas, que
+ * solo dice «acá hay aportes» y nunca «acá pasó».
+ */
+export const COLOR_DEL_VELO_PROVINCIAL = '#C9C5BA';
+export const COLOR_DEL_BORDE_PROVINCIAL = '#8E8A82';
+
+/** Qué significa el sombreado. Va como leyenda del modo Mapa, sobre el mapa. */
+export const LEYENDA_DEL_VELO =
+  'Sombreado: provincia con aportes, con o sin punto. No marca dónde pasó.';
+
 interface Propiedades {
   name: string;
   provinceId: number | null;

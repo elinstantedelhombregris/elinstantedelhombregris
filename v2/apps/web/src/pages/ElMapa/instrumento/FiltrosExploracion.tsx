@@ -16,8 +16,9 @@ export function FiltrosExploracion({
   cambiar: (valor: Exploracion) => void;
   elegir: (lugar: LugarMapa) => void;
 }) {
-  // En el teléfono los tres selectores se pliegan detrás de un botón: apilados
-  // ocupaban la primera pantalla entera y el mapa quedaba abajo del pliegue.
+  // Los selectores se pliegan detrás de un botón en todos los anchos: apilados
+  // ocupaban la primera pantalla entera del teléfono y el mapa quedaba abajo del
+  // pliegue, y en el escritorio dejarlos abiertos tampoco aportaba nada.
   const [abiertos, setAbiertos] = useState(false);
   const activos =
     [valor.tipo, valor.estado, valor.tema].filter(Boolean).length +
@@ -59,7 +60,7 @@ export function FiltrosExploracion({
             </select>
           </label>
           <TemaDelAporte
-            rotulo="Tema de las miradas"
+            rotulo="Tema de los aportes"
             vacio="Todos los temas"
             valor={valor.tema ?? ''}
             cambiar={(tema) => {
@@ -107,16 +108,15 @@ export function FiltrosExploracion({
         </div>
       </div>
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-sm">
+        {/* El alcance del mapa («solo cuenta lo que se cargó con ubicación») lo
+            dice la sección de arriba, visible en todos los anchos: acá solo se
+            nombra el lugar, para no repetirlo en cada pantalla. */}
         <p>
-          Ámbito:{' '}
+          Lugar:{' '}
           <strong>
-            {valor.lugarNombre ?? (valor.lugarId ? `Lugar ${valor.lugarId}` : 'Argentina')}
+            {valor.lugarNombre ?? (valor.lugarId ? 'el lugar elegido' : 'todo el país')}
           </strong>
           .
-          <span className="max-[639px]:hidden">
-            {' '}
-            Se consultan ubicaciones declaradas, no toda la población.
-          </span>
         </p>
         {valor.lugarId || valor.tipo || valor.estado || valor.tema ? (
           <button
