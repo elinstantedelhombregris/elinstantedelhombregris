@@ -8,6 +8,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
 import { createApp } from '../src/app.js';
 import { signAccessToken } from '../src/features/auth/tokens.js';
+import { resetConfig } from '../src/lib/config.js';
 
 import type {
   CampanaPublica,
@@ -23,6 +24,7 @@ describe.skipIf(!habilitada)(
     const app = createApp();
     const request = supertest(app);
     const marca = randomUUID();
+    const adminPrevio = process.env['ADMIN_USERNAMES'];
     let usuario = 0;
     let otro = 0;
     const usuariosFixture: number[] = [];
@@ -96,6 +98,10 @@ describe.skipIf(!habilitada)(
       usuariosFixture.push(...r.rows.map((u) => u.id));
       usuario = r.rows[0]!.id;
       otro = r.rows[1]!.id;
+      // Solo la administración abre campañas: la cuenta que convoca figura en `ADMIN_USERNAMES`
+      // por su nombre en la base (`marca`), y la ajena no.
+      process.env['ADMIN_USERNAMES'] = marca;
+      resetConfig();
       const sesion = (id: number) =>
         `eihg_access=${signAccessToken({ sub: id, username: 'prueba', email: 'prueba@test.local' })}; eihg_csrf=ideal-prueba`;
       cookie = sesion(usuario);
@@ -105,6 +111,9 @@ describe.skipIf(!habilitada)(
       invitado = `eihg_csrf=${csrf}`;
     });
     afterAll(async () => {
+      if (adminPrevio === undefined) delete process.env['ADMIN_USERNAMES'];
+      else process.env['ADMIN_USERNAMES'] = adminPrevio;
+      resetConfig();
       await limpiarFixturesIdeales(getDb(), usuariosFixture, [...idLocalesFixture]);
     });
     it('la cuenta abre un borrador y nadie más puede verlo ni editarlo', async () => {

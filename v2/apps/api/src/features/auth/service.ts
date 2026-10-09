@@ -13,6 +13,7 @@ import { randomBytes, randomUUID } from 'node:crypto';
 
 
 import { getConfig } from '../../lib/config.js';
+import { esAdmin } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
 import { hashPassword, verifyPassword } from './password.js';
@@ -158,6 +159,7 @@ export class AuthService {
         emailVerified: user.emailVerified,
         onboardingCompleted: user.onboardingCompleted,
         createdAt: user.createdAt,
+        esAdmin: esAdmin(user.username),
       },
       accessToken,
       refreshToken,

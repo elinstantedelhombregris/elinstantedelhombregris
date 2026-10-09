@@ -11,7 +11,7 @@ import { AuthRepository, getDb, UsersRepository } from '@v2/db';
 import { loginInputSchema, registerInputSchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 
-import { authenticate } from '../../middleware/auth.js';
+import { authenticate, esAdmin } from '../../middleware/auth.js';
 import { loginRateLimit, registerRateLimit } from '../../middleware/rate-limit.js';
 
 import { verifyPassword } from './password.js';
@@ -139,6 +139,7 @@ router.get('/me', authenticate, async (req, res, next) => {
           emailVerified: user.emailVerified,
           onboardingCompleted: user.onboardingCompleted,
           createdAt: user.createdAt,
+          esAdmin: esAdmin(user.username),
         },
       },
     });

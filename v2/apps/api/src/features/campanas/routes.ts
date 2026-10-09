@@ -9,7 +9,12 @@ import {
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { usuarioAutenticado, authenticate, optionalAuthenticate } from '../../middleware/auth.js';
+import {
+  usuarioAutenticado,
+  authenticate,
+  exigirAdmin,
+  optionalAuthenticate,
+} from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
 import type { EstadoCampana } from '@v2/shared';
@@ -54,7 +59,8 @@ router.get('/:slug', optionalAuthenticate, async (req, res, next) => {
     next(e);
   }
 });
-router.post('/', authenticate, async (req, res, next) => {
+/** Solo la administración abre campañas (decisión del 9/10/2026). */
+router.post('/', authenticate, exigirAdmin, async (req, res, next) => {
   try {
     const v = crearCampanaSchema.parse(req.body);
     const repo = new CampanasRepository(getDb());
@@ -102,7 +108,8 @@ router.put('/:id', authenticate, async (req, res, next) => {
     next(e);
   }
 });
-router.post('/:id/estado', authenticate, async (req, res, next) => {
+/** Cambiar de fase: administración, y además quien convoca esta campaña. */
+router.post('/:id/estado', authenticate, exigirAdmin, async (req, res, next) => {
   try {
     const id = idDe(req.params.id);
     const v = cambiarCampanaSchema.parse(req.body);

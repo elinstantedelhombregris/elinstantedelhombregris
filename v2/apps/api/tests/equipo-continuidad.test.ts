@@ -5,6 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
 import { createApp } from '../src/app';
 import { signAccessToken } from '../src/features/auth/tokens';
+import { resetConfig } from '../src/lib/config';
 import { hashPassword } from '../src/features/auth/password';
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Equipo, revisión y cuenta', () => {
   const r = supertest(createApp());
@@ -19,6 +20,7 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Equipo, revisión y c
   let codigo = '';
   let revision = '';
   const password = 'una-frase-larga-para-pruebas-ideal';
+  const adminPrevio = process.env['ADMIN_USERNAMES'];
   const enviar = (
     method: 'post' | 'put' | 'delete',
     url: string,
@@ -26,6 +28,9 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Equipo, revisión y c
     cookie = cuenta,
   ) => r[method](url).set('Cookie', cookie).set('X-CSRF-Token', 'equipo').send(body);
   afterAll(async () => {
+    if (adminPrevio === undefined) delete process.env['ADMIN_USERNAMES'];
+    else process.env['ADMIN_USERNAMES'] = adminPrevio;
+    resetConfig();
     await limpiarFixturesIdeales(getDb(), usuariosFixture, idLocalesFixture);
   });
   beforeAll(async () => {
@@ -36,6 +41,10 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Equipo, revisión y c
     );
     usuariosFixture.push(...us.rows.map((u) => u.id));
     uid = us.rows[0]!.id;
+    // Solo la administración abre campañas: la cuenta que convoca figura en `ADMIN_USERNAMES`
+    // por su nombre en la base (`m`). El token firma otro nombre a propósito.
+    process.env['ADMIN_USERNAMES'] = m;
+    resetConfig();
     const cookie = (id: number) =>
       `eihg_access=${signAccessToken({ sub: id, username: 'equipo', email: 'equipo@test.local' })}; eihg_csrf=equipo`;
     cuenta = cookie(uid);
