@@ -25,6 +25,7 @@ interface Props {
   volver: () => void;
   enviar: () => void;
   enviando: boolean;
+  bloqueado?: boolean;
   error?: string;
 }
 export function Revision(props: Props) {
@@ -86,7 +87,7 @@ export function Revision(props: Props) {
           Ámbito elegido: <strong>{props.lugar?.name ?? 'Argentina'}</strong>. Podés hablar de todo
           el país o de un lugar concreto.
         </p>
-        <BusquedaTerritorial onElegir={props.elegirLugar} />
+        <BusquedaTerritorial onElegir={props.elegirLugar} rotulo="Ubicación de mi aporte" />
         {props.lugar ? (
           <button
             type="button"
@@ -120,7 +121,8 @@ export function Revision(props: Props) {
             !props.confirmado ||
             !props.lectura.trim() ||
             props.lectura.length > 2000 ||
-            props.enviando
+            props.enviando ||
+            props.bloqueado
           }
           onClick={props.enviar}
         >

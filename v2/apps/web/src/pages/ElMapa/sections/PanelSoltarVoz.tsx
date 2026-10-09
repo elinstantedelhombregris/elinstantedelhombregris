@@ -15,11 +15,17 @@ import type { RespuestaDeVivienda } from '@v2/civic-core';
 import { BotonPapel, Sello } from '~/components/papel/primitives';
 import { ApiError } from '~/lib/api';
 import { despertar } from '~/lib/despertar';
-import { useProvincias, useSoltarVoz, type SoltarVozInput } from '~/lib/queries/open-data';
+import { useProvincias, useSoltarVoz, type SoltarVozInput, type VozSoltada } from '~/lib/queries/open-data';
 import { claseDe, type TipoSenal } from '~/lib/vocabulario';
 
-/** Aporte canónico: publicación explícita, licencia opcional y reintento estable. */
-export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
+export interface PublicacionVoz {
+  enviar: (input: SoltarVozInput, onSuccess: (respuesta: VozSoltada) => void) => void;
+  pendiente: boolean;
+  error: string | null;
+}
+
+/** El formulario y recibo son comunes; el instrumento puede aportar el contexto de campaña. */
+export function PanelSoltarVoz({ contexto, publicacion }: { contexto?: LugarMapa | null; publicacion?: PublicacionVoz }) {
   const [localidad, setLocalidad] = useState<LugarMapa | null>(null);
   const [tipo, setTipo] = useState<TipoSenal | null>(null);
   const [texto, setTexto] = useState('');
@@ -51,17 +57,13 @@ export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
   const [engrosado, setEngrosado] = useState<string | null>(null);
   const provincias = useProvincias();
   const soltar = useSoltarVoz();
+  const pendiente = publicacion?.pendiente ?? soltar.isPending;
 
   const cambiarExtra = (campo: string, valor: string) => {
     setExtra((p) => ({ ...p, [campo]: valor }));
   };
 
-  /**
-   * Lo que falta para poder enviar, dicho como una lista y no como un botón
-   * gris sin explicación. Los tres primeros son del contrato; los de abajo son
-   * CHECK de la base traducidos: si el formulario no los pide, el servidor
-   * contesta 400 sobre un campo que la persona nunca vio.
-   */
+  /** Falta visible antes de enviar, incluidas las condiciones del tipo elegido. */
   const falta: string[] = [];
   if (tipo === null) falta.push('elegí de qué estás hablando');
   if (texto.trim().length === 0) falta.push('escribí algo');
@@ -76,13 +78,11 @@ export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (tipo === null || !valido || soltar.isPending) return;
+    if (tipo === null || !valido || pendiente) return;
 
     const input: SoltarVozInput = {
       contrato: 'basta-senal/v1',
-      // El uuid lo pone el cliente: **es la idempotencia**. Si el envío se
-      // reintenta —red que se corta, doble tap— el servidor reconoce el mismo
-      // id y devuelve la misma señal en vez de escribir dos.
+      // El mismo cuerpo conserva UUID al reintentar.
       idLocal: crypto.randomUUID(),
       tipo,
       texto: texto.trim(),
@@ -105,29 +105,29 @@ export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
     if (intento.current?.cuerpo === cuerpo) input.idLocal = intento.current.id;
     else intento.current = { cuerpo, id: input.idLocal };
 
-    soltar.mutate(input, {
-      onSuccess: (respuesta) => {
-        despertar();
-        intento.current = null;
-        setReciboId(respuesta.idPublico);
-        const nombre =
-          (provincias.data ?? []).find((p) => String(p.id) === provinciaId)?.name ?? '';
-        setRecibida(nombre);
-        setEngrosado(respuesta.engrosado ?? respuesta.direccionRetirada ?? null);
-        setTexto('');
-        setExtra({
-          titulo: '',
-          fuente: '',
-          comprometidoPara: '',
-          periodicidad: '',
-          sostenidaPor: '',
-        });
-        setUbicacion({ punto: null, precision: 'province' });
-      },
-    });
+    const confirmar = (respuesta: VozSoltada) => {
+      despertar();
+      intento.current = null;
+      setReciboId(respuesta.idPublico);
+      const nombre =
+        (provincias.data ?? []).find((p) => String(p.id) === provinciaId)?.name ?? '';
+      setRecibida(nombre);
+      setEngrosado(respuesta.engrosado ?? respuesta.direccionRetirada ?? null);
+      setTexto('');
+      setExtra({
+        titulo: '',
+        fuente: '',
+        comprometidoPara: '',
+        periodicidad: '',
+        sostenidaPor: '',
+      });
+      setUbicacion({ punto: null, precision: 'province' });
+    };
+    if (publicacion) publicacion.enviar(input, confirmar);
+    else soltar.mutate(input, { onSuccess: confirmar });
   };
 
-  const errorMensaje = soltar.isError
+  const errorMensaje = publicacion ? publicacion.error : soltar.isError
     ? soltar.error instanceof ApiError && soltar.error.code === 'RATE_LIMITED'
       ? soltar.error.message
       : 'Esto se rompió. Lo decimos porque publicamos todo. Probá de nuevo.'
@@ -166,10 +166,7 @@ export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
           className="border-tinta bg-papel-crudo text-tinta placeholder:text-tinta-50 w-full resize-y border p-3.5 text-[15px] leading-normal"
         />
 
-        {/* La nota de la deliberación sólo aparece en la clase `deseo`, y dice
-            que todavía no existe. Un sueño hoy recibe adhesiones y nada más:
-            prometer una deliberación que no está construida sería peor que el
-            silencio. */}
+        {/* La declaración de cada tipo conserva la diferencia entre voz y acuerdo. */}
         {deliberacion === null ? null : (
           <p className="border-violeta/40 text-tinta-75 mt-2.5 border-l-2 py-1 pl-3 text-[13px] leading-relaxed">
             {deliberacion}
@@ -250,15 +247,14 @@ export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
         <BotonPapel
           type="submit"
           variant="violeta"
-          loading={soltar.isPending}
+          loading={pendiente}
           disabled={!valido}
           className="mt-3.5 w-full"
         >
           Soltar la voz →
         </BotonPapel>
 
-        {/* Qué falta, dicho. Un botón gris sin explicación es la forma más
-            barata de perder a alguien que ya escribió. */}
+        {/* Explicación del estado del botón antes del envío. */}
         {valido || falta.length === 0 ? null : (
           <p className="font-space text-tinta-50 mt-2 text-[11px]">Falta: {falta.join(' · ')}.</p>
         )}
@@ -288,9 +284,7 @@ export function PanelSoltarVoz({ contexto }: { contexto?: LugarMapa | null }) {
                 ? 'Tu voz quedó registrada. Ya cuenta con todas las demás.'
                 : `Tu voz cayó en ${recibida}. Desde su página la seguís o la retirás.`}
             </span>
-            {/* Si el servidor engrosó la precisión o retiró parte de la
-                dirección, se dice acá y no después: nadie se entera más tarde
-                de que su punto se publicó distinto de lo que creía. */}
+            {/* El recibo explica los cambios de precisión autorizados. */}
             {engrosado !== null ? (
               <p className="font-space text-tinta-75 w-full text-[11px] leading-relaxed">
                 {engrosado}

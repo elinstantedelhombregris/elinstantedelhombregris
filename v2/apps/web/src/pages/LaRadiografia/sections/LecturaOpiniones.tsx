@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
 
+import { BarrasOpiniones } from './BarrasOpiniones';
+
 import { CAMPO } from '~/components/participacion/constantes';
 import { useFichas } from '~/lib/queries/fichas';
 import { useDisenoFicha } from '~/lib/queries/participacion';
@@ -111,18 +113,7 @@ function Conversacion({ id }: { id: string }) {
         {a.participantes} cuentas con exposición o respuesta · {a.incluidos} incluidas en la
         proyección · {d.afirmaciones.length} afirmaciones públicas.
       </p>
-      <ul className="mt-5 space-y-4">
-        {d.afirmaciones.map((f) => (
-          <li key={f.id} className="bg-papel-crudo border p-4">
-            <p className="leading-relaxed">{f.texto}</p>
-            <p className="text-tinta-50 mt-3 text-sm">
-              {f.acuerdo === null
-                ? `${f.respuestas} respuestas; el desglose público espera al menos cinco.`
-                : `${f.acuerdo} acuerdos · ${f.desacuerdo ?? '—'} desacuerdos · ${f.paso ?? '—'} pases · ${f.respuestas} respuestas.`}
-            </p>
-          </li>
-        ))}
-      </ul>
+      {d.afirmaciones.length ? <BarrasOpiniones afirmaciones={d.afirmaciones} /> : null}
       {!d.afirmaciones.length ? (
         <p className="mt-5">Todavía no hay afirmaciones públicas en esta conversación.</p>
       ) : null}

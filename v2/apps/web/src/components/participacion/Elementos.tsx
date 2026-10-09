@@ -31,14 +31,14 @@ export function BotonAccion({
 }: ButtonHTMLAttributes<HTMLButtonElement> & { tono?: 'violeta' | 'papel' | 'sello' }) {
   const color =
     tono === 'violeta'
-      ? 'bg-violeta text-papel'
+      ? 'bg-violeta text-papel hover:bg-tinta'
       : tono === 'sello'
-        ? 'bg-sello text-papel'
-        : 'bg-papel text-tinta';
+        ? 'bg-sello text-papel hover:bg-tinta'
+        : 'bg-papel text-tinta hover:bg-tinta hover:text-papel';
   return (
     <button
       {...props}
-      className={`font-space border-tinta min-h-11 border px-5 py-3 text-xs uppercase tracking-wide disabled:cursor-not-allowed disabled:opacity-50 ${color} ${props.className ?? ''}`}
+      className={`font-space border-tinta disabled:border-tinta-30 disabled:bg-papel-presionado disabled:text-tinta-50 min-h-11 border px-5 py-3 text-xs font-bold uppercase tracking-wide transition-colors disabled:cursor-not-allowed ${color} ${props.className ?? ''}`}
     >
       {children}
     </button>

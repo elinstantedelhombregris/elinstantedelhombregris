@@ -54,13 +54,15 @@ function renderHome() {
 }
 
 describe('Home (landing Papel y Tinta)', () => {
-  it('renders the hero with the ¡BASTA! ink rite and the demo notice', () => {
+  it('pone la idea ciudadanía, Estado y política al comienzo, con una sola pregunta idealizada', () => {
     renderHome();
 
     expect(
-      screen.getByRole('heading', { level: 1, name: /Diseñemos la Argentina/ }),
+      screen.getByRole('heading', { level: 1, name: 'La ciudadanía diseña. El Estado administra. La política ejecuta.' }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/En tu Argentina ideal/)).toBeInTheDocument();
+    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
+    expect(screen.getAllByText(/En tu Argentina ideal/)).toHaveLength(1);
+    expect(screen.queryByRole('heading', { name: 'Imaginá' })).not.toBeInTheDocument();
   });
 
   it('points the hero CTAs at the map and the idea', () => {
@@ -68,7 +70,7 @@ describe('Home (landing Papel y Tinta)', () => {
 
     expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })[0]).toHaveAttribute(
       'href',
-      '/imaginar',
+      '/el-mapa?participar=imaginar#instrumento',
     );
     expect(screen.getByRole('link', { name: 'Cómo funciona el ejercicio →' })).toHaveAttribute(
       'href',
@@ -102,16 +104,17 @@ describe('Home (landing Papel y Tinta)', () => {
     ).toBeInTheDocument();
   });
 
-  it('closes with the CTA band toward the map and the seed', () => {
+  it('cierra con una sola invitación a aportar dentro del mapa', () => {
     renderHome();
 
     expect(
-      screen.getByRole('heading', { name: 'Una vida imaginada puede abrir un país.' }),
+      screen.getByRole('heading', { name: 'El futuro necesita tu letra.' }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Ir al mapa' })).toHaveAttribute('href', '/el-mapa');
-    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' }).at(-1)).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Escribir mi primera posibilidad' })).toHaveAttribute(
       'href',
-      '/imaginar',
+      '/el-mapa?participar=imaginar#instrumento',
     );
+    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })).toHaveLength(1);
+    expect(screen.queryByText(/45 millones/)).not.toBeInTheDocument();
   });
 });

@@ -34,6 +34,7 @@ export interface NodoDibujable {
   z: number;
   color: string;
   radio: number;
+  clase?: string;
 }
 
 /**
@@ -53,6 +54,7 @@ export interface Escena {
   enfocado: string | null;
   onEnfocar: (nucleoId: string | null) => void;
   origen: OrigenDelCielo;
+  seleccionado?: string | null;
 }
 
 export interface Caja {
@@ -67,6 +69,11 @@ export interface Proyectado {
   frente: number;
   escala: number;
 }
+export interface CamaraDelCielo {
+  zoom: number;
+  x: number;
+  y: number;
+}
 
 /** Distancia focal. Más chica, más perspectiva. */
 export const FOCO = 3.2;
@@ -80,6 +87,7 @@ export function proyectar(
   giroX: number,
   ancho: number,
   alto: number,
+  camara: CamaraDelCielo = { zoom: 1, x: 0, y: 0 },
 ): Proyectado {
   const cy = Math.cos(giroY);
   const sy = Math.sin(giroY);
@@ -91,10 +99,10 @@ export function proyectar(
   const z2 = nodo.y * sx + z1 * cx;
 
   const escala = FOCO / (FOCO - z2);
-  const radio = Math.min(ancho, alto) * 0.36;
+  const radio = Math.min(ancho, alto) * 0.36 * camara.zoom;
   return {
-    sx: ancho / 2 + x1 * escala * radio,
-    sy: alto / 2 - y1 * escala * radio,
+    sx: ancho / 2 + x1 * escala * radio + camara.x,
+    sy: alto / 2 - y1 * escala * radio + camara.y,
     frente: Math.max(0, Math.min(1, (z2 + 1) / 2)),
     escala,
   };
@@ -168,14 +176,26 @@ export function golpear(
   giroX: number,
   caja: Caja,
   punto: { x: number; y: number },
+  camara?: CamaraDelCielo,
 ): string | null {
-  let mejor: { id: string | null; d: number } | null = null;
+  return golpearNodo(nodos, giroY, giroX, caja, punto, camara)?.nucleoId ?? null;
+}
+
+export function golpearNodo(
+  nodos: readonly NodoDibujable[],
+  giroY: number,
+  giroX: number,
+  caja: Caja,
+  punto: { x: number; y: number },
+  camara?: CamaraDelCielo,
+): NodoDibujable | null {
+  let mejor: { nodo: NodoDibujable; d: number } | null = null;
   for (const nodo of nodos) {
-    const p = proyectar(nodo, giroY, giroX, caja.width, caja.height);
+    const p = proyectar(nodo, giroY, giroX, caja.width, caja.height, camara);
     const d = Math.hypot(p.sx - punto.x, p.sy - punto.y);
-    if (d <= RADIO_DE_GOLPE && (!mejor || d < mejor.d)) mejor = { id: nodo.nucleoId, d };
+    if (d <= RADIO_DE_GOLPE && (!mejor || d < mejor.d)) mejor = { nodo, d };
   }
-  return mejor ? mejor.id : null;
+  return mejor?.nodo ?? null;
 }
 
 /**
@@ -207,80 +227,25 @@ export type Pincel = Pick<
 
 /* ── El sello, adentro del lienzo ────────────────────────────────────────── */
 
-/**
- * Lo que dice el cielo del ejemplo, **escrito adentro del área que se captura**.
- *
- * Enmienda `docs/specs/2026-08-16-enmienda-v1-los-ejemplos.md` §4.1: un aviso
- * al costado de la constelación no sirve, porque se recorta. El riesgo que la
- * enmienda existe para cubrir no es que alguien se confunda navegando — es que
- * **alguien saque una captura del ejemplo y la publique como si fuera el
- * país**, y una captura no se lleva el HTML de alrededor.
- *
- * Tres decisiones, y ninguna es decorativa:
- *
- *  1. **La frase es una constante del módulo, no una prop.** No hay forma de
- *     pasarle otro texto ni de pasarle `null`: lo único que viaja por la escena
- *     es `origen`, que es de qué corpus es el cielo, y eso es un hecho y no un
- *     interruptor.
- *  2. **Va tres veces y no una.** Una sola línea al pie se recorta con el
- *     gesto más barato que hay. A 22 %, 50 % y 78 % del alto, la banda entre
- *     dos sellos mide poco más de un cuarto del lienzo: cualquier recorte que
- *     se lleve estrellas se lleva una de las tres, y llevarse las estrellas sin
- *     ninguna es un acto deliberado y no un descuido. Eso es exactamente lo que
- *     §4 pide y todo lo que puede pedir: reduce el riesgo, no lo elimina.
- *  3. **Va con la tinta del tema sobre una plancha del fondo del tema**, o sea
- *     con el mismo contraste que el texto de la página. No es una marca de agua
- *     al 10 %: es texto legible, y se dibuja **último**, arriba de los nodos,
- *     para que ningún dato lo tape.
- */
-export const SELLO_DEL_LIENZO = 'Nadie dijo ninguna de estas cosas · ejemplo';
-
-/** A qué alturas del lienzo se repite el sello (fracción del alto). */
-export const ALTURAS_DEL_SELLO: readonly number[] = [0.22, 0.5, 0.78];
-
-/** Opacidad de la plancha de fondo. El texto va siempre pleno. */
-const PLANCHA = 0.78;
-
-/** El tipo del sello, en píxeles. Nunca la letra chica de un contrato. */
+/** Un sello dentro del margen de la imagen conserva el origen sin cubrir los datos. */
+export const SELLO_DEL_LIENZO = 'Ejemplo · voces inventadas';
+export const ALTURAS_DEL_SELLO: readonly number[] = [0.04];
 const tipografia = (cuerpo: number): string =>
   `600 ${String(cuerpo)}px "Space Mono", ui-monospace, monospace`;
 
 function sellar(ctx: Pincel, ancho: number, alto: number, fondo: string, tinta: string): void {
-  // Entre 11 y 17 px: abajo de 11 deja de leerse en una captura reescalada y
-  // arriba de 17 tapa el cielo en un lienzo angosto.
-  let cuerpo = Math.round(Math.max(11, Math.min(17, ancho * 0.019)));
+  const cuerpo = Math.round(Math.max(10, Math.min(12, ancho * 0.015)));
   ctx.font = tipografia(cuerpo);
-  ctx.textAlign = 'center';
+  ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
-
-  // Si con la fuente que le tocó al navegador la frase se sale del lienzo, se
-  // achica hasta que entre. Un sello cortado por el borde es un sello que se
-  // puede alegar que no se leía.
-  let anchoDelTexto = ctx.measureText(SELLO_DEL_LIENZO).width;
-  const disponible = ancho * 0.92;
-  if (anchoDelTexto > disponible && anchoDelTexto > 0) {
-    cuerpo = Math.max(9, Math.floor((cuerpo * disponible) / anchoDelTexto));
-    ctx.font = tipografia(cuerpo);
-    anchoDelTexto = ctx.measureText(SELLO_DEL_LIENZO).width;
-  }
-
-  const margen = cuerpo * 0.7;
-  const altoDeLaPlancha = cuerpo * 1.9;
-
-  for (const fraccion of ALTURAS_DEL_SELLO) {
-    const y = alto * fraccion;
-    ctx.globalAlpha = PLANCHA;
-    ctx.fillStyle = fondo;
-    ctx.fillRect(
-      ancho / 2 - anchoDelTexto / 2 - margen,
-      y - altoDeLaPlancha / 2,
-      anchoDelTexto + margen * 2,
-      altoDeLaPlancha,
-    );
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = tinta;
-    ctx.fillText(SELLO_DEL_LIENZO, ancho / 2, y);
-  }
+  const margen = 12;
+  const anchoDelTexto = ctx.measureText(SELLO_DEL_LIENZO).width;
+  const y = Math.max(18, alto * (ALTURAS_DEL_SELLO[0] ?? 0.04));
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = fondo;
+  ctx.fillRect(margen - 4, y - cuerpo, Math.min(ancho - margen, anchoDelTexto + 8), cuerpo * 2);
+  ctx.fillStyle = tinta;
+  ctx.fillText(SELLO_DEL_LIENZO, margen, y);
 }
 
 export function pintar(
@@ -289,6 +254,7 @@ export function pintar(
   escena: Escena,
   giroY: number,
   giroX: number,
+  camara?: CamaraDelCielo,
 ): void {
   const { width: ancho, height: alto, dpr } = caja;
   if (ancho === 0 || alto === 0) return;
@@ -301,7 +267,7 @@ export function pintar(
 
   const porId = new Map<string, { nodo: NodoDibujable; p: Proyectado }>();
   for (const nodo of escena.nodos) {
-    porId.set(nodo.id, { nodo, p: proyectar(nodo, giroY, giroX, ancho, alto) });
+    porId.set(nodo.id, { nodo, p: proyectar(nodo, giroY, giroX, ancho, alto, camara) });
   }
 
   // Las aristas primero y por debajo: son el dato (R5), pero un nodo tapado
@@ -336,6 +302,13 @@ export function pintar(
     ctx.beginPath();
     ctx.arc(p.sx, p.sy, Math.max(1.2, nodo.radio * p.escala), 0, Math.PI * 2);
     ctx.fill();
+    if (escena.seleccionado === nodo.id) {
+      ctx.strokeStyle = tinta;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, Math.max(7, nodo.radio * p.escala + 5), 0, Math.PI * 2);
+      ctx.stroke();
+    }
   }
 
   // Último, arriba de todo y sin manera de saltearlo: si este cielo es el del

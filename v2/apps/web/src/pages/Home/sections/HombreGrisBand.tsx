@@ -1,55 +1,20 @@
 import { Link } from 'wouter';
 
-import { TALLIES } from '../landing-data';
+import { Kicker } from '~/components/papel/primitives';
 
-import { BotonPapel, Kicker } from '~/components/papel/primitives';
-
-/**
- * § 02 — El origen. Banda gris con los tally marks: 45 millones de grises,
- * contados a mano (palitos, no barras — firma award §10.6).
- */
 export function HombreGrisBand() {
   return (
-    <section className="bg-oscuro-meta text-tinta">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-2 items-center gap-14 px-5 py-[72px] max-[960px]:grid-cols-1 min-[961px]:px-10">
+    <section className="bg-tinta text-oscuro-texto">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-5 py-16 min-[961px]:grid-cols-[1fr_1.2fr] min-[961px]:gap-20 min-[961px]:px-10 min-[961px]:py-20">
         <div>
-          <Kicker color="tinta" className="text-tinta mb-5">
-            § 02 — El origen
-          </Kicker>
-          <h2 className="font-anton mb-5 text-[clamp(40px,4.4vw,64px)] leading-[1.02]">
-            ¿Quién es el
-            <br />
-            hombre gris?
-          </h2>
-          <p className="mb-3 max-w-[460px] text-pretty text-[17px] leading-relaxed">
-            Sos vos, un martes cualquiera. El que trabaja, paga, aguanta y calla. El que cree que su
-            voz no cambia nada — hasta el instante en que deja de creerlo.
-          </p>
-          <p className="mb-7 max-w-[460px] text-[17px] font-semibold leading-relaxed">
-            Ese instante tiene nombre.
-          </p>
-          <BotonPapel asChild variant="tinta" className="inline-block px-[26px] py-4 text-xs">
-            <Link href="/el-instante-del-hombre-gris">Leer el capítulo I</Link>
-          </BotonPapel>
+          <Kicker className="text-violeta-claro mb-6">§ 02 — El origen</Kicker>
+          <h2 className="font-anton text-[clamp(36px,4.3vw,60px)] leading-[1.05]">¿Quién es el<br />hombre gris?</h2>
+          <p className="text-oscuro-secundario mt-5 max-w-[480px] text-pretty text-[17px] leading-relaxed">Es quien se anima a dejar de esperar y a crear con otros. Puede ser tu vecino, tu maestra o vos, un martes cualquiera.</p>
+          <Link href="/el-instante-del-hombre-gris" className="font-space text-violeta-claro mt-4 inline-flex min-h-11 items-center text-xs underline underline-offset-4">Leer el origen →</Link>
         </div>
-
-        <div className="flex flex-col gap-2.5">
-          <div aria-hidden className="flex flex-wrap content-start gap-1.5">
-            {TALLIES.map((t, i) => (
-              <span
-                key={i}
-                className="inline-block w-1"
-                style={{
-                  height: `${t.alto}px`,
-                  transform: `rotate(${t.rot}deg)`,
-                  background: t.color,
-                }}
-              />
-            ))}
-          </div>
-          <div className="font-space text-tinta text-[11px] uppercase tracking-[0.1em]">
-            45 millones de grises. Alcanza uno que despierte por día.
-          </div>
+        <div className="border-oscuro-borde flex min-w-0 flex-col gap-6 border-t pt-8 min-[961px]:border-l min-[961px]:border-t-0 min-[961px]:pl-12 min-[961px]:pt-0">
+          <p aria-hidden className="font-anton text-[clamp(68px,10.5vw,150px)] leading-[.92]">Sos<br /><span className="text-violeta-claro">vos.</span></p>
+          <p className="text-oscuro-secundario max-w-[420px] text-pretty text-[17px] leading-relaxed">La experiencia de una vida abre una pregunta. La escucha de otras vidas nos enseña a diseñarla mejor.</p>
         </div>
       </div>
     </section>

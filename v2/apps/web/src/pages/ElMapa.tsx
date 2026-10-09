@@ -1,21 +1,27 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { useSearch, Link } from 'wouter';
+import { useSearch } from 'wouter';
 
 import { ColaDeVerificacion } from './ElMapa/sections/ColaDeVerificacion';
-import { FeedVoces } from './ElMapa/sections/FeedVoces';
 import { FuturosTerritorio } from './ElMapa/sections/FuturosTerritorio';
-import { PanelSoltarVoz } from './ElMapa/sections/PanelSoltarVoz';
+import { ParticiparEnMapa } from './ElMapa/sections/ParticiparEnMapa';
 import { PortadaMapa } from './ElMapa/sections/PortadaMapa';
 import { SeccionInstrumento } from './ElMapa/sections/SeccionInstrumento';
 
 import type { LugarMapa } from './ElMapa/instrumento/BusquedaTerritorial';
+import type { ModoAporte } from './ElMapa/sections/ParticiparEnMapa';
 
 import { api } from '~/lib/api';
 
 export function ElMapa() {
   const [contexto, setContexto] = useState<LugarMapa | null>(null);
   const search = useSearch();
+  const pedido = new URLSearchParams(search).get('participar');
+  const [modoAporte, setModoAporte] = useState<ModoAporte>(pedido === 'voz' ? 'voz' : 'imaginar');
+  const [participando, setParticipando] = useState(
+    pedido === 'imaginar' || pedido === 'voz' || window.location.hash === '#aportar',
+  );
+  const [visitado, setVisitado] = useState(participando);
   const territorio = Number(new URLSearchParams(search).get('lugar'));
   const lugar = useQuery({
     queryKey: ['geo', 'lugar', territorio],
@@ -25,33 +31,60 @@ export function ElMapa() {
   useEffect(() => {
     setContexto(lugar.data ?? null);
   }, [lugar.data]);
+  const abrir = (ambito: LugarMapa | null) => {
+    setContexto(ambito);
+    setVisitado(true);
+    setParticipando(true);
+  };
+  useEffect(() => {
+    if (pedido === 'imaginar' || pedido === 'voz') {
+      setModoAporte(pedido);
+      setVisitado(true);
+      setParticipando(true);
+    }
+  }, [pedido]);
+  useEffect(() => {
+    const alAncla = () => {
+      if (window.location.hash === '#aportar') abrir(contexto);
+    };
+    window.addEventListener('hashchange', alAncla);
+    return () => {
+      window.removeEventListener('hashchange', alAncla);
+    };
+  }, [contexto]);
+  const cerrar = () => {
+    setParticipando(false);
+    const q = new URLSearchParams(window.location.search);
+    q.delete('participar');
+    window.history.replaceState(null, '', `/el-mapa${q.size ? `?${q}` : ''}#instrumento`);
+    document.querySelector<HTMLButtonElement>('[data-abrir-aporte]')?.focus();
+  };
   return (
     <main>
       <PortadaMapa />
-      <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-5 px-5 pb-3 min-[961px]:px-10">
-        <a href="#futuros-territorio" className="text-violeta min-h-11 py-3 underline">
-          Futuros en elaboración
-        </a>
-        <Link
-          href="/imaginar"
-          className="font-space bg-violeta text-papel min-h-11 px-5 py-3 text-xs uppercase"
-        >
-          Imaginar mi Argentina
-        </Link>
-        <Link href="/campanas" className="text-violeta min-h-11 py-3 underline">
-          Campañas
-        </Link>
-      </div>
-      <SeccionInstrumento onAportar={setContexto} onTerritorio={setContexto} />
+      <SeccionInstrumento
+        onAportar={abrir}
+        onTerritorio={setContexto}
+        participando={participando}
+        participacion={
+          visitado ? (
+            lugar.isLoading ? (
+              <p role="status" className="bg-papel text-tinta p-5">
+                Buscando el territorio de tu conversación…
+              </p>
+            ) : (
+              <ParticiparEnMapa
+                modo={modoAporte}
+                cambiar={setModoAporte}
+                lugar={contexto ?? lugar.data ?? null}
+                visible={participando}
+                cerrar={cerrar}
+              />
+            )
+          ) : null
+        }
+      />
       <FuturosTerritorio lugar={contexto} />
-
-      <section
-        id="aportar"
-        className="mx-auto grid max-w-[1440px] grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-10 px-5 py-10 max-[960px]:grid-cols-1 max-[960px]:gap-8 min-[961px]:px-10"
-      >
-        <PanelSoltarVoz contexto={contexto} />
-        <FeedVoces />
-      </section>
 
       {/* Va justo después de cargar: el momento en que alguien está más
           dispuesto a mirar algo ajeno es apenas terminó de escribir lo

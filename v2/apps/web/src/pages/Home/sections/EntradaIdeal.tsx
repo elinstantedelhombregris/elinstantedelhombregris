@@ -1,101 +1,80 @@
 import { Link } from 'wouter';
 
+import { Kicker } from '~/components/papel/primitives';
 import { useFichas } from '~/lib/queries/fichas';
 import { useCampanas } from '~/lib/queries/participacion';
 
+/** El registro entra como contenido editorial, con sus vacíos y errores reales. */
 export function EntradaIdeal() {
   const campanas = useCampanas();
   const fichas = useFichas();
+  const abiertas = campanas.data?.filter((c) => c.estado === 'abierta') ?? [];
   return (
-    <>
-      <section className="mx-auto max-w-[1100px] px-5 py-12 min-[961px]:px-10">
-        <p className="font-space text-violeta text-xs uppercase tracking-[.14em]">
-          Una vida se conecta con un país
+    <section className="mx-auto max-w-[1440px] px-5 py-16 min-[961px]:px-10 min-[961px]:py-20" aria-labelledby="inicio-en-comun">
+      <Kicker className="mb-6">§ 01 — En común</Kicker>
+      <div className="grid items-end gap-6 min-[961px]:grid-cols-[1.3fr_1fr] min-[961px]:gap-16">
+        <h2 id="inicio-en-comun" className="font-anton text-[clamp(38px,4.8vw,68px)] leading-[1.02]">
+          Lo que empieza<br /><span className="text-violeta">entre nosotros.</span>
+        </h2>
+        <p className="text-tinta-75 max-w-[500px] text-pretty text-[17px] leading-relaxed">
+          Las campañas reúnen miradas sobre un tema y un lugar. Las fichas conservan lo que deseamos,
+          lo que todavía pensamos distinto y el próximo paso.
         </p>
-        <div className="bg-tinta mt-6 grid gap-px border md:grid-cols-3">
-          {[
-            [
-              '01',
-              'Imaginá',
-              'La vida que querrías vivir. Lo que harías, con quién, qué cuidarías.',
-            ],
-            [
-              '02',
-              'Encontrá',
-              'Otras voces, condiciones compartidas y diferencias que vale la pena entender.',
-            ],
-            [
-              '03',
-              'Diseñá',
-              'Alternativas, pruebas y resultados. Lo aprendido vuelve a quienes participaron.',
-            ],
-          ].map(([n, titulo, cuerpo]) => (
-            <article key={n} className="bg-papel p-6">
-              <span className="font-space text-violeta text-xs">{n}</span>
-              <h2 className="font-anton mt-4 text-3xl">{titulo}</h2>
-              <p className="mt-4 leading-relaxed">{cuerpo}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="mx-auto grid max-w-[1100px] gap-10 px-5 py-10 md:grid-cols-2 min-[961px]:px-10">
+      </div>
+      <div className="border-tinta mt-9 grid gap-10 border-t-2 pt-8 min-[961px]:grid-cols-[1.3fr_1fr] min-[961px]:gap-16">
         <div>
-          <h2 className="font-anton text-4xl">Preguntas que nos reúnen.</h2>
-          <p className="mt-4 leading-relaxed">
-            Una campaña necesita una pregunta, un equipo que escuche y una devolución. Cada mesa
-            dice qué podemos esperar.
-          </p>
-          {campanas.data?.length ? (
-            <ul className="mt-5 divide-y border-y">
-              {campanas.data.slice(0, 3).map((c) => (
-                <li key={c.id} className="py-4">
-                  <Link href={`/campanas/${c.slug}`} className="text-violeta underline">
-                    {c.contrato.titulo}
-                  </Link>
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <h3 className="font-anton text-[30px] leading-tight">Preguntas que nos reúnen</h3>
+            <Link href="/campanas" className="font-space text-violeta inline-flex min-h-11 items-center text-xs underline underline-offset-4">Ver las campañas ↗</Link>
+          </div>
+          {campanas.isLoading ? (
+            <p role="status" className="text-tinta-50 py-7 leading-relaxed">Buscando las preguntas abiertas…</p>
+          ) : campanas.isError ? (
+            <p role="alert" className="text-tinta-75 py-7 leading-relaxed">No pudimos leer las convocatorias. Podés volver a consultarlas desde su catálogo.</p>
+          ) : abiertas.length ? (
+            <ul className="mt-3 divide-y border-b">
+              {abiertas.slice(0, 3).map((c) => (
+                <li key={c.id} className="py-5">
+                  <p className="font-space text-tinta-50 text-[10px] uppercase tracking-[.1em]">{c.contrato.temas.join(' · ')} · {c.contrato.territorios.length ? 'Convocatoria territorial' : 'Alcance nacional'}</p>
+                  <Link href={`/campanas/${c.slug}`} className="font-anton text-tinta hover:text-violeta mt-2 block text-[27px] leading-tight transition-colors">{c.contrato.titulo}</Link>
+                  <p className="text-tinta-75 mt-3 max-w-[540px] text-pretty text-[15px] leading-relaxed">{c.contrato.pregunta}</p>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-tinta-50 mt-5 text-sm">
-              Las convocatorias aparecen acá cuando sus equipos las publican.
-            </p>
+            <div className="border-papel-borde mt-3 border-b py-7">
+              <p className="text-tinta-75 max-w-[490px] text-pretty leading-relaxed">Una pregunta necesita un equipo dispuesto a escuchar y devolver. Las convocatorias aparecerán acá cuando estén abiertas.</p>
+            </div>
           )}
-          <Link
-            href="/campanas"
-            className="text-violeta mt-5 inline-flex min-h-11 items-center underline"
-          >
-            Explorar campañas →
-          </Link>
         </div>
-        <div>
-          <h2 className="font-anton text-4xl">Futuros en elaboración.</h2>
-          <p className="mt-4 leading-relaxed">
-            Una ficha conserva el deseo, sus fuentes y la siguiente pregunta. El diseño puede
-            cambiar cuando aprendemos algo.
-          </p>
-          {fichas.data?.fichas.length ? (
-            <ul className="mt-5 divide-y border-y">
-              {fichas.data.fichas.slice(0, 3).map((f) => (
-                <li key={f.id} className="py-4">
-                  <Link href={`/fichas/${f.id}`} className="text-violeta underline">
-                    {f.titulo}
-                  </Link>
+        <div className="border-papel-borde min-[961px]:border-l min-[961px]:pl-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <h3 className="font-anton text-[30px] leading-tight">Futuros en elaboración</h3>
+            <Link href="/fichas" className="font-space text-violeta inline-flex min-h-11 items-center text-xs underline underline-offset-4">Abrir las fichas ↗</Link>
+          </div>
+          {fichas.isLoading ? (
+            <p role="status" className="text-tinta-50 py-7 leading-relaxed">Buscando los diseños en elaboración…</p>
+          ) : fichas.isError ? (
+            <p role="alert" className="text-tinta-75 py-7 leading-relaxed">No pudimos leer las fichas. Una consulta fallida no significa que falten ideas.</p>
+          ) : fichas.data?.fichas.length ? (
+            <ol className="mt-3 divide-y border-b">
+              {fichas.data.fichas.slice(0, 3).map((f, i) => (
+                <li key={f.id} className="grid grid-cols-[30px_1fr] gap-3 py-5">
+                  <span aria-hidden className="font-space text-tinta-50 pt-1 text-[11px]">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <Link href={`/fichas/${f.id}`} className="font-anton text-tinta hover:text-violeta block text-[26px] leading-tight transition-colors">{f.titulo}</Link>
+                    <p className="font-space text-tinta-50 mt-3 text-[10px] uppercase tracking-[.08em]">{f.territorioNombre ?? 'Alcance nacional'} · borrador en revisión</p>
+                  </div>
                 </li>
               ))}
-            </ul>
+            </ol>
           ) : (
-            <p className="text-tinta-50 mt-5 text-sm">
-              Todavía estamos buscando las primeras preguntas de futuro.
-            </p>
+            <div className="border-papel-borde mt-3 border-b py-7">
+              <p className="text-tinta-75 max-w-[430px] text-pretty leading-relaxed">El primer futuro compartido todavía está por escribirse. Una ficha empieza con una posibilidad y una pregunta para seguirla.</p>
+            </div>
           )}
-          <Link
-            href="/fichas"
-            className="text-violeta mt-5 inline-flex min-h-11 items-center underline"
-          >
-            Ver los futuros →
-          </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

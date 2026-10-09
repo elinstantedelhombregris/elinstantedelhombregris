@@ -2,7 +2,6 @@ import { CtaBand } from './Home/sections/CtaBand';
 import { EntradaIdeal } from './Home/sections/EntradaIdeal';
 import { HeroBasta } from './Home/sections/HeroBasta';
 import { HombreGrisBand } from './Home/sections/HombreGrisBand';
-import { IdeaEnTresLineas } from './Home/sections/IdeaEnTresLineas';
 import { PlanesTeaser } from './Home/sections/PlanesTeaser';
 import { VocesTicker } from './Home/sections/VocesTicker';
 
@@ -15,9 +14,8 @@ export function Home() {
   return (
     <main>
       <HeroBasta />
-      <EntradaIdeal />
       <VocesTicker />
-      <IdeaEnTresLineas />
+      <EntradaIdeal />
       <HombreGrisBand />
       <PlanesTeaser />
       <CtaBand />

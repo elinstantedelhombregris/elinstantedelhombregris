@@ -15,7 +15,8 @@ export function ProcedenciaConsulta({
       aria-label="Alcance de la lectura"
     >
       <p>
-        <strong>{datos.total.toLocaleString('es-AR')}</strong> registros en la consulta ·{' '}
+        <strong>{datos.total.toLocaleString('es-AR')}</strong>{' '}
+        {datos.total === 1 ? 'registro' : 'registros'} en la consulta ·{' '}
         {datos.entregados.toLocaleString('es-AR')} en esta página.
       </p>
       <p className="text-xs">

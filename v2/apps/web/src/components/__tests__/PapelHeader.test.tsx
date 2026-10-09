@@ -98,7 +98,7 @@ describe('PapelHeader', () => {
     }
     expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
       'href',
-      '/imaginar',
+      '/el-mapa?participar=imaginar#instrumento',
     );
   });
 

@@ -244,6 +244,18 @@ describe('las frases de los núcleos son frases reales del corpus', () => {
 });
 
 describe('la sección en pantalla', () => {
+  it('la procedencia extensa nace plegada y el ejemplo sigue identificado al primer vistazo', () => {
+    render(<LosTresEjemplos tema="papel" />);
+    expect(screen.getByText('Ejemplo · voces inventadas')).toBeVisible();
+    expect(screen.getByText('Población sintética')).not.toBeVisible();
+    expect(screen.getByTestId('constelacion-del-ejemplo')).toHaveAttribute(
+      'data-origen',
+      'ejemplo',
+    );
+    fireEvent.click(screen.getByText('Origen, padrón y método del ejemplo'));
+    expect(screen.getByText('Población sintética')).toBeVisible();
+  });
+
   it('monta con los tres escenarios y arranca en el primero', () => {
     render(<LosTresEjemplos tema="papel" />);
     for (const escenario of LOS_TRES_ESCENARIOS) {
@@ -294,6 +306,7 @@ describe('la sección en pantalla', () => {
    */
   it('la tabla cuenta el mecanismo: la bronca es la menos tejida y la que más se toca', () => {
     render(<LosTresEjemplos tema="papel" />);
+    fireEvent.click(screen.getByText('Comparar los tres escenarios y sus límites'));
     const celdas = (nombre: RegExp): string[] =>
       within(screen.getByRole('row', { name: nombre }))
         .getAllByRole('cell')
@@ -305,6 +318,7 @@ describe('la sección en pantalla', () => {
 
   it('la tabla muestra la MISMA legitimidad en las tres columnas', () => {
     render(<LosTresEjemplos tema="papel" />);
+    fireEvent.click(screen.getByText('Comparar los tres escenarios y sus límites'));
     const fila = screen.getByRole('row', { name: /Legitimidad/ });
     const celdas = within(fila).getAllByRole('cell');
     expect(celdas).toHaveLength(3);
@@ -314,6 +328,7 @@ describe('la sección en pantalla', () => {
 
   it('y el mandato NO es el mismo: en la bronca no hay ninguno, y dice por qué', () => {
     render(<LosTresEjemplos tema="papel" />);
+    fireEvent.click(screen.getByText('Comparar los tres escenarios y sus límites'));
     const fila = screen.getByRole('row', { name: /El mandato que habilita/ });
     const celdas = within(fila).getAllByRole('cell');
     expect(celdas[0]).toHaveTextContent('Ninguno.');
@@ -334,6 +349,7 @@ describe('la sección en pantalla', () => {
 
   it('el deslizador funciona acá, y adentro de la banda la mancha no se rompe', () => {
     render(<LosTresEjemplos tema="papel" />);
+    fireEvent.click(screen.getByText('Comparar los tres escenarios y sus límites'));
     const mando = screen.getByRole('slider');
     expect(mando).toHaveAttribute('min', String(UMBRAL_MINIMO));
     expect(mando).toHaveAttribute('max', String(UMBRAL_MAXIMO));
@@ -365,6 +381,7 @@ describe('la sección en pantalla', () => {
    */
   it('sí cuenta personas, porque su padrón declara quién habló', () => {
     const { container } = render(<LosTresEjemplos tema="papel" />);
+    fireEvent.click(screen.getByText('Comparar los tres escenarios y sus límites'));
     expect(container.textContent).toMatch(/63 señales de 44 personas/);
     const fila = screen.getByRole('row', { name: /Actores distintos/ });
     expect(within(fila).getAllByRole('cell')[0]).toHaveTextContent('44');

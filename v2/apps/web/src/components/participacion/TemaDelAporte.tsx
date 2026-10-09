@@ -7,10 +7,12 @@ export function TemaDelAporte({
   valor,
   cambiar,
   rotulo = 'Tema, si querés nombrarlo',
+  vacio = 'Dejar el tema abierto',
 }: {
   valor: string;
   cambiar: (v: string) => void;
   rotulo?: string;
+  vacio?: string;
 }) {
   const q = useQuery({
     queryKey: ['participacion-temas'],
@@ -27,7 +29,7 @@ export function TemaDelAporte({
           cambiar(e.target.value);
         }}
       >
-        <option value="">Dejar el tema abierto</option>
+        <option value="">{vacio}</option>
         {q.data?.temas?.map((t) => (
           <option key={t.clave} value={t.clave}>
             {t.etiqueta}

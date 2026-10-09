@@ -4,6 +4,7 @@ import { BusquedaTerritorial, type LugarMapa } from './BusquedaTerritorial';
 
 import type { Exploracion } from './exploracion-url';
 
+import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
 import { ESTADO_EN_CASTELLANO, TIPOS_SENAL } from '~/lib/vocabulario';
 
 export function FiltrosExploracion({
@@ -19,7 +20,8 @@ export function FiltrosExploracion({
   // ocupaban la primera pantalla entera y el mapa quedaba abajo del pliegue.
   const [abiertos, setAbiertos] = useState(false);
   const activos =
-    [valor.tipo, valor.estado].filter(Boolean).length + (valor.rango === 'todo' ? 0 : 1);
+    [valor.tipo, valor.estado, valor.tema].filter(Boolean).length +
+    (valor.rango === 'todo' ? 0 : 1);
   return (
     <div className="text-oscuro-texto border-oscuro-borde border-b p-4">
       <div className="flex flex-wrap items-end gap-4">
@@ -31,13 +33,13 @@ export function FiltrosExploracion({
           onClick={() => {
             setAbiertos(!abiertos);
           }}
-          className="min-h-11 text-sm underline min-[640px]:hidden"
+          className="font-space border-oscuro-borde min-h-11 border px-4 text-xs uppercase tracking-wide"
         >
           {abiertos ? 'Ocultar filtros' : activos > 0 ? `Filtros (${String(activos)})` : 'Filtros'}
         </button>
         <div
           id="filtros-exploracion"
-          className={`${abiertos ? 'flex' : 'hidden'} flex-wrap items-end gap-4 min-[640px]:flex`}
+          className={`${abiertos ? 'flex' : 'hidden'} basis-full flex-wrap items-end gap-4`}
         >
           <label className="text-xs">
             Período
@@ -56,6 +58,14 @@ export function FiltrosExploracion({
               <option value="30d">Últimos 30 días</option>
             </select>
           </label>
+          <TemaDelAporte
+            rotulo="Tema de las miradas"
+            vacio="Todos los temas"
+            valor={valor.tema ?? ''}
+            cambiar={(tema) => {
+              cambiar({ ...valor, tema });
+            }}
+          />
           <label className="text-xs">
             Tipo de aporte
             <select

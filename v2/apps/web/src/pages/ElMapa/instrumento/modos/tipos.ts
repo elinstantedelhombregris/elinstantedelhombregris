@@ -1,3 +1,4 @@
+import type { LugarMapa } from '../BusquedaTerritorial';
 import type { Recuadro, SenalConTipo } from '../useVistaMapa';
 import type { ReactNode } from 'react';
 import type { MapRef } from 'react-map-gl/maplibre';
@@ -22,6 +23,7 @@ export interface ContextoModo {
   recuadro: Recuadro | null;
   cargando: boolean;
   seleccionar?: (id: string) => void;
+  elegirLugar?: (lugar: LugarMapa) => void;
   rango?: '7d' | '30d' | 'todo';
   cambiarRango?: (rango: '7d' | '30d' | 'todo') => void;
   resumen?: LecturaMapa['metadata'];

@@ -37,9 +37,16 @@ export interface CabeceraProcedenciaProps {
    */
   fallo: boolean;
   tema: Tema;
+  compacto?: boolean;
 }
 
-export function CabeceraProcedencia({ datos, cargando, fallo, tema }: CabeceraProcedenciaProps) {
+export function CabeceraProcedencia({
+  datos,
+  cargando,
+  fallo,
+  tema,
+  compacto = false,
+}: CabeceraProcedenciaProps) {
   const nocturno = tema === 'nocturno';
   const borde = nocturno ? 'border-oscuro-borde' : 'border-tinta';
   const rotulo = nocturno ? 'text-oscuro-meta' : 'text-tinta-50';
@@ -51,9 +58,11 @@ export function CabeceraProcedencia({ datos, cargando, fallo, tema }: CabeceraPr
   return (
     <section
       aria-label="De dónde sale lo que se ve acá"
-      className={`border-y-2 ${borde} mb-10 py-6`}
+      className={`border-y-2 ${borde} ${compacto ? 'mb-5 py-4' : 'mb-10 py-6'}`}
     >
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div
+        className={`grid gap-4 min-[561px]:grid-cols-2 ${compacto ? 'min-[961px]:grid-cols-5 [&>div>div:last-child]:text-sm' : 'min-[961px]:grid-cols-4'}`}
+      >
         <Celda rotulo="Último análisis" rotuloClase={rotulo} cifraClase={cifra}>
           {cargando && !datos ? (
             'Trayendo…'

@@ -1,26 +1,17 @@
 import { Link } from 'wouter';
 
 import { BandaCta, BotonPapel, Kicker } from '~/components/papel/primitives';
+import { despertar } from '~/lib/despertar';
 
 export function CtaBand() {
   return (
     <BandaCta fondo="violeta">
-      <Kicker color="papel" className="mb-[18px] tracking-[0.2em] opacity-75">
-        La ciudadanía diseña el país que quiere vivir
-      </Kicker>
-      <h2 className="font-anton mb-8 text-[clamp(44px,6vw,88px)] leading-[0.98]">
-        Una vida imaginada
-        <br />
-        puede abrir un país.
-      </h2>
-      <div className="flex flex-wrap justify-center gap-3">
-        <BotonPapel asChild variant="violeta" surface="oscuro" className="px-[30px] duration-150">
-          <Link href="/el-mapa">Ir al mapa</Link>
-        </BotonPapel>
-        <BotonPapel asChild variant="fantasma" surface="oscuro" className="px-[30px]">
-          <Link href="/imaginar">Imaginar mi Argentina</Link>
-        </BotonPapel>
-      </div>
+      <Kicker color="papel" className="mb-6">Tu lugar en este diseño</Kicker>
+      <h2 className="font-anton text-[clamp(40px,6.4vw,88px)] leading-[.98]">El futuro necesita<br />tu letra.</h2>
+      <p className="mx-auto mb-7 mt-6 max-w-[480px] text-pretty text-[18px] leading-relaxed">Lo que vos imaginás todavía no está escrito. Empecemos por ahí.</p>
+      <BotonPapel asChild variant="violeta" surface="oscuro" className="motion-reduce:transform-none">
+        <Link href="/el-mapa?participar=imaginar#instrumento" onClick={despertar}>Escribir mi primera posibilidad</Link>
+      </BotonPapel>
     </BandaCta>
   );
 }

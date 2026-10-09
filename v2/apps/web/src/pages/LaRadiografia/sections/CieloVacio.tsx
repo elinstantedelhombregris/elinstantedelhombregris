@@ -64,7 +64,7 @@ export function CieloVacio({ analizadas, sinVector, tema }: CieloVacioProps) {
       <p className={`relative mt-5 max-w-[520px] text-[16px] leading-[1.6] ${meta}`}>{glosa}</p>
 
       <Link
-        href="/el-mapa"
+        href="/el-mapa?participar=imaginar#instrumento"
         className="bg-violeta text-papel font-space hover:bg-tinta relative mt-8 px-7 py-[18px] text-[13px] font-bold uppercase tracking-[0.08em] transition-colors"
       >
         Dejá la tuya en el mapa
@@ -76,8 +76,8 @@ export function CieloVacio({ analizadas, sinVector, tema }: CieloVacioProps) {
 function decir(analizadas: number, sinVector: number): { titulo: string; glosa: string } {
   if (analizadas === 0 && sinVector > 0) {
     return {
-      titulo: 'Hay voces, y todavía nadie las midió.',
-      glosa: `${String(sinVector)} ${sinVector === 1 ? 'señal está' : 'señales están'} esperando análisis. El trabajo que calcula los vectores se corre a mano y todavía no corrió — no se dibuja lo que no se midió, y no se esconde lo que falta.`,
+      titulo: 'Hay miradas. Falta poder compararlas.',
+      glosa: `${String(sinVector)} ${sinVector === 1 ? 'señal de esta consulta no tiene' : 'señales de esta consulta no tienen'} análisis disponible. Podés conocer las fuentes en el mapa o explorar el laboratorio para ver cómo se leen las relaciones.`,
     };
   }
   if (analizadas === 1) {
@@ -87,7 +87,8 @@ function decir(analizadas: number, sinVector: number): { titulo: string; glosa: 
     };
   }
   return {
-    titulo: 'Todavía no habló nadie.',
-    glosa: 'Una constelación necesita dos estrellas para tener una línea.',
+    titulo: 'Acá todavía no aparecen relaciones.',
+    glosa:
+      'Esta lectura necesita más textos comparables. Que no se dibujen relaciones no significa que nadie haya participado: una voz puede conservar su texto reservado o quedar fuera de estos filtros.',
   };
 }

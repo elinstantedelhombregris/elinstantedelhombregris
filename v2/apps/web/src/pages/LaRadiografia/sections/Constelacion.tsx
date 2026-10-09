@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-import { golpear, pintar, type Escena, type OrigenDelCielo } from '../constelacion-pintor';
+import { type Escena, type OrigenDelCielo } from '../constelacion-pintor';
 import { colorDeClase, radioDeNodo, type NucleoEnPantalla, type Tema } from '../radiografia-data';
+import { useCieloInteractivo, type AjustesDelCielo } from '../use-cielo-interactivo';
 
+import type { LenteDelCielo } from '../lentes';
 import type { AristaDeConvergencia, MiembroDeNucleo } from '~/lib/queries/radiografia';
 
 import { FONDO_DEL_TEMA } from '~/components/mapa/pintor-senales';
@@ -53,10 +55,15 @@ export interface ConstelacionProps {
    * decir cuál.
    */
   testId?: string;
+  lente?: LenteDelCielo;
+  zoom?: number;
+  girando?: boolean;
+  centrar?: number;
+  seleccionado?: string | null;
+  onSeleccionar?: (id: string | null) => void;
+  onSobrevolar?: (id: string | null) => void;
+  onZoom?: (zoom: number) => void;
 }
-
-/** Radianes por cuadro de la rotación automática: una vuelta cada ~70 s. */
-const GIRO = 0.0015;
 
 export function Constelacion({
   nucleos,
@@ -67,6 +74,14 @@ export function Constelacion({
   onEnfocar,
   origen,
   testId = 'constelacion',
+  lente = 'vinculos',
+  zoom = 1,
+  girando = true,
+  centrar = 0,
+  seleccionado = null,
+  onSeleccionar,
+  onSobrevolar,
+  onZoom,
 }: ConstelacionProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const escenaRef = useRef<Escena>({
@@ -99,22 +114,24 @@ export function Constelacion({
           nucleo.miembros.map((m) => ({
             id: m.id,
             nucleoId: nucleo.id,
+            clase: m.clase,
             x: m.x,
             y: m.y,
             z: m.z,
             color: colorDeClase(m.clase, tema),
-            radio: radioDeNodo(nucleo.senales),
+            radio: Math.max(2.2, radioDeNodo(nucleo.senales) * 1.15),
           })),
         ),
         ...solas.map((m) => ({
           id: m.id,
           nucleoId: null,
+          clase: m.clase,
           x: m.x,
           y: m.y,
           z: m.z,
           color: colorDeClase(m.clase, tema),
           // Una voz sola no se dibuja más chica por estar sola: se dibuja sola.
-          radio: radioDeNodo(1),
+          radio: 2.2,
         })),
       ],
       aristas,
@@ -122,104 +139,25 @@ export function Constelacion({
       enfocado,
       onEnfocar,
       origen,
+      seleccionado,
     };
     pintarYaRef.current();
-  }, [nucleos, solas, aristas, tema, enfocado, onEnfocar, origen]);
+  }, [nucleos, solas, aristas, tema, enfocado, onEnfocar, origen, seleccionado]);
 
+  const ajustesRef = useRef<AjustesDelCielo>({ lente, zoom, girando, centrar });
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    // En el entorno de test no hay contexto 2D. La página tiene que montar
-    // entera igual: el dato vive en la tabla, no acá.
-    if (!ctx) return;
-
-    const quieto =
-      typeof window.matchMedia === 'function' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    let giroY = 0.6;
-    let giroX = -0.25;
-    let arrastrando = false;
-    let recorrido = 0;
-    let ultimo: { x: number; y: number } | null = null;
-    let cuadro = 0;
-
-    const alPresionar = (e: PointerEvent) => {
-      arrastrando = true;
-      recorrido = 0;
-      ultimo = { x: e.clientX, y: e.clientY };
-      canvas.setPointerCapture(e.pointerId);
+    ajustesRef.current = {
+      lente,
+      zoom,
+      girando,
+      centrar,
+      ...(onSeleccionar ? { elegir: onSeleccionar } : {}),
+      ...(onSobrevolar ? { sobrevolar: onSobrevolar } : {}),
+      ...(onZoom ? { cambiarZoom: onZoom } : {}),
     };
-    const alMover = (e: PointerEvent) => {
-      if (!arrastrando || !ultimo) return;
-      recorrido += Math.abs(e.clientX - ultimo.x) + Math.abs(e.clientY - ultimo.y);
-      giroY += (e.clientX - ultimo.x) * 0.006;
-      giroX = Math.max(-1.2, Math.min(1.2, giroX + (e.clientY - ultimo.y) * 0.006));
-      ultimo = { x: e.clientX, y: e.clientY };
-    };
-    const alSoltar = (e: PointerEvent) => {
-      arrastrando = false;
-      ultimo = null;
-      if (canvas.hasPointerCapture(e.pointerId)) canvas.releasePointerCapture(e.pointerId);
-    };
-    const alClickear = (e: MouseEvent) => {
-      // Girar el cielo no es elegir nada: un arrastre termina en `click`, y sin
-      // este freno soltar el mouse cerraba el núcleo que el lector tenía abierto.
-      if (recorrido > 6) return;
-      const caja = canvas.getBoundingClientRect();
-      const escena = escenaRef.current;
-      escena.onEnfocar(
-        golpear(escena.nodos, giroY, giroX, caja, {
-          x: e.clientX - caja.left,
-          y: e.clientY - caja.top,
-        }),
-      );
-    };
-
-    canvas.addEventListener('pointerdown', alPresionar);
-    canvas.addEventListener('pointermove', alMover);
-    canvas.addEventListener('pointerup', alSoltar);
-    canvas.addEventListener('pointercancel', alSoltar);
-    canvas.addEventListener('click', alClickear);
-
-    const unCuadro = () => {
-      const dpr = window.devicePixelRatio > 0 ? window.devicePixelRatio : 1;
-      const ancho = canvas.clientWidth;
-      const alto = canvas.clientHeight;
-      // El tamaño del buffer se sincroniza acá y no con un `ResizeObserver`:
-      // el bucle ya corre en cada cuadro, y comparar dos enteros es más barato
-      // que sostener un observador.
-      if (canvas.width !== Math.round(ancho * dpr) || canvas.height !== Math.round(alto * dpr)) {
-        canvas.width = Math.round(ancho * dpr);
-        canvas.height = Math.round(alto * dpr);
-      }
-      pintar(ctx, { width: ancho, height: alto, dpr }, escenaRef.current, giroY, giroX);
-    };
-
-    pintarYaRef.current = unCuadro;
-    // El primer cuadro, en el montaje y sin esperar a nadie: una pestaña de
-    // fondo no recibe `requestAnimationFrame`, y sin esto el lienzo se quedaba
-    // en su buffer de 300×150 sin una sola línea hasta que alguien la mirara.
-    unCuadro();
-
-    const dibujar = () => {
-      cuadro = requestAnimationFrame(dibujar);
-      if (!arrastrando && !quieto) giroY += GIRO;
-      unCuadro();
-    };
-    cuadro = requestAnimationFrame(dibujar);
-
-    return () => {
-      cancelAnimationFrame(cuadro);
-      pintarYaRef.current = () => undefined;
-      canvas.removeEventListener('pointerdown', alPresionar);
-      canvas.removeEventListener('pointermove', alMover);
-      canvas.removeEventListener('pointerup', alSoltar);
-      canvas.removeEventListener('pointercancel', alSoltar);
-      canvas.removeEventListener('click', alClickear);
-    };
-  }, []);
+    pintarYaRef.current();
+  }, [lente, zoom, girando, centrar, onSeleccionar, onSobrevolar, onZoom]);
+  useCieloInteractivo(canvasRef, escenaRef, ajustesRef, pintarYaRef);
 
   return (
     <canvas
@@ -231,6 +169,7 @@ export function Constelacion({
       // en un test de componente— pero sí se puede verificar que la página del
       // ejemplo declara que su cielo es el del ejemplo.
       data-origen={origen}
+      data-lente={lente}
       className="block h-full w-full cursor-grab touch-none active:cursor-grabbing"
       style={{ background: FONDO_DEL_TEMA[tema] }}
     />

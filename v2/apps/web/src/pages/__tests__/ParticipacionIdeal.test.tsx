@@ -33,6 +33,8 @@ const modelo = vi.hoisted(() => ({
   guardar: vi.fn(),
   borradores: vi.fn(() => Promise.resolve([])),
   api: vi.fn(() => Promise.resolve([] as unknown)),
+  campana: undefined as CampanaPublica | undefined,
+  parametrosCampana: vi.fn(),
 }));
 vi.mock('~/lib/auth/use-auth', () => ({
   useAuth: () => ({ user: modelo.user, isLoading: false }),
@@ -46,7 +48,10 @@ vi.mock('~/lib/participacion/borradores', () => ({
 vi.mock('~/lib/queries/participacion', () => ({
   useOperacionPersonal: () => ({ mutate: modelo.mutate, isPending: false }),
   usePublicarAporte: () => ({ mutate: modelo.mutate, isPending: false }),
-  useCampana: () => ({ data: undefined }),
+  useCampana: (id?: string, edicion?: number) => {
+    modelo.parametrosCampana(id, edicion);
+    return { data: id ? modelo.campana : undefined };
+  },
   useCampanas: () => ({ data: [] }),
   useMiEspacio: () => ({ data: { seguimientos: [] } }),
   useGuardarCampana: () => ({ mutate: modelo.mutate, isPending: false }),
@@ -131,10 +136,43 @@ const montar = (ui: ReactElement) =>
 beforeEach(() => {
   vi.clearAllMocks();
   modelo.user = null;
+  modelo.campana = undefined;
   modelo.api.mockResolvedValue([]);
   window.history.replaceState(null, '', '/');
 });
 describe('La persona conserva el control de su voz', () => {
+  it('la conversación guiada conserva la edición del enlace del mapa al publicar', () => {
+    modelo.campana = campana;
+    window.history.replaceState(null, '', `/el-mapa?campana=${id}&edicion=2&participar=imaginar`);
+    montar(<Imaginar />);
+    expect(modelo.parametrosCampana).toHaveBeenCalledWith(id, 2);
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Quiero aprender cerca.' } });
+    window.history.replaceState(null, '', '/el-mapa?participar=imaginar');
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
+    fireEvent.click(screen.getByLabelText('Esta frase refleja lo que quiero expresar.'));
+    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar esta voz/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Compartir mi Argentina ideal' }));
+    expect(modelo.mutate).toHaveBeenCalledWith(
+      expect.objectContaining({ campanaId: id, edicion: 2 }),
+    );
+  });
+  it('una edición inválida no convierte la reflexión guiada en publicación nacional', () => {
+    window.history.replaceState(null, '', '/el-mapa?edicion=otra&participar=imaginar');
+    montar(<Imaginar />);
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Quiero aprender cerca.' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
+    fireEvent.click(screen.getByLabelText('Esta frase refleja lo que quiero expresar.'));
+    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar esta voz/ }));
+    expect(screen.getByRole('button', { name: 'Compartir mi Argentina ideal' })).toBeDisabled();
+    expect(modelo.mutate).not.toHaveBeenCalled();
+    expect(screen.getByLabelText('La voz que quiero compartir')).toHaveValue(
+      'Quiero aprender cerca.',
+    );
+  });
   it('Imaginar empieza sin cuenta, admite preguntas abiertas y no publica antes de revisión', () => {
     montar(<Imaginar />);
     fireEvent.change(screen.getByRole('textbox'), {

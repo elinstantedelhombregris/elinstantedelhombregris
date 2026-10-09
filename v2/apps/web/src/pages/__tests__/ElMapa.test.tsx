@@ -1,8 +1,47 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ElMapa } from '../ElMapa';
+
+import type { ReactNode } from 'react';
+
+vi.mock('../ElMapa/sections/SeccionInstrumento', () => ({
+  SeccionInstrumento: ({
+    onAportar,
+    participacion,
+    participando,
+  }: {
+    onAportar: () => void;
+    participacion: ReactNode;
+    participando: boolean;
+  }) => (
+    <section id="instrumento" aria-label="Instrumento territorial">
+      <h2>El país, cuadra por cuadra.</h2>
+      <button
+        type="button"
+        data-abrir-aporte
+        aria-expanded={participando}
+        onClick={() => {
+          onAportar();
+        }}
+      >
+        Sumá tu mirada al mapa
+      </button>
+      <div hidden={!participando}>{participacion}</div>
+    </section>
+  ),
+}));
+vi.mock('../ElMapa/sections/ParticiparEnMapa', () => ({
+  ParticiparEnMapa: ({ cerrar }: { cerrar: () => void }) => (
+    <aside id="aportar" aria-label="Aportar desde el mapa">
+      <h2>Sumá tu mirada.</h2>
+      <button type="button" onClick={cerrar}>
+        Cerrar aporte y volver al mapa
+      </button>
+    </aside>
+  ),
+}));
 
 import { useVocesCount } from '~/lib/queries/analytics';
 import {
@@ -39,6 +78,7 @@ const montar = () =>
 
 describe('ElMapa (página papel 2.2)', () => {
   beforeEach(() => {
+    window.history.replaceState(null, '', '/el-mapa');
     vi.mocked(useVocesCount).mockReturnValue({
       data: { total: 12496 },
       isLoading: false,
@@ -90,19 +130,34 @@ describe('ElMapa (página papel 2.2)', () => {
    * voz y el feed quedan debajo, en el ancla `#aportar`. Antes había que
    * hablar antes de ver para qué.
    */
-  it('compone instrumento arriba, y panel + feed debajo', () => {
+  it('abre el aporte dentro del instrumento y no lo repite debajo del mapa', () => {
     const { container } = montar();
-
-    const instrumento = screen.getByRole('heading', {
-      level: 2,
-      name: 'El país, cuadra por cuadra.',
-    });
-    const panel = screen.getByRole('heading', { level: 2, name: 'Soltá tu voz' });
-    expect(screen.getByRole('heading', { level: 2, name: 'Últimas voces' })).toBeInTheDocument();
     expect(
-      instrumento.compareDocumentPosition(panel) & Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
+      screen.queryByRole('complementary', { name: 'Aportar desde el mapa' }),
+    ).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Sumá tu mirada al mapa' }));
+    const instrumento = screen.getByRole('region', { name: 'Instrumento territorial' });
+    expect(
+      within(instrumento).getByRole('complementary', { name: 'Aportar desde el mapa' }),
+    ).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Últimas voces' })).not.toBeInTheDocument();
     expect(container.querySelector('#aportar')).not.toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar aporte y volver al mapa' }));
+    expect(
+      screen.queryByRole('complementary', { name: 'Aportar desde el mapa' }),
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Sumá tu mirada al mapa' })).toHaveFocus();
+  });
+
+  it('la invitación idealizada abre el panel del mismo mapa desde un enlace público', () => {
+    window.history.replaceState(null, '', '/el-mapa?participar=imaginar#instrumento');
+    montar();
+    expect(
+      within(screen.getByRole('region', { name: 'Instrumento territorial' })).getByRole(
+        'complementary',
+        { name: 'Aportar desde el mapa' },
+      ),
+    ).toBeInTheDocument();
   });
 
   it('el instrumento tiene su ancla profunda', () => {

@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { api } from '~/lib/api';
 
@@ -127,6 +127,10 @@ export function useRadiografia({ umbral, k = K_VECINAS, filtros = {} }: PedidoDe
       api.get<RadiografiaPublica>(
         `/api/v1/civic/radiografia?${new URLSearchParams({ ...filtros, umbral: umbral.toFixed(2), k: String(k) }).toString()}`,
       ),
-    placeholderData: keepPreviousData,
+    // El umbral puede recalcular el corte anterior. Otro alcance no puede heredar sus voces.
+    placeholderData: (previo, consultaAnterior) =>
+      JSON.stringify(consultaAnterior?.queryKey[3]) === JSON.stringify(filtros)
+        ? previo
+        : undefined,
   });
 }

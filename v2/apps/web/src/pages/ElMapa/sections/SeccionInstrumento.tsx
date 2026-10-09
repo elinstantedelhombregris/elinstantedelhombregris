@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 
 import type { LugarMapa } from '../instrumento/BusquedaTerritorial';
+import type { ReactNode } from 'react';
 
 /**
  * El instrumento, debajo del panel de carga (§ pedido de rediseño).
@@ -19,9 +20,13 @@ const Instrumento = lazy(() =>
 export function SeccionInstrumento({
   onAportar,
   onTerritorio,
+  participacion,
+  participando,
 }: {
   onAportar?: (lugar: LugarMapa | null) => void;
   onTerritorio?: (lugar: LugarMapa | null) => void;
+  participacion?: ReactNode;
+  participando?: boolean;
 }) {
   return (
     <section id="instrumento" aria-labelledby="instrumento-titulo" className="mt-2">
@@ -33,9 +38,8 @@ export function SeccionInstrumento({
           El país, cuadra por cuadra.
         </h2>
         <p className="text-tinta-75 max-w-[62ch] text-[15px] leading-relaxed max-[639px]:sr-only">
-          Buscá tu lugar o recorré el país. Cambiá de lente: dónde se dijo cada cosa, qué provincia
-          habla más, cómo se fue llenando y dónde todavía no habló nadie. Se cuentan registros, no
-          personas.
+          Recorré las miradas de un lugar y sumá la tuya sin salir del mapa. Lo que soñamos,
+          observamos y sabemos comparte un territorio; después puede abrir un diseño común.
         </p>
       </div>
 
@@ -49,6 +53,8 @@ export function SeccionInstrumento({
         }
       >
         <Instrumento
+          participacion={participacion}
+          participando={participando ?? false}
           {...(onTerritorio ? { onTerritorio } : {})}
           {...(onAportar ? { onAportar } : {})}
         />

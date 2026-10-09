@@ -214,13 +214,15 @@ describe('la cabecera de procedencia — regla 5 (§3.2)', () => {
 });
 
 describe('el vacío (§6)', () => {
-  it('con cero señales invita sin disculparse y manda al mapa', () => {
+  it('sin textos comparables no confunde la falta de dibujo con ausencia de participación', () => {
     const { container } = envolver(<CieloVacio analizadas={0} sinVector={0} tema="papel" />);
-    expect(screen.getByText('Todavía no habló nadie.')).toBeInTheDocument();
+    expect(screen.getByText('Acá todavía no aparecen relaciones.')).toBeInTheDocument();
     expect(
-      screen.getByText('Una constelación necesita dos estrellas para tener una línea.'),
+      screen.getByText(/Que no se dibujen relaciones no significa que nadie haya participado/),
     ).toBeInTheDocument();
-    expect(container.querySelector('a')?.getAttribute('href')).toBe('/el-mapa');
+    expect(container.querySelector('a')?.getAttribute('href')).toBe(
+      '/el-mapa?participar=imaginar#instrumento',
+    );
     expect(container.textContent).not.toMatch(/perdón|disculp|lo sentimos|próximamente/i);
   });
 
@@ -229,10 +231,12 @@ describe('el vacío (§6)', () => {
     expect(screen.getByText('La primera. Todavía no hay con qué compararla.')).toBeVisible();
   });
 
-  it('con señales sin vector declara que el análisis no corrió', () => {
+  it('con señales sin vector declara la falta de análisis disponible sin inventar el estado del worker', () => {
     const { container } = envolver(<CieloVacio analizadas={0} sinVector={12} tema="papel" />);
-    expect(container.textContent).toContain('12 señales están esperando análisis');
-    expect(container.textContent).toContain('se corre a mano');
+    expect(container.textContent).toContain(
+      '12 señales de esta consulta no tienen análisis disponible',
+    );
+    expect(container.textContent).not.toContain('todavía no corrió');
   });
 });
 
@@ -605,7 +609,7 @@ describe('la página, de punta a punta', () => {
       isError: false,
     };
     envolver(<LaRadiografia />);
-    expect(screen.getByText('Todavía no habló nadie.')).toBeInTheDocument();
+    expect(screen.getByText('Acá todavía no aparecen relaciones.')).toBeInTheDocument();
     expect(screen.queryByTestId('constelacion')).toBeNull();
   });
 
@@ -661,7 +665,7 @@ describe('la página, de punta a punta', () => {
     const { container } = envolver(<LaRadiografia />);
     expect(container.textContent).toContain('No se pudo traer el análisis');
     expect(container.textContent).toContain('No se pudo leer');
-    expect(screen.queryByText('Todavía no habló nadie.')).toBeNull();
+    expect(screen.queryByText('Acá todavía no aparecen relaciones.')).toBeNull();
   });
 
   it('el interruptor papel/nocturno persiste la elección del lector', () => {

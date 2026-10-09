@@ -3,6 +3,7 @@ import {
   TEXTO_CESION_LICENCIA,
   TEXTO_PUBLICACION_IRREVOCABLE,
 } from '@v2/shared';
+import { useId } from 'react';
 
 interface Props {
   publicar: boolean;
@@ -11,12 +12,13 @@ interface Props {
   setCede: (valor: boolean) => void;
 }
 export function ConsentimientoVoz({ publicar, cede, setPublicar, setCede }: Props) {
+  const id = useId();
   return (
     <div className="border-papel-borde mt-4 border-t pt-3.5 text-sm leading-relaxed">
       <p>{TEXTO_CONSENTIMIENTO_ACTOR}</p>
-      <label className="mt-3 flex items-start gap-2.5" htmlFor="voz-publicacion">
+      <label className="mt-3 flex items-start gap-2.5" htmlFor={`${id}-publicacion`}>
         <input
-          id="voz-publicacion"
+          id={`${id}-publicacion`}
           type="checkbox"
           checked={publicar}
           onChange={(e) => {
@@ -26,9 +28,9 @@ export function ConsentimientoVoz({ publicar, cede, setPublicar, setCede }: Prop
         />
         <span>Quiero publicar esta voz. {TEXTO_PUBLICACION_IRREVOCABLE}</span>
       </label>
-      <label className="mt-3 flex items-start gap-2.5" htmlFor="voz-cesion">
+      <label className="mt-3 flex items-start gap-2.5" htmlFor={`${id}-cesion`}>
         <input
-          id="voz-cesion"
+          id={`${id}-cesion`}
           type="checkbox"
           checked={cede}
           onChange={(e) => {

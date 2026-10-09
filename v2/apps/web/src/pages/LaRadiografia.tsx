@@ -5,11 +5,9 @@ import { guardarTema, leerTema, type Orden, type Tema } from './LaRadiografia/ra
 import { construirVista } from './LaRadiografia/radiografia-vista';
 import { CabeceraProcedencia } from './LaRadiografia/sections/CabeceraProcedencia';
 import { CieloVacio } from './LaRadiografia/sections/CieloVacio';
-import { ComoLeerElCielo } from './LaRadiografia/sections/ComoLeerElCielo';
-import { Constelacion } from './LaRadiografia/sections/Constelacion';
 import { ControlesAnalisis } from './LaRadiografia/sections/ControlesAnalisis';
 import { DeslizadorUmbral } from './LaRadiografia/sections/DeslizadorUmbral';
-import { FichaDeNucleo } from './LaRadiografia/sections/FichaDeNucleo';
+import { ExploradorConstelacion } from './LaRadiografia/sections/ExploradorConstelacion';
 import { InterruptorDeTema } from './LaRadiografia/sections/InterruptorDeTema';
 import { LecturaOpiniones } from './LaRadiografia/sections/LecturaOpiniones';
 import { ListaDeNucleos } from './LaRadiografia/sections/ListaDeNucleos';
@@ -19,59 +17,25 @@ import { Kicker, RitoTinta } from '~/components/papel/primitives';
 import { filtrosPublicos } from '~/lib/participacion/exportar';
 import { UMBRAL_INICIAL, useRadiografia } from '~/lib/queries/radiografia';
 
-/**
- * La Radiografía — la convergencia como instrumento.
- *
- * Spec: `docs/specs/2026-08-12-la-radiografia.md`.
- *
- * Las cinco lentes de `/el-mapa` contestan **dónde**, **cuándo** y **cuánto**.
- * Ninguna contesta **sobre qué, y estamos de acuerdo**. Esta página es la
- * cuarta superficie que la constitución de producto ya nombra.
- *
- * Tres piezas y un orden que no es decorativo:
- *
- *  1. la **cabecera de procedencia**, que no se puede cerrar (regla 5);
- *  2. la **constelación** y su **deslizador**, que es el mando (R7);
- *  3. la **lista**, que es el camino accesible al mismo estado (R11) y **sale
- *     junto con la constelación, nunca después** (§10, rebanada 4).
- *
- * **Acá no se monta el ejemplo.** Los tres escenarios inventados viven en
- * `/la-radiografia/ejemplo`, con su propia ruta, su propio título y su propio
- * sello adentro del lienzo — enmienda `2026-08-16-enmienda-v1-los-ejemplos.md`
- * §3 y E5: el modo es excluyente, o mirás el ejemplo o mirás el país. Mezclar
- * las dos cosas en un mismo scroll es fabricar la captura que la enmienda §4
- * existe para prevenir. Desde acá va un link, y nada más que un link.
- */
+function umbralInicial() {
+  const n = Number(new URLSearchParams(window.location.search).get('umbral'));
+  return n >= 0.3 && n <= 0.95 ? n : UMBRAL_INICIAL;
+}
 
-/** Espera antes de repedirle al servidor. El navegador ya recalculó mientras. */
-const ESPERA_DEL_PEDIDO = 350;
-
+/** El grafo real y el laboratorio sintético conservan rutas, fuentes y sellos separados. */
 export function LaRadiografia() {
   const [filtros, setFiltros] = useState(() =>
     filtrosPublicos(Object.fromEntries(new URLSearchParams(window.location.search))),
   );
-  const cambiarFiltros = (f: Record<string, string>) => {
-    setFiltros(f);
-    setEnfocado(null);
-    const q = new URLSearchParams({ ...f, umbral: umbral.toFixed(2) });
-    window.history.replaceState(null, '', `/la-radiografia?${q.toString()}`);
-  };
-  const [umbral, setUmbral] = useState(() => {
-    const n = Number(new URLSearchParams(window.location.search).get('umbral'));
-    return n >= 0.1 && n <= 0.99 ? n : UMBRAL_INICIAL;
-  });
-  const [umbralPedido, setUmbralPedido] = useState(UMBRAL_INICIAL);
+  const [umbral, setUmbral] = useState(umbralInicial);
+  const [umbralPedido, setUmbralPedido] = useState(umbralInicial);
   const [orden, setOrden] = useState<Orden>('tamano');
   const [enfocado, setEnfocado] = useState<string | null>(null);
   const [tema, setTema] = useState<Tema>('papel');
-
+  const [alcanceAbierto, setAlcanceAbierto] = useState(false);
   useEffect(() => {
     setTema(leerTema());
   }, []);
-
-  // El deslizador se mueve en el navegador y el servidor se entera después:
-  // los núcleos se recalculan al instante con el mismo `nucleosAlUmbral` de
-  // `@v2/civic-core`, y el pedido sale cuando el lector deja de arrastrar.
   useEffect(() => {
     const reloj = setTimeout(() => {
       setUmbralPedido(umbral);
@@ -80,196 +44,202 @@ export function LaRadiografia() {
         '',
         `/la-radiografia?${new URLSearchParams({ ...filtros, umbral: umbral.toFixed(2) }).toString()}`,
       );
-    }, ESPERA_DEL_PEDIDO);
+    }, 350);
     return () => {
       clearTimeout(reloj);
     };
   }, [umbral, filtros]);
-
   const { data, isLoading, isError } = useRadiografia({ umbral: umbralPedido, filtros });
   const vista = useMemo(() => construirVista(data, umbral), [data, umbral]);
-
+  const enfocar = useCallback((id: string | null) => {
+    setEnfocado(id);
+  }, []);
+  const dibujables = vista.nucleos.reduce((total, n) => total + n.senales, 0) + vista.solas.length;
+  const aristas = useMemo(
+    () =>
+      (data?.aristas ?? []).filter(
+        (a) =>
+          a.tipo === 'declarada' ||
+          a.similitud >= (vista.origen === 'esperando' ? (data?.umbral ?? umbral) : umbral),
+      ),
+    [data, vista.origen, umbral],
+  );
+  const nocturno = tema === 'nocturno';
+  const meta = nocturno ? 'text-oscuro-secundario' : 'text-tinta-75';
+  const borde = nocturno ? 'border-oscuro-borde' : 'border-tinta';
   const cambiarTema = (nuevo: Tema) => {
     setTema(nuevo);
     guardarTema(nuevo);
   };
-
-  // El enfoque se pasa por referencia estable: el bucle de la constelación lo
-  // guarda y no queremos que un `onEnfocar` nuevo por render lo reinicie.
-  const enfocar = useCallback((id: string | null) => {
-    setEnfocado(id);
-  }, []);
-
-  const nucleoAbierto = vista.nucleos.find((n) => n.id === enfocado) ?? null;
-  const dibujables = vista.nucleos.reduce((total, n) => total + n.senales, 0) + vista.solas.length;
-  const nocturno = tema === 'nocturno';
-
+  const cambiarFiltros = (f: Record<string, string>) => {
+    setFiltros(filtrosPublicos(f));
+    setEnfocado(null);
+  };
+  const consulta = { ...filtros, umbral: umbral.toFixed(2) };
   return (
-    <main
-      className={nocturno ? 'bg-oscuro-barra text-oscuro-texto' : ''}
-      style={nocturno ? { minHeight: '100vh' } : undefined}
-    >
-      <div className="mx-auto max-w-[1180px] px-10 py-[72px] max-[560px]:px-5">
-        <div className="mb-8 flex flex-wrap items-start justify-between gap-6">
-          <div>
-            <Kicker className="anim-fadeup mb-4">Sobre qué habla el país</Kicker>
+    <main className={nocturno ? 'bg-oscuro-barra text-oscuro-texto' : ''}>
+      <div className="mx-auto max-w-[1440px] px-10 py-10 max-[560px]:px-5">
+        <div className="flex flex-wrap items-start justify-between gap-6">
+          <div className="max-w-[780px]">
+            <Kicker className="mb-3">Un país se entiende cuando sus voces se encuentran</Kicker>
             <h1
               aria-label="La Radiografía."
-              className="font-anton riso-hover mb-5 text-[clamp(44px,6vw,84px)] leading-[0.98]"
+              className="font-anton mb-4 text-[clamp(44px,6vw,84px)] leading-[0.98]"
             >
               <RitoTinta lineas={['La Radiografía.']} />
             </h1>
-            <p
-              className={`anim-fadeup max-w-[640px] text-pretty text-[18px] leading-[1.6] ${
-                nocturno ? 'text-oscuro-secundario' : 'text-tinta-75'
-              }`}
-              style={{ animationDelay: '0.9s' }}
-            >
-              El mapa dice dónde se habló y cuándo. Esto dice{' '}
-              <strong className="font-semibold">sobre qué</strong> — y qué se dijo casi igual en dos
-              puntas del país sin que nadie se pusiera de acuerdo.
+            <p className={`max-w-[690px] text-lg leading-relaxed ${meta}`}>
+              Encontrá patrones. Separá diferencias. Volvé a lo que se dijo. Una pregunta bien
+              mirada puede abrir un futuro compartido.
             </p>
-            {/* Las dos advertencias epistemológicas, separadas de la tesis: la
-                bajada vieja metía cuatro ideas en un párrafo y la revisión del
-                19/8 lo midió como el primero de tres muros de texto antes de
-                la imagen. No se pierde nada: se respira. */}
-            <p
-              className={`anim-fadeup mt-3 max-w-[640px] text-pretty text-[15px] leading-[1.55] ${
-                nocturno ? 'text-oscuro-meta' : 'text-tinta-50'
-              }`}
-              style={{ animationDelay: '1.1s' }}
-            >
-              Dos cosas antes de mirar. Converger no es corroborar: que muchas señales digan lo
-              mismo es evidencia de eso y de nada más — y ya es mucho. Y son{' '}
-              <strong className="font-semibold">señales</strong>, no personas: acá se cuentan filas,
-              y una sola persona puede haber cargado veinte.
+            <p className={`mt-3 max-w-[760px] text-sm leading-relaxed ${meta}`}>
+              Que muchas señales digan lo mismo no prueba que sea cierto ni que exista acuerdo. Son
+              señales, no personas: acá contamos registros, y una misma persona puede haber
+              compartido varios.
             </p>
           </div>
-
           <InterruptorDeTema tema={tema} onCambiar={cambiarTema} />
         </div>
-
-        <ControlesAnalisis
-          filtros={{ ...filtros, umbral: umbral.toFixed(2) }}
-          cambiar={cambiarFiltros}
-          corte={data?.corte ?? null}
-        />
-        <CabeceraProcedencia datos={data} cargando={isLoading} fallo={isError} tema={tema} />
-        <a href="#acuerdos" className="my-5 inline-flex min-h-11 items-center underline">
-          Leer acuerdos y diferencias de las fichas ↓
-        </a>
-
-        {isError && !data ? (
-          // El vacío es una pieza y una afirmación: «todavía no habló nadie».
-          // Cuando el pedido falla no sabemos si habló alguien, así que no se
-          // dice. Se dice lo que pasó.
-          <p
-            className={`py-16 text-center text-[16px] ${nocturno ? 'text-oscuro-meta' : 'text-tinta-50'}`}
+        <nav aria-label="Recorrido de Radiografía" className="my-6 flex flex-wrap gap-3">
+          <a
+            href="#patrones"
+            className={`font-space inline-flex min-h-11 items-center border ${borde} px-4 text-xs uppercase`}
           >
-            No se pudo traer el análisis. Recargá en un momento.
+            Explorar patrones ↓
+          </a>
+          <a
+            href="#acuerdos"
+            className={`font-space inline-flex min-h-11 items-center border ${borde} px-4 text-xs uppercase`}
+          >
+            Acuerdos y diferencias ↓
+          </a>
+          <Link
+            href="/la-radiografia/ejemplo"
+            className="font-space bg-violeta text-papel inline-flex min-h-11 items-center px-4 text-xs uppercase"
+          >
+            Explorar un ejemplo →
+          </Link>
+        </nav>
+        <div
+          className={`mb-5 flex flex-wrap items-center justify-between gap-4 border-y ${borde} py-3`}
+        >
+          <p className={`font-space text-xs ${meta}`}>
+            {Object.keys(filtros).length
+              ? `${Object.keys(filtros).length} filtros elegidos`
+              : 'Alcance nacional · todos los registros elegibles'}
           </p>
-        ) : dibujables < 2 ? (
-          <CieloVacio
-            analizadas={data?.analizadas ?? 0}
-            sinVector={data?.sinVector ?? 0}
-            tema={tema}
-          />
-        ) : (
-          <>
-            {/* Antes de la imagen y no después: si con este corpus los núcleos
-                son aritmética del método, el lector tiene que saberlo antes de
-                sacar la conclusión, no en un pie. Se dibuja solo cuando el
-                servidor lo declara, y desaparece solo cuando deja de valer. */}
-            <RegimenDegenerado regimen={data?.regimenDegenerado ?? null} tema={tema} />
-
-            {/* La leyenda antes de la imagen: qué es un punto, qué es un
-                núcleo, qué dice cada color y qué se puede tocar. Sin esto, la
-                única leyenda vivía adentro de la ficha — que sólo aparece
-                después de clickear lo que la leyenda explica. */}
-            <ComoLeerElCielo tema={tema} />
-
-            {/* φ y sólo acá: 1,618fr de constelación a 1fr de ficha (§5.6.5).
-                Nada de φ entra en el umbral ni en un número publicado (R10). */}
-            <div className="grid gap-0 lg:grid-cols-[1.618fr_1fr]">
-              <div className="h-[520px] w-full">
-                <Constelacion
-                  nucleos={vista.nucleos}
-                  solas={vista.solas}
-                  aristas={data?.aristas ?? []}
+          <div className="flex flex-wrap gap-5">
+            <button
+              type="button"
+              aria-expanded={alcanceAbierto}
+              aria-controls="alcance-radiografia"
+              onClick={() => {
+                setAlcanceAbierto(!alcanceAbierto);
+              }}
+              className="font-space min-h-11 text-xs underline"
+            >
+              {alcanceAbierto ? 'Cerrar alcance y herramientas' : 'Alcance, compartir y guardar'}
+            </button>
+            <Link
+              href={`/datos-abiertos?${new URLSearchParams(consulta).toString()}`}
+              className="font-space inline-flex min-h-11 items-center text-xs underline"
+            >
+              Descargar estos datos →
+            </Link>
+          </div>
+        </div>
+        {alcanceAbierto ? (
+          <div id="alcance-radiografia">
+            <ControlesAnalisis
+              filtros={consulta}
+              cambiar={cambiarFiltros}
+              corte={data?.corte ?? null}
+            />
+          </div>
+        ) : null}
+        <CabeceraProcedencia
+          datos={data}
+          cargando={isLoading}
+          fallo={isError}
+          tema={tema}
+          compacto
+        />
+        <div id="patrones" className="scroll-mt-24">
+          {isError && !data ? (
+            <p role="alert" className="border py-16 text-center">
+              No se pudo traer el análisis. Recargá en un momento.
+            </p>
+          ) : isLoading ? (
+            <p role="status" className="border py-20 text-center">
+              Reuniendo el registro para esta mirada…
+            </p>
+          ) : dibujables < 2 ? (
+            <>
+              <CieloVacio
+                analizadas={data?.analizadas ?? 0}
+                sinVector={data?.sinVector ?? 0}
+                tema={tema}
+              />
+              <Link
+                href="/la-radiografia/ejemplo"
+                className="font-space mt-4 inline-flex min-h-11 items-center text-sm underline"
+              >
+                Abrir el laboratorio con voces inventadas →
+              </Link>
+            </>
+          ) : (
+            <>
+              <RegimenDegenerado regimen={data?.regimenDegenerado ?? null} tema={tema} />
+              <ExploradorConstelacion
+                nucleos={vista.nucleos}
+                solas={vista.solas}
+                aristas={aristas}
+                tema={tema}
+                origen="corpus"
+                enfocado={enfocado}
+                onEnfocar={enfocar}
+              />
+              <div className="my-6">
+                <DeslizadorUmbral
+                  umbral={umbral}
+                  onCambiar={setUmbral}
+                  origen={vista.origen}
+                  nucleos={vista.nucleos.length}
+                  solas={vista.solas.length}
                   tema={tema}
-                  enfocado={enfocado}
-                  onEnfocar={enfocar}
-                  // El corpus vivo. Un cielo `corpus` NO se sella: sellarlo
-                  // sería afirmar que lo que dijo la gente es inventado.
-                  origen="corpus"
                 />
               </div>
-              <FichaDeNucleo
-                nucleo={nucleoAbierto}
-                tema={tema}
-                onCerrar={() => {
-                  setEnfocado(null);
-                }}
-              />
-            </div>
-
-            <div className="mt-8">
-              <DeslizadorUmbral
-                umbral={umbral}
-                onCambiar={setUmbral}
-                origen={vista.origen}
-                nucleos={vista.nucleos.length}
-                solas={vista.solas.length}
+              <ListaDeNucleos
+                nucleos={vista.nucleos}
+                orden={orden}
+                onOrdenar={setOrden}
+                enfocado={enfocado}
+                onEnfocar={enfocar}
                 tema={tema}
               />
-            </div>
-
-            <ListaDeNucleos
-              nucleos={vista.nucleos}
-              orden={orden}
-              onOrdenar={setOrden}
-              enfocado={enfocado}
-              onEnfocar={enfocar}
-              tema={tema}
-            />
-          </>
-        )}
-
+            </>
+          )}
+        </div>
         <LecturaOpiniones
           key={`${filtros.campana ?? ''}:${filtros.territorio ?? ''}`}
           filtros={filtros}
         />
-
-        {/* Fuera del condicional a propósito: con la base casi vacía —`D-002`—
-            el cielo de arriba puede estar vacío, y entonces este link es lo
-            único que queda para entender qué hace el instrumento y qué no. Es
-            un link y no una sección: el ejemplo no se monta acá (E5). */}
-        <nav
-          aria-label="El ejemplo de La Radiografía"
-          className={`mt-16 border-t-2 pt-8 ${nocturno ? 'border-oscuro-borde' : 'border-tinta'}`}
-        >
-          <Kicker className="mb-3">Todavía no se ve nada, o se ve poco</Kicker>
+        <nav aria-label="El ejemplo de La Radiografía" className={`mt-12 border-t-2 ${borde} pt-8`}>
+          <Kicker className="mb-3">Aprender a mirar también es participar</Kicker>
           <Link
             href="/la-radiografia/ejemplo"
-            className={`font-anton block max-w-[70ch] text-[clamp(24px,2.8vw,34px)] leading-[1.08] underline decoration-1 underline-offset-[6px] hover:opacity-70 ${
-              nocturno ? 'text-oscuro-texto' : 'text-tinta'
-            }`}
+            className="font-anton block text-[clamp(26px,3vw,40px)] underline underline-offset-4"
           >
             Ver un ejemplo, con voces inventadas →
           </Link>
-          <p
-            className={`mt-3 max-w-[70ch] text-[15px] leading-[1.55] ${
-              nocturno ? 'text-oscuro-meta' : 'text-tinta-50'
-            }`}
-          >
-            Tres corpus escritos a mano para mostrar qué hace este instrumento y qué no hace. Vive
-            en otra pantalla a propósito: <strong className="font-semibold">nadie dijo</strong>{' '}
-            ninguna de esas frases, y no se mezclan jamás con lo que dijo la gente.
+          <p className={`mt-3 max-w-[750px] text-sm leading-relaxed ${meta}`}>
+            Tres escenarios permiten mover el instrumento y descubrir sus límites. Ninguna de esas
+            frases pertenece al registro: el laboratorio tiene su propia pantalla y un sello dentro
+            de la imagen.
           </p>
         </nav>
       </div>
     </main>
   );
 }
-
 export default LaRadiografia;

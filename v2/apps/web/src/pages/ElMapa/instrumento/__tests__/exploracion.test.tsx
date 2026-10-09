@@ -16,20 +16,18 @@ vi.mock('~/lib/queries/open-data', () => ({
 }));
 vi.mock('~/lib/api', () => ({
   api: {
-    get: vi
-      .fn()
-      .mockResolvedValue({
-        lugares: [
-          {
-            id: 15,
-            name: 'San Martín',
-            level: 'locality',
-            provinceId: 6,
-            latitude: null,
-            longitude: null,
-          },
-        ],
-      }),
+    get: vi.fn().mockResolvedValue({
+      lugares: [
+        {
+          id: 15,
+          name: 'San Martín',
+          level: 'locality',
+          provinceId: 6,
+          latitude: null,
+          longitude: null,
+        },
+      ],
+    }),
   },
 }));
 const datos: LecturaMapa = {
@@ -142,6 +140,7 @@ describe('Explorar con alcance explícito', () => {
         elegir={vi.fn()}
       />,
     );
+    fireEvent.click(screen.getByRole('button', { name: 'Filtros' }));
     fireEvent.change(screen.getByLabelText('Período de la consulta'), { target: { value: '7d' } });
     expect(cambiar).toHaveBeenLastCalledWith({ modo: 'mapa', rango: '7d', lugarId: 6 });
     fireEvent.click(screen.getByRole('button', { name: 'Limpiar filtros' }));

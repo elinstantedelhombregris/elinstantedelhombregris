@@ -33,7 +33,7 @@ describe('SeccionInstrumento', () => {
     expect(
       screen.getByRole('heading', { level: 2, name: 'El país, cuadra por cuadra.' }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/dónde todavía no habló nadie/i)).toBeInTheDocument();
+    expect(screen.getByText(/sumá la tuya sin salir del mapa/i)).toBeInTheDocument();
   });
 
   it('lleva el ancla profunda a la que redirige /explorar-datos', () => {

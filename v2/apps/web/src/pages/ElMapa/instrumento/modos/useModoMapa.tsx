@@ -2,6 +2,7 @@ import { planTerritorialCoverage, pointInCoverageArea } from '@v2/civic-core';
 import { useCallback, useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
+import { AmbitosProvinciales } from '../AmbitosProvinciales';
 import { escribirAreaEnHash } from '../area-url';
 import { Control, FiltroClases } from '../Chrome';
 import { contarArea } from '../conteo';
@@ -133,11 +134,27 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
 
   return {
     titulo: 'Mapa',
-    capasInteractivas: ['senales-punto'],
-    onClickCapa: (_capa, props) => {
+    capasInteractivas: ['senales-punto', 'ambitos-provincia-relleno'],
+    onClickCapa: (capa, props) => {
+      if (
+        capa === 'ambitos-provincia-relleno' &&
+        typeof props.provinceId === 'number' &&
+        typeof props.name === 'string'
+      ) {
+        ctx.elegirLugar?.({
+          id: props.provinceId,
+          provinceId: props.provinceId,
+          name: props.name,
+          level: 'province',
+          latitude: null,
+          longitude: null,
+        });
+        return;
+      }
       if (typeof props.id === 'string') ctx.seleccionar?.(props.id);
     },
-    descripcion: 'Cada voz donde fue dicha. Dibujá un área para leer lo que pasa adentro.',
+    descripcion:
+      'Tocá una provincia para conocer sus miradas. Los puntos conservan su precisión; el color señala ámbitos provinciales con aportes.',
     arrastreHabilitado: !lazoActivo,
 
     panel: (
@@ -195,6 +212,7 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
 
     capas: (
       <>
+        <AmbitosProvinciales resumen={ctx.resumen} clases={clasesActivas} />
         <Source id="area" type="geojson" data={areaGeojson}>
           <Layer
             id="area-relleno"
@@ -249,7 +267,7 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
         <Vacio
           titulo="Todavía no habló nadie."
           cuerpo="La primera voz del mapa puede ser la tuya."
-          accion={{ href: '#instrumento', etiqueta: 'Soltar la primera voz' }}
+          accion={{ href: '#aportar', etiqueta: 'Soltar la primera voz' }}
         />
       ) : lazoActivo ? (
         <LazoOverlay

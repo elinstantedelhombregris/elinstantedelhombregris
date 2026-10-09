@@ -1,14 +1,8 @@
+import { enlaceDeRegistro } from './enlace-registro';
+
 import type { LecturaMapa, SenalMapa } from '~/lib/queries/civic-map';
 
 import { ESTADO_EN_CASTELLANO } from '~/lib/vocabulario';
-
-function enlaceDe(senal: SenalMapa): string | null {
-  const [origen, id] = senal.id.split(':');
-  if (origen === 'voz' && id && /^[0-9a-f-]{36}$/i.test(id)) return `/senal/${id}`;
-  if ((origen === 'pulso' || origen === 'propuesta') && id && /^\d+$/.test(id))
-    return `/mandato-vivo/${origen}/${id}`;
-  return null;
-}
 
 export function ListaRegistros({
   datos,
@@ -24,7 +18,7 @@ export function ListaRegistros({
       aria-label="Lista de registros"
       className="text-oscuro-texto border-oscuro-borde border-t p-4"
     >
-      <h3 className="font-anton text-xl">Los aportes de esta consulta</h3>
+      <h3 className="font-anton text-[28px]">Conocé las miradas de este lugar.</h3>
       <p className="text-oscuro-meta mb-4 mt-2 text-sm">
         {datos.metadata.entregados} registros cargados de {datos.metadata.total} coincidentes. Cada
         una es un hecho por corroborar, un deseo o una propuesta — ninguna es un acuerdo.
@@ -37,7 +31,7 @@ export function ListaRegistros({
       ) : null}
       <ul className="grid max-h-[32rem] gap-3 overflow-auto md:grid-cols-2 xl:grid-cols-3">
         {datos.signals.map((senal) => {
-          const enlace = enlaceDe(senal);
+          const enlace = enlaceDeRegistro(senal);
           return (
             <li
               key={senal.id}
@@ -58,17 +52,17 @@ export function ListaRegistros({
                   : 'Ubicación publicada, que puede estar aproximada.'}
               </p>
               <div className="mt-2 flex flex-wrap gap-x-4 text-sm">
-                {senal.lat !== null && senal.lng !== null ? (
-                  <button
-                    type="button"
-                    className="min-h-11 underline"
-                    onClick={() => {
-                      seleccionar(senal);
-                    }}
-                  >
-                    Ubicar en el mapa
-                  </button>
-                ) : null}
+                <button
+                  type="button"
+                  className="min-h-11 underline"
+                  onClick={() => {
+                    seleccionar(senal);
+                  }}
+                >
+                  {senal.lat !== null && senal.lng !== null
+                    ? 'Ubicar en el mapa'
+                    : 'Conocer esta mirada'}
+                </button>
                 {enlace ? (
                   <a className="inline-flex min-h-11 items-center underline" href={enlace}>
                     Abrir aporte y seguimiento →

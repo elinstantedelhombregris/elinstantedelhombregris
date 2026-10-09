@@ -73,7 +73,8 @@ describe('el título y el encabezado lo dicen antes que la imagen', () => {
 
   it('el encabezado dice que es un ejemplo, y que no lo dijo nadie', () => {
     const { container } = envolver(<LaRadiografiaEjemplo />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveAccessibleName(/ejemplo/i);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveAccessibleName('Aprender a mirar.');
+    expect(screen.getByText('Ejemplo · voces inventadas')).toBeVisible();
     expect(container.textContent).toContain('Nadie dijo ninguna de estas cosas.');
   });
 });

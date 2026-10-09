@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 
 import { api } from '~/lib/api';
 import { useProvincias } from '~/lib/queries/open-data';
@@ -20,7 +20,14 @@ const NIVELES: Record<string, string> = {
   settlement: 'Asentamiento',
 };
 
-export function BusquedaTerritorial({ onElegir }: { onElegir: (lugar: LugarMapa) => void }) {
+export function BusquedaTerritorial({
+  onElegir,
+  rotulo = 'Buscá provincia, municipio o localidad',
+}: {
+  onElegir: (lugar: LugarMapa) => void;
+  rotulo?: string;
+}) {
+  const id = useId();
   const [texto, setTexto] = useState('');
   const [busqueda, setBusqueda] = useState('');
   const provincias = useProvincias();
@@ -43,12 +50,12 @@ export function BusquedaTerritorial({ onElegir }: { onElegir: (lugar: LugarMapa)
   });
   const nombres = new Map((provincias.data ?? []).map((p) => [p.id, p.name]));
   return (
-    <div className="relative min-w-0 basis-full min-[640px]:basis-auto min-[640px]:flex-1">
-      <label htmlFor="buscar-territorio" className="mb-1 block text-xs">
-        Buscá provincia, municipio o localidad
+    <div className="relative min-w-0 basis-full min-[640px]:flex-1 min-[640px]:basis-auto">
+      <label htmlFor={id} className="mb-1 block text-xs">
+        {rotulo}
       </label>
       <input
-        id="buscar-territorio"
+        id={id}
         type="search"
         value={texto}
         onChange={(e) => {
@@ -59,7 +66,7 @@ export function BusquedaTerritorial({ onElegir }: { onElegir: (lugar: LugarMapa)
         autoComplete="off"
       />
       {busqueda.length >= 2 ? (
-        <div className="bg-tinta border-oscuro-borde absolute z-30 mt-1 max-h-72 w-full overflow-auto border p-2 shadow-xl">
+        <div className="bg-tinta border-oscuro-borde absolute z-30 mt-1 max-h-72 w-full overflow-auto border p-2">
           {consulta.isFetching ? (
             <p role="status" className="p-2">
               Buscando lugares…

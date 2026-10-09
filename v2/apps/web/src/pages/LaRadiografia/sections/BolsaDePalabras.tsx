@@ -42,13 +42,30 @@ import type { Tema } from '../radiografia-data';
 export interface BolsaDePalabrasProps {
   readonly artefacto: ArtefactoDeVectores;
   readonly tema: Tema;
+  readonly compacto?: boolean;
 }
 
-export function BolsaDePalabras({ artefacto, tema }: BolsaDePalabrasProps) {
+export function BolsaDePalabras({ artefacto, tema, compacto = false }: BolsaDePalabrasProps) {
   const nocturno = tema === 'nocturno';
   const meta = nocturno ? 'text-oscuro-meta' : 'text-tinta-50';
   const texto = nocturno ? 'text-oscuro-texto' : 'text-tinta';
   const borde = nocturno ? 'border-oscuro-borde' : 'border-tinta';
+  if (compacto)
+    return (
+      <section aria-label="Motor del laboratorio" className={`mb-4 border-l-2 ${borde} pl-4`}>
+        <p className={`text-sm leading-relaxed ${texto}`}>
+          <strong>Bolsa de palabras, sin modelo de lenguaje.</strong> El laboratorio usa{' '}
+          {artefacto.modelo}. Sus vínculos son parecido de palabras, no evidencia de acuerdo ni de
+          sentido.
+        </p>
+        <details>
+          <summary className={`min-h-11 cursor-pointer py-3 text-sm underline ${meta}`}>
+            Qué podemos concluir con este motor
+          </summary>
+          <BolsaDePalabras artefacto={artefacto} tema={tema} />
+        </details>
+      </section>
+    );
 
   return (
     <section

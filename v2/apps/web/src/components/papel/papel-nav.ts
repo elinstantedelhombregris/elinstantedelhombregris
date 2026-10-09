@@ -67,7 +67,7 @@ export const SECCIONES_BIBLIOTECA: readonly PapelNavItem[] = [
 ];
 
 export const SEMBRAR_HREF = '/sembrar';
-export const IMAGINAR_HREF = '/imaginar';
+export const IMAGINAR_HREF = '/el-mapa?participar=imaginar#instrumento';
 
 /**
  * «Quién está detrás» — la única página del sitio con entrada única, y

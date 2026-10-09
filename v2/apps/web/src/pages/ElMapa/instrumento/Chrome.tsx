@@ -125,7 +125,13 @@ export function Segmentado<T extends string>({
  * el número contesta. La barra apilada de abajo dice de qué está hecho ese
  * número sin que haya que abrir nada.
  */
-export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] }) {
+export function ContadorEnVista({
+  senales,
+  sinPunto = 0,
+}: {
+  senales: readonly SenalConTipo[];
+  sinPunto?: number;
+}) {
   const composicion = componerPorClase(senales);
   const total = senales.length;
 
@@ -133,10 +139,16 @@ export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] 
     <div className="border-oscuro-borde bg-oscuro-barra/95 w-[260px] border p-4 backdrop-blur">
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-space text-oscuro-meta text-[10px] uppercase tracking-[0.14em]">
-          Registros cargados en vista
+          {total === 0 && sinPunto > 0
+            ? 'Registros sin punto publicado'
+            : 'Registros cargados en vista'}
         </span>
         <span className="font-anton text-violeta-claro text-[26px] tabular-nums leading-none">
-          {total.toLocaleString('es-AR')}
+          {total > 0
+            ? total.toLocaleString('es-AR')
+            : sinPunto > 0
+              ? sinPunto.toLocaleString('es-AR')
+              : '—'}
         </span>
       </div>
 
@@ -177,7 +189,9 @@ export function ContadorEnVista({ senales }: { senales: readonly SenalConTipo[] 
         </>
       ) : (
         <p className="text-oscuro-secundario mt-2 text-[13px] leading-snug">
-          Nada en este encuadre. Que un área esté vacía también es información.
+          {sinPunto > 0
+            ? 'Sus miradas están en la lista. El mapa conserva ámbitos, sin inventar domicilios.'
+            : 'No hay puntos cargados en este encuadre. Recorré otro lugar o sumá tu mirada.'}
         </p>
       )}
     </div>

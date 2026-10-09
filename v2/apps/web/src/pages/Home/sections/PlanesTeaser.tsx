@@ -4,58 +4,32 @@ import { PLAN_COUNT, PLANES_TEASER } from '../landing-data';
 
 import { Kicker } from '~/components/papel/primitives';
 
-/**
- * § 03 — El ejemplo. Tres planes REALES del registro MDX
- * (grilla con juntas de tinta: gap de 1px sobre fondo tinta).
- */
 export function PlanesTeaser() {
   return (
-    <section className="mx-auto max-w-[1440px] px-5 py-[88px] min-[961px]:px-10">
-      <div className="mb-9 flex flex-wrap items-end justify-between gap-6">
-        <div>
-          <Kicker className="mb-4">§ 03 — El ejemplo</Kicker>
-          <h2 className="font-anton text-[clamp(40px,5vw,72px)] leading-none max-[960px]:text-[44px]">
-            {PLAN_COUNT} temas del país,
-            <br />
-            <span className="text-violeta">pensados de cero.</span>
-          </h2>
-          <p className="text-tinta-50 mt-4 max-w-[520px] text-pretty text-base leading-relaxed">
-            No son promesas ni programa: son ejemplos de lo que podríamos producir. Cada uno sale
-            del mismo proceso — primero el ideal, después el camino de vuelta — con presupuesto,
-            métricas y rendición de cuentas. Los publicamos para inspirar y para levantar la vara de
-            la discusión que estamos teniendo. No para que los sigas: para que la excusa de «no se
-            puede» se quede sin trabajo.
-          </p>
-        </div>
-        <Link
-          href="/planes"
-          className="font-space text-violeta hover:text-violeta-hover whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.08em] transition-colors"
-        >
-          Ver todos los ejemplos ↗
-        </Link>
+    <section className="mx-auto grid max-w-[1440px] gap-10 px-5 py-16 min-[961px]:grid-cols-[.8fr_1.2fr] min-[961px]:gap-16 min-[961px]:px-10 min-[961px]:py-20">
+      <div>
+        <Kicker className="mb-6">§ 03 — El ejemplo</Kicker>
+        <h2 className="font-anton text-[clamp(38px,4.6vw,64px)] leading-[1.04]">{PLAN_COUNT} temas del país,<br /><span className="text-violeta">pensados de cero.</span></h2>
+        <p className="text-tinta-75 mt-5 max-w-[460px] text-pretty text-[17px] leading-relaxed">Estos PLANes muestran hasta dónde puede llegar un ejercicio de diseño. Son referencias abiertas para discutir, cuestionar y mejorar con otras miradas.</p>
+        <Link href="/planes" className="font-space text-violeta mt-4 inline-flex min-h-11 items-center text-xs underline underline-offset-4">Ver todos los ejemplos ↗</Link>
       </div>
-
-      <div className="border-tinta bg-tinta grid grid-cols-3 gap-px border max-[960px]:grid-cols-1">
+      <ol className="border-tinta border-t-2">
         {PLANES_TEASER.map((plan, i) => (
-          <Link
-            key={plan.slug}
-            href={`/planes/${plan.slug}`}
-            className="bg-papel text-tinta hover:bg-papel-crudo flex min-h-[230px] flex-col gap-3.5 p-[26px] pt-[30px] transition-colors duration-200"
-          >
-            <div className="font-space text-tinta-50 flex w-full items-start justify-between gap-3 text-[11px] uppercase tracking-[0.1em]">
-              <span className="line-clamp-2 leading-snug">{plan.title}</span>
-              <span className="shrink-0">
-                {String(i + 1).padStart(2, '0')}/{PLAN_COUNT}
-              </span>
-            </div>
-            <div className="font-anton text-[34px] leading-none">{plan.code}</div>
-            <p className="text-tinta-75 m-0 line-clamp-4 text-pretty text-[15px] leading-[1.55]">
-              {plan.summary}
-            </p>
-            <span className="font-space text-violeta mt-auto text-xs">Leer resumen →</span>
-          </Link>
+          <li key={plan.slug} className="border-papel-borde border-b">
+            <Link href={`/planes/${plan.slug}`} className="group hover:bg-papel-crudo grid grid-cols-[26px_1fr] gap-4 py-6 transition-colors motion-reduce:transition-none min-[561px]:gap-6">
+              <span aria-hidden className="font-space text-tinta-50 pt-1 text-[11px]">{String(i + 1).padStart(2, '0')}</span>
+              <div className="min-w-0">
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="font-anton text-[clamp(27px,3vw,40px)] leading-none">{plan.code}</h3>
+                  <span aria-hidden className="font-space text-violeta text-xl transition-transform group-hover:translate-x-1 motion-reduce:transform-none">↗</span>
+                </div>
+                <p className="font-space text-tinta-50 mt-3 text-[10px] uppercase leading-relaxed tracking-[.08em]">{plan.title}</p>
+                <p className="text-tinta-75 mt-3 line-clamp-3 max-w-[620px] text-pretty text-[15px] leading-relaxed">{plan.summary}</p>
+              </div>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
   );
 }

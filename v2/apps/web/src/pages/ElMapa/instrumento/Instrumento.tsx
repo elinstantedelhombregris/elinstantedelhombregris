@@ -1,6 +1,7 @@
 import { useEffect, Fragment, useRef, useState } from 'react';
 
 import { BarraModos, ContadorEnVista, PanelLateral } from './Chrome';
+import { DetalleRegistroMapa } from './DetalleRegistroMapa';
 import { EstadoConsulta } from './EstadoConsulta';
 import { useExploracion, type Exploracion } from './exploracion-url';
 import { FiltrosExploracion } from './FiltrosExploracion';
@@ -17,6 +18,7 @@ import { useSenalesEnVista, useVistaMapa } from './useVistaMapa';
 import type { LugarMapa } from './BusquedaTerritorial';
 import type { ContextoModo } from './modos/tipos';
 import type { Recuadro } from './useVistaMapa';
+import type { ReactNode } from 'react';
 import type { MapRef } from 'react-map-gl/maplibre';
 
 import { PanelDejarFalta } from '~/components/papel/PanelDejarFalta';
@@ -36,15 +38,29 @@ import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
 export function Instrumento({
   onAportar,
   onTerritorio,
+  participacion,
+  participando = false,
 }: {
   onAportar?: (lugar: LugarMapa | null) => void;
   onTerritorio?: (lugar: LugarMapa | null) => void;
+  participacion?: ReactNode;
+  participando?: boolean;
 }) {
   const [lugarElegido, setLugarElegido] = useState<LugarMapa | null>(null);
   const [exploracion, setExploracion] = useExploracion();
   const { modo, rango } = exploracion;
   const [soloLista, setSoloLista] = useState(false);
   const [seleccionada, setSeleccionada] = useState<string | null>(null);
+  const regresarAlRegistro = useRef<HTMLElement | null>(null);
+  const seleccionarRegistro = (id: string) => {
+    regresarAlRegistro.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setSeleccionada(id);
+  };
+  const cerrarRegistro = () => {
+    setSeleccionada(null);
+    if (regresarAlRegistro.current?.isConnected) regresarAlRegistro.current.focus();
+  };
   const [falloMapa, setFalloMapa] = useState(false);
   const [cursor, setCursor] = useState<string | undefined>();
   const [panelFalta, setPanelFalta] = useState(false);
@@ -86,7 +102,8 @@ export function Instrumento({
     cambiarRango: (valor) => {
       cambiar({ ...exploracion, rango: valor });
     },
-    seleccionar: setSeleccionada,
+    seleccionar: seleccionarRegistro,
+    elegirLugar: elegir,
     ...(consulta.data ? { resumen: consulta.data.metadata } : {}),
   };
 
@@ -104,6 +121,7 @@ export function Instrumento({
   const necesitaCorpus = parcial && ['cobertura', 'tiempo', 'simulacion'].includes(modo);
   const tieneDatos = consulta.data !== undefined;
   const siguientePagina = consulta.data?.metadata.siguiente ?? undefined;
+  const mirada = consulta.data?.signals.find((s) => s.id === seleccionada);
 
   return (
     <section aria-label="Instrumento territorial" className="border-oscuro-borde bg-tinta border-y">
@@ -119,15 +137,18 @@ export function Instrumento({
         >
           {soloLista ? 'Mostrar mapa y lista' : 'Usar solo la lista'}
         </button>
-        <a
-          className="inline-flex min-h-11 items-center underline"
-          href="#aportar"
+        <button
+          type="button"
+          data-abrir-aporte
+          aria-expanded={participando}
+          aria-controls="aportar"
+          className="font-space bg-violeta-claro text-tinta inline-flex min-h-11 items-center px-5 py-3 text-xs uppercase tracking-wide"
           onClick={() => {
             onAportar?.(lugarElegido?.id === exploracion.lugarId ? lugarElegido : null);
           }}
         >
-          Aportar a esta lectura →
-        </a>
+          {participando ? 'Tu mirada está en elaboración' : 'Sumá tu mirada al mapa →'}
+        </button>
       </div>
       {!soloLista ? (
         <BarraModos
@@ -157,21 +178,36 @@ export function Instrumento({
           }}
         />
       ) : null}
-      {soloLista ? null : necesitaCorpus ? (
+      {necesitaCorpus ? (
         <p role="status" className="text-oscuro-texto px-5 py-10">
           Esta lente necesita todos los registros, y la consulta trae más de una página. Para los
           totales completos por provincia usá Análisis: no calculamos silencio ni escenarios sobre
           una muestra recortada.
         </p>
-      ) : tieneDatos ? (
-        <div className="grid min-h-[520px] grid-cols-[300px_minmax(0,1fr)] max-[900px]:grid-cols-1">
-          <div className="max-h-[520px] overflow-auto max-[900px]:order-2 max-[900px]:max-h-64">
-            <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
-              {activo.panel}
-            </PanelLateral>
+      ) : null}
+      {soloLista && !participando ? null : (
+        <div
+          className={`grid min-h-[640px] max-[960px]:grid-cols-1 ${soloLista ? 'grid-cols-1' : participando ? 'grid-cols-[420px_minmax(0,1fr)]' : 'grid-cols-[300px_minmax(0,1fr)]'}`}
+        >
+          <div className="max-h-[640px] overflow-auto max-[960px]:order-2 max-[960px]:max-h-none">
+            <div hidden={participando}>
+              <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
+                {tieneDatos ? (
+                  activo.panel
+                ) : (
+                  <p className="text-oscuro-secundario text-sm leading-relaxed">
+                    La lectura está pendiente. Podés recorrer el territorio y preparar tu aporte.
+                  </p>
+                )}
+              </PanelLateral>
+            </div>
+            <div hidden={!participando}>{participacion}</div>
           </div>
 
-          <div className="relative h-[520px] min-w-0 max-[900px]:order-1 max-[900px]:h-[440px]">
+          <div
+            hidden={soloLista}
+            className="relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]"
+          >
             {activo.superficie ? (
               /* La Simulación trae su propia superficie: la cortina son dos
                instancias de mapa y no se puede recortar una capa por posición
@@ -204,9 +240,11 @@ export function Instrumento({
 
             {/* El contador flota arriba a la derecha y responde al encuadre:
               arrastrás sobre una provincia y el número contesta. */}
-            <div className="pointer-events-none absolute right-4 top-4 z-10">
-              <ContadorEnVista senales={enVista} />
-            </div>
+            {consulta.data ? (
+              <div className="pointer-events-none absolute right-4 top-4 z-10">
+                <ContadorEnVista senales={enVista} sinPunto={consulta.data.metadata.sinPunto} />
+              </div>
+            ) : null}
 
             {activo.leyenda ? (
               <div className="pointer-events-none absolute bottom-14 left-4 z-10">
@@ -215,10 +253,16 @@ export function Instrumento({
             ) : null}
 
             {activo.sobreMapa}
+            {mirada ? (
+              <DetalleRegistroMapa
+                senal={mirada}
+                cerrar={() => {
+                  cerrarRegistro();
+                }}
+              />
+            ) : null}
           </div>
         </div>
-      ) : (
-        <div className="h-40" aria-hidden="true" />
       )}
 
       {falloMapa ? (
@@ -231,7 +275,7 @@ export function Instrumento({
           datos={consulta.data}
           seleccionada={seleccionada}
           seleccionar={(senal) => {
-            setSeleccionada(senal.id);
+            seleccionarRegistro(senal.id);
             setSoloLista(false);
             if (senal.lng !== null && senal.lat !== null)
               mapaRef.current?.flyTo({

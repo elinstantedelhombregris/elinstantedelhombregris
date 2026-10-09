@@ -60,7 +60,7 @@ import { Kicker, RitoTinta } from '~/components/papel/primitives';
 const TITULO = 'Ejemplo — La Radiografía · ¡BASTA!';
 
 /** Cuántas frases hay en total. Se cuenta, no se escribe: el corpus cambia. */
-const FRASES = LOS_TRES_ESCENARIOS.reduce((total, e) => total + e.voces.length, 0);
+const FRASES = LOS_TRES_ESCENARIOS[0]?.voces.length ?? 0;
 
 /**
  * Escribe el título antes del primer cuadro y lo devuelve al salir.
@@ -101,34 +101,27 @@ export function LaRadiografiaEjemplo() {
       className={nocturno ? 'bg-oscuro-barra text-oscuro-texto' : ''}
       style={nocturno ? { minHeight: '100vh' } : undefined}
     >
-      <div className="mx-auto max-w-[1180px] px-10 py-[72px] max-[560px]:px-5">
-        <div className="mb-8 flex flex-wrap items-start justify-between gap-6">
+      <div className="mx-auto max-w-[1440px] px-10 py-6 max-[560px]:px-5">
+        <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <Kicker className="anim-fadeup mb-4">Un ejemplo, no el país</Kicker>
+            <Kicker className="mb-3">Laboratorio de Radiografía</Kicker>
             <h1
-              aria-label="La Radiografía: un ejemplo."
-              className="font-anton riso-hover mb-5 text-[clamp(40px,5.4vw,76px)] leading-[0.98]"
+              aria-label="Aprender a mirar."
+              className="font-anton riso-hover mb-3 text-[clamp(40px,4.2vw,64px)] leading-[0.98]"
             >
-              <RitoTinta lineas={['La Radiografía:', 'un ejemplo.']} />
+              <RitoTinta lineas={['Aprender a mirar.']} />
             </h1>
             <p
-              className={`anim-fadeup max-w-[640px] text-pretty text-[18px] leading-[1.6] ${
+              className={`max-w-[900px] text-pretty text-[16px] leading-[1.5] ${
                 nocturno ? 'text-oscuro-secundario' : 'text-tinta-75'
               }`}
-              style={{ animationDelay: '0.9s' }}
             >
-              <strong className="font-semibold">Nadie dijo ninguna de estas cosas.</strong> Las{' '}
-              {FRASES.toLocaleString('es-AR')} frases de esta página las escribió una persona a mano
-              para mostrar qué hace el instrumento —y, sobre todo, qué no hace—. No salieron de la
-              base, no las dijo nadie y no las generó un modelo. El país de verdad se mira en{' '}
-              <Link
-                href="/la-radiografia"
-                className="underline decoration-1 underline-offset-4 hover:opacity-70"
-              >
+              {FRASES.toLocaleString('es-AR')} frases inventadas × {LOS_TRES_ESCENARIOS.length}{' '}
+              escenarios. Cambiá la mirada, mové el umbral y seguí una voz. El registro real está en{' '}
+              <Link href="/la-radiografia" className="underline">
                 La Radiografía
               </Link>
-              , que está en otra pantalla a propósito: o mirás el ejemplo o mirás el país, nunca los
-              dos mezclados.
+              .
             </p>
           </div>
 
@@ -152,9 +145,8 @@ export function LaRadiografiaEjemplo() {
           <p
             className={`mt-3 max-w-[70ch] text-[14px] leading-[1.55] ${nocturno ? 'text-oscuro-meta' : 'text-tinta-50'}`}
           >
-            Allá el cielo puede estar vacío, y si lo está es una afirmación: todavía no habló nadie.
-            Acá nunca está vacío, y eso es porque acá no habló nadie tampoco — sólo que las frases
-            las escribimos nosotros.
+            El registro vivo declara sus fuentes y lo que todavía espera análisis. Este laboratorio
+            usa frases inventadas y no las incorpora a los datos del país.
           </p>
         </nav>
       </div>

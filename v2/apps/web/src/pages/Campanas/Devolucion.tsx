@@ -2,6 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 import { Link } from 'wouter';
 
+import { esEjemploLocal, fechaCampana } from './presentacion';
 import { RevisarDevolucion } from './RevisarDevolucion';
 
 import type { CampanaPublica, DevolucionCampanaInput } from '@v2/shared';
@@ -79,8 +80,17 @@ export function Devolucion({ campana }: { campana: CampanaPublica }) {
         </div>
       ) : (
         <p className="mt-4">
-          La devolución está prevista para {campana.contrato.fechaDevolucion}. Todavía no fue
-          publicada.
+          {esEjemploLocal(campana) ? (
+            <>
+              Este ejemplo no tiene una devolución real comprometida. La fecha ilustrativa es{' '}
+              {fechaCampana(campana.contrato.fechaDevolucion)}.
+            </>
+          ) : (
+            <>
+              La devolución está prevista para {fechaCampana(campana.contrato.fechaDevolucion)}.
+              Todavía no fue publicada.
+            </>
+          )}
         </p>
       )}
       {campana.puedoEditar && (campana.estado !== 'borrador' || intento.current !== null) ? (
@@ -128,7 +138,13 @@ export function Devolucion({ campana }: { campana: CampanaPublica }) {
             />
           </label>
           <ErrorOperacion mensaje={error} />
-          {error && intento.current ? <Nota>Este intento conserva su texto, fuentes y edición. Recuperarlo repite exactamente el mismo envío, aunque el proceso haya cambiado. Antes de preparar otro, revisá si esta devolución ya quedó publicada.</Nota> : null}
+          {error && intento.current ? (
+            <Nota>
+              Este intento conserva su texto, fuentes y edición. Recuperarlo repite exactamente el
+              mismo envío, aunque el proceso haya cambiado. Antes de preparar otro, revisá si esta
+              devolución ya quedó publicada.
+            </Nota>
+          ) : null}
           <BotonAccion
             className="mt-5"
             disabled={enviando || texto.trim().length < 30 || limites.trim().length < 15}
@@ -138,7 +154,21 @@ export function Devolucion({ campana }: { campana: CampanaPublica }) {
           >
             {intento.current ? 'Recuperar la misma devolución' : 'Publicar devolución'}
           </BotonAccion>
-          {error && intento.current ? <button type="button" className="text-violeta mt-4 min-h-11 underline" onClick={() => { intento.current = null; idLocal.current = crypto.randomUUID(); setError('Revisá el historial antes de enviar una devolución nueva. Conservamos tu texto para corregirlo.'); }}>Revisar y preparar un intento nuevo</button> : null}
+          {error && intento.current ? (
+            <button
+              type="button"
+              className="text-violeta mt-4 min-h-11 underline"
+              onClick={() => {
+                intento.current = null;
+                idLocal.current = crypto.randomUUID();
+                setError(
+                  'Revisá el historial antes de enviar una devolución nueva. Conservamos tu texto para corregirlo.',
+                );
+              }}
+            >
+              Revisar y preparar un intento nuevo
+            </button>
+          ) : null}
         </div>
       ) : null}
       {campana.devoluciones.length ? (
