@@ -40,7 +40,7 @@ describe('Descargas públicas desacopladas', () => {
         }),
     );
     const vista = render(<DescargarDatos consulta={{ tema: 'educación' }} />);
-    fireEvent.click(screen.getByRole('button', { name: 'Descargar estos datos' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Preparar el archivo' }));
     await waitFor(() => {
       expect(mocks.escribir).toHaveBeenCalledOnce();
     });
@@ -50,7 +50,7 @@ describe('Descargas públicas desacopladas', () => {
       await Promise.resolve();
     });
     expect(mocks.get).not.toHaveBeenCalled();
-    expect(screen.getByRole('button', { name: 'Descargar estos datos' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Preparar el archivo' })).toBeEnabled();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     expect(sessionStorage.getItem('basta-exportacion:[["tema","educación"]]')).toContain(base.id);
   });
@@ -73,8 +73,8 @@ describe('Descargas públicas desacopladas', () => {
         }}
       />,
     );
-    fireEvent.click(screen.getByRole('button', { name: 'Descargar estos datos' }));
-    const enlace = await screen.findByRole('link', { name: 'Descargar ZIP preparado' });
+    fireEvent.click(screen.getByRole('button', { name: 'Preparar el archivo' }));
+    const enlace = await screen.findByRole('link', { name: 'Descargar el archivo' });
     expect(enlace).toHaveAttribute('href', `/api/v1/exportaciones/trabajos/${base.id}/archivo`);
     // El aviso dice lo que el servidor hace de verdad: avanza mientras la página consulta.
     expect(screen.getByText(/se prepara mientras tengas esta página abierta/)).toBeInTheDocument();
@@ -94,7 +94,7 @@ describe('Descargas públicas desacopladas', () => {
   it('guarda el pedido antes del envío y reintenta el mismo UUID si se pierde la respuesta, incluso tras recargar', async () => {
     mocks.escribir.mockRejectedValueOnce(new Error('Sin conexión'));
     const primero = render(<DescargarDatos />);
-    fireEvent.click(screen.getByRole('button', { name: 'Descargar estos datos' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Preparar el archivo' }));
     await screen.findByRole('alert');
     const solicitud = mocks.escribir.mock.calls[0]?.[2] as SolicitudExportacion;
     expect(sessionStorage.getItem('basta-exportacion:[]:solicitud')).toContain(
@@ -132,5 +132,15 @@ describe('Descargas públicas desacopladas', () => {
       );
     });
     expect(await screen.findByText('Cancelaste la preparación.')).toBeInTheDocument();
+  });
+  it('habla del pedido sin jerga: espera, preparación y fecha de los datos', async () => {
+    mocks.escribir.mockResolvedValue(base);
+    const { container } = render(<DescargarDatos />);
+    fireEvent.click(screen.getByRole('button', { name: 'Preparar el archivo' }));
+
+    expect(await screen.findByText('Tu pedido está en espera.')).toBeInTheDocument();
+    expect(container).toHaveTextContent('Datos al');
+    expect(container.textContent).not.toMatch(/\bcola\b|lectura|transmite|\bZIP\b|corte/i);
+    expect(screen.getByText(/se prepara mientras tengas esta página abierta/)).toBeInTheDocument();
   });
 });

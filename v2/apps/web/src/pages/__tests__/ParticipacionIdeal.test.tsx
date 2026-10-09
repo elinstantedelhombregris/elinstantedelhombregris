@@ -433,7 +433,7 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
   });
   it('la descarga es pública y anuncia alcance completo con omisiones', () => {
     montar(<DescargarDatos />);
-    expect(screen.getByRole('button', { name: 'Descargar estos datos' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Preparar el archivo' })).toBeEnabled();
     expect(screen.getByText(/No descarga la base interna/)).toBeInTheDocument();
   });
 });
