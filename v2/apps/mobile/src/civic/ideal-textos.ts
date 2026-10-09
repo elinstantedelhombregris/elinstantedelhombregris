@@ -47,9 +47,9 @@ export const ROTULO_ETAPA: Readonly<Record<string, string>> = {
   borrador: 'En preparación',
   programada: 'Programada',
   abierta: 'Abierta a participar',
-  pausada: 'Pausa explicada',
+  pausada: 'Pausada',
   en_devolucion: 'Preparando la devolución',
-  cerrada: 'Ronda cerrada',
+  cerrada: 'Cerrada',
 };
 export function rotuloEtapa(estado: string): string {
   return ROTULO_ETAPA[estado] ?? 'Etapa sin nombre';

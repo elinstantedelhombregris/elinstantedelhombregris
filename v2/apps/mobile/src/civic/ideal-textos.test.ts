@@ -60,9 +60,9 @@ describe('Etapas de una campaña: las palabras de la web, y «etapa», nunca «f
     expect(rotuloEtapa('borrador')).toBe('En preparación');
     expect(rotuloEtapa('programada')).toBe('Programada');
     expect(rotuloEtapa('abierta')).toBe('Abierta a participar');
-    expect(rotuloEtapa('pausada')).toBe('Pausa explicada');
+    expect(rotuloEtapa('pausada')).toBe('Pausada');
     expect(rotuloEtapa('en_devolucion')).toBe('Preparando la devolución');
-    expect(rotuloEtapa('cerrada')).toBe('Ronda cerrada');
+    expect(rotuloEtapa('cerrada')).toBe('Cerrada');
   });
 
   it('un estado desconocido no muestra la clave cruda', () => {
