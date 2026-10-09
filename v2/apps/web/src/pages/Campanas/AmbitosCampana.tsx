@@ -8,6 +8,7 @@ import { api } from '~/lib/api';
 
 export function AmbitosCampana({ ids, enlaces = false }: { ids: number[]; enlaces?: boolean }) {
   const visibles = [...new Set(ids)].slice(0, 3);
+  const resto = ids.length - visibles.length;
   const lugares = useQueries({
     queries: visibles.map((id) => ({
       queryKey: ['geo', 'lugar', id],
@@ -24,7 +25,7 @@ export function AmbitosCampana({ ids, enlaces = false }: { ids: number[]; enlace
         : visibles.map((id, i) => {
             const nombre =
               lugares[i]?.data?.name ??
-              (lugares[i]?.isError ? 'Ámbito por verificar' : 'Consultando el lugar…');
+              (lugares[i]?.isError ? 'Lugar por verificar' : 'Consultando el lugar…');
             return (
               <span key={id}>
                 {i ? ' · ' : ''}
@@ -38,8 +39,10 @@ export function AmbitosCampana({ ids, enlaces = false }: { ids: number[]; enlace
               </span>
             );
           })}
-      {ids.length > visibles.length ? (
-        <span>y {ids.length - visibles.length} ámbitos más</span>
+      {resto > 0 ? (
+        <span>
+          y {resto} {resto === 1 ? 'lugar más' : 'lugares más'}
+        </span>
       ) : null}
     </span>
   );

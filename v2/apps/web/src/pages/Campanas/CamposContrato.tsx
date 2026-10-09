@@ -1,20 +1,26 @@
 import { useId } from 'react';
 
+import { errorDeCampo } from './errores-contrato';
+
+import type { ErroresContrato } from './errores-contrato';
 import type { ContratoCampana } from '@v2/shared';
 
 import { CAMPO } from '~/components/participacion/constantes';
+import { cn } from '~/lib/utils';
+
+type Clave =
+  | 'titulo'
+  | 'pregunta'
+  | 'proposito'
+  | 'participantes'
+  | 'responsable'
+  | 'devolucion'
+  | 'efecto'
+  | 'usoDatos'
+  | 'metodoLectura';
 
 const CAMPOS: {
-  clave:
-    | 'titulo'
-    | 'pregunta'
-    | 'proposito'
-    | 'participantes'
-    | 'responsable'
-    | 'devolucion'
-    | 'efecto'
-    | 'usoDatos'
-    | 'metodoLectura';
+  clave: Clave;
   label: string;
   ayuda: string;
   largo: boolean;
@@ -33,7 +39,7 @@ const CAMPOS: {
   },
   {
     clave: 'proposito',
-    label: 'Para qué abrimos esta conversación',
+    label: 'Para qué abrimos esta campaña',
     ayuda: 'Qué queremos comprender y diseñar juntos.',
     largo: true,
   },
@@ -46,7 +52,7 @@ const CAMPOS: {
   {
     clave: 'responsable',
     label: 'Equipo que acepta facilitar y devolver',
-    ayuda: 'Esta firma es pública. Poné el nombre que el equipo eligió mostrar.',
+    ayuda: 'Este nombre es público. Poné el que el equipo eligió mostrar.',
     largo: false,
   },
   {
@@ -58,34 +64,126 @@ const CAMPOS: {
   {
     clave: 'usoDatos',
     label: 'Cómo usaremos los datos compartidos',
-    ayuda: 'Explicá qué se analizará, quién lo hará y para qué. Los permisos del aporte siguen siendo necesarios.',
+    ayuda:
+      'Explicá qué se analizará, quién lo hará y para qué. Los permisos del aporte siguen siendo necesarios.',
     largo: true,
   },
   {
     clave: 'metodoLectura',
     label: 'Cómo leeremos y revisaremos lo escuchado',
-    ayuda: 'Describí el método, las fuentes, las ausencias y cómo las personas podrán corregir la devolución.',
+    ayuda:
+      'Describí el método, las fuentes, las ausencias y cómo las personas podrán corregir la devolución.',
     largo: true,
   },
   {
     clave: 'efecto',
-    label: 'Qué efecto puede tener el proceso',
+    label: 'Qué efecto puede tener la campaña',
     ayuda: 'Una exploración, una prueba o una decisión con acuerdo y autoridad definidos.',
     largo: true,
   },
 ];
-export function CamposContrato({ contrato, cambiar }: { contrato: ContratoCampana; cambiar: (campo: typeof CAMPOS[number]['clave'] | 'institucion', valor: string) => void }) {
-  const id = useId();
-  return <>
-    {CAMPOS.map((f) => <div key={f.clave} className="font-medium">
-      <label htmlFor={`${id}-${f.clave}`} className="block">{f.label}</label>
-      {f.largo ? <textarea id={`${id}-${f.clave}`} aria-describedby={`${id}-${f.clave}-ayuda`} className={CAMPO} rows={3} value={contrato[f.clave]} onChange={(e) => { cambiar(f.clave, e.target.value); }} /> : <input id={`${id}-${f.clave}`} aria-describedby={`${id}-${f.clave}-ayuda`} className={CAMPO} value={contrato[f.clave]} onChange={(e) => { cambiar(f.clave, e.target.value); }} />}
-      <span id={`${id}-${f.clave}-ayuda`} className="text-tinta-50 mt-2 block text-sm font-normal">{f.ayuda}</span>
-    </div>)}
-    <div>
-      <label className="block" htmlFor={`${id}-institucion`}>Institución mencionada por quien convoca, si corresponde</label>
-      <input id={`${id}-institucion`} aria-describedby={`${id}-institucion-ayuda`} className={CAMPO} value={contrato.institucion} maxLength={200} onChange={(e) => { cambiar('institucion', e.target.value); }} />
-      <span id={`${id}-institucion-ayuda`} className="text-tinta-50 mt-2 block text-sm">Nombrar una institución no acredita vínculo, representación ni aceptación de responsabilidad. Esta plataforma no registra una aceptación institucional en esta operación.</span>
+
+const AYUDA_INSTITUCION =
+  'Nombrar una institución no acredita vínculo, representación ni aceptación de responsabilidad. Esta plataforma no registra una aceptación institucional en esta operación.';
+
+function Campo({
+  id,
+  label,
+  ayuda,
+  largo,
+  valor,
+  error,
+  maxLength,
+  alCambiar,
+}: {
+  id: string;
+  label: string;
+  ayuda: string;
+  largo: boolean;
+  valor: string;
+  error: string | undefined;
+  maxLength?: number;
+  alCambiar: (valor: string) => void;
+}) {
+  const props = {
+    id,
+    value: valor,
+    className: cn(CAMPO, error && 'border-sello'),
+    'aria-invalid': error ? (true as const) : undefined,
+    'aria-describedby': error ? `${id}-error ${id}-ayuda` : `${id}-ayuda`,
+    ...(maxLength ? { maxLength } : {}),
+  };
+  return (
+    <div className="font-medium">
+      <label htmlFor={id} className="block">
+        {label}
+      </label>
+      {largo ? (
+        <textarea
+          {...props}
+          rows={3}
+          onChange={(e) => {
+            alCambiar(e.target.value);
+          }}
+        />
+      ) : (
+        <input
+          {...props}
+          onChange={(e) => {
+            alCambiar(e.target.value);
+          }}
+        />
+      )}
+      {error ? (
+        <span id={`${id}-error`} className="text-sello mt-2 block text-sm font-normal">
+          {error}
+        </span>
+      ) : null}
+      <span id={`${id}-ayuda`} className="text-tinta-50 mt-2 block text-sm font-normal">
+        {ayuda}
+      </span>
     </div>
-  </>;
+  );
+}
+
+export function CamposContrato({
+  contrato,
+  cambiar,
+  errores = {},
+}: {
+  contrato: ContratoCampana;
+  cambiar: (campo: Clave | 'institucion', valor: string) => void;
+  errores?: ErroresContrato;
+}) {
+  const id = useId();
+  return (
+    <>
+      {CAMPOS.map((f) => (
+        <Campo
+          key={f.clave}
+          id={`${id}-${f.clave}`}
+          label={f.label}
+          ayuda={f.ayuda}
+          largo={f.largo}
+          valor={contrato[f.clave]}
+          error={errorDeCampo(errores, f.clave)}
+          alCambiar={(v) => {
+            cambiar(f.clave, v);
+          }}
+        />
+      ))}
+      <Campo
+        id={`${id}-institucion`}
+        label="Institución mencionada por quien abre la campaña, si corresponde"
+        ayuda={AYUDA_INSTITUCION}
+        largo={false}
+        valor={contrato.institucion}
+        error={errorDeCampo(errores, 'institucion')}
+        maxLength={200}
+        alCambiar={(v) => {
+          cambiar('institucion', v);
+        }}
+      />
+    </>
+  );
 }

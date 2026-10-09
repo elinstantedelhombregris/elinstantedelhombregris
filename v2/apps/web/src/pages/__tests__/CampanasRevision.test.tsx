@@ -26,6 +26,7 @@ vi.mock('~/lib/queries/participacion', () => ({
     return { mutate: modelo.mutate, isPending: false };
   },
 }));
+vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: null, isLoading: false }) }));
 vi.mock('../ElMapa/instrumento/BusquedaTerritorial', () => ({ BusquedaTerritorial: () => <p>Selector oficial de territorio</p> }));
 
 const contrato = contratoCampanaSchema.parse({
@@ -52,7 +53,7 @@ describe('Campañas por territorio, tema y fase', () => {
     montar(<Campanas />);
     expect(screen.getByRole('link', { name: 'Convocatoria nacional' })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: 'Convocatoria otra' })).not.toBeInTheDocument();
-    fireEvent.change(screen.getByLabelText('Fase de campaña'), { target: { value: 'pausada' } });
+    fireEvent.change(screen.getByLabelText('Estado'), { target: { value: 'pausada' } });
     expect(modelo.navegar).toHaveBeenCalledWith('/campanas?tema=educaci%C3%B3n&fase=pausada');
   });
 });
@@ -76,7 +77,7 @@ describe('Contrato y duplicación sin transferir consentimientos', () => {
   });
   it('la vista previa y el formulario comparten uso y método, sin aceptación institucional', () => {
     montar(<FormularioCampana plantilla={contrato} />);
-    fireEvent.click(screen.getByText('Revisar la vista pública del contrato'));
+    fireEvent.click(screen.getByText('Ver cómo se va a mostrar la campaña'));
     expect(screen.getByText(contrato.usoDatos, { selector: 'p' })).toBeInTheDocument();
     expect(screen.getByText(contrato.metodoLectura, { selector: 'p' })).toBeInTheDocument();
     expect(screen.getByText(/Esta mención no acredita representación ni aceptación institucional/)).toBeInTheDocument();
