@@ -1,7 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'wouter';
 
-import { guardarTema, leerTema, type Orden, type Tema } from './LaRadiografia/radiografia-data';
+import {
+  CLASES_DE_NOCHE,
+  guardarTema,
+  leerTema,
+  type Orden,
+  type Tema,
+} from './LaRadiografia/radiografia-data';
 import { construirVista } from './LaRadiografia/radiografia-vista';
 import { CabeceraProcedencia } from './LaRadiografia/sections/CabeceraProcedencia';
 import { CieloVacio } from './LaRadiografia/sections/CieloVacio';
@@ -81,7 +87,7 @@ export function LaRadiografia() {
   };
   const consulta = { ...filtros, umbral: umbral.toFixed(2) };
   return (
-    <main className={nocturno ? 'bg-oscuro-barra text-oscuro-texto' : ''}>
+    <main className={nocturno ? CLASES_DE_NOCHE : ''}>
       <div className="mx-auto max-w-[1440px] px-10 py-10 max-[560px]:px-5">
         <div className="max-w-[780px]">
           <Kicker className="mb-3">Los aportes, agrupados por parecido</Kicker>

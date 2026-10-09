@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { Router } from 'wouter';
 import { memoryLocation } from 'wouter/memory-location';
@@ -96,5 +96,18 @@ describe('el cielo de esta página se declara del ejemplo', () => {
       .getAllByRole('link')
       .filter((a) => a.getAttribute('href') === '/la-radiografia');
     expect(links.length).toBeGreaterThanOrEqual(2);
+  });
+});
+
+describe('el ejemplo de noche', () => {
+  it('declara color-scheme: dark en su contenedor al pasar a nocturno, y no en papel', () => {
+    window.localStorage.clear();
+    const { container } = envolver(<LaRadiografiaEjemplo />);
+    expect(container.querySelector('main')).not.toHaveClass('[color-scheme:dark]');
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    expect(container.querySelector('main')).toHaveClass('[color-scheme:dark]');
+    window.localStorage.clear();
   });
 });

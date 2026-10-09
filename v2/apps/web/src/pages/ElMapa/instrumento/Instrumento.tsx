@@ -126,7 +126,10 @@ export function Instrumento({
   const mirada = consulta.data?.signals.find((s) => s.id === seleccionada);
 
   return (
-    <section aria-label="Instrumento territorial" className="border-oscuro-borde bg-tinta border-y">
+    <section
+      aria-label="Instrumento territorial"
+      className="border-oscuro-borde bg-tinta accent-violeta-claro border-y [color-scheme:dark]"
+    >
       <FiltrosExploracion valor={exploracion} cambiar={cambiar} elegir={elegir} />
       <div className="text-oscuro-texto flex flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm">
         <button

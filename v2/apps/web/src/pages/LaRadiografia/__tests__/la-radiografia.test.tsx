@@ -687,6 +687,19 @@ describe('la página, de punta a punta', () => {
     expect(screen.queryByText('Acá todavía no aparecen relaciones.')).toBeNull();
   });
 
+  it('de noche el contenedor declara color-scheme: dark; en papel no declara ninguno', () => {
+    respuesta = { data: CORPUS, isLoading: false, isError: false };
+    const { container } = envolver(<LaRadiografia />);
+    const pagina = container.querySelector('main');
+    // Papel: hereda el `light` de la raíz del papel, así que el contenedor no declara nada.
+    expect(pagina).not.toHaveClass('[color-scheme:dark]');
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    // Noche: los controles nativos del laboratorio (select, deslizador) se dibujan oscuros.
+    expect(container.querySelector('main')).toHaveClass('[color-scheme:dark]', 'bg-oscuro-barra');
+  });
+
   it('el interruptor papel/nocturno persiste la elección del lector', () => {
     respuesta = { data: CORPUS, isLoading: false, isError: false };
     envolver(<LaRadiografia />);

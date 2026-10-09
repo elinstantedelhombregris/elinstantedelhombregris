@@ -168,6 +168,15 @@ export type Tema = TemaDelMapa;
 
 const CLAVE_DE_TEMA = 'basta_radiografia_tema';
 
+/**
+ * El contenedor de la página de noche. `color-scheme: dark` es lo que hace que los
+ * controles nativos de adentro (el select, el deslizador, la casilla) se dibujen
+ * oscuros sobre este fondo: el papel que lo rodea declara `light`. El acento es el
+ * violeta claro, el único que se distingue sobre este fondo.
+ */
+export const CLASES_DE_NOCHE =
+  'bg-oscuro-barra text-oscuro-texto accent-violeta-claro [color-scheme:dark]';
+
 export function leerTema(): Tema {
   try {
     return window.localStorage.getItem(CLAVE_DE_TEMA) === 'nocturno' ? 'nocturno' : 'papel';

@@ -102,3 +102,13 @@ describe('Instrumento — un mapa sin aportes lo dice una sola vez y en palabras
     expect(container.textContent).not.toMatch(/Nadie dijo|nadie habló|Todavía no habló nadie/i);
   });
 });
+
+describe('Instrumento — es un registro de noche dentro del papel', () => {
+  it('declara color-scheme: dark en su contenedor, para que sus controles nativos se dibujen oscuros', () => {
+    montar(false);
+    const instrumento = screen.getByRole('region', { name: 'Instrumento territorial' });
+    // El papel que lo rodea es `light`; sin esto el select y los deslizadores saldrían claros
+    // sobre el fondo de tinta.
+    expect(instrumento).toHaveClass('[color-scheme:dark]', 'bg-tinta');
+  });
+});

@@ -2,7 +2,12 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { Link } from 'wouter';
 
 import { LOS_TRES_ESCENARIOS } from './LaRadiografia/ejemplos';
-import { guardarTema, leerTema, type Tema } from './LaRadiografia/radiografia-data';
+import {
+  CLASES_DE_NOCHE,
+  guardarTema,
+  leerTema,
+  type Tema,
+} from './LaRadiografia/radiografia-data';
 import { InterruptorDeTema } from './LaRadiografia/sections/InterruptorDeTema';
 import { LosTresEjemplos } from './LaRadiografia/sections/LosTresEjemplos';
 
@@ -98,7 +103,7 @@ export function LaRadiografiaEjemplo() {
 
   return (
     <main
-      className={nocturno ? 'bg-oscuro-barra text-oscuro-texto' : ''}
+      className={nocturno ? CLASES_DE_NOCHE : ''}
       style={nocturno ? { minHeight: '100vh' } : undefined}
     >
       <div className="mx-auto max-w-[1440px] px-10 py-6 max-[560px]:px-5">
