@@ -89,7 +89,7 @@ export function LaRadiografia() {
             aria-label="La Radiografía."
             className="font-anton mb-4 text-[clamp(44px,6vw,84px)] leading-[0.98]"
           >
-            <RitoTinta lineas={['La Radiografía.']} />
+            <RitoTinta lineas={['La Radiografía.']} tono={nocturno ? 'claro' : 'tinta'} />
           </h1>
           <p className={`max-w-[690px] text-lg leading-relaxed ${meta}`}>
             La Radiografía agrupa los aportes según qué tan parecido es su texto. No es una encuesta

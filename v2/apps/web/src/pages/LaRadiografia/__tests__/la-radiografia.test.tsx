@@ -688,6 +688,25 @@ describe('la página, de punta a punta', () => {
   });
 
   /**
+   * El título se entinta hacia `tinta` (casi negro): sobre el fondo nocturno
+   * quedaba oscuro sobre oscuro. En nocturno usa el tono claro; en papel, el
+   * de siempre.
+   */
+  it('el título se entinta en claro de noche y en tinta sobre papel', () => {
+    respuesta = { data: CORPUS, isLoading: false, isError: false };
+    envolver(<LaRadiografia />);
+    const titulo = screen.getByRole('heading', { level: 1, name: 'La Radiografía.' });
+    expect(titulo.querySelectorAll('.anim-inkfill').length).toBeGreaterThan(0);
+    expect(titulo.querySelectorAll('.anim-inkfill-claro')).toHaveLength(0);
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    const nocturno = screen.getByRole('heading', { level: 1, name: 'La Radiografía.' });
+    expect(nocturno.querySelectorAll('.anim-inkfill-claro').length).toBeGreaterThan(0);
+    expect(nocturno.querySelectorAll('.anim-inkfill')).toHaveLength(0);
+  });
+
+  /**
    * La falsedad que estuvo publicada: la página decía «personas» sobre un
    * conteo de FILAS. Son señales — una sola persona puede haber cargado
    * veinte, y `senales` no trae actor, así que la página no sabe cuántas
