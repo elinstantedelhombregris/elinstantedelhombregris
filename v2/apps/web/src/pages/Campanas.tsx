@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { ArrowUpRight } from 'lucide-react';
-import { Link, useLocation, useSearch } from 'wouter';
+import { useLocation, useSearch } from 'wouter';
 
 import { filtrarCatalogo, ordenarCatalogo } from './Campanas/filtrar-catalogo';
 import { FiltrosCatalogo } from './Campanas/FiltrosCatalogo';
@@ -92,13 +92,10 @@ export function Campanas() {
             Argentina ideal».
           </p>
         </div>
-        <Link
-          href={APORTAR_HREF}
-          className="font-space text-violeta inline-flex min-h-11 items-center gap-3 text-xs uppercase tracking-wide underline underline-offset-4"
-        >
+        <EnlaceAccion href={APORTAR_HREF} className="gap-3 self-center">
           Sumar mi aporte a la campaña nacional
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-        </Link>
+        </EnlaceAccion>
       </aside>
       {esAdmin ? (
         <div className="border-tinta/25 mt-8 border-t pt-6">
