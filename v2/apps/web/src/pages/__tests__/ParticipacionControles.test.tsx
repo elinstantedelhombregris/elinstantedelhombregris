@@ -120,7 +120,7 @@ describe('Controles del registro y la continuidad', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Cerrar mi cuenta' }));
     expect(
       screen.getByRole('button', { name: 'Cerrar mi cuenta y revocar sesiones' }),
-    ).toBeDisabled();
+    ).toHaveAttribute('aria-disabled', 'true');
     // El aviso largo pasó a tres viñetas, una por consecuencia.
     expect(screen.getAllByRole('listitem')).toHaveLength(3);
     expect(screen.getByText(/Se conservan tus aportes, fichas, campañas/)).toBeInTheDocument();

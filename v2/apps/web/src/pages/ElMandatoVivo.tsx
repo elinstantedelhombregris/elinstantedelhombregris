@@ -9,9 +9,11 @@ import { RegistroDelMapa } from './ElMandatoVivo/sections/RegistroDelMapa';
 
 import { BotonPapel } from '~/components/papel/primitives';
 import { APORTAR_HREF } from '~/lib/participacion/aportar';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 /** Procesos revisables y consulta agregada, con denominadores y efectos separados. */
 export function ElMandatoVivo() {
+  useTituloDePagina('El mandato vivo');
   return (
     <main className="bg-tinta text-oscuro-texto min-h-screen">
       <PortadaMandato />

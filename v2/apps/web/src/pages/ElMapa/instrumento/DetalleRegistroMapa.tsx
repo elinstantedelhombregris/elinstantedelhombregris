@@ -1,3 +1,4 @@
+import { TEXTO_RESERVADO } from '@v2/shared';
 import { useEffect, useRef } from 'react';
 
 import { ubicacionDelAporte } from '../lienzo/precision';
@@ -5,14 +6,6 @@ import { ubicacionDelAporte } from '../lienzo/precision';
 import { enlaceDeRegistro } from './enlace-registro';
 
 import type { SenalMapa } from '~/lib/queries/civic-map';
-
-/**
- * El texto con que la API reemplaza lo que su autoría no cedió. La API lo arma
- * en SQL (`packages/db/.../senal-publicacion.ts`) y no manda una marca aparte,
- * así que acá se compara contra el literal; si cambia allá, hay que cambiarlo
- * acá (deuda anotada en el informe: lo correcto es un campo `reservado`).
- */
-export const TEXTO_RESERVADO_POR_LA_API = 'Texto reservado por su autoría.';
 
 export function DetalleRegistroMapa({ senal, cerrar }: { senal: SenalMapa; cerrar: () => void }) {
   const cierre = useRef<HTMLButtonElement>(null);
@@ -42,7 +35,7 @@ export function DetalleRegistroMapa({ senal, cerrar }: { senal: SenalMapa; cerra
           ×
         </button>
       </div>
-      {senal.texto === TEXTO_RESERVADO_POR_LA_API ? (
+      {senal.texto === TEXTO_RESERVADO ? (
         <p className="text-tinta-75 mt-2 text-sm leading-relaxed">
           Quien lo cargó eligió reservar sus palabras. Podés consultar el tipo y el recorrido de
           este aporte.

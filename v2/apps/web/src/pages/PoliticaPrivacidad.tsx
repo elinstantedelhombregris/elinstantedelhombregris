@@ -1,18 +1,21 @@
 import privacidadRaw from '../../../../content/legal/privacidad.mdx?raw';
 
-import { MdxContent } from '~/components/MdxContent';
+import { MdxPapel } from '~/components/papel/MdxPapel';
+import { Kicker } from '~/components/papel/primitives';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function PoliticaPrivacidad() {
+  useTituloDePagina('Política de privacidad');
   return (
-    <main className="container mx-auto max-w-3xl px-4 py-20">
+    <main className="mx-auto w-full max-w-[860px] px-5 py-14 min-[961px]:px-10">
       <header className="mb-10">
-        <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">Legal</p>
-        <h1 className="font-serif text-4xl font-semibold leading-tight md:text-5xl">
+        <Kicker>Legal</Kicker>
+        <h1 className="font-anton text-tinta mt-4 text-[clamp(38px,6vw,64px)] leading-[1.05]">
           Política de Privacidad
         </h1>
       </header>
       <article>
-        <MdxContent raw={privacidadRaw} />
+        <MdxPapel raw={privacidadRaw} />
       </article>
     </main>
   );

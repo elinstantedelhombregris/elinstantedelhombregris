@@ -82,7 +82,7 @@ describe('PulsoDetail', () => {
 
     render(<PulsoDetail />);
 
-    expect(screen.getByText('Esto se rompió. Lo decimos porque publicamos todo.')).toBeInTheDocument();
+    expect(screen.getByText('No pudimos cargar esto. Probá de nuevo en un rato.')).toBeInTheDocument();
     expect(screen.queryByText('expediente extraviado')).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Probar de nuevo ↺' }));
     expect(refetch).toHaveBeenCalledTimes(1);

@@ -40,8 +40,6 @@ const ENTRA = [
 /**
  * Lo que NO se escanea, con su razón:
  *  - el panel de aportes y Imaginar tienen su propia revisión;
- *  - `MapaArgentina`, `PopoverVoz`, `FeedVoces` y el lienzo SVG no tienen
- *    importadores fuera de sus tests (código muerto, anotado en el informe);
  *  - los escenarios y los vectores del laboratorio SON las frases inventadas:
  *    son el dato del ejemplo, no el texto de la interfaz.
  */
@@ -50,11 +48,6 @@ const SALTEA = [
   join('ElMapa', 'sections', 'AporteDirectoMapa'),
   join('ElMapa', 'sections', 'PanelSoltarVoz'),
   join('ElMapa', 'sections', 'soltar'),
-  join('ElMapa', 'sections', 'MapaArgentina'),
-  join('ElMapa', 'sections', 'PopoverVoz'),
-  join('ElMapa', 'sections', 'FeedVoces'),
-  join('ElMapa', 'lienzo', 'Lienzo'),
-  join('ElMapa', 'lienzo', 'CapaSenales'),
   join('LaRadiografia', 'ejemplos', 'escenario-'),
   join('LaRadiografia', 'ejemplos', 'vectores'),
 ];

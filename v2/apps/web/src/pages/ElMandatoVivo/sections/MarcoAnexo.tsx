@@ -75,15 +75,14 @@ export interface FichaRotaProps {
 }
 
 /**
- * Cualquier rotura que NO sea 404 (§10.9): la misma frase de honestidad del
- * documento (Task 4) + reintento real. Extraviado y roto son estados distintos
- * y el expediente no los mezcla.
+ * Cualquier rotura que NO sea 404 (§10.9): una frase llana + reintento real.
+ * Extraviado y roto son estados distintos y el expediente no los mezcla.
  */
 export function FichaRota({ onReintentar }: FichaRotaProps) {
   return (
     <div>
       <p className="font-archivo text-tinta-75 text-[15px] leading-relaxed">
-        Esto se rompió. Lo decimos porque publicamos todo.
+        No pudimos cargar esto. Probá de nuevo en un rato.
       </p>
       <BotonPapel variant="fantasma" className="mt-6" onClick={onReintentar}>
         Probar de nuevo ↺

@@ -8,6 +8,7 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth';
 import { volverTrasIngresar } from '~/lib/auth/volver';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 interface FormValues {
   username: string;
@@ -21,6 +22,7 @@ const AYUDA_CONTRASENA =
   passwordSchema.minLength === null ? undefined : `Mínimo ${passwordSchema.minLength} caracteres.`;
 
 export function Register() {
+  useTituloDePagina('Crear mi cuenta');
   const { register: registerMutation } = useAuth();
   const [, navigate] = useLocation();
   const {

@@ -48,6 +48,14 @@ describe('Ingresar (página papel)', () => {
     );
   });
 
+  it('la pestaña dice «Ingresar» y devuelve el título al salir', () => {
+    document.title = 'antes';
+    const { unmount } = render(<Login />);
+    expect(document.title).toBe('Ingresar · ¡BASTA!');
+    unmount();
+    expect(document.title).toBe('antes');
+  });
+
   it('«Crear mi cuenta» lleva el retorno a la página de registro', () => {
     ir('/ingresar?volver=%2Ffichas%2Fnueva');
     render(<Login />);

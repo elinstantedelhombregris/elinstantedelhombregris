@@ -19,6 +19,7 @@ import {
 } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth/use-auth';
 import { useCampana } from '~/lib/queries/participacion';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function CampanaDetail() {
   const [, params] = useRoute('/campanas/:slug');
@@ -30,6 +31,8 @@ export function CampanaDetail() {
     params?.slug ?? devolucion?.slug,
     Number.isSafeInteger(edicion) && edicion > 0 ? edicion : undefined,
   );
+  // Mientras la campaña carga (o no existe) la pestaña dice «Campaña»; después, su título.
+  useTituloDePagina(q.data?.contrato.titulo ?? 'Campaña');
   const cargada = Boolean(q.data);
   const iraLaDevolucion = devolucion !== null;
   // `/campanas/:slug/devolucion` es el destino del aviso a quien sigue la campaña: abre en el texto.

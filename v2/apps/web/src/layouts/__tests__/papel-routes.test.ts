@@ -70,6 +70,26 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/cuaderno')).toBe(false);
   });
 
+  it('las páginas de cuenta que enlazan el pie y Mi espacio reciben chrome papel', () => {
+    for (const ruta of [
+      '/ingresar',
+      '/registrarse',
+      '/2fa-desafio',
+      '/recuperar-contrasena',
+      '/restablecer-contrasena',
+      '/verificar-email',
+      '/mi-perfil',
+      '/notificaciones',
+      '/politica-privacidad',
+    ]) {
+      expect(esRutaPapel(ruta), ruta).toBe(true);
+    }
+  });
+
+  it('NO matchea una ruta que solo comparte el prefijo de texto de /mi-perfil', () => {
+    expect(esRutaPapel('/mi-perfil-viejo')).toBe(false);
+  });
+
   it('matchea el catálogo de entrenamientos y sus rutas dinámicas por prefijo (spec 3.5, T5)', () => {
     expect(esRutaPapel('/entrenamientos')).toBe(true);
     expect(esRutaPapel('/entrenamientos/la-metamorfosis')).toBe(true);

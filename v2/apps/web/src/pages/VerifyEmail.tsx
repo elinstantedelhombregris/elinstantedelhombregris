@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
 
-import { Button } from '~/components/ui/button';
+import { BotonPapel } from '~/components/papel/primitives';
+import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 type Status = 'pending' | 'success' | 'error';
 
@@ -13,6 +15,7 @@ function readTokenFromQuery(): string {
 }
 
 export function VerifyEmail() {
+  useTituloDePagina('Verificación de email');
   const [status, setStatus] = useState<Status>('pending');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -36,25 +39,29 @@ export function VerifyEmail() {
 
   return (
     <main className="container mx-auto flex min-h-[60vh] max-w-md flex-col justify-center px-4 py-16">
-      <div className="glass rounded-2xl p-8 text-center">
-        <h1 className="mb-3 font-serif text-3xl font-semibold">Verificación de email</h1>
+      <div className="border-tinta bg-papel-crudo border p-8">
+        <h1 className="font-anton text-tinta mb-3 text-4xl">Verificación de email</h1>
         {status === 'pending' && (
-          <p className="text-sm text-muted-foreground">Estamos verificando tu email…</p>
+          <p role="status" className="text-tinta-75 text-sm">
+            Estamos verificando tu email…
+          </p>
         )}
         {status === 'success' && (
           <>
-            <p className="mb-4 text-sm text-muted-foreground">¡Listo! Tu email quedó verificado.</p>
-            <Button asChild>
+            <p role="status" className="text-tinta-75 mb-6 text-sm">
+              ¡Listo! Tu email quedó verificado.
+            </p>
+            <BotonPapel asChild className="inline-flex items-center">
               <Link href="/">Ir al inicio</Link>
-            </Button>
+            </BotonPapel>
           </>
         )}
         {status === 'error' && (
           <>
-            <p className="mb-4 text-sm text-red-400">{errorMsg}</p>
-            <Button asChild variant="secondary">
-              <Link href="/ingresar">Volver a iniciar sesión</Link>
-            </Button>
+            <ErrorOperacion mensaje={errorMsg} className="mt-0" />
+            <BotonPapel asChild variant="fantasma" className="inline-flex items-center">
+              <Link href="/ingresar">Volver a ingresar</Link>
+            </BotonPapel>
           </>
         )}
       </div>

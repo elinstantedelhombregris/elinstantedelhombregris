@@ -17,6 +17,7 @@ import { RegimenDegenerado } from './LaRadiografia/sections/RegimenDegenerado';
 import { Kicker, RitoTinta } from '~/components/papel/primitives';
 import { filtrosPublicos } from '~/lib/participacion/exportar';
 import { UMBRAL_INICIAL, useRadiografia } from '~/lib/queries/radiografia';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 import { cuantos } from '~/lib/vocabulario';
 
 function umbralInicial() {
@@ -26,6 +27,7 @@ function umbralInicial() {
 
 /** El grafo real y el laboratorio sintético conservan rutas, fuentes y sellos separados. */
 export function LaRadiografia() {
+  useTituloDePagina('La Radiografía');
   const [filtros, setFiltros] = useState(() =>
     filtrosPublicos(Object.fromEntries(new URLSearchParams(window.location.search))),
   );
@@ -171,11 +173,11 @@ export function LaRadiografia() {
             personas.
           </p>
           {isError && !data ? (
-            <p role="alert" className="border py-16 text-center">
+            <p role="alert" className={`border py-16 text-center ${nocturno ? 'border-oscuro-borde' : ''}`}>
               No pudimos cargar el análisis. Probá de nuevo en un rato.
             </p>
           ) : isLoading ? (
-            <p role="status" className="border py-20 text-center">
+            <p role="status" className={`border py-20 text-center ${nocturno ? 'border-oscuro-borde' : ''}`}>
               Reuniendo los aportes…
             </p>
           ) : dibujables < 2 ? (

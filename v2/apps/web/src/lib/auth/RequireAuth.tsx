@@ -7,6 +7,8 @@ interface RequireAuthProps {
   children: ReactNode;
   /** Where to redirect when not authenticated. Defaults to /ingresar. */
   redirectTo?: string;
+  /** La superficie de la página: el aviso de espera se lee sobre ella. Default: la oscura de v1. */
+  superficie?: 'oscuro' | 'papel';
 }
 
 /**
@@ -15,7 +17,11 @@ interface RequireAuthProps {
  * While the auth status is loading, renders a quiet placeholder so
  * we don't flash a redirect.
  */
-export function RequireAuth({ children, redirectTo = '/ingresar' }: RequireAuthProps) {
+export function RequireAuth({
+  children,
+  redirectTo = '/ingresar',
+  superficie = 'oscuro',
+}: RequireAuthProps) {
   const { user, isLoading } = useAuth();
   const [, navigate] = useLocation();
 
@@ -28,7 +34,15 @@ export function RequireAuth({ children, redirectTo = '/ingresar' }: RequireAuthP
   if (isLoading) {
     return (
       <div className="flex min-h-[40vh] items-center justify-center">
-        <span className="font-mono text-sm text-muted-foreground">verificando sesión…</span>
+        <span
+          className={
+            superficie === 'papel'
+              ? 'font-space text-tinta-75 text-sm'
+              : 'text-muted-foreground font-mono text-sm'
+          }
+        >
+          verificando sesión…
+        </span>
       </div>
     );
   }

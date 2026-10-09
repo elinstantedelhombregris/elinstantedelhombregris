@@ -50,7 +50,9 @@ describe('Descargas públicas desacopladas', () => {
       await Promise.resolve();
     });
     expect(mocks.get).not.toHaveBeenCalled();
-    expect(screen.getByRole('button', { name: 'Preparar el archivo' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Preparar el archivo' })).not.toHaveAttribute(
+      'aria-disabled',
+    );
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
     expect(sessionStorage.getItem('basta-exportacion:[["tema","educación"]]')).toContain(base.id);
   });

@@ -61,7 +61,7 @@ export function BusquedaTerritorial({
         onChange={(e) => {
           setTexto(e.target.value);
         }}
-        className="bg-papel text-tinta min-h-11 w-full border px-3"
+        className="bg-papel text-tinta border-oscuro-borde min-h-11 w-full border px-3"
         placeholder="Por ejemplo, San Martín"
         autoComplete="off"
       />

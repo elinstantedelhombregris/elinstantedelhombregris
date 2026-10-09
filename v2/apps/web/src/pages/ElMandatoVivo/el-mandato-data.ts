@@ -8,9 +8,13 @@ import { claseDe, type ClaseSenal, type TipoSenal } from '~/lib/vocabulario';
  * porque `valor` se pintaba `tinta` y tinta sobre tinta no se ve. Con el color
  * llaveado en la clase la excepción desaparece sola: las cuatro se distinguen
  * sobre el fondo oscuro sin casos especiales.
+ *
+ * El ámbar es `ambar-claro` y no `ambar`: el segundo se oscureció para que el TEXTO llegue a
+ * 4,5:1 sobre papel, y sobre `oscuro.barra` bajaría de 3,63:1 a 2,99:1, abajo del 3:1 de los
+ * objetos gráficos. Es el mismo caso que `violeta-claro` sobre tinta.
  */
 export const RELLENO_CLASE_OSCURO: Record<ClaseSenal, string> = {
-  hecho: 'bg-ambar',
+  hecho: 'bg-ambar-claro',
   deseo: 'bg-violeta',
   acto: 'bg-verde',
   meta: 'bg-cian',

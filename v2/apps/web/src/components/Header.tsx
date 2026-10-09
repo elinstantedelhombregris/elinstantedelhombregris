@@ -76,10 +76,10 @@ export function Header() {
           ) : (
             <>
               <Button asChild size="sm" variant="ghost">
-                <Link href="/ingresar">Entrar</Link>
+                <Link href="/ingresar">Ingresar</Link>
               </Button>
               <Button asChild size="sm">
-                <Link href="/registrarse">Crear cuenta</Link>
+                <Link href="/registrarse">Crear mi cuenta</Link>
               </Button>
             </>
           )}
@@ -128,10 +128,10 @@ export function Header() {
               ) : (
                 <>
                   <Button asChild size="sm" variant="secondary" className="flex-1">
-                    <Link href="/ingresar" onClick={() => { setMobileOpen(false); }}>Entrar</Link>
+                    <Link href="/ingresar" onClick={() => { setMobileOpen(false); }}>Ingresar</Link>
                   </Button>
                   <Button asChild size="sm" className="flex-1">
-                    <Link href="/registrarse" onClick={() => { setMobileOpen(false); }}>Crear cuenta</Link>
+                    <Link href="/registrarse" onClick={() => { setMobileOpen(false); }}>Crear mi cuenta</Link>
                   </Button>
                 </>
               )}

@@ -54,7 +54,9 @@ export type { ClaseSenal, TipoSenal };
 
 /**
  * Las clases de Tailwind de cada clase de señal, para el chip sobre papel.
- * Los cuatro tokens ya existen en `tailwind.config.ts`: cero tokens nuevos.
+ * Los cuatro tokens ya existen en `tailwind.config.ts`: cero tokens nuevos. El `ambar`
+ * es el de texto (≥4,5:1 sobre papel y papel-crudo), así que `CLASE_TEXTO` no necesita
+ * excepciones locales.
  */
 export const CLASE_FONDO: Readonly<Record<ClaseSenal, string>> = {
   hecho: 'bg-ambar border-ambar',
@@ -82,7 +84,8 @@ export const CLASE_BORDE: Readonly<Record<ClaseSenal, string>> = {
  *
  * No es la misma tabla y no puede serlo: maplibre pinta en WebGL y no entiende
  * clases de Tailwind, y el violeta normal (#5227CC) se hunde en el fondo
- * #16130E — sobre oscuro necesita su variante clara.
+ * #16130E — sobre oscuro necesita su variante clara. El ámbar es `ambar-claro`
+ * (el `ambar` a secas se oscureció para el texto sobre papel).
  */
 export const CLASE_COLOR_OSCURO: Readonly<Record<ClaseSenal, string>> = {
   hecho: '#A16C00',

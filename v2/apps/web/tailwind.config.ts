@@ -2,6 +2,13 @@ import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
 
+/**
+ * El borde suave del papel. Es el color de TODO `border`, `border-t`, `divide-y`… que no
+ * nombre uno (ver `borderColor.DEFAULT` abajo): sin esto Tailwind pinta esos bordes con su gris
+ * de fábrica (#E5E7EB), 1,08:1 sobre papel, que no es de ningún sistema.
+ */
+const PAPEL_BORDE = '#D8D4C8';
+
 const config: Config = {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{ts,tsx}'],
@@ -21,7 +28,7 @@ const config: Config = {
           crudo: '#FBFAF4',
           presionado: '#ECE8DC',
           mapa: '#E4E0D3',
-          borde: '#D8D4C8',
+          borde: PAPEL_BORDE,
         },
         tinta: {
           DEFAULT: '#16130E',
@@ -45,7 +52,12 @@ const config: Config = {
         },
         sello: '#C23B22', // basta · urgencia · sellos
         verde: '#1A7A4A', // compromiso · territorio
-        ambar: '#A16C00', // necesidad · método
+        // Necesidad · método. `DEFAULT` es el de TEXTO y de superficie sobre papel: 4,76:1 sobre
+        // papel y 5,23:1 sobre papel-crudo (el #A16C00 anterior daba 3,92:1 y 4,31:1: no llegaba
+        // al 4,5:1 de AA para texto). `claro` es el de superficie sobre fondo tinta —el mismo
+        // #A16C00 de antes—, como `violeta.claro`: oscurecer el DEFAULT hundiría las barras del
+        // mandato (3,63:1 → 2,99:1 sobre oscuro.barra).
+        ambar: { DEFAULT: '#8F6000', claro: '#A16C00' },
         cian: '#0F6B8A', // recurso
         // ¡BASTA! palette v1 — legado, se borra al terminar la migración papel.
         'iris-violet': '#7D5BDE',
@@ -74,6 +86,12 @@ const config: Config = {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         serif: ['"Playfair Display"', 'ui-serif', 'serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      // Un `border` sin color deja de heredar el gris de Tailwind y toma el borde suave del papel.
+      // Los registros noche y los campos de formulario NO deben depender de este default: llevan
+      // su color a la vista (`border-oscuro-borde`, `border-tinta`).
+      borderColor: {
+        DEFAULT: PAPEL_BORDE,
       },
       borderRadius: {
         lg: 'var(--radius)',

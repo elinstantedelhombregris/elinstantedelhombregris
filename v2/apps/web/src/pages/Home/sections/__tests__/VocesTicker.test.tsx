@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
+import { TEXTO_RESERVADO } from '@v2/shared';
 import { describe, expect, it, vi } from 'vitest';
 
 import { VocesTicker } from '../VocesTicker';
@@ -43,10 +44,10 @@ describe('VocesTicker', () => {
     const bastaVoice = screen.getAllByText('«Basta de rutas sin luz.»')[0];
     // `basta` es un `hecho`, y los hechos son ámbar. `sello` dejó de ser el
     // color de un tipo: ahora es el color del estado ruidoso.
-    // El ámbar del token (#A16C00) da 4,31:1 sobre papel-crudo; el de la cinta
-    // (#8F6000) da 5,2:1 y sigue leyéndose ámbar.
-    expect(bastaVoice?.className).toMatch(/text-\[#8F6000\]/);
-    expect(bastaVoice?.className).not.toMatch(/text-ambar/);
+    // El token ya es el ámbar de texto (5,23:1 sobre papel-crudo): la cinta no
+    // lleva ningún color propio.
+    expect(bastaVoice?.className).toMatch(/text-ambar\b/);
+    expect(bastaVoice?.className).not.toMatch(/text-\[#/);
 
     const unknownVoice = screen.getAllByText('«Una voz sin categoría reconocida.»')[0];
     expect(unknownVoice?.className).toMatch(/text-tinta-75/);
@@ -100,14 +101,14 @@ describe('VocesTicker', () => {
       data: [
         {
           id: '00000000-0000-4000-8000-000000000003',
-          texto: 'Texto reservado por su autoría.',
+          texto: TEXTO_RESERVADO,
           categoria: 'sueno',
         },
       ],
       isLoading: false,
     } as ReturnType<typeof useVocesRecientes>);
     renderTicker();
-    expect(screen.queryByText('«Texto reservado por su autoría.»')).not.toBeInTheDocument();
+    expect(screen.queryByText(`«${TEXTO_RESERVADO}»`)).not.toBeInTheDocument();
     // Hubo quien publicó, así que no se dice que nadie lo hizo.
     expect(screen.queryByText('Todavía nadie publicó un aporte.')).not.toBeInTheDocument();
     expect(screen.getByText(/tienen el texto reservado/)).toBeInTheDocument();

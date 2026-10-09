@@ -74,6 +74,18 @@ export function PapelHeader() {
     };
   }, [menuOpen]);
 
+  // Con el menú de pantalla completa abierto la página de atrás no se desplaza. Se guarda y se
+  // devuelve el `overflow` que había (no un '' a ciegas), también si el header se desmonta
+  // con el menú abierto.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const anterior = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = anterior;
+    };
+  }, [menuOpen]);
+
   const hrefSesion = auth.user ? '/mi-espacio' : hrefIngresar();
   const rutaSesion = auth.user ? '/mi-espacio' : '/ingresar';
 

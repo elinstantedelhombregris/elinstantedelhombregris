@@ -11,9 +11,11 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { MarcoParticipacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth/use-auth';
 import { hrefIngresar } from '~/lib/auth/volver';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 /** `/fichas/nueva`, con lo que el mapa, una campaña o un aporte ya saben: lugar, campaña, aporte. */
 export function NuevaFicha() {
+  useTituloDePagina('Crear una ficha');
   const search = useSearch();
   const [ruta, navegar] = useLocation();
   const auth = useAuth();

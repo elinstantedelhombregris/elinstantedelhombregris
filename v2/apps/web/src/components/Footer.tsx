@@ -22,8 +22,8 @@ const SECTIONS: { title: string; links: { href: string; label: string }[] }[] = 
   {
     title: 'Cuenta',
     links: [
-      { href: '/ingresar', label: 'Iniciar sesión' },
-      { href: '/registrarse', label: 'Crear cuenta' },
+      { href: '/ingresar', label: 'Ingresar' },
+      { href: '/registrarse', label: 'Crear mi cuenta' },
       { href: '/recuperar-contrasena', label: 'Recuperar contraseña' },
       { href: '/apoyo', label: 'Apoyá al movimiento' },
     ],

@@ -8,7 +8,7 @@ interface VocesCount {
 
 /**
  * Live "voces" total — dreams/señales citizens dropped on the map.
- * Backs the header FOMO counter and the home CifrasStrip (same query
+ * Backs the header counter and the Cap. III of La idea (same query
  * key, so both consumers share one fetch).
  */
 export function useVocesCount() {

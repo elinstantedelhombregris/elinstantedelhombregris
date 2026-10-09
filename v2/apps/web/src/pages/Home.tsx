@@ -5,12 +5,15 @@ import { HombreGrisBand } from './Home/sections/HombreGrisBand';
 import { PlanesTeaser } from './Home/sections/PlanesTeaser';
 import { VocesTicker } from './Home/sections/VocesTicker';
 
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
+
 /**
  * Landing «Papel y Tinta» — port del diseño BASTA v2
  * (docs/specs/2026-07-21-landing-papel-y-tinta.md). El chrome papel
  * (header/footer/grano/velo) lo pone RootLayout.
  */
 export function Home() {
+  useTituloDePagina('Inicio');
   return (
     <main>
       <HeroBasta />

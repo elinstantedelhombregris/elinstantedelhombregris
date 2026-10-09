@@ -6,6 +6,7 @@ import { BotonAccion, ErrorOperacion } from './Elementos';
 
 import type { SolicitudExportacion, TrabajoExportacion } from '@v2/shared';
 
+import { BotonPapel } from '~/components/papel/primitives';
 import { api, ApiError } from '~/lib/api';
 import { filtrosPublicos } from '~/lib/participacion/exportar';
 import { escribir } from '~/lib/queries/participacion';
@@ -251,12 +252,11 @@ export function DescargarDatos({
           </BotonAccion>
         ) : null}
         {trabajo && estado === 'disponible' ? (
-          <a
-            href={`/api/v1/exportaciones/trabajos/${trabajo.id}/archivo`}
-            className="font-space border-tinta bg-violeta text-papel inline-flex min-h-11 items-center border px-5 py-3 text-xs uppercase tracking-wide"
-          >
-            Descargar el archivo
-          </a>
+          <BotonPapel asChild className="inline-flex items-center">
+            <a href={`/api/v1/exportaciones/trabajos/${trabajo.id}/archivo`}>
+              Descargar el archivo
+            </a>
+          </BotonPapel>
         ) : null}
       </div>
       {trabajo ? (

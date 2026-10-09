@@ -303,7 +303,10 @@ describe('La persona conserva el control de su voz', () => {
     modelo.api.mockResolvedValue([{ id, texto: 'Mi reflexión' }]);
     montar(<Recuperar />);
     await screen.findByText('Mi reflexión');
-    expect(screen.getByRole('button', { name: 'Sumar a mi cuenta' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Sumar a mi cuenta' })).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
     fireEvent.click(screen.getByLabelText('Mi reflexión'));
     fireEvent.click(screen.getByLabelText(/Reconozco estos aportes/));
     fireEvent.click(screen.getByRole('button', { name: 'Sumar a mi cuenta' }));
@@ -457,7 +460,9 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
   });
   it('la descarga es pública y anuncia alcance completo con omisiones', () => {
     montar(<DescargarDatos />);
-    expect(screen.getByRole('button', { name: 'Preparar el archivo' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Preparar el archivo' })).not.toHaveAttribute(
+      'aria-disabled',
+    );
     expect(screen.getByText(/No descarga la base interna/)).toBeInTheDocument();
   });
 });

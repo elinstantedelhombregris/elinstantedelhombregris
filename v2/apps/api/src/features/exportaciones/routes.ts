@@ -83,7 +83,7 @@ router.get('/catalogo', (_req, res) => {
           id: 'procesos',
           titulo: 'Campañas y fichas de futuro',
           formatos: ['JSON'],
-          permiso: 'Metadatos y vínculos públicos; sin textos de contrato ni datos de cuenta.',
+          permiso: 'Metadatos y vínculos públicos; sin las reglas de la campaña ni datos de cuenta.',
         },
       ],
       licencias: LICENCIAS,

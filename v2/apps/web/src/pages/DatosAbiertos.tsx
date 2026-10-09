@@ -8,6 +8,7 @@ import { MarcoParticipacion, Nota, EnlaceAccion } from '~/components/participaci
 import { api } from '~/lib/api';
 import { filtrosPublicos } from '~/lib/participacion/exportar';
 import { useCampanas } from '~/lib/queries/participacion';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 import { ESTADO_EN_CASTELLANO, leerTipoSenal } from '~/lib/vocabulario';
 
 
@@ -52,6 +53,7 @@ function useAlcanceEnPalabras(consulta: Record<string, string>): string[] {
 }
 
 export function DatosAbiertos() {
+  useTituloDePagina('Datos abiertos');
   const consulta = filtrosPublicos(Object.fromEntries(new URLSearchParams(window.location.search)));
   const filtrado = Object.keys(consulta).length > 0;
   const alcance = useAlcanceEnPalabras(consulta);

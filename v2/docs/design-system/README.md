@@ -12,7 +12,7 @@ Identidad en una frase: **un manifiesto impreso que cobró vida** — papel crud
 - Tagline del header: contador social vivo — `{N} voces · falta la tuya` (Space Mono 10px, uppercase). El número aparece **sólo cuando hay algo que contar**: con cero, cargando o error el slot dice «Falta la tuya.» a secas. Nunca una constante escrita a mano. Nunca "movimiento ciudadano" ni slogans pasivos: el tagline debe dejar afuera al que no participó.
 - Firma de autor en textos largos: `— El hombre gris`.
 - Footer: wordmark gigante en outline (`color:transparent; -webkit-text-stroke:1px #3A362D`).
-- Sin logo gráfico, sin íconos decorativos, sin emojis. Los únicos "gráficos" permitidos: el mapa de Argentina, tally marks, la semilla SVG del certificado, y las flechas tipográficas del catálogo de §12. `↺ ▌ ▾ ☰ ✓ ▲ ▼` **no** son glifos: ninguna de las seis familias los trae y hoy los dibuja la fuente de símbolos del sistema operativo. Son SVG inline de `components/papel/primitives/Glifos.tsx`.
+- Sin logo gráfico, sin íconos decorativos, sin emojis. Los únicos "gráficos" permitidos: el mapa de Argentina, tally marks, la semilla SVG del certificado, y las flechas tipográficas del catálogo de §12. `↺ ▌ ▾ ☰ ✓ ▲ ▼` **no** son glifos: ninguna de las seis familias los trae y hoy los dibuja la fuente de símbolos del sistema operativo. La idea es dibujarlos como SVG inline (`<GlifoCursor />`, `<GlifoDespliegue />`, `<GlifoOrdenAsc />`, `<GlifoOrdenDesc />`, los que nombran §5 y §8) desde `components/papel/primitives/Glifos.tsx`, pero ese archivo **todavía no existe**: el plan está en `docs/plans/2026-07-26-sustrato-a-fundaciones.md` y no se construyó. Mientras tanto el kit los escribe como caracteres (`▌` en `BotonPapel`, `☰` en el header).
 
 ## 2. Color (hex literales, siempre inline)
 
@@ -37,7 +37,7 @@ Acentos (con significado fijo — no mezclar)
 - `#5227CC` violeta = la marca, lo accionable, "sueño". Hover: `#3D1BA3`. En oscuro usar `#9D85E8`.
 - `#C23B22` rojo sello = urgencia, "basta", sellos NO ES DOCTRINA / EJEMPLO, crítica
 - `#1A7A4A` verde = "compromiso", territorio, logrado
-- `#A16C00` ámbar = "necesidad", método, advertencia media
+- `#8F6000` ámbar = "necesidad", método, advertencia media (4,76:1 sobre papel y 5,23:1 sobre papel crudo: sirve de texto). Sobre fondo tinta: `#A16C00` (`ambar-claro`)
 - `#0F6B8A` cian = "recurso"
 - Máximo 1–2 fondos de color por página. El violeta nunca es fondo de página entera, solo bandas CTA.
 
@@ -226,7 +226,7 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 
 ## 12. Iconos
 
-- Páginas editoriales/públicas: CERO íconos. Sólo el catálogo tipográfico → ← ↑ ↓ – — × − + · « » ¡ ! (lo que las seis familias traen, verificado con fontTools). Todo lo demás — ↺ ▌ ▾ ☰ ✓ ▲ ▼ — es SVG inline en `components/papel/primitives/Glifos.tsx`. `↗` sobrevive **sólo** dentro de `font-space`: Space Mono es la única familia que lo tiene.
+- Páginas editoriales/públicas: CERO íconos. Sólo el catálogo tipográfico → ← ↑ ↓ – — × − + · « » ¡ ! (lo que las seis familias traen, verificado con fontTools). Todo lo demás — ↺ ▌ ▾ ☰ ✓ ▲ ▼ — debería ser SVG inline (ver §1: el componente de glifos todavía no existe y hoy el kit los escribe como caracteres). `↗` sobrevive **sólo** dentro de `font-space`: Space Mono es la única familia que lo tiene.
 - La plataforma (páginas con sesión): lucide permitido SOLO funcional (cerrar, menú,
   link externo, campana), 16px, stroke tinta o tinta-50, nunca decorativo ni de color.
 - Logros y gamificación NO usan íconos: usan sellos y palitos (§10.5, §10.6).

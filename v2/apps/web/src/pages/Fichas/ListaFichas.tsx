@@ -9,6 +9,7 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { MarcoParticipacion, Nota } from '~/components/participacion/Elementos';
 import { useFichas } from '~/lib/queries/fichas';
 import { useCampana } from '~/lib/queries/participacion';
+import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 function Filtro({ rotulo, quitar }: { rotulo: string; quitar: () => void }) {
   return (
@@ -72,6 +73,7 @@ function TarjetaFicha({ f }: { f: FichaDeLista }) {
 }
 
 export function ListaFichas() {
+  useTituloDePagina('Fichas');
   const search = useSearch();
   const [, navegar] = useLocation();
   const params = new URLSearchParams(search);

@@ -28,23 +28,23 @@ function relativeTime(iso: string): string {
 export function ActivitySection({ items }: { items: GamificationMe['recentActivity'] }) {
   if (items.length === 0) {
     return (
-      <section className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-        <h2 className="font-serif text-lg font-semibold">Actividad reciente</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Tu actividad va a aparecer acá.</p>
+      <section className="border-tinta bg-papel-crudo border p-6">
+        <h2 className="font-anton text-tinta text-2xl">Actividad reciente</h2>
+        <p className="text-tinta-75 mt-2 text-sm">Tu actividad va a aparecer acá.</p>
       </section>
     );
   }
   return (
-    <section className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-      <h2 className="font-serif text-lg font-semibold">Actividad reciente</h2>
-      <ul className="mt-3 divide-y divide-white/5">
+    <section className="border-tinta bg-papel-crudo border p-6">
+      <h2 className="font-anton text-tinta text-2xl">Actividad reciente</h2>
+      <ul className="divide-papel-borde mt-3 divide-y">
         {items.map((it) => (
           <li key={it.id} className="flex items-center justify-between py-2 text-sm">
             <span>
-              <span className="font-semibold text-iris-violet">+{it.xpAwarded} XP</span>{' '}
-              — {KIND_LABELS[it.kind] ?? it.kind}
+              <span className="text-violeta font-semibold">+{it.xpAwarded} XP</span> —{' '}
+              {KIND_LABELS[it.kind] ?? it.kind}
             </span>
-            <span className="text-xs text-muted-foreground">{relativeTime(it.createdAt)}</span>
+            <span className="text-tinta-75 text-xs">{relativeTime(it.createdAt)}</span>
           </li>
         ))}
       </ul>

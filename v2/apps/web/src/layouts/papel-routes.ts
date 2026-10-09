@@ -16,6 +16,14 @@ const PAPEL_ROUTES = new Set([
   '/ingresar',
   '/registrarse',
   '/2fa-desafio',
+  // Las páginas de cuenta que el pie y Mi espacio enlazan. Antes caían en el
+  // chrome oscuro de v1, con el resto del sitio en papel alrededor.
+  '/recuperar-contrasena',
+  '/restablecer-contrasena',
+  '/verificar-email',
+  '/mi-perfil',
+  '/notificaciones',
+  '/politica-privacidad',
   // La cuarta superficie (spec 2026-08-12-la-radiografia.md). Nace papel: su
   // interruptor nocturno gobierna la constelación, no el chrome del sitio.
   '/la-radiografia',
