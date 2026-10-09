@@ -39,11 +39,11 @@ export interface CicloPaso {
 }
 
 export const CICLO: readonly CicloPaso[] = [
-  { label: 'tu voz', acento: 'violeta' },
-  { label: 'el mandato' },
-  { label: 'los planes' },
-  { label: 'la ejecución' },
-  { label: 'la auditoría', acento: 'verde' },
+  { label: 'tu aporte', acento: 'violeta' },
+  { label: 'campañas' },
+  { label: 'fichas' },
+  { label: 'pruebas' },
+  { label: 'revisión', acento: 'verde' },
 ];
 
 export interface SinLiderCard {

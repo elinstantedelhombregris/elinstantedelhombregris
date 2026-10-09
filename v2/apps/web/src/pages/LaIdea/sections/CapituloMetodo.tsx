@@ -29,8 +29,7 @@ export function CapituloMetodo() {
         <p className="mb-10 text-pretty">
           El método tiene nombre: diseño idealizado. Empezamos por la vida deseada, hacemos
           explícitas sus condiciones y comparamos alternativas. Después probamos algo acotado,
-          observamos lo que ocurre y revisamos el diseño. El ideal orienta; la experiencia nos
-          enseña cómo acercarnos.
+          observamos lo que ocurre y revisamos el diseño.
         </p>
       </div>
 
@@ -72,8 +71,8 @@ export function CapituloMetodo() {
           <span className="font-space text-tinta-30 text-sm">↺</span>
         </div>
         <p className="text-tinta-50 mt-5 text-sm leading-relaxed">
-          El ciclo no tiene última vuelta: las voces nuevas abren preguntas, las respuestas permiten
-          comparar diseños y las pruebas dejan resultados para revisar. Después vuelve a girar.
+          El ciclo no tiene última vuelta: los aportes nuevos abren campañas, las fichas comparan
+          alternativas y las pruebas dejan resultados para revisar. Después vuelve a girar.
         </p>
       </div>
 
