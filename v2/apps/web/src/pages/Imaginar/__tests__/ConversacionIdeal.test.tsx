@@ -198,6 +198,18 @@ describe('Las tres preguntas: la primera pantalla', () => {
 });
 
 describe('Revisar antes de publicar', () => {
+  it('el campo «Mi aporte» crece con el texto: mínimo de cinco filas, tope antes de scrollear', () => {
+    montar();
+    escribir('Una escena.');
+    pulsar('Seguir imaginando');
+    pulsar('Seguir imaginando');
+    pulsar('Revisar lo que voy a compartir');
+
+    const campo = screen.getByLabelText<HTMLTextAreaElement>('Mi aporte');
+    expect(campo).toHaveAttribute('rows', '5');
+    expect(campo).toHaveClass('max-h-[28rem]', 'overflow-y-auto', 'resize-none');
+  });
+
   it('con respuestas que juntas pasan el límite ofrece un texto recortado donde termina una frase', () => {
     montar();
     const larga = 'Quiero poder caminar tranquila por mi barrio. '.repeat(40).trim();

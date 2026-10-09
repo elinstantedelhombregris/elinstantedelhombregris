@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import { BusquedaTerritorial } from '../ElMapa/instrumento/BusquedaTerritorial';
 import { ConsentimientoVoz } from '../ElMapa/sections/soltar/ConsentimientoVoz';
 
@@ -9,6 +11,7 @@ import { CAMPO } from '~/components/participacion/constantes';
 import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
 import { TemaDelAporte } from '~/components/participacion/TemaDelAporte';
 import { LIMITE_APORTE } from '~/lib/participacion/texto-aporte';
+import { useAutoAltura } from '~/lib/participacion/useAutoAltura';
 
 interface Props {
   lectura: string;
@@ -48,6 +51,9 @@ function motivoDeBloqueo(p: Props): string | null {
 
 export function Revision(props: Props) {
   const exceso = props.lectura.length - LIMITE_APORTE;
+  const campo = useRef<HTMLTextAreaElement>(null);
+  // Lo que se va a publicar se ve entero: el campo crece con el texto, con un tope razonable.
+  useAutoAltura(campo, props.lectura);
   return (
     <section aria-labelledby="revision-titulo">
       <h3
@@ -69,8 +75,9 @@ export function Revision(props: Props) {
       <label className="mt-5 block font-medium">
         Mi aporte
         <textarea
+          ref={campo}
           rows={5}
-          className={CAMPO}
+          className={`${CAMPO} max-h-[28rem] resize-none overflow-y-auto`}
           value={props.lectura}
           onChange={(e) => {
             props.cambiar(e.target.value);
