@@ -1,4 +1,4 @@
-import { contenidoFichaSchema, type ContenidoFicha } from '@v2/shared';
+import { MAX_TEMAS, contenidoFichaSchema, type ContenidoFicha } from '@v2/shared';
 
 export type CampoDeFicha =
   | 'titulo'
@@ -44,7 +44,7 @@ function decir(p: Problema): string {
         ? 'Cada condición puede tener hasta 500 caracteres.'
         : 'Podés cargar hasta 12 condiciones.';
     case 'temas':
-      return 'Elegí hasta 8 temas.';
+      return `Elegí hasta ${String(MAX_TEMAS)} temas.`;
     case 'vinculos':
       return p.codigo === 'custom' ? p.mensaje : 'Una ficha admite hasta 40 aportes vinculados.';
     case 'situacion':

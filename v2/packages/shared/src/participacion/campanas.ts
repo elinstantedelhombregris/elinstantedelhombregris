@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { MAX_TEMAS } from './temas.js';
+
 /**
  * Un texto libre con piso y techo. `donde` completa «Escribí al menos N
  * caracteres …»: por defecto «en este campo», y quien conozca el motivo de ese
@@ -49,7 +51,7 @@ export const contratoCampanaSchema = z
     temas: z
       .array(frase(2, 60))
       .min(1, 'Este campo necesita un poco más de contexto.')
-      .max(8, 'Acortá este campo sin perder su sentido.'),
+      .max(MAX_TEMAS, 'Acortá este campo sin perder su sentido.'),
     participantes: frase(10, 1500),
     canales: z
       .array(z.enum(['web', 'encuentro', 'asistido']))

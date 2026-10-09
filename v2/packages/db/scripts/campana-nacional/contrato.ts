@@ -40,20 +40,26 @@ export const FIN_LECTURA = '2027-03-14';
 export const PRIMERA_DEVOLUCION = '2027-03-15';
 
 /**
- * Los temas del contrato: ocho de los once del catálogo cerrado de aportes
- * (`temas`, migración 0022). Un contrato admite como máximo ocho. Quedan
- * afuera `alimento`, `ambiente` y `movilidad`, los tres más acotados; un aporte
- * sobre cualquiera de ellos entra igual, y el propósito lo dice.
+ * Los temas del contrato: los trece del catálogo cerrado de aportes (`temas`,
+ * migraciones 0022 y 0031), en el orden del catálogo. Un contrato admite hasta
+ * `MAX_TEMAS` y la campaña nacional los usa todos, así que ningún tema queda
+ * afuera: un aporte sin tema, o que no encaja en ninguno, entra igual y el
+ * propósito lo dice.
  */
 export const TEMAS_CAMPANA_NACIONAL = [
+  'alimento',
   'vivienda',
   'trabajo',
   'cuidado',
   'salud',
   'educación',
+  'ambiente',
+  'movilidad',
   'seguridad',
   'cultura',
   'democracia',
+  'justicia',
+  'economía',
 ] as const;
 
 const MESES = [
@@ -112,7 +118,7 @@ export function construirContratoNacional(hoy: string): ContratoCampana {
     proposito: [
       'Esta campaña nacional y permanente de ¡BASTA! recibe cualquier aporte que se publica sin elegir otra campaña, y por eso hay una persona que responde por todos ellos.',
       'Cada aporte cuenta qué te gustaría que fuera posible en tu vida si el país funcionara como vos lo imaginás, por ejemplo en tu trabajo o en el cuidado de los tuyos. Juntos, los aportes muestran dónde coinciden las personas y dónde piensan distinto.',
-      'Con esa lectura se arman fichas de diseño: descripciones de una vida deseada y de las condiciones que la harían posible, abiertas a que otras personas las discutan y las pongan a prueba. Los temas de la lista ordenan la lectura. Un aporte sobre cualquier otro tema también se recibe y se lee.',
+      'Con esa lectura se arman fichas de diseño: descripciones de una vida deseada y de las condiciones que la harían posible, abiertas a que otras personas las discutan y las pongan a prueba. Los temas de la lista ordenan la lectura. Un aporte sin tema, o que no encaja en ninguno, también se recibe y se lee.',
     ].join('\n\n'),
     territorios: [],
     temas: [...TEMAS_CAMPANA_NACIONAL],

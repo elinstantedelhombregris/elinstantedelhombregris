@@ -10,7 +10,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { SLUG_CAMPANA_NACIONAL, contratoCampanaSchema } from '@v2/shared';
+import { MAX_TEMAS, SLUG_CAMPANA_NACIONAL, contratoCampanaSchema } from '@v2/shared';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -99,10 +99,31 @@ describe('el contrato de la campaña nacional', () => {
     expect(d).toMatch(/nunca publica los nombres de quienes aportaron/);
   });
 
-  it('usa a lo sumo ocho temas distintos, todos del catálogo de aportes', () => {
-    expect(contrato.temas.length).toBeLessThanOrEqual(8);
+  it('lleva los trece temas del catálogo de aportes, sin repetir y en el orden del catálogo', () => {
+    expect(contrato.temas).toEqual([
+      'alimento',
+      'vivienda',
+      'trabajo',
+      'cuidado',
+      'salud',
+      'educación',
+      'ambiente',
+      'movilidad',
+      'seguridad',
+      'cultura',
+      'democracia',
+      'justicia',
+      'economía',
+    ]);
+    expect(contrato.temas.length).toBeLessThanOrEqual(MAX_TEMAS);
     expect(new Set(contrato.temas).size).toBe(contrato.temas.length);
     expect(contrato.temas).toEqual([...TEMAS_CAMPANA_NACIONAL]);
+  });
+
+  it('el propósito sigue diciendo que un aporte sin tema o fuera de la lista también se lee', () => {
+    expect(contrato.proposito).toContain(
+      'Un aporte sin tema, o que no encaja en ninguno, también se recibe y se lee.',
+    );
   });
 
   it('escribe «¡BASTA!» siempre con los signos', () => {
