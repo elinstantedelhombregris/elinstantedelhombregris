@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 
 import { Button } from '~/components/ui/button';
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 export function Bienvenida() {
   return (
@@ -20,8 +21,8 @@ export function Bienvenida() {
           <p className="mb-1 font-mono text-xs uppercase tracking-widest text-iris-violet">Paso 1</p>
           <h2 className="font-serif text-2xl">¿Qué es ¡BASTA!?</h2>
           <p className="mt-3 text-muted-foreground">
-            Un marco de gobernanza popular: 22 PLANes que diseña la gente, ejecuta el Estado, y nadie
-            administra como dueño. Leé el{' '}
+            Un marco de gobernanza popular: {PLAN_COUNT} PLANes que diseña la gente, ejecuta el Estado, y
+            nadie administra como dueño. Leé el{' '}
             <Link href="/manifiesto" className="text-iris-violet underline">
               manifiesto
             </Link>{' '}

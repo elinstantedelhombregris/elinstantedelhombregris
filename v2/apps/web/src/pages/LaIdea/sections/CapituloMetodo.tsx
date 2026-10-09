@@ -1,10 +1,11 @@
 import { Fragment } from 'react';
 import { Link } from 'wouter';
 
-import { CICLO, PLAN_COUNT, ROLES } from '../la-idea-data';
+import { CICLO, ROLES } from '../la-idea-data';
 
 import { BotonPapel, Kicker, Sello } from '~/components/papel/primitives';
 import { cn } from '~/lib/utils';
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 const CHIP_ACENTO: Record<'violeta' | 'verde', string> = {
   violeta: 'bg-violeta text-papel border-violeta',

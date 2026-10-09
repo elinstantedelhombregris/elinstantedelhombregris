@@ -1,11 +1,12 @@
-import { PLAN_REGISTRY } from '~/lib/plans-registry';
+import { PLANES } from '~/pages/Planes/la-prueba-data';
 
 /**
  * Datos de la landing «Papel y Tinta».
  *
  * Las voces, propuestas y señales de la home vienen de la API real
  * (ver `~/lib/queries/analytics`) — no hay datos de demostración acá.
- * Los planes son reales: salen de PLAN_REGISTRY (MDX).
+ * Los planes son reales: salen de PLAN_REGISTRY (MDX), a través de
+ * `Planes/la-prueba-data`, que es la única fuente de PLANES y de PLAN_COUNT.
  */
 
 export interface TresLineasRow {
@@ -36,13 +37,8 @@ export const TRES_LINEAS: readonly TresLineasRow[] = [
   },
 ];
 
-/** Planes reales (sin PLANRUTA, que es meta) ordenados por orderIndex. */
-export const PLANES_REALES = PLAN_REGISTRY.filter((p) => !p.isMeta);
-
-export const PLAN_COUNT = PLANES_REALES.length;
-
 /** Los tres planes destacados del teaser. */
-export const PLANES_TEASER = PLANES_REALES.slice(0, 3);
+export const PLANES_TEASER = PLANES.slice(0, 3);
 
 export interface Tally {
   alto: number;

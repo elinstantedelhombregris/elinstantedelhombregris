@@ -1,7 +1,10 @@
+
 import { Compromiso } from './UnaRutaParaArgentina/sections/Compromiso';
 import { Phases } from './UnaRutaParaArgentina/sections/Phases';
 import { PlanesGrid } from './UnaRutaParaArgentina/sections/PlanesGrid';
 import { Roles } from './UnaRutaParaArgentina/sections/Roles';
+
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 export function UnaRutaParaArgentina() {
   return (
@@ -12,7 +15,7 @@ export function UnaRutaParaArgentina() {
           <span className="gradient-text">Una ruta para Argentina.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-          De la chispa individual al país habitable. Cinco fases, tres roles, 22 PLANs. La ruta no es nueva:
+          De la chispa individual al país habitable. Cinco fases, tres roles, {PLAN_COUNT} PLANs. La ruta no es nueva:
           es la que la democracia siempre dijo que iba a ser, y nunca terminó de cumplir.
         </p>
       </header>

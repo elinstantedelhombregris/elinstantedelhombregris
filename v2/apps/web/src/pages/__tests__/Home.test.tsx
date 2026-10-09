@@ -3,9 +3,10 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Home } from '../Home';
-import { PLAN_COUNT, PLANES_TEASER } from '../Home/landing-data';
+import { PLANES_TEASER } from '../Home/landing-data';
 
 import { useCifras, useVocesCount, useVocesRecientes } from '~/lib/queries/analytics';
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 vi.mock('~/lib/queries/participacion', () => ({ useCampanas: () => ({ data: [] }) }));
 vi.mock('~/lib/queries/fichas', () => ({ useFichas: () => ({ data: { fichas: [] } }) }));

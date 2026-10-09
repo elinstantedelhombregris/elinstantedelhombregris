@@ -2,11 +2,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { PLAN_COUNT } from '../../landing-data';
 import { CifrasStrip } from '../CifrasStrip';
 
 import { useCifras, useVocesCount } from '~/lib/queries/analytics';
 import { useSemillasCount } from '~/lib/queries/semillas';
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 vi.mock('~/lib/queries/analytics', () => ({
   useVocesCount: vi.fn(),

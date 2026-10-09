@@ -1,8 +1,9 @@
 import { Link } from 'wouter';
 
-import { PLAN_COUNT, PLANES_TEASER } from '../landing-data';
+import { PLANES_TEASER } from '../landing-data';
 
 import { Kicker } from '~/components/papel/primitives';
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 export function PlanesTeaser() {
   return (

@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { CICLO, PLAN_COUNT, ROLES } from '../../la-idea-data';
+import { CICLO, ROLES } from '../../la-idea-data';
 import { CapituloMetodo } from '../CapituloMetodo';
+
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 describe('CapituloMetodo', () => {
   it('renderiza los tres roles con su verbo', () => {

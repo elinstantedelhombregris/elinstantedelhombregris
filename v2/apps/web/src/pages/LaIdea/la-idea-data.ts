@@ -1,9 +1,8 @@
-import { PLAN_REGISTRY } from '~/lib/plans-registry';
-
 /**
  * Copy estático de La idea (spec docs/specs/2026-07-22-la-idea-papel-y-tinta.md).
- * Las únicas cifras de la página son PLAN_COUNT (registry MDX, real) y el
- * conteo de voces del Cap III (useVocesCount, API real).
+ * Las únicas cifras de la página son PLAN_COUNT (registry MDX, real; vive en
+ * `Planes/la-prueba-data`) y el conteo de voces del Cap III (useVocesCount,
+ * API real).
  */
 
 export interface RolRow {
@@ -66,6 +65,3 @@ export const SIN_LIDER: readonly SinLiderCard[] = [
     body: 'La parte incómoda: si no hay nadie arriba, no queda a quién echarle la culpa. La ciudadanía diseña — entonces la ciudadanía responde. Tu silencio también firma.',
   },
 ];
-
-/** Planes reales (sin PLANRUTA, que es meta) — mismo criterio que la landing. */
-export const PLAN_COUNT = PLAN_REGISTRY.filter((p) => !p.isMeta).length;

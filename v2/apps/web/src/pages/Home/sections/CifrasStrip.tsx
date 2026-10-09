@@ -1,9 +1,9 @@
 import { Link } from 'wouter';
 
-import { PLAN_COUNT } from '../landing-data';
 
 import { useCifras, useVocesCount } from '~/lib/queries/analytics';
 import { useSemillasCount } from '~/lib/queries/semillas';
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 interface CifraTile {
   key: string;
