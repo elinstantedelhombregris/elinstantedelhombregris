@@ -288,6 +288,14 @@ describe('La persona conserva el control de su voz', () => {
       expect(modelo.borradores).toHaveBeenCalled();
     });
     expect(screen.getByText(/No se sincronizaron/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: 'Mis borradores' })).toBeInTheDocument();
+    // Sin borradores: una salida concreta, y «acá» en vez de «aquí».
+    expect(screen.getByText(/No hay borradores guardados en este navegador/)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
+      'href',
+      '/el-mapa?participar=aportar#instrumento',
+    );
+    expect(screen.queryByText(/aquí|Reflexion/)).not.toBeInTheDocument();
     expect(modelo.mutate).not.toHaveBeenCalled();
   });
   it('recuperar exige selección y reconocimiento de autoría', async () => {
@@ -295,10 +303,10 @@ describe('La persona conserva el control de su voz', () => {
     modelo.api.mockResolvedValue([{ id, texto: 'Mi reflexión' }]);
     montar(<Recuperar />);
     await screen.findByText('Mi reflexión');
-    expect(screen.getByRole('button', { name: /Vincular/ })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Sumar a mi cuenta' })).toBeDisabled();
     fireEvent.click(screen.getByLabelText('Mi reflexión'));
     fireEvent.click(screen.getByLabelText(/Reconozco estos aportes/));
-    fireEvent.click(screen.getByRole('button', { name: /Vincular/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Sumar a mi cuenta' }));
     expect(modelo.mutate).toHaveBeenCalledWith(
       expect.objectContaining({ cuerpo: { senales: [id], confirmaControl: true } }),
       expect.any(Object),
@@ -306,7 +314,12 @@ describe('La persona conserva el control de su voz', () => {
   });
   it('Mis aportes diferencia cuenta vacía de una publicación existente', () => {
     montar(<MisAportes aportes={[]} total={0} />);
-    expect(screen.getByText(/Todavía no hay aportes ligados/)).toBeInTheDocument();
+    expect(screen.getByText('Todavía no publicaste nada desde esta cuenta.')).toBeInTheDocument();
+    // El vacío tiene salida: el botón lleva a la puerta única de aportar.
+    expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
+      'href',
+      '/el-mapa?participar=aportar#instrumento',
+    );
     expect(screen.queryByRole('button', { name: /Retirar/ })).not.toBeInTheDocument();
   });
 });
@@ -438,7 +451,7 @@ describe('Diseñar y devolver sin fabricar acuerdos', () => {
   });
   it('la descarga es pública y anuncia alcance completo con omisiones', () => {
     montar(<DescargarDatos />);
-    expect(screen.getByRole('button', { name: 'Descargar estos datos' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Preparar el archivo' })).toBeEnabled();
     expect(screen.getByText(/No descarga la base interna/)).toBeInTheDocument();
   });
 });

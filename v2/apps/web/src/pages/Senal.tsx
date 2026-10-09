@@ -7,6 +7,7 @@ import { PanelConfirmar } from './Senal/PanelConfirmar';
 import { RetirarAporte } from './Senal/RetirarAporte';
 
 import { ChipTipo, Kicker } from '~/components/papel/primitives';
+import { Nota } from '~/components/participacion/Elementos';
 import { useSenal } from '~/lib/queries/senales';
 import {
   CLASE_GLOSA,
@@ -15,6 +16,7 @@ import {
   ESTADO_RUIDOSO,
   claseDe,
 } from '~/lib/vocabulario';
+import { etiquetaDePrecision, precisionValida } from '~/pages/ElMapa/lienzo/precision';
 
 /**
  * La página de una señal — lo que hace que algo pueda circular.
@@ -29,23 +31,14 @@ import {
  * La firma sale **siempre** con «sin verificar» al lado, nunca sola: es el
  * nombre que alguien eligió poner, no una identidad que el sistema compruebe.
  *
- * La precisión del punto se dice con palabras. Alguien tiene derecho a saber
- * con qué grano se publicó lo que escribió, y a enterarse acá y no cuando lo
- * descubra en el volcado.
+ * La precisión del punto se dice con palabras —las mismas que usa la leyenda del
+ * mapa—. Alguien tiene derecho a saber con qué grano se publicó lo que escribió,
+ * y a enterarse acá y no cuando lo descubra en el volcado.
  *
  * Y **no se muestra quién confirmó**. Ni un seudónimo, ni un contador por
  * persona. La ficha dice qué se hizo y con qué método; quién lo hizo no es
  * información pública ni lo va a ser.
  */
-const PRECISION_EN_PALABRAS: Readonly<Record<string, string>> = {
-  exact: 'el punto exacto',
-  '100m': 'aproximada a cien metros',
-  '500m': 'aproximada a quinientos metros',
-  neighborhood: 'el barrio',
-  city: 'la localidad',
-  province: 'la provincia',
-};
-
 export function Senal() {
   const [, params] = useRoute('/senal/:id');
   const id = params?.id;
@@ -62,10 +55,11 @@ export function Senal() {
   if (isError || data === undefined) {
     return (
       <main className="mx-auto max-w-[760px] px-10 py-[72px] max-[560px]:px-5">
-        <h1 className="font-anton text-tinta text-[36px] leading-tight">No encontramos esa voz.</h1>
+        <h1 className="font-anton text-tinta text-[36px] leading-tight">
+          No encontramos ese aporte.
+        </h1>
         <p className="text-tinta-75 mt-3 max-w-[60ch] text-[16px] leading-relaxed">
-          Puede que el link esté mal, o que quien la escribió la haya retirado. Retirar deja una
-          fila vacía —para que se sepa que hubo algo— y saca la voz de todo lo que el mapa cuenta.
+          Puede que el enlace tenga un error o que quien lo escribió lo haya retirado.
         </p>
         <Link
           href="/el-mapa"
@@ -90,6 +84,10 @@ export function Senal() {
       >
         ← El mapa
       </Link>
+
+      {data.esPropia && senal.estado !== 'retirada' ? (
+        <Nota>Este aporte es tuyo. Podés corregirlo o retirarlo al final de la página.</Nota>
+      ) : null}
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <ChipTipo tipo={senal.tipo} active />
@@ -134,8 +132,8 @@ export function Senal() {
       {/* ── Dónde y con qué grano ───────────────────────────────────────── */}
       <dl className="border-tinta mt-8 border-t-2">
         {senal.direccionTexto === null ? null : <Fila rotulo="Dónde">{senal.direccionTexto}</Fila>}
-        <Fila rotulo="Se publicó con">
-          {PRECISION_EN_PALABRAS[senal.precision] ?? senal.precision}
+        <Fila rotulo="Precisión del lugar">
+          {etiquetaDePrecision(precisionValida(senal.precision))}
         </Fila>
         {senal.comprometidoPara === null ? null : (
           <Fila rotulo="Prometido para">
@@ -149,7 +147,7 @@ export function Senal() {
         {senal.periodicidad === null ? null : (
           <Fila rotulo="Cada cuánto">{senal.periodicidad}</Fila>
         )}
-        <Fila rotulo="Cargada">
+        <Fila rotulo="Publicado">
           {new Date(senal.creadaEn).toLocaleDateString('es-AR', {
             day: 'numeric',
             month: 'long',

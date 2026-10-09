@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { OpcionesCuenta } from './OpcionesCuenta';
+import { ReenviarCorreo } from './VerificarCorreo';
 
 import { BotonAccion, EnlaceAccion, Nota } from '~/components/participacion/Elementos';
 
@@ -17,29 +18,32 @@ export function Cuenta({
 }) {
   const [confirmar, setConfirmar] = useState(false);
   return (
-    <section>
-      <h2 className="font-anton text-3xl">Tu cuenta también necesita claridad.</h2>
+    <section aria-labelledby="titulo-cuenta">
+      <h2 id="titulo-cuenta" className="font-anton text-3xl">
+        Cuenta y datos
+      </h2>
       <dl className="mt-6 space-y-4">
         <div>
-          <dt className="text-tinta-50 text-sm">Nombre de cuenta, privado en este recorrido</dt>
+          <dt className="text-tinta-50 text-sm">Nombre (solo lo ves vos)</dt>
           <dd>{nombre}</dd>
         </div>
         <div>
           <dt className="text-tinta-50 text-sm">Correo</dt>
           <dd>
             {email} · {verificado ? 'verificado' : 'pendiente de verificar'}
+            {verificado ? null : <ReenviarCorreo email={email} />}
           </dd>
         </div>
       </dl>
       <Nota>
-        Ingresar no publica tu identidad ni cambia la firma de tus aportes. Verificar correo
-        acredita acceso a ese correo; no identidad civil ni representación de un territorio.
+        Tu nombre y tu correo no se publican junto a tus aportes. Verificar el correo solo confirma
+        que podés leerlo.
       </Nota>
       <div className="flex flex-wrap gap-3">
         <a
           href="/api/v1/mi-espacio/mis-datos"
           download="basta-mis-datos.json"
-          className="font-space bg-violeta text-papel inline-flex min-h-11 items-center border px-5 py-3 text-xs"
+          className="font-space bg-violeta text-papel hover:bg-tinta border-tinta inline-flex min-h-11 items-center border px-5 py-3 text-xs font-bold uppercase tracking-wide transition-colors"
         >
           Descargar mis datos
         </a>
@@ -57,8 +61,8 @@ export function Cuenta({
       </div>
       {confirmar ? (
         <Nota>
-          Los borradores locales permanecen en este navegador. Si compartís el equipo, revisá qué
-          querés borrar antes de salir.
+          Los borradores de este navegador se quedan acá. Si compartís el equipo, revisá qué querés
+          borrar antes de salir.
           <div className="mt-4 flex gap-3">
             <BotonAccion onClick={salir}>Salir de mi cuenta</BotonAccion>
             <BotonAccion
@@ -73,8 +77,8 @@ export function Cuenta({
         </Nota>
       ) : null}
       <p className="mt-6 text-sm">
-        Podés retirar publicaciones desde Mis aportes y dejar de seguir procesos. Cerrar una sesión
-        no realiza esas acciones.
+        Cerrar sesión no retira tus aportes ni cambia lo que seguís. Eso lo hacés desde «Mis
+        aportes» y «Lo que sigo».
       </p>
       <OpcionesCuenta salir={salir} />
     </section>

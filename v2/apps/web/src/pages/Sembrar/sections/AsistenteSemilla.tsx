@@ -121,7 +121,7 @@ export function AsistenteSemilla({ onPlantada }: AsistenteSemillaProps) {
             type="button"
             onClick={retroceder}
             disabled={paso === 0}
-            className="font-space text-tinta min-h-[44px] text-[13px] uppercase tracking-[0.08em] disabled:text-tinta-30 disabled:cursor-not-allowed"
+            className="font-space text-tinta min-h-[44px] text-[13px] uppercase tracking-[0.08em] disabled:text-tinta-50 disabled:cursor-not-allowed"
           >
             ← Volver
           </button>
@@ -137,7 +137,7 @@ export function AsistenteSemilla({ onPlantada }: AsistenteSemillaProps) {
         ) : null}
       </div>
 
-      <p className="font-space text-tinta-30 mt-5 text-center text-[11px] uppercase tracking-[0.1em]">
+      <p className="font-space text-tinta-50 mt-5 text-center text-[11px] uppercase tracking-[0.1em]">
         Anónimo si querés · Sin registro · Sin spam
       </p>
     </div>

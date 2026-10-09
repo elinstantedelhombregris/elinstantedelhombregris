@@ -8,14 +8,8 @@ import type { ReciboParticipacion } from '~/lib/queries/participacion';
 import { EnlaceAccion, Nota } from '~/components/participacion/Elementos';
 import { Seguir } from '~/components/participacion/Seguir';
 import { useAuth } from '~/lib/auth/use-auth';
-
-const PRECISION: Readonly<Record<string, string>> = {
-  province: 'zona amplia, sin un punto preciso',
-  city: 'localidad',
-  neighborhood: 'barrio',
-  '100m': 'aproximadamente 100 metros',
-  '500m': 'aproximadamente 500 metros',
-};
+import { hrefIngresar } from '~/lib/auth/volver';
+import { etiquetaDePrecision, precisionValida } from '~/pages/ElMapa/lienzo/precision';
 
 /** El servidor avisa esto en castellano técnico; acá se dice como lo diría una persona. */
 const AVISO_SIN_UBICACION = 'No llegó ni calle, ni localidad, ni provincia, ni punto.';
@@ -42,7 +36,7 @@ export function Recibo({
   sumarOtro?: () => void;
 }) {
   const auth = useAuth();
-  const precision = PRECISION[recibo.precisionPublicada] ?? 'ubicación protegida';
+  const precision = etiquetaDePrecision(precisionValida(recibo.precisionPublicada));
   const titulo = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     titulo.current?.focus();
@@ -119,7 +113,7 @@ export function Recibo({
             Volver a mi espacio
           </EnlaceAccion>
         ) : (
-          <EnlaceAccion secundario href="/ingresar?volver=%2Fmi-espacio">
+          <EnlaceAccion secundario href={hrefIngresar('/mi-espacio')}>
             Guardar en mi espacio
           </EnlaceAccion>
         )}

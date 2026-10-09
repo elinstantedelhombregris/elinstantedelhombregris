@@ -106,13 +106,35 @@ describe('Recibo del aporte', () => {
     const { container } = render(
       <Recibo recibo={recibo} campana={null} textoVisible={false} territorio="Mendoza" />,
     );
-    expect(container).toHaveTextContent(
-      'Lugar: Mendoza. Precisión: zona amplia, sin un punto preciso.',
-    );
+    // Las palabras de la leyenda del mapa: una sola forma de decir la precisión.
+    expect(container).toHaveTextContent('Lugar: Mendoza. Precisión: a nivel provincia.');
     expect(container).toHaveTextContent(
       'El texto quedó reservado: el aporte cuenta sin exponer tus palabras.',
     );
     expect(container.textContent).not.toMatch(/ámbito|señal|voz\b|voces|reflexión/i);
+  });
+
+  it.each([
+    ['exact', 'en su punto exacto'],
+    ['100m', 'a ±100 m'],
+    ['500m', 'a ±500 m'],
+    ['neighborhood', 'en su barrio'],
+    ['city', 'en el centro de su localidad'],
+    ['province', 'a nivel provincia'],
+  ])('dice la precisión «%s» con la etiqueta compartida', (precisionPublicada, etiqueta) => {
+    const { container } = render(
+      <Recibo recibo={{ ...recibo, precisionPublicada }} campana={null} textoVisible={false} />,
+    );
+    expect(container).toHaveTextContent(`Precisión: ${etiqueta}.`);
+    expect(container).not.toHaveTextContent('ubicación protegida');
+  });
+
+  it('quien no ingresó va a «Guardar en mi espacio» y vuelve a Mi espacio al terminar', () => {
+    render(<Recibo recibo={recibo} campana={null} textoVisible={false} />);
+    expect(screen.getByRole('link', { name: 'Guardar en mi espacio' })).toHaveAttribute(
+      'href',
+      '/ingresar?volver=%2Fmi-espacio',
+    );
   });
 
   it('la línea de «todavía no hay otros» solo aparece cuando se sabe que es cierta', () => {

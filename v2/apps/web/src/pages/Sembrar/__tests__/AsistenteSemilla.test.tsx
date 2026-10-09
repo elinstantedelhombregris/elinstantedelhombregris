@@ -157,4 +157,16 @@ describe('AsistenteSemilla', () => {
     render(<AsistenteSemilla onPlantada={vi.fn()} />);
     expect(screen.getByText('Anónimo si querés · Sin registro · Sin spam')).toBeInTheDocument();
   });
+
+  it('el pie y «← Volver» deshabilitado se leen: ninguno usa el gris de 1,9:1', () => {
+    render(<AsistenteSemilla onPlantada={vi.fn()} />);
+
+    const pie = screen.getByText('Anónimo si querés · Sin registro · Sin spam');
+    expect(pie).toHaveClass('text-tinta-50');
+    expect(pie).not.toHaveClass('text-tinta-30');
+    const volver = screen.getByRole('button', { name: '← Volver' });
+    expect(volver).toBeDisabled();
+    expect(volver.className).toContain('disabled:text-tinta-50');
+    expect(volver.className).not.toContain('tinta-30');
+  });
 });

@@ -1,10 +1,11 @@
-import { Fragment, useState } from 'react';
-import { Link, useLocation } from 'wouter';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useSearch } from 'wouter';
 
 import { MenuBiblioteca } from './MenuBiblioteca';
 import { PAPEL_NAV, PAPEL_NAV_ALL, SUBSECCIONES } from './papel-nav';
 
 import { useAuth } from '~/lib/auth/use-auth';
+import { hrefIngresar } from '~/lib/auth/volver';
 import { despertar } from '~/lib/despertar';
 import { saltarSiEsLaMismaPagina } from '~/lib/ir-al-principio';
 import { APORTAR_HREF } from '~/lib/participacion/aportar';
@@ -16,14 +17,29 @@ function esActiva(location: string, href: string): boolean {
   return location === href || location.startsWith(`${href}/`);
 }
 
+/** `page` en la página misma, `true` en una página de adentro de la sección. */
+function ariaCurrent(location: string, href: string): 'page' | 'true' | undefined {
+  if (!esActiva(location, href)) return undefined;
+  return location === href ? 'page' : 'true';
+}
+
+const ID_MENU_MOVIL = 'menu-movil';
+
+const CLASE_ITEM =
+  'font-space hover:text-tinta border-b-2 px-3.5 py-2 text-xs uppercase tracking-[0.06em] transition-colors';
+
 /**
  * Header papel: wordmark con signos en violeta, contador FOMO, nav mono
  * y CTA «Imaginar mi Argentina». Colapsa a menú de pantalla completa ≤1140px.
  */
 export function PapelHeader() {
   const [location] = useLocation();
+  // «Ingresar» devuelve a la página donde se pidió, con su query: suscribirse a
+  // la búsqueda mantiene fresco ese enlace cuando solo cambian los filtros.
+  useSearch();
   const auth = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+  const botonMenu = useRef<HTMLButtonElement>(null);
   const vocesQuery = useVocesCount();
   /**
    * Tres estados y ninguna invención.
@@ -42,6 +58,24 @@ export function PapelHeader() {
       : total === 0
         ? 'la primera voz todavía puede ser la tuya'
         : `${total.toLocaleString('es-AR')} ${total === 1 ? 'aporte' : 'aportes'} en el registro`;
+
+  // Escape cierra el menú de pantalla completa y devuelve el foco al botón que
+  // lo abrió: sin eso quien navega con teclado queda sobre un link que ya no está.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const alTeclear = (evento: KeyboardEvent) => {
+      if (evento.key !== 'Escape') return;
+      setMenuOpen(false);
+      botonMenu.current?.focus();
+    };
+    document.addEventListener('keydown', alTeclear);
+    return () => {
+      document.removeEventListener('keydown', alTeclear);
+    };
+  }, [menuOpen]);
+
+  const hrefSesion = auth.user ? '/mi-espacio' : hrefIngresar();
+  const rutaSesion = auth.user ? '/mi-espacio' : '/ingresar';
 
   return (
     // El menú móvil vive FUERA del <header>: el backdrop-filter del header lo
@@ -74,7 +108,7 @@ export function PapelHeader() {
             {PAPEL_NAV.map((item) =>
               // Las entradas con hijos los despliegan en vez de obligar a
               // pasar por el hub. Cuáles son es dato (`SUBSECCIONES`) y no un
-              // `if` por href: hoy son dos, la biblioteca y el mapa.
+              // `if` por href: hoy son tres, La idea, Campañas y la biblioteca.
               SUBSECCIONES[item.href] ? (
                 <MenuBiblioteca
                   key={item.href}
@@ -86,8 +120,9 @@ export function PapelHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={ariaCurrent(location, item.href)}
                   className={cn(
-                    'font-space hover:text-tinta border-b-2 px-3.5 py-2 text-xs uppercase tracking-[0.06em] transition-colors',
+                    CLASE_ITEM,
                     esActiva(location, item.href)
                       ? 'border-violeta text-tinta'
                       : 'text-tinta-50 border-transparent',
@@ -98,8 +133,14 @@ export function PapelHeader() {
               ),
             )}
             <Link
-              href={auth.user ? '/mi-espacio' : '/ingresar?volver=%2Fmi-espacio'}
-              className="font-space min-h-11 px-3 py-3 text-xs underline"
+              href={hrefSesion}
+              aria-current={ariaCurrent(location, rutaSesion)}
+              className={cn(
+                CLASE_ITEM,
+                esActiva(location, rutaSesion)
+                  ? 'border-violeta text-tinta'
+                  : 'text-tinta-50 border-transparent',
+              )}
             >
               {auth.user ? 'Mi espacio' : 'Ingresar'}
             </Link>
@@ -113,8 +154,10 @@ export function PapelHeader() {
           </nav>
 
           <button
+            ref={botonMenu}
             type="button"
             aria-expanded={menuOpen}
+            aria-controls={ID_MENU_MOVIL}
             aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             className="border-tinta font-space text-tinta hidden min-h-11 min-w-11 items-center justify-center gap-2 border px-3.5 py-[9px] text-xs uppercase max-[1140px]:inline-flex"
             onClick={() => {
@@ -128,6 +171,7 @@ export function PapelHeader() {
 
       {menuOpen ? (
         <nav
+          id={ID_MENU_MOVIL}
           aria-label="Recorrido completo"
           className="bg-papel fixed inset-x-0 bottom-0 top-16 z-40 flex flex-col gap-1 overflow-y-auto px-6 py-8"
         >
@@ -135,9 +179,10 @@ export function PapelHeader() {
             <Fragment key={item.href}>
               <Link
                 href={item.href}
+                aria-current={ariaCurrent(location, item.href)}
                 className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
                 onClick={() => {
-                  // En móvil, «Sembrar» es el mismo trigger canónico del despertar §10.7.
+                  // En móvil, «Imaginar mi Argentina» es el mismo trigger canónico del despertar §10.7.
                   if (item.href === APORTAR_HREF) despertar();
                   setMenuOpen(false);
                 }}
@@ -151,6 +196,7 @@ export function PapelHeader() {
                 <Link
                   key={seccion.href}
                   href={seccion.href}
+                  aria-current={ariaCurrent(location, seccion.href.split('#')[0] ?? seccion.href)}
                   className="border-papel-borde font-space text-tinta-75 flex min-h-11 items-center justify-between border-b pl-5 text-xs uppercase tracking-[0.06em]"
                   onClick={(evento) => {
                     if (saltarSiEsLaMismaPagina(seccion.href, location)) evento.preventDefault();
@@ -158,11 +204,26 @@ export function PapelHeader() {
                   }}
                 >
                   {seccion.label}
-                  <span className="font-space text-tinta-30 text-[10px]">{seccion.num}</span>
+                  <span className="font-space text-tinta-50 text-[10px]">{seccion.num}</span>
                 </Link>
               ))}
             </Fragment>
           ))}
+          {auth.user ? null : (
+            <Link
+              href={hrefSesion}
+              aria-current={ariaCurrent(location, rutaSesion)}
+              className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
+              onClick={() => {
+                setMenuOpen(false);
+              }}
+            >
+              Ingresar
+              <span aria-hidden className="font-space text-violeta text-xs">
+                →
+              </span>
+            </Link>
+          )}
         </nav>
       ) : null}
     </>

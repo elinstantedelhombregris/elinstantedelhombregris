@@ -3,9 +3,10 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Home } from '../Home';
-import { PLAN_COUNT, PLANES_TEASER } from '../Home/landing-data';
+import { PLANES_TEASER } from '../Home/landing-data';
 
 import { useCifras, useVocesCount, useVocesRecientes } from '~/lib/queries/analytics';
+import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
 vi.mock('~/lib/queries/participacion', () => ({ useCampanas: () => ({ data: [] }) }));
 vi.mock('~/lib/queries/fichas', () => ({ useFichas: () => ({ data: { fichas: [] } }) }));
@@ -72,10 +73,35 @@ describe('Home (landing Papel y Tinta)', () => {
       'href',
       '/el-mapa?participar=aportar#instrumento',
     );
-    expect(screen.getByRole('link', { name: 'Cómo funciona el ejercicio →' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Cómo funciona →' })).toHaveAttribute(
       'href',
       '/la-idea',
     );
+  });
+
+  it('dice qué es el sitio en todos los anchos y que no hace falta cuenta', () => {
+    renderHome();
+
+    const parrafo = screen.getByText(/es un lugar para imaginar entre todos cómo podría ser la Argentina/);
+    expect(parrafo).toHaveTextContent(
+      '¡BASTA! es un lugar para imaginar entre todos cómo podría ser la Argentina. Contás qué querrías que fuera posible en tu vida y se suma a lo que cuentan otras personas.',
+    );
+    // Ni el párrafo ni el enlace al método se esconden en móvil.
+    expect(parrafo.className).not.toMatch(/\bhidden\b/);
+    expect(screen.getByRole('link', { name: 'Cómo funciona →' }).className).not.toMatch(/\bhidden\b/);
+    expect(screen.getByText('No hace falta cuenta.')).toBeInTheDocument();
+  });
+
+  it('el cierre de la banda del hombre gris termina en una pregunta al lector y no en un aforismo', () => {
+    renderHome();
+
+    expect(screen.getByText(/¿Y si fueras vos\?/)).toBeInTheDocument();
+    expect(screen.queryByText(/La experiencia de una vida abre una pregunta/)).not.toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Acá lo que cuenta cada persona se junta con lo de otras, por tema y lugar. Con eso se arman campañas y fichas.',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('never shows the retired demo-data asterisk note — the cifras strip is all real now', () => {
@@ -94,8 +120,11 @@ describe('Home (landing Papel y Tinta)', () => {
 
     expect(PLANES_TEASER).toHaveLength(3);
     for (const plan of PLANES_TEASER) {
+      // El título es el encabezado de la tarjeta y el código su etiqueta chica.
+      expect(screen.getByRole('heading', { level: 3, name: plan.title })).toBeInTheDocument();
       const card = screen.getByText(plan.code).closest('a');
       expect(card).toHaveAttribute('href', `/planes/${plan.slug}`);
+      expect(screen.queryByRole('heading', { name: plan.code })).not.toBeInTheDocument();
     }
     expect(
       screen.getByRole('heading', {

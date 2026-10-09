@@ -24,7 +24,7 @@ function guardar(clave: string, control: Control) {
 }
 export function DescargarDatos({
   consulta = {},
-  titulo = 'Descargar estos datos',
+  titulo = 'Preparar el archivo',
 }: {
   consulta?: Record<string, string>;
   titulo?: string;
@@ -98,7 +98,7 @@ export function DescargarDatos({
           }, 3000);
       } catch (e) {
         if (!ac.signal.aborted) {
-          setError(e instanceof Error ? e.message : 'No pudimos consultar el trabajo.');
+          setError(e instanceof Error ? e.message : 'No pudimos ver cómo va tu pedido.');
           if (e instanceof ApiError && [400, 404, 410].includes(e.status)) {
             setControl(null);
             setTrabajo(null);
@@ -255,7 +255,7 @@ export function DescargarDatos({
             href={`/api/v1/exportaciones/trabajos/${trabajo.id}/archivo`}
             className="font-space border-tinta bg-violeta text-papel inline-flex min-h-11 items-center border px-5 py-3 text-xs uppercase tracking-wide"
           >
-            Descargar ZIP preparado
+            Descargar el archivo
           </a>
         ) : null}
       </div>
@@ -263,16 +263,16 @@ export function DescargarDatos({
         <div role="status" className="text-tinta-75 mt-4 text-sm">
           <p>
             {estado === 'solicitado'
-              ? 'Tu lectura entró en la cola.'
+              ? 'Tu pedido está en espera.'
               : estado === 'preparando'
-                ? 'Estamos reuniendo el alcance completo.'
+                ? 'Estamos juntando los registros.'
                 : estado === 'disponible'
                   ? 'Archivo completo y disponible.'
-                  : (trabajo.mensaje ?? 'Pedí una lectura nueva.')}
+                  : (trabajo.mensaje ?? 'Pedí un archivo nuevo.')}
           </p>
           <p className="mt-2">
             {trabajo.registros.toLocaleString('es-AR')} registros preparados
-            {trabajo.total ? ` de ${trabajo.total.toLocaleString('es-AR')}` : ''} · corte{' '}
+            {trabajo.total ? ` de ${trabajo.total.toLocaleString('es-AR')}` : ''}. Datos al{' '}
             {new Date(trabajo.corte).toLocaleString('es-AR')}.
           </p>
           {estado === 'disponible' ? (
@@ -286,12 +286,12 @@ export function DescargarDatos({
       <ErrorOperacion mensaje={error} />
       <p className="text-tinta-50 mt-3 text-sm">
         El archivo se prepara mientras tengas esta página abierta. Si la cerrás, sigue cuando
-        vuelvas a consultarlo. Incluye todas las páginas del alcance elegido, permisos, omisiones y
-        fecha de corte. No descarga la base interna.
+        vuelvas a consultarlo. Incluye todo lo que corresponde al alcance elegido, con los
+        permisos, lo que se dejó afuera y la fecha de los datos. No descarga la base interna.
       </p>
       <p className="text-tinta-50 mt-2 text-sm">
-        El servidor transmite el ZIP directamente. Si una fuente se corrige o se retira, pedí una
-        lectura nueva. Para más de 100.000 registros o 256 MB, dividí por zona, tema o fechas.
+        Si después se corrige o se retira algún aporte, pedí un archivo nuevo. Para más de 100.000
+        registros o 256 MB, dividí el pedido por lugar, tema o fechas.
       </p>
     </div>
   );

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
 
-import { BotonAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
-import { aportarHref } from '~/lib/participacion/aportar';
+import { BotonAccion, EnlaceAccion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
+import { APORTAR_HREF, aportarHref } from '~/lib/participacion/aportar';
 import { leerBorradores, borrarBorrador, type BorradorIdeal } from '~/lib/participacion/borradores';
 
 export function BorradoresLocales() {
@@ -17,11 +17,13 @@ export function BorradoresLocales() {
   };
   useEffect(cargar, []);
   return (
-    <section>
-      <h2 className="font-anton text-3xl">Reflexiones que siguen con vos.</h2>
+    <section aria-labelledby="titulo-borradores">
+      <h2 id="titulo-borradores" className="font-anton text-3xl">
+        Mis borradores
+      </h2>
       <Nota>
         Estos borradores están solo en este navegador. No se sincronizaron ni se ligaron
-        automáticamente a tu cuenta. Si compartís el equipo, revisá qué conviene conservar acá.
+        automáticamente a ninguna cuenta. Si compartís el equipo, revisá qué conviene conservar acá.
       </Nota>
       <ErrorOperacion mensaje={error} />
       {lista.length ? (
@@ -29,7 +31,7 @@ export function BorradoresLocales() {
           {lista.map((b) => (
             <li key={b.id} className="border p-5">
               <p className="whitespace-pre-wrap break-words leading-relaxed">
-                {b.frases[0]?.trim() ? b.frases[0] : 'Reflexión todavía sin primera frase.'}
+                {b.frases[0]?.trim() ? b.frases[0] : 'Borrador todavía sin primera frase.'}
               </p>
               <p className="text-tinta-50 mt-3 text-sm">
                 Guardado en este dispositivo · {new Date(b.fecha).toLocaleDateString('es-AR')}
@@ -62,9 +64,15 @@ export function BorradoresLocales() {
           ))}
         </ul>
       ) : (
-        <p>
-          No hay reflexiones guardadas aquí. Al imaginar podés elegir guardar una sin publicarla.
-        </p>
+        <>
+          <p>
+            No hay borradores guardados en este navegador. Al imaginar podés elegir guardar uno sin
+            publicarlo.
+          </p>
+          <div className="mt-5">
+            <EnlaceAccion href={APORTAR_HREF}>Imaginar mi Argentina</EnlaceAccion>
+          </div>
+        </>
       )}
     </section>
   );
