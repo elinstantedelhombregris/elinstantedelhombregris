@@ -8,7 +8,10 @@ import type { FocusEvent, KeyboardEvent, MouseEvent } from 'react';
 import { saltarSiEsLaMismaPagina } from '~/lib/ir-al-principio';
 import { cn } from '~/lib/utils';
 
-const ID_PANEL = 'menu-biblioteca';
+/** Un id por desplegable: con tres entradas que despliegan hijos, un id fijo se repetiría. */
+function idDelPanel(href: string): string {
+  return `menu-${href.replace(/^\//, '').replaceAll('/', '-')}`;
+}
 
 /** ¿La sección es la página donde ya estamos? El ancla no cuenta para esto. */
 function esLaActual(location: string, href: string): boolean {
@@ -17,7 +20,8 @@ function esLaActual(location: string, href: string): boolean {
 }
 
 /**
- * El desplegable de «La biblioteca» en el header papel.
+ * El desplegable de una entrada del recorrido con hijos en el header papel; el
+ * primero fue «La biblioteca», y de ahí el nombre.
  *
  * La biblioteca tiene cinco estantes con destino propio y desde el header
  * solo se llegaba al hub: para entrar a la bitácora o a los entrenamientos
@@ -36,12 +40,12 @@ export function MenuBiblioteca({
   item: PapelNavItem;
   activa: boolean;
   /** Los hijos que despliega. Entran por prop desde `SUBSECCIONES`: el
-   *  componente dejó de saber cuál es la entrada con estantes el día que hubo
-   *  una segunda (La Radiografía cuelga de «El mapa»). */
+   *  componente no sabe cuál es la entrada con hijos. */
   secciones: readonly PapelNavItem[];
 }) {
   const [location] = useLocation();
   const [abierto, setAbierto] = useState(false);
+  const idPanel = idDelPanel(item.href);
 
   // Cambiar de página cierra el panel: el mouse ya no está donde estaba.
   useEffect(() => {
@@ -82,7 +86,8 @@ export function MenuBiblioteca({
       <Link
         href={item.href}
         aria-expanded={abierto}
-        aria-controls={ID_PANEL}
+        aria-controls={idPanel}
+        aria-current={activa ? (location === item.href ? 'page' : 'true') : undefined}
         className={cn(
           'font-space hover:text-tinta flex items-center gap-1.5 border-b-2 px-3.5 py-2 text-xs uppercase tracking-[0.06em] transition-colors',
           activa ? 'border-violeta text-tinta' : 'text-tinta-50 border-transparent',
@@ -96,7 +101,7 @@ export function MenuBiblioteca({
 
       {abierto ? (
         <div
-          id={ID_PANEL}
+          id={idPanel}
           className="border-tinta bg-papel absolute left-0 top-full z-50 -mt-px flex w-[264px] flex-col border"
         >
           {secciones.map((seccion) => {

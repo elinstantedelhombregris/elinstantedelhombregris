@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { SECCIONES_BIBLIOTECA } from './papel-nav';
+import { SECCIONES_BIBLIOTECA, SECCIONES_CAMPANAS, SECCIONES_LA_IDEA } from './papel-nav';
 import { PapelHeader } from './PapelHeader';
 
 import type { ReactNode } from 'react';
@@ -121,6 +121,41 @@ describe('MenuBiblioteca — los cinco estantes se abren desde el header', () =>
 
     seccion.remove();
     window.history.replaceState(null, '', '/');
+  });
+});
+
+describe('MenuBiblioteca — Planes y Fichas tienen puerta en el recorrido', () => {
+  it.each([
+    ['La idea', 'menu-la-idea', SECCIONES_LA_IDEA],
+    ['Campañas', 'menu-campanas', SECCIONES_CAMPANAS],
+  ] as const)('«%s» despliega sus hijos, con un panel de id propio', (nombre, idPanel, hijos) => {
+    render(
+      <ConQueryClient>
+        <PapelHeader />
+      </ConQueryClient>,
+    );
+    const disparador = screen.getByRole('link', { name: nombre });
+    expect(disparador).toHaveAttribute('aria-controls', idPanel);
+    fireEvent.mouseEnter(exigir(disparador.parentElement, 'el contenedor del disparador'));
+
+    const panel = exigir(document.getElementById(idPanel), 'el panel del menú');
+    for (const hijo of hijos)
+      expect(within(panel).getByRole('link', { name: hijo.label })).toHaveAttribute(
+        'href',
+        hijo.href,
+      );
+  });
+
+  it('«Mapa» ya no despliega nada: la Radiografía es una entrada del recorrido y no se repite', () => {
+    render(
+      <ConQueryClient>
+        <PapelHeader />
+      </ConQueryClient>,
+    );
+    const mapa = screen.getByRole('link', { name: 'Mapa' });
+
+    expect(mapa).not.toHaveAttribute('aria-controls');
+    expect(screen.getAllByRole('link', { name: /Radiografía/i })).toHaveLength(1);
   });
 });
 

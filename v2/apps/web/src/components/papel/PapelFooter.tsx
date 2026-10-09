@@ -44,7 +44,7 @@ export function PapelFooter() {
           </div>
 
           <div>
-            <div className="font-space text-oscuro-tenue mb-4 text-[11px] font-bold uppercase tracking-[0.14em]">
+            <div className="font-space text-oscuro-meta mb-4 text-[11px] font-bold uppercase tracking-[0.14em]">
               Recorrido
             </div>
             <div className="flex flex-col gap-2.5">
@@ -61,7 +61,7 @@ export function PapelFooter() {
           </div>
 
           <div>
-            <div className="font-space text-oscuro-tenue mb-4 text-[11px] font-bold uppercase tracking-[0.14em]">
+            <div className="font-space text-oscuro-meta mb-4 text-[11px] font-bold uppercase tracking-[0.14em]">
               Principios
             </div>
             <div className="text-oscuro-meta flex flex-col gap-2.5 text-sm">
@@ -72,11 +72,11 @@ export function PapelFooter() {
           </div>
 
           <div>
-            <div className="font-space text-oscuro-tenue mb-4 text-[11px] font-bold uppercase tracking-[0.14em]">
+            <div className="font-space text-oscuro-meta mb-4 text-[11px] font-bold uppercase tracking-[0.14em]">
               El siguiente paso
             </div>
             <p className="text-oscuro-meta m-0 mb-4 text-sm leading-relaxed">
-              Una vida imaginada puede abrir un diseño compartido.
+              Contanos qué querrías que fuera posible en tu vida.
             </p>
             <Link
               href={APORTAR_HREF}
@@ -87,12 +87,17 @@ export function PapelFooter() {
           </div>
         </div>
 
-        <div className="font-space text-oscuro-tenue flex flex-wrap justify-between gap-4 pt-6 text-[11px] max-[560px]:flex-col">
+        <div className="font-space text-oscuro-meta flex flex-wrap justify-between gap-4 pt-6 text-[11px] max-[560px]:flex-col">
           <span className="flex flex-wrap items-center gap-2">
             <Link href="/datos-abiertos" className="hover:text-papel underline">
               Datos abiertos
-            </Link>{' '}
-            · © 2026 ¡BASTA! — El instante del hombre gris
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/politica-privacidad" className="hover:text-papel underline">
+              Privacidad
+            </Link>
+            <span aria-hidden>·</span>
+            © 2026 ¡BASTA! — El instante del hombre gris
             <span aria-hidden>·</span>
             {/* Única puerta de entrada de toda la página: no está en el
                 recorrido ni en el header, a propósito. */}

@@ -11,6 +11,26 @@ import {
 import { PapelFooter } from '../PapelFooter';
 
 describe('PapelFooter', () => {
+  it('ningún texto ni enlace usa el gris que no llega a contraste sobre el fondo oscuro', () => {
+    const { container } = render(<PapelFooter />);
+    expect(container.innerHTML).not.toMatch(/text-oscuro-tenue/);
+  });
+
+  it('invita a contar la vida de cada uno, con el verbo de la acción', () => {
+    render(<PapelFooter />);
+    expect(screen.getByText('Contanos qué querrías que fuera posible en tu vida.')).toBeInTheDocument();
+    expect(screen.queryByText(/diseño compartido/)).not.toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })).toHaveLength(2);
+  });
+
+  it('enlaza la política de privacidad desde la franja inferior', () => {
+    render(<PapelFooter />);
+    expect(screen.getByRole('link', { name: 'Privacidad' })).toHaveAttribute(
+      'href',
+      '/politica-privacidad',
+    );
+  });
+
   it('el enlace a «Quién está detrás» vive en la franja inferior', () => {
     render(<PapelFooter />);
     expect(screen.getByRole('link', { name: QUIEN_LABEL })).toHaveAttribute('href', QUIEN_HREF);

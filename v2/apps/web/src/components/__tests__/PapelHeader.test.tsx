@@ -1,19 +1,25 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { fireEvent, render, screen, within } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { PAPEL_NAV } from '../papel/papel-nav';
 import { PapelHeader } from '../papel/PapelHeader';
 
 import { useVocesCount } from '~/lib/queries/analytics';
 
-vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: null }) }));
+const sesion = vi.hoisted(() => ({ user: null as null | { id: number } }));
+vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: sesion.user }) }));
 
 vi.mock('~/lib/queries/analytics', () => ({
   useVocesCount: vi.fn(),
 }));
 
 const mockedUseVocesCount = vi.mocked(useVocesCount);
+
+afterEach(() => {
+  sesion.user = null;
+  window.history.replaceState(null, '', '/');
+});
 
 function renderHeader() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -126,5 +132,148 @@ describe('PapelHeader', () => {
     expect(
       screen.queryByRole('navigation', { name: 'Recorrido completo' }),
     ).not.toBeInTheDocument();
+  });
+});
+
+describe('PapelHeader — la puerta de la cuenta', () => {
+  const sinCifra = () => {
+    mockedUseVocesCount.mockReturnValue({
+      data: undefined,
+      isLoading: true,
+      isError: false,
+    } as ReturnType<typeof useVocesCount>);
+  };
+
+  it('sin sesión, «Ingresar» es un ítem más del recorrido y devuelve a la página donde se pidió', () => {
+    sinCifra();
+    window.history.replaceState(null, '', '/campanas/mi-argentina-ideal?edicion=2');
+    renderHeader();
+
+    const ingresar = screen.getByRole('link', { name: 'Ingresar' });
+    expect(ingresar).toHaveAttribute(
+      'href',
+      '/ingresar?volver=' + encodeURIComponent('/campanas/mi-argentina-ideal?edicion=2'),
+    );
+    // Mismo estilo que «La idea» o «Mapa»: mono, mayúsculas, subrayado de sección.
+    const hermano = screen.getByRole('link', { name: 'Mapa' });
+    for (const clase of ['font-space', 'uppercase', 'border-b-2', 'px-3.5', 'py-2'])
+      expect(ingresar).toHaveClass(clase);
+    expect(hermano).toHaveClass('uppercase', 'border-b-2');
+    expect(ingresar).not.toHaveClass('underline');
+  });
+
+  it('en la pantalla de ingreso el ítem queda marcado con aria-current', () => {
+    sinCifra();
+    window.history.replaceState(null, '', '/ingresar');
+    renderHeader();
+
+    expect(screen.getByRole('link', { name: 'Ingresar' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link', { name: 'Mapa' })).not.toHaveAttribute('aria-current');
+  });
+
+  it('con sesión dice «Mi espacio» y lleva ahí', () => {
+    sinCifra();
+    sesion.user = { id: 1 };
+    window.history.replaceState(null, '', '/mi-espacio');
+    renderHeader();
+
+    const link = screen.getByRole('link', { name: 'Mi espacio' });
+    expect(link).toHaveAttribute('href', '/mi-espacio');
+    expect(link).toHaveAttribute('aria-current', 'page');
+    expect(screen.queryByRole('link', { name: 'Ingresar' })).not.toBeInTheDocument();
+  });
+
+  it('el menú móvil ofrece «Ingresar» sin sesión y no con sesión', () => {
+    sinCifra();
+    const sinSesion = renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+    expect(within(menu).getByRole('link', { name: /Ingresar/ })).toHaveAttribute(
+      'href',
+      '/ingresar?volver=%2F',
+    );
+    sinSesion.unmount();
+
+    sesion.user = { id: 1 };
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    expect(
+      within(screen.getByRole('navigation', { name: 'Recorrido completo' })).queryByRole('link', {
+        name: /Ingresar/,
+      }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('el menú móvil nombra la acción como el resto del sitio', () => {
+    sinCifra();
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+
+    expect(within(menu).getByRole('link', { name: /Imaginar mi Argentina/ })).toHaveAttribute(
+      'href',
+      '/el-mapa?participar=aportar#instrumento',
+    );
+    expect(within(menu).queryByRole('link', { name: /^Imaginar\b(?! mi)/ })).not.toBeInTheDocument();
+  });
+
+  it('Escape cierra el menú móvil y el foco vuelve al botón que lo abrió', () => {
+    sinCifra();
+    renderHeader();
+    const boton = screen.getByRole('button', { name: 'Abrir menú' });
+    fireEvent.click(boton);
+    expect(boton).toHaveAttribute('aria-expanded', 'true');
+    expect(boton).toHaveAttribute('aria-controls', 'menu-movil');
+    expect(document.getElementById('menu-movil')).not.toBeNull();
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+
+    expect(
+      screen.queryByRole('navigation', { name: 'Recorrido completo' }),
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Abrir menú' })).toHaveFocus();
+  });
+
+  it('otras teclas no cierran el menú', () => {
+    sinCifra();
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    fireEvent.keyDown(document, { key: 'Enter' });
+
+    expect(screen.getByRole('navigation', { name: 'Recorrido completo' })).toBeInTheDocument();
+  });
+
+  it('ningún texto del header ni del menú usa el gris que no llega a contraste', () => {
+    sinCifra();
+    const { container } = renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+
+    expect(container.innerHTML).not.toMatch(/text-tinta-30/);
+    expect(document.body.innerHTML).not.toMatch(/text-tinta-30/);
+  });
+
+  it('La Radiografía aparece una sola vez en el menú móvil: ya no cuelga también de Mapa', () => {
+    sinCifra();
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+
+    expect(within(menu).getAllByRole('link', { name: /Radiografía/i })).toHaveLength(1);
+  });
+
+  it('el menú móvil abre Planes y Fichas como hijos de La idea y de Campañas', () => {
+    sinCifra();
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+
+    expect(within(menu).getByRole('link', { name: /Los planes/ })).toHaveAttribute(
+      'href',
+      '/planes',
+    );
+    expect(within(menu).getByRole('link', { name: /Las fichas/ })).toHaveAttribute(
+      'href',
+      '/fichas',
+    );
   });
 });
