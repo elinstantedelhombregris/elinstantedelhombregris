@@ -112,3 +112,26 @@ describe('Instrumento — es un registro de noche dentro del papel', () => {
     expect(instrumento).toHaveClass('[color-scheme:dark]', 'bg-tinta');
   });
 });
+
+describe('Instrumento — el panel de aportes crece con la página', () => {
+  const columna = () => screen.getByLabelText('Tu aporte').closest('.overflow-auto');
+
+  it('con el panel abierto no tiene tope de alto ni scroll propio en escritorio', () => {
+    montar(true);
+    expect(columna()).not.toBeNull();
+    expect(columna()).not.toHaveClass('max-h-[640px]');
+    // En el teléfono ya se apilaba sin tope, y sigue así.
+    expect(columna()).toHaveClass('max-[960px]:max-h-none');
+  });
+
+  it('con el panel cerrado, los paneles de lectura siguen recortados a la altura del mapa', () => {
+    montar(false);
+    expect(columna()).toHaveClass('max-h-[640px]');
+  });
+
+  it('con el panel abierto el mapa acompaña al panel largo en escritorio', () => {
+    const { container } = montar(true);
+    const mapa = container.querySelector('.relative.h-\\[640px\\]');
+    expect(mapa).toHaveClass('min-[961px]:sticky', 'min-[961px]:self-start');
+  });
+});

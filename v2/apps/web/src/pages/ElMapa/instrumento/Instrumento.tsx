@@ -205,7 +205,15 @@ export function Instrumento({
           soloLista && !participando && 'hidden',
         )}
       >
-        <div className="max-h-[640px] overflow-auto max-[960px]:order-2 max-[960px]:max-h-none">
+        {/* El panel de aportes no tiene tope de alto: el formulario entero (976 px con la
+            revisión) crece con la página y el botón principal queda en la página, no adentro de
+            un scroll chico. Los paneles de lectura sí se recortan a la altura del mapa. */}
+        <div
+          className={cn(
+            'overflow-auto max-[960px]:order-2 max-[960px]:max-h-none',
+            !participando && 'max-h-[640px]',
+          )}
+        >
           <div hidden={participando}>
             <PanelLateral titulo={activo.titulo} descripcion={activo.descripcion}>
               {tieneDatos ? (
@@ -222,7 +230,12 @@ export function Instrumento({
 
         <div
           hidden={soloLista}
-          className="relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]"
+          className={cn(
+            'relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]',
+            // Con el panel de aportes largo, el mapa lo acompaña en vez de quedar arriba con un
+            // hueco debajo. 64 px es la altura del encabezado pegajoso.
+            participando && 'min-[961px]:sticky min-[961px]:top-16 min-[961px]:self-start',
+          )}
         >
           {activo.superficie ? (
             /* La Simulación trae su propia superficie: la cortina son dos
