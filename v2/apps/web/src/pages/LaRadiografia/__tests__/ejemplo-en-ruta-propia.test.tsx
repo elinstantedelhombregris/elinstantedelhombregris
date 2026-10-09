@@ -110,4 +110,23 @@ describe('el ejemplo de noche', () => {
     expect(container.querySelector('main')).toHaveClass('[color-scheme:dark]');
     window.localStorage.clear();
   });
+
+  it('de noche el rótulo y el sello del ejemplo usan los tonos claros, que se leen sobre el fondo', () => {
+    window.localStorage.clear();
+    envolver(<LaRadiografiaEjemplo />);
+    const rotulo = screen.getByText('La Radiografía · ejemplo');
+    const sello = screen.getByText('Ejemplo · voces inventadas');
+    expect(rotulo).toHaveClass('text-violeta');
+    expect(sello).toHaveClass('text-sello', 'border-sello');
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    expect(rotulo).toHaveClass('text-violeta-claro');
+    expect(rotulo).not.toHaveClass('text-violeta');
+    // El texto del sello no cambia («voces inventadas» está fijado por otro test).
+    expect(sello).toHaveTextContent('Ejemplo · voces inventadas');
+    expect(sello).toHaveClass('text-sello-claro', 'border-sello-claro');
+    expect(sello).not.toHaveClass('text-sello');
+    window.localStorage.clear();
+  });
 });

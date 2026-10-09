@@ -90,7 +90,9 @@ export function LaRadiografia() {
     <main className={nocturno ? CLASES_DE_NOCHE : ''}>
       <div className="mx-auto max-w-[1440px] px-10 py-10 max-[560px]:px-5">
         <div className="max-w-[780px]">
-          <Kicker className="mb-3">Los aportes, agrupados por parecido</Kicker>
+          <Kicker className={nocturno ? 'text-violeta-claro mb-3' : 'mb-3'}>
+            Los aportes, agrupados por parecido
+          </Kicker>
           <h1
             aria-label="La Radiografía."
             className="font-anton mb-4 text-[clamp(44px,6vw,84px)] leading-[0.98]"
@@ -240,7 +242,7 @@ export function LaRadiografia() {
           filtros={filtros}
         />
         <nav aria-label="El ejemplo de La Radiografía" className={`mt-12 border-t-2 ${borde} pt-8`}>
-          <Kicker className="mb-3">El laboratorio</Kicker>
+          <Kicker className={nocturno ? 'text-violeta-claro mb-3' : 'mb-3'}>El laboratorio</Kicker>
           <Link
             href="/la-radiografia/ejemplo"
             className="font-anton block text-[clamp(26px,3vw,40px)] underline underline-offset-4"

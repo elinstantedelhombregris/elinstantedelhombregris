@@ -700,6 +700,23 @@ describe('la página, de punta a punta', () => {
     expect(container.querySelector('main')).toHaveClass('[color-scheme:dark]', 'bg-oscuro-barra');
   });
 
+  it('de noche los rótulos violeta pasan al violeta claro, que se lee sobre el fondo oscuro', () => {
+    respuesta = { data: CORPUS, isLoading: false, isError: false };
+    envolver(<LaRadiografia />);
+    const rotulos = ['Los aportes, agrupados por parecido', 'El laboratorio'];
+    for (const rotulo of rotulos) {
+      expect(screen.getByText(rotulo)).toHaveClass('text-violeta');
+      expect(screen.getByText(rotulo)).not.toHaveClass('text-violeta-claro');
+    }
+
+    fireEvent.click(screen.getByText('Ver de noche'));
+
+    for (const rotulo of rotulos) {
+      expect(screen.getByText(rotulo)).toHaveClass('text-violeta-claro');
+      expect(screen.getByText(rotulo)).not.toHaveClass('text-violeta');
+    }
+  });
+
   it('el interruptor papel/nocturno persiste la elección del lector', () => {
     respuesta = { data: CORPUS, isLoading: false, isError: false };
     envolver(<LaRadiografia />);
