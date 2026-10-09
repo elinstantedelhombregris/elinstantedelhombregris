@@ -96,7 +96,7 @@ describe('el artefacto de vectores', () => {
     expect(ARTEFACTO_DE_VECTORES.digesto).toBe(digestoDeCorpus(LOS_TRES_ESCENARIOS));
   });
 
-  it('no le falta ninguna voz de ningún escenario', () => {
+  it('no le falta ninguna frase de ningún escenario', () => {
     for (const escenario of LOS_TRES_ESCENARIOS) {
       expect(medidaDe(escenario).faltantes).toEqual([]);
     }
@@ -112,7 +112,7 @@ describe('las formas que promete la tesis', () => {
    * el triple que el mayor del reclamo. Lo que se perdió no fue la lección:
    * fue el brillo que le habíamos puesto encima.
    */
-  it('el 1 da el grupo más grande de los tres: 31 de 63 voces', () => {
+  it('el 1 da el grupo más grande de los tres: 31 de 63 frases', () => {
     const corte = corteA(BRONCA);
     expect(corte.mayor).toBe(31);
     expect(corte.solas).toHaveLength(19);
@@ -252,7 +252,7 @@ describe('la sección en pantalla', () => {
       'data-origen',
       'ejemplo',
     );
-    fireEvent.click(screen.getByText('Origen, padrón y método del ejemplo'));
+    fireEvent.click(screen.getByText('De dónde salen las frases y cómo se armó el ejemplo'));
     expect(screen.getByText('Población sintética')).toBeVisible();
   });
 
@@ -281,11 +281,12 @@ describe('la sección en pantalla', () => {
    * es lo único que muestra **las frases**. Las del núcleo grande de la bronca
    * no tienen ni lugar ni fecha; las del dato traen calle y día.
    */
-  it('tiene un camino accesible a los núcleos, con sus frases', () => {
+  it('tiene un camino accesible a los grupos, con sus frases', () => {
     render(<LosTresEjemplos tema="papel" />);
     const filas = (): number =>
-      within(screen.getByRole('table', { name: /Los núcleos de convergencia/ })).getAllByRole('row')
-        .length;
+      within(screen.getByRole('table', { name: /Los grupos de aportes parecidos/ })).getAllByRole(
+        'row',
+      ).length;
     // Seis núcleos en la bronca —más la cabecera— y diez en el dato: la lista
     // se alarga a medida que el corpus mejora, que es la lección al revés.
     expect(filas()).toBe(corteA(BRONCA).nucleos.length + 1);
@@ -342,9 +343,9 @@ describe('la sección en pantalla', () => {
     const glosa = () => mando.getAttribute('aria-describedby');
     const leer = (): string => document.getElementById(glosa() ?? '')?.textContent ?? '';
 
-    expect(leer()).toMatch(/^6 núcleos · 19 voces solas/);
+    expect(leer()).toMatch(/^6 grupos · 19 sin grupo/);
     fireEvent.click(screen.getByRole('button', { name: /El dato/ }));
-    expect(leer()).toMatch(/^10 núcleos · 37 voces solas/);
+    expect(leer()).toMatch(/^10 grupos · 37 sin grupo/);
   });
 
   it('el deslizador funciona acá, y adentro de la banda la mancha no se rompe', () => {
@@ -371,19 +372,19 @@ describe('la sección en pantalla', () => {
 
   it('declara qué no puede ver: la provincia muda va por su nombre', () => {
     render(<LosTresEjemplos tema="papel" />);
-    expect(screen.getByText(/De Formosa no habló nadie/)).toBeInTheDocument();
+    expect(screen.getByText(/De Formosa no hay ninguna frase/)).toBeInTheDocument();
   });
 
   /**
    * La página viva no puede contar personas —`senales` no trae actor— y hay un
    * test que se lo prohíbe. El ejemplo sí puede y **debe**: su padrón declara
-   * quién habló, y que 63 señales sean 44 personas es media lección.
+   * quién habló, y que 63 frases sean 44 personas es media lección.
    */
   it('sí cuenta personas, porque su padrón declara quién habló', () => {
     const { container } = render(<LosTresEjemplos tema="papel" />);
     fireEvent.click(screen.getByText('Comparar los tres escenarios y sus límites'));
-    expect(container.textContent).toMatch(/63 señales de 44 personas/);
-    const fila = screen.getByRole('row', { name: /Actores distintos/ });
+    expect(container.textContent).toMatch(/63 frases de 44 personas/);
+    const fila = screen.getByRole('row', { name: /Personas distintas/ });
     expect(within(fila).getAllByRole('cell')[0]).toHaveTextContent('44');
   });
 });

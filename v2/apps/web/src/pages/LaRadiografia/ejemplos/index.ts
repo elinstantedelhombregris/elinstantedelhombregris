@@ -1,3 +1,4 @@
+import { coberturaDe, resumenDelCorpus } from './cifras';
 import { ESCENARIO_BRONCA } from './escenario-1-bronca';
 import { ESCENARIO_RECLAMO } from './escenario-2-reclamo';
 import { CONTRADICCION_CORROBORADA } from './escenario-3-corroboracion';
@@ -91,14 +92,17 @@ export const UMBRAL_DEL_EJEMPLO = 0.4;
  * el componente no admitía otra procedencia sin modelo, y un sello que existe
  * para decir la procedencia no puede decirla mal.
  */
+const CORPUS = resumenDelCorpus(ESCENARIO_BRONCA);
+
 export const SELLO_DEL_EJEMPLO = {
   sello: null,
   sinModelo: 'escrito a mano por una persona, sin modelo y sin regla',
-  huella: 'ejemplo-3x63',
+  // Se arma con lo que el corpus tiene: «3x63» escrito a mano dejaba de ser
+  // cierto el día que se agregara una frase o un escenario.
+  huella: `ejemplo-${String(LOS_TRES_ESCENARIOS.length)}x${String(CORPUS.frases)}`,
   personas: new Set(PADRON.map((p) => p.actor)).size,
-  advertencia:
-    'Las 63 frases de cada escenario las escribió una persona a mano para este ejemplo: no las dijo nadie, no salieron de la base y no las generó un modelo. Los barrios, las calles, las escuelas y los centros de salud son inventados. Las provincias son las reales, porque la cobertura tiene que poder decir algo cierto sobre un mapa cierto.',
-} as const;
+  advertencia: `Las ${String(CORPUS.frases)} frases de cada escenario las escribió una persona a mano para este ejemplo: no las dijo nadie, no salieron de la base y no las generó un modelo. Los barrios, las calles, las escuelas y los centros de salud son inventados. Las provincias son las reales, porque la cobertura tiene que poder decir algo cierto sobre un mapa cierto.`,
+};
 
 /**
  * La cobertura y el sesgo de este corpus, declarados por el corpus mismo —
@@ -107,13 +111,17 @@ export const SELLO_DEL_EJEMPLO = {
  * Lo que este ejemplo no puede ver, dicho antes de que alguien saque una
  * conclusión de él:
  */
+const COBERTURA = coberturaDe(ESCENARIO_BRONCA);
+/** Territorios del padrón de los que hay al menos una frase. Se cuentan, no se escriben. */
+const TERRITORIOS_CON_FRASES = new Set(ESCENARIO_BRONCA.voces.map((v) => v.territorioId)).size;
+
 export const COBERTURA_Y_SESGO: readonly string[] = [
-  `De ${PROVINCIA_MUDA} no habló nadie. Está en el padrón, con población y con territorio, y con cero voces: el núcleo más grande del escenario 1 dice «el país está mal» sin una sola voz de acá.`,
-  'Dieciséis de las veinticuatro provincias no están ni en el padrón. De ellas el ejemplo no dice nada, y «no dice nada» no es «no pasa nada».',
-  'Son 63 señales de 44 personas. Las señales no son personas: una sola persona cargó dos en varios casos, y cualquier lectura que cuente filas como si fueran habitantes está inflada.',
+  `De ${PROVINCIA_MUDA} no hay ninguna frase. Está en el padrón, con población y con territorio, y sin una sola frase: el grupo más grande del escenario 1 dice «el país está mal» sin nada de acá.`,
+  `${String(COBERTURA.fueraDelPadron.length)} de las ${String(COBERTURA.provinciasDelPais)} provincias no están ni en el padrón. De ellas el ejemplo no dice nada, y «no dice nada» no es «no pasa nada».`,
+  `Son ${String(CORPUS.frases)} frases de ${String(CORPUS.personas)} personas. Las frases no son personas: una sola persona cargó dos en varios casos, y cualquier lectura que cuente filas como si fueran habitantes está inflada.`,
   'Todo el corpus está escrito en el mismo dialecto y por la misma mano. La superficie varía a propósito —hay quien escribe en minúscula y sin tildes, quien grita, quien pregunta—, pero eso la máquina no lo ve: lo que un corpus real tendría y este no son lenguas, giros y palabras distintas para la misma cosa. Esa uniformidad de vocabulario hace que la máquina converja más fácil de lo que convergería en la calle.',
-  'Los siete territorios con voz son urbanos o periurbanos salvo uno. El ejemplo no representa el campo, y su cifra de alcance no debería leerse como si lo hiciera.',
-  `Dos señales del escenario 3 están corroboradas y se contradicen: no coinciden en ${CONTRADICCION_CORROBORADA.sobre}. Una dice ${CONTRADICCION_CORROBORADA.diceA}; la otra, ${CONTRADICCION_CORROBORADA.diceB}. ${CONTRADICCION_CORROBORADA.queHaceElRegistro}`,
+  `Los ${String(TERRITORIOS_CON_FRASES)} territorios con frases son urbanos o periurbanos salvo uno. El ejemplo no representa el campo, y su cifra de alcance no debería leerse como si lo hiciera.`,
+  `Dos frases del escenario 3 están corroboradas y se contradicen: no coinciden en ${CONTRADICCION_CORROBORADA.sobre}. Una dice ${CONTRADICCION_CORROBORADA.diceA}; la otra, ${CONTRADICCION_CORROBORADA.diceB}. ${CONTRADICCION_CORROBORADA.queHaceElRegistro}`,
   'Todo lo que se junta acá se junta por palabras compartidas: los vectores los hizo una bolsa de palabras, no un modelo de lenguaje. Con este motor no se puede demostrar nada sobre el significado de lo que la gente escribió, y este ejemplo no lo intenta.',
 ];
 
@@ -134,10 +142,16 @@ export {
   cifrasDeCorroboracion,
   cifrasDeLegitimidad,
   coberturaDe,
+  resumenDelCorpus,
   retratoDe,
 } from './cifras';
 export { estaCorroborada, claseDeVoz, vozVerificable } from './tipos';
-export type { Cobertura, CifrasDeCorroboracion, CifrasDeLegitimidad } from './cifras';
+export type {
+  Cobertura,
+  CifrasDeCorroboracion,
+  CifrasDeLegitimidad,
+  ResumenDelCorpus,
+} from './cifras';
 export type { ContradiccionCorroborada } from './escenario-3-corroboracion';
 export type {
   Corroboracion,

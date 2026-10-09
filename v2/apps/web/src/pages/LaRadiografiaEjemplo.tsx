@@ -104,20 +104,20 @@ export function LaRadiografiaEjemplo() {
       <div className="mx-auto max-w-[1440px] px-10 py-6 max-[560px]:px-5">
         <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <Kicker className="mb-3">Laboratorio de Radiografía</Kicker>
+            <Kicker className="mb-3">La Radiografía · ejemplo</Kicker>
             <h1
-              aria-label="Aprender a mirar."
-              className="font-anton riso-hover mb-3 text-[clamp(40px,4.2vw,64px)] leading-[0.98]"
+              aria-label="Laboratorio: las mismas frases, escritas de tres maneras"
+              className="font-anton riso-hover mb-3 text-[clamp(36px,4vw,60px)] leading-[1]"
             >
-              <RitoTinta lineas={['Aprender a mirar.']} />
+              <RitoTinta lineas={['Laboratorio: las mismas frases,', 'escritas de tres maneras']} />
             </h1>
             <p
               className={`max-w-[900px] text-pretty text-[16px] leading-[1.5] ${
                 nocturno ? 'text-oscuro-secundario' : 'text-tinta-75'
               }`}
             >
-              {FRASES.toLocaleString('es-AR')} frases inventadas × {LOS_TRES_ESCENARIOS.length}{' '}
-              escenarios. Cambiá la mirada, mové el umbral y seguí una voz. El registro real está en{' '}
+              Son {FRASES.toLocaleString('es-AR')} frases inventadas. Elegí cómo están escritas y
+              mirá cómo se agrupan. Los aportes reales se leen en{' '}
               <Link href="/la-radiografia" className="underline">
                 La Radiografía
               </Link>
@@ -131,7 +131,7 @@ export function LaRadiografiaEjemplo() {
         <LosTresEjemplos tema={tema} />
 
         <nav
-          aria-label="Volver al corpus vivo"
+          aria-label="Volver a los aportes reales"
           className={`mt-16 border-t-2 pt-8 ${nocturno ? 'border-oscuro-borde' : 'border-tinta'}`}
         >
           <Link
@@ -140,13 +140,13 @@ export function LaRadiografiaEjemplo() {
               nocturno ? 'text-oscuro-texto' : 'text-tinta'
             }`}
           >
-            ← Ir a La Radiografía, que lee el corpus vivo
+            ← Ir a La Radiografía, que lee los aportes reales
           </Link>
           <p
             className={`mt-3 max-w-[70ch] text-[14px] leading-[1.55] ${nocturno ? 'text-oscuro-meta' : 'text-tinta-50'}`}
           >
-            El registro vivo declara sus fuentes y lo que todavía espera análisis. Este laboratorio
-            usa frases inventadas y no las incorpora a los datos del país.
+            La lectura en vivo declara sus fuentes y lo que todavía espera análisis. Este
+            laboratorio usa frases inventadas y no las suma a los datos del país.
           </p>
         </nav>
       </div>

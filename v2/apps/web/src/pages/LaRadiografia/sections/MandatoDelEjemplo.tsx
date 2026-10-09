@@ -1,3 +1,5 @@
+import { resumenDelCorpus } from '../ejemplos';
+
 import type { Escenario } from '../ejemplos';
 import type { Tema } from '../radiografia-data';
 
@@ -26,6 +28,8 @@ export function MandatoDelEjemplo({ escenario, tema }: MandatoDelEjemploProps) {
   const texto = nocturno ? 'text-oscuro-texto' : 'text-tinta';
   const borde = nocturno ? 'border-oscuro-borde' : 'border-papel-borde';
   const { mandato } = escenario;
+  // Cuántas frases son, contadas: no «63» a mano.
+  const { frases } = resumenDelCorpus(escenario);
 
   return (
     <section aria-labelledby="mandato-del-ejemplo" className={`mt-10 border-t ${borde} pt-6`}>
@@ -39,9 +43,9 @@ export function MandatoDelEjemplo({ escenario, tema }: MandatoDelEjemploProps) {
       {mandato.comoSeVerifica === null ? (
         <p className={`max-w-[70ch] text-[17px] leading-[1.6] ${texto}`}>
           No hay nada que comprobar, porque no hay nada exigido. Y eso no es una falla del
-          instrumento: es lo que 63 voces de bronca alcanzan a sostener. Son verdaderas como estado
-          de ánimo y no alcanzan como mandato, y decirlo no es despreciarlas — es no usarlas para
-          algo que no pueden aguantar.
+          instrumento: es lo que {frases.toLocaleString('es-AR')} frases de bronca alcanzan a
+          sostener. Son verdaderas como estado de ánimo y no alcanzan como mandato, y decirlo no es
+          despreciarlas — es no usarlas para algo que no pueden aguantar.
         </p>
       ) : (
         <p className={`max-w-[70ch] text-[17px] leading-[1.6] ${texto}`}>

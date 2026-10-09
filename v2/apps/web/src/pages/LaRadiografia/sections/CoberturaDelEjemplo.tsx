@@ -43,8 +43,8 @@ export function CoberturaDelEjemplo({ cobertura, advertencias, tema }: Cobertura
         <strong className="font-semibold">
           {cobertura.conVoz.length} de {cobertura.provinciasDelPais} provincias
         </strong>{' '}
-        tienen alguna voz acá. Una síntesis no puede decir nada cierto sobre lo que no vio, así que
-        lo que este ejemplo no vio se escribe antes de que alguien saque una conclusión de él:
+        tienen alguna frase acá. Una síntesis no puede decir nada cierto sobre lo que no vio, así
+        que lo que este ejemplo no vio se escribe antes de que alguien saque una conclusión de él:
       </p>
 
       <ul className={`max-w-[70ch] space-y-2 text-[14px] leading-[1.55] ${meta}`}>

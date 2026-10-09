@@ -275,13 +275,14 @@ export const MANDATO_RECLAMO: MandatoDelEscenario = {
     'Yendo. Cualquiera puede ir a la canilla, a la puerta de la salita a las tres de la tarde, o a la parada a las nueve de la noche. Todavía no está escrito cuándo hay que ir ni desde cuándo cuenta, así que la comprobación depende de la buena voluntad del que va.',
 };
 
+const VOCES_RECLAMO = armarVoces({ dichos: DICHOS_RECLAMO, corroboraciones: null });
+
 export const ESCENARIO_RECLAMO: Escenario = {
   id: 'reclamo',
   titulo: 'El reclamo',
-  resumen:
-    'Las mismas 63 voces, ahora nombrando la cosa. Hay lugar, hay cosa, a veces hay fecha. Se puede ir a mirar.',
+  resumen: `Las mismas ${String(VOCES_RECLAMO.length)} frases, ahora nombrando la cosa. Hay lugar, hay cosa, a veces hay fecha. Se puede ir a mirar.`,
   loQueSeVe:
-    'La constelación se rompe: de una estrella de 60 se pasa a ocho núcleos, y el mayor tiene once. El agua, la salita, el colectivo, la basura, la luz. Se ve peor que la bronca y vale más. Uno de esos ocho no existe —junta dos «salitas» que son cosas distintas— y otro mezcla hechos con deseos: las dos cosas están puestas a propósito.',
-  voces: armarVoces({ dichos: DICHOS_RECLAMO, corroboraciones: null }),
+    'La constelación se rompe: de un grupo de 31 se pasa a ocho grupos, y el mayor tiene once. El agua, la salita, el colectivo, la basura, la luz. Se ve peor que la bronca y vale más. Uno de esos ocho no existe —junta dos «salitas» que son cosas distintas— y otro mezcla hechos con deseos: las dos cosas están puestas a propósito.',
+  voces: VOCES_RECLAMO,
   mandato: MANDATO_RECLAMO,
 };

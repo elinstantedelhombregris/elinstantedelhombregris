@@ -461,18 +461,19 @@ export const MANDATO_DATO: MandatoDelEscenario = {
   texto:
     'La prestadora del servicio de agua de la provincia tiene 30 días corridos desde el 16 de agosto de 2026 para restituir el agua de red en Los Lapachos al 800, barrio El Timbó, Resistencia, cortada desde el 3 de marzo de 2026; y, hasta que la restituya, un camión cisterna diario, que no entra desde el 18 de abril. La autoridad sanitaria del municipio tiene el mismo plazo para abrir la atención vespertina del Centro de Salud N.º 8, que cierra a las 14:00 y no tiene pediatra desde el 1 de febrero de 2026. La autoridad de transporte tiene 60 días para restituir el recorrido del ramal que entra a Los Ceibos del Oeste, acortado 1,4 km el 1 de octubre de 2025, y el servicio nocturno posterior a las 20:05.',
   porQue:
-    'Hay lugar exacto, hay fecha de inicio, hay tipo del canon —lo que existe y está roto se separó de lo que falta— y hay terceros que fueron a mirar y firmaron. Con eso, «no sabíamos» es falso: está fechado. Y «no es cierto» es refutable: hay dos o más personas distintas que fueron a la dirección y lo vieron. Nada de esto lo dio la máquina; lo dio que 63 personas escribieran la calle, el día y la cosa.',
+    'Hay lugar exacto, hay fecha de inicio, hay tipo del canon —lo que existe y está roto se separó de lo que falta— y hay terceros que fueron a mirar y firmaron. Con eso, «no sabíamos» es falso: está fechado. Y «no es cierto» es refutable: hay dos o más personas distintas que fueron a la dirección y lo vieron. Nada de esto lo dio la máquina; lo dio que las personas escribieran la calle, el día y la cosa.',
   comoSeVerifica:
     'El 15 de septiembre de 2026 alguien abre la canilla de Los Lapachos al 800. Si no sale agua, el incumplimiento tiene fecha, dirección y nombre de función, y lo comprueban las mismas personas que lo denunciaron. Lo mismo con la puerta del Centro de Salud N.º 8 a las 18:00 y con la parada de Av. Los Ceibos y 3 de Febrero a las 21:00.',
 };
 
+const VOCES_DATO = armarVoces({ dichos: DICHOS_DATO, corroboraciones: CORROBORACIONES_DATO });
+
 export const ESCENARIO_DATO: Escenario = {
   id: 'dato',
   titulo: 'El dato',
-  resumen:
-    'Las mismas 63 voces con lugar exacto, fecha, el tipo correcto del canon y corroboración de terceros. El mandato pasa a ser una obligación con plazo.',
+  resumen: `Las mismas ${String(VOCES_DATO.length)} frases con lugar exacto, fecha, el tipo correcto del canon y corroboración de terceros. El mandato pasa a ser una obligación con plazo.`,
   loQueSeVe:
-    'Diez núcleos y el mayor tiene cinco: la imagen más pobre de las tres. Lo que la imagen no muestra es la diferencia que importa — 45 de las 57 señales verificables están corroboradas por dos personas o más. Una quedó desmentida y sigue en el registro. Y dos de las corroboradas se contradicen entre sí sobre cuánto duró el mismo corte de luz: están las dos, porque corroborar prueba que alguien fue a mirar y no que el número que trajo sea el correcto. Los deseos no se corroboran nunca, y por eso figuran como «no corresponde» y no como «sin confirmar».',
-  voces: armarVoces({ dichos: DICHOS_DATO, corroboraciones: CORROBORACIONES_DATO }),
+    'Diez grupos y el mayor tiene cinco: la imagen más pobre de las tres. Lo que la imagen no muestra es la diferencia que importa — 45 de las 57 frases verificables están corroboradas por dos personas o más. Una quedó desmentida y sigue anotada. Y dos de las corroboradas se contradicen entre sí sobre cuánto duró el mismo corte de luz: están las dos, porque corroborar prueba que alguien fue a mirar y no que el número que trajo sea el correcto. Los deseos no se corroboran nunca, y por eso figuran como «no corresponde» y no como «sin confirmar».',
+  voces: VOCES_DATO,
   mandato: MANDATO_DATO,
 };
