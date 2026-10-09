@@ -188,6 +188,15 @@ describe('Colaborar: una invitación a una campaña o a una ficha', () => {
       expect(screen.queryByText(QUE_ES)).toBeNull();
       expect(campoCodigo()).toHaveValue(CODIGO_A);
     });
+    it('a quien no ingresó le dice dónde queda la invitación, sin hablar de «fragmento»', () => {
+      mocks.usuario = null;
+      servidor({});
+      const { container } = montar();
+      expect(container.textContent).toContain(
+        'La invitación sigue en la parte del enlace después de #, que no llega al servidor',
+      );
+      expect(container.textContent).not.toMatch(/fragmento/i);
+    });
     it('el código nunca sale del fragmento hacia una URL con query', () => {
       mocks.usuario = null;
       servidor({});

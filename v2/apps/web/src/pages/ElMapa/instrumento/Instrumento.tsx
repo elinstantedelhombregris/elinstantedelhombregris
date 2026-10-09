@@ -153,7 +153,7 @@ export function Instrumento({
             onAportar?.(lugarElegido?.id === exploracion.lugarId ? lugarElegido : null);
           }}
         >
-          {participando ? 'Tu aporte está en elaboración' : 'Sumá tu aporte →'}
+          {participando ? 'Seguir con mi aporte' : 'Sumá tu aporte →'}
         </BotonPapel>
       </div>
       {!soloLista ? (

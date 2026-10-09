@@ -135,3 +135,19 @@ describe('Instrumento — el panel de aportes crece con la página', () => {
     expect(mapa).toHaveClass('min-[961px]:sticky', 'min-[961px]:self-start');
   });
 });
+
+describe('Instrumento — el botón del panel de aportes dice qué hace', () => {
+  it('cerrado invita a sumar el aporte', () => {
+    montar(false);
+    expect(screen.getByRole('button', { name: 'Sumá tu aporte →' })).toBeInTheDocument();
+  });
+
+  it('abierto es una acción —seguir con el aporte—, no un estado que parece un botón', () => {
+    montar(true);
+    expect(screen.getByRole('button', { name: 'Seguir con mi aporte' })).toHaveAttribute(
+      'aria-expanded',
+      'true',
+    );
+    expect(screen.queryByText(/en elaboración/)).not.toBeInTheDocument();
+  });
+});
