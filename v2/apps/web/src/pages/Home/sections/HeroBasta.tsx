@@ -21,12 +21,12 @@ export function HeroBasta() {
             <span className="block">El Estado administra.</span>
             <span className="block">La política ejecuta.</span>
           </h1>
-          <p className="text-tinta-75 mt-5 hidden max-w-[540px] text-pretty text-[18px] leading-relaxed min-[961px]:block">
-            Quienes vivimos el país también podemos imaginarlo. Darle forma a lo que queremos,
-            ordenar lo que tenemos y hacer realidad lo que acordamos.
+          <p className="text-tinta-75 mt-5 max-w-[540px] text-pretty text-[18px] leading-relaxed">
+            ¡BASTA! es un lugar para imaginar entre todos cómo podría ser la Argentina. Contás qué
+            querrías que fuera posible en tu vida y se suma a lo que cuentan otras personas.
           </p>
-          <Link href="/la-idea" className="font-space text-violeta mt-3 hidden min-h-11 items-center text-xs underline underline-offset-4 min-[961px]:inline-flex">
-            Cómo funciona el ejercicio →
+          <Link href="/la-idea" className="font-space text-violeta mt-3 inline-flex min-h-11 items-center text-xs underline underline-offset-4">
+            Cómo funciona →
           </Link>
         </div>
         <div className="anim-fadeup border-tinta min-w-0 border-t pt-6 min-[961px]:border-l min-[961px]:border-t-0 min-[961px]:pl-8 min-[961px]:pt-0" style={{ animationDelay: '0.25s' }}>
@@ -43,6 +43,7 @@ export function HeroBasta() {
             </BotonPapel>
             <Link href="/el-mapa" className="font-space text-tinta-75 inline-flex min-h-11 items-center text-xs underline underline-offset-4">Explorar el país ↗</Link>
           </div>
+          <p className="font-space text-tinta-75 mt-3 text-xs">No hace falta cuenta.</p>
         </div>
       </div>
     </section>

@@ -111,10 +111,10 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     expect(estaDespierto()).toBe(false);
   });
 
-  it('un CTA no canónico del hero («Cómo lo hacemos») no despierta el sitio', () => {
+  it('un CTA no canónico del hero («Cómo funciona») no despierta el sitio', () => {
     render(<HeroBasta />);
 
-    fireEvent.click(screen.getByRole('link', { name: 'Cómo funciona el ejercicio →' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Cómo funciona →' }));
 
     expect(estaDespierto()).toBe(false);
   });

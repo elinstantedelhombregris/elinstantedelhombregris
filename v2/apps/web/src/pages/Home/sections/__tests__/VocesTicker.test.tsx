@@ -43,7 +43,10 @@ describe('VocesTicker', () => {
     const bastaVoice = screen.getAllByText('«Basta de rutas sin luz.»')[0];
     // `basta` es un `hecho`, y los hechos son ámbar. `sello` dejó de ser el
     // color de un tipo: ahora es el color del estado ruidoso.
-    expect(bastaVoice?.className).toMatch(/text-ambar/);
+    // El ámbar del token (#A16C00) da 4,31:1 sobre papel-crudo; el de la cinta
+    // (#8F6000) da 5,2:1 y sigue leyéndose ámbar.
+    expect(bastaVoice?.className).toMatch(/text-\[#8F6000\]/);
+    expect(bastaVoice?.className).not.toMatch(/text-ambar/);
 
     const unknownVoice = screen.getAllByText('«Una voz sin categoría reconocida.»')[0];
     expect(unknownVoice?.className).toMatch(/text-tinta-75/);
@@ -68,18 +71,15 @@ describe('VocesTicker', () => {
     expect(screen.getAllByText('«Única voz disponible.»')).toHaveLength(2);
   });
 
-  it('shows the §10.9 empty-state microcopy instead of the marquee when there are zero voces', () => {
+  it('sin aportes dice una sola cosa en vez de mostrar la cinta', () => {
     mockedUseVocesRecientes.mockReturnValue({
       data: [] as VozReciente[],
       isLoading: false,
     } as ReturnType<typeof useVocesRecientes>);
     renderTicker();
 
-    expect(
-      screen.getByText(
-        'Todavía no hay textos compartidos en esta lectura. Las voces reservadas también cuentan.',
-      ),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Todavía nadie publicó un aporte.')).toBeInTheDocument();
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 
   it('shows neither the old demo voices nor the empty state while loading', () => {
@@ -92,11 +92,7 @@ describe('VocesTicker', () => {
     expect(
       screen.queryByText(/Basta de rutas sin luz donde ya murió gente/),
     ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText(
-        'Todavía no hay textos compartidos en esta lectura. Las voces reservadas también cuentan.',
-      ),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Todavía nadie publicó un aporte.')).not.toBeInTheDocument();
   });
 
   it('no presenta el aviso de texto reservado como una cita de la ciudadanía', () => {
@@ -112,6 +108,47 @@ describe('VocesTicker', () => {
     } as ReturnType<typeof useVocesRecientes>);
     renderTicker();
     expect(screen.queryByText('«Texto reservado por su autoría.»')).not.toBeInTheDocument();
-    expect(screen.getByText(/Las voces reservadas también cuentan/)).toBeInTheDocument();
+    // Hubo quien publicó, así que no se dice que nadie lo hizo.
+    expect(screen.queryByText('Todavía nadie publicó un aporte.')).not.toBeInTheDocument();
+    expect(screen.getByText(/tienen el texto reservado/)).toBeInTheDocument();
+  });
+
+  it('la cinta tiene rótulo, se pausa con el mouse o el foco y el teclado puede llegar', () => {
+    mockedUseVocesRecientes.mockReturnValue({
+      data: [
+        { id: '00000000-0000-4000-8000-000000000001', texto: 'Una voz.', categoria: 'sueño' },
+      ],
+      isLoading: false,
+    } as ReturnType<typeof useVocesRecientes>);
+    renderTicker();
+
+    const region = screen.getByRole('region', { name: 'Últimos aportes' });
+    expect(region).toHaveAttribute('tabindex', '0');
+    expect(screen.getByText('Últimos aportes', { selector: 'p' })).toBeInTheDocument();
+    const cinta = region.querySelector('.anim-marquee');
+    expect(cinta?.className).toContain('group-hover:[animation-play-state:paused]');
+    expect(cinta?.className).toContain('group-focus-within:[animation-play-state:paused]');
+  });
+
+  it('con movimiento reducido es una lista quieta: sin recortar y sin la copia del loop', () => {
+    mockedUseVocesRecientes.mockReturnValue({
+      data: [
+        { id: '00000000-0000-4000-8000-000000000001', texto: 'Una voz.', categoria: 'sueño' },
+        { id: '00000000-0000-4000-8000-000000000002', texto: 'Otra voz.', categoria: 'basta' },
+      ],
+      isLoading: false,
+    } as ReturnType<typeof useVocesRecientes>);
+    renderTicker();
+
+    const region = screen.getByRole('region', { name: 'Últimos aportes' });
+    const cinta = region.querySelector('.anim-marquee');
+    expect(cinta?.className).toContain('motion-reduce:flex-wrap');
+    expect(cinta?.className).toContain('motion-reduce:w-auto');
+    expect(region.className).toContain('motion-reduce:overflow-visible');
+    const copias = region.querySelectorAll('ul');
+    expect(copias[0]?.className).not.toContain('motion-reduce:hidden');
+    expect(copias[1]?.className).toContain('motion-reduce:hidden');
+    for (const li of region.querySelectorAll('li'))
+      expect(li.className).toContain('motion-reduce:whitespace-normal');
   });
 });

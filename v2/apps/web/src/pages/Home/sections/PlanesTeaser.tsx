@@ -11,7 +11,7 @@ export function PlanesTeaser() {
       <div>
         <Kicker className="mb-6">§ 03 — El ejemplo</Kicker>
         <h2 className="font-anton text-[clamp(38px,4.6vw,64px)] leading-[1.04]">{PLAN_COUNT} temas del país,<br /><span className="text-violeta">pensados de cero.</span></h2>
-        <p className="text-tinta-75 mt-5 max-w-[460px] text-pretty text-[17px] leading-relaxed">Estos PLANes muestran hasta dónde puede llegar un ejercicio de diseño. Son referencias abiertas para discutir, cuestionar y mejorar con otras miradas.</p>
+        <p className="text-tinta-75 mt-5 max-w-[460px] text-pretty text-[17px] leading-relaxed">Un PLAN es un tema del país pensado de punta a punta, como ejemplo abierto para discutir, cuestionar y mejorar con otras personas.</p>
         <Link href="/planes" className="font-space text-violeta mt-4 inline-flex min-h-11 items-center text-xs underline underline-offset-4">Ver todos los ejemplos ↗</Link>
       </div>
       <ol className="border-tinta border-t-2">
@@ -21,10 +21,10 @@ export function PlanesTeaser() {
               <span aria-hidden className="font-space text-tinta-50 pt-1 text-[11px]">{String(i + 1).padStart(2, '0')}</span>
               <div className="min-w-0">
                 <div className="flex items-baseline justify-between gap-3">
-                  <h3 className="font-anton text-[clamp(27px,3vw,40px)] leading-none">{plan.code}</h3>
+                  <h3 className="font-anton text-balance text-[clamp(23px,2.6vw,34px)] leading-[1.1]">{plan.title}</h3>
                   <span aria-hidden className="font-space text-violeta text-xl transition-transform group-hover:translate-x-1 motion-reduce:transform-none">↗</span>
                 </div>
-                <p className="font-space text-tinta-50 mt-3 text-[10px] uppercase leading-relaxed tracking-[.08em]">{plan.title}</p>
+                <p className="font-space text-tinta-50 mt-3 text-[10px] uppercase leading-relaxed tracking-[.08em]">{plan.code}</p>
                 <p className="text-tinta-75 mt-3 line-clamp-3 max-w-[620px] text-pretty text-[15px] leading-relaxed">{plan.summary}</p>
               </div>
             </Link>
