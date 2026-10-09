@@ -133,6 +133,25 @@ describe('Explorar con alcance explícito', () => {
     expect(elegir).toHaveBeenCalledWith(expect.objectContaining({ id: 15, provinceId: 6 }));
     expect(screen.getByRole('searchbox')).toHaveValue('');
   });
+  it('sobre papel el buscador y su lista son de papel; de noche, de tinta', async () => {
+    const noche = conQuery(<BusquedaTerritorial onElegir={vi.fn()} />);
+    expect(screen.getByRole('searchbox')).toHaveClass('bg-papel', 'border-oscuro-borde');
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'San Martín' } });
+    const opcionDeNoche = await screen.findByRole('button', { name: /San Martín/ });
+    expect(opcionDeNoche.closest('div')).toHaveClass('bg-tinta');
+    noche.unmount();
+
+    conQuery(<BusquedaTerritorial onElegir={vi.fn()} superficie="papel" />);
+    const campo = screen.getByRole('searchbox');
+    expect(campo).toHaveClass('bg-papel-crudo', 'border-tinta');
+    expect(campo).not.toHaveClass('border-oscuro-borde');
+    fireEvent.change(campo, { target: { value: 'San Martín' } });
+    const opcion = await screen.findByRole('button', { name: /San Martín/ });
+    // Una lista de tinta dentro de un formulario de papel heredaba texto de tinta sobre tinta.
+    const lista = opcion.closest('div');
+    expect(lista).toHaveClass('bg-papel-crudo', 'text-tinta', 'border-tinta');
+    expect(lista).not.toHaveClass('bg-tinta');
+  });
   it('aplica el período elegido y limpia lugar y filtros juntos', () => {
     const cambiar = vi.fn();
     conQuery(

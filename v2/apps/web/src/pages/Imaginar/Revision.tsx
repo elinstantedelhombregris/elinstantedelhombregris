@@ -121,7 +121,11 @@ export function Revision(props: Props) {
           Lugar: <strong>{props.lugar?.name ?? 'todo el país'}</strong>. Podés hablar de todo el
           país o de un lugar concreto.
         </p>
-        <BusquedaTerritorial onElegir={props.elegirLugar} rotulo="Buscá el lugar de tu aporte" />
+        <BusquedaTerritorial
+          onElegir={props.elegirLugar}
+          rotulo="Buscá el lugar de tu aporte"
+          superficie="papel"
+        />
         {props.lugar ? (
           <button
             type="button"
