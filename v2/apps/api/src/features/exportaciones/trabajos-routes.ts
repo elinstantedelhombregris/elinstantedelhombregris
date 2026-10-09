@@ -11,6 +11,7 @@ import { z } from 'zod';
 import { logger } from '../../lib/logger.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
+import { avanzarEnPedido } from './en-pedido.js';
 import { zipPublico } from './zip-stream.js';
 
 const router: RouterType = Router();
@@ -53,7 +54,8 @@ router.post('/', limite, async (req, res, next) => {
         'COLA_COMPLETA',
         'Hay varios archivos en preparación. Volvé a pedirlo en un rato.',
       );
-    const vigente = await repo.vigencia(fila.id);
+    const inicial = await repo.vigencia(fila.id);
+    const vigente = inicial && (await avanzarEnPedido(repo, inicial));
     if (!vigente) throw new HttpError(404, 'NO_ENCONTRADO', 'No encontramos el trabajo.');
     res
       .status(202)
@@ -66,7 +68,8 @@ router.post('/', limite, async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const repo = new ExportacionesRepository(getDb());
-    const f = await repo.vigencia(uuid.parse(req.params.id));
+    const consultado = await repo.vigencia(uuid.parse(req.params.id));
+    const f = consultado && (await avanzarEnPedido(repo, consultado));
     if (!f)
       throw new HttpError(404, 'NO_ENCONTRADO', 'No encontramos el trabajo. Puede haber vencido.');
     res.set('Cache-Control', 'no-store').json({ data: repo.dto(f) });
