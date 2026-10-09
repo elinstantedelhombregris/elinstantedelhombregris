@@ -77,10 +77,15 @@ describe('La página de un aporte', () => {
       screen.getByRole('heading', { level: 1, name: 'No encontramos ese aporte.' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText('Puede que el enlace tenga un error o que quien lo escribió lo haya retirado.'),
+      screen.getByText(
+        'Puede que el enlace tenga un error o que quien lo escribió lo haya retirado.',
+      ),
     ).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/fila vacía|esa voz|el link/);
-    expect(screen.getByRole('link', { name: 'Volver al mapa' })).toHaveAttribute('href', '/el-mapa');
+    expect(screen.getByRole('link', { name: 'Volver al mapa' })).toHaveAttribute(
+      'href',
+      '/el-mapa',
+    );
   });
 
   it('si es tuyo, un aviso arriba dice dónde corregirlo o retirarlo', () => {
@@ -125,11 +130,38 @@ describe('La página de un aporte', () => {
     ['province', 'a nivel provincia'],
     ['otra-cosa', 'a nivel provincia'],
   ])('la precisión «%s» se dice «%s», con la etiqueta compartida', (precision, etiqueta) => {
-    m.estado = { data: ficha({}, { precision }), isLoading: false, isError: false };
+    m.estado = { data: ficha({}, { precision, provinceId: 14 }), isLoading: false, isError: false };
     render(<Senal />);
 
     expect(screen.getByText('Precisión del lugar')).toBeInTheDocument();
     expect(screen.getByText(etiqueta)).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/neighborhood|100m|500m/);
+  });
+
+  it('un aporte sin provincia, sin punto y sin dirección dice «Todo el país» y no una precisión', () => {
+    // `province` es el valor por defecto de la base cuando no hay lugar: no es una medida.
+    m.estado = {
+      data: ficha({}, { precision: 'province', provinceId: null, lat: null, lng: null }),
+      isLoading: false,
+      isError: false,
+    };
+    render(<Senal />);
+
+    expect(screen.getByText('Lugar')).toBeInTheDocument();
+    expect(screen.getByText('Todo el país')).toBeInTheDocument();
+    expect(screen.queryByText('Precisión del lugar')).not.toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/a nivel provincia/);
+  });
+
+  it('con un punto en el mapa, aunque no tenga provincia, sí dice la precisión', () => {
+    m.estado = {
+      data: ficha({}, { precision: 'neighborhood', lat: -32.9, lng: -68.8 }),
+      isLoading: false,
+      isError: false,
+    };
+    render(<Senal />);
+
+    expect(screen.getByText('Precisión del lugar')).toBeInTheDocument();
+    expect(screen.getByText('en su barrio')).toBeInTheDocument();
   });
 });

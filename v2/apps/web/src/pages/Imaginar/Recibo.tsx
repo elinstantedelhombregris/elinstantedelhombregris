@@ -18,7 +18,7 @@ export function Recibo({
   recibo,
   campana,
   textoVisible,
-  territorio = 'todo el país',
+  territorio,
   otrosParecidos,
   alMapa,
   sumarOtro,
@@ -27,6 +27,10 @@ export function Recibo({
   /** La campaña en la que entró el aporte, o `null` si no entró en ninguna. */
   campana: CampanaDeAporte | null;
   textoVisible: boolean;
+  /**
+   * El lugar que eligió la persona. Sin él el aporte es de todo el país, y entonces no hay
+   * precisión que decir: la que viene del servidor es el valor por defecto, no un dato.
+   */
   territorio?: string;
   /** Cuántos aportes parecidos hay en ese lugar, si se sabe. Sin dato no se dice nada. */
   otrosParecidos?: number;
@@ -60,7 +64,7 @@ export function Recibo({
       <Nota>
         Identificador público: <span className="break-all">{recibo.idPublico}</span>
         <br />
-        Lugar: {territorio}. Precisión: {precision}.{' '}
+        Lugar: {territorio ?? 'todo el país'}.{territorio ? ` Precisión: ${precision}.` : ''}{' '}
         {textoVisible
           ? 'El texto puede leerse según el permiso que elegiste.'
           : 'El texto quedó reservado: el aporte cuenta sin exponer tus palabras.'}

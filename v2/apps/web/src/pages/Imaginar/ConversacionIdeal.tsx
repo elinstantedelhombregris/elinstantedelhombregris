@@ -32,7 +32,8 @@ interface Publicado {
   recibo: ReciboParticipacion;
   campana: CampanaDeAporte | null;
   textoVisible: boolean;
-  territorio: string;
+  /** Ausente cuando no eligió lugar: el aporte es de todo el país. */
+  territorio?: string;
 }
 
 /**
@@ -171,7 +172,7 @@ export function ConversacionIdeal({
           recibo,
           campana: aDestino,
           textoVisible: cede,
-          territorio: lugar?.name ?? 'todo el país',
+          ...(lugar ? { territorio: lugar.name } : {}),
         });
       },
     });

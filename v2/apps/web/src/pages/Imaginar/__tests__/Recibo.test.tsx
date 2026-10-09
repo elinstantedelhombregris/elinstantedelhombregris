@@ -123,10 +123,23 @@ describe('Recibo del aporte', () => {
     ['province', 'a nivel provincia'],
   ])('dice la precisión «%s» con la etiqueta compartida', (precisionPublicada, etiqueta) => {
     const { container } = render(
-      <Recibo recibo={{ ...recibo, precisionPublicada }} campana={null} textoVisible={false} />,
+      <Recibo
+        recibo={{ ...recibo, precisionPublicada }}
+        campana={null}
+        textoVisible={false}
+        territorio="Mendoza"
+      />,
     );
     expect(container).toHaveTextContent(`Precisión: ${etiqueta}.`);
     expect(container).not.toHaveTextContent('ubicación protegida');
+  });
+
+  it('sin lugar dice solo «Lugar: todo el país.» y no inventa una precisión', () => {
+    // El servidor devuelve `province` por defecto aunque no haya provincia: no es un dato.
+    const { container } = render(<Recibo recibo={recibo} campana={null} textoVisible={false} />);
+    expect(container).toHaveTextContent('Lugar: todo el país.');
+    expect(container).not.toHaveTextContent(/Precisión/);
+    expect(container).not.toHaveTextContent('a nivel provincia');
   });
 
   it('quien no ingresó va a «Guardar en mi espacio» y vuelve a Mi espacio al terminar', () => {
