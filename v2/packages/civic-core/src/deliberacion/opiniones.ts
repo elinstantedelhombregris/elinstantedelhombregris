@@ -140,13 +140,13 @@ export function analizarOpiniones(respuestas: readonly RespuestaParaAnalisis[]):
       estado: 'sin_estructura',
       motivo: 'La separación es débil. Hace falta revisar las preguntas y escuchar más.',
     };
-  const nombres = ['Mirada A', 'Mirada B'];
+  const nombres = ['Grupo A', 'Grupo B'];
   return {
     ...base,
     estado: 'exploratorio',
     motivo:
       'Estos grupos describen respuestas en esta ficha. Su lectura necesita revisión y más de una configuración del método.',
-    grupos: tamanos.map((cuentas, i) => ({ nombre: nombres[i] ?? 'Mirada', cuentas })),
+    grupos: tamanos.map((cuentas, i) => ({ nombre: nombres[i] ?? 'Grupo', cuentas })),
     condiciones: frases.map((afirmacion, j) => {
       const grupos = [0, 1].map((g) => {
         const valores = originales
@@ -155,7 +155,7 @@ export function analizarOpiniones(respuestas: readonly RespuestaParaAnalisis[]):
           .filter((v): v is number => v !== null && v !== undefined);
         const acuerdos = valores.filter((v) => v === 1).length;
         return {
-          nombre: nombres[g] ?? 'Mirada',
+          nombre: nombres[g] ?? 'Grupo',
           acuerdos: valores.length >= 5 ? acuerdos : null,
           respuestas: valores.length >= 5 ? valores.length : null,
         };

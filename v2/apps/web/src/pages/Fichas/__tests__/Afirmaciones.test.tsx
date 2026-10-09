@@ -156,8 +156,8 @@ describe('Afirmaciones: método y límites', () => {
     incluidos: 18,
     afirmaciones: 3,
     grupos: [
-      { nombre: 'Mirada A', cuentas: 9 },
-      { nombre: 'Mirada B', cuentas: 9 },
+      { nombre: 'Grupo A', cuentas: 9 },
+      { nombre: 'Grupo B', cuentas: 9 },
     ],
     condiciones: [{ afirmacion: ID, apoyo: 0.342, grupos: [] }],
   };
