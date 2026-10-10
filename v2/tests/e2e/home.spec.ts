@@ -14,7 +14,7 @@ test.describe('public home', () => {
       page.getByRole('main').getByRole('link', { name: 'Imaginar mi Argentina' }).first(),
     ).toBeVisible();
     await expect(
-      page.getByRole('main').getByRole('link', { name: /Cómo funciona el ejercicio/i }).first(),
+      page.getByRole('main').getByRole('link', { name: /Cómo funciona/i }).first(),
     ).toBeVisible();
   });
 
