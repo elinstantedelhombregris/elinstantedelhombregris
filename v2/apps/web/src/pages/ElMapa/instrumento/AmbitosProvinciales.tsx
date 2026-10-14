@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
@@ -8,8 +7,8 @@ import {
   LEYENDA_DEL_VELO,
   pintarAmbitos,
 } from './ambitos-provinciales';
+import { useGeometriaProvincial } from './useGeometriaProvincial';
 
-import type { ColeccionProvincial } from './ambitos-provinciales';
 import type { LecturaMapa } from '~/lib/queries/civic-map';
 import type { ClaseSenal } from '~/lib/vocabulario';
 
@@ -39,15 +38,7 @@ export function AmbitosProvinciales({
   clases: ReadonlySet<ClaseSenal>;
 }) {
   const provincias = useProvincias();
-  const geometria = useQuery({
-    queryKey: ['geometria-provincias'],
-    staleTime: Infinity,
-    queryFn: async ({ signal }) => {
-      const r = await fetch('/geo/provincias.geojson', { signal });
-      if (!r.ok) throw new Error('La geometría provincial no está disponible.');
-      return (await r.json()) as ColeccionProvincial;
-    },
-  });
+  const geometria = useGeometriaProvincial();
   const datos = useMemo(
     () =>
       geometria.data ? pintarAmbitos(geometria.data, resumen, provincias.data ?? [], clases) : null,

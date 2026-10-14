@@ -182,3 +182,31 @@ describe('Un solo panel para aportar, dentro del mapa', () => {
     expect(directa.getByRole('checkbox', { name: /Quiero publicar/ })).not.toBeChecked();
   });
 });
+
+describe('Recuperar el territorio sin publicar en otro lugar', () => {
+  it('conserva los dos borradores y bloquea su envío mientras falta el lugar', async () => {
+    const reintentar = vi.fn();
+    const props = { ...base, cambiar: vi.fn(), reintentarLugar: reintentar };
+    const vista = render(<ParticiparEnMapa {...props} />);
+    const campo = await screen.findByLabelText('Reflexión privada');
+    fireEvent.change(campo, { target: { value: 'Una biblioteca para mi barrio' } });
+    const puntual = screen.getByLabelText('Aporte puntual');
+    fireEvent.change(puntual, { target: { value: 'Tenemos un espacio disponible' } });
+    vista.rerender(<ParticiparEnMapa {...props} lugar={null} cargandoLugar />);
+    expect(campo).toBeDisabled();
+    expect(puntual).toBeDisabled();
+    vista.rerender(<ParticiparEnMapa {...props} lugar={null} falloLugar />);
+    expect(screen.getByRole('alert')).toHaveTextContent('Tu borrador se conserva');
+    expect(screen.getByText('Tres preguntas en Mendoza')).toBeInTheDocument();
+    expect(screen.queryByText(/ahora es todo el país/)).not.toBeInTheDocument();
+    expect(campo).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Reintentar el lugar' }));
+    expect(reintentar).toHaveBeenCalledOnce();
+    vista.rerender(<ParticiparEnMapa {...props} />);
+    expect(screen.getByLabelText('Reflexión privada')).toBe(campo);
+    expect(campo).toHaveValue('Una biblioteca para mi barrio');
+    expect(puntual).toHaveValue('Tenemos un espacio disponible');
+    expect(campo).toBeEnabled();
+    expect(puntual).toBeEnabled();
+  });
+});

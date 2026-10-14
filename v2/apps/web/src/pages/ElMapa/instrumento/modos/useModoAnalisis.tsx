@@ -1,11 +1,12 @@
 import { PROVINCIAS_REF } from '@v2/civic-core';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
 
 import { claseDeCategoria } from '../../el-mapa-data';
 import { Control, FiltroClases, LeyendaRampa, Segmentado } from '../Chrome';
 import { COLOR_CLASE, RAMPAS } from '../paleta';
 import { AVISO_TEMAS, temasDe } from '../temas';
+import { useGeometriaProvincial } from '../useGeometriaProvincial';
 import { Vacio } from '../Vacio';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
@@ -50,7 +51,7 @@ const METRICAS: { id: Metrica; etiqueta: string; explica: string; unidad: string
     id: 'porHabitante',
     etiqueta: 'Por habitante',
     explica:
-      'Aportes cada 100.000 habitantes, con población de referencia. Describe cuánta gente participó, no la opinión de toda la población.',
+      'Aportes cada 100.000 habitantes, con población de referencia. Una persona puede cargar varios aportes; no mide cuántas personas participaron.',
     unidad: 'cada 100 mil hab.',
   },
   {
@@ -74,23 +75,8 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
   const [rampa, setRampa] = useState<keyof typeof RAMPAS>('violeta');
   const [opacidad, setOpacidad] = useState(0.8);
   const [seleccionada, setSeleccionada] = useState<string | null>(null);
-  const [geometria, setGeometria] = useState<unknown>(null);
+  const { data: geometria } = useGeometriaProvincial();
   const provincias = useProvincias();
-
-  useEffect(() => {
-    let vivo = true;
-    void fetch('/geo/provincias.geojson')
-      .then((r) => r.json())
-      .then((g: unknown) => {
-        if (vivo) setGeometria(g);
-      })
-      .catch(() => {
-        /* sin geometría el modo lo dice; no rompe la página */
-      });
-    return () => {
-      vivo = false;
-    };
-  }, []);
 
   /** Las señales que pasan los filtros del panel. */
   const filtradas = useMemo(() => {
@@ -134,8 +120,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
   }, [ctx.resumen, provincias.data, clases, porNombre]);
 
   const conValores = useMemo(() => {
-    if (!geometria || typeof geometria !== 'object') return null;
-    const col = geometria as { features: { properties: { name: string } }[] };
+    if (!geometria) return null;
     const calcular = (nombre: string): number => {
       const total = totales.get(nombre) ?? 0;
       const ref = PROVINCIAS_REF[nombre];
@@ -145,7 +130,7 @@ export function useModoAnalisis(ctx: ContextoModo): ResultadoModo {
     };
     return {
       type: 'FeatureCollection' as const,
-      features: col.features.map((f) => ({
+      features: geometria.features.map((f) => ({
         ...f,
         properties: {
           ...f.properties,

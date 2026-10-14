@@ -1,5 +1,5 @@
 import { abrirSimulacion, armarPais } from '@v2/civic-core';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { Control, Segmentado } from '../Chrome';
 import { RAMPAS } from '../paleta';
@@ -14,6 +14,7 @@ import { DeclaracionDelSembrado } from '../simulacion/DeclaracionDelSembrado';
 import { PALANCAS_INICIALES } from '../simulacion/palancas';
 import { PanelPalancas } from '../simulacion/PanelPalancas';
 import { rectangulosDeProvincias } from '../simulacion/rectangulo-de-provincia';
+import { useGeometriaProvincial } from '../useGeometriaProvincial';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 import type { Palancas } from '@v2/civic-core';
@@ -39,23 +40,8 @@ const porcentaje = (v: number): string =>
 export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
   const [vista, setVista] = useState<Vista>('cortina');
   const [palancas, setPalancas] = useState<Palancas>(PALANCAS_INICIALES);
-  const [geometria, setGeometria] = useState<unknown>(null);
+  const { data: geometria } = useGeometriaProvincial();
   const provincias = useProvincias();
-
-  useEffect(() => {
-    let vivo = true;
-    void fetch('/geo/provincias.geojson')
-      .then((r) => r.json())
-      .then((g: unknown) => {
-        if (vivo) setGeometria(g);
-      })
-      .catch(() => {
-        /* sin geometría el modo lo dice; no rompe la página */
-      });
-    return () => {
-      vivo = false;
-    };
-  }, []);
 
   /**
    * EL RELOJ SE LEE UNA SOLA VEZ, al montar.
@@ -143,6 +129,7 @@ export function useModoSimulacion(ctx: ContextoModo): ResultadoModo {
     vista === 'cortina' ? (
       <Cortina
         mapaRef={ctx.mapaRef}
+        {...(ctx.onFalloMapa ? { onFallo: ctx.onFalloMapa } : {})}
         izquierda={capas.izquierda}
         derecha={capas.derecha}
         /* Con el país mudo, «Hoy» a secas no dice nada. «Hoy · nadie» convierte

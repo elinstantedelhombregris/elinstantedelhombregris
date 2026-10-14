@@ -27,6 +27,10 @@ const { PROVINCIAS } = vi.hoisted(() => ({
   PROVINCIAS: [{ id: 1, name: 'Ciudad Autónoma de Buenos Aires', isoCode: 'AR-C' }],
 }));
 
+vi.mock('../useGeometriaProvincial', () => ({
+  useGeometriaProvincial: () => ({ data: undefined }),
+}));
+
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: () => ({ data: PROVINCIAS, isLoading: false }),
 }));

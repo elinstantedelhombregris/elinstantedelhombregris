@@ -28,12 +28,14 @@ export function Cortina({
   etiquetaDerecha,
   mapaRef,
   onMover,
+  onFallo,
 }: {
   izquierda: ReactNode;
   derecha: ReactNode;
   etiquetaIzquierda: string;
   etiquetaDerecha: string;
   mapaRef: React.RefObject<MapRef>;
+  onFallo?: () => void;
   onMover?: (mapa: MapRef | null) => void;
 }) {
   const [posicion, setPosicion] = useState(50);
@@ -61,7 +63,12 @@ export function Cortina({
 
   return (
     <div ref={contenedor} className="relative h-full w-full overflow-hidden">
-      <MapaBase mapaRef={mapaRef} onMoverContinuo={seguir} {...(onMover ? { onMover } : {})}>
+      <MapaBase
+        mapaRef={mapaRef}
+        onMoverContinuo={seguir}
+        {...(onFallo ? { onFallo } : {})}
+        {...(onMover ? { onMover } : {})}
+      >
         {izquierda}
       </MapaBase>
 
@@ -71,7 +78,7 @@ export function Cortina({
         className="pointer-events-none absolute inset-0"
         style={{ clipPath: `inset(0 0 0 ${String(posicion)}%)` }}
       >
-        <MapaBase mapaRef={mapaArriba} interactivo={false}>
+        <MapaBase mapaRef={mapaArriba} interactivo={false} {...(onFallo ? { onFallo } : {})}>
           {derecha}
         </MapaBase>
       </div>

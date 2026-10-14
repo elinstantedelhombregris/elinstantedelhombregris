@@ -22,6 +22,7 @@ export interface ContextoModo {
   /** El encuadre actual, para los modos que miden sobre lo que se está viendo. */
   recuadro: Recuadro | null;
   cargando: boolean;
+  onFalloMapa?: () => void;
   seleccionar?: (id: string) => void;
   elegirLugar?: (lugar: LugarMapa) => void;
   rango?: '7d' | '30d' | 'todo';

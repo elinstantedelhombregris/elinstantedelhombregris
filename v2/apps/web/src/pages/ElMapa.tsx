@@ -17,7 +17,7 @@ import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function ElMapa() {
   useTituloDePagina('El mapa');
-  const [contexto, setContexto] = useState<LugarMapa | null>(null);
+  const [elegido, setElegido] = useState<LugarMapa | null>(null);
   const search = useSearch();
   // `participar=aportar|directo` (y sus alias) o el ancla `#aportar` abren el panel.
   const pedido = leerPedidoAportar(search).modo;
@@ -32,11 +32,16 @@ export function ElMapa() {
     enabled: Number.isInteger(territorio) && territorio > 0,
     queryFn: () => api.get<LugarMapa>(`/api/v1/geo/lugares/${territorio}`),
   });
-  useEffect(() => {
-    setContexto(lugar.data ?? null);
-  }, [lugar.data]);
+  // El id de la URL manda también al volver atrás o limpiar filtros.
+  const contexto =
+    elegido?.id === territorio ? elegido : lugar.data?.id === territorio ? lugar.data : null;
+  const pendienteLugar = Number.isInteger(territorio) && territorio > 0 && contexto === null;
+  const falloLugar = pendienteLugar && lugar.isError;
+  const reintentarLugar = () => {
+    void lugar.refetch();
+  };
   const abrir = (ambito: LugarMapa | null) => {
-    setContexto(ambito);
+    if (ambito) setElegido(ambito);
     setVisitado(true);
     setParticipando(true);
   };
@@ -82,7 +87,7 @@ export function ElMapa() {
       <PortadaMapa />
       <SeccionInstrumento
         onAportar={abrir}
-        onTerritorio={setContexto}
+        onTerritorio={setElegido}
         participando={participando}
         participacion={
           visitado ? (
@@ -90,15 +95,35 @@ export function ElMapa() {
             <ParticiparEnMapa
               modo={modoAporte}
               cambiar={cambiarModo}
-              lugar={contexto ?? lugar.data ?? null}
-              cargandoLugar={lugar.isLoading}
+              lugar={contexto}
+              cargandoLugar={pendienteLugar && !falloLugar}
+              falloLugar={falloLugar}
+              reintentarLugar={reintentarLugar}
               visible={participando}
               cerrar={cerrar}
             />
           ) : null
         }
       />
-      <FuturosTerritorio lugar={contexto} />
+      {pendienteLugar ? (
+        <div className="mx-auto max-w-[1440px] px-5 py-8" role={falloLugar ? 'alert' : 'status'}>
+          {falloLugar ? (
+            <>
+              <p>
+                No pudimos cargar el lugar elegido. Las fichas de ese territorio todavía no están
+                disponibles.
+              </p>
+              <button type="button" className="min-h-11 underline" onClick={reintentarLugar}>
+                Reintentar el lugar
+              </button>
+            </>
+          ) : (
+            'Buscando las fichas del lugar elegido…'
+          )}
+        </div>
+      ) : (
+        <FuturosTerritorio lugar={contexto} />
+      )}
 
       {/* Va justo después de cargar: el momento en que alguien está más
           dispuesto a mirar algo ajeno es apenas terminó de escribir lo

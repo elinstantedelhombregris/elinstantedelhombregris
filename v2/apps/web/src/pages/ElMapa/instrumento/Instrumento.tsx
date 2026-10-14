@@ -1,23 +1,23 @@
-import { useEffect, Fragment, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { BarraModos, ContadorEnVista, PanelLateral } from './Chrome';
-import { DetalleRegistroMapa } from './DetalleRegistroMapa';
+import { BarraModos, PanelLateral } from './Chrome';
+import { encuadreAhora } from './encuadre-actual';
 import { EstadoConsulta } from './EstadoConsulta';
+import { EstadoGeometria } from './EstadoGeometria';
 import { useExploracion, type Exploracion } from './exploracion-url';
 import { FiltrosExploracion } from './FiltrosExploracion';
 import { ListaRegistros } from './ListaRegistros';
-import { MapaBase } from './MapaBase';
 import { useModoAnalisis } from './modos/useModoAnalisis';
 import { useModoCobertura } from './modos/useModoCobertura';
 import { useModoMapa } from './modos/useModoMapa';
 import { useModoSimulacion } from './modos/useModoSimulacion';
 import { useModoTiempo } from './modos/useModoTiempo';
 import { ProcedenciaConsulta } from './ProcedenciaConsulta';
+import { SuperficieInstrumento } from './SuperficieInstrumento';
 import { useSenalesEnVista, useVistaMapa } from './useVistaMapa';
 
 import type { LugarMapa } from './BusquedaTerritorial';
 import type { ContextoModo } from './modos/tipos';
-import type { Recuadro } from './useVistaMapa';
 import type { ReactNode } from 'react';
 import type { MapRef } from 'react-map-gl/maplibre';
 
@@ -27,17 +27,7 @@ import { BotonPapel } from '~/components/papel/primitives';
 import { CAPAS, useSenalesMapa } from '~/lib/queries/civic-map';
 import { cn } from '~/lib/utils';
 
-/**
- * El instrumento territorial.
- *
- * La estructura es la que hace que funcione, y es lo que faltaba antes: el
- * mapa OCUPA la superficie, los modos son pestañas de primer nivel sobre la
- * misma instancia, y el panel lateral cambia con el modo. Cambiar de modo no
- * remonta el mapa ni pierde el encuadre — se cambia la lente, no la página.
- *
- * Los cuatro modos comparten señales y viewport; cada uno aporta sus capas,
- * sus controles y su leyenda (ver `modos/tipos.ts`).
- */
+/** Los modos comparten señales, encuadre y borrador del aporte. */
 export function Instrumento({
   onAportar,
   onTerritorio,
@@ -64,6 +54,7 @@ export function Instrumento({
     setSeleccionada(null);
     if (regresarAlRegistro.current?.isConnected) regresarAlRegistro.current.focus();
   };
+  const [intentoMapa, setIntentoMapa] = useState(0);
   const [falloMapa, setFalloMapa] = useState(false);
   const [cursor, setCursor] = useState<string | undefined>();
   const [panelFalta, setPanelFalta] = useState(false);
@@ -106,12 +97,14 @@ export function Instrumento({
       cambiar({ ...exploracion, rango: valor });
     },
     seleccionar: seleccionarRegistro,
+    onFalloMapa: () => {
+      setFalloMapa(true);
+    },
     elegirLugar: elegir,
     ...(consulta.data ? { resumen: consulta.data.metadata } : {}),
   };
 
-  // Los cuatro se llaman siempre: son hooks, y llamarlos condicionalmente
-  // rompería las reglas de React. El costo es memoización, no render.
+  // Los hooks de los modos se llaman siempre.
   const resultados = {
     mapa: useModoMapa(ctx),
     analisis: useModoAnalisis(ctx),
@@ -185,6 +178,15 @@ export function Instrumento({
           }}
         />
       ) : null}
+      <EstadoGeometria
+        falloMapa={falloMapa}
+        tieneDatos={tieneDatos}
+        necesitaProvincias={['mapa', 'analisis', 'simulacion'].includes(modo)}
+        reintentarMapa={() => {
+          setFalloMapa(false);
+          setIntentoMapa((intento) => intento + 1);
+        }}
+      />
       {necesitaCorpus ? (
         <p role="status" className="text-oscuro-texto px-5 py-10">
           Esta vista necesita todos los aportes, y la consulta trae más de una página. Para ver los
@@ -192,9 +194,7 @@ export function Instrumento({
           escenarios sobre una muestra recortada.
         </p>
       ) : null}
-      {/* Con «solo la lista» y el panel de aportes cerrado la grilla se oculta,
-          pero NO se desmonta: el panel vive adentro y lo que alguien ya escribió
-          en él se perdía al alternar la vista. */}
+      {/* Ocultar sin desmontar conserva los borradores. */}
       <div
         className={cn(
           'grid min-h-[640px] max-[960px]:grid-cols-1',
@@ -206,9 +206,7 @@ export function Instrumento({
           soloLista && !participando && 'hidden',
         )}
       >
-        {/* El panel de aportes no tiene tope de alto: el formulario entero (976 px con la
-            revisión) crece con la página y el botón principal queda en la página, no adentro de
-            un scroll chico. Los paneles de lectura sí se recortan a la altura del mapa. */}
+        {/* El formulario crece con la página; solo se recorta el panel de lectura. */}
         <div
           className={cn(
             'overflow-auto max-[960px]:order-2 max-[960px]:max-h-none',
@@ -229,75 +227,26 @@ export function Instrumento({
           <div hidden={!participando}>{participacion}</div>
         </div>
 
-        <div
-          hidden={soloLista}
-          className={cn(
-            'relative h-[640px] min-w-0 max-[960px]:order-1 max-[960px]:h-[440px]',
-            // Con el panel de aportes largo, el mapa lo acompaña en vez de quedar arriba con un
-            // hueco debajo. 64 px es la altura del encabezado pegajoso.
-            participando && 'min-[961px]:sticky min-[961px]:top-16 min-[961px]:self-start',
-          )}
-        >
-          {activo.superficie ? (
-            /* La Simulación trae su propia superficie: la cortina son dos
-               instancias de mapa y no se puede recortar una capa por posición
-               de pantalla. La `key` la aísla igual que a las capas. */
-            <Fragment key={modo}>{activo.superficie}</Fragment>
-          ) : (
-            <MapaBase
-              mapaRef={mapaRef}
-              conLugar={exploracion.lugarId !== undefined}
-              onFallo={() => {
-                setFalloMapa(true);
-              }}
-              onMover={alMover}
-              arrastreHabilitado={activo.arrastreHabilitado ?? true}
-              {...(activo.capasInteractivas ? { capasInteractivas: activo.capasInteractivas } : {})}
-              {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
-            >
-              {/*
-              La `key` por modo es obligatoria, no cosmética: sin ella React
-              reconcilia las capas del modo saliente con las del entrante en la
-              misma posición del árbol, y `<Source>` de react-map-gl explota con
-              «source id changed» porque su id no puede cambiar en caliente.
-              Con la key se desmonta un modo y se monta el otro, que es lo que
-              corresponde — el mapa NO se remonta, solo sus capas.
-            */}
-              <Fragment key={modo}>{activo.capas}</Fragment>
-            </MapaBase>
-          )}
-
-          {/* El contador flota arriba a la derecha y responde al encuadre:
-              arrastrás sobre una provincia y el número contesta. */}
-          {consulta.data ? (
-            <div className="pointer-events-none absolute right-4 top-4 z-10">
-              <ContadorEnVista senales={enVista} sinPunto={consulta.data.metadata.sinPunto} />
-            </div>
-          ) : null}
-
-          {activo.leyenda ? (
-            <div className="pointer-events-none absolute bottom-14 left-4 z-10">
-              {activo.leyenda}
-            </div>
-          ) : null}
-
-          {activo.sobreMapa}
-          {mirada ? (
-            <DetalleRegistroMapa
-              senal={mirada}
-              cerrar={() => {
-                cerrarRegistro();
-              }}
-            />
-          ) : null}
-        </div>
+        <SuperficieInstrumento
+          soloLista={soloLista}
+          participando={participando}
+          activo={activo}
+          modo={modo}
+          mapaRef={mapaRef}
+          conLugar={exploracion.lugarId !== undefined}
+          onFallo={() => {
+            setFalloMapa(true);
+          }}
+          alMover={alMover}
+          tieneDatos={tieneDatos}
+          enVista={enVista}
+          sinPunto={consulta.data?.metadata.sinPunto ?? 0}
+          seleccionada={mirada}
+          cerrarRegistro={cerrarRegistro}
+          intento={intentoMapa}
+        />
       </div>
 
-      {falloMapa ? (
-        <p role="alert" className="text-oscuro-texto p-4">
-          Parte del mapa no pudo cargarse. Los aportes siguen disponibles en la lista.
-        </p>
-      ) : null}
       {consulta.data ? (
         <ListaRegistros
           datos={consulta.data}
@@ -320,10 +269,7 @@ export function Instrumento({
             teselas las arma Protomaps, que pide su línea. Carto se fue el
             12/8/2026 junto con las teselas que servía. */}
         <span>Mapa © OpenStreetMap contributors · Protomaps</span>
-        {/* La segunda boca del canal de escucha, y la única que adjunta algo:
-            lo que se deje desde acá se va con el encuadre y el modo que se
-            estaban mirando (spec 2026-08-12-lo-que-falta.md §2.8). El pedido
-            llega con la pantalla pegada y no como «no me anda una cosa». */}
+        {/* El pedido de mejora adjunta el encuadre y el modo actuales. */}
         <button
           type="button"
           onClick={() => {
@@ -349,37 +295,4 @@ export function Instrumento({
       />
     </section>
   );
-}
-
-/**
- * El encuadre para adjuntar a una falta, leído del mapa **en el momento de
- * abrir el panel**.
- *
- * `recuadro` sale del estado de `useVistaMapa()`, que se llena desde
- * `onLoad`/`onMoveEnd` de MapaBase — y verificado en el navegador, con el mapa
- * dibujado y sin haberlo arrastrado nunca, sigue en `null`. O sea que quien
- * abre el mapa, ve algo que no le gusta y toca el botón sin mover nada
- * —exactamente el caso más común— mandaba su falta sin encuadre, que es lo
- * único que esta boca prometía adjuntar.
- *
- * Preguntarle al mapa directamente no tiene ese agujero: si hay instancia, hay
- * límites. El `recuadro` queda como respaldo para cuando la instancia todavía
- * no exista.
- */
-function encuadreAhora(
-  mapa: MapRef | null,
-  respaldo: Recuadro | null,
-): { encuadre: Recuadro } | undefined {
-  const limites = mapa?.getBounds();
-  if (limites) {
-    return {
-      encuadre: {
-        oeste: limites.getWest(),
-        sur: limites.getSouth(),
-        este: limites.getEast(),
-        norte: limites.getNorth(),
-      },
-    };
-  }
-  return respaldo ? { encuadre: respaldo } : undefined;
 }

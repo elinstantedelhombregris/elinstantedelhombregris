@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Instrumento } from '../Instrumento';
@@ -10,7 +10,12 @@ import type { LecturaMapa } from '~/lib/queries/civic-map';
 const lectura = vi.hoisted((): { valor: unknown } => ({ valor: null }));
 
 vi.mock('../MapaBase', () => ({
-  MapaBase: ({ children }: { children?: ReactNode }) => <div data-testid="mapa">{children}</div>,
+  MapaBase: ({ children, onFallo }: { children?: ReactNode; onFallo?: () => void }) => (
+    <div data-testid="mapa">
+      <button onClick={onFallo}>Simular fallo de teselas</button>
+      {children}
+    </div>
+  ),
 }));
 vi.mock('react-map-gl/maplibre', () => ({ Layer: () => null, Source: () => null }));
 vi.mock('~/components/papel/PanelDejarFalta', () => ({ PanelDejarFalta: () => null }));
@@ -149,5 +154,98 @@ describe('Instrumento — el botón del panel de aportes dice qué hace', () => 
       'true',
     );
     expect(screen.queryByText(/en elaboración/)).not.toBeInTheDocument();
+  });
+});
+
+describe('Instrumento — recuperación de geometría y teselas', () => {
+  it.each(['mapa', 'analisis', 'simulacion'])(
+    'avisa y recupera los límites en %s sin perder el borrador',
+    async (modo) => {
+      window.history.replaceState(null, '', `/el-mapa?lente=${modo}`);
+      lectura.valor = {
+        signals: [
+          {
+            id: 'voz:00000000-0000-4000-8000-000000000001',
+            capa: 'voz',
+            tipo: 'necesidad',
+            texto: 'Hace falta una biblioteca en el barrio.',
+            lat: null,
+            lng: null,
+            precision: 'province',
+            role: 'subject',
+            provinceId: 14,
+            cityId: null,
+            createdAt: '2026-10-09T00:00:00Z',
+          },
+        ],
+        metadata: { ...VACIA.metadata, total: 1, entregados: 1, sinPunto: 1 },
+      } satisfies LecturaMapa;
+      const respuesta = {
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            properties: { name: 'Córdoba' },
+            geometry: {
+              type: 'Polygon',
+              coordinates: [
+                [
+                  [-65, -32],
+                  [-64, -32],
+                  [-65, -31],
+                  [-65, -32],
+                ],
+              ],
+            },
+          },
+        ],
+      };
+      const peticion = vi
+        .fn()
+        .mockRejectedValueOnce(new Error('sin conexión'))
+        .mockResolvedValue({ ok: true, json: () => Promise.resolve(respuesta) });
+      vi.stubGlobal('fetch', peticion);
+      montar(true);
+      const borrador = screen.getByLabelText('Tu aporte');
+      fireEvent.change(borrador, { target: { value: 'Mi idea sigue acá' } });
+      expect(await screen.findByRole('alert')).toHaveTextContent(
+        'No pudimos cargar los límites provinciales',
+      );
+      expect(screen.getByRole('region', { name: 'Lista de aportes' })).toHaveTextContent(
+        'Hace falta una biblioteca en el barrio.',
+      );
+      // Los tres consumidores comparten la petición, incluso cuando falla.
+      expect(peticion).toHaveBeenCalledTimes(1);
+      fireEvent.click(screen.getByRole('button', { name: 'Reintentar el mapa' }));
+      await waitFor(() => {
+        expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+      });
+      expect(peticion).toHaveBeenCalledTimes(2);
+      expect(screen.getByRole('region', { name: 'Lista de aportes' })).toHaveTextContent(
+        'Hace falta una biblioteca en el barrio.',
+      );
+      expect(screen.getByLabelText('Tu aporte')).toBe(borrador);
+      expect(borrador).toHaveValue('Mi idea sigue acá');
+    },
+  );
+
+  it('incluye ambos mapas de la cortina en el aviso y el reintento de teselas', async () => {
+    window.history.replaceState(null, '', '/el-mapa?lente=simulacion');
+    montar(true);
+    const mapas = screen.getAllByTestId('mapa');
+    const campo = screen.getByLabelText('Tu aporte');
+    fireEvent.change(campo, { target: { value: 'No se pierde' } });
+    const derecha = screen.getAllByRole('button', { name: 'Simular fallo de teselas' })[1];
+    if (!derecha) throw new Error('Falta el mapa derecho');
+    fireEvent.click(derecha);
+    expect(screen.getByRole('alert')).toHaveTextContent('Parte del mapa no pudo cargarse');
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: 'Reintentar el mapa' })).toBeEnabled();
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Reintentar el mapa' }));
+    expect(screen.getAllByTestId('mapa')[0]).not.toBe(mapas[0]);
+    expect(screen.getAllByTestId('mapa')[1]).not.toBe(mapas[1]);
+    expect(screen.getByLabelText('Tu aporte')).toBe(campo);
+    expect(campo).toHaveValue('No se pierde');
   });
 });

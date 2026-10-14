@@ -29,6 +29,8 @@ export function ParticiparEnMapa({
   cambiar,
   lugar,
   cargandoLugar = false,
+  falloLugar = false,
+  reintentarLugar,
   visible,
   cerrar,
 }: {
@@ -37,6 +39,8 @@ export function ParticiparEnMapa({
   lugar: LugarMapa | null;
   /** El mapa está buscando el lugar: se avisa en la línea del lugar, sin desmontar el panel. */
   cargandoLugar?: boolean;
+  falloLugar?: boolean;
+  reintentarLugar?: () => void;
   visible: boolean;
   cerrar: () => void;
 }) {
@@ -45,7 +49,7 @@ export function ParticiparEnMapa({
   // Mientras el mapa busca el lugar llega un `null` que no es «todo el país»: el
   // formulario conserva el último lugar firme hasta que llegue el nuevo.
   const [firme, setFirme] = useState<LugarMapa | null>(lugar);
-  const efectivo = lugar === null && cargandoLugar ? firme : lugar;
+  const efectivo = lugar === null && (cargandoLugar || falloLugar) ? firme : lugar;
   if (efectivo !== firme) setFirme(efectivo);
   const { aviso } = useLugarSincronizado(efectivo);
   useEffect(() => {
@@ -72,8 +76,12 @@ export function ParticiparEnMapa({
       <div className="border-tinta/20 flex items-start justify-between gap-4 border-b px-5 py-4">
         <div>
           <p className="font-space text-verde text-[10px] uppercase tracking-[.14em]">
-            {cargandoLugar ? 'Buscando el lugar…' : (lugar?.name ?? 'Todo el país')} · el lugar de
-            tu aporte
+            {falloLugar
+              ? 'Lugar pendiente de cargar'
+              : cargandoLugar
+                ? 'Buscando el lugar…'
+                : (lugar?.name ?? 'Todo el país')}{' '}
+            · el lugar de tu aporte
           </p>
           {aviso ? (
             <p role="status" className="text-violeta mt-1 text-xs">
@@ -93,40 +101,57 @@ export function ParticiparEnMapa({
           ×
         </button>
       </div>
-      <div hidden={modo !== 'guiado'} className="p-5">
-        <Suspense
-          fallback={
-            <p role="status" className="font-space text-sm">
-              Preparando tu espacio…
-            </p>
-          }
-        >
-          <ConversacionIdeal
-            lugarInicial={efectivo}
-            irADirecto={() => {
-              cambiar('directo');
+      {falloLugar ? (
+        <div role="alert" className="px-5 py-4 text-sm">
+          <p>
+            No pudimos cargar el lugar elegido. Tu borrador se conserva; reintentá antes de publicar
+            para no cambiar su territorio.
+          </p>
+          <button type="button" className="min-h-11 underline" onClick={reintentarLugar}>
+            Reintentar el lugar
+          </button>
+        </div>
+      ) : null}
+      <fieldset
+        disabled={cargandoLugar || falloLugar}
+        className="min-w-0"
+        aria-label="Contenido del aporte"
+      >
+        <div hidden={modo !== 'guiado'} className="p-5">
+          <Suspense
+            fallback={
+              <p role="status" className="font-space text-sm">
+                Preparando tu espacio…
+              </p>
+            }
+          >
+            <ConversacionIdeal
+              lugarInicial={efectivo}
+              irADirecto={() => {
+                cambiar('directo');
+              }}
+              alMapa={cerrar}
+            />
+          </Suspense>
+        </div>
+        <div hidden={modo !== 'directo'} className="p-5">
+          <button
+            type="button"
+            data-volver-guiado
+            onClick={() => {
+              cambiar('guiado');
             }}
-            alMapa={cerrar}
-          />
-        </Suspense>
-      </div>
-      <div hidden={modo !== 'directo'} className="p-5">
-        <button
-          type="button"
-          data-volver-guiado
-          onClick={() => {
-            cambiar('guiado');
-          }}
-          className="text-violeta mb-4 min-h-11 text-sm underline"
-        >
-          ← Volver a las tres preguntas
-        </button>
-        <p className="text-tinta-75 mb-5 text-sm leading-relaxed">
-          Contá algo puntual: un problema, una necesidad, algo que ya funciona. Elegí de qué estás
-          hablando y escribilo; después podés seguir su recorrido.
-        </p>
-        <AporteDirectoMapa contexto={efectivo} />
-      </div>
+            className="text-violeta mb-4 min-h-11 text-sm underline"
+          >
+            ← Volver a las tres preguntas
+          </button>
+          <p className="text-tinta-75 mb-5 text-sm leading-relaxed">
+            Contá algo puntual: un problema, una necesidad, algo que ya funciona. Elegí de qué estás
+            hablando y escribilo; después podés seguir su recorrido.
+          </p>
+          <AporteDirectoMapa contexto={efectivo} />
+        </div>
+      </fieldset>
     </aside>
   );
 }

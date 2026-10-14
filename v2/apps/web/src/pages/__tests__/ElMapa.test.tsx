@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, fireEvent, render, screen, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, within, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ElMapa } from '../ElMapa';
@@ -12,7 +12,7 @@ vi.mock('../ElMapa/sections/SeccionInstrumento', () => ({
     participacion,
     participando,
   }: {
-    onAportar: () => void;
+    onAportar: (lugar: null) => void;
     participacion: ReactNode;
     participando: boolean;
   }) => (
@@ -23,7 +23,7 @@ vi.mock('../ElMapa/sections/SeccionInstrumento', () => ({
         data-abrir-aporte
         aria-expanded={participando}
         onClick={() => {
-          onAportar();
+          onAportar(null);
         }}
       >
         Sumá tu aporte
@@ -87,13 +87,16 @@ vi.mock('~/lib/queries/fichas', () => ({ useFichas: () => ({ data: { fichas: [] 
 vi.mock('~/components/participacion/Seguir', () => ({ Seguir: () => null }));
 const montar = () =>
   render(
-    <QueryClientProvider client={new QueryClient()}>
+    <QueryClientProvider
+      client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
+    >
       <ElMapa />
     </QueryClientProvider>,
   );
 
 describe('ElMapa (página papel 2.2)', () => {
   beforeEach(() => {
+    vi.restoreAllMocks();
     window.history.replaceState(null, '', '/el-mapa');
     vi.mocked(useVocesCount).mockReturnValue({
       data: { total: 12496 },
@@ -247,5 +250,59 @@ describe('ElMapa (página papel 2.2)', () => {
   it('el instrumento tiene su ancla profunda', () => {
     const { container } = montar();
     expect(container.querySelector('#instrumento')).not.toBeNull();
+  });
+  it('abrir el aporte desde un enlace conserva el lugar de las fichas aunque el instrumento no lo haya elegido a mano', async () => {
+    vi.spyOn(api, 'get').mockResolvedValue({
+      id: 14,
+      provinceId: 14,
+      name: 'Córdoba',
+      level: 'province',
+      latitude: null,
+      longitude: null,
+    });
+    window.history.replaceState(null, '', '/el-mapa?lugar=14');
+    montar();
+    await screen.findByText('Futuro · Córdoba');
+    fireEvent.click(screen.getByRole('button', { name: 'Sumá tu aporte' }));
+    expect(screen.getByText('Futuro · Córdoba')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Abrir una ficha de futuro' })).toHaveAttribute(
+      'href',
+      '/fichas/nueva?lugar=14&nombre=C%C3%B3rdoba',
+    );
+    expect(
+      within(screen.getByRole('complementary', { name: 'Aportar desde el mapa' })).getByText(
+        'Córdoba',
+      ),
+    ).toBeInTheDocument();
+    act(() => {
+      window.history.pushState(null, '', '/el-mapa');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    });
+    await waitFor(() => {
+      expect(screen.getByText('Futuro · todo el país')).toBeInTheDocument();
+    });
+    expect(screen.getByRole('link', { name: 'Abrir una ficha de futuro' })).toHaveAttribute(
+      'href',
+      '/fichas/nueva?',
+    );
+  });
+
+  it('un lugar que no carga no se convierte en una consulta de fichas de todo el país y se puede recuperar', async () => {
+    vi.spyOn(api, 'get').mockRejectedValueOnce(new Error('sin conexión')).mockResolvedValueOnce({
+      id: 14,
+      provinceId: 14,
+      name: 'Córdoba',
+      level: 'province',
+      latitude: null,
+      longitude: null,
+    });
+    window.history.replaceState(null, '', '/el-mapa?lugar=14');
+    montar();
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'No pudimos cargar el lugar elegido',
+    );
+    expect(screen.queryByText('Futuro · todo el país')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Reintentar el lugar' }));
+    expect(await screen.findByText('Futuro · Córdoba')).toBeInTheDocument();
   });
 });
