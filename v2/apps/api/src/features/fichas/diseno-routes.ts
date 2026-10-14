@@ -104,7 +104,12 @@ router.post('/:id/alternativas', authenticate, async (req, res, next) => {
       usuarioAutenticado(req).id,
       v,
     );
-    if (!nueva) throw new HttpError(409, 'ENVIO_DISTINTO', 'Este envío pertenece a otra ficha.');
+    if (!nueva)
+      throw new HttpError(
+        409,
+        'ENVIO_DISTINTO',
+        'Revisá el recibo y que la alternativa anterior y la objeción activa pertenezcan a esta ficha. Tu propuesta se conserva.',
+      );
     res.status(201).json({ data: { id: nueva } });
   } catch (e) {
     next(e);

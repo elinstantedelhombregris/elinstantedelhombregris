@@ -33,6 +33,10 @@ export class DisenoFichaRepository {
         .orderBy(fichaAlternativas.creadaEn)
         .limit(100),
     ]);
+    const objeciones = await this.db.execute<{ id: string }>(
+      sql`select id from ficha_argumentos where ficha_id=${fichaId}::uuid and tipo='objecion' and retirada_en is null and id in(select (x->>'objecionId')::uuid from jsonb_array_elements(${JSON.stringify(alternativas.flatMap((a) => (a.contenido.revisionDe ? [a.contenido.revisionDe] : [])))}::jsonb) x)`,
+    );
+    const activas = new Set(objeciones.rows.map((a) => a.id));
     const ids = afirmaciones.map((a) => a.id);
     const totales = ids.length
       ? await this.db
@@ -138,7 +142,18 @@ export class DisenoFichaRepository {
           puedoRetirar: a.creadorId === uid,
         };
       }),
-      alternativas: alternativas.map((a) => ({ id: a.id, ...a.contenido })),
+      alternativas: alternativas.map((a) => {
+        const { idLocal: _recibo, detalle, revisionDe: revision, ...contenido } = a.contenido;
+        return {
+          id: a.id,
+          ...contenido,
+          ...(detalle ? { detalle } : {}),
+          ...(revision ? { revisionDe: revision } : {}),
+          ...(revision && !activas.has(revision.objecionId)
+            ? { revisionDe: { ...revision, motivo: '' }, revisionPendiente: true }
+            : {}),
+        };
+      }),
       pruebas: pruebas.map((p) => ({
         id: p.id,
         titulo: p.titulo,
@@ -207,12 +222,20 @@ export class DisenoFichaRepository {
     return r.rows.length === 1;
   }
   async alternativa(fichaId: string, uid: number, contenido: z.infer<typeof alternativaSchema>) {
-    const [a] = await this.db
-      .insert(fichaAlternativas)
-      .values({ fichaId, creadorId: uid, idLocal: contenido.idLocal, contenido })
-      .onConflictDoNothing()
-      .returning({ id: fichaAlternativas.id });
-    if (a) return a.id;
+    const revision = contenido.revisionDe;
+    const r = await this.db.execute<{
+      id: string;
+    }>(sql`insert into ficha_alternativas(ficha_id,creador_id,id_local,contenido)
+      select ${fichaId}::uuid,${uid},${contenido.idLocal}::uuid,${JSON.stringify(contenido)}::jsonb
+      where exists(select 1 from fichas_futuro where id=${fichaId}::uuid)
+      ${
+        revision
+          ? sql`and exists(select 1 from ficha_alternativas a where a.id=${revision.anteriorId}::uuid and a.ficha_id=${fichaId}::uuid)
+      and exists(select 1 from ficha_argumentos a where a.id=${revision.objecionId}::uuid and a.ficha_id=${fichaId}::uuid and a.tipo='objecion' and a.retirada_en is null)`
+          : sql``
+      }
+      on conflict(creador_id,id_local) do nothing returning id`);
+    if (r.rows[0]) return r.rows[0].id;
     const [p] = await this.db
       .select({ id: fichaAlternativas.id })
       .from(fichaAlternativas)

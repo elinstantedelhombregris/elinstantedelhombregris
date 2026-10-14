@@ -2115,3 +2115,14 @@ Un archivo de descarga se arma por tramos. Para no mezclar datos viejos con nuev
 La siembra se niega a crear la campaña si la fecha de hoy es posterior al cierre de recepción de la edición 1, y eso está bien. Pero las pruebas que lanzan el script usan el reloj real y esperan que termine sin error, así que desde el 1/3/2027 fallan y ponen el CI en rojo sin que nadie haya cambiado nada.
 
 **Qué haría falta:** que el script acepte una fecha de referencia para las pruebas (o que las pruebas fijen el reloj), y preparar antes de esa fecha cómo se abre la edición 2.
+
+### D-128 · La lectura de diseño de una ficha conserva un límite fijo de cien alternativas
+
+**Dónde:** `v2/packages/db/src/repositories/diseno-ficha.ts` (`leer`), `v2/apps/web/src/pages/Fichas/Alternativas.tsx`
+**Encontrada:** 2026-10-14, al completar comparación y revisiones de alternativas
+**Severidad:** media
+**Estado:** abierta
+
+La consulta existente lee las primeras cien alternativas por fecha y no tiene cursor. Una ficha que supere ese límite puede conservar propuestas o revisiones que la pantalla no alcanza a mostrar. Las referencias siguen guardadas, pero un enlace al original no garantiza que esté en el lote visible. Las afirmaciones y pruebas de esa lectura también tienen límites fijos.
+
+**Qué haría falta:** paginar las colecciones de diseño con cursores estables, separar sus consultas cuando corresponda y permitir abrir una alternativa por identificador sin depender de la página actualmente cargada. Mostrar la parcialidad y mantener conteos completos.

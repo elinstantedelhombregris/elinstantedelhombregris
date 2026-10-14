@@ -160,10 +160,12 @@ Implementado el 14/10 en `/capacidades`: ofertas ligadas a señales propias, ace
 
 ### E4.2 · Alternativas comparables
 
-- [ ] Ofrecer una plantilla común: mecanismo, beneficiarios, afectados, capacidades necesarias, costo estimado y fuente, plazo, dependencias, efectos adversos e incertidumbre.
-- [ ] Comparar dos o más alternativas cuando existan; incluir mantener la situación actual cuando ayude a entender consecuencias.
-- [ ] Enlazar planes editoriales como referencias, sin preseleccionarlos como respuesta de la comunidad.
-- [ ] Mantener distinta la propuesta original de cada versión revisada y mostrar qué objeción motivó un cambio.
+- [x] Ofrecer una plantilla común: mecanismo, beneficiarios, afectados, capacidades necesarias, costo estimado y fuente, plazo, dependencias, efectos adversos e incertidumbre.
+- [x] Comparar dos o más alternativas cuando existan; incluir mantener la situación actual cuando ayude a entender consecuencias.
+- [x] Enlazar planes editoriales como referencias, sin preseleccionarlos como respuesta de la comunidad.
+- [x] Mantener distinta la propuesta original de cada versión revisada y mostrar qué objeción motivó un cambio.
+
+Implementado el 14/10: detalle común, costos con fuente y unidad/período, comparación de dos a cuatro propuestas, referencia explícita a situación actual y revisiones enlazadas a objeciones activas. El original se conserva; si se retira la objeción, el fundamento asociado se oculta. [Especificación](../specs/2026-10-14-alternativas-comparables.md).
 
 ### E4.3 · Proceso deliberativo y moderación
 

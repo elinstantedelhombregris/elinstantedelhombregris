@@ -1,5 +1,12 @@
 import { z } from 'zod';
 
+import {
+  detalleAlternativaSchema,
+  revisionAlternativaSchema,
+  type DetalleAlternativa,
+  type RevisionAlternativa,
+} from './detalle-alternativa';
+
 export const afirmarSchema = z
   .object({
     texto: z
@@ -16,6 +23,8 @@ export const responderAfirmacionSchema = z
 export const alternativaSchema = z
   .object({
     idLocal: z.string().uuid(),
+    detalle: detalleAlternativaSchema.optional(),
+    revisionDe: revisionAlternativaSchema.optional(),
     titulo: z
       .string()
       .trim()
@@ -110,6 +119,9 @@ export interface DisenoFicha {
     puedoRetirar: boolean;
   }[];
   alternativas: {
+    detalle?: DetalleAlternativa;
+    revisionDe?: RevisionAlternativa;
+    revisionPendiente?: boolean;
     id: string;
     titulo: string;
     funcionamiento: string;
