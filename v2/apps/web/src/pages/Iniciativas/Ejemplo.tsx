@@ -24,27 +24,27 @@ const PASOS = [
     accion:
       'La persona entra al equipo y acepta coordinar la tarea con su propia firma. Puede iniciar, pausar o liberar esa responsabilidad con una nota pública.',
     registro:
-      'Sala: por confirmar. Materiales: disponibles. La administración crea un hito para revisar horarios y ausencias.',
+      'La persona solicita seis horas de sala desde la ficha. Cuando el espacio acepta, entra en «Ver reservas de recursos» de la tarea y vincula la reserva completa. La misma reserva no puede abastecer dos tareas.',
     limite:
-      'Escribir un recurso en la tarea no lo reserva. El acuerdo de disponibilidad se registra en Capacidades.',
+      'Vincular no vuelve a descontar horas. Si se reciben cuatro de las seis acordadas, ambas partes confirman esa cantidad en Capacidades; la tarea sigue pendiente de resultado.',
   },
   {
     titulo: '3. Escuchar y registrar con permiso',
     quien: 'Equipo de escucha',
     estado: 'En curso',
     accion:
-      'Durante los encuentros, el equipo conserva sus notas privadas. Publica un aporte únicamente cuando tiene autorización y revisó su contenido.',
+      'Antes de salir, la persona inicia la tarea y abre su cuaderno de campo con conexión. Durante los encuentros guarda notas privadas en el navegador y prepara un resumen con fechas, observaciones, ausencias y límites.',
     registro:
-      'El aporte autorizado entra por el formulario del mapa. El resumen de la tarea omite nombres, domicilios y rutinas personales.',
+      'Aunque se corte la red, puede seguir escribiendo en la pantalla abierta. Guarda el borrador y revisa por separado lo que autorizará a publicar. El resumen omite nombres, domicilios y rutinas personales.',
     limite:
-      'La web no importa automáticamente el cuaderno privado de campo ni anuncia una sincronización sin conexión.',
+      'Las notas privadas nunca entran al envío. El cuaderno web se guarda en este navegador; la app nativa tiene su propio archivo.',
   },
   {
     titulo: '4. Declarar lo realizado',
     quien: 'Responsable de la tarea',
     estado: 'Ejecución declarada; evidencia pendiente de revisión',
     accion:
-      'Al terminar, declara la ejecución y publica un resumen: período observado, encuentros, diferencias, ausencias, límites y próximo paso.',
+      'Al terminar, autoriza el resumen y lo pone en cola. Cuando vuelve la red, se registra una sola vez con el mismo recibo: período observado, encuentros, diferencias, ausencias, límites y próximo paso.',
     registro:
       'En este ejemplo hubo tres encuentros. Surgió una dificultad con los horarios de tarde. Faltó escuchar a familias que trabajan de noche.',
     limite:

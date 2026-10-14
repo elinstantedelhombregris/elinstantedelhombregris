@@ -99,7 +99,7 @@ export class PruebasRepository {
       and (${independiente} or creador_id=${uid} or responsable_id=${uid} or (${v.estado}='aceptada' and exists(
         select 1 from prueba_ejecuciones e join iniciativa_members m on m.iniciativa_id=e.iniciativa_id where e.prueba_id=${id}::uuid and m.user_id=${uid}))) returning *
     ), tarea as (
-      update iniciativa_tasks t set assignee_id=c.responsable_id,
+      update iniciativa_tasks t set assignee_id=c.responsable_id,revision=t.revision+1,
         status=case when c.estado='en_curso' then 'in_progress' when c.estado='pausada' then 'blocked'
           when c.estado in('implementada','resultado_observado','resultado_revisado') then 'done' else 'todo' end,
         completed_at=case when c.estado in('implementada','resultado_observado','resultado_revisado') then coalesce(t.completed_at,now()) else null end,updated_at=now()

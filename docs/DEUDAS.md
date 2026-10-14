@@ -2143,6 +2143,8 @@ La repetición completa con cuatro procesos por paquete terminó correctamente: 
 
 En la entrega de escucha, una corrida completa volvió a mostrar fallos transitorios: ingreso a una iniciativa recién creada con 404 y lectura de capacidad sin `data`. Las cuatro suites relacionadas pasaron aisladas (24 pruebas) sin cambios de lógica de producción; se añadió información del cuerpo de respuesta al fallo de ingreso para facilitar una próxima reproducción. Esto no determina la causa ni permite declarar resuelta D-129.
 
+En la entrega de reservas por tarea y campo, la primera corrida completa volvió a fallar con `Parse Error: Expected HTTP/, RTSP/ or ICE/` en `participacion-ideal.test.ts`. La corrida focalizada anterior también tuvo un 404 inesperado en una prueba previa de ejecución; su repetición aprobó las 27 pruebas. Se conserva el registro y no se considera resuelta la causa por repetir una corrida en verde. La segunda verificación completa terminó correctamente: 3.364 pruebas aprobadas, con lint, tipos, corpus y compilación.
+
 ### D-130 · La membresía de iniciativas necesita contadores atómicos y errores visibles
 
 **Dónde:** `v2/packages/db/src/repositories/iniciativas.ts` (`addMember`, `removeMember`), `v2/apps/api/src/features/iniciativas/routes.ts`, `v2/apps/web/src/pages/IniciativaDetail.tsx`

@@ -24,9 +24,11 @@ import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { notifyIniciativaMemberJoined } from '../notifications/producers.js';
 
+import { campoRecursosRouter } from './campo-recursos-routes.js';
 import { gestionIniciativasRouter } from './gestion-routes.js';
 
 const router: RouterType = Router();
+router.use(campoRecursosRouter);
 router.use(gestionIniciativasRouter);
 
 const listQuerySchema = z.object({

@@ -4,19 +4,12 @@ import { Link } from 'wouter';
 
 import { CampoDato } from '../Fichas/cuaderno/CampoDato';
 
+import { ESTADOS_RESERVA } from './estados';
+
 import { BotonPapel } from '~/components/papel/primitives';
 import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { useOperacionCapacidad } from '~/lib/queries/capacidades';
 
-const ESTADOS = {
-  propuesta: 'Esperando aceptación',
-  reservada: 'Reserva aceptada',
-  entrega_declarada: 'Entrega declarada · falta recepción',
-  entregada: 'Recepción confirmada',
-  discrepancia: 'Discrepancia por resolver',
-  cancelada: 'Cancelada',
-  rechazada: 'Rechazada',
-};
 const ACCIONES: Record<AccionReserva['accion'], string> = {
   aceptar: 'Aceptar y reservar',
   rechazar: 'Rechazar solicitud',
@@ -54,7 +47,7 @@ export function Reserva({
       <h3 className="font-semibold">
         {r.estado === 'entregada' && r.cantidadDeclarada === 0
           ? 'Cierre confirmado · sin entrega'
-          : ESTADOS[r.estado]}
+          : ESTADOS_RESERVA[r.estado]}
       </h3>
       <p className="mt-2">
         {r.cantidad === null ? 'Cantidad por evaluación' : `Solicitadas: ${r.cantidad} ${unidad}`} ·{' '}
@@ -63,6 +56,18 @@ export function Reserva({
       <Link href={`/fichas/${r.fichaId}`} className="inline-flex min-h-11 underline">
         Ver ficha vinculada
       </Link>
+      {r.tareaVinculada ? (
+        <p>
+          <Link
+            className="underline"
+            href={`/iniciativas/${r.tareaVinculada.slug}?seccion=tareas&tarea=${r.tareaVinculada.id}`}
+          >
+            Tarea abastecida: {r.tareaVinculada.titulo}
+          </Link>
+        </p>
+      ) : (
+        <p>Sin tarea vinculada. Quien solicitó puede asociarla desde las reservas de una tarea.</p>
+      )}
       <p className="whitespace-pre-wrap break-words">{r.necesidad}</p>
       <p className="mt-2 whitespace-pre-wrap break-words">
         Compatibilidad propuesta: {r.compatibilidad}

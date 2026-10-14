@@ -24,7 +24,14 @@ export function useGestionLista<T>(ruta: string, enabled = true) {
 export function useGestionOperacion() {
   const qc = useQueryClient();
   const refrescar = () => {
-    for (const key of ['gestion-iniciativas', 'iniciativa', 'diseno', 'acciones-iniciativa'])
+    for (const key of [
+      'gestion-iniciativas',
+      'iniciativa',
+      'diseno',
+      'acciones-iniciativa',
+      'recursos-tarea',
+      'capacidades',
+    ])
       void qc.invalidateQueries({ queryKey: [key] });
   };
   return useMutation({

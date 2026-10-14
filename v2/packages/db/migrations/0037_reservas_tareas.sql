@@ -1,0 +1,3 @@
+ALTER TABLE "reservas_capacidad" ADD COLUMN "tarea_id" integer;--> statement-breakpoint
+ALTER TABLE "reservas_capacidad" ADD CONSTRAINT "reservas_capacidad_tarea_id_iniciativa_tasks_id_fk" FOREIGN KEY ("tarea_id") REFERENCES "public"."iniciativa_tasks"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+CREATE INDEX "reservas_tarea_idx" ON "reservas_capacidad" USING btree ("tarea_id");

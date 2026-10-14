@@ -114,6 +114,7 @@ export interface CapacidadPublica {
   esMia: boolean;
 }
 export interface ReservaCapacidad {
+  tareaVinculada?: { id: number; slug: string; titulo: string } | null;
   cantidadDeclarada: number | null;
   revision: number;
   id: string;

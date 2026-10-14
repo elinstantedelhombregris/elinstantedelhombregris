@@ -2,15 +2,19 @@ import { estadoTareaSchema } from '@v2/shared';
 import { useState } from 'react';
 import { Link } from 'wouter';
 
+import { AbrirCuaderno } from '../Campo/Abrir';
+
 import { texto, ESTADOS_TAREA } from './campos';
 import { EvidenciasTarea } from './Evidencias';
 import { FormularioGestion } from './Formulario';
 import { ListaGestion } from './Lista';
+import { RecursosTareaPanel } from './Recursos';
 import { TareaFormulario } from './TareaFormulario';
 
 import type { TareaIniciativa } from '@v2/shared';
 
 function Tarjeta({ id, t }: { id: number; t: TareaIniciativa }) {
+  const [recursos, setRecursos] = useState(false);
   const [evidencia, setEvidencia] = useState(false);
   const opciones = [
     ...(t.puedoAceptar ? [{ valor: 'aceptar', etiqueta: 'Acepto hacerme cargo' }] : []),
@@ -65,6 +69,16 @@ function Tarjeta({ id, t }: { id: number; t: TareaIniciativa }) {
           </p>
         </div>
       ) : null}
+      <button
+        className="min-h-11 underline"
+        onClick={() => {
+          setRecursos(!recursos);
+        }}
+      >
+        {recursos ? 'Ocultar reservas' : 'Ver reservas de recursos'}
+      </button>
+      {recursos ? <RecursosTareaPanel id={id} t={t} /> : null}
+      <AbrirCuaderno id={id} t={t} />
       {t.derivada ? (
         <p>
           Esta tarea se actualiza desde la prueba de su ficha. Consultá la pestaña Acciones de

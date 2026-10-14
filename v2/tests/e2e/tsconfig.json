@@ -1,0 +1,12 @@
+{
+  "extends": "../../apps/web/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "../..",
+    "baseUrl": "../../apps/web",
+    "types": ["node"],
+    "noEmit": true,
+    "incremental": false
+  },
+  "include": ["*.ts"],
+  "exclude": ["node_modules"]
+}

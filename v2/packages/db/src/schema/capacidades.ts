@@ -14,6 +14,7 @@ import {
 
 import { fichasFuturo } from './fichas';
 import { geographicLocations } from './geographic';
+import { iniciativaTasks } from './iniciativas';
 import { senales } from './senales';
 import { users } from './users';
 
@@ -75,6 +76,7 @@ export const reservasCapacidad = pgTable(
     huella: text('huella').notNull(),
     cantidad: integer('cantidad'),
     cantidadDeclarada: integer('cantidad_declarada'),
+    tareaId: integer('tarea_id').references(() => iniciativaTasks.id, { onDelete: 'set null' }),
     revision: integer('revision').notNull().default(1),
     paraFecha: date('para_fecha').notNull(),
     necesidad: text('necesidad').notNull(),
@@ -102,6 +104,7 @@ export const reservasCapacidad = pgTable(
     ),
     index('reservas_capacidad_idx').on(t.capacidadId),
     index('reservas_solicitante_idx').on(t.solicitanteId),
+    index('reservas_tarea_idx').on(t.tareaId),
     index('reservas_ficha_idx').on(t.fichaId),
   ],
 );

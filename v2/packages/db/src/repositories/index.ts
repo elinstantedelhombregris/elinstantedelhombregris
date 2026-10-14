@@ -148,3 +148,5 @@ export * from './gestion-iniciativas.js';
 export * from './iniciativa-tareas.js';
 export * from './iniciativa-evidencia.js';
 export * from './iniciativa-membresia.js';
+
+export * from './recursos-tarea.js';

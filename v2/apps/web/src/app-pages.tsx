@@ -291,6 +291,7 @@ export {
   EjemplosFichas,
   VisionCompartida,
   Capacidades,
+  Campo,
   InicioIniciativas,
   EscuchaTerritorial,
   EjemploIniciativa,

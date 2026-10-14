@@ -12,6 +12,7 @@ import { camposTarea } from './iniciativa-tareas.js';
 import type { Fila } from './gestion-iniciativas-base.js';
 import type { Db } from '../client.js';
 import type {
+  EnvioCampo,
   EscuchaPublica,
   EvidenciaIniciativa,
   EvidenciaTareaInput,
@@ -43,6 +44,24 @@ export class IniciativaEvidenciaRepository {
       and i.kind<>'plan' and (t.assignee_id=${uid} or ${administra(uid)}) and ${sinRecibo(uid, v.idLocal)}
       and ((t.escucha is null and ${v.resultadoEscucha === null}) or (t.escucha is not null and ${v.resultadoEscucha !== null}))
       and not exists(select 1 from prueba_ejecuciones where tarea_id=t.id) returning jsonb_build_object('id',id) as resultado)`,
+    );
+  }
+  campo(id: number, tareaId: number, uid: number, v: EnvioCampo) {
+    return operar(
+      this.db,
+      id,
+      uid,
+      v,
+      `Resultado de campo ${tareaId}`,
+      sql`
+      tarea as (update iniciativa_tasks t set status='done',completed_at=coalesce(t.completed_at,now()),revision=t.revision+1,updated_at=now()
+      from iniciativas i where i.id=${id} and t.iniciativa_id=i.id and t.id=${tareaId} and t.revision=${v.revisionTarea}
+      and ${v.usuarioId}=${uid} and i.kind<>'plan' and t.escucha is not null and i.status in('open','in_progress','paused')
+      and ((t.status='in_progress' and t.assignee_id=${uid}) or (t.status='done' and (t.assignee_id=${uid} or ${administra(uid)})))
+      and not exists(select 1 from prueba_ejecuciones where tarea_id=t.id) and ${sinRecibo(uid, v.idLocal)} returning t.id),
+      cambio as (insert into mission_evidence(iniciativa_id,task_id,submitted_by,kind,title,body,url,resultado_escucha)
+      select ${id},t.id,${uid},${v.url ? 'link' : 'text'},${v.titulo},${v.texto},${v.url},${JSON.stringify(v.resultadoEscucha)}::jsonb from tarea t
+      returning jsonb_build_object('id',id) as resultado)`,
     );
   }
   revisar(id: number, evidenciaId: number, uid: number, v: RevisarEvidencia) {

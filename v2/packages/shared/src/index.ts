@@ -25,3 +25,5 @@ export * from './participacion/ejecucion.js';
 
 export * from './participacion/gestion-iniciativas.js';
 export * from './validation/gestion-iniciativas.js';
+
+export * from './participacion/recursos-tarea.js';

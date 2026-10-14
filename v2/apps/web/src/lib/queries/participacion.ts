@@ -14,10 +14,13 @@ import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth/csrf';
 import { useAuth } from '~/lib/auth/use-auth';
 
-export async function tokenParticipacion() {
+export async function tokenParticipacion(signal?: AbortSignal) {
   const actual = readCsrfToken();
   if (actual) return actual;
-  const r = await api.get<{ csrfToken: string }>('/api/v1/contribuciones/contexto');
+  const r = await api.get<{ csrfToken: string }>(
+    '/api/v1/contribuciones/contexto',
+    signal ? { signal } : undefined,
+  );
   return r.csrfToken;
 }
 export async function escribir<T>(

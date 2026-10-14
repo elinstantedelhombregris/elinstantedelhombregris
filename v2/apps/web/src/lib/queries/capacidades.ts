@@ -42,9 +42,11 @@ export function useOperacionCapacidad() {
       escribir<{ id?: string }>('post', `/api/v1/capacidades${ruta}`, cuerpo),
     onError: () => {
       void qc.invalidateQueries({ queryKey: ['capacidades'] });
+      void qc.invalidateQueries({ queryKey: ['recursos-tarea'] });
     },
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ['capacidades'] });
+      void qc.invalidateQueries({ queryKey: ['recursos-tarea'] });
     },
   });
 }

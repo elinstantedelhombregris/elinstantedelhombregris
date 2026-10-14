@@ -34,6 +34,7 @@ import {
   MiEspacio,
   Colaborar,
   IniciativaDetail,
+  Campo,
   InicioIniciativas,
   EjemploIniciativa,
   EscuchaTerritorial,
@@ -200,6 +201,7 @@ export function AppRoutes() {
       <Route path="/comunidad" component={Community} />
       <Route path="/notificaciones" component={Notifications} />
 
+      <Route path="/campo" component={Campo} />
       <Route path="/escucha-territorial" component={EscuchaTerritorial} />
       <Route path="/iniciativas/ejemplo" component={EjemploIniciativa} />
       <Route path="/iniciativas/nueva" component={InicioIniciativas} />

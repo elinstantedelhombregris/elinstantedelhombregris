@@ -24,3 +24,5 @@ export * from './evidencia-ficha.js';
 export * from './deliberacion-ficha.js';
 
 export * from './capacidades.js';
+
+export * from './campo-recursos.js';

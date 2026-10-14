@@ -67,7 +67,7 @@ export class CapacidadesRepository {
     const reservas = uid
       ? (
           await this.db.execute<{ [K in keyof ReservaCapacidad]: ReservaCapacidad[K] }>(sql`
-      select r.id,r.revision,r.cantidad_declarada as "cantidadDeclarada",r.ficha_id as "fichaId",r.cantidad,r.para_fecha::text as "paraFecha",r.necesidad,r.compatibilidad,r.estado,
+      select (select json_build_object('id',t.id,'slug',i.slug,'titulo',t.title) from iniciativa_tasks t join iniciativas i on i.id=t.iniciativa_id where t.id=r.tarea_id) as "tareaVinculada",r.id,r.revision,r.cantidad_declarada as "cantidadDeclarada",r.ficha_id as "fichaId",r.cantidad,r.para_fecha::text as "paraFecha",r.necesidad,r.compatibilidad,r.estado,
       r.nota_entrega as "notaEntrega",r.discrepancia,to_char(r.creada_en at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as "creadaEn",to_char(r.actualizada_en at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as "actualizadaEn",(r.solicitante_id=${uid}) as "soySolicitante"
       from reservas_capacidad r join capacidades c on c.id=r.capacidad_id where c.id=${id}::uuid
       and (c.oferente_id=${uid} or r.solicitante_id=${uid})

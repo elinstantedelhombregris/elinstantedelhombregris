@@ -144,7 +144,8 @@ Implementado el 14/10 en `/capacidades`: ofertas ligadas a señales propias, ace
 - [x] Separar presencia de registros, vigencia de observaciones y alcance de relevamientos. No presentarlos como porcentaje de población representada.
 - [ ] Usar unidades estables y su versión para comparaciones; recortar por el territorio pertinente y distinguir áreas no habitadas cuando haya información adecuada.
 - [x] Tratar señales provinciales, sin punto y con precisión reducida según su alcance; no afirmar que verifican una celda exacta.
-- [ ] Generar tareas de escucha con objetivo, zona, método, responsable que acepta, fecha y resultado. Conectar con capacidades de campo existentes, verificando sincronización y protección de datos.
+- [x] Generar tareas de escucha con objetivo, zona, método, responsable que acepta, fecha y resultado. Conectar reservas y sincronización del cuaderno web, verificando autorización y protección de notas privadas.
+- [ ] Conectar también las tareas de iniciativas con el circuito de campo nativo. Comprobar su identidad de dispositivo, permisos, recepción y retiro sin importar notas privadas automáticamente.
 - [x] Describir procedencia presencial o digital y límites de convocatoria sin crear perfiles públicos sensibles.
 
 **Salida E3:** cada cifra abre su fuente; no se ofrece zoom analítico más preciso que los datos; una ficha puede mostrar evidencia contradictoria; una zona poco relevada produce una tarea de escucha, no una afirmación sobre lo que piensa su población.
@@ -188,13 +189,13 @@ Implementado el 14/10: detalle común, costos con fuente y unidad/período, comp
 
 ### E5.1 · Acciones aceptadas y seguimiento
 
-- [ ] Vincular la alternativa a una iniciativa existente o nueva, con tarea, hito, responsable que acepta, fecha y recursos comprometidos.
+- [x] Vincular la alternativa a una iniciativa existente o nueva, con tarea, hito, responsable que acepta, fecha y recursos comprometidos.
 - [x] Completar servicios de iniciativas que falten: creación/edición autorizada, tareas, evidencia y transiciones. Reutilizar tablas existentes tras revisar si expresan aceptación y verificación suficientes.
 - [x] Distinguir tarea terminada, entrega declarada y resultado confirmado. Un plazo vencido informa vencimiento; no acusa incumplimiento sin el protocolo correspondiente.
 - [x] Solicitar evidencia mínima pertinente y corroboración independiente cuando aplique. No publicar rostros, domicilios ni documentos sensibles por defecto.
 - [ ] Actualizar la ficha y devolver el resultado a quienes decidieron seguirla, mediante preferencias explícitas de notificación.
 
-Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una iniciativa comunitaria o vincularse a una que se administra, con tarea e hito. Una persona integrante acepta su responsabilidad; los pasos de la prueba actualizan la tarea y la revisión del resultado actualiza el hito. Permisos, idempotencia y concurrencia comprobados en Postgres local. La administración general y las tareas independientes se completan en la entrega de escucha descrita al final. Sigue pendiente la asociación detallada de reservas a tareas; por eso la primera casilla de E5.1 sigue abierta. [Especificación](../specs/2026-10-14-ejecucion-de-alternativas.md). Migración 0035 preparada, sin aplicar a producción.
+Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una iniciativa comunitaria o vincularse a una que se administra, con tarea e hito. Una persona integrante acepta su responsabilidad; los pasos de la prueba actualizan la tarea y la revisión del resultado actualiza el hito. Permisos, idempotencia y concurrencia comprobados en Postgres local. La administración general y las tareas independientes se completan en la entrega de escucha descrita al final. La asociación detallada de reservas a tareas se completa en la entrega de campo registrada al final. [Especificación](../specs/2026-10-14-ejecucion-de-alternativas.md). Migración 0035 preparada, sin aplicar a producción.
 
 ### E5.2 · Piloto territorial
 
@@ -342,3 +343,19 @@ Implementadas la escucha territorial y la administración de iniciativas de punt
 **Pendientes precisos:** E3.3 conserva abiertas la geografía estable/versionada con recorte de áreas habitadas y la sincronización del trabajo de campo. La unidad declarada en una tarea no sustituye esos datos. E5.1 conserva la asociación detallada de reservas con tareas y la devolución integrada de resultados independientes a fichas/seguimientos. E3.1 requiere fuentes e importaciones verificadas; E5.2 exige trabajo real con interlocutores; E6–E7 conservan la síntesis nacional revisada, exportación citable con redacción y modelos de escenarios. La entrega no completa el plan entero ni se despliega automáticamente.
 
 Verificación de esta entrega: `pnpm verify` aprobado, **3.349 pruebas** y 20 omisiones existentes; lint, tipos, corpus y compilación web/API correctos. Navegador con respuestas simuladas a 360, 390, 768 y 1440 px, aceptación, revisión, fallo y recuperación comprobados. D-129 conserva la intermitencia observada antes de la repetición completa aprobada. D-130 queda resuelta en código. Migración 0036 validada en bases locales, pendiente de producción.
+
+## Entrega del 14/10: reservas por tarea y cuaderno web de campo
+
+Implementado el vínculo entre reservas aceptadas y tareas, incluidas las derivadas de pruebas cuando corresponde la misma ficha. Una reserva completa abastece una sola tarea; su estado y cantidades se leen desde el acuerdo original. Solicitar, aceptar, recibir, ejecutar y revisar conservan efectos diferentes. Las dos partes de la reserva ven la asociación; no se expone su contenido privado al resto del equipo ni al historial público. Desvincular no libera stock.
+
+`/campo` conserva por cuenta y navegador notas privadas y borradores de resultados. La persona abre el cuaderno desde una tarea de escucha, guarda sin red con la pantalla ya cargada y autoriza un resumen específico. La cola conserva un recibo inmutable, comprueba la cuenta en el servidor, detiene conflictos de versión y permite reconciliar respuestas perdidas sin duplicar evidencia. Declaración de ejecución y evidencia se registran atómicamente; la revisión independiente sigue pendiente. Ediciones entre pestañas no reemplazan texto sin guardar.
+
+El ejemplo de apoyo escolar en `/iniciativas/ejemplo` explica reserva de sala, recepción parcial, escucha, resumen autorizado, recuperación de red y revisión. Es ficción identificada y no escribe en el corpus.
+
+**Alcance:** la web necesita cargarse con conexión antes de salir. No se prometen apertura inicial sin red ni sincronización con la app nativa. Los cuadernos permanecen en el navegador y se pueden borrar explícitamente; borrar la copia local no retira evidencia publicada. La migración 0037 está preparada y probada localmente, sin aplicar en producción.
+
+**Pendientes del plan:** interoperabilidad con campo nativo; geografía estable y versionada; importaciones con fuentes verificadas; devolución de resultados independientes a fichas y seguimientos; piloto con interlocutores reales; síntesis por objetivos y escalas de decisión; documento citable con redacción; escenarios con parámetros y límites explícitos. Estos puntos no se consideran resueltos por incorporar el cuaderno.
+
+[Especificación](../specs/2026-10-14-reservas-tareas-campo.md) · [Recorrido de prueba](../demos/2026-10-14-reservas-tareas-campo.md).
+
+Verificación: `pnpm verify` aprobado con **3.364 pruebas** y 20 omisiones existentes; lint, tipos, corpus y compilación correctos. `tests/e2e/campo.spec.ts` aprobado. D-129 conserva el fallo intermitente previo a la corrida completa aprobada.

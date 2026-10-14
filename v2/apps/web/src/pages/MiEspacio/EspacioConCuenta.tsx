@@ -36,6 +36,9 @@ export function EspacioConCuenta({ user }: { user: AuthenticatedUser }) {
 
   return (
     <>
+      <Link className="mb-5 inline-flex min-h-11 underline" href="/campo">
+        Mi cuaderno de campo →
+      </Link>
       <Link className="mb-5 inline-flex min-h-11 underline" href="/capacidades?propias=si">
         Mis capacidades, reservas y entregas →
       </Link>
