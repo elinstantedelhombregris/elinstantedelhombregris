@@ -50,3 +50,5 @@ export * from './deliberacion.js';
 export * from './capacidades.js';
 
 export * from './ejecucion.js';
+
+export * from './gestion-iniciativas.js';

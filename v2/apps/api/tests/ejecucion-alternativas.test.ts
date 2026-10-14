@@ -99,6 +99,25 @@ describe.skipIf(!process.env.DATABASE_URL_DESCARTABLE)('Ejecución de alternativ
     );
     const iniciativaId = i.rows[0]!.id;
     expect(i.rows[0]!.member_count).toBe(1);
+    const derivadas = await api
+      .get(`/api/iniciativas/${iniciativaId}/tareas`)
+      .set('Cookie', cookies[0]!)
+      .expect(200);
+    const tareaDerivada = derivadas.body.data.items[0] as {
+      id: number;
+      revision: number;
+      derivada: boolean;
+      puedoEditar: boolean;
+    };
+    expect(tareaDerivada).toMatchObject({ derivada: true, puedoEditar: false });
+    await post(`/api/iniciativas/${iniciativaId}/tareas/${tareaDerivada.id}/estado`, {
+      idLocal: randomUUID(),
+      revision: tareaDerivada.revision,
+      accion: 'aceptar',
+      firma: 'Equipo de apoyo',
+      nota: 'Intento aceptar desde otra superficie.',
+    }).expect(409);
+
     const accion = (estado: string, revision: number, quien: number, extra = {}) =>
       post(
         `/api/v1/fichas/pruebas/${id}/estado`,

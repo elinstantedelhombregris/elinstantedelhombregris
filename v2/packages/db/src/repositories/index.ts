@@ -143,3 +143,8 @@ export * from './capacidades.js';
 export * from './reservas-capacidad.js';
 
 export * from './ejecucion.js';
+
+export * from './gestion-iniciativas.js';
+export * from './iniciativa-tareas.js';
+export * from './iniciativa-evidencia.js';
+export * from './iniciativa-membresia.js';

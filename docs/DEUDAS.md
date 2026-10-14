@@ -141,6 +141,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-125](#d-125--la-campaña-de-ejemplo-cuenta-aportes-sintéticos-como-publicados) | La campaña de ejemplo cuenta aportes sintéticos como publicados | Baja | Abierta |
 | [D-126](#d-126--cualquier-escritura-en-las-fuentes-invalida-los-archivos-de-exportación-en-preparación) | Cualquier escritura en las fuentes invalida los archivos de exportación en preparación | Media | Abierta |
 | [D-127](#d-127--las-pruebas-de-la-siembra-nacional-se-rompen-el-1-de-marzo-de-2027) | Las pruebas de la siembra nacional se rompen el 1 de marzo de 2027 | Media | Abierta |
+| [D-130](#d-130--la-membresía-de-iniciativas-necesita-contadores-atómicos-y-errores-visibles) | La membresía de iniciativas necesita contadores atómicos y errores visibles | Media | Resuelta en código; despliegue pendiente |
 
 ---
 
@@ -2140,13 +2141,17 @@ Después de dos verificaciones completas exitosas, una corrida posterior falló 
 
 La repetición completa con cuatro procesos por paquete terminó correctamente: 3.322 pruebas aprobadas, más lint, tipos, corpus y compilación. La causa de los fallos intermitentes anteriores sigue sin determinarse.
 
+En la entrega de escucha, una corrida completa volvió a mostrar fallos transitorios: ingreso a una iniciativa recién creada con 404 y lectura de capacidad sin `data`. Las cuatro suites relacionadas pasaron aisladas (24 pruebas) sin cambios de lógica de producción; se añadió información del cuerpo de respuesta al fallo de ingreso para facilitar una próxima reproducción. Esto no determina la causa ni permite declarar resuelta D-129.
+
 ### D-130 · La membresía de iniciativas necesita contadores atómicos y errores visibles
 
 **Dónde:** `v2/packages/db/src/repositories/iniciativas.ts` (`addMember`, `removeMember`), `v2/apps/api/src/features/iniciativas/routes.ts`, `v2/apps/web/src/pages/IniciativaDetail.tsx`
 **Encontrada:** 2026-10-14, al conectar pruebas con iniciativas
 **Severidad:** media
-**Estado:** abierta
+**Estado:** resuelta en código; despliegue pendiente
 
 El alta/baja de membresía y el cambio del contador se realizan en sentencias separadas. `removeMember` descuenta incluso si no había membresía: repetir una salida puede reducir el conteo de otras personas. La ruta de ingreso interpreta cualquier excepción como «ya era miembro», ocultando otras fallas. La pantalla existente tampoco muestra los errores de ingreso/salida ni una confirmación. Los permisos de las nuevas acciones consultan la tabla de membresías, no ese contador; su exactitud no corrige estos problemas anteriores.
 
 **Qué haría falta:** actualizar membresía y contador en una misma transacción, distinguir duplicado de fallo, probar ingresos/salidas concurrentes y dar respuesta visible en la pantalla, con acceso a iniciar sesión cuando corresponda.
+
+**Resolución (14/10):** `IniciativaMembresiaRepository` serializa operaciones por iniciativa y actualiza membresía y contador en una sola transacción. El ingreso duplicado y la salida repetida no modifican otras membresías. Se retiraron los métodos anteriores; los fallos llegan a la pantalla. Se impide salir al propietario y a quien conserva tareas activas. La migración 0036 concilia los contadores anteriores. Pruebas reales de Postgres cubren carreras y reintentos; los componentes comprueban permisos y errores visibles.

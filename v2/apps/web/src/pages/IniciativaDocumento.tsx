@@ -1,43 +1,47 @@
 import { Link, useRoute } from 'wouter';
 
-import { MdxContent } from '~/components/MdxContent';
+import { MarcoParticipacion } from '~/components/participacion/Elementos';
 import { useIniciativa } from '~/lib/queries/iniciativas';
 
 export function IniciativaDocumento() {
   const [, params] = useRoute<{ slug: string }>('/iniciativas/:slug/documento');
   const slug = params?.slug ?? '';
-  const { data, isLoading, isError } = useIniciativa(slug);
-
-  if (isLoading) {
-    return <main className="container mx-auto max-w-3xl px-4 py-20">Cargando…</main>;
-  }
-  if (isError || !data?.iniciativa.bodyMarkdown) {
+  const q = useIniciativa(slug);
+  if (q.isLoading)
     return (
-      <main className="container mx-auto max-w-3xl px-4 py-20">
-        <p>No hay documento para esta iniciativa.</p>
-        <Link href={`/iniciativas/${slug}`} className="text-iris-violet underline">
-          Volver a la iniciativa
-        </Link>
+      <main className="p-10" role="status">
+        Cargando documento…
       </main>
     );
-  }
-
-  const iniciativa = data.iniciativa;
-
   return (
-    <main className="container mx-auto max-w-3xl px-4 py-16">
-      <header className="mb-8">
-        <Link href={`/iniciativas/${iniciativa.slug}`} className="text-sm text-iris-violet underline">
-          ← Volver a {iniciativa.title}
-        </Link>
-        <h1 className="mt-6 font-serif text-3xl font-semibold md:text-4xl">{iniciativa.title}</h1>
-        <p className="mt-3 text-lg text-muted-foreground">{iniciativa.summary}</p>
-      </header>
-      <article>
-        <MdxContent raw={iniciativa.bodyMarkdown ?? ''} />
-      </article>
-    </main>
+    <MarcoParticipacion
+      titulo={q.data?.iniciativa.title ?? 'Documento de la iniciativa'}
+      entrada={q.data?.iniciativa.summary ?? 'Consultá el propósito y los criterios del equipo.'}
+    >
+      <Link href={`/iniciativas/${slug}`} className="text-violeta underline">
+        Volver a la iniciativa
+      </Link>
+      {q.isError ? (
+        <div role="alert" className="my-5">
+          <p>No pudimos actualizar el documento. Conservamos la última lectura disponible.</p>
+          <button
+            className="min-h-11 underline"
+            onClick={() => {
+              void q.refetch();
+            }}
+          >
+            Reintentar
+          </button>
+        </div>
+      ) : null}
+      {q.data?.iniciativa.bodyMarkdown ? (
+        <article className="mt-7 whitespace-pre-wrap break-words leading-relaxed">
+          {q.data.iniciativa.bodyMarkdown}
+        </article>
+      ) : !q.isError ? (
+        <p className="mt-7">Esta iniciativa todavía no publicó un documento.</p>
+      ) : null}
+    </MarcoParticipacion>
   );
 }
-
 export default IniciativaDocumento;

@@ -2,7 +2,7 @@
  * IniciativasRepository — initiative life-cycle, members, milestones,
  * tasks, messages, activity feed, membership requests, mission evidence.
  */
-import { and, desc, eq, sql } from 'drizzle-orm';
+import { and, desc, eq } from 'drizzle-orm';
 
 import {
   iniciativaActivity,
@@ -27,7 +27,6 @@ import type {
   MissionEvidence,
   NewIniciativa,
   NewIniciativaActivity,
-  NewIniciativaMember,
   NewIniciativaMessage,
   NewIniciativaMilestone,
   NewIniciativaTask,
@@ -47,7 +46,11 @@ export class IniciativasRepository {
   }
 
   async findBySlug(slug: string): Promise<Iniciativa | undefined> {
-    const [row] = await this.db.select().from(iniciativas).where(eq(iniciativas.slug, slug)).limit(1);
+    const [row] = await this.db
+      .select()
+      .from(iniciativas)
+      .where(eq(iniciativas.slug, slug))
+      .limit(1);
     return row;
   }
 
@@ -70,28 +73,11 @@ export class IniciativasRepository {
 
   // ---------- Members ----------
 
-  async addMember(input: NewIniciativaMember): Promise<IniciativaMember> {
-    const [row] = await this.db.insert(iniciativaMembers).values(input).returning();
-    if (!row) throw new Error('Failed to add member');
-    await this.db
-      .update(iniciativas)
-      .set({ memberCount: sql`${iniciativas.memberCount} + 1`, updatedAt: new Date() })
-      .where(eq(iniciativas.id, input.iniciativaId));
-    return row;
-  }
-
-  async removeMember(iniciativaId: number, userId: number): Promise<void> {
-    await this.db
-      .delete(iniciativaMembers)
-      .where(and(eq(iniciativaMembers.iniciativaId, iniciativaId), eq(iniciativaMembers.userId, userId)));
-    await this.db
-      .update(iniciativas)
-      .set({ memberCount: sql`greatest(${iniciativas.memberCount} - 1, 0)`, updatedAt: new Date() })
-      .where(eq(iniciativas.id, iniciativaId));
-  }
-
   async listMembers(iniciativaId: number): Promise<IniciativaMember[]> {
-    return this.db.select().from(iniciativaMembers).where(eq(iniciativaMembers.iniciativaId, iniciativaId));
+    return this.db
+      .select()
+      .from(iniciativaMembers)
+      .where(eq(iniciativaMembers.iniciativaId, iniciativaId));
   }
 
   // ---------- Milestones / tasks ----------
@@ -169,7 +155,10 @@ export class IniciativasRepository {
       .select()
       .from(membershipRequests)
       .where(
-        and(eq(membershipRequests.iniciativaId, iniciativaId), eq(membershipRequests.status, 'pending')),
+        and(
+          eq(membershipRequests.iniciativaId, iniciativaId),
+          eq(membershipRequests.status, 'pending'),
+        ),
       );
   }
 

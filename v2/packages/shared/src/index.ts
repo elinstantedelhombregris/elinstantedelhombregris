@@ -22,3 +22,6 @@ export * from './participacion/texto-reservado.js';
 export * from './participacion/detalle-alternativa.js';
 
 export * from './participacion/ejecucion.js';
+
+export * from './participacion/gestion-iniciativas.js';
+export * from './validation/gestion-iniciativas.js';

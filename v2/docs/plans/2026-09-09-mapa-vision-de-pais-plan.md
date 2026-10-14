@@ -14,16 +14,16 @@ Roles: **Producto** define alcance y lenguaje; **Diseño** resuelve interacción
 
 ## 2. Entregas y dependencias
 
-| Entrega | Resultado visible | Depende de | Responsable principal |
-|---|---|---|---|
-| E0. Base y decisiones | Alcance, contratos y limitaciones conocidos | Diagnóstico | Producto + Desarrollo |
-| E1. Confianza | El mapa diferencia fallas, ausencia y datos parciales; las métricas no inventan conclusiones | E0 | Desarrollo + Verificación |
-| E2. Exploración y fichas | Encontrar un lugar, entenderlo y abrir una ficha con aportes trazables | E1 | Diseño + Desarrollo |
-| E3. Evidencia y capacidades | Contrastar relatos con fuentes, conocer recursos y planificar escucha | E2; catálogo de datos puede prepararse desde E0 | Datos + Territorio |
-| E4. Objetivos y deliberación | Formular metas, comparar alternativas y publicar acuerdos con disensos | E2 + contexto mínimo de E3 | Producto + Territorio + Desarrollo |
-| E5. Acciones y piloto | Responsables aceptan tareas y la comunidad comprueba resultados | E4; estructura de ejecución puede prepararse desde E2 | Territorio + Desarrollo |
-| E6. Visión nacional | Conectar objetivos y tensiones entre territorios | Evidencia del piloto E5 | Producto + Datos + Territorio |
-| E7. Escenarios, ampliación opcional | Explorar consecuencias de alternativas con supuestos públicos | E6 + datos adecuados al modelo | Datos + Desarrollo |
+| Entrega                             | Resultado visible                                                                            | Depende de                                            | Responsable principal              |
+| ----------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------- |
+| E0. Base y decisiones               | Alcance, contratos y limitaciones conocidos                                                  | Diagnóstico                                           | Producto + Desarrollo              |
+| E1. Confianza                       | El mapa diferencia fallas, ausencia y datos parciales; las métricas no inventan conclusiones | E0                                                    | Desarrollo + Verificación          |
+| E2. Exploración y fichas            | Encontrar un lugar, entenderlo y abrir una ficha con aportes trazables                       | E1                                                    | Diseño + Desarrollo                |
+| E3. Evidencia y capacidades         | Contrastar relatos con fuentes, conocer recursos y planificar escucha                        | E2; catálogo de datos puede prepararse desde E0       | Datos + Territorio                 |
+| E4. Objetivos y deliberación        | Formular metas, comparar alternativas y publicar acuerdos con disensos                       | E2 + contexto mínimo de E3                            | Producto + Territorio + Desarrollo |
+| E5. Acciones y piloto               | Responsables aceptan tareas y la comunidad comprueba resultados                              | E4; estructura de ejecución puede prepararse desde E2 | Territorio + Desarrollo            |
+| E6. Visión nacional                 | Conectar objetivos y tensiones entre territorios                                             | Evidencia del piloto E5                               | Producto + Datos + Territorio      |
+| E7. Escenarios, ampliación opcional | Explorar consecuencias de alternativas con supuestos públicos                                | E6 + datos adecuados al modelo                        | Datos + Desarrollo                 |
 
 La primera entrega al usuario es E1. La primera versión de exploración útil es E2. El primer circuito integral se evalúa al finalizar E5. E6 produce una síntesis de los territorios participantes con sus límites, sin atribuirles representación nacional.
 
@@ -141,11 +141,11 @@ Implementado el 14/10 en `/capacidades`: ofertas ligadas a señales propias, ace
 
 ### E3.3 · Cobertura que orienta la escucha
 
-- [ ] Separar presencia de registros, vigencia de observaciones y alcance de relevamientos. No presentarlos como porcentaje de población representada.
+- [x] Separar presencia de registros, vigencia de observaciones y alcance de relevamientos. No presentarlos como porcentaje de población representada.
 - [ ] Usar unidades estables y su versión para comparaciones; recortar por el territorio pertinente y distinguir áreas no habitadas cuando haya información adecuada.
-- [ ] Tratar señales provinciales, sin punto y con precisión reducida según su alcance; no afirmar que verifican una celda exacta.
+- [x] Tratar señales provinciales, sin punto y con precisión reducida según su alcance; no afirmar que verifican una celda exacta.
 - [ ] Generar tareas de escucha con objetivo, zona, método, responsable que acepta, fecha y resultado. Conectar con capacidades de campo existentes, verificando sincronización y protección de datos.
-- [ ] Describir procedencia presencial o digital y límites de convocatoria sin crear perfiles públicos sensibles.
+- [x] Describir procedencia presencial o digital y límites de convocatoria sin crear perfiles públicos sensibles.
 
 **Salida E3:** cada cifra abre su fuente; no se ofrece zoom analítico más preciso que los datos; una ficha puede mostrar evidencia contradictoria; una zona poco relevada produce una tarea de escucha, no una afirmación sobre lo que piensa su población.
 
@@ -189,12 +189,12 @@ Implementado el 14/10: detalle común, costos con fuente y unidad/período, comp
 ### E5.1 · Acciones aceptadas y seguimiento
 
 - [ ] Vincular la alternativa a una iniciativa existente o nueva, con tarea, hito, responsable que acepta, fecha y recursos comprometidos.
-- [ ] Completar servicios de iniciativas que falten: creación/edición autorizada, tareas, evidencia y transiciones. Reutilizar tablas existentes tras revisar si expresan aceptación y verificación suficientes.
-- [ ] Distinguir tarea terminada, entrega declarada y resultado confirmado. Un plazo vencido informa vencimiento; no acusa incumplimiento sin el protocolo correspondiente.
-- [ ] Solicitar evidencia mínima pertinente y corroboración independiente cuando aplique. No publicar rostros, domicilios ni documentos sensibles por defecto.
+- [x] Completar servicios de iniciativas que falten: creación/edición autorizada, tareas, evidencia y transiciones. Reutilizar tablas existentes tras revisar si expresan aceptación y verificación suficientes.
+- [x] Distinguir tarea terminada, entrega declarada y resultado confirmado. Un plazo vencido informa vencimiento; no acusa incumplimiento sin el protocolo correspondiente.
+- [x] Solicitar evidencia mínima pertinente y corroboración independiente cuando aplique. No publicar rostros, domicilios ni documentos sensibles por defecto.
 - [ ] Actualizar la ficha y devolver el resultado a quienes decidieron seguirla, mediante preferencias explícitas de notificación.
 
-Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una iniciativa comunitaria o vincularse a una que se administra, con tarea e hito. Una persona integrante acepta su responsabilidad; los pasos de la prueba actualizan la tarea y la revisión del resultado actualiza el hito. Permisos, idempotencia y concurrencia comprobados en Postgres local. Falta completar la administración general, edición de tareas independientes y asociación detallada de recursos comprometidos; por eso E5.1 sigue abierto. [Especificación](../specs/2026-10-14-ejecucion-de-alternativas.md). Migración 0035 preparada, sin aplicar a producción.
+Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una iniciativa comunitaria o vincularse a una que se administra, con tarea e hito. Una persona integrante acepta su responsabilidad; los pasos de la prueba actualizan la tarea y la revisión del resultado actualiza el hito. Permisos, idempotencia y concurrencia comprobados en Postgres local. La administración general y las tareas independientes se completan en la entrega de escucha descrita al final. Sigue pendiente la asociación detallada de reservas a tareas; por eso la primera casilla de E5.1 sigue abierta. [Especificación](../specs/2026-10-14-ejecucion-de-alternativas.md). Migración 0035 preparada, sin aplicar a producción.
 
 ### E5.2 · Piloto territorial
 
@@ -229,17 +229,17 @@ Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una 
 
 Los nombres siguientes son propuestas, no tablas ya existentes. Se crean por entrega y no todos juntos.
 
-| Entidad | Datos mínimos | Decisión de integración |
-|---|---|---|
-| Ficha territorial | ID público, título, ámbito, temas, estado, versión | Dominio nuevo relacionado con geografía y señales |
-| Vinculación | Ficha, señal/fuente, función, creador y revisión | Referencia al original; admite retiro y reclasificación |
-| Fuente y observación | Procedencia, fecha, unidad, ámbito, valor/ausencia, versión | Recurso de datos separado del testimonio |
-| Objetivo colectivo | Resultado, horizonte, indicador, base, meta, método | Dominio colectivo; no reutilizar objetivos personales |
-| Detalle de capacidad | Señal, unidad, cantidad, vigencia, restricciones | Extensión tipada del recurso o práctica canónica |
-| Alternativa | Objetivo, mecanismo, costos, efectos, dependencias, versión | Puede enlazar un PLAN; no hereda aprobación |
-| Proceso y aportes deliberativos | Ámbito, reglas, fechas, argumentos, objeciones y cierre | Operación diferente de confirmar una señal |
-| Acción | Iniciativa, tarea/hito, aceptación, evidencia, resultado | Reutilizar ejecución de iniciativas y completar lo que falte |
-| Relación entre fichas | Origen, destino, tipo, evidencia, estado | Relación SQL, sin nuevo motor de grafos |
+| Entidad                         | Datos mínimos                                               | Decisión de integración                                      |
+| ------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| Ficha territorial               | ID público, título, ámbito, temas, estado, versión          | Dominio nuevo relacionado con geografía y señales            |
+| Vinculación                     | Ficha, señal/fuente, función, creador y revisión            | Referencia al original; admite retiro y reclasificación      |
+| Fuente y observación            | Procedencia, fecha, unidad, ámbito, valor/ausencia, versión | Recurso de datos separado del testimonio                     |
+| Objetivo colectivo              | Resultado, horizonte, indicador, base, meta, método         | Dominio colectivo; no reutilizar objetivos personales        |
+| Detalle de capacidad            | Señal, unidad, cantidad, vigencia, restricciones            | Extensión tipada del recurso o práctica canónica             |
+| Alternativa                     | Objetivo, mecanismo, costos, efectos, dependencias, versión | Puede enlazar un PLAN; no hereda aprobación                  |
+| Proceso y aportes deliberativos | Ámbito, reglas, fechas, argumentos, objeciones y cierre     | Operación diferente de confirmar una señal                   |
+| Acción                          | Iniciativa, tarea/hito, aceptación, evidencia, resultado    | Reutilizar ejecución de iniciativas y completar lo que falte |
+| Relación entre fichas           | Origen, destino, tipo, evidencia, estado                    | Relación SQL, sin nuevo motor de grafos                      |
 
 **Lectura pública:** lista blanca de campos y precisión autorizada. **Administración:** permisos por rol y ámbito, comprobados en servidor. **Escrituras:** validación compartida, CSRF/autenticación según contrato, idempotencia y revisión esperada para detectar edición concurrente. **Auditoría:** historial interno protegido; las revisiones públicas no recuperan datos retirados. **Actores:** las identidades anónima, autenticada e institucional no se fusionan por inferencia.
 
@@ -259,30 +259,30 @@ No se reescriben archivos ajenos a cada entrega ni se incorporan cambios de otra
 
 ## 13. Indicadores para decidir si avanzar
 
-| Indicador | Definición | Uso |
-|---|---|---|
-| Comprensión inicial | Participantes de prueba que distinguen dato, propuesta y ausencia / participantes observados | Mejorar navegación y lenguaje; nunca inferir opinión nacional |
-| Aporte con destino | Aportes vinculados a una ficha o tarea / aportes del piloto | Detectar capturas que quedan sin seguimiento |
-| Objetivo verificable | Objetivos publicados con base, meta y método, o pendientes explícitos con tarea | Evitar promesas sin forma de revisión |
-| Síntesis trazable | Afirmaciones de una muestra revisada con fuente/argumento accesible / afirmaciones revisadas | Detectar interpretaciones sin respaldo |
-| Disenso conservado | Objeciones sustantivas con respuesta o estado pendiente visible | Evitar consenso fabricado |
-| Resultado confirmado | Necesidades verificadas con resolución confirmada, con ámbito y período | Métrica de resultado principal |
-| Calidad de datos | Consultas fallidas/parciales correctamente señaladas; fuentes vigentes y retiros propagados | Condición de confianza |
+| Indicador            | Definición                                                                                   | Uso                                                           |
+| -------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Comprensión inicial  | Participantes de prueba que distinguen dato, propuesta y ausencia / participantes observados | Mejorar navegación y lenguaje; nunca inferir opinión nacional |
+| Aporte con destino   | Aportes vinculados a una ficha o tarea / aportes del piloto                                  | Detectar capturas que quedan sin seguimiento                  |
+| Objetivo verificable | Objetivos publicados con base, meta y método, o pendientes explícitos con tarea              | Evitar promesas sin forma de revisión                         |
+| Síntesis trazable    | Afirmaciones de una muestra revisada con fuente/argumento accesible / afirmaciones revisadas | Detectar interpretaciones sin respaldo                        |
+| Disenso conservado   | Objeciones sustantivas con respuesta o estado pendiente visible                              | Evitar consenso fabricado                                     |
+| Resultado confirmado | Necesidades verificadas con resolución confirmada, con ámbito y período                      | Métrica de resultado principal                                |
+| Calidad de datos     | Consultas fallidas/parciales correctamente señaladas; fuentes vigentes y retiros propagados  | Condición de confianza                                        |
 
 Los valores iniciales se miden en E0/E2; no se inventa una línea de base. El objetivo 4/5 de usabilidad es un umbral exploratorio. Las métricas de uso serán agregadas y mínimas, sin almacenar texto sensible ni crear rankings individuales.
 
 ## 14. Primera cola de trabajo concreta
 
-| Orden | Cambio revisable | Depende de | Evidencia de cierre |
-|---|---|---|---|
-| 1 | Contrato de estados + error/vacío en todos los modos | E0.1–E0.4 | Falla de red no genera cero ni silencio |
-| 2 | Conteos y paginación con completitud | 1 + contrato de orígenes | Prueba de 1.201 registros y filtros coherentes |
-| 3 | Corregir brechas, unidades y lenguaje de auditoría | E0.3 | Casos de unidades incompatibles y scroll |
-| 4 | Consentimiento, reintentos y recibo | E0.3 | Envío/reintento/retiro consistentes |
-| 5 | Entrada del mapa, búsqueda territorial y lista | 1–2 | Recorrido de exploración en móvil y escritorio |
-| 6 | Ficha borrador con señales, versiones y permisos | 5 | Aporte enlazado y edición concurrente protegida |
-| 7 | Contexto mínimo de fuentes y capacidades | 6 | Fuente visible y recurso con vigencia |
-| 8 | Objetivo, alternativas, deliberación y acción del piloto | 6–7 | Circuito E4–E5 completo |
+| Orden | Cambio revisable                                         | Depende de               | Evidencia de cierre                             |
+| ----- | -------------------------------------------------------- | ------------------------ | ----------------------------------------------- |
+| 1     | Contrato de estados + error/vacío en todos los modos     | E0.1–E0.4                | Falla de red no genera cero ni silencio         |
+| 2     | Conteos y paginación con completitud                     | 1 + contrato de orígenes | Prueba de 1.201 registros y filtros coherentes  |
+| 3     | Corregir brechas, unidades y lenguaje de auditoría       | E0.3                     | Casos de unidades incompatibles y scroll        |
+| 4     | Consentimiento, reintentos y recibo                      | E0.3                     | Envío/reintento/retiro consistentes             |
+| 5     | Entrada del mapa, búsqueda territorial y lista           | 1–2                      | Recorrido de exploración en móvil y escritorio  |
+| 6     | Ficha borrador con señales, versiones y permisos         | 5                        | Aporte enlazado y edición concurrente protegida |
+| 7     | Contexto mínimo de fuentes y capacidades                 | 6                        | Fuente visible y recurso con vigencia           |
+| 8     | Objetivo, alternativas, deliberación y acción del piloto | 6–7                      | Circuito E4–E5 completo                         |
 
 Cada fila puede dividirse en varios cambios pequeños; no obliga a un único commit. Las filas 3 y 4 no dependen de terminar la 2. La selección de interlocutores del piloto y fuentes puede avanzar mientras se desarrolla E1; no se envían invitaciones automáticamente.
 
@@ -295,7 +295,6 @@ Cada fila puede dividirse en varios cambios pequeños; no obliga a un único com
 - **Responsabilidad de síntesis:** identificar quién facilita, revisa y publica durante el piloto. La ausencia de un líder político no elimina la responsabilidad operativa.
 
 El siguiente trabajo de implementación queda definido por las primeras cuatro filas: corregir la confianza del instrumento y del mandato antes de pedirles conclusiones nuevas.
-
 
 ## Continuación del 13 de octubre de 2026
 
@@ -310,7 +309,6 @@ Pruebas específicas: `Instrumento.test.tsx`, `geometria-provincial.test.tsx`, `
 Verificación del 13/10: lint y TypeScript del workspace, 2.391 pruebas unitarias, 244 pruebas de scripts, 631 pruebas de integración aprobadas (20 omitidas por sus condiciones existentes), control del corpus de entrenamientos y compilación web/API. Integración ejecutada con `pnpm test:integration:local`: dos bases locales temporales, eliminadas al terminar. La comprobación final del mapa y sus formularios pasó 219 pruebas. El control de entrenamientos se ejecutó con `node --import tsx scripts/content/entrenamientos-check.ts` porque el entorno restringe el socket interno del ejecutable `tsx`. No se ejecutó un despliegue ni una nueva revisión visual manual.
 
 Esto no completa E3–E7 ni valida el piloto territorial. Siguen pendientes su elección de lugares e interlocutores, evidencia de campo, deliberación y resultados comprobados; no se incorporaron datos sintéticos al mapa público.
-
 
 ## Continuación del 14 de octubre de 2026
 
@@ -330,3 +328,17 @@ Recorrido de operación y límites: [guía de ejemplos y fichas](../demos/2026-1
 Pendientes del plan que esta entrega no cierra: capacidades y reservas, tareas de escucha, importaciones verificadas, versiones y comparación más detallada de alternativas, servicios completos de iniciativas, piloto con personas reales y modelos de escenarios. Las casillas abiertas conservan esos requisitos. No se aplicó la migración a producción ni se desplegó esta entrega.
 
 Verificación final del 14/10: **`pnpm verify` aprobado** con dos bases PostgreSQL locales descartables y limpieza automática; incluye lint, TypeScript, 2.417 pruebas unitarias, 244 pruebas de scripts, 638 pruebas de integración aprobadas (20 omitidas por sus condiciones existentes), control de entrenamientos y compilación web/API. Los casos de integración nuevos incluyen paginación de 205 intervenciones, reintentos de publicación y retiro, referencias cruzadas inválidas, permisos y ocultación de síntesis tras retiros. La revisión del navegador usó respuestas simuladas: ejemplos, ficha y visión sin scroll horizontal a 360, 390, 768 y 1440 píxeles; navegación a nueva ficha sin escrituras, edición de objetivo y recuperación de error comprobadas, sin errores de JavaScript.
+
+## Escucha y administración — continuación del 14 de octubre
+
+Implementadas la escucha territorial y la administración de iniciativas de punta a punta, con la migración 0036 preparada. El detalle está en [la especificación](../specs/2026-10-14-administracion-y-escucha.md) y [el recorrido de operación](../demos/2026-10-14-escucha-e-iniciativas.md).
+
+- Crear y editar propósito/estado, administrar roles y proponer transferencia de propiedad con aceptación. Ingreso/salida atómicos y mensajes de fallo visibles; la migración concilia contadores anteriores.
+- Crear hitos y tareas, aceptar personalmente una responsabilidad, iniciar/pausar/retomar/liberar, declarar ejecución y publicar evidencia mínima. Una cuenta distinta de creador, responsable y autor revisa; su cuenta no prueba independencia personal. Retirar evidencia limpia texto/enlace y revisión y reabre resultados completados.
+- Planear escucha con zona, método, canal, convocatoria, unidad y versión declaradas; informar período, observaciones, ausencias, límites y próximo paso. Las consultas se paginan y un enlace de tarea puede abrir una fila fuera de la primera página.
+- Cobertura excluye puntos de precisión reducida de la presencia exacta por celda. La grilla declara que cambia con el encuadre y que incluye áreas no habitadas; no se presenta como cobertura poblacional ni como unidad persistente.
+- Ejemplo separado de apoyo escolar: seis pasos en `/iniciativas/ejemplo`, conectado al ejemplo de reservas. No se siembran participantes ni resultados ficticios en la consulta pública.
+
+**Pendientes precisos:** E3.3 conserva abiertas la geografía estable/versionada con recorte de áreas habitadas y la sincronización del trabajo de campo. La unidad declarada en una tarea no sustituye esos datos. E5.1 conserva la asociación detallada de reservas con tareas y la devolución integrada de resultados independientes a fichas/seguimientos. E3.1 requiere fuentes e importaciones verificadas; E5.2 exige trabajo real con interlocutores; E6–E7 conservan la síntesis nacional revisada, exportación citable con redacción y modelos de escenarios. La entrega no completa el plan entero ni se despliega automáticamente.
+
+Verificación de esta entrega: `pnpm verify` aprobado, **3.349 pruebas** y 20 omisiones existentes; lint, tipos, corpus y compilación web/API correctos. Navegador con respuestas simuladas a 360, 390, 768 y 1440 px, aceptación, revisión, fallo y recuperación comprobados. D-129 conserva la intermitencia observada antes de la repetición completa aprobada. D-130 queda resuelta en código. Migración 0036 validada en bases locales, pendiente de producción.

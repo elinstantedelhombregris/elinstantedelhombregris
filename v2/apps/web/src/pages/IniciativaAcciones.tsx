@@ -22,10 +22,10 @@ export function IniciativaAcciones({ slug }: { slug: string }) {
   const items = q.data?.pages.flatMap((p) => p.items) ?? [];
   return (
     <section aria-labelledby="acciones-titulo" className="mb-8 space-y-5">
-      <h2 id="acciones-titulo" className="font-serif text-2xl">
+      <h2 id="acciones-titulo" className="font-anton text-2xl">
         Acciones que nacen de una ficha
       </h2>
-      <p className="text-muted-foreground text-sm">
+      <p className="text-tinta-50 text-sm">
         Cada tarea conserva la alternativa que la originó. La responsabilidad se acepta desde la
         prueba; observar y revisar resultados son pasos posteriores a realizarla.
       </p>
@@ -52,9 +52,9 @@ export function IniciativaAcciones({ slug }: { slug: string }) {
       ) : null}
       <div className="space-y-4">
         {items.map((a) => (
-          <article key={a.pruebaId} className="space-y-3 rounded-xl border border-white/15 p-5">
+          <article key={a.pruebaId} className="border-tinta space-y-3 rounded-xl border p-5">
             <p className="text-sm font-semibold">{rotuloDePrueba(a.estado)}</p>
-            <h3 className="font-serif text-xl">{a.titulo}</h3>
+            <h3 className="font-anton text-xl">{a.titulo}</h3>
             <p className="whitespace-pre-wrap">{a.alcance}</p>
             <p>Responsabilidad aceptada: {a.responsableNombre ?? 'pendiente'}.</p>
             <p>Revisión prevista: {fechaCampana(a.plazo)}.</p>
@@ -70,13 +70,10 @@ export function IniciativaAcciones({ slug }: { slug: string }) {
             </p>
             <p className="whitespace-pre-wrap">Recursos y condiciones: {a.recursos}</p>
             <div className="flex flex-wrap gap-4 text-sm">
-              <Link className="text-iris-violet underline" href={`/fichas/${a.fichaId}`}>
+              <Link className="text-violeta underline" href={`/fichas/${a.fichaId}`}>
                 Ver alternativa, pasos y evidencia
               </Link>
-              <Link
-                className="text-iris-violet underline"
-                href={`/capacidades?fichaId=${a.fichaId}`}
-              >
+              <Link className="text-violeta underline" href={`/capacidades?fichaId=${a.fichaId}`}>
                 Buscar capacidades para esta ficha
               </Link>
             </div>

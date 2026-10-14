@@ -347,6 +347,7 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-100',
       'D-101',
       'D-104', // La limpieza de pruebas conserva datos ajenos y elimina sus propios procesos públicos.
+      'D-130', // Membresías atómicas, contadores conciliados y errores visibles en iniciativas.
     ]);
   });
 });

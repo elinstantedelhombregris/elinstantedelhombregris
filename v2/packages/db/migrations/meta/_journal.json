@@ -232,6 +232,13 @@
       "when": 1791980143799,
       "tag": "0035_ejecucion_alternativas",
       "breakpoints": true
+    },
+    {
+      "idx": 36,
+      "version": "7",
+      "when": 1791982399678,
+      "tag": "0036_administracion_escucha",
+      "breakpoints": true
     }
   ]
 }

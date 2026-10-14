@@ -44,6 +44,7 @@ export default defineConfig({
     './src/schema/feedback.ts',
     './src/schema/courses.ts',
     './src/schema/iniciativas.ts',
+    './src/schema/gestion-iniciativas.ts',
     './src/schema/mandato.ts',
     './src/schema/pulso.ts',
     './src/schema/gamification.ts',

@@ -1,10 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
+import type { PermisosIniciativa } from '@v2/shared';
+
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth/csrf';
+import { useAuth } from '~/lib/auth/use-auth';
 
 export interface Iniciativa {
   id: number;
+  revision: number;
   slug: string;
   title: string;
   summary: string;
@@ -19,10 +23,12 @@ export interface Iniciativa {
 }
 
 export function useIniciativa(slug: string) {
+  const auth = useAuth();
   return useQuery({
-    queryKey: ['iniciativa', slug],
-    queryFn: () => api.get<{ iniciativa: Iniciativa }>(`/api/iniciativas/${slug}`),
-    enabled: slug.length > 0,
+    queryKey: ['iniciativa', slug, auth.user?.id ?? null],
+    queryFn: () =>
+      api.get<{ iniciativa: Iniciativa; permisos: PermisosIniciativa }>(`/api/iniciativas/${slug}`),
+    enabled: slug.length > 0 && !auth.isLoading,
   });
 }
 
@@ -38,6 +44,7 @@ export function useJoinIniciativa() {
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ['iniciativa'] });
       void qc.invalidateQueries({ queryKey: ['diseno'] });
+      void qc.invalidateQueries({ queryKey: ['gestion-iniciativas'] });
     },
   });
 }
@@ -50,6 +57,7 @@ export function useLeaveIniciativa() {
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ['iniciativa'] });
       void qc.invalidateQueries({ queryKey: ['diseno'] });
+      void qc.invalidateQueries({ queryKey: ['gestion-iniciativas'] });
     },
   });
 }

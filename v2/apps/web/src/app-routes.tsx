@@ -34,6 +34,9 @@ import {
   MiEspacio,
   Colaborar,
   IniciativaDetail,
+  InicioIniciativas,
+  EjemploIniciativa,
+  EscuchaTerritorial,
   IniciativaDocumento,
   InsightDashboard,
   KitDePrensa,
@@ -197,6 +200,10 @@ export function AppRoutes() {
       <Route path="/comunidad" component={Community} />
       <Route path="/notificaciones" component={Notifications} />
 
+      <Route path="/escucha-territorial" component={EscuchaTerritorial} />
+      <Route path="/iniciativas/ejemplo" component={EjemploIniciativa} />
+      <Route path="/iniciativas/nueva" component={InicioIniciativas} />
+      <Route path="/iniciativas" component={InicioIniciativas} />
       {/* Iniciativas — documento route MUST come before bare :slug. */}
       <Route path="/iniciativas/:slug/documento" component={IniciativaDocumento} />
       <Route path="/iniciativas/:slug" component={IniciativaDetail} />

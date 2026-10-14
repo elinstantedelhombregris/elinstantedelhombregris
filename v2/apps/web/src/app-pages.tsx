@@ -287,13 +287,11 @@ export const Colaborar = lazy(() =>
   import('./pages/Colaborar').then((m) => ({ default: m.Colaborar })),
 );
 
-export const EjemplosFichas = lazy(async () => {
-  const m = await import('~/pages/Fichas/ejemplos/Ejemplos');
-  return { default: m.EjemplosFichas };
-});
-
-export const VisionCompartida = lazy(() =>
-  import('~/pages/VisionCompartida').then((m) => ({ default: m.VisionCompartida })),
-);
-
-export const Capacidades = lazy(() => import('~/pages/Capacidades').then((m) => ({ default: m.Capacidades })));
+export {
+  EjemplosFichas,
+  VisionCompartida,
+  Capacidades,
+  InicioIniciativas,
+  EscuchaTerritorial,
+  EjemploIniciativa,
+} from './app-pages-participacion';

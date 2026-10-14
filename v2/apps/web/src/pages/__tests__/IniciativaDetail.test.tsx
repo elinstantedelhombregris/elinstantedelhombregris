@@ -1,65 +1,64 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { IniciativaDetail } from '../IniciativaDetail';
+import { iniciativa, permisos } from '../Iniciativas/__tests__/fixtures';
 
-import type { ReactNode } from 'react';
 import type * as Wouter from 'wouter';
 
-vi.mock('~/lib/api', () => ({
-  api: { get: vi.fn().mockResolvedValue({ items: [], siguiente: null }) },
+const m = vi.hoisted(() => ({
+  miembro: false,
+  propietario: false,
+  error: null as Error | null,
+  mutate: vi.fn(),
 }));
-
+vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: { id: 1 }, isLoading: false }) }));
+vi.mock('~/lib/queries/gestion-iniciativas', () => ({
+  useGestionLista: () => ({ data: { pages: [{ items: [] }] }, isPending: false }),
+}));
 vi.mock('~/lib/queries/iniciativas', () => ({
   useIniciativa: () => ({
     data: {
-      iniciativa: {
-        id: 1,
-        slug: 'mejor-barrio',
-        title: 'Mejor barrio',
-        summary: 'Iniciativa de prueba',
-        kind: 'community',
-        planCode: null,
-        bodyMarkdown: null,
-        coverImageUrl: null,
-        status: 'open',
-        memberCount: 3,
-        createdAt: '2026-05-13T00:00:00Z',
-        updatedAt: '2026-05-13T00:00:00Z',
-      },
+      iniciativa,
+      permisos: { ...permisos, administrar: false, miembro: m.miembro, propietario: m.propietario },
     },
-    isLoading: false,
-    isError: false,
   }),
-  useJoinIniciativa: () => ({ mutate: vi.fn(), isPending: false }),
-  useLeaveIniciativa: () => ({ mutate: vi.fn(), isPending: false }),
+  useJoinIniciativa: () => ({ mutate: m.mutate, isPending: false, error: m.error }),
+  useLeaveIniciativa: () => ({ mutate: m.mutate, isPending: false }),
+}));
+vi.mock('wouter', async (actual) => ({
+  ...(await actual<typeof Wouter>()),
+  useRoute: () => [true, { slug: 'escuela' }],
+  useSearch: () => '',
 }));
 
-vi.mock('wouter', async (importOriginal) => {
-  const actual = await importOriginal<typeof Wouter>();
-  return {
-    ...actual,
-    useRoute: () => [true, { slug: 'mejor-barrio' }] as const,
-    Redirect: () => null,
-    Link: ({ children, href }: { children: ReactNode; href: string }) => (
-      <a href={href}>{children}</a>
-    ),
-  };
-});
-
-describe('IniciativaDetail', () => {
-  it('renders title, summary and member count', () => {
-    const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-    render(
-      <QueryClientProvider client={qc}>
-        <IniciativaDetail />
-      </QueryClientProvider>,
-    );
-    expect(screen.getByText('Mejor barrio')).toBeInTheDocument();
-    expect(screen.getByText('Iniciativa de prueba')).toBeInTheDocument();
-    expect(screen.getByText('3')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Unirme' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Salir' })).toBeInTheDocument();
+describe('Detalle de iniciativa', () => {
+  beforeEach(() => {
+    m.miembro = false;
+    m.propietario = false;
+    m.error = null;
+    m.mutate.mockReset();
+  });
+  it('muestra el alcance y solo ofrece ingreso a quien no integra; hace visible el error', () => {
+    const { rerender } = render(<IniciativaDetail />);
+    expect(screen.getByRole('heading', { name: iniciativa.title })).toBeInTheDocument();
+    expect(screen.getByText('3 cuentas integrantes')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Salir/ })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Unirme' }));
+    expect(m.mutate).toHaveBeenCalledWith(10, expect.any(Object));
+    m.error = new Error('No pudimos registrar tu ingreso.');
+    rerender(<IniciativaDetail />);
+    expect(screen.getByRole('alert')).toHaveTextContent('No pudimos registrar tu ingreso.');
+  });
+  it('la propiedad requiere transferencia antes de salir y el resto puede pedir su salida', () => {
+    m.miembro = true;
+    m.propietario = true;
+    const { rerender } = render(<IniciativaDetail />);
+    expect(screen.getByText(/primero transferí la propiedad/)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Salir/ })).not.toBeInTheDocument();
+    m.propietario = false;
+    rerender(<IniciativaDetail />);
+    expect(screen.getByRole('button', { name: 'Salir de la iniciativa' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Unirme' })).not.toBeInTheDocument();
   });
 });

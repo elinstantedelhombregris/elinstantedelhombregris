@@ -11,16 +11,32 @@
  * its own access patterns.
  */
 import { sql } from 'drizzle-orm';
-import { boolean, index, integer, json, pgTable, serial, text, timestamp, uniqueIndex } from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  index,
+  integer,
+  json,
+  jsonb,
+  pgTable,
+  serial,
+  text,
+  timestamp,
+  uniqueIndex,
+} from 'drizzle-orm/pg-core';
 
- 
 import { users } from './users';
+
+import type { PlanEscucha, ResultadoEscucha } from '@v2/shared';
 
 export const iniciativas = pgTable(
   'iniciativas',
   {
     id: serial('id').primaryKey(),
     slug: text('slug').notNull(),
+    revision: integer('revision').notNull().default(1),
+    proposedOwnerId: integer('proposed_owner_id').references(() => users.id, {
+      onDelete: 'set null',
+    }),
     title: text('title').notNull(),
     summary: text('summary').notNull(),
     /** 'plan' (one of the 22 ¡BASTA! PLANs) | 'mission' | 'community' | 'territorial' */
@@ -30,7 +46,9 @@ export const iniciativas = pgTable(
     /** Body lives as MDX for kind='plan'; otherwise free-form on the row. */
     bodyMarkdown: text('body_markdown'),
     coverImageUrl: text('cover_image_url'),
-    createdByUserId: integer('created_by_user_id').references(() => users.id, { onDelete: 'set null' }),
+    createdByUserId: integer('created_by_user_id').references(() => users.id, {
+      onDelete: 'set null',
+    }),
     /** 'draft' | 'open' | 'in_progress' | 'paused' | 'archived' | 'completed' */
     status: text('status').notNull().default('open'),
     memberCount: integer('member_count').notNull().default(0),
@@ -79,6 +97,7 @@ export const iniciativaMilestones = pgTable(
       .notNull()
       .references(() => iniciativas.id, { onDelete: 'cascade' }),
     title: text('title').notNull(),
+    revision: integer('revision').notNull().default(1),
     description: text('description'),
     targetDate: timestamp('target_date', { withTimezone: true }),
     completedAt: timestamp('completed_at', { withTimezone: true }),
@@ -98,9 +117,16 @@ export const iniciativaTasks = pgTable(
     iniciativaId: integer('iniciativa_id')
       .notNull()
       .references(() => iniciativas.id, { onDelete: 'cascade' }),
-    milestoneId: integer('milestone_id').references(() => iniciativaMilestones.id, { onDelete: 'set null' }),
+    milestoneId: integer('milestone_id').references(() => iniciativaMilestones.id, {
+      onDelete: 'set null',
+    }),
     title: text('title').notNull(),
+    revision: integer('revision').notNull().default(1),
     description: text('description'),
+    createdById: integer('created_by_id').references(() => users.id, { onDelete: 'set null' }),
+    acceptedName: text('accepted_name'),
+    escucha: jsonb('escucha').$type<PlanEscucha>(),
+    resources: text('resources').notNull().default(''),
     assigneeId: integer('assignee_id').references(() => users.id, { onDelete: 'set null' }),
     /** 'todo' | 'in_progress' | 'done' | 'blocked' */
     status: text('status').notNull().default('todo'),
@@ -199,6 +225,12 @@ export const missionEvidence = pgTable(
     iniciativaId: integer('iniciativa_id')
       .notNull()
       .references(() => iniciativas.id, { onDelete: 'cascade' }),
+    taskId: integer('task_id').references(() => iniciativaTasks.id, { onDelete: 'cascade' }),
+    revision: integer('revision').notNull().default(1),
+    withdrawnAt: timestamp('withdrawn_at', { withTimezone: true }),
+    resultadoEscucha: jsonb('resultado_escucha').$type<ResultadoEscucha>(),
+    reviewNote: text('review_note'),
+    reviewerName: text('reviewer_name'),
     submittedBy: integer('submitted_by')
       .notNull()
       .references(() => users.id, { onDelete: 'cascade' }),

@@ -7,13 +7,7 @@ import '../src/load-env.js';
 import supertest from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import {
-  eq,
-  getDb,
-  iniciativaMembers,
-  iniciativas,
-  IniciativasRepository,
-} from '@v2/db';
+import { eq, getDb, iniciativaMembers, iniciativas, IniciativasRepository } from '@v2/db';
 
 import { createApp } from '../src/app.js';
 
@@ -48,7 +42,7 @@ dsuite('Iniciativas flows', () => {
       summary: 'Una iniciativa de prueba',
       kind: 'community',
       status: 'open',
-      createdByUserId: user.id,
+      createdByUserId: null,
     });
     iniciativaId = created.id;
     iniciativaSlug = created.slug;

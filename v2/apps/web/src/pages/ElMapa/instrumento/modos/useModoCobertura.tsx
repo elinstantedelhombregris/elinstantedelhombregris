@@ -1,22 +1,13 @@
 import { planTerritorialCoverage, pointInCoverageArea } from '@v2/civic-core';
 import { useMemo, useState } from 'react';
 import { Layer, Source } from 'react-map-gl/maplibre';
+import { Link } from 'wouter';
 
 import { Control, LeyendaRampa, Segmentado } from '../Chrome';
 
 import type { ContextoModo, ResultadoModo } from './tipos';
 
-/**
- * Modo Cobertura — el mapa del silencio, a escala.
- *
- * Es el modo que no tiene deflock y que a nosotros nos importa más: no muestra
- * dónde hay voces, muestra DÓNDE NO LAS HAY. Para un mapa cívico el silencio
- * no es ausencia de dato, es el dato — le dice a alguien dónde ir a caminar.
- *
- * La grilla la arma `coverage.ts` de @v2/civic-core, el mismo módulo que el
- * móvil usa para planificar qué se recorre. La celda que acá se pinta muda es
- * exactamente la que allá se manda a visitar.
- */
+/** Grilla exploratoria del encuadre; no equivale a unidades de relevamiento persistidas. */
 
 const RESOLUCIONES = [
   { id: 'gruesa', etiqueta: 'Gruesa', celdas: 60 },
@@ -38,16 +29,18 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
   const puntos = useMemo(
     () =>
       ctx.todas
-        .filter((s) => typeof s.lat === 'number' && typeof s.lng === 'number')
+        .filter(
+          (s) =>
+            s.precision === 'exact' &&
+            typeof s.lat === 'number' &&
+            Number.isFinite(s.lat) &&
+            typeof s.lng === 'number' &&
+            Number.isFinite(s.lng),
+        )
         .map((s) => ({ lat: s.lat ?? 0, lng: s.lng ?? 0 })),
     [ctx.todas],
   );
 
-  /**
-   * El área a cubrir es el encuadre actual. Tiene sentido: la pregunta
-   * «¿dónde no habló nadie?» solo se puede contestar sobre un territorio
-   * concreto, y el que estás mirando es el que te importa.
-   */
   const plan = useMemo(() => {
     const r = ctx.recuadro;
     if (!r) return null;
@@ -90,33 +83,37 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
   return {
     titulo: 'Cobertura',
     descripcion:
-      'Presencia de puntos publicados en una grilla. No mide población representada ni ausencia de problemas.',
+      'Presencia de puntos exactos entre los aportes cargados. No mide población representada ni zonas efectivamente relevadas.',
 
     panel: (
       <>
         <p className="text-oscuro-meta mb-3 text-xs">
-          Las ubicaciones aproximadas solo señalan presencia declarada; no verifican una celda. Sin
-          datos sobre zonas habitadas, esta grilla incluye áreas sin población.
+          Las ubicaciones aproximadas o provinciales no colorean celdas. La grilla cambia con el
+          encuadre y la resolución; no es una unidad estable de relevamiento. Incluye áreas sin
+          población.
         </p>
+        <Link
+          href="/escucha-territorial"
+          className="text-violeta-claro mb-4 inline-flex min-h-11 underline"
+        >
+          Planear escucha y consultar relevamientos →
+        </Link>
         <Control etiqueta="En este encuadre">
           {total > 0 ? (
             <>
               <p className="font-anton text-violeta-claro text-[30px] tabular-nums leading-none">
                 {porcentaje}%
               </p>
-              {/* Con TODO en silencio el conteo se lee como afirmación y no
-                  como falla: es el estado más verdadero de esta lente, no su
-                  ausencia de datos. */}
               <p className="text-oscuro-secundario mt-1.5 text-[13px] leading-relaxed">
                 {mudas === total ? (
                   <>
                     <strong>{total.toLocaleString('es-AR')} celdas.</strong> Las{' '}
-                    {total.toLocaleString('es-AR')} sin puntos publicados.
+                    {total.toLocaleString('es-AR')} sin puntos exactos publicados.
                   </>
                 ) : (
                   <>
                     <strong>{mudas.toLocaleString('es-AR')}</strong> de{' '}
-                    {total.toLocaleString('es-AR')} celdas sin puntos publicados.
+                    {total.toLocaleString('es-AR')} celdas sin puntos exactos publicados.
                   </>
                 )}
               </p>
@@ -149,7 +146,7 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
             valor={mostrar}
             onCambiar={setMostrar}
             opciones={[
-              { id: 'mudas', etiqueta: 'Sin puntos publicados' },
+              { id: 'mudas', etiqueta: 'Sin puntos exactos' },
               { id: 'todas', etiqueta: 'Todas las celdas' },
             ]}
           />
@@ -178,9 +175,9 @@ export function useModoCobertura(ctx: ContextoModo): ResultadoModo {
     leyenda: (
       <LeyendaRampa
         colores={[CON_VOZ, MUDA]}
-        bajo="Con puntos publicados"
-        alto="Sin puntos publicados"
-        titulo="Cobertura del encuadre"
+        bajo="Con puntos exactos"
+        alto="Sin puntos exactos"
+        titulo="Grilla exploratoria del encuadre"
       />
     ),
   };

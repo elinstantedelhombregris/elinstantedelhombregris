@@ -9,16 +9,25 @@
  * Listing is public. Joining requires auth + CSRF (the global csrf
  * guard is mounted before /api/iniciativas in app.ts).
  */
-import { EjecucionRepository, getDb, IniciativasRepository } from '@v2/db';
+import {
+  EjecucionRepository,
+  GestionIniciativasRepository,
+  IniciativaMembresiaRepository,
+  getDb,
+  IniciativasRepository,
+} from '@v2/db';
 import { accionesIniciativaQuerySchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { authenticate } from '../../middleware/auth.js';
+import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { notifyIniciativaMemberJoined } from '../notifications/producers.js';
 
+import { gestionIniciativasRouter } from './gestion-routes.js';
+
 const router: RouterType = Router();
+router.use(gestionIniciativasRouter);
 
 const listQuerySchema = z.object({
   kind: z.enum(['plan', 'mission', 'community', 'territorial']).optional(),
@@ -65,7 +74,7 @@ router.get('/:slug/acciones', async (req, res, next) => {
   }
 });
 
-router.get('/:slug', async (req, res, next) => {
+router.get('/:slug', optionalAuthenticate, async (req, res, next) => {
   try {
     const slug = req.params.slug;
     if (typeof slug !== 'string') throw new HttpError(400, 'INVALID_SLUG', 'Slug requerido.');
@@ -75,7 +84,13 @@ router.get('/:slug', async (req, res, next) => {
       res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Iniciativa no encontrada.' } });
       return;
     }
-    res.json({ data: { iniciativa: item } });
+    const { createdByUserId: _creador, proposedOwnerId: _propuesto, ...publica } = item;
+    res.set('Cache-Control', 'no-store').json({
+      data: {
+        iniciativa: publica,
+        permisos: await new GestionIniciativasRepository(getDb()).permisos(item.id, req.user?.id),
+      },
+    });
   } catch (err) {
     next(err);
   }
@@ -86,7 +101,7 @@ router.post('/:id/join', authenticate, async (req, res, next) => {
     if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
     const idStr = req.params.id;
     if (typeof idStr !== 'string') throw new HttpError(400, 'INVALID_ID', 'Id requerido.');
-    const id = Number.parseInt(idStr, 10);
+    const id = z.coerce.number().int().positive().parse(idStr);
     if (Number.isNaN(id)) throw new HttpError(400, 'INVALID_ID', 'Id inválido.');
 
     const repo = new IniciativasRepository(getDb());
@@ -95,17 +110,17 @@ router.post('/:id/join', authenticate, async (req, res, next) => {
       res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Iniciativa no encontrada.' } });
       return;
     }
-    try {
-      await repo.addMember({ iniciativaId: id, userId: req.user.id, role: 'member' });
-    } catch (sqlErr) {
-      // Composite unique violation = already a member. Idempotent success.
-      if (sqlErr instanceof Error && /unique/i.test(sqlErr.message)) {
-        res.json({ data: { ok: true, alreadyMember: true } });
-        return;
-      }
-      throw sqlErr;
+    const cambio = await new IniciativaMembresiaRepository(getDb()).cambiar(id, req.user.id, true);
+    if (cambio === 'impedida')
+      throw new HttpError(
+        409,
+        'INGRESO_NO_DISPONIBLE',
+        'Esta iniciativa no admite ingresos en su estado actual.',
+      );
+    if (cambio === 'igual') {
+      res.json({ data: { ok: true, alreadyMember: true } });
+      return;
     }
-    // Best-effort notify the owner.
     if (iniciativa.createdByUserId && iniciativa.createdByUserId !== req.user.id) {
       void notifyIniciativaMemberJoined(
         iniciativa.createdByUserId,
@@ -125,11 +140,16 @@ router.post('/:id/leave', authenticate, async (req, res, next) => {
     if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
     const idStr = req.params.id;
     if (typeof idStr !== 'string') throw new HttpError(400, 'INVALID_ID', 'Id requerido.');
-    const id = Number.parseInt(idStr, 10);
+    const id = z.coerce.number().int().positive().parse(idStr);
     if (Number.isNaN(id)) throw new HttpError(400, 'INVALID_ID', 'Id inválido.');
 
-    const repo = new IniciativasRepository(getDb());
-    await repo.removeMember(id, req.user.id);
+    const cambio = await new IniciativaMembresiaRepository(getDb()).cambiar(id, req.user.id, false);
+    if (cambio === 'impedida')
+      throw new HttpError(
+        409,
+        'SALIDA_NO_DISPONIBLE',
+        'Primero transferí la propiedad o liberá tus tareas activas.',
+      );
     res.json({ data: { ok: true } });
   } catch (err) {
     next(err);

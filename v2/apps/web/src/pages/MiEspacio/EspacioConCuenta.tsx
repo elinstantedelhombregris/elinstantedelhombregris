@@ -18,7 +18,6 @@ import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth/use-auth';
 import { useMiEspacio } from '~/lib/queries/participacion';
 
-
 /** Mi espacio con sesión: seis pestañas en la dirección (`?pestana=`) y un panel por pestaña. */
 export function EspacioConCuenta({ user }: { user: AuthenticatedUser }) {
   const auth = useAuth();
@@ -37,7 +36,14 @@ export function EspacioConCuenta({ user }: { user: AuthenticatedUser }) {
 
   return (
     <>
-      <Link className="mb-5 inline-flex min-h-11 underline" href="/capacidades?propias=si">Mis capacidades, reservas y entregas →</Link>
+      <Link className="mb-5 inline-flex min-h-11 underline" href="/capacidades?propias=si">
+        Mis capacidades, reservas y entregas →
+      </Link>
+      <p className="mb-5">
+        <Link className="inline-flex min-h-11 underline" href="/iniciativas">
+          Mis iniciativas, tareas y escuchas →
+        </Link>
+      </p>
       <ListaDePestanas actual={pestana} elegir={elegir} />
       <PanelDePestana id={pestana}>
         {pestana === 'borradores' ? (
