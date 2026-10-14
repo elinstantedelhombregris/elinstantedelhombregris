@@ -40,7 +40,7 @@ export function Reserva({
   const op = useOperacionCapacidad();
   const acciones: AccionReserva['accion'][] = [];
   if (!r.soySolicitante && r.estado === 'propuesta') acciones.push('aceptar', 'rechazar');
-  if (['propuesta', 'reservada', 'discrepancia'].includes(r.estado)) acciones.push('cancelar');
+  if (['propuesta', 'reservada'].includes(r.estado)) acciones.push('cancelar');
   if (!r.soySolicitante && ['reservada', 'discrepancia'].includes(r.estado))
     acciones.push('declarar_entrega');
   if (r.soySolicitante && r.estado === 'entrega_declarada')

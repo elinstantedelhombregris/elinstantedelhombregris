@@ -55,7 +55,7 @@ export class ReservasCapacidadRepository {
     const condicion = {
       aceptar: sql`r.estado='propuesta' and exists(select 1 from users u where u.id=r.solicitante_id and u.is_active) and not c.cerrada and ${senalDisponible} and r.para_fecha>=${hoyCapacidad} and (c.cantidad is null or ${ocupacion}+r.cantidad<=c.cantidad)`,
       rechazar: sql`r.estado='propuesta'`,
-      cancelar: sql`r.estado in ('propuesta','reservada','discrepancia')`,
+      cancelar: sql`r.estado in ('propuesta','reservada')`,
       declarar_entrega: sql`r.estado in ('reservada','discrepancia')`,
       confirmar_recepcion: sql`r.estado='entrega_declarada'`,
       discrepar: sql`r.estado='entrega_declarada'`,

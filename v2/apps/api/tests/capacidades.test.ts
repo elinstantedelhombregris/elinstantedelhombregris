@@ -174,6 +174,7 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       ).expect(200);
       await actuar(c, r, 'cancelar', solicita).expect(409);
       await actuar(c, r, 'discrepar', solicita, 'Faltaron dos horas').expect(200);
+      await actuar(c, r, 'cancelar', solicita).expect(409);
       expect((await leer(c)).body.data.capacidad.disponible).toBe(0);
       await actuar(
         c,
