@@ -65,7 +65,19 @@ export class PruebasRepository {
     const independiente =
       v.estado === 'resultado_revisado' && p.creadorId !== uid && p.responsableId !== uid;
     if (v.estado === 'resultado_revisado' && !independiente) return 'sin_permiso';
-    if (!independiente && p.creadorId !== uid && p.responsableId !== uid) return 'sin_permiso';
+    const membresia =
+      v.estado === 'aceptada'
+        ? await this.db.execute<{ permite: boolean }>(sql`select exists(
+      select 1 from prueba_ejecuciones e join iniciativa_members m on m.iniciativa_id=e.iniciativa_id
+      where e.prueba_id=${id}::uuid and m.user_id=${uid}) as permite`)
+        : null;
+    if (
+      !independiente &&
+      p.creadorId !== uid &&
+      p.responsableId !== uid &&
+      !membresia?.rows[0]?.permite
+    )
+      return 'sin_permiso';
     const siguientes: Record<string, string[]> = {
       propuesta: ['aceptada'],
       aceptada: ['en_curso', 'pausada'],
@@ -79,15 +91,30 @@ export class PruebasRepository {
     if (v.estado === 'aceptada' && !v.firma) return 'fase_invalida';
     const responsable = v.estado === 'aceptada' ? uid : p.responsableId;
     const firma = v.estado === 'aceptada' ? v.firma : p.responsableNombre;
-    const r = await this.db.execute<{ id: string }>(sql`with cambio as (
+    const [, r] = await this.db.batch([
+      this.db.execute(sql`select id from pruebas_territoriales where id=${id}::uuid for update`),
+      this.db.execute<{ id: string }>(sql`with cambio as (
       update ${pruebasTerritoriales} set estado=${v.estado},revision=revision+1,responsable_id=${responsable},responsable_nombre=${firma ?? null}
-      where id=${id}::uuid and revision=${v.revision} and estado=${p.estado} returning *
+      where id=${id}::uuid and revision=${v.revision} and estado=${p.estado}
+      and (${independiente} or creador_id=${uid} or responsable_id=${uid} or (${v.estado}='aceptada' and exists(
+        select 1 from prueba_ejecuciones e join iniciativa_members m on m.iniciativa_id=e.iniciativa_id where e.prueba_id=${id}::uuid and m.user_id=${uid}))) returning *
+    ), tarea as (
+      update iniciativa_tasks t set assignee_id=c.responsable_id,
+        status=case when c.estado='en_curso' then 'in_progress' when c.estado='pausada' then 'blocked'
+          when c.estado in('implementada','resultado_observado','resultado_revisado') then 'done' else 'todo' end,
+        completed_at=case when c.estado in('implementada','resultado_observado','resultado_revisado') then coalesce(t.completed_at,now()) else null end,updated_at=now()
+      from cambio c join prueba_ejecuciones e on e.prueba_id=c.id where t.id=e.tarea_id returning t.id
+    ), hito as (
+      update iniciativa_milestones h set completed_at=now() from cambio c join prueba_ejecuciones e on e.prueba_id=c.id
+      where h.id=e.hito_id and c.estado='resultado_revisado' returning h.id
     ), historia as (insert into prueba_eventos(prueba_id,revision,autor_id,estado,observacion,evidencia,id_local,huella)
       select id,revision,${uid},estado,${v.observacion},${JSON.stringify(v.evidencia)}::jsonb,${v.idLocal}::uuid,${huella} from cambio returning id),
     avisos as (insert into eventos_civicos(user_id,clave,titulo,href)
       select s.user_id,'prueba:'||c.id||':'||c.revision,'La prueba de un futuro que seguís tiene una nueva observación.','/fichas/'||a.ficha_id
       from cambio c join ficha_alternativas a on a.id=c.alternativa_id join seguimientos s on s.tipo='ficha' and s.objeto=a.ficha_id::text where not exists(select 1 from preferencias_civicas pref where pref.user_id=s.user_id and not pref.avisos) on conflict do nothing returning id)
-    select id from cambio`);
+    select id from cambio union all select prueba_id as id from prueba_eventos
+      where prueba_id=${id}::uuid and id_local=${v.idLocal}::uuid and huella=${huella} and autor_id=${uid}`),
+    ]);
     return r.rows.length ? 'ok' : 'revision_cambiada';
   }
 }

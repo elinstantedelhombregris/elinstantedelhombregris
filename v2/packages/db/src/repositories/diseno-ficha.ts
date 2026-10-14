@@ -9,6 +9,8 @@ import {
   pruebasTerritoriales,
 } from '../schema/diseno.js';
 
+import { EjecucionRepository } from './ejecucion.js';
+
 import type { Db } from '../client.js';
 import type { DisenoFicha, alternativaSchema } from '@v2/shared';
 import type { z } from 'zod';
@@ -91,6 +93,10 @@ export class DisenoFichaRepository {
           .orderBy(pruebasTerritoriales.creadaEn)
           .limit(100)
       : [];
+    const ejecuciones = await new EjecucionRepository(this.db).dePruebas(
+      pruebas.map((p) => p.id),
+      uid,
+    );
     const eventos = pruebas.length
       ? await this.db
           .select({
@@ -154,26 +160,34 @@ export class DisenoFichaRepository {
             : {}),
         };
       }),
-      pruebas: pruebas.map((p) => ({
-        id: p.id,
-        titulo: p.titulo,
-        alternativaId: p.alternativaId,
-        plazo: p.plazo,
-        alcance: p.alcance,
-        responsableNombre: p.responsableNombre,
-        estado: p.estado,
-        revision: p.revision,
-        puedoGestionar: p.creadorId === uid || p.responsableId === uid,
-        puedoRevisar: Boolean(
-          uid &&
-          uid !== p.creadorId &&
-          uid !== p.responsableId &&
-          p.estado === 'resultado_observado',
-        ),
-        eventos: eventos
-          .filter((e) => e.pruebaId === p.id)
-          .map(({ pruebaId: _id, fecha, ...e }) => ({ ...e, fecha: fecha.toISOString() })),
-      })),
+      pruebas: pruebas.map((p) => {
+        const ejecucion = ejecuciones.find((e) => e.pruebaId === p.id)?.ejecucion;
+        return {
+          ...(ejecucion ? { ejecucion } : {}),
+          id: p.id,
+          titulo: p.titulo,
+          alternativaId: p.alternativaId,
+          plazo: p.plazo,
+          alcance: p.alcance,
+          responsableNombre: p.responsableNombre,
+          estado: p.estado,
+          revision: p.revision,
+          puedoGestionar:
+            p.creadorId === uid ||
+            p.responsableId === uid ||
+            (p.estado === 'propuesta' &&
+              ejecuciones.some((e) => e.pruebaId === p.id && e.puedoAceptar)),
+          puedoRevisar: Boolean(
+            uid &&
+            uid !== p.creadorId &&
+            uid !== p.responsableId &&
+            p.estado === 'resultado_observado',
+          ),
+          eventos: eventos
+            .filter((e) => e.pruebaId === p.id)
+            .map(({ pruebaId: _id, fecha, ...e }) => ({ ...e, fecha: fecha.toISOString() })),
+        };
+      }),
     };
   }
   async afirmar(fichaId: string, uid: number, idLocal: string, texto: string) {

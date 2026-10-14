@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { fechaCampana } from '../Campanas/presentacion';
 
+import { EjecucionDePrueba } from './EjecucionDePrueba';
 import { ESTADOS_PRUEBA, faltanCaracteres, fechaDeFicha, rotuloDePrueba } from './presentacion';
 
 import type { DisenoFicha } from '@v2/shared';
@@ -35,11 +36,15 @@ export function TarjetaPrueba({
   const [firma, setFirma] = useState('');
   const [observacion, setObservacion] = useState('');
   const [evidencia, setEvidencia] = useState('');
+  const [revision, setRevision] = useState(p.revision);
   const [estado, setEstado] = useState<EstadoPrueba | ''>(SIGUIENTES[p.estado][0] ?? '');
   useEffect(() => {
     setEstado(SIGUIENTES[p.estado][0] ?? '');
   }, [p.estado]);
   const motivo =
+    (revision !== p.revision
+      ? 'La prueba cambió. Revisá la nueva versión antes de registrar este paso.'
+      : null) ??
     faltanCaracteres(observacion.trim().length, 15, 'en lo que observamos') ??
     (estado === 'aceptada' && firma.trim().length < 3
       ? 'Falta la firma pública de responsabilidad.'
@@ -81,6 +86,7 @@ export function TarjetaPrueba({
           </li>
         ))}
       </ol>
+      <EjecucionDePrueba prueba={p} avisar={avisar} />
       {(p.estado === 'resultado_observado' ? p.puedoRevisar : p.puedoGestionar) &&
       SIGUIENTES[p.estado].length ? (
         <form
@@ -95,7 +101,7 @@ export function TarjetaPrueba({
                 cuerpo: {
                   idLocal: idLocal.current,
                   ...(estado === 'aceptada' ? { firma } : {}),
-                  revision: p.revision,
+                  revision,
                   estado,
                   observacion,
                   evidencia: evidencia.split(/\s+/).filter(Boolean),
@@ -106,6 +112,7 @@ export function TarjetaPrueba({
                   setObservacion('');
                   idLocal.current = crypto.randomUUID();
                   setEvidencia('');
+                  setRevision(p.revision + 1);
                   avisar(`Registramos el paso: ${rotuloDePrueba(estado).toLowerCase()}.`);
                 },
               },
@@ -165,6 +172,18 @@ export function TarjetaPrueba({
             />
           </label>
           <ErrorOperacion mensaje={op.error?.message} />
+          {revision !== p.revision ? (
+            <button
+              type="button"
+              className="mt-3 underline"
+              onClick={() => {
+                setRevision(p.revision);
+                idLocal.current = crypto.randomUUID();
+              }}
+            >
+              Revisé la nueva versión; conservar mi observación
+            </button>
+          ) : null}
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <BotonConMotivo type="submit" motivo={motivo} ocupado={op.isPending}>
               Registrar este paso

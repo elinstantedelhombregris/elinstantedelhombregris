@@ -113,7 +113,13 @@ export function useOperacionPersonal() {
       ruta: string;
       cuerpo?: unknown;
     }) => escribir(v.metodo, v.ruta, v.cuerpo),
+    onError: () => {
+      void qc.invalidateQueries({ queryKey: ['diseno'] });
+      void qc.invalidateQueries({ queryKey: ['acciones-iniciativa'] });
+    },
     onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ['acciones-iniciativa'] });
+      void qc.invalidateQueries({ queryKey: ['iniciativa'] });
       void qc.invalidateQueries({ queryKey: ['mi-espacio'] });
       for (const key of [
         'radiografia',

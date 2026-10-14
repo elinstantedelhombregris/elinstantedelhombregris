@@ -1,11 +1,9 @@
 import { Link, Redirect, useRoute } from 'wouter';
 
+import { IniciativaAcciones } from './IniciativaAcciones';
+
 import { Button } from '~/components/ui/button';
-import {
-  useIniciativa,
-  useJoinIniciativa,
-  useLeaveIniciativa,
-} from '~/lib/queries/iniciativas';
+import { useIniciativa, useJoinIniciativa, useLeaveIniciativa } from '~/lib/queries/iniciativas';
 
 export function IniciativaDetail() {
   const [, params] = useRoute<{ slug: string }>('/iniciativas/:slug');
@@ -37,11 +35,11 @@ export function IniciativaDetail() {
   return (
     <main className="container mx-auto max-w-3xl px-4 py-16">
       <header className="mb-8">
-        <p className="mb-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <p className="text-muted-foreground mb-2 font-mono text-xs uppercase tracking-widest">
           Iniciativa · {iniciativa.kind}
         </p>
         <h1 className="font-serif text-3xl font-semibold md:text-4xl">{iniciativa.title}</h1>
-        <p className="mt-4 text-lg text-muted-foreground">{iniciativa.summary}</p>
+        <p className="text-muted-foreground mt-4 text-lg">{iniciativa.summary}</p>
       </header>
 
       <section className="mb-8 grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm">
@@ -55,6 +53,7 @@ export function IniciativaDetail() {
         </div>
       </section>
 
+      <IniciativaAcciones slug={iniciativa.slug} />
       <div className="mb-12 flex flex-wrap gap-3">
         <Button
           onClick={() => {

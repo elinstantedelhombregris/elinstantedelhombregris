@@ -225,6 +225,13 @@
       "when": 1791977290712,
       "tag": "0034_recepcion_parcial",
       "breakpoints": true
+    },
+    {
+      "idx": 35,
+      "version": "7",
+      "when": 1791980143799,
+      "tag": "0035_ejecucion_alternativas",
+      "breakpoints": true
     }
   ]
 }

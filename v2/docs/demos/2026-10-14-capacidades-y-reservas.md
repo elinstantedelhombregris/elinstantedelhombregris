@@ -27,3 +27,11 @@ Confirmar horas de sala no demuestra una mejora educativa: ese resultado necesit
 ## Alcance de esta entrega
 
 Persistencia en Postgres con migración `0033_capacidades_reservas.sql` y `0034_recepcion_parcial.sql`, preparada y probada en bases descartables. Sin despliegue ni migración de producción en esta tarea. No hay pagos, habilitaciones profesionales ni préstamos recurrentes automatizados; los requisitos de cada prestación quedan en sus condiciones.
+
+## Seguir desde la reserva hacia la acción
+
+En una ficha real, proponé una alternativa y luego una prueba con alcance y fecha. En esa prueba, elegí **Organizar en una iniciativa**. Podés crear una iniciativa comunitaria o usar el identificador de una que administrás. Escribí qué van a revisar y qué recursos están confirmados o pendientes; autorizá publicar esos datos antes de crear el vínculo.
+
+La operación crea una tarea y un hito, pero deja la responsabilidad pendiente hasta su aceptación. Una persona integrante puede aceptarla con una firma pública. Las transiciones de la prueba actualizan la tarea: en curso, pausada y ejecución declarada. El hito se completa al registrar la revisión del resultado por otra cuenta; esto no afirma que el resultado sea favorable ni acredita independencia personal.
+
+Desde la iniciativa se puede volver a la ficha para consultar pasos y evidencia. La recepción de la sala continúa su acuerdo propio en Capacidades: describir recursos en la iniciativa no reserva horas ni publica los mensajes privados de una solicitud.

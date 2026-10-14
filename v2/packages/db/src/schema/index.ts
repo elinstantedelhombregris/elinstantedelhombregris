@@ -48,3 +48,5 @@ export * from './exportaciones.js';
 export * from './deliberacion.js';
 
 export * from './capacidades.js';
+
+export * from './ejecucion.js';

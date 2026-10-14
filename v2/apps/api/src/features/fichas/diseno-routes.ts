@@ -1,10 +1,17 @@
-import { DisenoFichaRepository, FichasRepository, PruebasRepository, getDb } from '@v2/db';
+import {
+  DisenoFichaRepository,
+  EjecucionRepository,
+  FichasRepository,
+  PruebasRepository,
+  getDb,
+} from '@v2/db';
 import {
   afirmarSchema,
   responderAfirmacionSchema,
   alternativaSchema,
   propuestaPruebaSchema,
   avanzarPruebaSchema,
+  vincularEjecucionSchema,
 } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
@@ -132,6 +139,28 @@ router.post('/pruebas', authenticate, async (req, res, next) => {
         'Primero hace falta una alternativa que podamos probar.',
       );
     res.status(201).json({ data: { id } });
+  } catch (e) {
+    next(e);
+  }
+});
+router.post('/pruebas/:id/ejecucion', authenticate, async (req, res, next) => {
+  try {
+    const v = vincularEjecucionSchema.parse(req.body);
+    const ok = await new EjecucionRepository(getDb()).vincular(
+      uuid(req.params.id),
+      usuarioAutenticado(req).id,
+      v,
+    );
+    if (!ok)
+      throw new HttpError(
+        409,
+        'EJECUCION_NO_VINCULADA',
+        'Revisá la versión de la prueba y tus permisos para administrarla junto con la iniciativa. Si ya tiene una iniciativa, conservamos ese vínculo. Tu borrador sigue disponible.',
+      );
+    res
+      .status(201)
+      .set('Cache-Control', 'no-store')
+      .json({ data: { vinculada: true } });
   } catch (e) {
     next(e);
   }

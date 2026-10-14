@@ -141,3 +141,5 @@ export * from './vision-compartida.js';
 
 export * from './capacidades.js';
 export * from './reservas-capacidad.js';
+
+export * from './ejecucion.js';

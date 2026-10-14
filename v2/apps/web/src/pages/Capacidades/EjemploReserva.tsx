@@ -111,6 +111,31 @@ export function EjemploReserva() {
         materiales para mejorar una plaza. Cada oferta necesita condiciones propias y autorización
         real.
       </p>
+      <aside className="border-tinta mt-6 border p-5">
+        <h3 className="font-anton text-2xl">Cómo seguir con el apoyo escolar</h3>
+        <ol className="mt-4 list-decimal space-y-3 pl-5">
+          <li>
+            En la ficha, proponé una alternativa y una prueba de dos encuentros, con alcance y fecha
+            de revisión.
+          </li>
+          <li>
+            Desde la prueba, elegí «Organizar en una iniciativa». Podés crear «Aprender cerca de
+            casa» y el hito «Revisar horarios y asistencia».
+          </li>
+          <li>
+            Una persona integrante acepta la responsabilidad con su firma. La tarea pasa a tener
+            responsable; la sala se reserva con su propio acuerdo.
+          </li>
+          <li>
+            Registrá los encuentros, observá qué pasó y pedí revisión a otra cuenta. Recibir la sala
+            confirma el recurso recibido; para saber si el apoyo sirvió hace falta evidencia del
+            resultado.
+          </li>
+        </ol>
+        <p className="mt-4 text-sm">
+          Este recorrido sigue siendo ficticio. No crea iniciativas ni asigna tareas.
+        </p>
+      </aside>
       <Link className="mt-4 inline-flex min-h-11 underline" href="/capacidades">
         Explorar capacidades reales →
       </Link>

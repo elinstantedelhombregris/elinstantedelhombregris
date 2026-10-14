@@ -2139,3 +2139,14 @@ Después de dos verificaciones completas exitosas, una corrida posterior falló 
 **Qué haría falta:** reproducir con carga controlada, revisar limpieza de conexiones/consultas y fijar un paralelismo adecuado para el entorno. Se usa un máximo de cuatro procesos por paquete en la verificación local posterior, conservando todas las pruebas y sus tiempos límite. Esto controla la carga, pero no demuestra por sí solo la causa ni un defecto de producción.
 
 La repetición completa con cuatro procesos por paquete terminó correctamente: 3.322 pruebas aprobadas, más lint, tipos, corpus y compilación. La causa de los fallos intermitentes anteriores sigue sin determinarse.
+
+### D-130 · La membresía de iniciativas necesita contadores atómicos y errores visibles
+
+**Dónde:** `v2/packages/db/src/repositories/iniciativas.ts` (`addMember`, `removeMember`), `v2/apps/api/src/features/iniciativas/routes.ts`, `v2/apps/web/src/pages/IniciativaDetail.tsx`
+**Encontrada:** 2026-10-14, al conectar pruebas con iniciativas
+**Severidad:** media
+**Estado:** abierta
+
+El alta/baja de membresía y el cambio del contador se realizan en sentencias separadas. `removeMember` descuenta incluso si no había membresía: repetir una salida puede reducir el conteo de otras personas. La ruta de ingreso interpreta cualquier excepción como «ya era miembro», ocultando otras fallas. La pantalla existente tampoco muestra los errores de ingreso/salida ni una confirmación. Los permisos de las nuevas acciones consultan la tabla de membresías, no ese contador; su exactitud no corrige estos problemas anteriores.
+
+**Qué haría falta:** actualizar membresía y contador en una misma transacción, distinguir duplicado de fallo, probar ingresos/salidas concurrentes y dar respuesta visible en la pantalla, con acceso a iniciar sesión cuando corresponda.

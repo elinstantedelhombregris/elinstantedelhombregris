@@ -9,7 +9,8 @@
  * Listing is public. Joining requires auth + CSRF (the global csrf
  * guard is mounted before /api/iniciativas in app.ts).
  */
-import { getDb, IniciativasRepository } from '@v2/db';
+import { EjecucionRepository, getDb, IniciativasRepository } from '@v2/db';
+import { accionesIniciativaQuerySchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
@@ -49,6 +50,18 @@ router.get('/', async (req, res, next) => {
     });
   } catch (err) {
     next(err);
+  }
+});
+
+router.get('/:slug/acciones', async (req, res, next) => {
+  try {
+    const slug = z.string().min(1).max(200).parse(req.params.slug);
+    const { cursor } = accionesIniciativaQuerySchema.parse(req.query);
+    const data = await new EjecucionRepository(getDb()).deIniciativa(slug, cursor);
+    if (!data) throw new HttpError(404, 'NOT_FOUND', 'Iniciativa no encontrada.');
+    res.set('Cache-Control', 'no-store').json({ data });
+  } catch (e) {
+    next(e);
   }
 });
 

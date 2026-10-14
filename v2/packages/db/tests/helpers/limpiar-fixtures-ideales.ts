@@ -35,6 +35,7 @@ export async function limpiarFixturesIdeales(db: Db, usuarios: number[], idLocal
   const P = sql`select id from pruebas_territoriales where alternativa_id in(${B})`;
   const K = sql`select id from capacidades where oferente_id in(${U}) or senal_id in(${S})`;
   const ajeno = sql`exists(select 1 from capacidades where senal_id in(${S}) and oferente_id not in(${U}))
+    or exists(select 1 from prueba_ejecuciones where prueba_id in(${P}) or creador_id in(${U}))
     or exists(select 1 from reservas_capacidad r join capacidades c on c.id=r.capacidad_id where (r.capacidad_id in(${K}) or r.ficha_id in(${F}) or r.solicitante_id in(${U})) and (r.solicitante_id not in(${U}) or c.oferente_id not in(${U})))
     or exists(select 1 from contribuciones c join senales s on s.id_publico=c.senal_id where c.campana_id in(${C}) and ((s.user_id is not null and s.user_id not in(${U})) or (s.user_id is null and s.id_local not in(${I}))))
     or exists(select 1 from revisiones_devolucion where campana_id in(${C}) and autor_id not in(${U}))
@@ -49,11 +50,15 @@ export async function limpiarFixturesIdeales(db: Db, usuarios: number[], idLocal
     or exists(select 1 from colaboraciones where ((tipo='campana' and objeto in(${C})) or (tipo='ficha' and objeto in(${F}))) and (creador_id not in(${U}) or usuario_id not in(${U})))`;
   const guardia = await db.execute<{ ajeno: boolean }>(sql`select (${ajeno}) as ajeno`);
   if (guardia.rows[0]?.ajeno)
-    throw new Error('Una persona ajena participó en estos objetos. No borró nada.');
+    throw new Error(
+      'Una persona ajena participó en estos objetos o hay acciones vinculadas que necesitan una limpieza específica. No borró nada.',
+    );
   await db.batch([
     // La misma guarda corre dentro de la transacción: un cambio concurrente aborta todo el lote.
     db.execute(sql`select 1/(case when (${ajeno}) then 0 else 1 end)`),
-    db.execute(sql`delete from reservas_capacidad where capacidad_id in(${K}) or solicitante_id in(${U}) or ficha_id in(${F})`),
+    db.execute(
+      sql`delete from reservas_capacidad where capacidad_id in(${K}) or solicitante_id in(${U}) or ficha_id in(${F})`,
+    ),
     db.execute(sql`delete from capacidades where id in(${K})`),
     db.execute(sql`delete from ficha_argumentos where ficha_id in(${F}) or autor_id in(${U})`),
     db.execute(

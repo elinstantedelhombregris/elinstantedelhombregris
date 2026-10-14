@@ -37,6 +37,7 @@ export function useJoinIniciativa() {
       ),
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ['iniciativa'] });
+      void qc.invalidateQueries({ queryKey: ['diseno'] });
     },
   });
 }
@@ -48,6 +49,7 @@ export function useLeaveIniciativa() {
       api.post<{ ok: true }>(`/api/iniciativas/${id}/leave`, {}, { csrfToken: readCsrfToken() }),
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ['iniciativa'] });
+      void qc.invalidateQueries({ queryKey: ['diseno'] });
     },
   });
 }

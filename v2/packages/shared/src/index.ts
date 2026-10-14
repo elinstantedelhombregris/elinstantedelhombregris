@@ -20,3 +20,5 @@ export * from './participacion/temas.js';
 export * from './participacion/texto-reservado.js';
 
 export * from './participacion/detalle-alternativa.js';
+
+export * from './participacion/ejecucion.js';

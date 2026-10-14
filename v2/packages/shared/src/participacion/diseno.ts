@@ -7,6 +7,9 @@ import {
   type RevisionAlternativa,
 } from './detalle-alternativa';
 
+import type { EjecucionPrueba } from './ejecucion';
+
+
 export const afirmarSchema = z
   .object({
     texto: z
@@ -132,6 +135,7 @@ export interface DisenoFicha {
     criterioPausa: string;
   }[];
   pruebas: {
+    ejecucion?: EjecucionPrueba;
     id: string;
     titulo: string;
     alternativaId: string;

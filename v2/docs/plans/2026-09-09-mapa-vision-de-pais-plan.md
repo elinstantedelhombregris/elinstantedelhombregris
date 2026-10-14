@@ -1,6 +1,6 @@
 # Plan detallado de mejoras: del mapa de voces a una visión de país
 
-Fecha: 2026-09-09. Estado: en implementación; última comprobación del mapa: 2026-10-13. Las casillas abiertas requieren implementación o verificación específica; no significan que todos sus componentes estén ausentes.
+Fecha: 2026-09-09. Estado: en implementación; última comprobación del mapa: 2026-10-13; capacidades, comparación y ejecución: 2026-10-14. Las casillas abiertas requieren implementación o verificación específica; no significan que todos sus componentes estén ausentes.
 
 Spec: [mapa y visión de país](../specs/2026-09-09-mapa-vision-de-pais.md). Diagnóstico: [análisis previo](../analisis/2026-09-08-web-v2-vision-de-pais.md).
 
@@ -193,6 +193,8 @@ Implementado el 14/10: detalle común, costos con fuente y unidad/período, comp
 - [ ] Distinguir tarea terminada, entrega declarada y resultado confirmado. Un plazo vencido informa vencimiento; no acusa incumplimiento sin el protocolo correspondiente.
 - [ ] Solicitar evidencia mínima pertinente y corroboración independiente cuando aplique. No publicar rostros, domicilios ni documentos sensibles por defecto.
 - [ ] Actualizar la ficha y devolver el resultado a quienes decidieron seguirla, mediante preferencias explícitas de notificación.
+
+Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una iniciativa comunitaria o vincularse a una que se administra, con tarea e hito. Una persona integrante acepta su responsabilidad; los pasos de la prueba actualizan la tarea y la revisión del resultado actualiza el hito. Permisos, idempotencia y concurrencia comprobados en Postgres local. Falta completar la administración general, edición de tareas independientes y asociación detallada de recursos comprometidos; por eso E5.1 sigue abierto. [Especificación](../specs/2026-10-14-ejecucion-de-alternativas.md). Migración 0035 preparada, sin aplicar a producción.
 
 ### E5.2 · Piloto territorial
 

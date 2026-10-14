@@ -118,6 +118,37 @@ describe('Alternativas', () => {
 });
 
 describe('Pruebas', () => {
+  it('pide revisar otra versión antes de enviar una observación que se estaba escribiendo', () => {
+    modelo.user = { id: 1 };
+    const { rerender } = render(
+      <Pruebas
+        datos={datos({ alternativas: [alternativa], pruebas: [prueba] })}
+        hrefIngreso={ingreso}
+      />,
+    );
+    fireEvent.change(screen.getByLabelText('Qué observamos y cómo lo sabemos'), {
+      target: { value: 'Aceptamos preparar el encuentro.' },
+    });
+    fireEvent.change(screen.getByLabelText('Firma pública de responsabilidad'), {
+      target: { value: 'Equipo del barrio' },
+    });
+    rerender(
+      <Pruebas
+        datos={datos({ alternativas: [alternativa], pruebas: [{ ...prueba, revision: 2 }] })}
+        hrefIngreso={ingreso}
+      />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar este paso' }));
+    expect(modelo.mutate).not.toHaveBeenCalled();
+    expect(screen.getByLabelText('Qué observamos y cómo lo sabemos')).toHaveValue(
+      'Aceptamos preparar el encuentro.',
+    );
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Revisé la nueva versión; conservar mi observación' }),
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Registrar este paso' }));
+    expect(modelo.mutate.mock.calls.at(-1)?.[0]).toMatchObject({ cuerpo: { revision: 2 } });
+  });
   it('explica una sola vez qué es una prueba y no la confunde con evidencia', () => {
     render(<Pruebas datos={datos()} hrefIngreso={ingreso} />);
     expect(screen.getByRole('heading', { name: 'Pruebas chicas para aprender' })).toBeVisible();

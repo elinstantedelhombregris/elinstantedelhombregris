@@ -7,6 +7,10 @@ import { IniciativaDetail } from '../IniciativaDetail';
 import type { ReactNode } from 'react';
 import type * as Wouter from 'wouter';
 
+vi.mock('~/lib/api', () => ({
+  api: { get: vi.fn().mockResolvedValue({ items: [], siguiente: null }) },
+}));
+
 vi.mock('~/lib/queries/iniciativas', () => ({
   useIniciativa: () => ({
     data: {
