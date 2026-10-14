@@ -59,6 +59,9 @@ const CAMPOS_DE_LA_FICHA: Readonly<Record<string, string>> = {
   campanaId: 'campaña',
   condiciones: 'condiciones',
   vinculos: 'vínculos',
+  cuaderno: 'evidencia y objetivos',
+  proceso: 'reglas y participación',
+  sintesis: 'síntesis',
 };
 
 export function nombreDeCampo(clave: string): string {

@@ -6,7 +6,11 @@
  * test branch's client.
  */
 export { UsersRepository } from './users.js';
-export { ExportacionesRepository, MAX_BYTES_EXPORTACION, MAX_REGISTROS_EXPORTACION } from './exportaciones.js';
+export {
+  ExportacionesRepository,
+  MAX_BYTES_EXPORTACION,
+  MAX_REGISTROS_EXPORTACION,
+} from './exportaciones.js';
 export type { ExportacionFila } from './exportaciones.js';
 export { AuthRepository } from './auth.js';
 export { NotificationsRepository } from './notifications.js';
@@ -130,3 +134,7 @@ export { PruebasRepository } from './pruebas.js';
 export * from './colaboracion.js';
 
 export * from './cuenta-civica.js';
+
+export * from './deliberacion-ficha.js';
+export * from './relaciones-ficha.js';
+export * from './vision-compartida.js';

@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { Link } from 'wouter';
 
 import { useTemasDelCatalogo } from './consultas';
+import { Cuaderno } from './cuaderno/Cuaderno';
+import { Deliberacion } from './deliberacion/Deliberacion';
+import { Relaciones } from './deliberacion/Relaciones';
 import { FormularioFicha } from './FormularioFicha';
 import { HistorialFicha } from './HistorialFicha';
 import { PanelDiseno } from './PanelDiseno';
@@ -111,6 +114,20 @@ export function LecturaFicha({ ficha }: { ficha: FichaFuturo }) {
           </BotonPapel>
         ) : null}
       </header>
+      <nav aria-label="Recorrer esta ficha" className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+        <a href="#evidencia" className="inline-flex min-h-11 items-center underline">
+          Evidencia y objetivos
+        </a>
+        <a href="#diseno" className="inline-flex min-h-11 items-center underline">
+          Alternativas y pruebas
+        </a>
+        <a href="#conversacion" className="inline-flex min-h-11 items-center underline">
+          Conversación y síntesis
+        </a>
+        <a href="#relaciones" className="inline-flex min-h-11 items-center underline">
+          Relaciones entre fichas
+        </a>
+      </nav>
       {aviso ? (
         <p role="status" className="border-violeta mt-6 border-l-2 pl-4 text-sm">
           {aviso}
@@ -191,7 +208,10 @@ export function LecturaFicha({ ficha }: { ficha: FichaFuturo }) {
         </div>
         {ficha.puedoInvitar ? <Equipo tipo="ficha" objeto={ficha.id} /> : null}
       </section>
+      <Cuaderno ficha={ficha} />
       <PanelDiseno id={ficha.id} />
+      <Deliberacion ficha={ficha} />
+      <Relaciones ficha={ficha} />
       <HistorialFicha historial={ficha.historial} />
     </main>
   );

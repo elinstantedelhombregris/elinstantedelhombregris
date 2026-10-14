@@ -286,3 +286,12 @@ export const MiEspacio = lazy(async () => ({
 export const Colaborar = lazy(() =>
   import('./pages/Colaborar').then((m) => ({ default: m.Colaborar })),
 );
+
+export const EjemplosFichas = lazy(async () => {
+  const m = await import('~/pages/Fichas/ejemplos/Ejemplos');
+  return { default: m.EjemplosFichas };
+});
+
+export const VisionCompartida = lazy(() =>
+  import('~/pages/VisionCompartida').then((m) => ({ default: m.VisionCompartida })),
+);

@@ -1,6 +1,7 @@
 import { Link, useLocation, useSearch } from 'wouter';
 
 import { useLugar } from './consultas';
+import { plantillaDelCaso } from './ejemplos/casos';
 import { FormularioFicha } from './FormularioFicha';
 import { LEAD_FICHA, RELACION_INICIAL, esUuid, numeroDeLugar } from './presentacion';
 import { VolverALasFichas } from './VolverALasFichas';
@@ -30,12 +31,12 @@ export function NuevaFicha() {
       ? 'Todo el país'
       : (lugar.data?.name ?? (lugar.isError ? 'Un lugar del mapa' : 'Consultando el lugar…')));
   const inicial: ContenidoFicha = {
-    titulo: '',
+    titulo: plantillaDelCaso(params.get('ejemplo'))?.titulo ?? '',
     territorioId: lugarId ?? null,
     temas: [],
     situacion: '',
-    futuro: '',
-    proximaTarea: '',
+    futuro: plantillaDelCaso(params.get('ejemplo'))?.futuro ?? '',
+    proximaTarea: plantillaDelCaso(params.get('ejemplo'))?.proximaTarea ?? '',
     campanaId: esUuid(campana) ? campana : null,
     condiciones: [],
     vinculos: esUuid(senal) ? [{ senalId: senal, relacion: RELACION_INICIAL }] : [],
@@ -47,6 +48,12 @@ export function NuevaFicha() {
       kicker="La ciudadanía diseña · Fichas"
     >
       <VolverALasFichas className="mb-6" />
+      {plantillaDelCaso(params.get('ejemplo')) ? (
+        <p className="border-violeta mb-6 border-l-2 pl-4 text-sm">
+          Esta pregunta viene de un ejemplo. Elegí tu lugar y documentá la situación real antes de
+          publicar.
+        </p>
+      ) : null}
       {auth.isLoading ? (
         <p role="status">Revisando sesión…</p>
       ) : auth.isAuthenticated ? (

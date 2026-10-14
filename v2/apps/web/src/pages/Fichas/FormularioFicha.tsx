@@ -173,6 +173,7 @@ export function FormularioFicha({ inicial, nombreTerritorio, ficha, guardada }: 
           </span>
         </label>
       ) : null}
+      <ErrorOperacion mensaje={errores.cuaderno} />
       <ErrorOperacion mensaje={guardar.isError ? guardar.error.message : null} />
       {ficha && guardar.isError ? (
         <p className="text-sm">

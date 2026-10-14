@@ -104,6 +104,15 @@ export function ListaFichas() {
         <BotonPapel asChild>
           <Link href={`/fichas/nueva${search ? `?${search}` : ''}`}>Crear una ficha</Link>
         </BotonPapel>
+        <Link className="inline-flex min-h-11 items-center underline" href="/fichas/ejemplos">
+          Ver ejemplos paso a paso
+        </Link>
+        <Link
+          className="inline-flex min-h-11 items-center underline"
+          href={lugarId ? `/vision-compartida?lugar=${lugarId}` : '/vision-compartida'}
+        >
+          Leer objetivos entre territorios
+        </Link>
         {lugarId !== undefined ? (
           <Filtro
             rotulo={nombreDelLugar}

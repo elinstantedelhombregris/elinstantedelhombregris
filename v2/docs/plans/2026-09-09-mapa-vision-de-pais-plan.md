@@ -1,6 +1,6 @@
 # Plan detallado de mejoras: del mapa de voces a una visión de país
 
-Fecha: 2026-09-09. Estado: plan propuesto; tareas pendientes de implementación.
+Fecha: 2026-09-09. Estado: en implementación; última comprobación del mapa: 2026-10-13. Las casillas abiertas requieren implementación o verificación específica; no significan que todos sus componentes estén ausentes.
 
 Spec: [mapa y visión de país](../specs/2026-09-09-mapa-vision-de-pais.md). Diagnóstico: [análisis previo](../analisis/2026-09-08-web-v2-vision-de-pais.md).
 
@@ -43,7 +43,7 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 - [x] Propagar carga, error y datos previos desde la consulta a todos los modos, contadores y paneles.
 - [x] Si no llegó una respuesta válida, mostrar «No pudimos cargar los datos» con reintento. Si existe una respuesta anterior, mostrar fecha y estado de actualización.
 - [x] Reservar cero y «sin registros» para consultas completas con resultado vacío.
-- [ ] Si falla la geometría pero existen registros, conservar lista y explicar que el mapa no está disponible.
+- [x] Si falla la geometría pero existen registros, conservar lista y explicar que el mapa no está disponible. _(13/10: carga compartida y validada de límites provinciales, aviso y reintento; también fallos de teselas en ambos lados de Simulación. El reintento conserva la lista y los borradores.)_
 
 **Archivos existentes:** `apps/web/src/pages/ElMapa/instrumento/Instrumento.tsx`, `modos/`, `Chrome.tsx`, `Vacio.tsx`, `lib/queries/civic-map.ts`.
 
@@ -110,11 +110,11 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 
 ### E2.4 · Primera ficha de futuro, todavía como borrador
 
-- [ ] Crear una ficha con título/pregunta, territorio, temas, situación, futuro deseado y próxima tarea de investigación.
-- [ ] Vincular señales mediante identificadores públicos y relaciones explícitas: describe, contradice, aporta evidencia o capacidad. Conservar la fuente; no copiar todo el corpus a otro dominio.
-- [ ] Mostrar los apartados incompletos como pendientes y permitir preguntas sin una conclusión prematura.
-- [ ] Agregar revisión numerada, historial de cambios y aviso de conflicto si otra persona editó mientras tanto.
-- [ ] Definir quién puede proponer cambios, revisar y publicar; colaboradores autenticados para administrar fichas, aportes anónimos conservados según el contrato vigente. No conectar identidades automáticamente.
+- [x] Crear una ficha con título/pregunta, territorio, temas, situación, futuro deseado y próxima tarea de investigación.
+- [x] Vincular señales mediante identificadores públicos y relaciones explícitas: describe, contradice, aporta evidencia o capacidad. Conservar la fuente; no copiar todo el corpus a otro dominio.
+- [x] Mostrar los apartados incompletos como pendientes y permitir preguntas sin una conclusión prematura.
+- [x] Agregar revisión numerada, historial de cambios y aviso de conflicto si otra persona editó mientras tanto.
+- [x] Definir quién puede proponer cambios, revisar y publicar; colaboradores autenticados para administrar fichas, aportes anónimos conservados según el contrato vigente. No conectar identidades automáticamente.
 
 **Salida E2:** una persona nueva encuentra un lugar, entiende la diferencia entre registros y evidencia, consulta una ficha y aporta sin perder el contexto. Objetivo de prueba inicial: 4 de 5 participantes nuevos completan ese recorrido sin ayuda; es un criterio de usabilidad propuesto, no una medición de representatividad.
 
@@ -123,7 +123,7 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 ### E3.1 · Catálogo mínimo de indicadores
 
 - [ ] Elegir uno o dos temas del piloto y entre tres y cinco indicadores relevantes; no importar indiscriminadamente todos los datos disponibles.
-- [ ] Para cada serie: institución, enlace, fecha de referencia, fecha de obtención, unidad, universo, territorio, método, licencia, frecuencia esperada y límites de interpretación.
+- [x] Para cada serie: institución, enlace, fecha de referencia, fecha de obtención, unidad, universo, territorio, método, licencia, frecuencia esperada y límites de interpretación.
 - [ ] Reutilizar el catálogo geográfico y documentar equivalencias entre municipio, departamento, localidad y unidad censal. Una jerarquía simple no resuelve todas las pertenencias.
 - [ ] Validar geometrías y bordes. Incorporar departamentos/municipios para las áreas piloto con fuente identificada; mostrar el resto como pendiente en vez de fingir cobertura nacional.
 - [ ] Versionar importaciones y registrar fallos; una actualización fallida conserva la última versión válida con aviso. Cero, dato no publicado y dato no disponible son estados distintos.
@@ -151,10 +151,10 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 
 ### E4.1 · Objetivos colectivos verificables
 
-- [ ] Agregar resultado deseado, horizonte, indicador, línea de base, meta, unidad y método de verificación. Admitir «línea de base pendiente» con una tarea para establecerla.
-- [ ] Registrar población/ámbito afectado, institución competente propuesta y principios que orientan la decisión. La competencia se valida; el sistema no asigna obligaciones a terceros.
-- [ ] Mantener separados frecuencia de menciones, gravedad documentada, desigualdad y viabilidad. No calcular una prioridad total con pesos ocultos.
-- [ ] Permitir objetivos que atraviesan varios temas y lugares.
+- [x] Agregar resultado deseado, horizonte, indicador, línea de base, meta, unidad y método de verificación. Admitir «línea de base pendiente» con una tarea para establecerla.
+- [x] Registrar población/ámbito afectado, institución competente propuesta y principios que orientan la decisión. La competencia se valida; el sistema no asigna obligaciones a terceros.
+- [x] Mantener separados frecuencia de menciones, gravedad documentada, desigualdad y viabilidad. No calcular una prioridad total con pesos ocultos.
+- [x] Permitir objetivos que atraviesan varios temas y lugares.
 
 ### E4.2 · Alternativas comparables
 
@@ -165,15 +165,15 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 
 ### E4.3 · Proceso deliberativo y moderación
 
-- [ ] Abrir un proceso con pregunta, ámbito, convocatoria, responsables de facilitación, fechas, reglas de participación y forma prevista de cierre.
+- [x] Abrir un proceso con pregunta, ámbito, convocatoria, responsables de facilitación, fechas, reglas de participación y forma prevista de cierre.
 - [ ] Registrar argumentos, evidencia, objeciones, respuestas y modificaciones. Las adhesiones continúan siendo adhesiones.
-- [ ] Publicar política de moderación, motivos de intervenciones y mecanismo de apelación; ocultar contenido sensible sin replicarlo en el historial público.
-- [ ] Identificar cómo se contaron participantes y límites frente a duplicaciones; no llamar persona verificada al identificador de navegador. Aplicar permisos y límites contra abuso en escrituras.
-- [ ] Primer cierre: síntesis facilitada y revisable con participantes y objeciones explícitos. La votación vinculante queda fuera de esta primera versión; cualquier mecanismo posterior requiere definir elegibilidad y reglas antes de abrirlo.
+- [x] Publicar política de moderación, motivos de intervenciones y mecanismo de apelación; ocultar contenido sensible sin replicarlo en el historial público.
+- [x] Identificar cómo se contaron participantes y límites frente a duplicaciones; no llamar persona verificada al identificador de navegador. Aplicar permisos y límites contra abuso en escrituras.
+- [x] Primer cierre: síntesis facilitada y revisable con participantes y objeciones explícitos. La votación vinculante queda fuera de esta primera versión; cualquier mecanismo posterior requiere definir elegibilidad y reglas antes de abrirlo.
 
 ### E4.4 · Síntesis trazable
 
-- [ ] Publicar acuerdos parciales, alternativas discutidas, disensos pendientes, ausencias y próxima revisión.
+- [x] Publicar acuerdos parciales, alternativas discutidas, disensos pendientes, ausencias y próxima revisión.
 - [ ] Vincular cada afirmación con evidencia o argumentos. La IA puede sugerir redacción y agrupaciones; una persona responsable valida su publicación.
 - [ ] Usar Radiografía para descubrir relaciones temáticas, conservando posibilidad de dividir o rechazar agrupaciones.
 - [ ] Retirar mensajes de «deliberación no disponible» solo en los ámbitos donde el circuito esté operativo. Mantener una explicación clara para el resto.
@@ -202,7 +202,7 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 
 ## 9. E6 — Construir la primera visión de país
 
-- [ ] **E6.1 · Relaciones entre fichas.** Conectar objetivos compartidos, dependencias, complementariedades y tensiones. Usar relaciones tipadas en Postgres antes de considerar infraestructura especializada. Una relación causal sugerida conserva estado de hipótesis y fuente.
+- [x] **E6.1 · Relaciones entre fichas.** Conectar objetivos compartidos, dependencias, complementariedades y tensiones. Usar relaciones tipadas en Postgres antes de considerar infraestructura especializada. Una relación causal sugerida conserva estado de hipótesis y fuente.
 - [ ] **E6.2 · Escalas de decisión.** Mostrar qué puede hacer la comunidad y qué requiere coordinación municipal, provincial, nacional o entre territorios, validando cada caso. Incluir cuencas, corredores y redes funcionales cuando sean relevantes.
 - [ ] **E6.3 · Síntesis nacional por objetivos.** Publicar futuro deseado, evidencia territorial, variantes, recursos limitantes, alternativas, tensiones y tareas pendientes. Una selección editorial se identifica como tal; popularidad no decide urgencia automáticamente.
 - [ ] **E6.4 · Mandato como lectura derivada.** Enlazar objetivos y acciones a procesos identificados. Publicar versión, alcance, metodología, límites y revisión. Mantener separados reclamos corroborados, acuerdos de participantes y propuestas sin deliberar.
@@ -289,3 +289,38 @@ Cada fila puede dividirse en varios cambios pequeños; no obliga a un único com
 - **Responsabilidad de síntesis:** identificar quién facilita, revisa y publica durante el piloto. La ausencia de un líder político no elimina la responsabilidad operativa.
 
 El siguiente trabajo de implementación queda definido por las primeras cuatro filas: corregir la confianza del instrumento y del mandato antes de pedirles conclusiones nuevas.
+
+
+## Continuación del 13 de octubre de 2026
+
+El repositorio ya contiene trabajo posterior al plan inicial (campañas, captura guiada, fichas y gestión de aportes). Esta continuación reutiliza esas implementaciones y cierra dos defectos de E1/E2:
+
+- **Recuperación del dibujo.** Mapa, Análisis y Simulación comparten una descarga validada de límites provinciales. Una respuesta HTTP fallida, JSON incompatible o geometría vacía produce un aviso y un reintento. Una actualización fallida conserva la última geometría válida. Los errores de teselas de ambos mapas de la cortina también llegan al aviso. Reintentar el dibujo no desmonta el formulario.
+- **Continuidad territorial.** El identificador del lugar en la URL determina también el alcance de las fichas y del aporte. Abrir el formulario desde un enlace no borra ese contexto. Mientras se resuelve el lugar, o si falla su carga, no se muestran fichas nacionales como sustitución ni se habilita una publicación con el territorio anterior. Los dos borradores se conservan y hay reintento explícito.
+- **Unidad de lectura.** La explicación de «Por habitante» habla de aportes por población de referencia; dejó de describir ese cociente como cantidad de personas participantes.
+
+Pruebas específicas: `Instrumento.test.tsx`, `geometria-provincial.test.tsx`, `AmbitosProvinciales.test.tsx`, `simulacion-reloj.test.tsx`, `ElMapa.test.tsx` y `ParticiparEnMapa.test.tsx`. Incluyen los tres modos con límites provinciales, archivo geográfico real, fallos HTTP y de conexión, recuperación, conservación de borradores, enlace territorial y limpieza de filtros.
+
+Verificación del 13/10: lint y TypeScript del workspace, 2.391 pruebas unitarias, 244 pruebas de scripts, 631 pruebas de integración aprobadas (20 omitidas por sus condiciones existentes), control del corpus de entrenamientos y compilación web/API. Integración ejecutada con `pnpm test:integration:local`: dos bases locales temporales, eliminadas al terminar. La comprobación final del mapa y sus formularios pasó 219 pruebas. El control de entrenamientos se ejecutó con `node --import tsx scripts/content/entrenamientos-check.ts` porque el entorno restringe el socket interno del ejecutable `tsx`. No se ejecutó un despliegue ni una nueva revisión visual manual.
+
+Esto no completa E3–E7 ni valida el piloto territorial. Siguen pendientes su elección de lugares e interlocutores, evidencia de campo, deliberación y resultados comprobados; no se incorporaron datos sintéticos al mapa público.
+
+
+## Continuación del 14 de octubre de 2026
+
+El usuario eligió ejemplos cotidianos para explicar el piloto. Se implementaron recorridos de **turnos de salud, transporte cotidiano y continuidad del agua**, accesibles desde el mapa y las fichas. Cada recorrido explica siete operaciones, compara alternativas y prepara una pregunta propia sin copiar situaciones, cifras ni resultados ficticios. No hubo siembra de estos ejemplos en el mapa público.
+
+La entrega añade:
+
+- **Cuaderno versionado:** fuentes y objetivos con metadatos, base, meta, fecha, escala, competencia propuesta y límites. Cero, dato no publicado y dato no disponible se distinguen; un fallo de actualización puede documentarse conservando el valor anterior. La carga es manual: no completa importaciones automatizadas ni validación de indicadores del piloto.
+- **Conversación de la ficha:** reglas, fechas, convocatoria, facilitación, argumentos, objeciones, evidencia, respuestas y síntesis con acuerdos referenciados, disensos y ausencias. Autoría autenticada privada, firma pública declarada, permisos de edición existentes y retiros con motivo. La síntesis que cita una intervención retirada queda oculta hasta revisión. No hay votación vinculante ni verificación automática de identidades.
+- **Conexiones y lectura conjunta:** relaciones tipadas y justificadas entre fichas; hipótesis causales con fuente. `/vision-compartida` muestra objetivos y revisiones por territorio, distingue propuesta y síntesis, conserva totales completos frente a páginas cargadas y permite imprimir la lectura actual. Es una base para trabajar E6, no una síntesis nacional representativa ya lograda.
+- **Continuidad:** el cuaderno, proceso y síntesis fijan la revisión al abrir el editor, mantienen borradores ante errores y conflictos, y sus cambios entran en el historial y las notificaciones de seguimiento existentes. Las intervenciones propias permiten recuperar la ficha desde Mi espacio.
+
+Migración `0032_fichas_deliberacion`: tablas de argumentos y relaciones, claves para reintentos y permisos comprobados en escritura. La cadena de snapshots continúa desde `0031`. Se amplió la guarda de limpieza de fixtures para respetar intervenciones ajenas.
+
+Recorrido de operación y límites: [guía de ejemplos y fichas](../demos/2026-10-14-recorrido-fichas.md). Pruebas nuevas: `evidencia-deliberacion.test.ts`, `deliberacion-fichas.test.ts`, `Cuaderno.test.tsx`, `Deliberacion.test.tsx`, `Relaciones.test.tsx`, `Ejemplos.test.tsx`, `TerritorioDocumentado.test.tsx` y `VisionCompartida.test.tsx`.
+
+Pendientes del plan que esta entrega no cierra: capacidades y reservas, tareas de escucha, importaciones verificadas, versiones y comparación más detallada de alternativas, servicios completos de iniciativas, piloto con personas reales y modelos de escenarios. Las casillas abiertas conservan esos requisitos. No se aplicó la migración a producción ni se desplegó esta entrega.
+
+Verificación final del 14/10: **`pnpm verify` aprobado** con dos bases PostgreSQL locales descartables y limpieza automática; incluye lint, TypeScript, 2.417 pruebas unitarias, 244 pruebas de scripts, 638 pruebas de integración aprobadas (20 omitidas por sus condiciones existentes), control de entrenamientos y compilación web/API. Los casos de integración nuevos incluyen paginación de 205 intervenciones, reintentos de publicación y retiro, referencias cruzadas inválidas, permisos y ocultación de síntesis tras retiros. La revisión del navegador usó respuestas simuladas: ejemplos, ficha y visión sin scroll horizontal a 360, 390, 768 y 1440 píxeles; navegación a nueva ficha sin escrituras, edición de objetivo y recuperación de error comprobadas, sin errores de JavaScript.

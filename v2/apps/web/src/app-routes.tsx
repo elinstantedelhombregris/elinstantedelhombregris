@@ -22,6 +22,8 @@ import {
   Entrenamientos,
   FaltaDetail,
   Fichas,
+  EjemplosFichas,
+  VisionCompartida,
   ForgotPassword,
   Goals,
   Home,
@@ -114,6 +116,8 @@ export function AppRoutes() {
       <Route path="/campanas/:slug" component={CampanaDetail} />
       <Route path="/campanas" component={Campanas} />
       <Route path="/el-mapa" component={ElMapa} />
+      <Route path="/vision-compartida" component={VisionCompartida} />
+      <Route path="/fichas/ejemplos" component={EjemplosFichas} />
       <Route path="/fichas/nueva" component={Fichas} />
       <Route path="/fichas/:id" component={Fichas} />
       <Route path="/fichas" component={Fichas} />

@@ -204,6 +204,13 @@
       "when": 1791587433820,
       "tag": "0031_temas_justicia_economia",
       "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "7",
+      "when": 1791946527151,
+      "tag": "0032_fichas_deliberacion",
+      "breakpoints": true
     }
   ]
 }

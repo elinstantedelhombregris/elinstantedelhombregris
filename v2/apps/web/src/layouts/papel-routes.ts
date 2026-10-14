@@ -7,6 +7,7 @@ const PAPEL_ROUTES = new Set([
   '/la-idea',
   '/el-mapa',
   '/fichas',
+  '/vision-compartida',
   '/imaginar',
   '/campanas',
   '/gestion/campanas',

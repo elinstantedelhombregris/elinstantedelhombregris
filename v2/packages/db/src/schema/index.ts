@@ -44,3 +44,5 @@ export * from './diseno.js';
 
 export * from './colaboracion.js';
 export * from './exportaciones.js';
+
+export * from './deliberacion.js';

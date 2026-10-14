@@ -24,6 +24,7 @@ export default defineConfig({
     './src/schema/continuidad.ts',
     './src/schema/colaboracion.ts',
     './src/schema/diseno.ts',
+    './src/schema/deliberacion.ts',
     './src/schema/exportaciones.ts',
     './src/schema/auth.ts',
     './src/schema/notifications.ts',

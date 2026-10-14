@@ -18,3 +18,7 @@ export {
   type ContenidoFicha,
   type FichaFuturo,
 } from './fichas.js';
+
+export * from './evidencia-ficha.js';
+
+export * from './deliberacion-ficha.js';

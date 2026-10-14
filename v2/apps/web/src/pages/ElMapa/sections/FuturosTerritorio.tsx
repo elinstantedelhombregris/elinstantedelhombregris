@@ -81,6 +81,18 @@ export function FuturosTerritorio({ lugar }: { lugar: LugarMapa | null }) {
           )}
           <div className="mt-4 flex flex-wrap gap-5">
             <Link
+              className="text-violeta inline-flex min-h-11 items-center underline"
+              href={lugar ? `/vision-compartida?lugar=${lugar.id}` : '/vision-compartida'}
+            >
+              Conectar objetivos entre territorios
+            </Link>
+            <Link
+              href="/fichas/ejemplos"
+              className="text-violeta inline-flex min-h-11 items-center underline"
+            >
+              Cómo funciona: tres ejemplos cotidianos
+            </Link>
+            <Link
               href={`/fichas?${new URLSearchParams({ ...(lugar ? { lugar: String(lugar.id) } : {}), ...(campana ? { campana } : {}) })}`}
               className="text-violeta inline-flex min-h-11 items-center underline"
             >

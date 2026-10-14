@@ -43,7 +43,7 @@ router.post('/', authenticate, async (req, res, next) => {
       throw new HttpError(
         400,
         'REFERENCIA_INVALIDA',
-        'Revisá el territorio y los identificadores de los aportes.',
+        'Revisá los territorios, los aportes y las intervenciones citadas en la síntesis.',
       );
     const id = await repo.crear(req.user.id, entrada.idLocal, entrada.contenido);
     if (!id)
@@ -72,11 +72,11 @@ router.put('/:id', authenticate, async (req, res, next) => {
         'SIN_PERMISO',
         'Solo quien administra este borrador puede editarlo.',
       );
-    if (!(await repo.referenciasValidas(entrada.contenido)))
+    if (!(await repo.referenciasValidas(entrada.contenido, id)))
       throw new HttpError(
         400,
         'REFERENCIA_INVALIDA',
-        'Revisá el territorio y los identificadores de los aportes.',
+        'Revisá los territorios, los aportes y las intervenciones citadas en la síntesis.',
       );
     if (!(await repo.editar(id, req.user.id, entrada.revisionEsperada, entrada.contenido))) {
       throw new HttpError(

@@ -1,11 +1,13 @@
 import { and, desc, eq, inArray, sql } from 'drizzle-orm';
 
+import { fichaArgumentos } from '../schema/deliberacion.js';
 import { fichaAfirmaciones } from '../schema/diseno.js';
 import { fichasFuturo, fichasRevisiones } from '../schema/fichas.js';
 import { geographicLocations } from '../schema/geographic.js';
 import { senales } from '../schema/senales.js';
 
 import { ColaboracionRepository } from './colaboracion.js';
+import { DeliberacionFichaRepository } from './deliberacion-ficha.js';
 import { textoDeSenalPublica } from './senal-publicacion.js';
 
 import type { Db } from '../client.js';
@@ -135,10 +137,35 @@ export class FichasRepository {
             .from(geographicLocations)
             .where(eq(geographicLocations.id, fila.territorioId))
             .limit(1);
+    const referencias = [
+      ...new Set(fila.contenido.sintesis?.acuerdos.flatMap((a) => a.argumentoIds) ?? []),
+    ];
+    const vigentes = referencias.length
+      ? await this.db
+          .select({ id: fichaArgumentos.id })
+          .from(fichaArgumentos)
+          .where(
+            and(
+              eq(fichaArgumentos.fichaId, id),
+              inArray(fichaArgumentos.id, referencias),
+              sql`${fichaArgumentos.retiradaEn} is null`,
+            ),
+          )
+      : [];
+    const idsVigentes = new Set(vigentes.map((a) => a.id));
+    const sintesisRevisar = referencias.some((ref) => !idsVigentes.has(ref));
+    const contenidoPublico = sintesisRevisar
+      ? { ...fila.contenido, sintesis: undefined }
+      : fila.contenido;
+    const { sintesis: sintesisPublica, ...contenidoSinSintesis } = contenidoPublico;
     return {
+      sintesisRevisar,
       id: fila.id,
       revision: fila.revision,
-      contenido: fila.contenido,
+      contenido: {
+        ...contenidoSinSintesis,
+        ...(sintesisPublica ? { sintesis: sintesisPublica } : {}),
+      },
       creadaEn: fila.creadaEn.toISOString(),
       actualizadaEn: fila.actualizadaEn.toISOString(),
       puedoInvitar: fila.creadorId === usuarioId,
@@ -159,7 +186,14 @@ export class FichasRepository {
     };
   }
 
-  async referenciasValidas(contenido: ContenidoFicha): Promise<boolean> {
+  async referenciasValidas(contenido: ContenidoFicha, fichaId?: string): Promise<boolean> {
+    if (
+      !(await new DeliberacionFichaRepository(this.db).referenciasSintesisValidas(
+        contenido,
+        fichaId,
+      ))
+    )
+      return false;
     if (contenido.campanaId) {
       const c = await this.db.execute<{ id: string }>(
         sql`select id from campanas where id=${contenido.campanaId}::uuid and estado<>'borrador'`,
@@ -172,6 +206,21 @@ export class FichasRepository {
         .from(geographicLocations)
         .where(eq(geographicLocations.id, contenido.territorioId));
       if (!lugar) return false;
+    }
+    const territorios = [
+      ...new Set([
+        ...(contenido.cuaderno?.fuentes.flatMap((f) =>
+          f.territorioId === null ? [] : [f.territorioId],
+        ) ?? []),
+        ...(contenido.cuaderno?.objetivos.flatMap((o) => o.territorios) ?? []),
+      ]),
+    ];
+    if (territorios.length) {
+      const lugares = await this.db
+        .select({ id: geographicLocations.id })
+        .from(geographicLocations)
+        .where(inArray(geographicLocations.id, territorios));
+      if (lugares.length !== territorios.length) return false;
     }
     const ids = [...new Set(contenido.vinculos.map((v) => v.senalId))];
     if (!ids.length) return true;
@@ -228,8 +277,8 @@ export class FichasRepository {
       ), rastro as (
         insert into ${fichasRevisiones} (ficha_id, revision, editor_id, contenido, campos)
         select id, revision, ${usuarioId}, cambio.contenido,
-          coalesce((select jsonb_agg(key order by key) from jsonb_each(cambio.contenido)
-            where value is distinct from (select contenido->key from anterior)), '[]'::jsonb)
+          coalesce((select jsonb_agg(key order by key) from jsonb_object_keys(cambio.contenido || (select contenido from anterior)) as key
+            where cambio.contenido->key is distinct from (select contenido->key from anterior)), '[]'::jsonb)
         from cambio returning ficha_id
       ), avisos as (insert into eventos_civicos(user_id,clave,titulo,href)
         select s.user_id,'ficha:'||c.id||':'||c.revision,'Un futuro que seguís tiene una nueva revisión.','/fichas/'||c.id from cambio c join seguimientos s on s.tipo='ficha' and s.objeto=c.id::text where not exists(select 1 from preferencias_civicas p where p.user_id=s.user_id and not p.avisos) on conflict do nothing returning id)

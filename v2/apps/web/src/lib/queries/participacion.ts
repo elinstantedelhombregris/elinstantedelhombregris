@@ -77,6 +77,9 @@ export function usePublicarAporte() {
         'campanas',
         'analytics',
         'mandato',
+        'deliberacion',
+        'relaciones-fichas',
+        'vision-compartida',
       ])
         void qc.invalidateQueries({ queryKey: [key] });
       void qc.invalidateQueries({ queryKey: ['civic-map'] });
@@ -120,6 +123,9 @@ export function useOperacionPersonal() {
         'campanas',
         'analytics',
         'mandato',
+        'deliberacion',
+        'relaciones-fichas',
+        'vision-compartida',
       ])
         void qc.invalidateQueries({ queryKey: [key] });
       void qc.invalidateQueries({ queryKey: ['recuperables'] });

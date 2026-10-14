@@ -9,7 +9,8 @@ export type CampoDeFicha =
   | 'proximaTarea'
   | 'campanaId'
   | 'condiciones'
-  | 'vinculos';
+  | 'vinculos'
+  | 'cuaderno';
 export type ErroresDeFicha = Partial<Record<CampoDeFicha, string>>;
 
 const CAMPOS: readonly CampoDeFicha[] = [
@@ -22,6 +23,7 @@ const CAMPOS: readonly CampoDeFicha[] = [
   'campanaId',
   'condiciones',
   'vinculos',
+  'cuaderno',
 ];
 const esCampo = (v: unknown): v is CampoDeFicha => CAMPOS.some((c) => c === v);
 
@@ -35,6 +37,8 @@ interface Problema {
 
 function decir(p: Problema): string {
   switch (p.campo) {
+    case 'cuaderno':
+      return p.mensaje;
     case 'titulo':
       return p.codigo === 'too_big' ? 'El título puede tener hasta 180 caracteres.' : p.mensaje;
     case 'condiciones':

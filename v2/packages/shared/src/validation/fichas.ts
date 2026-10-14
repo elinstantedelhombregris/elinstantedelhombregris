@@ -2,6 +2,9 @@ import { z } from 'zod';
 
 import { MAX_TEMAS } from '../participacion/temas.js';
 
+import { procesoFichaSchema, sintesisFichaSchema } from './deliberacion-ficha.js';
+import { cuadernoFichaSchema } from './evidencia-ficha.js';
+
 export const relacionFichaSchema = z.enum([
   'describe',
   'contradice',
@@ -23,6 +26,9 @@ export const contenidoFichaSchema = z
     proximaTarea: z.string().trim().max(2000),
     campanaId: z.string().uuid().nullable().optional(),
     condiciones: z.array(z.string().trim().min(3).max(500)).max(12).optional(),
+    proceso: procesoFichaSchema.optional(),
+    sintesis: sintesisFichaSchema.optional(),
+    cuaderno: cuadernoFichaSchema.optional(),
     vinculos: z
       .array(z.object({ senalId: z.string().uuid(), relacion: relacionFichaSchema }))
       .max(40),
@@ -60,6 +66,7 @@ export interface FichaFuturo {
   territorioNombre: string | null;
   puedoEditar: boolean;
   puedoInvitar?: boolean;
+  sintesisRevisar?: boolean;
   historial: { revision: number; fecha: string; campos: string[] }[];
   aportes: {
     senalId: string;

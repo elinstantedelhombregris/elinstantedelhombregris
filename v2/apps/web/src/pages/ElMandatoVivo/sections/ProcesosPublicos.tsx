@@ -43,6 +43,9 @@ export function ProcesosPublicos() {
       <p className="text-oscuro-secundario mt-4 max-w-[760px] leading-relaxed">
         Campañas y fichas abiertas hoy. Aparecer acá no les da representación ni efecto oficial.
       </p>
+      <Link href="/vision-compartida" className={`${ENLACE} mt-4`}>
+        Leer objetivos, evidencia y síntesis entre territorios →
+      </Link>
       {hayError ? (
         <p role="alert" className="text-oscuro-texto mt-4">
           {ERROR_AL_CARGAR}

@@ -18,6 +18,7 @@ import { communityRouter } from './features/community/routes.js';
 import { contribucionesRouter } from './features/contribuciones/routes.js';
 import { exportacionesRouter } from './features/exportaciones/routes.js';
 import { faltasRouter } from './features/faltas/routes.js';
+import { deliberacionFichasRouter } from './features/fichas/deliberacion-routes.js';
 import { disenoFichasRouter } from './features/fichas/diseno-routes.js';
 import { fichasRouter } from './features/fichas/routes.js';
 import { gamificationRouter } from './features/gamification/routes.js';
@@ -119,6 +120,7 @@ export function createApp(): Express {
   app.use('/api/mandato', mandatoRouter);
   app.use('/api/semillas', semillasRouter);
   app.use('/api/v1/faltas', faltasRouter);
+  app.use('/api/v1/fichas', deliberacionFichasRouter);
   app.use('/api/v1/fichas', disenoFichasRouter);
   app.use('/api/v1/fichas', fichasRouter);
   app.use('/api/v1/campanas', campanasRouter);

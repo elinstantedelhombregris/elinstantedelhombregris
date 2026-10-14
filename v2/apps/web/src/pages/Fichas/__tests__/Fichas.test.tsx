@@ -51,6 +51,8 @@ vi.mock('~/lib/queries/participacion', () => ({
   useCampana: () => ({ data: { contrato: { titulo: 'Aprender cerca de casa' } } }),
 }));
 vi.mock('~/lib/api', () => ({ api: { get: modelo.get } }));
+vi.mock('../deliberacion/Deliberacion', () => ({ Deliberacion: () => <p>Conversación</p> }));
+vi.mock('../deliberacion/Relaciones', () => ({ Relaciones: () => <p>Relaciones</p> }));
 vi.mock('../PanelDiseno', () => ({ PanelDiseno: () => <p>Panel de diseño</p> }));
 vi.mock('~/components/participacion/Seguir', () => ({ Seguir: () => <p>Seguir</p> }));
 vi.mock('~/components/participacion/Equipo', () => ({ Equipo: () => <p>Equipo</p> }));
@@ -302,7 +304,7 @@ describe('Fichas: una ficha abierta', () => {
     ).toBeInTheDocument();
     expect(screen.getByText(LEAD)).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /Todas las fichas/ })).toHaveLength(1);
-    expect(screen.queryByText(/Borrador público|Volver al mapa/)).toBeNull();
+    expect(screen.queryByText(/En revisión (visible para cualquiera)|Volver al mapa/)).toBeNull();
   });
 
   it('muestra lugar, temas con su etiqueta y la fecha en castellano', async () => {

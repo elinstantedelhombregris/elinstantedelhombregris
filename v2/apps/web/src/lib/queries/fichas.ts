@@ -54,6 +54,7 @@ export function useGuardarFicha(id?: string, revision?: number) {
           ),
     onSuccess: () => {
       void cliente.invalidateQueries({ queryKey: ['fichas'] });
+      void cliente.invalidateQueries({ queryKey: ['vision-compartida'] });
     },
   });
 }

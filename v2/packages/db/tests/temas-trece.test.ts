@@ -79,10 +79,11 @@ describe('la migración 0031, tal como está escrita', () => {
     expect(SQL_0031).not.toMatch(/ON CONFLICT ON CONSTRAINT/u);
   });
 
-  it('el registro de migraciones la lista última, con una fecha posterior a la de la anterior', () => {
+  it('el registro de migraciones conserva su posición y una fecha posterior a la de la anterior', () => {
     const entradas = registro.entries;
-    const ultima = entradas.at(-1);
-    const anterior = entradas.at(-2);
+    const posicion = entradas.findIndex((entrada) => entrada.tag === MIGRACION);
+    const ultima = entradas.at(posicion);
+    const anterior = entradas.at(posicion - 1);
     expect(ultima?.tag).toBe(MIGRACION);
     expect(anterior?.tag).toBe('0030_exportaciones_durables');
     // El migrador de drizzle sólo aplica lo que tenga `when` mayor que el último aplicado.
