@@ -218,6 +218,13 @@
       "when": 1791975855807,
       "tag": "0033_capacidades_reservas",
       "breakpoints": true
+    },
+    {
+      "idx": 34,
+      "version": "7",
+      "when": 1791977290712,
+      "tag": "0034_recepcion_parcial",
+      "breakpoints": true
     }
   ]
 }

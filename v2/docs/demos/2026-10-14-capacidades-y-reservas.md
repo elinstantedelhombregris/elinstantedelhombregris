@@ -20,10 +20,10 @@ Abrí `/capacidades/ejemplo` o entrá desde los ejemplos de fichas. Recorré el 
 
 ## Entregar y revisar
 
-Quien ofrece declara qué entregó. Quien solicitó confirma la recepción completa o registra una discrepancia. La discrepancia conserva la cantidad comprometida; se puede completar y volver a declarar la entrega. Mientras se resuelve, la cantidad no vuelve a ofrecerse. La cantidad recibida no vuelve a estar disponible durante ese período. Un préstamo devuelto se ofrece en un período nuevo.
+Quien ofrece declara qué entregó y cuántas unidades fueron. Quien solicitó confirma esa cantidad y el cierre de la reserva, o registra una discrepancia. En una entrega parcial, solo después de confirmar se libera el saldo que no se entregó. Cero permite acordar el cierre de una prestación no realizada. Una pantalla anterior no puede confirmar otra declaración: debe volver a revisarla. La discrepancia conserva la cantidad comprometida; se puede completar y volver a declarar la entrega. Mientras se resuelve, la cantidad no vuelve a ofrecerse. La cantidad recibida no vuelve a estar disponible durante ese período. Un préstamo devuelto se ofrece en un período nuevo.
 
 Confirmar horas de sala no demuestra una mejora educativa: ese resultado necesita la evidencia y revisión de la ficha. Las solicitudes, la ficha vinculada y las notas de entrega solo son visibles para ambas cuentas. Los visitantes ven condiciones y totales agregados.
 
 ## Alcance de esta entrega
 
-Persistencia en Postgres con migración `0033_capacidades_reservas.sql`, preparada y probada en bases descartables. Sin despliegue ni migración de producción en esta tarea. No hay pagos, habilitaciones profesionales ni préstamos recurrentes automatizados; los requisitos de cada prestación quedan en sus condiciones.
+Persistencia en Postgres con migración `0033_capacidades_reservas.sql` y `0034_recepcion_parcial.sql`, preparada y probada en bases descartables. Sin despliegue ni migración de producción en esta tarea. No hay pagos, habilitaciones profesionales ni préstamos recurrentes automatizados; los requisitos de cada prestación quedan en sus condiciones.

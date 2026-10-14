@@ -74,6 +74,8 @@ export const reservasCapacidad = pgTable(
     idLocal: uuid('id_local').notNull(),
     huella: text('huella').notNull(),
     cantidad: integer('cantidad'),
+    cantidadDeclarada: integer('cantidad_declarada'),
+    revision: integer('revision').notNull().default(1),
     paraFecha: date('para_fecha').notNull(),
     necesidad: text('necesidad').notNull(),
     compatibilidad: text('compatibilidad').notNull(),
@@ -84,6 +86,11 @@ export const reservasCapacidad = pgTable(
     actualizadaEn: timestamp('actualizada_en', { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
+    check('reservas_revision_chk', sql`${t.revision}>0`),
+    check(
+      'reservas_entrega_chk',
+      sql`${t.cantidadDeclarada} is null or (${t.cantidad} is not null and ${t.cantidadDeclarada} between 0 and ${t.cantidad})`,
+    ),
     unique('reservas_recibo_unique').on(t.solicitanteId, t.idLocal),
     check(
       'reservas_cantidad_chk',

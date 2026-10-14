@@ -2126,3 +2126,16 @@ La siembra se niega a crear la campaña si la fecha de hoy es posterior al cierr
 La consulta existente lee las primeras cien alternativas por fecha y no tiene cursor. Una ficha que supere ese límite puede conservar propuestas o revisiones que la pantalla no alcanza a mostrar. Las referencias siguen guardadas, pero un enlace al original no garantiza que esté en el lote visible. Las afirmaciones y pruebas de esa lectura también tienen límites fijos.
 
 **Qué haría falta:** paginar las colecciones de diseño con cursores estables, separar sus consultas cuando corresponda y permitir abrir una alternativa por identificador sin depender de la página actualmente cargada. Mostrar la parcialidad y mantener conteos completos.
+
+### D-129 · La verificación local mostró fallos intermitentes fuera de los cambios nuevos
+
+**Dónde:** `v2/apps/web/src/lib/auth/sesion.test.tsx`, `v2/apps/api/tests/exportaciones-ideal.test.ts`, ejecución de `pnpm verify`
+**Encontrada:** 2026-10-14, durante la verificación de capacidades y recepciones parciales
+**Severidad:** baja
+**Estado:** abierta; causa sin determinar
+
+Después de dos verificaciones completas exitosas, una corrida posterior falló con `Parse Error: Expected HTTP/, RTSP/ or ICE/` en la lectura de contexto de exportación. Esa suite pasó al repetirla aislada junto con capacidades y alternativas. Otra corrida agotó los diez segundos de la prueba de cambio de sesión al registrar una cuenta; el caso ya había pasado en corridas anteriores. No se cambió la implementación de esas operaciones.
+
+**Qué haría falta:** reproducir con carga controlada, revisar limpieza de conexiones/consultas y fijar un paralelismo adecuado para el entorno. Se usa un máximo de cuatro procesos por paquete en la verificación local posterior, conservando todas las pruebas y sus tiempos límite. Esto controla la carga, pero no demuestra por sí solo la causa ni un defecto de producción.
+
+La repetición completa con cuatro procesos por paquete terminó correctamente: 3.322 pruebas aprobadas, más lint, tipos, corpus y compilación. La causa de los fallos intermitentes anteriores sigue sin determinarse.

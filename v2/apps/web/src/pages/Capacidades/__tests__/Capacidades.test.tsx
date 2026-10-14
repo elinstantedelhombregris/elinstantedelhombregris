@@ -111,7 +111,9 @@ describe('Capacidades y reservas', () => {
     cambiar(/Qué se entregó/, 'Faltaron dos horas');
     fireEvent.click(screen.getByRole('button', { name: 'Confirmar: Informar una discrepancia' }));
     expect(m.mutate).toHaveBeenCalledWith(
-      expect.objectContaining({ cuerpo: { accion: 'discrepar', nota: 'Faltaron dos horas' } }),
+      expect.objectContaining({
+        cuerpo: { accion: 'discrepar', nota: 'Faltaron dos horas', revisionEsperada: 3 },
+      }),
       expect.any(Object),
     );
   });
@@ -138,5 +140,42 @@ describe('Capacidades y reservas', () => {
     expect(screen.queryByText('Todavía no hay ofertas para esta consulta.')).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Reintentar ofertas' }));
     expect(m.refetch).toHaveBeenCalled();
+  });
+  it('explica el saldo de una entrega parcial y exige volver a revisar si cambia', () => {
+    const parcial = { ...reserva, cantidadDeclarada: 4 };
+    const { rerender } = render(<Reserva reserva={parcial} capacidadId={ID} unidad="horas" />);
+    fireEvent.click(screen.getByRole('button', { name: 'Confirmar recepción declarada' }));
+    expect(screen.getByText(/Confirmás 4 horas recibidas/)).toHaveTextContent(
+      'El saldo de 6 horas vuelve a estar disponible.',
+    );
+    rerender(
+      <Reserva
+        reserva={{ ...parcial, revision: 4, cantidadDeclarada: 6 }}
+        capacidadId={ID}
+        unidad="horas"
+      />,
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent('La reserva cambió');
+    expect(
+      screen.getByRole('button', { name: 'Confirmar: Confirmar recepción declarada' }),
+    ).toBeDisabled();
+    expect(m.mutate).not.toHaveBeenCalled();
+  });
+  it('permite declarar cero para cerrar una prestación no realizada, con recepción pendiente', () => {
+    render(
+      <Reserva
+        reserva={{ ...reserva, estado: 'reservada', soySolicitante: false }}
+        capacidadId={ID}
+        unidad="horas"
+      />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Declarar entrega' }));
+    cambiar(/Cantidad entregada/, '0');
+    cambiar(/Qué se entregó/, 'La actividad se canceló y no se usó la sala.');
+    fireEvent.click(screen.getByRole('button', { name: 'Confirmar: Declarar entrega' }));
+    const enviada: unknown = m.mutate.mock.calls[0]?.[0];
+    expect(enviada).toMatchObject({
+      cuerpo: { cantidadEntregada: 0, revisionEsperada: 3, accion: 'declarar_entrega' },
+    });
   });
 });

@@ -41,11 +41,19 @@ describe('Contrato de capacidades', () => {
     expect(
       solicitudCapacidadSchema.safeParse({ ...solicitud, aceptaCondiciones: false }).success,
     ).toBe(false);
-    expect(accionReservaSchema.safeParse({ accion: 'declarar_entrega', nota: '   ' }).success).toBe(
-      false,
-    );
     expect(
-      accionReservaSchema.safeParse({ accion: 'discrepar', nota: 'Falta una hora' }).success,
+      accionReservaSchema.safeParse({
+        accion: 'declarar_entrega',
+        revisionEsperada: 1,
+        nota: '   ',
+      }).success,
+    ).toBe(false);
+    expect(
+      accionReservaSchema.safeParse({
+        accion: 'discrepar',
+        revisionEsperada: 1,
+        nota: 'Falta una hora',
+      }).success,
     ).toBe(true);
   });
 });

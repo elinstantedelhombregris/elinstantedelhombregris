@@ -22,7 +22,7 @@ const ACCIONES: Record<AccionReserva['accion'], string> = {
   rechazar: 'Rechazar solicitud',
   cancelar: 'Cancelar y liberar reserva',
   declarar_entrega: 'Declarar entrega',
-  confirmar_recepcion: 'Confirmar que recibí lo acordado',
+  confirmar_recepcion: 'Confirmar recepción declarada',
   discrepar: 'Informar una discrepancia',
 };
 export function Reserva({
@@ -35,6 +35,10 @@ export function Reserva({
   unidad: string;
 }) {
   const [accion, setAccion] = useState<AccionReserva['accion'] | null>(null);
+  const [revisionVista, setRevisionVista] = useState(r.revision);
+  const [cantidadEntregada, setCantidadEntregada] = useState(
+    String(r.cantidadDeclarada ?? r.cantidad ?? ''),
+  );
   const [nota, setNota] = useState('');
   const [error, setError] = useState('');
   const op = useOperacionCapacidad();
@@ -47,9 +51,13 @@ export function Reserva({
     acciones.push('confirmar_recepcion', 'discrepar');
   return (
     <article className="border-tinta border p-5">
-      <h3 className="font-semibold">{ESTADOS[r.estado]}</h3>
+      <h3 className="font-semibold">
+        {r.estado === 'entregada' && r.cantidadDeclarada === 0
+          ? 'Cierre confirmado · sin entrega'
+          : ESTADOS[r.estado]}
+      </h3>
       <p className="mt-2">
-        {r.cantidad === null ? 'Cantidad por evaluación' : `${r.cantidad} ${unidad}`} ·{' '}
+        {r.cantidad === null ? 'Cantidad por evaluación' : `Solicitadas: ${r.cantidad} ${unidad}`} ·{' '}
         {r.paraFecha}
       </p>
       <Link href={`/fichas/${r.fichaId}`} className="inline-flex min-h-11 underline">
@@ -59,6 +67,11 @@ export function Reserva({
       <p className="mt-2 whitespace-pre-wrap break-words">
         Compatibilidad propuesta: {r.compatibilidad}
       </p>
+      {r.cantidadDeclarada !== null ? (
+        <p className="mt-3 font-semibold">
+          Cantidad declarada como entregada: {r.cantidadDeclarada} {unidad}.
+        </p>
+      ) : null}
       {r.notaEntrega ? (
         <p className="mt-3 whitespace-pre-wrap break-words">Entrega declarada: {r.notaEntrega}</p>
       ) : null}
@@ -80,6 +93,8 @@ export function Reserva({
             key={a}
             onClick={() => {
               setAccion(a);
+              setRevisionVista(r.revision);
+              setCantidadEntregada(String(r.cantidadDeclarada ?? r.cantidad ?? ''));
               setError('');
             }}
           >
@@ -92,7 +107,14 @@ export function Reserva({
           className="mt-3"
           onSubmit={(e) => {
             e.preventDefault();
-            const v = accionReservaSchema.safeParse({ accion, nota });
+            const v = accionReservaSchema.safeParse({
+              accion,
+              nota,
+              revisionEsperada: revisionVista,
+              ...(accion === 'declarar_entrega' && r.cantidad !== null
+                ? { cantidadEntregada: cantidadEntregada === '' ? NaN : Number(cantidadEntregada) }
+                : {}),
+            });
             if (!v.success) {
               setError(v.error.issues[0]?.message ?? 'Completá la nota.');
               return;
@@ -112,9 +134,20 @@ export function Reserva({
           <fieldset disabled={op.isPending}>
             <p>
               {accion === 'confirmar_recepcion'
-                ? 'Confirmás la recepción completa de lo acordado. Si falta algo, informá una discrepancia.'
+                ? r.cantidad === null
+                  ? 'Confirmás la prestación declarada. Si falta algo, informá una discrepancia.'
+                  : `Confirmás ${r.cantidadDeclarada ?? r.cantidad} ${unidad} recibidas y cerrás esta reserva. El saldo de ${r.cantidad - (r.cantidadDeclarada ?? r.cantidad)} ${unidad} vuelve a estar disponible. Si no coincide con lo recibido, informá una discrepancia.`
                 : 'Revisá el cambio antes de registrarlo.'}
             </p>
+            {accion === 'declarar_entrega' && r.cantidad !== null ? (
+              <CampoDato
+                etiqueta={`Cantidad entregada (${unidad}, entre 0 y ${r.cantidad})`}
+                tipo="number"
+                valor={cantidadEntregada}
+                cambiar={setCantidadEntregada}
+                ayuda="El saldo se libera solo cuando la otra parte confirma el cierre."
+              />
+            ) : null}
             {['declarar_entrega', 'discrepar'].includes(accion) ? (
               <CampoDato
                 etiqueta="Qué se entregó o qué falta resolver (sin datos personales)"
@@ -123,9 +156,16 @@ export function Reserva({
                 cambiar={setNota}
               />
             ) : null}
+            {r.revision !== revisionVista ? (
+              <p role="alert">
+                La reserva cambió. Volvé a abrir la acción para revisar la declaración actual.
+              </p>
+            ) : null}
             <ErrorOperacion mensaje={error || op.error?.message} />
             <div className="mt-4 flex flex-wrap gap-3">
-              <BotonPapel type="submit">Confirmar: {ACCIONES[accion]}</BotonPapel>
+              <BotonPapel type="submit" disabled={r.revision !== revisionVista}>
+                Confirmar: {ACCIONES[accion]}
+              </BotonPapel>
               <button
                 type="button"
                 className="min-h-11 underline"

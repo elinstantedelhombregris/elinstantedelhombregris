@@ -24,6 +24,8 @@ export const capacidad: CapacidadPublica = {
   esMia: false,
 };
 export const reserva: ReservaCapacidad = {
+  revision: 3,
+  cantidadDeclarada: 10,
   id: FICHA,
   fichaId: FICHA,
   cantidad: 10,

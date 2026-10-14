@@ -14,7 +14,7 @@ import type {
 
 export const hoyCapacidad = sql`(now() at time zone 'UTC')::date`;
 export const senalDisponible = sql`exists(select 1 from users u where u.id=c.oferente_id and u.is_active) and exists(select 1 from senales s where s.id_publico=c.senal_id and s.estado not in ('retirada','caducada') and s.retenida_en is null and s.tipo in ('recurso','práctica'))`;
-export const ocupacion = sql`coalesce((select sum(r.cantidad) from reservas_capacidad r where r.capacidad_id=c.id and r.estado in ('reservada','entrega_declarada','discrepancia','entregada')),0)`;
+export const ocupacion = sql`coalesce((select sum(case when r.estado='entregada' then coalesce(r.cantidad_declarada,r.cantidad) else r.cantidad end) from reservas_capacidad r where r.capacidad_id=c.id and r.estado in ('reservada','entrega_declarada','discrepancia','entregada')),0)`;
 export const huellaCapacidad = (v: unknown) =>
   createHash('sha256').update(JSON.stringify(v)).digest('hex');
 
@@ -35,10 +35,10 @@ const campos = (
   uid?: number,
 ) => sql`c.id,c.senal_id as "senalId",c.titulo,c.tipo,c.unidad,c.cantidad,
   case when c.cantidad is null then null else coalesce((select sum(r.cantidad)::int from reservas_capacidad r where r.capacidad_id=c.id and r.estado in ('reservada','entrega_declarada','discrepancia')),0) end as reservada,
-  case when c.cantidad is null then null else coalesce((select sum(r.cantidad)::int from reservas_capacidad r where r.capacidad_id=c.id and r.estado='entregada'),0) end as entregada,
+  case when c.cantidad is null then null else coalesce((select sum(coalesce(r.cantidad_declarada,r.cantidad))::int from reservas_capacidad r where r.capacidad_id=c.id and r.estado='entregada'),0) end as entregada,
   (c.cantidad-${ocupacion})::int as disponible,
   c.desde::text,c.hasta::text,c.territorio_id as "territorioId",c.zona,c.restricciones,c.firma,
-  c.confirmada_en::text as "confirmadaEn",c.cerrada,
+  to_char(c.confirmada_en at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as "confirmadaEn",c.cerrada,
   (not c.cerrada and c.hasta>=${hoyCapacidad} and ${senalDisponible}) as vigente,
   (c.oferente_id=${uid ?? null}) is true as "esMia"`;
 type FilaCapacidad = { [K in keyof CapacidadPublica]: CapacidadPublica[K] };
@@ -67,8 +67,8 @@ export class CapacidadesRepository {
     const reservas = uid
       ? (
           await this.db.execute<{ [K in keyof ReservaCapacidad]: ReservaCapacidad[K] }>(sql`
-      select r.id,r.ficha_id as "fichaId",r.cantidad,r.para_fecha::text as "paraFecha",r.necesidad,r.compatibilidad,r.estado,
-      r.nota_entrega as "notaEntrega",r.discrepancia,r.creada_en::text as "creadaEn",r.actualizada_en::text as "actualizadaEn",(r.solicitante_id=${uid}) as "soySolicitante"
+      select r.id,r.revision,r.cantidad_declarada as "cantidadDeclarada",r.ficha_id as "fichaId",r.cantidad,r.para_fecha::text as "paraFecha",r.necesidad,r.compatibilidad,r.estado,
+      r.nota_entrega as "notaEntrega",r.discrepancia,to_char(r.creada_en at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as "creadaEn",to_char(r.actualizada_en at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as "actualizadaEn",(r.solicitante_id=${uid}) as "soySolicitante"
       from reservas_capacidad r join capacidades c on c.id=r.capacidad_id where c.id=${id}::uuid
       and (c.oferente_id=${uid} or r.solicitante_id=${uid})
       ${despues ? sql`and r.id>${despues}::uuid` : sql``} order by r.id limit 21`)

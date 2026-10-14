@@ -40,6 +40,9 @@ export function useOperacionCapacidad() {
   return useMutation({
     mutationFn: ({ ruta, cuerpo }: { ruta: string; cuerpo: unknown }) =>
       escribir<{ id?: string }>('post', `/api/v1/capacidades${ruta}`, cuerpo),
+    onError: () => {
+      void qc.invalidateQueries({ queryKey: ['capacidades'] });
+    },
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ['capacidades'] });
     },

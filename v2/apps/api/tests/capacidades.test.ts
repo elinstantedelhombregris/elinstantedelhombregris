@@ -51,8 +51,33 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       compatibilidad: 'Podemos asistir por la tarde y necesitamos acceso sin escalones.',
       aceptaCondiciones: true,
     });
-    const actuar = (c: string, r: string, accion: string, cookie = ofrece, nota = '') =>
-      post(`/${c}/reservas/${r}/estado`, { accion, nota }, cookie);
+    const recibos = new Map<string, number>();
+    const actuar = async (
+      c: string,
+      r: string,
+      accion: string,
+      cookie = ofrece,
+      nota = '',
+      cantidadEntregada?: number,
+    ) => {
+      const clave = JSON.stringify({ c, r, accion, cookie, nota, cantidadEntregada });
+      const actual = await getDb().execute<{ revision: number }>(
+        sql`select revision from reservas_capacidad where id=${r}::uuid`,
+      );
+      const revisionEsperada = recibos.get(clave) ?? actual.rows[0]?.revision ?? 1;
+      const resultado = await post(
+        `/${c}/reservas/${r}/estado`,
+        {
+          accion,
+          nota,
+          revisionEsperada,
+          ...(cantidadEntregada === undefined ? {} : { cantidadEntregada }),
+        },
+        cookie,
+      );
+      if (resultado.status === 200) recibos.set(clave, revisionEsperada);
+      return resultado;
+    };
     const crear = async (cuerpo = oferta()) =>
       (await post('', cuerpo).expect(201)).body.data.id as string;
     const pedir = async (c: string, cuerpo = solicitud()) =>
@@ -97,6 +122,9 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       await post('', { ...v, cantidad: 20 }).expect(409);
       const publica = await leer(id).expect(200);
       expect(publica.headers['cache-control']).toBe('no-store');
+      expect(publica.body.data.capacidad.confirmadaEn).toMatch(
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/,
+      );
       expect(publica.body.data.capacidad).toMatchObject({
         disponible: 10,
         reservada: 0,
@@ -133,10 +161,10 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
         soySolicitante: false,
       });
       expect((await leer(c)).body.data.capacidad.disponible).toBe(10);
-      await actuar(c, id, 'aceptar', solicita).expect(409);
-      await actuar(c, id, 'aceptar', ajeno).expect(409);
-      await actuar(c, id, 'rechazar').expect(200);
-      await actuar(c, id, 'aceptar').expect(409);
+      expect((await actuar(c, id, 'aceptar', solicita)).status).toBe(409);
+      expect((await actuar(c, id, 'aceptar', ajeno)).status).toBe(409);
+      expect((await actuar(c, id, 'rechazar')).status).toBe(200);
+      expect((await actuar(c, id, 'aceptar')).status).toBe(409);
     });
     it('serializa dos aceptaciones simultáneas, libera al cancelar y no duplica reintentos', async () => {
       const c = await crear();
@@ -151,42 +179,45 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       });
       const ganador = resultados[0]!.status === 200 ? a : b;
       const pendiente = ganador === a ? b : a;
-      await actuar(c, ganador, 'aceptar').expect(200);
-      await actuar(c, ganador, 'cancelar', solicita).expect(200);
-      await actuar(c, ganador, 'cancelar', solicita).expect(200);
-      await actuar(c, ganador, 'aceptar').expect(409);
-      await actuar(c, pendiente, 'aceptar').expect(200);
+      expect((await actuar(c, ganador, 'aceptar')).status).toBe(200);
+      expect((await actuar(c, ganador, 'cancelar', solicita)).status).toBe(200);
+      expect((await actuar(c, ganador, 'cancelar', solicita)).status).toBe(200);
+      expect((await actuar(c, ganador, 'aceptar')).status).toBe(409);
+      expect((await actuar(c, pendiente, 'aceptar')).status).toBe(200);
       expect((await leer(c)).body.data.capacidad.disponible).toBe(4);
     });
     it('distingue entrega declarada, discrepancia y recepción; lo entregado no se libera', async () => {
       const c = await crear(),
         r = await pedir(c, { ...solicitud(), cantidad: 10 });
-      await actuar(c, r, 'aceptar').expect(200);
-      await actuar(c, r, 'confirmar_recepcion', solicita).expect(409);
-      await actuar(c, r, 'declarar_entrega').expect(400);
-      await actuar(c, r, 'declarar_entrega', solicita, 'No me corresponde').expect(409);
-      await actuar(
-        c,
-        r,
-        'declarar_entrega',
-        ofrece,
-        'Se facilitó la sala en las franjas acordadas',
-      ).expect(200);
-      await actuar(c, r, 'cancelar', solicita).expect(409);
-      await actuar(c, r, 'discrepar', solicita, 'Faltaron dos horas').expect(200);
-      await actuar(c, r, 'cancelar', solicita).expect(409);
+      expect((await actuar(c, r, 'aceptar')).status).toBe(200);
+      expect((await actuar(c, r, 'confirmar_recepcion', solicita)).status).toBe(409);
+      expect((await actuar(c, r, 'declarar_entrega')).status).toBe(400);
+      expect((await actuar(c, r, 'declarar_entrega', solicita, 'No me corresponde')).status).toBe(
+        409,
+      );
+      expect(
+        (
+          await actuar(
+            c,
+            r,
+            'declarar_entrega',
+            ofrece,
+            'Se facilitó la sala en las franjas acordadas',
+          )
+        ).status,
+      ).toBe(200);
+      expect((await actuar(c, r, 'cancelar', solicita)).status).toBe(409);
+      expect((await actuar(c, r, 'discrepar', solicita, 'Faltaron dos horas')).status).toBe(200);
+      expect((await actuar(c, r, 'cancelar', solicita)).status).toBe(409);
       expect((await leer(c)).body.data.capacidad.disponible).toBe(0);
-      await actuar(
-        c,
-        r,
-        'declarar_entrega',
-        ofrece,
-        'Se completaron las dos horas pendientes',
-      ).expect(200);
-      await actuar(c, r, 'confirmar_recepcion').expect(409);
-      await actuar(c, r, 'confirmar_recepcion', solicita).expect(200);
-      await actuar(c, r, 'confirmar_recepcion', solicita).expect(200);
-      await actuar(c, r, 'cancelar').expect(409);
+      expect(
+        (await actuar(c, r, 'declarar_entrega', ofrece, 'Se completaron las dos horas pendientes'))
+          .status,
+      ).toBe(200);
+      expect((await actuar(c, r, 'confirmar_recepcion')).status).toBe(409);
+      expect((await actuar(c, r, 'confirmar_recepcion', solicita)).status).toBe(200);
+      expect((await actuar(c, r, 'confirmar_recepcion', solicita)).status).toBe(200);
+      expect((await actuar(c, r, 'cancelar')).status).toBe(409);
       expect((await leer(c)).body.data.capacidad).toMatchObject({
         disponible: 0,
         reservada: 0,
@@ -200,7 +231,7 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       const r = (
         await post(`/${c}/reservas`, { ...solicitud(), cantidad: null }, solicita).expect(201)
       ).body.data.id as string;
-      await actuar(c, r, 'aceptar').expect(200);
+      expect((await actuar(c, r, 'aceptar')).status).toBe(200);
       expect((await leer(c)).body.data.capacidad).toMatchObject({
         cantidad: null,
         disponible: null,
@@ -212,11 +243,11 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       const c = await crear(),
         pendiente = await pedir(c),
         aceptada = await pedir(c);
-      await actuar(c, aceptada, 'aceptar').expect(200);
+      expect((await actuar(c, aceptada, 'aceptar')).status).toBe(200);
       await getDb().execute(
         sql`update reservas_capacidad set para_fecha=${dia(-1)}::date where capacidad_id=${c}::uuid`,
       );
-      await actuar(c, pendiente, 'aceptar').expect(409);
+      expect((await actuar(c, pendiente, 'aceptar')).status).toBe(409);
       await post(`/${c}/estado`, { accion: 'cerrar' }).expect(200);
       await getDb().execute(
         sql`update senales set estado='retirada',texto='' where id_publico=${senalId}::uuid`,
@@ -227,17 +258,86 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
         vigente: false,
         reservada: 6,
       });
-      await actuar(c, aceptada, 'declarar_entrega', ofrece, 'Se completó antes del cierre').expect(
-        200,
-      );
-      await actuar(c, aceptada, 'confirmar_recepcion', solicita).expect(200);
+      expect(
+        (await actuar(c, aceptada, 'declarar_entrega', ofrece, 'Se completó antes del cierre'))
+          .status,
+      ).toBe(200);
+      expect((await actuar(c, aceptada, 'confirmar_recepcion', solicita)).status).toBe(200);
       await getDb().execute(
         sql`update senales set estado='por_verificar',texto='Sala para encuentros' where id_publico=${senalId}::uuid`,
       );
     });
+    it('cierra entregas parciales con aceptación de cantidad y rechaza pantallas viejas', async () => {
+      const c = await crear(),
+        r = await pedir(c, { ...solicitud(), cantidad: 10 });
+      expect((await actuar(c, r, 'aceptar')).status).toBe(200);
+      expect(
+        (await actuar(c, r, 'declarar_entrega', ofrece, 'Declaramos seis horas', 11)).status,
+      ).toBe(409);
+      expect(
+        (await actuar(c, r, 'declarar_entrega', ofrece, 'Declaramos seis horas', 6)).status,
+      ).toBe(200);
+      const vieja = (await leer(c, solicita)).body.data.reservas[0].revision as number;
+      expect((await leer(c)).body.data.capacidad).toMatchObject({
+        disponible: 0,
+        reservada: 10,
+        entregada: 0,
+      });
+      expect((await actuar(c, r, 'discrepar', solicita, 'Recibimos cuatro horas')).status).toBe(
+        200,
+      );
+      expect((await actuar(c, r, 'cancelar', solicita)).status).toBe(409);
+      expect(
+        (
+          await actuar(
+            c,
+            r,
+            'declarar_entrega',
+            ofrece,
+            'Acordamos cerrar por cuatro horas recibidas',
+            4,
+          )
+        ).status,
+      ).toBe(200);
+      await post(
+        `/${c}/reservas/${r}/estado`,
+        { accion: 'confirmar_recepcion', nota: '', revisionEsperada: vieja },
+        solicita,
+      ).expect(409);
+      expect((await actuar(c, r, 'confirmar_recepcion', solicita)).status).toBe(200);
+      expect((await actuar(c, r, 'confirmar_recepcion', solicita)).status).toBe(200);
+      expect((await leer(c)).body.data.capacidad).toMatchObject({
+        disponible: 6,
+        reservada: 0,
+        entregada: 4,
+      });
+      const segunda = await pedir(c);
+      expect((await actuar(c, segunda, 'aceptar')).status).toBe(200);
+      expect(
+        (
+          await actuar(
+            c,
+            segunda,
+            'declarar_entrega',
+            ofrece,
+            'No se prestaron las horas, proponemos cerrar',
+            0,
+          )
+        ).status,
+      ).toBe(200);
+      expect((await leer(c)).body.data.capacidad.disponible).toBe(0);
+      expect((await actuar(c, segunda, 'confirmar_recepcion', solicita)).status).toBe(200);
+      expect((await leer(c)).body.data.capacidad).toMatchObject({
+        disponible: 6,
+        reservada: 0,
+        entregada: 4,
+      });
+    });
     it('pagina ofertas y solicitudes; filtros personales no revelan fichas ajenas', async () => {
       const c = await crear();
-      for (let i = 0; i < 21; i++) await pedir(c);
+      await getDb()
+        .execute(sql`insert into reservas_capacidad(capacidad_id,solicitante_id,ficha_id,id_local,huella,cantidad,para_fecha,necesidad,compatibilidad)
+        select ${c}::uuid,${usuarios[1]},${fichaId}::uuid,gen_random_uuid(),'fixture',1,${dia(1)}::date,'Encuentro','Horario compatible' from generate_series(1,21)`);
       const primera = (await leer(c, ofrece)).body.data;
       expect(primera.reservas).toHaveLength(20);
       const siguiente: string = primera.siguiente;

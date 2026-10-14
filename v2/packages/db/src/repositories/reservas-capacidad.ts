@@ -56,7 +56,7 @@ export class ReservasCapacidadRepository {
       aceptar: sql`r.estado='propuesta' and exists(select 1 from users u where u.id=r.solicitante_id and u.is_active) and not c.cerrada and ${senalDisponible} and r.para_fecha>=${hoyCapacidad} and (c.cantidad is null or ${ocupacion}+r.cantidad<=c.cantidad)`,
       rechazar: sql`r.estado='propuesta'`,
       cancelar: sql`r.estado in ('propuesta','reservada')`,
-      declarar_entrega: sql`r.estado in ('reservada','discrepancia')`,
+      declarar_entrega: sql`r.estado in ('reservada','discrepancia') and (${v.cantidadEntregada ?? null}::int is null or (r.cantidad is not null and ${v.cantidadEntregada ?? null}::int between 0 and r.cantidad))`,
       confirmar_recepcion: sql`r.estado='entrega_declarada'`,
       discrepar: sql`r.estado='entrega_declarada'`,
     }[v.accion];
@@ -64,19 +64,19 @@ export class ReservasCapacidadRepository {
       this.db,
       capacidadId,
       this.db.execute<{ id: string }>(sql`
-      update reservas_capacidad r set estado=${estado},actualizada_en=now()
-      ${v.accion === 'declarar_entrega' ? sql`,nota_entrega=${v.nota}` : sql``}
+      update reservas_capacidad r set estado=${estado},actualizada_en=now(),revision=r.revision+1
+      ${v.accion === 'declarar_entrega' ? sql`,nota_entrega=${v.nota},cantidad_declarada=${v.cantidadEntregada ?? null}` : sql``}
       ${v.accion === 'discrepar' ? sql`,discrepancia=${v.nota}` : sql``}
       from capacidades c where c.id=${capacidadId}::uuid and r.capacidad_id=c.id and r.id=${id}::uuid
-      and ${autorizada} and (${condicion}) returning r.id`),
+      and ${autorizada} and r.revision=${v.revisionEsperada} and (${condicion}) returning r.id`),
     );
     if (r.rows.length) return true;
     // Un reintento solo reconoce el mismo resultado; jamás repite el movimiento.
     const anterior = await this.db.execute<{
       id: string;
     }>(sql`select r.id from reservas_capacidad r join capacidades c on c.id=r.capacidad_id
-      where c.id=${capacidadId}::uuid and r.id=${id}::uuid and ${autorizada} and r.estado=${estado}
-      ${v.accion === 'declarar_entrega' ? sql`and r.nota_entrega=${v.nota}` : sql``}
+      where c.id=${capacidadId}::uuid and r.id=${id}::uuid and ${autorizada} and r.estado=${estado} and r.revision=${v.revisionEsperada + 1}
+      ${v.accion === 'declarar_entrega' ? sql`and r.nota_entrega=${v.nota} and r.cantidad_declarada is not distinct from ${v.cantidadEntregada ?? null}::int` : sql``}
       ${v.accion === 'discrepar' ? sql`and r.discrepancia=${v.nota}` : sql``}`);
     return anterior.rows.length > 0;
   }

@@ -62,11 +62,17 @@ export const accionReservaSchema = z
       'discrepar',
     ]),
     nota: z.string().trim().max(1500).default(''),
+    revisionEsperada: z.number().int().positive(),
+    cantidadEntregada: z.number().int().min(0).max(1_000_000).optional(),
   })
   .strict()
   .refine((v) => !['declarar_entrega', 'discrepar'].includes(v.accion) || v.nota.length > 0, {
     path: ['nota'],
     message: 'Contá qué se entregó o qué falta resolver, sin datos personales.',
+  })
+  .refine((v) => v.cantidadEntregada === undefined || v.accion === 'declarar_entrega', {
+    path: ['cantidadEntregada'],
+    message: 'La cantidad recibida se acuerda a partir de una entrega declarada.',
   });
 export type AccionReserva = z.infer<typeof accionReservaSchema>;
 export const accionCapacidadSchema = z.object({ accion: z.enum(['confirmar', 'cerrar']) }).strict();
@@ -108,6 +114,8 @@ export interface CapacidadPublica {
   esMia: boolean;
 }
 export interface ReservaCapacidad {
+  cantidadDeclarada: number | null;
+  revision: number;
   id: string;
   fichaId: string;
   cantidad: number | null;

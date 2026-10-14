@@ -1,0 +1,4 @@
+ALTER TABLE "reservas_capacidad" ADD COLUMN "cantidad_declarada" integer;--> statement-breakpoint
+ALTER TABLE "reservas_capacidad" ADD COLUMN "revision" integer DEFAULT 1 NOT NULL;--> statement-breakpoint
+ALTER TABLE "reservas_capacidad" ADD CONSTRAINT "reservas_revision_chk" CHECK ("reservas_capacidad"."revision">0);--> statement-breakpoint
+ALTER TABLE "reservas_capacidad" ADD CONSTRAINT "reservas_entrega_chk" CHECK ("reservas_capacidad"."cantidad_declarada" is null or ("reservas_capacidad"."cantidad" is not null and "reservas_capacidad"."cantidad_declarada" between 0 and "reservas_capacidad"."cantidad"));

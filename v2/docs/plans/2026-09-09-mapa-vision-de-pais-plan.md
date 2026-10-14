@@ -137,7 +137,7 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 - [x] Proponer vínculos entre una necesidad y un recurso compatible. La aceptación debe ser explícita por las partes que intervienen; cercanía no prueba compatibilidad.
 - [x] Diferenciar disponibilidad declarada, reservada y entrega confirmada. Aplicar reserva transaccional cuando un recurso sea divisible y cuantificable, evitando ofrecer dos veces la misma capacidad.
 
-Implementado el 14/10 en `/capacidades`: ofertas ligadas a señales propias, aceptación bilateral, reservas serializadas por capacidad y recepción confirmada. Solicitudes privadas para las dos partes; ejemplo interactivo separado del corpus. Migración 0033 preparada; despliegue pendiente. [Especificación](../specs/2026-10-14-capacidades-y-reservas.md).
+Implementado el 14/10 en `/capacidades`: ofertas ligadas a señales propias, aceptación bilateral, reservas serializadas por capacidad y recepción confirmada. Solicitudes privadas para las dos partes; ejemplo interactivo separado del corpus. Migraciones 0033–0034 preparadas; despliegue pendiente. Recepción parcial con aceptación de cantidad y control de revisión: solo se libera el saldo después de confirmar. [Especificación](../specs/2026-10-14-capacidades-y-reservas.md).
 
 ### E3.3 · Cobertura que orienta la escucha
 
