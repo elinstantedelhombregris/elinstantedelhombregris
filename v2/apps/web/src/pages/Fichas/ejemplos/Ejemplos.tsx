@@ -36,6 +36,7 @@ export function EjemplosFichas() {
           </button>
         ))}
       </nav>
+      <Link className="mb-5 inline-flex min-h-11 underline" href="/capacidades/ejemplo">Probá cómo se reserva una capacidad compartida →</Link>
       {caso ? <Recorrido key={caso.id} caso={caso} /> : null}
       <Link className="mt-8 inline-flex min-h-11 underline" href="/fichas">
         Volver a las fichas reales

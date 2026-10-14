@@ -204,6 +204,7 @@ export function LecturaFicha({ ficha }: { ficha: FichaFuturo }) {
               </Link>
             </BotonPapel>
           ) : null}
+          <BotonPapel asChild variant="fantasma"><Link href={`/capacidades?fichaId=${ficha.id}`}>Buscar capacidades para esta ficha</Link></BotonPapel>
           <Seguir tipo="ficha" objeto={ficha.id} />
         </div>
         {ficha.puedoInvitar ? <Equipo tipo="ficha" objeto={ficha.id} /> : null}

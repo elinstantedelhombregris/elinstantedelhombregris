@@ -138,3 +138,6 @@ export * from './cuenta-civica.js';
 export * from './deliberacion-ficha.js';
 export * from './relaciones-ficha.js';
 export * from './vision-compartida.js';
+
+export * from './capacidades.js';
+export * from './reservas-capacidad.js';

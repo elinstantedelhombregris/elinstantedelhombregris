@@ -8,6 +8,7 @@ const PAPEL_ROUTES = new Set([
   '/el-mapa',
   '/fichas',
   '/vision-compartida',
+  '/capacidades',
   '/imaginar',
   '/campanas',
   '/gestion/campanas',
@@ -69,6 +70,7 @@ const PAPEL_ROUTES = new Set([
  */
 const PAPEL_PREFIXES = [
   '/fichas/',
+  '/capacidades/',
   '/campanas/',
   '/mandato-vivo/',
   '/planes/',

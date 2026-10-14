@@ -33,7 +33,10 @@ export async function limpiarFixturesIdeales(db: Db, usuarios: number[], idLocal
   const A = sql`select id from ficha_afirmaciones where ficha_id in(${F})`;
   const B = sql`select id from ficha_alternativas where ficha_id in(${F})`;
   const P = sql`select id from pruebas_territoriales where alternativa_id in(${B})`;
-  const ajeno = sql`exists(select 1 from contribuciones c join senales s on s.id_publico=c.senal_id where c.campana_id in(${C}) and ((s.user_id is not null and s.user_id not in(${U})) or (s.user_id is null and s.id_local not in(${I}))))
+  const K = sql`select id from capacidades where oferente_id in(${U}) or senal_id in(${S})`;
+  const ajeno = sql`exists(select 1 from capacidades where senal_id in(${S}) and oferente_id not in(${U}))
+    or exists(select 1 from reservas_capacidad r join capacidades c on c.id=r.capacidad_id where (r.capacidad_id in(${K}) or r.ficha_id in(${F}) or r.solicitante_id in(${U})) and (r.solicitante_id not in(${U}) or c.oferente_id not in(${U})))
+    or exists(select 1 from contribuciones c join senales s on s.id_publico=c.senal_id where c.campana_id in(${C}) and ((s.user_id is not null and s.user_id not in(${U})) or (s.user_id is null and s.id_local not in(${I}))))
     or exists(select 1 from revisiones_devolucion where campana_id in(${C}) and autor_id not in(${U}))
     or exists(select 1 from fichas_revisiones where ficha_id in(${F}) and editor_id not in(${U}))
     or exists(select 1 from ficha_argumentos where ficha_id in(${F}) and (autor_id not in(${U}) or moderador_id not in(${U})))
@@ -50,6 +53,8 @@ export async function limpiarFixturesIdeales(db: Db, usuarios: number[], idLocal
   await db.batch([
     // La misma guarda corre dentro de la transacción: un cambio concurrente aborta todo el lote.
     db.execute(sql`select 1/(case when (${ajeno}) then 0 else 1 end)`),
+    db.execute(sql`delete from reservas_capacidad where capacidad_id in(${K}) or solicitante_id in(${U}) or ficha_id in(${F})`),
+    db.execute(sql`delete from capacidades where id in(${K})`),
     db.execute(sql`delete from ficha_argumentos where ficha_id in(${F}) or autor_id in(${U})`),
     db.execute(
       sql`delete from ficha_relaciones where origen_id in(${F}) or destino_id in(${F}) or autor_id in(${U})`,

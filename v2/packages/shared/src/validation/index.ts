@@ -22,3 +22,5 @@ export {
 export * from './evidencia-ficha.js';
 
 export * from './deliberacion-ficha.js';
+
+export * from './capacidades.js';

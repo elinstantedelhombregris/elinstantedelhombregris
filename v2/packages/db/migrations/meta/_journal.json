@@ -211,6 +211,13 @@
       "when": 1791946527151,
       "tag": "0032_fichas_deliberacion",
       "breakpoints": true
+    },
+    {
+      "idx": 33,
+      "version": "7",
+      "when": 1791975855807,
+      "tag": "0033_capacidades_reservas",
+      "breakpoints": true
     }
   ]
 }

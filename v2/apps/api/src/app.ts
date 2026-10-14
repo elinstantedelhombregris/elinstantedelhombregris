@@ -11,6 +11,7 @@ import { twoFactorRouter } from './features/auth/two-factor-routes.js';
 import { blogRouter } from './features/blog/routes.js';
 import { equipoRouter } from './features/campanas/equipo-routes.js';
 import { campanasRouter } from './features/campanas/routes.js';
+import { capacidadesRouter } from './features/capacidades/routes.js';
 import { civicAssessmentRouter } from './features/civic-assessment/routes.js';
 import { civicRouter } from './features/civic-map/routes.js';
 import { coachingRouter } from './features/coaching/routes.js';
@@ -120,6 +121,7 @@ export function createApp(): Express {
   app.use('/api/mandato', mandatoRouter);
   app.use('/api/semillas', semillasRouter);
   app.use('/api/v1/faltas', faltasRouter);
+  app.use('/api/v1/capacidades', capacidadesRouter);
   app.use('/api/v1/fichas', deliberacionFichasRouter);
   app.use('/api/v1/fichas', disenoFichasRouter);
   app.use('/api/v1/fichas', fichasRouter);

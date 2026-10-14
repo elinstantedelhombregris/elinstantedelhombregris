@@ -295,3 +295,5 @@ export const EjemplosFichas = lazy(async () => {
 export const VisionCompartida = lazy(() =>
   import('~/pages/VisionCompartida').then((m) => ({ default: m.VisionCompartida })),
 );
+
+export const Capacidades = lazy(() => import('~/pages/Capacidades').then((m) => ({ default: m.Capacidades })));

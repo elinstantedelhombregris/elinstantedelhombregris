@@ -144,6 +144,7 @@ export function Senal() {
 
       <p className="font-space text-tinta-50 mt-2 text-[11px]">{CLASE_GLOSA[clase]}</p>
 
+      {['recurso', 'práctica'].includes(senal.tipo) ? <section className="border-tinta mt-6 border p-4"><h2 className="font-anton text-2xl">Capacidades y reservas</h2><p className="mt-3">Revisá qué se ofrece, sus condiciones y las cantidades comprometidas.</p><Link className="mt-3 inline-flex min-h-11 underline" href={`/capacidades?senalId=${senal.idPublico}${data.esPropia ? '&ofrecer=si' : ''}`}>{data.esPropia ? 'Ver ofertas o declarar disponibilidad' : 'Ver capacidades de este aporte'} →</Link></section> : null}
       {/* ── Dónde y con qué grano ───────────────────────────────────────── */}
       <dl className="border-tinta mt-8 border-t-2">
         {senal.direccionTexto === null ? null : <Fila rotulo="Dónde">{senal.direccionTexto}</Fila>}

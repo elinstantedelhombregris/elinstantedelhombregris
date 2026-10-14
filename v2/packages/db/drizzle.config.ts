@@ -25,6 +25,7 @@ export default defineConfig({
     './src/schema/colaboracion.ts',
     './src/schema/diseno.ts',
     './src/schema/deliberacion.ts',
+    './src/schema/capacidades.ts',
     './src/schema/exportaciones.ts',
     './src/schema/auth.ts',
     './src/schema/notifications.ts',

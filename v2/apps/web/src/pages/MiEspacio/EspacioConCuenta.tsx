@@ -1,3 +1,5 @@
+import { Link } from 'wouter';
+
 import { AnalisisGuardados } from './AnalisisGuardados';
 import { Avisos } from './Avisos';
 import { BorradoresLocales } from './Borradores';
@@ -35,6 +37,7 @@ export function EspacioConCuenta({ user }: { user: AuthenticatedUser }) {
 
   return (
     <>
+      <Link className="mb-5 inline-flex min-h-11 underline" href="/capacidades?propias=si">Mis capacidades, reservas y entregas →</Link>
       <ListaDePestanas actual={pestana} elegir={elegir} />
       <PanelDePestana id={pestana}>
         {pestana === 'borradores' ? (
