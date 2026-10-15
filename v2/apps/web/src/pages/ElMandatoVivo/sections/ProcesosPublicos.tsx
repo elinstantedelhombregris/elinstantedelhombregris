@@ -46,6 +46,9 @@ export function ProcesosPublicos() {
       <Link href="/vision-compartida" className={`${ENLACE} mt-4`}>
         Leer objetivos, evidencia y síntesis entre territorios →
       </Link>
+      <Link href="/sintesis-nacional" className={`${ENLACE} mt-4`}>
+        Consultar ediciones con revisión del equipo y referencias citables →
+      </Link>
       {hayError ? (
         <p role="alert" className="text-oscuro-texto mt-4">
           {ERROR_AL_CARGAR}

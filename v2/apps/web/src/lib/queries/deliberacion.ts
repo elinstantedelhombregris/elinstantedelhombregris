@@ -34,6 +34,8 @@ export function useRelacionesFichas(id: string) {
 export function useVisionCompartida(territorioId?: number) {
   return useInfiniteQuery({
     queryKey: ['vision-compartida', territorioId],
+    staleTime: 0,
+    refetchOnWindowFocus: true,
     initialPageParam: '',
     queryFn: ({ pageParam, signal }) =>
       api.get<VisionCompartida>(

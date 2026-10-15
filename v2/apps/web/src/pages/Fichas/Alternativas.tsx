@@ -1,4 +1,9 @@
-import { alternativaSchema, type DisenoFicha, type DetalleAlternativa, type RevisionAlternativa } from '@v2/shared';
+import {
+  alternativaSchema,
+  type DisenoFicha,
+  type DetalleAlternativa,
+  type RevisionAlternativa,
+} from '@v2/shared';
 import { useRef, useState } from 'react';
 import { Link } from 'wouter';
 
@@ -8,6 +13,7 @@ import {
   FormularioDetalleAlternativa,
   LeerDetalleAlternativa,
 } from './alternativas/DetalleAlternativa';
+import { ExplorarDisponibilidad } from './alternativas/ExplorarDisponibilidad';
 import { CAMPOS, VACIO, validar, type Valores } from './alternativas/formulario';
 import { RevisionPorObjecion } from './alternativas/RevisionPorObjecion';
 import { Campo } from './Campo';
@@ -97,6 +103,7 @@ export function Alternativas({
               </div>
             ))}
             <LeerDetalleAlternativa detalle={a.detalle} />
+            <ExplorarDisponibilidad titulo={a.titulo} />
             {auth.user ? (
               <button
                 className="mt-4 min-h-11 underline"

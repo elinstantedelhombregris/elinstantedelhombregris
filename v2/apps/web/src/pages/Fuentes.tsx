@@ -21,6 +21,12 @@ export function Fuentes() {
         todavía falta averiguar.
       </p>
       <nav aria-label="Recorrido de las fuentes" className="mt-4 flex flex-wrap gap-x-6">
+        <Link
+          className="inline-flex min-h-11 items-center underline"
+          href="/conciliacion-territorial"
+        >
+          Conciliar territorios y Censo 2022
+        </Link>
         <Link className="inline-flex min-h-11 items-center underline" href="/el-mapa">
           Explorar el mapa
         </Link>

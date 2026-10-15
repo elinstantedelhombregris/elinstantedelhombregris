@@ -48,7 +48,7 @@ export class ResultadosFichaRepository {
   async listar(fichaId: string, cursor?: number) {
     const r = await this.db.execute<
       Fila<ResultadoFichaCampo>
-    >(sql`select e.id,e.title as titulo,e.body as texto,e.url,e.is_verified as revisada,e.withdrawn_at is not null as retirada,
+    >(sql`select e.id,e.revision,e.title as titulo,e.body as texto,e.url,e.is_verified as revisada,e.withdrawn_at is not null as retirada,
       e.review_note as "notaRevision",e.reviewer_name as "firmaRevision",e.resultado_escucha as "resultadoEscucha",t.id as "tareaId",t.title as "tareaTitulo",i.slug as "iniciativaSlug"
       from tareas_fichas tf join iniciativa_tasks t on t.id=tf.tarea_id join iniciativas i on i.id=t.iniciativa_id join mission_evidence e on e.task_id=t.id
       where tf.ficha_id=${fichaId}::uuid ${cursor ? sql`and e.id>${cursor}` : sql``} order by e.id limit 21`);

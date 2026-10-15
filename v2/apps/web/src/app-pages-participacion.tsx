@@ -27,3 +27,13 @@ export const EjemplosFichas = lazy(async () => {
 export const Campo = lazy(async () => ({ default: (await import('~/pages/Campo')).Campo }));
 
 export const Fuentes = lazy(async () => ({ default: (await import('~/pages/Fuentes')).Fuentes }));
+
+export const ConciliacionTerritorial = lazy(async () => ({
+  default: (await import('~/pages/ConciliacionTerritorial')).ConciliacionTerritorial,
+}));
+export const SintesisNacional = lazy(async () => ({
+  default: (await import('~/pages/SintesisNacional')).SintesisNacional,
+}));
+export const EjemploSintesisNacional = lazy(async () => ({
+  default: (await import('~/pages/SintesisNacional/Ejemplo')).EjemploSintesisNacional,
+}));

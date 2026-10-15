@@ -15,7 +15,7 @@ if (DESCARTABLE !== undefined && DESCARTABLE !== '') {
 }
 
 import { CONTRATO_SENAL } from '@v2/shared';
-import supertest from 'supertest';
+import { clienteHttp } from './setup/cliente-http.js';
 import { afterAll, describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
@@ -40,7 +40,7 @@ function cuerpo(over: Record<string, unknown> = {}) {
 }
 
 dsuite('Adhesión y respuestas', () => {
-  const request = supertest(createApp());
+  const request = clienteHttp(createApp());
   const creadas: string[] = [];
 
   const soltar = async (body: Record<string, unknown>, cookie?: string) => {
@@ -133,7 +133,9 @@ dsuite('Adhesión y respuestas', () => {
   describe('responder una pregunta', () => {
     it('una pregunta se responde con un hecho', async () => {
       const pregunta = await soltar(cuerpo({ tipo: 'pregunta', texto: '¿Cuándo abre el CAPS?' }));
-      const hecho = await soltar(cuerpo({ tipo: 'saber', fuente: 'Lo vi en la puerta.', texto: 'Abre 8 a 14.' }));
+      const hecho = await soltar(
+        cuerpo({ tipo: 'saber', fuente: 'Lo vi en la puerta.', texto: 'Abre 8 a 14.' }),
+      );
 
       const res = await request
         .post(`${RUTA}/${pregunta.body.data.idPublico as string}/respuesta`)

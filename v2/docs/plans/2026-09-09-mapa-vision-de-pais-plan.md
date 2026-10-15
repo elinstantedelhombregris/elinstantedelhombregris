@@ -211,18 +211,18 @@ Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una 
 
 - [x] **E6.1 · Relaciones entre fichas.** Conectar objetivos compartidos, dependencias, complementariedades y tensiones. Usar relaciones tipadas en Postgres antes de considerar infraestructura especializada. Una relación causal sugerida conserva estado de hipótesis y fuente.
 - [ ] **E6.2 · Escalas de decisión.** Mostrar qué puede hacer la comunidad y qué requiere coordinación municipal, provincial, nacional o entre territorios, validando cada caso. Incluir cuencas, corredores y redes funcionales cuando sean relevantes.
-- [ ] **E6.3 · Síntesis nacional por objetivos.** Publicar futuro deseado, evidencia territorial, variantes, recursos limitantes, alternativas, tensiones y tareas pendientes. Una selección editorial se identifica como tal; popularidad no decide urgencia automáticamente.
-- [ ] **E6.4 · Mandato como lectura derivada.** Enlazar objetivos y acciones a procesos identificados. Publicar versión, alcance, metodología, límites y revisión. Mantener separados reclamos corroborados, acuerdos de participantes y propuestas sin deliberar.
-- [ ] **E6.5 · Documento compartible.** Exportar una versión citable con fecha, territorio, filtros, fuentes y advertencias. Un enlace a la vista actual no se presenta como copia inmutable de una revisión histórica. Aplicar retiro y redacción a contenido sensible también en las vistas históricas públicas.
+- [x] **E6.3 · Síntesis nacional por objetivos.** Publicar futuro deseado, evidencia territorial, variantes, recursos limitantes, alternativas, tensiones y tareas pendientes. Una selección editorial se identifica como tal; popularidad no decide urgencia automáticamente.
+- [x] **E6.4 · Mandato como lectura derivada.** Enlazar objetivos y acciones a procesos identificados. Publicar versión, alcance, metodología, límites y revisión. Mantener separados reclamos corroborados, acuerdos de participantes y propuestas sin deliberar.
+- [x] **E6.5 · Documento compartible.** Exportar una versión citable con fecha, territorio, filtros, fuentes y advertencias. Un enlace a la vista actual no se presenta como copia inmutable de una revisión histórica. Aplicar retiro y redacción a contenido sensible también en las vistas históricas públicas.
 
 **Salida E6:** un lector puede recorrer desde una prioridad de la síntesis hasta las fichas, argumentos y fuentes que la sostienen, y encontrar diferencias entre territorios. La presentación explica a quiénes comprende y a quiénes todavía no escuchó.
 
 ## 10. E7 — Escenarios, solo cuando haya una pregunta concreta
 
-- [ ] Conectar una alternativa con un modelo pertinente: presupuesto, tiempos, disponibilidad o acceso, según datos realmente disponibles.
-- [ ] Mostrar escenario de referencia, parámetros, procedencia, rangos, sensibilidad y límites. Distinguir ejercicio exploratorio de predicción validada.
-- [ ] Conservar la separación entre registros reales, ejemplos y resultados sintéticos; no modificar las enmiendas de ejemplos por conveniencia visual.
-- [ ] Evitar una única puntuación de «mejor país»: mostrar efectos en varias dimensiones y posibles perjudicados.
+- [x] Conectar una alternativa con un modelo pertinente: presupuesto, tiempos, disponibilidad o acceso, según datos realmente disponibles.
+- [x] Mostrar escenario de referencia, parámetros, procedencia, rangos, sensibilidad y límites. Distinguir ejercicio exploratorio de predicción validada.
+- [x] Conservar la separación entre registros reales, ejemplos y resultados sintéticos; no modificar las enmiendas de ejemplos por conveniencia visual.
+- [x] Evitar una única puntuación de «mejor país»: mostrar efectos en varias dimensiones y posibles perjudicados.
 
 **Salida E7:** cambiar un supuesto explica qué resultado cambia y por qué. Si no hay base para estimar una consecuencia, el modelo lo declara.
 
@@ -393,3 +393,18 @@ La entrada «Imaginar mi Argentina» ahora explica su propósito de formular un 
 **Alcance de E3:** el mecanismo de importaciones versionadas y fallos queda implementado para esta selección y las capas IGN. La conciliación con el catálogo operativo, los radios y áreas habitadas, la comparabilidad entre ediciones y la validación territorial del piloto siguen abiertos. E5.2 y E6–E7 no se consideran completos. Especificación y recorrido: `2026-10-15-fuentes-y-geografia.md` en `specs/` y `demos/`.
 
 Verificación de esta entrega: `pnpm verify` aprobado con **3.384 pruebas** y 20 omisiones existentes, tipos y 342 pruebas de la app nativa aprobados, recorrido en navegador aprobado a 360, 390, 768 y 1440 px. Sin migración nueva ni despliegue a producción.
+
+
+## Entrega del 15/10: conciliación documental, síntesis revisada y disponibilidad
+
+`/conciliacion-territorial` cruza por nivel y código los nomencladores oficiales del Censo 2022, la edición IGN y el catálogo operativo. Conserva originales y huellas; muestra denominaciones distintas, unidades ausentes, códigos residuales y pertenencias cruzadas. Las diez geometrías municipales sin código quedan visibles sin filtro provincial. Una coincidencia documental no habilita transferir estadísticas entre polígonos. Por eso E3.1 y E3.3 conservan abierta la validación espacial, los radios/áreas habitadas y la comparabilidad temporal.
+
+`/sintesis-nacional` incorpora ediciones editoriales con selección explícita de objetivos, versiones de fichas, alcance, método, ausencias, recursos, alternativas, tensiones y próxima revisión. La publicación requiere otra persona editora de las fichas citadas; no es una auditoría institucional independiente ni un mandato de la población. Las propuestas, acuerdos del proceso y resultados de campo revisados tienen requisitos distintos comprobados por el servidor. El Mandato enlaza esta lectura derivada.
+
+Cada edición identifica las versiones geográfica y censal y comprueba una huella de las unidades operativas citadas. Cambiar fichas/unidades o retirar apoyos oculta el contenido, incluso desde su dirección histórica y en la descarga. El JSON citable incluye selección, fechas, fuentes, advertencias y referencia de edición; una copia descargada previamente no puede revocarse. E6.3–E6.5 quedan implementadas como herramientas. La primera síntesis nacional real sigue dependiendo de procesos y revisión de equipos reales. E6.2 conserva pendiente la validación de competencias, cuencas y corredores de cada caso.
+
+E7 incorpora un primer modelo exploratorio de disponibilidad en cada alternativa: referencia, supuestos o mediciones documentadas, rangos, sensibilidad, horas de equipo, actividades y plazas. Los parámetros reales empiezan vacíos; los inventados solo aparecen en el ejemplo aislado. No calcula impacto ni representación, no reserva recursos y no produce una puntuación de país. La decisión se documenta en la revisión de la alternativa; el cálculo local no persiste.
+
+Ejemplos separados: agua en casa, llegar a la escuela y conseguir un turno, en `/sintesis-nacional/ejemplo`. Migración 0039 preparada y ensayada localmente. El piloto de E5.2, la validación espacial/temporal y los puntos anteriores todavía abiertos no se consideran completados por esta entrega. Especificación y recorrido: `2026-10-15-conciliacion-y-sintesis.md` en `specs/` y `demos/`.
+
+Verificación final de esta entrega: `pnpm verify` aprobado, 3.411 pruebas y 20 omisiones existentes; aplicación nativa con 342 pruebas y tipos aprobados; tres recorridos de navegador aprobados. Las vistas nuevas se comprobaron a 360, 390, 768 y 1440 píxeles. Persisten las limitaciones operativas y de datos descritas; no se desplegó ni se aplicó 0039 a producción.

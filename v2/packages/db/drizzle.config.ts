@@ -6,7 +6,7 @@ import { defineConfig } from 'drizzle-kit';
 // (pooled connections sometimes mis-handle long-running DDL).
 config({ path: new URL('../../.env', import.meta.url).pathname });
 
-const url = process.env['DATABASE_URL_UNPOOLED'] ?? process.env['DATABASE_URL'];
+const url = process.env.DATABASE_URL_UNPOOLED ?? process.env.DATABASE_URL;
 if (!url) {
   throw new Error('DATABASE_URL_UNPOOLED (or DATABASE_URL) is required for drizzle-kit');
 }
@@ -21,6 +21,7 @@ export default defineConfig({
     './src/schema/users.ts',
     './src/schema/campo-nativo.ts',
     './src/schema/fichas.ts',
+    './src/schema/sintesis-nacional.ts',
     './src/schema/campanas.ts',
     './src/schema/continuidad.ts',
     './src/schema/colaboracion.ts',

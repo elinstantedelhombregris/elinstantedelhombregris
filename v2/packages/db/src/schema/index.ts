@@ -54,3 +54,4 @@ export * from './ejecucion.js';
 export * from './gestion-iniciativas.js';
 
 export * from './campo-nativo.js';
+export * from './sintesis-nacional.js';

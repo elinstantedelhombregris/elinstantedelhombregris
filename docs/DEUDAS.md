@@ -228,6 +228,8 @@ Los rankings de la Simulación (§7.3) piden municipios y el esquema los soporta
 
 Bloquea la rebanada 4 de `docs/specs/2026-08-01-el-mapa-simulacion.md`.
 
+**Avance del 15/10/2026.** `/conciliacion-territorial` cruza por nivel y código el catálogo operativo, la edición IGN y los nomencladores oficiales del Censo 2022. El informe se calcula contra la base del entorno consultado, con diferencias y paginación. No se certificó la correspondencia espacial ni se leyó producción en esta entrega; la deuda conserva estado parcial. Los recuentos históricos de esta entrada no se presentan como cifras actuales.
+
 ---
 
 ### D-006 · Las 73 dependencias entre PLANes viven solo en v1
@@ -2150,6 +2152,14 @@ En la entrega de campo nativo y devolución, la verificación completa mostró u
 Una repetición completa posterior mostró `socket hang up`, dos fallos en cascada después de interrumpir la restauración de la señal de prueba y un timeout de transformación de Vitest. Se adaptaron las suites afectadas y las de campo a un servidor HTTP que escucha durante toda la suite, con cierre explícito al terminar; así Supertest no abre y cierra un puerto por petición. Es una mitigación del transporte de pruebas, coherente con [el caso documentado por Supertest](https://github.com/forwardemail/supertest/issues/844), no una prueba de que todos los fallos anteriores tengan la misma causa. No se modificaron respuestas ni se agregaron reintentos automáticos a las pruebas.
 
 La verificación completa posterior a esa mitigación aprobó 3.370 pruebas, lint, tipos, corpus y compilación. La deuda permanece abierta: un resultado en verde no demuestra la causa de todos los fallos anteriores.
+
+En la entrega de conciliación y síntesis del 15/10, una corrida completa agotó el tiempo de `plans-registry.test.ts` al cargar los cuerpos de los planes; el registro informó 901 segundos transcurridos pese a un límite de diez segundos. Las ocho pruebas del archivo pasaron aisladas después (1,81 segundos en total), sin cambios en su código. No se identificó la causa; no se aumentaron tiempos límite ni se omitió la prueba.
+
+Otra corrida falló en el arranque de dos archivos por un timeout de la comunicación interna de Vitest al cargar `/@vite/env`. `FuturosTerritorio.test.tsx` y `Planes.test.tsx` pasaron aislados (siete pruebas). La verificación posterior reduce de cuatro a dos procesos por paquete para limitar carga, sin retirar casos ni aumentar sus tiempos máximos; esto no identifica la causa del fallo.
+
+La corrida con dos procesos completó las pruebas unitarias, de contenido y de base, pero `senales-adhesion.test.ts` registró el mismo error de protocolo HTTP visto en entregas anteriores. Se adaptó esa suite al servidor persistente por archivo (`clienteHttp`) que ya usan las suites afectadas anteriores; no se modificó la lógica de adhesión ni se añadieron reintentos.
+
+La verificación completa posterior de esta entrega aprobó 3.411 pruebas, lint, tipos, contenido y compilación. Se conservan la deuda y los incidentes anteriores; la corrida en verde no demuestra su causa.
 
 ### D-130 · La membresía de iniciativas necesita contadores atómicos y errores visibles
 

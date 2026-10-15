@@ -140,6 +140,11 @@ export function VisionCompartida() {
               Cargar más fichas
             </BotonPapel>
           ) : null}
+          <p className="my-5">
+            <Link className="inline-flex min-h-11 items-center underline" href="/sintesis-nacional">
+              Preparar o consultar una síntesis con revisión del equipo
+            </Link>
+          </p>
           <section className="border-tinta mt-9 border-t pt-6">
             <h2 className="font-anton text-2xl">Compartir esta lectura</h2>
             <p className="mt-3 text-sm">

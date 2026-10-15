@@ -289,6 +289,9 @@ export const Colaborar = lazy(() =>
 
 export {
   Fuentes,
+  ConciliacionTerritorial,
+  SintesisNacional,
+  EjemploSintesisNacional,
   EjemplosFichas,
   VisionCompartida,
   Capacidades,

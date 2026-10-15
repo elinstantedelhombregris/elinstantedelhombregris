@@ -10,6 +10,8 @@ const PAPEL_ROUTES = new Set([
   '/vision-compartida',
   '/capacidades',
   '/fuentes',
+  '/conciliacion-territorial',
+  '/sintesis-nacional',
   '/iniciativas',
   '/campo',
   '/escucha-territorial',
@@ -73,6 +75,7 @@ const PAPEL_ROUTES = new Set([
  * «`PAPEL_ROUTES` aprende prefijos»).
  */
 const PAPEL_PREFIXES = [
+  '/sintesis-nacional/',
   '/fichas/',
   '/capacidades/',
   '/iniciativas/',

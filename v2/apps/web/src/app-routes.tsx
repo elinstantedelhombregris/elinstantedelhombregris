@@ -23,6 +23,9 @@ import {
   FaltaDetail,
   Fichas,
   Fuentes,
+  ConciliacionTerritorial,
+  SintesisNacional,
+  EjemploSintesisNacional,
   EjemplosFichas,
   VisionCompartida,
   Capacidades,
@@ -78,6 +81,10 @@ export function AppRoutes() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/fuentes" component={Fuentes} />
+      <Route path="/conciliacion-territorial" component={ConciliacionTerritorial} />
+      <Route path="/sintesis-nacional/ejemplo" component={EjemploSintesisNacional} />
+      <Route path="/sintesis-nacional/:id" component={SintesisNacional} />
+      <Route path="/sintesis-nacional" component={SintesisNacional} />
 
       {/* Auth */}
       <Route path="/ingresar" component={Login} />

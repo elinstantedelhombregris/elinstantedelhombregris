@@ -54,6 +54,7 @@ function preparar(raiz: string, fuente: string, obtenida: string) {
   if (!provincia) throw new Error('Falta la capa provincial.');
   reemplazarConRollback([
     { ruta: join(raiz, 'apps/api/src/features/geographic/provincias.generated.ts'), contenido: moduloProvincias(provincia.texto, version) },
+    { ruta: join(raiz, 'apps/api/src/features/conciliacion/ign.generated.json'), contenido: JSON.stringify({ version, unidades: capas.flatMap(c => c.datos.features.map(f => ({ nivel: { provincias: 'province', departamentos: 'department', municipios: 'municipality' }[c.capa], codigo: f.properties.georefId, nombre: f.properties.name }))) }) + '\n' },
     { ruta: join(raiz, 'packages/shared/src/datos/geografia.generated.json'), contenido: serializado },
   ]);
   return manifiesto;

@@ -253,6 +253,13 @@
       "when": 1792015822240,
       "tag": "0038_campo_nativo_devolucion",
       "breakpoints": true
+    },
+    {
+      "idx": 39,
+      "version": "7",
+      "when": 1792072702882,
+      "tag": "0039_sintesis_nacional",
+      "breakpoints": true
     }
   ]
 }

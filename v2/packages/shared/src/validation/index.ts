@@ -27,3 +27,5 @@ export * from './capacidades.js';
 
 export * from './campo-recursos.js';
 export * from './campo-nativo.js';
+export * from './conciliacion.js';
+export * from './sintesis-nacional.js';

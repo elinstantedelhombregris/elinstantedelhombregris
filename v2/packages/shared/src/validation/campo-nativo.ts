@@ -57,6 +57,7 @@ export interface DispositivoCampo {
   revocado: boolean;
 }
 export const resultadoFichaCampoSchema = z.object({
+  revision: z.number().int().positive().optional(),
   id: z.number(),
   titulo: z.string(),
   texto: z.string().nullable(),
