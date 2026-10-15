@@ -1,0 +1,102 @@
+{
+  "actual": "indec-cnphv2022-20240927-r1",
+  "versiones": [
+    {
+      "version": "indec-cnphv2022-20240927-r1",
+      "consultada": "2026-10-15",
+      "publicacion": "Condiciones habitacionales de la población, los hogares y las viviendas",
+      "archivoSha256": "845fed08edd52d1df5906bc1a99dc683d18815d6c02e4c04131b51337da32439",
+      "verificacion": "Procedencia oficial y transcripción contrastada con la página 9. No constituye una auditoría estadística independiente.",
+      "indicadores": [
+        {
+          "id": "agua-red",
+          "tema": "Servicios básicos",
+          "personas": 38278639,
+          "pregunta": "¿Qué hogares siguen sufriendo cortes o no tienen conexión?",
+          "dato": {
+            "titulo": "Personas en viviendas con agua de red pública",
+            "institucion": "INDEC",
+            "url": "https://www.indec.gob.ar/ftp/cuadros/poblacion/censo2022_condiciones_habitacionales.pdf#page=9",
+            "referencia": "2022-05-18",
+            "obtenida": "2026-10-15",
+            "unidad": "%",
+            "universo": "Población en viviendas particulares; total del país. No es un porcentaje de hogares.",
+            "territorioId": null,
+            "metodo": "Transcripción de la lámina nacional, página 9, del Censo 2022. Archivo revisado por el INDEC el 27/9/2024. Porcentajes publicados con un decimal; no se recalcularon.",
+            "licencia": "CC BY-SA 4.0, según la declaración del sitio del INDEC. Selección y rótulos adaptados; cifras conservadas. https://creativecommons.org/licenses/by-sa/4.0/",
+            "frecuencia": "Censal; las correcciones de la publicación pueden cambiar valores.",
+            "limites": "No mide potabilidad, continuidad ni presión del suministro. Describe 2022 y la escala nacional; no se puede trasladar a una provincia, municipio o barrio ni asumir vigencia actual.",
+            "estado": "disponible",
+            "valor": 83.9
+          }
+        },
+        {
+          "id": "cloaca",
+          "tema": "Servicios básicos",
+          "personas": 26201508,
+          "pregunta": "¿Dónde falta conexión y qué alternativas seguras existen?",
+          "dato": {
+            "titulo": "Personas en viviendas con desagüe a cloaca",
+            "institucion": "INDEC",
+            "url": "https://www.indec.gob.ar/ftp/cuadros/poblacion/censo2022_condiciones_habitacionales.pdf#page=9",
+            "referencia": "2022-05-18",
+            "obtenida": "2026-10-15",
+            "unidad": "%",
+            "universo": "Población en viviendas particulares; total del país. No es un porcentaje de hogares.",
+            "territorioId": null,
+            "metodo": "Transcripción de la lámina nacional, página 9, del Censo 2022. Archivo revisado por el INDEC el 27/9/2024. Porcentajes publicados con un decimal; no se recalcularon.",
+            "licencia": "CC BY-SA 4.0, según la declaración del sitio del INDEC. Selección y rótulos adaptados; cifras conservadas. https://creativecommons.org/licenses/by-sa/4.0/",
+            "frecuencia": "Censal; las correcciones de la publicación pueden cambiar valores.",
+            "limites": "No mide el tratamiento de efluentes ni el funcionamiento de la red. Describe 2022 y la escala nacional; no se puede trasladar a una provincia, municipio o barrio ni asumir vigencia actual.",
+            "estado": "disponible",
+            "valor": 57.4
+          }
+        },
+        {
+          "id": "celular-internet",
+          "tema": "Conectividad",
+          "personas": 41446673,
+          "pregunta": "¿Se puede estudiar o hacer trámites con la conexión disponible?",
+          "dato": {
+            "titulo": "Personas cuyos hogares tienen celular con internet",
+            "institucion": "INDEC",
+            "url": "https://www.indec.gob.ar/ftp/cuadros/poblacion/censo2022_condiciones_habitacionales.pdf#page=9",
+            "referencia": "2022-05-18",
+            "obtenida": "2026-10-15",
+            "unidad": "%",
+            "universo": "Población en viviendas particulares; total del país. No es un porcentaje de hogares.",
+            "territorioId": null,
+            "metodo": "Transcripción de la lámina nacional, página 9, del Censo 2022. Archivo revisado por el INDEC el 27/9/2024. Porcentajes publicados con un decimal; no se recalcularon.",
+            "licencia": "CC BY-SA 4.0, según la declaración del sitio del INDEC. Selección y rótulos adaptados; cifras conservadas. https://creativecommons.org/licenses/by-sa/4.0/",
+            "frecuencia": "Censal; las correcciones de la publicación pueden cambiar valores.",
+            "limites": "No mide conexión individual, velocidad, costo ni disponibilidad para estudiar. Describe 2022 y la escala nacional; no se puede trasladar a una provincia, municipio o barrio ni asumir vigencia actual.",
+            "estado": "disponible",
+            "valor": 90.8
+          }
+        },
+        {
+          "id": "sin-internet",
+          "tema": "Conectividad",
+          "personas": 3250728,
+          "pregunta": "¿Qué personas necesitan una alternativa presencial o acceso compartido?",
+          "dato": {
+            "titulo": "Personas sin internet en la vivienda ni en el celular",
+            "institucion": "INDEC",
+            "url": "https://www.indec.gob.ar/ftp/cuadros/poblacion/censo2022_condiciones_habitacionales.pdf#page=9",
+            "referencia": "2022-05-18",
+            "obtenida": "2026-10-15",
+            "unidad": "%",
+            "universo": "Población en viviendas particulares; total del país. No es un porcentaje de hogares.",
+            "territorioId": null,
+            "metodo": "Transcripción de la lámina nacional, página 9, del Censo 2022. Archivo revisado por el INDEC el 27/9/2024. Porcentajes publicados con un decimal; no se recalcularon.",
+            "licencia": "CC BY-SA 4.0, según la declaración del sitio del INDEC. Selección y rótulos adaptados; cifras conservadas. https://creativecommons.org/licenses/by-sa/4.0/",
+            "frecuencia": "Censal; las correcciones de la publicación pueden cambiar valores.",
+            "limites": "No es el complemento del indicador de celular: son condiciones diferentes. Describe 2022 y la escala nacional; no se puede trasladar a una provincia, municipio o barrio ni asumir vigencia actual.",
+            "estado": "disponible",
+            "valor": 7.1
+          }
+        }
+      ]
+    }
+  ]
+}

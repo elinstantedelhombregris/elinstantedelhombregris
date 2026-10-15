@@ -1,0 +1,47 @@
+{
+  "version": "ign-20260922-eff8b13b48b0",
+  "obtenida": "2026-09-22",
+  "fuente": "Instituto Geográfico Nacional",
+  "url": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+  "crs": "EPSG:4326",
+  "marco": [
+    -74.5,
+    -56.5,
+    -53,
+    -21
+  ],
+  "limites": "Marco continental e islas dentro del recorte; Antártida, Georgias y Sandwich del Sur fuera. Sin radios censales ni máscara de áreas habitadas. No usar para límites catastrales.",
+  "controles": "Coordenadas, anillos cerrados y con área, códigos únicos y peso. Simplificación topológica del importador IGN; estas comprobaciones no certifican todos los bordes ni equivalencias censales.",
+  "capas": [
+    {
+      "nombre": "provincias",
+      "rasgos": 24,
+      "identificados": 24,
+      "sinCodigo": 0,
+      "sha256": "682c45eb80f6989a42d1c4dd5ce67276885fa26e0f4fa18fa78040a19b267a27",
+      "archivo": "/geo/versiones/ign-20260922-eff8b13b48b0/provincias.geojson",
+      "toleranciaM": 200,
+      "union": "Códigos provinciales; correspondencia con el catálogo canónico comprobada en pruebas."
+    },
+    {
+      "nombre": "departamentos",
+      "rasgos": 528,
+      "identificados": 528,
+      "sinCodigo": 0,
+      "sha256": "9e59ab1f9322b1e8cebffc79e4a19a2446c57423e968fba9acc9b87616155c99",
+      "archivo": "/geo/versiones/ign-20260922-eff8b13b48b0/departamentos.geojson",
+      "toleranciaM": 500,
+      "union": "Correspondencia con el catálogo operativo pendiente; no se infiere por nombre."
+    },
+    {
+      "nombre": "municipios",
+      "rasgos": 2113,
+      "identificados": 2103,
+      "sinCodigo": 10,
+      "sha256": "768fc668c49c7b38a3d0405890e9753dc81a7bf888e6a735cc832e1ae19abf28",
+      "archivo": "/geo/versiones/ign-20260922-eff8b13b48b0/municipios.geojson",
+      "toleranciaM": 400,
+      "union": "Correspondencia con el catálogo operativo pendiente; no se infiere por nombre."
+    }
+  ]
+}

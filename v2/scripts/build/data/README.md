@@ -117,3 +117,21 @@ inventa centroide.
 Cada capa declara su tolerancia de simplificación y su techo de peso en
 `scripts/build/geo/index.ts`. Si una salida se pasa del techo, el script sale
 con código 1. **Se simplifica más la capa; no se sube el techo.**
+
+
+## Ediciones conservadas desde el 15/10/2026
+
+El mapa y la simulación ya usan `public/geo/versiones/<edicion>/<capa>.geojson`.
+El manifiesto activo es `packages/shared/src/datos/geografia.generated.json`;
+la API compila la misma edición y su prueba compara geometrías completas.
+Las rutas sin versión permanecen como compatibilidad histórica. No son la
+fuente de futuras actualizaciones del instrumento.
+
+El importador ahora prepara y valida todas las capas antes de activarlas.
+Requiere `--obtenida=AAAA-MM-DD`, conserva los archivos anteriores y registra
+fallos. El detalle operativo y los límites están en
+`docs/demos/2026-10-15-fuentes-y-geografia.md`.
+La selección estadística de `/fuentes` usa la publicación del INDEC consultada
+el 15/10/2026, página 9 y nota de reemplazo del 27/9/2024, con su SHA-256.
+Los textos de las fuentes y las geometrías no se interpretan como información
+sobre la representatividad de los aportes ciudadanos.

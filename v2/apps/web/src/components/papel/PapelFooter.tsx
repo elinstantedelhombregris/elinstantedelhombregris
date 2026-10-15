@@ -93,11 +93,14 @@ export function PapelFooter() {
               Datos abiertos
             </Link>
             <span aria-hidden>·</span>
+            <Link href="/fuentes" className="hover:text-papel underline">
+              Fuentes y geografía
+            </Link>
+            <span aria-hidden>·</span>
             <Link href="/politica-privacidad" className="hover:text-papel underline">
               Privacidad
             </Link>
-            <span aria-hidden>·</span>
-            © 2026 ¡BASTA! — El instante del hombre gris
+            <span aria-hidden>·</span>© 2026 ¡BASTA! — El instante del hombre gris
             <span aria-hidden>·</span>
             {/* Única puerta de entrada de toda la página: no está en el
                 recorrido ni en el header, a propósito. */}

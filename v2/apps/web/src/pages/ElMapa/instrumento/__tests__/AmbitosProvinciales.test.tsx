@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, waitFor } from '@testing-library/react';
+import { archivoGeografico } from '@v2/shared';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { AmbitosProvinciales } from '../AmbitosProvinciales';
@@ -79,7 +80,7 @@ describe('Mapa de ámbitos declarados', () => {
         provinceId: 13,
         total: 600,
       });
-      expect(fetch).toHaveBeenCalledWith('/geo/provincias.geojson', expect.anything());
+      expect(fetch).toHaveBeenCalledWith(archivoGeografico('provincias'), expect.anything());
     } finally {
       vi.unstubAllGlobals();
     }

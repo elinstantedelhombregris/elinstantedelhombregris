@@ -16,7 +16,6 @@ import { leerPedidoAportar } from '~/lib/participacion/aportar';
 import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function ElMapa() {
-  useTituloDePagina('El mapa');
   const [elegido, setElegido] = useState<LugarMapa | null>(null);
   const search = useSearch();
   // `participar=aportar|directo` (y sus alias) o el ancla `#aportar` abren el panel.
@@ -25,6 +24,7 @@ export function ElMapa() {
   const [participando, setParticipando] = useState(
     pedido !== null || window.location.hash === '#aportar',
   );
+  useTituloDePagina(participando && modoAporte === 'guiado' ? 'Imaginar mi Argentina' : 'El mapa');
   const [visitado, setVisitado] = useState(participando);
   const territorio = Number(new URLSearchParams(search).get('lugar'));
   const lugar = useQuery({
@@ -84,7 +84,7 @@ export function ElMapa() {
   };
   return (
     <main>
-      <PortadaMapa />
+      <PortadaMapa imaginando={participando && modoAporte === 'guiado'} />
       <SeccionInstrumento
         onAportar={abrir}
         onTerritorio={setElegido}

@@ -16,7 +16,7 @@ const PAGINAS = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const TITULOS: readonly (readonly [archivo: string, titulo: string])[] = [
   ['Home.tsx', "'Inicio'"],
-  ['ElMapa.tsx', "'El mapa'"],
+  ['ElMapa.tsx', "participando && modoAporte === 'guiado' ? 'Imaginar mi Argentina' : 'El mapa'"],
   ['LaRadiografia.tsx', "'La Radiografía'"],
   ['Campanas.tsx', "'Campañas'"],
   ['CampanaDetail.tsx', "q.data?.contrato.titulo ?? 'Campaña'"],
@@ -26,6 +26,7 @@ const TITULOS: readonly (readonly [archivo: string, titulo: string])[] = [
   ['MiEspacio.tsx', "'Mi espacio'"],
   ['Login.tsx', "'Ingresar'"],
   ['Register.tsx', "'Crear mi cuenta'"],
+  ['Fuentes.tsx', "'Fuentes y geografía'"],
   ['DatosAbiertos.tsx', "'Datos abiertos'"],
   ['ElMandatoVivo.tsx', "'El mandato vivo'"],
   ['LaIdea.tsx', "'La idea'"],

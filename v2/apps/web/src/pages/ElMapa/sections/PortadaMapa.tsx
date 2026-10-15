@@ -13,16 +13,17 @@ import { Kicker } from '~/components/papel/primitives';
  * El titular dice qué es la pantalla (revisión del 9/10: «El país, dicho por su
  * gente» no decía nada que se pudiera comprobar) y la bajada, qué es un punto.
  */
-export function PortadaMapa() {
+export function PortadaMapa({ imaginando = false }: { imaginando?: boolean }) {
   return (
     <header className="mx-auto max-w-[1440px] px-5 pb-3 pt-6 min-[961px]:px-10">
       <Kicker className="mb-2">El mapa de los aportes</Kicker>
       <h1 className="font-anton text-[clamp(30px,4vw,52px)] leading-tight">
-        Qué dice la gente, dónde y cuándo
+        {imaginando ? 'Imaginar mi Argentina' : 'Qué dice la gente, dónde y cuándo'}
       </h1>
       <p className="text-tinta-75 mt-2 max-w-[62ch] text-[16px] leading-relaxed">
-        Cada punto es un aporte: un problema, un deseo, algo que ya funciona. Buscá tu zona o sumá
-        el tuyo.
+        {imaginando
+          ? 'Contá qué futuro querés, qué lo impide y qué podrías aportar. El mapa ubica tu propuesta y te permite conocer otras en tu zona.'
+          : 'Cada punto es un aporte: un problema, un deseo, algo que ya funciona. Buscá tu zona o sumá el tuyo.'}
       </p>
     </header>
   );

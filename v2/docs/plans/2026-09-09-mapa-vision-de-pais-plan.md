@@ -126,7 +126,7 @@ La primera entrega al usuario es E1. La primera versión de exploración útil e
 - [x] Para cada serie: institución, enlace, fecha de referencia, fecha de obtención, unidad, universo, territorio, método, licencia, frecuencia esperada y límites de interpretación.
 - [ ] Reutilizar el catálogo geográfico y documentar equivalencias entre municipio, departamento, localidad y unidad censal. Una jerarquía simple no resuelve todas las pertenencias.
 - [ ] Validar geometrías y bordes. Incorporar departamentos/municipios para las áreas piloto con fuente identificada; mostrar el resto como pendiente en vez de fingir cobertura nacional.
-- [ ] Versionar importaciones y registrar fallos; una actualización fallida conserva la última versión válida con aviso. Cero, dato no publicado y dato no disponible son estados distintos.
+- [x] Versionar importaciones y registrar fallos; una actualización fallida conserva la última versión válida con aviso. Cero, dato no publicado y dato no disponible son estados distintos.
 
 **Fuentes de partida verificadas en el análisis:** [INDEC](https://www.indec.gob.ar/indec/web/Nivel4-Tema-2-41-165?lang=es), [REDATAM](https://redatam.indec.gob.ar/) y [Georef](https://www.argentina.gob.ar/georef). Confirmar disponibilidad y escala de cada conjunto específico al importarlo.
 
@@ -381,3 +381,15 @@ Siguen abiertos los ítems no marcados arriba: inventario del corpus real, fuent
 verificadas, geometrías versionadas, sesiones y evaluación del piloto, síntesis
 por objetivos y escenarios con datos. Los ejemplos no se cuentan como evidencia
 de esos trabajos ni como un piloto realizado.
+
+### Entrega 15/10 — Fuentes contrastadas y cartografía con edición
+
+Implementados `/fuentes`, el uso del catálogo en el borrador de una ficha y la identificación de la edición geográfica utilizada por el mapa y la simulación. Selección editorial inicial: cuatro indicadores nacionales del Censo 2022, agrupados en servicios básicos y conectividad; no acredita elección participativa del piloto. Fuente primaria, localizador, universo, fechas, condiciones de uso y huella del original visibles. Una fuente adaptada pierde su referencia contrastada; el servidor rechaza conservarla si cambia el contenido.
+
+Las capas conservan URL inmutable y manifiesto con huellas, cobertura, códigos faltantes y simplificación. Los importadores preparan todo antes de activar, conservan ediciones anteriores y dejan constancia de fallos. El resolvedor de provincias de la API se genera con la misma edición. Datos observados en los archivos conservados: 24 provincias, 528 departamentos, 2.113 áreas municipales; 10 municipales sin código. Sellar la descarga documentada del 22/9 no la presenta como descarga nueva ni como cartografía censal de 2022.
+
+La entrada «Imaginar mi Argentina» ahora explica su propósito de formular un aporte dentro del mapa y recupera la portada de exploración al cerrar. No se multiplicaron formularios ni se cambió el contrato de los enlaces existentes.
+
+**Alcance de E3:** el mecanismo de importaciones versionadas y fallos queda implementado para esta selección y las capas IGN. La conciliación con el catálogo operativo, los radios y áreas habitadas, la comparabilidad entre ediciones y la validación territorial del piloto siguen abiertos. E5.2 y E6–E7 no se consideran completos. Especificación y recorrido: `2026-10-15-fuentes-y-geografia.md` en `specs/` y `demos/`.
+
+Verificación de esta entrega: `pnpm verify` aprobado con **3.384 pruebas** y 20 omisiones existentes, tipos y 342 pruebas de la app nativa aprobados, recorrido en navegador aprobado a 360, 390, 768 y 1440 px. Sin migración nueva ni despliegue a producción.

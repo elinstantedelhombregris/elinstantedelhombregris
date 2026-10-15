@@ -22,6 +22,7 @@ import {
   Entrenamientos,
   FaltaDetail,
   Fichas,
+  Fuentes,
   EjemplosFichas,
   VisionCompartida,
   Capacidades,
@@ -76,6 +77,7 @@ export function AppRoutes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/fuentes" component={Fuentes} />
 
       {/* Auth */}
       <Route path="/ingresar" component={Login} />

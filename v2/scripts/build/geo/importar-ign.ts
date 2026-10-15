@@ -56,6 +56,9 @@ import { fileURLToPath } from 'node:url';
 
 import { PROVINCIAS_CANONICAS } from '../../../packages/civic-core/src/provincias-canonicas.js';
 
+import { publicarGeografia, registrarIntentoGeo } from './publicar-geografia.js';
+
+
 /** mapshaper fijo: una versión nueva puede simplificar distinto y mover bordes. */
 const MAPSHAPER = 'mapshaper@0.7.66';
 
@@ -66,7 +69,8 @@ const WFS_IGN = 'https://wms.ign.gob.ar/geoserver/ign/ows';
 const MARCO = '-74.5,-56.5,-53,-21';
 
 const RAIZ_V2 = fileURLToPath(new URL('../../../', import.meta.url));
-const DESTINO = join(RAIZ_V2, 'apps', 'web', 'public', 'geo');
+const obtenida = process.argv.find((a) => a.startsWith('--obtenida='))?.slice(11);
+
 
 interface Capa {
   /** `typeName` del WFS del IGN. */
@@ -258,10 +262,13 @@ async function asegurarCrudo(capa: Capa): Promise<string> {
 }
 
 async function main(): Promise<void> {
+  if (!obtenida) throw new Error('Indicá --obtenida=AAAA-MM-DD para identificar la fuente.');
   mkdirSync(fuente, { recursive: true });
   const temporal = join(tmpdir(), `geo-ign-${String(process.pid)}`);
   mkdirSync(temporal, { recursive: true });
 
+  const preparadas = join(temporal, 'validadas');
+  mkdirSync(preparadas, { recursive: true });
   const excedidas: string[] = [];
 
   for (const capa of CAPAS) {
@@ -324,7 +331,7 @@ async function main(): Promise<void> {
       ),
     );
 
-    const ruta = join(DESTINO, capa.archivo);
+    const ruta = join(preparadas, capa.archivo);
     writeFileSync(ruta, serializar(rasgos), 'utf8');
     const kb = statSync(ruta).size / 1024;
 
@@ -358,14 +365,17 @@ async function main(): Promise<void> {
       `\nTecho de peso excedido. Subí la tolerancia de la capa, no el techo:\n` +
         excedidas.map((l) => `  ${l}\n`).join(''),
     );
-    process.exit(1);
+    throw new Error(excedidas.join('; '));
   }
 
-  // El módulo de la API sale del GeoJSON recién escrito, por el script de siempre.
-  execFileSync('pnpm', ['geo:provincias'], { cwd: RAIZ_V2, stdio: 'inherit' });
+  const version = publicarGeografia(RAIZ_V2, preparadas, obtenida);
+
+  // El resolvedor provincial ya se preparó junto con el manifiesto.
+  registrarIntentoGeo(RAIZ_V2, 'correcta', version.version);
 }
 
 main().catch((error: unknown) => {
+  registrarIntentoGeo(RAIZ_V2, 'fallida', error instanceof Error ? error.message : 'Falló la importación geográfica.');
   process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
   process.exit(1);
 });

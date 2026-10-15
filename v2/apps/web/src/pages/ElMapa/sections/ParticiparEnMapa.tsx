@@ -89,7 +89,7 @@ export function ParticiparEnMapa({
             </p>
           ) : null}
           <h2 ref={titulo} tabIndex={-1} className="font-anton mt-2 text-2xl focus:outline-none">
-            Sumá tu aporte.
+            {modo === 'guiado' ? 'Imaginá el país desde tu lugar.' : 'Sumá tu aporte.'}
           </h2>
         </div>
         <button

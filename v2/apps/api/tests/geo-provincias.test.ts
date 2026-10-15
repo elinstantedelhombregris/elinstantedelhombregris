@@ -1,3 +1,5 @@
+import { archivoGeografico, GEOGRAFIA } from '@v2/shared';
+import { VERSION_GEOGRAFICA } from '../src/features/geographic/provincias.generated.js';
 /**
  * La resolución de un punto a su provincia, contra la geometría real.
  *
@@ -150,9 +152,11 @@ describe('el módulo generado', () => {
     // confiable. Si divergen, el mapa y el conteo dejan de coincidir sin que
     // nada falle a la vista. Esta es la guarda.
     const fuente = JSON.parse(
-      readFileSync(new URL('../../web/public/geo/provincias.geojson', import.meta.url), 'utf8'),
-    ) as { features: { properties: { name: string } }[] };
+      readFileSync(new URL(`../../web/public${archivoGeografico('provincias')}`, import.meta.url), 'utf8'),
+    ) as { features: { properties: { name: string }; geometry: unknown }[] };
 
+    expect(VERSION_GEOGRAFICA).toBe(GEOGRAFIA.version);
+    expect(AREAS_PROVINCIAS).toEqual(fuente.features.map((f) => ({ nombre: f.properties.name, geometria: f.geometry })));
     expect(AREAS_PROVINCIAS).toHaveLength(fuente.features.length);
     expect(AREAS_PROVINCIAS.map((a) => a.nombre).sort()).toEqual(
       fuente.features.map((f) => f.properties.name).sort(),

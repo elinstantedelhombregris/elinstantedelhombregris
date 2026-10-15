@@ -9,6 +9,7 @@ const PAPEL_ROUTES = new Set([
   '/fichas',
   '/vision-compartida',
   '/capacidades',
+  '/fuentes',
   '/iniciativas',
   '/campo',
   '/escucha-territorial',

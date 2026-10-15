@@ -101,7 +101,7 @@ describe('Imaginar y el aporte puntual en un solo panel', () => {
   it('abre con las tres preguntas; el aporte puntual no está a la vista ni en el teclado', async () => {
     render(<Panel lugar={mendoza} />);
     expect(await screen.findByText('Pregunta 1 de 3')).toBeVisible();
-    expect(screen.getByRole('heading', { name: 'Sumá tu aporte.' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Imaginá el país desde tu lugar.' })).toBeInTheDocument();
     // Los dos formularios están montados, pero el inactivo está oculto: ni lectores ni tabulador.
     expect(screen.queryByRole('button', { name: 'basta' })).not.toBeInTheDocument();
     expect(

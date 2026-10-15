@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { coincideConCatalogo, referenciaCatalogoSchema } from '../datos/fuentes.js';
+
 export const enlacePublicoSchema = z
   .string()
   .trim()
@@ -24,6 +26,7 @@ export const fuenteFichaSchema = z
     limites: texto(2000),
     estado: z.enum(['disponible', 'no_publicado', 'no_disponible']),
     valor: z.number().finite().nullable(),
+    catalogo: referenciaCatalogoSchema.optional(),
     actualizacion: z
       .object({
         estado: z.enum(['vigente', 'fallida']),
@@ -35,6 +38,13 @@ export const fuenteFichaSchema = z
   })
   .strict()
   .superRefine((f, ctx) => {
+    if (f.catalogo && (!coincideConCatalogo(f, f.catalogo) || f.actualizacion))
+      ctx.addIssue({
+        code: 'custom',
+        path: ['catalogo'],
+        message:
+          'La referencia debe conservar el dato de esa edición. Desvinculá la referencia para adaptar la fuente.',
+      });
     if ((f.estado === 'disponible') !== (f.valor !== null))
       ctx.addIssue({
         code: 'custom',

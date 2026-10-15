@@ -25,3 +25,5 @@ export const EjemplosFichas = lazy(async () => {
 });
 
 export const Campo = lazy(async () => ({ default: (await import('~/pages/Campo')).Campo }));
+
+export const Fuentes = lazy(async () => ({ default: (await import('~/pages/Fuentes')).Fuentes }));

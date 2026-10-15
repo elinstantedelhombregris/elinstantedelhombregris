@@ -9,6 +9,7 @@ import {
   totalDeVoces,
   vocesPorTerritorio,
 } from '@v2/civic-core';
+import { archivoGeografico } from '@v2/shared';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import {
@@ -79,7 +80,7 @@ export interface ElPaisCargadoProps {
   readonly elenco: ElencoCargado | null;
 }
 
-const RUTA_GEO = '/geo/provincias.geojson';
+const RUTA_GEO = archivoGeografico('provincias');
 
 /** El ancho máximo del dibujo. El alto sale de la proyección, no de un número. */
 const ANCHO_MAXIMO = 520;
@@ -202,7 +203,8 @@ export function ElPaisCargado({ pais, escenario, elenco }: ElPaisCargadoProps) {
     [lectura, geometria],
   );
 
-  const alto = geometria === null ? 0 : (ancho * geometria.encuadre.alto) / geometria.encuadre.ancho;
+  const alto =
+    geometria === null ? 0 : (ancho * geometria.encuadre.alto) / geometria.encuadre.ancho;
 
   const proyectar = useCallback<ProyectarAPixel>(
     (lng, lat) => {

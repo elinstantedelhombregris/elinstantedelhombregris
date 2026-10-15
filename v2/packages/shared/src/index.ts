@@ -27,3 +27,11 @@ export * from './participacion/gestion-iniciativas.js';
 export * from './validation/gestion-iniciativas.js';
 
 export * from './participacion/recursos-tarea.js';
+export {
+  CATALOGO_FUENTES,
+  catalogoFuentesSchema,
+  datoDelCatalogo,
+  coincideConCatalogo,
+} from './datos/fuentes.js';
+export { GEOGRAFIA, archivoGeografico } from './datos/geografia.js';
+export { VERSIONES_FUENTES } from './datos/fuentes.js';

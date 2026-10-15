@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { archivoGeografico, GEOGRAFIA } from '@v2/shared';
 import { z } from 'zod';
 
 const punto = z.array(z.number().finite()).min(2);
@@ -22,11 +23,11 @@ const coleccion = z.object({
 /** Una sola descarga validada para ámbitos, análisis y simulación. */
 export function useGeometriaProvincial() {
   return useQuery({
-    queryKey: ['geometria-provincias'],
+    queryKey: ['geometria-provincias', GEOGRAFIA.version],
     staleTime: Infinity,
     retry: false,
     queryFn: async ({ signal }) => {
-      const respuesta = await fetch('/geo/provincias.geojson', { signal });
+      const respuesta = await fetch(archivoGeografico('provincias'), { signal });
       if (!respuesta.ok) throw new Error('No pudimos cargar los límites provinciales.');
       return coleccion.parse(await respuesta.json());
     },

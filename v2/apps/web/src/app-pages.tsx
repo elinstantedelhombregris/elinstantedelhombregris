@@ -288,6 +288,7 @@ export const Colaborar = lazy(() =>
 );
 
 export {
+  Fuentes,
   EjemplosFichas,
   VisionCompartida,
   Capacidades,

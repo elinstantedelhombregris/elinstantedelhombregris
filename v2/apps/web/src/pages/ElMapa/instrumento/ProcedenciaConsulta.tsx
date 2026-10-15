@@ -1,3 +1,6 @@
+import { GEOGRAFIA } from '@v2/shared';
+import { Link } from 'wouter';
+
 import { frasePorPagina } from './conteo';
 
 import type { LecturaMapa } from '~/lib/queries/civic-map';
@@ -20,6 +23,12 @@ export function ProcedenciaConsulta({
       <p className="text-xs">
         Datos al {new Date(datos.hasta).toLocaleString('es-AR')}. Se cuentan aportes, no personas.
       </p>
+      <Link
+        href="/fuentes#geografia"
+        className="inline-flex min-h-11 items-center text-xs underline"
+      >
+        Fuentes y límites · edición {GEOGRAFIA.obtenida}
+      </Link>
       {!datos.completa ? (
         <p className="w-full">
           El mapa y el área que dibujes muestran solo esta página de aportes. Los totales por

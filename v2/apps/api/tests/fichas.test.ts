@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 
 import { getDb } from '@v2/db';
+import { CATALOGO_FUENTES } from '@v2/shared';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import supertest from 'supertest';
@@ -107,6 +108,16 @@ describe.skipIf(!process.env['MAPA_TEST_DATABASE_URL'])(
         contenido: { ...contenido, territorioId: 2147483647 },
         aceptaPublicar: true,
       }).expect(400);
+    });
+    it('guarda una referencia contrastada pero rechaza alterar el dato o convertirlo en local', async () => {
+      const i = CATALOGO_FUENTES.indicadores[0]!;
+      const fuente = { ...i.dato, id: randomUUID(), catalogo: { version: CATALOGO_FUENTES.version, id: i.id } };
+      const entrada = (dato: object) => ({ idLocal: randomUUID(), aceptaPublicar: true, contenido: { ...contenido, cuaderno: { fuentes: [dato], objetivos: [] } } });
+      await post(entrada({ ...fuente, valor: 0 })).expect(400);
+      await post(entrada({ ...fuente, territorioId: 6 })).expect(400);
+      const creada = await post(entrada(fuente)).expect(201);
+      const lectura = await request.get(`/api/v1/fichas/${creada.body.data.id}`).expect(200);
+      expect(lectura.body.data.contenido.cuaderno.fuentes[0]).toMatchObject(fuente);
     });
     it('crea ficha y primera revisión en conjunto, y reintentar devuelve el mismo recibo', async () => {
       const entrada = { idLocal: randomUUID(), contenido, aceptaPublicar: true };

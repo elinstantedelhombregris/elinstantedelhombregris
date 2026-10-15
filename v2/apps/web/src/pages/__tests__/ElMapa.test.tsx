@@ -184,6 +184,19 @@ describe('ElMapa (página papel 2.2)', () => {
     ).toHaveAttribute('data-modo', modo);
   });
 
+  it('la entrada para imaginar explica la acción y cerrar recupera la portada del mapa', () => {
+    window.history.replaceState(null, '', '/el-mapa?participar=aportar#instrumento');
+    montar();
+    expect(screen.getByRole('heading', { level: 1, name: 'Imaginar mi Argentina' })).toBeVisible();
+    expect(screen.getByText(/Contá qué futuro querés/)).toBeVisible();
+    expect(document.title).toBe('Imaginar mi Argentina · ¡BASTA!');
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar aporte y volver al mapa' }));
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Qué dice la gente, dónde y cuándo' }),
+    ).toBeVisible();
+    expect(document.title).toBe('El mapa · ¡BASTA!');
+  });
+
   it('el enlace sin pedido de aportar no abre el panel', () => {
     window.history.replaceState(null, '', '/el-mapa?lente=mapa&participar=otra');
     montar();

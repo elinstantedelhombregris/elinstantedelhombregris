@@ -45,7 +45,7 @@ const base = { modo: 'guiado' as const, cerrar: vi.fn(), lugar, visible: true };
 describe('El título del panel recibe el foco sin dibujar un anillo', () => {
   it('«Sumá tu aporte.» toma el foco al abrir y no pinta el anillo violeta del :focus-visible', () => {
     render(<ParticiparEnMapa {...base} cambiar={vi.fn()} />);
-    const titulo = screen.getByRole('heading', { level: 2, name: 'Sumá tu aporte.' });
+    const titulo = screen.getByRole('heading', { level: 2, name: 'Imaginá el país desde tu lugar.' });
     // Foco programático sobre un título que no es un control: el foco se mueve (lectores de
     // pantalla, siguiente tabulación), pero el anillo de .papel-root :focus-visible no se ve.
     expect(titulo).toHaveFocus();
@@ -65,7 +65,7 @@ describe('El panel de aportes es papel dentro del instrumento de noche', () => {
 describe('Un solo panel para aportar, dentro del mapa', () => {
   it('se llama «Sumá tu aporte» y abre con las tres preguntas; el aporte puntual queda fuera del teclado', async () => {
     render(<ParticiparEnMapa {...base} cambiar={vi.fn()} />);
-    expect(screen.getByRole('heading', { level: 2, name: 'Sumá tu aporte.' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: 'Imaginá el país desde tu lugar.' })).toBeInTheDocument();
     expect(await screen.findByLabelText('Reflexión privada')).toBeVisible();
     // Oculto con `hidden`: no está en el árbol de accesibilidad ni en el orden del tabulador.
     expect(screen.queryByRole('textbox', { name: 'Aporte puntual' })).not.toBeInTheDocument();

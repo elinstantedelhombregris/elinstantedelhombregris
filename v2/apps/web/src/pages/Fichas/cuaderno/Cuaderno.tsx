@@ -8,6 +8,7 @@ import {
 import { useState } from 'react';
 
 import { nuevaFuente, nuevoObjetivo } from './borradores';
+import { ElegirFuenteCatalogo } from './ElegirFuenteCatalogo';
 import { FormularioFuente, LeerFuente } from './Fuentes';
 import { LeerObjetivo } from './LeerObjetivo';
 import { FormularioObjetivo } from './Objetivos';
@@ -160,6 +161,12 @@ function EditorCuaderno({
       >
         Agregar fuente
       </button>
+      <ElegirFuenteCatalogo
+        completo={valor.fuentes.length >= 20}
+        agregar={(f) => {
+          setValor({ ...valor, fuentes: [...valor.fuentes, f] });
+        }}
+      />
       <h3 className="font-anton mt-6 text-2xl">Objetivos del borrador</h3>
       <ul>
         {valor.objetivos.map((o) => (

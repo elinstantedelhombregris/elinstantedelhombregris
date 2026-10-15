@@ -51,7 +51,9 @@
     "simulacion:elenco": "tsx scripts/simulacion/elenco-ollama.ts",
     "deps:check": "tsx scripts/build/deps-check.ts",
     "size": "size-limit",
-    "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm entrenamientos:check && pnpm build"
+    "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm entrenamientos:check && pnpm build",
+    "geo:versionar": "tsx scripts/build/geo/versionar-geografia.ts",
+    "fuentes:importar": "tsx scripts/build/datos/importar-fuentes.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
