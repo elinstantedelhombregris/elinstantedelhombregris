@@ -290,6 +290,7 @@ export const Colaborar = lazy(() =>
 export {
   Fuentes,
   ConciliacionTerritorial,
+  ValidacionEspacial,
   SintesisNacional,
   EjemploSintesisNacional,
   EjemplosFichas,

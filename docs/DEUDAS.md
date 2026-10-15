@@ -142,6 +142,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-126](#d-126--cualquier-escritura-en-las-fuentes-invalida-los-archivos-de-exportación-en-preparación) | Cualquier escritura en las fuentes invalida los archivos de exportación en preparación | Media | Abierta |
 | [D-127](#d-127--las-pruebas-de-la-siembra-nacional-se-rompen-el-1-de-marzo-de-2027) | Las pruebas de la siembra nacional se rompen el 1 de marzo de 2027 | Media | Abierta |
 | [D-130](#d-130--la-membresía-de-iniciativas-necesita-contadores-atómicos-y-errores-visibles) | La membresía de iniciativas necesita contadores atómicos y errores visibles | Media | Resuelta en código; despliegue pendiente |
+| [D-131](#d-131--la-geografía-publicada-contiene-polígonos-inválidos-y-diferencias-entre-capas) | La geografía publicada contiene polígonos inválidos y diferencias entre capas | Alta | Abierta |
 
 ---
 
@@ -229,6 +230,13 @@ Los rankings de la Simulación (§7.3) piden municipios y el esquema los soporta
 Bloquea la rebanada 4 de `docs/specs/2026-08-01-el-mapa-simulacion.md`.
 
 **Avance del 15/10/2026.** `/conciliacion-territorial` cruza por nivel y código el catálogo operativo, la edición IGN y los nomencladores oficiales del Censo 2022. El informe se calcula contra la base del entorno consultado, con diferencias y paginación. No se certificó la correspondencia espacial ni se leyó producción en esta entrega; la deuda conserva estado parcial. Los recuentos históricos de esta entrada no se presentan como cifras actuales.
+
+**Conciliación operativa comprobada 15/10/2026 a las 21:53 UTC:** 24/24
+jurisdicciones y 528/529 departamentos unen; 94028 queda fuera del marco.
+Municipios: 2.080 coincidencias, 23 códigos solo IGN, dos solo catálogo
+(740073 Nación Ranquel y 822784 El Rabón), diez geometrías sin código. Son
+coincidencias documentales en esa consulta, no validaciones espaciales; D-131
+registra los polígonos inválidos. La deuda conserva estado parcial.
 
 ---
 
@@ -2064,6 +2072,8 @@ Hasta entonces, todo aporte se publica sin campaña. El recibo lo dice como es: 
 
 **Qué haría falta:** que todos los scripts que escriben en una base pidan la dirección de forma explícita, como la siembra nacional, y dejen de leer `v2/.env`.
 
+**Avance 15/10/2026:** `migrate.ts` dejó de cargar `.env`; exige conexión explícita, comprueba la cadena completa de huellas, serializa por candado y requiere destino v2, última migración revisada y `--aplicar` para escribir remotamente. La siembra restante conserva el riesgo: D-122 sigue abierta.
+
 ### D-123 · Mi perfil sigue con la plantilla vieja
 
 **Dónde:** `v2/apps/web/src/pages/` (la página de `/mi-perfil`)
@@ -2161,6 +2171,13 @@ La corrida con dos procesos completó las pruebas unitarias, de contenido y de b
 
 La verificación completa posterior de esta entrega aprobó 3.411 pruebas, lint, tipos, contenido y compilación. Se conservan la deuda y los incidentes anteriores; la corrida en verde no demuestra su causa.
 
+**Continuación 15/10 (validación espacial):** la primera verificación volvió a
+recibir 404 en una aceptación concurrente de `gestion-iniciativas.test.ts`, donde
+se esperaba el conflicto 409. Se migró esa suite al mismo servidor HTTP persistente
+por suite que ya usan las otras pruebas corregidas y se incluyó el cuerpo de las
+respuestas en el diagnóstico. No se modificaron handlers ni estados aceptados,
+no se añadieron reintentos y D-129 conserva su estado abierto.
+
 ### D-130 · La membresía de iniciativas necesita contadores atómicos y errores visibles
 
 **Dónde:** `v2/packages/db/src/repositories/iniciativas.ts` (`addMember`, `removeMember`), `v2/apps/api/src/features/iniciativas/routes.ts`, `v2/apps/web/src/pages/IniciativaDetail.tsx`
@@ -2173,3 +2190,39 @@ El alta/baja de membresía y el cambio del contador se realizan en sentencias se
 **Qué haría falta:** actualizar membresía y contador en una misma transacción, distinguir duplicado de fallo, probar ingresos/salidas concurrentes y dar respuesta visible en la pantalla, con acceso a iniciar sesión cuando corresponda.
 
 **Resolución (14/10):** `IniciativaMembresiaRepository` serializa operaciones por iniciativa y actualiza membresía y contador en una sola transacción. El ingreso duplicado y la salida repetida no modifican otras membresías. Se retiraron los métodos anteriores; los fallos llegan a la pantalla. Se impide salir al propietario y a quien conserva tareas activas. La migración 0036 concilia los contadores anteriores. Pruebas reales de Postgres cubren carreras y reintentos; los componentes comprueban permisos y errores visibles.
+
+**Esquema aplicado 15/10/2026:** 0036 quedó desplegada dentro de la cadena 0032–0039 en v2. Los contadores se comprobaron conciliados. El despliegue del código de la API sigue pendiente.
+
+
+### D-131 · La geografía publicada contiene polígonos inválidos y diferencias entre capas
+
+**Dónde:** edición `ign-20260922-eff8b13b48b0`, `v2/apps/web/public/geo/versiones/`.
+**Encontrada:** 2026-10-15, al ejecutar controles GEOS sobre los archivos publicados.
+**Severidad:** alta
+**Estado:** abierta
+
+La comprobación detectó 11 polígonos inválidos: Buenos Aires (06); departamentos
+66049, 66126, 86007, 86042 y 94021; municipios 060875, 140091, 142105, 309220 y
+620070. Hay autointersecciones y, en Villarino, un agujero fuera de su contorno.
+Un anillo cerrado y con área no bastaba para encontrar estos problemas.
+
+El informe también registra 29 pares superpuestos, 726 diferencias de pertenencia
+provincial y 20 diferencias de cobertura departamental por encima de 1 m². Ese
+umbral descarta ruido numérico: no convierte cada diferencia en un error legal.
+Las capas se simplificaron por separado (200/500/400 m). Hay diez áreas municipales
+sin código y 283 controles que no se pueden calcular por geometrías inválidas o
+ausentes; no se reportan como aprobados. La extensión de cada incidencia identifica
+el rasgo, no necesariamente la pequeña zona del defecto.
+
+**Mitigación implementada:** `/validacion-espacial` muestra el informe íntegro y
+filtrable, ligado por SHA-256 a los archivos exactos. Las futuras importaciones
+fallan antes de activar si GEOS encuentra polígonos inválidos o no está disponible
+el motor. La edición anterior se conserva. Se retiró la afirmación de que la
+simplificación garantiza ausencia de huecos y solapes.
+
+**Pendiente:** contrastar los casos con originales y cartografía censal, preparar
+una edición corregida con diferencias cuantificadas y revisar sus bordes. No se
+aplica `make_valid` automáticamente ni se reemplazan límites oficiales por una
+conjetura. No habilitar agregados departamentales/municipales ni transferir
+estadísticas por coincidencia de código. Se mantienen D-089 y la comparabilidad
+censal/temporal abiertas.

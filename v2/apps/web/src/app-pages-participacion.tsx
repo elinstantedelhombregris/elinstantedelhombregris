@@ -37,3 +37,7 @@ export const SintesisNacional = lazy(async () => ({
 export const EjemploSintesisNacional = lazy(async () => ({
   default: (await import('~/pages/SintesisNacional/Ejemplo')).EjemploSintesisNacional,
 }));
+
+export const ValidacionEspacial = lazy(async () => ({
+  default: (await import('~/pages/ValidacionEspacial')).ValidacionEspacial,
+}));

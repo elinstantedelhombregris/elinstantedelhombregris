@@ -1,15 +1,17 @@
 import { randomUUID } from 'node:crypto';
+
 import { getDb, sql } from '@v2/db';
-import supertest from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
 import { signAccessToken } from '../src/features/auth/tokens.js';
 
+import { clienteHttp } from './setup/cliente-http.js';
+
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
   'Administración y escucha territorial',
   () => {
-    const api = supertest(createApp());
+    const api = clienteHttp(createApp());
     const usuarios: { id: number; name: string; cookie: string }[] = [];
     const ids: number[] = [];
     const post = (path: string, body: object, u = 0) =>
@@ -352,7 +354,10 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       expect((await get(`/${id}/tareas`, 1)).body.data.items[0].puedoAceptar).toBe(false);
       await patch('/' + id, { ...nuevo(), revision: rev + 1, estado: 'open' }).expect(200);
       const carreras = await Promise.all([estado('aceptar', 1, 1), estado('aceptar', 1, 2)]);
-      expect(carreras.map((r) => r.status).sort()).toEqual([200, 409]);
+      expect(
+        carreras.map((r) => r.status).sort(),
+        JSON.stringify(carreras.map((r) => r.body)),
+      ).toEqual([200, 409]);
       const asignado = carreras[0]!.status === 200 ? 1 : 2;
       rev = (await get('/' + slug)).body.data.iniciativa.revision as number;
       await post(`/${id}/equipo`, {

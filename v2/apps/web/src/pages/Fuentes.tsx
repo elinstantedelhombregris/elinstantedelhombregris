@@ -33,6 +33,9 @@ export function Fuentes() {
         <Link className="inline-flex min-h-11 items-center underline" href="/fichas">
           Trabajar con una ficha
         </Link>
+        <Link className="inline-flex min-h-11 items-center underline" href="/validacion-espacial">
+          Validación espacial de límites
+        </Link>
         <a className="inline-flex min-h-11 items-center underline" href="#geografia">
           Ver la geografía
         </a>

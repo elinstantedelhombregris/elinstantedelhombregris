@@ -16,6 +16,9 @@ export function Geografia() {
       <EstadoActualizacion recurso="geo" />
       <p className="mt-4">{GEOGRAFIA.limites}</p>
       <p className="mt-3 text-sm">{GEOGRAFIA.controles}</p>
+      <a className="mt-3 inline-flex min-h-11 items-center underline" href="/validacion-espacial">
+        Consultar el control espacial y las observaciones por unidad
+      </a>
       <div className="mt-5 grid gap-4 md:grid-cols-3">
         {GEOGRAFIA.capas.map((c) => (
           <article key={c.nombre} className="border-tinta/30 min-w-0 border p-4">

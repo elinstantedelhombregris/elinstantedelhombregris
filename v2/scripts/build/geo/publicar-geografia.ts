@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { CAPAS_VERSIONADAS, validarGeografia } from '../../../packages/shared/src/datos/geografia-schema.js';
 import { escribirAtomico, reemplazarConRollback, conCandado } from '../datos/archivo-atomico.js';
 
+import { comprobarPoligonos } from './control-espacial.js';
 import { moduloProvincias } from './modulo-provincias.js';
 
 
@@ -21,6 +22,7 @@ function preparar(raiz: string, fuente: string, obtenida: string) {
     const { datos, ...resumen } = validarGeografia(texto, capa);
     return { capa, texto, resumen, hash: sha256(texto), datos };
   });
+  comprobarPoligonos(fuente);
   const hash = sha256(capas.map((c) => c.hash).join(''));
   const version = `ign-${obtenida.replaceAll('-', '')}-${hash.slice(0, 12)}`;
   const destino = join(raiz, 'apps/web/public/geo/versiones', version);

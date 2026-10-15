@@ -47,6 +47,9 @@ export function ConciliacionTerritorial() {
         <Link className="inline-flex min-h-11 items-center underline" href="/sintesis-nacional">
           Síntesis de los territorios participantes
         </Link>
+        <Link className="inline-flex min-h-11 items-center underline" href="/validacion-espacial">
+          Revisar límites del mapa
+        </Link>
       </nav>
       <section
         className="border-tinta/30 mt-6 border-y py-5"

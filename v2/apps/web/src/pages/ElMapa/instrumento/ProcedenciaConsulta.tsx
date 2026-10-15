@@ -29,6 +29,12 @@ export function ProcedenciaConsulta({
       >
         Fuentes y límites · edición {GEOGRAFIA.obtenida}
       </Link>
+      <Link
+        href="/validacion-espacial"
+        className="inline-flex min-h-11 items-center text-xs underline"
+      >
+        Comprobar límites antes de comparar áreas
+      </Link>
       {!datos.completa ? (
         <p className="w-full">
           El mapa y el área que dibujes muestran solo esta página de aportes. Los totales por

@@ -31,9 +31,9 @@
  *    no Visvalingam porque su tolerancia es una garantía que se puede escribir:
  *    ningún vértice del límite original queda a más de `toleranciaM` metros
  *    del simplificado. Y la simplificación es topológica —mapshaper arma los
- *    arcos compartidos antes—, así que dos provincias vecinas se simplifican
- *    con el MISMO borde: no quedan huecos ni solapes donde un punto caiga en
- *    ninguna o en dos.
+ *    arcos compartidos antes—. Eso no prueba la validez de la salida: el
+ *    redondeo, la fuente y las capas procesadas por separado pueden producir
+ *    defectos. El control GEOS bloquea polígonos inválidos antes de activar.
  * 4. **Nombra con el canon de la casa.** El nombre de cada provincia sale de
  *    `PROVINCIAS_CANONICAS` por código INDEC, no del IGN: el IGN dice «Tierra
  *    del Fuego, Antártida e Islas del Atlántico Sur» y la base «Tierra del

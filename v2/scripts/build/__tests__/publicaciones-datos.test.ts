@@ -3,13 +3,15 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { CATALOGO_FUENTES } from '../../../packages/shared/src/datos/fuentes.js';
 import { validarGeografia } from '../../../packages/shared/src/datos/geografia-schema.js';
 import { GEOGRAFIA } from '../../../packages/shared/src/datos/geografia.js';
 import { publicarFuentes, registrarIntentoFuente } from '../datos/publicar-fuentes.js';
 import { publicarGeografia, registrarIntentoGeo, sha256 } from '../geo/publicar-geografia.js';
+
+vi.mock('../geo/control-espacial.js', () => ({ comprobarPoligonos: vi.fn() }));
 
 const raiz = fileURLToPath(new URL('../../../', import.meta.url));
 const temporales: string[] = [];

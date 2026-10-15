@@ -408,3 +408,38 @@ E7 incorpora un primer modelo exploratorio de disponibilidad en cada alternativa
 Ejemplos separados: agua en casa, llegar a la escuela y conseguir un turno, en `/sintesis-nacional/ejemplo`. Migración 0039 preparada y ensayada localmente. El piloto de E5.2, la validación espacial/temporal y los puntos anteriores todavía abiertos no se consideran completados por esta entrega. Especificación y recorrido: `2026-10-15-conciliacion-y-sintesis.md` en `specs/` y `demos/`.
 
 Verificación final de esta entrega: `pnpm verify` aprobado, 3.411 pruebas y 20 omisiones existentes; aplicación nativa con 342 pruebas y tipos aprobados; tres recorridos de navegador aprobados. Las vistas nuevas se comprobaron a 360, 390, 768 y 1440 píxeles. Persisten las limitaciones operativas y de datos descritas; no se desplegó ni se aplicó 0039 a producción.
+
+## Entrega del 15/10: validación espacial y despliegue de esquema
+
+Implementado `/validacion-espacial`, enlazado desde el mapa, Fuentes y Conciliación.
+El informe conserva huellas, edición, motor, método, limitaciones y 1.079
+observaciones/controles pendientes, con filtros, búsqueda, paginación y descarga.
+Se detectaron 11 polígonos inválidos. La importación ahora los rechaza antes de
+activar una edición; las geometrías históricas conservan sus bytes y los hallazgos
+quedan en D-131. **E3.1 no se marca completo:** falta contrastar y corregir bordes,
+homologar cartografía censal e incorporar radios/áreas habitadas.
+
+Por solicitud explícita se desplegaron **0032–0039 en la base v2**. Se verificó el
+historial, guardó respaldo privado, restauró en PostgreSQL local y ensayó la cadena
+con reintento idempotente. Comprobación posterior: 37 entradas del diario, ninguna
+pendiente, 13 columnas y siete restricciones de síntesis. El comando ya no carga
+`.env` y rechaza destinos remotos distintos de v2, cadenas divergentes y aplicación
+remota sin destino/revisión explícitos. No se desplegó el código web/API ni la app
+nativa por esta operación.
+
+El inventario real del 15/10 confirma el corpus cívico vacío y el cruce documental
+municipal (2.080 coincidencias, 23 solo IGN, dos solo catálogo y diez geometrías sin
+código). E0.1 avanza con esa lectura fechada; conserva pendiente la comprobación
+operativa de crons y consumidores desplegados. Ningún ejemplo se sembró como dato.
+
+Recorridos y evidencia: [validación y despliegue](../demos/2026-10-15-validacion-espacial-y-despliegue.md)
+y [inventario operativo](../demos/2026-10-15-inventario-operativo.md). El piloto con
+interlocutores y resultados reales (E5.2), competencias/cuencas/corredores (E6.2),
+bordes corregidos y comparabilidad censal/temporal siguen requiriendo trabajo
+externo verificable. Las demás casillas abiertas anteriores tampoco se cierran
+por este despliegue de esquema.
+
+Verificación de esta entrega: `pnpm verify` aprobado (3.419 pruebas, 20 omisiones
+preexistentes), seis pruebas geométricas y cinco recorridos de navegador aprobados;
+tipos nativos correctos. Vista móvil inspeccionada. D-129 conserva el registro del
+fallo intermitente anterior a la corrida completa aprobada.

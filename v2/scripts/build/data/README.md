@@ -78,7 +78,9 @@ pnpm geo:ign -- --fuente=/ruta/fuera/del/repo           # reprocesa lo ya bajado
   por `npx` (herramienta de build, no dependencia). Douglas-Peucker topológico:
   ningún vértice del límite original queda a más de la tolerancia del
   simplificado, y los vecinos comparten el mismo borde simplificado — no hay
-  huecos ni solapes entre provincias.
+  huecos ni solapes entre provincias en condiciones ideales. La auditoría del
+  15/10 encontró defectos en la salida conservada; esa intención del algoritmo
+  no certifica la cartografía. Ver D-131 y `/validacion-espacial`.
 - **Marco:** se recorta a `[-74.5, -56.5, -53, -21]`. Queda Malvinas; quedan
   afuera el sector antártico y las Georgias y Sandwich del Sur, que harían que
   todo lo que encuadra por los bounds del archivo dibujara el continente en un

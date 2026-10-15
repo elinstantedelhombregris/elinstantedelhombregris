@@ -11,6 +11,7 @@ const PAPEL_ROUTES = new Set([
   '/capacidades',
   '/fuentes',
   '/conciliacion-territorial',
+  '/validacion-espacial',
   '/sintesis-nacional',
   '/iniciativas',
   '/campo',

@@ -88,6 +88,7 @@ stats.html
 apps/api/dist-bundle/
 .vercel
 .env*
+.operations/
 
 # Teselas del basemap — 1,2 GB que genera `scripts/build/mapa/extraer-teselas.ts`
 # recortando el planet de Protomaps. Se regeneran con un comando; meterlas en git
@@ -110,3 +111,6 @@ content-txt/**/*.sqlite-*
 content-txt/cronica/*.json
 content-txt/**/.hilo/
 content-txt/*.mp4
+
+# Caché local del motor espacial de compilación
+__pycache__/

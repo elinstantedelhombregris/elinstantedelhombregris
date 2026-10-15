@@ -46,6 +46,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Setup Python para controles espaciales
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: v2/scripts/build/geo/requirements.txt
+
+      - name: Comprobar motor espacial
+        run: |
+          python -m pip install -r scripts/build/geo/requirements.txt
+          python -m unittest discover -s scripts/build/geo -p 'test_*.py'
+
       - name: Lint
         run: pnpm lint
 
