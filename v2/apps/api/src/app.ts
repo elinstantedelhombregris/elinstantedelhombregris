@@ -11,6 +11,7 @@ import { twoFactorRouter } from './features/auth/two-factor-routes.js';
 import { blogRouter } from './features/blog/routes.js';
 import { equipoRouter } from './features/campanas/equipo-routes.js';
 import { campanasRouter } from './features/campanas/routes.js';
+import { campoNativoRouter, dispositivosCampoRouter } from './features/campo-nativo/routes.js';
 import { capacidadesRouter } from './features/capacidades/routes.js';
 import { civicAssessmentRouter } from './features/civic-assessment/routes.js';
 import { civicRouter } from './features/civic-map/routes.js';
@@ -26,6 +27,7 @@ import { gamificationRouter } from './features/gamification/routes.js';
 import { lugarRouter } from './features/geo/lugar-routes.js';
 import { geoRouter } from './features/geo/routes.js';
 import { goalsRouter } from './features/goals/routes.js';
+import { resultadosFichaRouter } from './features/iniciativas/resultados-ficha-routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
 import { mandatoRouter } from './features/mandato/routes.js';
@@ -76,7 +78,10 @@ export function createApp(): Express {
   // pulso + dream submission, blog view tracking) bypass the check.
   // Everything else must echo the eihg_csrf cookie value as
   // X-CSRF-Token. See middleware/csrf.ts for the allow-list.
+  app.use('/api/campo-nativo', campoNativoRouter);
   app.use('/api', csrfProtect);
+  app.use('/api/campo/dispositivos', dispositivosCampoRouter);
+  app.use('/api', resultadosFichaRouter);
 
   // Auth routes. Most endpoints are exempted at the middleware level
   // (login/register/email/password/2fa-verify); refresh, logout, /me,

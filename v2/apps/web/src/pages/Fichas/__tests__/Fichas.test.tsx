@@ -53,6 +53,7 @@ vi.mock('~/lib/queries/participacion', () => ({
 vi.mock('~/lib/api', () => ({ api: { get: modelo.get } }));
 vi.mock('../deliberacion/Deliberacion', () => ({ Deliberacion: () => <p>Conversación</p> }));
 vi.mock('../deliberacion/Relaciones', () => ({ Relaciones: () => <p>Relaciones</p> }));
+vi.mock('../ResultadosCampo', () => ({ ResultadosCampo: () => <p>Resultados de campo</p> }));
 vi.mock('../PanelDiseno', () => ({ PanelDiseno: () => <p>Panel de diseño</p> }));
 vi.mock('~/components/participacion/Seguir', () => ({ Seguir: () => <p>Seguir</p> }));
 vi.mock('~/components/participacion/Equipo', () => ({ Equipo: () => <p>Equipo</p> }));

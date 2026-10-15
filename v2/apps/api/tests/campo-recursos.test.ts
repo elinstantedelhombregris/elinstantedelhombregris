@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { getDb, sql } from '@v2/db';
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
-import supertest from 'supertest';
+import { clienteHttp } from './setup/cliente-http.js';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
@@ -10,7 +10,7 @@ import { signAccessToken } from '../src/features/auth/tokens.js';
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
   'Recursos de tareas y envío de campo',
   () => {
-    const api = supertest(createApp());
+    const api = clienteHttp(createApp());
     const users: number[] = [],
       iniciativas: number[] = [];
     let capacidad = '',

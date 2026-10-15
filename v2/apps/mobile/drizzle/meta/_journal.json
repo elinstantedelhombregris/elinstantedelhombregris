@@ -141,6 +141,13 @@
       "when": 1786270361718,
       "tag": "0019_old_raza",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "6",
+      "when": 1792019796739,
+      "tag": "0020_cuadernos_campo_v2",
+      "breakpoints": true
     }
   ]
 }

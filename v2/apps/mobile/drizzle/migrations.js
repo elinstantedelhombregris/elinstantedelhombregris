@@ -21,6 +21,7 @@ import m0016 from './0016_civic_custody_execution_intents.sql';
 import m0017 from './0017_protocolo_vivo.sql';
 import m0018 from './0018_mision_expedicion.sql';
 import m0019 from './0019_old_raza.sql';
+import m0020 from './0020_cuadernos_campo_v2.sql';
 
   export default {
     journal,
@@ -44,7 +45,8 @@ m0015,
 m0016,
 m0017,
 m0018,
-m0019
+m0019,
+m0020
     }
   }
   

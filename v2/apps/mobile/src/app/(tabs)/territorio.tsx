@@ -148,6 +148,7 @@ export default function Territorio() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 40 }}
       >
+        <BotonTinta etiqueta="Tareas de campo v2" variante="fantasma" onPress={() => router.push("/campo-v2")} />
         <Animated.View entering={fadeUp}>
           <PapelCard className="p-6">
             <Kicker>inteligencia colectiva</Kicker>

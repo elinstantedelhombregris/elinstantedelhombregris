@@ -26,3 +26,4 @@ export * from './deliberacion-ficha.js';
 export * from './capacidades.js';
 
 export * from './campo-recursos.js';
+export * from './campo-nativo.js';

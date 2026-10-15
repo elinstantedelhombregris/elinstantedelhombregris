@@ -11,7 +11,7 @@ const PASOS = [
     quien: 'Administración de la iniciativa',
     estado: 'Tarea propuesta',
     accion:
-      'El equipo crea una iniciativa para mejorar los horarios de apoyo escolar. Propone tres encuentros en una zona pública y una fecha para revisar lo aprendido.',
+      'El equipo crea una iniciativa para mejorar los horarios de apoyo escolar. Propone tres encuentros en una zona pública y una fecha para revisar lo aprendido. En «Elegir ficha de devolución» vincula la ficha de horarios escolares que puede editar.',
     registro:
       'Zona escolar · conversaciones presenciales y digitales · unidad: tres encuentros · versión 1. La invitación debe incluir a quienes trabajan de noche.',
     limite:
@@ -33,7 +33,7 @@ const PASOS = [
     quien: 'Equipo de escucha',
     estado: 'En curso',
     accion:
-      'Antes de salir, la persona inicia la tarea y abre su cuaderno de campo con conexión. Durante los encuentros guarda notas privadas en el navegador y prepara un resumen con fechas, observaciones, ausencias y límites.',
+      'Antes de salir, la persona inicia la tarea y abre su cuaderno de campo con conexión. Si usa el teléfono, genera una clave en «Cuaderno de campo → Vincular la app nativa», la pega en «Tareas de campo v2» y descarga su tarea. Durante los encuentros guarda notas privadas y prepara un resumen con fechas, observaciones, ausencias y límites.',
     registro:
       'Aunque se corte la red, puede seguir escribiendo en la pantalla abierta. Guarda el borrador y revisa por separado lo que autorizará a publicar. El resumen omite nombres, domicilios y rutinas personales.',
     limite:
@@ -57,9 +57,9 @@ const PASOS = [
     accion:
       'Una cuenta distinta de quienes crearon la tarea, la ejecutaron o publicaron su evidencia revisa el método y deja firma y fundamento.',
     registro:
-      'La administración puede cerrar el hito con una conclusión y sus límites. Abre otra tarea para escuchar a quienes faltaron.',
+      'El resultado aparece en «Lo que volvió del territorio» de la ficha, primero pendiente y luego revisado. Quienes la siguen reciben un aviso si los tienen habilitados. El equipo abre otra tarea para escuchar a quienes faltaron.',
     limite:
-      'Una revisión no demuestra causalidad ni independencia personal. Si se retira la evidencia, el hito y la iniciativa completada vuelven a revisión.',
+      'Una revisión no demuestra causalidad ni independencia personal. Si se retira la evidencia, también se retira su texto de la ficha; el hito y la iniciativa completada vuelven a revisión.',
   },
   {
     titulo: '6. Dar continuidad al equipo',

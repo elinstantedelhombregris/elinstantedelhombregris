@@ -145,7 +145,7 @@ Implementado el 14/10 en `/capacidades`: ofertas ligadas a señales propias, ace
 - [ ] Usar unidades estables y su versión para comparaciones; recortar por el territorio pertinente y distinguir áreas no habitadas cuando haya información adecuada.
 - [x] Tratar señales provinciales, sin punto y con precisión reducida según su alcance; no afirmar que verifican una celda exacta.
 - [x] Generar tareas de escucha con objetivo, zona, método, responsable que acepta, fecha y resultado. Conectar reservas y sincronización del cuaderno web, verificando autorización y protección de notas privadas.
-- [ ] Conectar también las tareas de iniciativas con el circuito de campo nativo. Comprobar su identidad de dispositivo, permisos, recepción y retiro sin importar notas privadas automáticamente.
+- [x] Conectar también las tareas de iniciativas con el circuito de campo nativo. Credencial limitada y revocable desde la web, descarga de tareas propias, SQLite por cuenta/origen, autorización separada, recibos y retiro. Sin importación de notas privadas. Ver especificación `2026-10-14-campo-nativo-y-devolucion.md`; queda la comprobación en teléfonos físicos y la configuración de despliegue.
 - [x] Describir procedencia presencial o digital y límites de convocatoria sin crear perfiles públicos sensibles.
 
 **Salida E3:** cada cifra abre su fuente; no se ofrece zoom analítico más preciso que los datos; una ficha puede mostrar evidencia contradictoria; una zona poco relevada produce una tarea de escucha, no una afirmación sobre lo que piensa su población.
@@ -193,7 +193,7 @@ Implementado el 14/10: detalle común, costos con fuente y unidad/período, comp
 - [x] Completar servicios de iniciativas que falten: creación/edición autorizada, tareas, evidencia y transiciones. Reutilizar tablas existentes tras revisar si expresan aceptación y verificación suficientes.
 - [x] Distinguir tarea terminada, entrega declarada y resultado confirmado. Un plazo vencido informa vencimiento; no acusa incumplimiento sin el protocolo correspondiente.
 - [x] Solicitar evidencia mínima pertinente y corroboración independiente cuando aplique. No publicar rostros, domicilios ni documentos sensibles por defecto.
-- [ ] Actualizar la ficha y devolver el resultado a quienes decidieron seguirla, mediante preferencias explícitas de notificación.
+- [x] Devolver el resultado a la ficha vinculada explícitamente con la tarea y avisar a sus seguidores según sus preferencias. Se conserva procedencia, ausencias, límites y revisión; retirar la evidencia retira su contenido de la ficha. La formulación del futuro sigue requiriendo edición deliberada.
 
 Avance técnico del 14/10 en E5.1: las pruebas de alternativas pueden crear una iniciativa comunitaria o vincularse a una que se administra, con tarea e hito. Una persona integrante acepta su responsabilidad; los pasos de la prueba actualizan la tarea y la revisión del resultado actualiza el hito. Permisos, idempotencia y concurrencia comprobados en Postgres local. La administración general y las tareas independientes se completan en la entrega de escucha descrita al final. La asociación detallada de reservas a tareas se completa en la entrega de campo registrada al final. [Especificación](../specs/2026-10-14-ejecucion-de-alternativas.md). Migración 0035 preparada, sin aplicar a producción.
 
@@ -359,3 +359,25 @@ El ejemplo de apoyo escolar en `/iniciativas/ejemplo` explica reserva de sala, r
 [Especificación](../specs/2026-10-14-reservas-tareas-campo.md) · [Recorrido de prueba](../demos/2026-10-14-reservas-tareas-campo.md).
 
 Verificación: `pnpm verify` aprobado con **3.364 pruebas** y 20 omisiones existentes; lint, tipos, corpus y compilación correctos. `tests/e2e/campo.spec.ts` aprobado. D-129 conserva el fallo intermitente previo a la corrida completa aprobada.
+
+### Entrega del 14/10 · Campo nativo y devolución
+
+La app nativa puede descargar tareas de escucha asignadas, conservar notas y
+resúmenes en SQLite, autorizar el envío y recuperar el mismo recibo tras un
+reintento. La credencial se guarda en SecureStore, dura 30 días y puede revocarse
+desde `/campo`. La vinculación no depende de la API comunitaria anterior.
+
+Antes de publicar evidencia, quien administra la iniciativa y edita una ficha
+puede elegirla como destino. La ficha muestra resultados pendientes, revisados o
+retirados, y sus seguidores reciben avisos sin copias del texto. El ejemplo de
+apoyo escolar explica el recorrido en `/iniciativas/ejemplo`.
+
+Pendiente de puesta en servicio: aplicar 0038 a un entorno de despliegue, configurar
+`EXPO_PUBLIC_V2_API_URL` con el origen HTTPS de v2, distribuir la compilación y
+comprobar el circuito en teléfonos físicos. La migración SQLite 0020 corre al abrir
+la app actualizada. No se publicaron cambios ni se migró producción en esta entrega.
+
+Siguen abiertos los ítems no marcados arriba: inventario del corpus real, fuentes
+verificadas, geometrías versionadas, sesiones y evaluación del piloto, síntesis
+por objetivos y escenarios con datos. Los ejemplos no se cuentan como evidencia
+de esos trabajos ni como un piloto realizado.

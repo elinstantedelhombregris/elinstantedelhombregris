@@ -8,6 +8,7 @@ import {
   sinRecibo,
 } from './gestion-iniciativas-base.js';
 import { camposTarea } from './iniciativa-tareas.js';
+import { avisosCampo } from './resultados-ficha.js';
 
 import type { Fila } from './gestion-iniciativas-base.js';
 import type { Db } from '../client.js';
@@ -43,10 +44,10 @@ export class IniciativaEvidenciaRepository {
       from iniciativa_tasks t join iniciativas i on i.id=t.iniciativa_id where i.id=${id} and t.id=${tareaId} and t.status='done'
       and i.kind<>'plan' and (t.assignee_id=${uid} or ${administra(uid)}) and ${sinRecibo(uid, v.idLocal)}
       and ((t.escucha is null and ${v.resultadoEscucha === null}) or (t.escucha is not null and ${v.resultadoEscucha !== null}))
-      and not exists(select 1 from prueba_ejecuciones where tarea_id=t.id) returning jsonb_build_object('id',id) as resultado)`,
+      and not exists(select 1 from prueba_ejecuciones where tarea_id=t.id) returning jsonb_build_object('id',id) as resultado,task_id,revision),${avisosCampo('Una ficha que seguís recibió un resultado de campo pendiente de revisión.')}`,
     );
   }
-  campo(id: number, tareaId: number, uid: number, v: EnvioCampo) {
+  campo(id: number, tareaId: number, uid: number, v: EnvioCampo, soloAsignada = false) {
     return operar(
       this.db,
       id,
@@ -56,15 +57,15 @@ export class IniciativaEvidenciaRepository {
       sql`
       tarea as (update iniciativa_tasks t set status='done',completed_at=coalesce(t.completed_at,now()),revision=t.revision+1,updated_at=now()
       from iniciativas i where i.id=${id} and t.iniciativa_id=i.id and t.id=${tareaId} and t.revision=${v.revisionTarea}
-      and ${v.usuarioId}=${uid} and i.kind<>'plan' and t.escucha is not null and i.status in('open','in_progress','paused')
+      and (not ${soloAsignada} or t.assignee_id=${uid}) and ${v.usuarioId}=${uid} and i.kind<>'plan' and t.escucha is not null and i.status in('open','in_progress','paused')
       and ((t.status='in_progress' and t.assignee_id=${uid}) or (t.status='done' and (t.assignee_id=${uid} or ${administra(uid)})))
       and not exists(select 1 from prueba_ejecuciones where tarea_id=t.id) and ${sinRecibo(uid, v.idLocal)} returning t.id),
       cambio as (insert into mission_evidence(iniciativa_id,task_id,submitted_by,kind,title,body,url,resultado_escucha)
       select ${id},t.id,${uid},${v.url ? 'link' : 'text'},${v.titulo},${v.texto},${v.url},${JSON.stringify(v.resultadoEscucha)}::jsonb from tarea t
-      returning jsonb_build_object('id',id) as resultado)`,
+      returning jsonb_build_object('id',id) as resultado,task_id,revision),${avisosCampo('Una ficha que seguís recibió un resultado de campo pendiente de revisión.')}`,
     );
   }
-  revisar(id: number, evidenciaId: number, uid: number, v: RevisarEvidencia) {
+  revisar(id: number, evidenciaId: number, uid: number, v: RevisarEvidencia, soloPropia = false) {
     const retirar = v.accion === 'retirar';
     return operar(
       this.db,
@@ -79,11 +80,11 @@ export class IniciativaEvidenciaRepository {
         resultado_escucha=case when ${retirar} then null else e.resultado_escucha end,is_verified=${!retirar},
         verified_by=${retirar ? null : uid},verified_at=case when ${retirar} then null else now() end,
         review_note=${retirar ? null : v.nota},reviewer_name=${retirar ? null : v.firma}
-      from iniciativa_tasks t join iniciativas i on i.id=t.iniciativa_id where e.task_id=t.id and i.id=${id} and e.id=${evidenciaId} and e.revision=${v.revision} and e.withdrawn_at is null and ${sinRecibo(uid, v.idLocal)}
+      from iniciativa_tasks t join iniciativas i on i.id=t.iniciativa_id where e.task_id=t.id and i.id=${id} and e.id=${evidenciaId} and e.revision=${v.revision} and (not ${soloPropia} or e.submitted_by=${uid}) and e.withdrawn_at is null and ${sinRecibo(uid, v.idLocal)}
       and ${retirar ? sql`(e.submitted_by=${uid} or ${administra(uid)})` : sql`${independiente(uid)} and not e.is_verified`}
-      returning jsonb_build_object('id',e.id) as resultado,e.task_id),
+      returning jsonb_build_object('id',e.id) as resultado,e.task_id,e.revision),
       reabrir_hito as (update iniciativa_milestones h set completed_at=null,revision=revision+1 where ${retirar} and exists(select 1 from cambio c join iniciativa_tasks t on t.id=c.task_id where t.milestone_id=h.id) returning h.id),
-      reabrir_iniciativa as (update iniciativas set status='in_progress',revision=revision+1 where id=${id} and ${retirar} and status='completed' and exists(select 1 from cambio) returning id)`,
+      reabrir_iniciativa as (update iniciativas set status='in_progress',revision=revision+1 where id=${id} and ${retirar} and status='completed' and exists(select 1 from cambio) returning id),${avisosCampo(retirar ? 'Se retiró un resultado de campo de una ficha que seguís.' : 'Se revisó un resultado de campo de una ficha que seguís.')}`,
     );
   }
   async escuchas(q: {

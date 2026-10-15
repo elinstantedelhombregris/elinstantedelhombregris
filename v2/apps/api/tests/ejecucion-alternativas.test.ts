@@ -2,14 +2,14 @@ import { randomUUID } from 'node:crypto';
 
 import { EjecucionRepository, getDb, sql } from '@v2/db';
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
-import supertest from 'supertest';
+import { clienteHttp } from './setup/cliente-http.js';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
 import { signAccessToken } from '../src/features/auth/tokens.js';
 
 describe.skipIf(!process.env.DATABASE_URL_DESCARTABLE)('Ejecución de alternativas', () => {
-  const api = supertest(createApp());
+  const api = clienteHttp(createApp());
   const usuarios: number[] = [];
   const cookies: string[] = [];
   let fichaId = '',

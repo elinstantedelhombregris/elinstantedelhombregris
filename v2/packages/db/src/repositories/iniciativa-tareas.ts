@@ -15,7 +15,7 @@ import type {
 } from '@v2/shared';
 
 export const camposTarea = sql`t.id,t.title as titulo,coalesce(t.description,'') as alcance,coalesce(to_char(t.due_date at time zone 'UTC','YYYY-MM-DD'),'') as fecha,
-  t.milestone_id as "hitoId",t.revision,t.status as estado,t.accepted_name as firma,t.resources as recursos,t.escucha`;
+  t.milestone_id as "hitoId",t.revision,t.status as estado,t.accepted_name as firma,t.resources as recursos,t.escucha,(select tf.ficha_id from tareas_fichas tf where tf.tarea_id=t.id) as "fichaId"`;
 const derivada = sql`exists(select 1 from prueba_ejecuciones e where e.tarea_id=t.id)`;
 const lugarValido = (v: NuevaTarea | EditarTarea) =>
   sql`(${v.escucha?.territorioId ?? null}::int is null or exists(select 1 from geographic_locations where id=${v.escucha?.territorioId ?? null}))`;

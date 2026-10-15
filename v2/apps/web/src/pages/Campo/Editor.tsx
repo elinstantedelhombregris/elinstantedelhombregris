@@ -83,6 +83,19 @@ export function EditorCampo({
       <h2 className="font-anton text-3xl">{c.tarea}</h2>
       <p>{c.alcance}</p>
       <p>Zona: {c.zona}</p>
+      <p>
+        Devolución:{' '}
+        {c.fichaId ? (
+          <Link className="underline" href={`/fichas/${c.fichaId}`}>
+            ficha vinculada e iniciativa
+          </Link>
+        ) : c.fichaId === null ? (
+          'sólo la iniciativa'
+        ) : (
+          'consultá el destino en la tarea antes de autorizar'
+        )}
+        .
+      </p>
       <Link className="inline-flex min-h-11 underline" href={c.enlace}>
         Consultar tarea y evidencia publicada
       </Link>
@@ -151,8 +164,8 @@ export function EditorCampo({
                   setAutoriza(e.target.checked);
                 }}
               />
-              Revisé el resumen, sus ausencias y límites; autorizo publicarlo cuando haya conexión.
-              No contiene datos personales de otras personas.
+              Revisé el resumen, sus ausencias y límites; autorizo publicarlo en la iniciativa y su
+              ficha vinculada cuando haya conexión. No contiene datos personales de otras personas.
             </label>
             <BotonPapel
               type="button"

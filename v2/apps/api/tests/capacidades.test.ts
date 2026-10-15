@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { getDb, sql } from '@v2/db';
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
-import supertest from 'supertest';
+import { clienteHttp } from './setup/cliente-http.js';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
@@ -12,7 +12,7 @@ const dia = (desplazamiento: number) =>
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
   'Capacidades y reservas acordadas',
   () => {
-    const api = supertest(createApp());
+    const api = clienteHttp(createApp());
     const usuarios: number[] = [];
     let ofrece = '',
       solicita = '',
@@ -215,7 +215,10 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
           .status,
       ).toBe(200);
       expect((await actuar(c, r, 'confirmar_recepcion')).status).toBe(409);
-      expect((await actuar(c, r, 'confirmar_recepcion', solicita)).status).toBe(200);
+      const recepcion = await actuar(c, r, 'confirmar_recepcion', solicita);
+      expect(recepcion.status, JSON.stringify({ body: recepcion.body, text: recepcion.text })).toBe(
+        200,
+      );
       expect((await actuar(c, r, 'confirmar_recepcion', solicita)).status).toBe(200);
       expect((await actuar(c, r, 'cancelar')).status).toBe(409);
       expect((await leer(c)).body.data.capacidad).toMatchObject({

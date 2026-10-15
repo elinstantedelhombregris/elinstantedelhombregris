@@ -1,3 +1,4 @@
+import { desconectarTelefono } from '@/civic/campo-v2/conexion';
 /**
  * AJUSTES — la ética hecha pantalla (spec §3.7): la notificación diaria
  * opt-in de las 20:00 (spec §3.6), el export JSON de TODO con un tap y el
@@ -378,11 +379,12 @@ export default function Ajustes() {
         // o SQLite. El reloj local nunca autoriza el borrado de un grant remoto.
         const releaseNeedGrantEraseFence = beginNeedGrantSafeLocalErase();
         try {
-          const [communityReset, actorReset, deviceReset, notificationReset] = await Promise.allSettled([
+          const [communityReset, actorReset, deviceReset, notificationReset, campoReset] = await Promise.allSettled([
             resetCommunitySessionAndFeed(),
             resetCivicActorKey(),
             resetCivicDeviceCredentials(),
             cargarNotificaciones().then((n) => n?.cancelAllScheduledNotificationsAsync()),
+            desconectarTelefono(),
           ]);
           // resetCivicActorKey() ya resolvió: la caché sync quedaría apuntando
           // a la identidad fantasma si no se invalida y recalienta acá mismo,
@@ -401,7 +403,7 @@ export default function Ajustes() {
               cachedFilesNotDeleted += 1;
             }
           }
-          if ([communityReset, actorReset, deviceReset].some((result) => result.status === 'rejected')) {
+          if ([communityReset, actorReset, deviceReset, campoReset].some((result) => result.status === 'rejected')) {
             setBorrarNota(
               'La base local se borró, pero no pudimos retirar todas las credenciales. Probá de nuevo para completar el borrado del dispositivo.',
             );

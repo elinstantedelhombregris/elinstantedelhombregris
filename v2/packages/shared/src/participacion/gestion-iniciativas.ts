@@ -24,6 +24,7 @@ export interface HitoIniciativa {
   derivado: boolean;
 }
 export interface TareaIniciativa {
+  fichaId?: string | null;
   id: number;
   titulo: string;
   alcance: string;

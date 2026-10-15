@@ -10,6 +10,7 @@ import { FormularioFicha } from './FormularioFicha';
 import { HistorialFicha } from './HistorialFicha';
 import { PanelDiseno } from './PanelDiseno';
 import { LEAD_FICHA, RELACIONES, enLista, etiquetaVersion, fechaDeFicha } from './presentacion';
+import { ResultadosCampo } from './ResultadosCampo';
 import { VolverALasFichas } from './VolverALasFichas';
 
 import type { FichaFuturo } from '@v2/shared';
@@ -204,12 +205,17 @@ export function LecturaFicha({ ficha }: { ficha: FichaFuturo }) {
               </Link>
             </BotonPapel>
           ) : null}
-          <BotonPapel asChild variant="fantasma"><Link href={`/capacidades?fichaId=${ficha.id}`}>Buscar capacidades para esta ficha</Link></BotonPapel>
+          <BotonPapel asChild variant="fantasma">
+            <Link href={`/capacidades?fichaId=${ficha.id}`}>
+              Buscar capacidades para esta ficha
+            </Link>
+          </BotonPapel>
           <Seguir tipo="ficha" objeto={ficha.id} />
         </div>
         {ficha.puedoInvitar ? <Equipo tipo="ficha" objeto={ficha.id} /> : null}
       </section>
       <Cuaderno ficha={ficha} />
+      <ResultadosCampo id={ficha.id} />
       <PanelDiseno id={ficha.id} />
       <Deliberacion ficha={ficha} />
       <Relaciones ficha={ficha} />

@@ -2145,6 +2145,12 @@ En la entrega de escucha, una corrida completa volvió a mostrar fallos transito
 
 En la entrega de reservas por tarea y campo, la primera corrida completa volvió a fallar con `Parse Error: Expected HTTP/, RTSP/ or ICE/` en `participacion-ideal.test.ts`. La corrida focalizada anterior también tuvo un 404 inesperado en una prueba previa de ejecución; su repetición aprobó las 27 pruebas. Se conserva el registro y no se considera resuelta la causa por repetir una corrida en verde. La segunda verificación completa terminó correctamente: 3.364 pruebas aprobadas, con lint, tipos, corpus y compilación.
 
+En la entrega de campo nativo y devolución, la verificación completa mostró un 404 inesperado al confirmar una recepción y una consulta de exportación sin `data`. Se agregaron aserciones con el cuerpo de respuesta para facilitar el diagnóstico. Las cuatro suites de reservas, exportaciones y campo pasaron en tres repeticiones aisladas consecutivas (28 pruebas por corrida), sin cambiar la lógica de esas operaciones. La causa permanece abierta.
+
+Una repetición completa posterior mostró `socket hang up`, dos fallos en cascada después de interrumpir la restauración de la señal de prueba y un timeout de transformación de Vitest. Se adaptaron las suites afectadas y las de campo a un servidor HTTP que escucha durante toda la suite, con cierre explícito al terminar; así Supertest no abre y cierra un puerto por petición. Es una mitigación del transporte de pruebas, coherente con [el caso documentado por Supertest](https://github.com/forwardemail/supertest/issues/844), no una prueba de que todos los fallos anteriores tengan la misma causa. No se modificaron respuestas ni se agregaron reintentos automáticos a las pruebas.
+
+La verificación completa posterior a esa mitigación aprobó 3.370 pruebas, lint, tipos, corpus y compilación. La deuda permanece abierta: un resultado en verde no demuestra la causa de todos los fallos anteriores.
+
 ### D-130 · La membresía de iniciativas necesita contadores atómicos y errores visibles
 
 **Dónde:** `v2/packages/db/src/repositories/iniciativas.ts` (`addMember`, `removeMember`), `v2/apps/api/src/features/iniciativas/routes.ts`, `v2/apps/web/src/pages/IniciativaDetail.tsx`

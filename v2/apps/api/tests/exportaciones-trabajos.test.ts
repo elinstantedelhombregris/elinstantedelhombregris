@@ -1,6 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { ExportacionesRepository, getDb, sql } from '@v2/db';
-import supertest from 'supertest';
+import { clienteHttp } from './setup/cliente-http.js';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createApp } from '../src/app.js';
 import { prepararExportaciones } from '../src/features/exportaciones/worker.js';
@@ -42,7 +42,7 @@ function abrirZip(zip: Buffer) {
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
   'Trabajos públicos, persistentes y paginados de exportación',
   () => {
-    const r = supertest(createApp());
+    const r = clienteHttp(createApp());
     const ids = Array.from({ length: 510 }, () => randomUUID());
     const desde = new Date().toISOString();
     let csrf = '';
@@ -348,9 +348,11 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
         );
         expect(codigo).toBe(200);
         expect(cuerpo).toContain(t.id);
-        expect((await r.get(`/api/v1/exportaciones/trabajos/${t.id}`)).body.data.estado).toBe(
-          'disponible',
+        const consulta = await r.get(`/api/v1/exportaciones/trabajos/${t.id}`);
+        expect(consulta.status, JSON.stringify({ body: consulta.body, text: consulta.text })).toBe(
+          200,
         );
+        expect(consulta.body.data.estado).toBe('disponible');
       } finally {
         if (anterior === undefined) delete process.env['CRON_SECRET'];
         else process.env['CRON_SECRET'] = anterior;

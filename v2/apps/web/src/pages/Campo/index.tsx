@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useSearch } from 'wouter';
 
+import { DispositivosCampo } from './Dispositivos';
 import { EditorCampo } from './Editor';
 
 import type { Cuaderno } from '~/lib/campo/modelo';
@@ -114,13 +115,16 @@ export function Campo() {
         <p className="text-sm">
           Antes de salir, ingresá y cargá la tarea con conexión. Podés seguir escribiendo en la
           pantalla abierta sin red. El guardado pertenece a este navegador y puede perderse si
-          borrás sus datos; no se sincroniza con la app nativa. No guardes información sensible en
-          un dispositivo compartido.
+          borrás sus datos; sus notas privadas se conservan aparte de las de la app nativa. No
+          guardes información sensible en un dispositivo compartido.
         </p>
         {isLoading ? (
           <p>Cargando sesión…</p>
         ) : user ? (
-          <ArchivoCampo key={user.id} uid={user.id} />
+          <div key={user.id} className="space-y-6">
+            <DispositivosCampo uid={user.id} />
+            <ArchivoCampo uid={user.id} />
+          </div>
         ) : (
           <Link href="/ingresar?volver=%2Fcampo" className="underline">
             Ingresá con la cuenta que preparó el cuaderno

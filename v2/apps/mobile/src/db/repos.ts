@@ -16,6 +16,7 @@ import {
   civicConsents,
   civicCustodyResponseIntents,
   civicCustodyExecutionIntents,
+  cuadernosCampoV2,
   civicDisclosureReceipts,
   civicListenings,
   civicMissionCells,
@@ -228,7 +229,8 @@ export const exportarTodo = (): Record<string, unknown> => {
   const exportadoEn = ahoraISO();
   return db.transaction((tx) => ({
     exportadoEn,
-    version: 12,
+    version: 13,
+    cuadernosCampoV2: tx.select().from(cuadernosCampoV2).all(),
     senales: tx.select().from(senales).orderBy(asc(senales.createdAt)).all(),
     expeditions: tx.select().from(expeditions).orderBy(asc(expeditions.createdAt)).all(),
     expeditionEntries: tx.select().from(expeditionEntries).all(),
@@ -264,6 +266,7 @@ export const borrarTodo = (): void => {
     if (tx.select().from(civicCustodyExecutionIntents).all().length > 0) {
       throw new Error('custody_execution_intent_pending');
     }
+    tx.delete(cuadernosCampoV2).run();
     tx.delete(syncOutbox).run();
     tx.delete(civicCustodyExecutionIntents).run();
     tx.delete(civicCustodyResponseIntents).run();

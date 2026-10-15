@@ -5,6 +5,7 @@ import { Link } from 'wouter';
 import { AbrirCuaderno } from '../Campo/Abrir';
 
 import { texto, ESTADOS_TAREA } from './campos';
+import { DestinoFicha } from './DestinoFicha';
 import { EvidenciasTarea } from './Evidencias';
 import { FormularioGestion } from './Formulario';
 import { ListaGestion } from './Lista';
@@ -13,7 +14,7 @@ import { TareaFormulario } from './TareaFormulario';
 
 import type { TareaIniciativa } from '@v2/shared';
 
-function Tarjeta({ id, t }: { id: number; t: TareaIniciativa }) {
+function Tarjeta({ id, t, administrar }: { id: number; t: TareaIniciativa; administrar: boolean }) {
   const [recursos, setRecursos] = useState(false);
   const [evidencia, setEvidencia] = useState(false);
   const opciones = [
@@ -78,6 +79,9 @@ function Tarjeta({ id, t }: { id: number; t: TareaIniciativa }) {
         {recursos ? 'Ocultar reservas' : 'Ver reservas de recursos'}
       </button>
       {recursos ? <RecursosTareaPanel id={id} t={t} /> : null}
+      {!t.derivada ? (
+        <DestinoFicha id={id} tareaId={t.id} revision={t.revision} administrar={administrar} />
+      ) : null}
       <AbrirCuaderno id={id} t={t} />
       {t.derivada ? (
         <p>
@@ -151,7 +155,7 @@ export function TareasIniciativa({
     <section>
       <h2 className="font-anton text-3xl">Tareas y escucha</h2>
       <ListaGestion<TareaIniciativa> ruta={`/${id}/tareas${tareaId ? `?tareaId=${tareaId}` : ''}`}>
-        {(t) => <Tarjeta key={t.id} id={id} t={t} />}
+        {(t) => <Tarjeta key={t.id} id={id} t={t} administrar={administrar} />}
       </ListaGestion>
       {tareaId ? (
         <Link

@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto';
 
 import { getDb, sql } from '@v2/db';
 import { USO_DATOS_CONTRATO_ANTERIOR, METODO_LECTURA_CONTRATO_ANTERIOR } from '@v2/shared';
-import supertest from 'supertest';
+import { clienteHttp } from './setup/cliente-http.js';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
@@ -22,7 +22,7 @@ describe.skipIf(!habilitada)(
   'Diseñar juntos: campañas, publicación y continuidad con Postgres',
   () => {
     const app = createApp();
-    const request = supertest(app);
+    const request = clienteHttp(app);
     const marca = randomUUID();
     const adminPrevio = process.env['ADMIN_USERNAMES'];
     let usuario = 0;

@@ -15,3 +15,6 @@ export * from './repositories/index.js';
 // on `drizzle-orm` directly for the basics. Add operators here as the
 // app needs them.
 export { and, asc, desc, eq, gt, gte, ilike, inArray, isNotNull, isNull, lt, lte, not, or, sql } from 'drizzle-orm';
+
+export * from './repositories/campo-nativo.js';
+export * from './repositories/resultados-ficha.js';

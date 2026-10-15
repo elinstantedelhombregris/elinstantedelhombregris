@@ -4,6 +4,7 @@ import type { DBExecutor } from '@/db/client';
 import { borrarTodo, exportarTodo } from '@/db/repos';
 import {
   civicCustodyExecutionIntents,
+  cuadernosCampoV2,
   civicCustodyResponseIntents,
   civicNeedAccessGrants,
   civicNeedCustodies,
@@ -50,6 +51,7 @@ const fakeExecutor = (withExecutionIntent = true) => {
       eventType: 'confirm_receipt',
       expectedVersion: 'a'.repeat(64),
     }] : []],
+    [cuadernosCampoV2 as unknown, [{ id: 'cuaderno', contenido: 'notas privadas sin credenciales' }]],
     [pvMisiones as unknown, [{ id: 'mision-privada', titulo: 'Relevar la plaza' }]],
     [pvMisionMiembros as unknown, [{ misionId: 'mision-privada', actorKey: 'actor-local' }]],
     [pvObras as unknown, [{ id: 'obra-privada', evidenciaUri: 'file:///cache/obra.jpg' }]],
@@ -72,13 +74,14 @@ const fakeExecutor = (withExecutionIntent = true) => {
 describe('inventario soberano de datos locales', () => {
   beforeEach(() => { mocks.executor = null; });
 
-  it('incluye custodia, grants e intenciones privadas en la exportación completa v12', () => {
+  it('incluye custodia, grants e intenciones privadas en la exportación completa v13', () => {
     const { executor } = fakeExecutor();
     mocks.executor = executor;
     const exported = exportarTodo();
 
     expect(exported).toMatchObject({
-      version: 12,
+      version: 13,
+      cuadernosCampoV2: [{ id: 'cuaderno', contenido: 'notas privadas sin credenciales' }],
       needCustodies: [{ needId: 'need-private' }],
       needAccessGrants: [{
         id: 'grant-local',
@@ -138,6 +141,7 @@ describe('inventario soberano de datos locales', () => {
     expect(deleted).toContain(pvMisionMiembros);
     expect(deleted).toContain(pvObras);
     expect(deleted).toContain(pvPulsos);
+    expect(deleted).toContain(cuadernosCampoV2);
     expect(deleted.indexOf(pvMisionMiembros)).toBeLessThan(deleted.indexOf(pvMisiones));
     expect(deleted.indexOf(pvObras)).toBeLessThan(deleted.indexOf(pvMisiones));
     expect(deleted.indexOf(pvPulsos)).toBeLessThan(deleted.indexOf(pvMisiones));

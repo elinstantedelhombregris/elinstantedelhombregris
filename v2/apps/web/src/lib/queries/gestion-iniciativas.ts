@@ -31,6 +31,7 @@ export function useGestionOperacion() {
       'acciones-iniciativa',
       'recursos-tarea',
       'capacidades',
+      'resultados-campo',
     ])
       void qc.invalidateQueries({ queryKey: [key] });
   };

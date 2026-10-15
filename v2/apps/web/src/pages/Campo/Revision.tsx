@@ -61,6 +61,7 @@ export function RevisionCampo({
                 await recuperar({
                   ...c,
                   revisionTarea: actual.revision,
+                  fichaId: actual.fichaId ?? null,
                   tarea: actual.titulo,
                   alcance: actual.alcance,
                   zona: actual.escucha?.zona ?? '',

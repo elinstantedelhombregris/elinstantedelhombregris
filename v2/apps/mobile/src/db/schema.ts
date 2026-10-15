@@ -710,3 +710,5 @@ export type PvMisionRow = typeof pvMisiones.$inferSelect;
 export type PvMiembroRow = typeof pvMisionMiembros.$inferSelect;
 export type PvObraRow = typeof pvObras.$inferSelect;
 export type PvPulsoRow = typeof pvPulsos.$inferSelect;
+
+export * from './campo-v2-schema';

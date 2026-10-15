@@ -19,6 +19,7 @@ export default defineConfig({
   // are introduced.
   schema: [
     './src/schema/users.ts',
+    './src/schema/campo-nativo.ts',
     './src/schema/fichas.ts',
     './src/schema/campanas.ts',
     './src/schema/continuidad.ts',
