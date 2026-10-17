@@ -1,5 +1,9 @@
 import { lazy } from 'react';
 
+export const RecorridoEscuela = lazy(async () => ({
+  default: (await import('~/pages/RecorridoEscuela')).RecorridoEscuela,
+}));
+
 export const VisionCompartida = lazy(() =>
   import('~/pages/VisionCompartida').then((m) => ({ default: m.VisionCompartida })),
 );

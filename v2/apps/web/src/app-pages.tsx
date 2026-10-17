@@ -298,6 +298,7 @@ export {
   Capacidades,
   Campo,
   InicioIniciativas,
+  RecorridoEscuela,
   EscuchaTerritorial,
   EjemploIniciativa,
 } from './app-pages-participacion';

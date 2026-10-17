@@ -47,6 +47,7 @@ export const SECCIONES_LA_IDEA: readonly PapelNavItem[] = [
  */
 export const SECCIONES_CAMPANAS: readonly PapelNavItem[] = [
   { href: '/fichas', label: 'Las fichas', num: '03.1' },
+  { href: '/iniciativas', label: 'Sumarme a una tarea', num: '03.2' },
 ];
 
 /**

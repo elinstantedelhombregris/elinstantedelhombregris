@@ -6,6 +6,8 @@ vi.mock('@tanstack/react-query', () => ({
   useQuery: () => ({ data: { fichaId: 'ficha', titulo: 'Llegar a la escuela' } }),
 }));
 vi.mock('../Formulario', () => ({ FormularioGestion: () => null }));
+vi.mock('../SelectorFicha', () => ({ SelectorFicha: () => <p>Selector de fichas editables</p> }));
+vi.mock('~/lib/auth/use-auth', () => ({ useAuth: () => ({ user: { id: 1 } }) }));
 it('presenta destino a todos y reserva el formulario para administrar', () => {
   const { rerender } = render(<DestinoFicha id={1} tareaId={2} revision={1} administrar={false} />);
   expect(screen.getByRole('link', { name: 'Llegar a la escuela' })).toHaveAttribute(

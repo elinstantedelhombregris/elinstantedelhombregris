@@ -14,6 +14,7 @@ const PAPEL_ROUTES = new Set([
   '/validacion-espacial',
   '/sintesis-nacional',
   '/iniciativas',
+  '/recorridos/llegar-a-tiempo-a-la-escuela',
   '/campo',
   '/escucha-territorial',
   '/imaginar',

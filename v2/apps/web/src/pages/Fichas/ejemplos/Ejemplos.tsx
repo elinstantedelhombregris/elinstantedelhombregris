@@ -21,6 +21,12 @@ export function EjemplosFichas() {
         Ejemplos ficticios. No son datos, acuerdos ni resultados reales y no cuentan como aportes
         del mapa.
       </p>
+      <Link
+        className="mt-5 inline-flex min-h-11 underline"
+        href="/recorridos/llegar-a-tiempo-a-la-escuela"
+      >
+        Llegar a tiempo a la escuela: practicar el recorrido completo
+      </Link>
       <nav aria-label="Elegí un ejemplo cotidiano" className="my-6 grid gap-3 md:grid-cols-3">
         {CASOS_COTIDIANOS.map((c) => (
           <button
@@ -36,7 +42,9 @@ export function EjemplosFichas() {
           </button>
         ))}
       </nav>
-      <Link className="mb-5 inline-flex min-h-11 underline" href="/capacidades/ejemplo">Probá cómo se reserva una capacidad compartida →</Link>
+      <Link className="mb-5 inline-flex min-h-11 underline" href="/capacidades/ejemplo">
+        Probá cómo se reserva una capacidad compartida →
+      </Link>
       {caso ? <Recorrido key={caso.id} caso={caso} /> : null}
       <Link className="mt-8 inline-flex min-h-11 underline" href="/fichas">
         Volver a las fichas reales

@@ -193,6 +193,9 @@ export function LecturaFicha({ ficha }: { ficha: FichaFuturo }) {
           Qué podés hacer con esta ficha
         </h2>
         <div className="mt-5 flex flex-wrap items-center gap-3">
+          <BotonPapel asChild>
+            <Link href={`/iniciativas?fichaId=${ficha.id}`}>Sumarme a una tarea de esta ficha</Link>
+          </BotonPapel>
           {radiografia.map((destino) => (
             <BotonPapel key={destino.href} asChild variant="fantasma">
               <Link href={destino.href}>{destino.rotulo}</Link>

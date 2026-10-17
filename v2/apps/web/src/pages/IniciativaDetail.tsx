@@ -72,7 +72,7 @@ export function IniciativaDetail() {
         </Link>
       </nav>
       {auth.user ? (
-        <div className="mb-6 space-y-3">
+        <div id="sumarme-al-equipo" className="mb-6 space-y-3">
           {!p.miembro ? (
             <BotonPapel
               disabled={join.isPending}
@@ -84,7 +84,7 @@ export function IniciativaDetail() {
                 });
               }}
             >
-              Unirme
+              Sumarme al equipo
             </BotonPapel>
           ) : (
             <>
@@ -118,7 +118,7 @@ export function IniciativaDetail() {
       ) : (
         <Link
           className="mb-6 inline-flex underline"
-          href={`/ingresar?volver=${encodeURIComponent('/iniciativas/' + slug)}`}
+          href={`/ingresar?volver=${encodeURIComponent('/iniciativas/' + slug + (tareaId ? `?seccion=tareas&tarea=${tareaId}` : ''))}`}
         >
           Ingresá para integrar el equipo
         </Link>
@@ -176,6 +176,7 @@ export function IniciativaDetail() {
       ) : (
         <TareasIniciativa
           id={i.id}
+          miembro={p.miembro}
           administrar={p.administrar}
           escuchaInicial={search.get('escucha') === 'si'}
           {...(tareaId ? { tareaId } : {})}

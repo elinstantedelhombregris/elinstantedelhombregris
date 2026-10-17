@@ -1,3 +1,5 @@
+import { Link } from 'wouter';
+
 import { Kicker } from '~/components/papel/primitives';
 
 /**
@@ -25,6 +27,19 @@ export function PortadaMapa({ imaginando = false }: { imaginando?: boolean }) {
           ? 'Contá qué futuro querés, qué lo impide y qué podrías aportar. El mapa ubica tu propuesta y te permite conocer otras en tu zona.'
           : 'Cada punto es un aporte: un problema, un deseo, algo que ya funciona. Buscá tu zona o sumá el tuyo.'}
       </p>
+      {!imaginando ? (
+        <div className="mt-2 flex flex-wrap gap-x-5 text-sm">
+          <Link className="inline-flex min-h-11 items-center underline" href="/iniciativas">
+            Sumarme a una tarea
+          </Link>
+          <Link
+            className="inline-flex min-h-11 items-center underline"
+            href="/recorridos/llegar-a-tiempo-a-la-escuela"
+          >
+            Cómo un aporte llega a una acción: el ejemplo escolar
+          </Link>
+        </div>
+      ) : null}
     </header>
   );
 }

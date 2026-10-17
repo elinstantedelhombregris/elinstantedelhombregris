@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { ArrowUpRight } from 'lucide-react';
-import { useLocation, useSearch } from 'wouter';
+import { Link, useLocation, useSearch } from 'wouter';
 
 import { filtrarCatalogo, ordenarCatalogo } from './Campanas/filtrar-catalogo';
 import { FiltrosCatalogo } from './Campanas/FiltrosCatalogo';
@@ -84,6 +84,12 @@ export function Campanas() {
           </div>
         </section>
       )}
+      <Link
+        className="mt-6 inline-flex min-h-11 items-center underline"
+        href="/recorridos/llegar-a-tiempo-a-la-escuela"
+      >
+        Llegar a tiempo a la escuela: de la campaña a la devolución
+      </Link>
       <aside className="border-tinta mt-12 grid gap-6 border-t pt-8 sm:grid-cols-[1fr_auto]">
         <div>
           <h2 className="font-anton text-3xl">¿Ninguna campaña es para lo que querés decir?</h2>

@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 
 import { AbrirCuaderno } from '../Campo/Abrir';
 
+import { AceptarTarea } from './AceptarTarea';
 import { texto, ESTADOS_TAREA } from './campos';
 import { DestinoFicha } from './DestinoFicha';
 import { EvidenciasTarea } from './Evidencias';
@@ -14,11 +15,26 @@ import { TareaFormulario } from './TareaFormulario';
 
 import type { TareaIniciativa } from '@v2/shared';
 
-function Tarjeta({ id, t, administrar }: { id: number; t: TareaIniciativa; administrar: boolean }) {
+import { useAuth } from '~/lib/auth/use-auth';
+import { hrefIngresar } from '~/lib/auth/volver';
+
+function Tarjeta({
+  id,
+  t,
+  administrar,
+  miembro,
+  enfocada,
+}: {
+  id: number;
+  t: TareaIniciativa;
+  administrar: boolean;
+  miembro: boolean;
+  enfocada: boolean;
+}) {
+  const auth = useAuth();
   const [recursos, setRecursos] = useState(false);
   const [evidencia, setEvidencia] = useState(false);
   const opciones = [
-    ...(t.puedoAceptar ? [{ valor: 'aceptar', etiqueta: 'Acepto hacerme cargo' }] : []),
     ...(t.puedoGestionar && ['todo', 'blocked'].includes(t.estado)
       ? [{ valor: 'iniciar', etiqueta: 'Iniciar o retomar' }]
       : []),
@@ -45,6 +61,28 @@ function Tarjeta({ id, t, administrar }: { id: number; t: TareaIniciativa; admin
         {t.firma ?? 'pendiente de aceptación'}.
       </p>
       <p>Recursos: {t.recursos || 'pendientes de detallar'}</p>
+      {!t.derivada && t.estado === 'todo' && !t.firma ? (
+        t.puedoAceptar ? (
+          <AceptarTarea id={id} tareaId={t.id} revision={t.revision} abrir={enfocada} />
+        ) : !miembro ? (
+          auth.user ? (
+            <p>
+              Para aceptar,{' '}
+              <a className="underline" href="#sumarme-al-equipo">
+                sumate primero al equipo de esta iniciativa
+              </a>
+              . Después elegís si te hacés cargo.
+            </p>
+          ) : (
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href={hrefIngresar(`${window.location.pathname}?seccion=tareas&tarea=${t.id}`)}
+            >
+              Ingresá para sumarte a esta tarea
+            </Link>
+          )
+        ) : null
+      ) : null}
       {t.fecha &&
       t.fecha < new Date().toISOString().slice(0, 10) &&
       !['done', 'cancelled'].includes(t.estado) ? (
@@ -144,18 +182,29 @@ export function TareasIniciativa({
   administrar,
   escuchaInicial = false,
   tareaId,
+  miembro = false,
 }: {
   id: number;
   administrar: boolean;
   escuchaInicial?: boolean;
   tareaId?: number;
+  miembro?: boolean;
 }) {
   const [tipo, setTipo] = useState<'accion' | 'escucha'>(escuchaInicial ? 'escucha' : 'accion');
   return (
     <section>
       <h2 className="font-anton text-3xl">Tareas y escucha</h2>
       <ListaGestion<TareaIniciativa> ruta={`/${id}/tareas${tareaId ? `?tareaId=${tareaId}` : ''}`}>
-        {(t) => <Tarjeta key={t.id} id={id} t={t} administrar={administrar} />}
+        {(t) => (
+          <Tarjeta
+            key={t.id}
+            id={id}
+            t={t}
+            administrar={administrar}
+            miembro={miembro}
+            enfocada={tareaId === t.id}
+          />
+        )}
       </ListaGestion>
       {tareaId ? (
         <Link

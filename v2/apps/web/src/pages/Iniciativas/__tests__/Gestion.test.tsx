@@ -154,20 +154,19 @@ describe('Gestión cotidiana de iniciativas', () => {
   it('aceptar una tarea requiere firma; se muestra el carácter público de la nota', () => {
     m.items = [tarea];
     render(<TareasIniciativa id={10} administrar={false} />);
-    fireEvent.click(screen.getByText('Aceptar o registrar un paso'));
-    llenar('Paso', 'aceptar');
-    llenar('Qué cambia y por qué', 'Puedo coordinar estas conversaciones.');
-    fireEvent.click(screen.getByRole('button', { name: 'Registrar paso' }));
+    fireEvent.click(screen.getByText('Quiero hacer esta tarea'));
+    llenar('Cómo me organizo para cumplir esta tarea', 'Puedo coordinar estas conversaciones.');
+    fireEvent.click(screen.getByRole('button', { name: 'Acepto hacerme cargo de esta tarea' }));
     expect(m.mutate).not.toHaveBeenCalled();
-    llenar('Firma pública al aceptar', 'Equipo de escucha');
-    fireEvent.click(screen.getByRole('button', { name: 'Registrar paso' }));
+    llenar('Mi firma pública', 'Equipo de escucha');
+    fireEvent.click(screen.getByRole('button', { name: 'Acepto hacerme cargo de esta tarea' }));
     expect(m.mutate).toHaveBeenCalledWith(
       expect.objectContaining({
         cuerpo: parcial({ accion: 'aceptar', revision: 1 }),
       }),
       expect.any(Object),
     );
-    expect(screen.getByText(/la firma y su nota serán públicos/)).toBeInTheDocument();
+    expect(screen.getByText(/Tu firma y tu nota serán públicas/)).toBeInTheDocument();
   });
   it('distingue cero observaciones de dato vacío y ofrece revisar solo cuando el servidor lo permite', () => {
     m.items = [evidencia];

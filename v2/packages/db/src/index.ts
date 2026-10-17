@@ -34,4 +34,5 @@ export {
 
 export * from './repositories/campo-nativo.js';
 export * from './repositories/resultados-ficha.js';
+export * from './repositories/descubrimiento-tareas.js';
 export * from './repositories/sintesis-nacional.js';

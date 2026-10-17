@@ -7,11 +7,16 @@ import type { PaginaGestion } from '@v2/shared';
 import { api } from '~/lib/api';
 import { useAuth } from '~/lib/auth/use-auth';
 
-export function useGestionLista<T>(ruta: string, enabled = true) {
+export function useGestionLista<T>(
+  ruta: string,
+  enabled = true,
+  staleTime = Number.POSITIVE_INFINITY,
+) {
   const auth = useAuth();
   return useInfiniteQuery({
     queryKey: ['gestion-iniciativas', ruta, auth.user?.id ?? null],
     enabled: enabled && !auth.isLoading,
+    staleTime,
     initialPageParam: undefined as number | undefined,
     queryFn: ({ pageParam, signal }) =>
       api.get<PaginaGestion<T>>(

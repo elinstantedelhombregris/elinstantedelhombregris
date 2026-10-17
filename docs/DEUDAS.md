@@ -2178,6 +2178,8 @@ por suite que ya usan las otras pruebas corregidas y se incluyó el cuerpo de la
 respuestas en el diagnóstico. No se modificaron handlers ni estados aceptados,
 no se añadieron reintentos y D-129 conserva su estado abierto.
 
+**Continuación 17/10 (recorrido escolar):** la verificación completa recibió 404 en `/api/v1/geo/version` y en la verificación de correo de `auth-flows.test.ts`, donde ambas pruebas exigen 200. Las nuevas pruebas de descubrimiento y vínculo aprobaron en esa misma corrida. Se adaptaron únicamente `geo-catalogo.test.ts` y `auth-flows.test.ts` al helper existente `clienteHttp`, que mantiene un servidor por suite. Se conservan las aserciones y no se agregan reintentos ni cambios a esos handlers. La verificación completa posterior aprobó 3.428 pruebas, lint, tipos, corpus y compilación. Esta mitigación no identifica la causa de todos los incidentes; D-129 permanece abierta.
+
 ### D-130 · La membresía de iniciativas necesita contadores atómicos y errores visibles
 
 **Dónde:** `v2/packages/db/src/repositories/iniciativas.ts` (`addMember`, `removeMember`), `v2/apps/api/src/features/iniciativas/routes.ts`, `v2/apps/web/src/pages/IniciativaDetail.tsx`

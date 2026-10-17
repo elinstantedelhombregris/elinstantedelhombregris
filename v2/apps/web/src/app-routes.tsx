@@ -41,6 +41,7 @@ import {
   IniciativaDetail,
   Campo,
   InicioIniciativas,
+  RecorridoEscuela,
   EjemploIniciativa,
   EscuchaTerritorial,
   IniciativaDocumento,
@@ -215,6 +216,7 @@ export function AppRoutes() {
       <Route path="/campo" component={Campo} />
       <Route path="/escucha-territorial" component={EscuchaTerritorial} />
       <Route path="/iniciativas/ejemplo" component={EjemploIniciativa} />
+      <Route path="/recorridos/llegar-a-tiempo-a-la-escuela" component={RecorridoEscuela} />
       <Route path="/iniciativas/nueva" component={InicioIniciativas} />
       <Route path="/iniciativas" component={InicioIniciativas} />
       {/* Iniciativas — documento route MUST come before bare :slug. */}

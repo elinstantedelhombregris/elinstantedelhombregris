@@ -4,17 +4,22 @@ import { Link, useLocation, useSearch } from 'wouter';
 import { AUTORIZACION, texto } from './campos';
 import { FormularioGestion } from './Formulario';
 import { ListaGestion } from './Lista';
+import { TareasDisponibles } from './TareasDisponibles';
 
 import { MarcoParticipacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth/use-auth';
+import { esUuid } from '~/pages/Fichas/presentacion';
 
 export function InicioIniciativas() {
   const auth = useAuth();
-  const [, navegar] = useLocation();
-  const escucha = new URLSearchParams(useSearch()).get('escucha') === 'si';
+  const [ruta, navegar] = useLocation();
+  const parametros = new URLSearchParams(useSearch());
+  const escucha = parametros.get('escucha') === 'si';
+  const fichaId = parametros.get('fichaId');
+  const creando = ruta === '/iniciativas/nueva';
   return (
     <MarcoParticipacion
-      titulo="Organizar una iniciativa"
+      titulo={creando ? 'Organizar una iniciativa' : 'Sumate a una tarea'}
       entrada="Un propósito, un equipo y tareas que alguien acepta. Los resultados se documentan y revisan después de actuar."
       kicker="De la escucha a la acción"
     >
@@ -22,10 +27,23 @@ export function InicioIniciativas() {
         Consultar la escucha territorial
       </Link>
       <p className="mt-3">
+        <Link
+          href="/recorridos/llegar-a-tiempo-a-la-escuela"
+          className="mr-5 inline-flex min-h-11 items-center underline"
+        >
+          Llegar a tiempo a la escuela: recorrer el ejemplo completo
+        </Link>
         <Link href="/iniciativas/ejemplo" className="underline">
           Ver un ejemplo paso a paso
         </Link>
       </p>
+      {!creando ? (
+        <TareasDisponibles {...(esUuid(fichaId) && fichaId ? { fichaId } : {})} />
+      ) : (
+        <Link href="/iniciativas" className="mt-4 inline-flex min-h-11 items-center underline">
+          Explorar tareas antes de crear una iniciativa
+        </Link>
+      )}
       {auth.user ? (
         <>
           <h2 className="font-anton mt-8 text-3xl">
@@ -44,7 +62,7 @@ export function InicioIniciativas() {
               </Link>
             )}
           </ListaGestion>
-          <details open className="border-tinta mt-8 border p-5">
+          <details open={creando} className="border-tinta mt-8 border p-5">
             <summary className="cursor-pointer font-semibold">
               Crear una iniciativa comunitaria
             </summary>

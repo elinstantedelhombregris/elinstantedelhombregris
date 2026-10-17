@@ -20,10 +20,10 @@
 import '../src/load-env.js';
 
 import { conTechoDeTiempo, getDb, sql } from '@v2/db';
-import supertest from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
+import { clienteHttp } from './setup/cliente-http.js';
 import {
   codigoDeOlvido,
   codigoDeOlvidoValido,
@@ -40,7 +40,7 @@ import { hasDatabaseUrl } from './helpers/index.js';
 import type { Ancestros, GeographicLocation } from '@v2/db';
 
 const app = createApp();
-const request = supertest(app);
+const request = clienteHttp(app);
 
 /** Un lugar mínimo, para las pruebas puras de `destinoDelPaquete`. */
 const lugar = (level: string, id = 1): GeographicLocation =>

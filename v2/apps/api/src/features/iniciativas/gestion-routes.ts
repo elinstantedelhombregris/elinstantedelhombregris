@@ -1,4 +1,5 @@
 import {
+  DescubrimientoTareasRepository,
   GestionIniciativasRepository,
   IniciativaEvidenciaRepository,
   IniciativaTareasRepository,
@@ -18,6 +19,7 @@ import {
   paginaGestionSchema,
   revisarEvidenciaSchema,
   tareasQuerySchema,
+  tareasDisponiblesQuerySchema,
 } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
@@ -26,6 +28,17 @@ import { authenticate, optionalAuthenticate, usuarioAutenticado } from '../../mi
 import { HttpError } from '../../middleware/error-handler.js';
 
 const router: RouterType = Router();
+router.get('/tareas-disponibles', async (req, res, next) => {
+  try {
+    res.set('Cache-Control', 'no-store').json({
+      data: await new DescubrimientoTareasRepository(getDb()).disponibles(
+        tareasDisponiblesQuerySchema.parse(req.query),
+      ),
+    });
+  } catch (e) {
+    next(e);
+  }
+});
 const id = (v: unknown) => z.coerce.number().int().positive().parse(v);
 const cursor = (v: unknown) => paginaGestionSchema.parse(v).cursor;
 function resultado<T>(r: T | null) {

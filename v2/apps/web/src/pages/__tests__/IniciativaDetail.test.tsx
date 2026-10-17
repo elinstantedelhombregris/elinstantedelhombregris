@@ -44,7 +44,7 @@ describe('Detalle de iniciativa', () => {
     expect(screen.getByRole('heading', { name: iniciativa.title })).toBeInTheDocument();
     expect(screen.getByText('3 cuentas integrantes')).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Salir/ })).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'Unirme' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Sumarme al equipo' }));
     expect(m.mutate).toHaveBeenCalledWith(10, expect.any(Object));
     m.error = new Error('No pudimos registrar tu ingreso.');
     rerender(<IniciativaDetail />);
@@ -59,6 +59,6 @@ describe('Detalle de iniciativa', () => {
     m.propietario = false;
     rerender(<IniciativaDetail />);
     expect(screen.getByRole('button', { name: 'Salir de la iniciativa' })).toBeInTheDocument();
-    expect(screen.queryByRole('button', { name: 'Unirme' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Sumarme al equipo' })).not.toBeInTheDocument();
   });
 });

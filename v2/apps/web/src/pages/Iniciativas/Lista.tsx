@@ -8,15 +8,29 @@ export function ListaGestion<T>({
   ruta,
   children,
   vacio = 'Todavía no hay registros.',
+  actualizar,
 }: {
   ruta: string;
   children: (item: T) => ReactNode;
   vacio?: string;
+  actualizar?: string;
 }) {
-  const q = useGestionLista<T>(ruta);
+  const q = useGestionLista<T>(ruta, true, actualizar ? 0 : Number.POSITIVE_INFINITY);
   const items = q.data?.pages.flatMap((p) => p.items) ?? [];
   return (
     <div className="mt-5 space-y-5">
+      {actualizar ? (
+        <button
+          className="min-h-11 underline"
+          type="button"
+          disabled={q.isFetching}
+          onClick={() => {
+            void q.refetch();
+          }}
+        >
+          {actualizar}
+        </button>
+      ) : null}
       {q.isPending ? <p role="status">Cargando…</p> : null}
       {q.isError ? (
         <div role="alert">

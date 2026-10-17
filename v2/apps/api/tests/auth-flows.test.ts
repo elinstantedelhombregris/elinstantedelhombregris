@@ -14,11 +14,11 @@ import '../src/load-env.js';
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import speakeasy from 'speakeasy';
-import supertest from 'supertest';
 
 import { eq, getDb, UsersRepository, users } from '@v2/db';
 
 import { createApp } from '../src/app.js';
+import { clienteHttp } from './setup/cliente-http.js';
 import { hashPassword } from '../src/features/auth/password.js';
 import {
   type EmailMessage,
@@ -46,7 +46,7 @@ const dsuite = hasDatabaseUrl ? describe : describe.skip;
 
 dsuite('Phase 2 auth flows', () => {
   const app = createApp();
-  const request = supertest(app);
+  const request = clienteHttp(app);
   const stamp = Date.now();
   const password = 'correcthorsebatterystaple12';
   const emailA = `flow_a_${String(stamp)}@test.local`;

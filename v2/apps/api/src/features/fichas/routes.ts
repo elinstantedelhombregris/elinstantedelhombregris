@@ -1,16 +1,29 @@
-import { FichasRepository, getDb } from '@v2/db';
+import { DescubrimientoTareasRepository, FichasRepository, getDb } from '@v2/db';
 import {
   crearFichaSchema,
   editarFichaSchema,
   consultaFichasSchema,
   idFichaSchema,
+  fichasEditablesQuerySchema,
 } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 
-import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
+import { authenticate, optionalAuthenticate, usuarioAutenticado } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
 const router: RouterType = Router();
+router.get('/editables', authenticate, async (req, res, next) => {
+  try {
+    res.set('Cache-Control', 'no-store').json({
+      data: await new DescubrimientoTareasRepository(getDb()).fichasEditables(
+        usuarioAutenticado(req).id,
+        fichasEditablesQuerySchema.parse(req.query),
+      ),
+    });
+  } catch (err) {
+    next(err);
+  }
+});
 router.get('/', async (req, res, next) => {
   try {
     const consulta = consultaFichasSchema.parse(req.query);
