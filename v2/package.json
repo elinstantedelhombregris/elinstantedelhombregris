@@ -10,6 +10,7 @@
   },
   "packageManager": "pnpm@10.16.1",
   "scripts": {
+    "dev:escuela": "bash scripts/local/escuela.sh",
     "dev": "pnpm --parallel --filter './apps/*' dev",
     "build": "pnpm -r --filter './apps/*' --filter './packages/*' build",
     "lint": "pnpm -r --parallel lint && pnpm lint:scripts",

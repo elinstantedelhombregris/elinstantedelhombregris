@@ -2228,3 +2228,14 @@ aplica `make_valid` automáticamente ni se reemplazan límites oficiales por una
 conjetura. No habilitar agregados departamentales/municipales ni transferir
 estadísticas por coincidencia de código. Se mantienen D-089 y la comparabilidad
 censal/temporal abiertas.
+
+### D-132 · La siembra de áreas de vida falla al repetirse
+
+**Dónde:** `v2/packages/db/scripts/seed-life-areas.ts`, rama de subcategorías con slug repetido entre áreas.
+**Encontrada:** 2026-10-17, al reiniciar el ensayo escolar local.
+**Severidad:** baja (herramienta de preparación).
+**Estado:** abierta.
+
+Aunque el script se anuncia idempotente, al encontrar el mismo slug en otra área intenta insertar de nuevo el slug prefijado sin comprobar si ya existe. Una segunda ejecución falla con `life_area_subcategories_unique`. La base escolar conservó sus tareas y evidencias; el fallo ocurrió en un catálogo ajeno al recorrido.
+
+El arranque escolar ahora ejecuta sólo las migraciones y el catálogo de provincias que necesita, sin esos seeds ni su carga de `.env`. Pendiente: resolver las subcategorías por área y slug canónico/prefijado, y probar dos ejecuciones sobre la misma base sin duplicados ni cambios a respuestas existentes.

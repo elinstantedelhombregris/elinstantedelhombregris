@@ -5,12 +5,15 @@ import { RecorridoEscuela } from './index';
 
 const publicar = vi.hoisted(() => vi.fn());
 vi.mock('~/lib/api', () => ({ api: { post: publicar, patch: publicar } }));
+vi.mock('./EnsayoLocal', () => ({ EnsayoLocal: () => null }));
 const etapa = (n: number) =>
   fireEvent.click(screen.getByRole('button', { name: new RegExp(`^${n}\\.`) }));
 it('recorre el ciclo aislado, conserva objeciones y distingue declaración de revisión', () => {
   render(<RecorridoEscuela />);
+  expect(screen.getByRole('heading', { name: 'Imaginar y ubicar', exact: true })).not.toHaveFocus();
   expect(screen.getByText(/Ejemplo ficticio. Podés practicar sin cuenta/)).toBeInTheDocument();
   etapa(6);
+  expect(screen.getByRole('heading', { name: 'Revisar el resultado', exact: true })).toHaveFocus();
   expect(screen.getByRole('button', { name: 'Simular revisión de otra cuenta' })).toBeDisabled();
   etapa(4);
   fireEvent.change(screen.getByLabelText('Ficha de ejemplo donde devolver los resultados'), {

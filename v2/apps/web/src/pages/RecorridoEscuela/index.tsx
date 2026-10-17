@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'wouter';
 
+import { EnsayoLocal } from './EnsayoLocal';
 import { PASOS_ESCUELA } from './pasos';
 
 import { BotonPapel } from '~/components/papel/primitives';
@@ -19,9 +20,12 @@ export function RecorridoEscuela() {
   const [revision, revisar] = useState<'pendiente' | 'ampliar' | 'revisada'>('pendiente');
   const [devuelta, devolver] = useState(false);
   const titulo = useRef<HTMLHeadingElement>(null);
+  const pasoAnterior = useRef(paso);
   const actual = PASOS_ESCUELA[paso] ?? PASOS_ESCUELA[0];
   useEffect(() => {
-    titulo.current?.focus();
+    // Al entrar, conservá el ancla de la guía local; enfocá sólo al cambiar de etapa.
+    if (pasoAnterior.current !== paso) titulo.current?.focus();
+    pasoAnterior.current = paso;
   }, [paso]);
   function reiniciar() {
     cambiarPaso(0);
@@ -39,6 +43,7 @@ export function RecorridoEscuela() {
       kicker="Un recorrido completo · ejemplo ficticio"
       entrada="Desde algo que queremos hacer posible hasta una tarea, su resultado y lo que aprendemos juntos."
     >
+      {import.meta.env.DEV ? <EnsayoLocal /> : null}
       <p className="border-violeta border-l-4 p-4 font-semibold">
         Ejemplo ficticio. Podés practicar sin cuenta. Las acciones de esta página no publican
         aportes, no crean tareas y no cuentan como resultados reales.
