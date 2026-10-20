@@ -1,10 +1,13 @@
 /**
- * Solo la administración abre campañas y cambia su fase.
+ * Solo la administración abre campañas.
  *
- * Decisión del 9/10/2026: «Solo Juan Bravin abre campañas». La lista es
- * `ADMIN_USERNAMES` y se compara con el nombre **de la base**, no con el del
- * token: por eso las cuentas de acá firman tokens con un nombre que no es el
- * suyo, y la prueba es que el nombre del token no abre ni cierra nada.
+ * Decisión del 9/10/2026: «Solo Juan Bravin abre campañas». Desde el 20/10/2026
+ * cualquier cuenta con el correo verificado *propone* una (nace en borrador y
+ * junta gente: `campanas-propuestas.test.ts`), pero abrirla o programarla sigue
+ * siendo de la administración. La lista es `ADMIN_USERNAMES` y se compara con el
+ * nombre **de la base**, no con el del token: por eso las cuentas de acá firman
+ * tokens con un nombre que no es el suyo, y la prueba es que el nombre del token
+ * no abre nada.
  *
  * El molde es el de `blog-flows.test.ts`: se fija `ADMIN_USERNAMES`, se llama a
  * `resetConfig()` (la configuración se cachea) y se deja todo como estaba.
@@ -32,7 +35,9 @@ const contrato = {
   devolucion: 'Una lectura pública revisable por quienes participaron.',
   fechaDevolucion: '2099-12-20',
   efecto: 'Ejercicio sin compromiso institucional.',
-  fases: [{ nombre: 'Imaginar', salida: 'Relatos revisados por sus autores.', fecha: '2099-12-01' }],
+  fases: [
+    { nombre: 'Imaginar', salida: 'Relatos revisados por sus autores.', fecha: '2099-12-01' },
+  ],
 };
 
 describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
@@ -54,6 +59,7 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
     /** Cuenta administradora con un token que dice llamarse de otra forma. */
     let cookieAdminConNombreAjeno = '';
     let campana = '';
+    let propuestaComun = '';
     const lista = `${marca}, ${marcaOtra}`;
 
     const sesion = (id: number, username: string) =>
@@ -103,15 +109,21 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
         .expect(401);
     });
 
-    it('una cuenta común recibe 403 NOT_ADMIN al abrir una campaña, y no queda nada creado', async () => {
+    it('una cuenta común propone una campaña, pero nace en borrador y no la abre', async () => {
       const r = await enviar(cookieComun, '/api/v1/campanas', { idLocal: randomUUID(), contrato });
-      expect(r.status).toBe(403);
-      expect(r.body.error.code).toBe('NOT_ADMIN');
-      expect(r.body.error.message).toBe('Esta acción requiere permisos de administrador.');
-      const filas = await getDb().execute<{ n: number }>(
-        sql`select count(*)::int n from campanas where creador_id = ${comun}`,
+      expect(r.status).toBe(201);
+      propuestaComun = r.body.data.id as string;
+      const fila = await getDb().execute<{ creador_id: number; estado: string }>(
+        sql`select creador_id, estado from campanas where id = ${propuestaComun}::uuid`,
       );
-      expect(filas.rows[0]?.n).toBe(0);
+      expect(fila.rows[0]).toMatchObject({ creador_id: comun, estado: 'borrador' });
+      const abrir = await enviar(cookieComun, `/api/v1/campanas/${propuestaComun}/estado`, {
+        revision: 1,
+        estado: 'abierta',
+        motivo: 'Intento de abrir mi propia campaña sin revisión.',
+      });
+      expect(abrir.status).toBe(403);
+      expect(abrir.body.error.code).toBe('NOT_ADMIN');
     });
 
     it('la administración abre la campaña, aunque su token traiga otro nombre', async () => {
@@ -128,12 +140,22 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
     });
 
     it('el nombre del token no da permisos: una cuenta común que firma con el nombre de la administradora sigue sin poder', async () => {
-      const r = await enviar(cookieComunConNombreAjeno, '/api/v1/campanas', {
-        idLocal: randomUUID(),
-        contrato,
-      });
+      const r = await enviar(
+        cookieComunConNombreAjeno,
+        `/api/v1/campanas/${propuestaComun}/estado`,
+        {
+          revision: 1,
+          estado: 'programada',
+          motivo: 'Intento de programarla con el nombre de la administradora.',
+        },
+      );
       expect(r.status).toBe(403);
       expect(r.body.error.code).toBe('NOT_ADMIN');
+      const revision = await request
+        .get('/api/v1/campanas/revision')
+        .set('Cookie', cookieComunConNombreAjeno);
+      expect(revision.status).toBe(403);
+      expect(revision.body.error.code).toBe('NOT_ADMIN');
     });
 
     it('una cuenta común recibe 403 NOT_ADMIN al cambiar de fase, incluso en una campaña ajena', async () => {
@@ -172,15 +194,25 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       expect(fila.rows[0]).toMatchObject({ estado: 'abierta', revision: 2 });
     });
 
-    it('quitarle el nombre de la lista le quita el permiso en la próxima pedida', async () => {
+    it('quitarle el nombre de la lista le quita el permiso de abrir en la próxima pedida', async () => {
       process.env['ADMIN_USERNAMES'] = marcaOtra;
       resetConfig();
       try {
-        const r = await enviar(cookieAdmin, `/api/v1/campanas/${campana}/estado`, {
-          revision: 2,
-          estado: 'pausada',
-          motivo: 'Intento de pausar sin figurar en la lista.',
+        // Sin figurar en la lista, propone como cualquiera: nace en borrador y no la abre.
+        const nueva = await enviar(cookieAdmin, '/api/v1/campanas', {
+          idLocal: randomUUID(),
+          contrato: { ...contrato, titulo: 'Otra conversación de prueba del acceso' },
         });
+        expect(nueva.status).toBe(201);
+        const r = await enviar(
+          cookieAdmin,
+          `/api/v1/campanas/${nueva.body.data.id as string}/estado`,
+          {
+            revision: 1,
+            estado: 'abierta',
+            motivo: 'Intento de abrir sin figurar en la lista.',
+          },
+        );
         expect(r.status).toBe(403);
         expect(r.body.error.code).toBe('NOT_ADMIN');
       } finally {

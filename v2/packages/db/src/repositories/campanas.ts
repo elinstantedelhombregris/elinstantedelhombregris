@@ -1,5 +1,9 @@
-import { USO_DATOS_CONTRATO_ANTERIOR, METODO_LECTURA_CONTRATO_ANTERIOR } from '@v2/shared';
-import { and, desc, eq, or, sql } from 'drizzle-orm';
+import {
+  USO_DATOS_CONTRATO_ANTERIOR,
+  METODO_LECTURA_CONTRATO_ANTERIOR,
+  UMBRAL_IMPULSO,
+} from '@v2/shared';
+import { and, desc, eq, notInArray, or, sql, type SQL } from 'drizzle-orm';
 
 import {
   campanas,
@@ -11,15 +15,40 @@ import { geographicLocations } from '../schema/geographic.js';
 import { senales } from '../schema/senales.js';
 
 import { ColaboracionRepository } from './colaboracion.js';
+import { ImpulsoRepository } from './impulso.js';
 import {
+  ESTADOS_SIN_PUBLICAR,
   campanaPublicada,
   contratoPublicoCampana,
-  revisionPublicaCampana,
   estadoPublicoCampana,
+  revisionPublicaCampana,
 } from './participacion-consulta.js';
 
 import type { Db } from '../client.js';
-import type { CampanaPublica, ContratoCampana, EstadoCampana } from '@v2/shared';
+import type { CampanaEnCatalogo, CampanaPublica, ContratoCampana, EstadoCampana } from '@v2/shared';
+
+/**
+ * Adentro de una subconsulta, la columna va con su tabla a mano: en los campos de un `select`
+ * de una sola tabla, drizzle escribe `${campanas.id}` como `"id"` a secas, y una subconsulta
+ * sobre otra tabla lo lee como el `id` de ésa.
+ */
+const CAMPANA_ID = sql.raw('"campanas"."id"');
+const CAMPANA_ESTADO = sql.raw('"campanas"."estado"');
+const editora = (usuario: number) =>
+  sql`exists(select 1 from colaboraciones col where col.tipo='campana' and col.objeto=${CAMPANA_ID} and col.usuario_id=${usuario} and col.aceptada_en is not null and col.revocada_en is null and col.rol='editor')`;
+/** Mientras junta gente o espera revisión, la campaña muestra cuántas personas nuevas trajo. */
+const conImpulso = (estado: EstadoCampana) => estado === 'reuniendo' || estado === 'por_revisar';
+
+/** El estado real de una campaña, sin la máscara pública: para decidir un cambio de estado. */
+export interface CampanaParaCambiar {
+  id: string;
+  slug: string;
+  estado: EstadoCampana;
+  revision: number;
+  creadorId: number;
+  fechaDevolucion: string;
+  devoluciones: number;
+}
 
 export class CampanasRepository {
   constructor(private readonly db: Db) {}
@@ -33,8 +62,8 @@ export class CampanasRepository {
     );
     return r.rows[0]?.n === ids.length;
   }
-  async listar(usuario?: number, propias = false) {
-    return this.db
+  async listar(usuario?: number, propias = false): Promise<CampanaEnCatalogo[]> {
+    const filas = await this.db
       .select({
         id: campanas.id,
         slug: campanas.slug,
@@ -42,18 +71,31 @@ export class CampanasRepository {
         estado: propias ? campanas.estado : estadoPublicoCampana,
         contrato: propias ? campanas.contrato : contratoPublicoCampana,
         actualizadaEn: campanas.actualizadaEn,
+        impulsadaPorMi: sql<boolean>`${campanas.creadorId}=${usuario ?? -1}`,
+        motivo: propias
+          ? sql<
+              string | null
+            >`(select h.motivo from campana_ediciones h where h.campana_id=${CAMPANA_ID} and h.estado=${CAMPANA_ESTADO} order by h.revision desc limit 1)`
+          : sql<null>`null::text`,
       })
       .from(campanas)
       .where(
         propias && usuario
-          ? or(
-              eq(campanas.creadorId, usuario),
-              sql`exists(select 1 from colaboraciones col where col.tipo='campana' and col.objeto=${campanas.id} and col.usuario_id=${usuario} and col.aceptada_en is not null and col.revocada_en is null and col.rol='editor')`,
-            )
+          ? or(eq(campanas.creadorId, usuario), editora(usuario))
           : campanaPublicada,
       )
       .orderBy(desc(campanas.actualizadaEn), campanas.id)
       .limit(100);
+    const personas = await new ImpulsoRepository(this.db).personasDe(
+      filas.filter((f) => conImpulso(f.estado)).map((f) => f.id),
+    );
+    return filas.map((f) => ({
+      ...f,
+      actualizadaEn: f.actualizadaEn.toISOString(),
+      impulso: conImpulso(f.estado)
+        ? { personas: personas.get(f.id) ?? 0, umbral: UMBRAL_IMPULSO }
+        : null,
+    }));
   }
   async porId(id: string, usuario?: number, edicion?: number): Promise<CampanaPublica | null> {
     const filtro = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)
@@ -65,11 +107,7 @@ export class CampanasRepository {
       .where(
         and(
           filtro,
-          or(
-            campanaPublicada,
-            eq(campanas.creadorId, usuario ?? -1),
-            sql`exists(select 1 from colaboraciones col where col.tipo='campana' and col.objeto=${campanas.id} and col.usuario_id=${usuario ?? -1} and col.aceptada_en is not null and col.revocada_en is null and col.rol='editor')`,
-          ),
+          or(campanaPublicada, eq(campanas.creadorId, usuario ?? -1), editora(usuario ?? -1)),
         ),
       )
       .limit(1);
@@ -87,7 +125,7 @@ export class CampanasRepository {
         .where(
           and(
             eq(campanaEdiciones.campanaId, fila.id),
-            sql`${campanaEdiciones.estado}<>'borrador'`,
+            notInArray(campanaEdiciones.estado, ESTADOS_SIN_PUBLICAR),
             ...(edicion === undefined ? [] : [eq(campanaEdiciones.revision, edicion)]),
           ),
         )
@@ -101,7 +139,7 @@ export class CampanasRepository {
         estado: 'pausada',
       };
     }
-    const [devoluciones, historial, cuenta] = await Promise.all([
+    const [devoluciones, historial, cuenta, personas] = await Promise.all([
       this.db
         .select({
           id: campanaDevoluciones.id,
@@ -128,6 +166,7 @@ export class CampanasRepository {
       this.db.execute<{ n: number }>(
         sql`select count(*)::int n from ${contribuciones} c join ${senales} s on s.id_publico=c.senal_id where c.campana_id=${fila.id}::uuid and s.estado<>'retirada' and s.retenida_en is null`,
       ),
+      conImpulso(fila.estado) ? new ImpulsoRepository(this.db).personas(fila.id) : null,
     ]);
     return {
       id: fila.id,
@@ -137,18 +176,40 @@ export class CampanasRepository {
       contrato: fila.contrato,
       puedoEditar: fila.creadorId === usuario,
       puedoInvitar: fila.creadorId === usuario,
-      puedoEditarContrato:
-        usuario !== undefined &&
-        (await new ColaboracionRepository(this.db).puedeEditar('campana', fila.id, usuario)),
+      puedoEditarContrato: editable,
       creadaEn: fila.creadaEn.toISOString(),
       actualizadaEn: fila.actualizadaEn.toISOString(),
       aportes: cuenta.rows[0]?.n ?? 0,
       devoluciones: devoluciones.map((d) => ({ ...d, fecha: d.fecha.toISOString() })),
       historial: historial.map((h) => ({ ...h, fecha: h.fecha.toISOString() })),
+      impulso: personas === null ? null : { personas, umbral: UMBRAL_IMPULSO },
+      impulsadaPorMi: fila.creadorId === usuario,
     };
   }
+  /** Por id o por slug, sin máscara pública ni filtro de quién mira: lo decide quien llama. */
+  async paraCambiar(idOSlug: string): Promise<CampanaParaCambiar | null> {
+    const esId = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(idOSlug);
+    const [fila] = await this.db
+      .select({
+        id: campanas.id,
+        slug: campanas.slug,
+        estado: campanas.estado,
+        revision: campanas.revision,
+        creadorId: campanas.creadorId,
+        fechaDevolucion: sql<string>`${campanas.contrato}->>'fechaDevolucion'`,
+        devoluciones: sql<number>`(select count(*)::int from campana_devoluciones d where d.campana_id=${CAMPANA_ID})`,
+      })
+      .from(campanas)
+      .where(esId ? eq(campanas.id, idOSlug) : eq(campanas.slug, idOSlug))
+      .limit(1);
+    return fila ?? null;
+  }
   async crear(uid: number, idLocal: string, contrato: ContratoCampana): Promise<string> {
-    const valoresAnteriores = JSON.stringify({ usoDatos: USO_DATOS_CONTRATO_ANTERIOR, metodoLectura: METODO_LECTURA_CONTRATO_ANTERIOR, institucion: '' });
+    const valoresAnteriores = JSON.stringify({
+      usoDatos: USO_DATOS_CONTRATO_ANTERIOR,
+      metodoLectura: METODO_LECTURA_CONTRATO_ANTERIOR,
+      institucion: '',
+    });
     const r = await this.db.execute<{ id: string }>(sql`with nueva as (
       insert into ${campanas} (creador_id,id_local,slug,contrato) values (${uid},${idLocal}::uuid,${`campana-${idLocal}`},${JSON.stringify(contrato)}::jsonb)
       on conflict (creador_id,id_local) do nothing returning *
@@ -171,6 +232,7 @@ export class CampanasRepository {
     select id from cambio`);
     return r.rows.length === 1;
   }
+  /** Quien la creó cambia el estado de su campaña. */
   async cambiarEstado(
     id: string,
     uid: number,
@@ -178,15 +240,42 @@ export class CampanasRepository {
     estado: EstadoCampana,
     motivo: string,
   ): Promise<boolean> {
-    const r = await this.db.execute<{ id: string }>(sql`with cambio as (
+    return (await this.cambiar(id, sql`creador_id=${uid}`, revision, estado, motivo)) !== null;
+  }
+  /**
+   * La administración decide sobre una campaña ajena: sólo una propuesta revisada o una
+   * campaña programada. La ruta valida antes quién mira; acá el filtro repite el límite para
+   * que ningún otro estado ajeno se pueda tocar por este camino.
+   */
+  async decidirPropuesta(
+    id: string,
+    revision: number,
+    estado: EstadoCampana,
+    motivo: string,
+  ): Promise<{ slug: string; creadorId: number; revision: number } | null> {
+    return this.cambiar(id, sql`estado in ('por_revisar','programada')`, revision, estado, motivo);
+  }
+  private async cambiar(
+    id: string,
+    quien: SQL,
+    revision: number,
+    estado: EstadoCampana,
+    motivo: string,
+  ): Promise<{ slug: string; creadorId: number; revision: number } | null> {
+    const r = await this.db.execute<{
+      slug: string;
+      creador_id: number;
+      revision: number;
+    }>(sql`with cambio as (
       update ${campanas} set estado=${estado},revision=revision+1,actualizada_en=now()
-      where id=${id}::uuid and creador_id=${uid} and revision=${revision} returning *
+      where id=${id}::uuid and ${quien} and revision=${revision} returning *
     ), historia as (insert into ${campanaEdiciones} (campana_id,revision,contrato,estado,motivo) select id,revision,contrato,estado,${motivo} from cambio returning id),
     avisos as (insert into eventos_civicos(user_id,clave,titulo,href)
-      select s.user_id,'campana:'||c.id||':'||c.revision,'La campaña que seguís cambió de fase.','/campanas/'||c.slug
+      select s.user_id,'campana:'||c.id||':'||c.revision,'La campaña que seguís cambió de etapa.','/campanas/'||c.slug
       from cambio c join seguimientos s on s.tipo='campana' and s.objeto=c.id::text where not exists(select 1 from preferencias_civicas pref where pref.user_id=s.user_id and not pref.avisos) on conflict do nothing returning id)
-    select id from cambio`);
-    return r.rows.length === 1;
+    select slug, creador_id, revision from cambio`);
+    const fila = r.rows[0];
+    return fila ? { slug: fila.slug, creadorId: fila.creador_id, revision: fila.revision } : null;
   }
   async devolver(
     id: string,

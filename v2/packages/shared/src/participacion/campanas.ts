@@ -181,3 +181,21 @@ export interface CampanaPublica {
   /** Quien la propuso es quien mira. */
   impulsadaPorMi?: boolean;
 }
+/**
+ * Una campaña en el catálogo (`GET /api/v1/campanas`) o en «Tus campañas»
+ * (`?mias=1`). Las que juntan gente o esperan revisión traen su `impulso`.
+ */
+export type CampanaEnCatalogo = Pick<
+  CampanaPublica,
+  | 'id'
+  | 'slug'
+  | 'revision'
+  | 'estado'
+  | 'contrato'
+  | 'actualizadaEn'
+  | 'impulso'
+  | 'impulsadaPorMi'
+> & {
+  /** Sólo en `?mias=1`: el último motivo escrito para el estado actual (por ejemplo, por qué la devolvieron). */
+  motivo?: string | null;
+};

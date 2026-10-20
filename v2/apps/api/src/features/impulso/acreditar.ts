@@ -11,8 +11,9 @@ import { ImpulsoRepository, getDb } from '@v2/db';
 import { COOKIE_IMPULSO } from '@v2/shared';
 import { z } from 'zod';
 
-import { getConfig } from '../../lib/config.js';
 import { logger } from '../../lib/logger.js';
+
+import { avisarQuePasoARevision } from './avisos.js';
 
 import type { Request } from 'express';
 
@@ -47,19 +48,7 @@ export async function acreditarParticipacion(
       senalIdPublico: e.senalIdPublico,
     });
     if (!r.pasoARevision || !r.campana) return;
-    const admins = await repo.idsDe(getConfig().admin.usernames);
-    await repo.avisar(
-      admins,
-      `impulso:revisar:${r.campana.id}`,
-      'Una campaña juntó la gente que necesitaba y espera tu revisión.',
-      '/gestion/campanas',
-    );
-    await repo.avisar(
-      [r.campana.creadorId],
-      `impulso:lista:${r.campana.id}`,
-      'Tu campaña juntó la gente que necesitaba. Ahora la revisa la coordinación.',
-      `/campanas/${r.campana.slug}`,
-    );
+    await avisarQuePasoARevision(repo, r.campana);
   } catch (err) {
     logger.warn({ err, campanaId }, 'no se pudo acreditar el impulso');
   }

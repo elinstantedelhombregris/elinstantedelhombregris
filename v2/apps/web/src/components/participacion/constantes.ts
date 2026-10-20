@@ -27,11 +27,13 @@ export const rotuloDeEstado = (estado: string) => FASES_ROTULO[estado] ?? estado
  * A qué estados puede pasar una campaña desde cada uno. Es el espejo de `PASOS` en
  * `apps/api/src/features/campanas/routes.ts`, que es la que manda: si el servidor cambia el
  * recorrido, hay que cambiar esta tabla también. Con esto la pantalla ofrece solo los pasos que
- * el servidor va a aceptar.
+ * el servidor va a aceptar. Quién da cada paso es otra regla: `PASOS_DE_QUIEN_IMPULSA` y
+ * `PASOS_DE_LA_REVISION` en `@v2/shared`. `reuniendo → por_revisar` no figura porque lo da el
+ * sistema al llegar al umbral, no una persona.
  */
 export const PASOS_CAMPANA: Readonly<Record<EstadoCampana, readonly EstadoCampana[]>> = {
   borrador: ['reuniendo', 'programada', 'abierta'],
-  reuniendo: ['borrador', 'por_revisar'],
+  reuniendo: ['borrador'],
   por_revisar: ['abierta', 'programada', 'reuniendo'],
   programada: ['abierta', 'pausada'],
   abierta: ['pausada', 'en_devolucion'],
