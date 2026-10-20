@@ -100,11 +100,38 @@ export class ImpulsoRepository {
     `);
     const fila = r.rows[0];
     if (!fila) return { acreditado: false, pasoARevision: false, campana: null };
-    return {
-      acreditado: true,
-      pasoARevision: fila.paso,
-      campana: { id: fila.id, slug: fila.slug, creadorId: fila.creador_id },
-    };
+    const campana = { id: fila.id, slug: fila.slug, creadorId: fila.creador_id };
+    if (fila.paso) return { acreditado: true, pasoARevision: true, campana };
+    // Dos personas que llegan a la vez no se ven entre sí dentro de la sentencia: con 48
+    // contadas, cada una suma 49 y ninguna cruza el umbral. Releer después de escribir lo cierra.
+    const tarde = await this.revisarSiLlego(e.campanaId, umbral);
+    return { acreditado: true, pasoARevision: tarde !== null, campana };
+  }
+
+  /**
+   * Si la campaña junta gente y ya tiene las personas del umbral, la pasa a revisión y deja
+   * el paso en `campana_ediciones`. La usan `acreditar` y la ruta que presenta una campaña que
+   * vuelve con gente ya contada. Devuelve la campaña si cambió.
+   */
+  async revisarSiLlego(
+    campanaId: string,
+    umbral: number = UMBRAL_IMPULSO,
+  ): Promise<{ id: string; slug: string; creadorId: number } | null> {
+    const r = await this.db.execute<{ id: string; slug: string; creador_id: number }>(sql`
+      with cambio as (
+        update ${campanas} set estado = 'por_revisar', revision = revision + 1, actualizada_en = now()
+        where id = ${campanaId}::uuid and estado = 'reuniendo'
+          and ${personasQueCuentan(sql`${campanaId}::uuid`)} >= ${umbral}
+        returning *
+      ),
+      historia as (
+        insert into ${campanaEdiciones} (campana_id, revision, contrato, estado, motivo)
+        select id, revision, contrato, estado, ${`Trajo ${String(umbral)} personas nuevas: pasa a revisión.`} from cambio
+        returning id
+      )
+      select id, slug, creador_id from cambio`);
+    const fila = r.rows[0];
+    return fila ? { id: fila.id, slug: fila.slug, creadorId: fila.creador_id } : null;
   }
 
   async personas(campanaId: string): Promise<number> {
@@ -155,10 +182,10 @@ export class ImpulsoRepository {
       select c.id, c.slug, c.revision, c.contrato, coalesce(nullif(c.contrato->>'responsable', ''), u.name) as impulsada_por,
         ${personasQueCuentan(sql`c.id`)} as personas,
         to_char(c.actualizada_en at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as presentada_en,
-        (select jsonb_agg(jsonb_build_object('id', s.id_publico, 'texto', ${textoDeSenalPublica}, 'provincia', g.name) order by s.creada_en)
-           from ${campanaImpulsos} i join ${senales} s on s.id = i.senal_id
-           left join geographic_locations g on g.id = s.province_id
-           where i.campana_id = c.id and s.estado <> 'retirada' and s.retenida_en is null) as aportes
+        (select jsonb_agg(jsonb_build_object('id', ${senales.idPublico}, 'texto', ${textoDeSenalPublica}, 'provincia', g.name) order by ${senales.creadaEn})
+           from ${campanaImpulsos} i join ${senales} on ${senales.id} = i.senal_id
+           left join geographic_locations g on g.id = ${senales.provinceId}
+           where i.campana_id = c.id and ${senales.estado} <> 'retirada' and ${senales.retenidaEn} is null) as aportes
       from ${campanas} c join ${users} u on u.id = c.creador_id
       where c.estado = 'por_revisar'
       order by c.actualizada_en`);
