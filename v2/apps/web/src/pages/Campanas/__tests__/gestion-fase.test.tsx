@@ -28,7 +28,7 @@ beforeEach(() => {
 });
 describe('Cambiar la campaña de etapa', () => {
   it.each([
-    ['borrador', ['programada', 'abierta']],
+    ['borrador', ['reuniendo', 'programada', 'abierta']],
     ['programada', ['abierta', 'pausada']],
     ['abierta', ['pausada', 'en_devolucion']],
     ['pausada', ['abierta', 'en_devolucion']],

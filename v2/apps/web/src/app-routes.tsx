@@ -42,6 +42,11 @@ import {
   Campo,
   InicioIniciativas,
   RecorridoEscuela,
+  Imaginar,
+  Mirar,
+  Ver,
+  ProponerCampana,
+  GestionPila,
   EjemploIniciativa,
   EscuchaTerritorial,
   IniciativaDocumento,
@@ -126,6 +131,13 @@ export function AppRoutes() {
       <Route path="/colaborar" component={Colaborar} />
       <Route path="/mi-espacio" component={MiEspacio} />
       <Route path="/gestion/campanas" component={GestionCampanas} />
+      <Route path="/gestion/pila" component={GestionPila} />
+      {/* Mi Argentina ideal: Imaginar, Mirar y Ver (spec 2026-10-19-mi-argentina-ideal-la-pila.md). */}
+      <Route path="/mi-argentina-ideal/imaginar" component={Imaginar} />
+      <Route path="/mi-argentina-ideal/mirar" component={Mirar} />
+      <Route path="/mi-argentina-ideal" component={Ver} />
+      {/* Proponer va antes de `/campanas/:slug`: Switch toma el primer match. */}
+      <Route path="/campanas/proponer" component={ProponerCampana} />
       <Route path="/campanas/:slug/participar">
         {(params) => <RedirigirAAportar campana={params.slug} />}
       </Route>

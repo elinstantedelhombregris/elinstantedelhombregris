@@ -45,3 +45,20 @@ export const EjemploSintesisNacional = lazy(async () => ({
 export const ValidacionEspacial = lazy(async () => ({
   default: (await import('~/pages/ValidacionEspacial')).ValidacionEspacial,
 }));
+
+/* Mi Argentina ideal (spec 2026-10-19-mi-argentina-ideal-la-pila.md). */
+export const Imaginar = lazy(async () => ({
+  default: (await import('~/pages/MiArgentinaIdeal/Imaginar')).Imaginar,
+}));
+export const Mirar = lazy(async () => ({
+  default: (await import('~/pages/MiArgentinaIdeal/Mirar')).Mirar,
+}));
+export const Ver = lazy(async () => ({
+  default: (await import('~/pages/MiArgentinaIdeal/Ver')).Ver,
+}));
+export const ProponerCampana = lazy(async () => ({
+  default: (await import('~/pages/Campanas/Proponer')).ProponerCampana,
+}));
+export const GestionPila = lazy(async () => ({
+  default: (await import('~/pages/GestionPila')).GestionPila,
+}));

@@ -36,7 +36,7 @@ export const campanas = pgTable(
     check('campanas_revision_chk', sql`${t.revision}>0`),
     check(
       'campanas_estado_chk',
-      sql`${t.estado} in ('borrador','programada','abierta','pausada','en_devolucion','cerrada')`,
+      sql`${t.estado} in ('borrador','reuniendo','por_revisar','programada','abierta','pausada','en_devolucion','cerrada')`,
     ),
   ],
 );

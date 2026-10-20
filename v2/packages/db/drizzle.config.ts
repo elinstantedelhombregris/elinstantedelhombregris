@@ -23,6 +23,8 @@ export default defineConfig({
     './src/schema/fichas.ts',
     './src/schema/sintesis-nacional.ts',
     './src/schema/campanas.ts',
+    './src/schema/pila.ts',
+    './src/schema/impulso.ts',
     './src/schema/continuidad.ts',
     './src/schema/colaboracion.ts',
     './src/schema/diseno.ts',

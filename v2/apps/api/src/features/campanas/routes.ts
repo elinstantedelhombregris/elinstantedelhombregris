@@ -22,7 +22,9 @@ import type { EstadoCampana } from '@v2/shared';
 const router: RouterType = Router();
 const idDe = (valor: unknown) => z.string().uuid().parse(valor);
 const PASOS: Record<EstadoCampana, EstadoCampana[]> = {
-  borrador: ['programada', 'abierta'],
+  borrador: ['reuniendo', 'programada', 'abierta'],
+  reuniendo: ['borrador', 'por_revisar'],
+  por_revisar: ['abierta', 'programada', 'reuniendo'],
   programada: ['abierta', 'pausada'],
   abierta: ['pausada', 'en_devolucion'],
   pausada: ['abierta', 'en_devolucion'],

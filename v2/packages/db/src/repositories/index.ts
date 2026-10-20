@@ -150,3 +150,5 @@ export * from './iniciativa-evidencia.js';
 export * from './iniciativa-membresia.js';
 
 export * from './recursos-tarea.js';
+
+export * from './impulso.js';

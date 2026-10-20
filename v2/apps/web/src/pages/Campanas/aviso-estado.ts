@@ -44,6 +44,17 @@ export function avisoDeEstado(
           ? 'Cuando esté lista, abrila desde “Cuidar el recorrido”.'
           : 'Cuando esté lista, la abre la coordinación de ¡BASTA!',
       };
+    case 'reuniendo':
+      return {
+        titular: 'Esta campaña está juntando gente para poder abrir.',
+        detalle:
+          'Abre cuando traiga 50 personas nuevas a imaginar el país y la coordinación de ¡BASTA! revise sus reglas.',
+      };
+    case 'por_revisar':
+      return {
+        titular: 'Esta campaña ya juntó la gente que necesitaba: está en revisión.',
+        detalle: 'La coordinación de ¡BASTA! revisa sus reglas antes de abrirla.',
+      };
     case 'programada':
       return {
         titular: 'Esta campaña todavía no abrió.',

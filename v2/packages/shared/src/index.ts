@@ -11,6 +11,10 @@ export * from './datasets/index.js';
 export * from './open-data/index.js';
 export { xpForLevel, levelForXp, xpToNextLevel } from './gamification/levels.js';
 export * from './participacion/campanas.js';
+export * from './participacion/pila.js';
+export * from './participacion/vision.js';
+export * from './participacion/impulso.js';
+export * from './validation/pila.js';
 export * from './participacion/aportes.js';
 export * from './participacion/diseno.js';
 

@@ -13,6 +13,8 @@ export const ACCION_DE_PILA = 'w-full justify-center text-center';
 export const ENLACE_DE_TEXTO = 'text-violeta inline-flex min-h-11 items-center underline';
 export const FASES_ROTULO: Readonly<Record<string, string>> = {
   borrador: 'En preparación',
+  reuniendo: 'Juntando gente',
+  por_revisar: 'En revisión',
   programada: 'Programada',
   abierta: 'Abierta a participar',
   pausada: 'Pausada',
@@ -28,7 +30,9 @@ export const rotuloDeEstado = (estado: string) => FASES_ROTULO[estado] ?? estado
  * el servidor va a aceptar.
  */
 export const PASOS_CAMPANA: Readonly<Record<EstadoCampana, readonly EstadoCampana[]>> = {
-  borrador: ['programada', 'abierta'],
+  borrador: ['reuniendo', 'programada', 'abierta'],
+  reuniendo: ['borrador', 'por_revisar'],
+  por_revisar: ['abierta', 'programada', 'reuniendo'],
   programada: ['abierta', 'pausada'],
   abierta: ['pausada', 'en_devolucion'],
   pausada: ['abierta', 'en_devolucion'],

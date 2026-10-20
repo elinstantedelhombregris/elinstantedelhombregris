@@ -20,6 +20,9 @@ const PAPEL_ROUTES = new Set([
   '/imaginar',
   '/campanas',
   '/gestion/campanas',
+  '/gestion/pila',
+  // Mi Argentina ideal: Ver en la raíz, Imaginar y Mirar debajo.
+  '/mi-argentina-ideal',
   '/mi-espacio',
   '/colaborar',
   '/datos-abiertos',
@@ -82,6 +85,7 @@ const PAPEL_PREFIXES = [
   '/capacidades/',
   '/iniciativas/',
   '/campanas/',
+  '/mi-argentina-ideal/',
   '/mandato-vivo/',
   '/planes/',
   '/ensayos/',

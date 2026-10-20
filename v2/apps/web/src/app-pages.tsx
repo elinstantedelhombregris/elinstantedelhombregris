@@ -301,4 +301,9 @@ export {
   RecorridoEscuela,
   EscuchaTerritorial,
   EjemploIniciativa,
+  Imaginar,
+  Mirar,
+  Ver,
+  ProponerCampana,
+  GestionPila,
 } from './app-pages-participacion';

@@ -24,8 +24,25 @@ const fecha = z
  */
 export const SLUG_CAMPANA_NACIONAL = 'mi-argentina-ideal';
 
+/**
+ * La pregunta de Mi Argentina ideal. Portada, reglas de la campaña, Imaginar y
+ * Mirar leen ésta, y ninguna otra (D-134: la misma campaña hacía tres preguntas).
+ */
+export const PREGUNTA_MI_ARGENTINA_IDEAL = 'En tu Argentina ideal, ¿qué sería posible en tu vida?';
+
+/**
+ * Cuántas personas nuevas tiene que traer una campaña propuesta para pasar a
+ * revisión (spec 2026-10-19-mi-argentina-ideal-la-pila.md §11). Una constante y
+ * no una columna: cambiarla no necesita migración y vale igual para todas.
+ */
+export const UMBRAL_IMPULSO = 50;
+
 export const estadosCampana = [
   'borrador',
+  /** Propuesta por cualquiera con cuenta: junta gente nueva para poder abrir (§11). */
+  'reuniendo',
+  /** Llegó a `UMBRAL_IMPULSO`: la administración revisa las reglas y la abre o la devuelve. */
+  'por_revisar',
   'programada',
   'abierta',
   'pausada',
@@ -159,4 +176,8 @@ export interface CampanaPublica {
     fecha: string;
   }[];
   historial: { revision: number; estado: string; motivo: string; fecha: string }[];
+  /** Sólo mientras junta gente o espera revisión: cuántas personas nuevas trajo. */
+  impulso?: { personas: number; umbral: number } | null;
+  /** Quien la propuso es quien mira. */
+  impulsadaPorMi?: boolean;
 }
