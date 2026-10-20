@@ -24,7 +24,23 @@ const PROPIOS = {
   campanaId: contribuciones.campanaId,
   campanaTitulo: sql<string | null>`${campanas.contrato}->>'titulo'`,
   edicion: contribuciones.edicion,
+  /**
+   * Si salió de Mirar, por qué y desde cuándo (plan de Mi Argentina ideal, tarea
+   * 8). El origen es el de la última retención registrada; si la retuvo algo que
+   * no dejó decisión, cuenta como de la coordinación.
+   */
+  retenido: sql<NonNullable<
+    AportePropio['retenido']
+  > | null>`case when ${senales.retenidaEn} is null then null
+    else jsonb_build_object('origen', coalesce((select d.origen from pila_decisiones d
+      where d.senal_id = ${senales.id} and d.decision = 'retener' order by d.creada_en desc limit 1),
+      case when ${senales.retenidaMotivo} = 'reportes' then 'reportes' else 'gestion' end),
+      'desde', to_char(${senales.retenidaEn} at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"')) end`,
 };
+/** Lo que ya contestaron otras personas en Mirar no se reescribe por debajo de ellas. */
+const CONTESTADO_EN_MIRAR = sql.raw(
+  `exists(select 1 from pila_respuestas r where r.senal_id=s.id and r.valor is not null)`,
+);
 export class MiEspacioRepository {
   constructor(private readonly db: Db) {}
   async aportePrivado(id: string, uid?: number, actorId?: number | null) {
@@ -34,7 +50,7 @@ export class MiEspacioRepository {
       cedeLicencia: boolean;
       textoProtegido: boolean;
     }>(
-      sql`select texto,to_char(date_trunc('milliseconds',actualizada_en) at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as revision,cesion_licencia as "cedeLicencia",(clase in('hecho','acto') or exists(select 1 from adhesiones a where a.senal_id=s.id)) as "textoProtegido" from senales s where id_publico=${id}::uuid and (user_id=${uid ?? null} or (user_id is null and actor_id=${actorId ?? null}))`,
+      sql`select texto,to_char(date_trunc('milliseconds',actualizada_en) at time zone 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') as revision,cesion_licencia as "cedeLicencia",(clase in('hecho','acto') or exists(select 1 from adhesiones a where a.senal_id=s.id) or ${CONTESTADO_EN_MIRAR}) as "textoProtegido" from senales s where id_publico=${id}::uuid and (user_id=${uid ?? null} or (user_id is null and actor_id=${actorId ?? null}))`,
     );
     return r.rows[0] ?? null;
   }
@@ -113,7 +129,7 @@ export class MiEspacioRepository {
     const r = await this.db.execute<{ id: string }>(sql`with cambio as (
       update ${senales} set texto=${texto},cesion_licencia=${cede},cesion_en=${cede ? new Date() : null},cesion_version=${cede ? 1 : null},actualizada_en=greatest(date_trunc('milliseconds',clock_timestamp()),date_trunc('milliseconds',actualizada_en)+interval '1 millisecond')
       where id_publico=${id}::uuid and date_trunc('milliseconds',actualizada_en)=${new Date(revision).toISOString()}::timestamptz and estado<>'retirada'
-        and (texto=${texto} or (clase in('deseo','meta') and not exists(select 1 from adhesiones a where a.senal_id=senales.id)))
+        and (texto=${texto} or (clase in('deseo','meta') and not exists(select 1 from adhesiones a where a.senal_id=senales.id) and not exists(select 1 from pila_respuestas r where r.senal_id=senales.id and r.valor is not null)))
         and (user_id=${uid ?? null} or (user_id is null and actor_id=${actorId ?? null})) returning id_publico
     ), origen as (update ${contribuciones} set fragmentos='[]'::jsonb where senal_id in (select id_publico from cambio) returning senal_id), vectores as (delete from analisis_vectores where fuente='senales' and fuente_id in (select id_publico::text from cambio) returning fuente_id)
     select id_publico as id from cambio`);

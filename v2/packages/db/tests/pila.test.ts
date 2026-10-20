@@ -12,6 +12,7 @@ import { drizzle } from 'drizzle-orm/neon-http';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { ImpulsoRepository } from '../src/repositories/impulso.js';
+import { MiEspacioRepository } from '../src/repositories/mi-espacio.js';
 import { PilaGestionRepository } from '../src/repositories/pila-gestion.js';
 import { PilaRepository } from '../src/repositories/pila.js';
 import * as schema from '../src/schema/index.js';
@@ -546,6 +547,13 @@ viva('PilaRepository', () => {
         motivo: 'Probando con texto reservado.',
       });
 
+      const espacio = new MiEspacioRepository(db);
+      await db.execute(sql`update senales set user_id = ${cuenta} where id = ${conCesion.id}`);
+      const propios = await espacio.propios(cuenta);
+      expect(propios.aportes.find((a) => a.id === conCesion.idPublico)?.retenido).toMatchObject({
+        origen: 'gestion',
+      });
+
       expect(await gestion.devolver(conCesion.idPublico, creador, 'Ya lo corrigió.')).toBe('ok');
       expect(await gestion.devolver(conCesion.idPublico, creador, 'Otra vez.')).toBe('sin_cambio');
       const vuelta = await pila.candidatos({
@@ -561,6 +569,28 @@ viva('PilaRepository', () => {
         { decision: 'retener', admin: creador },
         { decision: 'devolver', admin: creador },
       ]);
+      expect(
+        (await espacio.propios(cuenta)).aportes.find((a) => a.id === conCesion.idPublico)?.retenido,
+      ).toBeNull();
+    });
+
+    it('un aporte contestado en Mirar queda con su texto protegido', async () => {
+      const campana = await nuevaCampana();
+      const [autor, otra] = await actores(2);
+      const s = await aporte(campana, { actorId: autor! });
+      const espacio = new MiEspacioRepository(db);
+      expect((await espacio.aportePrivado(s.idPublico, undefined, autor!))?.textoProtegido).toBe(
+        false,
+      );
+      await pila.registrarExposicion([s.idPublico], otra!, null);
+      expect((await espacio.aportePrivado(s.idPublico, undefined, autor!))?.textoProtegido).toBe(
+        false,
+      );
+      await db.execute(sql`update pila_respuestas set valor = 'paso', respondida_en = now()
+        where senal_id = ${s.id} and actor_id = ${otra!}::bigint`);
+      expect((await espacio.aportePrivado(s.idPublico, undefined, autor!))?.textoProtegido).toBe(
+        true,
+      );
     });
   });
 
