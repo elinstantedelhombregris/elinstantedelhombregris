@@ -12,11 +12,20 @@
  * se lee del 1 al 14 de marzo y la primera devolución sale el 15/3/2027;
  * después hay una edición y una devolución por trimestre.
  *
+ * **Una sola pregunta** (D-134): la de las reglas es `PREGUNTA_MI_ARGENTINA_IDEAL`,
+ * la misma de la portada, de Imaginar y de Mirar, y el propósito la cita igual.
+ * La siembra de producción todavía no corrió (D-121), así que cambiarla ahora
+ * no abre una edición nueva.
+ *
  * **Una fase tiene una sola fecha** (`faseCampanaSchema`): la del día en que
  * entrega su salida. Por eso la fecha de cierre va en `fecha` y el rango
  * completo va escrito en `salida`, que es lo que la página muestra al lado.
  */
-import { SLUG_CAMPANA_NACIONAL, contratoCampanaSchema } from '@v2/shared';
+import {
+  PREGUNTA_MI_ARGENTINA_IDEAL,
+  SLUG_CAMPANA_NACIONAL,
+  contratoCampanaSchema,
+} from '@v2/shared';
 import { z } from 'zod';
 
 import type { ContratoCampana } from '@v2/shared';
@@ -113,11 +122,10 @@ export function construirContratoNacional(hoy: string): ContratoCampana {
   }
   return contratoCampanaSchema.parse({
     titulo: 'Mi Argentina ideal',
-    pregunta:
-      'Si la Argentina funcionara como vos la imaginás, ¿qué te gustaría que fuera posible en tu vida de todos los días?',
+    pregunta: PREGUNTA_MI_ARGENTINA_IDEAL,
     proposito: [
       'Esta campaña nacional y permanente de ¡BASTA! recibe cualquier aporte que se publica sin elegir otra campaña, y por eso hay una persona que responde por todos ellos.',
-      'Cada aporte cuenta qué te gustaría que fuera posible en tu vida si el país funcionara como vos lo imaginás, por ejemplo en tu trabajo o en el cuidado de los tuyos. Juntos, los aportes muestran dónde coinciden las personas y dónde piensan distinto.',
+      `Cada aporte contesta una sola pregunta: «${PREGUNTA_MI_ARGENTINA_IDEAL}». Puede ser sobre tu trabajo, tu barrio o el cuidado de los tuyos. Juntos, los aportes muestran dónde coinciden las personas y dónde piensan distinto.`,
       'Con esa lectura se arman fichas de diseño: descripciones de una vida deseada y de las condiciones que la harían posible, abiertas a que otras personas las discutan y las pongan a prueba. Los temas de la lista ordenan la lectura. Un aporte sin tema, o que no encaja en ninguno, también se recibe y se lee.',
     ].join('\n\n'),
     territorios: [],

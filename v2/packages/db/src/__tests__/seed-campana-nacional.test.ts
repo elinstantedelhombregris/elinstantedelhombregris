@@ -10,7 +10,12 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { MAX_TEMAS, SLUG_CAMPANA_NACIONAL, contratoCampanaSchema } from '@v2/shared';
+import {
+  MAX_TEMAS,
+  PREGUNTA_MI_ARGENTINA_IDEAL,
+  SLUG_CAMPANA_NACIONAL,
+  contratoCampanaSchema,
+} from '@v2/shared';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -53,6 +58,13 @@ describe('el contrato de la campaña nacional', () => {
 
   it('pasa el esquema que valida GET /campanas, y volver a parsearlo no lo cambia', () => {
     expect(contratoCampanaSchema.parse(contrato)).toEqual(contrato);
+  });
+
+  it('pregunta lo mismo que la portada, Imaginar y Mirar, y el propósito cita esa pregunta (D-134)', () => {
+    expect(contrato.pregunta).toBe(PREGUNTA_MI_ARGENTINA_IDEAL);
+    expect(contrato.proposito).toContain(`«${PREGUNTA_MI_ARGENTINA_IDEAL}»`);
+    // La pregunta vieja de las reglas no sobrevive en ningún texto de la campaña.
+    for (const t of textos(contrato)) expect(t).not.toMatch(/de todos los días\?/);
   });
 
   it('es de todo el país, lo atiende Juan Bravin y recibe por la web', () => {
@@ -135,11 +147,12 @@ describe('el contrato de la campaña nacional', () => {
     for (const t of textos(contrato)) expect(t).not.toMatch(jerga);
   });
 
-  it('no usa el molde «no es X, es Y» y le habla al lector de vos', () => {
+  it('no usa el molde «no es X, es Y» y le habla al lector de vos, nunca de usted', () => {
     for (const t of textos(contrato)) {
       expect(t).not.toMatch(/\bno es\b[^.;]*[,;]\s*(sino|es)\b/i);
+      expect(t).not.toMatch(/\b(usted|ustedes)\b/i);
     }
-    expect(contrato.pregunta).toContain('imaginás');
+    expect(contrato.pregunta).toContain('tu vida');
   });
 
   it('no deja que la primera etapa cierre antes de la siembra', () => {
