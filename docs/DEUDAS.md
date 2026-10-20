@@ -161,6 +161,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-145](#d-145--el-aviso-de-un-aporte-retenido-por-reportes-no-se-repite) | El aviso de un aporte retenido por reportes no se repite | Baja | Abierta |
 | [D-146](#d-146--toda-escritura-desde-el-navegador-respondía-500-en-producción) | Toda escritura desde el navegador respondía 500 en producción | Crítica | **Resuelta** |
 | [D-147](#d-147--un-origen-que-cors-no-permite-recibe-500-y-no-403) | Un origen que CORS no permite recibe 500 y no 403 | Baja | Abierta |
+| [D-148](#d-148--un-aporte-retirado-sigue-sumando-en-el-conteo-de-la-portada) | Un aporte retirado sigue sumando en el conteo de la portada | Media | Abierta |
 | [D-149](#d-149--compartir-una-crónica-no-muestra-su-título-ni-su-imagen) | Compartir una crónica no muestra su título ni su imagen | Media | Abierta |
 | [D-150](#d-150--la-sombra-de-las-figuras-del-lector-nunca-se-dibuja) | La sombra de las figuras del lector nunca se dibuja | Baja | Abierta |
 
@@ -2410,6 +2411,15 @@ El middleware de CORS daba por hecho que una petición del mismo sitio llega sin
 **Estado:** abierta.
 
 Cuando un sitio ajeno llama a la API, el middleware tira un error común y la respuesta es un 500 «Algo salió mal», sin `requestId`. El rechazo es correcto, pero lo registra como falla del servidor: una alarma de errores 500 se dispararía por un sitio ajeno, y fue lo que hizo que D-146 pareciera un error interno. Pendiente: responder 403 con un código propio, o no dar permiso CORS y dejar que el navegador bloquee la respuesta.
+
+### D-148 · Un aporte retirado sigue sumando en el conteo de la portada
+
+**Dónde:** `v2/packages/db/src/repositories/senales.ts` (`contarPorClase` y `total`, detrás de `GET /api/v1/civic/senales/conteo`) y `v2/apps/web/src/pages/Senal/RetirarAporte.tsx`.
+**Encontrada:** 2026-10-20, al retirar el aporte de prueba que se publicó en producción para comprobar D-146.
+**Severidad:** media.
+**Estado:** abierta.
+
+Antes de confirmar el retiro, la pantalla le dice a la persona que «el aporte sale de todas las cuentas del mapa». El conteo de la portada excluye sólo las señales retenidas, no las retiradas, así que un aporte retirado sigue sumando. En el repositorio es a propósito: el comentario de `retirar` dice que la fila sigue contando en cobertura y que el contenido no. Las dos cosas no pueden ser verdad a la vez. Hoy el contador de producción dice 1 por el aporte de prueba, que está retirado y sin texto. Pendiente: decidir qué cuenta y alinear el otro lado. O el conteo deja afuera `estado = 'retirada'`, o la pantalla deja de prometer que el aporte sale de todas las cuentas.
 
 ### D-149 · Compartir una crónica no muestra su título ni su imagen
 
