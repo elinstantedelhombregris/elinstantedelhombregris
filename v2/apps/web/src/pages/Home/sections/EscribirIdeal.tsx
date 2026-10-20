@@ -79,7 +79,7 @@ export function EscribirIdeal() {
         }}
         className={cn(
           CAMPO,
-          'mt-4 max-h-[50vh] min-h-32 resize-none text-[17px]',
+          'placeholder:text-tinta-50 mt-4 max-h-[50vh] min-h-32 resize-none text-[17px]',
           aviso && 'border-sello',
         )}
       />
