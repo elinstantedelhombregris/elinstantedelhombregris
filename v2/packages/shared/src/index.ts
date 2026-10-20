@@ -15,6 +15,7 @@ export * from './participacion/pila.js';
 export * from './participacion/vision.js';
 export * from './participacion/impulso.js';
 export * from './validation/pila.js';
+export * from './validation/vision.js';
 export * from './participacion/aportes.js';
 export * from './participacion/diseno.js';
 

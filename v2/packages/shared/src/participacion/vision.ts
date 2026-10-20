@@ -22,10 +22,15 @@ export interface AporteEnVision {
   /** «Yo también» + «Yo no». Los «Paso» van aparte y no entran en los porcentajes. */
   opiniones: number;
   pasos: number;
-  /** Acuerdo sobre quienes opinaron, de 0 a 1. */
+  /**
+   * Acuerdo sobre quienes opinaron, de 0 a 1. Vale 0 mientras el aporte no
+   * entra en la visión (menos de 20 opiniones o de dos regiones que cuentan,
+   * como en `recien`): con números chicos no se calcula ningún porcentaje (D-088).
+   */
   acuerdo: number;
-  /** El acuerdo de la región que cuenta y anda peor; `null` si ninguna cuenta. */
+  /** El acuerdo de la región que cuenta y anda peor; `null` si ninguna cuenta o si el aporte no entra en la visión. */
   peor: number | null;
+  /** Mientras el aporte no entra en la visión, ninguna región muestra porcentaje. */
   regiones: RegionEnAporte[];
   miOpinion?: ValorDeOpinion | null;
 }
