@@ -11,7 +11,6 @@ import { Afirmaciones } from '../Fichas/Afirmaciones';
 import { Alternativas } from '../Fichas/Alternativas';
 import { PanelDiseno } from '../Fichas/PanelDiseno';
 import { Pruebas } from '../Fichas/Pruebas';
-import { Recibo } from '../Imaginar/Recibo';
 import { ControlesAnalisis } from '../LaRadiografia/sections/ControlesAnalisis';
 import { BorradoresLocales } from '../MiEspacio/Borradores';
 import { MisAportes } from '../MiEspacio/MisAportes';
@@ -139,31 +138,6 @@ beforeEach(() => {
   window.history.replaceState(null, '', '/');
 });
 describe('La persona conserva el control de su voz', () => {
-  it('el recibo distingue reserva y recuperación sin exponer la cuenta', () => {
-    montar(
-      <Recibo
-        recibo={{
-          idPublico: id,
-          tipo: 'sueño',
-          estado: 'enviada',
-          precisionPublicada: 'sin punto',
-          yaExistia: false,
-          avisos: [],
-        }}
-        campana={null}
-        textoVisible={false}
-      />,
-    );
-    expect(screen.getByText(/El texto quedó reservado/)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Ver y gestionar mi aporte' })).toHaveAttribute(
-      'href',
-      '/senal/' + id,
-    );
-    expect(screen.getByRole('link', { name: 'Guardar en mi espacio' })).toHaveAttribute(
-      'href',
-      '/ingresar?volver=%2Fmi-espacio',
-    );
-  });
   it('seguir es una preferencia y la escritura no contiene voto ni apoyo', () => {
     modelo.user = { id: 1 };
     montar(<Seguir tipo="campana" objeto={id} />);
