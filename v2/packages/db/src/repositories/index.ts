@@ -152,3 +152,5 @@ export * from './iniciativa-membresia.js';
 export * from './recursos-tarea.js';
 
 export * from './impulso.js';
+
+export * from './vision.js';
