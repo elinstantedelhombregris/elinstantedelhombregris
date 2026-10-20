@@ -159,7 +159,3 @@ export function resetConfig(): void {
 export function clavesIA() {
   return { groq: process.env.GROQ_API_KEY, anthropic: process.env.ANTHROPIC_API_KEY };
 }
-export function nombreProveedorIA(): string | null {
-  const c = clavesIA();
-  return c.groq ? 'Groq' : c.anthropic ? 'Anthropic' : null;
-}

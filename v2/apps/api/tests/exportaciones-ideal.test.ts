@@ -81,25 +81,16 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       expect(lugar.body.data).toMatchObject({ id, level: 'province', provinceId: id });
       await r.get('/api/v1/geo/lugares/2147483647').expect(404);
     });
-    it('la interpretación externa exige permiso y un proveedor efectivo', async () => {
-      await r
-        .post('/api/v1/contribuciones/interpretar')
-        .send({ texto: 'Lo que quisiera imaginar' })
-        .expect(403);
+    it('la lectura asistida ya no existe: el texto de un aporte no sale a un proveedor (D-136)', async () => {
       const c = await r.get('/api/v1/contribuciones/contexto');
       const token = c.body.data.csrfToken as string;
-      await r
-        .post('/api/v1/contribuciones/interpretar')
-        .set('Cookie', `eihg_csrf=${token}`)
-        .set('X-CSRF-Token', token)
-        .send({ texto: 'No quiero renunciar a estudiar y cuidar.', autorizaProveedor: false })
-        .expect(400);
+      expect(c.body.data).not.toHaveProperty('proveedor');
       await r
         .post('/api/v1/contribuciones/interpretar')
         .set('Cookie', `eihg_csrf=${token}`)
         .set('X-CSRF-Token', token)
         .send({ texto: 'No quiero renunciar a estudiar y cuidar.', autorizaProveedor: true })
-        .expect(503);
+        .expect(404);
     });
   },
 );

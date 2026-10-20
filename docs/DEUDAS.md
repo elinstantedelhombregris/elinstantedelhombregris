@@ -147,7 +147,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-133](#d-133--el-enlace-para-preparar-una-síntesis-sin-sesión-lleva-a-una-página-que-no-existe) | El enlace para preparar una síntesis sin sesión lleva a una página que no existe | Baja | Abierta |
 | [D-134](#d-134--la-campaña-nacional-hace-tres-preguntas-distintas) | La campaña nacional hace tres preguntas distintas | Media | Abierta |
 | [D-135](#d-135--el-mandato-vivo-no-tiene-entrada-desde-el-menú) | El mandato vivo no tiene entrada desde el menú | Media | Abierta |
-| [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Abierta |
+| [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Resuelta en código (API); la web la borra en la entrega 3 |
 | [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Abierta |
 
 ---
@@ -2278,9 +2278,11 @@ La portada pregunta «En tu Argentina ideal, ¿qué sería posible en tu vida?»
 **Dónde:** `v2/apps/api/src/features/contribuciones/routes.ts` (`POST /api/v1/contribuciones/interpretar`), `interpretacion.ts`, y en la web `pages/Imaginar/Asistencia.tsx`.
 **Encontrada:** 2026-10-19, al relevar el modelo de datos de los aportes.
 **Severidad:** alta.
-**Estado:** abierta.
+**Estado:** resuelta en código (API), 2026-10-20; la web borra su parte en la entrega 3.
 
 Cuando la persona marca la casilla de consentimiento, el borrador de su aporte viaja entero al proveedor que elija `getAICompleter()`, que es Groq cuando está `GROQ_API_KEY`. La ADR 0009 (D2) dice que el texto que escribe la gente no sale de nuestra infraestructura y nombra una sola excepción, el asistente de coaching. Esta segunda salida no está nombrada en la ADR ni decidida por el dueño. Que la persona consienta no la cubre: la regla es del proyecto, no de cada aporte. Además, la fábrica de proveedores no tiene ninguna guarda que impida usar un proveedor externo para texto de aportes. Pendiente: o sacar la lectura asistida, o moverla a un proveedor local detrás de la misma interfaz, o que el dueño la agregue como excepción con una ADR. La propuesta `v2/docs/specs/2026-10-19-mi-argentina-ideal-la-pila.md` deja la lectura asistida afuera del recorrido nuevo.
+
+**Resolución (20/10):** la API ya no tiene `POST /api/v1/contribuciones/interpretar` ni `interpretacion.ts`, y `GET /contribuciones/contexto` dejó de anunciar un proveedor, así que el texto de un aporte no tiene por dónde salir a Groq ni a otro. La prueba de `exportaciones-ideal.test.ts` afirma que la ruta responde 404. El recorrido nuevo de Imaginar no la llama (P7 del plan de Mi Argentina ideal); el panel viejo (`pages/Imaginar/Asistencia.tsx` y su consulta) queda sin servicio y se borra con la entrega 3.
 
 ### D-137 · Una adhesión se puede dejar sobre un aporte retirado o sobre el propio
 

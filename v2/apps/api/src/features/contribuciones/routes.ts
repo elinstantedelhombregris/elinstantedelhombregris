@@ -5,15 +5,13 @@ import { contribucionSchema, corregirAporteSchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { getConfig, nombreProveedorIA } from '../../lib/config.js';
+import { getConfig } from '../../lib/config.js';
 import { optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 import { acreditarParticipacion } from '../impulso/acreditar.js';
 import { actorDelNavegador, ponerCookieDeActor, resolverActor } from '../senales/actor.js';
 import { ingerirSenal } from '../senales/service.js';
-
-import { interpretarTexto, pedidoLecturaSchema } from './interpretacion.js';
 
 const router: RouterType = Router();
 router.use(optionalAuthenticate);
@@ -40,17 +38,8 @@ router.get('/contexto', async (req, res, next) => {
           .select({ clave: temas.clave, etiqueta: temas.etiqueta })
           .from(temas)
           .orderBy(temas.orden),
-        proveedor: nombreProveedorIA(),
       },
     });
-  } catch (e) {
-    next(e);
-  }
-});
-router.post('/interpretar', anonSubmitRateLimit(), async (req, res, next) => {
-  try {
-    const v = pedidoLecturaSchema.parse(req.body);
-    res.set('Cache-Control', 'no-store').json({ data: await interpretarTexto(v.texto) });
   } catch (e) {
     next(e);
   }
