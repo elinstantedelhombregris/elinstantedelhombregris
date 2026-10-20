@@ -69,12 +69,15 @@ describe('guardas del vacío', () => {
     // La tentación de escribir la fórmula de manual es enorme, y quien la
     // escriba no va a notar que rompió nada. Por eso la prohibición es un test
     // y no una convención.
-    const prohibidas = [/no hay datos/i, /sin datos disponibles/i, /no disponible/i];
+    // «disponible» a secas también: «todavía no está disponible» es la misma disculpa.
+    const prohibidas = [/no hay datos/i, /sin datos disponibles/i, /disponible/i];
     const archivos = [
       join(DIR, 'Vacio.tsx'),
       ...readdirSync(join(DIR, 'modos'))
         .filter((f) => f.endsWith('.tsx'))
         .map((f) => join(DIR, 'modos', f)),
+      // Mirar sin aportes de otras personas (spec 2026-10-19 §4, D1): dice qué falta, no se disculpa.
+      join(DIR, '..', '..', 'MiArgentinaIdeal', 'mirar', 'MirarVacio.tsx'),
     ];
 
     for (const archivo of archivos) {

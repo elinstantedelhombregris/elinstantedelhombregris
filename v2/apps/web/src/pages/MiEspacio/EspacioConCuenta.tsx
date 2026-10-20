@@ -48,6 +48,13 @@ export function EspacioConCuenta({ user }: { user: AuthenticatedUser }) {
           Mis iniciativas, tareas y escuchas →
         </Link>
       </p>
+      {user.esAdmin ? (
+        <p className="mb-5">
+          <Link className="inline-flex min-h-11 underline" href="/gestion/pila">
+            Gestión de Mirar: reportes y retenciones →
+          </Link>
+        </p>
+      ) : null}
       <ListaDePestanas actual={pestana} elegir={elegir} />
       <PanelDePestana id={pestana}>
         {pestana === 'borradores' ? (
