@@ -41,7 +41,7 @@ test('fuentes citables, geografía con versión y entrada para imaginar', async 
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: '/private/tmp/fuentes-movil.png' });
+  await page.screenshot({ path: test.info().outputPath('fuentes-movil.png') });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.getByRole('link', { name: 'Sumate', exact: true }).first().click();
   // «Sumate» lleva a Imaginar, en Mi Argentina ideal: el mapa ya no abre un panel para eso.

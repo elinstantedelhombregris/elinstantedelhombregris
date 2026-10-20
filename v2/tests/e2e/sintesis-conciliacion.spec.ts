@@ -95,7 +95,7 @@ test('conciliación legible, errores recuperables y ejemplo exploratorio', async
   await page.getByRole('button', { name: 'Reintentar', exact: true }).click();
   await expect(page.getByText(/1 registros en este alcance/)).toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: '/private/tmp/conciliacion-movil.png' });
+  await page.screenshot({ path: test.info().outputPath('conciliacion-movil.png') });
   await page.goto('/sintesis-nacional/ejemplo');
   await page.getByRole('button', { name: 'Conseguir un turno' }).click();
   await expect(page.getByText(/Distinguir acceso a internet/)).toBeVisible();
@@ -230,7 +230,7 @@ test('preparar, revisar con otra cuenta, descargar y retirar una edición', asyn
   await page.evaluate(() => {
     window.scrollTo(0, 0);
   });
-  await page.screenshot({ path: '/private/tmp/sintesis-movil.png' });
+  await page.screenshot({ path: test.info().outputPath('sintesis-movil.png') });
   const descarga = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Descargar edición citable (JSON)' }).click();
   const archivo = await (await descarga).path();

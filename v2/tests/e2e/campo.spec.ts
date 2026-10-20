@@ -59,6 +59,7 @@ test('campo conserva borradores sin red y reconcilia un envío sin publicar las 
     else if (url.pathname === '/api/v1/contribuciones/contexto')
       data = { csrfToken: 'fixture', temas: [] };
     else if (url.pathname === '/api/campo/dispositivos') data = [];
+    else if (url.pathname === '/api/v1/fichas/editables') data = { items: [], siguiente: null };
     else if (url.pathname.endsWith('/ficha')) data = null;
     else if (url.pathname.endsWith('/no-leidas')) data = { total: 0 };
     else if (url.pathname.includes('/exportaciones/'))

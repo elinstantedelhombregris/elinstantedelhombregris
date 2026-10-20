@@ -43,7 +43,7 @@ test('el ejemplo escolar completa el ciclo en móvil sin escrituras y conserva e
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,
   );
-  await page.screenshot({ path: '/private/tmp/escuela-movil.png', fullPage: true });
+  await page.screenshot({ path: test.info().outputPath('escuela-movil.png'), fullPage: true });
 });
 
 test('una persona sin cuenta descubre una tarea y el ingreso conserva su destino', async ({

@@ -106,7 +106,7 @@ test('vinculación revocable y devolución visible sin publicar contra servicios
   await page.setViewportSize({ width: 390, height: 900 });
   await page
     .locator('#resultados-campo')
-    .screenshot({ path: '/private/tmp/devolucion-campo-movil.png' });
+    .screenshot({ path: test.info().outputPath('devolucion-campo-movil.png') });
   retirada = true;
   await page.reload();
   await expect(page.getByText('Resultado retirado')).toBeVisible();
