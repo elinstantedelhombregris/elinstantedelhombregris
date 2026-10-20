@@ -159,6 +159,18 @@ describe('avisoDeEstado', () => {
     const editor = avisoDeEstado(campana('borrador', { puedoEditarContrato: true }), sinAdmin);
     expect(editor?.detalle).toBe('Cuando esté lista, la abre la coordinación de ¡BASTA!');
   });
+  it('a quien propuso la campaña, el borrador le dice que la presente para juntar gente', () => {
+    const propia = avisoDeEstado(campana('borrador', { puedoEditar: true }), sinAdmin);
+    expect(propia?.detalle).toBe('Cuando esté lista, presentala para empezar a juntar gente.');
+  });
+  it('mientras junta gente o espera revisión, el aviso lo dice', () => {
+    expect(avisoDeEstado(campana('reuniendo'), sinAdmin)?.titular).toBe(
+      'Esta campaña está juntando gente para poder abrir.',
+    );
+    expect(avisoDeEstado(campana('por_revisar'), sinAdmin)?.titular).toBe(
+      'Esta campaña ya juntó la gente que necesitaba: está en revisión.',
+    );
+  });
 });
 
 describe('errores del formulario de campaña', () => {

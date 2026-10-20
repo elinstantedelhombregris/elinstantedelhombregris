@@ -4,16 +4,29 @@ import { esEjemploLocal, fechaCampana } from '../presentacion';
 
 import type { CampanaPublica } from '@v2/shared';
 
-export function PropositoYDevolucion({ campana: c }: { campana: CampanaPublica }) {
+export function PropositoYDevolucion({
+  campana: c,
+  conProposito = true,
+}: {
+  campana: CampanaPublica;
+  /** Una campaña que junta gente ya dice para qué arriba (`JuntarGente`): no lo repite. */
+  conProposito?: boolean;
+}) {
   return (
     <section
       className="mt-9 grid gap-8 md:grid-cols-[1.2fr_1fr]"
       aria-label="Propósito y devolución de la campaña"
     >
       <div>
-        <h2 className="font-anton text-3xl">Para qué abrimos esta campaña</h2>
-        <p className="mt-4 whitespace-pre-wrap leading-relaxed">{c.contrato.proposito}</p>
-        <h3 className="font-anton mt-7 text-xl">A quiénes queremos escuchar</h3>
+        {conProposito ? (
+          <>
+            <h2 className="font-anton text-3xl">Para qué abrimos esta campaña</h2>
+            <p className="mt-4 whitespace-pre-wrap leading-relaxed">{c.contrato.proposito}</p>
+            <h3 className="font-anton mt-7 text-xl">A quiénes queremos escuchar</h3>
+          </>
+        ) : (
+          <h2 className="font-anton text-3xl">A quiénes queremos escuchar</h2>
+        )}
         <p className="mt-3 leading-relaxed">{c.contrato.participantes}</p>
       </div>
       <div className="bg-papel-crudo border-tinta border p-6">
