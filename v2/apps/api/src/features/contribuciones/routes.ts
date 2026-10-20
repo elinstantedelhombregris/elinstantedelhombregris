@@ -9,6 +9,7 @@ import { getConfig, nombreProveedorIA } from '../../lib/config.js';
 import { optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
+import { acreditarParticipacion } from '../impulso/acreditar.js';
 import { actorDelNavegador, ponerCookieDeActor, resolverActor } from '../senales/actor.js';
 import { ingerirSenal } from '../senales/service.js';
 
@@ -85,6 +86,13 @@ router.post('/', anonSubmitRateLimit(), async (req, res, next) => {
       persistir: (fila) => repo.crear(fila, v),
     });
     ponerCookieDeActor(res, actor.claveNueva);
+    if (!recibo.yaExistia)
+      await acreditarParticipacion(req, {
+        actorId: actor.actorId,
+        userId: previo ? previo.userId : (req.user?.id ?? null),
+        como: 'aporte',
+        senalIdPublico: recibo.idPublico,
+      });
     res
       .status(201)
       .set('Cache-Control', 'no-store')

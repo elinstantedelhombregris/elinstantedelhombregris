@@ -32,7 +32,7 @@ export async function acreditarParticipacion(
     actorId: number | null;
     userId: number | null;
     como: 'aporte' | 'opiniones';
-    senalId: number | null;
+    senalIdPublico: string | null;
   },
 ): Promise<void> {
   const campanaId = campanaDeLlegada(req);
@@ -44,7 +44,7 @@ export async function acreditarParticipacion(
       actorId: e.actorId,
       userId: e.userId,
       como: e.como,
-      senalId: e.senalId,
+      senalIdPublico: e.senalIdPublico,
     });
     if (!r.pasoARevision || !r.campana) return;
     const admins = await repo.idsDe(getConfig().admin.usernames);

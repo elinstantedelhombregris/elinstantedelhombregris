@@ -50,8 +50,12 @@ export class ImpulsoRepository {
     actorId: number;
     userId: number | null;
     como: 'aporte' | 'opiniones';
-    senalId: number | null;
+    /** El id público del aporte con el que entró, si entró por un aporte. */
+    senalIdPublico: string | null;
+    /** Para pruebas: el umbral de la campaña. En producción, `UMBRAL_IMPULSO`. */
+    umbral?: number;
   }): Promise<ResultadoDeImpulso> {
+    const umbral = e.umbral ?? UMBRAL_IMPULSO;
     const r = await this.db.execute<{
       id: string;
       slug: string;
@@ -60,7 +64,8 @@ export class ImpulsoRepository {
     }>(sql`
       with nueva as (
         insert into ${campanaImpulsos} (actor_id, campana_id, user_id, como, senal_id)
-        select ${e.actorId}, c.id, ${e.userId}, ${e.como}, ${e.como === 'aporte' ? e.senalId : null}
+        select ${e.actorId}, c.id, ${e.userId}, ${e.como},
+          ${e.como === 'aporte' && e.senalIdPublico ? sql`(select id from ${senales} where id_publico = ${e.senalIdPublico}::uuid and actor_id = ${e.actorId})` : sql`null::bigint`}
         from ${campanas} c
         where c.id = ${e.campanaId}::uuid and c.estado = 'reuniendo'
           and c.creador_id is distinct from ${e.userId}::int
@@ -81,12 +86,12 @@ export class ImpulsoRepository {
       cambio as (
         update ${campanas} set estado = 'por_revisar', revision = revision + 1, actualizada_en = now()
         where id = ${e.campanaId}::uuid and estado = 'reuniendo'
-          and exists (select 1 from nueva) and (select n from total) >= ${UMBRAL_IMPULSO}
+          and exists (select 1 from nueva) and (select n from total) >= ${umbral}
         returning *
       ),
       historia as (
         insert into ${campanaEdiciones} (campana_id, revision, contrato, estado, motivo)
-        select id, revision, contrato, estado, ${`Trajo ${UMBRAL_IMPULSO} personas nuevas: pasa a revisión.`} from cambio
+        select id, revision, contrato, estado, ${`Trajo ${String(umbral)} personas nuevas: pasa a revisión.`} from cambio
         returning id
       )
       select c.id, c.slug, c.creador_id, exists (select 1 from cambio) as paso
