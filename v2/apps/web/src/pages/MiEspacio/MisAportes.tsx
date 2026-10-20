@@ -20,14 +20,50 @@ function rotuloDeTipo(tipo: string): string {
   return lectura.reconocido ? lectura.tipo : 'sin clasificar';
 }
 
-export function MisAportes({ aportes, total }: { aportes: AportePropio[]; total: number }) {
+/**
+ * Por qué un aporte salió de Mirar (spec 2026-10-19 §4, «Reportar»). Opcional hasta que
+ * `AportePropio` lo traiga de `@v2/shared`: una API vieja no lo manda y no pasa nada.
+ */
+interface Retencion {
+  origen: 'reportes' | 'gestion';
+  desde: string;
+}
+type AporteConRetencion = AportePropio & { retenido?: Retencion | null };
+
+/** Quien escribió el aporte se entera acá de por qué salió, y de que no se borró. */
+function AvisoDeRetencion({ retenido }: { retenido: Retencion }) {
+  const cuando = new Date(retenido.desde).toLocaleDateString('es-AR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+  return (
+    <Nota>
+      <p>
+        <strong>
+          {retenido.origen === 'reportes'
+            ? 'Salió de Mirar por reportes de otras personas'
+            : 'Lo retuvo la coordinación'}
+        </strong>{' '}
+        el {cuando}. No se borró: sigue siendo tuyo y la coordinación lo puede devolver. Si te
+        parece un error, contalo en{' '}
+        <Link href="/lo-que-falta" className="text-violeta underline underline-offset-4">
+          Lo que falta
+        </Link>
+        .
+      </p>
+    </Nota>
+  );
+}
+
+export function MisAportes({ aportes, total }: { aportes: AporteConRetencion[]; total: number }) {
   const auth = useAuth();
   const [pagina, setPagina] = useState(0);
   const q = useQuery({
     queryKey: ['mi-espacio', 'aportes', auth.user?.id, pagina],
     enabled: pagina > 0,
     queryFn: () =>
-      api.get<{ aportes: AportePropio[]; totalAportes: number }>(
+      api.get<{ aportes: AporteConRetencion[]; totalAportes: number }>(
         `/api/v1/mi-espacio/aportes?offset=${pagina * 200}`,
       ),
   });
@@ -67,6 +103,9 @@ export function MisAportes({ aportes, total }: { aportes: AportePropio[]; total:
               <p className="mt-4 whitespace-pre-wrap break-words leading-relaxed">
                 {a.estado === 'retirada' ? 'El texto fue retirado.' : a.texto}
               </p>
+              {a.retenido && a.estado !== 'retirada' ? (
+                <AvisoDeRetencion retenido={a.retenido} />
+              ) : null}
               <p className="text-tinta-50 mt-3 text-sm">
                 {a.cedeLicencia
                   ? 'Cualquiera puede leer y compartir este texto (licencia CC BY 4.0).'
