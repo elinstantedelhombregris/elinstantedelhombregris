@@ -1,9 +1,9 @@
 import { Link, useRoute } from 'wouter';
 
-import { BotonAdherir } from './Senal/BotonAdherir';
 import { EditarAporte } from './Senal/EditarAporte';
 import { FichaDeConfirmaciones } from './Senal/FichaDeConfirmaciones';
 import { PanelConfirmar } from './Senal/PanelConfirmar';
+import { RespuestaAlAporte } from './Senal/RespuestaAlAporte';
 import { RetirarAporte } from './Senal/RetirarAporte';
 
 import { ChipTipo, Kicker } from '~/components/papel/primitives';
@@ -177,7 +177,13 @@ export function Senal() {
       </dl>
 
       <div className="mt-8">
-        <BotonAdherir idPublico={senal.idPublico} total={adhesiones.total} mia={adhesiones.mia} />
+        {/* Un deseo de la campaña se contesta como en Mirar: un solo «yo también» por aporte. */}
+        <RespuestaAlAporte
+          idPublico={senal.idPublico}
+          esDeseo={clase === 'deseo'}
+          esPropio={data.esPropia === true}
+          adhesiones={adhesiones}
+        />
       </div>
 
       {/* La corroboración sólo donde corre: los hechos y los actos. Un deseo se

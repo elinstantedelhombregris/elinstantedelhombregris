@@ -17,7 +17,7 @@ const m = vi.hoisted(() => {
 });
 
 vi.mock('~/lib/queries/senales', () => ({ useSenal: () => m.estado }));
-vi.mock('../Senal/BotonAdherir', () => ({ BotonAdherir: () => <p>Yo también</p> }));
+vi.mock('../Senal/RespuestaAlAporte', () => ({ RespuestaAlAporte: () => <p>Yo también</p> }));
 vi.mock('../Senal/PanelConfirmar', () => ({ PanelConfirmar: () => <p>Panel de confirmar</p> }));
 vi.mock('../Senal/FichaDeConfirmaciones', () => ({ FichaDeConfirmaciones: () => <p>Quiénes</p> }));
 vi.mock('../Senal/EditarAporte', () => ({ EditarAporte: () => <p>Editor único</p> }));
