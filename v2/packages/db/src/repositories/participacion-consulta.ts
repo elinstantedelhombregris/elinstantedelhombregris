@@ -32,8 +32,17 @@ export function alcanceParticipacion(q: Partial<ConsultaParticipacion>) {
   return resultado;
 }
 
-// Una edición en preparación no borra el contrato que ya fue publicado.
-export const campanaPublicada = sql`(${campanas.estado}<>'borrador' or exists(select 1 from campana_ediciones h where h.campana_id=${sql.raw('"campanas"."id"')} and h.estado<>'borrador'))`;
-export const contratoPublicoCampana = sql<ContratoCampana>`case when ${campanas.estado}='borrador' then (select h.contrato from campana_ediciones h where h.campana_id=${sql.raw('"campanas"."id"')} and h.estado<>'borrador' order by revision desc limit 1) else ${campanas.contrato} end`;
-export const revisionPublicaCampana = sql<number>`case when ${campanas.estado}='borrador' then (select h.revision from campana_ediciones h where h.campana_id=${sql.raw('"campanas"."id"')} and h.estado<>'borrador' order by revision desc limit 1) else ${campanas.revision} end`;
+/**
+ * Una edición en preparación no borra el contrato que ya fue publicado. Una propuesta que se
+ * retiró mientras juntaba gente o esperaba revisión, en cambio, vuelve a ser sólo de su
+ * equipo: sus ediciones `reuniendo` y `por_revisar` no cuentan como publicadas (spec
+ * 2026-10-19-mi-argentina-ideal-la-pila.md §11).
+ */
+export const ESTADOS_SIN_PUBLICAR: EstadoCampana[] = ['borrador', 'reuniendo', 'por_revisar'];
+const EDICION_PUBLICADA = sql.raw(
+  `h.campana_id="campanas"."id" and h.estado not in ('borrador','reuniendo','por_revisar')`,
+);
+export const campanaPublicada = sql`(${campanas.estado}<>'borrador' or exists(select 1 from campana_ediciones h where ${EDICION_PUBLICADA}))`;
+export const contratoPublicoCampana = sql<ContratoCampana>`case when ${campanas.estado}='borrador' then (select h.contrato from campana_ediciones h where ${EDICION_PUBLICADA} order by revision desc limit 1) else ${campanas.contrato} end`;
+export const revisionPublicaCampana = sql<number>`case when ${campanas.estado}='borrador' then (select h.revision from campana_ediciones h where ${EDICION_PUBLICADA} order by revision desc limit 1) else ${campanas.revision} end`;
 export const estadoPublicoCampana = sql<EstadoCampana>`case when ${campanas.estado}='borrador' then 'pausada' else ${campanas.estado} end`;

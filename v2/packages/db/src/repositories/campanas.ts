@@ -16,26 +16,17 @@ import { senales } from '../schema/senales.js';
 
 import { ColaboracionRepository } from './colaboracion.js';
 import { ImpulsoRepository } from './impulso.js';
-import { estadoPublicoCampana } from './participacion-consulta.js';
+import {
+  ESTADOS_SIN_PUBLICAR,
+  campanaPublicada,
+  contratoPublicoCampana,
+  estadoPublicoCampana,
+  revisionPublicaCampana,
+} from './participacion-consulta.js';
 
 import type { Db } from '../client.js';
 import type { CampanaEnCatalogo, CampanaPublica, ContratoCampana, EstadoCampana } from '@v2/shared';
 
-/**
- * Lo público de una campaña que hoy está en borrador es su última edición publicada. Una
- * propuesta que se retiró mientras juntaba gente o esperaba revisión vuelve a ser sólo de su
- * equipo: sus ediciones `reuniendo` y `por_revisar` no cuentan como publicadas (spec
- * 2026-10-19-mi-argentina-ideal-la-pila.md §11).
- */
-const SIN_PUBLICAR: EstadoCampana[] = ['borrador', 'reuniendo', 'por_revisar'];
-const EDICION_PUBLICADA = sql.raw(
-  `h.campana_id="campanas"."id" and h.estado not in ('borrador','reuniendo','por_revisar')`,
-);
-const ultimaPublicada = (columna: 'contrato' | 'revision') =>
-  sql`(select h.${sql.raw(columna)} from campana_ediciones h where ${EDICION_PUBLICADA} order by h.revision desc limit 1)`;
-const campanaVisible = sql`(${campanas.estado}<>'borrador' or exists(select 1 from campana_ediciones h where ${EDICION_PUBLICADA}))`;
-const contratoVisible = sql<ContratoCampana>`case when ${campanas.estado}='borrador' then ${ultimaPublicada('contrato')} else ${campanas.contrato} end`;
-const revisionVisible = sql<number>`case when ${campanas.estado}='borrador' then ${ultimaPublicada('revision')} else ${campanas.revision} end`;
 /**
  * Adentro de una subconsulta, la columna va con su tabla a mano: en los campos de un `select`
  * de una sola tabla, drizzle escribe `${campanas.id}` como `"id"` a secas, y una subconsulta
@@ -76,9 +67,9 @@ export class CampanasRepository {
       .select({
         id: campanas.id,
         slug: campanas.slug,
-        revision: propias ? campanas.revision : revisionVisible,
+        revision: propias ? campanas.revision : revisionPublicaCampana,
         estado: propias ? campanas.estado : estadoPublicoCampana,
-        contrato: propias ? campanas.contrato : contratoVisible,
+        contrato: propias ? campanas.contrato : contratoPublicoCampana,
         actualizadaEn: campanas.actualizadaEn,
         impulsadaPorMi: sql<boolean>`${campanas.creadorId}=${usuario ?? -1}`,
         motivo: propias
@@ -89,7 +80,9 @@ export class CampanasRepository {
       })
       .from(campanas)
       .where(
-        propias && usuario ? or(eq(campanas.creadorId, usuario), editora(usuario)) : campanaVisible,
+        propias && usuario
+          ? or(eq(campanas.creadorId, usuario), editora(usuario))
+          : campanaPublicada,
       )
       .orderBy(desc(campanas.actualizadaEn), campanas.id)
       .limit(100);
@@ -114,7 +107,7 @@ export class CampanasRepository {
       .where(
         and(
           filtro,
-          or(campanaVisible, eq(campanas.creadorId, usuario ?? -1), editora(usuario ?? -1)),
+          or(campanaPublicada, eq(campanas.creadorId, usuario ?? -1), editora(usuario ?? -1)),
         ),
       )
       .limit(1);
@@ -132,7 +125,7 @@ export class CampanasRepository {
         .where(
           and(
             eq(campanaEdiciones.campanaId, fila.id),
-            notInArray(campanaEdiciones.estado, SIN_PUBLICAR),
+            notInArray(campanaEdiciones.estado, ESTADOS_SIN_PUBLICAR),
             ...(edicion === undefined ? [] : [eq(campanaEdiciones.revision, edicion)]),
           ),
         )
