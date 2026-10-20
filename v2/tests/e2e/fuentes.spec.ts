@@ -43,7 +43,7 @@ test('fuentes citables, geografía con versión y entrada para imaginar', async 
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: '/private/tmp/fuentes-movil.png' });
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.getByRole('link', { name: 'Imaginar mi Argentina', exact: true }).first().click();
+  await page.getByRole('link', { name: 'Sumate', exact: true }).first().click();
   await expect(page).toHaveURL(/participar=aportar/);
   await expect(
     page.getByRole('heading', { level: 1, name: 'Imaginar mi Argentina' }),
