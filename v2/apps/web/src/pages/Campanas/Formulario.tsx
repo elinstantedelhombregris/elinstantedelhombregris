@@ -13,6 +13,7 @@ import { CANALES_ROTULO, fechaCampana } from './presentacion';
 
 import type { ErroresContrato } from './errores-contrato';
 import type { CampanaPublica, ContratoCampana } from '@v2/shared';
+import type { ReactNode } from 'react';
 
 import { BotonConMotivo } from '~/components/participacion/BotonConMotivo';
 import { CAMPO } from '~/components/participacion/constantes';
@@ -60,9 +61,17 @@ const MensajeCampo = ({ id, mensaje }: { id: string; mensaje: string | undefined
 export function FormularioCampana({
   campana,
   plantilla,
+  nota,
+  alGuardar,
+  alFallar,
 }: {
   campana?: CampanaPublica;
   plantilla?: ContratoCampana;
+  /** Reemplaza la nota de arriba: una campaña propuesta explica otro recorrido (§11). */
+  nota?: ReactNode;
+  /** Qué hacer con la campaña guardada. Sin esto, se va a su página. */
+  alGuardar?: (id: string) => void;
+  alFallar?: (error: Error) => void;
 }) {
   const [c, setC] = useState<ContratoCampana>(campana?.contrato ?? plantilla ?? VACIO);
   const [temas, setTemas] = useState(c.temas.join(', '));
@@ -102,7 +111,11 @@ export function FormularioCampana({
       },
       {
         onSuccess: (r) => {
-          navegar(`/campanas/${r.id}`);
+          if (alGuardar) alGuardar(r.id);
+          else navegar(`/campanas/${r.id}`);
+        },
+        onError: (e) => {
+          alFallar?.(e);
         },
       },
     );
@@ -122,12 +135,14 @@ export function FormularioCampana({
       }}
       className="space-y-6"
     >
-      <Nota>
-        Abrir una campaña también es comprometerse a devolver lo que se escuche. Guardar crea un
-        borrador; abrirla es un paso aparte, desde la página de la campaña. Si cambiás las reglas de
-        una campaña ya pública, se crea una edición nueva y la campaña deja de recibir aportes hasta
-        que se publique.
-      </Nota>
+      {nota ?? (
+        <Nota>
+          Abrir una campaña también es comprometerse a devolver lo que se escuche. Guardar crea un
+          borrador; abrirla es un paso aparte, desde la página de la campaña. Si cambiás las reglas
+          de una campaña ya pública, se crea una edición nueva y la campaña deja de recibir aportes
+          hasta que se publique.
+        </Nota>
+      )}
       {plantilla ? (
         <Nota>
           Estás preparando una campaña nueva desde otra que ya existe. No se copian aportes,

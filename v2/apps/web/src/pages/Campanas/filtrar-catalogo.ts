@@ -1,5 +1,7 @@
 import { SLUG_CAMPANA_NACIONAL, estadoCampanaSchema } from '@v2/shared';
 
+import { juntaGente } from './impulso';
+
 import type { LugarMapa } from '../ElMapa/instrumento/BusquedaTerritorial';
 import type { CampanaPublica } from '@v2/shared';
 
@@ -25,16 +27,30 @@ export function filtrarCatalogo(
         (lugar && c.contrato.territorios.includes(lugar.provinceId))),
   );
 }
+const quiereAbrir = (c: Pick<CampanaCatalogo, 'estado'>) => juntaGente(c.estado);
 /**
- * El orden del catálogo: la campaña nacional primero, después las abiertas y al final el resto.
- * Dentro de cada grupo queda el orden que trajo el servidor.
+ * El orden del catálogo: la campaña nacional primero, después las abiertas, después el resto y
+ * al final las que todavía quieren abrir. Dentro de cada grupo queda el orden del servidor.
  */
 export function ordenarCatalogo<T extends Pick<CampanaCatalogo, 'slug' | 'estado'>>(
   campanas: readonly T[],
 ): T[] {
-  const rango = (c: T) => (c.slug === SLUG_CAMPANA_NACIONAL ? 0 : c.estado === 'abierta' ? 1 : 2);
+  const rango = (c: T) =>
+    c.slug === SLUG_CAMPANA_NACIONAL ? 0 : c.estado === 'abierta' ? 1 : quiereAbrir(c) ? 3 : 2;
   return campanas
     .map((campana, posicion) => ({ campana, posicion }))
     .sort((a, b) => rango(a.campana) - rango(b.campana) || a.posicion - b.posicion)
     .map(({ campana }) => campana);
+}
+/**
+ * Las que quieren abrir van en su propia sección, «Quieren abrir», después del catálogo (§11).
+ * Cada grupo conserva el orden que recibe.
+ */
+export function separarQuierenAbrir<T extends Pick<CampanaCatalogo, 'estado'>>(
+  campanas: readonly T[],
+): { catalogo: T[]; quierenAbrir: T[] } {
+  return {
+    catalogo: campanas.filter((c) => !quiereAbrir(c)),
+    quierenAbrir: campanas.filter(quiereAbrir),
+  };
 }

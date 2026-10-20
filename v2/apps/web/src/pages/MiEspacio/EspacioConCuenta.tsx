@@ -9,6 +9,7 @@ import { MisProcesos } from './MisProcesos';
 import { ListaDePestanas, PanelDePestana } from './Pestanas';
 import { Recuperar } from './Recuperar';
 import { Seguidos } from './Seguidos';
+import { TusCampanas } from './TusCampanas';
 import { usePestana } from './usePestana';
 
 import type { ReactNode } from 'react';
@@ -78,6 +79,7 @@ export function EspacioConCuenta({ user }: { user: AuthenticatedUser }) {
                     />
                   </>
                 ))}
+                <TusCampanas />
               </>
             ) : pestana === 'sigo' ? (
               conDatos((datos) => <Seguidos espacio={datos} />)

@@ -1,6 +1,7 @@
 import { Link, useSearch } from 'wouter';
 
 import { FormularioCampana } from './Campanas/Formulario';
+import { RevisionPropuestas } from './Campanas/RevisionPropuestas';
 
 import { FASES_ROTULO } from '~/components/participacion/constantes';
 import { MarcoParticipacion, ErrorOperacion, Nota } from '~/components/participacion/Elementos';
@@ -44,6 +45,7 @@ export function GestionCampanas() {
         </Nota>
       ) : (
         <>
+          <RevisionPropuestas />
           {esAdmin ? <MisCampanas /> : null}
           {id && !campana.data ? (
             <>

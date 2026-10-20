@@ -6,7 +6,14 @@ import type { CampanaPublica } from '@v2/shared';
 const DT = 'font-space text-violeta text-[10px] uppercase tracking-[.12em]';
 
 /** Los datos de un vistazo: dónde, quién coordina, cómo se participa y cuánto llegó. */
-export function FichaCampana({ campana: c }: { campana: CampanaPublica }) {
+export function FichaCampana({
+  campana: c,
+  conAportes = true,
+}: {
+  campana: CampanaPublica;
+  /** Mientras junta gente no recibe aportes propios: la cuenta que importa es la de la barra. */
+  conAportes?: boolean;
+}) {
   return (
     <dl className="border-tinta/25 mt-9 grid gap-6 border-y py-6 text-sm sm:grid-cols-2">
       <div>
@@ -35,15 +42,17 @@ export function FichaCampana({ campana: c }: { campana: CampanaPublica }) {
         <dt className={DT}>Cómo se puede participar</dt>
         <dd className="mt-3">{textoCanales(c.contrato.canales)}</dd>
       </div>
-      <div>
-        <dt className={DT}>Lo que llegó hasta ahora</dt>
-        <dd className="mt-3">
-          {textoAportes(c.aportes)}
-          <span className="text-tinta-50 mt-2 block text-xs">
-            Los aportes no representan a todos los habitantes del lugar.
-          </span>
-        </dd>
-      </div>
+      {conAportes ? (
+        <div>
+          <dt className={DT}>Lo que llegó hasta ahora</dt>
+          <dd className="mt-3">
+            {textoAportes(c.aportes)}
+            <span className="text-tinta-50 mt-2 block text-xs">
+              Los aportes no representan a todos los habitantes del lugar.
+            </span>
+          </dd>
+        </div>
+      ) : null}
     </dl>
   );
 }

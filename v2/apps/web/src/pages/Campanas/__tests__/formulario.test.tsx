@@ -4,6 +4,8 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { FormularioCampana } from '../Formulario';
 
+import { contratoValido } from './fixtura-propuesta';
+
 const modelo = vi.hoisted(() => ({
   mutate: vi.fn(),
   error: null as { message: string } | null,
@@ -96,5 +98,35 @@ describe('El formulario de una campaña', () => {
     expect(screen.getByLabelText('Por la web')).toBeChecked();
     expect(screen.queryByText('Territorios incluidos')).not.toBeInTheDocument();
     expect(screen.queryByText('Fases y salidas')).not.toBeInTheDocument();
+  });
+  it('una campaña propuesta trae su nota y decide qué hacer al guardar o al fallar', () => {
+    const alGuardar = vi.fn();
+    const alFallar = vi.fn();
+    const choque = new Error('Ya tenés una campaña juntando gente.');
+    modelo.mutate.mockImplementation(
+      (_v: unknown, o: { onSuccess: (r: { id: string }) => void; onError: (e: Error) => void }) => {
+        o.onSuccess({ id: 'campana-nueva' });
+        o.onError(choque);
+      },
+    );
+    render(
+      <QueryClientProvider client={new QueryClient()}>
+        <FormularioCampana
+          plantilla={contratoValido}
+          nota={<p>Nota de la propuesta</p>}
+          alGuardar={alGuardar}
+          alFallar={alFallar}
+        />
+      </QueryClientProvider>,
+    );
+    expect(screen.getByText('Nota de la propuesta')).toBeInTheDocument();
+    expect(
+      screen.queryByText(/Abrir una campaña también es comprometerse/),
+    ).not.toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText(/El equipo acepta cuidar este recorrido/));
+    enviar();
+    expect(modelo.mutate).toHaveBeenCalledTimes(1);
+    expect(alGuardar).toHaveBeenCalledWith('campana-nueva');
+    expect(alFallar).toHaveBeenCalledWith(choque);
   });
 });

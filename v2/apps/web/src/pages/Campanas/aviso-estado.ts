@@ -40,9 +40,13 @@ export function avisoDeEstado(
       if (!c.puedoEditar && !c.puedoEditarContrato) return null;
       return {
         titular: 'Esta campaña es un borrador: solo la ven vos y tu equipo.',
+        // Quien la propuso la presenta para juntar gente (§11); a quien sólo edita sus reglas,
+        // la abre la coordinación.
         detalle: esAdmin
           ? 'Cuando esté lista, abrila desde “Cuidar el recorrido”.'
-          : 'Cuando esté lista, la abre la coordinación de ¡BASTA!',
+          : c.puedoEditar
+            ? 'Cuando esté lista, presentala para empezar a juntar gente.'
+            : 'Cuando esté lista, la abre la coordinación de ¡BASTA!',
       };
     case 'reuniendo':
       return {

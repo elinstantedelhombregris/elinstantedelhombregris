@@ -2,11 +2,15 @@ import { useEffect } from 'react';
 import { useRoute, useSearch } from 'wouter';
 
 import { Devolucion } from './Campanas/Devolucion';
+import { juntaGente } from './Campanas/impulso';
 import { LecturaDatosContrato } from './Campanas/LecturaDatosContrato';
+import { esEdicionAnterior } from './Campanas/presentacion';
+import { PresentarPropuesta } from './Campanas/PresentarPropuesta';
 import { CabeceraCampana } from './Campanas/sections/CabeceraCampana';
 import { EnlacesDeLaCampana } from './Campanas/sections/EnlacesDeLaCampana';
 import { FichaCampana } from './Campanas/sections/FichaCampana';
 import { HistorialCampana } from './Campanas/sections/HistorialCampana';
+import { JuntarGente } from './Campanas/sections/JuntarGente';
 import { PanelCoordinacion } from './Campanas/sections/PanelCoordinacion';
 import { PropositoYDevolucion } from './Campanas/sections/PropositoYDevolucion';
 import { Recorrido } from './Campanas/sections/Recorrido';
@@ -62,21 +66,36 @@ export function CampanaDetail() {
   }
   const c = q.data;
   const esAdmin = auth.user?.esAdmin === true;
+  // Una campaña propuesta que todavía no abrió (§11): junta gente o espera la revisión.
+  const propuesta = juntaGente(c.estado);
+  // Quien la propuso y no administra la presenta desde acá; quien administra usa sus etapas.
+  const presentar = c.estado === 'borrador' && c.puedoEditar && !esAdmin && !esEdicionAnterior(c);
   return (
     <main className="mx-auto w-full max-w-[1100px] px-5 py-9 min-[961px]:px-10">
       <CabeceraCampana campana={c} esAdmin={esAdmin} />
-      <PropositoYDevolucion campana={c} />
-      <FichaCampana campana={c} />
+      {propuesta ? <JuntarGente campana={c} /> : null}
+      {presentar ? <PresentarPropuesta campana={c} /> : null}
+      <PropositoYDevolucion campana={c} conProposito={!propuesta} />
+      <FichaCampana campana={c} conAportes={!propuesta} />
       <Recorrido campana={c} />
       <LecturaDatosContrato contrato={c.contrato} />
-      <EnlacesDeLaCampana campana={c} />
-      <Devolucion campana={c} />
-      <div className="mt-9">
-        <CompartirProceso
-          href={`/campanas/${c.slug}?edicion=${c.revision}`}
-          titulo="Compartir esta campaña"
-        />
-      </div>
+      {/* Sin abrir no hay fichas, escucha ni devolución que mirar todavía. */}
+      {propuesta ? null : (
+        <>
+          <EnlacesDeLaCampana campana={c} />
+          <Devolucion campana={c} />
+        </>
+      )}
+      {/* Quien la impulsa ya tiene arriba su forma de compartirla, con la imagen. */}
+      {propuesta && c.impulsadaPorMi ? null : (
+        <div className="mt-9">
+          {/* Mientras junta gente cada paso cambia la edición: se comparte la vigente. */}
+          <CompartirProceso
+            href={propuesta ? `/campanas/${c.slug}` : `/campanas/${c.slug}?edicion=${c.revision}`}
+            titulo="Compartir esta campaña"
+          />
+        </div>
+      )}
       <HistorialCampana campana={c} />
       <PanelCoordinacion campana={c} esAdmin={esAdmin} />
     </main>
