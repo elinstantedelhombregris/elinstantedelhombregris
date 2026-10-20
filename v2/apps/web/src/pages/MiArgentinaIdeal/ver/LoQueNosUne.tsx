@@ -2,6 +2,7 @@ import { REGLAS_DE_VISION } from '@v2/civic-core';
 
 import { deCadaDiez, fraseMiOpinion, lecturaDeRegiones, numero, regionesDe } from './formato';
 import { FilaAporte, Meta, Seccion, Vacio } from './piezas';
+import { SeguiConstruyendo } from './SeguiConstruyendo';
 
 import type { AporteEnVision } from '@v2/shared';
 
@@ -89,6 +90,7 @@ function FilaUne({ aporte: a }: { aporte: AporteEnVision }) {
         {a.tema ? <span>{a.tema.etiqueta}</span> : null}
         {mia ? <span className="text-tinta">{mia}</span> : null}
       </Meta>
+      <SeguiConstruyendo aporteId={a.id} />
     </FilaAporte>
   );
 }

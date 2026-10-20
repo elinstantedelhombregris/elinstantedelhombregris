@@ -10,6 +10,7 @@ import { LoQueRecienLlega } from './ver/LoQueRecienLlega';
 import { LoQueVaPrimero } from './ver/LoQueVaPrimero';
 import { PieHonesto } from './ver/PieHonesto';
 import { Vacio } from './ver/piezas';
+import { SeguirAfuera } from './ver/SeguirAfuera';
 import { TuAporte } from './ver/TuAporte';
 
 import type { AporteEnVision, VisionCampana } from '@v2/shared';
@@ -50,6 +51,7 @@ export function Vision({ vision: v, ahora }: { vision: VisionCampana; ahora: num
         miRegion={v.miRegion}
       />
       <LoQueRecienLlega recien={v.recien} />
+      <SeguirAfuera campanaId={v.campana.id} />
       <PieHonesto />
     </>
   );
