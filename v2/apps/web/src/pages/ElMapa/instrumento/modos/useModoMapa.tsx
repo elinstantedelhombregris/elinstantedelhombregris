@@ -266,10 +266,11 @@ export function useModoMapa(ctx: ContextoModo): ResultadoModo {
 
     sobreMapa:
       ctx.todas.length === 0 && !ctx.cargando ? (
+        // Sin botón propio: el único para aportar es «Sumá tu aporte», arriba del
+        // mapa (spec 2026-10-19 §7). Antes este cartel era el tercero.
         <Vacio
           titulo="Todavía no hay aportes en el mapa."
-          cuerpo="El primero puede ser el tuyo."
-          accion={{ href: '#aportar', etiqueta: 'Sumar el primer aporte' }}
+          cuerpo="El primero puede ser el tuyo: contá cómo está hoy algo de tu lugar."
         />
       ) : lazoActivo ? (
         <LazoOverlay

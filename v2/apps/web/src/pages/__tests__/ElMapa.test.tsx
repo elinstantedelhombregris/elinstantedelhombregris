@@ -35,28 +35,16 @@ vi.mock('../ElMapa/sections/SeccionInstrumento', () => ({
 vi.mock('../ElMapa/sections/ParticiparEnMapa', () => ({
   ParticiparEnMapa: ({
     cerrar,
-    cambiar,
-    modo,
     cargandoLugar,
     lugar,
   }: {
     cerrar: () => void;
-    cambiar: (modo: 'guiado' | 'directo') => void;
-    modo: string;
     cargandoLugar?: boolean;
     lugar: { name: string } | null;
   }) => (
-    <aside id="aportar" aria-label="Aportar desde el mapa" data-modo={modo}>
+    <aside id="aportar" aria-label="Aportar desde el mapa">
       <h2>Sumá tu aporte.</h2>
       <p>{cargandoLugar ? 'Buscando el lugar…' : (lugar?.name ?? 'Todo el país')}</p>
-      <button
-        type="button"
-        onClick={() => {
-          cambiar(modo === 'directo' ? 'guiado' : 'directo');
-        }}
-      >
-        Alternar camino
-      </button>
       <button type="button" onClick={cerrar}>
         Cerrar aporte y volver al mapa
       </button>
@@ -120,17 +108,31 @@ describe('ElMapa (página papel 2.2)', () => {
     montar();
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Qué dice la gente, dónde y cuándo' }),
+      screen.getByRole('heading', { level: 1, name: 'Cómo está hoy lo que imaginamos' }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        'Cada punto es un aporte: un problema, un deseo, algo que ya funciona. Buscá tu zona o sumá el tuyo.',
-      ),
-    ).toBeInTheDocument();
-    expect(screen.getByText('El mapa de los aportes')).toBeInTheDocument();
+    expect(screen.getByText('El mapa de lo que pasa hoy')).toBeInTheDocument();
     // La cifra salió de la portada: el contador del instrumento la dice con
     // su alcance, y un «0» a 52px era justo lo que D-080 pedía no mostrar.
     expect(screen.queryByText('voces en el mapa')).not.toBeInTheDocument();
+  });
+
+  it('se presenta como la capa de cómo está hoy y ofrece volver a Mi Argentina ideal', () => {
+    montar();
+
+    expect(
+      screen.getByText(/se cuenta y se comprueba, lugar por lugar, lo que ya pasa/),
+    ).toHaveTextContent('un problema, algo que falta, algo que ya funciona');
+    expect(screen.getByRole('link', { name: '← Volver a Mi Argentina ideal' })).toHaveAttribute(
+      'href',
+      '/mi-argentina-ideal',
+    );
+    // Un solo botón para aportar: el del instrumento. La portada no suma otro.
+    expect(screen.getAllByRole('button', { name: /aporte/i })).toHaveLength(1);
+    expect(screen.queryByRole('link', { name: /^Sumá|^Sumar el primer/ })).not.toBeInTheDocument();
+    expect(
+      document.querySelector('main a[href*="participar"], main a[href="#aportar"]'),
+    ).toBeNull();
+    expect(document.title).toBe('El mapa · ¡BASTA!');
   });
 
   /**
@@ -160,20 +162,11 @@ describe('ElMapa (página papel 2.2)', () => {
 
   const panel = () => screen.queryByRole('complementary', { name: 'Aportar desde el mapa' });
 
-  it('abre con las tres preguntas cuando se pide desde un botón', () => {
-    montar();
-    fireEvent.click(screen.getByRole('button', { name: 'Sumá tu aporte' }));
-    expect(panel()).toHaveAttribute('data-modo', 'guiado');
-  });
-
   it.each([
-    ['?participar=aportar#instrumento', 'guiado'],
-    ['?participar=imaginar#instrumento', 'guiado'],
-    ['?participar=guiado', 'guiado'],
     ['?participar=directo', 'directo'],
-    ['?participar=voz', 'directo'],
-    ['#aportar', 'guiado'],
-  ])('el enlace %s abre el panel del mismo mapa en el camino «%s»', (enlace, modo) => {
+    ['?participar=voz', 'voz'],
+    ['?participar=directo#aportar', 'directo, aunque traiga el ancla vieja'],
+  ])('el enlace %s abre el aporte puntual en el mismo mapa (%s)', (enlace) => {
     window.history.replaceState(null, '', `/el-mapa${enlace}`);
     montar();
     expect(
@@ -181,52 +174,75 @@ describe('ElMapa (página papel 2.2)', () => {
         'complementary',
         { name: 'Aportar desde el mapa' },
       ),
-    ).toHaveAttribute('data-modo', modo);
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe('/el-mapa');
   });
 
-  it('la entrada para imaginar explica la acción y cerrar recupera la portada del mapa', () => {
-    window.history.replaceState(null, '', '/el-mapa?participar=aportar#instrumento');
+  it.each([
+    '?participar=aportar#instrumento',
+    '?participar=imaginar#instrumento',
+    '?participar=guiado',
+    '#aportar',
+  ])('el enlace viejo %s lleva a Imaginar en vez de abrir un panel acá', (enlace) => {
+    window.history.replaceState(null, '', `/el-mapa${enlace}`);
     montar();
-    expect(screen.getByRole('heading', { level: 1, name: 'Imaginar mi Argentina' })).toBeVisible();
-    expect(screen.getByText(/Contá qué futuro querés/)).toBeVisible();
-    expect(document.title).toBe('Imaginar mi Argentina · ¡BASTA!');
-    fireEvent.click(screen.getByRole('button', { name: 'Cerrar aporte y volver al mapa' }));
-    expect(
-      screen.getByRole('heading', { level: 1, name: 'Qué dice la gente, dónde y cuándo' }),
-    ).toBeVisible();
-    expect(document.title).toBe('El mapa · ¡BASTA!');
+    expect(window.location.pathname).toBe('/mi-argentina-ideal/imaginar');
+    expect(window.location.hash).toBe('');
   });
 
-  it('el enlace sin pedido de aportar no abre el panel', () => {
-    window.history.replaceState(null, '', '/el-mapa?lente=mapa&participar=otra');
-    montar();
-    expect(panel()).not.toBeInTheDocument();
-  });
-
-  it('el ancla #aportar del mapa vacío abre las tres preguntas aunque el panel estuviera en el aporte puntual', () => {
-    window.history.replaceState(null, '', '/el-mapa?participar=directo');
-    montar();
-    expect(panel()).toHaveAttribute('data-modo', 'directo');
-    act(() => {
-      window.history.replaceState(null, '', '/el-mapa?participar=directo#aportar');
-      window.dispatchEvent(new HashChangeEvent('hashchange'));
-    });
-    expect(panel()).toHaveAttribute('data-modo', 'guiado');
-  });
-
-  it('cambiar de camino deja el enlace diciendo en cuál se está, y cerrar lo quita', () => {
+  it('la redirección conserva campaña, edición, borrador y lugar, y deja lo que es del mapa', () => {
     window.history.replaceState(
       null,
       '',
-      '/el-mapa?participar=aportar&campana=mi-campana#instrumento',
+      '/el-mapa?participar=aportar&campana=mi-campana&edicion=2&borrador=b-1&lugar=14&lente=analisis&periodo=30d#instrumento',
+    );
+    // Después de la redirección este test no tiene router: el mapa sigue montado y pide el lugar.
+    vi.spyOn(api, 'get').mockReturnValue(new Promise(() => undefined));
+    const antes = window.history.length;
+    montar();
+    expect(window.location.pathname).toBe('/mi-argentina-ideal/imaginar');
+    expect(Object.fromEntries(new URLSearchParams(window.location.search))).toEqual({
+      campana: 'mi-campana',
+      edicion: '2',
+      borrador: 'b-1',
+      lugar: '14',
+    });
+    // Reemplaza la entrada del historial: «atrás» no vuelve a un enlace que redirige.
+    expect(window.history.length).toBe(antes);
+  });
+
+  it('una edición mal escrita viaja tal cual: Imaginar la marca en vez de elegir otra', () => {
+    window.history.replaceState(null, '', '/el-mapa?participar=aportar&campana=una&edicion=otra');
+    montar();
+    expect(window.location.search).toBe('?campana=una&edicion=otra');
+  });
+
+  it('el enlace sin pedido de aportar no abre el panel ni redirige', () => {
+    window.history.replaceState(null, '', '/el-mapa?lente=mapa&participar=otra');
+    montar();
+    expect(panel()).not.toBeInTheDocument();
+    expect(window.location.pathname).toBe('/el-mapa');
+  });
+
+  it('el ancla #aportar que aparece con la página abierta también lleva a Imaginar', () => {
+    window.history.replaceState(null, '', '/el-mapa?campana=mi-campana');
+    montar();
+    act(() => {
+      window.history.replaceState(null, '', '/el-mapa?campana=mi-campana#aportar');
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+    });
+    expect(window.location.pathname).toBe('/mi-argentina-ideal/imaginar');
+    expect(window.location.search).toBe('?campana=mi-campana');
+  });
+
+  it('cerrar el panel quita el pedido del enlace y conserva lo demás', () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/el-mapa?participar=directo&campana=mi-campana#instrumento',
     );
     montar();
-    fireEvent.click(screen.getByRole('button', { name: 'Alternar camino' }));
-    expect(panel()).toHaveAttribute('data-modo', 'directo');
-    const q = new URLSearchParams(window.location.search);
-    expect(q.get('participar')).toBe('directo');
-    // Lo demás del enlace —la campaña— no se toca.
-    expect(q.get('campana')).toBe('mi-campana');
+    expect(panel()).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Cerrar aporte y volver al mapa' }));
     expect(new URLSearchParams(window.location.search).has('participar')).toBe(false);
     expect(new URLSearchParams(window.location.search).get('campana')).toBe('mi-campana');
@@ -240,7 +256,7 @@ describe('ElMapa (página papel 2.2)', () => {
           resolver = resolve;
         }),
     );
-    window.history.replaceState(null, '', '/el-mapa?participar=aportar&lugar=14');
+    window.history.replaceState(null, '', '/el-mapa?participar=directo&lugar=14');
     montar();
     const aside = panel();
     if (!aside) throw new Error('El panel tendría que estar abierto.');

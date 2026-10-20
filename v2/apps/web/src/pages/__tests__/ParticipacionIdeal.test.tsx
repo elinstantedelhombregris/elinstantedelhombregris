@@ -11,10 +11,7 @@ import { Afirmaciones } from '../Fichas/Afirmaciones';
 import { Alternativas } from '../Fichas/Alternativas';
 import { PanelDiseno } from '../Fichas/PanelDiseno';
 import { Pruebas } from '../Fichas/Pruebas';
-import { Asistencia } from '../Imaginar/Asistencia';
-import { ConversacionIdeal } from '../Imaginar/ConversacionIdeal';
 import { Recibo } from '../Imaginar/Recibo';
-import { Revision } from '../Imaginar/Revision';
 import { ControlesAnalisis } from '../LaRadiografia/sections/ControlesAnalisis';
 import { BorradoresLocales } from '../MiEspacio/Borradores';
 import { MisAportes } from '../MiEspacio/MisAportes';
@@ -57,7 +54,6 @@ vi.mock('~/lib/queries/participacion', () => ({
   useCampanas: () => ({ data: [] }),
   useMiEspacio: () => ({ data: { seguimientos: [] } }),
   useGuardarCampana: () => ({ mutate: modelo.mutate, isPending: false }),
-  useLecturaAsistida: () => ({ mutate: modelo.mutate, isPending: false }),
   useDisenoFicha: () => ({
     data: {
       afirmaciones: [],
@@ -143,110 +139,6 @@ beforeEach(() => {
   window.history.replaceState(null, '', '/');
 });
 describe('La persona conserva el control de su voz', () => {
-  it('la conversación guiada conserva la edición del enlace del mapa al publicar', () => {
-    modelo.campana = campana;
-    window.history.replaceState(null, '', `/el-mapa?campana=${id}&edicion=2&participar=aportar`);
-    montar(<ConversacionIdeal />);
-    expect(modelo.parametrosCampana).toHaveBeenCalledWith(id, 2);
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Quiero aprender cerca.' } });
-    fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    fireEvent.click(screen.getByLabelText('Este texto dice lo que quiero decir.'));
-    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar este aporte/ }));
-    fireEvent.click(screen.getByRole('button', { name: 'Publicar mi aporte' }));
-    expect(modelo.mutate).toHaveBeenCalledWith(
-      expect.objectContaining({ campanaId: id, edicion: 2 }),
-      expect.anything(),
-    );
-  });
-  it('una edición inválida no convierte la conversación guiada en publicación nacional', () => {
-    window.history.replaceState(null, '', '/el-mapa?edicion=otra&participar=aportar');
-    montar(<ConversacionIdeal />);
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Quiero aprender cerca.' } });
-    fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    fireEvent.click(screen.getByLabelText('Este texto dice lo que quiero decir.'));
-    fireEvent.click(screen.getByRole('checkbox', { name: /Quiero publicar este aporte/ }));
-    const publicar = screen.getByRole('button', { name: 'Publicar mi aporte' });
-    expect(publicar).toHaveAttribute('aria-disabled', 'true');
-    expect(screen.getAllByText(/La edición del enlace no es válida/).length).toBeGreaterThan(0);
-    fireEvent.click(publicar);
-    expect(modelo.mutate).not.toHaveBeenCalled();
-    expect(screen.getByLabelText('Mi aporte')).toHaveValue('Quiero aprender cerca.');
-  });
-  it('Imaginar empieza sin cuenta, admite preguntas abiertas y no publica antes de revisión', () => {
-    montar(<ConversacionIdeal />);
-    fireEvent.change(screen.getByRole('textbox'), {
-      target: { value: 'No quiero renunciar a aprender cerca de quienes quiero.' },
-    });
-    fireEvent.click(screen.getByRole('button', { name: 'Seguir imaginando' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Dejar esta pregunta abierta' }));
-    expect(screen.getByLabelText('Mi aporte')).toHaveValue(
-      'No quiero renunciar a aprender cerca de quienes quiero.',
-    );
-    expect(screen.getByRole('button', { name: 'Publicar mi aporte' })).toHaveAttribute(
-      'aria-disabled',
-      'true',
-    );
-    expect(screen.getByText('Marcá las dos casillas para publicar.')).toBeInTheDocument();
-    expect(modelo.mutate).not.toHaveBeenCalled();
-  });
-  it('la revisión exige fidelidad y permiso de publicación por separado', () => {
-    const props = {
-      lectura: 'Quiero aprender cerca.',
-      cambiar: vi.fn(),
-      tema: '',
-      cambiarTema: vi.fn(),
-      lugar: null,
-      elegirLugar: vi.fn(),
-      publicar: true,
-      cede: false,
-      setPublicar: vi.fn(),
-      setCede: vi.fn(),
-      confirmado: false,
-      confirmar: vi.fn(),
-      incluirOrigen: false,
-      incluir: vi.fn(),
-      volver: vi.fn(),
-      enviar: vi.fn(),
-      enviando: false,
-    };
-    const r = montar(<Revision {...props} />);
-    expect(screen.getByRole('button', { name: 'Publicar mi aporte' })).toHaveAttribute(
-      'aria-disabled',
-      'true',
-    );
-    r.rerender(
-      <QueryClientProvider client={new QueryClient()}>
-        <Revision {...props} confirmado />
-      </QueryClientProvider>,
-    );
-    expect(screen.getByRole('button', { name: 'Publicar mi aporte' })).not.toHaveAttribute(
-      'aria-disabled',
-    );
-  });
-  it('la asistencia externa requiere autorización explícita', () => {
-    montar(<Asistencia texto="Quiero aprender cerca." proveedor="Groq" usar={vi.fn()} />);
-    const boton = screen.getByRole('button', { name: 'Pedir una lectura asistida' });
-    expect(boton).toHaveAttribute('aria-disabled', 'true');
-    expect(screen.getByText('Marcá la casilla para autorizar el envío.')).toBeInTheDocument();
-    fireEvent.click(boton);
-    expect(modelo.mutate).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByRole('checkbox'));
-    fireEvent.click(boton);
-    expect(modelo.mutate).toHaveBeenCalledWith('Quiero aprender cerca.');
-    // Es un dato de infraestructura: no se le muestra a quien aporta.
-    expect(screen.queryByText(/Groq/)).not.toBeInTheDocument();
-  });
-  it('sin proveedor la asistencia no muestra nada', () => {
-    const { container } = montar(
-      <Asistencia texto="Quiero aprender cerca." proveedor={null} usar={vi.fn()} />,
-    );
-    expect(container).toBeEmptyDOMElement();
-  });
   it('el recibo distingue reserva y recuperación sin exponer la cuenta', () => {
     montar(
       <Recibo
