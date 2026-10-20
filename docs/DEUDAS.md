@@ -147,8 +147,9 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-133](#d-133--el-enlace-para-preparar-una-síntesis-sin-sesión-lleva-a-una-página-que-no-existe) | El enlace para preparar una síntesis sin sesión lleva a una página que no existe | Baja | Abierta |
 | [D-134](#d-134--la-campaña-nacional-hace-tres-preguntas-distintas) | La campaña nacional hace tres preguntas distintas | Media | Abierta |
 | [D-135](#d-135--el-mandato-vivo-no-tiene-entrada-desde-el-menú) | El mandato vivo no tiene entrada desde el menú | Media | Abierta |
-| [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Abierta |
-| [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Abierta |
+| [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Resuelta en código (API); la web la borra en la entrega 3 |
+| [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Resuelta en código |
+| [D-138](#d-138--los-límites-por-ip-pueden-frenar-a-un-aula-entera-en-mirar) | Los límites por IP pueden frenar a un aula entera en Mirar | Media | Abierta |
 
 ---
 
@@ -2278,15 +2279,28 @@ La portada pregunta «En tu Argentina ideal, ¿qué sería posible en tu vida?»
 **Dónde:** `v2/apps/api/src/features/contribuciones/routes.ts` (`POST /api/v1/contribuciones/interpretar`), `interpretacion.ts`, y en la web `pages/Imaginar/Asistencia.tsx`.
 **Encontrada:** 2026-10-19, al relevar el modelo de datos de los aportes.
 **Severidad:** alta.
-**Estado:** abierta.
+**Estado:** resuelta en código (API), 2026-10-20; la web borra su parte en la entrega 3.
 
 Cuando la persona marca la casilla de consentimiento, el borrador de su aporte viaja entero al proveedor que elija `getAICompleter()`, que es Groq cuando está `GROQ_API_KEY`. La ADR 0009 (D2) dice que el texto que escribe la gente no sale de nuestra infraestructura y nombra una sola excepción, el asistente de coaching. Esta segunda salida no está nombrada en la ADR ni decidida por el dueño. Que la persona consienta no la cubre: la regla es del proyecto, no de cada aporte. Además, la fábrica de proveedores no tiene ninguna guarda que impida usar un proveedor externo para texto de aportes. Pendiente: o sacar la lectura asistida, o moverla a un proveedor local detrás de la misma interfaz, o que el dueño la agregue como excepción con una ADR. La propuesta `v2/docs/specs/2026-10-19-mi-argentina-ideal-la-pila.md` deja la lectura asistida afuera del recorrido nuevo.
+
+**Resolución (20/10):** la API ya no tiene `POST /api/v1/contribuciones/interpretar` ni `interpretacion.ts`, y `GET /contribuciones/contexto` dejó de anunciar un proveedor, así que el texto de un aporte no tiene por dónde salir a Groq ni a otro. La prueba de `exportaciones-ideal.test.ts` afirma que la ruta responde 404. El recorrido nuevo de Imaginar no la llama (P7 del plan de Mi Argentina ideal); el panel viejo (`pages/Imaginar/Asistencia.tsx` y su consulta) queda sin servicio y se borra con la entrega 3.
 
 ### D-137 · Una adhesión se puede dejar sobre un aporte retirado o sobre el propio
 
 **Dónde:** `v2/packages/db/src/repositories/adhesiones.ts`, `adherir`.
 **Encontrada:** 2026-10-19, al relevar las reacciones a aportes ajenos.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** resuelta en código, 2026-10-20.
 
 `adherir` descarta los aportes retenidos, pero no los que tienen `estado = 'retirada'`, así que se puede sumar «A mí también me pasa» a un aporte que su autor retiró. Tampoco comprueba que el actor no sea el autor, y en `/senal/:id` el botón aparece también sobre el aporte propio. Y nunca escribe `user_id`, con lo que el índice único por cuenta que el esquema define para que la misma persona en dos navegadores no cuente doble no se usa en este camino. Como las adhesiones encienden el brillo del mapa, las tres cosas inflan un conteo público. Pendiente: filtrar retirados, rechazar la adhesión propia, completar `user_id` desde el actor vinculado y una prueba de integración por cada caso.
+
+**Resolución (20/10):** `AdhesionesRepository.adherir` descarta los aportes retirados además de los retenidos, rechaza la adhesión propia —por el actor o por la cuenta— y la ruta responde 409 `ADHESION_PROPIA`, y escribe `user_id` con la cuenta de la sesión o la vinculada al actor, así el índice único por persona impide que la misma cuenta sume desde dos navegadores. Las tres cosas tienen su prueba en `senales-adhesion.test.ts`. Que el botón no aparezca sobre el aporte propio es de la web, que ya recibe `esPropia`. Los deseos de Mi Argentina ideal, además, dejan de usar la adhesión: se contestan con las tres respuestas de `pila_respuestas`, que guardan la cuenta desde la primera fila; para `/senal/:id` la web lo pregunta a `GET /api/v1/pila/aportes/:id` (tarea 13 del plan).
+
+### D-138 · Los límites por IP pueden frenar a un aula entera en Mirar
+
+**Dónde:** `v2/apps/api/src/middleware/rate-limit.ts`: `generalRateLimit` (120 pedidos por minuto por IP en todo `/api`) y `pilaRateLimit` (1.000 por hora por IP en `/api/v1/pila`).
+**Encontrada:** 2026-10-20, al construir la API de Mirar.
+**Severidad:** media.
+**Estado:** abierta.
+
+El lanzamiento en persona (D1) pone a un aula o a un club detrás de una sola IP. Treinta personas que contestan un aporte cada tres segundos hacen unos 600 pedidos por minuto, y el límite general responde 429 mucho antes. Una tanda completa son unos catorce pedidos por persona (la tanda, diez opiniones, dos duelos y algún reporte), así que el límite de Mirar alcanza para dos tandas por persona y por hora en un aula de treinta. Los dos viven en la memoria del proceso y cuentan por instancia: en Vercel el corte real depende de cuántas instancias atiendan, y no se puede predecir. Los techos por persona ya se cuentan en la base (300 opiniones y 60 tandas por hora, 30 reportes por día). Pendiente: decidir con el dueño si en Mirar la IP deja de ser la unidad —por ejemplo, sacar `/api/v1/pila` del límite general y subir el propio, para que manden los techos por persona— y probarlo con la carga de un aula antes del lanzamiento.

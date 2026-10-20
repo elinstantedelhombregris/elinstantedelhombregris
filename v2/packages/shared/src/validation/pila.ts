@@ -55,7 +55,21 @@ export const retencionSchema = z
   })
   .strict();
 
+/** `GET /api/v1/gestion/pila`: la campaña (slug, optativa: sin ella, todas) y desde qué fila. */
+export const consultaGestionPilaSchema = z
+  .object({
+    campana: slug,
+    desde: z.coerce
+      .number({ invalid_type_error: 'La página tiene que ser un número.' })
+      .int('La página tiene que ser un número entero.')
+      .min(0, 'La página no puede ser negativa.')
+      .max(100_000, 'Esa página no existe.')
+      .optional(),
+  })
+  .strict();
+
 export type PedidoTanda = z.infer<typeof pedidoTandaSchema>;
+export type ConsultaGestionPila = z.infer<typeof consultaGestionPilaSchema>;
 export type OpinionInput = z.infer<typeof opinionSchema>;
 export type DueloInput = z.infer<typeof dueloSchema>;
 export type ReporteInput = z.infer<typeof reporteSchema>;

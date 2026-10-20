@@ -45,18 +45,43 @@ export class AdhesionesRepository {
    * Idempotente por clave primaria `(senal_id, actor_id)`: apretar dos veces es
    * la misma adhesión, no dos. Devuelve el total actualizado para que la
    * pantalla no tenga que pedirlo aparte.
+   *
+   * D-137: un aporte retirado o retenido no recibe adhesiones; el propio
+   * tampoco (`'propia'`), ni por el actor ni por la cuenta; y la fila lleva la
+   * cuenta —la de la sesión o la vinculada al actor— para que el índice único por
+   * persona haga su trabajo y la misma persona en dos navegadores no cuente doble.
    */
-  async adherir(idPublico: string, actorId: number): Promise<ResultadoDeAdhesion | null> {
+  async adherir(
+    idPublico: string,
+    actorId: number,
+    userId: number | null = null,
+  ): Promise<ResultadoDeAdhesion | 'propia' | null> {
     const [senal] = await this.db
-      .select({ id: senales.id })
+      .select({
+        id: senales.id,
+        actorId: senales.actorId,
+        userId: senales.userId,
+        cuentaDelActor: sql<
+          number | null
+        >`(select a.user_id from actores a where a.id = ${actorId})`,
+      })
       .from(senales)
-      .where(and(eq(senales.idPublico, idPublico), sql`${senales.retenidaEn} is null`))
+      .where(
+        and(
+          eq(senales.idPublico, idPublico),
+          sql`${senales.retenidaEn} is null`,
+          sql`${senales.estado} <> 'retirada'`,
+        ),
+      )
       .limit(1);
     if (senal === undefined) return null;
+    const cuenta = userId ?? senal.cuentaDelActor;
+    if (senal.actorId === actorId || (cuenta !== null && senal.userId === cuenta)) return 'propia';
 
+    /** Sin destino: choca con la PK del actor o con el único de la cuenta, y en los dos casos ya estaba. */
     const escritas = await this.db
       .insert(adhesiones)
-      .values({ senalId: senal.id, actorId })
+      .values({ senalId: senal.id, actorId, userId: cuenta })
       .onConflictDoNothing()
       .returning({ senalId: adhesiones.senalId });
 

@@ -253,12 +253,26 @@ router.post('/senales/:idPublico/adhesion', anonSubmitRateLimit(), async (req, r
       return;
     }
     const id = typeof req.params.idPublico === 'string' ? req.params.idPublico : '';
-    const r = await new AdhesionesRepository(getDb()).adherir(id, actor.actorId);
+    const r = await new AdhesionesRepository(getDb()).adherir(
+      id,
+      actor.actorId,
+      req.user?.id ?? null,
+    );
     if (r === null) {
-      res.status(404).json({ error: { code: 'NO_ESTA', message: 'No encontramos esa señal.' } });
+      res.status(404).json({ error: { code: 'NO_ESTA', message: 'No encontramos ese aporte.' } });
       return;
     }
     ponerCookieDeActor(res, actor.claveNueva);
+    if (r === 'propia') {
+      // D-137: sumarse al aporte propio inflaba un conteo público.
+      res.status(409).json({
+        error: {
+          code: 'ADHESION_PROPIA',
+          message: 'Este aporte es tuyo: ya cuenta, no hace falta que te sumes.',
+        },
+      });
+      return;
+    }
     res.status(201).json({ data: r });
   } catch (err) {
     next(err);

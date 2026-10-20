@@ -97,6 +97,12 @@ export interface AportePropio {
   campanaId: string | null;
   campanaTitulo: string | null;
   edicion: number | null;
+  /**
+   * Si el aporte salió de Mirar: por reportes de otras personas o porque lo
+   * retuvo la coordinación, y desde cuándo. `null` si sigue a la vista. Optativo
+   * sólo para no romper a quien arma un `AportePropio` a mano; la API siempre lo manda.
+   */
+  retenido?: { origen: 'reportes' | 'gestion'; desde: string } | null;
 }
 export interface EspacioPersonal {
   aportes: AportePropio[];

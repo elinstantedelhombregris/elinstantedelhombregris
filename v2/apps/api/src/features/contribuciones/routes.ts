@@ -1,19 +1,24 @@
 import { randomBytes } from 'node:crypto';
 
+import { claseDe } from '@v2/civic-core';
 import { ContribucionesRepository, MiEspacioRepository, getDb, temas, eq } from '@v2/db';
-import { contribucionSchema, corregirAporteSchema } from '@v2/shared';
+import {
+  NOMBRE_DEL_DATO,
+  buscarDatosPersonales,
+  contribucionSchema,
+  corregirAporteSchema,
+  type ContribucionInput,
+} from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { getConfig, nombreProveedorIA } from '../../lib/config.js';
+import { getConfig } from '../../lib/config.js';
 import { optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 import { acreditarParticipacion } from '../impulso/acreditar.js';
 import { actorDelNavegador, ponerCookieDeActor, resolverActor } from '../senales/actor.js';
 import { ingerirSenal } from '../senales/service.js';
-
-import { interpretarTexto, pedidoLecturaSchema } from './interpretacion.js';
 
 const router: RouterType = Router();
 router.use(optionalAuthenticate);
@@ -40,24 +45,37 @@ router.get('/contexto', async (req, res, next) => {
           .select({ clave: temas.clave, etiqueta: temas.etiqueta })
           .from(temas)
           .orderBy(temas.orden),
-        proveedor: nombreProveedorIA(),
       },
     });
   } catch (e) {
     next(e);
   }
 });
-router.post('/interpretar', anonSubmitRateLimit(), async (req, res, next) => {
-  try {
-    const v = pedidoLecturaSchema.parse(req.body);
-    res.set('Cache-Control', 'no-store').json({ data: await interpretarTexto(v.texto) });
-  } catch (e) {
-    next(e);
-  }
-});
+/**
+ * Lo que parece un dato de una persona, en un deseo (plan de Mi Argentina ideal,
+ * tarea 8). Protege datos personales, no juzga el contenido: corre acá, sin
+ * modelo y sin proveedor, y vale sólo para los deseos, porque un recurso puede
+ * llevar con razón el teléfono público de una cooperativa. No devuelve el
+ * fragmento: el cliente ya lo tiene.
+ */
+function frenarDatosPersonales(v: ContribucionInput): void {
+  if (claseDe(v.senal.tipo) !== 'deseo') return;
+  const hallazgos = [v.senal.texto, ...v.fragmentos.map((f) => f.respuesta)].flatMap((t) =>
+    buscarDatosPersonales(t),
+  );
+  const primero = hallazgos[0];
+  if (!primero) return;
+  throw new HttpError(
+    422,
+    'DATOS_PERSONALES',
+    `Tu aporte tiene lo que parece ${NOMBRE_DEL_DATO[primero.tipo]}. Sacalo antes de publicar: el aporte se ve en público.`,
+    { hallazgos: hallazgos.map((h) => ({ tipo: h.tipo })) },
+  );
+}
 router.post('/', anonSubmitRateLimit(), async (req, res, next) => {
   try {
     const v = contribucionSchema.parse(req.body);
+    frenarDatosPersonales(v);
     if (v.senal.tema) {
       const [tema] = await getDb()
         .select({ clave: temas.clave })
@@ -157,7 +175,7 @@ router.patch('/:id', async (req, res, next) => {
       throw new HttpError(
         409,
         'TEXTO_CON_HISTORIA',
-        'Esta voz ya tiene adhesiones o conserva evidencia de un hecho o una acción. Compartí un aporte nuevo para corregir el enunciado; así nadie queda apoyando palabras que no leyó.',
+        'Este aporte ya tiene respuestas o adhesiones de otras personas, o conserva evidencia de un hecho o una acción. Compartí un aporte nuevo para corregirlo; así nadie queda respondiendo a palabras que no leyó.',
       );
     if (
       !(await repo.corregir(

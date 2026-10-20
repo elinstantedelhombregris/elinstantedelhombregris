@@ -15,7 +15,12 @@ export function generalRateLimit(): RequestHandler {
     max: config.rateLimit.maxRequests,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
-    message: { error: { code: 'RATE_LIMITED', message: 'Demasiadas solicitudes. Intentá de nuevo en un momento.' } },
+    message: {
+      error: {
+        code: 'RATE_LIMITED',
+        message: 'Demasiadas solicitudes. Intentá de nuevo en un momento.',
+      },
+    },
   });
 }
 
@@ -117,6 +122,29 @@ export function dejarFaltaRateLimit(): RequestHandler {
       error: {
         code: 'RATE_LIMITED',
         message: 'Ya dejaste varias. Dale un rato y volvé — el registro no se va a ningún lado.',
+      },
+    },
+  });
+}
+
+/**
+ * Mirar (`/api/v1/pila`): 1.000 pedidos por hora por IP.
+ *
+ * Alto a propósito: una escuela entera sale por una sola IP, y el lanzamiento en
+ * persona (D1) no puede chocar con eso. El techo real es por persona y lo cuenta
+ * el servicio en la base (`features/pila/service.ts`). Se apila sobre el
+ * genérico, no lo reemplaza.
+ */
+export function pilaRateLimit(): RequestHandler {
+  return rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 1000,
+    standardHeaders: 'draft-7',
+    legacyHeaders: false,
+    message: {
+      error: {
+        code: 'RATE_LIMITED',
+        message: 'Desde esta conexión llegaron muchos pedidos. Esperá un rato y volvé a mirar.',
       },
     },
   });

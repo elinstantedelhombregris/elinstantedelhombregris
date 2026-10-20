@@ -29,6 +29,7 @@ describe.skipIf(!habilitada)(
     let otro = 0;
     const usuariosFixture: number[] = [];
     const idLocalesFixture = new Set<string>();
+    const actoresFixture: number[] = [];
     let cookie = '';
     let cookieAjena = '';
     let invitado = '';
@@ -115,6 +116,9 @@ describe.skipIf(!habilitada)(
       else process.env['ADMIN_USERNAMES'] = adminPrevio;
       resetConfig();
       await limpiarFixturesIdeales(getDb(), usuariosFixture, [...idLocalesFixture]);
+      // Sus respuestas en Mirar cayeron con los aportes; el actor queda solo.
+      for (const id of actoresFixture)
+        await getDb().execute(sql`delete from actores where id = ${id}`);
     });
     it('la cuenta abre un borrador y nadie más puede verlo ni editarlo', async () => {
       const idLocal = randomUUID();
@@ -192,6 +196,40 @@ describe.skipIf(!habilitada)(
       const c = await request.get(`/api/v1/campanas/${campana}`);
       expect(c.body.data.aportes).toBe(1);
     });
+    it('un deseo con lo que parece un teléfono responde 422; un recurso con teléfono pasa', async () => {
+      const v = cuerpo();
+      const conTelefono = await conCuenta('post', '/api/v1/contribuciones').send({
+        ...v,
+        senal: { ...v.senal, texto: 'Que en la huerta me puedan llamar al 11 1234-5678.' },
+      });
+      expect(conTelefono.status).toBe(422);
+      expect(conTelefono.body.error.code).toBe('DATOS_PERSONALES');
+      expect(conTelefono.body.error.message).toContain('un teléfono');
+      expect(conTelefono.body.error.details).toEqual({ hallazgos: [{ tipo: 'telefono' }] });
+      expect(JSON.stringify(conTelefono.body)).not.toContain('1234-5678');
+      const enElOrigen = await conCuenta('post', '/api/v1/contribuciones').send({
+        ...cuerpo(),
+        fragmentos: [
+          { pregunta: '¿Qué sería posible?', respuesta: 'Escribime a ana@ejemplo.com.' },
+        ],
+      });
+      expect(enElOrigen.status).toBe(422);
+      expect(enElOrigen.body.error.details.hallazgos).toEqual([{ tipo: 'mail' }]);
+      const recurso = cuerpo();
+      await conCuenta('post', '/api/v1/contribuciones')
+        .send({
+          ...recurso,
+          campanaId: null,
+          edicion: null,
+          fragmentos: [],
+          senal: {
+            ...recurso.senal,
+            tipo: 'recurso',
+            texto: 'La cooperativa de la huerta atiende al 11 1234-5678.',
+          },
+        })
+        .expect(201);
+    });
     it('el envío asistido necesita revisión de su autor y un cambio de cuenta exige revisar de nuevo', async () => {
       const v = cuerpo();
       await conCuenta('post', '/api/v1/contribuciones')
@@ -249,6 +287,50 @@ describe.skipIf(!habilitada)(
       await conCuenta('patch', `/api/v1/contribuciones/${aporte}`, true).send(cambio).expect(403);
       await conCuenta('patch', `/api/v1/contribuciones/${aporte}`).send(cambio).expect(200);
       await conCuenta('patch', `/api/v1/contribuciones/${aporte}`).send(cambio).expect(409);
+    });
+    it('un aporte contestado en Mirar no se corrige, y Mi espacio muestra su retención', async () => {
+      const v = cuerpo();
+      const r = await conCuenta('post', '/api/v1/contribuciones').send(v).expect(201);
+      const id = r.body.data.idPublico as string;
+      const [actor] = (
+        await getDb().execute<{ id: number }>(
+          sql`insert into actores (actor_hash, origen) values (sha256(gen_random_uuid()::text::bytea), 'web') returning id::int as id`,
+        )
+      ).rows;
+      actoresFixture.push(actor!.id);
+      await getDb()
+        .execute(sql`insert into pila_respuestas (senal_id, actor_id, valor, respondida_en)
+        select id, ${actor!.id}::bigint, 'acuerdo', now() from senales where id_publico = ${id}::uuid`);
+      const antes = (await request.get('/api/v1/mi-espacio').set('Cookie', cookie).expect(200)).body
+        .data as EspacioPersonal;
+      const propio = antes.aportes.find((a) => a.id === id)!;
+      expect(propio.retenido).toBeNull();
+      const cambio = await conCuenta('patch', `/api/v1/contribuciones/${id}`).send({
+        revision: propio.revision,
+        texto: 'Otra frase que nadie contestó.',
+        cedeLicencia: true,
+        aceptaPublicar: true,
+      });
+      expect(cambio.status).toBe(409);
+      expect(cambio.body.error.code).toBe('TEXTO_CON_HISTORIA');
+      const privado = await request
+        .get(`/api/v1/contribuciones/${id}/privado`)
+        .set('Cookie', cookie)
+        .expect(200);
+      expect(privado.body.data.textoProtegido).toBe(true);
+
+      await conCuenta('post', `/api/v1/gestion/pila/${id}/retencion`)
+        .send({ motivo: 'Lo retengo para revisarlo con calma.' })
+        .expect(200);
+      const despues = (await request.get('/api/v1/mi-espacio').set('Cookie', cookie).expect(200))
+        .body.data as EspacioPersonal;
+      expect(despues.aportes.find((a) => a.id === id)?.retenido).toEqual({
+        origen: 'gestion',
+        desde: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/),
+      });
+      expect(despues.aportes.find((a) => a.id === aporte)?.retenido).toBeNull();
+      // Se retira para que el conteo de la campaña siga siendo el de los demás casos.
+      await conCuenta('delete', `/api/v1/contribuciones/${id}`).expect(200);
     });
     it('seguir no suma apoyo y puede deshacerse; guardar análisis no guarda texto privado', async () => {
       await conCuenta('post', '/api/v1/mi-espacio/seguimientos')
