@@ -52,35 +52,28 @@ export function SuperficieInstrumento({
         participando && 'min-[961px]:sticky min-[961px]:top-16 min-[961px]:self-start',
       )}
     >
-      {activo.superficie ? (
-        /* La Simulación trae su propia superficie: la cortina son dos
-               instancias de mapa y no se puede recortar una capa por posición
-               de pantalla. La `key` la aísla igual que a las capas. */
-        <Fragment key={`${modo}-${intento}`}>{activo.superficie}</Fragment>
-      ) : (
-        <MapaBase
-          key={intento}
-          mapaRef={mapaRef}
-          conLugar={conLugar}
-          onFallo={() => {
-            onFallo();
-          }}
-          onMover={alMover}
-          arrastreHabilitado={activo.arrastreHabilitado ?? true}
-          {...(activo.capasInteractivas ? { capasInteractivas: activo.capasInteractivas } : {})}
-          {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
-        >
-          {/*
-              La `key` por modo es obligatoria, no cosmética: sin ella React
-              reconcilia las capas del modo saliente con las del entrante en la
-              misma posición del árbol, y `<Source>` de react-map-gl explota con
-              «source id changed» porque su id no puede cambiar en caliente.
-              Con la key se desmonta un modo y se monta el otro, que es lo que
-              corresponde — el mapa NO se remonta, solo sus capas.
-            */}
-          <Fragment key={modo}>{activo.capas}</Fragment>
-        </MapaBase>
-      )}
+      <MapaBase
+        key={intento}
+        mapaRef={mapaRef}
+        conLugar={conLugar}
+        onFallo={() => {
+          onFallo();
+        }}
+        onMover={alMover}
+        arrastreHabilitado={activo.arrastreHabilitado ?? true}
+        {...(activo.capasInteractivas ? { capasInteractivas: activo.capasInteractivas } : {})}
+        {...(activo.onClickCapa ? { onClickCapa: activo.onClickCapa } : {})}
+      >
+        {/*
+          La `key` por modo es obligatoria, no cosmética: sin ella React
+          reconcilia las capas del modo saliente con las del entrante en la
+          misma posición del árbol, y `<Source>` de react-map-gl explota con
+          «source id changed» porque su id no puede cambiar en caliente.
+          Con la key se desmonta un modo y se monta el otro, que es lo que
+          corresponde — el mapa NO se remonta, solo sus capas.
+        */}
+        <Fragment key={modo}>{activo.capas}</Fragment>
+      </MapaBase>
 
       {/* El contador flota arriba a la derecha y responde al encuadre:
               arrastrás sobre una provincia y el número contesta. */}

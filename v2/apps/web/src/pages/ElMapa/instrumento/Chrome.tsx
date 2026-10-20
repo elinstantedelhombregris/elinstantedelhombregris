@@ -22,7 +22,7 @@ import { CLASE_ROTULO, type ClaseSenal } from '~/lib/vocabulario';
 /**
  * Las pestañas de los modos, cada una con la pregunta que contesta.
  *
- * Una sola palabra («Cobertura», «Simulación») no dice para qué sirve: la
+ * Una sola palabra («Cobertura», «Análisis») no dice para qué sirve: la
  * revisión del 9/10 pidió que cada pestaña traiga su pregunta, y el catálogo ya
  * la tenía escrita en `MODOS.descripcion` sin que nadie la mostrara.
  *

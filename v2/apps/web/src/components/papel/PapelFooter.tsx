@@ -6,8 +6,7 @@ import {
   PAPEL_NAV_ALL,
   QUIEN_HREF,
   QUIEN_LABEL,
-  SIMULACION_HREF,
-  SIMULACION_LABEL,
+  SUMATE_LABEL,
 } from './papel-nav';
 
 import { APORTAR_HREF } from '~/lib/participacion/aportar';
@@ -22,6 +21,10 @@ const PRINCIPIOS = [
 /**
  * Footer papel: wordmark gigante en outline, recorrido, principios y el
  * siguiente paso. Página oscura (#16130E) según el sistema.
+ *
+ * El recorrido es el mismo del header (`PAPEL_NAV_ALL`): las cuatro puertas y
+ * «Sumate». El mapa y la Radiografía cuelgan de Mi Argentina ideal y no se
+ * repiten acá.
  */
 export function PapelFooter() {
   return (
@@ -82,7 +85,7 @@ export function PapelFooter() {
               href={APORTAR_HREF}
               className="bg-violeta font-space text-papel hover:bg-papel hover:text-tinta block w-full px-4 py-[15px] text-center text-xs font-bold uppercase tracking-[0.1em] transition-colors"
             >
-              Imaginar mi Argentina
+              {SUMATE_LABEL}
             </Link>
           </div>
         </div>
@@ -111,18 +114,13 @@ export function PapelFooter() {
             {/* La cuarta boca del canal de escucha, y la que está en todas las
                 páginas (spec 2026-08-12-lo-que-falta.md §2.8). Va acá abajo y
                 no en el recorrido: es una puerta que tiene que estar siempre y
-                no pedir nada, no una sección que compita con las cinco. */}
+                no pedir nada, no una sección que compita con las del header. */}
             <Link href={FALTA_HREF} className="hover:text-papel underline transition-colors">
               {FALTA_LABEL}
             </Link>
-            <span aria-hidden>·</span>
-            {/* El instrumento de análisis (spec 2026-08-13 §2.9): tercera
-                inquilina de la franja, y por la misma razón que las dos de al
-                lado — es una herramienta de trabajo y no una puerta del
-                recorrido. */}
-            <Link href={SIMULACION_HREF} className="hover:text-papel underline transition-colors">
-              {SIMULACION_LABEL}
-            </Link>
+            {/* La simulación vivía acá, como tercera inquilina de la franja. Salió
+                del recorrido (spec 2026-10-19 §7, D4): su dirección sigue andando
+                como laboratorio del motor, pero ninguna puerta la ofrece. */}
           </span>
           <span>Diseño abierto · revisión continua</span>
         </div>

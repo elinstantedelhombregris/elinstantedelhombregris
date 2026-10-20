@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Instrumento } from '../Instrumento';
@@ -158,7 +158,7 @@ describe('Instrumento — el botón del panel de aportes dice qué hace', () => 
 });
 
 describe('Instrumento — recuperación de geometría y teselas', () => {
-  it.each(['mapa', 'analisis', 'simulacion'])(
+  it.each(['mapa', 'analisis'])(
     'avisa y recupera los límites en %s sin perder el borrador',
     async (modo) => {
       window.history.replaceState(null, '', `/el-mapa?lente=${modo}`);
@@ -214,7 +214,7 @@ describe('Instrumento — recuperación de geometría y teselas', () => {
       expect(screen.getByRole('region', { name: 'Lista de aportes' })).toHaveTextContent(
         'Hace falta una biblioteca en el barrio.',
       );
-      // Los tres consumidores comparten la petición, incluso cuando falla.
+      // Los consumidores comparten la petición, incluso cuando falla.
       expect(peticion).toHaveBeenCalledTimes(1);
       fireEvent.click(screen.getByRole('button', { name: 'Reintentar el mapa' }));
       await waitFor(() => {
@@ -228,24 +228,30 @@ describe('Instrumento — recuperación de geometría y teselas', () => {
       expect(borrador).toHaveValue('Mi idea sigue acá');
     },
   );
+});
 
-  it('incluye ambos mapas de la cortina en el aviso y el reintento de teselas', async () => {
+describe('Instrumento — la Simulación salió de las pestañas', () => {
+  it('las pestañas son cuatro y ninguna es la Simulación', () => {
+    montar(false);
+    const modos = screen.getByRole('navigation', { name: 'Modos del instrumento' });
+    expect(
+      within(modos)
+        .getAllByRole('button')
+        .map((b) => b.firstChild?.textContent),
+    ).toEqual(['Mapa', 'Análisis', 'Línea de tiempo', 'Cobertura']);
+    expect(screen.queryByText(/Simulación/)).not.toBeInTheDocument();
+    expect(screen.queryByText('¿Y si hablaran más?')).not.toBeInTheDocument();
+  });
+
+  it('un enlace viejo con ?lente=simulacion cae en el Mapa, con un solo mapa y sin cortina', () => {
     window.history.replaceState(null, '', '/el-mapa?lente=simulacion');
-    montar(true);
-    const mapas = screen.getAllByTestId('mapa');
-    const campo = screen.getByLabelText('Tu aporte');
-    fireEvent.change(campo, { target: { value: 'No se pierde' } });
-    const derecha = screen.getAllByRole('button', { name: 'Simular fallo de teselas' })[1];
-    if (!derecha) throw new Error('Falta el mapa derecho');
-    fireEvent.click(derecha);
-    expect(screen.getByRole('alert')).toHaveTextContent('Parte del mapa no pudo cargarse');
-    await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Reintentar el mapa' })).toBeEnabled();
-    });
-    fireEvent.click(screen.getByRole('button', { name: 'Reintentar el mapa' }));
-    expect(screen.getAllByTestId('mapa')[0]).not.toBe(mapas[0]);
-    expect(screen.getAllByTestId('mapa')[1]).not.toBe(mapas[1]);
-    expect(screen.getByLabelText('Tu aporte')).toBe(campo);
-    expect(campo).toHaveValue('No se pierde');
+    montar(false);
+    expect(
+      within(screen.getByRole('navigation', { name: 'Modos del instrumento' })).getByRole(
+        'button',
+        { name: /^Mapa/ },
+      ),
+    ).toHaveAttribute('aria-current', 'page');
+    expect(screen.getAllByTestId('mapa')).toHaveLength(1);
   });
 });

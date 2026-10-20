@@ -4,6 +4,12 @@
  * Los labels vienen del diseño (BASTA v2); los href apuntan a las rutas
  * v2 existentes hasta que cada página se rediseñe (ver spec
  * docs/specs/2026-07-21-landing-papel-y-tinta.md).
+ *
+ * Desde la entrega 3 de Mi Argentina ideal (spec
+ * docs/specs/2026-10-19-mi-argentina-ideal-la-pila.md §7) son cuatro puertas y
+ * un botón: La idea · Mi Argentina ideal · Campañas · Biblioteca, y «Sumate».
+ * El mapa y la Radiografía dejaron de ser puertas sueltas: cuelgan de Mi
+ * Argentina ideal, que es la herramienta.
  */
 import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
@@ -20,12 +26,23 @@ export const LA_IDEA_HREF = '/la-idea';
 
 export const CAMPANAS_HREF = '/campanas';
 
+/** Ver: la visión del país que se va armando. Es la puerta de la herramienta. */
+export const MI_ARGENTINA_IDEAL_HREF = '/mi-argentina-ideal';
+
+/** Imaginar: la pantalla donde se escribe el aporte. */
+export const IMAGINAR_HREF = '/mi-argentina-ideal/imaginar';
+
+/** Mirar: los aportes de otros, de a uno. */
+export const MIRAR_HREF = '/mi-argentina-ideal/mirar';
+
+/** El botón del header y del menú del teléfono. Lleva a Imaginar por `APORTAR_HREF`. */
+export const SUMATE_LABEL = 'Sumate';
+
 export const PAPEL_NAV: readonly PapelNavItem[] = [
   { href: LA_IDEA_HREF, label: 'La idea', num: '01' },
-  { href: '/el-mapa', label: 'Mapa', num: '02' },
+  { href: MI_ARGENTINA_IDEAL_HREF, label: 'Mi Argentina ideal', num: '02' },
   { href: CAMPANAS_HREF, label: 'Campañas', num: '03' },
-  { href: '/la-radiografia', label: 'Radiografía', num: '04' },
-  { href: BIBLIOTECA_HREF, label: 'Biblioteca', num: '05' },
+  { href: BIBLIOTECA_HREF, label: 'Biblioteca', num: '04' },
 ];
 
 /**
@@ -38,12 +55,23 @@ export const SECCIONES_LA_IDEA: readonly PapelNavItem[] = [
 ];
 
 /**
+ * Lo que cuelga de «Mi Argentina ideal»: primero los tres momentos, en su
+ * orden (spec §2), y más abajo las dos herramientas que antes eran puertas
+ * propias del header. El mapa es ahora la capa de cómo está hoy lo que la gente
+ * imaginó (spec §6); la Radiografía, la lectura con lupa.
+ */
+export const SECCIONES_MI_ARGENTINA_IDEAL: readonly PapelNavItem[] = [
+  { href: IMAGINAR_HREF, label: 'Imaginar', num: '02.1' },
+  { href: MIRAR_HREF, label: 'Mirar', num: '02.2' },
+  { href: MI_ARGENTINA_IDEAL_HREF, label: 'Ver', num: '02.3' },
+  { href: '/el-mapa', label: 'El mapa de lo que pasa hoy', num: '02.4' },
+  { href: '/la-radiografia', label: 'La Radiografía', num: '02.5' },
+];
+
+/**
  * Lo que cuelga de «Campañas»: las fichas, que es adonde sigue una campaña
  * (una campaña pregunta; una ficha junta lo que un grupo va armando con las
  * respuestas). Tampoco tenían puerta en el recorrido.
- *
- * La Radiografía no cuelga de ningún lado: ya es la cuarta entrada del
- * recorrido, y durante un tiempo estuvo repetida como hija de «Mapa».
  */
 export const SECCIONES_CAMPANAS: readonly PapelNavItem[] = [
   { href: '/fichas', label: 'Las fichas', num: '03.1' },
@@ -62,11 +90,11 @@ export const SECCIONES_CAMPANAS: readonly PapelNavItem[] = [
  * secas ya significa una entrada de la bitácora (spec 3.6).
  */
 export const SECCIONES_BIBLIOTECA: readonly PapelNavItem[] = [
-  { href: '/manifiesto', label: 'El manifiesto', num: '05.1' },
-  { href: '/biblioteca#ensayos', label: 'Los ensayos', num: '05.2' },
-  { href: '/entrenamientos', label: 'Los entrenamientos', num: '05.3' },
-  { href: '/cronica', label: 'La crónica del país que viene', num: '05.4' },
-  { href: '/bitacora', label: 'La bitácora', num: '05.5' },
+  { href: '/manifiesto', label: 'El manifiesto', num: '04.1' },
+  { href: '/biblioteca#ensayos', label: 'Los ensayos', num: '04.2' },
+  { href: '/entrenamientos', label: 'Los entrenamientos', num: '04.3' },
+  { href: '/cronica', label: 'La crónica del país que viene', num: '04.4' },
+  { href: '/bitacora', label: 'La bitácora', num: '04.5' },
 ];
 
 /**
@@ -86,31 +114,26 @@ export const QUIEN_LABEL = 'Quién está detrás';
  * «Lo que falta» — el canal de escucha
  * (spec 2026-08-12-lo-que-falta.md). Comparte la franja inferior con «Quién
  * está detrás» y por la misma razón: es una puerta permanente que no compite
- * con las cinco del recorrido. Las dos juntas cierran la simetría —quién
+ * con las cuatro puertas del recorrido. Las dos juntas cierran la simetría —quién
  * sostiene esto, y qué le falta— y ninguna de las dos pide nada a cambio.
  */
 export const FALTA_HREF = '/lo-que-falta';
 export const FALTA_LABEL = 'Lo que falta';
 
-/**
- * «La Simulación» — el instrumento de análisis
- * (spec 2026-08-13-el-modulo-de-simulacion.md §2.9). Comparte la franja
- * inferior con las dos de arriba y por el mismo motivo: es una **herramienta de
- * trabajo**, no una de las cinco puertas del recorrido. El propósito de la
- * constitución de producto —«no busca retener atención»— vale acá literal: un
- * barrido de sensibilidad no es una sección que compita por lectores, y
- * ponerla en el header prometería que hay algo que mirar cuando lo que hay es
- * algo con qué trabajar.
+/*
+ * «La Simulación» ya no tiene puerta (spec 2026-10-19 §7, decisión D4): salió
+ * del header, del footer y de las pestañas del mapa. La dirección
+ * `/la-simulacion` sigue andando como laboratorio del motor, con un aviso
+ * arriba que manda a Mi Argentina ideal. El test de PapelFooter vigila que no
+ * vuelva a entrar por la franja inferior.
  */
-export const SIMULACION_HREF = '/la-simulacion';
-export const SIMULACION_LABEL = 'La simulación';
 
 export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   { href: '/', label: 'Inicio', num: '00' },
   ...PAPEL_NAV,
-  { href: APORTAR_HREF, label: 'Imaginar mi Argentina', num: '06' },
-  { href: '/mi-espacio', label: 'Mi espacio', num: '07' },
-  { href: '/datos-abiertos', label: 'Datos abiertos', num: '08' },
+  { href: APORTAR_HREF, label: SUMATE_LABEL, num: '05' },
+  { href: '/mi-espacio', label: 'Mi espacio', num: '06' },
+  { href: '/datos-abiertos', label: 'Datos abiertos', num: '07' },
 ];
 
 /**
@@ -123,6 +146,7 @@ export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
  */
 export const SUBSECCIONES: Readonly<Record<string, readonly PapelNavItem[]>> = {
   [LA_IDEA_HREF]: SECCIONES_LA_IDEA,
+  [MI_ARGENTINA_IDEAL_HREF]: SECCIONES_MI_ARGENTINA_IDEAL,
   [CAMPANAS_HREF]: SECCIONES_CAMPANAS,
   [BIBLIOTECA_HREF]: SECCIONES_BIBLIOTECA,
 };

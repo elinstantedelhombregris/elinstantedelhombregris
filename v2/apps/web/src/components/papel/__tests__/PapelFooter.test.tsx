@@ -1,14 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import {
-  PAPEL_NAV_ALL,
-  QUIEN_HREF,
-  QUIEN_LABEL,
-  SIMULACION_HREF,
-  SIMULACION_LABEL,
-} from '../papel-nav';
+import { PAPEL_NAV, PAPEL_NAV_ALL, QUIEN_HREF, QUIEN_LABEL, SUMATE_LABEL } from '../papel-nav';
 import { PapelFooter } from '../PapelFooter';
+
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 
 describe('PapelFooter', () => {
   it('ningún texto ni enlace usa el gris que no llega a contraste sobre el fondo oscuro', () => {
@@ -18,9 +14,29 @@ describe('PapelFooter', () => {
 
   it('invita a contar la vida de cada uno, con el verbo de la acción', () => {
     render(<PapelFooter />);
-    expect(screen.getByText('Contanos qué querrías que fuera posible en tu vida.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Contanos qué querrías que fuera posible en tu vida.'),
+    ).toBeInTheDocument();
     expect(screen.queryByText(/diseño compartido/)).not.toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })).toHaveLength(2);
+    // El mismo botón que el header: en el recorrido y en «El siguiente paso».
+    const invitaciones = screen.getAllByRole('link', { name: SUMATE_LABEL });
+    expect(invitaciones).toHaveLength(2);
+    for (const invitacion of invitaciones) expect(invitacion).toHaveAttribute('href', APORTAR_HREF);
+  });
+
+  it('el recorrido es el del header: las cuatro puertas, sin el mapa ni la Radiografía sueltos', () => {
+    render(<PapelFooter />);
+    expect(PAPEL_NAV.map((item) => item.label)).toEqual([
+      'La idea',
+      'Mi Argentina ideal',
+      'Campañas',
+      'Biblioteca',
+    ]);
+    for (const item of PAPEL_NAV)
+      expect(screen.getByRole('link', { name: item.label })).toHaveAttribute('href', item.href);
+    // Cuelgan de Mi Argentina ideal en el header; en el footer no se repiten.
+    expect(screen.queryByRole('link', { name: /mapa/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /Radiografía/i })).not.toBeInTheDocument();
   });
 
   it('enlaza la política de privacidad desde la franja inferior', () => {
@@ -44,16 +60,13 @@ describe('PapelFooter', () => {
     expect(PAPEL_NAV_ALL.some((item) => item.href === QUIEN_HREF)).toBe(false);
   });
 
-  it('«La simulación» comparte la franja y tampoco entra al recorrido', () => {
-    // Es una herramienta de trabajo, no una sexta puerta. El propósito de la
-    // constitución —«no busca retener atención»— vale literal: un barrido de
-    // sensibilidad no compite por lectores.
-    render(<PapelFooter />);
-    expect(screen.getByRole('link', { name: SIMULACION_LABEL })).toHaveAttribute(
-      'href',
-      SIMULACION_HREF,
-    );
-    expect(PAPEL_NAV_ALL.some((item) => item.href === SIMULACION_HREF)).toBe(false);
+  it('la simulación salió de la franja y del recorrido: su dirección queda sin puerta', () => {
+    // Spec 2026-10-19 §7, D4: es el laboratorio del motor, no una parte del
+    // recorrido. La página sigue andando; ninguna puerta del sitio la ofrece.
+    const { container } = render(<PapelFooter />);
+    expect(screen.queryByRole('link', { name: /simulaci/i })).not.toBeInTheDocument();
+    expect(container.querySelector('a[href="/la-simulacion"]')).toBeNull();
+    expect(PAPEL_NAV_ALL.some((item) => item.href === '/la-simulacion')).toBe(false);
   });
 
   it('no promete datos de demostración: no hay ninguno', () => {

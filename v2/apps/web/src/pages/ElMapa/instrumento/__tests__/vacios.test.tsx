@@ -85,25 +85,23 @@ describe('guardas del vacío', () => {
     }
   });
 
-  it('Cobertura y Simulación no llevan cartel de vacío', () => {
+  it('Cobertura no lleva cartel de vacío', () => {
     // Su vacío ES su contenido. Un cartel puesto por simetría le tapa a
-    // Cobertura su estado más verdadero, y a la Simulación el gesto entero que
-    // la justifica.
-    for (const modo of ['useModoCobertura.tsx', 'useModoSimulacion.tsx']) {
-      const texto = readFileSync(join(DIR, 'modos', modo), 'utf8');
-      expect(texto.includes('<Vacio'), `${modo} no debería tener <Vacio>`).toBe(false);
-    }
+    // Cobertura su estado más verdadero.
+    const texto = readFileSync(join(DIR, 'modos', 'useModoCobertura.tsx'), 'utf8');
+    expect(texto.includes('<Vacio'), 'useModoCobertura.tsx no debería tener <Vacio>').toBe(false);
   });
 
-  it('las cinco lentes siguen estando, con datos o sin ellos', () => {
+  it('el vacío del mapa no suma otro botón para aportar: el único es el del instrumento', () => {
+    const texto = sinComentarios(readFileSync(join(DIR, 'modos', 'useModoMapa.tsx'), 'utf8'));
+    expect(texto).not.toMatch(/accion=\{/);
+    expect(texto).not.toContain('#aportar');
+  });
+
+  it('las cuatro lentes siguen estando, con datos o sin ellos', () => {
     // Una pestaña que desaparece cuando no hay datos enseña que la herramienta
-    // es frágil justo cuando hay que confiar en ella.
-    expect(MODOS.map((m) => m.id)).toEqual([
-      'mapa',
-      'analisis',
-      'tiempo',
-      'cobertura',
-      'simulacion',
-    ]);
+    // es frágil justo cuando hay que confiar en ella. La Simulación salió por
+    // decisión (spec 2026-10-19 §7, D4), no por falta de datos.
+    expect(MODOS.map((m) => m.id)).toEqual(['mapa', 'analisis', 'tiempo', 'cobertura']);
   });
 });

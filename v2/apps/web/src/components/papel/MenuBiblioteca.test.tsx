@@ -2,7 +2,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { SECCIONES_BIBLIOTECA, SECCIONES_CAMPANAS, SECCIONES_LA_IDEA } from './papel-nav';
+import {
+  SECCIONES_BIBLIOTECA,
+  SECCIONES_CAMPANAS,
+  SECCIONES_LA_IDEA,
+  SECCIONES_MI_ARGENTINA_IDEAL,
+} from './papel-nav';
 import { PapelHeader } from './PapelHeader';
 
 import type { ReactNode } from 'react';
@@ -127,6 +132,7 @@ describe('MenuBiblioteca — los cinco estantes se abren desde el header', () =>
 describe('MenuBiblioteca — Planes y Fichas tienen puerta en el recorrido', () => {
   it.each([
     ['La idea', 'menu-la-idea', SECCIONES_LA_IDEA],
+    ['Mi Argentina ideal', 'menu-mi-argentina-ideal', SECCIONES_MI_ARGENTINA_IDEAL],
     ['Campañas', 'menu-campanas', SECCIONES_CAMPANAS],
   ] as const)('«%s» despliega sus hijos, con un panel de id propio', (nombre, idPanel, hijos) => {
     render(
@@ -146,15 +152,23 @@ describe('MenuBiblioteca — Planes y Fichas tienen puerta en el recorrido', () 
       );
   });
 
-  it('«Mapa» ya no despliega nada: la Radiografía es una entrada del recorrido y no se repite', () => {
+  it('«Mi Argentina ideal» abre los tres momentos y, más abajo, el mapa y la Radiografía', () => {
     render(
       <ConQueryClient>
         <PapelHeader />
       </ConQueryClient>,
     );
-    const mapa = screen.getByRole('link', { name: 'Mapa' });
+    const disparador = screen.getByRole('link', { name: 'Mi Argentina ideal' });
+    fireEvent.mouseEnter(exigir(disparador.parentElement, 'el contenedor del disparador'));
+    const panel = exigir(document.getElementById('menu-mi-argentina-ideal'), 'el panel');
 
-    expect(mapa).not.toHaveAttribute('aria-controls');
+    expect(
+      within(panel)
+        .getAllByRole('link')
+        .map((l) => l.textContent),
+    ).toEqual(['Imaginar', 'Mirar', 'Ver', 'El mapa de lo que pasa hoy', 'La Radiografía']);
+    // Dejaron de ser puertas sueltas del header: están una sola vez, adentro.
+    expect(screen.queryByRole('link', { name: 'Mapa' })).not.toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /Radiografía/i })).toHaveLength(1);
   });
 });

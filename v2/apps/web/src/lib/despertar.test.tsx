@@ -35,7 +35,7 @@ afterEach(() => {
 });
 
 describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
-  it('el CTA del hero «Imaginar mi Argentina» despierta el sitio', () => {
+  it('escribir en la portada y tocar «Seguir» despierta el sitio', () => {
     render(
       <>
         <HeroBasta />
@@ -46,7 +46,14 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     expect(estaDespierto()).toBe(false);
     expect(screen.getByTestId('sonda')).toHaveTextContent('dormido');
 
-    fireEvent.click(screen.getByRole('link', { name: 'Imaginar mi Argentina' }));
+    // Sin texto, «Seguir» avisa y todavía no es una acción.
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir' }));
+    expect(estaDespierto()).toBe(false);
+
+    fireEvent.change(screen.getByRole('textbox'), {
+      target: { value: 'Que el tren llegue a mi pueblo.' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir' }));
 
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
@@ -56,7 +63,7 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     ).not.toBeInTheDocument();
   });
 
-  it('el CTA del header «Imaginar mi Argentina» despierta el sitio', () => {
+  it('el botón «Sumate» del header despierta el sitio', () => {
     render(
       <ConQueryClient>
         <PapelHeader />
@@ -67,14 +74,14 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     expect(estaDespierto()).toBe(false);
     expect(screen.getByTestId('sonda')).toHaveTextContent('dormido');
 
-    fireEvent.click(screen.getByRole('link', { name: 'Imaginar mi Argentina' }));
+    fireEvent.click(screen.getByRole('link', { name: 'Sumate' }));
 
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
     expect(screen.getByTestId('sonda')).toHaveTextContent('despierto');
   });
 
-  it('la entrada «Sembrar» del menú móvil despierta el sitio y el menú se sigue cerrando', () => {
+  it('la entrada «Sumate» del menú móvil despierta el sitio y el menú se sigue cerrando', () => {
     render(
       <ConQueryClient>
         <PapelHeader />
@@ -86,7 +93,7 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
     expect(estaDespierto()).toBe(false);
 
-    fireEvent.click(within(menu).getByRole('link', { name: /Imaginar/ }));
+    fireEvent.click(within(menu).getByRole('link', { name: /^Sumate/ }));
 
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');

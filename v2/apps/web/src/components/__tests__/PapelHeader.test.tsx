@@ -2,9 +2,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { PAPEL_NAV } from '../papel/papel-nav';
+import { PAPEL_NAV, SECCIONES_MI_ARGENTINA_IDEAL } from '../papel/papel-nav';
 import { PapelHeader } from '../papel/PapelHeader';
 
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { useVocesCount } from '~/lib/queries/analytics';
 
 const sesion = vi.hoisted(() => ({ user: null as null | { id: number } }));
@@ -102,10 +103,55 @@ describe('PapelHeader', () => {
     for (const item of PAPEL_NAV) {
       expect(screen.getByRole('link', { name: item.label })).toHaveAttribute('href', item.href);
     }
-    expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Sumate' })).toHaveAttribute('href', APORTAR_HREF);
+  });
+
+  it('el header tiene cuatro puertas y «Sumate»: el mapa y la Radiografía ya no van sueltos', () => {
+    mockedUseVocesCount.mockReturnValue({
+      data: undefined,
+      isLoading: true,
+      isError: false,
+    } as ReturnType<typeof useVocesCount>);
+    renderHeader();
+
+    const recorrido = screen.getByRole('navigation', { name: 'Recorrido' });
+    expect(
+      within(recorrido)
+        .getAllByRole('link')
+        .map((l) => l.textContent),
+    ).toEqual([
+      'La idea▾',
+      'Mi Argentina ideal▾',
+      'Campañas▾',
+      'Biblioteca▾',
+      'Ingresar',
+      'Sumate',
+    ]);
+    expect(within(recorrido).getByRole('link', { name: 'Mi Argentina ideal' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal',
     );
+    expect(within(recorrido).queryByRole('link', { name: 'Mapa' })).not.toBeInTheDocument();
+    expect(within(recorrido).queryByRole('link', { name: /Radiografía/ })).not.toBeInTheDocument();
+    expect(
+      within(recorrido).queryByRole('link', { name: 'Imaginar mi Argentina' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('en el mapa queda marcada «Mi Argentina ideal», de donde cuelga', () => {
+    mockedUseVocesCount.mockReturnValue({
+      data: undefined,
+      isLoading: true,
+      isError: false,
+    } as ReturnType<typeof useVocesCount>);
+    window.history.replaceState(null, '', '/el-mapa');
+    renderHeader();
+
+    expect(screen.getByRole('link', { name: 'Mi Argentina ideal' })).toHaveAttribute(
+      'aria-current',
+      'true',
+    );
+    expect(screen.getByRole('link', { name: 'La idea' })).not.toHaveAttribute('aria-current');
   });
 
   it('toggles the full-screen mobile menu', () => {
@@ -204,8 +250,8 @@ describe('PapelHeader — la puerta de la cuenta', () => {
       'href',
       '/ingresar?volver=' + encodeURIComponent('/campanas/mi-argentina-ideal?edicion=2'),
     );
-    // Mismo estilo que «La idea» o «Mapa»: mono, mayúsculas, subrayado de sección.
-    const hermano = screen.getByRole('link', { name: 'Mapa' });
+    // Mismo estilo que «La idea» o «Campañas»: mono, mayúsculas, subrayado de sección.
+    const hermano = screen.getByRole('link', { name: 'Mi Argentina ideal' });
     for (const clase of ['font-space', 'uppercase', 'border-b-2', 'px-3.5', 'py-2'])
       expect(ingresar).toHaveClass(clase);
     expect(hermano).toHaveClass('uppercase', 'border-b-2');
@@ -218,7 +264,9 @@ describe('PapelHeader — la puerta de la cuenta', () => {
     renderHeader();
 
     expect(screen.getByRole('link', { name: 'Ingresar' })).toHaveAttribute('aria-current', 'page');
-    expect(screen.getByRole('link', { name: 'Mapa' })).not.toHaveAttribute('aria-current');
+    expect(screen.getByRole('link', { name: 'Mi Argentina ideal' })).not.toHaveAttribute(
+      'aria-current',
+    );
   });
 
   it('con sesión dice «Mi espacio» y lleva ahí', () => {
@@ -260,13 +308,57 @@ describe('PapelHeader — la puerta de la cuenta', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
     const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
 
-    expect(within(menu).getByRole('link', { name: /Imaginar mi Argentina/ })).toHaveAttribute(
+    // El mismo botón del header, con el mismo nombre y el mismo destino.
+    expect(within(menu).getByRole('link', { name: /^Sumate/ })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      APORTAR_HREF,
     );
     expect(
-      within(menu).queryByRole('link', { name: /^Imaginar\b(?! mi)/ }),
+      within(menu).queryByRole('link', { name: /Imaginar mi Argentina/ }),
     ).not.toBeInTheDocument();
+  });
+
+  it('el menú móvil ofrece los mismos destinos que el header, con los hijos de Mi Argentina ideal', () => {
+    sinCifra();
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+
+    for (const item of PAPEL_NAV)
+      expect(
+        within(menu).getByRole('link', { name: new RegExp(`^${item.label}`) }),
+      ).toHaveAttribute('href', item.href);
+    expect(SECCIONES_MI_ARGENTINA_IDEAL.map((s) => [s.label, s.href])).toEqual([
+      ['Imaginar', '/mi-argentina-ideal/imaginar'],
+      ['Mirar', '/mi-argentina-ideal/mirar'],
+      ['Ver', '/mi-argentina-ideal'],
+      ['El mapa de lo que pasa hoy', '/el-mapa'],
+      ['La Radiografía', '/la-radiografia'],
+    ]);
+    for (const hijo of SECCIONES_MI_ARGENTINA_IDEAL)
+      expect(
+        within(menu).getByRole('link', { name: new RegExp(`^${hijo.label}\\s*\\d`) }),
+      ).toHaveAttribute('href', hijo.href);
+  });
+
+  it('en Imaginar, el menú móvil marca Imaginar y no también Ver, que es la ruta de arriba', () => {
+    sinCifra();
+    window.history.replaceState(null, '', '/mi-argentina-ideal/imaginar');
+    renderHeader();
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+
+    expect(within(menu).getByRole('link', { name: /^Imaginar\s*02\.1/ })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+    expect(within(menu).getByRole('link', { name: /^Ver\s*02\.3/ })).not.toHaveAttribute(
+      'aria-current',
+    );
+    expect(within(menu).getByRole('link', { name: /^Mi Argentina ideal/ })).toHaveAttribute(
+      'aria-current',
+      'true',
+    );
   });
 
   it('Escape cierra el menú móvil y el foco vuelve al botón que lo abrió', () => {
@@ -304,7 +396,7 @@ describe('PapelHeader — la puerta de la cuenta', () => {
     expect(document.body.innerHTML).not.toMatch(/text-tinta-30/);
   });
 
-  it('La Radiografía aparece una sola vez en el menú móvil: ya no cuelga también de Mapa', () => {
+  it('La Radiografía aparece una sola vez en el menú móvil: cuelga de Mi Argentina ideal', () => {
     sinCifra();
     renderHeader();
     fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));

@@ -20,7 +20,7 @@ const coleccion = z.object({
     .min(1),
 });
 
-/** Una sola descarga validada para ámbitos, análisis y simulación. */
+/** Una sola descarga validada para ámbitos y análisis. */
 export function useGeometriaProvincial() {
   return useQuery({
     queryKey: ['geometria-provincias', GEOGRAFIA.version],

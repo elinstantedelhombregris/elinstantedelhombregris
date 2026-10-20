@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
+import { Link } from 'wouter';
 
 import { leerRelojDelHash } from './LaSimulacion/diseno-url';
 import { leerElencoDeArchivos, type ElencoCargado } from './LaSimulacion/elenco-archivos';
@@ -15,6 +16,7 @@ import { useDiseno } from './LaSimulacion/useDiseno';
 
 import type { ClaveVariable, ModoDeCorrida } from '@v2/civic-core';
 
+import { MI_ARGENTINA_IDEAL_HREF } from '~/components/papel/papel-nav';
 import { Kicker, RitoTinta } from '~/components/papel/primitives';
 
 
@@ -113,6 +115,19 @@ export function LaSimulacion() {
   return (
     <main>
       <div className="mx-auto max-w-[1180px] px-10 py-[72px] max-[560px]:px-5">
+        {/* Salió del recorrido público (spec 2026-10-19 §7, D4): la dirección sigue
+            andando, pero quien llega tiene que saber que esto no es el producto. */}
+        <div
+          role="note"
+          className="border-tinta bg-papel-crudo text-tinta mb-10 max-w-[70ch] border p-4 text-[15px] leading-relaxed"
+        >
+          Esto es el laboratorio del motor: una herramienta de trabajo, no parte del recorrido. Para
+          ver cómo se va armando el país, entrá a{' '}
+          <Link href={MI_ARGENTINA_IDEAL_HREF} className="text-violeta underline underline-offset-4">
+            Mi Argentina ideal
+          </Link>
+          .
+        </div>
         <Kicker className="anim-fadeup mb-4">El instrumento</Kicker>
         <h1
           aria-label="La Simulación."

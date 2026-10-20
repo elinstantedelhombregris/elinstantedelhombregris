@@ -2,7 +2,13 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useSearch } from 'wouter';
 
 import { MenuBiblioteca } from './MenuBiblioteca';
-import { PAPEL_NAV, PAPEL_NAV_ALL, SUBSECCIONES } from './papel-nav';
+import {
+  PAPEL_NAV,
+  PAPEL_NAV_ALL,
+  SUBSECCIONES,
+  SUMATE_LABEL,
+  type PapelNavItem,
+} from './papel-nav';
 
 import { useAuth } from '~/lib/auth/use-auth';
 import { hrefIngresar } from '~/lib/auth/volver';
@@ -23,14 +29,52 @@ function ariaCurrent(location: string, href: string): 'page' | 'true' | undefine
   return location === href ? 'page' : 'true';
 }
 
+/** El camino de un destino, sin su ancla: `/biblioteca#ensayos` vive en `/biblioteca`. */
+function caminoDe(href: string): string {
+  return href.split('#')[0] ?? href;
+}
+
+/**
+ * Una entrada del recorrido está activa en su página, adentro de ella o en la
+ * página de uno de sus hijos: en `/el-mapa` se marca «Mi Argentina ideal»,
+ * porque el mapa cuelga de ahí.
+ */
+function seccionActiva(location: string, item: PapelNavItem): boolean {
+  return (
+    esActiva(location, item.href) ||
+    (SUBSECCIONES[item.href] ?? []).some((hijo) => esActiva(location, caminoDe(hijo.href)))
+  );
+}
+
+function ariaCurrentSeccion(location: string, item: PapelNavItem): 'page' | 'true' | undefined {
+  if (location === item.href) return 'page';
+  return seccionActiva(location, item) ? 'true' : undefined;
+}
+
+/**
+ * De los hijos de una entrada, el que corresponde a la página: el de camino más
+ * largo que la contiene. Sin esto, en `/mi-argentina-ideal/imaginar` quedaban
+ * marcados Imaginar y también Ver, que es `/mi-argentina-ideal`.
+ */
+function hijoActual(location: string, hijos: readonly PapelNavItem[]): string | undefined {
+  let elegido: string | undefined;
+  for (const hijo of hijos) {
+    const camino = caminoDe(hijo.href);
+    if (!esActiva(location, camino)) continue;
+    if (elegido === undefined || camino.length > caminoDe(elegido).length) elegido = hijo.href;
+  }
+  return elegido;
+}
+
 const ID_MENU_MOVIL = 'menu-movil';
 
 const CLASE_ITEM =
   'font-space hover:text-tinta border-b-2 px-3.5 py-2 text-xs uppercase tracking-[0.06em] transition-colors';
 
 /**
- * Header papel: wordmark con signos en violeta, contador FOMO, nav mono
- * y CTA «Imaginar mi Argentina». Colapsa a menú de pantalla completa ≤1140px.
+ * Header papel: wordmark con signos en violeta, contador FOMO, las cuatro
+ * puertas del recorrido en mono y el botón «Sumate», que lleva a Imaginar.
+ * Colapsa a menú de pantalla completa ≤1140px.
  */
 export function PapelHeader() {
   const [location] = useLocation();
@@ -120,22 +164,22 @@ export function PapelHeader() {
             {PAPEL_NAV.map((item) =>
               // Las entradas con hijos los despliegan en vez de obligar a
               // pasar por el hub. Cuáles son es dato (`SUBSECCIONES`) y no un
-              // `if` por href: hoy son tres, La idea, Campañas y la biblioteca.
+              // `if` por href: hoy son las cuatro.
               SUBSECCIONES[item.href] ? (
                 <MenuBiblioteca
                   key={item.href}
                   item={item}
-                  activa={esActiva(location, item.href)}
+                  activa={seccionActiva(location, item)}
                   secciones={SUBSECCIONES[item.href] ?? []}
                 />
               ) : (
                 <Link
                   key={item.href}
                   href={item.href}
-                  aria-current={ariaCurrent(location, item.href)}
+                  aria-current={ariaCurrentSeccion(location, item)}
                   className={cn(
                     CLASE_ITEM,
-                    esActiva(location, item.href)
+                    seccionActiva(location, item)
                       ? 'border-violeta text-tinta'
                       : 'text-tinta-50 border-transparent',
                   )}
@@ -161,7 +205,7 @@ export function PapelHeader() {
               className="bg-tinta font-space text-papel hover:bg-violeta ml-3.5 px-5 py-[11px] text-xs font-bold uppercase tracking-[0.08em] transition-colors"
               onClick={despertar}
             >
-              Imaginar mi Argentina
+              {SUMATE_LABEL}
             </Link>
           </nav>
 
@@ -187,40 +231,48 @@ export function PapelHeader() {
           aria-label="Recorrido completo"
           className="bg-papel fixed inset-x-0 bottom-0 top-16 z-40 flex flex-col gap-1 overflow-y-auto px-6 py-8"
         >
-          {PAPEL_NAV_ALL.map((item) => (
-            <Fragment key={item.href}>
-              <Link
-                href={item.href}
-                aria-current={ariaCurrent(location, item.href)}
-                className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
-                onClick={() => {
-                  // En móvil, «Imaginar mi Argentina» es el mismo trigger canónico del despertar §10.7.
-                  if (item.href === APORTAR_HREF) despertar();
-                  setMenuOpen(false);
-                }}
-              >
-                {item.label}
-                <span className="font-space text-violeta text-xs">{item.num}</span>
-              </Link>
-              {/* Los hijos de una entrada también se abren acá: el menú chico
-                  no puede ofrecer menos caminos que el grande. */}
-              {(SUBSECCIONES[item.href] ?? []).map((seccion) => (
+          {PAPEL_NAV_ALL.map((item) => {
+            const hijos = SUBSECCIONES[item.href] ?? [];
+            const actual = hijoActual(location, hijos);
+            return (
+              <Fragment key={item.href}>
                 <Link
-                  key={seccion.href}
-                  href={seccion.href}
-                  aria-current={ariaCurrent(location, seccion.href.split('#')[0] ?? seccion.href)}
-                  className="border-papel-borde font-space text-tinta-75 flex min-h-11 items-center justify-between border-b pl-5 text-xs uppercase tracking-[0.06em]"
-                  onClick={(evento) => {
-                    if (saltarSiEsLaMismaPagina(seccion.href, location)) evento.preventDefault();
+                  href={item.href}
+                  aria-current={ariaCurrentSeccion(location, item)}
+                  className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
+                  onClick={() => {
+                    // En móvil, «Sumate» es el mismo trigger canónico del despertar §10.7.
+                    if (item.href === APORTAR_HREF) despertar();
                     setMenuOpen(false);
                   }}
                 >
-                  {seccion.label}
-                  <span className="font-space text-tinta-50 text-[10px]">{seccion.num}</span>
+                  {item.label}
+                  <span className="font-space text-violeta text-xs">{item.num}</span>
                 </Link>
-              ))}
-            </Fragment>
-          ))}
+                {/* Los hijos de una entrada también se abren acá: el menú chico
+                  no puede ofrecer menos caminos que el grande. */}
+                {hijos.map((seccion) => (
+                  <Link
+                    key={seccion.href}
+                    href={seccion.href}
+                    aria-current={
+                      seccion.href === actual
+                        ? ariaCurrent(location, caminoDe(seccion.href))
+                        : undefined
+                    }
+                    className="border-papel-borde font-space text-tinta-75 flex min-h-11 items-center justify-between border-b pl-5 text-xs uppercase tracking-[0.06em]"
+                    onClick={(evento) => {
+                      if (saltarSiEsLaMismaPagina(seccion.href, location)) evento.preventDefault();
+                      setMenuOpen(false);
+                    }}
+                  >
+                    {seccion.label}
+                    <span className="font-space text-tinta-50 text-[10px]">{seccion.num}</span>
+                  </Link>
+                ))}
+              </Fragment>
+            );
+          })}
           {auth.user ? null : (
             <Link
               href={hrefSesion}

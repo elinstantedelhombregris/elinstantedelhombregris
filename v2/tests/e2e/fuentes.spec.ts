@@ -43,17 +43,12 @@ test('fuentes citables, geografía con versión y entrada para imaginar', async 
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: '/private/tmp/fuentes-movil.png' });
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.getByRole('link', { name: 'Imaginar mi Argentina', exact: true }).first().click();
-  await expect(page).toHaveURL(/participar=aportar/);
+  await page.getByRole('link', { name: 'Sumate', exact: true }).first().click();
+  // «Sumate» lleva a Imaginar, en Mi Argentina ideal: el mapa ya no abre un panel para eso.
+  await expect(page).toHaveURL(/\/mi-argentina-ideal\/imaginar/);
+  await page.goto('/el-mapa');
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Imaginar mi Argentina' }),
-  ).toBeAttached();
-  await expect(
-    page.getByRole('heading', { name: 'Imaginá el país desde tu lugar.' }),
-  ).toBeVisible();
-  await page.getByRole('button', { name: 'Cerrar aporte y volver al mapa' }).click();
-  await expect(
-    page.getByRole('heading', { level: 1, name: 'Qué dice la gente, dónde y cuándo' }),
+    page.getByRole('heading', { level: 1, name: 'Cómo está hoy lo que imaginamos' }),
   ).toBeAttached();
   await page.goto('/fuentes?version=no-existe');
   await expect(
