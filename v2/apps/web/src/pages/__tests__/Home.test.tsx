@@ -1,10 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
+import { PREGUNTA_MI_ARGENTINA_IDEAL } from '@v2/shared';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Home } from '../Home';
 import { PLANES_TEASER } from '../Home/landing-data';
 
+import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { useCifras, useVocesCount, useVocesRecientes } from '~/lib/queries/analytics';
 import { PLAN_COUNT } from '~/pages/Planes/la-prueba-data';
 
@@ -59,36 +61,61 @@ describe('Home (landing Papel y Tinta)', () => {
     renderHome();
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'La ciudadanía diseña. El Estado administra. La política ejecuta.' }),
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'La ciudadanía diseña. El Estado administra. La política ejecuta.',
+      }),
     ).toBeInTheDocument();
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
     expect(screen.getAllByText(/En tu Argentina ideal/)).toHaveLength(1);
     expect(screen.queryByRole('heading', { name: 'Imaginá' })).not.toBeInTheDocument();
   });
 
-  it('points the hero CTAs at the map and the idea', () => {
-    renderHome();
+  it('la pregunta de la campaña y el campo para contestarla viven en la portada (D-134)', () => {
+    const { container } = renderHome();
 
-    expect(screen.getAllByRole('link', { name: 'Imaginar mi Argentina' })[0]).toHaveAttribute(
-      'href',
-      '/el-mapa?participar=aportar#instrumento',
-    );
+    const campo = screen.getByRole('textbox', { name: PREGUNTA_MI_ARGENTINA_IDEAL });
+    expect(campo).toHaveAttribute('placeholder', 'En mi Argentina ideal…');
+    const formulario = screen.getByRole('form', { name: PREGUNTA_MI_ARGENTINA_IDEAL });
+    expect(within(formulario).getByRole('button', { name: 'Seguir' })).toBeInTheDocument();
+    expect(
+      within(formulario).getByRole('link', { name: 'O empezá mirando lo que imaginan otros' }),
+    ).toHaveAttribute('href', '/mi-argentina-ideal/mirar');
     expect(screen.getByRole('link', { name: 'Cómo funciona →' })).toHaveAttribute(
       'href',
       '/la-idea',
     );
+    // Ya no manda a otra página a contestar, ni ofrece el mapa como puerta.
+    expect(screen.queryByRole('link', { name: 'Explorar el país ↗' })).not.toBeInTheDocument();
+    expect(container.querySelector('a[href="/el-mapa"]')).toBeNull();
+  });
+
+  it('en el teléfono la pregunta y el campo van antes de la explicación del sitio', () => {
+    // El orden del documento es el del teléfono: nada se reordena con CSS.
+    renderHome();
+    const campo = screen.getByRole('textbox', { name: PREGUNTA_MI_ARGENTINA_IDEAL });
+    const explicacion = screen.getByText(/es un lugar para imaginar entre todos/);
+    const h1 = screen.getByRole('heading', { level: 1 });
+    expect(h1.compareDocumentPosition(campo) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(
+      campo.compareDocumentPosition(explicacion) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
   });
 
   it('dice qué es el sitio en todos los anchos y que no hace falta cuenta', () => {
     renderHome();
 
-    const parrafo = screen.getByText(/es un lugar para imaginar entre todos cómo podría ser la Argentina/);
+    const parrafo = screen.getByText(
+      /es un lugar para imaginar entre todos cómo podría ser la Argentina/,
+    );
     expect(parrafo).toHaveTextContent(
       '¡BASTA! es un lugar para imaginar entre todos cómo podría ser la Argentina. Contás qué querrías que fuera posible en tu vida y se suma a lo que cuentan otras personas.',
     );
     // Ni el párrafo ni el enlace al método se esconden en móvil.
     expect(parrafo.className).not.toMatch(/\bhidden\b/);
-    expect(screen.getByRole('link', { name: 'Cómo funciona →' }).className).not.toMatch(/\bhidden\b/);
+    expect(screen.getByRole('link', { name: 'Cómo funciona →' }).className).not.toMatch(
+      /\bhidden\b/,
+    );
     expect(screen.getByText('No hace falta cuenta.')).toBeInTheDocument();
   });
 
@@ -96,7 +123,9 @@ describe('Home (landing Papel y Tinta)', () => {
     renderHome();
 
     expect(screen.getByText(/¿Y si fueras vos\?/)).toBeInTheDocument();
-    expect(screen.queryByText(/La experiencia de una vida abre una pregunta/)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/La experiencia de una vida abre una pregunta/),
+    ).not.toBeInTheDocument();
     expect(
       screen.getByText(
         'Acá lo que cuenta cada persona se junta con lo de otras, por tema y lugar. Con eso se arman campañas y fichas.',
@@ -133,17 +162,16 @@ describe('Home (landing Papel y Tinta)', () => {
     ).toBeInTheDocument();
   });
 
-  it('cierra con la misma invitación a aportar dentro del mapa que abre la página', () => {
+  it('cierra con una invitación a imaginar que lleva a la misma puerta que el header', () => {
     renderHome();
 
     expect(
       screen.getByRole('heading', { name: 'El futuro necesita tu letra.' }),
     ).toBeInTheDocument();
-    // Una sola puerta con un solo nombre: el hero y el cierre dicen lo mismo y van al mismo panel.
+    // Arriba se escribe en el campo; abajo, la invitación va a la puerta de siempre.
     const invitaciones = screen.getAllByRole('link', { name: 'Imaginar mi Argentina' });
-    expect(invitaciones).toHaveLength(2);
-    for (const invitacion of invitaciones)
-      expect(invitacion).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(invitaciones).toHaveLength(1);
+    expect(invitaciones[0]).toHaveAttribute('href', APORTAR_HREF);
     expect(
       screen.queryByRole('link', { name: 'Escribir mi primera posibilidad' }),
     ).not.toBeInTheDocument();

@@ -35,7 +35,7 @@ afterEach(() => {
 });
 
 describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
-  it('el CTA del hero «Imaginar mi Argentina» despierta el sitio', () => {
+  it('escribir en la portada y tocar «Seguir» despierta el sitio', () => {
     render(
       <>
         <HeroBasta />
@@ -46,7 +46,14 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     expect(estaDespierto()).toBe(false);
     expect(screen.getByTestId('sonda')).toHaveTextContent('dormido');
 
-    fireEvent.click(screen.getByRole('link', { name: 'Imaginar mi Argentina' }));
+    // Sin texto, «Seguir» avisa y todavía no es una acción.
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir' }));
+    expect(estaDespierto()).toBe(false);
+
+    fireEvent.change(screen.getByRole('textbox'), {
+      target: { value: 'Que el tren llegue a mi pueblo.' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Seguir' }));
 
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
