@@ -149,6 +149,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-135](#d-135--el-mandato-vivo-no-tiene-entrada-desde-el-menú) | El mandato vivo no tiene entrada desde el menú | Media | Abierta |
 | [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Resuelta en código (API); la web la borra en la entrega 3 |
 | [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Resuelta en código |
+| [D-138](#d-138--los-límites-por-ip-pueden-frenar-a-un-aula-entera-en-mirar) | Los límites por IP pueden frenar a un aula entera en Mirar | Media | Abierta |
 
 ---
 
@@ -2295,3 +2296,11 @@ Cuando la persona marca la casilla de consentimiento, el borrador de su aporte v
 
 **Resolución (20/10):** `AdhesionesRepository.adherir` descarta los aportes retirados además de los retenidos, rechaza la adhesión propia —por el actor o por la cuenta— y la ruta responde 409 `ADHESION_PROPIA`, y escribe `user_id` con la cuenta de la sesión o la vinculada al actor, así el índice único por persona impide que la misma cuenta sume desde dos navegadores. Las tres cosas tienen su prueba en `senales-adhesion.test.ts`. Que el botón no aparezca sobre el aporte propio es de la web, que ya recibe `esPropia`. Los deseos de Mi Argentina ideal, además, dejan de usar la adhesión: se contestan con las tres respuestas de `pila_respuestas`, que guardan la cuenta desde la primera fila; para `/senal/:id` la web lo pregunta a `GET /api/v1/pila/aportes/:id` (tarea 13 del plan).
 
+### D-138 · Los límites por IP pueden frenar a un aula entera en Mirar
+
+**Dónde:** `v2/apps/api/src/middleware/rate-limit.ts`: `generalRateLimit` (120 pedidos por minuto por IP en todo `/api`) y `pilaRateLimit` (1.000 por hora por IP en `/api/v1/pila`).
+**Encontrada:** 2026-10-20, al construir la API de Mirar.
+**Severidad:** media.
+**Estado:** abierta.
+
+El lanzamiento en persona (D1) pone a un aula o a un club detrás de una sola IP. Treinta personas que contestan un aporte cada tres segundos hacen unos 600 pedidos por minuto, y el límite general responde 429 mucho antes. Una tanda completa son unos catorce pedidos por persona (la tanda, diez opiniones, dos duelos y algún reporte), así que el límite de Mirar alcanza para dos tandas por persona y por hora en un aula de treinta. Los dos viven en la memoria del proceso y cuentan por instancia: en Vercel el corte real depende de cuántas instancias atiendan, y no se puede predecir. Los techos por persona ya se cuentan en la base (300 opiniones y 60 tandas por hora, 30 reportes por día). Pendiente: decidir con el dueño si en Mirar la IP deja de ser la unidad —por ejemplo, sacar `/api/v1/pila` del límite general y subir el propio, para que manden los techos por persona— y probarlo con la carga de un aula antes del lanzamiento.
