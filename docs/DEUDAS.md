@@ -143,6 +143,12 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-127](#d-127--las-pruebas-de-la-siembra-nacional-se-rompen-el-1-de-marzo-de-2027) | Las pruebas de la siembra nacional se rompen el 1 de marzo de 2027 | Media | Abierta |
 | [D-130](#d-130--la-membresía-de-iniciativas-necesita-contadores-atómicos-y-errores-visibles) | La membresía de iniciativas necesita contadores atómicos y errores visibles | Media | Resuelta en código; despliegue pendiente |
 | [D-131](#d-131--la-geografía-publicada-contiene-polígonos-inválidos-y-diferencias-entre-capas) | La geografía publicada contiene polígonos inválidos y diferencias entre capas | Alta | Abierta |
+| [D-132](#d-132--la-siembra-de-áreas-de-vida-falla-al-repetirse) | La siembra de áreas de vida falla al repetirse | Baja | Abierta |
+| [D-133](#d-133--el-enlace-para-preparar-una-síntesis-sin-sesión-lleva-a-una-página-que-no-existe) | El enlace para preparar una síntesis sin sesión lleva a una página que no existe | Baja | Abierta |
+| [D-134](#d-134--la-campaña-nacional-hace-tres-preguntas-distintas) | La campaña nacional hace tres preguntas distintas | Media | Abierta |
+| [D-135](#d-135--el-mandato-vivo-no-tiene-entrada-desde-el-menú) | El mandato vivo no tiene entrada desde el menú | Media | Abierta |
+| [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Abierta |
+| [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Abierta |
 
 ---
 
@@ -2239,3 +2245,48 @@ censal/temporal abiertas.
 Aunque el script se anuncia idempotente, al encontrar el mismo slug en otra área intenta insertar de nuevo el slug prefijado sin comprobar si ya existe. Una segunda ejecución falla con `life_area_subcategories_unique`. La base escolar conservó sus tareas y evidencias; el fallo ocurrió en un catálogo ajeno al recorrido.
 
 El arranque escolar ahora ejecuta sólo las migraciones y el catálogo de provincias que necesita, sin esos seeds ni su carga de `.env`. Pendiente: resolver las subcategorías por área y slug canónico/prefijado, y probar dos ejecuciones sobre la misma base sin duplicados ni cambios a respuestas existentes.
+
+### D-133 · El enlace para preparar una síntesis sin sesión lleva a una página que no existe
+
+**Dónde:** `v2/apps/web/src/pages/SintesisNacional.tsx:127`.
+**Encontrada:** 2026-10-19, al relevar las páginas que rodean al mapa.
+**Severidad:** baja.
+**Estado:** abierta.
+
+Sin sesión, «Preparar una edición» apunta a `/login?redirect=/sintesis-nacional/nueva`. En v2 no hay ruta `/login`: el ingreso es `/ingresar`. La persona cae en la página de no encontrado y pierde el destino. Pendiente: usar la ruta de ingreso con el mismo parámetro de retorno que usan las otras páginas, y una prueba que falle si un enlace interno apunta a una ruta que no está registrada.
+
+### D-134 · La campaña nacional hace tres preguntas distintas
+
+**Dónde:** la portada (`Home/sections`), las reglas sembradas en `v2/packages/db/scripts/campana-nacional/contrato.ts` y la portada del mapa cuando se entra a aportar (`ElMapa/sections/PortadaMapa.tsx`).
+**Encontrada:** 2026-10-19, al relevar el recorrido de Mi Argentina ideal.
+**Severidad:** media.
+**Estado:** abierta.
+
+La portada pregunta «En tu Argentina ideal, ¿qué sería posible en tu vida?». Las reglas de la campaña preguntan «Si la Argentina funcionara como vos la imaginás, ¿qué te gustaría que fuera posible en tu vida de todos los días?». La portada del mapa dice «Contá qué futuro querés, qué lo impide y qué podrías aportar». Son tres invitaciones distintas para la misma campaña, y la tercera pide algo que las otras dos no piden. Pendiente: una sola pregunta, definida en un solo lugar de `@v2/shared` y leída por las tres superficies. La propuesta `v2/docs/specs/2026-10-19-mi-argentina-ideal-la-pila.md` la toma como parte del rediseño.
+
+### D-135 · El mandato vivo no tiene entrada desde el menú
+
+**Dónde:** `v2/apps/web/src/components/papel/papel-nav.ts`, `PapelFooter.tsx`.
+**Encontrada:** 2026-10-19, al relevar la navegación.
+**Severidad:** media.
+**Estado:** abierta.
+
+`/mandato-vivo` no aparece en el header, en el menú del teléfono ni en el footer. La única entrada es `/apoyo` («Registrar un pulso»), que sólo enlaza el footer viejo de v1 en páginas que no usan el diseño de papel. Una persona que recorre el sitio no tiene cómo llegar. Pendiente: decidir dónde vive el mandato en el recorrido, o declarar que todavía no se ofrece y quitarle las promesas que le hacen otras páginas.
+
+### D-136 · La lectura asistida de Imaginar manda el texto a un proveedor externo
+
+**Dónde:** `v2/apps/api/src/features/contribuciones/routes.ts` (`POST /api/v1/contribuciones/interpretar`), `interpretacion.ts`, y en la web `pages/Imaginar/Asistencia.tsx`.
+**Encontrada:** 2026-10-19, al relevar el modelo de datos de los aportes.
+**Severidad:** alta.
+**Estado:** abierta.
+
+Cuando la persona marca la casilla de consentimiento, el borrador de su aporte viaja entero al proveedor que elija `getAICompleter()`, que es Groq cuando está `GROQ_API_KEY`. La ADR 0009 (D2) dice que el texto que escribe la gente no sale de nuestra infraestructura y nombra una sola excepción, el asistente de coaching. Esta segunda salida no está nombrada en la ADR ni decidida por el dueño. Que la persona consienta no la cubre: la regla es del proyecto, no de cada aporte. Además, la fábrica de proveedores no tiene ninguna guarda que impida usar un proveedor externo para texto de aportes. Pendiente: o sacar la lectura asistida, o moverla a un proveedor local detrás de la misma interfaz, o que el dueño la agregue como excepción con una ADR. La propuesta `v2/docs/specs/2026-10-19-mi-argentina-ideal-la-pila.md` deja la lectura asistida afuera del recorrido nuevo.
+
+### D-137 · Una adhesión se puede dejar sobre un aporte retirado o sobre el propio
+
+**Dónde:** `v2/packages/db/src/repositories/adhesiones.ts`, `adherir`.
+**Encontrada:** 2026-10-19, al relevar las reacciones a aportes ajenos.
+**Severidad:** media.
+**Estado:** abierta.
+
+`adherir` descarta los aportes retenidos, pero no los que tienen `estado = 'retirada'`, así que se puede sumar «A mí también me pasa» a un aporte que su autor retiró. Tampoco comprueba que el actor no sea el autor, y en `/senal/:id` el botón aparece también sobre el aporte propio. Y nunca escribe `user_id`, con lo que el índice único por cuenta que el esquema define para que la misma persona en dos navegadores no cuente doble no se usa en este camino. Como las adhesiones encienden el brillo del mapa, las tres cosas inflan un conteo público. Pendiente: filtrar retirados, rechazar la adhesión propia, completar `user_id` desde el actor vinculado y una prueba de integración por cada caso.
