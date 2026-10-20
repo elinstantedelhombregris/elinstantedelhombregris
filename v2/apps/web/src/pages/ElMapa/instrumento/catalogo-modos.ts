@@ -5,7 +5,7 @@
  * componentes Y constantes pierde el hot reload de esos componentes. Es una
  * regla del tooling, no un capricho — y la alternativa era silenciar el aviso.
  */
-export type Modo = 'mapa' | 'analisis' | 'tiempo' | 'cobertura' | 'simulacion';
+export type Modo = 'mapa' | 'analisis' | 'tiempo' | 'cobertura';
 
 export const MODOS: { id: Modo; etiqueta: string; descripcion: string }[] = [
   // `descripcion` es la pregunta que contesta cada modo, y se muestra debajo de
@@ -14,5 +14,7 @@ export const MODOS: { id: Modo; etiqueta: string; descripcion: string }[] = [
   { id: 'analisis', etiqueta: 'Análisis', descripcion: '¿Cuántos por provincia?' },
   { id: 'tiempo', etiqueta: 'Línea de tiempo', descripcion: '¿Cuándo llegaron?' },
   { id: 'cobertura', etiqueta: 'Cobertura', descripcion: '¿Qué zonas faltan?' },
-  { id: 'simulacion', etiqueta: 'Simulación', descripcion: '¿Y si hablaran más?' },
+  // La Simulación salió de las pestañas (spec 2026-10-19 §7, D4): su pregunta es la
+  // de quien diseña el mecanismo. Un enlace viejo con `?lente=simulacion` cae en el
+  // Mapa, y el motor sigue en `civic-core` y en el laboratorio de `/la-simulacion`.
 ];

@@ -10,7 +10,6 @@ import { ListaRegistros } from './ListaRegistros';
 import { useModoAnalisis } from './modos/useModoAnalisis';
 import { useModoCobertura } from './modos/useModoCobertura';
 import { useModoMapa } from './modos/useModoMapa';
-import { useModoSimulacion } from './modos/useModoSimulacion';
 import { useModoTiempo } from './modos/useModoTiempo';
 import { ProcedenciaConsulta } from './ProcedenciaConsulta';
 import { SuperficieInstrumento } from './SuperficieInstrumento';
@@ -110,11 +109,10 @@ export function Instrumento({
     analisis: useModoAnalisis(ctx),
     tiempo: useModoTiempo(ctx),
     cobertura: useModoCobertura(ctx),
-    simulacion: useModoSimulacion(ctx),
   };
   const activo = resultados[modo];
   const parcial = consulta.data?.metadata.completa === false;
-  const necesitaCorpus = parcial && ['cobertura', 'tiempo', 'simulacion'].includes(modo);
+  const necesitaCorpus = parcial && ['cobertura', 'tiempo'].includes(modo);
   const tieneDatos = consulta.data !== undefined;
   const siguientePagina = consulta.data?.metadata.siguiente ?? undefined;
   const mirada = consulta.data?.signals.find((s) => s.id === seleccionada);
@@ -181,7 +179,7 @@ export function Instrumento({
       <EstadoGeometria
         falloMapa={falloMapa}
         tieneDatos={tieneDatos}
-        necesitaProvincias={['mapa', 'analisis', 'simulacion'].includes(modo)}
+        necesitaProvincias={['mapa', 'analisis'].includes(modo)}
         reintentarMapa={() => {
           setFalloMapa(false);
           setIntentoMapa((intento) => intento + 1);
@@ -190,8 +188,8 @@ export function Instrumento({
       {necesitaCorpus ? (
         <p role="status" className="text-oscuro-texto px-5 py-10">
           Esta vista necesita todos los aportes, y la consulta trae más de una página. Para ver los
-          totales completos por provincia usá Análisis: no calculamos zonas sin aportes ni
-          escenarios sobre una muestra recortada.
+          totales completos por provincia usá Análisis: no calculamos zonas sin aportes sobre una
+          muestra recortada.
         </p>
       ) : null}
       {/* Ocultar sin desmontar conserva los borradores. */}
