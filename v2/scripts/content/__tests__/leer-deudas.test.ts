@@ -357,6 +357,7 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-136',
       'D-137',
       'D-140',
+      'D-146', // 20/10/2026: CORS acepta el propio sitio sin depender de la lista.
     ]);
   });
 });

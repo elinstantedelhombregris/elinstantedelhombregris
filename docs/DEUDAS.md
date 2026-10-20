@@ -157,6 +157,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-143](#d-143--el-cliente-de-la-api-de-la-web-no-acepta-respuestas-sin-cuerpo) | El cliente de la API de la web no acepta respuestas sin cuerpo | Baja | Abierta |
 | [D-144](#d-144--los-duelos-de-mirar-sólo-comparan-aportes-vistos-en-la-misma-visita) | Los duelos de Mirar sólo comparan aportes vistos en la misma visita | Baja | Abierta |
 | [D-145](#d-145--el-aviso-de-un-aporte-retenido-por-reportes-no-se-repite) | El aviso de un aporte retenido por reportes no se repite | Baja | Abierta |
+| [D-146](#d-146--toda-escritura-desde-el-navegador-respondía-500-en-producción) | Toda escritura desde el navegador respondía 500 en producción | Crítica | **Resuelta** |
+| [D-147](#d-147--un-origen-que-cors-no-permite-recibe-500-y-no-403) | Un origen que CORS no permite recibe 500 y no 403 | Baja | Abierta |
 
 ---
 
@@ -2075,6 +2077,8 @@ Hasta entonces, todo aporte se publica sin campaña. El recibo lo dice como es: 
 
 **Qué haría falta:** hacer los cuatro pasos, abrir `/campanas/mi-argentina-ideal` y comprobar que muestre la edición 1 y el estado abierta; y decidir qué se hace con los aportes que hayan entrado sin campaña mientras tanto.
 
+**Avance del 2026-10-20:** el paso 1 está hecho de sobra. Producción tiene las migraciones hasta la 0042 (Mirar, campañas propuestas y aportes parecidos), aplicadas después de un respaldo (`respaldo-antes-mirar-2026-10-20`), y el código de Mi Argentina ideal está desplegado. Siguen faltando los pasos 2 a 4: la cuenta de Juan todavía no existe en v2. Mientras no exista la campaña, Ver dice que la primera edición todavía no abrió, Mirar dice que la campaña no está abierta para mirar aportes, e Imaginar deja escribir.
+
 ### D-122 · Los scripts de migración y siembra leen `v2/.env` aunque se les pase otra base
 
 **Dónde:** `v2/packages/db/scripts/migrate.ts`, los scripts de siembra de `v2/packages/db/scripts/` que llaman a `dotenv`
@@ -2382,3 +2386,23 @@ Para preguntar «¿Cuál va primero?» hacen falta los dos textos, y el estado d
 **Estado:** abierta.
 
 La clave del aviso es por aporte. Si Juan devuelve un aporte y vuelve a juntar 13 reportes, se retiene de nuevo pero no llega aviso, porque la clave ya existe. Pendiente: sumar a la clave la decisión que lo retuvo (el id de `pila_decisiones`).
+
+### D-146 · Toda escritura desde el navegador respondía 500 en producción
+
+**Dónde:** `v2/apps/api/src/middleware/security.ts` (`corsMiddleware`).
+**Encontrada:** 2026-10-20, probando el dominio después de desplegar Mi Argentina ideal.
+**Severidad:** crítica.
+**Estado:** ~~abierta~~ → **resuelta 2026-10-20**.
+
+El middleware de CORS daba por hecho que una petición del mismo sitio llega sin `Origin`. No es así: el navegador manda `Origin` en cada POST, PUT y DELETE, aunque la página y la API compartan dirección (ADR 0008). Un `Origin` que no estuviera en `CORS_ORIGINS` tiraba un error, y el error salía como 500. En local andaba, porque Vite manda `http://localhost:5173`, que es justo el valor por defecto de la lista. En producción la variable no nombraba el dominio, así que publicar un aporte, ingresar, opinar o reportar respondía «Algo salió mal» desde el navegador, mientras que la misma petición hecha con `curl`, que no manda `Origin`, andaba. No sabemos desde cuándo. La suposición está desde el primer commit de la API (7/5/2026), la variable no figura en ningún documento de operación, y la base de producción no tiene ni una señal ni un aporte.
+
+**Cómo se cerró:** un `Origin` igual a la dirección de la petición misma (esquema de afuera por `trust proxy`, host de `Host` o `X-Forwarded-Host`) se acepta siempre, sin depender de la lista. La lista queda para los orígenes ajenos. La prueba es `apps/api/src/middleware/__tests__/cors.test.ts`.
+
+### D-147 · Un origen que CORS no permite recibe 500 y no 403
+
+**Dónde:** `v2/apps/api/src/middleware/security.ts` (`corsMiddleware`) y `middleware/error-handler.ts`.
+**Encontrada:** 2026-10-20, al cerrar D-146.
+**Severidad:** baja.
+**Estado:** abierta.
+
+Cuando un sitio ajeno llama a la API, el middleware tira un error común y la respuesta es un 500 «Algo salió mal», sin `requestId`. El rechazo es correcto, pero lo registra como falla del servidor: una alarma de errores 500 se dispararía por un sitio ajeno, y fue lo que hizo que D-146 pareciera un error interno. Pendiente: responder 403 con un código propio, o no dar permiso CORS y dejar que el navegador bloquee la respuesta.
