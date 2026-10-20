@@ -3,43 +3,41 @@ import { describe, expect, it } from 'vitest';
 import { APORTAR_HREF, aportarHref, leerPedidoAportar, quitarParametroDeLaUrl } from './aportar';
 
 describe('aportarHref', () => {
-  it('sin opciones es la puerta canónica, y termina en #instrumento', () => {
+  it('sin opciones es la puerta canónica: la página de Imaginar, sin consulta', () => {
     expect(aportarHref()).toBe(APORTAR_HREF);
-    expect(APORTAR_HREF).toBe('/el-mapa?participar=aportar#instrumento');
+    expect(APORTAR_HREF).toBe('/mi-argentina-ideal/imaginar');
   });
 
-  it('lleva campaña (slug o id), edición, borrador y lugar', () => {
+  it('el guiado lleva campaña (slug o id), edición, borrador y lugar a Imaginar', () => {
     const href = aportarHref({
       campana: 'mi-argentina-ideal',
       edicion: 2,
       borrador: '0f5f6b5a-1c2d-4e3f-8a9b-0c1d2e3f4a5b',
       lugar: '14',
     });
-    const [ruta, ancla] = href.split('#');
-    expect(ancla).toBe('instrumento');
-    const [camino, consulta] = (ruta ?? '').split('?');
-    expect(camino).toBe('/el-mapa');
+    expect(href).not.toContain('#');
+    const [camino, consulta] = href.split('?');
+    expect(camino).toBe('/mi-argentina-ideal/imaginar');
     const q = new URLSearchParams(consulta);
-    expect(q.get('participar')).toBe('aportar');
+    expect(q.has('participar')).toBe(false);
     expect(q.get('campana')).toBe('mi-argentina-ideal');
     expect(q.get('edicion')).toBe('2');
     expect(q.get('borrador')).toBe('0f5f6b5a-1c2d-4e3f-8a9b-0c1d2e3f4a5b');
     expect(q.get('lugar')).toBe('14');
   });
 
-  it('el modo directo pide participar=directo; el guiado, aportar', () => {
-    expect(
-      new URLSearchParams(aportarHref({ modo: 'directo' }).split('#')[0]?.split('?')[1]).get(
-        'participar',
-      ),
-    ).toBe('directo');
+  it('el directo sigue en el panel del mapa y termina en #instrumento; el guiado es Imaginar', () => {
+    expect(aportarHref({ modo: 'directo' })).toBe('/el-mapa?participar=directo#instrumento');
+    expect(aportarHref({ modo: 'directo', campana: 'x-y' })).toBe(
+      '/el-mapa?participar=directo&campana=x-y#instrumento',
+    );
     expect(aportarHref({ modo: 'guiado' })).toBe(APORTAR_HREF);
   });
 
   it('descarta una edición que no es un entero positivo y escapa lo que viene de afuera', () => {
     expect(aportarHref({ edicion: 0 })).toBe(APORTAR_HREF);
     expect(aportarHref({ edicion: 1.5 })).toBe(APORTAR_HREF);
-    expect(aportarHref({ campana: 'a b&c' })).toContain('campana=a+b%26c');
+    expect(aportarHref({ campana: 'a b&c' })).toBe('/mi-argentina-ideal/imaginar?campana=a+b%26c');
   });
 });
 
@@ -91,6 +89,15 @@ describe('leerPedidoAportar', () => {
       ?.split('?')[1];
     expect(leerPedidoAportar(search ?? '')).toEqual({
       modo: 'directo',
+      campana: 'x-y',
+      edicion: 4,
+      borrador: 'b1',
+      problema: null,
+    });
+    // En Imaginar no hace falta `participar`: la página ya es el modo guiado.
+    const guiado = aportarHref({ campana: 'x-y', edicion: 4, borrador: 'b1' }).split('?')[1];
+    expect(leerPedidoAportar(guiado ?? '')).toEqual({
+      modo: null,
       campana: 'x-y',
       edicion: 4,
       borrador: 'b1',

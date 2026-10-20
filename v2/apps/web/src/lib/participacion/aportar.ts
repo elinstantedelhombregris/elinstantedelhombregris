@@ -1,20 +1,23 @@
 /**
  * La puerta única de «Imaginar mi Argentina».
  *
- * Imaginar vive dentro del mapa: hay un solo panel, una sola dirección y una
- * sola palabra para lo que se publica, que es «aporte». Todo enlace que invita
- * a aportar —cabecera, pie, cierres de página, campañas— sale de acá, así la
- * próxima vez que cambie el contrato de la URL se cambia en un solo lugar.
+ * Imaginar es una página propia, `/mi-argentina-ideal/imaginar`: la pregunta,
+ * el aporte en pocas palabras y publicar, una cosa por pantalla (spec
+ * 2026-10-19-mi-argentina-ideal-la-pila.md §3). Todo enlace que invita a
+ * aportar —cabecera, pie, cierres de página, campañas, borradores— sale de acá,
+ * así la próxima vez que cambie el contrato de la URL se cambia en un solo lugar.
  *
  * ## El contrato de la URL
  *
- * - `participar=aportar` abre el panel con las tres preguntas (lo canónico).
- * - `participar=directo` lo abre en el aporte puntual.
- * - Alias que siguen andando porque hay enlaces en la calle: `imaginar` y
- *   `guiado` abren las tres preguntas; `voz` abre el aporte puntual.
- * - `campana` es un slug o un id; `edicion`, `borrador` y `lugar` acompañan.
+ * - El modo guiado (el de siempre) va a `/mi-argentina-ideal/imaginar`, con
+ *   `campana` (un slug o un id), `edicion`, `borrador` y `lugar` en la consulta.
+ * - El aporte puntual (`modo: 'directo'`) sigue en el panel del mapa:
+ *   `/el-mapa?participar=directo#instrumento`.
+ * - `participar=aportar|imaginar|guiado` en el mapa son direcciones viejas que
+ *   hay que seguir entendiendo, porque hay enlaces en la calle: el mapa las
+ *   manda acá. `leerPedidoAportar` las sigue leyendo, igual que `voz`.
  */
-export const APORTAR_HREF = '/el-mapa?participar=aportar#instrumento';
+export const APORTAR_HREF = '/mi-argentina-ideal/imaginar';
 
 export type ModoAportar = 'guiado' | 'directo';
 
@@ -26,16 +29,20 @@ export interface OpcionesAportar {
   modo?: 'guiado' | 'directo';
 }
 
-/** El enlace al panel de aportes del mapa. Siempre termina en `#instrumento`. */
+/**
+ * El enlace para aportar. El guiado va a Imaginar (sin opciones, es `APORTAR_HREF`);
+ * el directo, al panel del mapa, y termina en `#instrumento`.
+ */
 export function aportarHref(o: OpcionesAportar = {}): string {
   const q = new URLSearchParams();
-  q.set('participar', o.modo === 'directo' ? 'directo' : 'aportar');
+  if (o.modo === 'directo') q.set('participar', 'directo');
   if (o.campana) q.set('campana', o.campana);
   if (o.edicion !== undefined && Number.isSafeInteger(o.edicion) && o.edicion > 0)
     q.set('edicion', String(o.edicion));
   if (o.borrador) q.set('borrador', o.borrador);
   if (o.lugar) q.set('lugar', o.lugar);
-  return `/el-mapa?${q.toString()}#instrumento`;
+  if (o.modo === 'directo') return `/el-mapa?${q.toString()}#instrumento`;
+  return q.size ? `${APORTAR_HREF}?${q.toString()}` : APORTAR_HREF;
 }
 
 const MODO_DE_PARTICIPAR: Readonly<Record<string, ModoAportar>> = {
