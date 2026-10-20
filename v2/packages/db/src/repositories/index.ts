@@ -152,3 +152,9 @@ export * from './iniciativa-membresia.js';
 export * from './recursos-tarea.js';
 
 export * from './impulso.js';
+
+export { PilaRepository } from './pila.js';
+export type { CandidatoPila, EstadoDelActor, OpinionGuardada, ProvinciaDePila } from './pila.js';
+export { PilaGestionRepository, TAMANO_DE_PAGINA_GESTION } from './pila-gestion.js';
+export type { ResultadoDeDecision, ResultadoDeReporte } from './pila-gestion.js';
+export { ESTADOS_EN_MIRAR } from './_pila.js';

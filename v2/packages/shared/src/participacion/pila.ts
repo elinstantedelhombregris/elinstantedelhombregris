@@ -218,3 +218,9 @@ export interface AporteEnGestion {
   retenido: { origen: 'reportes' | 'gestion'; desde: string; motivo: string } | null;
   ultimaDecision: { decision: 'retener' | 'devolver'; motivo: string; fecha: string } | null;
 }
+
+/** `GET /api/v1/gestion/pila`: una página de 50; `siguiente` es el `desde` de la próxima, o `null`. */
+export interface PaginaGestionPila {
+  aportes: AporteEnGestion[];
+  siguiente: number | null;
+}
