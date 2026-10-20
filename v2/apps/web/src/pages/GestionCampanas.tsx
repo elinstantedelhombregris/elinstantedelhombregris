@@ -90,6 +90,12 @@ function MisCampanas() {
       >
         Preparar otra campaña
       </Link>
+      <Link
+        href="/gestion/pila"
+        className="text-violeta ml-6 mt-4 inline-flex min-h-11 items-center underline"
+      >
+        Reportes y retenciones de Mirar →
+      </Link>
     </section>
   );
 }
