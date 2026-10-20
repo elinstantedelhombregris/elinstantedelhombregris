@@ -129,7 +129,7 @@ describe('CertificadoSemilla', () => {
     ).toBeInTheDocument();
 
     const link = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(link).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(link).toHaveAttribute('href', '/mi-argentina-ideal/imaginar');
   });
 
   it('chrome muerto: sin glass, gradient-text, iris-violet ni font-serif', () => {

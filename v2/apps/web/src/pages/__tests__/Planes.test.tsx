@@ -23,7 +23,7 @@ describe('Planes (página papel 2.4 — El ejemplo, composer)', () => {
     expect(screen.getByText(/Nada de esto se firma ni se obedece/)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'aportes del mapa' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal/imaginar',
     );
   });
 
@@ -35,7 +35,7 @@ describe('Planes (página papel 2.4 — El ejemplo, composer)', () => {
     expect(screen.getByRole('heading', { name: 'Hechos para ser superados' })).toBeInTheDocument();
 
     const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(cta).toHaveAttribute('href', '/mi-argentina-ideal/imaginar');
   });
 
   it('mata el chrome v1-port: sin header serif viejo, sin glass ni gradient-text', () => {

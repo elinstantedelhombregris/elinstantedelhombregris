@@ -159,7 +159,7 @@ describe('La persona conserva el control de su voz', () => {
     expect(screen.getByText(/No hay borradores guardados en este navegador/)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal/imaginar',
     );
     expect(screen.queryByText(/aquí|Reflexion/)).not.toBeInTheDocument();
     expect(modelo.mutate).not.toHaveBeenCalled();
@@ -187,7 +187,7 @@ describe('La persona conserva el control de su voz', () => {
     // El vacío tiene salida: el botón lleva a la puerta única de aportar.
     expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal/imaginar',
     );
     expect(screen.queryByRole('button', { name: /Retirar/ })).not.toBeInTheDocument();
   });

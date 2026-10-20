@@ -284,7 +284,7 @@ describe('PracticaDetail (página papel 3.5 — la práctica)', () => {
       await screen.findByRole('heading', { level: 2, name: 'Ya lo pensaste. Ahora decilo.' }),
     ).toBeInTheDocument();
     const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(cta).toHaveAttribute('href', '/mi-argentina-ideal/imaginar');
   });
 
   it('backlink al entrenamiento', async () => {

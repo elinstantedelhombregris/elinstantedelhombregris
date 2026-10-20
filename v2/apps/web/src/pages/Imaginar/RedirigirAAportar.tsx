@@ -4,10 +4,10 @@ import { aportarHref } from '~/lib/participacion/aportar';
 
 /**
  * Las direcciones viejas de «Imaginar» (`/imaginar` y `/campanas/:slug/participar`)
- * llevan al panel de aportes del mapa. Se queda con lo que el enlace pedía —la
- * campaña (del camino o de la búsqueda), la edición y el borrador— y siempre
- * abre las tres preguntas. wouter no conserva la búsqueda en un `Redirect`, por
- * eso se lee acá y se vuelve a armar.
+ * llevan a Imaginar (`/mi-argentina-ideal/imaginar`). Se queda con lo que el enlace
+ * pedía —la campaña (del camino o de la búsqueda), la edición y el borrador— y
+ * siempre abre el camino guiado. wouter no conserva la búsqueda en un `Redirect`,
+ * por eso se lee acá y se vuelve a armar.
  */
 export function RedirigirAAportar({ campana }: { campana?: string }) {
   const q = new URLSearchParams(useSearch());
@@ -23,8 +23,10 @@ export function RedirigirAAportar({ campana }: { campana?: string }) {
   // Una edición mal escrita no se descarta: el panel la va a marcar como inválida
   // y no va a publicar en otra edición sin que la persona lo sepa.
   if (edicion !== null && !href.includes('edicion=')) {
-    const corte = href.indexOf('#');
-    href = `${href.slice(0, corte)}&edicion=${encodeURIComponent(edicion)}${href.slice(corte)}`;
+    const [ruta = href, busqueda = ''] = href.split('?');
+    const conEdicion = new URLSearchParams(busqueda);
+    conEdicion.set('edicion', edicion);
+    href = `${ruta}?${conEdicion.toString()}`;
   }
   return <Redirect to={href} replace />;
 }

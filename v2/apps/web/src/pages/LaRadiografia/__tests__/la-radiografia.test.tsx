@@ -229,7 +229,7 @@ describe('el vacío (§6)', () => {
       screen.getByText(/Que no se dibujen relaciones no significa que nadie haya participado/),
     ).toBeInTheDocument();
     expect(container.querySelector('a')?.getAttribute('href')).toBe(
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal/imaginar',
     );
     expect(container.textContent).not.toMatch(/perdón|disculp|lo sentimos|próximamente/i);
   });

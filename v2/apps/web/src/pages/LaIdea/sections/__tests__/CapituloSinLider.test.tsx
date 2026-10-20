@@ -37,7 +37,7 @@ describe('CapituloSinLider', () => {
     expect(screen.getByText(/12\.496 voces ya están en el mapa/)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Imaginar mi Argentina →' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal/imaginar',
     );
   });
 

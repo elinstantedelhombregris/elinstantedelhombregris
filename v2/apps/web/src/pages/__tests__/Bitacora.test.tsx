@@ -122,7 +122,7 @@ describe('Bitacora (página papel 3.4 — el índice, composer)', () => {
 
     expect(screen.getByRole('heading', { name: '¿Y vos qué ves?' })).toBeInTheDocument();
     const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(cta).toHaveAttribute('href', '/mi-argentina-ideal/imaginar');
   });
 
   it('mata el chrome v1-port: sin glass/gradient-text/iris-violet/font-serif ni el header viejo', () => {

@@ -15,31 +15,31 @@ describe('Las direcciones viejas de Imaginar llevan al panel del mapa', () => {
     window.history.replaceState(null, '', '/');
   });
 
-  it('/imaginar sin nada abre las tres preguntas del mapa', () => {
-    expect(desde('/imaginar')).toBe('/el-mapa?participar=aportar#instrumento');
+  it('/imaginar sin nada abre Imaginar', () => {
+    expect(desde('/imaginar')).toBe('/mi-argentina-ideal/imaginar');
   });
 
-  it('/imaginar conserva campaña, edición y borrador, y fuerza las tres preguntas', () => {
+  it('/imaginar conserva campaña, edición y borrador, y fuerza el camino guiado', () => {
     expect(
       desde('/imaginar?campana=mi-campana&edicion=2&borrador=b-1&participar=voz&otra=cosa'),
-    ).toBe('/el-mapa?participar=aportar&campana=mi-campana&edicion=2&borrador=b-1#instrumento');
+    ).toBe('/mi-argentina-ideal/imaginar?campana=mi-campana&edicion=2&borrador=b-1');
   });
 
   it('/campanas/:slug/participar toma la campaña del camino y la edición de la búsqueda', () => {
     expect(desde('/campanas/cuidar-la-comunidad/participar?edicion=3', 'cuidar-la-comunidad')).toBe(
-      '/el-mapa?participar=aportar&campana=cuidar-la-comunidad&edicion=3#instrumento',
+      '/mi-argentina-ideal/imaginar?campana=cuidar-la-comunidad&edicion=3',
     );
   });
 
   it('la campaña del camino manda sobre la de la búsqueda', () => {
     expect(desde('/campanas/una/participar?campana=otra', 'una')).toBe(
-      '/el-mapa?participar=aportar&campana=una#instrumento',
+      '/mi-argentina-ideal/imaginar?campana=una',
     );
   });
 
-  it('una edición mal escrita no se descarta: el panel la va a marcar y no publicará en otra edición', () => {
+  it('una edición mal escrita no se descarta: Imaginar la va a marcar y no publicará en otra edición', () => {
     expect(desde('/imaginar?campana=mi-campana&edicion=otra')).toBe(
-      '/el-mapa?participar=aportar&campana=mi-campana&edicion=otra#instrumento',
+      '/mi-argentina-ideal/imaginar?campana=mi-campana&edicion=otra',
     );
   });
 

@@ -156,7 +156,7 @@ describe('Mi espacio — sin cuenta', () => {
     expect(screen.getByRole('heading', { level: 2, name: 'Mis borradores' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Retomar' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar&borrador=3f1c9a3e-8a70-4d16-a2a6-6a3f4a1f5b11#instrumento',
+      '/mi-argentina-ideal/imaginar?borrador=3f1c9a3e-8a70-4d16-a2a6-6a3f4a1f5b11',
     );
   });
 
@@ -167,7 +167,7 @@ describe('Mi espacio — sin cuenta', () => {
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal/imaginar',
     );
   });
 });
@@ -247,7 +247,7 @@ describe('Mi espacio — Mis aportes', () => {
     expect(screen.getByText('Todavía no publicaste nada desde esta cuenta.')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
       'href',
-      '/el-mapa?participar=aportar#instrumento',
+      '/mi-argentina-ideal/imaginar',
     );
     expect(screen.queryByRole('link', { name: 'Armar una ficha nueva' })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: 'Gestionar mis campañas' })).not.toBeInTheDocument();

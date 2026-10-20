@@ -112,7 +112,7 @@ describe('Manifiesto (página papel 3.3 — el lector, composer)', () => {
     ).toBeInTheDocument();
 
     const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(cta).toHaveAttribute('href', '/mi-argentina-ideal/imaginar');
   });
 
   it('edición impresa: el article lleva edicion-impresa, el folio se imprime, la navegación y el cierre no', () => {

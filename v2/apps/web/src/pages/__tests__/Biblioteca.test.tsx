@@ -108,7 +108,7 @@ describe('Biblioteca (página papel 3.1 — El hub, composer)', () => {
 
     expect(screen.getByRole('heading', { name: 'Leíste. Ahora decí.' })).toBeInTheDocument();
     const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(cta).toHaveAttribute('href', '/mi-argentina-ideal/imaginar');
   });
 
   it('monta la vidriera de entrenamientos: curados reales, catálogo completo detrás', () => {

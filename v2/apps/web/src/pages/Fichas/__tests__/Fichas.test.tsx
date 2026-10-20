@@ -360,7 +360,7 @@ describe('Fichas: una ficha abierta', () => {
     ).toHaveAttribute('href', '/la-radiografia?territorio=13');
     expect(screen.getByRole('link', { name: 'Imaginar mi Argentina' })).toHaveAttribute(
       'href',
-      `/el-mapa?participar=aportar&campana=${CAMPANA}#instrumento`,
+      `/mi-argentina-ideal/imaginar?campana=${CAMPANA}`,
     );
   });
 

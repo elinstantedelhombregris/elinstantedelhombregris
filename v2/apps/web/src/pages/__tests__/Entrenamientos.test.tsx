@@ -124,7 +124,7 @@ describe('Entrenamientos (página papel 3.5 — el catálogo, composer)', () => 
 
     expect(screen.getByRole('heading', { name: 'Entrenaste. Ahora usalo.' })).toBeInTheDocument();
     const cta = screen.getByRole('link', { name: 'Imaginar mi Argentina →' });
-    expect(cta).toHaveAttribute('href', '/el-mapa?participar=aportar#instrumento');
+    expect(cta).toHaveAttribute('href', '/mi-argentina-ideal/imaginar');
   });
 
   it('honestidad: sin certificado/progreso/inscripción, sin datos de demostración, sin chrome v1-port', () => {
