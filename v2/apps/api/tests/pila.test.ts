@@ -1,6 +1,6 @@
 /**
- * Mirar de punta a punta por HTTP (plan de Mi Argentina ideal, entrega 1, tarea
- * 6): tandas, opiniones, duelos, reportes y la página del aporte.
+ * Mirar de punta a punta por HTTP (plan de Mi Argentina ideal, entrega 1, tareas
+ * 6 y 7): tandas, opiniones, duelos, reportes, la página del aporte y la gestión.
  *
  * **Escribe filas.** Corre sólo con `DATABASE_URL_DESCARTABLE` (la base local de
  * `pnpm test:integration:local`) y borra lo suyo de las hojas a la raíz. Cada
@@ -443,6 +443,77 @@ describe.skipIf(!habilitada)('Mirar por HTTP: la pila y su gestión', () => {
       expect((await nav.get(`/api/v1/pila/aportes/${fuera.idPublico}`)).body.data.enMirar).toBe(
         false,
       );
+    });
+  });
+
+  describe('gestión', () => {
+    const admin = () => `${sesion(admin1)}; eihg_csrf=${csrf}`;
+
+    it('sin sesión responde 401 y sin ser admin 403', async () => {
+      await request.get('/api/v1/gestion/pila').expect(401);
+      await request.get('/api/v1/gestion/pila').set('Cookie', sesion(persona)).expect(403);
+    });
+
+    it('retener lo saca de la tanda, devolver lo vuelve a poner, y cada decisión queda con quien la tomó', async () => {
+      const c = await nuevaCampana();
+      const s = await aporte(c.id);
+      const observador = new Navegador();
+      expect(idsDe(await observador.tanda(c.slug))).toContain(s.idPublico);
+      const url = `/api/v1/gestion/pila/${s.idPublico}/retencion`;
+      const retener = (motivo: string) =>
+        request.post(url).set('Cookie', admin()).set('X-CSRF-Token', csrf).send({ motivo });
+      expect((await retener('no')).status).toBe(400);
+      expect((await retener('Tiene el nombre de una vecina.')).status).toBe(200);
+      expect((await retener('Otra vez.')).body.error.code).toBe('YA_RETENIDO');
+      expect(idsDe(await observador.tanda(c.slug))).not.toContain(s.idPublico);
+
+      const lista = await request
+        .get(`/api/v1/gestion/pila?campana=${c.slug}`)
+        .set('Cookie', admin())
+        .expect(200);
+      expect(lista.headers['cache-control']).toBe('no-store');
+      expect(lista.body.data).toMatchObject({
+        siguiente: null,
+        aportes: [
+          {
+            id: s.idPublico,
+            reportes: [],
+            retenido: { origen: 'gestion', motivo: 'Tiene el nombre de una vecina.' },
+            ultimaDecision: { decision: 'retener' },
+          },
+        ],
+      });
+
+      const devolver = await request
+        .delete(url)
+        .set('Cookie', admin())
+        .set('X-CSRF-Token', csrf)
+        .send({ motivo: 'Lo revisé y no tiene datos de nadie.' });
+      expect(devolver.status).toBe(200);
+      expect(idsDe(await observador.tanda(c.slug))).toContain(s.idPublico);
+      const otra = await request
+        .delete(url)
+        .set('Cookie', admin())
+        .set('X-CSRF-Token', csrf)
+        .send({ motivo: 'Otra vez lo mismo.' });
+      expect(otra.body.error.code).toBe('NO_RETENIDO');
+      const decisiones = await filas<{ decision: string; origen: string; admin: number }>(sql`
+        select decision, origen, admin_id as admin from pila_decisiones where senal_id = ${s.id}
+        order by creada_en`);
+      expect(decisiones).toEqual([
+        { decision: 'retener', origen: 'gestion', admin: admin1 },
+        { decision: 'devolver', origen: 'gestion', admin: admin1 },
+      ]);
+      const ajeno = await request
+        .post(`/api/v1/gestion/pila/${randomUUID()}/retencion`)
+        .set('Cookie', admin())
+        .set('X-CSRF-Token', csrf)
+        .send({ motivo: 'No existe.' });
+      expect(ajeno.status).toBe(404);
+      await request
+        .get(`/api/v1/gestion/pila?campana=no-existe-${marca}`)
+        .set('Cookie', admin())
+        .expect(404);
     });
   });
 });
