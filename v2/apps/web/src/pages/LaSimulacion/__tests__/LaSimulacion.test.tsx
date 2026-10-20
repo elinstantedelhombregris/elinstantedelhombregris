@@ -501,6 +501,21 @@ describe('la página', () => {
     vi.unstubAllGlobals();
   });
 
+  it('arriba avisa que es el laboratorio del motor y manda a Mi Argentina ideal', () => {
+    render(<LaSimulacion />);
+    const aviso = screen.getByRole('note');
+    expect(aviso).toHaveTextContent(
+      'Esto es el laboratorio del motor: una herramienta de trabajo, no parte del recorrido. Para ver cómo se va armando el país, entrá a Mi Argentina ideal.',
+    );
+    expect(within(aviso).getByRole('link', { name: 'Mi Argentina ideal' })).toHaveAttribute(
+      'href',
+      '/mi-argentina-ideal',
+    );
+    // Va antes que todo lo demás de la página, también antes del título.
+    const titulo = screen.getByRole('heading', { level: 1 });
+    expect(aviso.compareDocumentPosition(titulo) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
   it('abre con la pregunta y NO levanta un hilo para leerla', () => {
     render(<LaSimulacion />);
     expect(
