@@ -57,9 +57,11 @@ export function Listo({
       ) : null}
       <p className="text-tinta-75 text-[15.5px] leading-relaxed">
         {!cedio
-          ? entraAMirar
-            ? 'Cuenta en la campaña con el texto reservado, así que no entra a Mirar. Si cambiás de idea, lo podés abrir desde tu recibo.'
-            : 'Cuenta en la campaña con el texto reservado: no se muestra en público. Si cambiás de idea, lo podés abrir desde tu recibo.'
+          ? !campana
+            ? 'Quedó publicado con el texto reservado: no se muestra en público. Si cambiás de idea, lo podés abrir desde tu recibo.'
+            : entraAMirar
+              ? 'Cuenta en la campaña con el texto reservado, así que no entra a Mirar. Si cambiás de idea, lo podés abrir desde tu recibo.'
+              : 'Cuenta en la campaña con el texto reservado: no se muestra en público. Si cambiás de idea, lo podés abrir desde tu recibo.'
           : entraAMirar
             ? 'Ya está en Mirar, donde otras personas lo ven de a uno y dicen si también lo quieren.'
             : 'Ya se puede leer en el sitio.'}

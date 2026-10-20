@@ -405,6 +405,30 @@ describe('Imaginar — publicar', () => {
     expect(screen.getByText(/así que no entra a Mirar/)).toBeInTheDocument();
   });
 
+  it('sin campaña abierta, el cierre no dice que cuenta en una campaña', async () => {
+    m.get.mockImplementation((ruta: string) => {
+      if (ruta.startsWith('/api/v1/campanas/mi-argentina-ideal'))
+        return Promise.reject(new ApiError(404, 'CAMPANA_NO_ENCONTRADA', 'Todavía no está.'));
+      if (ruta === '/api/v1/contribuciones/contexto')
+        return Promise.resolve({ csrfToken: 'token-de-prueba', temas: TEMAS, proveedor: null });
+      if (ruta === '/api/open-data/provinces') return Promise.resolve({ provinces: PROVINCIAS });
+      return Promise.reject(new ApiError(404, 'NO_ENCONTRADO', 'No está.'));
+    });
+    m.publicar = () => Promise.resolve({ ...RECIBO, contexto: null });
+    montar();
+    await hastaLaLinea();
+    await elegirProvincia();
+    pulsar('Seguir');
+    await screen.findByRole('heading', { name: 'Así lo van a ver' });
+    await screen.findByText(/Por ahora no hay una campaña abierta/);
+    fireEvent.click(screen.getByLabelText(/el texto quede reservado/));
+    fireEvent.click(screen.getByLabelText(/Publicá mi aporte/));
+    pulsar('Publicar mi aporte');
+    await screen.findByRole('heading', { name: 'Tu aporte quedó publicado.' });
+    expect(screen.queryByText(/Cuenta en la campaña/)).toBeNull();
+    expect(screen.getByText(/Quedó publicado con el texto reservado/)).toBeInTheDocument();
+  });
+
   it('desde Mirar, el cierre dice «Seguir mirando» y vuelve ahí', async () => {
     montar('/mi-argentina-ideal/imaginar?volver=mirar');
     await hastaPublicar();
