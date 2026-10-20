@@ -66,7 +66,8 @@ export function lineaSugerida(texto: string, max = LARGO_LINEA): string {
 const sinTildes = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 /**
- * Raíces por tema. Chico a propósito: sugiere, no clasifica. La persona confirma
+ * Raíces por tema, con las claves de la tabla `temas` (con tilde: `educación`,
+ * `economía`). Chico a propósito: sugiere, no clasifica. La persona confirma
  * o cambia, y lo que se guarda es lo que ella eligió (`tema_origen = 'declarado'`).
  */
 export const LEXICO_DE_TEMAS: Readonly<Record<string, readonly string[]>> = {
@@ -83,7 +84,7 @@ export const LEXICO_DE_TEMAS: Readonly<Record<string, readonly string[]>> = {
     'salud',
     'dentist',
   ],
-  educacion: [
+  educación: [
     'escuel',
     'estudi',
     'universid',
@@ -113,7 +114,7 @@ export const LEXICO_DE_TEMAS: Readonly<Record<string, readonly string[]>> = {
     'transparen',
   ],
   justicia: ['juicio', 'juez', 'justicia', 'abogad', 'denuncia', 'tribunal'],
-  economia: ['precio', 'inflac', 'ahorr', 'pesos', 'dolar', 'impuesto', 'sueldo', 'plata', 'deuda'],
+  economía: ['precio', 'inflac', 'ahorr', 'pesos', 'dolar', 'impuesto', 'sueldo', 'plata', 'deuda'],
 };
 
 /** El tema que sugieren las palabras, o `null` si no hay uno que gane claro. */

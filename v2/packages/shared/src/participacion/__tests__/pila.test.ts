@@ -33,6 +33,8 @@ describe('sugerirTema', () => {
     expect(sugerirTema('Que un turno con el médico no tarde tres meses')).toBe('salud');
     expect(sugerirTema('Alquilar sin dejar la mitad del sueldo en la casa')).toBe('vivienda');
     expect(sugerirTema('Que el tren vuelva a mi pueblo')).toBe('movilidad');
+    expect(sugerirTema('Que mi hija vaya a una escuela cerca')).toBe('educación');
+    expect(sugerirTema('Ahorrar en pesos sin miedo a la inflación')).toBe('economía');
   });
 
   it('no sugiere nada con un empate o sin palabras conocidas', () => {
