@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Pasos } from './comun/Pasos';
 import { Cabecera } from './ver/Cabecera';
+import { CompartirVision } from './ver/CompartirVision';
 import { DondeNoCoincidimos } from './ver/DondeNoCoincidimos';
 import { ElPaisQueFalta } from './ver/ElPaisQueFalta';
 import { EnCadaTema } from './ver/EnCadaTema';
@@ -44,6 +45,7 @@ export function Vision({ vision: v, ahora }: { vision: VisionCampana; ahora: num
       <LoQueVaPrimero primero={v.primero} />
       <DondeNoCoincidimos divide={v.divide} enDiscusion={v.enDiscusion} />
       <EnCadaTema temas={v.temas} />
+      <CompartirVision primero={v.une[0]?.texto ?? null} />
       <ElPaisQueFalta
         regiones={v.regiones}
         provincias={v.provincias}
