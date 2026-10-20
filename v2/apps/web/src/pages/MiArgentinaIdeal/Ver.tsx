@@ -14,23 +14,12 @@ import { Vacio } from './ver/piezas';
 import { SeguirAfuera } from './ver/SeguirAfuera';
 import { TuAporte } from './ver/TuAporte';
 
-import type { AporteEnVision, VisionCampana } from '@v2/shared';
+import type { VisionCampana } from '@v2/shared';
 
 import { BotonAccion, ErrorOperacion } from '~/components/participacion/Elementos';
 import { ApiError } from '~/lib/api';
 import { useVision } from '~/lib/queries/vision';
 import { useTituloDePagina } from '~/lib/titulo-de-pagina';
-
-/** Todos los aportes que trae la visión, para encontrar el propio entre ellos. */
-function aportesDe(v: VisionCampana): AporteEnVision[] {
-  return [
-    ...v.une,
-    ...v.primero,
-    ...v.divide,
-    ...v.recien,
-    ...v.temas.flatMap((t) => (t.aporte ? [t.aporte] : [])),
-  ];
-}
 
 /**
  * La visión, en el orden de la spec §5. Cada sección se explica sola en cero: dice qué
@@ -40,7 +29,7 @@ export function Vision({ vision: v, ahora }: { vision: VisionCampana; ahora: num
   return (
     <>
       <Cabecera campana={v.campana} cifras={v.cifras} ahora={ahora} />
-      {v.tuyo ? <TuAporte tuyo={v.tuyo} aportes={aportesDe(v)} /> : null}
+      {v.tuyo ? <TuAporte tuyo={v.tuyo} /> : null}
       <LoQueNosUne une={v.une} enDiscusion={v.enDiscusion} />
       <LoQueVaPrimero primero={v.primero} />
       <DondeNoCoincidimos divide={v.divide} enDiscusion={v.enDiscusion} />

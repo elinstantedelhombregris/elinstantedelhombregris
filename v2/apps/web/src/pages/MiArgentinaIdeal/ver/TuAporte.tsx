@@ -3,30 +3,20 @@ import { Papelito } from '../comun/Papelito';
 import { fraseDeTuAporte } from './formato';
 import { Seccion } from './piezas';
 
-import type { AporteEnVision, VisionCampana } from '@v2/shared';
+import type { VisionCampana } from '@v2/shared';
 
 /**
  * El aporte propio y cómo le va. Es privado: sólo lo ve quien lo publicó, sin puntaje de
  * afinidad ni comparación con nadie (spec §5, regla 7).
- *
- * `tuyo` no trae provincia ni tema; si el aporte ya aparece en alguna lista de la visión, se
- * toman de ahí para que el papelito se vea como lo ven los demás.
  */
-export function TuAporte({
-  tuyo,
-  aportes,
-}: {
-  tuyo: NonNullable<VisionCampana['tuyo']>;
-  aportes: readonly AporteEnVision[];
-}) {
-  const visto = aportes.find((a) => a.id === tuyo.id);
+export function TuAporte({ tuyo }: { tuyo: NonNullable<VisionCampana['tuyo']> }) {
   return (
     <Seccion titulo="Tu aporte">
       <Papelito
         id={tuyo.id}
         texto={tuyo.texto}
-        provincia={visto?.provincia ?? null}
-        tema={visto?.tema?.etiqueta ?? null}
+        provincia={tuyo.provincia}
+        tema={tuyo.tema?.etiqueta ?? null}
         quieto
         propio
       />

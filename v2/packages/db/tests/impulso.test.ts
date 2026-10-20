@@ -14,6 +14,7 @@
 import { randomBytes, randomUUID } from 'node:crypto';
 
 import { neon } from '@neondatabase/serverless';
+import { SLUG_CAMPANA_NACIONAL } from '@v2/shared';
 import { sql } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/neon-http';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
@@ -61,6 +62,8 @@ viva('ImpulsoRepository', () => {
   const campanasCreadas: string[] = [];
   let impulsora = 0;
   let admin = 0;
+  /** La campaña nacional: el paso previo cuenta los aportes que entran en ella. */
+  let nacional = '';
 
   const nuevoActor = async (userId: number | null = null): Promise<number> => {
     const r = await db.execute<{ id: number }>(
@@ -75,9 +78,15 @@ viva('ImpulsoRepository', () => {
     texto = 'Que el barrio tenga una biblioteca abierta.',
   ) => {
     const r = await db.execute<{ id_publico: string }>(sql`
-      insert into senales (tipo, clase, origen, id_local, texto, actor_id, cesion_licencia, cesion_en, cesion_version)
-      values ('sueño', 'deseo', 'web', ${randomUUID()}::uuid, ${texto}, ${actorId}, true, now(), 1)
-      returning id_publico`);
+      with nueva as (
+        insert into senales (tipo, clase, origen, id_local, texto, actor_id, cesion_licencia, cesion_en, cesion_version)
+        values ('sueño', 'deseo', 'web', ${randomUUID()}::uuid, ${texto}, ${actorId}, true, now(), 1)
+        returning id_publico
+      ), en_la_nacional as (
+        insert into contribuciones (senal_id, campana_id, edicion, huella)
+        select id_publico, ${nacional}::uuid, 1, 'prueba-impulso' from nueva
+      )
+      select id_publico from nueva`);
     return r.rows[0]?.id_publico ?? '';
   };
   const campana = async (estado = 'reuniendo', creador = impulsora): Promise<string> => {
@@ -127,6 +136,18 @@ viva('ImpulsoRepository', () => {
     usuarios.push(...r.rows.map((u) => u.id));
     impulsora = r.rows[0]?.id ?? 0;
     admin = r.rows[1]?.id ?? 0;
+    // Otra suite puede haberla creado: se usa la que haya y sólo se borra si la creó ésta.
+    const n = await db.execute<{ id: string; creada: boolean }>(sql`
+      with nueva as (
+        insert into campanas (creador_id, id_local, slug, contrato, estado)
+        values (${admin}, ${randomUUID()}::uuid, ${SLUG_CAMPANA_NACIONAL}, ${JSON.stringify(contrato)}::jsonb, 'abierta')
+        on conflict (slug) do nothing returning id
+      )
+      select id, true as creada from nueva
+      union all select id, false as creada from campanas where slug = ${SLUG_CAMPANA_NACIONAL}
+      limit 1`);
+    nacional = n.rows[0]?.id ?? '';
+    if (n.rows[0]?.creada) campanasCreadas.push(nacional);
   });
 
   afterAll(async () => {
@@ -134,14 +155,18 @@ viva('ImpulsoRepository', () => {
     const C = JSON.stringify(campanasCreadas);
     const A = JSON.stringify(actores);
     const U = JSON.stringify(usuarios);
-    await db.execute(
-      sql`delete from campanas where id in (select u::uuid from jsonb_array_elements_text(${C}::jsonb) u)`,
-    );
+    // De las hojas a la raíz: los aportes (y con ellos sus contribuciones) antes que las campañas.
     await db.execute(
       sql`delete from pila_respuestas where actor_id in (select u::bigint from jsonb_array_elements_text(${A}::jsonb) u)`,
     );
     await db.execute(
       sql`delete from senales where actor_id in (select u::bigint from jsonb_array_elements_text(${A}::jsonb) u)`,
+    );
+    await db.execute(
+      sql`delete from campana_impulsos where actor_id in (select u::bigint from jsonb_array_elements_text(${A}::jsonb) u)`,
+    );
+    await db.execute(
+      sql`delete from campanas where id in (select u::uuid from jsonb_array_elements_text(${C}::jsonb) u)`,
     );
     await db.execute(
       sql`delete from actores where id in (select u::bigint from jsonb_array_elements_text(${A}::jsonb) u)`,

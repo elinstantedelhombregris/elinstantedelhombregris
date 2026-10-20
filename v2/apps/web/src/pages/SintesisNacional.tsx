@@ -11,6 +11,7 @@ import type { EdicionSintesisNacional, ListaSintesisNacional } from '@v2/shared'
 import { api } from '~/lib/api';
 import { readCsrfToken } from '~/lib/auth/csrf';
 import { useAuth } from '~/lib/auth/use-auth';
+import { hrefIngresar } from '~/lib/auth/volver';
 import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 export function SintesisNacional() {
@@ -124,7 +125,7 @@ export function SintesisNacional() {
       {auth.isLoading && <p role="status">Comprobando sesión…</p>}
       {!auth.isLoading && nueva && !auth.user && (
         <p className="mt-6">
-          <Link className="underline" href="/login?redirect=/sintesis-nacional/nueva">
+          <Link className="underline" href={hrefIngresar('/sintesis-nacional/nueva')}>
             Iniciá sesión
           </Link>{' '}
           para preparar una edición.

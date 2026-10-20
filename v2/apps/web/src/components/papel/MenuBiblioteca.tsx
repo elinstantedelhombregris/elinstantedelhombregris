@@ -20,6 +20,20 @@ function esLaActual(location: string, href: string): boolean {
 }
 
 /**
+ * La sección más específica que contiene la página: en `/mi-argentina-ideal/imaginar`
+ * es Imaginar y no también Ver (`/mi-argentina-ideal`), que la contiene por prefijo.
+ */
+function laMasEspecifica(location: string, secciones: readonly PapelNavItem[]): string | undefined {
+  const largo = (href: string) => (href.split('#')[0] ?? '').length;
+  let elegida: string | undefined;
+  for (const s of secciones) {
+    if (!esLaActual(location, s.href)) continue;
+    if (elegida === undefined || largo(s.href) > largo(elegida)) elegida = s.href;
+  }
+  return elegida;
+}
+
+/**
  * El desplegable de una entrada del recorrido con hijos en el header papel; el
  * primero fue «La biblioteca», y de ahí el nombre.
  *
@@ -105,7 +119,7 @@ export function MenuBiblioteca({
           className="border-tinta bg-papel absolute left-0 top-full z-50 -mt-px flex w-[264px] flex-col border"
         >
           {secciones.map((seccion) => {
-            const aca = esLaActual(location, seccion.href);
+            const aca = seccion.href === laMasEspecifica(location, secciones);
             return (
               <Link
                 key={seccion.href}

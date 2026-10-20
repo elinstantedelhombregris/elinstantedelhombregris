@@ -78,6 +78,7 @@ export function usePublicarIdeal({
     enviar.mutate(validado.data, {
       onSuccess: (recibo) => {
         intento.current = null;
+        void qc.invalidateQueries({ queryKey: ['vision'] });
         alPublicar({ recibo, campana: enDestino, linea: aporte.linea.trim(), cedio });
       },
       onError: (e) => {

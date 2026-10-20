@@ -81,7 +81,15 @@ export interface VisionCampana {
   provincias: ProvinciaEnVision[];
   recien: AporteEnVision[];
   /** El aporte propio, si quien mira publicó uno. Sólo lo ve su autor. */
-  tuyo: { id: string; texto: string; opiniones: number; acuerdos: number; pasos: number } | null;
+  tuyo: {
+    id: string;
+    texto: string;
+    provincia: string | null;
+    tema: { clave: string; etiqueta: string } | null;
+    opiniones: number;
+    acuerdos: number;
+    pasos: number;
+  } | null;
   /** La región de quien mira, si se sabe: habilita «Completar los de tu región». */
   miRegion: string | null;
   calculadaEn: string;

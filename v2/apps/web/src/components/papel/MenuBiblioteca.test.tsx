@@ -108,6 +108,24 @@ describe('MenuBiblioteca — los cinco estantes se abren desde el header', () =>
     window.history.replaceState(null, '', '/');
   });
 
+  it('en Imaginar marca Imaginar y no también Ver, que la contiene por prefijo', () => {
+    window.history.replaceState(null, '', '/mi-argentina-ideal/imaginar');
+    render(
+      <ConQueryClient>
+        <PapelHeader />
+      </ConQueryClient>,
+    );
+    const disparador = screen.getAllByRole('link', { name: /Mi Argentina ideal/ })[0];
+    fireEvent.mouseEnter(exigir(disparador?.parentElement, 'el contenedor del disparador'));
+    const actuales = screen
+      .getAllByRole('link')
+      .filter((l) => l.getAttribute('aria-current') === 'page')
+      .map((l) => l.textContent);
+    expect(actuales).toContain('Imaginar');
+    expect(actuales).not.toContain('Ver');
+    window.history.replaceState(null, '', '/');
+  });
+
   it('estando en /biblioteca, «Los ensayos» salta a la sección en vez de navegar', () => {
     window.history.replaceState(null, '', '/biblioteca');
     const alElemento = vi.fn();

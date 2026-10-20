@@ -425,7 +425,8 @@ describe('El detalle de una campaña', () => {
     const c = campana({ puedoEditar: true, puedoInvitar: true, puedoEditarContrato: true });
     const sinAdmin = abrir(c);
     expect(screen.queryByText(/Tomar esta configuración/)).not.toBeInTheDocument();
-    // Quien edita las reglas las sigue pudiendo revisar, pero no cambia la etapa sin ser admin.
+    // Quien edita las reglas las sigue pudiendo revisar, pero no cambia la etapa: eso es de la
+    // administración y de quien impulsa la campaña (que la coordina una vez abierta).
     expect(screen.getByRole('link', { name: 'Revisar las reglas' })).toBeInTheDocument();
     expect(screen.queryByLabelText('Próxima etapa')).not.toBeInTheDocument();
     sinAdmin.unmount();
@@ -439,6 +440,14 @@ describe('El detalle de una campaña', () => {
       screen.getByRole('link', { name: 'Tomar esta configuración para abrir otra campaña' }),
     ).toHaveAttribute('href', `/gestion/campanas?duplicar=${c.id}`);
     expect(screen.getByLabelText('Próxima etapa')).toBeInTheDocument();
+  });
+  it('quien impulsa una campaña abierta la coordina, sin poder abrirla ni programarla', () => {
+    modelo.user = usuario(false);
+    abrir(campana({ puedoEditar: true, impulsadaPorMi: true }));
+    const etapas = within(screen.getByLabelText('Próxima etapa'))
+      .getAllByRole('option')
+      .map((o) => o.getAttribute('value'));
+    expect(etapas).toEqual(['pausada', 'en_devolucion']);
   });
   it('si la campaña no existe lo dice en el título y muestra el error una sola vez', () => {
     modelo.detalle = null;

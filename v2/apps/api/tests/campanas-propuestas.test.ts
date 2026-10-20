@@ -14,7 +14,13 @@
 import { randomUUID } from 'node:crypto';
 
 import { getDb, sql } from '@v2/db';
-import { CONTRATO_SENAL, COOKIE_IMPULSO, DIAS_DE_IMPULSO, UMBRAL_IMPULSO } from '@v2/shared';
+import {
+  CONTRATO_SENAL,
+  COOKIE_IMPULSO,
+  DIAS_DE_IMPULSO,
+  SLUG_CAMPANA_NACIONAL,
+  UMBRAL_IMPULSO,
+} from '@v2/shared';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
@@ -162,14 +168,25 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])(
       cookieOtra = sesion(d ?? 0);
       process.env['ADMIN_USERNAMES'] = marcaAdmin;
       resetConfig();
-      // La campaña abierta que recibe los aportes: hace de la nacional en esta base.
-      const creada = await enviar(cookieAdmin, '/api/v1/campanas', {
-        idLocal: randomUUID(),
-        contrato: { ...contrato, titulo: 'La campaña abierta de esta prueba' },
-      });
-      abierta = { id: creada.body.data.id as string, revision: 1 };
-      await cambiar(cookieAdmin, abierta.id, 'abierta', 'Abrimos la campaña de la prueba.');
-      abierta.revision = (await estado(abierta.id)).revision;
+      // Los aportes que traen gente tienen que entrar en Mi Argentina ideal: se usa la
+      // nacional de la base si está, y si no se crea a nombre de la administración de la
+      // prueba, que `limpiarFixturesIdeales` borra con sus campañas.
+      const previa = await getDb().execute<{ id: string; revision: number; estado: string }>(
+        sql`select id, revision, estado from campanas where slug = ${SLUG_CAMPANA_NACIONAL}`,
+      );
+      const existente = previa.rows[0];
+      if (existente && existente.estado !== 'abierta')
+        throw new Error('La campaña nacional de la base de prueba existe y no está abierta.');
+      const nacional =
+        existente ??
+        (
+          await getDb().execute<{ id: string; revision: number }>(sql`
+            insert into campanas (slug, creador_id, id_local, estado, contrato)
+            values (${SLUG_CAMPANA_NACIONAL}, ${admin}, ${randomUUID()}::uuid, 'abierta',
+              ${JSON.stringify({ ...contrato, titulo: 'Mi Argentina ideal' })}::jsonb)
+            returning id, revision`)
+        ).rows[0];
+      abierta = { id: nacional?.id ?? '', revision: nacional?.revision ?? 1 };
     });
 
     afterAll(async () => {

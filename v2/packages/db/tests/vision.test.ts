@@ -54,7 +54,9 @@ const contrato = {
   usoDatos: 'Los datos de esta prueba se borran cuando termina la corrida.',
   metodoLectura: 'Se lee con las reglas de la spec y se compara con lo esperado.',
   institucion: '',
-  fases: [{ nombre: 'Recibe aportes', salida: 'Se reciben aportes de prueba.', fecha: '2099-02-28' }],
+  fases: [
+    { nombre: 'Recibe aportes', salida: 'Se reciben aportes de prueba.', fecha: '2099-02-28' },
+  ],
 };
 
 viva('VisionRepository', () => {
@@ -179,7 +181,12 @@ viva('VisionRepository', () => {
     expect(d.provincias).toHaveLength(24);
     expect(d.temas).toHaveLength(13);
     expect(d.temas[0]).toEqual({ clave: 'alimento', etiqueta: 'Alimento' });
-    expect(d.propia).toEqual({ regionDeOpinion: null, isoDeAporte: null, tuyo: null, opiniones: [] });
+    expect(d.propia).toEqual({
+      regionDeOpinion: null,
+      isoDeAporte: null,
+      tuyo: null,
+      opiniones: [],
+    });
   });
 
   describe('con aportes y opiniones', () => {
@@ -276,6 +283,8 @@ viva('VisionRepository', () => {
       expect(deLaAutora.propia.tuyo).toEqual({
         id: elegible.id,
         texto: `Que un turno con el médico no tarde tres meses ${marca}`,
+        provincia: 'Mendoza',
+        tema: { clave: 'salud', etiqueta: 'Salud' },
         opiniones: 14,
         acuerdos: 12,
         pasos: 1,

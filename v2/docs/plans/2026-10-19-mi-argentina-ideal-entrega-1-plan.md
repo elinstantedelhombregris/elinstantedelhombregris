@@ -56,7 +56,7 @@
 
 ## Tareas
 
-### 1. [ ] Una sola pregunta para la campaña (cierra D-134)
+### 1. [x] Una sola pregunta para la campaña (cierra D-134)
 
 `packages/shared/src/participacion/campanas.ts`:
 
@@ -74,7 +74,7 @@ export const PREGUNTA_MI_ARGENTINA_IDEAL = 'En tu Argentina ideal, ¿qué sería
 - Prueba: en `packages/db` se afirma que `contratoNacional().pregunta === PREGUNTA_MI_ARGENTINA_IDEAL`.
 - Commit: `fix(participacion): una sola pregunta para Mi Argentina ideal`.
 
-### 2. [ ] Regiones, tanda y duelos, en `civic-core`
+### 2. [x] Regiones, tanda y duelos, en `civic-core`
 
 Es módulo puro: sin red, sin disco, sin reloj.
 
@@ -151,7 +151,7 @@ Pruebas en `__tests__/regiones.test.ts`, `__tests__/tanda.test.ts` y `__tests__/
 
 Commit: `feat(civic-core): regiones, armado de la tanda y duelos`.
 
-### 3. [ ] La línea, las puntas, el tema sugerido y el filtro, en `@v2/shared`
+### 3. [x] La línea, las puntas, el tema sugerido y el filtro, en `@v2/shared`
 
 `packages/shared/src/participacion/pila.ts`:
 - `LARGO_LINEA = 140`, `UMBRAL_REPORTES = 13` y `RESPUESTAS_PARA_REPORTAR = 5`.
@@ -185,7 +185,7 @@ Pruebas:
 
 Commit: `feat(shared): línea, puntas, tema sugerido, filtro de datos personales y contratos de la pila`.
 
-### 4. [ ] Migración `0040_la_pila` y esquema
+### 4. [x] Migración `0040_la_pila` y esquema
 
 `packages/db/src/schema/pila.ts` va en archivo nuevo, de no más de 300 líneas, y se exporta en el barrel. Después:
 
@@ -269,7 +269,7 @@ Prueba en `packages/db/tests/migracion-0040.test.ts`, sobre la base descartable:
 
 Commit: `feat(db): migración 0040 — respuestas, duelos, reportes y decisiones de la pila`.
 
-### 5. [ ] `PilaRepository`
+### 5. [x] `PilaRepository`
 
 Va en `packages/db/src/repositories/pila.ts`. Si pasa de 400 líneas, se parte en `pila.ts` (tanda y opiniones) y `pila-gestion.ts` (reportes y decisiones). Devuelve filas tipadas.
 
@@ -348,7 +348,7 @@ const elegible = (campanaId: string) => sql`
 
 Commit: `feat(db): repositorio de la pila`.
 
-### 6. [ ] API de Mirar
+### 6. [x] API de Mirar
 
 Va en `apps/api/src/features/pila/{routes,service,types}.ts` y se monta en `app.ts` como `app.use('/api/v1/pila', pilaRouter)`, después de `csrfProtect`.
 
@@ -402,7 +402,7 @@ Los reportes además van con `anonSubmitRateLimit()`.
 
 Commit: `feat(api): tandas, opiniones, duelos y reportes de Mirar`.
 
-### 7. [ ] Gestión de Mirar (sólo admin)
+### 7. [x] Gestión de Mirar (sólo admin)
 
 `apps/api/src/features/pila/gestion-routes.ts`, montado en `/api/v1/gestion/pila` con `authenticate` y `exigirAdmin`:
 
@@ -419,7 +419,7 @@ Pruebas:
 
 Commit: `feat(api): retener y devolver aportes de Mirar`.
 
-### 8. [ ] Contribuciones: filtro, texto protegido y retención visible
+### 8. [x] Contribuciones: filtro, texto protegido y retención visible
 
 - **Filtro.** En `POST /api/v1/contribuciones`, cuando `claseDe(v.senal.tipo) === 'deseo'`, se corre `buscarDatosPersonales` sobre `senal.texto` y cada `fragmentos[].respuesta`.
   - Si encuentra algo, responde 422 `DATOS_PERSONALES` con `{ hallazgos: [{ tipo }] }` y el mensaje «Tu aporte tiene lo que parece un {teléfono|mail|DNI}. Sacalo antes de publicar: el aporte se ve en público.».
@@ -435,7 +435,7 @@ Pruebas, sumadas a `apps/api/tests/participacion-ideal.test.ts`:
 
 Commit: `feat(api): filtro de datos personales y aportes contestados protegidos`.
 
-### 9. [ ] Web: rutas, consultas y la puerta de entrada
+### 9. [x] Web: rutas, consultas y la puerta de entrada
 
 **Rutas.**
 - En `app-routes.tsx` van `/mi-argentina-ideal/imaginar` y `/mi-argentina-ideal/mirar`.
@@ -462,7 +462,7 @@ Commit: `feat(api): filtro de datos personales y aportes contestados protegidos`
 
 Commit: `feat(web): rutas de Mi Argentina ideal y puerta de Imaginar`.
 
-### 10. [ ] Web: piezas comunes
+### 10. [x] Web: piezas comunes
 
 En `pages/MiArgentinaIdeal/comun/`:
 
@@ -487,7 +487,7 @@ Pruebas:
 
 Commit: `feat(web): papelito, sellos e imagen para compartir`.
 
-### 11. [ ] Web: Imaginar en tres pantallas
+### 11. [x] Web: Imaginar en tres pantallas
 
 > **Compuerta.** Antes de esta tarea: la prueba con cinco personas de la spec §10, con el prototipo, y lo que salga corregido en el prototipo y en este plan. También el visto bueno del dueño sobre P1.
 
@@ -532,7 +532,7 @@ Pruebas en `pages/MiArgentinaIdeal/__tests__/imaginar.test.tsx`:
 
 Commit: `feat(web): Imaginar en tres pantallas`.
 
-### 12. [ ] Web: Mirar
+### 12. [x] Web: Mirar
 
 `pages/MiArgentinaIdeal/Mirar.tsx` es la página, de no más de 300 líneas. Pide la tanda al montar. Si `preguntarProvincia`, muestra antes `PreguntaProvincia`. Después muestra los papelitos de a uno e intercala los duelos según `LUGARES_DE_DUELO` y `proximoDuelo`. Las secciones van en `pages/MiArgentinaIdeal/mirar/`:
 
@@ -581,7 +581,7 @@ Pruebas en `pages/MiArgentinaIdeal/__tests__/mirar.test.tsx`:
 
 Commit: `feat(web): Mirar`.
 
-### 13. [ ] Web: gestión, Mi espacio y la página del aporte
+### 13. [x] Web: gestión, Mi espacio y la página del aporte
 
 - **`pages/GestionPila.tsx`** en `/gestion/pila`, sólo para admin; el resto ve el mismo mensaje que `/gestion/campanas`.
   - Lista paginada con texto, provincia, motivos con conteo, reportes que no cuentan, estado y última decisión.
@@ -594,7 +594,7 @@ Pruebas de componente para las tres.
 
 Commit: `feat(web): gestión de Mirar y una sola forma de opinar sobre un deseo`.
 
-### 14. [ ] Copy, guardias y documentos
+### 14. [x] Copy, guardias y documentos
 
 - **Glosario.** Se corre la prueba de `scripts/content/glosario.ts`. Las pantallas nuevas dicen «aporte», nunca «voz», «mirada» o «señal». «Línea», «papelito» y «pila» no aparecen en pantalla. La línea de base no puede subir.
 - **`docs/DEUDAS.md`.**
@@ -606,7 +606,7 @@ Commit: `feat(web): gestión de Mirar y una sola forma de opinar sobre un deseo`
   - cómo imprimir el cartel con QR para el lanzamiento en persona.
 - Commit: `docs(participacion): entrega 1 de Mi Argentina ideal`.
 
-### 15. [ ] Recorrido de punta a punta en el navegador
+### 15. [x] Recorrido de punta a punta en el navegador
 
 `tests/e2e/mi-argentina-ideal.spec.ts` (Playwright), con la API interceptada como en `recorrido-escuela.spec.ts`:
 
@@ -626,7 +626,7 @@ Commit: `feat(web): gestión de Mirar y una sola forma de opinar sobre un deseo`
 
 Commit: `test(e2e): Imaginar y Mirar`.
 
-### 16. [ ] Verificación y cierre
+### 16. [x] Verificación y cierre
 
 - `pnpm lint`, `pnpm type-check`, `pnpm test:unit`, `pnpm test:scripts`, `PUERTO_PRUEBA=55470 pnpm test:integration:local`, `pnpm test:e2e` (proyectos de teléfono y escritorio) y `pnpm build`.
 - Revisión en el navegador contra la API local con base descartable, nunca con `v2/.env`:
@@ -653,3 +653,4 @@ Commit: `test(e2e): Imaginar y Mirar`.
 ## Registro
 
 - 2026-10-19 — Plan escrito y revisado el mismo día (revisión 2: duelos, prioridad por región, reportes con historia, imagen para compartir, una sola forma de opinar sobre un deseo, rutas con el nombre de los momentos, tipografía de Papel y Tinta). Falta el visto bueno sobre P1 y la prueba con cinco personas antes de las tareas 11 y 12.
+- 2026-10-20 — Las dieciséis tareas, hechas en ocho frentes e integradas en `codex/argentina-ideal`, junto con el paso previo para proponer campañas (spec §11). Al integrar se cerraron D-133, D-134, D-136, D-137 y D-140, y se mitigó D-138. Verificación: lint, tipos, unitarias (web 1.781, civic-core 519, shared 216, api 53, db 70), scripts (261), integración completa contra Postgres descartable, `mi-argentina-ideal.spec.ts` (390 px con gestos, 1440 px con teclado, Mirar vacío) y build. La revisión en el navegador encontró que la hoja del aporte perdía el foco al abrir el reporte y Escape dejaba de cerrarla; quedó arreglada con su prueba. **Sigue pendiente:** el visto bueno sobre P1 y la prueba con cinco personas, que la sección de producción pide antes de abrir.

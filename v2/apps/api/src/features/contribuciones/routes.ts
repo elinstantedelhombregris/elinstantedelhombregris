@@ -15,7 +15,7 @@ import { z } from 'zod';
 import { getConfig } from '../../lib/config.js';
 import { optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
-import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
+import { aportarRateLimit } from '../../middleware/rate-limit.js';
 import { acreditarParticipacion } from '../impulso/acreditar.js';
 import { actorDelNavegador, ponerCookieDeActor, resolverActor } from '../senales/actor.js';
 import { ingerirSenal } from '../senales/service.js';
@@ -72,7 +72,7 @@ function frenarDatosPersonales(v: ContribucionInput): void {
     { hallazgos: hallazgos.map((h) => ({ tipo: h.tipo })) },
   );
 }
-router.post('/', anonSubmitRateLimit(), async (req, res, next) => {
+router.post('/', aportarRateLimit(), async (req, res, next) => {
   try {
     const v = contribucionSchema.parse(req.body);
     frenarDatosPersonales(v);

@@ -16,7 +16,11 @@ const contrato = {
 } as unknown as ContratoCampana;
 const campana: CampanaDeVision = { id: 'c1', slug: 'mi-argentina-ideal', edicion: 1, contrato };
 
-const provincias = PROVINCIAS_CANONICAS.map((p, i) => ({ id: i + 1, nombre: p.name, iso: p.isoCode }));
+const provincias = PROVINCIAS_CANONICAS.map((p, i) => ({
+  id: i + 1,
+  nombre: p.name,
+  iso: p.isoCode,
+}));
 const idDe = (iso: string) => provincias.find((p) => p.iso === iso)?.id ?? 0;
 const temas = [
   { clave: 'salud', etiqueta: 'Salud' },
@@ -162,7 +166,15 @@ describe('armarVision', () => {
   });
 
   it('pone la opinión propia, lo tuyo y la región de quien mira', () => {
-    const tuyo = { id: 'mio', texto: 'Lo mío', opiniones: 3, acuerdos: 2, pasos: 1 };
+    const tuyo = {
+      provincia: 'Mendoza',
+      tema: null,
+      id: 'mio',
+      texto: 'Lo mío',
+      opiniones: 3,
+      acuerdos: 2,
+      pasos: 1,
+    };
     const v = armarVision(
       campana,
       datos({

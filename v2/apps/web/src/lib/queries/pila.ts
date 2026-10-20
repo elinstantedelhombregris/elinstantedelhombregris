@@ -224,6 +224,8 @@ export function useOpinar() {
   return {
     opinar: (o: OpinionPendiente) => {
       marcarOpinion(qc, o.id, o.valor);
+      // Ver se arma con estas opiniones: la próxima vez que se mire, se pide de nuevo.
+      void qc.invalidateQueries({ queryKey: ['vision'] });
       return cola.opinar(o);
     },
     reintentar: cola.reintentar,
@@ -236,10 +238,12 @@ export function useOpinar() {
 
 /** ¿Cuál va primero? El servidor responde 204. */
 export function useComparar() {
+  const qc = useQueryClient();
   return useMutation({
     mutationFn: async (duelo: DueloInput) => {
       await sinCuerpo(escribir<unknown>('put', '/api/v1/pila/duelos', duelo));
     },
+    onSuccess: () => void qc.invalidateQueries({ queryKey: ['vision'] }),
   });
 }
 

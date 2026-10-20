@@ -13,6 +13,9 @@ export function generalRateLimit(): RequestHandler {
   return rateLimit({
     windowMs: config.rateLimit.windowMs,
     max: config.rateLimit.maxRequests,
+    // Mirar tiene su propio techo y el freno por persona en la base: si contara acá, un
+    // aula entera detrás de una IP agotaría el genérico en un minuto (D-138).
+    skip: (req: Request) => req.originalUrl.startsWith('/api/v1/pila/'),
     standardHeaders: 'draft-7',
     legacyHeaders: false,
     message: {
@@ -128,17 +131,17 @@ export function dejarFaltaRateLimit(): RequestHandler {
 }
 
 /**
- * Mirar (`/api/v1/pila`): 1.000 pedidos por hora por IP.
+ * Mirar (`/api/v1/pila`): `PILA_POR_HORA` pedidos por hora por IP (6.000 si no se dice).
  *
  * Alto a propósito: una escuela entera sale por una sola IP, y el lanzamiento en
  * persona (D1) no puede chocar con eso. El techo real es por persona y lo cuenta
- * el servicio en la base (`features/pila/service.ts`). Se apila sobre el
- * genérico, no lo reemplaza.
+ * el servicio en la base (`features/pila/service.ts`). Reemplaza al genérico, que
+ * saltea esta ruta (D-138).
  */
 export function pilaRateLimit(): RequestHandler {
   return rateLimit({
     windowMs: 60 * 60 * 1000,
-    max: 1000,
+    max: getConfig().rateLimit.pilaPorHora,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
     message: {
@@ -163,5 +166,29 @@ export function twoFactorVerifyRateLimit(): RequestHandler {
       return `${req.ip ?? 'unknown'}::${ticket}`;
     },
     message: SPANISH_LIMITED,
+  });
+}
+
+/**
+ * Publicar un aporte desde Imaginar: `APORTES_POR_HORA` por hora por IP (150 si no se dice).
+ *
+ * El genérico de envíos anónimos (30 por hora) es para formularios sueltos; un aula de treinta
+ * que publica junta lo agotaría. Con el filtro de datos personales, los 13 reportes y la
+ * retención de la coordinación, un aporte de más se saca; una persona que no pudo publicar,
+ * no vuelve (D-138).
+ */
+export function aportarRateLimit(): RequestHandler {
+  return rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: getConfig().rateLimit.aportesPorHora,
+    standardHeaders: 'draft-7',
+    legacyHeaders: false,
+    message: {
+      error: {
+        code: 'RATE_LIMITED',
+        message:
+          'Desde esta conexión se publicaron muchos aportes en esta hora. Guardá tu texto y probá en un rato.',
+      },
+    },
   });
 }

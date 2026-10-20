@@ -105,7 +105,7 @@ export function ElPaisQueFalta({
         ))}
       </ul>
       {miRegion === null ? (
-        <EnlaceVer href={MIRAR_HREF}>
+        <EnlaceVer href={`${MIRAR_HREF}?provincia=elegir`}>
           Contá de qué provincia sos en Mirar, para ver dónde falta tu respuesta →
         </EnlaceVer>
       ) : null}

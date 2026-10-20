@@ -120,7 +120,15 @@ export async function opinar(
 ): Promise<{ resultado: ResultadoOpinion; respuestasDelActor: number }> {
   const repo = new PilaRepository(getDb());
   let region: Region | null = null;
-  if (provinciaId !== null) {
+  if (provinciaId === null) {
+    // Desde la página de un aporte no se pregunta la provincia: se usa la que ya se sabe,
+    // para que la opinión siga contando para su región.
+    const conocida = await repo.provinciaConocida(quien.actorId, quien.userId);
+    if (conocida) {
+      provinciaId = conocida.id;
+      region = regionDe(conocida.iso);
+    }
+  } else {
     const provincia = await repo.provincia(provinciaId);
     if (!provincia)
       throw new HttpError(

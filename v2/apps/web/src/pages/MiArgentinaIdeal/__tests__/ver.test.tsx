@@ -112,6 +112,8 @@ function conDatos(): VisionCampana {
     tuyo: {
       id: TUYO,
       texto: 'Que mi hija pueda estudiar sin irse',
+      provincia: 'Salta',
+      tema: { clave: 'educación', etiqueta: 'Educación' },
       opiniones: 41,
       acuerdos: 29,
       pasos: 5,
@@ -302,7 +304,7 @@ describe('Ver: la visión con datos', () => {
     expect(screen.queryByRole('link', { name: /^Completar los/ })).not.toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: /Contá de qué provincia sos en Mirar/ }),
-    ).toHaveAttribute('href', '/mi-argentina-ideal/mirar');
+    ).toHaveAttribute('href', '/mi-argentina-ideal/mirar?provincia=elegir');
   });
 
   it('cada aporte que nos une ofrece el paso siguiente', async () => {

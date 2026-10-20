@@ -348,6 +348,15 @@ describe('contra el docs/DEUDAS.md real', () => {
       'D-101',
       'D-104', // La limpieza de pruebas conserva datos ajenos y elimina sus propios procesos públicos.
       'D-130', // Membresías atómicas, contadores conciliados y errores visibles en iniciativas.
+      // Cerradas el 20/10/2026 al integrar Mi Argentina ideal: el enlace a una
+      // síntesis que no existía, las tres preguntas de la campaña nacional, la
+      // lectura asistida que mandaba texto afuera, la adhesión sobre un aporte
+      // retirado o propio y la regla de qué aportes entran escrita dos veces.
+      'D-133',
+      'D-134',
+      'D-136',
+      'D-137',
+      'D-140',
     ]);
   });
 });

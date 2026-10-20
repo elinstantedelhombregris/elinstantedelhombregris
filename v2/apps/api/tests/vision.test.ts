@@ -263,8 +263,14 @@ dsuite('Ver y aportes parecidos', () => {
       let parte = { id: '', galleta: '' };
 
       beforeAll(async () => {
-        une = await publicar({ texto: `Que un turno con el médico no tarde meses ${token}`, en: campana });
-        parte = await publicar({ texto: `Que se pueda alquilar sin garante ${token}`, en: campana });
+        une = await publicar({
+          texto: `Que un turno con el médico no tarde meses ${token}`,
+          en: campana,
+        });
+        parte = await publicar({
+          texto: `Que se pueda alquilar sin garante ${token}`,
+          en: campana,
+        });
         // «une»: 9 de cada 10 en el NOA y en Buenos Aires, más quince pasos.
         await opinar(une.id, 'AR-A', 10, { si: 9 });
         await opinar(une.id, 'AR-B', 10, { si: 9 });
@@ -333,6 +339,9 @@ dsuite('Ver y aportes parecidos', () => {
         expect(deUne.tuyo).toEqual({
           id: une.id,
           texto: `Que un turno con el médico no tarde meses ${token}`,
+          // Publicó sin provincia; el tema lo eligió.
+          provincia: null,
+          tema: { clave: 'salud', etiqueta: 'Salud' },
           opiniones: 21,
           acuerdos: 19,
           pasos: 15,

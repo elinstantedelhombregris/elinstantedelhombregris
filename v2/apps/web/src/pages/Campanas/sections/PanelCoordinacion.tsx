@@ -8,6 +8,9 @@ import type { CampanaPublica } from '@v2/shared';
 import { EnlaceAccion } from '~/components/participacion/Elementos';
 import { Equipo } from '~/components/participacion/Equipo';
 
+/** Las etapas en que quien impulsa una campaña, sin ser de la administración, la coordina. */
+const ETAPAS_DE_QUIEN_COORDINA = new Set(['abierta', 'pausada', 'en_devolucion']);
+
 /**
  * Lo que solo ve quien coordina: abrir otra campaña desde esta, revisar las reglas, cambiar de
  * etapa e invitar al equipo. Que se oculte a los demás es cosmético: el servidor decide.
@@ -44,7 +47,12 @@ export function PanelCoordinacion({
           </EnlaceAccion>
         </div>
       ) : null}
-      {esAdmin && c.puedoEditar && !historica ? <GestionFase campana={c} /> : null}
+      {!historica &&
+      (esAdmin
+        ? c.puedoEditar
+        : c.impulsadaPorMi === true && ETAPAS_DE_QUIEN_COORDINA.has(c.estado)) ? (
+        <GestionFase campana={c} esAdmin={esAdmin} />
+      ) : null}
       {c.puedoInvitar && !historica ? <Equipo tipo="campana" objeto={c.id} /> : null}
     </aside>
   );

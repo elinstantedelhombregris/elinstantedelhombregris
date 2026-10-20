@@ -48,6 +48,13 @@ const ConfigSchema = z.object({
     windowMs: z.coerce.number().int().positive().default(60_000),
     maxRequests: z.coerce.number().int().positive().default(120),
     /**
+     * Mirar (`/api/v1/pila`) y los aportes de Imaginar, por hora y por IP. Un aula o un club
+     * salen a internet por una sola conexión (lanzamiento en persona, D1; D-138): estos dos
+     * techos son altos a propósito, y el freno real es por persona y se cuenta en la base.
+     */
+    pilaPorHora: z.coerce.number().int().positive().default(6000),
+    aportesPorHora: z.coerce.number().int().positive().default(150),
+    /**
      * Cuántas faltas por hora y por IP acepta `/lo-que-falta`
      * (`docs/specs/2026-08-12-lo-que-falta.md` §2.6, freno 1).
      *
@@ -124,6 +131,8 @@ export function getConfig(): Config {
     rateLimit: {
       windowMs: process.env.RATE_LIMIT_WINDOW_MS,
       maxRequests: process.env.RATE_LIMIT_MAX_REQUESTS,
+      pilaPorHora: process.env.PILA_POR_HORA,
+      aportesPorHora: process.env.APORTES_POR_HORA,
       faltasPorHora: process.env.FALTAS_POR_HORA,
     },
     log: {

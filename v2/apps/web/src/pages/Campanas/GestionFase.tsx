@@ -1,3 +1,4 @@
+import { PASOS_DE_QUIEN_IMPULSA } from '@v2/shared';
 import { useState } from 'react';
 
 import type { CampanaPublica, EstadoCampana } from '@v2/shared';
@@ -9,9 +10,23 @@ import { useEstadoCampana } from '~/lib/queries/participacion';
 
 const MOTIVO_MINIMO = 10;
 
-/** Cambiar la campaña de etapa: solo los pasos que el recorrido permite desde donde está. */
-export function GestionFase({ campana }: { campana: CampanaPublica }) {
-  const pasos = PASOS_CAMPANA[campana.estado];
+/**
+ * Cambiar la campaña de etapa: solo los pasos que el recorrido permite desde donde está, y
+ * de esos, los que puede dar quien mira. Quien impulsa una campaña sin ser de la
+ * administración la coordina una vez abierta, pero nunca la abre ni la programa (§11).
+ */
+export function GestionFase({
+  campana,
+  esAdmin = true,
+}: {
+  campana: CampanaPublica;
+  esAdmin?: boolean;
+}) {
+  const pasos = esAdmin
+    ? PASOS_CAMPANA[campana.estado]
+    : (PASOS_DE_QUIEN_IMPULSA[campana.estado] ?? []).filter(
+        (p) => p !== 'reuniendo' && p !== 'borrador',
+      );
   const [elegido, setElegido] = useState<EstadoCampana | null>(null);
   const [motivo, setMotivo] = useState('');
   const [hecho, setHecho] = useState('');

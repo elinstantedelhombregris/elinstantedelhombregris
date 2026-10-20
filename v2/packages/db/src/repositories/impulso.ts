@@ -9,7 +9,7 @@
  * Cuenta para una sola campaña: la primera que la trajo (`actor_id` es la clave).
  * Un aporte retirado o retenido deja de contar.
  */
-import { UMBRAL_IMPULSO, type ContratoCampana } from '@v2/shared';
+import { SLUG_CAMPANA_NACIONAL, UMBRAL_IMPULSO, type ContratoCampana } from '@v2/shared';
 import { sql } from 'drizzle-orm';
 
 import { campanaEdiciones, campanas } from '../schema/campanas.js';
@@ -71,6 +71,9 @@ export class ImpulsoRepository {
           and c.creador_id is distinct from ${e.userId}::int
           and (
             (${e.como} = 'aporte'
+              -- El paso previo alimenta la visión del país: cuenta el aporte en Mi Argentina ideal.
+              and exists (select 1 from contribuciones ct join ${campanas} k on k.id = ct.campana_id
+                where ct.senal_id = ${e.senalIdPublico}::uuid and k.slug = ${SLUG_CAMPANA_NACIONAL})
               and (select count(*) from ${senales} where actor_id = ${e.actorId}) = 1
               and (select count(*) from pila_respuestas where actor_id = ${e.actorId} and valor is not null) < 5)
             or (${e.como} = 'opiniones'

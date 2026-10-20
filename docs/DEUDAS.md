@@ -144,12 +144,19 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-130](#d-130--la-membresía-de-iniciativas-necesita-contadores-atómicos-y-errores-visibles) | La membresía de iniciativas necesita contadores atómicos y errores visibles | Media | Resuelta en código; despliegue pendiente |
 | [D-131](#d-131--la-geografía-publicada-contiene-polígonos-inválidos-y-diferencias-entre-capas) | La geografía publicada contiene polígonos inválidos y diferencias entre capas | Alta | Abierta |
 | [D-132](#d-132--la-siembra-de-áreas-de-vida-falla-al-repetirse) | La siembra de áreas de vida falla al repetirse | Baja | Abierta |
-| [D-133](#d-133--el-enlace-para-preparar-una-síntesis-sin-sesión-lleva-a-una-página-que-no-existe) | El enlace para preparar una síntesis sin sesión lleva a una página que no existe | Baja | Abierta |
-| [D-134](#d-134--la-campaña-nacional-hace-tres-preguntas-distintas) | La campaña nacional hace tres preguntas distintas | Media | Abierta |
+| [D-133](#d-133--el-enlace-para-preparar-una-síntesis-sin-sesión-lleva-a-una-página-que-no-existe) | El enlace para preparar una síntesis sin sesión lleva a una página que no existe | Baja | **Resuelta** |
+| [D-134](#d-134--la-campaña-nacional-hace-tres-preguntas-distintas) | La campaña nacional hace tres preguntas distintas | Media | **Resuelta** |
 | [D-135](#d-135--el-mandato-vivo-no-tiene-entrada-desde-el-menú) | El mandato vivo no tiene entrada desde el menú | Media | Abierta |
-| [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Resuelta en código (API); la web la borra en la entrega 3 |
+| [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | **Resuelta** |
 | [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Resuelta en código |
-| [D-138](#d-138--los-límites-por-ip-pueden-frenar-a-un-aula-entera-en-mirar) | Los límites por IP pueden frenar a un aula entera en Mirar | Media | Abierta |
+| [D-138](#d-138--los-límites-por-ip-pueden-frenar-a-un-aula-entera-en-mirar) | Los límites por IP pueden frenar a un aula entera en Mirar | Media | Mitigada |
+| [D-139](#d-139--ver-deja-deducir-por-diferencia-cuántas-personas-hay-en-una-provincia-suprimida) | Ver deja deducir por diferencia cuántas personas hay en una provincia suprimida | Media | Abierta |
+| [D-140](#d-140--la-regla-de-qué-aportes-entran-en-mirar-y-en-ver-está-escrita-dos-veces) | La regla de qué aportes entran en Mirar y en Ver está escrita dos veces | Media | **Resuelta** |
+| [D-141](#d-141--pnpm-testintegrationlocal----filtro-corre-la-suite-entera) | `pnpm test:integration:local -- <filtro>` corre la suite entera | Baja | Abierta |
+| [D-142](#d-142--bordes-de-las-campañas-propuestas) | Bordes de las campañas propuestas | Media | Abierta |
+| [D-143](#d-143--el-cliente-de-la-api-de-la-web-no-acepta-respuestas-sin-cuerpo) | El cliente de la API de la web no acepta respuestas sin cuerpo | Baja | Abierta |
+| [D-144](#d-144--los-duelos-de-mirar-sólo-comparan-aportes-vistos-en-la-misma-visita) | Los duelos de Mirar sólo comparan aportes vistos en la misma visita | Baja | Abierta |
+| [D-145](#d-145--el-aviso-de-un-aporte-retenido-por-reportes-no-se-repite) | El aviso de un aporte retenido por reportes no se repite | Baja | Abierta |
 
 ---
 
@@ -2252,18 +2259,22 @@ El arranque escolar ahora ejecuta sólo las migraciones y el catálogo de provin
 **Dónde:** `v2/apps/web/src/pages/SintesisNacional.tsx:127`.
 **Encontrada:** 2026-10-19, al relevar las páginas que rodean al mapa.
 **Severidad:** baja.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-10-20**.
 
 Sin sesión, «Preparar una edición» apunta a `/login?redirect=/sintesis-nacional/nueva`. En v2 no hay ruta `/login`: el ingreso es `/ingresar`. La persona cae en la página de no encontrado y pierde el destino. Pendiente: usar la ruta de ingreso con el mismo parámetro de retorno que usan las otras páginas, y una prueba que falle si un enlace interno apunta a una ruta que no está registrada.
+
+**Cómo se cerró:** el enlace usa `hrefIngresar('/sintesis-nacional/nueva')`, el mismo contrato de ingreso con regreso que el resto del sitio.
 
 ### D-134 · La campaña nacional hace tres preguntas distintas
 
 **Dónde:** la portada (`Home/sections`), las reglas sembradas en `v2/packages/db/scripts/campana-nacional/contrato.ts` y la portada del mapa cuando se entra a aportar (`ElMapa/sections/PortadaMapa.tsx`).
 **Encontrada:** 2026-10-19, al relevar el recorrido de Mi Argentina ideal.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-10-20**.
 
 La portada pregunta «En tu Argentina ideal, ¿qué sería posible en tu vida?». Las reglas de la campaña preguntan «Si la Argentina funcionara como vos la imaginás, ¿qué te gustaría que fuera posible en tu vida de todos los días?». La portada del mapa dice «Contá qué futuro querés, qué lo impide y qué podrías aportar». Son tres invitaciones distintas para la misma campaña, y la tercera pide algo que las otras dos no piden. Pendiente: una sola pregunta, definida en un solo lugar de `@v2/shared` y leída por las tres superficies. La propuesta `v2/docs/specs/2026-10-19-mi-argentina-ideal-la-pila.md` la toma como parte del rediseño.
+
+**Cómo se cerró:** `PREGUNTA_MI_ARGENTINA_IDEAL` en `@v2/shared` es la única pregunta. La leen la portada (que ahora tiene el campo para escribir), las reglas sembradas de la campaña (`contrato.ts`, con prueba) e Imaginar; la portada del mapa dejó de hacer una tercera.
 
 ### D-135 · El mandato vivo no tiene entrada desde el menú
 
@@ -2279,7 +2290,7 @@ La portada pregunta «En tu Argentina ideal, ¿qué sería posible en tu vida?»
 **Dónde:** `v2/apps/api/src/features/contribuciones/routes.ts` (`POST /api/v1/contribuciones/interpretar`), `interpretacion.ts`, y en la web `pages/Imaginar/Asistencia.tsx`.
 **Encontrada:** 2026-10-19, al relevar el modelo de datos de los aportes.
 **Severidad:** alta.
-**Estado:** resuelta en código (API), 2026-10-20; la web borra su parte en la entrega 3.
+**Estado:** ~~abierta~~ → **resuelta 2026-10-20**: la API ya no tiene `/interpretar` y la web borró la lectura asistida junto con el panel guiado del mapa.
 
 Cuando la persona marca la casilla de consentimiento, el borrador de su aporte viaja entero al proveedor que elija `getAICompleter()`, que es Groq cuando está `GROQ_API_KEY`. La ADR 0009 (D2) dice que el texto que escribe la gente no sale de nuestra infraestructura y nombra una sola excepción, el asistente de coaching. Esta segunda salida no está nombrada en la ADR ni decidida por el dueño. Que la persona consienta no la cubre: la regla es del proyecto, no de cada aporte. Además, la fábrica de proveedores no tiene ninguna guarda que impida usar un proveedor externo para texto de aportes. Pendiente: o sacar la lectura asistida, o moverla a un proveedor local detrás de la misma interfaz, o que el dueño la agregue como excepción con una ADR. La propuesta `v2/docs/specs/2026-10-19-mi-argentina-ideal-la-pila.md` deja la lectura asistida afuera del recorrido nuevo.
 
@@ -2301,6 +2312,73 @@ Cuando la persona marca la casilla de consentimiento, el borrador de su aporte v
 **Dónde:** `v2/apps/api/src/middleware/rate-limit.ts`: `generalRateLimit` (120 pedidos por minuto por IP en todo `/api`) y `pilaRateLimit` (1.000 por hora por IP en `/api/v1/pila`).
 **Encontrada:** 2026-10-20, al construir la API de Mirar.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** abierta (mitigada en código el 2026-10-20).
 
 El lanzamiento en persona (D1) pone a un aula o a un club detrás de una sola IP. Treinta personas que contestan un aporte cada tres segundos hacen unos 600 pedidos por minuto, y el límite general responde 429 mucho antes. Una tanda completa son unos catorce pedidos por persona (la tanda, diez opiniones, dos duelos y algún reporte), así que el límite de Mirar alcanza para dos tandas por persona y por hora en un aula de treinta. Los dos viven en la memoria del proceso y cuentan por instancia: en Vercel el corte real depende de cuántas instancias atiendan, y no se puede predecir. Los techos por persona ya se cuentan en la base (300 opiniones y 60 tandas por hora, 30 reportes por día). Pendiente: decidir con el dueño si en Mirar la IP deja de ser la unidad —por ejemplo, sacar `/api/v1/pila` del límite general y subir el propio, para que manden los techos por persona— y probarlo con la carga de un aula antes del lanzamiento.
+
+**Mitigación del 20/10:** el límite general ya no cuenta `/api/v1/pila/`; Mirar tiene su propio techo por IP de 6.000 pedidos por hora (`PILA_POR_HORA`) y publicar un aporte tiene el suyo, de 150 por hora (`APORTES_POR_HORA`), en vez de los 30 de los envíos anónimos. Los dos se cambian por variable de entorno, sin tocar código. Sigue pendiente: la carga de páginas pasa por el límite general (`RATE_LIMIT_MAX_REQUESTS`, 120 por minuto), que para un encuentro grande conviene subir antes, y una prueba de carga con un aula real antes del lanzamiento.
+
+### D-139 · Ver deja deducir por diferencia cuántas personas hay en una provincia suprimida
+
+**Dónde:** `v2/apps/api/src/features/vision/service.ts` (supresión de personas por provincia y por región).
+**Encontrada:** 2026-10-20, al integrar el rediseño de Mi Argentina ideal.
+**Severidad:** media.
+**Estado:** abierta.
+
+Ver muestra `null` para una provincia con menos de cinco personas, pero muestra el total de su región cuando llega a cinco. Restando el total de la región menos las provincias visibles se puede deducir el número exacto de la provincia suprimida, y en un lugar chico ese número puede señalar a alguien (el mismo riesgo que D-088). Pendiente: supresión complementaria, es decir, suprimir también una segunda provincia de la región (o el total) cuando una sola queda oculta, y una prueba que lo afirme.
+
+### D-140 · La regla de qué aportes entran en Mirar y en Ver está escrita dos veces
+
+**Dónde:** `v2/packages/db/src/repositories/_pila.ts` (`elegible`) y `v2/packages/db/src/repositories/vision.ts` (`aporteElegible`).
+**Encontrada:** 2026-10-20, al integrar el rediseño de Mi Argentina ideal.
+**Severidad:** media.
+**Estado:** ~~abierta~~ → **resuelta 2026-10-20**.
+
+Mirar y Ver tienen que leer exactamente los mismos aportes: deseos sin retirar ni retener, con el texto cedido, de hasta 140 letras y con contribución en la campaña. La regla nació en dos frentes que trabajaron en paralelo y quedó escrita dos veces. El día que una cambie y la otra no, Ver va a contar aportes que nadie puede mirar, o al revés. Pendiente: una sola expresión exportada desde `_pila.ts`, usada por los dos repositorios, y una prueba que cree un aporte en el borde (141 letras, sin cesión, retenido) y afirme que ninguno de los dos lo trae.
+
+**Cómo se cerró:** la parte del aporte es una sola expresión, `aporteQueEntra` en `_pila.ts`; Mirar la combina con las campañas que se miran y Ver con la campaña pedida.
+
+### D-141 · `pnpm test:integration:local -- <filtro>` corre la suite entera
+
+**Dónde:** `v2/scripts/test/integracion-local.sh`.
+**Encontrada:** 2026-10-20, al integrar el rediseño de Mi Argentina ideal.
+**Severidad:** baja.
+**Estado:** abierta.
+
+El script pasa sus argumentos a `pnpm test:integration`, que los reparte con `pnpm -r` y no llegan a vitest de cada paquete. El filtro se ignora y corre todo, lo que hace lento iterar sobre una sola suite. Pendiente: pasar el filtro a cada paquete o documentar cómo correr una sola suite contra la base descartable.
+
+### D-142 · Bordes de las campañas propuestas
+
+**Dónde:** `v2/apps/api/src/features/campanas/` y `v2/packages/db/src/repositories/impulso.ts`.
+**Encontrada:** 2026-10-20, al integrar el rediseño de Mi Argentina ideal.
+**Severidad:** media.
+**Estado:** abierta.
+
+Cuatro bordes del paso previo (spec §11), encontrados al construirlo: una campaña devuelta a `reuniendo` que ya tenía 50 personas vuelve sola a revisión en cuanto llega una persona más, sin que nadie la haya corregido; una cuenta puede crear borradores sin tope; dos presentaciones en el mismo instante podrían pasar el chequeo de una sola campaña activa por cuenta (cerrarlo bien pide un índice parcial único, es decir, una migración); y quien impulsa una campaña abierta y edita sus reglas la manda a borrador, desde donde sólo puede volver a presentarla y pasar otra vez por revisión. Pendiente: decidir con el dueño cada uno; el primero y el tercero son los que pueden pasar sin que nadie lo note.
+
+### D-143 · El cliente de la API de la web no acepta respuestas sin cuerpo
+
+**Dónde:** `v2/apps/web/src/lib/api.ts`.
+**Encontrada:** 2026-10-20, al integrar el rediseño de Mi Argentina ideal.
+**Severidad:** baja.
+**Estado:** abierta.
+
+Un 204 o un 202 sin JSON hacen fallar el pedido del lado de la web, aunque el servidor haya hecho lo que se le pidió. Mirar lo esquiva en `lib/queries/pila.ts` y la página de una campaña que junta gente trata el 204 de `/llegada` como un error que ignora. Pendiente: que `api.ts` devuelva `undefined` ante una respuesta sin cuerpo y sacar los dos atajos.
+
+### D-144 · Los duelos de Mirar sólo comparan aportes vistos en la misma visita
+
+**Dónde:** `v2/packages/shared/src/participacion/pila.ts` (`EstadoEnLaPila.acuerdos`) y `v2/apps/web/src/pages/MiArgentinaIdeal/mirar/`.
+**Encontrada:** 2026-10-20, al integrar el rediseño de Mi Argentina ideal.
+**Severidad:** baja.
+**Estado:** abierta.
+
+Para preguntar «¿Cuál va primero?» hacen falta los dos textos, y el estado de la tanda trae los «Yo también» anteriores sólo como ids. Entonces un duelo sólo puede juntar dos aportes que la persona vio en esta visita, y quien vuelve otro día no compara lo de hoy con lo de antes. «Lo que va primero» junta menos comparaciones de las que podría. Pendiente: que la tanda traiga, cuando toca un duelo, la tarjeta del acuerdo viejo con el que se va a comparar.
+
+### D-145 · El aviso de un aporte retenido por reportes no se repite
+
+**Dónde:** `v2/apps/api/src/features/pila/service.ts` (claves `pila:retenido:<id>` en `eventos_civicos`).
+**Encontrada:** 2026-10-20, al integrar el rediseño de Mi Argentina ideal.
+**Severidad:** baja.
+**Estado:** abierta.
+
+La clave del aviso es por aporte. Si Juan devuelve un aporte y vuelve a juntar 13 reportes, se retiene de nuevo pero no llega aviso, porque la clave ya existe. Pendiente: sumar a la clave la decisión que lo retuvo (el id de `pila_decisiones`).

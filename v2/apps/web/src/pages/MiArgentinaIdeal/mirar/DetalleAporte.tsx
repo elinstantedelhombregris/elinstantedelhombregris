@@ -46,11 +46,26 @@ export function DetalleAporte({ tarjeta, onCerrar, onReportado }: DetalleAporteP
     hoja.current?.querySelector<HTMLElement>('[data-titulo]')?.focus();
     const overflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    // En el documento y no en la hoja: Escape cierra aunque el foco se haya caído afuera.
+    const alEscape = (e: globalThis.KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      e.stopPropagation();
+      cerrar.current();
+    };
+    document.addEventListener('keydown', alEscape);
     return () => {
+      document.removeEventListener('keydown', alEscape);
       document.body.style.overflow = overflow;
       previo?.focus({ preventScroll: true });
     };
   }, []);
+
+  // El botón que se tocó desaparece: el foco va a lo que lo reemplaza, no al cuerpo de la página.
+  useEffect(() => {
+    if (gracias) hoja.current?.querySelector<HTMLElement>('[data-gracias]')?.focus();
+    else if (reportando)
+      hoja.current?.querySelector<HTMLElement>('input[name="motivo-de-reporte"]')?.focus();
+  }, [reportando, gracias]);
 
   useEffect(() => {
     if (!gracias) return;
@@ -62,13 +77,8 @@ export function DetalleAporte({ tarjeta, onCerrar, onReportado }: DetalleAporteP
     };
   }, [gracias]);
 
-  /** Escape cierra, y el foco no se escapa de la hoja mientras está abierta. */
+  /** El foco no se escapa de la hoja mientras está abierta. */
   const alTeclado = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Escape') {
-      e.stopPropagation();
-      cerrar.current();
-      return;
-    }
     if (e.key !== 'Tab' || !hoja.current) return;
     const enfocables = [...hoja.current.querySelectorAll<HTMLElement>(ENFOCABLES)];
     const primero = enfocables[0];
@@ -151,7 +161,7 @@ export function DetalleAporte({ tarjeta, onCerrar, onReportado }: DetalleAporteP
         )}
 
         {gracias ? (
-          <div role="status">
+          <div role="status" data-gracias tabIndex={-1}>
             <p className="font-bold">Gracias. Lo vamos a tener en cuenta.</p>
             <p className="text-tinta-50 text-[14px]">No te lo vamos a volver a mostrar.</p>
           </div>

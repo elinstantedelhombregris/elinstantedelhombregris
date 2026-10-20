@@ -20,6 +20,8 @@ vi.mock('~/lib/queries/participacion', () => ({
   useCampana: () => ({ data: modelo.campana, error: null }),
   useGuardarCampana: () => ({ mutate: vi.fn(), isPending: false, error: null }),
 }));
+// La revisión de propuestas pide su lista a la API: acá no interesa y dejaría un pedido colgado.
+vi.mock('../Campanas/RevisionPropuestas', () => ({ RevisionPropuestas: () => null }));
 vi.mock('../ElMapa/instrumento/BusquedaTerritorial', () => ({
   BusquedaTerritorial: () => <p>Selector oficial de territorio</p>,
 }));
@@ -71,15 +73,13 @@ describe('Gestión de campañas', () => {
     );
     expect(screen.queryByLabelText('Nombre de la campaña')).not.toBeInTheDocument();
   });
-  it('quien no es administrador ve una nota y no el formulario para abrir una campaña', () => {
+  it('quien no es administrador ve cómo proponer una y no el formulario para abrir una campaña', () => {
     modelo.auth = { user: { id: 2, esAdmin: false }, isLoading: false };
     montar();
-    expect(
-      screen.getByText(/Por ahora las campañas las abre la coordinación de ¡BASTA!\./),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Lo que falta' })).toHaveAttribute(
+    expect(screen.getByText(/Cualquiera puede proponer una campaña\./)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Proponer una campaña' })).toHaveAttribute(
       'href',
-      '/lo-que-falta',
+      '/campanas/proponer',
     );
     expect(screen.queryByLabelText('Nombre de la campaña')).not.toBeInTheDocument();
     expect(screen.queryByText('Las campañas que cuidás')).not.toBeInTheDocument();
@@ -89,7 +89,7 @@ describe('Gestión de campañas', () => {
     modelo.campana = campana(true);
     window.history.replaceState(null, '', '/gestion/campanas?duplicar=3718dc73');
     montar();
-    expect(screen.getByText(/Por ahora las campañas las abre la coordinación/)).toBeInTheDocument();
+    expect(screen.getByText(/Cualquiera puede proponer una campaña/)).toBeInTheDocument();
     expect(screen.queryByLabelText('Nombre de la campaña')).not.toBeInTheDocument();
   });
   it('la administración ve sus campañas y el formulario para abrir una', () => {

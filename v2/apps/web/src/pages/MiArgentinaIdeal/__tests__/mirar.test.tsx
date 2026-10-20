@@ -371,6 +371,20 @@ describe('Mirar', () => {
     ]);
   });
 
+  it('al abrir el reporte el foco va al primer motivo, y Escape cierra desde cualquier lado', async () => {
+    tandas = [tandaDe(3)];
+    montar();
+    fireEvent.click(await tarjetaN(1));
+    const hoja = await screen.findByRole('dialog');
+    fireEvent.click(within(hoja).getByRole('button', { name: 'Reportar este aporte' }));
+    expect(within(hoja).getByLabelText('Insulta a alguien')).toHaveFocus();
+    fireEvent.keyDown(document.body, { key: 'Escape' });
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).toBeNull();
+    });
+    expect(deRuta('/api/v1/pila/reportes/')).toHaveLength(0);
+  });
+
   it('Enter abre el aporte entero, con lo que escribió completo', async () => {
     tandas = [{ ...tandaDe(1), tarjetas: [tarjeta(1, { origen: 'Lo que escribí, completo.' })] }];
     montar();
@@ -415,6 +429,14 @@ describe('Mirar', () => {
     tocar('Empezar a mirar');
     await contestar(1, 'Yo también');
     expect(opiniones()[0]?.cuerpo).toEqual({ valor: 'acuerdo', provinciaId: 17 });
+  });
+
+  it('desde Ver, con ?provincia=elegir, la vuelve a preguntar aunque ya haya contestado', async () => {
+    tandas = [tandaDe(2, { provincia: null, preguntarProvincia: false })];
+    montar('/mi-argentina-ideal/mirar?provincia=elegir');
+    expect(
+      await screen.findByRole('heading', { name: '¿De qué provincia sos?' }),
+    ).toBeInTheDocument();
   });
 
   it('«Prefiero no decirlo» manda las opiniones sin provincia', async () => {

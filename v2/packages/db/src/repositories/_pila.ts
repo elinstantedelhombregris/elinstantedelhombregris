@@ -32,10 +32,17 @@ export const campanaEnMirar = (k: SQL): SQL => sql`${k}.estado in ${ESTADOS_SQL}
  * Sin `campanaId`, vale cualquier campaña que se esté mirando: es lo que usan
  * las opiniones, los duelos y los reportes, que llegan por el id del aporte.
  */
-export function elegible(campanaId?: string): SQL {
-  return sql`${senales.clase} = 'deseo' and ${senales.estado} <> 'retirada'
+/**
+ * Lo que tiene que cumplir el aporte mismo para entrar en Mirar y en Ver: un deseo sin
+ * retirar ni retener, con el texto cedido y de hasta `LARGO_LINEA` letras. Es la única
+ * definición; Ver la usa tal cual (D-140).
+ */
+export const aporteQueEntra: SQL = sql`${senales.clase} = 'deseo' and ${senales.estado} <> 'retirada'
     and ${senales.retenidaEn} is null and ${senales.cesionLicencia}
-    and char_length(${senales.texto}) <= ${LARGO_LINEA}
+    and char_length(${senales.texto}) <= ${LARGO_LINEA}`;
+
+export function elegible(campanaId?: string): SQL {
+  return sql`${aporteQueEntra}
     and exists (select 1 from ${contribuciones} c join ${campanas} k on k.id = c.campana_id
       where c.senal_id = ${senales.idPublico} and ${campanaEnMirar(sql`k`)}
       ${campanaId === undefined ? sql`` : sql`and k.id = ${campanaId}::uuid`})`;

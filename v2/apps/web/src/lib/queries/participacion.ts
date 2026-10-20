@@ -89,18 +89,6 @@ export function usePublicarAporte() {
     },
   });
 }
-export function useLecturaAsistida() {
-  return useMutation({
-    mutationFn: (texto: string) =>
-      escribir<{
-        lectura: string;
-        condiciones: string[];
-        pregunta: string;
-        proveedor: string;
-        modelo: string;
-      }>('post', '/api/v1/contribuciones/interpretar', { texto, autorizaProveedor: true }),
-  });
-}
 export function useMiEspacio(usuarioId: number | undefined) {
   return useQuery({
     queryKey: ['mi-espacio', usuarioId],

@@ -18,7 +18,7 @@
  * `textoDeSenalPublica` se escribe como `"senales"."texto"`, y Postgres rechaza
  * esa referencia si la tabla tiene alias.
  */
-import { LARGO_LINEA, type ContratoCampana, type ValorDeOpinion } from '@v2/shared';
+import { type ContratoCampana, type ValorDeOpinion } from '@v2/shared';
 import { and, eq, sql, type SQL } from 'drizzle-orm';
 
 import { campanas, contribuciones } from '../schema/campanas.js';
@@ -26,6 +26,7 @@ import { geographicLocations } from '../schema/geographic.js';
 import { pilaDuelos, pilaRespuestas } from '../schema/pila.js';
 import { senales } from '../schema/senales.js';
 
+import { aporteQueEntra } from './_pila.js';
 import {
   campanaPublicada,
   contratoPublicoCampana,
@@ -96,9 +97,16 @@ export interface TemaDeLaBase {
 export interface AportePropioEnVision {
   id: string;
   texto: string;
+  provincia: string | null;
+  tema: { clave: string; etiqueta: string } | null;
   opiniones: number;
   acuerdos: number;
   pasos: number;
+}
+
+interface FilaPropia extends Omit<AportePropioEnVision, 'tema'> {
+  temaClave: string | null;
+  temaEtiqueta: string | null;
 }
 
 export interface MiradaPropia {
@@ -135,11 +143,8 @@ type Fila<T> = { [K in keyof T]: T[K] };
 const ISO = `'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'`;
 
 /** Un aporte que entra en Mirar y en Ver. Sin la condición de campaña: va en el join. */
-const aporteElegible = sql`${senales.clase} = 'deseo'
-  and ${senales.estado} <> 'retirada'
-  and ${senales.retenidaEn} is null
-  and ${senales.cesionLicencia}
-  and char_length(${senales.texto}) <= ${LARGO_LINEA}`;
+/** La regla de Mirar, la misma (D-140). */
+const aporteElegible = aporteQueEntra;
 
 /** La contribución del aporte en la campaña. */
 const enLaCampana = (campanaId: string) =>
@@ -262,16 +267,19 @@ export class VisionRepository {
               join ${geographicLocations} g on g.id = ${senales.provinceId}
               where ${esDeQuienMira(quien)} and ${senales.estado} <> 'retirada'
               order by ${senales.creadaEn} desc limit 1) as iso`),
-        this.db.execute<Fila<AportePropioEnVision>>(sql`
+        this.db.execute<Fila<FilaPropia>>(sql`
           select ${senales.idPublico} as id, ${senales.texto} as texto,
+            g.name as provincia, t.clave as "temaClave", t.etiqueta as "temaEtiqueta",
             count(r.valor) filter (where r.valor in ('acuerdo', 'desacuerdo'))::int as opiniones,
             count(r.valor) filter (where r.valor = 'acuerdo')::int as acuerdos,
             count(r.valor) filter (where r.valor = 'paso')::int as pasos
           from ${senales} ${enLaCampana(campanaId)}
           left join ${pilaRespuestas} r on r.senal_id = ${senales.id}
+          left join ${geographicLocations} g on g.id = ${senales.provinceId}
+          left join temas t on t.clave = ${senales.tema}
           where ${senales.clase} = 'deseo' and ${senales.estado} <> 'retirada'
             and ${senales.retenidaEn} is null and ${esDeQuienMira(quien)}
-          group by ${senales.id}
+          group by ${senales.id}, g.name, t.clave, t.etiqueta
           order by ${senales.creadaEn} desc, ${senales.id} desc
           limit 1`),
       ]);
@@ -286,7 +294,7 @@ export class VisionRepository {
       propia: {
         regionDeOpinion: lugar?.region ?? null,
         isoDeAporte: lugar?.iso ?? null,
-        tuyo: tuyo.rows[0] ?? null,
+        tuyo: propiaDe(tuyo.rows[0]),
         opiniones: mias.rows,
       },
     };
@@ -330,4 +338,13 @@ export class VisionRepository {
     ]);
     return r.rows;
   }
+}
+
+function propiaDe(f: Fila<FilaPropia> | undefined): AportePropioEnVision | null {
+  if (!f) return null;
+  const { temaClave, temaEtiqueta, ...resto } = f;
+  return {
+    ...resto,
+    tema: temaClave && temaEtiqueta ? { clave: temaClave, etiqueta: temaEtiqueta } : null,
+  };
 }

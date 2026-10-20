@@ -43,6 +43,8 @@ export function Mirar() {
   const desdeImaginar = parametros.get('desde') === 'imaginar';
   const region = parametros.get('region');
   const priorizarRegion = esRegion(region) ? region : null;
+  // Desde Ver («Decir de qué provincia soy»): se pregunta aunque ya haya contestado antes.
+  const elegirProvincia = parametros.get('provincia') === 'elegir';
 
   const { mutateAsync: pedirLaTanda } = usePedirTanda();
   const opinion = useOpinar();
@@ -105,7 +107,9 @@ export function Mirar() {
   const aportes = tanda?.items.filter((i) => i.tipo === 'aporte').length ?? 0;
   const hechas = tanda?.items.slice(0, tanda.indice).filter((i) => i.tipo === 'aporte').length ?? 0;
   const preguntar =
-    servidor?.preguntarProvincia === true && provincia === undefined && (items?.length ?? 0) > 0;
+    (servidor?.preguntarProvincia === true || elegirProvincia) &&
+    provincia === undefined &&
+    (items?.length ?? 0) > 0;
 
   const responder = (valor: ValorDeOpinion) => {
     if (saliendo || detalle || actual?.tipo !== 'aporte') return;

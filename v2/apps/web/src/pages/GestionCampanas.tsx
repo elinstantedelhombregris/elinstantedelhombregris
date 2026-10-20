@@ -36,12 +36,11 @@ export function GestionCampanas() {
         </Nota>
       ) : abreUnaNueva && !esAdmin ? (
         <Nota>
-          Por ahora las campañas las abre la coordinación de ¡BASTA!. Si querés proponer una,
-          contanos en{' '}
-          <Link href="/lo-que-falta" className="text-violeta underline underline-offset-4">
-            Lo que falta
+          Cualquiera puede proponer una campaña. Para abrirse, tiene que traer 50 personas nuevas
+          a imaginar el país, y después la revisa la coordinación de ¡BASTA!.{' '}
+          <Link href="/campanas/proponer" className="text-violeta underline underline-offset-4">
+            Proponer una campaña
           </Link>
-          .
         </Nota>
       ) : (
         <>

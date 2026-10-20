@@ -99,6 +99,23 @@ export class PilaRepository {
   }
 
   /**
+   * La provincia que ya se sabe de quien opina: la de su última opinión con provincia o, si
+   * no, la de su último aporte. Sirve cuando una opinión llega sin provincia (desde la página
+   * de un aporte), para no sacarla de su región.
+   */
+  async provinciaConocida(actorId: number, userId: number | null): Promise<ProvinciaDePila | null> {
+    const r = await this.db.execute<{ p: ProvinciaDePila | null }>(sql`select coalesce(
+      (select ${PROVINCIA_JSON} from pila_respuestas r join geographic_locations g on g.id = r.provincia_id
+        where ${deQuienMira(sql.raw('r'), actorId, userId)} and r.valor is not null
+        order by r.respondida_en desc limit 1),
+      (select ${PROVINCIA_JSON} from senales s2 join geographic_locations g on g.id = s2.province_id
+        where g.level = 'province' and g.iso_code is not null and s2.estado <> 'retirada'
+          and (s2.actor_id = ${actorId}::bigint or (${userId}::int is not null and s2.user_id = ${userId}::int))
+        order by s2.creada_en desc limit 1)) as p`);
+    return r.rows[0]?.p ?? null;
+  }
+
+  /**
    * Los elegibles que le pueden tocar a quien mira: ni los propios, ni los que ya
    * contestó, ni los que ya reportó. El orden SQL es grueso; el fino lo hace
    * `armarTanda` de civic-core.

@@ -100,7 +100,7 @@ export const COLOR_ESTADO_RUIDOSO = '#C23B22';
 /** Qué se lee de un vistazo: la regla 11 en una línea por clase. */
 export const CLASE_GLOSA: Readonly<Record<ClaseSenal, string>> = {
   hecho: 'Se comprueba: pasa por un segundo par de ojos.',
-  deseo: 'Se delibera. Por ahora recibe adhesiones.',
+  deseo: 'Se delibera: otras personas dicen si también lo quieren y qué va primero.',
   acto: 'Se cumple: tiene fecha y tiene cierre.',
   meta: 'Se responde, o se cuenta.',
 };
