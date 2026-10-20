@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { avisoDeEstado } from '../aviso-estado';
 import { camposConError, errorDeCampo, erroresDelContrato } from '../errores-contrato';
-import { ordenarCatalogo } from '../filtrar-catalogo';
+import { ordenarCatalogo, separarQuierenAbrir } from '../filtrar-catalogo';
 import {
   SLUG_DEMO_CAMPANA,
   enlaceParticiparCampana,
@@ -56,6 +56,29 @@ describe('ordenarCatalogo', () => {
     const lista = [c('b', 'pausada'), c('a', 'abierta')];
     ordenarCatalogo(lista);
     expect(lista.map((x) => x.slug)).toEqual(['b', 'a']);
+  });
+  it('si se ordenan juntas, las que quieren abrir van al final', () => {
+    const lista = [c('r1', 'reuniendo'), c('p1', 'por_revisar'), c('cerrada', 'cerrada')];
+    expect(ordenarCatalogo([...lista, c('a1', 'abierta')]).map((x) => x.slug)).toEqual([
+      'a1',
+      'cerrada',
+      'r1',
+      'p1',
+    ]);
+  });
+});
+
+describe('separarQuierenAbrir', () => {
+  const c = (slug: string, estado: EstadoCampana) => ({ slug, estado });
+  it('las que juntan gente o esperan revisión van aparte, sin cambiar el orden de cada grupo', () => {
+    const { catalogo, quierenAbrir } = separarQuierenAbrir([
+      c('r1', 'reuniendo'),
+      c('a1', 'abierta'),
+      c('p1', 'por_revisar'),
+      c(SLUG_CAMPANA_NACIONAL, 'abierta'),
+    ]);
+    expect(catalogo.map((x) => x.slug)).toEqual(['a1', SLUG_CAMPANA_NACIONAL]);
+    expect(quierenAbrir.map((x) => x.slug)).toEqual(['r1', 'p1']);
   });
 });
 

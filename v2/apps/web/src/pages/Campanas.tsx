@@ -2,8 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { ArrowUpRight } from 'lucide-react';
 import { Link, useLocation, useSearch } from 'wouter';
 
-import { filtrarCatalogo, ordenarCatalogo } from './Campanas/filtrar-catalogo';
+import { filtrarCatalogo, ordenarCatalogo, separarQuierenAbrir } from './Campanas/filtrar-catalogo';
 import { FiltrosCatalogo } from './Campanas/FiltrosCatalogo';
+import { QuierenAbrir } from './Campanas/QuierenAbrir';
 import { TarjetaCampana } from './Campanas/TarjetaCampana';
 
 import type { LugarMapa } from './ElMapa/instrumento/BusquedaTerritorial';
@@ -35,7 +36,12 @@ export function Campanas() {
     enabled: Number.isSafeInteger(territorio) && territorio > 0,
     queryFn: ({ signal }) => api.get<LugarMapa>(`/api/v1/geo/lugares/${territorio}`, { signal }),
   });
-  const campanas = ordenarCatalogo(filtrarCatalogo(consulta.data ?? [], filtros, lugar.data));
+  // La nacional y las abiertas primero; las que todavía juntan gente, en su sección (§11).
+  const { catalogo, quierenAbrir } = separarQuierenAbrir(
+    filtrarCatalogo(consulta.data ?? [], filtros, lugar.data),
+  );
+  const campanas = ordenarCatalogo(catalogo);
+  const buscando = consulta.isLoading || (territorio > 0 && lugar.isLoading);
   return (
     <MarcoParticipacion
       titulo="Campañas"
@@ -51,7 +57,7 @@ export function Campanas() {
         }}
       />
       <ErrorOperacion mensaje={consulta.error?.message} />
-      {consulta.isLoading || (territorio > 0 && lugar.isLoading) ? (
+      {buscando ? (
         <p role="status" className="py-10">
           Buscando campañas…
         </p>
@@ -60,7 +66,7 @@ export function Campanas() {
           Todavía no hay campañas públicas. Mientras se abren, podés sumar tu aporte igual: entra en
           la campaña nacional.
         </Nota>
-      ) : campanas.length === 0 && !consulta.isError ? (
+      ) : campanas.length === 0 && quierenAbrir.length === 0 && !consulta.isError ? (
         <Nota>
           <p>No hay campañas con estos filtros.</p>
           <div className="mt-4">
@@ -74,7 +80,7 @@ export function Campanas() {
             </BotonAccion>
           </div>
         </Nota>
-      ) : (
+      ) : campanas.length ? (
         <section aria-label="Campañas" className="space-y-6">
           {campanas[0] ? <TarjetaCampana campana={campanas[0]} destacada /> : null}
           <div className="grid gap-6 md:grid-cols-2">
@@ -83,7 +89,8 @@ export function Campanas() {
             ))}
           </div>
         </section>
-      )}
+      ) : null}
+      {buscando ? null : <QuierenAbrir campanas={quierenAbrir} />}
       <Link
         className="mt-6 inline-flex min-h-11 items-center underline"
         href="/recorridos/llegar-a-tiempo-a-la-escuela"
