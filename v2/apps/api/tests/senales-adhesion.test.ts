@@ -19,6 +19,7 @@ import { clienteHttp } from './setup/cliente-http.js';
 import { afterAll, describe, expect, it } from 'vitest';
 
 import { createApp } from '../src/app.js';
+import { signAccessToken } from '../src/features/auth/tokens.js';
 
 import { hasDatabaseUrl } from './helpers/index.js';
 
@@ -42,6 +43,7 @@ function cuerpo(over: Record<string, unknown> = {}) {
 dsuite('Adhesión y respuestas', () => {
   const request = clienteHttp(createApp());
   const creadas: string[] = [];
+  const cuentas: number[] = [];
 
   const soltar = async (body: Record<string, unknown>, cookie?: string) => {
     const r = request.post(RUTA).send(body);
@@ -82,6 +84,10 @@ dsuite('Adhesión y respuestas', () => {
     void adhesiones;
     void respuestas;
     await db.delete(senales).where(inArray(senales.idPublico, creadas));
+    for (const id of cuentas) {
+      await db.execute(sql`delete from actores where user_id = ${id}`);
+      await db.execute(sql`delete from users where id = ${id}`);
+    }
   });
 
   describe('yo también', () => {
@@ -127,6 +133,50 @@ dsuite('Adhesión y respuestas', () => {
     it('adherir a algo que no existe es 404 y no un 500', async () => {
       const res = await request.post(`${RUTA}/${randomUUID()}/adhesion`);
       expect(res.status).toBe(404);
+    });
+  });
+
+  describe('D-137: lo que no infla el conteo', () => {
+    it('no se adhiere a un aporte retirado', async () => {
+      const senal = await soltar(cuerpo({ tipo: 'sueño', texto: 'Que la plaza tenga sombra.' }));
+      const id = senal.body.data.idPublico as string;
+      await request.delete(`${RUTA}/${id}`).set('Cookie', galletaDe(senal)).expect(200);
+      const res = await request.post(`${RUTA}/${id}/adhesion`);
+      expect(res.status).toBe(404);
+    });
+
+    it('no se adhiere al aporte propio, ni por el navegador ni por la cuenta', async () => {
+      const senal = await soltar(cuerpo());
+      const id = senal.body.data.idPublico as string;
+      const res = await request.post(`${RUTA}/${id}/adhesion`).set('Cookie', galletaDe(senal));
+      expect(res.status).toBe(409);
+      expect(res.body.error.code).toBe('ADHESION_PROPIA');
+    });
+
+    it('con sesión la adhesión lleva la cuenta, y la cuenta no adhiere dos veces', async () => {
+      const { getDb, sql } = await import('@v2/db');
+      const marca = randomUUID();
+      const [u] = (
+        await getDb().execute<{ id: number }>(
+          sql`insert into users (username, email, name, password_hash) values (${'adh-' + marca.slice(0, 20)}, ${marca + '@test.local'}, 'Adhiere', 'x') returning id`,
+        )
+      ).rows;
+      cuentas.push(u!.id);
+      const sesion = `eihg_access=${signAccessToken({ sub: u!.id, username: 'x', email: 'x@test.local' })}`;
+      const senal = await soltar(cuerpo());
+      const id = senal.body.data.idPublico as string;
+      const primera = await request.post(`${RUTA}/${id}/adhesion`).set('Cookie', sesion);
+      expect(primera.status).toBe(201);
+      expect(primera.body.data).toEqual({ total: 1, esNueva: true });
+      // Otro navegador, la misma cuenta: es la misma persona.
+      const otroNavegador = await request
+        .post(`${RUTA}/${id}/adhesion`)
+        .set('Cookie', `${sesion}; ${galletaDe(primera)}`);
+      expect(otroNavegador.body.data).toEqual({ total: 1, esNueva: false });
+      const filas = await getDb().execute<{ user_id: number }>(
+        sql`select user_id from adhesiones where senal_id = (select id from senales where id_publico = ${id}::uuid)`,
+      );
+      expect(filas.rows).toEqual([{ user_id: u!.id }]);
     });
   });
 

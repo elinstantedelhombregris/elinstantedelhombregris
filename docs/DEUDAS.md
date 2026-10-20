@@ -148,7 +148,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-134](#d-134--la-campaña-nacional-hace-tres-preguntas-distintas) | La campaña nacional hace tres preguntas distintas | Media | Abierta |
 | [D-135](#d-135--el-mandato-vivo-no-tiene-entrada-desde-el-menú) | El mandato vivo no tiene entrada desde el menú | Media | Abierta |
 | [D-136](#d-136--la-lectura-asistida-de-imaginar-manda-el-texto-a-un-proveedor-externo) | La lectura asistida de Imaginar manda el texto a un proveedor externo | Alta | Resuelta en código (API); la web la borra en la entrega 3 |
-| [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Abierta |
+| [D-137](#d-137--una-adhesión-se-puede-dejar-sobre-un-aporte-retirado-o-sobre-el-propio) | Una adhesión se puede dejar sobre un aporte retirado o sobre el propio | Media | Resuelta en código |
 
 ---
 
@@ -2289,6 +2289,9 @@ Cuando la persona marca la casilla de consentimiento, el borrador de su aporte v
 **Dónde:** `v2/packages/db/src/repositories/adhesiones.ts`, `adherir`.
 **Encontrada:** 2026-10-19, al relevar las reacciones a aportes ajenos.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** resuelta en código, 2026-10-20.
 
 `adherir` descarta los aportes retenidos, pero no los que tienen `estado = 'retirada'`, así que se puede sumar «A mí también me pasa» a un aporte que su autor retiró. Tampoco comprueba que el actor no sea el autor, y en `/senal/:id` el botón aparece también sobre el aporte propio. Y nunca escribe `user_id`, con lo que el índice único por cuenta que el esquema define para que la misma persona en dos navegadores no cuente doble no se usa en este camino. Como las adhesiones encienden el brillo del mapa, las tres cosas inflan un conteo público. Pendiente: filtrar retirados, rechazar la adhesión propia, completar `user_id` desde el actor vinculado y una prueba de integración por cada caso.
+
+**Resolución (20/10):** `AdhesionesRepository.adherir` descarta los aportes retirados además de los retenidos, rechaza la adhesión propia —por el actor o por la cuenta— y la ruta responde 409 `ADHESION_PROPIA`, y escribe `user_id` con la cuenta de la sesión o la vinculada al actor, así el índice único por persona impide que la misma cuenta sume desde dos navegadores. Las tres cosas tienen su prueba en `senales-adhesion.test.ts`. Que el botón no aparezca sobre el aporte propio es de la web, que ya recibe `esPropia`. Los deseos de Mi Argentina ideal, además, dejan de usar la adhesión: se contestan con las tres respuestas de `pila_respuestas`, que guardan la cuenta desde la primera fila; para `/senal/:id` la web lo pregunta a `GET /api/v1/pila/aportes/:id` (tarea 13 del plan).
+
