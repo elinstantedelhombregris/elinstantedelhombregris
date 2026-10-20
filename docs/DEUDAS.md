@@ -141,6 +141,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-125](#d-125--la-campaña-de-ejemplo-cuenta-aportes-sintéticos-como-publicados) | La campaña de ejemplo cuenta aportes sintéticos como publicados | Baja | Abierta |
 | [D-126](#d-126--cualquier-escritura-en-las-fuentes-invalida-los-archivos-de-exportación-en-preparación) | Cualquier escritura en las fuentes invalida los archivos de exportación en preparación | Media | Abierta |
 | [D-127](#d-127--las-pruebas-de-la-siembra-nacional-se-rompen-el-1-de-marzo-de-2027) | Las pruebas de la siembra nacional se rompen el 1 de marzo de 2027 | Media | Abierta |
+| [D-128](#d-128--la-lectura-de-diseño-de-una-ficha-conserva-un-límite-fijo-de-cien-alternativas) | La lectura de diseño de una ficha conserva un límite fijo de cien alternativas | Media | Abierta |
+| [D-129](#d-129--la-verificación-local-mostró-fallos-intermitentes-fuera-de-los-cambios-nuevos) | La verificación local mostró fallos intermitentes fuera de los cambios nuevos | Baja | Abierta |
 | [D-130](#d-130--la-membresía-de-iniciativas-necesita-contadores-atómicos-y-errores-visibles) | La membresía de iniciativas necesita contadores atómicos y errores visibles | Media | Resuelta en código; despliegue pendiente |
 | [D-131](#d-131--la-geografía-publicada-contiene-polígonos-inválidos-y-diferencias-entre-capas) | La geografía publicada contiene polígonos inválidos y diferencias entre capas | Alta | Abierta |
 | [D-132](#d-132--la-siembra-de-áreas-de-vida-falla-al-repetirse) | La siembra de áreas de vida falla al repetirse | Baja | Abierta |
