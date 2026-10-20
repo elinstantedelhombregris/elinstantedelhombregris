@@ -92,6 +92,16 @@ describe('leerAporte', () => {
       9 / 12,
     );
   });
+
+  it('la prioridad también pide que el aporte entre en la visión', () => {
+    const pocas = { NOA: { opiniones: 6, acuerdos: 6 }, NEA: { opiniones: 6, acuerdos: 6 } };
+    const l = leerAporte(conteo('a', pocas, { comparaciones: 12, primero: 10 }));
+    expect(l.enDiscusion).toBe(false);
+    expect(l.prioridad).toBeNull();
+    expect(leerVision([conteo('a', pocas, { comparaciones: 12, primero: 10 })]).primero).toEqual(
+      [],
+    );
+  });
 });
 
 describe('leerVision', () => {

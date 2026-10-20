@@ -99,8 +99,12 @@ export function leerAporte(c: ConteoDeAporte): LecturaDeAporte {
     !une &&
     ((acuerdo >= R.DIVIDE_DESDE && acuerdo <= R.DIVIDE_HASTA) ||
       (peor !== null && mejor !== null && mejor - peor >= R.DIVIDE_DISTANCIA));
+  // Los umbrales de la visión valen para todas sus secciones (spec §5): diez
+  // comparaciones no alcanzan si el aporte todavía no tiene veinte opiniones.
   const prioridad =
-    acuerdo >= R.ACUERDO_PARA_PRIORIDAD && c.comparaciones >= R.MINIMO_COMPARACIONES
+    enDiscusion &&
+    acuerdo >= R.ACUERDO_PARA_PRIORIDAD &&
+    c.comparaciones >= R.MINIMO_COMPARACIONES
       ? (c.primero + 1) / (c.comparaciones + 2)
       : null;
   return {
