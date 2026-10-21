@@ -125,6 +125,7 @@ describe('PapelHeader', () => {
       'Campañas▾',
       'Biblioteca▾',
       'Ingresar',
+      'Crear mi cuenta',
       'Sumate',
     ]);
     expect(within(recorrido).getByRole('link', { name: 'Mi Argentina ideal' })).toHaveAttribute(
@@ -258,6 +259,33 @@ describe('PapelHeader — la puerta de la cuenta', () => {
     expect(ingresar).not.toHaveClass('underline');
   });
 
+  it('sin sesión, «Crear mi cuenta» está a la vista y también devuelve a la página donde se pidió', () => {
+    sinCifra();
+    window.history.replaceState(null, '', '/mi-argentina-ideal/mirar');
+    renderHeader();
+
+    const recorrido = screen.getByRole('navigation', { name: 'Recorrido' });
+    expect(within(recorrido).getByRole('link', { name: 'Crear mi cuenta' })).toHaveAttribute(
+      'href',
+      '/registrarse?volver=' + encodeURIComponent('/mi-argentina-ideal/mirar'),
+    );
+  });
+
+  it('en la pantalla de registro queda marcado «Crear mi cuenta» y no «Ingresar»', () => {
+    sinCifra();
+    window.history.replaceState(null, '', '/registrarse');
+    renderHeader();
+
+    const recorrido = screen.getByRole('navigation', { name: 'Recorrido' });
+    expect(within(recorrido).getByRole('link', { name: 'Crear mi cuenta' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+    expect(within(recorrido).getByRole('link', { name: 'Ingresar' })).not.toHaveAttribute(
+      'aria-current',
+    );
+  });
+
   it('en la pantalla de ingreso el ítem queda marcado con aria-current', () => {
     sinCifra();
     window.history.replaceState(null, '', '/ingresar');
@@ -279,6 +307,7 @@ describe('PapelHeader — la puerta de la cuenta', () => {
     expect(link).toHaveAttribute('href', '/mi-espacio');
     expect(link).toHaveAttribute('aria-current', 'page');
     expect(screen.queryByRole('link', { name: 'Ingresar' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: 'Crear mi cuenta' })).not.toBeInTheDocument();
   });
 
   it('el menú móvil ofrece «Ingresar» sin sesión y no con sesión', () => {
@@ -289,6 +318,10 @@ describe('PapelHeader — la puerta de la cuenta', () => {
     expect(within(menu).getByRole('link', { name: /Ingresar/ })).toHaveAttribute(
       'href',
       '/ingresar?volver=%2F',
+    );
+    expect(within(menu).getByRole('link', { name: /Crear mi cuenta/ })).toHaveAttribute(
+      'href',
+      '/registrarse?volver=%2F',
     );
     sinSesion.unmount();
 

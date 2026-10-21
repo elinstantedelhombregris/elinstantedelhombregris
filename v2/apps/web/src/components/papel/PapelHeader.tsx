@@ -18,6 +18,9 @@ import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import { useVocesCount } from '~/lib/queries/analytics';
 import { cn } from '~/lib/utils';
 
+const RUTA_REGISTRO = '/registrarse';
+const CREAR_CUENTA_LABEL = 'Crear mi cuenta';
+
 function esActiva(location: string, href: string): boolean {
   if (href === '/') return location === '/';
   return location === href || location.startsWith(`${href}/`);
@@ -132,6 +135,8 @@ export function PapelHeader() {
 
   const hrefSesion = auth.user ? '/mi-espacio' : hrefIngresar();
   const rutaSesion = auth.user ? '/mi-espacio' : '/ingresar';
+  // Sin sesión, crear la cuenta está a la vista y no sólo dentro de «Ingresar».
+  const hrefRegistro = hrefIngresar(undefined, RUTA_REGISTRO);
 
   return (
     // El menú móvil vive FUERA del <header>: el backdrop-filter del header lo
@@ -200,6 +205,20 @@ export function PapelHeader() {
             >
               {auth.user ? 'Mi espacio' : 'Ingresar'}
             </Link>
+            {auth.user ? null : (
+              <Link
+                href={hrefRegistro}
+                aria-current={ariaCurrent(location, RUTA_REGISTRO)}
+                className={cn(
+                  CLASE_ITEM,
+                  esActiva(location, RUTA_REGISTRO)
+                    ? 'border-violeta text-tinta'
+                    : 'text-tinta-50 border-transparent',
+                )}
+              >
+                {CREAR_CUENTA_LABEL}
+              </Link>
+            )}
             <Link
               href={APORTAR_HREF}
               className="bg-tinta font-space text-papel hover:bg-violeta ml-3.5 px-5 py-[11px] text-xs font-bold uppercase tracking-[0.08em] transition-colors"
@@ -283,6 +302,21 @@ export function PapelHeader() {
               }}
             >
               Ingresar
+              <span aria-hidden className="font-space text-violeta text-xs">
+                →
+              </span>
+            </Link>
+          )}
+          {auth.user ? null : (
+            <Link
+              href={hrefRegistro}
+              aria-current={ariaCurrent(location, RUTA_REGISTRO)}
+              className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
+              onClick={() => {
+                setMenuOpen(false);
+              }}
+            >
+              {CREAR_CUENTA_LABEL}
               <span aria-hidden className="font-space text-violeta text-xs">
                 →
               </span>
