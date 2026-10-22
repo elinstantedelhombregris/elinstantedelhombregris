@@ -161,6 +161,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-145](#d-145--el-aviso-de-un-aporte-retenido-por-reportes-no-se-repite) | El aviso de un aporte retenido por reportes no se repite | Baja | Abierta |
 | [D-146](#d-146--toda-escritura-desde-el-navegador-respondía-500-en-producción) | Toda escritura desde el navegador respondía 500 en producción | Crítica | **Resuelta** |
 | [D-147](#d-147--un-origen-que-cors-no-permite-recibe-500-y-no-403) | Un origen que CORS no permite recibe 500 y no 403 | Baja | Abierta |
+| [D-149](#d-149--compartir-una-crónica-no-muestra-su-título-ni-su-imagen) | Compartir una crónica no muestra su título ni su imagen | Media | Abierta |
+| [D-150](#d-150--la-sombra-de-las-figuras-del-lector-nunca-se-dibuja) | La sombra de las figuras del lector nunca se dibuja | Baja | Abierta |
 
 ---
 
@@ -2408,3 +2410,21 @@ El middleware de CORS daba por hecho que una petición del mismo sitio llega sin
 **Estado:** abierta.
 
 Cuando un sitio ajeno llama a la API, el middleware tira un error común y la respuesta es un 500 «Algo salió mal», sin `requestId`. El rechazo es correcto, pero lo registra como falla del servidor: una alarma de errores 500 se dispararía por un sitio ajeno, y fue lo que hizo que D-146 pareciera un error interno. Pendiente: responder 403 con un código propio, o no dar permiso CORS y dejar que el navegador bloquee la respuesta.
+
+### D-149 · Compartir una crónica no muestra su título ni su imagen
+
+**Dónde:** `v2/apps/web/index.html` y `v2/apps/web/src/lib/meta-de-cronica.ts`.
+**Encontrada:** 2026-10-22, al agregarle a la bitácora título, descripción, dirección canónica y datos estructurados por crónica.
+**Severidad:** media.
+**Estado:** abierta.
+
+El sitio es una aplicación de una sola página: Vercel entrega el mismo `index.html` para cualquier dirección y el resto lo arma el navegador. Desde el 22/10 cada crónica pone su propio título, descripción, canónica y datos `BlogPosting`, y eso lo ve quien ejecuta JavaScript, como Google. WhatsApp, X, LinkedIn y Facebook no lo ejecutan: leen el `<head>` tal como llega, así que un link a cualquier crónica se comparte con el título y la descripción genéricos del sitio y sin imagen. Pendiente: generar en el build un HTML por crónica con sus etiquetas `og:` y `twitter:` y su portada, o una función que responda esas etiquetas a los rastreadores.
+
+### D-150 · La sombra de las figuras del lector nunca se dibuja
+
+**Dónde:** `v2/apps/web/src/components/papel/MdxPapel.tsx` (`prose-figure:shadow-[6px_6px_0_var(--color-tinta)]`) y `v2/apps/web/src/pages/Bitacora/sections/PortadaCronica.tsx`.
+**Encontrada:** 2026-10-22, al revisar las escenas de «No ames tu trabajo: trabajá tu amor».
+**Severidad:** baja.
+**Estado:** abierta.
+
+Las figuras del lector y la portada de cada crónica declaran una sombra dura color tinta, la marca de «Papel y Tinta». La sombra usa `var(--color-tinta)`, y esa variable no está definida en ningún CSS de la web: el navegador descarta la sombra entera y las figuras salen sin ella. Pasa lo mismo con `prose-figure:bg-papel-sombra`: no existe un color `papel-sombra`, así que el fondo tampoco se aplica. Pendiente: definir las variables o escribir los colores del sistema en esas clases, y mirar todas las páginas que usan `MdxPapel` antes de publicarlo, porque es un cambio visual en todas a la vez.
