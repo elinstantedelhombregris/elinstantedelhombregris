@@ -36,6 +36,9 @@ export function MdxPapel({ raw, className }: MdxPapelProps) {
         'prose-figcaption:font-space prose-figcaption:text-tinta-75 prose-figcaption:m-0 prose-figcaption:border-t prose-figcaption:border-tinta prose-figcaption:px-4 prose-figcaption:py-3 prose-figcaption:text-[11px] prose-figcaption:font-normal prose-figcaption:not-italic prose-figcaption:uppercase prose-figcaption:tracking-[0.07em]',
         'prose-table:font-archivo prose-table:block prose-table:max-w-full prose-table:overflow-x-auto prose-table:text-[14px] prose-th:border-tinta prose-th:bg-papel-sombra prose-th:px-3 prose-th:py-2 prose-td:border-papel-borde prose-td:px-3 prose-td:py-2',
         'prose-hr:border-papel-borde',
+        // Huecos de escena (ADR 0011): reservan su lugar antes de que llegue la escena, así el
+        // texto no salta. En papel impreso no hay animación: queda el epígrafe que la describe.
+        '[&_[data-escena]]:relative [&_[data-escena]]:aspect-[16/10] [&_[data-escena]]:overflow-hidden max-[560px]:[&_[data-escena]]:aspect-[4/5] print:[&_[data-escena]]:hidden',
         // Notas al pie (D-081): la referencia en mono chico, la lista al final bajo una regla.
         '[&_.nota-ref]:font-space [&_.nota-ref]:text-[11px] [&_.nota-ref_a]:no-underline',
         '[&_.notas-al-pie]:border-papel-borde [&_.notas-al-pie]:mt-12 [&_.notas-al-pie]:border-t [&_.notas-al-pie]:pt-6',

@@ -36,6 +36,7 @@
     "recharts": "^2.15.0",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
+    "three": "0.186.1",
     "wouter": "^3.3.5",
     "zod": "^3.24.1"
   },
@@ -45,6 +46,7 @@
     "@testing-library/react": "^16.1.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@types/three": "0.186.0",
     "@v2/config-eslint": "workspace:*",
     "@v2/config-typescript": "workspace:*",
     "@vitejs/plugin-react": "^4.3.4",

@@ -2,7 +2,8 @@
 
 ## Status
 
-Accepted — 2026-05-11
+Accepted — 2026-05-11. Amended by [ADR 0011](0011-three-js-en-escenas-de-cronica.md)
+(2026-10-22): `three` core is allowed only for lazy-loaded bitácora scenes.
 
 ## Context
 

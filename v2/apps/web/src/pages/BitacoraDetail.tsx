@@ -1,8 +1,11 @@
+import { useRef } from 'react';
 import { Link, Redirect, useRoute } from 'wouter';
 
+import { EscenasDeCronica } from '~/components/escenas/EscenasDeCronica';
 import { MdxPapel } from '~/components/papel/MdxPapel';
 import { BotonPapel, Kicker, RitoTinta, Sello } from '~/components/papel/primitives';
 import { type BlogPost } from '~/lib/blog-registry';
+import { useMetaDeCronica } from '~/lib/meta-de-cronica';
 import { APORTAR_HREF } from '~/lib/participacion/aportar';
 import {
   categoriaVisible,
@@ -63,8 +66,10 @@ function Eslabon({ post, lado }: { post: BlogPost; lado: 'reciente' | 'antigua' 
  */
 export function BitacoraDetail() {
   const [match, params] = useRoute<{ slug: string }>('/bitacora/:slug');
-  if (!match) return null;
-  const resolucion = resolverCronica(params.slug);
+  const cuerpoRef = useRef<HTMLDivElement>(null);
+  const resolucion = match ? resolverCronica(params.slug) : null;
+  useMetaDeCronica(resolucion?.estado === 'canonica' ? resolucion.post : undefined);
+  if (!resolucion) return null;
   if (resolucion.estado === 'legado') {
     return <Redirect to={`/bitacora/${resolucion.canonico}`} replace />;
   }
@@ -108,9 +113,13 @@ export function BitacoraDetail() {
           </p>
         ) : null}
         <PortadaCronica post={post} />
-        <div className="border-tinta border-t-2 pt-7">
-          <MdxPapel raw={post.body} className="max-w-[680px] [&>*:first-child]:mt-0" />
+        <div ref={cuerpoRef} className="border-tinta border-t-2 pt-7">
+          <MdxPapel
+            raw={post.body}
+            className="prose-pre:font-space prose-pre:bg-tinta prose-pre:text-papel max-w-[680px] prose-pre:rounded-none prose-pre:px-5 prose-pre:py-5 prose-pre:text-[12px] prose-pre:leading-[1.75] [&>*:first-child]:mt-0"
+          />
         </div>
+        <EscenasDeCronica key={post.slug} contenedor={cuerpoRef} />
         <p className="font-space text-tinta-50 mt-9 text-xs">— Un hombre gris</p>
       </article>
 

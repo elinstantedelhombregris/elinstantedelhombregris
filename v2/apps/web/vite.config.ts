@@ -55,6 +55,9 @@ export default defineConfig(({ mode }) => {
             react: ['react', 'react-dom'],
             query: ['@tanstack/react-query'],
             radix: ['@radix-ui/react-slot'],
+            // Solo lo importan las escenas de crónica, que son `lazy()`: el chunk baja
+            // cuando un lector llega a una escena, nunca con la portada (ADR 0011).
+            three: ['three'],
           },
         },
       },
