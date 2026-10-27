@@ -31,6 +31,7 @@ import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { twoFactorVerifyRateLimit } from '../../middleware/rate-limit.js';
 
+import { confirmarIdentidad } from './confirmar-identidad.js';
 import { hashPassword, verifyPassword } from './password.js';
 import { AuthService } from './service.js';
 import { setAuthCookies } from './tokens.js';
@@ -47,11 +48,15 @@ interface TwoFaTicketPayload {
 
 function signTwoFaTicket(userId: number): string {
   const cfg = getConfig();
-  return jwt.sign({ sub: userId, twoFactorChallenge: true } satisfies TwoFaTicketPayload, cfg.auth.jwtSecret, {
-    expiresIn: TWO_FA_TICKET_TTL_SEC,
-    issuer: 'basta-app',
-    audience: 'basta-2fa-challenge',
-  });
+  return jwt.sign(
+    { sub: userId, twoFactorChallenge: true } satisfies TwoFaTicketPayload,
+    cfg.auth.jwtSecret,
+    {
+      expiresIn: TWO_FA_TICKET_TTL_SEC,
+      issuer: 'basta-app',
+      audience: 'basta-2fa-challenge',
+    },
+  );
 }
 
 function verifyTwoFaTicket(token: string): TwoFaTicketPayload | null {
@@ -90,7 +95,8 @@ const enableSchema = z.object({
 });
 
 const disableSchema = z.object({
-  currentPassword: z.string().min(1),
+  // Sin contraseña, la cuenta confirma con Google (ADR 0012).
+  currentPassword: z.string().min(1).optional(),
 });
 
 router.post('/2fa/setup', authenticate, async (req, res, next) => {
@@ -100,7 +106,11 @@ router.post('/2fa/setup', authenticate, async (req, res, next) => {
 
     const existing = await authRepo.findTwoFactorSecret(req.user.id);
     if (existing?.enabled) {
-      throw new HttpError(409, '2FA_ALREADY_ENABLED', '2FA ya está activado. Desactivalo primero si querés re-enrollarlo.');
+      throw new HttpError(
+        409,
+        '2FA_ALREADY_ENABLED',
+        '2FA ya está activado. Desactivalo primero si querés re-enrollarlo.',
+      );
     }
 
     const secret = speakeasy.generateSecret({
@@ -111,7 +121,11 @@ router.post('/2fa/setup', authenticate, async (req, res, next) => {
     const base32 = secret.base32;
     const otpauthUrl = secret.otpauth_url;
     if (!base32 || !otpauthUrl) {
-      throw new HttpError(500, '2FA_GENERATE_FAILED', 'No pudimos generar el secreto. Intentá de nuevo.');
+      throw new HttpError(
+        500,
+        '2FA_GENERATE_FAILED',
+        'No pudimos generar el secreto. Intentá de nuevo.',
+      );
     }
     await authRepo.upsertTwoFactorSecret(req.user.id, base32);
     const qrDataUrl = await qrToDataURL(otpauthUrl);
@@ -155,8 +169,15 @@ router.post('/2fa/disable', authenticate, async (req, res, next) => {
     const authRepo = new AuthRepository(getDb());
     const user = await usersRepo.findById(req.user.id);
     if (!user) throw new HttpError(404, 'USER_NOT_FOUND', 'Usuario no encontrado.');
-    const passwordOk = await verifyPassword(currentPassword, user.passwordHash);
-    if (!passwordOk) throw new HttpError(401, 'INVALID_CREDENTIALS', 'Contraseña incorrecta.');
+    const confirmacion = await confirmarIdentidad(req, user, currentPassword);
+    if (confirmacion === 'contrasena_incorrecta')
+      throw new HttpError(401, 'INVALID_CREDENTIALS', 'Contraseña incorrecta.');
+    if (confirmacion === 'falta_confirmar')
+      throw new HttpError(
+        403,
+        'CONFIRMACION_REQUERIDA',
+        'Confirmá con Google que sos vos antes de apagar el doble factor.',
+      );
     await authRepo.disableTwoFactor(req.user.id);
     res.json({ data: { ok: true } });
   } catch (err) {
@@ -206,10 +227,8 @@ router.post('/2fa/verify', twoFactorVerifyRateLimit(), async (req, res, next) =>
       // Fall back to backup codes.
       const unusedCodes = await authRepo.listUnusedBackupCodes(claims.sub);
       for (const candidate of unusedCodes) {
-         
         const ok = await verifyPassword(code, candidate.codeHash);
         if (ok) {
-           
           await authRepo.markBackupCodeUsed(candidate.id);
           valid = true;
           break;

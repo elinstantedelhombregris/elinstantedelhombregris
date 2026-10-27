@@ -227,7 +227,10 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Ingresar con Google',
       .send({ username: `nueva_${marca}`, name: 'Nueva' });
     expect(creada.status).toBe(201);
     expect(creada.body.data.volver).toBe('/campanas');
-    expect(creada.body.data.user).toMatchObject({ username: `nueva_${marca}`, emailVerified: true });
+    expect(creada.body.data.user).toMatchObject({
+      username: `nueva_${marca}`,
+      emailVerified: true,
+    });
     expect(cookiesDe(creada).has('eihg_access')).toBe(true);
     const id = creada.body.data.user.id as number;
     usuarios.push(id);
@@ -365,5 +368,98 @@ describe.skipIf(!process.env['DATABASE_URL_DESCARTABLE'])('Ingresar con Google',
     );
     expect(otra.vuelta.headers['location']).toBe('/mi-espacio?error=google_otra_cuenta');
     expect(cookiesDe(otra.vuelta).has('eihg_confirmado')).toBe(false);
+  });
+
+  describe('una cuenta sin contraseña', () => {
+    const CSRF = 'csrf-de-prueba';
+    let id = 0;
+    let sesion = '';
+    const persona = { sub: sub('sinclave'), email: correo('sinclave') };
+
+    beforeAll(async () => {
+      const { vuelta } = await irYVolver(persona);
+      const alta = cookiesDe(vuelta).get('eihg_google_alta') ?? '';
+      const creada = await request
+        .post('/api/auth/google/alta')
+        .set('Cookie', `eihg_google_alta=${alta}`)
+        .send({ username: `sinclave_${marca}`, name: 'Sin clave' });
+      id = creada.body.data.user.id as number;
+      usuarios.push(id);
+      sesion = `eihg_access=${signAccessToken({ sub: id, username: `sinclave_${marca}`, email: correo('sinclave') })}; eihg_csrf=${CSRF}`;
+    });
+
+    /** Una confirmación reciente con Google para esta cuenta: la cookie, lista para mandar. */
+    async function confirmar(): Promise<string> {
+      const { vuelta } = await irYVolver(persona, {
+        cookie: sesion,
+        para: 'confirmar',
+        volver: '/mi-espacio',
+      });
+      return `eihg_confirmado=${cookiesDe(vuelta).get('eihg_confirmado') ?? ''}`;
+    }
+
+    it('Mi espacio sabe que entra con Google y no tiene contraseña', async () => {
+      const r = await request.get('/api/v1/mi-espacio/ingreso').set('Cookie', sesion);
+      expect(r.body.data).toMatchObject({
+        tieneContrasena: false,
+        identidades: [{ proveedor: 'google', correo: correo('sinclave') }],
+      });
+    });
+
+    it('apagar el doble factor pide confirmar con Google, y con la confirmación anda', async () => {
+      await getDb().execute(
+        sql`insert into two_factor_secrets (user_id, secret, enabled) values (${id}, 'SECRETO', true)`,
+      );
+      const sin = await request
+        .post('/api/auth/2fa/disable')
+        .set('Cookie', sesion)
+        .set('X-CSRF-Token', CSRF)
+        .send({});
+      expect(sin.status).toBe(403);
+      expect(sin.body.error.code).toBe('CONFIRMACION_REQUERIDA');
+      const con = await request
+        .post('/api/auth/2fa/disable')
+        .set('Cookie', `${sesion}; ${await confirmar()}`)
+        .set('X-CSRF-Token', CSRF)
+        .send({});
+      expect(con.status).toBe(200);
+    });
+
+    it('cerrar la cuenta pide confirmar con Google; después, Google ya no la abre', async () => {
+      const cuerpo = { confirma: 'CERRAR MI CUENTA' };
+      const sin = await request
+        .post('/api/v1/mi-espacio/cerrar-cuenta')
+        .set('Cookie', sesion)
+        .set('X-CSRF-Token', CSRF)
+        .send(cuerpo);
+      expect(sin.status).toBe(403);
+      expect(sin.body.error.code).toBe('CONFIRMACION_REQUERIDA');
+
+      // La confirmación de otra cuenta no sirve para ésta.
+      const ajena = await cuenta('ajena', { verificado: true });
+      await irYVolver({ sub: sub('ajena'), email: correo('ajena') });
+      const sesionAjena = `eihg_access=${signAccessToken({ sub: ajena, username: `ajena_${marca}`, email: correo('ajena') })}`;
+      const { vuelta } = await irYVolver(
+        { sub: sub('ajena'), email: correo('ajena') },
+        { cookie: sesionAjena, para: 'confirmar', volver: '/mi-espacio' },
+      );
+      const confirmacionAjena = `eihg_confirmado=${cookiesDe(vuelta).get('eihg_confirmado') ?? ''}`;
+      const conAjena = await request
+        .post('/api/v1/mi-espacio/cerrar-cuenta')
+        .set('Cookie', `${sesion}; ${confirmacionAjena}`)
+        .set('X-CSRF-Token', CSRF)
+        .send(cuerpo);
+      expect(conAjena.status).toBe(403);
+
+      const con = await request
+        .post('/api/v1/mi-espacio/cerrar-cuenta')
+        .set('Cookie', `${sesion}; ${await confirmar()}`)
+        .set('X-CSRF-Token', CSRF)
+        .send(cuerpo);
+      expect(con.status).toBe(200);
+      // La identidad se fue con la cuenta: volver con Google es empezar de cero.
+      const otraVez = await irYVolver(persona);
+      expect(otraVez.vuelta.headers['location']).toBe('/registrarse/google?volver=%2Fcampanas');
+    });
   });
 });

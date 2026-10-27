@@ -38,6 +38,12 @@ export interface AltaPendiente {
   sugerencia: string;
 }
 
+/** `GET /api/v1/mi-espacio/ingreso`: cómo entra esta cuenta. */
+export interface IngresoDeLaCuenta {
+  tieneContrasena: boolean;
+  identidades: { proveedor: 'google'; correo: string; creadaEn: string }[];
+}
+
 /**
  * Por qué el ingreso con un proveedor volvió a `/ingresar` sin entrar (`?error=`). La web los
  * traduce a un mensaje; la API no manda texto en la URL.

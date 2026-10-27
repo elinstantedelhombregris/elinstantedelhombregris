@@ -25,5 +25,9 @@ export const respuestaRevisionSchema = z
   .strict();
 export const preferenciasCivicasSchema = z.object({ avisos: z.boolean() }).strict();
 export const cerrarCuentaSchema = z
-  .object({ password: z.string().min(1).max(200), confirma: z.literal('CERRAR MI CUENTA') })
+  .object({
+    // Sin contraseña, la cuenta entra sólo con Google y confirma con Google (ADR 0012).
+    password: z.string().min(1).max(200).optional(),
+    confirma: z.literal('CERRAR MI CUENTA'),
+  })
   .strict();
