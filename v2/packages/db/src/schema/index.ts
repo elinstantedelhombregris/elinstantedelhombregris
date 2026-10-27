@@ -9,6 +9,7 @@
  */
 export * from './users.js';
 export * from './auth.js';
+export * from './identidades.js';
 export * from './notifications.js';
 export * from './geographic.js';
 export * from './geo-calles.js';

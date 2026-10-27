@@ -33,6 +33,7 @@ export default defineConfig({
     './src/schema/capacidades.ts',
     './src/schema/exportaciones.ts',
     './src/schema/auth.ts',
+    './src/schema/identidades.ts',
     './src/schema/notifications.ts',
     './src/schema/geographic.ts',
     './src/schema/geo-calles.ts',

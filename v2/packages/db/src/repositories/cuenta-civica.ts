@@ -14,6 +14,7 @@ export class CuentaCivicaRepository {
     resets as (delete from password_reset_tokens where user_id in(select id from cierre)),
     doble as (delete from two_factor_secrets where user_id in(select id from cierre)),
     backup as (delete from two_factor_backup_codes where user_id in(select id from cierre)),
+    identidades as (delete from identidades_externas where user_id in(select id from cierre)),
     seguidos as (delete from seguimientos where user_id in(select id from cierre)),
     analisis as (delete from analisis_guardados where user_id in(select id from cierre)),
     avisos as (delete from eventos_civicos where user_id in(select id from cierre)),

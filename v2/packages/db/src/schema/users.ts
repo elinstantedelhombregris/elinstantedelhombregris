@@ -21,8 +21,9 @@ export const users = pgTable(
     email: text('email').notNull(),
     name: text('name').notNull(),
 
-    // Credentials — bcrypt hash, never plain
-    passwordHash: text('password_hash').notNull(),
+    // Credentials — bcrypt hash, never plain. NULL when the account only
+    // signs in with an external provider (ADR 0012).
+    passwordHash: text('password_hash'),
 
     // Optional profile
     location: text('location'),

@@ -13,6 +13,13 @@ export {
 } from './exportaciones.js';
 export type { ExportacionFila } from './exportaciones.js';
 export { AuthRepository } from './auth.js';
+export { IdentidadesRepository } from './identidades.js';
+export type {
+  ChoqueDeAlta,
+  CuentaPorCorreo,
+  DatosDeIdentidad,
+  IdentidadConCuenta,
+} from './identidades.js';
 export { NotificationsRepository } from './notifications.js';
 export {
   GeographicRepository,
