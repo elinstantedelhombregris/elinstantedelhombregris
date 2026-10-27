@@ -65,6 +65,21 @@ export function registerRateLimit(): RequestHandler {
   });
 }
 
+/**
+ * Entrar con un proveedor externo (ADR 0012): la ida, la vuelta y el «Último paso». Un ingreso
+ * gasta entre dos y cuatro pedidos, y un aula sale por una sola IP; la prueba de identidad la
+ * hace el proveedor, así que el techo es sólo contra el abuso.
+ */
+export function ingresoExternoRateLimit(): RequestHandler {
+  return rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 120,
+    standardHeaders: 'draft-7',
+    legacyHeaders: false,
+    message: SPANISH_LIMITED,
+  });
+}
+
 /** Password reset request: 1 per hour per IP+email. */
 export function passwordResetRequestRateLimit(): RequestHandler {
   return rateLimit({

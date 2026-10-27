@@ -18,7 +18,6 @@ import { COOKIE_CSRF } from '../features/auth/tokens.js';
 
 import type { NextFunction, Request, Response } from 'express';
 
-
 const SAFE = new Set(['GET', 'HEAD', 'OPTIONS']);
 
 /**
@@ -38,6 +37,12 @@ const ANON_ALLOWED: { method: string; path: string }[] = [
   { method: 'POST', path: '/api/auth/email/' },
   { method: 'POST', path: '/api/auth/password/' },
   { method: 'POST', path: '/api/auth/2fa/verify' },
+  /**
+   * El «Último paso» de quien entra nuevo con Google (ADR 0012). No hay sesión todavía; lo
+   * que prueba la identidad es la cookie firmada `eihg_google_alta`, que es `SameSite=Lax` y
+   * no viaja en un POST que venga de otro sitio.
+   */
+  { method: 'POST', path: '/api/auth/google/alta' },
   { method: 'POST', path: '/api/pulso' },
   { method: 'POST', path: '/api/open-data/dreams' },
   /**
@@ -136,7 +141,7 @@ export function csrfProtect(req: Request, res: Response, next: NextFunction): vo
   // Use originalUrl (with query stripped) — `req.path` is rewritten
   // when this middleware is mounted under `/api`, which would defeat
   // the prefix-based allow-list.
-  const fullPath = (req.originalUrl.split('?')[0] ?? req.originalUrl);
+  const fullPath = req.originalUrl.split('?')[0] ?? req.originalUrl;
   if (isAnonAllowed(req.method, fullPath)) {
     next();
     return;

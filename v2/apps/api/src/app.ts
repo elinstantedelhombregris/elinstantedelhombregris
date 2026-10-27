@@ -6,6 +6,7 @@ import express from 'express';
 
 import { analyticsRouter } from './features/analytics/routes.js';
 import { authEmailRouter } from './features/auth/email-routes.js';
+import { googleRouter } from './features/auth/google/routes.js';
 import { authRouter } from './features/auth/routes.js';
 import { twoFactorRouter } from './features/auth/two-factor-routes.js';
 import { blogRouter } from './features/blog/routes.js';
@@ -94,6 +95,7 @@ export function createApp(): Express {
   app.use('/api/auth', authRouter);
   app.use('/api/auth', authEmailRouter);
   app.use('/api/auth', twoFactorRouter);
+  app.use('/api/auth', googleRouter);
 
   // Feature routes. GETs pass through CSRF unchanged. Mutating
   // endpoints expect X-CSRF-Token + matching cookie.
