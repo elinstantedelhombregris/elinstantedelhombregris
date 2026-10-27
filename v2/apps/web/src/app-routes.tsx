@@ -75,6 +75,7 @@ import {
   PulsoDetail,
   QuienEstaDetras,
   Register,
+  RegistroGoogle,
   ResetPassword,
   Sembrar,
   TwoFactorChallenge,
@@ -96,6 +97,7 @@ export function AppRoutes() {
 
       {/* Auth */}
       <Route path="/ingresar" component={Login} />
+      <Route path="/registrarse/google" component={RegistroGoogle} />
       <Route path="/registrarse" component={Register} />
       <Route path="/recuperar-contrasena" component={ForgotPassword} />
       <Route path="/restablecer-contrasena" component={ResetPassword} />

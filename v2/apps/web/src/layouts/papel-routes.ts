@@ -28,6 +28,7 @@ const PAPEL_ROUTES = new Set([
   '/datos-abiertos',
   '/ingresar',
   '/registrarse',
+  '/registrarse/google',
   '/2fa-desafio',
   // Las páginas de cuenta que el pie y Mi espacio enlazan. Antes caían en el
   // chrome oscuro de v1, con el resto del sitio en papel alrededor.

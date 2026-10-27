@@ -4,7 +4,15 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Register } from '../Register';
 
+import type * as IngresoExternoModulo from '~/lib/queries/ingreso-externo';
+
+
 const mocks = vi.hoisted(() => ({ mutateAsync: vi.fn() }));
+const proveedores = vi.hoisted(() => ({ google: false }));
+vi.mock('~/lib/queries/ingreso-externo', async (importar) => ({
+  ...(await importar<typeof IngresoExternoModulo>()),
+  useProveedores: () => ({ data: { google: proveedores.google } }),
+}));
 vi.mock('~/lib/auth', () => ({
   useAuth: () => ({ register: { mutateAsync: mocks.mutateAsync } }),
 }));
@@ -23,6 +31,7 @@ function completar(contrasena: string) {
 describe('Crear mi cuenta (página papel)', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    proveedores.google = false;
     ir('/registrarse');
   });
 
@@ -106,5 +115,15 @@ describe('Crear mi cuenta (página papel)', () => {
     render(<Register />);
     completar('una-clave-bastante-larga');
     expect(await screen.findByText('Ese usuario ya existe.')).toHaveClass('text-sello');
+  });
+
+  it('con Google disponible, ofrece crear la cuenta con Google antes del formulario', () => {
+    proveedores.google = true;
+    window.history.replaceState(null, '', '/registrarse?volver=%2Fcampanas');
+    render(<Register />);
+    expect(screen.getByRole('link', { name: 'Continuar con Google' })).toHaveAttribute(
+      'href',
+      '/api/auth/google?volver=%2Fcampanas',
+    );
   });
 });

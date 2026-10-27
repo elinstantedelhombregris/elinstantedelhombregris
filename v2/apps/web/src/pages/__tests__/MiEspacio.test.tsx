@@ -39,6 +39,8 @@ vi.mock('~/lib/api', () => ({
       if (ruta.endsWith('/recuperables')) return Promise.resolve(m.recuperables);
       if (ruta.endsWith('/avisos')) return Promise.resolve([]);
       if (ruta.endsWith('/preferencias')) return Promise.resolve({ avisos: true });
+      if (ruta.endsWith('/ingreso'))
+        return Promise.resolve({ tieneContrasena: true, identidades: [] });
       return Promise.resolve({});
     },
   },
@@ -139,7 +141,9 @@ describe('Mi espacio — sin cuenta', () => {
       'href',
       '/ingresar?volver=%2Fmi-espacio',
     );
-    expect(screen.getByText(/Para imaginar no hace falta, y tu nombre no se publica/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Para imaginar no hace falta, y tu nombre no se publica/),
+    ).toBeInTheDocument();
   });
 
   it('muestra los borradores guardados en este dispositivo y deja retomarlos', async () => {
@@ -213,7 +217,10 @@ describe('Mi espacio — con cuenta, las pestañas', () => {
 
   it('una pestaña desconocida cae en la primera', () => {
     montar('/mi-espacio?pestana=inventada');
-    expect(screen.getByRole('tab', { name: 'Mis aportes' })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByRole('tab', { name: 'Mis aportes' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
   });
 
   it('elegir una pestaña la escribe en la dirección, y las flechas se mueven entre ellas', async () => {
@@ -222,7 +229,10 @@ describe('Mi espacio — con cuenta, las pestañas', () => {
     await waitFor(() => {
       expect(window.location.search).toBe('?pestana=sigo');
     });
-    expect(screen.getByRole('tab', { name: 'Lo que sigo' })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByRole('tab', { name: 'Lo que sigo' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
 
     fireEvent.keyDown(screen.getByRole('tab', { name: 'Lo que sigo' }), { key: 'ArrowRight' });
     await waitFor(() => {
@@ -277,7 +287,9 @@ describe('Mi espacio — Mis aportes', () => {
     const { container } = montar();
     expect(container).toHaveTextContent(/sueño · Pide otra mirada · /);
     expect(container).toHaveTextContent('Ubicación publicada: en su barrio.');
-    expect(container).toHaveTextContent('Cualquiera puede leer y compartir este texto (licencia CC BY 4.0).');
+    expect(container).toHaveTextContent(
+      'Cualquiera puede leer y compartir este texto (licencia CC BY 4.0).',
+    );
     expect(container.textContent).not.toMatch(/neighborhood|por_verificar|por verificar|jerga/);
   });
 
@@ -297,7 +309,9 @@ describe('Mi espacio — Mis aportes', () => {
     m.espacio = { ...vacio, aportes: [aporte()], totalAportes: 1 };
     montar();
     expect(screen.getByRole('button', { name: 'Corregir mi aporte' })).toBeInTheDocument();
-    expect(screen.queryByText(/Corregir mis palabras|Cedo este texto según el contrato/)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/Corregir mis palabras|Cedo este texto según el contrato/),
+    ).not.toBeInTheDocument();
   });
 
   it('«Recuperar» sube a la cabeza de la pestaña cuando hay algo para recuperar', async () => {
@@ -322,9 +336,7 @@ describe('Mi espacio — Mis aportes', () => {
     m.espacio = { ...vacio, aportes: [aporte()], totalAportes: 1 };
     montar();
     await screen.findByRole('heading', { level: 2, name: 'Mis aportes' });
-    expect(
-      screen.queryByRole('heading', { name: /sumar a tu cuenta/ }),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /sumar a tu cuenta/ })).not.toBeInTheDocument();
   });
 });
 
@@ -341,7 +353,9 @@ describe('Mi espacio — Cuenta y datos', () => {
         email: 'ana@example.com',
       });
     });
-    expect(await screen.findByRole('status')).toHaveTextContent('Te mandamos un enlace a ana@example.com');
+    expect(await screen.findByRole('status')).toHaveTextContent(
+      'Te mandamos un enlace a ana@example.com',
+    );
   });
 
   it('un error del servidor al reenviar se dice tal cual y se puede reintentar', async () => {
@@ -350,7 +364,9 @@ describe('Mi espacio — Cuenta y datos', () => {
     montar('/mi-espacio?pestana=cuenta');
 
     fireEvent.click(screen.getByRole('button', { name: 'Reenviar correo' }));
-    expect(await screen.findByRole('alert')).toHaveTextContent('Demasiados pedidos. Probá más tarde.');
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Demasiados pedidos. Probá más tarde.',
+    );
     expect(screen.getByRole('button', { name: 'Reenviar correo' })).not.toHaveAttribute(
       'aria-disabled',
     );

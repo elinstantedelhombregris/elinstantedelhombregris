@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'wouter';
 
 import { CampoPapel } from '~/components/auth/CampoPapel';
+import { IngresoExterno } from '~/components/auth/IngresoExterno';
 import { BotonPapel } from '~/components/papel/primitives';
 import { ErrorOperacion } from '~/components/participacion/Elementos';
 import { useAuth } from '~/lib/auth';
@@ -58,6 +59,7 @@ export function Register() {
             Ingresar
           </Link>
         </p>
+        <IngresoExterno volver={volverTrasIngresar(window.location.search)} />
         <form onSubmit={onSubmit} className="space-y-4">
           <CampoPapel
             id="name"

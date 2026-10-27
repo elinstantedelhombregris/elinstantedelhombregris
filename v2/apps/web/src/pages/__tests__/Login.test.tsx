@@ -3,7 +3,15 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Login } from '../Login';
 
+import type * as IngresoExternoModulo from '~/lib/queries/ingreso-externo';
+
+
 const mocks = vi.hoisted(() => ({ mutateAsync: vi.fn() }));
+const proveedores = vi.hoisted(() => ({ google: false }));
+vi.mock('~/lib/queries/ingreso-externo', async (importar) => ({
+  ...(await importar<typeof IngresoExternoModulo>()),
+  useProveedores: () => ({ data: { google: proveedores.google } }),
+}));
 vi.mock('~/lib/auth', () => ({
   useAuth: () => ({ login: { mutateAsync: mocks.mutateAsync } }),
 }));
@@ -20,6 +28,7 @@ function completar(identificador: string, contrasena: string) {
 describe('Ingresar (página papel)', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    proveedores.google = false;
     ir('/ingresar');
   });
 
@@ -108,5 +117,32 @@ describe('Ingresar (página papel)', () => {
     const params = new URLSearchParams(window.location.search);
     expect(params.get('ticket')).toBe('tk 1');
     expect(params.get('volver')).toBe('/fichas/nueva');
+  });
+
+  it('con Google disponible, «Continuar con Google» va a la API con el mismo retorno', () => {
+    proveedores.google = true;
+    ir('/ingresar?volver=%2Ffichas%2Fnueva');
+    render(<Login />);
+    expect(screen.getByRole('link', { name: 'Continuar con Google' })).toHaveAttribute(
+      'href',
+      '/api/auth/google?volver=%2Ffichas%2Fnueva',
+    );
+    expect(screen.getByText('o con tu correo')).toBeInTheDocument();
+  });
+
+  it('sin Google, no hay botón ni separador', () => {
+    render(<Login />);
+    expect(screen.queryByRole('link', { name: 'Continuar con Google' })).toBeNull();
+    expect(screen.queryByText('o con tu correo')).toBeNull();
+  });
+
+  it('al volver de Google sin entrar dice por qué, y un código desconocido no dice nada', () => {
+    ir('/ingresar?error=google_cancelado');
+    const { unmount } = render(<Login />);
+    expect(screen.getByRole('alert')).toHaveTextContent('Cancelaste el ingreso con Google');
+    unmount();
+    ir('/ingresar?error=<script>');
+    render(<Login />);
+    expect(screen.queryByRole('alert')).toBeNull();
   });
 });

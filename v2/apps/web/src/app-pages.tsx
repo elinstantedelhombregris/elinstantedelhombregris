@@ -23,6 +23,10 @@ export const Register = lazy(async () => {
   const m = await import('~/pages/Register');
   return { default: m.Register };
 });
+export const RegistroGoogle = lazy(async () => {
+  const m = await import('~/pages/RegistroGoogle');
+  return { default: m.RegistroGoogle };
+});
 export const ForgotPassword = lazy(async () => {
   const m = await import('~/pages/ForgotPassword');
   return { default: m.ForgotPassword };
