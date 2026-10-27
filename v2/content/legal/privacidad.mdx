@@ -1,8 +1,8 @@
 ---
 slug: privacidad
 title: Política de Privacidad
-updatedAt: 2026-08-12
-version: 4
+updatedAt: 2026-10-27
+version: 5
 ---
 
 Esta política explica qué datos tuyos guardamos, por qué, dónde viven y cómo los sacás.
@@ -33,6 +33,11 @@ corridos para el acceso, 5 días hábiles para rectificar, actualizar o suprimir
 **Para tener una cuenta** (obligatorio): nombre de usuario, nombre, correo electrónico
 y una contraseña, que se guarda hasheada con bcrypt — no la almacenamos en texto plano
 y nadie del equipo puede leerla.
+
+**Si creás la cuenta o entrás con Google**, no hace falta contraseña. Guardamos el
+identificador de tu cuenta de Google —un número, no tu correo— y el correo que Google nos
+da, para que la próxima vez sepamos que sos vos. No le pedimos a Google tu nombre, tu foto
+ni tus contactos: el nombre lo escribís vos.
 
 **Para que la sesión funcione**: cada vez que iniciás sesión guardamos la fecha, tu
 dirección IP y el navegador desde el que entraste. Sirve para que puedas cerrar sesiones
@@ -94,12 +99,16 @@ adecuado. Los proveedores son:
 | Neon | la base de datos completa |
 | Vercel | el alojamiento y todo el tráfico del sitio |
 | Resend | tu correo, para mandarte verificación y recupero de contraseña |
+| Google | sólo si elegís «Continuar con Google»: sabe que entraste a este sitio y nos manda tu correo y el identificador de tu cuenta |
 | Groq / Anthropic | el texto de tus conversaciones con el asistente |
 
 Además están los pedidos que hace tu navegador por su cuenta, sin pasar por nosotros.
 **Hoy no queda ninguno.** Todo lo que tu navegador baja para dibujar una página —el código,
 las imágenes, las tipografías, los mosaicos del Mapa— sale de nuestro propio servidor.
-Ningún tercero ve tu dirección IP por abrir el sitio.
+Ningún tercero ve tu dirección IP por abrir el sitio. La única excepción la elegís vos: si
+tocás «Continuar con Google», tu navegador va a la página de Google y Google ve tu
+dirección IP, como en cualquier página suya. Las páginas del sitio no cargan nada de
+Google.
 
 Hasta hace poco quedaban dos, y los dos se cerraron. **Las tipografías de la interfaz** se
 le pedían a Google (`fonts.googleapis.com` y `fonts.gstatic.com`) en todas las páginas;
@@ -191,6 +200,18 @@ plazos que el resto.
 
 Si cambiamos esta política, cambiamos la fecha de arriba y explicamos qué se modificó.
 Si el cambio afecta para qué usamos tus datos, te lo avisamos antes.
+
+### Versión 5 — 2026-10-27
+
+Se puede crear la cuenta y entrar con Google. Lo que cambia:
+
+- **Google entra en la tabla de proveedores**, sólo para quien elige el botón. Le pedimos el
+  mínimo: que confirme tu correo y nos dé un identificador de tu cuenta. No le pedimos tu
+  nombre, tu foto ni tus contactos.
+- **Una cuenta creada con Google no tiene contraseña.** Para cerrarla, la plataforma te pide
+  que confirmes con Google que sos vos.
+- **Sigue sin haber pedidos a terceros por abrir el sitio.** Google ve tu dirección IP sólo si
+  tocás su botón.
 
 ### Versión 4 — 2026-08-12
 
