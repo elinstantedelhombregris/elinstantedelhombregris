@@ -115,7 +115,8 @@ let cached: Config | undefined;
 /** Una variable puesta pero vacía (`GOOGLE_CLIENT_ID=`) cuenta como no puesta. */
 function vacioComoAusente(v: string | undefined): string | undefined {
   const t = v?.trim();
-  return t ? t : undefined;
+  if (!t) return undefined;
+  return t;
 }
 
 export function getConfig(): Config {
