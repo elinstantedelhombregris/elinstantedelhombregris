@@ -13,6 +13,12 @@ export function hashPassword(plain: string): Promise<string> {
   return bcrypt.hash(plain, COST);
 }
 
-export function verifyPassword(plain: string, hash: string): Promise<boolean> {
+/**
+ * Una cuenta que entra sólo con un proveedor externo no tiene contraseña (ADR 0012): ninguna
+ * coincide. Responder igual que a una contraseña equivocada no revela nada nuevo, porque el
+ * ingreso ya contesta rápido cuando la cuenta no existe.
+ */
+export function verifyPassword(plain: string, hash: string | null): Promise<boolean> {
+  if (hash === null) return Promise.resolve(false);
   return bcrypt.compare(plain, hash);
 }

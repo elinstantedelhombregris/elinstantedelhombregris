@@ -71,6 +71,13 @@ export const registerInputSchema = z.object({
 });
 export type RegisterInput = z.infer<typeof registerInputSchema>;
 
+/** Body of POST /api/auth/google/alta — el «Último paso» de quien entra nuevo con Google. */
+export const altaConProveedorSchema = z.object({
+  username: usernameSchema,
+  name: nameSchema,
+});
+export type AltaConProveedorInput = z.infer<typeof altaConProveedorSchema>;
+
 /** Body of POST /api/auth/login — accepts username OR email */
 export const loginInputSchema = z.object({
   identifier: z.string().min(1, messages.required),

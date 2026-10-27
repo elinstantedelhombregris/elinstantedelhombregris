@@ -94,11 +94,29 @@ const ConfigSchema = z.object({
    * preparación sólo al cron diario y al CLI `exportaciones:once`.
    */
   exportacionesEnPedido: truthy.default(true),
+  /**
+   * Ingresar con Google (ADR 0012). Sin client id o sin secreto, el proveedor no se ofrece.
+   * Las tres direcciones de Google sólo se pueden cambiar fuera de producción: las pruebas
+   * de integración las apuntan a un Google falso en un puerto local.
+   */
+  google: z.object({
+    clientId: z.string().min(1).optional(),
+    clientSecret: z.string().min(1).optional(),
+    authUrl: z.string().url().default('https://accounts.google.com/o/oauth2/v2/auth'),
+    tokenUrl: z.string().url().default('https://oauth2.googleapis.com/token'),
+    jwksUrl: z.string().url().default('https://www.googleapis.com/oauth2/v3/certs'),
+  }),
 });
 
 export type Config = z.infer<typeof ConfigSchema>;
 
 let cached: Config | undefined;
+
+/** Una variable puesta pero vacía (`GOOGLE_CLIENT_ID=`) cuenta como no puesta. */
+function vacioComoAusente(v: string | undefined): string | undefined {
+  const t = v?.trim();
+  return t ? t : undefined;
+}
 
 export function getConfig(): Config {
   if (cached) return cached;
@@ -144,6 +162,17 @@ export function getConfig(): Config {
     // Vacío (`EXPORTACIONES_EN_PEDIDO=`) es «sin definir», no «apagado»:
     // sólo un valor explícito como `0` lo apaga.
     exportacionesEnPedido: enPedido === '' ? undefined : enPedido,
+    google: {
+      clientId: vacioComoAusente(process.env.GOOGLE_CLIENT_ID),
+      clientSecret: vacioComoAusente(process.env.GOOGLE_CLIENT_SECRET),
+      ...(process.env.NODE_ENV === 'production'
+        ? {}
+        : {
+            authUrl: vacioComoAusente(process.env.GOOGLE_AUTH_URL),
+            tokenUrl: vacioComoAusente(process.env.GOOGLE_TOKEN_URL),
+            jwksUrl: vacioComoAusente(process.env.GOOGLE_JWKS_URL),
+          }),
+    },
   });
 
   if (!parsed.success) {
