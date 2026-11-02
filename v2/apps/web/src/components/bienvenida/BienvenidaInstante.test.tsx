@@ -1,10 +1,16 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { StrictMode } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { BienvenidaInstante } from './BienvenidaInstante';
 import { EntradaInstante } from './EntradaInstante';
 import { instantes } from './instantes';
+import { primerInstanteDeLaCarga, siguienteInstante } from './rotacion-instantes';
+
+vi.mock('./rotacion-instantes', () => ({
+  primerInstanteDeLaCarga: vi.fn(),
+  siguienteInstante: vi.fn(),
+}));
 
 vi.mock('./useRetrato', () => ({
   useRetrato: () => ({
@@ -17,6 +23,14 @@ vi.mock('./useRetrato', () => ({
 }));
 
 beforeEach(() => {
+  vi.mocked(primerInstanteDeLaCarga).mockClear();
+  vi.mocked(siguienteInstante).mockClear();
+  vi.mocked(primerInstanteDeLaCarga).mockResolvedValue('01');
+  let cursor = 0;
+  vi.mocked(siguienteInstante).mockImplementation(() => {
+    cursor = (cursor + 1) % instantes.length;
+    return Promise.resolve(instantes[cursor]?.id ?? '01');
+  });
   vi.spyOn(HTMLDialogElement.prototype, 'showModal').mockImplementation(function (
     this: HTMLDialogElement,
   ) {
@@ -44,7 +58,7 @@ describe('BienvenidaInstante', () => {
     expect(close).toHaveBeenCalledTimes(1);
     expect(container.querySelector('.pt-home,.pt-reading,.ei-home,.ei-reading')).toBeNull();
   });
-  it('recorre las 50 citas con su enlace real y el retrato a la izquierda', () => {
+  it('recorre las 50 citas con su enlace real y el retrato a la izquierda', async () => {
     render(<BienvenidaInstante onClose={vi.fn()} initialId="01" />);
     for (const entry of instantes) {
       expect(screen.getByRole('dialog')).toHaveAttribute('data-layout', entry.layout);
@@ -57,7 +71,10 @@ describe('BienvenidaInstante', () => {
         'href',
         entry.url,
       );
-      fireEvent.click(screen.getByRole('button', { name: /Otro instante/ }));
+      await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name: /Otro instante/ }));
+        await Promise.resolve();
+      });
     }
     expect(document.querySelector('blockquote')?.textContent).toContain(instantes[0].quote);
     expect(screen.queryByRole('combobox')).not.toBeInTheDocument();
@@ -71,16 +88,52 @@ describe('BienvenidaInstante', () => {
     fireEvent.click(screen.getByRole('link', { name: /Leer el texto/ }));
     expect(close).toHaveBeenCalledOnce();
   });
-  it('restaura el scroll del documento al desmontarse', () => {
+  it('restaura el scroll del documento al desmontarse', async () => {
     document.body.style.overflow = 'auto';
     const { unmount } = render(
       <StrictMode>
         <BienvenidaInstante onClose={vi.fn()} />
       </StrictMode>,
     );
+    await screen.findByRole('dialog');
     expect(document.body.style.overflow).toBe('hidden');
     unmount();
     expect(document.body.style.overflow).toBe('auto');
+  });
+  it('espera la cita guardada antes de abrir el diálogo', async () => {
+    let resolver: ((id: string) => void) | undefined;
+    vi.mocked(primerInstanteDeLaCarga).mockReturnValue(
+      new Promise((resolve) => {
+        resolver = resolve;
+      }),
+    );
+    render(<BienvenidaInstante onClose={vi.fn()} />);
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    await act(async () => {
+      resolver?.('37');
+      await Promise.resolve();
+    });
+    expect(screen.getByRole('dialog')).toHaveAttribute('data-instante', '37');
+  });
+  it('un doble click no consume dos citas mientras espera la selección', async () => {
+    let resolver: ((id: string) => void) | undefined;
+    vi.mocked(siguienteInstante).mockReturnValue(
+      new Promise((resolve) => {
+        resolver = resolve;
+      }),
+    );
+    render(<BienvenidaInstante onClose={vi.fn()} initialId="01" />);
+    const siguiente = screen.getByRole('button', { name: /Otro instante/ });
+    fireEvent.click(siguiente);
+    fireEvent.click(siguiente);
+    expect(siguienteInstante).toHaveBeenCalledOnce();
+    expect(siguiente).toBeDisabled();
+    await act(async () => {
+      resolver?.('18');
+      await Promise.resolve();
+    });
+    expect(screen.getByRole('dialog')).toHaveAttribute('data-instante', '18');
+    expect(siguiente).not.toBeDisabled();
   });
   it('no vuelve a abrir la bienvenida al regresar a la portada durante la misma carga', async () => {
     const first = render(

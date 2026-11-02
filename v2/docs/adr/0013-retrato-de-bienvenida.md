@@ -27,6 +27,15 @@ Pliego y Contratapa, ambas con el retrato a la izquierda en escritorio. Cada cit
 conserva fuente, URL y énfasis verificados contra los MDX. Los
 controles de comparación del prototipo no pasan a la interfaz pública.
 
+La selección usa una bolsa barajada persistida en `localStorage` bajo
+`basta_bienvenida_ciclo_v1`: orden de los 50 IDs, posición y última cita. Se valida
+la colección completa antes de recuperar el estado. Una transacción de Web Locks
+serializa la lectura y escritura entre pestañas. Cada documento memoriza su primera
+asignación para no consumir dos citas con StrictMode; «Otro instante» usa la misma
+bolsa. Al agotar las 50 se mezcla de nuevo sin repetir inmediatamente la última.
+El estado corrupto se reemplaza; ante almacenamiento bloqueado se usa memoria.
+El progreso es propio de ese navegador, no se sincroniza con cuentas ni servidores.
+
 Referencia técnica: [Bruno Imbrizi / Codrops](https://tympanus.net/codrops/2019/01/17/interactive-particles-with-three-js/).
 El shader y el campo de resortes se adaptaron para este retrato; no se reutilizan
 las imágenes del tutorial.

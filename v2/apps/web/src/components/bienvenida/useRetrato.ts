@@ -8,7 +8,7 @@ const assembly = (time: number) => {
   return p * p * (3 - 2 * p);
 };
 
-export function useRetrato(instante: Instante, paused: boolean) {
+export function useRetrato(instante: Instante, paused: boolean, enabled = true) {
   const figure = useRef<HTMLDivElement>(null);
   const image = useRef<HTMLImageElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -24,7 +24,7 @@ export function useRetrato(instante: Instante, paused: boolean) {
     const host = figure.current,
       poster = image.current,
       surface = canvas.current;
-    if (!host || !poster || !surface) return;
+    if (!enabled || !host || !poster || !surface) return;
     let renderer: ReturnType<typeof createPortraitRenderer> | null = null;
     const lifecycle = new AbortController();
     let frame = 0,
@@ -161,6 +161,6 @@ export function useRetrato(instante: Instante, paused: boolean) {
       surface.removeEventListener('webglcontextlost', lost);
       renderer?.dispose();
     };
-  }, [instante]);
+  }, [enabled, instante]);
   return { figure, image, canvas, ready, quieto };
 }

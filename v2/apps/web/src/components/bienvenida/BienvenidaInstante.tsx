@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 
 import portrait from './hombre-gris.webp';
 import { instantes } from './instantes';
+import { primerInstanteDeLaCarga, siguienteInstante } from './rotacion-instantes';
 import { useRetrato } from './useRetrato';
 import './bienvenida.css';
 
@@ -19,20 +20,37 @@ interface Props {
 export function BienvenidaInstante({ onClose, initialId }: Props) {
   const [instante, setInstante] = useState<Instante>(() => {
     const initial = initialId ? instantes.find((entry) => entry.id === initialId) : undefined;
-    const random = crypto.getRandomValues(new Uint32Array(1))[0] ?? 0;
-    return initial ?? instantes[random % instantes.length] ?? instantes[0];
+    return initial ?? instantes[0];
   });
+  const [seleccionLista, setSeleccionLista] = useState(Boolean(initialId));
+  const [seleccionando, setSeleccionando] = useState(false);
+  const montado = useRef(false);
+  const cambiando = useRef(false);
   const [paused, setPaused] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const label = useId(),
     quoteId = useId();
   const reduced = useReducedMotion();
-  const { figure, image, canvas, ready, quieto } = useRetrato(instante, paused);
+  const { figure, image, canvas, ready, quieto } = useRetrato(instante, paused, seleccionLista);
   const highlight = instante.quote.indexOf(instante.highlight);
 
   useEffect(() => {
+    montado.current = true;
+    if (!initialId) {
+      void primerInstanteDeLaCarga().then((id) => {
+        if (!montado.current) return;
+        setInstante(instantes.find((entry) => entry.id === id) ?? instantes[0]);
+        setSeleccionLista(true);
+      });
+    }
+    return () => {
+      montado.current = false;
+    };
+  }, [initialId]);
+
+  useEffect(() => {
     const element = dialog.current;
-    if (!element) return;
+    if (!element || !seleccionLista) return;
     const previousOverflow = document.body.style.overflow;
     element.showModal();
     document.body.style.overflow = 'hidden';
@@ -40,11 +58,21 @@ export function BienvenidaInstante({ onClose, initialId }: Props) {
       element.close();
       document.body.style.overflow = previousOverflow;
     };
-  }, []);
+  }, [seleccionLista]);
 
   const next = () => {
-    const index = instantes.findIndex((entry) => entry.id === instante.id);
-    setInstante(instantes[(index + 1) % instantes.length] ?? instantes[0]);
+    if (cambiando.current) return;
+    cambiando.current = true;
+    setSeleccionando(true);
+    void siguienteInstante()
+      .then((id) => {
+        if (montado.current)
+          setInstante(instantes.find((entry) => entry.id === id) ?? instantes[0]);
+      })
+      .finally(() => {
+        cambiando.current = false;
+        if (montado.current) setSeleccionando(false);
+      });
   };
 
   return (
@@ -165,7 +193,7 @@ export function BienvenidaInstante({ onClose, initialId }: Props) {
               {paused ? 'Reanudar imagen' : 'Pausar imagen'}
             </button>
           ) : null}
-          <button type="button" onClick={next}>
+          <button type="button" onClick={next} disabled={seleccionando} aria-busy={seleccionando}>
             Otro instante <span aria-hidden="true">→</span>
           </button>
         </footer>

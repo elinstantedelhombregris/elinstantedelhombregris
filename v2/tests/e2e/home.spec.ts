@@ -90,4 +90,42 @@ test.describe('public home', () => {
     await page.goto('/this-route-does-not-exist');
     await expect(page.getByText(/No encontramos esa página/i)).toBeVisible();
   });
+
+  test('la bienvenida recuerda el ciclo al recargar, pedir otra cita y abrir pestañas', async ({
+    page,
+    context,
+  }) => {
+    const vistas = new Set<string>();
+    const recordar = async (pagina: typeof page) => {
+      const dialog = pagina.getByRole('dialog');
+      await expect(dialog).toBeVisible();
+      const id = await dialog.getAttribute('data-instante');
+      expect(id).toMatch(/^\d{2}$/);
+      if (!id) throw new Error('No se seleccionó un instante.');
+      expect(vistas.has(id)).toBe(false);
+      vistas.add(id);
+      return id;
+    };
+    await page.goto('/');
+    const primera = await recordar(page);
+    await page.getByRole('button', { name: /Otro instante/ }).click();
+    await expect(page.getByRole('dialog')).not.toHaveAttribute('data-instante', primera);
+    await recordar(page);
+    await page.reload();
+    await recordar(page);
+
+    const segunda = await context.newPage();
+    const tercera = await context.newPage();
+    try {
+      await Promise.all([segunda.goto('/'), tercera.goto('/')]);
+      await recordar(segunda);
+      await recordar(tercera);
+      await page.reload();
+      await recordar(page);
+      expect(vistas.size).toBe(6);
+    } finally {
+      await segunda.close();
+      await tercera.close();
+    }
+  });
 });

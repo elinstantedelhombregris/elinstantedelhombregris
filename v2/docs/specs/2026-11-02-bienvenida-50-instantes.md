@@ -15,6 +15,14 @@ La cruz, Escape y «Seguir mi camino» cierran el documento sobre la landing rea
 No hay segundo slide ni recarga que pueda volver a abrirlo. «Leer el texto» lleva
 directamente a la fuente. «Otro instante» permite recorrer la colección.
 
+Cada navegador recorre una mezcla de las 50 citas sin repeticiones. La posición
+se guarda entre visitas y recargas; «Otro instante» avanza ese mismo ciclo.
+Solo después de mostrar las 50 se vuelve a mezclar, evitando repetir la última
+cita al comenzar el ciclo nuevo. Las pestañas comparten el progreso con Web Locks.
+La selección inicial se consume una sola vez por documento, incluso con StrictMode,
+y el diálogo espera esa selección antes de mostrarse. Si el navegador bloquea el
+almacenamiento, el ciclo continúa en memoria durante la carga actual.
+
 Plan de publicación:
 
 1. Incorporar el retrato, campo amortiguado y citas en componentes tipados de v2.
