@@ -47,6 +47,9 @@ describe('BienvenidaInstante', () => {
   it('recorre las 33 citas con su enlace real y sin controles de diseño', () => {
     render(<BienvenidaInstante onClose={vi.fn()} initialId="01" />);
     for (const entry of instantes) {
+      expect(document.querySelector('blockquote')).toHaveClass('pt-quote');
+      if (entry.quote.length > 85)
+        expect(document.querySelector('blockquote')).toHaveClass('pt-long');
       expect(document.querySelector('blockquote')?.textContent).toContain(entry.quote);
       expect(screen.getByRole('link', { name: /Leer el texto/ })).toHaveAttribute(
         'href',

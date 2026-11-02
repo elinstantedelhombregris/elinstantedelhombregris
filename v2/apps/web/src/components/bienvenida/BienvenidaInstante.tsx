@@ -9,6 +9,8 @@ import './bienvenida.css';
 
 import type { Instante } from './instantes';
 
+import { cn } from '~/lib/utils';
+
 interface Props {
   onClose: () => void;
   initialId?: string;
@@ -124,7 +126,7 @@ export function BienvenidaInstante({ onClose, initialId }: Props) {
             </p>
             <blockquote
               id={quoteId}
-              className={`pt-quote${instante.quote.length > 85 ? 'pt-long' : ''}`}
+              className={cn('pt-quote', instante.quote.length > 85 && 'pt-long')}
             >
               <span aria-hidden="true">«</span>
               {instante.quote.slice(0, highlight)}
