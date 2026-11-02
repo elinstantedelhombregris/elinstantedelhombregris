@@ -22,7 +22,9 @@ queda el retrato estático y todos los enlaces siguen disponibles. Con movimient
 reducido se dibuja quieto; con pestaña oculta o retrato fuera de pantalla no se
 dibuja. Al desmontar se liberan observadores, eventos, texturas y contexto WebGL.
 
-Las 33 citas conservan fuente, URL y énfasis verificados contra los MDX. Los
+La colección actual contiene 50 citas y conserva únicamente las composiciones
+Pliego y Contratapa, ambas con el retrato a la izquierda en escritorio. Cada cita
+conserva fuente, URL y énfasis verificados contra los MDX. Los
 controles de comparación del prototipo no pasan a la interfaz pública.
 
 Referencia técnica: [Bruno Imbrizi / Codrops](https://tympanus.net/codrops/2019/01/17/interactive-particles-with-three-js/).

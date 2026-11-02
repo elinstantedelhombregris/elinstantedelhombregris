@@ -44,9 +44,11 @@ describe('BienvenidaInstante', () => {
     expect(close).toHaveBeenCalledTimes(1);
     expect(container.querySelector('.pt-home,.pt-reading,.ei-home,.ei-reading')).toBeNull();
   });
-  it('recorre las 33 citas con su enlace real y sin controles de diseño', () => {
+  it('recorre las 50 citas con su enlace real y el retrato a la izquierda', () => {
     render(<BienvenidaInstante onClose={vi.fn()} initialId="01" />);
     for (const entry of instantes) {
+      expect(screen.getByRole('dialog')).toHaveAttribute('data-layout', entry.layout);
+      expect(document.querySelector('.pt-edition')).toHaveTextContent(`${entry.id} / 50`);
       expect(document.querySelector('blockquote')).toHaveClass('pt-quote');
       if (entry.quote.length > 85)
         expect(document.querySelector('blockquote')).toHaveClass('pt-long');

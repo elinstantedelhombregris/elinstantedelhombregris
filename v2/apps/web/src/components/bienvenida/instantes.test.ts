@@ -13,10 +13,11 @@ const plain = (value: string) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-describe('33 instantes publicados', () => {
+describe('50 instantes publicados', () => {
   it('conserva las citas literales, énfasis y rutas de los textos publicados', () => {
-    expect(instantes).toHaveLength(33);
-    expect(new Set(instantes.map((entry) => entry.quote)).size).toBe(33);
+    expect(instantes).toHaveLength(50);
+    expect(new Set(instantes.map((entry) => entry.id)).size).toBe(50);
+    expect(new Set(instantes.map((entry) => entry.quote)).size).toBe(50);
     for (const entry of instantes) {
       const source = readFileSync(
         path.resolve(
@@ -37,8 +38,11 @@ describe('33 instantes publicados', () => {
       expect(entry.url).toBe(prefix ? `${prefix}/${slug ?? ''}` : '/manifiesto');
     }
   });
-  it('distribuye once instantes en cada composición', () => {
-    for (const layout of ['pliego', 'contratapa', 'retrato'])
-      expect(instantes.filter((entry) => entry.layout === layout)).toHaveLength(11);
+  it('conserva solo las dos composiciones con la imagen a la izquierda', () => {
+    expect(new Set(instantes.map((entry) => entry.layout))).toEqual(
+      new Set(['pliego', 'contratapa']),
+    );
+    for (const layout of ['pliego', 'contratapa'])
+      expect(instantes.filter((entry) => entry.layout === layout)).toHaveLength(25);
   });
 });

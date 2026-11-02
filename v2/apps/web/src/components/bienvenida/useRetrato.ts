@@ -54,19 +54,15 @@ export function useRetrato(instante: Instante, paused: boolean) {
       if (!width || !height) return;
       const v = instante.framing;
       const portraitHeight =
-        instante.layout === 'retrato'
-          ? width <= 560
-            ? 440 + v * 150
-            : 560 + v * 240
-          : height *
-            (width <= 360
-              ? 1.65 + v * 0.5
-              : instante.layout === 'contratapa'
-                ? 1.35 + v * 0.45
-                : 1.2 + v * 0.6);
+        height *
+        (width <= 360
+          ? 1.65 + v * 0.5
+          : instante.layout === 'contratapa'
+            ? 1.35 + v * 0.45
+            : 1.2 + v * 0.6);
       const box = {
         x: (width - (portraitHeight * 2) / 3) / 2 + (v - 0.5) * 8,
-        y: instante.layout === 'retrato' ? 4 : 12,
+        y: 12,
         w: (portraitHeight * 2) / 3,
         h: portraitHeight,
       };

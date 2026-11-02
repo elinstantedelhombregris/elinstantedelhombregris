@@ -151,7 +151,9 @@ export function BienvenidaInstante({ onClose, initialId }: Props) {
           </motion.div>
         </div>
         <footer className="pt-footer">
-          <span className="pt-edition">{instante.id} / 33</span>
+          <span className="pt-edition">
+            {instante.id} / {instantes.length}
+          </span>
           {ready && !quieto ? (
             <button
               type="button"

@@ -60,6 +60,13 @@ test.describe('public home', () => {
     await page.goto('/');
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
+    await expect(dialog.locator('.pt-edition')).toHaveText(/\d{2} \/ 50/);
+    const portrait = await dialog.locator('.pt-figure').boundingBox();
+    const message = await dialog.locator('.pt-message').boundingBox();
+    expect(portrait).not.toBeNull();
+    expect(message).not.toBeNull();
+    if (!portrait || !message) throw new Error('La bienvenida no mostró el retrato y la cita.');
+    expect(portrait.x + portrait.width).toBeLessThanOrEqual(message.x + 1);
     await expect(dialog.locator('blockquote')).toHaveCSS('font-family', /Anton/);
     await expect(dialog.getByRole('link', { name: /Leer el texto/i })).toHaveAttribute(
       'href',
