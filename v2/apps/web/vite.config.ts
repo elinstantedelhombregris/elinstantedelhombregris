@@ -55,8 +55,8 @@ export default defineConfig(({ mode }) => {
             react: ['react', 'react-dom'],
             query: ['@tanstack/react-query'],
             radix: ['@radix-ui/react-slot'],
-            // Solo lo importan las escenas de crónica, que son `lazy()`: el chunk baja
-            // cuando un lector llega a una escena, nunca con la portada (ADR 0011).
+            // Compartido por las escenas de crónica y el retrato de bienvenida.
+            // Ambos se cargan con import() fuera del paquete inicial (ADR 0011 y 0013).
             three: ['three'],
           },
         },

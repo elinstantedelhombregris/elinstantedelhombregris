@@ -5,6 +5,7 @@ import { HombreGrisBand } from './Home/sections/HombreGrisBand';
 import { PlanesTeaser } from './Home/sections/PlanesTeaser';
 import { VocesTicker } from './Home/sections/VocesTicker';
 
+import { EntradaInstante } from '~/components/bienvenida/EntradaInstante';
 import { useTituloDePagina } from '~/lib/titulo-de-pagina';
 
 /**
@@ -16,6 +17,7 @@ export function Home() {
   useTituloDePagina('Inicio');
   return (
     <main>
+      <EntradaInstante />
       <HeroBasta />
       <VocesTicker />
       <EntradaIdeal />
