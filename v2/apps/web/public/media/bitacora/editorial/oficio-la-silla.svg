@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="940" viewBox="0 0 720 940" role="img" aria-labelledby="title desc">
+  <title id="title">La grieta es horizontal, el problema es vertical</title>
+  <desc id="desc">Lectura editorial del autor, no una encuesta. Un plano con dos ejes. El eje horizontal indica dónde pone cada candidatura la solución: a la izquierda, más Estado; a la derecha, más mercado. El eje vertical indica quién decide: abajo, una persona o su grupo; arriba, la gente, de verdad. Bregman, Kicillof, Macri, Bullrich y Milei aparecen repartidos de izquierda a derecha, pero los cinco quedan en la franja de abajo. La mitad de arriba, donde decidirías vos, está vacía.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17131d}
+    .k{font-family:monospace;letter-spacing:2px;font-size:20px;fill:#525a61}
+    .h{font-size:40px;font-weight:700}
+    .s{font-size:19px;fill:#4d4547}
+    .ax{font-family:monospace;font-size:16px;letter-spacing:1px;fill:#525a61}
+    .nm{font-size:20px;font-weight:700}
+    .dot{fill:#17131d;transform-box:fill-box;transform-origin:center;animation:pop .45s ease-out both}
+    .d2{animation-delay:.35s}.d3{animation-delay:.7s}.d4{animation-delay:1.05s}.d5{animation-delay:1.4s}
+    .empty{fill:#a72c35;opacity:.08;animation:glow 1.6s ease-in-out both;animation-delay:2s}
+    @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+    @keyframes glow{0%{opacity:.08}50%{opacity:.22}100%{opacity:.08}}
+    @media(prefers-reduced-motion:reduce){.dot,.empty{animation:none}}
+  </style>
+  <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#17131d"/></marker></defs>
+  <rect width="720" height="940" fill="#f2eadb"/>
+  <text x="38" y="48" class="k">04 / LECTURA EDITORIAL, NO ENCUESTA</text>
+  <text x="38" y="104" class="h">LA GRIETA ES HORIZONTAL.</text>
+  <text x="38" y="152" class="h">EL PROBLEMA ES VERTICAL.</text>
+
+  <!-- plano -->
+  <rect x="78" y="196" width="604" height="600" fill="#eee4d3" stroke="#17131d" stroke-width="2"/>
+  <rect class="empty" x="78" y="196" width="604" height="300"/>
+  <rect x="150" y="266" width="460" height="160" fill="none" stroke="#a72c35" stroke-width="3" stroke-dasharray="10 8"/>
+  <text x="380" y="326" text-anchor="middle" style="font-size:24px;font-weight:700;fill:#a72c35">Lo que nadie ofrece:</text>
+  <text x="380" y="360" text-anchor="middle" style="font-size:24px;font-weight:700;fill:#a72c35">que decidas vos</text>
+  <text x="380" y="398" text-anchor="middle" class="s">ni Estado-padre ni mercado-padre</text>
+  <line x1="78" y1="496" x2="682" y2="496" stroke="#525a61" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+  <!-- franja de abajo: los cinco -->
+  <rect x="78" y="626" width="604" height="170" fill="#17131d" opacity=".06"/>
+  <circle class="dot" cx="132" cy="690" r="13"/><text x="132" y="664" text-anchor="middle" class="nm">Bregman</text>
+  <circle class="dot d2" cx="252" cy="722" r="13"/><text x="252" y="760" text-anchor="middle" class="nm">Kicillof</text>
+  <circle class="dot d3" cx="440" cy="712" r="13"/><text x="440" y="686" text-anchor="middle" class="nm">Macri</text>
+  <circle class="dot d4" cx="528" cy="742" r="13"/><text x="528" y="780" text-anchor="middle" class="nm">Bullrich</text>
+  <circle class="dot d5" cx="628" cy="722" r="13"/><text x="628" y="696" text-anchor="middle" class="nm">Milei</text>
+
+  <!-- ejes -->
+  <line x1="78" y1="830" x2="682" y2="830" stroke="#17131d" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="682" y1="830" x2="86" y2="830" stroke="#17131d" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="78" y="858" class="ax">MÁS ESTADO</text>
+  <text x="682" y="858" text-anchor="end" class="ax">MÁS MERCADO</text>
+  <text x="380" y="858" text-anchor="middle" class="ax">dónde ponen la solución</text>
+  <line x1="50" y1="796" x2="50" y2="204" stroke="#17131d" stroke-width="2" marker-end="url(#ar)"/>
+  <text transform="translate(40 500) rotate(-90)" text-anchor="middle" class="ax">quién decide</text>
+  <text x="90" y="222" class="ax">LA GENTE, DE VERDAD</text>
+  <text x="90" y="786" class="ax">UNA PERSONA O SU GRUPO</text>
+
+  <text x="38" y="906" class="s" style="font-size:17px">Ubicaciones aproximadas, según lo que dicen en público. Es mi lectura, no una medición:</text>
+  <text x="38" y="928" class="s" style="font-size:17px">discutila. Lo que no cambia es la altura: los cinco están abajo.</text>
+</svg>

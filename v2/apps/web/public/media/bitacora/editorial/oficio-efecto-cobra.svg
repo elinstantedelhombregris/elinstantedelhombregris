@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="960" viewBox="0 0 720 960" role="img" aria-labelledby="title desc">
+  <title id="title">El efecto cobra: el desastre vive en el tercer «¿y después?»</title>
+  <desc id="desc">Historia que se cuenta sobre Delhi colonial, más folclore que archivo. Seis pasos: pagan por cada cobra muerta; bajan las cobras, que es el primer efecto y lo único que se mira; conviene criarlas; suspenden el pago; sueltan las cobras criadas; hay más cobras que al principio. Abajo, una curva ilustrativa: las cobras en la calle bajan, después suben y terminan por encima del nivel inicial.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17131d}
+    .k{font-family:monospace;letter-spacing:2px;font-size:20px;fill:#525a61}
+    .h{font-size:42px;font-weight:700}
+    .b{font-size:24px;font-weight:700}
+    .s{font-size:19px;fill:#4d4547}
+    .n{font-family:monospace;font-size:22px;font-weight:700;fill:#f2eadb}
+    .q{font-family:monospace;font-size:17px;fill:#a72c35}
+    .step{fill:#eee4d3;stroke:#17131d;stroke-width:2}
+    .pulse{fill:#a72c35;opacity:0;animation:pulse .9s ease-in-out both}
+    .p2{animation-delay:.9s}.p3{animation-delay:1.8s}.p4{animation-delay:2.7s}.p5{animation-delay:3.6s}.p6{animation-delay:4.5s}
+    .curve{stroke-dasharray:900;stroke-dashoffset:0;animation:draw 3s ease-in-out both;animation-delay:.3s}
+    @keyframes pulse{0%,100%{opacity:0}45%{opacity:.18}}
+    @keyframes draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+    @media(prefers-reduced-motion:reduce){.pulse,.curve{animation:none}}
+  </style>
+  <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#17131d" stroke-width="1.5"/></marker></defs>
+  <rect width="720" height="960" fill="#f2eadb"/>
+  <text x="38" y="48" class="k">03 / SE CUENTA EN DELHI</text>
+  <text x="38" y="106" class="h">EL DESASTRE VIVE EN</text>
+  <text x="38" y="154" class="h">EL TERCER «¿Y DESPUÉS?»</text>
+
+  <g>
+    <rect class="step" x="38" y="186" width="520" height="70"/><rect class="pulse" x="38" y="186" width="520" height="70"/>
+    <rect x="38" y="186" width="54" height="70" fill="#17131d"/><text x="65" y="229" text-anchor="middle" class="n">1</text>
+    <text x="108" y="218" class="b">Pagan por cobra muerta</text><text x="108" y="244" class="s">la medida</text>
+  </g>
+  <g>
+    <rect class="step" x="38" y="272" width="520" height="70"/><rect class="pulse p2" x="38" y="272" width="520" height="70"/>
+    <rect x="38" y="272" width="54" height="70" fill="#17131d"/><text x="65" y="315" text-anchor="middle" class="n">2</text>
+    <text x="108" y="304" class="b">Bajan las cobras</text><text x="108" y="330" class="s">el primer efecto: lo que todos miran</text>
+  </g>
+  <g>
+    <rect class="step" x="38" y="358" width="520" height="70"/><rect class="pulse p3" x="38" y="358" width="520" height="70"/>
+    <rect x="38" y="358" width="54" height="70" fill="#17131d"/><text x="65" y="401" text-anchor="middle" class="n">3</text>
+    <text x="108" y="390" class="b">Conviene criarlas</text><text x="108" y="416" class="s">nadie lo dice, todos lo hacen</text>
+  </g>
+  <g>
+    <rect class="step" x="38" y="444" width="520" height="70"/><rect class="pulse p4" x="38" y="444" width="520" height="70"/>
+    <rect x="38" y="444" width="54" height="70" fill="#17131d"/><text x="65" y="487" text-anchor="middle" class="n">4</text>
+    <text x="108" y="476" class="b">Suspenden el pago</text><text x="108" y="502" class="s">el Estado se da cuenta</text>
+  </g>
+  <g>
+    <rect class="step" x="38" y="530" width="520" height="70"/><rect class="pulse p5" x="38" y="530" width="520" height="70"/>
+    <rect x="38" y="530" width="54" height="70" fill="#17131d"/><text x="65" y="573" text-anchor="middle" class="n">5</text>
+    <text x="108" y="562" class="b">Sueltan las criadas</text><text x="108" y="588" class="s">ya no valen nada</text>
+  </g>
+  <g>
+    <rect x="38" y="616" width="520" height="70" fill="#a72c35"/>
+    <rect x="38" y="616" width="54" height="70" fill="#17131d"/><text x="65" y="659" text-anchor="middle" class="n">6</text>
+    <text x="108" y="648" class="b" style="fill:#f2eadb">Más cobras que al principio</text><text x="108" y="674" class="s" style="fill:#f2eadb">la consecuencia no deseada</text>
+  </g>
+
+  <path d="M576 221H620V307H576" fill="none" stroke="#17131d" stroke-width="2"/>
+  <text x="632" y="258" class="q">lo que</text><text x="632" y="278" class="q">se vio</text>
+  <path d="M576 393H620V651H576" fill="none" stroke="#a72c35" stroke-width="2"/>
+  <text x="632" y="500" class="q">¿y</text><text x="632" y="520" class="q">después?</text><text x="632" y="540" class="q">× 3</text>
+
+  <text x="38" y="742" class="b" style="font-size:20px">Cobras en la calle (ilustrativo)</text>
+  <line x1="58" y1="900" x2="682" y2="900" stroke="#17131d" stroke-width="2"/>
+  <line x1="58" y1="790" x2="58" y2="900" stroke="#17131d" stroke-width="2"/>
+  <line x1="58" y1="830" x2="682" y2="830" stroke="#525a61" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="682" y="822" text-anchor="end" class="s" style="font-size:16px">al principio</text>
+  <path class="curve" d="M58 830 C140 830 170 878 240 880 C330 882 360 874 420 862 C470 852 500 800 560 790 C610 782 650 786 682 786" fill="none" stroke="#a72c35" stroke-width="5"/>
+  <text x="240" y="928" text-anchor="middle" class="s" style="font-size:16px">bajan (pasos 1–2)</text>
+  <text x="590" y="928" text-anchor="middle" class="s" style="font-size:16px">más que antes (paso 6)</text>
+</svg>

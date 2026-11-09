@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="920" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">El insulto baja, la piña sube</title>
+  <desc id="desc">Esquema conceptual de cómo escala una pelea entre argentinos. Seis escalones que bajan desde el escenario: un apodo en lugar de un argumento; la red que lo repite millones de veces; la mesa familiar donde dejamos de hablarnos; la plaza con gritos; la calle con piñas; y algo peor. Los primeros cuatro escalones todavía son livianos y se pueden frenar con la mano; los dos últimos ya pesan. No es una profecía: es un peligro que se puede anticipar.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17131d}
+    .k{font-family:monospace;letter-spacing:2px;font-size:20px;fill:#525a61}
+    .h{font-size:42px;font-weight:700}
+    .b{font-size:23px;font-weight:700}
+    .s{font-size:18px;fill:#4d4547}
+    .q{font-family:monospace;font-size:16px;letter-spacing:1px}
+    .st{fill:#eee4d3;stroke:#17131d;stroke-width:2}
+    .in{animation:in .5s ease-out both}
+    .i2{animation-delay:.45s}.i3{animation-delay:.9s}.i4{animation-delay:1.35s}.i5{animation-delay:1.8s}.i6{animation-delay:2.25s}
+    @keyframes in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+    @media(prefers-reduced-motion:reduce){.in{animation:none}}
+  </style>
+  <rect width="720" height="920" fill="#f2eadb"/>
+  <text x="38" y="48" class="k">05 / CÓMO ESCALA</text>
+  <text x="38" y="106" class="h">EL INSULTO BAJA.</text>
+  <text x="38" y="154" class="h">LA PIÑA SUBE.</text>
+
+  <g class="in"><rect class="st" x="38" y="190" width="430" height="88"/><text x="58" y="226" class="b">El escenario</text><text x="58" y="256" class="s">un apodo en lugar de un argumento</text></g>
+  <g class="in i2"><rect class="st" x="78" y="290" width="430" height="88"/><text x="98" y="326" class="b">La red</text><text x="98" y="356" class="s">el apodo, repetido millones de veces</text></g>
+  <g class="in i3"><rect class="st" x="118" y="390" width="430" height="88"/><text x="138" y="426" class="b">La mesa familiar</text><text x="138" y="456" class="s">dejamos de hablarnos</text></g>
+  <g class="in i4"><rect class="st" x="158" y="490" width="430" height="88"/><text x="178" y="526" class="b">La plaza</text><text x="178" y="556" class="s">gritos</text></g>
+  <g class="in i5"><rect x="198" y="590" width="430" height="88" fill="#17131d"/><text x="218" y="626" class="b" style="fill:#f2eadb">La calle</text><text x="218" y="656" class="s" style="fill:#d6d8d7">piñas</text></g>
+  <g class="in i6"><rect x="238" y="690" width="430" height="88" fill="#a72c35"/><text x="258" y="726" class="b" style="fill:#f2eadb">Algo peor</text><text x="258" y="756" class="s" style="fill:#f2eadb">de un banco contra el otro</text></g>
+
+  <path d="M612 194H648V574H612" fill="none" stroke="#17131d" stroke-width="2"/>
+  <text x="662" y="360" class="q" transform="rotate(90 662 360)">TODAVÍA LIVIANO</text>
+  <path d="M38 594V774H220" fill="none" stroke="#a72c35" stroke-width="2"/>
+  <text x="50" y="690" class="q" style="fill:#a72c35">YA PESA</text>
+
+  <text x="38" y="836" class="b" style="font-size:22px">La mano todavía alcanza en los primeros escalones.</text>
+  <text x="38" y="868" class="s">No es una profecía. Es un peligro que se puede tomar a tiempo.</text>
+  <text x="38" y="900" class="s" style="font-size:16px">Esquema conceptual: muestra una secuencia posible, no una medición.</text>
+</svg>

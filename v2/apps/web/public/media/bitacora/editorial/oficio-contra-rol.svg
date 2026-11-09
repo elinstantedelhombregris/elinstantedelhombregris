@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="900" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Controlar viene de contra-rol</title>
+  <desc id="desc">Controlar viene del francés contre-rôle: la copia de un libro de cuentas que llevaba otra persona para verificar el original. A la izquierda, el registro que lleva quien decide; a la derecha, el contra-rol que lleva otro; cada línea coincide con su copia. Abajo, dos usos del mismo verbo: controlar a la gente, borrando el registro para que no queden testigos, o dejar que la gente controle, copiando el registro para que cualquiera pueda verificarlo.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17131d}
+    .k{font-family:monospace;letter-spacing:2px;font-size:20px;fill:#525a61}
+    .h{font-size:42px;font-weight:700}
+    .s{font-size:22px;fill:#4d4547}
+    .lab{font-size:21px;font-weight:700}
+    .m{font-family:monospace;font-size:17px}
+    .book{fill:#eee4d3;stroke:#17131d;stroke-width:2}
+    .ln{animation:write .5s ease-out both}
+    .l2{animation-delay:.5s}.l3{animation-delay:1s}.l4{animation-delay:1.5s}
+    .ok{fill:#a72c35;font-size:20px;font-weight:700;animation:write .4s ease-out both;animation-delay:2.1s}
+    @keyframes write{from{opacity:0}to{opacity:1}}
+    @media(prefers-reduced-motion:reduce){.ln,.ok{animation:none}}
+  </style>
+  <rect width="720" height="900" fill="#f2eadb"/>
+  <text x="38" y="48" class="k">02 / ETIMOLOGÍA</text>
+  <text x="38" y="106" class="h">CONTROLAR ES LLEVAR</text>
+  <text x="38" y="154" class="h">EL CONTRA-ROL</text>
+  <text x="38" y="194" class="s">contre-rôle: la copia del registro, en otras manos</text>
+
+  <text x="38" y="248" class="lab">EL REGISTRO</text>
+  <text x="38" y="274" class="s" style="font-size:18px">lo lleva quien decide</text>
+  <text x="382" y="248" class="lab">EL CONTRA-ROL</text>
+  <text x="382" y="274" class="s" style="font-size:18px">lo lleva otro</text>
+  <rect class="book" x="38" y="290" width="300" height="230"/>
+  <rect class="book" x="382" y="290" width="300" height="230"/>
+  <g class="m">
+    <g class="ln"><text x="58" y="332">Se decidió: obra A</text><text x="402" y="332">Se decidió: obra A</text></g>
+    <g class="ln l2"><text x="58" y="382">Costo: 100</text><text x="402" y="382">Costo: 100</text></g>
+    <g class="ln l3"><text x="58" y="432">Plazo: marzo</text><text x="402" y="432">Plazo: marzo</text></g>
+    <g class="ln l4"><text x="58" y="482">Firma: el área</text><text x="402" y="482">Firma: el área</text></g>
+  </g>
+  <line x1="338" y1="405" x2="382" y2="405" stroke="#a72c35" stroke-width="3" stroke-dasharray="6 5"/>
+  <text x="360" y="556" text-anchor="middle" class="ok">= coinciden: nadie puede mentir sobre lo que pasó</text>
+
+  <rect x="38" y="596" width="300" height="220" fill="#17131d"/>
+  <text x="58" y="638" class="lab" style="fill:#f2eadb">CONTROLAR</text>
+  <text x="58" y="664" class="lab" style="fill:#f2eadb">A LA GENTE</text>
+  <rect x="58" y="690" width="120" height="70" fill="none" stroke="#d6d8d7" stroke-width="2"/>
+  <line x1="52" y1="696" x2="184" y2="754" stroke="#e9a3a8" stroke-width="5"/>
+  <line x1="52" y1="754" x2="184" y2="696" stroke="#e9a3a8" stroke-width="5"/>
+  <text x="58" y="790" class="s" style="fill:#d6d8d7;font-size:18px">borrar el registro</text>
+
+  <rect x="382" y="596" width="300" height="220" fill="#eee4d3" stroke="#17131d" stroke-width="2"/>
+  <text x="402" y="638" class="lab">DEJAR QUE</text>
+  <text x="402" y="664" class="lab">LA GENTE CONTROLE</text>
+  <rect x="402" y="690" width="90" height="70" fill="none" stroke="#17131d" stroke-width="2"/>
+  <rect x="506" y="690" width="90" height="70" fill="none" stroke="#a72c35" stroke-width="2"/>
+  <text x="496" y="733" text-anchor="middle" class="lab" style="fill:#a72c35">=</text>
+  <text x="402" y="790" class="s" style="font-size:18px">copiar el registro</text>
+
+  <text x="360" y="866" text-anchor="middle" class="h" style="font-size:30px">Mismo verbo. Signo opuesto.</text>
+</svg>

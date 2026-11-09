@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="880" viewBox="0 0 720 880" role="img" aria-labelledby="title desc">
+  <title id="title">Todo peligro es liviano al principio</title>
+  <desc id="desc">Esquema ilustrativo, sin magnitudes medidas. El mismo peligro en cuatro momentos: como grieta se toma con una mano y nadie se entera; como fisura lo revisa un equipo; como rotura hace falta una obra; como derrumbe hay un rescate y un país mirando. El círculo crece en cada etapa; lo único que se achica es el margen para tomarlo a tiempo.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17131d}
+    .k{font-family:monospace;letter-spacing:2px;font-size:20px;fill:#525a61}
+    .h{font-size:42px;font-weight:700}
+    .b{font-size:28px;font-weight:700}
+    .s{font-size:22px;fill:#4d4547}
+    .t{font-size:18px;font-family:monospace;letter-spacing:1px;fill:#a72c35}
+    .row{fill:#eee4d3;stroke:#17131d;stroke-width:2}
+    .dot{fill:#a72c35;transform-box:fill-box;transform-origin:center;animation:grow .7s cubic-bezier(.2,.8,.2,1) both}
+    .d2{animation-delay:.7s}.d3{animation-delay:1.4s}.d4{animation-delay:2.1s}
+    .bar{fill:#17131d;transform-box:fill-box;transform-origin:left center;animation:shrink 2.8s ease-in-out both}
+    @keyframes grow{from{transform:scale(0)}to{transform:scale(1)}}
+    @keyframes shrink{from{transform:scaleX(1)}to{transform:scaleX(.08)}}
+    @media(prefers-reduced-motion:reduce){.dot,.bar{animation:none}.bar{transform:scaleX(.08)}}
+  </style>
+  <rect width="720" height="880" fill="#f2eadb"/>
+  <text x="38" y="48" class="k">01 / ILUSTRATIVO, NO MEDIDO</text>
+  <text x="38" y="106" class="h">TODO PELIGRO ES</text>
+  <text x="38" y="154" class="h">LIVIANO AL PRINCIPIO</text>
+
+  <g>
+    <rect class="row" x="38" y="190" width="644" height="130"/>
+    <circle class="dot" cx="118" cy="255" r="9"/>
+    <text x="200" y="240" class="b">Grieta</text>
+    <text x="200" y="274" class="s">La toma una mano. Nadie se entera.</text>
+    <text x="200" y="302" class="t">ANTICIPAR</text>
+  </g>
+  <g>
+    <rect class="row" x="38" y="334" width="644" height="130"/>
+    <circle class="dot d2" cx="118" cy="399" r="24"/>
+    <text x="200" y="384" class="b">Fisura</text>
+    <text x="200" y="418" class="s">La revisa un equipo. Alguien firma.</text>
+    <text x="200" y="446" class="t">DETECTAR</text>
+  </g>
+  <g>
+    <rect class="row" x="38" y="478" width="644" height="130"/>
+    <circle class="dot d3" cx="118" cy="543" r="42"/>
+    <text x="200" y="528" class="b">Rotura</text>
+    <text x="200" y="562" class="s">Hace falta una obra. Se corta la calle.</text>
+    <text x="200" y="590" class="t">ARREGLAR</text>
+  </g>
+  <g>
+    <rect x="38" y="622" width="644" height="130" fill="#17131d"/>
+    <circle class="dot d4" cx="118" cy="687" r="58"/>
+    <text x="200" y="672" class="b" style="fill:#f2eadb">Derrumbe</text>
+    <text x="200" y="706" class="s" style="fill:#d6d8d7">Rescate, cámaras, un país mirando.</text>
+    <text x="200" y="734" class="t" style="fill:#e9a3a8">RESCATAR · LA FOTO</text>
+  </g>
+
+  <text x="38" y="796" class="s">Margen para tomarlo a tiempo</text>
+  <rect x="38" y="810" width="644" height="14" fill="#d6d8d7"/>
+  <rect class="bar" x="38" y="810" width="644" height="14"/>
+  <text x="38" y="860" class="s" style="font-size:18px">El peligro crece. El margen se achica. La foto llega al final.</text>
+</svg>
