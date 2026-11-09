@@ -34,7 +34,7 @@ import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
 import { mandatoRouter } from './features/mandato/routes.js';
 import { cuentaCivicaRouter } from './features/mi-espacio/cuenta-routes.js';
-import { miEspacioRouter } from './features/mi-espacio/routes.js';
+import { miEspacioPublicoRouter, miEspacioRouter } from './features/mi-espacio/routes.js';
 import { notificationsRouter } from './features/notifications/routes.js';
 import { openDataRouter } from './features/open-data/routes.js';
 import { gestionPilaRouter } from './features/pila/gestion-routes.js';
@@ -145,6 +145,7 @@ export function createApp(): Express {
   app.use('/api/v1/gestion/pila', gestionPilaRouter);
   app.use('/api/v1/vision', visionRouter);
   app.use('/api/v1/equipo', equipoRouter);
+  app.use('/api/v1/mi-espacio', miEspacioPublicoRouter);
   app.use('/api/v1/mi-espacio', cuentaCivicaRouter);
   app.use('/api/v1/mi-espacio', miEspacioRouter);
   app.use('/api/v1/exportaciones', exportacionesRouter);

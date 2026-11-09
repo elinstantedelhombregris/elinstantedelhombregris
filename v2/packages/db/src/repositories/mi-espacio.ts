@@ -123,11 +123,17 @@ export class MiEspacioRepository {
     revision: string,
     texto: string,
     cede: boolean,
+    /**
+     * La versión del texto de cesión vigente, que la decide la API (`VERSION_DE_CESION`) y
+     * no este repositorio: una constante acá, fija, registró la versión 1 en filas que se
+     * firmaron con la 2 (D-106).
+     */
+    versionCesion: number,
     uid?: number,
     actorId?: number | null,
   ) {
     const r = await this.db.execute<{ id: string }>(sql`with cambio as (
-      update ${senales} set texto=${texto},cesion_licencia=${cede},cesion_en=${cede ? new Date() : null},cesion_version=${cede ? 1 : null},actualizada_en=greatest(date_trunc('milliseconds',clock_timestamp()),date_trunc('milliseconds',actualizada_en)+interval '1 millisecond')
+      update ${senales} set texto=${texto},cesion_licencia=${cede},cesion_en=${cede ? new Date() : null},cesion_version=${cede ? versionCesion : null},actualizada_en=greatest(date_trunc('milliseconds',clock_timestamp()),date_trunc('milliseconds',actualizada_en)+interval '1 millisecond')
       where id_publico=${id}::uuid and date_trunc('milliseconds',actualizada_en)=${new Date(revision).toISOString()}::timestamptz and estado<>'retirada'
         and (texto=${texto} or (clase in('deseo','meta') and not exists(select 1 from adhesiones a where a.senal_id=senales.id) and not exists(select 1 from pila_respuestas r where r.senal_id=senales.id and r.valor is not null)))
         and (user_id=${uid ?? null} or (user_id is null and actor_id=${actorId ?? null})) returning id_publico

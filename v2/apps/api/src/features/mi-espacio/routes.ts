@@ -8,6 +8,24 @@ import { HttpError } from '../../middleware/error-handler.js';
 import { actorDelNavegador } from '../senales/actor.js';
 
 const router: RouterType = Router();
+export const miEspacioPublicoRouter: RouterType = Router();
+const publico = miEspacioPublicoRouter;
+/**
+ * Lo que este navegador publicó sin cuenta (D-107). Va en su propio router, montado ANTES de los que exigen sesión (`app.ts`), a propósito:
+ * la autoría anónima vive en una cookie de actor que sólo el servidor lee, y quien publicó
+ * sin cuenta no tiene sesión. Sólo devuelve lo que esa cookie todavía puede gestionar
+ * —sin dueño con cuenta, sin retiradas— y nada de otras personas.
+ */
+publico.get('/de-este-navegador', async (req, res, next) => {
+  try {
+    res.set('Cache-Control', 'no-store');
+    res.json({
+      data: await new MiEspacioRepository(getDb()).candidatos(await actorDelNavegador(req)),
+    });
+  } catch (e) {
+    next(e);
+  }
+});
 router.use(authenticate, (_req, res, next) => {
   res.set('Cache-Control', 'no-store');
   next();

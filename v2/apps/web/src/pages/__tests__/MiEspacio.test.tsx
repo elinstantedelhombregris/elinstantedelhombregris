@@ -17,6 +17,7 @@ const m = vi.hoisted(() => ({
   cargando: false,
   espacio: undefined as EspacioPersonal | undefined,
   recuperables: [] as { id: string; texto: string; tipo: string; fecha: string }[],
+  deEsteNavegador: [] as { id: string; texto: string; tipo: string; fecha: string }[],
   borradores: vi.fn(() => Promise.resolve([] as unknown[])),
   escribir: vi.fn(() => Promise.resolve({})),
 }));
@@ -37,6 +38,7 @@ vi.mock('~/lib/api', () => ({
   api: {
     get: (ruta: string) => {
       if (ruta.endsWith('/recuperables')) return Promise.resolve(m.recuperables);
+      if (ruta.endsWith('/de-este-navegador')) return Promise.resolve(m.deEsteNavegador);
       if (ruta.endsWith('/avisos')) return Promise.resolve([]);
       if (ruta.endsWith('/preferencias')) return Promise.resolve({ avisos: true });
       if (ruta.endsWith('/ingreso'))
@@ -98,6 +100,7 @@ beforeEach(() => {
   m.cargando = false;
   m.espacio = vacio;
   m.recuperables = [];
+  m.deEsteNavegador = [];
   m.borradores.mockResolvedValue([]);
   m.escribir.mockClear();
 });
@@ -144,6 +147,18 @@ describe('Mi espacio — sin cuenta', () => {
     expect(
       screen.getByText(/Para imaginar no hace falta, y tu nombre no se publica/),
     ).toBeInTheDocument();
+  });
+
+  it('lista lo publicado desde este navegador sin cuenta, con enlace para corregir o retirar (D-107)', async () => {
+    m.deEsteNavegador = [
+      { id: 'b1', texto: 'Publiqué esto sin cuenta', tipo: 'sueño', fecha: '2026-11-01T00:00:00Z' },
+    ];
+    montar();
+    expect(await screen.findByText('Publiqué esto sin cuenta')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Corregir o retirar' })).toHaveAttribute(
+      'href',
+      '/senal/b1',
+    );
   });
 
   it('muestra los borradores guardados en este dispositivo y deja retomarlos', async () => {

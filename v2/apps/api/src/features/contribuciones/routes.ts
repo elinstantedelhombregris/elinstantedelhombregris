@@ -18,7 +18,7 @@ import { HttpError } from '../../middleware/error-handler.js';
 import { aportarRateLimit } from '../../middleware/rate-limit.js';
 import { acreditarParticipacion } from '../impulso/acreditar.js';
 import { actorDelNavegador, ponerCookieDeActor, resolverActor } from '../senales/actor.js';
-import { ingerirSenal } from '../senales/service.js';
+import { VERSION_DE_CESION, ingerirSenal } from '../senales/service.js';
 
 const router: RouterType = Router();
 router.use(optionalAuthenticate);
@@ -183,6 +183,7 @@ router.patch('/:id', async (req, res, next) => {
         v.revision,
         v.texto,
         v.cedeLicencia,
+        VERSION_DE_CESION,
         req.user?.id,
         await actorDelNavegador(req),
       ))

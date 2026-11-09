@@ -119,8 +119,8 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-097](#d-097--la-convergencia-de-v1-mide-coincidencia-temática-entre-tipos-de-señal) | La convergencia de v1 mide coincidencia temática entre tipos de señal | Alta | Abierta |
 | [D-098](#d-098--planpregunta-usa-un-relato-de-visión-2040-como-precedente-que-ya-dio-resultados) | PLANPREGUNTA usa un relato de Visión 2040 como precedente que ya dio resultados | Alta | Abierta |
 | [D-105](#d-105--la-app-móvil-no-tiene-las-tres-preguntas-ni-la-elección-de-lugar) | La app móvil no tiene las tres preguntas ni la elección de lugar | Media | Abierta |
-| [D-106](#d-106--corregir-un-aporte-con-cesión-registra-la-versión-1-y-un-texto-propio) | Corregir un aporte con cesión registra la versión 1 y un texto propio | Media | Abierta |
-| [D-107](#d-107--mi-espacio-no-muestra-los-aportes-de-un-navegador-sin-cuenta) | Mi espacio no muestra los aportes de un navegador sin cuenta | Media | Abierta |
+| [D-106](#d-106--corregir-un-aporte-con-cesión-registra-la-versión-1-y-un-texto-propio) | Corregir un aporte con cesión registra la versión 1 y un texto propio | Media | **Parcial** |
+| [D-107](#d-107--mi-espacio-no-muestra-los-aportes-de-un-navegador-sin-cuenta) | Mi espacio no muestra los aportes de un navegador sin cuenta | Media | **Resuelta** |
 | [D-108](#d-108--ver-y-gestionar-mi-aporte-en-la-app-puede-no-reconocer-la-autoría) | «Ver y gestionar mi aporte» en la app puede no reconocer la autoría | Baja | Abierta |
 | [D-109](#d-109--la-app-no-guarda-solo-el-texto-mientras-escribís) | La app no guarda solo el texto mientras escribís | Baja | Abierta |
 | [D-110](#d-110--el-recibo-no-puede-decir-si-hay-aportes-parecidos) | El recibo no puede decir si hay aportes parecidos | Baja | Abierta |
@@ -161,7 +161,7 @@ Qué pasa, por qué importa, y qué haría falta para arreglarlo.
 | [D-145](#d-145--el-aviso-de-un-aporte-retenido-por-reportes-no-se-repite) | El aviso de un aporte retenido por reportes no se repite | Baja | Abierta |
 | [D-146](#d-146--toda-escritura-desde-el-navegador-respondía-500-en-producción) | Toda escritura desde el navegador respondía 500 en producción | Crítica | **Resuelta** |
 | [D-147](#d-147--un-origen-que-cors-no-permite-recibe-500-y-no-403) | Un origen que CORS no permite recibe 500 y no 403 | Baja | Abierta |
-| [D-148](#d-148--un-aporte-retirado-sigue-sumando-en-el-conteo-de-la-portada) | Un aporte retirado sigue sumando en el conteo de la portada | Media | Abierta |
+| [D-148](#d-148--un-aporte-retirado-sigue-sumando-en-el-conteo-de-la-portada) | Un aporte retirado sigue sumando en el conteo de la portada | Media | **Resuelta** |
 | [D-149](#d-149--compartir-una-crónica-no-muestra-su-título-ni-su-imagen) | Compartir una crónica no muestra su título ni su imagen | Media | Abierta |
 | [D-150](#d-150--la-sombra-de-las-figuras-del-lector-nunca-se-dibuja) | La sombra de las figuras del lector nunca se dibuja | Baja | Abierta |
 
@@ -1889,7 +1889,7 @@ Tampoco están en la app:
 **Dónde:** `v2/packages/db/src/repositories/mi-espacio.ts:114` (`corregir`), `v2/apps/web/src/pages/Senal/EditarAporte.tsx:113`, `v2/apps/api/src/features/senales/service.ts:60` (`VERSION_DE_CESION`)
 **Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
 **Severidad:** media
-**Estado:** abierta
+**Estado:** **parcial 2026-11-09** — la versión se arregló; falta alinear la redacción
 
 Cuando alguien publica un aporte y cede su texto bajo licencia CC BY 4.0, el servidor anota qué versión del texto de cesión leyó. Desde el 9/10/2026 esa versión es la 2. Pero cuando la persona corrige después ese aporte y deja tildada la cesión, el repositorio escribe siempre la versión 1, fijada en el código, y la pantalla de corrección muestra una redacción propia, distinta de la que se ve al publicar.
 
@@ -1897,18 +1897,22 @@ El resultado es un registro que dice que la persona aceptó un texto que no es e
 
 **Qué haría falta:** que la corrección use el mismo texto y la misma constante que el flujo principal, o que su propio texto tenga una versión numerada y registrada; y una prueba que falle si las dos pantallas divergen sin subir la versión. Las filas ya corregidas conservan el número viejo: conviene contarlas antes de decidir qué hacer con ellas.
 
+**Resolución parcial (2026-11-09).** `MiEspacioRepository.corregir` ya no escribe un `1` fijo: la ruta le pasa `VERSION_DE_CESION` y la fila queda con la versión vigente. Prueba en `apps/api/tests/participacion-ideal.test.ts`. **Falta** lo segundo que la entrada pedía: la pantalla de corrección (`EditarAporte.tsx`) y la de publicar (`PantallaPublicar.tsx`) siguen con redacciones distintas de la misma cesión, así que el número identifica la versión vigente pero no garantiza que sea el texto leído en esa pantalla. Es una decisión de redacción del dueño: o se unifican con una sola constante, o la corrección tiene su propia versión. Tampoco se contaron las filas ya corregidas con el número viejo.
+
 ### D-107 · Mi espacio no muestra los aportes de un navegador sin cuenta
 
 **Dónde:** `v2/apps/api/src/features/mi-espacio/routes.ts` (`/recuperables`), `v2/apps/web/src/pages/MiEspacio/EspacioSinCuenta.tsx`
 **Encontrada:** 2026-10-09, pulido de Argentina ideal (análisis en `v2/docs/analisis/2026-10-09-pulido-argentina-ideal/`)
 **Severidad:** media
-**Estado:** abierta
+**Estado:** ~~abierta~~ → **resuelta 2026-11-09**
 
 Quien publica sin cuenta conserva la autoría en una cookie que el navegador guarda y que el código de la página no puede leer (es a propósito: así ningún script puede copiarla). Por eso Mi espacio, para quien no ingresó, solo muestra los borradores guardados en el dispositivo; los aportes ya publicados no aparecen. La única lista que lee esa cookie, `/api/v1/mi-espacio/recuperables`, exige una sesión iniciada.
 
 La persona sigue pudiendo corregir o retirar su aporte desde el recibo, pero solo si guardó ese enlace. Si lo perdió, no tiene dónde ver lo que publicó, y la pantalla se limita a prometer lo que sí pasa: al crear la cuenta se ofrece sumar esos aportes.
 
 **Qué haría falta:** un endpoint que liste los aportes según la cookie de actor, sin pedir sesión, con las mismas reservas que ya tiene la gestión de un aporte (nada de lo retirado, nada de otras personas), y la pestaña correspondiente en la vista sin cuenta. Hay que decidir también qué se muestra cuando un navegador acumula muchos aportes.
+
+**Resolución (2026-11-09).** Nuevo `GET /api/v1/mi-espacio/de-este-navegador`, registrado antes de `authenticate`: lee la cookie de actor y devuelve lo que ese navegador puede gestionar (sin dueño con cuenta, sin retiradas, nada de otras personas; sin cookie, lista vacía). «Mi espacio» sin cuenta muestra «Lo que publicaste desde este navegador» con el enlace «Corregir o retirar» a la ficha del aporte. Pruebas: `apps/api/tests/participacion-ideal.test.ts` y `apps/web/src/pages/__tests__/MiEspacio.test.tsx`. Queda sin decidir qué mostrar cuando un navegador acumula más de 100 aportes (el repositorio recorta en 100).
 
 ### D-108 · «Ver y gestionar mi aporte» en la app puede no reconocer la autoría
 
@@ -2417,9 +2421,11 @@ Cuando un sitio ajeno llama a la API, el middleware tira un error común y la re
 **Dónde:** `v2/packages/db/src/repositories/senales.ts` (`contarPorClase` y `total`, detrás de `GET /api/v1/civic/senales/conteo`) y `v2/apps/web/src/pages/Senal/RetirarAporte.tsx`.
 **Encontrada:** 2026-10-20, al retirar el aporte de prueba que se publicó en producción para comprobar D-146.
 **Severidad:** media.
-**Estado:** abierta.
+**Estado:** ~~abierta~~ → **resuelta 2026-11-09**
 
 Antes de confirmar el retiro, la pantalla le dice a la persona que «el aporte sale de todas las cuentas del mapa». El conteo de la portada excluye sólo las señales retenidas, no las retiradas, así que un aporte retirado sigue sumando. En el repositorio es a propósito: el comentario de `retirar` dice que la fila sigue contando en cobertura y que el contenido no. Las dos cosas no pueden ser verdad a la vez. Hoy el contador de producción dice 1 por el aporte de prueba, que está retirado y sin texto. Pendiente: decidir qué cuenta y alinear el otro lado. O el conteo deja afuera `estado = 'retirada'`, o la pantalla deja de prometer que el aporte sale de todas las cuentas.
+
+**Resolución (2026-11-09).** Reproducida en producción el mismo día con una prueba de punta a punta (publicar, leer, retirar): el conteo pasó de 1 a 2 al publicar y se quedó en 2 al retirar. `contarPorClase` y `total` ahora excluyen `estado = 'retirada'` además de lo retenido, así que la pantalla de retiro vuelve a decir la verdad. La fila se conserva para la auditoría. Prueba en `packages/db/tests/senales-repositorio.test.ts`. El contador de producción queda corregido recién cuando se despliegue este cambio: mientras tanto cuenta el aporte retirado de D-146 y el de la prueba del 9/11.
 
 ### D-149 · Compartir una crónica no muestra su título ni su imagen
 

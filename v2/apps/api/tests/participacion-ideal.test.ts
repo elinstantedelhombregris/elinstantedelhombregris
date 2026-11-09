@@ -8,6 +8,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { limpiarFixturesIdeales } from '@v2/db/testing/limpiar-fixtures-ideales';
 import { createApp } from '../src/app.js';
 import { signAccessToken } from '../src/features/auth/tokens.js';
+import { VERSION_DE_CESION } from '../src/features/senales/service.js';
 import { resetConfig } from '../src/lib/config.js';
 
 import type {
@@ -251,6 +252,14 @@ describe.skipIf(!habilitada)(
         .set('Cookie', cookie + '; ' + invitado)
         .expect(200);
       expect(candidatos.body.data.map((x: { id: string }) => x.id)).toContain(aporte);
+      // D-107: sin sesión, la cookie de actor alcanza para ver lo propio; sin cookie, nada.
+      const sinSesion = await request
+        .get('/api/v1/mi-espacio/de-este-navegador')
+        .set('Cookie', invitado)
+        .expect(200);
+      expect(sinSesion.body.data.map((x: { id: string }) => x.id)).toContain(aporte);
+      const sinCookie = await request.get('/api/v1/mi-espacio/de-este-navegador').expect(200);
+      expect(sinCookie.body.data).toEqual([]);
       await request
         .post('/api/v1/mi-espacio/vincular')
         .set('Cookie', cookie + '; ' + invitado)
@@ -287,6 +296,11 @@ describe.skipIf(!habilitada)(
       await conCuenta('patch', `/api/v1/contribuciones/${aporte}`, true).send(cambio).expect(403);
       await conCuenta('patch', `/api/v1/contribuciones/${aporte}`).send(cambio).expect(200);
       await conCuenta('patch', `/api/v1/contribuciones/${aporte}`).send(cambio).expect(409);
+      // D-106: corregir con cesión registra la versión vigente, no una fija.
+      const fila = await getDb().execute<{ v: number | null }>(
+        sql`select cesion_version as v from senales where id_publico=${aporte}::uuid`,
+      );
+      expect(fila.rows[0]?.v).toBe(VERSION_DE_CESION);
     });
     it('un aporte contestado en Mirar no se corrige, y Mi espacio muestra su retención', async () => {
       const v = cuerpo();
