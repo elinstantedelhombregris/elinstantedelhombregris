@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">El oficio de que no pase nada: el mismo oficio antes o después del daño</title>
+  <desc id="desc">Una línea de tiempo con un daño marcado en rojo en el centro. A la izquierda, antes del daño, el diseño toma el peligro mientras todavía es liviano: no queda foto. A la derecha, después del daño, el fixer llega a limpiar: queda la foto del rescate.</desc>
+  <defs>
+    <marker id="arrowInk" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#17131d"/></marker>
+    <marker id="arrowCream" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#f2eadb"/></marker>
+  </defs>
+  <rect width="1200" height="720" fill="#f2eadb"/>
+  <g font-family="Arial,sans-serif">
+    <text x="60" y="80" fill="#17131d" font-size="38" font-weight="700">EL OFICIO DE QUE NO PASE NADA.</text>
+    <text x="60" y="118" fill="#525a61" font-size="21">El que repara tiene foto. El que previene, no.</text>
+
+    <!-- mitades -->
+    <rect x="60" y="160" width="520" height="440" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/>
+    <rect x="620" y="160" width="520" height="440" fill="#17131d"/>
+
+    <text x="95" y="208" fill="#17131d" font-size="22" font-weight="700">ANTES · DISEÑAR</text>
+    <text x="95" y="238" fill="#525a61" font-size="17">ante-capere: tomarlo antes, cuando pesa poco</text>
+    <text x="655" y="208" fill="#f2eadb" font-size="22" font-weight="700">DESPUÉS · ARREGLAR</text>
+    <text x="655" y="238" fill="#d6d8d7" font-size="17">llegar con el balde, cuando ya pesa todo</text>
+
+    <!-- línea de tiempo -->
+    <line x1="95" y1="420" x2="1105" y2="420" stroke="#525a61" stroke-width="6"/>
+    <line x1="580" y1="420" x2="620" y2="420" stroke="#525a61" stroke-width="6"/>
+
+    <!-- el peligro chico, tomado a tiempo -->
+    <circle cx="200" cy="420" r="10" fill="#a72c35"/>
+    <circle cx="200" cy="420" r="30" fill="none" stroke="#17131d" stroke-width="4" stroke-dasharray="6 6"/>
+    <path d="M200 330 V378" stroke="#17131d" stroke-width="5" marker-end="url(#arrowInk)"/>
+    <text x="200" y="316" text-anchor="middle" fill="#17131d" font-size="17" font-weight="700">el peligro, liviano</text>
+    <circle cx="320" cy="420" r="16" fill="#a72c35" opacity="0.45"/>
+    <circle cx="430" cy="420" r="24" fill="#a72c35" opacity="0.3"/>
+    <line x1="290" y1="380" x2="470" y2="460" stroke="#17131d" stroke-width="4"/>
+    <line x1="290" y1="460" x2="470" y2="380" stroke="#17131d" stroke-width="4"/>
+    <text x="380" y="500" text-anchor="middle" fill="#525a61" font-size="16">lo que no llegó a crecer</text>
+
+    <!-- el daño -->
+    <circle cx="600" cy="420" r="58" fill="#a72c35"/>
+    <text x="600" y="414" text-anchor="middle" fill="#f2eadb" font-size="19" font-weight="700">EL</text>
+    <text x="600" y="438" text-anchor="middle" fill="#f2eadb" font-size="19" font-weight="700">DAÑO</text>
+
+    <!-- el fixer, después -->
+    <path d="M1060 340 Q880 300 700 380" fill="none" stroke="#f2eadb" stroke-width="5" marker-end="url(#arrowCream)"/>
+    <text x="1060" y="320" text-anchor="end" fill="#f2eadb" font-size="17" font-weight="700">el fixer llega</text>
+    <rect x="860" y="460" width="210" height="96" fill="none" stroke="#f2eadb" stroke-width="3"/>
+    <circle cx="965" cy="497" r="16" fill="none" stroke="#f2eadb" stroke-width="3"/>
+    <text x="965" y="542" text-anchor="middle" fill="#d6d8d7" font-size="15">la foto del rescate</text>
+
+    <text x="320" y="572" text-anchor="middle" fill="#17131d" font-size="20" font-weight="700">sin foto · sin aplauso</text>
+
+    <text x="600" y="660" text-anchor="middle" fill="#17131d" font-size="22" font-weight="700">Somos un país de fixers que nunca contrató a un diseñador.</text>
+  </g>
+</svg>

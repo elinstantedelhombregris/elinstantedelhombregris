@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 760" role="img" aria-labelledby="title desc">
+  <title id="title">Tres preguntas antes de decidir</title>
+  <desc id="desc">Los tres verbos de Harry convertidos en preguntas. Anticipar: qué puede salir mal, imaginando que ya salió mal. Controlar: quién lleva el contra-rol, dónde queda escrito lo decidido y quién lo ve. Minimizar: y después qué, preguntado tres veces, porque el desastre suele vivir en la tercera.</desc>
+  <rect width="720" height="760" fill="#f2eadb"/>
+  <g font-family="Arial,sans-serif">
+    <text x="48" y="72" fill="#17131d" font-size="32" font-weight="700">TRES PREGUNTAS</text>
+    <text x="48" y="106" fill="#525a61" font-size="19">antes de cualquier decisión que importe</text>
+
+    <rect x="48" y="140" width="624" height="170" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/>
+    <text x="78" y="182" fill="#a72c35" font-size="18" font-weight="700">1 · ANTICIPAR</text>
+    <text x="78" y="226" fill="#17131d" font-size="30" font-weight="700">¿Qué puede salir mal?</text>
+    <text x="78" y="266" fill="#525a61" font-size="19">Mejor: imaginá que ya salió mal.</text>
+    <text x="78" y="292" fill="#525a61" font-size="19">¿Qué pasó?</text>
+
+    <rect x="48" y="330" width="624" height="170" fill="#17131d"/>
+    <text x="78" y="372" fill="#e9a3a8" font-size="18" font-weight="700">2 · CONTROLAR (contre-rôle)</text>
+    <text x="78" y="416" fill="#f2eadb" font-size="30" font-weight="700">¿Quién lleva el contra-rol?</text>
+    <text x="78" y="456" fill="#d6d8d7" font-size="19">¿Dónde queda escrito lo que se decidió,</text>
+    <text x="78" y="482" fill="#d6d8d7" font-size="19">y quién lo puede ver?</text>
+
+    <rect x="48" y="520" width="624" height="190" fill="#d6d8d7" stroke="#17131d" stroke-width="4"/>
+    <text x="78" y="562" fill="#a72c35" font-size="18" font-weight="700">3 · MINIMIZAR</text>
+    <text x="78" y="606" fill="#17131d" font-size="30" font-weight="700">¿Y después qué?</text>
+    <g font-size="20" font-weight="700">
+      <text x="78" y="648" fill="#525a61">¿y después?</text>
+      <text x="226" y="648" fill="#525a61">→ ¿y después?</text>
+      <text x="408" y="648" fill="#a72c35">→ ¿y después?</text>
+    </g>
+    <text x="78" y="688" fill="#525a61" font-size="18">El desastre suele vivir en la tercera.</text>
+  </g>
+</svg>
