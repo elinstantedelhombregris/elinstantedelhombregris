@@ -1,0 +1,16 @@
+# Prompts de las ilustraciones — ¿Quién firma tu vida?
+
+Fecha: 4 de noviembre de 2026. Generadas con la herramienta integrada de imágenes. Conversión a WebP con cwebp, calidad 85, sin alterar la composición. Los gráficos SVG son código vectorial original; no se generaron con IA de imágenes.
+
+## Portada
+
+Destino: `apps/web/public/media/bitacora/editorial/quien-firma-tu-vida.webp`
+
+Use case: stylized-concept. Asset type: landscape editorial cover illustration, 16:9, for the Spanish civic essay '¿Quién firma tu vida?' in La Bitácora del Hombre Gris. Primary request: a thoughtful allegory about recovering authorship of one's choices while remaining connected to other people. Scene: an ordinary Argentine kitchen table that becomes a community workbench. In the foreground two diverse adult neighbors sit at a table, one pauses with a pen above an open blank notebook, the other listens; a small mirror on the table reflects a real, complex human face. Behind them a tangle of thin printed ribbons from a distant media machine unwinds into simple threads that the people are patiently weaving into a shared living root network below the table. Everyone is fully human, dignified, equally detailed, nobody is a puppet, zombie or faceless mass. Style: sophisticated newspaper editorial illustration, antique copperplate etching with precise black charcoal and silver-gray linework, restrained russet accents, warm ivory paper texture, subtle surrealism and visual clarity. Wide composition with generous breathing room, foreground clear at thumbnail size. Quiet hopeful morning light. No words, no lettering, no numbers, no logos, no watermark, no political symbols, no smartphones as the sole villain, no heroic lone savior. It should visually belong to an existing series of engraved editorial illustrations on parchment.
+
+## Mesa común
+
+Destino: `apps/web/public/media/bitacora/editorial/identidad-mesa-comun.webp`
+
+Use case: stylized-concept. Asset type: wide landscape interior illustration for La Bitácora civic essay '¿Quién firma tu vida?'. Primary request: show autonomy as a shared practice of disagreement and cooperation in an ordinary Argentine neighborhood library. Six varied adult neighbors, women and men, different ages and skin tones, are seated around a modest circular wooden worktable; one empty chair invites a new person. They have different gestures and distinct thoughtful expressions, no one dominates: one listens, one points gently to a rough architectural plan on paper, another crosses out a small mistake with a pencil. On the table an abstract network of silver threads connects hands, papers and a small living seedling, with enough slack for individual movement. Library shelves and an open window behind them. Sophisticated hand-engraved newspaper editorial art, copperplate etching, black and silver-gray dense but controlled crosshatching, warm ivory paper, tiny restrained russet accents, quiet natural light. Maintain the same visual series as an antique engraved editorial cover, humane and serious, no utopian gloss. Wide 16:9 composition, visual hierarchy readable on a phone. No text or readable letters on paper, no numbers, no logos, no watermark, no leader on a stage, no faceless masses, no flags.
+

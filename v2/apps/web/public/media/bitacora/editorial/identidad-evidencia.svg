@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="790" viewBox="0 0 720 790" role="img" aria-labelledby="title desc">
+  <title id="title">Un efecto medido con su incertidumbre</title>
+  <desc id="desc">Gauthier y colaboradores, Nature 2026, figura 2. Experimento estadounidense de X de 2023: entre usuarios inicialmente cronológicos, la asignación al feed algorítmico elevó el índice agregado de opiniones políticas y sobre noticias en dirección conservadora en 0,12 desviaciones estándar, intervalo de confianza del 95 por ciento de 0,04 a 0,21. Estimación condicional. No se detectaron cambios significativos en partidismo o polarización afectiva; eso no equivale a medir cero efecto. El estudio no mide identidad ni permite extrapolar a Argentina.</desc>
+  <!-- Escala lineal x = 214 + 1440*v; dominio [-0.1,0.3]. Punto=0.12; IC95=[0.04,0.21]. -->
+  <style>text{font-family:Arial,sans-serif;fill:#17131d}.k{font-family:monospace;font-size:21px;letter-spacing:1px}.h{font-size:43px;font-weight:700}.b{font-size:30px;font-weight:700}.s{font-size:26px;fill:#4d4547}.n{font-size:25px;text-anchor:middle}.accent{fill:#a72c35}</style>
+  <rect width="720" height="790" fill="#f2eadb"/>
+  <text x="38" y="47" class="k">02 / EVIDENCIA EXPERIMENTAL</text><text x="38" y="110" class="h">UN EFECTO.</text><text x="38" y="159" class="h">CON INCERTIDUMBRE.</text>
+  <text x="38" y="208" class="s">X · EE. UU. · datos de 2023</text><text x="38" y="246" class="s">Activar el feed algorítmico entre usuarios</text><text x="38" y="283" class="s">que antes usaban el cronológico.</text>
+  <text x="38" y="345" class="b">Índice agregado de opiniones</text><text x="38" y="384" class="s">Cambio en dirección conservadora</text>
+  <path d="M70 463H646" stroke="#17131d" stroke-width="2"/>
+  <path d="M214 411V487" stroke="#62585b" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M271.6 437H516.4M271.6 424V450M516.4 424V450" stroke="#a72c35" stroke-width="5"/>
+  <circle cx="386.8" cy="437" r="9" fill="#17131d"/>
+  <text x="70" y="507" class="n">−0,1</text><text x="214" y="507" class="n">0</text><text x="358" y="507" class="n">0,1</text><text x="502" y="507" class="n">0,2</text><text x="646" y="507" class="n">0,3</text>
+  <text x="38" y="553" class="b">0,12 DE</text><text x="220" y="553" class="s">IC 95%: 0,04 a 0,21</text>
+  <text x="38" y="594" class="s">DE = desviación estándar; no porcentaje.</text>
+  <path d="M38 623H682" stroke="#17131d" stroke-width="2"/>
+  <text x="38" y="667" class="s">Sin cambios significativos detectados</text><text x="38" y="703" class="s">en partidismo o polarización afectiva.</text>
+  <text x="38" y="757" class="k">FUENTE: GAUTHIER ET AL. · NATURE 2026 · FIG. 2</text>
+</svg>
