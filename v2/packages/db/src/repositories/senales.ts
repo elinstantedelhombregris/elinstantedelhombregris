@@ -202,12 +202,19 @@ export class SenalesRepository {
     return filas.map(normalizar);
   }
 
-  /** Cuántas hay, por clase. Para el contador de la portada y la composición. */
+  /**
+   * Cuántas hay, por clase. Para el contador de la portada y la composición.
+   *
+   * No cuenta lo retenido ni lo retirado: la pantalla de retiro le promete a la
+   * persona que su aporte «sale de todas las cuentas», y un conteo que lo sigue
+   * sumando hace falsa esa frase (D-148). La fila queda para la auditoría, no
+   * para el número que se muestra.
+   */
   async contarPorClase(): Promise<Record<string, number>> {
     const filas = await this.db
       .select({ clase: senales.clase, n: sql<number>`count(*)::int` })
       .from(senales)
-      .where(sql`${senales.retenidaEn} is null`)
+      .where(sql`${senales.retenidaEn} is null and ${senales.estado} <> 'retirada'`)
       .groupBy(senales.clase);
     return Object.fromEntries(filas.map((f) => [f.clase, f.n]));
   }
@@ -216,7 +223,7 @@ export class SenalesRepository {
     const [fila] = await this.db
       .select({ n: sql<number>`count(*)::int` })
       .from(senales)
-      .where(sql`${senales.retenidaEn} is null`);
+      .where(sql`${senales.retenidaEn} is null and ${senales.estado} <> 'retirada'`);
     return fila?.n ?? 0;
   }
 
@@ -246,8 +253,8 @@ export class SenalesRepository {
    *
    * El CHECK `senales_retirada_sin_texto_chk` exige que `texto = ''` cuando el
    * estado es `retirada`, así que las dos cosas van juntas o la base rechaza.
-   * El borrado queda auditable —la fila sigue contando en cobertura— y el
-   * contenido no.
+   * El borrado queda auditable —la fila sigue existiendo— y el contenido no.
+   * Deja de sumar en los conteos públicos (D-148).
    */
   async retirar(idPublico: string): Promise<boolean> {
     const filas = await this.db

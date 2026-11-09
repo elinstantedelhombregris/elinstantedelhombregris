@@ -233,6 +233,15 @@ viva('SenalesRepository', () => {
       const total = await repo.total();
       expect(total).toBe(Object.values(porClase).reduce((a, b) => a + b, 0));
     });
+
+    it('un aporte retirado deja de sumar en el conteo (D-148)', async () => {
+      const { idPublico } = recordar(await repo.crear(unBasta()));
+      const antes = await repo.total();
+      const claseAntes = (await repo.contarPorClase())['hecho'] ?? 0;
+      expect(await repo.retirar(idPublico)).toBe(true);
+      expect(await repo.total()).toBe(antes - 1);
+      expect((await repo.contarPorClase())['hecho'] ?? 0).toBe(claseAntes - 1);
+    });
   });
 });
 
